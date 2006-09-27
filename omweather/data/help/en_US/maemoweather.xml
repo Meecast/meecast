@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ossohelpsource>
+  <folder>
+    <title>Other Maemo Wather</title>
+    <topic>
+      <topictitle>Introduction</topictitle>
+      <context contextUID="help_omaemoweather_intro" />
+      <para>Welcome to Other Maemo Weather.</para>
+      <para>
+        Test
+    </topic>
+  </folder>
+</ossohelpsource>

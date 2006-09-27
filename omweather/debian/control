@@ -1,0 +1,12 @@
+Source: omweather
+Section: maemo/Applications
+Priority: optional
+Maintainer: Vlad Vasiliev <vlad@gas.by>
+Build-Depends: debhelper (>= 4.0.0), libgtk2.0-dev, libosso-dev (>= 1)
+Standards-Version: 3.6.0
+
+Package: omweather
+Architecture: armel arm i386
+Pre-Depends: maemo-select-menu-location
+Depends: ${shlibs:Depends}
+Description: World Waether on Nokia 770. Used waether.com

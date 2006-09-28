@@ -38,6 +38,7 @@ extern gchar *_weather_state_name;
 extern gchar *_weather_station_name;
 extern gchar *_weather_station_id;
 extern gchar *_weather_icon_size;
+extern GdkColor _weather_font_color;
 
 
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);

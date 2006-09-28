@@ -3,7 +3,7 @@
 #define APPLET_Y_SIZE 40
 #define FONT_MAIN_SIZE_LARGE 14
 #define FONT_MAIN_SIZE_SMALL 9
-
+ GdkColor DEFAULT_COLOR_MARK = {0, 0x0000, 0x0000, 0xc000};
 
 
 
@@ -33,11 +33,14 @@ void weather_com_destroy_parser( weather_com_parser *weather_com );
 
 gchar  path_large_icon[]="/usr/share/weather/icons/Crystal/large_icon/";
 
-/** CONFIGURATION INFORMATION. */
+/* Default values */
+GdkColor DEFAULT_FONT_COLOR = {0, 0x0d00, 0x2a00, 0xc000};
+
+/* CONFIGURATION INFORMATION. */
 gchar *_weather_dir_name = NULL;
 gchar *_weather_country_name = NULL;
 gchar *_weather_state_name = NULL;
 gchar *_weather_station_name = NULL;
 gchar *_weather_station_id = NULL;
 gchar *_weather_icon_size = NULL;
-
+GdkColor _weather_font_color = {0,0,0,0};

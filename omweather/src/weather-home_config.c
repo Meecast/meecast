@@ -52,7 +52,7 @@ void
 config_init()
 {
     gchar *tmp;
-    
+
     GConfClient *gconf_client = gconf_client_get_default();
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
 
@@ -88,6 +88,12 @@ config_init()
        /* Get Weather station name. */    
        _weather_station_name = gconf_client_get_string(gconf_client,
               GCONF_KEY_WEATHER_STATION_NAME, NULL);
+       /* Get Weather font color. */    	
+	tmp = gconf_client_get_string(gconf_client,
+              GCONF_KEY_WEATHER_FONT_COLOR, NULL);
+        if(!tmp || !gdk_color_parse(tmp, &_weather_font_color))
+         _weather_font_color = DEFAULT_FONT_COLOR;
+      
 
 }
  
@@ -97,9 +103,9 @@ config_init()
 void
 config_save()
 {
+    gchar temp_buffer[16];
     GConfClient *gconf_client = gconf_client_get_default();
-    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
-
+    
     if(!gconf_client)
     {
         fprintf(stderr,"Failed to initialize GConf.  Settings were not saved.\n");
@@ -130,7 +136,14 @@ config_save()
     if(_weather_icon_size)
         gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_ICON_SIZE, _weather_icon_size, NULL);
-	    
+    /* Save Weather Font Color */
+    sprintf(temp_buffer, "#%02x%02x%02x",
+            _weather_font_color.red >> 8,
+            _weather_font_color.green >> 8,
+            _weather_font_color.blue >> 8);
+     gconf_client_set_string(gconf_client,
+            GCONF_KEY_WEATHER_FONT_COLOR, temp_buffer, NULL);
+     
 	    
      g_object_unref(gconf_client);
 

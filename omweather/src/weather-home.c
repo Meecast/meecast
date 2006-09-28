@@ -341,7 +341,13 @@ weather_buttons_fill(void)
     gtk_button_set_relief (GTK_BUTTON(buttons[i]),GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click (GTK_BUTTON(buttons[i]),FALSE);
 
-    sprintf(buffer,"<span foreground='blue'>%s\n%s°\n%s°</span>",weather_days[i].dayshname,weather_days[i].hi_temp,weather_days[i].low_temp);    
+    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%s°\n%s°</span>",
+            	_weather_font_color.red >> 8,
+        	_weather_font_color.green >> 8,
+        	_weather_font_color.blue >> 8,
+                weather_days[i].dayshname,
+		weather_days[i].hi_temp,
+		weather_days[i].low_temp);    
     labels[i]=gtk_label_new (NULL);
     gtk_label_set_markup (GTK_LABEL (labels[i]),buffer);
     

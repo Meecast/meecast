@@ -248,10 +248,12 @@ weather_window_preference (GtkWidget *widget,
    GtkWidget *window_config, *notebook; 
    GtkWidget *label;
    GtkWidget *table;
+   GtkWidget *font_color;
    char flag; //Flag for country processing
    char flag_update; //Flag update main weather icon of desktop 
    int count_country = 0; // Count country of file iso3166 
    int index_country = 0; // Position country of the list 
+   GdkColor _weather_font_color_temp; // Temporary for font color
 
 //    gtk_widget_destroy(widget);
     window_config = gtk_dialog_new_with_buttons("Other Maemo Weather Settings",
@@ -295,7 +297,7 @@ weather_window_preference (GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label),stations = gtk_combo_box_new_text());
 
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-            table = gtk_table_new(1, 2, FALSE),
+            table = gtk_table_new(1, 3, FALSE),
             label = gtk_label_new("Main Interface"));
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_label_new("Icon size:"),
@@ -310,7 +312,16 @@ weather_window_preference (GtkWidget *widget,
       gtk_combo_box_set_active (icon_size,0);
     else
       gtk_combo_box_set_active (icon_size,1);      
-      
+
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+            label = gtk_label_new("Font color:"),
+            0, 1, 1, 2);
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+            label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
+             1, 2, 1, 2);
+    gtk_container_add(GTK_CONTAINER(label),font_color = gtk_color_button_new());
+    gtk_color_button_set_color(font_color, &_weather_font_color);      
+
     /* Inserting Countrys to ComboBox from iso file*/
     flag = FALSE;
     if(iso3166_file = fopen(COUNTRYS_FILE,"r"))
@@ -390,7 +401,14 @@ weather_window_preference (GtkWidget *widget,
 
 	 g_free(_weather_station_id);
 	 _weather_station_id = g_strdup(weather_station_id);	
-
+	 gtk_color_button_get_color(font_color, &_weather_font_color_temp);
+	 if (( _weather_font_color_temp.red != _weather_font_color.red ) &&
+	     ( _weather_font_color_temp.green != _weather_font_color.green ) &&
+	     ( _weather_font_color_temp.blue != _weather_font_color.blue ))
+	  {
+           flag_update = TRUE;     
+	   _weather_font_color = _weather_font_color_temp;
+	  } 
 	 /* Necessary free list  beyond !!! */	   
          config_save();
 	 gtk_widget_destroy(window_config);

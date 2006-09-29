@@ -250,7 +250,8 @@ weather_window_preference (GtkWidget *widget,
    GtkWidget *table;
    GtkWidget *font_color;
    char flag; //Flag for country processing
-   char flag_update; //Flag update main weather icon of desktop 
+   char flag_update_icon; //Flag update main weather icon of desktop 
+   char flag_update_xml; //Flag update xml file 
    int count_country = 0; // Count country of file iso3166 
    int index_country = 0; // Position country of the list 
    GdkColor _weather_font_color_temp; // Temporary for font color
@@ -381,7 +382,8 @@ weather_window_preference (GtkWidget *widget,
 
 	    
    gtk_widget_show_all(window_config);
-   flag_update = FALSE;
+   flag_update_icon = FALSE;
+   flag_update_xml = FALSE;
    while(GTK_RESPONSE_ACCEPT == gtk_dialog_run(GTK_DIALOG(window_config))) /* Press Buuton Ok */
     {
 	_weather_station_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations));	
@@ -392,12 +394,12 @@ weather_window_preference (GtkWidget *widget,
 
 	 if ( strcmp(_weather_icon_size,gtk_combo_box_get_active_text(GTK_COMBO_BOX(icon_size))) != 0)
 	 {  
-	  flag_update = TRUE;
+	  flag_update_icon = TRUE;
 	  _weather_icon_size = gtk_combo_box_get_active_text(GTK_COMBO_BOX(icon_size));	
 	 }
 
 	 if ( (_weather_station_id != NULL) && strcmp(_weather_station_id,weather_station_id) !=0 )
-	  flag_update = TRUE;
+	  flag_update_xml = TRUE;
 
 	 g_free(_weather_station_id);
 	 _weather_station_id = g_strdup(weather_station_id);	
@@ -406,20 +408,31 @@ weather_window_preference (GtkWidget *widget,
 	     ( _weather_font_color_temp.green != _weather_font_color.green ) &&
 	     ( _weather_font_color_temp.blue != _weather_font_color.blue ))
 	  {
-           flag_update = TRUE;     
+           flag_update_icon = TRUE;     
 	   _weather_font_color = _weather_font_color_temp;
 	  } 
+
 	 /* Necessary free list  beyond !!! */	   
          config_save();
-	 gtk_widget_destroy(window_config);
-	 if (get_weather_html() == 0 || flag_update)
-         {
+	 if (flag_update_icon)
+	 {
           weather_frame_update();
+	  gtk_widget_destroy(weather_window_popup);
          }
+	 
+	 if (flag_update_xml)
+	 {
+	  update_weather();
+          weather_frame_update();	  
+         }
+
+	 gtk_widget_destroy(window_config);
 	 free_list_stations();
 	 return;
 	}
     }
+   
+   gtk_widget_destroy(weather_window_popup);    
    gtk_widget_destroy(window_config);
 
 }

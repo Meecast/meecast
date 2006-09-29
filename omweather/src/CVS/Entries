@@ -1,11 +1,11 @@
-/Makefile.am/1.15/Mon Sep 25 10:59:56 2006//
-/weather-home.c/1.76/Tue Sep 26 09:10:04 2006//
-/weather-home.h/1.21/Tue Sep 26 09:10:04 2006//
-/weather-home_common.h/1.3/Mon Sep 25 10:59:56 2006//
-/weather-home_config.c/1.10/Tue Sep 26 05:37:33 2006//
-/weather-home_config.h/1.8/Tue Sep 26 05:37:33 2006//
-/weather-home_parser.c/1.3/Mon Sep 25 13:21:52 2006//
-/weather-home_parser.h/1.2/Mon Sep 25 10:59:56 2006//
-/weather-home_preference.c/1.35/Tue Sep 26 05:37:33 2006//
-/weather-home_preference.h/1.12/Mon Sep 25 10:59:56 2006//
 D/lib////
+/Makefile.am/1.15/Wed Sep 27 16:12:12 2006//
+/weather-home_parser.c/1.3/Wed Sep 27 16:12:13 2006//
+/weather-home_preference.h/1.15/Fri Sep 29 18:09:22 2006//
+/weather-home.c/1.82/Fri Sep 29 19:42:12 2006//
+/weather-home.h/1.26/Fri Sep 29 19:32:46 2006//
+/weather-home_common.h/1.4/Fri Sep 29 20:14:19 2006//
+/weather-home_config.c/1.14/Fri Sep 29 20:14:58 2006//
+/weather-home_config.h/1.12/Fri Sep 29 20:15:05 2006//
+/weather-home_parser.h/1.3/Fri Sep 29 20:15:21 2006//
+/weather-home_preference.c/1.41/Fri Sep 29 19:44:18 2006//

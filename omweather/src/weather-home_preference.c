@@ -114,7 +114,7 @@ void changed_country(void)
      {
       memset(out_buffer, 0, sizeof(out_buffer)); //Clear buffer
       fgets(out_buffer, sizeof(out_buffer), stations_file);//Read Next Line
-      if ( (strlen(out_buffer)>0) && (out_buffer[0] != "!") )
+      if ( (strlen(out_buffer)>0) && ((char)out_buffer[0] != '!') )
       {   
         /* Is it country or state or province name ? */
     	if ( out_buffer[19] != ' ' )
@@ -174,7 +174,7 @@ void changed_state(void)
       memset(out_buffer, 0, sizeof(out_buffer)); //Clear buffer
       fgets(out_buffer, sizeof(out_buffer), stations_file);//Read Next Line
       memset(temp_station_name, 0, sizeof(temp_station_name)); //Clear buffer
-      if ( (strlen(out_buffer)>27) && ((char)out_buffer[0] != "!") )
+      if ( (strlen(out_buffer)>27) && ((char)out_buffer[0] != '!') )
       {  
         /* Is it country or state or province name ? */
     	if ( out_buffer[19] != ' ' )
@@ -310,9 +310,9 @@ weather_window_preference (GtkWidget *widget,
     gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), "Large");
     gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), "Small");
     if (strcmp(_weather_icon_size,"Large") == 0)
-      gtk_combo_box_set_active (icon_size,0);
+      gtk_combo_box_set_active (GTK_COMBO_BOX(icon_size),0);
     else
-      gtk_combo_box_set_active (icon_size,1);      
+      gtk_combo_box_set_active (GTK_COMBO_BOX(icon_size),1);      
 
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_label_new("Font color:"),
@@ -321,7 +321,7 @@ weather_window_preference (GtkWidget *widget,
             label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
              1, 2, 1, 2);
     gtk_container_add(GTK_CONTAINER(label),font_color = gtk_color_button_new());
-    gtk_color_button_set_color(font_color, &_weather_font_color);      
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color);      
 
     /* Inserting Countrys to ComboBox from iso file*/
     flag = FALSE;
@@ -355,12 +355,12 @@ weather_window_preference (GtkWidget *widget,
     }
     if (index_country != 0)
     {
-     gtk_combo_box_set_active (countrys,index_country-1);      
+     gtk_combo_box_set_active (GTK_COMBO_BOX(countrys),index_country-1);      
      changed_country();
     }
      if (index_state != 0)
     {
-     gtk_combo_box_set_active (states,index_state-1);      
+     gtk_combo_box_set_active (GTK_COMBO_BOX(states),index_state-1);      
      changed_state();
     }
     if (index_station != 0)
@@ -403,7 +403,7 @@ weather_window_preference (GtkWidget *widget,
 
 	 g_free(_weather_station_id);
 	 _weather_station_id = g_strdup(weather_station_id);	
-	 gtk_color_button_get_color(font_color, &_weather_font_color_temp);
+	 gtk_color_button_get_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color_temp);
 	 if (( _weather_font_color_temp.red != _weather_font_color.red ) &&
 	     ( _weather_font_color_temp.green != _weather_font_color.green ) &&
 	     ( _weather_font_color_temp.blue != _weather_font_color.blue ))

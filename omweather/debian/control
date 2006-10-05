@@ -9,4 +9,4 @@ Package: omweather
 Architecture: armel arm i386
 Pre-Depends: maemo-select-menu-location
 Depends: ${shlibs:Depends}
-Description: World Waether on Nokia 770. Used waether.com
+Description: World Weather on Nokia 770. Used weather.com

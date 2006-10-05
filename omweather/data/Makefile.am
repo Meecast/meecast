@@ -1,5 +1,5 @@
 #
-# This file is part of maemo-waether
+# This file is part of maemo-weather
 #
 # Copyright (C) 2006 Vlad Vasiliev
 #

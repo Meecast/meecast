@@ -31,8 +31,9 @@
 #include <libxml/parser.h>
 #include <libxml/tree.h>
 #include <string.h>
+#include <time.h>
 #include <libgnomevfs/gnome-vfs.h>
-#define Max_count_web_button 10
+#define Max_count_web_button 5
 
 
 typedef struct
@@ -50,11 +51,14 @@ typedef struct
   part_of_day day;
   part_of_day night;
   gchar date[10];     /* Date */     
+//  struct tm date_tm; 	      /* Date of the year*/  
+  time_t date_time; 	      /* Date of the year*/  
   gchar dayshname[3]; /* Short name of day */
   gchar dayfuname[20];/* Full name of day */
   gchar hi_temp[4];   /* High temperature of day */
   gchar low_temp[4];  /* Low temperature  of day */
   gchar location[50]; /* Location */
+  
 }weather_day;
 
 typedef struct
@@ -67,4 +71,6 @@ typedef struct
 
 
 weather_day weather_days[Max_count_web_button];
+
+
 

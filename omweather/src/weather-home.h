@@ -42,6 +42,7 @@ void hello_world_dialog_show (void);
 #include <libosso.h>
 //#include <pthread.h>
 #include <gconf/gconf-client.h>
+#include <osso-ic.h>
 
 
 #define HTTP_RESPONSE_OK "200"
@@ -59,6 +60,8 @@ void update_weather();
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);
 
 void weather_com_destroy_parser( weather_com_parser *weather_com );
+void update_weather(void);
+void weather_frame_update(void);
 
 
 gchar  path_large_icon[]="/usr/share/weather/icons/Crystal/large_icon/";
@@ -77,3 +80,11 @@ gchar *_weather_station_name = NULL;
 gchar *_weather_station_id = NULL;
 gchar *_weather_icon_size = NULL;
 GdkColor _weather_font_color = {0,0,0,0};
+
+/* List future event */
+GSList *event_time_list = NULL;
+
+struct event_time
+{
+  time_t time;
+};

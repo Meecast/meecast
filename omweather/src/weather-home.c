@@ -75,17 +75,56 @@ create_window_update(void)
     g_object_ref(G_OBJECT(update_window));
 }
 
+void  iap_callback(struct iap_event_t *event, void *arg)
+{
+
+    switch (event->type)
+    {
+    case OSSO_IAP_CONNECTED:
+	if (get_weather_html(FALSE) != 0)
+	 hildon_banner_show_information(box,NULL,"Did not download weather");
+	else
+	{
+	   weather_frame_update(); 
+	   hildon_banner_show_information(box,NULL,"Weather updated");
+	}   
+	break;
+    case OSSO_IAP_DISCONNECTED:
+	break;
+    case OSSO_IAP_ERROR:
+	hildon_banner_show_information(box,NULL,"Not connected to Internet");
+	break;
+    }    
+
+}
+
+gboolean get_connected(void)
+{
+    if (osso_iap_cb(iap_callback) != OSSO_OK)
+    {
+	return FALSE;
+    }
+    if (osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)
+    {
+	return FALSE;
+    }
+    return TRUE;
+
+}
+
+
 
 //gchar *
 int
-get_weather_html(  )
+get_weather_html( gboolean check_connect )
 {
     FILE *fd;
     gchar full_filename[2048];
     HTTP_Response hResponse;
     HTTP_Extra  hExtra;
     GString *url;
-
+   
+    if (check_connect)  get_connected();    
     
    if (_weather_station_id != NULL)
    {
@@ -102,14 +141,17 @@ get_weather_html(  )
     fclose(fd);
 */    
         
-    g_string_append_printf (url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5",_weather_station_id);
+    g_string_append_printf (url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=10",_weather_station_id);
 //      g_string_append (url,"s=");
+
+
 
     memset(&hExtra, '\0', sizeof(hExtra));
     hResponse = http_request(url->str,&hExtra,kHMethodGet,HFLAG_NONE);
     g_string_free (url,TRUE);
     if( hResponse.pError || strcmp(hResponse.szHCode,HTTP_RESPONSE_OK) )
         {
+	     hildon_banner_show_information(box,NULL,"Did not download weather");
 	     return -2;	       
         }
     sprintf(full_filename, "%s/weather.com.xml.new", _weather_dir_name);
@@ -120,6 +162,7 @@ get_weather_html(  )
     }
     fprintf (fd,"%s",hResponse.pData);
     fclose (fd);
+    	 hildon_banner_show_information(box,NULL,"test-0");
     return 0;
   }                                                                                                                          
 }
@@ -157,7 +200,7 @@ static gboolean
 
 
 /* Show extended information about weather */
-//static gint
+static gboolean
 weather_window_popup_show (GtkWidget *widget,
                            GdkEvent *event,
                            gpointer user_data)
@@ -175,7 +218,6 @@ weather_window_popup_show (GtkWidget *widget,
     GtkWidget *icon_image_night, *icon_image_day, *icon_update;
     GtkWidget *button_update,  *button_pref;
     GtkIconInfo *gtkicon_update;
-    PangoFontDescription *pfd;
     gchar buffer[1024];
     gchar full_filename[2048];
     struct stat statv;
@@ -184,7 +226,7 @@ weather_window_popup_show (GtkWidget *widget,
     {
      fprintf (stderr,"ID NULL\n");
      weather_window_preference(widget, event, user_data);
-     return;
+     return FALSE;
     } 
    /* Search: Which button pressed */
     int i;
@@ -195,11 +237,10 @@ weather_window_popup_show (GtkWidget *widget,
 //    weather_window_popup = gtk_window_new( GTK_WINDOW_POPUP );
 
      weather_window_popup =   gtk_window_new( GTK_WINDOW_TOPLEVEL );
-     gtk_window_set_decorated (weather_window_popup,FALSE);
+     gtk_window_set_decorated (GTK_WINDOW(weather_window_popup),FALSE);
      
      frame_popup = gtk_frame_new(NULL);
      gtk_container_add (GTK_CONTAINER (weather_window_popup), frame_popup);
-     gtk_frame_set_shadow_type(GTK_FRAME(weather_window_popup), GTK_SHADOW_ETCHED_IN);
 
 //    GtkWidget *my_window = gtk_window_new( GTK_WINDOW_TOPLEVEL );
     gtk_window_move(GTK_WINDOW(weather_window_popup), 280,160);
@@ -304,7 +345,7 @@ weather_window_popup_show (GtkWidget *widget,
     
     /* Start PREFERENCE UPDATE */
     hbox_pref = gtk_hbox_new (FALSE, 0);
-    gtk_container_set_border_width (GTK_BOX (hbox_pref), 4);
+    gtk_container_set_border_width (GTK_CONTAINER (hbox_pref), 4);
     button_pref = gtk_button_new_with_label ("Preference");
     g_signal_connect (button_pref, "clicked",
 		    G_CALLBACK (weather_window_preference),
@@ -337,7 +378,7 @@ weather_window_popup_show (GtkWidget *widget,
 
 
     gtk_widget_show_all (weather_window_popup);
-    
+    return TRUE;
 }
 
 /* Show extended information about weather */
@@ -474,7 +515,7 @@ weather_window_popup_show_future (GtkWidget *widget,
     /* End FOOT */
     /* Start PREFERENCE UPDATE */
     hbox_pref = gtk_hbox_new (FALSE, 0);
-    gtk_container_set_border_width (GTK_BOX (hbox_pref), 4);
+    gtk_container_set_border_width (GTK_CONTAINER (hbox_pref), 4);
     button_pref = gtk_button_new_with_label ("Preference");
     g_signal_connect (button_pref, "clicked",
 		    G_CALLBACK (weather_window_preference),
@@ -524,57 +565,88 @@ void weather_buttons_init(void)
 void 
 weather_buttons_fill(void)
 {
-  int i;
+  int i, offset, count_day;
   gchar buffer[2048];
+  gchar buffer_icon[2048];
+  time_t current_day;
+  struct tm *tm;
+  struct event_time *evt;
   
-  int count_day=parse_weather_com_xml();
-  if ( (count_day == 0) || (count_day == -1) ) {weather_buttons_init();count_day = 5; } // Error on xml file
-  if (count_day >Max_count_web_button) count_day = Max_count_web_button; 
-  for (i=0;i<count_day; i++)
-  {
-    buttons[i] = gtk_button_new ();
-    gtk_button_set_relief (GTK_BUTTON(buttons[i]),GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click (GTK_BUTTON(buttons[i]),FALSE);
+  offset = 0;
+  weather_buttons_init();
+  count_day=parse_weather_com_xml();
+//  if ( (count_day == 0) || (count_day == -1) ) {weather_buttons_init(); } // Error on xml file
 
-    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%s°\n%s°</span>",
-            	_weather_font_color.red >> 8,
-        	_weather_font_color.green >> 8,
-        	_weather_font_color.blue >> 8,
-                weather_days[i].dayshname,
-		weather_days[i].hi_temp,
-		weather_days[i].low_temp);    
-    labels[i]=gtk_label_new (NULL);
-    gtk_label_set_markup (GTK_LABEL (labels[i]),buffer);
-    
-    gtk_label_set_justify(GTK_LABEL (labels[i]),GTK_JUSTIFY_RIGHT);
-    /* Select size font on desktop */
-    if (strcmp(_weather_icon_size,"Large") == 0)
-     set_font_size(labels[i],FONT_MAIN_SIZE_LARGE);
+  /* get current day */  
+  current_day = time(NULL);
+  tm=localtime(&current_day);
+  tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+  current_day = mktime(tm);
+  
+  for (i=0;i<Max_count_web_button; i++)
+  {    
+    /* Search day of saving xml near current day */
+    while ((current_day > weather_days[offset].date_time) && (offset<count_day))
+    {
+     offset ++;
+    }
+    /* time event add */
+    if ( (current_day < weather_days[offset].date_time) && (offset < count_day ) )
+    {
+      /* Add station and station code to list */	  
+      evt = g_new0(struct event_time, 1);
+      evt->time = weather_days[offset].date_time;	  
+      event_time_list = g_slist_append(event_time_list,evt); 
+      fprintf(stderr,"OK TIME\n");
+    }      
+    if ( offset < count_day)
+    {
+     /* Create output string */
+     sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%s°\n%s°</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+                weather_days[offset].dayshname,weather_days[offset].hi_temp,weather_days[offset].low_temp);    
+     sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    
+    }
     else
-     set_font_size(labels[i],FONT_MAIN_SIZE_SMALL);
+    {
+     sprintf(buffer,"<span foreground='#%02x%02x%02x'>N/A\nN/A°\nN/A°</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
+     sprintf(buffer_icon,"%s48.png",path_large_icon,weather_days[offset].day.icon);         
+    }
 
-    /* Create box for image and label */
-    boxs[i] = gtk_hbox_new (FALSE, 0);
-
-    sprintf(buffer,"%s%i.png",path_large_icon,weather_days[i].day.icon);    
-    /* Select size Icon */
-    if (strcmp(_weather_icon_size,"Large") == 0)
-     icon = gdk_pixbuf_new_from_file_at_size (buffer,64,64,NULL);
-    else 
-     icon = gdk_pixbuf_new_from_file_at_size (buffer,32,32,NULL);
-    icon_image = gtk_image_new_from_pixbuf (icon);
-    
-    gtk_box_pack_start (GTK_BOX (boxs[i]), icon_image, FALSE, FALSE, 0);
-    gtk_box_pack_start (GTK_BOX (boxs[i]), labels[i], FALSE, FALSE, 0);
-    gtk_container_add (GTK_CONTAINER (buttons[i]), boxs[i]);
-    gtk_box_pack_start (GTK_BOX (box), buttons[i], FALSE, FALSE, 0);
-    g_signal_connect (buttons[i], "released",
-		    G_CALLBACK (weather_window_popup_show),		
-		    NULL);  
-		    
-    g_signal_connect (buttons[i], "enter",
-		    G_CALLBACK (enter_button),
-		    NULL);  
+     /* Prepare butons for view */   
+     buttons[i] = gtk_button_new ();
+     gtk_button_set_relief (GTK_BUTTON(buttons[i]),GTK_RELIEF_NONE);
+     gtk_button_set_focus_on_click (GTK_BUTTON(buttons[i]),FALSE);    
+     labels[i]=gtk_label_new (NULL);
+     gtk_label_set_markup (GTK_LABEL (labels[i]),buffer);
+     gtk_label_set_justify(GTK_LABEL (labels[i]),GTK_JUSTIFY_RIGHT);
+     /* Select size font on desktop */
+     if (strcmp(_weather_icon_size,"Large") == 0)
+      set_font_size(labels[i],FONT_MAIN_SIZE_LARGE);
+     else
+      set_font_size(labels[i],FONT_MAIN_SIZE_SMALL);
+     /* Create box for image and label */
+     boxs[i] = gtk_hbox_new (FALSE, 0);
+     /* Select size Icon */
+     if (strcmp(_weather_icon_size,"Large") == 0)
+      icon = gdk_pixbuf_new_from_file_at_size (buffer_icon,64,64,NULL);
+     else 
+      icon = gdk_pixbuf_new_from_file_at_size (buffer_icon,32,32,NULL);
+     icon_image = gtk_image_new_from_pixbuf (icon);
+     /* Packing buttons to box */
+     gtk_box_pack_start (GTK_BOX (boxs[i]), icon_image, FALSE, FALSE, 0);
+     gtk_box_pack_start (GTK_BOX (boxs[i]), labels[i], FALSE, FALSE, 0);
+     gtk_container_add (GTK_CONTAINER (buttons[i]), boxs[i]);
+     gtk_box_pack_start (GTK_BOX (box), buttons[i], FALSE, FALSE, 0);
+     /* Connect signal button */
+     g_signal_connect (buttons[i], "released",
+		       G_CALLBACK (weather_window_popup_show),		
+		       NULL);  		    
+     g_signal_connect (buttons[i], "enter",
+     		       G_CALLBACK (enter_button),
+     		       NULL); 
+    offset ++;
   }
   gtk_widget_show_all (box);
 }
@@ -602,7 +674,7 @@ weather_frame_update (void)
 void 
 update_w(gpointer data)
 {
- if (get_weather_html() == 0)
+ if (get_weather_html(TRUE) == 0)
  {
    weather_frame_update();
  }
@@ -614,7 +686,7 @@ update_w(gpointer data)
 }
 
 void 
- update_weather()
+ update_weather(void)
 {
  create_window_update();
  flag_update = g_timeout_add (100, update_w, box);

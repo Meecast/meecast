@@ -59,6 +59,11 @@ weather_com_parser *parser;
     gchar buffer[2048];
     gchar newname[2048];
     gchar id_station[10];
+    time_t current_time;
+    struct tm *tm;
+    char buf[255];
+    char date_in_string[255];
+    int year;
 //  fprintf (stderr, "vlad: %s",get_weather_html());
 // http://xoap.weather.com/weather/local/BOXX0014?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5
 //http://www.weather.com/weather/mpdwcr/tenday?locid=BOXX0014&channel=other&datapoint=htempdp&adprodname=pif_undcl_tenday_long
@@ -67,9 +72,17 @@ weather_com_parser *parser;
 //$key = "2e4490982af206e0";
 //http://www.rap.ucar.edu/weather/surface/stations.txt
 
+/*Prepare date string */
+/* Imortant need will Check New Year in future !!!!!!!!!!! */
+    current_time = time(NULL);
+    tm=localtime(&current_time);
+    year = 1900+tm->tm_year;
+
     sprintf(buffer, "%s/weather.com.xml.new", _weather_dir_name); //Used new file 
     if (access (buffer,R_OK) == 0)  // Not Access to cache weather xml file 
     { 
+    
+	
 	parser=weather_parser_new_from_file(buffer); 
 	    if (!(parser->error))
 	    {
@@ -126,6 +139,13 @@ weather_com_parser *parser;
 	      sprintf(weather_days[count_day-1].dayshname,"%.2s",xmlGetProp(child_node,"t"));
 	      sprintf(weather_days[count_day-1].dayfuname,"%.20s",xmlGetProp(child_node,"t"));
 	      sprintf(weather_days[count_day-1].date,"%.10s",xmlGetProp(child_node,"dt"));
+	      sprintf(date_in_string,"%s %i 00:00:00",weather_days[count_day-1].date,year);
+//	      strptime(date_in_string, "%b %d %Y %T", &weather_days[count_day-1].date_tm);
+	      strptime(date_in_string, "%b %d %Y %T", tm);
+	      weather_days[count_day-1].date_time = mktime(tm);
+	      
+
+	       
 	      for(child_node2 = child_node->children; child_node2 != NULL; child_node2 = child_node2->next)
 	      {
 	       if ( child_node2->type == XML_ELEMENT_NODE)

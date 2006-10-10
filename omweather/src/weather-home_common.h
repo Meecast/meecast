@@ -34,7 +34,7 @@
 #include <time.h>
 #include <libgnomevfs/gnome-vfs.h>
 #define Max_count_web_button 5
-
+#define Max_count_weather_day 10
 
 typedef struct
 {
@@ -70,7 +70,7 @@ typedef struct
 } weather_com_parser;
 
 
-weather_day weather_days[Max_count_web_button];
+weather_day weather_days[Max_count_weather_day];
 
 
 

@@ -120,20 +120,22 @@ weather_com_parser *parser;
            if ( child_node->type == XML_ELEMENT_NODE  &&
                 !xmlStrcmp(child_node->name, (const xmlChar *)"dnam") )
             { 
-	       for (i=0;i<Max_count_web_button;i++)
+	       for (i = 0; i < Max_count_weather_day; i++)
 	        sprintf(weather_days[i].location,"%.50s",xmlNodeGetContent(child_node));
 	    }
 	 }
 	}     
         if (!xmlStrcmp(cur_node->name, (const xmlChar *) "dayf" ) )
         {
-	 fprintf(stderr,"Element: %s \n", cur_node->name); 
-	  // For each child of DisplayX: i.e. AlternateName, FieldLength
+	 fprintf(stderr,"Element0: %s \n", cur_node->name); 
           for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next)
           {
            if ( child_node->type == XML_ELEMENT_NODE  &&
                 !xmlStrcmp(child_node->name, (const xmlChar *)"day") )
             {
+	     if ( count_day < Max_count_weather_day ) /* Check limit day */
+	     {
+	      fprintf (stderr,"Count day: %i\n",count_day);
 	      count_day++; 
 	      printf("   Child=%s\n", child_node->name);
 	      sprintf(weather_days[count_day-1].dayshname,"%.2s",xmlGetProp(child_node,"t"));
@@ -215,7 +217,8 @@ weather_com_parser *parser;
 		if (!xmlStrcmp(child_node2->name, (const xmlChar *)"low"))
 		    sprintf(weather_days[count_day-1].low_temp,"%.3s", xmlNodeGetContent(child_node2));
 	       }
-	      }
+	      } 
+	     }
 	     }
 	   }     
           }

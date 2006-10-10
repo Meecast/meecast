@@ -162,7 +162,6 @@ get_weather_html( gboolean check_connect )
     }
     fprintf (fd,"%s",hResponse.pData);
     fclose (fd);
-    	 hildon_banner_show_information(box,NULL,"test-0");
     return 0;
   }                                                                                                                          
 }
@@ -582,11 +581,11 @@ weather_buttons_fill(void)
   tm=localtime(&current_day);
   tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
   current_day = mktime(tm);
-  
+    
   for (i=0;i<Max_count_web_button; i++)
   {    
     /* Search day of saving xml near current day */
-    while ((current_day > weather_days[offset].date_time) && (offset<count_day))
+    while ((offset<Max_count_weather_day) && (current_day > weather_days[offset].date_time) && (offset<count_day) )
     {
      offset ++;
     }

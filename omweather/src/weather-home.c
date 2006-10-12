@@ -43,18 +43,10 @@
 
 #include <unistd.h>
 
-#define VERSION "0.1"
+#define VERSION "0.12"
 #define APPNAME "omweather"
 
 
-  GtkWidget  *box;
-  GdkPixbuf *icon;
-  GtkWidget *icon_image;
-  GtkWidget *buttons [Max_count_web_button];
-  GtkWidget *labels [Max_count_web_button];
-  GtkWidget *boxs [Max_count_web_button];
-  GtkWidget *update_window;     
-  gint flag_update=0;
 
 
 /* Set font size. Usually on label widget*/
@@ -232,9 +224,11 @@ weather_window_popup_show (GtkWidget *widget,
     for (i=0;i<Max_count_web_button;i++)
      if ( buttons[i] == widget ) 
       break;
+    i = boxs_offset[i];  
+    
     /* Create POPUP WINDOW */ 
 //    weather_window_popup = gtk_window_new( GTK_WINDOW_POPUP );
-
+     
      weather_window_popup =   gtk_window_new( GTK_WINDOW_TOPLEVEL );
      gtk_window_set_decorated (GTK_WINDOW(weather_window_popup),FALSE);
      
@@ -567,7 +561,7 @@ weather_buttons_fill(void)
   int i, offset, count_day;
   gchar buffer[2048];
   gchar buffer_icon[2048];
-  time_t current_day;
+  time_t current_day,last_day;
   struct tm *tm;
   struct event_time *evt;
   
@@ -581,6 +575,8 @@ weather_buttons_fill(void)
   tm=localtime(&current_day);
   tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
   current_day = mktime(tm);
+  /* free time event list */
+  free_list_time_event();
     
   for (i=0;i<Max_count_web_button; i++)
   {    
@@ -589,15 +585,16 @@ weather_buttons_fill(void)
     {
      offset ++;
     }
-    /* time event add */
+    /* time event add to event list */
     if ( (current_day < weather_days[offset].date_time) && (offset < count_day ) )
     {
-      /* Add station and station code to list */	  
+      /* Add time event  to list */	  
       evt = g_new0(struct event_time, 1);
       evt->time = weather_days[offset].date_time;	  
       event_time_list = g_slist_append(event_time_list,evt); 
-      fprintf(stderr,"OK TIME\n");
+      last_day = weather_days[offset].date_time;	  
     }      
+
     if ( offset < count_day)
     {
      /* Create output string */
@@ -611,8 +608,19 @@ weather_buttons_fill(void)
      sprintf(buffer,"<span foreground='#%02x%02x%02x'>N/A\nN/A°\nN/A°</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
      sprintf(buffer_icon,"%s48.png",path_large_icon,weather_days[offset].day.icon);         
+
+     /* Add time event to list for next day after last day in xml file */
+     if (evt->time != last_day+24*60*60)
+     {
+        /* Add time event  to list */	  
+        evt = g_new0(struct event_time, 1);
+        evt->time = last_day+24*60*60;	  
+        event_time_list = g_slist_append(event_time_list,evt); 
+     } 
     }
 
+     /* Write offset in wetaher data for this button */
+     boxs_offset[i] = offset;
      /* Prepare butons for view */   
      buttons[i] = gtk_button_new ();
      gtk_button_set_relief (GTK_BUTTON(buttons[i]),GTK_RELIEF_NONE);
@@ -685,12 +693,10 @@ update_w(gpointer data)
 }
 
 void 
- update_weather(void)
+update_weather(void)
 {
  create_window_update();
  flag_update = g_timeout_add (100, update_w, box);
- 
- // g_signal_handler_disconnect(G_OBJECT(weather_window_popup),signal_press_popup_window);
 }
 
 
@@ -709,6 +715,8 @@ hildon_home_applet_lib_initialize (void *state_data,
  config_init ();
  /* Init weather buttons */
  weather_buttons_init();
+ /* Start timer */
+ timer();
  /* Start main applet */ 
  frame = weather_frame_new ();
  *applet_return = frame;

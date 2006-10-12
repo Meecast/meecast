@@ -1,3 +1,8 @@
+
+omweather (0.12) unstable; urgency=low
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Sep 2006 22:56:12 +0200
+
 omweather (0.11) unstable; urgency=low
 
   * Add font color choice

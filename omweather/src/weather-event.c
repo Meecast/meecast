@@ -27,55 +27,57 @@
 	
 */
 
-#include <gtk/gtk.h>
-#include <libxml/parser.h>
-#include <libxml/tree.h>
-#include <string.h>
-#include <time.h>
-#include <libgnomevfs/gnome-vfs.h>
-#define Max_count_web_button 5
-#define Max_count_weather_day 10
+#include "weather-event.h"
 
-typedef struct
+void 
+timer_handler(gpointer data)
 {
-  int icon;
-  gchar title[26]; /* Title */
-  gchar hmid[5]; /* Humidity */
-  int wind_speed; /* Wind Speed */
-  gchar wind_title[11]; /* Wind Title */
-}part_of_day;
+ static GSList *list_time_event_temp = NULL;
+ struct event_time *evt;
+ time_t current_time;
 
+ if (event_time_list != NULL)
+ { 
+  list_time_event_temp = event_time_list;  
+  /* get current time */  
+  current_time = time(NULL);
+  while (list_time_event_temp != NULL)
+  {
+   evt = list_time_event_temp->data;
+   if (evt->time < current_time)
+   {
+    weather_frame_update();   
+    break;
+   }
+   list_time_event_temp = g_slist_next(list_time_event_temp);
+  }
+ } 
+}
 
-typedef struct
+void 
+timer(void)
 {
-  part_of_day day;
-  part_of_day night;
-  gchar date[10];     /* Date */     
-//  struct tm date_tm; 	      /* Date of the year*/  
-  time_t date_time; 	      /* Date of the year*/  
-  gchar dayshname[3]; /* Short name of day */
-  gchar dayfuname[20];/* Full name of day */
-  gchar hi_temp[4];   /* High temperature of day */
-  gchar low_temp[4];  /* Low temperature  of day */
-  gchar location[50]; /* Location */
-  
-}weather_day;
+ flag_event = g_timeout_add (60000, timer_handler, box); /* One per minute */
+}
 
-typedef struct
+
+/* Free memory allocated for time event */
+void 
+free_list_time_event (void)
 {
-	gint    error;
-//	weather_channel *channel_list;
-	xmlDoc	    *doc;
-	xmlNode     *weather_com_root;
-} weather_com_parser;
+ static GSList *list_time_event_temp = NULL;
+ struct event_time *evt;
 
-struct event_time
-{
-  time_t time;
-};
-
-
-weather_day weather_days[Max_count_weather_day];
-
-
-
+ if (event_time_list != NULL)
+ { 
+  list_time_event_temp = event_time_list; 
+  while (list_time_event_temp != NULL)
+  {
+     evt = list_time_event_temp->data;
+     g_free(evt);
+     list_time_event_temp = g_slist_next(list_time_event_temp);
+  }
+  g_slist_free(event_time_list);
+  event_time_list = NULL;
+ } 
+}

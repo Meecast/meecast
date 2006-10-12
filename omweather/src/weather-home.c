@@ -564,7 +564,8 @@ weather_buttons_fill(void)
   time_t current_day,last_day;
   struct tm *tm;
   struct event_time *evt;
-  
+
+  evt = NULL;
   offset = 0;
   weather_buttons_init();
   count_day=parse_weather_com_xml();
@@ -606,10 +607,10 @@ weather_buttons_fill(void)
     }
     else
     {
+     /* Create output string */
      sprintf(buffer,"<span foreground='#%02x%02x%02x'>N/A\nN/A°\nN/A°</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
      sprintf(buffer_icon,"%s48.png",path_large_icon,weather_days[offset].day.icon);         
-
      /* Add time event to list for next day after last day in xml file */
      if (( evt != NULL ) && (evt->time != last_day+24*60*60))
      {

@@ -568,7 +568,7 @@ weather_buttons_fill(void)
   offset = 0;
   weather_buttons_init();
   count_day=parse_weather_com_xml();
-//  if ( (count_day == 0) || (count_day == -1) ) {weather_buttons_init(); } // Error on xml file
+//  if  (count_day == -1)  {count_day=0; fprintf(stderr,"Error on xml file");} // Error on xml file
 
   /* get current day */  
   current_day = time(NULL);
@@ -602,6 +602,7 @@ weather_buttons_fill(void)
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
                 weather_days[offset].dayshname,weather_days[offset].hi_temp,weather_days[offset].low_temp);    
      sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    
+     
     }
     else
     {
@@ -610,7 +611,7 @@ weather_buttons_fill(void)
      sprintf(buffer_icon,"%s48.png",path_large_icon,weather_days[offset].day.icon);         
 
      /* Add time event to list for next day after last day in xml file */
-     if (evt->time != last_day+24*60*60)
+     if (( evt != NULL ) && (evt->time != last_day+24*60*60))
      {
         /* Add time event  to list */	  
         evt = g_new0(struct event_time, 1);

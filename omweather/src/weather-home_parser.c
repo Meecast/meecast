@@ -216,6 +216,21 @@ weather_com_parser *parser;
 		    sprintf(weather_days[count_day-1].hi_temp,"%.3s", xmlNodeGetContent(child_node2));
 		if (!xmlStrcmp(child_node2->name, (const xmlChar *)"low"))
 		    sprintf(weather_days[count_day-1].low_temp,"%.3s", xmlNodeGetContent(child_node2));
+		if (!xmlStrcmp(child_node2->name, (const xmlChar *)"sunr"))
+		{ 
+		 sprintf(date_in_string,"%s %i %s",weather_days[count_day-1].date,year,xmlNodeGetContent(child_node2));
+//		 fprintf(stderr,"Sun up %s\n",date_in_string);
+		 strptime(date_in_string, "%b %d %Y %I:%M %p", tm);
+	         weather_days[count_day-1].day.begin_time = mktime(tm);
+		}    
+		if (!xmlStrcmp(child_node2->name, (const xmlChar *)"suns"))
+		{ 
+		 sprintf(date_in_string,"%s %i %s",weather_days[count_day-1].date,year,xmlNodeGetContent(child_node2));
+//		 fprintf(stderr,"Sun down %s\n",date_in_string);
+		 strptime(date_in_string, "%b %d %Y %I:%M %p", tm);
+	         weather_days[count_day-1].night.begin_time = mktime(tm);
+
+		}    
 	       }
 	      } 
 	     }

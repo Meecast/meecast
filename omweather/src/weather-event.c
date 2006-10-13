@@ -81,3 +81,12 @@ free_list_time_event (void)
   event_time_list = NULL;
  } 
 }
+
+/* Add time event  to list */	  
+void time_event_add(time_t time_value)
+{
+  struct event_time *evt;
+  evt = g_new0(struct event_time, 1);
+  evt->time = time_value;	  
+  event_time_list = g_slist_append(event_time_list,evt); 
+}

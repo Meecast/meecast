@@ -43,6 +43,7 @@ typedef struct
   gchar hmid[5]; /* Humidity */
   int wind_speed; /* Wind Speed */
   gchar wind_title[11]; /* Wind Title */
+  time_t begin_time;    /* Begin time party of the day */  
 }part_of_day;
 
 
@@ -51,8 +52,7 @@ typedef struct
   part_of_day day;
   part_of_day night;
   gchar date[10];     /* Date */     
-//  struct tm date_tm; 	      /* Date of the year*/  
-  time_t date_time; 	      /* Date of the year*/  
+  time_t date_time;    /* Date of the year*/  
   gchar dayshname[3]; /* Short name of day */
   gchar dayfuname[20];/* Full name of day */
   gchar hi_temp[4];   /* High temperature of day */

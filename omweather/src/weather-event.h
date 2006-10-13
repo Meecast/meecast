@@ -32,6 +32,7 @@
 void timer_handler(gpointer data);
 void timer(void);
 void free_list_time_event (void);
+void time_event_add(time_t time_value);
 gint flag_event=0;  
 extern GtkWidget *box;
 extern GSList *event_time_list;

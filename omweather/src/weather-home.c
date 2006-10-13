@@ -563,9 +563,9 @@ weather_buttons_fill(void)
   gchar buffer_icon[2048];
   time_t current_day,last_day;
   struct tm *tm;
-  struct event_time *evt;
+  gboolean flag_last_day;
 
-  evt = NULL;
+  flag_last_day = FALSE;
   offset = 0;
   weather_buttons_init();
   count_day=parse_weather_com_xml();
@@ -586,13 +586,19 @@ weather_buttons_fill(void)
     {
      offset ++;
     }
-    /* time event add to event list */
+     /* If it first button add to evenet tine change between nigth and day */
+    if  (current_day == weather_days[offset].date_time) 
+    {
+     if (time(NULL)<weather_days[offset].day.begin_time)
+      time_event_add(weather_days[offset].day.begin_time);
+     if (time(NULL)<weather_days[offset].night.begin_time)  
+      time_event_add(weather_days[offset].night.begin_time);
+    }
+    /* Time event add to event list */
     if ( (current_day < weather_days[offset].date_time) && (offset < count_day ) )
     {
-      /* Add time event  to list */	  
-      evt = g_new0(struct event_time, 1);
-      evt->time = weather_days[offset].date_time;	  
-      event_time_list = g_slist_append(event_time_list,evt); 
+      
+       time_event_add(weather_days[offset].date_time);  /* Add time event  to list */	  
       last_day = weather_days[offset].date_time;	  
     }      
 
@@ -601,9 +607,14 @@ weather_buttons_fill(void)
      /* Create output string */
      sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%s°\n%s°</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-                weather_days[offset].dayshname,weather_days[offset].hi_temp,weather_days[offset].low_temp);    
-     sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    
-     
+                weather_days[offset].dayshname,weather_days[offset].hi_temp,weather_days[offset].low_temp);
+     sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    		
+     if  (current_day == weather_days[offset].date_time) 
+     {
+      if ((time(NULL)<weather_days[offset].day.begin_time) || 
+         (time(NULL)>weather_days[offset].night.begin_time) ) 
+       sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);    
+     }		    
     }
     else
     {
@@ -612,12 +623,10 @@ weather_buttons_fill(void)
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
      sprintf(buffer_icon,"%s48.png",path_large_icon,weather_days[offset].day.icon);         
      /* Add time event to list for next day after last day in xml file */
-     if (( evt != NULL ) && (evt->time != last_day+24*60*60))
+     if (!flag_last_day)
      {
-        /* Add time event  to list */	  
-        evt = g_new0(struct event_time, 1);
-        evt->time = last_day+24*60*60;	  
-        event_time_list = g_slist_append(event_time_list,evt); 
+	time_event_add(last_day+24*60*60);  /* Add time event  to list */	  
+	flag_last_day = TRUE;
      } 
     }
 

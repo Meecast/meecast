@@ -3,6 +3,7 @@ omweather (0.12) unstable; urgency=low
     * Automatical try connect to Internet
     * Hilldon information about connection refused
     * Automatic redraw icon in display plugin since day per day
+    * Automatic redraw first icon
     
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Sep 2006 22:56:12 +0200
 

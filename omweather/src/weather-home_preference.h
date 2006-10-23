@@ -32,18 +32,21 @@
 
 #define STATIONS_FILE "/usr/share/weather/stations.txt"
 #define COUNTRYS_FILE "/usr/share/weather/iso3166-countrycodes.txt"
+extern GtkWidget *box;
 extern gchar *_weather_dir_name;
 extern gchar *_weather_country_name;
 extern gchar *_weather_state_name;
 extern gchar *_weather_station_name;
 extern gchar *_weather_station_id;
 extern gchar *_weather_icon_size;
+extern int    _weather_periodic_update;
 extern GdkColor _weather_font_color;
 extern GtkWidget *weather_window_popup;  
+extern GSList *time_update_list;
 
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);
 
-GtkWidget  *countrys , *states , *stations , *icon_size; 
+GtkWidget  *countrys, *states, *stations, *icon_size, *update_time; 
 
 static GSList *stations_list = NULL;
 
@@ -55,3 +58,5 @@ struct station_and_weather_code {
 gchar *weather_station_id;
 int index_state = 0; // Position state of the list 
 int index_station = 0; // Position station of the list 
+
+	

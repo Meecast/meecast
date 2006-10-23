@@ -71,6 +71,17 @@ config_set_weather_dir_name(gchar *new_weather_dir_name)
     return retval;
 }
 
+/* Add time update to list */
+void
+add_time_update_list(gint _between_time, gchar *_time_name)
+{
+    struct time_update *tu;
+    tu = g_new0(struct time_update, 1);
+    tu->between_time = _between_time;	  
+    tu->name_between_time = g_strdup(_time_name);	  
+    time_update_list = g_slist_append(time_update_list, tu);
+}
+
 /*
  * Initialize all configuration from GCONF.  This should not be called more
  * than once during execution.
@@ -79,6 +90,7 @@ void
 config_init()
 {
     gchar *tmp;
+
 
     GConfClient *gconf_client = gconf_client_get_default();
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
@@ -115,12 +127,28 @@ config_init()
        /* Get Weather station name. */    
        _weather_station_name = gconf_client_get_string(gconf_client,
               GCONF_KEY_WEATHER_STATION_NAME, NULL);
+       /* Get Weather periodic update time . */    
+       tmp = gconf_client_get_string(gconf_client,
+              GCONF_KEY_WEATHER_PERIODIC_UPDATE, NULL);
+       if(tmp)  	      
+        _weather_periodic_update = atoi(tmp);      
+       else
+        _weather_periodic_update = 0;
+	
        /* Get Weather font color. */    	
 	tmp = gconf_client_get_string(gconf_client,
               GCONF_KEY_WEATHER_FONT_COLOR, NULL);
         if(!tmp || !gdk_color_parse(tmp, &_weather_font_color))
          _weather_font_color = DEFAULT_FONT_COLOR;
       
+	/* Fill time update list */
+	add_time_update_list(0,"None");	
+	add_time_update_list(1*60,"1 hour");
+	add_time_update_list(2*60,"2 hour");
+	add_time_update_list(4*60,"4 hour");
+	add_time_update_list(8*60,"8 hour");
+	add_time_update_list(24*60,"24 hour");
+	add_time_update_list(1,"1 minute (DEBUG)");
 
 }
  
@@ -170,7 +198,10 @@ config_save()
             _weather_font_color.blue >> 8);
      gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_FONT_COLOR, temp_buffer, NULL);
-     
+    /* Save Weather Update setting  */
+    sprintf(temp_buffer,"%i",_weather_periodic_update);		     	         
+    gconf_client_set_string(gconf_client,
+            GCONF_KEY_WEATHER_PERIODIC_UPDATE, temp_buffer, NULL);
 	    
      g_object_unref(gconf_client);
 

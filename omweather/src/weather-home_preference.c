@@ -254,7 +254,10 @@ weather_window_preference (GtkWidget *widget,
    char flag_update_xml; //Flag update xml file 
    int count_country = 0; // Count country of file iso3166 
    int index_country = 0; // Position country of the list 
+   int index_update_time = 0; // Position acive update time of the list 
    GdkColor _weather_font_color_temp; // Temporary for font color
+   static GSList *time_update_list_temp = NULL; //Temporary list for time update
+   struct time_update *tu; //Temporary for time update list
 
 //    gtk_widget_destroy(widget);
     window_config = gtk_dialog_new_with_buttons("Other Maemo Weather Settings",
@@ -322,6 +325,30 @@ weather_window_preference (GtkWidget *widget,
              1, 2, 1, 2);
     gtk_container_add(GTK_CONTAINER(label),font_color = gtk_color_button_new());
     gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color);      
+
+
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+            table = gtk_table_new(1, 2, FALSE),
+            label = gtk_label_new("Update"));
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+            label = gtk_label_new("Update time:"),
+            0, 1, 0, 1);	    
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+            label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
+            1, 2, 0, 1);
+    gtk_container_add(GTK_CONTAINER(label),update_time = gtk_combo_box_new_text());
+
+    /* Fill update time box */
+    time_update_list_temp=time_update_list;
+    while (time_update_list_temp != NULL)
+    {
+     tu = time_update_list_temp->data;
+     gtk_combo_box_append_text(GTK_COMBO_BOX(update_time), tu->name_between_time);
+     if  (tu->between_time == _weather_periodic_update)
+      gtk_combo_box_set_active (GTK_COMBO_BOX(update_time),index_update_time);
+     time_update_list_temp = g_slist_next(time_update_list_temp);
+     index_update_time++;
+    }
 
     /* Inserting Countrys to ComboBox from iso file*/
     flag = FALSE;
@@ -412,6 +439,19 @@ weather_window_preference (GtkWidget *widget,
 	   _weather_font_color = _weather_font_color_temp;
 	  } 
 
+         /* Find select element of update time box and save time value */
+         time_update_list_temp=time_update_list;
+         while (time_update_list_temp != NULL)
+         {
+          tu = time_update_list_temp->data;
+	  if (strcmp(tu->name_between_time,gtk_combo_box_get_active_text(GTK_COMBO_BOX(update_time))) == 0)
+	  {
+	   _weather_periodic_update=tu->between_time;
+	   break;
+	  }    	  
+          time_update_list_temp = g_slist_next(time_update_list_temp);
+         }
+	    	
 	 /* Necessary free list  beyond !!! */	   
          config_save();
 	 if (flag_update_icon)

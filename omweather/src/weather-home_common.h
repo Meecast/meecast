@@ -35,6 +35,9 @@
 #include <libgnomevfs/gnome-vfs.h>
 #define Max_count_web_button 5
 #define Max_count_weather_day 10
+#define AUTOUPDATE 1
+#define DAYTIMEEVENT 2
+
 
 typedef struct
 {
@@ -71,7 +74,15 @@ typedef struct
 
 struct event_time
 {
-  time_t time;
+  time_t time;          /* Time event */
+  short int type_event; /* Type of event: Automatic update event AUTOUPDATE, 
+			   time of day event DAYTIMEEVENT */ 
+};
+
+
+struct time_update{ 
+	gint  between_time;         /* Time in minutes  betwen two update weather */
+	gchar *name_between_time;  /* Human string it time */
 };
 
 

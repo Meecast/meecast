@@ -74,7 +74,9 @@ void  iap_callback(struct iap_event_t *event, void *arg)
     {
     case OSSO_IAP_CONNECTED:
 	if (get_weather_html(FALSE) != 0)
+	{
 	 hildon_banner_show_information(box,NULL,"Did not download weather");
+	}
 	else
 	{
 	   weather_frame_update(); 
@@ -116,44 +118,34 @@ get_weather_html( gboolean check_connect )
     HTTP_Extra  hExtra;
     GString *url;
    
-    if (check_connect)  get_connected();    
-    
+   if (check_connect)  get_connected();    
+
    if (_weather_station_id != NULL)
    {
-     
-    url = g_string_new (NULL);
-/*        
-    sprintf(full_filename, "%s/weather.test", _weather_dir_name);
-        if (!(access (full_filename,W_OK))) return -1; // Not Write Access to cache weather xml file 
-    if(!(fd = fopen(full_filename,"w"))){
-          fprintf(stderr,"Could not open cache weather xml file %s.\n",full_filename);
-          return -1;
-    }
-    fprintf(fd,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5\n",_weather_station_id);
-    fclose(fd);
-*/    
-        
+    url = g_string_new (NULL);        
     g_string_append_printf (url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=10",_weather_station_id);
 //      g_string_append (url,"s=");
-
-
-
     memset(&hExtra, '\0', sizeof(hExtra));
     hResponse = http_request(url->str,&hExtra,kHMethodGet,HFLAG_NONE);
     g_string_free (url,TRUE);
     if( hResponse.pError || strcmp(hResponse.szHCode,HTTP_RESPONSE_OK) )
         {
-	     hildon_banner_show_information(box,NULL,"Did not download weather");
+	     hildon_banner_show_information(box,NULL,"Did not download weather ");
 	     return -2;	       
         }
+	
     sprintf(full_filename, "%s/weather.com.xml.new", _weather_dir_name);
+
     if (!(access (full_filename,W_OK))) return -1; // Not Write Access to cache weather xml file 
+      
     if(!(fd = fopen(full_filename,"w"))){
+      hildon_banner_show_information(box,NULL,"Did not download 1111111111");     
           fprintf(stderr,"Could not open cache weather xml file %s.\n",full_filename);
           return -1;
     }
     fprintf (fd,"%s",hResponse.pData);
     fclose (fd);
+      hildon_banner_show_information(box,NULL,"Download");     
     return 0;
   }                                                                                                                          
 }
@@ -578,6 +570,8 @@ weather_buttons_fill(void)
   current_day = mktime(tm);
   /* free time event list */
   free_list_time_event();
+  /* add periodic update */
+  add_periodic_event();
     
   for (i=0;i<Max_count_web_button; i++)
   {    
@@ -590,15 +584,15 @@ weather_buttons_fill(void)
     if  (current_day == weather_days[offset].date_time) 
     {
      if (time(NULL)<weather_days[offset].day.begin_time)
-      time_event_add(weather_days[offset].day.begin_time);
+      time_event_add(weather_days[offset].day.begin_time,DAYTIMEEVENT);
      if (time(NULL)<weather_days[offset].night.begin_time)  
-      time_event_add(weather_days[offset].night.begin_time);
+      time_event_add(weather_days[offset].night.begin_time,DAYTIMEEVENT);
     }
     /* Time event add to event list */
     if ( (current_day < weather_days[offset].date_time) && (offset < count_day ) )
     {
       
-       time_event_add(weather_days[offset].date_time);  /* Add time event  to list */	  
+       time_event_add(weather_days[offset].date_time,DAYTIMEEVENT);  /* Add time event  to list */	  
       last_day = weather_days[offset].date_time;	  
     }      
 
@@ -625,7 +619,7 @@ weather_buttons_fill(void)
      /* Add time event to list for next day after last day in xml file */
      if (!flag_last_day)
      {
-	time_event_add(last_day+24*60*60);  /* Add time event  to list */	  
+	time_event_add(last_day+24*60*60,DAYTIMEEVENT);  /* Add time event  to list */	  
 	flag_last_day = TRUE;
      } 
     }

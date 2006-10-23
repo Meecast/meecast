@@ -80,10 +80,14 @@ gchar *_weather_state_name = NULL;
 gchar *_weather_station_name = NULL;
 gchar *_weather_station_id = NULL;
 gchar *_weather_icon_size = NULL;
+int    _weather_periodic_update = 0;
 GdkColor _weather_font_color = {0,0,0,0};
 
 /* List future event */
 GSList *event_time_list = NULL;
+
+/* List times between two updates */
+GSList *time_update_list = NULL;
 
 
 GtkWidget *box;

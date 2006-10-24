@@ -37,6 +37,7 @@
 #define Max_count_weather_day 10
 #define AUTOUPDATE 1
 #define DAYTIMEEVENT 2
+#define DAY_DOWNLOAD 10
 
 
 typedef struct

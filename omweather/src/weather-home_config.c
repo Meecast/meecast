@@ -144,10 +144,10 @@ config_init()
 	/* Fill time update list */
 	add_time_update_list(0,"None");	
 	add_time_update_list(1*60,"1 hour");
-	add_time_update_list(2*60,"2 hour");
-	add_time_update_list(4*60,"4 hour");
-	add_time_update_list(8*60,"8 hour");
-	add_time_update_list(24*60,"24 hour");
+	add_time_update_list(2*60,"2 hours");
+	add_time_update_list(4*60,"4 hours");
+	add_time_update_list(8*60,"8 hours");
+	add_time_update_list(24*60,"24 hours");
 	add_time_update_list(1,"1 minute (DEBUG)");
 
 }

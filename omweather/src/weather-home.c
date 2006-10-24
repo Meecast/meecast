@@ -145,7 +145,7 @@ get_weather_html( gboolean check_connect )
     }
     fprintf (fd,"%s",hResponse.pData);
     fclose (fd);
-      hildon_banner_show_information(box,NULL,"Download");     
+      hildon_banner_show_information(box,NULL,"Weather updated");     
     return 0;
   }                                                                                                                          
 }
@@ -339,21 +339,28 @@ weather_window_popup_show (GtkWidget *widget,
     gtk_box_pack_end (GTK_BOX (hbox_pref),button_pref, FALSE, FALSE, 0);
     /* End PREFERENCE UPDATE */
     /* Packing elements */
-    gtk_container_add (GTK_CONTAINER (vbox), hbox_title_location);
-    gtk_container_add (GTK_CONTAINER (vbox), hbox_title_date);
-    separator_title = gtk_hseparator_new ();
-    gtk_box_pack_start (GTK_BOX (vbox), separator_title, FALSE, TRUE, 0);
-    separator_temp = gtk_hseparator_new ();
-    gtk_container_add (GTK_CONTAINER (vbox), hbox_temp);
-    gtk_box_pack_start (GTK_BOX (vbox), separator_temp, FALSE, TRUE, 0);
-    gtk_container_add (GTK_CONTAINER (vbox), hbox_night);
-    separator_day = gtk_hseparator_new ();
-    gtk_box_pack_start (GTK_BOX (vbox), separator_day, FALSE, TRUE, 0);
-    gtk_container_add (GTK_CONTAINER (vbox), hbox_day);
+    if (i<DAY_DOWNLOAD) /* Check null data buttons */
+    {
+     gtk_container_add (GTK_CONTAINER (vbox), hbox_title_location);
+     gtk_container_add (GTK_CONTAINER (vbox), hbox_title_date);
+     separator_title = gtk_hseparator_new ();
+     gtk_box_pack_start (GTK_BOX (vbox), separator_title, FALSE, TRUE, 0);
+     separator_temp = gtk_hseparator_new ();
+    
+     gtk_container_add (GTK_CONTAINER (vbox), hbox_temp);
+     gtk_box_pack_start (GTK_BOX (vbox), separator_temp, FALSE, TRUE, 0);
+     gtk_container_add (GTK_CONTAINER (vbox), hbox_night);
+    
+     separator_day = gtk_hseparator_new ();
+     gtk_box_pack_start (GTK_BOX (vbox), separator_day, FALSE, TRUE, 0);
+     gtk_container_add (GTK_CONTAINER (vbox), hbox_day);
+    }
     gtk_container_add (GTK_CONTAINER (frame_popup), vbox);    
+    
     separator_foot = gtk_hseparator_new ();		     
     gtk_box_pack_start (GTK_BOX (vbox), separator_foot, FALSE, TRUE, 0);    
     gtk_container_add (GTK_CONTAINER (vbox), hbox_foot);
+    
     gtk_container_add (GTK_CONTAINER (vbox), hbox_pref);
     gtk_grab_add( weather_window_popup ); 		     
 

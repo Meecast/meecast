@@ -51,7 +51,7 @@ weather_com_parser *weather_parser_new_from_file(const gchar *filename)
 
 int parse_weather_com_xml(void)
 {
-weather_com_parser *parser;
+    weather_com_parser *parser;
     xmlNode *cur_node = NULL, *child_node = NULL, *child_node2 = NULL , *child_node3 = NULL, *child_node4 = NULL; 
     int count_day=0;
     int i;
@@ -61,7 +61,6 @@ weather_com_parser *parser;
     gchar id_station[10];
     time_t current_time;
     struct tm *tm;
-    char buf[255];
     char date_in_string[255];
     int year;
 //  fprintf (stderr, "vlad: %s",get_weather_html());

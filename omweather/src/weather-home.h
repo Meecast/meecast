@@ -52,6 +52,7 @@ void hello_world_dialog_show (void);
 void weather_buttons_init(void);
 weather_com_parser *weather_com_parser_new( const gchar * weather_com );
 int parse_weather_com_xml(void);
+static gboolean update_w(gpointer data);
 /* void update_weather(GtkWidget *widget,
 		    GdkEvent *event, 
                     gpointer user_data);
@@ -59,9 +60,8 @@ int parse_weather_com_xml(void);
 void update_weather();
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);
 
+
 void weather_com_destroy_parser( weather_com_parser *weather_com );
-void update_weather(void);
-void weather_frame_update(void);
 void timer(void);
 
 
@@ -96,6 +96,6 @@ GtkWidget *icon_image;
 GtkWidget *buttons [Max_count_web_button];
 GtkWidget *labels [Max_count_web_button];
 GtkWidget *boxs [Max_count_web_button];
-GtkWidget *boxs_offset [Max_count_web_button];
+int 	   boxs_offset [Max_count_web_button];
 GtkWidget *update_window;     
-gint flag_update=0;
+guint flag_update=0;

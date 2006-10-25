@@ -53,8 +53,6 @@ extern GdkColor DEFAULT_FONT_COLOR;
 extern GSList *time_update_list;
 
 
-void config_save();
-void config_init();
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 
 

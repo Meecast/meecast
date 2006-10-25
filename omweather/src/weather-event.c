@@ -76,7 +76,6 @@ print_list(void)
 {
  static GSList *list_time_event_temp = NULL;
  struct event_time *evt;
- time_t current_time;
 
  if (event_time_list != NULL)
  { 
@@ -84,7 +83,6 @@ print_list(void)
   while (list_time_event_temp != NULL)
   {
    evt = list_time_event_temp->data;
-     fprintf (stderr,"Time %i type: %i \n",evt->time ,evt->type_event);   
    list_time_event_temp = g_slist_next(list_time_event_temp);
   }
  }
@@ -124,9 +122,8 @@ static gint compare_time (gconstpointer a, gconstpointer b)
 {
   struct event_time *evta;
   struct event_time *evtb;
-  evta =  a;
+  evta = a;
   evtb = b;
-// fprintf (stderr,"compare %i %i\n",evta->time,evtb->time); 
   return (evta->time < evtb->time) ? -1 : (evta->time > evtb->time) ? +1 : 0;
 }
 
@@ -138,7 +135,6 @@ time_event_add(time_t time_value,short int type_event)
   evt = g_new0(struct event_time, 1);
   evt->time = time_value;	  
   evt->type_event = type_event;	  
-//  event_time_list = g_slist_append(event_time_list,evt); 
   event_time_list = g_slist_insert_sorted(event_time_list,evt,compare_time);
 }
 
@@ -146,13 +142,9 @@ time_event_add(time_t time_value,short int type_event)
 void
 add_periodic_event(void)
 {
-  
-  fprintf(stderr, "UPDATE time: %i\n",_weather_periodic_update);
-
   if (_weather_periodic_update > 0)
   {
    time_event_add(time(NULL)+_weather_periodic_update*60,AUTOUPDATE);
-   fprintf (stderr,"ADD UPDATE %i\n",time(NULL));
   } 
 //  print_list();
 }

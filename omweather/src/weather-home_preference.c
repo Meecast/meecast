@@ -75,7 +75,7 @@ void changed_country(void)
 
     gcountry_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(countrys));
     /* Search country code */    
-    if (iso3166_file = fopen(COUNTRYS_FILE,"r") )
+    if ((iso3166_file = fopen(COUNTRYS_FILE,"r")) != NULL )
     {
      while(!feof(iso3166_file))
      {
@@ -106,7 +106,7 @@ void changed_country(void)
     }
     
     /* Search state or province on country and add it to combobox state */
-    if(stations_file = fopen(STATIONS_FILE,"r"))
+    if((stations_file = fopen(STATIONS_FILE,"r")) != NULL)
     {
      memset(temp_state_name, 0, sizeof(temp_state_name)); //Clear temporary value
      flag_new_state = FALSE;
@@ -165,7 +165,7 @@ void changed_state(void)
 
     gstate_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(states));
     /* Search state or province on country and add stations to combobox*/
-    if(stations_file = fopen(STATIONS_FILE,"r"))
+    if((stations_file = fopen(STATIONS_FILE,"r")) != NULL)
     {
      memset(state_name, 0, sizeof(state_name)); //Clear temporary value
      flag_necessary_state = FALSE;
@@ -352,7 +352,7 @@ weather_window_preference (GtkWidget *widget,
 
     /* Inserting Countrys to ComboBox from iso file*/
     flag = FALSE;
-    if(iso3166_file = fopen(COUNTRYS_FILE,"r"))
+    if((iso3166_file = fopen(COUNTRYS_FILE,"r")) != NULL)
     {
      while(!feof(iso3166_file))
      {
@@ -392,7 +392,7 @@ weather_window_preference (GtkWidget *widget,
     }
     if (index_station != 0)
     {
-     gtk_combo_box_set_active (stations,index_station-1);      
+     gtk_combo_box_set_active (GTK_COMBO_BOX(stations),index_station-1);      
     }
         
     weather_station_id = g_strdup(_weather_station_id);

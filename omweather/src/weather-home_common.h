@@ -89,5 +89,12 @@ struct time_update{
 
 weather_day weather_days[Max_count_weather_day];
 
-
+int get_weather_html( gboolean check_connect );
+void free_list_time_event (void);
+void add_periodic_event(void);
+void time_event_add(time_t time_value, short int type_event);
+void config_save();
+void config_init();
+void update_weather(void);
+void weather_frame_update(void);
 

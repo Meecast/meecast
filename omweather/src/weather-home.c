@@ -67,7 +67,9 @@ create_window_update(void)
     g_object_ref(G_OBJECT(update_window));
 }
 
-void  iap_callback(struct iap_event_t *event, void *arg)
+/* Callback function for request  connection to Internet */
+void  
+iap_callback(struct iap_event_t *event, void *arg)
 {
 
     switch (event->type)
@@ -92,8 +94,11 @@ void  iap_callback(struct iap_event_t *event, void *arg)
 
 }
 
-gboolean get_connected(void)
+/* Check connect to Internet and connection if it not */
+gboolean 
+get_connected(void)
 {
+    /* Register a callback function for IAP related events. */
     if (osso_iap_cb(iap_callback) != OSSO_OK)
     {
 	return FALSE;
@@ -103,12 +108,10 @@ gboolean get_connected(void)
 	return FALSE;
     }
     return TRUE;
-
 }
 
 
-
-//gchar *
+/* Get Weather xml file from weather.com */
 int
 get_weather_html( gboolean check_connect )
 {
@@ -136,23 +139,22 @@ get_weather_html( gboolean check_connect )
 	
     sprintf(full_filename, "%s/weather.com.xml.new", _weather_dir_name);
 
-    if (!(access (full_filename,W_OK))) return -1; // Not Write Access to cache weather xml file 
-      
     if(!(fd = fopen(full_filename,"w"))){
-      hildon_banner_show_information(box,NULL,"Did not download 1111111111");     
-          fprintf(stderr,"Could not open cache weather xml file %s.\n",full_filename);
-          return -1;
+      hildon_banner_show_information(box,NULL,"Did not open save xml file");     
+      fprintf(stderr,"Could not open cache weather xml file %s.\n",full_filename);
+      return -1;
     }
     fprintf (fd,"%s",hResponse.pData);
     fclose (fd);
       hildon_banner_show_information(box,NULL,"Weather updated");     
     return 0;
-  }                                                                                                                          
+  } 
+  return -3;                                                                                                                         
 }
 
  
-static 
- gboolean popup_window_event_cb( GtkWidget *widget, 
+static gboolean 
+popup_window_event_cb( GtkWidget *widget, 
                                  GdkEvent *event, 
                                  gpointer user_data )
 {
@@ -160,16 +162,17 @@ static
      gtk_widget_get_pointer(widget, &x, &y);
      gint w = widget->allocation.width;
      gint h = widget->allocation.height;
-     if (!( (x >= 0) && (x <= w) && (y >= 0) && (y <= h) )) {
+     if (!( (x >= 0) && (x <= w) && (y >= 0) && (y <= h) )) 
+     {
          gtk_widget_destroy (widget);
-
      } 
+    return TRUE; 
 }
 
 
 static gboolean
- enter_button (GtkWidget        *widget,
-                          GdkEventCrossing *event)
+enter_button (GtkWidget        *widget,
+              GdkEventCrossing *event)
 {
    GtkButton *button;
    GtkWidget *event_widget;
@@ -235,7 +238,10 @@ weather_window_popup_show (GtkWidget *widget,
     vbox = gtk_vbox_new (FALSE, 0);
     hbox_title_location = gtk_hbox_new (FALSE, 0);
     hbox_title_date = gtk_hbox_new (FALSE, 0);
-    label_location = gtk_label_new (weather_days[i].location);
+    if (i<DAY_DOWNLOAD) /* Show full or short name station */
+     label_location = gtk_label_new (weather_days[i].location);
+    else 
+     label_location = gtk_label_new (_weather_station_name);
     
     sprintf(buffer,"%s, %s",weather_days[i].dayshname,weather_days[i].date);
     label_date = gtk_label_new (buffer);
@@ -338,10 +344,11 @@ weather_window_popup_show (GtkWidget *widget,
     
     gtk_box_pack_end (GTK_BOX (hbox_pref),button_pref, FALSE, FALSE, 0);
     /* End PREFERENCE UPDATE */
+    
     /* Packing elements */
+    gtk_container_add (GTK_CONTAINER (vbox), hbox_title_location);
     if (i<DAY_DOWNLOAD) /* Check null data buttons */
     {
-     gtk_container_add (GTK_CONTAINER (vbox), hbox_title_location);
      gtk_container_add (GTK_CONTAINER (vbox), hbox_title_date);
      separator_title = gtk_hseparator_new ();
      gtk_box_pack_start (GTK_BOX (vbox), separator_title, FALSE, TRUE, 0);
@@ -566,6 +573,7 @@ weather_buttons_fill(void)
 
   flag_last_day = FALSE;
   offset = 0;
+  last_day = 0;
   weather_buttons_init();
   count_day=parse_weather_com_xml();
 //  if  (count_day == -1)  {count_day=0; fprintf(stderr,"Error on xml file");} // Error on xml file
@@ -598,8 +606,7 @@ weather_buttons_fill(void)
     /* Time event add to event list */
     if ( (current_day < weather_days[offset].date_time) && (offset < count_day ) )
     {
-      
-       time_event_add(weather_days[offset].date_time,DAYTIMEEVENT);  /* Add time event  to list */	  
+      time_event_add(weather_days[offset].date_time,DAYTIMEEVENT);  /* Add time event  to list */	  
       last_day = weather_days[offset].date_time;	  
     }      
 
@@ -622,7 +629,7 @@ weather_buttons_fill(void)
      /* Create output string */
      sprintf(buffer,"<span foreground='#%02x%02x%02x'>N/A\nN/A°\nN/A°</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
-     sprintf(buffer_icon,"%s48.png",path_large_icon,weather_days[offset].day.icon);         
+     sprintf(buffer_icon,"%s48.png",path_large_icon);         
      /* Add time event to list for next day after last day in xml file */
      if (!flag_last_day)
      {
@@ -690,7 +697,7 @@ weather_frame_update (void)
 }
 
 /* For window update */
-void 
+static gboolean 
 update_w(gpointer data)
 {
  if (get_weather_html(TRUE) == 0)
@@ -702,13 +709,14 @@ update_w(gpointer data)
  g_object_unref(G_OBJECT(update_window));
  gtk_widget_destroy (update_window);
  gtk_widget_destroy (weather_window_popup);
+ return TRUE;
 }
 
 void 
 update_weather(void)
 {
  create_window_update();
- flag_update = g_timeout_add (100, update_w, box);
+ flag_update = g_timeout_add (100, (GFunc)update_w, NULL);
 }
 
 

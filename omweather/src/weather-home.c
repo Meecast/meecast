@@ -698,14 +698,21 @@ weather_buttons_fill(void)
      if (strcmp(_weather_icon_size,"Large") == 0)
       set_font_size(labels[i],FONT_MAIN_SIZE_LARGE);
      else
-      set_font_size(labels[i],FONT_MAIN_SIZE_SMALL);
+      if (strcmp(_weather_icon_size,"Medium") == 0)
+       set_font_size(labels[i],FONT_MAIN_SIZE_MEDIUM);      
+      else
+       set_font_size(labels[i],FONT_MAIN_SIZE_SMALL);
      /* Create box for image and label */
      boxs[i] = gtk_hbox_new (FALSE, 0);
      /* Select size Icon */
      if (strcmp(_weather_icon_size,"Large") == 0)
       icon = gdk_pixbuf_new_from_file_at_size (buffer_icon,64,64,NULL);
-     else 
-      icon = gdk_pixbuf_new_from_file_at_size (buffer_icon,32,32,NULL);
+     else
+      if (strcmp(_weather_icon_size,"Medium") == 0)
+       icon = gdk_pixbuf_new_from_file_at_size (buffer_icon,48,48,NULL);
+      else
+       icon = gdk_pixbuf_new_from_file_at_size (buffer_icon,32,32,NULL);
+      
      icon_image = gtk_image_new_from_pixbuf (icon);
      /* Packing buttons to box */
      gtk_box_pack_start (GTK_BOX (boxs[i]), icon_image, FALSE, FALSE, 0);
@@ -749,7 +756,10 @@ weather_buttons_fill(void)
     if (strcmp(_weather_icon_size,"Large") == 0)
        set_font_size(label_start,FONT_MAIN_SIZE_LARGE);
     else 
-       set_font_size(label_start,FONT_MAIN_SIZE_SMALL);              
+     if (strcmp(_weather_icon_size,"Medium") == 0)
+      set_font_size(label_start,FONT_MAIN_SIZE_MEDIUM);              
+     else
+      set_font_size(label_start,FONT_MAIN_SIZE_SMALL);              
        
     gtk_box_pack_start (GTK_BOX (stations_hbox), label_start, FALSE, FALSE, 0); 
     gtk_container_add (GTK_CONTAINER (box_not_station),stations_hbox);  
@@ -803,7 +813,10 @@ weather_buttons_fill(void)
       if (strcmp(_weather_icon_size,"Large") == 0)
        set_font_size(ws->label_box,FONT_MAIN_SIZE_LARGE);
       else 
-       set_font_size(ws->label_box,FONT_MAIN_SIZE_SMALL);       
+       if (strcmp(_weather_icon_size,"Medium") == 0)
+        set_font_size(ws->label_box,FONT_MAIN_SIZE_MEDIUM);       
+       else	     
+        set_font_size(ws->label_box,FONT_MAIN_SIZE_SMALL);       
        
 
       gtk_box_pack_start (GTK_BOX (stations_hbox), label_start, FALSE, FALSE, 0); 

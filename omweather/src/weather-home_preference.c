@@ -592,12 +592,16 @@ weather_window_preference (GtkWidget *widget,
             1, 2, 0, 1);
     gtk_container_add(GTK_CONTAINER(label),icon_size = gtk_combo_box_new_text());
     gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), "Large");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), "Medium");
     gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), "Small");
     if (strcmp(_weather_icon_size,"Large") == 0)
       gtk_combo_box_set_active (GTK_COMBO_BOX(icon_size),0);
     else
-      gtk_combo_box_set_active (GTK_COMBO_BOX(icon_size),1);      
-
+      if (strcmp(_weather_icon_size,"Medium") == 0)  
+       gtk_combo_box_set_active (GTK_COMBO_BOX(icon_size),1);      
+      else
+       gtk_combo_box_set_active (GTK_COMBO_BOX(icon_size),2);      
+       
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_label_new("Font color:"),
             0, 1, 1, 2);

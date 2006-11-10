@@ -43,13 +43,13 @@
 
 #include <unistd.h>
 
-#define VERSION "0.12"
+#define VERSION "0.13"
 #define APPNAME "omweather"
 
 
 
 
-/* Set font size. Usually on label widget*/
+/* Set font size. Usually on label widget */
 void
 set_font_size(GtkWidget *widget, char font_size)
 {
@@ -120,13 +120,20 @@ get_weather_html( gboolean check_connect )
     HTTP_Response hResponse;
     HTTP_Extra  hExtra;
     GString *url;
-   
+    GSList *tmplist = NULL;
+    struct weather_station *ws;
+    
+    
    if (check_connect)  get_connected();    
 
-   if (_weather_station_id != NULL)
+   tmplist = stations_view_list;
+   while (tmplist != NULL)
+   {
+     ws = tmplist->data;
+   if (ws->id_station != NULL)
    {
     url = g_string_new (NULL);        
-    g_string_append_printf (url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=10",_weather_station_id);
+    g_string_append_printf (url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=10",ws->id_station);
 //      g_string_append (url,"s=");
     memset(&hExtra, '\0', sizeof(hExtra));
     hResponse = http_request(url->str,&hExtra,kHMethodGet,HFLAG_NONE);
@@ -137,7 +144,7 @@ get_weather_html( gboolean check_connect )
 	     return -2;	       
         }
 	
-    sprintf(full_filename, "%s/weather.com.xml.new", _weather_dir_name);
+    sprintf(full_filename, "%s/%s.xml.new", _weather_dir_name,ws->id_station);
 
     if(!(fd = fopen(full_filename,"w"))){
       hildon_banner_show_information(box,NULL,"Did not open save xml file");     
@@ -147,9 +154,11 @@ get_weather_html( gboolean check_connect )
     fprintf (fd,"%s",hResponse.pData);
     fclose (fd);
       hildon_banner_show_information(box,NULL,"Weather updated");     
-    return 0;
-  } 
-  return -3;                                                                                                                         
+  }
+   tmplist = g_slist_next(tmplist);
+  }
+   
+  return 0;                                                                                                                         
 }
 
  
@@ -182,6 +191,34 @@ enter_button (GtkWidget        *widget,
    button->in_button = FALSE;
    gtk_button_leave (button);
    return FALSE;
+}
+
+/* Change station at main display */
+static gboolean
+change_station (GtkWidget *widget,
+                           GdkEvent *event,
+                           gpointer user_data)
+{
+
+  GSList *tmplist = NULL;
+  struct weather_station *ws;
+  tmplist = stations_view_list;
+  while (tmplist != NULL)
+  {
+   ws = tmplist->data;
+   if ( ws->box == widget ) 
+   {
+     /* Check active station */ 
+     if (strcmp(_weather_station_id, ws->id_station)!=0)
+     {
+      _weather_station_id = ws->id_station;
+      weather_frame_update();
+      break;
+     } 
+   }     
+   tmplist = g_slist_next(tmplist);
+  }
+ return TRUE;
 }
 
 
@@ -218,7 +255,10 @@ weather_window_popup_show (GtkWidget *widget,
     int i;
     for (i=0;i<Max_count_web_button;i++)
      if ( buttons[i] == widget ) 
-      break;
+      break;  
+    if ( i >= Max_count_web_button)   
+      return FALSE; /* Not found pressed button */
+    
     i = boxs_offset[i];  
     
     /* Create POPUP WINDOW */ 
@@ -271,7 +311,7 @@ weather_window_popup_show (GtkWidget *widget,
     label_temp = gtk_label_new ("Temperature: ");
     set_font_size(label_temp,18);
 
-    sprintf(buffer,"%s°C-%s°C",weather_days[i].low_temp,weather_days[i].hi_temp);    
+    sprintf(buffer,"%s°C  %s°C",weather_days[i].low_temp,weather_days[i].hi_temp);    
     label_value_temp = gtk_label_new (buffer);
     gtk_box_pack_start (GTK_BOX (hbox_temp),label_temp, FALSE, FALSE, 5);
     gtk_box_pack_start (GTK_BOX (hbox_temp),label_value_temp, FALSE, FALSE, 5);
@@ -322,7 +362,7 @@ weather_window_popup_show (GtkWidget *widget,
     
     /* Begin FOOT */
     hbox_foot = gtk_hbox_new (FALSE, 0);
-    sprintf(full_filename, "%s/weather.com.xml", _weather_dir_name);
+    sprintf(full_filename, "%s/%s.xml", _weather_dir_name,_weather_station_id);
     if (stat (full_filename, &statv)) { sprintf(buffer,"Last update: Unknown"); }
      else { 
     	    sprintf(buffer,"Last update: \n%s",ctime(&statv.st_mtime));
@@ -564,12 +604,18 @@ void weather_buttons_init(void)
 void 
 weather_buttons_fill(void)
 {
+  GtkWidget *label, *label_start,*label_end, *stations_hbox, *box_not_station;
+
+
   int i, offset, count_day;
   gchar buffer[2048];
   gchar buffer_icon[2048];
   time_t current_day,last_day;
   struct tm *tm;
   gboolean flag_last_day;
+  guint count_stations;
+  GSList *tmplist = NULL;
+  struct weather_station *ws;
 
   flag_last_day = FALSE;
   offset = 0;
@@ -587,7 +633,8 @@ weather_buttons_fill(void)
   free_list_time_event();
   /* add periodic update */
   add_periodic_event();
-    
+
+  box = gtk_hbox_new ( FALSE , 0);    
   for (i=0;i<Max_count_web_button; i++)
   {    
     /* Search day of saving xml near current day */
@@ -595,12 +642,12 @@ weather_buttons_fill(void)
     {
      offset ++;
     }
-     /* If it first button add to evenet tine change between nigth and day */
+     /* If it first button add to evenet time change between nigth and day */
     if  (current_day == weather_days[offset].date_time) 
     {
-     if (time(NULL)<weather_days[offset].day.begin_time)
+     if (time(NULL) < weather_days[offset].day.begin_time)
       time_event_add(weather_days[offset].day.begin_time,DAYTIMEEVENT);
-     if (time(NULL)<weather_days[offset].night.begin_time)  
+     if (time(NULL) < weather_days[offset].night.begin_time)  
       time_event_add(weather_days[offset].night.begin_time,DAYTIMEEVENT);
     }
     /* Time event add to event list */
@@ -673,33 +720,146 @@ weather_buttons_fill(void)
      		       G_CALLBACK (enter_button),
      		       NULL); 
     offset ++;
+
   }
-  gtk_widget_show_all (box);
+  
+   /* Forming table with name station and button */
+   count_stations = g_slist_length(stations_view_list);
+   if (count_stations >0)
+    gtk_box_pack_start(GTK_BOX(box_zero),
+                      main_table = gtk_table_new( 2,count_stations,FALSE), TRUE, TRUE, 0);
+   else
+   {
+    /* Forming label NO STATION */
+    gtk_box_pack_start(GTK_BOX(box_zero),
+                      main_table = gtk_table_new( 2,1,FALSE), TRUE, TRUE, 0);   		      
+    gtk_table_attach_defaults(GTK_TABLE(main_table),	    
+            box_not_station = gtk_button_new(),
+	    0, 1 , 0, 1);		      
+    
+    gtk_button_set_relief (GTK_BUTTON(box_not_station),GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click (GTK_BUTTON(box_not_station),FALSE);    	    
+    stations_hbox = gtk_hbox_new (FALSE, 0);
+    label_start=gtk_label_new (NULL);
+    sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>/ NO SELECTED STATION \\</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
+    gtk_label_set_markup (GTK_LABEL (label_start),buffer);		
+
+             
+    if (strcmp(_weather_icon_size,"Large") == 0)
+       set_font_size(label_start,FONT_MAIN_SIZE_LARGE);
+    else 
+       set_font_size(label_start,FONT_MAIN_SIZE_SMALL);              
+       
+    gtk_box_pack_start (GTK_BOX (stations_hbox), label_start, FALSE, FALSE, 0); 
+    gtk_container_add (GTK_CONTAINER (box_not_station),stations_hbox);  
+    
+   }		      
+		      
+   tmplist = stations_view_list;
+   i = 0;
+   while (tmplist != NULL)
+   {
+      ws = tmplist->data;
+      gtk_table_attach_defaults(GTK_TABLE(main_table),	    
+            ws->box = gtk_button_new (),
+	    i, i+1 , 0, 1);
+      gtk_button_set_relief (GTK_BUTTON(ws->box),GTK_RELIEF_NONE);
+      gtk_button_set_focus_on_click (GTK_BUTTON(ws->box),FALSE);    	    
+      stations_hbox = gtk_hbox_new (FALSE, 0);
+      ws->label_box=gtk_label_new (NULL);
+      label_start=gtk_label_new (NULL);
+      label_end=gtk_label_new (NULL);
+      if (strcmp(ws->id_station,_weather_station_id)==0)
+      {
+       sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+                ws->name_station);
+       gtk_label_set_markup (GTK_LABEL (ws->label_box),buffer);		
+       sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>/</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
+       gtk_label_set_markup (GTK_LABEL (label_start),buffer);		
+       sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>\\</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
+       gtk_label_set_markup (GTK_LABEL (label_end),buffer);		
+       
+      }
+      else
+      {
+       sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+                ws->name_station);
+       gtk_label_set_markup (GTK_LABEL (ws->label_box),buffer);		
+       sprintf(buffer,"<span  foreground='#%02x%02x%02x'>/</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
+       gtk_label_set_markup (GTK_LABEL (label_start),buffer);				
+       sprintf(buffer,"<span  foreground='#%02x%02x%02x'>\\</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
+       gtk_label_set_markup (GTK_LABEL (label_end),buffer);				
+       
+       
+      }		
+      
+      if (strcmp(_weather_icon_size,"Large") == 0)
+       set_font_size(ws->label_box,FONT_MAIN_SIZE_LARGE);
+      else 
+       set_font_size(ws->label_box,FONT_MAIN_SIZE_SMALL);       
+       
+
+      gtk_box_pack_start (GTK_BOX (stations_hbox), label_start, FALSE, FALSE, 0); 
+      gtk_box_pack_end (GTK_BOX (stations_hbox), label_end, FALSE, FALSE, 0);       
+      gtk_box_pack_end (GTK_BOX (stations_hbox), ws->label_box, TRUE, TRUE, 0); 
+
+      gtk_container_add (GTK_CONTAINER (ws->box),stations_hbox);
+      
+      /* Connect signal button */
+      g_signal_connect (ws->box, "released",
+		        G_CALLBACK (change_station),		
+		        NULL);  		    
+      g_signal_connect (ws->box, "enter",
+     		        G_CALLBACK (enter_button),
+     		        NULL); 
+
+      
+      i++;	    
+      tmplist = g_slist_next(tmplist);
+   }
+//      /* Select size font on desktop */	    
+   if (count_stations >0)
+   gtk_table_attach_defaults(GTK_TABLE(main_table),	    
+            box,
+            0,count_stations, 1, 2);
+   else
+   {
+   gtk_table_attach_defaults(GTK_TABLE(main_table),	    
+            box,
+            0, 1, 1, 2);          	    
+   }	    
+   gtk_widget_show_all (box_zero);
 }
 
 GtkWidget *
 weather_frame_new (void)
 {
-  box =  gtk_hbox_new ( FALSE , 0); 
+  box_zero =  gtk_hbox_new ( FALSE , 0); 
   weather_buttons_fill();
-  return box;
+  return box_zero;
+  
 }
 
 void
 weather_frame_update (void)
 {
- int i;
- for (i=0;i<Max_count_web_button; i++)
- {
-  if (buttons[i]) gtk_widget_destroy(buttons[i]);
- }
- weather_buttons_fill();
+  gtk_widget_destroy(main_table);
+  box = gtk_hbox_new ( FALSE , 0);  
+  weather_buttons_fill();
 }
 
 /* For window update */
 static gboolean 
 update_w(gpointer data)
 {
+
  if (get_weather_html(TRUE) == 0)
  {
    weather_frame_update();
@@ -707,8 +867,8 @@ update_w(gpointer data)
  gtk_timeout_remove(flag_update);
  flag_update = 0;
  g_object_unref(G_OBJECT(update_window));
- gtk_widget_destroy (update_window);
- gtk_widget_destroy (weather_window_popup);
+ if (update_window) gtk_widget_destroy (update_window);
+ if (weather_window_popup) gtk_widget_destroy (weather_window_popup);
  return TRUE;
 }
 

@@ -38,6 +38,8 @@
 #define AUTOUPDATE 1
 #define DAYTIMEEVENT 2
 #define DAY_DOWNLOAD 10
+#define STATIONS_FILE "/usr/share/weather/stations.txt"
+#define COUNTRYS_FILE "/usr/share/weather/iso3166-countrycodes.txt"
 
 
 typedef struct
@@ -87,7 +89,17 @@ struct time_update{
 };
 
 
+struct weather_station{
+	gchar *name_station;
+	gchar *id_station;
+        GtkWidget *box;
+	GtkWidget *label_box;
+};
+
 weather_day weather_days[Max_count_weather_day];
+
+/* Stations List of view in plugin */
+GSList *stations_view_list; 
 
 int get_weather_html( gboolean check_connect );
 void free_list_time_event (void);

@@ -1,3 +1,9 @@
+omweather (0.13) unstable; urgency=low
+
+  * Add multistations
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 10 Nov 2006 11:07:52 +0200
+
 omweather (0.12) unstable; urgency=low
 
   * Simple decor window popup

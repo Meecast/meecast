@@ -82,6 +82,98 @@ add_time_update_list(gint _between_time, gchar *_time_name)
     time_update_list = g_slist_append(time_update_list, tu);
 }
 
+void
+fill_station_inform( struct weather_station *ws)
+{
+  FILE *stations_file;  
+  char state_name[21];
+  unsigned char out_buffer[1024]; /* buffer for work with stations.txt files*/
+  char temp_station_name[21];
+  char temp_station_code[9];
+  int i;
+    /* Search state or province on country and add stations to combobox*/
+    if((stations_file = fopen(STATIONS_FILE,"r")) != NULL)
+    {
+     memset(state_name, 0, sizeof(state_name)); //Clear temporary value
+     while(!feof(stations_file))
+     {
+      memset(out_buffer, 0, sizeof(out_buffer)); //Clear buffer
+      fgets(out_buffer, sizeof(out_buffer), stations_file);//Read Next Line
+      memset(temp_station_name, 0, sizeof(temp_station_name)); //Clear buffer
+      if ( (strlen(out_buffer)>27) && ((char)out_buffer[0] != '!') )
+      {  
+        /* Is it country or state or province name ? */
+    	if ( out_buffer[19] != ' ' )
+	{
+	  sprintf(state_name,"%.19s",out_buffer);
+	} 	
+	/* Check for wrong string */ 
+	if ( strlen(out_buffer)>90 ) 
+	{
+	  /* Prepare strings station_name and code_name for work */
+	  for (i=3;i<19;i++) temp_station_name[i-3] = out_buffer[i];
+	  for (i=84;i<92;i++) temp_station_code[i-84] = out_buffer[i];
+	  temp_station_code[8]=0;
+	  if ( strcmp(ws->id_station,temp_station_code) == 0 )
+	  {
+	   ws->name_station = g_strdup(temp_station_name);	   
+	  } 
+	}    	  
+      } 
+     }
+    }
+}
+/* Reinitialize stations list */
+void
+reinitilize_stations_list(gchar *stations_string)
+{
+ struct weather_station *ws;
+// int bpos; /* Begin position station ID */
+ gchar *temp1= NULL, *temp2 = NULL;
+ stations_view_list = NULL; /* Initialize value */
+ 
+ temp1=strdup(stations_string);
+ /* Delimit stations Id string */
+ if (strlen(temp1)>0) 
+ {
+  temp2=strtok(temp1,"@\0"); /* Delimiter between ID - @ */
+  if (temp2 != NULL )  /* Check random error */      
+  do
+   {
+    if (strlen(temp2)>0)
+    {
+     ws = g_new0(struct weather_station,1);
+     ws->id_station = g_strdup(temp2);
+     fill_station_inform(ws);
+     stations_view_list = g_slist_append(stations_view_list, ws); /* Add station to stations list */
+    }
+    temp2=strtok(NULL,"@\0"); /* Delimiter between ID - @ */
+   } while (temp2 != NULL);
+ }  
+}
+
+/* Prepare stations ID list  to write config file */
+gchar *
+prepare_idlist_string (void)
+{
+   GString *result_string;
+   GSList *tmplist = NULL;
+   struct weather_station *ws;
+
+   /* Initialize value */
+   tmplist = stations_view_list;
+   result_string = g_string_new (NULL);
+   
+   while (tmplist != NULL)
+   {
+      ws = tmplist->data;
+      g_string_append(result_string,ws->id_station);
+      g_string_append_c(result_string,'@'); /* @ - delimiter */
+      tmplist = g_slist_next(tmplist);
+   }      
+   return g_string_free (result_string,FALSE);
+}
+
 /*
  * Initialize all configuration from GCONF.  This should not be called more
  * than once during execution.
@@ -113,6 +205,16 @@ config_init()
 	/* Get Weather Station ID  */
         _weather_station_id = gconf_client_get_string(gconf_client,
                      GCONF_KEY_WEATHER_STATION_ID, NULL);
+
+	/* Get Weather Stations ID  */
+        tmp = gconf_client_get_string(gconf_client,
+                     GCONF_KEY_WEATHER_STATION_IDS, NULL);
+        if(tmp)		     
+	 reinitilize_stations_list(tmp);
+	else
+	 if (_weather_station_id)
+	    reinitilize_stations_list(_weather_station_id);
+
 	/* Get Weather Icon Size  */		     
         _weather_icon_size = gconf_client_get_string(gconf_client,
               GCONF_KEY_WEATHER_ICON_SIZE, NULL);
@@ -148,8 +250,7 @@ config_init()
 	add_time_update_list(4*60,"4 hours");
 	add_time_update_list(8*60,"8 hours");
 	add_time_update_list(24*60,"24 hours");
-	add_time_update_list(1,"1 minute (DEBUG)");
-
+	add_time_update_list(1,"1 minute (DEBUG)");    
 }
  
 /**
@@ -159,6 +260,7 @@ void
 config_save()
 {
     gchar temp_buffer[16];
+    gchar *idlist_string;
     GConfClient *gconf_client = gconf_client_get_default();
     
     if(!gconf_client)
@@ -166,7 +268,6 @@ config_save()
         fprintf(stderr,"Failed to initialize GConf.  Settings were not saved.\n");
         return;
     }
-
     /* Save Weather Cache Directory. */
     if(_weather_dir_name)
         gconf_client_set_string(gconf_client,
@@ -174,9 +275,9 @@ config_save()
     /* Save Weather country name. */
     if(_weather_country_name)
         gconf_client_set_string(gconf_client,
-            GCONF_KEY_WEATHER_COUNTRY_NAME, _weather_country_name, NULL);
+            GCONF_KEY_WEATHER_COUNTRY_NAME, _weather_country_name, NULL);	    
     /* Save Weather state or province name. */
-    if(_weather_country_name)
+    if(_weather_state_name)
         gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_STATE_NAME, _weather_state_name, NULL);
     /* Save Weather station name. */
@@ -187,6 +288,14 @@ config_save()
     if(_weather_station_id)
         gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_STATION_ID, _weather_station_id, NULL);
+    /* Save Weather station ids. */	    
+    idlist_string = prepare_idlist_string();
+    if (idlist_string)
+      {
+        gconf_client_set_string(gconf_client,
+            GCONF_KEY_WEATHER_STATION_IDS, idlist_string, NULL);
+	g_free(idlist_string);
+      }
     /* Save Weather Icon Size  */		     	    
     if(_weather_icon_size)
         gconf_client_set_string(gconf_client,
@@ -199,10 +308,12 @@ config_save()
      gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_FONT_COLOR, temp_buffer, NULL);
     /* Save Weather Update setting  */
-    sprintf(temp_buffer,"%i",_weather_periodic_update);		     	         
-    gconf_client_set_string(gconf_client,
+    if(_weather_periodic_update)
+    {
+     sprintf(temp_buffer,"%i",_weather_periodic_update);		     	         
+     gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_PERIODIC_UPDATE, temp_buffer, NULL);
-	    
+    }	    
      g_object_unref(gconf_client);
 
 	    

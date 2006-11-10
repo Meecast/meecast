@@ -36,4 +36,4 @@ extern GtkWidget *box;
 extern GSList *event_time_list;
 extern int _weather_periodic_update;
 extern gchar *_weather_dir_name;
-
+extern gboolean not_event;

@@ -36,39 +36,41 @@ timer_handler(gpointer data)
  struct event_time *evt;
  time_t current_time;
 
- if (event_time_list != NULL)
- { 
-  list_time_event_temp = event_time_list;  
-  /* get current time */  
-  current_time = time(NULL);
-  while (list_time_event_temp != NULL)
-  {
-   evt = list_time_event_temp->data;
-   if (evt->time < current_time)
+ if (not_event == FALSE)
+ {
+  if (event_time_list != NULL)
+  { 
+   list_time_event_temp = event_time_list;  
+   /* get current time */  
+   current_time = time(NULL);
+   while (list_time_event_temp != NULL)
    {
-    switch (evt->type_event)
+    evt = list_time_event_temp->data;
+    if (evt->time < current_time)
     {
-     case DAYTIMEEVENT :
-    			weather_frame_update();   
-			break;
-     case AUTOUPDATE:
-    			fprintf (stderr,"AUTOAPDTAE:\n");
-			if (get_weather_html(FALSE) == 0)
-			{
+     switch (evt->type_event)
+     {
+      case DAYTIMEEVENT :
+     			 weather_frame_update();   
+			 break;
+      case AUTOUPDATE:
+			 if (get_weather_html(FALSE) == 0)
+			 {
 			   weather_frame_update();
-			}
-			/* Reinitialise autoupdate event */ 
-		        /* delete periodic update */
-                        event_time_list=g_slist_remove(event_time_list,event_time_list->data);
-                        /* add periodic update */
-                        add_periodic_event();
-    		        break;		    
-    }
-   break;
-   }             
-   list_time_event_temp = g_slist_next(list_time_event_temp);
+			 }
+			 /* Reinitialise autoupdate event */ 
+		         /* delete periodic update */
+                         event_time_list=g_slist_remove(event_time_list,event_time_list->data);
+                         /* add periodic update */
+                         add_periodic_event();
+    		         break;		    
+     }
+    break;
+    }             
+    list_time_event_temp = g_slist_next(list_time_event_temp);
+   }
   }
- }
+ } 
 }
 
 void 

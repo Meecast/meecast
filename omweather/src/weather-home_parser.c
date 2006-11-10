@@ -77,7 +77,7 @@ int parse_weather_com_xml(void)
     tm=localtime(&current_time);
     year = 1900+tm->tm_year;
 
-    sprintf(buffer, "%s/weather.com.xml.new", _weather_dir_name); //Used new file 
+    sprintf(buffer, "%s/%s.xml.new", _weather_dir_name,_weather_station_id); //Used new file 
     if (access (buffer,R_OK) == 0)  // Not Access to cache weather xml file 
     { 
     
@@ -85,13 +85,13 @@ int parse_weather_com_xml(void)
 	parser=weather_parser_new_from_file(buffer); 
 	    if (!(parser->error))
 	    {
-		sprintf(newname, "%s/weather.com.xml", _weather_dir_name);
+		sprintf(newname, "%s/%s.xml", _weather_dir_name,_weather_station_id);
 		rename (buffer,newname);
 	    }
     }
     if ((access (buffer,R_OK) != 0)||(parser->error)) //Used old xml file
     {
-	sprintf(buffer, "%s/weather.com.xml", _weather_dir_name);
+	sprintf(buffer, "%s/%s.xml", _weather_dir_name,_weather_station_id);
 	// Not Access to cache weather xml file or not valid XML file
 	if (access (buffer,R_OK) == 0)
 	{ 
@@ -109,7 +109,6 @@ int parse_weather_com_xml(void)
         if (!xmlStrcmp(cur_node->name, (const xmlChar *) "loc" ) )
 	{
 	 sprintf(id_station,"%.8s",xmlGetProp(cur_node,"id"));
-	 
 	 /* If station in xml not station in config file exit */ 
 	 if ( strcmp(id_station,_weather_station_id) != 0 ) return -1;
 	 
@@ -134,7 +133,7 @@ int parse_weather_com_xml(void)
             {
 	     if ( count_day < Max_count_weather_day ) /* Check limit day */
 	     {
-	      fprintf (stderr,"Count day: %i\n",count_day);
+	      fprintf (stderr,"Count day-: %i\n",count_day);
 	      count_day++; 
 	      printf("   Child=%s\n", child_node->name);
 	      sprintf(weather_days[count_day-1].dayshname,"%.2s",xmlGetProp(child_node,"t"));
@@ -144,8 +143,6 @@ int parse_weather_com_xml(void)
 //	      strptime(date_in_string, "%b %d %Y %T", &weather_days[count_day-1].date_tm);
 	      strptime(date_in_string, "%b %d %Y %T", tm);
 	      weather_days[count_day-1].date_time = mktime(tm);
-	      
-
 	       
 	      for(child_node2 = child_node->children; child_node2 != NULL; child_node2 = child_node2->next)
 	      {

@@ -89,8 +89,11 @@ GSList *event_time_list = NULL;
 /* List times between two updates */
 GSList *time_update_list = NULL;
 
+/* Value use for not call event function */
+gboolean not_event = FALSE;
 
-GtkWidget *box;
+GtkWidget *box,*box_zero;
+GtkWidget *main_table;
 GdkPixbuf *icon;
 GtkWidget *icon_image;
 GtkWidget *buttons [Max_count_web_button];

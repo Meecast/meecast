@@ -30,8 +30,6 @@
 #include <gtk/gtk.h>
 #include "weather-home_common.h"
 
-#define STATIONS_FILE "/usr/share/weather/stations.txt"
-#define COUNTRYS_FILE "/usr/share/weather/iso3166-countrycodes.txt"
 extern GtkWidget *box;
 extern gchar *_weather_dir_name;
 extern gchar *_weather_country_name;
@@ -43,12 +41,16 @@ extern int    _weather_periodic_update;
 extern GdkColor _weather_font_color;
 extern GtkWidget *weather_window_popup;  
 extern GSList *time_update_list;
+extern gboolean not_event;
 
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);
+void fill_station_list_view (GtkWidget *station_list_view,GtkWidget *station_list_store);
 
 GtkWidget  *countrys, *states, *stations, *icon_size, *update_time; 
 
-static GSList *stations_list = NULL;
+static GSList *stations_list_in_state = NULL; /* Station list of country or state or province.  Use in combobox*/
+static GtkListStore *station_list_store;
+static GtkWidget *station_list_view;
 
 struct station_and_weather_code {
         gchar *station_name;
@@ -58,5 +60,5 @@ struct station_and_weather_code {
 gchar *weather_station_id;
 int index_state = 0; // Position state of the list 
 int index_station = 0; // Position station of the list 
-
+static char flag_update_station = FALSE; //Flag update station list
 	

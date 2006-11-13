@@ -293,7 +293,8 @@ weather_window_popup_show (GtkWidget *widget,
                                          26, 0);
     icon_update = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_update));
     button_update = gtk_button_new ();
-    gtk_button_set_relief (GTK_BUTTON(button_update),GTK_RELIEF_NONE);
+    if (_enable_transparency)
+     gtk_button_set_relief (GTK_BUTTON(button_update),GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click (GTK_BUTTON(button_update),FALSE);
     gtk_container_add (GTK_CONTAINER (button_update), icon_update);
     gtk_widget_set_events (button_update, GDK_BUTTON_PRESS_MASK);
@@ -476,7 +477,8 @@ weather_window_popup_show_future (GtkWidget *widget,
                                          26, 0);
     icon_update = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_update));
     button_update = gtk_button_new ();
-    gtk_button_set_relief (GTK_BUTTON(button_update),GTK_RELIEF_NONE);
+    if (_enable_transparency)
+     gtk_button_set_relief (GTK_BUTTON(button_update),GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click (GTK_BUTTON(button_update),FALSE);
     gtk_container_add (GTK_CONTAINER (button_update), icon_update);
     gtk_widget_set_events (button_update, GDK_BUTTON_PRESS_MASK);
@@ -689,7 +691,8 @@ weather_buttons_fill(void)
      boxs_offset[i] = offset;
      /* Prepare butons for view */   
      buttons[i] = gtk_button_new ();
-     gtk_button_set_relief (GTK_BUTTON(buttons[i]),GTK_RELIEF_NONE);
+     if (_enable_transparency)
+      gtk_button_set_relief (GTK_BUTTON(buttons[i]),GTK_RELIEF_NONE);
      gtk_button_set_focus_on_click (GTK_BUTTON(buttons[i]),FALSE);    
      labels[i]=gtk_label_new (NULL);
      gtk_label_set_markup (GTK_LABEL (labels[i]),buffer);
@@ -743,8 +746,8 @@ weather_buttons_fill(void)
     gtk_table_attach_defaults(GTK_TABLE(main_table),	    
             box_not_station = gtk_button_new(),
 	    0, 1 , 0, 1);		      
-    
-    gtk_button_set_relief (GTK_BUTTON(box_not_station),GTK_RELIEF_NONE);
+    if (_enable_transparency) 
+     gtk_button_set_relief (GTK_BUTTON(box_not_station),GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click (GTK_BUTTON(box_not_station),FALSE);    	    
     stations_hbox = gtk_hbox_new (FALSE, 0);
     label_start=gtk_label_new (NULL);
@@ -774,7 +777,8 @@ weather_buttons_fill(void)
       gtk_table_attach_defaults(GTK_TABLE(main_table),	    
             ws->box = gtk_button_new (),
 	    i, i+1 , 0, 1);
-      gtk_button_set_relief (GTK_BUTTON(ws->box),GTK_RELIEF_NONE);
+      if (_enable_transparency)
+       gtk_button_set_relief (GTK_BUTTON(ws->box),GTK_RELIEF_NONE);
       gtk_button_set_focus_on_click (GTK_BUTTON(ws->box),FALSE);    	    
       stations_hbox = gtk_hbox_new (FALSE, 0);
       ws->label_box=gtk_label_new (NULL);

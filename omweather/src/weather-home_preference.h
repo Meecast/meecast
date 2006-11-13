@@ -37,6 +37,7 @@ extern gchar *_weather_state_name;
 extern gchar *_weather_station_name;
 extern gchar *_weather_station_id;
 extern gchar *_weather_icon_size;
+extern gboolean _enable_transparency;
 extern int    _weather_periodic_update;
 extern GdkColor _weather_font_color;
 extern GtkWidget *weather_window_popup;  

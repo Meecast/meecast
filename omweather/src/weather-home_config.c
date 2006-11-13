@@ -182,7 +182,7 @@ void
 config_init()
 {
     gchar *tmp;
-
+    GConfValue *value;
 
     GConfClient *gconf_client = gconf_client_get_default();
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
@@ -242,7 +242,17 @@ config_init()
               GCONF_KEY_WEATHER_FONT_COLOR, NULL);
         if(!tmp || !gdk_color_parse(tmp, &_weather_font_color))
          _weather_font_color = DEFAULT_FONT_COLOR;
-      
+       /* Get Enable Transparency flag. Default is TRUE. */
+       value = gconf_client_get(gconf_client, GCONF_KEY_ENABLE_TRANSPARENCY, NULL);
+      if(value)
+      {
+        _enable_transparency = gconf_value_get_bool(value);
+        gconf_value_free(value);
+      }
+      else
+        _enable_transparency = TRUE;      
+	
+	
 	/* Fill time update list */
 	add_time_update_list(0,"None");	
 	add_time_update_list(1*60,"1 hour");
@@ -314,7 +324,11 @@ config_save()
      gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_PERIODIC_UPDATE, temp_buffer, NULL);
     }	    
-     g_object_unref(gconf_client);
+     /* Save Enable Enable Transparency flag. */
+    gconf_client_set_bool(gconf_client,
+            GCONF_KEY_ENABLE_TRANSPARENCY, _enable_transparency, NULL);
+
+    g_object_unref(gconf_client);
 
 	    
 }

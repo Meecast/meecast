@@ -84,7 +84,7 @@ struct event_time
 
 
 struct time_update{ 
-	gint  between_time;         /* Time in minutes  betwen two update weather */
+	gint  between_time;        /* Time in minutes  betwen two update weather */
 	gchar *name_between_time;  /* Human string it time */
 };
 

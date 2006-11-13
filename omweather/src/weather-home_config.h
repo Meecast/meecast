@@ -41,17 +41,19 @@
 #define GCONF_KEY_WEATHER_STATION_IDS      GCONF_KEY_PREFIX"/station-ids"
 #define GCONF_KEY_WEATHER_ICON_SIZE       GCONF_KEY_PREFIX"/icon-size"
 #define GCONF_KEY_WEATHER_FONT_COLOR      GCONF_KEY_PREFIX"/font-color"
+#define GCONF_KEY_ENABLE_TRANSPARENCY     GCONF_KEY_PREFIX"/transparency"
 #define GCONF_KEY_WEATHER_PERIODIC_UPDATE GCONF_KEY_PREFIX"/periodic-update"
-extern gchar *_weather_dir_name;
-extern gchar *_weather_country_name;
-extern gchar *_weather_state_name;
-extern gchar *_weather_station_name;
-extern gchar *_weather_station_id;
-extern gchar *_weather_icon_size;
-extern int    _weather_periodic_update;
+extern gchar    *_weather_dir_name;
+extern gchar    *_weather_country_name;
+extern gchar    *_weather_state_name;
+extern gchar    *_weather_station_name;
+extern gchar    *_weather_station_id;
+extern gchar    *_weather_icon_size;
+extern gboolean _enable_transparency;
+extern int      _weather_periodic_update;
 extern GdkColor _weather_font_color;
 extern GdkColor DEFAULT_FONT_COLOR;
-extern GSList *time_update_list;
+extern GSList   *time_update_list;
 
 
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);

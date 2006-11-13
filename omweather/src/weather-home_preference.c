@@ -506,6 +506,7 @@ weather_window_preference (GtkWidget *widget,
    GtkWidget *label;
    GtkWidget *table;
    GtkWidget *font_color;
+   GtkWidget *chk_transparency;
    GtkTreeViewColumn *col;
    GtkCellRenderer  *renderer;
    GtkWidget *scrolled_window;
@@ -611,6 +612,15 @@ weather_window_preference (GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label),font_color = gtk_color_button_new());
     gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color);      
 
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+            label = gtk_label_new("Transparency"),
+            0, 1, 2, 3);
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+            label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
+             1, 2, 2, 3);
+    gtk_container_add(GTK_CONTAINER(label),chk_transparency = gtk_check_button_new ());
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_transparency),
+            _enable_transparency);
     /* Update page */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
             table = gtk_table_new(1, 2, FALSE),
@@ -655,6 +665,14 @@ weather_window_preference (GtkWidget *widget,
            flag_update_icon = TRUE;     
 	   _weather_font_color = _weather_font_color_temp;
 	  } 
+	
+	 /* Trnsparency mode */
+         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_transparency)) != _enable_transparency)
+         {
+	  _enable_transparency = gtk_toggle_button_get_active(
+                GTK_TOGGLE_BUTTON(chk_transparency));
+           flag_update_icon = TRUE;
+         } 
 
          /* Find select element of update time box and save time value */
          time_update_list_temp=time_update_list;

@@ -32,7 +32,6 @@
 
 
 
-
 /* Free memory allocated for stations list */
 void free_list_stations (void)
 {
@@ -195,9 +194,17 @@ void changed_state(void)
 	  for (i=3;i<19;i++) temp_station_name[i-3] = out_buffer[i];
 	  for (i=84;i<92;i++) temp_station_code[i-84] = out_buffer[i];
 	  temp_station_code[8]=0;
+
+	  /* Trim right space */
+	  for (i=15;i>0;i--)
+          {
+	   if (temp_station_name[i] == ' ') 
+            temp_station_name[i]=0;
+           else
+            break;
+	  }
 	   /* Copy name station to combobox */
 	  gtk_combo_box_append_text(GTK_COMBO_BOX(stations), temp_station_name);
-
 
           count_station++;
 	  if ((_weather_station_name != NULL) &&(strcmp(temp_station_name,_weather_station_name) == 0))
@@ -228,8 +235,8 @@ void changed_stations(void)
    sc = stations_list_temp->data;
    if (strcmp(sc->station_name,g_strdup(gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations)))) == 0)
    {
-    if (_weather_station_id != NULL) g_free(_weather_station_id);
-    _weather_station_id = g_strdup(sc->station_code);
+    if (_weather_station_id_temp != NULL) g_free(_weather_station_id_temp);
+    _weather_station_id_temp = g_strdup(sc->station_code);
     break;    
    }
    stations_list_temp = g_slist_next(stations_list_temp);
@@ -472,13 +479,14 @@ weather_window_add_station (GtkWidget *widget,
                     G_CALLBACK (changed_stations),
                     NULL);
 
+
   while(GTK_RESPONSE_ACCEPT == gtk_dialog_run(GTK_DIALOG(window_add_station)) &&
         gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations)) != NULL) /* Press Button Ok and not null 
 									   station combobox */
   {
     flag_update_station = TRUE;
     ws = g_new0(struct weather_station,1);
-    ws->id_station = g_strdup(_weather_station_id);
+    ws->id_station = g_strdup(_weather_station_id_temp);
     if (_weather_station_name != NULL) g_free(_weather_station_name);
     _weather_station_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations));
     ws->name_station = g_strdup(_weather_station_name);

@@ -60,14 +60,12 @@ static gboolean update_w(gpointer data);
                     gpointer user_data);
 */		    
 void update_weather();
-void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);
-
+gboolean weather_window_popup_show (GtkWidget *widget,GdkEvent *event,gpointer user_data);
 
 void weather_com_destroy_parser( weather_com_parser *weather_com );
 void timer(void);
 
 
-gchar  path_large_icon[]="/usr/share/weather/icons/Crystal/large_icon/";
 
 /* Window Popup */
 GtkWidget *weather_window_popup;  
@@ -106,3 +104,5 @@ GtkWidget *boxs [Max_count_web_button];
 int 	   boxs_offset [Max_count_web_button];
 GtkWidget *update_window;     
 guint flag_update=0;
+
+gchar  path_large_icon[]=DEFAULT_ICON;

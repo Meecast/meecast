@@ -114,6 +114,14 @@ fill_station_inform( struct weather_station *ws)
 	  for (i=3;i<19;i++) temp_station_name[i-3] = out_buffer[i];
 	  for (i=84;i<92;i++) temp_station_code[i-84] = out_buffer[i];
 	  temp_station_code[8]=0;
+	  /* Trim right space */
+          for (i=15;i>0;i--)
+          {
+           if (temp_station_name[i] == ' ')
+            temp_station_name[i]=0;
+           else
+            break;
+          }
 	  if ( strcmp(ws->id_station,temp_station_code) == 0 )
 	  {
 	   ws->name_station = g_strdup(temp_station_name);	   

@@ -232,7 +232,7 @@ weather_buttons_fill(void)
   int i, offset, count_day;
   gchar buffer[2048];
   gchar buffer_icon[2048];
-  time_t current_day,last_day;
+  time_t current_day,current_time,last_day;
   struct tm *tm;
   gboolean flag_last_day;
   guint count_stations;
@@ -242,12 +242,13 @@ weather_buttons_fill(void)
   flag_last_day = FALSE;
   offset = 0;
   last_day = 0;
+   /* Init weather buttons */
   weather_buttons_init();
   count_day=parse_weather_com_xml();
 //  if  (count_day == -1)  {count_day=0; fprintf(stderr,"Error on xml file");} // Error on xml file
 
   /* get current day */  
-  current_day = time(NULL);
+  current_time = current_day = time(NULL);
   tm=localtime(&current_day);
   tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
   current_day = mktime(tm);
@@ -256,20 +257,21 @@ weather_buttons_fill(void)
   /* add periodic update */
   add_periodic_event();
 
-  box = gtk_hbox_new ( FALSE , 0);    
-  for (i=0;i<Max_count_web_button; i++)
-  {    
-    /* Search day of saving xml near current day */
+  /* Search day of saving xml near current day */
     while ((offset<Max_count_weather_day) && (current_day > weather_days[offset].date_time) && (offset<count_day) )
     {
      offset ++;
     }
+
+  box = gtk_hbox_new ( FALSE , 0);    
+  for (i=0;i<Max_count_web_button; i++)
+  {    
      /* If it first button add to evenet time change between nigth and day */
     if  (current_day == weather_days[offset].date_time) 
     {
-     if (time(NULL) < weather_days[offset].day.begin_time)
+     if (current_time < weather_days[offset].day.begin_time)
       time_event_add(weather_days[offset].day.begin_time,DAYTIMEEVENT);
-     if (time(NULL) < weather_days[offset].night.begin_time)  
+     if (current_time < weather_days[offset].night.begin_time)  
       time_event_add(weather_days[offset].night.begin_time,DAYTIMEEVENT);
     }
     /* Time event add to event list */
@@ -281,21 +283,47 @@ weather_buttons_fill(void)
 
     if ( offset < count_day)
     {
-     /* Create output string */
-     sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%s°\n%s°</span>",
+    
+     /* Show or current weather or forecast */
+     if ((i==0) && (weather_current_day.date_time>(current_time-4*3600)) 
+                && (weather_current_day.date_time<(current_time+4*3600)))
+     {
+      /* Show current weather bold fonts */
+      sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%s°\n</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+                weather_days[offset].dayshname,
+		weather_current_day.hi_temp);
+      sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_current_day.day.icon);    		       
+     }		
+     else
+     {
+      /* Show forecast */
+      if  (current_day == weather_days[offset].date_time) 
+      {
+       /* First icon - night or day */     
+       if ((current_time<weather_days[offset].day.begin_time) || 
+          (current_time>weather_days[offset].night.begin_time) ) 
+        sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);    
+       else 
+        sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    
+       /* Show only night temperature */
+       sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%s°</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+                weather_days[offset].dayshname,weather_days[offset].low_temp);
+      }
+      else
+      {
+       /* Create output string for full time of day (day and night)*/
+       sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%s°\n%s°</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
                 weather_days[offset].dayshname,weather_days[offset].hi_temp,weather_days[offset].low_temp);
-     sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    		
-     if  (current_day == weather_days[offset].date_time) 
-     {
-      if ((time(NULL)<weather_days[offset].day.begin_time) || 
-         (time(NULL)>weather_days[offset].night.begin_time) ) 
-       sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);    
-     }		    
-    }
+       sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    		
+      }		    
+     }
+    } 
     else
     {
-     /* Create output string */
+     /* Show N/A */
      sprintf(buffer,"<span foreground='#%02x%02x%02x'>N/A\nN/A°\nN/A°</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
      sprintf(buffer_icon,"%s48.png",path_large_icon);         
@@ -531,8 +559,6 @@ hildon_home_applet_lib_initialize (void *state_data,
  /* Init gconf. */
  gnome_vfs_init();
  config_init ();
- /* Init weather buttons */
- weather_buttons_init();
  /* Start timer */
  timer();
  /* Start main applet */ 

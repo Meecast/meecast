@@ -55,14 +55,14 @@ typedef struct
 
 typedef struct
 {
-  part_of_day day;
+  part_of_day day;      /* Or current weather */
   part_of_day night;
   gchar date[10];     /* Date */     
-  time_t date_time;    /* Date of the year*/  
+  time_t date_time;    /* Date of the year or current time*/  
   gchar dayshname[3]; /* Short name of day */
   gchar dayfuname[20];/* Full name of day */
-  gchar hi_temp[4];   /* High temperature of day */
-  gchar low_temp[4];  /* Low temperature  of day */
+  gchar hi_temp[4];   /* High temperature of day or real current temperature for current day */
+  gchar low_temp[4];  /* Low temperature  of day or feels like temperature for current day */
   gchar location[50]; /* Location */
   
 }weather_day;
@@ -97,6 +97,7 @@ struct weather_station{
 };
 
 weather_day weather_days[Max_count_weather_day];
+weather_day weather_current_day;
 
 /* Stations List of view in plugin */
 GSList *stations_view_list; 

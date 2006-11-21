@@ -326,12 +326,9 @@ config_save()
      gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_FONT_COLOR, temp_buffer, NULL);
     /* Save Weather Update setting  */
-    if(_weather_periodic_update)
-    {
      sprintf(temp_buffer,"%i",_weather_periodic_update);		     	         
      gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_PERIODIC_UPDATE, temp_buffer, NULL);
-    }	    
      /* Save Enable Enable Transparency flag. */
     gconf_client_set_bool(gconf_client,
             GCONF_KEY_ENABLE_TRANSPARENCY, _enable_transparency, NULL);

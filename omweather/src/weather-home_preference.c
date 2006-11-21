@@ -554,7 +554,7 @@ weather_window_preference (GtkWidget *widget,
     gtk_scrolled_window_set_shadow_type(scrolled_window,GTK_SHADOW_OUT);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                  GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 300, 180);
+    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 250, 180);
 
 
     station_list_store = create_station_list_store();
@@ -705,7 +705,7 @@ weather_window_preference (GtkWidget *widget,
 	 
 	 if (flag_update_station)
 	 {
-	  update_weather();
+//	  update_weather();
           weather_frame_update();	  
          }
 
@@ -728,7 +728,7 @@ weather_window_preference (GtkWidget *widget,
       gtk_widget_destroy(weather_window_popup);
       
      weather_buttons_init();
-     weather_frame_update();
+//   weather_frame_update();
      config_save();
    }
    else

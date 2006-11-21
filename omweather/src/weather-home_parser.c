@@ -56,6 +56,7 @@ int parse_weather_com_xml(void)
     int count_day=0;
     int i;
     char *part_of_day, *icon;
+    char *temp_string_pointer;
     gchar buffer[2048];
     gchar newname[2048];
     gchar id_station[10];
@@ -122,7 +123,75 @@ int parse_weather_com_xml(void)
 	        sprintf(weather_days[i].location,"%.50s",xmlNodeGetContent(child_node));
 	    }
 	 }
-	}     
+	}
+	/* Fill current day */
+	
+	if (!xmlStrcmp(cur_node->name, (const xmlChar *) "cc" ) )     
+	{
+	 fprintf(stderr,"Element0: %s \n", cur_node->name); 	 
+	 
+         for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next)
+         {
+	 
+	  if ( child_node->type == XML_ELEMENT_NODE  &&
+                !xmlStrcmp(child_node->name, (const xmlChar *)"lsup") )
+	  {
+	    fprintf(stderr,"   Child=%s\n", child_node->name);
+	    sprintf(date_in_string,"%s",xmlNodeGetContent(child_node));
+	    strptime(date_in_string, "%D %I:%M", tm);
+	    weather_current_day.date_time = mktime(tm);	    
+	    temp_string_pointer = strchr(&date_in_string,'M');
+	    /* Add 12 hours if  date have PM field */
+	    if (*(temp_string_pointer-1) == 'P')
+	    {
+	     weather_current_day.date_time = weather_current_day.date_time+12*3600;
+	    }
+	  }	
+	  
+	  if ( child_node->type == XML_ELEMENT_NODE  &&
+                !xmlStrcmp(child_node->name, (const xmlChar *)"tmp") )
+          {
+           sprintf(weather_current_day.hi_temp,"%.3s", xmlNodeGetContent(child_node));
+	  }
+          if ( child_node->type == XML_ELEMENT_NODE  &&
+                !xmlStrcmp(child_node->name, (const xmlChar *)"flik") )
+          {
+           sprintf(weather_current_day.low_temp,"%.3s", xmlNodeGetContent(child_node));
+          }
+          if  (!xmlStrcmp(child_node->name, (const xmlChar *)"t") )
+          {
+           sprintf(weather_current_day.day.title,"%.10s",xmlNodeGetContent(child_node));
+          }
+          if  (!xmlStrcmp(child_node->name, (const xmlChar *)"icon") )
+          {
+           icon=xmlNodeGetContent(child_node);
+           weather_current_day.day.icon=atoi(icon);
+          }
+          if  (!xmlStrcmp(child_node->name, (const xmlChar *)"hmid") )
+          {
+            sprintf(weather_current_day.day.hmid,"%.3s",xmlNodeGetContent(child_node));
+          }
+	  if  (!xmlStrcmp(child_node->name, (const xmlChar *)"wind") )
+          {
+           for(child_node2 = child_node->children; child_node2 != NULL; child_node2 = child_node2->next)
+           {
+            if ( child_node2->type == XML_ELEMENT_NODE)
+            {
+             if  (!xmlStrcmp(child_node2->name, (const xmlChar *)"s") )
+             {
+              weather_current_day.day.wind_speed=atoi(xmlNodeGetContent(child_node2));
+             }
+             if  (!xmlStrcmp(child_node2->name, (const xmlChar *)"t") )
+             {
+              sprintf(weather_current_day.day.wind_title,"%.10s",xmlNodeGetContent(child_node2));
+             }
+            }
+           }
+          }         
+	 }
+	}
+
+	
         if (!xmlStrcmp(cur_node->name, (const xmlChar *) "dayf" ) )
         {
 	 fprintf(stderr,"Element0: %s \n", cur_node->name); 
@@ -135,7 +204,7 @@ int parse_weather_com_xml(void)
 	     {
 	      fprintf (stderr,"Count day-: %i\n",count_day);
 	      count_day++; 
-	      printf("   Child=%s\n", child_node->name);
+	      fprintf(stderr,"   Child=%s\n", child_node->name);
 	      sprintf(weather_days[count_day-1].dayshname,"%.2s",xmlGetProp(child_node,"t"));
 	      sprintf(weather_days[count_day-1].dayfuname,"%.20s",xmlGetProp(child_node,"t"));
 	      sprintf(weather_days[count_day-1].date,"%.10s",xmlGetProp(child_node,"dt"));

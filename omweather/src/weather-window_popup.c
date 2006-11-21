@@ -66,6 +66,7 @@ weather_window_popup_show (GtkWidget *widget,
     GtkIconInfo *gtkicon_update;
     gchar buffer[1024];
     gchar full_filename[2048];
+    time_t current_time;
     struct stat statv;
 
     if (_weather_station_id == NULL )
@@ -205,13 +206,18 @@ weather_window_popup_show (GtkWidget *widget,
 		    G_CALLBACK (weather_window_preference),
 		    NULL);      
     
+
     gtk_box_pack_end (GTK_BOX (hbox_pref),button_pref, FALSE, FALSE, 0);
     /* End PREFERENCE UPDATE */
+
+    /* get current day */  
+    current_time = time(NULL);
     
     /* Packing elements */
     gtk_container_add (GTK_CONTAINER (vbox), hbox_title_location);
     if (i<DAY_DOWNLOAD) /* Check null data buttons */
     {
+    
      gtk_container_add (GTK_CONTAINER (vbox), hbox_title_date);
      separator_title = gtk_hseparator_new ();
      gtk_box_pack_start (GTK_BOX (vbox), separator_title, FALSE, TRUE, 0);
@@ -219,11 +225,33 @@ weather_window_popup_show (GtkWidget *widget,
     
      gtk_container_add (GTK_CONTAINER (vbox), hbox_temp);
      gtk_box_pack_start (GTK_BOX (vbox), separator_temp, FALSE, TRUE, 0);
-     gtk_container_add (GTK_CONTAINER (vbox), hbox_night);
-    
+     
      separator_day = gtk_hseparator_new ();
-     gtk_box_pack_start (GTK_BOX (vbox), separator_day, FALSE, TRUE, 0);
-     gtk_container_add (GTK_CONTAINER (vbox), hbox_day);
+     
+     /* First icon - morning, day or evening */     
+     if ((current_time>weather_days[i].day.begin_time) &&
+        (current_time<weather_days[i].night.begin_time))
+     {
+      /*  Day  */	
+      gtk_container_add (GTK_CONTAINER (vbox), hbox_day); 
+      gtk_box_pack_start (GTK_BOX (vbox), separator_day, FALSE, TRUE, 0);
+      gtk_container_add (GTK_CONTAINER (vbox), hbox_night);
+     } 
+     else
+     {
+      if (current_time<weather_days[i].night.begin_time)
+      {     
+       /*  Morning */	
+       gtk_container_add (GTK_CONTAINER (vbox), hbox_night);
+       gtk_box_pack_start (GTK_BOX (vbox), separator_day, FALSE, TRUE, 0);
+       gtk_container_add (GTK_CONTAINER (vbox), hbox_day);
+      }
+      else
+      {
+        /* Evening */
+        gtk_container_add (GTK_CONTAINER (vbox), hbox_night);
+      }
+     }
     }
     gtk_container_add (GTK_CONTAINER (frame_popup), vbox);    
     

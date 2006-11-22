@@ -64,6 +64,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,GdkEvent *event,gpointer u
 
 void weather_com_destroy_parser( weather_com_parser *weather_com );
 void timer(void);
+int c2f(int temp);
 
 
 
@@ -83,6 +84,7 @@ gchar *_weather_icon_size = NULL;
 gboolean _enable_transparency = TRUE;
 int    _weather_periodic_update = 0;
 GdkColor _weather_font_color = {0,0,0,0};
+gchar _weather_temperature_unit;
 
 
 /* List future event */

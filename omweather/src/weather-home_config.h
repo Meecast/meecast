@@ -33,16 +33,18 @@
 #include "weather-home_common.h"
 
 #define GCONF_KEY_PREFIX "/apps/maemo/omweather"
-#define GCONF_KEY_WEATHER_DIR_NAME        GCONF_KEY_PREFIX"/weather-dir"
-#define GCONF_KEY_WEATHER_COUNTRY_NAME    GCONF_KEY_PREFIX"/country-name"
-#define GCONF_KEY_WEATHER_STATE_NAME      GCONF_KEY_PREFIX"/state-name"
-#define GCONF_KEY_WEATHER_STATION_NAME    GCONF_KEY_PREFIX"/station-name"
-#define GCONF_KEY_WEATHER_STATION_ID      GCONF_KEY_PREFIX"/station-id"
+#define GCONF_KEY_WEATHER_DIR_NAME         GCONF_KEY_PREFIX"/weather-dir"
+#define GCONF_KEY_WEATHER_COUNTRY_NAME     GCONF_KEY_PREFIX"/country-name"
+#define GCONF_KEY_WEATHER_STATE_NAME       GCONF_KEY_PREFIX"/state-name"
+#define GCONF_KEY_WEATHER_STATION_NAME     GCONF_KEY_PREFIX"/station-name"
+#define GCONF_KEY_WEATHER_STATION_ID       GCONF_KEY_PREFIX"/station-id"
 #define GCONF_KEY_WEATHER_STATION_IDS      GCONF_KEY_PREFIX"/station-ids"
-#define GCONF_KEY_WEATHER_ICON_SIZE       GCONF_KEY_PREFIX"/icon-size"
-#define GCONF_KEY_WEATHER_FONT_COLOR      GCONF_KEY_PREFIX"/font-color"
-#define GCONF_KEY_ENABLE_TRANSPARENCY     GCONF_KEY_PREFIX"/transparency"
-#define GCONF_KEY_WEATHER_PERIODIC_UPDATE GCONF_KEY_PREFIX"/periodic-update"
+#define GCONF_KEY_WEATHER_ICON_SIZE        GCONF_KEY_PREFIX"/icon-size"
+#define GCONF_KEY_WEATHER_FONT_COLOR       GCONF_KEY_PREFIX"/font-color"
+#define GCONF_KEY_ENABLE_TRANSPARENCY      GCONF_KEY_PREFIX"/transparency"
+#define GCONF_KEY_WEATHER_PERIODIC_UPDATE  GCONF_KEY_PREFIX"/periodic-update"
+#define GCONF_KEY_WEATHER_TEMPERATURE_UNIT GCONF_KEY_PREFIX"/temperature-unit"
+
 extern gchar    *_weather_dir_name;
 extern gchar    *_weather_country_name;
 extern gchar    *_weather_state_name;
@@ -54,7 +56,7 @@ extern int      _weather_periodic_update;
 extern GdkColor _weather_font_color;
 extern GdkColor DEFAULT_FONT_COLOR;
 extern GSList   *time_update_list;
-
+extern gchar    _weather_temperature_unit;
 
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 

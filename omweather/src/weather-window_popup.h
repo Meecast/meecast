@@ -36,9 +36,11 @@ extern GtkWidget *buttons [Max_count_web_button];
 extern int 	 boxs_offset [Max_count_web_button];
 extern GtkWidget *weather_window_popup;
 extern GtkWidget *box;
-extern gchar path_large_icon[];
+extern gchar     path_large_icon[];
+extern gchar      _weather_temperature_unit;
 
 
 gboolean weather_window_popup_show (GtkWidget *widget,GdkEvent *event,gpointer user_data);
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);
+int c2f(int temp);
 

@@ -31,23 +31,24 @@
 #include "weather-home_common.h"
 
 extern GtkWidget *box;
-extern gchar *_weather_dir_name;
-extern gchar *_weather_country_name;
-extern gchar *_weather_state_name;
-extern gchar *_weather_station_name;
-extern gchar *_weather_station_id;
-extern gchar *_weather_icon_size;
-extern gboolean _enable_transparency;
-extern int    _weather_periodic_update;
-extern GdkColor _weather_font_color;
+extern gchar     *_weather_dir_name;
+extern gchar     *_weather_country_name;
+extern gchar     *_weather_state_name;
+extern gchar     *_weather_station_name;
+extern gchar     *_weather_station_id;
+extern gchar     *_weather_icon_size;
+extern gboolean  _enable_transparency;
+extern int       _weather_periodic_update;
+extern GdkColor  _weather_font_color;
 extern GtkWidget *weather_window_popup;  
-extern GSList *time_update_list;
-extern gboolean not_event;
+extern GSList    *time_update_list;
+extern gchar     _weather_temperature_unit;
+extern gboolean  not_event;
 
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);
 void fill_station_list_view (GtkWidget *station_list_view,GtkWidget *station_list_store);
 
-GtkWidget  *countrys, *states, *stations, *icon_size, *update_time; 
+GtkWidget  *countrys, *states, *stations, *icon_size, *update_time, *temperature_unit; 
 
 static GSList *stations_list_in_state = NULL; /* Station list of country or state or province.  Use in combobox*/
 static GtkListStore *station_list_store;

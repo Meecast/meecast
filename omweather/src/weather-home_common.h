@@ -42,6 +42,7 @@
 #define COUNTRYS_FILE "/usr/share/weather/iso3166-countrycodes.txt"
 #define DEFAULT_ICON "/usr/share/weather/icons/Crystal/large_icon/"
 
+
 typedef struct
 {
   int icon;

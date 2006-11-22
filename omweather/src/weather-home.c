@@ -46,8 +46,12 @@
 #define VERSION "0.13"
 #define APPNAME "omweather"
 
-
-
+/* Translate  temperature Celsius to Farenhait */
+int c2f(int temp)
+{
+#define TEMP_C_TO_F(c)                  (((c) * 1.8) + 32.0)
+return (temp*1.8)+32;
+}
 
 /* Set font size. Usually on label widget */
 void
@@ -238,11 +242,12 @@ weather_buttons_fill(void)
   guint count_stations;
   GSList *tmplist = NULL;
   struct weather_station *ws;
+  int temp_hi,temp_hi_now,temp_low;
 
   flag_last_day = FALSE;
   offset = 0;
   last_day = 0;
-   /* Init weather buttons */
+  /* Init weather buttons */
   weather_buttons_init();
   count_day=parse_weather_com_xml();
 //  if  (count_day == -1)  {count_day=0; fprintf(stderr,"Error on xml file");} // Error on xml file
@@ -258,10 +263,10 @@ weather_buttons_fill(void)
   add_periodic_event();
 
   /* Search day of saving xml near current day */
-    while ((offset<Max_count_weather_day) && (current_day > weather_days[offset].date_time) && (offset<count_day) )
-    {
-     offset ++;
-    }
+  while ((offset<Max_count_weather_day) && (current_day > weather_days[offset].date_time) && (offset<count_day) )
+  {
+   offset ++;
+  }
 
   box = gtk_hbox_new ( FALSE , 0);    
   for (i=0;i<Max_count_web_button; i++)
@@ -283,16 +288,25 @@ weather_buttons_fill(void)
 
     if ( offset < count_day)
     {
-    
+     /* Prepare temperature value to show on display */
+     temp_hi_now=atoi(weather_current_day.hi_temp);     
+     temp_hi=atoi(weather_days[offset].hi_temp);     
+     temp_low=atoi(weather_days[offset].low_temp);     
+     if (_weather_temperature_unit == 'F')
+     {
+       temp_hi_now = c2f(temp_hi_now);
+       temp_hi = c2f(temp_hi);
+       temp_low = c2f(temp_low);
+     }  
      /* Show or current weather or forecast */
      if ((i==0) && (weather_current_day.date_time>(current_time-4*3600)) 
                 && (weather_current_day.date_time<(current_time+4*3600)))
      {
       /* Show current weather bold fonts */
-      sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%s°\n</span>",
+      sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
                 weather_days[offset].dayshname,
-		weather_current_day.hi_temp);
+		temp_hi_now);
       sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_current_day.day.icon);    		       
      }		
      else
@@ -307,16 +321,17 @@ weather_buttons_fill(void)
        else 
         sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    
        /* Show only night temperature */
-       sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%s°</span>",
+       sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-                weather_days[offset].dayshname,weather_days[offset].low_temp);
+                weather_days[offset].dayshname,temp_low);
       }
       else
       {
        /* Create output string for full time of day (day and night)*/
-       sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%s°\n%s°</span>",
+//       sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%s°\n%s°</span>",
+       sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-                weather_days[offset].dayshname,weather_days[offset].hi_temp,weather_days[offset].low_temp);
+                weather_days[offset].dayshname,temp_hi,temp_low);
        sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    		
       }		    
      }
@@ -324,7 +339,7 @@ weather_buttons_fill(void)
     else
     {
      /* Show N/A */
-     sprintf(buffer,"<span foreground='#%02x%02x%02x'>N/A\nN/A°\nN/A°</span>",
+     sprintf(buffer,"<span foreground='#%02x%02x%02x'>N/A\nN/A\302\260\nN/A\302\260</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
      sprintf(buffer_icon,"%s48.png",path_large_icon);         
      /* Add time event to list for next day after last day in xml file */

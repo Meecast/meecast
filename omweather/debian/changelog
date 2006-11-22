@@ -4,6 +4,7 @@ omweather (0.13) unstable; urgency=low
   * On/Off transparency mode on main icon
   * Medium mode for view main icon
   * First icon show current weather and temperature
+  * Imperial units (Fahrenheit) of temperature
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 10 Nov 2006 11:07:52 +0200
 

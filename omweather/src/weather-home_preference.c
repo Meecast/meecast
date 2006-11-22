@@ -525,6 +525,7 @@ weather_window_preference (GtkWidget *widget,
    GdkColor _weather_font_color_temp; // Temporary for font color
    static GSList *time_update_list_temp = NULL; //Temporary list for time update
    struct time_update *tu; //Temporary for time update list
+   char *temp_string;
    
    not_event = TRUE;
    flag_update_station = FALSE;
@@ -591,7 +592,7 @@ weather_window_preference (GtkWidget *widget,
 
     /* Main interface setting page */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-            table = gtk_table_new(1, 3, FALSE),
+            table = gtk_table_new(1, 4, FALSE),
             label = gtk_label_new("Main Interface"));
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_label_new("Icon size:"),
@@ -629,6 +630,23 @@ weather_window_preference (GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label),chk_transparency = gtk_check_button_new ());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_transparency),
             _enable_transparency);
+
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+            label = gtk_label_new("Temperature unit:"),
+            0, 1, 3, 4);
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+            label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
+            1, 2, 3, 4);
+    gtk_container_add(GTK_CONTAINER(label),temperature_unit = gtk_combo_box_new_text());
+    gtk_combo_box_append_text(GTK_COMBO_BOX(temperature_unit), "Celsius (Metric)");    
+    gtk_combo_box_append_text(GTK_COMBO_BOX(temperature_unit), "Fahrenheit (Imperial)");
+    if (_weather_temperature_unit == 'C') 
+     gtk_combo_box_set_active (GTK_COMBO_BOX(temperature_unit),0);
+    else
+     gtk_combo_box_set_active (GTK_COMBO_BOX(temperature_unit),1);
+    
+
+	    
     /* Update page */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
             table = gtk_table_new(1, 2, FALSE),
@@ -665,6 +683,14 @@ weather_window_preference (GtkWidget *widget,
 	  flag_update_icon = TRUE;
 	  _weather_icon_size = gtk_combo_box_get_active_text(GTK_COMBO_BOX(icon_size));	
 	 }
+	 temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(temperature_unit));
+	 fprintf(stderr,"test %s test %c\n",temp_string,temp_string[0]);
+	 if ( _weather_temperature_unit != temp_string[0])
+	 {  
+	  flag_update_icon = TRUE;
+	  _weather_temperature_unit = temp_string[0];	
+	 }
+	 
 	 gtk_color_button_get_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color_temp);
 	 if (( _weather_font_color_temp.red != _weather_font_color.red ) &&
 	     ( _weather_font_color_temp.green != _weather_font_color.green ) &&

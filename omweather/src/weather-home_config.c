@@ -250,17 +250,24 @@ config_init()
               GCONF_KEY_WEATHER_FONT_COLOR, NULL);
         if(!tmp || !gdk_color_parse(tmp, &_weather_font_color))
          _weather_font_color = DEFAULT_FONT_COLOR;
-       /* Get Enable Transparency flag. Default is TRUE. */
-       value = gconf_client_get(gconf_client, GCONF_KEY_ENABLE_TRANSPARENCY, NULL);
-      if(value)
-      {
-        _enable_transparency = gconf_value_get_bool(value);
-        gconf_value_free(value);
-      }
-      else
-        _enable_transparency = TRUE;      
-	
-	
+        /* Get Enable Transparency flag. Default is TRUE. */
+        value = gconf_client_get(gconf_client, GCONF_KEY_ENABLE_TRANSPARENCY, NULL);
+        if(value)
+        {
+         _enable_transparency = gconf_value_get_bool(value);
+         gconf_value_free(value);
+        }
+        else
+         _enable_transparency = TRUE;      
+	/* Get Temperature Unit  Default Celsius */
+	tmp = gconf_client_get_string(gconf_client,
+                     GCONF_KEY_WEATHER_TEMPERATURE_UNIT, NULL);
+	fprintf (stderr,"TEMP %s\n",tmp);	     
+        if(tmp)
+	  _weather_temperature_unit = tmp[0];
+	else
+	  _weather_temperature_unit = 'C';
+	  
 	/* Fill time update list */
 	add_time_update_list(0,"None");	
 	add_time_update_list(1*60,"1 hour");
@@ -331,7 +338,14 @@ config_save()
             GCONF_KEY_WEATHER_PERIODIC_UPDATE, temp_buffer, NULL);
      /* Save Enable Enable Transparency flag. */
     gconf_client_set_bool(gconf_client,
-            GCONF_KEY_ENABLE_TRANSPARENCY, _enable_transparency, NULL);
+            GCONF_KEY_ENABLE_TRANSPARENCY, _enable_transparency, NULL);	    
+    /* Save Weather Temperature Unit  */		     	    
+    temp_buffer[0] = _weather_temperature_unit;
+    temp_buffer[1] = 0;
+    if(_weather_temperature_unit)
+        gconf_client_set_string(gconf_client,
+            GCONF_KEY_WEATHER_TEMPERATURE_UNIT, temp_buffer, NULL);
+	    
 
     g_object_unref(gconf_client);
 

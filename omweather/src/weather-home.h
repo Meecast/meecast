@@ -65,6 +65,8 @@ gboolean weather_window_popup_show (GtkWidget *widget,GdkEvent *event,gpointer u
 void weather_com_destroy_parser( weather_com_parser *weather_com );
 void timer(void);
 int c2f(int temp);
+void set_font_size(GtkWidget *widget, char font_size);
+
 
 
 

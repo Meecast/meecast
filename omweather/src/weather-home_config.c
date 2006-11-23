@@ -129,7 +129,9 @@ fill_station_inform( struct weather_station *ws)
 	}    	  
       } 
      }
+     fclose (stations_file);  
     }
+    
 }
 /* Reinitialize stations list */
 void

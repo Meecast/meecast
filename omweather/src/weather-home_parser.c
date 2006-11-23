@@ -140,7 +140,7 @@ int parse_weather_com_xml(void)
 	    sprintf(date_in_string,"%s",xmlNodeGetContent(child_node));
 	    strptime(date_in_string, "%D %I:%M", tm);
 	    weather_current_day.date_time = mktime(tm);	    
-	    temp_string_pointer = strchr(&date_in_string,'M');
+	    temp_string_pointer = strchr(date_in_string,'M');
 	    /* Add 12 hours if  date have PM field */
 	    if (*(temp_string_pointer-1) == 'P')
 	    {

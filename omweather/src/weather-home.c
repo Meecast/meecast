@@ -230,7 +230,7 @@ void weather_buttons_init(void)
 void 
 weather_buttons_fill(void)
 {
-  GtkWidget *label, *label_start,*label_end, *stations_hbox, *box_not_station;
+  GtkWidget *label_start,*label_end, *stations_hbox, *box_not_station;
 
 
   int i, offset, count_day;
@@ -299,8 +299,8 @@ weather_buttons_fill(void)
        temp_low = c2f(temp_low);
      }  
      /* Show or current weather or forecast */
-     if ((i==0) && (weather_current_day.date_time>(current_time-4*3600)) 
-                && (weather_current_day.date_time<(current_time+4*3600)))
+     if ((i==0) && (weather_current_day.date_time>(current_time-OFFSET_CURRENT_WEATHER*3600)) 
+                && (weather_current_day.date_time<(current_time+OFFSET_CURRENT_WEATHER*3600)))
      {
       /* Show current weather bold fonts */
       sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
@@ -314,16 +314,32 @@ weather_buttons_fill(void)
       /* Show forecast */
       if  (current_day == weather_days[offset].date_time) 
       {
-       /* First icon - night or day */     
-       if ((current_time<weather_days[offset].day.begin_time) || 
-          (current_time>weather_days[offset].night.begin_time) ) 
-        sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);    
-       else 
-        sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    
-       /* Show only night temperature */
-       sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260</span>",
+       /* First icon - night(morning) or day or night (evening) */     
+       if (current_time<weather_days[offset].day.begin_time) 
+       {  
+         sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);    
+	 /* Show All temperatures */
+         sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-                weather_days[offset].dayshname,temp_low);
+                weather_days[offset].dayshname,temp_low,temp_hi);
+       } 
+       else
+       if (current_time<weather_days[offset].night.begin_time)
+       {
+        sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    
+       /* Show All temperatures */
+       sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+                weather_days[offset].dayshname,temp_low,temp_hi);
+       }		
+       else
+       {
+         sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);           
+	 /* Show only night temperature */
+         sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+                weather_days[offset].dayshname,temp_low); 
+       }
       }
       else
       {

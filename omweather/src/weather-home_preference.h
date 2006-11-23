@@ -46,7 +46,7 @@ extern gchar     _weather_temperature_unit;
 extern gboolean  not_event;
 
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);
-void fill_station_list_view (GtkWidget *station_list_view,GtkWidget *station_list_store);
+void fill_station_list_view (GtkWidget *station_list_view,GtkListStore *station_list_store);
 
 GtkWidget  *countrys, *states, *stations, *icon_size, *update_time, *temperature_unit; 
 

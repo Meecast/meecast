@@ -245,7 +245,7 @@ void changed_stations(void)
 
 /* Fill station list (tree) */
 void
-fill_station_list_view (GtkWidget *station_list_view,GtkWidget *station_list_store)
+fill_station_list_view (GtkWidget *station_list_view,GtkListStore *station_list_store)
 {
  GSList *tmplist = NULL; //Temorary for station list
  struct weather_station *ws; //Description Weather station
@@ -281,7 +281,7 @@ delete_station (GtkWidget *widget,
  GtkTreeIter iter;
  gchar *station_selected = NULL;
   
- GtkTreeModel *model = gtk_tree_view_get_model(station_list_view);
+ GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
  GtkTreeSelection *selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view)); 
  if ( !gtk_tree_selection_get_selected(selection, NULL, &iter) )
   return FALSE;
@@ -302,7 +302,7 @@ delete_station (GtkWidget *widget,
       fill_station_list_view (station_list_view,station_list_store);
       /* Update station list */
       flag_update_station = TRUE;
-      model = gtk_tree_view_get_model(station_list_view);
+      model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
       selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
 
       /* Search new selected station */    
@@ -515,8 +515,6 @@ weather_window_preference (GtkWidget *widget,
    GtkWidget *table;
    GtkWidget *font_color;
    GtkWidget *chk_transparency;
-   GtkTreeViewColumn *col;
-   GtkCellRenderer  *renderer;
    GtkWidget *scrolled_window;
    GtkWidget *button_add, *button_del;
 
@@ -552,7 +550,7 @@ weather_window_preference (GtkWidget *widget,
             0, 1, 0, 6);
   
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);
-    gtk_scrolled_window_set_shadow_type(scrolled_window,GTK_SHADOW_OUT);
+    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),GTK_SHADOW_OUT);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                  GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
     gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 250, 180);

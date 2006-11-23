@@ -38,6 +38,7 @@
 #define AUTOUPDATE 1
 #define DAYTIMEEVENT 2
 #define DAY_DOWNLOAD 10
+#define OFFSET_CURRENT_WEATHER 4 /* 4 hours */
 #define STATIONS_FILE "/usr/share/weather/stations.txt"
 #define COUNTRYS_FILE "/usr/share/weather/iso3166-countrycodes.txt"
 #define DEFAULT_ICON "/usr/share/weather/icons/Crystal/large_icon/"

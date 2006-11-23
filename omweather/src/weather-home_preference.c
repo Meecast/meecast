@@ -486,6 +486,8 @@ weather_window_add_station (GtkWidget *widget,
   {
     flag_update_station = TRUE;
     ws = g_new0(struct weather_station,1);
+    if (_weather_station_id != NULL)  g_free(_weather_station_id);
+    _weather_station_id = g_strdup(_weather_station_id_temp);
     ws->id_station = g_strdup(_weather_station_id_temp);
     if (_weather_station_name != NULL) g_free(_weather_station_name);
     _weather_station_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations));
@@ -674,15 +676,14 @@ weather_window_preference (GtkWidget *widget,
    gtk_widget_show_all(window_config);
    while(GTK_RESPONSE_ACCEPT == gtk_dialog_run(GTK_DIALOG(window_config))) /* Press Button Ok */
    {
-     if (_weather_station_name) /* If not select station not exit from prefernce window */
-     {
+//     if (_weather_station_name) /* If not select station not exit from prefernce window */
+//     {
 	 if ( strcmp(_weather_icon_size,gtk_combo_box_get_active_text(GTK_COMBO_BOX(icon_size))) != 0)
 	 {  
 	  flag_update_icon = TRUE;
 	  _weather_icon_size = gtk_combo_box_get_active_text(GTK_COMBO_BOX(icon_size));	
 	 }
 	 temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(temperature_unit));
-	 fprintf(stderr,"test %s test %c\n",temp_string,temp_string[0]);
 	 if ( _weather_temperature_unit != temp_string[0])
 	 {  
 	  flag_update_icon = TRUE;
@@ -738,7 +739,7 @@ weather_window_preference (GtkWidget *widget,
 
          not_event = FALSE;
 	 return;
-     }
+//     }
     }
   
    /* Pressed CANCEL */

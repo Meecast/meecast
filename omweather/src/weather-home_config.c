@@ -264,7 +264,6 @@ config_init()
 	/* Get Temperature Unit  Default Celsius */
 	tmp = gconf_client_get_string(gconf_client,
                      GCONF_KEY_WEATHER_TEMPERATURE_UNIT, NULL);
-	fprintf (stderr,"TEMP %s\n",tmp);	     
         if(tmp)
 	  _weather_temperature_unit = tmp[0];
 	else

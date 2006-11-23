@@ -262,6 +262,7 @@ weather_buttons_fill(void)
   /* add periodic update */
   add_periodic_event();
 
+
   /* Search day of saving xml near current day */
   while ((offset<Max_count_weather_day) && (current_day > weather_days[offset].date_time) && (offset<count_day) )
   {
@@ -365,7 +366,6 @@ weather_buttons_fill(void)
 	flag_last_day = TRUE;
      } 
     }
-
      /* Write offset in wetaher data for this button */
      boxs_offset[i] = offset;
      /* Prepare butons for view */   
@@ -412,6 +412,7 @@ weather_buttons_fill(void)
 
   }
   
+
    /* Forming table with name station and button */
    count_stations = g_slist_length(stations_view_list);
    if (count_stations >0)
@@ -452,6 +453,7 @@ weather_buttons_fill(void)
    i = 0;
    while (tmplist != NULL)
    {
+   
       ws = tmplist->data;
       gtk_table_attach_defaults(GTK_TABLE(main_table),	    
             ws->box = gtk_button_new (),
@@ -463,7 +465,7 @@ weather_buttons_fill(void)
       ws->label_box=gtk_label_new (NULL);
       label_start=gtk_label_new (NULL);
       label_end=gtk_label_new (NULL);
-      if (strcmp(ws->id_station,_weather_station_id)==0)
+      if ((_weather_station_id) && (strcmp(ws->id_station,_weather_station_id)==0))
       {
        sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
@@ -488,9 +490,9 @@ weather_buttons_fill(void)
        gtk_label_set_markup (GTK_LABEL (label_start),buffer);				
        sprintf(buffer,"<span  foreground='#%02x%02x%02x'>\\</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
-       gtk_label_set_markup (GTK_LABEL (label_end),buffer);				
-       
+       gtk_label_set_markup (GTK_LABEL (label_end),buffer);				       
       }		
+
       
       if (strcmp(_weather_icon_size,"Large") == 0)
        set_font_size(ws->label_box,FONT_MAIN_SIZE_LARGE);
@@ -506,7 +508,6 @@ weather_buttons_fill(void)
        gtk_box_pack_end (GTK_BOX (stations_hbox), label_end, FALSE, FALSE, 0);       
       }
       gtk_box_pack_end (GTK_BOX (stations_hbox), ws->label_box, TRUE, TRUE, 0); 
-
       gtk_container_add (GTK_CONTAINER (ws->box),stations_hbox);
       
       /* Connect signal button */
@@ -516,7 +517,6 @@ weather_buttons_fill(void)
       g_signal_connect (ws->box, "enter",
      		        G_CALLBACK (enter_button),
      		        NULL); 
-
       
       i++;	    
       tmplist = g_slist_next(tmplist);

@@ -82,7 +82,7 @@ add_time_update_list(gint _between_time, gchar *_time_name)
     time_update_list = g_slist_append(time_update_list, tu);
 }
 
-void
+gboolean
 fill_station_inform( struct weather_station *ws)
 {
   FILE *stations_file;  
@@ -125,13 +125,15 @@ fill_station_inform( struct weather_station *ws)
 	  if ( strcmp(ws->id_station,temp_station_code) == 0 )
 	  {
 	   ws->name_station = g_strdup(temp_station_name);	   
+	   fclose (stations_file);  
+	   return TRUE;
 	  } 
 	}    	  
       } 
      }
      fclose (stations_file);  
     }
-    
+ return FALSE;    
 }
 /* Reinitialize stations list */
 void
@@ -154,8 +156,10 @@ reinitilize_stations_list(gchar *stations_string)
     {
      ws = g_new0(struct weather_station,1);
      ws->id_station = g_strdup(temp2);
-     fill_station_inform(ws);
-     stations_view_list = g_slist_append(stations_view_list, ws); /* Add station to stations list */
+     if (fill_station_inform(ws))
+      stations_view_list = g_slist_append(stations_view_list, ws); /* Add station to stations list */
+     else 
+      g_free(ws); 
     }
     temp2=strtok(NULL,"@\0"); /* Delimiter between ID - @ */
    } while (temp2 != NULL);

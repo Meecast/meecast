@@ -199,7 +199,8 @@ change_station (GtkWidget *widget,
      /* Check active station */ 
      if (strcmp(_weather_station_id, ws->id_station)!=0)
      {
-      _weather_station_id = ws->id_station;
+      if (_weather_station_id != NULL) g_free(_weather_station_id);
+        _weather_station_id = g_strdup(ws->id_station); 
       weather_frame_update();
       break;
      } 

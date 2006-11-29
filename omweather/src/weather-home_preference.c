@@ -296,15 +296,13 @@ delete_station (GtkWidget *widget,
      {
       /* Remove station from the Station List */
       stations_view_list = g_slist_remove(stations_view_list, ws);
-      /* Update config file */
-      config_save();
+      
       gtk_list_store_clear(station_list_store);
       fill_station_list_view (station_list_view,station_list_store);
       /* Update station list */
       flag_update_station = TRUE;
       model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
       selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
-
       /* Search new selected station */    
       if ( gtk_tree_selection_get_selected(selection, NULL, &iter) )
       {
@@ -317,15 +315,19 @@ delete_station (GtkWidget *widget,
         {
          /* Set New selected station on default on main display*/
          if (_weather_station_id != NULL) g_free(_weather_station_id);
-         _weather_station_id = g_strdup(ws->id_station); 
+          _weather_station_id = g_strdup(ws->id_station); 
+	 if (_weather_station_name != NULL) g_free(_weather_station_name);
+          _weather_station_name = g_strdup(ws->name_station); 
         }
 	tmplist = g_slist_next(tmplist);
-       }
+       } 
       }
       else
       {
        _weather_station_id = NULL;
-      } 
+      }
+      /* Update config file */
+      config_save();       
       break; 
      }
      tmplist = g_slist_next(tmplist);

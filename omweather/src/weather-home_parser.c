@@ -61,6 +61,7 @@ int parse_weather_com_xml(void)
     gchar newname[2048];
     gchar id_station[10];
     time_t current_time;
+    int current_month;
     struct tm *tm;
     char date_in_string[255];
     int year;
@@ -139,6 +140,7 @@ int parse_weather_com_xml(void)
 	    fprintf(stderr,"   Child=%s\n", child_node->name);
 	    sprintf(date_in_string,"%s",xmlNodeGetContent(child_node));
 	    strptime(date_in_string, "%D %I:%M", tm);
+	    current_month = tm->tm_mon;
 	    weather_current_day.date_time = mktime(tm);	    
 	    temp_string_pointer = strchr(date_in_string,'M');
 	    /* Add 12 hours if  date have PM field */
@@ -209,8 +211,13 @@ int parse_weather_com_xml(void)
 	      sprintf(weather_days[count_day-1].dayfuname,"%.20s",xmlGetProp(child_node,"t"));
 	      sprintf(weather_days[count_day-1].date,"%.10s",xmlGetProp(child_node,"dt"));
 	      sprintf(date_in_string,"%s %i 00:00:00",weather_days[count_day-1].date,year);
-//	      strptime(date_in_string, "%b %d %Y %T", &weather_days[count_day-1].date_tm);
 	      strptime(date_in_string, "%b %d %Y %T", tm);
+	      /* Check New Year */
+	      if ((current_month == 12) && (tm->tm_mon == 1))
+	      {
+	        sprintf(date_in_string,"%s %i 00:00:00",weather_days[count_day-1].date,year+1);
+	        strptime(date_in_string, "%b %d %Y %T", tm);
+	      } 
 	      weather_days[count_day-1].date_time = mktime(tm);
 	       
 	      for(child_node2 = child_node->children; child_node2 != NULL; child_node2 = child_node2->next)
@@ -284,17 +291,28 @@ int parse_weather_com_xml(void)
 		if (!xmlStrcmp(child_node2->name, (const xmlChar *)"sunr"))
 		{ 
 		 sprintf(date_in_string,"%s %i %s",weather_days[count_day-1].date,year,xmlNodeGetContent(child_node2));
-//		 fprintf(stderr,"Sun up %s\n",date_in_string);
 		 strptime(date_in_string, "%b %d %Y %I:%M %p", tm);
 	         weather_days[count_day-1].day.begin_time = mktime(tm);
-		}    
+		 /* Check New Year */
+	         if ((current_month == 12) && (tm->tm_mon == 1))
+                 {
+		  sprintf(date_in_string,"%s %i %s",weather_days[count_day-1].date,year+1,xmlNodeGetContent(child_node2));
+		  strptime(date_in_string, "%b %d %Y %I:%M %p", tm);
+	          weather_days[count_day-1].day.begin_time = mktime(tm);	        
+		 }
+		}     
 		if (!xmlStrcmp(child_node2->name, (const xmlChar *)"suns"))
 		{ 
 		 sprintf(date_in_string,"%s %i %s",weather_days[count_day-1].date,year,xmlNodeGetContent(child_node2));
-//		 fprintf(stderr,"Sun down %s\n",date_in_string);
 		 strptime(date_in_string, "%b %d %Y %I:%M %p", tm);
 	         weather_days[count_day-1].night.begin_time = mktime(tm);
-
+                  /* Check New Year */
+	         if ((current_month == 12) && (tm->tm_mon == 1))
+		 {
+		  sprintf(date_in_string,"%s %i %s",weather_days[count_day-1].date,year+1,xmlNodeGetContent(child_node2));
+		  strptime(date_in_string, "%b %d %Y %I:%M %p", tm);
+	          weather_days[count_day-1].night.begin_time = mktime(tm);
+		 }
 		}    
 	       }
 	      } 

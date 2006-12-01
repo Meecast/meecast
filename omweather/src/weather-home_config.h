@@ -60,4 +60,3 @@ extern gchar    _weather_temperature_unit;
 
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 
-

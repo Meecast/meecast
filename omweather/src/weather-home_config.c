@@ -135,6 +135,7 @@ fill_station_inform( struct weather_station *ws)
     }
  return FALSE;    
 }
+
 /* Reinitialize stations list */
 void
 reinitilize_stations_list(gchar *stations_string)
@@ -188,10 +189,8 @@ prepare_idlist_string (void)
    return g_string_free (result_string,FALSE);
 }
 
-/*
- * Initialize all configuration from GCONF.  This should not be called more
- * than once during execution.
- */
+/* Initialize all configuration from GCONF.  This should not be called more
+ * than once during execution. */
 void
 config_init()
 {
@@ -282,10 +281,34 @@ config_init()
 	add_time_update_list(24*60,"24 hours");
 	add_time_update_list(1,"1 minute (DEBUG)");    
 }
+
  
-/**
- * Save all configuration data to GCONF.
- */
+
+/* Save current station position configuration data to GCONF. */
+void
+config_save_current_station()
+{
+    GConfClient *gconf_client = gconf_client_get_default();
+    
+    if(!gconf_client)
+    {
+        fprintf(stderr,"Failed to initialize GConf.  Settings were not saved.\n");
+        return;
+    }
+    /* Save Weather station name. */
+    if(_weather_station_name)
+        gconf_client_set_string(gconf_client,
+            GCONF_KEY_WEATHER_STATION_NAME, _weather_station_name, NULL);
+    /* Save Weather station id. */
+    if(_weather_station_id)
+        gconf_client_set_string(gconf_client,
+            GCONF_KEY_WEATHER_STATION_ID, _weather_station_id, NULL);
+
+    g_object_unref(gconf_client);
+
+}
+ 
+/* Save all configuration data to GCONF. */
 void
 config_save()
 {

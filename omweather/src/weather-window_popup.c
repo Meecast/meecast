@@ -135,10 +135,21 @@ weather_window_popup_show (GtkWidget *widget,
     label_temp = gtk_label_new ("Temperature: ");
     set_font_size(label_temp,18);
     
-    if (_weather_temperature_unit == 'C')
-     sprintf(buffer,"%s\302\260C / %s\302\260C",weather_days[i].low_temp,weather_days[i].hi_temp);    
+    if (strcmp(weather_days[i].hi_temp,"N/A")==0)
+    { 
+     if (_weather_temperature_unit == 'C')
+      sprintf(buffer,"%s\302\260C",weather_days[i].low_temp);    
+     else
+      sprintf(buffer,"%d\302\260F",c2f(atoi(weather_days[i].low_temp)));    
+    }
     else
-     sprintf(buffer,"%d\302\260F / %d\302\260F",c2f(atoi(weather_days[i].low_temp)),c2f(atoi(weather_days[i].hi_temp)));    
+    {
+     if (_weather_temperature_unit == 'C')
+      sprintf(buffer,"%s\302\260C / %s\302\260C",weather_days[i].low_temp,weather_days[i].hi_temp);    
+     else
+      sprintf(buffer,"%d\302\260F / %d\302\260F",c2f(atoi(weather_days[i].low_temp)),c2f(atoi(weather_days[i].hi_temp)));    
+    
+    }  
     label_value_temp = gtk_label_new (buffer);
     gtk_box_pack_start (GTK_BOX (hbox_temp),label_temp, FALSE, FALSE, 5);
     gtk_box_pack_start (GTK_BOX (hbox_temp),label_value_temp, FALSE, FALSE, 5);

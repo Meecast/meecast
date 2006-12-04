@@ -305,6 +305,8 @@ weather_buttons_fill(void)
      if ((i==0) && (weather_current_day.date_time>(current_time-OFFSET_CURRENT_WEATHER*3600)) 
                 && (weather_current_day.date_time<(current_time+OFFSET_CURRENT_WEATHER*3600)))
      {
+      /* Add to evenet time change between current weather and forecast */
+      time_event_add((weather_current_day.date_time+OFFSET_CURRENT_WEATHER*3600),DAYTIMEEVENT);
       /* Show current weather bold fonts */
       sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,

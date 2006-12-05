@@ -85,7 +85,7 @@ void changed_country(void)
       memset(out_buffer, 0, sizeof(out_buffer)); //Clear buffer
       fgets(out_buffer, sizeof(out_buffer), iso3166_file);//Read Next Line
       if (strlen(out_buffer)>0){
-       if (strcmp("----------------------------------------------------------------------\n",out_buffer) == 0)
+       if (streq("----------------------------------------------------------------------\n",out_buffer))
        {
          flag = (flag == TRUE) ? FALSE : TRUE ;
        } 	
@@ -95,7 +95,7 @@ void changed_country(void)
          if (strcmp("\n",out_buffer) != 0)
 	 {
           sprintf(country_name,"%.38s",out_buffer);
-	  if (strcmp(gcountry_name,country_name) == 0)
+	  if (streq(gcountry_name,country_name))
 	  {
 	    /* Write country code */
 	    country_code[0]=out_buffer[48];
@@ -130,7 +130,7 @@ void changed_country(void)
 	    flag_new_state = FALSE;	
             gtk_combo_box_append_text(GTK_COMBO_BOX(states), temp_state_name);
 	     count_state++;
-	     if ((_weather_state_name != NULL) &&(strcmp(temp_state_name,_weather_state_name) == 0))
+	     if ((_weather_state_name != NULL) &&(streq(temp_state_name,_weather_state_name)))
 	     {
 
 	      index_state = count_state;
@@ -184,7 +184,7 @@ void changed_state(void)
     	if ( out_buffer[19] != ' ' )
 	{
 	  sprintf(state_name,"%.19s",out_buffer);
-	  flag_necessary_state = (strcmp(state_name,gstate_name) == 0) ? TRUE : FALSE;
+	  flag_necessary_state = (streq(state_name,gstate_name)) ? TRUE : FALSE;
 	} 
 
 	/* Check for wrong string */ 
@@ -207,7 +207,7 @@ void changed_state(void)
 	  gtk_combo_box_append_text(GTK_COMBO_BOX(stations), temp_station_name);
 
           count_station++;
-	  if ((_weather_station_name != NULL) &&(strcmp(temp_station_name,_weather_station_name) == 0))
+	  if ((_weather_station_name != NULL) &&(streq(temp_station_name,_weather_station_name)))
 	  {    
 	    index_station = count_station;
           }
@@ -233,7 +233,7 @@ void changed_stations(void)
   while (stations_list_temp != NULL)
   {
    sc = stations_list_temp->data;
-   if (strcmp(sc->station_name,g_strdup(gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations)))) == 0)
+   if (streq(sc->station_name,g_strdup(gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations)))))
    {
     if (_weather_station_id_temp != NULL) g_free(_weather_station_id_temp);
     _weather_station_id_temp = g_strdup(sc->station_code);
@@ -262,7 +262,7 @@ fill_station_list_view (GtkWidget *station_list_view,GtkListStore *station_list_
      gtk_list_store_set(GTK_LIST_STORE(station_list_store),
                             &iter,
                             0, ws->name_station,-1);
-     if (strcmp(_weather_station_id, ws->id_station)== 0)
+     if (streq(_weather_station_id, ws->id_station))
         gtk_tree_selection_select_iter(list_selection,&iter);
      tmplist = g_slist_next(tmplist);
  }
@@ -292,7 +292,7 @@ delete_station (GtkWidget *widget,
  while (tmplist != NULL)
  {
      ws = tmplist->data;
-     if (strcmp(station_selected, ws->name_station)== 0)
+     if (streq(station_selected, ws->name_station))
      {
       /* Remove station from the Station List */
       stations_view_list = g_slist_remove(stations_view_list, ws);
@@ -311,7 +311,7 @@ delete_station (GtkWidget *widget,
        while (tmplist != NULL)
        {
         ws = tmplist->data;
-        if (strcmp(station_selected, ws->name_station)== 0)
+        if (streq(station_selected, ws->name_station))
         {
          /* Set New selected station on default on main display*/
          if (_weather_station_id != NULL) g_free(_weather_station_id);

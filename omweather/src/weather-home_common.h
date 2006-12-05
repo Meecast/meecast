@@ -42,6 +42,7 @@
 #define STATIONS_FILE "/usr/share/weather/stations.txt"
 #define COUNTRYS_FILE "/usr/share/weather/iso3166-countrycodes.txt"
 #define DEFAULT_ICON "/usr/share/weather/icons/Crystal/large_icon/"
+#define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
 
 
 typedef struct

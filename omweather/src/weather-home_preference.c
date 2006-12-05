@@ -376,6 +376,17 @@ create_tree_view(GtkListStore * list)
   return tree_view;
 }
 
+#define ZERO(type, name) type name; memset(&name, 0, sizeof name)
+#define SIG_TIMER_EXPIRATION SIGRTMIN
+#define CLOCK_TYPE CLOCK_MONOTONIC
+struct timespec get_time_stamp(void)
+{
+ZERO(struct timespec, now);
+if (clock_gettime(CLOCK_TYPE, &now) != 0) perror("clock_gettime");
+fprintf(stderr,"NOW=%ld.%09ld\n", now.tv_sec, now.tv_nsec);
+return now;
+}
+
 void
 weather_window_add_station (GtkWidget *widget,
                                GdkEvent *event,
@@ -383,11 +394,13 @@ weather_window_add_station (GtkWidget *widget,
 {
   FILE  *iso3166_file;
   char country_name[52];
-  unsigned char out_buffer[1024]; /* buffer for work with stations.txt files*/
-  char flag; //Flag for country processing
-  int count_country = 0; // Count country of file iso3166 
-  int index_country = 0; // Position country of the list 
-  struct weather_station *ws; //Temp struct for station
+  unsigned char out_buffer[1024];   // Buffer for work with stations.txt files
+  char flag;                        // Flag for country processing
+  int count_country = 0;            // Count country of file iso3166 
+  int index_country = 0;            // Position country of the list 
+  struct weather_station *ws;       // Temp struct for station
+  GtkTreeIter iter;                 // Temp for gtk_combo_box
+  GtkListStore *country_list_store; // Country List store
 
   GtkWidget *window_add_station;
   GtkWidget *label;
@@ -429,9 +442,11 @@ weather_window_add_station (GtkWidget *widget,
             label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f) ,
             1, 2, 3, 4);
   gtk_container_add(GTK_CONTAINER(label),stations = gtk_combo_box_new_text());
+  
+  country_list_store = create_station_list_store();
 
-  gtk_widget_show_all(window_add_station);
-   
+  gtk_widget_show_all(window_add_station);   
+
   /* Inserting Countrys to ComboBox from iso file*/
     flag = FALSE;
     if((iso3166_file = fopen(COUNTRYS_FILE,"r")) != NULL)
@@ -441,7 +456,7 @@ weather_window_add_station (GtkWidget *widget,
       memset(out_buffer, 0, sizeof(out_buffer)); //Clear buffer
       fgets(out_buffer, sizeof(out_buffer), iso3166_file);//Read Next Line
       if (strlen(out_buffer)>0){
-       if (strcmp("----------------------------------------------------------------------\n",out_buffer) == 0)
+       if (streq("----------------------------------------------------------------------\n",out_buffer))
        {
         flag = (flag == TRUE) ? FALSE : TRUE ;
        }
@@ -451,9 +466,15 @@ weather_window_add_station (GtkWidget *widget,
          if (strcmp("\n",out_buffer) != 0)
          {
           sprintf(country_name,"%.38s",out_buffer);
-          gtk_combo_box_append_text(GTK_COMBO_BOX(countrys), country_name);
+
+          gtk_list_store_append(GTK_LIST_STORE
+                              (country_list_store), &iter);
+          gtk_list_store_set(GTK_LIST_STORE(country_list_store),
+                            &iter,
+                            0, country_name,-1);
+
           count_country++;
-          if ((_weather_country_name != NULL) &&(strcmp(country_name,_weather_country_name) == 0))
+          if ((_weather_country_name != NULL) &&(streq(country_name,_weather_country_name)))
           {
            index_country = count_country;
           }
@@ -464,6 +485,9 @@ weather_window_add_station (GtkWidget *widget,
      fclose(iso3166_file);
     }
 
+   gtk_combo_box_set_model(countrys,country_list_store);  
+  
+  
   /* Set default value to country combo_box */
   if (index_country != 0)
   {

@@ -52,21 +52,22 @@ weather_window_popup_show (GtkWidget *widget,
                            gpointer user_data)
 {
     GtkWidget *frame_popup;
-    GtkWidget *hbox_title_location, *hbox_title_date, *hbox_day, *hbox_night, *hbox_foot, *hbox_pref, *hbox_temp;
-    GtkWidget *separator_title, *separator_temp, *separator_day, *separator_foot;
-    GtkWidget *vbox, *vbox_day, *vbox_night, *vbox_hu_day, *vbox_hu_night;
+    GtkWidget *hbox_title_location, *hbox_title_date, *hbox_day, *hbox_current, *hbox_night, *hbox_foot, *hbox_pref, *hbox_temp;
+    GtkWidget *separator_title, *separator_current, *separator_temp, *separator_day, *separator_foot;
+    GtkWidget *vbox, *vbox_current, *vbox_day, *vbox_night, *vbox_hu_day, *vbox_hu_night;
     GtkWidget *label_location;
     GtkWidget *label_date;
     GtkWidget *label_update;
-    GtkWidget *label_night, *label_day, *label_temp, *label_value_temp, *label_humidity_night;
-    GtkWidget *label_humidity_day ;
+    GtkWidget *label_current, *label_night, *label_day, *label_temp, *label_value_temp, *label_humidity_current, *label_humidity_night;
+    GtkWidget *label_humidity_day, *vbox_hu_current;
     GdkPixbuf *icon;
-    GtkWidget *icon_image_night, *icon_image_day, *icon_update;
+    GtkWidget *icon_image_current, *icon_image_night, *icon_image_day, *icon_update;
     GtkWidget *button_update,  *button_pref;
     GtkIconInfo *gtkicon_update;
     gchar buffer[1024];
     gchar full_filename[2048];
     time_t current_time;
+    gboolean pressed_current_day = FALSE;
     struct stat statv;
 
     if (_weather_station_id == NULL )
@@ -82,6 +83,13 @@ weather_window_popup_show (GtkWidget *widget,
       break;  
     if ( i >= Max_count_web_button)   
       return FALSE; /* Not found pressed button */
+     
+    if (i==0) 
+    {
+     pressed_current_day = TRUE;
+     /* get current day */  
+     current_time = time(NULL);
+    }
     
     i = boxs_offset[i];  
     
@@ -95,8 +103,48 @@ weather_window_popup_show (GtkWidget *widget,
      gtk_container_add (GTK_CONTAINER (weather_window_popup), frame_popup);
 
 //    GtkWidget *my_window = gtk_window_new( GTK_WINDOW_TOPLEVEL );
-    gtk_window_move(GTK_WINDOW(weather_window_popup), 280,160);
-    
+     /* Show or current weather or forecast */
+     if (pressed_current_day && (weather_current_day.date_time>(current_time-OFFSET_CURRENT_WEATHER*3600)) 
+                && (weather_current_day.date_time<(current_time+OFFSET_CURRENT_WEATHER*3600)))
+     {
+      gtk_window_move(GTK_WINDOW(weather_window_popup), 280,100);
+      /* Begin CURRENT */        
+      hbox_current = gtk_hbox_new (FALSE, 0);
+      sprintf(buffer,"%s%i.png",path_large_icon,weather_current_day.day.icon);    
+      icon = gdk_pixbuf_new_from_file_at_size (buffer,64,64,NULL);
+      icon_image_current = gtk_image_new_from_pixbuf (icon);
+      vbox_current = gtk_vbox_new (FALSE, 0);
+
+      if (_weather_temperature_unit == 'C')
+       sprintf(buffer,"Now  \n%s\302\260C",weather_current_day.day.temp);    
+      else
+       sprintf(buffer,"Now  \n%d\302\260F",c2f(atoi(weather_current_day.day.temp)));           
+      label_current = gtk_label_new (buffer);
+      set_font_size(label_current,20);    
+      gtk_box_pack_start (GTK_BOX (vbox_current),label_current, FALSE, FALSE, 0);
+
+      vbox_hu_current = gtk_vbox_new (FALSE, 0);    
+      sprintf(buffer,"%s\nFeels like: %s\302\260C Visible: %i km\nHumidity: %s%%\nWind: %s %im/s Gust: %im/s", \ 
+              weather_current_day.day.title,weather_current_day.low_temp,weather_current_day.day.vis,\
+	      weather_current_day.day.hmid,weather_current_day.day.wind_title,weather_current_day.day.wind_speed*10/36,weather_current_day.day.wind_gust*10/36);
+      label_humidity_current = gtk_label_new (buffer);    
+      set_font_size(label_humidity_current,16);
+      gtk_box_pack_start (GTK_BOX (vbox_hu_current),label_humidity_current, FALSE, FALSE, 0);
+
+      separator_current = gtk_hseparator_new ();
+
+      gtk_box_pack_start (GTK_BOX (hbox_current),icon_image_current, FALSE, FALSE, 0);
+      gtk_box_pack_start (GTK_BOX (hbox_current),vbox_current, FALSE, FALSE, 0);
+      gtk_box_pack_start (GTK_BOX (hbox_current),vbox_hu_current, FALSE, FALSE, 10);
+      /* End CURRENT */        
+     }    
+     else
+     {
+       gtk_window_move(GTK_WINDOW(weather_window_popup), 280,160);     
+
+
+       
+     }
     /* Begin TITLE */
     /* Location and date */
     vbox = gtk_vbox_new (FALSE, 0);
@@ -241,6 +289,14 @@ weather_window_popup_show (GtkWidget *widget,
      gtk_box_pack_start (GTK_BOX (vbox), separator_temp, FALSE, TRUE, 0);
      
      separator_day = gtk_hseparator_new ();
+     
+     /* Show or current weather or forecast */
+     if (pressed_current_day && (weather_current_day.date_time>(current_time-OFFSET_CURRENT_WEATHER*3600)) 
+                && (weather_current_day.date_time<(current_time+OFFSET_CURRENT_WEATHER*3600)))
+     {     
+      gtk_container_add (GTK_CONTAINER (vbox), hbox_current);
+      gtk_box_pack_start (GTK_BOX (vbox), separator_current, FALSE, TRUE, 0);
+     }
      
      /* First icon - morning, day or evening */     
      if ((current_time>weather_days[i].day.begin_time) &&

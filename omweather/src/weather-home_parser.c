@@ -153,7 +153,7 @@ int parse_weather_com_xml(void)
 	  if ( child_node->type == XML_ELEMENT_NODE  &&
                 !xmlStrcmp(child_node->name, (const xmlChar *)"tmp") )
           {
-           sprintf(weather_current_day.hi_temp,"%.3s", xmlNodeGetContent(child_node));
+           sprintf(weather_current_day.day.temp,"%.3s", xmlNodeGetContent(child_node));
 	  }
           if ( child_node->type == XML_ELEMENT_NODE  &&
                 !xmlStrcmp(child_node->name, (const xmlChar *)"flik") )
@@ -173,6 +173,10 @@ int parse_weather_com_xml(void)
           {
             sprintf(weather_current_day.day.hmid,"%.3s",xmlNodeGetContent(child_node));
           }
+          if  (!xmlStrcmp(child_node->name, (const xmlChar *)"vis") )
+          {
+	    weather_current_day.day.vis=atoi(xmlNodeGetContent(child_node));
+          }
 	  if  (!xmlStrcmp(child_node->name, (const xmlChar *)"wind") )
           {
            for(child_node2 = child_node->children; child_node2 != NULL; child_node2 = child_node2->next)
@@ -182,6 +186,10 @@ int parse_weather_com_xml(void)
              if  (!xmlStrcmp(child_node2->name, (const xmlChar *)"s") )
              {
               weather_current_day.day.wind_speed=atoi(xmlNodeGetContent(child_node2));
+             }
+             if  (!xmlStrcmp(child_node2->name, (const xmlChar *)"gust") )
+             {
+              weather_current_day.day.wind_gust=atoi(xmlNodeGetContent(child_node2));
              }
              if  (!xmlStrcmp(child_node2->name, (const xmlChar *)"t") )
              {

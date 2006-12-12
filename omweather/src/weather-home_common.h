@@ -48,10 +48,13 @@
 typedef struct
 {
   int icon;
-  gchar title[26]; /* Title */
-  gchar hmid[5]; /* Humidity */
-  int wind_speed; /* Wind Speed */
+  gchar title[26];      /* Title */
+  gchar hmid[5];        /* Humidity */
+  int wind_speed;       /* Wind Speed */
+  int wind_gust;        /* Wind Gust */
+  int vis;              /* Visibilty */
   gchar wind_title[11]; /* Wind Title */
+  gchar temp[4];        /* Temperature */
   time_t begin_time;    /* Begin time party of the day */  
 }part_of_day;
 

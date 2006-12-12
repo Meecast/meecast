@@ -36,6 +36,7 @@ timer_handler(gpointer data)
  struct event_time *evt;
  time_t current_time;
 
+ fprintf (stderr,"test update !!!!!!!!!!!!!!!!!\n");
  if (not_event == FALSE)
  {
   if (event_time_list != NULL)

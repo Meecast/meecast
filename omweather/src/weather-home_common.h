@@ -52,7 +52,7 @@ typedef struct
   gchar hmid[5];        /* Humidity */
   int wind_speed;       /* Wind Speed */
   int wind_gust;        /* Wind Gust */
-  int vis;              /* Visibilty */
+  float vis;              /* Visibilty */
   gchar wind_title[11]; /* Wind Title */
   gchar temp[4];        /* Temperature */
   time_t begin_time;    /* Begin time party of the day */  

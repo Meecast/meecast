@@ -107,7 +107,7 @@ weather_window_popup_show (GtkWidget *widget,
      if (pressed_current_day && (weather_current_day.date_time>(current_time-OFFSET_CURRENT_WEATHER*3600)) 
                 && (weather_current_day.date_time<(current_time+OFFSET_CURRENT_WEATHER*3600)))
      {
-      gtk_window_move(GTK_WINDOW(weather_window_popup), 280,100);
+      gtk_window_move(GTK_WINDOW(weather_window_popup), 280,90);
       /* Begin CURRENT */        
       hbox_current = gtk_hbox_new (FALSE, 0);
       sprintf(buffer,"%s%i.png",path_large_icon,weather_current_day.day.icon);    
@@ -124,8 +124,13 @@ weather_window_popup_show (GtkWidget *widget,
       gtk_box_pack_start (GTK_BOX (vbox_current),label_current, FALSE, FALSE, 0);
 
       vbox_hu_current = gtk_vbox_new (FALSE, 0);    
-      sprintf(buffer,"%s\nFeels like: %s\302\260C Visible: %i km\nHumidity: %s%%\nWind: %s %im/s Gust: %im/s", \ 
-              weather_current_day.day.title,weather_current_day.low_temp,weather_current_day.day.vis,\
+      if (_weather_temperature_unit == 'C')
+       sprintf(buffer,"%s\nFeels like: %s\302\260C Visible: %'.0f m\nHumidity: %s%%\nWind: %s %im/s Gust: %im/s", \ 
+              weather_current_day.day.title,weather_current_day.low_temp,weather_current_day.day.vis*1000,\
+	      weather_current_day.day.hmid,weather_current_day.day.wind_title,weather_current_day.day.wind_speed*10/36,weather_current_day.day.wind_gust*10/36);
+      else
+       sprintf(buffer,"%s\nFeels like: %s\302\260F Visible: %'.0f m\nHumidity: %s%%\nWind: %s %im/s Gust: %im/s", \ 
+              weather_current_day.day.title,c2f(atoi(weather_current_day.low_temp)),weather_current_day.day.vis*1000,\
 	      weather_current_day.day.hmid,weather_current_day.day.wind_title,weather_current_day.day.wind_speed*10/36,weather_current_day.day.wind_gust*10/36);
       label_humidity_current = gtk_label_new (buffer);    
       set_font_size(label_humidity_current,16);

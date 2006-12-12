@@ -162,7 +162,7 @@ int parse_weather_com_xml(void)
           }
           if  (!xmlStrcmp(child_node->name, (const xmlChar *)"t") )
           {
-           sprintf(weather_current_day.day.title,"%.10s",xmlNodeGetContent(child_node));
+           sprintf(weather_current_day.day.title,"%.25s",xmlNodeGetContent(child_node));
           }
           if  (!xmlStrcmp(child_node->name, (const xmlChar *)"icon") )
           {
@@ -175,7 +175,7 @@ int parse_weather_com_xml(void)
           }
           if  (!xmlStrcmp(child_node->name, (const xmlChar *)"vis") )
           {
-	    weather_current_day.day.vis=atoi(xmlNodeGetContent(child_node));
+	    weather_current_day.day.vis=atof(xmlNodeGetContent(child_node));
           }
 	  if  (!xmlStrcmp(child_node->name, (const xmlChar *)"wind") )
           {

@@ -700,10 +700,10 @@ weather_window_preference (GtkWidget *widget,
     }
 
    gtk_widget_show_all(window_config);
+   
+   
    while(GTK_RESPONSE_ACCEPT == gtk_dialog_run(GTK_DIALOG(window_config))) /* Press Button Ok */
    {
-//     if (_weather_station_name) /* If not select station not exit from prefernce window */
-//     {
 	 if ( strcmp(_weather_icon_size,gtk_combo_box_get_active_text(GTK_COMBO_BOX(icon_size))) != 0)
 	 {  
 	  flag_update_icon = TRUE;
@@ -741,6 +741,10 @@ weather_window_preference (GtkWidget *widget,
 	  if (strcmp(tu->name_between_time,gtk_combo_box_get_active_text(GTK_COMBO_BOX(update_time))) == 0)
 	  {
 	   _weather_periodic_update=tu->between_time;
+	   if (_weather_periodic_update == 0)
+	    remove_periodic_event();
+	   else    
+	    add_periodic_event();
 	   break;
 	  }    	  
           time_update_list_temp = g_slist_next(time_update_list_temp);
@@ -765,7 +769,6 @@ weather_window_preference (GtkWidget *widget,
 
          not_event = FALSE;
 	 return;
-//     }
     }
   
    /* Pressed CANCEL */

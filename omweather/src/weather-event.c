@@ -36,7 +36,6 @@ timer_handler(gpointer data)
  struct event_time *evt;
  time_t current_time;
 
- fprintf (stderr,"test update !!!!!!!!!!!!!!!!!\n");
  if (not_event == FALSE)
  {
   if (event_time_list != NULL)
@@ -55,13 +54,13 @@ timer_handler(gpointer data)
      			 weather_frame_update();   
 			 break;
       case AUTOUPDATE:
+			 /* Reinitialise autoupdate event */ 
+		         /* delete periodic update */
+                         event_time_list=g_slist_remove(event_time_list,event_time_list->data);      
 			 if (get_weather_html(FALSE) == 0)
 			 {
 			   weather_frame_update();
 			 }
-			 /* Reinitialise autoupdate event */ 
-		         /* delete periodic update */
-                         event_time_list=g_slist_remove(event_time_list,event_time_list->data);
                          /* add periodic update */
                          add_periodic_event();
     		         break;		    
@@ -149,6 +148,27 @@ add_periodic_event(void)
   {
    time_event_add(time(NULL)+_weather_periodic_update*60,AUTOUPDATE);
   } 
-//  print_list();
+}
+
+/* Remove periodic time event  from list */	  
+void
+remove_periodic_event(void)
+{
+ static GSList *list_time_event_temp = NULL;
+ struct event_time *evt;
+ if (event_time_list != NULL)
+ { 
+  list_time_event_temp = event_time_list;  
+  while (list_time_event_temp != NULL)
+  {
+   evt = list_time_event_temp->data;
+   if (evt->type_event == AUTOUPDATE){
+      event_time_list=g_slist_remove(event_time_list,event_time_list->data);      
+      fprintf(stderr,"remove\n");
+   }
+   list_time_event_temp = g_slist_next(list_time_event_temp);
+  }
+ }
+
 }
 

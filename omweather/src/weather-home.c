@@ -43,7 +43,7 @@
 
 #include <unistd.h>
 
-#define VERSION "0.13"
+#define VERSION "0.14"
 #define APPNAME "omweather"
 
 /* Translate  temperature Celsius to Farenhait */

@@ -1,3 +1,16 @@
+omweather (0.14) unstable; urgency=low
+
+  * View current weather on popup window
+  * Fix bug - reboot after delete station
+  * Save selected station after reboot device
+  * Automatic redraw of the first icon in case time showing current weather is expired
+  * To not show temperature N/A on popup window
+  * Fix bug crossing between Year (New Year)
+  * Small acceleration of opening the window "Add station"
+  * Fix bug: not begin autoupdate after change autoupdate time
+  
+ -- Vlad Vasiliev <vlad@gas.by>  Wen, 20 Dec 2006 11:15:31 +0200
+
 omweather (0.13) unstable; urgency=low
 
   * Add multistations

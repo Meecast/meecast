@@ -366,7 +366,7 @@ weather_buttons_fill(void)
     if ( offset < count_day)
     {
      /* Prepare temperature value to show on display */
-     temp_hi_now=atoi(weather_current_day.hi_temp);     
+     temp_hi_now=atoi(weather_current_day.day.temp); 
      temp_hi=atoi(weather_days[offset].hi_temp);     
      temp_low=atoi(weather_days[offset].low_temp);     
      if (_weather_temperature_unit == 'F')

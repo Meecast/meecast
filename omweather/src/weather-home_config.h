@@ -44,6 +44,7 @@
 #define GCONF_KEY_ENABLE_TRANSPARENCY      GCONF_KEY_PREFIX"/transparency"
 #define GCONF_KEY_WEATHER_PERIODIC_UPDATE  GCONF_KEY_PREFIX"/periodic-update"
 #define GCONF_KEY_WEATHER_TEMPERATURE_UNIT GCONF_KEY_PREFIX"/temperature-unit"
+#define GCONF_KEY_WEATHER_LAYOUT           GCONF_KEY_PREFIX"/layout"   
 
 extern gchar    *_weather_dir_name;
 extern gchar    *_weather_country_name;
@@ -57,6 +58,7 @@ extern GdkColor _weather_font_color;
 extern GdkColor DEFAULT_FONT_COLOR;
 extern GSList   *time_update_list;
 extern gchar    _weather_temperature_unit;
+extern int      _weather_layout;
 
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 

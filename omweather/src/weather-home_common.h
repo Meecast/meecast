@@ -43,6 +43,7 @@
 #define COUNTRYS_FILE "/usr/share/weather/iso3166-countrycodes.txt"
 #define DEFAULT_ICON "/usr/share/weather/icons/Crystal/large_icon/"
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
+enum {HORIZONTAL,VERTICAL};
 
 
 typedef struct
@@ -99,6 +100,7 @@ struct weather_station{
 	gchar *name_station;
 	gchar *id_station;
         GtkWidget *box;
+        GtkWidget *button;
 	GtkWidget *label_box;
 };
 

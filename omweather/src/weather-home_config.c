@@ -196,6 +196,7 @@ config_init()
 {
     gchar *tmp;
     GConfValue *value;
+    GError *gerror = NULL;
 
     GConfClient *gconf_client = gconf_client_get_default();
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
@@ -271,6 +272,12 @@ config_init()
 	  _weather_temperature_unit = tmp[0];
 	else
 	  _weather_temperature_unit = 'C';
+
+	/* Get Layout  Default Horizontal */
+	_weather_layout = gconf_client_get_int(gconf_client,
+                     GCONF_KEY_WEATHER_LAYOUT, &gerror);
+	if (gerror)
+	 _weather_layout = HORIZONTAL;
 	  
 	/* Fill time update list */
 	add_time_update_list(0,"None");	
@@ -373,6 +380,9 @@ config_save()
     if(_weather_temperature_unit)
         gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_TEMPERATURE_UNIT, temp_buffer, NULL);
+    /* Save Layout type. */
+    gconf_client_set_int(gconf_client,
+            GCONF_KEY_WEATHER_LAYOUT, _weather_layout, NULL);	    
 	    
 
     g_object_unref(gconf_client);

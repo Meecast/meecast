@@ -620,12 +620,31 @@ weather_window_preference (GtkWidget *widget,
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
             table = gtk_table_new(1, 4, FALSE),
             label = gtk_label_new("Main Interface"));
+  
+    /* Layout */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-            label = gtk_label_new("Icon size:"),
+            label = gtk_label_new("Layout:"),
             0, 1, 0, 1);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
             1, 2, 0, 1);
+    gtk_container_add(GTK_CONTAINER(label),layout_type = gtk_combo_box_new_text());
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Horizontal");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Vertical");
+    switch (_weather_layout)
+    {
+     default:
+     case HORIZONTAL:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),0);break;
+     case VERTICAL:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),1);break;                          
+    }    
+ 	    
+    /* Icon size */
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+            label = gtk_label_new("Icon size:"),
+            0, 1, 1, 2);
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+            label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
+            1, 2, 1, 2);
     gtk_container_add(GTK_CONTAINER(label),icon_size = gtk_combo_box_new_text());
     gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), "Large");
     gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), "Medium");
@@ -638,31 +657,34 @@ weather_window_preference (GtkWidget *widget,
       else
        gtk_combo_box_set_active (GTK_COMBO_BOX(icon_size),2);      
        
+    /* Font color */   
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_label_new("Font color:"),
-            0, 1, 1, 2);
-    gtk_table_attach_defaults(GTK_TABLE(table),	    
-            label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
-             1, 2, 1, 2);
-    gtk_container_add(GTK_CONTAINER(label),font_color = gtk_color_button_new());
-    gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color);      
-
-    gtk_table_attach_defaults(GTK_TABLE(table),	    
-            label = gtk_label_new("Transparency"),
             0, 1, 2, 3);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
              1, 2, 2, 3);
-    gtk_container_add(GTK_CONTAINER(label),chk_transparency = gtk_check_button_new ());
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_transparency),
-            _enable_transparency);
+    gtk_container_add(GTK_CONTAINER(label),font_color = gtk_color_button_new());
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color);      
 
+    /* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-            label = gtk_label_new("Temperature unit:"),
+            label = gtk_label_new("Transparency"),
             0, 1, 3, 4);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
-            1, 2, 3, 4);
+             1, 2, 3, 4);
+    gtk_container_add(GTK_CONTAINER(label),chk_transparency = gtk_check_button_new ());
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_transparency),
+            _enable_transparency);
+    
+    /* Temperature unit */
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+            label = gtk_label_new("Temperature unit:"),
+            0, 1, 4, 5);
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+            label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
+            1, 2, 4, 5);
     gtk_container_add(GTK_CONTAINER(label),temperature_unit = gtk_combo_box_new_text());
     gtk_combo_box_append_text(GTK_COMBO_BOX(temperature_unit), "Celsius (Metric)");    
     gtk_combo_box_append_text(GTK_COMBO_BOX(temperature_unit), "Fahrenheit (Imperial)");
@@ -724,8 +746,16 @@ weather_window_preference (GtkWidget *widget,
            flag_update_icon = TRUE;     
 	   _weather_font_color = _weather_font_color_temp;
 	  } 
+
+	 /* Layout Type */
+	 if (gtk_combo_box_get_active(layout_type) != _weather_layout )
+	 {
+	   _weather_layout = gtk_combo_box_get_active(layout_type);
+	   fprintf(stderr,"LAYOUT %i\n",_weather_layout);
+           flag_update_icon = TRUE;
+	 }
 	
-	 /* Trnsparency mode */
+	 /* Transparency mode */
          if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_transparency)) != _enable_transparency)
          {
 	  _enable_transparency = gtk_toggle_button_get_active(

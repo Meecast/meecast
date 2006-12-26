@@ -2,6 +2,7 @@
  * This file is part of Other Maemo Weather(omweather)
  *
  * Copyright (C) 2006 Vlad Vasiliev
+ * Copyright (C) 2006 Pavel Fialko
  * 	for the code
  *        
  * Copyright (C) Superkaramba's Liquid Weather ++ team
@@ -194,7 +195,7 @@ change_station (GtkWidget *widget,
   while (tmplist != NULL)
   {
    ws = tmplist->data;
-   if ( ws->box == widget ) 
+   if ( ws->button == widget ) 
    {
      /* Check active station */ 
      if (strcmp(_weather_station_id, ws->id_station)!=0)
@@ -206,6 +207,74 @@ change_station (GtkWidget *widget,
       break;
      } 
    }     
+   tmplist = g_slist_next(tmplist);
+  }
+ return TRUE;
+}
+
+/* Change station to previos at main display */
+static gboolean
+change_station_prev (GtkWidget *widget,
+                           GdkEvent *event,
+                           gpointer user_data)
+{
+
+  GSList *tmplist = NULL;
+  GSList *tmplist_prev = NULL;
+  struct weather_station *ws;
+  tmplist = stations_view_list;
+  while (tmplist != NULL)
+  {
+   ws = tmplist->data;
+     /* Check active station */ 
+     if (strcmp(_weather_station_id, ws->id_station) == 0)
+     {
+     /* Get last station if no previos station */
+      if (tmplist_prev == NULL) 
+          tmplist_prev = g_slist_last(tmplist);
+      /* Get station data */
+      ws = tmplist_prev ->data;
+      if (_weather_station_id != NULL) g_free(_weather_station_id);
+        _weather_station_id = g_strdup(ws->id_station); 
+      weather_frame_update();
+      config_save_current_station();
+      break;
+     } 
+   tmplist_prev = tmplist;
+   /* Next station in list */
+   tmplist = g_slist_next(tmplist);
+  }
+ return TRUE;
+}
+/* Change station to next at main display */
+static gboolean
+change_station_next (GtkWidget *widget,
+                           GdkEvent *event,
+                           gpointer user_data)
+{
+
+  GSList *tmplist = NULL;
+  struct weather_station *ws;
+  tmplist = stations_view_list;
+  while (tmplist != NULL)
+  {
+   ws = tmplist->data;
+     /* Check active station */ 
+     if (strcmp(_weather_station_id, ws->id_station) == 0)
+     {
+      tmplist = g_slist_next(tmplist);
+      /* If no next station, get first */
+      if (tmplist == NULL)
+          tmplist = stations_view_list;
+      /* Get station data */
+      ws = tmplist ->data;
+      if (_weather_station_id != NULL) g_free(_weather_station_id);
+        _weather_station_id = g_strdup(ws->id_station); 
+      weather_frame_update();
+      config_save_current_station();
+      break;
+     }
+   /* Next station in list */
    tmplist = g_slist_next(tmplist);
   }
  return TRUE;
@@ -232,8 +301,8 @@ void weather_buttons_init(void)
 void 
 weather_buttons_fill(void)
 {
-  GtkWidget *label_start,*label_end, *stations_hbox, *box_not_station;
-
+  GtkWidget *stations_hbox, *box_not_station, *station_name_button;
+  GtkWidget *label_start,*label_end, *button_prev_st, *button_next_st, *box_prev_st, *box_next_st;
 
   int i, offset, count_day;
   gchar buffer[2048];
@@ -271,7 +340,12 @@ weather_buttons_fill(void)
    offset ++;
   }
 
-  box = gtk_hbox_new ( FALSE , 0);    
+  /* Select layout for button */
+  if (_weather_layout == HORIZONTAL)
+   box = gtk_hbox_new ( FALSE , 0);    
+  else
+   box = gtk_vbox_new ( FALSE , 0);    
+   
   for (i=0;i<Max_count_web_button; i++)
   {    
      /* If it first button add to evenet time change between nigth and day */
@@ -457,29 +531,62 @@ weather_buttons_fill(void)
    i = 0;
    while (tmplist != NULL)
    {
-   
       ws = tmplist->data;
+      
+      /* If Vertical layout and not selected station skip iteration */
+      if ( (_weather_layout == VERTICAL) && (strcmp(ws->id_station,_weather_station_id) != 0)) 
+      {
+       tmplist = g_slist_next(tmplist);
+       continue;
+      }
       gtk_table_attach_defaults(GTK_TABLE(main_table),	    
-            ws->box = gtk_button_new (),
-	    i, i+1 , 0, 1);
+                                ws->box = gtk_hbox_new (FALSE, 0),      
+	                        i, i+1 , 0, 1);
+
+      button_prev_st = gtk_button_new();
+      button_next_st = gtk_button_new(); 
+      ws->button = gtk_button_new(); 
+      box_prev_st = gtk_hbox_new(FALSE, 0);
+      box_next_st = gtk_hbox_new(FALSE, 0); 
+
       if (_enable_transparency)
-       gtk_button_set_relief (GTK_BUTTON(ws->box),GTK_RELIEF_NONE);
-      gtk_button_set_focus_on_click (GTK_BUTTON(ws->box),FALSE);    	    
+      {
+       gtk_button_set_relief (GTK_BUTTON(ws->button),GTK_RELIEF_NONE);
+       gtk_button_set_relief (GTK_BUTTON(button_prev_st),GTK_RELIEF_NONE);
+       gtk_button_set_relief (GTK_BUTTON(button_next_st),GTK_RELIEF_NONE);              
+      } 
+      gtk_button_set_focus_on_click (GTK_BUTTON(ws->button),FALSE);    	    
+      gtk_button_set_focus_on_click (GTK_BUTTON(button_prev_st),FALSE);    	          
+      gtk_button_set_focus_on_click (GTK_BUTTON(button_next_st),FALSE);    	    
+      
       stations_hbox = gtk_hbox_new (FALSE, 0);
       ws->label_box=gtk_label_new (NULL);
       label_start=gtk_label_new (NULL);
       label_end=gtk_label_new (NULL);
+      
+      /* Check selected station */
       if ((_weather_station_id) && (strcmp(ws->id_station,_weather_station_id)==0))
       {
        sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
                 ws->name_station);
        gtk_label_set_markup (GTK_LABEL (ws->label_box),buffer);		
-       sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>/</span>",
+
+       if  (_weather_layout == VERTICAL)
+        sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>&lt;</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
+       else		
+        sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>/</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
+       
        gtk_label_set_markup (GTK_LABEL (label_start),buffer);		
-       sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>\\</span>",
+       if  (_weather_layout == VERTICAL)
+        sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>\></span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
+       else
+        sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>\\</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
+		
        gtk_label_set_markup (GTK_LABEL (label_end),buffer);		
        
       }
@@ -497,7 +604,7 @@ weather_buttons_fill(void)
        gtk_label_set_markup (GTK_LABEL (label_end),buffer);				       
       }		
 
-      
+
       if (strcmp(_weather_icon_size,"Large") == 0)
        set_font_size(ws->label_box,FONT_MAIN_SIZE_LARGE);
       else 
@@ -506,22 +613,60 @@ weather_buttons_fill(void)
        else	     
         set_font_size(ws->label_box,FONT_MAIN_SIZE_SMALL);       
        
-      if (_enable_transparency)
+       
+      if (_enable_transparency && (_weather_layout == HORIZONTAL))
       { 
        gtk_box_pack_start (GTK_BOX (stations_hbox), label_start, FALSE, FALSE, 0); 
        gtk_box_pack_end (GTK_BOX (stations_hbox), label_end, FALSE, FALSE, 0);       
       }
-      gtk_box_pack_end (GTK_BOX (stations_hbox), ws->label_box, TRUE, TRUE, 0); 
-      gtk_container_add (GTK_CONTAINER (ws->box),stations_hbox);
       
-      /* Connect signal button */
-      g_signal_connect (ws->box, "released",
-		        G_CALLBACK (change_station),		
+      if  (_weather_layout == VERTICAL)
+      {      
+       gtk_box_pack_start (GTK_BOX (box_prev_st), label_start, FALSE, FALSE, 0); 
+       gtk_container_add (GTK_CONTAINER (button_prev_st),box_prev_st);       
+       
+       gtk_box_pack_start (GTK_BOX (box_next_st), label_end, FALSE, FALSE, 0); 
+       gtk_container_add (GTK_CONTAINER (button_next_st),box_next_st);              
+      
+       gtk_box_pack_end (GTK_BOX (stations_hbox), ws->label_box, TRUE, TRUE, 0); 
+       gtk_container_add (GTK_CONTAINER (ws->button),stations_hbox);       
+       
+       gtk_box_pack_start (GTK_BOX (ws->box), button_prev_st, FALSE, FALSE, 0); 
+       gtk_box_pack_start (GTK_BOX (ws->box), ws->button, FALSE, FALSE, 0); 
+       gtk_box_pack_start (GTK_BOX (ws->box), button_next_st, FALSE, FALSE, 0);        
+
+       
+       /* Connect signal button */
+       g_signal_connect (button_prev_st, "released",
+		        G_CALLBACK (change_station_prev),		
 		        NULL);  		    
-      g_signal_connect (ws->box, "enter",
+       g_signal_connect (button_prev_st, "enter",
      		        G_CALLBACK (enter_button),
      		        NULL); 
-      
+
+       /* Connect signal button */
+       g_signal_connect (button_next_st, "released",
+		        G_CALLBACK (change_station_next),		
+		        NULL);  		    
+       g_signal_connect (button_next_st, "enter",
+     		        G_CALLBACK (enter_button),
+     		        NULL); 
+
+      }
+      else
+      {
+       gtk_box_pack_end (GTK_BOX (stations_hbox), ws->label_box, TRUE, TRUE, 0); 
+       gtk_container_add (GTK_CONTAINER (ws->button),stations_hbox);       
+       gtk_container_add (GTK_CONTAINER (ws->box),ws->button);
+      }			
+
+       /* Connect signal button */
+       g_signal_connect (ws->button, "released",
+		        G_CALLBACK (change_station),		
+		        NULL);  		    
+       g_signal_connect (ws->button, "enter",
+     		        G_CALLBACK (enter_button),
+     		        NULL); 
       i++;	    
       tmplist = g_slist_next(tmplist);
    }

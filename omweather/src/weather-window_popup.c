@@ -302,7 +302,7 @@ weather_window_popup_show (GtkWidget *widget,
       gtk_container_add (GTK_CONTAINER (vbox), hbox_current);
       gtk_box_pack_start (GTK_BOX (vbox), separator_current, FALSE, TRUE, 0);
      }
-     
+    
      /* First icon - morning, day or evening */     
      if ((current_time>weather_days[i].day.begin_time) &&
         (current_time<weather_days[i].night.begin_time))
@@ -323,8 +323,8 @@ weather_window_popup_show (GtkWidget *widget,
       }
       else
       {
-        /* Evening */
-        gtk_container_add (GTK_CONTAINER (vbox), hbox_night);
+       /* Evening */
+       gtk_container_add (GTK_CONTAINER (vbox), hbox_night);
       }
      }
     }

@@ -221,7 +221,7 @@ int parse_weather_com_xml(void)
 	      sprintf(date_in_string,"%s %i 00:00:00",weather_days[count_day-1].date,year);
 	      strptime(date_in_string, "%b %d %Y %T", tm);
 	      /* Check New Year */
-	      if ((current_month == 12) && (tm->tm_mon == 1))
+	      if ((current_month == 11) && (tm->tm_mon == 0))
 	      {
 	        sprintf(date_in_string,"%s %i 00:00:00",weather_days[count_day-1].date,year+1);
 	        strptime(date_in_string, "%b %d %Y %T", tm);
@@ -302,7 +302,7 @@ int parse_weather_com_xml(void)
 		 strptime(date_in_string, "%b %d %Y %I:%M %p", tm);
 	         weather_days[count_day-1].day.begin_time = mktime(tm);
 		 /* Check New Year */
-	         if ((current_month == 12) && (tm->tm_mon == 1))
+	         if ((current_month == 11) && (tm->tm_mon == 0))
                  {
 		  sprintf(date_in_string,"%s %i %s",weather_days[count_day-1].date,year+1,xmlNodeGetContent(child_node2));
 		  strptime(date_in_string, "%b %d %Y %I:%M %p", tm);
@@ -315,7 +315,7 @@ int parse_weather_com_xml(void)
 		 strptime(date_in_string, "%b %d %Y %I:%M %p", tm);
 	         weather_days[count_day-1].night.begin_time = mktime(tm);
                   /* Check New Year */
-	         if ((current_month == 12) && (tm->tm_mon == 1))
+	         if ((current_month == 11) && (tm->tm_mon == 0))
 		 {
 		  sprintf(date_in_string,"%s %i %s",weather_days[count_day-1].date,year+1,xmlNodeGetContent(child_node2));
 		  strptime(date_in_string, "%b %d %Y %I:%M %p", tm);

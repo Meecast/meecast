@@ -27,6 +27,7 @@
 	
 */
 
+#define OMW_RESPONSE_ADD_CUSTOM_STATION 10000
 #include <gtk/gtk.h>
 #include "weather-home_common.h"
 
@@ -50,10 +51,12 @@ void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_
 void fill_station_list_view (GtkWidget *station_list_view,GtkListStore *station_list_store);
 
 GtkWidget  *countrys, *states, *stations, *icon_size, *layout_type, *update_time, *temperature_unit; 
+GtkWidget  *custom_station_name, *custom_station_code;
 
 static GSList *stations_list_in_state = NULL; /* Station list of country or state or province.  Use in combobox*/
 static GtkListStore *station_list_store;
 static GtkWidget *station_list_view;
+static GtkWidget *window_add_station;
 
 struct station_and_weather_code {
         gchar *station_name;

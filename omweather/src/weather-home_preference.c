@@ -37,7 +37,7 @@ void free_list_stations (void)
 {
  static GSList *stations_list_temp = NULL;
  struct station_and_weather_code *sc;
-
+ 
  if (stations_list_in_state != NULL)
  { 
   stations_list_temp = stations_list_in_state; 
@@ -142,6 +142,7 @@ void changed_country(void)
  g_free(_weather_country_name);    
  _weather_country_name = gcountry_name;
  free_list_stations();
+ 
 }
 
 /* Select item on state combobox */
@@ -388,6 +389,72 @@ return now;
 }
 
 void
+weather_window_add_custom_station ()
+{
+  struct weather_station *ws;       // Temp struct for station
+  GtkWidget *window_add_custom_station;
+  GtkWidget *label;
+  GtkWidget *table;
+
+
+  /* Create dialog window */
+  window_add_custom_station = gtk_dialog_new_with_buttons("Add Custom Station",
+            NULL, GTK_DIALOG_MODAL,
+            GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
+            NULL);
+  gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_add_custom_station)->vbox),
+              table = gtk_table_new(4, 2, FALSE), TRUE, TRUE, 0);	    
+  gtk_dialog_add_button(GTK_DIALOG(window_add_custom_station),
+            GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT);
+  /* Add Custom Station Name  */
+  gtk_table_attach_defaults(GTK_TABLE(table),
+            label = gtk_label_new("Station name:"),
+            0, 1, 0, 1);
+  gtk_table_attach_defaults(GTK_TABLE(table),
+            label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f) ,
+            1, 2, 0, 1);
+  gtk_container_add(GTK_CONTAINER(label),custom_station_name = gtk_entry_new());
+  gtk_entry_set_max_length (custom_station_name,16);
+  gtk_entry_set_width_chars (custom_station_name,16);
+  
+  /* Add Custom Station Code  */
+  gtk_table_attach_defaults(GTK_TABLE(table),
+            label = gtk_label_new("Station code\n (ZIP Code):"),
+            0, 1, 1, 2);
+  gtk_table_attach_defaults(GTK_TABLE(table),
+            label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f) ,
+            1, 2, 1, 2);
+  gtk_container_add(GTK_CONTAINER(label),custom_station_code = gtk_entry_new());	    
+  gtk_entry_set_max_length (custom_station_code,8);
+  gtk_entry_set_width_chars (custom_station_code,8);
+  
+
+  gtk_widget_show_all(window_add_custom_station);   
+  
+  while(GTK_RESPONSE_ACCEPT == gtk_dialog_run(GTK_DIALOG(window_add_custom_station))) /* Press Button Ok */
+  {
+   flag_update_station = TRUE;
+   ws = g_new0(struct weather_station,1);
+   if (_weather_station_id != NULL)  g_free(_weather_station_id);
+   _weather_station_id = g_strdup(gtk_entry_get_text(custom_station_code));
+   ws->id_station = g_strdup(_weather_station_id);
+   if (_weather_station_name != NULL) g_free(_weather_station_name);
+   _weather_station_name = g_strdup(gtk_entry_get_text(custom_station_name));
+   ws->name_station = g_strdup(_weather_station_name);
+
+   /* Add station to stations list */
+   stations_view_list = g_slist_append(stations_view_list, ws); 
+   /* Add station to View List(Tree) */
+   gtk_list_store_clear(station_list_store);
+   fill_station_list_view (station_list_view,station_list_store);
+   /* Update config file */
+   config_save();   
+   break;
+  }
+  gtk_widget_destroy(window_add_custom_station);
+}
+
+void
 weather_window_add_station (GtkWidget *widget,
                                GdkEvent *event,
                            gpointer user_data)
@@ -401,8 +468,9 @@ weather_window_add_station (GtkWidget *widget,
   struct weather_station *ws;       // Temp struct for station
   GtkTreeIter iter;                 // Temp for gtk_combo_box
   GtkListStore *country_list_store; // Country List store
+  gint result;                      // Result dialog window
 
-  GtkWidget *window_add_station;
+
   GtkWidget *label;
   GtkWidget *table;
 
@@ -413,6 +481,8 @@ weather_window_add_station (GtkWidget *widget,
             NULL);
   gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_add_station)->vbox),
             table = gtk_table_new(4, 2, FALSE), TRUE, TRUE, 0);
+  gtk_dialog_add_button(GTK_DIALOG(window_add_station),
+                        "Add Custom Station", OMW_RESPONSE_ADD_CUSTOM_STATION);
   gtk_dialog_add_button(GTK_DIALOG(window_add_station),
             GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT);
  
@@ -444,6 +514,8 @@ weather_window_add_station (GtkWidget *widget,
   gtk_container_add(GTK_CONTAINER(label),stations = gtk_combo_box_new_text());
   
   country_list_store = create_station_list_store();
+  
+  
 
   gtk_widget_show_all(window_add_station);   
 
@@ -492,6 +564,7 @@ weather_window_add_station (GtkWidget *widget,
   if (index_country != 0)
   {
      gtk_combo_box_set_active (GTK_COMBO_BOX(countrys),index_country-1);
+
      changed_country();
   }
 
@@ -506,29 +579,40 @@ weather_window_add_station (GtkWidget *widget,
                     NULL);
 
 
-  while(GTK_RESPONSE_ACCEPT == gtk_dialog_run(GTK_DIALOG(window_add_station)) &&
-        gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations)) != NULL) /* Press Button Ok and not null 
-									   station combobox */
+  while ( TRUE )									   
   {
-    flag_update_station = TRUE;
-    ws = g_new0(struct weather_station,1);
-    if (_weather_station_id != NULL)  g_free(_weather_station_id);
-    _weather_station_id = g_strdup(_weather_station_id_temp);
-    ws->id_station = g_strdup(_weather_station_id_temp);
-    if (_weather_station_name != NULL) g_free(_weather_station_name);
-    _weather_station_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations));
-    ws->name_station = g_strdup(_weather_station_name);
-    /* Add station to stations list */
-    stations_view_list = g_slist_append(stations_view_list, ws); 
-    /* Update config file */
-    config_save();
-    /* Add station to View List(Tree) */
-    gtk_list_store_clear(station_list_store);
-    fill_station_list_view (station_list_view,station_list_store);
+   result = gtk_dialog_run(GTK_DIALOG(window_add_station));
+   
+   /* Press Cancel  */
+   if ( result == GTK_RESPONSE_REJECT ) break;
+    /* Press Custom station add  */
+   if ( result == OMW_RESPONSE_ADD_CUSTOM_STATION )
+   {
+     weather_window_add_custom_station();
     break;
+   }
+   /* Not null station combobox */
+   if (gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations)) == NULL) continue;    
+   /* Press Button Ok */
+   flag_update_station = TRUE;
+   ws = g_new0(struct weather_station,1);
+   if (_weather_station_id != NULL)  g_free(_weather_station_id);
+   _weather_station_id = g_strdup(_weather_station_id_temp);
+   ws->id_station = g_strdup(_weather_station_id_temp);
+   if (_weather_station_name != NULL) g_free(_weather_station_name);
+   _weather_station_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations));
+   ws->name_station = g_strdup(_weather_station_name);
+   /* Add station to stations list */
+   stations_view_list = g_slist_append(stations_view_list, ws); 
+   
+   /* Update config file */
+   config_save();
+   /* Add station to View List(Tree) */
+   gtk_list_store_clear(station_list_store);
+   fill_station_list_view (station_list_view,station_list_store);
+   break;
   }
-  
-  gtk_widget_destroy(window_add_station);
+  gtk_widget_destroy(window_add_station); 
 }
 
 /* Main preference window */
@@ -726,6 +810,7 @@ weather_window_preference (GtkWidget *widget,
    
    while(GTK_RESPONSE_ACCEPT == gtk_dialog_run(GTK_DIALOG(window_config))) /* Press Button Ok */
    {
+        
 	 if ( strcmp(_weather_icon_size,gtk_combo_box_get_active_text(GTK_COMBO_BOX(icon_size))) != 0)
 	 {  
 	  flag_update_icon = TRUE;
@@ -737,7 +822,7 @@ weather_window_preference (GtkWidget *widget,
 	  flag_update_icon = TRUE;
 	  _weather_temperature_unit = temp_string[0];	
 	 }
-	 
+
 	 gtk_color_button_get_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color_temp);
 	 if (( _weather_font_color_temp.red != _weather_font_color.red ) &&
 	     ( _weather_font_color_temp.green != _weather_font_color.green ) &&
@@ -746,12 +831,10 @@ weather_window_preference (GtkWidget *widget,
            flag_update_icon = TRUE;     
 	   _weather_font_color = _weather_font_color_temp;
 	  } 
-
 	 /* Layout Type */
 	 if (gtk_combo_box_get_active(layout_type) != _weather_layout )
 	 {
 	   _weather_layout = gtk_combo_box_get_active(layout_type);
-	   fprintf(stderr,"LAYOUT %i\n",_weather_layout);
            flag_update_icon = TRUE;
 	 }
 	
@@ -779,7 +862,9 @@ weather_window_preference (GtkWidget *widget,
 	  }    	  
           time_update_list_temp = g_slist_next(time_update_list_temp);
          }
-	    	
+
+
+
          config_save();
 
 	 if (flag_update_icon)
@@ -793,7 +878,6 @@ weather_window_preference (GtkWidget *widget,
 //	  update_weather();
           weather_frame_update();	  
          }
-
          gtk_widget_destroy(window_config);
 	 free_list_stations();
 
@@ -812,7 +896,6 @@ weather_window_preference (GtkWidget *widget,
       gtk_widget_destroy(weather_window_popup);
       
      weather_buttons_init();
-//   weather_frame_update();
      config_save();
    }
    else
@@ -820,4 +903,5 @@ weather_window_preference (GtkWidget *widget,
      gtk_widget_destroy(window_config);
    }
   not_event = FALSE;
+  
 }

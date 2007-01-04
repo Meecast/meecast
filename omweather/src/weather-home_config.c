@@ -167,7 +167,41 @@ reinitilize_stations_list(gchar *stations_string)
  }  
 }
 
-/* Prepare stations ID list  to write config file */
+/* New Reinitialize stations list */
+void
+reinitilize_stations_list2(GSList *stlist)
+{
+ struct weather_station *ws;
+ gchar *temp1= NULL, *temp2 = NULL;
+ stations_view_list = NULL; /* Initialize value */
+ 
+ while (stlist != NULL)
+ {
+   temp1=strdup(stlist->data);
+   /* Delimit Id and name */
+   if (strlen(temp1)>0) 
+   {
+    temp2=strtok(temp1,"@\0"); /* Delimiter between ID and name - @ */
+    if (temp2 != NULL)  /* Check random error */      
+     if (strlen(temp2)>0)
+     {
+      ws = g_new0(struct weather_station,1);
+      ws->id_station = g_strdup(temp2); 
+     }
+     temp2=strtok(NULL,"@\0"); /* Delimiter between ID - @ */
+    if (temp2 != NULL)
+    {
+      ws->name_station = g_strdup(temp2); 
+    }
+    stations_view_list = g_slist_append(stations_view_list, ws); /* Add station to stations list */
+   }     
+   g_string_free (stlist->data,FALSE);      
+   stlist = g_slist_next(stlist);
+ }	    
+}
+
+
+/* Prepare stations ID list in one string to write config file */
 gchar *
 prepare_idlist_string (void)
 {
@@ -189,6 +223,28 @@ prepare_idlist_string (void)
    return g_string_free (result_string,FALSE);
 }
 
+/* Prepare stations ID list  to write config file */
+GSList *
+prepare_idlist (void)
+{
+    GSList *stlist = NULL;
+    GSList *tmplist = NULL;
+    struct weather_station *ws;
+
+    char *str;
+    tmplist = stations_view_list;
+    while (tmplist != NULL)
+    { 
+      ws = tmplist->data;
+      str = g_strdup_printf("%s@%s", ws->id_station, ws->name_station);
+      stlist = g_slist_append (stlist, str);
+      fprintf(stderr,"id %s  \n",str); 			  
+      tmplist = g_slist_next(tmplist);
+    }
+    return stlist;
+}
+
+
 /* Initialize all configuration from GCONF.  This should not be called more
  * than once during execution. */
 void
@@ -196,6 +252,7 @@ config_init()
 {
     gchar *tmp;
     GConfValue *value;
+    GSList *stlist = NULL;
     GError *gerror = NULL;
 
     GConfClient *gconf_client = gconf_client_get_default();
@@ -220,15 +277,24 @@ config_init()
         _weather_station_id = gconf_client_get_string(gconf_client,
                      GCONF_KEY_WEATHER_STATION_ID, NULL);
 
-	/* Get Weather Stations ID  */
+	/* Get Weather Stations ID  */ /* DEPRICATED !!! */
         tmp = gconf_client_get_string(gconf_client,
                      GCONF_KEY_WEATHER_STATION_IDS, NULL);
-        if(tmp)		     
+        if(tmp)
+	{		     
 	 reinitilize_stations_list(tmp);
+	 g_free(tmp);    
+	} 
 	else
 	 if (_weather_station_id)
 	    reinitilize_stations_list(_weather_station_id);
 
+	/* Get Weather Stations ID and NAME */ 
+        stlist=gconf_client_get_list(gconf_client,
+            GCONF_KEY_WEATHER_STATIONS_LIST, GCONF_VALUE_STRING, NULL);
+	if (stlist)
+	 reinitilize_stations_list2(stlist);
+ 
 	/* Get Weather Icon Size  */		     
         _weather_icon_size = gconf_client_get_string(gconf_client,
               GCONF_KEY_WEATHER_ICON_SIZE, NULL);
@@ -321,6 +387,10 @@ config_save()
 {
     gchar temp_buffer[16];
     gchar *idlist_string;
+
+    GSList *stlist = NULL;
+
+    
     GConfClient *gconf_client = gconf_client_get_default();
     
     if(!gconf_client)
@@ -348,14 +418,15 @@ config_save()
     if(_weather_station_id)
         gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_STATION_ID, _weather_station_id, NULL);
-    /* Save Weather station ids. */	    
-    idlist_string = prepare_idlist_string();
+    /* Save Weather station ids. */ /* Depricated */	    
+/*    idlist_string = prepare_idlist_string();
     if (idlist_string)
       {
         gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_STATION_IDS, idlist_string, NULL);
 	g_free(idlist_string);
       }
+*/      
     /* Save Weather Icon Size  */		     	    
     if(_weather_icon_size)
         gconf_client_set_string(gconf_client,
@@ -383,8 +454,16 @@ config_save()
     /* Save Layout type. */
     gconf_client_set_int(gconf_client,
             GCONF_KEY_WEATHER_LAYOUT, _weather_layout, NULL);	    
-	    
+    /* Save station list */
+    stlist = prepare_idlist();
+    gconf_client_set_list(gconf_client,
+            GCONF_KEY_WEATHER_STATIONS_LIST, GCONF_VALUE_STRING, stlist, NULL);
 
+    /* Free stlist */	    
+    g_slist_foreach (stlist, (GFunc) g_free, NULL);
+    g_slist_free(stlist);
+    
+    
     g_object_unref(gconf_client);
 
 	    

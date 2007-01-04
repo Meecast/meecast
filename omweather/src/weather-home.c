@@ -318,6 +318,7 @@ weather_buttons_fill(void)
   flag_last_day = FALSE;
   offset = 0;
   last_day = 0;
+  
   /* Init weather buttons */
   weather_buttons_init();
   count_day=parse_weather_com_xml();

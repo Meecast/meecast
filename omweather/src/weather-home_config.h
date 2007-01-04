@@ -45,6 +45,7 @@
 #define GCONF_KEY_WEATHER_PERIODIC_UPDATE  GCONF_KEY_PREFIX"/periodic-update"
 #define GCONF_KEY_WEATHER_TEMPERATURE_UNIT GCONF_KEY_PREFIX"/temperature-unit"
 #define GCONF_KEY_WEATHER_LAYOUT           GCONF_KEY_PREFIX"/layout"   
+#define GCONF_KEY_WEATHER_STATIONS_LIST    GCONF_KEY_PREFIX"/station-list"   
 
 extern gchar    *_weather_dir_name;
 extern gchar    *_weather_country_name;

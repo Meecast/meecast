@@ -68,7 +68,7 @@ set_font_size(GtkWidget *widget, char font_size)
 void 
 create_window_update(void)
 {
-    update_window = hildon_banner_show_animation(weather_window_popup,NULL,"Update weather"); 
+    update_window = hildon_banner_show_animation(weather_window_popup,NULL,"Update weather");
     g_object_ref(G_OBJECT(update_window));
 }
 
@@ -298,391 +298,185 @@ void weather_buttons_init(void)
 
 
 /* Fill buttons data */
-void 
-weather_buttons_fill(void)
-{
-  GtkWidget *stations_hbox, *box_not_station, *station_name_button;
-  GtkWidget *label_start,*label_end, *button_prev_st, *button_next_st, *box_prev_st, *box_next_st;
+/* by Pavel */
+void weather_buttons_fill(void){
+    int i, offset, count_day;
+    gchar buffer[2048], buffer_icon[2048];
+    time_t current_day,current_time,last_day;
+    struct tm *tm;
+    gboolean flag_last_day;
+    guint count_stations;
+    GSList *tmplist = NULL;
+    struct weather_station *ws;
+    int temp_hi,temp_hi_now,temp_low;
+    char	font_size;
+    gint	icon_size;
 
-  int i, offset, count_day;
-  gchar buffer[2048];
-  gchar buffer_icon[2048];
-  time_t current_day,current_time,last_day;
-  struct tm *tm;
-  gboolean flag_last_day;
-  guint count_stations;
-  GSList *tmplist = NULL;
-  struct weather_station *ws;
-  int temp_hi,temp_hi_now,temp_low;
+/* select image and font size */
+    if(!strcmp(_weather_icon_size,"Large")){
+	font_size = FONT_MAIN_SIZE_LARGE;
+	icon_size = 64;
+    }
+    else
+	if(!strcmp(_weather_icon_size,"Medium")){
+	    font_size = FONT_MAIN_SIZE_MEDIUM;
+	    icon_size = 48;
+	}
+	else{
+	    font_size = FONT_MAIN_SIZE_SMALL;
+	    icon_size = 32;
+	}
 
-  flag_last_day = FALSE;
-  offset = 0;
-  last_day = 0;
+/* old code */
+    flag_last_day = FALSE;
+    offset = 0;
+    last_day = 0;
   
   /* Init weather buttons */
-  weather_buttons_init();
-  count_day=parse_weather_com_xml();
-//  if  (count_day == -1)  {count_day=0; fprintf(stderr,"Error on xml file");} // Error on xml file
-
+    weather_buttons_init();
+    count_day=parse_weather_com_xml();
   /* get current day */  
-  current_time = current_day = time(NULL);
-  tm=localtime(&current_day);
-  tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
-  current_day = mktime(tm);
+    current_time = current_day = time(NULL);
+    tm = localtime(&current_day);
+    tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+    current_day = mktime(tm);
   /* free time event list */
-  free_list_time_event();
+    free_list_time_event();
   /* add periodic update */
-  add_periodic_event();
-
-
+    add_periodic_event();
   /* Search day of saving xml near current day */
-  while ((offset<Max_count_weather_day) && (current_day > weather_days[offset].date_time) && (offset<count_day) )
-  {
-   offset ++;
-  }
-
-  /* Select layout for button */
-  if (_weather_layout == HORIZONTAL)
-   box = gtk_hbox_new ( FALSE , 0);    
-  else
-   box = gtk_vbox_new ( FALSE , 0);    
-   
-  for (i=0;i<Max_count_web_button; i++)
-  {    
+    while ( (offset < Max_count_weather_day) &&
+	    (current_day > weather_days[offset].date_time) &&
+	    (offset<count_day) )
+	offset ++;
+    for(i = 0; i < Max_count_web_button; i++, offset++){    
      /* If it first button add to evenet time change between nigth and day */
-    if  (current_day == weather_days[offset].date_time) 
-    {
-     if (current_time < weather_days[offset].day.begin_time)
-      time_event_add(weather_days[offset].day.begin_time,DAYTIMEEVENT);
-     if (current_time < weather_days[offset].night.begin_time)  
-      time_event_add(weather_days[offset].night.begin_time,DAYTIMEEVENT);
-    }
+	if(current_day == weather_days[offset].date_time){
+	    if(current_time < weather_days[offset].day.begin_time)
+		time_event_add(weather_days[offset].day.begin_time,DAYTIMEEVENT);
+	    if(current_time < weather_days[offset].night.begin_time)  
+		time_event_add(weather_days[offset].night.begin_time,DAYTIMEEVENT);
+	}
     /* Time event add to event list */
-    if ( (current_day < weather_days[offset].date_time) && (offset < count_day ) )
-    {
-      time_event_add(weather_days[offset].date_time,DAYTIMEEVENT);  /* Add time event  to list */	  
-      last_day = weather_days[offset].date_time;	  
-    }      
-
-    if ( offset < count_day)
-    {
+	if( (current_day < weather_days[offset].date_time) &&
+	    (offset < count_day ) ){
+	    time_event_add(weather_days[offset].date_time,DAYTIMEEVENT);  /* Add time event  to list */	  
+	    last_day = weather_days[offset].date_time;	  
+	}      
+	if(offset < count_day){
      /* Prepare temperature value to show on display */
-     temp_hi_now=atoi(weather_current_day.day.temp); 
-     temp_hi=atoi(weather_days[offset].hi_temp);     
-     temp_low=atoi(weather_days[offset].low_temp);     
-     if (_weather_temperature_unit == 'F')
-     {
-       temp_hi_now = c2f(temp_hi_now);
-       temp_hi = c2f(temp_hi);
-       temp_low = c2f(temp_low);
-     }  
-     /* Show or current weather or forecast */
-     if ((i==0) && (weather_current_day.date_time>(current_time-OFFSET_CURRENT_WEATHER*3600)) 
-                && (weather_current_day.date_time<(current_time+OFFSET_CURRENT_WEATHER*3600)))
-     {
+	    temp_hi_now = atoi(weather_current_day.day.temp); 
+	    temp_hi = atoi(weather_days[offset].hi_temp);     
+	    temp_low = atoi(weather_days[offset].low_temp);     
+	    if(_weather_temperature_unit == 'F'){
+		temp_hi_now = c2f(temp_hi_now);
+		temp_hi = c2f(temp_hi);
+		temp_low = c2f(temp_low);
+	    }  
+     /* Show current weather or forecast */
+	    if( (i==0) && 
+		(weather_current_day.date_time>(current_time-OFFSET_CURRENT_WEATHER*3600)) &&
+                (weather_current_day.date_time<(current_time+OFFSET_CURRENT_WEATHER*3600))){
       /* Add to evenet time change between current weather and forecast */
-      time_event_add((weather_current_day.date_time+OFFSET_CURRENT_WEATHER*3600),DAYTIMEEVENT);
+		time_event_add((weather_current_day.date_time+OFFSET_CURRENT_WEATHER*3600),DAYTIMEEVENT);
       /* Show current weather bold fonts */
-      sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-                weather_days[offset].dayshname,
-		temp_hi_now);
-      sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_current_day.day.icon);    		       
-     }		
-     else
-     {
+		sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
+            	    _weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+            	    weather_days[offset].dayshname, temp_hi_now);
+		sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_current_day.day.icon);
+	    }		
+    	    else{
       /* Show forecast */
-      if  (current_day == weather_days[offset].date_time) 
-      {
+		if(current_day == weather_days[offset].date_time){
        /* First icon - night(morning) or day or night (evening) */     
-       if (current_time<weather_days[offset].day.begin_time) 
-       {  
-         sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);    
+		    if(current_time<weather_days[offset].day.begin_time){  
+    			sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);
 	 /* Show All temperatures */
-         sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-                weather_days[offset].dayshname,temp_low,temp_hi);
-       } 
-       else
-       if (current_time<weather_days[offset].night.begin_time)
-       {
-        sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    
+    		    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
+            		_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+            		weather_days[offset].dayshname,temp_low,temp_hi);
+		    } 
+		    else
+			if(current_time<weather_days[offset].night.begin_time){
+    			    sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    
        /* Show All temperatures */
-       sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-                weather_days[offset].dayshname,temp_low,temp_hi);
-       }		
-       else
-       {
-         sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);           
+			    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
+            			_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+            			weather_days[offset].dayshname,temp_low,temp_hi);
+			}		
+			else{
+    			    sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);
 	 /* Show only night temperature */
-         sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-                weather_days[offset].dayshname,temp_low); 
-       }
-      }
-      else
-      {
+    			    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
+            			_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+            			weather_days[offset].dayshname,temp_low);
+			}
+		}
+		else{
        /* Create output string for full time of day (day and night)*/
-//       sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%s°\n%s°</span>",
-       sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-                weather_days[offset].dayshname,temp_hi,temp_low);
-       sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    		
-      }		    
-     }
-    } 
-    else
-    {
+		    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
+            		_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+            		weather_days[offset].dayshname,temp_hi,temp_low);
+		    sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    		
+		}		    
+	    }
+	}
+	else{
      /* Show N/A */
-     sprintf(buffer,"<span foreground='#%02x%02x%02x'>N/A\nN/A\302\260\nN/A\302\260</span>",
+	    sprintf(buffer,"<span foreground='#%02x%02x%02x'>N/A\nN/A\302\260\nN/A\302\260</span>",
             	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
-     sprintf(buffer_icon,"%s48.png",path_large_icon);         
+	    sprintf(buffer_icon,"%s48.png",path_large_icon);
      /* Add time event to list for next day after last day in xml file */
-     if (!flag_last_day)
-     {
-	time_event_add(last_day+24*60*60,DAYTIMEEVENT);  /* Add time event  to list */	  
-	flag_last_day = TRUE;
-     } 
-    }
+	    if(!flag_last_day){
+		time_event_add(last_day+24*60*60,DAYTIMEEVENT);  /* Add time event  to list */	  
+		flag_last_day = TRUE;
+	    } 
+	}
      /* Write offset in wetaher data for this button */
-     boxs_offset[i] = offset;
+	boxs_offset[i] = offset;
      /* Prepare butons for view */   
-     buttons[i] = gtk_button_new ();
-     if (_enable_transparency)
-      gtk_button_set_relief (GTK_BUTTON(buttons[i]),GTK_RELIEF_NONE);
-     gtk_button_set_focus_on_click (GTK_BUTTON(buttons[i]),FALSE);    
-     labels[i]=gtk_label_new (NULL);
-     gtk_label_set_markup (GTK_LABEL (labels[i]),buffer);
-     gtk_label_set_justify(GTK_LABEL (labels[i]),GTK_JUSTIFY_RIGHT);
-     /* Select size font on desktop */
-     if (strcmp(_weather_icon_size,"Large") == 0)
-      set_font_size(labels[i],FONT_MAIN_SIZE_LARGE);
-     else
-      if (strcmp(_weather_icon_size,"Medium") == 0)
-       set_font_size(labels[i],FONT_MAIN_SIZE_MEDIUM);      
-      else
-       set_font_size(labels[i],FONT_MAIN_SIZE_SMALL);
+	buttons[i] = gtk_button_new();
+	if(_enable_transparency)
+	    gtk_button_set_relief(GTK_BUTTON(buttons[i]),GTK_RELIEF_NONE);
+	gtk_button_set_focus_on_click(GTK_BUTTON(buttons[i]),FALSE);
+
+	labels[i] = gtk_label_new(NULL);
+	gtk_label_set_markup(GTK_LABEL(labels[i]),buffer);
+	gtk_label_set_justify(GTK_LABEL(labels[i]),GTK_JUSTIFY_RIGHT);
+     /* Select size font on desktop and icon size */
+	set_font_size(labels[i], font_size);
+	icon = gdk_pixbuf_new_from_file_at_size(buffer_icon,
+						icon_size,
+						icon_size, NULL);
      /* Create box for image and label */
-     boxs[i] = gtk_hbox_new (FALSE, 0);
-     /* Select size Icon */
-     if (strcmp(_weather_icon_size,"Large") == 0)
-      icon = gdk_pixbuf_new_from_file_at_size (buffer_icon,64,64,NULL);
-     else
-      if (strcmp(_weather_icon_size,"Medium") == 0)
-       icon = gdk_pixbuf_new_from_file_at_size (buffer_icon,48,48,NULL);
-      else
-       icon = gdk_pixbuf_new_from_file_at_size (buffer_icon,32,32,NULL);
-      
-     icon_image = gtk_image_new_from_pixbuf (icon);
+	boxs[i] = gtk_hbox_new(FALSE, 0);
+	icon_image = gtk_image_new_from_pixbuf(icon);
      /* Packing buttons to box */
-     gtk_box_pack_start (GTK_BOX (boxs[i]), icon_image, FALSE, FALSE, 0);
-     gtk_box_pack_start (GTK_BOX (boxs[i]), labels[i], FALSE, FALSE, 0);
-     gtk_container_add (GTK_CONTAINER (buttons[i]), boxs[i]);
-     gtk_box_pack_start (GTK_BOX (box), buttons[i], FALSE, FALSE, 0);
-     /* Connect signal button */
-     g_signal_connect (buttons[i], "released",
-		       G_CALLBACK (weather_window_popup_show),		
-		       NULL);  		    
-     g_signal_connect (buttons[i], "enter",
-     		       G_CALLBACK (enter_button),
-     		       NULL); 
-    offset ++;
+	gtk_box_pack_start(GTK_BOX(boxs[i]), icon_image, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(boxs[i]), labels[i], FALSE, FALSE, 0);
+	gtk_container_add(GTK_CONTAINER(buttons[i]), boxs[i]);
+ /* Connect signal button */
+	g_signal_connect (buttons[i], "released", G_CALLBACK (weather_window_popup_show), NULL);  		    
+	g_signal_connect (buttons[i], "enter", G_CALLBACK (enter_button), NULL); 
+    }/* for */
 
-  }
-  
-
-   /* Forming table with name station and button */
-   count_stations = g_slist_length(stations_view_list);
-   if (count_stations >0)
-    gtk_box_pack_start(GTK_BOX(box_zero),
-                      main_table = gtk_table_new( 2,count_stations,FALSE), TRUE, TRUE, 0);
-   else
-   {
-    /* Forming label NO STATION */
-    gtk_box_pack_start(GTK_BOX(box_zero),
-                      main_table = gtk_table_new( 2,1,FALSE), TRUE, TRUE, 0);   		      
-    gtk_table_attach_defaults(GTK_TABLE(main_table),	    
-            box_not_station = gtk_button_new(),
-	    0, 1 , 0, 1);		      
-    if (_enable_transparency) 
-     gtk_button_set_relief (GTK_BUTTON(box_not_station),GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click (GTK_BUTTON(box_not_station),FALSE);    	    
-    stations_hbox = gtk_hbox_new (FALSE, 0);
-    label_start=gtk_label_new (NULL);
-    sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>/ NO SELECTED STATION \\</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
-    gtk_label_set_markup (GTK_LABEL (label_start),buffer);		
-
-             
-    if (strcmp(_weather_icon_size,"Large") == 0)
-       set_font_size(label_start,FONT_MAIN_SIZE_LARGE);
-    else 
-     if (strcmp(_weather_icon_size,"Medium") == 0)
-      set_font_size(label_start,FONT_MAIN_SIZE_MEDIUM);              
-     else
-      set_font_size(label_start,FONT_MAIN_SIZE_SMALL);              
-       
-    gtk_box_pack_start (GTK_BOX (stations_hbox), label_start, FALSE, FALSE, 0); 
-    gtk_container_add (GTK_CONTAINER (box_not_station),stations_hbox);  
-    
-   }		      
-		      
-   tmplist = stations_view_list;
-   i = 0;
-   while (tmplist != NULL)
-   {
-      ws = tmplist->data;
-      
-      /* If Vertical layout and not selected station skip iteration */
-      if ( (_weather_layout == VERTICAL) && (strcmp(ws->id_station,_weather_station_id) != 0)) 
-      {
-       tmplist = g_slist_next(tmplist);
-       continue;
-      }
-      gtk_table_attach_defaults(GTK_TABLE(main_table),	    
-                                ws->box = gtk_hbox_new (FALSE, 0),      
-	                        i, i+1 , 0, 1);
-
-      button_prev_st = gtk_button_new();
-      button_next_st = gtk_button_new(); 
-      ws->button = gtk_button_new(); 
-      box_prev_st = gtk_hbox_new(FALSE, 0);
-      box_next_st = gtk_hbox_new(FALSE, 0); 
-
-      if (_enable_transparency)
-      {
-       gtk_button_set_relief (GTK_BUTTON(ws->button),GTK_RELIEF_NONE);
-       gtk_button_set_relief (GTK_BUTTON(button_prev_st),GTK_RELIEF_NONE);
-       gtk_button_set_relief (GTK_BUTTON(button_next_st),GTK_RELIEF_NONE);              
-      } 
-      gtk_button_set_focus_on_click (GTK_BUTTON(ws->button),FALSE);    	    
-      gtk_button_set_focus_on_click (GTK_BUTTON(button_prev_st),FALSE);    	          
-      gtk_button_set_focus_on_click (GTK_BUTTON(button_next_st),FALSE);    	    
-      
-      stations_hbox = gtk_hbox_new (FALSE, 0);
-      ws->label_box=gtk_label_new (NULL);
-      label_start=gtk_label_new (NULL);
-      label_end=gtk_label_new (NULL);
-      
-      /* Check selected station */
-      if ((_weather_station_id) && (strcmp(ws->id_station,_weather_station_id)==0))
-      {
-       sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-                ws->name_station);
-       gtk_label_set_markup (GTK_LABEL (ws->label_box),buffer);		
-
-       if  (_weather_layout == VERTICAL)
-        sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>&lt;</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
-       else		
-        sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>/</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
-       
-       gtk_label_set_markup (GTK_LABEL (label_start),buffer);		
-       if  (_weather_layout == VERTICAL)
-        sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>\></span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
-       else
-        sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>\\</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
-		
-       gtk_label_set_markup (GTK_LABEL (label_end),buffer);		
-       
-      }
-      else
-      {
-       sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-                ws->name_station);
-       gtk_label_set_markup (GTK_LABEL (ws->label_box),buffer);		
-       sprintf(buffer,"<span  foreground='#%02x%02x%02x'>/</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
-       gtk_label_set_markup (GTK_LABEL (label_start),buffer);				
-       sprintf(buffer,"<span  foreground='#%02x%02x%02x'>\\</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
-       gtk_label_set_markup (GTK_LABEL (label_end),buffer);				       
-      }		
-
-
-      if (strcmp(_weather_icon_size,"Large") == 0)
-       set_font_size(ws->label_box,FONT_MAIN_SIZE_LARGE);
-      else 
-       if (strcmp(_weather_icon_size,"Medium") == 0)
-        set_font_size(ws->label_box,FONT_MAIN_SIZE_MEDIUM);       
-       else	     
-        set_font_size(ws->label_box,FONT_MAIN_SIZE_SMALL);       
-       
-       
-      if (_enable_transparency && (_weather_layout == HORIZONTAL))
-      { 
-       gtk_box_pack_start (GTK_BOX (stations_hbox), label_start, FALSE, FALSE, 0); 
-       gtk_box_pack_end (GTK_BOX (stations_hbox), label_end, FALSE, FALSE, 0);       
-      }
-      
-      if  (_weather_layout == VERTICAL)
-      {      
-       gtk_box_pack_start (GTK_BOX (box_prev_st), label_start, FALSE, FALSE, 0); 
-       gtk_container_add (GTK_CONTAINER (button_prev_st),box_prev_st);       
-       
-       gtk_box_pack_start (GTK_BOX (box_next_st), label_end, FALSE, FALSE, 0); 
-       gtk_container_add (GTK_CONTAINER (button_next_st),box_next_st);              
-      
-       gtk_box_pack_end (GTK_BOX (stations_hbox), ws->label_box, TRUE, TRUE, 0); 
-       gtk_container_add (GTK_CONTAINER (ws->button),stations_hbox);       
-       
-       gtk_box_pack_start (GTK_BOX (ws->box), button_prev_st, FALSE, FALSE, 0); 
-       gtk_box_pack_start (GTK_BOX (ws->box), ws->button, FALSE, FALSE, 0); 
-       gtk_box_pack_start (GTK_BOX (ws->box), button_next_st, FALSE, FALSE, 0);        
-
-       
-       /* Connect signal button */
-       g_signal_connect (button_prev_st, "released",
-		        G_CALLBACK (change_station_prev),		
-		        NULL);  		    
-       g_signal_connect (button_prev_st, "enter",
-     		        G_CALLBACK (enter_button),
-     		        NULL); 
-
-       /* Connect signal button */
-       g_signal_connect (button_next_st, "released",
-		        G_CALLBACK (change_station_next),		
-		        NULL);  		    
-       g_signal_connect (button_next_st, "enter",
-     		        G_CALLBACK (enter_button),
-     		        NULL); 
-
-      }
-      else
-      {
-       gtk_box_pack_end (GTK_BOX (stations_hbox), ws->label_box, TRUE, TRUE, 0); 
-       gtk_container_add (GTK_CONTAINER (ws->button),stations_hbox);       
-       gtk_container_add (GTK_CONTAINER (ws->box),ws->button);
-      }			
-
-       /* Connect signal button */
-       g_signal_connect (ws->button, "released",
-		        G_CALLBACK (change_station),		
-		        NULL);  		    
-       g_signal_connect (ws->button, "enter",
-     		        G_CALLBACK (enter_button),
-     		        NULL); 
-      i++;	    
-      tmplist = g_slist_next(tmplist);
-   }
-//      /* Select size font on desktop */	    
-   if (count_stations >0)
-   gtk_table_attach_defaults(GTK_TABLE(main_table),	    
-            box,
-            0,count_stations, 1, 2);
-   else
-   {
-   gtk_table_attach_defaults(GTK_TABLE(main_table),	    
-            box,
-            0, 1, 1, 2);          	    
-   }	    
-   gtk_widget_show_all (box_zero);
+    if(g_slist_length(stations_view_list) > 0){
+	tmplist = stations_view_list;
+/* search current station */
+        while (tmplist){
+    	    ws = tmplist->data;
+	    if (!strcmp(ws->id_station,_weather_station_id)) 
+		break;
+	    tmplist = g_slist_next(tmplist);
+	}
+    }
+    else
+	ws->name_station = NULL;
+/* create main panel */
+    box = gtk_table_new(2, 1, FALSE);
+    create_panel(box, _weather_layout, _enable_transparency, ws->name_station, font_size);
+    gtk_box_pack_start(GTK_BOX(box_zero), box, TRUE, TRUE, 0);
+    gtk_widget_show_all(box_zero);
 }
 
 GtkWidget *
@@ -697,8 +491,9 @@ weather_frame_new (void)
 void
 weather_frame_update (void)
 {
-  gtk_widget_destroy(main_table);
-  box = gtk_hbox_new ( FALSE , 0);  
+//  gtk_widget_destroy(main_table);
+    gtk_widget_destroy(box);
+//  box = gtk_hbox_new ( FALSE , 0);  
   weather_buttons_fill();
 }
 
@@ -788,4 +583,135 @@ hildon_home_applet_lib_settings (void *applet_data,
   fprintf (stderr, "hello-world settings\n");
 
   return NULL;
+}
+
+void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size){
+    gchar	buffer[2048];
+    GtkWidget	*header_panel,
+		*days_panel,
+		*previos_station_name_btn, *previos_station_name, *previos_station_box,
+		*next_station_name_btn, *next_station_name, *next_station_box,
+		*station_name_btn, *station_name, *station_box;
+
+    int		n, elements, x, y;
+
+    if(Max_count_web_button % 2)
+	elements = Max_count_web_button / 2 + 1;
+    else
+	elements = Max_count_web_button / 2;
+/* create header panel */
+    header_panel = gtk_table_new(1, 3, FALSE);
+/* create previos station button */
+    sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&lt;</span>",
+	    _weather_font_color.red >> 8, _weather_font_color.green >> 8,
+	    _weather_font_color.blue >> 8);
+    previos_station_box		= gtk_hbox_new(FALSE, 0);
+    previos_station_name_btn	= gtk_button_new();
+    previos_station_name        = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
+    gtk_label_set_justify(GTK_LABEL(previos_station_name), GTK_JUSTIFY_CENTER);
+    set_font_size(previos_station_name, f_size);
+    gtk_box_pack_start((GtkBox*) previos_station_box, previos_station_name, TRUE, TRUE, 0);
+    gtk_container_add (GTK_CONTAINER(previos_station_name_btn), previos_station_box);
+    buffer[0] = '\0';
+/* create next station button */
+    sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&gt;</span>",
+	    _weather_font_color.red >> 8, _weather_font_color.green >> 8,
+	    _weather_font_color.blue >> 8);
+    next_station_box		= gtk_hbox_new(FALSE, 0);
+    next_station_name_btn	= gtk_button_new();
+    next_station_name        	= gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(next_station_name), buffer);
+    gtk_label_set_justify(GTK_LABEL(next_station_name), GTK_JUSTIFY_CENTER);
+    set_font_size(next_station_name, f_size);
+    gtk_box_pack_start((GtkBox*) next_station_box, next_station_name, TRUE, TRUE, 0);
+    gtk_container_add (GTK_CONTAINER(next_station_name_btn), next_station_box);
+    buffer[0] = '\0';
+/* create station name button */
+    if(!st_name)
+	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>NO STATION</span>",
+	    _weather_font_color.red >> 8, _weather_font_color.green >> 8,
+	    _weather_font_color.blue >> 8);
+    else
+	sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s</span>",
+        	_weather_font_color.red >> 8, _weather_font_color.green >> 8,
+		_weather_font_color.blue >> 8, st_name);
+    station_box		= gtk_hbox_new(FALSE, 0);
+    station_name_btn	= gtk_button_new();
+    station_name        = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(station_name), buffer);
+    gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
+    set_font_size(station_name, f_size);
+    gtk_box_pack_start((GtkBox*) station_box, station_name, TRUE, TRUE, 0);
+    gtk_container_add (GTK_CONTAINER(station_name_btn), station_box);
+/* check transparency */
+    if(transparency){
+    	gtk_button_set_relief(GTK_BUTTON(previos_station_name_btn), GTK_RELIEF_NONE);
+	gtk_button_set_relief(GTK_BUTTON(next_station_name_btn), GTK_RELIEF_NONE);
+	gtk_button_set_relief(GTK_BUTTON(station_name_btn), GTK_RELIEF_NONE);
+    }
+/* disable on_focus event for header_panel buttons */
+    gtk_button_set_focus_on_click(GTK_BUTTON(previos_station_name_btn), FALSE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(next_station_name_btn), FALSE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(station_name_btn), FALSE);
+/* attach buttons to header panel */
+    gtk_table_attach_defaults( (GtkTable*)header_panel, previos_station_name_btn, 0, 1, 0, 1 );
+    gtk_table_attach_defaults( (GtkTable*)header_panel, station_name_btn, 1, 2, 0, 1 );
+    gtk_table_attach_defaults( (GtkTable*)header_panel, next_station_name_btn, 2, 3, 0, 1 );
+/* create days panel */
+    switch(layout){
+	default:
+	case SINGLE_ROW:
+	    days_panel = gtk_table_new(1, Max_count_weather_day, FALSE);
+	break;
+	case SINGLE_COLUMN:
+	    days_panel = gtk_table_new(Max_count_weather_day, 1, FALSE);
+	break;
+	case DOUBLE_ROW:
+	    days_panel = gtk_table_new(2, elements, FALSE);
+	break;
+	case DOUBLE_COLUMN:
+	    days_panel = gtk_table_new(elements, 2, FALSE);
+	break;
+    }
+/* attach days buttons */
+    for(n = 0, x = 0, y = 0; n < Max_count_web_button; n++, x++){
+	switch(layout){
+	    default:
+	    case SINGLE_ROW:
+		gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], n, n + 1, 0, 1 );
+	    break;
+	    case SINGLE_COLUMN:
+		gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], 0, 1, n, n + 1);
+	    break;
+	    case DOUBLE_ROW:
+		if(n == elements){
+		    x = 0; y = 1;
+		}
+		if(!y)
+		    gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], x, x + 1, 0, 1);
+		else
+		    gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], x, x + 1, 1, 2);
+	    break;
+	    case DOUBLE_COLUMN:
+		if(n == elements){
+		    x = 0; y = 1;
+		}
+		if(!y)
+		    gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], 0, 1, x, x + 1);
+		else
+		    gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], 1, 2, x, x + 1);
+	    break;
+	}
+    }
+/* attach to main panel header and days panels */
+    gtk_table_attach_defaults( (GtkTable*)panel, header_panel, 0, 1, 0, 1 );
+    gtk_table_attach_defaults( (GtkTable*)panel, days_panel, 0, 1, 1, 2 );
+/* Connect signal button */
+    g_signal_connect (previos_station_name_btn, "released", G_CALLBACK (change_station_prev), NULL);  		    
+    g_signal_connect (previos_station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
+    g_signal_connect (next_station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
+    g_signal_connect (next_station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
+    g_signal_connect (station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
+    g_signal_connect (station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
 }

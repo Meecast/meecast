@@ -557,7 +557,8 @@ weather_window_add_station (GtkWidget *widget,
      fclose(iso3166_file);
     }
 
-   gtk_combo_box_set_model(countrys,country_list_store);  
+   gtk_combo_box_set_model((GtkComboBox*)countrys,
+			    (GtkTreeModel*) country_list_store);  
   
   
   /* Set default value to country combo_box */
@@ -702,9 +703,9 @@ weather_window_preference (GtkWidget *widget,
 
     /* Main interface setting page */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-            table = gtk_table_new(1, 4, FALSE),
+            table = gtk_table_new(1, 5, FALSE),
             label = gtk_label_new("Main Interface"));
-  
+
     /* Layout */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_label_new("Layout:"),
@@ -713,15 +714,18 @@ weather_window_preference (GtkWidget *widget,
             label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
             1, 2, 0, 1);
     gtk_container_add(GTK_CONTAINER(label),layout_type = gtk_combo_box_new_text());
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Horizontal");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Vertical");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Single row");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Single column");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Double row");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Double column");
     switch (_weather_layout)
     {
      default:
-     case HORIZONTAL:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),0);break;
-     case VERTICAL:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),1);break;                          
+     case SINGLE_ROW:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),0);break;
+     case SINGLE_COLUMN:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),1);break;
+     case DOUBLE_ROW:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),2);break;
+     case DOUBLE_COLUMN:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),3);break;
     }    
- 	    
     /* Icon size */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_label_new("Icon size:"),

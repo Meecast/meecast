@@ -52,6 +52,8 @@ void hello_world_dialog_show (void);
 
 
 void weather_buttons_init(void);
+void weather_buttons_fill(void);
+
 weather_com_parser *weather_com_parser_new( const gchar * weather_com );
 int parse_weather_com_xml(void);
 static gboolean update_w(gpointer data);
@@ -67,8 +69,8 @@ void timer(void);
 int c2f(int temp);
 void set_font_size(GtkWidget *widget, char font_size);
 
-
-
+/* by Pavel */
+void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size);
 
 /* Window Popup */
 GtkWidget *weather_window_popup;  
@@ -83,12 +85,11 @@ gchar *_weather_state_name = NULL;
 gchar *_weather_station_name = NULL;
 gchar *_weather_station_id = NULL;
 gchar *_weather_icon_size = NULL;
-int   _weather_layout = HORIZONTAL;
+int   _weather_layout = SINGLE_ROW;
 gboolean _enable_transparency = TRUE;
 int    _weather_periodic_update = 0;
 GdkColor _weather_font_color = {0,0,0,0};
 gchar _weather_temperature_unit;
-
 
 /* List future event */
 GSList *event_time_list = NULL;

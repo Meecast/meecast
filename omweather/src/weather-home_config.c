@@ -343,8 +343,8 @@ config_init()
 	_weather_layout = gconf_client_get_int(gconf_client,
                      GCONF_KEY_WEATHER_LAYOUT, &gerror);
 	if (gerror)
-	 _weather_layout = HORIZONTAL;
-	  
+	 _weather_layout = SINGLE_ROW;
+
 	/* Fill time update list */
 	add_time_update_list(0,"None");	
 	add_time_update_list(1*60,"1 hour");
@@ -458,13 +458,10 @@ config_save()
     stlist = prepare_idlist();
     gconf_client_set_list(gconf_client,
             GCONF_KEY_WEATHER_STATIONS_LIST, GCONF_VALUE_STRING, stlist, NULL);
-
     /* Free stlist */	    
     g_slist_foreach (stlist, (GFunc) g_free, NULL);
     g_slist_free(stlist);
     
     
     g_object_unref(gconf_client);
-
-	    
 }

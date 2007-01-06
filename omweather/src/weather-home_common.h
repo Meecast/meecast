@@ -118,6 +118,6 @@ void config_save();
 void config_save_current_station();
 void config_init();
 void update_weather(void);
-void weather_frame_update(void);
+void weather_frame_update(gboolean check);
 
 

@@ -51,7 +51,7 @@ timer_handler(gpointer data)
      switch (evt->type_event)
      {
       case DAYTIMEEVENT :
-     			 weather_frame_update();   
+     			 weather_frame_update(FALSE);   
 			 break;
       case AUTOUPDATE:
 			 /* Reinitialise autoupdate event */ 
@@ -59,7 +59,7 @@ timer_handler(gpointer data)
                          event_time_list=g_slist_remove(event_time_list,event_time_list->data);      
 			 if (get_weather_html(FALSE) == 0)
 			 {
-			   weather_frame_update();
+			   weather_frame_update(FALSE);
 			 }
                          /* add periodic update */
                          add_periodic_event();

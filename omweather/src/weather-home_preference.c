@@ -873,14 +873,14 @@ weather_window_preference (GtkWidget *widget,
 
 	 if (flag_update_icon)
 	 {
-          weather_frame_update();
+          weather_frame_update(FALSE);
 	  gtk_widget_destroy(weather_window_popup);
          }
 	 
 	 if (flag_update_station)
 	 {
 //	  update_weather();
-          weather_frame_update();	  
+          weather_frame_update(TRUE);	  
          }
          gtk_widget_destroy(window_config);
 	 free_list_stations();

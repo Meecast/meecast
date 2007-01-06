@@ -52,7 +52,7 @@ void hello_world_dialog_show (void);
 
 
 void weather_buttons_init(void);
-void weather_buttons_fill(void);
+void weather_buttons_fill(gboolean check_error);
 
 weather_com_parser *weather_com_parser_new( const gchar * weather_com );
 int parse_weather_com_xml(void);
@@ -109,6 +109,7 @@ GtkWidget *labels [Max_count_web_button];
 GtkWidget *boxs [Max_count_web_button];
 int 	   boxs_offset [Max_count_web_button];
 GtkWidget *update_window;     
+GtkWidget *error_window;
 guint flag_update=0;
 
 gchar  path_large_icon[]=DEFAULT_ICON;

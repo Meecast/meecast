@@ -107,6 +107,11 @@ int parse_weather_com_xml(void)
     {
      if ( cur_node->type == XML_ELEMENT_NODE )
        {
+        /* Check error */
+	if (!xmlStrcmp(cur_node->name, (const xmlChar *) "err" ) )
+	{
+	 return -2;
+	}
         /* Fill all buttons Location data */
         if (!xmlStrcmp(cur_node->name, (const xmlChar *) "loc" ) )
 	{
@@ -125,8 +130,8 @@ int parse_weather_com_xml(void)
 	    }
 	 }
 	}
-	/* Fill current day */
 	
+	/* Fill current day */
 	if (!xmlStrcmp(cur_node->name, (const xmlChar *) "cc" ) )     
 	{
 	 fprintf(stderr,"Element0: %s \n", cur_node->name); 	 

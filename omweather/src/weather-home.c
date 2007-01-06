@@ -86,7 +86,7 @@ iap_callback(struct iap_event_t *event, void *arg)
 	}
 	else
 	{
-	   weather_frame_update(); 
+	   weather_frame_update(FALSE); 
 	   hildon_banner_show_information(box,NULL,"Weather updated");
 	}   
 	break;
@@ -202,7 +202,7 @@ change_station (GtkWidget *widget,
      {
       if (_weather_station_id != NULL) g_free(_weather_station_id);
         _weather_station_id = g_strdup(ws->id_station); 
-      weather_frame_update();
+      weather_frame_update(TRUE);
       config_save_current_station();
       break;
      } 
@@ -236,7 +236,7 @@ change_station_prev (GtkWidget *widget,
       ws = tmplist_prev ->data;
       if (_weather_station_id != NULL) g_free(_weather_station_id);
         _weather_station_id = g_strdup(ws->id_station); 
-      weather_frame_update();
+      weather_frame_update(TRUE);
       config_save_current_station();
       break;
      } 
@@ -270,7 +270,7 @@ change_station_next (GtkWidget *widget,
       ws = tmplist ->data;
       if (_weather_station_id != NULL) g_free(_weather_station_id);
         _weather_station_id = g_strdup(ws->id_station); 
-      weather_frame_update();
+      weather_frame_update(TRUE);
       config_save_current_station();
       break;
      }
@@ -296,10 +296,52 @@ void weather_buttons_init(void)
  }
 }
 
+error_window_event_cb( GtkWidget *widget, 
+                                 GdkEvent *event, 
+                                 gpointer user_data )				
+{
+ if (error_window)
+ {
+  gtk_widget_destroy (error_window);
+  error_window = NULL;
+ }
+}
+
+/* Error Window */
+void
+station_error_window(void)
+{
+ GtkWidget *error_label, *error_frame, *error_vbox;
+ GtkWidget *button_ok;
+ if (error_window == NULL) 
+ {
+  /* Create dialog window */
+  error_window = gtk_window_new( GTK_WINDOW_TOPLEVEL );
+  gtk_window_set_decorated (GTK_WINDOW(error_window),FALSE);
+  error_frame = gtk_frame_new(NULL);
+  gtk_container_add (GTK_CONTAINER (error_window), error_frame);
+  error_vbox = gtk_vbox_new (FALSE, 0);
+  gtk_window_move(GTK_WINDOW(error_window), 340,150);
+
+  error_label=gtk_label_new ("Wrong station \nor ZIP code!!!"); 
+ 
+  button_ok = gtk_button_new ();
+  button_ok = gtk_button_new_with_label ("Ok");
+  g_signal_connect (G_OBJECT(button_ok), "clicked", G_CALLBACK (error_window_event_cb), NULL);      
+		
+  gtk_box_pack_end (GTK_BOX (error_vbox),button_ok, FALSE, FALSE, 0);
+  gtk_box_pack_start (GTK_BOX (error_vbox),error_label, FALSE, FALSE, 0);
+  gtk_container_add (GTK_CONTAINER (error_frame), error_vbox);    
+ 
+  gtk_grab_add( error_window ); 
+  g_signal_connect(G_OBJECT(error_window), "button-release-event", G_CALLBACK(error_window_event_cb), NULL);
+  gtk_widget_show_all (error_window);						
+ }
+}
 
 /* Fill buttons data */
 /* by Pavel */
-void weather_buttons_fill(void){
+void weather_buttons_fill(gboolean check_error){
     int i, offset, count_day;
     gchar buffer[2048], buffer_icon[2048];
     time_t current_day,current_time,last_day;
@@ -326,6 +368,7 @@ void weather_buttons_fill(void){
 	    font_size = FONT_MAIN_SIZE_SMALL;
 	    icon_size = 32;
 	}
+  gboolean error_station_code = FALSE;
 
 /* old code */
     flag_last_day = FALSE;
@@ -333,8 +376,13 @@ void weather_buttons_fill(void){
     last_day = 0;
   
   /* Init weather buttons */
-    weather_buttons_init();
-    count_day=parse_weather_com_xml();
+  weather_buttons_init();
+  count_day=parse_weather_com_xml();
+  if (check_error)
+   if  (count_day == -2)  {count_day=0; fprintf(stderr,"Error in xml file\n"); error_station_code=TRUE; } // Error in xml file
+  
+//  if  (count_day == -1)  {count_day=0; fprintf(stderr,"Error on xml file");} // Error in xml file
+
   /* get current day */  
     current_time = current_day = time(NULL);
     tm = localtime(&current_day);
@@ -477,24 +525,28 @@ void weather_buttons_fill(void){
     create_panel(box, _weather_layout, _enable_transparency, ws->name_station, font_size);
     gtk_box_pack_start(GTK_BOX(box_zero), box, TRUE, TRUE, 0);
     gtk_widget_show_all(box_zero);
+   if (error_station_code) station_error_window();
 }
 
 GtkWidget *
 weather_frame_new (void)
 {
   box_zero =  gtk_hbox_new ( FALSE , 0); 
-  weather_buttons_fill();
+  weather_buttons_fill(FALSE);
   return box_zero;
   
 }
 
 void
-weather_frame_update (void)
+weather_frame_update (gboolean check)
 {
 //  gtk_widget_destroy(main_table);
     gtk_widget_destroy(box);
-//  box = gtk_hbox_new ( FALSE , 0);  
-  weather_buttons_fill();
+//  box = gtk_hbox_new ( FALSE , 0); 
+  if (check) 
+   weather_buttons_fill(TRUE);
+  else
+   weather_buttons_fill(FALSE);
 }
 
 /* For window update */
@@ -504,7 +556,7 @@ update_w(gpointer data)
 
  if (get_weather_html(TRUE) == 0)
  {
-   weather_frame_update();
+   weather_frame_update(TRUE);
  }
  gtk_timeout_remove(flag_update);
  flag_update = 0;

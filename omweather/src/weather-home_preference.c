@@ -29,11 +29,26 @@
 
 #include "weather-home_preference.h"
 
-
+/* Compare station name */
+gint
+compare_station (gconstpointer a, gconstpointer b)
+{
+ gint result;
+ struct station_and_weather_code *sca, *scb;
+ sca=a;scb=b;
+ 
+ if (strlen (sca->station_name) < strlen (scb->station_name))
+  result = strncmp (sca->station_name, scb->station_name, strlen (scb->station_name));
+ else 
+  result = strncmp (sca->station_name, scb->station_name, strlen (sca->station_name));
+ 
+ return result;
+}
 
 
 /* Free memory allocated for stations list */
-void free_list_stations (void)
+void 
+free_list_stations (void)
 {
  static GSList *stations_list_temp = NULL;
  struct station_and_weather_code *sc;
@@ -149,6 +164,7 @@ void changed_country(void)
 void changed_state(void)
 {
   GtkTreeModel *model;
+  GSList *current;
   char flag; //Flag for country processing
   char flag_necessary_state; //Flag for finding country or province or state
   unsigned char out_buffer[1024]; /* buffer for work with stations.txt files*/
@@ -204,8 +220,6 @@ void changed_state(void)
            else
             break;
 	  }
-	   /* Copy name station to combobox */
-	  gtk_combo_box_append_text(GTK_COMBO_BOX(stations), temp_station_name);
 
           count_station++;
 	  if ((_weather_station_name != NULL) &&(streq(temp_station_name,_weather_station_name)))
@@ -222,6 +236,15 @@ void changed_state(void)
       } 
      }
     }    
+ /* Sort list */    
+ stations_list_in_state = g_slist_sort (stations_list_in_state, compare_station);    
+ /* Fill  gtk_combo_box */
+ for (current = stations_list_in_state; current; current = current->next)
+ {
+  sc = current->data;
+  /* Copy name station to combobox */
+  gtk_combo_box_append_text (GTK_COMBO_BOX (stations), sc->station_name);    
+ }    
 }
 
 /* Select item on station combobox */

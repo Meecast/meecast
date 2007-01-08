@@ -90,6 +90,9 @@ gboolean _enable_transparency = TRUE;
 int    _weather_periodic_update = 0;
 GdkColor _weather_font_color = {0,0,0,0};
 gchar _weather_temperature_unit;
+/* by Pavel */
+gint	days_to_show = 4;
+gint	days2show;
 
 /* List future event */
 GSList *event_time_list = NULL;
@@ -104,10 +107,10 @@ GtkWidget *box,*box_zero;
 GtkWidget *main_table;
 GdkPixbuf *icon;
 GtkWidget *icon_image;
-GtkWidget *buttons [Max_count_web_button];
-GtkWidget *labels [Max_count_web_button];
-GtkWidget *boxs [Max_count_web_button];
-int 	   boxs_offset [Max_count_web_button];
+GtkWidget *buttons [Max_count_weather_day];
+GtkWidget *labels [Max_count_weather_day];
+GtkWidget *boxs [Max_count_weather_day];
+int 	   boxs_offset [Max_count_weather_day];
 GtkWidget *update_window;     
 GtkWidget *error_window;
 guint flag_update=0;

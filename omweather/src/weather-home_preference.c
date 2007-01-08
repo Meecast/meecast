@@ -726,16 +726,47 @@ weather_window_preference (GtkWidget *widget,
 
     /* Main interface setting page */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-            table = gtk_table_new(1, 5, FALSE),
+            table = gtk_table_new(1, 6, FALSE),
             label = gtk_label_new("Main Interface"));
 
+    /* Days to show */
+    days_to_show = days2show - 1;
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+	    label = gtk_label_new("Days to show:"), 0, 1, 0, 1);
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+            label = gtk_alignment_new(0, 0.5, 0.f, 0.f), 1, 2, 0, 1);
+    gtk_container_add(GTK_CONTAINER(label), days_number = gtk_combo_box_new_text());
+    gtk_combo_box_append_text(GTK_COMBO_BOX(days_number), "1");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(days_number), "2");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(days_number), "3");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(days_number), "4");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(days_number), "5");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(days_number), "6");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(days_number), "7");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(days_number), "8");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(days_number), "9");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(days_number), "10");
+    switch (days_to_show){
+	case 0:  gtk_combo_box_set_active (GTK_COMBO_BOX(days_number),0);break;
+	case 1:  gtk_combo_box_set_active (GTK_COMBO_BOX(days_number),1);break;
+	case 2:  gtk_combo_box_set_active (GTK_COMBO_BOX(days_number),2);break;
+	case 3:  gtk_combo_box_set_active (GTK_COMBO_BOX(days_number),3);break;
+	default:
+	case 4:  gtk_combo_box_set_active (GTK_COMBO_BOX(days_number),4);break;
+	case 5:  gtk_combo_box_set_active (GTK_COMBO_BOX(days_number),5);break;
+	case 6:  gtk_combo_box_set_active (GTK_COMBO_BOX(days_number),6);break;
+	case 7:  gtk_combo_box_set_active (GTK_COMBO_BOX(days_number),7);break;
+	case 8:  gtk_combo_box_set_active (GTK_COMBO_BOX(days_number),8);break;
+	case 9:  gtk_combo_box_set_active (GTK_COMBO_BOX(days_number),9);break;
+    }    
+    days2show = days_to_show + 1;
     /* Layout */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_label_new("Layout:"),
-            0, 1, 0, 1);
+            0, 1, 1, 2);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
-            1, 2, 0, 1);
+            1, 2, 1, 2);
     gtk_container_add(GTK_CONTAINER(label),layout_type = gtk_combo_box_new_text());
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Single row");
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Single column");
@@ -752,10 +783,10 @@ weather_window_preference (GtkWidget *widget,
     /* Icon size */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_label_new("Icon size:"),
-            0, 1, 1, 2);
+            0, 1, 2, 3);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
-            1, 2, 1, 2);
+            1, 2, 2, 3);
     gtk_container_add(GTK_CONTAINER(label),icon_size = gtk_combo_box_new_text());
     gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), "Large");
     gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), "Medium");
@@ -771,20 +802,20 @@ weather_window_preference (GtkWidget *widget,
     /* Font color */   
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_label_new("Font color:"),
-            0, 1, 2, 3);
+            0, 1, 3, 4);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
-             1, 2, 2, 3);
+             1, 2, 3, 4);
     gtk_container_add(GTK_CONTAINER(label),font_color = gtk_color_button_new());
     gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color);      
 
     /* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_label_new("Transparency"),
-            0, 1, 3, 4);
+            0, 1, 4, 5);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
-             1, 2, 3, 4);
+             1, 2, 4, 5);
     gtk_container_add(GTK_CONTAINER(label),chk_transparency = gtk_check_button_new ());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_transparency),
             _enable_transparency);
@@ -792,10 +823,10 @@ weather_window_preference (GtkWidget *widget,
     /* Temperature unit */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_label_new("Temperature unit:"),
-            0, 1, 4, 5);
+            0, 1, 5, 6);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
-            1, 2, 4, 5);
+            1, 2, 5, 6);
     gtk_container_add(GTK_CONTAINER(label),temperature_unit = gtk_combo_box_new_text());
     gtk_combo_box_append_text(GTK_COMBO_BOX(temperature_unit), "Celsius (Metric)");    
     gtk_combo_box_append_text(GTK_COMBO_BOX(temperature_unit), "Fahrenheit (Imperial)");
@@ -858,6 +889,13 @@ weather_window_preference (GtkWidget *widget,
            flag_update_icon = TRUE;     
 	   _weather_font_color = _weather_font_color_temp;
 	  } 
+/* by Pavel */
+/* Days to show */
+	if(gtk_combo_box_get_active(days_number) != days_to_show){
+	    days_to_show = gtk_combo_box_get_active(days_number);
+	    days2show = days_to_show + 1;
+    	    flag_update_icon = TRUE;
+	}
 	 /* Layout Type */
 	 if (gtk_combo_box_get_active(layout_type) != _weather_layout )
 	 {

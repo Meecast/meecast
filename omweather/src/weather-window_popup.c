@@ -78,10 +78,10 @@ weather_window_popup_show (GtkWidget *widget,
     } 
    /* Search: Which button pressed */
     int i;
-    for (i=0;i<Max_count_web_button;i++)
+    for (i=0;i<days2show;i++)
      if ( buttons[i] == widget ) 
       break;  
-    if ( i >= Max_count_web_button)   
+    if ( i >= days2show)   
       return FALSE; /* Not found pressed button */
      
     if (i==0) 
@@ -125,11 +125,11 @@ weather_window_popup_show (GtkWidget *widget,
 
       vbox_hu_current = gtk_vbox_new (FALSE, 0);    
       if (_weather_temperature_unit == 'C')
-       sprintf(buffer,"%s\nFeels like: %s\302\260C Visible: %'.0f m\nHumidity: %s%%\nWind: %s %im/s Gust: %im/s", \ 
+       sprintf(buffer,"%s\nFeels like: %s\302\260C Visible: %'.0f m\nHumidity: %s%%\nWind: %s %im/s Gust: %im/s", \
               weather_current_day.day.title,weather_current_day.low_temp,weather_current_day.day.vis*1000,\
 	      weather_current_day.day.hmid,weather_current_day.day.wind_title,weather_current_day.day.wind_speed*10/36,weather_current_day.day.wind_gust*10/36);
       else
-       sprintf(buffer,"%s\nFeels like: %s\302\260F Visible: %'.0f m\nHumidity: %s%%\nWind: %s %im/s Gust: %im/s", \ 
+       sprintf(buffer,"%s\nFeels like: %s\302\260F Visible: %'.0f m\nHumidity: %s%%\nWind: %s %im/s Gust: %im/s", \
               weather_current_day.day.title,c2f(atoi(weather_current_day.low_temp)),weather_current_day.day.vis*1000,\
 	      weather_current_day.day.hmid,weather_current_day.day.wind_title,weather_current_day.day.wind_speed*10/36,weather_current_day.day.wind_gust*10/36);
       label_humidity_current = gtk_label_new (buffer);    
@@ -376,7 +376,7 @@ weather_window_popup_show_future (GtkWidget *widget,
     } 
    /* Search: Which button pressed */
     int i;
-    for (i=0;i<Max_count_web_button;i++)
+    for (i=0;i<days2show;i++)
      if ( buttons[i] == widget ) 
       break;
     /* Create POPUP WINDOW */ 

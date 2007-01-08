@@ -46,6 +46,7 @@
 #define GCONF_KEY_WEATHER_TEMPERATURE_UNIT GCONF_KEY_PREFIX"/temperature-unit"
 #define GCONF_KEY_WEATHER_LAYOUT           GCONF_KEY_PREFIX"/layout"   
 #define GCONF_KEY_WEATHER_STATIONS_LIST    GCONF_KEY_PREFIX"/station-list"   
+#define GCONF_KEY_WEATHER_DAYS		   GCONF_KEY_PREFIX"/days"
 
 extern gchar    *_weather_dir_name;
 extern gchar    *_weather_country_name;
@@ -60,6 +61,9 @@ extern GdkColor DEFAULT_FONT_COLOR;
 extern GSList   *time_update_list;
 extern gchar    _weather_temperature_unit;
 extern int      _weather_layout;
+/* by Pavel */
+extern gint	days2show;
+extern gint	days_to_show;
 
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 

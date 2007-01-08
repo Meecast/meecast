@@ -32,12 +32,15 @@ extern gchar     *_weather_state_name;
 extern gchar     *_weather_station_name;
 extern gchar     *_weather_station_id;
 extern gchar     *_weather_dir_name;
-extern GtkWidget *buttons [Max_count_web_button];
-extern int 	 boxs_offset [Max_count_web_button];
+extern GtkWidget *buttons[];
+extern int 	 boxs_offset[];
 extern GtkWidget *weather_window_popup;
 extern GtkWidget *box;
 extern gchar     path_large_icon[];
 extern gchar      _weather_temperature_unit;
+/* by Pavel */
+extern	gint	days2show;
+extern	gint	days_to_show;
 
 
 gboolean weather_window_popup_show (GtkWidget *widget,GdkEvent *event,gpointer user_data);

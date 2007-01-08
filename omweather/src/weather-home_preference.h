@@ -46,11 +46,14 @@ extern GSList    *time_update_list;
 extern gchar     _weather_temperature_unit;
 extern gboolean  not_event;
 extern int       _weather_layout;
+/* by Pavel */
+extern	gint	days2show;
+extern	gint	days_to_show;
 
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);
 void fill_station_list_view (GtkWidget *station_list_view,GtkListStore *station_list_store);
 
-GtkWidget  *countrys, *states, *stations, *icon_size, *layout_type, *update_time, *temperature_unit; 
+GtkWidget  *countrys, *states, *stations, *icon_size, *layout_type, *update_time, *temperature_unit, *days_number;
 GtkWidget  *custom_station_name, *custom_station_code;
 
 static GSList *stations_list_in_state = NULL; /* Station list of country or state or province.  Use in combobox*/

@@ -345,6 +345,14 @@ config_init()
 	if (gerror)
 	 _weather_layout = SINGLE_ROW;
 
+	/* Get number days to show */
+	days_to_show =  gconf_client_get_int(gconf_client,                                                                                     
+                     GCONF_KEY_WEATHER_DAYS, &gerror);
+	if(gerror)
+	    days_to_show = 4;
+	
+	days2show = days_to_show + 1;
+		     
 	/* Fill time update list */
 	add_time_update_list(0,"None");	
 	add_time_update_list(1*60,"1 hour");
@@ -451,6 +459,9 @@ config_save()
     if(_weather_temperature_unit)
         gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_TEMPERATURE_UNIT, temp_buffer, NULL);
+    /* Save Days to show. */
+    gconf_client_set_int(gconf_client,
+            GCONF_KEY_WEATHER_DAYS, days_to_show, NULL);	    
     /* Save Layout type. */
     gconf_client_set_int(gconf_client,
             GCONF_KEY_WEATHER_LAYOUT, _weather_layout, NULL);	    

@@ -39,7 +39,6 @@ extern GtkWidget *box;
 extern gchar     path_large_icon[];
 extern gchar      _weather_temperature_unit;
 /* by Pavel */
-extern	gint	days2show;
 extern	gint	days_to_show;
 
 

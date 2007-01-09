@@ -78,10 +78,10 @@ weather_window_popup_show (GtkWidget *widget,
     } 
    /* Search: Which button pressed */
     int i;
-    for (i=0;i<days2show;i++)
+    for (i=0;i<days_to_show;i++)
      if ( buttons[i] == widget ) 
       break;  
-    if ( i >= days2show)   
+    if ( i >= days_to_show)   
       return FALSE; /* Not found pressed button */
      
     if (i==0) 
@@ -376,7 +376,7 @@ weather_window_popup_show_future (GtkWidget *widget,
     } 
    /* Search: Which button pressed */
     int i;
-    for (i=0;i<days2show;i++)
+    for (i=0;i<days_to_show;i++)
      if ( buttons[i] == widget ) 
       break;
     /* Create POPUP WINDOW */ 

@@ -287,7 +287,7 @@ void weather_buttons_init(void)
 {
  int i;
  /* Set default icon N/A */
-for (i=0;i<days2show;i++)
+for (i=0;i<days_to_show;i++)
  {
   weather_days[i].night.icon=48;
   weather_days[i].day.icon=48;
@@ -397,7 +397,7 @@ void weather_buttons_fill(gboolean check_error){
 	    (current_day > weather_days[offset].date_time) &&
 	    (offset<count_day) )
 	offset ++;
-    for(i = 0; i < days2show; i++, offset++){    
+    for(i = 0; i < days_to_show; i++, offset++){    
      /* If it first button add to evenet time change between nigth and day */
 	if(current_day == weather_days[offset].date_time){
 	    if(current_time < weather_days[offset].day.begin_time)
@@ -540,9 +540,7 @@ weather_frame_new (void)
 void
 weather_frame_update (gboolean check)
 {
-//  gtk_widget_destroy(main_table);
     gtk_widget_destroy(box);
-//  box = gtk_hbox_new ( FALSE , 0); 
   if (check) 
    weather_buttons_fill(TRUE);
   else
@@ -647,10 +645,10 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 
     int		n, elements, x, y;
 
-    if(days2show % 2)
-	elements = days2show / 2 + 1;
+    if(days_to_show % 2)
+	elements = days_to_show / 2 + 1;
     else
-	elements = days2show / 2;
+	elements = days_to_show / 2;
 /* create header panel */
     header_panel = gtk_table_new(1, 3, FALSE);
 /* create previos station button */
@@ -727,7 +725,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 	break;
     }
 /* attach days buttons */
-    for(n = 0, x = 0, y = 0; n < days2show; n++, x++){
+    for(n = 0, x = 0, y = 0; n < days_to_show; n++, x++){
 	switch(layout){
 	    default:
 	    case SINGLE_ROW:

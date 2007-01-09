@@ -91,8 +91,7 @@ int    _weather_periodic_update = 0;
 GdkColor _weather_font_color = {0,0,0,0};
 gchar _weather_temperature_unit;
 /* by Pavel */
-gint	days_to_show = 4;
-gint	days2show;
+gint	days_to_show = 5;
 
 /* List future event */
 GSList *event_time_list = NULL;

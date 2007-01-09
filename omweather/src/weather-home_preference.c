@@ -730,7 +730,7 @@ weather_window_preference (GtkWidget *widget,
             label = gtk_label_new("Main Interface"));
 
     /* Days to show */
-    days_to_show = days2show - 1;
+    days_to_show--; /* count down, becose combobox items start with 0 */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
 	    label = gtk_label_new("Days to show:"), 0, 1, 0, 1);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
@@ -759,7 +759,7 @@ weather_window_preference (GtkWidget *widget,
 	case 8:  gtk_combo_box_set_active (GTK_COMBO_BOX(days_number),8);break;
 	case 9:  gtk_combo_box_set_active (GTK_COMBO_BOX(days_number),9);break;
     }    
-    days2show = days_to_show + 1;
+    days_to_show++; /* count up to return to real value */
     /* Layout */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
             label = gtk_label_new("Layout:"),
@@ -891,9 +891,9 @@ weather_window_preference (GtkWidget *widget,
 	  } 
 /* by Pavel */
 /* Days to show */
-	if(gtk_combo_box_get_active(days_number) != days_to_show){
+	if(gtk_combo_box_get_active(days_number) != days_to_show - 1){
 	    days_to_show = gtk_combo_box_get_active(days_number);
-	    days2show = days_to_show + 1;
+	    days_to_show++;
     	    flag_update_icon = TRUE;
 	}
 	 /* Layout Type */

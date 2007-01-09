@@ -348,11 +348,9 @@ config_init()
 	/* Get number days to show */
 	days_to_show =  gconf_client_get_int(gconf_client,                                                                                     
                      GCONF_KEY_WEATHER_DAYS, &gerror);
-	if(gerror)
-	    days_to_show = 4;
-	
-	days2show = days_to_show + 1;
-		     
+	if(gerror || !days_to_show)
+	    days_to_show = 5;
+
 	/* Fill time update list */
 	add_time_update_list(0,"None");	
 	add_time_update_list(1*60,"1 hour");

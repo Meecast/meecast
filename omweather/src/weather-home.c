@@ -296,47 +296,12 @@ for (i=0;i<days_to_show;i++)
  }
 }
 
-error_window_event_cb( GtkWidget *widget, 
-                                 GdkEvent *event, 
-                                 gpointer user_data )				
-{
- if (error_window)
- {
-  gtk_widget_destroy (error_window);
-  error_window = NULL;
- }
-}
 
 /* Error Window */
 void
 station_error_window(void)
 {
- GtkWidget *error_label, *error_frame, *error_vbox;
- GtkWidget *button_ok;
- if (error_window == NULL) 
- {
-  /* Create dialog window */
-  error_window = gtk_window_new( GTK_WINDOW_TOPLEVEL );
-  gtk_window_set_decorated (GTK_WINDOW(error_window),FALSE);
-  error_frame = gtk_frame_new(NULL);
-  gtk_container_add (GTK_CONTAINER (error_window), error_frame);
-  error_vbox = gtk_vbox_new (FALSE, 0);
-  gtk_window_move(GTK_WINDOW(error_window), 340,150);
-
-  error_label=gtk_label_new ("Wrong station \nor ZIP code!!!"); 
- 
-  button_ok = gtk_button_new ();
-  button_ok = gtk_button_new_with_label ("Ok");
-  g_signal_connect (G_OBJECT(button_ok), "clicked", G_CALLBACK (error_window_event_cb), NULL);      
-		
-  gtk_box_pack_end (GTK_BOX (error_vbox),button_ok, FALSE, FALSE, 0);
-  gtk_box_pack_start (GTK_BOX (error_vbox),error_label, FALSE, FALSE, 0);
-  gtk_container_add (GTK_CONTAINER (error_frame), error_vbox);    
- 
-  gtk_grab_add( error_window ); 
-  g_signal_connect(G_OBJECT(error_window), "button-release-event", G_CALLBACK(error_window_event_cb), NULL);
-  gtk_widget_show_all (error_window);						
- }
+   hildon_banner_show_information(box,NULL,"Wrong station code \nor ZIP code!!!");
 }
 
 /* Fill buttons data */

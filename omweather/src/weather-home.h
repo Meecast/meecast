@@ -111,7 +111,6 @@ GtkWidget *labels [Max_count_weather_day];
 GtkWidget *boxs [Max_count_weather_day];
 int 	   boxs_offset [Max_count_weather_day];
 GtkWidget *update_window;     
-GtkWidget *error_window;
 guint flag_update=0;
 
 gchar  path_large_icon[]=DEFAULT_ICON;

@@ -62,7 +62,6 @@ extern GSList   *time_update_list;
 extern gchar    _weather_temperature_unit;
 extern int      _weather_layout;
 /* by Pavel */
-extern gint	days2show;
 extern gint	days_to_show;
 
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);

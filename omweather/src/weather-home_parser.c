@@ -81,9 +81,7 @@ int parse_weather_com_xml(void)
 
     sprintf(buffer, "%s/%s.xml.new", _weather_dir_name,_weather_station_id); //Used new file 
     if (access (buffer,R_OK) == 0)  // Not Access to cache weather xml file 
-    { 
-    
-	
+    { 	
 	parser=weather_parser_new_from_file(buffer); 
 	    if (!(parser->error))
 	    {

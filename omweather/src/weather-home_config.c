@@ -174,7 +174,8 @@ reinitilize_stations_list2(GSList *stlist)
  struct weather_station *ws;
  gchar *temp1= NULL, *temp2 = NULL;
  stations_view_list = NULL; /* Initialize value */
- 
+
+ ws = NULL; 
  while (stlist != NULL)
  {
    temp1=strdup(stlist->data);
@@ -392,7 +393,6 @@ void
 config_save()
 {
     gchar temp_buffer[16];
-    gchar *idlist_string;
 
     GSList *stlist = NULL;
 

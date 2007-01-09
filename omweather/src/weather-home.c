@@ -182,35 +182,6 @@ enter_button (GtkWidget        *widget,
    return FALSE;
 }
 
-/* Change station at main display */
-static gboolean
-change_station (GtkWidget *widget,
-                           GdkEvent *event,
-                           gpointer user_data)
-{
-
-  GSList *tmplist = NULL;
-  struct weather_station *ws;
-  tmplist = stations_view_list;
-  while (tmplist != NULL)
-  {
-   ws = tmplist->data;
-   if ( ws->button == widget ) 
-   {
-     /* Check active station */ 
-     if (strcmp(_weather_station_id, ws->id_station)!=0)
-     {
-      if (_weather_station_id != NULL) g_free(_weather_station_id);
-        _weather_station_id = g_strdup(ws->id_station); 
-      weather_frame_update(TRUE);
-      config_save_current_station();
-      break;
-     } 
-   }     
-   tmplist = g_slist_next(tmplist);
-  }
- return TRUE;
-}
 
 /* Change station to previos at main display */
 static gboolean
@@ -312,7 +283,6 @@ void weather_buttons_fill(gboolean check_error){
     time_t current_day,current_time,last_day;
     struct tm *tm;
     gboolean flag_last_day;
-    guint count_stations;
     GSList *tmplist = NULL;
     struct weather_station *ws;
     int temp_hi,temp_hi_now,temp_low;
@@ -335,10 +305,12 @@ void weather_buttons_fill(gboolean check_error){
 	}
   gboolean error_station_code = FALSE;
 
+
 /* old code */
     flag_last_day = FALSE;
     offset = 0;
     last_day = 0;
+    ws = NULL;
   
   /* Init weather buttons */
   weather_buttons_init();
@@ -505,6 +477,7 @@ weather_frame_new (void)
 void
 weather_frame_update (gboolean check)
 {
+
     gtk_widget_destroy(box);
   if (check) 
    weather_buttons_fill(TRUE);

@@ -47,7 +47,6 @@ extern gchar     _weather_temperature_unit;
 extern gboolean  not_event;
 extern int       _weather_layout;
 /* by Pavel */
-extern	gint	days2show;
 extern	gint	days_to_show;
 
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);

@@ -87,19 +87,20 @@ fill_station_inform( struct weather_station *ws)
 {
   FILE *stations_file;  
   char state_name[21];
-  unsigned char out_buffer[1024]; /* buffer for work with stations.txt files*/
+/*  unsigned char out_buffer[1024]; */
+  char out_buffer[1024]; /* buffer for work with stations.txt files*/
   char temp_station_name[21];
   char temp_station_code[9];
   int i;
     /* Search state or province on country and add stations to combobox*/
     if((stations_file = fopen(STATIONS_FILE,"r")) != NULL)
     {
-     memset(state_name, 0, sizeof(state_name)); //Clear temporary value
+     memset(state_name, 0, sizeof(state_name)); /* Clear temporary value */
      while(!feof(stations_file))
      {
-      memset(out_buffer, 0, sizeof(out_buffer)); //Clear buffer
-      fgets(out_buffer, sizeof(out_buffer), stations_file);//Read Next Line
-      memset(temp_station_name, 0, sizeof(temp_station_name)); //Clear buffer
+      memset(out_buffer, 0, sizeof(out_buffer)); /* Clear buffer */
+      fgets(out_buffer, sizeof(out_buffer), stations_file); /* Read Next Line */
+      memset(temp_station_name, 0, sizeof(temp_station_name)); /* Clear buffer */
       if ( (strlen(out_buffer)>27) && ((char)out_buffer[0] != '!') )
       {  
         /* Is it country or state or province name ? */
@@ -141,7 +142,7 @@ void
 reinitilize_stations_list(gchar *stations_string)
 {
  struct weather_station *ws;
-// int bpos; /* Begin position station ID */
+/* int bpos;*/ /* Begin position station ID */
  gchar *temp1= NULL, *temp2 = NULL;
  stations_view_list = NULL; /* Initialize value */
  
@@ -239,8 +240,8 @@ prepare_idlist (void)
       ws = tmplist->data;
       str = g_strdup_printf("%s@%s", ws->id_station, ws->name_station);
       stlist = g_slist_append (stlist, str);
-      fprintf(stderr,"id %s  \n",str); 			  
-      tmplist = g_slist_next(tmplist);
+/*      fprintf(stderr,"id %s  \n",str); 			  
+*/      tmplist = g_slist_next(tmplist);
     }
     return stlist;
 }
@@ -282,7 +283,7 @@ config_init()
         tmp = gconf_client_get_string(gconf_client,
                      GCONF_KEY_WEATHER_STATION_IDS, NULL);
         if(tmp)
-	{		     
+	{
 	 reinitilize_stations_list(tmp);
 	 g_free(tmp);    
 	} 

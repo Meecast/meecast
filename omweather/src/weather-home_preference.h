@@ -66,7 +66,7 @@ struct station_and_weather_code {
 };
 
 gchar *weather_station_id;
-int index_state = 0; // Position state of the list 
-int index_station = 0; // Position station of the list 
-static char flag_update_station = FALSE; //Flag update station list
+int index_state = 0; /* Position state of the list */
+int index_station = 0; /* Position station of the list */
+static char flag_update_station = FALSE; /* Flag update station list */
 static gchar *_weather_station_id_temp; /* Temporary value for weather_station_id */

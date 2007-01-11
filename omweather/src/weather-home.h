@@ -42,7 +42,8 @@
 void hello_world_dialog_show (void);
 
 #include <libosso.h>
-//#include <pthread.h>
+/* #include <pthread.h>
+*/
 #include <gconf/gconf-client.h>
 #include <osso-ic.h>
 

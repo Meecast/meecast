@@ -30,19 +30,19 @@
 #include "weather-home_preference.h"
 
 /* Compare station name */
-gint
-compare_station (gconstpointer a, gconstpointer b)
-{
- gint result;
- struct station_and_weather_code *sca, *scb;
- sca=a;scb=b;
+gint compare_station(gconstpointer a, gconstpointer b){
+    gint result;
+    struct station_and_weather_code *sca, *scb;
+    sca = (struct station_and_weather_code*)a;
+    scb = (struct station_and_weather_code*)b;
  
- if (strlen (sca->station_name) < strlen (scb->station_name))
-  result = strncmp (sca->station_name, scb->station_name, strlen (scb->station_name));
- else 
-  result = strncmp (sca->station_name, scb->station_name, strlen (sca->station_name));
- 
- return result;
+    if(strlen(sca->station_name) < strlen(scb->station_name))
+	result = strncmp(sca->station_name, scb->station_name,
+			    strlen(scb->station_name));
+    else 
+	result = strncmp(sca->station_name, scb->station_name,
+		    strlen(sca->station_name));
+    return result;
 }
 
 
@@ -73,15 +73,16 @@ free_list_stations (void)
 void changed_country(void)
 {
   GtkTreeModel *model;
-  char flag; //Flag for country processing
-  char flag_new_state; //Flag for new country or province or state
-  unsigned char out_buffer[1024]; /* buffer for work with stations.txt files*/
+  char flag; /* Flag for country processing */
+  char flag_new_state; /* Flag for new country or province or state */
+/*  unsigned char out_buffer[1024]; */
+  char out_buffer[1024]; /* buffer for work with stations.txt files */
   static gchar *gcountry_name = NULL;
   FILE *stations_file, *iso3166_file; 
   char country_name[52];
   char country_code [2];
   char temp_state_name[20];
-  int count_state = 0; // Count state of file iso3166 
+  int count_state = 0; /* Count state of file iso3166 */
 
   /* Search Country defined ComboBox in iso file */
   flag = FALSE;    
@@ -97,8 +98,8 @@ void changed_country(void)
     {
      while(!feof(iso3166_file))
      {
-      memset(out_buffer, 0, sizeof(out_buffer)); //Clear buffer
-      fgets(out_buffer, sizeof(out_buffer), iso3166_file);//Read Next Line
+      memset(out_buffer, 0, sizeof(out_buffer)); /* Clear buffer */
+      fgets(out_buffer, sizeof(out_buffer), iso3166_file);/* Read Next Line */
       if (strlen(out_buffer)>0){
        if (streq("----------------------------------------------------------------------\n",out_buffer))
        {
@@ -126,12 +127,12 @@ void changed_country(void)
     /* Search state or province on country and add it to combobox state */
     if((stations_file = fopen(STATIONS_FILE,"r")) != NULL)
     {
-     memset(temp_state_name, 0, sizeof(temp_state_name)); //Clear temporary value
+     memset(temp_state_name, 0, sizeof(temp_state_name)); /* Clear temporary value */
      flag_new_state = FALSE;
      while(!feof(stations_file))
      {
-      memset(out_buffer, 0, sizeof(out_buffer)); //Clear buffer
-      fgets(out_buffer, sizeof(out_buffer), stations_file);//Read Next Line
+      memset(out_buffer, 0, sizeof(out_buffer)); /* Clear buffer */
+      fgets(out_buffer, sizeof(out_buffer), stations_file); /* Read Next Line */
       if ( (strlen(out_buffer)>0) && ((char)out_buffer[0] != '!') )
       {   
         /* Is it country or state or province name ? */
@@ -165,16 +166,17 @@ void changed_state(void)
 {
   GtkTreeModel *model;
   GSList *current;
-  char flag; //Flag for country processing
-  char flag_necessary_state; //Flag for finding country or province or state
-  unsigned char out_buffer[1024]; /* buffer for work with stations.txt files*/
+  char flag; /* Flag for country processing */
+  char flag_necessary_state; /* Flag for finding country or province or state */
+/*  unsigned char out_buffer[1024]; */
+    char out_buffer[1024]; /* buffer for work with stations.txt files */
   static gchar *gstate_name = NULL;
   FILE *stations_file; 
   char state_name[21];
   char temp_station_name[21];
   char temp_station_code[9];
   struct station_and_weather_code *sc;
-  int count_station = 0; // Count station of state or region
+  int count_station = 0; /* Count station of state or region */
   int i;
   
 
@@ -188,13 +190,13 @@ void changed_state(void)
     /* Search state or province on country and add stations to combobox*/
     if((stations_file = fopen(STATIONS_FILE,"r")) != NULL)
     {
-     memset(state_name, 0, sizeof(state_name)); //Clear temporary value
+     memset(state_name, 0, sizeof(state_name)); /* Clear temporary value */
      flag_necessary_state = FALSE;
      while(!feof(stations_file))
      {
-      memset(out_buffer, 0, sizeof(out_buffer)); //Clear buffer
-      fgets(out_buffer, sizeof(out_buffer), stations_file);//Read Next Line
-      memset(temp_station_name, 0, sizeof(temp_station_name)); //Clear buffer
+      memset(out_buffer, 0, sizeof(out_buffer)); /* Clear buffer */
+      fgets(out_buffer, sizeof(out_buffer), stations_file); /* Read Next Line */
+      memset(temp_station_name, 0, sizeof(temp_station_name)); /* Clear buffer */
       if ( (strlen(out_buffer)>27) && ((char)out_buffer[0] != '!') )
       {  
         /* Is it country or state or province name ? */
@@ -271,8 +273,8 @@ void changed_stations(void)
 void
 fill_station_list_view (GtkWidget *station_list_view,GtkListStore *station_list_store)
 {
- GSList *tmplist = NULL; //Temorary for station list
- struct weather_station *ws; //Description Weather station
+ GSList *tmplist = NULL; /* Temorary for station list */
+ struct weather_station *ws; /* Description Weather station */
  GtkTreeSelection *list_selection;
  GtkTreeIter iter;
 
@@ -295,68 +297,60 @@ fill_station_list_view (GtkWidget *station_list_view,GtkListStore *station_list_
 
 
 /* Delete station from list */
-static gboolean
-delete_station (GtkWidget *widget,
+static gboolean delete_station (GtkWidget *widget,
                            GdkEvent *event,
                            gpointer user_data)
 {
- GSList *tmplist = NULL; //Temorary for station list
- struct weather_station *ws; //Description Weather station
- GtkTreeIter iter;
- gchar *station_selected = NULL;
+    GSList *tmplist = NULL; /* Temorary for station list */
+    struct weather_station *ws; /* Description Weather station */
+    GtkTreeIter iter;
+    gchar *station_selected = NULL;
   
- GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
- GtkTreeSelection *selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view)); 
- if ( !gtk_tree_selection_get_selected(selection, NULL, &iter) )
-  return FALSE;
+    GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
+    GtkTreeSelection *selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view)); 
+    if( !gtk_tree_selection_get_selected(selection, NULL, &iter) )
+	return FALSE;
  
- gtk_tree_model_get(model, &iter, 0, &station_selected,-1); 
- 
- tmplist = stations_view_list;
- while (tmplist != NULL)
- {
-     ws = tmplist->data;
-     if (streq(station_selected, ws->name_station))
-     {
+    gtk_tree_model_get(model, &iter, 0, &station_selected,-1); 
+    tmplist = stations_view_list;
+    while (tmplist != NULL){
+	ws = tmplist->data;
+	if(streq(station_selected, ws->name_station)){
       /* Remove station from the Station List */
-      stations_view_list = g_slist_remove(stations_view_list, ws);
-      
-      gtk_list_store_clear(station_list_store);
-      fill_station_list_view (station_list_view,station_list_store);
+	    stations_view_list = g_slist_remove(stations_view_list, ws);
+	    gtk_list_store_clear(station_list_store);
+	    fill_station_list_view (station_list_view,station_list_store);
       /* Update station list */
-      flag_update_station = TRUE;
-      model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
-      selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
+	    flag_update_station = TRUE;
+	    model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
+	    selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
       /* Search new selected station */    
-      if ( gtk_tree_selection_get_selected(selection, NULL, &iter) )
-      {
-       gtk_tree_model_get(model, &iter, 0, &station_selected,-1);
-       tmplist = stations_view_list;
-       while (tmplist != NULL)
-       {
-        ws = tmplist->data;
-        if (streq(station_selected, ws->name_station))
-        {
+	    if( gtk_tree_selection_get_selected(selection, NULL, &iter) ){
+		gtk_tree_model_get(model, &iter, 0, &station_selected,-1);
+		tmplist = stations_view_list;
+		while (tmplist != NULL){
+		    ws = tmplist->data;
+		    if(streq(station_selected, ws->name_station)){
          /* Set New selected station on default on main display*/
-         if (_weather_station_id != NULL) g_free(_weather_station_id);
-          _weather_station_id = g_strdup(ws->id_station); 
-	 if (_weather_station_name != NULL) g_free(_weather_station_name);
-          _weather_station_name = g_strdup(ws->name_station); 
-        }
-	tmplist = g_slist_next(tmplist);
-       } 
-      }
-      else
-      {
-       _weather_station_id = NULL;
-      }
+    			if(_weather_station_id != NULL)
+			    g_free(_weather_station_id);
+			_weather_station_id = g_strdup(ws->id_station); 
+			if(_weather_station_name != NULL)
+			    g_free(_weather_station_name);
+    			_weather_station_name = g_strdup(ws->name_station); 
+		    }
+		    tmplist = g_slist_next(tmplist);
+		} 
+	    }
+	    else
+		_weather_station_id = NULL;
       /* Update config file */
-      config_save();       
-      break; 
-     }
-     tmplist = g_slist_next(tmplist);
- }
- return TRUE;
+	    config_save();       
+	    break; 
+	}
+	tmplist = g_slist_next(tmplist);
+    }
+    return TRUE;
 }
 
 static GtkListStore *
@@ -414,7 +408,7 @@ return now;
 void
 weather_window_add_custom_station ()
 {
-  struct weather_station *ws;       // Temp struct for station
+  struct weather_station *ws;       /* Temp struct for station */
   GtkWidget *window_add_custom_station;
   GtkWidget *label;
   GtkWidget *table;
@@ -423,8 +417,7 @@ weather_window_add_custom_station ()
   /* Create dialog window */
   window_add_custom_station = gtk_dialog_new_with_buttons("Add Custom Station",
             NULL, GTK_DIALOG_MODAL,
-            GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
-            NULL);
+            GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, NULL);
   gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_add_custom_station)->vbox),
               table = gtk_table_new(4, 2, FALSE), TRUE, TRUE, 0);	    
   gtk_dialog_add_button(GTK_DIALOG(window_add_custom_station),
@@ -437,8 +430,8 @@ weather_window_add_custom_station ()
             label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f) ,
             1, 2, 0, 1);
   gtk_container_add(GTK_CONTAINER(label),custom_station_name = gtk_entry_new());
-  gtk_entry_set_max_length (custom_station_name,16);
-  gtk_entry_set_width_chars (custom_station_name,16);
+  gtk_entry_set_max_length((GtkEntry*)custom_station_name, 16);
+  gtk_entry_set_width_chars((GtkEntry*)custom_station_name, 16);
   
   /* Add Custom Station Code  */
   gtk_table_attach_defaults(GTK_TABLE(table),
@@ -448,33 +441,35 @@ weather_window_add_custom_station ()
             label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f) ,
             1, 2, 1, 2);
   gtk_container_add(GTK_CONTAINER(label),custom_station_code = gtk_entry_new());	    
-  gtk_entry_set_max_length (custom_station_code,8);
-  gtk_entry_set_width_chars (custom_station_code,8);
+  gtk_entry_set_max_length((GtkEntry*)custom_station_code, 8);
+  gtk_entry_set_width_chars((GtkEntry*)custom_station_code, 8);
   
 
   gtk_widget_show_all(window_add_custom_station);   
   
-  while(GTK_RESPONSE_ACCEPT == gtk_dialog_run(GTK_DIALOG(window_add_custom_station))) /* Press Button Ok */
-  {
-   flag_update_station = TRUE;
-   ws = g_new0(struct weather_station,1);
-   if (_weather_station_id != NULL)  g_free(_weather_station_id);
-   _weather_station_id = g_strdup(gtk_entry_get_text(custom_station_code));
-   ws->id_station = g_strdup(_weather_station_id);
-   if (_weather_station_name != NULL) g_free(_weather_station_name);
-   _weather_station_name = g_strdup(gtk_entry_get_text(custom_station_name));
-   ws->name_station = g_strdup(_weather_station_name);
+/* Press Button Ok */
+    while(GTK_RESPONSE_ACCEPT == gtk_dialog_run(GTK_DIALOG(window_add_custom_station))){
+	flag_update_station = TRUE;
+	ws = g_new0(struct weather_station, 1);
+	if(_weather_station_id != NULL)
+	    g_free(_weather_station_id);
+	_weather_station_id = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_code));
+	ws->id_station = g_strdup(_weather_station_id);
+	if(_weather_station_name != NULL)
+	    g_free(_weather_station_name);
+	_weather_station_name = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_name));
+	ws->name_station = g_strdup(_weather_station_name);
 
    /* Add station to stations list */
-   stations_view_list = g_slist_append(stations_view_list, ws); 
+	stations_view_list = g_slist_append(stations_view_list, ws); 
    /* Add station to View List(Tree) */
-   gtk_list_store_clear(station_list_store);
-   fill_station_list_view (station_list_view,station_list_store);
+	gtk_list_store_clear(station_list_store);
+	fill_station_list_view (station_list_view,station_list_store);
    /* Update config file */
-   config_save();   
-   break;
-  }
-  gtk_widget_destroy(window_add_custom_station);
+	config_save();   
+	break;
+    }
+    gtk_widget_destroy(window_add_custom_station);
 }
 
 void
@@ -484,15 +479,15 @@ weather_window_add_station (GtkWidget *widget,
 {
   FILE  *iso3166_file;
   char country_name[52];
-  unsigned char out_buffer[1024];   // Buffer for work with stations.txt files
-  char flag;                        // Flag for country processing
-  int count_country = 0;            // Count country of file iso3166 
-  int index_country = 0;            // Position country of the list 
-  struct weather_station *ws;       // Temp struct for station
-  GtkTreeIter iter;                 // Temp for gtk_combo_box
-  GtkListStore *country_list_store; // Country List store
-  gint result;                      // Result dialog window
-
+/*  unsigned char out_buffer[1024]; */
+    char out_buffer[1024];   /* Buffer for work with stations.txt files */
+  char flag;                        /* Flag for country processing */
+  int count_country = 0;            /* Count country of file iso3166 */
+  int index_country = 0;            /* Position country of the list */
+  struct weather_station *ws;       /* Temp struct for station */
+  GtkTreeIter iter;                 /* Temp for gtk_combo_box */
+  GtkListStore *country_list_store; /* Country List store */
+  gint result;                      /* Result dialog window */
 
   GtkWidget *label;
   GtkWidget *table;
@@ -548,8 +543,8 @@ weather_window_add_station (GtkWidget *widget,
     {
      while(!feof(iso3166_file))
      {
-      memset(out_buffer, 0, sizeof(out_buffer)); //Clear buffer
-      fgets(out_buffer, sizeof(out_buffer), iso3166_file);//Read Next Line
+      memset(out_buffer, 0, sizeof(out_buffer)); /* Clear buffer */
+      fgets(out_buffer, sizeof(out_buffer), iso3166_file); /* Read Next Line */
       if (strlen(out_buffer)>0){
        if (streq("----------------------------------------------------------------------\n",out_buffer))
        {
@@ -654,11 +649,11 @@ weather_window_preference (GtkWidget *widget,
    GtkWidget *scrolled_window;
    GtkWidget *button_add, *button_del;
 
-   char flag_update_icon; //Flag update main weather icon of desktop 
-   int index_update_time = 0; // Position acive update time of the list 
-   GdkColor _weather_font_color_temp; // Temporary for font color
-   static GSList *time_update_list_temp = NULL; //Temporary list for time update
-   struct time_update *tu; //Temporary for time update list
+   char flag_update_icon; /* Flag update main weather icon of desktop */
+   int index_update_time = 0; /* Position acive update time of the list */
+   GdkColor _weather_font_color_temp; /* Temporary for font color */
+   static GSList *time_update_list_temp = NULL; /* Temporary list for time update */
+   struct time_update *tu; /* Temporary for time update list */
    char *temp_string;
    
    not_event = TRUE;
@@ -722,7 +717,6 @@ weather_window_preference (GtkWidget *widget,
     g_signal_connect (button_add, "clicked",
                     G_CALLBACK (weather_window_add_station),
                     NULL);
-
 
     /* Main interface setting page */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
@@ -891,15 +885,15 @@ weather_window_preference (GtkWidget *widget,
 	  } 
 /* by Pavel */
 /* Days to show */
-	if(gtk_combo_box_get_active(days_number) != days_to_show - 1){
-	    days_to_show = gtk_combo_box_get_active(days_number);
+	if(gtk_combo_box_get_active((GtkComboBox*)days_number) != days_to_show - 1){
+	    days_to_show = gtk_combo_box_get_active((GtkComboBox*)days_number);
 	    days_to_show++;
     	    flag_update_icon = TRUE;
 	}
 	 /* Layout Type */
-	 if (gtk_combo_box_get_active(layout_type) != _weather_layout )
+	 if (gtk_combo_box_get_active((GtkComboBox*)layout_type) != _weather_layout )
 	 {
-	   _weather_layout = gtk_combo_box_get_active(layout_type);
+	   _weather_layout = gtk_combo_box_get_active((GtkComboBox*)layout_type);
            flag_update_icon = TRUE;
 	 }
 	
@@ -940,8 +934,8 @@ weather_window_preference (GtkWidget *widget,
 	 
 	 if (flag_update_station)
 	 {
-//	  update_weather();
-          weather_frame_update(TRUE);	  
+/*	  update_weather();
+*/          weather_frame_update(TRUE);	  
          }
          gtk_widget_destroy(window_config);
 	 free_list_stations();

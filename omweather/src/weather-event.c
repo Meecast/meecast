@@ -124,8 +124,8 @@ static gint compare_time (gconstpointer a, gconstpointer b)
 {
   struct event_time *evta;
   struct event_time *evtb;
-  evta = a;
-  evtb = b;
+  evta = (struct event_time*)a;
+  evtb = (struct event_time*)b;
   return (evta->time < evtb->time) ? -1 : (evta->time > evtb->time) ? +1 : 0;
 }
 

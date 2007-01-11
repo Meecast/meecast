@@ -40,12 +40,17 @@
 #include <gtk/gtk.h>
 
 #include <hildon-home-plugin/hildon-home-plugin-interface.h>
+#include <hildon-widgets/hildon-banner.h>
 #include "weather-home.h"
 
 #include <unistd.h>
 
+#ifndef VERSION
 #define VERSION "0.14"
+#endif
+#ifndef APPNAME
 #define APPNAME "omweather"
+#endif
 
 /* Translate  temperature Celsius to Farenhait */
 int c2f(int temp)
@@ -65,10 +70,10 @@ set_font_size(GtkWidget *widget, char font_size)
     gtk_widget_modify_font( widget,pfd );    
 }   
 /* Create standard Hildon animation small window */
-void 
-create_window_update(void)
-{
-    update_window = hildon_banner_show_animation(weather_window_popup,NULL,"Update weather");
+void create_window_update(){
+    update_window = hildon_banner_show_animation(weather_window_popup,
+						    NULL,
+						    "Update weather");
     g_object_ref(G_OBJECT(update_window));
 }
 
@@ -139,8 +144,8 @@ get_weather_html( gboolean check_connect )
    {
     url = g_string_new (NULL);        
     g_string_append_printf (url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=10",ws->id_station);
-//      g_string_append (url,"s=");
-    memset(&hExtra, '\0', sizeof(hExtra));
+/*      g_string_append (url,"s=");
+*/    memset(&hExtra, '\0', sizeof(hExtra));
     hResponse = http_request(url->str,&hExtra,kHMethodGet,HFLAG_NONE);
     g_string_free (url,TRUE);
     if( hResponse.pError || strcmp(hResponse.szHCode,HTTP_RESPONSE_OK) )
@@ -182,7 +187,6 @@ enter_button (GtkWidget        *widget,
    return FALSE;
 }
 
-
 /* Change station to previos at main display */
 static gboolean
 change_station_prev (GtkWidget *widget,
@@ -217,6 +221,7 @@ change_station_prev (GtkWidget *widget,
   }
  return TRUE;
 }
+
 /* Change station to next at main display */
 static gboolean
 change_station_next (GtkWidget *widget,
@@ -251,28 +256,22 @@ change_station_next (GtkWidget *widget,
  return TRUE;
 }
 
-
-
 /* Set default value */
-void weather_buttons_init(void)
-{
- int i;
- /* Set default icon N/A */
-for (i=0;i<days_to_show;i++)
- {
-  weather_days[i].night.icon=48;
-  weather_days[i].day.icon=48;
-  sprintf(weather_days[i].hi_temp,"N/A");
-  sprintf(weather_days[i].low_temp,"N/A");
- }
+void weather_buttons_init(void){
+    int i;
+/* Set default icon N/A */
+    for (i = 0; i < days_to_show; i++){
+	weather_days[i].night.icon = 48;
+	weather_days[i].day.icon = 48;
+	sprintf(weather_days[i].hi_temp, "N/A");
+	sprintf(weather_days[i].low_temp, "N/A");
+    }
 }
 
 
 /* Error Window */
-void
-station_error_window(void)
-{
-   hildon_banner_show_information(box,NULL,"Wrong station code \nor ZIP code!!!");
+void station_error_window(void){
+   hildon_banner_show_information(box, NULL, "Wrong station code \nor ZIP code!!!");
 }
 
 /* Fill buttons data */
@@ -282,12 +281,13 @@ void weather_buttons_fill(gboolean check_error){
     gchar buffer[2048], buffer_icon[2048];
     time_t current_day,current_time,last_day;
     struct tm *tm;
-    gboolean flag_last_day;
+    gboolean flag_last_day, error_station_code;
     GSList *tmplist = NULL;
     struct weather_station *ws;
     int temp_hi,temp_hi_now,temp_low;
     char	font_size;
     gint	icon_size;
+    gchar	*tmp_station_name;
 
 /* select image and font size */
     if(!strcmp(_weather_icon_size,"Large")){
@@ -303,23 +303,30 @@ void weather_buttons_fill(gboolean check_error){
 	    font_size = FONT_MAIN_SIZE_SMALL;
 	    icon_size = 32;
 	}
-  gboolean error_station_code = FALSE;
+    error_station_code = FALSE;
 
 
 /* old code */
     flag_last_day = FALSE;
     offset = 0;
     last_day = 0;
-    ws = NULL;
   
   /* Init weather buttons */
-  weather_buttons_init();
-  count_day=parse_weather_com_xml();
-  if (check_error)
-   if  (count_day == -2)  {count_day=0; fprintf(stderr,"Error in xml file\n"); error_station_code=TRUE; } // Error in xml file
-  
-//  if  (count_day == -1)  {count_day=0; fprintf(stderr,"Error on xml file");} // Error in xml file
-
+    weather_buttons_init();
+    count_day = parse_weather_com_xml();
+    if(check_error)
+	if(count_day == -2){
+	    count_day = 0;
+	    fprintf(stderr,"Error in xml file\n");
+	    error_station_code = TRUE;
+    } /* Error in xml file */
+/* 
+    if(count_day == -1){
+	count_day = 0;
+	fprintf(stderr,"Error on xml file");
+	error_station_code = TRUE;
+    }
+*/
   /* get current day */  
     current_time = current_day = time(NULL);
     tm = localtime(&current_day);
@@ -329,6 +336,7 @@ void weather_buttons_fill(gboolean check_error){
     free_list_time_event();
   /* add periodic update */
     add_periodic_event();
+
   /* Search day of saving xml near current day */
     while ( (offset < Max_count_weather_day) &&
 	    (current_day > weather_days[offset].date_time) &&
@@ -446,6 +454,7 @@ void weather_buttons_fill(gboolean check_error){
     }/* for */
 
     if(g_slist_length(stations_view_list) > 0){
+
 	tmplist = stations_view_list;
 /* search current station */
         while (tmplist){
@@ -454,12 +463,16 @@ void weather_buttons_fill(gboolean check_error){
 		break;
 	    tmplist = g_slist_next(tmplist);
 	}
+	tmp_station_name = ws->name_station;
     }
-    else
-	ws->name_station = NULL;
+    else{
+	if(ws)
+	    ws->name_station = NULL;
+	tmp_station_name = NULL;
+    }
 /* create main panel */
     box = gtk_table_new(2, 1, FALSE);
-    create_panel(box, _weather_layout, _enable_transparency, ws->name_station, font_size);
+    create_panel(box, _weather_layout, _enable_transparency, tmp_station_name, font_size);
     gtk_box_pack_start(GTK_BOX(box_zero), box, TRUE, TRUE, 0);
     gtk_widget_show_all(box_zero);
    if (error_station_code) station_error_window();
@@ -502,14 +515,10 @@ update_w(gpointer data)
  return TRUE;
 }
 
-void 
-update_weather(void)
-{
- create_window_update();
- flag_update = g_timeout_add (100, (GFunc)update_w, NULL);
+void update_weather(void){
+    create_window_update();
+    flag_update = g_timeout_add(100, (GSourceFunc)update_w, NULL);
 }
-
-
 
 
 void *
@@ -538,9 +547,9 @@ hildon_home_applet_lib_save_state (void *raw_data,
 				   int *state_size)
 {
     fprintf (stderr, "hello-world save_state\n");
-//  config_save();    
-//  weather_frame_update();
-  *state_data = NULL;
+/*    config_save();    
+  weather_frame_update();
+*/  *state_data = NULL;
   *state_size = 0;
   return 0;
 }
@@ -560,7 +569,7 @@ hildon_home_applet_lib_foreground (void *raw_data)
 void
 hildon_home_applet_lib_deinitialize (void *raw_data)
 {
-  config_save(); //Not work!!!! Why? I am not understand why this place not run when close applet
+  config_save(); /* Not work!!!! Why? I am not understand why this place not run when close applet */
   fprintf (stderr, "hello-world deinitialize\n");
 }
 
@@ -582,6 +591,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 		*station_name_btn, *station_name, *station_box;
 
     int		n, elements, x, y;
+
 
     if(days_to_show % 2)
 	elements = days_to_show / 2 + 1;

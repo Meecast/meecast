@@ -33,7 +33,6 @@
 #include <string.h>
 #include <time.h>
 #include <libgnomevfs/gnome-vfs.h>
-#define Max_count_web_button 5
 #define Max_count_weather_day 10
 #define AUTOUPDATE 1
 #define DAYTIMEEVENT 2
@@ -77,7 +76,7 @@ typedef struct
 typedef struct
 {
 	gint    error;
-//	weather_channel *channel_list;
+/*	weather_channel *channel_list; */
 	xmlDoc	    *doc;
 	xmlNode     *weather_com_root;
 } weather_com_parser;

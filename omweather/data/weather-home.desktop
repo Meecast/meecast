@@ -3,3 +3,6 @@ Name=OMWeather
 Comment=World Weather
 Type=HildonHomeApplet
 X-home-applet=libweather-home.so
+X-home-applet-resizable=NO
+X-home-applet-minwidth=400
+X-home-applet-maxheight=200

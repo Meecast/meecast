@@ -926,12 +926,12 @@ weather_window_preference (GtkWidget *widget,
 
          config_save();
 
+
 	 if (flag_update_icon)
 	 {
           weather_frame_update(FALSE);
 	  gtk_widget_destroy(weather_window_popup);
          }
-	 
 	 if (flag_update_station)
 	 {
 /*	  update_weather();
@@ -939,7 +939,6 @@ weather_window_preference (GtkWidget *widget,
          }
          gtk_widget_destroy(window_config);
 	 free_list_stations();
-
          not_event = FALSE;
 	 return;
     }

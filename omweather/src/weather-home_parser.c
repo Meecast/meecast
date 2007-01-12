@@ -75,6 +75,7 @@ int parse_weather_com_xml(void)
     current_time = time(NULL);
     tm = localtime(&current_time);
     year = 1900 + tm->tm_year;
+    parser = NULL;
 
     if(!_weather_station_id)
 	return -1;
@@ -86,7 +87,7 @@ int parse_weather_com_xml(void)
 		rename(buffer,newname);
 	    }
     }
-    if((access (buffer,R_OK) != 0) || (parser->error)){ /* Used old xml file */
+    if((access (buffer,R_OK) != 0) || (parser != NULL && parser->error)){ /* Used old xml file */
 	sprintf(buffer, "%s/%s.xml", _weather_dir_name,_weather_station_id);
 	/* Not Access to cache weather xml file or not valid XML file */
 	if(!access(buffer,R_OK)){ 

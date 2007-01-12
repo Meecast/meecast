@@ -394,9 +394,10 @@ void
 config_save()
 {
     gchar temp_buffer[16];
+    gchar *idlist_string;
 
     GSList *stlist = NULL;
-
+   
     
     GConfClient *gconf_client = gconf_client_get_default();
     
@@ -434,6 +435,11 @@ config_save()
 	g_free(idlist_string);
       }
 */      
+     /* Temporary in release 0.1 8 deleted */
+     idlist_string =  g_strdup("");
+     gconf_client_set_string(gconf_client,
+            GCONF_KEY_WEATHER_STATION_IDS, idlist_string, NULL);
+     g_free(idlist_string);
     /* Save Weather Icon Size  */		     	    
     if(_weather_icon_size)
         gconf_client_set_string(gconf_client,
@@ -471,7 +477,6 @@ config_save()
     /* Free stlist */	    
     g_slist_foreach (stlist, (GFunc) g_free, NULL);
     g_slist_free(stlist);
-    
     
     g_object_unref(gconf_client);
 }

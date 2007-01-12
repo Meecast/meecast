@@ -310,10 +310,12 @@ void weather_buttons_fill(gboolean check_error){
     flag_last_day = FALSE;
     offset = 0;
     last_day = 0;
+    ws = NULL;
   
   /* Init weather buttons */
     weather_buttons_init();
     count_day = parse_weather_com_xml();
+    
     if(check_error)
 	if(count_day == -2){
 	    count_day = 0;
@@ -324,7 +326,6 @@ void weather_buttons_fill(gboolean check_error){
     if(count_day == -1){
 	count_day = 0;
 	fprintf(stderr,"Error on xml file");
-	error_station_code = TRUE;
     }
 */
   /* get current day */  
@@ -342,7 +343,7 @@ void weather_buttons_fill(gboolean check_error){
 	    (current_day > weather_days[offset].date_time) &&
 	    (offset<count_day) )
 	offset ++;
-    for(i = 0; i < days_to_show; i++, offset++){    
+    for(i = 0; i < days_to_show; i++, offset++){
      /* If it first button add to evenet time change between nigth and day */
 	if(current_day == weather_days[offset].date_time){
 	    if(current_time < weather_days[offset].day.begin_time)
@@ -453,8 +454,8 @@ void weather_buttons_fill(gboolean check_error){
 	g_signal_connect (buttons[i], "enter", G_CALLBACK (enter_button), NULL); 
     }/* for */
 
-    if(g_slist_length(stations_view_list) > 0){
 
+    if(g_slist_length(stations_view_list) > 0){
 	tmplist = stations_view_list;
 /* search current station */
         while (tmplist){
@@ -470,6 +471,7 @@ void weather_buttons_fill(gboolean check_error){
 	    ws->name_station = NULL;
 	tmp_station_name = NULL;
     }
+    
 /* create main panel */
     box = gtk_table_new(2, 1, FALSE);
     create_panel(box, _weather_layout, _enable_transparency, tmp_station_name, font_size);
@@ -490,8 +492,8 @@ weather_frame_new (void)
 void
 weather_frame_update (gboolean check)
 {
-
-    gtk_widget_destroy(box);
+ 
+  gtk_widget_destroy(box);
   if (check) 
    weather_buttons_fill(TRUE);
   else

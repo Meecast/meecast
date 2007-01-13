@@ -345,7 +345,7 @@ config_init()
 	_weather_layout = gconf_client_get_int(gconf_client,
                      GCONF_KEY_WEATHER_LAYOUT, &gerror);
 	if (gerror)
-	 _weather_layout = SINGLE_ROW;
+	 _weather_layout = ONE_ROW;
 
 	/* Get number days to show */
 	days_to_show =  gconf_client_get_int(gconf_client,                                                                                     

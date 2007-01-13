@@ -762,17 +762,17 @@ weather_window_preference (GtkWidget *widget,
             label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
             1, 2, 1, 2);
     gtk_container_add(GTK_CONTAINER(label),layout_type = gtk_combo_box_new_text());
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Single row");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Single column");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Double row");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Double column");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "One row");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "One column");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Two rows");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Two columns");
     switch (_weather_layout)
     {
      default:
-     case SINGLE_ROW:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),0);break;
-     case SINGLE_COLUMN:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),1);break;
-     case DOUBLE_ROW:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),2);break;
-     case DOUBLE_COLUMN:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),3);break;
+     case ONE_ROW:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),0);break;
+     case ONE_COLUMN:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),1);break;
+     case TWO_ROWS:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),2);break;
+     case TWO_COLUMNS:  gtk_combo_box_set_active (GTK_COMBO_BOX(layout_type),3);break;
     }    
     /* Icon size */
     gtk_table_attach_defaults(GTK_TABLE(table),	    

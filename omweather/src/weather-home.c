@@ -283,7 +283,7 @@ void weather_buttons_fill(gboolean check_error){
     struct tm *tm;
     gboolean flag_last_day, error_station_code;
     GSList *tmplist = NULL;
-    struct weather_station *ws;
+    struct weather_station *ws = NULL;
     int temp_hi,temp_hi_now,temp_low;
     char	font_size;
     gint	icon_size;
@@ -305,12 +305,9 @@ void weather_buttons_fill(gboolean check_error){
 	}
     error_station_code = FALSE;
 
-
-/* old code */
     flag_last_day = FALSE;
     offset = 0;
     last_day = 0;
-    ws = NULL;
   
   /* Init weather buttons */
     weather_buttons_init();
@@ -661,16 +658,16 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 /* create days panel */
     switch(layout){
 	default:
-	case SINGLE_ROW:
+	case ONE_ROW:
 	    days_panel = gtk_table_new(1, Max_count_weather_day, FALSE);
 	break;
-	case SINGLE_COLUMN:
+	case ONE_COLUMN:
 	    days_panel = gtk_table_new(Max_count_weather_day, 1, FALSE);
 	break;
-	case DOUBLE_ROW:
+	case TWO_ROWS:
 	    days_panel = gtk_table_new(2, elements, FALSE);
 	break;
-	case DOUBLE_COLUMN:
+	case TWO_COLUMNS:
 	    days_panel = gtk_table_new(elements, 2, FALSE);
 	break;
     }
@@ -678,13 +675,13 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     for(n = 0, x = 0, y = 0; n < days_to_show; n++, x++){
 	switch(layout){
 	    default:
-	    case SINGLE_ROW:
+	    case ONE_ROW:
 		gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], n, n + 1, 0, 1 );
 	    break;
-	    case SINGLE_COLUMN:
+	    case ONE_COLUMN:
 		gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], 0, 1, n, n + 1);
 	    break;
-	    case DOUBLE_ROW:
+	    case TWO_ROWS:
 		if(n == elements){
 		    x = 0; y = 1;
 		}
@@ -693,7 +690,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 		else
 		    gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], x, x + 1, 1, 2);
 	    break;
-	    case DOUBLE_COLUMN:
+	    case TWO_COLUMNS:
 		if(n == elements){
 		    x = 0; y = 1;
 		}

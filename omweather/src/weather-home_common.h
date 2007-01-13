@@ -42,7 +42,7 @@
 #define COUNTRYS_FILE "/usr/share/weather/iso3166-countrycodes.txt"
 #define DEFAULT_ICON "/usr/share/weather/icons/Crystal/large_icon/"
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
-enum { SINGLE_ROW, SINGLE_COLUMN, DOUBLE_ROW, DOUBLE_COLUMN };
+enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS };
 
 
 typedef struct

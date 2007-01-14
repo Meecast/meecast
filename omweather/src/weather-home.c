@@ -288,7 +288,7 @@ void weather_buttons_fill(gboolean check_error){
     char	font_size;
     gint	icon_size;
     gchar	*tmp_station_name;
-
+    
 /* select image and font size */
     if(!strcmp(_weather_icon_size,"Large")){
 	font_size = FONT_MAIN_SIZE_LARGE;
@@ -474,44 +474,30 @@ void weather_buttons_fill(gboolean check_error){
     create_panel(box, _weather_layout, _enable_transparency, tmp_station_name, font_size);
     gtk_box_pack_start(GTK_BOX(box_zero), box, TRUE, TRUE, 0);
     gtk_widget_show_all(box_zero);
-   if (error_station_code) station_error_window();
+    if(error_station_code)
+	station_error_window();
 }
 
-GtkWidget *
-weather_frame_new (void)
-{
-  box_zero =  gtk_hbox_new ( FALSE , 0); 
-  weather_buttons_fill(FALSE);
-  return box_zero;
-  
-}
-
-void
-weather_frame_update (gboolean check)
-{
- 
-  gtk_widget_destroy(box);
-  if (check) 
-   weather_buttons_fill(TRUE);
-  else
-   weather_buttons_fill(FALSE);
+void weather_frame_update(gboolean check){
+    gtk_widget_destroy(box);
+    if(check) 
+	weather_buttons_fill(TRUE);
+    else
+	weather_buttons_fill(FALSE);
 }
 
 /* For window update */
-static gboolean 
-update_w(gpointer data)
-{
-
- if (get_weather_html(TRUE) == 0)
- {
-   weather_frame_update(TRUE);
- }
- gtk_timeout_remove(flag_update);
- flag_update = 0;
- g_object_unref(G_OBJECT(update_window));
- if (update_window) gtk_widget_destroy (update_window);
- if (weather_window_popup) gtk_widget_destroy (weather_window_popup);
- return TRUE;
+static gboolean update_w(gpointer data){
+    if(!get_weather_html(TRUE))
+	weather_frame_update(TRUE);
+    gtk_timeout_remove(flag_update);
+    flag_update = 0;
+    g_object_unref(G_OBJECT(update_window));
+    if(update_window)
+	gtk_widget_destroy(update_window);
+    if(weather_window_popup)
+	gtk_widget_destroy(weather_window_popup);
+    return TRUE;
 }
 
 void update_weather(void){
@@ -520,65 +506,68 @@ void update_weather(void){
 }
 
 
-void *
-hildon_home_applet_lib_initialize (void *state_data, 
-				   int *state_size,
-				   GtkWidget **applet_return)
-{
- GtkWidget *frame;
- fprintf (stderr, "Weather applet initialize %p %d\n",
-	   state_data, *state_size);
- /* Init gconf. */
- gnome_vfs_init();
- config_init ();
- /* Start timer */
- timer();
- /* Start main applet */ 
- frame = weather_frame_new ();
- *applet_return = frame;
-  return NULL;
+void* hildon_home_applet_lib_initialize(void *state_data, 
+					int *state_size,
+					GtkWidget **widget){
+    osso_context_t *osso;
+    
+    osso = osso_initialize(APPNAME, VERSION, FALSE, NULL);
+    if(!osso){
+        g_debug("Error initializing the osso maemo omweather applet");
+        return NULL;
+    }
+    fprintf(stderr, "\nWeather applet initialize %p %d\n",
+		    state_data, *state_size);
+/* Init gconf. */
+    gnome_vfs_init();
+    config_init();
+/* Start timer */
+    timer();
+/* Start main applet */ 
+    box_zero = gtk_hbox_new(FALSE, 0); 
+    weather_buttons_fill(FALSE);
+    (*widget) = box_zero;
+    return (void*)osso;
 }
 
 
 int
-hildon_home_applet_lib_save_state (void *raw_data,
-				   void **state_data, 
-				   int *state_size)
-{
-    fprintf (stderr, "hello-world save_state\n");
-/*    config_save();    
-  weather_frame_update();
-*/  *state_data = NULL;
-  *state_size = 0;
-  return 0;
+hildon_home_applet_lib_save_state(void *raw_data,
+				    void **state_data, 
+				    int *state_size){
+    fprintf(stderr, "\nhello-world save_state\n");
+/*    config_save();   
+    weather_frame_update(FALSE);
+*/    (*state_data) = NULL;
+    if(state_size)
+	(*state_size) = 0;
+    return 1;
 }
 
 void
-hildon_home_applet_lib_background (void *raw_data)
-{
-  fprintf (stderr, "hello-world background\n");
+hildon_home_applet_lib_background(void *raw_data){
+    fprintf(stderr, "\nhello-world background\n");
 }
 
 void
-hildon_home_applet_lib_foreground (void *raw_data)
-{
-  fprintf (stderr, "hello-world foreground\n");
+hildon_home_applet_lib_foreground(void *raw_data){
+    fprintf(stderr, "\nhello-world foreground\n");
 }
 
 void
-hildon_home_applet_lib_deinitialize (void *raw_data)
-{
-  config_save(); /* Not work!!!! Why? I am not understand why this place not run when close applet */
-  fprintf (stderr, "hello-world deinitialize\n");
+hildon_home_applet_lib_deinitialize(void *applet_data){
+    config_save(); /* Not work!!!! Why? I am not understand why this place not run when close applet */
+    fprintf(stderr, "\nhello-world deinitialize\n");
+    osso_context_t *osso = (osso_context_t*)applet_data;
+    /* Deinitialize libosso */
+    osso_deinitialize(osso);
 }
 
 GtkWidget *
-hildon_home_applet_lib_settings (void *applet_data,
-				 GtkWindow *parent)
-{
-  fprintf (stderr, "hello-world settings\n");
-
-  return NULL;
+hildon_home_applet_lib_settings(void *applet_data,
+				 GtkWindow *parent){
+    fprintf(stderr, "\nhello-world settings\n");
+    return NULL;
 }
 
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size){

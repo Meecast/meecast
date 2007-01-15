@@ -29,7 +29,6 @@
 
 #include "weather-home_parser.h"
 
-
 weather_com_parser *weather_parser_new_from_file(const gchar *filename){
     weather_com_parser *parser;
 
@@ -53,8 +52,12 @@ weather_com_parser *weather_parser_new_from_file(const gchar *filename){
 int parse_weather_com_xml(void)
 {
     weather_com_parser *parser;
-    xmlNode *cur_node = NULL, *child_node = NULL, *child_node2 = NULL , *child_node3 = NULL, *child_node4 = NULL; 
-    int count_day=0, i, current_month, year;
+    xmlNode *cur_node = NULL,
+	    *child_node = NULL,
+	    *child_node2 = NULL,
+	    *child_node3 = NULL,
+	    *child_node4 = NULL; 
+    int count_day=0, i, current_month = 1, year;
     char *part_of_day, *icon, *temp_string_pointer;
     gchar buffer[2048], newname[2048];
     char id_station[10];

@@ -65,9 +65,9 @@ set_font_size(GtkWidget *widget, char font_size)
 {
     PangoFontDescription *pfd;    
     
-    pfd = pango_context_get_font_description( gtk_widget_get_pango_context(widget) );
-    pango_font_description_set_absolute_size(pfd,font_size*PANGO_SCALE);
-    gtk_widget_modify_font( widget,pfd );    
+    pfd = pango_context_get_font_description(gtk_widget_get_pango_context(widget));
+    pango_font_description_set_absolute_size(pfd, font_size * PANGO_SCALE);
+    gtk_widget_modify_font(widget, pfd);    
 }   
 /* Create standard Hildon animation small window */
 void create_window_update(){
@@ -240,7 +240,7 @@ change_station_next (GtkWidget *widget,
      {
       tmplist = g_slist_next(tmplist);
       /* If no next station, get first */
-      if (tmplist == NULL)
+      if (!tmplist)
           tmplist = stations_view_list;
       /* Get station data */
       ws = tmplist ->data;
@@ -277,11 +277,11 @@ void station_error_window(void){
 /* Fill buttons data */
 /* by Pavel */
 void weather_buttons_fill(gboolean check_error){
-    int i, offset, count_day;
+    int i, offset = 0, count_day;
     gchar buffer[2048], buffer_icon[2048];
-    time_t current_day,current_time,last_day;
+    time_t current_day,current_time, last_day = 0;
     struct tm *tm;
-    gboolean flag_last_day, error_station_code;
+    gboolean flag_last_day = FALSE, error_station_code = FALSE;
     GSList *tmplist = NULL;
     struct weather_station *ws = NULL;
     int temp_hi,temp_hi_now,temp_low;
@@ -303,12 +303,6 @@ void weather_buttons_fill(gboolean check_error){
 	    font_size = FONT_MAIN_SIZE_SMALL;
 	    icon_size = 32;
 	}
-    error_station_code = FALSE;
-
-    flag_last_day = FALSE;
-    offset = 0;
-    last_day = 0;
-  
   /* Init weather buttons */
     weather_buttons_init();
     count_day = parse_weather_com_xml();
@@ -447,8 +441,8 @@ void weather_buttons_fill(gboolean check_error){
 	gtk_box_pack_start(GTK_BOX(boxs[i]), labels[i], FALSE, FALSE, 0);
 	gtk_container_add(GTK_CONTAINER(buttons[i]), boxs[i]);
  /* Connect signal button */
-	g_signal_connect (buttons[i], "released", G_CALLBACK (weather_window_popup_show), NULL);  		    
-	g_signal_connect (buttons[i], "enter", G_CALLBACK (enter_button), NULL); 
+	g_signal_connect(buttons[i], "released", G_CALLBACK (weather_window_popup_show), NULL);  		    
+	g_signal_connect(buttons[i], "enter", G_CALLBACK (enter_button), NULL); 
     }/* for */
 
 
@@ -556,9 +550,11 @@ hildon_home_applet_lib_foreground(void *raw_data){
 
 void
 hildon_home_applet_lib_deinitialize(void *applet_data){
+    osso_context_t *osso;
     config_save(); /* Not work!!!! Why? I am not understand why this place not run when close applet */
     fprintf(stderr, "\nhello-world deinitialize\n");
-    osso_context_t *osso = (osso_context_t*)applet_data;
+
+    osso  = (osso_context_t*)applet_data;
     /* Deinitialize libosso */
     osso_deinitialize(osso);
 }

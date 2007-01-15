@@ -396,20 +396,17 @@ config_save_current_station()
 }
  
 /* Save all configuration data to GCONF. */
-void
-config_save()
-{
+void config_save(){
     gchar temp_buffer[16];
     gchar *idlist_string;
-
+    GConfClient *gconf_client;
     GSList *stlist = NULL;
    
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
     
-    GConfClient *gconf_client = gconf_client_get_default();
+    gconf_client = gconf_client_get_default();
     
-    if(!gconf_client)
-    {
+    if(!gconf_client){
         fprintf(stderr,"Failed to initialize GConf.  Settings were not saved.\n");
         return;
     }

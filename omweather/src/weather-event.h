@@ -31,6 +31,7 @@
 
 void timer_handler(gpointer data);
 void timer(void);
+void remove_periodic_event(void);
 guint flag_event=0;  
 extern GtkWidget *box;
 extern GSList *event_time_list;

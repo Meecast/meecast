@@ -76,7 +76,8 @@ int parse_weather_com_xml(void)
     tm = localtime(&current_time);
     year = 1900 + tm->tm_year;
     parser = NULL;
-
+    
+        
     if(!_weather_station_id)
 	return -1;
     sprintf(buffer, "%s/%s.xml.new", _weather_dir_name,_weather_station_id); /* Used new file */

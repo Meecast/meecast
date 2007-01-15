@@ -306,6 +306,8 @@ static gboolean delete_station (GtkWidget *widget,
     GtkTreeIter iter;
     gchar *station_selected = NULL;
   
+    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
+
     GtkTreeModel *model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
     GtkTreeSelection *selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view)); 
     if( !gtk_tree_selection_get_selected(selection, NULL, &iter) )
@@ -315,7 +317,8 @@ static gboolean delete_station (GtkWidget *widget,
     tmplist = stations_view_list;
     while (tmplist != NULL){
 	ws = tmplist->data;
-	if(streq(station_selected, ws->name_station)){
+	if((ws->name_station != NULL && station_selected != NULL && streq(station_selected, ws->name_station))||
+	  (ws->name_station == NULL && station_selected == NULL)) {
       /* Remove station from the Station List */
 	    stations_view_list = g_slist_remove(stations_view_list, ws);
 	    gtk_list_store_clear(station_list_store);
@@ -350,6 +353,8 @@ static gboolean delete_station (GtkWidget *widget,
 	}
 	tmplist = g_slist_next(tmplist);
     }
+    
+    fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);
     return TRUE;
 }
 
@@ -862,7 +867,7 @@ weather_window_preference (GtkWidget *widget,
    
    while(GTK_RESPONSE_ACCEPT == gtk_dialog_run(GTK_DIALOG(window_config))) /* Press Button Ok */
    {
-        
+
 	 if ( strcmp(_weather_icon_size,gtk_combo_box_get_active_text(GTK_COMBO_BOX(icon_size))) != 0)
 	 {  
 	  flag_update_icon = TRUE;

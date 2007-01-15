@@ -145,8 +145,8 @@ reinitilize_stations_list(gchar *stations_string)
 /* int bpos;*/ /* Begin position station ID */
  gchar *temp1= NULL, *temp2 = NULL;
  stations_view_list = NULL; /* Initialize value */
- 
- temp1=strdup(stations_string);
+
+ temp1=g_strdup(stations_string);
  /* Delimit stations Id string */
  if (strlen(temp1)>0) 
  {
@@ -165,7 +165,8 @@ reinitilize_stations_list(gchar *stations_string)
     }
     temp2=strtok(NULL,"@\0"); /* Delimiter between ID - @ */
    } while (temp2 != NULL);
- }  
+ }
+ g_free (temp1);       
 }
 
 /* New Reinitialize stations list */
@@ -183,6 +184,7 @@ reinitilize_stations_list2(GSList *stlist)
    /* Delimit Id and name */
    if (strlen(temp1)>0) 
    {
+
     temp2=strtok(temp1,"@\0"); /* Delimiter between ID and name - @ */
     if (temp2 != NULL)  /* Check random error */      
      if (strlen(temp2)>0)
@@ -190,14 +192,15 @@ reinitilize_stations_list2(GSList *stlist)
       ws = g_new0(struct weather_station,1);
       ws->id_station = g_strdup(temp2); 
      }
-     temp2=strtok(NULL,"@\0"); /* Delimiter between ID - @ */
+    temp2=strtok(NULL,"@\0"); /* Delimiter between ID - @ */ 
     if (temp2 != NULL)
     {
       ws->name_station = g_strdup(temp2); 
     }
     stations_view_list = g_slist_append(stations_view_list, ws); /* Add station to stations list */
    }     
-   g_string_free (stlist->data,FALSE);      
+   g_free (stlist->data);      
+   g_free (temp1);
    stlist = g_slist_next(stlist);
  }	    
 }
@@ -361,6 +364,9 @@ config_init()
 	add_time_update_list(8*60,"8 hours");
 	add_time_update_list(24*60,"24 hours");
 	add_time_update_list(1,"1 minute (DEBUG)");    
+	
+	fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);
+	
 }
 
  
@@ -398,6 +404,7 @@ config_save()
 
     GSList *stlist = NULL;
    
+    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
     
     GConfClient *gconf_client = gconf_client_get_default();
     
@@ -479,4 +486,5 @@ config_save()
     g_slist_free(stlist);
     
     g_object_unref(gconf_client);
+    fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);
 }

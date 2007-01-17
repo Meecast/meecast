@@ -71,7 +71,6 @@ void changed_country(void){
     GtkTreeModel *model;
     char flag; /* Flag for country processing */
     char flag_new_state; /* Flag for new country or province or state */
-/*  unsigned char out_buffer[1024]; */
     char out_buffer[1024]; /* buffer for work with stations.txt files */
     static gchar *gcountry_name = NULL;
     FILE *stations_file, *iso3166_file; 
@@ -558,41 +557,34 @@ weather_window_add_station (GtkWidget *widget,
                     G_CALLBACK (changed_stations),
                     NULL);
 
-
-  while ( TRUE )									   
-  {
-   result = gtk_dialog_run(GTK_DIALOG(window_add_station));
-   
-   /* Press Cancel  */
-   if ( result == GTK_RESPONSE_REJECT ) break;
-    /* Press Custom station add  */
-   if ( result == OMW_RESPONSE_ADD_CUSTOM_STATION )
-   {
-     weather_window_add_custom_station();
-    break;
-   }
-   /* Not null station combobox */
-   if (gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations)) == NULL) continue;    
-   /* Press Button Ok */
-   flag_update_station = TRUE;
-   ws = g_new0(struct weather_station,1);
-   if (_weather_station_id != NULL)  g_free(_weather_station_id);
-   _weather_station_id = g_strdup(_weather_station_id_temp);
-   ws->id_station = g_strdup(_weather_station_id_temp);
-   if (_weather_station_name != NULL) g_free(_weather_station_name);
-   _weather_station_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations));
-   ws->name_station = g_strdup(_weather_station_name);
-   /* Add station to stations list */
-   stations_view_list = g_slist_append(stations_view_list, ws); 
-   
-   /* Update config file */
-   config_save();
-   /* Add station to View List(Tree) */
-   gtk_list_store_clear(station_list_store);
-   fill_station_list_view (station_list_view,station_list_store);
-   break;
-  }
-  gtk_widget_destroy(window_add_station); 
+    result = gtk_dialog_run(GTK_DIALOG(window_add_station));
+    switch(result){
+	case GTK_RESPONSE_REJECT:/* Press Cancel  */
+	break;
+	case OMW_RESPONSE_ADD_CUSTOM_STATION:/* Press Custom station add  */
+	    weather_window_add_custom_station();
+	break;
+	case GTK_RESPONSE_ACCEPT:/* Press Button Ok */
+	    flag_update_station = TRUE;
+	    ws = g_new0(struct weather_station,1);
+	    if(_weather_station_id != NULL)
+	        g_free(_weather_station_id);
+	    _weather_station_id = g_strdup(_weather_station_id_temp);
+	    ws->id_station = g_strdup(_weather_station_id_temp);
+	    if(_weather_station_name != NULL)
+		g_free(_weather_station_name);
+	    _weather_station_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations));
+	    ws->name_station = g_strdup(_weather_station_name);
+/* Add station to stations list */
+	    stations_view_list = g_slist_append(stations_view_list, ws); 
+/* Update config file */
+	    config_save();
+/* Add station to View List(Tree) */
+	    gtk_list_store_clear(station_list_store);
+	    fill_station_list_view (station_list_view,station_list_store);
+	    break;
+    }
+    gtk_widget_destroy(window_add_station); 
 }
 
 /* Main preference window */

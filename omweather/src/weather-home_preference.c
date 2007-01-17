@@ -559,6 +559,7 @@ weather_window_add_station (GtkWidget *widget,
 
     result = gtk_dialog_run(GTK_DIALOG(window_add_station));
     switch(result){
+	default:
 	case GTK_RESPONSE_REJECT:/* Press Cancel  */
 	break;
 	case OMW_RESPONSE_ADD_CUSTOM_STATION:/* Press Custom station add  */
@@ -611,7 +612,7 @@ void weather_window_preference(GtkWidget *widget,
     gint	result = ~GTK_RESPONSE_ACCEPT;
    
     not_event = TRUE;
-    flag_update_station = FALSE;	/*  !!!????!!! */
+    flag_update_station = FALSE;
     flag_update_icon = FALSE;
 
     window_config = gtk_dialog_new_with_buttons("Other Maemo Weather Settings",
@@ -788,7 +789,7 @@ void weather_window_preference(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label), update_time = gtk_combo_box_new_text());
 /* Fill update time box */
     time_update_list_temp = time_update_list;
-    while(time_update_list_temp){
+    while(time_update_list_temp != NULL){
 	tu = time_update_list_temp->data;
 	gtk_combo_box_append_text(GTK_COMBO_BOX(update_time), tu->name_between_time);
 	if(tu->between_time == _weather_periodic_update)

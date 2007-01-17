@@ -423,15 +423,21 @@ void config_save(){
     /* Save Weather state or province name. */
     if(_weather_state_name)
         gconf_client_set_string(gconf_client,
-            GCONF_KEY_WEATHER_STATE_NAME, _weather_state_name, NULL);
+            GCONF_KEY_WEATHER_STATE_NAME, _weather_state_name, NULL);	    
     /* Save Weather station name. */
     if(_weather_station_name)
         gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_STATION_NAME, _weather_station_name, NULL);
+    else	    
+        gconf_client_set_string(gconf_client,
+            GCONF_KEY_WEATHER_STATION_NAME,"", NULL);
     /* Save Weather station id. */
     if(_weather_station_id)
         gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_STATION_ID, _weather_station_id, NULL);
+    else 	    
+        gconf_client_set_string(gconf_client,
+            GCONF_KEY_WEATHER_STATION_ID, "", NULL);
     /* Save Weather station ids. */ /* Depricated */	    
 /*    idlist_string = prepare_idlist_string();
     if (idlist_string)

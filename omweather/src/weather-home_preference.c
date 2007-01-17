@@ -314,6 +314,16 @@ static gboolean delete_station(GtkWidget *widget,
 	}
 	tmplist = g_slist_next(tmplist);
     }
+    if (g_slist_length(stations_view_list) == 0){
+       if(_weather_station_name)
+          g_free(_weather_station_name);
+       if(_weather_station_id)
+          g_free(_weather_station_id);
+       _weather_station_name = NULL;
+       _weather_station_id = NULL;
+       /* Update config file */
+       config_save();       	  
+    }
     fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);
     return TRUE;
 }

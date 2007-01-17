@@ -789,7 +789,7 @@ void weather_window_preference(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label), update_time = gtk_combo_box_new_text());
 /* Fill update time box */
     time_update_list_temp = time_update_list;
-    while(time_update_list_temp){
+    while(time_update_list_temp != NULL){
 	tu = time_update_list_temp->data;
 	gtk_combo_box_append_text(GTK_COMBO_BOX(update_time), tu->name_between_time);
 	if(tu->between_time == _weather_periodic_update)

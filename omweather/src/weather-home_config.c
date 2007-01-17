@@ -358,6 +358,7 @@ config_init()
 	    days_to_show = 5;
 
 	/* Fill time update list */
+    if(!time_update_list){
 	add_time_update_list(0,"None");	
 	add_time_update_list(1*60,"1 hour");
 	add_time_update_list(2*60,"2 hours");
@@ -365,7 +366,7 @@ config_init()
 	add_time_update_list(8*60,"8 hours");
 	add_time_update_list(24*60,"24 hours");
 	add_time_update_list(1,"1 minute (DEBUG)");    
-	
+    }	
 	fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);
 	
 }

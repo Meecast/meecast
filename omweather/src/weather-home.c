@@ -177,7 +177,6 @@ void hack_home_plugin_osso_for_nokia800(void)
   FILE *oss_conf_home_plugin_file;  
   FILE *oss_conf_home_plugin_file_new;  
   char  out_buffer[2048];
-  char  test_string="X-home-applet-width=";
   gchar *real_path;
   gchar *real_path_new;
   gboolean flag_1 =FALSE;
@@ -195,7 +194,6 @@ void hack_home_plugin_osso_for_nokia800(void)
   if (((oss_conf_home_plugin_file = fopen(real_path,"r")) != NULL)&&
      (oss_conf_home_plugin_file_new = fopen(real_path_new,"w")) != NULL)
     {
-     fprintf (stderr,"dddddddddsdsafdsfsdfsdfsdfsdfdf\n");
      while(!feof(oss_conf_home_plugin_file))
      {
       memset(out_buffer, 0, sizeof(out_buffer)); /* Clear buffer */
@@ -224,7 +222,7 @@ void hack_home_plugin_osso_for_nokia800(void)
         }
         else
         {
-         fprintf (stderr,"Old: %s\n",out_buffer);      
+         fprintf (stderr,"Old: %s",out_buffer);      
          fputs(out_buffer , oss_conf_home_plugin_file_new);
         }
        }
@@ -533,9 +531,12 @@ void weather_buttons_fill(gboolean check_error){
     box = gtk_table_new(2, 1, FALSE);
     create_panel(box, _weather_layout, _enable_transparency, tmp_station_name, font_size);
     gtk_box_pack_start(GTK_BOX(box_zero), box, TRUE, TRUE, 0);
+    gtk_container_set_focus_child(box,NULL); 
+    gtk_container_set_focus_child(box_zero,NULL); 
     gtk_widget_show_all(box_zero);
+//    gtk_window_set_focus(box_zero,);
 
-     hack_home_plugin_osso_for_nokia800();    
+//     hack_home_plugin_osso_for_nokia800();    
     
     if(error_station_code)
 	station_error_window();
@@ -768,5 +769,6 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     g_signal_connect (next_station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
     g_signal_connect (station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
     g_signal_connect (station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
+
 }
 

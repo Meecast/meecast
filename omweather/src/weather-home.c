@@ -565,7 +565,7 @@ hildon_home_applet_lib_settings(void *applet_data,
     fprintf(stderr, "\nhello-world settings\n");
     return NULL;
 }
-
+/* create days panel and station name panel */
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size){
     gchar	buffer[2048];
     GtkWidget	*header_panel,

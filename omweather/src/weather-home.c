@@ -172,6 +172,72 @@ get_weather_html( gboolean check_connect )
 }
 
  
+void hack_home_plugin_osso_for_nokia800(void)
+{
+  FILE *oss_conf_home_plugin_file;  
+  FILE *oss_conf_home_plugin_file_new;  
+  char  out_buffer[2048];
+  char  test_string="X-home-applet-width=";
+  gchar *real_path;
+  gchar *real_path_new;
+  gboolean flag_1 =FALSE;
+  gboolean flag_2 =FALSE;
+  char *t;    
+  
+  GtkRequisition requisition;                                                                                                           
+                                                                                                                                            
+  gtk_widget_size_request(box_zero, &requisition);                                                                                      
+  fprintf(stderr, "\nW -%d\n", requisition.width);                                                                                      
+  fprintf(stderr, "\nH -%d\n", requisition.height);
+
+  real_path = gnome_vfs_expand_initial_tilde("~/.osso/hildon-home/applet_manager.conf");
+  real_path_new = gnome_vfs_expand_initial_tilde("~/.osso/hildon-home/applet_manager.conf.new");
+  if (((oss_conf_home_plugin_file = fopen(real_path,"r")) != NULL)&&
+     (oss_conf_home_plugin_file_new = fopen(real_path_new,"w")) != NULL)
+    {
+     fprintf (stderr,"dddddddddsdsafdsfsdfsdfsdfsdfdf\n");
+     while(!feof(oss_conf_home_plugin_file))
+     {
+      memset(out_buffer, 0, sizeof(out_buffer)); /* Clear buffer */
+      fgets(out_buffer, sizeof(out_buffer), oss_conf_home_plugin_file); /* Read Next Line */ 
+      fprintf (stderr,"%s",out_buffer);
+      if ( strcmp(out_buffer,"[/usr/share/applications/hildon-home/omweather-home.desktop]\n") == 0 ) {flag_1=TRUE;
+      }
+      if ((flag_1) || (flag_2))
+      {
+       if (strstr(out_buffer,"X-home-applet-width=") != NULL)
+       {
+       fprintf (oss_conf_home_plugin_file_new,"X-home-applet-width=%i\n", requisition.width);
+//       fprintf (oss_conf_home_plugin_file_new,"X-home-applet-width=%i\n", 300);
+        fprintf (stderr,"New: X-home-applet-width=%i\n", requisition.width);
+        flag_2=TRUE;
+        flag_1=FALSE;
+       }
+       else
+       {
+        if (strstr(out_buffer,"X-home-applet-height=") != NULL)
+        {
+         flag_2=FALSE;
+         fprintf (oss_conf_home_plugin_file_new,"X-home-applet-height=%i\n", requisition.height);
+//         fprintf (oss_conf_home_plugin_file_new,"X-home-applet-height=%i\n", 300);
+         fprintf (stderr,"New: X-home-applet-height=%i\n", requisition.height);
+        }
+        else
+        {
+         fprintf (stderr,"Old: %s\n",out_buffer);      
+         fputs(out_buffer , oss_conf_home_plugin_file_new);
+        }
+       }
+      } 
+     }
+     fclose(oss_conf_home_plugin_file);
+     fclose(oss_conf_home_plugin_file_new);
+     unlink(real_path);
+     rename(real_path_new,real_path);    
+    } 
+}
+
+
 
 static gboolean
 enter_button (GtkWidget        *widget,
@@ -468,6 +534,9 @@ void weather_buttons_fill(gboolean check_error){
     create_panel(box, _weather_layout, _enable_transparency, tmp_station_name, font_size);
     gtk_box_pack_start(GTK_BOX(box_zero), box, TRUE, TRUE, 0);
     gtk_widget_show_all(box_zero);
+
+     hack_home_plugin_osso_for_nokia800();    
+    
     if(error_station_code)
 	station_error_window();
 }
@@ -512,6 +581,8 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     }
     fprintf(stderr, "\nWeather applet initialize %p %d\n",
 		    state_data, *state_size);
+    
+//    hack_home_plugin_osso_for_nokia800();		    
 /* Init gconf. */
     gnome_vfs_init();
     config_init();
@@ -557,6 +628,7 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
     osso  = (osso_context_t*)applet_data;
     /* Deinitialize libosso */
     osso_deinitialize(osso);
+//    hack_home_plugin_osso_for_nokia800();
 }
 
 GtkWidget *
@@ -697,3 +769,4 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     g_signal_connect (station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
     g_signal_connect (station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
 }
+

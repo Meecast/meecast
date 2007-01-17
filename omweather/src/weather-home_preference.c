@@ -401,7 +401,7 @@ weather_window_add_custom_station ()
             label = gtk_label_new("Station code\n (ZIP Code):"),
             0, 1, 1, 2);
   gtk_table_attach_defaults(GTK_TABLE(table),
-            label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f) ,
+            label = gtk_alignment_new(0.f, 1.f, 0.f, 1.f) ,
             1, 2, 1, 2);
   gtk_container_add(GTK_CONTAINER(label),custom_station_code = gtk_entry_new());	    
   gtk_entry_set_max_length((GtkEntry*)custom_station_code, 8);

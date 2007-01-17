@@ -485,5 +485,7 @@ void config_save(){
     g_slist_free(stlist);
     
     g_object_unref(gconf_client);
+
+    
     fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);
 }

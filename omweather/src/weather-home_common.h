@@ -119,5 +119,5 @@ void config_save_current_station();
 void config_init();
 void update_weather(void);
 void weather_frame_update(gboolean check);
-
+void hack_home_plugin_osso_for_nokia800();
 

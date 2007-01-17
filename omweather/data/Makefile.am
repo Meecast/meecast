@@ -28,7 +28,7 @@ icons_crystallargedir = $(datadir)/weather/icons/Crystal/large_icon
 icons_crystallarge_DATA = icons/Crystal/large_icons/*.png 
 #icons_crystalsmall_DATA = icons/Crystal/small_icons/*.png 
 homeapplet_desktopdir = $(datadir)/applications/hildon-home
-homeapplet_desktop_DATA = weather-home.desktop
+homeapplet_desktop_DATA = omweather-home.desktop
 
 
 EXTRA_DIST = $(homeapplet_desktop_DATA) $(helpfile_engb_DATA) $(test_test_DATA) $(icons_crystallarge_DATA) 

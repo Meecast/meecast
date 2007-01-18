@@ -531,10 +531,7 @@ void weather_buttons_fill(gboolean check_error){
     box = gtk_table_new(2, 1, FALSE);
     create_panel(box, _weather_layout, _enable_transparency, tmp_station_name, font_size);
     gtk_box_pack_start(GTK_BOX(box_zero), box, TRUE, TRUE, 0);
-    gtk_container_set_focus_child(box,NULL); 
-    gtk_container_set_focus_child(box_zero,NULL); 
     gtk_widget_show_all(box_zero);
-//    gtk_window_set_focus(box_zero,);
 
 //     hack_home_plugin_osso_for_nokia800();    
     

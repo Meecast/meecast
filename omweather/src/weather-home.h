@@ -75,7 +75,7 @@ void set_font_size(GtkWidget *widget, char font_size);
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size);
 
 /* Hack for osso OS2007 */
-void hack_home_plugin_osso_for_nokia800();
+void hack_home_plugin_osso_for_nokia800(void);
 /* Window Popup */
 GtkWidget *weather_window_popup;  
 

@@ -179,9 +179,8 @@ void hack_home_plugin_osso_for_nokia800(void)
   char  out_buffer[2048];
   gchar *real_path;
   gchar *real_path_new;
-  gboolean flag_1 =FALSE;
-  gboolean flag_2 =FALSE;
-  char *t;    
+  gboolean flag_1 = FALSE;
+  gboolean flag_2 = FALSE;
   
   GtkRequisition requisition;                                                                                                           
                                                                                                                                             
@@ -206,7 +205,7 @@ void hack_home_plugin_osso_for_nokia800(void)
        if (strstr(out_buffer,"X-home-applet-width=") != NULL)
        {
        fprintf (oss_conf_home_plugin_file_new,"X-home-applet-width=%i\n", requisition.width);
-//       fprintf (oss_conf_home_plugin_file_new,"X-home-applet-width=%i\n", 300);
+/*       fprintf (oss_conf_home_plugin_file_new,"X-home-applet-width=%i\n", 300); */
         fprintf (stderr,"New: X-home-applet-width=%i\n", requisition.width);
         flag_2=TRUE;
         flag_1=FALSE;
@@ -217,7 +216,7 @@ void hack_home_plugin_osso_for_nokia800(void)
         {
          flag_2=FALSE;
          fprintf (oss_conf_home_plugin_file_new,"X-home-applet-height=%i\n", requisition.height);
-//         fprintf (oss_conf_home_plugin_file_new,"X-home-applet-height=%i\n", 300);
+/*         fprintf (oss_conf_home_plugin_file_new,"X-home-applet-height=%i\n", 300); */
          fprintf (stderr,"New: X-home-applet-height=%i\n", requisition.height);
         }
         else
@@ -533,7 +532,7 @@ void weather_buttons_fill(gboolean check_error){
     gtk_box_pack_start(GTK_BOX(box_zero), box, TRUE, TRUE, 0);
     gtk_widget_show_all(box_zero);
 
-//     hack_home_plugin_osso_for_nokia800();    
+/*     hack_home_plugin_osso_for_nokia800();     */
     
     if(error_station_code)
 	station_error_window();
@@ -580,7 +579,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     fprintf(stderr, "\nWeather applet initialize %p %d\n",
 		    state_data, *state_size);
     
-//    hack_home_plugin_osso_for_nokia800();		    
+/*    hack_home_plugin_osso_for_nokia800();		    */
 /* Init gconf. */
     gnome_vfs_init();
     config_init();
@@ -626,7 +625,7 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
     osso  = (osso_context_t*)applet_data;
     /* Deinitialize libosso */
     osso_deinitialize(osso);
-//    hack_home_plugin_osso_for_nokia800();
+/*    hack_home_plugin_osso_for_nokia800(); */
 }
 
 GtkWidget *

@@ -46,7 +46,7 @@
 #include <unistd.h>
 
 #ifndef VERSION
-#define VERSION "0.14"
+#define VERSION "0.15"
 #endif
 #ifndef APPNAME
 #define APPNAME "omweather"

@@ -44,7 +44,7 @@
 #define DEFAULT_ICON "/usr/share/weather/icons/Crystal/large_icon/"
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS };
-
+enum { METERS, KILOMETERS, INTERNATIONAL_MILES, IMPERIAL_MILES, SEA_MILES };
 
 typedef struct
 {

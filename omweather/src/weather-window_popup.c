@@ -44,29 +44,26 @@ popup_window_event_cb(GtkWidget *widget,
 
 
 /* Show extended information about weather */
-gboolean
-weather_window_popup_show (GtkWidget *widget,
-                           GdkEvent *event,
-                           gpointer user_data)
-{
+gboolean weather_window_popup_show (GtkWidget *widget,
+                    		    GdkEvent *event,
+                    		    gpointer user_data){
     GtkWidget *frame_popup;
     GtkWidget *hbox_title_location, *hbox_title_date, *hbox_day, *hbox_current, *hbox_night, *hbox_foot, *hbox_pref, *hbox_temp;
     GtkWidget *separator_title, *separator_current, *separator_temp, *separator_day, *separator_foot;
     GtkWidget *vbox, *vbox_current, *vbox_day, *vbox_night, *vbox_hu_day, *vbox_hu_night;
-    GtkWidget *label_location;
-    GtkWidget *label_date;
-    GtkWidget *label_update;
+    GtkWidget *label_location, *label_date, *label_update;
     GtkWidget *label_current, *label_night, *label_day, *label_temp, *label_value_temp, *label_humidity_current, *label_humidity_night;
     GtkWidget *label_humidity_day, *vbox_hu_current;
     GdkPixbuf *icon;
-    GtkWidget *icon_image_current, *icon_image_night, *icon_image_day, *icon_update;
-    GtkWidget *button_update,  *button_pref;
+    GtkWidget *icon_image_current, *icon_image_night, *icon_image_day, *icon_update, *button_update, *button_pref;
     GtkIconInfo *gtkicon_update;
     gchar buffer[1024], full_filename[2048];
     time_t current_time;
     gboolean pressed_current_day = FALSE;
     struct stat statv;
     int i;
+    float	tmp_distance;
+    char	*units;
 
 /* if no one station present in list show only preference */
     if(!_weather_station_id){
@@ -99,56 +96,57 @@ weather_window_popup_show (GtkWidget *widget,
 	    (weather_current_day.date_time>(current_time-OFFSET_CURRENT_WEATHER*3600)) &&
             (weather_current_day.date_time<(current_time+OFFSET_CURRENT_WEATHER*3600))){
 	gtk_window_move(GTK_WINDOW(weather_window_popup), 280, 90);
-      /* Begin CURRENT */        
+/* Begin CURRENT */        
 	hbox_current = gtk_hbox_new(FALSE, 0);
 	sprintf(buffer,"%s%i.png", path_large_icon, weather_current_day.day.icon);
 	icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64,NULL);
 	icon_image_current = gtk_image_new_from_pixbuf(icon);
 	vbox_current = gtk_vbox_new(FALSE, 0);
 
-	if(_weather_temperature_unit == 'C')
-	    sprintf(buffer,"Now  \n%s\302\260C",weather_current_day.day.temp);    
-	else
-	    sprintf(buffer,"Now  \n%d\302\260F",c2f(atoi(weather_current_day.day.temp)));           
+	sprintf(buffer,"Now  \n%d\302\260%c",
+			((_weather_temperature_unit == 'C') ? ( atoi(weather_current_day.day.temp) )
+							    : ( c2f(atoi(weather_current_day.day.temp)) ) ),
+			_weather_temperature_unit );
 	label_current = gtk_label_new(buffer);
 	set_font_size(label_current, 20);
 	gtk_box_pack_start(GTK_BOX(vbox_current), label_current, FALSE, FALSE, 0);
 
-	vbox_hu_current = gtk_vbox_new(FALSE, 0);    
-	if(_weather_temperature_unit == 'C')
-	    sprintf(buffer,"%s\nFeels like: %s\302\260C Visible: %.0f m\nHumidity: %s%%\nWind: %s %im/s Gust: %im/s",
+	vbox_hu_current = gtk_vbox_new(FALSE, 0);
+
+	tmp_distance = weather_current_day.day.vis * 1000;
+	switch(distance_units){
+	    default:
+	    case METERS: units = "m"; tmp_distance *= 1; break;
+	    case KILOMETERS: units = "km"; tmp_distance /= 1000; break;
+	    case INTERNATIONAL_MILES: units = "mi"; tmp_distance /= 1609.344; break;
+	    case IMPERIAL_MILES: units = "mi"; tmp_distance /=  0.0254 * 63600; break;
+	    case SEA_MILES: units = "mi"; tmp_distance /= 1852; break;
+	}
+	sprintf(buffer,"%s\nFeels like: %d\302\260%c Visible: %.1f %s\nHumidity: %s%%\nWind: %s %im/s Gust: %im/s",
         	    weather_current_day.day.title,
-		    weather_current_day.low_temp,
-		    weather_current_day.day.vis*1000,
+		    ( (_weather_temperature_unit == 'C') ? (atoi(weather_current_day.day.temp)) 
+							 : (c2f(atoi(weather_current_day.low_temp)) ) ),
+		    _weather_temperature_unit,
+		    tmp_distance,
+		    units,
 		    weather_current_day.day.hmid,
 		    weather_current_day.day.wind_title,
 		    weather_current_day.day.wind_speed*10/36,
 		    weather_current_day.day.wind_gust*10/36);
-	else
-	    sprintf(buffer,"%s\nFeels like: %s\302\260F Visible: %.0f m\nHumidity: %s%%\nWind: %s %im/s Gust: %im/s",
-        	    weather_current_day.day.title,
-		    c2f(atoi(weather_current_day.low_temp)),
-		    weather_current_day.day.vis*1000,
-		    weather_current_day.day.hmid,
-		    weather_current_day.day.wind_title,
-		    weather_current_day.day.wind_speed*10/36,
-		    weather_current_day.day.wind_gust*10/36);
+
 	label_humidity_current = gtk_label_new(buffer);    
-	set_font_size(label_humidity_current,16);
-	gtk_box_pack_start(GTK_BOX(vbox_hu_current),
-			    label_humidity_current,
+	set_font_size(label_humidity_current, 16);
+	gtk_box_pack_start(GTK_BOX(vbox_hu_current), label_humidity_current,
 			    FALSE, FALSE, 0);
 	separator_current = gtk_hseparator_new();
 
-	gtk_box_pack_start(GTK_BOX(hbox_current),
-			    icon_image_current,
+	gtk_box_pack_start(GTK_BOX(hbox_current), icon_image_current,
 			    FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(hbox_current),
 			    vbox_current, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(hbox_current),
 			    vbox_hu_current, FALSE, FALSE, 10);
-/* End CURRENT */        
-    }    
+    }/* End CURRENT */            
     else
 	gtk_window_move(GTK_WINDOW(weather_window_popup), 280, 160);
 /* Begin TITLE */

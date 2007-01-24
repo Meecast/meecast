@@ -41,7 +41,7 @@ extern gchar     path_large_icon[];
 extern gchar      _weather_temperature_unit;
 /* by Pavel */
 extern	gint	days_to_show;
-
+extern	gint	distance_units;
 
 gboolean weather_window_popup_show (GtkWidget *widget,GdkEvent *event,gpointer user_data);
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);

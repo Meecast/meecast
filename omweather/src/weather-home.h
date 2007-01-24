@@ -96,6 +96,7 @@ GdkColor _weather_font_color = {0,0,0,0};
 gchar _weather_temperature_unit;
 /* by Pavel */
 gint	days_to_show = 5;
+gint	distance_units = METERS;
 
 /* List future event */
 GSList *event_time_list = NULL;

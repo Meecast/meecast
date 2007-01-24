@@ -48,8 +48,8 @@ gboolean weather_window_popup_show (GtkWidget *widget,
                     		    GdkEvent *event,
                     		    gpointer user_data){
     GtkWidget *frame_popup;
-    GtkWidget *hbox_title_location, *hbox_title_date, *hbox_day, *hbox_current, *hbox_night, *hbox_foot, *hbox_pref, *hbox_temp;
-    GtkWidget *separator_title, *separator_current, *separator_temp, *separator_day, *separator_foot;
+    GtkWidget *hbox_title_location, *hbox_title_date, *hbox_day, *hbox_current = NULL, *hbox_night, *hbox_foot, *hbox_pref, *hbox_temp;
+    GtkWidget *separator_title, *separator_current = NULL, *separator_temp, *separator_day, *separator_foot;
     GtkWidget *vbox, *vbox_current, *vbox_day, *vbox_night, *vbox_hu_day, *vbox_hu_night;
     GtkWidget *label_location, *label_date, *label_update;
     GtkWidget *label_current, *label_night, *label_day, *label_temp, *label_value_temp, *label_humidity_current, *label_humidity_night;

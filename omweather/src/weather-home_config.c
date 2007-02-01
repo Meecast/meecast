@@ -363,7 +363,7 @@ config_init()
 	    distance_units = 0;
 	/* Fill time update list */
     if(!time_update_list){
-	add_time_update_list(0,"None");	
+	add_time_update_list(0,"Never");	
 	add_time_update_list(1*60,"1 hour");
 	add_time_update_list(2*60,"2 hours");
 	add_time_update_list(4*60,"4 hours");

@@ -597,7 +597,7 @@ void weather_window_preference(GtkWidget *widget,
     /* Location page. */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         	    table = gtk_table_new(4, 2, FALSE),
-        	    label = gtk_label_new("Location"));
+        	    label = gtk_label_new("Locations"));
 	    
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         	    label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
@@ -641,7 +641,7 @@ void weather_window_preference(GtkWidget *widget,
     /* Main interface setting page */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			table = gtk_table_new(1, 7, FALSE),
-        			label = gtk_label_new("Main Interface"));
+        			label = gtk_label_new("Interface"));
     /* Days to show */
     days_to_show--; /* count down, because combobox items start with 0 */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
@@ -771,7 +771,7 @@ void weather_window_preference(GtkWidget *widget,
         			table = gtk_table_new(1, 2, FALSE),
         			label = gtk_label_new("Update"));
     gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new("Update time:"),
+        			label = gtk_label_new("Updating of weather data:"),
         			0, 1, 0, 1);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),

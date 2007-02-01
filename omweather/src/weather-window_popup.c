@@ -270,7 +270,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 /* Start PREFERENCE UPDATE */
     hbox_pref = gtk_hbox_new(FALSE, 0);
     gtk_container_set_border_width(GTK_CONTAINER(hbox_pref), 4);
-    button_pref = gtk_button_new_with_label("Preference");
+    button_pref = gtk_button_new_with_label("Settings");
     g_signal_connect(button_pref, "clicked",
 		    G_CALLBACK(weather_window_preference), NULL);      
     

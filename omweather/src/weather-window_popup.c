@@ -95,7 +95,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     if(pressed_current_day && 
 	    (weather_current_day.date_time>(current_time-OFFSET_CURRENT_WEATHER*3600)) &&
             (weather_current_day.date_time<(current_time+OFFSET_CURRENT_WEATHER*3600))){
-	gtk_window_move(GTK_WINDOW(weather_window_popup), 280, 90);
+/* ??? */gtk_window_move(GTK_WINDOW(weather_window_popup), 280, 90);
 /* Begin CURRENT */        
 	hbox_current = gtk_hbox_new(FALSE, 0);
 	sprintf(buffer,"%s%i.png", path_large_icon, weather_current_day.day.icon);

@@ -50,12 +50,14 @@ extern int       _weather_layout;
 /* by Pavel */
 extern	gint	days_to_show;
 extern	gint	distance_units;
+extern	gchar	*icon_set;
+extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);
 void fill_station_list_view (GtkWidget *station_list_view,GtkListStore *station_list_store);
 
 GtkWidget  *countrys, *states, *stations, *icon_size, *layout_type, *update_time, *temperature_unit, *days_number;
-GtkWidget  *custom_station_name, *custom_station_code, *units;
+GtkWidget  *custom_station_name, *custom_station_code, *units, *iconset;
 
 static GSList *stations_list_in_state = NULL; /* Station list of country or state or province.  Use in combobox*/
 static GtkListStore *station_list_store;
@@ -72,6 +74,8 @@ int index_state = 0; /* Position state of the list */
 int index_station = 0; /* Position station of the list */
 static char flag_update_station = FALSE; /* Flag update station list */
 static gchar *_weather_station_id_temp; /* Temporary value for weather_station_id */
+void create_icon_set_list(GtkWidget *store); /* scan /usr/share/weather/icons */
+					     /* and add names to the list */
 
 extern void remove_periodic_event(void);
 extern void weather_buttons_init(void);

@@ -29,6 +29,10 @@
 */
 
 #include "weather-home_config.h"
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <errno.h>
 /*
  * Change the weather cache directory and update dependent variables.
  */
@@ -253,14 +257,12 @@ prepare_idlist (void)
 
 /* Initialize all configuration from GCONF.  This should not be called more
  * than once during execution. */
-void
-config_init()
-{
+void config_init(){
     gchar *tmp;
     GConfValue *value;
     GSList *stlist = NULL;
     GError *gerror = NULL;
-
+    
     GConfClient *gconf_client = gconf_client_get_default();
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
 
@@ -300,7 +302,17 @@ config_init()
             GCONF_KEY_WEATHER_STATIONS_LIST, GCONF_VALUE_STRING, NULL);
 	if (stlist)
 	 reinitilize_stations_list2(stlist);
- 
+
+	/* Get icon set name */ 
+	icon_set = gconf_client_get_string(gconf_client,
+					    GCONF_KEY_WEATHER_ICON_SET,
+					    NULL);
+	sprintf(path_large_icon, "%s%s/", ICONS_PATH, icon_set);
+	if(open(path_large_icon, O_RDONLY) == -1){
+	    memset(path_large_icon, 0, sizeof(path_large_icon));
+	    icon_set = g_strdup("Crystal");
+	    sprintf(path_large_icon, "%s%s/", ICONS_PATH, icon_set);
+	}    
 	/* Get Weather Icon Size  */		     
         _weather_icon_size = gconf_client_get_string(gconf_client,
               GCONF_KEY_WEATHER_ICON_SIZE, NULL);
@@ -456,6 +468,11 @@ void config_save(){
      gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_STATION_IDS, idlist_string, NULL);
      g_free(idlist_string);
+    /* Save icon set name */
+    if(icon_set)
+	gconf_client_set_string(gconf_client,
+				GCONF_KEY_WEATHER_ICON_SET,
+				icon_set, NULL);
     /* Save Weather Icon Size  */		     	    
     if(_weather_icon_size)
         gconf_client_set_string(gconf_client,

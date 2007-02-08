@@ -56,6 +56,11 @@ AC_SUBST(GCONF_CFLAGS)
 helpfile_engbdir=$datadir/osso-help/en_US
 AC_SUBST(helpfile_engbdir)
 
+# Config files
+AC_CONFIG_FILES([Makefile
+		src/lib/Makefile
+		src/Makefile
+		data/Makefile])
 # Produce output files
-AC_OUTPUT( Makefile src/lib/Makefile src/Makefile  data/Makefile )
+AC_OUTPUT
 

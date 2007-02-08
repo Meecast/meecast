@@ -23,10 +23,8 @@
 helpfile_engb_DATA = help/en_US/maemoweather.xml
 test_testdir = $(datadir)/weather
 test_test_DATA = stations.txt iso3166-countrycodes.txt
-#icons_crystalsmalldir = $(datadir)/weather/icons/Crystal/small_icon
-icons_crystallargedir = $(datadir)/weather/icons/Crystal/large_icon
-icons_crystallarge_DATA = icons/Crystal/large_icons/*.png 
-#icons_crystalsmall_DATA = icons/Crystal/small_icons/*.png 
+icons_crystallargedir = $(datadir)/weather/icons/Crystal
+icons_crystallarge_DATA = icons/Crystal/*.png 
 homeapplet_desktopdir = $(datadir)/applications/hildon-home
 homeapplet_desktop_DATA = omweather-home.desktop
 

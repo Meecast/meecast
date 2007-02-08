@@ -41,7 +41,7 @@
 #define OFFSET_CURRENT_WEATHER 4 /* 4 hours */
 #define STATIONS_FILE "/usr/share/weather/stations.txt"
 #define COUNTRYS_FILE "/usr/share/weather/iso3166-countrycodes.txt"
-#define DEFAULT_ICON "/usr/share/weather/icons/Crystal/large_icon/"
+#define ICONS_PATH	"/usr/share/weather/icons/"
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS };
 enum { METERS, KILOMETERS, INTERNATIONAL_MILES, IMPERIAL_MILES, SEA_MILES };

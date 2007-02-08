@@ -95,9 +95,9 @@ int    _weather_periodic_update = 0;
 GdkColor _weather_font_color = {0,0,0,0};
 gchar _weather_temperature_unit;
 /* by Pavel */
-gint	days_to_show = 5;
-gint	distance_units = METERS;
-
+gint	days_to_show	= 5;
+gint	distance_units	= METERS;
+gchar	*icon_set	= NULL;
 /* List future event */
 GSList *event_time_list = NULL;
 
@@ -118,4 +118,4 @@ int 	   boxs_offset [Max_count_weather_day];
 GtkWidget *update_window;     
 guint flag_update=0;
 
-gchar  path_large_icon[]=DEFAULT_ICON;
+gchar  path_large_icon[_POSIX_PATH_MAX];

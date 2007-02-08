@@ -39,7 +39,7 @@ libweather_home_la_SOURCES = weather-home.c \
 
 libweather_home_la_CFLAGS = $(GTK_CFLAGS) $(OSSO_CFLAGS) $(LIBXML2_CFLAGS) $(GNOME_VFS_CFLAGS) $(GCONF_CFLAGS) -Ilib -Wall -pedantic
 libweather_home_la_LDFLAGS = -module -avoid-version 
-libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCONF_LIBS) lib/.libs/libweather.la
+libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCONF_LIBS) lib/libweather.la
 
 clean-local:
 	$(RM) *.core core core.* stamp-*.h *~

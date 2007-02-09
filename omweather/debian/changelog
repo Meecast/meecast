@@ -1,3 +1,9 @@
+omweather (0.15.1) unstable; urgency=low
+
+  * Test
+  
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 09 Feb 2007 07:51:31 +0200
+
 omweather (0.15) unstable; urgency=low
 
   * Added new layouts: Vertical layout, Vertical layout 2 rows, Horizontal layout 2 rows
@@ -7,7 +13,7 @@ omweather (0.15) unstable; urgency=low
   * Fixed problem: Current temperature on main form always zero    
   * Updated station.txt file
   
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 18 Jan 2007 07:51:31 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 15 Jan 2007 07:51:31 +0200
 
 omweather (0.14) unstable; urgency=low
 

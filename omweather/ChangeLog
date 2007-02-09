@@ -1,3 +1,11 @@
+0.15
+  * Added new layouts: Vertical layout, Vertical layout 2 rows, Horizontal layout 2 rows
+  * Added choice of quantity of days for display
+  * Opportunity of addition of station using a specialized code or the postal index of the USA (ZIP code)
+  * Sorting of station list
+  * Fixed problem: Current temperature on main form always zero    
+  * Updated station.txt file
+
 0.14
   * View current weather on popup window
   * Fix bug - reboot after delete station

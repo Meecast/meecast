@@ -834,10 +834,10 @@ void weather_window_preference(GtkWidget *widget,
 	    }
 /* Font color */
 	    gtk_color_button_get_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color_temp);
-	    if(( _weather_font_color_temp.red != _weather_font_color.red ) &&
-		    ( _weather_font_color_temp.green != _weather_font_color.green ) &&
-		    ( _weather_font_color_temp.blue != _weather_font_color.blue )){
-		_weather_font_color = _weather_font_color_temp;
+	    if(( _weather_font_color_temp.red - _weather_font_color.red ) ||
+		    ( _weather_font_color_temp.green - _weather_font_color.green ) ||
+		    ( _weather_font_color_temp.blue - _weather_font_color.blue )){
+		memcpy(&_weather_font_color, &_weather_font_color_temp, sizeof(_weather_font_color));
     		flag_update_icon = TRUE;
 	    }
 /* Days to show */

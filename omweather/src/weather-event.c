@@ -30,144 +30,110 @@
 
 #include "weather-event.h"
 
-void 
-timer_handler(gpointer data)
-{
- static GSList *list_time_event_temp = NULL;
- struct event_time *evt;
- time_t current_time;
+void timer_handler(gpointer data){
+    static GSList *list_time_event_temp = NULL;
+    struct event_time *evt;
+    time_t current_time;
 
- if (not_event == FALSE)
- {
-  if (event_time_list != NULL)
-  { 
-   list_time_event_temp = event_time_list;  
-   /* get current time */  
-   current_time = time(NULL);
-   while (list_time_event_temp != NULL)
-   {
-    evt = list_time_event_temp->data;
-    if (evt->time < current_time)
-    {
-     switch (evt->type_event)
-     {
-      case DAYTIMEEVENT :
-     			 weather_frame_update(FALSE);   
-			 break;
-      case AUTOUPDATE:
-			 /* Reinitialise autoupdate event */ 
-		         /* delete periodic update */
-                         event_time_list=g_slist_remove(event_time_list,event_time_list->data);      
-			 if (get_weather_html(FALSE) == 0)
-			 {
-			   weather_frame_update(FALSE);
-			 }
-                         /* add periodic update */
-                         add_periodic_event();
-    		         break;		    
-     }
-    break;
-    }             
-    list_time_event_temp = g_slist_next(list_time_event_temp);
-   }
-  }
- } 
+    if(not_event == TRUE || !event_time_list)
+	return;
+
+    list_time_event_temp = event_time_list;  
+    /* get current time */  
+    current_time = time(NULL);
+    while(list_time_event_temp != NULL){
+	evt = list_time_event_temp->data;
+	if(evt->time < current_time){
+	    switch(evt->type_event){
+		case DAYTIMEEVENT :
+     		    weather_frame_update(FALSE);   
+		break;
+		case AUTOUPDATE:
+		    /* Reinitialise autoupdate event */ 
+		    /* delete periodic update */
+                    event_time_list=g_slist_remove(event_time_list,event_time_list->data);
+		    if(get_weather_html(FALSE) == 0)
+			weather_frame_update(FALSE);
+                    /* add periodic update */
+                    add_periodic_event();
+    		break;		    
+	    }
+	    break;
+	}             
+	list_time_event_temp = g_slist_next(list_time_event_temp);
+    }
 }
 
-void 
-print_list(void)
-{
- static GSList *list_time_event_temp = NULL;
- struct event_time *evt;
+void print_list(void){
+    static GSList *list_time_event_temp = NULL;
+    struct event_time *evt;
 
- if (event_time_list != NULL)
- { 
-  list_time_event_temp = event_time_list;  
-  while (list_time_event_temp != NULL)
-  {
-   evt = list_time_event_temp->data;
-   list_time_event_temp = g_slist_next(list_time_event_temp);
-  }
- }
+    if(!event_time_list)
+	return;
+    list_time_event_temp = event_time_list;  
+    while(list_time_event_temp != NULL){
+	evt = list_time_event_temp->data;
+	list_time_event_temp = g_slist_next(list_time_event_temp);
+    }
 }
 
-
-void 
-timer(void)
-{
- flag_event = g_timeout_add (60000, timer_handler, box); /* One per minute */
+void timer(void){
+    flag_event = g_timeout_add (60000, timer_handler, box); /* One per minute */
 }
-
 
 /* Free memory allocated for time event */
-void 
-free_list_time_event (void)
-{
- static GSList *list_time_event_temp = NULL;
- struct event_time *evt;
+void free_list_time_event(void){
+    static GSList *list_time_event_temp = NULL;
+    struct event_time *evt;
 
- if (event_time_list != NULL)
- { 
-  list_time_event_temp = event_time_list; 
-  while (list_time_event_temp != NULL)
-  {
-     evt = list_time_event_temp->data;
-     g_free(evt);
-     list_time_event_temp = g_slist_next(list_time_event_temp);
-  }
-  g_slist_free(event_time_list);
-  event_time_list = NULL;
- } 
+    if(!event_time_list)
+	return;
+    list_time_event_temp = event_time_list; 
+    while(list_time_event_temp != NULL){
+	evt = list_time_event_temp->data;
+	g_free(evt);
+	list_time_event_temp = g_slist_next(list_time_event_temp);
+    }
+    g_slist_free(event_time_list);
+    event_time_list = NULL;
 }
 
 /* Compare function for sort event list */
-static gint compare_time (gconstpointer a, gconstpointer b)
-{
-  struct event_time *evta;
-  struct event_time *evtb;
-  evta = (struct event_time*)a;
-  evtb = (struct event_time*)b;
-  return (evta->time < evtb->time) ? -1 : (evta->time > evtb->time) ? +1 : 0;
+static gint compare_time(gconstpointer a, gconstpointer b){
+    struct event_time *evta, *evtb;
+    
+    evta = (struct event_time*)a;
+    evtb = (struct event_time*)b;
+    return(evta->time < evtb->time) ? -1 : (evta->time > evtb->time) ? +1 : 0;
 }
 
 /* Add time event  to list */	  
-void 
-time_event_add(time_t time_value,short int type_event)
-{
-  struct event_time *evt;
-  evt = g_new0(struct event_time, 1);
-  evt->time = time_value;	  
-  evt->type_event = type_event;	  
-  event_time_list = g_slist_insert_sorted(event_time_list,evt,compare_time);
+void time_event_add(time_t time_value,short int type_event){
+    struct event_time *evt;
+    evt = g_new0(struct event_time, 1);
+    evt->time = time_value;	  
+    evt->type_event = type_event;	  
+    event_time_list = g_slist_insert_sorted(event_time_list,evt,compare_time);
 }
 
 /* Add periodic time event  to list */	  
-void
-add_periodic_event(void)
-{
-  if (_weather_periodic_update > 0)
-  {
-   time_event_add(time(NULL)+_weather_periodic_update*60,AUTOUPDATE);
-  } 
+void add_periodic_event(void){
+    if(_weather_periodic_update > 0)
+	time_event_add(time(NULL)+_weather_periodic_update*60,AUTOUPDATE);
 }
 
 /* Remove periodic time event  from list */	  
-void
-remove_periodic_event(void)
-{
- static GSList *list_time_event_temp = NULL;
- struct event_time *evt;
- if (event_time_list != NULL)
- { 
-  list_time_event_temp = event_time_list;  
-  while (list_time_event_temp != NULL)
-  {
-   evt = list_time_event_temp->data;
-   if (evt->type_event == AUTOUPDATE)
-      event_time_list=g_slist_remove(event_time_list,event_time_list->data);      
-   list_time_event_temp = g_slist_next(list_time_event_temp);
-  }
- }
-
+void remove_periodic_event(void){
+    static GSList *list_time_event_temp = NULL;
+    struct event_time *evt;
+    
+    if(!event_time_list)
+	return;
+    list_time_event_temp = event_time_list;  
+    while(list_time_event_temp != NULL){
+	evt = list_time_event_temp->data;
+	if(evt->type_event == AUTOUPDATE)
+	    event_time_list=g_slist_remove(event_time_list,event_time_list->data);
+	list_time_event_temp = g_slist_next(list_time_event_temp);
+    }
 }
-

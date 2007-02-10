@@ -1,5 +1,5 @@
 #
-# This file is part of maemo-weather
+# This file is part of omweather
 #
 # Copyright (C) 2006 Vlad Vasiliev
 #
@@ -21,9 +21,9 @@
 
 
 helpfile_engb_DATA = help/en_US/maemoweather.xml
-test_testdir = $(datadir)/weather
+test_testdir = $(datadir)/omweather
 test_test_DATA = stations.txt iso3166-countrycodes.txt
-icons_crystallargedir = $(datadir)/weather/icons/Crystal
+icons_crystallargedir = $(datadir)/omweather/icons/Crystal
 icons_crystallarge_DATA = icons/Crystal/*.png 
 homeapplet_desktopdir = $(datadir)/applications/hildon-home
 homeapplet_desktop_DATA = omweather-home.desktop

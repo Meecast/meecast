@@ -360,7 +360,7 @@ void config_init(){
 	/* Get Layout  Default Horizontal */
 	_weather_layout = gconf_client_get_int(gconf_client,
                      GCONF_KEY_WEATHER_LAYOUT, &gerror);
-	if (gerror)
+	if(gerror)
 	 _weather_layout = ONE_ROW;
 
 	/* Get number days to show */

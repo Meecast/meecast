@@ -323,7 +323,7 @@ change_station_next (GtkWidget *widget,
 void weather_buttons_init(void){
     int i;
 /* Set default icon N/A */
-    for (i = 0; i < days_to_show; i++){
+    for(i = 0; i < days_to_show; i++){
 	weather_days[i].night.icon = 48;
 	weather_days[i].day.icon = 48;
 	sprintf(weather_days[i].hi_temp, "N/A");
@@ -393,7 +393,7 @@ void weather_buttons_fill(gboolean check_error){
     add_periodic_event();
 
   /* Search day of saving xml near current day */
-    while ( (offset < Max_count_weather_day) &&
+    while( (offset < Max_count_weather_day) &&
 	    (current_day > weather_days[offset].date_time) &&
 	    (offset<count_day) )
 	offset ++;
@@ -628,7 +628,7 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 /*    hack_home_plugin_osso_for_nokia800(); */
 }
 
-GtkWidget *
+GtkWidget*
 hildon_home_applet_lib_settings(void *applet_data,
 				 GtkWindow *parent){
     fprintf(stderr, "\nhello-world settings\n");
@@ -694,7 +694,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
     set_font_size(station_name, f_size);
     gtk_box_pack_start((GtkBox*) station_box, station_name, TRUE, TRUE, 0);
-    gtk_container_add (GTK_CONTAINER(station_name_btn), station_box);
+    gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
 /* check transparency */
     if(transparency){
     	gtk_button_set_relief(GTK_BUTTON(previos_station_name_btn), GTK_RELIEF_NONE);
@@ -765,6 +765,5 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     g_signal_connect (next_station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
     g_signal_connect (station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
     g_signal_connect (station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
-
 }
 

@@ -1,0 +1,12 @@
+Source: omweather-icons-samurize
+Section: user/accessories
+Priority: optional
+Maintainer: Vlad Vasiliev <vlad@gas.by>
+Build-Depends: 
+Standards-Version: 3.6.0
+
+Package: omweather-icons-samurize
+Architecture: all
+Depends: omweather (>=0.15.1)
+Description: Samurize iconset 
+ for Other Maemo Weather

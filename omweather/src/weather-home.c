@@ -765,5 +765,6 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     g_signal_connect (next_station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
     g_signal_connect (station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
     g_signal_connect (station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
+    gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn);
 }
 

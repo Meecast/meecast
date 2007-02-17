@@ -582,6 +582,7 @@ void weather_window_preference(GtkWidget *widget,
 		*button_del;
 
     char flag_update_icon = '\0'; /* Flag update main weather icon of desktop */
+    gboolean flag_tuning_warning; /* Flag for show the warnings about tuning images of applet */
     int index_update_time = 0; /* Position acive update time of the list */
     GdkColor _weather_font_color_temp; /* Temporary for font color */
     static GSList *time_update_list_temp = NULL; /* Temporary list for time update */
@@ -591,6 +592,7 @@ void weather_window_preference(GtkWidget *widget,
     not_event = TRUE;
     flag_update_station = FALSE;
     flag_update_icon = FALSE;
+    flag_tuning_warning = FALSE; 
 
     window_config = gtk_dialog_new_with_buttons("Other Maemo Weather Settings",
         				NULL,
@@ -822,9 +824,11 @@ void weather_window_preference(GtkWidget *widget,
 		sprintf(path_large_icon, "%s%s/", ICONS_PATH, icon_set);
 		flag_update_icon = TRUE;
 	    }
+/* icon size */	    
 	    if(strcmp(_weather_icon_size, gtk_combo_box_get_active_text(GTK_COMBO_BOX(icon_size))) != 0){
 		_weather_icon_size = gtk_combo_box_get_active_text(GTK_COMBO_BOX(icon_size));
 		flag_update_icon = TRUE;
+		flag_tuning_warning = TRUE;
 	    }
 /* Temperature units */
 	    temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(temperature_unit));
@@ -845,11 +849,13 @@ void weather_window_preference(GtkWidget *widget,
 		days_to_show = gtk_combo_box_get_active((GtkComboBox*)days_number);
 		days_to_show++;
     		flag_update_icon = TRUE;
+		flag_tuning_warning = TRUE;
 	    }
 /* Layout Type */
 	    if(gtk_combo_box_get_active((GtkComboBox*)layout_type) != _weather_layout ){
 		_weather_layout = gtk_combo_box_get_active((GtkComboBox*)layout_type);
     		flag_update_icon = TRUE;
+		flag_tuning_warning = TRUE;
 	    }
 /* Transparency mode */
     	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_transparency)) != _enable_transparency){
@@ -896,6 +902,10 @@ void weather_window_preference(GtkWidget *widget,
 	break;
     }
     not_event = FALSE;
+    if (flag_tuning_warning)
+    {
+     hildon_banner_show_information(box,NULL,"Use Edit layout \nfor tuning images of applet");    
+    }
     gtk_widget_destroy(window_config);
 }
 /* get icon set names */

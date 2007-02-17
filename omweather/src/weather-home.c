@@ -706,9 +706,9 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     gtk_button_set_focus_on_click(GTK_BUTTON(next_station_name_btn), FALSE);
     gtk_button_set_focus_on_click(GTK_BUTTON(station_name_btn), FALSE);
 /* attach buttons to header panel */
-    gtk_table_attach_defaults( (GtkTable*)header_panel, previos_station_name_btn, 0, 1, 0, 1 );
-    gtk_table_attach_defaults( (GtkTable*)header_panel, station_name_btn, 1, 2, 0, 1 );
-    gtk_table_attach_defaults( (GtkTable*)header_panel, next_station_name_btn, 2, 3, 0, 1 );
+    gtk_table_attach( (GtkTable*)header_panel, previos_station_name_btn, 0, 1, 0, 1 ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+    gtk_table_attach( (GtkTable*)header_panel, station_name_btn, 1, 2, 0, 1  ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+    gtk_table_attach( (GtkTable*)header_panel, next_station_name_btn, 2, 3, 0, 1  ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 /* create days panel */
     switch(layout){
 	default:
@@ -730,34 +730,34 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 	switch(layout){
 	    default:
 	    case ONE_ROW:
-		gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], n, n + 1, 0, 1 );
+		gtk_table_attach( (GtkTable*)days_panel, buttons[n], n, n + 1, 0, 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0 );
 	    break;
 	    case ONE_COLUMN:
-		gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], 0, 1, n, n + 1);
+		gtk_table_attach( (GtkTable*)days_panel, buttons[n], 0, 1, n, n + 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 	    break;
 	    case TWO_ROWS:
 		if(n == elements){
 		    x = 0; y = 1;
 		}
 		if(!y)
-		    gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], x, x + 1, 0, 1);
+		    gtk_table_attach( (GtkTable*)days_panel, buttons[n], x, x + 1, 0, 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 		else
-		    gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], x, x + 1, 1, 2);
+		    gtk_table_attach( (GtkTable*)days_panel, buttons[n], x, x + 1, 1, 2,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 	    break;
 	    case TWO_COLUMNS:
 		if(n == elements){
 		    x = 0; y = 1;
 		}
 		if(!y)
-		    gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], 0, 1, x, x + 1);
+		    gtk_table_attach( (GtkTable*)days_panel, buttons[n], 0, 1, x, x + 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 		else
-		    gtk_table_attach_defaults( (GtkTable*)days_panel, buttons[n], 1, 2, x, x + 1);
+		    gtk_table_attach( (GtkTable*)days_panel, buttons[n], 1, 2, x, x + 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 	    break;
 	}
     }
 /* attach to main panel header and days panels */
-    gtk_table_attach_defaults( (GtkTable*)panel, header_panel, 0, 1, 0, 1 );
-    gtk_table_attach_defaults( (GtkTable*)panel, days_panel, 0, 1, 1, 2 );
+    gtk_table_attach( (GtkTable*)panel, header_panel, 0, 1, 0, 1 ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+    gtk_table_attach( (GtkTable*)panel, days_panel, 0, 1, 1, 2 ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 /* Connect signal button */
     g_signal_connect (previos_station_name_btn, "released", G_CALLBACK (change_station_prev), NULL);  		    
     g_signal_connect (previos_station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 

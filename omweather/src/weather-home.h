@@ -119,3 +119,25 @@ GtkWidget *update_window;
 guint flag_update=0;
 
 gchar  path_large_icon[_POSIX_PATH_MAX];
+
+
+
+typedef struct _HomeAppletHandler HomeAppletHandler;
+
+struct _HomeAppletHandler {
+    GObject parent;
+    gchar *desktoppath;
+    gchar *libraryfile;
+    GtkEventBox *eventbox;
+    gint x;
+    gint y;
+    gint width;
+    gint height;
+    gint minwidth;
+    gint minheight;
+    gint resizable_width;
+    gint resizable_height;
+};
+
+    osso_context_t *osso;
+    

@@ -4,5 +4,6 @@ Comment=World Weather
 Type=HildonHomeApplet
 X-home-applet=libweather-home.so
 X-home-applet-resizable=XY
-X-home-applet-minwidth=50
+X-home-applet-minwidth=64
+X-home-applet-minheight=64
 X-home-applet-maxheight=400

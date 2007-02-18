@@ -45,13 +45,6 @@
 
 #include <unistd.h>
 
-#ifndef VERSION
-#define VERSION "0.16"
-#endif
-#ifndef APPNAME
-#define APPNAME "omweather"
-#endif
-
 /* Translate  temperature Celsius to Farenhait */
 int c2f(int temp)
 {
@@ -571,7 +564,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
 					GtkWidget **widget){
     osso_context_t *osso;
     
-    osso = osso_initialize(APPNAME, VERSION, FALSE, NULL);
+    osso = osso_initialize(PACKAGE, VERSION, FALSE, NULL);
     if(!osso){
         g_debug("Error initializing the osso maemo omweather applet");
         return NULL;

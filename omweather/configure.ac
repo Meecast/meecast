@@ -1,5 +1,5 @@
 AC_INIT(Makefile.am)
-AM_INIT_AUTOMAKE(omweather, 0.15.1)
+AM_INIT_AUTOMAKE(omweather, 0.16)
 AC_CONFIG_HEADERS(src/config.h)
 # Checks for programs.
 AC_PROG_CXX

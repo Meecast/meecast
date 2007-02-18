@@ -599,8 +599,12 @@ void weather_window_preference(GtkWidget *widget,
 					GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
         				GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
 					NULL);
+    /* add CANCEL button */
     gtk_dialog_add_button(GTK_DIALOG(window_config),
             GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT);
+    /* add Help button */
+    gtk_dialog_add_button(GTK_DIALOG(window_config),
+            GTK_STOCK_HELP, GTK_RESPONSE_HELP);
 /* Create Notebook widget */
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_config)->vbox),
         	    notebook = gtk_notebook_new(), TRUE, TRUE, 0);
@@ -892,6 +896,9 @@ void weather_window_preference(GtkWidget *widget,
     	    }
 	    free_list_stations();
 	break;
+	case GTK_RESPONSE_HELP:/* Pressed Button Help */
+	    create_help_dialog();
+	break;
 	default:/* Pressed CANCEL */
 	    if(flag_update_station){
 		if( g_slist_length(stations_view_list) > 0 )
@@ -935,4 +942,86 @@ void create_icon_set_list(GtkWidget *store){
     	gtk_combo_box_append_text(GTK_COMBO_BOX(store), icon_set);
 	gtk_combo_box_set_active(GTK_COMBO_BOX(store), 0);
     }
+}
+
+void create_help_dialog(void){
+    GtkWidget	*help_dialog,
+		*notebook,
+		*title;
+    char	tmp_buff[2048];
+		    
+    help_dialog = gtk_dialog_new_with_buttons("Other Maemo Weather Help",
+        				NULL,
+					GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+        				GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
+					NULL);
+/* Create Notebook widget */
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(help_dialog)->vbox),
+        	    notebook = gtk_notebook_new(), TRUE, TRUE, 0);
+/* About tab */
+    snprintf(tmp_buff, sizeof(tmp_buff), "%s",
+	    "\nHildon desktop applet\n"
+	    "for Nokia 770/800\n"
+	    "to showing forecast weather.\n"
+	    "\nCopyright(c) 2006-2007, Vlad Vasiliev");
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			create_scrolled_window_with_text(tmp_buff,
+						    GTK_JUSTIFY_CENTER),
+				title = gtk_label_new("About"));
+/* Autohrs tab */
+    snprintf(tmp_buff, sizeof(tmp_buff), "%s",
+		"\nAuthor and maintenance:\n"
+		"\tVlad Vasiliev, vlad@gas.by\n"
+		"Maintenance:\n\tPavel Fialko, pavelnf@gmail.com");
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			create_scrolled_window_with_text(tmp_buff,
+						    GTK_JUSTIFY_LEFT),
+				title = gtk_label_new("Authors"));
+/* Thanks tab */
+    snprintf(tmp_buff, sizeof(tmp_buff), "%s",
+	    "Ed Bartosh - for support\n"
+	    "Eugen Kaluta aka tren - for support\n"
+	    "Maxim Kalinkevish aka spark for testing\n"
+	    "Yuri Komyakov - for Nokia 770 device and\n"
+	    "\t\t\t\tmore ideas\n"
+	    "Greg Thompson for support stations.txt file\n"
+	    "Frank Persian - for idea of new layout");
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			create_scrolled_window_with_text(tmp_buff,
+						    GTK_JUSTIFY_LEFT),
+        			title = gtk_label_new("Thanks"));
+    gtk_widget_show_all(help_dialog);
+/* start dialog window */
+    gtk_dialog_run(GTK_DIALOG(help_dialog));
+    gtk_widget_destroy(help_dialog);
+}
+
+GtkWidget* create_scrolled_window_with_text(const char* text,
+				GtkJustification justification){
+
+    GtkWidget	*text_view,
+		*scrolled_window;
+    GtkTextBuffer	*text_buffer;
+
+    text_view = gtk_text_view_new();
+    text_buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(text_view));
+    gtk_text_buffer_set_text(GTK_TEXT_BUFFER(text_buffer), text, -1);
+    /* set params of text view */
+    gtk_text_view_set_editable(GTK_TEXT_VIEW(text_view), FALSE);
+    gtk_text_view_set_cursor_visible(GTK_TEXT_VIEW(text_view), FALSE);
+    gtk_text_view_set_justification(GTK_TEXT_VIEW(text_view),
+				    justification);
+    gtk_text_view_set_overwrite(GTK_TEXT_VIEW(text_view), FALSE);
+    gtk_text_view_set_accepts_tab(GTK_TEXT_VIEW(text_view), FALSE);
+    gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(text_view), GTK_WRAP_NONE);
+    /* scrolled window */
+    scrolled_window = gtk_scrolled_window_new(NULL, NULL);
+    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
+					GTK_SHADOW_OUT);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
+                                 GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 500, 200);
+    /* pack childs to the scrolled window */
+    gtk_container_add(GTK_CONTAINER(scrolled_window), GTK_WIDGET(text_view));
+    return scrolled_window;
 }

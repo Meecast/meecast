@@ -76,6 +76,8 @@ static char flag_update_station = FALSE; /* Flag update station list */
 static gchar *_weather_station_id_temp; /* Temporary value for weather_station_id */
 void create_icon_set_list(GtkWidget *store); /* scan /usr/share/weather/icons */
 					     /* and add names to the list */
+void create_help_dialog(void);	/* create help dialog */
+GtkWidget* create_scrolled_window_with_text(const char* text, GtkJustification justification);
 
 extern void remove_periodic_event(void);
 extern void weather_buttons_init(void);

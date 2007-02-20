@@ -1,0 +1,12 @@
+Source: omweather-icons-grzankas
+Section: user/accessories
+Priority: optional
+Maintainer: Vlad Vasiliev <vlad@gas.by>
+Build-Depends: 
+Standards-Version: 3.6.0
+
+Package: omweather-icons-grzankas
+Architecture: all
+Depends: omweather (>=0.15.1)
+Description: Grzanka's iconset 
+ for Other Maemo Weather

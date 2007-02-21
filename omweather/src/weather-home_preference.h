@@ -28,8 +28,10 @@
 	
 */
 
+#ifndef _weather_home_preference_h
+#define _weather_home_preference_h 1
+
 #define OMW_RESPONSE_ADD_CUSTOM_STATION 10000
-#include <gtk/gtk.h>
 #include "weather-home_common.h"
 
 extern GtkWidget *box;
@@ -81,3 +83,5 @@ GtkWidget* create_scrolled_window_with_text(const char* text, GtkJustification j
 
 extern void remove_periodic_event(void);
 extern void weather_buttons_init(void);
+
+#endif

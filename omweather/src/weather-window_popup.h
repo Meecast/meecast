@@ -27,6 +27,10 @@
  * 02110-1301 USA
 	
 */
+
+#ifndef _weather_window_popup_h
+#define _weather_window_popup_h 1
+
 #include "weather-home_common.h"
 
 extern gchar     *_weather_state_name;
@@ -39,7 +43,6 @@ extern GtkWidget *weather_window_popup;
 extern GtkWidget *box;
 extern gchar     path_large_icon[];
 extern gchar      _weather_temperature_unit;
-/* by Pavel */
 extern	gint	days_to_show;
 extern	gint	distance_units;
 
@@ -48,3 +51,4 @@ void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_
 int c2f(int temp);
 void set_font_size(GtkWidget *widget, char font_size);
 
+#endif

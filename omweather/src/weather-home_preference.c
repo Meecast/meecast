@@ -29,7 +29,6 @@
 */
 
 #include "weather-home_preference.h"
-#include <sys/types.h>
 #if defined (BSD) && !_POSIX_SOURCE
     #include <sys/dir.h>
     typedef struct dirent Dirent;
@@ -38,7 +37,7 @@
     #include <linux/fs.h>
     typedef struct dirent Dirent;
 #endif
-/* Hack for Maemo 2.0 */
+/* Hack for Maemo SDK 2.0 */
 #ifndef DT_DIR
 #define DT_DIR 4
 #endif
@@ -610,7 +609,7 @@ void weather_window_preference(GtkWidget *widget,
             GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT);
     /* add Help button */
     gtk_dialog_add_button(GTK_DIALOG(window_config),
-            GTK_STOCK_HELP, GTK_RESPONSE_HELP);
+            GTK_STOCK_ABOUT, GTK_RESPONSE_HELP);
 /* Create Notebook widget */
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_config)->vbox),
         	    notebook = gtk_notebook_new(), TRUE, TRUE, 0);
@@ -956,7 +955,7 @@ void create_help_dialog(void){
 		*title;
     char	tmp_buff[2048];
 		    
-    help_dialog = gtk_dialog_new_with_buttons("Other Maemo Weather Help",
+    help_dialog = gtk_dialog_new_with_buttons("Other Maemo Weather Info",
         				NULL,
 					GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
         				GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
@@ -969,7 +968,8 @@ void create_help_dialog(void){
 	    "\nHildon desktop applet\n"
 	    "for Nokia 770/800\n"
 	    "to showing forecast weather.\n"
-	    "\nCopyright(c) 2006-2007, Vlad Vasiliev");
+	    "\nCopyright(c) 2006-2007\n"
+	    "Vlad Vasiliev, Pavel Fialko");
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_CENTER),

@@ -58,7 +58,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     GtkWidget *icon_image_current, *icon_image_night, *icon_image_day, *icon_update, *button_update, *button_pref;
     GtkIconInfo *gtkicon_update;
     gchar buffer[1024], full_filename[2048];
-    time_t current_time;
+    time_t current_time = 0;
     gboolean pressed_current_day = FALSE;
     struct stat statv;
     int i;

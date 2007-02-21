@@ -38,6 +38,10 @@
     #include <linux/fs.h>
     typedef struct dirent Dirent;
 #endif
+/* Hack for Maemo 2.0 */
+#ifndef DT_DIR
+#define DT_DIR 4
+#endif
 
 
 /* Compare station name */

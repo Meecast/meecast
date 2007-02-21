@@ -1,6 +1,9 @@
-omweather (0.15.2) unstable; urgency=low
+omweather (0.16) unstable; urgency=low
 
-  * Test
+  * Added choice of units for distance
+  * Added choice icon set
+  * Added About dialog
+  * Fix bug with change font color
   
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 09 Feb 2007 07:51:31 +0200
 

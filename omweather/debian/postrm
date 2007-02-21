@@ -1,5 +1,5 @@
 #! /bin/sh
-# postrm script for omweather
+# postrm script for bloglines
 #
 # see: dh_installdeb(1)
 
@@ -19,14 +19,17 @@ set -e
 
 
 case "$1" in
-       upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+      upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
 
 
         ;;
-       purge|remove)
-        test -f "/var/lib/gconf/apps/maemo/omweather/%gconf.xml" && rm -f "/var/lib/gconf/apps/maemo/omweather/%gconf.xml"
+      purge|remove)
+     
+       test -f "/var/lib/gconf/apps/maemo/omweather/%gconf.xml" && rm -f "/var/lib/gconf/apps/maemo/omweather/%gconf.xml"
+	    
+	;;
 
-       *)
+    *)
         echo "postrm called with unknown argument \`$1'" >&2
         exit 1
 

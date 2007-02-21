@@ -1,7 +1,9 @@
 0.16
+  * Added choice of units for distance
   * Added choice icon set
   * Added About dialog
   * Fix bug with change font color
+
 0.15
   * Added new layouts: Vertical layout, Vertical layout 2 rows, Horizontal layout 2 rows
   * Added choice of quantity of days for display

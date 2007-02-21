@@ -28,20 +28,28 @@
 	
 */
 
+#ifndef _weather_home_common_h
+#define _weather_home_common_h 1
+
 #include <gtk/gtk.h>
+#include <gconf/gconf-client.h>
+#define _XOPEN_SOURCE /* glibc2 needs this */
+#include <time.h>
+#include <libgnomevfs/gnome-vfs.h>
 #include <libxml/parser.h>
 #include <libxml/tree.h>
 #include <string.h>
-#include <time.h>
-#include <libgnomevfs/gnome-vfs.h>
-#define Max_count_weather_day 10
-#define AUTOUPDATE 1
-#define DAYTIMEEVENT 2
-#define DAY_DOWNLOAD 10
-#define OFFSET_CURRENT_WEATHER 4 /* 4 hours */
-#define STATIONS_FILE "/usr/share/omweather/stations.txt"
-#define COUNTRYS_FILE "/usr/share/omweather/iso3166-countrycodes.txt"
-#define ICONS_PATH    "/usr/share/omweather/icons/"
+#include <hildon-widgets/hildon-banner.h>
+#include <sys/types.h>
+
+#define Max_count_weather_day	10
+#define AUTOUPDATE		1
+#define DAYTIMEEVENT		2
+#define DAY_DOWNLOAD		10
+#define OFFSET_CURRENT_WEATHER	4 /* 4 hours */
+#define STATIONS_FILE		"/usr/share/omweather/stations.txt"
+#define COUNTRYS_FILE		"/usr/share/omweather/iso3166-countrycodes.txt"
+#define ICONS_PATH		"/usr/share/omweather/icons/"
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS };
 enum { METERS, KILOMETERS, INTERNATIONAL_MILES, IMPERIAL_MILES, SEA_MILES };
@@ -121,3 +129,4 @@ void update_weather(void);
 void weather_frame_update(gboolean check);
 void hack_home_plugin_osso_for_nokia800(void);
 
+#endif

@@ -28,6 +28,9 @@
 	
 */
 
+#ifndef _weather_event_h
+#define _weather_event_h 1
+
 #include "weather-home_common.h"
 
 void timer_handler(gpointer data);
@@ -39,3 +42,5 @@ extern GSList *event_time_list;
 extern int _weather_periodic_update;
 extern gchar *_weather_dir_name;
 extern gboolean not_event;
+
+#endif

@@ -27,10 +27,9 @@
  * 02110-1301 USA
 	
 */
+#ifndef _weather_home_config_h
+#define _weather_home_config_h 1
 
-#include <gtk/gtk.h>
-#include <libgnomevfs/gnome-vfs.h>
-#include <gconf/gconf-client.h>
 #include "weather-home_common.h"
 
 #define GCONF_KEY_PREFIX "/apps/maemo/omweather"
@@ -72,3 +71,4 @@ extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 
+#endif

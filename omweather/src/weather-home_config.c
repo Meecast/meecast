@@ -29,7 +29,6 @@
 */
 
 #include "weather-home_config.h"
-#include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
@@ -420,7 +419,7 @@ void config_save(){
     GConfClient *gconf_client;
     GSList *stlist = NULL;
    
-    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
+/*    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__); */
     
     gconf_client = gconf_client_get_default();
     
@@ -517,5 +516,5 @@ void config_save(){
     g_object_unref(gconf_client);
 
     
-    fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);
+/*    fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__); */
 }

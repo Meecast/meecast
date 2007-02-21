@@ -37,10 +37,8 @@
 #include <http.h>
 
 #include <glib.h>
-#include <gtk/gtk.h>
 
 #include <hildon-home-plugin/hildon-home-plugin-interface.h>
-#include <hildon-widgets/hildon-banner.h>
 #include "weather-home.h"
 
 #include <unistd.h>
@@ -136,9 +134,9 @@ get_weather_html( gboolean check_connect )
    if (ws->id_station != NULL)
    {
     url = g_string_new (NULL);        
-    g_string_append_printf (url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=10",ws->id_station);
-/*      g_string_append (url,"s=");
-*/    memset(&hExtra, '\0', sizeof(hExtra));
+    g_string_append_printf(url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=%d",
+			    ws->id_station, DAY_DOWNLOAD);
+    memset(&hExtra, '\0', sizeof(hExtra));
     hResponse = http_request(url->str,&hExtra,kHMethodGet,HFLAG_NONE);
     g_string_free (url,TRUE);
     if( hResponse.pError || strcmp(hResponse.szHCode,HTTP_RESPONSE_OK) )

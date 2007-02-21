@@ -8,4 +8,4 @@ Standards-Version: 3.6.0
 Package: omweather
 Architecture: armel arm i386
 Depends: ${shlibs:Depends}
-Description: World Weather on Nokia 770. Used weather.com
+Description: World Weather on Nokia 770/800. Used weather.com

@@ -1,0 +1,17 @@
+Source: omweather-icons-beginning
+Section: user/accessories
+Priority: optional
+Maintainer: Vlad Vasiliev <vlad@gas.by>
+Build-Depends: 
+Standards-Version: 3.6.0
+
+Package: omweather-icons-beginning
+Architecture: all
+Depends: omweather (>=0.16)
+Description: Beginning iconset 
+ for Other Maemo Weather
+ Author B. Gint  http://beginning.deviantart.com/
+ GPL 
+ 
+ 
+ 

@@ -7,7 +7,7 @@ Standards-Version: 3.6.0
 
 Package: omweather-icons-grzankas
 Architecture: all
-Depends: omweather (>=0.15.1)
+Depends: omweather (>=0.16)
 Description: Grzanka's iconset 
  for Other Maemo Weather
  © 2006 by Iconbest. Creative Commons Attribution 2.5.

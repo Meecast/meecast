@@ -985,13 +985,14 @@ void create_help_dialog(void){
 				title = gtk_label_new("Authors"));
 /* Thanks tab */
     snprintf(tmp_buff, sizeof(tmp_buff), "%s",
-	    "Ed Bartosh - for support\n"
+	    "Ed Bartosh - for support and criticism\n"
 	    "Eugen Kaluta aka tren - for support\n"
 	    "Maxim Kalinkevish aka spark for testing\n"
-	    "Yuri Komyakov - for Nokia 770 device and\n"
-	    "\t\t\t\tmore ideas\n"
+	    "Yuri Komyakov - for Nokia 770 device \n"
 	    "Greg Thompson for support stations.txt file\n"
-	    "Frank Persian - for idea of new layout");
+	    "Frank Persian - for idea of new layout\n"
+	    "Brian Knight - for idea of iconset, criticism \n"
+	    "\t\t\t\tand donation ;)\n");
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),

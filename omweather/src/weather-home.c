@@ -357,6 +357,8 @@ void weather_buttons_fill(gboolean check_error){
 	    font_size = FONT_MAIN_SIZE_SMALL;
 	    icon_size = 32;
 	}
+
+    
   /* Init weather buttons */
     weather_buttons_init();
     count_day = parse_weather_com_xml();
@@ -499,13 +501,12 @@ void weather_buttons_fill(gboolean check_error){
 	g_signal_connect(buttons[i], "enter", G_CALLBACK (enter_button), NULL); 
     }/* for */
 
-
     if(g_slist_length(stations_view_list) > 0){
 	tmplist = stations_view_list;
 /* search current station */
         while (tmplist){
     	    ws = tmplist->data;
-	    if (!strcmp(ws->id_station,_weather_station_id)) 
+	    if ((ws->id_station)&&(_weather_station_id) && !strcmp(ws->id_station,_weather_station_id)) 
 		break;
 	    tmplist = g_slist_next(tmplist);
 	}
@@ -516,15 +517,13 @@ void weather_buttons_fill(gboolean check_error){
 	    ws->name_station = NULL;
 	tmp_station_name = NULL;
     }
-    
+
 /* create main panel */
     box = gtk_table_new(2, 1, FALSE);
     create_panel(box, _weather_layout, _enable_transparency, tmp_station_name, font_size);
     gtk_box_pack_start(GTK_BOX(box_zero), box, TRUE, TRUE, 0);
     gtk_widget_show_all(box_zero);
 
-/*     hack_home_plugin_osso_for_nokia800();     */
-    
     if(error_station_code)
 	station_error_window();
 }

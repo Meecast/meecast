@@ -296,6 +296,16 @@ static gboolean delete_station(GtkWidget *widget,
       /* Remove station from the Station List */
 	    stations_view_list = g_slist_remove(stations_view_list, ws);
 	    gtk_list_store_clear(station_list_store);
+	    tmplist = stations_view_list;
+
+      /* If not selected station, select first */	    
+	    if (!(gtk_tree_selection_get_selected(selection, NULL, &iter)) && (tmplist != NULL )) {
+	     ws = tmplist->data;
+	     if(_weather_station_id)
+		g_free(_weather_station_id);
+   	     _weather_station_id = g_strdup(ws->id_station); 
+	    }
+	    
 	    fill_station_list_view (station_list_view,station_list_store);
       /* Update station list */
 	    flag_update_station = TRUE;
@@ -549,6 +559,8 @@ void weather_window_add_station(GtkWidget *widget,
 	    weather_window_add_custom_station();
 	break;
 	case GTK_RESPONSE_ACCEPT:/* Press Button Ok */
+	    if (gtk_combo_box_get_active(GTK_COMBO_BOX(stations)) == -1) /* Item not selected */
+		break;
 	    flag_update_station = TRUE;
 	    ws = g_new0(struct weather_station,1);
 	    if(_weather_station_id != NULL)
@@ -895,10 +907,8 @@ void weather_window_preference(GtkWidget *widget,
     	    config_save();
 	    if(flag_update_icon)
     		weather_frame_update(FALSE);
-	    if(flag_update_station){
-/*	  update_weather(); */
+	    if(flag_update_station)
     		weather_frame_update(TRUE);
-    	    }
 	    free_list_stations();
 	break;
 	case GTK_RESPONSE_HELP:/* Pressed Button Help */

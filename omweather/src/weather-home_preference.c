@@ -995,14 +995,14 @@ void create_help_dialog(void){
 				title = gtk_label_new("Authors"));
 /* Thanks tab */
     snprintf(tmp_buff, sizeof(tmp_buff), "%s",
-	    "Ed Bartosh - for support and criticism\n"
+	    "\nEd Bartosh - for support and criticism\n"
 	    "Eugen Kaluta aka tren - for support\n"
 	    "Maxim Kalinkevish aka spark for testing\n"
 	    "Yuri Komyakov - for Nokia 770 device \n"
 	    "Greg Thompson for support stations.txt file\n"
 	    "Frank Persian - for idea of new layout\n"
 	    "Brian Knight - for idea of iconset, criticism \n"
-	    "\t\t\t\tand donation ;)\n");
+	    "\t\t\t\tand donation ;-)\n");
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),
@@ -1037,7 +1037,7 @@ GtkWidget* create_scrolled_window_with_text(const char* text,
 					GTK_SHADOW_OUT);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                  GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 500, 200);
+    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 550, 200);
     /* pack childs to the scrolled window */
     gtk_container_add(GTK_CONTAINER(scrolled_window), GTK_WIDGET(text_view));
     return scrolled_window;

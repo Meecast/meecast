@@ -88,7 +88,7 @@ void changed_country(void){
     static gchar *gcountry_name = NULL;
     FILE *stations_file, *iso3166_file; 
     char country_name[52];
-    char country_code [2];
+    char country_code [3];
     char temp_state_name[20];
     int count_state = 0; /* Count state of file iso3166 */
 

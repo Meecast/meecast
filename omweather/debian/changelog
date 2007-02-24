@@ -1,11 +1,17 @@
 omweather (0.16) unstable; urgency=low
 
+  * OS 2007 compatibility:focus from the first button for OS2007 is removed
+  * OS 2007 compatibility: the opportunity of change of the size of an applet is made
   * Added choice of units for distance
   * Added choice icon set
   * Added About dialog
+  * Deleting config file after removing omweather packets of debian
   * Fix bug with change font color
+  * Fix bug: The opportunity of addition of zero station is removed
+  * Fix bug: Reboot after delete nil station
+  * Fix bug: Reboot N800 after select the current of day with temperature by fahrenheit
   
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 09 Feb 2007 07:51:31 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 25 Feb 2007 22:11:23 +0200
 
 omweather (0.15) unstable; urgency=low
 

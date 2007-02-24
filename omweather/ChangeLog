@@ -1,8 +1,14 @@
 0.16
+  * OS 2007 compatibility:focus from the first button for OS2007 is removed
+  * OS 2007 compatibility: the opportunity of change of the size of an applet is made
   * Added choice of units for distance
   * Added choice icon set
   * Added About dialog
+  * Deleting config file after removing omweather packets of debian
   * Fix bug with change font color
+  * Fix bug: The opportunity of addition of zero station is removed
+  * Fix bug: Reboot after delete nil station
+  * Fix bug: Reboot N800 after select the current of day with temperature by fahrenheit
 
 0.15
   * Added new layouts: Vertical layout, Vertical layout 2 rows, Horizontal layout 2 rows

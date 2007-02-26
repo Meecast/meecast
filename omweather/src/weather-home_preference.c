@@ -92,7 +92,7 @@ void changed_country(void){
     char temp_state_name[20];
     int count_state = 0; /* Count state of file iso3166 */
 
-/* Search Country defined ComboBox in iso file */
+/* Search Country defined ComboBox in ISO file */
     flag = FALSE;    
 /* Clear the list. */
     model = gtk_combo_box_get_model(GTK_COMBO_BOX(states));
@@ -250,7 +250,7 @@ void changed_stations(void){
 /* Fill station list (tree) */
 void fill_station_list_view(GtkWidget *station_list_view,
 			    GtkListStore *station_list_store){
-    GSList *tmplist = NULL; /* Temorary for station list */
+    GSList *tmplist = NULL; /* Temporary for station list */
     struct weather_station *ws; /* Description Weather station */
     GtkTreeSelection *list_selection;
     GtkTreeIter iter;
@@ -274,7 +274,7 @@ void fill_station_list_view(GtkWidget *station_list_view,
 static gboolean delete_station(GtkWidget *widget,
                     		GdkEvent *event,
                     		gpointer user_data){
-    GSList *tmplist = NULL; /* Temorary for station list */
+    GSList *tmplist = NULL; /* Temporary for station list */
     struct weather_station *ws; /* Description Weather station */
     GtkTreeIter iter;
     gchar *station_selected = NULL;
@@ -513,7 +513,7 @@ void weather_window_add_station(GtkWidget *widget,
     country_list_store = create_station_list_store();
   
     gtk_widget_show_all(window_add_station);   
-/* Inserting Countrys to ComboBox from iso file*/
+/* Inserting Countrys to ComboBox from ISO file*/
     flag = FALSE;
     if((iso3166_file = fopen(COUNTRYS_FILE,"r")) != NULL){
 	while(!feof(iso3166_file)){
@@ -600,7 +600,7 @@ void weather_window_preference(GtkWidget *widget,
 
     char flag_update_icon = '\0'; /* Flag update main weather icon of desktop */
     gboolean flag_tuning_warning; /* Flag for show the warnings about tuning images of applet */
-    int index_update_time = 0; /* Position acive update time of the list */
+    int index_update_time = 0; /* Position active update time of the list */
     GdkColor _weather_font_color_temp; /* Temporary for font color */
     static GSList *time_update_list_temp = NULL; /* Temporary list for time update */
     struct time_update *tu; /* Temporary for time update list */
@@ -976,15 +976,15 @@ void create_help_dialog(void){
 /* About tab */
     snprintf(tmp_buff, sizeof(tmp_buff), "%s",
 	    "\nHildon desktop applet\n"
-	    "for Nokia 770/800\n"
-	    "to showing forecast weather.\n"
+	    "for Nokia 770/N800\n"
+	    "to show weather forecasts.\n"
 	    "\nCopyright(c) 2006-2007\n"
 	    "Vlad Vasiliev, Pavel Fialko");
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_CENTER),
 				title = gtk_label_new("About"));
-/* Autohrs tab */
+/* Authors tab */
     snprintf(tmp_buff, sizeof(tmp_buff), "%s",
 		"\nAuthor and maintenance:\n"
 		"\tVlad Vasiliev, vlad@gas.by\n"

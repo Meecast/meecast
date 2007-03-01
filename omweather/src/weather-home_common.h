@@ -41,6 +41,10 @@
 #include <string.h>
 #include <hildon-widgets/hildon-banner.h>
 #include <sys/types.h>
+/* localization headers and defines */
+#include <libintl.h>
+#include <locale.h>
+#define _(String) gettext (String)
 
 #define Max_count_weather_day	10
 #define AUTOUPDATE		1
@@ -53,6 +57,7 @@
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS };
 enum { METERS, KILOMETERS, INTERNATIONAL_MILES, IMPERIAL_MILES, SEA_MILES };
+enum { CELSIUS, FAHRENHEIT };
 
 typedef struct
 {

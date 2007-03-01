@@ -313,10 +313,10 @@ void config_init(){
 	    sprintf(path_large_icon, "%s%s/", ICONS_PATH, icon_set);
 	}    
 	/* Get Weather Icon Size  */		     
-        _weather_icon_size = gconf_client_get_string(gconf_client,
+        _weather_icon_size = gconf_client_get_int(gconf_client,
               GCONF_KEY_WEATHER_ICON_SIZE, NULL);
         if(!_weather_icon_size)
-          _weather_icon_size = g_strdup("Large");
+          _weather_icon_size = 0;
        /* Get Weather country name. */    
        _weather_country_name = gconf_client_get_string(gconf_client,
               GCONF_KEY_WEATHER_COUNTRY_NAME, NULL);
@@ -349,12 +349,9 @@ void config_init(){
         else
          _enable_transparency = TRUE;      
 	/* Get Temperature Unit  Default Celsius */
-	tmp = gconf_client_get_string(gconf_client,
-                     GCONF_KEY_WEATHER_TEMPERATURE_UNIT, NULL);
-        if(tmp)
-	  _weather_temperature_unit = tmp[0];
-	else
-	  _weather_temperature_unit = 'C';
+	_weather_temperature_unit = gconf_client_get_int(gconf_client,
+                    			GCONF_KEY_WEATHER_TEMPERATURE_UNIT, NULL);
+        (_weather_temperature_unit) ? (_weather_temperature_unit = FAHRENHEIT) : (_weather_temperature_unit = CELSIUS);
 
 	/* Get Layout  Default Horizontal */
 	_weather_layout = gconf_client_get_int(gconf_client,
@@ -374,13 +371,13 @@ void config_init(){
 	    distance_units = 0;
 	/* Fill time update list */
     if(!time_update_list){
-	add_time_update_list(0,"Never");	
-	add_time_update_list(1*60,"1 hour");
-	add_time_update_list(2*60,"2 hours");
-	add_time_update_list(4*60,"4 hours");
-	add_time_update_list(8*60,"8 hours");
-	add_time_update_list(24*60,"24 hours");
-	add_time_update_list(1,"1 minute (DEBUG)");    
+	add_time_update_list(0,_("Never"));	
+	add_time_update_list(1*60,_("1 hour"));
+	add_time_update_list(2*60,_("2 hours"));
+	add_time_update_list(4*60,_("4 hours"));
+	add_time_update_list(8*60,_("8 hours"));
+	add_time_update_list(24*60,_("24 hours"));
+	add_time_update_list(1,_("1 minute (DEBUG)"));    
     }	
 	fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);
 	
@@ -473,8 +470,7 @@ void config_save(){
 				GCONF_KEY_WEATHER_ICON_SET,
 				icon_set, NULL);
     /* Save Weather Icon Size  */		     	    
-    if(_weather_icon_size)
-        gconf_client_set_string(gconf_client,
+    gconf_client_set_int(gconf_client,
             GCONF_KEY_WEATHER_ICON_SIZE, _weather_icon_size, NULL);
     /* Save Weather Font Color */
     sprintf(temp_buffer, "#%02x%02x%02x",
@@ -491,11 +487,8 @@ void config_save(){
     gconf_client_set_bool(gconf_client,
             GCONF_KEY_ENABLE_TRANSPARENCY, _enable_transparency, NULL);	    
     /* Save Weather Temperature Unit  */		     	    
-    temp_buffer[0] = _weather_temperature_unit;
-    temp_buffer[1] = 0;
-    if(_weather_temperature_unit)
-        gconf_client_set_string(gconf_client,
-            GCONF_KEY_WEATHER_TEMPERATURE_UNIT, temp_buffer, NULL);
+    gconf_client_set_int(gconf_client,
+            GCONF_KEY_WEATHER_TEMPERATURE_UNIT, _weather_temperature_unit, NULL);
     /* Save Days to show. */
     gconf_client_set_int(gconf_client,
             GCONF_KEY_WEATHER_DAYS, days_to_show, NULL);	    

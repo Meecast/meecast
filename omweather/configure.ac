@@ -1,6 +1,8 @@
-AC_INIT(Makefile.am)
-AM_INIT_AUTOMAKE(omweather, 0.16)
-AC_CONFIG_HEADERS(src/config.h)
+AC_PREREQ(2.59)
+AC_INIT(omweather, 0.17)
+AM_INIT_AUTOMAKE(omweather, 0.17)
+AC_CONFIG_HEADER([src/config.h:src/config.h.in])
+AC_CONFIG_SRCDIR([src/weather-home.c])
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
@@ -11,12 +13,18 @@ AC_PROG_MAKE_SET
 AC_PROG_RANLIB
 AC_PROG_CC
 AC_PROG_LIBTOOL
+AC_PROG_INTLTOOL([0.23])
 # Checks for libraries.
+AM_GLIB_GNU_GETTEXT
 
 # Checks for header files.
 AC_HEADER_DIRENT
 AC_HEADER_STDC
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h memory.h netdb.h netinet/in.h stdlib.h string.h sys/param.h sys/socket.h sys/time.h unistd.h])
+AC_CHECK_HEADERS([libintl.h])
+
+# Check for functions
+AC_CHECK_FUNCS([setlocale])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
@@ -30,6 +38,13 @@ AC_FUNC_MKTIME
 AC_FUNC_REALLOC
 AC_FUNC_STAT
 AC_CHECK_FUNCS([clock_gettime gethostbyname gettimeofday memset strcasecmp strchr strdup strerror strncasecmp strstr])
+
+LOCALEDIR=`pkg-config osso-af-settings --variable=localedir`
+GETTEXT_PACKAGE=omweather
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], "${GETTEXT_PACKAGE}", [Name of gettext package])
+AC_DEFINE_UNQUOTED([LOCALEDIR], "${LOCALEDIR}", [Path to store localization files])
+ALL_LINGUAS="ru_RU"
 
 PKG_CHECK_MODULES(GTK, gtk+-2.0)
 AC_SUBST(GTK_LIBS)
@@ -60,6 +75,7 @@ AC_SUBST(helpfile_engbdir)
 AC_CONFIG_FILES([Makefile
 		src/lib/Makefile
 		src/Makefile
+		po/Makefile.in
 		data/Makefile])
 # Produce output files
 AC_OUTPUT

@@ -19,7 +19,7 @@
 #
 
 
-SUBDIRS = src data
+SUBDIRS = src data po
 
 
 

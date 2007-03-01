@@ -344,20 +344,21 @@ void weather_buttons_fill(gboolean check_error){
     gchar	*tmp_station_name;
     
 /* select image and font size */
-    if(!strcmp(_weather_icon_size,"Large")){
-	font_size = FONT_MAIN_SIZE_LARGE;
-	icon_size = 64;
-    }
-    else
-	if(!strcmp(_weather_icon_size,"Medium")){
+    switch(_weather_icon_size){
+	default:
+	case 0: 
+	    font_size = FONT_MAIN_SIZE_LARGE;
+	    icon_size = 64;
+	break;
+	case 1:
 	    font_size = FONT_MAIN_SIZE_MEDIUM;
 	    icon_size = 48;
-	}
-	else{
+	break;
+	case 2:
 	    font_size = FONT_MAIN_SIZE_SMALL;
 	    icon_size = 32;
-	}
-
+	break;
+    }
     
   /* Init weather buttons */
     weather_buttons_init();
@@ -409,7 +410,7 @@ void weather_buttons_fill(gboolean check_error){
 	    temp_hi_now = atoi(weather_current_day.day.temp); 
 	    temp_hi = atoi(weather_days[offset].hi_temp);     
 	    temp_low = atoi(weather_days[offset].low_temp);     
-	    if(_weather_temperature_unit == 'F'){
+	    if(_weather_temperature_unit == FAHRENHEIT ){
 		temp_hi_now = c2f(temp_hi_now);
 		temp_hi = c2f(temp_hi);
 		temp_low = c2f(temp_low);
@@ -568,7 +569,11 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     }
     fprintf(stderr, "\nWeather applet initialize %p %d\n",
 		    state_data, *state_size);
-    
+/* localization system init */
+    setlocale(LC_ALL, "");
+    bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
+    bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+    textdomain(GETTEXT_PACKAGE);
 /*    hack_home_plugin_osso_for_nokia800();		    */
 /* Init gconf. */
     gnome_vfs_init();

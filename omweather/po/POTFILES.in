@@ -1,0 +1,5 @@
+# List of source files containing translatable strings.
+
+src/weather-home_preference.c
+src/weather-home_config.c
+src/weather-window_popup.c

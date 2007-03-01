@@ -1,0 +1,364 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: omweather\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-02-28 11:59+0200\n"
+"PO-Revision-Date: 2007-02-28 11:59+0200\n"
+"Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
+"Language-Team: Russian <ru_RU@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/weather-home_preference.c:405 src/weather-home_preference.c:485
+msgid "Add Custom Station"
+msgstr "Добавить свою станцию"
+
+#: src/weather-home_preference.c:415
+msgid "Station name:"
+msgstr "Название станции:"
+
+#: src/weather-home_preference.c:425
+msgid ""
+"Station code\n"
+" (ZIP Code):"
+msgstr ""
+"Код станции\n"
+" (индекс):"
+
+#: src/weather-home_preference.c:477
+msgid "Add Station"
+msgstr "Добавить станцию"
+
+#: src/weather-home_preference.c:490
+msgid "Country:"
+msgstr "Страна:"
+
+#: src/weather-home_preference.c:498
+msgid "State(Province):"
+msgstr "Штат(область):"
+
+#: src/weather-home_preference.c:506
+msgid "Station(Place):"
+msgstr "Станция(место):"
+
+#: src/weather-home_preference.c:614
+msgid "Other Maemo Weather Settings"
+msgstr "Настройки программы"
+
+#: src/weather-home_preference.c:631
+msgid "Locations"
+msgstr "Местоположения"
+
+#: src/weather-home_preference.c:653
+msgid " Add "
+msgstr " Добавить "
+
+#: src/weather-home_preference.c:660
+msgid "Delete"
+msgstr "Удалить"
+
+#: src/weather-home_preference.c:675
+msgid "Interface"
+msgstr "Интерфейс"
+
+#: src/weather-home_preference.c:679
+msgid "Days to show:"
+msgstr "Количество дней:"
+
+#: src/weather-home_preference.c:711
+msgid "Layout:"
+msgstr "Расположение:"
+
+#: src/weather-home_preference.c:717
+msgid "One row"
+msgstr "Одна строка"
+
+#: src/weather-home_preference.c:718
+msgid "One column"
+msgstr "Один столбец"
+
+#: src/weather-home_preference.c:719
+msgid "Two rows"
+msgstr "Две строки"
+
+#: src/weather-home_preference.c:720
+msgid "Two columns"
+msgstr "Два столбца"
+
+#: src/weather-home_preference.c:730
+msgid "Icon set:"
+msgstr "Набор иконок:"
+
+#: src/weather-home_preference.c:740
+msgid "Icon size:"
+msgstr "Размер иконок:"
+
+#: src/weather-home_preference.c:746 src/weather-home_preference.c:749
+msgid "Large"
+msgstr "Большой"
+
+#: src/weather-home_preference.c:747 src/weather-home_preference.c:752
+msgid "Medium"
+msgstr "Средний"
+
+#: src/weather-home_preference.c:748
+msgid "Small"
+msgstr "Малый"
+
+#: src/weather-home_preference.c:758
+msgid "Font color:"
+msgstr "Цвет шрифта:"
+
+#: src/weather-home_preference.c:767
+msgid "Transparency"
+msgstr "Прозрачность"
+
+#: src/weather-home_preference.c:778
+msgid "Units"
+msgstr "Единицы измерения"
+
+#: src/weather-home_preference.c:781
+msgid "Temperature units:"
+msgstr "Единицы температуры:"
+
+#: src/weather-home_preference.c:787
+msgid "Celsius (Metric)"
+msgstr "Цельсий (метрическая система)"
+
+#: src/weather-home_preference.c:788
+msgid "Fahrenheit (Imperial)"
+msgstr "Фаренгейт (США и др.)"
+
+#: src/weather-home_preference.c:795
+msgid "Distance units:"
+msgstr "Единицы расстояния:"
+
+#: src/weather-home_preference.c:801
+msgid "Meters"
+msgstr "Метры"
+
+#: src/weather-home_preference.c:802
+msgid "Kilometers"
+msgstr "Километры"
+
+#: src/weather-home_preference.c:803
+msgid "Miles (International)"
+msgstr "Мили (интернациональные)"
+
+#: src/weather-home_preference.c:804
+msgid "Miles (Imperial)"
+msgstr "Мили (США)"
+
+#: src/weather-home_preference.c:805
+msgid "Miles (Sea)"
+msgstr "Мили (морские)"
+
+#: src/weather-home_preference.c:817
+msgid "Update"
+msgstr "Обновление"
+
+#: src/weather-home_preference.c:819
+msgid "Updating of weather data:"
+msgstr "Обновление данных погоды:"
+
+#: src/weather-home_preference.c:929
+msgid ""
+"Use Edit layout \n"
+"for tuning images of applet"
+msgstr ""
+"Используйте Edit layout \n"
+"для настройки отображения апплета"
+
+#: src/weather-home_preference.c:968
+msgid "Other Maemo Weather Info"
+msgstr "Информация о программе"
+
+#: src/weather-home_preference.c:978
+msgid ""
+"\n"
+"Hildon desktop applet\n"
+"for Nokia 770/N800\n"
+"to show weather forecasts.\n"
+"\n"
+"Copyright(c) 2006-2007\n"
+"Vlad Vasiliev, Pavel Fialko"
+msgstr ""
+"\n"
+"Апплет для рабочего стола Hildon\n"
+"для Nokia 770/N800\n"
+"для отображения погоды.\n"
+"\n"
+"Copyright(c) 2006-2007\n"
+"Влад Васильев, Павел Фиалко"
+
+#: src/weather-home_preference.c:986
+msgid "About"
+msgstr "О программе"
+
+#: src/weather-home_preference.c:989
+msgid ""
+"\n"
+"Author and maintenance:\n"
+"\tVlad Vasiliev, vlad@gas.by\n"
+"Maintenance:\n"
+"\tPavel Fialko, pavelnf@gmail.com"
+msgstr ""
+"\n"
+"Автор и поддержка:\n"
+"\tВлад Васильев, vlad@gas.by\n"
+"Поддержка:\n"
+"\tПавел Фиалко, pavelnf@gmail.com"
+
+#: src/weather-home_preference.c:995
+msgid "Authors"
+msgstr "Авторы"
+
+#: src/weather-home_preference.c:998
+msgid ""
+"\n"
+"Ed Bartosh - for support and criticism\n"
+"Eugen Kaluta aka tren - for support\n"
+"Maxim Kalinkevish aka spark for testing\n"
+"Yuri Komyakov - for Nokia 770 device \n"
+"Greg Thompson for support stations.txt file\n"
+"Frank Persian - for idea of new layout\n"
+"Brian Knight - for idea of iconset, criticism \n"
+"\t\t\t\tand donation ;-)\n"
+msgstr ""
+"\n"
+"Эдуард Бартош - за поддержку и критику\n"
+"Евгений Калюта ака tren - за поддержку\n"
+"Максим Калинкевич ака spark за тестирование\n"
+"Юрий Комяков - за Nokia 770 \n"
+"Грэг Томпсон - за предоставленный файл stations.txt\n"
+"Фрэнк Персиан - за идею об изменении расположения иконок\n"
+"Брайн Кнайгт - за идею о наборе иконок, критику \n"
+"\t\t\t\tи дотацию ;-)\n"
+
+#: src/weather-home_preference.c:1009
+msgid "Thanks"
+msgstr "Благодарности"
+
+#: src/weather-home_config.c:374
+msgid "Never"
+msgstr "Никогда"
+
+#: src/weather-home_config.c:375
+msgid "1 hour"
+msgstr "1 час"
+
+#: src/weather-home_config.c:376
+msgid "2 hours"
+msgstr "2 часа"
+
+#: src/weather-home_config.c:377
+msgid "4 hours"
+msgstr "4 часа"
+
+#: src/weather-home_config.c:378
+msgid "8 hours"
+msgstr "8 часов"
+
+#: src/weather-home_config.c:379
+msgid "24 hours"
+msgstr "24 часа"
+
+#: src/weather-home_config.c:380
+msgid "1 minute (DEBUG)"
+msgstr "1 минута (для отладки)"
+
+#: src/weather-window_popup.c:107
+#, c-format
+msgid ""
+"Now   \n"
+"%d°%c"
+msgstr ""
+"Сейчас   \n"
+"%d°%c"
+
+#: src/weather-window_popup.c:120
+msgid "m"
+msgstr "м"
+
+#: src/weather-window_popup.c:121
+msgid "km"
+msgstr "км"
+
+#: src/weather-window_popup.c:122 src/weather-window_popup.c:123
+#: src/weather-window_popup.c:124
+msgid "mi"
+msgstr "мили"
+
+#: src/weather-window_popup.c:126
+#, c-format
+msgid ""
+"%s\n"
+"Feels like: %d°%c Visible: %.1f %s\n"
+"Humidity: %s%%\n"
+"Wind: %s %im/s Gust: %im/s"
+msgstr ""
+"%s\n"
+"По ощущению: %d°%c Видимость: %.1f %s\n"
+"Влажность: %s%%\n"
+"Ветер: %s %iм/с Gust: %iм/с"
+
+#: src/weather-window_popup.c:189
+msgid "Temperature: "
+msgstr "Температура: "
+
+#: src/weather-window_popup.c:192
+msgid "N/A"
+msgstr "Н/Д"
+
+#: src/weather-window_popup.c:214 src/weather-window_popup.c:412
+msgid "Night"
+msgstr "Ночь"
+
+#: src/weather-window_popup.c:220 src/weather-window_popup.c:244
+#: src/weather-window_popup.c:421 src/weather-window_popup.c:446
+#, c-format
+msgid ""
+"%s\n"
+"Humidity: %s%%\n"
+"Wind: %s %im/s"
+msgstr ""
+"%s\n"
+"Humidity: %s%%\n"
+"Ветер: %s %iм/с"
+
+#: src/weather-window_popup.c:239 src/weather-window_popup.c:437
+msgid "Day  "
+msgstr "День "
+
+#: src/weather-window_popup.c:261 src/weather-window_popup.c:460
+#, c-format
+msgid "Last update: Unknown"
+msgstr "Последнее обновление: Не известно"
+
+#: src/weather-window_popup.c:263
+#, c-format
+msgid ""
+"Last update: \n"
+"%s"
+msgstr ""
+"Последнее обновление: \n"
+"%s"
+
+#: src/weather-window_popup.c:274
+msgid "Settings"
+msgstr "Настройки"
+
+#: src/weather-window_popup.c:462
+#, c-format
+msgid "Last update: %s"
+msgstr "Последнее обновление: %s"
+
+#: src/weather-window_popup.c:473
+msgid "Preference"
+msgstr "Свойства"

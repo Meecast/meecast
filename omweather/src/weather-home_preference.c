@@ -402,7 +402,7 @@ void weather_window_add_custom_station(){
     GtkWidget *table;
 
 /* Create dialog window */
-    window_add_custom_station = gtk_dialog_new_with_buttons("Add Custom Station",
+    window_add_custom_station = gtk_dialog_new_with_buttons(_("Add Custom Station"),
         							NULL, GTK_DIALOG_MODAL,
         							GTK_STOCK_OK,
 								GTK_RESPONSE_ACCEPT, NULL);
@@ -412,7 +412,7 @@ void weather_window_add_custom_station(){
         		    GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT);
 /* Add Custom Station Name  */
     gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new("Station name:"),
+        			label = gtk_label_new(_("Station name:")),
         			0, 1, 0, 1);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f) ,
@@ -422,7 +422,7 @@ void weather_window_add_custom_station(){
     gtk_entry_set_width_chars((GtkEntry*)custom_station_name, 16);
 /* Add Custom Station Code  */
     gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new("Station code\n (ZIP Code):"),
+        			label = gtk_label_new(_("Station code\n (ZIP Code):")),
         			0, 1, 1, 2);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0.f, 1.f, 0.f, 1.f) ,
@@ -474,7 +474,7 @@ void weather_window_add_station(GtkWidget *widget,
     GtkWidget *label, *table;
 
 /* Create dialog window */
-    window_add_station = gtk_dialog_new_with_buttons("Add Station",
+    window_add_station = gtk_dialog_new_with_buttons(_("Add Station"),
         						NULL,
 							GTK_DIALOG_MODAL,
         						GTK_STOCK_OK,
@@ -482,12 +482,12 @@ void weather_window_add_station(GtkWidget *widget,
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_add_station)->vbox),
         		table = gtk_table_new(4, 2, FALSE), TRUE, TRUE, 0);
     gtk_dialog_add_button(GTK_DIALOG(window_add_station),
-                    		"Add Custom Station", OMW_RESPONSE_ADD_CUSTOM_STATION);
+                    		_("Add Custom Station"), OMW_RESPONSE_ADD_CUSTOM_STATION);
     gtk_dialog_add_button(GTK_DIALOG(window_add_station),
         			GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT);
 /* Add Country */
     gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new("Country:"),
+        			label = gtk_label_new(_("Country:")),
         			0, 1, 0, 1);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
@@ -495,7 +495,7 @@ void weather_window_add_station(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label),countrys = gtk_combo_box_new_text());
 /* Add State */
     gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new("State(Province):"),
+        			label = gtk_label_new(_("State(Province):")),
         			0, 1, 2, 3);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
@@ -503,7 +503,7 @@ void weather_window_add_station(GtkWidget *widget,
   gtk_container_add(GTK_CONTAINER(label),states = gtk_combo_box_new_text());
 /* Add Station */
     gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new("Station(Place):"),
+        			label = gtk_label_new(_("Station(Place):")),
         			0, 1, 3, 4);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f) ,
@@ -611,7 +611,7 @@ void weather_window_preference(GtkWidget *widget,
     flag_update_icon = FALSE;
     flag_tuning_warning = FALSE; 
 
-    window_config = gtk_dialog_new_with_buttons("Other Maemo Weather Settings",
+    window_config = gtk_dialog_new_with_buttons(_("Other Maemo Weather Settings"),
         				NULL,
 					GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
         				GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
@@ -628,7 +628,7 @@ void weather_window_preference(GtkWidget *widget,
 /* Locations tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         	    table = gtk_table_new(4, 2, FALSE),
-        	    label = gtk_label_new("Locations"));
+        	    label = gtk_label_new(_("Locations")));
 	    
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         	    label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
@@ -650,14 +650,14 @@ void weather_window_preference(GtkWidget *widget,
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
         			1, 2, 0, 1);
-    button_add = gtk_button_new_with_label(" Add "); 
+    button_add = gtk_button_new_with_label(_(" Add ")); 
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			button_add,
         			1, 2, 1, 2);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
         			1, 2, 2, 3);
-    button_del = gtk_button_new_with_label("Delete");
+    button_del = gtk_button_new_with_label(_("Delete"));
     gtk_table_attach_defaults(GTK_TABLE(table),
         			button_del,
         			1, 2, 3, 4);
@@ -672,11 +672,11 @@ void weather_window_preference(GtkWidget *widget,
 /* Interface tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			table = gtk_table_new(1, 6, FALSE),
-        			label = gtk_label_new("Interface"));
+        			label = gtk_label_new(_("Interface")));
 /* Days to show */
     days_to_show--; /* count down, because combobox items start with 0 */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-				label = gtk_label_new("Days to show:"),
+				label = gtk_label_new(_("Days to show:")),
 				0, 1, 0, 1);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
@@ -708,16 +708,16 @@ void weather_window_preference(GtkWidget *widget,
     days_to_show++; /* count up to return to real value */
 /* Layout */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new("Layout:"),
+        			label = gtk_label_new(_("Layout:")),
         			0, 1, 1, 2);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
         			1, 2, 1, 2);
     gtk_container_add(GTK_CONTAINER(label),layout_type = gtk_combo_box_new_text());
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "One row");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "One column");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Two rows");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), "Two columns");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One row"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One column"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two rows"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two columns"));
     switch(_weather_layout){
 	default:
 	case ONE_ROW: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),0);break;
@@ -727,7 +727,7 @@ void weather_window_preference(GtkWidget *widget,
     }
     /* Icon set */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new("Icon set:"),
+        			label = gtk_label_new(_("Icon set:")),
         			0, 1, 2, 3);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
@@ -737,25 +737,24 @@ void weather_window_preference(GtkWidget *widget,
     create_icon_set_list(iconset);
     /* Icon size */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new("Icon size:"),
+        			label = gtk_label_new(_("Icon size:")),
         			0, 1, 3, 4);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
         			1, 2, 3, 4);
     gtk_container_add(GTK_CONTAINER(label),icon_size = gtk_combo_box_new_text());
-    gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), "Large");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), "Medium");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), "Small");
-    if(!strcmp(_weather_icon_size, "Large"))
-	gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size), 0);
-    else
-	if(!strcmp(_weather_icon_size, "Medium"))  
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size), 1);
-	else
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size), 2);
+    gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), _("Large"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), _("Medium"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), _("Small"));
+    switch(_weather_icon_size){
+	default:
+	case 0: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),0);break;
+	case 1: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),1);break;
+	case 2: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),2);break;
+    }
     /* Font color */   
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new("Font color:"),
+        			label = gtk_label_new(_("Font color:")),
         			0, 1, 4, 5);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
@@ -764,7 +763,7 @@ void weather_window_preference(GtkWidget *widget,
     gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color);
     /* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new("Transparency"),
+        			label = gtk_label_new(_("Transparency")),
         			0, 1, 5, 6);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
@@ -775,34 +774,35 @@ void weather_window_preference(GtkWidget *widget,
 /* Units tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			table = gtk_table_new(1, 2, FALSE),
-        			label = gtk_label_new("Units"));
+        			label = gtk_label_new(_("Units")));
 /* Temperature units */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new("Temperature units:"),
+        			label = gtk_label_new(_("Temperature units:")),
         			0, 1, 0, 1);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
         			1, 2, 0, 1);
     gtk_container_add(GTK_CONTAINER(label),temperature_unit = gtk_combo_box_new_text());
-    gtk_combo_box_append_text(GTK_COMBO_BOX(temperature_unit), "Celsius (Metric)");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(temperature_unit), "Fahrenheit (Imperial)");
-    if(_weather_temperature_unit == 'C') 
-	gtk_combo_box_set_active(GTK_COMBO_BOX(temperature_unit), 0);
-    else
-	gtk_combo_box_set_active(GTK_COMBO_BOX(temperature_unit), 1);
+    gtk_combo_box_append_text(GTK_COMBO_BOX(temperature_unit), _("Celsius (Metric)"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(temperature_unit), _("Fahrenheit (Imperial)"));
+    switch(_weather_temperature_unit){
+	default:
+	case CELSIUS: gtk_combo_box_set_active(GTK_COMBO_BOX(temperature_unit), 0); break;
+	case FAHRENHEIT: gtk_combo_box_set_active(GTK_COMBO_BOX(temperature_unit), 1); break;
+    }
 /* Distance units */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-				label = gtk_label_new("Distance units:"),
+				label = gtk_label_new(_("Distance units:")),
 				0, 1, 1, 2);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
 				1, 2, 1, 2);
     gtk_container_add(GTK_CONTAINER(label), units = gtk_combo_box_new_text());
-    gtk_combo_box_append_text(GTK_COMBO_BOX(units), "Meters");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(units), "Kilometers");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(units), "Miles (International)");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(units), "Miles (Imperial)");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(units), "Miles (Sea)");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Meters"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Kilometers"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Miles (International)"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Miles (Imperial)"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Miles (Sea)"));
     switch(distance_units){
 	default:
 	case 0:  gtk_combo_box_set_active(GTK_COMBO_BOX(units), 0);break;
@@ -814,9 +814,9 @@ void weather_window_preference(GtkWidget *widget,
 /* Update tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			table = gtk_table_new(1, 2, FALSE),
-        			label = gtk_label_new("Update"));
+        			label = gtk_label_new(_("Update")));
     gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new("Updating of weather data:"),
+        			label = gtk_label_new(_("Updating of weather data:")),
         			0, 1, 0, 1);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
@@ -846,15 +846,14 @@ void weather_window_preference(GtkWidget *widget,
 		flag_update_icon = TRUE;
 	    }
 /* icon size */	    
-	    if(strcmp(_weather_icon_size, gtk_combo_box_get_active_text(GTK_COMBO_BOX(icon_size))) != 0){
-		_weather_icon_size = gtk_combo_box_get_active_text(GTK_COMBO_BOX(icon_size));
+	    if(_weather_icon_size != gtk_combo_box_get_active(GTK_COMBO_BOX(icon_size))){
+		_weather_icon_size = gtk_combo_box_get_active(GTK_COMBO_BOX(icon_size));
 		flag_update_icon = TRUE;
 		flag_tuning_warning = TRUE;
 	    }
 /* Temperature units */
-	    temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(temperature_unit));
-	    if(_weather_temperature_unit != temp_string[0]){
-		_weather_temperature_unit = temp_string[0];
+	    if(_weather_temperature_unit != gtk_combo_box_get_active(GTK_COMBO_BOX(temperature_unit))){
+		_weather_temperature_unit = gtk_combo_box_get_active(GTK_COMBO_BOX(temperature_unit));
 		flag_update_icon = TRUE;
 	    }
 /* Font color */
@@ -926,7 +925,7 @@ void weather_window_preference(GtkWidget *widget,
     not_event = FALSE;
     if (flag_tuning_warning)
     {
-     hildon_banner_show_information(box,NULL,"Use Edit layout \nfor tuning images of applet");    
+     hildon_banner_show_information(box,NULL,_("Use Edit layout \nfor tuning images of applet"));    
     }
     gtk_widget_destroy(window_config);
 }
@@ -965,7 +964,7 @@ void create_help_dialog(void){
 		*title;
     char	tmp_buff[2048];
 		    
-    help_dialog = gtk_dialog_new_with_buttons("Other Maemo Weather Info",
+    help_dialog = gtk_dialog_new_with_buttons(_("Other Maemo Weather Info"),
         				NULL,
 					GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
         				GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
@@ -975,38 +974,38 @@ void create_help_dialog(void){
         	    notebook = gtk_notebook_new(), TRUE, TRUE, 0);
 /* About tab */
     snprintf(tmp_buff, sizeof(tmp_buff), "%s",
-	    "\nHildon desktop applet\n"
+	    _("\nHildon desktop applet\n"
 	    "for Nokia 770/N800\n"
 	    "to show weather forecasts.\n"
 	    "\nCopyright(c) 2006-2007\n"
-	    "Vlad Vasiliev, Pavel Fialko");
+	    "Vlad Vasiliev, Pavel Fialko"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_CENTER),
-				title = gtk_label_new("About"));
+				title = gtk_label_new(_("About")));
 /* Authors tab */
     snprintf(tmp_buff, sizeof(tmp_buff), "%s",
-		"\nAuthor and maintenance:\n"
+		_("\nAuthor and maintenance:\n"
 		"\tVlad Vasiliev, vlad@gas.by\n"
-		"Maintenance:\n\tPavel Fialko, pavelnf@gmail.com");
+		"Maintenance:\n\tPavel Fialko, pavelnf@gmail.com"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),
-				title = gtk_label_new("Authors"));
+				title = gtk_label_new(_("Authors")));
 /* Thanks tab */
     snprintf(tmp_buff, sizeof(tmp_buff), "%s",
-	    "\nEd Bartosh - for support and criticism\n"
+	    _("\nEd Bartosh - for support and criticism\n"
 	    "Eugen Kaluta aka tren - for support\n"
 	    "Maxim Kalinkevish aka spark for testing\n"
 	    "Yuri Komyakov - for Nokia 770 device \n"
 	    "Greg Thompson for support stations.txt file\n"
 	    "Frank Persian - for idea of new layout\n"
 	    "Brian Knight - for idea of iconset, criticism \n"
-	    "\t\t\t\tand donation ;-)\n");
+	    "\t\t\t\tand donation ;-)\n"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),
-        			title = gtk_label_new("Thanks"));
+        			title = gtk_label_new(_("Thanks")));
     gtk_widget_show_all(help_dialog);
 /* start dialog window */
     gtk_dialog_run(GTK_DIALOG(help_dialog));

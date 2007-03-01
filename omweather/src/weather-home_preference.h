@@ -40,13 +40,13 @@ extern gchar     *_weather_country_name;
 extern gchar     *_weather_state_name;
 extern gchar     *_weather_station_name;
 extern gchar     *_weather_station_id;
-extern gchar     *_weather_icon_size;
+extern int	_weather_icon_size;
 extern gboolean  _enable_transparency;
 extern int       _weather_periodic_update;
 extern GdkColor  _weather_font_color;
 extern GtkWidget *weather_window_popup;  
 extern GSList    *time_update_list;
-extern gchar     _weather_temperature_unit;
+extern int	_weather_temperature_unit;
 extern gboolean  not_event;
 extern int       _weather_layout;
 /* by Pavel */

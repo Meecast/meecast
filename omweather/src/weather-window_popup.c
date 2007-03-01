@@ -64,6 +64,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     int i;
     float	tmp_distance;
     char	*units;
+    char	symbol = 'C';
 
 /* if no one station present in list show only preference */
     if(!_weather_station_id){
@@ -103,10 +104,10 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 	icon_image_current = gtk_image_new_from_pixbuf(icon);
 	vbox_current = gtk_vbox_new(FALSE, 0);
 
-	sprintf(buffer,"Now  \n%d\302\260%c",
-			((_weather_temperature_unit == 'C') ? ( atoi(weather_current_day.day.temp) )
-							    : ( c2f(atoi(weather_current_day.day.temp)) ) ),
-			_weather_temperature_unit );
+	sprintf(buffer,"Now   \n%d\302\260%c",
+			((_weather_temperature_unit == CELSIUS) ? ( atoi(weather_current_day.day.temp), symbol = 'C' )
+							    : ( c2f(atoi(weather_current_day.day.temp)), symbol = 'F' ) ),
+			symbol );
 	label_current = gtk_label_new(buffer);
 	set_font_size(label_current, 20);
 	gtk_box_pack_start(GTK_BOX(vbox_current), label_current, FALSE, FALSE, 0);
@@ -124,9 +125,9 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 	}
 	sprintf(buffer,"%s\nFeels like: %d\302\260%c Visible: %.1f %s\nHumidity: %s%%\nWind: %s %im/s Gust: %im/s",
         	    weather_current_day.day.title,
-		    ( (_weather_temperature_unit == 'C') ? (atoi(weather_current_day.day.temp)) 
-							 : (c2f(atoi(weather_current_day.low_temp)) ) ),
-		    _weather_temperature_unit,
+		    ( (_weather_temperature_unit == CELSIUS) ? (atoi(weather_current_day.day.temp), symbol = 'C') 
+							 : (c2f(atoi(weather_current_day.low_temp)), symbol = 'F' ) ),
+		    symbol,
 		    tmp_distance,
 		    units,
 		    weather_current_day.day.hmid,
@@ -185,17 +186,17 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 /* End TITLE */
 /* BEGIN TEMPERATURE */
     hbox_temp = gtk_hbox_new(FALSE, 0);
-    label_temp = gtk_label_new("Temperature: ");
+    label_temp = gtk_label_new(_("Temperature: "));
     set_font_size(label_temp, 18);
     
     if(!strcmp(weather_days[i].hi_temp,"N/A")){ 
-	if(_weather_temperature_unit == 'C')
+	if(_weather_temperature_unit == CELSIUS)
 	    sprintf(buffer, "%s\302\260C", weather_days[i].low_temp);    
 	else
 	    sprintf(buffer, "%d\302\260F", c2f(atoi(weather_days[i].low_temp)));
     }
     else{
-	if(_weather_temperature_unit == 'C')
+	if(_weather_temperature_unit == CELSIUS)
 	    sprintf(buffer, "%s\302\260C / %s\302\260C", weather_days[i].low_temp,weather_days[i].hi_temp);
 	else
 	    sprintf(buffer,"%d\302\260F / %d\302\260F", c2f(atoi(weather_days[i].low_temp)),c2f(atoi(weather_days[i].hi_temp)));
@@ -210,7 +211,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
     icon_image_night = gtk_image_new_from_pixbuf(icon);
     vbox_night = gtk_vbox_new(FALSE, 0);
-    label_night = gtk_label_new("Night");
+    label_night = gtk_label_new(_("Night"));
     set_font_size(label_night, 20);
     
     gtk_box_pack_start(GTK_BOX(vbox_night), label_night, FALSE, FALSE, 0);
@@ -235,7 +236,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
     icon_image_day = gtk_image_new_from_pixbuf(icon);
     vbox_day = gtk_vbox_new(FALSE, 0);
-    label_day = gtk_label_new("Day  ");
+    label_day = gtk_label_new(_("Day  "));
     set_font_size(label_day, 20);
     gtk_box_pack_start(GTK_BOX(vbox_day), label_day, FALSE, FALSE, 0);
 
@@ -257,7 +258,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     hbox_foot = gtk_hbox_new(FALSE, 0);
     sprintf(full_filename, "%s/%s.xml", _weather_dir_name, _weather_station_id);
     if(stat(full_filename, &statv))
-	sprintf(buffer, "Last update: Unknown");
+	sprintf(buffer, _("Last update: Unknown"));
     else{ 
     	sprintf(buffer,"Last update: \n%s", ctime(&statv.st_mtime));
         buffer[strlen(buffer) - 1] = 0; /* Remove Last \n */
@@ -270,7 +271,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 /* Start PREFERENCE UPDATE */
     hbox_pref = gtk_hbox_new(FALSE, 0);
     gtk_container_set_border_width(GTK_CONTAINER(hbox_pref), 4);
-    button_pref = gtk_button_new_with_label("Settings");
+    button_pref = gtk_button_new_with_label(_("Settings"));
     g_signal_connect(button_pref, "clicked",
 		    G_CALLBACK(weather_window_preference), NULL);      
     
@@ -408,7 +409,7 @@ weather_window_popup_show_future (GtkWidget *widget,
     icon = gdk_pixbuf_new_from_file_at_size (buffer,64,64,NULL);
     icon_image_night = gtk_image_new_from_pixbuf (icon);
     vbox_night = gtk_vbox_new (FALSE, 0);
-    label_night = gtk_label_new ("Night");
+    label_night = gtk_label_new (_("Night"));
     set_font_size(label_night,20);
     gtk_box_pack_start (GTK_BOX (vbox_night),label_night, FALSE, FALSE, 0);
 
@@ -433,7 +434,7 @@ weather_window_popup_show_future (GtkWidget *widget,
     icon = gdk_pixbuf_new_from_file_at_size (buffer,64,64,NULL);
     icon_image_day = gtk_image_new_from_pixbuf (icon);
     vbox_day = gtk_vbox_new (FALSE, 0);
-    label_day = gtk_label_new ("Day  ");
+    label_day = gtk_label_new (_("Day  "));
     set_font_size(label_day,20);
     gtk_box_pack_start (GTK_BOX (vbox_day),label_day, FALSE, FALSE, 0);
 
@@ -469,7 +470,7 @@ weather_window_popup_show_future (GtkWidget *widget,
     /* Start PREFERENCE UPDATE */
     hbox_pref = gtk_hbox_new (FALSE, 0);
     gtk_container_set_border_width (GTK_CONTAINER (hbox_pref), 4);
-    button_pref = gtk_button_new_with_label ("Preference");
+    button_pref = gtk_button_new_with_label (_("Preference"));
     g_signal_connect (button_pref, "clicked",
 		    G_CALLBACK (weather_window_preference),
 		    NULL);      

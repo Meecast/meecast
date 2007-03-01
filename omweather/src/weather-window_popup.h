@@ -42,7 +42,7 @@ extern int 	 boxs_offset[];
 extern GtkWidget *weather_window_popup;
 extern GtkWidget *box;
 extern gchar     path_large_icon[];
-extern gchar      _weather_temperature_unit;
+extern int	_weather_temperature_unit;
 extern	gint	days_to_show;
 extern	gint	distance_units;
 

@@ -34,6 +34,7 @@
 #include <libosso.h>
 /* #include <pthread.h> */
 #include <osso-ic.h>
+#include <pthread.h>
 
 #define APPLET_X_SIZE		200
 #define APPLET_Y_SIZE		40

@@ -45,6 +45,7 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], "${GETTEXT_PACKAGE}", [Name of gettext package])
 AC_DEFINE_UNQUOTED([LOCALEDIR], "${LOCALEDIR}", [Path to store localization files])
 ALL_LINGUAS="ru_RU"
+AM_GLIB_GNU_GETTEXT
 
 PKG_CHECK_MODULES(GTK, gtk+-2.0)
 AC_SUBST(GTK_LIBS)
@@ -71,11 +72,14 @@ AC_SUBST(GCONF_CFLAGS)
 helpfile_engbdir=$datadir/osso-help/en_US
 AC_SUBST(helpfile_engbdir)
 
+# Checks for library functions.
+AC_CHECK_FUNCS([setlocale])
+
 # Config files
 AC_CONFIG_FILES([Makefile
 		src/lib/Makefile
 		src/Makefile
-		po/Makefile.in
+		po/Makefile
 		data/Makefile])
 # Produce output files
 AC_OUTPUT

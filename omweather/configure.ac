@@ -42,8 +42,7 @@ GETTEXT_PACKAGE=$PACKAGE
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], "${GETTEXT_PACKAGE}", [Name of gettext package])
 AC_DEFINE_UNQUOTED([LOCALEDIR], "${localedir}", [Path to store localization files])
-ALL_LINGUAS="ru"
-AM_GLIB_GNU_GETTEXT
+ALL_LINGUAS="ru_RU"
 AM_GLIB_GNU_GETTEXT
 
 PKG_CHECK_MODULES(GTK, [gtk+-2.0])
@@ -78,7 +77,7 @@ AC_CHECK_FUNCS([setlocale])
 AC_CONFIG_FILES([Makefile
 		src/lib/Makefile
 		src/Makefile
-		po/Makefile
+		po/Makefile.in
 		data/Makefile])
 # Produce output files
 AC_OUTPUT

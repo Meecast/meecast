@@ -19,7 +19,9 @@
 #
 
 
-SUBDIRS = src data po
+SUBDIRS =	src \
+		po \
+		data
 
 
 

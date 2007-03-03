@@ -64,7 +64,7 @@ set_font_size(GtkWidget *widget, char font_size)
 void create_window_update(){
     update_window = hildon_banner_show_animation(weather_window_popup,
 						    NULL,
-						    "Update weather");
+						    _("Update weather"));
     g_object_ref(G_OBJECT(update_window));
 }
 
@@ -78,36 +78,30 @@ iap_callback(struct iap_event_t *event, void *arg)
     case OSSO_IAP_CONNECTED:
 	if (get_weather_html(FALSE) != 0)
 	{
-	 hildon_banner_show_information(box,NULL,"Did not download weather");
+	 hildon_banner_show_information(box,NULL, _("Did not download weather"));
 	}
 	else
 	{
 	   weather_frame_update(FALSE); 
-	   hildon_banner_show_information(box,NULL,"Weather updated");
+	   hildon_banner_show_information(box,NULL, _("Weather updated"));
 	}   
 	break;
     case OSSO_IAP_DISCONNECTED:
 	break;
     case OSSO_IAP_ERROR:
-	hildon_banner_show_information(box,NULL,"Not connected to Internet");
+	hildon_banner_show_information(box,NULL, _("Not connected to Internet"));
 	break;
     }    
 
 }
 
 /* Check connect to Internet and connection if it not */
-gboolean 
-get_connected(void)
-{
+gboolean get_connected(void){
     /* Register a callback function for IAP related events. */
-    if (osso_iap_cb(iap_callback) != OSSO_OK)
-    {
+    if(osso_iap_cb(iap_callback) != OSSO_OK)
 	return FALSE;
-    }
-    if (osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)
-    {
+    if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)
 	return FALSE;
-    }
     return TRUE;
 }
 
@@ -141,20 +135,20 @@ get_weather_html( gboolean check_connect )
     g_string_free (url,TRUE);
     if( hResponse.pError || strcmp(hResponse.szHCode,HTTP_RESPONSE_OK) )
         {
-	     hildon_banner_show_information(box,NULL,"Did not download weather ");
+	     hildon_banner_show_information(box,NULL, _("Did not download weather"));
 	     return -2;	       
         }
 	
     sprintf(full_filename, "%s/%s.xml.new", _weather_dir_name,ws->id_station);
 
     if(!(fd = fopen(full_filename,"w"))){
-      hildon_banner_show_information(box,NULL,"Did not open save xml file");     
-      fprintf(stderr,"Could not open cache weather xml file %s.\n",full_filename);
+      hildon_banner_show_information(box,NULL, _("Did not open save xml file"));
+      fprintf(stderr, _("Could not open cache weather xml file %s.\n"),full_filename);
       return -1;
     }
     fprintf (fd,"%s",hResponse.pData);
     fclose (fd);
-      hildon_banner_show_information(box,NULL,"Weather updated");     
+      hildon_banner_show_information(box,NULL, _("Weather updated"));
   }
    tmplist = g_slist_next(tmplist);
   }
@@ -325,7 +319,7 @@ void weather_buttons_init(void){
 
 /* Error Window */
 void station_error_window(void){
-   hildon_banner_show_information(box, NULL, "Wrong station code \nor ZIP code!!!");
+   hildon_banner_show_information(box, NULL, _("Wrong station code \nor ZIP code!!!"));
 }
 
 /* Fill buttons data */
@@ -367,7 +361,7 @@ void weather_buttons_fill(gboolean check_error){
     if(check_error)
 	if(count_day == -2){
 	    count_day = 0;
-	    fprintf(stderr,"Error in xml file\n");
+	    fprintf(stderr, _("Error in xml file\n"));
 	    error_station_code = TRUE;
     } /* Error in xml file */
 /* 
@@ -564,13 +558,13 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     
     osso = osso_initialize(PACKAGE, VERSION, FALSE, NULL);
     if(!osso){
-        g_debug("Error initializing the osso maemo omweather applet");
+        g_debug(_("Error initializing the osso maemo omweather applet"));
         return NULL;
     }
     fprintf(stderr, "\nWeather applet initialize %p %d\n",
 		    state_data, *state_size);
 /* localization system init */
-    setlocale(LC_ALL, "");
+/*    setlocale(LC_ALL, "");*/
     bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
     bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
     textdomain(GETTEXT_PACKAGE);

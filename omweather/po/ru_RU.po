@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-02 11:08+0200\n"
+"POT-Creation-Date: 2007-03-03 18:01+0200\n"
 "PO-Revision-Date: 2007-03-02 11:08+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru_RU@li.org>\n"
@@ -73,29 +73,40 @@ msgstr ""
 msgid " Add "
 msgstr " Добавить "
 
+#: src/weather-window_popup.c:220 src/weather-window_popup.c:244
+#, c-format
+msgid ""
+"%s\n"
+"Humidity: %s%%\n"
+"Wind: %s %im/s"
+msgstr ""
+"%s\n"
+"Влажность: %s%%\n"
+"Ветер: %s %iм/с"
+
 #: src/weather-home_config.c:375
 msgid "1 hour"
-msgstr "1 час"
+msgstr "раз в час"
 
 #: src/weather-home_config.c:380
 msgid "1 minute (DEBUG)"
-msgstr "1 минута (отладка)"
+msgstr "раз в минуту (отладка)"
 
 #: src/weather-home_config.c:376
 msgid "2 hours"
-msgstr "2 часа"
+msgstr "раз в 2 часа"
 
 #: src/weather-home_config.c:379
 msgid "24 hours"
-msgstr "24 часа"
+msgstr "раз в 24 часа"
 
 #: src/weather-home_config.c:377
 msgid "4 hours"
-msgstr "4 часа"
+msgstr "раз в 4 часа"
 
 #: src/weather-home_config.c:378
 msgid "8 hours"
-msgstr "8 часов"
+msgstr "раз в 8 часов"
 
 #: src/weather-home_preference.c:985
 msgid "About"
@@ -117,6 +128,16 @@ msgstr "Авторы"
 msgid "Celsius (Metric)"
 msgstr "Цельсий (метрическая система)"
 
+#: src/weather-home_config.c:280
+#, c-format
+msgid "Could not create Weather Cache directory.\n"
+msgstr "Не возможно создать директорию кэша.\n"
+
+#: src/weather-home.c:146
+#, c-format
+msgid "Could not open cache weather xml file %s.\n"
+msgstr "Не возможно открыть xml файл %s из кэша.\n"
+
 #: src/weather-home_preference.c:490
 msgid "Country:"
 msgstr "Страна:"
@@ -133,13 +154,40 @@ msgstr "Количество дней:"
 msgid "Delete"
 msgstr "Удалить"
 
+#: src/weather-home.c:81 src/weather-home.c:138
+msgid "Did not download weather"
+msgstr "Не возможно загрузить данные о погоде."
+
+#: src/weather-home.c:145
+msgid "Did not open save xml file"
+msgstr "Не возможно открыть сохраненный xml файл."
+
 #: src/weather-home_preference.c:795
 msgid "Distance units:"
 msgstr "Единицы расстояния:"
 
+#: src/weather-home.c:364
+#, c-format
+msgid "Error in xml file\n"
+msgstr "Ошибка в xml файле.\n"
+
+#: src/weather-home.c:561
+msgid "Error initializing the osso maemo omweather applet"
+msgstr "Ошибка при инициализации апплета."
+
 #: src/weather-home_preference.c:787
 msgid "Fahrenheit (Imperial)"
 msgstr "Фаренгейт (США и др.)"
+
+#: src/weather-home_config.c:270
+#, c-format
+msgid "Failed to initialize GConf. Quitting.\n"
+msgstr "Не возможно инициализировать GConf. Выходим.\n"
+
+#: src/weather-home_config.c:396 src/weather-home_config.c:424
+#, c-format
+msgid "Failed to initialize GConf. Settings were not saved.\n"
+msgstr "Не возможно инициализировать GConf. Настройки не будут сохранены.\n"
 
 #: src/weather-home_preference.c:757
 msgid "Font color:"
@@ -165,7 +213,7 @@ msgstr "Километры"
 msgid "Large"
 msgstr "Большой"
 
-#: src/weather-window_popup.c:261
+#: src/weather-window_popup.c:261 src/weather-window_popup.c:461
 #, c-format
 msgid "Last update: Unknown"
 msgstr "Последнее обновление: Не известно"
@@ -206,6 +254,10 @@ msgstr "Никогда"
 msgid "Night"
 msgstr "Ночь"
 
+#: src/weather-home.c:92
+msgid "Not connected to Internet"
+msgstr "Нет соединения с интернетом."
+
 #: src/weather-home_preference.c:718
 msgid "One column"
 msgstr "в один столбец"
@@ -222,7 +274,7 @@ msgstr "Информация"
 msgid "Other Maemo Weather Settings"
 msgstr "Настройки программы"
 
-#: src/weather-window_popup.c:473
+#: src/weather-window_popup.c:474
 msgid "Preference"
 msgstr "Свойства"
 
@@ -286,6 +338,10 @@ msgstr "Единицы измерения"
 msgid "Update"
 msgstr "Обновление"
 
+#: src/weather-home.c:67
+msgid "Update weather"
+msgstr "Идет обновление погодных данных."
+
 #: src/weather-home_preference.c:819
 msgid "Updating of weather data:"
 msgstr "Обновление погодных данных:"
@@ -297,3 +353,16 @@ msgid ""
 msgstr ""
 "Используйте Edit layout \n"
 "для настройки изображения апплета."
+
+#: src/weather-home.c:86 src/weather-home.c:151
+msgid "Weather updated"
+msgstr "Погодные данные обновлены."
+
+#: src/weather-home.c:322
+msgid ""
+"Wrong station code \n"
+"or ZIP code!!!"
+msgstr ""
+"Ошибка в коде станции\n"
+"или индексе!!!"
+

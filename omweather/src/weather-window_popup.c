@@ -104,7 +104,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 	icon_image_current = gtk_image_new_from_pixbuf(icon);
 	vbox_current = gtk_vbox_new(FALSE, 0);
 
-	sprintf(buffer,"Now   \n%d\302\260%c",
+	sprintf(buffer, "Now   \n%d\302\260%c",
 			((_weather_temperature_unit == CELSIUS) ? ( atoi(weather_current_day.day.temp), symbol = 'C' )
 							    : ( c2f(atoi(weather_current_day.day.temp)), symbol = 'F' ) ),
 			symbol );
@@ -217,7 +217,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     gtk_box_pack_start(GTK_BOX(vbox_night), label_night, FALSE, FALSE, 0);
  
     vbox_hu_night = gtk_vbox_new(FALSE, 0);    
-    sprintf(buffer, "%s\nHumidity: %s%%\nWind: %s %im/s",
+    sprintf(buffer, _("%s\nHumidity: %s%%\nWind: %s %im/s"),
 	    weather_days[i].night.title,
 	    weather_days[i].night.hmid,
 	    weather_days[i].night.wind_title,
@@ -241,7 +241,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     gtk_box_pack_start(GTK_BOX(vbox_day), label_day, FALSE, FALSE, 0);
 
     vbox_hu_day = gtk_vbox_new(FALSE, 0);    
-    sprintf(buffer, "%s\nHumidity: %s%%\nWind: %s %im/s",
+    sprintf(buffer, _("%s\nHumidity: %s%%\nWind: %s %im/s"),
 	    weather_days[i].day.title,
 	    weather_days[i].day.hmid,
 	    weather_days[i].night.wind_title,
@@ -457,11 +457,12 @@ weather_window_popup_show_future (GtkWidget *widget,
     /* Begin FOOT */
     hbox_foot = gtk_hbox_new (FALSE, 0);
     sprintf(full_filename, "%s/weather.com.xml", _weather_dir_name);
-    if (stat (full_filename, &statv)) { sprintf(buffer,"Last update: Unknown"); }
-     else { 
-    	    sprintf(buffer,"Last update: %s",ctime(&statv.st_mtime));
-            buffer[strlen(buffer)-1]=0; /* Remove Last \n */
-          }
+    if(stat (full_filename, &statv))
+	sprintf(buffer, _("Last update: Unknown"));
+    else{ 
+    	sprintf(buffer, "Last update: %s",ctime(&statv.st_mtime));
+        buffer[strlen(buffer)-1]=0; /* Remove Last \n */
+    }
     label_update = gtk_label_new (buffer);    
     set_font_size(label_update,20);
     

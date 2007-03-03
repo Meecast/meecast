@@ -267,7 +267,7 @@ void config_init(){
 
     if(!gconf_client)
     {
-        fprintf(stderr,"Failed to initialize GConf.  Quitting.\n");
+        fprintf(stderr, _("Failed to initialize GConf. Quitting.\n"));
         exit(1);
     }
     /* Get Weather Cache Directory.  Default is "~/apps/omweather". */
@@ -277,7 +277,7 @@ void config_init(){
             tmp = g_strdup("~/apps/omweather");
         if(!config_set_weather_dir_name(gnome_vfs_expand_initial_tilde(tmp)))
         {
-            fprintf(stderr,"Could not create Weather Cache directory.\n");
+            fprintf(stderr, _("Could not create Weather Cache directory.\n"));
         }
         g_free(tmp);    
 	/* Get Weather Station ID  */
@@ -393,7 +393,7 @@ config_save_current_station()
     
     if(!gconf_client)
     {
-        fprintf(stderr,"Failed to initialize GConf.  Settings were not saved.\n");
+        fprintf(stderr, _("Failed to initialize GConf. Settings were not saved.\n"));
         return;
     }
     /* Save Weather station name. */
@@ -421,7 +421,7 @@ void config_save(){
     gconf_client = gconf_client_get_default();
     
     if(!gconf_client){
-        fprintf(stderr,"Failed to initialize GConf.  Settings were not saved.\n");
+        fprintf(stderr, _("Failed to initialize GConf. Settings were not saved.\n"));
         return;
     }
     /* Save Weather Cache Directory. */

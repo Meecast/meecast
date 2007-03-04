@@ -64,7 +64,6 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     int i;
     float	tmp_distance;
     char	*units;
-    char	symbol = 'C';
 
 /* if no one station present in list show only preference */
     if(!_weather_station_id){
@@ -104,10 +103,13 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 	icon_image_current = gtk_image_new_from_pixbuf(icon);
 	vbox_current = gtk_vbox_new(FALSE, 0);
 
-	sprintf(buffer, "Now   \n%d\302\260%c",
-			((_weather_temperature_unit == CELSIUS) ? ( atoi(weather_current_day.day.temp), symbol = 'C' )
-							    : ( c2f(atoi(weather_current_day.day.temp)), symbol = 'F' ) ),
-			symbol );
+	buffer[0] = 0;
+	strcat(buffer, _("Now:  \n"));
+	sprintf(buffer + strlen(buffer), "%d\302\260",
+		((_weather_temperature_unit == CELSIUS) ? ( atoi(weather_current_day.day.temp))
+							: ( c2f(atoi(weather_current_day.day.temp)))));
+	(_weather_temperature_unit == CELSIUS) ? ( strcat(buffer, _("C")) )
+						: ( strcat(buffer, _("F")) );
 	label_current = gtk_label_new(buffer);
 	set_font_size(label_current, 20);
 	gtk_box_pack_start(GTK_BOX(vbox_current), label_current, FALSE, FALSE, 0);
@@ -117,23 +119,31 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 	tmp_distance = weather_current_day.day.vis * 1000;
 	switch(distance_units){
 	    default:
-	    case METERS: units = "m"; tmp_distance *= 1; break;
-	    case KILOMETERS: units = "km"; tmp_distance /= 1000; break;
-	    case INTERNATIONAL_MILES: units = "mi"; tmp_distance /= 1609.344; break;
-	    case IMPERIAL_MILES: units = "mi"; tmp_distance /=  0.0254 * 63600; break;
-	    case SEA_MILES: units = "mi"; tmp_distance /= 1852; break;
+	    case METERS: units = _("m"); tmp_distance *= 1; break;
+	    case KILOMETERS: units = _("km"); tmp_distance /= 1000; break;
+	    case INTERNATIONAL_MILES: units = _("mi"); tmp_distance /= 1609.344; break;
+	    case IMPERIAL_MILES: units = _("mi"); tmp_distance /=  0.0254 * 63600; break;
+	    case SEA_MILES: units = _("mi"); tmp_distance /= 1852; break;
 	}
-	sprintf(buffer,"%s\nFeels like: %d\302\260%c Visible: %.1f %s\nHumidity: %s%%\nWind: %s %im/s Gust: %im/s",
-        	    weather_current_day.day.title,
-		    ( (_weather_temperature_unit == CELSIUS) ? (atoi(weather_current_day.day.temp), symbol = 'C') 
-							 : (c2f(atoi(weather_current_day.low_temp)), symbol = 'F' ) ),
-		    symbol,
-		    tmp_distance,
-		    units,
-		    weather_current_day.day.hmid,
-		    weather_current_day.day.wind_title,
-		    weather_current_day.day.wind_speed*10/36,
-		    weather_current_day.day.wind_gust*10/36);
+	buffer[0] = 0;
+	strcat(buffer, weather_current_day.day.title);
+	strcat(buffer, _("\nFeels like: "));
+	sprintf(buffer + strlen(buffer), "%d\302\260", 
+		(_weather_temperature_unit == CELSIUS) ? (atoi(weather_current_day.day.temp)) 
+							: (c2f(atoi(weather_current_day.low_temp))));
+	(_weather_temperature_unit == CELSIUS) ? ( strcat(buffer, _("C")) )
+						: ( strcat(buffer, _("F")) );
+	strcat(buffer, _(" Visible: "));
+	sprintf(buffer + strlen(buffer), "%.1f %s", tmp_distance, units);
+	strcat(buffer, _("\nHumidity: "));
+	sprintf(buffer + strlen(buffer), "%s%%", weather_current_day.day.hmid);
+	strcat(buffer, _("\nWind: "));
+	sprintf(buffer + strlen(buffer), "%s %i", weather_current_day.day.wind_title,
+						    weather_current_day.day.wind_speed*10/36);
+	strcat(buffer, _("m/s"));
+	strcat(buffer, _(" Gust: "));
+	sprintf(buffer + strlen(buffer), "%i", weather_current_day.day.wind_gust*10/36);
+	strcat(buffer, _("m/s"));
 
 	label_humidity_current = gtk_label_new(buffer);    
 	set_font_size(label_humidity_current, 16);
@@ -189,7 +199,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     label_temp = gtk_label_new(_("Temperature: "));
     set_font_size(label_temp, 18);
     
-    if(!strcmp(weather_days[i].hi_temp,"N/A")){ 
+    if(!strcmp(weather_days[i].hi_temp, _("N/A"))){ 
 	if(_weather_temperature_unit == CELSIUS)
 	    sprintf(buffer, "%s\302\260C", weather_days[i].low_temp);    
 	else
@@ -211,17 +221,21 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
     icon_image_night = gtk_image_new_from_pixbuf(icon);
     vbox_night = gtk_vbox_new(FALSE, 0);
-    label_night = gtk_label_new(_("Night"));
+    label_night = gtk_label_new(_("Night:"));
     set_font_size(label_night, 20);
     
     gtk_box_pack_start(GTK_BOX(vbox_night), label_night, FALSE, FALSE, 0);
  
-    vbox_hu_night = gtk_vbox_new(FALSE, 0);    
-    sprintf(buffer, _("%s\nHumidity: %s%%\nWind: %s %im/s"),
-	    weather_days[i].night.title,
-	    weather_days[i].night.hmid,
-	    weather_days[i].night.wind_title,
-	    weather_days[i].night.wind_speed * 10 / 36);
+    vbox_hu_night = gtk_vbox_new(FALSE, 0);
+    buffer[0] = 0;
+    strcat(buffer, weather_days[i].night.title);
+    strcat(buffer, _("\nHumidity: "));
+    sprintf(buffer + strlen(buffer), "%s%%\n", weather_days[i].night.hmid);
+    strcat(buffer, _("Wind: "));
+    sprintf(buffer + strlen(buffer), "%s %i", weather_days[i].night.wind_title,
+						weather_days[i].night.wind_speed * 10 / 36);
+    strcat(buffer, _("m/s"));
+	    
     label_humidity_night = gtk_label_new(buffer);    
     set_font_size(label_humidity_night, 16);
     gtk_box_pack_start(GTK_BOX(vbox_hu_night), label_humidity_night, FALSE, FALSE, 0);
@@ -236,16 +250,20 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
     icon_image_day = gtk_image_new_from_pixbuf(icon);
     vbox_day = gtk_vbox_new(FALSE, 0);
-    label_day = gtk_label_new(_("Day  "));
+    label_day = gtk_label_new(_("Day:"));
     set_font_size(label_day, 20);
     gtk_box_pack_start(GTK_BOX(vbox_day), label_day, FALSE, FALSE, 0);
 
     vbox_hu_day = gtk_vbox_new(FALSE, 0);    
-    sprintf(buffer, _("%s\nHumidity: %s%%\nWind: %s %im/s"),
-	    weather_days[i].day.title,
-	    weather_days[i].day.hmid,
-	    weather_days[i].night.wind_title,
-	    weather_days[i].day.wind_speed * 10 / 36);
+    buffer[0] = 0;
+    strcat(buffer, weather_days[i].day.title);
+    strcat(buffer, _("\nHumidity: "));
+    sprintf(buffer + strlen(buffer), "%s%%", weather_days[i].day.hmid);
+    strcat(buffer, _("\nWind: "));
+    sprintf(buffer + strlen(buffer), "%s %i", weather_days[i].night.wind_title,
+						weather_days[i].day.wind_speed * 10 / 36);
+    strcat(buffer, _("m/s"));
+	    
     label_humidity_day = gtk_label_new(buffer);    
     set_font_size(label_humidity_day, 16);
     gtk_box_pack_start(GTK_BOX(vbox_hu_day), label_humidity_day, FALSE, FALSE, 0);
@@ -260,7 +278,9 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     if(stat(full_filename, &statv))
 	sprintf(buffer, _("Last update: Unknown"));
     else{ 
-    	sprintf(buffer,"Last update: \n%s", ctime(&statv.st_mtime));
+	buffer[0] = 0;
+	strcat(buffer, _("Last update: \n"));
+    	sprintf(buffer + strlen(buffer), "%s", ctime(&statv.st_mtime));
         buffer[strlen(buffer) - 1] = 0; /* Remove Last \n */
     }
     label_update = gtk_label_new(buffer);    
@@ -418,7 +438,14 @@ weather_window_popup_show_future (GtkWidget *widget,
     set_font_size(label_temp,20);
  
     vbox_hu_night = gtk_vbox_new (FALSE, 0);    
-    sprintf(buffer,"%s\nHumidity: %s%%\nWind: %s %im/s",weather_days[i].night.title,weather_days[i].night.hmid,weather_days[i].night.wind_title,weather_days[i].night.wind_speed*10/36);
+    buffer[0] = 0;
+    strcat(buffer, weather_days[i].night.title);
+    strcat(buffer, _("\nHumidity: "));
+    sprintf(buffer + strlen(buffer), "%s%%", weather_days[i].night.hmid);
+    strcat(buffer, _("\nWind: "));
+    sprintf(buffer + strlen(buffer), "%s %i", weather_days[i].night.wind_title,
+						weather_days[i].night.wind_speed*10/36);
+    strcat(buffer, _("m/s"));
     label_humidity_night = gtk_label_new (buffer);    
     set_font_size(label_humidity_night,15);
     gtk_box_pack_start (GTK_BOX (vbox_hu_night),label_humidity_night, FALSE, FALSE, 0);
@@ -434,7 +461,7 @@ weather_window_popup_show_future (GtkWidget *widget,
     icon = gdk_pixbuf_new_from_file_at_size (buffer,64,64,NULL);
     icon_image_day = gtk_image_new_from_pixbuf (icon);
     vbox_day = gtk_vbox_new (FALSE, 0);
-    label_day = gtk_label_new (_("Day  "));
+    label_day = gtk_label_new (_("Day:"));
     set_font_size(label_day,20);
     gtk_box_pack_start (GTK_BOX (vbox_day),label_day, FALSE, FALSE, 0);
 
@@ -442,8 +469,15 @@ weather_window_popup_show_future (GtkWidget *widget,
     label_temp = gtk_label_new (buffer);
     set_font_size(label_temp,20);
     
-    vbox_hu_day = gtk_vbox_new (FALSE, 0);    
-    sprintf(buffer,"%s\nHumidity: %s%%\nWind: %s %im/s",weather_days[i].day.title,weather_days[i].day.hmid,weather_days[i].night.wind_title,weather_days[i].day.wind_speed*10/36);
+    vbox_hu_day = gtk_vbox_new (FALSE, 0);
+    buffer[0] = 0;
+    strcat(buffer, weather_days[i].day.title);
+    strcat(buffer, _("\nHumidity: "));
+    sprintf(buffer + strlen(buffer), "%s%%", weather_days[i].day.hmid);
+    strcat(buffer, _("\nWind: "));
+    sprintf(buffer + strlen(buffer), "%s %i", weather_days[i].night.wind_title,
+						weather_days[i].day.wind_speed*10/36);
+    strcat(buffer, _("m/s"));
     label_humidity_day = gtk_label_new (buffer);    
     set_font_size(label_humidity_day,15);
     gtk_box_pack_start (GTK_BOX (vbox_hu_day),label_humidity_day, FALSE, FALSE, 0);
@@ -460,7 +494,9 @@ weather_window_popup_show_future (GtkWidget *widget,
     if(stat (full_filename, &statv))
 	sprintf(buffer, _("Last update: Unknown"));
     else{ 
-    	sprintf(buffer, "Last update: %s",ctime(&statv.st_mtime));
+	buffer[0] = 0;
+	strcat(buffer, _("Last update: "));
+    	sprintf(buffer + strlen(buffer), "%s", ctime(&statv.st_mtime));
         buffer[strlen(buffer)-1]=0; /* Remove Last \n */
     }
     label_update = gtk_label_new (buffer);    

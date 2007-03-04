@@ -70,7 +70,7 @@ msgid ""
 "Vlad Vasiliev, Pavel Fialko"
 msgstr ""
 "\n"
-"Апплет для рабочего стола Hildon\n"
+"Апплет рабочего стола Hildon\n"
 "для Nokia 770/N800\n"
 "для отображения погоды.\n"
 "\n"
@@ -159,12 +159,12 @@ msgstr "Цельсий (метрическая система)"
 #: src/weather-home_config.c:280
 #, c-format
 msgid "Could not create Weather Cache directory.\n"
-msgstr "Не возможно создать директорию кэша.\n"
+msgstr "Невозможно создать директорию кэша.\n"
 
 #: src/weather-home.c:146
 #, c-format
 msgid "Could not open cache weather xml file %s.\n"
-msgstr "Не возможно открыть xml файл %s из кэша.\n"
+msgstr "Невозможно открыть xml файл %s из кэша.\n"
 
 #: src/weather-home_preference.c:490
 msgid "Country:"
@@ -184,11 +184,11 @@ msgstr "Удалить"
 
 #: src/weather-home.c:81 src/weather-home.c:138
 msgid "Did not download weather"
-msgstr "Не возможно загрузить данные о погоде."
+msgstr "Невозможно загрузить данные о погоде."
 
 #: src/weather-home.c:145
 msgid "Did not open save xml file"
-msgstr "Не возможно открыть сохраненный xml файл."
+msgstr "Невозможно открыть сохраненный xml файл."
 
 #: src/weather-home_preference.c:794
 msgid "Distance units:"
@@ -214,12 +214,12 @@ msgstr "Фаренгейт (США и др.)"
 #: src/weather-home_config.c:270
 #, c-format
 msgid "Failed to initialize GConf. Quitting.\n"
-msgstr "Не возможно инициализировать GConf. Выходим.\n"
+msgstr "Невозможно инициализировать GConf. Выходим.\n"
 
 #: src/weather-home_config.c:396 src/weather-home_config.c:424
 #, c-format
 msgid "Failed to initialize GConf. Settings were not saved.\n"
-msgstr "Не возможно инициализировать GConf. Настройки не будут сохранены.\n"
+msgstr "Невозможно инициализировать GConf. Настройки не будут сохранены.\n"
 
 #: src/weather-home_preference.c:756
 msgid "Font color:"
@@ -394,11 +394,11 @@ msgstr "Обновление"
 
 #: src/weather-home.c:67
 msgid "Update weather"
-msgstr "Идет обновление погодных данных."
+msgstr "Идет обновление данных о погоде."
 
 #: src/weather-home_preference.c:818
 msgid "Updating of weather data:"
-msgstr "Обновление погодных данных:"
+msgstr "Обновление данных о погоде:"
 
 #: src/weather-home_preference.c:927
 msgid ""
@@ -410,7 +410,7 @@ msgstr ""
 
 #: src/weather-home.c:86 src/weather-home.c:151
 msgid "Weather updated"
-msgstr "Погодные данные обновлены."
+msgstr "Данные о погоде обновлены."
 
 #: src/weather-window_popup.c:234
 msgid "Wind: "

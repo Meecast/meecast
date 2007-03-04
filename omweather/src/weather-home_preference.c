@@ -604,7 +604,6 @@ void weather_window_preference(GtkWidget *widget,
     GdkColor _weather_font_color_temp; /* Temporary for font color */
     static GSList *time_update_list_temp = NULL; /* Temporary list for time update */
     struct time_update *tu; /* Temporary for time update list */
-    char *temp_string;
    
     not_event = TRUE;
     flag_update_station = FALSE;

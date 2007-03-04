@@ -28,6 +28,11 @@
 	
 */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
+
 #ifndef _weather_home_common_h
 #define _weather_home_common_h 1
 
@@ -44,7 +49,7 @@
 /* localization headers and defines */
 #include <libintl.h>
 #include <locale.h>
-#define _(String) gettext (String)
+#define _(String) dgettext (GETTEXT_PACKAGE,String)
 
 #define Max_count_weather_day	10
 #define AUTOUPDATE		1

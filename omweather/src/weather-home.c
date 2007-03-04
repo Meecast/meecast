@@ -563,14 +563,12 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     }
     fprintf(stderr, "\nWeather applet initialize %p %d\n",
 		    state_data, *state_size);
-/* localization system init */
-/*    setlocale(LC_ALL, "");*/
-    bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR);
-    bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
-    textdomain(GETTEXT_PACKAGE);
+    
 /*    hack_home_plugin_osso_for_nokia800();		    */
 /* Init gconf. */
     gnome_vfs_init();
+    
+    
     config_init();
 /* Start timer */
     timer();

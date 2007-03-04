@@ -35,6 +35,8 @@
 /* #include <pthread.h> */
 #include <osso-ic.h>
 #include <pthread.h>
+#include <locale.h>
+#include <libintl.h>
 
 #define APPLET_X_SIZE		200
 #define APPLET_Y_SIZE		40

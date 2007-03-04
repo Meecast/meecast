@@ -311,8 +311,8 @@ void weather_buttons_init(void){
     for(i = 0; i < days_to_show; i++){
 	weather_days[i].night.icon = 48;
 	weather_days[i].day.icon = 48;
-	sprintf(weather_days[i].hi_temp, "N/A");
-	sprintf(weather_days[i].low_temp, "N/A");
+	sprintf(weather_days[i].hi_temp, _("N/A"));
+	sprintf(weather_days[i].low_temp, _("N/A"));
     }
 }
 
@@ -567,8 +567,6 @@ void* hildon_home_applet_lib_initialize(void *state_data,
 /*    hack_home_plugin_osso_for_nokia800();		    */
 /* Init gconf. */
     gnome_vfs_init();
-    
-    
     config_init();
 /* Start timer */
     timer();
@@ -587,7 +585,8 @@ hildon_home_applet_lib_save_state(void *raw_data,
     fprintf(stderr, "\nhello-world save_state\n");
 /*    config_save();   
     weather_frame_update(FALSE);
-*/    (*state_data) = NULL;
+*/  
+    (*state_data) = NULL;
     if(state_size)
 	(*state_size) = 0;
     return 1;

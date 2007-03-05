@@ -58,11 +58,15 @@ void hash_table_create(){
 
 gpointer hash_table_find(gpointer key){
     gpointer	orig_key,
-		value;
+		value,
+		result;
+    
     if(g_hash_table_lookup_extended(hash,
 				    key,
 				    &orig_key,
 				    &value))
-	return value;
-    return key;
+	result = value;
+    else
+	result = key;
+    return result;
 }

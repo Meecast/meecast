@@ -42,6 +42,7 @@
 #include "weather-home.h"
 
 #include <unistd.h>
+#include "weather-home_hash.h"
 
 /* Translate  temperature Celsius to Farenhait */
 int c2f(int temp)
@@ -568,6 +569,8 @@ void* hildon_home_applet_lib_initialize(void *state_data,
 /* Init gconf. */
     gnome_vfs_init();
     config_init();
+/* create i18n hash for values coming from xml file */
+    hash_table_create();
 /* Start timer */
     timer();
 /* Start main applet */ 

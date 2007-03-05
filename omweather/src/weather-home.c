@@ -124,8 +124,8 @@ void* _get_weather_html(void* unused )
     GSList *tmplist = NULL;
     struct weather_station *ws;
     
-    gboolean check_connect=TRUE;
-    sleep(1);
+    gboolean check_connect=FALSE;
+    sleep(3);
     fprintf(stderr,"_get_weather_html\n");
    if (check_connect)  get_connected();    
 
@@ -561,8 +561,10 @@ void weather_frame_update(gboolean check){
 /* For window update */
 static gboolean update_w(gpointer data){
     
+   int result;
 //    if(!get_weather_html(TRUE))
 //	weather_frame_update(TRUE);
+   fprintf (stderr,"11111111111111111sdddddddddddddddddddd\n");
    if (g_html)
    {
     fprintf (stderr,"sdddddddddddddddddddd\n");
@@ -570,8 +572,9 @@ static gboolean update_w(gpointer data){
     }
    else
    {    
-    gtk_timeout_remove(flag_update);
-    g_object_unref(G_OBJECT(update_window));
+//    gtk_timeout_remove(flag_update);
+//    g_object_unref(G_OBJECT(update_window));
+    fprintf (stderr,"1111111111111111\n");
     if(update_window)
 	gtk_widget_destroy(update_window);
     if(weather_window_popup)
@@ -590,7 +593,8 @@ void update_weather(void){
      g_html=TRUE;
      get_weather_html(TRUE);
      flag_update = g_timeout_add(100, (GSourceFunc)update_w, NULL);
-     pthread_join(weather_update_thread,(void*)&result);
+// 
+     fprintf (stderr,"1111xxxxxxxxxxxxxxxxxxxxxxc\n");
     }
 }
 

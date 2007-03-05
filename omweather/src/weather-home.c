@@ -44,6 +44,8 @@
 #include <unistd.h>
 #include "weather-home_hash.h"
 
+gboolean g_html;
+
 /* Translate  temperature Celsius to Farenhait */
 int c2f(int temp)
 {
@@ -63,10 +65,11 @@ set_font_size(GtkWidget *widget, char font_size)
 }   
 /* Create standard Hildon animation small window */
 void create_window_update(){
-    update_window = hildon_banner_show_animation(weather_window_popup,
+    update_window = hildon_banner_show_animation(box_zero,
 						    NULL,
 						    _("Update weather"));
     g_object_ref(G_OBJECT(update_window));
+    fprintf (stderr,"create_window_update\n");
 }
 
 /* Callback function for request  connection to Internet */
@@ -108,8 +111,10 @@ gboolean get_connected(void){
 
 
 /* Get Weather xml file from weather.com */
-int
-get_weather_html( gboolean check_connect )
+// int _get_weather_html( gboolean check_connect )
+
+
+void* _get_weather_html(void* unused )
 {
     FILE *fd;
     gchar full_filename[2048];
@@ -119,7 +124,9 @@ get_weather_html( gboolean check_connect )
     GSList *tmplist = NULL;
     struct weather_station *ws;
     
-    
+    gboolean check_connect=TRUE;
+    sleep(1);
+    fprintf(stderr,"_get_weather_html\n");
    if (check_connect)  get_connected();    
 
    tmplist = stations_view_list;
@@ -132,12 +139,21 @@ get_weather_html( gboolean check_connect )
     g_string_append_printf(url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=%d",
 			    ws->id_station, DAY_DOWNLOAD);
     memset(&hExtra, '\0', sizeof(hExtra));
+    
+    
     hResponse = http_request(url->str,&hExtra,kHMethodGet,HFLAG_NONE);
-    g_string_free (url,TRUE);
+
+    fprintf(stderr,"_get_weather_html end0\n");
+    sleep (1);
+
+    g_string_free (url,TRUE);    
+
     if( hResponse.pError || strcmp(hResponse.szHCode,HTTP_RESPONSE_OK) )
         {
+	     g_html = FALSE;
 	     hildon_banner_show_information(box,NULL, _("Did not download weather"));
-	     return -2;	       
+//	     return -2;	       
+	     return NULL;
         }
 	
     sprintf(full_filename, "%s/%s.xml.new", _weather_dir_name,ws->id_station);
@@ -145,7 +161,9 @@ get_weather_html( gboolean check_connect )
     if(!(fd = fopen(full_filename,"w"))){
       hildon_banner_show_information(box,NULL, _("Did not open save xml file"));
       fprintf(stderr, _("Could not open cache weather xml file %s.\n"),full_filename);
-      return -1;
+      g_html = FALSE;
+//      return -1;
+      return NULL; 
     }
     fprintf (fd,"%s",hResponse.pData);
     fclose (fd);
@@ -153,11 +171,19 @@ get_weather_html( gboolean check_connect )
   }
    tmplist = g_slist_next(tmplist);
   }
-   
-  return 0;                                                                                                                         
+  g_html = FALSE;
+//  return 0;
+return NULL;                                                                                                                         
 }
 
- 
+
+int
+get_weather_html( gboolean check_connect )
+{
+ pthread_create (&weather_update_thread,NULL,&_get_weather_html,NULL);
+// return _get_weather_html(check_connect);
+ return 0;
+} 
 void hack_home_plugin_osso_for_nokia800(void)
 {
   FILE *oss_conf_home_plugin_file;  
@@ -534,21 +560,38 @@ void weather_frame_update(gboolean check){
 
 /* For window update */
 static gboolean update_w(gpointer data){
-    if(!get_weather_html(TRUE))
-	weather_frame_update(TRUE);
+    
+//    if(!get_weather_html(TRUE))
+//	weather_frame_update(TRUE);
+   if (g_html)
+   {
+    fprintf (stderr,"sdddddddddddddddddddd\n");
+    return TRUE;
+    }
+   else
+   {    
     gtk_timeout_remove(flag_update);
-    flag_update = 0;
     g_object_unref(G_OBJECT(update_window));
     if(update_window)
 	gtk_widget_destroy(update_window);
     if(weather_window_popup)
 	gtk_widget_destroy(weather_window_popup);
-    return TRUE;
+    weather_frame_update(TRUE);	/* TODO!!!!!!!!!!! Check result */
+    return FALSE;
+    }
 }
 
 void update_weather(void){
-    create_window_update();
-    flag_update = g_timeout_add(100, (GSourceFunc)update_w, NULL);
+   int result;
+    if (!g_html)
+    {
+     fprintf (stderr,"xxxxxxxxxxxxxxxxxxxxxxc\n");
+     create_window_update();
+     g_html=TRUE;
+     get_weather_html(TRUE);
+     flag_update = g_timeout_add(100, (GSourceFunc)update_w, NULL);
+     pthread_join(weather_update_thread,(void*)&result);
+    }
 }
 
 

@@ -101,6 +101,8 @@ int 	   boxs_offset [Max_count_weather_day];
 GtkWidget *update_window;     
 guint flag_update=0;
 gchar  path_large_icon[_POSIX_PATH_MAX];
+pthread_t weather_update_thread;
+pthread_t window_animation_thread;
 
 typedef struct _HomeAppletHandler HomeAppletHandler;
 

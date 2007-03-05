@@ -36,6 +36,7 @@
 #include "http.h"
 #include <osso-ic.h>
 
+//#define DEBUG 1
 #ifdef DEBUG
  #define debug(path, args...) fprintf(stdout, ## args)
  #define debug2(ptr, args...) fwrite(ptr, ## args)

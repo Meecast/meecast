@@ -27,3 +27,11 @@
  * 02110-1301 USA
 	
 */
+#ifndef _weather_home_parser_h
+#define _weather_home_parser_h 1
+
+#include "weather-home_common.h"
+#include <curl/multi.h>
+
+#endif
+CURL *weather_curl_init(void);

@@ -28,3 +28,19 @@
 	
 */
 #include "weather-home_download.h"
+
+CURL 
+*weather_curl_init(void)
+{
+CURL *curl_handle;
+    curl_handle  = curl_easy_init(); 
+    curl_easy_setopt(curl_handle, CURLOPT_NOPROGRESS, 1); 
+    curl_easy_setopt(curl_handle, CURLOPT_FOLLOWLOCATION, 1); 
+    curl_easy_setopt(curl_handle, CURLOPT_FAILONERROR, 1); 
+    curl_easy_setopt(curl_handle, CURLOPT_USERAGENT, 
+            "Mozilla/5.0 (X11; U; Linux i686; en-US; " 
+            "rv:1.8.1.1) Gecko/20061205 Iceweasel/2.0.0.1"); 
+    curl_easy_setopt(curl_handle, CURLOPT_TIMEOUT, 30); 
+    curl_easy_setopt(curl_handle, CURLOPT_CONNECTTIMEOUT, 10); 
+return curl_handle;    
+}

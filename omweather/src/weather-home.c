@@ -153,7 +153,12 @@ void* _get_weather_html(void* unused )
 	     g_html = FALSE;
 	     hildon_banner_show_information(box,NULL, _("Did not download weather"));
 //	     return -2;	       
-	     return NULL;
+         if(update_window)
+	   gtk_widget_destroy(update_window);
+	 if(weather_window_popup)
+	   gtk_widget_destroy(weather_window_popup);
+  
+         return NULL;
         }
 	
     sprintf(full_filename, "%s/%s.xml.new", _weather_dir_name,ws->id_station);
@@ -163,6 +168,11 @@ void* _get_weather_html(void* unused )
       fprintf(stderr, _("Could not open cache weather xml file %s.\n"),full_filename);
       g_html = FALSE;
 //      return -1;
+         if(update_window)
+	   gtk_widget_destroy(update_window);
+	 if(weather_window_popup)
+	   gtk_widget_destroy(weather_window_popup);
+
       return NULL; 
     }
     fprintf (fd,"%s",hResponse.pData);
@@ -172,6 +182,13 @@ void* _get_weather_html(void* unused )
    tmplist = g_slist_next(tmplist);
   }
   g_html = FALSE;
+  
+  if(update_window)
+	gtk_widget_destroy(update_window);
+  if(weather_window_popup)
+	gtk_widget_destroy(weather_window_popup);
+   weather_frame_update(TRUE);	/* TODO!!!!!!!!!!! Check result */
+
 //  return 0;
 return NULL;                                                                                                                         
 }
@@ -592,7 +609,7 @@ void update_weather(void){
      create_window_update();
      g_html=TRUE;
      get_weather_html(TRUE);
-     flag_update = g_timeout_add(100, (GSourceFunc)update_w, NULL);
+//     flag_update = g_timeout_add(100, (GSourceFunc)update_w, NULL);
 // 
      fprintf (stderr,"1111xxxxxxxxxxxxxxxxxxxxxxc\n");
     }

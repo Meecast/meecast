@@ -37,7 +37,9 @@ libweather_home_la_SOURCES = weather-home.c \
 			     weather-window_popup.c \
 			     weather-window_popup.h \
 			     weather-home_hash.h \
-			     weather-home_hash.c
+			     weather-home_hash.c \
+			     weather-home_download.h \
+			     weather-home_download.c
 
 libweather_home_la_CFLAGS = $(GTK_CFLAGS) $(OSSO_CFLAGS) $(LIBXML2_CFLAGS) $(GNOME_VFS_CFLAGS) $(GCONF_CFLAGS) -Ilib -Wall -pedantic
 libweather_home_la_LDFLAGS = -module -avoid-version 

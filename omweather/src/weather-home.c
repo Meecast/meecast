@@ -113,9 +113,7 @@ gboolean get_connected(void){
 /* Get Weather xml file from weather.com */
 // int _get_weather_html( gboolean check_connect )
 
-
-void* _get_weather_html(void* unused )
-{
+void* _get_weather_html(void* unused){
     FILE *fd;
     gchar full_filename[2048];
     HTTP_Response hResponse;
@@ -124,73 +122,69 @@ void* _get_weather_html(void* unused )
     GSList *tmplist = NULL;
     struct weather_station *ws;
     
-    gboolean check_connect=FALSE;
+    gboolean check_connect = FALSE;
+
     sleep(3);
     fprintf(stderr,"_get_weather_html\n");
-   if (check_connect)  get_connected();    
+    if(check_connect)
+	get_connected();    
 
-   tmplist = stations_view_list;
-   while (tmplist != NULL)
-   {
-     ws = tmplist->data;
-   if (ws->id_station != NULL)
-   {
-    url = g_string_new (NULL);        
-    g_string_append_printf(url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=%d",
+    tmplist = stations_view_list;
+    while(tmplist != NULL){
+	ws = tmplist->data;
+	if(ws->id_station != NULL){
+	    url = g_string_new(NULL);        
+	    g_string_append_printf(url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=%d",
 			    ws->id_station, DAY_DOWNLOAD);
-    memset(&hExtra, '\0', sizeof(hExtra));
-    
-    
-    hResponse = http_request(url->str,&hExtra,kHMethodGet,HFLAG_NONE);
+	    memset(&hExtra, 0, sizeof(hExtra));
+	    hResponse = http_request(url->str,&hExtra,kHMethodGet,HFLAG_NONE);
 
-    fprintf(stderr,"_get_weather_html end0\n");
-    sleep (1);
+	    fprintf(stderr,"_get_weather_html end0\n");
+	    sleep (1);
 
-    g_string_free (url,TRUE);    
-
-    if( hResponse.pError || strcmp(hResponse.szHCode,HTTP_RESPONSE_OK) )
-        {
-	     g_html = FALSE;
-	     hildon_banner_show_information(box,NULL, _("Did not download weather"));
-//	     return -2;	       
-         if(update_window)
-	   gtk_widget_destroy(update_window);
-	 if(weather_window_popup)
-	   gtk_widget_destroy(weather_window_popup);
+	    g_string_free(url, TRUE);    
+	    if(hResponse.pError || strcmp(hResponse.szHCode,HTTP_RESPONSE_OK) ){
+		g_html = FALSE;
+		hildon_banner_show_information(box, 
+			    NULL, _("Did not download weather"));
+//		return -2;	       
+    		if(update_window)
+		    gtk_widget_destroy(update_window);
+		if(weather_window_popup)
+		    gtk_widget_destroy(weather_window_popup);
   
-         return NULL;
-        }
-	
-    sprintf(full_filename, "%s/%s.xml.new", _weather_dir_name,ws->id_station);
-
-    if(!(fd = fopen(full_filename,"w"))){
-      hildon_banner_show_information(box,NULL, _("Did not open save xml file"));
-      fprintf(stderr, _("Could not open cache weather xml file %s.\n"),full_filename);
-      g_html = FALSE;
-//      return -1;
-         if(update_window)
-	   gtk_widget_destroy(update_window);
-	 if(weather_window_popup)
-	   gtk_widget_destroy(weather_window_popup);
-
-      return NULL; 
+    		return NULL;
+	    }
+	    sprintf(full_filename, "%s/%s.xml.new",
+			_weather_dir_name, ws->id_station);
+	    if(!(fd = fopen(full_filename,"w"))){
+		hildon_banner_show_information(box,NULL,
+			    _("Did not open save xml file"));
+		fprintf(stderr,
+			    _("Could not open cache weather xml file %s.\n"),
+			    full_filename);
+		g_html = FALSE;
+//		return -1;
+    		if(update_window)
+		    gtk_widget_destroy(update_window);
+		if(weather_window_popup)
+		    gtk_widget_destroy(weather_window_popup);
+		return NULL; 
+	    }
+	    fprintf(fd,"%s",hResponse.pData);
+	    fclose (fd);
+	    hildon_banner_show_information(box,NULL, _("Weather updated"));
+	}
+	tmplist = g_slist_next(tmplist);
     }
-    fprintf (fd,"%s",hResponse.pData);
-    fclose (fd);
-      hildon_banner_show_information(box,NULL, _("Weather updated"));
-  }
-   tmplist = g_slist_next(tmplist);
-  }
-  g_html = FALSE;
-  
-  if(update_window)
+    g_html = FALSE;
+    if(update_window)
 	gtk_widget_destroy(update_window);
-  if(weather_window_popup)
+    if(weather_window_popup)
 	gtk_widget_destroy(weather_window_popup);
-   weather_frame_update(TRUE);	/* TODO!!!!!!!!!!! Check result */
-
+    weather_frame_update(TRUE);	/* TODO!!!!!!!!!!! Check result */
 //  return 0;
-return NULL;                                                                                                                         
+    return NULL;                                                                                                                         
 }
 
 

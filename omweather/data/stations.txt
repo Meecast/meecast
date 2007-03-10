@@ -850,28 +850,28 @@ HAWAII             16-DEC-98
 CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 HI BARKING SANDS/KA PHBK  BKH   91162  22 02N  159 47W    8   X                7 US
 HI BRADSHAW AAF/HAW PHSF  BSF          19 46N  155 33W 1887   X     T          6 US
-HI HANA             PHHN  HNM   91199  20 48N  156 01W  156   X                7 US
+HI HANA             PHHN  HNM   91199  20 48N  156 01W  156   X                7 US USHI0014
 HI HICKAM AFB       PHIK  HIK          21 19N  157 56W    4                    8 US
 HI HICKAM AWC       PHWR  HWR          21 19N  157 56W    4                    8 US
-HI HILO             PHTO  ITO   91285  19 43N  155 03W   12   X     T  X  A    5 US
+HI HILO             PHTO  ITO   91285  19 43N  155 03W   12   X     T  X  A    5 US USHI0022
 HI HONOLULU         PHNL  HNL   91182  21 20N  157 57W    4   X     T     A    6 US USHI0026
 HI HONOLULU/WFO     PHFO  HFO          21 19N  157 55W    4                  F 8 US
 HI HONOLULU/ARTCC   PZHN  ZHN          21 19N  157 55W    4         A          8 US
 HI KAANAPALI        PHKP  HKP   91189  20 56N  156 42W    3                    8 US
-HI KAHULUI          PHOG  OGG   91190  20 54N  156 26W   12   X     T     A    6 US
-HI KAILUA/KONA      PHKO  KOA          19 44N  156 03W   27   X     T     A    6 US
-HI KALAUPAPA        PHLU  LUP          21 13N  156 58W    7   X                7 US
+HI KAHULUI          PHOG  OGG   91190  20 54N  156 26W   12   X     T     A    6 US USHI0031
+HI KAILUA/KONA      PHKO  KOA          19 44N  156 03W   27   X     T     A    6 US USHI0032
+HI KALAUPAPA        PHLU  LUP          21 13N  156 58W    7   X                7 US USHI0035
 HI KAMEA            PHMU  MUE          20 00N  155 40W  817                    8 US
 HI KOHALA 88D       PHKM  HKM          20 08N  155 47W 1162      X             8 US
 HI KANEOHE MCAS     PHNG  NGF   91176  21 26N  157 46W    3   X     T          6 US
 HI KOKEE            PHAC  HAC   91161  22 09N  159 39W 1280                    8 US
 HI KALAELOA         PHJR  JRF   91178  21 19N  158 04W   15   X     T          6 US
-HI LAHAINA/WEST MAU PHJH  JHM          20 58N  156 40W   78   X     T          6 US
+HI LAHAINA/WEST MAU PHJH  JHM          20 58N  156 40W   78   X     T          6 US USHI0055
 HI LANAI CITY AIRPO PHNY  LNY          20 46N  156 56W  399   X     T          6 US
-HI LIHUE/KAUAI IS   PHLI  LIH   91165  21 58N  159 20W   45   X     T  X       5 US
-HI MOLOKAI/KUKUI    PHMO  HMO          21 08N  157 11W  415   X  X             5 US
+HI LIHUE/KAUAI IS   PHLI  LIH   91165  21 58N  159 20W   45   X     T  X       5 US USHI0060
+HI MOLOKAI/KUKUI    PHMO  HMO          21 08N  157 11W  415   X  X             5 US USHI0102
 HI MOLOKAI          PHMK  MKK   91186  21 09N  157 06W  141   X     T     A    6 US
-HI NAALEHU/S HAWAII PHWA  HWA          19 06N  155 34W  421      X             8 US
+HI NAALEHU/S HAWAII PHWA  HWA          19 06N  155 34W  421      X             8 US USHI0067
 HI NUMILA/S KAUAI   PHKI  HKI          21 54N  159 33W   55      X             8 US
 HI OPOLU            PHUP  UPP          20 16N  155 52W   30                    8 US
 HI PEARL HARBOR     PHNC  HNC          21 21N  157 56W    1                    8 US
@@ -882,66 +882,66 @@ HI MIDWAY ISLAND NA PMDY  MDY   91066  28 13N  177 22W    4   X     T          6
 
 IOWA               04-SEP-06
 CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
-IA ALGONA           KAXA  AXA          43 04N  094 16W  372   X           W    8 US
-IA AMES             KAMW  AMW          41 59N  093 37W  279   X           A    7 US
-IA ANKENY           KIKV  IKV          41 41N  093 34W  275   X           W    8 US
-IA ATLANTIC         KAIO  AIO          41 23N  095 02W  360   X           W    8 US
-IA AUDUBON          KADU  ADU          41 42N  094 55W  392   X           W    8 US
+IA ALGONA           KAXA  AXA          43 04N  094 16W  372   X           W    8 US USIA0015
+IA AMES             KAMW  AMW          41 59N  093 37W  279   X           A    7 US USIA0026
+IA ANKENY           KIKV  IKV          41 41N  093 34W  275   X           W    8 US USIA0031
+IA ATLANTIC         KAIO  AIO          41 23N  095 02W  360   X           W    8 US USIA0048
+IA AUDUBON          KADU  ADU          41 42N  094 55W  392   X           W    8 US USIA0050
 IA BOONE MUNI       KBNW  BNW          42 02N  093 50W  354   X           W    8 US
-IA BURLINGTON       KBRL  BRL          40 46N  091 08W  211   X     T     A    6 US
-IA CARROLL          KCIN  CIN          42 02N  094 46W  375   X           W    8 US
+IA BURLINGTON       KBRL  BRL          40 46N  091 08W  211   X     T     A    6 US USIA0114
+IA CARROLL          KCIN  CIN          42 02N  094 46W  375   X           W    8 US USIA0129
 IA CEDAR RAPIDS     KCID  CID   72545  41 53N  091 43W  264   X     T     A    4 US USIA0138
-IA CHARITON         KCNC  CNC          41 01N  093 22W  320   X           W    8 US
+IA CHARITON         KCNC  CNC          41 01N  093 22W  320   X           W    8 US USIA0144
 IA CHARLES CITY     KCCY  CCY          43 04N  092 37W  343   X           W    8 US
-IA CHEROKEE         KCKP  CKP          42 44N  095 33W  374   X           W    8 US
-IA CLARINDA         KICL  ICL          40 43N  095 01W  303   X           W    8 US
-IA CLARION          KCAV  CAV          42 45N  093 46W  354   X           W    8 US
+IA CHEROKEE         KCKP  CKP          42 44N  095 33W  374   X           W    8 US USIA0150
+IA CLARINDA         KICL  ICL          40 43N  095 01W  303   X           W    8 US USIA0157
+IA CLARION          KCAV  CAV          42 45N  093 46W  354   X           W    8 US USIA0158
 IA CLINTON MUNI     KCWI  CWI          41 49N  090 19W  216   X           W    8 US
 IA COUNCIL BLUFFS   KCBF  CBF          41 16N  095 46W  382   X           W    8 US
-IA CRESTON          KCSQ  CSQ          41 01N  094 22W  394   X           W    8 US
-IA DAVENPORT/QUAD C KDVN  DVN   74455  41 37N  090 35W  230   X  X     X  A  F 3 US
-IA DECORAH          KDEH  DEH          43 16N  091 43W  353   X           W    8 US
-IA DENISON          KDNS  DNS          41 58N  095 22W  388   X           W    8 US
+IA CRESTON          KCSQ  CSQ          41 01N  094 22W  394   X           W    8 US USIA0197
+IA DAVENPORT/QUAD C KDVN  DVN   74455  41 37N  090 35W  230   X  X     X  A  F 3 US USIA0211
+IA DECORAH          KDEH  DEH          43 16N  091 43W  353   X           W    8 US USIA0218
+IA DENISON          KDNS  DNS          41 58N  095 22W  388   X           W    8 US USIA0227
 IA DES MOINES       KDSM  DSM   72546  41 32N  093 40W  295   X     U     A    2 US USIA0231
-IA DUBUQUE          KDBQ  DBQ   72547  42 24N  090 42W  326   X     U     A    4 US
-IA ESTHERVILLE      KEST  EST          43 24N  094 45W  401   X           A    7 US
-IA FAIRFIELD        KFFL  FFL          41 02N  091 58W  244   X           W    8 US
+IA DUBUQUE          KDBQ  DBQ   72547  42 24N  090 42W  326   X     U     A    4 US USIA0248
+IA ESTHERVILLE      KEST  EST          43 24N  094 45W  401   X           A    7 US USIA0284
+IA FAIRFIELD        KFFL  FFL          41 02N  091 58W  244   X           W    8 US USIA0291
 IA FORT DODGE       KFOD  FOD   72549  42 32N  094 10W  355   X     U     W    6 US
 IA FORT MADISON     KFSW  FSW          40 40N  091 19W  221   X           W    8 US
 IA GRINNELL REG     KGGI  GGI          41 43N  092 44W  307   X           W    8 US
 IA HARLAN MUNI      KHNR  HNR          41 35N  095 20W  375   X           W    8 US
-IA INDEPENDENCE     KIIB  IIB          42 27N  091 57W  298   X           W    8 US
+IA INDEPENDENCE     KIIB  IIB          42 27N  091 57W  298   X           W    8 US USIA0410
 IA IOWA CITY        KIOW  IOW          41 38N  091 33W  198   X     V     A    6 US
-IA JOHNSTON/DESMOIN KDMX  DMX          41 44N  093 43W  299      X           F 8 US
+IA JOHNSTON/DESMOIN KDMX  DMX          41 44N  093 43W  299      X           F 8 US USIA0424
 IA KEOKUK MUNI      KEOK  EOK          40 28N  091 25W  205   X           W    8 US
-IA KNOXVILLE        KOXV  OXV          41 17N  093 07W  283   X           W    8 US
-IA LAMONI           KLWD  LWD          40 38N  093 54W  346   X           A    7 US
+IA KNOXVILLE        KOXV  OXV          41 17N  093 07W  283   X           W    8 US USIA0448
+IA LAMONI           KLWD  LWD          40 38N  093 54W  346   X           A    7 US USIA0458
 IA LE MARS          KLRJ  LRJ          42 46N  096 12W  365   X           W    8 US
-IA MARSHALLTOWN     KMIW  MIW          42 07N  092 55W  296   X           A    7 US
+IA MARSHALLTOWN     KMIW  MIW          42 07N  092 55W  296   X           A    7 US USIA0537
 IA MASON CITY       KMCW  MCW          43 09N  093 20W  369   X     U     A    6 US
 IA MONTICELLO MUNI  KMXO  MXO          42 13N  091 10W  259   X           W    8 US
 IA MT PLEASANT      KMPZ  MPZ          40 57N  091 31W  224   X           W    8 US
-IA MUSCATINE        KMUT  MUT          41 22N  091 09W  167   X           W    8 US
+IA MUSCATINE        KMUT  MUT          41 22N  091 09W  167   X           W    8 US USIA0604
 IA NEWTON MUNI      KTNU  TNU          41 40N  093 01W  290   X           W    8 US
 IA OELWEN           KOLZ  OLZ          42 40N  091 58W  328   X           W    8 US
 IA ORANGE CITY      KORC  ORC          42 58N  096 04W  431   X           W    8 US
 IA OSKALOOSA MUNI   KOOA  OOA          41 14N  092 30W  256   X           W    8 US
-IA OTTUMWA          KOTM  OTM          41 06N  092 27W  256   X     T     A    6 US
-IA PELLA            KPEA  PEA          41 24N  092 57W  270   X           W    8 US
+IA OTTUMWA          KOTM  OTM          41 06N  092 27W  256   X     T     A    6 US USIA0659
+IA PELLA            KPEA  PEA          41 24N  092 57W  270   X           W    8 US USIA0674
 IA RED OAK          KRDK  RDK          41 01N  095 16W  318   X           W    8 US
-IA SHELDON          KSHL  SHL          43 13N  095 49W  432   X           W    8 US
+IA SHELDON          KSHL  SHL          43 13N  095 49W  432   X           W    8 US USIA0783
 IA SHENANDOAH MUNI  KSDA  SDA          40 45N  095 25W  296   X           W    8 US
 IA SIOUX CITY       KSUX  SUX   72557  42 23N  096 23W  338   X     T     A    3 US
 IA SLATER PROFILER        SLA   74449  41 53N  093 41W  315            W       8 US
-IA SPENCER          KSPW  SPW   72650  43 10N  095 13W  403   X     S     A    6 US
+IA SPENCER          KSPW  SPW   72650  43 10N  095 13W  403   X     S     A    6 US USIA0803
 IA STORM LAKE       KSLB  SLB          42 36N  095 13W  454   X           W    8 US
-IA VINTON           KVTI  VTI          42 13N  092 01W  255   X           W    8 US
+IA VINTON           KVTI  VTI          42 13N  092 01W  255   X           W    8 US USIA0881
 IA WASHINGTON       KAWG  AWG          41 16N  091 40W  230   X           W    8 US
-IA WATERLOO         KALO  ALO   72548  42 33N  092 24W  264   X     T     A    4 US
+IA WATERLOO         KALO  ALO   72548  42 33N  092 24W  264   X     T     A    4 US USIA0894
 IA WEBSTER CITY     KEBS  EBS          42 25N  093 52W  342   X           W    8 US
-IA LAMONI           K0Y7  0Y7          40 38N  093 54W  346   Z                8 US
+IA LAMONI           K0Y7  0Y7          40 38N  093 54W  346   Z                8 US USIA0458
 IA LAMONI           K3OI  3OI          40 37N  093 57W  342   Z                8 US
-IA SPENCER          K3SE  3SE          43 10N  095 09W  404   Z                8 US
+IA SPENCER          K3SE  3SE          43 10N  095 09W  404   Z                8 US USIA0803
 IA ADAIR I80        XADA               41 29N  094 43W  450   X           R    9 US
 IA ALGONA US18      XALG               43 05N  094 23W  337   X           R    9 US
 IA ALTON IA10       XATN               42 49N  096 05W  430   X           R    9 US
@@ -956,7 +956,7 @@ IA CEDAR RAPID US30 XCID               41 56N  091 41W  246   X           R    9
 IA CENTERVILLE IA2  XCEN               40 44N  093 00W  295   X           R    9 US
 IA COUNCIL BLUFF 80 XCOU               41 14N  095 52W  268   X           R    9 US
 IA CRESTON US34     XCRE               41 04N  094 18W  388   X           R    9 US
-IA DAVENPORT 80/280 XDAV               41 36N  090 41W  206   X           R    9 US
+IA DAVENPORT 80/280 XDAV               41 36N  090 41W  206   X           R    9 US USIA0211
 IA DECORAH IA9      XDEC               43 14N  091 41W  310   X           R    9 US
 IA DES MOINES I35   XDSM               41 32N  093 46W  224   X           R    9 US
 IA DES MOINES I235  XDES               41 35N  093 37W  281   X           R    9 US
@@ -970,7 +970,7 @@ IA IOWA CITY I80    XIOW               41 41N  091 35W  250   X           R    9
 IA JEFFERSON IA4    XJEF               42 03N  094 23W  310   X           R    9 US
 IA LEON I35/IA2     XLEO               40 44N  093 50W  349   X           R    9 US
 IA MANCHESTER US20  XMAN               42 26N  091 26W  309   X           R    9 US
-IA MAQUOKETA 61/64  XMAQ               42 04N  090 41W  251   X           R    9 US
+IA MAQUOKETA 61/64  XMAQ               42 04N  090 41W  251   X           R    9 US USIA0529
 IA MARSHALTOWN US30 XMAR               42 01N  092 58W  291   X           R    9 US
 IA MASON CITY I35   XMCW               43 02N  093 20W  376   X           R    9 US
 IA MISSOURI VAL I29 XMIS               41 32N  095 55W  309   X           R    9 US
@@ -1000,40 +1000,40 @@ IDAHO              26-APR-06
 CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 ID ADA COUNTY/BOISE KCBX  CBX          43 29N  116 14W  933      X             8 US
 ID BOISE            KBOI  BOI   72681  43 34N  116 14W  875   X     U  X  A  F 0 US USID0025
-ID BURLEY           KBYI  BYI          42 33N  113 46W 1264   X     T     A    6 US
-ID CALDWELL         KEUL  EUL          43 37N  116 37W  740   X                7 US
-ID CHALLIS          KLLJ  LLJ          44 31N  114 13W 1536   X           A    7 US
+ID BURLEY           KBYI  BYI          42 33N  113 46W 1264   X     T     A    6 US USID0030
+ID CALDWELL         KEUL  EUL          43 37N  116 37W  740   X                7 US USID0032
+ID CHALLIS          KLLJ  LLJ          44 31N  114 13W 1536   X           A    7 US USID0040
 ID COEUR D'ALENE    KCOE  COE          47 46N  116 49W  707   X     T     W    4 US
 ID DRIGGS REED MEM  KDIJ  DIJ          43 45N  111 06W 1899   X                7 US
 ID DUBIOS (VOR)     KDBS  DBS          44 05N  112 13W 1638         V          8 US
-ID GRANGEVILLE      KS80  S80   72687  45 57N  116 07W 1009   X                7 US
-ID HAILEY/FRIEDMAN  KSUN  SUN          43 30N  114 17W 1620   X     T          6 US
+ID GRANGEVILLE      KS80  S80   72687  45 57N  116 07W 1009   X                7 US USID0098
+ID HAILEY/FRIEDMAN  KSUN  SUN          43 30N  114 17W 1620   X     T          6 US USID0103
 ID IDAHO FALLS      KIDA  IDA          43 31N  112 04W 1453   X     T     A    6 US
 ID JEROME COUNTY    KJER  JER          42 43N  114 27W 1222   X                7 US
 ID LEWISTON         KLWS  LWS   72783  46 22N  117 01W  438   X     T     A    6 US USID0146
 ID LOWELL/ELK CITY  KP69  P69          46 09N  115 36W  480   X           A    7 US
 ID MALAD CITY       KMLD  MLD          42 10N  112 17W 1373   X     V          6 US
 ID MALTA (AWRS)     K77M  77M          42 19N  113 19W 1375   X                7 US
-ID MCCALL           KMYL  MYL          44 53N  116 06W 1533   X     T     A    6 US
+ID MCCALL           KMYL  MYL          44 53N  116 06W 1533   X     T     A    6 US USID0156
 ID MCCALL (VOR)     KDNJ  DNJ          44 46N  116 13W 2433         V          8 US
 ID MOUNTAIN HOME    KMUO  MUO          43 02N  115 52W  913   X     T          6 US
 ID MULLAN PASS      KMLP  MLP          47 27N  115 40W 1837   X     V     A    6 US
-ID POCATELLO        KPIH  PIH   72578  42 55N  112 34W 1359   X     U     A  F 3 US
-ID REXBURG          KRXE  RXE          43 50N  111 48W 1480   X           A    7 US
-ID SALMON/VOR       KLKT  LKT          45 01N  114 05W 2822         V          8 US
-ID SALMON/LEMHI     KSMN  SMN   72686  45 07N  113 52W 1233   X     T          6 US
+ID POCATELLO        KPIH  PIH   72578  42 55N  112 34W 1359   X     U     A  F 3 US USID0204
+ID REXBURG          KRXE  RXE          43 50N  111 48W 1480   X           A    7 US USID0215
+ID SALMON/VOR       KLKT  LKT          45 01N  114 05W 2822         V          8 US USID0228
+ID SALMON/LEMHI     KSMN  SMN   72686  45 07N  113 52W 1233   X     T          6 US USID0228
 ID SODA SPRINGS     KU78  U78          42 38N  111 34W 1780   X                7 US
-ID SPENCER          KS14  S14          44 21N  112 10W 1800   X                7 US
+ID SPENCER          KS14  S14          44 21N  112 10W 1800   X                7 US USID0242
 ID SPRINGFIELD/PIH  KSFX  SFX          43 06N  112 41W 1364      X             8 US
-ID STANLEY          KSNT  SNT          44 10N  114 56W 1980   X           A    7 US
+ID STANLEY          KSNT  SNT          44 10N  114 56W 1980   X           A    7 US USID0246
 ID TWIN FALLS       KTWF  TWF          42 29N  114 29W 1266   X     U     A    6 US
 ID WALL/SANDPOINT   KSZT  SZT          48 18N  116 34W  648   X           W    7 US
 ID CALDWELL (AWOS)  KU35  U35          43 37N  116 37W  740   Z                8 US
-ID CHALLIS          KU15  U15          44 31N  114 13W 1536   Z                8 US
-ID GOODING          KGNG  GNG   72586  42 55N  114 46W 1126   Z                8 US
-ID JEROME           KU73  U73          42 44N  114 27W 1222   Z                8 US
+ID CHALLIS          KU15  U15          44 31N  114 13W 1536   Z                8 US USID0040
+ID GOODING          KGNG  GNG   72586  42 55N  114 46W 1126   Z                8 US USID0094
+ID JEROME           KU73  U73          42 44N  114 27W 1222   Z                8 US USID0126
 ID MULLAN (AWRS)    KS06  S06          47 28N  115 47W 1011   Z                8 US
-ID REXBURG          KU11  U11          43 50N  111 48W 1480   Z                8 US
+ID REXBURG          KU11  U11          43 50N  111 48W 1480   Z                8 US USID0215
 ID SALMON (AWRS)    K27U  27U          45 10N  113 54W 1210   Z                8 US
 ID SAYLOR CREEK     KMI1  MI1          42 30N  115 30W 1000   Z                8 US
 

@@ -17,9 +17,8 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
+SUBDIRS = 24x24 36x36 scalable
  
-
-
 helpfile_engb_DATA = help/en_US/maemoweather.xml
 test_testdir = $(datadir)/omweather
 test_test_DATA = stations.txt iso3166-countrycodes.txt
@@ -27,7 +26,6 @@ icons_crystallargedir = $(datadir)/omweather/icons/Crystal
 icons_crystallarge_DATA = icons/Crystal/*.png 
 homeapplet_desktopdir = $(datadir)/applications/hildon-home
 homeapplet_desktop_DATA = omweather-home.desktop
-
 
 EXTRA_DIST = $(homeapplet_desktop_DATA) $(helpfile_engb_DATA) $(test_test_DATA) $(icons_crystallarge_DATA) 
 

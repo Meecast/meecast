@@ -82,6 +82,9 @@ AC_CONFIG_FILES([Makefile
 		src/lib/Makefile
 		src/Makefile
 		po/Makefile.in
+		data/24x24/Makefile
+		data/36x36/Makefile
+		data/scalable/Makefile
 		data/Makefile])
 # Produce output files
 AC_OUTPUT

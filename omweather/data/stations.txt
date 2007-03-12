@@ -1039,15 +1039,15 @@ ID SAYLOR CREEK     KMI1  MI1          42 30N  115 30W 1000   Z                8
 
 ILLINOIS           09-NOV-04
 CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
-IL ALTON/ST LOUIS R KALN  ALN          38 53N  090 02W  166   X                7 US
-IL BLOOMINGTON/NORM KBMI  BMI          40 28N  088 55W  267   X     T          7 US
-IL BRADFORD/VOR     KBDF  BDF          41 09N  089 35W  247         V          8 US
-IL CAHOKIA/ST LOUIS KCPS  CPS          38 34N  090 09W  126   X           A    7 US
-IL CAIRO            KCIR  CIR          37 04N  089 13W   98   X           W    8 US
-IL CARBONDALE/MURPH KMDH  MDH          37 47N  089 15W  130   X           A    7 US
+IL ALTON/ST LOUIS R KALN  ALN          38 53N  090 02W  166   X                7 US USIL0024
+IL BLOOMINGTON/NORM KBMI  BMI          40 28N  088 55W  267   X     T          7 US USIL0113
+IL BRADFORD/VOR     KBDF  BDF          41 09N  089 35W  247         V          8 US USIL0129
+IL CAHOKIA/ST LOUIS KCPS  CPS          38 34N  090 09W  126   X           A    7 US USIL1317
+IL CAIRO            KCIR  CIR          37 04N  089 13W   98   X           W    8 US USIL0168
+IL CARBONDALE/MURPH KMDH  MDH          37 47N  089 15W  130   X           A    7 US USIL0185
 IL CARMI MUNI       KCUL  CUL          38 05N  088 07W  118   X           W    7 US
-IL CENTRALIA        KENL  ENL          38 31N  089 06W  163   X           W    7 US
-IL CHAMPAIGN/URBANA KCMI  CMI          40 02N  088 16W  228   X     T     A    6 US
+IL CENTRALIA        KENL  ENL          38 31N  089 06W  163   X           W    7 US USIL0205
+IL CHAMPAIGN/URBANA KCMI  CMI          40 02N  088 16W  228   X     T     A    6 US USIL0209
 IL CHICAGO          KMDW  MDW   72534  41 47N  087 45W  188   X     T     A    1 US USIL0225
 IL CHICAGO O'HARE   KORD  ORD   72530  41 59N  087 56W  200   X     U     A    0 US USIL0225
 IL CHICAGO/AURORA   KARR  ARR   74465  41 46N  088 29W  215   X           A    7 US
@@ -1055,28 +1055,28 @@ IL CHICAGO/DUPAGE   KDPA  DPA          41 55N  088 15W  231   X     T     A    6
 IL CHICAGO/MEIGS    KCGX  CGX          41 52N  087 35W  181   X                7 US
 IL CHICAGO/LANSING  KIGQ  IGQ          41 32N  087 32W  188   X           W    7 US
 IL CHICAGO/ARTCC    KZAU  ZAU          41 46N  088 28W  200         A          8 US
-IL DANVILLE         KDNV  DNV          40 12N  087 36W  212   X           W    7 US
-IL DECATUR          KDEC  DEC          39 50N  088 51W  207   X     U     A    4 US
+IL DANVILLE         KDNV  DNV          40 12N  087 36W  212   X           W    7 US USIL0295
+IL DECATUR          KDEC  DEC          39 50N  088 51W  207   X     U     A    4 US USIL0302
 IL DE KALB          KDKB  DKB          41 56N  088 42W  279   X           W    7 US
-IL EFFINGHAM        K1H2  1H2          39 04N  088 32W  179   X           W    7 US
+IL EFFINGHAM        K1H2  1H2          39 04N  088 32W  179   X           W    7 US USIL0353
 IL FAIRFIELD        KFWC  FWC          38 23N  088 25W  133   X           W    7 US
-IL FREEPORT         KFEP  FEP          42 15N  089 35W  262   X           W    7 US
-IL FLORA            KFOA  FOA          38 40N  088 27W  144   X           W    7 US
+IL FREEPORT         KFEP  FEP          42 15N  089 35W  262   X           W    7 US USIL0434
+IL FLORA            KFOA  FOA          38 40N  088 27W  144   X           W    7 US USIL0413
 IL GALESBURG        KGBG  GBG          40 56N  090 26W  233   X           W    7 US
-IL HARRISBURG       KHSB  HSB          37 49N  088 33W  121   X           W    7 US
-IL JACKSONVILLE     KIJX  IJX          39 46N  090 14W  190   X           W    7 US
+IL HARRISBURG       KHSB  HSB          37 49N  088 33W  121   X           W    7 US USIL0514
+IL JACKSONVILLE     KIJX  IJX          39 46N  090 14W  190   X           W    7 US USIL0585
 IL JOLIET           KJOT  JOT          41 31N  088 10W  177   X     V     W    6 US USIL0592
-IL KANKAKEE         KIKK  IKK          41 04N  087 51W  192   X           W    7 US
-IL LACON            KC75  C75          41 01N  089 23W  173   X           W    7 US
-IL LAWRENCEVILLE    KLWV  LWV          38 46N  087 36W  131   X           A    7 US
+IL KANKAKEE         KIKK  IKK          41 04N  087 51W  192   X           W    7 US USIL0601
+IL LACON            KC75  C75          41 01N  089 23W  173   X           W    7 US USIL0636
+IL LAWRENCEVILLE    KLWV  LWV          38 46N  087 36W  131   X           A    7 US USIL0652
 IL LINCOLN          KILX  ILX   74560  40 09N  089 20W  177      X     X     F 8 US
 IL LINCOLN          KAAA  AAA          40 10N  089 20W  182   X           W    7 US
 IL LITCHFIELD MUNI  K3LF  3LF          39 10N  089 40W  210   X           W    8 US
 IL MACOMB MUNI      KMQB  MQB          40 31N  090 39W  215   X           W    7 US
 IL MARION REGIONAL  KMWA  MWA          37 45N  089 01W  144   X                7 US
-IL MARSEILLES       KMMO  MMO   74460  41 22N  088 40W  225   X           M    7 US
-IL MATTOON/CHARLEST KMTO  MTO          39 28N  088 16W  214   X           A    7 US
-IL METROPOLIS       KM30  M30          37 11N  088 45W  117   X           W    7 US
+IL MARSEILLES       KMMO  MMO   74460  41 22N  088 40W  225   X           M    7 US USIL0731
+IL MATTOON/CHARLEST KMTO  MTO          39 28N  088 16W  214   X           A    7 US USIL0741
+IL METROPOLIS       KM30  M30          37 11N  088 45W  117   X           W    7 US USIL0764
 IL MOLINE/QUAD CITY KMLI  MLI   72544  41 27N  090 31W  184   X     T     A    6 US
 IL MORRIS-WASHBURN  KC09  C09          41 26N  088 25W  178   X           W    7 US
 IL MOUNT CARMEL     KAJG  AJG          38 36N  087 44W  131   X           W    7 US
@@ -1084,29 +1084,29 @@ IL MOUNT VERNON     KMVN  MVN          38 19N  088 52W  146   X           W    7
 IL OLNEY-NOBLE      KOLY  OLY          38 43N  088 11W  147   X           W    7 US
 IL PALWAUKEE        KPWK  PWK          42 07N  087 54W  203   X           A    7 US
 IL PEORIA           KPIA  PIA   72532  40 40N  089 41W  205   X     T     A    4 US USIL0935
-IL PARIS            KPRG  PRG          39 42N  087 40W  199   X           W    7 US
-IL PERU             KVYS  VYS          41 21N  089 09W  199   X           W    7 US
-IL PITTSFIELD       KPPQ  PPQ          39 38N  090 47W  216   X           W    7 US
-IL PONTIAC          KPNT  PNT          40 55N  088 38W  201   X           W    7 US
+IL PARIS            KPRG  PRG          39 42N  087 40W  199   X           W    7 US USIL0920
+IL PERU             KVYS  VYS          41 21N  089 09W  199   X           W    7 US USIL0940
+IL PITTSFIELD       KPPQ  PPQ          39 38N  090 47W  216   X           W    7 US USIL0949
+IL PONTIAC          KPNT  PNT          40 55N  088 38W  201   X           W    7 US USIL0960
 IL QUINCY MUNI/BALD KUIN  UIN          39 57N  091 12W  234   X     U     A    6 US
-IL RANTOUL          KTIP  TIP          40 18N  088 09W  225   X           W    7 US
+IL RANTOUL          KTIP  TIP          40 18N  088 09W  225   X           W    7 US USIL0980
 IL ROBINSON MUNI    KRSV  RSV          39 01N  087 39W  141   X           W    7 US
 IL ROCKFORD         KRFD  RFD   72543  42 12N  089 06W  221   X     T     A    4 US USIL1013
-IL ROCHELLE/KORITZ  KRPJ  RPJ          41 53N  089 04W  238   X           W    7 US
-IL ROMEOVILLE/CHI   KLOT  LOT          41 37N  088 06W  205   X  X        W  F 5 US
+IL ROCHELLE/KORITZ  KRPJ  RPJ          41 53N  089 04W  238   X           W    7 US USIL1007
+IL ROMEOVILLE/CHI   KLOT  LOT          41 37N  088 06W  205   X  X        W  F 5 US USIL1019
 IL SALEM/LECKRONE   KSLO  SLO          38 39N  088 58W  175   X           W    7 US
 IL SAVANNA/TRITOWN  KSFY  SFY          42 03N  090 07W  188   X           W    7 US USIL1052
 IL SCOTT AFB/BELLEV KBLV  BLV          38 32N  089 50W  138   X     T          1 US
-IL SPARTA           KSAR  SAR          38 09N  089 42W  164   X           W    7 US
+IL SPARTA           KSAR  SAR          38 09N  089 42W  164   X           W    7 US USIL1109
 IL SPRINGFIELD      KSPI  SPI   72439  39 51N  089 41W  181   X     T     A    6 US
 IL STERLING ROCKFAL KSQI  SQI          41 45N  089 40W  197   X                7 US
-IL TAYLORVILLE      KTAZ  TAZ          39 32N  089 20W  190   X           W    7 US
+IL TAYLORVILLE      KTAZ  TAZ          39 32N  089 20W  190   X           W    7 US USIL1152
 IL WAUKEGAN         KUGN  UGN          42 25N  087 52W  222   X                7 US USIL0225
 IL WINCHESTER PROFI       WNC   74556  39 38N  090 28W  170            W       8 US
 IL CHICAGO          KCHI  CHI          42 00N  087 53W  203   Z                8 US
 IL GLENVIEW NAS     KNBU  NBU          42 05N  087 49W  199   Z                8 US
-IL LINCOLN          K3LC  3LC          40 10N  089 20W  182   Z                8 US
-IL RANTOUL          K2I5  2I5          40 18N  088 09W  225   Z                8 US
+IL LINCOLN          K3LC  3LC          40 10N  089 20W  182   Z                8 US USIL0669
+IL RANTOUL          K2I5  2I5          40 18N  088 09W  225   Z                8 US USIL0980
 IL ROCHELLE/KORITZ  K12C  12C          41 53N  089 04W  238   Z                8 US
    AURORA                                                                           USIL0062
    NAPERVILLE                                                                       USIL0828
@@ -1114,36 +1114,36 @@ IL ROCHELLE/KORITZ  K12C  12C          41 53N  089 04W  238   Z                8
 INDIANA            25-MAR-03
 CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 IN ANDERSON MUNICIP KAID  AID          40 07N  085 37W  280   X                7 US
-IN BLOOMINGTON      KBMG  BMG          39 09N  086 37W  257   X     T     A    7 US
-IN COLUMBUS/BALKALA KBAK  BAK          39 16N  085 54W  200   X                7 US
+IN BLOOMINGTON      KBMG  BMG          39 09N  086 37W  257   X     T     A    7 US USIN0046
+IN COLUMBUS/BALKALA KBAK  BAK          39 16N  085 54W  200   X                7 US USIN0126
 IN ELKHART MUNICIPA KEKM  EKM          41 43N  086 00W  237   X                7 US
 IN EVANSVILLE       KEVV  EVV   72432  38 03N  087 31W  117   X     T     A    4 US USIN0190
 IN EVANSVILLE       KVWX  VWX          38 16N  087 43W  190      X             6 US
 IN FORT WAYNE       KFWA  FWA   72533  40 58N  085 12W  248   X     U     A    3 US USIN0211
 IN GARY REGIONAL    KGYY  GYY          41 37N  087 25W  180   X     T          4 US USIN0233
-IN GOSHEN           KGSH  GSH          41 32N  085 47W  252   X           A    7 US
+IN GOSHEN           KGSH  GSH          41 32N  085 47W  252   X           A    7 US USIN0242
 IN GRISSOM AFB/PERU KGUS  GUS          40 38N  086 09W  247   X     T          6 US
-IN HUNTINGBURG      KHNB  HNB          38 15N  086 57W  161   X                7 US
+IN HUNTINGBURG      KHNB  HNB          38 15N  086 57W  161   X                7 US USIN0300
 IN INDIANAPOLIS     KEYE  EYE          39 50N  086 18W  248   X           A    7 US USIN0305
 IN INDIANAPOLIS     KIND  IND   72438  39 43N  086 17W  241   X  X  U     A  F 2 US USIN0305
 IN INDIANAPOL/ARTCC KZID  ZID          39 43N  086 17W  243         A          8 US
-IN KOKOMO           KOKK  OKK          40 32N  086 04W  253   X           W    8 US
+IN KOKOMO           KOKK  OKK          40 32N  086 04W  253   X           W    8 US USIN0331
 IN LAFAYETTE        KLAF  LAF          40 25N  086 57W  182   X     T     A    4 US
 IN LAFAYETTE VOR    KBVT  BVT          40 34N  087 04W  182         V          8 US
-IN MUNCIE           KMIE  MIE          40 14N  085 24W  285   X           A    7 US
+IN MUNCIE           KMIE  MIE          40 14N  085 24W  285   X           A    7 US USIN0452
 IN NORTH WEBSTER    KIWX  IWX          41 22N  085 42W  293      X             8 US
 IN POCKET CITY VOR  KPXV  PXV          37 56N  087 46W  117         V          8 US
-IN SHELBYVILLE      KGEZ  GEZ          39 35N  085 48W  245   X           A    7 US
+IN SHELBYVILLE      KGEZ  GEZ          39 35N  085 48W  245   X           A    7 US USIN0611
 IN SOUTH BEND       KSBN  SBN   72535  41 42N  086 19W  237   X     T     A    4 US USIN0624
 IN TERRE HAUTE      KHUF  HUF   72437  39 27N  087 20W  179   X     T     A    6 US
 IN TERRE HAUTE VOR  KTTH  TTH          39 29N  087 15W  179         V          8 US
-IN VALPARAISO       KVPZ  VPZ          41 27N  087 00W  231   X           A    7 US
+IN VALPARAISO       KVPZ  VPZ          41 27N  087 00W  231   X           A    7 US USIN0680
 IN WARSAW MUNI      KASW  ASW          41 16N  085 50W  259   X        W       8 US
 IN WOLCOTT PROFILER       WLC   74466  40 49N  087 03W  212            W       8 US
-IN BATESVILLE       KHLB  HLB          39 21N  085 16W  200   Z                8 US
+IN BATESVILLE       KHLB  HLB          39 21N  085 16W  200   Z                8 US USIN0029
 IN INDIANAPOLIS/EAG KI14  I14          39 50N  086 18W  251   Z                8 US
 IN JEFFERSON PRVG         MDN   74468  38 50N  085 25W  266   Z                8 US
-IN SHELBYVILLE      K3SM  3SM          39 35N  085 48W  245   Z                8 US
+IN SHELBYVILLE      K3SM  3SM          39 35N  085 48W  245   Z                8 US USIN0611
 
 KANSAS             31-MAR-05
 CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C

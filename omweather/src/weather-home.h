@@ -78,6 +78,7 @@ GdkColor	_weather_font_color = {0,0,0,0};
 int		_weather_temperature_unit = CELSIUS;
 gint		days_to_show	= 5;
 gint		distance_units	= METERS;
+gint		wind_units	= METERS_S;
 gchar		*icon_set	= NULL;
 
 /* List future event */

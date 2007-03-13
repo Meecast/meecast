@@ -772,7 +772,7 @@ void weather_window_preference(GtkWidget *widget,
         			    _enable_transparency);
 /* Units tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			table = gtk_table_new(1, 2, FALSE),
+        			table = gtk_table_new(1, 3, FALSE),
         			label = gtk_label_new(_("Units")));
 /* Temperature units */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
@@ -804,11 +804,34 @@ void weather_window_preference(GtkWidget *widget,
     gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Miles (Sea)"));
     switch(distance_units){
 	default:
-	case 0:  gtk_combo_box_set_active(GTK_COMBO_BOX(units), 0);break;
-	case 1:  gtk_combo_box_set_active(GTK_COMBO_BOX(units), 1);break;
-	case 2:  gtk_combo_box_set_active(GTK_COMBO_BOX(units), 2);break;
-	case 3:  gtk_combo_box_set_active(GTK_COMBO_BOX(units), 3);break;
-	case 4:  gtk_combo_box_set_active(GTK_COMBO_BOX(units), 4);break;
+	case METERS:			gtk_combo_box_set_active(GTK_COMBO_BOX(units), METERS);break;
+	case KILOMETERS:	 	gtk_combo_box_set_active(GTK_COMBO_BOX(units), KILOMETERS);break;
+	case INTERNATIONAL_MILES:	gtk_combo_box_set_active(GTK_COMBO_BOX(units), INTERNATIONAL_MILES);break;
+	case IMPERIAL_MILES:		gtk_combo_box_set_active(GTK_COMBO_BOX(units), IMPERIAL_MILES);break;
+	case SEA_MILES:			 gtk_combo_box_set_active(GTK_COMBO_BOX(units), SEA_MILES);break;
+    }    
+/* Wind units */
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+				label = gtk_label_new(_("Wind speed units:")),
+				0, 1, 2, 3);
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
+				1, 2, 2, 3);
+    gtk_container_add(GTK_CONTAINER(label), wunits = gtk_combo_box_new_text());
+    gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("m/s"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("km/s"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("mi/s"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("m/h"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("km/h"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("mi/h"));
+    switch(wind_units){
+	default:
+	case METERS_S:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), METERS_S);break;
+	case KILOMETERS_S:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), KILOMETERS_S);break;
+	case MILES_S:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), MILES_S);break;
+	case METERS_H:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), METERS_H);break;
+	case KILOMETERS_H:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), KILOMETERS_H);break;
+	case MILES_H:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), MILES_H);break;
     }    
 /* Update tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
@@ -885,6 +908,11 @@ void weather_window_preference(GtkWidget *widget,
 /* Distance units */
 	    if(gtk_combo_box_get_active((GtkComboBox*)units) != distance_units ){
 		distance_units = gtk_combo_box_get_active((GtkComboBox*)units);
+    		flag_update_icon = TRUE;
+	    }
+/* Wind units */
+	    if(gtk_combo_box_get_active((GtkComboBox*)wunits) != wind_units ){
+		wind_units = gtk_combo_box_get_active((GtkComboBox*)wunits);
     		flag_update_icon = TRUE;
 	    }
 /* Find select element of update time box and save time value */

@@ -10,6 +10,7 @@ void hash_table_create(){
     g_hash_table_insert(hash, "AM Showers", _("AM Showers"));
     g_hash_table_insert(hash, "AM Snow Showers", _("AM Snow Showers"));
     g_hash_table_insert(hash, "CALM", _("CALM"));
+    g_hash_table_insert(hash, "Mist", _("Mist"));
     g_hash_table_insert(hash, "Clear", _("Clear"));
     g_hash_table_insert(hash, "Clear / Wind", _("Clear / Wind"));
     g_hash_table_insert(hash, "Clouds Early / Clearing Late", _("Clouds Early / Clearing Late"));

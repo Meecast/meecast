@@ -51,6 +51,7 @@ extern gboolean  not_event;
 extern int       _weather_layout;
 /* by Pavel */
 extern	gint	days_to_show;
+extern	gint	wind_units;
 extern	gint	distance_units;
 extern	gchar	*icon_set;
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
@@ -59,7 +60,7 @@ void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_
 void fill_station_list_view (GtkWidget *station_list_view,GtkListStore *station_list_store);
 
 GtkWidget  *countrys, *states, *stations, *icon_size, *layout_type, *update_time, *temperature_unit, *days_number;
-GtkWidget  *custom_station_name, *custom_station_code, *units, *iconset;
+GtkWidget  *custom_station_name, *custom_station_code, *units, *iconset, *wunits;
 
 static GSList *stations_list_in_state = NULL; /* Station list of country or state or province.  Use in combobox*/
 static GtkListStore *station_list_store;

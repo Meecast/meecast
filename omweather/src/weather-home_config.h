@@ -48,6 +48,7 @@
 #define GCONF_KEY_WEATHER_STATIONS_LIST    GCONF_KEY_PREFIX"/station-list"   
 #define GCONF_KEY_WEATHER_DAYS			GCONF_KEY_PREFIX"/days"
 #define GCONF_KEY_WEATHER_DISTANCE_UNITS	GCONF_KEY_PREFIX"/distance-units"
+#define GCONF_KEY_WEATHER_WIND_UNITS		GCONF_KEY_PREFIX"/wind-units"
 #define GCONF_KEY_WEATHER_ICON_SET		GCONF_KEY_PREFIX"/icon-set"
 
 extern gchar    *_weather_dir_name;
@@ -66,6 +67,7 @@ extern int      _weather_layout;
 /* by Pavel */
 extern	gint	days_to_show;
 extern	gint	distance_units;
+extern	gint	wind_units;
 extern	gchar	*icon_set;
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 

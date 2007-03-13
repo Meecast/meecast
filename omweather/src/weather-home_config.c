@@ -368,7 +368,12 @@ void config_init(){
 	distance_units =  gconf_client_get_int(gconf_client,                                                                                     
                      GCONF_KEY_WEATHER_DISTANCE_UNITS, &gerror);
 	if(gerror)
-	    distance_units = 0;
+	    distance_units = METERS;
+	/* Get wind units */
+	wind_units =  gconf_client_get_int(gconf_client,                                                                                     
+                     GCONF_KEY_WEATHER_WIND_UNITS, &gerror);
+	if(gerror)
+	    wind_units = 0;
 	/* Fill time update list */
     if(!time_update_list){
 	add_time_update_list(0,_("Never"));	
@@ -492,9 +497,12 @@ void config_save(){
     /* Save Days to show. */
     gconf_client_set_int(gconf_client,
             GCONF_KEY_WEATHER_DAYS, days_to_show, NULL);	    
-    /* Save units. */
+    /* Save distance units. */
     gconf_client_set_int(gconf_client,
             GCONF_KEY_WEATHER_DISTANCE_UNITS, distance_units, NULL);
+    /* Save wind units. */
+    gconf_client_set_int(gconf_client,
+            GCONF_KEY_WEATHER_WIND_UNITS, wind_units, NULL);
     /* Save Layout type. */
     gconf_client_set_int(gconf_client,
             GCONF_KEY_WEATHER_LAYOUT, _weather_layout, NULL);	    

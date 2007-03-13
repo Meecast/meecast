@@ -62,6 +62,7 @@
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS };
 enum { METERS, KILOMETERS, INTERNATIONAL_MILES, IMPERIAL_MILES, SEA_MILES };
+enum { METERS_S, KILOMETERS_S, MILES_S, METERS_H, KILOMETERS_H, MILES_H };
 enum { CELSIUS, FAHRENHEIT };
 
 typedef struct

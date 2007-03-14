@@ -42,5 +42,19 @@ CURL *curl_handle;
             "rv:1.8.1.1) Gecko/20061205 Iceweasel/2.0.0.1"); 
     curl_easy_setopt(curl_handle, CURLOPT_TIMEOUT, 30); 
     curl_easy_setopt(curl_handle, CURLOPT_CONNECTTIMEOUT, 10); 
+    
+    curl_easy_setopt(curl_handle, CURLOPT_URL, "http://www.ru");
+    
+//    curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION,
+//                data_read);
+//        curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &data);
+    if(CURLE_OK != curl_easy_perform(curl_handle))
+    {
+	fprintf(stderr,"Ok\n");
+    }
+    else
+	fprintf(stderr,"Not Ok\n");     
+//	 curl_easy_cleanup(curl_handle);
 return curl_handle;    
 }
+

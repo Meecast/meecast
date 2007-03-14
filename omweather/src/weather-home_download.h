@@ -34,6 +34,12 @@
 #include <curl/multi.h>
 
 CURL *weather_curl_init(void);
+int download_html(GString *url, GString *full_filename);
+
+struct HtmlFile {
+  char *filename;
+  FILE *stream;
+};
 
 #endif
 

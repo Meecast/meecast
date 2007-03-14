@@ -43,11 +43,40 @@ CURL *curl_handle;
     curl_easy_setopt(curl_handle, CURLOPT_TIMEOUT, 30); 
     curl_easy_setopt(curl_handle, CURLOPT_CONNECTTIMEOUT, 10); 
     
-    curl_easy_setopt(curl_handle, CURLOPT_URL, "http://www.ru");
+//    curl_easy_setopt(curl_handle, CURLOPT_URL, "http://www.ru");
     
-//    curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION,
-//                data_read);
-//        curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &data);
+return curl_handle;    
+}
+
+int data_read(void *buffer, size_t size, size_t nmemb, void *stream)
+{
+  struct HtmlFile *out=(struct HtmlFile *)stream;
+  if(out && !out->stream) {
+  /* open file for writing */
+  out->stream=fopen(out->filename, "wb");
+  if(!out->stream)
+  {
+    fprintf (stderr,"tttttttttttttttttt\n");
+      return -1; /* failure, can't open file to write */
+      
+  }      
+  }
+  return fwrite(buffer, size, nmemb, out->stream);
+}			  
+
+int
+download_html(GString *url, GString *full_filename)
+{
+CURL *curl_handle;
+
+    struct HtmlFile html_file;
+    html_file.filename = full_filename->str;	    
+	    
+    curl_handle = weather_curl_init();
+    curl_easy_setopt(curl_handle, CURLOPT_URL, url);
+    curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION,
+                data_read);	
+    curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);
     if(CURLE_OK != curl_easy_perform(curl_handle))
     {
 	fprintf(stderr,"Ok\n");
@@ -55,6 +84,6 @@ CURL *curl_handle;
     else
 	fprintf(stderr,"Not Ok\n");     
 //	 curl_easy_cleanup(curl_handle);
-return curl_handle;    
-}
 
+return 0;
+}

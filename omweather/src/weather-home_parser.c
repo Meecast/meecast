@@ -82,7 +82,6 @@ int parse_weather_com_xml(void)
     year = 1900 + tm->tm_year;
     parser = NULL;
     
-        
     if(!_weather_station_id)
 	return -1;
     sprintf(buffer, "%s/%s.xml.new", _weather_dir_name,_weather_station_id); /* Used new file */
@@ -99,10 +98,10 @@ int parse_weather_com_xml(void)
 	if(!access(buffer,R_OK)){ 
 	    parser = weather_parser_new_from_file(buffer);
 	    if (parser->error) return -1; 
-	}	
+	}
 	else
 	    return -1;
-    }    
+    }
     for(cur_node = parser->weather_com_root->children; cur_node != NULL; cur_node = cur_node->next){
 	if( cur_node->type == XML_ELEMENT_NODE ){
         /* Check error */

@@ -50,40 +50,57 @@ return curl_handle;
 
 int data_read(void *buffer, size_t size, size_t nmemb, void *stream)
 {
+  int result;
   struct HtmlFile *out=(struct HtmlFile *)stream;
+  fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
   if(out && !out->stream) {
   /* open file for writing */
+  fprintf (stderr,"File: %s\n",out->filename);
   out->stream=fopen(out->filename, "wb");
   if(!out->stream)
   {
-    fprintf (stderr,"tttttttttttttttttt\n");
-      return -1; /* failure, can't open file to write */
-      
+      return -1; /* failure, can't open file to write */      
   }      
   }
-  return fwrite(buffer, size, nmemb, out->stream);
+  result = fwrite(buffer, size, nmemb, out->stream);
+  fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);
+  return result;
+
 }			  
 
 int
 download_html(GString *url, GString *full_filename)
 {
 CURL *curl_handle;
+int result;
 
     struct HtmlFile html_file;
-    html_file.filename = full_filename->str;	    
+    
+    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
+    html_file.filename = full_filename->str;
+    html_file.stream = NULL;
+    
+        fprintf (stderr,"download\n");	    
 	    
     curl_handle = weather_curl_init();
     curl_easy_setopt(curl_handle, CURLOPT_URL, url);
+    /* for debug */
+    curl_easy_setopt(curl_handle, CURLOPT_URL, "ftp://127.0.0.1/welcome.msg");
     curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION,
                 data_read);	
     curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);
+
     if(CURLE_OK != curl_easy_perform(curl_handle))
     {
-	fprintf(stderr,"Ok\n");
+	fprintf(stderr,"Not Ok\n");
+	result = -1;
     }
     else
-	fprintf(stderr,"Not Ok\n");     
-//	 curl_easy_cleanup(curl_handle);
-
-return 0;
+    {
+	fprintf(stderr,"Ok\n");     
+	result = 0;
+    }	
+	 curl_easy_cleanup(curl_handle);
+   fclose (html_file.stream);
+   return result;
 }

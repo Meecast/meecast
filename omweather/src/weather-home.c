@@ -558,26 +558,16 @@ void weather_frame_update(gboolean check){
 static gboolean update_w(gpointer data){
     
    int result;
+    create_window_update();
     if(!get_weather_html(TRUE))
 	weather_frame_update(TRUE);
-   fprintf (stderr,"11111111111111111sdddddddddddddddddddd\n");
-   if (g_html)
-   {
-    fprintf (stderr,"sdddddddddddddddddddd\n");
-    return TRUE;
-    }
-   else
-   {    
-//    gtk_timeout_remove(flag_update);
-//    g_object_unref(G_OBJECT(update_window));
-    fprintf (stderr,"1111111111111111\n");
     if(update_window)
 	gtk_widget_destroy(update_window);
     if(weather_window_popup)
-	gtk_widget_destroy(weather_window_popup);
-    weather_frame_update(TRUE);	/* TODO!!!!!!!!!!! Check result */
+	gtk_widget_destroy(weather_window_popup);	
+    fprintf (stderr,"11111111111111111sdddddddddddddddddddd\n");
     return FALSE;
-    }
+    
 }
 
 void update_weather(void){
@@ -585,9 +575,9 @@ void update_weather(void){
     if (!g_html)
     {
      fprintf (stderr,"xxxxxxxxxxxxxxxxxxxxxxc\n");
-     create_window_update();
-     get_weather_html(TRUE);
-//     flag_update = g_timeout_add(100, (GSourceFunc)update_w, NULL);
+//     create_window_update();
+//     get_weather_html(TRUE);
+     flag_update = g_timeout_add(1000, (GSourceFunc)update_w, NULL);
 // 
      fprintf (stderr,"1111xxxxxxxxxxxxxxxxxxxxxxc\n");
     }

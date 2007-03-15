@@ -83,7 +83,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 	/* get current day */  
 	current_time = time(NULL);
     }
-    i = boxs_offset[i];  
+    i = boxs_offset[i];
     /* Create POPUP WINDOW */ 
     weather_window_popup = gtk_window_new( GTK_WINDOW_POPUP );
     gtk_window_set_decorated(GTK_WINDOW(weather_window_popup), FALSE);
@@ -95,7 +95,8 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 /* Show or current weather or forecast */
     if(pressed_current_day && 
 	    (weather_current_day.date_time > ( current_time - OFFSET_CURRENT_WEATHER * 3600 )) &&
-            (weather_current_day.date_time < ( current_time + OFFSET_CURRENT_WEATHER * 3600 ))){
+            (weather_current_day.date_time < ( current_time + OFFSET_CURRENT_WEATHER * 3600 )) &&
+	    weather_current_day.location){
 	gtk_window_move(GTK_WINDOW(weather_window_popup), 180, 90);
 /* Begin CURRENT */        
 	hbox_current = gtk_hbox_new(FALSE, 0);
@@ -162,138 +163,135 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 	gtk_box_pack_start(GTK_BOX(hbox_current),
 			    vbox_hu_current, FALSE, FALSE, 10);
     }/* End CURRENT */            
-    else
+    else{
 	gtk_window_move(GTK_WINDOW(weather_window_popup), 180, 160);
 /* Begin TITLE */
 /* Location and date */
-    vbox = gtk_vbox_new(FALSE, 0);
-    hbox_title_location = gtk_hbox_new(FALSE, 0);
-    hbox_title_date = gtk_hbox_new(FALSE, 0);
+	vbox = gtk_vbox_new(FALSE, 0);
+        hbox_title_location = gtk_hbox_new(FALSE, 0);
+        hbox_title_date = gtk_hbox_new(FALSE, 0);
 /* Show full or short name station */
-    if(i < DAY_DOWNLOAD){
-	label_location = gtk_label_new(weather_days[i].location);
-	fprintf(stderr, "\n1 - %s\n", weather_days[i].location);
-	fprintf(stderr, "\n2 - %s\n", _weather_station_name);
-    }
-    else
-	label_location = gtk_label_new(_weather_station_name);
-    
-    sprintf(buffer,"%s, %s", weather_days[i].dayshname, weather_days[i].date);
-    label_date = gtk_label_new(buffer);
-    set_font_size(label_date, 18);
+        if(i < DAY_DOWNLOAD)
+	    label_location = gtk_label_new(weather_days[i].location);
+	else
+	    label_location = gtk_label_new(_weather_station_name);
+        sprintf(buffer,"%s, %s", weather_days[i].dayshname, weather_days[i].date);
+	label_date = gtk_label_new(buffer);
+	set_font_size(label_date, 18);
 /* Button UPDATE */
-    gtkicon_update = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
-                                         "qgn_toolb_gene_refresh", 26, 0);
-    icon_update = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_update));
-    button_update = gtk_button_new();
-    gtk_button_set_relief(GTK_BUTTON(button_update), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(button_update), FALSE);
-    gtk_container_add(GTK_CONTAINER(button_update), icon_update);
-    gtk_widget_set_events(button_update, GDK_BUTTON_PRESS_MASK);
-    g_signal_connect(button_update, "clicked",
-			G_CALLBACK(update_weather), NULL);      
+	gtkicon_update = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
+        	                             "qgn_toolb_gene_refresh", 26, 0);
+	icon_update = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_update));
+	button_update = gtk_button_new();
+	gtk_button_set_relief(GTK_BUTTON(button_update), GTK_RELIEF_NONE);
+	gtk_button_set_focus_on_click(GTK_BUTTON(button_update), FALSE);
+	gtk_container_add(GTK_CONTAINER(button_update), icon_update);
+	gtk_widget_set_events(button_update, GDK_BUTTON_PRESS_MASK);
+	g_signal_connect(button_update, "clicked",
+		    	    G_CALLBACK(update_weather), NULL);      
 
-    gtk_box_pack_start(GTK_BOX(hbox_title_location),
-			    label_location, FALSE, FALSE, 5);
-    gtk_box_pack_end(GTK_BOX(hbox_title_location),
-			    button_update, FALSE, FALSE, 2);
-    gtk_box_pack_start(GTK_BOX(hbox_title_date),
-			    label_date, FALSE, FALSE, 5);
+	gtk_box_pack_start(GTK_BOX(hbox_title_location),
+				label_location, FALSE, FALSE, 5);
+	gtk_box_pack_end(GTK_BOX(hbox_title_location),
+				button_update, FALSE, FALSE, 2);
+	gtk_box_pack_start(GTK_BOX(hbox_title_date),
+				label_date, FALSE, FALSE, 5);
 /* End TITLE */
 /* BEGIN TEMPERATURE */
-    hbox_temp = gtk_hbox_new(FALSE, 0);
-    label_temp = gtk_label_new(_("Temperature: "));
-    set_font_size(label_temp, 18);
+	hbox_temp = gtk_hbox_new(FALSE, 0);
+	label_temp = gtk_label_new(_("Temperature: "));
+	set_font_size(label_temp, 18);
 
-    if(!wcscmp(weather_days[i].hi_temp, _("N/A"))){ 
-	if(_weather_temperature_unit == CELSIUS)
-	    sprintf(buffer, "%s\302\260C", weather_days[i].low_temp);    
-	else
+	if(!wcscmp(weather_days[i].hi_temp, _("N/A"))){ 
+	    if(_weather_temperature_unit == CELSIUS)
+	    sprintf(buffer, "%s\302\260C", weather_days[i].low_temp);
+	    else
 	    sprintf(buffer, "%d\302\260F", c2f(atoi(weather_days[i].low_temp)));
-    }
-    else{
-	if(_weather_temperature_unit == CELSIUS)
-	    sprintf(buffer, "%s\302\260C / %s\302\260C", weather_days[i].low_temp,weather_days[i].hi_temp);
-	else
-	    sprintf(buffer,"%d\302\260F / %d\302\260F", c2f(atoi(weather_days[i].low_temp)),c2f(atoi(weather_days[i].hi_temp)));
-    }
-    label_value_temp = gtk_label_new(buffer);
-    gtk_box_pack_start(GTK_BOX(hbox_temp), label_temp, FALSE, FALSE, 5);
-    gtk_box_pack_start(GTK_BOX(hbox_temp), label_value_temp, FALSE, FALSE, 5);
+	}
+	else{
+	    if(_weather_temperature_unit == CELSIUS)
+		sprintf(buffer, "%s\302\260C / %s\302\260C", weather_days[i].low_temp,weather_days[i].hi_temp);
+	    else
+		sprintf(buffer,"%d\302\260F / %d\302\260F", c2f(atoi(weather_days[i].low_temp)),c2f(atoi(weather_days[i].hi_temp)));
+	}
+	label_value_temp = gtk_label_new(buffer);
+	gtk_box_pack_start(GTK_BOX(hbox_temp), label_temp, FALSE, FALSE, 5);
+	gtk_box_pack_start(GTK_BOX(hbox_temp), label_value_temp, FALSE, FALSE, 5);
 /* END TEMPERATURE */   
 /* Begin NIGHT */        
-    hbox_night = gtk_hbox_new(FALSE, 0);
-    sprintf(buffer, "%s%i.png", path_large_icon, weather_days[i].night.icon);
-    icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
-    icon_image_night = gtk_image_new_from_pixbuf(icon);
-    vbox_night = gtk_vbox_new(FALSE, 0);
-    label_night = gtk_label_new(_("Night:"));
-    set_font_size(label_night, 20);
+	hbox_night = gtk_hbox_new(FALSE, 0);
+	sprintf(buffer, "%s%i.png", path_large_icon, weather_days[i].night.icon);
+	icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
+	icon_image_night = gtk_image_new_from_pixbuf(icon);
+	vbox_night = gtk_vbox_new(FALSE, 0);
+	label_night = gtk_label_new(_("Night:"));
+        set_font_size(label_night, 20);
     
-    gtk_box_pack_start(GTK_BOX(vbox_night), label_night, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(vbox_night), label_night, FALSE, FALSE, 0);
  
-    vbox_hu_night = gtk_vbox_new(FALSE, 0);
-    buffer[0] = 0;
-    strcat(buffer, weather_days[i].night.title);
-    strcat(buffer, _("\nHumidity: "));
-    sprintf(buffer + strlen(buffer), "%s%%\n", weather_days[i].night.hmid);
-    strcat(buffer, _("Wind: "));
-    sprintf(buffer + strlen(buffer), "%s %.1f ", weather_days[i].night.wind_title,
-		    convert_wind_units(wind_units, weather_days[i].night.wind_speed, &units));						
-    strcat(buffer, units);
+        vbox_hu_night = gtk_vbox_new(FALSE, 0);
+        buffer[0] = 0;
+        strcat(buffer, weather_days[i].night.title);
+        strcat(buffer, _("\nHumidity: "));
+        sprintf(buffer + strlen(buffer), "%s%%\n", weather_days[i].night.hmid);
+        strcat(buffer, _("Wind: "));
+        sprintf(buffer + strlen(buffer), "%s %.1f ", weather_days[i].night.wind_title,
+    			convert_wind_units(wind_units, weather_days[i].night.wind_speed, &units));						
+	strcat(buffer, units);
 	    
-    label_humidity_night = gtk_label_new(buffer);    
-    set_font_size(label_humidity_night, 16);
-    gtk_box_pack_start(GTK_BOX(vbox_hu_night), label_humidity_night, FALSE, FALSE, 0);
-    
-    gtk_box_pack_start(GTK_BOX(hbox_night), icon_image_night, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(hbox_night), vbox_night, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(hbox_night), vbox_hu_night, FALSE, FALSE, 10);
+	label_humidity_night = gtk_label_new(buffer);    
+        set_font_size(label_humidity_night, 16);
+        gtk_box_pack_start(GTK_BOX(vbox_hu_night), label_humidity_night, FALSE, FALSE, 0);
+        
+	gtk_box_pack_start(GTK_BOX(hbox_night), icon_image_night, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(hbox_night), vbox_night, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(hbox_night), vbox_hu_night, FALSE, FALSE, 10);
 /* End NIGHT */
 /* Begin DAY */    
-    hbox_day = gtk_hbox_new(FALSE, 0);
-    sprintf(buffer,"%s%i.png", path_large_icon, weather_days[i].day.icon);    
-    icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
-    icon_image_day = gtk_image_new_from_pixbuf(icon);
-    vbox_day = gtk_vbox_new(FALSE, 0);
-    label_day = gtk_label_new(_("Day:"));
-    set_font_size(label_day, 20);
-    gtk_box_pack_start(GTK_BOX(vbox_day), label_day, FALSE, FALSE, 0);
+        hbox_day = gtk_hbox_new(FALSE, 0);
+        sprintf(buffer,"%s%i.png", path_large_icon, weather_days[i].day.icon);    
+        icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
+        icon_image_day = gtk_image_new_from_pixbuf(icon);
+        vbox_day = gtk_vbox_new(FALSE, 0);
+        label_day = gtk_label_new(_("Day:"));
+        set_font_size(label_day, 20);
+        gtk_box_pack_start(GTK_BOX(vbox_day), label_day, FALSE, FALSE, 0);
 
-    vbox_hu_day = gtk_vbox_new(FALSE, 0);    
-    buffer[0] = 0;
-    strcat(buffer, weather_days[i].day.title);
-    strcat(buffer, _("\nHumidity: "));
-    sprintf(buffer + strlen(buffer), "%s%%", weather_days[i].day.hmid);
-    strcat(buffer, _("\nWind: "));
-    sprintf(buffer + strlen(buffer), "%s %.1f ", weather_days[i].night.wind_title,
-		convert_wind_units(wind_units, weather_days[i].day.wind_speed, &units));
-    strcat(buffer, units);
+        vbox_hu_day = gtk_vbox_new(FALSE, 0);    
+        buffer[0] = 0;
+        strcat(buffer, weather_days[i].day.title);
+        strcat(buffer, _("\nHumidity: "));
+        sprintf(buffer + strlen(buffer), "%s%%", weather_days[i].day.hmid);
+        strcat(buffer, _("\nWind: "));
+        sprintf(buffer + strlen(buffer), "%s %.1f ", weather_days[i].night.wind_title,
+		    convert_wind_units(wind_units, weather_days[i].day.wind_speed, &units));
+        strcat(buffer, units);
 	    
-    label_humidity_day = gtk_label_new(buffer);    
-    set_font_size(label_humidity_day, 16);
-    gtk_box_pack_start(GTK_BOX(vbox_hu_day), label_humidity_day, FALSE, FALSE, 0);
+        label_humidity_day = gtk_label_new(buffer);    
+        set_font_size(label_humidity_day, 16);
+        gtk_box_pack_start(GTK_BOX(vbox_hu_day), label_humidity_day, FALSE, FALSE, 0);
     
-    gtk_box_pack_start(GTK_BOX(hbox_day), icon_image_day, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(hbox_day), vbox_day, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(hbox_day), vbox_hu_day, FALSE, FALSE, 10);
+        gtk_box_pack_start(GTK_BOX(hbox_day), icon_image_day, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(hbox_day), vbox_day, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(hbox_day), vbox_hu_day, FALSE, FALSE, 10);
 /* End DAY */    
 /* Begin FOOT */
-    hbox_foot = gtk_hbox_new(FALSE, 0);
-    sprintf(full_filename, "%s/%s.xml", _weather_dir_name, _weather_station_id);
-    if(stat(full_filename, &statv))
-	sprintf(buffer, _("Last update: Unknown"));
-    else{ 
-	buffer[0] = 0;
-	strcat(buffer, _("Last update: \n"));
-    	sprintf(buffer + strlen(buffer), "%s", ctime(&statv.st_mtime));
-        buffer[strlen(buffer) - 1] = 0; /* Remove Last \n */
-    }
-    label_update = gtk_label_new(buffer);    
-    set_font_size(label_update, 20);
+        hbox_foot = gtk_hbox_new(FALSE, 0);
+        sprintf(full_filename, "%s/%s.xml", _weather_dir_name, _weather_station_id);
+        if(stat(full_filename, &statv))
+    	    sprintf(buffer, _("Last update: Unknown"));
+        else{ 
+	    buffer[0] = 0;
+	    strcat(buffer, _("Last update: \n"));
+    	    sprintf(buffer + strlen(buffer), "%s", ctime(&statv.st_mtime));
+    	    buffer[strlen(buffer) - 1] = 0; /* Remove Last \n */
+	}
+        label_update = gtk_label_new(buffer);    
+	set_font_size(label_update, 20);
     
-    gtk_box_pack_start(GTK_BOX(hbox_foot), label_update, FALSE, FALSE, 5);
+	gtk_box_pack_start(GTK_BOX(hbox_foot), label_update, FALSE, FALSE, 5);
 /* End FOOT */
+    }
 /* Start PREFERENCE UPDATE */
     hbox_pref = gtk_hbox_new(FALSE, 0);
     gtk_container_set_border_width(GTK_CONTAINER(hbox_pref), 4);
@@ -308,7 +306,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 /* Packing elements */
     gtk_container_add(GTK_CONTAINER(vbox), hbox_title_location);
 /* Check null data buttons */
-    if(i < DAY_DOWNLOAD){
+    if(i < DAY_DOWNLOAD && strcmp(weather_days[i].location, "")){
 	gtk_container_add(GTK_CONTAINER(vbox), hbox_title_date);
 	separator_title = gtk_hseparator_new();
 	gtk_box_pack_start(GTK_BOX(vbox), separator_title, FALSE, TRUE, 0);
@@ -423,8 +421,7 @@ weather_window_popup_show_future (GtkWidget *widget,
     gtk_container_add (GTK_CONTAINER (button_update), icon_update);
     gtk_widget_set_events (button_update, GDK_BUTTON_PRESS_MASK);
     g_signal_connect (button_update, "clicked",
-		    G_CALLBACK (update_weather),
-		    NULL);      
+		    G_CALLBACK (update_weather), NULL);      
 
     gtk_box_pack_start (GTK_BOX (hbox_title_location),label_location, FALSE, FALSE, 5);
     gtk_box_pack_end   (GTK_BOX (hbox_title_location),button_update, FALSE, FALSE, 2);
@@ -555,4 +552,29 @@ float convert_wind_units(int to, int value, char **units_str){
 	    case MILES_H:  *units_str = strdup(_("mi/h")); result /= 1.609344f; break;
 	}
     return result;
+}
+
+void dump_weather_day(int i){
+    fprintf(stderr, "\nIcon day -  %d", weather_days[i].day.icon);
+    fprintf(stderr, "\nTitle day -  %s", weather_days[i].day.title);
+    fprintf(stderr, "\nHmid day -  %s", weather_days[i].day.hmid);
+    fprintf(stderr, "\nWind speed day -  %d", weather_days[i].day.wind_speed);
+    fprintf(stderr, "\nWind gust day -  %d", weather_days[i].day.wind_gust);
+    fprintf(stderr, "\nVisible day -  %f", weather_days[i].day.vis);
+    fprintf(stderr, "\nWind title day -  %s", weather_days[i].day.wind_title);
+    fprintf(stderr, "\nTemperature day -  %s", weather_days[i].day.temp);
+    fprintf(stderr, "\nIcon night -  %d", weather_days[i].night.icon);
+    fprintf(stderr, "\nTitle night -  %s", weather_days[i].night.title);
+    fprintf(stderr, "\nHmid night -  %s", weather_days[i].night.hmid);
+    fprintf(stderr, "\nWind speed night -  %d", weather_days[i].night.wind_speed);
+    fprintf(stderr, "\nWind gust night -  %d", weather_days[i].night.wind_gust);
+    fprintf(stderr, "\nVisible night -  %f", weather_days[i].night.vis);
+    fprintf(stderr, "\nWind title night -  %s", weather_days[i].night.wind_title);
+    fprintf(stderr, "\nTemperature night -  %s", weather_days[i].night.temp);
+    fprintf(stderr, "\nDate -  %s", weather_days[i].date);
+    fprintf(stderr, "\nShort name -  %s", weather_days[i].dayshname);
+    fprintf(stderr, "\nFull name -  %s", weather_days[i].dayfuname);
+    fprintf(stderr, "\nHi temp -  %s", weather_days[i].hi_temp);
+    fprintf(stderr, "\nLow temp -  %s", weather_days[i].low_temp);
+    fprintf(stderr, "\nLocation -  %s\n", weather_days[i].location);
 }

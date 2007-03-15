@@ -68,13 +68,13 @@ enum { CELSIUS, FAHRENHEIT };
 typedef struct
 {
   int icon;
-  gchar title[26];      /* Title */
-  gchar hmid[5];        /* Humidity */
+  gchar title[30];      /* Title */
+  gchar hmid[30];        /* Humidity */
   int wind_speed;       /* Wind Speed */
   int wind_gust;        /* Wind Gust */
   float vis;              /* Visibilty */
-  gchar wind_title[11]; /* Wind Title */
-  gchar temp[4];        /* Temperature */
+  gchar wind_title[30]; /* Wind Title */
+  gchar temp[30];        /* Temperature */
   time_t begin_time;    /* Begin time party of the day */  
 }part_of_day;
 
@@ -83,12 +83,12 @@ typedef struct
 {
   part_of_day day;      /* Or current weather */
   part_of_day night;
-  gchar date[10];     /* Date */     
+  gchar date[20];     /* Date */     
   time_t date_time;    /* Date of the year or current time*/  
-  gchar dayshname[3]; /* Short name of day */
-  gchar dayfuname[20];/* Full name of day */
-  gchar hi_temp[4];   /* High temperature of day or real current temperature for current day */
-  gchar low_temp[4];  /* Low temperature  of day or feels like temperature for current day */
+  gchar dayshname[30]; /* Short name of day */
+  gchar dayfuname[30];/* Full name of day */
+  gchar hi_temp[10];   /* High temperature of day or real current temperature for current day */
+  gchar low_temp[10];  /* Low temperature  of day or feels like temperature for current day */
   gchar location[50]; /* Location */
   
 }weather_day;

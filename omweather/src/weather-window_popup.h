@@ -52,5 +52,6 @@ void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_
 int c2f(int temp);
 void set_font_size(GtkWidget *widget, char font_size);
 float convert_wind_units(int to, int value, char **units_str);
+void dump_weather_day(int i);	/* for test */
 
 #endif

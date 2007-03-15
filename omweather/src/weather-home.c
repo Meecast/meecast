@@ -332,11 +332,13 @@ void weather_buttons_init(void){
     int i;
 /* Set default icon N/A */
     for(i = 0; i < days_to_show; i++){
+	memset(&weather_days[i], 0, sizeof(weather_day));
 	weather_days[i].night.icon = 48;
 	weather_days[i].day.icon = 48;
 	sprintf(weather_days[i].hi_temp, _("N/A"));
 	sprintf(weather_days[i].low_temp, _("N/A"));
     }
+    memset(&weather_current_day, 0, sizeof(weather_day));
 }
 
 
@@ -386,7 +388,7 @@ void weather_buttons_fill(gboolean check_error){
 	    count_day = 0;
 	    fprintf(stderr, _("Error in xml file\n"));
 	    error_station_code = TRUE;
-    } /* Error in xml file */
+	} /* Error in xml file */
 /* 
     if(count_day == -1){
 	count_day = 0;

@@ -134,19 +134,19 @@ msgstr "раз в 8 часов"
 
 #: src/weather-home_hash.c:8
 msgid "AM Clouds / PM Sun"
-msgstr "AM Clouds / PM Sun"
+msgstr "До полудня облачно, после полудня солнце"
 
 #: src/weather-home_hash.c:9
 msgid "AM Rain / Snow Showers"
-msgstr "Дождь / Снегопад"
+msgstr "До полудня дождь / Мокрый снег"
 
 #: src/weather-home_hash.c:10
 msgid "AM Showers"
-msgstr "AM Showers"
+msgstr "До полудня ливни"
 
 #: src/weather-home_hash.c:11
 msgid "AM Snow Showers"
-msgstr "AM Snow Showers"
+msgstr "До полудня мокрый снег"
 
 #: src/weather-home_preference.c:1012
 msgid "About"
@@ -178,15 +178,15 @@ msgstr "Цельсий (метрическая система)"
 
 #: src/weather-home_hash.c:13
 msgid "Clear"
-msgstr "Безоблочно"
+msgstr "Ясно"
 
 #: src/weather-home_hash.c:14
 msgid "Clear / Wind"
-msgstr "Clear / Wind"
+msgstr "Ясно / Ветер"
 
 #: src/weather-home_hash.c:15
 msgid "Clouds Early / Clearing Late"
-msgstr "Clouds Early / Clearing Late"
+msgstr "В начале дня облочно, позже ясно"
 
 #: src/weather-home_hash.c:16
 msgid "Cloudy"
@@ -275,19 +275,19 @@ msgstr "Невозможно инициализировать GConf. Настр�
 
 #: src/weather-home_hash.c:22
 msgid "Fair"
-msgstr "Ясно"
+msgstr "Ясная погода"
 
 #: src/weather-home_hash.c:23
 msgid "Few Showers"
-msgstr "Небольшой ливень"
+msgstr "Не большие ливни"
 
 #: src/weather-home_hash.c:24
 msgid "Few Snow"
-msgstr "Few Snow"
+msgstr "Не большой снег"
 
 #: src/weather-home_hash.c:25
 msgid "Few Snow Showers"
-msgstr "Небольшой снегопад"
+msgstr "Не большой мокрый снег"
 
 #: src/weather-home_hash.c:26
 msgid "Fog"
@@ -356,15 +356,15 @@ msgstr "Расположение:"
 
 #: src/weather-home_hash.c:32
 msgid "Light Drizzle"
-msgstr "Light Drizzle"
+msgstr "Не большой мелкий дождь"
 
 #: src/weather-home_hash.c:33
 msgid "Light Rain"
-msgstr "Небольшой дождь"
+msgstr "Не большой дождь"
 
 #: src/weather-home_hash.c:34
 msgid "Light Snow"
-msgstr "Light Snow"
+msgstr "Не большой снег"
 
 #: src/weather-home_preference.c:630
 msgid "Locations"
@@ -408,7 +408,7 @@ msgstr "В основном безоблачно"
 
 #: src/weather-home_hash.c:39
 msgid "Mostly Cloudy"
-msgstr "Mostly Cloudy"
+msgstr "В основном облачно"
 
 #: src/weather-home_hash.c:40
 msgid "Mostly Sunny"
@@ -482,19 +482,19 @@ msgstr "Пасмурно"
 
 #: src/weather-home_hash.c:50
 msgid "PM Showers"
-msgstr "PM Showers"
+msgstr "После полудня ливни"
 
 #: src/weather-home_hash.c:51
 msgid "PM Snow Showers"
-msgstr "PM Snow Showers"
+msgstr "После полудня мокрый снег"
 
 #: src/weather-home_hash.c:48
 msgid "Partly Cloudy"
-msgstr "Небольшая облачность"
+msgstr "Не большая облачность"
 
 #: src/weather-home_hash.c:49
 msgid "Partly Cloudy / Wind"
-msgstr "Partly Cloudy / Wind"
+msgstr "Не большая облачность / Ветер"
 
 #: src/weather-window_popup.c:517
 msgid "Preference"
@@ -510,11 +510,11 @@ msgstr "Дождь / Снег"
 
 #: src/weather-home_hash.c:55
 msgid "Rain / Snow Showers"
-msgstr "Дождь / Снегопад"
+msgstr "Дождь / Мокрый снег"
 
 #: src/weather-home_hash.c:54
 msgid "Rain / Snow Showers Late"
-msgstr "Дождь / Snow Showers Late"
+msgstr "Дождь / Позже мокрый снег"
 
 #: src/weather-home_hash.c:70
 msgid "S"
@@ -542,15 +542,15 @@ msgstr "Суббота"
 
 #: src/weather-home_hash.c:58
 msgid "Scattered Showers"
-msgstr "Scattered Showers"
+msgstr "Редкие ливни"
 
 #: src/weather-home_hash.c:59
 msgid "Scattered Snow"
-msgstr "Scattered Shower"
+msgstr "Редкий снег"
 
 #: src/weather-home_hash.c:60
 msgid "Scattered Snow Showers"
-msgstr "Scattered Snow Showers"
+msgstr "Редкий мокрый снег"
 
 #: src/weather-home_hash.c:61
 msgid "Scattered T-Storms"
@@ -566,7 +566,7 @@ msgstr "Ливни"
 
 #: src/weather-home_hash.c:63
 msgid "Showers Late"
-msgstr "Showers Late"
+msgstr "Позже ливни"
 
 #: src/weather-home_preference.c:747
 msgid "Small"
@@ -574,7 +574,7 @@ msgstr "Малый"
 
 #: src/weather-home_hash.c:65
 msgid "Smoke"
-msgstr "Smoke"
+msgstr "Дымка"
 
 #: src/weather-home_hash.c:68
 msgid "Snow"
@@ -582,11 +582,11 @@ msgstr "Снег"
 
 #: src/weather-home_hash.c:67
 msgid "Snow Shower"
-msgstr "Снегопад"
+msgstr "Мокрый снег"
 
 #: src/weather-home_hash.c:66
 msgid "Snow Showers Late"
-msgstr "Snow Showers Late"
+msgstr "Позже мокрый снег"
 
 #: src/weather-home_hash.c:69
 msgid "Snow to Rain"
@@ -614,7 +614,7 @@ msgstr "Станция(город)"
 
 #: src/weather-home_hash.c:74
 msgid "Storm"
-msgstr "Storm"
+msgstr "Шторм"
 
 #: src/weather-home_hash.c:75
 msgid "Sunday"

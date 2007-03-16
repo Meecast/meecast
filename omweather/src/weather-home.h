@@ -58,6 +58,7 @@ int parse_weather_com_xml(void);
 int c2f(int temp);
 static gboolean update_w(gpointer data);
 gboolean weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
+gboolean download_html(gpointer data);
 /* Hack for osso OS2007 */
 void hack_home_plugin_osso_for_nokia800(void);
 
@@ -89,6 +90,8 @@ GSList *time_update_list = NULL;
 
 /* Window Popup */
 GtkWidget *weather_window_popup;  
+/*Temp value for downloading */
+GString *url,*full_filename;
 /* Value use for not call event function */
 gboolean not_event = FALSE;
 GtkWidget *box,*box_zero;

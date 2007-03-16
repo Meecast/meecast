@@ -33,13 +33,20 @@
 #include "weather-home_common.h"
 #include <curl/multi.h>
 
+extern  GString *url,*full_filename;
+CURL *curl_handle = NULL;
+CURL *curl_multi = NULL;
 CURL *weather_curl_init(void);
-int download_html(GString *url, GString *full_filename);
+gboolean download_html(gpointer data);
+extern GtkWidget *update_window;     
+extern GtkWidget *weather_window_popup;  
+extern GtkWidget *box;
 
 struct HtmlFile {
   char *filename;
   FILE *stream;
 };
 
+struct HtmlFile html_file;
 #endif
 

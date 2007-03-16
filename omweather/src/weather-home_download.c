@@ -61,47 +61,75 @@ int data_read(void *buffer, size_t size, size_t nmemb, void *stream)
       return -1; /* failure, can't open file to write */      
   }      
   }
-  sleep (1);
   result = fwrite(buffer, size, nmemb, out->stream);
   fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);
   return result;
 
 }			  
 
-int
-download_html(GString *url, GString *full_filename)
+gboolean
+download_html(gpointer data)
 {
-CURL *curl_handle;
+
+CURLMsg *msg;
 int result;
 
-    struct HtmlFile html_file;
+    gint num_transfers = 0, num_msgs = 0;
     
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
-    html_file.filename = full_filename->str;
-    html_file.stream = NULL;
     
-	    
-    curl_handle = weather_curl_init();
-    curl_easy_setopt(curl_handle, CURLOPT_URL, url->str);
-    fprintf (stderr,"URL: %s\n",url->str);    
+    if(curl_multi && CURLM_CALL_MULTI_PERFORM
+            == curl_multi_perform(curl_multi, &num_transfers))
+    {	
+    	fprintf (stderr,"RETURN TRUE\n");
+        return TRUE; /* Give UI a chance first. */
+    }
+
+    
+    if (!curl_handle)
+    {
+        html_file.filename = full_filename->str;
+        html_file.stream = NULL;
+	curl_handle = weather_curl_init();
+	curl_easy_setopt(curl_handle, CURLOPT_URL, url->str);
+	if(!curl_multi)
+	{
+    	    curl_multi = curl_multi_init();
+	}
+       curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);		
+       curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);	
+       curl_multi_add_handle(curl_multi, curl_handle);	
     /* for debug */
 //    curl_easy_setopt(curl_handle, CURLOPT_URL, "http://127.0.0.1");
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION,
-                data_read);	
-    curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);
-
-    if(CURLE_OK != curl_easy_perform(curl_handle))
-    {
-	fprintf(stderr,"Not Ok\n");
-	result = -1;
+       fprintf (stderr,"RETURN INIT\n");
+    return TRUE;
     }
     else
     {
-	fprintf(stderr,"Ok\n");     
-	result = 0;
-    }	
-  if (html_file.stream)
-   fclose (html_file.stream);
-  curl_easy_cleanup(curl_handle);
-  return result;
+        fprintf (stderr,"ELSE\n");
+	while(curl_multi && (msg = curl_multi_info_read(curl_multi, &num_msgs)))
+	{
+	 if(msg->msg == CURLMSG_DONE)
+         {
+	  if(update_window)
+	    gtk_widget_destroy(update_window);
+	  if(weather_window_popup)
+	    gtk_widget_destroy(weather_window_popup);	    
+	  if (html_file.stream)
+          fclose (html_file.stream);
+	  curl_multi_cleanup(curl_multi);
+	  curl_multi = NULL;
+	  curl_handle = NULL;
+	  curl_easy_cleanup(curl_handle);
+	  if (url)
+	    g_string_free(url, TRUE);    
+	  if (full_filename)
+	      g_string_free(full_filename, TRUE);    
+  	  hildon_banner_show_information(box,NULL, _("Weather updated"));	      
+	  return FALSE;
+	 }
+	}
+       return TRUE;
+    }
+  return FALSE;
 }

@@ -44,7 +44,7 @@
 #include <unistd.h>
 #include "weather-home_hash.h"
 
-gboolean g_html;
+
 
 /* Translate  temperature Celsius to Farenhait */
 int c2f(int temp)
@@ -115,12 +115,8 @@ int
 _get_weather_html( gboolean check_connect)
 {
 //void* _get_weather_html(void* unused){
-    FILE *fd;
-//    gchar full_filename[2048];
     int result;
-    HTTP_Response hResponse;
-    HTTP_Extra  hExtra;
-    GString *url,*full_filename;
+
     GSList *tmplist = NULL;
     struct weather_station *ws;
 /*    
@@ -143,10 +139,12 @@ _get_weather_html( gboolean check_connect)
 			_weather_dir_name, ws->id_station);
 
 	    fprintf (stderr,"Begin URL: %s\n",url->str);
-	    result=download_html(url,full_filename);
+//	    result=download_html(url,full_filename);
 
 	    fprintf(stderr,"_get_weather_html end0\n");
 
+            flag_update = g_timeout_add(100, (GSourceFunc)download_html, NULL);
+/*
 	    g_string_free(url, TRUE);    
 	    g_string_free(full_filename, TRUE);    
 	    if (result != 0)
@@ -155,6 +153,7 @@ _get_weather_html( gboolean check_connect)
 			    NULL, _("Did not download weather"));
 		return -1;	       
 	    } 
+*/	    
 /*	    if(hResponse.pError || strcmp(hResponse.szHCode,HTTP_RESPONSE_OK) ){
 		hildon_banner_show_information(box, 
 			    NULL, _("Did not download weather"));
@@ -172,7 +171,7 @@ _get_weather_html( gboolean check_connect)
 */	    
 //	    fprintf(fd,"%s",hResponse.pData);
 //	    fclose (fd);
-	    hildon_banner_show_information(box,NULL, _("Weather updated"));
+//	    hildon_banner_show_information(box,NULL, _("Weather updated"));
 	}
 	tmplist = g_slist_next(tmplist);
     }
@@ -581,15 +580,9 @@ static gboolean update_w(gpointer data){
 
 void update_weather(void){
    int result;
-    if (!g_html)
-    {
      fprintf (stderr,"xxxxxxxxxxxxxxxxxxxxxxc\n");
      create_window_update();
-//     get_weather_html(TRUE);
-     flag_update = g_timeout_add(1000, (GSourceFunc)update_w, NULL);
-// 
-     fprintf (stderr,"1111xxxxxxxxxxxxxxxxxxxxxxc\n");
-    }
+     result=get_weather_html(TRUE);
 }
 
 

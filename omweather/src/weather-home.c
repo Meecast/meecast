@@ -117,7 +117,7 @@ _get_weather_html( gboolean check_connect)
 //void* _get_weather_html(void* unused){
     FILE *fd;
 //    gchar full_filename[2048];
-    
+    int result;
     HTTP_Response hResponse;
     HTTP_Extra  hExtra;
     GString *url,*full_filename;
@@ -142,12 +142,19 @@ _get_weather_html( gboolean check_connect)
 	    g_string_append_printf(full_filename,"%s/%s.xml.new",
 			_weather_dir_name, ws->id_station);
 
-	    download_html(url,full_filename);
+	    fprintf (stderr,"Begin URL: %s\n",url->str);
+	    result=download_html(url,full_filename);
 
 	    fprintf(stderr,"_get_weather_html end0\n");
 
 	    g_string_free(url, TRUE);    
 	    g_string_free(full_filename, TRUE);    
+	    if (result != 0)
+	    {
+	    	hildon_banner_show_information(box, 
+			    NULL, _("Did not download weather"));
+		return -1;	       
+	    } 
 /*	    if(hResponse.pError || strcmp(hResponse.szHCode,HTTP_RESPONSE_OK) ){
 		hildon_banner_show_information(box, 
 			    NULL, _("Did not download weather"));
@@ -560,7 +567,7 @@ void weather_frame_update(gboolean check){
 static gboolean update_w(gpointer data){
     
    int result;
-    create_window_update();
+   fprintf (stderr,"11111111111111111sdddddddddddddddddddd\n");
     if(!get_weather_html(TRUE))
 	weather_frame_update(TRUE);
     if(update_window)
@@ -577,7 +584,7 @@ void update_weather(void){
     if (!g_html)
     {
      fprintf (stderr,"xxxxxxxxxxxxxxxxxxxxxxc\n");
-//     create_window_update();
+     create_window_update();
 //     get_weather_html(TRUE);
      flag_update = g_timeout_add(1000, (GSourceFunc)update_w, NULL);
 // 

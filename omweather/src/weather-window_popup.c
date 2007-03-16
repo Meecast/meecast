@@ -163,7 +163,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 	gtk_box_pack_start(GTK_BOX(hbox_current),
 			    vbox_hu_current, FALSE, FALSE, 10);
     }/* End CURRENT */            
-    else{
+    else
 	gtk_window_move(GTK_WINDOW(weather_window_popup), 180, 160);
 /* Begin TITLE */
 /* Location and date */
@@ -291,7 +291,6 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     
 	gtk_box_pack_start(GTK_BOX(hbox_foot), label_update, FALSE, FALSE, 5);
 /* End FOOT */
-    }
 /* Start PREFERENCE UPDATE */
     hbox_pref = gtk_hbox_new(FALSE, 0);
     gtk_container_set_border_width(GTK_CONTAINER(hbox_pref), 4);

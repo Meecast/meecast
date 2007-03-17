@@ -74,7 +74,8 @@ download_html(gpointer data)
 CURLMsg *msg;
 int result;
 
-    gint num_transfers = 0, num_msgs = 0;
+    CURLcode status;
+    long val;
     
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
     
@@ -99,6 +100,7 @@ int result;
        curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);		
        curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);	
        curl_multi_add_handle(curl_multi, curl_handle);	
+       num_msgs++;
     /* for debug */
 //    curl_easy_setopt(curl_handle, CURLOPT_URL, "http://127.0.0.1");
        fprintf (stderr,"RETURN INIT\n");
@@ -106,17 +108,33 @@ int result;
     }
     else
     {
-        fprintf (stderr,"ELSE\n");
+        fprintf (stderr,"ELSE %i\n",num_msgs);
 	while(curl_multi && (msg = curl_multi_info_read(curl_multi, &num_msgs)))
 	{
 	 if(msg->msg == CURLMSG_DONE)
          {
+	  fprintf(stderr,"test after ELSE  CURLMSG_DONE\n");
+	  fprintf(stderr,"URL INFO: %s\n",curl_easy_getinfo(msg->easy_handle,CURLINFO_EFFECTIVE_URL,&val));
+	  status = curl_easy_getinfo(msg->easy_handle,CURLINFO_HTTP_CODE,&val);
+	  if (status != CURLE_OK)
+	  {
+	   fprintf(stderr,"NOT CURL_OK\n");
+	   hildon_banner_show_information(box, 
+			    NULL, _("Did not download weather"));
+	  }
+	  else
+	  {
+           fprintf(stderr,"CURL_OK\n");
+	   hildon_banner_show_information(box,
+			    NULL, _("Weather updated"));	      
+	  } 
 	  if(update_window)
 	    gtk_widget_destroy(update_window);
 	  if(weather_window_popup)
 	    gtk_widget_destroy(weather_window_popup);	    
 	  if (html_file.stream)
           fclose (html_file.stream);
+	  curl_multi_remove_handle(curl_multi,msg->easy_handle);
 	  curl_multi_cleanup(curl_multi);
 	  curl_multi = NULL;
 	  curl_handle = NULL;
@@ -125,7 +143,7 @@ int result;
 	    g_string_free(url, TRUE);    
 	  if (full_filename)
 	      g_string_free(full_filename, TRUE);    
-  	  hildon_banner_show_information(box,NULL, _("Weather updated"));	      
+
 	  return FALSE;
 	 }
 	}

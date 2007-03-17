@@ -48,5 +48,7 @@ struct HtmlFile {
 };
 
 struct HtmlFile html_file;
+gint num_transfers = 0, num_msgs = 0;
+
 #endif
 

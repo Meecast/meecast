@@ -1,4 +1,5 @@
 0.17
+  * Added data for atmospheric pressure
   * Added choice of units for wind speed
   * Added support i18n system
 0.16

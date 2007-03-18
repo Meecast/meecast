@@ -44,13 +44,12 @@
 #include <unistd.h>
 #include "weather-home_hash.h"
 
-
+/* main struct */
+OMWeatherApp	*app = NULL;
 
 /* Translate  temperature Celsius to Farenhait */
-int c2f(int temp)
-{
-#define TEMP_C_TO_F(c)                  (((c) * 1.8) + 32.0)
-return (temp*1.8)+32;
+int c2f(int temp){
+    return (temp * 1.8 ) + 32;
 }
 
 /* Set font size. Usually on label widget */
@@ -65,40 +64,36 @@ set_font_size(GtkWidget *widget, char font_size)
 }   
 /* Create standard Hildon animation small window */
 void create_window_update(){
-    update_window = hildon_banner_show_animation(box_zero,
+    update_window = hildon_banner_show_animation(app->top_widget,
 						    NULL,
 						    _("Update weather"));
     g_object_ref(G_OBJECT(update_window));
-    fprintf (stderr,"create_window_update\n");
 }
 
 /* Callback function for request  connection to Internet */
-void  
-iap_callback(struct iap_event_t *event, void *arg)
-{
-
-    switch (event->type)
-    {
-    case OSSO_IAP_CONNECTED:
-	if (get_weather_html(FALSE) != 0)
-	{
-	 hildon_banner_show_information(box,NULL, _("Did not download weather"));
-	}
-	else
-	{
-	   weather_frame_update(FALSE); 
-	   hildon_banner_show_information(box,NULL, _("Weather updated"));
-	}   
+void iap_callback(struct iap_event_t *event, void *arg){
+    switch(event->type){
+	case OSSO_IAP_CONNECTED:
+	    if(get_weather_html(FALSE) != 0)
+		hildon_banner_show_information(app->main_window,
+						NULL,
+						_("Did not download weather"));
+	    else{
+		weather_frame_update(FALSE); 
+		hildon_banner_show_information(app->main_window,
+						NULL,
+						_("Weather updated"));
+	    }   
 	break;
-    case OSSO_IAP_DISCONNECTED:
+	case OSSO_IAP_DISCONNECTED:
 	break;
-    case OSSO_IAP_ERROR:
-	hildon_banner_show_information(box,NULL, _("Not connected to Internet"));
+	case OSSO_IAP_ERROR:
+	    hildon_banner_show_information(app->main_window,
+					    NULL,
+					    _("Not connected to Internet"));
 	break;
-    }    
-
+    }
 }
-
 /* Check connect to Internet and connection if it not */
 gboolean get_connected(void){
     /* Register a callback function for IAP related events. */
@@ -133,10 +128,10 @@ _get_weather_html( gboolean check_connect)
 //	    memset(&hExtra, 0, sizeof(hExtra));
 //	    hResponse = http_request(url->str,&hExtra,kHMethodGet,HFLAG_NONE);
 //	    sprintf(full_filename, "%s/%s.xml.new",
-//			_weather_dir_name, ws->id_station);
+//			app->_weather_dir_name, ws->id_station);
 	    full_filename = g_string_new(NULL);        
 	    g_string_append_printf(full_filename,"%s/%s.xml.new",
-			_weather_dir_name, ws->id_station);
+			app->_weather_dir_name, ws->id_station);
 
 	    fprintf (stderr,"Begin URL: %s\n",url->str);
 //	    result=download_html(url,full_filename);
@@ -149,19 +144,19 @@ _get_weather_html( gboolean check_connect)
 	    g_string_free(full_filename, TRUE);    
 	    if (result != 0)
 	    {
-	    	hildon_banner_show_information(box, 
+	    	hildon_banner_show_information(app->main_window, 
 			    NULL, _("Did not download weather"));
 		return -1;	       
 	    } 
 */	    
 /*	    if(hResponse.pError || strcmp(hResponse.szHCode,HTTP_RESPONSE_OK) ){
-		hildon_banner_show_information(box, 
+		hildon_banner_show_information(app->main_window, 
 			    NULL, _("Did not download weather"));
 		return -2;	       
 	    }
 */	    
 /*	    if(!(fd = fopen(full_filename,"w"))){
-		hildon_banner_show_information(box,NULL,
+		hildon_banner_show_information(app->main_window,NULL,
 			    _("Did not open save xml file"));
 		fprintf(stderr,
 			    _("Could not open cache weather xml file %s.\n"),
@@ -171,7 +166,7 @@ _get_weather_html( gboolean check_connect)
 */	    
 //	    fprintf(fd,"%s",hResponse.pData);
 //	    fclose (fd);
-//	    hildon_banner_show_information(box,NULL, _("Weather updated"));
+//	    hildon_banner_show_information(app->main_window,NULL, _("Weather updated"));
 	}
 	tmplist = g_slist_next(tmplist);
     }
@@ -198,7 +193,7 @@ void hack_home_plugin_osso_for_nokia800(void)
   
   GtkRequisition requisition;                                                                                                           
                                                                                                                                             
-  gtk_widget_size_request(box_zero, &requisition);                                                                                      
+  gtk_widget_size_request(app->top_widget, &requisition);
   fprintf(stderr, "\nW -%d\n", requisition.width);                                                                                      
   fprintf(stderr, "\nH -%d\n", requisition.height);
 
@@ -350,7 +345,9 @@ void weather_buttons_init(void){
 
 /* Error Window */
 void station_error_window(void){
-   hildon_banner_show_information(box, NULL, _("Wrong station code \nor ZIP code!!!"));
+   hildon_banner_show_information(app->main_window,
+				    NULL,
+				    _("Wrong station code \nor ZIP code!!!"));
 }
 
 /* Fill buttons data */
@@ -367,19 +364,20 @@ void weather_buttons_fill(gboolean check_error){
     char	font_size;
     gint	icon_size;
     gchar	*tmp_station_name;
-    
+    GdkPixbuf	*icon;
+    GtkWidget	*icon_image;
 /* select image and font size */
     switch(_weather_icon_size){
 	default:
-	case 0: 
+	case LARGE: 
 	    font_size = FONT_MAIN_SIZE_LARGE;
 	    icon_size = 64;
 	break;
-	case 1:
+	case MEDIUM:
 	    font_size = FONT_MAIN_SIZE_MEDIUM;
 	    icon_size = 48;
 	break;
-	case 2:
+	case SMALL:
 	    font_size = FONT_MAIN_SIZE_SMALL;
 	    icon_size = 32;
 	break;
@@ -441,6 +439,7 @@ void weather_buttons_fill(gboolean check_error){
 		temp_low = c2f(temp_low);
 	    }  
      /* Show current weather or forecast */
+
 	    if( (i==0) && 
 		(weather_current_day.date_time>(current_time-OFFSET_CURRENT_WEATHER*3600)) &&
                 (weather_current_day.date_time<(current_time+OFFSET_CURRENT_WEATHER*3600))){
@@ -484,7 +483,7 @@ void weather_buttons_fill(gboolean check_error){
 		    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
             		_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
             		weather_days[offset].dayshname,temp_hi,temp_low);
-		    sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    		
+		    sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);
 		}		    
 	    }
 	}
@@ -545,17 +544,17 @@ void weather_buttons_fill(gboolean check_error){
     }
 
 /* create main panel */
-    box = gtk_table_new(2, 1, FALSE);
-    create_panel(box, _weather_layout, _enable_transparency, tmp_station_name, font_size);
-    gtk_box_pack_start(GTK_BOX(box_zero), box, TRUE, TRUE, 0);
-    gtk_widget_show_all(box_zero);
+    app->main_window = gtk_table_new(2, 1, FALSE);
+    create_panel(app->main_window, _weather_layout, _enable_transparency, tmp_station_name, font_size);
+    gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
+    gtk_widget_show_all(app->top_widget);
 
     if(error_station_code)
 	station_error_window();
 }
 
 void weather_frame_update(gboolean check){
-    gtk_widget_destroy(box);
+    gtk_widget_destroy(app->main_window);
     if(check) 
 	weather_buttons_fill(TRUE);
     else
@@ -571,8 +570,8 @@ static gboolean update_w(gpointer data){
 	weather_frame_update(TRUE);
     if(update_window)
 	gtk_widget_destroy(update_window);
-    if(weather_window_popup)
-	gtk_widget_destroy(weather_window_popup);	
+    if(app->popup_window)
+	gtk_widget_destroy(app->popup_window);	
     fprintf (stderr,"11111111111111111sdddddddddddddddddddd\n");
     return FALSE;
     
@@ -598,19 +597,20 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     }
     fprintf(stderr, "\nWeather applet initialize %p %d\n",
 		    state_data, *state_size);
-    
-/*    hack_home_plugin_osso_for_nokia800();		    */
+    app = g_new0(OMWeatherApp, 1);
+    memset(app, 0, sizeof(OMWeatherApp));
+    app->osso = osso;
+/* create i18n hash for values coming from xml file */
+    app->hash = hash_table_create();
 /* Init gconf. */
     gnome_vfs_init();
     config_init();
-/* create i18n hash for values coming from xml file */
-    hash_table_create();
 /* Start timer */
     timer();
 /* Start main applet */ 
-    box_zero = gtk_hbox_new(FALSE, 0); 
+    app->top_widget = gtk_hbox_new(FALSE, 0);
     weather_buttons_fill(FALSE);
-    (*widget) = box_zero;
+    (*widget) = app->top_widget;
     return (void*)osso;
 }
 

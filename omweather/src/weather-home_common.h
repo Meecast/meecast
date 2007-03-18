@@ -46,6 +46,7 @@
 #include <string.h>
 #include <hildon-widgets/hildon-banner.h>
 #include <sys/types.h>
+#include <libosso.h>
 /* localization headers and defines */
 #include <libintl.h>
 #include <locale.h>
@@ -64,6 +65,7 @@ enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS };
 enum { METERS, KILOMETERS, INTERNATIONAL_MILES, IMPERIAL_MILES, SEA_MILES };
 enum { METERS_S, KILOMETERS_S, MILES_S, METERS_H, KILOMETERS_H, MILES_H };
 enum { CELSIUS, FAHRENHEIT };
+enum { LARGE, MEDIUM, SMALL };
 
 typedef struct
 {
@@ -123,6 +125,16 @@ struct weather_station{
 	GtkWidget *label_box;
 };
 
+typedef struct OMWeatherApplet{
+    osso_context_t	*osso;
+    GHashTable		*hash;
+    GtkWidget		*top_widget;
+    GtkWidget		*main_window;
+    GtkWidget		*popup_window;
+    gchar		*_weather_dir_name;
+    gchar		*icon_set;
+}OMWeatherApp;
+
 weather_day weather_days[Max_count_weather_day];
 weather_day weather_current_day;
 
@@ -139,5 +151,7 @@ void config_init();
 void update_weather(void);
 void weather_frame_update(gboolean check);
 void hack_home_plugin_osso_for_nokia800(void);
+
+extern OMWeatherApp	*app;
 
 #endif

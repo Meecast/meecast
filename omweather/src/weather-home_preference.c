@@ -747,9 +747,9 @@ void weather_window_preference(GtkWidget *widget,
     gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), _("Small"));
     switch(_weather_icon_size){
 	default:
-	case 0: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),0);break;
-	case 1: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),1);break;
-	case 2: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),2);break;
+	case LARGE: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),0);break;
+	case MEDIUM: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),1);break;
+	case SMALL: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),2);break;
     }
     /* Font color */   
     gtk_table_attach_defaults(GTK_TABLE(table),	    
@@ -856,15 +856,15 @@ void weather_window_preference(GtkWidget *widget,
     }
     gtk_widget_show_all(window_config);
 /* kill popup window :-) */
-    gtk_widget_destroy(weather_window_popup);
+    gtk_widget_destroy(app->popup_window);
 /* start dialog window */
     switch(gtk_dialog_run(GTK_DIALOG(window_config))){
 	case GTK_RESPONSE_ACCEPT:/* Pressed Button Ok */
 /* icon set */	
-	    if(strcmp(icon_set, gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset)))){
-	        icon_set = gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset));
+	    if(strcmp(app->icon_set, gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset)))){
+	        app->icon_set = gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset));
 		memset(path_large_icon, 0, sizeof(path_large_icon));
-		sprintf(path_large_icon, "%s%s/", ICONS_PATH, icon_set);
+		sprintf(path_large_icon, "%s%s/", ICONS_PATH, app->icon_set);
 		flag_update_icon = TRUE;
 	    }
 /* icon size */	    
@@ -951,9 +951,9 @@ void weather_window_preference(GtkWidget *widget,
     }
     not_event = FALSE;
     if (flag_tuning_warning)
-    {
-     hildon_banner_show_information(box,NULL,_("Use Edit layout \nfor tuning images of applet"));    
-    }
+	hildon_banner_show_information(app->main_window,
+					NULL,
+					_("Use Edit layout \nfor tuning images of applet"));
     gtk_widget_destroy(window_config);
 }
 /* get icon set names */
@@ -969,7 +969,7 @@ void create_icon_set_list(GtkWidget *store){
 		continue;
 	    if(dp->d_type == DT_DIR){
 		gtk_combo_box_append_text(GTK_COMBO_BOX(store), dp->d_name);
-		if(!strcmp(icon_set, dp->d_name))
+		if(!strcmp(app->icon_set, dp->d_name))
 		    gtk_combo_box_set_active(GTK_COMBO_BOX(store), i);
 		i++;
 	    }
@@ -980,7 +980,7 @@ void create_icon_set_list(GtkWidget *store){
 	    gtk_combo_box_set_active(GTK_COMBO_BOX(store), 0);
     }
     else{
-    	gtk_combo_box_append_text(GTK_COMBO_BOX(store), icon_set);
+    	gtk_combo_box_append_text(GTK_COMBO_BOX(store), app->icon_set);
 	gtk_combo_box_set_active(GTK_COMBO_BOX(store), 0);
     }
 }

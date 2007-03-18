@@ -51,7 +51,6 @@
 #define GCONF_KEY_WEATHER_WIND_UNITS		GCONF_KEY_PREFIX"/wind-units"
 #define GCONF_KEY_WEATHER_ICON_SET		GCONF_KEY_PREFIX"/icon-set"
 
-extern gchar    *_weather_dir_name;
 extern gchar    *_weather_country_name;
 extern gchar    *_weather_state_name;
 extern gchar    *_weather_station_name;
@@ -60,7 +59,6 @@ extern int    	_weather_icon_size;
 extern gboolean _enable_transparency;
 extern int      _weather_periodic_update;
 extern GdkColor _weather_font_color;
-extern GdkColor DEFAULT_FONT_COLOR;
 extern GSList   *time_update_list;
 extern int	_weather_temperature_unit;
 extern int      _weather_layout;
@@ -68,7 +66,6 @@ extern int      _weather_layout;
 extern	gint	days_to_show;
 extern	gint	distance_units;
 extern	gint	wind_units;
-extern	gchar	*icon_set;
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);

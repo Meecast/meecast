@@ -39,8 +39,6 @@ CURL *curl_multi = NULL;
 CURL *weather_curl_init(void);
 gboolean download_html(gpointer data);
 extern GtkWidget *update_window;     
-extern GtkWidget *weather_window_popup;  
-extern GtkWidget *box;
 
 struct HtmlFile {
   char *filename;

@@ -33,7 +33,6 @@
 
 #include "weather-home_common.h"
 
-extern gchar *_weather_dir_name;
 extern gchar *_weather_station_id;
 
 weather_com_parser *weather_parser_new_from_file(const gchar *filename);

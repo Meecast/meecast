@@ -119,19 +119,19 @@ int result;
 	  if (status != CURLE_OK)
 	  {
 	   fprintf(stderr,"NOT CURL_OK\n");
-	   hildon_banner_show_information(box, 
+	   hildon_banner_show_information(app->main_window, 
 			    NULL, _("Did not download weather"));
 	  }
 	  else
 	  {
            fprintf(stderr,"CURL_OK\n");
-	   hildon_banner_show_information(box,
+	   hildon_banner_show_information(app->main_window,
 			    NULL, _("Weather updated"));	      
 	  } 
 	  if(update_window)
 	    gtk_widget_destroy(update_window);
-	  if(weather_window_popup)
-	    gtk_widget_destroy(weather_window_popup);	    
+	  if(app->popup_window)
+	    gtk_widget_destroy(app->popup_window);
 	  if (html_file.stream)
           fclose (html_file.stream);
 	  curl_multi_remove_handle(curl_multi,msg->easy_handle);

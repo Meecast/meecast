@@ -30,6 +30,8 @@
 
 #include "weather-event.h"
 
+static GSList *event_time_list = NULL;
+
 void timer_handler(gpointer data){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
@@ -78,7 +80,9 @@ void print_list(void){
 }
 
 void timer(void){
-    flag_event = g_timeout_add (60000, (GtkFunction)timer_handler, box); /* One per minute */
+    flag_event = g_timeout_add(60000,
+				(GtkFunction)timer_handler,
+				app->main_window); /* One per minute */
 }
 
 /* Free memory allocated for time event */

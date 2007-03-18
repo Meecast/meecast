@@ -67,9 +67,9 @@ config_set_weather_dir_name(gchar *new_weather_dir_name)
 
     if(retval)
     {
-        if(_weather_dir_name)
-            g_free(_weather_dir_name);
-        _weather_dir_name = new_weather_dir_name;
+        if(app->_weather_dir_name)
+            g_free(app->_weather_dir_name);
+        app->_weather_dir_name = new_weather_dir_name;
     }
 
     return retval;
@@ -261,6 +261,7 @@ void config_init(){
     GConfValue *value;
     GSList *stlist = NULL;
     GError *gerror = NULL;
+    GdkColor DEFAULT_FONT_COLOR = {0, 0x0d00, 0x2a00, 0xc000};
     
     GConfClient *gconf_client = gconf_client_get_default();
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
@@ -303,20 +304,20 @@ void config_init(){
 	 reinitilize_stations_list2(stlist);
 
 	/* Get icon set name */ 
-	icon_set = gconf_client_get_string(gconf_client,
+	app->icon_set = gconf_client_get_string(gconf_client,
 					    GCONF_KEY_WEATHER_ICON_SET,
 					    NULL);
-	sprintf(path_large_icon, "%s%s/", ICONS_PATH, icon_set);
+	sprintf(path_large_icon, "%s%s/", ICONS_PATH, app->icon_set);
 	if(open(path_large_icon, O_RDONLY) == -1){
 	    memset(path_large_icon, 0, sizeof(path_large_icon));
-	    icon_set = g_strdup("Crystal");
-	    sprintf(path_large_icon, "%s%s/", ICONS_PATH, icon_set);
+	    app->icon_set = g_strdup("Crystal");
+	    sprintf(path_large_icon, "%s%s/", ICONS_PATH, app->icon_set);
 	}    
 	/* Get Weather Icon Size  */		     
         _weather_icon_size = gconf_client_get_int(gconf_client,
               GCONF_KEY_WEATHER_ICON_SIZE, NULL);
         if(!_weather_icon_size)
-          _weather_icon_size = 0;
+          _weather_icon_size = LARGE;
        /* Get Weather country name. */    
        _weather_country_name = gconf_client_get_string(gconf_client,
               GCONF_KEY_WEATHER_COUNTRY_NAME, NULL);
@@ -430,9 +431,9 @@ void config_save(){
         return;
     }
     /* Save Weather Cache Directory. */
-    if(_weather_dir_name)
+    if(app->_weather_dir_name)
         gconf_client_set_string(gconf_client,
-            GCONF_KEY_WEATHER_DIR_NAME, _weather_dir_name, NULL);
+            GCONF_KEY_WEATHER_DIR_NAME, app->_weather_dir_name, NULL);
     /* Save Weather country name. */
     if(_weather_country_name)
         gconf_client_set_string(gconf_client,
@@ -470,10 +471,10 @@ void config_save(){
             GCONF_KEY_WEATHER_STATION_IDS, idlist_string, NULL);
      g_free(idlist_string);
     /* Save icon set name */
-    if(icon_set)
+    if(app->icon_set)
 	gconf_client_set_string(gconf_client,
 				GCONF_KEY_WEATHER_ICON_SET,
-				icon_set, NULL);
+				app->icon_set, NULL);
     /* Save Weather Icon Size  */		     	    
     gconf_client_set_int(gconf_client,
             GCONF_KEY_WEATHER_ICON_SIZE, _weather_icon_size, NULL);

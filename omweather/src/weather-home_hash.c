@@ -1,9 +1,10 @@
-#include "weather-home_hash.h"
 #include <glib.h>
+#include "weather-home_hash.h"
 
-static GHashTable *hash;
 
-void hash_table_create(){
+GHashTable* hash_table_create(){
+    GHashTable *hash;
+    
     hash = g_hash_table_new(g_str_hash, g_str_equal);
     g_hash_table_insert(hash, "AM Clouds / PM Sun", _("AM Clouds / PM Sun"));
     g_hash_table_insert(hash, "AM Rain / Snow Showers", _("AM Rain / Snow Showers"));
@@ -87,6 +88,7 @@ void hash_table_create(){
     g_hash_table_insert(hash, "Heavy Snow", _("Heavy Snow"));
     g_hash_table_insert(hash, "Snow to Wintry Mix / Wind", _("Snow to Wintry Mix / Wind"));
     g_hash_table_insert(hash, "Rain / Snow Showers / Wind", _("Rain / Snow Showers / Wind"));
+    return  hash;
 }
 
 gpointer hash_table_find(gpointer key){
@@ -94,7 +96,7 @@ gpointer hash_table_find(gpointer key){
 		value,
 		result;
     
-    if(g_hash_table_lookup_extended(hash,
+    if(g_hash_table_lookup_extended(app->hash,
 				    key,
 				    &orig_key,
 				    &value))

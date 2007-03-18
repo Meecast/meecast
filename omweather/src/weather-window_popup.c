@@ -106,7 +106,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 	vbox_current = gtk_vbox_new(FALSE, 0);
 
 	buffer[0] = 0;
-	strcat(buffer, _("Now:  \n"));
+	strcat(buffer, _("Now:\n"));
 	sprintf(buffer + strlen(buffer), "%d\302\260",
 		((_weather_temperature_unit == CELSIUS) ? ( atoi(weather_current_day.day.temp))
 							: ( c2f(atoi(weather_current_day.day.temp)))));
@@ -137,6 +137,10 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 						: ( strcat(buffer, _("F")) );
 	strcat(buffer, _(" Visible: "));
 	sprintf(buffer + strlen(buffer), "%.1f %s", tmp_distance, units);
+	strcat(buffer, _("\nPressure: "));
+	sprintf(buffer + strlen(buffer), "%.1f %s, ", weather_current_day.day.pressure,
+		    _("mm"));
+	strcat(buffer, weather_current_day.day.pressure_str);
 	strcat(buffer, _("\nHumidity: "));
 	sprintf(buffer + strlen(buffer), "%s%%", weather_current_day.day.hmid);
 	strcat(buffer, _("\nWind: "));
@@ -287,7 +291,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     	    buffer[strlen(buffer) - 1] = 0; /* Remove Last \n */
 	}
         label_update = gtk_label_new(buffer);    
-	set_font_size(label_update, 20);
+	set_font_size(label_update, 18);
     
 	gtk_box_pack_start(GTK_BOX(hbox_foot), label_update, FALSE, FALSE, 5);
 /* End FOOT */

@@ -78,6 +78,8 @@ typedef struct
   gchar wind_title[30]; /* Wind Title */
   gchar temp[30];        /* Temperature */
   time_t begin_time;    /* Begin time party of the day */  
+  float	pressure;
+  gchar	pressure_str[30];
 }part_of_day;
 
 
@@ -92,7 +94,6 @@ typedef struct
   gchar hi_temp[10];   /* High temperature of day or real current temperature for current day */
   gchar low_temp[10];  /* Low temperature  of day or feels like temperature for current day */
   gchar location[50]; /* Location */
-  
 }weather_day;
 
 typedef struct

@@ -36,7 +36,6 @@
 
 extern gchar     *_weather_country_name;
 extern gchar     *_weather_state_name;
-extern gchar     *_weather_station_name;
 extern gchar     *_weather_station_id;
 extern int	_weather_icon_size;
 extern gboolean  _enable_transparency;

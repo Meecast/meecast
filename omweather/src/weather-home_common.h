@@ -134,6 +134,7 @@ typedef struct OMWeatherApplet{
     GtkWidget		*popup_window;
     gchar		*_weather_dir_name;
     gchar		*icon_set;
+    gchar		*current_station_name;
 }OMWeatherApp;
 
 weather_day weather_days[Max_count_weather_day];

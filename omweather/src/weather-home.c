@@ -283,6 +283,10 @@ change_station_prev (GtkWidget *widget,
       ws = tmplist_prev ->data;
       if (_weather_station_id != NULL) g_free(_weather_station_id);
         _weather_station_id = g_strdup(ws->id_station); 
+	/* update current station name */
+        if(app->current_station_name)
+	    g_free(app->current_station_name);
+	ws->name_station && (app->current_station_name = strdup(ws->name_station));
       weather_frame_update(TRUE);
       config_save_current_station();
       break;
@@ -318,6 +322,10 @@ change_station_next (GtkWidget *widget,
       ws = tmplist ->data;
       if (_weather_station_id != NULL) g_free(_weather_station_id);
         _weather_station_id = g_strdup(ws->id_station); 
+	/* update current station name */
+        if(app->current_station_name)
+	    g_free(app->current_station_name);
+	ws->name_station && (app->current_station_name = strdup(ws->name_station));
       weather_frame_update(TRUE);
       config_save_current_station();
       break;

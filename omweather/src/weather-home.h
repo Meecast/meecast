@@ -63,7 +63,6 @@ void hack_home_plugin_osso_for_nokia800(void);
 /* CONFIGURATION INFORMATION. */
 gchar		*_weather_country_name = NULL;
 gchar		*_weather_state_name = NULL;
-gchar		*_weather_station_name = NULL;
 gchar		*_weather_station_id = NULL;
 int		_weather_icon_size = LARGE;
 int		_weather_layout = ONE_ROW;

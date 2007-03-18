@@ -325,8 +325,8 @@ void config_init(){
        _weather_state_name = gconf_client_get_string(gconf_client,
               GCONF_KEY_WEATHER_STATE_NAME, NULL);
        /* Get Weather station name. */    
-       _weather_station_name = gconf_client_get_string(gconf_client,
-              GCONF_KEY_WEATHER_STATION_NAME, NULL);
+       app->current_station_name = gconf_client_get_string(gconf_client,
+              GCONF_KEY_WEATHER_CURRENT_STATION_NAME, NULL);
        /* Get Weather periodic update time . */    
        tmp = gconf_client_get_string(gconf_client,
               GCONF_KEY_WEATHER_PERIODIC_UPDATE, NULL);
@@ -403,9 +403,9 @@ config_save_current_station()
         return;
     }
     /* Save Weather station name. */
-    if(_weather_station_name)
+    if(app->current_station_name)
         gconf_client_set_string(gconf_client,
-            GCONF_KEY_WEATHER_STATION_NAME, _weather_station_name, NULL);
+            GCONF_KEY_WEATHER_CURRENT_STATION_NAME, app->current_station_name, NULL);
     /* Save Weather station id. */
     if(_weather_station_id)
         gconf_client_set_string(gconf_client,
@@ -443,12 +443,12 @@ void config_save(){
         gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_STATE_NAME, _weather_state_name, NULL);	    
     /* Save Weather station name. */
-    if(_weather_station_name)
+    if(app->current_station_name)
         gconf_client_set_string(gconf_client,
-            GCONF_KEY_WEATHER_STATION_NAME, _weather_station_name, NULL);
+            GCONF_KEY_WEATHER_CURRENT_STATION_NAME, app->current_station_name, NULL);
     else	    
         gconf_client_set_string(gconf_client,
-            GCONF_KEY_WEATHER_STATION_NAME,"", NULL);
+            GCONF_KEY_WEATHER_CURRENT_STATION_NAME,"", NULL);
     /* Save Weather station id. */
     if(_weather_station_id)
         gconf_client_set_string(gconf_client,

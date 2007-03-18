@@ -175,10 +175,14 @@ gboolean weather_window_popup_show (GtkWidget *widget,
         hbox_title_location = gtk_hbox_new(FALSE, 0);
         hbox_title_date = gtk_hbox_new(FALSE, 0);
 /* Show full or short name station */
-        if(i < DAY_DOWNLOAD)
-	    label_location = gtk_label_new(weather_days[i].location);
+        if(i < DAY_DOWNLOAD){
+	    if(strlen(weather_days[i].location) > 2)
+		label_location = gtk_label_new(weather_days[i].location);
+	    else
+		label_location = gtk_label_new(app->current_station_name);
+	}
 	else
-	    label_location = gtk_label_new(_weather_station_name);
+	    label_location = gtk_label_new(app->current_station_name);
         sprintf(buffer,"%s, %s", weather_days[i].dayshname, weather_days[i].date);
 	label_date = gtk_label_new(buffer);
 	set_font_size(label_date, 18);

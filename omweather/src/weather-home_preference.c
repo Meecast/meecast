@@ -207,8 +207,8 @@ void changed_state(void){
         		    break;
 		    }
     		    count_station++;
-		    if((_weather_station_name != NULL) &&
-			    (streq(temp_station_name, _weather_station_name)))
+		    if((app->current_station_name) &&
+			    (streq(temp_station_name, app->current_station_name)))
 			index_station = count_station;
 	  /* Add station and station code to list */	  
 		    sc = g_new0(struct station_and_weather_code, 1);
@@ -322,9 +322,9 @@ static gboolean delete_station(GtkWidget *widget,
     			if(_weather_station_id)
 			    g_free(_weather_station_id);
 			_weather_station_id = g_strdup(ws->id_station); 
-			if(_weather_station_name)
-			    g_free(_weather_station_name);
-    			_weather_station_name = g_strdup(ws->name_station); 
+			if(app->current_station_name)
+			    g_free(app->current_station_name);
+    			app->current_station_name = g_strdup(ws->name_station); 
 		    }
 		    tmplist = g_slist_next(tmplist);
 		} 
@@ -338,11 +338,11 @@ static gboolean delete_station(GtkWidget *widget,
 	tmplist = g_slist_next(tmplist);
     }
     if (g_slist_length(stations_view_list) == 0){
-       if(_weather_station_name)
-          g_free(_weather_station_name);
+       if(app->current_station_name)
+          g_free(app->current_station_name);
        if(_weather_station_id)
           g_free(_weather_station_id);
-       _weather_station_name = NULL;
+       app->current_station_name = NULL;
        _weather_station_id = NULL;
        /* Update config file */
        config_save();       	  
@@ -440,10 +440,10 @@ void weather_window_add_custom_station(){
 		    g_free(_weather_station_id);
 		_weather_station_id = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_code));
 		ws->id_station = g_strdup(_weather_station_id);
-		if(_weather_station_name != NULL)
-		    g_free(_weather_station_name);
-		_weather_station_name = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_name));
-		ws->name_station = g_strdup(_weather_station_name);
+		if(app->current_station_name)
+		    g_free(app->current_station_name);
+		app->current_station_name = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_name));
+		ws->name_station = g_strdup(app->current_station_name);
 	    /* Add station to stations list */
 		stations_view_list = g_slist_append(stations_view_list, ws); 
 	    /* Add station to View List(Tree) */
@@ -567,10 +567,10 @@ void weather_window_add_station(GtkWidget *widget,
 	        g_free(_weather_station_id);
 	    _weather_station_id = g_strdup(_weather_station_id_temp);
 	    ws->id_station = g_strdup(_weather_station_id_temp);
-	    if(_weather_station_name != NULL)
-		g_free(_weather_station_name);
-	    _weather_station_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations));
-	    ws->name_station = g_strdup(_weather_station_name);
+	    if(app->current_station_name)
+		g_free(app->current_station_name);
+	    app->current_station_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations));
+	    ws->name_station = g_strdup(app->current_station_name);
 /* Add station to stations list */
 	    stations_view_list = g_slist_append(stations_view_list, ws); 
 /* Update config file */

@@ -80,9 +80,9 @@ void print_list(void){
 }
 
 void timer(void){
-    flag_event = g_timeout_add(60000,
-				(GtkFunction)timer_handler,
-				app->main_window); /* One per minute */
+    g_timeout_add(60000,
+		    (GtkFunction)timer_handler,
+		    app->main_window); /* One per minute */
 }
 
 /* Free memory allocated for time event */

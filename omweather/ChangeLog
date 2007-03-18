@@ -1,3 +1,6 @@
+0.17
+  * Added choice of units for wind speed
+  * Added support i18n system
 0.16
   * OS 2007 compatibility:focus from the first button for OS2007 is removed
   * OS 2007 compatibility: the opportunity of change of the size of an applet is made

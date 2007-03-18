@@ -33,16 +33,16 @@
 
 #include "weather-home_common.h"
 
-extern gchar     *_weather_state_name;
-extern gchar     *_weather_station_name;
-extern gchar     *_weather_station_id;
-extern GtkWidget *buttons[];
-extern int 	 boxs_offset[];
-extern gchar     path_large_icon[];
-extern int	_weather_temperature_unit;
-extern	gint	days_to_show;
-extern	gint	distance_units;
-extern	gint	wind_units;
+extern	gchar		*_weather_state_name;
+extern	gchar		*_weather_station_name;
+extern	gchar		*_weather_station_id;
+extern	GtkWidget	*buttons[];
+extern	int		boxs_offset[];
+extern	gchar		path_large_icon[];
+extern	int		_weather_temperature_unit;
+extern	gint		days_to_show;
+extern	gint		distance_units;
+extern	gint		wind_units;
 
 gboolean weather_window_popup_show (GtkWidget *widget,GdkEvent *event,gpointer user_data);
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);

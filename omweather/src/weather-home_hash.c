@@ -2,7 +2,7 @@
 #include "weather-home_hash.h"
 
 
-GHashTable* hash_table_create(){
+GHashTable* hash_table_create(void){
     GHashTable *hash;
     
     hash = g_hash_table_new(g_str_hash, g_str_equal);

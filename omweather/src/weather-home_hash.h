@@ -33,7 +33,7 @@
 
 #include "weather-home_common.h"
 
-GHashTable* hash_table_create();
+GHashTable* hash_table_create(void);
 gpointer hash_table_find(gpointer key);
 
 #endif

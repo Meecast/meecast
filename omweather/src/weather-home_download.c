@@ -29,6 +29,7 @@
 */
 #include "weather-home_download.h"
 
+
 /* Create standard Hildon animation small window */
 void create_window_update(){
     update_window = hildon_banner_show_animation(app->top_widget,
@@ -84,7 +85,10 @@ int data_read(void *buffer, size_t size, size_t nmemb, void *stream)
 {
   int result;
   struct HtmlFile *out=(struct HtmlFile *)stream;
+
+  /* For debug    
   fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
+  */
   if(out && !out->stream) {
   /* open file for writing */
   out->stream=fopen(out->filename, "wb");
@@ -101,7 +105,6 @@ int data_read(void *buffer, size_t size, size_t nmemb, void *stream)
 gboolean
 form_url_and_filename()
 {
-
     if (tmplist != NULL)
     {
         ws = tmplist->data;
@@ -117,8 +120,11 @@ form_url_and_filename()
 		full_filename = g_string_new(NULL);        
 		g_string_append_printf(full_filename,"%s/%s.xml.new",
 			app->_weather_dir_name, ws->id_station);
+		/*For debug
 		fprintf (stderr,"Begin URL: %s\n",url->str);
+		*/
 		tmplist = g_slist_next(tmplist);
+
 		/* Forming structure for download data of weather */
 		html_file.filename = full_filename->str;
                 html_file.stream = NULL;
@@ -133,22 +139,18 @@ form_url_and_filename()
 	}
 
 }
+
+
 gboolean
 download_html(void)
 {
 
-CURLMsg *msg;
-int result;
-
-    CURLcode status;
-    long val;
-    char *ch;
-        
+ CURLMsg *msg;
+    /* For debug    
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);    
-
+     */
 
 //    if ((gboolean)check_connect)  get_connected();        
-
 
     /* call curl_multi_perform for read weather data from Inet */
     if(curl_multi && CURLM_CALL_MULTI_PERFORM
@@ -157,6 +159,11 @@ int result;
 
     if (!curl_handle)
     {
+	if(app->popup_window)
+	{
+	    gtk_widget_destroy(app->popup_window);   
+            app->popup_window=NULL;
+        } 
         create_window_update(); /* Window with update information */
         /* Initialize list */
         tmplist = stations_view_list;
@@ -210,30 +217,18 @@ int result;
             curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);	
     	    /* add the easy handle to a multi session */
     	    curl_multi_add_handle(curl_multi, curl_handle);	
-	    status = curl_easy_getinfo(curl_handle,CURLINFO_EFFECTIVE_URL,&ch);
 	    return TRUE;/* Download next station */
 	   }		    
 	  }
 	   
 	  if(update_window)
 	    gtk_widget_destroy(update_window);
-	  if(app->popup_window)
-	    gtk_widget_destroy(app->popup_window);   
 	  /* Clean all */    
-	  
-	  curl_multi_remove_handle(curl_multi,msg->easy_handle);
-	  curl_easy_cleanup(msg->easy_handle);
+          curl_multi_remove_handle(curl_multi,msg->easy_handle);
 	  curl_multi_cleanup(curl_multi);
-
 	  curl_multi = NULL;
 	  curl_handle = NULL;
-	
-	  if (url)
-	    g_string_free(url, TRUE);    
-	  if (full_filename)
-	      g_string_free(full_filename, TRUE);    
-	        
-	  return FALSE;
+	  return FALSE; /* This is the end */
 	 }
 	}
        return TRUE;

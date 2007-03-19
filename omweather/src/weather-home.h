@@ -78,7 +78,7 @@ GSList *time_update_list = NULL;
 
 /* Window Popup */
 /*Temp value for downloading */
-GString *url,*full_filename;
+//GString *url,*full_filename;
 /* Value use for not call event function */
 gboolean not_event = FALSE;
 GtkWidget *buttons [Max_count_weather_day];

@@ -4,6 +4,8 @@ omweather (0.17) unstable; urgency=low
   * Added choice of units for wind speed
   * Added support i18n system
 
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 25 Mar 2007 12:41:51 +0200  
+
 omweather (0.16) unstable; urgency=low
 
   * OS 2007 compatibility:focus from the first button for OS2007 is removed

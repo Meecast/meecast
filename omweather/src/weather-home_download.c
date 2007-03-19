@@ -76,47 +76,53 @@ int result;
 
     CURLcode status;
     long val;
+    char *ch;
     
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
     
+    /* call curl_multi_perform for read weather data from Inet */
     if(curl_multi && CURLM_CALL_MULTI_PERFORM
             == curl_multi_perform(curl_multi, &num_transfers))
-    {	
-    	fprintf (stderr,"RETURN TRUE\n");
-        return TRUE; /* Give UI a chance first. */
-    }
-
+        return TRUE; /* return to UI */
+	
     
     if (!curl_handle)
-    {
+    {   
+        /* Forming structure for download data of weather */
         html_file.filename = full_filename->str;
         html_file.stream = NULL;
+	/* Init easy_curl */
 	curl_handle = weather_curl_init();
 	curl_easy_setopt(curl_handle, CURLOPT_URL, url->str);
+	/* Init curl_mult */
 	if(!curl_multi)
-	{
     	    curl_multi = curl_multi_init();
-	}
-       curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);		
-       curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);	
-       curl_multi_add_handle(curl_multi, curl_handle);	
-       num_msgs++;
-    /* for debug */
-//    curl_easy_setopt(curl_handle, CURLOPT_URL, "http://127.0.0.1");
-       fprintf (stderr,"RETURN INIT\n");
-    return TRUE;
+	/* set options for the curl easy handle */
+        curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);		
+        curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);	
+        /* for debug */
+        /*    curl_easy_setopt(curl_handle, CURLOPT_URL, "http://127.0.0.1"); */
+        /* add the easy handle to a multi session */
+        curl_multi_add_handle(curl_multi, curl_handle);	
+        return TRUE; /* return to UI */
     }
     else
     {
-        fprintf (stderr,"ELSE %i\n",num_msgs);
+        fprintf (stderr,"ELSE num_msg %i\n",num_msgs);
 	while(curl_multi && (msg = curl_multi_info_read(curl_multi, &num_msgs)))
 	{
+	 fprintf (stderr,"Num_msg %i\n",num_msgs);
+	 fprintf (stderr , "data result: %i %i\n",msg->data.result,CURLE_OK);
 	 if(msg->msg == CURLMSG_DONE)
          {
+	  
 	  fprintf(stderr,"test after ELSE  CURLMSG_DONE\n");
-	  fprintf(stderr,"URL INFO: %s\n",curl_easy_getinfo(msg->easy_handle,CURLINFO_EFFECTIVE_URL,&val));
+	  status = curl_easy_getinfo(msg->easy_handle,CURLINFO_EFFECTIVE_URL,&ch);
+	  fprintf(stderr,"URL INFO: %s\n",ch);
 	  status = curl_easy_getinfo(msg->easy_handle,CURLINFO_HTTP_CODE,&val);
-	  if (status != CURLE_OK)
+          fprintf(stderr,"HTTP STATUS INFO: %i\n",val);
+//	  if (status != CURLE_OK)
+	  if (msg->data.result != CURLE_OK)
 	  {
 	   fprintf(stderr,"NOT CURL_OK\n");
 	   hildon_banner_show_information(app->main_window, 

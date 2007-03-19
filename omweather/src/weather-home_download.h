@@ -32,13 +32,14 @@
 
 #include "weather-home_common.h"
 #include <curl/multi.h>
+#include <osso-ic.h>
 
 extern  GString *url,*full_filename;
 CURL *curl_handle = NULL;
 CURL *curl_multi = NULL;
 CURL *weather_curl_init(void);
-gboolean download_html(gpointer data);
-extern GtkWidget *update_window;     
+gboolean download_html(void);
+GtkWidget *update_window;     
 
 struct HtmlFile {
   char *filename;

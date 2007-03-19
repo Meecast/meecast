@@ -62,66 +62,9 @@ set_font_size(GtkWidget *widget, char font_size)
     pango_font_description_set_absolute_size(pfd, font_size * PANGO_SCALE);
     gtk_widget_modify_font(widget, pfd);    
 }   
-/* Create standard Hildon animation small window */
-void create_window_update(){
-    update_window = hildon_banner_show_animation(app->top_widget,
-						    NULL,
-						    _("Update weather"));
-    g_object_ref(G_OBJECT(update_window));
-}
-
-/* Callback function for request  connection to Internet */
-void iap_callback(struct iap_event_t *event, void *arg){
-    switch(event->type){
-	case OSSO_IAP_CONNECTED:
-	    if(get_weather_html(FALSE) != 0)
-		hildon_banner_show_information(app->main_window,
-						NULL,
-						_("Did not download weather"));
-	    else{
-		weather_frame_update(FALSE); 
-		hildon_banner_show_information(app->main_window,
-						NULL,
-						_("Weather updated"));
-	    }   
-	break;
-	case OSSO_IAP_DISCONNECTED:
-	break;
-	case OSSO_IAP_ERROR:
-	    hildon_banner_show_information(app->main_window,
-					    NULL,
-					    _("Not connected to Internet"));
-	break;
-    }
-}
-/* Check connect to Internet and connection if it not */
-gboolean get_connected(void){
-    /* Register a callback function for IAP related events. */
-    if(osso_iap_cb(iap_callback) != OSSO_OK)
-	return FALSE;
-    if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)
-	return FALSE;
-    return TRUE;
-}
 
 
-/* Get Weather xml file from weather.com */
-int 
-_get_weather_html( gboolean check_connect)
-{
-	    fprintf(stderr,"_get_weather_html end0\n");
-            flag_update = g_timeout_add(100, (GSourceFunc)download_html, NULL);
-  return 0;
-}
 
-
-int
-get_weather_html( gboolean check_connect )
-{
-// pthread_create (&weather_update_thread,NULL,&_get_weather_html,NULL);
- return _get_weather_html(check_connect);
-// return 0;
-} 
 void hack_home_plugin_osso_for_nokia800(void)
 {
   FILE *oss_conf_home_plugin_file;  
@@ -503,6 +446,7 @@ void weather_buttons_fill(gboolean check_error){
 }
 
 void weather_frame_update(gboolean check){
+
     gtk_widget_destroy(app->main_window);
     if(check) 
 	weather_buttons_fill(TRUE);
@@ -510,27 +454,11 @@ void weather_frame_update(gboolean check){
 	weather_buttons_fill(FALSE);
 }
 
-/* For window update */
-static gboolean update_w(gpointer data){
-    
-   int result;
-   fprintf (stderr,"11111111111111111sdddddddddddddddddddd\n");
-    if(!get_weather_html(TRUE))
-	weather_frame_update(TRUE);
-    if(update_window)
-	gtk_widget_destroy(update_window);
-    if(app->popup_window)
-	gtk_widget_destroy(app->popup_window);	
-    fprintf (stderr,"11111111111111111sdddddddddddddddddddd\n");
-    return FALSE;
-    
-}
-
-void update_weather(void){
-   int result;
-     fprintf (stderr,"xxxxxxxxxxxxxxxxxxxxxxc\n");
-     create_window_update();
-     result=get_weather_html(TRUE);
+/* Get Weather xml file from weather.com */
+void 
+update_weather(void)
+{
+    flag_update = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }
 
 

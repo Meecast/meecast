@@ -31,8 +31,6 @@
 #define _weather_home_h 1
 
 #include "weather-home_common.h"
-/* #include <pthread.h> */
-#include <osso-ic.h>
 #include <pthread.h>
 #include <locale.h>
 #include <libintl.h>
@@ -58,6 +56,7 @@ int c2f(int temp);
 static gboolean update_w(gpointer data);
 gboolean weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 gboolean download_html(gpointer data);
+void update_weather(void);
 /* Hack for osso OS2007 */
 void hack_home_plugin_osso_for_nokia800(void);
 /* CONFIGURATION INFORMATION. */
@@ -86,11 +85,8 @@ GtkWidget *buttons [Max_count_weather_day];
 GtkWidget *labels [Max_count_weather_day];
 GtkWidget *boxs [Max_count_weather_day];
 int 	   boxs_offset [Max_count_weather_day];
-GtkWidget *update_window;     
 guint flag_update=0;
 gchar  path_large_icon[_POSIX_PATH_MAX];
-pthread_t weather_update_thread;
-pthread_t window_animation_thread;
 
 typedef struct _HomeAppletHandler HomeAppletHandler;
 

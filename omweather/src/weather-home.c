@@ -109,67 +109,8 @@ gboolean get_connected(void){
 int 
 _get_weather_html( gboolean check_connect)
 {
-//void* _get_weather_html(void* unused){
-    int result;
-
-    GSList *tmplist = NULL;
-    struct weather_station *ws;
-/*    
-    if(check_connect)
-	get_connected();    
-*/
-    tmplist = stations_view_list;
-    while(tmplist != NULL){
-	ws = tmplist->data;
-	if(ws->id_station != NULL){
-	    url = g_string_new(NULL);        
-	    g_string_append_printf(url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=%d",
-			    ws->id_station, DAY_DOWNLOAD);
-//	    memset(&hExtra, 0, sizeof(hExtra));
-//	    hResponse = http_request(url->str,&hExtra,kHMethodGet,HFLAG_NONE);
-//	    sprintf(full_filename, "%s/%s.xml.new",
-//			app->_weather_dir_name, ws->id_station);
-	    full_filename = g_string_new(NULL);        
-	    g_string_append_printf(full_filename,"%s/%s.xml.new",
-			app->_weather_dir_name, ws->id_station);
-
-	    fprintf (stderr,"Begin URL: %s\n",url->str);
-//	    result=download_html(url,full_filename);
-
 	    fprintf(stderr,"_get_weather_html end0\n");
-
             flag_update = g_timeout_add(100, (GSourceFunc)download_html, NULL);
-/*
-	    g_string_free(url, TRUE);    
-	    g_string_free(full_filename, TRUE);    
-	    if (result != 0)
-	    {
-	    	hildon_banner_show_information(app->main_window, 
-			    NULL, _("Did not download weather"));
-		return -1;	       
-	    } 
-*/	    
-/*	    if(hResponse.pError || strcmp(hResponse.szHCode,HTTP_RESPONSE_OK) ){
-		hildon_banner_show_information(app->main_window, 
-			    NULL, _("Did not download weather"));
-		return -2;	       
-	    }
-*/	    
-/*	    if(!(fd = fopen(full_filename,"w"))){
-		hildon_banner_show_information(app->main_window,NULL,
-			    _("Did not open save xml file"));
-		fprintf(stderr,
-			    _("Could not open cache weather xml file %s.\n"),
-			    full_filename);
-		return -1;
-	    }
-*/	    
-//	    fprintf(fd,"%s",hResponse.pData);
-//	    fclose (fd);
-//	    hildon_banner_show_information(app->main_window,NULL, _("Weather updated"));
-	}
-	tmplist = g_slist_next(tmplist);
-    }
   return 0;
 }
 

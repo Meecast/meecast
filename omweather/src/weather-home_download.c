@@ -68,6 +68,40 @@ int data_read(void *buffer, size_t size, size_t nmemb, void *stream)
 }			  
 
 gboolean
+form_url_and_filename()
+{
+
+    if (tmplist != NULL)
+    {
+        ws = tmplist->data;
+        if(ws->id_station != NULL)
+	    {
+	        if (url)
+		 g_string_free(url, TRUE);    
+	        if (full_filename)
+	         g_string_free(full_filename, TRUE);    
+		url = g_string_new(NULL);        
+    		g_string_append_printf(url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=%d",
+			    ws->id_station, DAY_DOWNLOAD);
+		full_filename = g_string_new(NULL);        
+		g_string_append_printf(full_filename,"%s/%s.xml.new",
+			app->_weather_dir_name, ws->id_station);
+		fprintf (stderr,"Begin URL: %s\n",url->str);
+		tmplist = g_slist_next(tmplist);
+		html_file.filename = full_filename->str;
+                html_file.stream = NULL;
+		return TRUE;
+	    }
+	    else
+	     return FALSE;	
+	}
+	else
+	{
+	    return FALSE;
+	}
+
+}
+gboolean
 download_html(gpointer data)
 {
 
@@ -77,8 +111,10 @@ int result;
     CURLcode status;
     long val;
     char *ch;
+        
     
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
+    
     
     /* call curl_multi_perform for read weather data from Inet */
     if(curl_multi && CURLM_CALL_MULTI_PERFORM
@@ -87,10 +123,13 @@ int result;
 	
     
     if (!curl_handle)
-    {   
+    {
+
+        /* Initialize list */
+        tmplist = stations_view_list;
+	if (!form_url_and_filename()) 
+	    return FALSE; /* The strange error */		
         /* Forming structure for download data of weather */
-        html_file.filename = full_filename->str;
-        html_file.stream = NULL;
 	/* Init easy_curl */
 	curl_handle = weather_curl_init();
 	curl_easy_setopt(curl_handle, CURLOPT_URL, url->str);
@@ -108,48 +147,53 @@ int result;
     }
     else
     {
-        fprintf (stderr,"ELSE num_msg %i\n",num_msgs);
 	while(curl_multi && (msg = curl_multi_info_read(curl_multi, &num_msgs)))
 	{
-	 fprintf (stderr,"Num_msg %i\n",num_msgs);
-	 fprintf (stderr , "data result: %i %i\n",msg->data.result,CURLE_OK);
-	 if(msg->msg == CURLMSG_DONE)
-         {
-	  
-	  fprintf(stderr,"test after ELSE  CURLMSG_DONE\n");
-	  status = curl_easy_getinfo(msg->easy_handle,CURLINFO_EFFECTIVE_URL,&ch);
-	  fprintf(stderr,"URL INFO: %s\n",ch);
-	  status = curl_easy_getinfo(msg->easy_handle,CURLINFO_HTTP_CODE,&val);
-          fprintf(stderr,"HTTP STATUS INFO: %i\n",val);
-//	  if (status != CURLE_OK)
-	  if (msg->data.result != CURLE_OK)
+	 if(msg->msg == CURLMSG_DONE) 
+         {	  
+	  if (msg->data.result != CURLE_OK) /* Not success of the download */
 	  {
-	   fprintf(stderr,"NOT CURL_OK\n");
 	   hildon_banner_show_information(app->main_window, 
 			    NULL, _("Did not download weather"));
 	  }
 	  else
 	  {
-           fprintf(stderr,"CURL_OK\n");
-	   hildon_banner_show_information(app->main_window,
+	   /* Clean */
+	   curl_multi_remove_handle(curl_multi,msg->easy_handle); /* Delete curl_handle from curl_multi */
+	   if (html_file.stream)
+        	fclose (html_file.stream);
+		
+	   if (!form_url_and_filename()) /* Success - all is downloaded */
+	   {
+	    hildon_banner_show_information(app->main_window,
 			    NULL, _("Weather updated"));	      
+	   }
+	   else
+	   {
+	    /* set options for the curl easy handle */
+	    curl_easy_setopt(curl_handle, CURLOPT_URL, url->str);
+            curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);		
+            curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);	
+    	    /* add the easy handle to a multi session */
+    	    curl_multi_add_handle(curl_multi, curl_handle);	
+	    status = curl_easy_getinfo(curl_handle,CURLINFO_EFFECTIVE_URL,&ch);
+	    fprintf(stderr,"URL INFO2: %s\n",ch);
+	    return TRUE;/* Download next station */
+	   }		    
 	  } 
 	  if(update_window)
 	    gtk_widget_destroy(update_window);
 	  if(app->popup_window)
 	    gtk_widget_destroy(app->popup_window);
-	  if (html_file.stream)
-          fclose (html_file.stream);
+	  /* Clean all */    
 	  curl_multi_remove_handle(curl_multi,msg->easy_handle);
 	  curl_multi_cleanup(curl_multi);
 	  curl_multi = NULL;
 	  curl_handle = NULL;
-	  curl_easy_cleanup(curl_handle);
 	  if (url)
 	    g_string_free(url, TRUE);    
 	  if (full_filename)
 	      g_string_free(full_filename, TRUE);    
-
 	  return FALSE;
 	 }
 	}

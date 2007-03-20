@@ -39,7 +39,7 @@
 #define APPLET_Y_SIZE		40
 #define FONT_MAIN_SIZE_LARGE	14
 #define FONT_MAIN_SIZE_MEDIUM	12
-#define FONT_MAIN_SIZE_SMALL	9
+#define FONT_MAIN_SIZE_SMALL	10
 #define HTTP_RESPONSE_OK	"200"
 
 void hello_world_dialog_show(void);
@@ -57,8 +57,6 @@ static gboolean update_w(gpointer data);
 gboolean weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 gboolean download_html(gpointer data);
 void update_weather(void);
-/* Hack for osso OS2007 */
-void hack_home_plugin_osso_for_nokia800(void);
 /* CONFIGURATION INFORMATION. */
 gchar		*_weather_country_name = NULL;
 gchar		*_weather_state_name = NULL;

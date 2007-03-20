@@ -19,7 +19,7 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "E", _("E"));
     g_hash_table_insert(hash, "ENE", _("ENE"));
     g_hash_table_insert(hash, "ESE", _("ESE"));
-    g_hash_table_insert(hash, "failing", _("falling"));
+    g_hash_table_insert(hash, "falling", _("falling"));
     g_hash_table_insert(hash, "Fair", _("Fair"));
     g_hash_table_insert(hash, "Few Showers", _("Few Showers"));
     g_hash_table_insert(hash, "Few Snow", _("Few Snow"));

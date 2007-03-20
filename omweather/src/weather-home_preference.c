@@ -943,7 +943,10 @@ void weather_window_preference(GtkWidget *widget,
 	default:/* Pressed CANCEL */
 	    if(flag_update_station){
 		if( g_slist_length(stations_view_list) > 0 )
+		{
+		    app->show_update_window = TRUE;
 		    update_weather();
+		}
 		weather_buttons_init();
 /* ???		config_save(); */
 	    }

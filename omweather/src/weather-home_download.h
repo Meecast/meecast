@@ -39,7 +39,7 @@ CURL *curl_handle = NULL;
 CURL *curl_multi = NULL;
 CURL *weather_curl_init(void);
 gboolean download_html(void);
-GtkWidget *update_window;     
+GtkWidget *update_window = NULL;     
 
 struct HtmlFile {
   char *filename;
@@ -50,6 +50,7 @@ struct HtmlFile html_file;
 gint num_transfers = 0, num_msgs = 0;
 GSList *tmplist = NULL;
 struct weather_station *ws;
+gboolean second_attempt=FALSE;
 
 
 #endif

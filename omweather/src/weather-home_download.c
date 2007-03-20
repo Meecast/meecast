@@ -43,6 +43,7 @@ void create_window_update(){
 void iap_callback(struct iap_event_t *event, void *arg){
     switch(event->type){
 	case OSSO_IAP_CONNECTED:
+	    second_attempt = TRUE;
 	    update_weather();
 	break;
 	case OSSO_IAP_DISCONNECTED:
@@ -150,8 +151,17 @@ download_html(void)
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);    
      */
 
-//    if ((gboolean)check_connect)  get_connected();        
-
+    if(app->popup_window)
+    {
+	gtk_widget_destroy(app->popup_window);   
+        app->popup_window=NULL;
+    }
+    if ( app->show_update_window && (!second_attempt))
+    {
+      get_connected();        
+      return FALSE;
+    }
+    second_attempt = FALSE;
     /* call curl_multi_perform for read weather data from Inet */
     if(curl_multi && CURLM_CALL_MULTI_PERFORM
             == curl_multi_perform(curl_multi, &num_transfers))
@@ -159,12 +169,10 @@ download_html(void)
 
     if (!curl_handle)
     {
-	if(app->popup_window)
+	if  (app->show_update_window)
 	{
-	    gtk_widget_destroy(app->popup_window);   
-            app->popup_window=NULL;
-        } 
-        create_window_update(); /* Window with update information */
+    	    create_window_update(); /* Window with update information */
+	}    
         /* Initialize list */
         tmplist = stations_view_list;
 	if (!form_url_and_filename()) 
@@ -193,8 +201,11 @@ download_html(void)
          {	  
 	  if (msg->data.result != CURLE_OK) /* Not success of the download */
 	  {
-	   hildon_banner_show_information(app->main_window, 
+	   if (app->show_update_window)
+	   {
+	    hildon_banner_show_information(app->main_window, 
 			    NULL, _("Did not download weather"));
+	   }		    
 	  }
 	  else
 	  {
@@ -205,8 +216,11 @@ download_html(void)
 		
 	  if (!form_url_and_filename()) /* Success - all is downloaded */
 	   {
-	    hildon_banner_show_information(app->main_window,
-			    NULL, _("Weather updated"));	    
+	    if  (app->show_update_window)
+	    {
+		hildon_banner_show_information(app->main_window,
+				NULL, _("Weather updated"));	    
+	    }			
             weather_frame_update(FALSE);
 	   }
 	   else

@@ -135,6 +135,7 @@ typedef struct OMWeatherApplet{
     gchar		*_weather_dir_name;
     gchar		*icon_set;
     gchar		*current_station_name;
+    gboolean		show_update_window;
 }OMWeatherApp;
 
 weather_day weather_days[Max_count_weather_day];

@@ -43,7 +43,11 @@ popup_window_event_cb(GtkWidget *widget,
     return TRUE; 
 }
 
-
+void pre_update_weather(void)
+{
+ app->show_update_window=TRUE;
+ update_weather();
+}
 /* Show extended information about weather */
 gboolean weather_window_popup_show (GtkWidget *widget,
                     		    GdkEvent *event,
@@ -196,7 +200,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 	gtk_container_add(GTK_CONTAINER(button_update), icon_update);
 	gtk_widget_set_events(button_update, GDK_BUTTON_PRESS_MASK);
 	g_signal_connect(button_update, "clicked",
-		    	    G_CALLBACK(update_weather), NULL);      
+		    	    G_CALLBACK(pre_update_weather), NULL);      
 
 	gtk_box_pack_start(GTK_BOX(hbox_title_location),
 				label_location, FALSE, FALSE, 5);

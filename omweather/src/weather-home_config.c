@@ -385,6 +385,7 @@ void config_init(){
 	add_time_update_list(24*60,_("24 hours"));
 	add_time_update_list(1,_("1 minute (DEBUG)"));    
     }	
+    app->show_update_window = FALSE;
 	fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);
 	
 }

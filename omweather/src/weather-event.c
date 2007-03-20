@@ -32,20 +32,24 @@
 
 static GSList *event_time_list = NULL;
 
-void timer_handler(gpointer data){
+gboolean 
+timer_handler(gpointer data){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
     time_t current_time;
 
     if(not_event == TRUE || !event_time_list)
-	return;
+	return TRUE;
 
     list_time_event_temp = event_time_list;  
     /* get current time */  
     current_time = time(NULL);
     while(list_time_event_temp != NULL){
 	evt = list_time_event_temp->data;
-	if(evt->time < current_time){
+	print_list();
+	fprintf (stderr,"%i %i\n",evt->time,current_time);
+	if(evt->time <= current_time){
+	    fprintf(stderr,"BEGIN\n");
 	    switch(evt->type_event){
 		case DAYTIMEEVENT :
      		    weather_frame_update(FALSE);   
@@ -54,6 +58,7 @@ void timer_handler(gpointer data){
 		    /* Reinitialise autoupdate event */ 
 		    /* delete periodic update */
                     event_time_list=g_slist_remove(event_time_list,event_time_list->data);
+		    fprintf(stderr,"UPDATE\n");
 		    update_weather();
                     /* add periodic update */
                     add_periodic_event();
@@ -63,8 +68,10 @@ void timer_handler(gpointer data){
 	}             
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
+return TRUE;    
 }
 
+/*For debug */
 void print_list(void){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
@@ -74,6 +81,7 @@ void print_list(void){
     list_time_event_temp = event_time_list;  
     while(list_time_event_temp != NULL){
 	evt = list_time_event_temp->data;
+	fprintf(stderr,"Time: %s,Event: %i\n",ctime(&evt->time),evt->type_event);
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
 }

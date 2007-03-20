@@ -63,72 +63,6 @@ set_font_size(GtkWidget *widget, char font_size)
     gtk_widget_modify_font(widget, pfd);    
 }   
 
-
-
-void hack_home_plugin_osso_for_nokia800(void)
-{
-  FILE *oss_conf_home_plugin_file;  
-  FILE *oss_conf_home_plugin_file_new;  
-  char  out_buffer[2048];
-  gchar *real_path;
-  gchar *real_path_new;
-  gboolean flag_1 = FALSE;
-  gboolean flag_2 = FALSE;
-  
-  GtkRequisition requisition;                                                                                                           
-                                                                                                                                            
-  gtk_widget_size_request(app->top_widget, &requisition);
-  fprintf(stderr, "\nW -%d\n", requisition.width);                                                                                      
-  fprintf(stderr, "\nH -%d\n", requisition.height);
-
-  real_path = gnome_vfs_expand_initial_tilde("~/.osso/hildon-home/applet_manager.conf");
-  real_path_new = gnome_vfs_expand_initial_tilde("~/.osso/hildon-home/applet_manager.conf.new");
-  if (((oss_conf_home_plugin_file = fopen(real_path,"r")) != NULL)&&
-     (oss_conf_home_plugin_file_new = fopen(real_path_new,"w")) != NULL)
-    {
-     while(!feof(oss_conf_home_plugin_file))
-     {
-      memset(out_buffer, 0, sizeof(out_buffer)); /* Clear buffer */
-      fgets(out_buffer, sizeof(out_buffer), oss_conf_home_plugin_file); /* Read Next Line */ 
-      fprintf (stderr,"%s",out_buffer);
-      if ( strcmp(out_buffer,"[/usr/share/applications/hildon-home/omweather-home.desktop]\n") == 0 ) {flag_1=TRUE;
-      }
-      if ((flag_1) || (flag_2))
-      {
-       if (strstr(out_buffer,"X-home-applet-width=") != NULL)
-       {
-       fprintf (oss_conf_home_plugin_file_new,"X-home-applet-width=%i\n", requisition.width);
-/*       fprintf (oss_conf_home_plugin_file_new,"X-home-applet-width=%i\n", 300); */
-        fprintf (stderr,"New: X-home-applet-width=%i\n", requisition.width);
-        flag_2=TRUE;
-        flag_1=FALSE;
-       }
-       else
-       {
-        if (strstr(out_buffer,"X-home-applet-height=") != NULL)
-        {
-         flag_2=FALSE;
-         fprintf (oss_conf_home_plugin_file_new,"X-home-applet-height=%i\n", requisition.height);
-/*         fprintf (oss_conf_home_plugin_file_new,"X-home-applet-height=%i\n", 300); */
-         fprintf (stderr,"New: X-home-applet-height=%i\n", requisition.height);
-        }
-        else
-        {
-         fprintf (stderr,"Old: %s",out_buffer);      
-         fputs(out_buffer , oss_conf_home_plugin_file_new);
-        }
-       }
-      } 
-     }
-     fclose(oss_conf_home_plugin_file);
-     fclose(oss_conf_home_plugin_file_new);
-     unlink(real_path);
-     rename(real_path_new,real_path);    
-    } 
-}
-
-
-
 static gboolean
 enter_button (GtkWidget        *widget,
               GdkEventCrossing *event)
@@ -144,10 +78,9 @@ enter_button (GtkWidget        *widget,
 }
 
 /* Change station to previos at main display */
-static gboolean
-change_station_prev (GtkWidget *widget,
-                           GdkEvent *event,
-                           gpointer user_data)
+static gboolean change_station_prev(GtkWidget *widget,
+                    		    GdkEvent *event,
+                    		    gpointer user_data)
 {
 
   GSList *tmplist = NULL;
@@ -165,7 +98,8 @@ change_station_prev (GtkWidget *widget,
           tmplist_prev = g_slist_last(tmplist);
       /* Get station data */
       ws = tmplist_prev ->data;
-      if (_weather_station_id != NULL) g_free(_weather_station_id);
+      if(_weather_station_id != NULL)
+        g_free(_weather_station_id);
         _weather_station_id = g_strdup(ws->id_station); 
 	/* update current station name */
         if(app->current_station_name)
@@ -525,7 +459,6 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
     osso  = (osso_context_t*)applet_data;
     /* Deinitialize libosso */
     osso_deinitialize(osso);
-/*    hack_home_plugin_osso_for_nokia800(); */
 }
 
 GtkWidget*

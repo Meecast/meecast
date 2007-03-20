@@ -86,6 +86,7 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "WSW", _("WSW"));
     g_hash_table_insert(hash, "W", _("W"));
     g_hash_table_insert(hash, "Heavy Snow", _("Heavy Snow"));
+    g_hash_table_insert(hash, "AM Light Snow", _("AM Light Snow"));
     g_hash_table_insert(hash, "Snow to Wintry Mix / Wind", _("Snow to Wintry Mix / Wind"));
     g_hash_table_insert(hash, "Rain / Snow Showers / Wind", _("Rain / Snow Showers / Wind"));
     return  hash;

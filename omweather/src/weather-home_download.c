@@ -79,6 +79,14 @@ CURL *curl_handle;
             "rv:1.8.1.1) Gecko/20061205 Iceweasel/2.0.0.1"); 
     curl_easy_setopt(curl_handle, CURLOPT_TIMEOUT, 30); 
     curl_easy_setopt(curl_handle, CURLOPT_CONNECTTIMEOUT, 10); 
+    config_update_proxy();
+    if(app->iap_http_proxy_host) 
+    { 
+        curl_easy_setopt(curl_handle, CURLOPT_PROXY, app->iap_http_proxy_host); 
+        if(app->iap_http_proxy_port) 
+            curl_easy_setopt(curl_handle, CURLOPT_PROXYPORT, app->iap_http_proxy_port); 
+    } 
+
     return curl_handle;    
 }
 

@@ -414,6 +414,8 @@ void* hildon_home_applet_lib_initialize(void *state_data,
 /* create i18n hash for values coming from xml file */
     app->hash = hash_table_create();
 /* Init gconf. */
+    app->iap_http_proxy_host=NULL;
+    app->popup_window=NULL;
     gnome_vfs_init();
     config_init();
 /* Start timer */

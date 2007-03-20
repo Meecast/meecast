@@ -390,7 +390,36 @@ void config_init(){
 	
 }
 
+void
+config_update_proxy(void)
+{
+    GConfClient *gconf_client = gconf_client_get_default();
+    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
+
+    if(app->iap_http_proxy_host)
+        g_free(app->iap_http_proxy_host);
+    /* Get proxy data */
+    if(gconf_client_get_bool(gconf_client,
+                GCONF_KEY_HTTP_PROXY_ON, NULL))
+    {
+        /* HTTP Proxy is on. */
+        app->iap_http_proxy_host = gconf_client_get_string(gconf_client,
+                GCONF_KEY_HTTP_PROXY_HOST, NULL);
+        app->iap_http_proxy_port = gconf_client_get_int(gconf_client,
+                GCONF_KEY_HTTP_PROXY_PORT, NULL);
+    }
+    else
+    {
+        /* HTTP Proxy is off. */
+        app->iap_http_proxy_host = NULL;
+        app->iap_http_proxy_port = 0;
+    }
+    g_object_unref(gconf_client);
+    /* For debug */
+    fprintf(stderr,"%s(): return\n", __PRETTY_FUNCTION__); 
+}
  
+
 
 /* Save current station position configuration data to GCONF. */
 void

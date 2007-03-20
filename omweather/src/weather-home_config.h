@@ -51,6 +51,12 @@
 #define GCONF_KEY_WEATHER_WIND_UNITS		GCONF_KEY_PREFIX"/wind-units"
 #define GCONF_KEY_WEATHER_ICON_SET		GCONF_KEY_PREFIX"/icon-set"
 
+#define GCONF_KEY_HTTP_PROXY_PREFIX "/system/http_proxy"
+#define GCONF_KEY_HTTP_PROXY_ON GCONF_KEY_HTTP_PROXY_PREFIX"/use_http_proxy"
+#define GCONF_KEY_HTTP_PROXY_HOST GCONF_KEY_HTTP_PROXY_PREFIX"/host"
+#define GCONF_KEY_HTTP_PROXY_PORT GCONF_KEY_HTTP_PROXY_PREFIX"/port"
+
+
 extern gchar    *_weather_country_name;
 extern gchar    *_weather_state_name;
 extern gchar    *_weather_station_id;
@@ -68,5 +74,7 @@ extern	gint	wind_units;
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
+void config_update_proxy(void);
+
 
 #endif

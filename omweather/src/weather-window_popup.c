@@ -135,7 +135,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 							: (c2f(atoi(weather_current_day.low_temp))));
 	(_weather_temperature_unit == CELSIUS) ? ( strcat(buffer, _("C")) )
 						: ( strcat(buffer, _("F")) );
-	strcat(buffer, _(" Visible: "));
+	strcat(buffer, _("\nVisible: "));
 	sprintf(buffer + strlen(buffer), "%.1f %s", tmp_distance, units);
 	strcat(buffer, _("\nPressure: "));
 	sprintf(buffer + strlen(buffer), "%.1f %s, ", weather_current_day.day.pressure,

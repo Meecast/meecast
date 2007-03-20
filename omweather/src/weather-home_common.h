@@ -76,7 +76,7 @@ typedef struct
   int wind_gust;        /* Wind Gust */
   float vis;              /* Visibilty */
   gchar wind_title[30]; /* Wind Title */
-  gchar temp[30];        /* Temperature */
+  gchar temp[10];        /* Temperature */
   time_t begin_time;    /* Begin time party of the day */  
   float	pressure;
   gchar	pressure_str[30];

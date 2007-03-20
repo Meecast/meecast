@@ -114,8 +114,12 @@ msgid " Gust: "
 msgstr " Порывы: "
 
 #: src/weather-window_popup.c:138
-msgid " Visible: "
-msgstr " Видимость: "
+msgid ""
+"\n"
+"Visible: "
+msgstr ""
+"\n"
+"Видимость: "
 
 #: src/weather-home_config.c:381
 msgid "1 hour"

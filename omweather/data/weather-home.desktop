@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=OMWeather
-Comment=World Weather
-Type=HildonHomeApplet
-X-home-applet=libweather-home.so

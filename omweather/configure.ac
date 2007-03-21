@@ -22,11 +22,13 @@ AC_HEADER_DIRENT
 AC_HEADER_STDC
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h memory.h netdb.h netinet/in.h stdlib.h string.h sys/param.h sys/socket.h sys/time.h unistd.h])
 AC_CHECK_HEADERS([libintl.h])
+AC_CHECK_HEADERS([wchar.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
 AC_HEADER_TIME
 AC_STRUCT_TM
+AC_TYPE_SIZE_T
 
 # Checks for library functions.
 AC_FUNC_CLOSEDIR_VOID

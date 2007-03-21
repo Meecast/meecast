@@ -299,6 +299,7 @@ weather_window_rename_station(GtkWidget *widget,
 							GTK_DIALOG_MODAL,
         						GTK_STOCK_OK,
 							GTK_RESPONSE_ACCEPT, NULL);
+
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_rename_station)->vbox),
         		    table = gtk_table_new(2, 2, FALSE), TRUE, TRUE, 0);	    
     gtk_dialog_add_button(GTK_DIALOG(window_rename_station),
@@ -311,9 +312,9 @@ weather_window_rename_station(GtkWidget *widget,
         			label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
         			1, 2, 0, 1);
     gtk_container_add(GTK_CONTAINER(label),station_name_edit = gtk_entry_new());
-    gtk_entry_set_max_length(station_name_edit,16);
-    gtk_entry_set_text(station_name_edit,station_selected);
-
+    gtk_entry_set_max_length(GTK_ENTRY(station_name_edit),16);
+    gtk_entry_set_text(GTK_ENTRY(station_name_edit),station_selected);
+    gtk_widget_set_size_request(GTK_WIDGET(window_rename_station), 350, -1);
     gtk_widget_show_all(window_rename_station);   
 
     /* start dialog */
@@ -326,7 +327,7 @@ weather_window_rename_station(GtkWidget *widget,
 		  (ws->name_station == NULL && station_selected == NULL)){
 		    if(ws->name_station)
 			g_free(ws->name_station);
-   		    ws->name_station = g_strdup(gtk_entry_get_text(station_name_edit)); 
+   		    ws->name_station = g_strdup(gtk_entry_get_text(GTK_ENTRY(station_name_edit))); 
 		    /* Update station list */	    
 		    gtk_list_store_clear(station_list_store);
 		    fill_station_list_view (station_list_view,station_list_store);

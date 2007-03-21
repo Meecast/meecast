@@ -271,7 +271,7 @@ void fill_station_list_view(GtkWidget *station_list_view,
 }
 
 /* Delete station from list */
-static gboolean delete_station(GtkWidget *widget,
+static gboolean weather_delete_station(GtkWidget *widget,
                     		GdkEvent *event,
                     		gpointer user_data){
     GSList *tmplist = NULL; /* Temporary for station list */
@@ -583,6 +583,10 @@ void weather_window_add_station(GtkWidget *widget,
     gtk_widget_destroy(window_add_station); 
 }
 
+void weather_window_rename_station(GtkWidget *widget,
+            			   GdkEvent *event,
+                    		   gpointer user_data){
+}
 /* Main preference window */
 void weather_window_preference(GtkWidget *widget,
 				GdkEvent *event,
@@ -597,7 +601,7 @@ void weather_window_preference(GtkWidget *widget,
 		*scrolled_window,
 		*button_add,
 		*button_del,
-		*button_rem;		
+		*button_ren;		
 
     char flag_update_icon = '\0'; /* Flag update main weather icon of desktop */
     gboolean flag_tuning_warning; /* Flag for show the warnings about tuning images of applet */
@@ -652,9 +656,9 @@ void weather_window_preference(GtkWidget *widget,
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
         			1, 2, 2, 3);
-    button_rem = gtk_button_new_with_label(_("Rename"));
+    button_ren = gtk_button_new_with_label(_("Rename"));
     gtk_table_attach_defaults(GTK_TABLE(table),
-        			button_rem,
+        			button_ren,
         			1, 2, 3, 4);				
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
@@ -671,8 +675,10 @@ void weather_window_preference(GtkWidget *widget,
         			button_add,
         			1, 2, 1, 2);
 				
+    g_signal_connect(button_ren, "clicked",
+                	G_CALLBACK(weather_window_rename_station), NULL);				
     g_signal_connect(button_del, "clicked",
-                	G_CALLBACK(delete_station), NULL);
+                	G_CALLBACK(weather_delete_station), NULL);
     g_signal_connect(button_add, "clicked",
                 	G_CALLBACK(weather_window_add_station),
                 	NULL);

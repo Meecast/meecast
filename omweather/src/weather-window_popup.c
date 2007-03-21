@@ -38,8 +38,10 @@ popup_window_event_cb(GtkWidget *widget,
     gtk_widget_get_pointer(widget, &x, &y);
     w = widget->allocation.width;
     h = widget->allocation.height;
-    if(!( (x >= 0) && (x <= w) && (y >= 0) && (y <= h) )) 
+    if(!( (x >= 0) && (x <= w) && (y >= 0) && (y <= h) )){
         gtk_widget_destroy(widget);
+	widget=NULL;
+    }	
     return TRUE; 
 }
 

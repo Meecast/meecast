@@ -79,7 +79,6 @@ AC_CHECK_FUNCS([setlocale])
 
 # Config files
 AC_CONFIG_FILES([Makefile
-		src/lib/Makefile
 		src/Makefile
 		po/Makefile.in
 		data/Makefile])

@@ -34,7 +34,6 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include <http.h>
 
 #include <glib.h>
 

@@ -170,6 +170,9 @@ download_html(void)
 	gtk_widget_destroy(app->popup_window);   
         app->popup_window=NULL;
     }
+    /* For emulator only for update forecast*/
+    second_attempt = TRUE;    
+    
     if ( app->show_update_window && (!second_attempt))
     {
         get_connected();        

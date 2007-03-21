@@ -394,8 +394,10 @@ void
 config_update_proxy(void)
 {
     GConfClient *gconf_client = gconf_client_get_default();
+    /* For debug */
+    /*
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
-
+    */
     if(app->iap_http_proxy_host)
         g_free(app->iap_http_proxy_host);
     /* Get proxy data */
@@ -416,7 +418,9 @@ config_update_proxy(void)
     }
     g_object_unref(gconf_client);
     /* For debug */
+    /*
     fprintf(stderr,"%s(): return\n", __PRETTY_FUNCTION__); 
+    */
 }
  
 

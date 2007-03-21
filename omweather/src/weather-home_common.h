@@ -47,6 +47,8 @@
 #include <hildon-widgets/hildon-banner.h>
 #include <sys/types.h>
 #include <libosso.h>
+#include <wchar.h>
+#include <stdio.h>
 /* localization headers and defines */
 #include <libintl.h>
 #include <locale.h>
@@ -87,10 +89,12 @@ typedef struct
 {
   part_of_day day;      /* Or current weather */
   part_of_day night;
-  gchar date[20];     /* Date */     
-  time_t date_time;    /* Date of the year or current time*/  
-  gchar dayshname[30]; /* Short name of day */
-  gchar dayfuname[30];/* Full name of day */
+  gchar date[20];	/* Date */     
+  time_t date_time;	/* Date of the year or current time*/  
+  gchar dayshname[30];	/* Short name of day */
+  gchar dayfuname[30];	/* Full name of day */
+/*    wchar_t	dayshname[30];
+    wchar_t	dayfuname[30];*/
   gchar hi_temp[10];   /* High temperature of day or real current temperature for current day */
   gchar low_temp[10];  /* Low temperature  of day or feels like temperature for current day */
   gchar location[50]; /* Location */

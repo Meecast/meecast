@@ -5,3 +5,4 @@ src/weather-home_preference.c
 src/weather-home_config.c
 src/weather-window_popup.c
 src/weather-home_hash.c
+src/weather-home_download.c

@@ -69,6 +69,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     int i;
     float	tmp_distance;
     char	*units;
+/*    wchar_t	format[32];	*/
 
 /* if no one station present in list show only preference */
     if(!_weather_station_id){
@@ -187,7 +188,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 	}
 	else
 	    label_location = gtk_label_new(app->current_station_name);
-        sprintf(buffer,"%s, %s", weather_days[i].dayshname, weather_days[i].date);
+        sprintf(buffer,"%s, %s", weather_days[i].dayfuname, weather_days[i].date);
 	label_date = gtk_label_new(buffer);
 	set_font_size(label_date, 18);
 /* Button UPDATE */

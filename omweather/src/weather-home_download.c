@@ -66,6 +66,7 @@ gboolean get_connected(void){
 }
 
 
+/* Init easy curl */
 CURL 
 *weather_curl_init(void)
 {
@@ -80,6 +81,7 @@ CURL *curl_handle;
     curl_easy_setopt(curl_handle, CURLOPT_TIMEOUT, 30); 
     curl_easy_setopt(curl_handle, CURLOPT_CONNECTTIMEOUT, 10); 
     config_update_proxy();
+    /* Set Proxy option */
     if(app->iap_http_proxy_host) 
     { 
         curl_easy_setopt(curl_handle, CURLOPT_PROXY, app->iap_http_proxy_host); 
@@ -111,6 +113,10 @@ int data_read(void *buffer, size_t size, size_t nmemb, void *stream)
 
 }			  
 
+/* Form URL and filename for  write xml file. 
+   Returns TRUE if the station is taken from the list
+   Else return FLASE. This the end list
+*/
 gboolean
 form_url_and_filename()
 {
@@ -149,7 +155,7 @@ form_url_and_filename()
 
 }
 
-
+/* Download html/xml file. Call every 100 ms after begin download*/
 gboolean
 download_html(void)
 {
@@ -166,15 +172,18 @@ download_html(void)
     }
     if ( app->show_update_window && (!second_attempt))
     {
-      get_connected();        
-      return FALSE;
+        get_connected();        
+        return FALSE;
     }
     second_attempt = FALSE;
+    
+    /* The second stage */
     /* call curl_multi_perform for read weather data from Inet */
     if(curl_multi && CURLM_CALL_MULTI_PERFORM
             == curl_multi_perform(curl_multi, &num_transfers))
         return TRUE; /* return to UI */
 
+    /* The first stage */
     if (!curl_handle)
     {
 	if  (app->show_update_window)
@@ -203,6 +212,7 @@ download_html(void)
     }
     else
     {
+        /* The third stage */
 	while(curl_multi && (msg = curl_multi_info_read(curl_multi, &num_msgs)))
 	{
 	 if(msg->msg == CURLMSG_DONE) 
@@ -211,7 +221,7 @@ download_html(void)
 	  {
 	   if (app->show_update_window)
 	   {
-	    hildon_banner_show_information(app->main_window, 
+		hildon_banner_show_information(app->main_window, 
 			    NULL, _("Did not download weather"));
 	   }		    
 	  }
@@ -222,29 +232,29 @@ download_html(void)
 	   if (html_file.stream)
         	fclose (html_file.stream);
 		
-	  if (!form_url_and_filename()) /* Success - all is downloaded */
+	   if (!form_url_and_filename()) /* Success - all is downloaded */
 	   {
 	    if  (app->show_update_window)
 	    {
 		hildon_banner_show_information(app->main_window,
 				NULL, _("Weather updated"));	    
 	    }			
-            weather_frame_update(FALSE);
+             weather_frame_update(FALSE);
 	   }
 	   else
 	   {
-	    /* set options for the curl easy handle */
-	    curl_easy_setopt(curl_handle, CURLOPT_URL, url->str);
-            curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);		
-            curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);	
-    	    /* add the easy handle to a multi session */
-    	    curl_multi_add_handle(curl_multi, curl_handle);	
-	    return TRUE;/* Download next station */
+		/* set options for the curl easy handle */
+		curl_easy_setopt(curl_handle, CURLOPT_URL, url->str);
+        	curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);		
+        	curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);	
+    		/* add the easy handle to a multi session */
+    		curl_multi_add_handle(curl_multi, curl_handle);	
+		return TRUE;/* Download next station */
 	   }		    
 	  }
 	   
 	  if(update_window)
-	    gtk_widget_destroy(update_window);
+		gtk_widget_destroy(update_window);
 	  /* Clean all */    
           curl_multi_remove_handle(curl_multi,msg->easy_handle);
 	  curl_multi_cleanup(curl_multi);

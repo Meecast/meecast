@@ -69,19 +69,18 @@ enum { METERS_S, KILOMETERS_S, MILES_S, METERS_H, KILOMETERS_H, MILES_H };
 enum { CELSIUS, FAHRENHEIT };
 enum { LARGE, MEDIUM, SMALL };
 
-typedef struct
-{
-  int icon;
-  gchar title[30];      /* Title */
-  gchar hmid[30];        /* Humidity */
-  int wind_speed;       /* Wind Speed */
-  int wind_gust;        /* Wind Gust */
-  float vis;              /* Visibilty */
-  gchar wind_title[30]; /* Wind Title */
-  gchar temp[10];        /* Temperature */
-  time_t begin_time;    /* Begin time party of the day */  
-  float	pressure;
-  gchar	pressure_str[30];
+typedef struct{
+    int icon;
+    gchar	title[30];		/* Title */
+    gchar	hmid[30];       	/* Humidity */
+    int		wind_speed;       	/* Wind Speed */
+    int		wind_gust;        	/* Wind Gust */
+    float	vis;              	/* Visibilty */
+    gchar	wind_title[30];		/* Wind Title */
+    gchar	temp[10];		/* Temperature */
+    time_t	begin_time;		/* Begin time party of the day */  
+    float	pressure;		/* Pressure value */
+    gchar	pressure_str[30];	/* Pressure direction */
 }part_of_day;
 
 
@@ -93,8 +92,6 @@ typedef struct
   time_t date_time;	/* Date of the year or current time*/  
   gchar dayshname[30];	/* Short name of day */
   gchar dayfuname[30];	/* Full name of day */
-/*    wchar_t	dayshname[30];
-    wchar_t	dayfuname[30];*/
   gchar hi_temp[10];   /* High temperature of day or real current temperature for current day */
   gchar low_temp[10];  /* Low temperature  of day or feels like temperature for current day */
   gchar location[50]; /* Location */

@@ -66,7 +66,7 @@ int parse_weather_com_xml(void)
     time_t current_time;
     struct tm *tm;
     char date_in_string[255];
-    wchar_t format[32];
+/*    wchar_t format[32];*/
 /*  fprintf (stderr, "vlad: %s",get_weather_html());
     http://xoap.weather.com/weather/local/BOXX0014?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5
     http://www.weather.com/weather/mpdwcr/tenday?locid=BOXX0014&channel=other&datapoint=htempdp&adprodname=pif_undcl_tenday_long
@@ -198,12 +198,13 @@ int parse_weather_com_xml(void)
 			    count_day++; 
 			/*    mbstowcs(format, "%ls", sizeof(format) - 1);
 			    swprintf(weather_days[count_day-1].dayshname,*/
-			    sprintf(weather_days[count_day-1].dayshname,
-				     "%.2s",
-				    (char*)xmlGetProp(child_node, (const xmlChar*)"t"));
+			    snprintf(weather_days[count_day-1].dayshname,
+				     sizeof(weather_days[count_day-1].dayshname) - 1,
+				     "%s",
+				    (char*)hash_table_find(get_short_name((char*)xmlGetProp(child_node, (const xmlChar*)"t"))));
 			    snprintf(weather_days[count_day-1].dayfuname,
 				     sizeof(weather_days[count_day-1].dayfuname) - 1, "%s",
-				     (char*)xmlGetProp(child_node, (const xmlChar*)"t"));
+				     (char*)hash_table_find(xmlGetProp(child_node, (const xmlChar*)"t")));
 			    snprintf(weather_days[count_day-1].date,
 				     sizeof(weather_days[count_day-1].date) - 1,
 				     "%s",
@@ -313,3 +314,17 @@ int parse_weather_com_xml(void)
     xmlCleanupParser();
     return count_day;     
 }
+
+char* get_short_name(const char* day_name){
+    char	*result = "N/A";
+
+    ( !strcmp(day_name, "Monday") ) && (result = "Mo");
+    ( !strcmp(day_name, "Thursday") ) && (result = "Th");
+    ( !strcmp(day_name, "Tuesday") ) && (result = "Tu");
+    ( !strcmp(day_name, "Sunday") ) && (result = "Su");
+    ( !strcmp(day_name, "Wednesday") ) && (result = "We");
+    ( !strcmp(day_name, "Saturday") ) && (result = "Sa");
+    ( !strcmp(day_name, "Friday") ) && (result = "Fr");
+    return result;
+}
+

@@ -122,6 +122,18 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "WNW", _("WNW"));
     g_hash_table_insert(hash, "WSW", _("WSW"));
     g_hash_table_insert(hash, "W", _("W"));
+    g_hash_table_insert(hash, "Jan", _("Jan"));
+    g_hash_table_insert(hash, "Feb", _("Feb"));
+    g_hash_table_insert(hash, "Mar", _("Mar"));
+    g_hash_table_insert(hash, "Apr", _("Apr"));
+    g_hash_table_insert(hash, "May", _("May"));
+    g_hash_table_insert(hash, "Jun", _("Jun"));
+    g_hash_table_insert(hash, "Jul", _("Jul"));
+    g_hash_table_insert(hash, "Aug", _("Aug"));
+    g_hash_table_insert(hash, "Sep", _("Sep"));
+    g_hash_table_insert(hash, "Oct", _("Oct"));
+    g_hash_table_insert(hash, "Nov", _("Nov"));
+    g_hash_table_insert(hash, "Dec", _("Dec"));
     return  hash;
 }
 

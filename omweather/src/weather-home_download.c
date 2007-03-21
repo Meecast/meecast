@@ -256,8 +256,10 @@ download_html(void)
 	   }		    
 	  }
 	   
-	  if(update_window)
+	  if(update_window){
 		gtk_widget_destroy(update_window);
+		update_window = NULL;
+	  }
 	  /* Clean all */    
           curl_multi_remove_handle(curl_multi,msg->easy_handle);
 	  curl_multi_cleanup(curl_multi);

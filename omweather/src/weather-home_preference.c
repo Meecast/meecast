@@ -269,6 +269,80 @@ void fill_station_list_view(GtkWidget *station_list_view,
 	tmplist = g_slist_next(tmplist);
     }
 }
+/* Rename the station name */
+void 
+weather_window_rename_station(GtkWidget *widget,
+            			   GdkEvent *event,
+                    		   gpointer user_data){
+    
+    GtkWidget *window_rename_station;
+    GtkWidget *label;
+    GtkWidget *table;
+    GtkWidget *station_name_edit;
+    
+    GSList *tmplist = NULL; /* Temporary for station list */
+    struct weather_station *ws; /* Description Weather station */
+    GtkTreeIter iter;
+    gchar *station_selected = NULL;
+    GtkTreeModel *model;
+    GtkTreeSelection *selection;
+
+    model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
+    selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
+    if( !gtk_tree_selection_get_selected(selection, NULL, &iter) )
+	return;
+    gtk_tree_model_get(model, &iter, 0, &station_selected, -1); 
+    
+    /* Create dialog window */
+    window_rename_station = gtk_dialog_new_with_buttons(_("Rename Station"),
+        						NULL,
+							GTK_DIALOG_MODAL,
+        						GTK_STOCK_OK,
+							GTK_RESPONSE_ACCEPT, NULL);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_rename_station)->vbox),
+        		    table = gtk_table_new(2, 2, FALSE), TRUE, TRUE, 0);	    
+    gtk_dialog_add_button(GTK_DIALOG(window_rename_station),
+        		    GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT);
+   /* Add Label and Edit */
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_label_new(_("Station:")),
+        			0, 1, 0, 1);
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
+        			1, 2, 0, 1);
+    gtk_container_add(GTK_CONTAINER(label),station_name_edit = gtk_entry_new());
+    gtk_entry_set_max_length(station_name_edit,16);
+    gtk_entry_set_text(station_name_edit,station_selected);
+
+    gtk_widget_show_all(window_rename_station);   
+
+    /* start dialog */
+    switch(gtk_dialog_run(GTK_DIALOG(window_rename_station))){
+	case GTK_RESPONSE_ACCEPT:/* Press Button Ok */
+	    tmplist = stations_view_list;
+	    while(tmplist){
+		ws = tmplist->data;
+		if((ws->name_station != NULL && station_selected != NULL && streq(station_selected, ws->name_station))||
+		  (ws->name_station == NULL && station_selected == NULL)){
+		    if(ws->name_station)
+			g_free(ws->name_station);
+   		    ws->name_station = g_strdup(gtk_entry_get_text(station_name_edit)); 
+		    /* Update station list */	    
+		    gtk_list_store_clear(station_list_store);
+		    fill_station_list_view (station_list_view,station_list_store);
+		    /* Update config file */
+		    config_save();
+		    flag_update_station = TRUE;
+		}
+ 		tmplist = g_slist_next(tmplist);  
+	    }
+	break;
+	default:
+	break;
+    }
+
+    gtk_widget_destroy(window_rename_station);
+}
 
 /* Delete station from list */
 static gboolean weather_delete_station(GtkWidget *widget,
@@ -583,10 +657,6 @@ void weather_window_add_station(GtkWidget *widget,
     gtk_widget_destroy(window_add_station); 
 }
 
-void weather_window_rename_station(GtkWidget *widget,
-            			   GdkEvent *event,
-                    		   gpointer user_data){
-}
 /* Main preference window */
 void weather_window_preference(GtkWidget *widget,
 				GdkEvent *event,
@@ -871,6 +941,7 @@ void weather_window_preference(GtkWidget *widget,
     gtk_widget_show_all(window_config);
 /* kill popup window :-) */
     gtk_widget_destroy(app->popup_window);
+    app->popup_window = NULL;
 /* start dialog window */
     switch(gtk_dialog_run(GTK_DIALOG(window_config))){
 	case GTK_RESPONSE_ACCEPT:/* Pressed Button Ok */

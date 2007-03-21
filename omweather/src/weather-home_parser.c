@@ -66,6 +66,7 @@ int parse_weather_com_xml(void)
     time_t current_time;
     struct tm *tm;
     char date_in_string[255];
+    wchar_t format[32];
 /*  fprintf (stderr, "vlad: %s",get_weather_html());
     http://xoap.weather.com/weather/local/BOXX0014?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5
     http://www.weather.com/weather/mpdwcr/tenday?locid=BOXX0014&channel=other&datapoint=htempdp&adprodname=pif_undcl_tenday_long
@@ -118,7 +119,7 @@ int parse_weather_com_xml(void)
 		    if( child_node->type == XML_ELEMENT_NODE  && 
 			    ( !xmlStrcmp(child_node->name, (const xmlChar *)"dnam") ) ){
 			for (i = 0; i < Max_count_weather_day; i++)
-			    snprintf(weather_days[i].location, sizeof(weather_days[i].location) - 1, "%s",xmlNodeGetContent(child_node));
+			    snprintf(weather_days[i].location, sizeof(weather_days[i].location) - 1, "%s", xmlNodeGetContent(child_node));
 		    }
 		}
 	    }
@@ -194,18 +195,19 @@ int parse_weather_com_xml(void)
     		    if( child_node->type == XML_ELEMENT_NODE  &&
 			    ( !xmlStrcmp(child_node->name, (const xmlChar *)"day") ) ){
 			if( count_day < Max_count_weather_day ){ /* Check limit day */
-/*	      fprintf (stderr,"Count day-: %i\n",count_day); */
 			    count_day++; 
-/*	      fprintf(stderr,"   Child=%s\n", child_node->name); */
-			    sprintf(weather_days[count_day-1].dayshname,"%.2s",xmlGetProp(child_node, (const xmlChar*)"t"));
+			/*    mbstowcs(format, "%ls", sizeof(format) - 1);
+			    swprintf(weather_days[count_day-1].dayshname,*/
+			    sprintf(weather_days[count_day-1].dayshname,
+				     "%.2s",
+				    (char*)xmlGetProp(child_node, (const xmlChar*)"t"));
 			    snprintf(weather_days[count_day-1].dayfuname,
-				     sizeof(weather_days[count_day-1].dayfuname) - 1,
-				     "%s",
-				     xmlGetProp(child_node, (const xmlChar*)"t"));
+				     sizeof(weather_days[count_day-1].dayfuname) - 1, "%s",
+				     (char*)xmlGetProp(child_node, (const xmlChar*)"t"));
 			    snprintf(weather_days[count_day-1].date,
 				     sizeof(weather_days[count_day-1].date) - 1,
 				     "%s",
-				     xmlGetProp(child_node, (const xmlChar*)"dt"));
+				     (char*)xmlGetProp(child_node, (const xmlChar*)"dt"));
 			    sprintf(date_in_string,"%s %i 00:00:00",weather_days[count_day-1].date,year);
 			    strptime(date_in_string, "%b %d %Y %T", tm);
 	      /* Check New Year */

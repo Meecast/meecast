@@ -596,7 +596,8 @@ void weather_window_preference(GtkWidget *widget,
 		*chk_transparency,
 		*scrolled_window,
 		*button_add,
-		*button_del;
+		*button_del,
+		*button_rem;		
 
     char flag_update_icon = '\0'; /* Flag update main weather icon of desktop */
     gboolean flag_tuning_warning; /* Flag for show the warnings about tuning images of applet */
@@ -645,24 +646,31 @@ void weather_window_preference(GtkWidget *widget,
                 	GTK_WIDGET(station_list_view));
     fill_station_list_view(station_list_view,station_list_store);
     gtk_container_add(GTK_CONTAINER(label), scrolled_window);
- 
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
         			1, 2, 0, 1);
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_label_new(" "),
+        			1, 2, 2, 3);
+    button_rem = gtk_button_new_with_label(_("Rename"));
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			button_rem,
+        			1, 2, 3, 4);				
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_label_new(" "),
+        			1, 2, 4, 5);				
+    button_del = gtk_button_new_with_label(_("Delete"));
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			button_del,
+        			1, 2, 5, 6);
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_label_new(" "),
+        			1, 2, 6, 7);
     button_add = gtk_button_new_with_label(_(" Add ")); 
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			button_add,
         			1, 2, 1, 2);
-    gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new(" "),
-        			1, 2, 2, 3);
-    button_del = gtk_button_new_with_label(_("Delete"));
-    gtk_table_attach_defaults(GTK_TABLE(table),
-        			button_del,
-        			1, 2, 3, 4);
-    gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new(" "),
-        			1, 2, 5, 6);
+				
     g_signal_connect(button_del, "clicked",
                 	G_CALLBACK(delete_station), NULL);
     g_signal_connect(button_add, "clicked",

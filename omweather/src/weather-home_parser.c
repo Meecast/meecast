@@ -66,7 +66,8 @@ int parse_weather_com_xml(void)
     time_t current_time;
     struct tm *tm;
     char date_in_string[255];
-/*    wchar_t format[32];*/
+    char	*tmp;
+    int		date;
 /*  fprintf (stderr, "vlad: %s",get_weather_html());
     http://xoap.weather.com/weather/local/BOXX0014?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5
     http://www.weather.com/weather/mpdwcr/tenday?locid=BOXX0014&channel=other&datapoint=htempdp&adprodname=pif_undcl_tenday_long
@@ -125,11 +126,9 @@ int parse_weather_com_xml(void)
 	    }
 	/* Fill current day */
 	    if(!xmlStrcmp(cur_node->name, (const xmlChar *) "cc" ) ){
-/*	 fprintf(stderr,"Element0: %s \n", cur_node->name);  */	 
 		for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next){
 		    if( child_node->type == XML_ELEMENT_NODE  &&
             		    ( !xmlStrcmp(child_node->name, (const xmlChar *)"lsup") ) ){
-/*	    fprintf(stderr,"   Child=%s\n", child_node->name); */
 			sprintf(date_in_string,"%s",xmlNodeGetContent(child_node));
 			strptime(date_in_string, "%D %I:%M", tm);
 			current_month = tm->tm_mon;
@@ -190,23 +189,28 @@ int parse_weather_com_xml(void)
 		}
 	    }
 	    if(!xmlStrcmp(cur_node->name, (const xmlChar *) "dayf" ) ){
-/*	 fprintf(stderr,"Element0: %s \n", cur_node->name);  */
     		for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next){
     		    if( child_node->type == XML_ELEMENT_NODE  &&
 			    ( !xmlStrcmp(child_node->name, (const xmlChar *)"day") ) ){
 			if( count_day < Max_count_weather_day ){ /* Check limit day */
 			    count_day++; 
-			/*    mbstowcs(format, "%ls", sizeof(format) - 1);
-			    swprintf(weather_days[count_day-1].dayshname,*/
 			    snprintf(weather_days[count_day-1].dayshname,
 				     sizeof(weather_days[count_day-1].dayshname) - 1,
 				     "%s",
-				    (char*)hash_table_find(get_short_name((char*)xmlGetProp(child_node, (const xmlChar*)"t"))));
+				    (char*)hash_table_find(get_short_name((char*)xmlGetProp(child_node, (const xmlChar*)"t"), 0)));
 			    snprintf(weather_days[count_day-1].dayfuname,
 				     sizeof(weather_days[count_day-1].dayfuname) - 1, "%s",
 				     (char*)hash_table_find(xmlGetProp(child_node, (const xmlChar*)"t")));
+			    /*
+			    tmp = (char*)xmlGetProp(child_node, (const xmlChar*)"dt");
+			    split_date(tmp, &date);
 			    snprintf(weather_days[count_day-1].date,
 				     sizeof(weather_days[count_day-1].date) - 1,
+				     "%s %d",
+				     (char*)hash_table_find(tmp), date);
+			    */
+			    snprintf(weather_days[count_day-1].date,
+        			     sizeof(weather_days[count_day-1].date) - 1,
 				     "%s",
 				     (char*)xmlGetProp(child_node, (const xmlChar*)"dt"));
 			    sprintf(date_in_string,"%s %i 00:00:00",weather_days[count_day-1].date,year);
@@ -315,16 +319,43 @@ int parse_weather_com_xml(void)
     return count_day;     
 }
 
-char* get_short_name(const char* day_name){
+char* get_short_name(const char* name, gboolean what){
     char	*result = "N/A";
 
-    ( !strcmp(day_name, "Monday") ) && (result = "Mo");
-    ( !strcmp(day_name, "Thursday") ) && (result = "Th");
-    ( !strcmp(day_name, "Tuesday") ) && (result = "Tu");
-    ( !strcmp(day_name, "Sunday") ) && (result = "Su");
-    ( !strcmp(day_name, "Wednesday") ) && (result = "We");
-    ( !strcmp(day_name, "Saturday") ) && (result = "Sa");
-    ( !strcmp(day_name, "Friday") ) && (result = "Fr");
+    switch(what){
+	default:
+	case 0:
+	    ( !strcmp(name, "Monday") ) && (result = "Mo");
+	    ( !strcmp(name, "Thursday") ) && (result = "Th");
+	    ( !strcmp(name, "Tuesday") ) && (result = "Tu");
+	    ( !strcmp(name, "Sunday") ) && (result = "Su");
+	    ( !strcmp(name, "Wednesday") ) && (result = "We");
+	    ( !strcmp(name, "Saturday") ) && (result = "Sa");
+	    ( !strcmp(name, "Friday") ) && (result = "Fr");
+	break;
+	case 1:
+	    ( strstr("January", name) ) && (result = "Jan");
+	    ( strstr("February", name) ) && (result = "Feb");
+	    ( strstr("March", name) ) && (result = "Mar");
+	    ( strstr("April", name) ) && (result = "Apr");
+	    ( strstr("May", name) ) && (result = "May");
+	    ( strstr("June", name) ) && (result = "Jun");
+	    ( strstr("July", name) ) && (result = "Jul");
+	    ( strstr("August", name) ) && (result = "Aug");
+	    ( strstr("September", name) ) && (result = "Sep");
+	    ( strstr("October", name) ) && (result = "Oct");
+	    ( strstr("November", name) ) && (result = "Nov");
+	    ( strstr("December", name) ) && (result = "Dec");
+	break;
+    }
     return result;
 }
 
+void split_date(char* string, int *day){
+    char *str;
+    
+    if( (str = strchr(string, ' ')) ){ 
+	*str = 0; str++;
+	*day = atoi(str);
+    }
+}

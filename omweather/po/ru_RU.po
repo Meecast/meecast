@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Pavel Fialko <pavelnf@gmail.com>, 2007.
+# vlad <vlad@gas.by>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-21 20:47+0200\n"
-"PO-Revision-Date: 2007-03-18 13:01+0200\n"
-"Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
+"PO-Revision-Date: 2007-03-22 22:35+0200\n"
+"Last-Translator: vlad <vlad@gas.by>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -149,13 +150,15 @@ msgstr "До полудня облачно, после полудня солнц
 
 #: src/weather-home_hash.c:10
 msgid "AM Light Snow"
-msgstr "До полудня не большой снег"
+msgstr "До полудня легкий снег"
 
 #: src/weather-home_hash.c:11
+#, fuzzy
 msgid "AM Light Wintry Mix"
-msgstr "AM Light Wintry Mix"
+msgstr "До полудня снег с дождем"
 
 #: src/weather-home_hash.c:12
+#, fuzzy
 msgid "AM Rain / Snow Showers"
 msgstr "До полудня дождь / Мокрый снег"
 
@@ -164,6 +167,7 @@ msgid "AM Showers"
 msgstr "До полудня ливни"
 
 #: src/weather-home_hash.c:14
+#, fuzzy
 msgid "AM Snow Showers"
 msgstr "До полудня мокрый снег"
 
@@ -213,15 +217,15 @@ msgstr "Ясно / Ветер"
 
 #: src/weather-home_hash.c:18
 msgid "Clouds Early / Clearing Late"
-msgstr "В начале дня облочно, позже ясно"
+msgstr "В начале дня облачно, позже ясно"
 
 #: src/weather-home_hash.c:20
 msgid "Cloudy"
-msgstr "Облочно"
+msgstr "Облачно"
 
 #: src/weather-home_hash.c:19
 msgid "Cloudy and Windy"
-msgstr "Облочно и ветер"
+msgstr "Облачно и ветер"
 
 #: src/weather-home_config.c:281
 #, c-format
@@ -309,19 +313,19 @@ msgstr "Фев"
 
 #: src/weather-home_hash.c:27
 msgid "Few Showers"
-msgstr "Не большие ливни"
+msgstr "Небольшие ливни"
 
 #: src/weather-home_hash.c:28
 msgid "Few Showers / Wind"
-msgstr "Не большие ливни / Ветер"
+msgstr "Небольшие ливни / Ветер"
 
 #: src/weather-home_hash.c:29
 msgid "Few Snow"
-msgstr "Не большой снег"
+msgstr "Небольшой снег"
 
 #: src/weather-home_hash.c:30
 msgid "Few Snow Showers"
-msgstr "Не большой мокрый снег"
+msgstr "Небольшой мокрый снег"
 
 #: src/weather-home_hash.c:31
 msgid "Fog"
@@ -349,11 +353,11 @@ msgstr "Легкий туман"
 
 #: src/weather-home_hash.c:36
 msgid "Heavy Rain / Wind"
-msgstr "Тяжелый дождь / Ветер"
+msgstr "Сильный дождь / Ветер"
 
 #: src/weather-home_hash.c:37
 msgid "Heavy Snow"
-msgstr "Тяжелый снег"
+msgstr "Сильный снег"
 
 #: src/weather-home_hash.c:38
 msgid "High"
@@ -979,17 +983,3 @@ msgstr "возрастает"
 msgid "steady"
 msgstr "устойчивое"
 
-#~ msgid "Last update: "
-#~ msgstr "Последнее обновление: "
-
-#~ msgid "Night"
-#~ msgstr "Ночь"
-
-#~ msgid "Preference"
-#~ msgstr "Свойства"
-
-#~ msgid "Could not open cache weather xml file %s.\n"
-#~ msgstr "Невозможно открыть xml файл %s из кэша.\n"
-
-#~ msgid "Did not open save xml file"
-#~ msgstr "Невозможно открыть сохраненный xml файл."

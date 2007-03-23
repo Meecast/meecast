@@ -153,21 +153,18 @@ msgid "AM Light Snow"
 msgstr "До полудня легкий снег"
 
 #: src/weather-home_hash.c:11
-#, fuzzy
 msgid "AM Light Wintry Mix"
-msgstr "До полудня снег с дождем"
+msgstr "AM Light Wintry Mix"
 
 #: src/weather-home_hash.c:12
-#, fuzzy
 msgid "AM Rain / Snow Showers"
-msgstr "До полудня дождь / Мокрый снег"
+msgstr "AM Rain / Snow Showers"
 
 #: src/weather-home_hash.c:13
 msgid "AM Showers"
 msgstr "До полудня ливни"
 
 #: src/weather-home_hash.c:14
-#, fuzzy
 msgid "AM Snow Showers"
 msgstr "До полудня мокрый снег"
 

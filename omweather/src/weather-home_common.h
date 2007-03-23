@@ -58,7 +58,7 @@
 #define AUTOUPDATE		1
 #define DAYTIMEEVENT		2
 #define DAY_DOWNLOAD		10
-#define OFFSET_CURRENT_WEATHER	4 /* 4 hours */
+#define OFFSET_CURRENT_WEATHER	2 /* 4 hours */
 #define STATIONS_FILE		"/usr/share/omweather/stations.txt"
 #define COUNTRYS_FILE		"/usr/share/omweather/iso3166-countrycodes.txt"
 #define ICONS_PATH		"/usr/share/omweather/icons/"
@@ -71,16 +71,16 @@ enum { LARGE, MEDIUM, SMALL };
 
 typedef struct{
     int icon;
-    gchar	title[60];		/* Title */
-    gchar	hmid[60];       	/* Humidity */
+    gchar	title[80];		/* Title */
+    gchar	hmid[80];       	/* Humidity */
     int		wind_speed;       	/* Wind Speed */
     int		wind_gust;        	/* Wind Gust */
     float	vis;              	/* Visibilty */
-    gchar	wind_title[60];		/* Wind Title */
+    gchar	wind_title[80];		/* Wind Title */
     gchar	temp[20];		/* Temperature */
     time_t	begin_time;		/* Begin time party of the day */  
     float	pressure;		/* Pressure value */
-    gchar	pressure_str[60];	/* Pressure direction */
+    gchar	pressure_str[80];	/* Pressure direction */
 }part_of_day;
 
 

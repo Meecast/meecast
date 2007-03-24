@@ -96,34 +96,31 @@ typedef struct{
     gchar	location[50];	/* Location */
 }weather_day;
 
-typedef struct
-{
-	gint    error;
-/*	weather_channel *channel_list; */
-	xmlDoc	    *doc;
-	xmlNode     *weather_com_root;
-} weather_com_parser;
+typedef struct{
+    gint	error;
+    xmlDoc	*doc;
+    xmlNode	*weather_com_root;
+}weather_com_parser;
 
-struct event_time
-{
-  time_t time;          /* Time event */
-  short int type_event; /* Type of event: Automatic update event AUTOUPDATE, 
+struct event_time{
+    time_t	time;          /* Time event */
+    short	type_event; /* Type of event: Automatic update event AUTOUPDATE, 
 			   time of day event DAYTIMEEVENT */ 
 };
 
 
 struct time_update{ 
-	gint  between_time;        /* Time in minutes  betwen two update weather */
-	gchar *name_between_time;  /* Human string it time */
+    gint	between_time;        /* Time in minutes  betwen two update weather */
+    gchar	*name_between_time;  /* Human string it time */
 };
 
 
 struct weather_station{
-	gchar *id_station;
-	gchar *name_station;
-        GtkWidget *box;
-        GtkWidget *button;
-	GtkWidget *label_box;
+    gchar	*id_station;
+    gchar	*name_station;
+    GtkWidget	*box;
+    GtkWidget	*button;
+    GtkWidget	*label_box;
 };
 
 typedef struct OMWeatherApplet{
@@ -138,7 +135,6 @@ typedef struct OMWeatherApplet{
     gboolean		show_update_window;
     gchar 		*iap_http_proxy_host;
     gint 		iap_http_proxy_port;
-
 }OMWeatherApp;
 
 weather_day weather_days[Max_count_weather_day];

@@ -217,17 +217,34 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 	label_temp = gtk_label_new(_("Temperature: "));
 	set_font_size(label_temp, 18);
 
-	if(!strcmp(weather_days[i].hi_temp, _("N/A"))){ 
-	    if(_weather_temperature_unit == CELSIUS)
-	    sprintf(buffer, "%s\302\260C", weather_days[i].low_temp);
+	if(!strcmp(weather_days[i].hi_temp, "N/A")){ 
+	    if(!strcmp(weather_days[i].low_temp, _("N/A")))
+		sprintf(buffer, "%s", _("N/A"));
 	    else
-	    sprintf(buffer, "%d\302\260F", c2f(atoi(weather_days[i].low_temp)));
+		if(_weather_temperature_unit == CELSIUS)
+		    sprintf(buffer, "%d\302\260C", atoi(weather_days[i].low_temp));
+		else
+		    sprintf(buffer, "%d\302\260F", c2f(atoi(weather_days[i].low_temp)));
 	}
 	else{
-	    if(_weather_temperature_unit == CELSIUS)
-		sprintf(buffer, "%s\302\260C / %s\302\260C", weather_days[i].low_temp,weather_days[i].hi_temp);
-	    else
-		sprintf(buffer,"%d\302\260F / %d\302\260F", c2f(atoi(weather_days[i].low_temp)),c2f(atoi(weather_days[i].hi_temp)));
+	    if(!strcmp(weather_days[i].low_temp, "N/A"))
+		if(_weather_temperature_unit == CELSIUS)
+		    sprintf(buffer, "%s / %d\302\260C",
+			    _("N/A"),
+			    atoi(weather_days[i].hi_temp));
+		else
+		    sprintf(buffer, "%s / %d\302\260C",
+			    _("N/A"),
+			    c2f(atoi(weather_days[i].hi_temp)));
+    	    else
+		if(_weather_temperature_unit == CELSIUS)
+		    sprintf(buffer, "%d\302\260C / %d\302\260C",
+			    atoi(weather_days[i].low_temp),
+			    atoi(weather_days[i].hi_temp));
+		else
+		    sprintf(buffer,"%d\302\260F / %d\302\260F",
+			    c2f(atoi(weather_days[i].low_temp)),
+			    c2f(atoi(weather_days[i].hi_temp)));
 	}
 	label_value_temp = gtk_label_new(buffer);
 	gtk_box_pack_start(GTK_BOX(hbox_temp), label_temp, FALSE, FALSE, 5);
@@ -370,6 +387,9 @@ gboolean weather_window_popup_show (GtkWidget *widget,
                         G_CALLBACK(popup_window_event_cb), app->main_window);
 
     gtk_widget_show_all(app->popup_window);
+/* free used memory */
+    if(units)
+	g_free(units);
     return TRUE;
 }
 
@@ -377,12 +397,12 @@ int convert_wind_units(int to, int value, char **units_str){
     float	result = (float)value;
     switch(to){
 	    default:
-	    case METERS_S: *units_str = strdup(_("m/s")); result *= 10.0f / 36.0f; break;
-	    case KILOMETERS_S:  *units_str = strdup(_("km/s")); result /= 3600.0f; break;
-	    case MILES_S:  *units_str = strdup(_("mi/s")); result /= 1.609344f / 3600.0f; break;
-	    case METERS_H:  *units_str = strdup(_("m/h")); result *= 1000.0f; break;
-	    case KILOMETERS_H: *units_str = strdup(_("km/h")); result *= 1.0f; break;
-	    case MILES_H:  *units_str = strdup(_("mi/h")); result /= 1.609344f; break;
+	    case METERS_S: *units_str = g_strdup(_("m/s")); result *= 10.0f / 36.0f; break;
+	    case KILOMETERS_S:  *units_str = g_strdup(_("km/s")); result /= 3600.0f; break;
+	    case MILES_S:  *units_str = g_strdup(_("mi/s")); result /= 1.609344f / 3600.0f; break;
+	    case METERS_H:  *units_str = g_strdup(_("m/h")); result *= 1000.0f; break;
+	    case KILOMETERS_H: *units_str = g_strdup(_("km/h")); result *= 1.0f; break;
+	    case MILES_H:  *units_str = g_strdup(_("mi/h")); result /= 1.609344f; break;
 	}
     return (int)result;
 }

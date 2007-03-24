@@ -257,10 +257,8 @@ download_html(void)
 	  }
 	   
 	  if(update_window){
-	        fprintf (stderr,"1.0\n");
 		gtk_widget_destroy(update_window);
 		update_window = NULL;
-	        fprintf (stderr,"1.1\n");		
 	  }
 	  /* Clean all */    
           curl_multi_remove_handle(curl_multi,msg->easy_handle);

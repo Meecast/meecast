@@ -120,20 +120,27 @@ int data_read(void *buffer, size_t size, size_t nmemb, void *stream)
 gboolean
 form_url_and_filename()
 {
+    /* For debug  
+    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);    
+     */
     if (tmplist != NULL)
     {
         ws = tmplist->data;
         if(ws->id_station != NULL)
 	    {
-	        if (url)
+	        if (url){
 		 g_string_free(url, TRUE);    
-	        if (full_filename)
-	         g_string_free(full_filename, TRUE);    
+		 url = NULL;
+		} 
+	        if (full_filename_new_xml){
+	         g_string_free(full_filename_new_xml, TRUE);    
+		 full_filename_new_xml = NULL;
+		} 
 		url = g_string_new(NULL);        
     		g_string_append_printf(url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=%d",
 			    ws->id_station, DAY_DOWNLOAD);
-		full_filename = g_string_new(NULL);        
-		g_string_append_printf(full_filename,"%s/%s.xml.new",
+		full_filename_new_xml = g_string_new(NULL);        
+		g_string_append_printf(full_filename_new_xml,"%s/%s.xml.new",
 			app->_weather_dir_name, ws->id_station);
 		/*For debug
 		fprintf (stderr,"Begin URL: %s\n",url->str);
@@ -141,7 +148,7 @@ form_url_and_filename()
 		tmplist = g_slist_next(tmplist);
 
 		/* Forming structure for download data of weather */
-		html_file.filename = full_filename->str;
+		html_file.filename = full_filename_new_xml->str;
                 html_file.stream = NULL;
 		return TRUE;
 	    }
@@ -161,7 +168,7 @@ download_html(void)
 {
 
  CURLMsg *msg;
-    /* For debug    
+    /* For debug  
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);    
      */
 
@@ -195,8 +202,18 @@ download_html(void)
 	}    
         /* Initialize list */
         tmplist = stations_view_list;
-	if (!form_url_and_filename()) 
+	if (!form_url_and_filename())
+	{
+	    if (url){
+		 g_string_free(url, TRUE);    
+		 url = NULL;
+	    }	 
+	    if (full_filename_new_xml){
+	         g_string_free(full_filename_new_xml, TRUE);    
+		 full_filename_new_xml = NULL;
+	    }	 
 	    return FALSE; /* The strange error */		
+	}    
 
 	/* Init easy_curl */
 	curl_handle = weather_curl_init();
@@ -265,6 +282,18 @@ download_html(void)
 	  curl_multi_cleanup(curl_multi);
 	  curl_multi = NULL;
 	  curl_handle = NULL;
+	  if (url){
+	    g_string_free(url, TRUE);    
+	     url = NULL;
+	  }	 
+	  if (full_filename_new_xml)
+	  {
+	     g_string_free(full_filename_new_xml, TRUE);    	  
+	     full_filename_new_xml = NULL;
+	  }     
+		 
+
+		 
 	  return FALSE; /* This is the end */
 	 }
 	}

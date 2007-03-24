@@ -34,7 +34,8 @@
 #include <curl/multi.h>
 #include <osso-ic.h>
 
-GString *url,*full_filename;
+static GString *url = NULL;
+static GString *full_filename_new_xml = NULL;
 CURL *curl_handle = NULL;
 CURL *curl_multi = NULL;
 CURL *weather_curl_init(void);

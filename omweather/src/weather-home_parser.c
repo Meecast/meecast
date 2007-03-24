@@ -66,8 +66,6 @@ int parse_weather_com_xml(void)
     time_t current_time;
     struct tm *tm;
     char date_in_string[255];
-    char	*tmp;
-    int		date;
 /*  fprintf (stderr, "vlad: %s",get_weather_html());
     http://xoap.weather.com/weather/local/BOXX0014?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5
     http://www.weather.com/weather/mpdwcr/tenday?locid=BOXX0014&channel=other&datapoint=htempdp&adprodname=pif_undcl_tenday_long

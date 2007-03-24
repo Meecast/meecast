@@ -52,7 +52,7 @@ gint num_transfers = 0, num_msgs = 0;
 GSList *tmplist = NULL;
 struct weather_station *ws;
 gboolean second_attempt=FALSE;
-
+extern void config_update_proxy(void);
 
 #endif
 

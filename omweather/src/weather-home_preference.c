@@ -724,6 +724,10 @@ void weather_window_preference(GtkWidget *widget,
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
         			1, 2, 0, 1);
+    button_add = gtk_button_new_with_label(_(" Add ")); 
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+        			button_add,
+        			1, 2, 1, 2);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
         			1, 2, 2, 3);
@@ -741,10 +745,6 @@ void weather_window_preference(GtkWidget *widget,
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
         			1, 2, 6, 7);
-    button_add = gtk_button_new_with_label(_(" Add ")); 
-    gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			button_add,
-        			1, 2, 1, 2);
 				
     g_signal_connect(button_ren, "clicked",
                 	G_CALLBACK(weather_window_rename_station), NULL);				

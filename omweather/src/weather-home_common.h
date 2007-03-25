@@ -131,6 +131,9 @@ typedef struct OMWeatherApplet{
     GtkWidget		*popup_window;
     gchar		*_weather_dir_name;
     gchar		*icon_set;
+    gint		icons_size;
+    gint		icons_layout;
+    gchar		*current_country;
     gchar		*current_station_name;
     gboolean		show_update_window;
     gchar 		*iap_http_proxy_host;

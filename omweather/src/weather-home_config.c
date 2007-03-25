@@ -260,13 +260,14 @@ void config_init(){
 	sprintf(path_large_icon, "%s%s/", ICONS_PATH, app->icon_set);
     }    
 	/* Get Weather Icon Size  */		     
-    _weather_icon_size = gconf_client_get_int(gconf_client,
-            GCONF_KEY_WEATHER_ICON_SIZE, NULL);
-    if(!_weather_icon_size)
-        _weather_icon_size = LARGE;
+    app->icons_size = gconf_client_get_int(gconf_client,
+        				    GCONF_KEY_WEATHER_ICONS_SIZE, NULL);
+    if(!app->icons_size)
+        app->icons_size = LARGE;
        /* Get Weather country name. */    
-    _weather_country_name = gconf_client_get_string(gconf_client,
-            GCONF_KEY_WEATHER_COUNTRY_NAME, NULL);
+    app->current_country = gconf_client_get_string(gconf_client,
+        					    GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
+						    NULL);
        /* Get Weather state name. */    
     _weather_state_name = gconf_client_get_string(gconf_client,
             GCONF_KEY_WEATHER_STATE_NAME, NULL);
@@ -298,10 +299,11 @@ void config_init(){
                     			GCONF_KEY_WEATHER_TEMPERATURE_UNIT, NULL);
     (_weather_temperature_unit) ? (_weather_temperature_unit = FAHRENHEIT) : (_weather_temperature_unit = CELSIUS);
     /* Get Layout  Default Horizontal */
-    _weather_layout = gconf_client_get_int(gconf_client,
-                	    GCONF_KEY_WEATHER_LAYOUT, &gerror);
+    app->icons_layout = gconf_client_get_int(gconf_client,
+                			    GCONF_KEY_ICONS_LAYOUT,
+					    &gerror);
     if(gerror)
-	_weather_layout = ONE_ROW;
+	app->icons_layout = ONE_ROW;
     /* Get number days to show */
     days_to_show = gconf_client_get_int(gconf_client,                                                                                     
                 	    GCONF_KEY_WEATHER_DAYS, &gerror);
@@ -387,10 +389,10 @@ void config_save(){
         			GCONF_KEY_WEATHER_DIR_NAME,
 				app->_weather_dir_name, NULL);
     /* Save Weather country name. */
-    if(_weather_country_name)
+    if(app->current_country)
         gconf_client_set_string(gconf_client,
-        			GCONF_KEY_WEATHER_COUNTRY_NAME,
-				_weather_country_name, NULL);	    
+        			GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
+				app->current_country, NULL);	    
     /* Save Weather state or province name. */
     if(_weather_state_name)
         gconf_client_set_string(gconf_client,
@@ -427,8 +429,8 @@ void config_save(){
 				app->icon_set, NULL);
     /* Save Weather Icon Size  */		     	    
     gconf_client_set_int(gconf_client,
-        		GCONF_KEY_WEATHER_ICON_SIZE,
-			_weather_icon_size, NULL);
+        		GCONF_KEY_WEATHER_ICONS_SIZE,
+			app->icons_size, NULL);
     /* Save Weather Font Color */
     sprintf(temp_buffer, "#%02x%02x%02x",
             _weather_font_color.red >> 8,
@@ -464,8 +466,8 @@ void config_save(){
 			wind_units, NULL);
     /* Save Layout type. */
     gconf_client_set_int(gconf_client,
-        		GCONF_KEY_WEATHER_LAYOUT,
-			_weather_layout, NULL);	    
+        		GCONF_KEY_ICONS_LAYOUT,
+			app->icons_layout, NULL);	    
     /* Save station list */
     stlist = prepare_idlist();
     gconf_client_set_list(gconf_client,

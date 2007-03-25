@@ -192,7 +192,7 @@ void weather_buttons_fill(gboolean check_error){
     GtkWidget	*icon_image;
 
 /* select image and font size */
-    switch(_weather_icon_size){
+    switch(app->icons_size){
 	default:
 	case LARGE: 
 	    font_size = FONT_MAIN_SIZE_LARGE;
@@ -370,7 +370,7 @@ void weather_buttons_fill(gboolean check_error){
 
 /* create main panel */
     app->main_window = gtk_table_new(2, 1, FALSE);
-    create_panel(app->main_window, _weather_layout, _enable_transparency, tmp_station_name, font_size);
+    create_panel(app->main_window, app->icons_layout, _enable_transparency, tmp_station_name, font_size);
     gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
     gtk_widget_show_all(app->top_widget);
 
@@ -410,6 +410,8 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     app->osso = osso;
 /* create i18n hash for values coming from xml file */
     app->hash = hash_table_create();
+    app->icons_size = LARGE;
+    app->icons_layout = ONE_ROW;
 /* Init gconf. */
     gnome_vfs_init();
     config_init();

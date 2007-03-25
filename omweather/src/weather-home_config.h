@@ -34,17 +34,17 @@
 
 #define GCONF_KEY_PREFIX "/apps/maemo/omweather"
 #define GCONF_KEY_WEATHER_DIR_NAME         GCONF_KEY_PREFIX"/weather-dir"
-#define GCONF_KEY_WEATHER_COUNTRY_NAME     GCONF_KEY_PREFIX"/country-name"
+#define GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME     GCONF_KEY_PREFIX"/current-country-name"
 #define GCONF_KEY_WEATHER_STATE_NAME       GCONF_KEY_PREFIX"/state-name"
 #define GCONF_KEY_WEATHER_CURRENT_STATION_NAME     GCONF_KEY_PREFIX"/current-station-name"
 #define GCONF_KEY_WEATHER_STATION_ID       GCONF_KEY_PREFIX"/station-id"
 #define GCONF_KEY_WEATHER_STATION_IDS      GCONF_KEY_PREFIX"/station-ids"
-#define GCONF_KEY_WEATHER_ICON_SIZE        GCONF_KEY_PREFIX"/icon-size"
+#define GCONF_KEY_WEATHER_ICONS_SIZE        GCONF_KEY_PREFIX"/icons-size"
 #define GCONF_KEY_WEATHER_FONT_COLOR       GCONF_KEY_PREFIX"/font-color"
 #define GCONF_KEY_ENABLE_TRANSPARENCY      GCONF_KEY_PREFIX"/transparency"
 #define GCONF_KEY_WEATHER_PERIODIC_UPDATE  GCONF_KEY_PREFIX"/periodic-update"
 #define GCONF_KEY_WEATHER_TEMPERATURE_UNIT GCONF_KEY_PREFIX"/temperature-unit"
-#define GCONF_KEY_WEATHER_LAYOUT           GCONF_KEY_PREFIX"/layout"   
+#define GCONF_KEY_ICONS_LAYOUT           GCONF_KEY_PREFIX"/icons-layout"   
 #define GCONF_KEY_WEATHER_STATIONS_LIST    GCONF_KEY_PREFIX"/station-list"   
 #define GCONF_KEY_WEATHER_DAYS			GCONF_KEY_PREFIX"/days"
 #define GCONF_KEY_WEATHER_DISTANCE_UNITS	GCONF_KEY_PREFIX"/distance-units"
@@ -57,17 +57,13 @@
 #define GCONF_KEY_HTTP_PROXY_PORT GCONF_KEY_HTTP_PROXY_PREFIX"/port"
 
 
-extern gchar    *_weather_country_name;
 extern gchar    *_weather_state_name;
 extern gchar    *_weather_station_id;
-extern int    	_weather_icon_size;
 extern gboolean _enable_transparency;
 extern int      _weather_periodic_update;
 extern GdkColor _weather_font_color;
 extern GSList   *time_update_list;
 extern int	_weather_temperature_unit;
-extern int      _weather_layout;
-/* by Pavel */
 extern	gint	days_to_show;
 extern	gint	distance_units;
 extern	gint	wind_units;

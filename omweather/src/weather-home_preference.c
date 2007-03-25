@@ -149,8 +149,8 @@ void changed_country(void){
 	    } 
 	}
     }    
-    g_free(_weather_country_name);    
-    _weather_country_name = gcountry_name;
+    g_free(app->current_country);    
+    app->current_country = gcountry_name;
     free_list_stations();
 }
 
@@ -605,7 +605,7 @@ void weather_window_add_station(GtkWidget *widget,
     			    gtk_list_store_set(GTK_LIST_STORE(country_list_store), &iter,
                         			0, country_name,-1);
 			    count_country++;
-    			    if((_weather_country_name != NULL) &&(streq(country_name,_weather_country_name)))
+    			    if((app->current_country) &&(streq(country_name, app->current_country)))
     				index_country = count_country;
 			}
 		    }
@@ -802,7 +802,7 @@ void weather_window_preference(GtkWidget *widget,
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One column"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two rows"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two columns"));
-    switch(_weather_layout){
+    switch(app->icons_layout){
 	default:
 	case ONE_ROW: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),0);break;
 	case ONE_COLUMN:  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),1);break;
@@ -830,7 +830,7 @@ void weather_window_preference(GtkWidget *widget,
     gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), _("Large"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), _("Medium"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), _("Small"));
-    switch(_weather_icon_size){
+    switch(app->icons_size){
 	default:
 	case LARGE: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),0);break;
 	case MEDIUM: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),1);break;
@@ -954,8 +954,8 @@ void weather_window_preference(GtkWidget *widget,
 		flag_update_icon = TRUE;
 	    }
 /* icon size */	    
-	    if(_weather_icon_size != gtk_combo_box_get_active(GTK_COMBO_BOX(icon_size))){
-		_weather_icon_size = gtk_combo_box_get_active(GTK_COMBO_BOX(icon_size));
+	    if(app->icons_size != gtk_combo_box_get_active(GTK_COMBO_BOX(icon_size))){
+		app->icons_size = gtk_combo_box_get_active(GTK_COMBO_BOX(icon_size));
 		flag_update_icon = TRUE;
 		flag_tuning_warning = TRUE;
 	    }
@@ -980,8 +980,8 @@ void weather_window_preference(GtkWidget *widget,
 		flag_tuning_warning = TRUE;
 	    }
 /* Layout Type */
-	    if(gtk_combo_box_get_active((GtkComboBox*)layout_type) != _weather_layout ){
-		_weather_layout = gtk_combo_box_get_active((GtkComboBox*)layout_type);
+	    if(gtk_combo_box_get_active((GtkComboBox*)layout_type) != app->icons_layout ){
+		app->icons_layout = gtk_combo_box_get_active((GtkComboBox*)layout_type);
     		flag_update_icon = TRUE;
 		flag_tuning_warning = TRUE;
 	    }

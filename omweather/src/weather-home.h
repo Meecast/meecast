@@ -57,11 +57,8 @@ gboolean weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer us
 gboolean download_html(gpointer data);
 void update_weather(void);
 /* CONFIGURATION INFORMATION. */
-gchar		*_weather_country_name = NULL;
 gchar		*_weather_state_name = NULL;
 gchar		*_weather_station_id = NULL;
-int		_weather_icon_size = LARGE;
-int		_weather_layout = ONE_ROW;
 gboolean	 _enable_transparency = TRUE;
 int   		 _weather_periodic_update = 0;
 GdkColor	_weather_font_color = {0,0,0,0};
@@ -72,11 +69,6 @@ gint		wind_units	= METERS_S;
 
 /* List times between two updates */
 GSList *time_update_list = NULL;
-
-/* Window Popup */
-/*Temp value for downloading */
-/*GString *url,*full_filename;*/
-/* Value use for not call event function */
 gboolean not_event = FALSE;
 GtkWidget *buttons [Max_count_weather_day];
 GtkWidget *labels [Max_count_weather_day];

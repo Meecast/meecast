@@ -176,7 +176,6 @@ void station_error_window(void){
 }
 
 /* Fill buttons data */
-/* by Pavel */
 void weather_buttons_fill(gboolean check_error){
     int i, offset = 0, count_day;
     gchar buffer[2048], buffer_icon[2048];
@@ -191,6 +190,7 @@ void weather_buttons_fill(gboolean check_error){
     gchar	*tmp_station_name;
     GdkPixbuf	*icon;
     GtkWidget	*icon_image;
+
 /* select image and font size */
     switch(_weather_icon_size){
 	default:
@@ -388,9 +388,7 @@ void weather_frame_update(gboolean check){
 }
 
 /* Get Weather xml file from weather.com */
-void 
-update_weather(void)
-{
+void update_weather(void){
     flag_update = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }
 
@@ -402,10 +400,10 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     
     osso = osso_initialize(PACKAGE, VERSION, FALSE, NULL);
     if(!osso){
-        g_debug(_("Error initializing the osso maemo omweather applet"));
+        g_debug(_("Error initializing the OMWeather applet"));
         return NULL;
     }
-    fprintf(stderr, "\nWeather applet initialize %p %d\n",
+    fprintf(stderr, "\nOMWeather applet initialize %p %d\n",
 		    state_data, *state_size);
     app = g_new0(OMWeatherApp, 1);
     memset(app, 0, sizeof(OMWeatherApp));
@@ -413,8 +411,6 @@ void* hildon_home_applet_lib_initialize(void *state_data,
 /* create i18n hash for values coming from xml file */
     app->hash = hash_table_create();
 /* Init gconf. */
-    app->iap_http_proxy_host=NULL;
-    app->popup_window=NULL;
     gnome_vfs_init();
     config_init();
 /* Start timer */
@@ -427,45 +423,37 @@ void* hildon_home_applet_lib_initialize(void *state_data,
 }
 
 
-int
-hildon_home_applet_lib_save_state(void *raw_data,
+int hildon_home_applet_lib_save_state(void *raw_data,
 				    void **state_data, 
 				    int *state_size){
-    fprintf(stderr, "\nhello-world save_state\n");
-/*    config_save();   
-    weather_frame_update(FALSE);
-*/  
+    fprintf(stderr, "\nOMWeather applet save state\n");
     (*state_data) = NULL;
     if(state_size)
 	(*state_size) = 0;
     return 1;
 }
 
-void
-hildon_home_applet_lib_background(void *raw_data){
-    fprintf(stderr, "\nhello-world background\n");
+void hildon_home_applet_lib_background(void *raw_data){
+    fprintf(stderr, "\nOMWeather applet background\n");
 }
 
-void
-hildon_home_applet_lib_foreground(void *raw_data){
-    fprintf(stderr, "\nhello-world foreground\n");
+void hildon_home_applet_lib_foreground(void *raw_data){
+    fprintf(stderr, "\nOMWeather applet foreground\n");
 }
 
-void
-hildon_home_applet_lib_deinitialize(void *applet_data){
+void hildon_home_applet_lib_deinitialize(void *applet_data){
     osso_context_t *osso;
     config_save(); /* Not work!!!! Why? I am not understand why this place not run when close applet */
-    fprintf(stderr, "\nhello-world deinitialize\n");
+    fprintf(stderr, "\nOMWeather applet deinitialize\n");
 
     osso  = (osso_context_t*)applet_data;
     /* Deinitialize libosso */
     osso_deinitialize(osso);
 }
 
-GtkWidget*
-hildon_home_applet_lib_settings(void *applet_data,
-				 GtkWindow *parent){
-    fprintf(stderr, "\nhello-world settings\n");
+GtkWidget* hildon_home_applet_lib_settings(void *applet_data,
+					    GtkWindow *parent){
+    fprintf(stderr, "\nOMWeather applet settings\n");
     return NULL;
 }
 /* create days panel and station name panel */

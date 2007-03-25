@@ -53,7 +53,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 weather_com_parser *weather_com_parser_new( const gchar * weather_com );
 int parse_weather_com_xml(void);
 int c2f(int temp);
-gboolean weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
+void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 gboolean download_html(gpointer data);
 void update_weather(void);
 /* CONFIGURATION INFORMATION. */

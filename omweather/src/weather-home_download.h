@@ -39,7 +39,7 @@ static GString *full_filename_new_xml = NULL;
 CURL *curl_handle = NULL;
 CURL *curl_multi = NULL;
 CURL *weather_curl_init(void);
-gboolean download_html(void);
+gboolean download_html(gpointer data);
 GtkWidget *update_window = NULL;     
 
 struct HtmlFile {

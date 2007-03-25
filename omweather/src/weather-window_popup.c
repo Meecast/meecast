@@ -51,7 +51,7 @@ void pre_update_weather(void)
  update_weather();
 }
 /* Show extended information about weather */
-gboolean weather_window_popup_show (GtkWidget *widget,
+void weather_window_popup_show (GtkWidget *widget,
                     		    GdkEvent *event,
                     		    gpointer user_data){
     GtkWidget *frame_popup;
@@ -70,13 +70,13 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     struct stat statv;
     int i;
     float	tmp_distance;
-    char	*units;
+    gchar	*units = NULL;
 /*    wchar_t	format[32];	*/
 
 /* if no one station present in list show only preference */
     if(!_weather_station_id){
 	weather_window_preference(widget, event, user_data);
-	return FALSE;
+	return;
     } 
    /* Search: Which button pressed */
     for(i = 0;i < days_to_show; i++)
@@ -84,7 +84,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 	    break;  
     /* Not found pressed button */
     if( i >= days_to_show )
-	return FALSE; 
+	return; 
     if(i == 0){
 	pressed_current_day = TRUE;
 	/* get current day */  
@@ -97,6 +97,9 @@ gboolean weather_window_popup_show (GtkWidget *widget,
      
     frame_popup = gtk_frame_new(NULL);
     gtk_container_add(GTK_CONTAINER(app->popup_window), frame_popup);
+    
+    
+
 
 /*    GtkWidget *my_window = gtk_window_new( GTK_WINDOW_TOPLEVEL ); */
 /* Show or current weather or forecast */
@@ -155,12 +158,14 @@ gboolean weather_window_popup_show (GtkWidget *widget,
 	sprintf(buffer + strlen(buffer), "%s %i ", weather_current_day.day.wind_title,
 		    convert_wind_units(wind_units, weather_current_day.day.wind_speed, &units));
 	strcat(buffer, units);
+        g_free(units);
 
 	strcat(buffer, _(" Gust: "));
 	sprintf(buffer + strlen(buffer), "%i ",
 		    convert_wind_units(wind_units, weather_current_day.day.wind_gust, &units));
 	strcat(buffer, units);
-
+        g_free(units);
+	
 	label_humidity_current = gtk_label_new(buffer);    
 	set_font_size(label_humidity_current, 16);
 	gtk_box_pack_start(GTK_BOX(vbox_hu_current), label_humidity_current,
@@ -270,6 +275,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
         sprintf(buffer + strlen(buffer), "%s %i ", weather_days[i].night.wind_title,
     			convert_wind_units(wind_units, weather_days[i].night.wind_speed, &units));						
 	strcat(buffer, units);
+	g_free(units);
 	    
 	label_humidity_night = gtk_label_new(buffer);    
         set_font_size(label_humidity_night, 16);
@@ -298,6 +304,7 @@ gboolean weather_window_popup_show (GtkWidget *widget,
         sprintf(buffer + strlen(buffer), "%s %i ", weather_days[i].night.wind_title,
 		    convert_wind_units(wind_units, weather_days[i].day.wind_speed, &units));
         strcat(buffer, units);
+	g_free(units);
 	    
         label_humidity_day = gtk_label_new(buffer);    
         set_font_size(label_humidity_day, 16);
@@ -380,20 +387,19 @@ gboolean weather_window_popup_show (GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(vbox), hbox_foot);
     
     gtk_container_add(GTK_CONTAINER(vbox), hbox_pref);
+
     gtk_grab_add(app->popup_window);
+
 
     g_signal_connect(G_OBJECT(app->popup_window),
 			"button-release-event", 
                         G_CALLBACK(popup_window_event_cb), app->main_window);
 
     gtk_widget_show_all(app->popup_window);
-/* free used memory */
-    if(units)
-	g_free(units);
-    return TRUE;
+    return;
 }
 
-int convert_wind_units(int to, int value, char **units_str){
+int convert_wind_units(int to, int value, gchar **units_str){
     float	result = (float)value;
     switch(to){
 	    default:

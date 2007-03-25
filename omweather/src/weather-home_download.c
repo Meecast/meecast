@@ -138,7 +138,7 @@ gboolean form_url_and_filename(){
 }
 
 /* Download html/xml file. Call every 100 ms after begin download*/
-gboolean download_html(void){
+gboolean download_html(gpointer data){
 
     CURLMsg *msg;
 
@@ -146,6 +146,11 @@ gboolean download_html(void){
 	gtk_widget_destroy(app->popup_window);   
         app->popup_window=NULL;
     }
+    
+    
+    
+//    return FALSE;
+    
     /* For emulator only for update forecast*/
     second_attempt = TRUE;    
     if( app->show_update_window && (!second_attempt) ){

@@ -152,7 +152,8 @@ void weather_window_popup_show (GtkWidget *widget,
 		    _("mm"));
 	strcat(buffer, weather_current_day.day.pressure_str);
 	strcat(buffer, _("\nHumidity: "));
-	sprintf(buffer + strlen(buffer), "%s%%", weather_current_day.day.hmid);
+	sprintf(buffer + strlen(buffer), "%s%%",
+		(char*)hash_table_find((gpointer)weather_current_day.day.hmid));
 	strcat(buffer, _("\nWind: "));
 
 	sprintf(buffer + strlen(buffer), "%s %i %s", weather_current_day.day.wind_title,

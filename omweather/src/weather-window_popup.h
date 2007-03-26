@@ -47,6 +47,7 @@ void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_d
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);
 int c2f(int temp);
 void set_font_size(GtkWidget *widget, char font_size);
-int convert_wind_units(int to, int value, char **units_str);
+int convert_wind_units(int to, int value);
+extern gpointer hash_table_find(gpointer key);
 
 #endif

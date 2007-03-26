@@ -314,8 +314,9 @@ void weather_buttons_fill(gboolean check_error){
 	}
 	else{
      /* Show N/A */
-	    sprintf(buffer,"<span foreground='#%02x%02x%02x'>N/A\nN/A\302\260\nN/A\302\260</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8);
+	    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
+            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+		_("N/A"), _("N/A"), _("N/A"));
 	    sprintf(buffer_icon,"%s48.png",path_large_icon);
      /* Add time event to list for next day after last day in xml file */
 	    if(!flag_last_day){

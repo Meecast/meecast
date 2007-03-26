@@ -70,9 +70,9 @@ void weather_window_popup_show (GtkWidget *widget,
     struct stat statv;
     int i;
     float	tmp_distance;
-    gchar	*units = NULL;
-/*    wchar_t	format[32];	*/
-
+    const gchar*	wind_units_str[] = { "m/s", "km/s", "mi/s", "m/h", "km/h", "mi/h" };
+    gchar	*units;
+    
 /* if no one station present in list show only preference */
     if(!_weather_station_id){
 	weather_window_preference(widget, event, user_data);
@@ -155,16 +155,14 @@ void weather_window_popup_show (GtkWidget *widget,
 	sprintf(buffer + strlen(buffer), "%s%%", weather_current_day.day.hmid);
 	strcat(buffer, _("\nWind: "));
 
-	sprintf(buffer + strlen(buffer), "%s %i ", weather_current_day.day.wind_title,
-		    convert_wind_units(wind_units, weather_current_day.day.wind_speed, &units));
-	strcat(buffer, units);
-        g_free(units);
+	sprintf(buffer + strlen(buffer), "%s %i %s", weather_current_day.day.wind_title,
+		    convert_wind_units(wind_units, weather_current_day.day.wind_speed),
+		    (char*)hash_table_find((gpointer)wind_units_str[wind_units]));
 
 	strcat(buffer, _(" Gust: "));
-	sprintf(buffer + strlen(buffer), "%i ",
-		    convert_wind_units(wind_units, weather_current_day.day.wind_gust, &units));
-	strcat(buffer, units);
-        g_free(units);
+	sprintf(buffer + strlen(buffer), "%i %s",
+		    convert_wind_units(wind_units, weather_current_day.day.wind_gust),
+		    (char*)hash_table_find((gpointer)wind_units_str[wind_units]));
 	
 	label_humidity_current = gtk_label_new(buffer);    
 	set_font_size(label_humidity_current, 16);
@@ -272,10 +270,9 @@ void weather_window_popup_show (GtkWidget *widget,
         strcat(buffer, _("\nHumidity: "));
         sprintf(buffer + strlen(buffer), "%s%%\n", weather_days[i].night.hmid);
         strcat(buffer, _("Wind: "));
-        sprintf(buffer + strlen(buffer), "%s %i ", weather_days[i].night.wind_title,
-    			convert_wind_units(wind_units, weather_days[i].night.wind_speed, &units));						
-	strcat(buffer, units);
-	g_free(units);
+        sprintf(buffer + strlen(buffer), "%s %i %s", weather_days[i].night.wind_title,
+    			convert_wind_units(wind_units, weather_days[i].night.wind_speed),
+			(char*)hash_table_find((gpointer)wind_units_str[wind_units]));
 	    
 	label_humidity_night = gtk_label_new(buffer);    
         set_font_size(label_humidity_night, 16);
@@ -301,10 +298,9 @@ void weather_window_popup_show (GtkWidget *widget,
         strcat(buffer, _("\nHumidity: "));
         sprintf(buffer + strlen(buffer), "%s%%", weather_days[i].day.hmid);
         strcat(buffer, _("\nWind: "));
-        sprintf(buffer + strlen(buffer), "%s %i ", weather_days[i].night.wind_title,
-		    convert_wind_units(wind_units, weather_days[i].day.wind_speed, &units));
-        strcat(buffer, units);
-	g_free(units);
+        sprintf(buffer + strlen(buffer), "%s %i %s", weather_days[i].night.wind_title,
+		    convert_wind_units(wind_units, weather_days[i].day.wind_speed),
+		    (char*)hash_table_find((gpointer)wind_units_str[wind_units]));
 	    
         label_humidity_day = gtk_label_new(buffer);    
         set_font_size(label_humidity_day, 16);
@@ -399,16 +395,16 @@ void weather_window_popup_show (GtkWidget *widget,
     return;
 }
 
-int convert_wind_units(int to, int value, gchar **units_str){
+int convert_wind_units(int to, int value){
     float	result = (float)value;
     switch(to){
 	    default:
-	    case METERS_S: *units_str = g_strdup(_("m/s")); result *= 10.0f / 36.0f; break;
-	    case KILOMETERS_S:  *units_str = g_strdup(_("km/s")); result /= 3600.0f; break;
-	    case MILES_S:  *units_str = g_strdup(_("mi/s")); result /= 1.609344f / 3600.0f; break;
-	    case METERS_H:  *units_str = g_strdup(_("m/h")); result *= 1000.0f; break;
-	    case KILOMETERS_H: *units_str = g_strdup(_("km/h")); result *= 1.0f; break;
-	    case MILES_H:  *units_str = g_strdup(_("mi/h")); result /= 1.609344f; break;
+	    case METERS_S: result *= 10.0f / 36.0f; break;
+	    case KILOMETERS_S: result /= 3600.0f; break;
+	    case MILES_S: result /= 1.609344f / 3600.0f; break;
+	    case METERS_H: result *= 1000.0f; break;
+	    case KILOMETERS_H: result *= 1.0f; break;
+	    case MILES_H: result /= 1.609344f; break;
 	}
     return (int)result;
 }

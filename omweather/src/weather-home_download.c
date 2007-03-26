@@ -147,10 +147,6 @@ gboolean download_html(gpointer data){
         app->popup_window=NULL;
     }
     
-    
-    
-//    return FALSE;
-    
     /* For emulator only for update forecast*/
     second_attempt = TRUE;    
     if( app->show_update_window && (!second_attempt) ){

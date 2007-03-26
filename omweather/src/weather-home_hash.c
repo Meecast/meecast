@@ -6,6 +6,12 @@ GHashTable* hash_table_create(void){
     GHashTable *hash;
     
     hash = g_hash_table_new(g_str_hash, g_str_equal);
+    g_hash_table_insert(hash, "m/s", _("m/s"));
+    g_hash_table_insert(hash, "km/s", _("km/s"));
+    g_hash_table_insert(hash, "mi/s", _("mi/s"));
+    g_hash_table_insert(hash, "m/h", _("m/h"));
+    g_hash_table_insert(hash, "km/h", _("km/h"));
+    g_hash_table_insert(hash, "mi/h", _("mi/h"));
     g_hash_table_insert(hash, "AM Clouds / PM Sun", _("AM Clouds / PM Sun"));
     g_hash_table_insert(hash, "AM Light Snow", _("AM Light Snow"));
     g_hash_table_insert(hash, "AM Light Wintry Mix", _("AM Light Wintry Mix"));

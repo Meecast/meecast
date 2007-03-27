@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-26 20:37+0300\n"
+"POT-Creation-Date: 2007-03-27 08:34+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/weather-home_preference.c:1104
+#: src/weather-home_preference.c:1105
 msgid ""
 "\n"
 "Author and maintenance:\n"
@@ -25,7 +25,14 @@ msgid ""
 "\tPavel Fialko, pavelnf@gmail.com"
 msgstr ""
 
-#: src/weather-home_preference.c:1113
+#: src/weather-home_preference.c:1097
+msgid ""
+"\n"
+"Copyright(c) 2006-2007\n"
+"Vlad Vasiliev, Pavel Fialko"
+msgstr ""
+
+#: src/weather-home_preference.c:1114
 msgid ""
 "\n"
 "Ed Bartosh - for support and criticism\n"
@@ -50,13 +57,11 @@ msgid ""
 "Hildon desktop applet\n"
 "for Nokia 770/N800\n"
 "to show weather forecasts.\n"
-"\n"
-"Copyright(c) 2006-2007\n"
-"Vlad Vasiliev, Pavel Fialko"
+"Version "
 msgstr ""
 
-#: src/weather-window_popup.c:154 src/weather-window_popup.c:270
-#: src/weather-window_popup.c:298
+#: src/weather-window_popup.c:154 src/weather-window_popup.c:271
+#: src/weather-window_popup.c:299
 msgid ""
 "\n"
 "Humidity: "
@@ -74,7 +79,7 @@ msgid ""
 "Visible: "
 msgstr ""
 
-#: src/weather-window_popup.c:156 src/weather-window_popup.c:300
+#: src/weather-window_popup.c:157 src/weather-window_popup.c:301
 msgid ""
 "\n"
 "Wind: "
@@ -84,7 +89,7 @@ msgstr ""
 msgid " Add "
 msgstr ""
 
-#: src/weather-window_popup.c:162
+#: src/weather-window_popup.c:163
 msgid " Gust: "
 msgstr ""
 
@@ -136,7 +141,7 @@ msgstr ""
 msgid "AM Snow Showers"
 msgstr ""
 
-#: src/weather-home_preference.c:1101
+#: src/weather-home_preference.c:1102
 msgid "About"
 msgstr ""
 
@@ -156,7 +161,7 @@ msgstr ""
 msgid "Aug"
 msgstr ""
 
-#: src/weather-home_preference.c:1110
+#: src/weather-home_preference.c:1111
 msgid "Authors"
 msgstr ""
 
@@ -201,7 +206,7 @@ msgstr ""
 msgid "Country:"
 msgstr ""
 
-#: src/weather-window_popup.c:291
+#: src/weather-window_popup.c:292
 msgid "Day:"
 msgstr ""
 
@@ -364,11 +369,11 @@ msgstr ""
 msgid "Large"
 msgstr ""
 
-#: src/weather-window_popup.c:320
+#: src/weather-window_popup.c:321
 msgid "Last update: \n"
 msgstr ""
 
-#: src/weather-window_popup.c:317
+#: src/weather-window_popup.c:318
 #, c-format
 msgid "Last update: Unknown"
 msgstr ""
@@ -461,11 +466,7 @@ msgstr ""
 msgid "N"
 msgstr ""
 
-#: src/weather-home.c:164 src/weather-home.c:165 src/weather-home.c:319
-#: src/weather-window_popup.c:224 src/weather-window_popup.c:225
-#: src/weather-window_popup.c:236 src/weather-window_popup.c:240
-#: src/weather-home_hash.c:58
-#, c-format
+#: src/weather-home.c:319 src/weather-home_hash.c:58
 msgid "N/A"
 msgstr ""
 
@@ -489,7 +490,7 @@ msgstr ""
 msgid "Never"
 msgstr ""
 
-#: src/weather-window_popup.c:262
+#: src/weather-window_popup.c:263
 msgid "Night:"
 msgstr ""
 
@@ -657,7 +658,7 @@ msgstr ""
 msgid "Sep"
 msgstr ""
 
-#: src/weather-window_popup.c:332
+#: src/weather-window_popup.c:333
 msgid "Settings"
 msgstr ""
 
@@ -759,7 +760,7 @@ msgstr ""
 msgid "Temperature units:"
 msgstr ""
 
-#: src/weather-window_popup.c:220
+#: src/weather-window_popup.c:221
 msgid "Temperature: "
 msgstr ""
 
@@ -767,7 +768,7 @@ msgstr ""
 msgid "Th"
 msgstr ""
 
-#: src/weather-home_preference.c:1124
+#: src/weather-home_preference.c:1125
 msgid "Thanks"
 msgstr ""
 
@@ -865,7 +866,7 @@ msgstr ""
 msgid "Wind speed units:"
 msgstr ""
 
-#: src/weather-window_popup.c:272
+#: src/weather-window_popup.c:273
 msgid "Wind: "
 msgstr ""
 

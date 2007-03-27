@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-26 20:37+0300\n"
+"POT-Creation-Date: 2007-03-27 08:34+0300\n"
 "PO-Revision-Date: 2007-03-22 22:35+0200\n"
 "Last-Translator: vlad <vlad@gas.by>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: src/weather-home_preference.c:1104
+#: src/weather-home_preference.c:1105
 msgid ""
 "\n"
 "Author and maintenance:\n"
@@ -31,7 +31,17 @@ msgstr ""
 "Поддержка:\n"
 "\tПавел Фиалко, pavelnf@gmail.com"
 
-#: src/weather-home_preference.c:1113
+#: src/weather-home_preference.c:1097
+msgid ""
+"\n"
+"Copyright(c) 2006-2007\n"
+"Vlad Vasiliev, Pavel Fialko"
+msgstr ""
+"\n"
+"Copyright(c) 2006-2007\n"
+"Владислав Васильев, Павел Фиалко"
+
+#: src/weather-home_preference.c:1114
 msgid ""
 "\n"
 "Ed Bartosh - for support and criticism\n"
@@ -67,20 +77,16 @@ msgid ""
 "Hildon desktop applet\n"
 "for Nokia 770/N800\n"
 "to show weather forecasts.\n"
-"\n"
-"Copyright(c) 2006-2007\n"
-"Vlad Vasiliev, Pavel Fialko"
+"Version "
 msgstr ""
 "\n"
 "Апплет рабочего стола Hildon\n"
 "для Nokia 770/N800\n"
 "для отображения погоды.\n"
-"\n"
-"Copyright(c) 2006-2007\n"
-"Влад Васильев, Павел Фиалко"
+"Версия "
 
-#: src/weather-window_popup.c:154 src/weather-window_popup.c:270
-#: src/weather-window_popup.c:298
+#: src/weather-window_popup.c:154 src/weather-window_popup.c:271
+#: src/weather-window_popup.c:299
 msgid ""
 "\n"
 "Humidity: "
@@ -104,7 +110,7 @@ msgstr ""
 "\n"
 "Видимость: "
 
-#: src/weather-window_popup.c:156 src/weather-window_popup.c:300
+#: src/weather-window_popup.c:157 src/weather-window_popup.c:301
 msgid ""
 "\n"
 "Wind: "
@@ -116,7 +122,7 @@ msgstr ""
 msgid " Add "
 msgstr " Добавить "
 
-#: src/weather-window_popup.c:162
+#: src/weather-window_popup.c:163
 msgid " Gust: "
 msgstr " Порывы: "
 
@@ -168,7 +174,7 @@ msgstr "До полудня ливни"
 msgid "AM Snow Showers"
 msgstr "До полудня мокрый снег"
 
-#: src/weather-home_preference.c:1101
+#: src/weather-home_preference.c:1102
 msgid "About"
 msgstr "О программе"
 
@@ -188,7 +194,7 @@ msgstr "Апр"
 msgid "Aug"
 msgstr "Авг"
 
-#: src/weather-home_preference.c:1110
+#: src/weather-home_preference.c:1111
 msgid "Authors"
 msgstr "Авторы"
 
@@ -233,7 +239,7 @@ msgstr "Невозможно создать директорию кэша.\n"
 msgid "Country:"
 msgstr "Страна:"
 
-#: src/weather-window_popup.c:291
+#: src/weather-window_popup.c:292
 msgid "Day:"
 msgstr "День:"
 
@@ -396,11 +402,11 @@ msgstr "Километры"
 msgid "Large"
 msgstr "Большой"
 
-#: src/weather-window_popup.c:320
+#: src/weather-window_popup.c:321
 msgid "Last update: \n"
 msgstr "Последнее обновление: \n"
 
-#: src/weather-window_popup.c:317
+#: src/weather-window_popup.c:318
 #, c-format
 msgid "Last update: Unknown"
 msgstr "Последнее обновление: Не известно"
@@ -493,11 +499,7 @@ msgstr "В основном солнечно"
 msgid "N"
 msgstr "С"
 
-#: src/weather-home.c:164 src/weather-home.c:165 src/weather-home.c:319
-#: src/weather-window_popup.c:224 src/weather-window_popup.c:225
-#: src/weather-window_popup.c:236 src/weather-window_popup.c:240
-#: src/weather-home_hash.c:58
-#, c-format
+#: src/weather-home.c:319 src/weather-home_hash.c:58
 msgid "N/A"
 msgstr "Н/Д"
 
@@ -521,7 +523,7 @@ msgstr "СЗ"
 msgid "Never"
 msgstr "Никогда"
 
-#: src/weather-window_popup.c:262
+#: src/weather-window_popup.c:263
 msgid "Night:"
 msgstr "Ночь:"
 
@@ -689,7 +691,7 @@ msgstr "Scattered T-Storms"
 msgid "Sep"
 msgstr "Сен"
 
-#: src/weather-window_popup.c:332
+#: src/weather-window_popup.c:333
 msgid "Settings"
 msgstr "Настройки"
 
@@ -793,7 +795,7 @@ msgstr "Солнечно / Ветер"
 msgid "Temperature units:"
 msgstr "Единицы температуры:"
 
-#: src/weather-window_popup.c:220
+#: src/weather-window_popup.c:221
 msgid "Temperature: "
 msgstr "Температура:"
 
@@ -801,7 +803,7 @@ msgstr "Температура:"
 msgid "Th"
 msgstr "Чт"
 
-#: src/weather-home_preference.c:1124
+#: src/weather-home_preference.c:1125
 msgid "Thanks"
 msgstr "Благодарности"
 
@@ -902,7 +904,7 @@ msgstr "Ветер"
 msgid "Wind speed units:"
 msgstr "Единицы скорости ветра:"
 
-#: src/weather-window_popup.c:272
+#: src/weather-window_popup.c:273
 msgid "Wind: "
 msgstr "Ветер: "
 

@@ -1089,11 +1089,12 @@ void create_help_dialog(void){
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(help_dialog)->vbox),
         	    notebook = gtk_notebook_new(), TRUE, TRUE, 0);
 /* About tab */
-    snprintf(tmp_buff, sizeof(tmp_buff), "%s",
+    snprintf(tmp_buff, sizeof(tmp_buff), "%s%s%s",
 	    _("\nHildon desktop applet\n"
 	    "for Nokia 770/N800\n"
 	    "to show weather forecasts.\n"
-	    "\nCopyright(c) 2006-2007\n"
+	    "Version "), VERSION, 
+	    _("\nCopyright(c) 2006-2007\n"
 	    "Vlad Vasiliev, Pavel Fialko"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,

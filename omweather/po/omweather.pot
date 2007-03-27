@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-27 11:11+0300\n"
+"POT-Creation-Date: 2007-03-27 12:02+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,8 +60,8 @@ msgid ""
 "Version "
 msgstr ""
 
-#: src/weather-window_popup.c:154 src/weather-window_popup.c:274
-#: src/weather-window_popup.c:302
+#: src/weather-window_popup.c:154 src/weather-window_popup.c:277
+#: src/weather-window_popup.c:305
 msgid ""
 "\n"
 "Humidity: "
@@ -79,7 +79,7 @@ msgid ""
 "Visible: "
 msgstr ""
 
-#: src/weather-window_popup.c:157 src/weather-window_popup.c:304
+#: src/weather-window_popup.c:157 src/weather-window_popup.c:307
 msgid ""
 "\n"
 "Wind: "
@@ -89,7 +89,7 @@ msgstr ""
 msgid " Add "
 msgstr ""
 
-#: src/weather-window_popup.c:163
+#: src/weather-window_popup.c:166
 msgid " Gust: "
 msgstr ""
 
@@ -206,7 +206,7 @@ msgstr ""
 msgid "Country:"
 msgstr ""
 
-#: src/weather-window_popup.c:295
+#: src/weather-window_popup.c:298
 msgid "Day:"
 msgstr ""
 
@@ -369,11 +369,11 @@ msgstr ""
 msgid "Large"
 msgstr ""
 
-#: src/weather-window_popup.c:324
+#: src/weather-window_popup.c:331
 msgid "Last update: \n"
 msgstr ""
 
-#: src/weather-window_popup.c:321
+#: src/weather-window_popup.c:328
 #, c-format
 msgid "Last update: Unknown"
 msgstr ""
@@ -490,7 +490,7 @@ msgstr ""
 msgid "Never"
 msgstr ""
 
-#: src/weather-window_popup.c:266
+#: src/weather-window_popup.c:269
 msgid "Night:"
 msgstr ""
 
@@ -658,7 +658,7 @@ msgstr ""
 msgid "Sep"
 msgstr ""
 
-#: src/weather-window_popup.c:336
+#: src/weather-window_popup.c:343
 msgid "Settings"
 msgstr ""
 
@@ -760,7 +760,7 @@ msgstr ""
 msgid "Temperature units:"
 msgstr ""
 
-#: src/weather-window_popup.c:224
+#: src/weather-window_popup.c:227
 msgid "Temperature: "
 msgstr ""
 
@@ -866,7 +866,7 @@ msgstr ""
 msgid "Wind speed units:"
 msgstr ""
 
-#: src/weather-window_popup.c:276
+#: src/weather-window_popup.c:279
 msgid "Wind: "
 msgstr ""
 

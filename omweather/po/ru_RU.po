@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-27 11:11+0300\n"
+"POT-Creation-Date: 2007-03-27 12:02+0300\n"
 "PO-Revision-Date: 2007-03-22 22:35+0200\n"
 "Last-Translator: vlad <vlad@gas.by>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -85,8 +85,8 @@ msgstr ""
 "для отображения погоды.\n"
 "Версия "
 
-#: src/weather-window_popup.c:154 src/weather-window_popup.c:274
-#: src/weather-window_popup.c:302
+#: src/weather-window_popup.c:154 src/weather-window_popup.c:277
+#: src/weather-window_popup.c:305
 msgid ""
 "\n"
 "Humidity: "
@@ -110,7 +110,7 @@ msgstr ""
 "\n"
 "Видимость: "
 
-#: src/weather-window_popup.c:157 src/weather-window_popup.c:304
+#: src/weather-window_popup.c:157 src/weather-window_popup.c:307
 msgid ""
 "\n"
 "Wind: "
@@ -122,7 +122,7 @@ msgstr ""
 msgid " Add "
 msgstr " Добавить "
 
-#: src/weather-window_popup.c:163
+#: src/weather-window_popup.c:166
 msgid " Gust: "
 msgstr " Порывы: "
 
@@ -239,7 +239,7 @@ msgstr "Невозможно создать директорию кэша.\n"
 msgid "Country:"
 msgstr "Страна:"
 
-#: src/weather-window_popup.c:295
+#: src/weather-window_popup.c:298
 msgid "Day:"
 msgstr "День:"
 
@@ -402,11 +402,11 @@ msgstr "Километры"
 msgid "Large"
 msgstr "Большой"
 
-#: src/weather-window_popup.c:324
+#: src/weather-window_popup.c:331
 msgid "Last update: \n"
 msgstr "Последнее обновление: \n"
 
-#: src/weather-window_popup.c:321
+#: src/weather-window_popup.c:328
 #, c-format
 msgid "Last update: Unknown"
 msgstr "Последнее обновление: Не известно"
@@ -523,7 +523,7 @@ msgstr "СЗ"
 msgid "Never"
 msgstr "Никогда"
 
-#: src/weather-window_popup.c:266
+#: src/weather-window_popup.c:269
 msgid "Night:"
 msgstr "Ночь:"
 
@@ -691,7 +691,7 @@ msgstr "Scattered T-Storms"
 msgid "Sep"
 msgstr "Сен"
 
-#: src/weather-window_popup.c:336
+#: src/weather-window_popup.c:343
 msgid "Settings"
 msgstr "Настройки"
 
@@ -795,7 +795,7 @@ msgstr "Солнечно / Ветер"
 msgid "Temperature units:"
 msgstr "Единицы температуры:"
 
-#: src/weather-window_popup.c:224
+#: src/weather-window_popup.c:227
 msgid "Temperature: "
 msgstr "Температура:"
 
@@ -904,7 +904,7 @@ msgstr "Ветер"
 msgid "Wind speed units:"
 msgstr "Единицы скорости ветра:"
 
-#: src/weather-window_popup.c:276
+#: src/weather-window_popup.c:279
 msgid "Wind: "
 msgstr "Ветер: "
 

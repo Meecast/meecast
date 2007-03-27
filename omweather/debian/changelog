@@ -1,5 +1,6 @@
 omweather (0.17) unstable; urgency=low
 
+  * Correct display order for temperature
   * Added data for atmospheric pressure
   * Added choice of units for wind speed
   * Added support i18n system

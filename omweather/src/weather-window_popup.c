@@ -161,9 +161,12 @@ void weather_window_popup_show (GtkWidget *widget,
 		    (char*)hash_table_find((gpointer)wind_units_str[wind_units]));
 
 	strcat(buffer, _(" Gust: "));
-	sprintf(buffer + strlen(buffer), "%i %s",
-		    convert_wind_units(wind_units, weather_current_day.day.wind_gust),
+	if( strcmp(weather_current_day.day.wind_gust, "N/A") )
+	    sprintf(buffer + strlen(buffer), "%i %s",
+		    convert_wind_units(wind_units, atoi(weather_current_day.day.wind_gust)),
 		    (char*)hash_table_find((gpointer)wind_units_str[wind_units]));
+	else
+	    strcat(buffer, (char*)hash_table_find((gpointer)"N/A"));
 	
 	label_humidity_current = gtk_label_new(buffer);    
 	set_font_size(label_humidity_current, 16);

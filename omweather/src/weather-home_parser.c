@@ -175,7 +175,10 @@ int parse_weather_com_xml(void)
         			if(!xmlStrcmp(child_node2->name, (const xmlChar *)"s") )
         			    weather_current_day.day.wind_speed = atoi((char*)xmlNodeGetContent(child_node2));
         			if(!xmlStrcmp(child_node2->name, (const xmlChar *)"gust") )
-        			    weather_current_day.day.wind_gust = atoi((char*)xmlNodeGetContent(child_node2));
+				    snprintf(weather_current_day.day.wind_gust,
+					    sizeof(weather_current_day.day.wind_gust) - 1,
+					    "%s", 
+        				    (char*)xmlNodeGetContent(child_node2));
     				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t") )
         			    snprintf(weather_current_day.day.wind_title,
 					     sizeof(weather_current_day.day.wind_title) - 1,

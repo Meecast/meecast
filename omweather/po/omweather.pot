@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-27 08:34+0300\n"
+"POT-Creation-Date: 2007-03-27 11:11+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,8 +60,8 @@ msgid ""
 "Version "
 msgstr ""
 
-#: src/weather-window_popup.c:154 src/weather-window_popup.c:271
-#: src/weather-window_popup.c:299
+#: src/weather-window_popup.c:154 src/weather-window_popup.c:274
+#: src/weather-window_popup.c:302
 msgid ""
 "\n"
 "Humidity: "
@@ -79,7 +79,7 @@ msgid ""
 "Visible: "
 msgstr ""
 
-#: src/weather-window_popup.c:157 src/weather-window_popup.c:301
+#: src/weather-window_popup.c:157 src/weather-window_popup.c:304
 msgid ""
 "\n"
 "Wind: "
@@ -206,7 +206,7 @@ msgstr ""
 msgid "Country:"
 msgstr ""
 
-#: src/weather-window_popup.c:292
+#: src/weather-window_popup.c:295
 msgid "Day:"
 msgstr ""
 
@@ -369,11 +369,11 @@ msgstr ""
 msgid "Large"
 msgstr ""
 
-#: src/weather-window_popup.c:321
+#: src/weather-window_popup.c:324
 msgid "Last update: \n"
 msgstr ""
 
-#: src/weather-window_popup.c:318
+#: src/weather-window_popup.c:321
 #, c-format
 msgid "Last update: Unknown"
 msgstr ""
@@ -490,7 +490,7 @@ msgstr ""
 msgid "Never"
 msgstr ""
 
-#: src/weather-window_popup.c:263
+#: src/weather-window_popup.c:266
 msgid "Night:"
 msgstr ""
 
@@ -658,7 +658,7 @@ msgstr ""
 msgid "Sep"
 msgstr ""
 
-#: src/weather-window_popup.c:333
+#: src/weather-window_popup.c:336
 msgid "Settings"
 msgstr ""
 
@@ -760,7 +760,7 @@ msgstr ""
 msgid "Temperature units:"
 msgstr ""
 
-#: src/weather-window_popup.c:221
+#: src/weather-window_popup.c:224
 msgid "Temperature: "
 msgstr ""
 
@@ -866,7 +866,7 @@ msgstr ""
 msgid "Wind speed units:"
 msgstr ""
 
-#: src/weather-window_popup.c:273
+#: src/weather-window_popup.c:276
 msgid "Wind: "
 msgstr ""
 

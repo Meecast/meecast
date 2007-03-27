@@ -73,7 +73,7 @@ typedef struct{
     int icon;
     gchar	title[80];		/* Title */
     gchar	hmid[80];       	/* Humidity */
-    int		wind_speed;       	/* Wind Speed */
+    gchar	wind_speed[80];       	/* Wind Speed */
     gchar	wind_gust[80];        	/* Wind Gust */
     float	vis;              	/* Visibilty */
     gchar	wind_title[80];		/* Wind Title */

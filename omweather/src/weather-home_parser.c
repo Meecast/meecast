@@ -173,7 +173,10 @@ int parse_weather_com_xml(void)
 			for(child_node2 = child_node->children; child_node2 != NULL; child_node2 = child_node2->next){
     			    if( child_node2->type == XML_ELEMENT_NODE ){
         			if(!xmlStrcmp(child_node2->name, (const xmlChar *)"s") )
-        			    weather_current_day.day.wind_speed = atoi((char*)xmlNodeGetContent(child_node2));
+        			    snprintf(weather_current_day.day.wind_speed,
+					    sizeof(weather_current_day.day.wind_speed) - 1,
+					    "%s", 
+        				    (char*)xmlNodeGetContent(child_node2));
         			if(!xmlStrcmp(child_node2->name, (const xmlChar *)"gust") )
 				    snprintf(weather_current_day.day.wind_gust,
 					    sizeof(weather_current_day.day.wind_gust) - 1,
@@ -261,9 +264,14 @@ int parse_weather_com_xml(void)
 	    						if( child_node4->type == XML_ELEMENT_NODE){
 							    if(!xmlStrcmp(child_node4->name, (const xmlChar *)"s") ){
 								if(strcmp(part_of_day,"d"))
-								    weather_days[count_day-1].night.wind_speed=atoi((char*)xmlNodeGetContent(child_node4));
+								    snprintf(weather_days[count_day-1].night.wind_speed,
+									    sizeof(weather_days[count_day-1].night.wind_speed) - 1,
+									    "%s",
+									    (char*)xmlNodeGetContent(child_node4));
 								else
-								    weather_days[count_day-1].day.wind_speed=atoi((char*)xmlNodeGetContent(child_node4));
+								    snprintf(weather_days[count_day-1].day.wind_speed,
+									    sizeof(weather_days[count_day-1].day.wind_speed) - 1,
+									    (char*)xmlNodeGetContent(child_node4));
 		    					    }
 							    if(!xmlStrcmp(child_node4->name, (const xmlChar *)"t") ){
 								if(strcmp(part_of_day,"d"))

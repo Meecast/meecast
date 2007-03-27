@@ -155,10 +155,13 @@ void weather_window_popup_show (GtkWidget *widget,
 	sprintf(buffer + strlen(buffer), "%s%%",
 		(char*)hash_table_find((gpointer)weather_current_day.day.hmid));
 	strcat(buffer, _("\nWind: "));
-
-	sprintf(buffer + strlen(buffer), "%s %i %s", weather_current_day.day.wind_title,
-		    convert_wind_units(wind_units, weather_current_day.day.wind_speed),
+	if( strcmp(weather_current_day.day.wind_speed, "N/A") )	
+	    sprintf(buffer + strlen(buffer), "%s %i %s", weather_current_day.day.wind_title,
+		    convert_wind_units(wind_units, atoi(weather_current_day.day.wind_speed)),
 		    (char*)hash_table_find((gpointer)wind_units_str[wind_units]));
+	else
+	    sprintf(buffer + strlen(buffer), "%s %s", weather_current_day.day.wind_title,
+		    (char*)hash_table_find((gpointer)"N/A"));
 
 	strcat(buffer, _(" Gust: "));
 	if( strcmp(weather_current_day.day.wind_gust, "N/A") )
@@ -275,7 +278,7 @@ void weather_window_popup_show (GtkWidget *widget,
         sprintf(buffer + strlen(buffer), "%s%%\n", weather_days[i].night.hmid);
         strcat(buffer, _("Wind: "));
         sprintf(buffer + strlen(buffer), "%s %i %s", weather_days[i].night.wind_title,
-    			convert_wind_units(wind_units, weather_days[i].night.wind_speed),
+    			convert_wind_units(wind_units, atoi(weather_days[i].night.wind_speed)),
 			(char*)hash_table_find((gpointer)wind_units_str[wind_units]));
 	    
 	label_humidity_night = gtk_label_new(buffer);    
@@ -302,9 +305,13 @@ void weather_window_popup_show (GtkWidget *widget,
         strcat(buffer, _("\nHumidity: "));
         sprintf(buffer + strlen(buffer), "%s%%", weather_days[i].day.hmid);
         strcat(buffer, _("\nWind: "));
-        sprintf(buffer + strlen(buffer), "%s %i %s", weather_days[i].night.wind_title,
-		    convert_wind_units(wind_units, weather_days[i].day.wind_speed),
+	if( strcmp(weather_days[i].day.wind_speed, "N/A") )
+    	    sprintf(buffer + strlen(buffer), "%s %i %s", weather_days[i].night.wind_title,
+		    convert_wind_units(wind_units, atoi(weather_days[i].day.wind_speed)),
 		    (char*)hash_table_find((gpointer)wind_units_str[wind_units]));
+	else
+	    sprintf(buffer + strlen(buffer), "%s %s", weather_days[i].night.wind_title,
+		    (char*)hash_table_find((gpointer)"N/A"));
 	    
         label_humidity_day = gtk_label_new(buffer);    
         set_font_size(label_humidity_day, 16);

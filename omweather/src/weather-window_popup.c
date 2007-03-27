@@ -222,8 +222,8 @@ void weather_window_popup_show (GtkWidget *widget,
 	set_font_size(label_temp, 18);
 
 	if(!strcmp(weather_days[i].hi_temp, "N/A")){ 
-	    if(!strcmp(weather_days[i].low_temp, _("N/A")))
-		sprintf(buffer, "%s", _("N/A"));
+	    if(!strcmp(weather_days[i].low_temp, "N/A"))
+		sprintf(buffer, "%s", (char*)hash_table_find("N/A"));
 	    else
 		if(_weather_temperature_unit == CELSIUS)
 		    sprintf(buffer, "%d\302\260C", atoi(weather_days[i].low_temp));
@@ -234,11 +234,11 @@ void weather_window_popup_show (GtkWidget *widget,
 	    if(!strcmp(weather_days[i].low_temp, "N/A"))
 		if(_weather_temperature_unit == CELSIUS)
 		    sprintf(buffer, "%s / %d\302\260C",
-			    _("N/A"),
+			    (char*)hash_table_find("N/A"),
 			    atoi(weather_days[i].hi_temp));
 		else
 		    sprintf(buffer, "%s / %d\302\260C",
-			    _("N/A"),
+			    (char*)hash_table_find("N/A"),
 			    c2f(atoi(weather_days[i].hi_temp)));
     	    else
 		if(_weather_temperature_unit == CELSIUS)

@@ -161,8 +161,8 @@ void weather_buttons_init(void){
 	memset(&weather_days[i], 0, sizeof(weather_day));
 	weather_days[i].night.icon = 48;
 	weather_days[i].day.icon = 48;
-	sprintf(weather_days[i].hi_temp, _("N/A"));
-	sprintf(weather_days[i].low_temp, _("N/A"));
+	sprintf(weather_days[i].hi_temp, (char*)hash_table_find("N/A"));
+	sprintf(weather_days[i].low_temp, (char*)hash_table_find("N/A"));
     }
     memset(&weather_current_day, 0, sizeof(weather_day));
 }
@@ -285,7 +285,7 @@ void weather_buttons_fill(gboolean check_error){
 	 /* Show All temperatures */
     		    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
             		_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-            		weather_days[offset].dayshname,temp_low,temp_hi);
+            		weather_days[offset].dayshname, temp_low, temp_hi);
 		    } 
 		    else
 			if(current_time<weather_days[offset].night.begin_time){
@@ -293,21 +293,21 @@ void weather_buttons_fill(gboolean check_error){
        /* Show All temperatures */
 			    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
             			_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-            			weather_days[offset].dayshname,temp_low,temp_hi);
+            			weather_days[offset].dayshname, temp_low, temp_hi);
 			}		
 			else{
     			    sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);
 	 /* Show only night temperature */
     			    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
             			_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-            			weather_days[offset].dayshname,temp_low);
+            			weather_days[offset].dayshname, temp_low);
 			}
 		}
 		else{
        /* Create output string for full time of day (day and night)*/
 		    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
             		_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
-            		weather_days[offset].dayshname,temp_hi,temp_low);
+            		weather_days[offset].dayshname, temp_low, temp_hi);
 		    sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);
 		}		    
 	    }

@@ -97,22 +97,31 @@ int parse_weather_com_xml(void)
 	/* Not Access to cache weather xml file or not valid XML file */
 	if(!access(buffer,R_OK)){ 
 	    parser = weather_parser_new_from_file(buffer);
-	    if (parser->error) return -1; 
+	    if (parser->error){
+		free(parser);
+		return -1; 
+	    }	
 	}
-	else
+	else{
+	    free(parser);
 	    return -1;
+	}    
     }
     for(cur_node = parser->weather_com_root->children; cur_node != NULL; cur_node = cur_node->next){
 	if( cur_node->type == XML_ELEMENT_NODE ){
         /* Check error */
-	    if(!xmlStrcmp(cur_node->name, (const xmlChar *) "err" ) )
+	    if(!xmlStrcmp(cur_node->name, (const xmlChar *) "err" ) ){
+		free(parser);
 		return -2;
+	    }	
         /* Fill all buttons Location data */
     	    if(!xmlStrcmp(cur_node->name, (const xmlChar *) "loc" ) ){
 		sprintf(id_station, "%.8s", xmlGetProp(cur_node, (const xmlChar*)"id"));
 	 /* If station in xml not station in config file exit */ 
-		if( strcmp(id_station,_weather_station_id) != 0 )
+		if( strcmp(id_station,_weather_station_id) != 0 ){
+		    free(parser);    
 		    return -1;
+		}    
 /*	 fprintf(stderr,"Element: %s \n", cur_node->name); */
 		for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next){
 		    if( child_node->type == XML_ELEMENT_NODE  && 
@@ -325,6 +334,7 @@ int parse_weather_com_xml(void)
     }	  
     xmlFreeDoc(parser->doc);
     xmlCleanupParser();
+    free(parser);
     return count_day;     
 }
 

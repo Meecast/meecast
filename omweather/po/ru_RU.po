@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-27 12:02+0300\n"
-"PO-Revision-Date: 2007-03-22 22:35+0200\n"
+"PO-Revision-Date: 2007-03-27 21:26+0300\n"
 "Last-Translator: vlad <vlad@gas.by>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -417,23 +417,23 @@ msgstr "Расположение:"
 
 #: src/weather-home_hash.c:46
 msgid "Light Drizzle"
-msgstr "Не большой мелкий дождь"
+msgstr "Небольшой мелкий дождь"
 
 #: src/weather-home_hash.c:48
 msgid "Light Rain"
-msgstr "Не большой дождь"
+msgstr "Небольшой дождь"
 
 #: src/weather-home_hash.c:47
 msgid "Light Rain and Windy"
-msgstr "Не большой дождь и ветрено"
+msgstr "Небольшой дождь и ветрено"
 
 #: src/weather-home_hash.c:49
 msgid "Light Snow"
-msgstr "Не большой снег"
+msgstr "Небольшой снег"
 
 #: src/weather-home_hash.c:50
 msgid "Light Snow Shower"
-msgstr "Не большой мокрый снег"
+msgstr "Небольшой мокрый снег"
 
 #: src/weather-home_preference.c:706
 msgid "Locations"
@@ -565,7 +565,7 @@ msgstr "Пасмурно"
 
 #: src/weather-home_hash.c:67
 msgid "PM Light Rain"
-msgstr "После полудня не большой дождь"
+msgstr "После полудня небольшой дождь"
 
 #: src/weather-home_hash.c:68
 msgid "PM Showers"
@@ -577,11 +577,11 @@ msgstr "После полудня мокрый снег"
 
 #: src/weather-home_hash.c:65
 msgid "Partly Cloudy"
-msgstr "Не большая облачность"
+msgstr "Небольшая облачность"
 
 #: src/weather-home_hash.c:66
 msgid "Partly Cloudy / Wind"
-msgstr "Не большая облачность / Ветер"
+msgstr "Небольшая облачность / Ветер"
 
 #: src/weather-home_hash.c:72
 msgid "Rain"
@@ -984,3 +984,4 @@ msgstr "возрастает"
 #: src/weather-home_hash.c:106
 msgid "steady"
 msgstr "устойчивое"
+

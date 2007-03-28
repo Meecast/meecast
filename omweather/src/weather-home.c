@@ -51,6 +51,11 @@ int c2f(int temp){
     return (temp * 1.8 ) + 32;
 }
 
+
+
+
+
+
 /* Set font size. Usually on label widget */
 void
 set_font_size(GtkWidget *widget, char font_size)
@@ -390,11 +395,7 @@ void weather_frame_update(gboolean check){
 
 /* Get Weather xml file from weather.com */
 void update_weather(void){
-gpointer test;
-
     flag_update = g_timeout_add(100, (GSourceFunc)download_html, NULL);
-
-//test =malloc (1000);    
 }
 
 

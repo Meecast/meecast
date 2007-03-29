@@ -98,10 +98,6 @@ void weather_window_popup_show (GtkWidget *widget,
     frame_popup = gtk_frame_new(NULL);
     gtk_container_add(GTK_CONTAINER(app->popup_window), frame_popup);
     
-    
-
-
-/*    GtkWidget *my_window = gtk_window_new( GTK_WINDOW_TOPLEVEL ); */
 /* Show or current weather or forecast */
     if(pressed_current_day && 
 	    (weather_current_day.date_time > ( current_time - OFFSET_CURRENT_WEATHER * 3600 )) &&

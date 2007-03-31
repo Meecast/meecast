@@ -287,7 +287,7 @@ int parse_weather_com_xml(void)
 					for(child_node3 = child_node2->children; child_node3 != NULL; child_node3 = child_node3->next){
 					    if( child_node3->type == XML_ELEMENT_NODE){  
             					if(!xmlStrcmp(child_node3->name, (const xmlChar *)"hmid") ){
-						    if(xmlStrcmp(part_of_day, (const xmlChar *)"d")){
+						    if(part_of_day[0] == 'd'){
 						        temp_xml_string = xmlNodeGetContent(child_node3);							
 							sprintf(weather_days[count_day-1].night.hmid,"%.3s",temp_xml_string);
 							xmlFree(temp_xml_string);
@@ -300,7 +300,7 @@ int parse_weather_com_xml(void)
 						    
 						}
 						if(!xmlStrcmp(child_node3->name, (const xmlChar *)"t") ){
-						    if(xmlStrcmp(part_of_day, (const xmlChar *)"d")){
+						    if(part_of_day[0] == 'd'){
 							temp_xml_string = xmlNodeGetContent(child_node3);							
 							snprintf(weather_days[count_day-1].night.title,
 								 sizeof(weather_days[count_day-1].night.title) - 1,
@@ -321,7 +321,7 @@ int parse_weather_com_xml(void)
 						    temp_xml_string = xmlNodeGetContent(child_node3);	
 						    icon = (char*)temp_xml_string;	
 /*		    printf("   Icon=%s part of day %i\n", child_node3->name,atoi(icon)); */
-						    if(xmlStrcmp(part_of_day,(const xmlChar *)"d"))
+						    if(part_of_day[0] == 'd')
 							weather_days[count_day-1].night.icon=atoi(icon);
 						    else
 		    					weather_days[count_day-1].day.icon=atoi(icon);          
@@ -332,7 +332,7 @@ int parse_weather_com_xml(void)
 						    for(child_node4 = child_node3->children; child_node4 != NULL; child_node4 = child_node4->next){
 	    						if( child_node4->type == XML_ELEMENT_NODE){
 							    if(!xmlStrcmp(child_node4->name, (const xmlChar *)"s") ){
-								if(xmlStrcmp(part_of_day,(const xmlChar *)"d")){
+								if(part_of_day[0] == 'd'){
 								    temp_xml_string = xmlNodeGetContent(child_node4);	
 								    snprintf(weather_days[count_day-1].night.wind_speed,
 									    sizeof(weather_days[count_day-1].night.wind_speed) - 1,
@@ -350,7 +350,7 @@ int parse_weather_com_xml(void)
 		    					    }
 							    if(!xmlStrcmp(child_node4->name, (const xmlChar *)"t") ){
 								temp_xml_string = xmlNodeGetContent(child_node4);
-								if(xmlStrcmp(part_of_day,(const xmlChar *)"d"))
+								if(part_of_day[0] == 'd')
 								    snprintf(weather_days[count_day-1].night.wind_title,
 									     sizeof(weather_days[count_day-1].night.wind_title) - 1,
 									     "%s",

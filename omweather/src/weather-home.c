@@ -193,7 +193,7 @@ void weather_buttons_fill(gboolean check_error){
     char	font_size;
     gint	icon_size;
     gchar	*tmp_station_name;
-    GdkPixbuf	*icon;
+    GdkPixbuf	*icon = NULL;
     GtkWidget	*icon_image;
 
 /* select image and font size */
@@ -342,6 +342,7 @@ void weather_buttons_fill(gboolean check_error){
 	gtk_label_set_justify(GTK_LABEL(labels[i]),GTK_JUSTIFY_RIGHT);
      /* Select size font on desktop and icon size */
 	set_font_size(labels[i], font_size);
+
 	icon = gdk_pixbuf_new_from_file_at_size(buffer_icon,
 						icon_size,
 						icon_size, NULL);
@@ -385,7 +386,7 @@ void weather_buttons_fill(gboolean check_error){
 }
 
 void weather_frame_update(gboolean check){
-
+    
     gtk_widget_destroy(app->main_window);
     if(check) 
 	weather_buttons_fill(TRUE);
@@ -451,10 +452,12 @@ void hildon_home_applet_lib_foreground(void *raw_data){
 
 void hildon_home_applet_lib_deinitialize(void *applet_data){
     osso_context_t *osso;
-    config_save(); /* Not work!!!! Why? I am not understand why this place not run when close applet */
-    fprintf(stderr, "\nOMWeather applet deinitialize\n");
 
+    fprintf(stderr, "\nOMWeather applet deinitialize\n");
+    config_save(); /* Not work!!!! Why? I am not understand why this place not run when close applet */
     osso  = (osso_context_t*)applet_data;
+    if(app)
+	g_free(app);
     /* Deinitialize libosso */
     osso_deinitialize(osso);
 }

@@ -203,6 +203,7 @@ void weather_window_popup_show (GtkWidget *widget,
 	gtkicon_update = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
         	                             "qgn_toolb_gene_refresh", 26, 0);
 	icon_update = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_update));
+	gtk_icon_info_free(gtkicon_update);
 	button_update = gtk_button_new();
 	gtk_button_set_relief(GTK_BUTTON(button_update), GTK_RELIEF_NONE);
 	gtk_button_set_focus_on_click(GTK_BUTTON(button_update), FALSE);

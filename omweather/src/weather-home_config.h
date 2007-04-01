@@ -37,12 +37,12 @@
 #define GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME     GCONF_KEY_PREFIX"/current-country-name"
 #define GCONF_KEY_WEATHER_STATE_NAME       GCONF_KEY_PREFIX"/state-name"
 #define GCONF_KEY_WEATHER_CURRENT_STATION_NAME     GCONF_KEY_PREFIX"/current-station-name"
-#define GCONF_KEY_WEATHER_STATION_ID       GCONF_KEY_PREFIX"/station-id"
+#define GCONF_KEY_WEATHER_CURRENT_STATION_ID       GCONF_KEY_PREFIX"/current-station-id"
 #define GCONF_KEY_WEATHER_STATION_IDS      GCONF_KEY_PREFIX"/station-ids"
 #define GCONF_KEY_WEATHER_ICONS_SIZE        GCONF_KEY_PREFIX"/icons-size"
 #define GCONF_KEY_WEATHER_FONT_COLOR       GCONF_KEY_PREFIX"/font-color"
 #define GCONF_KEY_ENABLE_TRANSPARENCY      GCONF_KEY_PREFIX"/transparency"
-#define GCONF_KEY_WEATHER_PERIODIC_UPDATE  GCONF_KEY_PREFIX"/periodic-update"
+#define GCONF_KEY_WEATHER_UPDATE_INTERVAL  GCONF_KEY_PREFIX"/update-interval"
 #define GCONF_KEY_WEATHER_TEMPERATURE_UNIT GCONF_KEY_PREFIX"/temperature-unit"
 #define GCONF_KEY_ICONS_LAYOUT           GCONF_KEY_PREFIX"/icons-layout"   
 #define GCONF_KEY_WEATHER_STATIONS_LIST    GCONF_KEY_PREFIX"/station-list"   
@@ -57,10 +57,7 @@
 #define GCONF_KEY_HTTP_PROXY_PORT GCONF_KEY_HTTP_PROXY_PREFIX"/port"
 
 
-extern gchar    *_weather_state_name;
-extern gchar    *_weather_station_id;
 extern gboolean _enable_transparency;
-extern int      _weather_periodic_update;
 extern GdkColor _weather_font_color;
 extern GSList   *time_update_list;
 extern int	_weather_temperature_unit;

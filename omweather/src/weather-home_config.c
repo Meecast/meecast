@@ -55,13 +55,14 @@ gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
     	    list = g_list_remove(list, list->data);
     	}
         /* Retval now equals result of last make-dir attempt. */
+	retval = FALSE;
     }
-    else
-        retval = TRUE;
-    if(retval){
-        if(app->_weather_dir_name)
-            g_free(app->_weather_dir_name);
-        app->_weather_dir_name = new_weather_dir_name;
+    else{
+        if(app->weather_dir_name)
+            g_free(app->weather_dir_name);
+        app->weather_dir_name = new_weather_dir_name;
+	retval = TRUE;
+	gnome_vfs_uri_unref(weather_dir_uri);
     }
     return retval;
 }
@@ -123,25 +124,28 @@ gboolean fill_station_inform( struct weather_station *ws){
 /* Reinitialize stations list */
 void reinitilize_stations_list(gchar *stations_string){
     struct weather_station *ws;
-    gchar *temp1= NULL, *temp2 = NULL;
-    stations_view_list = NULL; /* Initialize value */
+    gchar	*temp1 = NULL,
+		*temp2 = NULL;
 
+    stations_view_list = NULL; /* Initialize value */
     temp1 = g_strdup(stations_string);
  /* Delimit stations Id string */
     if(strlen(temp1) > 0){
 	temp2 = strtok(temp1, "@\0"); /* Delimiter between ID - @ */
-	if(temp2 != NULL)  /* Check random error */      
+	if(temp2)  /* Check random error */      
 	    do{
 		if(strlen(temp2) > 0){
 		    ws = g_new0(struct weather_station, 1);
 		    ws->id_station = g_strdup(temp2);
 		    if(fill_station_inform(ws))
 			stations_view_list = g_slist_append(stations_view_list, ws); /* Add station to stations list */
-		    else 
-			g_free(ws); 
+		    else{
+			g_free(ws->id_station);
+			g_free(ws);
+		    }
 		}
 		temp2 = strtok(NULL, "@\0"); /* Delimiter between ID - @ */
-	    }while(temp2 != NULL);
+	    }while(temp2);
     }
     g_free(temp1);       
 }
@@ -210,12 +214,13 @@ GSList* prepare_idlist(void){
 
 /* Initialize all configuration from GCONF.  This should not be called more
  * than once during execution. */
-void config_init(){
-    gchar *tmp;
-    GConfValue *value;
-    GSList *stlist = NULL;
-    GError *gerror = NULL;
-    GdkColor DEFAULT_FONT_COLOR = {0, 0x0d00, 0x2a00, 0xc000};
+void read_config(void){
+    gchar	*tmp;
+    GConfValue	*value;
+    int		fd = -1;
+    GSList	*stlist = NULL;
+    GError	*gerror = NULL;
+    GdkColor	DEFAULT_FONT_COLOR = {0, 0x0d00, 0x2a00, 0xc000};
     
     GConfClient *gconf_client = gconf_client_get_default();
 
@@ -225,67 +230,71 @@ void config_init(){
     }
     /* Get Weather Cache Directory.  Default is "~/apps/omweather". */
     tmp = gconf_client_get_string(gconf_client,
-            GCONF_KEY_WEATHER_DIR_NAME, NULL);
+        			    GCONF_KEY_WEATHER_DIR_NAME, NULL);
     if(!tmp)
         tmp = g_strdup("~/apps/omweather");
     if(!config_set_weather_dir_name(gnome_vfs_expand_initial_tilde(tmp)))
-            fprintf(stderr, _("Could not create Weather Cache directory.\n"));
-    g_free(tmp);    
-	/* Get Weather Station ID  */
-    _weather_station_id = gconf_client_get_string(gconf_client,
-             GCONF_KEY_WEATHER_STATION_ID, NULL);
+        fprintf(stderr, _("Could not create Weather Cache directory.\n"));
+    g_free(tmp);
+    /* Get Weather Station ID for current station */
+    app->current_station_id = gconf_client_get_string(gconf_client,
+        			    GCONF_KEY_WEATHER_CURRENT_STATION_ID, NULL);
     /* Get Weather Stations ID  */ /* DEPRICATED !!! */
-    tmp = gconf_client_get_string(gconf_client,
-            GCONF_KEY_WEATHER_STATION_IDS, NULL);
+/*    tmp = gconf_client_get_string(gconf_client,
+        			    GCONF_KEY_WEATHER_STATION_IDS, NULL);
     if(tmp){
 	reinitilize_stations_list(tmp);
-	g_free(tmp);    
-    } 
+	g_free(tmp);
+    }
     else
-	if(_weather_station_id)
-	    reinitilize_stations_list(_weather_station_id);
-	/* Get Weather Stations ID and NAME */ 
+	if(app->current_station_id)
+	    reinitilize_stations_list(app->current_station_id);*/
+	/* Get Weather Stations ID and NAME */
     stlist = gconf_client_get_list(gconf_client,
-            GCONF_KEY_WEATHER_STATIONS_LIST, GCONF_VALUE_STRING, NULL);
-    if(stlist)
+        			    GCONF_KEY_WEATHER_STATIONS_LIST,
+				    GCONF_VALUE_STRING, NULL);
+    if(stlist){
 	reinitilize_stations_list2(stlist);
+	g_slist_free(stlist);
+    }
 	/* Get icon set name */ 
     app->icon_set = gconf_client_get_string(gconf_client,
 					    GCONF_KEY_WEATHER_ICON_SET,
 					    NULL);
     sprintf(path_large_icon, "%s%s/", ICONS_PATH, app->icon_set);
-    if(open(path_large_icon, O_RDONLY) == -1){
+    if( ( fd = open(path_large_icon, O_RDONLY) ) == -1 ){
 	memset(path_large_icon, 0, sizeof(path_large_icon));
 	app->icon_set = g_strdup("Crystal");
 	sprintf(path_large_icon, "%s%s/", ICONS_PATH, app->icon_set);
-    }    
-	/* Get Weather Icon Size  */		     
+    }
+    else
+	close(fd);
+    /* Get Weather Icon Size  */		     
     app->icons_size = gconf_client_get_int(gconf_client,
-        				    GCONF_KEY_WEATHER_ICONS_SIZE, NULL);
-    if(!app->icons_size)
+        				    GCONF_KEY_WEATHER_ICONS_SIZE,
+					    NULL);
+    if(app->icons_size < 0)
         app->icons_size = LARGE;
-       /* Get Weather country name. */    
+    /* Get Weather country name. */    
     app->current_country = gconf_client_get_string(gconf_client,
         					    GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
 						    NULL);
-       /* Get Weather state name. */    
-    _weather_state_name = gconf_client_get_string(gconf_client,
-            GCONF_KEY_WEATHER_STATE_NAME, NULL);
-       /* Get Weather station name. */    
+    /* Get Weather station name. */    
     app->current_station_name = gconf_client_get_string(gconf_client,
-    	    GCONF_KEY_WEATHER_CURRENT_STATION_NAME, NULL);
-       /* Get Weather periodic update time . */    
-    tmp = gconf_client_get_string(gconf_client,
-            GCONF_KEY_WEATHER_PERIODIC_UPDATE, NULL);
-    if(tmp)  	      
-        _weather_periodic_update = atoi(tmp);      
-    else
-        _weather_periodic_update = 0;
+    							GCONF_KEY_WEATHER_CURRENT_STATION_NAME,
+							NULL);
+    /* Get Weather periodic update time . */    
+    app->update_interval = gconf_client_get_int(gconf_client,
+        			    GCONF_KEY_WEATHER_UPDATE_INTERVAL,
+				    NULL);
+    if(app->update_interval < 0)
+	app->update_interval = 0;
     /* Get Weather font color. */    	
     tmp = gconf_client_get_string(gconf_client,
-            GCONF_KEY_WEATHER_FONT_COLOR, NULL);
+        			    GCONF_KEY_WEATHER_FONT_COLOR, NULL);
     if(!tmp || !gdk_color_parse(tmp, &_weather_font_color))
          _weather_font_color = DEFAULT_FONT_COLOR;
+    g_free(tmp);
     /* Get Enable Transparency flag. Default is TRUE. */
     value = gconf_client_get(gconf_client, GCONF_KEY_ENABLE_TRANSPARENCY, NULL);
     if(value){
@@ -297,7 +306,8 @@ void config_init(){
     /* Get Temperature Unit  Default Celsius */
     _weather_temperature_unit = gconf_client_get_int(gconf_client,
                     			GCONF_KEY_WEATHER_TEMPERATURE_UNIT, NULL);
-    (_weather_temperature_unit) ? (_weather_temperature_unit = FAHRENHEIT) : (_weather_temperature_unit = CELSIUS);
+    (_weather_temperature_unit) ? (_weather_temperature_unit = FAHRENHEIT)
+				: (_weather_temperature_unit = CELSIUS);
     /* Get Layout  Default Horizontal */
     app->icons_layout = gconf_client_get_int(gconf_client,
                 			    GCONF_KEY_ICONS_LAYOUT,
@@ -321,7 +331,7 @@ void config_init(){
 	wind_units = 0;
     /* Fill time update list */
     if(!time_update_list){
-	add_time_update_list(0,_("Never"));	
+	add_time_update_list(0, _("Never"));	
 	add_time_update_list(1 * 60, _("1 hour"));
 	add_time_update_list(2 * 60, _("2 hours"));
 	add_time_update_list(4 * 60, _("4 hours"));
@@ -365,9 +375,9 @@ void config_save_current_station(){
         gconf_client_set_string(gconf_client,
             GCONF_KEY_WEATHER_CURRENT_STATION_NAME, app->current_station_name, NULL);
     /* Save Weather station id. */
-    if(_weather_station_id)
+    if(app->current_station_id)
         gconf_client_set_string(gconf_client,
-            GCONF_KEY_WEATHER_STATION_ID, _weather_station_id, NULL);
+            GCONF_KEY_WEATHER_CURRENT_STATION_ID, app->current_station_id, NULL);
     g_object_unref(gconf_client);
 }
  
@@ -384,20 +394,15 @@ void config_save(){
         return;
     }
     /* Save Weather Cache Directory. */
-    if(app->_weather_dir_name)
+    if(app->weather_dir_name)
         gconf_client_set_string(gconf_client,
         			GCONF_KEY_WEATHER_DIR_NAME,
-				app->_weather_dir_name, NULL);
+				app->weather_dir_name, NULL);
     /* Save Weather country name. */
     if(app->current_country)
         gconf_client_set_string(gconf_client,
         			GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
 				app->current_country, NULL);	    
-    /* Save Weather state or province name. */
-    if(_weather_state_name)
-        gconf_client_set_string(gconf_client,
-        			GCONF_KEY_WEATHER_STATE_NAME,
-				_weather_state_name, NULL);	    
     /* Save Weather station name. */
     if(app->current_station_name)
     	gconf_client_set_string(gconf_client,
@@ -408,13 +413,13 @@ void config_save(){
         			GCONF_KEY_WEATHER_CURRENT_STATION_NAME,
 				"", NULL);
     /* Save Weather station id. */
-    if(_weather_station_id)
+    if(app->current_station_id)
         gconf_client_set_string(gconf_client,
-        			GCONF_KEY_WEATHER_STATION_ID,
-				_weather_station_id, NULL);
+        			GCONF_KEY_WEATHER_CURRENT_STATION_ID,
+				app->current_station_id, NULL);
     else 	    
         gconf_client_set_string(gconf_client,
-        			GCONF_KEY_WEATHER_STATION_ID,
+        			GCONF_KEY_WEATHER_CURRENT_STATION_ID,
 				"", NULL);
      /* Temporary in release 0.1 8 deleted */
     idlist_string = g_strdup("");
@@ -440,10 +445,9 @@ void config_save(){
         		    GCONF_KEY_WEATHER_FONT_COLOR,
 			    temp_buffer, NULL);
     /* Save Weather Update setting  */
-    sprintf(temp_buffer,"%i",_weather_periodic_update);		     	         
-    gconf_client_set_string(gconf_client,
-        		    GCONF_KEY_WEATHER_PERIODIC_UPDATE,
-			    temp_buffer, NULL);
+    gconf_client_set_int(gconf_client,
+        		    GCONF_KEY_WEATHER_UPDATE_INTERVAL,
+			    app->update_interval, NULL);
      /* Save Enable Enable Transparency flag. */
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_ENABLE_TRANSPARENCY,

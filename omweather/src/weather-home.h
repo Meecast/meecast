@@ -55,11 +55,9 @@ int c2f(int temp);
 void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 gboolean download_html(gpointer data);
 void update_weather(void);
+void free_memory(gboolean flag);
 /* CONFIGURATION INFORMATION. */
-gchar		*_weather_state_name = NULL;
-gchar		*_weather_station_id = NULL;
 gboolean	 _enable_transparency = TRUE;
-int   		 _weather_periodic_update = 0;
 GdkColor	_weather_font_color = {0,0,0,0};
 int		_weather_temperature_unit = CELSIUS;
 gint		days_to_show	= 5;

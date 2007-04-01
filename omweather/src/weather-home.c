@@ -95,16 +95,16 @@ static gboolean change_station_prev(GtkWidget *widget,
   {
    ws = tmplist->data;
      /* Check active station */ 
-     if (strcmp(_weather_station_id, ws->id_station) == 0)
+     if (strcmp(app->current_station_id, ws->id_station) == 0)
      {
      /* Get last station if no previos station */
       if (tmplist_prev == NULL) 
           tmplist_prev = g_slist_last(tmplist);
       /* Get station data */
       ws = tmplist_prev ->data;
-      if(_weather_station_id != NULL)
-        g_free(_weather_station_id);
-        _weather_station_id = g_strdup(ws->id_station); 
+      if(app->current_station_id != NULL)
+        g_free(app->current_station_id);
+        app->current_station_id = g_strdup(ws->id_station); 
 	/* update current station name */
         if(app->current_station_name)
 	    g_free(app->current_station_name);
@@ -134,7 +134,7 @@ change_station_next (GtkWidget *widget,
   {
    ws = tmplist->data;
      /* Check active station */ 
-     if (strcmp(_weather_station_id, ws->id_station) == 0)
+     if (strcmp(app->current_station_id, ws->id_station) == 0)
      {
       tmplist = g_slist_next(tmplist);
       /* If no next station, get first */
@@ -142,8 +142,8 @@ change_station_next (GtkWidget *widget,
           tmplist = stations_view_list;
       /* Get station data */
       ws = tmplist ->data;
-      if (_weather_station_id != NULL) g_free(_weather_station_id);
-        _weather_station_id = g_strdup(ws->id_station); 
+      if (app->current_station_id != NULL) g_free(app->current_station_id);
+        app->current_station_id = g_strdup(ws->id_station); 
 	/* update current station name */
         if(app->current_station_name)
 	    g_free(app->current_station_name);
@@ -363,7 +363,7 @@ void weather_buttons_fill(gboolean check_error){
 /* search current station */
         while (tmplist){
     	    ws = tmplist->data;
-	    if ((ws->id_station)&&(_weather_station_id) && !strcmp(ws->id_station,_weather_station_id)) 
+	    if ((ws->id_station)&&(app->current_station_id) && !strcmp(ws->id_station, app->current_station_id)) 
 		break;
 	    tmplist = g_slist_next(tmplist);
 	}
@@ -387,6 +387,7 @@ void weather_buttons_fill(gboolean check_error){
 
 void weather_frame_update(gboolean check){
     
+    free_memory(FALSE);
     gtk_widget_destroy(app->main_window);
     if(check) 
 	weather_buttons_fill(TRUE);
@@ -421,7 +422,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     app->icons_layout = ONE_ROW;
 /* Init gconf. */
     gnome_vfs_init();
-    config_init();
+    read_config();
 /* Start timer */
     timer();
 /* Start main applet */ 
@@ -456,8 +457,10 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     fprintf(stderr, "\nOMWeather applet deinitialize\n");
     config_save(); /* Not work!!!! Why? I am not understand why this place not run when close applet */
     osso  = (osso_context_t*)applet_data;
-    if(app)
+    if(app){
+	free_memory(TRUE);
 	g_free(app);
+    }
     /* Deinitialize libosso */
     osso_deinitialize(osso);
 }
@@ -601,3 +604,42 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn);
 }
 
+/* free used memory from OMWeather struct */
+void free_memory(gboolean flag){
+    if(app->weather_dir_name && flag){
+	g_free(app->weather_dir_name);
+	app->weather_dir_name = NULL;
+    }
+    if(app->icon_set && flag){
+	g_free(app->icon_set);
+	app->icon_set = NULL;
+    }
+    if(app->current_country && flag){
+	g_free(app->current_country);
+	app->current_country = NULL;
+    }
+    if(app->current_station_name && flag){
+	g_free(app->current_station_name);
+	app->current_station_name = NULL;
+    }
+    if(app->current_station_id && flag){
+	g_free(app->current_station_id);
+	app->current_station_id = NULL;
+    }
+    if(app->iap_http_proxy_host && flag){
+	g_free(app->iap_http_proxy_host);
+	app->iap_http_proxy_host = NULL;
+    }
+    if(app->hash && flag){
+	g_hash_table_destroy(app->hash);
+	app->hash = NULL;
+    }
+    if(app->osso && flag){
+	g_free(app->osso);
+	app->osso = NULL;
+    }
+    if(stations_view_list && flag){
+	g_slist_free(stations_view_list);
+	stations_view_list = NULL;
+    }
+}

@@ -89,18 +89,21 @@ int parse_weather_com_xml(void){
     year = 1900 + tm->tm_year;
     parser = NULL;
     
-    if(!_weather_station_id)
+    if(!app->current_station_id)
 	return -1;
-    sprintf(buffer, "%s/%s.xml.new", app->_weather_dir_name,_weather_station_id); /* Used new file */
+    sprintf(buffer, "%s/%s.xml.new", app->weather_dir_name,
+				    app->current_station_id); /* Used new file */
     if(!access(buffer,R_OK)){  /* Not Access to cache weather xml file */
 	parser = weather_parser_new_from_file(buffer); 
 	    if(!(parser->error)){
-		sprintf(newname, "%s/%s.xml", app->_weather_dir_name,_weather_station_id);
+		sprintf(newname, "%s/%s.xml", app->weather_dir_name,
+			    app->current_station_id);
 		rename(buffer,newname);
 	    }
     }
     if((access (buffer,R_OK) != 0) || (parser != NULL && parser->error)){ /* Used old xml file */
-	sprintf(buffer, "%s/%s.xml", app->_weather_dir_name,_weather_station_id);
+	sprintf(buffer, "%s/%s.xml", app->weather_dir_name,
+		app->current_station_id);
 	/* Not Access to cache weather xml file or not valid XML file */
 	if(!access(buffer,R_OK)){ 
 	    parser = weather_parser_new_from_file(buffer);
@@ -127,7 +130,7 @@ int parse_weather_com_xml(void){
 		sprintf(id_station, "%.8s", temp_xml_string);
 		xmlFree(temp_xml_string);
 	 /* If station in xml not station in config file exit */ 
-		if( strcmp(id_station,_weather_station_id) != 0 ){
+		if( strcmp(id_station, app->current_station_id) != 0 ){
 		    free(parser);
 		    return -1;
 		}    

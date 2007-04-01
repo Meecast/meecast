@@ -123,7 +123,7 @@ gboolean form_url_and_filename(){
 				    ws->id_station, DAY_DOWNLOAD);
 	    full_filename_new_xml = g_string_new(NULL);        
 	    g_string_append_printf(full_filename_new_xml,"%s/%s.xml.new",
-				    app->_weather_dir_name, ws->id_station);
+				    app->weather_dir_name, ws->id_station);
 	    tmplist = g_slist_next(tmplist);
 	    /* Forming structure for download data of weather */
 	    html_file.filename = full_filename_new_xml->str;

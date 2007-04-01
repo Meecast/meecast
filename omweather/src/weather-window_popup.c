@@ -74,7 +74,7 @@ void weather_window_popup_show (GtkWidget *widget,
     gchar	*units;
     
 /* if no one station present in list show only preference */
-    if(!_weather_station_id){
+    if(!app->current_station_id){
 	weather_window_preference(widget, event, user_data);
 	return;
     } 
@@ -148,8 +148,12 @@ void weather_window_popup_show (GtkWidget *widget,
 		    _("mm"));
 	strcat(buffer, weather_current_day.day.pressure_str);
 	strcat(buffer, _("\nHumidity: "));
-	sprintf(buffer + strlen(buffer), "%s%%",
-		(char*)hash_table_find((gpointer)weather_current_day.day.hmid));
+	if( strcmp(weather_current_day.day.hmid, "N/A") )
+	    sprintf(buffer + strlen(buffer), "%d%%",
+		    atoi(weather_current_day.day.hmid));
+	else
+	    sprintf(buffer + strlen(buffer), "%s",
+		    (char*)hash_table_find((gpointer)"N/A"));
 	strcat(buffer, _("\nWind: "));
 	if( strcmp(weather_current_day.day.wind_speed, "N/A") )	
 	    sprintf(buffer + strlen(buffer), "%s %i %s", weather_current_day.day.wind_title,
@@ -272,7 +276,12 @@ void weather_window_popup_show (GtkWidget *widget,
         buffer[0] = 0;
         strcat(buffer, weather_days[i].night.title);
         strcat(buffer, _("\nHumidity: "));
-        sprintf(buffer + strlen(buffer), "%s%%\n", weather_days[i].night.hmid);
+	if( strcmp(weather_days[i].night.hmid, "N/A") )
+	    sprintf(buffer + strlen(buffer), "%d%%\n",
+		    atoi(weather_days[i].night.hmid));
+	else
+    	    sprintf(buffer + strlen(buffer), "%s\n",
+		    (char*)hash_table_find((gpointer)"N/A"));
         strcat(buffer, _("Wind: "));
         sprintf(buffer + strlen(buffer), "%s %i %s", weather_days[i].night.wind_title,
     			convert_wind_units(wind_units, atoi(weather_days[i].night.wind_speed)),
@@ -300,7 +309,12 @@ void weather_window_popup_show (GtkWidget *widget,
         buffer[0] = 0;
         strcat(buffer, weather_days[i].day.title);
         strcat(buffer, _("\nHumidity: "));
-        sprintf(buffer + strlen(buffer), "%s%%", weather_days[i].day.hmid);
+	if( strcmp(weather_days[i].day.hmid, "N/A") )
+	    sprintf(buffer + strlen(buffer), "%d%%",
+		    atoi(weather_days[i].day.hmid));
+	else
+    	    sprintf(buffer + strlen(buffer), "%s",
+		    (char*)hash_table_find((gpointer)"N/A"));
         strcat(buffer, _("\nWind: "));
 	if( strcmp(weather_days[i].day.wind_speed, "N/A") )
     	    sprintf(buffer + strlen(buffer), "%s %i %s", weather_days[i].night.wind_title,
@@ -320,7 +334,8 @@ void weather_window_popup_show (GtkWidget *widget,
 /* End DAY */    
 /* Begin FOOT */
         hbox_foot = gtk_hbox_new(FALSE, 0);
-        sprintf(full_filename, "%s/%s.xml", app->_weather_dir_name, _weather_station_id);
+        sprintf(full_filename, "%s/%s.xml", app->weather_dir_name,
+		app->current_station_id);
         if(stat(full_filename, &statv))
     	    sprintf(buffer, _("Last update: Unknown"));
         else{ 

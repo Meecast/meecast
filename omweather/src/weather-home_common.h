@@ -129,15 +129,17 @@ typedef struct OMWeatherApplet{
     GtkWidget		*top_widget;
     GtkWidget		*main_window;
     GtkWidget		*popup_window;
-    gchar		*_weather_dir_name;
+    gchar		*weather_dir_name;
     gchar		*icon_set;
     gint		icons_size;
     gint		icons_layout;
     gchar		*current_country;
     gchar		*current_station_name;
+    gchar		*current_station_id;
     gboolean		show_update_window;
     gchar 		*iap_http_proxy_host;
     gint 		iap_http_proxy_port;
+    gint		update_interval;
 }OMWeatherApp;
 
 weather_day weather_days[Max_count_weather_day];
@@ -152,7 +154,7 @@ void add_periodic_event(void);
 void time_event_add(time_t time_value, short int type_event);
 void config_save();
 void config_save_current_station();
-void config_init();
+void read_config(void);
 void update_weather(void);
 void weather_frame_update(gboolean check);
 void hack_home_plugin_osso_for_nokia800(void);

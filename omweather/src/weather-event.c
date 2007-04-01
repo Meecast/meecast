@@ -127,8 +127,8 @@ void time_event_add(time_t time_value,short int type_event){
 
 /* Add periodic time event  to list */	  
 void add_periodic_event(void){
-    if(_weather_periodic_update > 0)
-	time_event_add(time(NULL)+_weather_periodic_update*60,AUTOUPDATE);
+    if(app->update_interval > 0)
+	time_event_add(time(NULL)+ app->update_interval * 60, AUTOUPDATE);
 }
 
 /* Remove periodic time event  from list */	  

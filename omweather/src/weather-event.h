@@ -37,7 +37,6 @@ gboolean timer_handler(gpointer data);
 void timer(void);
 void remove_periodic_event(void);
 void print_list(void);
-extern int _weather_periodic_update;
 extern gboolean not_event;
 
 #endif

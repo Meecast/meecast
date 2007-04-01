@@ -61,10 +61,11 @@ void
 set_font_size(GtkWidget *widget, char font_size)
 {
     PangoFontDescription *pfd;    
-    
-    pfd = pango_context_get_font_description(gtk_widget_get_pango_context(widget));
-    pango_font_description_set_absolute_size(pfd, font_size * PANGO_SCALE);
-    gtk_widget_modify_font(widget, pfd);    
+    pfd = pango_font_description_copy( 
+	    pango_context_get_font_description(gtk_widget_get_pango_context(widget)));
+    pango_font_description_set_absolute_size(pfd, font_size * PANGO_SCALE);	    
+    gtk_widget_modify_font(GTK_WIDGET(widget), pfd);    /* this function is leaking */
+    pango_font_description_free (pfd);	    
 }   
 
 static gboolean

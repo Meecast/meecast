@@ -142,9 +142,9 @@ void changed_country(void){
 		    flag_new_state = FALSE;	
         	    gtk_combo_box_append_text(GTK_COMBO_BOX(states), temp_state_name);
 		    count_state++;
-		    if(_weather_state_name && 
-			    (streq(temp_state_name, _weather_state_name)))
-			index_state = count_state;
+/*		    if(app->current_state_name &&
+			    (streq(temp_state_name, app->current_state_name)))
+			index_state = count_state; */
 		}    	  
 	    } 
 	}
@@ -264,7 +264,7 @@ void fill_station_list_view(GtkWidget *station_list_view,
 	gtk_list_store_set(GTK_LIST_STORE(station_list_store),
                         	&iter, 0,
                         	ws->name_station, -1);
-	if(streq(_weather_station_id, ws->id_station))
+	if(streq(app->current_station_id, ws->id_station))
     	    gtk_tree_selection_select_iter(list_selection, &iter);
 	tmplist = g_slist_next(tmplist);
     }
@@ -376,9 +376,9 @@ static gboolean weather_delete_station(GtkWidget *widget,
       /* If not selected station, select first */	    
 	    if (!(gtk_tree_selection_get_selected(selection, NULL, &iter)) && (tmplist != NULL )) {
 	     ws = tmplist->data;
-	     if(_weather_station_id)
-		g_free(_weather_station_id);
-   	     _weather_station_id = g_strdup(ws->id_station); 
+	     if(app->current_station_id)
+		g_free(app->current_station_id);
+   	     app->current_station_id = g_strdup(ws->id_station); 
 	    }
 	    
 	    fill_station_list_view (station_list_view,station_list_store);
@@ -394,9 +394,9 @@ static gboolean weather_delete_station(GtkWidget *widget,
 		    ws = tmplist->data;
 		    if(streq(station_selected, ws->name_station)){
          /* Set New selected station on default on main display*/
-    			if(_weather_station_id)
-			    g_free(_weather_station_id);
-			_weather_station_id = g_strdup(ws->id_station); 
+    			if(app->current_station_id)
+			    g_free(app->current_station_id);
+			app->current_station_id = g_strdup(ws->id_station); 
 			if(app->current_station_name)
 			    g_free(app->current_station_name);
     			app->current_station_name = g_strdup(ws->name_station); 
@@ -405,7 +405,7 @@ static gboolean weather_delete_station(GtkWidget *widget,
 		} 
 	    }
 	    else
-		_weather_station_id = NULL;
+		app->current_station_id = NULL;
       /* Update config file */
 	    config_save();       
 	    break; 
@@ -415,10 +415,10 @@ static gboolean weather_delete_station(GtkWidget *widget,
     if (g_slist_length(stations_view_list) == 0){
        if(app->current_station_name)
           g_free(app->current_station_name);
-       if(_weather_station_id)
-          g_free(_weather_station_id);
+       if(app->current_station_id)
+          g_free(app->current_station_id);
        app->current_station_name = NULL;
-       _weather_station_id = NULL;
+       app->current_station_id = NULL;
        /* Update config file */
        config_save();       	  
     }
@@ -511,10 +511,10 @@ void weather_window_add_custom_station(){
     switch(gtk_dialog_run(GTK_DIALOG(window_add_custom_station))){
 	case GTK_RESPONSE_ACCEPT:/* Press Button Ok */
 		ws = g_new0(struct weather_station, 1);
-		if(_weather_station_id != NULL)
-		    g_free(_weather_station_id);
-		_weather_station_id = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_code));
-		ws->id_station = g_strdup(_weather_station_id);
+		if(app->current_station_id != NULL)
+		    g_free(app->current_station_id);
+		app->current_station_id = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_code));
+		ws->id_station = g_strdup(app->current_station_id);
 		if(app->current_station_name)
 		    g_free(app->current_station_name);
 		app->current_station_name = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_name));
@@ -638,9 +638,9 @@ void weather_window_add_station(GtkWidget *widget,
 		break;
 	    flag_update_station = TRUE;
 	    ws = g_new0(struct weather_station,1);
-	    if(_weather_station_id != NULL)
-	        g_free(_weather_station_id);
-	    _weather_station_id = g_strdup(_weather_station_id_temp);
+	    if(app->current_station_id != NULL)
+	        g_free(app->current_station_id);
+	    app->current_station_id = g_strdup(_weather_station_id_temp);
 	    ws->id_station = g_strdup(_weather_station_id_temp);
 	    if(app->current_station_name)
 		g_free(app->current_station_name);
@@ -934,7 +934,7 @@ void weather_window_preference(GtkWidget *widget,
     while(time_update_list_temp != NULL){
 	tu = time_update_list_temp->data;
 	gtk_combo_box_append_text(GTK_COMBO_BOX(update_time), tu->name_between_time);
-	if(tu->between_time == _weather_periodic_update)
+	if(tu->between_time == app->update_interval)
 	    gtk_combo_box_set_active(GTK_COMBO_BOX(update_time), index_update_time);
 	time_update_list_temp = g_slist_next(time_update_list_temp);
 	index_update_time++;
@@ -948,7 +948,9 @@ void weather_window_preference(GtkWidget *widget,
 	case GTK_RESPONSE_ACCEPT:/* Pressed Button Ok */
 /* icon set */	
 	    if(strcmp(app->icon_set, gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset)))){
-	        app->icon_set = gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset));
+		if(app->icon_set)
+		    g_free(app->icon_set);
+	        app->icon_set = g_strdup(gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset)));
 		memset(path_large_icon, 0, sizeof(path_large_icon));
 		sprintf(path_large_icon, "%s%s/", ICONS_PATH, app->icon_set);
 		flag_update_icon = TRUE;
@@ -1007,8 +1009,8 @@ void weather_window_preference(GtkWidget *widget,
     		tu = time_update_list_temp->data;
 		if(!strcmp(tu->name_between_time,
 			gtk_combo_box_get_active_text(GTK_COMBO_BOX(update_time)))){
-		    _weather_periodic_update = tu->between_time;
-		    if(_weather_periodic_update)
+		    app->update_interval = tu->between_time;
+		    if(app->update_interval)
 			add_periodic_event();
 		    else
 			remove_periodic_event();

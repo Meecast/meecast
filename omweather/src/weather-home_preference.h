@@ -34,10 +34,7 @@
 #define OMW_RESPONSE_ADD_CUSTOM_STATION 10000
 #include "weather-home_common.h"
 
-extern gchar     *_weather_state_name;
-extern gchar     *_weather_station_id;
 extern gboolean  _enable_transparency;
-extern int       _weather_periodic_update;
 extern GdkColor  _weather_font_color;
 extern GSList    *time_update_list;
 extern int	_weather_temperature_unit;

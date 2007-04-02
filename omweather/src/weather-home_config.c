@@ -54,14 +54,14 @@ gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
     	    gnome_vfs_uri_unref((GnomeVFSURI*)list->data);
     	    list = g_list_remove(list, list->data);
     	}
-        /* Retval now equals result of last make-dir attempt. */
 	retval = FALSE;
     }
-    else{
+    else
+	retval = TRUE;
+    if(retval){
         if(app->weather_dir_name)
             g_free(app->weather_dir_name);
         app->weather_dir_name = new_weather_dir_name;
-	retval = TRUE;
 	gnome_vfs_uri_unref(weather_dir_uri);
     }
     return retval;
@@ -257,7 +257,7 @@ void read_config(void){
 	if(app->current_station_id)
 	    reinitilize_stations_list(app->current_station_id);
 */	    
-	/* Get Weather Stations ID and NAME */
+    /* Get Weather Stations ID and NAME */
     stlist = gconf_client_get_list(gconf_client,
         			    GCONF_KEY_WEATHER_STATIONS_LIST,
 				    GCONF_VALUE_STRING, NULL);
@@ -348,6 +348,7 @@ void read_config(void){
 	add_time_update_list(1, _("1 minute (DEBUG)"));    
     }
     app->show_update_window = FALSE;
+    gconf_client_clear_cache(gconf_client);
 }
 
 void config_update_proxy(void){

@@ -70,7 +70,7 @@ set_font_size(GtkWidget *widget, char font_size)
     style_widget->font_desc = pfd;
     gtk_widget_modify_style (widget, style_widget);
 //    gtk_widget_modify_font(GTK_WIDGET(widget), pfd);    /* this function is leaking */
-    gtk_rc_style_unref (style_widget);
+//    gtk_rc_style_unref (style_widget);
     pango_font_description_free (pfd);	    
 }   
 
@@ -102,7 +102,7 @@ static gboolean change_station_prev(GtkWidget *widget,
   {
    ws = tmplist->data;
      /* Check active station */ 
-     if (strcmp(app->current_station_id, ws->id_station) == 0)
+     if ((app->current_station_id != NULL) && strcmp(app->current_station_id, ws->id_station) == 0)
      {
      /* Get last station if no previos station */
       if (tmplist_prev == NULL) 
@@ -140,10 +140,8 @@ change_station_next (GtkWidget *widget,
   while (tmplist != NULL)
   {
    ws = tmplist->data;
-   fprintf(stderr,"ws->id_station %s app->current_station_id %s\n",ws->id_station,app->current_station_id);
-   
      /* Check active station */ 
-     if (strcmp(app->current_station_id, ws->id_station) == 0)
+     if ((app->current_station_id != NULL) && strcmp(app->current_station_id, ws->id_station) == 0)
      {
       tmplist = g_slist_next(tmplist);
       /* If no next station, get first */
@@ -151,7 +149,6 @@ change_station_next (GtkWidget *widget,
           tmplist = stations_view_list;
       /* Get station data */
       ws = tmplist ->data;
-         fprintf(stderr,"2,ws->id_station %s\n",ws->id_station);
       if (app->current_station_id != NULL) g_free(app->current_station_id);
         app->current_station_id = g_strdup(ws->id_station); 
 	/* update current station name */
@@ -163,9 +160,7 @@ change_station_next (GtkWidget *widget,
       break;
      }
    /* Next station in list */
-   fprintf (stderr,"ddddddddddd00000000\n");
    tmplist = g_slist_next(tmplist);
-   fprintf (stderr,"ddddddddddd\n");
   }
  return TRUE;
 }

@@ -345,7 +345,6 @@ void weather_buttons_fill(gboolean check_error){
 	gtk_label_set_justify(GTK_LABEL(labels[i]),GTK_JUSTIFY_RIGHT);
      /* Select size font on desktop and icon size */
 	set_font_size(labels[i], font_size);
-
 	icon = gdk_pixbuf_new_from_file_at_size(buffer_icon,
 						icon_size,
 						icon_size, NULL);
@@ -365,7 +364,7 @@ void weather_buttons_fill(gboolean check_error){
     if(g_slist_length(stations_view_list) > 0){
 	tmplist = stations_view_list;
 /* search current station */
-        while (tmplist){
+        while(tmplist){
     	    ws = tmplist->data;
 	    if ((ws->id_station)&&(app->current_station_id) && !strcmp(ws->id_station, app->current_station_id)) 
 		break;

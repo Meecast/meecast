@@ -140,6 +140,7 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Oct", _("Oct"));
     g_hash_table_insert(hash, "Nov", _("Nov"));
     g_hash_table_insert(hash, "Dec", _("Dec"));
+    g_hash_table_insert(hash, "VAR", _("VAR"));
     return  hash;
 }
 

@@ -239,8 +239,15 @@ void read_config(void){
     /* Get Weather Station ID for current station */
     app->current_station_id = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_CURRENT_STATION_ID, NULL);
+    
+    /* Depricated, after 0.18 not used */				    
+    if (!app->current_station_id)
+	app->current_station_id = gconf_client_get_string(gconf_client,
+        			    GCONF_KEY_WEATHER_STATION_ID, NULL);
+	
     /* Get Weather Stations ID  */ /* DEPRICATED !!! */
-/*    tmp = gconf_client_get_string(gconf_client,
+    /*
+    tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_STATION_IDS, NULL);
     if(tmp){
 	reinitilize_stations_list(tmp);
@@ -248,7 +255,8 @@ void read_config(void){
     }
     else
 	if(app->current_station_id)
-	    reinitilize_stations_list(app->current_station_id);*/
+	    reinitilize_stations_list(app->current_station_id);
+*/	    
 	/* Get Weather Stations ID and NAME */
     stlist = gconf_client_get_list(gconf_client,
         			    GCONF_KEY_WEATHER_STATIONS_LIST,

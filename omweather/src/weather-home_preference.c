@@ -264,7 +264,7 @@ void fill_station_list_view(GtkWidget *station_list_view,
 	gtk_list_store_set(GTK_LIST_STORE(station_list_store),
                         	&iter, 0,
                         	ws->name_station, -1);
-	if(streq(app->current_station_id, ws->id_station))
+	if((app->current_station_id)&&streq(app->current_station_id, ws->id_station))
     	    gtk_tree_selection_select_iter(list_selection, &iter);
 	tmplist = g_slist_next(tmplist);
     }
@@ -745,7 +745,6 @@ void weather_window_preference(GtkWidget *widget,
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
         			1, 2, 6, 7);
-				
     g_signal_connect(button_ren, "clicked",
                 	G_CALLBACK(weather_window_rename_station), NULL);				
     g_signal_connect(button_del, "clicked",
@@ -941,8 +940,10 @@ void weather_window_preference(GtkWidget *widget,
     }
     gtk_widget_show_all(window_config);
 /* kill popup window :-) */
-    gtk_widget_destroy(app->popup_window);
-    app->popup_window = NULL;
+    if (app->popup_window){
+	gtk_widget_destroy(app->popup_window);
+	app->popup_window = NULL;
+    }
 /* start dialog window */
     switch(gtk_dialog_run(GTK_DIALOG(window_config))){
 	case GTK_RESPONSE_ACCEPT:/* Pressed Button Ok */

@@ -61,10 +61,16 @@ void
 set_font_size(GtkWidget *widget, char font_size)
 {
     PangoFontDescription *pfd;    
+    GtkRcStyle *style_widget;
     pfd = pango_font_description_copy( 
 	    pango_context_get_font_description(gtk_widget_get_pango_context(widget)));
+    //style_widget = gtk_rc_get_style (widget);
+    style_widget = gtk_rc_style_new ();
     pango_font_description_set_absolute_size(pfd, font_size * PANGO_SCALE);	    
-    gtk_widget_modify_font(GTK_WIDGET(widget), pfd);    /* this function is leaking */
+    style_widget->font_desc = pfd;
+    gtk_widget_modify_style (widget, style_widget);
+//    gtk_widget_modify_font(GTK_WIDGET(widget), pfd);    /* this function is leaking */
+    gtk_rc_style_unref (style_widget);
     pango_font_description_free (pfd);	    
 }   
 
@@ -134,6 +140,8 @@ change_station_next (GtkWidget *widget,
   while (tmplist != NULL)
   {
    ws = tmplist->data;
+   fprintf(stderr,"ws->id_station %s app->current_station_id %s\n",ws->id_station,app->current_station_id);
+   
      /* Check active station */ 
      if (strcmp(app->current_station_id, ws->id_station) == 0)
      {
@@ -143,6 +151,7 @@ change_station_next (GtkWidget *widget,
           tmplist = stations_view_list;
       /* Get station data */
       ws = tmplist ->data;
+         fprintf(stderr,"2,ws->id_station %s\n",ws->id_station);
       if (app->current_station_id != NULL) g_free(app->current_station_id);
         app->current_station_id = g_strdup(ws->id_station); 
 	/* update current station name */
@@ -154,7 +163,9 @@ change_station_next (GtkWidget *widget,
       break;
      }
    /* Next station in list */
+   fprintf (stderr,"ddddddddddd00000000\n");
    tmplist = g_slist_next(tmplist);
+   fprintf (stderr,"ddddddddddd\n");
   }
  return TRUE;
 }

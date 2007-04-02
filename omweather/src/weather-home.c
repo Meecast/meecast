@@ -60,11 +60,10 @@ int c2f(int temp){
 void
 set_font_size(GtkWidget *widget, char font_size)
 {
-    PangoFontDescription *pfd;    
-    GtkRcStyle *style_widget;
+    PangoFontDescription *pfd = NULL;    
     
     pfd = pango_font_description_copy( 
-	    pango_context_get_font_description(gtk_widget_get_pango_context(widget)));
+            pango_context_get_font_description(gtk_widget_get_pango_context(widget)));
     pango_font_description_set_absolute_size(pfd, font_size * PANGO_SCALE);	    
     gtk_widget_modify_font(GTK_WIDGET(widget), pfd);    /* this function is leaking */
     pango_font_description_free (pfd);
@@ -353,6 +352,7 @@ void weather_buttons_fill(gboolean check_error){
      /* Create box for image and label */
 	boxs[i] = gtk_hbox_new(FALSE, 0);
 	icon_image = gtk_image_new_from_pixbuf(icon);
+	if (icon) g_object_unref (icon);
      /* Packing buttons to box */
 	gtk_box_pack_start(GTK_BOX(boxs[i]), icon_image, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(boxs[i]), labels[i], FALSE, FALSE, 0);
@@ -534,6 +534,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
     set_font_size(station_name, f_size);
     gtk_box_pack_start((GtkBox*) station_box, station_name, TRUE, TRUE, 0);
+    
     gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
 /* check transparency */
     if(transparency){
@@ -606,6 +607,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     g_signal_connect (station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
     g_signal_connect (station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
     gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn);
+
 }
 
 /* free used memory from OMWeather struct */

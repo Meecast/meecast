@@ -109,6 +109,7 @@ void weather_window_popup_show (GtkWidget *widget,
 	sprintf(buffer,"%s%i.png", path_large_icon, weather_current_day.day.icon);
 	icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64,NULL);
 	icon_image_current = gtk_image_new_from_pixbuf(icon);
+	if (icon) g_object_unref (icon);
 	vbox_current = gtk_vbox_new(FALSE, 0);
 
 	buffer[0] = 0;
@@ -266,6 +267,7 @@ void weather_window_popup_show (GtkWidget *widget,
 	sprintf(buffer, "%s%i.png", path_large_icon, weather_days[i].night.icon);
 	icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
 	icon_image_night = gtk_image_new_from_pixbuf(icon);
+	if (icon) g_object_unref (icon);
 	vbox_night = gtk_vbox_new(FALSE, 0);
 	label_night = gtk_label_new(_("Night:"));
         set_font_size(label_night, 20);
@@ -300,6 +302,7 @@ void weather_window_popup_show (GtkWidget *widget,
         sprintf(buffer,"%s%i.png", path_large_icon, weather_days[i].day.icon);    
         icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
         icon_image_day = gtk_image_new_from_pixbuf(icon);
+	if (icon) g_object_unref (icon);
         vbox_day = gtk_vbox_new(FALSE, 0);
         label_day = gtk_label_new(_("Day:"));
         set_font_size(label_day, 20);

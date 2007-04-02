@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-01 17:57+0300\n"
+"POT-Creation-Date: 2007-04-02 08:42+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgid ""
 msgstr ""
 
 #: src/weather-window_popup.c:150 src/weather-window_popup.c:278
-#: src/weather-window_popup.c:306
+#: src/weather-window_popup.c:311
 msgid ""
 "\n"
 "Humidity: "
@@ -79,7 +79,7 @@ msgid ""
 "Visible: "
 msgstr ""
 
-#: src/weather-window_popup.c:157 src/weather-window_popup.c:308
+#: src/weather-window_popup.c:157 src/weather-window_popup.c:318
 msgid ""
 "\n"
 "Wind: "
@@ -206,7 +206,7 @@ msgstr ""
 msgid "Country:"
 msgstr ""
 
-#: src/weather-window_popup.c:299
+#: src/weather-window_popup.c:304
 msgid "Day:"
 msgstr ""
 
@@ -246,12 +246,12 @@ msgstr ""
 msgid "ESE"
 msgstr ""
 
-#: src/weather-home.c:223
+#: src/weather-home.c:230
 #, c-format
 msgid "Error in xml file\n"
 msgstr ""
 
-#: src/weather-home.c:411
+#: src/weather-home.c:418
 msgid "Error initializing the OMWeather applet"
 msgstr ""
 
@@ -369,11 +369,11 @@ msgstr ""
 msgid "Large"
 msgstr ""
 
-#: src/weather-window_popup.c:333
+#: src/weather-window_popup.c:343
 msgid "Last update: \n"
 msgstr ""
 
-#: src/weather-window_popup.c:330
+#: src/weather-window_popup.c:340
 #, c-format
 msgid "Last update: Unknown"
 msgstr ""
@@ -466,7 +466,7 @@ msgstr ""
 msgid "N"
 msgstr ""
 
-#: src/weather-home.c:324 src/weather-home_hash.c:58
+#: src/weather-home.c:331 src/weather-home_hash.c:58
 msgid "N/A"
 msgstr ""
 
@@ -658,7 +658,7 @@ msgstr ""
 msgid "Sep"
 msgstr ""
 
-#: src/weather-window_popup.c:345
+#: src/weather-window_popup.c:355
 msgid "Settings"
 msgstr ""
 
@@ -822,6 +822,10 @@ msgid ""
 "for tuning images of applet"
 msgstr ""
 
+#: src/weather-home_hash.c:143
+msgid "VAR"
+msgstr ""
+
 #: src/weather-home_hash.c:130
 msgid "W"
 msgstr ""
@@ -866,7 +870,7 @@ msgstr ""
 msgid "Wind speed units:"
 msgstr ""
 
-#: src/weather-window_popup.c:280
+#: src/weather-window_popup.c:285
 msgid "Wind: "
 msgstr ""
 
@@ -886,7 +890,7 @@ msgstr ""
 msgid "Wintry Mix to Snow"
 msgstr ""
 
-#: src/weather-home.c:180
+#: src/weather-home.c:187
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"

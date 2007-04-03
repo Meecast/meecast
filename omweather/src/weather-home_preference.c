@@ -949,6 +949,7 @@ void weather_window_preference(GtkWidget *widget,
 	gtk_widget_destroy(app->popup_window);
 	app->popup_window = NULL;
     }
+
 /* start dialog window */
     switch(gtk_dialog_run(GTK_DIALOG(window_config))){
 	case GTK_RESPONSE_ACCEPT:/* Pressed Button Ok */

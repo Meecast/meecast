@@ -409,7 +409,7 @@ msgstr "Последнее обновление: \n"
 #: src/weather-window_popup.c:340
 #, c-format
 msgid "Last update: Unknown"
-msgstr "Последнее обновление: Не известно"
+msgstr "Последнее обновление: Неизвестно"
 
 #: src/weather-home_preference.c:795
 msgid "Layout:"

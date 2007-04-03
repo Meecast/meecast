@@ -227,22 +227,26 @@ void changed_state(void){
 /* Copy name station to combobox */
 	gtk_combo_box_append_text(GTK_COMBO_BOX(stations), sc->station_name);
     }    
+    g_free(gstate_name);
 }
 
 /* Select item on station combobox */
 void changed_stations(void){
     struct station_and_weather_code *sc;
     static GSList *stations_list_temp = NULL;
+    static char *temp_string = NULL;
   
     stations_list_temp = stations_list_in_state;
     while(stations_list_temp){
 	sc = stations_list_temp->data;
-	if(streq(sc->station_name, g_strdup(gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations))))){
+	temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations));
+	if(streq(sc->station_name,temp_string)){
 	    if(_weather_station_id_temp)
 		g_free(_weather_station_id_temp);
 	    _weather_station_id_temp = g_strdup(sc->station_code);
 	    break;    
 	}
+	g_free(temp_string);
 	stations_list_temp = g_slist_next(stations_list_temp);
     }
 }
@@ -680,6 +684,7 @@ void weather_window_preference(GtkWidget *widget,
     GdkColor _weather_font_color_temp; /* Temporary for font color */
     static GSList *time_update_list_temp = NULL; /* Temporary list for time update */
     struct time_update *tu; /* Temporary for time update list */
+    static char *temp_string; /* Temporary for the results differnet strdup functions */
    
     not_event = TRUE;
     flag_update_station = FALSE;
@@ -948,14 +953,17 @@ void weather_window_preference(GtkWidget *widget,
     switch(gtk_dialog_run(GTK_DIALOG(window_config))){
 	case GTK_RESPONSE_ACCEPT:/* Pressed Button Ok */
 /* icon set */	
-	    if(strcmp(app->icon_set, gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset)))){
+	    temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset));
+	    if(strcmp(app->icon_set, temp_string)){
 		if(app->icon_set)
 		    g_free(app->icon_set);
-	        app->icon_set = g_strdup(gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset)));
+/*	        app->icon_set = g_strdup(gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset))); */
+	        app->icon_set = g_strdup(temp_string);
 		memset(path_large_icon, 0, sizeof(path_large_icon));
 		sprintf(path_large_icon, "%s%s/", ICONS_PATH, app->icon_set);
 		flag_update_icon = TRUE;
 	    }
+	    g_free(temp_string);
 /* icon size */	    
 	    if(app->icons_size != gtk_combo_box_get_active(GTK_COMBO_BOX(icon_size))){
 		app->icons_size = gtk_combo_box_get_active(GTK_COMBO_BOX(icon_size));
@@ -976,14 +984,14 @@ void weather_window_preference(GtkWidget *widget,
     		flag_update_icon = TRUE;
 	    }
 /* Days to show */
-	    if(gtk_combo_box_get_active((GtkComboBox*)days_number) != days_to_show - 1){
+	    if( gtk_combo_box_get_active((GtkComboBox*)days_number)!= days_to_show - 1){
 		days_to_show = gtk_combo_box_get_active((GtkComboBox*)days_number);
 		days_to_show++;
     		flag_update_icon = TRUE;
 		flag_tuning_warning = TRUE;
 	    }
 /* Layout Type */
-	    if(gtk_combo_box_get_active((GtkComboBox*)layout_type) != app->icons_layout ){
+	    if( gtk_combo_box_get_active((GtkComboBox*)layout_type) != app->icons_layout ){
 		app->icons_layout = gtk_combo_box_get_active((GtkComboBox*)layout_type);
     		flag_update_icon = TRUE;
 		flag_tuning_warning = TRUE;
@@ -995,12 +1003,12 @@ void weather_window_preference(GtkWidget *widget,
     		flag_update_icon = TRUE;
 	    }
 /* Distance units */
-	    if(gtk_combo_box_get_active((GtkComboBox*)units) != distance_units ){
+	    if( gtk_combo_box_get_active((GtkComboBox*)units) != distance_units ){
 		distance_units = gtk_combo_box_get_active((GtkComboBox*)units);
     		flag_update_icon = TRUE;
 	    }
 /* Wind units */
-	    if(gtk_combo_box_get_active((GtkComboBox*)wunits) != wind_units ){
+	    if( gtk_combo_box_get_active((GtkComboBox*)wunits) != wind_units ){
 		wind_units = gtk_combo_box_get_active((GtkComboBox*)wunits);
     		flag_update_icon = TRUE;
 	    }
@@ -1008,8 +1016,8 @@ void weather_window_preference(GtkWidget *widget,
 	    time_update_list_temp = time_update_list;
 	    while(time_update_list_temp){
     		tu = time_update_list_temp->data;
-		if(!strcmp(tu->name_between_time,
-			gtk_combo_box_get_active_text(GTK_COMBO_BOX(update_time)))){
+		temp_string =gtk_combo_box_get_active_text(GTK_COMBO_BOX(update_time));
+		if(!strcmp(tu->name_between_time,temp_string)){
 		    app->update_interval = tu->between_time;
 		    if(app->update_interval)
 			add_periodic_event();
@@ -1017,6 +1025,7 @@ void weather_window_preference(GtkWidget *widget,
 			remove_periodic_event();
 		    break;
 		}    	  
+		g_free(temp_string);
     		time_update_list_temp = g_slist_next(time_update_list_temp);
     	    }
     	    config_save();

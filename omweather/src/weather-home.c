@@ -458,7 +458,8 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     osso_context_t *osso;
 
     fprintf(stderr, "\nOMWeather applet deinitialize\n");
-    config_save(); /* Not work!!!! Why? I am not understand why this place not run when close applet */
+    config_save(); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
+			On n800 this work*/
     osso  = (osso_context_t*)applet_data;
     if(app){
 	free_memory(TRUE);
@@ -631,6 +632,7 @@ void free_memory(gboolean flag){
 	g_free(app->current_station_id);
 	app->current_station_id = NULL;
     }
+
     if(app->iap_http_proxy_host && flag){
 	g_free(app->iap_http_proxy_host);
 	app->iap_http_proxy_host = NULL;
@@ -638,10 +640,6 @@ void free_memory(gboolean flag){
     if(app->hash && flag){
 	g_hash_table_destroy(app->hash);
 	app->hash = NULL;
-    }
-    if(app->osso && flag){
-	g_free(app->osso);
-	app->osso = NULL;
     }
     if(stations_view_list && flag){
 	g_slist_free(stations_view_list);

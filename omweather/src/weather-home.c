@@ -53,18 +53,16 @@ int c2f(int temp){
 
 
 /* Set font size. Usually on label widget */
-void
-set_font_size(GtkWidget *widget, char font_size)
-{
-    PangoFontDescription *pfd = NULL;    
+void set_font_size(GtkWidget *widget, char font_size){
+    PangoFontDescription *pfd = NULL;
     
     pfd = pango_font_description_copy( 
             pango_context_get_font_description(gtk_widget_get_pango_context(widget)));
     pango_font_description_set_absolute_size(pfd, font_size * PANGO_SCALE);	    
-    gtk_widget_modify_font(GTK_WIDGET(widget), pfd);    /* this function is leaking */
-    pango_font_description_free (pfd);
-
-}   
+    gtk_widget_modify_font(GTK_WIDGET(widget), NULL);   /* this function is leaking */
+    gtk_widget_modify_font(GTK_WIDGET(widget), pfd);   /* this function is leaking */
+    pango_font_description_free(pfd);
+}
 
 static gboolean
 enter_button (GtkWidget        *widget,

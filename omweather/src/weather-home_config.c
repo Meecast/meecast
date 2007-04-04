@@ -47,11 +47,13 @@ gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
         list = g_list_prepend(list, curr_uri = weather_dir_uri);
         while(GNOME_VFS_ERROR_NOT_FOUND == gnome_vfs_make_directory_for_uri(
         	parent = gnome_vfs_uri_get_parent(curr_uri), 0755))
-            list = g_list_prepend(list, curr_uri = parent);
+            list = g_list_prepend(list, curr_uri = parent);	
 	while(list != NULL){
     	    retval = (GNOME_VFS_OK == gnome_vfs_make_directory_for_uri(
                     	(GnomeVFSURI*)list->data, 0755));
     	    gnome_vfs_uri_unref((GnomeVFSURI*)list->data);
+    	
+    
     	    list = g_list_remove(list, list->data);
     	}
 	retval = FALSE;
@@ -62,7 +64,7 @@ gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
         if(app->weather_dir_name)
             g_free(app->weather_dir_name);
         app->weather_dir_name = new_weather_dir_name;
-    }
+    }    
     gnome_vfs_uri_unref(weather_dir_uri);
     return retval;
 }

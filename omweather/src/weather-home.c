@@ -52,10 +52,6 @@ int c2f(int temp){
 }
 
 
-
-
-
-
 /* Set font size. Usually on label widget */
 void
 set_font_size(GtkWidget *widget, char font_size)
@@ -536,19 +532,20 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     gtk_box_pack_start((GtkBox*) station_box, station_name, TRUE, TRUE, 0);
     
     gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
+    
 /* check transparency */
     if(transparency){
     	gtk_button_set_relief(GTK_BUTTON(previos_station_name_btn), GTK_RELIEF_NONE);
 	gtk_button_set_relief(GTK_BUTTON(next_station_name_btn), GTK_RELIEF_NONE);
-	gtk_button_set_relief(GTK_BUTTON(station_name_btn), GTK_RELIEF_NONE);
+	gtk_button_set_relief(GTK_BUTTON(station_name_btn), GTK_RELIEF_NONE); 
     }
 /* disable on_focus event for header_panel buttons */
     gtk_button_set_focus_on_click(GTK_BUTTON(previos_station_name_btn), FALSE);
     gtk_button_set_focus_on_click(GTK_BUTTON(next_station_name_btn), FALSE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(station_name_btn), FALSE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(station_name_btn), FALSE); 
 /* attach buttons to header panel */
     gtk_table_attach( (GtkTable*)header_panel, previos_station_name_btn, 0, 1, 0, 1 ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
-    gtk_table_attach( (GtkTable*)header_panel, station_name_btn, 1, 2, 0, 1  ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+    gtk_table_attach( (GtkTable*)header_panel, station_name_btn, 1, 2, 0, 1  ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0); 
     gtk_table_attach( (GtkTable*)header_panel, next_station_name_btn, 2, 3, 0, 1  ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 /* create days panel */
     switch(layout){
@@ -601,12 +598,13 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     gtk_table_attach( (GtkTable*)panel, days_panel, 0, 1, 1, 2 ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 /* Connect signal button */
     g_signal_connect (previos_station_name_btn, "released", G_CALLBACK (change_station_prev), NULL);  		    
-    g_signal_connect (previos_station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
+    g_signal_connect (previos_station_name_btn, "enter", G_CALLBACK (enter_button), NULL);     
     g_signal_connect (next_station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
-    g_signal_connect (next_station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
+    g_signal_connect (next_station_name_btn, "enter", G_CALLBACK (enter_button), NULL);     
     g_signal_connect (station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
     g_signal_connect (station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
-    gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn);
+    gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn); 
+    if (station_name_btn) g_object_unref (station_name_btn);
 
 }
 

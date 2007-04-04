@@ -62,8 +62,8 @@ gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
         if(app->weather_dir_name)
             g_free(app->weather_dir_name);
         app->weather_dir_name = new_weather_dir_name;
-	gnome_vfs_uri_unref(weather_dir_uri);
     }
+    gnome_vfs_uri_unref(weather_dir_uri);
     return retval;
 }
 

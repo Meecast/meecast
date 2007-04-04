@@ -217,8 +217,6 @@ gboolean download_html(gpointer data){
 		    mret = curl_multi_remove_handle(curl_multi,curl_handle); /* Delete curl_handle from curl_multi */
 		    if (mret != CURLM_OK)
 			fprintf(stderr," Error remove handle %p\n",curl_handle);
-		    else
-			fprintf(stderr,"Remove handle %p\n",curl_handle);		    
 			
 		    curl_easy_cleanup(curl_handle); 
 

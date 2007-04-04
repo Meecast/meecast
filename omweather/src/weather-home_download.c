@@ -32,10 +32,9 @@
 
 /* Create standard Hildon animation small window */
 void create_window_update(){
-    update_window = hildon_banner_show_animation(app->top_widget,
+    update_window = hildon_banner_show_animation(app->main_window,
 						    NULL,
 						    _("Update weather"));
-    g_object_ref(G_OBJECT(update_window));
 }
 
 

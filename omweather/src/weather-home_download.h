@@ -38,7 +38,7 @@ static GString *url = NULL;
 static GString *full_filename_new_xml = NULL;
 CURL *curl_handle = NULL;
 CURL *curl_multi = NULL;
-CURL *weather_curl_init(void);
+CURL* weather_curl_init(CURL *curl_handle);
 gboolean download_html(gpointer data);
 GtkWidget *update_window = NULL;     
 

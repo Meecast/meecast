@@ -241,7 +241,7 @@ void read_config(void){
         			    GCONF_KEY_WEATHER_CURRENT_STATION_ID, NULL);
     
     /* Depricated, after 0.18 not used */				    
-    if (!app->current_station_id)
+    if(!app->current_station_id)
 	app->current_station_id = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_STATION_ID, NULL);
 	
@@ -287,11 +287,11 @@ void read_config(void){
     app->current_country = gconf_client_get_string(gconf_client,
         					    GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
 						    NULL);
-    /* Get Weather station name. */    
+    /* Get Weather station name. */
     app->current_station_name = gconf_client_get_string(gconf_client,
     							GCONF_KEY_WEATHER_CURRENT_STATION_NAME,
 							NULL);
-    /* Get Weather periodic update time . */    
+    /* Get Weather periodic update time . */
     app->update_interval = gconf_client_get_int(gconf_client,
         			    GCONF_KEY_WEATHER_UPDATE_INTERVAL,
 				    NULL);
@@ -320,23 +320,31 @@ void read_config(void){
     app->icons_layout = gconf_client_get_int(gconf_client,
                 			    GCONF_KEY_ICONS_LAYOUT,
 					    &gerror);
-    if(gerror)
+    if(gerror){
 	app->icons_layout = ONE_ROW;
+	g_error_free(gerror);
+    }
     /* Get number days to show */
     days_to_show = gconf_client_get_int(gconf_client,                                                                                     
                 	    GCONF_KEY_WEATHER_DAYS, &gerror);
-    if(gerror || !days_to_show)
+    if(gerror || !days_to_show){
 	days_to_show = 5;
+	g_error_free(gerror);
+    }
     /* Get distance units */
     distance_units = gconf_client_get_int(gconf_client,                                                                                     
                 	    GCONF_KEY_WEATHER_DISTANCE_UNITS, &gerror);
-    if(gerror)
+    if(gerror){
 	distance_units = METERS;
+	g_error_free(gerror);
+    }
     /* Get wind units */
     wind_units = gconf_client_get_int(gconf_client,                                                                                     
 			GCONF_KEY_WEATHER_WIND_UNITS, &gerror);
-    if(gerror)
-	wind_units = 0;
+    if(gerror){
+	wind_units = METERS_S;
+	g_error_free(gerror);
+    }
     /* Fill time update list */
     if(!time_update_list){
 	add_time_update_list(0, _("Never"));	

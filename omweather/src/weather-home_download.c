@@ -106,6 +106,12 @@ gboolean get_connected(void){
 	return FALSE;
     return TRUE;
 }
+/* Check connect to Internet */
+gboolean check_connected(void){
+    if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)
+	return FALSE;
+    return TRUE;
+}
 
 
 void weather_initialize_dbus(void){

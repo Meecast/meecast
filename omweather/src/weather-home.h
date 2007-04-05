@@ -57,14 +57,6 @@ gboolean download_html(gpointer data);
 void weather_initialize_dbus(void);
 void update_weather(void);
 void free_memory(gboolean flag);
-/* CONFIGURATION INFORMATION. */
-gboolean	 _enable_transparency = TRUE;
-GdkColor	_weather_font_color = {0,0,0,0};
-int		_weather_temperature_unit = CELSIUS;
-gint		days_to_show	= 5;
-gint		distance_units	= METERS;
-gint		wind_units	= METERS_S;
-
 /* List times between two updates */
 GSList *time_update_list = NULL;
 gboolean not_event = FALSE;

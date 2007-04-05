@@ -128,14 +128,9 @@ void weather_initialize_dbus(void){
     osso_iap_cb(iap_callback);
 
 /* For Debug on i386 */
-    app->iap_connected = TRUE;
+/*    app->iap_connected = TRUE; */
 	
 }
-
-
-
-
-
 
 /* Init easy curl */
 CURL* weather_curl_init(CURL *curl_handle){

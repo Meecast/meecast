@@ -1039,14 +1039,22 @@ void weather_window_preference(GtkWidget *widget,
 	    if(flag_update_icon)
     		weather_frame_update(FALSE);
 	    if(flag_update_station)
-    		weather_frame_update(TRUE);
+		if (app->iap_connected){
+		    if( g_slist_length(stations_view_list) > 0 )
+		    {
+			app->show_update_window = TRUE;
+			update_weather();
+		    }
+		}    
+		else    
+    		    weather_frame_update(TRUE);
 	    free_list_stations();
 	break;
 	case GTK_RESPONSE_HELP:/* Pressed Button Help */
 	    create_help_dialog();
 	break;
 	default:/* Pressed CANCEL */
-	    if(flag_update_station){
+	    if( flag_update_station && app->iap_connected ){
 		if( g_slist_length(stations_view_list) > 0 )
 		{
 		    app->show_update_window = TRUE;

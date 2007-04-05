@@ -137,6 +137,7 @@ typedef struct OMWeatherApplet{
     gchar		*current_station_name;
     gchar		*current_station_id;
     gboolean		show_update_window;
+    gboolean		iap_connected;
     gchar 		*iap_http_proxy_host;
     gint 		iap_http_proxy_port;
     gint		update_interval;

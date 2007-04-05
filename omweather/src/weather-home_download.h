@@ -33,6 +33,9 @@
 #include "weather-home_common.h"
 #include <curl/multi.h>
 #include <osso-ic.h>
+#include <osso-ic-dbus.h>
+#include <dbus/dbus-glib.h>
+
 
 static GString *url = NULL;
 static GString *full_filename_new_xml = NULL;
@@ -40,6 +43,7 @@ CURL *curl_handle = NULL;
 CURL *curl_multi = NULL;
 CURL* weather_curl_init(CURL *curl_handle);
 gboolean download_html(gpointer data);
+void weather_initialize_dbus(void);
 GtkWidget *update_window = NULL;     
 
 struct HtmlFile {

@@ -38,16 +38,65 @@ void create_window_update(){
 }
 
 
+static DBusHandlerResult
+get_connection_status_signal_cb(DBusConnection *connection,
+        DBusMessage *message, void *user_data)
+{
+    gchar *iap_name = NULL, *iap_nw_type = NULL, *iap_state = NULL;
+    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
+
+    /* check signal */
+    if(!dbus_message_is_signal(message,
+                ICD_DBUS_INTERFACE,
+                ICD_STATUS_CHANGED_SIG))
+    {
+        fprintf(stderr,"%s(): return DBUS_HANDLER_RESULT_NOT_YET_HANDLED\n",
+                __PRETTY_FUNCTION__);
+        return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+    }
+
+    if(!dbus_message_get_args(message, NULL,
+                DBUS_TYPE_STRING, &iap_name,
+                DBUS_TYPE_STRING, &iap_nw_type,
+                DBUS_TYPE_STRING, &iap_state,
+                DBUS_TYPE_INVALID))
+    {
+        fprintf(stderr,"%s(): return DBUS_HANDLER_RESULT_NOT_YET_HANDLED\n",
+                __PRETTY_FUNCTION__);
+        return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+    }
+
+    fprintf(stderr,"  > iap_state = %s\n", iap_state);
+    if(!strcmp(iap_state, "CONNECTED"))
+    {
+        if(!app->iap_connected)
+        {
+            app->iap_connected = TRUE;
+        }
+    }
+    else if(app->iap_connected)
+    {
+        app->iap_connected = FALSE; /* !!!!!!!!! Remove download */
+    }
+
+    fprintf(stderr,"%s(): return DBUS_HANDLER_RESULT_HANDLED\n",
+            __PRETTY_FUNCTION__);
+    return DBUS_HANDLER_RESULT_HANDLED;
+}
+
 /* Callback function for request  connection to Internet */
 void iap_callback(struct iap_event_t *event, void *arg){
     switch(event->type){
 	case OSSO_IAP_CONNECTED:
-	    second_attempt = TRUE;
-	    update_weather();
+//	    second_attempt = TRUE;
+//	    update_weather();
+    	    app->iap_connected = TRUE;
 	break;
 	case OSSO_IAP_DISCONNECTED:
+	    app->iap_connected = FALSE;
 	break;
 	case OSSO_IAP_ERROR:
+    	    app->iap_connected = FALSE;
 	    hildon_banner_show_information(app->main_window,
 					    NULL,
 					    _("Not connected to Internet"));
@@ -63,6 +112,35 @@ gboolean get_connected(void){
 	return FALSE;
     return TRUE;
 }
+
+
+void weather_initialize_dbus(void){
+
+    /* Add D-BUS signal handler for 'status_changed' */
+    {
+        DBusConnection *dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
+        gchar *filter_string = g_strdup_printf(
+                "interface=%s", ICD_DBUS_INTERFACE);
+        /* add match */
+        dbus_bus_add_match(dbus_conn, filter_string, NULL);
+
+        g_free (filter_string);
+
+        /* add the callback */
+        dbus_connection_add_filter(dbus_conn,
+                    get_connection_status_signal_cb,
+                    NULL, NULL);
+    }
+    osso_iap_cb(iap_callback);
+
+/* For Debug on i386 */
+//    app->iap_connected = TRUE;
+	
+}
+
+
+
+
 
 
 /* Init easy curl */
@@ -135,7 +213,7 @@ gboolean form_url_and_filename(){
 	return FALSE;
 }
 
-/* Download html/xml file. Call every 100 ms after begin download*/
+/* Download html/xml file. Call every 100 ms after begin download */
 gboolean download_html(gpointer data){
 
     CURLMsg *msg;
@@ -144,17 +222,24 @@ gboolean download_html(gpointer data){
     fd_set ws;
     fd_set es;
     int max;
-    if(app->popup_window){
+    if(app->popup_window && app->show_update_window){
 	gtk_widget_destroy(app->popup_window);   
         app->popup_window=NULL;
     }
     
-    /* For emulator only for update forecast*/
-    second_attempt = TRUE;    
+    /* If not connected and it autoupdate do go away */
+    if (!app->show_update_window && !app->iap_connected)
+	return FALSE;
+
+    if (app->iap_connected) 
+	second_attempt = TRUE;
     if( app->show_update_window && (!second_attempt) ){
-        get_connected();        
+	/* Check this code */
+        if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)
+    	    return FALSE;
         return FALSE;
     }
+    
     second_attempt = FALSE;
     /* The second stage */
     /* call curl_multi_perform for read weather data from Inet */

@@ -345,7 +345,8 @@ weather_window_rename_station(GtkWidget *widget,
 	default:
 	break;
     }
-
+    if (station_selected)
+        g_free(station_selected);
     gtk_widget_destroy(window_rename_station);
 }
 
@@ -392,6 +393,8 @@ static gboolean weather_delete_station(GtkWidget *widget,
 	    selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
       /* Search new selected station */    
 	    if( gtk_tree_selection_get_selected(selection, NULL, &iter) ){
+		if (station_selected)
+	            g_free (station_selected);	
 		gtk_tree_model_get(model, &iter, 0, &station_selected,-1);
 		tmplist = stations_view_list;
 		while(tmplist){
@@ -426,7 +429,9 @@ static gboolean weather_delete_station(GtkWidget *widget,
        /* Update config file */
        config_save();       	  
     }
-    fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);
+    fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);    
+    if (station_selected)
+        g_free (station_selected);
     return TRUE;
 }
 

@@ -50,8 +50,6 @@ get_connection_status_signal_cb(DBusConnection *connection,
                 ICD_DBUS_INTERFACE,
                 ICD_STATUS_CHANGED_SIG))
     {
-        fprintf(stderr,"%s(): return DBUS_HANDLER_RESULT_NOT_YET_HANDLED\n",
-                __PRETTY_FUNCTION__);
         return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
     }
 
@@ -61,8 +59,6 @@ get_connection_status_signal_cb(DBusConnection *connection,
                 DBUS_TYPE_STRING, &iap_state,
                 DBUS_TYPE_INVALID))
     {
-        fprintf(stderr,"%s(): return DBUS_HANDLER_RESULT_NOT_YET_HANDLED\n",
-                __PRETTY_FUNCTION__);
         return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
     }
 
@@ -79,8 +75,6 @@ get_connection_status_signal_cb(DBusConnection *connection,
         app->iap_connected = FALSE; /* !!!!!!!!! Remove download */
     }
 
-    fprintf(stderr,"%s(): return DBUS_HANDLER_RESULT_HANDLED\n",
-            __PRETTY_FUNCTION__);
     return DBUS_HANDLER_RESULT_HANDLED;
 }
 

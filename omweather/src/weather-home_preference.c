@@ -1129,8 +1129,10 @@ void create_help_dialog(void){
 				title = gtk_label_new(_("Authors")));
 /* Thanks tab */
     snprintf(tmp_buff, sizeof(tmp_buff), "%s",
-	    _("\nEd Bartosh - for support and criticism\n"
-	    "Eugen Kaluta aka tren - for support\n"
+	    _("\nEd Bartosh - for more feature requests,\n"
+	    "\t\t\t\tsupport and criticism\n"
+	    "Eugen Kaluta aka tren - for feature requests\n"
+	    "\t\t\t\tand support\n"
 	    "Maxim Kalinkevish aka spark for testing\n"
 	    "Yuri Komyakov - for Nokia 770 device \n"
 	    "Greg Thompson for support stations.txt file\n"

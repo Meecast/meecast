@@ -108,7 +108,6 @@ struct event_time{
 			   time of day event DAYTIMEEVENT */ 
 };
 
-
 struct time_update{ 
     gint	between_time;        /* Time in minutes  betwen two update weather */
     gchar	*name_between_time;  /* Human string it time */
@@ -119,6 +118,14 @@ struct weather_station{
     gchar	*id_station;
     gchar	*name_station;
 };
+
+typedef struct weather_day_button_with_image{
+    GtkWidget	*button;                                                                                               
+    GtkWidget	*label;                                                                                                
+    GtkWidget	*box;
+    GdkPixbuf   *icon_buffer;                                                                                                             
+    GtkWidget   *icon_image; 
+}WDB;
 
 typedef struct OMWeatherApplet{
     osso_context_t	*osso;
@@ -144,6 +151,7 @@ typedef struct OMWeatherApplet{
     gint		wind_units;
     gint		temperature_units;
     GdkColor		font_color;
+    WDB			*days_buttons[Max_count_weather_day];
 }OMWeatherApp;
 
 weather_day weather_days[Max_count_weather_day];

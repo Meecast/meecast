@@ -6,6 +6,7 @@ GHashTable* hash_table_create(void){
     GHashTable *hash;
     
     hash = g_hash_table_new(g_str_hash, g_str_equal);
+    g_hash_table_insert(hash, "NO STATION", _("NO STATION"));
     g_hash_table_insert(hash, "m/s", _("m/s"));
     g_hash_table_insert(hash, "km/s", _("km/s"));
     g_hash_table_insert(hash, "mi/s", _("mi/s"));

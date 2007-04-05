@@ -61,13 +61,7 @@
 #define GCONF_KEY_HTTP_PROXY_PORT GCONF_KEY_HTTP_PROXY_PREFIX"/port"
 
 
-extern gboolean _enable_transparency;
-extern GdkColor _weather_font_color;
 extern GSList   *time_update_list;
-extern int	_weather_temperature_unit;
-extern	gint	days_to_show;
-extern	gint	distance_units;
-extern	gint	wind_units;
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);

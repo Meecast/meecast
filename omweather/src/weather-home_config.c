@@ -302,22 +302,22 @@ void read_config(void){
     /* Get Weather font color. */    	
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_FONT_COLOR, NULL);
-    if(!tmp || !gdk_color_parse(tmp, &_weather_font_color))
-         _weather_font_color = DEFAULT_FONT_COLOR;
+    if(!tmp || !gdk_color_parse(tmp, &(app->font_color)))
+         app->font_color = DEFAULT_FONT_COLOR;
     g_free(tmp);
     /* Get Enable Transparency flag. Default is TRUE. */
     value = gconf_client_get(gconf_client, GCONF_KEY_ENABLE_TRANSPARENCY, NULL);
     if(value){
-        _enable_transparency = gconf_value_get_bool(value);
+        app->transparency = gconf_value_get_bool(value);
         gconf_value_free(value);
     }
     else
-        _enable_transparency = TRUE;      
+        app->transparency = TRUE;      
     /* Get Temperature Unit  Default Celsius */
-    _weather_temperature_unit = gconf_client_get_int(gconf_client,
+    app->temperature_units = gconf_client_get_int(gconf_client,
                     			GCONF_KEY_WEATHER_TEMPERATURE_UNIT, NULL);
-    (_weather_temperature_unit) ? (_weather_temperature_unit = FAHRENHEIT)
-				: (_weather_temperature_unit = CELSIUS);
+    (app->temperature_units) ? (app->temperature_units = FAHRENHEIT)
+				: (app->temperature_units = CELSIUS);
     /* Get Layout  Default Horizontal */
     app->icons_layout = gconf_client_get_int(gconf_client,
                 			    GCONF_KEY_ICONS_LAYOUT,
@@ -327,24 +327,24 @@ void read_config(void){
 	g_error_free(gerror);
     }
     /* Get number days to show */
-    days_to_show = gconf_client_get_int(gconf_client,                                                                                     
+    app->days_to_show = gconf_client_get_int(gconf_client,                                                                                     
                 	    GCONF_KEY_WEATHER_DAYS, &gerror);
-    if(gerror || !days_to_show){
-	days_to_show = 5;
+    if(gerror || !app->days_to_show){
+	app->days_to_show = 5;
 	g_error_free(gerror);
     }
     /* Get distance units */
-    distance_units = gconf_client_get_int(gconf_client,                                                                                     
+    app->distance_units = gconf_client_get_int(gconf_client,                                                                                     
                 	    GCONF_KEY_WEATHER_DISTANCE_UNITS, &gerror);
     if(gerror){
-	distance_units = METERS;
+	app->distance_units = METERS;
 	g_error_free(gerror);
     }
     /* Get wind units */
-    wind_units = gconf_client_get_int(gconf_client,                                                                                     
+    app->wind_units = gconf_client_get_int(gconf_client,                                                                                     
 			GCONF_KEY_WEATHER_WIND_UNITS, &gerror);
     if(gerror){
-	wind_units = METERS_S;
+	app->wind_units = METERS_S;
 	g_error_free(gerror);
     }
     /* Fill time update list */
@@ -457,9 +457,9 @@ void config_save(){
 			app->icons_size, NULL);
     /* Save Weather Font Color */
     sprintf(temp_buffer, "#%02x%02x%02x",
-            _weather_font_color.red >> 8,
-            _weather_font_color.green >> 8,
-            _weather_font_color.blue >> 8);
+            app->font_color.red >> 8,
+            app->font_color.green >> 8,
+            app->font_color.blue >> 8);
     gconf_client_set_string(gconf_client,
         		    GCONF_KEY_WEATHER_FONT_COLOR,
 			    temp_buffer, NULL);
@@ -470,23 +470,23 @@ void config_save(){
      /* Save Enable Enable Transparency flag. */
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_ENABLE_TRANSPARENCY,
-			_enable_transparency, NULL);	    
+			app->transparency, NULL);	    
     /* Save Weather Temperature Unit  */		     	    
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_TEMPERATURE_UNIT,
-			_weather_temperature_unit, NULL);
+			app->temperature_units, NULL);
     /* Save Days to show. */
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_DAYS,
-			days_to_show, NULL);	    
+			app->days_to_show, NULL);	    
     /* Save distance units. */
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_DISTANCE_UNITS,
-			distance_units, NULL);
+			app->distance_units, NULL);
     /* Save wind units. */
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_WIND_UNITS,
-			wind_units, NULL);
+			app->wind_units, NULL);
     /* Save Layout type. */
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_ICONS_LAYOUT,

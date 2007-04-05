@@ -762,7 +762,7 @@ void weather_window_preference(GtkWidget *widget,
         			table = gtk_table_new(1, 6, FALSE),
         			label = gtk_label_new(_("Interface")));
 /* Days to show */
-    days_to_show--; /* count down, because combobox items start with 0 */
+    app->days_to_show--; /* count down, because combobox items start with 0 */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
 				label = gtk_label_new(_("Days to show:")),
 				0, 1, 0, 1);
@@ -780,7 +780,7 @@ void weather_window_preference(GtkWidget *widget,
     gtk_combo_box_append_text(GTK_COMBO_BOX(days_number), "8");
     gtk_combo_box_append_text(GTK_COMBO_BOX(days_number), "9");
     gtk_combo_box_append_text(GTK_COMBO_BOX(days_number), "10");
-    switch(days_to_show){
+    switch(app->days_to_show){
 	case 0:  gtk_combo_box_set_active(GTK_COMBO_BOX(days_number), 0);break;
 	case 1:  gtk_combo_box_set_active(GTK_COMBO_BOX(days_number), 1);break;
 	case 2:  gtk_combo_box_set_active(GTK_COMBO_BOX(days_number), 2);break;
@@ -793,7 +793,7 @@ void weather_window_preference(GtkWidget *widget,
 	case 8:  gtk_combo_box_set_active(GTK_COMBO_BOX(days_number), 8);break;
 	case 9:  gtk_combo_box_set_active(GTK_COMBO_BOX(days_number), 9);break;
     }    
-    days_to_show++; /* count up to return to real value */
+    app->days_to_show++; /* count up to return to real value */
 /* Layout */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Layout:")),
@@ -848,7 +848,7 @@ void weather_window_preference(GtkWidget *widget,
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
         			1, 2, 4, 5);
     gtk_container_add(GTK_CONTAINER(label), font_color = gtk_color_button_new());
-    gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color);
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &(app->font_color));
     /* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Transparency")),
@@ -858,7 +858,7 @@ void weather_window_preference(GtkWidget *widget,
         			1, 2, 5, 6);
     gtk_container_add(GTK_CONTAINER(label),chk_transparency = gtk_check_button_new());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_transparency),
-        			    _enable_transparency);
+        			    app->transparency);
 /* Units tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			table = gtk_table_new(1, 3, FALSE),
@@ -873,7 +873,7 @@ void weather_window_preference(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label),temperature_unit = gtk_combo_box_new_text());
     gtk_combo_box_append_text(GTK_COMBO_BOX(temperature_unit), _("Celsius (Metric)"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(temperature_unit), _("Fahrenheit (Imperial)"));
-    switch(_weather_temperature_unit){
+    switch(app->temperature_units){
 	default:
 	case CELSIUS: gtk_combo_box_set_active(GTK_COMBO_BOX(temperature_unit), 0); break;
 	case FAHRENHEIT: gtk_combo_box_set_active(GTK_COMBO_BOX(temperature_unit), 1); break;
@@ -891,7 +891,7 @@ void weather_window_preference(GtkWidget *widget,
     gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Miles (International)"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Miles (Imperial)"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Miles (Sea)"));
-    switch(distance_units){
+    switch(app->distance_units){
 	default:
 	case METERS:			gtk_combo_box_set_active(GTK_COMBO_BOX(units), METERS);break;
 	case KILOMETERS:	 	gtk_combo_box_set_active(GTK_COMBO_BOX(units), KILOMETERS);break;
@@ -913,7 +913,7 @@ void weather_window_preference(GtkWidget *widget,
     gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("m/h"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("km/h"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("mi/h"));
-    switch(wind_units){
+    switch(app->wind_units){
 	default:
 	case METERS_S:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), METERS_S);break;
 	case KILOMETERS_S:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), KILOMETERS_S);break;
@@ -972,22 +972,22 @@ void weather_window_preference(GtkWidget *widget,
 		flag_tuning_warning = TRUE;
 	    }
 /* Temperature units */
-	    if(_weather_temperature_unit != gtk_combo_box_get_active(GTK_COMBO_BOX(temperature_unit))){
-		_weather_temperature_unit = gtk_combo_box_get_active(GTK_COMBO_BOX(temperature_unit));
+	    if(app->temperature_units != gtk_combo_box_get_active(GTK_COMBO_BOX(temperature_unit))){
+		app->temperature_units = gtk_combo_box_get_active(GTK_COMBO_BOX(temperature_unit));
 		flag_update_icon = TRUE;
 	    }
 /* Font color */
 	    gtk_color_button_get_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color_temp);
-	    if(( _weather_font_color_temp.red - _weather_font_color.red ) ||
-		    ( _weather_font_color_temp.green - _weather_font_color.green ) ||
-		    ( _weather_font_color_temp.blue - _weather_font_color.blue )){
-		memcpy(&_weather_font_color, &_weather_font_color_temp, sizeof(_weather_font_color));
+	    if(( _weather_font_color_temp.red - app->font_color.red ) ||
+		    ( _weather_font_color_temp.green - app->font_color.green ) ||
+		    ( _weather_font_color_temp.blue - app->font_color.blue )){
+		memcpy(&(app->font_color), &_weather_font_color_temp, sizeof(app->font_color));
     		flag_update_icon = TRUE;
 	    }
 /* Days to show */
-	    if( gtk_combo_box_get_active((GtkComboBox*)days_number)!= days_to_show - 1){
-		days_to_show = gtk_combo_box_get_active((GtkComboBox*)days_number);
-		days_to_show++;
+	    if( gtk_combo_box_get_active((GtkComboBox*)days_number)!= app->days_to_show - 1){
+		app->days_to_show = gtk_combo_box_get_active((GtkComboBox*)days_number);
+		app->days_to_show++;
     		flag_update_icon = TRUE;
 		flag_tuning_warning = TRUE;
 	    }
@@ -998,19 +998,19 @@ void weather_window_preference(GtkWidget *widget,
 		flag_tuning_warning = TRUE;
 	    }
 /* Transparency mode */
-    	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_transparency)) != _enable_transparency){
-		_enable_transparency = 
+    	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_transparency)) != app->transparency){
+		app->transparency = 
 		    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_transparency));
     		flag_update_icon = TRUE;
 	    }
 /* Distance units */
-	    if( gtk_combo_box_get_active((GtkComboBox*)units) != distance_units ){
-		distance_units = gtk_combo_box_get_active((GtkComboBox*)units);
+	    if( gtk_combo_box_get_active((GtkComboBox*)units) != app->distance_units ){
+		app->distance_units = gtk_combo_box_get_active((GtkComboBox*)units);
     		flag_update_icon = TRUE;
 	    }
 /* Wind units */
-	    if( gtk_combo_box_get_active((GtkComboBox*)wunits) != wind_units ){
-		wind_units = gtk_combo_box_get_active((GtkComboBox*)wunits);
+	    if( gtk_combo_box_get_active((GtkComboBox*)wunits) != app->wind_units ){
+		app->wind_units = gtk_combo_box_get_active((GtkComboBox*)wunits);
     		flag_update_icon = TRUE;
 	    }
 /* Find select element of update time box and save time value */

@@ -34,14 +34,8 @@
 #define OMW_RESPONSE_ADD_CUSTOM_STATION 10000
 #include "weather-home_common.h"
 
-extern gboolean  _enable_transparency;
-extern GdkColor  _weather_font_color;
 extern GSList    *time_update_list;
-extern int	_weather_temperature_unit;
 extern gboolean  not_event;
-extern	gint	days_to_show;
-extern	gint	wind_units;
-extern	gint	distance_units;
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);

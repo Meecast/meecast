@@ -81,11 +81,11 @@ void weather_window_popup_show (GtkWidget *widget,
 	return;
     } 
    /* Search: Which button pressed */
-    for(i = 0;i < days_to_show; i++)
+    for(i = 0;i < app->days_to_show; i++)
 	if(buttons[i] == widget) 
 	    break;  
     /* Not found pressed button */
-    if( i >= days_to_show )
+    if( i >= app->days_to_show )
 	return; 
     if(i == 0){
 	pressed_current_day = TRUE;
@@ -118,9 +118,9 @@ void weather_window_popup_show (GtkWidget *widget,
 	buffer[0] = 0;
 	strcat(buffer, _("Now:\n"));
 	sprintf(buffer + strlen(buffer), "%d\302\260",
-		((_weather_temperature_unit == CELSIUS) ? ( atoi(weather_current_day.day.temp))
+		((app->temperature_units == CELSIUS) ? ( atoi(weather_current_day.day.temp))
 							: ( c2f(atoi(weather_current_day.day.temp)))));
-	(_weather_temperature_unit == CELSIUS) ? ( strcat(buffer, _("C")) )
+	(app->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
 						: ( strcat(buffer, _("F")) );
 	label_current = gtk_label_new(buffer);
 	set_font_size(label_current, 20);
@@ -129,7 +129,7 @@ void weather_window_popup_show (GtkWidget *widget,
 	vbox_hu_current = gtk_vbox_new(FALSE, 0);
 
 	tmp_distance = weather_current_day.day.vis * 1000;
-	switch(distance_units){
+	switch(app->distance_units){
 	    default:
 	    case METERS:		units = _("m"); tmp_distance *= 1; break;
 	    case KILOMETERS:		units = _("km"); tmp_distance /= 1000; break;
@@ -141,9 +141,9 @@ void weather_window_popup_show (GtkWidget *widget,
 	strcat(buffer, weather_current_day.day.title);
 	strcat(buffer, _("\nFeels like: "));
 	sprintf(buffer + strlen(buffer), "%d\302\260", 
-		(_weather_temperature_unit == CELSIUS) ? (atoi(weather_current_day.day.temp)) 
+		(app->temperature_units == CELSIUS) ? (atoi(weather_current_day.day.temp)) 
 							: (c2f(atoi(weather_current_day.low_temp))));
-	(_weather_temperature_unit == CELSIUS) ? ( strcat(buffer, _("C")) )
+	(app->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
 						: ( strcat(buffer, _("F")) );
 	strcat(buffer, _("\nVisible: "));
 	sprintf(buffer + strlen(buffer), "%.1f %s", tmp_distance, units);
@@ -161,8 +161,8 @@ void weather_window_popup_show (GtkWidget *widget,
 	strcat(buffer, _("\nWind: "));
 	if( strcmp(weather_current_day.day.wind_speed, "N/A") )	
 	    sprintf(buffer + strlen(buffer), "%s %i %s", weather_current_day.day.wind_title,
-		    convert_wind_units(wind_units, atoi(weather_current_day.day.wind_speed)),
-		    (char*)hash_table_find((gpointer)wind_units_str[wind_units]));
+		    convert_wind_units(app->wind_units, atoi(weather_current_day.day.wind_speed)),
+		    (char*)hash_table_find((gpointer)wind_units_str[app->wind_units]));
 	else
 	    sprintf(buffer + strlen(buffer), "%s %s", weather_current_day.day.wind_title,
 		    (char*)hash_table_find((gpointer)"N/A"));
@@ -170,8 +170,8 @@ void weather_window_popup_show (GtkWidget *widget,
 	strcat(buffer, _(" Gust: "));
 	if( strcmp(weather_current_day.day.wind_gust, "N/A") )
 	    sprintf(buffer + strlen(buffer), "%i %s",
-		    convert_wind_units(wind_units, atoi(weather_current_day.day.wind_gust)),
-		    (char*)hash_table_find((gpointer)wind_units_str[wind_units]));
+		    convert_wind_units(app->wind_units, atoi(weather_current_day.day.wind_gust)),
+		    (char*)hash_table_find((gpointer)wind_units_str[app->wind_units]));
 	else
 	    strcat(buffer, (char*)hash_table_find((gpointer)"N/A"));
 	
@@ -277,14 +277,14 @@ void weather_window_popup_show (GtkWidget *widget,
 	    if(!strcmp(weather_days[i].low_temp, "N/A"))
 		sprintf(buffer, "%s", (char*)hash_table_find("N/A"));
 	    else
-		if(_weather_temperature_unit == CELSIUS)
+		if(app->temperature_units == CELSIUS)
 		    sprintf(buffer, "%d\302\260C", atoi(weather_days[i].low_temp));
 		else
 		    sprintf(buffer, "%d\302\260F", c2f(atoi(weather_days[i].low_temp)));
 	}
 	else{
 	    if(!strcmp(weather_days[i].low_temp, "N/A"))
-		if(_weather_temperature_unit == CELSIUS)
+		if(app->temperature_units == CELSIUS)
 		    sprintf(buffer, "%s / %d\302\260C",
 			    (char*)hash_table_find("N/A"),
 			    atoi(weather_days[i].hi_temp));
@@ -293,7 +293,7 @@ void weather_window_popup_show (GtkWidget *widget,
 			    (char*)hash_table_find("N/A"),
 			    c2f(atoi(weather_days[i].hi_temp)));
     	    else
-		if(_weather_temperature_unit == CELSIUS)
+		if(app->temperature_units == CELSIUS)
 		    sprintf(buffer, "%d\302\260C / %d\302\260C",
 			    atoi(weather_days[i].low_temp),
 			    atoi(weather_days[i].hi_temp));
@@ -331,8 +331,8 @@ void weather_window_popup_show (GtkWidget *widget,
 		    (char*)hash_table_find((gpointer)"N/A"));
         strcat(buffer, _("Wind: "));
         sprintf(buffer + strlen(buffer), "%s %i %s", weather_days[i].night.wind_title,
-    			convert_wind_units(wind_units, atoi(weather_days[i].night.wind_speed)),
-			(char*)hash_table_find((gpointer)wind_units_str[wind_units]));
+    			convert_wind_units(app->wind_units, atoi(weather_days[i].night.wind_speed)),
+			(char*)hash_table_find((gpointer)wind_units_str[app->wind_units]));
 	    
 	label_humidity_night = gtk_label_new(buffer);    
         set_font_size(label_humidity_night, 16);
@@ -368,8 +368,8 @@ void weather_window_popup_show (GtkWidget *widget,
 	
 	if( strcmp(weather_days[i].day.wind_speed, "N/A") )
     	    sprintf(buffer + strlen(buffer), "%s %i %s", weather_days[i].night.wind_title,
-		    convert_wind_units(wind_units, atoi(weather_days[i].day.wind_speed)),
-		    (char*)hash_table_find((gpointer)wind_units_str[wind_units]));
+		    convert_wind_units(app->wind_units, atoi(weather_days[i].day.wind_speed)),
+		    (char*)hash_table_find((gpointer)wind_units_str[app->wind_units]));
 	else
 	    sprintf(buffer + strlen(buffer), "%s %s", weather_days[i].night.wind_title,
 		    (char*)hash_table_find((gpointer)"N/A"));

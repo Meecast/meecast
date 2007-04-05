@@ -808,10 +808,10 @@ void weather_window_preference(GtkWidget *widget,
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two columns"));
     switch(app->icons_layout){
 	default:
-	case ONE_ROW: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),0);break;
+	case ONE_ROW: 	  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),0);break;
 	case ONE_COLUMN:  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),1);break;
-	case TWO_ROWS:  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),2);break;
-	case TWO_COLUMNS:  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),3);break;
+	case TWO_ROWS:    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),2);break;
+	case TWO_COLUMNS: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),3);break;
     }
     /* Icon set */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
@@ -847,7 +847,8 @@ void weather_window_preference(GtkWidget *widget,
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
         			1, 2, 4, 5);
-    gtk_container_add(GTK_CONTAINER(label), font_color = gtk_color_button_new());
+    font_color = gtk_color_button_new();
+    gtk_container_add(GTK_CONTAINER(label), font_color);
     gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &(app->font_color));
     /* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
@@ -1063,6 +1064,7 @@ void create_icon_set_list(GtkWidget *store){
     Dirent	*dp;
     DIR		*dir_fd;
     gint	i = 0;
+    char 	*temp_string = NULL;
     
     dir_fd	= opendir(ICONS_PATH);
     if(dir_fd){
@@ -1077,9 +1079,12 @@ void create_icon_set_list(GtkWidget *store){
 	    }
 	}
 	closedir(dir_fd);
-	/* check if selected icon set not found */	
-	if(!gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset)))
+	/* check if selected icon set not found */
+	temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset));
+	if(!temp_string)
 	    gtk_combo_box_set_active(GTK_COMBO_BOX(store), 0);
+	else 
+	    g_free(temp_string);
     }
     else{
     	gtk_combo_box_append_text(GTK_COMBO_BOX(store), app->icon_set);

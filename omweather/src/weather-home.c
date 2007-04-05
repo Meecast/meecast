@@ -652,3 +652,55 @@ void free_memory(gboolean flag){
 	stations_view_list = NULL;
     }
 }
+
+WDB* create_weather_day_button(const char *text, const char *icon, const int icon_size, gboolean transparency, char font_size){
+    WDB	*new_day_button;
+    
+    new_day_button = g_new(WDB, 1);
+    if(!new_day_button)
+	return NULL;
+    /* create day icon buffer */
+    new_day_button->icon_buffer = gdk_pixbuf_new_from_file_at_size(icon,
+								    icon_size,
+								    icon_size, NULL);
+    if(!new_day_button->icon_buffer)
+	return NULL;
+    /* create day icon image from buffer */
+    new_day_button->icon_image = gtk_image_new_from_pixbuf(new_day_button->icon_buffer);
+    /* create day button */
+    new_day_button->button = gtk_button_new();
+    if(transparency)
+	gtk_button_set_relief(GTK_BUTTON(new_day_button->button), GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(new_day_button->button), FALSE);
+    /* create day label */
+    new_day_button->label = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
+    gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_RIGHT);
+    /* Set font size for label */
+    set_font_size(new_day_button->label, font_size);
+    /* create day box to contain icon and label */
+    new_day_button->box = gtk_hbox_new(FALSE, 0);
+    /* Packing all to the box */
+    gtk_box_pack_start(GTK_BOX(new_day_button->box), new_day_button->icon_image, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(new_day_button->box), new_day_button->label, FALSE, FALSE, 0);
+    gtk_container_add(GTK_CONTAINER(new_day_button->button), new_day_button->box);
+    return new_day_button;
+}
+
+void delete_weather_day_button(WDB **day){
+
+    if(*day){
+	if( (*day)->icon_image )
+	    gtk_widget_destroy( (*day)->icon_image );
+	if( (*day)->icon_buffer )
+	     g_object_unref( (*day)->icon_buffer );
+	if( (*day)->label )
+	    gtk_widget_destroy( (*day)->label );
+	if( (*day)->box )
+	    gtk_widget_destroy( (*day)->box );
+	if( (*day)->button )
+	    gtk_widget_destroy( (*day)->button );
+	g_free(*day);
+	*day = NULL;
+    }
+}

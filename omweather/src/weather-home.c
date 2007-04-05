@@ -522,9 +522,10 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     buffer[0] = '\0';
 /* create station name button */
     if(!st_name)
-	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>NO STATION</span>",
+	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>%s</span>",
 	    app->font_color.red >> 8, app->font_color.green >> 8,
-	    app->font_color.blue >> 8);
+	    app->font_color.blue >> 8,
+	    (char*)hash_table_find("NO STATION"));
     else
 	sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s</span>",
         	app->font_color.red >> 8, app->font_color.green >> 8,
@@ -603,14 +604,15 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     gtk_table_attach( (GtkTable*)panel, header_panel, 0, 1, 0, 1 ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
     gtk_table_attach( (GtkTable*)panel, days_panel, 0, 1, 1, 2 ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 /* Connect signal button */
-    g_signal_connect (previos_station_name_btn, "released", G_CALLBACK (change_station_prev), NULL);  		    
-    g_signal_connect (previos_station_name_btn, "enter", G_CALLBACK (enter_button), NULL);     
-    g_signal_connect (next_station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
-    g_signal_connect (next_station_name_btn, "enter", G_CALLBACK (enter_button), NULL);     
-    g_signal_connect (station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
-    g_signal_connect (station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
+    g_signal_connect(previos_station_name_btn, "released", G_CALLBACK (change_station_prev), NULL);  		    
+    g_signal_connect(previos_station_name_btn, "enter", G_CALLBACK (enter_button), NULL);     
+    g_signal_connect(next_station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
+    g_signal_connect(next_station_name_btn, "enter", G_CALLBACK (enter_button), NULL);     
+    g_signal_connect(station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
+    g_signal_connect(station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
     gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn); 
-    if (station_name_btn) g_object_unref (station_name_btn);
+    if(station_name_btn)
+	g_object_unref (station_name_btn);
 
 }
 

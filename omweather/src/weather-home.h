@@ -54,7 +54,7 @@ int parse_weather_com_xml(void);
 int c2f(int temp);
 void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 gboolean download_html(gpointer data);
-void weather_initialize_dbus(void);
+extern void weather_initialize_dbus(void);
 void update_weather(void);
 void free_memory(gboolean flag);
 /* List times between two updates */

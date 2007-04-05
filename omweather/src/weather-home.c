@@ -159,7 +159,7 @@ change_station_next (GtkWidget *widget,
 void weather_buttons_init(void){
     int i;
 /* Set default icon N/A */
-    for(i = 0; i < days_to_show; i++){
+    for(i = 0; i < app->days_to_show; i++){
 	memset(&weather_days[i], 0, sizeof(weather_day));
 	weather_days[i].night.icon = 48;
 	weather_days[i].day.icon = 48;
@@ -241,7 +241,7 @@ void weather_buttons_fill(gboolean check_error){
 	    (current_day > weather_days[offset].date_time) &&
 	    (offset<count_day) )
 	offset ++;
-    for(i = 0; i < days_to_show; i++, offset++){
+    for(i = 0; i < app->days_to_show; i++, offset++){
      /* If it first button add to evenet time change between nigth and day */
 	if(current_day == weather_days[offset].date_time){
 	    if(current_time < weather_days[offset].day.begin_time)
@@ -260,7 +260,7 @@ void weather_buttons_fill(gboolean check_error){
 	    temp_hi_now = atoi(weather_current_day.day.temp); 
 	    temp_hi = atoi(weather_days[offset].hi_temp);     
 	    temp_low = atoi(weather_days[offset].low_temp);     
-	    if(_weather_temperature_unit == FAHRENHEIT ){
+	    if(app->temperature_units == FAHRENHEIT ){
 		temp_hi_now = c2f(temp_hi_now);
 		temp_hi = c2f(temp_hi);
 		temp_low = c2f(temp_low);
@@ -274,7 +274,7 @@ void weather_buttons_fill(gboolean check_error){
 		time_event_add((weather_current_day.date_time+OFFSET_CURRENT_WEATHER*3600),DAYTIMEEVENT);
       /* Show current weather bold fonts */
 		sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
-            	    _weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+            	    app->font_color.red >> 8, app->font_color.green >> 8, app->font_color.blue >> 8,
             	    weather_days[offset].dayshname, temp_hi_now);
 		sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_current_day.day.icon);
 	    }		
@@ -286,7 +286,7 @@ void weather_buttons_fill(gboolean check_error){
     			sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);
 	 /* Show All temperatures */
     		    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
-            		_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+            		app->font_color.red >> 8, app->font_color.green >> 8, app->font_color.blue >> 8,
             		weather_days[offset].dayshname, temp_low, temp_hi);
 		    } 
 		    else
@@ -294,21 +294,21 @@ void weather_buttons_fill(gboolean check_error){
     			    sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    
        /* Show All temperatures */
 			    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
-            			_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+            			app->font_color.red >> 8, app->font_color.green >> 8, app->font_color.blue >> 8,
             			weather_days[offset].dayshname, temp_low, temp_hi);
 			}		
 			else{
     			    sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);
 	 /* Show only night temperature */
     			    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
-            			_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+            			app->font_color.red >> 8, app->font_color.green >> 8, app->font_color.blue >> 8,
             			weather_days[offset].dayshname, temp_low);
 			}
 		}
 		else{
        /* Create output string for full time of day (day and night)*/
 		    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
-            		_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+            		app->font_color.red >> 8, app->font_color.green >> 8, app->font_color.blue >> 8,
             		weather_days[offset].dayshname, temp_low, temp_hi);
 		    sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);
 		}		    
@@ -317,7 +317,7 @@ void weather_buttons_fill(gboolean check_error){
 	else{
      /* Show N/A */
 	    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
-            	_weather_font_color.red >> 8,_weather_font_color.green >> 8,_weather_font_color.blue >> 8,
+            	app->font_color.red >> 8, app->font_color.green >> 8, app->font_color.blue >> 8,
 		_("N/A"), _("N/A"), _("N/A"));
 	    sprintf(buffer_icon,"%s48.png",path_large_icon);
      /* Add time event to list for next day after last day in xml file */
@@ -330,7 +330,7 @@ void weather_buttons_fill(gboolean check_error){
 	boxs_offset[i] = offset;
      /* Prepare butons for view */   
 	buttons[i] = gtk_button_new();
-	if(_enable_transparency)
+	if(app->transparency)
 	    gtk_button_set_relief(GTK_BUTTON(buttons[i]),GTK_RELIEF_NONE);
 	gtk_button_set_focus_on_click(GTK_BUTTON(buttons[i]),FALSE);
 
@@ -374,7 +374,7 @@ void weather_buttons_fill(gboolean check_error){
 
 /* create main panel */
     app->main_window = gtk_table_new(2, 1, FALSE);
-    create_panel(app->main_window, app->icons_layout, _enable_transparency, tmp_station_name, font_size);
+    create_panel(app->main_window, app->icons_layout, app->transparency, tmp_station_name, font_size);
     gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
     gtk_widget_show_all(app->top_widget);
 
@@ -417,6 +417,11 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     app->hash = hash_table_create();
     app->icons_size = LARGE;
     app->icons_layout = ONE_ROW;
+    app->transparency = TRUE;
+    app->days_to_show = 5;
+    app->distance_units = KILOMETERS;
+    app->wind_units = METERS_S;
+    app->temperature_units = CELSIUS;
 /* Init gconf. */
     gnome_vfs_init();
     read_config();
@@ -483,16 +488,16 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     int		n, elements, x, y;
 
 
-    if(days_to_show % 2)
-	elements = days_to_show / 2 + 1;
+    if(app->days_to_show % 2)
+	elements = app->days_to_show / 2 + 1;
     else
-	elements = days_to_show / 2;
+	elements = app->days_to_show / 2;
 /* create header panel */
     header_panel = gtk_table_new(1, 3, FALSE);
 /* create previos station button */
     sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&lt;</span>",
-	    _weather_font_color.red >> 8, _weather_font_color.green >> 8,
-	    _weather_font_color.blue >> 8);
+	    app->font_color.red >> 8, app->font_color.green >> 8,
+	    app->font_color.blue >> 8);
     previos_station_box		= gtk_hbox_new(FALSE, 0);
     previos_station_name_btn	= gtk_button_new();
     previos_station_name        = gtk_label_new(NULL);
@@ -504,8 +509,8 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     buffer[0] = '\0';
 /* create next station button */
     sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&gt;</span>",
-	    _weather_font_color.red >> 8, _weather_font_color.green >> 8,
-	    _weather_font_color.blue >> 8);
+	    app->font_color.red >> 8, app->font_color.green >> 8,
+	    app->font_color.blue >> 8);
     next_station_box		= gtk_hbox_new(FALSE, 0);
     next_station_name_btn	= gtk_button_new();
     next_station_name        	= gtk_label_new(NULL);
@@ -518,12 +523,12 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 /* create station name button */
     if(!st_name)
 	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>NO STATION</span>",
-	    _weather_font_color.red >> 8, _weather_font_color.green >> 8,
-	    _weather_font_color.blue >> 8);
+	    app->font_color.red >> 8, app->font_color.green >> 8,
+	    app->font_color.blue >> 8);
     else
 	sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s</span>",
-        	_weather_font_color.red >> 8, _weather_font_color.green >> 8,
-		_weather_font_color.blue >> 8, st_name);
+        	app->font_color.red >> 8, app->font_color.green >> 8,
+		app->font_color.blue >> 8, st_name);
     station_box		= gtk_hbox_new(FALSE, 0);
     station_name_btn	= gtk_button_new();
     station_name        = gtk_label_new(NULL);
@@ -565,7 +570,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 	break;
     }
 /* attach days buttons */
-    for(n = 0, x = 0, y = 0; n < days_to_show; n++, x++){
+    for(n = 0, x = 0, y = 0; n < app->days_to_show; n++, x++){
 	switch(layout){
 	    default:
 	    case ONE_ROW:

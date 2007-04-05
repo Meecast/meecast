@@ -351,8 +351,8 @@ void weather_buttons_fill(gboolean check_error){
 	gtk_box_pack_start(GTK_BOX(boxs[i]), labels[i], FALSE, FALSE, 0);
 	gtk_container_add(GTK_CONTAINER(buttons[i]), boxs[i]);
  /* Connect signal button */
-	g_signal_connect(buttons[i], "released", G_CALLBACK (weather_window_popup_show), NULL);  		    
-	g_signal_connect(buttons[i], "enter", G_CALLBACK (enter_button), NULL); 
+	g_signal_connect(buttons[i], "released", G_CALLBACK(weather_window_popup_show), NULL);
+	g_signal_connect(buttons[i], "enter", G_CALLBACK(enter_button), NULL); 
     }/* for */
 
     if(g_slist_length(stations_view_list) > 0){

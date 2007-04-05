@@ -118,9 +118,6 @@ struct time_update{
 struct weather_station{
     gchar	*id_station;
     gchar	*name_station;
-    GtkWidget	*box;
-    GtkWidget	*button;
-    GtkWidget	*label_box;
 };
 
 typedef struct OMWeatherApplet{

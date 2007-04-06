@@ -82,7 +82,8 @@ void weather_window_popup_show (GtkWidget *widget,
     } 
    /* Search: Which button pressed */
     for(i = 0;i < app->days_to_show; i++)
-	if(buttons[i] == widget) 
+//	if(buttons[i] == widget) 
+	if(app->buttons[i]->button == widget) 
 	    break;  
     /* Not found pressed button */
     if( i >= app->days_to_show )

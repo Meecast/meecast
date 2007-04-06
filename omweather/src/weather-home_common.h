@@ -151,7 +151,7 @@ typedef struct OMWeatherApplet{
     gint		wind_units;
     gint		temperature_units;
     GdkColor		font_color;
-    WDB			*days_buttons[Max_count_weather_day];
+    WDB			*buttons[Max_count_weather_day];
 }OMWeatherApp;
 
 weather_day weather_days[Max_count_weather_day];

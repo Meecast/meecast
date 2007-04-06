@@ -61,9 +61,9 @@ void free_memory(gboolean flag);
 /* List times between two updates */
 GSList *time_update_list = NULL;
 gboolean not_event = FALSE;
-GtkWidget *buttons [Max_count_weather_day];
-GtkWidget *labels [Max_count_weather_day];
-GtkWidget *boxs [Max_count_weather_day];
+//GtkWidget *buttons [Max_count_weather_day];
+//GtkWidget *labels [Max_count_weather_day];
+//GtkWidget *boxs [Max_count_weather_day];
 int 	   boxs_offset [Max_count_weather_day];
 guint flag_update=0;
 gchar  path_large_icon[_POSIX_PATH_MAX];

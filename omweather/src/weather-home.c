@@ -329,30 +329,33 @@ void weather_buttons_fill(gboolean check_error){
      /* Write offset in wetaher data for this button */
 	boxs_offset[i] = offset;
      /* Prepare butons for view */   
-	buttons[i] = gtk_button_new();
-	if(app->transparency)
-	    gtk_button_set_relief(GTK_BUTTON(buttons[i]),GTK_RELIEF_NONE);
-	gtk_button_set_focus_on_click(GTK_BUTTON(buttons[i]),FALSE);
+//	buttons[i] = gtk_button_new();
+//	if(app->transparency)
+//	    gtk_button_set_relief(GTK_BUTTON(buttons[i]),GTK_RELIEF_NONE);
+//	gtk_button_set_focus_on_click(GTK_BUTTON(buttons[i]),FALSE);
 
-	labels[i] = gtk_label_new(NULL);
-	gtk_label_set_markup(GTK_LABEL(labels[i]),buffer);
-	gtk_label_set_justify(GTK_LABEL(labels[i]),GTK_JUSTIFY_RIGHT);
+//	labels[i] = gtk_label_new(NULL);
+//	gtk_label_set_markup(GTK_LABEL(labels[i]),buffer);
+//	gtk_label_set_justify(GTK_LABEL(labels[i]),GTK_JUSTIFY_RIGHT);
      /* Select size font on desktop and icon size */
-	set_font_size(labels[i], font_size);
-	icon = gdk_pixbuf_new_from_file_at_size(buffer_icon,
-						icon_size,
-						icon_size, NULL);
+//	set_font_size(labels[i], font_size);
+//	icon = gdk_pixbuf_new_from_file_at_size(buffer_icon,
+//						icon_size,
+//						icon_size, NULL);
      /* Create box for image and label */
-	boxs[i] = gtk_hbox_new(FALSE, 0);
-	icon_image = gtk_image_new_from_pixbuf(icon);
-	if (icon) g_object_unref (icon);
+//	boxs[i] = gtk_hbox_new(FALSE, 0);
+//	icon_image = gtk_image_new_from_pixbuf(icon);
+//	if (icon) g_object_unref (icon);
      /* Packing buttons to box */
-	gtk_box_pack_start(GTK_BOX(boxs[i]), icon_image, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(boxs[i]), labels[i], FALSE, FALSE, 0);
-	gtk_container_add(GTK_CONTAINER(buttons[i]), boxs[i]);
+//	gtk_box_pack_start(GTK_BOX(boxs[i]), icon_image, FALSE, FALSE, 0);
+//	gtk_box_pack_start(GTK_BOX(boxs[i]), labels[i], FALSE, FALSE, 0);
+//	gtk_container_add(GTK_CONTAINER(buttons[i]), boxs[i]);
  /* Connect signal button */
-	g_signal_connect(buttons[i], "released", G_CALLBACK(weather_window_popup_show), NULL);
-	g_signal_connect(buttons[i], "enter", G_CALLBACK(enter_button), NULL); 
+//	g_signal_connect(buttons[i], "released", G_CALLBACK(weather_window_popup_show), NULL);
+//	g_signal_connect(buttons[i], "enter", G_CALLBACK(enter_button), NULL); 
+	app->buttons[i] = create_weather_day_button(buffer, buffer_icon, icon_size, app->transparency, font_size);
+	g_signal_connect(app->buttons[i]->button, "released", G_CALLBACK(weather_window_popup_show), NULL);
+	g_signal_connect(app->buttons[i]->button, "enter", G_CALLBACK(enter_button), NULL); 
     }/* for */
 
     if(g_slist_length(stations_view_list) > 0){
@@ -578,28 +581,34 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 	switch(layout){
 	    default:
 	    case ONE_ROW:
-		gtk_table_attach( (GtkTable*)days_panel, buttons[n], n, n + 1, 0, 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0 );
+//		gtk_table_attach( (GtkTable*)days_panel, buttons[n], n, n + 1, 0, 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0 );
+		gtk_table_attach( (GtkTable*)days_panel, app->buttons[n]->button, n, n + 1, 0, 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0 );
 	    break;
 	    case ONE_COLUMN:
-		gtk_table_attach( (GtkTable*)days_panel, buttons[n], 0, 1, n, n + 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+//		gtk_table_attach( (GtkTable*)days_panel, buttons[n], 0, 1, n, n + 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+		gtk_table_attach( (GtkTable*)days_panel, app->buttons[n]->button, 0, 1, n, n + 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 	    break;
 	    case TWO_ROWS:
 		if(n == elements){
 		    x = 0; y = 1;
 		}
 		if(!y)
-		    gtk_table_attach( (GtkTable*)days_panel, buttons[n], x, x + 1, 0, 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+//		    gtk_table_attach( (GtkTable*)days_panel, buttons[n], x, x + 1, 0, 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+		    gtk_table_attach( (GtkTable*)days_panel, app->buttons[n]->button, x, x + 1, 0, 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 		else
-		    gtk_table_attach( (GtkTable*)days_panel, buttons[n], x, x + 1, 1, 2,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+//		    gtk_table_attach( (GtkTable*)days_panel, buttons[n], x, x + 1, 1, 2,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+		    gtk_table_attach( (GtkTable*)days_panel, app->buttons[n]->button, x, x + 1, 1, 2,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 	    break;
 	    case TWO_COLUMNS:
 		if(n == elements){
 		    x = 0; y = 1;
 		}
 		if(!y)
-		    gtk_table_attach( (GtkTable*)days_panel, buttons[n], 0, 1, x, x + 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+//		    gtk_table_attach( (GtkTable*)days_panel, buttons[n], 0, 1, x, x + 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+		    gtk_table_attach( (GtkTable*)days_panel, app->buttons[n]->button, 0, 1, x, x + 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 		else
-		    gtk_table_attach( (GtkTable*)days_panel, buttons[n], 1, 2, x, x + 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+//		    gtk_table_attach( (GtkTable*)days_panel, buttons[n], 1, 2, x, x + 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+		    gtk_table_attach( (GtkTable*)days_panel, app->buttons[n]->button, 1, 2, x, x + 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 	    break;
 	}
     }
@@ -616,11 +625,12 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn); 
     if(station_name_btn)
 	g_object_unref (station_name_btn);
-
 }
 
 /* free used memory from OMWeather struct */
 void free_memory(gboolean flag){
+    int i;
+    
     if(app->weather_dir_name && flag){
 	g_free(app->weather_dir_name);
 	app->weather_dir_name = NULL;
@@ -654,6 +664,8 @@ void free_memory(gboolean flag){
 	g_slist_free(stations_view_list);
 	stations_view_list = NULL;
     }
+    for(i = 0; i < app->days_to_show; i++)
+	delete_weather_day_button( &(app->buttons[i]) );
 }
 
 WDB* create_weather_day_button(const char *text, const char *icon, const int icon_size, gboolean transparency, char font_size){

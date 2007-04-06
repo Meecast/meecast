@@ -431,10 +431,6 @@ void* hildon_home_applet_lib_initialize(void *state_data,
 /* Start timer */
     timer();
 /* Initialize DBUS */
-    if (check_connected())
-        app->iap_connected = TRUE;
-    else
-	app->iap_connected = FALSE;
     weather_initialize_dbus();
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);

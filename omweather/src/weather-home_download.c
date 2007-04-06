@@ -72,7 +72,7 @@ get_connection_status_signal_cb(DBusConnection *connection,
     }
     else if(app->iap_connected)
     {
-        app->iap_connected = FALSE; /* !!!!!!!!! Remove download */
+        app->iap_connected = FALSE; /* !!!!!!!!! Need Remove download */
     }
 
     return DBUS_HANDLER_RESULT_HANDLED;
@@ -134,7 +134,7 @@ void weather_initialize_dbus(void){
     osso_iap_cb(iap_callback);
 
 /* For Debug on i386 */
-    app->iap_connected = TRUE; 
+//    app->iap_connected = TRUE; 
 	
 }
 

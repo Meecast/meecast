@@ -357,6 +357,15 @@ void read_config(void){
 	add_time_update_list(24 * 60, _("24 hours"));
 	add_time_update_list(1, _("1 minute (DEBUG)"));    
     }
+    /* Check connection */
+    tmp = gconf_client_get_string(gconf_client,
+        			    GCONF_KEY_CURRENT_CONNECTIVITY, NULL);
+    if (tmp)
+        app->iap_connected = TRUE;
+	g_free(tmp);
+    else
+	app->iap_connected = FALSE;
+	
     app->show_update_window = FALSE;
     gconf_client_clear_cache(gconf_client);
 }

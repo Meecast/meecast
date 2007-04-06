@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-05 11:48+0300\n"
+"POT-Creation-Date: 2007-04-06 09:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/weather-home_preference.c:1118
+#: src/weather-home_preference.c:1136
 msgid ""
 "\n"
 "Author and maintenance:\n"
@@ -25,18 +25,20 @@ msgid ""
 "\tPavel Fialko, pavelnf@gmail.com"
 msgstr ""
 
-#: src/weather-home_preference.c:1110
+#: src/weather-home_preference.c:1128
 msgid ""
 "\n"
 "Copyright(c) 2006-2007\n"
 "Vlad Vasiliev, Pavel Fialko"
 msgstr ""
 
-#: src/weather-home_preference.c:1127
+#: src/weather-home_preference.c:1145
 msgid ""
 "\n"
-"Ed Bartosh - for support and criticism\n"
-"Eugen Kaluta aka tren - for support\n"
+"Ed Bartosh - for more feature requests,\n"
+"\t\t\t\tsupport and criticism\n"
+"Eugen Kaluta aka tren - for feature requests\n"
+"\t\t\t\tand support\n"
 "Maxim Kalinkevish aka spark for testing\n"
 "Yuri Komyakov - for Nokia 770 device \n"
 "Greg Thompson for support stations.txt file\n"
@@ -45,13 +47,13 @@ msgid ""
 "\t\t\t\tand donation ;-)\n"
 msgstr ""
 
-#: src/weather-window_popup.c:142
+#: src/weather-window_popup.c:143
 msgid ""
 "\n"
 "Feels like: "
 msgstr ""
 
-#: src/weather-home_preference.c:1106
+#: src/weather-home_preference.c:1124
 msgid ""
 "\n"
 "Hildon desktop applet\n"
@@ -60,36 +62,36 @@ msgid ""
 "Version "
 msgstr ""
 
-#: src/weather-window_popup.c:154 src/weather-window_popup.c:325
-#: src/weather-window_popup.c:360
+#: src/weather-window_popup.c:155 src/weather-window_popup.c:326
+#: src/weather-window_popup.c:361
 msgid ""
 "\n"
 "Humidity: "
 msgstr ""
 
-#: src/weather-window_popup.c:150
+#: src/weather-window_popup.c:151
 msgid ""
 "\n"
 "Pressure: "
 msgstr ""
 
-#: src/weather-window_popup.c:148
+#: src/weather-window_popup.c:149
 msgid ""
 "\n"
 "Visible: "
 msgstr ""
 
-#: src/weather-window_popup.c:161 src/weather-window_popup.c:367
+#: src/weather-window_popup.c:162 src/weather-window_popup.c:368
 msgid ""
 "\n"
 "Wind: "
 msgstr ""
 
-#: src/weather-home_preference.c:732
+#: src/weather-home_preference.c:737
 msgid " Add "
 msgstr ""
 
-#: src/weather-window_popup.c:170
+#: src/weather-window_popup.c:171
 msgid " Gust: "
 msgstr ""
 
@@ -122,78 +124,86 @@ msgid "AM Clouds / PM Sun"
 msgstr ""
 
 #: src/weather-home_hash.c:17
-msgid "AM Light Snow"
+msgid "AM Light Rain / Wind"
 msgstr ""
 
 #: src/weather-home_hash.c:18
-msgid "AM Light Wintry Mix"
+msgid "AM Light Snow"
 msgstr ""
 
 #: src/weather-home_hash.c:19
-msgid "AM Rain / Snow Showers"
+msgid "AM Light Wintry Mix"
 msgstr ""
 
 #: src/weather-home_hash.c:20
-msgid "AM Showers"
+msgid "AM Rain / Snow Showers"
 msgstr ""
 
 #: src/weather-home_hash.c:21
-msgid "AM Snow Showers"
-msgstr ""
-
-#: src/weather-home_preference.c:1115
-msgid "About"
-msgstr ""
-
-#: src/weather-home_preference.c:484 src/weather-home_preference.c:564
-msgid "Add Custom Station"
-msgstr ""
-
-#: src/weather-home_preference.c:556
-msgid "Add Station"
-msgstr ""
-
-#: src/weather-home_hash.c:135
-msgid "Apr"
-msgstr ""
-
-#: src/weather-home_hash.c:139
-msgid "Aug"
-msgstr ""
-
-#: src/weather-home_preference.c:1124
-msgid "Authors"
-msgstr ""
-
-#: src/weather-window_popup.c:123 src/weather-window_popup.c:146
-msgid "C"
+msgid "AM Rain / Snow Showers / Wind"
 msgstr ""
 
 #: src/weather-home_hash.c:22
-msgid "CALM"
-msgstr ""
-
-#: src/weather-home_preference.c:874
-msgid "Celsius (Metric)"
+msgid "AM Showers"
 msgstr ""
 
 #: src/weather-home_hash.c:23
-msgid "Clear"
+msgid "AM Snow Showers"
+msgstr ""
+
+#: src/weather-home_preference.c:1133
+msgid "About"
+msgstr ""
+
+#: src/weather-home_preference.c:489 src/weather-home_preference.c:569
+msgid "Add Custom Station"
+msgstr ""
+
+#: src/weather-home_preference.c:561
+msgid "Add Station"
+msgstr ""
+
+#: src/weather-home_hash.c:137
+msgid "Apr"
+msgstr ""
+
+#: src/weather-home_hash.c:141
+msgid "Aug"
+msgstr ""
+
+#: src/weather-home_preference.c:1142
+msgid "Authors"
+msgstr ""
+
+#: src/weather-window_popup.c:124 src/weather-window_popup.c:147
+msgid "C"
 msgstr ""
 
 #: src/weather-home_hash.c:24
-msgid "Clear / Wind"
+msgid "CALM"
+msgstr ""
+
+#: src/weather-home_preference.c:880
+msgid "Celsius (Metric)"
 msgstr ""
 
 #: src/weather-home_hash.c:25
-msgid "Clouds Early / Clearing Late"
-msgstr ""
-
-#: src/weather-home_hash.c:27
-msgid "Cloudy"
+msgid "Clear"
 msgstr ""
 
 #: src/weather-home_hash.c:26
+msgid "Clear / Wind"
+msgstr ""
+
+#: src/weather-home_hash.c:27
+msgid "Clouds Early / Clearing Late"
+msgstr ""
+
+#: src/weather-home_hash.c:29
+msgid "Cloudy"
+msgstr ""
+
+#: src/weather-home_hash.c:28
 msgid "Cloudy and Windy"
 msgstr ""
 
@@ -202,47 +212,47 @@ msgstr ""
 msgid "Could not create Weather Cache directory.\n"
 msgstr ""
 
-#: src/weather-home_preference.c:569
+#: src/weather-home_preference.c:574
 msgid "Country:"
 msgstr ""
 
-#: src/weather-window_popup.c:353
+#: src/weather-window_popup.c:354
 msgid "Day:"
 msgstr ""
 
-#: src/weather-home_preference.c:767
+#: src/weather-home_preference.c:772
 msgid "Days to show:"
 msgstr ""
 
-#: src/weather-home_hash.c:143
+#: src/weather-home_hash.c:145
 msgid "Dec"
 msgstr ""
 
-#: src/weather-home_preference.c:746
+#: src/weather-home_preference.c:751
 msgid "Delete"
 msgstr ""
 
-#: src/weather-home_download.c:299
+#: src/weather-home_download.c:294
 msgid "Did not download weather"
 msgstr ""
 
-#: src/weather-home_preference.c:883
+#: src/weather-home_preference.c:889
 msgid "Distance units:"
 msgstr ""
 
-#: src/weather-home_hash.c:28
+#: src/weather-home_hash.c:30
 msgid "Drizzle"
 msgstr ""
 
-#: src/weather-home_hash.c:29
+#: src/weather-home_hash.c:31
 msgid "E"
 msgstr ""
 
-#: src/weather-home_hash.c:30
+#: src/weather-home_hash.c:32
 msgid "ENE"
 msgstr ""
 
-#: src/weather-home_hash.c:31
+#: src/weather-home_hash.c:33
 msgid "ESE"
 msgstr ""
 
@@ -251,15 +261,15 @@ msgstr ""
 msgid "Error in xml file\n"
 msgstr ""
 
-#: src/weather-home.c:408
+#: src/weather-home.c:411
 msgid "Error initializing the OMWeather applet"
 msgstr ""
 
-#: src/weather-window_popup.c:124 src/weather-window_popup.c:147
+#: src/weather-window_popup.c:125 src/weather-window_popup.c:148
 msgid "F"
 msgstr ""
 
-#: src/weather-home_preference.c:875
+#: src/weather-home_preference.c:881
 msgid "Fahrenheit (Imperial)"
 msgstr ""
 
@@ -273,212 +283,212 @@ msgstr ""
 msgid "Failed to initialize GConf. Settings were not saved.\n"
 msgstr ""
 
-#: src/weather-home_hash.c:32
+#: src/weather-home_hash.c:34
 msgid "Fair"
 msgstr ""
 
-#: src/weather-home_hash.c:133
+#: src/weather-home_hash.c:135
 msgid "Feb"
 msgstr ""
 
-#: src/weather-home_hash.c:34
+#: src/weather-home_hash.c:36
 msgid "Few Showers"
 msgstr ""
 
-#: src/weather-home_hash.c:35
+#: src/weather-home_hash.c:37
 msgid "Few Showers / Wind"
 msgstr ""
 
-#: src/weather-home_hash.c:36
+#: src/weather-home_hash.c:38
 msgid "Few Snow"
 msgstr ""
 
-#: src/weather-home_hash.c:37
+#: src/weather-home_hash.c:39
 msgid "Few Snow Showers"
 msgstr ""
 
-#: src/weather-home_hash.c:38
+#: src/weather-home_hash.c:40
 msgid "Fog"
 msgstr ""
 
-#: src/weather-home_preference.c:845
+#: src/weather-home_preference.c:850
 msgid "Font color:"
 msgstr ""
 
-#: src/weather-home_hash.c:40
+#: src/weather-home_hash.c:42
 msgid "Fr"
 msgstr ""
 
-#: src/weather-home_hash.c:39
+#: src/weather-home_hash.c:41
 msgid "Friday"
 msgstr ""
 
-#: src/weather-home_hash.c:41
+#: src/weather-home_hash.c:43
 msgid "Full"
 msgstr ""
 
-#: src/weather-home_hash.c:42
+#: src/weather-home_hash.c:44
 msgid "Haze"
 msgstr ""
 
-#: src/weather-home_hash.c:43
+#: src/weather-home_hash.c:45
 msgid "Heavy Rain / Wind"
 msgstr ""
 
-#: src/weather-home_hash.c:44
+#: src/weather-home_hash.c:46
 msgid "Heavy Snow"
 msgstr ""
 
-#: src/weather-home_hash.c:45
+#: src/weather-home_hash.c:47
 msgid "High"
 msgstr ""
 
-#: src/weather-home_preference.c:818
+#: src/weather-home_preference.c:823
 msgid "Icon set:"
 msgstr ""
 
-#: src/weather-home_preference.c:828
+#: src/weather-home_preference.c:833
 msgid "Icon size:"
 msgstr ""
 
-#: src/weather-home_preference.c:763
+#: src/weather-home_preference.c:768
 msgid "Interface"
 msgstr ""
 
-#: src/weather-home_hash.c:46
+#: src/weather-home_hash.c:48
 msgid "Isolated T-Storms"
 msgstr ""
 
-#: src/weather-home_hash.c:132
+#: src/weather-home_hash.c:134
 msgid "Jan"
 msgstr ""
 
-#: src/weather-home_hash.c:138
+#: src/weather-home_hash.c:140
 msgid "Jul"
 msgstr ""
 
-#: src/weather-home_hash.c:137
+#: src/weather-home_hash.c:139
 msgid "Jun"
 msgstr ""
 
-#: src/weather-home_preference.c:890
+#: src/weather-home_preference.c:896
 msgid "Kilometers"
 msgstr ""
 
-#: src/weather-home_preference.c:834
+#: src/weather-home_preference.c:839
 msgid "Large"
 msgstr ""
 
-#: src/weather-window_popup.c:237
+#: src/weather-window_popup.c:238
 msgid "Last update: \n"
 msgstr ""
 
-#: src/weather-window_popup.c:234
+#: src/weather-window_popup.c:235
 #, c-format
 msgid "Last update: Unknown"
 msgstr ""
 
-#: src/weather-home_preference.c:799
+#: src/weather-home_preference.c:804
 msgid "Layout:"
 msgstr ""
 
-#: src/weather-home_hash.c:47
+#: src/weather-home_hash.c:49
 msgid "Light Drizzle"
 msgstr ""
 
-#: src/weather-home_hash.c:49
+#: src/weather-home_hash.c:51
 msgid "Light Rain"
 msgstr ""
 
-#: src/weather-home_hash.c:48
+#: src/weather-home_hash.c:50
 msgid "Light Rain and Windy"
 msgstr ""
 
-#: src/weather-home_hash.c:50
+#: src/weather-home_hash.c:52
 msgid "Light Snow"
 msgstr ""
 
-#: src/weather-home_hash.c:51
+#: src/weather-home_hash.c:53
 msgid "Light Snow Shower"
 msgstr ""
 
-#: src/weather-home_preference.c:711
+#: src/weather-home_preference.c:716
 msgid "Locations"
 msgstr ""
 
-#: src/weather-home_hash.c:52
+#: src/weather-home_hash.c:54
 msgid "Low"
 msgstr ""
 
-#: src/weather-home_hash.c:134
+#: src/weather-home_hash.c:136
 msgid "Mar"
 msgstr ""
 
-#: src/weather-home_hash.c:136
+#: src/weather-home_hash.c:138
 msgid "May"
 msgstr ""
 
-#: src/weather-home_preference.c:835
+#: src/weather-home_preference.c:840
 msgid "Medium"
 msgstr ""
 
-#: src/weather-home_preference.c:889
+#: src/weather-home_preference.c:895
 msgid "Meters"
 msgstr ""
 
-#: src/weather-home_preference.c:892
+#: src/weather-home_preference.c:898
 msgid "Miles (Imperial)"
 msgstr ""
 
-#: src/weather-home_preference.c:891
+#: src/weather-home_preference.c:897
 msgid "Miles (International)"
 msgstr ""
 
-#: src/weather-home_preference.c:893
+#: src/weather-home_preference.c:899
 msgid "Miles (Sea)"
 msgstr ""
 
-#: src/weather-home_hash.c:53
+#: src/weather-home_hash.c:55
 msgid "Mist"
 msgstr ""
 
-#: src/weather-home_hash.c:55
+#: src/weather-home_hash.c:57
 msgid "Mo"
 msgstr ""
 
-#: src/weather-home_hash.c:54
+#: src/weather-home_hash.c:56
 msgid "Monday"
 msgstr ""
 
-#: src/weather-home_hash.c:56
+#: src/weather-home_hash.c:58
 msgid "Mostly Clear"
 msgstr ""
 
-#: src/weather-home_hash.c:57
+#: src/weather-home_hash.c:59
 msgid "Mostly Cloudy"
 msgstr ""
 
-#: src/weather-home_hash.c:58
+#: src/weather-home_hash.c:60
 msgid "Mostly Sunny"
 msgstr ""
 
-#: src/weather-home_hash.c:61
+#: src/weather-home_hash.c:63
 msgid "N"
 msgstr ""
 
-#: src/weather-home.c:321 src/weather-home_hash.c:59
+#: src/weather-home.c:321 src/weather-home_hash.c:61
 msgid "N/A"
 msgstr ""
 
-#: src/weather-home_hash.c:60
+#: src/weather-home_hash.c:62
 msgid "NE"
 msgstr ""
 
-#: src/weather-home_hash.c:62
+#: src/weather-home_hash.c:64
 msgid "NNE"
 msgstr ""
 
-#: src/weather-home_hash.c:63
+#: src/weather-home_hash.c:65
 msgid "NNW"
 msgstr ""
 
@@ -486,7 +496,7 @@ msgstr ""
 msgid "NO STATION"
 msgstr ""
 
-#: src/weather-home_hash.c:64
+#: src/weather-home_hash.c:66
 msgid "NW"
 msgstr ""
 
@@ -494,119 +504,119 @@ msgstr ""
 msgid "Never"
 msgstr ""
 
-#: src/weather-window_popup.c:317
+#: src/weather-window_popup.c:318
 msgid "Night:"
 msgstr ""
 
-#: src/weather-home_download.c:102
+#: src/weather-home_download.c:96
 msgid "Not connected to Internet"
 msgstr ""
 
-#: src/weather-home_hash.c:142
+#: src/weather-home_hash.c:144
 msgid "Nov"
 msgstr ""
 
-#: src/weather-window_popup.c:119
+#: src/weather-window_popup.c:120
 msgid "Now:\n"
 msgstr ""
 
-#: src/weather-home_hash.c:141
+#: src/weather-home_hash.c:143
 msgid "Oct"
 msgstr ""
 
-#: src/weather-home_preference.c:806
+#: src/weather-home_preference.c:811
 msgid "One column"
 msgstr ""
 
-#: src/weather-home_preference.c:805
+#: src/weather-home_preference.c:810
 msgid "One row"
 msgstr ""
 
-#: src/weather-home_preference.c:1096
+#: src/weather-home_preference.c:1114
 msgid "Other Maemo Weather Info"
 msgstr ""
 
-#: src/weather-home_preference.c:694
+#: src/weather-home_preference.c:699
 msgid "Other Maemo Weather Settings"
 msgstr ""
 
-#: src/weather-home_hash.c:65
+#: src/weather-home_hash.c:67
 msgid "Overcast"
 msgstr ""
 
-#: src/weather-home_hash.c:68
+#: src/weather-home_hash.c:70
 msgid "PM Light Rain"
 msgstr ""
 
-#: src/weather-home_hash.c:69
+#: src/weather-home_hash.c:71
 msgid "PM Showers"
 msgstr ""
 
-#: src/weather-home_hash.c:70
+#: src/weather-home_hash.c:72
 msgid "PM Snow Showers"
 msgstr ""
 
-#: src/weather-home_hash.c:66
+#: src/weather-home_hash.c:68
 msgid "Partly Cloudy"
 msgstr ""
 
-#: src/weather-home_hash.c:67
+#: src/weather-home_hash.c:69
 msgid "Partly Cloudy / Wind"
 msgstr ""
 
-#: src/weather-home_hash.c:73
+#: src/weather-home_hash.c:75
 msgid "Rain"
 msgstr ""
 
-#: src/weather-home_hash.c:76
+#: src/weather-home_hash.c:78
 msgid "Rain / Snow"
 msgstr ""
 
-#: src/weather-home_hash.c:78
+#: src/weather-home_hash.c:80
 msgid "Rain / Snow Showers"
 msgstr ""
 
-#: src/weather-home_hash.c:79
+#: src/weather-home_hash.c:81
 msgid "Rain / Snow Showers / Wind"
 msgstr ""
 
-#: src/weather-home_hash.c:77
+#: src/weather-home_hash.c:79
 msgid "Rain / Snow Showers Late"
 msgstr ""
 
-#: src/weather-home_hash.c:83
+#: src/weather-home_hash.c:85
 msgid "Rain / Wind"
 msgstr ""
 
-#: src/weather-home_hash.c:82
+#: src/weather-home_hash.c:84
 msgid "Rain / Wind Early"
 msgstr ""
 
-#: src/weather-home_hash.c:72
+#: src/weather-home_hash.c:74
 msgid "Rain Early"
 msgstr ""
 
-#: src/weather-home_hash.c:75
+#: src/weather-home_hash.c:77
 msgid "Rain Shower"
 msgstr ""
 
-#: src/weather-home_hash.c:74
+#: src/weather-home_hash.c:76
 msgid "Rain Shower and Windy"
 msgstr ""
 
-#: src/weather-home_hash.c:71
+#: src/weather-home_hash.c:73
 msgid "Rain and Snow"
 msgstr ""
 
-#: src/weather-home_hash.c:80
+#: src/weather-home_hash.c:82
 msgid "Rain to Wintry Mix"
 msgstr ""
 
-#: src/weather-home_hash.c:81
+#: src/weather-home_hash.c:83
 msgid "Rain to Wintry Mix / Wind"
 msgstr ""
 
-#: src/weather-home_preference.c:739
+#: src/weather-home_preference.c:744
 msgid "Rename"
 msgstr ""
 
@@ -614,125 +624,125 @@ msgstr ""
 msgid "Rename Station"
 msgstr ""
 
-#: src/weather-home_hash.c:104
+#: src/weather-home_hash.c:106
 msgid "S"
 msgstr ""
 
-#: src/weather-home_hash.c:91
+#: src/weather-home_hash.c:93
 msgid "SE"
 msgstr ""
 
-#: src/weather-home_hash.c:105
+#: src/weather-home_hash.c:107
 msgid "SSE"
 msgstr ""
 
-#: src/weather-home_hash.c:106
+#: src/weather-home_hash.c:108
 msgid "SSW"
 msgstr ""
 
-#: src/weather-home_hash.c:113
+#: src/weather-home_hash.c:115
 msgid "SW"
 msgstr ""
 
-#: src/weather-home_hash.c:86
+#: src/weather-home_hash.c:88
 msgid "Sa"
 msgstr ""
 
-#: src/weather-home_hash.c:85
+#: src/weather-home_hash.c:87
 msgid "Saturday"
 msgstr ""
 
-#: src/weather-home_hash.c:87
+#: src/weather-home_hash.c:89
 msgid "Scattered Showers"
 msgstr ""
 
-#: src/weather-home_hash.c:88
+#: src/weather-home_hash.c:90
 msgid "Scattered Snow"
 msgstr ""
 
-#: src/weather-home_hash.c:89
+#: src/weather-home_hash.c:91
 msgid "Scattered Snow Showers"
 msgstr ""
 
-#: src/weather-home_hash.c:90
+#: src/weather-home_hash.c:92
 msgid "Scattered T-Storms"
 msgstr ""
 
-#: src/weather-home_hash.c:140
+#: src/weather-home_hash.c:142
 msgid "Sep"
 msgstr ""
 
-#: src/weather-window_popup.c:249
+#: src/weather-window_popup.c:250
 msgid "Settings"
 msgstr ""
 
-#: src/weather-home_hash.c:95
+#: src/weather-home_hash.c:97
 msgid "Showers"
 msgstr ""
 
-#: src/weather-home_hash.c:96
+#: src/weather-home_hash.c:98
 msgid "Showers / Wind"
 msgstr ""
 
-#: src/weather-home_hash.c:92
+#: src/weather-home_hash.c:94
 msgid "Showers Early"
 msgstr ""
 
-#: src/weather-home_hash.c:94
+#: src/weather-home_hash.c:96
 msgid "Showers Late"
 msgstr ""
 
-#: src/weather-home_hash.c:93
+#: src/weather-home_hash.c:95
 msgid "Showers in the Vicinity"
 msgstr ""
 
-#: src/weather-home_preference.c:836
+#: src/weather-home_preference.c:841
 msgid "Small"
 msgstr ""
 
-#: src/weather-home_hash.c:97
+#: src/weather-home_hash.c:99
 msgid "Smoke"
 msgstr ""
 
-#: src/weather-home_hash.c:100
+#: src/weather-home_hash.c:102
 msgid "Snow"
 msgstr ""
 
-#: src/weather-home_hash.c:99
+#: src/weather-home_hash.c:101
 msgid "Snow Shower"
 msgstr ""
 
-#: src/weather-home_hash.c:98
+#: src/weather-home_hash.c:100
 msgid "Snow Showers Late"
 msgstr ""
 
-#: src/weather-home_hash.c:101
+#: src/weather-home_hash.c:103
 msgid "Snow to Rain"
 msgstr ""
 
-#: src/weather-home_hash.c:102
+#: src/weather-home_hash.c:104
 msgid "Snow to Wintry Mix"
 msgstr ""
 
-#: src/weather-home_hash.c:103
+#: src/weather-home_hash.c:105
 msgid "Snow to Wintry Mix / Wind"
 msgstr ""
 
-#: src/weather-home_preference.c:577
+#: src/weather-home_preference.c:582
 msgid "State(Province):"
 msgstr ""
 
-#: src/weather-home_preference.c:504
+#: src/weather-home_preference.c:509
 msgid ""
 "Station code\n"
 " (ZIP Code):"
 msgstr ""
 
-#: src/weather-home_preference.c:494
+#: src/weather-home_preference.c:499
 msgid "Station name:"
 msgstr ""
 
-#: src/weather-home_preference.c:585
+#: src/weather-home_preference.c:590
 msgid "Station(Place):"
 msgstr ""
 
@@ -740,75 +750,75 @@ msgstr ""
 msgid "Station:"
 msgstr ""
 
-#: src/weather-home_hash.c:108
+#: src/weather-home_hash.c:110
 msgid "Storm"
 msgstr ""
 
-#: src/weather-home_hash.c:110
+#: src/weather-home_hash.c:112
 msgid "Su"
 msgstr ""
 
-#: src/weather-home_hash.c:109
+#: src/weather-home_hash.c:111
 msgid "Sunday"
 msgstr ""
 
-#: src/weather-home_hash.c:111
+#: src/weather-home_hash.c:113
 msgid "Sunny"
 msgstr ""
 
-#: src/weather-home_hash.c:112
+#: src/weather-home_hash.c:114
 msgid "Sunny / Wind"
 msgstr ""
 
-#: src/weather-home_preference.c:868
+#: src/weather-home_preference.c:874
 msgid "Temperature units:"
 msgstr ""
 
-#: src/weather-window_popup.c:273
+#: src/weather-window_popup.c:274
 msgid "Temperature: "
 msgstr ""
 
-#: src/weather-home_hash.c:115
+#: src/weather-home_hash.c:117
 msgid "Th"
 msgstr ""
 
-#: src/weather-home_preference.c:1138
+#: src/weather-home_preference.c:1158
 msgid "Thanks"
 msgstr ""
 
-#: src/weather-home_hash.c:114
+#: src/weather-home_hash.c:116
 msgid "Thursday"
 msgstr ""
 
-#: src/weather-home_preference.c:854
+#: src/weather-home_preference.c:860
 msgid "Transparency"
 msgstr ""
 
-#: src/weather-home_hash.c:117
+#: src/weather-home_hash.c:119
 msgid "Tu"
 msgstr ""
 
-#: src/weather-home_hash.c:116
+#: src/weather-home_hash.c:118
 msgid "Tuesday"
 msgstr ""
 
-#: src/weather-home_preference.c:808
+#: src/weather-home_preference.c:813
 msgid "Two columns"
 msgstr ""
 
-#: src/weather-home_preference.c:807
+#: src/weather-home_preference.c:812
 msgid "Two rows"
 msgstr ""
 
-#: src/weather-home_preference.c:865
+#: src/weather-home_preference.c:871
 msgid "Units"
 msgstr ""
 
-#: src/weather-home_hash.c:118
+#: src/weather-home_hash.c:120
 msgid "Unlimited"
 msgstr ""
 
-#: src/weather-home_preference.c:928
+#: src/weather-home_preference.c:934
 msgid "Update"
 msgstr ""
 
@@ -816,81 +826,81 @@ msgstr ""
 msgid "Update weather"
 msgstr ""
 
-#: src/weather-home_preference.c:930
+#: src/weather-home_preference.c:936
 msgid "Updating of weather data:"
 msgstr ""
 
-#: src/weather-home_preference.c:1058
+#: src/weather-home_preference.c:1072
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"
 msgstr ""
 
-#: src/weather-home_hash.c:144
+#: src/weather-home_hash.c:146
 msgid "VAR"
 msgstr ""
 
-#: src/weather-home_hash.c:131
+#: src/weather-home_hash.c:133
 msgid "W"
 msgstr ""
 
-#: src/weather-home_hash.c:129
+#: src/weather-home_hash.c:131
 msgid "WNW"
 msgstr ""
 
-#: src/weather-home_hash.c:130
+#: src/weather-home_hash.c:132
 msgid "WSW"
 msgstr ""
 
-#: src/weather-home_hash.c:119
+#: src/weather-home_hash.c:121
 msgid "Waning Crescent"
 msgstr ""
 
-#: src/weather-home_hash.c:120
+#: src/weather-home_hash.c:122
 msgid "Waning Gibbous"
 msgstr ""
 
-#: src/weather-home_hash.c:121
+#: src/weather-home_hash.c:123
 msgid "Waxing Crescent"
 msgstr ""
 
-#: src/weather-home_hash.c:123
+#: src/weather-home_hash.c:125
 msgid "We"
 msgstr ""
 
-#: src/weather-home_download.c:315
+#: src/weather-home_download.c:310
 msgid "Weather updated"
 msgstr ""
 
-#: src/weather-home_hash.c:122
+#: src/weather-home_hash.c:124
 msgid "Wednesday"
 msgstr ""
 
-#: src/weather-home_hash.c:124
+#: src/weather-home_hash.c:126
 msgid "Wind"
 msgstr ""
 
-#: src/weather-home_preference.c:904
+#: src/weather-home_preference.c:910
 msgid "Wind speed units:"
 msgstr ""
 
-#: src/weather-window_popup.c:332
+#: src/weather-window_popup.c:333
 msgid "Wind: "
 msgstr ""
 
-#: src/weather-home_hash.c:128
+#: src/weather-home_hash.c:130
 msgid "Wintry Mix"
 msgstr ""
 
-#: src/weather-home_hash.c:127
+#: src/weather-home_hash.c:129
 msgid "Wintry Mix / Wind"
 msgstr ""
 
-#: src/weather-home_hash.c:126
+#: src/weather-home_hash.c:128
 msgid "Wintry Mix / Wind Early"
 msgstr ""
 
-#: src/weather-home_hash.c:125
+#: src/weather-home_hash.c:127
 msgid "Wintry Mix to Snow"
 msgstr ""
 
@@ -900,55 +910,55 @@ msgid ""
 "or ZIP code!!!"
 msgstr ""
 
-#: src/weather-home_hash.c:33
+#: src/weather-home_hash.c:35
 msgid "falling"
 msgstr ""
 
-#: src/weather-window_popup.c:135
+#: src/weather-window_popup.c:136
 msgid "km"
 msgstr ""
 
-#: src/weather-home_preference.c:914 src/weather-home_hash.c:14
+#: src/weather-home_preference.c:920 src/weather-home_hash.c:14
 msgid "km/h"
 msgstr ""
 
-#: src/weather-home_preference.c:911 src/weather-home_hash.c:11
+#: src/weather-home_preference.c:917 src/weather-home_hash.c:11
 msgid "km/s"
 msgstr ""
 
-#: src/weather-window_popup.c:134
+#: src/weather-window_popup.c:135
 msgid "m"
 msgstr ""
 
-#: src/weather-home_preference.c:913 src/weather-home_hash.c:13
+#: src/weather-home_preference.c:919 src/weather-home_hash.c:13
 msgid "m/h"
 msgstr ""
 
-#: src/weather-home_preference.c:910 src/weather-home_hash.c:10
+#: src/weather-home_preference.c:916 src/weather-home_hash.c:10
 msgid "m/s"
 msgstr ""
 
-#: src/weather-window_popup.c:136 src/weather-window_popup.c:137
-#: src/weather-window_popup.c:138
+#: src/weather-window_popup.c:137 src/weather-window_popup.c:138
+#: src/weather-window_popup.c:139
 msgid "mi"
 msgstr ""
 
-#: src/weather-home_preference.c:915 src/weather-home_hash.c:15
+#: src/weather-home_preference.c:921 src/weather-home_hash.c:15
 msgid "mi/h"
 msgstr ""
 
-#: src/weather-home_preference.c:912 src/weather-home_hash.c:12
+#: src/weather-home_preference.c:918 src/weather-home_hash.c:12
 msgid "mi/s"
 msgstr ""
 
-#: src/weather-window_popup.c:152
+#: src/weather-window_popup.c:153
 msgid "mm"
 msgstr ""
 
-#: src/weather-home_hash.c:84
+#: src/weather-home_hash.c:86
 msgid "rising"
 msgstr ""
 
-#: src/weather-home_hash.c:107
+#: src/weather-home_hash.c:109
 msgid "steady"
 msgstr ""

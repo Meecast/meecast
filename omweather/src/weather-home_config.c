@@ -360,9 +360,10 @@ void read_config(void){
     /* Check connection */
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_CURRENT_CONNECTIVITY, NULL);
-    if (tmp)
+    if (tmp){
         app->iap_connected = TRUE;
 	g_free(tmp);
+    }	
     else
 	app->iap_connected = FALSE;
 	

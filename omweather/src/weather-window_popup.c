@@ -128,16 +128,6 @@ void weather_window_popup_show (GtkWidget *widget,
 	gtk_box_pack_start(GTK_BOX(vbox_current), label_current, FALSE, FALSE, 0);
 
 	vbox_hu_current = gtk_vbox_new(FALSE, 0);
-
-	tmp_distance = weather_current_day.day.vis * 1000;
-	switch(app->distance_units){
-	    default:
-	    case METERS:		units = _("m"); tmp_distance *= 1; break;
-	    case KILOMETERS:		units = _("km"); tmp_distance /= 1000; break;
-	    case INTERNATIONAL_MILES:	units = _("mi"); tmp_distance /= 1609.344; break;
-	    case IMPERIAL_MILES:	units = _("mi"); tmp_distance /=  0.0254 * 63600; break;
-	    case SEA_MILES:		units = _("mi"); tmp_distance /= 1852; break;
-	}
 	buffer[0] = 0;
 	strcat(buffer, weather_current_day.day.title);
 	strcat(buffer, _("\nFeels like: "));
@@ -146,8 +136,27 @@ void weather_window_popup_show (GtkWidget *widget,
 							: (c2f(atoi(weather_current_day.low_temp))));
 	(app->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
 						: ( strcat(buffer, _("F")) );
+
 	strcat(buffer, _("\nVisible: "));
-	sprintf(buffer + strlen(buffer), "%.1f %s", tmp_distance, units);
+	if( !strcmp(weather_current_day.day.vis, "Unlimited") )
+		sprintf(buffer + strlen(buffer), "%s",
+                    (char*)hash_table_find((gpointer)"Unlimited"));
+	else
+	    if( strcmp(weather_current_day.day.vis, "N/A") ){
+		tmp_distance = atof(weather_current_day.day.vis) * 1000;
+		switch(app->distance_units){
+		    default:
+		    case METERS: units = _("m"); tmp_distance *= 1; break;
+		    case KILOMETERS: units = _("km"); tmp_distance /= 1000; break;
+		    case INTERNATIONAL_MILES: units = _("mi"); tmp_distance /= 1609.344; break;
+		    case IMPERIAL_MILES: units = _("mi"); tmp_distance /=  0.0254 * 63600; break;
+		    case SEA_MILES: units = _("mi"); tmp_distance /= 1852; break;
+		}
+		sprintf(buffer + strlen(buffer), "%.1f %s", tmp_distance, units);
+	    }
+	    else    
+		sprintf(buffer + strlen(buffer), "%s",
+                    (char*)hash_table_find((gpointer)"N/A"));
 	strcat(buffer, _("\nPressure: "));
 	sprintf(buffer + strlen(buffer), "%.1f %s, ", weather_current_day.day.pressure,
 		    _("mm"));

@@ -216,7 +216,10 @@ int parse_weather_com_xml(void){
 		    }	
     		    if(!xmlStrcmp(child_node->name, (const xmlChar *)"vis") ){
 			temp_xml_string = xmlNodeGetContent(child_node);					    
-			weather_current_day.day.vis = atof((char*)temp_xml_string);
+			snprintf(weather_current_day.day.vis,
+				sizeof(weather_current_day.day.vis) - 1,
+				"%s",
+				(char*)temp_xml_string);
 			xmlFree(temp_xml_string);
 		    }	
 		    if(!xmlStrcmp(child_node->name, (const xmlChar *)"wind") ){

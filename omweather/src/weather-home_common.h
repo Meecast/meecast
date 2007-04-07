@@ -75,7 +75,7 @@ typedef struct{
     gchar	hmid[80];       	/* Humidity */
     gchar	wind_speed[80];       	/* Wind Speed */
     gchar	wind_gust[80];        	/* Wind Gust */
-    float	vis;              	/* Visibilty */
+    gchar	vis[80];              	/* Visibilty */
     gchar	wind_title[80];		/* Wind Title */
     gchar	temp[20];		/* Temperature */
     time_t	begin_time;		/* Begin time party of the day */  

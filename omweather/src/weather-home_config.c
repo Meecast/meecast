@@ -323,8 +323,15 @@ void read_config(void){
                 			    GCONF_KEY_ICONS_LAYOUT,
 					    &gerror);
     if(gerror){
-	app->icons_layout = ONE_ROW;
 	g_error_free(gerror);
+	/* Depricated, after 0.18 not used */				        
+	app->icons_layout = gconf_client_get_int(gconf_client,
+                			    GCONF_KEY_WEATHER_LAYOUT,
+					    &gerror);
+	if(gerror){
+	    app->icons_layout = ONE_ROW;
+	    g_error_free(gerror);
+	}    
     }
     /* Get number days to show */
     app->days_to_show = gconf_client_get_int(gconf_client,                                                                                     

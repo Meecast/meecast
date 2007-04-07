@@ -50,7 +50,7 @@ while(<SOURCE_FILE>){
 #      open (DESTINATION_FILE,"s1.txt");
       while(<DESTINATION_FILE>){
 
-	 if ((length ($_)>3) and (length ($_)<83) and (!(substr($_,3,1) eq " ")) and (!(substr($_,0,1) eq "!")))
+	 if ((length ($_)>3) and (length ($_)<83) and (!(substr($_,19,1) eq " ")) and (!(substr($_,0,1) eq "!")))
 	 {
 	  $country_dest=substr($_,0,19);
 	  $country_dest =~ s/\s+$//;

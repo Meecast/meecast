@@ -1,5 +1,8 @@
 omweather (0.17) unstable; urgency=low
 
+  * Added version number to the About dialog
+  * Added possible to rename station name
+  * Add more stations
   * Correct display order for temperature
   * Added data for atmospheric pressure
   * Added choice of units for wind speed

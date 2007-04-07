@@ -1,4 +1,7 @@
 0.17
+  * Added version number to the About dialog
+  * Added possible to rename station name
+  * Add more station
   * Correct display order for temperature
   * Added data for atmospheric pressure
   * Added choice of units for wind speed

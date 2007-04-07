@@ -9,7 +9,7 @@ Package: omweather
 Architecture: armel arm i386
 Depends: ${shlibs:Depends}
 Description: World Weather on Nokia 770/N800. This applet uses weather.com
-XB-OMWeather-Icon-26:
+XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
  WXMAAC4hAAAuIQEHW/z/AAAAB3RJTUUH1wQGExIej58vsgAABXBJREFUSMftVmtsk1UYfr7v69fL
  urVj5bLSlo0NaDcZ4JQKijKQbqnKxUVREhJFoyISokE0gcRoFhMRsoBRAzGEP5oobiQYhkYkUi+M

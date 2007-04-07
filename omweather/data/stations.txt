@@ -2000,29 +2000,29 @@ NEW JERSEY         16-DEC-98
 CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 NJ ANDOVER          K12N  12N          41 01N  074 44W  177   X           A    7 US
 NJ ATLANTIC CITY    KACY  ACY   72407  39 28N  074 35W   23   X     T     A    4 US
-NJ BELMAR/FARMDALE  KBLM  BLM          40 10N  074 07W   48   X                7 US USNJ0037
-NJ CALDWELL         KCDW  CDW          40 53N  074 17W   64   X           A    7 US USNJ0071
+NJ BELMAR/FARMDALE  KBLM  BLM          40 10N  074 07W   48   X                7 US
+NJ CALDWELL         KCDW  CDW          40 53N  074 17W   64   X           A    7 US
 NJ COYLE VOR        KCYN  CYN          39 49N  074 26W   70         V          8 US
-NJ LAKEHURST NAS    KNEL  NEL   72409  40 01N  074 20W   31   X                7 US USNJ0249
+NJ LAKEHURST NAS    KNEL  NEL   72409  40 01N  074 20W   31   X                7 US
 NJ MANCHESTER 88D   KDIX  DIX          39 57N  074 25W   45      X             8 US
-NJ MILLVILLE        KMIV  MIV          39 22N  075 05W   23   X     T     A    6 US USNJ0315
-NJ MORRISTOWN MUNI  KMMU  MMU          40 47N  074 25W   57   X                7 US USNJ0331
-NJ MOUNT HOLLY      KVAY  VAY          39 56N  074 50W   15   X           A    7 US USNJ0335
+NJ MILLVILLE        KMIV  MIV          39 22N  075 05W   23   X     T     A    6 US
+NJ MORRISTOWN MUNI  KMMU  MMU          40 47N  074 25W   57   X                7 US
+NJ MOUNT HOLLY      KVAY  VAY          39 56N  074 50W   15   X           A    7 US
 NJ MT HOLLY/PHL/WFO KPHI  PHI          39 53N  075 15W    4                  F 8 US
-NJ NEWARK           KEWR  EWR   72502  40 41N  074 10W    7   X     T     A    2 US USNJ0355
+NJ NEWARK           KEWR  EWR   72502  40 41N  074 10W    7   X     T     A    2 US
 NJ SEA ISLE VOR     KSIE  SIE          39 06N  074 48W   30         V          8 US
-NJ SOMERVILLE       KSMQ  SMQ          40 37N  074 40W   30   X           A    7 US USNJ0485
-NJ SPARTA VOR       KSAX  SAX          41 04N  074 32W   30         V          8 US USNJ0494
-NJ SUSSEX           KFWN  FWN          41 12N  074 38W  133   X           A    7 US USNJ0510
-NJ TETERBORO        KTEB  TEB          40 52N  074 03W    7   X     T     A    6 US USNJ0516
-NJ TRENTON          KTTN  TTN          40 17N  074 49W   59   X     T     A    7 US USNJ0524
-NJ WILDWOOD         KWWD  WWD          39 01N  074 55W    7   X           W    7 US USNJ0564
+NJ SOMERVILLE       KSMQ  SMQ          40 37N  074 40W   30   X           A    7 US
+NJ SPARTA VOR       KSAX  SAX          41 04N  074 32W   30         V          8 US
+NJ SUSSEX           KFWN  FWN          41 12N  074 38W  133   X           A    7 US
+NJ TETERBORO        KTEB  TEB          40 52N  074 03W    7   X     T     A    6 US
+NJ TRENTON          KTTN  TTN          40 17N  074 49W   59   X     T     A    7 US
+NJ WILDWOOD         KWWD  WWD          39 01N  074 55W    7   X           W    7 US
 NJ WRIGHTST/MCGUIRE KWRI  WRI          40 01N  074 35W   41   X     T          6 US
-NJ NEW BRUNSWICK    KNBK  NBK          40 29N  074 26W    5   Z                8 US USNJ0348
+NJ NEW BRUNSWICK    KNBK  NBK          40 29N  074 26W    5   Z                8 US
 NJ SANDY HOOK CGS   K56N  56N          40 28N  074 01W    5   Z                8 US
-NJ SOMERVILLE       KN52  N52          40 37N  074 40W   30   Z                8 US USNJ0485
-NJ SUSSEX           KN63  N63          41 12N  074 36W  119   Z                8 US USNJ0510
-NJ SOMERVILLE       KSJB  SJB          40 37N  074 40W   30   Z                8 US USNJ0485
+NJ SOMERVILLE       KN52  N52          40 37N  074 40W   30   Z                8 US
+NJ SUSSEX           KN63  N63          41 12N  074 36W  119   Z                8 US
+NJ SOMERVILLE       KSJB  SJB          40 37N  074 40W   30   Z                8 US
 
 NEW MEXICO         01-AUG-06
 CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C

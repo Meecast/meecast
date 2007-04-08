@@ -2776,7 +2776,7 @@ NJ MILLVILLE        KMIV  MIV          39 22N  075 05W   23   X     T     A    6
 NJ MORRISTOWN MUNI  KMMU  MMU          40 47N  074 25W   57   X                7 US
 NJ MOUNT HOLLY      KVAY  VAY          39 56N  074 50W   15   X           A    7 US USNJ0335
 NJ MT HOLLY/PHL/WFO KPHI  PHI          39 53N  075 15W    4                  F 8 US
-NJ NEWARK           KEWR  EWR   72502  40 41N  074 10W    7   X     T     A    2 US USNJ0355 USNJ0355
+NJ NEWARK           KEWR  EWR   72502  40 41N  074 10W    7   X     T     A    2 US USNJ0355
 NJ SEA ISLE VOR     KSIE  SIE          39 06N  074 48W   30         V          8 US
 NJ SOMERVILLE       KSMQ  SMQ          40 37N  074 40W   30   X           A    7 US USNJ0485
 NJ SPARTA VOR       KSAX  SAX          41 04N  074 32W   30         V          8 US
@@ -3468,24 +3468,24 @@ CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 NY ALBANY           KALB  ALB   72518  42 45N  073 48W   92   X     U  X  A    3 US USNY0011
 NY ALBANY/E. BERNE  KENX  ENX          42 35N  074 04W  557      X             8 US
 NY ALBANY/WFO       KALY  ALY          42 45N  073 48W   88                  F 8 US
-NY BINGHAMTON       KBGM  BGM   72515  42 13N  075 59W  490   X  X  T     A  F 3 US
+NY BINGHAMTON       KBGM  BGM   72515  42 13N  075 59W  490   X  X  T     A  F 3 US USNY0124
 NY BROOKHAVEN/UPTON KOKX  OKX   72501  40 52N  072 52W   26      X     X     F 8 US
 NY BROOKHAVEN LAB   KBNL  BNL   74498  40 48N  073 18W   20                    8 US
 NY BUFFALO/CHEEKTOW KBUF  BUF   72528  42 56N  078 44W  211   X  X  U  X  A  F 0 US USNY0181
-NY DANSVILLE        KDSV  DSV   72523  42 34N  077 43W  198   X           A    7 US
-NY DUNKIRK          KDKK  DKK   99425  42 30N  079 17W  202   X           A    7 US
-NY EAST HAMPTON     KHTO  HTO          40 57N  072 15W   17   X     V          6 US
-NY ELMIRA           KELM  ELM          42 09N  076 54W  302   X     T     A    6 US
-NY FARMINGDALE      KFRG  FRG          40 44N  073 25W   21   X           A    7 US
+NY DANSVILLE        KDSV  DSV   72523  42 34N  077 43W  198   X           A    7 US USNY0363
+NY DUNKIRK          KDKK  DKK   99425  42 30N  079 17W  202   X           A    7 US USNY0400
+NY EAST HAMPTON     KHTO  HTO          40 57N  072 15W   17   X     V          6 US USNY0418
+NY ELMIRA           KELM  ELM          42 09N  076 54W  302   X     T     A    6 US USNY0463
+NY FARMINGDALE      KFRG  FRG          40 44N  073 25W   21   X           A    7 US USNY0483
 NY FORT DRUM/88D    KTYX  TYX          43 45N  075 41W  562      X             8 US
 NY FORT DRUM/WHEELE KGTB  GTB   74370  44 02N  075 43W  207   X     T          6 US
-NY FULTON           KFZY  FZY          43 21N  076 23W  138   X           A    7 US
-NY GLENS FALLS      KGFL  GFL          43 20N  073 37W  103   X     T     A    6 US
+NY FULTON           KFZY  FZY          43 21N  076 23W  138   X           A    7 US USNY0533
+NY GLENS FALLS      KGFL  GFL          43 20N  073 37W  103   X     T     A    6 US USNY0568
 NY HANCOCK VOR      KHNK  HNK          42 04N  075 19W  690         V          8 US
 NY HUDSON/COLUMBIA  K1B1  1B1          42 17N  073 43W   60   X           W    9 US
-NY ISLIP            KISP  ISP          40 48N  073 06W   43   X     T     A    4 US
+NY ISLIP            KISP  ISP          40 48N  073 06W   43   X     T     A    4 US USNY0715
 NY ITHACA/TOMPKINS  KITH  ITH          42 28N  076 27W  335   X     T          6 US
-NY JAMESTOWN        KJHW  JHW          42 08N  079 16W  525   X     U     W    6 US
+NY JAMESTOWN        KJHW  JHW          42 08N  079 16W  525   X     U     W    6 US USNY0722
 NY MASSENA          KMSS  MSS          44 56N  074 51W   66   X     U     A    6 US
 NY MONTAUK          KMTP  MTP          41 04N  071 55W    2   X           A    7 US
 NY MONTGOMERY       KMGJ  MGJ          41 31N  074 16W  108   X           A    7 US
@@ -3514,10 +3514,10 @@ NY WESTHAMPTON BEAC KFOK  FOK          40 51N  072 37W   33   X           A    7
 NY WHITE PLAINS     KHPN  HPN          41 04N  073 42W  121   X     T     A    6 US
 NY AMBROSE          KN28  N28   74499  40 27N  073 11W   26   Z                8 US
 NY AMBROSE (LGT-SH              99410  40 28N  073 10W    1   Z                8 US
-NY BOONVILLE        K1B8  1B8          43 27N  075 21W  482   Z                8 US
-NY COLDEN           KCOL  COL          42 40N  078 41W  312   Z                8 US
-NY COOPERSTOWN      KCOO  COO          42 42N  074 55W  378   Z                8 US
-NY ELLENBURG DEPOT  KELB  ELB          44 54N  073 48W  262   Z                8 US
+NY BOONVILLE        K1B8  1B8          43 27N  075 21W  482   Z                8 US USNY0144
+NY COLDEN           KCOL  COL          42 40N  078 41W  312   Z                8 US USNY0308
+NY COOPERSTOWN      KCOO  COO          42 42N  074 55W  378   Z                8 US USNY0326
+NY ELLENBURG DEPOT  KELB  ELB          44 54N  073 48W  262   Z                8 US USNY0456
 NY GALLOO ISLAND                99432  43 52N  076 34W   76   Z                8 US
 NY MALONE           KMAL  MAL          44 51N  074 18W  268   Z                8 US
 NY OLEAN            KOLE  OLE          42 14N  078 22W  651   Z                8 US
@@ -3577,6 +3577,676 @@ NY GRIFFISS AFB/88D KRMX  RMX          43 28N  075 27W  154      Z             8
    APULIA STATION                                                                   USNY0046
    AQUEBOGUE                                                                        USNY0047
    ARCADE                                                                           USNY0048
+   ARDEN                                                                            USNY0049
+   ARDSLEY                                                                          USNY0050
+   ARDSLEY ON HUDSON                                                                USNY0051
+   ARGYLE                                                                           USNY0052
+   ARKPORT                                                                          USNY0053
+   ARKVILLE                                                                         USNY0054
+   ARMONK                                                                           USNY0055
+   ARVERNE                                                                          USNY0056
+   ASHLAND                                                                          USNY0057
+   ASHVILLE                                                                         USNY0058
+   ASTORIA                                                                          USNY0059
+   ATHENS                                                                           USNY0060
+   ATHOL                                                                            USNY0061
+   ATHOL SPRINGS                                                                    USNY0062
+   ATLANTA                                                                          USNY0063
+   ATLANTIC BEACH                                                                   USNY0064
+   ATTICA                                                                           USNY0065
+   AU SABLE FORKS                                                                   USNY0066
+   AUBURN                                                                           USNY0067
+   AURIESVILLE                                                                      USNY0068
+   AURORA                                                                           USNY0069
+   AUSTERLITZ                                                                       USNY0070
+   AVA                                                                              USNY0071
+   AVERILL PARK                                                                     USNY0072
+   AVOCA                                                                            USNY0073
+   AVON                                                                             USNY0074
+   BABYLON                                                                          USNY0075
+   BAINBRIDGE                                                                       USNY0076
+   BAKERS MILLS                                                                     USNY0077
+   BALDWIN                                                                          USNY0078
+   BALDWIN PLACE                                                                    USNY0079
+   BALDWINSVILLE                                                                    USNY0080
+   BALLSTON LAKE                                                                    USNY0081
+   BALLSTON SPA                                                                     USNY0082
+   BANGALL                                                                          USNY0083
+   BARKER                                                                           USNY0084
+   BARNEVELD                                                                        USNY0085
+   BARRYTOWN                                                                        USNY0086
+   BARRYVILLE                                                                       USNY0087
+   BARTON                                                                           USNY0088
+   BASOM                                                                            USNY0089
+   BATAVIA                                                                          USNY0090
+   BATH                                                                             USNY0091
+   BAY SHORE                                                                        USNY0092
+   BAYPORT                                                                          USNY0093
+   BAYSIDE                                                                          USNY0094
+   BAYVILLE                                                                         USNY0095
+   BEACON                                                                           USNY0096
+   BEAR MOUNTAIN                                                                    USNY0097
+   BEARSVILLE                                                                       USNY0098
+   BEAVER DAMS                                                                      USNY0099
+   BEAVER FALLS                                                                     USNY0100
+   BEDFORD                                                                          USNY0101
+   BEDFORD HILLS                                                                    USNY0102
+   BELFAST                                                                          USNY0103
+   BELLEAYRE MOUNTAIN SKI CENTER                                                    USNY0104
+   BELLEROSE                                                                        USNY0105
+   BELLEVILLE                                                                       USNY0106
+   BELLMORE                                                                         USNY0107
+   BELLONA                                                                          USNY0108
+   BELLPORT                                                                         USNY0109
+   BELLVALE                                                                         USNY0110
+   BELMONT                                                                          USNY0111
+   BEMUS POINT                                                                      USNY0112
+   BERGEN                                                                           USNY0113
+   BERKSHIRE                                                                        USNY0114
+   BERLIN                                                                           USNY0115
+   BERNE                                                                            USNY0116
+   BERNHARDS BAY                                                                    USNY0117
+   BETHEL                                                                           USNY0118
+   BETHPAGE                                                                         USNY0119
+   BIBLE SCHOOL PARK                                                                USNY0120
+   BIG FLATS                                                                        USNY0121
+   BIG INDIAN                                                                       USNY0122
+   BILLINGS                                                                         USNY0123
+   BLACK CREEK                                                                      USNY0125
+   BLACK RIVER                                                                      USNY0126
+   BLAUVELT                                                                         USNY0127
+   BLISS                                                                            USNY0128
+   BLODGETT MILLS                                                                   USNY0129
+   BLOOMFIELD                                                                       USNY0130
+   BLOOMING GROVE                                                                   USNY0131
+   BLOOMINGBURG                                                                     USNY0132
+   BLOOMINGDALE                                                                     USNY0133
+   BLOOMINGTON                                                                      USNY0134
+   BLOOMVILLE                                                                       USNY0135
+   BLOSSVALE                                                                        USNY0136
+   BLUE MOUNTAIN LAKE                                                               USNY0137
+   BLUE POINT                                                                       USNY0138
+   BOHEMIA                                                                          USNY0139
+   BOICEVILLE                                                                       USNY0140
+   BOLIVAR                                                                          USNY0141
+   BOLTON LANDING                                                                   USNY0142
+   BOMBAY                                                                           USNY0143
+   BOSTON                                                                           USNY0145
+   BOUCKVILLE                                                                       USNY0146
+   BOVINA CENTER                                                                    USNY0147
+   BOWMANSVILLE                                                                     USNY0148
+   BRADFORD                                                                         USNY0149
+   BRAINARD                                                                         USNY0150
+   BRAINARDSVILLE                                                                   USNY0151
+   BRANCHPORT                                                                       USNY0152
+   BRANT                                                                            USNY0153
+   BRANT LAKE                                                                       USNY0154
+   BRANTINGHAM                                                                      USNY0155
+   BRASHER FALLS                                                                    USNY0156
+   BREESPORT                                                                        USNY0157
+   BREEZY POINT                                                                     USNY0158
+   BRENTWOOD                                                                        USNY0159
+   BREWERTON                                                                        USNY0160
+   BREWSTER                                                                         USNY0161
+   BRIARCLIFF MANOR                                                                 USNY0162
+   BRIDGEHAMPTON                                                                    USNY0163
+   BRIDGEPORT                                                                       USNY0164
+   BRIDGEWATER                                                                      USNY0165
+   BRIER HILL                                                                       USNY0166
+   BRIGHTWATERS                                                                     USNY0167
+   BRISTOL MOUNTAIN SKI AREA                                                        USNY0168
+   BROADALBIN                                                                       USNY0169
+   BROCKPORT                                                                        USNY0170
+   BROCTON                                                                          USNY0171
+   BRONX                                                                            USNY0172
+   BRONXVILLE                                                                       USNY0173
+   BROOKFIELD                                                                       USNY0174
+   BROOKHAVEN                                                                       USNY0175
+   BROOKLYN                                                                         USNY0176
+   BROOKTONDALE                                                                     USNY0177
+   BROWNVILLE                                                                       USNY0178
+   BRUSHTON                                                                         USNY0179
+   BUCHANAN                                                                         USNY0180
+   BUFFALO                                                                          USNY0181
+   BULLVILLE                                                                        USNY0182
+   BURDETT                                                                          USNY0183
+   BURKE                                                                            USNY0184
+   BURLINGHAM                                                                       USNY0185
+   BURLINGTON FLATS                                                                 USNY0186
+   BURNT HILLS                                                                      USNY0187
+   BURT                                                                             USNY0188
+   BUSKIRK                                                                          USNY0189
+   BYRON                                                                            USNY0190
+   CADYVILLE                                                                        USNY0191
+   CAIRO                                                                            USNY0192
+   CALCIUM                                                                          USNY0193
+   CALEDONIA                                                                        USNY0194
+   CALLICOON                                                                        USNY0195
+   CALLICOON CENTER                                                                 USNY0196
+   CALVERTON                                                                        USNY0197
+   CAMBRIA HEIGHTS                                                                  USNY0198
+   CAMBRIDGE                                                                        USNY0199
+   CAMDEN                                                                           USNY0200
+   CAMERON                                                                          USNY0201
+   CAMERON MILLS                                                                    USNY0202
+   CAMILLUS                                                                         USNY0203
+   CAMPBELL                                                                         USNY0204
+   CAMPBELL HALL                                                                    USNY0205
+   CANAAN                                                                           USNY0206
+   CANAJOHARIE                                                                      USNY0207
+   CANANDAIGUA                                                                      USNY0208
+   CANASERAGA                                                                       USNY0209
+   CANASTOTA                                                                        USNY0210
+   CANDOR                                                                           USNY0211
+   CANEADEA                                                                         USNY0212
+   CANISTEO                                                                         USNY0213
+   CANTON                                                                           USNY0214
+   CAPE VINCENT                                                                     USNY0215
+   CARLE PLACE                                                                      USNY0216
+   CARLISLE                                                                         USNY0217
+   CARMEL                                                                           USNY0218
+   CAROGA LAKE                                                                      USNY0219
+   CARTHAGE                                                                         USNY0220
+   CASSADAGA                                                                        USNY0221
+   CASSVILLE                                                                        USNY0222
+   CASTILE                                                                          USNY0223
+   CASTLE CREEK                                                                     USNY0224
+   CASTLE POINT                                                                     USNY0225
+   CASTLETON ON HUDSON                                                              USNY0226
+   CASTORLAND                                                                       USNY0227
+   CATAMOUNT SKI AREA                                                               USNY0228
+   CATO                                                                             USNY0229
+   CATSKILL                                                                         USNY0230
+   CATTARAUGUS                                                                      USNY0231
+   CAYUGA                                                                           USNY0232
+   CAYUTA                                                                           USNY0233
+   CAZENOVIA                                                                        USNY0234
+   CEDARHURST                                                                       USNY0235
+   CELORON                                                                          USNY0236
+   CENTER MORICHES                                                                  USNY0237
+   CENTEREACH                                                                       USNY0238
+   CENTERPORT                                                                       USNY0239
+   CENTERVILLE                                                                      USNY0240
+   CENTRAL BRIDGE                                                                   USNY0241
+   CENTRAL ISLIP                                                                    USNY0242
+   CENTRAL SQUARE                                                                   USNY0243
+   CENTRAL VALLEY                                                                   USNY0244
+   CERES                                                                            USNY0245
+   CHADWICKS                                                                        USNY0246
+   CHAFFEE                                                                          USNY0247
+   CHAMPLAIN                                                                        USNY0248
+   CHAPPAQUA                                                                        USNY0249
+   CHARLOTTEVILLE                                                                   USNY0250
+   CHASE MILLS                                                                      USNY0251
+   CHATEAUGAY                                                                       USNY0252
+   CHATHAM                                                                          USNY0253
+   CHAUMONT                                                                         USNY0254
+   CHAUTAUQUA                                                                       USNY0255
+   CHAZY                                                                            USNY0256
+   CHELSEA                                                                          USNY0257
+   CHEMUNG                                                                          USNY0258
+   CHENANGO BRIDGE                                                                  USNY0259
+   CHENANGO FORKS                                                                   USNY0260
+   CHERRY CREEK                                                                     USNY0261
+   CHERRY PLAIN                                                                     USNY0262
+   CHERRY VALLEY                                                                    USNY0263
+   CHESTER                                                                          USNY0264
+   CHESTERTOWN                                                                      USNY0265
+   CHICHESTER                                                                       USNY0266
+   CHILDWOLD                                                                        USNY0267
+   CHIPPEWA BAY                                                                     USNY0268
+   CHITTENANGO                                                                      USNY0269
+   CHURCHVILLE                                                                      USNY0270
+   CHURUBUSCO                                                                       USNY0271
+   CICERO                                                                           USNY0272
+   CINCINNATUS                                                                      USNY0273
+   CIRCLEVILLE                                                                      USNY0274
+   CLARENCE                                                                         USNY0275
+   CLARENCE CENTER                                                                  USNY0276
+   CLARENDON                                                                        USNY0277
+   CLARK MILLS                                                                      USNY0278
+   CLARKSON                                                                         USNY0279
+   CLARKSVILLE                                                                      USNY0280
+   CLARYVILLE                                                                       USNY0281
+   CLAVERACK                                                                        USNY0282
+   CLAY                                                                             USNY0283
+   CLAYTON                                                                          USNY0284
+   CLAYVILLE                                                                        USNY0285
+   CLEMONS                                                                          USNY0286
+   CLEVELAND                                                                        USNY0287
+   CLEVERDALE                                                                       USNY0288
+   CLIFTON PARK                                                                     USNY0289
+   CLIFTON SPRINGS                                                                  USNY0290
+   CLIMAX                                                                           USNY0291
+   CLINTON                                                                          USNY0292
+   CLINTON CORNERS                                                                  USNY0293
+   CLINTONDALE                                                                      USNY0294
+   CLOCKVILLE                                                                       USNY0295
+   CLYDE                                                                            USNY0296
+   CLYMER                                                                           USNY0297
+   COBLESKILL                                                                       USNY0298
+   COCHECTON                                                                        USNY0299
+   COCHECTON CENTER                                                                 USNY0300
+   COEYMANS                                                                         USNY0301
+   COEYMANS HOLLOW                                                                  USNY0302
+   COHOCTON                                                                         USNY0303
+   COHOES                                                                           USNY0304
+   COLD BROOK                                                                       USNY0305
+   COLD SPRING                                                                      USNY0306
+   COLD SPRING HARBOR                                                               USNY0307
+   COLLEGE POINT                                                                    USNY0309
+   COLLIERSVILLE                                                                    USNY0310
+   COLLINS                                                                          USNY0311
+   COLLINS CENTER                                                                   USNY0312
+   COLTON                                                                           USNY0313
+   COLUMBIAVILLE                                                                    USNY0314
+   COMMACK                                                                          USNY0315
+   COMSTOCK                                                                         USNY0316
+   CONESUS                                                                          USNY0317
+   CONEWANGO VALLEY                                                                 USNY0318
+   CONGERS                                                                          USNY0319
+   CONKLIN                                                                          USNY0320
+   CONNELLY                                                                         USNY0321
+   CONSTABLE                                                                        USNY0322
+   CONSTABLEVILLE                                                                   USNY0323
+   CONSTANTIA                                                                       USNY0324
+   COOPERS PLAINS                                                                   USNY0325
+   COPAKE                                                                           USNY0327
+   COPAKE FALLS                                                                     USNY0328
+   COPENHAGEN                                                                       USNY0329
+   COPIAGUE                                                                         USNY0330
+   CORAM                                                                            USNY0331
+   CORBETTSVILLE                                                                    USNY0332
+   CORFU                                                                            USNY0333
+   CORINTH                                                                          USNY0334
+   CORNING                                                                          USNY0335
+   CORNWALL                                                                         USNY0336
+   CORNWALL ON HUDSON                                                               USNY0337
+   CORNWALLVILLE                                                                    USNY0338
+   CORONA                                                                           USNY0339
+   CORTLAND                                                                         USNY0340
+   CORTLANDT MANOR                                                                  USNY0341
+   COSSAYUNA                                                                        USNY0342
+   COTTEKILL                                                                        USNY0343
+   COWLESVILLE                                                                      USNY0344
+   COXSACKIE                                                                        USNY0345
+   CRAGSMOOR                                                                        USNY0346
+   CRANBERRY LAKE                                                                   USNY0347
+   CRARYVILLE                                                                       USNY0348
+   CRITTENDEN                                                                       USNY0349
+   CROGHAN                                                                          USNY0350
+   CROMPOND                                                                         USNY0351
+   CROPSEYVILLE                                                                     USNY0352
+   CROSS RIVER                                                                      USNY0353
+   CROTON FALLS                                                                     USNY0354
+   CROTON-ON-HUDSON                                                                 USNY0355
+   CROWN POINT                                                                      USNY0356
+   CUBA                                                                             USNY0357
+   CUDDEBACKVILLE                                                                   USNY0358
+   CUTCHOGUE                                                                        USNY0359
+   DALE                                                                             USNY0360
+   DALTON                                                                           USNY0361
+   DANNEMORA                                                                        USNY0362
+   DARIEN CENTER                                                                    USNY0364
+   DAVENPORT                                                                        USNY0365
+   DAVENPORT CENTER                                                                 USNY0366
+   DAYTON                                                                           USNY0367
+   DE KALB JUNCTION                                                                 USNY0368
+   DE LANCEY                                                                        USNY0369
+   DE PEYSTER                                                                       USNY0370
+   DE RUYTER                                                                        USNY0371
+   DEANSBORO                                                                        USNY0372
+   DEER PARK                                                                        USNY0373
+   DEER RIVER                                                                       USNY0374
+   DEFERIET                                                                         USNY0375
+   DELANSON                                                                         USNY0376
+   DELEVAN                                                                          USNY0377
+   DELHI                                                                            USNY0378
+   DELMAR                                                                           USNY0379
+   DELPHI FALLS                                                                     USNY0380
+   DENMARK                                                                          USNY0381
+   DENVER                                                                           USNY0382
+   DEPAUVILLE                                                                       USNY0383
+   DEPEW                                                                            USNY0384
+   DEPOSIT                                                                          USNY0385
+   DERBY                                                                            USNY0386
+   DEWITTVILLE                                                                      USNY0387
+   DEXTER                                                                           USNY0388
+   DIAMOND POINT                                                                    USNY0389
+   DICKINSON CENTER                                                                 USNY0390
+   DOBBS FERRY                                                                      USNY0391
+   DOLGEVILLE                                                                       USNY0392
+   DORMANSVILLE                                                                     USNY0393
+   DOVER PLAINS                                                                     USNY0394
+   DOWNSVILLE                                                                       USNY0395
+   DRESDEN                                                                          USNY0396
+   DRYDEN                                                                           USNY0397
+   DUANESBURG                                                                       USNY0398
+   DUNDEE                                                                           USNY0399
+   DURHAM                                                                           USNY0401
+   DURHAMVILLE                                                                      USNY0402
+   EAGLE BAY                                                                        USNY0403
+   EAGLE BRIDGE                                                                     USNY0404
+   EARLTON                                                                          USNY0405
+   EARLVILLE                                                                        USNY0406
+   EAST AMHERST                                                                     USNY0407
+   EAST AURORA                                                                      USNY0408
+   EAST BERNE                                                                       USNY0409
+   EAST BETHANY                                                                     USNY0410
+   EAST BLOOMFIELD                                                                  USNY0411
+   EAST BRANCH                                                                      USNY0412
+   EAST CHATHAM                                                                     USNY0413
+   EAST CONCORD                                                                     USNY0414
+   EAST DURHAM                                                                      USNY0415
+   EAST ELMHURST                                                                    USNY0416
+   EAST GREENBUSH                                                                   USNY0417
+   EAST HOMER                                                                       USNY0419
+   EAST ISLIP                                                                       USNY0420
+   EAST JEWETT                                                                      USNY0421
+   EAST MARION                                                                      USNY0422
+   EAST MEADOW                                                                      USNY0423
+   EAST MEREDITH                                                                    USNY0424
+   EAST MORICHES                                                                    USNY0425
+   EAST NASSAU                                                                      USNY0426
+   EAST NORTHPORT                                                                   USNY0427
+   EAST NORWICH                                                                     USNY0428
+   EAST OTTO                                                                        USNY0429
+   EAST PEMBROKE                                                                    USNY0430
+   EAST PHARSALIA                                                                   USNY0431
+   EAST QUOGUE                                                                      USNY0432
+   EAST RANDOLPH                                                                    USNY0433
+   EAST ROCHESTER                                                                   USNY0434
+   EAST ROCKAWAY                                                                    USNY0435
+   EAST SCHODACK                                                                    USNY0436
+   EAST SETAUKET                                                                    USNY0437
+   EAST SPRINGFIELD                                                                 USNY0438
+   EAST SYRACUSE                                                                    USNY0439
+   EAST WILLIAMSON                                                                  USNY0440
+   EAST WORCESTER                                                                   USNY0441
+   EASTCHESTER                                                                      USNY0442
+   EASTPORT                                                                         USNY0443
+   EATON                                                                            USNY0444
+   EDEN                                                                             USNY0445
+   EDMESTON                                                                         USNY0446
+   EDWARDS                                                                          USNY0447
+   ELBA                                                                             USNY0448
+   ELBRIDGE                                                                         USNY0449
+   ELDRED                                                                           USNY0450
+   ELIZABETHTOWN                                                                    USNY0451
+   ELIZAVILLE                                                                       USNY0452
+   ELKA PARK                                                                        USNY0453
+   ELLENBURG                                                                        USNY0454
+   ELLENBURG CENTER                                                                 USNY0455
+   ELLENVILLE                                                                       USNY0457
+   ELLICOTTVILLE                                                                    USNY0458
+   ELLINGTON                                                                        USNY0459
+   ELLISBURG                                                                        USNY0460
+   ELMA                                                                             USNY0461
+   ELMHURST                                                                         USNY0462
+   ELMONT                                                                           USNY0464
+   ELMSFORD                                                                         USNY0465
+   ENDICOTT                                                                         USNY0466
+   ENDWELL                                                                          USNY0467
+   ERIEVILLE                                                                        USNY0468
+   ERIN                                                                             USNY0469
+   ESOPUS                                                                           USNY0470
+   ESPERANCE                                                                        USNY0471
+   ESSEX                                                                            USNY0472
+   ETNA                                                                             USNY0473
+   EVANS MILLS                                                                      USNY0474
+   FABIUS                                                                           USNY0475
+   FAIR HAVEN                                                                       USNY0476
+   FAIRPORT                                                                         USNY0477
+   FALCONER                                                                         USNY0478
+   FALLSBURG                                                                        USNY0479
+   FANCHER                                                                          USNY0480
+   FAR ROCKAWAY                                                                     USNY0481
+   FARMERSVILLE STATION                                                             USNY0482
+   FARMINGTON                                                                       USNY0484
+   FARMINGVILLE                                                                     USNY0485
+   FARNHAM                                                                          USNY0486
+   FAYETTE                                                                          USNY0487
+   FAYETTEVILLE                                                                     USNY0488
+   FELTS MILLS                                                                      USNY0489
+   FERNDALE                                                                         USNY0490
+   FEURA BUSH                                                                       USNY0491
+   FILLMORE                                                                         USNY0492
+   FINDLEY LAKE                                                                     USNY0493
+   FINE                                                                             USNY0494
+   FIRE ISLAND NATL SEASHORE                                                        USNY0495
+   FISHERS                                                                          USNY0496
+   FISHERS ISLAND                                                                   USNY0497
+   FISHERS LANDING                                                                  USNY0498
+   FISHKILL                                                                         USNY0499
+   FISHS EDDY                                                                       USNY0500
+   FLEISCHMANNS                                                                     USNY0501
+   FLORAL PARK                                                                      USNY0502
+   FLORIDA                                                                          USNY0503
+   FLUSHING                                                                         USNY0504
+   FLY CREEK                                                                        USNY0505
+   FONDA                                                                            USNY0506
+   FOREST HILLS                                                                     USNY0507
+   FORESTBURGH                                                                      USNY0508
+   FORESTPORT                                                                       USNY0509
+   FORESTVILLE                                                                      USNY0510
+   FORT ANN                                                                         USNY0511
+   FORT COVINGTON                                                                   USNY0512
+   FORT DRUM                                                                        USNY0513
+   FORT EDWARD                                                                      USNY0514
+   FORT HUNTER                                                                      USNY0515
+   FORT JOHNSON                                                                     USNY0516
+   FORT MONTGOMERY                                                                  USNY0517
+   FORT PLAIN                                                                       USNY0518
+   FRANKFORT                                                                        USNY0519
+   FRANKLIN                                                                         USNY0520
+   FRANKLIN SPRINGS                                                                 USNY0521
+   FRANKLIN SQUARE                                                                  USNY0522
+   FRANKLINVILLE                                                                    USNY0523
+   FREDONIA                                                                         USNY0524
+   FREEDOM                                                                          USNY0525
+   FREEHOLD                                                                         USNY0526
+   FREEPORT                                                                         USNY0527
+   FREEVILLE                                                                        USNY0528
+   FREMONT CENTER                                                                   USNY0529
+   FRESH MEADOWS                                                                    USNY0530
+   FREWSBURG                                                                        USNY0531
+   FRIENDSHIP                                                                       USNY0532
+   FULTONHAM                                                                        USNY0534
+   FULTONVILLE                                                                      USNY0535
+   GABRIELS                                                                         USNY0536
+   GAINESVILLE                                                                      USNY0537
+   GALLUPVILLE                                                                      USNY0538
+   GALWAY                                                                           USNY0539
+   GANSEVOORT                                                                       USNY0540
+   GARDEN CITY                                                                      USNY0541
+   GARDINER                                                                         USNY0542
+   GARNERVILLE                                                                      USNY0543
+   GARRATTSVILLE                                                                    USNY0544
+   GARRISON                                                                         USNY0545
+   GASPORT                                                                          USNY0546
+   GENESEO                                                                          USNY0547
+   GENEVA                                                                           USNY0548
+   GENOA                                                                            USNY0549
+   GEORGETOWN                                                                       USNY0550
+   GERMANTOWN                                                                       USNY0551
+   GERRY                                                                            USNY0552
+   GETZVILLE                                                                        USNY0553
+   GHENT                                                                            USNY0554
+   GILBERTSVILLE                                                                    USNY0555
+   GILBOA                                                                           USNY0556
+   GLASCO                                                                           USNY0557
+   GLEN AUBREY                                                                      USNY0558
+   GLEN COVE                                                                        USNY0559
+   GLEN HEAD                                                                        USNY0560
+   GLEN OAKS                                                                        USNY0561
+   GLEN SPEY                                                                        USNY0562
+   GLEN WILD                                                                        USNY0563
+   GLENFIELD                                                                        USNY0564
+   GLENFORD                                                                         USNY0565
+   GLENHAM                                                                          USNY0566
+   GLENMONT                                                                         USNY0567
+   GLENWOOD                                                                         USNY0569
+   GLENWOOD LANDING                                                                 USNY0570
+   GLOVERSVILLE                                                                     USNY0571
+   GODEFFROY                                                                        USNY0572
+   GOLDENS BRIDGE                                                                   USNY0573
+   GORE MOUNTAIN SKI CENTER                                                         USNY0574
+   GORHAM                                                                           USNY0575
+   GOSHEN                                                                           USNY0576
+   GOUVERNEUR                                                                       USNY0577
+   GOWANDA                                                                          USNY0578
+   GRAFTON                                                                          USNY0579
+   GRAHAMSVILLE                                                                     USNY0580
+   GRAND GORGE                                                                      USNY0581
+   GRAND ISLAND                                                                     USNY0582
+   GRANITE SPRINGS                                                                  USNY0583
+   GRANVILLE                                                                        USNY0584
+   GREAT BEND                                                                       USNY0585
+   GREAT NECK                                                                       USNY0586
+   GREAT RIVER                                                                      USNY0587
+   GREAT VALLEY                                                                     USNY0588
+   GREENE                                                                           USNY0589
+   GREENFIELD CENTER                                                                USNY0590
+   GREENFIELD PARK                                                                  USNY0591
+   GREENHURST                                                                       USNY0592
+   GREENLAWN                                                                        USNY0593
+   GREENPORT                                                                        USNY0594
+   GREENVALE                                                                        USNY0595
+   GREENVILLE                                                                       USNY0596
+   GREENWICH                                                                        USNY0597
+   GREENWOOD                                                                        USNY0598
+   GREENWOOD LAKE                                                                   USNY0599
+   GREIG                                                                            USNY0600
+   GROTON                                                                           USNY0601
+   GROVELAND                                                                        USNY0602
+   GUILDERLAND                                                                      USNY0603
+   GUILDERLAND CENTER                                                               USNY0604
+   GUILFORD                                                                         USNY0605
+   HADLEY                                                                           USNY0606
+   HAGAMAN                                                                          USNY0607
+   HAGUE                                                                            USNY0608
+   HAILESBORO                                                                       USNY0609
+   HAINES FALLS                                                                     USNY0610
+   HALCOTTSVILLE                                                                    USNY0611
+   HALL                                                                             USNY0612
+   HAMBURG                                                                          USNY0613
+   HAMDEN                                                                           USNY0614
+   HAMILTON                                                                         USNY0615
+   HAMLIN                                                                           USNY0616
+   HAMMOND                                                                          USNY0617
+   HAMMONDSPORT                                                                     USNY0618
+   HAMPTON                                                                          USNY0619
+   HAMPTON BAYS                                                                     USNY0620
+   HANCOCK                                                                          USNY0621
+   HANKINS                                                                          USNY0622
+   HANNACROIX                                                                       USNY0623
+   HANNAWA FALLS                                                                    USNY0624
+   HANNIBAL                                                                         USNY0625
+   HARFORD                                                                          USNY0626
+   HARPERSFIELD                                                                     USNY0627
+   HARPURSVILLE                                                                     USNY0628
+   HARRIMAN                                                                         USNY0629
+   HARRIS                                                                           USNY0630
+   HARRISON                                                                         USNY0631
+   HARRISVILLE                                                                      USNY0632
+   HARTFORD                                                                         USNY0633
+   HARTSDALE                                                                        USNY0634
+   HARTWICK                                                                         USNY0635
+   HASTINGS                                                                         USNY0636
+   HASTINGS ON HUDSON                                                               USNY0637
+   HAUPPAUGE                                                                        USNY0638
+   HAVERSTRAW                                                                       USNY0639
+   HAWTHORNE                                                                        USNY0640
+   HECTOR                                                                           USNY0641
+   HELENA                                                                           USNY0642
+   HEMLOCK                                                                          USNY0643
+   HEMPSTEAD                                                                        USNY0644
+   HENDERSON                                                                        USNY0645
+   HENDERSON HARBOR                                                                 USNY0646
+   HENRIETTA                                                                        USNY0647
+   HENSONVILLE                                                                      USNY0648
+   HERKIMER                                                                         USNY0649
+   HERMON                                                                           USNY0650
+   HEUVELTON                                                                        USNY0651
+   HEWLETT                                                                          USNY0652
+   HICKSVILLE                                                                       USNY0653
+   HIGH FALLS                                                                       USNY0654
+   HIGHLAND                                                                         USNY0655
+   HIGHLAND FALLS                                                                   USNY0656
+   HIGHLAND LAKE                                                                    USNY0657
+   HIGHLAND MILLS                                                                   USNY0658
+   HIGHMOUNT                                                                        USNY0659
+   HILLBURN                                                                         USNY0660
+   HILLSDALE                                                                        USNY0661
+   HILTON                                                                           USNY0662
+   HIMROD                                                                           USNY0663
+   HINCKLEY                                                                         USNY0664
+   HINSDALE                                                                         USNY0665
+   HOBART                                                                           USNY0666
+   HOFFMEISTER                                                                      USNY0667
+   HOGANSBURG                                                                       USNY0668
+   HOLBROOK                                                                         USNY0669
+   HOLIDAY VALLEY RESORT                                                            USNY0670
+   HOLLAND                                                                          USNY0671
+   HOLLAND PATENT                                                                   USNY0672
+   HOLLEY                                                                           USNY0673
+   HOLLIS                                                                           USNY0674
+   HOLLOWVILLE                                                                      USNY0675
+   HOLMES                                                                           USNY0676
+   HOLTSVILLE                                                                       USNY0677
+   HOMER                                                                            USNY0678
+   HONEOYE                                                                          USNY0679
+   HONEOYE FALLS                                                                    USNY0680
+   HOOSICK                                                                          USNY0681
+   HOOSICK FALLS                                                                    USNY0682
+   HOPEWELL JUNCTION                                                                USNY0683
+   HORNELL                                                                          USNY0684
+   HORSEHEADS                                                                       USNY0685
+   HORTONVILLE                                                                      USNY0686
+   HOUGHTON                                                                         USNY0687
+   HOWARD BEACH                                                                     USNY0688
+   HOWELLS                                                                          USNY0689
+   HOWES CAVE                                                                       USNY0690
+   HUBBARDSVILLE                                                                    USNY0691
+   HUDSON                                                                           USNY0692
+   HUDSON FALLS                                                                     USNY0693
+   HUGHSONVILLE                                                                     USNY0694
+   HUGUENOT                                                                         USNY0695
+   HULETTS LANDING                                                                  USNY0696
+   HUME                                                                             USNY0697
+   HUNT                                                                             USNY0698
+   HUNTER                                                                           USNY0699
+   HUNTER MOUNTAIN SKI BOWL                                                         USNY0700
+   HUNTINGTON                                                                       USNY0701
+   HUNTINGTON STATION                                                               USNY0702
+   HURLEY                                                                           USNY0703
+   HURLEYVILLE                                                                      USNY0704
+   HYDE PARK                                                                        USNY0705
+   ILION                                                                            USNY0706
+   INDIAN LAKE                                                                      USNY0707
+   INLET                                                                            USNY0708
+   INTERLAKEN                                                                       USNY0709
+   INWOOD                                                                           USNY0710
+   IONIA                                                                            USNY0711
+   IRVING                                                                           USNY0712
+   IRVINGTON                                                                        USNY0713
+   ISLAND PARK                                                                      USNY0714
+   ISLIP TERRACE                                                                    USNY0716
+   ITHACA                                                                           USNY0717
+   JACKSON HEIGHTS                                                                  USNY0718
+   JACKSONVILLE                                                                     USNY0719
+   JAMAICA                                                                          USNY0720
+   JAMESPORT                                                                        USNY0721
+   JAMESVILLE                                                                       USNY0723
+   JASPER                                                                           USNY0724
+   JAVA CENTER                                                                      USNY0725
+   JAVA VILLAGE                                                                     USNY0726
+   JAY                                                                              USNY0727
+   JEFFERSON                                                                        USNY0728
+   JEFFERSON VALLEY                                                                 USNY0729
+   JEFFERSONVILLE                                                                   USNY0730
+   JERICHO                                                                          USNY0731
+   JEWETT                                                                           USNY0732
 
 OHIO               26-APR-06
 CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C

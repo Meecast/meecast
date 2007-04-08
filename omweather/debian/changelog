@@ -7,8 +7,14 @@ omweather (0.17) unstable; urgency=low
   * Added data for atmospheric pressure
   * Added choice of units for wind speed
   * Added support i18n system
+  * Added icon in deb packet
+  * Fix memory leaks
+  * The curl library for update forecast is used
+  * Proxy settings on Maemo is used
+  * After adding the new station, forecast is downloaded automaticly
+  * Translate to Russian
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 25 Mar 2007 12:41:51 +0200  
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 08 Apr 2007 10:15:10 +0200  
 
 omweather (0.16) unstable; urgency=low
 

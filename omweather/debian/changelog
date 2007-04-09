@@ -13,6 +13,7 @@ omweather (0.17) unstable; urgency=low
   * Proxy settings on Maemo is used
   * After adding the new station, forecast is downloaded automaticly
   * Translate to Russian
+  * Fix problem with stations in New York,New Mexico, New Jersey, New Hampshire, Nebraska states of USA
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 08 Apr 2007 10:15:10 +0200  
 

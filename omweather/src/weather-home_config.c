@@ -313,26 +313,43 @@ void read_config(void){
     }
     else
         app->transparency = TRUE;      
+	
+	
     /* Get Temperature Unit  Default Celsius */
     app->temperature_units = gconf_client_get_int(gconf_client,
-                    			GCONF_KEY_WEATHER_TEMPERATURE_UNIT, NULL);
+                    			GCONF_KEY_WEATHER_TEMPERATURE_UNIT, &gerror);
     (app->temperature_units) ? (app->temperature_units = FAHRENHEIT)
 				: (app->temperature_units = CELSIUS);
-    /* Get Layout  Default Horizontal */
-    app->icons_layout = gconf_client_get_int(gconf_client,
-                			    GCONF_KEY_ICONS_LAYOUT,
-					    &gerror);
-    if(gerror){
+    /* Get Temperature Unit  Default Celsius */
+    /* Depricated, after 0.18 not used */
+    if (gerror){
+        tmp = gconf_client_get_string(gconf_client,
+                     GCONF_KEY_WEATHER_TEMPERATURE_UNIT,NULL);
+	if(tmp){
+	    if (tmp[0] == 'C')
+		app->temperature_units = CELSIUS;
+	    else
+		{
+		app->temperature_units = FAHRENHEIT;
+		}
+	    g_free(tmp);
+	}
+	else
+	    app->temperature_units = CELSIUS;	  
 	g_error_free(gerror);
-	/* Depricated, after 0.18 not used */				        
-	app->icons_layout = gconf_client_get_int(gconf_client,
+	gerror = NULL;
+    }	
+
+    /* Depricated, after 0.18 not used */
+    app->icons_layout = gconf_client_get_int(gconf_client,
                 			    GCONF_KEY_WEATHER_LAYOUT,
-					    &gerror);
-	if(gerror){
-	    app->icons_layout = ONE_ROW;
-	    g_error_free(gerror);
-	}    
-    }
+					    NULL);
+    
+    if (app->icons_layout == 0)
+	    /* Get Layout  Default Horizontal */
+	    app->icons_layout = gconf_client_get_int(gconf_client,
+                			    GCONF_KEY_ICONS_LAYOUT,
+					    NULL);
     /* Get number days to show */
     app->days_to_show = gconf_client_get_int(gconf_client,                                                                                     
                 	    GCONF_KEY_WEATHER_DAYS, &gerror);

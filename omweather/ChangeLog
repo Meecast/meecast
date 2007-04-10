@@ -8,14 +8,15 @@
   * Added support i18n system
   * Added icon in deb packet
   * Fix memory leaks
+  * Fix bug with station selection
   * The curl library for update forecast is used
   * Proxy settings on Maemo is used
   * After adding the new station, forecast is downloaded automaticly
   * Translate to Russian
-  * Fix problem with stations in New York,New Mexico, New Jersey, New Hampshire, Nebraska states of USA
+  * Fix problem with stations in New York, New Mexico, New Jersey, New Hampshire, Nebraska states of USA
 
 0.16
-  * OS 2007 compatibility:focus from the first button for OS2007 is removed
+  * OS 2007 compatibility: focus from the first button for OS2007 is removed
   * OS 2007 compatibility: the opportunity of change of the size of an applet is made
   * Added choice of units for distance
   * Added choice icon set

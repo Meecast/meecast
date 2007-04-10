@@ -1198,5 +1198,36 @@ GtkWidget* create_scrolled_window_with_text(const char* text,
 
 void station_list_view_select_handler(GtkTreeView *tree_view,
                                         gpointer user_data){
-    fprintf(stderr, "\nInside handler.\n");
+    struct weather_station *ws;
+    GSList		*tmplist = NULL;
+    GtkTreeIter		iter;
+    gchar		*station_selected = NULL;
+    GtkTreeSelection	*selected_line;
+    GtkTreeModel	*model;
+
+    selected_line = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
+    model = gtk_tree_view_get_model(GTK_TREE_VIEW(tree_view));
+    if( !gtk_tree_selection_get_selected(selected_line, NULL, &iter) )
+        return;
+    gtk_tree_model_get(model, &iter, 0, &station_selected, -1);
+
+    tmplist = stations_view_list;
+    while(tmplist){
+        ws = tmplist->data;
+        if( ws->name_station &&
+		station_selected && 
+		!strcmp(ws->name_station, station_selected) ){
+	    if(app->current_station_name)
+		g_free(app->current_station_name);
+	    app->current_station_name = g_strdup(ws->name_station);
+	    if(app->current_station_id)
+		g_free(app->current_station_id);
+	    app->current_station_id = g_strdup(ws->id_station);
+	    break;
+	}
+	tmplist = g_slist_next(tmplist);
+    }
+    g_free(station_selected);
+    weather_frame_update(TRUE);
+    config_save_current_station();
 }

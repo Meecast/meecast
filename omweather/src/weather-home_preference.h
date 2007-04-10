@@ -40,6 +40,7 @@ extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);
 void fill_station_list_view (GtkWidget *station_list_view,GtkListStore *station_list_store);
+void station_list_view_select_handler(GtkTreeView *tree_view, gpointer user_data);
 
 GtkWidget  *countrys, *states, *stations, *icon_size, *layout_type, *update_time, *temperature_unit, *days_number;
 GtkWidget  *custom_station_name, *custom_station_code, *units, *iconset, *wunits;

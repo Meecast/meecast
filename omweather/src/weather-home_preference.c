@@ -756,6 +756,8 @@ void weather_window_preference(GtkWidget *widget,
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
         			1, 2, 6, 7);
+    g_signal_connect(station_list_view, "cursor-changed",
+                	G_CALLBACK(station_list_view_select_handler), NULL);				
     g_signal_connect(button_ren, "clicked",
                 	G_CALLBACK(weather_window_rename_station), NULL);				
     g_signal_connect(button_del, "clicked",
@@ -1192,4 +1194,9 @@ GtkWidget* create_scrolled_window_with_text(const char* text,
     /* pack childs to the scrolled window */
     gtk_container_add(GTK_CONTAINER(scrolled_window), GTK_WIDGET(text_view));
     return scrolled_window;
+}
+
+void station_list_view_select_handler(GtkTreeView *tree_view,
+                                        gpointer user_data){
+    fprintf(stderr, "\nInside handler.\n");
 }

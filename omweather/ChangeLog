@@ -9,6 +9,7 @@
   * Added icon in deb packet
   * Fix memory leaks
   * Fix bug with station selection
+  * Fix bug with empty locations list
   * The curl library for update forecast is used
   * Proxy settings on Maemo is used
   * After adding the new station, forecast is downloaded automaticly

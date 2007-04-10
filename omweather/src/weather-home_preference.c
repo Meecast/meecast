@@ -426,8 +426,9 @@ static gboolean weather_delete_station(GtkWidget *widget,
           g_free(app->current_station_id);
        app->current_station_name = NULL;
        app->current_station_id = NULL;
+       weather_frame_update(FALSE);
        /* Update config file */
-       config_save();       	  
+       config_save();
     }
     fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);    
     if (station_selected)
@@ -1038,7 +1039,7 @@ void weather_window_preference(GtkWidget *widget,
     	    config_save();
 	    if(flag_update_icon)
     		weather_frame_update(FALSE);
-	    if(flag_update_station)
+	    if(flag_update_station){
 		if (app->iap_connected){
 		    if( g_slist_length(stations_view_list) > 0 )
 		    {
@@ -1048,6 +1049,7 @@ void weather_window_preference(GtkWidget *widget,
 		}    
 		else    
     		    weather_frame_update(TRUE);
+	    }
 	    free_list_stations();
 	break;
 	case GTK_RESPONSE_HELP:/* Pressed Button Help */

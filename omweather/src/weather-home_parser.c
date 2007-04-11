@@ -297,7 +297,7 @@ int parse_weather_com_xml(void){
 				if( child_node2->type == XML_ELEMENT_NODE){  
         			    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"part")){
 					part_of_day = xmlGetProp(child_node2, (const xmlChar*)"p");
-					if( !(day = xmlStrcmp(part_of_day, (const xmlChar *)"d")) )
+					if( !xmlStrcmp(part_of_day, (const xmlChar *)"d") )
 					    day = 1;
 					else
 					    day = 0;

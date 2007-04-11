@@ -409,8 +409,7 @@ void weather_window_popup_show (GtkWidget *widget,
 	    gtk_container_add(GTK_CONTAINER(vbox), hbox_current);
 	    gtk_box_pack_start(GTK_BOX(vbox), separator_current, FALSE, TRUE, 0);
 	}
-	else /* Free memory */
-	{
+	else{ /* Free memory */
 	    if (hbox_current)
 		gtk_widget_destroy(hbox_current);
 	    if (separator_current)
@@ -442,8 +441,7 @@ void weather_window_popup_show (GtkWidget *widget,
 	    }
 	}
     }
-    else
-    {
+    else{
 	/* Free memory in not use wdget */
 	if (hbox_title_date)
 	    gtk_object_sink(GTK_OBJECT(hbox_title_date));

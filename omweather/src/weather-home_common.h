@@ -58,7 +58,7 @@
 #define AUTOUPDATE		1
 #define DAYTIMEEVENT		2
 #define DAY_DOWNLOAD		10
-#define OFFSET_CURRENT_WEATHER	6 /* 4 hours */
+#define OFFSET_CURRENT_WEATHER	2 /* 2 hours */
 #define STATIONS_FILE		"/usr/share/omweather/stations.txt"
 #define COUNTRYS_FILE		"/usr/share/omweather/iso3166-countrycodes.txt"
 #define ICONS_PATH		"/usr/share/omweather/icons/"

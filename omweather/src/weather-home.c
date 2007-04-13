@@ -193,6 +193,9 @@ void weather_buttons_fill(gboolean check_error){
     GdkPixbuf	*icon = NULL;
     GtkWidget	*icon_image;
 
+/* Check main widget */
+    if (!app->top_widget)
+	return;
 /* select image and font size */
     switch(app->icons_size){
 	default:
@@ -214,6 +217,7 @@ void weather_buttons_fill(gboolean check_error){
     weather_buttons_init();
     count_day = parse_weather_com_xml();
     
+
     if(check_error)
 	if(count_day == -2){
 	    count_day = 0;
@@ -236,6 +240,7 @@ void weather_buttons_fill(gboolean check_error){
   /* add periodic update */
     add_periodic_event();
 
+ 
   /* Search day of saving xml near current day */
     while( (offset < Max_count_weather_day) &&
 	    (current_day > weather_days[offset].date_time) &&
@@ -388,7 +393,8 @@ void weather_buttons_fill(gboolean check_error){
 void weather_frame_update(gboolean check){
     
     free_memory(FALSE);
-    gtk_widget_destroy(app->main_window);
+    if (app->main_window)
+        gtk_widget_destroy(app->main_window);
     if(check) 
 	weather_buttons_fill(TRUE);
     else
@@ -460,11 +466,19 @@ void hildon_home_applet_lib_foreground(void *raw_data){
 
 void hildon_home_applet_lib_deinitialize(void *applet_data){
     osso_context_t *osso;
-
+    
+    gboolean check;
+    
     fprintf(stderr, "\nOMWeather applet deinitialize\n");
+
+    /* It is switch off the timer */	
+    check = g_source_remove(app->timer);
+
     config_save(); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
 			On n800 this work*/
+			
     osso  = (osso_context_t*)applet_data;
+    app->top_widget = NULL;
     if(app){
 	free_memory(TRUE);
 	g_free(app);
@@ -638,7 +652,7 @@ void free_memory(gboolean flag){
     if(app->current_country && flag){
 	g_free(app->current_country);
 	app->current_country = NULL;
-    }
+    }	
     if(app->current_station_name && flag){
 	g_free(app->current_station_name);
 	app->current_station_name = NULL;
@@ -647,7 +661,6 @@ void free_memory(gboolean flag){
 	g_free(app->current_station_id);
 	app->current_station_id = NULL;
     }
-
     if(app->iap_http_proxy_host && flag){
 	g_free(app->iap_http_proxy_host);
 	app->iap_http_proxy_host = NULL;
@@ -660,8 +673,15 @@ void free_memory(gboolean flag){
 	g_slist_free(stations_view_list);
 	stations_view_list = NULL;
     }
-    for(i = 0; i < app->days_to_show; i++)
-	delete_weather_day_button( &(app->buttons[i]) );
+    if (app->top_widget){
+	for(i = 0; i < app->days_to_show; i++)
+	    delete_weather_day_button( &(app->buttons[i]) );
+	if (app->main_window){
+	    gtk_widget_destroy(app->main_window);
+	    app->main_window = NULL;
+	}	
+    }	    
+
 }
 
 WDB* create_weather_day_button(const char *text, const char *icon, const int icon_size, gboolean transparency, char font_size){
@@ -701,16 +721,26 @@ WDB* create_weather_day_button(const char *text, const char *icon, const int ico
 void delete_weather_day_button(WDB **day){
 
     if(*day){
-	if( (*day)->icon_image )
+	if( (*day)->icon_image ){
 	    gtk_widget_destroy( (*day)->icon_image );
-	if( (*day)->icon_buffer )
+	    (*day)->icon_image = NULL;
+	}
+	if( (*day)->icon_buffer ){
 	     g_object_unref( (*day)->icon_buffer );
-	if( (*day)->label )
-	    gtk_widget_destroy( (*day)->label );
-	if( (*day)->box )
+	     (*day)->icon_buffer = NULL;
+	}     
+	if( (*day)->label ){
+	    gtk_widget_destroy( (*day)->label );    
+	    (*day)->label = NULL;
+	}    
+	if( (*day)->box ){
 	    gtk_widget_destroy( (*day)->box );
-	if( (*day)->button )
+	    (*day)->box = NULL;
+	}    
+	if( (*day)->button ){
 	    gtk_widget_destroy( (*day)->button );
+	    (*day)->button = NULL;
+	}    
 	g_free(*day);
 	*day = NULL;
     }

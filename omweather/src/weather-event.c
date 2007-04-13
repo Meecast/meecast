@@ -37,6 +37,8 @@ gboolean timer_handler(gpointer data){
     struct event_time *evt;
     time_t current_time;
 
+    fprintf(stderr,"test0\n");
+    print_list();
     if(not_event == TRUE || !event_time_list)
 	return TRUE;
 
@@ -84,9 +86,9 @@ void print_list(void){
 }
 
 void timer(void){
-    g_timeout_add(60000,
-		    (GtkFunction)timer_handler,
-		    app->main_window); /* One per minute */
+    app->timer = g_timeout_add(60000,
+			       (GtkFunction)timer_handler,
+			       app->main_window); /* One per minute */
 }
 
 /* Free memory allocated for time event */

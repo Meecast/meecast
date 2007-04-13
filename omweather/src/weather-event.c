@@ -37,8 +37,9 @@ gboolean timer_handler(gpointer data){
     struct event_time *evt;
     time_t current_time;
 
-    fprintf(stderr,"test0\n");
+#ifdef PC_EMULATOR
     print_list();
+#endif
     if(not_event == TRUE || !event_time_list)
 	return TRUE;
 
@@ -52,11 +53,14 @@ gboolean timer_handler(gpointer data){
 		case DAYTIMEEVENT :
      		    weather_frame_update(FALSE);   
 		break;
+		default:
 		case AUTOUPDATE:
-		    /* Reinitialise autoupdate event */ 
 		    /* delete periodic update */
-                    event_time_list=g_slist_remove(event_time_list,event_time_list->data);
+		    g_free(evt);
+                    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
+		#ifdef PC_EMULATOR
 		    fprintf(stderr,"UPDATE by event\n");
+		#endif
 		    app->show_update_window = FALSE;
 		    update_weather();
                     /* add periodic update */
@@ -67,7 +71,7 @@ gboolean timer_handler(gpointer data){
 	}             
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
-return TRUE;    
+    return TRUE;    
 }
 
 /*For debug */
@@ -78,9 +82,9 @@ void print_list(void){
     if(!event_time_list)
 	return;
     list_time_event_temp = event_time_list;
-    while(list_time_event_temp != NULL){
+    while(list_time_event_temp){
 	evt = list_time_event_temp->data;
-	fprintf(stderr,"Time: %s,Event: %i\n",ctime(&evt->time),evt->type_event);
+	fprintf(stderr,"Event %i Time: %s", evt->type_event, ctime(&evt->time));
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
 }
@@ -118,7 +122,7 @@ static gint compare_time(gconstpointer a, gconstpointer b){
 }
 
 /* Add time event  to list */	  
-void time_event_add(time_t time_value,short int type_event){
+void time_event_add(time_t time_value, short type_event){
     struct event_time *evt;
 
     evt = g_new0(struct event_time, 1);
@@ -144,7 +148,7 @@ void remove_periodic_event(void){
     while(list_time_event_temp != NULL){
 	evt = list_time_event_temp->data;
 	if(evt->type_event == AUTOUPDATE){
-	    event_time_list = g_slist_remove(event_time_list,event_time_list->data);
+	    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
 	    g_free(evt);
 	}
 	list_time_event_temp = g_slist_next(list_time_event_temp);

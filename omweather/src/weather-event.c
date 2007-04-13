@@ -32,8 +32,7 @@
 
 static GSList *event_time_list = NULL;
 
-gboolean 
-timer_handler(gpointer data){
+gboolean timer_handler(gpointer data){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
     time_t current_time;
@@ -76,7 +75,7 @@ void print_list(void){
 
     if(!event_time_list)
 	return;
-    list_time_event_temp = event_time_list;  
+    list_time_event_temp = event_time_list;
     while(list_time_event_temp != NULL){
 	evt = list_time_event_temp->data;
 	fprintf(stderr,"Time: %s,Event: %i\n",ctime(&evt->time),evt->type_event);
@@ -119,9 +118,10 @@ static gint compare_time(gconstpointer a, gconstpointer b){
 /* Add time event  to list */	  
 void time_event_add(time_t time_value,short int type_event){
     struct event_time *evt;
+
     evt = g_new0(struct event_time, 1);
     evt->time = time_value;	  
-    evt->type_event = type_event;	  
+    evt->type_event = type_event;
     event_time_list = g_slist_insert_sorted(event_time_list,evt,compare_time);
 }
 
@@ -141,8 +141,10 @@ void remove_periodic_event(void){
     list_time_event_temp = event_time_list;  
     while(list_time_event_temp != NULL){
 	evt = list_time_event_temp->data;
-	if(evt->type_event == AUTOUPDATE)
-	    event_time_list=g_slist_remove(event_time_list,event_time_list->data);
+	if(evt->type_event == AUTOUPDATE){
+	    event_time_list = g_slist_remove(event_time_list,event_time_list->data);
+	    g_free(evt);
+	}
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
 }

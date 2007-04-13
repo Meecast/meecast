@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-11 09:33+0300\n"
+"POT-Creation-Date: 2007-04-13 20:41+0300\n"
 "PO-Revision-Date: 2007-03-27 21:26+0300\n"
 "Last-Translator: vlad <vlad@gas.by>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -145,9 +145,17 @@ msgstr "раз в 2 часа"
 msgid "24 hours"
 msgstr "раз в 24 часа"
 
+#: src/weather-home_config.c:384
+msgid "30 minutes (DEBUG)"
+msgstr "раз в 30 минут (отладка)"
+
 #: src/weather-home_config.c:379
 msgid "4 hours"
 msgstr "раз в 4 часа"
+
+#: src/weather-home_config.c:383
+msgid "5 minutes (DEBUG)"
+msgstr "раз в 5 минут (отладка)"
 
 #: src/weather-home_config.c:380
 msgid "8 hours"
@@ -290,12 +298,12 @@ msgstr "ВСВ"
 msgid "ESE"
 msgstr "ВЮВ"
 
-#: src/weather-home.c:220
+#: src/weather-home.c:218
 #, c-format
 msgid "Error in xml file\n"
 msgstr "Ошибка в xml файле.\n"
 
-#: src/weather-home.c:411
+#: src/weather-home.c:402
 msgid "Error initializing the OMWeather applet"
 msgstr "Ошибка при инициализации апплета."
 
@@ -312,7 +320,7 @@ msgstr "Фаренгейт (США и др.)"
 msgid "Failed to initialize GConf. Quitting.\n"
 msgstr "Невозможно инициализировать GConf. Выходим.\n"
 
-#: src/weather-home_config.c:423 src/weather-home_config.c:446
+#: src/weather-home_config.c:425 src/weather-home_config.c:448
 #, c-format
 msgid "Failed to initialize GConf. Settings were not saved.\n"
 msgstr "Не возможно инициализировать GConf. Настройки не будут сохранены.\n"
@@ -510,7 +518,7 @@ msgstr "В основном солнечно"
 msgid "N"
 msgstr "С"
 
-#: src/weather-home.c:321 src/weather-home_hash.c:61
+#: src/weather-home.c:312 src/weather-home_hash.c:61
 msgid "N/A"
 msgstr "Н/Д"
 
@@ -947,7 +955,7 @@ msgstr "Wintry Mix / Wind Early"
 msgid "Wintry Mix to Snow"
 msgstr "Wintry Mix to Snow"
 
-#: src/weather-home.c:177
+#: src/weather-home.c:172
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"

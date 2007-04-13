@@ -48,7 +48,7 @@ OMWeatherApp	*app = NULL;
 
 /* Translate  temperature Celsius to Farenhait */
 int c2f(int temp){
-    return (temp * 1.8 ) + 32;
+    return (temp * 1.8f ) + 32;
 }
 
 
@@ -64,97 +64,92 @@ void set_font_size(GtkWidget *widget, char font_size){
     pango_font_description_free(pfd);
 }
 
-static gboolean
-enter_button (GtkWidget        *widget,
-              GdkEventCrossing *event)
-{
-   GtkButton *button;
-   GtkWidget *event_widget;
+static gboolean enter_button(GtkWidget *widget,
+        			GdkEventCrossing *event){
+    GtkButton	*button;
+    GtkWidget	*event_widget;
  
-   button = GTK_BUTTON (widget);
-   event_widget = gtk_get_event_widget ((GdkEvent*) event);
-   button->in_button = FALSE;
-   gtk_button_leave (button);
-   return FALSE;
+    button = GTK_BUTTON(widget);
+    event_widget = gtk_get_event_widget((GdkEvent*) event);
+    button->in_button = FALSE;
+    gtk_button_leave(button);
+    return FALSE;
 }
 
 /* Change station to previos at main display */
 static gboolean change_station_prev(GtkWidget *widget,
                     		    GdkEvent *event,
-                    		    gpointer user_data)
-{
+                    		    gpointer user_data){
 
-  GSList *tmplist = NULL;
-  GSList *tmplist_prev = NULL;
-  struct weather_station *ws;
-  tmplist = stations_view_list;
-  while (tmplist != NULL)
-  {
-   ws = tmplist->data;
-     /* Check active station */ 
-     if ((app->current_station_id != NULL) && strcmp(app->current_station_id, ws->id_station) == 0)
-     {
-     /* Get last station if no previos station */
-      if (tmplist_prev == NULL) 
-          tmplist_prev = g_slist_last(tmplist);
-      /* Get station data */
-      ws = tmplist_prev ->data;
-      if(app->current_station_id != NULL)
-        g_free(app->current_station_id);
-        app->current_station_id = g_strdup(ws->id_station); 
-	/* update current station name */
-        if(app->current_station_name)
-	    g_free(app->current_station_name);
-	ws->name_station && (app->current_station_name = strdup(ws->name_station));
-      weather_frame_update(TRUE);
-      config_save_current_station();
-      break;
-     } 
-   tmplist_prev = tmplist;
-   /* Next station in list */
-   tmplist = g_slist_next(tmplist);
-  }
- return TRUE;
+    GSList			*tmplist = NULL;
+    GSList			*tmplist_prev = NULL;
+    struct weather_station	*ws;
+
+    tmplist = stations_view_list;
+    while(tmplist){
+	ws = tmplist->data;
+	/* Check active station */ 
+	if((app->current_station_id != NULL) &&
+		!strcmp(app->current_station_id, ws->id_station)){
+	    /* Get last station if no previos station */
+	    if(!tmplist_prev) 
+    		tmplist_prev = g_slist_last(tmplist);
+	    /* Get station data */
+	    ws = tmplist_prev->data;
+	    if(app->current_station_id)
+    		g_free(app->current_station_id);
+    	    app->current_station_id = g_strdup(ws->id_station); 
+	    /* update current station name */
+    	    if(app->current_station_name)
+		g_free(app->current_station_name);
+	    ws->name_station && (app->current_station_name = strdup(ws->name_station));
+	    weather_frame_update(TRUE);
+	    config_save_current_station();
+	    break;
+	} 
+	tmplist_prev = tmplist;
+	/* Next station in list */
+	tmplist = g_slist_next(tmplist);
+    }
+    return TRUE;
 }
 
 /* Change station to next at main display */
-static gboolean
-change_station_next (GtkWidget *widget,
-                           GdkEvent *event,
-                           gpointer user_data)
-{
+static gboolean change_station_next(GtkWidget *widget,
+                    		    GdkEvent *event,
+                    		    gpointer user_data){
 
-  GSList *tmplist = NULL;
-  struct weather_station *ws;
-  tmplist = stations_view_list;
-  while (tmplist != NULL)
-  {
-   ws = tmplist->data;
-     /* Check active station */ 
-     if ((app->current_station_id != NULL) && strcmp(app->current_station_id, ws->id_station) == 0)
-     {
-      tmplist = g_slist_next(tmplist);
-      /* If no next station, get first */
-      if (!tmplist)
-          tmplist = stations_view_list;
-      /* Get station data */
-      ws = tmplist ->data;
-      if (app->current_station_id != NULL) g_free(app->current_station_id);
-        app->current_station_id = g_strdup(ws->id_station); 
-	/* update current station name */
-        if(app->current_station_name)
-	    g_free(app->current_station_name);
-	ws->name_station && (app->current_station_name = strdup(ws->name_station));
-      weather_frame_update(TRUE);
-      config_save_current_station();
-      break;
-     }
-   /* Next station in list */
-   tmplist = g_slist_next(tmplist);
-  }
- return TRUE;
+    GSList 			*tmplist = NULL;
+    struct weather_station	*ws;
+
+    tmplist = stations_view_list;
+    while(tmplist){
+	ws = tmplist->data;
+	/* Check active station */ 
+	if((app->current_station_id != NULL) &&
+		!strcmp(app->current_station_id, ws->id_station)){
+	    tmplist = g_slist_next(tmplist);
+	    /* If no next station, get first */
+	    if(!tmplist)
+    		tmplist = stations_view_list;
+	    /* Get station data */
+	    ws = tmplist->data;
+	    if(app->current_station_id)
+    		g_free(app->current_station_id);
+	    app->current_station_id = g_strdup(ws->id_station); 
+	    /* update current station name */
+	    if(app->current_station_name)
+		g_free(app->current_station_name);
+	    ws->name_station && (app->current_station_name = strdup(ws->name_station));
+	    weather_frame_update(TRUE);
+	    config_save_current_station();
+	    break;
+	}
+	/* Next station in list */
+	tmplist = g_slist_next(tmplist);
+    }
+    return TRUE;
 }
-
 /* Set default value */
 void weather_buttons_init(void){
     int i;
@@ -179,14 +174,14 @@ void station_error_window(void){
 
 /* Fill buttons data */
 void weather_buttons_fill(gboolean check_error){
-    int i, offset = 0, count_day;
-    gchar buffer[2048], buffer_icon[2048];
-    time_t current_day,current_time, last_day = 0;
-    struct tm *tm;
-    gboolean flag_last_day = FALSE, error_station_code = FALSE;
-    GSList *tmplist = NULL;
+    int		i, offset = 0, count_day;
+    gchar	buffer[2048], buffer_icon[2048];
+    time_t	current_day,current_time, last_day = 0;
+    struct tm	*tm;
+    gboolean	flag_last_day = FALSE, error_station_code = FALSE;
+    GSList	*tmplist = NULL;
     struct weather_station *ws = NULL;
-    int temp_hi,temp_hi_now,temp_low;
+    int		temp_hi,temp_hi_now,temp_low;
     char	font_size;
     gint	icon_size;
     gchar	*tmp_station_name;
@@ -213,10 +208,9 @@ void weather_buttons_fill(gboolean check_error){
 	break;
     }
     
-  /* Init weather buttons */
+/* Init weather buttons */
     weather_buttons_init();
     count_day = parse_weather_com_xml();
-    
 
     if(check_error)
 	if(count_day == -2){
@@ -224,24 +218,16 @@ void weather_buttons_fill(gboolean check_error){
 	    fprintf(stderr, _("Error in xml file\n"));
 	    error_station_code = TRUE;
 	} /* Error in xml file */
-/* 
-    if(count_day == -1){
-	count_day = 0;
-	fprintf(stderr,"Error on xml file");
-    }
-*/
-  /* get current day */  
+/* get current day */  
     current_time = current_day = time(NULL);
     tm = localtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     current_day = mktime(tm);
-  /* free time event list */
+/* free time event list */
     free_list_time_event();
-  /* add periodic update */
+/* add periodic update */
     add_periodic_event();
-
- 
-  /* Search day of saving xml near current day */
+/* Search day of saving xml near current day */
     while( (offset < Max_count_weather_day) &&
 	    (current_day > weather_days[offset].date_time) &&
 	    (offset<count_day) )
@@ -379,7 +365,6 @@ void weather_buttons_fill(gboolean check_error){
 	    ws->name_station = NULL;
 	tmp_station_name = NULL;
     }
-
 /* create main panel */
     app->main_window = gtk_table_new(2, 1, FALSE);
     create_panel(app->main_window, app->icons_layout, app->transparency, tmp_station_name, font_size);
@@ -417,8 +402,10 @@ void* hildon_home_applet_lib_initialize(void *state_data,
         g_debug(_("Error initializing the OMWeather applet"));
         return NULL;
     }
-    fprintf(stderr, "\nOMWeather applet initialize %p %d\n",
-		    state_data, *state_size);
+    #ifdef PC_EMULATOR
+	fprintf(stderr, "\nOMWeather applet initialize %p %d\n",
+			state_data, *state_size);
+    #endif
     app = g_new0(OMWeatherApp, 1);
     memset(app, 0, sizeof(OMWeatherApp));
     app->osso = osso;
@@ -449,7 +436,9 @@ void* hildon_home_applet_lib_initialize(void *state_data,
 int hildon_home_applet_lib_save_state(void *raw_data,
 				    void **state_data, 
 				    int *state_size){
-    fprintf(stderr, "\nOMWeather applet save state\n");
+    #ifdef PC_EMULATOR
+	fprintf(stderr, "\nOMWeather applet save state\n");
+    #endif
     (*state_data) = NULL;
     if(state_size)
 	(*state_size) = 0;
@@ -457,31 +446,35 @@ int hildon_home_applet_lib_save_state(void *raw_data,
 }
 
 void hildon_home_applet_lib_background(void *raw_data){
-    fprintf(stderr, "\nOMWeather applet background\n");
+    #ifdef PC_EMULATOR
+        fprintf(stderr, "\nOMWeather applet background\n");
+    #endif
 }
 
 void hildon_home_applet_lib_foreground(void *raw_data){
-    fprintf(stderr, "\nOMWeather applet foreground\n");
+    #ifdef PC_EMULATOR
+	fprintf(stderr, "\nOMWeather applet foreground\n");
+    #endif
 }
 
 void hildon_home_applet_lib_deinitialize(void *applet_data){
     osso_context_t *osso;
-    
     gboolean check;
     
-    fprintf(stderr, "\nOMWeather applet deinitialize\n");
-
+    #ifdef PC_EMULATOR
+	fprintf(stderr, "\nOMWeather applet deinitialize\n");
+    #endif
     /* It is switch off the timer */	
     check = g_source_remove(app->timer);
 
     config_save(); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
 			On n800 this work*/
 			
-    osso  = (osso_context_t*)applet_data;
-    app->top_widget = NULL;
+    osso = (osso_context_t*)applet_data;
     if(app){
 	free_memory(TRUE);
 	g_free(app);
+	app->top_widget = NULL;
     }
     /* Deinitialize libosso */
     osso_deinitialize(osso);
@@ -489,7 +482,9 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 
 GtkWidget* hildon_home_applet_lib_settings(void *applet_data,
 					    GtkWindow *parent){
-    fprintf(stderr, "\nOMWeather applet settings\n");
+    #ifdef PC_EMULATOR
+	fprintf(stderr, "\nOMWeather applet settings\n");
+    #endif
     return NULL;
 }
 /* create days panel and station name panel */
@@ -634,49 +629,51 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     g_signal_connect(station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
     gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn); 
     if(station_name_btn)
-	g_object_unref (station_name_btn);
+	g_object_unref(station_name_btn);
 }
 
 /* free used memory from OMWeather struct */
 void free_memory(gboolean flag){
     int i;
     
-    if(app->weather_dir_name && flag){
-	g_free(app->weather_dir_name);
-	app->weather_dir_name = NULL;
+    if(flag){
+	if(app->weather_dir_name){
+	    g_free(app->weather_dir_name);
+	    app->weather_dir_name = NULL;
+	}
+	if(app->icon_set){
+	    g_free(app->icon_set);
+	    app->icon_set = NULL;
+	}
+	if(app->current_country){
+	    g_free(app->current_country);
+	    app->current_country = NULL;
+	}	
+	if(app->current_station_name){
+	    g_free(app->current_station_name);
+	    app->current_station_name = NULL;
+	}
+        if(app->current_station_id){
+	    g_free(app->current_station_id);
+	    app->current_station_id = NULL;
+	}
+	if(app->iap_http_proxy_host){
+	    g_free(app->iap_http_proxy_host);
+	    app->iap_http_proxy_host = NULL;
+	}
+	if(app->hash){
+	    g_hash_table_destroy(app->hash);
+	    app->hash = NULL;
+	}
+	if(stations_view_list){
+	    g_slist_free(stations_view_list);
+	    stations_view_list = NULL;
+	}
     }
-    if(app->icon_set && flag){
-	g_free(app->icon_set);
-	app->icon_set = NULL;
-    }
-    if(app->current_country && flag){
-	g_free(app->current_country);
-	app->current_country = NULL;
-    }	
-    if(app->current_station_name && flag){
-	g_free(app->current_station_name);
-	app->current_station_name = NULL;
-    }
-    if(app->current_station_id && flag){
-	g_free(app->current_station_id);
-	app->current_station_id = NULL;
-    }
-    if(app->iap_http_proxy_host && flag){
-	g_free(app->iap_http_proxy_host);
-	app->iap_http_proxy_host = NULL;
-    }
-    if(app->hash && flag){
-	g_hash_table_destroy(app->hash);
-	app->hash = NULL;
-    }
-    if(stations_view_list && flag){
-	g_slist_free(stations_view_list);
-	stations_view_list = NULL;
-    }
-    if (app->top_widget){
+    if(app->top_widget){
 	for(i = 0; i < app->days_to_show; i++)
 	    delete_weather_day_button( &(app->buttons[i]) );
-	if (app->main_window){
+	if(app->main_window){
 	    gtk_widget_destroy(app->main_window);
 	    app->main_window = NULL;
 	}	
@@ -687,13 +684,14 @@ void free_memory(gboolean flag){
 WDB* create_weather_day_button(const char *text, const char *icon, const int icon_size, gboolean transparency, char font_size){
     WDB	*new_day_button;
     
-    new_day_button = g_new(WDB, 1);
+    new_day_button = g_new0(WDB, 1);
     if(!new_day_button)
 	return NULL;
     /* create day icon buffer */
-    new_day_button->icon_buffer = gdk_pixbuf_new_from_file_at_size(icon,
-								    icon_size,
-								    icon_size, NULL);
+    new_day_button->icon_buffer
+	    = gdk_pixbuf_new_from_file_at_size(icon,
+						icon_size,
+						icon_size, NULL);
     if(!new_day_button->icon_buffer)
 	return NULL;
     /* create day icon image from buffer */

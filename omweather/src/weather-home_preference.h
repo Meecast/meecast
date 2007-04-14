@@ -65,6 +65,7 @@ void create_icon_set_list(GtkWidget *store); /* scan /usr/share/weather/icons */
 void create_help_dialog(void);	/* create help dialog */
 GtkWidget* create_scrolled_window_with_text(const char* text, GtkJustification justification);
 
+extern void add_periodic_event(time_t last_update);
 extern void remove_periodic_event(void);
 extern void weather_buttons_init(void);
 

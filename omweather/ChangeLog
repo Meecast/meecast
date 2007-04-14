@@ -1,4 +1,6 @@
 0.17.1
+  * New periods to the select of automatic update has been added
+  * The work of automatic update has been corrected
   * Fix bug - The applet crashes Desktop after switching off the plugin
   * Fix memory leaks  
 

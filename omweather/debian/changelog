@@ -1,9 +1,11 @@
 omweather (0.17.1) unstable; urgency=low
-
+  
+  * New periods to the select of automatic update has been added
+  * The work of automatic update has been corrected
   * Fix bug - The applet crashes Desktop after switching off the plugin
   * Fix memory leaks  
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 13 Apr 2007 17:12:45 +0200  
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 14 Apr 2007 17:12:45 +0200  
 
 omweather (0.17) unstable; urgency=low
 

@@ -45,15 +45,14 @@ popup_window_event_cb(GtkWidget *widget,
     return TRUE; 
 }
 
-void pre_update_weather(void)
-{
- app->show_update_window=TRUE;
- update_weather();
+void pre_update_weather(void){
+    app->show_update_window = TRUE;
+    update_weather();
 }
 /* Show extended information about weather */
-void weather_window_popup_show (GtkWidget *widget,
-                    		    GdkEvent *event,
-                    		    gpointer user_data){
+void weather_window_popup_show(GtkWidget *widget,
+                    		GdkEvent *event,
+                    		gpointer user_data){
     GtkWidget *frame_popup;
     GtkWidget *hbox_title_location = NULL, *hbox_title_date = NULL,
 	      *hbox_day = NULL, *hbox_current = NULL, *hbox_night = NULL, 
@@ -432,26 +431,26 @@ void weather_window_popup_show (GtkWidget *widget,
 	    }
 	    else{
 	/* Evening */
-		gtk_container_add (GTK_CONTAINER (vbox), hbox_night);
+		gtk_container_add(GTK_CONTAINER(vbox), hbox_night);
 		/* Free memory in not use wdget */
-		if (hbox_day)
+		if(hbox_day)
 		    gtk_widget_destroy(hbox_day);
-		if (separator_day)
+		if(separator_day)
 		    gtk_widget_destroy(separator_day);	        
 	    }
 	}
     }
     else{
 	/* Free memory in not use wdget */
-	if (hbox_title_date)
+	if(hbox_title_date)
 	    gtk_object_sink(GTK_OBJECT(hbox_title_date));
-	if (hbox_current)
+	if(hbox_current)
 	    gtk_object_sink(GTK_OBJECT(hbox_current));
-	if (hbox_temp)
+	if(hbox_temp)
 	    gtk_object_sink(GTK_OBJECT(hbox_temp));
-	if (hbox_day)
+	if(hbox_day)
 	    gtk_object_sink(GTK_OBJECT(hbox_day));
-	if (hbox_night)
+	if(hbox_night)
 	    gtk_object_sink(GTK_OBJECT(hbox_night));
     }
     gtk_container_add(GTK_CONTAINER(frame_popup), vbox);    
@@ -461,7 +460,6 @@ void weather_window_popup_show (GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(vbox), hbox_pref);
 
     gtk_grab_add(app->popup_window);
-
 
     g_signal_connect(G_OBJECT(app->popup_window),
 			"button-release-event", 

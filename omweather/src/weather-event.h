@@ -35,7 +35,7 @@
 
 gboolean timer_handler(gpointer data);
 void timer(void);
-void remove_periodic_event(void);
+void add_periodic_event(time_t last_update);
 void print_list(void);
 void time_event_add(time_t time_value, short type_event);
 extern gboolean not_event;

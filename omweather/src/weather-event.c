@@ -36,6 +36,7 @@ gboolean timer_handler(gpointer data){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
     time_t current_time;
+    char   *temp_string;
 
 #ifdef PC_EMULATOR
     print_list();
@@ -46,6 +47,11 @@ gboolean timer_handler(gpointer data){
     list_time_event_temp = event_time_list;  
     /* get current time */  
     current_time = time(NULL);
+#ifdef PC_EMULATOR    
+    temp_string = ctime(&current_time);
+    fprintf(stderr,"Current Time: %s\n",  temp_string);
+//    g_free(temp_string);
+#endif	
     while(list_time_event_temp != NULL){
 	evt = list_time_event_temp->data;
 	if(evt->time <= current_time){
@@ -64,7 +70,8 @@ gboolean timer_handler(gpointer data){
 		    app->show_update_window = FALSE;
 		    update_weather();
                     /* add periodic update */
-                    add_periodic_event();
+                    add_periodic_event(current_time);
+		    
     		break;		    
 	    }
 	    break;
@@ -132,9 +139,9 @@ void time_event_add(time_t time_value, short type_event){
 }
 
 /* Add periodic time event  to list */	  
-void add_periodic_event(void){
+void add_periodic_event(time_t last_update ){
     if(app->update_interval > 0)
-	time_event_add(time(NULL)+ app->update_interval * 60, AUTOUPDATE);
+	time_event_add(last_update + app->update_interval * 60, AUTOUPDATE);
 }
 
 /* Remove periodic time event  from list */	  

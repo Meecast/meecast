@@ -163,7 +163,6 @@ GSList *stations_view_list;
 
 int get_weather_html( gboolean check_connect );
 void free_list_time_event (void);
-void add_periodic_event(void);
 void time_event_add(time_t time_value, short int type_event);
 void config_save();
 void config_save_current_station();

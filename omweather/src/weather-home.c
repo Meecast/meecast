@@ -226,7 +226,7 @@ void weather_buttons_fill(gboolean check_error){
 /* free time event list */
     free_list_time_event();
 /* add periodic update */
-    add_periodic_event();
+    add_periodic_event(time(NULL));
 /* Search day of saving xml near current day */
     while( (offset < Max_count_weather_day) &&
 	    (current_day > weather_days[offset].date_time) &&

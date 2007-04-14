@@ -1,3 +1,7 @@
+0.17.1
+  * Fix bug - The applet crashes Desktop after switching off the plugin
+  * Fix memory leaks  
+
 0.17
   * Added version number to the About dialog
   * Added possible to rename station name

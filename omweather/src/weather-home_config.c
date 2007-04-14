@@ -380,8 +380,8 @@ void read_config(void){
 	add_time_update_list(8 * 60, _("8 hours"));
 	add_time_update_list(24 * 60, _("24 hours"));
 	add_time_update_list(1, _("1 minute (DEBUG)"));
-	add_time_update_list(5, _("5 minutes (DEBUG)"));
-	add_time_update_list(30, _("30 minutes (DEBUG)"));
+	add_time_update_list(5, _("5 minutes"));
+	add_time_update_list(30, _("30 minutes"));
     }
     /* Check connection */
     tmp = gconf_client_get_string(gconf_client,

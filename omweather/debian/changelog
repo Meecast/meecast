@@ -1,6 +1,7 @@
 omweather (0.17.1) unstable; urgency=low
 
   * Fix bug - The applet crashes Desktop after switching off the plugin
+  * Fix memory leaks  
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 13 Apr 2007 17:12:45 +0200  
 

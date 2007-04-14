@@ -112,7 +112,7 @@ msgid "24 hours"
 msgstr ""
 
 #: src/weather-home_config.c:384
-msgid "30 minutes (DEBUG)"
+msgid "30 minutes"
 msgstr ""
 
 #: src/weather-home_config.c:379
@@ -120,7 +120,7 @@ msgid "4 hours"
 msgstr ""
 
 #: src/weather-home_config.c:383
-msgid "5 minutes (DEBUG)"
+msgid "5 minutes"
 msgstr ""
 
 #: src/weather-home_config.c:380

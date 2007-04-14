@@ -46,7 +46,6 @@ void delete_weather_day_button(WDB **day);
 void weather_buttons_init(void);
 void weather_buttons_fill(gboolean check_error);
 void weather_com_destroy_parser( weather_com_parser *weather_com );
-void timer(void);
 void update_weather(void);
 void set_font_size(GtkWidget *widget, char font_size);
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size);
@@ -55,15 +54,15 @@ int parse_weather_com_xml(void);
 int c2f(int temp);
 void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 gboolean download_html(gpointer data);
-extern void weather_initialize_dbus(void);
 void update_weather(void);
 void free_memory(gboolean flag);
+/* external functions */
+extern void timer(void);
+extern void weather_initialize_dbus(void);
+extern void add_periodic_event(time_t last_update);
 /* List times between two updates */
 GSList *time_update_list = NULL;
 gboolean not_event = FALSE;
-//GtkWidget *buttons [Max_count_weather_day];
-//GtkWidget *labels [Max_count_weather_day];
-//GtkWidget *boxs [Max_count_weather_day];
 int 	   boxs_offset [Max_count_weather_day];
 guint flag_update=0;
 gchar  path_large_icon[_POSIX_PATH_MAX];

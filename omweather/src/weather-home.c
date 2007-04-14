@@ -472,9 +472,9 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 			
     osso = (osso_context_t*)applet_data;
     if(app){
+	app->top_widget = NULL;    
 	free_memory(TRUE);
 	g_free(app);
-	app->top_widget = NULL;
     }
     /* Deinitialize libosso */
     osso_deinitialize(osso);

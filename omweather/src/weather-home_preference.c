@@ -1029,10 +1029,8 @@ void weather_window_preference(GtkWidget *widget,
 		temp_string =gtk_combo_box_get_active_text(GTK_COMBO_BOX(update_time));
 		if(!strcmp(tu->name_between_time,temp_string)){
 		    app->update_interval = tu->between_time;
-		    if(app->update_interval)
-			add_periodic_event();
-		    else
-			remove_periodic_event();
+		    remove_periodic_event();
+		    add_periodic_event(time(NULL));
 		    break;
 		}    	  
 		g_free(temp_string);
@@ -1042,9 +1040,8 @@ void weather_window_preference(GtkWidget *widget,
 	    if(flag_update_icon)
     		weather_frame_update(FALSE);
 	    if(flag_update_station){
-		if (app->iap_connected){
-		    if( g_slist_length(stations_view_list) > 0 )
-		    {
+		if(app->iap_connected){
+		    if( g_slist_length(stations_view_list) > 0 ){
 			app->show_update_window = TRUE;
 			update_weather();
 		    }
@@ -1059,8 +1056,7 @@ void weather_window_preference(GtkWidget *widget,
 	break;
 	default:/* Pressed CANCEL */
 	    if( flag_update_station && app->iap_connected ){
-		if( g_slist_length(stations_view_list) > 0 )
-		{
+		if( g_slist_length(stations_view_list) > 0 ){
 		    app->show_update_window = TRUE;
 		    update_weather();
 		}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-13 20:41+0300\n"
+"POT-Creation-Date: 2007-04-14 10:54+0300\n"
 "PO-Revision-Date: 2007-03-27 21:26+0300\n"
 "Last-Translator: vlad <vlad@gas.by>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -146,16 +146,16 @@ msgid "24 hours"
 msgstr "раз в 24 часа"
 
 #: src/weather-home_config.c:384
-msgid "30 minutes (DEBUG)"
-msgstr "раз в 30 минут (отладка)"
+msgid "30 minutes"
+msgstr "раз в 30 минут"
 
 #: src/weather-home_config.c:379
 msgid "4 hours"
 msgstr "раз в 4 часа"
 
 #: src/weather-home_config.c:383
-msgid "5 minutes (DEBUG)"
-msgstr "раз в 5 минут (отладка)"
+msgid "5 minutes"
+msgstr "раз в 5 минут"
 
 #: src/weather-home_config.c:380
 msgid "8 hours"

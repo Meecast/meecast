@@ -1066,7 +1066,7 @@ void weather_window_preference(GtkWidget *widget,
 	break;
     }
     not_event = FALSE;
-    if (flag_tuning_warning)
+    if(flag_tuning_warning)
 	hildon_banner_show_information(app->main_window,
 					NULL,
 					_("Use Edit layout \nfor tuning images of applet"));
@@ -1110,7 +1110,7 @@ void create_help_dialog(void){
 		*notebook,
 		*title;
     char	tmp_buff[2048];
-		    
+
     help_dialog = gtk_dialog_new_with_buttons(_("Other Maemo Weather Info"),
         				NULL,
 					GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,

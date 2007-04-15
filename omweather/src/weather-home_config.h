@@ -54,7 +54,7 @@
 
 /* Depricated, after 0.18 not used */
 #define GCONF_KEY_WEATHER_STATION_ID       GCONF_KEY_PREFIX"/station-id"
-#define GCONF_KEY_WEATHER_LAYOUT           GCONF_KEY_PREFIX"/layout"   
+#define GCONF_KEY_WEATHER_LAYOUT           GCONF_KEY_PREFIX"/layout"
 
 #define GCONF_KEY_HTTP_PROXY_PREFIX "/system/http_proxy"
 #define GCONF_KEY_CURRENT_CONNECTIVITY  "/system/osso/connectivity/IAP/current"

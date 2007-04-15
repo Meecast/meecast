@@ -634,7 +634,9 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 
 /* free used memory from OMWeather struct */
 void free_memory(gboolean flag){
-    int i;
+    int    i;
+    GSList *tmplist = NULL;
+    struct weather_station *ws;
     
     if(flag){
 	if(app->weather_dir_name){
@@ -665,7 +667,18 @@ void free_memory(gboolean flag){
 	    g_hash_table_destroy(app->hash);
 	    app->hash = NULL;
 	}
+	/* clean stations_view_list */
 	if(stations_view_list){
+	    if(g_slist_length(stations_view_list) > 0){
+		tmplist = stations_view_list;
+    		while(tmplist){
+    		    ws = tmplist->data;
+		    g_free(ws->id_station);
+		    g_free(ws->name_station);
+		    g_free(ws);
+		    tmplist = g_slist_next(tmplist);
+		}
+	    }	    
 	    g_slist_free(stations_view_list);
 	    stations_view_list = NULL;
 	}

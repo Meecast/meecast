@@ -322,30 +322,28 @@ void read_config(void){
 				: (app->temperature_units = CELSIUS);
     /* Get Temperature Unit  Default Celsius */
     /* Depricated, after 0.18 not used */
-    if (gerror){
+    if(gerror){
         tmp = gconf_client_get_string(gconf_client,
-                     GCONF_KEY_WEATHER_TEMPERATURE_UNIT,NULL);
+                     GCONF_KEY_WEATHER_TEMPERATURE_UNIT, NULL);
 	if(tmp){
-	    if (tmp[0] == 'C')
+	    if(tmp[0] == 'C')
 		app->temperature_units = CELSIUS;
 	    else
-		{
 		app->temperature_units = FAHRENHEIT;
-		}
 	    g_free(tmp);
 	}
 	else
 	    app->temperature_units = CELSIUS;	  
 	g_error_free(gerror);
 	gerror = NULL;
-    }	
+    }
 
     /* Depricated, after 0.18 not used */
     app->icons_layout = gconf_client_get_int(gconf_client,
                 			    GCONF_KEY_WEATHER_LAYOUT,
 					    NULL);
     
-    if (app->icons_layout == 0)
+    if(app->icons_layout == 0)
 	    /* Get Layout  Default Horizontal */
 	    app->icons_layout = gconf_client_get_int(gconf_client,
                 			    GCONF_KEY_ICONS_LAYOUT,
@@ -386,7 +384,7 @@ void read_config(void){
     /* Check connection */
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_CURRENT_CONNECTIVITY, NULL);
-    if (tmp){
+    if(tmp){
         app->iap_connected = TRUE;
 	g_free(tmp);
     }	
@@ -395,6 +393,7 @@ void read_config(void){
 	
     app->show_update_window = FALSE;
     gconf_client_clear_cache(gconf_client);
+    g_object_unref(gconf_client);
 }
 
 void config_update_proxy(void){

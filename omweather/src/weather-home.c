@@ -683,18 +683,25 @@ void free_memory(gboolean flag){
 	    stations_view_list = NULL;
 	}
     }
+    
     if(app->top_widget){
 	for(i = 0; i < app->days_to_show; i++)
-	    delete_weather_day_button( &(app->buttons[i]) );
+	    delete_weather_day_button(FALSE, &(app->buttons[i]) );    
 	if(app->main_window){
 	    gtk_widget_destroy(app->main_window);
 	    app->main_window = NULL;
 	}	
     }	    
+    else{
+	for(i = 0; i < app->days_to_show; i++)
+	    delete_weather_day_button(TRUE, &(app->buttons[i]) );    
+    }
+    	
 
 }
 
 WDB* create_weather_day_button(const char *text, const char *icon, const int icon_size, gboolean transparency, char font_size){
+
     WDB	*new_day_button;
     
     new_day_button = g_new0(WDB, 1);
@@ -729,30 +736,38 @@ WDB* create_weather_day_button(const char *text, const char *icon, const int ico
     return new_day_button;
 }
 
-void delete_weather_day_button(WDB **day){
+void delete_weather_day_button(gboolean after_all_destroy,WDB **day){
 
-    if(*day){
-	if( (*day)->icon_image ){
-	    gtk_widget_destroy( (*day)->icon_image );
-	    (*day)->icon_image = NULL;
+    if(after_all_destroy){
+	if(*day){
+	    g_free(*day);
+	    *day = NULL;
 	}
-	if( (*day)->icon_buffer ){
-	     g_object_unref( (*day)->icon_buffer );
-	     (*day)->icon_buffer = NULL;
-	}     
-	if( (*day)->label ){
-	    gtk_widget_destroy( (*day)->label );    
-	    (*day)->label = NULL;
-	}    
-	if( (*day)->box ){
-	    gtk_widget_destroy( (*day)->box );
-	    (*day)->box = NULL;
-	}    
-	if( (*day)->button ){
-	    gtk_widget_destroy( (*day)->button );
-	    (*day)->button = NULL;
-	}    
-	g_free(*day);
-	*day = NULL;
+    }
+    else{
+	if(*day){
+	    if( (*day)->icon_image ){
+		gtk_widget_destroy( (*day)->icon_image );
+		(*day)->icon_image = NULL;
+	    }
+	    if( (*day)->icon_buffer ){
+	        g_object_unref( (*day)->icon_buffer );
+	        (*day)->icon_buffer = NULL;
+	    }     
+	    if( (*day)->label ){
+		gtk_widget_destroy( (*day)->label );    
+		(*day)->label = NULL;
+	    }    
+	    if( (*day)->box ){
+		gtk_widget_destroy( (*day)->box );
+		(*day)->box = NULL;
+	    }    
+	    if( (*day)->button ){
+		gtk_widget_destroy( (*day)->button );
+		(*day)->button = NULL;
+	    }    
+	    g_free(*day);
+	    *day = NULL;
+	}
     }
 }

@@ -42,7 +42,7 @@
 #define HTTP_RESPONSE_OK	"200"
 
 WDB* create_weather_day_button(const char *text, const char *icon, const int icon_size, gboolean transparency, char font_size);
-void delete_weather_day_button(WDB **day);
+void delete_weather_day_button(gboolean after_all_destroy,WDB **day);
 void weather_buttons_init(void);
 void weather_buttons_fill(gboolean check_error);
 void weather_com_destroy_parser( weather_com_parser *weather_com );

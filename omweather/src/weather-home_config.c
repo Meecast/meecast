@@ -371,15 +371,15 @@ void read_config(void){
     }
     /* Fill time update list */
     if(!time_update_list){
-	add_time_update_list(0, _("Never"));	
+	add_time_update_list(0, _("Never"));
+	add_time_update_list(5, _("5 minutes"));
+	add_time_update_list(30, _("30 minutes"));
 	add_time_update_list(1 * 60, _("1 hour"));
 	add_time_update_list(2 * 60, _("2 hours"));
 	add_time_update_list(4 * 60, _("4 hours"));
 	add_time_update_list(8 * 60, _("8 hours"));
 	add_time_update_list(24 * 60, _("24 hours"));
 	add_time_update_list(1, _("1 minute (DEBUG)"));
-	add_time_update_list(5, _("5 minutes"));
-	add_time_update_list(30, _("30 minutes"));
     }
     /* Check connection */
     tmp = gconf_client_get_string(gconf_client,

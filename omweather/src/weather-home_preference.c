@@ -995,6 +995,7 @@ void weather_window_preference(GtkWidget *widget,
 	    }
 /* Days to show */
 	    if( gtk_combo_box_get_active((GtkComboBox*)days_number)!= app->days_to_show - 1){
+		app->previos_days_to_show = app->days_to_show;/* store previos number of icons */
 		app->days_to_show = gtk_combo_box_get_active((GtkComboBox*)days_number);
 		app->days_to_show++;
     		flag_update_icon = TRUE;

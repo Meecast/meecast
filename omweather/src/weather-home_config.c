@@ -355,6 +355,7 @@ void read_config(void){
 	app->days_to_show = 5;
 	g_error_free(gerror);
     }
+    app->previos_days_to_show = app->days_to_show;
     /* Get distance units */
     app->distance_units = gconf_client_get_int(gconf_client,                                                                                     
                 	    GCONF_KEY_WEATHER_DISTANCE_UNITS, &gerror);
@@ -379,7 +380,9 @@ void read_config(void){
 	add_time_update_list(4 * 60, _("4 hours"));
 	add_time_update_list(8 * 60, _("8 hours"));
 	add_time_update_list(24 * 60, _("24 hours"));
+#ifdef PC_EMULATOR
 	add_time_update_list(1, _("1 minute (DEBUG)"));
+#endif
     }
     /* Check connection */
     tmp = gconf_client_get_string(gconf_client,

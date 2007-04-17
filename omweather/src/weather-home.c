@@ -538,9 +538,9 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     gtk_button_set_focus_on_click(GTK_BUTTON(next_station_name_btn), FALSE);
     gtk_button_set_focus_on_click(GTK_BUTTON(station_name_btn), FALSE); 
 /* attach buttons to header panel */
-    gtk_table_attach( (GtkTable*)header_panel, previos_station_name_btn, 0, 1, 0, 1 ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
-    gtk_table_attach( (GtkTable*)header_panel, station_name_btn, 1, 2, 0, 1  ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0); 
-    gtk_table_attach( (GtkTable*)header_panel, next_station_name_btn, 2, 3, 0, 1  ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+    gtk_table_attach( (GtkTable*)header_panel, previos_station_name_btn, 0, 1, 0, 1 , GTK_EXPAND, GTK_EXPAND, 0, 0);
+    gtk_table_attach( (GtkTable*)header_panel, station_name_btn, 1, 2, 0, 1  , GTK_EXPAND, GTK_EXPAND, 0, 0); 
+    gtk_table_attach( (GtkTable*)header_panel, next_station_name_btn, 2, 3, 0, 1, GTK_EXPAND, GTK_EXPAND, 0, 0);
 /* create days panel */
     switch(layout){
 	default:

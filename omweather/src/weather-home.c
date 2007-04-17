@@ -312,8 +312,8 @@ void weather_buttons_fill(gboolean check_error){
 		_("N/A"), _("N/A"), _("N/A"));
 	    sprintf(buffer_icon,"%s48.png",path_large_icon);
      /* Add time event to list for next day after last day in xml file */
-	    if(!flag_last_day){
-		time_event_add(last_day+24*60*60,DAYTIMEEVENT);  /* Add time event  to list */	  
+	    if(!flag_last_day && last_day){
+		time_event_add(last_day + 24 * 60 * 60, DAYTIMEEVENT);  /* Add time event  to list */	  
 		flag_last_day = TRUE;
 	    } 
 	}

@@ -167,7 +167,7 @@ void remove_periodic_event(void){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
     
-    fprintf(stderr,"remove event\n");
+    fprintf(stderr,"remove periodic event\n");
     print_list();
     if(!event_time_list)
 	return;
@@ -176,8 +176,12 @@ void remove_periodic_event(void){
 	evt = list_time_event_temp->data;
 	if(evt->type_event == AUTOUPDATE){
 	    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
+	    list_time_event_temp = event_time_list;  
 	    g_free(evt);
 	}
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
+    fprintf(stderr,"periodic event are removed\n");
+    print_list();
+
 }

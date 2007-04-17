@@ -217,14 +217,15 @@ GSList* prepare_idlist(void){
 /* Initialize all configuration from GCONF.  This should not be called more
  * than once during execution. */
 void read_config(void){
-    gchar	*tmp;
-    GConfValue	*value;
+    gchar	*tmp = NULL;
+    GConfValue	*value = NULL;
+    GConfClient *gconf_client = NULL;
     int		fd = -1;
     GSList	*stlist = NULL;
     GError	*gerror = NULL;
     GdkColor	DEFAULT_FONT_COLOR = {0, 0x0d00, 0x2a00, 0xc000};
     
-    GConfClient *gconf_client = gconf_client_get_default();
+    gconf_client = gconf_client_get_default();
 
     if(!gconf_client){
         fprintf(stderr, _("Failed to initialize GConf. Quitting.\n"));

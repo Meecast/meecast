@@ -691,7 +691,7 @@ WDB* create_weather_day_button(const char *text, const char *icon, const int ico
 	return NULL;
     /* create day icon image from buffer */
     new_day_button->icon_image = gtk_image_new_from_pixbuf(new_day_button->icon_buffer);
-    g_object_unref(G_OBJECT (new_day_button->icon_buffer));
+    g_object_unref(G_OBJECT(new_day_button->icon_buffer));
     /* create day button */
     new_day_button->button = gtk_button_new();
     if(transparency)

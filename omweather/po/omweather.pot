@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-04-16 11:11+0300\n"
+"POT-Creation-Date: 2007-04-17 11:25+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -95,35 +95,35 @@ msgstr ""
 msgid " Gust: "
 msgstr ""
 
-#: src/weather-home_config.c:377
+#: src/weather-home_config.c:378
 msgid "1 hour"
 msgstr ""
 
-#: src/weather-home_config.c:382
+#: src/weather-home_config.c:384
 msgid "1 minute (DEBUG)"
 msgstr ""
 
-#: src/weather-home_config.c:378
+#: src/weather-home_config.c:379
 msgid "2 hours"
 msgstr ""
 
-#: src/weather-home_config.c:381
+#: src/weather-home_config.c:382
 msgid "24 hours"
 msgstr ""
 
-#: src/weather-home_config.c:376
+#: src/weather-home_config.c:377
 msgid "30 minutes"
 msgstr ""
 
-#: src/weather-home_config.c:379
+#: src/weather-home_config.c:380
 msgid "4 hours"
 msgstr ""
 
-#: src/weather-home_config.c:375
+#: src/weather-home_config.c:376
 msgid "5 minutes"
 msgstr ""
 
-#: src/weather-home_config.c:380
+#: src/weather-home_config.c:381
 msgid "8 hours"
 msgstr ""
 
@@ -264,12 +264,12 @@ msgstr ""
 msgid "ESE"
 msgstr ""
 
-#: src/weather-home.c:216
+#: src/weather-home.c:218
 #, c-format
 msgid "Error in xml file\n"
 msgstr ""
 
-#: src/weather-home.c:376
+#: src/weather-home.c:378
 msgid "Error initializing the OMWeather applet"
 msgstr ""
 
@@ -286,7 +286,7 @@ msgstr ""
 msgid "Failed to initialize GConf. Quitting.\n"
 msgstr ""
 
-#: src/weather-home_config.c:424 src/weather-home_config.c:447
+#: src/weather-home_config.c:427 src/weather-home_config.c:450
 #, c-format
 msgid "Failed to initialize GConf. Settings were not saved.\n"
 msgstr ""
@@ -484,7 +484,7 @@ msgstr ""
 msgid "N"
 msgstr ""
 
-#: src/weather-home.c:310 src/weather-home_hash.c:61
+#: src/weather-home.c:312 src/weather-home_hash.c:61
 msgid "N/A"
 msgstr ""
 
@@ -508,7 +508,7 @@ msgstr ""
 msgid "NW"
 msgstr ""
 
-#: src/weather-home_config.c:374
+#: src/weather-home_config.c:375
 msgid "Never"
 msgstr ""
 
@@ -916,7 +916,7 @@ msgstr ""
 msgid "Wintry Mix to Snow"
 msgstr ""
 
-#: src/weather-home.c:172
+#: src/weather-home.c:174
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"

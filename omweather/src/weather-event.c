@@ -146,8 +146,6 @@ void time_event_add(time_t time_value, short type_event){
 
     fprintf(stderr,"time event is added\n");
     print_list();
-
-    
 }
 
 /* Add periodic time event  to list */	  
@@ -183,5 +181,4 @@ void remove_periodic_event(void){
     }
     fprintf(stderr,"periodic event are removed\n");
     print_list();
-
 }

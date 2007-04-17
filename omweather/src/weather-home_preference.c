@@ -375,6 +375,9 @@ static gboolean weather_delete_station(GtkWidget *widget,
 	  (ws->name_station == NULL && station_selected == NULL)){
       /* Remove station from the Station List */
 	    stations_view_list = g_slist_remove(stations_view_list, ws);
+	    g_free(ws->id_station);
+	    g_free(ws->name_station);
+	    g_free(ws);
 	    gtk_list_store_clear(station_list_store);
 	    tmplist = stations_view_list;
 

@@ -103,6 +103,7 @@ static gboolean change_station_prev(GtkWidget *widget,
     	    if(app->current_station_name)
 		g_free(app->current_station_name);
 	    ws->name_station && (app->current_station_name = strdup(ws->name_station));
+	    app->previos_days_to_show = app->days_to_show;
 	    weather_frame_update(TRUE);
 	    config_save_current_station();
 	    break;
@@ -141,6 +142,7 @@ static gboolean change_station_next(GtkWidget *widget,
 	    if(app->current_station_name)
 		g_free(app->current_station_name);
 	    ws->name_station && (app->current_station_name = strdup(ws->name_station));
+	    app->previos_days_to_show = app->days_to_show;
 	    weather_frame_update(TRUE);
 	    config_save_current_station();
 	    break;

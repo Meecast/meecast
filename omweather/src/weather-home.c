@@ -687,6 +687,7 @@ WDB* create_weather_day_button(const char *text, const char *icon, const int ico
 	return NULL;
     /* create day icon image from buffer */
     new_day_button->icon_image = gtk_image_new_from_pixbuf(new_day_button->icon_buffer);
+    g_object_unref(G_OBJECT (new_day_button->icon_buffer));
     /* create day button */
     new_day_button->button = gtk_button_new();
     if(transparency)
@@ -717,14 +718,11 @@ void delete_weather_day_button(gboolean after_all_destroy,WDB **day){
     }
     else{
 	if(*day){
+	    fprintf(stderr,"destroy button\n");
 	    if( (*day)->icon_image ){
 		gtk_widget_destroy( (*day)->icon_image );
 		(*day)->icon_image = NULL;
 	    }
-	    if( (*day)->icon_buffer ){
-	        g_object_unref( (*day)->icon_buffer );
-	        (*day)->icon_buffer = NULL;
-	    }     
 	    if( (*day)->label ){
 		gtk_widget_destroy( (*day)->label );    
 		(*day)->label = NULL;

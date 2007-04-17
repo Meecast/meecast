@@ -244,6 +244,7 @@ void changed_stations(void){
 	    if(_weather_station_id_temp)
 		g_free(_weather_station_id_temp);
 	    _weather_station_id_temp = g_strdup(sc->station_code);
+	    g_free(temp_string);
 	    break;    
 	}
 	g_free(temp_string);
@@ -676,16 +677,16 @@ void weather_window_preference(GtkWidget *widget,
 				GdkEvent *event,
 				gpointer user_data){
 
-    GtkWidget	*window_config,
-		*notebook,
-		*label,
-		*table,
-		*font_color,
-		*chk_transparency,
-		*scrolled_window,
-		*button_add,
-		*button_del,
-		*button_ren;		
+    GtkWidget	*window_config = NULL,
+		*notebook = NULL,
+		*label = NULL,
+		*table = NULL,
+		*font_color = NULL,
+		*chk_transparency = NULL,
+		*scrolled_window = NULL,
+		*button_add = NULL,
+		*button_del = NULL,
+		*button_ren = NULL;		
 
     char flag_update_icon = '\0'; /* Flag update main weather icon of desktop */
     gboolean flag_tuning_warning; /* Flag for show the warnings about tuning images of applet */
@@ -861,6 +862,7 @@ void weather_window_preference(GtkWidget *widget,
     font_color = gtk_color_button_new();
     gtk_container_add(GTK_CONTAINER(label), font_color);
     gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &(app->font_color));
+    gtk_widget_show(font_color);
     /* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Transparency")),
@@ -1035,14 +1037,17 @@ void weather_window_preference(GtkWidget *widget,
 		    app->update_interval = tu->between_time;
 		    remove_periodic_event();
 		    add_periodic_event(time(NULL));
+		    g_free(temp_string);
 		    break;
 		}    	  
 		g_free(temp_string);
     		time_update_list_temp = g_slist_next(time_update_list_temp);
     	    }
     	    config_save();
-	    if(flag_update_icon)
+	    if(flag_update_icon){
     		weather_frame_update(FALSE);
+		app->previos_days_to_show = app->days_to_show;/* store previos number of icons */
+	    }	
 	    if(flag_update_station){
 		if(app->iap_connected){
 		    if( g_slist_length(stations_view_list) > 0 ){

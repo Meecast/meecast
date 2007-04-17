@@ -109,8 +109,6 @@ void free_list_time_event(void){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
     
-    fprintf(stderr,"delete event\n");
-    print_list();
     if(!event_time_list)
 	return;
     list_time_event_temp = event_time_list; 
@@ -136,28 +134,16 @@ static gint compare_time(gconstpointer a, gconstpointer b){
 void time_event_add(time_t time_value, short type_event){
     struct event_time *evt;
 
-    fprintf(stderr,"add time event\n");
-    print_list();
-
     evt = g_new0(struct event_time, 1);
     evt->time = time_value;	  
     evt->type_event = type_event;
     event_time_list = g_slist_insert_sorted(event_time_list,evt,compare_time);
-
-    fprintf(stderr,"time event is added\n");
-    print_list();
 }
 
 /* Add periodic time event  to list */	  
 void add_periodic_event(time_t last_update){
-
-    fprintf(stderr,"add periodic event\n");
-    print_list();
-
     if(app->update_interval > 0)
 	time_event_add(last_update + app->update_interval * 60, AUTOUPDATE);
-    fprintf(stderr,"add periodic is added\n");
-    print_list();	
 }
 
 /* Remove periodic time event  from list */	  
@@ -165,8 +151,6 @@ void remove_periodic_event(void){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
     
-    fprintf(stderr,"remove periodic event\n");
-    print_list();
     if(!event_time_list)
 	return;
     list_time_event_temp = event_time_list;  
@@ -179,6 +163,4 @@ void remove_periodic_event(void){
 	}
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
-    fprintf(stderr,"periodic event are removed\n");
-    print_list();
 }

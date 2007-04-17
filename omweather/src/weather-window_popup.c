@@ -410,9 +410,9 @@ void weather_window_popup_show(GtkWidget *widget,
 	}
 	else{ /* Free memory */
 	    if (hbox_current)
-		gtk_widget_destroy(hbox_current);
+		gtk_object_sink(GTK_OBJECT(hbox_current));
 	    if (separator_current)
-		gtk_widget_destroy(separator_current);	        
+		gtk_object_sink(GTK_OBJECT(separator_current));    
 	}
         /* First icon - morning, day or evening */     
 	if((current_time>weather_days[i].day.begin_time) &&
@@ -434,9 +434,9 @@ void weather_window_popup_show(GtkWidget *widget,
 		gtk_container_add(GTK_CONTAINER(vbox), hbox_night);
 		/* Free memory in not use wdget */
 		if(hbox_day)
-		    gtk_widget_destroy(hbox_day);
+		    gtk_object_sink(GTK_OBJECT(hbox_day));
 		if(separator_day)
-		    gtk_widget_destroy(separator_day);	        
+		    gtk_object_sink(GTK_OBJECT(separator_day));
 	    }
 	}
     }

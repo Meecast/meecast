@@ -364,10 +364,8 @@ void weather_frame_update(gboolean check){
 
 /* Get Weather xml file from weather.com */
 void update_weather(void){
-   if (app->flag_updating == 0)
-    app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
-    else
-	fprintf(stderr,"Updating now yet\n");
+    if (app->flag_updating == 0)
+	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }
 
 
@@ -671,7 +669,7 @@ void free_memory(gboolean flag){
 	}	
     }	    
     else
-	for(i = 0; i < app->previos_days_to_show; i++)
+	for(i = 0; i < app->days_to_show; i++)
 	    delete_weather_day_button( TRUE, &(app->buttons[i]) );
 }
 
@@ -722,7 +720,6 @@ void delete_weather_day_button(gboolean after_all_destroy,WDB **day){
     }
     else{
 	if(*day){
-	    fprintf(stderr,"destroy button\n");
 	    if( (*day)->icon_image ){
 		gtk_widget_destroy( (*day)->icon_image );
 		(*day)->icon_image = NULL;

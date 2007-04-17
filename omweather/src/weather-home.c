@@ -364,7 +364,10 @@ void weather_frame_update(gboolean check){
 
 /* Get Weather xml file from weather.com */
 void update_weather(void){
-    flag_update = g_timeout_add(100, (GSourceFunc)download_html, NULL);
+   if (app->flag_updating == 0)
+    app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
+    else
+	fprintf(stderr,"Updating now yet\n");
 }
 
 
@@ -385,6 +388,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     app = g_new0(OMWeatherApp, 1);
     memset(app, 0, sizeof(OMWeatherApp));
     app->osso = osso;
+    app->flag_updating = 0;
 /* create i18n hash for values coming from xml file */
     app->hash = hash_table_create();
     app->icons_size = LARGE;

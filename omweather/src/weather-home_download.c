@@ -226,15 +226,19 @@ gboolean download_html(gpointer data){
     }
     
     /* If not connected and it autoupdate do go away */
-    if (!app->show_update_window && !app->iap_connected)
+    if (!app->show_update_window && !app->iap_connected){
+    	app->flag_updating = 0;
 	return FALSE;
-
+    }
     if (app->iap_connected) 
 	second_attempt = TRUE;
     if( app->show_update_window && (!second_attempt) ){
 	/* Check this code */
-        if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)
+        if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){
+	    app->flag_updating = 0;
     	    return FALSE;
+	}   
+	app->flag_updating = 0; 
         return FALSE;
     }
     
@@ -258,7 +262,8 @@ gboolean download_html(gpointer data){
 	    if(full_filename_new_xml){
 	        g_string_free(full_filename_new_xml, TRUE);    
 	    	full_filename_new_xml = NULL;
-	    }	 
+	    }
+	    app->flag_updating = 0;	 
 	    return FALSE; /* The strange error */		
 	}    
 	/* Init easy_curl */
@@ -348,11 +353,13 @@ gboolean download_html(gpointer data){
 		if(full_filename_new_xml){
 		    g_string_free(full_filename_new_xml, TRUE);    	  
 		    full_filename_new_xml = NULL;
-		}     
+		}
+		app->flag_updating = 0;     
 		return FALSE; /* This is the end */
 	    }
 	}
 	return TRUE;
     }
+    app->flag_updating = 0;
     return FALSE;
 }

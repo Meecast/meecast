@@ -156,25 +156,26 @@ void changed_country(void){
 
 /* Select item on state combobox */
 void changed_state(void){
-    GtkTreeModel *model;
-    GSList *current;
-    char flag; /* Flag for country processing */
-    char flag_necessary_state; /* Flag for finding country or province or state */
-    char out_buffer[1024]; /* buffer for work with stations.txt files */
-    static gchar *gstate_name = NULL;
-    FILE *stations_file; 
-    char state_name[21];
-    char temp_station_name[21];
-    char temp_station_code[9];
+    GtkTreeModel	*model = NULL;
+    GSList		*current = NULL;
+    char		flag,			/* Flag for country processing */
+			flag_necessary_state,	/* Flag for finding country or province or state */
+			out_buffer[1024],	/* buffer for work with stations.txt files */
+			state_name[21],
+			temp_station_name[21],
+			temp_station_code[9];
+    static gchar	*gstate_name = NULL;
+    FILE		*stations_file = NULL; 
     struct station_and_weather_code *sc;
-    int count_station = 0; /* Count station of state or region */
-    int i;
-  
+    int			count_station = 0,	/* Count station of state or region */
+			i;
 /* Search Country in the ComboBox*/
     flag = FALSE;    
 /* Clear the list. */
     model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
     gtk_list_store_clear(GTK_LIST_STORE(model));
+    free_list_stations();
+    
     gstate_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(states));
     /* Search state or province on country and add stations to combobox*/
     if((stations_file = fopen(STATIONS_FILE,"r")) != NULL){
@@ -213,8 +214,8 @@ void changed_state(void){
 	  /* Add station and station code to list */	  
 		    sc = g_new0(struct station_and_weather_code, 1);
 		    sc->station_name = g_strdup(temp_station_name);	  
-		    sc->station_code = g_strdup(temp_station_code);	  
-		    stations_list_in_state = g_slist_append(stations_list_in_state, sc); /* Necessary free list  beyond !!! */	  
+		    sc->station_code = g_strdup(temp_station_code);
+		    stations_list_in_state = g_slist_append(stations_list_in_state, sc); /* Necessary free list  beyond !!! */
 		}    	  
 	    }
 	}

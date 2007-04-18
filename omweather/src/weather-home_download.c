@@ -284,6 +284,7 @@ gboolean download_html(gpointer data){
 	/* set options for the curl easy handle */
         curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);		
         curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);	
+	
         /* for debug */
         /*    curl_easy_setopt(curl_handle, CURLOPT_URL, "http://127.0.0.1"); */
         /* add the easy handle to a multi session */
@@ -307,6 +308,7 @@ gboolean download_html(gpointer data){
 			fprintf(stderr," Error remove handle %p\n",curl_handle);
 			
 		    curl_easy_cleanup(curl_handle); 
+		    curl_handle = NULL;
 
 		    if(html_file.stream)
         		fclose(html_file.stream);
@@ -342,7 +344,10 @@ gboolean download_html(gpointer data){
 		    msg->easy_handle = NULL;
 		}
 		*/
-/*		curl_easy_cleanup(curl_handle); */
+		if (curl_handle){
+		    curl_easy_cleanup(curl_handle); 
+		    curl_handle = NULL;
+		}
 		curl_multi_cleanup(curl_multi);
 		curl_multi = NULL;
 		curl_handle = NULL;

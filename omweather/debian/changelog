@@ -4,6 +4,7 @@ omweather (0.17.1) unstable; urgency=low
   * The work of automatic update has been corrected
   * Fix bug - The applet crashes Desktop after switching off the plugin
   * Fix memory leaks  
+  * Fix problem with station list creation
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 14 Apr 2007 17:12:45 +0200  
 

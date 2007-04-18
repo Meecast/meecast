@@ -3,6 +3,7 @@
   * The work of automatic update has been corrected
   * Fix bug - The applet crashes Desktop after switching off the plugin
   * Fix memory leaks  
+  * Fix problem with station list creation
 
 0.17
   * Added version number to the About dialog

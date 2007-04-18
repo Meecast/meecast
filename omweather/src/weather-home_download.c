@@ -363,3 +363,15 @@ gboolean download_html(gpointer data){
     app->flag_updating = 0;
     return FALSE;
 }
+
+void clean_download (){
+    if (curl_multi)
+	curl_multi_cleanup(curl_multi);
+    curl_multi = NULL;
+    curl_handle = NULL;
+    if(update_window){
+        gtk_widget_destroy(update_window);
+        update_window = NULL;
+    }
+
+}

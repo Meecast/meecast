@@ -444,9 +444,14 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     #endif
     /* It is switch off the timer */	
     check = g_source_remove(app->timer);
+    /* If downloading then switch off it */
+    if (app->flag_updating != 0){
+	check = g_source_remove(app->flag_updating);
+	clean_download();
+    }
 
     config_save(); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
-			On n800 this work*/
+			On n800 this work */
 			
     osso = (osso_context_t*)applet_data;
     if(app){

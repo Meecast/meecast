@@ -966,7 +966,7 @@ void weather_window_preference(GtkWidget *widget,
 	app->popup_window = NULL;
     }
 
-    while (result_gtk_dialog_run = gtk_dialog_run(GTK_DIALOG(window_config))){
+    while (0 != (result_gtk_dialog_run = gtk_dialog_run(GTK_DIALOG(window_config)))){
 /* start dialog window */
       switch(result_gtk_dialog_run){
 	case GTK_RESPONSE_ACCEPT:/* Pressed Button Ok */

@@ -696,6 +696,7 @@ void weather_window_preference(GtkWidget *widget,
     static GSList *time_update_list_temp = NULL; /* Temporary list for time update */
     struct time_update *tu; /* Temporary for time update list */
     static char *temp_string; /* Temporary for the results differnet strdup functions */
+    static int result_gtk_dialog_run; /* Temporary for the gtk_dialog_run result */
    
     not_event = TRUE;
     flag_update_station = FALSE;
@@ -965,8 +966,9 @@ void weather_window_preference(GtkWidget *widget,
 	app->popup_window = NULL;
     }
 
+    while (result_gtk_dialog_run = gtk_dialog_run(GTK_DIALOG(window_config))){
 /* start dialog window */
-    switch(gtk_dialog_run(GTK_DIALOG(window_config))){
+      switch(result_gtk_dialog_run){
 	case GTK_RESPONSE_ACCEPT:/* Pressed Button Ok */
 /* icon set */	
 	    temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset));
@@ -1074,6 +1076,9 @@ void weather_window_preference(GtkWidget *widget,
 /* ???		config_save(); */
 	    }
 	break;
+      }
+     if  (result_gtk_dialog_run !=  GTK_RESPONSE_HELP) 
+        break; /* We  leave a cycle WHILE */
     }
     not_event = FALSE;
     if(flag_tuning_warning)
@@ -1120,6 +1125,7 @@ void create_help_dialog(void){
 		*notebook,
 		*title;
     char	tmp_buff[2048];
+    gint	result;
 
     help_dialog = gtk_dialog_new_with_buttons(_("Other Maemo Weather Info"),
         				NULL,
@@ -1168,7 +1174,7 @@ void create_help_dialog(void){
         			title = gtk_label_new(_("Thanks")));
     gtk_widget_show_all(help_dialog);
 /* start dialog window */
-    gtk_dialog_run(GTK_DIALOG(help_dialog));
+    result = gtk_dialog_run(GTK_DIALOG(help_dialog));
     gtk_widget_destroy(help_dialog);
 }
 

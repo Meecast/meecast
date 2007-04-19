@@ -4,6 +4,7 @@
   * Fix bug - The applet crashes Desktop after switching off the plugin
   * Fix memory leaks  
   * Fix problem with station list creation
+  * Fix problem with destroy window preference after pressed about button
 
 0.17
   * Added version number to the About dialog

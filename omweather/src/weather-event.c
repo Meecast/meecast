@@ -194,11 +194,12 @@ void remove_periodic_event(void){
     while(list_time_event_temp != NULL){
 	evt = list_time_event_temp->data;
 	if(evt->type_event == AUTOUPDATE){
-	    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
-	    list_time_event_temp = event_time_list;  
+	    g_free(evt);
+	    list_time_event_temp = g_slist_remove(list_time_event_temp, list_time_event_temp->data);
 	}
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
+    event_time_list = list_time_event_temp;
     #ifdef PC_EMULATOR
     fprintf(stderr,"Periodic is remove from list\n");
     print_list();

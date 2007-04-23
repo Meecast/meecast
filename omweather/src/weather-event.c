@@ -93,11 +93,13 @@ void print_list(void){
     if(!event_time_list)
 	return;
     list_time_event_temp = event_time_list;
+    fprintf(stderr, "\n");
     while(list_time_event_temp){
 	evt = list_time_event_temp->data;
 	fprintf(stderr,"Event %i Time: %s", evt->type_event, ctime(&evt->time));
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
+    fprintf(stderr, "\n");
 }
 #endif
 
@@ -182,25 +184,23 @@ void remove_periodic_event(void){
     struct event_time *evt;
     
     #ifdef PC_EMULATOR
-    fprintf(stderr,"Periodec remove from list\n");
+    fprintf(stderr,"Periodic remove from list\n");
     print_list();
     #endif
 
     if(!event_time_list)
 	return;
-    list_time_event_temp = event_time_list;  
+    list_time_event_temp = event_time_list;
     while(list_time_event_temp != NULL){
 	evt = list_time_event_temp->data;
 	if(evt->type_event == AUTOUPDATE){
 	    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
 	    list_time_event_temp = event_time_list;  
-	    g_free(evt);
 	}
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
     #ifdef PC_EMULATOR
-    fprintf(stderr,"Periodec is remove from list\n");
+    fprintf(stderr,"Periodic is remove from list\n");
     print_list();
     #endif
-    
 }

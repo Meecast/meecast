@@ -127,7 +127,7 @@ void free_list_time_event(void){
 	#endif
 	evt = list_time_event_temp->data;
 	g_free(evt);
-	list_time_event_temp = g_slist_remove(list_time_event_temp, list_time_event_temp->data);
+//	list_time_event_temp = g_slist_remove(list_time_event_temp, list_time_event_temp->data);
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
     g_slist_free(event_time_list);
@@ -155,9 +155,7 @@ void time_event_add(time_t time_value, short type_event){
     evt = g_new0(struct event_time, 1);
     evt->time = time_value;	  
     evt->type_event = type_event;
-    /* Check the duplicate element */
-    if (!g_slist_find(event_time_list,evt))
-	event_time_list = g_slist_insert_sorted(event_time_list,evt,compare_time);
+    event_time_list = g_slist_insert_sorted(event_time_list,evt,compare_time);
 }
 
 /* Add periodic time event  to list */	  

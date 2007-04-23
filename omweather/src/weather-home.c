@@ -212,7 +212,6 @@ void weather_buttons_fill(gboolean check_error){
 /* Init weather buttons */
     weather_buttons_init();
     count_day = parse_weather_com_xml();
-    fprintf(stderr,"ddddddd\n");    
     if(check_error)
 	if(count_day == -2){
 	    count_day = 0;
@@ -224,11 +223,6 @@ void weather_buttons_fill(gboolean check_error){
     tm = localtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     current_day = mktime(tm);
-/* free time event list */
-//    free_list_time_event();
-/* add periodic update */
-//    add_periodic_event(time(NULL));
-    fprintf(stderr,"ccccccc\n");    
 /* Search day of saving xml near current day */
     while( (offset < Max_count_weather_day) &&
 	    (current_day > weather_days[offset].date_time) &&
@@ -343,14 +337,11 @@ void weather_buttons_fill(gboolean check_error){
 	    ws->name_station = NULL;
 	tmp_station_name = NULL;
     }
-    fprintf(stderr,"llllllll\n");
 /* create main panel */
     app->main_window = gtk_table_new(2, 1, FALSE);
-    fprintf(stderr,"aaaaaaaaaaa\n");    
     create_panel(app->main_window, app->icons_layout, app->transparency, tmp_station_name, font_size);
     gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
     gtk_widget_show_all(app->top_widget);
-    fprintf(stderr,"ffffffffff\n");
     if(error_station_code)
 	station_error_window();
 }
@@ -485,7 +476,6 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 
     int		n, elements, x, y;
 
-    fprintf(stderr,"dfdsfdsfdsf\n");
 
     if(app->days_to_show % 2)
 	elements = app->days_to_show / 2 + 1;
@@ -613,7 +603,6 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     if(station_name_btn)
 	g_object_unref(station_name_btn);
 
-    fprintf(stderr,"dfdsfdsfdsf11111111111\n");	
 }
 
 /* free used memory from OMWeather struct */

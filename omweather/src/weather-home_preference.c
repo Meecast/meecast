@@ -1217,6 +1217,7 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
     GtkTreeSelection	*selected_line;
     GtkTreeModel	*model;
 
+
     selected_line = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(tree_view));
     if( !gtk_tree_selection_get_selected(selected_line, NULL, &iter) )

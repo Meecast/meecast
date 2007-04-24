@@ -401,8 +401,8 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     app->top_widget = gtk_hbox_new(FALSE, 0);
     weather_buttons_fill(FALSE);
 /* Initialize DBUS */
-//    weather_initialize_dbus();
-    time_event_add(time(NULL)+5,DBUSINITEVENT);    
+/*    weather_initialize_dbus();*/
+    time_event_add(time(NULL) + 5, DBUSINITEVENT);    
     add_periodic_event(time(NULL));
     
     (*widget) = app->top_widget;

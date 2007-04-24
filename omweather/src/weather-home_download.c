@@ -372,7 +372,7 @@ gboolean download_html(gpointer data){
     return FALSE;
 }
 
-void clean_download (){
+void clean_download(void){
     if (curl_multi)
 	curl_multi_cleanup(curl_multi);
     curl_multi = NULL;

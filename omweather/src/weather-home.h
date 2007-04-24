@@ -60,6 +60,7 @@ void free_memory(gboolean flag);
 extern void timer(void);
 extern void weather_initialize_dbus(void);
 extern void add_periodic_event(time_t last_update);
+extern void clean_download(void);
 /* List times between two updates */
 GSList *time_update_list = NULL;
 gboolean not_event = FALSE;

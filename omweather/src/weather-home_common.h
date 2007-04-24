@@ -57,6 +57,7 @@
 #define Max_count_weather_day	10
 #define AUTOUPDATE		1
 #define DAYTIMEEVENT		2
+#define DBUSINITEVENT		3
 #define DAY_DOWNLOAD		10
 #define OFFSET_CURRENT_WEATHER	2 /* 2 hours */
 #define STATIONS_FILE		"/usr/share/omweather/stations.txt"

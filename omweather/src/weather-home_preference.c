@@ -868,7 +868,6 @@ void weather_window_preference(GtkWidget *widget,
     font_color = gtk_color_button_new();
     gtk_container_add(GTK_CONTAINER(label), font_color);
     gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &(app->font_color));
-    gtk_widget_show(font_color);
     /* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Transparency")),
@@ -1081,8 +1080,8 @@ void weather_window_preference(GtkWidget *widget,
 	    }
 	break;
       }
-     if  (result_gtk_dialog_run !=  GTK_RESPONSE_HELP) 
-        break; /* We  leave a cycle WHILE */
+	if(result_gtk_dialog_run !=  GTK_RESPONSE_HELP) 
+    	    break; /* We  leave a cycle WHILE */
     }
     not_event = FALSE;
     if(flag_tuning_warning)

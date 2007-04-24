@@ -68,5 +68,6 @@ GtkWidget* create_scrolled_window_with_text(const char* text, GtkJustification j
 extern void add_periodic_event(time_t last_update);
 extern void remove_periodic_event(void);
 extern void weather_buttons_init(void);
+extern void weather_initialize_dbus(void);
 
 #endif

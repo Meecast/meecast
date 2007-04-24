@@ -49,7 +49,7 @@ gboolean timer_handler(gpointer data){
 #ifdef PC_EMULATOR    
     temp_string = ctime(&current_time);
     fprintf(stderr,"\nCurrent Time: %s\n",  temp_string);
-//    g_free(temp_string);
+/*    g_free(temp_string);*/
     print_list();
 #endif	
     while(list_time_event_temp != NULL){
@@ -135,7 +135,7 @@ void free_list_time_event(void){
 	#endif
 	evt = list_time_event_temp->data;
 	g_free(evt);
-//	list_time_event_temp = g_slist_remove(list_time_event_temp, list_time_event_temp->data);
+/*	list_time_event_temp = g_slist_remove(list_time_event_temp, list_time_event_temp->data);*/
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
     g_slist_free(event_time_list);

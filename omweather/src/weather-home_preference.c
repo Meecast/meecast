@@ -703,6 +703,10 @@ void weather_window_preference(GtkWidget *widget,
     flag_update_icon = FALSE;
     flag_tuning_warning = FALSE; 
 
+    if (!app->dbus_is_initialize)
+			weather_initialize_dbus();
+
+
     window_config = gtk_dialog_new_with_buttons(_("Other Maemo Weather Settings"),
         				NULL,
 					GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,

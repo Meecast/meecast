@@ -139,6 +139,7 @@ void weather_initialize_dbus(void){
 #ifdef PC_EMULATOR
     app->iap_connected = TRUE; 
 #endif
+    app->dbus_is_initialize = TRUE;
 }
 
 /* Init easy curl */

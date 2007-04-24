@@ -46,6 +46,8 @@ popup_window_event_cb(GtkWidget *widget,
 }
 
 void pre_update_weather(void){
+    if (!app->dbus_is_initialize)
+	weather_initialize_dbus();
     app->show_update_window = TRUE;
     update_weather();
 }

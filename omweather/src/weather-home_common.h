@@ -156,6 +156,7 @@ typedef struct OMWeatherApplet{
     guint		timer;
     WDB			*buttons[Max_count_weather_day];
     guint		flag_updating;
+    gboolean		dbus_is_initialize;
 }OMWeatherApp;
 
 weather_day weather_days[Max_count_weather_day];

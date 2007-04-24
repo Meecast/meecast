@@ -391,6 +391,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     app->distance_units = KILOMETERS;
     app->wind_units = METERS_S;
     app->temperature_units = CELSIUS;
+    app->dbus_is_initialize = FALSE;
 /* Init gconf. */
     gnome_vfs_init();
     read_config();
@@ -401,7 +402,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     weather_buttons_fill(FALSE);
 /* Initialize DBUS */
 //    weather_initialize_dbus();
-    time_event_add(time(NULL)+15,DBUSINITEVENT);    
+    time_event_add(time(NULL)+5,DBUSINITEVENT);    
     (*widget) = app->top_widget;
     return (void*)osso;
 }

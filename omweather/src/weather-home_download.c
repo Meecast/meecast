@@ -118,7 +118,7 @@ gboolean check_connected(void){
 
 void weather_initialize_dbus(void){
 
-    if (!weather_initialize_dbus)
+    if (!app->dbus_is_initialize)
     /* Add D-BUS signal handler for 'status_changed' */
     {
         DBusConnection *dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);

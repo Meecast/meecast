@@ -43,5 +43,6 @@ int c2f(int temp);
 void set_font_size(GtkWidget *widget, char font_size);
 int convert_wind_units(int to, int value);
 extern gpointer hash_table_find(gpointer key);
+extern void weather_initialize_dbus(void);
 
 #endif

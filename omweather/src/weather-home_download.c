@@ -118,6 +118,7 @@ gboolean check_connected(void){
 
 void weather_initialize_dbus(void){
 
+    if (!weather_initialize_dbus)
     /* Add D-BUS signal handler for 'status_changed' */
     {
         DBusConnection *dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
@@ -132,14 +133,15 @@ void weather_initialize_dbus(void){
         dbus_connection_add_filter(dbus_conn,
                     get_connection_status_signal_cb,
                     NULL, NULL);
-    }
-    osso_iap_cb(iap_callback);
+    
+	osso_iap_cb(iap_callback);
 
-/* For Debug on i386 */
-#ifdef PC_EMULATOR
-    app->iap_connected = TRUE; 
-#endif
-    app->dbus_is_initialize = TRUE;
+    /* For Debug on i386 */
+    #ifdef PC_EMULATOR
+	app->iap_connected = TRUE; 
+    #endif
+	app->dbus_is_initialize = TRUE;
+    }
 }
 
 /* Init easy curl */

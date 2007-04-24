@@ -403,6 +403,8 @@ void* hildon_home_applet_lib_initialize(void *state_data,
 /* Initialize DBUS */
 //    weather_initialize_dbus();
     time_event_add(time(NULL)+5,DBUSINITEVENT);    
+    add_periodic_event(time(NULL));
+    
     (*widget) = app->top_widget;
     return (void*)osso;
 }

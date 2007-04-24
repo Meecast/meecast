@@ -396,12 +396,12 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     read_config();
 /* Start timer */
     timer();
-/* Initialize DBUS */
-//    weather_initialize_dbus();
-    time_event_add(time(NULL)+15,DBUSINITEVENT);
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
     weather_buttons_fill(FALSE);
+/* Initialize DBUS */
+//    weather_initialize_dbus();
+    time_event_add(time(NULL)+15,DBUSINITEVENT);    
     (*widget) = app->top_widget;
     return (void*)osso;
 }

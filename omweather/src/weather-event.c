@@ -63,6 +63,8 @@ gboolean timer_handler(gpointer data){
 		#ifdef PC_EMULATOR
 		    fprintf(stderr,"DBUSINITEVENT %s\n",ctime(&evt->time));
 		#endif
+		    g_free(evt);
+                    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
 		    weather_initialize_dbus();
 		break;    
 		default:
@@ -158,10 +160,21 @@ static gint compare_time(gconstpointer a, gconstpointer b){
 void time_event_add(time_t time_value, short type_event){
     struct event_time *evt;
 
+    #ifdef PC_EMULATOR
+    fprintf(stderr,"time_event_add in list\n");
+    print_list();
+    #endif
+
     evt = g_new0(struct event_time, 1);
     evt->time = time_value;	  
     evt->type_event = type_event;
     event_time_list = g_slist_insert_sorted(event_time_list,evt,compare_time);
+
+    #ifdef PC_EMULATOR
+    fprintf(stderr,"time_event_add in list finished\n");
+    print_list();
+    #endif
+    
 }
 
 /* Add periodic time event  to list */	  

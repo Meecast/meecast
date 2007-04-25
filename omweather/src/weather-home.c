@@ -443,6 +443,8 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     #endif
     /* It is switch off the timer */	
     check = g_source_remove(app->timer);
+    /* Clean the queue of event */ 
+    free_list_time_event();
     /* If downloading then switch off it */
     if (app->flag_updating != 0){
 	check = g_source_remove(app->flag_updating);

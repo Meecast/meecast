@@ -164,12 +164,12 @@ void time_event_add(time_t time_value, short type_event){
     fprintf(stderr,"time_event_add in list\n");
     print_list();
     #endif
-
-    evt = g_new0(struct event_time, 1);
-    evt->time = time_value;	  
-    evt->type_event = type_event;
-    event_time_list = g_slist_insert_sorted(event_time_list,evt,compare_time);
-
+    if( time_value && time_value > time(NULL) ){
+	evt = g_new0(struct event_time, 1);
+	evt->time = time_value;	  
+	evt->type_event = type_event;
+	event_time_list = g_slist_insert_sorted(event_time_list,evt,compare_time);
+    }
     #ifdef PC_EMULATOR
     fprintf(stderr,"time_event_add in list finished\n");
     print_list();

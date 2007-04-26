@@ -1,3 +1,9 @@
+0.17.2
+  * The problem with blocking connectivity icon is solved
+  * The error with station adding/removal, leading to destruction of a desktop, is corrected
+  * The algorithm of processing of events is corrected
+  * Small leak of memory  is corrected
+  
 0.17.1
   * New periods to the select of automatic update has been added
   * The work of automatic update has been corrected

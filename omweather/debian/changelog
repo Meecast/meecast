@@ -1,3 +1,12 @@
+omweather (0.17.2) unstable; urgency=low
+
+  * The problem with blocking connectivity icon is solved
+  * The error with station adding/removal, leading to destruction of a desktop, is corrected
+  * The algorithm of processing of events is corrected
+  * Small leak of memory  is corrected
+  
+ -- Pavel Fialko <pavelnf@gmail.com> Thu, 26 Apr 2007 09:25:00 +0200
+
 omweather (0.17.1) unstable; urgency=low
   
   * New periods to the select of automatic update has been added

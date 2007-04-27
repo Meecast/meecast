@@ -374,10 +374,10 @@ void* hildon_home_applet_lib_initialize(void *state_data,
         g_debug(_("Error initializing the OMWeather applet"));
         return NULL;
     }
-    #ifdef PC_EMULATOR
+//    #ifdef PC_EMULATOR
 	fprintf(stderr, "\nOMWeather applet initialize %p %d\n",
 			state_data, *state_size);
-    #endif
+//    #endif
     app = g_new0(OMWeatherApp, 1);
     memset(app, 0, sizeof(OMWeatherApp));
     app->osso = osso;

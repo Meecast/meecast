@@ -1,4 +1,5 @@
 0.17.2
+  * The problem of exit out of range of the array has been fixed . This problem rebooted desktop.
   * The problem with blocking connectivity icon is solved
   * The error with station adding/removal, leading to destruction of a desktop, is corrected
   * The algorithm of processing of events is corrected

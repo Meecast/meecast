@@ -230,15 +230,16 @@ void weather_buttons_fill(gboolean check_error){
 	offset ++;
     for(i = 0; i < app->days_to_show; i++, offset++){
      /* If it first button add to evenet time change between nigth and day */
-	if(current_day == weather_days[offset].date_time){
+	if((offset < count_day ) &&
+	   (current_day == weather_days[offset].date_time)){
 	    if(current_time < weather_days[offset].day.begin_time)
 		time_event_add(weather_days[offset].day.begin_time,DAYTIMEEVENT);
 	    if(current_time < weather_days[offset].night.begin_time)  
 		time_event_add(weather_days[offset].night.begin_time,DAYTIMEEVENT);
 	}
     /* Time event add to event list */
-	if( (current_day < weather_days[offset].date_time) &&
-	    (offset < count_day ) ){
+	if( (offset < count_day) &&
+	    (current_day < weather_days[offset].date_time) ){
 	    time_event_add(weather_days[offset].date_time,DAYTIMEEVENT);  /* Add time event  to list */	  
 	    last_day = weather_days[offset].date_time;	  
 	}      
@@ -253,7 +254,6 @@ void weather_buttons_fill(gboolean check_error){
 		temp_low = c2f(temp_low);
 	    }  
      /* Show current weather or forecast */
-
 	    if( (i==0) && 
 		(weather_current_day.date_time>(current_time-OFFSET_CURRENT_WEATHER*3600)) &&
                 (weather_current_day.date_time<(current_time+OFFSET_CURRENT_WEATHER*3600))){
@@ -267,7 +267,8 @@ void weather_buttons_fill(gboolean check_error){
 	    }		
     	    else{
       /* Show forecast */
-		if(current_day == weather_days[offset].date_time){
+		if((offset < count_day) &&
+		   (current_day == weather_days[offset].date_time)){
        /* First icon - night(morning) or day or night (evening) */     
 		    if(current_time<weather_days[offset].day.begin_time){  
     			sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);
@@ -314,13 +315,15 @@ void weather_buttons_fill(gboolean check_error){
 	    } 
 	}
      /* Write offset in wetaher data for this button */
-	boxs_offset[i] = offset;
+        if(offset < count_day)
+	    boxs_offset[i] = offset;
+	else 
+	    boxs_offset[i] = Max_count_weather_day;
      /* Prepare butons for view */   
 	app->buttons[i] = create_weather_day_button(buffer, buffer_icon, icon_size, app->transparency, font_size);
 	g_signal_connect(app->buttons[i]->button, "released", G_CALLBACK(weather_window_popup_show), NULL);
 	g_signal_connect(app->buttons[i]->button, "enter", G_CALLBACK(enter_button), NULL); 
     }/* for */
-
     if(g_slist_length(stations_view_list) > 0){
 	tmplist = stations_view_list;
 /* search current station */
@@ -374,10 +377,10 @@ void* hildon_home_applet_lib_initialize(void *state_data,
         g_debug(_("Error initializing the OMWeather applet"));
         return NULL;
     }
-//    #ifdef PC_EMULATOR
+    #ifdef PC_EMULATOR
 	fprintf(stderr, "\nOMWeather applet initialize %p %d\n",
 			state_data, *state_size);
-//    #endif
+    #endif
     app = g_new0(OMWeatherApp, 1);
     memset(app, 0, sizeof(OMWeatherApp));
     app->osso = osso;

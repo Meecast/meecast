@@ -1,11 +1,12 @@
 omweather (0.17.2) unstable; urgency=low
 
+  * The problem of exit out of range of the array has been fixed . This problem rebooted desktop.
   * The problem with blocking connectivity icon is solved
   * The error with station adding/removal, leading to destruction of a desktop, is corrected
   * The algorithm of processing of events is corrected
   * Small leak of memory  is corrected
   
- -- Pavel Fialko <pavelnf@gmail.com>  Fri, 27 Apr 2007 09:25:00 +0200
+ -- Pavel Fialko <pavelnf@gmail.com>  Fri, 27 Apr 2007 19:25:00 +0200
 
 omweather (0.17.1) unstable; urgency=low
   

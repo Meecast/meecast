@@ -1170,7 +1170,9 @@ void create_help_dialog(void){
 	    "Greg Thompson for support stations.txt file\n"
 	    "Frank Persian - for idea of new layout\n"
 	    "Brian Knight - for idea of iconset, criticism \n"
-	    "\t\t\t\tand donation ;-)\n"));
+	    "\t\t\t\tand donation ;-)\n"
+	    "Brad Jones aka kazrak- for testing\n"
+	    "Jarek Szczepanski aka Imrahil - for testing\n"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),

@@ -1171,7 +1171,9 @@ void create_help_dialog(void){
 	    "Frank Persian - for idea of new layout\n"
 	    "Brian Knight - for idea of iconset, criticism \n"
 	    "\t\t\t\tand donation ;-)\n"
-	    "Brad Jones aka kazrak- for testing\n"
+	    "Andrew aka Tabster - for testing and ideas\n"
+	    "Brad Jones aka kazrak - for testing\n"
+	    "Eugene Roytenberg - for testing\n"
 	    "Jarek Szczepanski aka Imrahil - for testing\n"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,

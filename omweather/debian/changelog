@@ -6,7 +6,7 @@ omweather (0.17.2) unstable; urgency=low
   * The algorithm of processing of events is corrected
   * Small leak of memory  is corrected
   
- -- Pavel Fialko <pavelnf@gmail.com>  Fri, 27 Apr 2007 19:25:00 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Apr 2007 23:35:00 +0200
 
 omweather (0.17.1) unstable; urgency=low
   

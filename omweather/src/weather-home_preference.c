@@ -697,6 +697,7 @@ void weather_window_preference(GtkWidget *widget,
     struct time_update *tu; /* Temporary for time update list */
     static char *temp_string; /* Temporary for the results differnet strdup functions */
     static int result_gtk_dialog_run; /* Temporary for the gtk_dialog_run result */
+    time_t	next_update_time = 0;
    
     not_event = TRUE;
     flag_update_station = FALSE;
@@ -943,7 +944,7 @@ void weather_window_preference(GtkWidget *widget,
     }    
 /* Update tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			table = gtk_table_new(1, 2, FALSE),
+        			table = gtk_table_new(2, 2, FALSE),
         			label = gtk_label_new(_("Update")));
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(_("Updating of weather data:")),
@@ -952,6 +953,20 @@ void weather_window_preference(GtkWidget *widget,
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
         			1, 2, 0, 1);
     gtk_container_add(GTK_CONTAINER(label), update_time = gtk_combo_box_new_text());
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_label_new(_("Next update:")),
+        			0, 1, 1, 2);
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
+        			1, 2, 1, 2);
+    next_update_time = next_update();
+    if(!next_update_time)
+	temp_string = _("Never");
+    else{
+	temp_string = ctime(&next_update_time);
+	temp_string[strlen(temp_string) - 1] = 0;
+    }
+    gtk_container_add(GTK_CONTAINER(label), gtk_label_new(temp_string));
 /* Fill update time box */
     time_update_list_temp = time_update_list;
     while(time_update_list_temp != NULL){
@@ -1170,8 +1185,9 @@ void create_help_dialog(void){
 	    "Greg Thompson for support stations.txt file\n"
 	    "Frank Persian - for idea of new layout\n"
 	    "Brian Knight - for idea of iconset, criticism \n"
-	    "\t\t\t\tand donation ;-)\n"
-	    "Andrew aka Tabster - for testing and ideas\n"
+	    "\t\t\t\tand donation ;-)\n"));
+    strcat(tmp_buff,	    
+	    _("Andrew aka Tabster - for testing and ideas\n"
 	    "Brad Jones aka kazrak - for testing\n"
 	    "Eugene Roytenberg - for testing\n"
 	    "Jarek Szczepanski aka Imrahil - for testing\n"));

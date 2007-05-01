@@ -69,5 +69,6 @@ extern void add_periodic_event(time_t last_update);
 extern void remove_periodic_event(void);
 extern void weather_buttons_init(void);
 extern void weather_initialize_dbus(void);
+extern time_t next_update(void);
 
 #endif

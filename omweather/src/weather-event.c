@@ -222,3 +222,20 @@ void remove_periodic_event(void){
     print_list();
     #endif
 }
+
+time_t next_update(void){
+    GSList	*tmp_list = NULL;
+    time_t	result	= 0;
+
+    if(!event_time_list)
+	return result;
+    tmp_list = event_time_list;
+    while(tmp_list){
+	if(((struct event_time*)tmp_list->data)->type_event == AUTOUPDATE){
+	    result = ((struct event_time*)tmp_list->data)->time;
+	    break;
+	}
+	tmp_list = g_slist_next(tmp_list);
+    }
+    return result;
+}

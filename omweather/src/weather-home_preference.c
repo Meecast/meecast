@@ -698,7 +698,9 @@ void weather_window_preference(GtkWidget *widget,
     static char *temp_string; /* Temporary for the results differnet strdup functions */
     static int result_gtk_dialog_run; /* Temporary for the gtk_dialog_run result */
     time_t	next_update_time = 0;
-   
+#ifdef PC_EMULATOR
+    char	tmp_buff[2048];
+#endif
     not_event = TRUE;
     flag_update_station = FALSE;
     flag_update_icon = FALSE;
@@ -977,6 +979,15 @@ void weather_window_preference(GtkWidget *widget,
 	time_update_list_temp = g_slist_next(time_update_list_temp);
 	index_update_time++;
     }
+#ifdef PC_EMULATOR
+/* Evetns list tab */
+    memset(tmp_buff, 0, sizeof(tmp_buff));
+    print_list(tmp_buff, sizeof(tmp_buff) - 1);
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			create_scrolled_window_with_text(tmp_buff,
+						    GTK_JUSTIFY_LEFT),
+        			label = gtk_label_new(_("Events")));
+#endif
     gtk_widget_show_all(window_config);
 /* kill popup window :-) */
     if (app->popup_window){
@@ -1195,6 +1206,7 @@ void create_help_dialog(void){
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),
         			title = gtk_label_new(_("Thanks")));
+
     gtk_widget_show_all(help_dialog);
 /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(help_dialog));

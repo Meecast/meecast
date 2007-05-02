@@ -36,7 +36,7 @@
 gboolean timer_handler(gpointer data);
 void timer(void);
 void add_periodic_event(time_t last_update);
-void print_list(void);
+void print_list(char *buff, size_t buff_size);
 void time_event_add(time_t time_value, short type_event);
 extern gboolean not_event;
 extern void weather_initialize_dbus(void);

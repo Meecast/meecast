@@ -50,7 +50,7 @@ gboolean timer_handler(gpointer data){
     temp_string = ctime(&current_time);
     fprintf(stderr,"\nCurrent Time: %s\n",  temp_string);
 /*    g_free(temp_string);*/
-    print_list();
+    print_list(NULL, 0);
 #endif	
     while(list_time_event_temp != NULL){
 	evt = list_time_event_temp->data;
@@ -94,20 +94,27 @@ gboolean timer_handler(gpointer data){
 
 #ifdef PC_EMULATOR
 /*For debug */
-void print_list(void){
+void print_list(char *buff, size_t buff_size){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
+    char	tmp[3072];
 
+    memset(tmp, 0, sizeof(tmp));
     if(!event_time_list)
 	return;
     list_time_event_temp = event_time_list;
-    fprintf(stderr, "\n");
+
+    sprintf(tmp, "\n");
     while(list_time_event_temp){
 	evt = list_time_event_temp->data;
-	fprintf(stderr,"Event %i Time: %s", evt->type_event, ctime(&evt->time));
+	sprintf(tmp + strlen(tmp), "Event %i Time: %s", evt->type_event, ctime(&evt->time));
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
-    fprintf(stderr, "\n");
+    strcat(tmp, "\n"); 
+    if(buff && buff_size)
+	memcpy(buff, tmp, buff_size);
+    else
+	fprintf(stderr, tmp);
 }
 #endif
 
@@ -124,7 +131,7 @@ void free_list_time_event(void){
     
     #ifdef PC_EMULATOR
     fprintf(stderr,"Free ALL in list\n");
-    print_list();
+    print_list(NULL, 0);
     #endif
     if(!event_time_list)
 	return;
@@ -142,7 +149,7 @@ void free_list_time_event(void){
     event_time_list = NULL;
     #ifdef PC_EMULATOR
     fprintf(stderr,"list clean\n");
-    print_list();
+    print_list(NULL, 0);
     #endif
 
 }
@@ -162,7 +169,7 @@ void time_event_add(time_t time_value, short type_event){
 
     #ifdef PC_EMULATOR
     fprintf(stderr,"time_event_add in list\n");
-    print_list();
+    print_list(NULL, 0);
     #endif
     if( time_value && time_value > time(NULL) ){
 	evt = g_new0(struct event_time, 1);
@@ -172,7 +179,7 @@ void time_event_add(time_t time_value, short type_event){
     }
     #ifdef PC_EMULATOR
     fprintf(stderr,"time_event_add in list finished\n");
-    print_list();
+    print_list(NULL, 0);
     #endif
     
 }
@@ -182,7 +189,7 @@ void add_periodic_event(time_t last_update){
 
     #ifdef PC_EMULATOR
     fprintf(stderr,"Add in list\n");
-    print_list();
+    print_list(NULL, 0);
     #endif
 
     if(app->update_interval > 0)
@@ -190,7 +197,7 @@ void add_periodic_event(time_t last_update){
 
     #ifdef PC_EMULATOR
     fprintf(stderr,"Item added to list\n");
-    print_list();
+    print_list(NULL, 0);
     #endif
 	
 }
@@ -202,7 +209,7 @@ void remove_periodic_event(void){
     
     #ifdef PC_EMULATOR
     fprintf(stderr,"Periodic remove from list\n");
-    print_list();
+    print_list(NULL, 0);
     #endif
 
     if(!event_time_list)
@@ -219,7 +226,7 @@ void remove_periodic_event(void){
     event_time_list = list_time_event_temp;
     #ifdef PC_EMULATOR
     fprintf(stderr,"Periodic is remove from list\n");
-    print_list();
+    print_list(NULL, 0);
     #endif
 }
 

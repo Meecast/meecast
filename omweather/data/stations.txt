@@ -16409,41 +16409,63 @@ ESTONIA            12-JUL-02
 FINLAND            12-FEB-04
    ENONTEKIO        EFET               68 22N  023 26E  306   X                7 FI
    HALLI (FIN-AFB)  EFHA        02945  61 51N  024 48E  145   X                7 FI
-   HELSINKI/MALMI   EFHF        02975  60 15N  025 03E   28   X     T          6 FI
+   HELSINKI/MALMI   EFHF        02975  60 15N  025 03E   28   X     T          6 FI FIXX0002
    HELSINKI/VANTAA  EFHK        02974  60 19N  024 58E   56   X     T          6 FI
    HAILUOTO ISLAND  EFHL        02874  65 01N  024 48E    6   X                7 FI
    AHTARI           EFHT        02924  62 31N  024 13E  161   X                7 FI
    ILMAJOKI         EFIL               62 42N  022 49E   92   X                7 FI
    IVALO            EFIV        02807  68 37N  027 25E  148   X     T          6 FI
    JOENSUU          EFJO        02929  62 40N  029 37E  117   X                7 FI
-   JYVASKYLA (MIL/C EFJY        02935  62 23N  025 40E  145   X     T  X       6 FI
+   JYVASKYLA (MIL/C EFJY        02935  62 23N  025 40E  145   X     T  X       6 FI FIXX0025
    KAUHAVA (FIN-AFB EFKA        02913  63 06N  023 01E   44   X                7 FI
-   KEMI             EFKE        02864  65 46N  024 34E   15   X     T          6 FI
-   KAJAANI          EFKI        02897  64 16N  027 40E  136   X     T          6 FI
+   KEMI             EFKE        02864  65 46N  024 34E   15   X     T          6 FI FIXX0005
+   KAJAANI          EFKI        02897  64 16N  027 40E  136   X     T          6 FI FIXX0021
    KRUUNUPYY        EFKK        02903  63 43N  023 08E   25   X     T          6 FI
    KUUSAMO          EFKS        02869  65 58N  029 10E  263   X                7 FI
    KITTILA          EFKT               67 42N  024 51E  643   X                7 FI
-   KUOPIO (MIL/CIV) EFKU        02917  63 01N  027 48E  102   X     T          6 FI
+   KUOPIO (MIL/CIV) EFKU        02917  63 01N  027 48E  102   X     T          6 FI FIXX0023
    LAPPEENRANTA     EFLP        02958  61 04N  028 08E  106   X                7 FI
    MARIEHAMN/ALAND  EFMA        02970  60 07N  019 53E    6   X     T          6 FI
    MIKKELI          EFMI        02947  61 43N  027 18E  138   X                7 FI
-   OULU/ULEABORG    EFOU        02875  64 55N  025 22E   15   X     T          6 FI
+   OULU/ULEABORG    EFOU        02875  64 55N  025 22E   15   X     T          6 FI FIXX0013
    PELLO            EFPE        02844  66 47N  024 00E   84   X                7 FI
-   PORI (MIL/CIV)   EFPO        02952  61 28N  021 48E   17   X     T          6 FI
+   PORI (MIL/CIV)   EFPO        02952  61 28N  021 48E   17   X     T          6 FI FIXX0026
    PUDASJARVI       EFPU        02867  65 22N  027 01E  117   X                7 FI
    ROVANIEMI (CIV/M EFRO        02845  66 34N  025 49E  201   X     T          6 FI
    SAVONLINNA (AUT) EFSA        02948  61 57N  028 56E   95   X                7 FI
-   SEINAJOKI-ILMAJO EFSI  SJY          62 42N  022 50E   91   X                7 FI
-   SODANKYLA        EFSO        02836  67 22N  026 38E  179   X        X       7 FI
+   SEINAJOKI-ILMAJO EFSI  SJY          62 42N  022 50E   91   X                7 FI FIXX0017
+   SODANKYLA        EFSO        02836  67 22N  026 38E  179   X        X       7 FI FIXX0032
    SUOMUSSALMI      EFSU        02879  64 54N  029 01E  224   X                7 FI
-   TAMPERE/PIRKKALA EFTP        02944  61 25N  023 34E  112   X     T          6 FI
-   TURKU/ABO        EFTU        02972  60 31N  022 16E   59   X     T          6 FI
+   TAMPERE/PIRKKALA EFTP        02944  61 25N  023 34E  112   X     T          6 FI FIXX0031
+   TURKU/ABO        EFTU        02972  60 31N  022 16E   59   X     T          6 FI FIXX0018
    UTTI (FIN-AFB)   EFUT        02966  60 53N  026 55E  100   X                7 FI
-   VAASA            EFVA        02911  63 02N  021 46E    4   X     T          6 FI
+   VAASA            EFVA        02911  63 02N  021 46E    4   X     T          6 FI FIXX0019
    VIITASAARI       EFVI        02915  63 04N  025 52E  132   X                7 FI
    VARKAUS          EFVR               62 10N  027 52E   87   X                7 FI
    YLIVIESKA        EFYL               64 02N  024 43E   77   X                7 FI
    JOKIOINEN                    02963  60 49N  023 30E  103            X       7 FI
+   ESPOO									    FIXX0001
+   HYVINKAA									    FIXX0003
+   JARVENPAA									    FIXX0004
+   KERAVA									    FIXX0006
+   KOKKOLA									    FIXX0007
+   KORSNAS									    FIXX0008
+   LAIHIA									    FIXX0009
+   LAITILA									    FIXX0010
+   MYNAMAKI									    FIXX0011
+   ORAVAINEN									    FIXX0012
+   PORVOO									    FIXX0014
+   RAUMA									    FIXX0015
+   SALO										    FIXX0016
+   VANTAA									    FIXX0020
+   NIVALA									    FIXX0022
+   ILOMANTSI									    FIXX0024
+   JOKIOINEN									    FIXX0027
+   JOMALA									    FIXX0028
+   RANKKI									    FIXX0029
+   RUSSARO									    FIXX0030
+   KEVO										    FIXX0033
+   MUONIO									    FIXX0034
 
 UNITED KINGDOM     08-MAY-06
    BELFAST/ALDERGRO EGAA        03917  54 38N  006 13W   81   X     T          6 GB UKXX0015

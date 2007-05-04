@@ -188,6 +188,7 @@ void weather_buttons_fill(gboolean check_error){
     gint	icon_size;
     gchar	*tmp_station_name;
 
+    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 /* Check main widget */
     if (!app->top_widget)
 	return;
@@ -218,6 +219,8 @@ void weather_buttons_fill(gboolean check_error){
 	    fprintf(stderr, _("Error in xml file\n"));
 	    error_station_code = TRUE;
 	} /* Error in xml file */
+/* Clear daytime elments in queue of timer */
+    remove_daytime_event();
 /* get current day */  
     current_time = current_day = time(NULL);
     tm = localtime(&current_day);

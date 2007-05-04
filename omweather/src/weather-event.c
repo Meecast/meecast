@@ -38,6 +38,7 @@ gboolean timer_handler(gpointer data){
     time_t current_time;
 #ifdef PC_EMULATOR
     char   *temp_string;
+    fprintf(stderr, "Begin %s(): \n", __PRETTY_FUNCTION__);
 #endif
 
     if(not_event == TRUE || !event_time_list)
@@ -82,7 +83,6 @@ gboolean timer_handler(gpointer data){
 		    update_weather();
                     /* add periodic update */
                     add_periodic_event(current_time);
-		    
     		break;		    
 	    }
 	    break;
@@ -103,14 +103,13 @@ void print_list(char *buff, size_t buff_size){
     if(!event_time_list)
 	return;
     list_time_event_temp = event_time_list;
-
-    sprintf(tmp, "\n");
+    sprintf(tmp, "Length %i\n",g_slist_length (list_time_event_temp)  );    
     while(list_time_event_temp){
 	evt = list_time_event_temp->data;
-	sprintf(tmp + strlen(tmp), "Event %i Time: %s", evt->type_event, ctime(&evt->time));
+	snprintf(tmp+strlen(tmp), sizeof(tmp)-1-strlen(tmp),"Event %i Time: %s\n", evt->type_event, ctime(&evt->time));
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
-    strcat(tmp, "\n");
+    snprintf(tmp+strlen(tmp),sizeof(tmp)-1-strlen(tmp), "\n");
     if(buff && buff_size)
 	memcpy(buff, tmp, buff_size);
     else
@@ -165,21 +164,26 @@ static gint compare_time(gconstpointer a, gconstpointer b){
 
 /* Add time event  to list */	  
 void time_event_add(time_t time_value, short type_event){
-    struct event_time *evt;
+    struct event_time *evt = NULL;
 
     #ifdef PC_EMULATOR
-    fprintf(stderr,"time_event_add in list\n");
-    print_list(NULL, 0);
+    /* fprintf(stderr,"time_event_add in list\n");
+    print_list(NULL, 0); */
     #endif
-    if( time_value && time_value > time(NULL) ){
+    if( time_value && time_value > time(NULL)){ 
 	evt = g_new0(struct event_time, 1);
-	evt->time = time_value;	  
-	evt->type_event = type_event;
-	event_time_list = g_slist_insert_sorted(event_time_list,evt,compare_time);
+	if (evt != NULL) 
+	{
+	    evt->time = time_value;	  
+	    evt->type_event = type_event;
+	    event_time_list = g_slist_insert_sorted(event_time_list,evt,compare_time);
+	}    
+	else
+	    fprintf(stderr,"evt NULL\n");
     }
     #ifdef PC_EMULATOR
-    fprintf(stderr,"time_event_add in list finished\n");
-    print_list(NULL, 0);
+    /* fprintf(stderr,"time_event_add in list finished\n");
+    print_list(NULL, 0); */
     #endif
     
 }
@@ -214,18 +218,47 @@ void remove_periodic_event(void){
 
     if(!event_time_list)
 	return;
-    list_time_event_temp = event_time_list;
+    list_time_event_temp = event_time_list;  
     while(list_time_event_temp != NULL){
 	evt = list_time_event_temp->data;
 	if(evt->type_event == AUTOUPDATE){
+	    event_time_list = g_slist_remove(event_time_list, list_time_event_temp->data);
+	    list_time_event_temp = event_time_list;  
 	    g_free(evt);
-	    list_time_event_temp = g_slist_remove(list_time_event_temp, list_time_event_temp->data);
 	}
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
-    event_time_list = list_time_event_temp;
+
     #ifdef PC_EMULATOR
     fprintf(stderr,"Periodic is remove from list\n");
+    print_list(NULL, 0);
+    #endif
+}
+
+void remove_daytime_event(void){
+    static GSList *list_time_event_temp = NULL;
+    struct event_time *evt;
+    
+    #ifdef PC_EMULATOR
+    fprintf(stderr,"DAYTIMEEVENT remove from list\n");
+    print_list(NULL, 0);
+    #endif
+
+    if(!event_time_list)
+	return;
+    list_time_event_temp = event_time_list;  
+    while(list_time_event_temp != NULL){
+	evt = list_time_event_temp->data;
+	if(evt->type_event == DAYTIMEEVENT){
+	    event_time_list = g_slist_remove(event_time_list, list_time_event_temp->data);
+	    list_time_event_temp = event_time_list;  
+	    g_free(evt);
+	}
+	list_time_event_temp = g_slist_next(list_time_event_temp);
+    }
+
+    #ifdef PC_EMULATOR
+    fprintf(stderr,"DAYTIMEEVENT is remove from list\n");
     print_list(NULL, 0);
     #endif
 }

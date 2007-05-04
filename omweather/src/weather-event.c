@@ -110,7 +110,7 @@ void print_list(char *buff, size_t buff_size){
 	sprintf(tmp + strlen(tmp), "Event %i Time: %s", evt->type_event, ctime(&evt->time));
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
-    strcat(tmp, "\n"); 
+    strcat(tmp, "\n");
     if(buff && buff_size)
 	memcpy(buff, tmp, buff_size);
     else

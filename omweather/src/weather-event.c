@@ -106,10 +106,12 @@ void print_list(char *buff, size_t buff_size){
     sprintf(tmp, "Length %i\n",g_slist_length (list_time_event_temp)  );    
     while(list_time_event_temp){
 	evt = list_time_event_temp->data;
-	snprintf(tmp+strlen(tmp), sizeof(tmp)-1-strlen(tmp),"Event %i Time: %s\n", evt->type_event, ctime(&evt->time));
+	snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,
+		    "Event %i Time: %s\n", 
+		    evt->type_event, ctime(&evt->time));
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
-    snprintf(tmp+strlen(tmp),sizeof(tmp)-1-strlen(tmp), "\n");
+    snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "\n");
     if(buff && buff_size)
 	memcpy(buff, tmp, buff_size);
     else

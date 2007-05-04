@@ -39,7 +39,6 @@
 #define FONT_MAIN_SIZE_LARGE	14
 #define FONT_MAIN_SIZE_MEDIUM	12
 #define FONT_MAIN_SIZE_SMALL	10
-#define HTTP_RESPONSE_OK	"200"
 
 WDB* create_weather_day_button(const char *text, const char *icon, const int icon_size, gboolean transparency, char font_size);
 void delete_weather_day_button(gboolean after_all_destroy,WDB **day);

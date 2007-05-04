@@ -188,7 +188,9 @@ void weather_buttons_fill(gboolean check_error){
     gint	icon_size;
     gchar	*tmp_station_name;
 
+#ifdef PC_EMULATOR
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+#endif
 /* Check main widget */
     if (!app->top_widget)
 	return;

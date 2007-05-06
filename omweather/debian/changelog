@@ -1,3 +1,9 @@
+omweather (0.17.9) unstable; urgency=low
+
+  * Autoupdate is corrected
+  
+ -- Vlad Vasiliev <vlad@gas.by>  Wen, 9 May 2007 03:35:00 +0200
+
 omweather (0.17.2) unstable; urgency=low
 
   * The problem of exit out of range of the array has been fixed . This problem rebooted desktop.

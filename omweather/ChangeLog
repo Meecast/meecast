@@ -1,3 +1,5 @@
+0.17.9
+  * Autoupdate is corrected
 0.17.2
   * The problem of exit out of range of the array has been fixed . This problem rebooted desktop.
   * The problem with blocking connectivity icon is solved

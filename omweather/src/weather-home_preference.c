@@ -979,7 +979,7 @@ void weather_window_preference(GtkWidget *widget,
 	time_update_list_temp = g_slist_next(time_update_list_temp);
 	index_update_time++;
     }
-/*#ifdef PC_EMULATOR*/
+#ifdef PC_EMULATOR
 /* Evetns list tab */
     memset(tmp_buff, 0, sizeof(tmp_buff));
     print_list(tmp_buff, sizeof(tmp_buff) - 1);
@@ -987,7 +987,7 @@ void weather_window_preference(GtkWidget *widget,
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),
         			label = gtk_label_new(_("Events")));
-/*#endif*/
+#endif
     gtk_widget_show_all(window_config);
 /* kill popup window :-) */
     if (app->popup_window){

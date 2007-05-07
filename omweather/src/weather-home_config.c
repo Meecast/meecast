@@ -49,14 +49,13 @@ gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
         	parent = gnome_vfs_uri_get_parent(curr_uri), 0755))
             list = g_list_prepend(list, curr_uri = parent);	
 	while(list != NULL){
-    	    retval = (GNOME_VFS_OK == gnome_vfs_make_directory_for_uri(
-                    	(GnomeVFSURI*)list->data, 0755));
-    	    gnome_vfs_uri_unref((GnomeVFSURI*)list->data);
-    	
-    
+	    if( GNOME_VFS_OK != gnome_vfs_make_directory_for_uri((GnomeVFSURI*)list->data, 0755) ){
+		retval = FALSE;
+		break;
+	    }
     	    list = g_list_remove(list, list->data);
     	}
-	retval = FALSE;
+	retval = TRUE;
     }
     else
 	retval = TRUE;
@@ -248,18 +247,6 @@ void read_config(void){
 	app->current_station_id = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_STATION_ID, NULL);
 	
-    /* Get Weather Stations ID  */ /* DEPRICATED !!! */
-    /*
-    tmp = gconf_client_get_string(gconf_client,
-        			    GCONF_KEY_WEATHER_STATION_IDS, NULL);
-    if(tmp){
-	reinitilize_stations_list(tmp);
-	g_free(tmp);
-    }
-    else
-	if(app->current_station_id)
-	    reinitilize_stations_list(app->current_station_id);
-*/	    
     /* Get Weather Stations ID and NAME */
     stlist = gconf_client_get_list(gconf_client,
         			    GCONF_KEY_WEATHER_STATIONS_LIST,
@@ -479,12 +466,6 @@ void config_save(){
         gconf_client_set_string(gconf_client,
         			GCONF_KEY_WEATHER_CURRENT_STATION_ID,
 				"", NULL);
-     /* Temporary in release 0.1 8 deleted */
-    idlist_string = g_strdup("");
-    gconf_client_set_string(gconf_client,
-        		    GCONF_KEY_WEATHER_STATION_IDS,
-			    idlist_string, NULL);
-    g_free(idlist_string);
     /* Save icon set name */
     if(app->icon_set)
 	gconf_client_set_string(gconf_client,

@@ -92,7 +92,7 @@ gboolean timer_handler(gpointer data){
     return TRUE;    
 }
 
-//#ifdef PC_EMULATOR
+#ifdef PC_EMULATOR
 /*For debug */
 void print_list(char *buff, size_t buff_size){
     static GSList *list_time_event_temp = NULL;
@@ -117,7 +117,7 @@ void print_list(char *buff, size_t buff_size){
     else
 	fprintf(stderr, tmp);
 }
-//#endif
+#endif
 
 void timer(void){
     app->timer = g_timeout_add(60000,

@@ -20424,6 +20424,15 @@ ANTARCTICA         08-JAN-04
    PEGASUS FIELD    NZPG               77 57S  166 31E    5   X     T          6 NZ
    MCMURDO WILLIAMS NZWD               77 52S  167 04E   22   X     T          6 NZ
    MCMURDO ICE RNWY NZIR               77 51S  166 35E    2   X     T          7 NZ AYXX0010
+   BASE ESPERANZA								    AYXX0001
+   BASE ORCADAS									    AYXX0002
+   BASE JUBANY									    AYXX0003
+   DIAMET-URUGUAY								    AYXX0004
+   BASE MARAMBIO								    AYXX0005
+   CENTRO MET. ANT.								    AYXX0006
+   BASE ARTURO PRAT								    AYXX0007
+   GREAT WALL									    AYXX0008
+   BASE BERNANDO O.								    AYXX0009
 
 VANUATU            08-JAN-04
    SOLA/VANUA LAVA  NVSC        91551  13 50S  167 33E   18   X                7 VU

@@ -1,6 +1,7 @@
 # This file is part of Other Maemo Weather(omweather)
 #
 # Copyright (C) 2006 Vlad Vasiliev.
+# Copyright (C) 2006 Pavel Fialko.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

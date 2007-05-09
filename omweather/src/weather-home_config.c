@@ -301,7 +301,14 @@ void read_config(void){
     }
     else
         app->transparency = TRUE;      
-	
+    /* Get Split Button State Default is FALSE */
+    value = gconf_client_get(gconf_client, GCONF_KEY_SEPARATE_DATA, NULL);
+    if(value){
+        app->separate = gconf_value_get_bool(value);
+        gconf_value_free(value);
+    }
+    else
+        app->separate = FALSE;      	
 	
     /* Get Temperature Unit  Default Celsius */
     app->temperature_units = gconf_client_get_int(gconf_client,
@@ -490,7 +497,11 @@ void config_save(){
      /* Save Enable Enable Transparency flag. */
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_ENABLE_TRANSPARENCY,
-			app->transparency, NULL);	    
+			app->transparency, NULL);
+     /* Save Split Button State */
+    gconf_client_set_bool(gconf_client,
+        		GCONF_KEY_SEPARATE_DATA,
+			app->separate, NULL);	    
     /* Save Weather Temperature Unit  */		     	    
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_TEMPERATURE_UNIT,

@@ -1,6 +1,7 @@
-omweather (0.17.9) unstable; urgency=low
+omweather (0.18) unstable; urgency=low
 
   * Autoupdate is corrected
+  * Fix error while creating cache directory
   
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 9 May 2007 03:35:00 +0200
 

@@ -684,6 +684,7 @@ void weather_window_preference(GtkWidget *widget,
 		*table = NULL,
 		*font_color = NULL,
 		*chk_transparency = NULL,
+		*separate_button = NULL,
 		*scrolled_window = NULL,
 		*button_add = NULL,
 		*button_del = NULL,
@@ -780,12 +781,12 @@ void weather_window_preference(GtkWidget *widget,
                 	NULL);
 /* Interface tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			table = gtk_table_new(1, 6, FALSE),
+        			table = gtk_table_new(1, 7, FALSE),
         			label = gtk_label_new(_("Interface")));
 /* Days to show */
     app->days_to_show--; /* count down, because combobox items start with 0 */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-				label = gtk_label_new(_("Days to show:")),
+				label = gtk_label_new(_("Visible items:")),
 				0, 1, 0, 1);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
@@ -881,6 +882,16 @@ void weather_window_preference(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label),chk_transparency = gtk_check_button_new());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_transparency),
         			    app->transparency);
+    /* Split */
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+        			label = gtk_label_new(_("Separate current weather data")),
+        			0, 1, 7, 8);
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
+        			1, 2, 7, 8);
+    gtk_container_add(GTK_CONTAINER(label), separate_button = gtk_check_button_new());
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(separate_button),
+        			    app->separate);
 /* Units tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			table = gtk_table_new(1, 3, FALSE),
@@ -1048,6 +1059,12 @@ void weather_window_preference(GtkWidget *widget,
     	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_transparency)) != app->transparency){
 		app->transparency = 
 		    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_transparency));
+    		flag_update_icon = TRUE;
+	    }
+/* Split data mode */
+    	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(separate_button)) != app->separate){
+		app->separate = 
+		    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(separate_button));
     		flag_update_icon = TRUE;
 	    }
 /* Distance units */

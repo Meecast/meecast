@@ -176,14 +176,14 @@ void station_error_window(void){
 
 /* Fill buttons data */
 void weather_buttons_fill(gboolean check_error){
-    int		i, offset = 0, count_day;
+    int		i, j = 0, offset = 0, count_day;
     gchar	buffer[2048], buffer_icon[2048];
     time_t	current_day,current_time, last_day = 0;
     struct tm	*tm;
     gboolean	flag_last_day = FALSE, error_station_code = FALSE;
     GSList	*tmplist = NULL;
     struct weather_station *ws = NULL;
-    int		temp_hi,temp_hi_now,temp_low;
+    int		temp_hi, temp_low;
     char	font_size;
     gint	icon_size;
     gchar	*tmp_station_name;
@@ -228,107 +228,115 @@ void weather_buttons_fill(gboolean check_error){
     tm = localtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     current_day = mktime(tm);
-/* Search day of saving xml near current day */
-    while( (offset < Max_count_weather_day) &&
-	    (current_day > weather_days[offset].date_time) &&
-	    (offset<count_day) )
-	offset ++;
-    for(i = 0; i < app->days_to_show; i++, offset++){
-     /* If it first button add to evenet time change between nigth and day */
-	if((offset < count_day ) &&
-	   (current_day == weather_days[offset].date_time)){
-	    if(current_time < weather_days[offset].day.begin_time)
-		time_event_add(weather_days[offset].day.begin_time,DAYTIMEEVENT);
-	    if(current_time < weather_days[offset].night.begin_time)  
-		time_event_add(weather_days[offset].night.begin_time,DAYTIMEEVENT);
-	}
-    /* Time event add to event list */
-	if( (offset < count_day) &&
-	    (current_day < weather_days[offset].date_time) ){
-	    time_event_add(weather_days[offset].date_time,DAYTIMEEVENT);  /* Add time event  to list */	  
-	    last_day = weather_days[offset].date_time;	  
-	}      
-	if(offset < count_day){
-     /* Prepare temperature value to show on display */
-	    temp_hi_now = atoi(weather_current_day.day.temp); 
-	    temp_hi = atoi(weather_days[offset].hi_temp);     
-	    temp_low = atoi(weather_days[offset].low_temp);     
-	    if(app->temperature_units == FAHRENHEIT ){
-		temp_hi_now = c2f(temp_hi_now);
-		temp_hi = c2f(temp_hi);
-		temp_low = c2f(temp_low);
-	    }  
-     /* Show current weather or forecast */
-	    if( (i==0) && 
-		(weather_current_day.date_time>(current_time-OFFSET_CURRENT_WEATHER*3600)) &&
-                (weather_current_day.date_time<(current_time+OFFSET_CURRENT_WEATHER*3600))){
-      /* Add to evenet time change between current weather and forecast */
-		time_event_add((weather_current_day.date_time+OFFSET_CURRENT_WEATHER*3600),DAYTIMEEVENT);
-      /* Show current weather bold fonts */
-		sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
-            	    app->font_color.red >> 8, app->font_color.green >> 8, app->font_color.blue >> 8,
-            	    weather_days[offset].dayshname, temp_hi_now);
-		sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_current_day.day.icon);
-	    }		
-    	    else{
-      /* Show forecast */
-		if((offset < count_day) &&
-		   (current_day == weather_days[offset].date_time)){
-       /* First icon - night(morning) or day or night (evening) */     
-		    if(current_time<weather_days[offset].day.begin_time){  
-    			sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);
-	 /* Show All temperatures */
-    		    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
-            		app->font_color.red >> 8, app->font_color.green >> 8, app->font_color.blue >> 8,
-            		weather_days[offset].dayshname, temp_low, temp_hi);
-		    } 
-		    else
-			if(current_time<weather_days[offset].night.begin_time){
-    			    sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);    
-       /* Show All temperatures */
-			    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
-            			app->font_color.red >> 8, app->font_color.green >> 8, app->font_color.blue >> 8,
-            			weather_days[offset].dayshname, temp_low, temp_hi);
-			}		
-			else{
-    			    sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].night.icon);
-	 /* Show only night temperature */
-    			    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
-            			app->font_color.red >> 8, app->font_color.green >> 8, app->font_color.blue >> 8,
-            			weather_days[offset].dayshname, temp_low);
-			}
+
+    offset = (int)( abs( (current_day - weather_days[0].date_time) / (24 * 60 * 60) ) );
+
+    for(i = 0; i < app->days_to_show; i++){
+	if(i + offset < app->days_to_show){
+	    if(i == 0 || (app->separate && i == 1)){	/* first day */
+		(app->separate && i == 1) ? (j = -1) : (j = 0);
+		/* prepare temperature for first day */
+		temp_hi = atoi(weather_days[i + offset + j].hi_temp);
+        	temp_low = atoi(weather_days[i + offset + j].low_temp);
+        	if(app->temperature_units == FAHRENHEIT ){
+            	    temp_hi = c2f(temp_hi);
+            	    temp_low = c2f(temp_low);
+        	}
+		/* add events for first day */
+		if(current_time < weather_days[i + offset + j].day.begin_time)
+        	    time_event_add(weather_days[i + offset + j].day.begin_time, DAYTIMEEVENT);
+		if(current_time < weather_days[i + offset + j].night.begin_time)
+            	    time_event_add(weather_days[i + offset + j].night.begin_time, DAYTIMEEVENT);
+		/* check weather data for actuality */
+		if( (weather_current_day.date_time > (current_time - OFFSET_CURRENT_WEATHER)) &&
+            	    (weather_current_day.date_time < (current_time + OFFSET_CURRENT_WEATHER)) && i == 0){
+		    time_event_add(weather_current_day.date_time + OFFSET_CURRENT_WEATHER, DAYTIMEEVENT);
+		    sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
+				app->font_color.red >> 8,
+				app->font_color.green >> 8,
+				app->font_color.blue >> 8,
+				(app->separate) ? (_("Now")) : (weather_days[i + offset + j].dayshname),
+				(app->temperature_units == FAHRENHEIT) ? 
+				    (c2f(atoi(weather_current_day.day.temp))) :
+					(atoi(weather_current_day.day.temp)) );
+		    sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_current_day.day.icon);
 		}
-		else{
-       /* Create output string for full time of day (day and night)*/
-		    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
-            		app->font_color.red >> 8, app->font_color.green >> 8, app->font_color.blue >> 8,
-            		weather_days[offset].dayshname, temp_low, temp_hi);
-		    sprintf(buffer_icon,"%s%i.png",path_large_icon,weather_days[offset].day.icon);
-		}		    
+		else{ /* if current data is not actual */
+		    if(i == 0 && app->separate){ /* if current data isn't actual than draw N/A */
+		    	sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260</span>",
+				    app->font_color.red >> 8,
+				    app->font_color.green >> 8,
+				    app->font_color.blue >> 8,
+				    _("Now"),
+				    _("N/A"));
+			sprintf(buffer_icon, "%s48.png", path_large_icon);
+		    }
+		    else{
+			if(current_time < weather_days[i + offset + j].day.begin_time){
+			    sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_days[i + offset + j].night.icon);
+			    sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
+        				app->font_color.red >> 8,
+				        app->font_color.green >> 8,
+				        app->font_color.blue >> 8,
+					weather_days[i + offset + j].dayshname, temp_low, temp_hi);
+			}
+			else{
+			    if(current_time < weather_days[i + offset + j].night.begin_time){
+				sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_days[i + offset + j].day.icon);
+				sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
+					    app->font_color.red >> 8,
+					    app->font_color.green >> 8,
+					    app->font_color.blue >> 8,
+					    weather_days[i + offset + j].dayshname, temp_low, temp_hi);
+			    }
+			    else{
+				sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_days[i + offset + j].night.icon);
+				sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
+					    app->font_color.red >> 8,
+					    app->font_color.green >> 8,
+					    app->font_color.blue >> 8,
+					    weather_days[i + offset + j].dayshname, temp_low);
+			    }
+			}
+		    }
+		}
 	    }
+	    else{ /* other days, from two and to app->days_to_show */
+	        temp_hi = atoi(weather_days[i + offset + j].hi_temp);
+        	temp_low = atoi(weather_days[i + offset + j].low_temp);
+        	if(app->temperature_units == FAHRENHEIT ){
+            	    temp_hi = c2f(temp_hi);
+            	    temp_low = c2f(temp_low);
+        	}
+	        time_event_add(weather_days[i + offset + j].date_time, DAYTIMEEVENT);
+                last_day = weather_days[i + offset + j].date_time;
+		sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
+				app->font_color.red >> 8,
+				app->font_color.green >> 8,
+				app->font_color.blue >> 8,
+				weather_days[i + offset + j].dayshname, temp_low, temp_hi);
+		sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_days[i + offset + j].day.icon);
+	    }
+	    boxs_offset[i] = i + offset + j;
 	}
-	else{
-     /* Show N/A */
-	    sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
-            	app->font_color.red >> 8, app->font_color.green >> 8, app->font_color.blue >> 8,
-		_("N/A"), _("N/A"), _("N/A"));
-	    sprintf(buffer_icon,"%s48.png",path_large_icon);
-     /* Add time event to list for next day after last day in xml file */
+	else{ /* Show N/A for all others day buttons when it not inside range */
+	    sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
+			app->font_color.red >> 8,
+			app->font_color.green >> 8,
+			app->font_color.blue >> 8,
+			_("N/A"), _("N/A"), _("N/A"));
+	    sprintf(buffer_icon, "%s48.png", path_large_icon);
 	    if(!flag_last_day && last_day){
-		time_event_add(last_day + 24 * 60 * 60, DAYTIMEEVENT);  /* Add time event  to list */	  
+		time_event_add(last_day + 24 * 60 * 60, DAYTIMEEVENT);
 		flag_last_day = TRUE;
-	    } 
-	}
-     /* Write offset in wetaher data for this button */
-        if(offset < count_day)
-	    boxs_offset[i] = offset;
-	else 
+	    }
 	    boxs_offset[i] = Max_count_weather_day;
-     /* Prepare butons for view */   
+    	}
 	app->buttons[i] = create_weather_day_button(buffer, buffer_icon, icon_size, app->transparency, font_size);
 	g_signal_connect(app->buttons[i]->button, "released", G_CALLBACK(weather_window_popup_show), NULL);
 	g_signal_connect(app->buttons[i]->button, "enter", G_CALLBACK(enter_button), NULL); 
-    }/* for */
+    }/* end for */
+
     if(g_slist_length(stations_view_list) > 0){
 	tmplist = stations_view_list;
 /* search current station */

@@ -248,9 +248,9 @@ void weather_buttons_fill(gboolean check_error){
 		if(current_time < weather_days[i + offset + j].night.begin_time)
             	    time_event_add(weather_days[i + offset + j].night.begin_time, DAYTIMEEVENT);
 		/* check weather data for actuality */
-		if( (weather_current_day.date_time > (current_time - OFFSET_CURRENT_WEATHER)) &&
-            	    (weather_current_day.date_time < (current_time + OFFSET_CURRENT_WEATHER)) && i == 0){
-		    time_event_add(weather_current_day.date_time + OFFSET_CURRENT_WEATHER, DAYTIMEEVENT);
+		if( (weather_current_day.date_time > (current_time - app->data_valid_interval)) &&
+            	    (weather_current_day.date_time < (current_time + app->data_valid_interval)) && i == 0){
+		    time_event_add(weather_current_day.date_time + app->data_valid_interval, DAYTIMEEVENT);
 		    sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
 				app->font_color.red >> 8,
 				app->font_color.green >> 8,
@@ -408,6 +408,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     app->wind_units = METERS_S;
     app->temperature_units = CELSIUS;
     app->dbus_is_initialize = FALSE;
+    app->data_valid_interval = 2 * 3600;
 /* Init gconf. */
     gnome_vfs_init();
     read_config();

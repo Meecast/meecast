@@ -29,7 +29,7 @@
 */
 
 #ifdef HAVE_CONFIG_H
-#include <config.h>
+#include "config.h"
 #endif
 
 
@@ -153,6 +153,7 @@ typedef struct OMWeatherApplet{
     gint		distance_units;
     gint		wind_units;
     gint		temperature_units;
+    guint		data_valid_interval;
     GdkColor		font_color;
     guint		timer;
     WDB			*buttons[Max_count_weather_day];

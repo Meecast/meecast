@@ -43,7 +43,7 @@ void fill_station_list_view (GtkWidget *station_list_view,GtkListStore *station_
 void station_list_view_select_handler(GtkTreeView *tree_view, gpointer user_data);
 
 GtkWidget  *countrys, *states, *stations, *icon_size, *layout_type, *update_time, *temperature_unit, *days_number;
-GtkWidget  *custom_station_name, *custom_station_code, *units, *iconset, *wunits;
+GtkWidget  *custom_station_name, *custom_station_code, *units, *iconset, *wunits, *valid_time_list;
 
 static GSList *stations_list_in_state = NULL; /* Station list of country or state or province.  Use in combobox*/
 static GtkListStore *station_list_store;

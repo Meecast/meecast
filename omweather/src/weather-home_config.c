@@ -242,11 +242,6 @@ void read_config(void){
     app->current_station_id = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_CURRENT_STATION_ID, NULL);
     
-    /* Depricated, after 0.18 not used */				    
-    if(!app->current_station_id)
-	app->current_station_id = gconf_client_get_string(gconf_client,
-        			    GCONF_KEY_WEATHER_STATION_ID, NULL);
-	
     /* Get Weather Stations ID and NAME */
     stlist = gconf_client_get_list(gconf_client,
         			    GCONF_KEY_WEATHER_STATIONS_LIST,
@@ -333,11 +328,6 @@ void read_config(void){
 	gerror = NULL;
     }
 
-    /* Depricated, after 0.18 not used */
-    app->icons_layout = gconf_client_get_int(gconf_client,
-                			    GCONF_KEY_WEATHER_LAYOUT,
-					    NULL);
-    
     if(app->icons_layout == 0)
 	    /* Get Layout  Default Horizontal */
 	    app->icons_layout = gconf_client_get_int(gconf_client,
@@ -365,18 +355,25 @@ void read_config(void){
 	app->wind_units = METERS_S;
 	g_error_free(gerror);
     }
+    /* Get valid data time */
+    app->data_valid_interval = gconf_client_get_int(gconf_client,                                                                                     
+			GCONF_KEY_WEATHER_VALID_DATA_TIME, &gerror) * 3600;
+    if(gerror){
+	app->data_valid_interval = 2 * 3600;
+	g_error_free(gerror);
+    }
     /* Fill time update list */
     if(!time_update_list){
 	add_time_update_list(0, _("Never"));
-	add_time_update_list(5, _("5 minutes"));
-	add_time_update_list(30, _("30 minutes"));
-	add_time_update_list(1 * 60, _("1 hour"));
-	add_time_update_list(2 * 60, _("2 hours"));
-	add_time_update_list(4 * 60, _("4 hours"));
-	add_time_update_list(8 * 60, _("8 hours"));
-	add_time_update_list(24 * 60, _("24 hours"));
+	add_time_update_list(5, _("every 5 minutes"));
+	add_time_update_list(30, _("every 30 minutes"));
+	add_time_update_list(1 * 60, _("every hour"));
+	add_time_update_list(2 * 60, _("every 2 hours"));
+	add_time_update_list(4 * 60, _("every 4 hours"));
+	add_time_update_list(8 * 60, _("every 8 hours"));
+	add_time_update_list(24 * 60, _("every 24 hours"));
 /* #ifdef PC_EMULATOR */
-	add_time_update_list(1, _("1 minute (DEBUG)"));
+	add_time_update_list(1, _("every minute (DEBUG)"));
 /* #endif */
     }
     /* Check connection */
@@ -444,6 +441,11 @@ void config_save(){
 	fprintf(stderr, _("Failed to initialize GConf. Settings were not saved.\n"));
         return;
     }
+    /* Save program version */
+    if(VERSION)
+        gconf_client_set_string(gconf_client,
+        			GCONF_KEY_WEATHER_PROGRAM_VERSION,
+				VERSION, NULL);
     /* Save Weather Cache Directory. */
     if(app->weather_dir_name)
         gconf_client_set_string(gconf_client,
@@ -517,6 +519,10 @@ void config_save(){
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_WIND_UNITS,
 			app->wind_units, NULL);
+    /* Save valid data time */
+    gconf_client_set_int(gconf_client,
+        		GCONF_KEY_WEATHER_VALID_DATA_TIME,
+			app->data_valid_interval / 3600, NULL);
     /* Save Layout type. */
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_ICONS_LAYOUT,

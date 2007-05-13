@@ -51,12 +51,8 @@
 #define GCONF_KEY_WEATHER_DISTANCE_UNITS	GCONF_KEY_PREFIX"/distance-units"
 #define GCONF_KEY_WEATHER_WIND_UNITS		GCONF_KEY_PREFIX"/wind-units"
 #define GCONF_KEY_WEATHER_ICON_SET		GCONF_KEY_PREFIX"/icon-set"
-
-
-/* Depricated, after 0.18 not used */
-#define GCONF_KEY_WEATHER_STATION_ID       GCONF_KEY_PREFIX"/station-id"
-#define GCONF_KEY_WEATHER_LAYOUT           GCONF_KEY_PREFIX"/layout"
-
+#define GCONF_KEY_WEATHER_VALID_DATA_TIME	GCONF_KEY_PREFIX"/valid-time"
+#define GCONF_KEY_WEATHER_PROGRAM_VERSION	GCONF_KEY_PREFIX"/version"
 #define GCONF_KEY_HTTP_PROXY_PREFIX "/system/http_proxy"
 #define GCONF_KEY_CURRENT_CONNECTIVITY  "/system/osso/connectivity/IAP/current"
 #define GCONF_KEY_HTTP_PROXY_ON GCONF_KEY_HTTP_PROXY_PREFIX"/use_http_proxy"

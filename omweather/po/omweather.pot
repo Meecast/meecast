@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-05-08 22:01+0300\n"
+"POT-Creation-Date: 2007-05-13 14:08+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/weather-home_preference.c:1192
+#: src/weather-home_preference.c:1198
 msgid ""
 "\n"
 "Author and maintenance:\n"
@@ -25,14 +25,14 @@ msgid ""
 "\tPavel Fialko, pavelnf@gmail.com"
 msgstr ""
 
-#: src/weather-home_preference.c:1184
+#: src/weather-home_preference.c:1190
 msgid ""
 "\n"
 "Copyright(c) 2006-2007\n"
 "Vlad Vasiliev, Pavel Fialko"
 msgstr ""
 
-#: src/weather-home_preference.c:1201
+#: src/weather-home_preference.c:1207
 msgid ""
 "\n"
 "Ed Bartosh - for more feature requests,\n"
@@ -53,7 +53,7 @@ msgid ""
 "Feels like: "
 msgstr ""
 
-#: src/weather-home_preference.c:1180
+#: src/weather-home_preference.c:1186
 msgid ""
 "\n"
 "Hildon desktop applet\n"
@@ -159,7 +159,7 @@ msgstr ""
 msgid "AM Snow Showers"
 msgstr ""
 
-#: src/weather-home_preference.c:1189
+#: src/weather-home_preference.c:1195
 msgid "About"
 msgstr ""
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Add Station"
 msgstr ""
 
-#: src/weather-home_preference.c:1212
+#: src/weather-home_preference.c:1218
 msgid ""
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
@@ -187,7 +187,7 @@ msgstr ""
 msgid "Aug"
 msgstr ""
 
-#: src/weather-home_preference.c:1198
+#: src/weather-home_preference.c:1204
 msgid "Authors"
 msgstr ""
 
@@ -236,10 +236,6 @@ msgstr ""
 msgid "Day:"
 msgstr ""
 
-#: src/weather-home_preference.c:789
-msgid "Days to show:"
-msgstr ""
-
 #: src/weather-home_hash.c:146
 msgid "Dec"
 msgstr ""
@@ -277,7 +273,7 @@ msgstr ""
 msgid "Error in xml file\n"
 msgstr ""
 
-#: src/weather-home.c:382
+#: src/weather-home.c:390
 msgid "Error initializing the OMWeather applet"
 msgstr ""
 
@@ -298,7 +294,7 @@ msgstr ""
 msgid "Failed to initialize GConf. Quitting.\n"
 msgstr ""
 
-#: src/weather-home_config.c:422 src/weather-home_config.c:445
+#: src/weather-home_config.c:422 src/weather-home_config.c:444
 #, c-format
 msgid "Failed to initialize GConf. Settings were not saved.\n"
 msgstr ""
@@ -496,7 +492,7 @@ msgstr ""
 msgid "N"
 msgstr ""
 
-#: src/weather-home.c:314 src/weather-home_hash.c:61
+#: src/weather-home.c:271 src/weather-home.c:327 src/weather-home_hash.c:61
 msgid "N/A"
 msgstr ""
 
@@ -540,6 +536,10 @@ msgstr ""
 msgid "Nov"
 msgstr ""
 
+#: src/weather-home.c:258 src/weather-home.c:270
+msgid "Now"
+msgstr ""
+
 #: src/weather-window_popup.c:120
 msgid "Now:\n"
 msgstr ""
@@ -556,7 +556,7 @@ msgstr ""
 msgid "One row"
 msgstr ""
 
-#: src/weather-home_preference.c:1170
+#: src/weather-home_preference.c:1176
 msgid "Other Maemo Weather Info"
 msgstr ""
 
@@ -700,6 +700,10 @@ msgstr ""
 msgid "Sep"
 msgstr ""
 
+#: src/weather-home_preference.c:887
+msgid "Separate current weather data"
+msgstr ""
+
 #: src/weather-window_popup.c:259
 msgid "Settings"
 msgstr ""
@@ -756,10 +760,6 @@ msgstr ""
 msgid "Snow to Wintry Mix / Wind"
 msgstr ""
 
-#: src/weather-home_preference.c:887
-msgid "Split current and forecast weather"
-msgstr ""
-
 #: src/weather-home_preference.c:588
 msgid "State(Province):"
 msgstr ""
@@ -814,7 +814,7 @@ msgstr ""
 msgid "Th"
 msgstr ""
 
-#: src/weather-home_preference.c:1219
+#: src/weather-home_preference.c:1225
 msgid "Thanks"
 msgstr ""
 
@@ -862,7 +862,7 @@ msgstr ""
 msgid "Updating of weather data:"
 msgstr ""
 
-#: src/weather-home_preference.c:1127
+#: src/weather-home_preference.c:1133
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"
@@ -870,6 +870,10 @@ msgstr ""
 
 #: src/weather-home_hash.c:147
 msgid "VAR"
+msgstr ""
+
+#: src/weather-home_preference.c:789
+msgid "Visible items:"
 msgstr ""
 
 #: src/weather-home_hash.c:134

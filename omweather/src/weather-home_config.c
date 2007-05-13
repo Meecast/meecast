@@ -436,7 +436,6 @@ void config_save_current_station(){
 /* Save all configuration data to GCONF. */
 void config_save(){
     gchar temp_buffer[16];
-    gchar *idlist_string;
     GConfClient *gconf_client;
     GSList *stlist = NULL;
    

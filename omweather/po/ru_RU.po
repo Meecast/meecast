@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-05-13 14:08+0300\n"
+"POT-Creation-Date: 2007-05-13 17:03+0300\n"
 "PO-Revision-Date: 2007-03-27 21:26+0300\n"
 "Last-Translator: vlad <vlad@gas.by>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: src/weather-home_preference.c:1198
+#: src/weather-home_preference.c:1221
 msgid ""
 "\n"
 "Author and maintenance:\n"
@@ -31,7 +31,7 @@ msgstr ""
 "Поддержка:\n"
 "\tПавел Фиалко, pavelnf@gmail.com"
 
-#: src/weather-home_preference.c:1190
+#: src/weather-home_preference.c:1213
 msgid ""
 "\n"
 "Copyright(c) 2006-2007\n"
@@ -41,7 +41,7 @@ msgstr ""
 "Copyright(c) 2006-2007\n"
 "Владислав Васильев, Павел Фиалко"
 
-#: src/weather-home_preference.c:1207
+#: src/weather-home_preference.c:1230
 msgid ""
 "\n"
 "Ed Bartosh - for more feature requests,\n"
@@ -74,7 +74,7 @@ msgstr ""
 "\n"
 "По ощущениям: "
 
-#: src/weather-home_preference.c:1186
+#: src/weather-home_preference.c:1209
 msgid ""
 "\n"
 "Hildon desktop applet\n"
@@ -129,37 +129,21 @@ msgstr " Добавить "
 msgid " Gust: "
 msgstr " Порывы: "
 
-#: src/weather-home_config.c:373
+#: src/weather-home_preference.c:969
 msgid "1 hour"
-msgstr "раз в час"
+msgstr "1 час"
 
-#: src/weather-home_config.c:379
-msgid "1 minute (DEBUG)"
-msgstr "раз в минуту (отладка)"
-
-#: src/weather-home_config.c:374
+#: src/weather-home_preference.c:970
 msgid "2 hours"
-msgstr "раз в 2 часа"
+msgstr "2 часа"
 
-#: src/weather-home_config.c:377
-msgid "24 hours"
-msgstr "раз в 24 часа"
-
-#: src/weather-home_config.c:372
-msgid "30 minutes"
-msgstr "раз в 30 минут"
-
-#: src/weather-home_config.c:375
+#: src/weather-home_preference.c:971
 msgid "4 hours"
-msgstr "раз в 4 часа"
+msgstr "4 часа"
 
-#: src/weather-home_config.c:371
-msgid "5 minutes"
-msgstr "раз в 5 минут"
-
-#: src/weather-home_config.c:376
+#: src/weather-home_preference.c:972
 msgid "8 hours"
-msgstr "раз в 8 часов"
+msgstr "8 часов"
 
 #: src/weather-home_hash.c:16
 msgid "AM Clouds / PM Sun"
@@ -193,7 +177,7 @@ msgstr "До полудня ливни"
 msgid "AM Snow Showers"
 msgstr "До полудня мокрый снег"
 
-#: src/weather-home_preference.c:1195
+#: src/weather-home_preference.c:1218
 msgid "About"
 msgstr "О программе"
 
@@ -205,7 +189,7 @@ msgstr "Добавить свою станцию"
 msgid "Add Station"
 msgstr "Добавить станцию"
 
-#: src/weather-home_preference.c:1218
+#: src/weather-home_preference.c:1241
 msgid ""
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
@@ -225,7 +209,7 @@ msgstr "Апр"
 msgid "Aug"
 msgstr "Авг"
 
-#: src/weather-home_preference.c:1204
+#: src/weather-home_preference.c:1227
 msgid "Authors"
 msgstr "Авторы"
 
@@ -315,7 +299,7 @@ msgstr "Ошибка в xml файле.\n"
 msgid "Error initializing the OMWeather applet"
 msgstr "Ошибка при инициализации апплета."
 
-#: src/weather-home_preference.c:1000
+#: src/weather-home_preference.c:1018
 msgid "Events"
 msgstr "События"
 
@@ -332,7 +316,7 @@ msgstr "Фаренгейт (США и др.)"
 msgid "Failed to initialize GConf. Quitting.\n"
 msgstr "Невозможно инициализировать GConf. Выходим.\n"
 
-#: src/weather-home_config.c:422 src/weather-home_config.c:444
+#: src/weather-home_config.c:419 src/weather-home_config.c:441
 #, c-format
 msgid "Failed to initialize GConf. Settings were not saved.\n"
 msgstr "Не возможно инициализировать GConf. Настройки не будут сохранены.\n"
@@ -554,11 +538,11 @@ msgstr "Нет станции"
 msgid "NW"
 msgstr "СЗ"
 
-#: src/weather-home_preference.c:977 src/weather-home_config.c:370
+#: src/weather-home_preference.c:995 src/weather-home_config.c:367
 msgid "Never"
 msgstr "Никогда"
 
-#: src/weather-home_preference.c:970
+#: src/weather-home_preference.c:988
 msgid "Next update:"
 msgstr "Следующие обновление:"
 
@@ -594,7 +578,7 @@ msgstr "в один столбец"
 msgid "One row"
 msgstr "в одну строку"
 
-#: src/weather-home_preference.c:1176
+#: src/weather-home_preference.c:1199
 msgid "Other Maemo Weather Info"
 msgstr "Информация"
 
@@ -854,7 +838,7 @@ msgstr "Температура:"
 msgid "Th"
 msgstr "Чт"
 
-#: src/weather-home_preference.c:1225
+#: src/weather-home_preference.c:1248
 msgid "Thanks"
 msgstr "Благодарности"
 
@@ -898,11 +882,11 @@ msgstr "Обновление"
 msgid "Update weather"
 msgstr "Идет обновление данных о погоде."
 
-#: src/weather-home_preference.c:963
+#: src/weather-home_preference.c:981
 msgid "Updating of weather data:"
 msgstr "Обновление данных о погоде:"
 
-#: src/weather-home_preference.c:1133
+#: src/weather-home_preference.c:1156
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"
@@ -947,6 +931,10 @@ msgstr "Waxing Crescent"
 msgid "We"
 msgstr "Ср"
 
+#: src/weather-home_preference.c:963
+msgid "Weather data valid time:"
+msgstr "Актуальность данных:"
+
 #: src/weather-home_download.c:323
 msgid "Weather updated"
 msgstr "Данные о погоде обновлены."
@@ -990,6 +978,38 @@ msgid ""
 msgstr ""
 "Ошибка в коде станции\n"
 "или индексе!!!"
+
+#: src/weather-home_config.c:371
+msgid "every 2 hours"
+msgstr "каждые 2 часа"
+
+#: src/weather-home_config.c:374
+msgid "every 24 hours"
+msgstr "каждые 24 часа"
+
+#: src/weather-home_config.c:369
+msgid "every 30 minutes"
+msgstr "каждые 30 минут"
+
+#: src/weather-home_config.c:372
+msgid "every 4 hours"
+msgstr "каждые 4 часа"
+
+#: src/weather-home_config.c:368
+msgid "every 5 minutes"
+msgstr "каждые 5 минут"
+
+#: src/weather-home_config.c:373
+msgid "every 8 hours"
+msgstr "каждые 8 часов"
+
+#: src/weather-home_config.c:370
+msgid "every hour"
+msgstr "каждый час"
+
+#: src/weather-home_config.c:376
+msgid "every minute (DEBUG)"
+msgstr "каждую минуту (отладка)"
 
 #: src/weather-home_hash.c:35
 msgid "falling"

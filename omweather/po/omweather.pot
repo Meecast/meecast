@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-05-13 14:08+0300\n"
+"POT-Creation-Date: 2007-05-13 17:03+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/weather-home_preference.c:1198
+#: src/weather-home_preference.c:1221
 msgid ""
 "\n"
 "Author and maintenance:\n"
@@ -25,14 +25,14 @@ msgid ""
 "\tPavel Fialko, pavelnf@gmail.com"
 msgstr ""
 
-#: src/weather-home_preference.c:1190
+#: src/weather-home_preference.c:1213
 msgid ""
 "\n"
 "Copyright(c) 2006-2007\n"
 "Vlad Vasiliev, Pavel Fialko"
 msgstr ""
 
-#: src/weather-home_preference.c:1207
+#: src/weather-home_preference.c:1230
 msgid ""
 "\n"
 "Ed Bartosh - for more feature requests,\n"
@@ -53,7 +53,7 @@ msgid ""
 "Feels like: "
 msgstr ""
 
-#: src/weather-home_preference.c:1186
+#: src/weather-home_preference.c:1209
 msgid ""
 "\n"
 "Hildon desktop applet\n"
@@ -95,35 +95,19 @@ msgstr ""
 msgid " Gust: "
 msgstr ""
 
-#: src/weather-home_config.c:373
+#: src/weather-home_preference.c:969
 msgid "1 hour"
 msgstr ""
 
-#: src/weather-home_config.c:379
-msgid "1 minute (DEBUG)"
-msgstr ""
-
-#: src/weather-home_config.c:374
+#: src/weather-home_preference.c:970
 msgid "2 hours"
 msgstr ""
 
-#: src/weather-home_config.c:377
-msgid "24 hours"
-msgstr ""
-
-#: src/weather-home_config.c:372
-msgid "30 minutes"
-msgstr ""
-
-#: src/weather-home_config.c:375
+#: src/weather-home_preference.c:971
 msgid "4 hours"
 msgstr ""
 
-#: src/weather-home_config.c:371
-msgid "5 minutes"
-msgstr ""
-
-#: src/weather-home_config.c:376
+#: src/weather-home_preference.c:972
 msgid "8 hours"
 msgstr ""
 
@@ -159,7 +143,7 @@ msgstr ""
 msgid "AM Snow Showers"
 msgstr ""
 
-#: src/weather-home_preference.c:1195
+#: src/weather-home_preference.c:1218
 msgid "About"
 msgstr ""
 
@@ -171,7 +155,7 @@ msgstr ""
 msgid "Add Station"
 msgstr ""
 
-#: src/weather-home_preference.c:1218
+#: src/weather-home_preference.c:1241
 msgid ""
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
@@ -187,7 +171,7 @@ msgstr ""
 msgid "Aug"
 msgstr ""
 
-#: src/weather-home_preference.c:1204
+#: src/weather-home_preference.c:1227
 msgid "Authors"
 msgstr ""
 
@@ -277,7 +261,7 @@ msgstr ""
 msgid "Error initializing the OMWeather applet"
 msgstr ""
 
-#: src/weather-home_preference.c:1000
+#: src/weather-home_preference.c:1018
 msgid "Events"
 msgstr ""
 
@@ -294,7 +278,7 @@ msgstr ""
 msgid "Failed to initialize GConf. Quitting.\n"
 msgstr ""
 
-#: src/weather-home_config.c:422 src/weather-home_config.c:444
+#: src/weather-home_config.c:419 src/weather-home_config.c:441
 #, c-format
 msgid "Failed to initialize GConf. Settings were not saved.\n"
 msgstr ""
@@ -516,11 +500,11 @@ msgstr ""
 msgid "NW"
 msgstr ""
 
-#: src/weather-home_preference.c:977 src/weather-home_config.c:370
+#: src/weather-home_preference.c:995 src/weather-home_config.c:367
 msgid "Never"
 msgstr ""
 
-#: src/weather-home_preference.c:970
+#: src/weather-home_preference.c:988
 msgid "Next update:"
 msgstr ""
 
@@ -556,7 +540,7 @@ msgstr ""
 msgid "One row"
 msgstr ""
 
-#: src/weather-home_preference.c:1176
+#: src/weather-home_preference.c:1199
 msgid "Other Maemo Weather Info"
 msgstr ""
 
@@ -814,7 +798,7 @@ msgstr ""
 msgid "Th"
 msgstr ""
 
-#: src/weather-home_preference.c:1225
+#: src/weather-home_preference.c:1248
 msgid "Thanks"
 msgstr ""
 
@@ -858,11 +842,11 @@ msgstr ""
 msgid "Update weather"
 msgstr ""
 
-#: src/weather-home_preference.c:963
+#: src/weather-home_preference.c:981
 msgid "Updating of weather data:"
 msgstr ""
 
-#: src/weather-home_preference.c:1133
+#: src/weather-home_preference.c:1156
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"
@@ -902,6 +886,10 @@ msgstr ""
 
 #: src/weather-home_hash.c:126
 msgid "We"
+msgstr ""
+
+#: src/weather-home_preference.c:963
+msgid "Weather data valid time:"
 msgstr ""
 
 #: src/weather-home_download.c:323
@@ -944,6 +932,38 @@ msgstr ""
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
+msgstr ""
+
+#: src/weather-home_config.c:371
+msgid "every 2 hours"
+msgstr ""
+
+#: src/weather-home_config.c:374
+msgid "every 24 hours"
+msgstr ""
+
+#: src/weather-home_config.c:369
+msgid "every 30 minutes"
+msgstr ""
+
+#: src/weather-home_config.c:372
+msgid "every 4 hours"
+msgstr ""
+
+#: src/weather-home_config.c:368
+msgid "every 5 minutes"
+msgstr ""
+
+#: src/weather-home_config.c:373
+msgid "every 8 hours"
+msgstr ""
+
+#: src/weather-home_config.c:370
+msgid "every hour"
+msgstr ""
+
+#: src/weather-home_config.c:376
+msgid "every minute (DEBUG)"
 msgstr ""
 
 #: src/weather-home_hash.c:35

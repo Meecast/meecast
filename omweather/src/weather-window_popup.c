@@ -103,8 +103,8 @@ void weather_window_popup_show(GtkWidget *widget,
     
 /* Show or current weather or forecast */
     if(pressed_current_day && 
-	    (weather_current_day.date_time > ( current_time - OFFSET_CURRENT_WEATHER )) &&
-            (weather_current_day.date_time < ( current_time + OFFSET_CURRENT_WEATHER )) &&
+	    (weather_current_day.date_time > ( current_time - app->data_valid_interval )) &&
+            (weather_current_day.date_time < ( current_time + app->data_valid_interval )) &&
 	    weather_current_day.location){
 	gtk_window_move(GTK_WINDOW(app->popup_window), 180, 60);
     	
@@ -404,8 +404,8 @@ void weather_window_popup_show(GtkWidget *widget,
 	separator_day = gtk_hseparator_new();
 	/* Show or current weather or forecast */
 	if(pressed_current_day && 
-		(weather_current_day.date_time>(current_time-OFFSET_CURRENT_WEATHER)) &&
-                (weather_current_day.date_time<(current_time+OFFSET_CURRENT_WEATHER))){
+		(weather_current_day.date_time>(current_time - app->data_valid_interval)) &&
+                (weather_current_day.date_time<(current_time + app->data_valid_interval))){
 	    gtk_container_add(GTK_CONTAINER(vbox), hbox_current);
 	    gtk_box_pack_start(GTK_BOX(vbox), separator_current, FALSE, TRUE, 0);
 	}

@@ -1,0 +1,19 @@
+Source: omweather-icons-shiny
+Section: user/accessories
+Priority: optional
+Maintainer: Vlad Vasiliev <vlad@gas.by>
+Build-Depends: 
+Standards-Version: 3.6.0
+
+Package: omweather-icons-shiny
+Architecture: all
+Depends: omweather (>=0.16)
+Description: Shiny iconset 
+ for Other Maemo Weather
+ © 2007 by Jyri Kuparinen. Creative Commons Attribution 2.5.
+ http://creativecommons.org/licenses/by-nc-sa/2.5/
+ Contact: http://jyrik.deviantart.com
+ 
+ 
+ 
+ 

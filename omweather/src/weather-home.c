@@ -739,8 +739,7 @@ WDB* create_weather_day_button(const char *text, const char *icon, const int ico
 	g_object_unref(G_OBJECT(new_day_button->icon_buffer));
     }
     else
-//    	new_day_button->icon_image = NULL;
-	return NULL;
+    	new_day_button->icon_image = NULL;
 
     /* Packing all to the box */
     if (new_day_button->icon_buffer)

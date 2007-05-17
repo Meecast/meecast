@@ -1,0 +1,174 @@
+Abu Dhabi|United Arab Emirates|AEXX0001
+Algiers|Algeria|
+Amman|Jordan|JOXX0002
+Amsterdam|Netherlands|NLXX0002
+Anchorage, AK|United States of America|USAK0012
+Andorra la Vella|Andorra|
+Ankara|Turkey|TUXX0002
+Athens|Greece|
+Atlanta, GA|United States of America|USGA0028
+Auckland|New Zealand|NZXX0003
+Baghdad|Iraq|IZXX0008
+Bali|Indonesia|IDXX0019
+Bangkok|Thailand|THXX0002
+Barcelona|Spain|SPXX0015
+Beijing|China|CHXX0008
+Beirut|Lebanon|LEXX0003
+Belgrade|Serbia|YIXX0005
+Podgorica|Montenegro|YIXX0001
+Bergen|Norway|NOXX0004
+Berlin|Germany|
+Bern|Switzerland|SZXX0006
+Bogota|Colombia|COXX0004
+Brasilia|Brazil|BRXX0043
+Bratislava|Slovakia|LOXX0001
+Brussels|Belgium|
+Bucharest|Romania|ROXX0003
+Budapest|Hungary|HUXX0002
+Buenos Aires|Argentina|ARBA0009
+Cairo|Egypt|EGXX0004
+Calcutta|India|
+Calgary|Canada|CAXX0054
+Canberra|Australia|ASXX0023
+Cape Town|South Africa|SFXX0010
+Caracas|Venezuela|VEXX0008
+Cardiff|United Kingdom of Great Britain and Northern Ireland|UKXX0030
+Casablanca|Morocco|MOXX0001
+Changchun|China|CHXX0010
+Changsha|China|CHXX0013
+Chengdu|China|CHXX0016
+Chicago, IL|United States of America|USIL0225
+Chisinau|Republic of Moldova|MDXX0003
+Chongqing|China|CHXX0017
+Ciudad Juarez|Mexico|MXCA0026
+Copenhagen|Denmark|DAXX0009
+Dallas, TX|United States of America|USTX0327
+Damascus|Syrian Arab Republic|SYXX0004
+Dar es Salaam|United Republic of Tanzania|TZXX0001
+Denver, CO|United States of America|USCO0065
+Dodoma|United Republic of Tanzania|TZXX0002
+Doha|Qatar|QAXX0003
+Dublin|Republic of Ireland|EIXX0014
+Edinburgh|United Kingdom of Great Britain and Northern Ireland|UKXX0052
+Fuzhou|China|CHXX0031
+Gothenburg|Sweden|
+Guadalajara|Spain|
+Guadalajara|Mexico|MXJO0043
+Guangzhou|China|CHXX0037
+Guiyang|China|CHXX0039
+Haikou|China|
+Halifax|Canada|
+Hangzhou|China|
+Hanoi|Viet Nam|
+Harbin|China|
+Hefei|China|
+Helsinki|Finland|
+Hong Kong|China|
+Honolulu, HI|United States of America|
+Huhhot|China|
+Islamabad|Pakistan|
+Istanbul|Turkey|
+Jakarta|Indonesia|
+Jerusalem|Israel|
+Jinan|China|
+Johannesburg|South Africa|
+Kabul|Afghanistan|
+Kiev|Ukraine|
+Krasnoyarsk|Russian Federation|
+Kuala Lumpur|Malaysia|
+Kunming|China|
+Kuwait|Kuwait|
+Lanzhou|China|
+Las Palmas|Canary Islands (Spain)|
+Las Vegas, NV|United States of America|
+Lhasa|China|
+Lima|Peru|
+Lisbon|Portugal|
+Liverpool|United Kingdom of Great Britain and Northern Ireland|
+Ljubljana|Slovenia|
+London|United Kingdom of Great Britain and Northern Ireland|
+Los Angeles, CA|United States of America|
+Luxembourg|Luxembourg|
+Madrid|Spain|
+Manama|Bahrain|
+Manila|Philippines|
+Marseilles|France|
+Mecca|Saudi Arabia|
+Melbourne|Australia|
+Mexico|Mexico|
+Miami, FL|United States of America|
+Milan|Italy|
+Minsk|Belarus|
+Montevideo|Uruguay|
+Moscow|Russian Federation|
+Munich|Germany|
+Muscat|Oman|
+Nairobi|Kenya|
+Nanchang|China|
+Nanjing|China|
+Nanning|China|
+New Delhi|India|
+New York, NY|United States of America|
+Nicosia|Cyprus|
+Nuuk|Greenland|
+Arhus|Denmark|
+Oslo|Norway|
+Ottawa|Canada|
+Paris|France|
+Porto|Portugal|
+Prague|Czech Republic|
+Pretoria|South Africa|
+Puebla|Mexico|
+Quebec|Canada|
+Rabat|Morocco|
+Reykjavik|Iceland|
+Riga|Latvia|
+Rio de Janeiro|Brazil|
+Riyadh|Saudi Arabia|
+Rome|Italy|
+Rotterdam|Netherlands|
+San Marino|San Marino|
+Sanaa |Yemen|
+Santiago|Chile|
+Sarajevo|Bosnia and Herzegovina|
+Seattle, WA|United States of America|
+Seoul|South Korea|
+Shanghai|China|
+Shenyang|China|
+Shijiazhuang|China|
+Singapore|Singapore|
+Skopje|The former Yugoslav Republic of Macedonia|
+Sofia|Bulgaria|
+St Petersburg|Russian Federation|
+Stockholm|Sweden|
+Sydney|Australia|
+Taipei|Taiwan|
+Taiyuan|China|
+Tallinn|Estonia|
+Tampere|Finland|
+Tehran|Iran|
+Tel Aviv-Jaffa|Israel|
+The Hague|Netherlands|
+Thessaloniki|Greece|
+Tianjin|China|
+Tijuana|Mexico|
+Tirana|Albania|
+Tokyo|Japan|
+Tunis|Tunisia|
+Urumqi|China|
+Vaduz|Liechtenstein|
+Valletta|Malta|
+Vancouver|Canada|
+Vatican City|The Vatican|
+Vienna|Austria|
+Vilnius|Lithuania|
+Vladivostok|Russian Federation|
+Warsaw|Poland|
+Washington, DC|United States of America|
+Wellington|New Zealand|
+Wuhan|China|
+Xi'an|China|
+Xining|China|
+Yinchuan|China|
+Zagreb|Croatia|
+Zhengzhou|China|

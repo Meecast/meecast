@@ -1,11 +1,11 @@
 Abu Dhabi|United Arab Emirates|AEXX0001
-Algiers|Algeria|
+Algiers|Algeria|AGXX0001
 Amman|Jordan|JOXX0002
 Amsterdam|Netherlands|NLXX0002
 Anchorage, AK|United States of America|USAK0012
-Andorra la Vella|Andorra|
+Andorra la Vella|Andorra|ANXX0001
 Ankara|Turkey|TUXX0002
-Athens|Greece|
+Athens|Greece|GRXX0004
 Atlanta, GA|United States of America|USGA0028
 Auckland|New Zealand|NZXX0003
 Baghdad|Iraq|IZXX0008
@@ -17,17 +17,17 @@ Beirut|Lebanon|LEXX0003
 Belgrade|Serbia|YIXX0005
 Podgorica|Montenegro|YIXX0001
 Bergen|Norway|NOXX0004
-Berlin|Germany|
+Berlin|Germany|GMXX0007
 Bern|Switzerland|SZXX0006
 Bogota|Colombia|COXX0004
 Brasilia|Brazil|BRXX0043
 Bratislava|Slovakia|LOXX0001
-Brussels|Belgium|
+Brussels|Belgium|BEXX0005
 Bucharest|Romania|ROXX0003
 Budapest|Hungary|HUXX0002
 Buenos Aires|Argentina|ARBA0009
 Cairo|Egypt|EGXX0004
-Calcutta|India|
+Calcutta|India|INXX0028
 Calgary|Canada|CAXX0054
 Canberra|Australia|ASXX0023
 Cape Town|South Africa|SFXX0010
@@ -51,8 +51,8 @@ Doha|Qatar|QAXX0003
 Dublin|Republic of Ireland|EIXX0014
 Edinburgh|United Kingdom of Great Britain and Northern Ireland|UKXX0052
 Fuzhou|China|CHXX0031
-Gothenburg|Sweden|
-Guadalajara|Spain|
+Gothenburg|Sweden|SWXX0007
+Guadalajara|Spain|SPXX0041
 Guadalajara|Mexico|MXJO0043
 Guangzhou|China|CHXX0037
 Guiyang|China|CHXX0039
@@ -65,41 +65,40 @@ Hefei|China|CHXX0448
 Helsinki|Finland|FIXX0002
 Hong Kong|China|CHXX0049
 Honolulu, HI|United States of America|USHI0026
-Huhhot|China|
 Islamabad|Pakistan|PKXX0006
 Istanbul|Turkey|TUXX0014
-Jakarta|Indonesia|
+Jakarta|Indonesia|IDXX0022
 Jerusalem|Israel|ISXX0010
 Jinan|China|CHXX0064
-Johannesburg|South Africa|
+Johannesburg|South Africa|SFXX0023
 Kabul|Afghanistan|AFXX0003
 Kiev|Ukraine|UPXX0016
-Krasnoyarsk|Russian Federation|
-Kuala Lumpur|Malaysia|
+Krasnoyarsk|Russian Federation|RSXX0267
+Kuala Lumpur|Malaysia|MYXX0008
 Kunming|China|CHXX0076
 Kuwait|Kuwait|KUXX0003
 Lanzhou|China|CHXX0079
 Las Palmas|Canary Islands (Spain)|SPXX0047
 Las Vegas, NV|United States of America|USNV0049
-Lhasa|China|
-Lima|Peru|
+Lhasa|China|CHXX0080
+Lima|Peru|PEXX0011
 Lisbon|Portugal|POXX0016
 Liverpool|United Kingdom of Great Britain and Northern Ireland|UKXX0083
 Ljubljana|Slovenia|SIXX0002
 London|United Kingdom of Great Britain and Northern Ireland|UKXX0085
 Los Angeles, CA|United States of America|USCA0638
 Luxembourg|Luxembourg|LUXX0003
-Madrid|Spain|
-Manama|Bahrain|
-Manila|Philippines|
-Marseilles|France|
+Madrid|Spain|SPXX0050
+Manama|Bahrain|BAXX0001
+Manila|Philippines|RPXX0017
+Marseilles|France|FRXX0059
 Mecca|Saudi Arabia|SAXX0013
 Melbourne|Australia|ASXX0075
 Mexico|Mexico|MXDF0132
 Miami, FL|United States of America|USFL0316
 Milan|Italy|ITXX0042
 Minsk|Belarus|BOXX0005
-Montevideo|Uruguay|
+Montevideo|Uruguay|UYXX0006
 Moscow|Russian Federation|RSXX0063
 Munich|Germany|GMXX0087
 Muscat|Oman|MUXX0003
@@ -107,15 +106,14 @@ Nairobi|Kenya|KEXX0009
 Nanchang|China|CHXX0097
 Nanjing|China|CHXX0099
 Nanning|China|CHXX0100
-New Delhi|India|
+New Delhi|India|INXX0096
 New York, NY|United States of America|USNY0998
 Nicosia|Cyprus|CYXX0005
-Nuuk|Greenland|
-Arhus|Denmark|
+Arhus|Denmark|DAXX0003
 Oslo|Norway|NOXX0029
 Ottawa|Canada|CAXX0343
-Paris|France|
-Porto|Portugal|
+Paris|France|FRXX0076
+Porto|Portugal|POXX0022
 Prague|Czech Republic|EZXX0012
 Pretoria|South Africa|SFXX0044
 Puebla|Mexico|MXPA0070
@@ -123,17 +121,17 @@ Quebec|Canada|CAXX0385
 Rabat|Morocco|MOXX0007
 Reykjavik|Iceland|ICXX0002
 Riga|Latvia|LGXX0004
-Rio de Janeiro|Brazil|
+Rio de Janeiro|Brazil|BRXX0201
 Riyadh|Saudi Arabia|SAXX0017
-Rome|Italy|
-Rotterdam|Netherlands|
-San Marino|San Marino|
+Rome|Italy|ITXX0067
+Rotterdam|Netherlands|NLXX0015
+San Marino|San Marino|SMXX0001
 Sanaa|Yemen|YMXX0005
-Santiago|Chile|
-Sarajevo|Bosnia and Herzegovina|
+Santiago|Chile|CIXX0020
+Sarajevo|Bosnia and Herzegovina|BKXX0004
 Seattle, WA|United States of America|USWA0395
 Seoul|South Korea|KSXX0037
-Shanghai|China|
+Shanghai|China|CHXX0116
 Shenyang|China|CHXX0119
 Shijiazhuang|China|CHXX0122
 Singapore|Singapore|SNXX0006
@@ -142,29 +140,29 @@ Sofia|Bulgaria|BUXX0005
 St Petersburg|Russian Federation|RSXX0091
 Stockholm|Sweden|SWXX0031
 Sydney|Australia|ASXX0112
-Taipei|Taiwan|
+Taipei|Taiwan|TWXX0021
 Taiyuan|China|CHXX0129
 Tallinn|Estonia|ENXX0004
 Tampere|Finland|FIXX0031
 Tehran|Iran|IRXX0018
-Tel Aviv-Jaffa|Israel|
-The Hague|Netherlands|
-Thessaloniki|Greece|
+Tel Aviv-Jaffa|Israel|ISXX0026
+The Hague|Netherlands|NLXX0016
+Thessaloniki|Greece|GRXX0019
 Tianjin|China|CHXX0133
 Tijuana|Mexico|MXBC0005
 Tirana|Albania|ALXX0002
 Tokyo|Japan|JAXX0085
 Tunis|Tunisia|TSXX0010
-Urumqi|China|
-Vaduz|Liechtenstein|
-Valletta|Malta|
+Urumqi|China|CHXX0135
+Vaduz|Liechtenstein|LSXX0002
+Valletta|Malta|MTXX0001
 Vancouver|Canada|CAXX0518
-Vatican City|The Vatican|
+Vatican City|The Vatican|ITXX0083
 Vienna|Austria|AUXX0025
 Vilnius|Lithuania|LHXX0005
 Vladivostok|Russian Federation|RSXX0116
 Warsaw|Poland|PLXX0028
-Washington, DC|United States of America|
+Washington, DC|United States of America|USDC0001
 Wellington|New Zealand|NZXX0049
 Wuhan|China|CHXX0138
 Xi'an|China|CHXX0141

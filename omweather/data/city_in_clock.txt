@@ -56,67 +56,67 @@ Guadalajara|Spain|
 Guadalajara|Mexico|MXJO0043
 Guangzhou|China|CHXX0037
 Guiyang|China|CHXX0039
-Haikou|China|
-Halifax|Canada|
-Hangzhou|China|
-Hanoi|Viet Nam|
-Harbin|China|
-Hefei|China|
-Helsinki|Finland|
-Hong Kong|China|
-Honolulu, HI|United States of America|
+Haikou|China|CHXX0502
+Halifax|Canada|CAXX0183
+Hangzhou|China|CHXX0015
+Hanoi|Viet Nam|VMXX0006
+Harbin|China|CHXX0046
+Hefei|China|CHXX0448
+Helsinki|Finland|FIXX0002
+Hong Kong|China|CHXX0049
+Honolulu, HI|United States of America|USHI0026
 Huhhot|China|
-Islamabad|Pakistan|
-Istanbul|Turkey|
+Islamabad|Pakistan|PKXX0006
+Istanbul|Turkey|TUXX0014
 Jakarta|Indonesia|
-Jerusalem|Israel|
-Jinan|China|
+Jerusalem|Israel|ISXX0010
+Jinan|China|CHXX0064
 Johannesburg|South Africa|
-Kabul|Afghanistan|
-Kiev|Ukraine|
+Kabul|Afghanistan|AFXX0003
+Kiev|Ukraine|UPXX0016
 Krasnoyarsk|Russian Federation|
 Kuala Lumpur|Malaysia|
-Kunming|China|
-Kuwait|Kuwait|
-Lanzhou|China|
-Las Palmas|Canary Islands (Spain)|
-Las Vegas, NV|United States of America|
+Kunming|China|CHXX0076
+Kuwait|Kuwait|KUXX0003
+Lanzhou|China|CHXX0079
+Las Palmas|Canary Islands (Spain)|SPXX0047
+Las Vegas, NV|United States of America|USNV0049
 Lhasa|China|
 Lima|Peru|
-Lisbon|Portugal|
-Liverpool|United Kingdom of Great Britain and Northern Ireland|
-Ljubljana|Slovenia|
-London|United Kingdom of Great Britain and Northern Ireland|
-Los Angeles, CA|United States of America|
-Luxembourg|Luxembourg|
+Lisbon|Portugal|POXX0016
+Liverpool|United Kingdom of Great Britain and Northern Ireland|UKXX0083
+Ljubljana|Slovenia|SIXX0002
+London|United Kingdom of Great Britain and Northern Ireland|UKXX0085
+Los Angeles, CA|United States of America|USCA0638
+Luxembourg|Luxembourg|LUXX0003
 Madrid|Spain|
 Manama|Bahrain|
 Manila|Philippines|
 Marseilles|France|
-Mecca|Saudi Arabia|
-Melbourne|Australia|
-Mexico|Mexico|
-Miami, FL|United States of America|
-Milan|Italy|
-Minsk|Belarus|
+Mecca|Saudi Arabia|SAXX0013
+Melbourne|Australia|ASXX0075
+Mexico|Mexico|MXDF0132
+Miami, FL|United States of America|USFL0316
+Milan|Italy|ITXX0042
+Minsk|Belarus|BOXX0005
 Montevideo|Uruguay|
-Moscow|Russian Federation|
-Munich|Germany|
-Muscat|Oman|
-Nairobi|Kenya|
-Nanchang|China|
-Nanjing|China|
-Nanning|China|
+Moscow|Russian Federation|RSXX0063
+Munich|Germany|GMXX0087
+Muscat|Oman|MUXX0003
+Nairobi|Kenya|KEXX0009
+Nanchang|China|CHXX0097
+Nanjing|China|CHXX0099
+Nanning|China|CHXX0100
 New Delhi|India|
-New York, NY|United States of America|
-Nicosia|Cyprus|
+New York, NY|United States of America|USNY0998
+Nicosia|Cyprus|CYXX0005
 Nuuk|Greenland|
 Arhus|Denmark|
-Oslo|Norway|
-Ottawa|Canada|
+Oslo|Norway|NOXX0029
+Ottawa|Canada|CAXX0343
 Paris|France|
 Porto|Portugal|
-Prague|Czech Republic|
+Prague|Czech Republic|EZXX0012
 Pretoria|South Africa|
 Puebla|Mexico|
 Quebec|Canada|

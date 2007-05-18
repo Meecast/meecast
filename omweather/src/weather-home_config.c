@@ -77,6 +77,22 @@ void add_time_update_list(gint _between_time, gchar *_time_name){
     time_update_list = g_slist_append(time_update_list, tu);
 }
 
+/* The stations data  fill from clock plugin data */
+void fill_station_from_clock_plugin_data(void){
+    gchar *home_city = NULL;
+    gchar *remote_city = NULL;
+    char out_buffer[1024]; /* buffer for work with city_in_clock.txt files*/
+    
+    
+    GConfClient *gconf_client = gconf_client_get_default();
+    home_city = gconf_client_get_string(gconf_client,
+        			    GCONF_KEY_CLOCK_HOME_LOCATION, NULL);    
+    remote_city = gconf_client_get_string(gconf_client,
+        			    GCONF_KEY_CLOCK_REMOTE_LOCATION, NULL);  
+    fprintf(stderr,"Home %s, Remote %s\n",home_city,remote_city);  				    
+
+}
+
 gboolean fill_station_inform( struct weather_station *ws){
     FILE *stations_file;  
     char state_name[21];
@@ -224,6 +240,8 @@ void read_config(void){
     GError	*gerror = NULL;
     GdkColor	DEFAULT_FONT_COLOR = {0, 0x0d00, 0x2a00, 0xc000};
     
+    fprintf(stderr,"dsdsdsds\n");
+    
     gconf_client = gconf_client_get_default();
 
     if(!gconf_client){
@@ -238,6 +256,7 @@ void read_config(void){
     if(!config_set_weather_dir_name(gnome_vfs_expand_initial_tilde(tmp)))
         fprintf(stderr, _("Could not create Weather Cache directory.\n"));
     g_free(tmp);
+    tmp = NULL;
     /* Get Weather Station ID for current station */
     app->current_station_id = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_CURRENT_STATION_ID, NULL);
@@ -262,12 +281,14 @@ void read_config(void){
     }
     else
 	close(fd);
+	
     /* Get Weather Icon Size  */		     
     app->icons_size = gconf_client_get_int(gconf_client,
         				    GCONF_KEY_WEATHER_ICONS_SIZE,
 					    NULL);
     if(app->icons_size < 0)
         app->icons_size = LARGE;
+	
     /* Get Weather country name. */    
     app->current_country = gconf_client_get_string(gconf_client,
         					    GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
@@ -286,8 +307,9 @@ void read_config(void){
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_FONT_COLOR, NULL);
     if(!tmp || !gdk_color_parse(tmp, &(app->font_color)))
-         app->font_color = DEFAULT_FONT_COLOR;
+         app->font_color = DEFAULT_FONT_COLOR; 
     g_free(tmp);
+    tmp = NULL;
     /* Get Enable Transparency flag. Default is TRUE. */
     value = gconf_client_get(gconf_client, GCONF_KEY_ENABLE_TRANSPARENCY, NULL);
     if(value){
@@ -361,6 +383,20 @@ void read_config(void){
     if(gerror){
 	app->data_valid_interval = 2 * 3600;
 	g_error_free(gerror);
+    }
+    /* If this first start then fill sdefault station from clock config */ 
+
+    tmp =gconf_client_get_string(gconf_client,
+                     GCONF_KEY_WEATHER_PROGRAM_VERSION, NULL);     
+    if (!tmp){
+	fprintf(stderr,"app->current_station_id %s\n",app->current_station_id);
+	if(!app->current_station_id){
+	    fill_station_from_clock_plugin_data();
+	}	    
+    }
+    else{
+	g_free(tmp);		     
+	tmp = NULL;		
     }
     /* Fill time update list */
     if(!time_update_list){

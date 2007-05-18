@@ -3,6 +3,7 @@ omweather (0.18) unstable; urgency=low
   * Autoupdate is corrected
   * Fix error while creating cache directory
   * Fix bug - The applet crashes Desktop if there is no icon in the iconset
+  * Added all aviable stations of USA, Poland, Finland
   
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 9 May 2007 03:35:00 +0200
 

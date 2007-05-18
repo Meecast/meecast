@@ -117,58 +117,58 @@ Ottawa|Canada|CAXX0343
 Paris|France|
 Porto|Portugal|
 Prague|Czech Republic|EZXX0012
-Pretoria|South Africa|
-Puebla|Mexico|
-Quebec|Canada|
-Rabat|Morocco|
-Reykjavik|Iceland|
-Riga|Latvia|
+Pretoria|South Africa|SFXX0044
+Puebla|Mexico|MXPA0070
+Quebec|Canada|CAXX0385
+Rabat|Morocco|MOXX0007
+Reykjavik|Iceland|ICXX0002
+Riga|Latvia|LGXX0004
 Rio de Janeiro|Brazil|
-Riyadh|Saudi Arabia|
+Riyadh|Saudi Arabia|SAXX0017
 Rome|Italy|
 Rotterdam|Netherlands|
 San Marino|San Marino|
-Sanaa |Yemen|
+Sanaa|Yemen|YMXX0005
 Santiago|Chile|
 Sarajevo|Bosnia and Herzegovina|
-Seattle, WA|United States of America|
-Seoul|South Korea|
+Seattle, WA|United States of America|USWA0395
+Seoul|South Korea|KSXX0037
 Shanghai|China|
-Shenyang|China|
-Shijiazhuang|China|
-Singapore|Singapore|
-Skopje|The former Yugoslav Republic of Macedonia|
-Sofia|Bulgaria|
-St Petersburg|Russian Federation|
-Stockholm|Sweden|
-Sydney|Australia|
+Shenyang|China|CHXX0119
+Shijiazhuang|China|CHXX0122
+Singapore|Singapore|SNXX0006
+Skopje|The former Yugoslav Republic of Macedonia|MKXX0001
+Sofia|Bulgaria|BUXX0005
+St Petersburg|Russian Federation|RSXX0091
+Stockholm|Sweden|SWXX0031
+Sydney|Australia|ASXX0112
 Taipei|Taiwan|
-Taiyuan|China|
-Tallinn|Estonia|
-Tampere|Finland|
-Tehran|Iran|
+Taiyuan|China|CHXX0129
+Tallinn|Estonia|ENXX0004
+Tampere|Finland|FIXX0031
+Tehran|Iran|IRXX0018
 Tel Aviv-Jaffa|Israel|
 The Hague|Netherlands|
 Thessaloniki|Greece|
-Tianjin|China|
-Tijuana|Mexico|
-Tirana|Albania|
-Tokyo|Japan|
-Tunis|Tunisia|
+Tianjin|China|CHXX0133
+Tijuana|Mexico|MXBC0005
+Tirana|Albania|ALXX0002
+Tokyo|Japan|JAXX0085
+Tunis|Tunisia|TSXX0010
 Urumqi|China|
 Vaduz|Liechtenstein|
 Valletta|Malta|
-Vancouver|Canada|
+Vancouver|Canada|CAXX0518
 Vatican City|The Vatican|
-Vienna|Austria|
-Vilnius|Lithuania|
-Vladivostok|Russian Federation|
-Warsaw|Poland|
+Vienna|Austria|AUXX0025
+Vilnius|Lithuania|LHXX0005
+Vladivostok|Russian Federation|RSXX0116
+Warsaw|Poland|PLXX0028
 Washington, DC|United States of America|
-Wellington|New Zealand|
-Wuhan|China|
-Xi'an|China|
-Xining|China|
-Yinchuan|China|
-Zagreb|Croatia|
-Zhengzhou|China|
+Wellington|New Zealand|NZXX0049
+Wuhan|China|CHXX0138
+Xi'an|China|CHXX0141
+Xining|China|CHXX0236
+Yinchuan|China|CHXX0259
+Zagreb|Croatia|HRXX0005
+Zhengzhou|China|CHXX0165

@@ -1,6 +1,7 @@
 0.18
   * Autoupdate is corrected
   * Fix error while creating cache directory
+  * Added all aviable stations of USA, Poland, Finland
 
 0.17.2
   * The problem of exit out of range of the array has been fixed . This problem rebooted desktop.

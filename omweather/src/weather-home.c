@@ -230,15 +230,17 @@ void weather_buttons_fill(gboolean check_error){
     current_day = mktime(tm);
 
     offset = (int)( abs( (current_day - weather_days[0].date_time) / (24 * 60 * 60) ) );
-
+    offset = 3;
+    fprintf(stderr, "\nOffset = %d\n", offset);
     for(i = 0; i < app->days_to_show; i++){
-	if(i + offset < app->days_to_show){
+	if( i + offset + j < Max_count_weather_day ){
+	fprintf(stderr, "\ni = %d i + offset - 1 +j = %d\n", i, i + offset + j);
 	    if(i == 0 || (app->separate && i == 1)){	/* first day */
 		(app->separate && i == 1) ? (j = -1) : (j = 0);
 		/* prepare temperature for first day */
 		temp_hi = atoi(weather_days[i + offset + j].hi_temp);
         	temp_low = atoi(weather_days[i + offset + j].low_temp);
-        	if(app->temperature_units == FAHRENHEIT ){
+        	if(app->temperature_units == FAHRENHEIT){
             	    temp_hi = c2f(temp_hi);
             	    temp_low = c2f(temp_low);
         	}
@@ -320,6 +322,7 @@ void weather_buttons_fill(gboolean check_error){
 	    boxs_offset[i] = i + offset + j;
 	}
 	else{ /* Show N/A for all others day buttons when it not inside range */
+	    fprintf(stderr, "\nI=%d\n", i);
 	    sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
 			app->font_color.red >> 8,
 			app->font_color.green >> 8,
@@ -333,7 +336,7 @@ void weather_buttons_fill(gboolean check_error){
 	    boxs_offset[i] = Max_count_weather_day;
     	}
 	app->buttons[i] = create_weather_day_button(buffer, buffer_icon, icon_size, app->transparency, font_size);
-	if (app->buttons[i]){
+	if(app->buttons[i]){
 	    g_signal_connect(app->buttons[i]->button, "released", G_CALLBACK(weather_window_popup_show), NULL);
 	    g_signal_connect(app->buttons[i]->button, "enter", G_CALLBACK(enter_button), NULL); 
 	}    

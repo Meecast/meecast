@@ -79,9 +79,10 @@ void add_time_update_list(gint _between_time, gchar *_time_name){
 
 /* The stations data  fill from clock plugin data */
 void fill_station_from_clock_plugin_data(void){
+    FILE  *clock_file;  
     gchar *home_city = NULL;
     gchar *remote_city = NULL;
-    char out_buffer[1024]; /* buffer for work with city_in_clock.txt files*/
+    char  out_buffer[1024]; /* buffer for work with city_in_clock.txt files*/
     
     
     GConfClient *gconf_client = gconf_client_get_default();
@@ -90,6 +91,15 @@ void fill_station_from_clock_plugin_data(void){
     remote_city = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_CLOCK_REMOTE_LOCATION, NULL);  
     fprintf(stderr,"Home %s, Remote %s\n",home_city,remote_city);  				    
+    if((clock_file = fopen(CLOCK_FILE,"r")) != NULL){
+	while(!feof(clock_file)){
+	    memset(out_buffer, 0, sizeof(out_buffer)); /* Clear buffer */
+	    fgets(out_buffer, sizeof(out_buffer), clock_file); /* Read Next Line */
+	    
+	}
+	close (clock_file);
+    }
+    
 
 }
 

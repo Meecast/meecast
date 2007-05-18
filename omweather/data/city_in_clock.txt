@@ -1,172 +1,172 @@
-Abu Dhabi|United Arab Emirates|AEXX0001
-Algiers|Algeria|AGXX0001
-Amman|Jordan|JOXX0002
-Amsterdam|Netherlands|NLXX0002
-Anchorage, AK|United States of America|USAK0012
-Andorra la Vella|Andorra|ANXX0001
-Ankara|Turkey|TUXX0002
-Athens|Greece|GRXX0004
-Atlanta, GA|United States of America|USGA0028
-Auckland|New Zealand|NZXX0003
-Baghdad|Iraq|IZXX0008
-Bali|Indonesia|IDXX0019
-Bangkok|Thailand|THXX0002
-Barcelona|Spain|SPXX0015
-Beijing|China|CHXX0008
-Beirut|Lebanon|LEXX0003
-Belgrade|Serbia|YIXX0005
-Podgorica|Montenegro|YIXX0001
-Bergen|Norway|NOXX0004
-Berlin|Germany|GMXX0007
-Bern|Switzerland|SZXX0006
-Bogota|Colombia|COXX0004
-Brasilia|Brazil|BRXX0043
-Bratislava|Slovakia|LOXX0001
-Brussels|Belgium|BEXX0005
-Bucharest|Romania|ROXX0003
-Budapest|Hungary|HUXX0002
-Buenos Aires|Argentina|ARBA0009
-Cairo|Egypt|EGXX0004
-Calcutta|India|INXX0028
-Calgary|Canada|CAXX0054
-Canberra|Australia|ASXX0023
-Cape Town|South Africa|SFXX0010
-Caracas|Venezuela|VEXX0008
-Cardiff|United Kingdom of Great Britain and Northern Ireland|UKXX0030
-Casablanca|Morocco|MOXX0001
-Changchun|China|CHXX0010
-Changsha|China|CHXX0013
-Chengdu|China|CHXX0016
-Chicago, IL|United States of America|USIL0225
-Chisinau|Republic of Moldova|MDXX0003
-Chongqing|China|CHXX0017
-Ciudad Juarez|Mexico|MXCA0026
-Copenhagen|Denmark|DAXX0009
-Dallas, TX|United States of America|USTX0327
-Damascus|Syrian Arab Republic|SYXX0004
-Dar es Salaam|United Republic of Tanzania|TZXX0001
-Denver, CO|United States of America|USCO0065
-Dodoma|United Republic of Tanzania|TZXX0002
-Doha|Qatar|QAXX0003
-Dublin|Republic of Ireland|EIXX0014
-Edinburgh|United Kingdom of Great Britain and Northern Ireland|UKXX0052
-Fuzhou|China|CHXX0031
-Gothenburg|Sweden|SWXX0007
-Guadalajara|Spain|SPXX0041
-Guadalajara|Mexico|MXJO0043
-Guangzhou|China|CHXX0037
-Guiyang|China|CHXX0039
-Haikou|China|CHXX0502
-Halifax|Canada|CAXX0183
-Hangzhou|China|CHXX0015
-Hanoi|Viet Nam|VMXX0006
-Harbin|China|CHXX0046
-Hefei|China|CHXX0448
-Helsinki|Finland|FIXX0002
-Hong Kong|China|CHXX0049
-Honolulu, HI|United States of America|USHI0026
-Islamabad|Pakistan|PKXX0006
-Istanbul|Turkey|TUXX0014
-Jakarta|Indonesia|IDXX0022
-Jerusalem|Israel|ISXX0010
-Jinan|China|CHXX0064
-Johannesburg|South Africa|SFXX0023
-Kabul|Afghanistan|AFXX0003
-Kiev|Ukraine|UPXX0016
-Krasnoyarsk|Russian Federation|RSXX0267
-Kuala Lumpur|Malaysia|MYXX0008
-Kunming|China|CHXX0076
-Kuwait|Kuwait|KUXX0003
-Lanzhou|China|CHXX0079
-Las Palmas|Canary Islands (Spain)|SPXX0047
-Las Vegas, NV|United States of America|USNV0049
-Lhasa|China|CHXX0080
-Lima|Peru|PEXX0011
-Lisbon|Portugal|POXX0016
-Liverpool|United Kingdom of Great Britain and Northern Ireland|UKXX0083
-Ljubljana|Slovenia|SIXX0002
-London|United Kingdom of Great Britain and Northern Ireland|UKXX0085
-Los Angeles, CA|United States of America|USCA0638
-Luxembourg|Luxembourg|LUXX0003
-Madrid|Spain|SPXX0050
-Manama|Bahrain|BAXX0001
-Manila|Philippines|RPXX0017
-Marseilles|France|FRXX0059
-Mecca|Saudi Arabia|SAXX0013
-Melbourne|Australia|ASXX0075
-Mexico|Mexico|MXDF0132
-Miami, FL|United States of America|USFL0316
-Milan|Italy|ITXX0042
-Minsk|Belarus|BOXX0005
-Montevideo|Uruguay|UYXX0006
-Moscow|Russian Federation|RSXX0063
-Munich|Germany|GMXX0087
-Muscat|Oman|MUXX0003
-Nairobi|Kenya|KEXX0009
-Nanchang|China|CHXX0097
-Nanjing|China|CHXX0099
-Nanning|China|CHXX0100
-New Delhi|India|INXX0096
-New York, NY|United States of America|USNY0998
-Nicosia|Cyprus|CYXX0005
-Arhus|Denmark|DAXX0003
-Oslo|Norway|NOXX0029
-Ottawa|Canada|CAXX0343
-Paris|France|FRXX0076
-Porto|Portugal|POXX0022
-Prague|Czech Republic|EZXX0012
-Pretoria|South Africa|SFXX0044
-Puebla|Mexico|MXPA0070
-Quebec|Canada|CAXX0385
-Rabat|Morocco|MOXX0007
-Reykjavik|Iceland|ICXX0002
-Riga|Latvia|LGXX0004
-Rio de Janeiro|Brazil|BRXX0201
-Riyadh|Saudi Arabia|SAXX0017
-Rome|Italy|ITXX0067
-Rotterdam|Netherlands|NLXX0015
-San Marino|San Marino|SMXX0001
-Sanaa|Yemen|YMXX0005
-Santiago|Chile|CIXX0020
-Sarajevo|Bosnia and Herzegovina|BKXX0004
-Seattle, WA|United States of America|USWA0395
-Seoul|South Korea|KSXX0037
-Shanghai|China|CHXX0116
-Shenyang|China|CHXX0119
-Shijiazhuang|China|CHXX0122
-Singapore|Singapore|SNXX0006
-Skopje|The former Yugoslav Republic of Macedonia|MKXX0001
-Sofia|Bulgaria|BUXX0005
-St Petersburg|Russian Federation|RSXX0091
-Stockholm|Sweden|SWXX0031
-Sydney|Australia|ASXX0112
-Taipei|Taiwan|TWXX0021
-Taiyuan|China|CHXX0129
-Tallinn|Estonia|ENXX0004
-Tampere|Finland|FIXX0031
-Tehran|Iran|IRXX0018
-Tel Aviv-Jaffa|Israel|ISXX0026
-The Hague|Netherlands|NLXX0016
-Thessaloniki|Greece|GRXX0019
-Tianjin|China|CHXX0133
-Tijuana|Mexico|MXBC0005
-Tirana|Albania|ALXX0002
-Tokyo|Japan|JAXX0085
-Tunis|Tunisia|TSXX0010
-Urumqi|China|CHXX0135
-Vaduz|Liechtenstein|LSXX0002
-Valletta|Malta|MTXX0001
-Vancouver|Canada|CAXX0518
-Vatican City|The Vatican|ITXX0083
-Vienna|Austria|AUXX0025
-Vilnius|Lithuania|LHXX0005
-Vladivostok|Russian Federation|RSXX0116
-Warsaw|Poland|PLXX0028
-Washington, DC|United States of America|USDC0001
-Wellington|New Zealand|NZXX0049
-Wuhan|China|CHXX0138
-Xi'an|China|CHXX0141
-Xining|China|CHXX0236
-Yinchuan|China|CHXX0259
-Zagreb|Croatia|HRXX0005
-Zhengzhou|China|CHXX0165
+Abu Dhabi|AEXX0001
+Algiers|AGXX0001
+Amman|JOXX0002
+Amsterdam|NLXX0002
+Anchorage, AK|USAK0012
+Andorra la Vella|ANXX0001
+Ankara|TUXX0002
+Athens|GRXX0004
+Atlanta, GA|USGA0028
+Auckland|NZXX0003
+Baghdad|IZXX0008
+Bali|IDXX0019
+Bangkok|THXX0002
+Barcelona|SPXX0015
+Beijing|CHXX0008
+Beirut|LEXX0003
+Belgrade|YIXX0005
+Podgorica|YIXX0001
+Bergen|NOXX0004
+Berlin|GMXX0007
+Bern|SZXX0006
+Bogota|COXX0004
+Brasilia|BRXX0043
+Bratislava|LOXX0001
+Brussels|BEXX0005
+Bucharest|ROXX0003
+Budapest|HUXX0002
+Buenos Aires|ARBA0009
+Cairo|EGXX0004
+Calcutta|INXX0028
+Calgary|CAXX0054
+Canberra|ASXX0023
+Cape Town|SFXX0010
+Caracas|VEXX0008
+Cardiff|UKXX0030
+Casablanca|MOXX0001
+Changchun|CHXX0010
+Changsha|CHXX0013
+Chengdu|CHXX0016
+Chicago, IL|USIL0225
+Chisinau|MDXX0003
+Chongqing|CHXX0017
+Ciudad Juarez|MXCA0026
+Copenhagen|DAXX0009
+Dallas, TX|USTX0327
+Damascus|SYXX0004
+Dar es Salaam|TZXX0001
+Denver, CO|USCO0065
+Dodoma|TZXX0002
+Doha|QAXX0003
+Dublin|EIXX0014
+Edinburgh|UKXX0052
+Fuzhou|CHXX0031
+Gothenburg|SWXX0007
+Guadalajara|SPXX0041
+Guadalajara|MXJO0043
+Guangzhou|CHXX0037
+Guiyang|CHXX0039
+Haikou|CHXX0502
+Halifax|CAXX0183
+Hangzhou|CHXX0015
+Hanoi|VMXX0006
+Harbin|CHXX0046
+Hefei|CHXX0448
+Helsinki|FIXX0002
+Hong Kong|CHXX0049
+Honolulu, HI|USHI0026
+Islamabad|PKXX0006
+Istanbul|TUXX0014
+Jakarta|IDXX0022
+Jerusalem|ISXX0010
+Jinan|CHXX0064
+Johannesburg|SFXX0023
+Kabul|AFXX0003
+Kiev|UPXX0016
+Krasnoyarsk|RSXX0267
+Kuala Lumpur|MYXX0008
+Kunming|CHXX0076
+Kuwait|KUXX0003
+Lanzhou|CHXX0079
+Las Palmas|SPXX0047
+Las Vegas, NV|USNV0049
+Lhasa|CHXX0080
+Lima|PEXX0011
+Lisbon|POXX0016
+Liverpool|UKXX0083
+Ljubljana|SIXX0002
+London|UKXX0085
+Los Angeles, CA|USCA0638
+Luxembourg|LUXX0003
+Madrid|SPXX0050
+Manama|BAXX0001
+Manila|RPXX0017
+Marseilles|FRXX0059
+Mecca|SAXX0013
+Melbourne|ASXX0075
+Mexico|MXDF0132
+Miami, FL|USFL0316
+Milan|ITXX0042
+Minsk|BOXX0005
+Montevideo|UYXX0006
+Moscow|RSXX0063
+Munich|GMXX0087
+Muscat|MUXX0003
+Nairobi|KEXX0009
+Nanchang|CHXX0097
+Nanjing|CHXX0099
+Nanning|CHXX0100
+New Delhi|INXX0096
+New York, NY|USNY0998
+Nicosia|CYXX0005
+Arhus|DAXX0003
+Oslo|NOXX0029
+Ottawa|CAXX0343
+Paris|FRXX0076
+Porto|POXX0022
+Prague|EZXX0012
+Pretoria|SFXX0044
+Puebla|MXPA0070
+Quebec|CAXX0385
+Rabat|MOXX0007
+Reykjavik|ICXX0002
+Riga|LGXX0004
+Rio de Janeiro|BRXX0201
+Riyadh|SAXX0017
+Rome|ITXX0067
+Rotterdam|NLXX0015
+San Marino|SMXX0001
+Sanaa|YMXX0005
+Santiago|CIXX0020
+Sarajevo|BKXX0004
+Seattle, WA|USWA0395
+Seoul|KSXX0037
+Shanghai|CHXX0116
+Shenyang|CHXX0119
+Shijiazhuang|CHXX0122
+Singapore|SNXX0006
+Skopje|MKXX0001
+Sofia|BUXX0005
+St Petersburg|RSXX0091
+Stockholm|SWXX0031
+Sydney|ASXX0112
+Taipei|TWXX0021
+Taiyuan|CHXX0129
+Tallinn|ENXX0004
+Tampere|FIXX0031
+Tehran|IRXX0018
+Tel Aviv-Jaffa|ISXX0026
+The Hague|NLXX0016
+Thessaloniki|GRXX0019
+Tianjin|CHXX0133
+Tijuana|MXBC0005
+Tirana|ALXX0002
+Tokyo|JAXX0085
+Tunis|TSXX0010
+Urumqi|CHXX0135
+Vaduz|LSXX0002
+Valletta|MTXX0001
+Vancouver|CAXX0518
+Vatican City|ITXX0083
+Vienna|AUXX0025
+Vilnius|LHXX0005
+Vladivostok|RSXX0116
+Warsaw|PLXX0028
+Washington, DC|USDC0001
+Wellington|NZXX0049
+Wuhan|CHXX0138
+Xi'an|CHXX0141
+Xining|CHXX0236
+Yinchuan|CHXX0259
+Zagreb|HRXX0005
+Zhengzhou|CHXX0165

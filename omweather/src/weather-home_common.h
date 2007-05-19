@@ -49,6 +49,7 @@
 #include <libosso.h>
 #include <wchar.h>
 #include <stdio.h>
+#include <limits.h>
 /* localization headers and defines */
 #include <libintl.h>
 #include <locale.h>
@@ -149,6 +150,7 @@ typedef struct OMWeatherApplet{
     gint		update_interval;
     gboolean		transparency;
     gboolean		separate;
+    gboolean		swap_hi_low_temperature;
     gint		days_to_show;
     gint		previos_days_to_show;
     gint		distance_units;

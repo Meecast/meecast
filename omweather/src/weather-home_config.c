@@ -82,25 +82,35 @@ void fill_station_from_clock_plugin_data(void){
     FILE  *clock_file;  
     gchar *home_city = NULL;
     gchar *remote_city = NULL;
+    gchar *tmp = NULL;
     char  out_buffer[1024]; /* buffer for work with city_in_clock.txt files*/
-    
+    struct weather_station *ws;
     
     GConfClient *gconf_client = gconf_client_get_default();
+    /* City name from config file of clock */
     home_city = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_CLOCK_HOME_LOCATION, NULL);    
     remote_city = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_CLOCK_REMOTE_LOCATION, NULL);  
-    fprintf(stderr,"Home %s, Remote %s\n",home_city,remote_city);  				    
     if((clock_file = fopen(CLOCK_FILE,"r")) != NULL){
 	while(!feof(clock_file)){
 	    memset(out_buffer, 0, sizeof(out_buffer)); /* Clear buffer */
 	    fgets(out_buffer, sizeof(out_buffer), clock_file); /* Read Next Line */
-	    
+	    tmp = strchr(out_buffer,'|'); /* Finding of a separator */
+	    if ((strncmp(out_buffer,home_city,tmp-out_buffer)==0) || 
+	        (strncmp(out_buffer,remote_city,tmp-out_buffer)==0))
+	    {
+		/* Prepare struct */
+    		ws = g_new0(struct weather_station, 1);
+		ws->id_station = g_strdup(tmp+1);
+		tmp[0] = 0;
+		ws->name_station = g_strdup(out_buffer);	   
+		/* Add station to stations list */
+		stations_view_list = g_slist_append(stations_view_list, ws); 
+	    }	    
 	}
-	close (clock_file);
+	fclose (clock_file);
     }
-    
-
 }
 
 gboolean fill_station_inform( struct weather_station *ws){

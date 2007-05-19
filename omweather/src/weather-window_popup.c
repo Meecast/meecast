@@ -71,10 +71,10 @@ void weather_window_popup_show(GtkWidget *widget,
     time_t current_time = 0;
     gboolean pressed_current_day = FALSE;
     struct stat statv;
-    int i;
+    int i, hi_temp = 0, low_temp = 0;
     float	tmp_distance;
     const gchar*	wind_units_str[] = { "m/s", "km/s", "mi/s", "m/h", "km/h", "mi/h" };
-    gchar	*units;
+    gchar	*units, symbol = 'C';
     
 /* if no one station present in list show only preference */
     if(!app->current_station_id){
@@ -282,36 +282,84 @@ void weather_window_popup_show(GtkWidget *widget,
 	hbox_temp = gtk_hbox_new(FALSE, 0);
 	label_temp = gtk_label_new(_("Temperature: "));
 	set_font_size(label_temp, 18);
-
-	if(!strcmp(weather_days[i].hi_temp, "N/A")){ 
-	    if(!strcmp(weather_days[i].low_temp, "N/A"))
-		sprintf(buffer, "%s", (char*)hash_table_find("N/A"));
-	    else
-		if(app->temperature_units == CELSIUS)
-		    sprintf(buffer, "%d\302\260C", atoi(weather_days[i].low_temp));
-		else
-		    sprintf(buffer, "%d\302\260F", c2f(atoi(weather_days[i].low_temp)));
+	/* draw temperature, if any of temperature not aviable draw N/A */
+	if(!strcmp(weather_days[i].hi_temp, "N/A"))
+	    hi_temp = INT_MAX;
+	else
+	    hi_temp = atoi(weather_days[i].hi_temp);
+	if(!strcmp(weather_days[i].low_temp, "N/A"))
+	    low_temp = INT_MAX;
+	else
+	    low_temp = atoi(weather_days[i].low_temp);
+	if(app->temperature_units == FAHRENHEIT){
+	    if(hi_temp != INT_MAX)
+		hi_temp = c2f(hi_temp);
+	    if(low_temp != INT_MAX)
+		low_temp = c2f(low_temp);
+	    symbol = 'F';
 	}
-	else{
-	    if(!strcmp(weather_days[i].low_temp, "N/A"))
-		if(app->temperature_units == CELSIUS)
-		    sprintf(buffer, "%s / %d\302\260C",
-			    (char*)hash_table_find("N/A"),
-			    atoi(weather_days[i].hi_temp));
-		else
-		    sprintf(buffer, "%s / %d\302\260C",
-			    (char*)hash_table_find("N/A"),
-			    c2f(atoi(weather_days[i].hi_temp)));
-    	    else
-		if(app->temperature_units == CELSIUS)
-		    sprintf(buffer, "%d\302\260C / %d\302\260C",
-			    atoi(weather_days[i].low_temp),
-			    atoi(weather_days[i].hi_temp));
-		else
-		    sprintf(buffer,"%d\302\260F / %d\302\260F",
-			    c2f(atoi(weather_days[i].low_temp)),
-			    c2f(atoi(weather_days[i].hi_temp)));
-	}
+	if(app->swap_hi_low_temperature)
+	    swap_temperature(&hi_temp, &low_temp);
+	buffer[0] = 0;
+	/* formating low temperature */
+	if(low_temp == INT_MAX)
+	    strncat(buffer, (char*)hash_table_find("N/A"),
+		    ( (strlen((char*)hash_table_find("N/A")) > sizeof(buffer)) ?
+		      (sizeof(buffer) - 1) :
+		      (strlen((char*)hash_table_find("N/A"))) ) );
+	else
+	    snprintf(buffer, sizeof(low_temp) + 
+		    ( (strlen(("\302\260%c")) > sizeof(buffer)) ?
+		      (sizeof(buffer) - 1) : (strlen("\302\260%c")) ),
+		    "%d\302\260%c", low_temp, symbol);
+	/* adding separate symbol */
+	strncat(buffer, " / ",  
+		( (strlen((" / ")) > sizeof(buffer)) ?
+		      (sizeof(buffer) - 1) : (strlen(" / ")) ) );
+	/* formating hi temperature */
+	if(hi_temp == INT_MAX)
+	    strncat(buffer, (char*)hash_table_find("N/A"),
+		    ( (strlen((char*)hash_table_find("N/A")) > sizeof(buffer)) ?
+		      (sizeof(buffer) - 1) :
+		      (strlen((char*)hash_table_find("N/A"))) ) );
+	else
+	    snprintf(buffer + strlen(buffer), sizeof(hi_temp) + 
+		    ( (strlen(("\302\260%c")) > sizeof(buffer) - strlen(buffer)) ?
+		      (sizeof(buffer) - strlen(buffer) - 1) : (strlen("\302\260%c")) ),
+		    "%d\302\260%c", hi_temp, symbol);
+//	sprintf(buffer, "%d / %d\302\260%c",
+//	if(!strcmp(weather_days[i].hi_temp, "N/A")){ /* hi temperature isn't aviable */
+//	    if(!strcmp(weather_days[i].low_temp, "N/A")) /* low temperature isn't aviable */
+//		sprintf(buffer, "%s", (char*)hash_table_find("N/A"));
+//	    else{
+//		if(app->temperature_units == CELSIUS)
+//		    sprintf(buffer, "%d\302\260C", atoi(weather_days[i].low_temp));
+//		else
+//		    sprintf(buffer, "%d\302\260F", c2f(atoi(weather_days[i].low_temp)));
+//	    }
+//	}
+//	else{
+//	    if(!strcmp(weather_days[i].low_temp, "N/A")){
+//		if(app->temperature_units == CELSIUS)
+//		    sprintf(buffer, "%s / %d\302\260C",
+//			    (char*)hash_table_find("N/A"),
+//			    atoi(weather_days[i].hi_temp));
+//		else
+//		    sprintf(buffer, "%s / %d\302\260C",
+//			    (char*)hash_table_find("N/A"),
+//			    c2f(atoi(weather_days[i].hi_temp)));
+//	    }
+//    	    else{
+//		if(app->temperature_units == CELSIUS)
+//		    sprintf(buffer, "%d\302\260C / %d\302\260C",
+//			    atoi(weather_days[i].low_temp),
+//			    atoi(weather_days[i].hi_temp));
+//		else
+//		    sprintf(buffer,"%d\302\260F / %d\302\260F",
+//			    c2f(atoi(weather_days[i].low_temp)),
+//			    c2f(atoi(weather_days[i].hi_temp)));
+//	    }
+//	}
 	label_value_temp = gtk_label_new(buffer);
 	gtk_box_pack_start(GTK_BOX(hbox_temp), label_temp, FALSE, FALSE, 5);
 	gtk_box_pack_start(GTK_BOX(hbox_temp), label_value_temp, FALSE, FALSE, 5);

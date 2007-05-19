@@ -298,9 +298,12 @@ void weather_buttons_fill(gboolean check_error){
 			/* if current time is night show night icon */
 			if(current_time < weather_days[i + offset + j].day.begin_time)
 			    sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_days[i + offset + j].night.icon);
-			/* if current time is day show day icon */
-			if(current_time < weather_days[i + offset + j].night.begin_time)
-			    sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_days[i + offset + j].day.icon);
+			else{/* if current time is day show day icon */
+			    if(current_time < weather_days[i + offset + j].night.begin_time)
+				sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_days[i + offset + j].day.icon);
+			    else
+				sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_days[i + offset + j].night.icon);
+			}
 			/* show temperature */
 			if(app->swap_hi_low_temperature)
 			    swap_temperature(&temp_hi, &temp_low);

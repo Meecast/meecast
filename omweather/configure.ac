@@ -23,6 +23,7 @@ AC_HEADER_STDC
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h memory.h netdb.h netinet/in.h stdlib.h string.h sys/param.h sys/socket.h sys/time.h unistd.h])
 AC_CHECK_HEADERS([libintl.h])
 AC_CHECK_HEADERS([wchar.h])
+AC_CHECK_HEADERS([limits.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST

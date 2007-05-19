@@ -176,14 +176,14 @@ void station_error_window(void){
 
 /* Fill buttons data */
 void weather_buttons_fill(gboolean check_error){
-    int		i, j = 0, offset = 0, count_day;
+    int		i, j = 0, k = 0, offset = 0, count_day;
     gchar	buffer[2048], buffer_icon[2048];
     time_t	current_day,current_time, last_day = 0;
     struct tm	*tm;
     gboolean	flag_last_day = FALSE, error_station_code = FALSE;
     GSList	*tmplist = NULL;
     struct weather_station *ws = NULL;
-    int		temp_hi, temp_low;
+    int		temp_hi = 0, temp_low = 0, temp_current = 0;
     char	font_size;
     gint	icon_size;
     gchar	*tmp_station_name;
@@ -230,19 +230,32 @@ void weather_buttons_fill(gboolean check_error){
     current_day = mktime(tm);
 
     offset = (int)( abs( (current_day - weather_days[0].date_time) / (24 * 60 * 60) ) );
-    offset = 3;
-    fprintf(stderr, "\nOffset = %d\n", offset);
+    (app->separate) ? (k = 1) : (k = 0); /* add one more day if data is separate */
     for(i = 0; i < app->days_to_show; i++){
-	if( i + offset + j < Max_count_weather_day ){
-	fprintf(stderr, "\ni = %d i + offset - 1 +j = %d\n", i, i + offset + j);
+	if( i + offset < Max_count_weather_day + k ){
 	    if(i == 0 || (app->separate && i == 1)){	/* first day */
-		(app->separate && i == 1) ? (j = -1) : (j = 0);
+		/* repeat the same data in second button for first day if data is separate */
+		(app->separate && i == 1) ? (j = -1) : (j = 0); 
 		/* prepare temperature for first day */
-		temp_hi = atoi(weather_days[i + offset + j].hi_temp);
-        	temp_low = atoi(weather_days[i + offset + j].low_temp);
+		if(!strcmp(weather_days[i + offset + j].hi_temp, "N/A"))
+		    temp_hi = INT_MAX;
+		else
+		    temp_hi = atoi(weather_days[i + offset + j].hi_temp);
+		if(!strcmp(weather_days[i + offset + j].low_temp, "N/A"))
+        	    temp_low = INT_MAX;
+		else
+		    temp_low = atoi(weather_days[i + offset + j].low_temp);
+		if(!strcmp(weather_current_day.day.temp, "N/A"))
+		    temp_current = INT_MAX;
+		else
+		    temp_current = atoi(weather_current_day.day.temp);
         	if(app->temperature_units == FAHRENHEIT){
-            	    temp_hi = c2f(temp_hi);
-            	    temp_low = c2f(temp_low);
+		    if(temp_hi != INT_MAX)
+            		temp_hi = c2f(temp_hi);
+		    if(temp_low != INT_MAX)
+            		temp_low = c2f(temp_low);
+		    if(temp_current != INT_MAX)
+			temp_current = c2f(temp_current);
         	}
 		/* add events for first day */
 		if(current_time < weather_days[i + offset + j].day.begin_time)
@@ -253,18 +266,26 @@ void weather_buttons_fill(gboolean check_error){
 		if( (weather_current_day.date_time > (current_time - app->data_valid_interval)) &&
             	    (weather_current_day.date_time < (current_time + app->data_valid_interval)) && i == 0){
 		    time_event_add(weather_current_day.date_time + app->data_valid_interval, DAYTIMEEVENT);
-		    sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
+		    if(temp_current == INT_MAX)
+			sprintf(buffer,
+				"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%s\302\260\n</span>",
 				app->font_color.red >> 8,
 				app->font_color.green >> 8,
 				app->font_color.blue >> 8,
 				(app->separate) ? (_("Now")) : (weather_days[i + offset + j].dayshname),
-				(app->temperature_units == FAHRENHEIT) ? 
-				    (c2f(atoi(weather_current_day.day.temp))) :
-					(atoi(weather_current_day.day.temp)) );
+				_("N/A") );
+		    else
+			sprintf(buffer,
+				"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
+				app->font_color.red >> 8,
+				app->font_color.green >> 8,
+				app->font_color.blue >> 8,
+				(app->separate) ? (_("Now")) : (weather_days[i + offset + j].dayshname),
+				temp_current );
 		    sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_current_day.day.icon);
 		}
 		else{ /* if current data is not actual */
-		    if(i == 0 && app->separate){ /* if current data isn't actual than draw N/A */
+		    if(i == 0 && app->separate){ /* if current data isn't actual and first day */
 		    	sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260</span>",
 				    app->font_color.red >> 8,
 				    app->font_color.green >> 8,
@@ -273,56 +294,73 @@ void weather_buttons_fill(gboolean check_error){
 				    _("N/A"));
 			sprintf(buffer_icon, "%s48.png", path_large_icon);
 		    }
-		    else{
-			if(current_time < weather_days[i + offset + j].day.begin_time){
+		    else{ /* if first day and not separate data */
+			/* if current time is night show night icon */
+			if(current_time < weather_days[i + offset + j].day.begin_time)
 			    sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_days[i + offset + j].night.icon);
-			    sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
-        				app->font_color.red >> 8,
-				        app->font_color.green >> 8,
-				        app->font_color.blue >> 8,
-					weather_days[i + offset + j].dayshname, temp_low, temp_hi);
-			}
-			else{
-			    if(current_time < weather_days[i + offset + j].night.begin_time){
-				sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_days[i + offset + j].day.icon);
-				sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
-					    app->font_color.red >> 8,
-					    app->font_color.green >> 8,
-					    app->font_color.blue >> 8,
-					    weather_days[i + offset + j].dayshname, temp_low, temp_hi);
-			    }
-			    else{
-				sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_days[i + offset + j].night.icon);
-				sprintf(buffer,"<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
-					    app->font_color.red >> 8,
-					    app->font_color.green >> 8,
-					    app->font_color.blue >> 8,
-					    weather_days[i + offset + j].dayshname, temp_low);
-			    }
-			}
+			/* if current time is day show day icon */
+			if(current_time < weather_days[i + offset + j].night.begin_time)
+			    sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_days[i + offset + j].day.icon);
+			/* show temperature */
+			if(app->swap_hi_low_temperature)
+			    swap_temperature(&temp_hi, &temp_low);
+			sprintf(buffer,
+				"<span foreground='#%02x%02x%02x'>%s\n",
+				app->font_color.red >> 8,
+				app->font_color.green >> 8,
+				app->font_color.blue >> 8,
+				weather_days[i + offset + j].dayshname);
+			if(temp_low == INT_MAX)
+			    sprintf(buffer + strlen(buffer), "%s\302\260\n", _("N/A") );
+			else
+			    sprintf(buffer + strlen(buffer), "%i\302\260\n", temp_low );
+			if(temp_hi == INT_MAX)
+			    sprintf(buffer + strlen(buffer), "%s\302\260", _("N/A") );
+			else
+			    sprintf(buffer + strlen(buffer), "%i\302\260", temp_hi );
+			strcat(buffer, "</span>");
 		    }
 		}
 	    }
 	    else{ /* other days, from two and to app->days_to_show */
-	        temp_hi = atoi(weather_days[i + offset + j].hi_temp);
-        	temp_low = atoi(weather_days[i + offset + j].low_temp);
-        	if(app->temperature_units == FAHRENHEIT ){
-            	    temp_hi = c2f(temp_hi);
-            	    temp_low = c2f(temp_low);
+	    	if(!strcmp(weather_days[i + offset + j].hi_temp, "N/A"))
+		    temp_hi = INT_MAX;
+		else
+		    temp_hi = atoi(weather_days[i + offset + j].hi_temp);
+		if(!strcmp(weather_days[i + offset + j].low_temp, "N/A"))
+        	    temp_low = INT_MAX;
+		else
+		    temp_low = atoi(weather_days[i + offset + j].low_temp);
+        	if(app->temperature_units == FAHRENHEIT){
+		    if(temp_hi != INT_MAX)
+            		temp_hi = c2f(temp_hi);
+		    if(temp_low != INT_MAX)
+            		temp_low = c2f(temp_low);
         	}
 	        time_event_add(weather_days[i + offset + j].date_time, DAYTIMEEVENT);
                 last_day = weather_days[i + offset + j].date_time;
-		sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%i\302\260\n%i\302\260</span>",
-				app->font_color.red >> 8,
-				app->font_color.green >> 8,
-				app->font_color.blue >> 8,
-				weather_days[i + offset + j].dayshname, temp_low, temp_hi);
+		if(app->swap_hi_low_temperature)
+		    swap_temperature(&temp_hi, &temp_low);
 		sprintf(buffer_icon, "%s%i.png", path_large_icon, weather_days[i + offset + j].day.icon);
+		sprintf(buffer,
+			"<span foreground='#%02x%02x%02x'>%s\n",
+			app->font_color.red >> 8,
+			app->font_color.green >> 8,
+			app->font_color.blue >> 8,
+			weather_days[i + offset + j].dayshname);
+		if(temp_low == INT_MAX)
+		    sprintf(buffer + strlen(buffer), "%s\302\260\n", _("N/A") );
+		else
+		    sprintf(buffer + strlen(buffer), "%i\302\260\n", temp_low );
+		if(temp_hi == INT_MAX)
+		    sprintf(buffer + strlen(buffer), "%s\302\260", _("N/A") );
+		else
+		    sprintf(buffer + strlen(buffer), "%i\302\260", temp_hi );
+		strcat(buffer, "</span>");		
 	    }
 	    boxs_offset[i] = i + offset + j;
 	}
 	else{ /* Show N/A for all others day buttons when it not inside range */
-	    fprintf(stderr, "\nI=%d\n", i);
 	    sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
 			app->font_color.red >> 8,
 			app->font_color.green >> 8,
@@ -388,7 +426,7 @@ void update_weather(void){
 void* hildon_home_applet_lib_initialize(void *state_data, 
 					int *state_size,
 					GtkWidget **widget){
-    osso_context_t *osso;
+    osso_context_t	*osso;
     
     osso = osso_initialize(PACKAGE, VERSION, FALSE, NULL);
     if(!osso){
@@ -782,4 +820,10 @@ void delete_weather_day_button(gboolean after_all_destroy,WDB **day){
 	    *day = NULL;
 	}
     }
+}
+
+void swap_temperature(int *hi, int *low){
+    int tmp;
+    
+    tmp = *hi; *hi = *low; *low = tmp;
 }

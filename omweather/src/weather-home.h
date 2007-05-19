@@ -55,6 +55,7 @@ void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_d
 gboolean download_html(gpointer data);
 void update_weather(void);
 void free_memory(gboolean flag);
+void swap_temperature(int *hi, int *low);
 /* external functions */
 extern void timer(void);
 extern void weather_initialize_dbus(void);

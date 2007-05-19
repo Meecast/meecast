@@ -338,7 +338,7 @@ void read_config(void){
     }
     else
         app->transparency = TRUE;      
-    /* Get Split Button State Default is FALSE */
+    /* Get Split Button State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_SEPARATE_DATA, NULL);
     if(value){
         app->separate = gconf_value_get_bool(value);
@@ -346,6 +346,14 @@ void read_config(void){
     }
     else
         app->separate = FALSE;      	
+    /* Get Swap Temperature Button State. Default is FALSE */
+    value = gconf_client_get(gconf_client, GCONF_KEY_SWAP_TEMPERATURE, NULL);
+    if(value){
+        app->swap_hi_low_temperature = gconf_value_get_bool(value);
+        gconf_value_free(value);
+    }
+    else
+        app->swap_hi_low_temperature = FALSE;      	
 	
     /* Get Temperature Unit  Default Celsius */
     app->temperature_units = gconf_client_get_int(gconf_client,
@@ -559,6 +567,10 @@ void config_save(){
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_SEPARATE_DATA,
 			app->separate, NULL);	    
+     /* Save Swap Temperature Button State */
+    gconf_client_set_bool(gconf_client,
+        		GCONF_KEY_SWAP_TEMPERATURE,
+			app->swap_hi_low_temperature, NULL);	    
     /* Save Weather Temperature Unit  */		     	    
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_TEMPERATURE_UNIT,

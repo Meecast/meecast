@@ -102,11 +102,18 @@ void fill_station_from_clock_plugin_data(void){
 	    {
 		/* Prepare struct */
     		ws = g_new0(struct weather_station, 1);
+		tmp[strlen(tmp)-1] = 0;
 		ws->id_station = g_strdup(tmp+1);
 		tmp[0] = 0;
-		ws->name_station = g_strdup(out_buffer);	   
+		ws->name_station = g_strdup(out_buffer);
 		/* Add station to stations list */
 		stations_view_list = g_slist_append(stations_view_list, ws); 
+		/* A current station */
+		if (strncmp(out_buffer,home_city,tmp-out_buffer)==0)
+		{
+		    app->current_station_id = g_strdup(ws->id_station);
+		    app->current_station_name = g_strdup(ws->name_station);
+		}
 	    }	    
 	}
 	fclose (clock_file);
@@ -259,8 +266,7 @@ void read_config(void){
     GSList	*stlist = NULL;
     GError	*gerror = NULL;
     GdkColor	DEFAULT_FONT_COLOR = {0, 0x0d00, 0x2a00, 0xc000};
-    
-    fprintf(stderr,"dsdsdsds\n");
+
     
     gconf_client = gconf_client_get_default();
 
@@ -289,7 +295,7 @@ void read_config(void){
 	reinitilize_stations_list2(stlist);
 	g_slist_free(stlist);
     }
-	/* Get icon set name */ 
+    /* Get icon set name */ 
     app->icon_set = gconf_client_get_string(gconf_client,
 					    GCONF_KEY_WEATHER_ICON_SET,
 					    NULL);
@@ -377,7 +383,6 @@ void read_config(void){
 	g_error_free(gerror);
 	gerror = NULL;
     }
-
     if(app->icons_layout == 0)
 	    /* Get Layout  Default Horizontal */
 	    app->icons_layout = gconf_client_get_int(gconf_client,
@@ -386,10 +391,13 @@ void read_config(void){
     /* Get number days to show */
     app->days_to_show = gconf_client_get_int(gconf_client,                                                                                     
                 	    GCONF_KEY_WEATHER_DAYS, &gerror);
-    if(gerror || !app->days_to_show){
-	app->days_to_show = 5;
+    if(gerror){
+	app->days_to_show = 5;/* default value */
 	g_error_free(gerror);
     }
+    if (app->days_to_show == 0)
+	app->days_to_show = 5;/* default value */
+	
     app->previos_days_to_show = app->days_to_show;
     /* Get distance units */
     app->distance_units = gconf_client_get_int(gconf_client,                                                                                     
@@ -409,15 +417,13 @@ void read_config(void){
     app->data_valid_interval = gconf_client_get_int(gconf_client,                                                                                     
 			GCONF_KEY_WEATHER_VALID_DATA_TIME, &gerror) * 3600;
     if(gerror){
-	app->data_valid_interval = 2 * 3600;
+	app->data_valid_interval = 2 * 3600; /* Default value - 2 hours */
 	g_error_free(gerror);
     }
     /* If this first start then fill sdefault station from clock config */ 
-
     tmp =gconf_client_get_string(gconf_client,
                      GCONF_KEY_WEATHER_PROGRAM_VERSION, NULL);     
     if (!tmp){
-	fprintf(stderr,"app->current_station_id %s\n",app->current_station_id);
 	if(!app->current_station_id){
 	    fill_station_from_clock_plugin_data();
 	}	    

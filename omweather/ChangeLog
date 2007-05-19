@@ -6,6 +6,7 @@
   * The possibility to change temperature order is supplemented
   * The possibility to separate current weather is supplemented
   * The possibility to select weather data valid time is supplemented
+  * After the first installing the program the default stations are selected from data of clock applet
 
 0.17.2
   * The problem of exit out of range of the array has been fixed. This problem rebooted desktop.

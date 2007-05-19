@@ -1,10 +1,13 @@
 omweather (0.18) unstable; urgency=low
 
   * Autoupdate is corrected
-  * Fix error while creating cache directory
-  * Fix bug - The applet crashes Desktop if there is no icon in the iconset
-  * Added all aviable stations of USA, Poland, Finland
-  
+  * The error while creating cache directory is corrected
+  * Added all aviable stations for USA, Poland, Finland
+  * The error at displaying temperature while data not aviable is corrected
+  * The possibility to change temperature order is supplemented
+  * The possibility to separate current weather is supplemented
+  * The possibility to select weather data valid time is supplemented
+
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 9 May 2007 03:35:00 +0200
 
 omweather (0.17.2) unstable; urgency=low

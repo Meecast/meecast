@@ -1,14 +1,18 @@
 0.18
   * Autoupdate is corrected
-  * Fix error while creating cache directory
-  * Added all aviable stations of USA, Poland, Finland
+  * The error while creating cache directory is corrected
+  * Added all aviable stations for USA, Poland, Finland
+  * The error at displaying temperature while data not aviable is corrected
+  * The possibility to change temperature order is supplemented
+  * The possibility to separate current weather is supplemented
+  * The possibility to select weather data valid time is supplemented
 
 0.17.2
-  * The problem of exit out of range of the array has been fixed . This problem rebooted desktop.
+  * The problem of exit out of range of the array has been fixed. This problem rebooted desktop.
   * The problem with blocking connectivity icon is solved
   * The error with station adding/removal, leading to destruction of a desktop, is corrected
   * The algorithm of processing of events is corrected
-  * Small leak of memory  is corrected
+  * Small leak of memory is corrected
   
 0.17.1
   * New periods to the select of automatic update has been added

@@ -118,6 +118,10 @@ void fill_station_from_clock_plugin_data(void){
 	}
 	fclose (clock_file);
     }
+    if (home_city)
+	g_free(home_city);
+    if (remote_city)
+	g_free(remote_city);	
 }
 
 gboolean fill_station_inform( struct weather_station *ws){

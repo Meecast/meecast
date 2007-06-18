@@ -8,6 +8,7 @@ omweather (0.18) unstable; urgency=low
   * The possibility to separate current weather is supplemented
   * The possibility to select weather data valid time is supplemented
   * After the first installing the program the default stations are selected from data of clock applet
+  * Translate to France
 
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 9 May 2007 03:35:00 +0200
 

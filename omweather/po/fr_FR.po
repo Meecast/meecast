@@ -119,7 +119,7 @@ msgstr ""
 
 #: ../src/weather-home_preference.c:753
 msgid " Add "
-msgstr " AJouter "
+msgstr " Ajouter "
 
 #: ../src/weather-window_popup.c:180
 msgid " Gust: "
@@ -473,7 +473,7 @@ msgstr "Moyen"
 
 #: ../src/weather-home_preference.c:933
 msgid "Meters"
-msgstr "Métres"
+msgstr "Mètres"
 
 #: ../src/weather-home_preference.c:936
 msgid "Miles (Imperial)"
@@ -548,7 +548,7 @@ msgstr "Jamais"
 
 #: ../src/weather-home_preference.c:999
 msgid "Next update:"
-msgstr "Prochaine MàJ :"
+msgstr "Prochaine mise à jour :"
 
 #: ../src/weather-window_popup.c:375
 msgid "Night:"
@@ -838,7 +838,7 @@ msgstr "Inverser température haute/basse"
 
 #: ../src/weather-home_preference.c:912
 msgid "Temperature units:"
-msgstr "Unitée de température :"
+msgstr "Unité de température :"
 
 #: ../src/weather-window_popup.c:283
 msgid "Temperature: "
@@ -850,7 +850,7 @@ msgstr "Je"
 
 #: ../src/weather-home_preference.c:1266
 msgid "Thanks"
-msgstr "Merci"
+msgstr "Remerciment"
 
 #: ../src/weather-home_hash.c:117
 msgid "Thursday"
@@ -890,11 +890,11 @@ msgstr "MàJ"
 
 #: ../src/weather-home_download.c:37
 msgid "Update weather"
-msgstr "MàJ météo"
+msgstr "Mise à Jour météo"
 
 #: ../src/weather-home_preference.c:992
 msgid "Updating of weather data:"
-msgstr "MàJ des donnée météo : "
+msgstr "MàJ des données météo : "
 
 #: ../src/weather-home_preference.c:1173
 msgid ""
@@ -910,7 +910,7 @@ msgstr "VAR"
 
 #: ../src/weather-home_preference.c:790
 msgid "Visible items:"
-msgstr "Élément visible :"
+msgstr "Éléments visibles :"
 
 #: ../src/weather-home_hash.c:134
 msgid "W"

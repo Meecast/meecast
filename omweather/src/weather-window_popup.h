@@ -25,18 +25,22 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-	
 */
-
+/*******************************************************************************/
 #ifndef _weather_window_popup_h
 #define _weather_window_popup_h 1
-
+/*******************************************************************************/
 #include "weather-home_common.h"
-
+/*******************************************************************************/
 extern	GtkWidget	*buttons[];
 extern	int		boxs_offset[];
 extern	gchar		path_large_icon[];
-
+/*******************************************************************************/
+GtkWidget* create_header_widget(int i);
+GtkWidget* create_footer_widget(void);
+GtkWidget* create_current_weather_widget(void);
+GtkWidget* create_temperature_range_widget(int i);
+GtkWidget* create_24_hours_widget(int i, time_t current_time);
 void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);
 int c2f(int temp);
@@ -46,5 +50,5 @@ int convert_wind_units(int to, int value);
 extern gpointer hash_table_find(gpointer key);
 extern void weather_initialize_dbus(void);
 extern void swap_temperature(int *hi, int *low);
-
+/*******************************************************************************/
 #endif

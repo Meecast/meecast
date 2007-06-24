@@ -417,19 +417,34 @@ void read_config(void){
 	app->wind_units = METERS_S;
 	g_error_free(gerror);
     }
-    /* Get valid data time */
+    /* Get valid data time for current weather */
     app->data_valid_interval = gconf_client_get_int(gconf_client,                                                                                     
 			GCONF_KEY_WEATHER_VALID_DATA_TIME, &gerror) * 3600;
     if(gerror){
 	app->data_valid_interval = 2 * 3600; /* Default value - 2 hours */
 	g_error_free(gerror);
     }
-    /* If this first start then fill sdefault station from clock config */ 
+    /* Check connection */
+    tmp = gconf_client_get_string(gconf_client,
+        			    GCONF_KEY_CURRENT_CONNECTIVITY, NULL);
+    if(tmp){
+        app->iap_connected = TRUE;
+	g_free(tmp);
+    }	
+    else
+	app->iap_connected = FALSE;
+	
+    
+    /* If this first start then fill default station from clock config */ 
     tmp =gconf_client_get_string(gconf_client,
                      GCONF_KEY_WEATHER_PROGRAM_VERSION, NULL);     
     if (!tmp){
 	if(!app->current_station_id){
 	    fill_station_from_clock_plugin_data();
+	    if (app->iap_connected){
+		app->show_update_window = TRUE;
+		update_weather();
+	    }	
 	}	    
     }
     else{
@@ -450,16 +465,6 @@ void read_config(void){
 	add_time_update_list(1, _("every minute (DEBUG)"));
 /* #endif */
     }
-    /* Check connection */
-    tmp = gconf_client_get_string(gconf_client,
-        			    GCONF_KEY_CURRENT_CONNECTIVITY, NULL);
-    if(tmp){
-        app->iap_connected = TRUE;
-	g_free(tmp);
-    }	
-    else
-	app->iap_connected = FALSE;
-	
     app->show_update_window = FALSE;
     gconf_client_clear_cache(gconf_client);
     g_object_unref(gconf_client);

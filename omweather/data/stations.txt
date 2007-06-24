@@ -29816,8 +29816,6 @@ MH MAJURO WSO AIRPO PKMJ        91376  07 05N  171 16E    3   X     T  X       5
 MH MAJURO ATOLL/NWS PKMR               07 05N  171 12E    4   X              F 6 US
 MH KWAJALEIN/BUCHOL PKWA        91366  08 44N  167 44E    8   X     T          6 US
 MH MILI/MARSHALL IS MLIP        99450  06 00N  172 00E    0   X                7 US
-   UJAE ATOLL/MARSH UJAP        99449  08 55N  165 45E    2   X                7 RU
-   ENEWETAK/MARSHAL ENIP        99448  11 22N  162 22E    2   X                7 NO
 
 MICRONESIA         12-JUL-02
    WENO IS/CHUUK    PTKK        91334  07 28N  151 51E    2   X     T  X       5 FM

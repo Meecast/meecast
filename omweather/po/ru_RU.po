@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-05-19 15:06+0300\n"
+"POT-Creation-Date: 2007-06-24 18:51+0300\n"
 "PO-Revision-Date: 2007-03-27 21:26+0300\n"
 "Last-Translator: vlad <vlad@gas.by>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -66,7 +66,7 @@ msgstr ""
 "Brian Knight - за идею о наборе иконок, критику \n"
 "\t\t\tи финансовую поддержку. ;-)\n"
 
-#: src/weather-window_popup.c:133
+#: src/weather-window_popup.c:264 src/weather-window_popup.c:758
 msgid ""
 "\n"
 "Feels like: "
@@ -88,8 +88,9 @@ msgstr ""
 "для отображения погоды.\n"
 "Версия "
 
-#: src/weather-window_popup.c:164 src/weather-window_popup.c:383
-#: src/weather-window_popup.c:418
+#: src/weather-window_popup.c:295 src/weather-window_popup.c:483
+#: src/weather-window_popup.c:517 src/weather-window_popup.c:791
+#: src/weather-window_popup.c:921 src/weather-window_popup.c:955
 msgid ""
 "\n"
 "Humidity: "
@@ -97,7 +98,7 @@ msgstr ""
 "\n"
 "Влажность: "
 
-#: src/weather-window_popup.c:160
+#: src/weather-window_popup.c:291 src/weather-window_popup.c:786
 msgid ""
 "\n"
 "Pressure: "
@@ -105,7 +106,7 @@ msgstr ""
 "\n"
 "Давление: "
 
-#: src/weather-window_popup.c:140
+#: src/weather-window_popup.c:271 src/weather-window_popup.c:765
 msgid ""
 "\n"
 "Visible: "
@@ -113,7 +114,8 @@ msgstr ""
 "\n"
 "Видимость: "
 
-#: src/weather-window_popup.c:171 src/weather-window_popup.c:425
+#: src/weather-window_popup.c:302 src/weather-window_popup.c:524
+#: src/weather-window_popup.c:799
 msgid ""
 "\n"
 "Wind: "
@@ -125,7 +127,7 @@ msgstr ""
 msgid " Add "
 msgstr " Добавить "
 
-#: src/weather-window_popup.c:180
+#: src/weather-window_popup.c:311 src/weather-window_popup.c:808
 msgid " Gust: "
 msgstr " Порывы: "
 
@@ -215,7 +217,8 @@ msgstr "Авг"
 msgid "Authors"
 msgstr "Авторы"
 
-#: src/weather-window_popup.c:124 src/weather-window_popup.c:137
+#: src/weather-window_popup.c:255 src/weather-window_popup.c:268
+#: src/weather-window_popup.c:748 src/weather-window_popup.c:762
 msgid "C"
 msgstr "C"
 
@@ -247,7 +250,7 @@ msgstr "Облачно"
 msgid "Cloudy and Windy"
 msgstr "Облачно и ветер"
 
-#: src/weather-home_config.c:277
+#: src/weather-home_config.c:287
 #, c-format
 msgid "Could not create Weather Cache directory.\n"
 msgstr "Невозможно создать директорию кэша.\n"
@@ -256,7 +259,7 @@ msgstr "Невозможно создать директорию кэша.\n"
 msgid "Country:"
 msgstr "Страна:"
 
-#: src/weather-window_popup.c:411
+#: src/weather-window_popup.c:510 src/weather-window_popup.c:950
 msgid "Day:"
 msgstr "День:"
 
@@ -297,7 +300,7 @@ msgstr "ВЮВ"
 msgid "Error in xml file\n"
 msgstr "Ошибка в xml файле.\n"
 
-#: src/weather-home.c:433
+#: src/weather-home.c:436
 msgid "Error initializing the OMWeather applet"
 msgstr "Ошибка при инициализации апплета."
 
@@ -305,7 +308,8 @@ msgstr "Ошибка при инициализации апплета."
 msgid "Events"
 msgstr "События"
 
-#: src/weather-window_popup.c:125 src/weather-window_popup.c:138
+#: src/weather-window_popup.c:256 src/weather-window_popup.c:269
+#: src/weather-window_popup.c:749 src/weather-window_popup.c:763
 msgid "F"
 msgstr "F"
 
@@ -313,12 +317,12 @@ msgstr "F"
 msgid "Fahrenheit (Imperial)"
 msgstr "Фаренгейт (США и др.)"
 
-#: src/weather-home_config.c:268
+#: src/weather-home_config.c:278
 #, c-format
 msgid "Failed to initialize GConf. Quitting.\n"
 msgstr "Невозможно инициализировать GConf. Выходим.\n"
 
-#: src/weather-home_config.c:483 src/weather-home_config.c:505
+#: src/weather-home_config.c:493 src/weather-home_config.c:515
 #, c-format
 msgid "Failed to initialize GConf. Settings were not saved.\n"
 msgstr "Не возможно инициализировать GConf. Настройки не будут сохранены.\n"
@@ -419,11 +423,11 @@ msgstr "Километры"
 msgid "Large"
 msgstr "Большой"
 
-#: src/weather-window_popup.c:247
+#: src/weather-window_popup.c:378 src/weather-window_popup.c:704
 msgid "Last update: \n"
 msgstr "Последнее обновление: \n"
 
-#: src/weather-window_popup.c:244
+#: src/weather-window_popup.c:375 src/weather-window_popup.c:701
 #, c-format
 msgid "Last update: Unknown"
 msgstr "Последнее обновление: Неизвестно"
@@ -516,9 +520,9 @@ msgstr "В основном солнечно"
 msgid "N"
 msgstr "С"
 
-#: src/weather-home.c:276 src/weather-home.c:294 src/weather-home.c:314
-#: src/weather-home.c:318 src/weather-home.c:352 src/weather-home.c:356
-#: src/weather-home.c:368 src/weather-home_hash.c:61
+#: src/weather-home.c:276 src/weather-home.c:294 src/weather-home.c:317
+#: src/weather-home.c:321 src/weather-home.c:355 src/weather-home.c:359
+#: src/weather-home.c:371 src/weather-home_hash.c:61
 msgid "N/A"
 msgstr "Н/Д"
 
@@ -542,7 +546,7 @@ msgstr "Нет станции"
 msgid "NW"
 msgstr "СЗ"
 
-#: src/weather-home_preference.c:1006 src/weather-home_config.c:431
+#: src/weather-home_preference.c:1006 src/weather-home_config.c:441
 msgid "Never"
 msgstr "Никогда"
 
@@ -550,7 +554,7 @@ msgstr "Никогда"
 msgid "Next update:"
 msgstr "Следующие обновление:"
 
-#: src/weather-window_popup.c:375
+#: src/weather-window_popup.c:477 src/weather-window_popup.c:916
 msgid "Night:"
 msgstr "Ночь:"
 
@@ -566,9 +570,13 @@ msgstr "Нояб"
 msgid "Now"
 msgstr "Сейчас"
 
-#: src/weather-window_popup.c:120
+#: src/weather-window_popup.c:251
 msgid "Now:\n"
 msgstr "Сейчас:\n"
+
+#: src/weather-window_popup.c:744
+msgid "Now: "
+msgstr "Сейчас: "
 
 #: src/weather-home_hash.c:144
 msgid "Oct"
@@ -730,7 +738,7 @@ msgstr "Сен"
 msgid "Separate current weather data"
 msgstr "Выделить текущие данные погоды"
 
-#: src/weather-window_popup.c:259
+#: src/weather-window_popup.c:390 src/weather-window_popup.c:711
 msgid "Settings"
 msgstr "Настройки"
 
@@ -838,7 +846,7 @@ msgstr "Поменять местами температуры:"
 msgid "Temperature units:"
 msgstr "Единицы температуры:"
 
-#: src/weather-window_popup.c:283
+#: src/weather-window_popup.c:416 src/weather-window_popup.c:890
 msgid "Temperature: "
 msgstr "Температура:"
 
@@ -959,7 +967,8 @@ msgstr "Ветер"
 msgid "Wind speed units:"
 msgstr "Единицы скорости ветра:"
 
-#: src/weather-window_popup.c:390
+#: src/weather-window_popup.c:490 src/weather-window_popup.c:928
+#: src/weather-window_popup.c:962
 msgid "Wind: "
 msgstr "Ветер: "
 
@@ -987,35 +996,35 @@ msgstr ""
 "Ошибка в коде станции\n"
 "или индексе!!!"
 
-#: src/weather-home_config.c:435
+#: src/weather-home_config.c:445
 msgid "every 2 hours"
 msgstr "каждые 2 часа"
 
-#: src/weather-home_config.c:438
+#: src/weather-home_config.c:448
 msgid "every 24 hours"
 msgstr "каждые 24 часа"
 
-#: src/weather-home_config.c:433
+#: src/weather-home_config.c:443
 msgid "every 30 minutes"
 msgstr "каждые 30 минут"
 
-#: src/weather-home_config.c:436
+#: src/weather-home_config.c:446
 msgid "every 4 hours"
 msgstr "каждые 4 часа"
 
-#: src/weather-home_config.c:432
+#: src/weather-home_config.c:442
 msgid "every 5 minutes"
 msgstr "каждые 5 минут"
 
-#: src/weather-home_config.c:437
+#: src/weather-home_config.c:447
 msgid "every 8 hours"
 msgstr "каждые 8 часов"
 
-#: src/weather-home_config.c:434
+#: src/weather-home_config.c:444
 msgid "every hour"
 msgstr "каждый час"
 
-#: src/weather-home_config.c:440
+#: src/weather-home_config.c:450
 msgid "every minute (DEBUG)"
 msgstr "каждую минуту (отладка)"
 
@@ -1023,7 +1032,7 @@ msgstr "каждую минуту (отладка)"
 msgid "falling"
 msgstr "падает"
 
-#: src/weather-window_popup.c:150
+#: src/weather-window_popup.c:281 src/weather-window_popup.c:775
 msgid "km"
 msgstr "км"
 
@@ -1035,7 +1044,7 @@ msgstr "км/ч"
 msgid "km/s"
 msgstr "км/с"
 
-#: src/weather-window_popup.c:149
+#: src/weather-window_popup.c:280 src/weather-window_popup.c:774
 msgid "m"
 msgstr "м"
 
@@ -1047,8 +1056,9 @@ msgstr "м/ч"
 msgid "m/s"
 msgstr "м/с"
 
-#: src/weather-window_popup.c:151 src/weather-window_popup.c:152
-#: src/weather-window_popup.c:153
+#: src/weather-window_popup.c:282 src/weather-window_popup.c:283
+#: src/weather-window_popup.c:284 src/weather-window_popup.c:776
+#: src/weather-window_popup.c:777 src/weather-window_popup.c:778
 msgid "mi"
 msgstr "ми"
 
@@ -1060,7 +1070,7 @@ msgstr "ми/ч"
 msgid "mi/s"
 msgstr "ми/с"
 
-#: src/weather-window_popup.c:162
+#: src/weather-window_popup.c:293 src/weather-window_popup.c:788
 msgid "mm"
 msgstr "мм"
 

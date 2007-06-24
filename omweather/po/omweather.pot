@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-05-19 15:06+0300\n"
+"POT-Creation-Date: 2007-06-24 18:51+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,7 +47,7 @@ msgid ""
 "\t\t\t\tand donation ;-)\n"
 msgstr ""
 
-#: src/weather-window_popup.c:133
+#: src/weather-window_popup.c:264 src/weather-window_popup.c:758
 msgid ""
 "\n"
 "Feels like: "
@@ -62,26 +62,28 @@ msgid ""
 "Version "
 msgstr ""
 
-#: src/weather-window_popup.c:164 src/weather-window_popup.c:383
-#: src/weather-window_popup.c:418
+#: src/weather-window_popup.c:295 src/weather-window_popup.c:483
+#: src/weather-window_popup.c:517 src/weather-window_popup.c:791
+#: src/weather-window_popup.c:921 src/weather-window_popup.c:955
 msgid ""
 "\n"
 "Humidity: "
 msgstr ""
 
-#: src/weather-window_popup.c:160
+#: src/weather-window_popup.c:291 src/weather-window_popup.c:786
 msgid ""
 "\n"
 "Pressure: "
 msgstr ""
 
-#: src/weather-window_popup.c:140
+#: src/weather-window_popup.c:271 src/weather-window_popup.c:765
 msgid ""
 "\n"
 "Visible: "
 msgstr ""
 
-#: src/weather-window_popup.c:171 src/weather-window_popup.c:425
+#: src/weather-window_popup.c:302 src/weather-window_popup.c:524
+#: src/weather-window_popup.c:799
 msgid ""
 "\n"
 "Wind: "
@@ -91,7 +93,7 @@ msgstr ""
 msgid " Add "
 msgstr ""
 
-#: src/weather-window_popup.c:180
+#: src/weather-window_popup.c:311 src/weather-window_popup.c:808
 msgid " Gust: "
 msgstr ""
 
@@ -176,7 +178,8 @@ msgstr ""
 msgid "Authors"
 msgstr ""
 
-#: src/weather-window_popup.c:124 src/weather-window_popup.c:137
+#: src/weather-window_popup.c:255 src/weather-window_popup.c:268
+#: src/weather-window_popup.c:748 src/weather-window_popup.c:762
 msgid "C"
 msgstr ""
 
@@ -208,7 +211,7 @@ msgstr ""
 msgid "Cloudy and Windy"
 msgstr ""
 
-#: src/weather-home_config.c:277
+#: src/weather-home_config.c:287
 #, c-format
 msgid "Could not create Weather Cache directory.\n"
 msgstr ""
@@ -217,7 +220,7 @@ msgstr ""
 msgid "Country:"
 msgstr ""
 
-#: src/weather-window_popup.c:411
+#: src/weather-window_popup.c:510 src/weather-window_popup.c:950
 msgid "Day:"
 msgstr ""
 
@@ -258,7 +261,7 @@ msgstr ""
 msgid "Error in xml file\n"
 msgstr ""
 
-#: src/weather-home.c:433
+#: src/weather-home.c:436
 msgid "Error initializing the OMWeather applet"
 msgstr ""
 
@@ -266,7 +269,8 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: src/weather-window_popup.c:125 src/weather-window_popup.c:138
+#: src/weather-window_popup.c:256 src/weather-window_popup.c:269
+#: src/weather-window_popup.c:749 src/weather-window_popup.c:763
 msgid "F"
 msgstr ""
 
@@ -274,12 +278,12 @@ msgstr ""
 msgid "Fahrenheit (Imperial)"
 msgstr ""
 
-#: src/weather-home_config.c:268
+#: src/weather-home_config.c:278
 #, c-format
 msgid "Failed to initialize GConf. Quitting.\n"
 msgstr ""
 
-#: src/weather-home_config.c:483 src/weather-home_config.c:505
+#: src/weather-home_config.c:493 src/weather-home_config.c:515
 #, c-format
 msgid "Failed to initialize GConf. Settings were not saved.\n"
 msgstr ""
@@ -380,11 +384,11 @@ msgstr ""
 msgid "Large"
 msgstr ""
 
-#: src/weather-window_popup.c:247
+#: src/weather-window_popup.c:378 src/weather-window_popup.c:704
 msgid "Last update: \n"
 msgstr ""
 
-#: src/weather-window_popup.c:244
+#: src/weather-window_popup.c:375 src/weather-window_popup.c:701
 #, c-format
 msgid "Last update: Unknown"
 msgstr ""
@@ -477,9 +481,9 @@ msgstr ""
 msgid "N"
 msgstr ""
 
-#: src/weather-home.c:276 src/weather-home.c:294 src/weather-home.c:314
-#: src/weather-home.c:318 src/weather-home.c:352 src/weather-home.c:356
-#: src/weather-home.c:368 src/weather-home_hash.c:61
+#: src/weather-home.c:276 src/weather-home.c:294 src/weather-home.c:317
+#: src/weather-home.c:321 src/weather-home.c:355 src/weather-home.c:359
+#: src/weather-home.c:371 src/weather-home_hash.c:61
 msgid "N/A"
 msgstr ""
 
@@ -503,7 +507,7 @@ msgstr ""
 msgid "NW"
 msgstr ""
 
-#: src/weather-home_preference.c:1006 src/weather-home_config.c:431
+#: src/weather-home_preference.c:1006 src/weather-home_config.c:441
 msgid "Never"
 msgstr ""
 
@@ -511,7 +515,7 @@ msgstr ""
 msgid "Next update:"
 msgstr ""
 
-#: src/weather-window_popup.c:375
+#: src/weather-window_popup.c:477 src/weather-window_popup.c:916
 msgid "Night:"
 msgstr ""
 
@@ -527,8 +531,12 @@ msgstr ""
 msgid "Now"
 msgstr ""
 
-#: src/weather-window_popup.c:120
+#: src/weather-window_popup.c:251
 msgid "Now:\n"
+msgstr ""
+
+#: src/weather-window_popup.c:744
+msgid "Now: "
 msgstr ""
 
 #: src/weather-home_hash.c:144
@@ -691,7 +699,7 @@ msgstr ""
 msgid "Separate current weather data"
 msgstr ""
 
-#: src/weather-window_popup.c:259
+#: src/weather-window_popup.c:390 src/weather-window_popup.c:711
 msgid "Settings"
 msgstr ""
 
@@ -797,7 +805,7 @@ msgstr ""
 msgid "Temperature units:"
 msgstr ""
 
-#: src/weather-window_popup.c:283
+#: src/weather-window_popup.c:416 src/weather-window_popup.c:890
 msgid "Temperature: "
 msgstr ""
 
@@ -915,7 +923,8 @@ msgstr ""
 msgid "Wind speed units:"
 msgstr ""
 
-#: src/weather-window_popup.c:390
+#: src/weather-window_popup.c:490 src/weather-window_popup.c:928
+#: src/weather-window_popup.c:962
 msgid "Wind: "
 msgstr ""
 
@@ -941,35 +950,35 @@ msgid ""
 "or ZIP code!!!"
 msgstr ""
 
-#: src/weather-home_config.c:435
+#: src/weather-home_config.c:445
 msgid "every 2 hours"
 msgstr ""
 
-#: src/weather-home_config.c:438
+#: src/weather-home_config.c:448
 msgid "every 24 hours"
 msgstr ""
 
-#: src/weather-home_config.c:433
+#: src/weather-home_config.c:443
 msgid "every 30 minutes"
 msgstr ""
 
-#: src/weather-home_config.c:436
+#: src/weather-home_config.c:446
 msgid "every 4 hours"
 msgstr ""
 
-#: src/weather-home_config.c:432
+#: src/weather-home_config.c:442
 msgid "every 5 minutes"
 msgstr ""
 
-#: src/weather-home_config.c:437
+#: src/weather-home_config.c:447
 msgid "every 8 hours"
 msgstr ""
 
-#: src/weather-home_config.c:434
+#: src/weather-home_config.c:444
 msgid "every hour"
 msgstr ""
 
-#: src/weather-home_config.c:440
+#: src/weather-home_config.c:450
 msgid "every minute (DEBUG)"
 msgstr ""
 
@@ -977,7 +986,7 @@ msgstr ""
 msgid "falling"
 msgstr ""
 
-#: src/weather-window_popup.c:150
+#: src/weather-window_popup.c:281 src/weather-window_popup.c:775
 msgid "km"
 msgstr ""
 
@@ -989,7 +998,7 @@ msgstr ""
 msgid "km/s"
 msgstr ""
 
-#: src/weather-window_popup.c:149
+#: src/weather-window_popup.c:280 src/weather-window_popup.c:774
 msgid "m"
 msgstr ""
 
@@ -1001,8 +1010,9 @@ msgstr ""
 msgid "m/s"
 msgstr ""
 
-#: src/weather-window_popup.c:151 src/weather-window_popup.c:152
-#: src/weather-window_popup.c:153
+#: src/weather-window_popup.c:282 src/weather-window_popup.c:283
+#: src/weather-window_popup.c:284 src/weather-window_popup.c:776
+#: src/weather-window_popup.c:777 src/weather-window_popup.c:778
 msgid "mi"
 msgstr ""
 
@@ -1014,7 +1024,7 @@ msgstr ""
 msgid "mi/s"
 msgstr ""
 
-#: src/weather-window_popup.c:162
+#: src/weather-window_popup.c:293 src/weather-window_popup.c:788
 msgid "mm"
 msgstr ""
 

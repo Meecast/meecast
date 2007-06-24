@@ -1,7 +1,6 @@
 #include <glib.h>
 #include "weather-home_hash.h"
-
-
+/*******************************************************************************/
 GHashTable* hash_table_create(void){
     GHashTable *hash;
     
@@ -147,7 +146,7 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "VAR", _("VAR"));
     return  hash;
 }
-
+/*******************************************************************************/
 gpointer hash_table_find(gpointer key){
     gpointer	orig_key,
 		value,
@@ -162,3 +161,4 @@ gpointer hash_table_find(gpointer key){
 	result = key;
     return result;
 }
+/*******************************************************************************/

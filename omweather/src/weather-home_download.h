@@ -25,18 +25,17 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-	
 */
+/*******************************************************************************/
 #ifndef _weather_home_download_h
 #define _weather_home_download_h 1
-
+/*******************************************************************************/
 #include "weather-home_common.h"
 #include <curl/multi.h>
 #include <osso-ic.h>
 #include <osso-ic-dbus.h>
 #include <dbus/dbus-glib.h>
-
-
+/*******************************************************************************/
 static GString *url = NULL;
 static GString *full_filename_new_xml = NULL;
 CURL *curl_handle = NULL;
@@ -47,18 +46,17 @@ void weather_initialize_dbus(void);
 gboolean check_connected(void);
 void clean_download(void);
 GtkWidget *update_window = NULL;     
-
+/*******************************************************************************/
 struct HtmlFile {
   char *filename;
   FILE *stream;
 };
-
+/*******************************************************************************/
 struct HtmlFile html_file;
 gint num_transfers = 0, num_msgs = 0;
 GSList *tmplist = NULL;
 struct weather_station *ws;
 gboolean second_attempt=FALSE;
 extern void config_update_proxy(void);
-
+/*******************************************************************************/
 #endif
-

@@ -25,9 +25,8 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-	
 */
-
+/*******************************************************************************/
 #include "weather-home_preference.h"
 #if defined (BSD) && !_POSIX_SOURCE
     #include <sys/dir.h>
@@ -37,12 +36,12 @@
     #include <linux/fs.h>
     typedef struct dirent Dirent;
 #endif
+/*******************************************************************************/
 /* Hack for Maemo SDK 2.0 */
 #ifndef DT_DIR
 #define DT_DIR 4
 #endif
-
-
+/*******************************************************************************/
 /* Compare station name */
 gint compare_station(gconstpointer a, gconstpointer b){
     gint result;
@@ -58,8 +57,7 @@ gint compare_station(gconstpointer a, gconstpointer b){
 		    strlen(sca->station_name));
     return result;
 }
-
-
+/*******************************************************************************/
 /* Free memory allocated for stations list */
 void free_list_stations(void){
     static GSList *stations_list_temp = NULL;
@@ -78,7 +76,7 @@ void free_list_stations(void){
 	stations_list_in_state = NULL;
     } 
 }
-
+/*******************************************************************************/
 /* Select item on country combobox */
 void changed_country(void){
     GtkTreeModel *model;
@@ -108,18 +106,19 @@ void changed_country(void){
 	    if(strlen(out_buffer) > 0){
 		if(streq("----------------------------------------------------------------------\n",out_buffer))
     		    flag = (flag == TRUE) ? FALSE : TRUE ;
-		else
+		else{
 		    if(flag == TRUE){
     			if(strcmp("\n",out_buffer) != 0){
     			    sprintf(country_name, "%.38s", out_buffer);
 			    if(streq(gcountry_name, country_name)){
-	    /* Write country code */
+				/* Write country code */
 				country_code[0] = out_buffer[48];
 				country_code[1] = out_buffer[49];	    
 				country_code[2] = 0;
 			    }
 			}
 		    }
+		}
 	    }	
 	}
     }
@@ -153,7 +152,7 @@ void changed_country(void){
     app->current_country = gcountry_name;
     free_list_stations();
 }
-
+/*******************************************************************************/
 /* Select item on state combobox */
 void changed_state(void){
     GtkTreeModel	*model = NULL;
@@ -230,7 +229,7 @@ void changed_state(void){
     }    
     g_free(gstate_name);
 }
-
+/*******************************************************************************/
 /* Select item on station combobox */
 void changed_stations(void){
     struct station_and_weather_code *sc;
@@ -252,7 +251,7 @@ void changed_stations(void){
 	stations_list_temp = g_slist_next(stations_list_temp);
     }
 }
-
+/*******************************************************************************/
 /* Fill station list (tree) */
 void fill_station_list_view(GtkWidget *station_list_view,
 			    GtkListStore *station_list_store){
@@ -275,9 +274,9 @@ void fill_station_list_view(GtkWidget *station_list_view,
 	tmplist = g_slist_next(tmplist);
     }
 }
+/*******************************************************************************/
 /* Rename the station name */
-void 
-weather_window_rename_station(GtkWidget *widget,
+void weather_window_rename_station(GtkWidget *widget,
             			   GdkEvent *event,
                     		   gpointer user_data){
     
@@ -351,7 +350,7 @@ weather_window_rename_station(GtkWidget *widget,
         g_free(station_selected);
     gtk_widget_destroy(window_rename_station);
 }
-
+/*******************************************************************************/
 /* Delete station from list */
 static gboolean weather_delete_station(GtkWidget *widget,
                     		GdkEvent *event,
@@ -440,14 +439,13 @@ static gboolean weather_delete_station(GtkWidget *widget,
         g_free (station_selected);
     return TRUE;
 }
-
+/*******************************************************************************/
 static GtkListStore* create_station_list_store(void){
     GtkListStore *station_list = NULL;
     station_list = gtk_list_store_new(1, G_TYPE_STRING);
     return station_list;
 }
-
-
+/*******************************************************************************/
 static GtkWidget* create_tree_view(GtkListStore * list){
     GtkWidget *tree_view = NULL;
     GtkTreeSelection *list_selection = NULL;
@@ -473,10 +471,11 @@ static GtkWidget* create_tree_view(GtkListStore * list){
 /* return widget to caller */
     return tree_view;
 }
-
+/*******************************************************************************/
 #define ZERO(type, name) type name; memset(&name, 0, sizeof name)
 #define SIG_TIMER_EXPIRATION SIGRTMIN
 #define CLOCK_TYPE CLOCK_MONOTONIC
+/*******************************************************************************/
 struct timespec get_time_stamp(void){
     ZERO(struct timespec, now);
     if(clock_gettime(CLOCK_TYPE, &now) != 0)
@@ -484,7 +483,7 @@ struct timespec get_time_stamp(void){
     fprintf(stderr, "NOW=%ld.%09ld\n", now.tv_sec, now.tv_nsec);
     return now;
 }
-
+/*******************************************************************************/
 void weather_window_add_custom_station(){
     struct weather_station *ws;       /* Temp struct for station */
     GtkWidget *window_add_custom_station;
@@ -548,7 +547,7 @@ void weather_window_add_custom_station(){
     }
     gtk_widget_destroy(window_add_custom_station);
 }
-
+/*******************************************************************************/
 void weather_window_add_station(GtkWidget *widget,
             			GdkEvent *event,
                     		gpointer user_data){
@@ -672,7 +671,7 @@ void weather_window_add_station(GtkWidget *widget,
     }
     gtk_widget_destroy(window_add_station); 
 }
-
+/*******************************************************************************/
 /* Main preference window */
 void weather_window_preference(GtkWidget *widget,
 				GdkEvent *event,
@@ -1173,6 +1172,7 @@ void weather_window_preference(GtkWidget *widget,
 					_("Use Edit layout \nfor tuning images of applet"));
     gtk_widget_destroy(window_config);
 }
+/*******************************************************************************/
 /* get icon set names */
 void create_icon_set_list(GtkWidget *store){
     Dirent	*dp;
@@ -1205,7 +1205,7 @@ void create_icon_set_list(GtkWidget *store){
 	gtk_combo_box_set_active(GTK_COMBO_BOX(store), 0);
     }
 }
-
+/*******************************************************************************/
 void create_help_dialog(void){
     GtkWidget	*help_dialog,
 		*notebook,
@@ -1270,7 +1270,7 @@ void create_help_dialog(void){
     result = gtk_dialog_run(GTK_DIALOG(help_dialog));
     gtk_widget_destroy(help_dialog);
 }
-
+/*******************************************************************************/
 GtkWidget* create_scrolled_window_with_text(const char* text,
 				GtkJustification justification){
 
@@ -1300,7 +1300,7 @@ GtkWidget* create_scrolled_window_with_text(const char* text,
     gtk_container_add(GTK_CONTAINER(scrolled_window), GTK_WIDGET(text_view));
     return scrolled_window;
 }
-
+/*******************************************************************************/
 void station_list_view_select_handler(GtkTreeView *tree_view,
                                         gpointer user_data){
     struct weather_station *ws;
@@ -1337,3 +1337,4 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
     weather_frame_update(TRUE);
     config_save_current_station();
 }
+/*******************************************************************************/

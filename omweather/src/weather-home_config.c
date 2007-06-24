@@ -25,13 +25,13 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-	
 */
-
+/*******************************************************************************/
 #include "weather-home_config.h"
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
+/*******************************************************************************/
 /*
  * Change the weather cache directory and update dependent variables.
  */
@@ -67,7 +67,7 @@ gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
     gnome_vfs_uri_unref(weather_dir_uri);
     return retval;
 }
-
+/*******************************************************************************/
 /* Add time update to list */
 void add_time_update_list(gint _between_time, gchar *_time_name){
     struct time_update *tu;
@@ -76,7 +76,7 @@ void add_time_update_list(gint _between_time, gchar *_time_name){
     tu->name_between_time = g_strdup(_time_name);	  
     time_update_list = g_slist_append(time_update_list, tu);
 }
-
+/*******************************************************************************/
 /* The stations data  fill from clock plugin data */
 void fill_station_from_clock_plugin_data(void){
     FILE  *clock_file;  
@@ -123,7 +123,7 @@ void fill_station_from_clock_plugin_data(void){
     if (remote_city)
 	g_free(remote_city);	
 }
-
+/*******************************************************************************/
 gboolean fill_station_inform( struct weather_station *ws){
     FILE *stations_file;  
     char state_name[21];
@@ -168,7 +168,7 @@ gboolean fill_station_inform( struct weather_station *ws){
     }
     return FALSE;    
 }
-
+/*******************************************************************************/
 /* Reinitialize stations list */
 void reinitilize_stations_list(gchar *stations_string){
     struct weather_station *ws;
@@ -197,7 +197,7 @@ void reinitilize_stations_list(gchar *stations_string){
     }
     g_free(temp1);       
 }
-
+/*******************************************************************************/
 /* New Reinitialize stations list */
 void reinitilize_stations_list2(GSList *stlist){
     struct weather_station *ws = NULL;
@@ -224,7 +224,7 @@ void reinitilize_stations_list2(GSList *stlist){
 	stlist = g_slist_next(stlist);
     }	    
 }
-
+/*******************************************************************************/
 /* Prepare stations ID list in one string to write config file */
 gchar* prepare_idlist_string(void){
     GString *result_string;
@@ -242,7 +242,7 @@ gchar* prepare_idlist_string(void){
     }      
     return g_string_free(result_string, FALSE);
 }
-
+/*******************************************************************************/
 /* Prepare stations ID list  to write config file */
 GSList* prepare_idlist(void){
     GSList *stlist = NULL;
@@ -259,7 +259,7 @@ GSList* prepare_idlist(void){
     }
     return stlist;
 }
-
+/*******************************************************************************/
 /* Initialize all configuration from GCONF.  This should not be called more
  * than once during execution. */
 void read_config(void){
@@ -464,7 +464,7 @@ void read_config(void){
     gconf_client_clear_cache(gconf_client);
     g_object_unref(gconf_client);
 }
-
+/*******************************************************************************/
 void config_update_proxy(void){
     GConfClient *gconf_client = gconf_client_get_default();
     if(app->iap_http_proxy_host)
@@ -484,7 +484,7 @@ void config_update_proxy(void){
     }
     g_object_unref(gconf_client);
 }
-
+/*******************************************************************************/
 /* Save current station position configuration data to GCONF. */
 void config_save_current_station(){
     GConfClient *gconf_client = gconf_client_get_default();
@@ -503,7 +503,7 @@ void config_save_current_station(){
             GCONF_KEY_WEATHER_CURRENT_STATION_ID, app->current_station_id, NULL);
     g_object_unref(gconf_client);
 }
- 
+/*******************************************************************************/ 
 /* Save all configuration data to GCONF. */
 void config_save(){
     gchar temp_buffer[16];
@@ -615,3 +615,4 @@ void config_save(){
     g_slist_free(stlist);
     g_object_unref(gconf_client);
 }
+/*******************************************************************************/

@@ -25,31 +25,28 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-	
 */
+/*******************************************************************************/
 #include "weather-home_download.h"
-
-
+/*******************************************************************************/
 /* Create standard Hildon animation small window */
 void create_window_update(){
     update_window = hildon_banner_show_animation(app->main_window,
 						    NULL,
 						    _("Update weather"));
 }
-
-
+/*******************************************************************************/
 static DBusHandlerResult
 get_connection_status_signal_cb(DBusConnection *connection,
-        DBusMessage *message, void *user_data)
-{
+        DBusMessage *message, void *user_data){
+
     gchar *iap_name = NULL, *iap_nw_type = NULL, *iap_state = NULL;
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
 
     /* check signal */
     if(!dbus_message_is_signal(message,
                 ICD_DBUS_INTERFACE,
-                ICD_STATUS_CHANGED_SIG))
-    {
+                ICD_STATUS_CHANGED_SIG)){
         return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
     }
 
@@ -57,27 +54,23 @@ get_connection_status_signal_cb(DBusConnection *connection,
                 DBUS_TYPE_STRING, &iap_name,
                 DBUS_TYPE_STRING, &iap_nw_type,
                 DBUS_TYPE_STRING, &iap_state,
-                DBUS_TYPE_INVALID))
-    {
+                DBUS_TYPE_INVALID)){
         return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
     }
 
     fprintf(stderr,"  > iap_state = %s\n", iap_state);
-    if(!strcmp(iap_state, "CONNECTED"))
-    {
-        if(!app->iap_connected)
-        {
+    if(!strcmp(iap_state, "CONNECTED")){
+        if(!app->iap_connected){
             app->iap_connected = TRUE;
         }
     }
-    else if(app->iap_connected)
-    {
+    else if(app->iap_connected){
         app->iap_connected = FALSE; /* !!!!!!!!! Need Remove download */
     }
 
     return DBUS_HANDLER_RESULT_HANDLED;
 }
-
+/*******************************************************************************/
 /* Callback function for request  connection to Internet */
 void iap_callback(struct iap_event_t *event, void *arg){
     switch(event->type){
@@ -99,6 +92,7 @@ void iap_callback(struct iap_event_t *event, void *arg){
 	break;
     }
 }
+/*******************************************************************************/
 /* Check connect to Internet and connection if it not */
 gboolean get_connected(void){
     /* Register a callback function for IAP related events. */
@@ -108,14 +102,14 @@ gboolean get_connected(void){
 	return FALSE;
     return TRUE;
 }
+/*******************************************************************************/
 /* Check connect to Internet */
 gboolean check_connected(void){
     if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)
 	return FALSE;
     return TRUE;
 }
-
-
+/*******************************************************************************/
 void weather_initialize_dbus(void){
 
     if (!app->dbus_is_initialize)
@@ -143,7 +137,7 @@ void weather_initialize_dbus(void){
 	app->dbus_is_initialize = TRUE;
     }
 }
-
+/*******************************************************************************/
 /* Init easy curl */
 CURL* weather_curl_init(CURL *curl_handle){
     curl_handle = curl_easy_init(); 
@@ -164,7 +158,7 @@ CURL* weather_curl_init(CURL *curl_handle){
     } 
     return curl_handle;    
 }
-
+/*******************************************************************************/
 int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
     int result;
     struct HtmlFile *out=(struct HtmlFile *)stream;
@@ -178,7 +172,7 @@ int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
     result = fwrite(buffer, size, nmemb, out->stream);
     return result;
 }			  
-
+/*******************************************************************************/
 /* Form URL and filename for  write xml file. 
    Returns TRUE if the station is taken from the list
    Else return FLASE. This the end list
@@ -213,7 +207,7 @@ gboolean form_url_and_filename(){
     else
 	return FALSE;
 }
-
+/*******************************************************************************/
 /* Download html/xml file. Call every 100 ms after begin download */
 gboolean download_html(gpointer data){
 
@@ -371,7 +365,7 @@ gboolean download_html(gpointer data){
     app->flag_updating = 0;
     return FALSE;
 }
-
+/*******************************************************************************/
 void clean_download(void){
     if (curl_multi)
 	curl_multi_cleanup(curl_multi);
@@ -381,5 +375,5 @@ void clean_download(void){
         gtk_widget_destroy(update_window);
         update_window = NULL;
     }
-
 }
+/*******************************************************************************/

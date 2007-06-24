@@ -27,15 +27,14 @@
  * 02110-1301 USA
 	
 */
-
+/*******************************************************************************/
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
-
-
+/*******************************************************************************/
 #ifndef _weather_home_common_h
 #define _weather_home_common_h 1
-
+/*******************************************************************************/
 #include <gtk/gtk.h>
 #include <gconf/gconf-client.h>
 #define _XOPEN_SOURCE /* glibc2 needs this */
@@ -66,12 +65,13 @@
 #define CLOCK_FILE		"/usr/share/omweather/city_in_clock.txt"
 #define ICONS_PATH		"/usr/share/omweather/icons/"
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
+/*******************************************************************************/
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS };
 enum { METERS, KILOMETERS, INTERNATIONAL_MILES, IMPERIAL_MILES, SEA_MILES };
 enum { METERS_S, KILOMETERS_S, MILES_S, METERS_H, KILOMETERS_H, MILES_H };
 enum { CELSIUS, FAHRENHEIT };
 enum { LARGE, MEDIUM, SMALL };
-
+/*******************************************************************************/
 typedef struct{
     int icon;
     gchar	title[80];		/* Title */
@@ -85,8 +85,7 @@ typedef struct{
     float	pressure;		/* Pressure value */
     gchar	pressure_str[80];	/* Pressure direction */
 }part_of_day;
-
-
+/*******************************************************************************/
 typedef struct{
     part_of_day	day;		/* Or current weather */
     part_of_day	night;
@@ -98,30 +97,29 @@ typedef struct{
     gchar	low_temp[20];	/* Low temperature  of day or feels like temperature for current day */
     gchar	location[50];	/* Location */
 }weather_day;
-
+/*******************************************************************************/
 typedef struct{
     gint	error;
     xmlDoc	*doc;
     xmlNode	*weather_com_root;
 }weather_com_parser;
-
+/*******************************************************************************/
 struct event_time{
     time_t	time;          /* Time event */
     short	type_event; /* Type of event: Automatic update event AUTOUPDATE, 
 			   time of day event DAYTIMEEVENT */ 
 };
-
+/*******************************************************************************/
 struct time_update{ 
     gint	between_time;        /* Time in minutes  betwen two update weather */
     gchar	*name_between_time;  /* Human string it time */
 };
-
-
+/*******************************************************************************/
 struct weather_station{
     gchar	*id_station;
     gchar	*name_station;
 };
-
+/*******************************************************************************/
 typedef struct weather_day_button_with_image{
     GtkWidget	*button;                                                                                               
     GtkWidget	*label;                                                                                                
@@ -129,7 +127,7 @@ typedef struct weather_day_button_with_image{
     GdkPixbuf   *icon_buffer;                                                                                                             
     GtkWidget   *icon_image; 
 }WDB;
-
+/*******************************************************************************/
 typedef struct OMWeatherApplet{
     osso_context_t	*osso;
     GHashTable		*hash;
@@ -163,7 +161,7 @@ typedef struct OMWeatherApplet{
     guint		flag_updating;
     gboolean		dbus_is_initialize;
 }OMWeatherApp;
-
+/*******************************************************************************/
 weather_day weather_days[Max_count_weather_day];
 weather_day weather_current_day;
 
@@ -179,7 +177,7 @@ void read_config(void);
 void update_weather(void);
 void weather_frame_update(gboolean check);
 void hack_home_plugin_osso_for_nokia800(void);
-
+/*******************************************************************************/
 extern OMWeatherApp	*app;
-
+/*******************************************************************************/
 #endif

@@ -26,20 +26,20 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
 */
-
+/*******************************************************************************/
 #ifndef _weather_home_h
 #define _weather_home_h 1
-
+/*******************************************************************************/
 #include "weather-home_common.h"
 #include <locale.h>
 #include <libintl.h>
-
+/*******************************************************************************/
 #define APPLET_X_SIZE		200
 #define APPLET_Y_SIZE		40
 #define FONT_MAIN_SIZE_LARGE	14
 #define FONT_MAIN_SIZE_MEDIUM	12
 #define FONT_MAIN_SIZE_SMALL	10
-
+/*******************************************************************************/
 WDB* create_weather_day_button(const char *text, const char *icon, const int icon_size, gboolean transparency, char font_size);
 void delete_weather_day_button(gboolean after_all_destroy,WDB **day);
 void weather_buttons_init(void);
@@ -68,9 +68,9 @@ gboolean not_event = FALSE;
 int 	   boxs_offset [Max_count_weather_day];
 guint flag_update=0;
 gchar  path_large_icon[_POSIX_PATH_MAX];
-
+/*******************************************************************************/
 typedef struct _HomeAppletHandler HomeAppletHandler;
-
+/*******************************************************************************/
 struct _HomeAppletHandler {
     GObject parent;
     gchar *desktoppath;
@@ -85,5 +85,5 @@ struct _HomeAppletHandler {
     gint resizable_width;
     gint resizable_height;
 };
-
+/*******************************************************************************/
 #endif

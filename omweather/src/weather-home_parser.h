@@ -25,16 +25,16 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-	
 */
-
+/*******************************************************************************/
 #ifndef _weather_home_parser_h
 #define _weather_home_parser_h 1
-
+/*******************************************************************************/
 #include "weather-home_common.h"
-
+/*******************************************************************************/
 weather_com_parser *weather_parser_new_from_file(const gchar *filename);
 int parse_weather_com_xml(void);
 char* get_short_name(const char* name, gboolean what);
 void split_date(char* str, int *day);
+/*******************************************************************************/
 #endif

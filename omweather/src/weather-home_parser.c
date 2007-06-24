@@ -25,12 +25,11 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-	
 */
-
+/*******************************************************************************/
 #include "weather-home_parser.h"
 #include "weather-home_hash.h"
-
+/*******************************************************************************/
 weather_com_parser *weather_parser_new_from_file(const gchar *filename){
     weather_com_parser *parser;
 
@@ -49,8 +48,7 @@ weather_com_parser *weather_parser_new_from_file(const gchar *filename){
     }
     return parser;
 }
-
-
+/*******************************************************************************/
 int parse_weather_com_xml(void){
     weather_com_parser	*parser;
     xmlNode	*cur_node	= NULL,
@@ -425,7 +423,7 @@ int parse_weather_com_xml(void){
     free(parser);
     return count_day;     
 }
-
+/*******************************************************************************/
 char* get_short_name(const char* name, gboolean what){
     char	*result = "N/A";
 
@@ -457,7 +455,7 @@ char* get_short_name(const char* name, gboolean what){
     }
     return result;
 }
-
+/*******************************************************************************/
 void split_date(char* string, int *day){
     char *str;
     
@@ -466,3 +464,4 @@ void split_date(char* string, int *day){
 	*day = atoi(str);
     }
 }
+/*******************************************************************************/

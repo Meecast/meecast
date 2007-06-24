@@ -25,15 +25,14 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-	
 */
-
+/*******************************************************************************/
 #ifndef _weather_home_hash_h
 #define _weather_home_hash_h 1
-
+/*******************************************************************************/
 #include "weather-home_common.h"
-
+/*******************************************************************************/
 GHashTable* hash_table_create(void);
 gpointer hash_table_find(gpointer key);
-
+/*******************************************************************************/
 #endif

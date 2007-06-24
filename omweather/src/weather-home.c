@@ -27,31 +27,27 @@
  * 02110-1301 USA
 	
 */
-
+/*******************************************************************************/
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
-
+/*******************************************************************************/
 #include <stdio.h>
 #include <unistd.h>
-
 #include <glib.h>
-
 #include <hildon-home-plugin/hildon-home-plugin-interface.h>
 #include "weather-home.h"
-
 #include <unistd.h>
 #include "weather-home_hash.h"
-
+/*******************************************************************************/
 /* main struct */
 OMWeatherApp	*app = NULL;
-
+/*******************************************************************************/
 /* Translate  temperature Celsius to Farenhait */
 int c2f(int temp){
     return (temp * 1.8f ) + 32;
 }
-
-
+/*******************************************************************************/
 /* Set font size. Usually on label widget */
 void set_font_size(GtkWidget *widget, char font_size){
     PangoFontDescription *pfd = NULL;
@@ -63,7 +59,7 @@ void set_font_size(GtkWidget *widget, char font_size){
     gtk_widget_modify_font(GTK_WIDGET(widget), pfd);   /* this function is leaking */
     pango_font_description_free(pfd);
 }
-
+/*******************************************************************************/
 static gboolean enter_button(GtkWidget *widget,
         			GdkEventCrossing *event){
     GtkButton	*button;
@@ -75,7 +71,7 @@ static gboolean enter_button(GtkWidget *widget,
     gtk_button_leave(button);
     return FALSE;
 }
-
+/*******************************************************************************/
 /* Change station to previos at main display */
 static gboolean change_station_prev(GtkWidget *widget,
                     		    GdkEvent *event,
@@ -114,7 +110,7 @@ static gboolean change_station_prev(GtkWidget *widget,
     }
     return TRUE;
 }
-
+/*******************************************************************************/
 /* Change station to next at main display */
 static gboolean change_station_next(GtkWidget *widget,
                     		    GdkEvent *event,
@@ -152,6 +148,7 @@ static gboolean change_station_next(GtkWidget *widget,
     }
     return TRUE;
 }
+/*******************************************************************************/
 /* Set default value */
 void weather_buttons_init(void){
     int i;
@@ -165,15 +162,14 @@ void weather_buttons_init(void){
     }
     memset(&weather_current_day, 0, sizeof(weather_day));
 }
-
-
+/*******************************************************************************/
 /* Error Window */
 void station_error_window(void){
    hildon_banner_show_information(app->main_window,
 				    NULL,
 				    _("Wrong station code \nor ZIP code!!!"));
 }
-
+/*******************************************************************************/
 /* Fill buttons data */
 void weather_buttons_fill(gboolean check_error){
     int		i, j = 0, k = 0, offset = 0, count_day;
@@ -210,8 +206,6 @@ void weather_buttons_fill(gboolean check_error){
 	    icon_size = 32;
 	break;
     }
-    
-
 /* Init weather buttons */
     weather_buttons_init();
     count_day = parse_weather_com_xml();
@@ -407,7 +401,7 @@ void weather_buttons_fill(gboolean check_error){
     if(error_station_code)
 	station_error_window();
 }
-
+/*******************************************************************************/
 void weather_frame_update(gboolean check){
 
     free_memory(FALSE);
@@ -418,14 +412,13 @@ void weather_frame_update(gboolean check){
     else
 	weather_buttons_fill(FALSE);
 }
-
+/*******************************************************************************/
 /* Get Weather xml file from weather.com */
 void update_weather(void){
     if (app->flag_updating == 0)
 	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }
-
-
+/*******************************************************************************/
 void* hildon_home_applet_lib_initialize(void *state_data, 
 					int *state_size,
 					GtkWidget **widget){
@@ -471,8 +464,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     (*widget) = app->top_widget;
     return (void*)osso;
 }
-
-
+/*******************************************************************************/
 int hildon_home_applet_lib_save_state(void *raw_data,
 				    void **state_data, 
 				    int *state_size){
@@ -484,19 +476,19 @@ int hildon_home_applet_lib_save_state(void *raw_data,
 	(*state_size) = 0;
     return 1;
 }
-
+/*******************************************************************************/
 void hildon_home_applet_lib_background(void *raw_data){
     #ifdef PC_EMULATOR
         fprintf(stderr, "\nOMWeather applet background\n");
     #endif
 }
-
+/*******************************************************************************/
 void hildon_home_applet_lib_foreground(void *raw_data){
     #ifdef PC_EMULATOR
 	fprintf(stderr, "\nOMWeather applet foreground\n");
     #endif
 }
-
+/*******************************************************************************/
 void hildon_home_applet_lib_deinitialize(void *applet_data){
     osso_context_t *osso;
     gboolean check;
@@ -526,7 +518,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     /* Deinitialize libosso */
     osso_deinitialize(osso);
 }
-
+/*******************************************************************************/
 GtkWidget* hildon_home_applet_lib_settings(void *applet_data,
 					    GtkWindow *parent){
     #ifdef PC_EMULATOR
@@ -534,6 +526,7 @@ GtkWidget* hildon_home_applet_lib_settings(void *applet_data,
     #endif
     return NULL;
 }
+/*******************************************************************************/
 /* create days panel and station name panel */
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size){
     gchar	buffer[2048];
@@ -676,9 +669,8 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn); 
     if(station_name_btn)
 	g_object_unref(station_name_btn);
-
 }
-
+/*******************************************************************************/
 /* free used memory from OMWeather struct */
 void free_memory(gboolean flag){
     int    i;
@@ -747,7 +739,7 @@ void free_memory(gboolean flag){
 	for(i = 0; i < app->days_to_show; i++)
 	    delete_weather_day_button( TRUE, &(app->buttons[i]) );
 }
-
+/*******************************************************************************/
 WDB* create_weather_day_button(const char *text, const char *icon, const int icon_size, gboolean transparency, char font_size){
 
     WDB	*new_day_button;
@@ -792,8 +784,8 @@ WDB* create_weather_day_button(const char *text, const char *icon, const int ico
     gtk_container_add(GTK_CONTAINER(new_day_button->button), new_day_button->box);
     return new_day_button;
 }
-
-void delete_weather_day_button(gboolean after_all_destroy,WDB **day){
+/*******************************************************************************/
+void delete_weather_day_button(gboolean after_all_destroy, WDB **day){
 
     if(after_all_destroy){
 	if(*day){
@@ -824,9 +816,10 @@ void delete_weather_day_button(gboolean after_all_destroy,WDB **day){
 	}
     }
 }
-
+/*******************************************************************************/
 void swap_temperature(int *hi, int *low){
     int tmp;
     
     tmp = *hi; *hi = *low; *low = tmp;
 }
+/*******************************************************************************/

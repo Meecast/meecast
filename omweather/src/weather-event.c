@@ -27,11 +27,11 @@
  * 02110-1301 USA
 	
 */
-
+/*******************************************************************************/
 #include "weather-event.h"
-
+/*******************************************************************************/
 static GSList *event_time_list = NULL;
-
+/*******************************************************************************/
 gboolean timer_handler(gpointer data){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
@@ -40,7 +40,6 @@ gboolean timer_handler(gpointer data){
     char   *temp_string;
     fprintf(stderr, "Begin %s(): \n", __PRETTY_FUNCTION__);
 #endif
-
     if(not_event == TRUE || !event_time_list)
 	return TRUE;
 
@@ -91,7 +90,7 @@ gboolean timer_handler(gpointer data){
     }
     return TRUE;    
 }
-
+/*******************************************************************************/
 #ifdef PC_EMULATOR
 /*For debug */
 void print_list(char *buff, size_t buff_size){
@@ -118,13 +117,13 @@ void print_list(char *buff, size_t buff_size){
 	fprintf(stderr, tmp);
 }
 #endif
-
+/*******************************************************************************/
 void timer(void){
     app->timer = g_timeout_add(60000,
 			       (GtkFunction)timer_handler,
 			       app->main_window); /* One per minute */
 }
-
+/*******************************************************************************/
 /* Free memory allocated for time event */
 void free_list_time_event(void){
     static GSList *list_time_event_temp = NULL;
@@ -154,7 +153,7 @@ void free_list_time_event(void){
     #endif
 
 }
-
+/*******************************************************************************/
 /* Compare function for sort event list */
 static gint compare_time(gconstpointer a, gconstpointer b){
     struct event_time *evta, *evtb;
@@ -163,7 +162,7 @@ static gint compare_time(gconstpointer a, gconstpointer b){
     evtb = (struct event_time*)b;
     return(evta->time < evtb->time) ? -1 : (evta->time > evtb->time) ? +1 : 0;
 }
-
+/*******************************************************************************/
 /* Add time event  to list */	  
 void time_event_add(time_t time_value, short type_event){
     struct event_time *evt = NULL;
@@ -187,9 +186,8 @@ void time_event_add(time_t time_value, short type_event){
     /* fprintf(stderr,"time_event_add in list finished\n");
     print_list(NULL, 0); */
     #endif
-    
 }
-
+/*******************************************************************************/
 /* Add periodic time event  to list */	  
 void add_periodic_event(time_t last_update){
 
@@ -207,7 +205,7 @@ void add_periodic_event(time_t last_update){
     #endif
 	
 }
-
+/*******************************************************************************/
 /* Remove periodic time event  from list */	  
 void remove_periodic_event(void){
     static GSList *list_time_event_temp = NULL;
@@ -236,7 +234,7 @@ void remove_periodic_event(void){
     print_list(NULL, 0);
     #endif
 }
-
+/*******************************************************************************/
 void remove_daytime_event(void){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
@@ -264,7 +262,7 @@ void remove_daytime_event(void){
     print_list(NULL, 0);
     #endif
 }
-
+/*******************************************************************************/
 time_t next_update(void){
     GSList	*tmp_list = NULL;
     time_t	result	= 0;
@@ -281,3 +279,4 @@ time_t next_update(void){
     }
     return result;
 }
+/*******************************************************************************/

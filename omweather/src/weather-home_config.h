@@ -25,13 +25,13 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-	
 */
+/*******************************************************************************/
 #ifndef _weather_home_config_h
 #define _weather_home_config_h 1
-
+/*******************************************************************************/
 #include "weather-home_common.h"
-
+/*******************************************************************************/
 #define GCONF_KEY_PREFIX "/apps/maemo/omweather"
 #define GCONF_KEY_WEATHER_DIR_NAME         GCONF_KEY_PREFIX"/weather-dir"
 #define GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME     GCONF_KEY_PREFIX"/current-country-name"
@@ -62,13 +62,11 @@
 #define GCONF_KEY_CLOCK_PREFIX "/apps/osso/clock"
 #define GCONF_KEY_CLOCK_REMOTE_LOCATION GCONF_KEY_CLOCK_PREFIX"/remote-location"
 #define GCONF_KEY_CLOCK_HOME_LOCATION GCONF_KEY_CLOCK_PREFIX"/home-location"
-
-
+/*******************************************************************************/
 extern GSList   *time_update_list;
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
-
+/*******************************************************************************/
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 void config_update_proxy(void);
-
-
+/*******************************************************************************/
 #endif

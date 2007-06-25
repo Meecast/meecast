@@ -1,3 +1,9 @@
+omweather-icons-beginning (0.2) unstable; urgency=low
+
+  * The icon has been added to deb packet
+  
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 16 May 2007 13:11:23 +0200  
+
 omweather-icons-beginning (0.1) unstable; urgency=low
 
   * Initial release. 

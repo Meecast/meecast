@@ -73,7 +73,7 @@ void weather_window_popup_show(GtkWidget *widget,
 	weather_window_preference(widget, event, user_data);
 	return;
     }
-    /* Search: Which button pressed */
+    /* Search: Which button is pressed */
     for(i = 0;i < app->days_to_show; i++)
 	if(app->buttons[i]->button == widget) 
 	    break;
@@ -109,68 +109,69 @@ void weather_window_popup_show(GtkWidget *widget,
     separator_after_header = gtk_hseparator_new();
     gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_header,
 			    FALSE, FALSE, 0);
-
-    if(first_day || (second_day && app->separate)){ /* if first or second day */
-	if(first_day){
-	    if(!app->separate){ /* if weather data isn't separated */
+    if(strcmp(weather_days[i].location, "")){
+	if(first_day || (second_day && app->separate)){ /* if first or second day */
+	    if(first_day){
+		if(!app->separate){ /* if weather data isn't separated */
+		    gtk_box_pack_start(GTK_BOX(popup_vbox), create_temperature_range_widget(i),
+    					    FALSE, FALSE, 0);
+		    separator_after_temperature = gtk_hseparator_new();
+		    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_temperature,
+					    FALSE, FALSE, 0);
+		    if((weather_current_day.date_time > ( current_time - app->data_valid_interval )) &&
+        		    (weather_current_day.date_time < ( current_time + app->data_valid_interval )) &&
+			    weather_current_day.location){
+			gtk_box_pack_start(GTK_BOX(popup_vbox), create_current_weather_widget(),
+						    FALSE, FALSE, 0);
+			/* added separator */
+			separator_after_current = gtk_hseparator_new();
+			gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_current,
+			    			FALSE, FALSE, 0);
+		    }
+		    gtk_box_pack_start(GTK_BOX(popup_vbox), create_24_hours_widget(i, current_time),
+					    FALSE, FALSE, 0);
+		    separator_after_24_hours_widget = gtk_hseparator_new();
+		    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_24_hours_widget,
+					FALSE, FALSE, 0);		
+		}
+		else{/* if weather data is separated */
+		    if((weather_current_day.date_time > ( current_time - app->data_valid_interval )) &&
+        		    (weather_current_day.date_time < ( current_time + app->data_valid_interval )) &&
+			    weather_current_day.location){
+			gtk_box_pack_start(GTK_BOX(popup_vbox), create_current_weather_widget(),
+						    FALSE, FALSE, 0);
+			/* added separator */
+			separator_after_current = gtk_hseparator_new();
+			gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_current,
+			    			FALSE, FALSE, 0);
+		    }
+		}
+	    }
+	    else{ /* if second day and weather data is separated */
 		gtk_box_pack_start(GTK_BOX(popup_vbox), create_temperature_range_widget(i),
 					FALSE, FALSE, 0);
 		separator_after_temperature = gtk_hseparator_new();
 		gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_temperature,
 					FALSE, FALSE, 0);
-		if((weather_current_day.date_time > ( current_time - app->data_valid_interval )) &&
-        		(weather_current_day.date_time < ( current_time + app->data_valid_interval )) &&
-			weather_current_day.location){
-		    gtk_box_pack_start(GTK_BOX(popup_vbox), create_current_weather_widget(),
-						FALSE, FALSE, 0);
-		    /* added separator */
-		    separator_after_current = gtk_hseparator_new();
-		    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_current,
-			    		    FALSE, FALSE, 0);
-		}
 		gtk_box_pack_start(GTK_BOX(popup_vbox), create_24_hours_widget(i, current_time),
 				    FALSE, FALSE, 0);
 		separator_after_24_hours_widget = gtk_hseparator_new();
 		gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_24_hours_widget,
-				    FALSE, FALSE, 0);		
-	    }
-	    else{/* if weather data is separated */
-		if((weather_current_day.date_time > ( current_time - app->data_valid_interval )) &&
-        		(weather_current_day.date_time < ( current_time + app->data_valid_interval )) &&
-			weather_current_day.location){
-		    gtk_box_pack_start(GTK_BOX(popup_vbox), create_current_weather_widget(),
-						FALSE, FALSE, 0);
-		    /* added separator */
-		    separator_after_current = gtk_hseparator_new();
-		    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_current,
-			    		    FALSE, FALSE, 0);
-		}
+				    FALSE, FALSE, 0);
 	    }
 	}
-	else{ /* if second day and weather data is separated */
+	else{/* not first or not second day */
 	    gtk_box_pack_start(GTK_BOX(popup_vbox), create_temperature_range_widget(i),
-				    FALSE, FALSE, 0);
+				FALSE, FALSE, 0);
 	    separator_after_temperature = gtk_hseparator_new();
 	    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_temperature,
-				    FALSE, FALSE, 0);
+				FALSE, FALSE, 0);
 	    gtk_box_pack_start(GTK_BOX(popup_vbox), create_24_hours_widget(i, current_time),
 				FALSE, FALSE, 0);
 	    separator_after_24_hours_widget = gtk_hseparator_new();
 	    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_24_hours_widget,
 				FALSE, FALSE, 0);
-	}
-    }
-    else{/* not first or not second day */
-	gtk_box_pack_start(GTK_BOX(popup_vbox), create_temperature_range_widget(i),
-			    FALSE, FALSE, 0);
-	separator_after_temperature = gtk_hseparator_new();
-	gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_temperature,
-			    FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(popup_vbox), create_24_hours_widget(i, current_time),
-			    FALSE, FALSE, 0);
-	separator_after_24_hours_widget = gtk_hseparator_new();
-	gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_24_hours_widget,
-			    FALSE, FALSE, 0);
+        }
     }
 /* added footer to popup window */
     gtk_box_pack_start(GTK_BOX(popup_vbox), create_footer_widget(),
@@ -238,11 +239,12 @@ GtkWidget* create_header_widget(int i){
 				button, FALSE, FALSE, 2);
 /* prepare date label */
     date_hbox = gtk_hbox_new(FALSE, 0);
-    sprintf(buffer,"%s, %s", weather_days[i].dayfuname, weather_days[i].date);
-    date_label = gtk_label_new(buffer);
-    set_font_size(date_label, 16); 
-    gtk_box_pack_start(GTK_BOX(date_hbox),
-				date_label, FALSE, FALSE, 5);
+    if(strcmp(weather_days[i].date, "") && strcmp(weather_days[i].dayfuname, "")){
+	sprintf(buffer,"%s, %s", weather_days[i].dayfuname, weather_days[i].date);
+        date_label = gtk_label_new(buffer);
+	set_font_size(date_label, 16); 
+	gtk_box_pack_start(GTK_BOX(date_hbox), date_label, FALSE, FALSE, 5);
+    }
 /* prepare main vbox */
     main_widget = gtk_vbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(main_widget),
@@ -267,8 +269,8 @@ GtkWidget* create_footer_widget(void){
     else{ 
 	buffer[0] = 0;
 	strcat(buffer, _("Last update: \n"));
-    	sprintf(buffer + strlen(buffer), "%s", ctime(&statv.st_mtime));
-    	buffer[strlen(buffer) - 1] = 0; /* Remove Last \n */
+    	strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+		"%c", localtime(&statv.st_mtime));
     }
     label_update = gtk_label_new(buffer);    
     set_font_size(label_update, 18);

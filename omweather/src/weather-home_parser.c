@@ -269,14 +269,7 @@ int parse_weather_com_xml(void){
 				     sizeof(weather_days[count_day-1].dayfuname) - 1, "%s",
 				     (char*)hash_table_find(temp_xml_string));
 			    xmlFree(temp_xml_string);				     
-			    /*
-			    tmp = (char*)xmlGetProp(child_node, (const xmlChar*)"dt");
-			    split_date(tmp, &date);
-			    snprintf(weather_days[count_day-1].date,
-				     sizeof(weather_days[count_day-1].date) - 1,
-				     "%s %d",
-				     (char*)hash_table_find(tmp), date);
-			    */
+
 			    temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"dt");
 			    snprintf(weather_days[count_day-1].date,
         			     sizeof(weather_days[count_day-1].date) - 1,

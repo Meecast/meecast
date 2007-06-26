@@ -969,7 +969,7 @@ void weather_window_preference(GtkWidget *widget,
         			table = gtk_table_new(3, 2, FALSE),
         			label = gtk_label_new(_("Update")));
     gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new(_("Weather data valid time:")),
+        			label = gtk_label_new(_("Valid time for current weather data:")),
         			0, 1, 0, 1);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),

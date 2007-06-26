@@ -948,8 +948,8 @@ msgid "We"
 msgstr "Ср"
 
 #: src/weather-home_preference.c:974
-msgid "Weather data valid time:"
-msgstr "Актуальность данных:"
+msgid "Valid time for current weather data:"
+msgstr "Время актуальности данных для текущие погоды:"
 
 #: src/weather-home_download.c:323
 msgid "Weather updated"

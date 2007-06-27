@@ -944,8 +944,8 @@ msgid "We"
 msgstr "Me"
 
 #: src/weather-home_preference.c:974
-msgid "Weather data valid time:"
-msgstr "Date de validité de la Météo :"
+msgid "Valid time for current weather data:"
+msgstr "Durée de validité pour la météo courante :"
 
 #: src/weather-home_download.c:323
 msgid "Weather updated"

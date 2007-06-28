@@ -4567,6 +4567,8 @@ GA WAYCROSS/WARE CO KAYS  AYS   72213  31 15N  082 24W   46   X                7
 GA WINDER/BARROW    KWDR  WDR          33 59N  083 40W  287   X                7 US
 GA BLAKELY EARLY C  K11J  11J          31 24N  084 54W   65   Z                8 US
 GA SAVANNAH LIGHT               99438  31 57N  080 19W    1   Z                8 US
+   KUTAISI                                                                          GGXX0002
+   TBILISI                                                                          GGXX0004
    ABBEVILLE                                                                        USGA0001
    ACWORTH                                                                          USGA0002
    ADAIRSVILLE                                                                      USGA0003
@@ -30840,7 +30842,7 @@ BELGIUM            26-APR-06
 
 GERMANY            08-MAY-06
    ALTENBURG-NOBITZ EDAC  AOC          50 59N  012 30E  195   X     T          6 DE
-   DESSAU           EDAD               51 50N  012 11E   57   Z                7 DE
+   DESSAU           EDAD               51 50N  012 11E   57   Z                7 DE GMXX0022
    HERINGSDORF      EDAH               53 52N  014 09E   28   X     T          6 DE
    BERLIN/TEMPLEHO  EDBB               52 28N  013 24E   49   Z                7 DE
    MAGDEBURG        EDBM               52 05N  011 37E   82   X     T          6 DE GMXX0079
@@ -30865,7 +30867,7 @@ GERMANY            08-MAY-06
    BREMEN           EDDW        10224  53 02N  008 48E    5   X     T          6 DE GMXX0014
    BABENHAUSEN(USA  EDEF        10643  49 57N  008 58E  131   Z                7 DE
    BAUMHOLDER (USA  EDEK        10619  49 38N  007 17E  426   Z                7 DE
-   HAHN             EDFH        10616  49 57N  007 16E  498   X     T          6 DE
+   HAHN             EDFH        10616  49 57N  007 16E  498   X     T          6 DE GMXX0251
    BADEN WURTTEMBRG EDFM        10729  49 28N  008 31E  100   X     T          6 DE GMXX0081
    HESSEN           EDGS               50 42N  008 05E  602   X                7 DE
    HAMBURG/FINKENWE EDHI        10149  53 31N  009 49E   13   X     T          6 DE GMXX0049
@@ -30880,22 +30882,22 @@ GERMANY            08-MAY-06
    NIEDERRHEIN      EDLV               51 36N  006 09E   32   X     T          7 DE
    DORTMUND/WICKEDE EDLW        10416  51 31N  007 37E  127   X     T          6 DE GMXX0024
    AUGSBERG/MULHAUS EDMA        10852  48 25N  010 55E  463   X     T          6 DE GMXX0004
-   OBERPFAFFENHOFEN EDMO               48 04N  011 16E  600   X                7 DE
-   FRIEDRICHSHAFEN  EDNY        10935  47 40N  009 31E  424   X     T          6 DE
+   OBERPFAFFENHOFEN EDMO               48 04N  011 16E  600   X                7 DE GMXX0258
+   FRIEDRICHSHAFEN  EDNY        10935  47 40N  009 31E  424   X     T          6 DE GMXX0246
    SCHWERIN-PARCHIM EDOP               53 26N  011 47E   51   X                7 DE
    NEUHAUSEN OB EC  EDPH        10921  47 58N  008 54E  794   Z                7 DE
-   BAYREUTH         EDQD        10677  49 58N  011 37E  498   X     T          6 DE
-   HOF              EDQM        10685  50 19N  011 52E  568   X     T          6 DE
+   BAYREUTH         EDQD        10677  49 58N  011 37E  498   X     T          6 DE GMXX0166
+   HOF              EDQM        10685  50 19N  011 52E  568   X     T          6 DE GMXX0157
    ZWEIBRUCKEN      EDRZ               49 13N  007 24E  344   X                7 DE
    KARLSRUHE/BADEN  EDSB  FKB          48 47N  008 05E  124   X                7 DE
    DONAUESCHINGEN   EDTD               47 58N  008 31E  680   X     T          8 DE
    LAHR (CAN-AFB)   EDTL               48 22N  007 50E  156   X     T          6 DE
-   KONSTANZ         EDTZ        10929  47 40N  009 10E  447   Z                7 DE
+   KONSTANZ         EDTZ        10929  47 40N  009 10E  447   Z                7 DE GMXX0254
    BRAUNSCHWEIG     EDVE        10348  52 17N  010 26E   88   X                7 DE GMXX0013
    KASSEL/CALDEN    EDVK        10436  51 23N  009 22E  285   X     T          6 DE GMXX0153
    LEMWERDER        EDWD               53 08N  008 37E   30   Z                7 DE
    EMDEN-KOENIGSPO  EDWE        10200  53 21N  007 13E    5   X        X       7 DE
-   WESTERLAND/SYLT  EDXW        10018  54 55N  008 20E   20   X     T          6 DE
+   WESTERLAND/SYLT  EDXW        10018  54 55N  008 20E   20   X     T          6 DE GMXX0266
    ESSEN/MULHEIM    EDZE        10410  51 23N  006 58E  161   Z        X       7 DE GMXX0035
    SPANGDAHLEM (USA ETAD        10607  49 58N  006 42E  365   X     T          7 DE
    RAMSTEIN (USAFB) ETAR        10614  49 25N  007 35E  238   X     T          7 DE
@@ -30964,7 +30966,7 @@ GERMANY            08-MAY-06
    NORDHORN RANGE   ETUN        10308  52 27N  007 10E   26   Z                7 DE
    GUETERSLOH (RAF) ETUO        10320  51 55N  008 18E   72   X                7 DE
    BRUGGEN (RAF)    ETUR        10401  51 12N  006 07E   76   Z                7 DE
-   MEPPEN           ETWM               52 43N  007 20E   21   X                7 DE
+   MEPPEN           ETWM               52 43N  007 20E   21   X                7 DE GMXX0206
    MUENSTER/OSNABRU EDLG               52 07N  007 42E   52   Z                7 DE
    MUNICH-RIEM EDDM             10866  48 07N  011 41E  529   Z                7 DE
    HANNOVER         EDVV               52 28N  009 41E   54   Z                7 DE
@@ -30977,61 +30979,248 @@ GERMANY            08-MAY-06
    KIEL/HOLTENAU(G  EDCK               54 22N  010 09E   31   Z                7 DE
    NORVENICH (GER-  EDNN               50 49N  006 40E  135   Z                7 DE
    BERLIN/SCHONEFE  ETBS               52 22N  013 31E   48   Z                7 DE
-   SCHLESWIG                    10035  54 32N  009 33E   48            X       7 DE
-   GREIFSWALD                   10184  54 06N  013 23E    2            X       7 DE
-   LINDENBERG                   10393  52 13N  014 07E  115            X       7 DE
+   SCHLESWIG                    10035  54 32N  009 33E   48            X       7 DE GMXX0120
+   GREIFSWALD                   10184  54 06N  013 23E    2            X       7 DE GMXX0148
+   LINDENBERG                   10393  52 13N  014 07E  115            X       7 DE GMXX0152
    OPIN                         10468  51 32N  012 04E  106            X       7 DE
    WAHNSDORF                    10486  51 07N  013 41E  246            X       7 DE GMXX0025
-   MEININGEN                    10548  50 34N  010 22E  450            X       7 DE
+   MEININGEN                    10548  50 34N  010 22E  450            X       7 DE GMXX0156
    CHEMNITZ                     10577  50 48N  012 52E  419            X       7 DE GMXX0016
    STUTTGART/SCHNAR             10739  48 50N  009 12E  315            X       7 DE
    MUENCHEN/OBERSCH             10868  48 15N  011 35E  484            X       7 DE
    HOHENPEISSENBERG             10962  47 48N  011 01E  986            X       7 DE
    AACHEN                                                                           GMXX0154
+   AHAUS                                                                            GMXX0163
+   AHRENSBURG                                                                       GMXX0001
+   ALLENDORF                                                                        GMXX0162
+   ALSENZ                                                                           GMXX0165
+   ALTENBRUCH                                                                       GMXX0002
+   AMBERG                                                                           GMXX0164
+   ANSBACH                                                                          GMXX0161
+   ASCHAFFENBURG                                                                    GMXX0003
+   BAD HERSFELD                                                                     GMXX0280
+   BAD TOLZ                                                                         GMXX0240
+   BAMBERG                                                                          GMXX0005
    BERGISCH GLADBACH                                                                GMXX0006
-   BIELEFELD                                                                        GMXX0242
+   BERLIN/SCHONEFELD                                                                GMXX0008
+   BERLIN-TEMPELHOF                                                                 GMXX0151
+   BIELEFELD-WINDELSBLEICHE                                                         GMXX0242
+   BITBURG                                                                          GMXX0167
+   BLEXEN                                                                           GMXX0009
    BONN                                                                             GMXX0010
    BOTTROP                                                                          GMXX0011
+   BRANDENBURG                                                                      GMXX0012
    BREMERHAVEN                                                                      GMXX0015
+   BRUGGEN                                                                          GMXX0231
+   BRUNSBUTTEL                                                                      GMXX0168
+   BUCKEBURG                                                                        GMXX0169
+   CELLE                                                                            GMXX0170
+   CLOPPENBURG                                                                      GMXX0017
+   COBURG                                                                           GMXX0243
    COTTBUS                                                                          GMXX0171
+   CUXHAVEN                                                                         GMXX0019
+   DACHAU                                                                           GMXX0172
    DARMSTADT                                                                        GMXX0020
+   DEGGENDORF                                                                       GMXX0173
+   DELMENHORST                                                                      GMXX0021
+   DETMOLD                                                                          GMXX0174
+   DOBELN                                                                           GMXX0023
+   DONAUESCHINGEN-VILLINGEN                                                         GMXX0241
+   DUHNEN                                                                           GMXX0026
    DUISBURG                                                                         GMXX0027
-   FREIBURG                                                                         GMXX0041
+   EBERSBERG                                                                        GMXX0175
+   EBERSWALDE                                                                       GMXX0029
+   ECKERNFORDE                                                                      GMXX0030
+   EGGENFELDEN                                                                      GMXX0177
+   EICHSTATT                                                                        GMXX0178
+   EIFEL                                                                            GMXX0272
+   ELMSHORN                                                                         GMXX0031
+   EMDEN                                                                            GMXX0032
+   EMDEN-KOENIGSPOLDER                                                              GMXX0149
+   ERDING                                                                           GMXX0176
+   ERLANGEN                                                                         GMXX0034
+   ESCHLKAM                                                                         GMXX0179
+   ESCHWEGE                                                                         GMXX0181
+   ESSLINGEN                                                                        GMXX0036
+   EUSKIRCHEN                                                                       GMXX0037
+   EUTIN                                                                            GMXX0180
+   FALKENSEE                                                                        GMXX0038
+   FEUCHT                                                                           GMXX0244
+   FLENSBURG                                                                        GMXX0039
+   FRANKFURT/MAIN                                                                   GMXX0040
+   FREIBURG/BREISGAU                                                                GMXX0041
+   FREISING                                                                         GMXX0042
+   FREUDENSTADT                                                                     GMXX0245
+   FREYUNG                                                                          GMXX0187
+   FRIESOYTHE                                                                       GMXX0186
+   FRITZLAR                                                                         GMXX0184
+   FULDA                                                                            GMXX0247
+   FULPA                                                                            GMXX0182
+   FURSTENFELDBRUCK                                                                 GMXX0183
    FURTH                                                                            GMXX0043
+   GARMISCH-PARTENKIRCHEN                                                           GMXX0248
+   GEILENKIRCHEN                                                                    GMXX0249
+   GELNHAUSEN                                                                       GMXX0191
    GELSENKIRCHEN                                                                    GMXX0044
    GERA                                                                             GMXX0190
+   GERETSRIED                                                                       GMXX0189
+   GERMERSHEIM                                                                      GMXX0192
+   GETTORF                                                                          GMXX0045
+   GIESSEN                                                                          GMXX0250
+   GOERLITZ                                                                         GMXX0268
+   GOPPINGEN                                                                        GMXX0046
    GOTTINGEN                                                                        GMXX0194
+   GRAFENAU                                                                         GMXX0193
+   GRAFENWOHR                                                                       GMXX0269
+   GRUNBERG                                                                         GMXX0188
+   GUETERSLOH                                                                       GMXX0270
    HAGEN                                                                            GMXX0047
    HALLE                                                                            GMXX0048
    HAMM                                                                             GMXX0198
+   HANAU AM MAIN                                                                    GMXX0050
+   HARRISLEE                                                                        GMXX0052
    HEILBRONN                                                                        GMXX0054
+   HELGOLAND                                                                        GMXX0144
+   HENNIGSDORF                                                                      GMXX0055
    HERNE                                                                            GMXX0056
+   HILDESHEIM                                                                       GMXX0057
+   HILPOLSTEIN                                                                      GMXX0199
+   HINTE                                                                            GMXX0058
+   HOCHHEIM                                                                         GMXX0196
+   HOLZKIRCHEN                                                                      GMXX0197
+   HURTH                                                                            GMXX0059
+   HUSBY                                                                            GMXX0195
+   HUSUM                                                                            GMXX0252
+   IDAR-OBERSTEIN                                                                   GMXX0253
    INGOLSTADT                                                                       GMXX0060
+   ITZEHOE                                                                          GMXX0061
+   JEVER                                                                            GMXX0200
+   JULICH                                                                           GMXX0062
+   KALL                                                                             GMXX0201
    KARLSRUHE                                                                        GMXX0063
+   KAUFBEUREN                                                                       GMXX0203
+   KEMPTEN                                                                          GMXX0159
+   KIEL                                                                             GMXX0064
+   KITZINGEN                                                                        GMXX0065
    KOBLENZ                                                                          GMXX0066
    KREFELD                                                                          GMXX0067
+   KRONSHAGEN                                                                       GMXX0068
+   KRUMBACH                                                                         GMXX0202
+   LAHR                                                                             GMXX0255
+   LANDSHUT                                                                         GMXX0069
+   LANGENHAGEN                                                                      GMXX0070
+   LARBRUCH                                                                         GMXX0204
+   LECHFELD                                                                         GMXX0271
+   LECKE                                                                            GMXX0215
+   LEER                                                                             GMXX0071
    LEVERKUSEN                                                                       GMXX0073
+   LIST/SYLT                                                                        GMXX0145
+   LUCHOW                                                                           GMXX0205
+   LUCKENWALDE                                                                      GMXX0075
+   LUDWIGSBURG                                                                      GMXX0076
    LUDWIGSHAFEN                                                                     GMXX0077
+   LUNEBURG                                                                         GMXX0078
    MAINZ                                                                            GMXX0080
+   MARBURG                                                                          GMXX0082
+   MARIENFELDE                                                                      GMXX0083
+   MARKTBREIT                                                                       GMXX0084
+   MEMMINGEN                                                                        GMXX0256
+   MERZIG                                                                           GMXX0208
+   MINDEN                                                                           GMXX0085
+   MUEHLDORF                                                                        GMXX0267
+   MURNAU                                                                           GMXX0207
+   NAUMBURG                                                                         GMXX0209
+   NEUBERG                                                                          GMXX0210
+   NEUBRANDEBURG                                                                    GMXX0211
+   NEUMARKT                                                                         GMXX0217
+   NEUMUNSTER                                                                       GMXX0089
+   NEUNKIRCHEN                                                                      GMXX0214
+   NEURUPPIN                                                                        GMXX0150
    NEUSS                                                                            GMXX0090
+   NEUWIED                                                                          GMXX0091
+   NIENBURG                                                                         GMXX0092
+   NORDEN                                                                           GMXX0093
+   NORDENHAM                                                                        GMXX0094
+   NORDERNEY                                                                        GMXX0257
+   NORDHAUSEN                                                                       GMXX0216
+   NORDHEIDE                                                                        GMXX0095
+   NORDHORN                                                                         GMXX0213
+   NORDLINGEN                                                                       GMXX0212
+   NUERBURG-BARWEILER                                                               GMXX0155
    OBERHAUSEN                                                                       GMXX0097
+   OBERSTDORF                                                                       GMXX0259
+   OCHSENFURT                                                                       GMXX0098
+   OEVERSEE                                                                         GMXX0099
    OFFENBACH                                                                        GMXX0100
    OLDENBURG                                                                        GMXX0101
+   OLDERSUM                                                                         GMXX0102
+   ORANIENBURG                                                                      GMXX0103
    OSNABRUCK                                                                        GMXX0104
+   OTTERNDORF                                                                       GMXX0105
+   PASSAU                                                                           GMXX0260
+   PEINE                                                                            GMXX0106
+   PFAFFENHOFEN                                                                     GMXX0220
+   PFARRKIRCHEN                                                                     GMXX0219
    PFORZHEIM                                                                        GMXX0107
+   PINNEBERG                                                                        GMXX0108
+   PIRMASENS                                                                        GMXX0222
+   PLAUEN                                                                           GMXX0261
    POTSDAM                                                                          GMXX0109
+   PRENZLAU                                                                         GMXX0221
+   QUICKBORN                                                                        GMXX0262
+   RASTEDE                                                                          GMXX0110
    RECKLINGHAUSEN                                                                   GMXX0111
+   REGENSBERG                                                                       GMXX0112
    REGENSBURG                                                                       GMXX0223
    REMSCHEID                                                                        GMXX0113
+   RENDSBURG                                                                        GMXX0114
+   RENNEROD                                                                         GMXX0224
+   ROSENHEIM                                                                        GMXX0115
    ROSTOCK                                                                          GMXX0225
+   ROSTOCK/SCHWERIN                                                                 GMXX0225
+   RUSSELSHEIM                                                                      GMXX0116
+   SAHLENBURG                                                                       GMXX0118
    SALZGITTER                                                                       GMXX0119
+   SALZWEDAL                                                                        GMXX0229
+   SCHROBENHAUSEN                                                                   GMXX0228
+   SCHWABACH                                                                        GMXX0121
+   SCHWABISCH HALL                                                                  GMXX0263
+   SCHWEINFURT                                                                      GMXX0122
+   SCHWERIN                                                                         GMXX0123
+   SEIGBURG                                                                         GMXX0124
    SIEGEN                                                                           GMXX0125
    SOLINGEN                                                                         GMXX0126
+   SPADEN                                                                           GMXX0127
+   STARNBERG                                                                        GMXX0227
+   STRAUBING                                                                        GMXX0158
+   SULIGEN                                                                          GMXX0226
+   TOENNING                                                                         GMXX0230
+   TRIER                                                                            GMXX0129
+   TUBINGEN                                                                         GMXX0130
    ULM                                                                              GMXX0131
+   VEITSBRONN                                                                       GMXX0132
+   VILLINGEN-SCHWENNINGEN                                                           GMXX0133
+   VILSBIBURG                                                                       GMXX0232
+   VILSHOFEN                                                                        GMXX0233
+   WALDKIRCHEN                                                                      GMXX0234
+   WALLSBULL                                                                        GMXX0134
+   WEIBENBURG                                                                       GMXX0235
+   WEIDEN                                                                           GMXX0264
+   WEIMAR                                                                           GMXX0135
+   WERNIGERODE                                                                      GMXX0265
+   WESTERMARKELSDORF                                                                GMXX0146
+   WESTERSTEDE                                                                      GMXX0136
+   WETZLAR                                                                          GMXX0137
+   WILHELMSHAVEN                                                                    GMXX0139
+   WITTENBERGE                                                                      GMXX0237
    WITTEN                                                                           GMXX0237
+   WITTIGEN                                                                         GMXX0236
    WOLFSBURG                                                                        GMXX0140
    WUPPERTAL                                                                        GMXX0141
    WURZBURG                                                                         GMXX0142
+   ZEVEN                                                                            GMXX0238
+   ZIRNDORF                                                                         GMXX0143
+   ZWICKAU                                                                          GMXX0239
 
 ESTONIA            12-JUL-02
    TALLINN          EETN               59 24N  024 49E   40   X     T          8 EE ENXX0004
@@ -31321,6 +31510,7 @@ NETHERLANDS        12-FEB-04
    HAARLEMMERMEER                                                                   NLXX0010
    HERTOGENBOSCH                                                                    NLXX0041
    TILBURG                                                                          NLXX0017
+   THE HAGUE                                                                        NLXX0016
 
 IRELAND            12-FEB-04
    CORK ARPT/CORCAI EICK        03955  51 51N  008 28W  162   X     T          6 IE EIXX0011
@@ -31662,6 +31852,7 @@ SPAIN              12-FEB-04
    CASTELLO                                                                         SPXX0021
    DONOSTIA                                                                         SPXX0026
    GIJON                                                                            SPXX0222
+   GUADALAJARA                                                                      SPXX0041
    HUELVA                                                                           SPXX0225
    JAEN                                                                             SPXX0045
    LLEIDA                                                                           SPXX0175
@@ -31879,6 +32070,7 @@ GREECE             28-OCT-05
    VOLOS (CIV/MIL)  LGVO               39 22N  022 56E   27   Z                8 GR
    LARISSA                                                                          GRXX0011
    PATRAI                                                                           GRXX0013
+   SALONICA                                                                         
 
 HUNGARY            31-JUL-06
    BUDAPEST/FERIHEG LHBP        12839  47 25N  019 16E  185   X     T          6 HU HUXX0002
@@ -34571,7 +34763,7 @@ CHINA              09-NOV-04
    XUZHOU           ZSXZ               34 16N  117 11E   42   X                9 CN CHXX0437
    CHONGQING/CHUNGK ZUCK        57516  29 31N  106 28E  351   X     T          6 CN CHXX0017
    GUIYANG          ZUGY        57816  26 34N  106 43E 1074   X                7 CN CHXX0039
-   LHASA            ZULS        55591  29 40N  091 07E 3650   X                7 CN
+   LHASA            ZULS        55591  29 40N  091 07E 3650   X                7 CN CHXX0080
    CHENGDU          ZUUU        56294  30 40N  104 01E  508   X     T          6 CN CHXX0016
    HAMI             ZWHM        52203  42 49N  093 31E  739   X                7 CN CHXX0219
    KASHI            ZWSH        51709  39 28N  075 58E 1291   X     T          7 CN CHXX0074
@@ -35186,6 +35378,7 @@ INDIA              08-JAN-04
    MUZAFFARPUR                                                                      INXX0090
    NAGERCOIL                                                                        INXX0092
    NASHIK                                                                           INXX0194
+   NEW DELHI                                                                        INXX0096
    NIZAMABAD                                                                        INXX0098
    PATIALA                                                                          INXX0139
    PONDICHERRY                                                                      INXX0101
@@ -35594,7 +35787,7 @@ AUSTRALIA          07-DEC-04
    ROCKHAMPTON AIRP YBRK        94374  23 22S  150 28E   14   X     T          6 AU
    BROOME AIRPORT   YBRM        94203  17 56S  122 13E    9   X     T          6 AU
    TOWNSVILLE(CIV/M YBTL        94294  19 15S  146 45E    6   X     T          6 AU ASXX0117
-   WEIPA CITY       YBWP        94171  12 37S  141 52E   12   X                7 AU
+   WEIPA CITY       YBWP        94171  12 37S  141 52E   12   X                7 AU	
    CURTIN/DERBY     YCIN               17 35S  123 50E   91   X     T          7 AU
    GOVE AIRPORT     YDGV        94150  12 16S  136 49E   54   X                7 AU
    TENNANT CREEK AR YDTC        94238  19 37S  134 10E  376   X                7 AU
@@ -35714,18 +35907,18 @@ NEW ZEALAND        27-DEC-01
    HAMILTON                                                                         NZXX0013
 
 ANTARCTICA         08-JAN-04
-   WILLIAMS FIELD   NZCM        89674  77 52S  166 58E    8   X                6 NZ
-   AMUNDSEN-SCOTT   NZSP        89009  89 59S  179 59E 2830   X     T          6 NZ
-   PEGASUS FIELD    NZPG               77 57S  166 31E    5   X     T          6 NZ
-   MCMURDO WILLIAMS NZWD               77 52S  167 04E   22   X     T          6 NZ
-   MCMURDO ICE RNWY NZIR               77 51S  166 35E    2   X     T          7 NZ AYXX0010
+   WILLIAMS FIELD   NZCM        89674  77 52S  166 58E    8   X                6 AY
+   AMUNDSEN-SCOTT   NZSP        89009  89 59S  179 59E 2830   X     T          6 AY
+   PEGASUS FIELD    NZPG               77 57S  166 31E    5   X     T          6 AY
+   MCMURDO WILLIAMS NZWD               77 52S  167 04E   22   X     T          6 AY
+   MCMURDO ICE RNWY NZIR               77 51S  166 35E    2   X     T          7 AY AYXX0010
    BASE ARTURO PRAT                                                                 AYXX0007
-   BASE BERNANDO O'HIGGINS                                                          AYXX0009
+   BASE BERNANDO                                                                    AYXX0009
    BASE ESPERANZA                                                                   AYXX0001
    BASE JUBANY                                                                      AYXX0003
-   BASE MARAMBIO CENTRO MET. ANTARTICO                                              AYXX0005
+   BASE MARAMBIO C.                                                                 AYXX0005
    BASE ORCADAS                                                                     AYXX0002
-   CENTRO MET. ANTARTICO                                                            AYXX0006
+   CENTRO MET. ANT                                                                  AYXX0006
    DIAMET-URUGUAY                                                                   AYXX0004
    GREAT WALL                                                                       AYXX0008
 

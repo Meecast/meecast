@@ -1,3 +1,7 @@
+0.18.1
+  * Correct error in stations.txt
+  * Correct translation for Russion
+
 0.18
   * Autoupdate is corrected
   * The error while creating cache directory is corrected

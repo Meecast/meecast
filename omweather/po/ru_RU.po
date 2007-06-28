@@ -949,7 +949,7 @@ msgstr "Ср"
 
 #: src/weather-home_preference.c:974
 msgid "Valid time for current weather data:"
-msgstr "Время актуальности данных для текущие погоды:"
+msgstr "Актуальности текущей погоды:"
 
 #: src/weather-home_download.c:323
 msgid "Weather updated"

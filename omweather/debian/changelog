@@ -2,6 +2,7 @@ omweather (0.18.1) unstable; urgency=low
 
   * Correct error in stations.txt
   * Correct translation for Russion
+  * Added full station list of Germany
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 1 Jul 2007 03:35:00 +0200
 

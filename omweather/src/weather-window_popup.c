@@ -352,7 +352,7 @@ GtkWidget* create_current_weather_widget(void){
 /* pressure */
     strcat(buffer, _("\nPressure: "));
     sprintf(buffer + strlen(buffer), "%.1f %s, ", weather_current_day.day.pressure,
-		    _("mm"));
+		    _("mb"));
     strcat(buffer, weather_current_day.day.pressure_str);
 /* humidity */
     strcat(buffer, _("\nHumidity: "));

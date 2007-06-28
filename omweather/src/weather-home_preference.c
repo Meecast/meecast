@@ -1264,6 +1264,13 @@ void create_help_dialog(void){
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),
         			title = gtk_label_new(_("Thanks")));
+/* Translators tab */
+    snprintf(tmp_buff, sizeof(tmp_buff), "%s",
+	    _("French - Nicolas Granziano\n"));
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			create_scrolled_window_with_text(tmp_buff,
+						    GTK_JUSTIFY_LEFT),
+        			title = gtk_label_new(_("Translators")));
 
     gtk_widget_show_all(help_dialog);
 /* start dialog window */

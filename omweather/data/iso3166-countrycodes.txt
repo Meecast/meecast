@@ -16,7 +16,7 @@ AMERICAN SAMOA                                  AS      ASM     016
 ANDORRA                                         AD      AND     020
 ANGOLA                                          AO      AGO     024
 ANGUILLA                                        AI      AIA     660
-ANTARCTICA                                      AQ      ATA     010
+ANTARCTICA                                      AY      ATA     010
 ANTIGUA AND BARBUDA                             AG      ATG     028
 ARGENTINA                                       AR      ARG     032
 ARMENIA                                         AM      ARM     051  

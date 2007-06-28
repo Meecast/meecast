@@ -1079,7 +1079,7 @@ msgid "mi/s"
 msgstr "ми/с"
 
 #: src/weather-window_popup.c:293 src/weather-window_popup.c:788
-msgid "mm"
+msgid "mb"
 msgstr "мбар"
 
 #: src/weather-home_hash.c:87

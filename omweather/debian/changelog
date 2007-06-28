@@ -1,3 +1,10 @@
+omweather (0.18.1) unstable; urgency=low
+
+  * Correct error in stations.txt
+  * Correct translation for Russion
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 1 Jul 2007 03:35:00 +0200
+
 omweather (0.18) unstable; urgency=low
 
   * Autoupdate is corrected

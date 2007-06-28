@@ -62,6 +62,14 @@ msgstr ""
 "Brian Knight - pour les idée d'icones, les critiques \n"
 "\t\t\t\tet les donations ;-)\n"
 
+#: src/weather-home_preference.c:1269
+msgid "French - Nicolas Granziano\n"
+msgstr "French  - Nicolas Granziano\n"
+
+#: src/weather-home_preference.c:1273
+msgid "Translators"
+msgstr "Traducteurs"
+
 #: src/weather-window_popup.c:264 src/weather-window_popup.c:758
 msgid ""
 "\n"

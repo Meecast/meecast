@@ -47,6 +47,14 @@ msgid ""
 "\t\t\t\tand donation ;-)\n"
 msgstr ""
 
+#: src/weather-home_preference.c:1269
+msgid "French - Nicolas Granziano\n"
+msgstr ""
+
+#: src/weather-home_preference.c:1273
+msgid "Translators"
+msgstr ""
+
 #: src/weather-window_popup.c:264 src/weather-window_popup.c:758
 msgid ""
 "\n"

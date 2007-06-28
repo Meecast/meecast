@@ -66,6 +66,14 @@ msgstr ""
 "Brian Knight - за идею о наборе иконок, критику \n"
 "\t\t\tи финансовую поддержку. ;-)\n"
 
+#: src/weather-home_preference.c:1269
+msgid "French - Nicolas Granziano\n"
+msgstr "Французский - Nicolas Granziano\n"
+
+#: src/weather-home_preference.c:1273
+msgid "Translators"
+msgstr "Перевод"
+
 #: src/weather-window_popup.c:264 src/weather-window_popup.c:758
 msgid ""
 "\n"

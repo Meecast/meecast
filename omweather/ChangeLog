@@ -1,8 +1,10 @@
 0.18.1
   * Correct error in stations.txt
   * Correct translation for Russion
-  * Added full station list of Germany
+  * Added full station list of Germany and France
   * Corrected pressure units
+  * The buttons is translated
+  * Localized date in popup window
 
 0.18
   * Autoupdate is corrected

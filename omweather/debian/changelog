@@ -2,8 +2,10 @@ omweather (0.18.1) unstable; urgency=low
 
   * Correct error in stations.txt
   * Correct translation for Russion
-  * Added full station list of Germany
+  * Added full station list of Germany and France
   * Corrected pressure units  
+  * The buttons is translated
+  * Localized date in popup window
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 1 Jul 2007 03:35:00 +0200
 

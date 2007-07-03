@@ -59,7 +59,6 @@
 #define DAYTIMEEVENT		2
 #define DBUSINITEVENT		3
 #define DAY_DOWNLOAD		10
-#define OFFSET_CURRENT_WEATHER	2 * 3600 /* 2 hours in seconds */
 #define STATIONS_FILE		"/usr/share/omweather/stations.txt"
 #define COUNTRYS_FILE		"/usr/share/omweather/iso3166-countrycodes.txt"
 #define CLOCK_FILE		"/usr/share/omweather/city_in_clock.txt"

@@ -34,7 +34,5 @@
 /*******************************************************************************/
 weather_com_parser *weather_parser_new_from_file(const gchar *filename);
 int parse_weather_com_xml(void);
-char* get_short_name(const char* name, gboolean what);
-void split_date(char* str, int *day);
 /*******************************************************************************/
 #endif

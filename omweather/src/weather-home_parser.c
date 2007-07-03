@@ -259,15 +259,21 @@ int parse_weather_com_xml(void){
 			if( count_day < Max_count_weather_day ){ /* Check limit day */
 			    count_day++; 
 			    temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"t");
-			    snprintf(weather_days[count_day-1].dayshname,
-				     sizeof(weather_days[count_day-1].dayshname) - 1,
-				     "%s",
-				    (char*)hash_table_find(get_short_name((char*)temp_xml_string, 0)));
+			    memset(buffer, 0, sizeof(buffer));
+			    memcpy(buffer, temp_xml_string, sizeof(buffer) - 2);
+			    strptime(buffer, "%A", tm);
+			    memset(weather_days[count_day-1].dayshname, 0,
+				    sizeof(weather_days[count_day-1].dayshname));
+			    strftime(weather_days[count_day-1].dayshname,
+			            sizeof(weather_days[count_day-1].dayshname) - 1,
+				    "%a", tm);
 			    xmlFree(temp_xml_string);
 			    temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"t");
+			    memset(weather_days[count_day-1].dayfuname, 0,
+				    sizeof(weather_days[count_day-1].dayfuname));
 			    snprintf(weather_days[count_day-1].dayfuname,
 				     sizeof(weather_days[count_day-1].dayfuname) - 1, "%s",
-				     (char*)hash_table_find(temp_xml_string));
+				     temp_xml_string);
 			    xmlFree(temp_xml_string);				     
 
 			    temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"dt");
@@ -415,46 +421,5 @@ int parse_weather_com_xml(void){
     xmlCleanupParser();
     free(parser);
     return count_day;     
-}
-/*******************************************************************************/
-char* get_short_name(const char* name, gboolean what){
-    char	*result = "N/A";
-
-    switch(what){
-	default:
-	case 0:
-	    ( !strcmp(name, "Monday") ) && (result = "Mo");
-	    ( !strcmp(name, "Thursday") ) && (result = "Th");
-	    ( !strcmp(name, "Tuesday") ) && (result = "Tu");
-	    ( !strcmp(name, "Sunday") ) && (result = "Su");
-	    ( !strcmp(name, "Wednesday") ) && (result = "We");
-	    ( !strcmp(name, "Saturday") ) && (result = "Sa");
-	    ( !strcmp(name, "Friday") ) && (result = "Fr");
-	break;
-	case 1:
-	    ( strstr("January", name) ) && (result = "Jan");
-	    ( strstr("February", name) ) && (result = "Feb");
-	    ( strstr("March", name) ) && (result = "Mar");
-	    ( strstr("April", name) ) && (result = "Apr");
-	    ( strstr("May", name) ) && (result = "May");
-	    ( strstr("June", name) ) && (result = "Jun");
-	    ( strstr("July", name) ) && (result = "Jul");
-	    ( strstr("August", name) ) && (result = "Aug");
-	    ( strstr("September", name) ) && (result = "Sep");
-	    ( strstr("October", name) ) && (result = "Oct");
-	    ( strstr("November", name) ) && (result = "Nov");
-	    ( strstr("December", name) ) && (result = "Dec");
-	break;
-    }
-    return result;
-}
-/*******************************************************************************/
-void split_date(char* string, int *day){
-    char *str;
-    
-    if( (str = strchr(string, ' ')) ){ 
-	*str = 0; str++;
-	*day = atoi(str);
-    }
 }
 /*******************************************************************************/

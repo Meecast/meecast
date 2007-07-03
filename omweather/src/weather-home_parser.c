@@ -144,6 +144,14 @@ int parse_weather_com_xml(void){
 			    xmlFree(temp_xml_string);
 			}    
 		    }	
+		    if( child_node->type == XML_ELEMENT_NODE  && 
+			    ( !xmlStrcmp(child_node->name, (const xmlChar *)"zone") ) ){
+			for (i = 0; i < Max_count_weather_day; i++){
+			    temp_xml_string = xmlNodeGetContent(child_node);
+			    weather_days[i].zone = atol((char*)temp_xml_string) * 60 * 60;
+			    xmlFree(temp_xml_string);
+			}
+		    }	
 		}
 	    }
 	/* Fill current day */

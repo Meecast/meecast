@@ -302,13 +302,14 @@ void weather_window_rename_station(GtkWidget *widget,
     window_rename_station = gtk_dialog_new_with_buttons(_("Rename Station"),
         						NULL,
 							GTK_DIALOG_MODAL,
-        						GTK_STOCK_OK,
-							GTK_RESPONSE_ACCEPT, NULL);
+							NULL);
 
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_rename_station)->vbox),
         		    table = gtk_table_new(2, 2, FALSE), TRUE, TRUE, 0);	    
     gtk_dialog_add_button(GTK_DIALOG(window_rename_station),
-        		    GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT);
+        		    _("OK"), GTK_RESPONSE_ACCEPT);
+    gtk_dialog_add_button(GTK_DIALOG(window_rename_station),
+			    _("Cancel"), GTK_RESPONSE_REJECT);
    /* Add Label and Edit */
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(_("Station:")),
@@ -493,12 +494,13 @@ void weather_window_add_custom_station(){
 /* Create dialog window */
     window_add_custom_station = gtk_dialog_new_with_buttons(_("Add Custom Station"),
         							NULL, GTK_DIALOG_MODAL,
-        							GTK_STOCK_OK,
-								GTK_RESPONSE_ACCEPT, NULL);
+								NULL);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_add_custom_station)->vbox),
         		    table = gtk_table_new(4, 2, FALSE), TRUE, TRUE, 0);	    
     gtk_dialog_add_button(GTK_DIALOG(window_add_custom_station),
-        		    GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT);
+        		    _("OK"), GTK_RESPONSE_ACCEPT);
+    gtk_dialog_add_button(GTK_DIALOG(window_add_custom_station),
+			    _("Cancel"), GTK_RESPONSE_REJECT);
 /* Add Custom Station Name  */
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(_("Station name:")),
@@ -566,14 +568,15 @@ void weather_window_add_station(GtkWidget *widget,
     window_add_station = gtk_dialog_new_with_buttons(_("Add Station"),
         						NULL,
 							GTK_DIALOG_MODAL,
-        						GTK_STOCK_OK,
-							GTK_RESPONSE_ACCEPT, NULL);
+							NULL);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_add_station)->vbox),
         		table = gtk_table_new(4, 2, FALSE), TRUE, TRUE, 0);
     gtk_dialog_add_button(GTK_DIALOG(window_add_station),
                     		_("Add Custom Station"), OMW_RESPONSE_ADD_CUSTOM_STATION);
     gtk_dialog_add_button(GTK_DIALOG(window_add_station),
-        			GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT);
+				_("OK"), GTK_RESPONSE_ACCEPT);
+    gtk_dialog_add_button(GTK_DIALOG(window_add_station),
+        			_("Cancel"), GTK_RESPONSE_REJECT);
 /* Add Country */
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(_("Country:")),
@@ -713,14 +716,16 @@ void weather_window_preference(GtkWidget *widget,
     window_config = gtk_dialog_new_with_buttons(_("Other Maemo Weather Settings"),
         				NULL,
 					GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-        				GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
 					NULL);
+    /* add OK button */
+    gtk_dialog_add_button(GTK_DIALOG(window_config),
+	    _("OK"), GTK_RESPONSE_ACCEPT);
     /* add CANCEL button */
     gtk_dialog_add_button(GTK_DIALOG(window_config),
-            GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT);
+            _("Cancel"), GTK_RESPONSE_REJECT);
     /* add Help button */
     gtk_dialog_add_button(GTK_DIALOG(window_config),
-            GTK_STOCK_ABOUT, GTK_RESPONSE_HELP);
+            _("About"), GTK_RESPONSE_HELP);
 /* Create Notebook widget */
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_config)->vbox),
         	    notebook = gtk_notebook_new(), TRUE, TRUE, 0);
@@ -969,7 +974,7 @@ void weather_window_preference(GtkWidget *widget,
         			table = gtk_table_new(3, 2, FALSE),
         			label = gtk_label_new(_("Update")));
     gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new(_("Valid time for current weather data:")),
+        			label = gtk_label_new(_("Valid time for current weather:")),
         			0, 1, 0, 1);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
@@ -1004,7 +1009,7 @@ void weather_window_preference(GtkWidget *widget,
 	temp_string = _("Never");
     else{
 	tmp_buff[0] = 0;
-	strftime(tmp_buff, sizeof(tmp_buff) - 1, "%c", localtime(&next_update_time));
+	strftime(tmp_buff, sizeof(tmp_buff) - 1, "%X %x", localtime(&next_update_time));
 	temp_string = tmp_buff;
     }
     gtk_container_add(GTK_CONTAINER(label), gtk_label_new(temp_string));
@@ -1216,7 +1221,7 @@ void create_help_dialog(void){
     help_dialog = gtk_dialog_new_with_buttons(_("Other Maemo Weather Info"),
         				NULL,
 					GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-        				GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
+        				_("OK"), GTK_RESPONSE_ACCEPT,
 					NULL);
 /* Create Notebook widget */
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(help_dialog)->vbox),

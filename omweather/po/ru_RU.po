@@ -476,7 +476,7 @@ msgstr "С"
 #: src/weather-home.c:315 src/weather-home.c:349 src/weather-home.c:353
 #: src/weather-home.c:365 src/weather-home_hash.c:57
 msgid "N/A"
-msgstr "НЕТ"
+msgstr "Н/Д"
 
 #: src/weather-home_hash.c:58
 msgid "NE"

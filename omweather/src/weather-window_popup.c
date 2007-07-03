@@ -109,7 +109,7 @@ void weather_window_popup_show(GtkWidget *widget,
     separator_after_header = gtk_hseparator_new();
     gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_header,
 			    FALSE, FALSE, 0);
-    if(strcmp(weather_days[i].location, "")){
+    if(strcmp(weather_days[i].dayfuname, "")){
 	if(first_day || (second_day && app->separate)){ /* if first or second day */
 	    if(first_day){
 		if(!app->separate){ /* if weather data isn't separated */
@@ -208,6 +208,7 @@ GtkWidget* create_header_widget(int i){
 		*date_label;
     GtkIconInfo *gtkicon_update;
     gchar       buffer[1024];
+    struct tm	tmp_time_date_struct;
 
 /* Show full or short name station */ 
     if(i < DAY_DOWNLOAD){
@@ -239,8 +240,15 @@ GtkWidget* create_header_widget(int i){
 				button, FALSE, FALSE, 2);
 /* prepare date label */
     date_hbox = gtk_hbox_new(FALSE, 0);
+#ifdef PC_EMULATOR
+    fprintf(stderr, "\nDate = %s Day name %s\n", weather_days[i].date,
+                   weather_days[i].dayfuname);
+#endif
     if(strcmp(weather_days[i].date, "") && strcmp(weather_days[i].dayfuname, "")){
-	sprintf(buffer,"%s, %s", weather_days[i].dayfuname, weather_days[i].date);
+	sprintf(buffer,"%s %s", weather_days[i].dayfuname, weather_days[i].date);
+	strptime(buffer, "%A %b %d", &tmp_time_date_struct);
+	memset(buffer, 0, sizeof(buffer));
+	strftime(buffer, sizeof(buffer) - 1, "%a %d %b", &tmp_time_date_struct);
         date_label = gtk_label_new(buffer);
 	set_font_size(date_label, 16); 
 	gtk_box_pack_start(GTK_BOX(date_hbox), date_label, FALSE, FALSE, 5);
@@ -265,12 +273,12 @@ GtkWidget* create_footer_widget(void){
     sprintf(full_filename, "%s/%s.xml", app->weather_dir_name,
 		app->current_station_id);
     if(stat(full_filename, &statv))
-    	sprintf(buffer, _("Last update: Unknown"));
+	sprintf(buffer, "%s%s", _("Last update: \n"), _("Unknown"));
     else{ 
 	buffer[0] = 0;
 	strcat(buffer, _("Last update: \n"));
     	strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-		"%c", localtime(&statv.st_mtime));
+		"%X %x", localtime(&statv.st_mtime));
     }
     label_update = gtk_label_new(buffer);    
     set_font_size(label_update, 18);

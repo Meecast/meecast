@@ -37,8 +37,6 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Few Snow", _("Few Snow"));
     g_hash_table_insert(hash, "Few Snow Showers", _("Few Snow Showers"));
     g_hash_table_insert(hash, "Fog", _("Fog"));
-    g_hash_table_insert(hash, "Friday", _("Friday"));
-    g_hash_table_insert(hash, "Fr", _("Fr"));
     g_hash_table_insert(hash, "Full", _("Full"));
     g_hash_table_insert(hash, "Haze", _("Haze"));
     g_hash_table_insert(hash, "Heavy Rain / Wind", _("Heavy Rain / Wind"));
@@ -53,8 +51,6 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Light Snow Shower", _("Light Snow Shower"));
     g_hash_table_insert(hash, "Low", _("Low"));
     g_hash_table_insert(hash, "Mist", _("Mist"));
-    g_hash_table_insert(hash, "Monday", _("Monday"));
-    g_hash_table_insert(hash, "Mo", _("Mo"));
     g_hash_table_insert(hash, "Mostly Clear", _("Mostly Clear"));
     g_hash_table_insert(hash, "Mostly Cloudy", _("Mostly Cloudy"));
     g_hash_table_insert(hash, "Mostly Sunny", _("Mostly Sunny"));
@@ -85,8 +81,6 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Rain / Wind Early", _("Rain / Wind Early"));
     g_hash_table_insert(hash, "Rain / Wind", _("Rain / Wind"));
     g_hash_table_insert(hash, "rising", _("rising"));
-    g_hash_table_insert(hash, "Saturday", _("Saturday"));
-    g_hash_table_insert(hash, "Sa", _("Sa"));
     g_hash_table_insert(hash, "Scattered Showers", _("Scattered Showers"));
     g_hash_table_insert(hash, "Scattered Snow", _("Scattered Snow"));
     g_hash_table_insert(hash, "Scattered Snow Showers", _("Scattered Snow Showers"));
@@ -109,15 +103,9 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "SSW", _("SSW"));
     g_hash_table_insert(hash, "steady", _("steady"));
     g_hash_table_insert(hash, "Storm", _("Storm"));
-    g_hash_table_insert(hash, "Sunday", _("Sunday"));
-    g_hash_table_insert(hash, "Su", _("Su"));
     g_hash_table_insert(hash, "Sunny", _("Sunny"));
     g_hash_table_insert(hash, "Sunny / Wind", _("Sunny / Wind"));
     g_hash_table_insert(hash, "SW", _("SW"));
-    g_hash_table_insert(hash, "Thursday", _("Thursday"));
-    g_hash_table_insert(hash, "Th", _("Th"));
-    g_hash_table_insert(hash, "Tuesday", _("Tuesday"));
-    g_hash_table_insert(hash, "Tu", _("Tu"));
     g_hash_table_insert(hash, "Unlimited", _("Unlimited"));
     g_hash_table_insert(hash, "Waning Crescent", _("Waning Crescent"));
     g_hash_table_insert(hash, "Waning Gibbous", _("Waning Gibbous"));
@@ -132,18 +120,6 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "WNW", _("WNW"));
     g_hash_table_insert(hash, "WSW", _("WSW"));
     g_hash_table_insert(hash, "W", _("W"));
-    g_hash_table_insert(hash, "Jan", _("Jan"));
-    g_hash_table_insert(hash, "Feb", _("Feb"));
-    g_hash_table_insert(hash, "Mar", _("Mar"));
-    g_hash_table_insert(hash, "Apr", _("Apr"));
-    g_hash_table_insert(hash, "May", _("May"));
-    g_hash_table_insert(hash, "Jun", _("Jun"));
-    g_hash_table_insert(hash, "Jul", _("Jul"));
-    g_hash_table_insert(hash, "Aug", _("Aug"));
-    g_hash_table_insert(hash, "Sep", _("Sep"));
-    g_hash_table_insert(hash, "Oct", _("Oct"));
-    g_hash_table_insert(hash, "Nov", _("Nov"));
-    g_hash_table_insert(hash, "Dec", _("Dec"));
     g_hash_table_insert(hash, "VAR", _("VAR"));
     return  hash;
 }

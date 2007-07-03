@@ -93,6 +93,9 @@ void weather_window_popup_show(GtkWidget *widget,
 /* check if fist day is pressed */
     if(i == 0){
 	current_time = time(NULL); /* get current day */
+	/* correct time for current location */
+	(weather_days[i].zone >= 0) ? (current_time -= weather_days[i].zone)
+				    : (current_time += weather_days[i].zone);
 	first_day = TRUE;
 	gtk_window_move(GTK_WINDOW(app->popup_window), 180, 60);
     }

@@ -13,6 +13,7 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "km/h", _("km/h"));
     g_hash_table_insert(hash, "mi/h", _("mi/h"));
     g_hash_table_insert(hash, "AM Clouds / PM Sun", _("AM Clouds / PM Sun"));
+    g_hash_table_insert(hash, "AM Light Rain", _("AM Light Rain"));
     g_hash_table_insert(hash, "AM Light Rain / Wind", _("AM Light Rain / Wind"));
     g_hash_table_insert(hash, "AM Light Snow", _("AM Light Snow"));
     g_hash_table_insert(hash, "AM Light Wintry Mix", _("AM Light Wintry Mix"));

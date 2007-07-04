@@ -270,16 +270,16 @@ int parse_weather_com_xml(void){
 			    memset(buffer, 0, sizeof(buffer));
 			    memcpy(buffer, temp_xml_string, sizeof(buffer) - 2);
 			    strptime(buffer, "%A", tm);
-			    memset(weather_days[count_day-1].dayshname, 0,
-				    sizeof(weather_days[count_day-1].dayshname));
+			    memset(weather_days[count_day - 1].dayshname, 0,
+				    sizeof(weather_days[count_day - 1].dayshname));
 			    strftime(weather_days[count_day-1].dayshname,
 			            sizeof(weather_days[count_day-1].dayshname) - 1,
 				    "%a", tm);
 			    xmlFree(temp_xml_string);
 			    temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"t");
-			    memset(weather_days[count_day-1].dayfuname, 0,
-				    sizeof(weather_days[count_day-1].dayfuname));
-			    snprintf(weather_days[count_day-1].dayfuname,
+			    memset(weather_days[count_day - 1].dayfuname, 0,
+				    sizeof(weather_days[count_day - 1].dayfuname));
+			    snprintf(weather_days[count_day - 1].dayfuname,
 				     sizeof(weather_days[count_day-1].dayfuname) - 1, "%s",
 				     temp_xml_string);
 			    xmlFree(temp_xml_string);				     

@@ -252,9 +252,7 @@ void weather_buttons_fill(gboolean check_error){
 			temp_current = c2f(temp_current);
         	}
 		/* correct time for current location */
-		(weather_days[i + offset + j].zone >= 0) ?
-		    (current_time -= weather_days[i + offset + j].zone) :
-		    (current_time += weather_days[i + offset + j].zone);
+		current_time += weather_days[i + offset + j].zone;
 		/* add events for first day */
 		if(current_time < weather_days[i + offset + j].day.begin_time)
         	    time_event_add(weather_days[i + offset + j].day.begin_time, DAYTIMEEVENT);

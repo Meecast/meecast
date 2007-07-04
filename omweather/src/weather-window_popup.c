@@ -67,7 +67,7 @@ void weather_window_popup_show(GtkWidget *widget,
 		*separator_after_24_hours_widget;
     gboolean	first_day = FALSE,
 		second_day = FALSE;
-    
+
     /* if no one station present in list show only preference */
     if(!app->current_station_id){
 	weather_window_preference(widget, event, user_data);
@@ -78,7 +78,7 @@ void weather_window_popup_show(GtkWidget *widget,
 	if(app->buttons[i]->button == widget) 
 	    break;
     /* Not found pressed button */
-    if( i >= app->days_to_show )
+    if( i >= app->days_to_show)
 	return;
 
 /* Create POPUP WINDOW */ 
@@ -111,7 +111,7 @@ void weather_window_popup_show(GtkWidget *widget,
     separator_after_header = gtk_hseparator_new();
     gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_header,
 			    FALSE, FALSE, 0);
-    if(strcmp(weather_days[i].dayfuname, "") && strlen(weather_days[i].dayfuname) > 3){
+    if((i < app->days_to_show) && strcmp(weather_days[i].dayfuname, "")){
 	if(first_day || (second_day && app->separate)){ /* if first or second day */
 	    if(first_day){
 		if(!app->separate){ /* if weather data isn't separated */
@@ -242,11 +242,11 @@ GtkWidget* create_header_widget(int i){
 				button, FALSE, FALSE, 2);
 /* prepare date label */
     date_hbox = gtk_hbox_new(FALSE, 0);
+    if((i < app->days_to_show) && strcmp(weather_days[i].date, "") && strcmp(weather_days[i].dayfuname, "")){
 #ifdef PC_EMULATOR
     fprintf(stderr, "\nDate = %s Day name %s\n", weather_days[i].date,
                    weather_days[i].dayfuname);
 #endif
-    if(strcmp(weather_days[i].date, "") && strcmp(weather_days[i].dayfuname, "") && strlen(weather_days[i].dayfuname) > 3){
 	sprintf(buffer,"%s %s", weather_days[i].dayfuname, weather_days[i].date);
 	strptime(buffer, "%A %b %d", &tmp_time_date_struct);
 	memset(buffer, 0, sizeof(buffer));

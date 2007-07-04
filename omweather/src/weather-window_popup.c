@@ -94,8 +94,7 @@ void weather_window_popup_show(GtkWidget *widget,
     if(i == 0){
 	current_time = time(NULL); /* get current day */
 	/* correct time for current location */
-	(weather_days[i].zone >= 0) ? (current_time -= weather_days[i].zone)
-				    : (current_time += weather_days[i].zone);
+	current_time += weather_days[i].zone;
 	first_day = TRUE;
 	gtk_window_move(GTK_WINDOW(app->popup_window), 180, 60);
     }
@@ -112,7 +111,7 @@ void weather_window_popup_show(GtkWidget *widget,
     separator_after_header = gtk_hseparator_new();
     gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_header,
 			    FALSE, FALSE, 0);
-    if(strcmp(weather_days[i].dayfuname, "")){
+    if(strcmp(weather_days[i].dayfuname, "") && strlen(weather_days[i].dayfuname) > 3){
 	if(first_day || (second_day && app->separate)){ /* if first or second day */
 	    if(first_day){
 		if(!app->separate){ /* if weather data isn't separated */
@@ -247,7 +246,7 @@ GtkWidget* create_header_widget(int i){
     fprintf(stderr, "\nDate = %s Day name %s\n", weather_days[i].date,
                    weather_days[i].dayfuname);
 #endif
-    if(strcmp(weather_days[i].date, "") && strcmp(weather_days[i].dayfuname, "")){
+    if(strcmp(weather_days[i].date, "") && strcmp(weather_days[i].dayfuname, "") && strlen(weather_days[i].dayfuname) > 3){
 	sprintf(buffer,"%s %s", weather_days[i].dayfuname, weather_days[i].date);
 	strptime(buffer, "%A %b %d", &tmp_time_date_struct);
 	memset(buffer, 0, sizeof(buffer));

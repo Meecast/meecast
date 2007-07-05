@@ -50,11 +50,6 @@ static GtkListStore *station_list_store;
 static GtkWidget *station_list_view;
 static GtkWidget *window_add_station;
 
-struct station_and_weather_code {
-        gchar *station_name;
-        gchar *station_code;
-};
-
 gchar *weather_station_id;
 int index_state = 0; /* Position state of the list */
 int index_station = 0; /* Position station of the list */

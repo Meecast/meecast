@@ -28,6 +28,7 @@
 */
 /*******************************************************************************/
 #include "weather-home_preference.h"
+#include "weather-locations.h"
 #if defined (BSD) && !_POSIX_SOURCE
     #include <sys/dir.h>
     typedef struct dirent Dirent;
@@ -77,8 +78,55 @@ void free_list_stations(void){
     } 
 }
 /*******************************************************************************/
-/* Select item on country combobox */
 void changed_country(void){
+    GtkTreeModel			*model;
+    GSList				*items;
+    struct station_and_weather_code     *sc = NULL;
+    gchar				*country_name = NULL,
+					state_name[20],
+					buffer[255];
+    int					count_state = 0;
+    
+    model = gtk_combo_box_get_model(GTK_COMBO_BOX(states));
+    gtk_list_store_clear(GTK_LIST_STORE(model));
+    model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
+    gtk_list_store_clear(GTK_LIST_STORE(model));
+    country_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(countrys));
+    
+    memset(buffer, 0, sizeof(buffer));
+    sprintf(buffer, "/omw:locations/country[@name='%s']/*", country_name);
+    if(!(process_xpath_expression(LOCATIONS_FILE,
+				    (unsigned char*)buffer,
+				    (unsigned char*)LOCATIONS_NAMESPACE,
+				    &items))){
+    	while(items){
+    	    sc = items->data;
+	    memset(state_name, 0, sizeof(state_name));
+
+/*	    if(!strcmp(sc->station_code, "XX"))
+		memcpy(state_name, country_name, sizeof(state_name) - 1);
+	    else
+*/		memcpy(state_name, sc->station_code, sizeof(state_name) - 1);
+
+	    if(sc->station_name)
+		g_free(sc->station_name);
+	    if(sc->station_code)
+		g_free(sc->station_code);
+	    g_free(sc);
+	    gtk_combo_box_append_text(GTK_COMBO_BOX(states), state_name);
+            count_state++;
+    	    items = g_slist_next(items);
+    	}
+	if(items)
+	    g_slist_free(items);
+    }
+    g_free(app->current_country);
+    app->current_country = country_name;
+    free_list_stations();
+}
+/*******************************************************************************/
+/* Select item on country combobox */
+void changed_country_old(void){
     GtkTreeModel *model;
     char flag; /* Flag for country processing */
     char flag_new_state; /* Flag for new country or province or state */
@@ -141,9 +189,6 @@ void changed_country(void){
 		    flag_new_state = FALSE;	
         	    gtk_combo_box_append_text(GTK_COMBO_BOX(states), temp_state_name);
 		    count_state++;
-/*		    if(app->current_state_name &&
-			    (streq(temp_state_name, app->current_state_name)))
-			index_state = count_state; */
 		}    	  
 	    } 
 	}
@@ -153,8 +198,65 @@ void changed_country(void){
     free_list_stations();
 }
 /*******************************************************************************/
-/* Select item on state combobox */
 void changed_state(void){
+    GtkTreeModel			*model = NULL;
+    gchar				*state_name = NULL,
+					*country_name = NULL,
+					buffer[512];
+    GSList				*items,
+					*tmp;
+    struct station_and_weather_code     *location = NULL,
+					*sc;
+    int					count_station = 0;
+    
+    model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
+    gtk_list_store_clear(GTK_LIST_STORE(model));
+    country_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(countrys));    
+
+    model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
+    gtk_list_store_clear(GTK_LIST_STORE(model));
+    state_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(states));
+    free_list_stations();
+
+    memset(buffer, 0, sizeof(buffer));
+    sprintf(buffer, "/omw:locations/country[@name='%s']/region[@name='%s']/*",
+		    country_name, state_name);
+
+    if(!(process_xpath_expression(LOCATIONS_FILE,
+				    (unsigned char*)buffer,
+				    (unsigned char*)LOCATIONS_NAMESPACE,
+				    &items))){
+    	while(items){
+    	    location = items->data;
+	  /* Add station and station code to list */	  
+	    sc = g_new0(struct station_and_weather_code, 1);
+	    sc->station_name = g_strdup(location->station_name);	  
+	    sc->station_code = g_strdup(location->station_code);
+	    stations_list_in_state = g_slist_append(stations_list_in_state, sc); /* Necessary free list  beyond !!! */
+
+	    if(location->station_name)
+		g_free(location->station_name);
+	    if(location->station_code)
+		g_free(location->station_code);
+	    g_free(location);
+
+    	    items = g_slist_next(items);
+    	}
+	if(items)
+	    g_slist_free(items);
+	/* Sort list */    
+	stations_list_in_state = g_slist_sort(stations_list_in_state, compare_station);
+	/* Fill gtk_combo_box */
+	for(tmp = stations_list_in_state; tmp; tmp = tmp->next){
+	    sc = tmp->data;
+	    gtk_combo_box_append_text(GTK_COMBO_BOX(stations), sc->station_name);
+	}
+	g_free(state_name);
+    }
+}
+/*******************************************************************************/
+/* Select item on state combobox */
+void changed_state_old(void){
     GtkTreeModel	*model = NULL;
     GSList		*current = NULL;
     char		flag,			/* Flag for country processing */
@@ -309,7 +411,7 @@ void weather_window_rename_station(GtkWidget *widget,
     gtk_dialog_add_button(GTK_DIALOG(window_rename_station),
         		    _("OK"), GTK_RESPONSE_ACCEPT);
     gtk_dialog_add_button(GTK_DIALOG(window_rename_station),
-			    _("Cancel"), GTK_RESPONSE_REJECT);
+        		    _("Cancel"), GTK_RESPONSE_REJECT);
    /* Add Label and Edit */
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(_("Station:")),
@@ -500,7 +602,7 @@ void weather_window_add_custom_station(){
     gtk_dialog_add_button(GTK_DIALOG(window_add_custom_station),
         		    _("OK"), GTK_RESPONSE_ACCEPT);
     gtk_dialog_add_button(GTK_DIALOG(window_add_custom_station),
-			    _("Cancel"), GTK_RESPONSE_REJECT);
+        		    _("Cancel"), GTK_RESPONSE_REJECT);
 /* Add Custom Station Name  */
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(_("Station name:")),
@@ -564,6 +666,9 @@ void weather_window_add_station(GtkWidget *widget,
     GtkListStore *country_list_store; /* Country List store */
     GtkWidget *label, *table;
 
+    GSList	*countrys_list;		/* countrys list from locations.xml */
+    struct station_and_weather_code     *sc;
+
 /* Create dialog window */
     window_add_station = gtk_dialog_new_with_buttons(_("Add Station"),
         						NULL,
@@ -574,7 +679,7 @@ void weather_window_add_station(GtkWidget *widget,
     gtk_dialog_add_button(GTK_DIALOG(window_add_station),
                     		_("Add Custom Station"), OMW_RESPONSE_ADD_CUSTOM_STATION);
     gtk_dialog_add_button(GTK_DIALOG(window_add_station),
-				_("OK"), GTK_RESPONSE_ACCEPT);
+        			_("OK"), GTK_RESPONSE_ACCEPT);
     gtk_dialog_add_button(GTK_DIALOG(window_add_station),
         			_("Cancel"), GTK_RESPONSE_REJECT);
 /* Add Country */
@@ -606,11 +711,12 @@ void weather_window_add_station(GtkWidget *widget,
   
     gtk_widget_show_all(window_add_station);   
 /* Inserting Countrys to ComboBox from ISO file*/
+/*
     flag = FALSE;
     if((iso3166_file = fopen(COUNTRYS_FILE,"r")) != NULL){
 	while(!feof(iso3166_file)){
-	    memset(out_buffer, 0, sizeof(out_buffer)); /* Clear buffer */
-	    fgets(out_buffer, sizeof(out_buffer), iso3166_file); /* Read Next Line */
+	    memset(out_buffer, 0, sizeof(out_buffer));
+	    fgets(out_buffer, sizeof(out_buffer), iso3166_file);
 	    if(strlen(out_buffer)>0){
 		if(streq("----------------------------------------------------------------------\n",out_buffer))
     		    flag = (flag == TRUE) ? FALSE : TRUE ;
@@ -630,7 +736,32 @@ void weather_window_add_station(GtkWidget *widget,
 	}
 	fclose(iso3166_file);
     }
-    gtk_combo_box_set_model((GtkComboBox*)countrys, (GtkTreeModel*) country_list_store);  
+*/
+    if(!(process_xpath_expression(LOCATIONS_FILE,
+				    (unsigned char*)"/omw:locations/country",
+				    (unsigned char*)LOCATIONS_NAMESPACE,
+				    &countrys_list))){
+    	while(countrys_list){
+    	    sc = countrys_list->data;
+	    memset(country_name, 0, sizeof(country_name));
+	    memcpy(country_name, sc->station_code,
+				sizeof(country_name) - 1);
+	    if(sc->station_name)
+		g_free(sc->station_name);
+	    if(sc->station_code)
+		g_free(sc->station_code);
+	    g_free(sc);
+	    gtk_list_store_append(GTK_LIST_STORE(country_list_store), &iter);
+    	    gtk_list_store_set(GTK_LIST_STORE(country_list_store), &iter,
+                        		0, country_name, -1);
+	    count_country++;
+    	    countrys_list = g_slist_next(countrys_list);
+    	}
+	if(countrys_list)
+	    g_slist_free(countrys_list);
+	index_country = count_country;
+    }
+    gtk_combo_box_set_model((GtkComboBox*)countrys, (GtkTreeModel*) country_list_store);
 /* Set default value to country combo_box */
     if(index_country != 0){
 	gtk_combo_box_set_active (GTK_COMBO_BOX(countrys),index_country-1);
@@ -719,7 +850,7 @@ void weather_window_preference(GtkWidget *widget,
 					NULL);
     /* add OK button */
     gtk_dialog_add_button(GTK_DIALOG(window_config),
-	    _("OK"), GTK_RESPONSE_ACCEPT);
+            _("OK"), GTK_RESPONSE_ACCEPT);
     /* add CANCEL button */
     gtk_dialog_add_button(GTK_DIALOG(window_config),
             _("Cancel"), GTK_RESPONSE_REJECT);

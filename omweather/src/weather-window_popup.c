@@ -67,7 +67,7 @@ void weather_window_popup_show(GtkWidget *widget,
 		*separator_after_24_hours_widget;
     gboolean	first_day = FALSE,
 		second_day = FALSE;
-
+    
     /* if no one station present in list show only preference */
     if(!app->current_station_id){
 	weather_window_preference(widget, event, user_data);
@@ -78,7 +78,7 @@ void weather_window_popup_show(GtkWidget *widget,
 	if(app->buttons[i]->button == widget) 
 	    break;
     /* Not found pressed button */
-    if( i >= app->days_to_show)
+    if( i >= app->days_to_show )
 	return;
 
 /* Create POPUP WINDOW */ 
@@ -94,7 +94,8 @@ void weather_window_popup_show(GtkWidget *widget,
     if(i == 0){
 	current_time = time(NULL); /* get current day */
 	/* correct time for current location */
-	current_time += weather_days[i].zone;
+	(weather_days[i].zone >= 0) ? (current_time -= weather_days[i].zone)
+	                            : (current_time += weather_days[i].zone);
 	first_day = TRUE;
 	gtk_window_move(GTK_WINDOW(app->popup_window), 180, 60);
     }
@@ -245,7 +246,7 @@ GtkWidget* create_header_widget(int i){
     if((i < Max_count_weather_day) && strcmp(weather_days[i].date, "") && strcmp(weather_days[i].dayfuname, "")){
 #ifdef PC_EMULATOR
     fprintf(stderr, "\nDate = %s Day name %s\n", weather_days[i].date,
-                   weather_days[i].dayfuname);
+		    weather_days[i].dayfuname);
 #endif
 	sprintf(buffer,"%s %s", weather_days[i].dayfuname, weather_days[i].date);
 	strptime(buffer, "%A %b %d", &tmp_time_date_struct);
@@ -275,7 +276,7 @@ GtkWidget* create_footer_widget(void){
     sprintf(full_filename, "%s/%s.xml", app->weather_dir_name,
 		app->current_station_id);
     if(stat(full_filename, &statv))
-	sprintf(buffer, "%s%s", _("Last update: \n"), _("Unknown"));
+    	sprintf(buffer, "%s%s", _("Last update: \n"), _("Unknown"));
     else{ 
 	buffer[0] = 0;
 	strcat(buffer, _("Last update: \n"));

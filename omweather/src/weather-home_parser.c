@@ -143,15 +143,15 @@ int parse_weather_com_xml(void){
 			    snprintf(weather_days[i].location, sizeof(weather_days[i].location) - 1, "%s",temp_xml_string);
 			    xmlFree(temp_xml_string);
 			}    
-		    }	
-		    if( child_node->type == XML_ELEMENT_NODE  && 
-			    ( !xmlStrcmp(child_node->name, (const xmlChar *)"zone") ) ){
-			for (i = 0; i < Max_count_weather_day; i++){
-			    temp_xml_string = xmlNodeGetContent(child_node);
-			    weather_days[i].zone = atol((char*)temp_xml_string) * 60 * 60;
-			    xmlFree(temp_xml_string);
+		    }
+		    if( child_node->type == XML_ELEMENT_NODE  &&
+                	    ( !xmlStrcmp(child_node->name, (const xmlChar *)"zone") ) ){
+                	for(i = 0; i < Max_count_weather_day; i++){
+                    	    temp_xml_string = xmlNodeGetContent(child_node);
+                	    weather_days[i].zone = atol((char*)temp_xml_string) * 60 * 60;
+                    	    xmlFree(temp_xml_string);
 			}
-		    }	
+        	    }
 		}
 	    }
 	/* Fill current day */
@@ -164,7 +164,7 @@ int parse_weather_com_xml(void){
 			xmlFree(temp_xml_string);
 			strptime(date_in_string, "%D %I:%M", tm);
 			current_month = tm->tm_mon;
-			weather_current_day.date_time = mktime(tm);	    
+			weather_current_day.date_time = mktime(tm);
 			temp_string_pointer = strchr(date_in_string,'M');
 	    /* Add 12 hours if  date have PM field */
 			if(*(temp_string_pointer - 1) == 'P')
@@ -270,16 +270,16 @@ int parse_weather_com_xml(void){
 			    memset(buffer, 0, sizeof(buffer));
 			    memcpy(buffer, temp_xml_string, sizeof(buffer) - 2);
 			    strptime(buffer, "%A", tm);
-			    memset(weather_days[count_day - 1].dayshname, 0,
-				    sizeof(weather_days[count_day - 1].dayshname));
+                    	    memset(weather_days[count_day-1].dayshname, 0,
+				    sizeof(weather_days[count_day-1].dayshname));
 			    strftime(weather_days[count_day-1].dayshname,
-			            sizeof(weather_days[count_day-1].dayshname) - 1,
+				    sizeof(weather_days[count_day-1].dayshname) - 1,
 				    "%a", tm);
 			    xmlFree(temp_xml_string);
 			    temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"t");
-			    memset(weather_days[count_day - 1].dayfuname, 0,
-				    sizeof(weather_days[count_day - 1].dayfuname));
-			    snprintf(weather_days[count_day - 1].dayfuname,
+			    memset(weather_days[count_day-1].dayfuname, 0,
+				    sizeof(weather_days[count_day-1].dayfuname));
+			    snprintf(weather_days[count_day-1].dayfuname,
 				     sizeof(weather_days[count_day-1].dayfuname) - 1, "%s",
 				     temp_xml_string);
 			    xmlFree(temp_xml_string);				     

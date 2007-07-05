@@ -6,6 +6,7 @@ omweather (0.18.1) unstable; urgency=low
   * Corrected pressure units  
   * The buttons is translated
   * Localized date in popup window
+  * Correct range outcome error
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 1 Jul 2007 03:35:00 +0200
 

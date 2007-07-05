@@ -526,7 +526,7 @@ msgstr "Сейчас: "
 #: src/weather-home_preference.c:577 src/weather-home_preference.c:722
 #: src/weather-home_preference.c:1224
 msgid "OK"
-msgstr "Подтвердить"
+msgstr "ОК"
 
 #: src/weather-home_preference.c:832
 msgid "One column"

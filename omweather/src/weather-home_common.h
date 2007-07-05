@@ -42,6 +42,8 @@
 #include <libgnomevfs/gnome-vfs.h>
 #include <libxml/parser.h>
 #include <libxml/tree.h>
+#include <libxml/xpath.h>
+#include <libxml/xpathInternals.h>
 #include <string.h>
 #include <hildon-widgets/hildon-banner.h>
 #include <sys/types.h>
@@ -59,6 +61,8 @@
 #define DAYTIMEEVENT		2
 #define DBUSINITEVENT		3
 #define DAY_DOWNLOAD		10
+#define LOCATIONS_FILE		"/usr/share/omweather/locations.xml"
+#define LOCATIONS_NAMESPACE	"omw=https://garage.maemo.org/projects/omweather/"
 #define STATIONS_FILE		"/usr/share/omweather/stations.txt"
 #define COUNTRYS_FILE		"/usr/share/omweather/iso3166-countrycodes.txt"
 #define CLOCK_FILE		"/usr/share/omweather/city_in_clock.txt"
@@ -89,8 +93,8 @@ typedef struct{
     part_of_day	day;		/* Or current weather */
     part_of_day	night;
     gchar	date[40];	/* Date */     
-    time_t	date_time;	/* Date of the year or current time*/
-    time_t	zone;		/* time zone */
+    time_t	date_time;	/* Date of the year or current time*/  
+    time_t      zone;           /* time zone */
     gchar	dayshname[60];	/* Short name of day */
     gchar	dayfuname[60];	/* Full name of day */
     gchar	hi_temp[20];	/* High temperature of day or real current temperature for current day */
@@ -118,6 +122,11 @@ struct time_update{
 struct weather_station{
     gchar	*id_station;
     gchar	*name_station;
+};
+/*******************************************************************************/
+struct station_and_weather_code {
+    gchar	*station_name;
+    gchar	*station_code;
 };
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{

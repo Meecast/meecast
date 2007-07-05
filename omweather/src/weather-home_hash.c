@@ -111,8 +111,6 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Waning Crescent", _("Waning Crescent"));
     g_hash_table_insert(hash, "Waning Gibbous", _("Waning Gibbous"));
     g_hash_table_insert(hash, "Waxing Crescent", _("Waxing Crescent"));
-    g_hash_table_insert(hash, "Wednesday", _("Wednesday"));
-    g_hash_table_insert(hash, "We", _("We"));
     g_hash_table_insert(hash, "Wind", _("Wind"));
     g_hash_table_insert(hash, "Wintry Mix to Snow", _("Wintry Mix to Snow"));
     g_hash_table_insert(hash, "Wintry Mix / Wind Early", _("Wintry Mix / Wind Early"));

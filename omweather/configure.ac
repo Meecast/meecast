@@ -37,6 +37,7 @@ AC_FUNC_MALLOC
 AC_FUNC_MKTIME
 AC_FUNC_REALLOC
 AC_FUNC_STAT
+AC_FUNC_STRFTIME
 AC_CHECK_FUNCS([clock_gettime gethostbyname gettimeofday memset strcasecmp strchr strdup strerror strncasecmp strstr setlocale])
 
 # Localisation

@@ -1402,7 +1402,8 @@ void create_help_dialog(void){
         			title = gtk_label_new(_("Thanks")));
 /* Translators tab */
     snprintf(tmp_buff, sizeof(tmp_buff), "%s",
-	    _("French - Nicolas Granziano\n"));
+	    _("French - Nicolas Granziano\n"
+	      "Russian - Pavel Fialko, Vlad Vasiliev,\n\t    Ed Bartosh\n"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),

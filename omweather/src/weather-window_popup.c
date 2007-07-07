@@ -58,7 +58,8 @@ void weather_window_popup_show(GtkWidget *widget,
                     		gpointer user_data){
 
     int		i;
-    time_t	current_time = 0;
+    time_t	current_time = 0,
+		utc_time;
     GtkWidget	*popup_frame,
 		*popup_vbox,
 		*separator_after_header,
@@ -94,8 +95,8 @@ void weather_window_popup_show(GtkWidget *widget,
     if(i == 0){
 	current_time = time(NULL); /* get current day */
 	/* correct time for current location */
-	(weather_days[i].zone >= 0) ? (current_time -= weather_days[i].zone)
-	                            : (current_time += weather_days[i].zone);
+	utc_time = mktime(gmtime(&current_time));
+	current_time = utc_time + weather_days[boxs_offset[i]].zone;
 	first_day = TRUE;
 	gtk_window_move(GTK_WINDOW(app->popup_window), 180, 60);
     }

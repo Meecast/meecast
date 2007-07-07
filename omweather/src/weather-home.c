@@ -174,7 +174,8 @@ void station_error_window(void){
 void weather_buttons_fill(gboolean check_error){
     int		i, j = 0, k = 0, offset = 0, count_day;
     gchar	buffer[2048], buffer_icon[2048];
-    time_t	current_day,current_time, last_day = 0;
+    time_t	current_day,current_time, last_day = 0,
+		utc_time;
     struct tm	*tm;
     gboolean	flag_last_day = FALSE, error_station_code = FALSE;
     GSList	*tmplist = NULL;
@@ -251,13 +252,19 @@ void weather_buttons_fill(gboolean check_error){
 		    if(temp_current != INT_MAX)
 			temp_current = c2f(temp_current);
         	}
-               /* correct time for current location */
-            	current_time += weather_days[i + offset + j].zone;
 		/* add events for first day */
 		if(current_time < weather_days[i + offset + j].day.begin_time)
         	    time_event_add(weather_days[i + offset + j].day.begin_time, DAYTIMEEVENT);
 		if(current_time < weather_days[i + offset + j].night.begin_time)
             	    time_event_add(weather_days[i + offset + j].night.begin_time, DAYTIMEEVENT);
+		
+		utc_time = mktime(gmtime(&current_time));
+		current_time = utc_time + weather_days[i + offset + j].zone;
+		#ifdef PC_EMULATOR		
+		fprintf(stderr, "\nUTC time %s\n", ctime(&utc_time));
+		fprintf(stderr, "\nZone time %s\n", ctime(&current_time));
+		fprintf(stderr, "\nLast update time %s\n", ctime(&(weather_current_day.date_time)));
+		#endif
 		/* check weather data for actuality */
 		if( (weather_current_day.date_time > (current_time - app->data_valid_interval)) &&
             	    (weather_current_day.date_time < (current_time + app->data_valid_interval)) && i == 0){

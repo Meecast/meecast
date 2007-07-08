@@ -333,7 +333,13 @@ void read_config(void){
 					    NULL);
     if(app->icons_size < 0)
         app->icons_size = LARGE;
-	
+    /* Get setting tab number  */		     
+    app->current_settings_page = gconf_client_get_int(gconf_client,
+        				    GCONF_KEY_WEATHER_SETTING_TAB_NUMBER,
+					    NULL);
+    if(app->current_settings_page < 0)
+        app->current_settings_page = 0;
+
     /* Get Weather country name. */    
     app->current_country = gconf_client_get_string(gconf_client,
         					    GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
@@ -458,7 +464,7 @@ void read_config(void){
 	
     
     /* If this first start then fill default station from clock config */ 
-    tmp =gconf_client_get_string(gconf_client,
+    tmp = gconf_client_get_string(gconf_client,
                      GCONF_KEY_WEATHER_PROGRAM_VERSION, NULL);     
     if (!tmp){
 	if(!app->current_station_id){
@@ -584,6 +590,10 @@ void config_save(){
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_ICONS_SIZE,
 			app->icons_size, NULL);
+    /* Save current setting tab number  */		     	    
+    gconf_client_set_int(gconf_client,
+        		GCONF_KEY_WEATHER_SETTING_TAB_NUMBER,
+			app->current_settings_page, NULL);
     /* Save Weather Font Color */
     sprintf(temp_buffer, "#%02x%02x%02x",
             app->font_color.red >> 8,

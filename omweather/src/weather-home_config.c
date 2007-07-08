@@ -364,7 +364,14 @@ void read_config(void){
     }
     else
         app->swap_hi_low_temperature = FALSE;      	
-	
+    /* Get Hide Station State. Default is FALSE */
+    value = gconf_client_get(gconf_client, GCONF_KEY_HIDE_STATION_NAME, NULL);
+    if(value){
+        app->hide_station_name = gconf_value_get_bool(value);
+        gconf_value_free(value);
+    }
+    else
+        app->hide_station_name = FALSE;      		
     /* Get Temperature Unit  Default Celsius */
     app->temperature_units = gconf_client_get_int(gconf_client,
                     			GCONF_KEY_WEATHER_TEMPERATURE_UNIT, &gerror);
@@ -586,6 +593,10 @@ void config_save(){
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_SWAP_TEMPERATURE,
 			app->swap_hi_low_temperature, NULL);	    
+     /* Hide Station Name and Arrows */
+    gconf_client_set_bool(gconf_client,
+        		GCONF_KEY_HIDE_STATION_NAME,
+			app->hide_station_name, NULL);
     /* Save Weather Temperature Unit  */		     	    
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_TEMPERATURE_UNIT,

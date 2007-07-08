@@ -1,4 +1,6 @@
 0.19
+  * Hide buttons 'next station', 'previos station' when one station is used
+  * Added possibility to hide station name with 'previos' and 'next' statons buttons
 
 0.18.1
   * Correct error in stations.txt

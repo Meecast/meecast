@@ -1,5 +1,7 @@
 omweather (0.19) unstable; urgency=low
 
+  * Hide buttons 'next station', 'previos station' when one station is used
+  * Added possibility to hide station name with 'previos' and 'next' statons buttons
 
 omweather (0.18.1) unstable; urgency=low
 

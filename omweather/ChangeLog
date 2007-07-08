@@ -2,6 +2,7 @@
   * Hide buttons 'next station', 'previos station' when one station is used
   * Added possibility to hide station name with 'previos' and 'next' statons buttons
   * Correct creating the cache directory
+  * Now the selected tab in settings dialog is saved
 
 0.18.1
   * Correct error in stations.txt

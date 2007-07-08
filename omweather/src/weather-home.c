@@ -541,9 +541,15 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     gchar	buffer[2048];
     GtkWidget	*header_panel,
 		*days_panel,
-		*previos_station_name_btn, *previos_station_name, *previos_station_box,
-		*next_station_name_btn, *next_station_name, *next_station_box,
-		*station_name_btn, *station_name, *station_box;
+		*previos_station_name_btn = NULL,
+		*previos_station_name = NULL,
+		*previos_station_box = NULL,
+		*next_station_name_btn = NULL,
+		*next_station_name = NULL,
+		*next_station_box = NULL,
+		*station_name_btn = NULL,
+		*station_name = NULL,
+		*station_box = NULL;
 
     int		n, elements, x, y;
 
@@ -557,66 +563,85 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 	elements = app->days_to_show / 2;
 /* create header panel */
     header_panel = gtk_table_new(1, 3, FALSE);
-/* create previos station button */
-    sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&lt;</span>",
-	    app->font_color.red >> 8, app->font_color.green >> 8,
-	    app->font_color.blue >> 8);
-    previos_station_box		= gtk_hbox_new(FALSE, 0);
-    previos_station_name_btn	= gtk_button_new();
-    previos_station_name        = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
-    gtk_label_set_justify(GTK_LABEL(previos_station_name), GTK_JUSTIFY_CENTER);
-    set_font_size(previos_station_name, f_size);
-    gtk_box_pack_start((GtkBox*) previos_station_box, previos_station_name, TRUE, TRUE, 0);
-    gtk_container_add (GTK_CONTAINER(previos_station_name_btn), previos_station_box);
+/* check number of elements in stations list */
+    if(g_slist_length(stations_view_list) > 1 && !app->hide_station_name){
+	/* create previos station button */
+	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&lt;</span>",
+		app->font_color.red >> 8, app->font_color.green >> 8,
+		app->font_color.blue >> 8);
+	previos_station_box		= gtk_hbox_new(FALSE, 0);
+	previos_station_name_btn	= gtk_button_new();
+	previos_station_name        = gtk_label_new(NULL);
+	gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
+	gtk_label_set_justify(GTK_LABEL(previos_station_name), GTK_JUSTIFY_CENTER);
+	set_font_size(previos_station_name, f_size);
+	gtk_box_pack_start((GtkBox*) previos_station_box, previos_station_name, TRUE, TRUE, 0);
+	gtk_container_add (GTK_CONTAINER(previos_station_name_btn), previos_station_box);
+	buffer[0] = '\0';
+	/* create next station button */
+	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&gt;</span>",
+		app->font_color.red >> 8, app->font_color.green >> 8,
+		app->font_color.blue >> 8);
+	next_station_box		= gtk_hbox_new(FALSE, 0);
+	next_station_name_btn	= gtk_button_new();
+	next_station_name        	= gtk_label_new(NULL);
+	gtk_label_set_markup(GTK_LABEL(next_station_name), buffer);
+	gtk_label_set_justify(GTK_LABEL(next_station_name), GTK_JUSTIFY_CENTER);
+	set_font_size(next_station_name, f_size);
+        gtk_box_pack_start((GtkBox*) next_station_box, next_station_name, TRUE, TRUE, 0);
+	gtk_container_add (GTK_CONTAINER(next_station_name_btn), next_station_box);
+    }
     buffer[0] = '\0';
-/* create next station button */
-    sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&gt;</span>",
-	    app->font_color.red >> 8, app->font_color.green >> 8,
-	    app->font_color.blue >> 8);
-    next_station_box		= gtk_hbox_new(FALSE, 0);
-    next_station_name_btn	= gtk_button_new();
-    next_station_name        	= gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL(next_station_name), buffer);
-    gtk_label_set_justify(GTK_LABEL(next_station_name), GTK_JUSTIFY_CENTER);
-    set_font_size(next_station_name, f_size);
-    gtk_box_pack_start((GtkBox*) next_station_box, next_station_name, TRUE, TRUE, 0);
-    gtk_container_add (GTK_CONTAINER(next_station_name_btn), next_station_box);
-    buffer[0] = '\0';
+    if(!app->hide_station_name){
 /* create station name button */
-    if(!st_name)
-	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>%s</span>",
-	    app->font_color.red >> 8, app->font_color.green >> 8,
-	    app->font_color.blue >> 8,
-	    (char*)hash_table_find("NO STATION"));
-    else
-	sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s</span>",
-        	app->font_color.red >> 8, app->font_color.green >> 8,
-		app->font_color.blue >> 8, st_name);
-    station_box		= gtk_hbox_new(FALSE, 0);
-    station_name_btn	= gtk_button_new();
-    station_name        = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL(station_name), buffer);
-    gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
-    set_font_size(station_name, f_size);
-    gtk_box_pack_start((GtkBox*) station_box, station_name, TRUE, TRUE, 0);
+        if(!st_name)
+	    sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>%s</span>",
+		    app->font_color.red >> 8, app->font_color.green >> 8,
+		    app->font_color.blue >> 8,
+		    (char*)hash_table_find("NO STATION"));
+        else
+	    sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s</span>",
+        	    app->font_color.red >> 8, app->font_color.green >> 8,
+		    app->font_color.blue >> 8, st_name);
+	    station_box		= gtk_hbox_new(FALSE, 0);
+	    station_name_btn	= gtk_button_new();
+	    station_name        = gtk_label_new(NULL);
+	    gtk_label_set_markup(GTK_LABEL(station_name), buffer);
+	    gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
+	    set_font_size(station_name, f_size);
+	    gtk_box_pack_start((GtkBox*) station_box, station_name, TRUE, TRUE, 0);
     
-    gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
-    
+	    gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
+    }
 /* check transparency */
     if(transparency){
-    	gtk_button_set_relief(GTK_BUTTON(previos_station_name_btn), GTK_RELIEF_NONE);
-	gtk_button_set_relief(GTK_BUTTON(next_station_name_btn), GTK_RELIEF_NONE);
-	gtk_button_set_relief(GTK_BUTTON(station_name_btn), GTK_RELIEF_NONE); 
+    	if(previos_station_name_btn)
+	    gtk_button_set_relief(GTK_BUTTON(previos_station_name_btn), GTK_RELIEF_NONE);
+	if(next_station_name_btn)
+	    gtk_button_set_relief(GTK_BUTTON(next_station_name_btn), GTK_RELIEF_NONE);
+	if(station_name_btn)
+	    gtk_button_set_relief(GTK_BUTTON(station_name_btn), GTK_RELIEF_NONE); 
     }
 /* disable on_focus event for header_panel buttons */
-    gtk_button_set_focus_on_click(GTK_BUTTON(previos_station_name_btn), FALSE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(next_station_name_btn), FALSE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(station_name_btn), FALSE); 
+    if(previos_station_name_btn)
+	gtk_button_set_focus_on_click(GTK_BUTTON(previos_station_name_btn), FALSE);
+    if(next_station_name_btn)
+	gtk_button_set_focus_on_click(GTK_BUTTON(next_station_name_btn), FALSE);
+    if(station_name_btn)
+        gtk_button_set_focus_on_click(GTK_BUTTON(station_name_btn), FALSE); 
 /* attach buttons to header panel */
-    gtk_table_attach( (GtkTable*)header_panel, previos_station_name_btn, 0, 1, 0, 1 , GTK_EXPAND, GTK_EXPAND, 0, 0);
-    gtk_table_attach( (GtkTable*)header_panel, station_name_btn, 1, 2, 0, 1  , GTK_EXPAND, GTK_EXPAND, 0, 0); 
-    gtk_table_attach( (GtkTable*)header_panel, next_station_name_btn, 2, 3, 0, 1, GTK_EXPAND, GTK_EXPAND, 0, 0);
+    if(previos_station_name_btn)
+	gtk_table_attach( (GtkTable*)header_panel,
+			    previos_station_name_btn,
+			    0, 1, 0, 1 , GTK_EXPAND, GTK_EXPAND, 0, 0);
+    if(station_name_btn)
+	gtk_table_attach( (GtkTable*)header_panel,
+			station_name_btn,
+			1, 2, 0, 1  , GTK_EXPAND, GTK_EXPAND, 0, 0); 
+    if(next_station_name_btn)
+	gtk_table_attach( (GtkTable*)header_panel,
+			    next_station_name_btn,
+			    2, 3, 0, 1, GTK_EXPAND, GTK_EXPAND, 0, 0);
 /* create days panel */
     switch(layout){
 	default:
@@ -669,13 +694,28 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
     gtk_table_attach( (GtkTable*)panel, header_panel, 0, 1, 0, 1 ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
     gtk_table_attach( (GtkTable*)panel, days_panel, 0, 1, 1, 2 ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 /* Connect signal button */
-    g_signal_connect(previos_station_name_btn, "released", G_CALLBACK (change_station_prev), NULL);  		    
-    g_signal_connect(previos_station_name_btn, "enter", G_CALLBACK (enter_button), NULL);     
-    g_signal_connect(next_station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
-    g_signal_connect(next_station_name_btn, "enter", G_CALLBACK (enter_button), NULL);     
-    g_signal_connect(station_name_btn, "released", G_CALLBACK (change_station_next), NULL);  		    
-    g_signal_connect(station_name_btn, "enter", G_CALLBACK (enter_button), NULL); 
-    gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn); 
+    if(previos_station_name_btn){
+	g_signal_connect(previos_station_name_btn, "released",
+			    G_CALLBACK (change_station_prev), NULL);
+	g_signal_connect(previos_station_name_btn, "enter",
+			    G_CALLBACK (enter_button), NULL);
+    }
+    if(next_station_name_btn){
+	g_signal_connect(next_station_name_btn, "released",
+			    G_CALLBACK (change_station_next), NULL);  		    
+	g_signal_connect(next_station_name_btn, "enter",
+			    G_CALLBACK (enter_button), NULL);
+    }
+    if(station_name_btn){
+        g_signal_connect(station_name_btn, "released",
+			    G_CALLBACK (change_station_next), NULL);  		    
+	g_signal_connect(station_name_btn, "enter",
+			    G_CALLBACK (enter_button), NULL); 
+	gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn); 
+    }
+    else
+	gtk_container_set_focus_child(GTK_CONTAINER(panel), panel);
+
     if(station_name_btn)
 	g_object_unref(station_name_btn);
 }

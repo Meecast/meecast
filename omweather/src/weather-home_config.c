@@ -270,6 +270,8 @@ void read_config(void){
     GSList	*stlist = NULL;
     GError	*gerror = NULL;
     GdkColor	DEFAULT_FONT_COLOR = {0, 0x0d00, 0x2a00, 0xc000};
+    gchar	tmp_buff[1024],
+		*home_dir;
 
     
     gconf_client = gconf_client_get_default();
@@ -281,11 +283,24 @@ void read_config(void){
     /* Get Weather Cache Directory.  Default is "~/apps/omweather". */
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_DIR_NAME, NULL);
-    if(!tmp)
-        tmp = g_strdup("~/apps/omweather");
-    if(!config_set_weather_dir_name(gnome_vfs_expand_initial_tilde(tmp)))
+    if(!tmp){
+	home_dir = getenv("HOME");
+	if(!home_dir){
+    	    fprintf(stderr, _("Can not get path to the HOME directory. Quitting.\n"));
+    	    exit(1);
+	}
+	memset(tmp_buff, 0, sizeof(tmp_buff));
+	snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s%s",
+		    home_dir, "/apps/omweather");
+	g_free(home_dir);
+    }
+    else
+	snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s",
+		    tmp);
+    if(!config_set_weather_dir_name(gnome_vfs_expand_initial_tilde(tmp_buff)))
         fprintf(stderr, _("Could not create Weather Cache directory.\n"));
-    g_free(tmp);
+    if(tmp)
+	g_free(tmp);
     tmp = NULL;
     /* Get Weather Station ID for current station */
     app->current_station_id = gconf_client_get_string(gconf_client,

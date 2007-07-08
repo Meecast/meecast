@@ -907,7 +907,7 @@ void weather_window_preference(GtkWidget *widget,
         			label = gtk_label_new(" "),
         			1, 2, 6, 7);
     g_signal_connect(station_list_view, "cursor-changed",
-                	G_CALLBACK(station_list_view_select_handler), NULL);				
+                	G_CALLBACK(station_list_view_select_handler), NULL);
     g_signal_connect(button_ren, "clicked",
                 	G_CALLBACK(weather_window_rename_station), NULL);				
     g_signal_connect(button_del, "clicked",
@@ -1175,6 +1175,7 @@ void weather_window_preference(GtkWidget *widget,
         			label = gtk_label_new(_("Events")));
 #endif
     gtk_widget_show_all(window_config);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), app->current_settings_page);
 /* kill popup window :-) */
     if (app->popup_window){
 	gtk_widget_destroy(app->popup_window);
@@ -1268,6 +1269,11 @@ void weather_window_preference(GtkWidget *widget,
 	    if( (1 << gtk_combo_box_get_active((GtkComboBox*)valid_time_list)) != app->data_valid_interval / 3600 ){
 		app->data_valid_interval = 3600 * (1 << gtk_combo_box_get_active((GtkComboBox*)valid_time_list));
     		flag_update_icon = TRUE;
+	    }
+/* Current tab number */
+	    if(app->current_settings_page != gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook))){
+		app->current_settings_page = gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook));
+		flag_update_icon = TRUE;
 	    }
 /* Find select element of update time box and save time value */
 	    time_update_list_temp = time_update_list;

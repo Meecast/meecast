@@ -32,9 +32,12 @@
 /*******************************************************************************/
 #include "weather-home_common.h"
 /*******************************************************************************/
-#define GCONF_KEY_PREFIX "/apps/maemo/omweather"
-#define GCONF_KEY_WEATHER_DIR_NAME         GCONF_KEY_PREFIX"/weather-dir"
-#define GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME     GCONF_KEY_PREFIX"/current-country-name"
+#define GCONF_KEY_PREFIX		"/apps/maemo/omweather"
+#define GCONF_KEY_HTTP_PROXY_PREFIX	"/system/http_proxy"
+#define GCONF_KEY_CLOCK_PREFIX		"/apps/osso/clock"
+#define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
+#define GCONF_KEY_WEATHER_DIR_NAME		GCONF_KEY_PREFIX"/weather-dir"
+#define GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME	GCONF_KEY_PREFIX"/current-country-name"
 #define GCONF_KEY_WEATHER_STATE_NAME		GCONF_KEY_PREFIX"/state-name"
 #define GCONF_KEY_WEATHER_CURRENT_STATION_NAME	GCONF_KEY_PREFIX"/current-station-name"
 #define GCONF_KEY_WEATHER_CURRENT_STATION_ID	GCONF_KEY_PREFIX"/current-station-id"
@@ -54,14 +57,11 @@
 #define GCONF_KEY_WEATHER_ICON_SET		GCONF_KEY_PREFIX"/icon-set"
 #define GCONF_KEY_WEATHER_VALID_DATA_TIME	GCONF_KEY_PREFIX"/valid-time"
 #define GCONF_KEY_WEATHER_PROGRAM_VERSION	GCONF_KEY_PREFIX"/version"
-#define GCONF_KEY_HTTP_PROXY_PREFIX "/system/http_proxy"
-#define GCONF_KEY_CURRENT_CONNECTIVITY  "/system/osso/connectivity/IAP/current"
-#define GCONF_KEY_HTTP_PROXY_ON GCONF_KEY_HTTP_PROXY_PREFIX"/use_http_proxy"
-#define GCONF_KEY_HTTP_PROXY_HOST GCONF_KEY_HTTP_PROXY_PREFIX"/host"
-#define GCONF_KEY_HTTP_PROXY_PORT GCONF_KEY_HTTP_PROXY_PREFIX"/port"
-#define GCONF_KEY_CLOCK_PREFIX "/apps/osso/clock"
-#define GCONF_KEY_CLOCK_REMOTE_LOCATION GCONF_KEY_CLOCK_PREFIX"/remote-location"
-#define GCONF_KEY_CLOCK_HOME_LOCATION GCONF_KEY_CLOCK_PREFIX"/home-location"
+#define GCONF_KEY_HTTP_PROXY_ON			GCONF_KEY_HTTP_PROXY_PREFIX"/use_http_proxy"
+#define GCONF_KEY_HTTP_PROXY_HOST		GCONF_KEY_HTTP_PROXY_PREFIX"/host"
+#define GCONF_KEY_HTTP_PROXY_PORT		GCONF_KEY_HTTP_PROXY_PREFIX"/port"
+#define GCONF_KEY_CLOCK_REMOTE_LOCATION		GCONF_KEY_CLOCK_PREFIX"/remote-location"
+#define GCONF_KEY_CLOCK_HOME_LOCATION		GCONF_KEY_CLOCK_PREFIX"/home-location"
 /*******************************************************************************/
 extern GSList   *time_update_list;
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];

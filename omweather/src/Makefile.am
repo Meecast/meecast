@@ -28,9 +28,9 @@ libweather_home_la_SOURCES = weather-home.c \
 			     weather-home.h \
 			     weather-home_parser.c \
 			     weather-home_config.c \
-			     weather-home_preference.c \
+			     weather-home_settings.h \
+			     weather-home_settings.c \
 			     weather-home_config.h \
-			     weather-home_prefernce.h \
 			     weather-home_common.h \
 			     weather-event.c \
 			     weather-event.h \

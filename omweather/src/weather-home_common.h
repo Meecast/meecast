@@ -158,6 +158,7 @@ typedef struct OMWeatherApplet{
     gboolean		transparency;
     gboolean		separate;
     gboolean		swap_hi_low_temperature;
+    gboolean		hide_station_name;
     gint		days_to_show;
     gint		previos_days_to_show;
     gint		distance_units;

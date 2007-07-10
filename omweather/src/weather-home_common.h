@@ -95,6 +95,8 @@ typedef struct{
     gchar	date[40];	/* Date */     
     time_t	date_time;	/* Date of the year or current time*/  
     time_t      zone;           /* time zone */
+    gchar	sunrise[60];	/* sunrise */
+    gchar	sunset[60];	/* sunset */
     gchar	dayshname[60];	/* Short name of day */
     gchar	dayfuname[60];	/* Full name of day */
     gchar	hi_temp[20];	/* High temperature of day or real current temperature for current day */

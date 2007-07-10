@@ -403,7 +403,9 @@ int parse_weather_com_xml(void){
 					snprintf(weather_days[count_day - 1].low_temp,
 						sizeof(weather_days[count_day - 1].low_temp) - 1,
 						"%s", temp_xml_string);
-				    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"sunr")){ 
+				    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"sunr")){
+					memcpy(weather_days[count_day - 1].sunrise, (char*)temp_xml_string,
+							    sizeof(weather_days[count_day - 1].sunrise) - 1);
 					sprintf(date_in_string,"%s %i %s",weather_days[count_day-1].date,year,temp_xml_string);
 					strptime(date_in_string, "%b %d %Y %I:%M %p", tm);
 					weather_days[count_day-1].day.begin_time = mktime(tm);
@@ -416,6 +418,8 @@ int parse_weather_com_xml(void){
 					}
 				    }     
 				    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"suns")){ 
+					memcpy(weather_days[count_day - 1].sunset, (char*)temp_xml_string,
+							    sizeof(weather_days[count_day - 1].sunset) - 1);
 					sprintf(date_in_string,"%s %i %s",weather_days[count_day-1].date,year,temp_xml_string);
 					strptime(date_in_string, "%b %d %Y %I:%M %p", tm);
 					weather_days[count_day-1].night.begin_time = mktime(tm);

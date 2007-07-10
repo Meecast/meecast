@@ -12,8 +12,11 @@
 <omw:locations xmlns:omw="https://garage.maemo.org/projects/omweather/">
 <country name="AFGHANISTAN">
 <region name="XX">
-<location code="AFXX0002">HERAT</location>
-<location code="AFXX0003">KABUL</location>
+<location code="AFXX0001">Ghurian</location>
+<location code="AFXX0002">Herat</location>
+<location code="AFXX0003">Kabul</location>
+<location code="AFXX0004">Qandahar</location>
+<location code="AFXX0005">Bost/Laskar</location>
 </region>
 </country>
 <country name="ALBANIA">

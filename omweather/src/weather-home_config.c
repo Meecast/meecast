@@ -89,9 +89,13 @@ void fill_station_from_clock_plugin_data(void){
     GConfClient *gconf_client = gconf_client_get_default();
     /* City name from config file of clock */
     home_city = gconf_client_get_string(gconf_client,
-        			    GCONF_KEY_CLOCK_HOME_LOCATION, NULL);    
+        			    GCONF_KEY_CLOCK_HOME_LOCATION, NULL);
+    if(!home_city)
+	return;
     remote_city = gconf_client_get_string(gconf_client,
-        			    GCONF_KEY_CLOCK_REMOTE_LOCATION, NULL);  
+        			    GCONF_KEY_CLOCK_REMOTE_LOCATION, NULL);
+    if(!remote_city)
+	return;
     if((clock_file = fopen(CLOCK_FILE,"r")) != NULL){
 	while(!feof(clock_file)){
 	    memset(out_buffer, 0, sizeof(out_buffer)); /* Clear buffer */
@@ -273,7 +277,6 @@ void read_config(void){
     gchar	tmp_buff[1024],
 		*home_dir;
 
-    
     gconf_client = gconf_client_get_default();
 
     if(!gconf_client){
@@ -305,7 +308,6 @@ void read_config(void){
     /* Get Weather Station ID for current station */
     app->current_station_id = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_CURRENT_STATION_ID, NULL);
-    
     /* Get Weather Stations ID and NAME */
     stlist = gconf_client_get_list(gconf_client,
         			    GCONF_KEY_WEATHER_STATIONS_LIST,
@@ -326,7 +328,6 @@ void read_config(void){
     }
     else
 	close(fd);
-	
     /* Get Weather Icon Size  */		     
     app->icons_size = gconf_client_get_int(gconf_client,
         				    GCONF_KEY_WEATHER_ICONS_SIZE,
@@ -339,7 +340,6 @@ void read_config(void){
 					    NULL);
     if(app->current_settings_page < 0)
         app->current_settings_page = 0;
-
     /* Get Weather country name. */    
     app->current_country = gconf_client_get_string(gconf_client,
         					    GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
@@ -384,7 +384,7 @@ void read_config(void){
         gconf_value_free(value);
     }
     else
-        app->swap_hi_low_temperature = FALSE;      	
+        app->swap_hi_low_temperature = FALSE;
     /* Get Hide Station State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_HIDE_STATION_NAME, NULL);
     if(value){
@@ -392,7 +392,7 @@ void read_config(void){
         gconf_value_free(value);
     }
     else
-        app->hide_station_name = FALSE;      		
+        app->hide_station_name = FALSE;
     /* Get Temperature Unit  Default Celsius */
     app->temperature_units = gconf_client_get_int(gconf_client,
                     			GCONF_KEY_WEATHER_TEMPERATURE_UNIT, &gerror);
@@ -461,15 +461,13 @@ void read_config(void){
     }	
     else
 	app->iap_connected = FALSE;
-	
-    
     /* If this first start then fill default station from clock config */ 
     tmp = gconf_client_get_string(gconf_client,
                      GCONF_KEY_WEATHER_PROGRAM_VERSION, NULL);     
-    if (!tmp){
+    if(!tmp){
 	if(!app->current_station_id){
 	    fill_station_from_clock_plugin_data();
-	    if (app->iap_connected){
+	    if(app->iap_connected){
 		app->show_update_window = TRUE;
 		update_weather();
 	    }	

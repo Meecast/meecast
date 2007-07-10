@@ -3,6 +3,7 @@
   * Added possibility to hide station name with 'previos' and 'next' statons buttons
   * Correct creating the cache directory
   * Now the selected tab in settings dialog is saved
+  * Added displaying sunrise and sunset time
 
 0.18.1
   * Correct error in stations.txt

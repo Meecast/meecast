@@ -4,6 +4,7 @@ omweather (0.19) unstable; urgency=low
   * Added possibility to hide station name with 'previos' and 'next' statons buttons
   * Correct creating the cache directory
   * Now the selected tab in settings dialog is saved
+  * Added displaying sunrise and sunset time
 
 omweather (0.18.1) unstable; urgency=low
 

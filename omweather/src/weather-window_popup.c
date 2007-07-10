@@ -63,6 +63,7 @@ void weather_window_popup_show(GtkWidget *widget,
     GtkWidget	*popup_frame,
 		*popup_vbox,
 		*separator_after_header,
+		*separator_after_sun_time,
 		*separator_after_current,
 		*separator_after_temperature,
 		*separator_after_24_hours_widget;
@@ -114,6 +115,11 @@ void weather_window_popup_show(GtkWidget *widget,
     gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_header,
 			    FALSE, FALSE, 0);
     if((i < Max_count_weather_day) && strcmp(weather_days[i].dayfuname, "")){
+	gtk_box_pack_start(GTK_BOX(popup_vbox), create_sun_time_widget(i),
+					FALSE, FALSE, 0);
+	separator_after_sun_time = gtk_hseparator_new();                                                                    
+        gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_sun_time,
+                                            FALSE, FALSE, 0);
 	if(first_day || (second_day && app->separate)){ /* if first or second day */
 	    if(first_day){
 		if(!app->separate){ /* if weather data isn't separated */
@@ -581,6 +587,40 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
 			gtk_object_destroy(GTK_OBJECT(separator_after_night));
 	    }
 	}
+    return main_widget;
+}
+/*******************************************************************************/
+GtkWidget* create_sun_time_widget(int i){
+    GtkWidget	*main_widget,
+		*main_label;
+    gchar	buffer[1024],
+		time_buffer[1024];
+    struct tm	time = {0};
+
+    memset(buffer, 0, sizeof(buffer));
+    memset(time_buffer, 0, sizeof(time_buffer));
+    
+    snprintf(buffer, sizeof(buffer) - 1, "%s", _("Sunrise: "));
+    strptime(weather_days[i].sunrise, "%r", &time);
+    if(strstr(weather_days[i].sunrise, "PM"))
+	time.tm_hour += 12;
+    strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+			"%X, ", &time);
+
+    snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+			"%s", _("Sunset: "));
+
+    memset(time_buffer, 0, sizeof(time_buffer));
+    strptime(weather_days[i].sunset, "%r", &time);
+    if(strstr(weather_days[i].sunset, "PM"))
+	time.tm_hour += 12;
+    strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+			"%X ", &time);
+
+    main_label = gtk_label_new(buffer);
+    main_widget = gtk_hbox_new(FALSE, 10);
+    gtk_box_pack_start(GTK_BOX(main_widget), main_label, FALSE, FALSE, 0);
+
     return main_widget;
 }
 /*******************************************************************************/

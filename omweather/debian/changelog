@@ -6,6 +6,8 @@ omweather (0.19) unstable; urgency=low
   * Now the selected tab in settings dialog is saved
   * Added displaying sunrise and sunset time
 
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 8 Jul 2007 03:35:00 +0200
+
 omweather (0.18.1) unstable; urgency=low
 
   * Correct error in stations.txt

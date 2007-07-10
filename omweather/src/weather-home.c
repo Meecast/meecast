@@ -452,6 +452,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     app->icons_layout = ONE_ROW;
     app->transparency = TRUE;
     app->days_to_show = app->previos_days_to_show = 5;
+    app->current_settings_page = 0;
     app->distance_units = KILOMETERS;
     app->wind_units = METERS_S;
     app->temperature_units = CELSIUS;

@@ -1048,3 +1048,11 @@ msgstr "возрастает"
 #: src/weather-home_hash.c:115
 msgid "steady"
 msgstr "устойчивое"
+
+#: src/weather-window_popup.c:603
+msgid "Sunrise: "
+msgstr "Восход: "
+
+#: src/weather-window_popup.c:611
+msgid "Sunset: "
+msgstr "Закат: "

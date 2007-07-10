@@ -41,6 +41,7 @@ GtkWidget* create_footer_widget(void);
 GtkWidget* create_current_weather_widget(void);
 GtkWidget* create_temperature_range_widget(int i);
 GtkWidget* create_24_hours_widget(int i, time_t current_time);
+GtkWidget* create_sun_time_widget(int i);
 void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 void weather_window_preference (GtkWidget *widget,GdkEvent *event,gpointer user_data);
 int c2f(int temp);

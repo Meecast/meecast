@@ -13,6 +13,7 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "km/h", _("km/h"));
     g_hash_table_insert(hash, "mi/h", _("mi/h"));
     g_hash_table_insert(hash, "AM Clouds / PM Sun", _("AM Clouds / PM Sun"));
+    g_hash_table_insert(hash, "AM Drizzle", _("AM Drizzle"));    
     g_hash_table_insert(hash, "AM Drizzle / Wind", _("AM Drizzle / Wind"));
     g_hash_table_insert(hash, "AM Light Rain", _("AM Light Rain"));
     g_hash_table_insert(hash, "AM Light Rain / Wind", _("AM Light Rain / Wind"));
@@ -39,6 +40,8 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Few Snow", _("Few Snow"));
     g_hash_table_insert(hash, "Few Snow Showers", _("Few Snow Showers"));
     g_hash_table_insert(hash, "Fog", _("Fog"));
+    g_hash_table_insert(hash, "Foggy", _("Foggy"));    
+    g_hash_table_insert(hash, "Fog Late", _("Fog Late"));    
     g_hash_table_insert(hash, "Full", _("Full"));
     g_hash_table_insert(hash, "Haze", _("Haze"));
     g_hash_table_insert(hash, "Heavy Rain / Wind", _("Heavy Rain / Wind"));

@@ -4,13 +4,14 @@
 #
 # Pavel Fialko <pavelnf@gmail.com>, 2007.
 # vlad <vlad@gas.by>, 2007.
+# Vlad Vasiliev <vlad@gas.by>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-07-08 15:24+0300\n"
-"PO-Revision-Date: 2007-03-27 21:26+0300\n"
-"Last-Translator: vlad <vlad@gas.by>\n"
+"PO-Revision-Date: 2007-07-12 11:06+0300\n"
+"Last-Translator: Vlad Vasiliev <vlad@gas.by>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -167,11 +168,11 @@ msgstr "До полудня легкий снег"
 
 #: src/weather-home_hash.c:20
 msgid "AM Light Wintry Mix"
-msgstr "AM Light Wintry Mix"
+msgstr ""
 
 #: src/weather-home_hash.c:21
 msgid "AM Rain / Snow Showers"
-msgstr "AM Rain / Snow Showers"
+msgstr "До полудня дождь / Мокрый снег"
 
 #: src/weather-home_hash.c:22
 msgid "AM Rain / Snow Showers / Wind"
@@ -369,7 +370,7 @@ msgstr ""
 
 #: src/weather-home_hash.c:42
 msgid "Full"
-msgstr "Full"
+msgstr "Полный"
 
 #: src/weather-home_hash.c:43
 msgid "Haze"
@@ -389,7 +390,7 @@ msgstr "Убрать имя станции и стрелки"
 
 #: src/weather-home_hash.c:46
 msgid "High"
-msgstr "High"
+msgstr "Высокий"
 
 #: src/weather-home_settings.c:976
 msgid "Icon set:"
@@ -405,7 +406,7 @@ msgstr "Интерфейс"
 
 #: src/weather-home_hash.c:47
 msgid "Isolated T-Storms"
-msgstr "Isolated T-Storms"
+msgstr ""
 
 #: src/weather-home_hash.c:48
 msgid "Isolated T-Storms / Wind"
@@ -473,7 +474,7 @@ msgstr "Местоположения"
 
 #: src/weather-home_hash.c:59
 msgid "Low"
-msgstr "Low"
+msgstr "Низкий"
 
 #: src/weather-home_settings.c:993
 msgid "Medium"
@@ -769,7 +770,7 @@ msgstr "Мокрый снег"
 
 #: src/weather-home_hash.c:107
 msgid "Snow Shower / Wind"
-msgstr "Snow Shower / Ветер"
+msgstr "Мокрый снег / Ветер"
 
 #: src/weather-home_hash.c:105
 msgid "Snow Showers Late"
@@ -781,7 +782,7 @@ msgstr "Снег переходящий в дождь"
 
 #: src/weather-home_hash.c:110
 msgid "Snow to Wintry Mix"
-msgstr "Snow to Wintry Mix"
+msgstr ""
 
 #: src/weather-home_hash.c:111
 msgid "Snow to Wintry Mix / Wind"
@@ -914,15 +915,15 @@ msgstr "западно-юго-западный"
 
 #: src/weather-home_hash.c:121
 msgid "Waning Crescent"
-msgstr "Waning Crescent"
+msgstr ""
 
 #: src/weather-home_hash.c:122
 msgid "Waning Gibbous"
-msgstr "Waning Gibbous"
+msgstr ""
 
 #: src/weather-home_hash.c:123
 msgid "Waxing Crescent"
-msgstr "Waxing Crescent"
+msgstr ""
 
 #: src/weather-home_download.c:317
 msgid "Weather updated"
@@ -942,7 +943,7 @@ msgstr "Ветер: "
 
 #: src/weather-home_hash.c:128
 msgid "Wintry Mix"
-msgstr "Wintry Mix"
+msgstr ""
 
 #: src/weather-home_hash.c:127
 msgid "Wintry Mix / Wind"
@@ -950,7 +951,7 @@ msgstr "Wintry Mix / Ветер"
 
 #: src/weather-home_hash.c:126
 msgid "Wintry Mix / Wind Early"
-msgstr "Wintry Mix / Wind Early"
+msgstr ""
 
 #: src/weather-home_hash.c:125
 msgid "Wintry Mix to Snow"
@@ -1056,3 +1057,4 @@ msgstr "Восход: "
 #: src/weather-window_popup.c:611
 msgid "Sunset: "
 msgstr "Закат: "
+

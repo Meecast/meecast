@@ -4,15 +4,18 @@
   * Correct creating the cache directory
   * Now the selected tab in settings dialog is saved
   * Added displaying sunrise and sunset time
-
+  
 0.18.1
   * Correct error in stations.txt
-  * Correct translation for Russion
+  * Correct translation for Russian
+  * Update translation for France  
   * Added full station list of Germany and France
-  * Corrected pressure units
+  * Update translation for France
+  * Corrected pressure units  
   * The buttons is translated
   * Localized date in popup window
   * Correct range outcome error
+  * Fix problem with nil data from clock applet
 
 0.18
   * Autoupdate is corrected

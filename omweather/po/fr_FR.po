@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: omweather 0.18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-07-12 11:15+0300\n"
-"PO-Revision-Date: 2007-06-17 16:40+0200\n"
+"PO-Revision-Date: 2007-07-12 21:08+0200\n"
 "Last-Translator: Nicolas GRAZIANO <nicolas.graziano@gmail.com>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -47,12 +47,12 @@ msgstr "Renommer la station"
 #: src/weather-home_settings.c:682 src/weather-home_settings.c:854
 #: src/weather-home_settings.c:1378
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: src/weather-home_settings.c:414 src/weather-home_settings.c:605
 #: src/weather-home_settings.c:684 src/weather-home_settings.c:857
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: src/weather-home_settings.c:417
 msgid "Station:"
@@ -180,7 +180,7 @@ msgstr "Inverser température haute/basse"
 
 #: src/weather-home_settings.c:1043
 msgid "Hide station name and arrows"
-msgstr ""
+msgstr "Cacher le nom de la station et les flèches"
 
 #: src/weather-home_settings.c:1054
 msgid "Units"
@@ -256,7 +256,7 @@ msgstr "MàJ"
 
 #: src/weather-home_settings.c:1119
 msgid "Valid time for current weather:"
-msgstr ""
+msgstr "Durée de validitée pour la météo courante :"
 
 #: src/weather-home_settings.c:1125
 msgid "1 hour"
@@ -394,6 +394,9 @@ msgid ""
 "Russian - Pavel Fialko, Vlad Vasiliev,\n"
 "\t    Ed Bartosh\n"
 msgstr ""
+"Français - Nicolas Granziano\n"
+"Russe - Pavel Fialko, Vlad Vasiliev,\n"
+"\t    Ed Bartosh\n"
 
 #: src/weather-home_settings.c:1433
 msgid "Translators"
@@ -407,7 +410,7 @@ msgstr "Échec de l'initialisation de GConf. Sortie.\n"
 #: src/weather-home_config.c:292
 #, c-format
 msgid "Can not get path to the HOME directory. Quitting.\n"
-msgstr ""
+msgstr "Impossible de trouver le répertoire HOME. Sortie.\n"
 
 #: src/weather-home_config.c:304
 #, c-format
@@ -458,7 +461,7 @@ msgstr "Dernière MàJ : \n"
 
 #: src/weather-window_popup.c:286
 msgid "Unknown"
-msgstr ""
+msgstr "Inconnu"
 
 #: src/weather-window_popup.c:296
 msgid "Settings"
@@ -556,11 +559,11 @@ msgstr "Jour:"
 
 #: src/weather-window_popup.c:603
 msgid "Sunrise: "
-msgstr ""
+msgstr "Lever du soleil :"
 
 #: src/weather-window_popup.c:611
 msgid "Sunset: "
-msgstr ""
+msgstr "Coucher du soleil : "
 
 #: src/weather-home_hash.c:8
 msgid "NO STATION"
@@ -572,15 +575,15 @@ msgstr "Matin Nuageux / Après-midi soleil"
 
 #: src/weather-home_hash.c:16
 msgid "AM Drizzle"
-msgstr ""
+msgstr "Bruine matinale"
 
 #: src/weather-home_hash.c:17
 msgid "AM Drizzle / Wind"
-msgstr ""
+msgstr "Bruine matinale / Vent"
 
 #: src/weather-home_hash.c:18
 msgid "AM Light Rain"
-msgstr ""
+msgstr "Pluie légère matinale"
 
 #: src/weather-home_hash.c:19
 msgid "AM Light Rain / Wind"
@@ -680,11 +683,11 @@ msgstr "Brouillard"
 
 #: src/weather-home_hash.c:43
 msgid "Foggy"
-msgstr ""
+msgstr "Brumeux"
 
 #: src/weather-home_hash.c:44
 msgid "Fog Late"
-msgstr ""
+msgstr "Brouillard en soirée"
 
 #: src/weather-home_hash.c:45
 msgid "Full"
@@ -712,7 +715,7 @@ msgstr "Orages isolés"
 
 #: src/weather-home_hash.c:51
 msgid "Isolated T-Storms / Wind"
-msgstr ""
+msgstr "Orage isolé / vent"
 
 #: src/weather-home_hash.c:52
 msgid "Light Drizzle"
@@ -724,7 +727,7 @@ msgstr "Pluie légère et vent"
 
 #: src/weather-home_hash.c:54
 msgid "Light Rain and Shower"
-msgstr ""
+msgstr "Pluie légère et averse"
 
 #: src/weather-home_hash.c:55
 msgid "Light Rain"
@@ -732,19 +735,19 @@ msgstr "Pluie légère"
 
 #: src/weather-home_hash.c:56
 msgid "Light Rain / Wind"
-msgstr ""
+msgstr "Pluie légère / Vent"
 
 #: src/weather-home_hash.c:57
 msgid "Light Rain Early"
-msgstr ""
+msgstr "Pluie légère en matinée"
 
 #: src/weather-home_hash.c:58
 msgid "Light Rain Late"
-msgstr ""
+msgstr "Pluie légère en soirée"
 
 #: src/weather-home_hash.c:59
 msgid "Light Rain Shower"
-msgstr ""
+msgstr "Averse de pluie légère"
 
 #: src/weather-home_hash.c:60
 msgid "Light Snow"
@@ -772,7 +775,7 @@ msgstr "Plutôt Nuageux"
 
 #: src/weather-home_hash.c:66
 msgid "Mostly Cloudy and Windy"
-msgstr ""
+msgstr "Nuageux et venteux"
 
 #: src/weather-home_hash.c:67
 msgid "Mostly Sunny"
@@ -816,7 +819,7 @@ msgstr "A-Midi:Pluie fine"
 
 #: src/weather-home_hash.c:78
 msgid "PM Rain"
-msgstr ""
+msgstr "Pluie aprés midi"
 
 #: src/weather-home_hash.c:79
 msgid "PM Rain / Wind"
@@ -828,7 +831,7 @@ msgstr "A-Midi Averses"
 
 #: src/weather-home_hash.c:81
 msgid "PM Showers / Wind"
-msgstr ""
+msgstr "Averse l'après-midi / vent"
 
 #: src/weather-home_hash.c:82
 msgid "PM Snow Showers"
@@ -944,7 +947,7 @@ msgstr "Averse de neige"
 
 #: src/weather-home_hash.c:110
 msgid "Snow Shower / Wind"
-msgstr ""
+msgstr "Averse de neige / Vent"
 
 #: src/weather-home_hash.c:111
 msgid "Snow"

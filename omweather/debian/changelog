@@ -5,6 +5,7 @@ omweather (0.19) unstable; urgency=low
   * Correct creating the cache directory
   * Now the selected tab in settings dialog is saved
   * Added displaying sunrise and sunset time
+  * Added full staions list of United Kingdom, Sweden, Norway, Switzerland, Lithuania, Ukraine, Denmark
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 8 Jul 2007 03:35:00 +0200
 

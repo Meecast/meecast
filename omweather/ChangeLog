@@ -4,7 +4,8 @@
   * Correct creating the cache directory
   * Now the selected tab in settings dialog is saved
   * Added displaying sunrise and sunset time
-  
+  * Added full staions list of United Kingdom, Sweden, Norway, Switzerland, Lithuania, Ukraine, Denmark
+
 0.18.1
   * Correct error in stations.txt
   * Correct translation for Russian

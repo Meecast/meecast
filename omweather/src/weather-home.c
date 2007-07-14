@@ -219,12 +219,15 @@ void weather_buttons_fill(gboolean check_error){
 /* Clear daytime elments in queue of timer */
     remove_daytime_event();
 /* get current day */  
-    current_time = current_day = time(NULL);
+    current_time = time(NULL);
+    utc_time = mktime(gmtime(&current_time));
+    current_time = current_day = utc_time + weather_days[0].zone;
     tm = localtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     current_day = mktime(tm);
 
     offset = (int)( abs( (current_day - weather_days[0].date_time) / (24 * 60 * 60) ) );
+
     (app->separate) ? (k = 1) : (k = 0); /* add one more day if data is separate */
     for(i = 0; i < app->days_to_show; i++){
 	if( i + offset < Max_count_weather_day + k ){
@@ -258,7 +261,6 @@ void weather_buttons_fill(gboolean check_error){
 		if(current_time < weather_days[i + offset + j].night.begin_time)
             	    time_event_add(weather_days[i + offset + j].night.begin_time, DAYTIMEEVENT);
 		
-		utc_time = mktime(gmtime(&current_time));
 		current_time = utc_time + weather_days[i + offset + j].zone;
 		#ifdef PC_EMULATOR		
 		fprintf(stderr, "\nUTC time %s\n", ctime(&utc_time));

@@ -102,11 +102,7 @@ void changed_country(void){
     	while(items){
     	    sc = items->data;
 	    memset(state_name, 0, sizeof(state_name));
-
-/*	    if(!strcmp(sc->station_code, "XX"))
-		memcpy(state_name, country_name, sizeof(state_name) - 1);
-	    else
-*/		memcpy(state_name, sc->station_code, sizeof(state_name) - 1);
+    	    memcpy(state_name, sc->station_code, sizeof(state_name) - 1);
 
 	    if(sc->station_name)
 		g_free(sc->station_name);
@@ -125,79 +121,6 @@ void changed_country(void){
     free_list_stations();
 }
 /*******************************************************************************/
-/* Select item on country combobox */
-void changed_country_old(void){
-    GtkTreeModel *model;
-    char flag; /* Flag for country processing */
-    char flag_new_state; /* Flag for new country or province or state */
-    char out_buffer[1024]; /* buffer for work with stations.txt files */
-    static gchar *gcountry_name = NULL;
-    FILE *stations_file, *iso3166_file; 
-    char country_name[52];
-    char country_code [3];
-    char temp_state_name[20];
-    int count_state = 0; /* Count state of file iso3166 */
-
-/* Search Country defined ComboBox in ISO file */
-    flag = FALSE;    
-/* Clear the list. */
-    model = gtk_combo_box_get_model(GTK_COMBO_BOX(states));
-    gtk_list_store_clear(GTK_LIST_STORE(model));
-    model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
-    gtk_list_store_clear(GTK_LIST_STORE(model));
-    gcountry_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(countrys));
-/* Search country code */    
-    if((iso3166_file = fopen(COUNTRYS_FILE,"r")) != NULL ){
-	while(!feof(iso3166_file)){
-	    memset(out_buffer, 0, sizeof(out_buffer)); /* Clear buffer */
-	    fgets(out_buffer, sizeof(out_buffer), iso3166_file);/* Read Next Line */
-	    if(strlen(out_buffer) > 0){
-		if(streq("----------------------------------------------------------------------\n",out_buffer))
-    		    flag = (flag == TRUE) ? FALSE : TRUE ;
-		else{
-		    if(flag == TRUE){
-    			if(strcmp("\n",out_buffer) != 0){
-    			    sprintf(country_name, "%.38s", out_buffer);
-			    if(streq(gcountry_name, country_name)){
-				/* Write country code */
-				country_code[0] = out_buffer[48];
-				country_code[1] = out_buffer[49];	    
-				country_code[2] = 0;
-			    }
-			}
-		    }
-		}
-	    }	
-	}
-    }
-/* Search state or province on country and add it to combobox state */
-    if((stations_file = fopen(STATIONS_FILE,"r")) != NULL){
-	memset(temp_state_name, 0, sizeof(temp_state_name));
-	flag_new_state = FALSE;
-	while(!feof(stations_file)){
-	    memset(out_buffer, 0, sizeof(out_buffer));
-	    fgets(out_buffer, sizeof(out_buffer), stations_file);
-	    if( (strlen(out_buffer)>0) && ((char)out_buffer[0] != '!') ){   
-/* Is it country or state or province name ? */
-    		if( out_buffer[19] != ' ' ){
-		    sprintf(temp_state_name, "%.19s", out_buffer);
-		    flag_new_state = TRUE;
-		}  
-		if( (flag_new_state == TRUE) &&
-			(country_code[0] == out_buffer[81]) &&
-			(country_code[1] == out_buffer[82]) ){
-		    flag_new_state = FALSE;	
-        	    gtk_combo_box_append_text(GTK_COMBO_BOX(states), temp_state_name);
-		    count_state++;
-		}    	  
-	    } 
-	}
-    }    
-    g_free(app->current_country);    
-    app->current_country = gcountry_name;
-    free_list_stations();
-}
-/*******************************************************************************/
 void changed_state(void){
     GtkTreeModel			*model = NULL;
     gchar				*state_name = NULL,
@@ -207,7 +130,6 @@ void changed_state(void){
 					*tmp;
     struct station_and_weather_code     *location = NULL,
 					*sc;
-    int					count_station = 0;
     
     model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
     gtk_list_store_clear(GTK_LIST_STORE(model));
@@ -255,84 +177,6 @@ void changed_state(void){
     }
 }
 /*******************************************************************************/
-/* Select item on state combobox */
-void changed_state_old(void){
-    GtkTreeModel	*model = NULL;
-    GSList		*current = NULL;
-    char		flag,			/* Flag for country processing */
-			flag_necessary_state,	/* Flag for finding country or province or state */
-			out_buffer[1024],	/* buffer for work with stations.txt files */
-			state_name[21],
-			temp_station_name[21],
-			temp_station_code[9];
-    static gchar	*gstate_name = NULL;
-    FILE		*stations_file = NULL; 
-    struct station_and_weather_code *sc;
-    int			count_station = 0,	/* Count station of state or region */
-			i;
-/* Search Country in the ComboBox*/
-    flag = FALSE;    
-/* Clear the list. */
-    model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
-    gtk_list_store_clear(GTK_LIST_STORE(model));
-    free_list_stations();
-    
-    gstate_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(states));
-    /* Search state or province on country and add stations to combobox*/
-    if((stations_file = fopen(STATIONS_FILE,"r")) != NULL){
-	memset(state_name, 0, sizeof(state_name));
-	flag_necessary_state = FALSE;
-	while(!feof(stations_file)){
-	    memset(out_buffer, 0, sizeof(out_buffer));
-	    fgets(out_buffer, sizeof(out_buffer), stations_file);
-	    memset(temp_station_name, 0, sizeof(temp_station_name));
-	    if( (strlen(out_buffer)>27) && ((char)out_buffer[0] != '!') ){  
-        /* Is it country or state or province name ? */
-    		if( out_buffer[19] != ' ' ){
-		    sprintf(state_name, "%.19s", out_buffer);
-		    flag_necessary_state = (streq(state_name,gstate_name)) ? TRUE : FALSE;
-		} 
-	/* Check for wrong string */ 
-		if( (flag_necessary_state == TRUE) &&
-			(strlen(out_buffer)>90) ){
-	  /* Prepare strings station_name and code_name for work */
-		    for(i = 3; i < 19; i++)
-			temp_station_name[i - 3] = out_buffer[i];
-		    for(i = 84; i < 92; i++)
-			temp_station_code[i - 84] = out_buffer[i];
-		    temp_station_code[8] = 0;
-	  /* Trim right space */
-		    for(i = 15; i > 0; i--){
-			if(temp_station_name[i] == ' ') 
-        		    temp_station_name[i] = 0;
-    			else
-        		    break;
-		    }
-    		    count_station++;
-		    if((app->current_station_name) &&
-			    (streq(temp_station_name, app->current_station_name)))
-			index_station = count_station;
-	  /* Add station and station code to list */	  
-		    sc = g_new0(struct station_and_weather_code, 1);
-		    sc->station_name = g_strdup(temp_station_name);	  
-		    sc->station_code = g_strdup(temp_station_code);
-		    stations_list_in_state = g_slist_append(stations_list_in_state, sc); /* Necessary free list  beyond !!! */
-		}    	  
-	    }
-	}
-    }    
-/* Sort list */    
-    stations_list_in_state = g_slist_sort(stations_list_in_state, compare_station);
-/* Fill  gtk_combo_box */
-    for(current = stations_list_in_state; current; current = current->next){
-	sc = current->data;
-/* Copy name station to combobox */
-	gtk_combo_box_append_text(GTK_COMBO_BOX(stations), sc->station_name);
-    }    
-    g_free(gstate_name);
-}
-/*******************************************************************************/
-/* Select item on station combobox */
 void changed_stations(void){
     struct station_and_weather_code *sc;
     static GSList *stations_list_temp = NULL;
@@ -655,18 +499,15 @@ void weather_window_add_custom_station(){
 void weather_window_add_station(GtkWidget *widget,
             			GdkEvent *event,
                     		gpointer user_data){
-    FILE  *iso3166_file;
-    char country_name[52];
-    char out_buffer[1024];   /* Buffer for work with stations.txt files */
-    char flag;                        /* Flag for country processing */
-    int count_country = 0;            /* Count country of file iso3166 */
-    int index_country = 0;            /* Position country of the list */
-    struct weather_station *ws;       /* Temp struct for station */
-    GtkTreeIter iter;                 /* Temp for gtk_combo_box */
-    GtkListStore *country_list_store; /* Country List store */
-    GtkWidget *label, *table;
-
-    GSList	*countrys_list;		/* countrys list from locations.xml */
+    char		country_name[52];
+    int			count_country = 0,	/* Count country of file iso3166 */
+			index_country = 0;    	/* Position country of the list */
+    struct		weather_station *ws;   	/* Temp struct for station */
+    GtkTreeIter		iter;                 	/* Temp for gtk_combo_box */
+    GtkListStore	*country_list_store; 	/* Country List store */
+    GtkWidget		*label,
+			*table;
+    GSList		*countrys_list;		/* countrys list from locations.xml */
     struct station_and_weather_code     *sc;
 
 /* Create dialog window */
@@ -710,33 +551,7 @@ void weather_window_add_station(GtkWidget *widget,
     country_list_store = create_station_list_store();
   
     gtk_widget_show_all(window_add_station);   
-/* Inserting Countrys to ComboBox from ISO file*/
-/*
-    flag = FALSE;
-    if((iso3166_file = fopen(COUNTRYS_FILE,"r")) != NULL){
-	while(!feof(iso3166_file)){
-	    memset(out_buffer, 0, sizeof(out_buffer));
-	    fgets(out_buffer, sizeof(out_buffer), iso3166_file);
-	    if(strlen(out_buffer)>0){
-		if(streq("----------------------------------------------------------------------\n",out_buffer))
-    		    flag = (flag == TRUE) ? FALSE : TRUE ;
-		else
-		    if(flag == TRUE){
-    			if(strcmp("\n",out_buffer) != 0){
-    			    sprintf(country_name,"%.38s",out_buffer);
-			    gtk_list_store_append(GTK_LIST_STORE(country_list_store), &iter);
-    			    gtk_list_store_set(GTK_LIST_STORE(country_list_store), &iter,
-                        			0, country_name,-1);
-			    count_country++;
-    			    if((app->current_country) &&(streq(country_name, app->current_country)))
-    				index_country = count_country;
-			}
-		    }
-	    }
-	}
-	fclose(iso3166_file);
-    }
-*/
+
     if(!(process_xpath_expression(LOCATIONS_FILE,
 				    (unsigned char*)"/omw:locations/country",
 				    (unsigned char*)LOCATIONS_NAMESPACE,

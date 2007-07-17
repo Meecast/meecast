@@ -16,7 +16,7 @@
   * Localized date in popup window
   * Correct range outcome error
   * Fix problem with nil data from clock applet
-  * Algorithm of calculating current time for different timezone has been corrected
+  * Algorithm of calculating current time for timezone has been corrected
 
 0.18
   * Autoupdate is corrected

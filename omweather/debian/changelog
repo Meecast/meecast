@@ -15,12 +15,12 @@ omweather (0.18.1) unstable; urgency=low
   * Correct translation for Russian
   * Update translation for France  
   * Added full station list of Germany, Antarctica and France
-  * Update translation for France
   * Corrected pressure units  
   * The buttons is translated
   * Localized date in popup window
   * Correct range outcome error
   * Fix problem with nil data from clock applet
+  * Algorithm of calculating current time for different timezone has been corrected
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 1 Jul 2007 03:35:00 +0200
 

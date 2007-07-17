@@ -11,12 +11,12 @@
   * Correct translation for Russian
   * Update translation for France  
   * Added full station list of Germany, Antarctica and France
-  * Update translation for France
   * Corrected pressure units  
   * The buttons is translated
   * Localized date in popup window
   * Correct range outcome error
   * Fix problem with nil data from clock applet
+  * Algorithm of calculating current time for different timezone has been corrected
 
 0.18
   * Autoupdate is corrected

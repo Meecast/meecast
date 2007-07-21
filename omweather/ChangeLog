@@ -8,7 +8,8 @@
 
 0.18.2
   * Wind speed (mi/s) has been correted
-
+  * Algorithm of calculating current time for timezone in popup window has been corrected
+  
 0.18.1
   * Correct error in stations.txt
   * Correct translation for Russian

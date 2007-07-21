@@ -12,9 +12,9 @@ omweather (0.19) unstable; urgency=low
 omweather (0.18.2) unstable; urgency=low
 
   * Wind speed (mi/s) has been correted
+  * Algorithm of calculating current time for timezone in popup window has been corrected
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 7 Aug 2007 02:31:00 +0200
-
 
 omweather (0.18.1) unstable; urgency=low
 

@@ -200,7 +200,7 @@ int convert_wind_units(int to, int value){
 	    default:
 	    case METERS_S: result *= 10.0f / 36.0f; break;
 	    case KILOMETERS_S: result /= 3600.0f; break;
-	    case MILES_S: result /= 1.609344f / 3600.0f; break;
+	    case MILES_S: result *= 1.609344f / 3600.0f; break;
 	    case METERS_H: result *= 1000.0f; break;
 	    case KILOMETERS_H: result *= 1.0f; break;
 	    case MILES_H: result /= 1.609344f; break;

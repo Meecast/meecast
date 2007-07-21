@@ -6,6 +6,9 @@
   * Added displaying sunrise and sunset time
   * Added full staions list of United Kingdom, Sweden, Norway, Switzerland, Lithuania, Ukraine, Denmark
 
+0.18.2
+  * Wind speed (mi/s) has been correted
+
 0.18.1
   * Correct error in stations.txt
   * Correct translation for Russian

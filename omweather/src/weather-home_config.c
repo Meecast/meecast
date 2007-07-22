@@ -487,9 +487,7 @@ void read_config(void){
 	add_time_update_list(4 * 60, _("every 4 hours"));
 	add_time_update_list(8 * 60, _("every 8 hours"));
 	add_time_update_list(24 * 60, _("every 24 hours"));
-/* #ifdef PC_EMULATOR */
 	add_time_update_list(1, _("every minute (DEBUG)"));
-/* #endif */
     }
     app->show_update_window = FALSE;
     gconf_client_clear_cache(gconf_client);

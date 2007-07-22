@@ -75,7 +75,7 @@ get_connection_status_signal_cb(DBusConnection *connection,
 void iap_callback(struct iap_event_t *event, void *arg){
     switch(event->type){
 	case OSSO_IAP_CONNECTED:
-#ifdef PC_EMULATOR
+#ifndef RELEASE
 	    second_attempt = TRUE;
 	    update_weather();
 #endif
@@ -131,7 +131,7 @@ void weather_initialize_dbus(void){
 	osso_iap_cb(iap_callback);
 
     /* For Debug on i386 */
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
 	app->iap_connected = TRUE; 
     #endif
 	app->dbus_is_initialize = TRUE;

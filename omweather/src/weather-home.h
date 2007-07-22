@@ -62,6 +62,7 @@ extern void weather_initialize_dbus(void);
 extern void add_periodic_event(time_t last_update);
 extern void remove_daytime_event(void);
 extern void clean_download(void);
+extern void weather_window_preference(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 /* List times between two updates */
 GSList *time_update_list = NULL;
 gboolean not_event = FALSE;

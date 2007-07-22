@@ -36,7 +36,7 @@ gboolean timer_handler(gpointer data){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
     time_t current_time;
-#ifdef PC_EMULATOR
+#ifndef RELEASE
     char   *temp_string;
     fprintf(stderr, "Begin %s(): \n", __PRETTY_FUNCTION__);
 #endif
@@ -46,7 +46,7 @@ gboolean timer_handler(gpointer data){
     list_time_event_temp = event_time_list;  
     /* get current time */  
     current_time = time(NULL);
-#ifdef PC_EMULATOR    
+#ifndef RELEASE
     temp_string = ctime(&current_time);
     fprintf(stderr,"\nCurrent Time: %s\n",  temp_string);
 /*    g_free(temp_string);*/
@@ -60,7 +60,7 @@ gboolean timer_handler(gpointer data){
      		    weather_frame_update(FALSE);   
 		break;
 		case DBUSINITEVENT:
-		#ifdef PC_EMULATOR
+		#ifndef RELEASE
 		    fprintf(stderr,"DBUSINITEVENT %s\n",ctime(&evt->time));
 		#endif
 		    g_free(evt);
@@ -70,12 +70,12 @@ gboolean timer_handler(gpointer data){
 		default:
 		case AUTOUPDATE:
 		    /* delete periodic update */
-		#ifdef PC_EMULATOR
+		#ifndef RELEASE
 		    fprintf(stderr,"Delete evt %s\n",ctime(&evt->time));
 		#endif
 		    g_free(evt);
                     event_time_list = g_slist_remove(event_time_list, event_time_list->data);
-		#ifdef PC_EMULATOR
+		#ifndef RELEASE
 		    fprintf(stderr,"UPDATE by event\n");
 		#endif
 		    app->show_update_window = FALSE;
@@ -91,7 +91,7 @@ gboolean timer_handler(gpointer data){
     return TRUE;    
 }
 /*******************************************************************************/
-#ifdef PC_EMULATOR
+#ifndef RELEASE
 /*For debug */
 void print_list(char *buff, size_t buff_size){
     static GSList *list_time_event_temp = NULL;
@@ -129,7 +129,7 @@ void free_list_time_event(void){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
     
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
     fprintf(stderr,"Free ALL in list\n");
     print_list(NULL, 0);
     #endif
@@ -137,7 +137,7 @@ void free_list_time_event(void){
 	return;
     list_time_event_temp = event_time_list; 
     while(list_time_event_temp != NULL){
-        #ifdef PC_EMULATOR
+        #ifndef RELEASE
 	fprintf(stderr,"delete\n");
 	#endif
 	evt = list_time_event_temp->data;
@@ -147,7 +147,7 @@ void free_list_time_event(void){
     }
     g_slist_free(event_time_list);
     event_time_list = NULL;
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
     fprintf(stderr,"list clean\n");
     print_list(NULL, 0);
     #endif
@@ -167,7 +167,7 @@ static gint compare_time(gconstpointer a, gconstpointer b){
 void time_event_add(time_t time_value, short type_event){
     struct event_time *evt = NULL;
 
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
     /* fprintf(stderr,"time_event_add in list\n");
     print_list(NULL, 0); */
     #endif
@@ -182,7 +182,7 @@ void time_event_add(time_t time_value, short type_event){
 	else
 	    fprintf(stderr,"evt NULL\n");
     }
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
     /* fprintf(stderr,"time_event_add in list finished\n");
     print_list(NULL, 0); */
     #endif
@@ -191,7 +191,7 @@ void time_event_add(time_t time_value, short type_event){
 /* Add periodic time event  to list */	  
 void add_periodic_event(time_t last_update){
 
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
     fprintf(stderr,"Add in list\n");
     print_list(NULL, 0);
     #endif
@@ -199,7 +199,7 @@ void add_periodic_event(time_t last_update){
     if(app->update_interval > 0)
 	time_event_add(last_update + app->update_interval * 60, AUTOUPDATE);
 
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
     fprintf(stderr,"Item added to list\n");
     print_list(NULL, 0);
     #endif
@@ -211,7 +211,7 @@ void remove_periodic_event(void){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
     
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
     fprintf(stderr,"Periodic remove from list\n");
     print_list(NULL, 0);
     #endif
@@ -229,7 +229,7 @@ void remove_periodic_event(void){
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
 
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
     fprintf(stderr,"Periodic is remove from list\n");
     print_list(NULL, 0);
     #endif
@@ -239,7 +239,7 @@ void remove_daytime_event(void){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
     
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
     fprintf(stderr,"DAYTIMEEVENT remove from list\n");
     print_list(NULL, 0);
     #endif
@@ -257,7 +257,7 @@ void remove_daytime_event(void){
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
 
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
     fprintf(stderr,"DAYTIMEEVENT is remove from list\n");
     print_list(NULL, 0);
     #endif

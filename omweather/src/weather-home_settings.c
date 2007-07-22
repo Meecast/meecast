@@ -554,11 +554,15 @@ void weather_window_add_station(GtkWidget *widget,
 
     if(!(process_xpath_expression(LOCATIONS_FILE,
 				    (unsigned char*)"/omw:locations/country",
+/*    if(!(process_xpath_expression("/usr/share/omweather/countrys.xml",
+				    (unsigned char*)"/omw:list/country",*/
 				    (unsigned char*)LOCATIONS_NAMESPACE,
 				    &countrys_list))){
     	while(countrys_list){
     	    sc = countrys_list->data;
 	    memset(country_name, 0, sizeof(country_name));
+/*	    memcpy(country_name, sc->station_name,
+				sizeof(country_name) - 1);*/
 	    memcpy(country_name, sc->station_code,
 				sizeof(country_name) - 1);
 	    if(sc->station_name)
@@ -980,7 +984,7 @@ void weather_window_preference(GtkWidget *widget,
 	time_update_list_temp = g_slist_next(time_update_list_temp);
 	index_update_time++;
     }
-#ifdef PC_EMULATOR
+#ifndef RELEASE
 /* Evetns list tab */
     memset(tmp_buff, 0, sizeof(tmp_buff));
     print_list(tmp_buff, sizeof(tmp_buff) - 1);

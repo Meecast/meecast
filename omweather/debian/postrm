@@ -23,6 +23,7 @@ case "$1" in
 	;;
 	purge|remove)
     	    test -f "/var/lib/gconf/apps/maemo/omweather/%gconf.xml" && rm -f "/var/lib/gconf/apps/maemo/omweather/%gconf.xml"
+	    test -d "/home/user/apps/omweather" && rm -rf "/home/user/apps/omweather"
 	;;
 
     *)

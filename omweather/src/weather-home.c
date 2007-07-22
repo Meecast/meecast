@@ -185,7 +185,7 @@ void weather_buttons_fill(gboolean check_error){
     gint	icon_size;
     gchar	*tmp_station_name;
 
-#ifdef PC_EMULATOR
+#ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif
 /* Check main widget */
@@ -261,11 +261,11 @@ void weather_buttons_fill(gboolean check_error){
 		if(current_time < weather_days[i + offset + j].night.begin_time)
             	    time_event_add(weather_days[i + offset + j].night.begin_time, DAYTIMEEVENT);
 		
-		current_time = utc_time + weather_days[i + offset + j].zone;
-		#ifdef PC_EMULATOR		
-		fprintf(stderr, "\nUTC time %s\n", ctime(&utc_time));
-		fprintf(stderr, "\nZone time %s\n", ctime(&current_time));
-		fprintf(stderr, "\nLast update time %s\n", ctime(&(weather_current_day.date_time)));
+		current_time = utc_time + weather_days[i + offset + j].zone - 3600;
+		#ifndef RELEASE
+		fprintf(stderr, "\nUTC time %s", ctime(&utc_time));
+		fprintf(stderr, "Zone time %s", ctime(&current_time));
+		fprintf(stderr, "Last update time %s\n", ctime(&(weather_current_day.date_time)));
 		#endif
 		/* check weather data for actuality */
 		if( (weather_current_day.date_time > (current_time - app->data_valid_interval)) &&
@@ -440,7 +440,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
         g_debug(_("Error initializing the OMWeather applet"));
         return NULL;
     }
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
 	fprintf(stderr, "\nOMWeather applet initialize %p %d\n",
 			state_data, *state_size);
     #endif
@@ -480,7 +480,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
 int hildon_home_applet_lib_save_state(void *raw_data,
 				    void **state_data, 
 				    int *state_size){
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
 	fprintf(stderr, "\nOMWeather applet save state\n");
     #endif
     (*state_data) = NULL;
@@ -490,13 +490,13 @@ int hildon_home_applet_lib_save_state(void *raw_data,
 }
 /*******************************************************************************/
 void hildon_home_applet_lib_background(void *raw_data){
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
         fprintf(stderr, "\nOMWeather applet background\n");
     #endif
 }
 /*******************************************************************************/
 void hildon_home_applet_lib_foreground(void *raw_data){
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
 	fprintf(stderr, "\nOMWeather applet foreground\n");
     #endif
 }
@@ -505,7 +505,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     osso_context_t *osso;
     gboolean check;
     
-    #ifdef PC_EMULATOR
+    #ifndef RELEASE
 	fprintf(stderr, "\nOMWeather applet deinitialize\n");
     #endif
     /* It is switch off the timer */	
@@ -533,10 +533,17 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 /*******************************************************************************/
 GtkWidget* hildon_home_applet_lib_settings(void *applet_data,
 					    GtkWindow *parent){
-    #ifdef PC_EMULATOR
+    GtkWidget	*menu_item;
+
+    #ifndef RELEASE
 	fprintf(stderr, "\nOMWeather applet settings\n");
     #endif
-    return NULL;
+    
+    menu_item = gtk_menu_item_new_with_label(_("OMWeather settings"));
+    g_signal_connect(menu_item, "activate",
+	    G_CALLBACK(weather_window_preference), NULL);
+
+    return menu_item;
 }
 /*******************************************************************************/
 /* create days panel and station name panel */
@@ -556,7 +563,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 
     int		n, elements, x, y;
 
-#ifdef PC_EMULATOR
+#ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif
 
@@ -776,7 +783,7 @@ void free_memory(gboolean flag){
     }
     
     if(app->top_widget){
-#ifdef PC_EMULATOR
+#ifndef RELEASE
 	fprintf(stderr, "\nDays current %d\n", app->days_to_show);
 	fprintf(stderr, "\nDays previos %d\n", app->previos_days_to_show);
 #endif
@@ -796,7 +803,7 @@ WDB* create_weather_day_button(const char *text, const char *icon, const int ico
 
     WDB	*new_day_button;
 
-#ifdef PC_EMULATOR
+#ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif
     

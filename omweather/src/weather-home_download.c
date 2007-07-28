@@ -41,8 +41,10 @@ get_connection_status_signal_cb(DBusConnection *connection,
         DBusMessage *message, void *user_data){
 
     gchar *iap_name = NULL, *iap_nw_type = NULL, *iap_state = NULL;
+    
+#ifndef RELEASE
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
-
+#endif
     /* check signal */
     if(!dbus_message_is_signal(message,
                 ICD_DBUS_INTERFACE,
@@ -111,25 +113,20 @@ gboolean check_connected(void){
 }
 /*******************************************************************************/
 void weather_initialize_dbus(void){
+    gchar *filter_string;
 
-    if (!app->dbus_is_initialize)
-    /* Add D-BUS signal handler for 'status_changed' */
-    {
+    if(!app->dbus_is_initialize){   
+	/* Add D-BUS signal handler for 'status_changed' */
         DBusConnection *dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
-        gchar *filter_string = g_strdup_printf(
-                "interface=%s", ICD_DBUS_INTERFACE);
+        filter_string = g_strdup_printf("interface=%s", ICD_DBUS_INTERFACE);
         /* add match */
         dbus_bus_add_match(dbus_conn, filter_string, NULL);
-
-        g_free (filter_string);
-
+        g_free(filter_string);
         /* add the callback */
         dbus_connection_add_filter(dbus_conn,
-                    get_connection_status_signal_cb,
-                    NULL, NULL);
-    
-	osso_iap_cb(iap_callback);
-
+                		    get_connection_status_signal_cb,
+                		    NULL, NULL);
+    	osso_iap_cb(iap_callback);
     /* For Debug on i386 */
     #ifndef RELEASE
 	app->iap_connected = TRUE; 
@@ -161,7 +158,7 @@ CURL* weather_curl_init(CURL *curl_handle){
 /*******************************************************************************/
 int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
     int result;
-    struct HtmlFile *out=(struct HtmlFile *)stream;
+    struct HtmlFile *out = (struct HtmlFile *)stream;
 
     if(out && !out->stream){
     /* open file for writing */
@@ -191,7 +188,7 @@ gboolean form_url_and_filename(){
 	    } 
 	    url = g_string_new(NULL);        
     	    g_string_append_printf(url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=%d",
-				    ws->id_station, DAY_DOWNLOAD);
+				    ws->id_station, Max_count_weather_day);
 	    full_filename_new_xml = g_string_new(NULL);        
 	    g_string_append_printf(full_filename_new_xml,"%s/%s.xml.new",
 				    app->weather_dir_name, ws->id_station);
@@ -210,24 +207,21 @@ gboolean form_url_and_filename(){
 /*******************************************************************************/
 /* Download html/xml file. Call every 100 ms after begin download */
 gboolean download_html(gpointer data){
+    CURLMsg	*msg;
+    CURLMcode	mret;
+    fd_set	rs, ws, es;
+    int		max;
 
-    CURLMsg *msg;
-    CURLMcode mret;
-    fd_set rs;
-    fd_set ws;
-    fd_set es;
-    int max;
     if(app->popup_window && app->show_update_window){
 	gtk_widget_destroy(app->popup_window);   
         app->popup_window=NULL;
     }
-    
     /* If not connected and it autoupdate do go away */
-    if (!app->show_update_window && !app->iap_connected){
+    if(!app->show_update_window && !app->iap_connected){
     	app->flag_updating = 0;
 	return FALSE;
     }
-    if (app->iap_connected) 
+    if(app->iap_connected) 
 	second_attempt = TRUE;
     if( app->show_update_window && (!second_attempt) ){
 	/* Check this code */
@@ -242,8 +236,8 @@ gboolean download_html(gpointer data){
     second_attempt = FALSE;
     /* The second stage */
     /* call curl_multi_perform for read weather data from Inet */
-    if(curl_multi && CURLM_CALL_MULTI_PERFORM
-            == curl_multi_perform(curl_multi, &num_transfers))
+    if(curl_multi && CURLM_CALL_MULTI_PERFORM ==
+            curl_multi_perform(curl_multi, &num_transfers))
         return TRUE; /* return to UI */
     /* The first stage */
     if(!curl_handle){
@@ -274,14 +268,12 @@ gboolean download_html(gpointer data){
 	FD_ZERO(&ws);
 	FD_ZERO(&es);
 	mret = curl_multi_fdset(curl_multi,&rs,&ws,&es,&max);
-	if (mret != CURLM_OK) {
+	if(mret != CURLM_OK){
 	    fprintf (stderr,"Error CURL\n");
 	}
-		
 	/* set options for the curl easy handle */
         curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);		
         curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);	
-	
         /* for debug */
         /*    curl_easy_setopt(curl_handle, CURLOPT_URL, "http://127.0.0.1"); */
         /* add the easy handle to a multi session */
@@ -341,7 +333,7 @@ gboolean download_html(gpointer data){
 		    msg->easy_handle = NULL;
 		}
 		*/
-		if (curl_handle){
+		if(curl_handle){
 		    curl_easy_cleanup(curl_handle); 
 		    curl_handle = NULL;
 		}
@@ -367,7 +359,7 @@ gboolean download_html(gpointer data){
 }
 /*******************************************************************************/
 void clean_download(void){
-    if (curl_multi)
+    if(curl_multi)
 	curl_multi_cleanup(curl_multi);
     curl_multi = NULL;
     curl_handle = NULL;

@@ -464,7 +464,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     gnome_vfs_init();
     read_config();
 /* Start timer */
-    timer();
+    create_timer_with_interval(60000);
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
     weather_buttons_fill(FALSE);
@@ -541,7 +541,7 @@ GtkWidget* hildon_home_applet_lib_settings(void *applet_data,
     
     menu_item = gtk_menu_item_new_with_label(_("OMWeather settings"));
     g_signal_connect(menu_item, "activate",
-	    G_CALLBACK(weather_window_preference), NULL);
+	    G_CALLBACK(weather_window_settings), NULL);
 
     return menu_item;
 }

@@ -626,7 +626,7 @@ void weather_window_add_station(GtkWidget *widget,
 }
 /*******************************************************************************/
 /* Main preference window */
-void weather_window_preference(GtkWidget *widget,
+void weather_window_settings(GtkWidget *widget,
 				GdkEvent *event,
 				gpointer user_data){
 

@@ -38,7 +38,7 @@ extern GSList    *time_update_list;
 extern gboolean  not_event;
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
-void weather_window_preference(GtkWidget *widget,GdkEvent *event,gpointer user_data);
+void weather_window_settings(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 void fill_station_list_view(GtkWidget *station_list_view,
 			    GtkListStore *station_list_store);
 void station_list_view_select_handler(GtkTreeView *tree_view, gpointer user_data);

@@ -57,16 +57,16 @@ void update_weather(void);
 void free_memory(gboolean flag);
 void swap_temperature(int *hi, int *low);
 /* external functions */
-extern void timer(void);
+extern void create_timer_with_interval(guint interval);
 extern void weather_initialize_dbus(void);
 extern void add_periodic_event(time_t last_update);
 extern void remove_daytime_event(void);
 extern void clean_download(void);
-extern void weather_window_preference(GtkWidget *widget,GdkEvent *event,gpointer user_data);
+extern void weather_window_settings(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 /* List times between two updates */
 GSList *time_update_list = NULL;
 gboolean not_event = FALSE;
-int 	   boxs_offset [Max_count_weather_day];
+int 	   boxs_offset[Max_count_weather_day];
 guint flag_update=0;
 gchar  path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/

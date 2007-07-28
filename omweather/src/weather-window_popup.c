@@ -28,12 +28,10 @@
 	
 */
 #include "weather-window_popup.h"
-#include <wchar.h>
 /*******************************************************************************/
-static gboolean 
-popup_window_event_cb(GtkWidget *widget, 
-                         GdkEvent *event, 
-                         gpointer user_data){
+static gboolean popup_window_event_cb(GtkWidget *widget, 
+                    			GdkEvent *event, 
+                    			gpointer user_data){
     gint x, y, w, h;
     gtk_widget_get_pointer(widget, &x, &y);
     w = widget->allocation.width;
@@ -72,7 +70,7 @@ void weather_window_popup_show(GtkWidget *widget,
     
     /* if no one station present in list show only preference */
     if(!app->current_station_id){
-	weather_window_preference(widget, event, user_data);
+	weather_window_settings(widget, event, user_data);
 	return;
     }
     /* Search: Which button is pressed */
@@ -221,7 +219,7 @@ GtkWidget* create_header_widget(int i){
     struct tm	tmp_time_date_struct;
 
 /* Show full or short name station */ 
-    if(i < DAY_DOWNLOAD){
+    if(i < Max_count_weather_day){
 	if(strlen(weather_days[i].location) > 2)
 	    location_label = gtk_label_new(weather_days[i].location);
 	else
@@ -279,14 +277,24 @@ GtkWidget* create_footer_widget(void){
     gchar       buffer[1024],
 		full_filename[2048];
     struct stat	statv;
+    time_t	tmp_time;
+
+    tmp_time = weather_current_day.date_time + 3600;
+    
+    buffer[0] = 0;    
+    snprintf(buffer, sizeof(buffer) - 1, "%s", _("Last update at server: \n"));
+    strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+		"%X %x", localtime(&tmp_time));
+    strcat(buffer, "\n");
     
     sprintf(full_filename, "%s/%s.xml", app->weather_dir_name,
 		app->current_station_id);
     if(stat(full_filename, &statv))
-    	sprintf(buffer, "%s%s", _("Last update: \n"), _("Unknown"));
+    	sprintf(buffer + strlen(buffer), "%s%s",
+		_("Last update from server: \n"), _("Unknown"));
     else{ 
-	buffer[0] = 0;
-	strcat(buffer, _("Last update: \n"));
+	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+		    "%s", _("Last update from server: \n"));
     	strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 		"%X %x", localtime(&statv.st_mtime));
     }
@@ -294,8 +302,9 @@ GtkWidget* create_footer_widget(void){
     set_font_size(label_update, 14);
 /* prepare Settings button */
     button = gtk_button_new_with_label(_("Settings"));
+    set_font_size(button, 14);
     g_signal_connect(button, "clicked",
-		    G_CALLBACK(weather_window_preference), NULL);      
+		    G_CALLBACK(weather_window_settings), NULL);      
 /* prepare main widget */
     main_widget = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_start(GTK_BOX(main_widget), label_update, FALSE, FALSE, 0);
@@ -346,6 +355,14 @@ GtkWidget* create_current_weather_widget(void){
 						: (c2f(atoi(weather_current_day.low_temp))));
     (app->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
 					: ( strcat(buffer, _("F")) );
+/* humidity */
+    strcat(buffer, _(" Humidity: "));
+    if( strcmp(weather_current_day.day.hmid, "N/A") )
+	sprintf(buffer + strlen(buffer), "%d%%",
+		atoi(weather_current_day.day.hmid));
+    else
+	sprintf(buffer + strlen(buffer), "%s",
+		    (char*)hash_table_find((gpointer)"N/A"));
 /* visible */
     strcat(buffer, _("\nVisible: "));
     if( !strcmp(weather_current_day.day.vis, "Unlimited") )
@@ -372,14 +389,7 @@ GtkWidget* create_current_weather_widget(void){
     sprintf(buffer + strlen(buffer), "%.1f %s, ", weather_current_day.day.pressure,
 		    _("mb"));
     strcat(buffer, weather_current_day.day.pressure_str);
-/* humidity */
-    strcat(buffer, _("\nHumidity: "));
-    if( strcmp(weather_current_day.day.hmid, "N/A") )
-	sprintf(buffer + strlen(buffer), "%d%%",
-		atoi(weather_current_day.day.hmid));
-    else
-	sprintf(buffer + strlen(buffer), "%s",
-		    (char*)hash_table_find((gpointer)"N/A"));
+
 /* wind */
     strcat(buffer, _("\nWind: "));
     if( strcmp(weather_current_day.day.wind_speed, "N/A") )	
@@ -471,6 +481,7 @@ GtkWidget* create_temperature_range_widget(int i){
 			"%d\302\260%c", hi_temp, symbol);
     /* prepare temperature hbox */
     temperature_value_label = gtk_label_new(buffer);
+    set_font_size(temperature_value_label, 14);
     main_widget = gtk_hbox_new(FALSE, 10);
     temperature_title_label = gtk_label_new(_("Temperature: "));
     set_font_size(temperature_title_label, 14);

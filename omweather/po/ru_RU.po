@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-20 22:32+0300\n"
+"POT-Creation-Date: 2007-07-22 19:11+0300\n"
 "PO-Revision-Date: 2007-07-12 12:35+0300\n"
 "Last-Translator: Vlad Vasiliev <vlad@gas.by>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: src/weather-home_settings.c:1212
+#: src/weather-home_settings.c:1216
 msgid ""
 "\n"
 "Author and maintenance:\n"
@@ -32,7 +32,7 @@ msgstr ""
 "Поддержка:\n"
 "\tПавел Фиалко, pavelnf@gmail.com"
 
-#: src/weather-home_settings.c:1204
+#: src/weather-home_settings.c:1208
 msgid ""
 "\n"
 "Copyright(c) 2006-2007\n"
@@ -42,7 +42,7 @@ msgstr ""
 "Copyright(c) 2006-2007\n"
 "Владислав Васильев, Павел Фиалко"
 
-#: src/weather-home_settings.c:1221
+#: src/weather-home_settings.c:1225
 msgid ""
 "\n"
 "Ed Bartosh - for more feature requests,\n"
@@ -67,7 +67,7 @@ msgstr ""
 "Brian Knight - за идею о наборе иконок, критику \n"
 "\t\t\tи финансовую поддержку. ;-)\n"
 
-#: src/weather-window_popup.c:343
+#: src/weather-window_popup.c:352
 msgid ""
 "\n"
 "Feels like: "
@@ -75,7 +75,7 @@ msgstr ""
 "\n"
 "По ощущениям: "
 
-#: src/weather-home_settings.c:1200
+#: src/weather-home_settings.c:1204
 msgid ""
 "\n"
 "Hildon desktop applet\n"
@@ -89,8 +89,7 @@ msgstr ""
 "для отображения погоды.\n"
 "Версия "
 
-#: src/weather-window_popup.c:376 src/weather-window_popup.c:506
-#: src/weather-window_popup.c:540
+#: src/weather-window_popup.c:516 src/weather-window_popup.c:550
 msgid ""
 "\n"
 "Humidity: "
@@ -98,7 +97,7 @@ msgstr ""
 "\n"
 "Влажность: "
 
-#: src/weather-window_popup.c:371
+#: src/weather-window_popup.c:388
 msgid ""
 "\n"
 "Pressure: "
@@ -106,7 +105,7 @@ msgstr ""
 "\n"
 "Давление: "
 
-#: src/weather-window_popup.c:350
+#: src/weather-window_popup.c:367
 msgid ""
 "\n"
 "Visible: "
@@ -114,7 +113,7 @@ msgstr ""
 "\n"
 "Видимость: "
 
-#: src/weather-window_popup.c:384
+#: src/weather-window_popup.c:394
 msgid ""
 "\n"
 "Wind: "
@@ -122,27 +121,31 @@ msgstr ""
 "\n"
 "Ветер: "
 
-#: src/weather-home_settings.c:703
+#: src/weather-home_settings.c:707
 msgid " Add "
 msgstr " Добавить "
 
-#: src/weather-window_popup.c:393
+#: src/weather-window_popup.c:403
 msgid " Gust: "
 msgstr " Порывы: "
 
-#: src/weather-home_settings.c:940
+#: src/weather-window_popup.c:359
+msgid " Humidity: "
+msgstr " Влажность: "
+
+#: src/weather-home_settings.c:944
 msgid "1 hour"
 msgstr "1 час"
 
-#: src/weather-home_settings.c:941
+#: src/weather-home_settings.c:945
 msgid "2 hours"
 msgstr "2 часа"
 
-#: src/weather-home_settings.c:942
+#: src/weather-home_settings.c:946
 msgid "4 hours"
 msgstr "4 часа"
 
-#: src/weather-home_settings.c:943
+#: src/weather-home_settings.c:947
 msgid "8 hours"
 msgstr "8 часов"
 
@@ -175,22 +178,27 @@ msgid "AM Light Wintry Mix"
 msgstr "Утром легкая поземка"
 
 #: src/weather-home_hash.c:22
+#, fuzzy
+msgid "AM Rain"
+msgstr "После полудня дождь"
+
+#: src/weather-home_hash.c:23
 msgid "AM Rain / Snow Showers"
 msgstr "До полудня дождь / Мокрый снег"
 
-#: src/weather-home_hash.c:23
+#: src/weather-home_hash.c:24
 msgid "AM Rain / Snow Showers / Wind"
 msgstr "До полудня дождь / Мокрый снег / Ветер"
 
-#: src/weather-home_hash.c:24
+#: src/weather-home_hash.c:25
 msgid "AM Showers"
 msgstr "До полудня ливни"
 
-#: src/weather-home_hash.c:25
+#: src/weather-home_hash.c:26
 msgid "AM Snow Showers"
 msgstr "До полудня мокрый снег"
 
-#: src/weather-home_settings.c:675 src/weather-home_settings.c:1209
+#: src/weather-home_settings.c:679 src/weather-home_settings.c:1213
 msgid "About"
 msgstr "О программе"
 
@@ -202,7 +210,7 @@ msgstr "Добавить свою станцию"
 msgid "Add Station"
 msgstr "Добавить станцию"
 
-#: src/weather-home_settings.c:1232
+#: src/weather-home_settings.c:1236
 msgid ""
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
@@ -216,15 +224,15 @@ msgstr ""
 "Eugene Roytenberg - за тестирование\n"
 "Jarek Szczepanski aka Imrahil - за тестирование\n"
 
-#: src/weather-home_settings.c:1218
+#: src/weather-home_settings.c:1222
 msgid "Authors"
 msgstr "Авторы"
 
-#: src/weather-window_popup.c:333 src/weather-window_popup.c:347
+#: src/weather-window_popup.c:342 src/weather-window_popup.c:356
 msgid "C"
 msgstr "С"
 
-#: src/weather-home_hash.c:26
+#: src/weather-home_hash.c:27
 msgid "CALM"
 msgstr "Штиль"
 
@@ -234,31 +242,31 @@ msgid "Can not get path to the HOME directory. Quitting.\n"
 msgstr "Невозможно получить путь к домашней директории. Выходим.\n"
 
 #: src/weather-home_settings.c:258 src/weather-home_settings.c:449
-#: src/weather-home_settings.c:525 src/weather-home_settings.c:672
+#: src/weather-home_settings.c:525 src/weather-home_settings.c:676
 msgid "Cancel"
 msgstr "Отменить"
 
-#: src/weather-home_settings.c:878
+#: src/weather-home_settings.c:882
 msgid "Celsius (Metric)"
 msgstr "Цельсий (метрическая система)"
 
-#: src/weather-home_hash.c:27
+#: src/weather-home_hash.c:28
 msgid "Clear"
 msgstr "Ясно"
 
-#: src/weather-home_hash.c:28
+#: src/weather-home_hash.c:29
 msgid "Clear / Wind"
 msgstr "Ясно / Ветер"
 
-#: src/weather-home_hash.c:29
+#: src/weather-home_hash.c:30
 msgid "Clouds Early / Clearing Late"
 msgstr "В начале дня облачно, позже ясно"
 
-#: src/weather-home_hash.c:31
+#: src/weather-home_hash.c:32
 msgid "Cloudy"
 msgstr "Облачно"
 
-#: src/weather-home_hash.c:30
+#: src/weather-home_hash.c:31
 msgid "Cloudy and Windy"
 msgstr "Облачно и ветер"
 
@@ -271,11 +279,11 @@ msgstr "Невозможно создать директорию кэша.\n"
 msgid "Country:"
 msgstr "Страна:"
 
-#: src/weather-window_popup.c:535
+#: src/weather-window_popup.c:545
 msgid "Day:"
 msgstr "День:"
 
-#: src/weather-home_settings.c:717
+#: src/weather-home_settings.c:721
 msgid "Delete"
 msgstr "Удалить"
 
@@ -283,23 +291,23 @@ msgstr "Удалить"
 msgid "Did not download weather"
 msgstr "Невозможно загрузить данные о погоде."
 
-#: src/weather-home_settings.c:887
+#: src/weather-home_settings.c:891
 msgid "Distance units:"
 msgstr "Единицы расстояния:"
 
-#: src/weather-home_hash.c:32
+#: src/weather-home_hash.c:33
 msgid "Drizzle"
 msgstr "Изморось"
 
-#: src/weather-home_hash.c:33
+#: src/weather-home_hash.c:34
 msgid "E"
 msgstr "восточный"
 
-#: src/weather-home_hash.c:34
+#: src/weather-home_hash.c:35
 msgid "ENE"
 msgstr "восточно-северо-восточный"
 
-#: src/weather-home_hash.c:35
+#: src/weather-home_hash.c:36
 msgid "ESE"
 msgstr "восточно-юго-восточный"
 
@@ -312,15 +320,15 @@ msgstr "Ошибка в xml файле.\n"
 msgid "Error initializing the OMWeather applet"
 msgstr "Ошибка при инициализации апплета."
 
-#: src/weather-home_settings.c:990
+#: src/weather-home_settings.c:994
 msgid "Events"
 msgstr "События"
 
-#: src/weather-window_popup.c:334 src/weather-window_popup.c:348
+#: src/weather-window_popup.c:343 src/weather-window_popup.c:357
 msgid "F"
 msgstr "F"
 
-#: src/weather-home_settings.c:879
+#: src/weather-home_settings.c:883
 msgid "Fahrenheit (Imperial)"
 msgstr "Фаренгейт (США и др.)"
 
@@ -334,43 +342,43 @@ msgstr "Невозможно инициализировать GConf. Выход�
 msgid "Failed to initialize GConf. Settings were not saved.\n"
 msgstr "Не возможно инициализировать GConf. Настройки не будут сохранены.\n"
 
-#: src/weather-home_hash.c:36
+#: src/weather-home_hash.c:37
 msgid "Fair"
 msgstr "Ясная погода"
 
-#: src/weather-home_hash.c:38
+#: src/weather-home_hash.c:39
 msgid "Few Showers"
 msgstr "Небольшие ливни"
 
-#: src/weather-home_hash.c:39
+#: src/weather-home_hash.c:40
 msgid "Few Showers / Wind"
 msgstr "Небольшие ливни / Ветер"
 
-#: src/weather-home_hash.c:40
+#: src/weather-home_hash.c:41
 msgid "Few Snow"
 msgstr "Небольшой снег"
 
-#: src/weather-home_hash.c:41
+#: src/weather-home_hash.c:42
 msgid "Few Snow Showers"
 msgstr "Небольшой мокрый снег"
 
-#: src/weather-home_hash.c:42
+#: src/weather-home_hash.c:43
 msgid "Fog"
 msgstr "Туман"
 
-#: src/weather-home_hash.c:44
+#: src/weather-home_hash.c:45
 msgid "Fog Late"
 msgstr "Позже туман"
 
-#: src/weather-home_hash.c:43
+#: src/weather-home_hash.c:44
 msgid "Foggy"
 msgstr "Туманно"
 
-#: src/weather-home_settings.c:818
+#: src/weather-home_settings.c:822
 msgid "Font color:"
 msgstr "Цвет шрифта:"
 
-#: src/weather-home_settings.c:1243
+#: src/weather-home_settings.c:1247
 msgid ""
 "French - Nicolas Granziano\n"
 "Russian - Pavel Fialko, Vlad Vasiliev,\n"
@@ -380,173 +388,177 @@ msgstr ""
 "Русский - Павел Фиалко, Владислав Васильев,\n"
 "\t    Эдуард Бартош\n"
 
-#: src/weather-home_hash.c:45
+#: src/weather-home_hash.c:46
 msgid "Full"
 msgstr "Полный"
 
-#: src/weather-home_hash.c:46
+#: src/weather-home_hash.c:47
 msgid "Haze"
 msgstr "Легкий туман"
 
-#: src/weather-home_hash.c:47
+#: src/weather-home_hash.c:48
 msgid "Heavy Rain / Wind"
 msgstr "Сильный дождь / Ветер"
 
-#: src/weather-home_hash.c:48
+#: src/weather-home_hash.c:49
 msgid "Heavy Snow"
 msgstr "Сильный снег"
 
-#: src/weather-home_settings.c:858
+#: src/weather-home_settings.c:862
 msgid "Hide station name and arrows"
 msgstr "Убрать имя станции и стрелки"
 
-#: src/weather-home_hash.c:49
+#: src/weather-home_hash.c:50
 msgid "High"
 msgstr "Высокий"
 
-#: src/weather-home_settings.c:791
+#: src/weather-home_settings.c:795
 msgid "Icon set:"
 msgstr "Набор иконок:"
 
-#: src/weather-home_settings.c:801
+#: src/weather-home_settings.c:805
 msgid "Icon size:"
 msgstr "Размер иконок:"
 
-#: src/weather-home_settings.c:736
+#: src/weather-home_settings.c:740
 msgid "Interface"
 msgstr "Интерфейс"
 
-#: src/weather-home_hash.c:50
+#: src/weather-home_hash.c:51
 msgid "Isolated T-Storms"
 msgstr "Отдельные грозы"
 
-#: src/weather-home_hash.c:51
+#: src/weather-home_hash.c:52
 msgid "Isolated T-Storms / Wind"
 msgstr "Отдельные грозы / Ветер"
 
-#: src/weather-home_settings.c:894
+#: src/weather-home_settings.c:898
 msgid "Kilometers"
 msgstr "Километры"
 
-#: src/weather-home_settings.c:807
+#: src/weather-home_settings.c:811
 msgid "Large"
 msgstr "Большой"
 
-#: src/weather-window_popup.c:286 src/weather-window_popup.c:289
-msgid "Last update: \n"
-msgstr "Последнее обновление: \n"
+#: src/weather-window_popup.c:286
+msgid "Last update at server: \n"
+msgstr "Последнее обновление на сервере: \n"
 
-#: src/weather-home_settings.c:772
+#: src/weather-window_popup.c:295 src/weather-window_popup.c:298
+msgid "Last update from server: \n"
+msgstr "Последнее обновление с сервера: \n"
+
+#: src/weather-home_settings.c:776
 msgid "Layout:"
 msgstr "Расположение:"
 
-#: src/weather-home_hash.c:52
+#: src/weather-home_hash.c:53
 msgid "Light Drizzle"
 msgstr "Небольшой мелкий дождь"
 
-#: src/weather-home_hash.c:55
+#: src/weather-home_hash.c:56
 msgid "Light Rain"
 msgstr "Небольшой дождь"
 
-#: src/weather-home_hash.c:56
+#: src/weather-home_hash.c:57
 msgid "Light Rain / Wind"
 msgstr "Небольшой дождь / Ветер"
 
-#: src/weather-home_hash.c:57
+#: src/weather-home_hash.c:58
 msgid "Light Rain Early"
 msgstr "Утром небольшой дождь"
 
-#: src/weather-home_hash.c:58
+#: src/weather-home_hash.c:59
 msgid "Light Rain Late"
 msgstr "Небольшой дождь позже"
 
-#: src/weather-home_hash.c:59
+#: src/weather-home_hash.c:60
 msgid "Light Rain Shower"
 msgstr "Легкий ливневой дождь"
 
-#: src/weather-home_hash.c:54
+#: src/weather-home_hash.c:55
 msgid "Light Rain and Shower"
 msgstr "Легкий дождь и ливень"
 
-#: src/weather-home_hash.c:53
+#: src/weather-home_hash.c:54
 msgid "Light Rain and Windy"
 msgstr "Небольшой дождь и ветрено"
 
-#: src/weather-home_hash.c:60
+#: src/weather-home_hash.c:61
 msgid "Light Snow"
 msgstr "Небольшой снег"
 
-#: src/weather-home_hash.c:61
+#: src/weather-home_hash.c:62
 msgid "Light Snow Shower"
 msgstr "Небольшой мокрый снег"
 
-#: src/weather-home_settings.c:682
+#: src/weather-home_settings.c:686
 msgid "Locations"
 msgstr "Местоположения"
 
-#: src/weather-home_hash.c:62
+#: src/weather-home_hash.c:63
 msgid "Low"
 msgstr "Низкий"
 
-#: src/weather-home_settings.c:808
+#: src/weather-home_settings.c:812
 msgid "Medium"
 msgstr "Средний"
 
-#: src/weather-home_settings.c:893
+#: src/weather-home_settings.c:897
 msgid "Meters"
 msgstr "Метры"
 
-#: src/weather-home_settings.c:896
+#: src/weather-home_settings.c:900
 msgid "Miles (Imperial)"
 msgstr "Мили (США) и др."
 
-#: src/weather-home_settings.c:895
+#: src/weather-home_settings.c:899
 msgid "Miles (International)"
 msgstr "Мили (интернациональные)"
 
-#: src/weather-home_settings.c:897
+#: src/weather-home_settings.c:901
 msgid "Miles (Sea)"
 msgstr "Мили (морские)"
 
-#: src/weather-home_hash.c:63
+#: src/weather-home_hash.c:64
 msgid "Mist"
 msgstr "Легкий туман"
 
-#: src/weather-home_hash.c:64
+#: src/weather-home_hash.c:65
 msgid "Mostly Clear"
 msgstr "В основном безоблачно"
 
-#: src/weather-home_hash.c:65
+#: src/weather-home_hash.c:66
 msgid "Mostly Cloudy"
 msgstr "В основном облачно"
 
-#: src/weather-home_hash.c:66
+#: src/weather-home_hash.c:67
 msgid "Mostly Cloudy and Windy"
 msgstr "В основном облачно и ветер"
 
-#: src/weather-home_hash.c:67
+#: src/weather-home_hash.c:68
 msgid "Mostly Sunny"
 msgstr "В основном солнечно"
 
-#: src/weather-home_hash.c:70
+#: src/weather-home_hash.c:71
 msgid "N"
 msgstr "северный"
 
 #: src/weather-home.c:281 src/weather-home.c:299 src/weather-home.c:322
 #: src/weather-home.c:326 src/weather-home.c:360 src/weather-home.c:364
-#: src/weather-home.c:376 src/weather-home_hash.c:68
+#: src/weather-home.c:376 src/weather-home_hash.c:69
 msgid "N/A"
 msgstr "Н/Д"
 
-#: src/weather-home_hash.c:69
+#: src/weather-home_hash.c:70
 msgid "NE"
 msgstr "северо-восточный"
 
-#: src/weather-home_hash.c:71
+#: src/weather-home_hash.c:72
 msgid "NNE"
 msgstr "северо-северо-восточный"
 
-#: src/weather-home_hash.c:72
+#: src/weather-home_hash.c:73
 msgid "NNW"
 msgstr "северо-северо-западный"
 
@@ -554,19 +566,19 @@ msgstr "северо-северо-западный"
 msgid "NO STATION"
 msgstr "Нет станции"
 
-#: src/weather-home_hash.c:73
+#: src/weather-home_hash.c:74
 msgid "NW"
 msgstr "северо-западный"
 
-#: src/weather-home_settings.c:966 src/weather-home_config.c:482
+#: src/weather-home_settings.c:970 src/weather-home_config.c:482
 msgid "Never"
 msgstr "Никогда"
 
-#: src/weather-home_settings.c:959
+#: src/weather-home_settings.c:963
 msgid "Next update:"
 msgstr "Следующие обновление:"
 
-#: src/weather-window_popup.c:501
+#: src/weather-window_popup.c:511
 msgid "Night:"
 msgstr "Ночь:"
 
@@ -578,13 +590,13 @@ msgstr "Нет соединения с интернетом."
 msgid "Now"
 msgstr "Сейчас"
 
-#: src/weather-window_popup.c:329
+#: src/weather-window_popup.c:338
 msgid "Now: "
 msgstr "Сейчас: "
 
 #: src/weather-home_settings.c:256 src/weather-home_settings.c:447
-#: src/weather-home_settings.c:523 src/weather-home_settings.c:669
-#: src/weather-home_settings.c:1193
+#: src/weather-home_settings.c:523 src/weather-home_settings.c:673
+#: src/weather-home_settings.c:1197
 msgid "OK"
 msgstr "ОК"
 
@@ -592,111 +604,111 @@ msgstr "ОК"
 msgid "OMWeather settings"
 msgstr "Настройки OMWeather"
 
-#: src/weather-home_settings.c:779
+#: src/weather-home_settings.c:783
 msgid "One column"
 msgstr "в один столбец"
 
-#: src/weather-home_settings.c:778
+#: src/weather-home_settings.c:782
 msgid "One row"
 msgstr "в одну строку"
 
-#: src/weather-home_settings.c:1190
+#: src/weather-home_settings.c:1194
 msgid "Other Maemo Weather Info"
 msgstr "Информация"
 
-#: src/weather-home_settings.c:663
+#: src/weather-home_settings.c:667
 msgid "Other Maemo Weather Settings"
 msgstr "Настройки программы"
 
-#: src/weather-home_hash.c:74
+#: src/weather-home_hash.c:75
 msgid "Overcast"
 msgstr "Пасмурно"
 
-#: src/weather-home_hash.c:77
+#: src/weather-home_hash.c:78
 msgid "PM Light Rain"
 msgstr "После полудня небольшой дождь"
 
-#: src/weather-home_hash.c:78
+#: src/weather-home_hash.c:79
 msgid "PM Rain"
 msgstr "После полудня дождь"
 
-#: src/weather-home_hash.c:79
+#: src/weather-home_hash.c:80
 msgid "PM Rain / Wind"
 msgstr "После полудня дождь / Ветер"
 
-#: src/weather-home_hash.c:80
+#: src/weather-home_hash.c:81
 msgid "PM Showers"
 msgstr "После полудня ливни"
 
-#: src/weather-home_hash.c:81
+#: src/weather-home_hash.c:82
 msgid "PM Showers / Wind"
 msgstr "После полудня ливни / Ветер"
 
-#: src/weather-home_hash.c:82
+#: src/weather-home_hash.c:83
 msgid "PM Snow Showers"
 msgstr "После полудня мокрый снег"
 
-#: src/weather-home_hash.c:75
+#: src/weather-home_hash.c:76
 msgid "Partly Cloudy"
 msgstr "Небольшая облачность"
 
-#: src/weather-home_hash.c:76
+#: src/weather-home_hash.c:77
 msgid "Partly Cloudy / Wind"
 msgstr "Небольшая облачность / Ветер"
 
-#: src/weather-home_hash.c:85
+#: src/weather-home_hash.c:86
 msgid "Rain"
 msgstr "Дождь"
 
-#: src/weather-home_hash.c:88
+#: src/weather-home_hash.c:89
 msgid "Rain / Snow"
 msgstr "Дождь / Снег"
 
-#: src/weather-home_hash.c:90
+#: src/weather-home_hash.c:91
 msgid "Rain / Snow Showers"
 msgstr "Дождь / Мокрый снег"
 
-#: src/weather-home_hash.c:91
+#: src/weather-home_hash.c:92
 msgid "Rain / Snow Showers / Wind"
 msgstr "Дождь / Мокрый снег / Ветер"
 
-#: src/weather-home_hash.c:89
+#: src/weather-home_hash.c:90
 msgid "Rain / Snow Showers Late"
 msgstr "Дождь / Позже мокрый снег"
 
-#: src/weather-home_hash.c:95
+#: src/weather-home_hash.c:96
 msgid "Rain / Wind"
 msgstr "Дождь / Ветер"
 
-#: src/weather-home_hash.c:94
+#: src/weather-home_hash.c:95
 msgid "Rain / Wind Early"
 msgstr "Дождь / Утром ветер"
 
-#: src/weather-home_hash.c:84
+#: src/weather-home_hash.c:85
 msgid "Rain Early"
 msgstr "Утром дождь"
 
-#: src/weather-home_hash.c:87
+#: src/weather-home_hash.c:88
 msgid "Rain Shower"
 msgstr "Ливневый дождь"
 
-#: src/weather-home_hash.c:86
+#: src/weather-home_hash.c:87
 msgid "Rain Shower and Windy"
 msgstr "Ливневый дождь и ветрено"
 
-#: src/weather-home_hash.c:83
+#: src/weather-home_hash.c:84
 msgid "Rain and Snow"
 msgstr "Дождь со снегом"
 
-#: src/weather-home_hash.c:92
+#: src/weather-home_hash.c:93
 msgid "Rain to Wintry Mix"
 msgstr "Дождь переходящий в поземку"
 
-#: src/weather-home_hash.c:93
+#: src/weather-home_hash.c:94
 msgid "Rain to Wintry Mix / Wind"
 msgstr "Дождь переходящий в поземку / Ветер"
 
-#: src/weather-home_settings.c:710
+#: src/weather-home_settings.c:714
 msgid "Rename"
 msgstr "Переименовать"
 
@@ -704,103 +716,103 @@ msgstr "Переименовать"
 msgid "Rename Station"
 msgstr "Переименовать станцию"
 
-#: src/weather-home_hash.c:115
+#: src/weather-home_hash.c:116
 msgid "S"
 msgstr "южный"
 
-#: src/weather-home_hash.c:101
+#: src/weather-home_hash.c:102
 msgid "SE"
 msgstr "юго-восточый"
 
-#: src/weather-home_hash.c:116
+#: src/weather-home_hash.c:117
 msgid "SSE"
 msgstr "юго-юго-восточный"
 
-#: src/weather-home_hash.c:117
+#: src/weather-home_hash.c:118
 msgid "SSW"
 msgstr "юго-юго-западный"
 
-#: src/weather-home_hash.c:122
+#: src/weather-home_hash.c:123
 msgid "SW"
 msgstr "юго-западный"
 
-#: src/weather-home_hash.c:97
+#: src/weather-home_hash.c:98
 msgid "Scattered Showers"
 msgstr "Редкие ливни"
 
-#: src/weather-home_hash.c:98
+#: src/weather-home_hash.c:99
 msgid "Scattered Snow"
 msgstr "Редкий снег"
 
-#: src/weather-home_hash.c:99
+#: src/weather-home_hash.c:100
 msgid "Scattered Snow Showers"
 msgstr "Редкий мокрый снег"
 
-#: src/weather-home_hash.c:100
+#: src/weather-home_hash.c:101
 msgid "Scattered T-Storms"
 msgstr "Местами грозы"
 
-#: src/weather-home_settings.c:838
+#: src/weather-home_settings.c:842
 msgid "Separate current weather data"
 msgstr "Выделить текущие данные погоды"
 
-#: src/weather-window_popup.c:296
+#: src/weather-window_popup.c:305
 msgid "Settings"
 msgstr "Настройки"
 
-#: src/weather-home_hash.c:105
+#: src/weather-home_hash.c:106
 msgid "Showers"
 msgstr "Ливни"
 
-#: src/weather-home_hash.c:106
+#: src/weather-home_hash.c:107
 msgid "Showers / Wind"
 msgstr "Ливни / Ветер"
 
-#: src/weather-home_hash.c:102
+#: src/weather-home_hash.c:103
 msgid "Showers Early"
 msgstr "С утра ливни"
 
-#: src/weather-home_hash.c:104
+#: src/weather-home_hash.c:105
 msgid "Showers Late"
 msgstr "Позже ливни"
 
-#: src/weather-home_hash.c:103
+#: src/weather-home_hash.c:104
 msgid "Showers in the Vicinity"
 msgstr "Местами ливни"
 
-#: src/weather-home_settings.c:809
+#: src/weather-home_settings.c:813
 msgid "Small"
 msgstr "Малый"
 
-#: src/weather-home_hash.c:107
+#: src/weather-home_hash.c:108
 msgid "Smoke"
 msgstr "Дымка"
 
-#: src/weather-home_hash.c:111
+#: src/weather-home_hash.c:112
 msgid "Snow"
 msgstr "Снег"
 
-#: src/weather-home_hash.c:109
+#: src/weather-home_hash.c:110
 msgid "Snow Shower"
 msgstr "Мокрый снег"
 
-#: src/weather-home_hash.c:110
+#: src/weather-home_hash.c:111
 msgid "Snow Shower / Wind"
 msgstr "Мокрый снег / Ветер"
 
-#: src/weather-home_hash.c:108
+#: src/weather-home_hash.c:109
 msgid "Snow Showers Late"
 msgstr "Позже мокрый снег"
 
-#: src/weather-home_hash.c:112
+#: src/weather-home_hash.c:113
 msgid "Snow to Rain"
 msgstr "Снег переходящий в дождь"
 
-#: src/weather-home_hash.c:113
+#: src/weather-home_hash.c:114
 msgid "Snow to Wintry Mix"
 msgstr "Снег переходящий в поземку"
 
-#: src/weather-home_hash.c:114
+#: src/weather-home_hash.c:115
 msgid "Snow to Wintry Mix / Wind"
 msgstr "Снег переходящий в поземку / Ветер"
 
@@ -828,71 +840,71 @@ msgstr "Станция(город)"
 msgid "Station:"
 msgstr "Станция:"
 
-#: src/weather-home_hash.c:119
+#: src/weather-home_hash.c:120
 msgid "Storm"
 msgstr "Шторм"
 
-#: src/weather-home_hash.c:120
+#: src/weather-home_hash.c:121
 msgid "Sunny"
 msgstr "Солнечно"
 
-#: src/weather-home_hash.c:121
+#: src/weather-home_hash.c:122
 msgid "Sunny / Wind"
 msgstr "Солнечно / Ветер"
 
-#: src/weather-window_popup.c:603
+#: src/weather-window_popup.c:613
 msgid "Sunrise: "
 msgstr "Восход: "
 
-#: src/weather-window_popup.c:611
+#: src/weather-window_popup.c:621
 msgid "Sunset: "
 msgstr "Закат: "
 
-#: src/weather-home_settings.c:848
+#: src/weather-home_settings.c:852
 msgid "Swap hi/low temperature"
 msgstr "Поменять местами температуры:"
 
-#: src/weather-home_settings.c:872
+#: src/weather-home_settings.c:876
 msgid "Temperature units:"
 msgstr "Единицы температуры:"
 
-#: src/weather-window_popup.c:475
+#: src/weather-window_popup.c:485
 msgid "Temperature: "
 msgstr "Температура:"
 
-#: src/weather-home_settings.c:1240
+#: src/weather-home_settings.c:1244
 msgid "Thanks"
 msgstr "Благодарности"
 
-#: src/weather-home_settings.c:1248
+#: src/weather-home_settings.c:1252
 msgid "Translators"
 msgstr "Перевод"
 
-#: src/weather-home_settings.c:828
+#: src/weather-home_settings.c:832
 msgid "Transparency"
 msgstr "Прозрачность"
 
-#: src/weather-home_settings.c:781
+#: src/weather-home_settings.c:785
 msgid "Two columns"
 msgstr "в два столбца"
 
-#: src/weather-home_settings.c:780
+#: src/weather-home_settings.c:784
 msgid "Two rows"
 msgstr "в две строки"
 
-#: src/weather-home_settings.c:869
+#: src/weather-home_settings.c:873
 msgid "Units"
 msgstr "Единицы измерения"
 
-#: src/weather-window_popup.c:286
+#: src/weather-window_popup.c:295
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: src/weather-home_hash.c:123
+#: src/weather-home_hash.c:124
 msgid "Unlimited"
 msgstr "Без ограничений"
 
-#: src/weather-home_settings.c:932
+#: src/weather-home_settings.c:936
 msgid "Update"
 msgstr "Обновление"
 
@@ -900,11 +912,11 @@ msgstr "Обновление"
 msgid "Update weather"
 msgstr "Идет обновление данных о погоде."
 
-#: src/weather-home_settings.c:952
+#: src/weather-home_settings.c:956
 msgid "Updating of weather data:"
 msgstr "Обновление данных о погоде:"
 
-#: src/weather-home_settings.c:1146
+#: src/weather-home_settings.c:1150
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"
@@ -913,39 +925,39 @@ msgstr ""
 "'Редактировать компоновку' \n"
 "для настройки изображения апплета."
 
-#: src/weather-home_hash.c:135
+#: src/weather-home_hash.c:136
 msgid "VAR"
 msgstr "Переменный"
 
-#: src/weather-home_settings.c:934
+#: src/weather-home_settings.c:938
 msgid "Valid time for current weather:"
 msgstr "Актуальность текущей погоды:"
 
-#: src/weather-home_settings.c:740
+#: src/weather-home_settings.c:744
 msgid "Visible items:"
 msgstr "Количество элементов:"
 
-#: src/weather-home_hash.c:134
+#: src/weather-home_hash.c:135
 msgid "W"
 msgstr "западный"
 
-#: src/weather-home_hash.c:132
+#: src/weather-home_hash.c:133
 msgid "WNW"
 msgstr "западно-северо-западный"
 
-#: src/weather-home_hash.c:133
+#: src/weather-home_hash.c:134
 msgid "WSW"
 msgstr "западно-юго-западный"
 
-#: src/weather-home_hash.c:124
+#: src/weather-home_hash.c:125
 msgid "Waning Crescent"
 msgstr "Убывающая Луна"
 
-#: src/weather-home_hash.c:125
+#: src/weather-home_hash.c:126
 msgid "Waning Gibbous"
 msgstr "Убывающая Луна"
 
-#: src/weather-home_hash.c:126
+#: src/weather-home_hash.c:127
 msgid "Waxing Crescent"
 msgstr "Растущая Луна"
 
@@ -953,31 +965,31 @@ msgstr "Растущая Луна"
 msgid "Weather updated"
 msgstr "Данные о погоде обновлены."
 
-#: src/weather-home_hash.c:127
+#: src/weather-home_hash.c:128
 msgid "Wind"
 msgstr "Ветер"
 
-#: src/weather-home_settings.c:908
+#: src/weather-home_settings.c:912
 msgid "Wind speed units:"
 msgstr "Единицы скорости ветра:"
 
-#: src/weather-window_popup.c:513 src/weather-window_popup.c:547
+#: src/weather-window_popup.c:523 src/weather-window_popup.c:557
 msgid "Wind: "
 msgstr "Ветер: "
 
-#: src/weather-home_hash.c:131
+#: src/weather-home_hash.c:132
 msgid "Wintry Mix"
 msgstr "Поземка"
 
-#: src/weather-home_hash.c:130
+#: src/weather-home_hash.c:131
 msgid "Wintry Mix / Wind"
 msgstr "Поземка / Ветер"
 
-#: src/weather-home_hash.c:129
+#: src/weather-home_hash.c:130
 msgid "Wintry Mix / Wind Early"
 msgstr "Поземка / C утра ветер"
 
-#: src/weather-home_hash.c:128
+#: src/weather-home_hash.c:129
 msgid "Wintry Mix to Snow"
 msgstr "Поземка переходящая в снег"
 
@@ -1021,55 +1033,55 @@ msgstr "каждый час"
 msgid "every minute (DEBUG)"
 msgstr "каждую минуту (отладка)"
 
-#: src/weather-home_hash.c:37
+#: src/weather-home_hash.c:38
 msgid "falling"
 msgstr "падает"
 
-#: src/weather-window_popup.c:360
+#: src/weather-window_popup.c:377
 msgid "km"
 msgstr "км"
 
-#: src/weather-home_settings.c:918 src/weather-home_hash.c:13
+#: src/weather-home_settings.c:922 src/weather-home_hash.c:13
 msgid "km/h"
 msgstr "км/ч"
 
-#: src/weather-home_settings.c:915 src/weather-home_hash.c:10
+#: src/weather-home_settings.c:919 src/weather-home_hash.c:10
 msgid "km/s"
 msgstr "км/с"
 
-#: src/weather-window_popup.c:359
+#: src/weather-window_popup.c:376
 msgid "m"
 msgstr "м"
 
-#: src/weather-home_settings.c:917 src/weather-home_hash.c:12
+#: src/weather-home_settings.c:921 src/weather-home_hash.c:12
 msgid "m/h"
 msgstr "м/ч"
 
-#: src/weather-home_settings.c:914 src/weather-home_hash.c:9
+#: src/weather-home_settings.c:918 src/weather-home_hash.c:9
 msgid "m/s"
 msgstr "м/с"
 
-#: src/weather-window_popup.c:373
+#: src/weather-window_popup.c:390
 msgid "mb"
 msgstr "мбар"
 
-#: src/weather-window_popup.c:361 src/weather-window_popup.c:362
-#: src/weather-window_popup.c:363
+#: src/weather-window_popup.c:378 src/weather-window_popup.c:379
+#: src/weather-window_popup.c:380
 msgid "mi"
 msgstr "ми"
 
-#: src/weather-home_settings.c:919 src/weather-home_hash.c:14
+#: src/weather-home_settings.c:923 src/weather-home_hash.c:14
 msgid "mi/h"
 msgstr "ми/ч"
 
-#: src/weather-home_settings.c:916 src/weather-home_hash.c:11
+#: src/weather-home_settings.c:920 src/weather-home_hash.c:11
 msgid "mi/s"
 msgstr "ми/с"
 
-#: src/weather-home_hash.c:96
+#: src/weather-home_hash.c:97
 msgid "rising"
 msgstr "возрастает"
 
-#: src/weather-home_hash.c:118
+#: src/weather-home_hash.c:119
 msgid "steady"
 msgstr "устойчивое"

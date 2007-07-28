@@ -57,10 +57,6 @@
 #define _(String) dgettext (GETTEXT_PACKAGE,String)
 
 #define Max_count_weather_day	10
-#define AUTOUPDATE		1
-#define DAYTIMEEVENT		2
-#define DBUSINITEVENT		3
-#define DAY_DOWNLOAD		10
 #define LOCATIONS_FILE		"/usr/share/omweather/locations.xml"
 #define LOCATIONS_NAMESPACE	"omw=https://garage.maemo.org/projects/omweather/"
 #define STATIONS_FILE		"/usr/share/omweather/stations.txt"
@@ -69,6 +65,7 @@
 #define ICONS_PATH		"/usr/share/omweather/icons/"
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
 /*******************************************************************************/
+enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT };
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS };
 enum { METERS, KILOMETERS, INTERNATIONAL_MILES, IMPERIAL_MILES, SEA_MILES };
 enum { METERS_S, KILOMETERS_S, MILES_S, METERS_H, KILOMETERS_H, MILES_H };

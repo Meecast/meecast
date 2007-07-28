@@ -118,10 +118,10 @@ void print_list(char *buff, size_t buff_size){
 }
 #endif
 /*******************************************************************************/
-void timer(void){
-    app->timer = g_timeout_add(60000,
+void create_timer_with_interval(guint interval){
+    app->timer = g_timeout_add(interval,
 			       (GtkFunction)timer_handler,
-			       app->main_window); /* One per minute */
+			       NULL); /* One per minute */
 }
 /*******************************************************************************/
 /* Free memory allocated for time event */
@@ -173,8 +173,7 @@ void time_event_add(time_t time_value, short type_event){
     #endif
     if( time_value && time_value > time(NULL)){ 
 	evt = g_new0(struct event_time, 1);
-	if (evt != NULL) 
-	{
+	if (evt != NULL){
 	    evt->time = time_value;	  
 	    evt->type_event = type_event;
 	    event_time_list = g_slist_insert_sorted(event_time_list,evt,compare_time);

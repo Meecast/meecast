@@ -64,10 +64,40 @@
 #define GCONF_KEY_CLOCK_REMOTE_LOCATION		GCONF_KEY_CLOCK_PREFIX"/remote-location"
 #define GCONF_KEY_CLOCK_HOME_LOCATION		GCONF_KEY_CLOCK_PREFIX"/home-location"
 /*******************************************************************************/
+typedef struct applet_config{
+    gchar	*cache_dir_name;
+    gchar	*icon_set;
+    gchar	*current_country;
+    gchar	*current_station_name;
+    gchar	*current_station_id;
+    gchar 	*iap_http_proxy_host;
+    gint 	iap_http_proxy_port;
+    gint	update_interval;
+    gint	icons_size;
+    gint	icons_layout;
+    gint	current_settings_page;
+    gint	days_to_show;
+    gint	previos_days_to_show;
+    gint	distance_units;
+    gint	wind_units;
+    gint	temperature_units;
+    guint	data_valid_interval;
+    gboolean	transparency;
+    gboolean	separate;
+    gboolean	swap_hi_low_temperature;
+    gboolean	hide_station_name;
+    GdkColor	font_color;
+}AppletConfig;
+/*******************************************************************************/
 extern GSList   *time_update_list;
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 void config_update_proxy(void);
+void config_save_current_station(void);
+void config_save(void);
+void read_config(void);
+int new_read_config(AppletConfig*);
 /*******************************************************************************/
+
 #endif

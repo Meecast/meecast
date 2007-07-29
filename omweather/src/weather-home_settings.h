@@ -67,5 +67,6 @@ extern void weather_buttons_init(void);
 extern void weather_initialize_dbus(void);
 extern time_t next_update(void);
 extern void print_list(char *buff, size_t buff_size);
+extern void new_config_save(AppletConfig *config);
 /*******************************************************************************/
 #endif

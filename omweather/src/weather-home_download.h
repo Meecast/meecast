@@ -36,16 +36,11 @@
 #include <osso-ic-dbus.h>
 #include <dbus/dbus-glib.h>
 /*******************************************************************************/
-static GString *url = NULL;
-static GString *full_filename_new_xml = NULL;
-CURL *curl_handle = NULL;
-CURL *curl_multi = NULL;
 CURL* weather_curl_init(CURL *curl_handle);
 gboolean download_html(gpointer data);
 void weather_initialize_dbus(void);
 gboolean check_connected(void);
 void clean_download(void);
-GtkWidget *update_window = NULL;     
 /*******************************************************************************/
 struct HtmlFile {
   char *filename;

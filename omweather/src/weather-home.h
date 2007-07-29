@@ -63,6 +63,8 @@ extern void add_periodic_event(time_t last_update);
 extern void remove_daytime_event(void);
 extern void clean_download(void);
 extern void weather_window_settings(GtkWidget *widget,GdkEvent *event,gpointer user_data);
+extern int new_read_config(AppletConfig*);
+extern void new_config_save(AppletConfig*);
 /* List times between two updates */
 GSList *time_update_list = NULL;
 gboolean not_event = FALSE;

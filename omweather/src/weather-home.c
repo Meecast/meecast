@@ -272,7 +272,8 @@ void weather_buttons_fill(gboolean check_error){
 		/* check weather data for actuality */
 		if( (app->weather_current_day.date_time > (current_time - app->config->data_valid_interval - 3600)) &&
             	    (app->weather_current_day.date_time < (current_time + app->config->data_valid_interval + 3600)) && i == 0){
-		    time_event_add(app->weather_current_day.date_time + app->config->data_valid_interval - diff_time, DAYTIMEEVENT);
+		    tmp_time = app->weather_current_day.date_time + app->config->data_valid_interval - diff_time;
+		    time_event_add(app->weather_current_day.date_time + app->config->data_valid_interval - diff_time + 3600, DAYTIMEEVENT);
 		    if(temp_current == INT_MAX)
 			sprintf(buffer,
 				"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%s\302\260\n</span>",

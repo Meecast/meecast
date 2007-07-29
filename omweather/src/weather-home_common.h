@@ -136,57 +136,57 @@ typedef struct weather_day_button_with_image{
     GtkWidget   *icon_image; 
 }WDB;
 /*******************************************************************************/
+typedef struct applet_config{
+    gchar	*cache_dir_name;
+    gchar	*icon_set;
+    gchar	*current_country;
+    gchar	*current_station_name;
+    gchar	*current_station_id;
+    gchar 	*iap_http_proxy_host;
+    gint 	iap_http_proxy_port;
+    gint	update_interval;
+    gint	icons_size;
+    gint	icons_layout;
+    gint	current_settings_page;
+    gint	days_to_show;
+    gint	previos_days_to_show;
+    gint	distance_units;
+    gint	wind_units;
+    gint	temperature_units;
+    guint	data_valid_interval;
+    gboolean	transparency;
+    gboolean	separate;
+    gboolean	swap_hi_low_temperature;
+    gboolean	hide_station_name;
+    GdkColor	font_color;
+}AppletConfig;
+/*******************************************************************************/
 typedef struct OMWeatherApplet{
     osso_context_t	*osso;
     GHashTable		*hash;
     GtkWidget		*top_widget;
     GtkWidget		*main_window;
     GtkWidget		*popup_window;
-    gchar		*weather_dir_name;
-    gchar		*icon_set;
-    gint		icons_size;
-    gint		icons_layout;
-    gchar		*current_country;
-    gchar		*current_station_name;
-    gchar		*current_station_id;
-    gint		current_settings_page;
+    AppletConfig	*config;
     gboolean		show_update_window;
     gboolean		iap_connected;
-    gchar 		*iap_http_proxy_host;
-    gint 		iap_http_proxy_port;
-    gint		update_interval;
-    gboolean		transparency;
-    gboolean		separate;
-    gboolean		swap_hi_low_temperature;
-    gboolean		hide_station_name;
-    gint		days_to_show;
-    gint		previos_days_to_show;
-    gint		distance_units;
-    gint		wind_units;
-    gint		temperature_units;
-    guint		data_valid_interval;
-    GdkColor		font_color;
     guint		timer;
     WDB			*buttons[Max_count_weather_day];
     guint		flag_updating;
     gboolean		dbus_is_initialize;
+    weather_day		weather_current_day;
+    weather_day		weather_days[Max_count_weather_day];
 }OMWeatherApp;
 /*******************************************************************************/
-weather_day weather_days[Max_count_weather_day];
-weather_day weather_current_day;
-
 /* Stations List of view in plugin */
 GSList *stations_view_list; 
 
-int get_weather_html( gboolean check_connect );
 void free_list_time_event (void);
 void time_event_add(time_t time_value, short int type_event);
-void config_save();
-void config_save_current_station();
-void read_config(void);
 void update_weather(void);
 void weather_frame_update(gboolean check);
-void hack_home_plugin_osso_for_nokia800(void);
+extern void read_config(void);
+extern int new_read_config(AppletConfig*);
 /*******************************************************************************/
 extern OMWeatherApp	*app;
 /*******************************************************************************/

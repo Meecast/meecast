@@ -176,6 +176,7 @@ void weather_buttons_fill(gboolean check_error){
     gchar	buffer[2048], buffer_icon[2048];
     time_t	current_day,current_time, last_day = 0,
 		utc_time;
+    long int    diff_time;
     struct tm	*tm;
     gboolean	flag_last_day = FALSE, error_station_code = FALSE;
     GSList	*tmplist = NULL;
@@ -221,6 +222,7 @@ void weather_buttons_fill(gboolean check_error){
 /* get current day */  
     current_time = time(NULL);
     utc_time = mktime(gmtime(&current_time));
+    diff_time = utc_time-current_time + weather_days[0].zone;
     current_time = current_day = utc_time + weather_days[0].zone;
     tm = localtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
@@ -257,20 +259,20 @@ void weather_buttons_fill(gboolean check_error){
         	}
 		/* add events for first day */
 		if(current_time < weather_days[i + offset + j].day.begin_time)
-        	    time_event_add(weather_days[i + offset + j].day.begin_time, DAYTIMEEVENT);
+        	    time_event_add(weather_days[i + offset + j].day.begin_time - diff_time, DAYTIMEEVENT);
 		if(current_time < weather_days[i + offset + j].night.begin_time)
-            	    time_event_add(weather_days[i + offset + j].night.begin_time, DAYTIMEEVENT);
+            	    time_event_add(weather_days[i + offset + j].night.begin_time - diff_time, DAYTIMEEVENT);
 		
-		current_time = utc_time + weather_days[i + offset + j].zone - 3600;
+		current_time = utc_time + weather_days[i + offset + j].zone;
 		#ifndef RELEASE
 		fprintf(stderr, "\nUTC time %s", ctime(&utc_time));
 		fprintf(stderr, "Zone time %s", ctime(&current_time));
 		fprintf(stderr, "Last update time %s\n", ctime(&(weather_current_day.date_time)));
 		#endif
 		/* check weather data for actuality */
-		if( (weather_current_day.date_time > (current_time - app->data_valid_interval)) &&
-            	    (weather_current_day.date_time < (current_time + app->data_valid_interval)) && i == 0){
-		    time_event_add(weather_current_day.date_time + app->data_valid_interval, DAYTIMEEVENT);
+		if( (weather_current_day.date_time > (current_time - app->data_valid_interval - 3600)) &&
+            	    (weather_current_day.date_time < (current_time + app->data_valid_interval + 3600)) && i == 0){
+		    time_event_add(weather_current_day.date_time + app->data_valid_interval - diff_time, DAYTIMEEVENT);
 		    if(temp_current == INT_MAX)
 			sprintf(buffer,
 				"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%s\302\260\n</span>",

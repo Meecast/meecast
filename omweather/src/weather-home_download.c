@@ -29,6 +29,12 @@
 /*******************************************************************************/
 #include "weather-home_download.h"
 /*******************************************************************************/
+static GString *url = NULL;
+static GString *full_filename_new_xml = NULL;
+CURL *curl_handle = NULL;
+CURL *curl_multi = NULL;
+GtkWidget *update_window = NULL;     
+/*******************************************************************************/
 /* Create standard Hildon animation small window */
 void create_window_update(){
     update_window = hildon_banner_show_animation(app->main_window,
@@ -148,10 +154,10 @@ CURL* weather_curl_init(CURL *curl_handle){
     curl_easy_setopt(curl_handle, CURLOPT_CONNECTTIMEOUT, 10); 
     config_update_proxy();
     /* Set Proxy option */
-    if(app->iap_http_proxy_host){ 
-        curl_easy_setopt(curl_handle, CURLOPT_PROXY, app->iap_http_proxy_host); 
-        if(app->iap_http_proxy_port) 
-            curl_easy_setopt(curl_handle, CURLOPT_PROXYPORT, app->iap_http_proxy_port); 
+    if(app->config->iap_http_proxy_host){ 
+        curl_easy_setopt(curl_handle, CURLOPT_PROXY, app->config->iap_http_proxy_host); 
+        if(app->config->iap_http_proxy_port) 
+            curl_easy_setopt(curl_handle, CURLOPT_PROXYPORT, app->config->iap_http_proxy_port); 
     } 
     return curl_handle;    
 }
@@ -191,7 +197,7 @@ gboolean form_url_and_filename(){
 				    ws->id_station, Max_count_weather_day);
 	    full_filename_new_xml = g_string_new(NULL);        
 	    g_string_append_printf(full_filename_new_xml,"%s/%s.xml.new",
-				    app->weather_dir_name, ws->id_station);
+				    app->config->cache_dir_name, ws->id_station);
 	    tmplist = g_slist_next(tmplist);
 	    /* Forming structure for download data of weather */
 	    html_file.filename = full_filename_new_xml->str;

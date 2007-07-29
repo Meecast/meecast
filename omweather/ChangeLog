@@ -12,6 +12,7 @@
   * Algorithm of calculating current time for timezone in popup window has been corrected
   * Algorithm of downloading forecast has been corrected
   * More long format of date in popup window
+  * The algorithm of calculation of time of display of current weather has been corrected
   
 0.18.1
   * Correct error in stations.txt

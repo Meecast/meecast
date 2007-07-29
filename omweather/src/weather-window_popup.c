@@ -299,6 +299,8 @@ GtkWidget* create_footer_widget(void){
 		    "%s", _("Last update from server: \n"));
     	strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 		"%X %x", localtime(&statv.st_mtime));
+	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+		"%s", _(" local time"));
     }
     label_update = gtk_label_new(buffer);    
     set_font_size(label_update, 14);

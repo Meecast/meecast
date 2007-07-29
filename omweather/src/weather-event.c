@@ -195,8 +195,8 @@ void add_periodic_event(time_t last_update){
     print_list(NULL, 0);
     #endif
 
-    if(app->update_interval > 0)
-	time_event_add(last_update + app->update_interval * 60, AUTOUPDATE);
+    if(app->config->update_interval > 0)
+	time_event_add(last_update + app->config->update_interval * 60, AUTOUPDATE);
 
     #ifndef RELEASE
     fprintf(stderr,"Item added to list\n");

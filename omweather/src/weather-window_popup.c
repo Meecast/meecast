@@ -512,7 +512,7 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
 
 /* prepare additional time values */
     utc_time = mktime(gmtime(&current_time));
-    current_time = utc_time + app->weather_days[boxs_offset[i + offset + j]].zone;
+    current_time = utc_time + app->weather_days[boxs_offset[i]].zone;
     diff_time = utc_time-current_time + app->weather_days[0].zone;
     current_day = utc_time + app->weather_days[0].zone;
     tm = localtime(&current_day);
@@ -523,7 +523,7 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
 
 
 /* prepare night data */
-    sprintf(buffer, "%s%i.png", path_large_icon, app->weather_days[i + offset + j].night.icon);
+    sprintf(buffer, "%s%i.png", path_large_icon, app->weather_days[i].night.icon);
     icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
     night_icon = gtk_image_new_from_pixbuf(icon);
     if(icon)
@@ -533,17 +533,17 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     set_font_size(night_label, 14);
 /* preapare night data */
     buffer[0] = 0;
-    strcat(buffer, app->weather_days[i + offset + j].night.title);
+    strcat(buffer, app->weather_days[i].night.title);
     		strcat(buffer, _("\nHumidity: "));
-    if( strcmp(app->weather_days[i + offset + j].night.hmid, "N/A") )
+    if( strcmp(app->weather_days[i].night.hmid, "N/A") )
 		sprintf(buffer + strlen(buffer), "%d%%\n",
-	atoi(app->weather_days[i + offset + j].night.hmid));
+	atoi(app->weather_days[i].night.hmid));
     else
 	sprintf(buffer + strlen(buffer), "%s\n",
 			(char*)hash_table_find((gpointer)"N/A"));
     strcat(buffer, _("Wind: "));
-    sprintf(buffer + strlen(buffer), "%s %i %s", app->weather_days[i + offset + j].night.wind_title,
-			convert_wind_units(app->config->wind_units, atoi(app->weather_days[i + offset + j].night.wind_speed)),
+    sprintf(buffer + strlen(buffer), "%s %i %s", app->weather_days[i].night.wind_title,
+			convert_wind_units(app->config->wind_units, atoi(app->weather_days[i].night.wind_speed)),
 			(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
     night_data_label = gtk_label_new(buffer);    
     set_font_size(night_data_label, 14);
@@ -557,7 +557,7 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     gtk_box_pack_start(GTK_BOX(night_hbox), night_data_label, FALSE, FALSE, 0);	    
 
 /* prepare day data */
-    sprintf(buffer, "%s%i.png", path_large_icon, app->weather_days[i + offset + j].day.icon);
+    sprintf(buffer, "%s%i.png", path_large_icon, app->weather_days[i].day.icon);
     icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
     day_icon = gtk_image_new_from_pixbuf(icon);
     if(icon)
@@ -567,17 +567,17 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     set_font_size(day_label, 14);
 /* preapare day data */
     buffer[0] = 0;
-    strcat(buffer, app->weather_days[i + offset + j].day.title);
+    strcat(buffer, app->weather_days[i].day.title);
     		strcat(buffer, _("\nHumidity: "));
-    if( strcmp(app->weather_days[i + offset + j].day.hmid, "N/A") )
+    if( strcmp(app->weather_days[i].day.hmid, "N/A") )
 		sprintf(buffer + strlen(buffer), "%d%%\n",
-	atoi(app->weather_days[i + offset + j].day.hmid));
+	atoi(app->weather_days[i].day.hmid));
     else
 	sprintf(buffer + strlen(buffer), "%s\n",
 			(char*)hash_table_find((gpointer)"N/A"));
     strcat(buffer, _("Wind: "));
-    sprintf(buffer + strlen(buffer), "%s %i %s", app->weather_days[i + offset + j].day.wind_title,
-			convert_wind_units(app->config->wind_units, atoi(app->weather_days[i + offset + j].day.wind_speed)),
+    sprintf(buffer + strlen(buffer), "%s %i %s", app->weather_days[i].day.wind_title,
+			convert_wind_units(app->config->wind_units, atoi(app->weather_days[i].day.wind_speed)),
 			(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
     day_data_label = gtk_label_new(buffer);    
     set_font_size(day_data_label, 14);
@@ -594,15 +594,15 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     separator_after_night = gtk_hseparator_new();
 /* set the part of firts 24 hours */
 /* First icon - morning, day or evening */     
-    if((current_time > app->weather_days[i + offset + j].day.begin_time) &&
-    		(current_time < app->weather_days[i + offset + j].night.begin_time)){
+    if((current_time > app->weather_days[i].day.begin_time) &&
+    		(current_time < app->weather_days[i].night.begin_time)){
 	/* first add day */	
 	    gtk_box_pack_start(GTK_BOX(main_widget), day_hbox, FALSE, FALSE, 0);
 	    gtk_box_pack_start(GTK_BOX(main_widget), separator_after_night, FALSE, FALSE, 0);
 	    gtk_box_pack_start(GTK_BOX(main_widget), night_hbox, FALSE, FALSE, 0);
 	} 
 	else{
-	    if(current_time < app->weather_days[i + offset + j].night.begin_time){     
+	    if(current_time < app->weather_days[i].night.begin_time){     
 	    /* Morning */
 		gtk_box_pack_start(GTK_BOX(main_widget), night_hbox, FALSE, FALSE, 0);
 		gtk_box_pack_start(GTK_BOX(main_widget), separator_after_night, FALSE, FALSE, 0);
@@ -648,8 +648,8 @@ GtkWidget* create_sun_time_widget(int i){
     memset(time_buffer, 0, sizeof(time_buffer));
     
     snprintf(buffer, sizeof(buffer) - 1, "%s", _("Sunrise: "));
-    strptime(app->weather_days[i + offset + j].sunrise, "%r", &time_show);
-    if(strstr(app->weather_days[i + offset + j].sunrise, "PM"))
+    strptime(app->weather_days[i].sunrise, "%r", &time_show);
+    if(strstr(app->weather_days[i].sunrise, "PM"))
 	time_show.tm_hour += 12;
     strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 			"%X, ", &time_show);
@@ -658,8 +658,8 @@ GtkWidget* create_sun_time_widget(int i){
 			"%s", _("Sunset: "));
 
     memset(time_buffer, 0, sizeof(time_buffer));
-    strptime(app->weather_days[i + offset + j].sunset, "%r", &time_show);
-    if(strstr(app->weather_days[i + offset + j].sunset, "PM"))
+    strptime(app->weather_days[i].sunset, "%r", &time_show);
+    if(strstr(app->weather_days[i].sunset, "PM"))
 	time_show.tm_hour += 12;
     strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 			"%X ", &time_show);

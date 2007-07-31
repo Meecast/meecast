@@ -6,6 +6,7 @@
   * Added displaying sunrise and sunset time
   * Added full staions list of United Kingdom, Sweden, Norway, Switzerland, Lithuania, Ukraine, Denmark
   * Added menuitem in Home menu for call applet settings
+  * The calculating of wind speed is corrected
 
 0.18.2
   * Wind speed (mi/s) has been correted

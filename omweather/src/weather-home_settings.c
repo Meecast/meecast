@@ -896,15 +896,13 @@ void weather_window_settings(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label), units = gtk_combo_box_new_text());
     gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Meters"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Kilometers"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Miles (International)"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Miles (Imperial)"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Miles"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Miles (Sea)"));
     switch(app->config->distance_units){
 	case METERS:			gtk_combo_box_set_active(GTK_COMBO_BOX(units), METERS);break;
 	default:
 	case KILOMETERS:	 	gtk_combo_box_set_active(GTK_COMBO_BOX(units), KILOMETERS);break;
-	case INTERNATIONAL_MILES:	gtk_combo_box_set_active(GTK_COMBO_BOX(units), INTERNATIONAL_MILES);break;
-	case IMPERIAL_MILES:		gtk_combo_box_set_active(GTK_COMBO_BOX(units), IMPERIAL_MILES);break;
+	case MILES:			gtk_combo_box_set_active(GTK_COMBO_BOX(units), MILES);break;
 	case SEA_MILES:			 gtk_combo_box_set_active(GTK_COMBO_BOX(units), SEA_MILES);break;
     }    
 /* Wind units */

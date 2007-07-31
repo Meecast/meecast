@@ -194,18 +194,18 @@ void weather_window_popup_show(GtkWidget *widget,
     gtk_widget_show_all(app->popup_window);    
 }
 /*******************************************************************************/
-int convert_wind_units(int to, int value){
-    float	result = (float)value;
+float convert_wind_units(int to, float value){
+    float	result = value;
     switch(to){
 	    default:
 	    case METERS_S: result *= 10.0f / 36.0f; break;
 	    case KILOMETERS_S: result /= 3600.0f; break;
-	    case MILES_S: result *= 1.609344f / 3600.0f; break;
+	    case MILES_S: result /= (1.609344f * 3600.0f); break;
 	    case METERS_H: result *= 1000.0f; break;
 	    case KILOMETERS_H: result *= 1.0f; break;
 	    case MILES_H: result /= 1.609344f; break;
 	}
-    return (int)result;
+    return result;
 }
 /*******************************************************************************/
 GtkWidget* create_header_widget(int i){
@@ -374,31 +374,30 @@ GtkWidget* create_current_weather_widget(void){
                 (char*)hash_table_find((gpointer)"Unlimited"));
     else
 	if( strcmp(app->weather_current_day.day.vis, "N/A") ){
-	    tmp_distance = atof(app->weather_current_day.day.vis) * 1000;
+	    tmp_distance = atof(app->weather_current_day.day.vis);
 	    switch(app->config->distance_units){
 		default:
-		case METERS: units = _("m"); tmp_distance *= 1; break;
-		case KILOMETERS: units = _("km"); tmp_distance /= 1000; break;
-		case INTERNATIONAL_MILES: units = _("mi"); tmp_distance /= 1609.344; break;
-		case IMPERIAL_MILES: units = _("mi"); tmp_distance /=  0.0254 * 63600; break;
-		case SEA_MILES: units = _("mi"); tmp_distance /= 1852; break;
+		case METERS: units = _("m"); tmp_distance *= 1000.0f; break;
+		case KILOMETERS: units = _("km"); tmp_distance *= 1.0f; break;
+		case MILES: units = _("mi"); tmp_distance /= 1.609344f; break;
+		case SEA_MILES: units = _("mi"); tmp_distance /= 1.852f; break;
 	    }
-	    sprintf(buffer + strlen(buffer), "%.1f %s", tmp_distance, units);
+	    sprintf(buffer + strlen(buffer), "%.2f %s", tmp_distance, units);
 	}
 	else    
 	    sprintf(buffer + strlen(buffer), "%s",
                     (char*)hash_table_find((gpointer)"N/A"));
 /* pressure */
     strcat(buffer, _("\nPressure: "));
-    sprintf(buffer + strlen(buffer), "%.1f %s, ", app->weather_current_day.day.pressure,
+    sprintf(buffer + strlen(buffer), "%.2f %s, ", app->weather_current_day.day.pressure,
 		    _("mb"));
     strcat(buffer, app->weather_current_day.day.pressure_str);
 
 /* wind */
     strcat(buffer, _("\nWind: "));
     if( strcmp(app->weather_current_day.day.wind_speed, "N/A") )	
-	    sprintf(buffer + strlen(buffer), "%s %i %s", app->weather_current_day.day.wind_title,
-		    convert_wind_units(app->config->wind_units, atoi(app->weather_current_day.day.wind_speed)),
+	    sprintf(buffer + strlen(buffer), "%s %.2f %s", app->weather_current_day.day.wind_title,
+		    convert_wind_units(app->config->wind_units, atof(app->weather_current_day.day.wind_speed)),
 		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
     else
 	sprintf(buffer + strlen(buffer), "%s %s", app->weather_current_day.day.wind_title,
@@ -406,8 +405,8 @@ GtkWidget* create_current_weather_widget(void){
 /* gust */
     strcat(buffer, _(" Gust: "));
     if( strcmp(app->weather_current_day.day.wind_gust, "N/A") )
-	    sprintf(buffer + strlen(buffer), "%i %s",
-		    convert_wind_units(app->config->wind_units, atoi(app->weather_current_day.day.wind_gust)),
+	    sprintf(buffer + strlen(buffer), "%.2f %s",
+		    convert_wind_units(app->config->wind_units, atof(app->weather_current_day.day.wind_gust)),
 		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
     else
 	strcat(buffer, (char*)hash_table_find((gpointer)"N/A"));
@@ -542,8 +541,8 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
 	sprintf(buffer + strlen(buffer), "%s\n",
 			(char*)hash_table_find((gpointer)"N/A"));
     strcat(buffer, _("Wind: "));
-    sprintf(buffer + strlen(buffer), "%s %i %s", app->weather_days[i].night.wind_title,
-			convert_wind_units(app->config->wind_units, atoi(app->weather_days[i].night.wind_speed)),
+    sprintf(buffer + strlen(buffer), "%s %.2f %s", app->weather_days[i].night.wind_title,
+			convert_wind_units(app->config->wind_units, atof(app->weather_days[i].night.wind_speed)),
 			(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
     night_data_label = gtk_label_new(buffer);    
     set_font_size(night_data_label, 14);
@@ -576,8 +575,8 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
 	sprintf(buffer + strlen(buffer), "%s\n",
 			(char*)hash_table_find((gpointer)"N/A"));
     strcat(buffer, _("Wind: "));
-    sprintf(buffer + strlen(buffer), "%s %i %s", app->weather_days[i].day.wind_title,
-			convert_wind_units(app->config->wind_units, atoi(app->weather_days[i].day.wind_speed)),
+    sprintf(buffer + strlen(buffer), "%s %.2f %s", app->weather_days[i].day.wind_title,
+			convert_wind_units(app->config->wind_units, atof(app->weather_days[i].day.wind_speed)),
 			(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
     day_data_label = gtk_label_new(buffer);    
     set_font_size(day_data_label, 14);

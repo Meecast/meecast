@@ -14,6 +14,7 @@
   * Algorithm of downloading forecast has been corrected
   * More long format of date in popup window
   * The algorithm of calculation of time of display of current weather has been corrected
+  * Imperials miles unit has been removed
   
 0.18.1
   * Correct error in stations.txt

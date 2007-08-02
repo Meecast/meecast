@@ -18,6 +18,7 @@ omweather (0.18.2) unstable; urgency=low
   * Algorithm of downloading forecast has been corrected
   * More long format of date in popup window
   * The algorithm of calculation of time of display of current weather has been corrected
+  * Imperials miles unit has been removed
   
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 7 Aug 2007 02:31:00 +0200
 

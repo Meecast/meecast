@@ -124,6 +124,8 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Sunny", _("Sunny"));
     g_hash_table_insert(hash, "Sunny / Wind", _("Sunny / Wind"));
     g_hash_table_insert(hash, "SW", _("SW"));
+    g_hash_table_insert(hash, "T-Storms", _("T-Storms"));
+    g_hash_table_insert(hash, "T-Storms Early", _("T-Storms Early"));    
     g_hash_table_insert(hash, "Unlimited", _("Unlimited"));
     g_hash_table_insert(hash, "Waning Crescent", _("Waning Crescent"));
     g_hash_table_insert(hash, "Waning Gibbous", _("Waning Gibbous"));

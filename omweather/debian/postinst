@@ -1,0 +1,19 @@
+#! /bin/sh
+
+# Reboot
+
+cat <<EOF > /tmp/request-reboot.txt
+In order to complete plugin upgrade the device must be rebooted.
+Do you want to reboot now?
+EOF
+
+maemo-confirm-text "Reboot is needed" /tmp/request-reboot.txt
+
+if [ $? == 0 ]; then
+	( sleep 6 ; mcetool --reboot ) &
+fi
+
+
+
+exit 0
+

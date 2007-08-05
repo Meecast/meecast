@@ -1,18 +1,28 @@
 #! /bin/sh
 
-# Reboot
-
-cat <<EOF > /tmp/request-reboot.txt
+if  test -f "/etc/osso_software_version"; then 
+    if [ `awk -F . '{print $2}'  "/etc/osso_software_version"` = "2007" ]; then
+        # Reboot
+	cat <<EOF > /tmp/request-reboot.txt
 In order to complete plugin upgrade the device must be rebooted.
 Do you want to reboot now?
 EOF
+	
+	maemo-confirm-text "Reboot is needed" /tmp/request-reboot.txt
+	
+	if [ $? == 0 ]; then
+	    ( sleep 6 ; mcetool --reboot ) &
+	fi
+    else
+	#Not reboot
+	cat <<EOF > /tmp/request-reboot.txt
+In order to complete plugin upgrade the device must be rebooted.
+Do not forget to reboot the device after update OMWeather.
+EOF
 
-maemo-confirm-text "Reboot is needed" /tmp/request-reboot.txt
-
-if [ $? == 0 ]; then
-	( sleep 6 ; mcetool --reboot ) &
+         maemo-confirm-text "Reboot is needed" /tmp/request-reboot.txt
+    fi
 fi
-
 
 
 exit 0

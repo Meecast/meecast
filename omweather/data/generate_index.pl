@@ -15,7 +15,7 @@ foreach my $country (sort(@$countrys)){
     
     if(defined $region_start){
 	my $pos = tell(REGIONS);
-	print COUNTRYS "$country=$region_start - $pos\n";
+	print COUNTRYS "$country;$region_start;$pos;\n";
 	$region_start = $pos;
     }
     else{
@@ -27,7 +27,7 @@ foreach my $country (sort(@$countrys)){
 	    if($line =~ /^Region=(.+)/){
 		if(defined $location_start && $region ne $1){
 		    my $pos = tell(LOCATIONS);
-		    print REGIONS "$region = $location_start - ".scalar($pos - 1)."\n";
+		    print REGIONS "$region;$location_start;".scalar($pos - 1).";\n";
 		    $location_start = $pos;
 		    $region = $1;
 		}
@@ -40,17 +40,17 @@ foreach my $country (sort(@$countrys)){
 		if($line =~ /(.+)=(.+)/){
 		    ($code, $location) = ($1, $2);
 		    die "Can't get current position in $locationsfile: $!\n" if $location_start == -1;
-		    print LOCATIONS "$location = $code\n";
+		    print LOCATIONS "$location;$code;\n";
 		}
 	    }
 	}
 	close FH;
 	if(defined $location_start){
-            print REGIONS "$region = $location_start - ".scalar(tell(LOCATIONS) - 1)."\n";
+            print REGIONS "$region;$location_start;".scalar(tell(LOCATIONS) - 1).";\n";
         }
     }
     if(defined $region_start){
-        print COUNTRYS "$country = $region_start - ".scalar(tell(REGIONS) - 1)."\n";
+        print COUNTRYS "$country;$region_start;".scalar(tell(REGIONS) - 1).";\n";
     }
 }
 

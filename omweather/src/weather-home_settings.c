@@ -635,6 +635,7 @@ void weather_window_settings(GtkWidget *widget,
 		*label = NULL,
 		*table = NULL,
 		*font_color = NULL,
+		*background_color = NULL,
 		*chk_transparency = NULL,
 		*separate_button = NULL,
 		*swap_temperature_button = NULL,
@@ -647,7 +648,8 @@ void weather_window_settings(GtkWidget *widget,
     char flag_update_icon = '\0'; /* Flag update main weather icon of desktop */
     gboolean flag_tuning_warning; /* Flag for show the warnings about tuning images of applet */
     int index_update_time = 0; /* Position active update time of the list */
-    GdkColor _weather_font_color_temp; /* Temporary for font color */
+    GdkColor	_weather_font_color_temp, /* Temporary for font color */
+		background_color_temp;
     static GSList *time_update_list_temp = NULL; /* Temporary list for time update */
     struct time_update *tu; /* Temporary for time update list */
     static char *temp_string; /* Temporary for the results differnet strdup functions */
@@ -704,7 +706,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
         			1, 2, 0, 1);
-    button_add = gtk_button_new_with_label(_(" Add ")); 
+    button_add = gtk_button_new_with_label(_(" Add "));
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			button_add,
         			1, 2, 1, 2);
@@ -827,13 +829,23 @@ void weather_window_settings(GtkWidget *widget,
     font_color = gtk_color_button_new();
     gtk_container_add(GTK_CONTAINER(label), font_color);
     gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &(app->config->font_color));
+    /* Background color */   
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+        			label = gtk_label_new(_("Backgroud color:")),
+        			0, 1, 5, 6);
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
+        			1, 2, 5, 6);
+    background_color = gtk_color_button_new();
+    gtk_container_add(GTK_CONTAINER(label), background_color);
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(background_color), &(app->config->background_color));
     /* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Transparency")),
-        			0, 1, 5, 6);
+        			0, 1, 6, 7);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
-        			1, 2, 5, 6);
+        			1, 2, 6, 7);
     gtk_container_add(GTK_CONTAINER(label),chk_transparency = gtk_check_button_new());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_transparency),
         			    app->config->transparency);
@@ -914,18 +926,18 @@ void weather_window_settings(GtkWidget *widget,
 				1, 2, 2, 3);
     gtk_container_add(GTK_CONTAINER(label), wunits = gtk_combo_box_new_text());
     gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("m/s"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("km/s"));
+/*    gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("km/s"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("mi/s"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("m/h"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("km/h"));
+*/    gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("km/h"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("mi/h"));
     switch(app->config->wind_units){
 	default:
 	case METERS_S:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), METERS_S);break;
-	case KILOMETERS_S:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), KILOMETERS_S);break;
+/*	case KILOMETERS_S:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), KILOMETERS_S);break;
 	case MILES_S:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), MILES_S);break;
 	case METERS_H:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), METERS_H);break;
-	case KILOMETERS_H:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), KILOMETERS_H);break;
+*/	case KILOMETERS_H:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), KILOMETERS_H);break;
 	case MILES_H:  gtk_combo_box_set_active(GTK_COMBO_BOX(wunits), MILES_H);break;
     }    
 /* Update tab */
@@ -1031,6 +1043,14 @@ void weather_window_settings(GtkWidget *widget,
 		    ( _weather_font_color_temp.green - app->config->font_color.green ) ||
 		    ( _weather_font_color_temp.blue - app->config->font_color.blue )){
 		memcpy(&(app->config->font_color), &_weather_font_color_temp, sizeof(app->config->font_color));
+    		flag_update_icon = TRUE;
+	    }
+/* Background color */
+	    gtk_color_button_get_color(GTK_COLOR_BUTTON(background_color), &background_color_temp);
+	    if(( background_color_temp.red - app->config->background_color.red ) ||
+		    ( background_color_temp.green - app->config->background_color.green ) ||
+		    ( background_color_temp.blue - app->config->background_color.blue )){
+		memcpy(&(app->config->background_color), &background_color_temp, sizeof(app->config->background_color));
     		flag_update_icon = TRUE;
 	    }
 /* Days to show */

@@ -278,14 +278,17 @@ int new_read_config(AppletConfig *config){
     config->icons_size = gconf_client_get_int(gconf_client,
         				    GCONF_KEY_WEATHER_ICONS_SIZE,
 					    NULL);
-    if(config->icons_size < 0)
+    if(config->icons_size < LARGE || config->icons_size > SMALL)
         config->icons_size = LARGE;
+
     /* Get setting tab number  */		     
     config->current_settings_page = gconf_client_get_int(gconf_client,
         				    GCONF_KEY_WEATHER_SETTING_TAB_NUMBER,
 					    NULL);
-    if(config->current_settings_page < 0)
+    if(config->current_settings_page < 0 ||
+	config->current_settings_page > MAX_SETTINGS_PAGE_NUMBER)
         config->current_settings_page = 0;
+
     /* Get Weather country name. */    
     config->current_country = gconf_client_get_string(gconf_client,
         					    GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
@@ -298,8 +301,9 @@ int new_read_config(AppletConfig *config){
     config->update_interval = gconf_client_get_int(gconf_client,
         			    GCONF_KEY_WEATHER_UPDATE_INTERVAL,
 				    NULL);
-    if(config->update_interval < 0)
+    if(config->update_interval < 0 || config->update_interval > 8)
 	config->update_interval = 0;
+
     /* Get Weather font color. */    	
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_FONT_COLOR, NULL);
@@ -307,6 +311,15 @@ int new_read_config(AppletConfig *config){
          config->font_color = DEFAULT_FONT_COLOR; 
     g_free(tmp);
     tmp = NULL;
+
+    /* Get background color. */    	
+    tmp = gconf_client_get_string(gconf_client,
+        			    GCONF_KEY_WEATHER_BACKGROUND_COLOR, NULL);
+    if(!tmp || !gdk_color_parse(tmp, &(config->background_color)))
+         config->background_color = DEFAULT_FONT_COLOR; 
+    g_free(tmp);
+    tmp = NULL;
+
     /* Get Enable Transparency flag. Default is TRUE. */
     value = gconf_client_get(gconf_client, GCONF_KEY_ENABLE_TRANSPARENCY, NULL);
     if(value){
@@ -314,7 +327,8 @@ int new_read_config(AppletConfig *config){
         gconf_value_free(value);
     }
     else
-        config->transparency = TRUE;      
+        config->transparency = TRUE;
+
     /* Get Split Button State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_SEPARATE_DATA, NULL);
     if(value){
@@ -322,7 +336,8 @@ int new_read_config(AppletConfig *config){
         gconf_value_free(value);
     }
     else
-        config->separate = FALSE;      	
+        config->separate = FALSE;
+
     /* Get Swap Temperature Button State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_SWAP_TEMPERATURE, NULL);
     if(value){
@@ -331,6 +346,7 @@ int new_read_config(AppletConfig *config){
     }
     else
         config->swap_hi_low_temperature = FALSE;
+
     /* Get Hide Station State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_HIDE_STATION_NAME, NULL);
     if(value){
@@ -339,6 +355,7 @@ int new_read_config(AppletConfig *config){
     }
     else
         config->hide_station_name = FALSE;
+
     /* Get Temperature Unit  Default Celsius */
     config->temperature_units = gconf_client_get_int(gconf_client,
                     			GCONF_KEY_WEATHER_TEMPERATURE_UNIT, &gerror);
@@ -353,45 +370,54 @@ int new_read_config(AppletConfig *config){
     config->icons_layout = gconf_client_get_int(gconf_client,
                 				GCONF_KEY_ICONS_LAYOUT,
 						NULL);
-    if(config->icons_layout < 0)
+    if(config->icons_layout < ONE_ROW ||
+	config->icons_layout > TWO_COLUMNS)
 	config->icons_layout = ONE_ROW;
+
     /* Get number days to show default 5 */
     config->days_to_show = gconf_client_get_int(gconf_client,                                                                                     
                 				GCONF_KEY_WEATHER_DAYS,
 						&gerror);
-    if(gerror){
+    if(gerror || config->days_to_show <= 0
+	      || config->days_to_show > Max_count_weather_day){
 	config->days_to_show = 5;
 	g_error_free(gerror);
     }
-    if(config->days_to_show <= 0)
-	config->days_to_show = 5;
-	
     config->previos_days_to_show = config->days_to_show;
+
     /* Get distance units */
     config->distance_units = gconf_client_get_int(gconf_client,                                                                                     
                 				    GCONF_KEY_WEATHER_DISTANCE_UNITS,
 						    &gerror);
-    if(gerror){
+    if(gerror || config->distance_units > SEA_MILES){
 	config->distance_units = METERS;
 	g_error_free(gerror);
     }
+
     /* Get wind units */
     config->wind_units = gconf_client_get_int(gconf_client,                                                                                     
 						GCONF_KEY_WEATHER_WIND_UNITS,
 						&gerror);
-    if(gerror){
+    if(gerror || config->wind_units > MILES_H){
 	config->wind_units = METERS_S;
 	g_error_free(gerror);
     }
+
     /* Get valid data time for current weather */
     config->data_valid_interval =
 	    gconf_client_get_int(gconf_client,
 				    GCONF_KEY_WEATHER_VALID_DATA_TIME,
-				    &gerror) * 3600;
-    if(gerror){
+				    &gerror);
+    if(gerror || (config->data_valid_interval != 1 && 
+		    config->data_valid_interval != 2 &&
+		    config->data_valid_interval != 4 &&
+		    config->data_valid_interval != 8) ){
 	config->data_valid_interval = 2 * 3600; /* Default value - 2 hours */
 	g_error_free(gerror);
     }
+    else
+	config->data_valid_interval *= 3600;
+    
     gconf_client_clear_cache(gconf_client);
     g_object_unref(gconf_client);
     return 0;
@@ -480,6 +506,14 @@ void new_config_save(AppletConfig *config){
             config->font_color.blue >> 8);
     gconf_client_set_string(gconf_client,
         		    GCONF_KEY_WEATHER_FONT_COLOR,
+			    temp_buffer, NULL);
+    /* Save Background Color */
+    sprintf(temp_buffer, "#%02x%02x%02x",
+            config->background_color.red >> 8,
+            config->background_color.green >> 8,
+            config->background_color.blue >> 8);
+    gconf_client_set_string(gconf_client,
+        		    GCONF_KEY_WEATHER_BACKGROUND_COLOR,
 			    temp_buffer, NULL);
     /* Save Weather Update setting  */
     gconf_client_set_int(gconf_client,

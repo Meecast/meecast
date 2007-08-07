@@ -383,7 +383,9 @@ void weather_buttons_fill(gboolean check_error){
 	    }
 	    boxs_offset[i] = Max_count_weather_day;
     	}
-	app->buttons[i] = create_weather_day_button(buffer, buffer_icon, icon_size, app->config->transparency, font_size);
+	app->buttons[i] = create_weather_day_button(buffer, buffer_icon, icon_size,
+						    app->config->transparency,
+						    font_size, &(app->config->background_color));
 	if(app->buttons[i]){
 	    g_signal_connect(app->buttons[i]->button, "released", G_CALLBACK(weather_window_popup_show), NULL);
 	    g_signal_connect(app->buttons[i]->button, "enter", G_CALLBACK(enter_button), NULL); 
@@ -408,8 +410,12 @@ void weather_buttons_fill(gboolean check_error){
     }
 /* create main panel */
     app->main_window = gtk_table_new(2, 1, FALSE);
-    create_panel(app->main_window, app->config->icons_layout, app->config->transparency, tmp_station_name, font_size);
+    create_panel(app->main_window, app->config->icons_layout,
+		    app->config->transparency, tmp_station_name, font_size);
     gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
+
+
+
     gtk_widget_show_all(app->top_widget);
     if(error_station_code)
 	station_error_window();
@@ -559,7 +565,8 @@ GtkWidget* hildon_home_applet_lib_settings(void *applet_data,
 }
 /*******************************************************************************/
 /* create days panel and station name panel */
-void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size){
+void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
+					    gchar* st_name, char f_size){
     gchar	buffer[2048];
     GtkWidget	*header_panel,
 		*days_panel,
@@ -811,7 +818,9 @@ void free_memory(gboolean flag){
 	    delete_weather_day_button( TRUE, &(app->buttons[i]) );
 }
 /*******************************************************************************/
-WDB* create_weather_day_button(const char *text, const char *icon, const int icon_size, gboolean transparency, char font_size){
+WDB* create_weather_day_button(const char *text, const char *icon,
+				const int icon_size, gboolean transparency,
+				char font_size, GdkColor *color){
 
     WDB	*new_day_button;
 
@@ -849,7 +858,7 @@ WDB* create_weather_day_button(const char *text, const char *icon, const int ico
     	new_day_button->icon_image = NULL;
 
     /* Packing all to the box */
-    if (new_day_button->icon_buffer)
+    if(new_day_button->icon_buffer)
 	gtk_box_pack_start(GTK_BOX(new_day_button->box), new_day_button->icon_image, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(new_day_button->box), new_day_button->label, FALSE, FALSE, 0);
     gtk_container_add(GTK_CONTAINER(new_day_button->button), new_day_button->box);
@@ -892,5 +901,23 @@ void swap_temperature(int *hi, int *low){
     int tmp;
     
     tmp = *hi; *hi = *low; *low = tmp;
+}
+/*******************************************************************************/
+void set_background_color(GtkWidget *widget, GdkColor *bgc){
+    GdkColor	color;
+    
+    gdk_color_parse ("red", &color);
+/* undo previos changes */
+//    gtk_widget_modify_fg(widget, GTK_STATE_NORMAL, NULL);
+//    gtk_widget_modify_fg(widget, GTK_STATE_ACTIVE, NULL);
+//    gtk_widget_modify_fg(widget, GTK_STATE_PRELIGHT, NULL);
+//    gtk_widget_modify_fg(widget, GTK_STATE_SELECTED, NULL);
+//    gtk_widget_modify_fg(widget, GTK_STATE_INSENSITIVE, NULL);
+/* set one color for all states of widget */
+    gtk_widget_modify_fg(widget, GTK_STATE_NORMAL, &color);
+//    gtk_widget_modify_fg(widget, GTK_STATE_ACTIVE, &color);
+//    gtk_widget_modify_fg(widget, GTK_STATE_PRELIGHT, &color);
+//    gtk_widget_modify_fg(widget, GTK_STATE_SELECTED, &color);
+//    gtk_widget_modify_fg(widget, GTK_STATE_INSENSITIVE, &color);
 }
 /*******************************************************************************/

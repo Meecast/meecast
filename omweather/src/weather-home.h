@@ -40,13 +40,16 @@
 #define FONT_MAIN_SIZE_MEDIUM	12
 #define FONT_MAIN_SIZE_SMALL	10
 /*******************************************************************************/
-WDB* create_weather_day_button(const char *text, const char *icon, const int icon_size, gboolean transparency, char font_size);
+WDB* create_weather_day_button(const char *text, const char *icon,
+				const int icon_size, gboolean transparency,
+				char font_size, GdkColor *color);
 void delete_weather_day_button(gboolean after_all_destroy,WDB **day);
 void weather_buttons_init(void);
 void weather_buttons_fill(gboolean check_error);
 void weather_com_destroy_parser( weather_com_parser *weather_com );
 void update_weather(void);
 void set_font_size(GtkWidget *widget, char font_size);
+void set_background_color(GtkWidget *widget, GdkColor *bgc);
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size);
 weather_com_parser *weather_com_parser_new( const gchar * weather_com );
 int parse_weather_com_xml(void);

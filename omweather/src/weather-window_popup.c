@@ -199,10 +199,10 @@ float convert_wind_units(int to, float value){
     switch(to){
 	    default:
 	    case METERS_S: result *= 10.0f / 36.0f; break;
-	    case KILOMETERS_S: result /= 3600.0f; break;
+/*	    case KILOMETERS_S: result /= 3600.0f; break;
 	    case MILES_S: result /= (1.609344f * 3600.0f); break;
 	    case METERS_H: result *= 1000.0f; break;
-	    case KILOMETERS_H: result *= 1.0f; break;
+*/	    case KILOMETERS_H: result *= 1.0f; break;
 	    case MILES_H: result /= 1.609344f; break;
 	}
     return result;
@@ -325,7 +325,12 @@ GtkWidget* create_current_weather_widget(void){
 		*icon_temperature_vbox;
     gchar	buffer[1024],
 		*units;
-    const gchar	*wind_units_str[] = { "m/s", "km/s", "mi/s", "m/h", "km/h", "mi/h" };
+    const gchar	*wind_units_str[] = {	"m/s",
+/*					"km/s",
+					"mi/s",
+					"m/h",
+*/					"km/h",
+					"mi/h" };
     GdkPixbuf	*icon;
     GtkWidget	*icon_image;
     float	tmp_distance = 0;
@@ -503,7 +508,12 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
 		*separator_after_night;
     GdkPixbuf	*icon;
     gchar	buffer[1024];
-    const gchar	*wind_units_str[] = { "m/s", "km/s", "mi/s", "m/h", "km/h", "mi/h" };
+    const gchar	*wind_units_str[] = {	"m/s",
+/*					"km/s",
+					"mi/s",
+					"m/h",
+*/					"km/h",
+					"mi/h" };
     long int    diff_time;
     time_t 	current_day,utc_time;
     int 	offset = 0 , j = 0;

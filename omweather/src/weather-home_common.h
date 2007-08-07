@@ -57,6 +57,7 @@
 #define _(String) dgettext (GETTEXT_PACKAGE,String)
 
 #define Max_count_weather_day	10
+#define MAX_SETTINGS_PAGE_NUMBER	3
 #define LOCATIONS_FILE		"/usr/share/omweather/locations.xml"
 #define LOCATIONS_NAMESPACE	"omw=https://garage.maemo.org/projects/omweather/"
 #define STATIONS_FILE		"/usr/share/omweather/stations.txt"
@@ -68,7 +69,12 @@
 enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT };
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
-enum { METERS_S, KILOMETERS_S, MILES_S, METERS_H, KILOMETERS_H, MILES_H };
+enum {	METERS_S,
+/*	KILOMETERS_S,
+	MILES_S,
+	METERS_H,
+*/	KILOMETERS_H,
+	MILES_H };
 enum { CELSIUS, FAHRENHEIT };
 enum { LARGE, MEDIUM, SMALL };
 /*******************************************************************************/
@@ -159,6 +165,7 @@ typedef struct applet_config{
     gboolean	swap_hi_low_temperature;
     gboolean	hide_station_name;
     GdkColor	font_color;
+    GdkColor	background_color;
 }AppletConfig;
 /*******************************************************************************/
 typedef struct OMWeatherApplet{

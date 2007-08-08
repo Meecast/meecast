@@ -597,9 +597,8 @@ msgid "AM Drizzle / Wind"
 msgstr "До полудня изморось / Ветер"
 
 #: src/weather-home_hash.c:18
-#, fuzzy
 msgid "AM Fog / PM Clouds"
-msgstr "До полудня облачно, после полудня солнце"
+msgstr "До полудня туман, после полудня облачно"
 
 #: src/weather-home_hash.c:19
 msgid "AM Light Rain"
@@ -722,9 +721,8 @@ msgid "Haze"
 msgstr "Легкий туман"
 
 #: src/weather-home_hash.c:49
-#, fuzzy
 msgid "Heavy Rain"
-msgstr "Сильный дождь / Ветер"
+msgstr "Сильный дождь"
 
 #: src/weather-home_hash.c:50
 msgid "Heavy Rain / Wind"
@@ -1098,8 +1096,3 @@ msgstr "Невозможно загрузить данные о погоде."
 msgid "Weather updated"
 msgstr "Данные о погоде обновлены."
 
-#~ msgid "Miles (Imperial)"
-#~ msgstr "Мили (США) и др."
-
-#~ msgid "Miles (International)"
-#~ msgstr "Мили (интернациональные)"

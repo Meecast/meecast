@@ -34,6 +34,12 @@ static GString *full_filename_new_xml = NULL;
 CURL *curl_handle = NULL;
 CURL *curl_multi = NULL;
 GtkWidget *update_window = NULL;     
+#ifdef USE_CONIC
+#include <conic/conic.h>
+#define USER_DATA_MAGIC 0xaadcaadc
+static ConIcConnection *connection;
+#endif
+
 /*******************************************************************************/
 /* Create standard Hildon animation small window */
 void create_window_update(){
@@ -48,9 +54,9 @@ get_connection_status_signal_cb(DBusConnection *connection,
 
     gchar *iap_name = NULL, *iap_nw_type = NULL, *iap_state = NULL;
     
-#ifndef RELEASE
+//#ifndef RELEASE
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
-#endif
+//#endif
     /* check signal */
     if(!dbus_message_is_signal(message,
                 ICD_DBUS_INTERFACE,
@@ -76,7 +82,7 @@ get_connection_status_signal_cb(DBusConnection *connection,
         app->iap_connected = FALSE; /* !!!!!!!!! Need Remove download */
     }
 
-    return DBUS_HANDLER_RESULT_HANDLED;
+    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 }
 /*******************************************************************************/
 /* Callback function for request  connection to Internet */
@@ -103,6 +109,7 @@ void iap_callback(struct iap_event_t *event, void *arg){
 /*******************************************************************************/
 /* Check connect to Internet and connection if it not */
 gboolean get_connected(void){
+    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
     /* Register a callback function for IAP related events. */
     if(osso_iap_cb(iap_callback) != OSSO_OK)
 	return FALSE;
@@ -113,14 +120,69 @@ gboolean get_connected(void){
 /*******************************************************************************/
 /* Check connect to Internet */
 gboolean check_connected(void){
+    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
     if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)
 	return FALSE;
     return TRUE;
 }
 /*******************************************************************************/
-void weather_initialize_dbus(void){
-    gchar *filter_string;
+#ifdef USE_CONIC
+#define OSSO_CON_IC_CONNECTING             0x05
 
+static void connection_cb(ConIcConnection *connection,
+                          ConIcConnectionEvent *event,
+                          gpointer user_data)
+{
+    const gchar *iap_id, *bearer;
+    ConIcConnectionStatus status;
+    ConIcConnectionError error;
+/*
+    g_assert(GPOINTER_TO_INT(user_data) == USER_DATA_MAGIC);
+    g_assert(CON_IC_IS_CONNECTION_EVENT(event));
+
+    status = con_ic_connection_event_get_status(event);
+    error = con_ic_connection_event_get_error(event);
+    iap_id = con_ic_event_get_iap_id(CON_IC_EVENT(event));
+    bearer = con_ic_event_get_bearer_type(CON_IC_EVENT(event));
+
+    switch (status) {
+
+        case CON_IC_STATUS_CONNECTED:
+            connected = TRUE;
+            is_connecting = FALSE;
+            g_signal_emit_by_name(G_OBJECT(webglobal), "connectivity-status", status);
+            return ;
+
+        case CON_IC_STATUS_DISCONNECTED:
+#ifdef USE_DBUS
+        // return;
+#else
+        break;
+#endif
+        case CON_IC_STATUS_DISCONNECTING:
+            break;
+
+        default:
+            break;
+    }
+
+    connected = FALSE;
+    g_signal_emit_by_name(G_OBJECT(webglobal), "connectivity-status", status);
+    if (gsloop && g_main_loop_is_running(gsloop))
+        g_main_loop_quit (gsloop);
+    gsloop = NULL;
+    is_connecting = FALSE;
+*/    
+}
+#endif
+
+
+/*******************************************************************************/
+void weather_initialize_dbus(void){
+
+    gchar *filter_string;
+    
+    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
     if(!app->dbus_is_initialize){   
 	/* Add D-BUS signal handler for 'status_changed' */
         DBusConnection *dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
@@ -138,7 +200,17 @@ void weather_initialize_dbus(void){
 	app->iap_connected = TRUE; 
     #endif
 	app->dbus_is_initialize = TRUE;
+#ifdef USE_CONIC
+    connection = con_ic_connection_new();
+    g_assert(connection != NULL);
+
+    g_signal_connect(G_OBJECT(connection), "connection-event",
+                     G_CALLBACK(connection_cb),
+                     GINT_TO_POINTER(USER_DATA_MAGIC));
+#endif
+
     }
+    
 }
 /*******************************************************************************/
 /* Init easy curl */
@@ -218,6 +290,7 @@ gboolean download_html(gpointer data){
     fd_set	rs, ws, es;
     int		max;
 
+    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
     if(app->popup_window && app->show_update_window){
 	gtk_widget_destroy(app->popup_window);   
         app->popup_window=NULL;
@@ -230,11 +303,19 @@ gboolean download_html(gpointer data){
     if(app->iap_connected) 
 	second_attempt = TRUE;
     if( app->show_update_window && (!second_attempt) ){
+    
+        fprintf(stderr,"osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){\n");
 	/* Check this code */
-        if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){
+/*        if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){
+    	    fprintf(stderr,"after 1 osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){\n");	
 	    app->flag_updating = 0;
     	    return FALSE;
 	}   
+*/
+#ifdef USE_CONIC
+        con_ic_connection_connect(connection, CON_IC_CONNECT_FLAG_NONE);
+#endif
+	fprintf(stderr,"after 2 osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){\n");	
 	app->flag_updating = 0; 
         return FALSE;
     }

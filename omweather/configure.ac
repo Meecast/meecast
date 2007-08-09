@@ -73,6 +73,23 @@ PKG_CHECK_MODULES(GCONF, [gconf-2.0 >= 2.6.2])
 AC_SUBST(GCONF_LIBS)
 AC_SUBST(GCONF_CFLAGS)
 
+AC_ARG_ENABLE(conic, [ --enable-conic=[yes|no] ], [use_conic=$enableval ])
+if test "$use_conic" != "no"; then
+PKG_CHECK_MODULES(CONIC, [conic],
+    [
+            use_conic="yes"
+    ],
+    [
+        use_conic="no"
+        echo 'No New Connectivity CONIC Library!!!!.'
+    ]
+)
+if test "$use_conic" = "yes"; then
+AC_SUBST(CONIC_CFLAGS)
+AC_SUBST(CONIC_LIBS)
+        AC_DEFINE(USE_CONIC, 1,"Set to 1 if enable-conic is yes")
+fi
+fi
 
 # Help file install directory
 helpfile_engbdir=$datadir/osso-help/en_US

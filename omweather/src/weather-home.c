@@ -479,6 +479,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
         exit(1);
     }
     read_config();
+    app->countrys_list = create_items_list(COUNTRYSFILE, -1, -1);
 /* Start timer */
     create_timer_with_interval(60000);
 /* Start main applet */ 
@@ -543,6 +544,8 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	free_memory(TRUE);
 	if(app->config)
     	    g_free(app->config);
+	gtk_list_store_clear(app->countrys_list);
+	app->countrys_list = NULL;
 	g_free(app);
     }
     /* Deinitialize libosso */

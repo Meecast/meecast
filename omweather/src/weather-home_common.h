@@ -37,7 +37,9 @@
 /*******************************************************************************/
 #include <gtk/gtk.h>
 #include <gconf/gconf-client.h>
+#ifndef _XOPEN_SOURCE
 #define _XOPEN_SOURCE /* glibc2 needs this */
+#endif
 #include <time.h>
 #include <libgnomevfs/gnome-vfs.h>
 #include <libxml/parser.h>
@@ -58,10 +60,9 @@
 
 #define Max_count_weather_day	10
 #define MAX_SETTINGS_PAGE_NUMBER	3
-#define LOCATIONS_FILE		"/usr/share/omweather/locations.xml"
-#define LOCATIONS_NAMESPACE	"omw=https://garage.maemo.org/projects/omweather/"
-#define STATIONS_FILE		"/usr/share/omweather/stations.txt"
-#define COUNTRYS_FILE		"/usr/share/omweather/iso3166-countrycodes.txt"
+#define COUNTRYSFILE		"/usr/share/omweather/countrys.list"
+#define REGIONSFILE		"/usr/share/omweather/regions.list"
+#define LOCATIONSFILE		"/usr/share/omweather/locations.list"
 #define CLOCK_FILE		"/usr/share/omweather/city_in_clock.txt"
 #define ICONS_PATH		"/usr/share/omweather/icons/"
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
@@ -183,6 +184,9 @@ typedef struct OMWeatherApplet{
     gboolean		dbus_is_initialize;
     weather_day		weather_current_day;
     weather_day		weather_days[Max_count_weather_day];
+    GtkListStore	*countrys_list;
+    GtkListStore	*regions_list;
+    GtkListStore	*stations_list;
 }OMWeatherApp;
 /*******************************************************************************/
 /* Stations List of view in plugin */

@@ -31,158 +31,139 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <errno.h>
 /*******************************************************************************/
-int process_xpath_expression(const char* filename, const xmlChar* xpathExpr,
-				const xmlChar* ns, GSList **list){
-    xmlDocPtr		doc;
-    xmlParserCtxtPtr	ctxt;
-
-    xmlXPathContextPtr	xpathCtx; 
-    xmlXPathObjectPtr	xpathObj; 
-    /* Init libxml */     
-    xmlInitParser();
-    LIBXML_TEST_VERSION
+GtkListStore* create_items_list(const char *filename, long start, long end){
+    FILE		*fh;
+    GtkListStore	*list = NULL;
+    GtkTreeIter		iter;
+    char		buffer[512];
+    Item		item;
+    Station		station;
+    long		max_bytes = 0,
+			readed_bytes = 0;
     
-    if(!filename || !ns || !xpathExpr)
-	return 1;
+    max_bytes = end - start;
+    fh = fopen(filename, "rt");
+    if(!fh){
+	fprintf(stderr, "\nCan't read file %s: %s", filename,
+		strerror(errno));
+	list = NULL;
+    }
+    else{
+	if(!strcmp(filename, LOCATIONSFILE))
+	    list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_STRING);
+	else
+	    list = gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT);
+	if(start > -1)
+	    if(fseek(fh, start, SEEK_SET)){
+		fprintf(stderr,
+			"\nCan't seek to the position %ld on %s file: %s\n",
+			start, filename, strerror(errno));
+		return NULL;
+	    }
+        while(!feof(fh)){
+	    memset(buffer, 0, sizeof(buffer));
+	    fgets(buffer, sizeof(buffer) - 1, fh);
+	    readed_bytes += strlen(buffer);
 
-    /* Do the main job */
-    ctxt = xmlNewParserCtxt();
-    if(ctxt == NULL){
-        fprintf(stderr, "Failed to allocate parser context\n");
-        return 1;
-    }
-    doc = xmlCtxtReadFile(ctxt, filename, NULL, XML_PARSE_DTDVALID);
-    /* check if parsing suceeded */
-    if(doc == NULL){
-        fprintf(stderr, "Failed to parse %s\n", filename);
-	xmlFreeParserCtxt(ctxt);
-	return 2;
-    }
-    if(ctxt->valid == 0){
-        fprintf(stderr, "Failed to validate %s\n", filename);
-        /* free up the resulting document */
-        xmlFreeDoc(doc);
-	xmlFreeParserCtxt(ctxt);
-	return 3;
-    }
-    xmlFreeParserCtxt(ctxt);
-    /* Create xpath evaluation context */
-    xpathCtx = xmlXPathNewContext(doc);
-    if(xpathCtx == NULL){
-        fprintf(stderr,"Error: unable to create new XPath context\n");
-        xmlFreeDoc(doc); 
-        return 1;
-    }
-    /* Register namespaces from list (if any) */
-    if((ns != NULL) && (register_namespaces(xpathCtx, ns) < 0)) {
-        fprintf(stderr,"Error: failed to register namespaces list \"%s\"\n", ns);
-        xmlXPathFreeContext(xpathCtx); 
-        xmlFreeDoc(doc); 
-        return 1;
-    }
-    /* Evaluate xpath expression */
-    xpathObj = xmlXPathEvalExpression(xpathExpr, xpathCtx);
-    if(xpathObj == NULL){
-        fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", xpathExpr);
-        xmlXPathFreeContext(xpathCtx); 
-        xmlFreeDoc(doc); 
-        return 1;
-    }
-    /* Print results */
-    print_xpath_nodes(xpathObj->nodesetval, list);
-    /* Cleanup */
-    xmlXPathFreeObject(xpathObj);
-    xmlXPathFreeContext(xpathCtx); 
-    xmlFreeDoc(doc); 
-    /* Shutdown libxml */
-    xmlCleanupParser();
-    return 0;
-}
-/*******************************************************************************/
-int register_namespaces(xmlXPathContextPtr xpathCtx, const xmlChar* nsList){
-    xmlChar* nsListDup;
-    xmlChar* prefix;
-    xmlChar* href;
-    xmlChar* next;
-    
-    if(!xpathCtx || !nsList)
-	return -1;
+	    if(!strcmp(filename, LOCATIONSFILE)){
+		if(!parse_station_string(buffer, &station)){
+		    gtk_list_store_append(list, &iter);
+		    gtk_list_store_set(list, &iter,
+					0, station.name,
+					1, station.id0,
+					-1);
+		}
+	    }
+	    else{
+		if(!parse_item_string(buffer, &item)){
+		    gtk_list_store_append(list, &iter);
+		    gtk_list_store_set(list, &iter,
+					0, item.name,
+					1, item.start,
+					2, item.end,
+					-1);
+		}
+	    }
 
-    nsListDup = xmlStrdup(nsList);
-    if(nsListDup == NULL){
-	fprintf(stderr, "Error: unable to strdup namespaces list\n");
-	return -1;	
-    }
-    
-    next = nsListDup; 
-    while(next != NULL){
-	/* skip spaces */
-	while((*next) == ' ')
-	    next++;
-	if((*next) == '\0')
-	    break;
-	/* find prefix */
-	prefix = next;
-	next = (xmlChar*)xmlStrchr(next, '=');
-	if(next == NULL){
-	    fprintf(stderr,"Error: invalid namespaces list format\n");
-	    xmlFree(nsListDup);
-	    return -1;	
-	}
-	*(next++) = '\0';	
-	/* find href */
-	href = next;
-	next = (xmlChar*)xmlStrchr(next, ' ');
-	if(next != NULL){
-	    *(next++) = '\0';	
-	}
-	/* do register namespace */
-	if(xmlXPathRegisterNs(xpathCtx, prefix, href) != 0){
-	    fprintf(stderr,"Error: unable to register NS with prefix=\"%s\" and href=\"%s\"\n", prefix, href);
-	    xmlFree(nsListDup);
-	    return -1;	
-	}
-    }
-    xmlFree(nsListDup);
-    return 0;
-}
-/*******************************************************************************/
-void print_xpath_nodes(xmlNodeSetPtr nodes, GSList **list){
-    xmlNodePtr				cur;
-    int					size, i;
-    GSList				*tmp_list = NULL;
-    struct station_and_weather_code	*sc = NULL;
-    gboolean				enable_add = FALSE;
-        
-    size = (nodes) ? nodes->nodeNr : 0;
-    
-    for(i = 0; i < size; ++i){
-	if( !(nodes->nodeTab[i]) )
-	    break;
-	if(nodes->nodeTab[i]->type == XML_ELEMENT_NODE){
-	    cur = nodes->nodeTab[i];
-
-	    sc = g_new0(struct station_and_weather_code, 1);
-	    if(!sc)
+	    if(start > -1 && end > -1 && readed_bytes >= max_bytes)
 		break;
-	    memset(sc, 0, sizeof(struct station_and_weather_code));
-
-	    if(cur && (cur->children) && (cur->children->content)){
-		sc->station_name = g_strdup((char*)cur->children->content);
-		enable_add = TRUE;
+	}
+	fclose(fh);
+    }
+    return list;
+}
+/*******************************************************************************/
+int parse_item_string(const char *string, Item *result){
+    char	*delimiter = NULL,
+		*tmp,
+		buffer[32];
+    int		res = 0;
+    
+    tmp = (char*)string;
+    delimiter = strchr(tmp, ';');
+    if(!delimiter)
+	res = 1;
+    else{
+	memset(result->name, 0, sizeof(result->name));
+    	memcpy(result->name, tmp,
+		((sizeof(result->name) - 1 > (int)(delimiter - tmp)) ?
+		((int)(delimiter - tmp)) : (sizeof(result->name) - 1)));
+	tmp = delimiter + 1;
+	delimiter = strchr(tmp, ';');
+	if(!delimiter){
+	    result->start = -1;
+	    res = 1;
+	}
+	else{
+	    memset(buffer, 0, sizeof(buffer));
+	    memcpy(buffer, tmp, ((sizeof(buffer) - 1 > (int)(delimiter - tmp)) ?
+				    ((int)(delimiter - tmp)) : (sizeof(buffer) - 1)));
+	    result->start = atol(buffer);
+	    tmp = delimiter + 1;
+	    delimiter = strchr(tmp, ';');
+	    if(!delimiter){
+		result->end = -1;
+		res = 1;
 	    }
-	    if(cur && (cur->properties) && (cur->properties->children)
-				&& (cur->properties->children->content) ){
-		sc->station_code = g_strdup((char*)cur->properties->children->content);
-		enable_add = TRUE;
+	    else{
+	    	memset(buffer, 0, sizeof(buffer));
+		memcpy(buffer, tmp, ((sizeof(buffer) - 1 > (int)(delimiter - tmp)) ?
+				    ((int)(delimiter - tmp)) : (sizeof(buffer) - 1)));
+		result->end = atol(buffer);
 	    }
-	    if(enable_add)
-		tmp_list = g_slist_append(tmp_list, sc);
-	    else
-		g_free(sc);	    
 	}
     }
-    *list = tmp_list;
+    return res;
+}
+/*******************************************************************************/
+int parse_station_string(const char *string, Station *result){
+    char	*delimiter = NULL,
+		*tmp;
+    int		res = 0;
+    
+    tmp = (char*)string;
+    delimiter = strchr(tmp, ';');
+    if(!delimiter)
+	res = 1;
+    else{
+	memset(result->name, 0, sizeof(result->name));
+    	memcpy(result->name, tmp,
+		((sizeof(result->name) - 1 > (int)(delimiter - tmp)) ?
+		((int)(delimiter - tmp)) : (sizeof(result->name) - 1)));
+	tmp = delimiter + 1;
+	delimiter = strchr(tmp, ';');
+	if(!delimiter){
+	    res = 1;
+	}
+	else{
+	    memset(result->id0, 0, sizeof(result->id0));
+	    memcpy(result->id0, tmp,
+		    ((sizeof(result->id0) - 1 > (int)(delimiter - tmp)) ?
+		    ((int)(delimiter - tmp)) : (sizeof(result->id0) - 1)));
+	}
+    }
+    return res;
 }
 /*******************************************************************************/

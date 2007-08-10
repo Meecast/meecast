@@ -32,9 +32,19 @@
 /*******************************************************************************/
 #include "weather-home_common.h"
 /*******************************************************************************/
-int process_xpath_expression(const char* filename, const xmlChar* xpathExpr,
-				const xmlChar* nsList, GSList **list);
-int  register_namespaces(xmlXPathContextPtr xpathCtx, const xmlChar* nsList);
-void print_xpath_nodes(xmlNodeSetPtr nodes, GSList **list);
+typedef	struct{
+    char	name[50];
+    long	start;
+    long	end;
+}Item;
+/*******************************************************************************/
+typedef struct{
+    char	name[50];
+    char	id0[10];
+}Station;
+/*******************************************************************************/
+GtkListStore* create_items_list(const char *filename, long start, long end);
+int parse_item_string(const char *string, Item *result);
+int parse_station_string(const char *string, Station *result);
 /*******************************************************************************/
 #endif

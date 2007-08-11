@@ -178,6 +178,7 @@ typedef struct OMWeatherApplet{
     AppletConfig	*config;
     gboolean		show_update_window;
     gboolean		iap_connected;
+    gboolean		iap_connecting;    
     guint		timer;
     WDB			*buttons[Max_count_weather_day];
     guint		flag_updating;

@@ -76,8 +76,14 @@ get_connection_status_signal_cb(DBusConnection *connection,
     if(!strcmp(iap_state, "CONNECTED")){
         if(!app->iap_connected){
             app->iap_connected = TRUE;
+	    app->iap_connecting = FALSE;
         }
     }
+    else if (!strcmp(iap_state, "CONNECTING")){
+	    app->iap_connected = FALSE;
+	    app->iap_connecting = TRUE;
+	    
+	 }
     else if(app->iap_connected){
         app->iap_connected = FALSE; /* !!!!!!!!! Need Remove download */
     }
@@ -108,31 +114,37 @@ static void connection_cb(ConIcConnection *connection,
         case CON_IC_STATUS_CONNECTED:
 	    fprintf (stderr,"test0\n");
 #ifndef RELEASE
-	    fprintf (stderr,"test1\n");
 	    second_attempt = TRUE;
 	    update_weather();
-	    fprintf (stderr,"test2\n");
 #endif
+            app->iap_connecting = FALSE;
     	    app->iap_connected = TRUE;
 	    break ;
 
         case CON_IC_STATUS_DISCONNECTED:
+	    fprintf (stderr,"test1\n");
 	    app->iap_connected = FALSE;
-        break;
-        case CON_IC_STATUS_DISCONNECTING:
-	    app->iap_connected = FALSE;
-            break;
-        default:
-    	    app->iap_connected = FALSE;
+	    app->iap_connecting = FALSE;
 	    hildon_banner_show_information(app->main_window,
 					    NULL,
 					    _("Not connected to Internet"));
+        break;
+        case CON_IC_STATUS_DISCONNECTING:
+	    fprintf (stderr,"test2\n");	
+	    app->iap_connected = FALSE;
+	    app->iap_connecting = FALSE;
             break;
+/*        default:
+    	    app->iap_connected = FALSE;
+	    app->iap_connecting = FALSE;
+            break;
+*/	    
     }
 }
 #else
 
 void iap_callback(struct iap_event_t *event, void *arg){
+	    fprintf (stderr,"test4\n");
     switch(event->type){
 	case OSSO_IAP_CONNECTED:
 #ifndef RELEASE
@@ -140,12 +152,16 @@ void iap_callback(struct iap_event_t *event, void *arg){
 	    update_weather();
 #endif
     	    app->iap_connected = TRUE;
+	    app->iap_connecting = FALSE;
 	break;
 	case OSSO_IAP_DISCONNECTED:
 	    app->iap_connected = FALSE;
+            app->iap_connecting = FALSE;	    
 	break;
 	case OSSO_IAP_ERROR:
+	    fprintf (stderr,"test5\n");
     	    app->iap_connected = FALSE;
+            app->iap_connecting = FALSE;	    
 	    hildon_banner_show_information(app->main_window,
 					    NULL,
 					    _("Not connected to Internet"));
@@ -154,42 +170,33 @@ void iap_callback(struct iap_event_t *event, void *arg){
 }
 #endif
 /*******************************************************************************/
-/* Check connect to Internet */
-gboolean check_connected(void){
-    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
-    if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)
-	return FALSE;
-    return TRUE;
-}
-
-/*******************************************************************************/
 void weather_initialize_dbus(void){
 
     gchar *filter_string;
     
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
     if(!app->dbus_is_initialize){   
+        app->iap_connecting = FALSE;
+	app->iap_connected = FALSE;
 	/* Add D-BUS signal handler for 'status_changed' */
         DBusConnection *dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
         filter_string = g_strdup_printf("interface=%s", ICD_DBUS_INTERFACE);
         /* add match */
         dbus_bus_add_match(dbus_conn, filter_string, NULL);
         g_free(filter_string);
-        /* add the callback */
+	/* add the callback */
         dbus_connection_add_filter(dbus_conn,
                 		    get_connection_status_signal_cb,
-                		    NULL, NULL);
+                		    NULL, NULL);	     
 #ifdef USE_CONIC
 	connection = con_ic_connection_new();
-	fprintf (stderr,"connet %p\n",connection);
 	if (connection != NULL)
 	    {
-	    fprintf (stderr,"connet2 %p\n",connection);
 	    g_signal_connect(G_OBJECT(connection), "connection-event",
                     	     G_CALLBACK(connection_cb),
                 	     GINT_TO_POINTER(USER_DATA_MAGIC));
 	    }		     
-#else		     
+#else	
     	osso_iap_cb(iap_callback);
 #endif
     /* For Debug on i386 */
@@ -290,7 +297,9 @@ gboolean download_html(gpointer data){
     }
     if(app->iap_connected) 
 	second_attempt = TRUE;
-    if( app->show_update_window && (!second_attempt) ){    
+
+/* Connection wake up */    
+    if( app->show_update_window && (!second_attempt) && (!app->iap_connecting) ){    
 #ifdef USE_CONIC
         con_ic_connection_connect(connection, CON_IC_CONNECT_FLAG_NONE);
 #else
@@ -299,9 +308,13 @@ gboolean download_html(gpointer data){
 	}  	
 #endif
 	app->flag_updating = 0; 
-        return FALSE;
+	app->iap_connecting = TRUE;
+	second_attempt = TRUE;
+        return TRUE;
     }
         
+    if (app->iap_connecting) 
+	return TRUE;
     second_attempt = FALSE;
     /* The second stage */
     /* call curl_multi_perform for read weather data from Inet */

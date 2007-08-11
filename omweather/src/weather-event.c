@@ -59,14 +59,6 @@ gboolean timer_handler(gpointer data){
 		case DAYTIMEEVENT :
      		    weather_frame_update(FALSE);   
 		break;
-		case DBUSINITEVENT:
-		#ifndef RELEASE
-		    fprintf(stderr,"DBUSINITEVENT %s\n",ctime(&evt->time));
-		#endif
-		    g_free(evt);
-                    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
-		    weather_initialize_dbus();
-		break;    
 		default:
 		case AUTOUPDATE:
 		    /* delete periodic update */

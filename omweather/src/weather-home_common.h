@@ -67,7 +67,7 @@
 #define ICONS_PATH		"/usr/share/omweather/icons/"
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
 /*******************************************************************************/
-enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT };
+enum { AUTOUPDATE, DAYTIMEEVENT };
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
 enum {	METERS_S,

@@ -86,6 +86,52 @@ get_connection_status_signal_cb(DBusConnection *connection,
 }
 /*******************************************************************************/
 /* Callback function for request  connection to Internet */
+
+#ifdef USE_CONIC
+#define OSSO_CON_IC_CONNECTING             0x05
+static void connection_cb(ConIcConnection *connection,
+                          ConIcConnectionEvent *event,
+                          gpointer user_data)
+{
+    const gchar *iap_id, *bearer;
+    ConIcConnectionStatus status;
+    ConIcConnectionError error;
+
+    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
+    
+    status = con_ic_connection_event_get_status(event);
+    error = con_ic_connection_event_get_error(event);
+    iap_id = con_ic_event_get_iap_id(CON_IC_EVENT(event));
+    bearer = con_ic_event_get_bearer_type(CON_IC_EVENT(event));
+
+    switch (status) {
+        case CON_IC_STATUS_CONNECTED:
+	    fprintf (stderr,"test0\n");
+#ifndef RELEASE
+	    fprintf (stderr,"test1\n");
+	    second_attempt = TRUE;
+	    update_weather();
+	    fprintf (stderr,"test2\n");
+#endif
+    	    app->iap_connected = TRUE;
+	    break ;
+
+        case CON_IC_STATUS_DISCONNECTED:
+	    app->iap_connected = FALSE;
+        break;
+        case CON_IC_STATUS_DISCONNECTING:
+	    app->iap_connected = FALSE;
+            break;
+        default:
+    	    app->iap_connected = FALSE;
+	    hildon_banner_show_information(app->main_window,
+					    NULL,
+					    _("Not connected to Internet"));
+            break;
+    }
+}
+#else
+
 void iap_callback(struct iap_event_t *event, void *arg){
     switch(event->type){
 	case OSSO_IAP_CONNECTED:
@@ -106,17 +152,7 @@ void iap_callback(struct iap_event_t *event, void *arg){
 	break;
     }
 }
-/*******************************************************************************/
-/* Check connect to Internet and connection if it not */
-gboolean get_connected(void){
-    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
-    /* Register a callback function for IAP related events. */
-    if(osso_iap_cb(iap_callback) != OSSO_OK)
-	return FALSE;
-    if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)
-	return FALSE;
-    return TRUE;
-}
+#endif
 /*******************************************************************************/
 /* Check connect to Internet */
 gboolean check_connected(void){
@@ -125,57 +161,6 @@ gboolean check_connected(void){
 	return FALSE;
     return TRUE;
 }
-/*******************************************************************************/
-#ifdef USE_CONIC
-#define OSSO_CON_IC_CONNECTING             0x05
-
-static void connection_cb(ConIcConnection *connection,
-                          ConIcConnectionEvent *event,
-                          gpointer user_data)
-{
-    const gchar *iap_id, *bearer;
-    ConIcConnectionStatus status;
-    ConIcConnectionError error;
-/*
-    g_assert(GPOINTER_TO_INT(user_data) == USER_DATA_MAGIC);
-    g_assert(CON_IC_IS_CONNECTION_EVENT(event));
-
-    status = con_ic_connection_event_get_status(event);
-    error = con_ic_connection_event_get_error(event);
-    iap_id = con_ic_event_get_iap_id(CON_IC_EVENT(event));
-    bearer = con_ic_event_get_bearer_type(CON_IC_EVENT(event));
-
-    switch (status) {
-
-        case CON_IC_STATUS_CONNECTED:
-            connected = TRUE;
-            is_connecting = FALSE;
-            g_signal_emit_by_name(G_OBJECT(webglobal), "connectivity-status", status);
-            return ;
-
-        case CON_IC_STATUS_DISCONNECTED:
-#ifdef USE_DBUS
-        // return;
-#else
-        break;
-#endif
-        case CON_IC_STATUS_DISCONNECTING:
-            break;
-
-        default:
-            break;
-    }
-
-    connected = FALSE;
-    g_signal_emit_by_name(G_OBJECT(webglobal), "connectivity-status", status);
-    if (gsloop && g_main_loop_is_running(gsloop))
-        g_main_loop_quit (gsloop);
-    gsloop = NULL;
-    is_connecting = FALSE;
-*/    
-}
-#endif
-
 
 /*******************************************************************************/
 void weather_initialize_dbus(void){
@@ -194,21 +179,24 @@ void weather_initialize_dbus(void){
         dbus_connection_add_filter(dbus_conn,
                 		    get_connection_status_signal_cb,
                 		    NULL, NULL);
-    	osso_iap_cb(iap_callback);
-    /* For Debug on i386 */
-    #ifndef RELEASE
-	app->iap_connected = TRUE; 
-    #endif
-	app->dbus_is_initialize = TRUE;
 #ifdef USE_CONIC
-    connection = con_ic_connection_new();
-    g_assert(connection != NULL);
-
-    g_signal_connect(G_OBJECT(connection), "connection-event",
-                     G_CALLBACK(connection_cb),
-                     GINT_TO_POINTER(USER_DATA_MAGIC));
+	connection = con_ic_connection_new();
+	fprintf (stderr,"connet %p\n",connection);
+	if (connection != NULL)
+	    {
+	    fprintf (stderr,"connet2 %p\n",connection);
+	    g_signal_connect(G_OBJECT(connection), "connection-event",
+                    	     G_CALLBACK(connection_cb),
+                	     GINT_TO_POINTER(USER_DATA_MAGIC));
+	    }		     
+#else		     
+    	osso_iap_cb(iap_callback);
 #endif
-
+    /* For Debug on i386 */
+#ifndef RELEASE
+	app->iap_connected = TRUE; 
+#endif
+	app->dbus_is_initialize = TRUE;
     }
     
 }
@@ -302,24 +290,18 @@ gboolean download_html(gpointer data){
     }
     if(app->iap_connected) 
 	second_attempt = TRUE;
-    if( app->show_update_window && (!second_attempt) ){
-    
-        fprintf(stderr,"osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){\n");
-	/* Check this code */
-/*        if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){
-    	    fprintf(stderr,"after 1 osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){\n");	
-	    app->flag_updating = 0;
-    	    return FALSE;
-	}   
-*/
+    if( app->show_update_window && (!second_attempt) ){    
 #ifdef USE_CONIC
         con_ic_connection_connect(connection, CON_IC_CONNECT_FLAG_NONE);
+#else
+        if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){
+    	    fprintf(stderr,"after 1 osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){\n");		
+	}  	
 #endif
-	fprintf(stderr,"after 2 osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){\n");	
 	app->flag_updating = 0; 
         return FALSE;
     }
-    
+        
     second_attempt = FALSE;
     /* The second stage */
     /* call curl_multi_perform for read weather data from Inet */

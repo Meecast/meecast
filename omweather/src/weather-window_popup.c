@@ -294,9 +294,6 @@ GtkWidget* create_footer_widget(void){
     if(stat(full_filename, &statv)){
     	sprintf(buffer + strlen(buffer), "%s%s",
 		_("Last update from server: \n"), _("Unknown"));
-
-	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-		"Test  %i   %i", app->iap_connected, app->iap_connecting);
 	}	
     else{ 
 	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,

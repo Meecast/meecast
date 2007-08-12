@@ -544,8 +544,18 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	free_memory(TRUE);
 	if(app->config)
     	    g_free(app->config);
-	gtk_list_store_clear(app->countrys_list);
-	app->countrys_list = NULL;
+	if(app->countrys_list){
+	    gtk_list_store_clear(app->countrys_list);
+	    app->countrys_list = NULL;
+	}
+	if(app->regions_list){
+	    gtk_list_store_clear(app->regions_list);
+	    app->regions_list = NULL;
+	}
+	if(app->stations_list){
+	    gtk_list_store_clear(app->stations_list);
+	    app->stations_list = NULL;
+	}
 	g_free(app);
     }
     /* Deinitialize libosso */

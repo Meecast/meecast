@@ -1,7 +1,7 @@
 #! /bin/sh
 
 if  test -f "/etc/osso_software_version"; then 
-    if [ `awk -F . '{print $2}'  "/etc/osso_software_version"` = "2007" ]; then
+    if [ `awk -F . '{print $2}'  "/etc/osso_software_version"` = "2007" ] && [ test -x /usr/bin/mcetool ]; then
         # Reboot
 	cat <<EOF > /tmp/request-reboot.txt
 In order to complete plugin upgrade the device must be rebooted.

@@ -54,9 +54,9 @@ get_connection_status_signal_cb(DBusConnection *connection,
 
     gchar *iap_name = NULL, *iap_nw_type = NULL, *iap_state = NULL;
     
-//#ifndef RELEASE
+#ifndef RELEASE
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
-//#endif
+#endif
     /* check signal */
     if(!dbus_message_is_signal(message,
                 ICD_DBUS_INTERFACE,
@@ -72,21 +72,27 @@ get_connection_status_signal_cb(DBusConnection *connection,
         return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
     }
 
-    fprintf(stderr,"  > iap_state = %s\n", iap_state);
+//    fprintf(stderr,"OMWeather  - iap_state = %s\n", iap_state);
     if(!strcmp(iap_state, "CONNECTED")){
         if(!app->iap_connected){
             app->iap_connected = TRUE;
 	    app->iap_connecting = FALSE;
+	    app->iap_connecting_timer = 0;
         }
     }
     else if (!strcmp(iap_state, "CONNECTING")){
 	    app->iap_connected = FALSE;
 	    app->iap_connecting = TRUE;
-	    
+	    app->iap_connecting_timer = 0;
 	 }
     else if(app->iap_connected){
-        app->iap_connected = FALSE; /* !!!!!!!!! Need Remove download */
-    }
+    	    app->iap_connected = FALSE; /* !!!!!!!!! Need Remove download */
+	    app->iap_connecting = FALSE;
+	    app->iap_connecting_timer = 0;
+	 }else
+	 {
+	    app->iap_connecting = FALSE;
+	 } 
 
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 }
@@ -102,9 +108,9 @@ static void connection_cb(ConIcConnection *connection,
     const gchar *iap_id, *bearer;
     ConIcConnectionStatus status;
     ConIcConnectionError error;
-
+#ifndef RELEASE
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
-    
+#endif
     status = con_ic_connection_event_get_status(event);
     error = con_ic_connection_event_get_error(event);
     iap_id = con_ic_event_get_iap_id(CON_IC_EVENT(event));
@@ -112,27 +118,24 @@ static void connection_cb(ConIcConnection *connection,
 
     switch (status) {
         case CON_IC_STATUS_CONNECTED:
-	    fprintf (stderr,"test0\n");
 #ifndef RELEASE
 	    second_attempt = TRUE;
 	    update_weather();
 #endif
             app->iap_connecting = FALSE;
     	    app->iap_connected = TRUE;
+	    app->iap_connecting_timer = 0;
 	    break ;
 
         case CON_IC_STATUS_DISCONNECTED:
-	    fprintf (stderr,"test1\n");
 	    app->iap_connected = FALSE;
 	    app->iap_connecting = FALSE;
-	    hildon_banner_show_information(app->main_window,
-					    NULL,
-					    _("Not connected to Internet"));
+	    app->iap_connecting_timer = 0;
         break;
         case CON_IC_STATUS_DISCONNECTING:
-	    fprintf (stderr,"test2\n");	
 	    app->iap_connected = FALSE;
 	    app->iap_connecting = FALSE;
+	    app->iap_connecting_timer = 0;
             break;
 /*        default:
     	    app->iap_connected = FALSE;
@@ -144,7 +147,10 @@ static void connection_cb(ConIcConnection *connection,
 #else
 
 void iap_callback(struct iap_event_t *event, void *arg){
-	    fprintf (stderr,"test4\n");
+#ifndef RELEASE
+    fprintf(stderr,"%s() %i\n", __PRETTY_FUNCTION__,event->type);
+#endif    
+    app->iap_connecting = FALSE;
     switch(event->type){
 	case OSSO_IAP_CONNECTED:
 #ifndef RELEASE
@@ -152,19 +158,17 @@ void iap_callback(struct iap_event_t *event, void *arg){
 	    update_weather();
 #endif
     	    app->iap_connected = TRUE;
-	    app->iap_connecting = FALSE;
+
 	break;
 	case OSSO_IAP_DISCONNECTED:
 	    app->iap_connected = FALSE;
-            app->iap_connecting = FALSE;	    
 	break;
 	case OSSO_IAP_ERROR:
-	    fprintf (stderr,"test5\n");
     	    app->iap_connected = FALSE;
-            app->iap_connecting = FALSE;	    
 	    hildon_banner_show_information(app->main_window,
 					    NULL,
 					    _("Not connected to Internet"));
+
 	break;
     }
 }
@@ -172,12 +176,30 @@ void iap_callback(struct iap_event_t *event, void *arg){
 /*******************************************************************************/
 void weather_initialize_dbus(void){
 
-    gchar *filter_string;
+    gchar 	*filter_string;
+    GConfClient *gconf_client = NULL;
+    gchar	*tmp = NULL;
     
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
     if(!app->dbus_is_initialize){   
+	/* Reseting values */
         app->iap_connecting = FALSE;
 	app->iap_connected = FALSE;
+	app->iap_connecting_timer = 0;
+	/* Check connection */
+	gconf_client = gconf_client_get_default();
+	if(gconf_client){
+	    tmp = gconf_client_get_string(gconf_client,
+        			    GCONF_KEY_CURRENT_CONNECTIVITY, NULL);
+	    if(tmp){
+    		app->iap_connected = TRUE;
+		g_free(tmp);
+	    }	
+	    else
+		app->iap_connected = FALSE;
+	    gconf_client_clear_cache(gconf_client);
+	    g_object_unref(gconf_client);		
+	}    
 	/* Add D-BUS signal handler for 'status_changed' */
         DBusConnection *dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
         filter_string = g_strdup_printf("interface=%s", ICD_DBUS_INTERFACE);
@@ -300,21 +322,40 @@ gboolean download_html(gpointer data){
 
 /* Connection wake up */    
     if( app->show_update_window && (!second_attempt) && (!app->iap_connecting) ){    
+    
+        app->iap_connecting = TRUE;
 #ifdef USE_CONIC
         con_ic_connection_connect(connection, CON_IC_CONNECT_FLAG_NONE);
 #else
         if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){
     	    fprintf(stderr,"after 1 osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){\n");		
+
 	}  	
 #endif
-	app->flag_updating = 0; 
-	app->iap_connecting = TRUE;
+    	app->flag_updating = 0; 
 	second_attempt = TRUE;
         return TRUE;
     }
         
-    if (app->iap_connecting) 
-	return TRUE;
+    if (app->iap_connecting){
+	/* Check buggy */
+	if (app->iap_connecting_timer > 150){
+	    if(app->show_update_window){
+		if(update_window){
+		    gtk_widget_destroy(update_window);
+		    update_window = NULL;
+		}
+	    	hildon_banner_show_information(app->main_window,
+					    NULL,
+					    _("Not connected to Internet\nConnection time is expired"));
+	    }				    
+	    app->iap_connecting = FALSE;
+	    return FALSE;
+	}else{
+    	    app->iap_connecting_timer++;
+	    return TRUE;
+	}    
+    }	
     second_attempt = FALSE;
     /* The second stage */
     /* call curl_multi_perform for read weather data from Inet */

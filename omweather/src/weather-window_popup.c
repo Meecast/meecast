@@ -291,9 +291,13 @@ GtkWidget* create_footer_widget(void){
     
     sprintf(full_filename, "%s/%s.xml", app->config->cache_dir_name,
 		app->config->current_station_id);
-    if(stat(full_filename, &statv))
+    if(stat(full_filename, &statv)){
     	sprintf(buffer + strlen(buffer), "%s%s",
 		_("Last update from server: \n"), _("Unknown"));
+
+	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+		"Test  %i   %i", app->iap_connected, app->iap_connecting);
+	}	
     else{ 
 	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 		    "%s", _("Last update from server: \n"));
@@ -301,6 +305,10 @@ GtkWidget* create_footer_widget(void){
 		"%X %x", localtime(&statv.st_mtime));
 	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 		"%s", _(" local time"));
+
+	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+		"Test  %i   %i", app->iap_connected, app->iap_connecting);
+
     }
     label_update = gtk_label_new(buffer);    
     set_font_size(label_update, 14);

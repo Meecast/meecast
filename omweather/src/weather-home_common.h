@@ -65,9 +65,10 @@
 #define LOCATIONSFILE		"/usr/share/omweather/locations.list"
 #define CLOCK_FILE		"/usr/share/omweather/city_in_clock.txt"
 #define ICONS_PATH		"/usr/share/omweather/icons/"
+#define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
 /*******************************************************************************/
-enum { AUTOUPDATE, DAYTIMEEVENT };
+enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT};
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
 enum {	METERS_S,
@@ -179,6 +180,7 @@ typedef struct OMWeatherApplet{
     gboolean		show_update_window;
     gboolean		iap_connected;
     gboolean		iap_connecting;    
+    long		iap_connecting_timer;  
     guint		timer;
     WDB			*buttons[Max_count_weather_day];
     guint		flag_updating;

@@ -1135,6 +1135,9 @@ void create_help_dialog(void){
 	    "Version "), VERSION, 
 	    _("\nCopyright(c) 2006-2007\n"
 	    "Vlad Vasiliev, Pavel Fialko"));
+   snprintf(tmp_buff + strlen(tmp_buff), sizeof(tmp_buff) - strlen(tmp_buff) - 1,
+		"\nTest  %i   %i", app->iap_connected, app->iap_connecting);
+	    
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_CENTER),

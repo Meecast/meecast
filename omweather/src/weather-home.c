@@ -481,7 +481,9 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     read_config();
     app->countrys_list = create_items_list(COUNTRYSFILE, -1, -1);
 /* Start timer */
-    create_timer_with_interval(60000);
+//    timer(6000); /* One per secund */
+    timer(60000); /* One per minute */
+
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
     weather_buttons_fill(FALSE);

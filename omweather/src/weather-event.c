@@ -36,6 +36,7 @@ gboolean timer_handler(gpointer data){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
     time_t current_time;
+    int check;
 #ifndef RELEASE
     char   *temp_string;
     fprintf(stderr, "Begin %s(): \n", __PRETTY_FUNCTION__);
@@ -59,6 +60,17 @@ gboolean timer_handler(gpointer data){
 		case DAYTIMEEVENT :
      		    weather_frame_update(FALSE);   
 		break;
+		case DBUSINITEVENT:
+		#ifdef PC_EMULATOR
+		    fprintf(stderr,"DBUSINITEVENT %s\n",ctime(&evt->time));
+		#endif
+		    g_free(evt);
+                    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
+		    weather_initialize_dbus();
+		    /* It is switch off the timer */	
+		    check = g_source_remove(app->timer);
+		    timer (60000);  /*Reintilize timer One per minute */
+		break;    
 		default:
 		case AUTOUPDATE:
 		    /* delete periodic update */
@@ -114,6 +126,12 @@ void create_timer_with_interval(guint interval){
     app->timer = g_timeout_add(interval,
 			       (GtkFunction)timer_handler,
 			       NULL); /* One per minute */
+}
+/*******************************************************************************/
+void timer(int interval){
+    app->timer = g_timeout_add(interval,
+			       (GtkFunction)timer_handler,
+			       app->main_window);
 }
 /*******************************************************************************/
 /* Free memory allocated for time event */

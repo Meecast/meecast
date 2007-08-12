@@ -60,6 +60,7 @@ void update_weather(void);
 void free_memory(gboolean flag);
 void swap_temperature(int *hi, int *low);
 /* external functions */
+extern void timer(int interval);
 extern void create_timer_with_interval(guint interval);
 extern void weather_initialize_dbus(void);
 extern void add_periodic_event(time_t last_update);

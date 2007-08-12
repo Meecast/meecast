@@ -35,7 +35,6 @@
 #define GCONF_KEY_PREFIX		"/apps/maemo/omweather"
 #define GCONF_KEY_HTTP_PROXY_PREFIX	"/system/http_proxy"
 #define GCONF_KEY_CLOCK_PREFIX		"/apps/osso/clock"
-#define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
 #define GCONF_KEY_WEATHER_DIR_NAME		GCONF_KEY_PREFIX"/weather-dir"
 #define GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME	GCONF_KEY_PREFIX"/current-country-name"
 #define GCONF_KEY_WEATHER_STATE_NAME		GCONF_KEY_PREFIX"/state-name"

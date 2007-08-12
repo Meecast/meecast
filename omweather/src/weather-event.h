@@ -34,6 +34,7 @@
 #include "weather-home_common.h"
 /*******************************************************************************/
 gboolean timer_handler(gpointer data);
+void timer(int interval);
 void create_timer_with_interval(guint interval);
 void add_periodic_event(time_t last_update);
 void remove_daytime_event(void);

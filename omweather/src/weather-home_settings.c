@@ -251,8 +251,10 @@ static gboolean weather_delete_station(GtkWidget *widget,
     gchar *station_selected = NULL;
     GtkTreeModel *model;
     GtkTreeSelection *selection;
-    
+
+#ifndef RELEASE    
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
+#endif
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
     selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
     if( !gtk_tree_selection_get_selected(selection, NULL, &iter) )
@@ -324,8 +326,10 @@ static gboolean weather_delete_station(GtkWidget *widget,
        /* Update config file */
        new_config_save(app->config);
     }
+#ifndef RELEASE
     fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);    
-    if (station_selected)
+#endif
+    if(station_selected)
         g_free (station_selected);
     return TRUE;
 }
@@ -549,10 +553,9 @@ void weather_window_settings(GtkWidget *widget,
 		*button_add = NULL,
 		*button_del = NULL,
 		*button_ren = NULL;		
-
-    char flag_update_icon = '\0'; /* Flag update main weather icon of desktop */
-    gboolean flag_tuning_warning; /* Flag for show the warnings about tuning images of applet */
-    int index_update_time = 0; /* Position active update time of the list */
+    char	flag_update_icon = '\0'; /* Flag update main weather icon of desktop */
+    gboolean	flag_tuning_warning; /* Flag for show the warnings about tuning images of applet */
+    int		index_update_time = 0; /* Position active update time of the list */
     GdkColor	_weather_font_color_temp, /* Temporary for font color */
 		background_color_temp;
     static GSList *time_update_list_temp = NULL; /* Temporary list for time update */
@@ -569,7 +572,6 @@ void weather_window_settings(GtkWidget *widget,
 
     if(!app->dbus_is_initialize)
 	weather_initialize_dbus();
-
 
     window_config = gtk_dialog_new_with_buttons(_("Other Maemo Weather Settings"),
         				NULL,
@@ -697,7 +699,7 @@ void weather_window_settings(GtkWidget *widget,
 	case TWO_ROWS:    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),2);break;
 	case TWO_COLUMNS: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),3);break;
     }
-    /* Icon set */
+/* Icon set */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Icon set:")),
         			0, 1, 2, 3);
@@ -707,7 +709,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label), iconset = gtk_combo_box_new_text());
 /* add icons set to list */
     create_icon_set_list(iconset);
-    /* Icon size */
+/* Icon size */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Icon size:")),
         			0, 1, 3, 4);
@@ -724,7 +726,7 @@ void weather_window_settings(GtkWidget *widget,
 	case MEDIUM: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),1);break;
 	case SMALL: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),2);break;
     }
-    /* Font color */   
+/* Font color */   
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Font color:")),
         			0, 1, 4, 5);
@@ -734,7 +736,7 @@ void weather_window_settings(GtkWidget *widget,
     font_color = gtk_color_button_new();
     gtk_container_add(GTK_CONTAINER(label), font_color);
     gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &(app->config->font_color));
-    /* Background color */   
+/* Background color */   
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Backgroud color:")),
         			0, 1, 5, 6);
@@ -744,7 +746,7 @@ void weather_window_settings(GtkWidget *widget,
     background_color = gtk_color_button_new();
     gtk_container_add(GTK_CONTAINER(label), background_color);
     gtk_color_button_set_color(GTK_COLOR_BUTTON(background_color), &(app->config->background_color));
-    /* Transparency */
+/* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Transparency")),
         			0, 1, 6, 7);
@@ -754,7 +756,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label),chk_transparency = gtk_check_button_new());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_transparency),
         			    app->config->transparency);
-    /* Split */
+/* Split */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Separate current weather data")),
         			0, 1, 7, 8);
@@ -764,7 +766,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label), separate_button = gtk_check_button_new());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(separate_button),
         			    app->config->separate);
-    /* Swap temperature */
+/* Swap temperature */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Swap hi/low temperature")),
         			0, 1, 8, 9);
@@ -774,12 +776,12 @@ void weather_window_settings(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label), swap_temperature_button = gtk_check_button_new());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(swap_temperature_button),
         			    app->config->swap_hi_low_temperature);
-    /* Hide station name button */
+/* Hide station name button */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Hide station name and arrows")),
         			0, 1, 9, 10);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
+        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
         			1, 2, 9, 10);
     gtk_container_add(GTK_CONTAINER(label), hide_station_name = gtk_check_button_new());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_station_name),

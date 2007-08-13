@@ -302,10 +302,6 @@ GtkWidget* create_footer_widget(void){
 		"%X %x", localtime(&statv.st_mtime));
 	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 		"%s", _(" local time"));
-
-	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-		"Test  %i   %i", app->iap_connected, app->iap_connecting);
-
     }
     label_update = gtk_label_new(buffer);    
     set_font_size(label_update, 14);

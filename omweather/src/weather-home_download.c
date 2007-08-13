@@ -348,6 +348,7 @@ gboolean download_html(gpointer data){
 	    	hildon_banner_show_information(app->main_window,
 					    NULL,
 					    _("Not connected to Internet\nConnection time is expired"));
+		app->iap_connecting_timer = 0;
 	    }				    
 	    app->iap_connecting = FALSE;
 	    return FALSE;

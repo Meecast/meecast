@@ -33,7 +33,8 @@
 #include <string.h>
 #include <errno.h>
 /*******************************************************************************/
-GtkListStore* create_items_list(const char *filename, long start, long end){
+GtkListStore* create_items_list(const char *filename, long start, long end,
+							    long *items_number){
     FILE		*fh;
     GtkListStore	*list = NULL;
     GtkTreeIter		iter;
@@ -41,13 +42,15 @@ GtkListStore* create_items_list(const char *filename, long start, long end){
     Item		item;
     Station		station;
     long		max_bytes = 0,
-			readed_bytes = 0;
+			readed_bytes = 0,
+			count = 0;
     
     max_bytes = end - start;
     fh = fopen(filename, "rt");
     if(!fh){
 	fprintf(stderr, "\nCan't read file %s: %s", filename,
 		strerror(errno));
+	items_number && (*items_number = count);
 	list = NULL;
     }
     else{
@@ -60,6 +63,7 @@ GtkListStore* create_items_list(const char *filename, long start, long end){
 		fprintf(stderr,
 			"\nCan't seek to the position %ld on %s file: %s\n",
 			start, filename, strerror(errno));
+		items_number && (*items_number = count);
 		return NULL;
 	    }
         while(!feof(fh)){
@@ -74,6 +78,7 @@ GtkListStore* create_items_list(const char *filename, long start, long end){
 					0, station.name,
 					1, station.id0,
 					-1);
+		    count++;
 		}
 	    }
 	    else{
@@ -84,6 +89,7 @@ GtkListStore* create_items_list(const char *filename, long start, long end){
 					1, item.start,
 					2, item.end,
 					-1);
+		    count++;
 		}
 	    }
 
@@ -92,6 +98,7 @@ GtkListStore* create_items_list(const char *filename, long start, long end){
 	}
 	fclose(fh);
     }
+    items_number && (*items_number = count);
     return list;
 }
 /*******************************************************************************/

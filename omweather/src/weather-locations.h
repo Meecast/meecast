@@ -43,7 +43,8 @@ typedef struct{
     char	id0[10];
 }Station;
 /*******************************************************************************/
-GtkListStore* create_items_list(const char *filename, long start, long end);
+GtkListStore* create_items_list(const char *filename, long start, long end,
+				long *items_number);
 int parse_item_string(const char *string, Item *result);
 int parse_station_string(const char *string, Station *result);
 /*******************************************************************************/

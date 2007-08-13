@@ -98,7 +98,9 @@ void fill_station_from_clock_plugin_data(void){
 	while(!feof(clock_file)){
 	    memset(out_buffer, 0, sizeof(out_buffer));
 	    fgets(out_buffer, sizeof(out_buffer) - 1, clock_file);
-	    tmp = strchr(out_buffer, ';'); /* Finding a separator */
+	    tmp = strchr(out_buffer, ';'); /* Separator changed from | to ; in 0.19 version */
+	    if(!tmp)
+		tmp = strchr(out_buffer, '|'); /* Finding old separator */
 	    if(!tmp)
 		continue;
 	    if(!strncmp(out_buffer, home_city, tmp - out_buffer) || 

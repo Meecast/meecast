@@ -892,7 +892,7 @@ void weather_window_settings(GtkWidget *widget,
     }
     gtk_container_add(GTK_CONTAINER(label), gtk_label_new(temp_string));
 /* Fill update time box */
-    time_update_list_temp = time_update_list;
+    time_update_list_temp = app->time_update_list;
     while(time_update_list_temp != NULL){
 	tu = time_update_list_temp->data;
 	gtk_combo_box_append_text(GTK_COMBO_BOX(update_time), tu->name_between_time);
@@ -1019,11 +1019,11 @@ void weather_window_settings(GtkWidget *widget,
 		flag_update_icon = TRUE;
 	    }
 /* Find select element of update time box and save time value */
-	    time_update_list_temp = time_update_list;
+	    time_update_list_temp = app->time_update_list;
 	    while(time_update_list_temp){
     		tu = time_update_list_temp->data;
-		temp_string =gtk_combo_box_get_active_text(GTK_COMBO_BOX(update_time));
-		if(!strcmp(tu->name_between_time,temp_string)){
+		temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(update_time));
+		if(!strcmp(tu->name_between_time, temp_string)){
 		    app->config->update_interval = tu->between_time;
 		    remove_periodic_event();
 		    add_periodic_event(time(NULL));

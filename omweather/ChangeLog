@@ -1,13 +1,17 @@
 0.19
   * Hide buttons 'next station', 'previos station' when one station is used
-  * Added possibility to hide station name with 'previos' and 'next' statons buttons
   * Correct creating the cache directory
   * Now the selected tab in settings dialog is saved
+  * Added possibility to hide station name with 'previos' and 'next' statons buttons
   * Added displaying sunrise and sunset time
   * Added full staions list of United Kingdom, Sweden, Norway, Switzerland, Lithuania, Ukraine, Denmark
   * Added menuitem in Home menu for call applet settings
   * The calculating of wind speed is corrected
-  * Postinstall script in deb packet: It provide rebooting the device after installing applet
+  * Wind speed units: km/s, mi/s, m/h has been removed
+  * Postinstall script in deb packet: It provide warning message for rebooting the device after installing applet
+  * The code that forming list of countrys, regions and locations is fully rewritten
+  * Fix error: while read config, if upate interval is greater then 8 hours, than update interval always set to 'never'
+  * Fix error: after applet first start or after reboot the field 'Next update' is always never  
 
 0.18.2
   * Wind speed (mi/s) has been correted

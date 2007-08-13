@@ -34,7 +34,6 @@
 /*******************************************************************************/
 #include "weather-home_common.h"
 /*******************************************************************************/
-extern GSList    *time_update_list;
 extern gboolean  not_event;
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
@@ -79,5 +78,7 @@ extern time_t next_update(void);
 extern void print_list(char *buff, size_t buff_size);
 extern void new_config_save(AppletConfig *config);
 extern void set_background_color(GtkWidget *widget, GdkColor *bgc);
+extern void add_periodic_event(time_t last_update);
+extern void remove_periodic_event(void);
 /*******************************************************************************/
 #endif

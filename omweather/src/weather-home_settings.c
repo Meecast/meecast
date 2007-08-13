@@ -43,28 +43,13 @@
 #define DT_DIR 4
 #endif
 /*******************************************************************************/
-/* Compare station name */
-gint compare_station(gconstpointer a, gconstpointer b){
-    gint result;
-    struct station_and_weather_code *sca, *scb;
-    sca = (struct station_and_weather_code*)a;
-    scb = (struct station_and_weather_code*)b;
- 
-    if(strlen(sca->station_name) < strlen(scb->station_name))
-	result = strncmp(sca->station_name, scb->station_name,
-			    strlen(scb->station_name));
-    else 
-	result = strncmp(sca->station_name, scb->station_name,
-		    strlen(sca->station_name));
-    return result;
-}
-/*******************************************************************************/
 void changed_country(void){
     GtkTreeModel	*model;
     GtkTreeIter		iter;
     gchar		*country_name = NULL;
     long		regions_start = -1,
-			regions_end = -1;
+			regions_end = -1,
+			regions_number = 0;
     
     /* clear regions list */
     if(app->regions_list)
@@ -82,10 +67,21 @@ void changed_country(void){
 	if(app->regions_list)
 	    gtk_list_store_clear(app->regions_list);
 	app->regions_list = create_items_list(REGIONSFILE, regions_start,
-						regions_end);
+						regions_end, &regions_number);
+
 	gtk_combo_box_set_row_span_column((GtkComboBox*)states, 0);
 	gtk_combo_box_set_model((GtkComboBox*)states,
 				(GtkTreeModel*)app->regions_list);
+
+	/* if region is one then set it active and disable combobox */
+	if(regions_number < 2){
+	    gtk_combo_box_set_active((GtkComboBox*)states, 0);
+	    gtk_widget_set_sensitive(states, FALSE);
+	}
+	else{
+	    gtk_combo_box_set_active((GtkComboBox*)states, -1);
+	    gtk_widget_set_sensitive(states, TRUE);
+	}
 
 	g_free(app->config->current_country);
 	app->config->current_country = country_name;
@@ -114,7 +110,7 @@ void changed_state(void){
 	    gtk_list_store_clear(app->stations_list);
 
 	app->stations_list = create_items_list(LOCATIONSFILE, stations_start,
-						stations_end);
+						stations_end, NULL);
 	gtk_combo_box_set_row_span_column((GtkComboBox*)stations, 0);
 	gtk_combo_box_set_model((GtkComboBox*)stations,
 				(GtkTreeModel*)app->stations_list);

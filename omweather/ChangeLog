@@ -10,7 +10,7 @@
   * Wind speed units: km/s, mi/s, m/h has been removed
   * Postinstall script in deb packet: It provide warning message for rebooting the device after installing applet
   * The code that forming list of countrys, regions and locations is fully rewritten
-  * Fix error: while read config, if upate interval is greater then 8 hours, than update interval always set to 'never'
+  * Fix error: while read config, if upate interval is greater than 8 hours, then update interval always set to 'never'
   * Fix error: after applet first start or after reboot the field 'Next update' is always never  
 
 0.18.2

@@ -72,7 +72,7 @@ void add_time_update_list(gint _between_time, gchar *_time_name){
     tu = g_new0(struct time_update, 1);
     tu->between_time = _between_time;	  
     tu->name_between_time = g_strdup(_time_name);	  
-    time_update_list = g_slist_append(time_update_list, tu);
+    app->time_update_list = g_slist_append(app->time_update_list, tu);
 }
 /*******************************************************************************/
 /* The stations data  fill from clock plugin data */
@@ -96,11 +96,13 @@ void fill_station_from_clock_plugin_data(void){
 	return;
     if((clock_file = fopen(CLOCK_FILE,"r")) != NULL){
 	while(!feof(clock_file)){
-	    memset(out_buffer, 0, sizeof(out_buffer)); /* Clear buffer */
-	    fgets(out_buffer, sizeof(out_buffer), clock_file); /* Read Next Line */
-	    tmp = strchr(out_buffer, '|'); /* Finding of a separator */
-	    if ((strncmp(out_buffer, home_city,tmp - out_buffer) == 0) || 
-	        (strncmp(out_buffer, remote_city,tmp - out_buffer) == 0)){
+	    memset(out_buffer, 0, sizeof(out_buffer));
+	    fgets(out_buffer, sizeof(out_buffer) - 1, clock_file);
+	    tmp = strchr(out_buffer, ';'); /* Finding a separator */
+	    if(!tmp)
+		continue;
+	    if(!strncmp(out_buffer, home_city, tmp - out_buffer) || 
+	        !strncmp(out_buffer, remote_city, tmp - out_buffer)){
 		/* Prepare struct */
     		ws = g_new0(struct weather_station, 1);
 		tmp[ strlen(tmp) - 1 ] = 0;
@@ -110,7 +112,7 @@ void fill_station_from_clock_plugin_data(void){
 		/* Add station to stations list */
 		stations_view_list = g_slist_append(stations_view_list, ws); 
 		/* A current station */
-		if (strncmp(out_buffer, home_city, tmp - out_buffer) == 0){
+		if(!strncmp(out_buffer, home_city, tmp - out_buffer)){
 		    app->config->current_station_id = g_strdup(ws->id_station);
 		    app->config->current_station_name = g_strdup(ws->name_station);
 		}
@@ -171,33 +173,8 @@ GSList* prepare_idlist(void){
 /* Initialize all configuration from GCONF.  This should not be called more
  * than once during execution. */
 void read_config(void){
-    gchar	*tmp = NULL;
-    GConfClient *gconf_client = NULL;
-
-    gconf_client = gconf_client_get_default();
-
-    if(!gconf_client){
-        fprintf(stderr, _("Failed to initialize GConf. Quitting.\n"));
-        exit(1);
-    }
-    /* If this first start then fill default station from clock config */ 
-    tmp = gconf_client_get_string(gconf_client,
-                     GCONF_KEY_WEATHER_PROGRAM_VERSION, NULL);     
-    if(!tmp){
-	if(!app->config->current_station_id){
-	    fill_station_from_clock_plugin_data();
-	    if(app->iap_connected){
-		app->show_update_window = TRUE;
-		update_weather();
-	    }	
-	}	    
-    }
-    else{
-	g_free(tmp);		     
-	tmp = NULL;		
-    }
     /* Fill time update list */
-    if(!time_update_list){
+    if(!app->time_update_list){
 	add_time_update_list(0, _("Never"));
 	add_time_update_list(5, _("every 5 minutes"));
 	add_time_update_list(30, _("every 30 minutes"));
@@ -209,8 +186,6 @@ void read_config(void){
 	add_time_update_list(1, _("every minute (DEBUG)"));
     }
     app->show_update_window = FALSE;
-    gconf_client_clear_cache(gconf_client);
-    g_object_unref(gconf_client);
 }
 /*******************************************************************************/
 int new_read_config(AppletConfig *config){
@@ -297,12 +272,14 @@ int new_read_config(AppletConfig *config){
     config->current_station_name = gconf_client_get_string(gconf_client,
     							GCONF_KEY_WEATHER_CURRENT_STATION_NAME,
 							NULL);
-    /* Get Weather periodic update time . */
+    /* Get Weather periodic update time. */
     config->update_interval = gconf_client_get_int(gconf_client,
         			    GCONF_KEY_WEATHER_UPDATE_INTERVAL,
 				    NULL);
-    if(config->update_interval < 0 || config->update_interval > 8)
+    if(config->update_interval < 0 || config->update_interval > 1440)
 	config->update_interval = 0;
+    remove_periodic_event();		/* delete event from list */
+    add_periodic_event(time(NULL));	/* add new event */
 
     /* Get Weather font color. */    	
     tmp = gconf_client_get_string(gconf_client,
@@ -417,7 +394,23 @@ int new_read_config(AppletConfig *config){
     }
     else
 	config->data_valid_interval *= 3600;
-    
+
+    /* If this first start then fill default station from clock config */ 
+    tmp = gconf_client_get_string(gconf_client,
+                		    GCONF_KEY_WEATHER_PROGRAM_VERSION, NULL);
+    if(!tmp){
+	if(!app->config->current_station_id){
+	    fill_station_from_clock_plugin_data();
+	    if(app->iap_connected){
+		app->show_update_window = TRUE;
+		update_weather();
+	    }
+	}	    
+    }
+    else{
+	g_free(tmp);		     
+	tmp = NULL;		
+    }    
     gconf_client_clear_cache(gconf_client);
     g_object_unref(gconf_client);
     return 0;

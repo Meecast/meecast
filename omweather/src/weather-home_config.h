@@ -64,7 +64,6 @@
 #define GCONF_KEY_CLOCK_REMOTE_LOCATION		GCONF_KEY_CLOCK_PREFIX"/remote-location"
 #define GCONF_KEY_CLOCK_HOME_LOCATION		GCONF_KEY_CLOCK_PREFIX"/home-location"
 /*******************************************************************************/
-extern GSList   *time_update_list;
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
@@ -73,6 +72,8 @@ void config_save(void);
 void read_config(void);
 int new_read_config(AppletConfig*);
 void new_config_save(AppletConfig*);
+extern void remove_periodic_event(void);
+extern void add_periodic_event(time_t last_update);
 /*******************************************************************************/
 
 #endif

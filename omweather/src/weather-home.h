@@ -69,8 +69,8 @@ extern void clean_download(void);
 extern void weather_window_settings(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 extern int new_read_config(AppletConfig*);
 extern void new_config_save(AppletConfig*);
-extern GtkListStore* create_items_list(const char *filename, long start, long end);
-
+extern GtkListStore* create_items_list(const char *filename, long start, long end,
+					long *items_number);
 gboolean not_event = FALSE;
 int 	   boxs_offset[Max_count_weather_day];
 guint flag_update=0;

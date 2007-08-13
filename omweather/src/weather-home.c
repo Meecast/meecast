@@ -478,7 +478,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
         exit(1);
     }
     read_config();
-    app->countrys_list = create_items_list(COUNTRYSFILE, -1, -1);
+    app->countrys_list = create_items_list(COUNTRYSFILE, -1, -1, NULL);
 /* Start timer */
 //    timer(6000); /* One per secund */
     timer(60000); /* One per minute */

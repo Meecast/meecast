@@ -400,6 +400,7 @@ void weather_buttons_fill(gboolean check_error){
 //	    g_signal_connect(app->buttons[i]->button, "button-press-event", G_CALLBACK(enter_button), NULL); 
 //	    g_signal_connect(app->buttons[i]->button, "button-press-released",  G_CALLBACK(weather_window_popup_show), NULL);
 	    g_signal_connect(app->buttons[i]->button, "button-release-event", G_CALLBACK(weather_window_popup_show), NULL); 
+//	    g_signal_connect(app->buttons[i]->button, "configure-event", G_CALLBACK(day_button_expose_event_handler), NULL);
 	}    
 
     }/* end for */
@@ -870,7 +871,7 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     new_day_button->button = gtk_event_box_new();
     gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK|GDK_BUTTON_PRESS_MASK);
     
-   set_background_color(new_day_button->button,color);
+    set_background_color(new_day_button->button, color);
     if(transparency)
 	gtk_button_set_relief(GTK_BUTTON(new_day_button->button), GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click(GTK_BUTTON(new_day_button->button), FALSE);
@@ -943,20 +944,17 @@ void swap_temperature(int *hi, int *low){
 }
 /*******************************************************************************/
 void set_background_color(GtkWidget *widget, GdkColor *bgc){
-    GdkColor	color;
-
-    gdk_color_parse ("red", &color);
 /* undo previos changes */
-//    gtk_widget_modify_fg(widget, GTK_STATE_NORMAL, NULL);
-//    gtk_widget_modify_fg(widget, GTK_STATE_ACTIVE, NULL);
-//    gtk_widget_modify_fg(widget, GTK_STATE_PRELIGHT, NULL);
-//    gtk_widget_modify_fg(widget, GTK_STATE_SELECTED, NULL);
-//    gtk_widget_modify_fg(widget, GTK_STATE_INSENSITIVE, NULL);
+    gtk_widget_modify_bg(widget, GTK_STATE_NORMAL, NULL);
+//    gtk_widget_modify_bg(widget, GTK_STATE_ACTIVE, NULL);
+//    gtk_widget_modify_bg(widget, GTK_STATE_PRELIGHT, NULL);
+//    gtk_widget_modify_bg(widget, GTK_STATE_SELECTED, NULL);
+//    gtk_widget_modify_bg(widget, GTK_STATE_INSENSITIVE, NULL);
 /* set one color for all states of widget */
-    gtk_widget_modify_bg(widget, GTK_STATE_NORMAL, &color);
-//    gtk_widget_modify_fg(widget, GTK_STATE_ACTIVE, &color);
-//    gtk_widget_modify_fg(widget, GTK_STATE_PRELIGHT, &color);
-//    gtk_widget_modify_fg(widget, GTK_STATE_SELECTED, &color);
-//    gtk_widget_modify_fg(widget, GTK_STATE_INSENSITIVE, &color);
+    gtk_widget_modify_bg(widget, GTK_STATE_NORMAL, bgc);
+//    gtk_widget_modify_bg(widget, GTK_STATE_ACTIVE, bgc);
+//    gtk_widget_modify_bg(widget, GTK_STATE_PRELIGHT, bgc);
+//    gtk_widget_modify_bg(widget, GTK_STATE_SELECTED, bgc);
+//    gtk_widget_modify_bg(widget, GTK_STATE_INSENSITIVE, bgc);
 }
 /*******************************************************************************/

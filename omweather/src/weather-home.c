@@ -64,6 +64,10 @@ static gboolean enter_button(GtkWidget *widget,
         			GdkEventCrossing *event){
     GtkButton	*button;
     GtkWidget	*event_widget;
+
+#ifndef RELEASE
+    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+#endif
  
     button = GTK_BUTTON(widget);
     event_widget = gtk_get_event_widget((GdkEvent*) event);
@@ -71,8 +75,10 @@ static gboolean enter_button(GtkWidget *widget,
     gtk_button_leave(button);
     return FALSE;
 }
-/*******************************************************************************/
+
+
 /* Change station to previos at main display */
+/*******************************************************************************//*******************************************************************************/
 static gboolean change_station_prev(GtkWidget *widget,
                     		    GdkEvent *event,
                     		    gpointer user_data){
@@ -386,10 +392,16 @@ void weather_buttons_fill(gboolean check_error){
 	app->buttons[i] = create_weather_day_button(buffer, buffer_icon, icon_size,
 						    app->config->transparency,
 						    font_size, &(app->config->background_color));
+
 	if(app->buttons[i]){
-	    g_signal_connect(app->buttons[i]->button, "released", G_CALLBACK(weather_window_popup_show), NULL);
-	    g_signal_connect(app->buttons[i]->button, "enter", G_CALLBACK(enter_button), NULL); 
+//	    g_signal_connect(app->buttons[i]->button, "released", G_CALLBACK(weather_window_popup_show), NULL);
+//	    g_signal_connect(app->buttons[i]->button, "enter", G_CALLBACK(enter_button), NULL); 
+
+//	    g_signal_connect(app->buttons[i]->button, "button-press-event", G_CALLBACK(enter_button), NULL); 
+//	    g_signal_connect(app->buttons[i]->button, "button-press-released",  G_CALLBACK(weather_window_popup_show), NULL);
+	    g_signal_connect(app->buttons[i]->button, "button-release-event", G_CALLBACK(weather_window_popup_show), NULL); 
 	}    
+
     }/* end for */
 
     if(g_slist_length(stations_view_list) > 0){
@@ -613,7 +625,9 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		app->config->font_color.red >> 8, app->config->font_color.green >> 8,
 		app->config->font_color.blue >> 8);
 	previos_station_box		= gtk_hbox_new(FALSE, 0);
-	previos_station_name_btn	= gtk_button_new();
+//	previos_station_name_btn	= gtk_button_new();
+	previos_station_name_btn	= gtk_event_box_new();
+	gtk_widget_set_events(previos_station_name_btn, GDK_BUTTON_RELEASE_MASK|GDK_BUTTON_PRESS_MASK);
 	previos_station_name        = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(previos_station_name), GTK_JUSTIFY_CENTER);
@@ -628,7 +642,9 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		app->config->font_color.red >> 8, app->config->font_color.green >> 8,
 		app->config->font_color.blue >> 8);
 	next_station_box		= gtk_hbox_new(FALSE, 0);
-	next_station_name_btn	= gtk_button_new();
+//	next_station_name_btn	= gtk_button_new();
+	next_station_name_btn	= gtk_event_box_new();
+	gtk_widget_set_events(next_station_name_btn, GDK_BUTTON_RELEASE_MASK|GDK_BUTTON_PRESS_MASK);
 	next_station_name        	= gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(next_station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(next_station_name), GTK_JUSTIFY_CENTER);
@@ -649,7 +665,9 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         	    app->config->font_color.red >> 8, app->config->font_color.green >> 8,
 		    app->config->font_color.blue >> 8, st_name);
 	station_box		= gtk_hbox_new(FALSE, 0);
-	station_name_btn	= gtk_button_new();
+//	station_name_btn	= gtk_button_new();
+	station_name_btn	= gtk_event_box_new();
+	gtk_widget_set_events(station_name_btn, GDK_BUTTON_RELEASE_MASK|GDK_BUTTON_PRESS_MASK);	
 	station_name        = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
@@ -741,22 +759,22 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     gtk_table_attach( (GtkTable*)panel, days_panel, 0, 1, 1, 2 ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 /* Connect signal button */
     if(previos_station_name_btn){
-	g_signal_connect(previos_station_name_btn, "released",
+	g_signal_connect(previos_station_name_btn, "button-release-event",
 			    G_CALLBACK (change_station_prev), NULL);
-	g_signal_connect(previos_station_name_btn, "enter",
-			    G_CALLBACK (enter_button), NULL);
+//	g_signal_connect(previos_station_name_btn, "enter",
+//			    G_CALLBACK (enter_button), NULL);
     }
     if(next_station_name_btn){
-	g_signal_connect(next_station_name_btn, "released",
+	g_signal_connect(next_station_name_btn, "button-release-event",
 			    G_CALLBACK (change_station_next), NULL);  		    
-	g_signal_connect(next_station_name_btn, "enter",
-			    G_CALLBACK (enter_button), NULL);
+//	g_signal_connect(next_station_name_btn, "enter",
+//			    G_CALLBACK (enter_button), NULL);
     }
     if(station_name_btn){
-        g_signal_connect(station_name_btn, "released",
+        g_signal_connect(station_name_btn, "button-release-event",
 			    G_CALLBACK (change_station_next), NULL);  		    
-	g_signal_connect(station_name_btn, "enter",
-			    G_CALLBACK (enter_button), NULL); 
+//	g_signal_connect(station_name_btn, "enter",
+//			    G_CALLBACK (enter_button), NULL); 
 	gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn); 
     }
     else
@@ -848,7 +866,11 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     if(!new_day_button)
 	return NULL;
     /* create day button */
-    new_day_button->button = gtk_button_new();
+//    new_day_button->button = gtk_button_new();
+    new_day_button->button = gtk_event_box_new();
+    gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK|GDK_BUTTON_PRESS_MASK);
+    
+   set_background_color(new_day_button->button,color);
     if(transparency)
 	gtk_button_set_relief(GTK_BUTTON(new_day_button->button), GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click(GTK_BUTTON(new_day_button->button), FALSE);

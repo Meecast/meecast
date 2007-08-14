@@ -160,71 +160,106 @@ void fill_station_list_view(GtkWidget *station_list_view,
     }
 }
 /*******************************************************************************/
-/* Rename the station name */
-void weather_window_rename_station(GtkWidget *widget,
+/* Edit the station */
+void weather_window_edit_station(GtkWidget *widget,
             			   GdkEvent *event,
                     		   gpointer user_data){
     
-    GtkWidget *window_rename_station;
-    GtkWidget *label;
-    GtkWidget *table;
-    GtkWidget *station_name_edit;
+    GtkWidget	*window_edit_station,
+		*label,
+		*code_label,
+		*table,
+		*station_name_edit,
+		*station_code_edit;
     
-    GSList *tmplist = NULL; /* Temporary for station list */
+    GSList	*tmplist = NULL; /* Temporary for station list */
     struct weather_station *ws; /* Description Weather station */
-    GtkTreeIter iter;
-    gchar *station_selected = NULL;
-    GtkTreeModel *model;
-    GtkTreeSelection *selection;
+    GtkTreeIter	iter;
+    gchar	*selected_station_name = NULL,
+		*selected_station_code = NULL;
+    GtkTreeModel	*model;
+    GtkTreeSelection	*selection;
 
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
     selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
     if( !gtk_tree_selection_get_selected(selection, NULL, &iter) )
 	return;
-    gtk_tree_model_get(model, &iter, 0, &station_selected, -1); 
+    gtk_tree_model_get(model, &iter, 0, &selected_station_name, -1); 
     
     /* Create dialog window */
-    window_rename_station = gtk_dialog_new_with_buttons(_("Rename Station"),
+    window_edit_station = gtk_dialog_new_with_buttons(_("Edit Station"),
         						NULL,
 							GTK_DIALOG_MODAL,
 							NULL);
-
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_rename_station)->vbox),
-        		    table = gtk_table_new(2, 2, FALSE), TRUE, TRUE, 0);	    
-    gtk_dialog_add_button(GTK_DIALOG(window_rename_station),
+    /* Add buttons */
+    gtk_dialog_add_button(GTK_DIALOG(window_edit_station),
         		    _("OK"), GTK_RESPONSE_ACCEPT);
-    gtk_dialog_add_button(GTK_DIALOG(window_rename_station),
+    gtk_dialog_add_button(GTK_DIALOG(window_edit_station),
         		    _("Cancel"), GTK_RESPONSE_REJECT);
-   /* Add Label and Edit */
+
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_edit_station)->vbox),
+        		    table = gtk_table_new(2, 2, FALSE), TRUE, TRUE, 0);	    
+
+   /* Add Label and Edit field for station name */
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(_("Station:")),
         			0, 1, 0, 1);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
         			1, 2, 0, 1);
-    gtk_container_add(GTK_CONTAINER(label),station_name_edit = gtk_entry_new());
-    gtk_entry_set_max_length(GTK_ENTRY(station_name_edit),16);
-    gtk_entry_set_text(GTK_ENTRY(station_name_edit),station_selected);
-    gtk_widget_set_size_request(GTK_WIDGET(window_rename_station), 350, -1);
-    gtk_widget_show_all(window_rename_station);   
+    station_name_edit = gtk_entry_new();
+    gtk_entry_set_max_length(GTK_ENTRY(station_name_edit), 50);
+    gtk_entry_set_text(GTK_ENTRY(station_name_edit), selected_station_name);
+    gtk_container_add(GTK_CONTAINER(label), station_name_edit);
+    /* Added Label and Edit field for station code */
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			code_label = gtk_label_new(_("Code:")),
+        			0, 1, 1, 2);
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			code_label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
+        			1, 2, 1, 2);
+    station_code_edit = gtk_entry_new();
+    gtk_entry_set_max_length(GTK_ENTRY(station_code_edit), 8);
+    /* search station code */
+    tmplist = stations_view_list;
+    while(tmplist){
+	ws = tmplist->data;
+	if((ws->name_station && selected_station_name &&
+		streq(selected_station_name, ws->name_station))||
+		(!ws->name_station && !selected_station_name)){
+	    selected_station_code = g_strdup(ws->id_station);
+	    break;
+	}
+	tmplist = g_slist_next(tmplist);
+    }
+    gtk_entry_set_text(GTK_ENTRY(station_code_edit), selected_station_code);
+    gtk_container_add(GTK_CONTAINER(code_label), station_code_edit);
+    /* set size for dialog */
+    gtk_widget_set_size_request(GTK_WIDGET(window_edit_station), 350, -1);
+    gtk_widget_show_all(window_edit_station);
 
     /* start dialog */
-    switch(gtk_dialog_run(GTK_DIALOG(window_rename_station))){
+    switch(gtk_dialog_run(GTK_DIALOG(window_edit_station))){
 	case GTK_RESPONSE_ACCEPT:/* Press Button Ok */
 	    tmplist = stations_view_list;
 	    while(tmplist){
 		ws = tmplist->data;
-		if((ws->name_station != NULL && station_selected != NULL && streq(station_selected, ws->name_station))||
-		  (ws->name_station == NULL && station_selected == NULL)){
+		if((ws->name_station && selected_station_name &&
+				streq(selected_station_name, ws->name_station))||
+		  (!ws->name_station && !selected_station_name)){
 		    if(ws->name_station)
 			g_free(ws->name_station);
-   		    ws->name_station = g_strdup(gtk_entry_get_text(GTK_ENTRY(station_name_edit))); 
+   		    ws->name_station = g_strdup(gtk_entry_get_text(GTK_ENTRY(station_name_edit)));
+		    if(ws->id_station)
+			g_free(ws->id_station);
+		    ws->id_station = g_strdup(gtk_entry_get_text(GTK_ENTRY(station_code_edit)));
 		    /* Update station list */	    
 		    gtk_list_store_clear(station_list_store);
-		    fill_station_list_view (station_list_view,station_list_store);
+		    fill_station_list_view(station_list_view, station_list_store);
 		    /* Update config file */
 		    new_config_save(app->config);
 		    flag_update_station = TRUE;
+		    break;
 		}
  		tmplist = g_slist_next(tmplist);  
 	    }
@@ -232,9 +267,11 @@ void weather_window_rename_station(GtkWidget *widget,
 	default:
 	break;
     }
-    if (station_selected)
-        g_free(station_selected);
-    gtk_widget_destroy(window_rename_station);
+    if(selected_station_name)
+        g_free(selected_station_name);
+    if(selected_station_code)
+        g_free(selected_station_code);    
+    gtk_widget_destroy(window_edit_station);
 }
 /*******************************************************************************/
 /* Delete station from list */
@@ -366,15 +403,7 @@ static GtkWidget* create_tree_view(GtkListStore * list){
 #define SIG_TIMER_EXPIRATION SIGRTMIN
 #define CLOCK_TYPE CLOCK_MONOTONIC
 /*******************************************************************************/
-struct timespec get_time_stamp(void){
-    ZERO(struct timespec, now);
-    if(clock_gettime(CLOCK_TYPE, &now) != 0)
-	perror("clock_gettime");
-    fprintf(stderr, "NOW=%ld.%09ld\n", now.tv_sec, now.tv_nsec);
-    return now;
-}
-/*******************************************************************************/
-void weather_window_add_custom_station(){
+void weather_window_add_custom_station(void){
     struct weather_station *ws;       /* Temp struct for station */
     GtkWidget *window_add_custom_station;
     GtkWidget *label;
@@ -616,7 +645,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
         			1, 2, 2, 3);
-    button_ren = gtk_button_new_with_label(_("Rename"));
+    button_ren = gtk_button_new_with_label(_("Edit"));
     gtk_table_attach_defaults(GTK_TABLE(table),
         			button_ren,
         			1, 2, 3, 4);				
@@ -633,7 +662,7 @@ void weather_window_settings(GtkWidget *widget,
     g_signal_connect(station_list_view, "cursor-changed",
                 	G_CALLBACK(station_list_view_select_handler), NULL);
     g_signal_connect(button_ren, "clicked",
-                	G_CALLBACK(weather_window_rename_station), NULL);				
+                	G_CALLBACK(weather_window_edit_station), NULL);				
     g_signal_connect(button_del, "clicked",
                 	G_CALLBACK(weather_delete_station), NULL);
     g_signal_connect(button_add, "clicked",
@@ -1247,5 +1276,11 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
     g_free(station_selected);
     weather_frame_update(TRUE);
     new_config_save(app->config);
+}
+/*******************************************************************************/
+gboolean day_button_expose_event_handler(GtkWidget *widget, GdkEventConfigure *event,
+                                            gpointer user_data){
+    fprintf(stderr, "\nInside handler\n");
+    return FALSE;
 }
 /*******************************************************************************/

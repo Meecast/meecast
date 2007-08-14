@@ -71,10 +71,12 @@ extern int new_read_config(AppletConfig*);
 extern void new_config_save(AppletConfig*);
 extern GtkListStore* create_items_list(const char *filename, long start, long end,
 					long *items_number);
+extern gboolean day_button_expose_event_handler(GtkWidget *widget,
+						GdkEventConfigure *event,
+                                        	gpointer user_data);
 gboolean not_event = FALSE;
-int 	   boxs_offset[Max_count_weather_day];
-guint flag_update=0;
-gchar  path_large_icon[_POSIX_PATH_MAX];
+int	boxs_offset[Max_count_weather_day];
+gchar	path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
 typedef struct _HomeAppletHandler HomeAppletHandler;
 /*******************************************************************************/

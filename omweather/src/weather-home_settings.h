@@ -43,6 +43,16 @@ void fill_station_list_view(GtkWidget *station_list_view,
 			    GtkListStore *station_list_store);
 void station_list_view_select_handler(GtkTreeView *tree_view,
 			    gpointer user_data);
+void weather_window_edit_station(GtkWidget *widget,
+            			   GdkEvent *event,
+                    		   gpointer user_data);
+void weather_window_add_station(GtkWidget *widget,
+            			GdkEvent *event,
+                    		gpointer user_data);
+void changed_country(void);
+void changed_state(void);
+void changed_stations(void);
+void weather_window_add_custom_station(void);
 
 GtkWidget	*countrys,
 		*states,
@@ -80,5 +90,8 @@ extern void new_config_save(AppletConfig *config);
 extern void set_background_color(GtkWidget *widget, GdkColor *bgc);
 extern void add_periodic_event(time_t last_update);
 extern void remove_periodic_event(void);
+/*******************************************************************************/
+gboolean day_button_expose_event_handler(GtkWidget *widget, GdkEventConfigure *event,
+                                            gpointer user_data);
 /*******************************************************************************/
 #endif

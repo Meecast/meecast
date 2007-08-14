@@ -68,7 +68,6 @@ extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 void config_update_proxy(void);
-void config_save(void);
 void read_config(void);
 int new_read_config(AppletConfig*);
 void new_config_save(AppletConfig*);

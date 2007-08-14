@@ -405,21 +405,18 @@ GtkWidget* create_current_weather_widget(void){
 
 /* wind */
     strcat(buffer, _("\nWind: "));
-    if( strcmp(app->weather_current_day.day.wind_speed, "N/A") )	
-	    sprintf(buffer + strlen(buffer), "%s %.2f %s", app->weather_current_day.day.wind_title,
+    sprintf(buffer + strlen(buffer), "%s", app->weather_current_day.day.wind_title);
+    if( strcmp(app->weather_current_day.day.wind_speed, "N/A") )
+	sprintf(buffer + strlen(buffer), " %.2f %s", 
 		    convert_wind_units(app->config->wind_units, atof(app->weather_current_day.day.wind_speed)),
 		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
-    else
-	sprintf(buffer + strlen(buffer), "%s %s", app->weather_current_day.day.wind_title,
-		    (char*)hash_table_find((gpointer)"N/A"));
 /* gust */
-    strcat(buffer, _(" Gust: "));
-    if( strcmp(app->weather_current_day.day.wind_gust, "N/A") )
-	    sprintf(buffer + strlen(buffer), "%.2f %s",
+    if( strcmp(app->weather_current_day.day.wind_gust, "N/A") ){
+	strcat(buffer, _(" Gust: "));
+	sprintf(buffer + strlen(buffer), "%.2f %s",
 		    convert_wind_units(app->config->wind_units, atof(app->weather_current_day.day.wind_gust)),
 		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
-    else
-	strcat(buffer, (char*)hash_table_find((gpointer)"N/A"));
+    }
 
     main_data_vbox = gtk_vbox_new(FALSE, 0);	
     main_data_label = gtk_label_new(buffer);

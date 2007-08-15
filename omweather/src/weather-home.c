@@ -666,8 +666,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	set_background_color(previos_station_name_btn, &(app->config->background_color));
 	
 	gtk_widget_set_events(previos_station_name_btn, GDK_BUTTON_RELEASE_MASK|
-    							GDK_BUTTON_PRESS_MASK|
-							GDK_EXPOSURE_MASK);
+    							GDK_BUTTON_PRESS_MASK);
 	previos_station_name        = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(previos_station_name), GTK_JUSTIFY_CENTER);
@@ -686,8 +685,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	set_background_color(next_station_name_btn, &(app->config->background_color));	
 	
 	gtk_widget_set_events(next_station_name_btn, GDK_BUTTON_RELEASE_MASK|
-						     GDK_BUTTON_PRESS_MASK|
-						     GDK_EXPOSURE_MASK);
+						     GDK_BUTTON_PRESS_MASK);
 	next_station_name        	= gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(next_station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(next_station_name), GTK_JUSTIFY_CENTER);
@@ -711,8 +709,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	station_name_btn	= gtk_event_box_new();
 	set_background_color(station_name_btn, &(app->config->background_color));		
 	gtk_widget_set_events(station_name_btn, GDK_BUTTON_RELEASE_MASK|
-						GDK_BUTTON_PRESS_MASK|
-						GDK_EXPOSURE_MASK);
+						GDK_BUTTON_PRESS_MASK);
 	station_name        = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
@@ -902,8 +899,7 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     /* create day button */
     new_day_button->button = gtk_event_box_new();
     gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK|
-						  GDK_BUTTON_PRESS_MASK|
-						  GDK_EXPOSURE_MASK);
+						  GDK_BUTTON_PRESS_MASK);
     set_background_color(new_day_button->button, color);
     
     if(transparency)

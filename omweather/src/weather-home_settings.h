@@ -91,7 +91,4 @@ extern void set_background_color(GtkWidget *widget, GdkColor *bgc);
 extern void add_periodic_event(time_t last_update);
 extern void remove_periodic_event(void);
 /*******************************************************************************/
-gboolean day_button_expose_event_handler(GtkWidget *widget, GdkEventConfigure *event,
-                                            gpointer user_data);
-/*******************************************************************************/
 #endif

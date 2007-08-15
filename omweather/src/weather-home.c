@@ -628,6 +628,8 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	previos_station_box		= gtk_hbox_new(FALSE, 0);
 //	previos_station_name_btn	= gtk_button_new();
 	previos_station_name_btn	= gtk_event_box_new();
+	set_background_color(previos_station_name_btn, &(app->config->background_color));
+	
 	gtk_widget_set_events(previos_station_name_btn, GDK_BUTTON_RELEASE_MASK|GDK_BUTTON_PRESS_MASK);
 	previos_station_name        = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
@@ -645,6 +647,8 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	next_station_box		= gtk_hbox_new(FALSE, 0);
 //	next_station_name_btn	= gtk_button_new();
 	next_station_name_btn	= gtk_event_box_new();
+	set_background_color(next_station_name_btn, &(app->config->background_color));	
+	
 	gtk_widget_set_events(next_station_name_btn, GDK_BUTTON_RELEASE_MASK|GDK_BUTTON_PRESS_MASK);
 	next_station_name        	= gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(next_station_name), buffer);
@@ -668,6 +672,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	station_box		= gtk_hbox_new(FALSE, 0);
 //	station_name_btn	= gtk_button_new();
 	station_name_btn	= gtk_event_box_new();
+	set_background_color(station_name_btn, &(app->config->background_color));		
 	gtk_widget_set_events(station_name_btn, GDK_BUTTON_RELEASE_MASK|GDK_BUTTON_PRESS_MASK);	
 	station_name        = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(station_name), buffer);
@@ -680,19 +685,23 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /* check config->transparency */
     if(transparency){
     	if(previos_station_name_btn)
-	    gtk_button_set_relief(GTK_BUTTON(previos_station_name_btn), GTK_RELIEF_NONE);
+//	    gtk_button_set_relief(GTK_BUTTON(previos_station_name_btn), GTK_RELIEF_NONE);
+	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
 	if(next_station_name_btn)
-	    gtk_button_set_relief(GTK_BUTTON(next_station_name_btn), GTK_RELIEF_NONE);
+//	    gtk_button_set_relief(GTK_BUTTON(next_station_name_btn), GTK_RELIEF_NONE);
+	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(next_station_name_btn), FALSE);
 	if(station_name_btn)
-	    gtk_button_set_relief(GTK_BUTTON(station_name_btn), GTK_RELIEF_NONE); 
+//	    gtk_button_set_relief(GTK_BUTTON(station_name_btn), GTK_RELIEF_NONE); 
+	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
     }
 /* disable on_focus event for header_panel buttons */
-    if(previos_station_name_btn)
+/*    if(previos_station_name_btn)
 	gtk_button_set_focus_on_click(GTK_BUTTON(previos_station_name_btn), FALSE);
     if(next_station_name_btn)
 	gtk_button_set_focus_on_click(GTK_BUTTON(next_station_name_btn), FALSE);
     if(station_name_btn)
         gtk_button_set_focus_on_click(GTK_BUTTON(station_name_btn), FALSE); 
+*/	
 /* attach buttons to header panel */
     if(previos_station_name_btn)
 	gtk_table_attach( (GtkTable*)header_panel,
@@ -870,11 +879,12 @@ WDB* create_weather_day_button(const char *text, const char *icon,
 //    new_day_button->button = gtk_button_new();
     new_day_button->button = gtk_event_box_new();
     gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK|GDK_BUTTON_PRESS_MASK);
-    
     set_background_color(new_day_button->button, color);
+    
     if(transparency)
-	gtk_button_set_relief(GTK_BUTTON(new_day_button->button), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(new_day_button->button), FALSE);
+    //	gtk_button_set_relief(GTK_BUTTON(new_day_button->button), GTK_RELIEF_NONE);
+      gtk_event_box_set_visible_window(GTK_EVENT_BOX(new_day_button->button), FALSE);
+//    gtk_button_set_focus_on_click(GTK_BUTTON(new_day_button->button), FALSE);
     /* create day label */
     new_day_button->label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);

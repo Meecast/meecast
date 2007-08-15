@@ -33,9 +33,9 @@ static gboolean popup_window_event_cb(GtkWidget *widget,
                     			GdkEvent *event, 
                     			gpointer user_data){
     gint x, y, w, h;
-//#ifndef RELEASE
+#ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): %i \n", __PRETTY_FUNCTION__,event);
-//#endif
+#endif
     
     gtk_widget_get_pointer(widget, &x, &y);
     w = widget->allocation.width;

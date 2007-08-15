@@ -671,7 +671,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(previos_station_name), GTK_JUSTIFY_CENTER);
 	set_font_size(previos_station_name, f_size);
-	gtk_box_pack_start((GtkBox*) previos_station_box, previos_station_name, TRUE, TRUE, 0);
+	gtk_box_pack_start((GtkBox*) previos_station_box, previos_station_name, TRUE, TRUE, 10);
 	gtk_container_add (GTK_CONTAINER(previos_station_name_btn), previos_station_box);
 
 
@@ -690,7 +690,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	gtk_label_set_markup(GTK_LABEL(next_station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(next_station_name), GTK_JUSTIFY_CENTER);
 	set_font_size(next_station_name, f_size);
-        gtk_box_pack_start((GtkBox*) next_station_box, next_station_name, TRUE, TRUE, 0);
+        gtk_box_pack_start((GtkBox*) next_station_box, next_station_name, TRUE, TRUE, 10);
 	gtk_container_add (GTK_CONTAINER(next_station_name_btn), next_station_box);
     }
     buffer[0] = '\0';

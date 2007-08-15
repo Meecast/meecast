@@ -94,6 +94,4 @@ struct _HomeAppletHandler {
     gint resizable_height;
 };
 /*******************************************************************************/
-
-
 #endif

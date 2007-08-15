@@ -59,6 +59,8 @@ gboolean download_html(gpointer data);
 void update_weather(void);
 void free_memory(gboolean flag);
 void swap_temperature(int *hi, int *low);
+void station_error_window(void);
+void menu_init(void);
 /* external functions */
 extern void timer(int interval);
 extern void create_timer_with_interval(guint interval);
@@ -95,4 +97,6 @@ struct _HomeAppletHandler {
     gint resizable_height;
 };
 /*******************************************************************************/
+
+
 #endif

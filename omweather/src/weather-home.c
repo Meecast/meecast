@@ -59,23 +59,6 @@ void set_font_size(GtkWidget *widget, char font_size){
     gtk_widget_modify_font(GTK_WIDGET(widget), pfd);   /* this function is leaking */
     pango_font_description_free(pfd);
 }
-/*******************************************************************************/
-static gboolean enter_button(GtkWidget *widget,
-        			GdkEventCrossing *event){
-    GtkButton	*button;
-    GtkWidget	*event_widget;
-
-#ifndef RELEASE
-    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
-#endif
- 
-    button = GTK_BUTTON(widget);
-    event_widget = gtk_get_event_widget((GdkEvent*) event);
-    button->in_button = FALSE;
-    gtk_button_leave(button);
-    return FALSE;
-}
-
 
 /* Change station to previos at main display */
 /*******************************************************************************//*******************************************************************************/
@@ -154,6 +137,39 @@ static gboolean change_station_next(GtkWidget *widget,
     }
     return TRUE;
 }
+
+static gboolean change_station_select(GtkWidget *widget,
+                    		    gpointer user_data){
+
+    GSList 			*tmplist = NULL;
+    struct weather_station	*ws;
+    
+    tmplist = stations_view_list;
+    
+    while(tmplist){
+	ws = tmplist->data;
+	/* Check active station */ 
+	if(!strcmp((char *)user_data, ws->id_station)){
+	    if(app->config->current_station_id)
+    		g_free(app->config->current_station_id);
+	    app->config->current_station_id = g_strdup(ws->id_station); 
+	    /* update current station name */
+	    if(app->config->current_station_name)
+		g_free(app->config->current_station_name);
+	    ws->name_station && (app->config->current_station_name = strdup(ws->name_station));
+	    app->config->previos_days_to_show = app->config->days_to_show;
+	    weather_frame_update(TRUE);
+	    new_config_save(app->config);
+	    break;		
+	}		
+	/* Next station in list */
+	tmplist = g_slist_next(tmplist);
+    }
+    return TRUE;
+}
+
+
+
 /*******************************************************************************/
 /* Set default value */
 void weather_buttons_init(void){
@@ -394,13 +410,7 @@ void weather_buttons_fill(gboolean check_error){
 						    font_size, &(app->config->background_color));
 
 	if(app->buttons[i]){
-//	    g_signal_connect(app->buttons[i]->button, "released", G_CALLBACK(weather_window_popup_show), NULL);
-//	    g_signal_connect(app->buttons[i]->button, "enter", G_CALLBACK(enter_button), NULL); 
-
-//	    g_signal_connect(app->buttons[i]->button, "button-press-event", G_CALLBACK(enter_button), NULL); 
-//	    g_signal_connect(app->buttons[i]->button, "button-press-released",  G_CALLBACK(weather_window_popup_show), NULL);
 	    g_signal_connect(app->buttons[i]->button, "button-release-event", G_CALLBACK(weather_window_popup_show), NULL); 
-//	    g_signal_connect(app->buttons[i]->button, "configure-event", G_CALLBACK(day_button_expose_event_handler), NULL);
 	}    
 
     }/* end for */
@@ -493,7 +503,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     read_config();
     app->countrys_list = create_items_list(COUNTRYSFILE, -1, -1, NULL);
 /* Start timer */
-//    timer(6000); /* One per secund */
+/*    timer(6000); */ /* One per secund */
     timer(60000); /* One per minute */
 
 /* Start main applet */ 
@@ -501,8 +511,10 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     weather_buttons_fill(FALSE);
 /* Initialize DBUS */
     weather_initialize_dbus();
-//    time_event_add(time(NULL) + 5, DBUSINITEVENT);    
-//    add_periodic_event(time(NULL));
+/*    
+    time_event_add(time(NULL) + 5, DBUSINITEVENT);    
+    add_periodic_event(time(NULL));
+*/
     
     (*widget) = app->top_widget;
     return (void*)osso;
@@ -591,6 +603,30 @@ GtkWidget* hildon_home_applet_lib_settings(void *applet_data,
     return menu_item;
 }
 /*******************************************************************************/
+void menu_init(void){
+    GtkWidget *menu_item;
+    GSList *tmplist = NULL; /* Temporary for station list */
+    struct weather_station *ws; /* Description Weather station */
+
+    app->contextmenu = gtk_menu_new();
+
+    tmplist = stations_view_list;
+    while(tmplist){
+	ws = tmplist->data;
+	gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu),menu_item = gtk_menu_item_new_with_label(ws->name_station));
+        g_signal_connect(G_OBJECT(menu_item), "activate",
+                         G_CALLBACK(change_station_select), ws->id_station);
+/* To do: active current station */
+	tmplist = g_slist_next(tmplist);
+    }
+
+
+    gtk_widget_show_all(GTK_WIDGET(app->contextmenu));
+    gtk_widget_tap_and_hold_setup(app->main_window, GTK_WIDGET(app->contextmenu), NULL, 0);
+		      
+}
+
+/*******************************************************************************/
 /* create days panel and station name panel */
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 					    gchar* st_name, char f_size){
@@ -626,7 +662,6 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		app->config->font_color.red >> 8, app->config->font_color.green >> 8,
 		app->config->font_color.blue >> 8);
 	previos_station_box		= gtk_hbox_new(FALSE, 0);
-//	previos_station_name_btn	= gtk_button_new();
 	previos_station_name_btn	= gtk_event_box_new();
 	set_background_color(previos_station_name_btn, &(app->config->background_color));
 	
@@ -647,7 +682,6 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		app->config->font_color.red >> 8, app->config->font_color.green >> 8,
 		app->config->font_color.blue >> 8);
 	next_station_box		= gtk_hbox_new(FALSE, 0);
-//	next_station_name_btn	= gtk_button_new();
 	next_station_name_btn	= gtk_event_box_new();
 	set_background_color(next_station_name_btn, &(app->config->background_color));	
 	
@@ -674,7 +708,6 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         	    app->config->font_color.red >> 8, app->config->font_color.green >> 8,
 		    app->config->font_color.blue >> 8, st_name);
 	station_box		= gtk_hbox_new(FALSE, 0);
-//	station_name_btn	= gtk_button_new();
 	station_name_btn	= gtk_event_box_new();
 	set_background_color(station_name_btn, &(app->config->background_color));		
 	gtk_widget_set_events(station_name_btn, GDK_BUTTON_RELEASE_MASK|
@@ -691,23 +724,12 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /* check config->transparency */
     if(transparency){
     	if(previos_station_name_btn)
-//	    gtk_button_set_relief(GTK_BUTTON(previos_station_name_btn), GTK_RELIEF_NONE);
 	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
 	if(next_station_name_btn)
-//	    gtk_button_set_relief(GTK_BUTTON(next_station_name_btn), GTK_RELIEF_NONE);
 	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(next_station_name_btn), FALSE);
 	if(station_name_btn)
-//	    gtk_button_set_relief(GTK_BUTTON(station_name_btn), GTK_RELIEF_NONE); 
 	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
     }
-/* disable on_focus event for header_panel buttons */
-/*    if(previos_station_name_btn)
-	gtk_button_set_focus_on_click(GTK_BUTTON(previos_station_name_btn), FALSE);
-    if(next_station_name_btn)
-	gtk_button_set_focus_on_click(GTK_BUTTON(next_station_name_btn), FALSE);
-    if(station_name_btn)
-        gtk_button_set_focus_on_click(GTK_BUTTON(station_name_btn), FALSE); 
-*/	
 /* attach buttons to header panel */
     if(previos_station_name_btn)
 	gtk_table_attach( (GtkTable*)header_panel,
@@ -777,27 +799,23 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     if(previos_station_name_btn){
 	g_signal_connect(previos_station_name_btn, "button-release-event",
 			    G_CALLBACK (change_station_prev), NULL);
-//	g_signal_connect(previos_station_name_btn, "enter",
-//			    G_CALLBACK (enter_button), NULL);
     }
     if(next_station_name_btn){
 	g_signal_connect(next_station_name_btn, "button-release-event",
 			    G_CALLBACK (change_station_next), NULL);  		    
-//	g_signal_connect(next_station_name_btn, "enter",
-//			    G_CALLBACK (enter_button), NULL);
     }
     if(station_name_btn){
         g_signal_connect(station_name_btn, "button-release-event",
 			    G_CALLBACK (change_station_next), NULL);  		    
-//	g_signal_connect(station_name_btn, "enter",
-//			    G_CALLBACK (enter_button), NULL); 
 	gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn); 
+	menu_init();
     }
     else
 	gtk_container_set_focus_child(GTK_CONTAINER(panel), panel);
     if(station_name_btn)
 	g_object_unref(station_name_btn);
 }
+
 /*******************************************************************************/
 /* free used memory from OMWeather struct */
 void free_memory(gboolean flag){
@@ -882,7 +900,6 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     if(!new_day_button)
 	return NULL;
     /* create day button */
-//    new_day_button->button = gtk_button_new();
     new_day_button->button = gtk_event_box_new();
     gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK|
 						  GDK_BUTTON_PRESS_MASK|
@@ -890,9 +907,7 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     set_background_color(new_day_button->button, color);
     
     if(transparency)
-    //	gtk_button_set_relief(GTK_BUTTON(new_day_button->button), GTK_RELIEF_NONE);
       gtk_event_box_set_visible_window(GTK_EVENT_BOX(new_day_button->button), FALSE);
-//    gtk_button_set_focus_on_click(GTK_BUTTON(new_day_button->button), FALSE);
     /* create day label */
     new_day_button->label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);

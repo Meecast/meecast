@@ -191,6 +191,7 @@ typedef struct OMWeatherApplet{
     GtkListStore	*regions_list;
     GtkListStore	*stations_list;
     GSList		*time_update_list;
+    GtkWidget 		*contextmenu;
 }OMWeatherApp;
 /*******************************************************************************/
 /* Stations List of view in plugin */

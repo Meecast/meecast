@@ -763,7 +763,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &(app->config->font_color));
 /* Background color */   
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new(_("Backgroud color:")),
+        			label = gtk_label_new(_("Background color:")),
         			0, 1, 5, 6);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
@@ -1276,11 +1276,5 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
     g_free(station_selected);
     weather_frame_update(TRUE);
     new_config_save(app->config);
-}
-/*******************************************************************************/
-gboolean day_button_expose_event_handler(GtkWidget *widget, GdkEventConfigure *event,
-                                            gpointer user_data){
-    fprintf(stderr, "\nInside handler\n");
-    return FALSE;
 }
 /*******************************************************************************/

@@ -66,15 +66,6 @@ gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
     return retval;
 }
 /*******************************************************************************/
-/* Add time update to list */
-void add_time_update_list(gint _between_time, gchar *_time_name){
-    struct time_update *tu;
-    tu = g_new0(struct time_update, 1);
-    tu->between_time = _between_time;	  
-    tu->name_between_time = g_strdup(_time_name);	  
-    app->time_update_list = g_slist_append(app->time_update_list, tu);
-}
-/*******************************************************************************/
 /* The stations data  fill from clock plugin data */
 void fill_station_from_clock_plugin_data(void){
     FILE  *clock_file;  
@@ -172,22 +163,32 @@ GSList* prepare_idlist(void){
     return stlist;
 }
 /*******************************************************************************/
-/* Initialize all configuration from GCONF.  This should not be called more
- * than once during execution. */
-void read_config(void){
-    /* Fill time update list */
-    if(!app->time_update_list){
-	add_time_update_list(0, _("Never"));
-	add_time_update_list(5, _("every 5 minutes"));
-	add_time_update_list(30, _("every 30 minutes"));
-	add_time_update_list(1 * 60, _("every hour"));
-	add_time_update_list(2 * 60, _("every 2 hours"));
-	add_time_update_list(4 * 60, _("every 4 hours"));
-	add_time_update_list(8 * 60, _("every 8 hours"));
-	add_time_update_list(24 * 60, _("every 24 hours"));
-	add_time_update_list(1, _("every minute (DEBUG)"));
-    }
-    app->show_update_window = FALSE;
+GtkListStore* create_time_update_list(void){
+    GtkListStore	*list = NULL;
+    GtkTreeIter         iter;
+
+    list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
+    
+    gtk_list_store_append(list, &iter);
+    gtk_list_store_set(list, &iter, 0, _("Never"), 1, 0, -1);
+    gtk_list_store_append(list, &iter);
+    gtk_list_store_set(list, &iter, 0, _("every 5 minutes"), 1, 5, -1);
+    gtk_list_store_append(list, &iter);
+    gtk_list_store_set(list, &iter, 0, _("every 30 minutes"), 1, 30, -1);
+    gtk_list_store_append(list, &iter);
+    gtk_list_store_set(list, &iter, 0, _("every hour"), 1, 60, -1);
+    gtk_list_store_append(list, &iter);
+    gtk_list_store_set(list, &iter, 0, _("every 2 hours"), 1, 120, -1);
+    gtk_list_store_append(list, &iter);
+    gtk_list_store_set(list, &iter, 0, _("every 4 hours"), 1, 240, -1);
+    gtk_list_store_append(list, &iter);
+    gtk_list_store_set(list, &iter, 0, _("every 8 hours"), 1, 480, -1);
+    gtk_list_store_append(list, &iter);
+    gtk_list_store_set(list, &iter, 0, _("every 24 hours"), 1, 1440, -1);
+    gtk_list_store_append(list, &iter);
+    gtk_list_store_set(list, &iter, 0, _("every minute (Debug)"), 1, 1, -1);
+
+    return list;
 }
 /*******************************************************************************/
 int new_read_config(AppletConfig *config){
@@ -307,7 +308,6 @@ int new_read_config(AppletConfig *config){
     }
     else
         config->transparency = TRUE;
-
     /* Get Split Button State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_SEPARATE_DATA, NULL);
     if(value){

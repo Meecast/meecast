@@ -68,9 +68,10 @@ extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 void config_update_proxy(void);
-void read_config(void);
 int new_read_config(AppletConfig*);
 void new_config_save(AppletConfig*);
+GtkListStore* create_time_update_list(void);
+/* extern functions */
 extern void remove_periodic_event(void);
 extern void add_periodic_event(time_t last_update);
 /*******************************************************************************/

@@ -17,6 +17,7 @@
   * Added possibility to edit station name and code
   * Long pressing on the applet have to call pop up menus with the list of cities for change of current city
   * Opportunity to change background color has been make
+  * Now on change update interval, the field 'Next update' is changed immediately
 
 0.18.2
   * Wind speed (mi/s) has been correted

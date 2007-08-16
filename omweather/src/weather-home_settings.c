@@ -567,6 +567,7 @@ void weather_window_settings(GtkWidget *widget,
     GtkWidget	*window_config = NULL,
 		*notebook = NULL,
 		*label = NULL,
+		*time_update_label = NULL,
 		*table = NULL,
 		*font_color = NULL,
 		*background_color = NULL,
@@ -580,14 +581,10 @@ void weather_window_settings(GtkWidget *widget,
 		*button_ren = NULL;		
     char	flag_update_icon = '\0'; /* Flag update main weather icon of desktop */
     gboolean	flag_tuning_warning; /* Flag for show the warnings about tuning images of applet */
-    int		index_update_time = 0; /* Position active update time of the list */
     GdkColor	_weather_font_color_temp, /* Temporary for font color */
 		background_color_temp;
-    static GSList *time_update_list_temp = NULL; /* Temporary list for time update */
-    struct time_update *tu; /* Temporary for time update list */
     static char *temp_string; /* Temporary for the results differnet strdup functions */
     static int result_gtk_dialog_run; /* Temporary for the gtk_dialog_run result */
-    time_t	next_update_time = 0;
     char	tmp_buff[2048];
 
     not_event = TRUE;
@@ -771,6 +768,10 @@ void weather_window_settings(GtkWidget *widget,
     background_color = gtk_color_button_new();
     gtk_container_add(GTK_CONTAINER(label), background_color);
     gtk_color_button_set_color(GTK_COLOR_BUTTON(background_color), &(app->config->background_color));
+    if(app->config->transparency)
+    	gtk_widget_set_sensitive(background_color, FALSE);
+    else
+	gtk_widget_set_sensitive(background_color, TRUE);
 /* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Transparency")),
@@ -778,9 +779,11 @@ void weather_window_settings(GtkWidget *widget,
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
         			1, 2, 6, 7);
-    gtk_container_add(GTK_CONTAINER(label),chk_transparency = gtk_check_button_new());
+    gtk_container_add(GTK_CONTAINER(label), chk_transparency = gtk_check_button_new());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_transparency),
         			    app->config->transparency);
+    g_signal_connect(GTK_TOGGLE_BUTTON(chk_transparency), "toggled",
+            		    G_CALLBACK(transparency_button_toggled_handler), background_color);
 /* Split */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Separate current weather data")),
@@ -900,6 +903,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
         			1, 2, 1, 2);
+
     gtk_container_add(GTK_CONTAINER(label), update_time = gtk_combo_box_new_text());
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(_("Next update:")),
@@ -907,25 +911,18 @@ void weather_window_settings(GtkWidget *widget,
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
         			1, 2, 2, 3);
-    next_update_time = next_update();
-    if(!next_update_time)
-	temp_string = _("Never");
-    else{
-	tmp_buff[0] = 0;
-	strftime(tmp_buff, sizeof(tmp_buff) - 1, "%X %x", localtime(&next_update_time));
-	temp_string = tmp_buff;
-    }
-    gtk_container_add(GTK_CONTAINER(label), gtk_label_new(temp_string));
+
+    time_update_label = gtk_label_new(NULL);
+    gtk_container_add(GTK_CONTAINER(label), time_update_label);
+    g_signal_connect(update_time, "changed",
+                	G_CALLBACK(update_iterval_changed_handler), time_update_label);
 /* Fill update time box */
-    time_update_list_temp = app->time_update_list;
-    while(time_update_list_temp != NULL){
-	tu = time_update_list_temp->data;
-	gtk_combo_box_append_text(GTK_COMBO_BOX(update_time), tu->name_between_time);
-	if(tu->between_time == app->config->update_interval)
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(update_time), index_update_time);
-	time_update_list_temp = g_slist_next(time_update_list_temp);
-	index_update_time++;
-    }
+    gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(update_time), 0);
+    gtk_combo_box_set_model(GTK_COMBO_BOX(update_time),
+				(GtkTreeModel*)app->time_update_list);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(update_time),
+	    get_active_time_update((GtkTreeModel*)app->time_update_list,
+				    app->config->update_interval, NULL));
 #ifndef RELEASE
 /* Evetns list tab */
     memset(tmp_buff, 0, sizeof(tmp_buff));
@@ -1043,21 +1040,9 @@ void weather_window_settings(GtkWidget *widget,
 		app->config->current_settings_page = gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook));
 		flag_update_icon = TRUE;
 	    }
-/* Find select element of update time box and save time value */
-	    time_update_list_temp = app->time_update_list;
-	    while(time_update_list_temp){
-    		tu = time_update_list_temp->data;
-		temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(update_time));
-		if(!strcmp(tu->name_between_time, temp_string)){
-		    app->config->update_interval = tu->between_time;
-		    remove_periodic_event();
-		    add_periodic_event(time(NULL));
-		    g_free(temp_string);
-		    break;
-		}    	  
-		g_free(temp_string);
-    		time_update_list_temp = g_slist_next(time_update_list_temp);
-    	    }
+/* Update interval
+ * saved in update_iterval_changed_handler
+*/
     	    new_config_save(app->config);
 	    if(flag_update_icon){
     		weather_frame_update(FALSE);
@@ -1276,5 +1261,85 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
     g_free(station_selected);
     weather_frame_update(TRUE);
     new_config_save(app->config);
+}
+/*******************************************************************************/
+void update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data){
+    time_t		update_time = 0;
+    GtkLabel		*label;
+    GtkTreeModel	*model;
+    GtkTreeIter		iter;
+    gchar		*temp_string,
+			tmp_buff[100];
+
+    label = GTK_LABEL(user_data);
+
+    if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)){
+	model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
+	gtk_tree_model_get(model, &iter, 0, &temp_string,
+					 1, &update_time,
+    					    -1);
+	g_free(temp_string);
+	app->config->update_interval = update_time;
+	remove_periodic_event();
+	add_periodic_event(time(NULL));
+	
+	/* fill next update field */
+	update_time = next_update();
+	if(!update_time)
+	    temp_string = _("Never");
+	else{
+	    tmp_buff[0] = 0;
+	    strftime(tmp_buff, sizeof(tmp_buff) - 1, "%X %x", localtime(&update_time));
+	    temp_string = tmp_buff;
+	}
+	gtk_label_set_text(label, temp_string);
+    }
+}
+/*******************************************************************************/
+int get_active_time_update(GtkTreeModel *list, int time, const gchar *text){
+
+    int		update_time = 0,
+		index = 0;
+    gboolean	valid = FALSE;
+    GtkTreeIter	iter;
+    gchar	*str_data = NULL;
+    gint	int_data;
+
+    valid = gtk_tree_model_get_iter_first((GtkTreeModel*)list, &iter);
+    while(valid){
+	gtk_tree_model_get(list, &iter, 
+                    	    0, &str_data,
+                    	    1, &int_data, -1);
+	if(text){ /* if parameter is string */
+	    if(!strcmp((char*)text, str_data)){
+		update_time = int_data;
+		break;
+	    }
+	}
+	else{/* if parameter is int */
+	    if(time == int_data){
+		update_time = index;
+		break;
+	    }
+	}
+	g_free(str_data);
+	index++;
+	valid = gtk_tree_model_iter_next(list, &iter);
+    }
+    if(str_data)
+	g_free(str_data);
+    return update_time;
+}
+/*******************************************************************************/
+void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
+                                        		    gpointer user_data){
+    GtkWidget	*background_color;
+    
+    background_color = GTK_WIDGET(user_data);
+    
+    if(gtk_toggle_button_get_active(togglebutton))
+	gtk_widget_set_sensitive(background_color, FALSE);
+    else
+	gtk_widget_set_sensitive(background_color, TRUE);
 }
 /*******************************************************************************/

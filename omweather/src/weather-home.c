@@ -500,7 +500,8 @@ void* hildon_home_applet_lib_initialize(void *state_data,
         g_free(app);
         exit(1);
     }
-    read_config();
+    app->time_update_list = create_time_update_list();
+    app->show_update_window = FALSE;
     app->countrys_list = create_items_list(COUNTRYSFILE, -1, -1, NULL);
 /* Start timer */
 /*    timer(6000); */ /* One per secund */
@@ -581,6 +582,10 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	if(app->stations_list){
 	    gtk_list_store_clear(app->stations_list);
 	    app->stations_list = NULL;
+	}
+	if(app->time_update_list){
+	    gtk_list_store_clear(app->time_update_list);
+	    app->time_update_list = NULL;
 	}
 	g_free(app);
     }

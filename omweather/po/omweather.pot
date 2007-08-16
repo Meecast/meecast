@@ -1033,7 +1033,7 @@ msgid "every hour"
 msgstr ""
 
 #: src/weather-home_config.c:188
-msgid "every minute (DEBUG)"
+msgid "every minute (Debug)"
 msgstr ""
 
 #: src/weather-home_hash.c:40

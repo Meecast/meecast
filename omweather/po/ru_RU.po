@@ -1087,7 +1087,7 @@ msgid "every hour"
 msgstr "каждый час"
 
 #: src/weather-home_config.c:188
-msgid "every minute (DEBUG)"
+msgid "every minute (Debug)"
 msgstr "каждую минуту (отладка)"
 
 #: src/weather-home_hash.c:40

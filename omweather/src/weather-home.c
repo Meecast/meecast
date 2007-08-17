@@ -60,6 +60,7 @@ void set_font_size(GtkWidget *widget, char font_size){
     pango_font_description_free(pfd);
 }
 
+
 /* Change station to previos at main display */
 /*******************************************************************************//*******************************************************************************/
 static gboolean change_station_prev(GtkWidget *widget,
@@ -410,7 +411,7 @@ void weather_buttons_fill(gboolean check_error){
 						    font_size, &(app->config->background_color));
 
 	if(app->buttons[i]){
-	    g_signal_connect(app->buttons[i]->button, "button-release-event", G_CALLBACK(weather_window_popup_show), NULL); 
+	    g_signal_connect(app->buttons[i]->button, "button_release_event", G_CALLBACK(weather_window_popup_show), NULL); 
 	}    
 
     }/* end for */
@@ -613,6 +614,10 @@ void menu_init(void){
     GSList *tmplist = NULL; /* Temporary for station list */
     struct weather_station *ws; /* Description Weather station */
 
+#ifndef RELEASE
+    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+#endif
+
     app->contextmenu = gtk_menu_new();
 
     tmplist = stations_view_list;
@@ -624,7 +629,6 @@ void menu_init(void){
 /* To do: active current station */
 	tmplist = g_slist_next(tmplist);
     }
-
 
     gtk_widget_show_all(GTK_WIDGET(app->contextmenu));
     gtk_widget_tap_and_hold_setup(app->main_window, GTK_WIDGET(app->contextmenu), NULL, 0);

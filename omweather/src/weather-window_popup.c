@@ -55,9 +55,9 @@ void pre_update_weather(void){
 }
 /*******************************************************************************/
 /* Show extended information about weather */
-void weather_window_popup_show(GtkWidget *widget,
-                    		GdkEvent *event,
-                    		gpointer user_data){
+gboolean weather_window_popup_show(GtkWidget *widget,
+                    		    GdkEvent *event,
+                    	    	    gpointer user_data){
 
     int		i;
     time_t	current_time = 0,
@@ -75,7 +75,7 @@ void weather_window_popup_show(GtkWidget *widget,
     /* if no one station present in list show only preference */
     if(!app->config->current_station_id){
 	weather_window_settings(widget, event, user_data);
-	return;
+	return FALSE;
     }
     /* Search: Which button is pressed */
     for(i = 0;i < app->config->days_to_show; i++)
@@ -83,7 +83,7 @@ void weather_window_popup_show(GtkWidget *widget,
 	    break;
     /* Not found pressed button */
     if( i >= app->config->days_to_show )
-	return;
+	return FALSE;
 
 /* Create POPUP WINDOW */ 
     app->popup_window = gtk_window_new( GTK_WINDOW_POPUP );
@@ -196,6 +196,7 @@ void weather_window_popup_show(GtkWidget *widget,
 			"button-release-event", 
                         G_CALLBACK(popup_window_event_cb), app->main_window);
     gtk_widget_show_all(app->popup_window);    
+    return FALSE;
 }
 /*******************************************************************************/
 float convert_wind_units(int to, float value){

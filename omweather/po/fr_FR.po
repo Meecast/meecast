@@ -216,9 +216,8 @@ msgid "Kilometers"
 msgstr "Kilomètres"
 
 #: src/weather-home_settings.c:899
-#, fuzzy
 msgid "Miles"
-msgstr "Brume"
+msgstr "Miles"
 
 #: src/weather-home_settings.c:900
 msgid "Miles (Sea)"

@@ -63,6 +63,7 @@
 #define GCONF_KEY_HTTP_PROXY_PORT		GCONF_KEY_HTTP_PROXY_PREFIX"/port"
 #define GCONF_KEY_CLOCK_REMOTE_LOCATION		GCONF_KEY_CLOCK_PREFIX"/remote-location"
 #define GCONF_KEY_CLOCK_HOME_LOCATION		GCONF_KEY_CLOCK_PREFIX"/home-location"
+#define GCONF_KEY_DOWNLOADING_AFTER_CONNECTING  GCONF_KEY_PREFIX"/downloading-after-connecting"
 /*******************************************************************************/
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/

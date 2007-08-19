@@ -317,6 +317,16 @@ int new_read_config(AppletConfig *config){
     else
         config->separate = FALSE;
 
+    /* Get auto_downloading_after_connecting. Default is FALSE */
+    value = gconf_client_get(gconf_client, GCONF_KEY_DOWNLOADING_AFTER_CONNECTING, NULL);
+    if(value){
+        config->downloading_after_connecting = gconf_value_get_bool(value);
+        gconf_value_free(value);
+    }
+    else
+        config->downloading_after_connecting = FALSE;
+
+    
     /* Get Swap Temperature Button State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_SWAP_TEMPERATURE, NULL);
     if(value){
@@ -522,6 +532,10 @@ void new_config_save(AppletConfig *config){
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_SEPARATE_DATA,
 			config->separate, NULL);	    
+     /* Save Downloading after connecting State */
+    gconf_client_set_bool(gconf_client,
+        		GCONF_KEY_DOWNLOADING_AFTER_CONNECTING,
+			config->downloading_after_connecting, NULL);	    
      /* Save Swap Temperature Button State */
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_SWAP_TEMPERATURE,

@@ -78,7 +78,8 @@ get_connection_status_signal_cb(DBusConnection *connection,
             app->iap_connected = TRUE;
 	    app->iap_connecting = FALSE;
 	    app->iap_connecting_timer = 0;
-	    add_current_time_event();
+	    if (app->config->downloading_after_connecting)
+		add_current_time_event();
         }
     }
     else if (!strcmp(iap_state, "CONNECTING")){

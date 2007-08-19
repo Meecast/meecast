@@ -166,6 +166,7 @@ typedef struct applet_config{
     gboolean	separate;
     gboolean	swap_hi_low_temperature;
     gboolean	hide_station_name;
+    gboolean	downloading_after_connecting;
     GdkColor	font_color;
     GdkColor	background_color;
 }AppletConfig;

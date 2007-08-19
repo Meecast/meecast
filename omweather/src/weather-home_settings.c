@@ -572,6 +572,7 @@ void weather_window_settings(GtkWidget *widget,
 		*font_color = NULL,
 		*background_color = NULL,
 		*chk_transparency = NULL,
+		*chk_downloading_after_connection = NULL,
 		*separate_button = NULL,
 		*swap_temperature_button = NULL,
 		*hide_station_name = NULL,
@@ -897,20 +898,44 @@ void weather_window_settings(GtkWidget *widget,
 	case 4:  gtk_combo_box_set_active(GTK_COMBO_BOX(valid_time_list), 2);break;
 	case 8:  gtk_combo_box_set_active(GTK_COMBO_BOX(valid_time_list), 3);break;
     }
+    /* Transparency */
+/*
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+        			label = gtk_label_new(_("Transparency")),
+        			0, 1, 6, 7);
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
+        			1, 2, 6, 7);
+    gtk_container_add(GTK_CONTAINER(label), chk_transparency = gtk_check_button_new());
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_transparency),
+        			    app->config->transparency);
+    g_signal_connect(GTK_TOGGLE_BUTTON(chk_transparency), "toggled",
+            		    G_CALLBACK(transparency_button_toggled_handler), background_color);
+*/
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(_("Updating of weather data:")),
         			0, 1, 1, 2);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
         			1, 2, 1, 2);
-
     gtk_container_add(GTK_CONTAINER(label), update_time = gtk_combo_box_new_text());
+    
     gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new(_("Next update:")),
+        			label = gtk_label_new(_("The Automatically updating after connection:")),
         			0, 1, 2, 3);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
         			1, 2, 2, 3);
+    gtk_container_add(GTK_CONTAINER(label), chk_downloading_after_connection = gtk_check_button_new());
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_downloading_after_connection),
+        			    app->config->downloading_after_connecting);
+
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_label_new(_("Next update:")),
+        			0, 1, 3, 4);
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
+        			1, 2, 3, 4);
 
     time_update_label = gtk_label_new(NULL);
     gtk_container_add(GTK_CONTAINER(label), time_update_label);
@@ -1035,6 +1060,12 @@ void weather_window_settings(GtkWidget *widget,
 		app->config->data_valid_interval = 3600 * (1 << gtk_combo_box_get_active((GtkComboBox*)valid_time_list));
     		flag_update_icon = TRUE;
 	    }
+/* Downloading after connection */	    
+	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_downloading_after_connection)))
+		app->config->downloading_after_connecting = TRUE;
+	    else
+		app->config->downloading_after_connecting = FALSE;
+	    
 /* Current tab number */
 	    if(app->config->current_settings_page != gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook))){
 		app->config->current_settings_page = gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook));
@@ -1343,3 +1374,4 @@ void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
 	gtk_widget_set_sensitive(background_color, TRUE);
 }
 /*******************************************************************************/
+

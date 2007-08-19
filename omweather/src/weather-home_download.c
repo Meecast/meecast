@@ -42,7 +42,7 @@ static ConIcConnection *connection;
 
 /*******************************************************************************/
 /* Create standard Hildon animation small window */
-void create_window_update(){
+static void create_window_update(void){
     update_window = hildon_banner_show_animation(app->main_window,
 						    NULL,
 						    _("Update weather"));
@@ -78,6 +78,7 @@ get_connection_status_signal_cb(DBusConnection *connection,
             app->iap_connected = TRUE;
 	    app->iap_connecting = FALSE;
 	    app->iap_connecting_timer = 0;
+	    add_current_time_event();
         }
     }
     else if (!strcmp(iap_state, "CONNECTING")){
@@ -158,7 +159,6 @@ void iap_callback(struct iap_event_t *event, void *arg){
 	    update_weather();
 #endif
     	    app->iap_connected = TRUE;
-
 	break;
 	case OSSO_IAP_DISCONNECTED:
 	    app->iap_connected = FALSE;
@@ -251,7 +251,7 @@ CURL* weather_curl_init(CURL *curl_handle){
     return curl_handle;    
 }
 /*******************************************************************************/
-int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
+static int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
     int result;
     struct HtmlFile *out = (struct HtmlFile *)stream;
 
@@ -269,7 +269,7 @@ int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
    Returns TRUE if the station is taken from the list
    Else return FLASE. This the end list
 */
-gboolean form_url_and_filename(){
+static gboolean form_url_and_filename(){
     if(tmplist != NULL){
         ws = tmplist->data;
         if(ws->id_station != NULL){

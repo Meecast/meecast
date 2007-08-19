@@ -37,6 +37,7 @@ gboolean timer_handler(gpointer data);
 void timer(int interval);
 void create_timer_with_interval(guint interval);
 void add_periodic_event(time_t last_update);
+void add_current_time_event(void);
 void remove_daytime_event(void);
 void remove_periodic_event(void);
 void print_list(char *buff, size_t buff_size);

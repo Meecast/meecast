@@ -70,7 +70,21 @@ gboolean timer_handler(gpointer data){
 		    /* It is switch off the timer */	
 		    check = g_source_remove(app->timer);
 		    timer (60000);  /*Reintilize timer One per minute */
-		break;    
+		break;  
+		case UPDATE_AFTER_CONNECTED:
+		    /* delete periodic update */
+		#ifndef RELEASE
+		    fprintf(stderr,"Delete evt %s\n",ctime(&evt->time));
+		#endif
+		    g_free(evt);
+                    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
+		#ifndef RELEASE
+		    fprintf(stderr,"UPDATE by event\n");
+		#endif
+		    app->show_update_window = FALSE;
+		    update_weather();
+    		break;		    
+  
 		default:
 		case AUTOUPDATE:
 		    /* delete periodic update */
@@ -95,7 +109,7 @@ gboolean timer_handler(gpointer data){
     return TRUE;    
 }
 /*******************************************************************************/
-#ifndef RELEASE
+//#ifndef RELEASE
 /*For debug */
 void print_list(char *buff, size_t buff_size){
     static GSList *list_time_event_temp = NULL;
@@ -120,7 +134,7 @@ void print_list(char *buff, size_t buff_size){
     else
 	fprintf(stderr, tmp);
 }
-#endif
+//#endif
 /*******************************************************************************/
 void create_timer_with_interval(guint interval){
     app->timer = g_timeout_add(interval,
@@ -178,8 +192,8 @@ void time_event_add(time_t time_value, short type_event){
     struct event_time *evt = NULL;
 
     #ifndef RELEASE
-    /* fprintf(stderr,"time_event_add in list\n");
-    print_list(NULL, 0); */
+    fprintf(stderr,"time_event_add in list\n");
+    print_list(NULL, 0); 
     #endif
     if( time_value && time_value > time(NULL)){ 
 	evt = g_new0(struct event_time, 1);
@@ -192,12 +206,12 @@ void time_event_add(time_t time_value, short type_event){
 	    fprintf(stderr,"evt NULL\n");
     }
     #ifndef RELEASE
-    /* fprintf(stderr,"time_event_add in list finished\n");
-    print_list(NULL, 0); */
+    fprintf(stderr,"time_event_add in list finished\n");
+    print_list(NULL, 0);
     #endif
 }
 /*******************************************************************************/
-/* Add periodic time event  to list */	  
+/*  Addition the periodic time in the list of events  for weather forecast updating */	  
 void add_periodic_event(time_t last_update){
 
     #ifndef RELEASE
@@ -214,6 +228,28 @@ void add_periodic_event(time_t last_update){
     #endif
 	
 }
+/*******************************************************************************/
+/* Addition the current time in the list of events  for weather forecast updating */	  
+void add_current_time_event(void){
+
+    time_t current_time;	
+    
+    #ifndef RELEASE
+	fprintf(stderr,"Add in list\n");
+        print_list(NULL, 0);
+    #endif
+    
+    /* get current time */  
+    current_time = time(NULL);
+    time_event_add(current_time + 3 , UPDATE_AFTER_CONNECTED); /* The current time plus 3 seconds */
+    
+    #ifndef RELEASE
+	fprintf(stderr,"Item added to list\n");
+	print_list(NULL, 0);
+    #endif
+	
+}
+
 /*******************************************************************************/
 /* Remove periodic time event  from list */	  
 void remove_periodic_event(void){

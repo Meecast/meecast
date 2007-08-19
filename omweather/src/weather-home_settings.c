@@ -923,7 +923,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_combo_box_set_active(GTK_COMBO_BOX(update_time),
 	    get_active_time_update((GtkTreeModel*)app->time_update_list,
 				    app->config->update_interval, NULL));
-#ifndef RELEASE
+//#ifndef RELEASE
 /* Evetns list tab */
     memset(tmp_buff, 0, sizeof(tmp_buff));
     print_list(tmp_buff, sizeof(tmp_buff) - 1);
@@ -931,7 +931,7 @@ void weather_window_settings(GtkWidget *widget,
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),
         			label = gtk_label_new(_("Events")));
-#endif
+//#endif
     gtk_widget_show_all(window_config);
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), app->config->current_settings_page);
 /* kill popup window :-) */

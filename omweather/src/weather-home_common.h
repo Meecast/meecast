@@ -68,7 +68,7 @@
 #define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
 /*******************************************************************************/
-enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT};
+enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT, UPDATE_AFTER_CONNECTED};
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
 enum {	METERS_S,

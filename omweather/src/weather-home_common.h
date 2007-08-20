@@ -56,9 +56,9 @@
 /* localization headers and defines */
 #include <libintl.h>
 #include <locale.h>
-#define _(String) dgettext (GETTEXT_PACKAGE,String)
+#define _(String) dgettext (GETTEXT_PACKAGE, String)
 
-#define Max_count_weather_day	10
+#define Max_count_weather_day		10
 #define MAX_SETTINGS_PAGE_NUMBER	3
 #define COUNTRYSFILE		"/usr/share/omweather/countrys.list"
 #define REGIONSFILE		"/usr/share/omweather/regions.list"

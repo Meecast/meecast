@@ -177,9 +177,10 @@ void iap_callback(struct iap_event_t *event, void *arg){
 /*******************************************************************************/
 void weather_initialize_dbus(void){
 
-    gchar 	*filter_string;
-    GConfClient *gconf_client = NULL;
-    gchar	*tmp = NULL;
+    gchar		*filter_string,
+			*tmp;
+    GConfClient		*gconf_client = NULL;
+    DBusConnection	*dbus_conn;
     
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
     if(!app->dbus_is_initialize){   
@@ -202,7 +203,7 @@ void weather_initialize_dbus(void){
 	    g_object_unref(gconf_client);		
 	}    
 	/* Add D-BUS signal handler for 'status_changed' */
-        DBusConnection *dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
+        dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
         filter_string = g_strdup_printf("interface=%s", ICD_DBUS_INTERFACE);
         /* add match */
         dbus_bus_add_match(dbus_conn, filter_string, NULL);
@@ -213,12 +214,10 @@ void weather_initialize_dbus(void){
                 		    NULL, NULL);	     
 #ifdef USE_CONIC
 	connection = con_ic_connection_new();
-	if (connection != NULL)
-	    {
+	if(connection != NULL)
 	    g_signal_connect(G_OBJECT(connection), "connection-event",
                     	     G_CALLBACK(connection_cb),
                 	     GINT_TO_POINTER(USER_DATA_MAGIC));
-	    }		     
 #else	
     	osso_iap_cb(iap_callback);
 #endif

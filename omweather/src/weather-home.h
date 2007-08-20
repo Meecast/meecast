@@ -73,7 +73,9 @@ extern int new_read_config(AppletConfig*);
 extern void new_config_save(AppletConfig*);
 extern GtkListStore* create_items_list(const char *filename, long start, long end,
 					long *items_number);
-extern GtkListStore* create_time_update_list(void);					
+extern GtkListStore* create_time_update_list(void);
+extern void fill_station_from_clock_plugin_data(void);
+extern void reinitilize_stations_list2(GSList *stlist);
 gboolean not_event = FALSE;
 int	boxs_offset[Max_count_weather_day];
 gchar	path_large_icon[_POSIX_PATH_MAX];

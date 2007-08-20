@@ -16,8 +16,9 @@
   * The use libconic instead ooss-ic for version of OS2007
   * Added possibility to edit station name and code
   * Long pressing on the applet have to call pop up menus with the list of cities for change of current city
-  * Opportunity to change background color has been make
+  * Opportunity to change background color has been made
   * Now on change update interval, the field 'Next update' is changed immediately
+  * The automatically updates of weather forecast after connection to internet has been made
 
 0.18.2
   * Wind speed (mi/s) has been correted

@@ -19,6 +19,7 @@ omweather (0.19) unstable; urgency=low
   * Long pressing on the applet have to call pop up menus with the list of cities for change of current city
   * Opportunity to change background color has been make
   * Now on change update interval, the field 'Next update' is changed immediately
+  * The automatically updates of weather forecast after connection to internet has been made
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 24 Aug 2007 03:35:00 +0200
 

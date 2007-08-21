@@ -97,7 +97,11 @@ gboolean weather_window_popup_show(GtkWidget *widget,
     current_time = time(NULL); /* get current day */
     /* correct time for current location */
     utc_time = mktime(gmtime(&current_time));
-    current_time = utc_time + app->weather_days[boxs_offset[i]].zone;
+    /* Check out of range array */
+    if (boxs_offset[i] < Max_count_weather_day)
+	current_time = utc_time + weather_days[boxs_offset[i]].zone;
+    else	
+	current_time = utc_time;
 
 /* check if fist day is pressed */
     if(i == 0){
@@ -445,14 +449,15 @@ GtkWidget* create_temperature_range_widget(int i){
     
 /* prepare temperature */
 /* draw temperature, if any of temperature not aviable draw N/A */
-    if(!strcmp(app->weather_days[i].hi_temp, "N/A"))
+    if((i < Max_count_weather_day) && !(strcmp(weather_days[i].hi_temp, "N/A")))
 	hi_temp = INT_MAX;
     else
 	hi_temp = atoi(app->weather_days[i].hi_temp);
-    if(!strcmp(app->weather_days[i].low_temp, "N/A"))
-	low_temp = INT_MAX;
-    else
-	low_temp = atoi(app->weather_days[i].low_temp);
+    if((i < Max_count_weather_day)
+	if( !(strcmp(app->weather_days[i].low_temp), "N/A"))
+	    low_temp = INT_MAX;
+	else
+	    low_temp = atoi(app->weather_days[i].low_temp);
     if(app->config->temperature_units == FAHRENHEIT){
 	if(hi_temp != INT_MAX)
 	    hi_temp = c2f(hi_temp);
@@ -508,7 +513,7 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
 		*night_label, *day_label,
 		*night_data_label, *day_data_label,
 		*separator_after_night;
-    GdkPixbuf	*icon;
+    GdkPixbuf	*icon = NULL;
     gchar	buffer[1024];
     const gchar	*wind_units_str[] = {	"m/s",
 /*					"km/s",
@@ -534,9 +539,11 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
 
 
 /* prepare night data */
-    sprintf(buffer, "%s%i.png", path_large_icon, app->weather_days[i].night.icon);
-    icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
-    night_icon = gtk_image_new_from_pixbuf(icon);
+    if((i < Max_count_weather_day){
+	sprintf(buffer, "%s%i.png", path_large_icon, app->weather_days[i].night.icon);
+	icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
+	night_icon = gtk_image_new_from_pixbuf(icon);
+    }	
     if(icon)
 	g_object_unref(icon);
 /* prepare night label */
@@ -544,16 +551,18 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     set_font_size(night_label, 14);
 /* preapare night data */
     buffer[0] = 0;
-    strcat(buffer, app->weather_days[i].night.title);
+    if((i < Max_count_weather_day);
+	strcat(buffer, app->weather_days[i].night.title);
     		strcat(buffer, _("\nHumidity: "));
-    if( strcmp(app->weather_days[i].night.hmid, "N/A") )
+    if((i < Max_count_weather_day) && (strcmp(app->weather_days[i].night.hmid, "N/A")) )
 		sprintf(buffer + strlen(buffer), "%d%%\n",
 	atoi(app->weather_days[i].night.hmid));
     else
 	sprintf(buffer + strlen(buffer), "%s\n",
 			(char*)hash_table_find((gpointer)"N/A"));
     strcat(buffer, _("Wind: "));
-    sprintf(buffer + strlen(buffer), "%s %.2f %s", app->weather_days[i].night.wind_title,
+    if (i < Max_count_weather_day)
+	sprintf(buffer + strlen(buffer), "%s %.2f %s", app->weather_days[i].night.wind_title,
 			convert_wind_units(app->config->wind_units, atof(app->weather_days[i].night.wind_speed)),
 			(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
     night_data_label = gtk_label_new(buffer);    
@@ -568,9 +577,11 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     gtk_box_pack_start(GTK_BOX(night_hbox), night_data_label, FALSE, FALSE, 0);	    
 
 /* prepare day data */
-    sprintf(buffer, "%s%i.png", path_large_icon, app->weather_days[i].day.icon);
-    icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
-    day_icon = gtk_image_new_from_pixbuf(icon);
+    if(i < Max_count_weather_day){
+	sprintf(buffer, "%s%i.png", path_large_icon, app->weather_days[i].day.icon);
+        icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
+	day_icon = gtk_image_new_from_pixbuf(icon);
+    }	
     if(icon)
 	g_object_unref(icon);
 /* prepare day label */
@@ -578,16 +589,18 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     set_font_size(day_label, 14);
 /* preapare day data */
     buffer[0] = 0;
-    strcat(buffer, app->weather_days[i].day.title);
+    if (i < Max_count_weather_day)
+	strcat(buffer, app->weather_days[i].day.title);
     		strcat(buffer, _("\nHumidity: "));
-    if( strcmp(app->weather_days[i].day.hmid, "N/A") )
+    if( (i < Max_count_weather_day) && (strcmp(app->weather_days[i].day.hmid, "N/A")) )
 		sprintf(buffer + strlen(buffer), "%d%%\n",
-	atoi(app->weather_days[i].day.hmid));
+			atoi(app->weather_days[i].day.hmid));
     else
 	sprintf(buffer + strlen(buffer), "%s\n",
 			(char*)hash_table_find((gpointer)"N/A"));
     strcat(buffer, _("Wind: "));
-    sprintf(buffer + strlen(buffer), "%s %.2f %s", app->weather_days[i].day.wind_title,
+    if (i < Max_count_weather_day)
+	sprintf(buffer + strlen(buffer), "%s %.2f %s", app->weather_days[i].day.wind_title,
 			convert_wind_units(app->config->wind_units, atof(app->weather_days[i].day.wind_speed)),
 			(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
     day_data_label = gtk_label_new(buffer);    
@@ -605,7 +618,7 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     separator_after_night = gtk_hseparator_new();
 /* set the part of firts 24 hours */
 /* First icon - morning, day or evening */     
-    if((current_time > app->weather_days[i].day.begin_time) &&
+    if( (i < Max_count_weather_day) && (current_time > app->weather_days[i].day.begin_time)) &&
     		(current_time < app->weather_days[i].night.begin_time)){
 	/* first add day */	
 	    gtk_box_pack_start(GTK_BOX(main_widget), day_hbox, FALSE, FALSE, 0);
@@ -613,7 +626,7 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
 	    gtk_box_pack_start(GTK_BOX(main_widget), night_hbox, FALSE, FALSE, 0);
 	} 
 	else{
-	    if(current_time < app->weather_days[i].night.begin_time){     
+	    if( (i < Max_count_weather_day) && (current_time < app->weather_days[i].night.begin_time)){     
 	    /* Morning */
 		gtk_box_pack_start(GTK_BOX(main_widget), night_hbox, FALSE, FALSE, 0);
 		gtk_box_pack_start(GTK_BOX(main_widget), separator_after_night, FALSE, FALSE, 0);
@@ -659,8 +672,9 @@ GtkWidget* create_sun_time_widget(int i){
     memset(time_buffer, 0, sizeof(time_buffer));
     
     snprintf(buffer, sizeof(buffer) - 1, "%s", _("Sunrise: "));
-    strptime(app->weather_days[i].sunrise, "%r", &time_show);
-    if(strstr(app->weather_days[i].sunrise, "PM"))
+    if (i < Max_count_weather_day)
+	strptime(app->weather_days[i].sunrise, "%r", &time_show);
+    if( (i < Max_count_weather_day) && (strstr(app->weather_days[i].sunrise, "PM")))
 	time_show.tm_hour += 12;
     strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 			"%X, ", &time_show);
@@ -669,8 +683,9 @@ GtkWidget* create_sun_time_widget(int i){
 			"%s", _("Sunset: "));
 
     memset(time_buffer, 0, sizeof(time_buffer));
-    strptime(app->weather_days[i].sunset, "%r", &time_show);
-    if(strstr(app->weather_days[i].sunset, "PM"))
+    if (i < Max_count_weather_day)
+	strptime(app->weather_days[i].sunset, "%r", &time_show);
+    if( (i < Max_count_weather_day) && (strstr(app->weather_days[i].sunset, "PM")))
 	time_show.tm_hour += 12;
     strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 			"%X ", &time_show);

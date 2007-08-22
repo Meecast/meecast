@@ -99,7 +99,7 @@ gboolean weather_window_popup_show(GtkWidget *widget,
     utc_time = mktime(gmtime(&current_time));
     /* Check out of range array */
     if (boxs_offset[i] < Max_count_weather_day)
-	current_time = utc_time + weather_days[boxs_offset[i]].zone;
+	current_time = utc_time + app->weather_days[boxs_offset[i]].zone;
     else	
 	current_time = utc_time;
 
@@ -287,14 +287,17 @@ GtkWidget* create_footer_widget(void){
     gchar       buffer[1024],
 		full_filename[2048];
     struct stat	statv;
-    time_t	tmp_time;
+    time_t	tmp_time = 0;
 
     tmp_time = app->weather_current_day.date_time + 3600;
     
     buffer[0] = 0;    
     snprintf(buffer, sizeof(buffer) - 1, "%s", _("Last update at server: \n"));
-    strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-		"%X %x", localtime(&tmp_time));
+    if(tmp_time <= 3600)	/* if weather data for station wasn't download */
+	strcat(buffer, _("Unknown"));
+    else
+	strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+		    "%X %x", localtime(&tmp_time));
     strcat(buffer, "\n");
     
     sprintf(full_filename, "%s/%s.xml", app->config->cache_dir_name,
@@ -302,7 +305,7 @@ GtkWidget* create_footer_widget(void){
     if(stat(full_filename, &statv)){
     	sprintf(buffer + strlen(buffer), "%s%s",
 		_("Last update from server: \n"), _("Unknown"));
-	}	
+    }	
     else{ 
 	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 		    "%s", _("Last update from server: \n"));
@@ -449,12 +452,12 @@ GtkWidget* create_temperature_range_widget(int i){
     
 /* prepare temperature */
 /* draw temperature, if any of temperature not aviable draw N/A */
-    if((i < Max_count_weather_day) && !(strcmp(weather_days[i].hi_temp, "N/A")))
+    if((i < Max_count_weather_day) && !(strcmp(app->weather_days[i].hi_temp, "N/A")))
 	hi_temp = INT_MAX;
     else
 	hi_temp = atoi(app->weather_days[i].hi_temp);
-    if((i < Max_count_weather_day)
-	if( !(strcmp(app->weather_days[i].low_temp), "N/A"))
+    if(i < Max_count_weather_day)
+	if( !strcmp(app->weather_days[i].low_temp, "N/A") )
 	    low_temp = INT_MAX;
 	else
 	    low_temp = atoi(app->weather_days[i].low_temp);
@@ -509,7 +512,8 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     GtkWidget	*main_widget,
 		*night_hbox,*day_hbox,
 		*night_icon_label_vbox, *day_icon_label_vbox,
-		*night_icon, *day_icon,
+		*night_icon = NULL,
+		*day_icon = NULL,
 		*night_label, *day_label,
 		*night_data_label, *day_data_label,
 		*separator_after_night;
@@ -539,7 +543,7 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
 
 
 /* prepare night data */
-    if((i < Max_count_weather_day){
+    if(i < Max_count_weather_day){
 	sprintf(buffer, "%s%i.png", path_large_icon, app->weather_days[i].night.icon);
 	icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
 	night_icon = gtk_image_new_from_pixbuf(icon);
@@ -551,9 +555,9 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     set_font_size(night_label, 14);
 /* preapare night data */
     buffer[0] = 0;
-    if((i < Max_count_weather_day);
+    if(i < Max_count_weather_day);
 	strcat(buffer, app->weather_days[i].night.title);
-    		strcat(buffer, _("\nHumidity: "));
+    strcat(buffer, _("\nHumidity: "));
     if((i < Max_count_weather_day) && (strcmp(app->weather_days[i].night.hmid, "N/A")) )
 		sprintf(buffer + strlen(buffer), "%d%%\n",
 	atoi(app->weather_days[i].night.hmid));
@@ -618,7 +622,7 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     separator_after_night = gtk_hseparator_new();
 /* set the part of firts 24 hours */
 /* First icon - morning, day or evening */     
-    if( (i < Max_count_weather_day) && (current_time > app->weather_days[i].day.begin_time)) &&
+    if( (i < Max_count_weather_day) && (current_time > app->weather_days[i].day.begin_time) &&
     		(current_time < app->weather_days[i].night.begin_time)){
 	/* first add day */	
 	    gtk_box_pack_start(GTK_BOX(main_widget), day_hbox, FALSE, FALSE, 0);

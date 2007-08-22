@@ -731,7 +731,10 @@ void weather_window_settings(GtkWidget *widget,
         			1, 2, 2, 3);
     gtk_container_add(GTK_CONTAINER(label), iconset = gtk_combo_box_new_text());
 /* add icons set to list */
-    create_icon_set_list(iconset);
+    if(create_icon_set_list(iconset) < 2)
+	gtk_widget_set_sensitive(iconset, FALSE);    
+    else
+	gtk_widget_set_sensitive(iconset, TRUE);
 /* Icon size */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Icon size:")),
@@ -1109,11 +1112,12 @@ void weather_window_settings(GtkWidget *widget,
 }
 /*******************************************************************************/
 /* get icon set names */
-void create_icon_set_list(GtkWidget *store){
+int create_icon_set_list(GtkWidget *store){
     Dirent	*dp;
     DIR		*dir_fd;
     gint	i = 0;
     char 	*temp_string = NULL;
+    int		sets_number = 0;
     
     dir_fd	= opendir(ICONS_PATH);
     if(dir_fd){
@@ -1122,6 +1126,7 @@ void create_icon_set_list(GtkWidget *store){
 		continue;
 	    if(dp->d_type == DT_DIR){
 		gtk_combo_box_append_text(GTK_COMBO_BOX(store), dp->d_name);
+		sets_number++;
 		if(!strcmp(app->config->icon_set, dp->d_name))
 		    gtk_combo_box_set_active(GTK_COMBO_BOX(store), i);
 		i++;
@@ -1139,6 +1144,7 @@ void create_icon_set_list(GtkWidget *store){
     	gtk_combo_box_append_text(GTK_COMBO_BOX(store), app->config->icon_set);
 	gtk_combo_box_set_active(GTK_COMBO_BOX(store), 0);
     }
+    return sets_number;
 }
 /*******************************************************************************/
 void create_help_dialog(void){

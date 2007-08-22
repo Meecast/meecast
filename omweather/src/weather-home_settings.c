@@ -775,7 +775,7 @@ void weather_window_settings(GtkWidget *widget,
 	gtk_widget_set_sensitive(background_color, TRUE);
 /* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new(_("Transparency")),
+        			label = gtk_label_new(_("Transparency:")),
         			0, 1, 6, 7);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
@@ -787,7 +787,7 @@ void weather_window_settings(GtkWidget *widget,
             		    G_CALLBACK(transparency_button_toggled_handler), background_color);
 /* Split */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new(_("Separate current weather data")),
+        			label = gtk_label_new(_("Separate current weather data:")),
         			0, 1, 7, 8);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
@@ -797,7 +797,7 @@ void weather_window_settings(GtkWidget *widget,
         			    app->config->separate);
 /* Swap temperature */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new(_("Swap hi/low temperature")),
+        			label = gtk_label_new(_("Swap hi/low temperature:")),
         			0, 1, 8, 9);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
@@ -807,7 +807,7 @@ void weather_window_settings(GtkWidget *widget,
         			    app->config->swap_hi_low_temperature);
 /* Hide station name button */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new(_("Hide station name and arrows")),
+        			label = gtk_label_new(_("Hide station name and arrows:")),
         			0, 1, 9, 10);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
@@ -882,7 +882,7 @@ void weather_window_settings(GtkWidget *widget,
         			label = gtk_label_new(_("Update")));
 			
     gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new(_("The Automatically updating after connection:")),
+        			label = gtk_label_new(_("Automatically updating data after connection:")),
         			0, 1, 0, 1);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),

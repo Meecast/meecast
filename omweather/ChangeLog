@@ -19,6 +19,7 @@
   * Opportunity to change background color has been made
   * Now on change update interval, the field 'Next update' is changed immediately
   * The automatically updates of weather forecast after connection to internet has been made
+  * Now if only one iconset is available it selected automaticly
 
 0.18.2
   * Wind speed (mi/s) has been correted

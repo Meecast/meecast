@@ -59,10 +59,8 @@ void set_font_size(GtkWidget *widget, char font_size){
     gtk_widget_modify_font(GTK_WIDGET(widget), pfd);   /* this function is leaking */
     pango_font_description_free(pfd);
 }
-
-
+/*******************************************************************************/
 /* Change station to previos at main display */
-/*******************************************************************************//*******************************************************************************/
 static gboolean change_station_prev(GtkWidget *widget,
                     		    GdkEvent *event,
                     		    gpointer user_data){
@@ -138,7 +136,7 @@ static gboolean change_station_next(GtkWidget *widget,
     }
     return TRUE;
 }
-
+/*******************************************************************************/
 static gboolean change_station_select(GtkWidget *widget,
                     		    gpointer user_data){
 
@@ -168,9 +166,6 @@ static gboolean change_station_select(GtkWidget *widget,
     }
     return TRUE;
 }
-
-
-
 /*******************************************************************************/
 /* Set default value */
 void weather_buttons_init(void){
@@ -213,7 +208,7 @@ void weather_buttons_fill(gboolean check_error){
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif
 /* Check main widget */
-    if (!app->top_widget)
+    if(!app->top_widget)
 	return;
 /* select image and font size */
     switch(app->config->icons_size){
@@ -245,7 +240,7 @@ void weather_buttons_fill(gboolean check_error){
 /* get current day */  
     current_time = time(NULL);
     utc_time = mktime(gmtime(&current_time));
-    diff_time = utc_time-current_time + app->weather_days[0].zone;
+    diff_time = utc_time - current_time + app->weather_days[0].zone;
     current_time = current_day = utc_time + app->weather_days[0].zone;
     tm = localtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
@@ -421,7 +416,8 @@ void weather_buttons_fill(gboolean check_error){
 /* search current station */
         while(tmplist){
     	    ws = tmplist->data;
-	    if ((ws->id_station)&&(app->config->current_station_id) && !strcmp(ws->id_station, app->config->current_station_id)) 
+	    if((ws->id_station) && (app->config->current_station_id)
+				&& !strcmp(ws->id_station, app->config->current_station_id)) 
 		break;
 	    tmplist = g_slist_next(tmplist);
 	}
@@ -447,7 +443,7 @@ void weather_buttons_fill(gboolean check_error){
 void weather_frame_update(gboolean check){
 
     free_memory(FALSE);
-    if (app->main_window)
+    if(app->main_window)
         gtk_widget_destroy(app->main_window);
     if(check) 
 	weather_buttons_fill(TRUE);
@@ -558,7 +554,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     /* Clean the queue of event */ 
     free_list_time_event();
     /* If downloading then switch off it */
-    if (app->flag_updating != 0){
+    if(app->flag_updating != 0){
 	check = g_source_remove(app->flag_updating);
 	clean_download();
     }
@@ -632,9 +628,7 @@ void menu_init(void){
 
     gtk_widget_show_all(GTK_WIDGET(app->contextmenu));
     gtk_widget_tap_and_hold_setup(app->main_window, GTK_WIDGET(app->contextmenu), NULL, 0);
-		      
 }
-
 /*******************************************************************************/
 /* create days panel and station name panel */
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
@@ -657,7 +651,6 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif
-
     if(app->config->days_to_show % 2)
 	elements = app->config->days_to_show / 2 + 1;
     else
@@ -674,7 +667,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	previos_station_name_btn	= gtk_event_box_new();
 	set_background_color(previos_station_name_btn, &(app->config->background_color));
 	
-	gtk_widget_set_events(previos_station_name_btn, GDK_BUTTON_RELEASE_MASK|
+	gtk_widget_set_events(previos_station_name_btn, GDK_BUTTON_RELEASE_MASK |
     							GDK_BUTTON_PRESS_MASK);
 	previos_station_name        = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
@@ -683,8 +676,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	gtk_box_pack_start((GtkBox*) previos_station_box, previos_station_name, TRUE, TRUE, 10);
 	gtk_container_add (GTK_CONTAINER(previos_station_name_btn), previos_station_box);
 
-
-	buffer[0] = '\0';
+	buffer[0] = 0;
 	/* create next station button */
 	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&gt;</span>",
 		app->config->font_color.red >> 8, app->config->font_color.green >> 8,
@@ -702,7 +694,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         gtk_box_pack_start((GtkBox*) next_station_box, next_station_name, TRUE, TRUE, 10);
 	gtk_container_add (GTK_CONTAINER(next_station_name_btn), next_station_box);
     }
-    buffer[0] = '\0';
+    buffer[0] = 0;
     if(!app->config->hide_station_name){
 /* create station name button */
         if(!st_name)

@@ -85,7 +85,6 @@ void update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data);
 void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
                                             gpointer user_data);
 /* extern functions */
-extern void add_periodic_event(time_t last_update);
 extern void remove_periodic_event(void);
 extern void weather_buttons_init(void);
 extern void weather_initialize_dbus(void);

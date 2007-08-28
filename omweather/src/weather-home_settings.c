@@ -1304,17 +1304,19 @@ void update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data){
 					 1, &update_time,
     					    -1);
 	g_free(temp_string);
-	app->config->update_interval = update_time;
-	remove_periodic_event();
-	add_periodic_event(time(NULL));
-	
+	if(app->config->update_interval != update_time){
+	    app->config->update_interval = update_time;
+	    remove_periodic_event();
+	    add_periodic_event(time(NULL));
+	}
 	/* fill next update field */
 	update_time = next_update();
 	if(!update_time)
 	    temp_string = _("Never");
 	else{
 	    tmp_buff[0] = 0;
-	    strftime(tmp_buff, sizeof(tmp_buff) - 1, "%X %x", localtime(&update_time));
+	    strftime(tmp_buff, sizeof(tmp_buff) - 1, "%X %x",
+	    		    localtime(&update_time));
 	    temp_string = tmp_buff;
 	}
 	gtk_label_set_text(label, temp_string);

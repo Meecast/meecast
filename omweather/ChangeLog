@@ -21,6 +21,16 @@
   * The automatically updates of weather forecast after connection to internet has been made
   * Now if only one iconset is available it selected automaticly
 
+0.18.5
+  * The problem not correct saving of intervals of updating has been solved
+
+0.18.4
+  * The problem of exit out of range of the array in window popup has been fixed. This problem rebooted desktop after clicked on the icon
+  
+0.18.3
+  * Mistake in DBUS  ([#1026] OM Weather applet eating D-Bus signals) has been corrected
+  * Update translation for France  
+
 0.18.2
   * Wind speed (mi/s) has been correted
   * Algorithm of calculating current time for timezone in popup window has been corrected

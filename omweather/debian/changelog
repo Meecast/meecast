@@ -24,6 +24,25 @@ omweather (0.19) unstable; urgency=low
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 24 Aug 2007 03:35:00 +0200
 
+omweather (0.18.5) unstable; urgency=low
+
+  * The problem not correct saving of intervals of updating has been solved
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 29 Aug 2007 22:15:11 +0200  
+
+omweather (0.18.4) unstable; urgency=low
+
+  * The problem of exit out of range of the array in window popup has been fixed. This problem rebooted desktop after clicked on the icon
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 24 Aug 2007 23:35:01 +0200  
+
+omweather (0.18.3) unstable; urgency=low
+
+  * Mistake in DBUS  ([#1026] OM Weather applet eating D-Bus signals) has been corrected
+  * Update translation for France  
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 24 Aug 2007 22:05:01 +0200  
+
 omweather (0.18.2) unstable; urgency=low
 
   * Wind speed (mi/s) has been correted

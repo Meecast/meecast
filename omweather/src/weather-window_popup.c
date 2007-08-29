@@ -226,7 +226,7 @@ GtkWidget* create_header_widget(int i){
 		*date_label;
     GtkIconInfo *gtkicon_update;
     gchar       buffer[1024];
-    struct tm	tmp_time_date_struct;
+    struct tm	tmp_time_date_struct = {0};
 
 /* Show full or short name station */ 
     if(i < Max_count_weather_day){
@@ -263,6 +263,7 @@ GtkWidget* create_header_widget(int i){
     fprintf(stderr, "\nDate = %s Day name %s\n", app->weather_days[i].date,
 		    app->weather_days[i].dayfuname);
 #endif
+	memset(buffer, 0, sizeof(buffer));
 	sprintf(buffer,"%s %s", app->weather_days[i].dayfuname, app->weather_days[i].date);
 	strptime(buffer, "%A %b %d", &tmp_time_date_struct);
 	memset(buffer, 0, sizeof(buffer));
@@ -291,7 +292,7 @@ GtkWidget* create_footer_widget(void){
 
     tmp_time = app->weather_current_day.date_time + 3600;
     
-    buffer[0] = 0;    
+    memset(buffer, 0, sizeof(buffer));
     snprintf(buffer, sizeof(buffer) - 1, "%s", _("Last update at server: \n"));
     if(tmp_time <= 3600)	/* if weather data for station wasn't download */
 	strcat(buffer, _("Unknown"));
@@ -355,7 +356,7 @@ GtkWidget* create_current_weather_widget(void){
 
 /* prepare current temperature */
     temperature_vbox = gtk_vbox_new(FALSE, 0);
-    buffer[0] = 0;
+    memset(buffer, 0, sizeof(buffer));
     strcat(buffer, _("Now: "));
     sprintf(buffer + strlen(buffer), "%d\302\260",
 		((app->config->temperature_units == CELSIUS) ? ( atoi(app->weather_current_day.day.temp))
@@ -368,7 +369,7 @@ GtkWidget* create_current_weather_widget(void){
     
 /* prepare "feels like", "visible", "pressure", "humidity", "wind", "gust" */
 /* feels like */
-    buffer[0] = 0;
+    memset(buffer, 0, sizeof(buffer));
     strcat(buffer, app->weather_current_day.day.title);
     strcat(buffer, _("\nFeels like: "));
     sprintf(buffer + strlen(buffer), "%d\302\260", 
@@ -470,7 +471,7 @@ GtkWidget* create_temperature_range_widget(int i){
     }
     if(app->config->swap_hi_low_temperature)
 	swap_temperature(&hi_temp, &low_temp);
-    buffer[0] = 0;
+    memset(buffer, 0, sizeof(buffer));
     /* prepare low temperature */
     if(low_temp == INT_MAX)
 	strncat(buffer, (char*)hash_table_find("N/A"),
@@ -510,13 +511,13 @@ GtkWidget* create_temperature_range_widget(int i){
 /*******************************************************************************/
 GtkWidget* create_24_hours_widget(int i, time_t current_time){
     GtkWidget	*main_widget,
-		*night_hbox,*day_hbox,
+		*night_hbox = NULL, *day_hbox = NULL,
 		*night_icon_label_vbox, *day_icon_label_vbox,
 		*night_icon = NULL,
 		*day_icon = NULL,
 		*night_label, *day_label,
 		*night_data_label, *day_data_label,
-		*separator_after_night;
+		*separator_after_night = NULL;
     GdkPixbuf	*icon = NULL;
     gchar	buffer[1024];
     const gchar	*wind_units_str[] = {	"m/s",
@@ -528,7 +529,13 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     long int    diff_time;
     time_t 	current_day,utc_time;
     int 	offset = 0 , j = 0;
-    struct tm	*tm;
+    struct tm	*tm = {0};
+
+#ifdef PC_EMULATOR
+    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+#endif
+
+    memset(buffer, 0, sizeof(buffer));
 
 /* prepare additional time values */
     utc_time = mktime(gmtime(&current_time));
@@ -554,7 +561,7 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     night_label = gtk_label_new(_("Night:"));
     set_font_size(night_label, 14);
 /* preapare night data */
-    buffer[0] = 0;
+    memset(buffer, 0, sizeof(buffer));
     if(i < Max_count_weather_day);
 	strcat(buffer, app->weather_days[i].night.title);
     strcat(buffer, _("\nHumidity: "));
@@ -592,7 +599,7 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     day_label = gtk_label_new(_("Day:"));
     set_font_size(day_label, 14);
 /* preapare day data */
-    buffer[0] = 0;
+    memset(buffer, 0, sizeof(buffer));
     if (i < Max_count_weather_day)
 	strcat(buffer, app->weather_days[i].day.title);
     		strcat(buffer, _("\nHumidity: "));
@@ -657,7 +664,7 @@ GtkWidget* create_sun_time_widget(int i){
     struct tm	time_show = {0};
     time_t 	current_time,current_day,utc_time;
     int 	offset = 0 , j = 0 , diff_time;
-    struct tm	*tm;
+    struct tm	*tm = {0};
 
 /* prepare additional time values */
     current_time = time(NULL);

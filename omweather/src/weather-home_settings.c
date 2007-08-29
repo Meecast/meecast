@@ -790,7 +790,7 @@ void weather_window_settings(GtkWidget *widget,
             		    G_CALLBACK(transparency_button_toggled_handler), background_color);
 /* Split */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new(_("Separate current weather data:")),
+        			label = gtk_label_new(_("Show only current weather on first icon:")),
         			0, 1, 7, 8);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,

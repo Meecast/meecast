@@ -192,7 +192,6 @@ GtkListStore* create_time_update_list(void){
 }
 /*******************************************************************************/
 int new_read_config(AppletConfig *config){
-    gchar	*tmp = NULL;
     GConfValue	*value = NULL;
     GConfClient *gconf_client = NULL;
     int		fd = -1;
@@ -200,7 +199,8 @@ int new_read_config(AppletConfig *config){
     GError	*gerror = NULL;
     GdkColor	DEFAULT_FONT_COLOR = {0, 0xFF00, 0xFF00, 0x0000};
     gchar	tmp_buff[1024],
-		*home_dir;
+		*home_dir,
+		*tmp = NULL;
 
     gconf_client = gconf_client_get_default();
 
@@ -224,11 +224,12 @@ int new_read_config(AppletConfig *config){
     }
     else
 	snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s", tmp);
-    if(!config_set_weather_dir_name(gnome_vfs_expand_initial_tilde(tmp_buff)))
-        fprintf(stderr, _("Could not create Weather Cache directory.\n"));
     if(tmp)
 	g_free(tmp);
     tmp = NULL;
+
+    if(!config_set_weather_dir_name(gnome_vfs_expand_initial_tilde(tmp_buff)))
+        fprintf(stderr, _("Could not create Weather Cache directory.\n"));
     /* Get Weather Station ID for current station */
     config->current_station_id = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_CURRENT_STATION_ID, NULL);

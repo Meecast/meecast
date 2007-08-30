@@ -81,7 +81,7 @@ enum { CELSIUS, FAHRENHEIT };
 enum { LARGE, MEDIUM, SMALL };
 /*******************************************************************************/
 typedef struct{
-    int icon;
+    int		icon;
     gchar	title[80];		/* Title */
     gchar	hmid[80];       	/* Humidity */
     gchar	wind_speed[80];       	/* Wind Speed */
@@ -89,7 +89,7 @@ typedef struct{
     gchar	vis[80];              	/* Visibilty */
     gchar	wind_title[80];		/* Wind Title */
     gchar	temp[20];		/* Temperature */
-    time_t	begin_time;		/* Begin time party of the day */  
+    time_t	begin_time;		/* Begin time party of the day */
     float	pressure;		/* Pressure value */
     gchar	pressure_str[80];	/* Pressure direction */
 }part_of_day;
@@ -129,11 +129,6 @@ struct time_update{
 struct weather_station{
     gchar	*id_station;
     gchar	*name_station;
-};
-/*******************************************************************************/
-struct station_and_weather_code {
-    gchar	*station_name;
-    gchar	*station_code;
 };
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{

@@ -81,6 +81,64 @@ enum { CELSIUS, FAHRENHEIT };
 enum { LARGE, MEDIUM, SMALL };
 /*******************************************************************************/
 typedef struct{
+    gchar	speed[80];		/* wind speed */
+    gchar	gust[80];		/* gust */
+    gchar	direction[5];		/* direction in degrees */
+    gchar	direction_text[80];	/* direction text */
+}wind_data;
+/*******************************************************************************/
+typedef struct{
+    float	value;			/* Pressure value */
+    gchar	direction[80];		/* Pressure direction */
+}pressure_data;
+/*******************************************************************************/
+typedef struct{
+    gchar	name[50];		/* Location (station name) */
+    gchar	id[50];			/* Location id (code) */
+    time_t      zone;			/* time zone */
+    gchar	lattitude[50];		/* Lattitide */
+    gchar	longitude[50];		/* Longitude */
+}location_data;
+/*******************************************************************************/
+typedef struct{
+    unsigned	icon;			/* icon number */
+    gchar       text[80];		/* weather text */
+    wind_data	wind;			/* wind data */
+    gchar       humidity[80];		/* humidity */
+}day_part;
+/*******************************************************************************/
+typedef struct{
+    time_t		last_update;		/* time of last update */
+    gchar		temperature[20];	/* temperature valuse */
+    gchar		feel_like[20];		/* feel like */
+    day_part		data;			/* current weather data */
+    pressure_data	pressure;		/* pressure data */
+    gchar		visibility[80];		/* visibilty */
+}current_weather;
+/*******************************************************************************/
+typedef struct{
+    location_data	location;
+    time_t		last_update;		/* time of last update */
+    unsigned		index;			/* index */
+    gchar		day_name[60];		/* week day */
+    gchar		date[40];		/* date */
+    gchar		hi_temp[20];		/* temperature hi valuse */
+    gchar		low_temp[20];		/* temperature low value */
+    gchar		sunrise[60];		/* sunrise */
+    gchar		sunset[60];		/* sunset */
+    day_part		day;			/* day data */
+    day_part		night;			/* night data */
+}twenty_four_hours;
+/*******************************************************************************/
+typedef struct weather_day_button_with_image{
+    GtkWidget	*button;                                                                                               
+    GtkWidget	*label;                                                                                                
+    GtkWidget	*box;
+    GdkPixbuf   *icon_buffer;                                                                                                             
+    GtkWidget   *icon_image; 
+}WDB;
+/*******************************************************************************/
+typedef struct{
     int		icon;
     gchar	title[80];		/* Title */
     gchar	hmid[80];       	/* Humidity */
@@ -92,6 +150,8 @@ typedef struct{
     time_t	begin_time;		/* Begin time party of the day */
     float	pressure;		/* Pressure value */
     gchar	pressure_str[80];	/* Pressure direction */
+    int		moon_icon;		/* moon icon */
+    gchar	moon[60];		/* moon phase */
 }part_of_day;
 /*******************************************************************************/
 typedef struct{
@@ -102,6 +162,7 @@ typedef struct{
     time_t      zone;           /* time zone */
     gchar	sunrise[60];	/* sunrise */
     gchar	sunset[60];	/* sunset */
+
     gchar	dayshname[60];	/* Short name of day */
     gchar	dayfuname[60];	/* Full name of day */
     gchar	hi_temp[20];	/* High temperature of day or real current temperature for current day */
@@ -130,14 +191,6 @@ struct weather_station{
     gchar	*id_station;
     gchar	*name_station;
 };
-/*******************************************************************************/
-typedef struct weather_day_button_with_image{
-    GtkWidget	*button;                                                                                               
-    GtkWidget	*label;                                                                                                
-    GtkWidget	*box;
-    GdkPixbuf   *icon_buffer;                                                                                                             
-    GtkWidget   *icon_image; 
-}WDB;
 /*******************************************************************************/
 typedef struct applet_config{
     gchar	*cache_dir_name;
@@ -188,16 +241,13 @@ typedef struct OMWeatherApplet{
     GtkListStore	*stations_list;
     GtkListStore	*time_update_list;
     GtkWidget 		*contextmenu;
+    GSList		*stations_view_list; 
 }OMWeatherApp;
 /*******************************************************************************/
-/* Stations List of view in plugin */
-GSList *stations_view_list; 
-
-void free_list_time_event (void);
+void free_list_time_event(void);
 void time_event_add(time_t time_value, short int type_event);
 void update_weather(void);
 void weather_frame_update(gboolean check);
-extern void read_config(void);
 extern int new_read_config(AppletConfig*);
 /*******************************************************************************/
 extern OMWeatherApp	*app;

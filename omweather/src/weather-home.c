@@ -69,7 +69,7 @@ static gboolean change_station_prev(GtkWidget *widget,
     GSList			*tmplist_prev = NULL;
     struct weather_station	*ws;
 
-    tmplist = stations_view_list;
+    tmplist = app->stations_view_list;
     while(tmplist){
 	ws = tmplist->data;
 	/* Check active station */ 
@@ -107,7 +107,7 @@ static gboolean change_station_next(GtkWidget *widget,
     GSList 			*tmplist = NULL;
     struct weather_station	*ws;
 
-    tmplist = stations_view_list;
+    tmplist = app->stations_view_list;
     while(tmplist){
 	ws = tmplist->data;
 	/* Check active station */ 
@@ -116,7 +116,7 @@ static gboolean change_station_next(GtkWidget *widget,
 	    tmplist = g_slist_next(tmplist);
 	    /* If no next station, get first */
 	    if(!tmplist)
-    		tmplist = stations_view_list;
+    		tmplist = app->stations_view_list;
 	    /* Get station data */
 	    ws = tmplist->data;
 	    if(app->config->current_station_id)
@@ -143,7 +143,7 @@ static gboolean change_station_select(GtkWidget *widget,
     GSList 			*tmplist = NULL;
     struct weather_station	*ws;
     
-    tmplist = stations_view_list;
+    tmplist = app->stations_view_list;
     
     while(tmplist){
 	ws = tmplist->data;
@@ -411,8 +411,8 @@ void weather_buttons_fill(gboolean check_error){
 
     }/* end for */
 
-    if(g_slist_length(stations_view_list) > 0){
-	tmplist = stations_view_list;
+    if(g_slist_length(app->stations_view_list) > 0){
+	tmplist = app->stations_view_list;
 /* search current station */
         while(tmplist){
     	    ws = tmplist->data;
@@ -616,7 +616,7 @@ void menu_init(void){
 
     app->contextmenu = gtk_menu_new();
 
-    tmplist = stations_view_list;
+    tmplist = app->stations_view_list;
     while(tmplist){
 	ws = tmplist->data;
 	gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu),menu_item = gtk_menu_item_new_with_label(ws->name_station));
@@ -658,7 +658,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /* create header panel */
     header_panel = gtk_table_new(1, 3, FALSE);
 /* check number of elements in stations list */
-    if(g_slist_length(stations_view_list) > 1 && !app->config->hide_station_name){
+    if(g_slist_length(app->stations_view_list) > 1 && !app->config->hide_station_name){
 	/* create previos station button */
 	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&lt;</span>",
 		app->config->font_color.red >> 8, app->config->font_color.green >> 8,
@@ -851,9 +851,9 @@ void free_memory(gboolean flag){
 	    app->hash = NULL;
 	}
 	/* clean stations_view_list */
-	if(stations_view_list){
-	    if(g_slist_length(stations_view_list) > 0){
-		tmplist = stations_view_list;
+	if(app->stations_view_list){
+	    if(g_slist_length(app->stations_view_list) > 0){
+		tmplist = app->stations_view_list;
     		while(tmplist){
     		    ws = tmplist->data;
 		    g_free(ws->id_station);
@@ -862,8 +862,8 @@ void free_memory(gboolean flag){
 		    tmplist = g_slist_next(tmplist);
 		}
 	    }	    
-	    g_slist_free(stations_view_list);
-	    stations_view_list = NULL;
+	    g_slist_free(app->stations_view_list);
+	    app->stations_view_list = NULL;
 	}
     }
     

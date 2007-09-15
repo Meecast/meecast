@@ -65,6 +65,7 @@ gboolean weather_window_popup_show(GtkWidget *widget,
 		*popup_vbox,
 		*separator_after_header,
 		*separator_after_sun_time,
+		*separator_after_moon_phase,
 		*separator_after_current,
 		*separator_after_temperature,
 		*separator_after_24_hours_widget;
@@ -122,10 +123,17 @@ gboolean weather_window_popup_show(GtkWidget *widget,
     gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_header,
 			    FALSE, FALSE, 0);
     if((i < Max_count_weather_day) && strcmp(app->weather_days[i].dayfuname, "")){
+	/* sunrise & sunset */
 	gtk_box_pack_start(GTK_BOX(popup_vbox), create_sun_time_widget(i),
 					FALSE, FALSE, 0);
 	separator_after_sun_time = gtk_hseparator_new();                                                                    
         gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_sun_time,
+                                            FALSE, FALSE, 0);
+	/* moon phase */
+	gtk_box_pack_start(GTK_BOX(popup_vbox), create_moon_phase_widget(),
+					FALSE, FALSE, 0);
+	separator_after_moon_phase = gtk_hseparator_new();                                                                    
+        gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_moon_phase,
                                             FALSE, FALSE, 0);
 	if(first_day || (second_day && app->config->separate)){ /* if first or second day */
 	    if(first_day){
@@ -547,8 +555,6 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
     current_day = mktime(tm);
     offset = (int)( abs( (current_day - app->weather_days[0].date_time) / (24 * 60 * 60) ) );
     (app->config->separate && i == 1) ? (j = -1) : (j = 0); 
-
-
 /* prepare night data */
     if(i < Max_count_weather_day){
 	sprintf(buffer, "%s%i.png", path_large_icon, app->weather_days[i].night.icon);
@@ -701,6 +707,25 @@ GtkWidget* create_sun_time_widget(int i){
     strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 			"%X ", &time_show);
 
+    main_label = gtk_label_new(buffer);
+    set_font_size(main_label, 14);
+    main_widget = gtk_hbox_new(FALSE, 10);
+    gtk_box_pack_start(GTK_BOX(main_widget), main_label, FALSE, FALSE, 0);
+
+    return main_widget;
+}
+/*******************************************************************************/
+GtkWidget* create_moon_phase_widget(void){
+    GtkWidget	*main_widget,
+		*main_label;
+    gchar	buffer[1024];
+
+    memset(buffer, 0, sizeof(buffer));
+    
+    snprintf(buffer, sizeof(buffer) - 1, "%s", _("Moon: "));
+    snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+			"%s",
+			(char*)hash_table_find((gpointer)app->weather_current_day.day.moon));
     main_label = gtk_label_new(buffer);
     set_font_size(main_label, 14);
     main_widget = gtk_hbox_new(FALSE, 10);

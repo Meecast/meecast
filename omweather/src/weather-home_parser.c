@@ -51,8 +51,8 @@ weather_com_parser *weather_parser_new_from_file(const gchar *filename){
 /*******************************************************************************/
 int parse_weather_com_xml(void){
     weather_com_parser	*parser;
-    xmlNode	*cur_node	= NULL,
-		*child_node	= NULL,
+    xmlNode	*cur_node = NULL,
+		*child_node = NULL,
 		*child_node2 = NULL,
 		*child_node3 = NULL,
 		*child_node4 = NULL; 
@@ -83,22 +83,23 @@ int parse_weather_com_xml(void){
 	return -1;
     sprintf(buffer, "%s/%s.xml.new", app->config->cache_dir_name,
 				    app->config->current_station_id); /* Used new file */
-    if(!access(buffer,R_OK)){  /* Not Access to cache weather xml file */
+    if(!access(buffer, R_OK)){  /* Not Access to cache weather xml file */
 	parser = weather_parser_new_from_file(buffer); 
 	    if(!(parser->error)){
 		sprintf(newname, "%s/%s.xml", app->config->cache_dir_name,
 			    app->config->current_station_id);
-		rename(buffer,newname);
+		rename(buffer, newname);
 	    }
     }
-    if(((parser == NULL) &&(access (buffer,R_OK) != 0)) || (parser != NULL && parser->error)){ /* Used old xml file */
-    	if (parser) free(parser);
+    if(((parser == NULL) && (access(buffer,R_OK) != 0)) || (parser != NULL && parser->error)){ /* Used old xml file */
+    	if(parser)
+	    free(parser);
 	sprintf(buffer, "%s/%s.xml", app->config->cache_dir_name,
 		app->config->current_station_id);
 	/* Not Access to cache weather xml file or not valid XML file */
 	if(!access(buffer,R_OK)){ 
 	    parser = weather_parser_new_from_file(buffer);
-	    if (parser->error){
+	    if(parser->error){
 		free(parser);
 		return -1; 
 	    }	
@@ -115,7 +116,7 @@ int parse_weather_com_xml(void){
 	    if(!xmlStrcmp(cur_node->name, (const xmlChar *) "err" ) ){
 		free(parser);
 		return -2;
-	    }	
+	    }
         /* Fill all buttons Location data */
     	    if(!xmlStrcmp(cur_node->name, (const xmlChar *) "loc" ) ){
 		temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"id");
@@ -124,10 +125,10 @@ int parse_weather_com_xml(void){
 			    "%s", temp_xml_string);
 		xmlFree(temp_xml_string);
 	 /* If station in xml not station in config file exit */ 
-		if( strcmp(id_station, app->config->current_station_id) != 0 ){
+		if( strcmp(id_station, app->config->current_station_id) ){
 		    free(parser);
 		    return -1;
-		}    
+		}
 /*	 fprintf(stderr,"Element: %s \n", cur_node->name); */
 		for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next){
 		    if( child_node->type == XML_ELEMENT_NODE  && 
@@ -257,7 +258,26 @@ int parse_weather_com_xml(void){
 				}
 			    }
         		}
-        	    }         
+        	    }
+		    if(!xmlStrcmp(child_node->name, (const xmlChar *)"moon") ){
+			for(child_node2 = child_node->children; child_node2 != NULL; child_node2 = child_node2->next){
+    			    if( child_node2->type == XML_ELEMENT_NODE ){
+        			if(!xmlStrcmp(child_node2->name, (const xmlChar *)"icon") ){
+				    temp_xml_string = xmlNodeGetContent(child_node2);			
+        			    app->weather_current_day.day.moon_icon = atoi((char*)temp_xml_string);
+				    xmlFree(temp_xml_string);
+				}
+        			if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t") ){
+				    temp_xml_string = xmlNodeGetContent(child_node2);							
+				    snprintf(app->weather_current_day.day.moon,
+					    sizeof(app->weather_current_day.day.moon) - 1,
+					    "%s", 
+        				    (char*)temp_xml_string);
+				    xmlFree(temp_xml_string);
+				}
+			    }
+        		}
+        	    }
 		}
 	    }
 	    if(!xmlStrcmp(cur_node->name, (const xmlChar *) "dayf" ) ){

@@ -146,7 +146,7 @@ void fill_station_list_view(GtkWidget *station_list_view,
     GtkTreeIter iter;
 
     list_selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
-    tmplist = stations_view_list;
+    tmplist = app->stations_view_list;
     while(tmplist){
 	ws = tmplist->data;
 	gtk_list_store_append(GTK_LIST_STORE
@@ -221,7 +221,7 @@ void weather_window_edit_station(GtkWidget *widget,
     station_code_edit = gtk_entry_new();
     gtk_entry_set_max_length(GTK_ENTRY(station_code_edit), 8);
     /* search station code */
-    tmplist = stations_view_list;
+    tmplist = app->stations_view_list;
     while(tmplist){
 	ws = tmplist->data;
 	if((ws->name_station && selected_station_name &&
@@ -241,7 +241,7 @@ void weather_window_edit_station(GtkWidget *widget,
     /* start dialog */
     switch(gtk_dialog_run(GTK_DIALOG(window_edit_station))){
 	case GTK_RESPONSE_ACCEPT:/* Press Button Ok */
-	    tmplist = stations_view_list;
+	    tmplist = app->stations_view_list;
 	    while(tmplist){
 		ws = tmplist->data;
 		if((ws->name_station && selected_station_name &&
@@ -294,18 +294,18 @@ static gboolean weather_delete_station(GtkWidget *widget,
 	return FALSE;
  
     gtk_tree_model_get(model, &iter, 0, &station_selected, -1); 
-    tmplist = stations_view_list;
+    tmplist = app->stations_view_list;
     while(tmplist){
 	ws = tmplist->data;
 	if((ws->name_station != NULL && station_selected != NULL && streq(station_selected, ws->name_station))||
 	  (ws->name_station == NULL && station_selected == NULL)){
       /* Remove station from the Station List */
-	    stations_view_list = g_slist_remove(stations_view_list, ws);
+	    app->stations_view_list = g_slist_remove(app->stations_view_list, ws);
 	    g_free(ws->id_station);
 	    g_free(ws->name_station);
 	    g_free(ws);
 	    gtk_list_store_clear(station_list_store);
-	    tmplist = stations_view_list;
+	    tmplist = app->stations_view_list;
 
       /* If not selected station, select first */	    
 	    if (!(gtk_tree_selection_get_selected(selection, NULL, &iter)) && (tmplist != NULL )) {
@@ -325,7 +325,7 @@ static gboolean weather_delete_station(GtkWidget *widget,
 		if (station_selected)
 	            g_free (station_selected);	
 		gtk_tree_model_get(model, &iter, 0, &station_selected,-1);
-		tmplist = stations_view_list;
+		tmplist = app->stations_view_list;
 		while(tmplist){
 		    ws = tmplist->data;
 		    if(streq(station_selected, ws->name_station)){
@@ -348,7 +348,7 @@ static gboolean weather_delete_station(GtkWidget *widget,
 	}
 	tmplist = g_slist_next(tmplist);
     }
-    if (g_slist_length(stations_view_list) == 0){
+    if (g_slist_length(app->stations_view_list) == 0){
        if(app->config->current_station_name)
           g_free(app->config->current_station_name);
        if(app->config->current_station_id)
@@ -454,7 +454,7 @@ void weather_window_add_custom_station(void){
 		app->config->current_station_name = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_name));
 		ws->name_station = g_strdup(app->config->current_station_name);
 	    /* Add station to stations list */
-		stations_view_list = g_slist_append(stations_view_list, ws); 
+		app->stations_view_list = g_slist_append(app->stations_view_list, ws); 
 	    /* Add station to View List(Tree) */
 		gtk_list_store_clear(station_list_store);
 		fill_station_list_view (station_list_view,station_list_store);
@@ -548,7 +548,7 @@ void weather_window_add_station(GtkWidget *widget,
 	    app->config->current_station_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations));
 	    ws->name_station = g_strdup(app->config->current_station_name);
 /* Add station to stations list */
-	    stations_view_list = g_slist_append(stations_view_list, ws); 
+	    app->stations_view_list = g_slist_append(app->stations_view_list, ws); 
 /* Update config file */
 	    new_config_save(app->config);
 /* Add station to View List(Tree) */
@@ -1072,7 +1072,7 @@ void weather_window_settings(GtkWidget *widget,
 	    }	
 	    if(flag_update_station){
 		if(app->iap_connected){
-		    if( g_slist_length(stations_view_list) > 0 ){
+		    if( g_slist_length(app->stations_view_list) > 0 ){
 			app->show_update_window = TRUE;
 			update_weather();
 		    }
@@ -1092,7 +1092,7 @@ void weather_window_settings(GtkWidget *widget,
 	break;
 	default:/* Pressed CANCEL */
 	    if( flag_update_station && app->iap_connected ){
-		if( g_slist_length(stations_view_list) > 0 ){
+		if( g_slist_length(app->stations_view_list) > 0 ){
 		    app->show_update_window = TRUE;
 		    update_weather();
 		}
@@ -1267,7 +1267,7 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
         return;
     gtk_tree_model_get(model, &iter, 0, &station_selected, -1);
 
-    tmplist = stations_view_list;
+    tmplist = app->stations_view_list;
     while(tmplist){
         ws = tmplist->data;
         if( ws->name_station &&

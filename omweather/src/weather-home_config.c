@@ -103,7 +103,7 @@ void fill_station_from_clock_plugin_data(void){
 		tmp[0] = 0;
 		ws->name_station = g_strdup(out_buffer);
 		/* Add station to stations list */
-		stations_view_list = g_slist_append(stations_view_list, ws); 
+		app->stations_view_list = g_slist_append(app->stations_view_list, ws); 
 		/* A current station */
 		if(!strncmp(out_buffer, home_city, tmp - out_buffer)){
 		    app->config->current_station_id = g_strdup(ws->id_station);
@@ -123,7 +123,7 @@ void fill_station_from_clock_plugin_data(void){
 void reinitilize_stations_list2(GSList *stlist){
     struct weather_station *ws = NULL;
     gchar *temp1 = NULL, *temp2 = NULL;
-    stations_view_list = NULL; /* Initialize value */
+    app->stations_view_list = NULL; /* Initialize value */
 
     while(stlist != NULL){
 	temp1 = strdup(stlist->data);
@@ -138,7 +138,7 @@ void reinitilize_stations_list2(GSList *stlist){
 	    temp2 = strtok(NULL,"@\0"); /* Delimiter between ID - @ */ 
 	    if(temp2 != NULL)
 		ws->name_station = g_strdup(temp2); 
-	    stations_view_list = g_slist_append(stations_view_list, ws); /* Add station to stations list */
+	    app->stations_view_list = g_slist_append(app->stations_view_list, ws); /* Add station to stations list */
 	}     
 	g_free(stlist->data);      
 	g_free(temp1);
@@ -153,7 +153,7 @@ GSList* prepare_idlist(void){
     struct weather_station *ws;
     char *str;
 
-    tmplist = stations_view_list;
+    tmplist = app->stations_view_list;
     while(tmplist != NULL){ 
 	ws = tmplist->data;
 	str = g_strdup_printf("%s@%s", ws->id_station, ws->name_station);

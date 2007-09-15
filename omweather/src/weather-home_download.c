@@ -368,7 +368,7 @@ gboolean download_html(gpointer data){
 	if(app->show_update_window)
     	    create_window_update(); /* Window with update information */
         /* Initialize list */
-        tmplist = stations_view_list;
+        tmplist = app->stations_view_list;
 	if(!form_url_and_filename()){
 	    if(url){
 		g_string_free(url, TRUE);    

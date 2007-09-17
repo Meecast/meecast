@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-30 13:58+0300\n"
+"POT-Creation-Date: 2007-09-08 13:33+0300\n"
 "PO-Revision-Date: 2007-07-12 12:35+0300\n"
 "Last-Translator: Vlad Vasiliev <vlad@gas.by>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -67,7 +67,7 @@ msgstr ""
 "Brian Knight - за идею о наборе иконок, критику \n"
 "\t\t\tи финансовую поддержку. ;-)\n"
 
-#: src/weather-window_popup.c:374
+#: src/weather-window_popup.c:382
 msgid ""
 "\n"
 "Feels like: "
@@ -89,7 +89,7 @@ msgstr ""
 "для отображения погоды.\n"
 "Версия "
 
-#: src/weather-window_popup.c:567 src/weather-window_popup.c:605
+#: src/weather-window_popup.c:573 src/weather-window_popup.c:611
 msgid ""
 "\n"
 "Humidity: "
@@ -97,7 +97,7 @@ msgstr ""
 "\n"
 "Влажность: "
 
-#: src/weather-window_popup.c:409
+#: src/weather-window_popup.c:417
 msgid ""
 "\n"
 "Pressure: "
@@ -105,7 +105,7 @@ msgstr ""
 "\n"
 "Давление: "
 
-#: src/weather-window_popup.c:389
+#: src/weather-window_popup.c:397
 msgid ""
 "\n"
 "Visible: "
@@ -113,7 +113,7 @@ msgstr ""
 "\n"
 "Видимость: "
 
-#: src/weather-window_popup.c:415
+#: src/weather-window_popup.c:423
 msgid ""
 "\n"
 "Wind: "
@@ -125,15 +125,15 @@ msgstr ""
 msgid " Add "
 msgstr " Добавить "
 
-#: src/weather-window_popup.c:423
+#: src/weather-window_popup.c:431
 msgid " Gust: "
 msgstr " Порывы: "
 
-#: src/weather-window_popup.c:381
+#: src/weather-window_popup.c:389
 msgid " Humidity: "
 msgstr " Влажность: "
 
-#: src/weather-window_popup.c:316
+#: src/weather-window_popup.c:324
 msgid " local time"
 msgstr " местного времени"
 
@@ -251,7 +251,7 @@ msgstr ""
 msgid "Background color:"
 msgstr "Цвет фона:"
 
-#: src/weather-window_popup.c:364 src/weather-window_popup.c:378
+#: src/weather-window_popup.c:372 src/weather-window_popup.c:386
 msgid "C"
 msgstr "С"
 
@@ -306,7 +306,7 @@ msgstr "Невозможно создать директорию кэша.\n"
 msgid "Country:"
 msgstr "Страна:"
 
-#: src/weather-window_popup.c:599
+#: src/weather-window_popup.c:605
 msgid "Day:"
 msgstr "День:"
 
@@ -364,7 +364,7 @@ msgstr "Ошибка при инициализации апплета."
 msgid "Events"
 msgstr "События"
 
-#: src/weather-window_popup.c:365 src/weather-window_popup.c:379
+#: src/weather-window_popup.c:373 src/weather-window_popup.c:387
 msgid "F"
 msgstr "F"
 
@@ -484,11 +484,11 @@ msgstr "Километры"
 msgid "Large"
 msgstr "Большой"
 
-#: src/weather-window_popup.c:296
+#: src/weather-window_popup.c:304
 msgid "Last update at server: \n"
 msgstr "Последнее обновление на сервере: \n"
 
-#: src/weather-window_popup.c:308 src/weather-window_popup.c:312
+#: src/weather-window_popup.c:316 src/weather-window_popup.c:320
 msgid "Last update from server: \n"
 msgstr "Последнее обновление с сервера: \n"
 
@@ -568,6 +568,10 @@ msgstr "Мили (морские)"
 msgid "Mist"
 msgstr "Легкий туман"
 
+#: src/weather-window_popup.c:725
+msgid "Moon: "
+msgstr "Луна: "
+
 #: src/weather-home_hash.c:70
 msgid "Mostly Clear"
 msgstr "В основном безоблачно"
@@ -626,7 +630,7 @@ msgstr "Никогда"
 msgid "Next update:"
 msgstr "Следующие обновление:"
 
-#: src/weather-window_popup.c:561
+#: src/weather-window_popup.c:567
 msgid "Night:"
 msgstr "Ночь:"
 
@@ -646,7 +650,7 @@ msgstr ""
 msgid "Now"
 msgstr "Сейчас"
 
-#: src/weather-window_popup.c:360
+#: src/weather-window_popup.c:368
 msgid "Now: "
 msgstr "Сейчас: "
 
@@ -804,7 +808,7 @@ msgstr "Редкий мокрый снег"
 msgid "Scattered T-Storms"
 msgstr "Местами грозы"
 
-#: src/weather-window_popup.c:321
+#: src/weather-window_popup.c:329
 msgid "Settings"
 msgstr "Настройки"
 
@@ -908,11 +912,11 @@ msgstr "Солнечно"
 msgid "Sunny / Wind"
 msgstr "Солнечно / Ветер"
 
-#: src/weather-window_popup.c:685
+#: src/weather-window_popup.c:691
 msgid "Sunrise: "
 msgstr "Восход: "
 
-#: src/weather-window_popup.c:694
+#: src/weather-window_popup.c:700
 msgid "Sunset: "
 msgstr "Закат: "
 
@@ -934,7 +938,7 @@ msgstr "С утра ливни"
 msgid "Temperature units:"
 msgstr "Единицы температуры:"
 
-#: src/weather-window_popup.c:505
+#: src/weather-window_popup.c:513
 msgid "Temperature: "
 msgstr "Температура:"
 
@@ -966,7 +970,7 @@ msgstr "в две строки"
 msgid "Units"
 msgstr "Единицы измерения"
 
-#: src/weather-window_popup.c:298 src/weather-window_popup.c:308
+#: src/weather-window_popup.c:306 src/weather-window_popup.c:316
 msgid "Unknown"
 msgstr "Неизвестно"
 
@@ -1021,15 +1025,15 @@ msgstr "западно-юго-западный"
 
 #: src/weather-home_hash.c:136
 msgid "Waning Crescent"
-msgstr "Убывающая Луна"
+msgstr "Убывающая"
 
 #: src/weather-home_hash.c:137
 msgid "Waning Gibbous"
-msgstr "Убывающая Луна"
+msgstr "Убывающая"
 
 #: src/weather-home_hash.c:138
 msgid "Waxing Crescent"
-msgstr "Растущая Луна"
+msgstr "Растущая"
 
 #: src/weather-home_download.c:433
 msgid "Weather updated"
@@ -1043,7 +1047,7 @@ msgstr "Ветер"
 msgid "Wind speed units:"
 msgstr "Единицы скорости ветра:"
 
-#: src/weather-window_popup.c:574 src/weather-window_popup.c:612
+#: src/weather-window_popup.c:580 src/weather-window_popup.c:618
 msgid "Wind: "
 msgstr "Ветер: "
 
@@ -1107,7 +1111,7 @@ msgstr "каждую минуту (отладка)"
 msgid "falling"
 msgstr "падает"
 
-#: src/weather-window_popup.c:399
+#: src/weather-window_popup.c:407
 msgid "km"
 msgstr "км"
 
@@ -1119,7 +1123,7 @@ msgstr "км/ч"
 msgid "km/s"
 msgstr "км/с"
 
-#: src/weather-window_popup.c:398
+#: src/weather-window_popup.c:406
 msgid "m"
 msgstr "м"
 
@@ -1131,11 +1135,11 @@ msgstr "м/ч"
 msgid "m/s"
 msgstr "м/с"
 
-#: src/weather-window_popup.c:411
+#: src/weather-window_popup.c:419
 msgid "mb"
 msgstr "мбар"
 
-#: src/weather-window_popup.c:400 src/weather-window_popup.c:401
+#: src/weather-window_popup.c:408 src/weather-window_popup.c:409
 msgid "mi"
 msgstr "ми"
 

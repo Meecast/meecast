@@ -20,6 +20,7 @@
   * Now on change update interval, the field 'Next update' is changed immediately
   * The automatically updates of weather forecast after connection to internet has been made
   * Now if only one iconset is available it selected automaticly
+  * Added Moon phase displaying
 
 0.18.5
   * The problem not correct saving of intervals of updating has been solved

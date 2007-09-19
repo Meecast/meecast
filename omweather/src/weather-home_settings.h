@@ -84,6 +84,7 @@ int get_active_time_update(GtkTreeModel *list, int time, const gchar *text);
 void update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data);
 void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
                                             gpointer user_data);
+gboolean check_station_code(const gchar *station_code);
 /* extern functions */
 extern void remove_periodic_event(void);
 extern void weather_buttons_init(void);

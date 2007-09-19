@@ -21,6 +21,7 @@
   * The automatically updates of weather forecast after connection to internet has been made
   * Now if only one iconset is available it selected automaticly
   * Added Moon phase displaying
+  * Added check for empty station code while adding custom station
 
 0.18.5
   * The problem not correct saving of intervals of updating has been solved

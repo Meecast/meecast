@@ -22,6 +22,7 @@ omweather (0.19) unstable; urgency=low
   * The automatically updates of weather forecast after connection to internet has been made
   * Now if only one iconset is available it selected automaticly
   * Added Moon phase displaying
+  * Added check for empty station code while adding custom station
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 24 Aug 2007 03:35:00 +0200
 

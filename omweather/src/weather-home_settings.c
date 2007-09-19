@@ -405,9 +405,10 @@ static GtkWidget* create_tree_view(GtkListStore * list){
 /*******************************************************************************/
 void weather_window_add_custom_station(void){
     struct weather_station *ws;       /* Temp struct for station */
-    GtkWidget *window_add_custom_station;
-    GtkWidget *label;
-    GtkWidget *table;
+    GtkWidget	*window_add_custom_station,
+		*label,
+		*table;
+    gboolean	station_code_invalid = TRUE;
 
 /* Create dialog window */
     window_add_custom_station = gtk_dialog_new_with_buttons(_("Add Custom Station"),
@@ -437,33 +438,39 @@ void weather_window_add_custom_station(void){
         			label = gtk_alignment_new(0.f, 1.f, 0.f, 1.f) ,
         			1, 2, 1, 2);
     gtk_container_add(GTK_CONTAINER(label),custom_station_code = gtk_entry_new());	    
-    gtk_entry_set_max_length((GtkEntry*)custom_station_code, 8);
-    gtk_entry_set_width_chars((GtkEntry*)custom_station_code, 8);
-  
-    gtk_widget_show_all(window_add_custom_station);   
-/* start dialog */
-    switch(gtk_dialog_run(GTK_DIALOG(window_add_custom_station))){
-	case GTK_RESPONSE_ACCEPT:/* Press Button Ok */
-		ws = g_new0(struct weather_station, 1);
-		if(app->config->current_station_id != NULL)
-		    g_free(app->config->current_station_id);
-		app->config->current_station_id = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_code));
-		ws->id_station = g_strdup(app->config->current_station_id);
-		if(app->config->current_station_name)
-		    g_free(app->config->current_station_name);
-		app->config->current_station_name = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_name));
-		ws->name_station = g_strdup(app->config->current_station_name);
-	    /* Add station to stations list */
-		app->stations_view_list = g_slist_append(app->stations_view_list, ws); 
-	    /* Add station to View List(Tree) */
-		gtk_list_store_clear(station_list_store);
-		fill_station_list_view (station_list_view,station_list_store);
-	    /* Update config file */
-		new_config_save(app->config);
-		flag_update_station = TRUE;
-	break;
-	default:
-	break;
+    gtk_entry_set_max_length((GtkEntry*)custom_station_code, 9);
+    gtk_entry_set_width_chars((GtkEntry*)custom_station_code, 9);
+
+    gtk_widget_show_all(window_add_custom_station);
+    while(station_code_invalid){
+	/* start dialog */
+	switch(gtk_dialog_run(GTK_DIALOG(window_add_custom_station))){
+	    case GTK_RESPONSE_ACCEPT:/* Press Button Ok */
+		    station_code_invalid = check_station_code(gtk_entry_get_text((GtkEntry*)custom_station_code));
+		    if(!station_code_invalid){
+			ws = g_new0(struct weather_station, 1);
+			if(app->config->current_station_id != NULL)
+			    g_free(app->config->current_station_id);
+			app->config->current_station_id = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_code));
+			ws->id_station = g_strdup(app->config->current_station_id);
+			if(app->config->current_station_name)
+			    g_free(app->config->current_station_name);
+			app->config->current_station_name = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_name));
+			ws->name_station = g_strdup(app->config->current_station_name);
+		    /* Add station to stations list */
+			app->stations_view_list = g_slist_append(app->stations_view_list, ws); 
+		    /* Add station to View List(Tree) */
+			gtk_list_store_clear(station_list_store);
+			fill_station_list_view(station_list_view,station_list_store);
+		    /* Update config file */
+			new_config_save(app->config);
+			flag_update_station = TRUE;
+		    }
+	    break;
+	    default:
+		station_code_invalid = FALSE;
+	    break;
+	}
     }
     gtk_widget_destroy(window_add_custom_station);
 }
@@ -1101,7 +1108,7 @@ void weather_window_settings(GtkWidget *widget,
 	break;
       }
 	if(result_gtk_dialog_run !=  GTK_RESPONSE_HELP) 
-    	    break; /* We  leave a cycle WHILE */
+    	    break; /* We are leave a cycle WHILE */
     }
     not_event = FALSE;
     if(flag_tuning_warning)
@@ -1370,4 +1377,9 @@ void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
 	gtk_widget_set_sensitive(background_color, TRUE);
 }
 /*******************************************************************************/
-
+gboolean check_station_code(const gchar *station_code){
+    if(strlen((char*)station_code) < 5)
+	return TRUE;
+    return FALSE;
+}
+/*******************************************************************************/

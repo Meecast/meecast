@@ -53,5 +53,6 @@ extern void weather_initialize_dbus(void);
 extern void swap_temperature(int *hi, int *low);
 extern int c2f(int temp);
 extern void set_font_size(GtkWidget *widget, char font_size);
+void set_font_color (GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 /*******************************************************************************/
 #endif

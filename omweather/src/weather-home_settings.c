@@ -961,6 +961,7 @@ void weather_window_settings(GtkWidget *widget,
     if(app->popup_window){
 	gtk_widget_destroy(app->popup_window);
 	app->popup_window = NULL;
+	app->popup_window_button_more = NULL;
     }
 
     while (0 != (result_gtk_dialog_run = gtk_dialog_run(GTK_DIALOG(window_config)))){

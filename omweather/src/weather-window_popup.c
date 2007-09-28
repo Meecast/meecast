@@ -41,7 +41,8 @@ static gboolean popup_window_event_cb(GtkWidget *widget,
     h = widget->allocation.height;
     if(!( (x >= 0) && (x <= w) && (y >= 0) && (y <= h) )){
         gtk_widget_destroy(app->popup_window);
-	app->popup_window=NULL;
+	app->popup_window = NULL;
+	app->popup_window_button_more = NULL;
     }	
     return TRUE; 
 }
@@ -293,41 +294,10 @@ GtkWidget* create_header_widget(int i){
 /*******************************************************************************/
 GtkWidget* create_footer_widget(void){
     GtkWidget	*main_widget,
-		*label_update,
-		*button;
-    gchar       buffer[1024],
-		full_filename[2048];
-    struct stat	statv;
-    time_t	tmp_time = 0;
-
-    tmp_time = app->weather_current_day.date_time + 3600;
-    
-    memset(buffer, 0, sizeof(buffer));
-    snprintf(buffer, sizeof(buffer) - 1, "%s", _("Last update at server: \n"));
-    if(tmp_time <= 3600)	/* if weather data for station wasn't download */
-	strcat(buffer, _("Unknown"));
-    else
-	strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-		    "%X %x", localtime(&tmp_time));
-    strcat(buffer, "\n");
-    
-    sprintf(full_filename, "%s/%s.xml", app->config->cache_dir_name,
-		app->config->current_station_id);
-    if(stat(full_filename, &statv)){
-    	sprintf(buffer + strlen(buffer), "%s%s",
-		_("Last update from server: \n"), _("Unknown"));
-    }	
-    else{ 
-	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-		    "%s", _("Last update from server: \n"));
-    	strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-		"%X %x", localtime(&statv.st_mtime));
-	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-		"%s", _(" local time"));
-    }
-    label_update = gtk_label_new(buffer);    
-    set_font_size(label_update, 14);
-    set_font_color(label_update,0x0000,0x0000,0x0000);
+    		*button;
+/* prepare More button */
+    app->popup_window_button_more = gtk_button_new_with_label(_("More ..."));
+    set_font_size(app->popup_window_button_more, 14);
 /* prepare Settings button */
     button = gtk_button_new_with_label(_("Settings"));
     set_font_size(button, 14);
@@ -335,7 +305,8 @@ GtkWidget* create_footer_widget(void){
 		    G_CALLBACK(weather_window_settings), NULL);      
 /* prepare main widget */
     main_widget = gtk_hbox_new(FALSE, 10);
-    gtk_box_pack_start(GTK_BOX(main_widget), label_update, FALSE, FALSE, 0);
+//    gtk_box_pack_start(GTK_BOX(main_widget), label_update, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(main_widget), app->popup_window_button_more, FALSE, FALSE, 0);
     gtk_box_pack_end(GTK_BOX(main_widget), button, FALSE, FALSE, 0);
     return main_widget;
 }
@@ -747,3 +718,44 @@ GtkWidget* create_moon_phase_widget(void){
     return main_widget;
 }
 /*******************************************************************************/
+GtkWidget* create_time_updates_widget(void){
+    GtkWidget	*main_widget,
+    		*label_update;
+    gchar       buffer[1024],
+		full_filename[2048];
+    struct stat	statv;
+    time_t	tmp_time = 0;
+
+    tmp_time = app->weather_current_day.date_time + 3600;
+    
+    memset(buffer, 0, sizeof(buffer));
+    snprintf(buffer, sizeof(buffer) - 1, "%s", _("Last update at server: \n"));
+    if(tmp_time <= 3600)	/* if weather data for station wasn't download */
+	strcat(buffer, _("Unknown"));
+    else
+	strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+		    "%X %x", localtime(&tmp_time));
+    strcat(buffer, "\n");
+    
+    sprintf(full_filename, "%s/%s.xml", app->config->cache_dir_name,
+		app->config->current_station_id);
+    if(stat(full_filename, &statv)){
+    	sprintf(buffer + strlen(buffer), "%s%s",
+		_("Last update from server: \n"), _("Unknown"));
+    }	
+    else{ 
+	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+		    "%s", _("Last update from server: \n"));
+    	strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+		"%X %x", localtime(&statv.st_mtime));
+	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+		"%s", _(" local time"));
+    }
+    label_update = gtk_label_new(buffer);    
+    set_font_size(label_update, 14);
+    set_font_color(label_update,0x0000,0x0000,0x0000);
+    main_widget = gtk_hbox_new(FALSE, 10);
+    gtk_box_pack_start(GTK_BOX(main_widget), label_update, FALSE, FALSE, 0);
+
+    return main_widget;
+}

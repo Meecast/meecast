@@ -1208,7 +1208,9 @@ void create_help_dialog(void){
 	    "Brad Jones aka kazrak - for testing\n"
 	    "Alexis Iglauer - for testing\n"
 	    "Eugene Roytenberg - for testing\n"
-	    "Jarek Szczepanski aka Imrahil - for testing\n"));
+	    "Jarek Szczepanski aka Imrahil - for testing\n"
+	    "Vladimir Shakhov aka Mendoza - for testing \n"
+	    "Marc Dilon - for spell/stylecheck text of English\n"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),

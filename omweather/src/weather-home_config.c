@@ -48,11 +48,9 @@ gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
             list = g_list_prepend(list, curr_uri = parent);	
 	while(list != NULL){
 	    if( GNOME_VFS_OK != gnome_vfs_make_directory_for_uri((GnomeVFSURI*)list->data, 0755) ){
-		fprintf (stderr,"ddddddddddddddddd\n";
 		retval = FALSE;
 		break;
 	    }
-	    fprintf (stderr,"aaaaaaaaaaaaaaaa\n";
     	    list = g_list_remove(list, list->data);
     	}
 	retval = TRUE;
@@ -134,7 +132,7 @@ void reinitilize_stations_list2(GSList *stlist){
 	    temp2 = strtok(temp1,"@\0"); /* Delimiter between ID and name - @ */
 	    if(temp2 != NULL)  /* Check random error */      
 		if(strlen(temp2) > 0){
-0		    ws = g_new0(struct weather_station, 1);
+		    ws = g_new0(struct weather_station, 1);
 		    ws->id_station = g_strdup(temp2); 
 		}
 	    temp2 = strtok(NULL,"@\0"); /* Delimiter between ID - @ */ 

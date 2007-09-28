@@ -278,6 +278,16 @@ GtkWidget* create_header_widget(int i){
 	strftime(buffer, sizeof(buffer) - 1, "%A %d %B", &tmp_time_date_struct);
         date_label = gtk_label_new(buffer);
 	set_font_size(date_label, 16); 
+	PangoAttribute *attr;
+	PangoAttrList *attrs = NULL;
+	attrs = pango_attr_list_new();
+	attr = pango_attr_foreground_new(100,100,100);
+	attr->start_index = 1;
+	attr->end_index = 10;
+	pango_attr_list_insert(attrs, attr);
+	fprintf(stderr,"sssssssssss\n");
+	 /* Set the attributes */
+        g_object_set(date_label, "attributes", attrs, NULL);
 	gtk_box_pack_start(GTK_BOX(date_hbox), date_label, FALSE, FALSE, 5);
     }
 /* prepare main vbox */

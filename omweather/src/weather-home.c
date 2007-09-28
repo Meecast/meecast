@@ -51,7 +51,8 @@ int c2f(int temp){
 /* Set font size. Usually on label widget */
 void set_font_size(GtkWidget *widget, char font_size){
     PangoFontDescription *pfd = NULL;
-    
+    if (!widget)
+	return;
     pfd = pango_font_description_copy( 
             pango_context_get_font_description(gtk_widget_get_pango_context(widget)));
     pango_font_description_set_absolute_size(pfd, font_size * PANGO_SCALE);	    
@@ -63,6 +64,8 @@ void set_font_size(GtkWidget *widget, char font_size){
 /* Set font color. Usually on label widget */
 void set_font_color (GtkWidget *widget, guint16 red, guint16 green, guint16 blue)
 {
+    if (!widget)
+	return;
     PangoAttribute *attr;
     PangoAttrList *attrs = NULL;
     attrs = pango_attr_list_new();

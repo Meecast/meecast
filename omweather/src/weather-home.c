@@ -62,12 +62,13 @@ void set_font_size(GtkWidget *widget, char font_size){
 }
 /*******************************************************************************/
 /* Set font color. Usually on label widget */
-void set_font_color (GtkWidget *widget, guint16 red, guint16 green, guint16 blue)
-{
-    if (!widget)
+void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue){
+    PangoAttribute	*attr;
+    PangoAttrList	*attrs = NULL;
+
+    if(!widget)
 	return;
-    PangoAttribute *attr;
-    PangoAttrList *attrs = NULL;
+
     attrs = pango_attr_list_new();
     attr = pango_attr_foreground_new(red,green,blue);
     attr->start_index = 0;
@@ -75,9 +76,8 @@ void set_font_color (GtkWidget *widget, guint16 red, guint16 green, guint16 blue
     pango_attr_list_insert(attrs, attr);
     /* Set the attributes */
     g_object_set(widget, "attributes", attrs, NULL);
-    pango_attr_list_unref (attrs);
+    pango_attr_list_unref(attrs);
 }
-
 /*******************************************************************************/
 /* Change station to previos at main display */
 static gboolean change_station_prev(GtkWidget *widget,

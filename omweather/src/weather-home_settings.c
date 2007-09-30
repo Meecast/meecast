@@ -959,9 +959,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), app->config->current_settings_page);
 /* kill popup window :-) */
     if(app->popup_window){
-	gtk_widget_destroy(app->popup_window);
-	app->popup_window = NULL;
-	app->popup_window_button_more = NULL;
+        popup_window_destroy();
     }
 
     while (0 != (result_gtk_dialog_run = gtk_dialog_run(GTK_DIALOG(window_config)))){

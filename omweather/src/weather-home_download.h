@@ -54,5 +54,6 @@ struct weather_station *ws;
 gboolean second_attempt=FALSE;
 extern void config_update_proxy(void);
 extern void add_current_time_event(void);
+extern void popup_window_destroy(void);
 /*******************************************************************************/
 #endif

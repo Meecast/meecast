@@ -95,5 +95,6 @@ extern void new_config_save(AppletConfig *config);
 extern void set_background_color(GtkWidget *widget, GdkColor *bgc);
 extern void add_periodic_event(time_t last_update);
 extern void remove_periodic_event(void);
+extern void popup_window_destroy(void);
 /*******************************************************************************/
 #endif

@@ -309,9 +309,7 @@ gboolean download_html(gpointer data){
 
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
     if(app->popup_window && app->show_update_window){
-	gtk_widget_destroy(app->popup_window);   
-        app->popup_window = NULL;
-	app->popup_window_button_more = NULL;
+        popup_window_destroy();
     }
     /* If not connected and it autoupdate do go away */
     if(!app->show_update_window && !app->iap_connected){

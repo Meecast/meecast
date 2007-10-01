@@ -224,12 +224,7 @@ typedef struct OMWeatherApplet{
     GtkWidget		*top_widget;
     GtkWidget		*main_window;
     GtkWidget		*popup_window;
-    GtkWidget		*popup_window_button_more;
-    GtkWidget           *popup_window_moon;
-    GtkWidget           *popup_sun_time;
-    GtkWidget           *popup_temperature_range;
-    GtkWidget           *popup_current_weather;
-    GtkWidget           *popup_24_hours;
+    GtkWidget		*popup_window_more;    
     AppletConfig	*config;
     gboolean		show_update_window;
     gboolean		iap_connected;

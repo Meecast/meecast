@@ -32,14 +32,21 @@
 /*******************************************************************************/
 void popup_window_destroy(void)
 {
-        gtk_widget_destroy(app->popup_window);
-	app->popup_window = NULL;
-	app->popup_window_button_more = NULL;
+	if (app->popup_window){
+    	    gtk_widget_destroy(app->popup_window);
+	    app->popup_window = NULL;
+	}    
+	if (app->popup_window_more){
+	    gtk_widget_destroy(app->popup_window_more);
+	    app->popup_window_more = NULL;
+	}
+/*	app->popup_window_button_more = NULL;
 	app->popup_temperature_range = NULL;
 	app->popup_current_weather = NULL;
 	app->popup_24_hours = NULL;
 	app->popup_window_moon = NULL;
 	app->popup_sun_time = NULL;
+*/
 
 }	
 /*******************************************************************************/
@@ -67,6 +74,15 @@ void pre_update_weather(void){
     update_weather();
 }
 /*******************************************************************************/
+/* Show additional information about weather */
+void weather_window_popup_more_show(void){
+
+    app->popup_window_more = gtk_window_new( GTK_WINDOW_POPUP );
+    gtk_window_set_decorated(GTK_WINDOW(app->popup_window_more), FALSE);
+    gtk_widget_show_all(app->popup_window_more);
+
+}
+/*******************************************************************************/
 /* Show extended information about weather */
 gboolean weather_window_popup_show(GtkWidget *widget,
                     		    GdkEvent *event,
@@ -75,14 +91,19 @@ gboolean weather_window_popup_show(GtkWidget *widget,
     int		i;
     time_t	current_time = 0,
 		utc_time;
-    GtkWidget	*popup_frame,
-		*popup_vbox,
-		*separator_after_header,
-		*separator_after_sun_time,
-		*separator_after_moon_phase,
-		*separator_after_current,
-		*separator_after_temperature,
-		*separator_after_24_hours_widget;
+    GtkWidget	*popup_frame = NULL,
+		*popup_vbox = NULL,
+		*popup_sun_time_widget = NULL,
+		*popup_window_moon_widget = NULL,
+		*popup_temperature_range_widget = NULL,
+		*popup_current_weather_widget = NULL,
+		*popup_24_hours_widget = NULL,
+		*separator_after_header = NULL,
+		*separator_after_sun_time = NULL,
+		*separator_after_moon_phase = NULL,
+		*separator_after_current = NULL,
+		*separator_after_temperature = NULL,
+		*separator_after_24_hours_widget = NULL;
     gboolean	first_day = FALSE,
 		second_day = FALSE;
     #ifndef RELEASE
@@ -141,16 +162,18 @@ gboolean weather_window_popup_show(GtkWidget *widget,
 			    FALSE, FALSE, 0);
     if((i < Max_count_weather_day) && strcmp(app->weather_days[i].dayfuname, "")){
 	/* sunrise & sunset */
-	app->popup_sun_time = create_sun_time_widget(i);
-	gtk_box_pack_start(GTK_BOX(popup_vbox), app->popup_sun_time,
-					FALSE, FALSE, 0);
+	popup_sun_time_widget = create_sun_time_widget(i);
+	if (popup_sun_time_widget)
+	    gtk_box_pack_start(GTK_BOX(popup_vbox), popup_sun_time_widget,
+			       FALSE, FALSE, 0);
 	separator_after_sun_time = gtk_hseparator_new();                                                                    
         gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_sun_time,
                                             FALSE, FALSE, 0);
 	/* moon phase */
-	app->popup_window_moon = create_moon_phase_widget();
-	gtk_box_pack_start(GTK_BOX(popup_vbox),app->popup_window_moon,
-					FALSE, FALSE, 0);
+	popup_window_moon_widget = create_moon_phase_widget();
+	if (popup_window_moon_widget)
+	    gtk_box_pack_start(GTK_BOX(popup_vbox),popup_window_moon_widget,
+				      FALSE, FALSE, 0);
 	separator_after_moon_phase = gtk_hseparator_new();
         gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_moon_phase,
                                            FALSE, FALSE, 0);
@@ -158,24 +181,27 @@ gboolean weather_window_popup_show(GtkWidget *widget,
 	if(first_day || (second_day && app->config->separate)){ /* if first or second day */
 	    if(first_day){
 		if(!app->config->separate){ /* if weather data isn't separated */
-		    app->popup_temperature_range = create_temperature_range_widget(i);
-		    gtk_box_pack_start(GTK_BOX(popup_vbox), app->popup_temperature_range,
+		    popup_temperature_range_widget = create_temperature_range_widget(i);
+		    if (popup_temperature_range_widget)
+			gtk_box_pack_start(GTK_BOX(popup_vbox), popup_temperature_range_widget,
     					    FALSE, FALSE, 0);
 		    separator_after_temperature = gtk_hseparator_new();
 		    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_temperature,
 					    FALSE, FALSE, 0);
 		    if((app->weather_current_day.date_time  > ( current_time - app->config->data_valid_interval - 3600)) &&
         		    (app->weather_current_day.date_time  < ( current_time + app->config->data_valid_interval + 3600)) && app->weather_current_day.location){
-			app->popup_current_weather = create_current_weather_widget();
-			gtk_box_pack_start(GTK_BOX(popup_vbox),app->popup_current_weather,
+			popup_current_weather_widget = create_current_weather_widget();
+			if (popup_current_weather_widget)
+			    gtk_box_pack_start(GTK_BOX(popup_vbox),popup_current_weather_widget,
 						    FALSE, FALSE, 0);
 			/* added separator */
 			separator_after_current = gtk_hseparator_new();
 			gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_current,
 			    			FALSE, FALSE, 0);
 		    }
-		    app->popup_24_hours = create_24_hours_widget(i, time(NULL));
-		    gtk_box_pack_start(GTK_BOX(popup_vbox), app->popup_24_hours,  /* time(NULL) - current local time */
+		    popup_24_hours_widget = create_24_hours_widget(i, time(NULL));
+		    if (popup_24_hours_widget)
+			gtk_box_pack_start(GTK_BOX(popup_vbox), popup_24_hours_widget,  /* time(NULL) - current local time */
 					    FALSE, FALSE, 0);
 		    separator_after_24_hours_widget = gtk_hseparator_new();
 		    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_24_hours_widget,
@@ -185,8 +211,9 @@ gboolean weather_window_popup_show(GtkWidget *widget,
 		    if((app->weather_current_day.date_time > ( current_time - app->config->data_valid_interval - 3600)) &&
         		    (app->weather_current_day.date_time < ( current_time + app->config->data_valid_interval + 3600)) &&
 			    app->weather_current_day.location){
-			app->popup_current_weather = create_current_weather_widget();
-			gtk_box_pack_start(GTK_BOX(popup_vbox), app->popup_current_weather,
+			popup_current_weather_widget = create_current_weather_widget();
+			if (popup_current_weather_widget)
+			    gtk_box_pack_start(GTK_BOX(popup_vbox), popup_current_weather_widget,
 						    FALSE, FALSE, 0);
 			/* added separator */
 			separator_after_current = gtk_hseparator_new();
@@ -196,13 +223,16 @@ gboolean weather_window_popup_show(GtkWidget *widget,
 		}
 	    }
 	    else{ /* if second day and weather data is separated */
-		gtk_box_pack_start(GTK_BOX(popup_vbox), create_temperature_range_widget(i),
+	        popup_temperature_range_widget = create_temperature_range_widget(i);
+		if (popup_temperature_range_widget)
+		    gtk_box_pack_start(GTK_BOX(popup_vbox), popup_temperature_range_widget,
 					FALSE, FALSE, 0);
 		separator_after_temperature = gtk_hseparator_new();
 		gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_temperature,
 					FALSE, FALSE, 0);
-		app->popup_24_hours = create_24_hours_widget(i, time(NULL));
-		gtk_box_pack_start(GTK_BOX(popup_vbox), app->popup_24_hours, /* time(NULL) - current local time */
+		popup_24_hours_widget = create_24_hours_widget(i, time(NULL));
+		if (popup_24_hours_widget)
+		    gtk_box_pack_start(GTK_BOX(popup_vbox), popup_24_hours_widget, /* time(NULL) - current local time */
 				    FALSE, FALSE, 0);
 		separator_after_24_hours_widget = gtk_hseparator_new();
 		gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_24_hours_widget,
@@ -210,14 +240,16 @@ gboolean weather_window_popup_show(GtkWidget *widget,
 	    }
 	}
 	else{/* not first or not second day */
-	    app->popup_temperature_range = create_temperature_range_widget(i);
-	    gtk_box_pack_start(GTK_BOX(popup_vbox), app->popup_temperature_range,
+	    popup_temperature_range_widget = create_temperature_range_widget(i);
+	    if (popup_temperature_range_widget)
+		gtk_box_pack_start(GTK_BOX(popup_vbox),popup_temperature_range_widget,
 				FALSE, FALSE, 0);
 	    separator_after_temperature = gtk_hseparator_new();
 	    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_temperature,
 				FALSE, FALSE, 0);
-	    app->popup_24_hours = create_24_hours_widget(i, time(NULL));
-	    gtk_box_pack_start(GTK_BOX(popup_vbox), app->popup_24_hours, /* time(NULL) - current local time */
+	    popup_24_hours_widget = create_24_hours_widget(i, time(NULL));
+	    if (popup_24_hours_widget)				
+		gtk_box_pack_start(GTK_BOX(popup_vbox), popup_24_hours_widget, /* time(NULL) - current local time */
 				FALSE, FALSE, 0);
 	    separator_after_24_hours_widget = gtk_hseparator_new();
 	    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_24_hours_widget,
@@ -254,23 +286,18 @@ float convert_wind_units(int to, float value){
 void popup_window_more(GtkWidget *widget,
                     		    GdkEvent *event,
                     	    	    gpointer user_data){
-	if (app->popup_current_weather){
-        	gtk_widget_destroy(app->popup_current_weather);
-		app->popup_current_weather = NULL;
-	}
-	if (app->popup_24_hours){
-        	gtk_widget_destroy(app->popup_24_hours);
-		app->popup_24_hours = NULL;
-	}
-	gtk_window_resize (app->popup_window,1,1);
+    gtk_widget_hide(app->popup_window);
+    weather_window_popup_more_show();
+    				    
 }				    
 /*******************************************************************************/
 GtkWidget* create_header_widget(int i){
-    GtkWidget	*main_widget,
+    GtkWidget	*main_widget = NULL,
 		*location_button_hbox,
 		*location_label,
 		*icon,
 		*button,
+		*popup_window_button_more,
 		*date_hbox,
 		*date_label;
     GtkIconInfo *gtkicon_update;
@@ -333,12 +360,13 @@ GtkWidget* create_header_widget(int i){
 }
 /*******************************************************************************/
 GtkWidget* create_footer_widget(void){
-    GtkWidget	*main_widget,
-    		*button = NULL;
+    GtkWidget	*main_widget = NULL,
+    		*button = NULL,
+		*popup_window_button_more = NULL;
 /* prepare More button */
-    app->popup_window_button_more = gtk_button_new_with_label(_("More ..."));
-    set_font_size(app->popup_window_button_more, 14);
-    g_signal_connect(app->popup_window_button_more, "clicked",
+    popup_window_button_more = gtk_button_new_with_label(_("More ..."));
+    set_font_size(popup_window_button_more, 14);
+    g_signal_connect(popup_window_button_more, "clicked",
 		    G_CALLBACK(popup_window_more), NULL);
 /* prepare Settings button */
     button = gtk_button_new_with_label(_("Settings"));
@@ -348,13 +376,13 @@ GtkWidget* create_footer_widget(void){
 /* prepare main widget */
     main_widget = gtk_hbox_new(FALSE, 10);
 //    gtk_box_pack_start(GTK_BOX(main_widget), label_update, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(main_widget), app->popup_window_button_more, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(main_widget), popup_window_button_more, FALSE, FALSE, 0);
     gtk_box_pack_end(GTK_BOX(main_widget), button, FALSE, FALSE, 0);
     return main_widget;
 }
 /*******************************************************************************/
 GtkWidget* create_current_weather_widget(void){
-    GtkWidget	*main_widget,
+    GtkWidget	*main_widget = NULL,
 		*temperature_vbox,
 		*temperature_label,
 		*main_data_vbox,
@@ -469,7 +497,7 @@ GtkWidget* create_current_weather_widget(void){
 }
 /*******************************************************************************/
 GtkWidget* create_temperature_range_widget(int i){
-    GtkWidget	*main_widget,
+    GtkWidget	*main_widget = NULL,
 		*temperature_title_label,
 		*temperature_value_label;
     int		hi_temp,
@@ -538,7 +566,7 @@ GtkWidget* create_temperature_range_widget(int i){
 }
 /*******************************************************************************/
 GtkWidget* create_24_hours_widget(int i, time_t current_time){
-    GtkWidget	*main_widget,
+    GtkWidget	*main_widget = NULL,
 		*night_hbox = NULL, *day_hbox = NULL,
 		*night_icon_label_vbox, *day_icon_label_vbox,
 		*night_icon = NULL,
@@ -687,7 +715,7 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
 }
 /*******************************************************************************/
 GtkWidget* create_sun_time_widget(int i){
-    GtkWidget	*main_widget,
+    GtkWidget	*main_widget = NULL,
 		*main_label;
     gchar	buffer[1024],
 		time_buffer[1024];
@@ -762,7 +790,7 @@ GtkWidget* create_moon_phase_widget(void){
 }
 /*******************************************************************************/
 GtkWidget* create_time_updates_widget(void){
-    GtkWidget	*main_widget,
+    GtkWidget	*main_widget = NULL,
     		*label_update;
     gchar       buffer[1024],
 		full_filename[2048];

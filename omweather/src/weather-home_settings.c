@@ -161,9 +161,8 @@ void fill_station_list_view(GtkWidget *station_list_view,
 }
 /*******************************************************************************/
 /* Edit the station */
-void weather_window_edit_station(GtkWidget *widget,
-            			   GdkEvent *event,
-                    		   gpointer user_data){
+void weather_window_edit_station(GtkWidget *widget, GdkEvent *event,
+                    					    gpointer user_data){
     
     GtkWidget	*window_edit_station,
 		*label,
@@ -259,6 +258,7 @@ void weather_window_edit_station(GtkWidget *widget,
 		    /* Update config file */
 		    new_config_save(app->config);
 		    flag_update_station = TRUE;
+		    change_station_select(NULL, ws->id_station);
 		    break;
 		}
  		tmplist = g_slist_next(tmplist);  
@@ -946,7 +946,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_combo_box_set_active(GTK_COMBO_BOX(update_time),
 	    get_active_time_update((GtkTreeModel*)app->time_update_list,
 				    app->config->update_interval, NULL));
-//#ifndef RELEASE
+#ifndef RELEASE
 /* Evetns list tab */
     memset(tmp_buff, 0, sizeof(tmp_buff));
     print_list(tmp_buff, sizeof(tmp_buff) - 1);
@@ -954,7 +954,7 @@ void weather_window_settings(GtkWidget *widget,
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),
         			label = gtk_label_new(_("Events")));
-//#endif
+#endif
     gtk_widget_show_all(window_config);
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), app->config->current_settings_page);
 /* kill popup window :-) */
@@ -1217,7 +1217,8 @@ void create_help_dialog(void){
 /* Translators tab */
     snprintf(tmp_buff, sizeof(tmp_buff), "%s",
 	    _("French - Nicolas Granziano\n"
-	      "Russian - Pavel Fialko, Vlad Vasiliev,\n\t    Ed Bartosh\n"));
+	      "Russian - Pavel Fialko, Vlad Vasiliev,\n\t    Ed Bartosh\n"
+	      "Finnish - Marko Vertainen\n"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),

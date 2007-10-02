@@ -225,6 +225,7 @@ typedef struct OMWeatherApplet{
     GtkWidget		*main_window;
     GtkWidget		*popup_window;
     GtkWidget		*popup_window_more;    
+    int			button_pressed;
     AppletConfig	*config;
     gboolean		show_update_window;
     gboolean		iap_connected;

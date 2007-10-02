@@ -75,10 +75,69 @@ void pre_update_weather(void){
 }
 /*******************************************************************************/
 /* Show additional information about weather */
-void weather_window_popup_more_show(void){
+void weather_window_popup_more_show(){
+    int		i;
+    time_t	current_time = 0,
+		utc_time;
+GtkWidget	*popup_frame = NULL,
+		*popup_vbox = NULL,
+		*popup_header_widget = NULL,
+		*popup_sun_time_widget = NULL,
+		*popup_window_moon_widget = NULL,
+		*popup_temperature_range_widget = NULL,
+		*popup_current_weather_widget = NULL,
+		*popup_24_hours_widget = NULL,
+		*separator_after_header = NULL,
+		*separator_after_sun_time = NULL,
+		*separator_after_moon_phase = NULL,
+		*separator_after_current = NULL,
+		*separator_after_temperature = NULL,
+		*separator_after_24_hours_widget = NULL;
+    gboolean	first_day = FALSE,
+		second_day = FALSE;
+    #ifndef RELEASE
+       fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+    #endif
+    i = app->button_pressed;
+    /* Not found pressed button */
+    if( i >= app->config->days_to_show )
+	return;
 
+    /* Create POPUP WINDOW */ 
     app->popup_window_more = gtk_window_new( GTK_WINDOW_POPUP );
     gtk_window_set_decorated(GTK_WINDOW(app->popup_window_more), FALSE);
+    /* create popup window frame */
+    popup_frame = gtk_frame_new(NULL);
+    gtk_container_add(GTK_CONTAINER(app->popup_window_more), popup_frame);
+    /* create frame vbox */    
+    popup_vbox = gtk_vbox_new(FALSE, 0);
+    gtk_container_add(GTK_CONTAINER(popup_frame), popup_vbox);
+    /* prepare time additioanal value */
+    current_time = time(NULL); /* get current day */
+    /* correct time for current location */
+    utc_time = mktime(gmtime(&current_time));
+    /* Check out of range array */
+    if (boxs_offset[i] < Max_count_weather_day)
+	current_time = utc_time + app->weather_days[boxs_offset[i]].zone;
+    else	
+	current_time = utc_time;
+    /* check if fist day is pressed */
+    if(i == 0){
+	first_day = TRUE;
+	gtk_window_move(GTK_WINDOW(app->popup_window_more), 180, 60);
+    }
+    else
+	gtk_window_move(GTK_WINDOW(app->popup_window_more), 180, 140);
+    /* added header to popup window */
+    popup_header_widget = create_header_widget(i);
+    if (popup_header_widget)
+	gtk_box_pack_start(GTK_BOX(popup_vbox), popup_header_widget,
+			    FALSE, FALSE, 0);
+    /* added separator */
+    separator_after_header = gtk_hseparator_new();
+    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_header,
+			    FALSE, FALSE, 0);
+
     gtk_widget_show_all(app->popup_window_more);
 
 }
@@ -93,6 +152,7 @@ gboolean weather_window_popup_show(GtkWidget *widget,
 		utc_time;
     GtkWidget	*popup_frame = NULL,
 		*popup_vbox = NULL,
+		*popup_header_widget = NULL,
 		*popup_sun_time_widget = NULL,
 		*popup_window_moon_widget = NULL,
 		*popup_temperature_range_widget = NULL,
@@ -122,14 +182,15 @@ gboolean weather_window_popup_show(GtkWidget *widget,
     /* Not found pressed button */
     if( i >= app->config->days_to_show )
 	return FALSE;
-
-/* Create POPUP WINDOW */ 
+    /* Save position in global value for Window more */
+    app->button_pressed = i;
+    /* Create POPUP WINDOW */ 
     app->popup_window = gtk_window_new( GTK_WINDOW_POPUP );
     gtk_window_set_decorated(GTK_WINDOW(app->popup_window), FALSE);
-/* create popup window frame */
+    /* create popup window frame */
     popup_frame = gtk_frame_new(NULL);
     gtk_container_add(GTK_CONTAINER(app->popup_window), popup_frame);
-/* create frame vbox */    
+    /* create frame vbox */    
     popup_vbox = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(popup_frame), popup_vbox);
     /* prepare time additioanal value */
@@ -154,7 +215,9 @@ gboolean weather_window_popup_show(GtkWidget *widget,
 	second_day = TRUE;
     i = boxs_offset[i];
 /* added header to popup window */
-    gtk_box_pack_start(GTK_BOX(popup_vbox), create_header_widget(i),
+    popup_header_widget = create_header_widget(i);
+    if (popup_header_widget)
+	gtk_box_pack_start(GTK_BOX(popup_vbox), popup_header_widget,
 			    FALSE, FALSE, 0);
 /* added separator */
     separator_after_header = gtk_hseparator_new();

@@ -72,7 +72,7 @@ get_connection_status_signal_cb(DBusConnection *connection,
         return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
     }
 
-//    fprintf(stderr,"OMWeather  - iap_state = %s\n", iap_state);
+/*    fprintf(stderr,"OMWeather  - iap_state = %s\n", iap_state);*/
     if(!strcmp(iap_state, "CONNECTED")){
         if(!app->iap_connected){
             app->iap_connected = TRUE;

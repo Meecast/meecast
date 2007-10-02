@@ -109,7 +109,7 @@ gboolean timer_handler(gpointer data){
     return TRUE;    
 }
 /*******************************************************************************/
-//#ifndef RELEASE
+#ifndef RELEASE
 /*For debug */
 void print_list(char *buff, size_t buff_size){
     static GSList *list_time_event_temp = NULL;
@@ -134,7 +134,7 @@ void print_list(char *buff, size_t buff_size){
     else
 	fprintf(stderr, tmp);
 }
-//#endif
+#endif
 /*******************************************************************************/
 void create_timer_with_interval(guint interval){
     app->timer = g_timeout_add(interval,

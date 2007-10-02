@@ -40,6 +40,7 @@
 #define FONT_MAIN_SIZE_MEDIUM	12
 #define FONT_MAIN_SIZE_SMALL	10
 /*******************************************************************************/
+gboolean change_station_select(GtkWidget *widget, gpointer user_data);
 WDB* create_weather_day_button(const char *text, const char *icon,
 				const int icon_size, gboolean transparency,
 				char font_size, GdkColor *color);
@@ -62,6 +63,8 @@ void free_memory(gboolean flag);
 void swap_temperature(int *hi, int *low);
 void station_error_window(void);
 void menu_init(void);
+void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
+void set_widget_background(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 /* external functions */
 extern void timer(int interval);
 extern void create_timer_with_interval(guint interval);

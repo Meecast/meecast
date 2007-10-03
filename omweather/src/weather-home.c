@@ -156,7 +156,7 @@ static gboolean change_station_next(GtkWidget *widget,
     return TRUE;
 }
 /*******************************************************************************/
-static gboolean change_station_select(GtkWidget *widget,
+gboolean change_station_select(GtkWidget *widget,
                     		    gpointer user_data){
 
     GSList 			*tmplist = NULL;

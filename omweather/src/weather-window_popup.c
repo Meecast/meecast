@@ -39,13 +39,6 @@ void popup_window_destroy(void){
 	    gtk_widget_destroy(app->popup_window_more);
 	    app->popup_window_more = NULL;
 	}
-/*	app->popup_window_button_more = NULL;
-	app->popup_temperature_range = NULL;
-	app->popup_current_weather = NULL;
-	app->popup_24_hours = NULL;
-	app->popup_window_moon = NULL;
-	app->popup_sun_time = NULL;
-*/
 
 }	
 /*******************************************************************************/
@@ -84,11 +77,12 @@ GtkWidget	*popup_frame = NULL,
 		*popup_sun_time_widget = NULL,
 		*popup_window_moon_widget = NULL,
 		*popup_temperature_range_widget = NULL,
-		*popup_current_weather_widget = NULL,
+		*popup_time_updates_widget = NULL,
 		*popup_24_hours_widget = NULL,
 		*separator_after_header = NULL,
 		*separator_after_sun_time = NULL,
 		*separator_after_moon_phase = NULL,
+		*separator_after_updates_phase = NULL,
 		*separator_after_current = NULL,
 		*separator_after_temperature = NULL,
 		*separator_after_24_hours_widget = NULL;
@@ -152,8 +146,16 @@ GtkWidget	*popup_frame = NULL,
 				      FALSE, FALSE, 0);
 	separator_after_moon_phase = gtk_hseparator_new();
         gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_moon_phase,
-                                           FALSE, FALSE, 0);
-			    
+                                           FALSE, FALSE, 0);			    
+	/* create time updates */
+	popup_time_updates_widget = create_time_updates_widget();
+	if (popup_time_updates_widget)
+	    gtk_box_pack_start(GTK_BOX(popup_vbox),popup_time_updates_widget,
+				      FALSE, FALSE, 0);
+	separator_after_updates_phase = gtk_hseparator_new();
+        gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_updates_phase,
+                                           FALSE, FALSE, 0);			    
+	
 	}
     gtk_widget_show_all(app->popup_window_more);
 

@@ -20,7 +20,7 @@
  
 helpfile_engb_DATA = help/en_US/maemoweather.xml
 test_testdir = $(datadir)/omweather
-test_test_DATA = city_in_clock.txt countrys.list regions.list locations.list
+test_test_DATA = city_in_clock.txt countrys.list regions.list locations.list station.txt
 icons_crystallargedir = $(datadir)/omweather/icons/Crystal
 icons_crystallarge_DATA = icons/Crystal/*.png 
 homeapplet_desktopdir = $(datadir)/applications/hildon-home

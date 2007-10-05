@@ -158,6 +158,10 @@ GtkWidget	*popup_frame = NULL,
 	gtk_box_pack_start(GTK_BOX(popup_vbox), popup_footer_widget,
 			    FALSE, FALSE, 0);
     gtk_grab_add(app->popup_window_more);
+    g_signal_connect(G_OBJECT(app->popup_window_more),
+			"button-release-event", 
+                        G_CALLBACK(popup_window_event_cb), app->main_window);
+
     gtk_widget_show_all(app->popup_window_more);
 
 }

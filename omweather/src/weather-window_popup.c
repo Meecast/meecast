@@ -441,7 +441,7 @@ GtkWidget* create_footer_widget(void){
     		*button = NULL,
 		*popup_window_button_more = NULL;
 /* prepare More button */
-    popup_window_button_more = gtk_button_new_with_label(_("More ..."));
+    popup_window_button_more = gtk_button_new_with_label(">>");
     set_font_size(popup_window_button_more, 14);
     g_signal_connect(popup_window_button_more, "clicked",
 		    G_CALLBACK(popup_window_more_show), NULL);
@@ -462,7 +462,7 @@ GtkWidget* create_footer_more_widget(void){
     		*button = NULL,
 		*popup_window_button_more = NULL;
 /* prepare More button */
-    popup_window_button_more = gtk_button_new_with_label(_("Back"));
+    popup_window_button_more = gtk_button_new_with_label("<<");
     set_font_size(popup_window_button_more, 14);
     g_signal_connect(popup_window_button_more, "clicked",
 		    G_CALLBACK(popup_window_more_close), NULL);
@@ -814,11 +814,14 @@ GtkWidget* create_sun_time_widget(int i){
     GtkWidget	*main_widget = NULL,
 		*main_label;
     gchar	buffer[1024],
-		time_buffer[1024];
+		time_buffer[1024],
+		icon[1024];
     struct tm	time_show = {0};
     time_t 	current_time,current_day,utc_time;
     int 	offset = 0 , j = 0 , diff_time;
     struct tm	*tm = {0};
+    GdkPixbuf   *icon_buffer;                                                                                                             
+    GtkWidget   *icon_image; 
 
 /* prepare additional time values */
     current_time = time(NULL);
@@ -832,6 +835,16 @@ GtkWidget* create_sun_time_widget(int i){
     offset = (int)( abs( (current_day - app->weather_days[0].date_time) / (24 * 60 * 60) ) );
     (app->config->separate && i == 1) ? (j = -1) : (j = 0); 
 
+/* Sun icon */
+    sprintf(icon, "%s32.png", path_large_icon);
+    icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, 64, 64, NULL);
+    if(icon_buffer){
+	/* create Sun icon image from buffer */
+	icon_image = gtk_image_new_from_pixbuf(icon_buffer);
+	g_object_unref(G_OBJECT(icon_buffer));
+    }
+    else
+    	icon_image = NULL;
 
     memset(buffer, 0, sizeof(buffer));
     memset(time_buffer, 0, sizeof(time_buffer));
@@ -842,10 +855,10 @@ GtkWidget* create_sun_time_widget(int i){
     if( (i < Max_count_weather_day) && (strstr(app->weather_days[i].sunrise, "PM")))
 	time_show.tm_hour += 12;
     strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-			"%X, ", &time_show);
+			"%X", &time_show);
 
     snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-			"%s", _("Sunset: "));
+			"\n\n%s", _("Sunset: "));
 
     memset(time_buffer, 0, sizeof(time_buffer));
     if (i < Max_count_weather_day)
@@ -859,6 +872,10 @@ GtkWidget* create_sun_time_widget(int i){
     set_font_size(main_label, 14);
     set_font_color(main_label,0x0000,0x0000,0x0000);
     main_widget = gtk_hbox_new(FALSE, 10);
+    
+    /* Packing all to the box */
+    if(icon_buffer)
+	gtk_box_pack_start(GTK_BOX(main_widget), icon_image, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(main_widget), main_label, FALSE, FALSE, 0);
 
     return main_widget;
@@ -868,7 +885,10 @@ GtkWidget* create_moon_phase_widget(void){
     GtkWidget	*main_widget = NULL,
 		*main_label = NULL;
     gchar	buffer[1024];
-
+/*		icon[1024];
+    GdkPixbuf   *icon_buffer;                                                                                                             
+    GtkWidget   *icon_image; 
+*/
     #ifndef RELEASE
        fprintf(stderr, "Begin %s(): \n", __PRETTY_FUNCTION__);
     #endif
@@ -880,7 +900,22 @@ GtkWidget* create_moon_phase_widget(void){
     main_label = gtk_label_new(buffer);
     set_font_size(main_label, 14);
     set_font_color(main_label,0x0000,0x0000,0x0000);    
+
     main_widget = gtk_hbox_new(FALSE, 10);
+
+/* Moon icon */
+/*    sprintf(icon, "%s48.png", path_large_icon);
+    icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, 64, 64, NULL);
+    if(icon_buffer){
+	icon_image = gtk_image_new_from_pixbuf(icon_buffer);
+	g_object_unref(G_OBJECT(icon_buffer));
+    }
+    else
+    	icon_image = NULL;
+
+    if(icon_buffer)
+	gtk_box_pack_start(GTK_BOX(main_widget), icon_image, FALSE, FALSE, 0);
+*/
     gtk_box_pack_start(GTK_BOX(main_widget), main_label, FALSE, FALSE, 0);
     return main_widget;
 }

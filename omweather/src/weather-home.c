@@ -462,8 +462,10 @@ void weather_buttons_fill(gboolean check_error){
 void weather_frame_update(gboolean check){
 
     free_memory(FALSE);
-    if(app->main_window)
+    if(app->main_window){
         gtk_widget_destroy(app->main_window);
+	app->main_window = NULL;
+	}
     if(check) 
 	weather_buttons_fill(TRUE);
     else
@@ -604,6 +606,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	    app->time_update_list = NULL;
 	}
 	g_free(app);
+	app = NULL;
     }
     /* Deinitialize libosso */
     osso_deinitialize(osso);

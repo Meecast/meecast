@@ -109,8 +109,8 @@ int parse_weather_com_xml(void){
 	}
 	else{
 	    if(parser){			
-	    free(parser);
-	    parser = NULL;
+		free(parser);
+		parser = NULL;
 	    }
 	    return -1;
 	}    
@@ -120,6 +120,8 @@ int parse_weather_com_xml(void){
 	if( cur_node->type == XML_ELEMENT_NODE ){
         /* Check error */
 	    if(!xmlStrcmp(cur_node->name, (const xmlChar *) "err" ) ){
+	        xmlFreeDoc(parser->doc);
+		xmlCleanupParser();
 		free(parser);
 		return -2;
 	    }

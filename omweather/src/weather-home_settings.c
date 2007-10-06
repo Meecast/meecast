@@ -597,7 +597,6 @@ void weather_window_settings(GtkWidget *widget,
 		background_color_temp;
     static char *temp_string; /* Temporary for the results differnet strdup functions */
     static int result_gtk_dialog_run; /* Temporary for the gtk_dialog_run result */
-    char	tmp_buff[2048];
 
     not_event = TRUE;
     flag_update_station = FALSE;
@@ -743,7 +742,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label), iconset = gtk_combo_box_new_text());
 /* add icons set to list */
     if(create_icon_set_list(iconset) < 2)
-	gtk_widget_set_sensitive(iconset, FALSE);    
+	gtk_widget_set_sensitive(iconset, FALSE);
     else
 	gtk_widget_set_sensitive(iconset, TRUE);
 /* Icon size */
@@ -783,10 +782,12 @@ void weather_window_settings(GtkWidget *widget,
     background_color = gtk_color_button_new();
     gtk_container_add(GTK_CONTAINER(label), background_color);
     gtk_color_button_set_color(GTK_COLOR_BUTTON(background_color), &(app->config->background_color));
-    if(app->config->transparency)
-    	gtk_widget_set_sensitive(background_color, FALSE);
+    if((background_color) && app->config->transparency)
+        gtk_widget_set_sensitive(background_color, FALSE);	
     else
-	gtk_widget_set_sensitive(background_color, TRUE);
+        gtk_widget_set_sensitive(background_color, TRUE);
+	
+		
 /* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Transparency:")),
@@ -993,20 +994,24 @@ void weather_window_settings(GtkWidget *widget,
 		flag_update_icon = TRUE;
 	    }
 /* Font color */
-	    gtk_color_button_get_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color_temp);
-	    if(( _weather_font_color_temp.red - app->config->font_color.red ) ||
+	    if (font_color){
+		gtk_color_button_get_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color_temp);
+		if(( _weather_font_color_temp.red - app->config->font_color.red ) ||
 		    ( _weather_font_color_temp.green - app->config->font_color.green ) ||
 		    ( _weather_font_color_temp.blue - app->config->font_color.blue )){
-		memcpy(&(app->config->font_color), &_weather_font_color_temp, sizeof(app->config->font_color));
-    		flag_update_icon = TRUE;
-	    }
+		    memcpy(&(app->config->font_color), &_weather_font_color_temp, sizeof(app->config->font_color));
+    		    flag_update_icon = TRUE;
+		}
+	    }	
 /* Background color */
-	    gtk_color_button_get_color(GTK_COLOR_BUTTON(background_color), &background_color_temp);
-	    if(( background_color_temp.red - app->config->background_color.red ) ||
+	    if (background_color){
+		gtk_color_button_get_color(GTK_COLOR_BUTTON(background_color), &background_color_temp);
+		if(( background_color_temp.red - app->config->background_color.red ) ||
 		    ( background_color_temp.green - app->config->background_color.green ) ||
 		    ( background_color_temp.blue - app->config->background_color.blue )){
-		memcpy(&(app->config->background_color), &background_color_temp, sizeof(app->config->background_color));
-    		flag_update_icon = TRUE;
+		    memcpy(&(app->config->background_color), &background_color_temp, sizeof(app->config->background_color));
+    		    flag_update_icon = TRUE;
+		}    
 	    }
 /* Days to show */
 	    if( gtk_combo_box_get_active((GtkComboBox*)days_number)!= app->config->days_to_show - 1){

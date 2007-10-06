@@ -266,7 +266,7 @@ gboolean weather_window_popup_show(GtkWidget *widget,
 			gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_current,
 			    			FALSE, FALSE, 0);
 		    }
-		    popup_24_hours_widget = create_24_hours_widget(i, time(NULL));
+		    popup_24_hours_widget = create_24_hours_widget(i);
 		    if(popup_24_hours_widget)
 			gtk_box_pack_start(GTK_BOX(popup_vbox), popup_24_hours_widget,  /* time(NULL) - current local time */
 					    FALSE, FALSE, 0);
@@ -297,7 +297,7 @@ gboolean weather_window_popup_show(GtkWidget *widget,
 		separator_after_temperature = gtk_hseparator_new();
 		gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_temperature,
 					FALSE, FALSE, 0);
-		popup_24_hours_widget = create_24_hours_widget(i, time(NULL));
+		popup_24_hours_widget = create_24_hours_widget(i);
 		if (popup_24_hours_widget)
 		    gtk_box_pack_start(GTK_BOX(popup_vbox), popup_24_hours_widget, /* time(NULL) - current local time */
 				    FALSE, FALSE, 0);
@@ -314,7 +314,7 @@ gboolean weather_window_popup_show(GtkWidget *widget,
 	    separator_after_temperature = gtk_hseparator_new();
 	    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_temperature,
 				FALSE, FALSE, 0);
-	    popup_24_hours_widget = create_24_hours_widget(i, time(NULL));
+	    popup_24_hours_widget = create_24_hours_widget(i);
 	    if (popup_24_hours_widget)				
 		gtk_box_pack_start(GTK_BOX(popup_vbox), popup_24_hours_widget, /* time(NULL) - current local time */
 				FALSE, FALSE, 0);
@@ -608,11 +608,10 @@ GtkWidget* create_temperature_range_widget(int i){
 	hi_temp = INT_MAX;
     else
 	hi_temp = atoi(app->weather_days[i].hi_temp);
-    if(i < Max_count_weather_day)
-	if( !strcmp(app->weather_days[i].low_temp, "N/A") )
-	    low_temp = INT_MAX;
-	else
-	    low_temp = atoi(app->weather_days[i].low_temp);
+    if((i < Max_count_weather_day) && !(strcmp(app->weather_days[i].low_temp, "N/A")))
+	low_temp = INT_MAX;
+    else
+	low_temp = atoi(app->weather_days[i].low_temp);
     if(app->config->temperature_units == FAHRENHEIT){
 	if(hi_temp != INT_MAX)
 	    hi_temp = c2f(hi_temp);
@@ -661,7 +660,7 @@ GtkWidget* create_temperature_range_widget(int i){
     return main_widget;
 }
 /*******************************************************************************/
-GtkWidget* create_24_hours_widget(int i, time_t current_time){
+GtkWidget* create_24_hours_widget(int i){
     GtkWidget	*main_widget = NULL,
 		*night_hbox = NULL, *day_hbox = NULL,
 		*night_icon_label_vbox, *day_icon_label_vbox,
@@ -679,17 +678,18 @@ GtkWidget* create_24_hours_widget(int i, time_t current_time){
 */					"km/h",
 					"mi/h" };
     long int    diff_time;
-    time_t 	current_day,utc_time;
+    time_t 	current_day,utc_time, current_time;
     int 	offset = 0 , j = 0;
     struct tm	*tm = {0};
 
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif
-
+    
     memset(buffer, 0, sizeof(buffer));
 
 /* prepare additional time values */
+    current_time = time(NULL);
     utc_time = mktime(gmtime(&current_time));
     current_time = utc_time + app->weather_days[boxs_offset[i]].zone;
     diff_time = utc_time-current_time + app->weather_days[0].zone;

@@ -41,7 +41,7 @@ GtkWidget* create_footer_widget(void);
 GtkWidget* create_footer_more_widget(void);
 GtkWidget* create_current_weather_widget(void);
 GtkWidget* create_temperature_range_widget(int i);
-GtkWidget* create_24_hours_widget(int i, time_t current_time);
+GtkWidget* create_24_hours_widget(int i);
 GtkWidget* create_sun_time_widget(int i);
 GtkWidget* create_moon_phase_widget(void);
 GtkWidget* create_time_updates_widget(void);

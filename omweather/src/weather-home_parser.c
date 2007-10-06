@@ -92,8 +92,10 @@ int parse_weather_com_xml(void){
 	    }
     }
     if(((parser == NULL) && (access(buffer,R_OK) != 0)) || (parser != NULL && parser->error)){ /* Used old xml file */
-    	if(parser)
+    	if(parser){
 	    free(parser);
+	    parser = NULL;
+	}    
 	sprintf(buffer, "%s/%s.xml", app->config->cache_dir_name,
 		app->config->current_station_id);
 	/* Not Access to cache weather xml file or not valid XML file */
@@ -101,11 +103,15 @@ int parse_weather_com_xml(void){
 	    parser = weather_parser_new_from_file(buffer);
 	    if(parser->error){
 		free(parser);
+		parser = NULL;
 		return -1; 
 	    }	
 	}
 	else{
+	    if(parser){			
 	    free(parser);
+	    parser = NULL;
+	    }
 	    return -1;
 	}    
     }

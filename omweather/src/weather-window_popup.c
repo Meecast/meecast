@@ -870,11 +870,11 @@ GtkWidget* create_sun_time_widget(int i){
 
     main_label = gtk_label_new(buffer);
     set_font_size(main_label, 14);
-    set_font_color(main_label,0x0000,0x0000,0x0000);
+    set_font_color(main_label, 0x0000, 0x0000, 0x0000);
     main_widget = gtk_hbox_new(FALSE, 10);
     
     /* Packing all to the box */
-    if(icon_buffer)
+    if(icon_image)
 	gtk_box_pack_start(GTK_BOX(main_widget), icon_image, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(main_widget), main_label, FALSE, FALSE, 0);
 
@@ -884,11 +884,11 @@ GtkWidget* create_sun_time_widget(int i){
 GtkWidget* create_moon_phase_widget(void){
     GtkWidget	*main_widget = NULL,
 		*main_label = NULL;
-    gchar	buffer[1024];
-/*		icon[1024];
+    gchar	buffer[1024],
+		icon[50];
     GdkPixbuf   *icon_buffer;                                                                                                             
     GtkWidget   *icon_image; 
-*/
+
     #ifndef RELEASE
        fprintf(stderr, "Begin %s(): \n", __PRETTY_FUNCTION__);
     #endif
@@ -904,7 +904,7 @@ GtkWidget* create_moon_phase_widget(void){
     main_widget = gtk_hbox_new(FALSE, 10);
 
 /* Moon icon */
-/*    sprintf(icon, "%s48.png", path_large_icon);
+    sprintf(icon, "%s%d.png", MOON_ICONS, app->weather_current_day.day.moon_icon);
     icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, 64, 64, NULL);
     if(icon_buffer){
 	icon_image = gtk_image_new_from_pixbuf(icon_buffer);
@@ -913,9 +913,9 @@ GtkWidget* create_moon_phase_widget(void){
     else
     	icon_image = NULL;
 
-    if(icon_buffer)
+    if(icon_image)
 	gtk_box_pack_start(GTK_BOX(main_widget), icon_image, FALSE, FALSE, 0);
-*/
+
     gtk_box_pack_start(GTK_BOX(main_widget), main_label, FALSE, FALSE, 0);
     return main_widget;
 }

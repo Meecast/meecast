@@ -65,6 +65,7 @@
 #define LOCATIONSFILE		"/usr/share/omweather/locations.list"
 #define CLOCK_FILE		"/usr/share/omweather/city_in_clock.txt"
 #define ICONS_PATH		"/usr/share/omweather/icons/"
+#define MOON_ICONS		"/usr/share/omweather/moon_icons/"
 #define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
 /*******************************************************************************/

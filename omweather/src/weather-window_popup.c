@@ -654,7 +654,7 @@ GtkWidget* create_temperature_range_widget(int i){
     set_font_color(temperature_value_label, 0x0000, 0x0000, 0x0000);
     main_widget = gtk_hbox_new(FALSE, 10);
     temperature_title_label = gtk_label_new(_("Temperature: "));
-    set_font_size(temperature_title_label, 14);
+    set_font_size(temperature_title_label, 16);
     gtk_box_pack_start(GTK_BOX(main_widget), temperature_title_label, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(main_widget), temperature_value_label, FALSE, FALSE, 0);
     return main_widget;

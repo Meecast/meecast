@@ -23,8 +23,14 @@ omweatherdir = $(datadir)/omweather
 omweather_DATA = city_in_clock.txt countrys.list regions.list locations.list stations.txt
 icons_crystallargedir = $(datadir)/omweather/icons/Crystal
 icons_crystallarge_DATA = icons/Crystal/*.png 
+moon_iconsdir = $(datadir)/omweather/moon_icons
+moon_icons_DATA = moon_icons/*.png
 homeapplet_desktopdir = $(datadir)/applications/hildon-home
 homeapplet_desktop_DATA = omweather-home.desktop
 
-EXTRA_DIST = $(homeapplet_desktop_DATA) $(helpfile_engb_DATA) $(omweather_DATA) $(icons_crystallarge_DATA) omweather.png
-
+EXTRA_DIST = $(homeapplet_desktop_DATA) \
+	     $(helpfile_engb_DATA) \
+	     $(omweather_DATA) \
+	     $(icons_crystallarge_DATA) \
+	     $(moon_icons_DATA) \
+	     omweather.png

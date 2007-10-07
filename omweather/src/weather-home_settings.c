@@ -591,7 +591,8 @@ void weather_window_settings(GtkWidget *widget,
 		*button_add = NULL,
 		*button_del = NULL,
 		*button_ren = NULL;		
-    char	flag_update_icon = '\0'; /* Flag update main weather icon of desktop */
+    char	flag_update_icon = '\0', /* Flag update main weather icon of desktop */
+		tmp_buff[1024];
     gboolean	flag_tuning_warning; /* Flag for show the warnings about tuning images of applet */
     GdkColor	_weather_font_color_temp, /* Temporary for font color */
 		background_color_temp;

@@ -4,13 +4,13 @@ msgstr ""
 "Project-Id-Version: omweather 0.18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-10-05 19:10+0300\n"
-"PO-Revision-Date: 2007-07-12 21:08+0200\n"
+"PO-Revision-Date: 2007-10-07 22:04+0200\n"
 "Last-Translator: Nicolas GRAZIANO <nicolas.graziano@gmail.com>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);"
 
 #: src/weather-home_settings.c:1190
 msgid ""
@@ -125,15 +125,12 @@ msgid " Gust: "
 msgstr " Rafale :"
 
 #: src/weather-window_popup.c:531
-#, fuzzy
 msgid " Humidity: "
-msgstr ""
-"\n"
-"Humidité : "
+msgstr " Humidité : "
 
 #: src/weather-window_popup.c:954
 msgid " local time"
-msgstr ""
+msgstr " heure locale"
 
 #: src/weather-home_settings.c:915
 msgid "1 hour"
@@ -164,14 +161,12 @@ msgid "AM Drizzle / Wind"
 msgstr "Bruine matinale / Vent"
 
 #: src/weather-home_hash.c:18
-#, fuzzy
 msgid "AM Fog / PM Clouds"
-msgstr "Matin Nuageux / Après-midi soleil"
+msgstr "Brouillard le Matin / Après-midi nuageux"
 
 #: src/weather-home_hash.c:19
-#, fuzzy
 msgid "AM Fog / PM Sun"
-msgstr "Matin Nuageux / Après-midi soleil"
+msgstr "Matin Brouillard / Après-midi soleil"
 
 #: src/weather-home_hash.c:20
 msgid "AM Light Rain"
@@ -190,9 +185,8 @@ msgid "AM Light Wintry Mix"
 msgstr "Matin, Mix Hivernal léger"
 
 #: src/weather-home_hash.c:24
-#, fuzzy
 msgid "AM Rain"
-msgstr "Pluie aprés midi"
+msgstr "Pluie le matin"
 
 #: src/weather-home_hash.c:25
 msgid "AM Rain / Snow Showers"
@@ -223,7 +217,6 @@ msgid "Add Station"
 msgstr "Ajouter une station"
 
 #: src/weather-home_settings.c:1210
-#, fuzzy
 msgid ""
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
@@ -238,6 +231,8 @@ msgstr ""
 "Alexis Iglauer - pour les tests\n"
 "Eugene Roytenberg - pour les tests\n"
 "Jarek Szczepanski aka Imrahil - pour les tests\n"
+"Vladimir·Shakhov·aka·Mendoza·-·pour les tests·\n"
+"Marc·Dilon·-·pour l'ortographe et le style en anglais\n"
 
 #: src/weather-home_settings.c:1196
 msgid "Authors"
@@ -248,11 +243,12 @@ msgid ""
 "Automatically updating data\t\n"
 "after connect to the Internet:"
 msgstr ""
+"MàJ des données automatique\t\n"
+"après la connexion à internet :"
 
 #: src/weather-home_settings.c:778
-#, fuzzy
 msgid "Background color:"
-msgstr "Couleur de police:"
+msgstr "Couleur du fond :"
 
 #: src/weather-window_popup.c:513 src/weather-window_popup.c:528
 msgid "C"
@@ -326,14 +322,12 @@ msgid "Drizzle"
 msgstr "Bruine"
 
 #: src/weather-home_hash.c:36
-#, fuzzy
 msgid "Drizzle / Fog"
-msgstr "Bruine"
+msgstr "Bruine / Brouillard"
 
 #: src/weather-home_hash.c:37
-#, fuzzy
 msgid "Drizzle Late"
-msgstr "Bruine"
+msgstr "Bruine en soirée"
 
 #: src/weather-home_hash.c:38
 msgid "E"
@@ -416,16 +410,16 @@ msgid "Font color:"
 msgstr "Couleur de police:"
 
 #: src/weather-home_settings.c:1223
-#, fuzzy
 msgid ""
 "French - Nicolas Granziano\n"
 "Russian - Pavel Fialko, Vlad Vasiliev,\n"
 "\t    Ed Bartosh\n"
 "Finnish - Marko Vertainen\n"
 msgstr ""
-"Français - Nicolas Granziano\n"
+"Français - Nicolas Graziano\n"
 "Russe - Pavel Fialko, Vlad Vasiliev,\n"
 "\t    Ed Bartosh\n"
+"Finlandais·-·Marko·Vertainen\n"
 
 #: src/weather-home_hash.c:50
 msgid "Full"
@@ -436,9 +430,8 @@ msgid "Haze"
 msgstr "Légèrement Brumeux"
 
 #: src/weather-home_hash.c:52
-#, fuzzy
 msgid "Heavy Rain"
-msgstr "Grosse pluie / Vent"
+msgstr "Grosse pluie"
 
 #: src/weather-home_hash.c:53
 msgid "Heavy Rain / Wind"
@@ -449,9 +442,8 @@ msgid "Heavy Snow"
 msgstr "Forte Neige"
 
 #: src/weather-home_settings.c:824
-#, fuzzy
 msgid "Hide station name and arrows:"
-msgstr "Cacher le nom de la station et les flèches"
+msgstr "Cacher le nom de la station et les flèches :"
 
 #: src/weather-home_hash.c:55
 msgid "High"
@@ -486,14 +478,12 @@ msgid "Large"
 msgstr "Large"
 
 #: src/weather-window_popup.c:934
-#, fuzzy
 msgid "Last update at server: \n"
-msgstr "Dernière MàJ : \n"
+msgstr "Dernière MàJ au serveur : \n"
 
 #: src/weather-window_popup.c:946 src/weather-window_popup.c:950
-#, fuzzy
 msgid "Last update from server: \n"
-msgstr "Dernière MàJ : \n"
+msgstr "Dernière MàJ depuis le serveur : \n"
 
 #: src/weather-home_settings.c:719
 msgid "Layout:"
@@ -508,9 +498,8 @@ msgid "Light Rain"
 msgstr "Pluie légère"
 
 #: src/weather-home_hash.c:62
-#, fuzzy
 msgid "Light Rain / Fog"
-msgstr "Pluie légère / Vent"
+msgstr "Pluie légère / Brouillard"
 
 #: src/weather-home_hash.c:63
 msgid "Light Rain / Wind"
@@ -574,7 +563,7 @@ msgstr "Brume"
 
 #: src/weather-window_popup.c:896
 msgid "Moon: "
-msgstr ""
+msgstr "Lune : "
 
 #: src/weather-home_hash.c:71
 msgid "Mostly Clear"
@@ -585,9 +574,8 @@ msgid "Mostly Cloudy"
 msgstr "Plutôt Nuageux"
 
 #: src/weather-home_hash.c:74
-#, fuzzy
 msgid "Mostly Cloudy / Wind"
-msgstr "Nuageux et venteux"
+msgstr "Nuageux / vent"
 
 #: src/weather-home_hash.c:73
 msgid "Mostly Cloudy and Windy"
@@ -644,11 +632,12 @@ msgid "Not connected to Internet"
 msgstr "Non connecté à internet"
 
 #: src/weather-home_download.c:349
-#, fuzzy
 msgid ""
 "Not connected to Internet\n"
 "Connection time is expired"
-msgstr "Non connecté à internet"
+msgstr ""
+"Non connecté à internet\n"
+"Temps de connexion expiré"
 
 #: src/weather-home.c:319 src/weather-home.c:327 src/weather-home.c:337
 msgid "Now"
@@ -665,9 +654,8 @@ msgid "OK"
 msgstr "OK"
 
 #: src/weather-home.c:620
-#, fuzzy
 msgid "OMWeather settings"
-msgstr "Paramètrage de Other Maemo Weather"
+msgstr "Parametres de OMWeather"
 
 #: src/weather-home_settings.c:726
 msgid "One column"
@@ -742,9 +730,8 @@ msgid "Rain / Snow Showers Late"
 msgstr "Pluie / Averses de neige en fin de soirée"
 
 #: src/weather-home_hash.c:100
-#, fuzzy
 msgid "Rain / Thunder"
-msgstr "Pluie / Vent"
+msgstr "Pluie / Orages"
 
 #: src/weather-home_hash.c:104
 msgid "Rain / Wind"
@@ -828,7 +815,7 @@ msgstr "Paramètres"
 
 #: src/weather-home_settings.c:804
 msgid "Show only current weather on first icon:"
-msgstr ""
+msgstr "Afficher seulement la météo courante sur le premier icone :"
 
 #: src/weather-home_hash.c:114
 msgid "Showers"
@@ -887,9 +874,8 @@ msgid "Snow to Wintry Mix / Wind"
 msgstr "Neige vers mix Hivernal / Vent"
 
 #: src/weather-home_hash.c:120
-#, fuzzy
 msgid "Snows Showers / Wind Early"
-msgstr "Averse de neige / Vent"
+msgstr "Averse de neige / Vent en matinée"
 
 #: src/weather-home_settings.c:512
 msgid "State(Province):"
@@ -936,19 +922,16 @@ msgid "Sunset: "
 msgstr "Coucher du soleil : "
 
 #: src/weather-home_settings.c:814
-#, fuzzy
 msgid "Swap hi/low temperature:"
-msgstr "Inverser température haute/basse"
+msgstr "Inverser température haute/basse :"
 
 #: src/weather-home_hash.c:133
-#, fuzzy
 msgid "T-Storms"
-msgstr "Orage"
+msgstr "Orages"
 
 #: src/weather-home_hash.c:134
-#, fuzzy
 msgid "T-Storms Early"
-msgstr "Averses en matiné"
+msgstr "Orage en matiné"
 
 #: src/weather-home_settings.c:838
 msgid "Temperature units:"
@@ -964,16 +947,15 @@ msgstr "Remerciment"
 
 #: src/weather-home_hash.c:135
 msgid "Thunder"
-msgstr ""
+msgstr "Orage"
 
 #: src/weather-home_settings.c:1229
 msgid "Translators"
 msgstr "Traducteurs"
 
 #: src/weather-home_settings.c:792
-#, fuzzy
 msgid "Transparency:"
-msgstr "Transparence"
+msgstr "Transparence :"
 
 #: src/weather-home_settings.c:728
 msgid "Two columns"
@@ -1120,9 +1102,8 @@ msgid "every hour"
 msgstr "toutes les heures"
 
 #: src/weather-home_config.c:189
-#, fuzzy
 msgid "every minute (Debug)"
-msgstr "toutes les minutes (DEBUG)"
+msgstr "toutes les minutes (Debug)"
 
 #: src/weather-home_hash.c:42
 msgid "falling"

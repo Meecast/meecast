@@ -529,7 +529,9 @@ void weather_window_add_station(GtkWidget *widget,
     gtk_combo_box_set_row_span_column((GtkComboBox*)countrys, 0);
     gtk_combo_box_set_model((GtkComboBox*)countrys, (GtkTreeModel*)app->countrys_list);
 /* Set default value to country combo_box */
-    gtk_combo_box_set_active(GTK_COMBO_BOX(countrys), -1);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(countrys),
+				get_active_item_index((GtkTreeModel*)app->countrys_list,
+				    -1, app->config->current_country, TRUE));
 
     g_signal_connect((gpointer)countrys, "changed",
             		G_CALLBACK (changed_country), NULL);
@@ -950,8 +952,8 @@ void weather_window_settings(GtkWidget *widget,
     gtk_combo_box_set_model(GTK_COMBO_BOX(update_time),
 				(GtkTreeModel*)app->time_update_list);
     gtk_combo_box_set_active(GTK_COMBO_BOX(update_time),
-	    get_active_time_update((GtkTreeModel*)app->time_update_list,
-				    app->config->update_interval, NULL));
+	    get_active_item_index((GtkTreeModel*)app->time_update_list,
+				    app->config->update_interval, NULL, FALSE));
 #ifndef RELEASE
 /* Evetns list tab */
     memset(tmp_buff, 0, sizeof(tmp_buff));
@@ -1342,29 +1344,35 @@ void update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data){
     }
 }
 /*******************************************************************************/
-int get_active_time_update(GtkTreeModel *list, int time, const gchar *text){
+int get_active_item_index(GtkTreeModel *list, int time, const gchar *text,
+						gboolean use_index_as_result){
 
-    int		update_time = 0,
+    int		result = 0,
 		index = 0;
     gboolean	valid = FALSE;
     GtkTreeIter	iter;
     gchar	*str_data = NULL;
-    gint	int_data;
+    gint	int_data,
+		int_data1;
 
     valid = gtk_tree_model_get_iter_first((GtkTreeModel*)list, &iter);
     while(valid){
 	gtk_tree_model_get(list, &iter, 
                     	    0, &str_data,
-                    	    1, &int_data, -1);
+                    	    1, &int_data,
+			    2, &int_data1, -1);
 	if(text){ /* if parameter is string */
 	    if(!strcmp((char*)text, str_data)){
-		update_time = int_data;
+		if(use_index_as_result)
+		    result = index;
+		else
+		    result = int_data;
 		break;
 	    }
 	}
 	else{/* if parameter is int */
 	    if(time == int_data){
-		update_time = index;
+		result = index;
 		break;
 	    }
 	}
@@ -1374,7 +1382,7 @@ int get_active_time_update(GtkTreeModel *list, int time, const gchar *text){
     }
     if(str_data)
 	g_free(str_data);
-    return update_time;
+    return result;
 }
 /*******************************************************************************/
 void transparency_button_toggled_handler(GtkToggleButton *togglebutton,

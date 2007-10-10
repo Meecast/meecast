@@ -167,26 +167,26 @@ GtkListStore* create_time_update_list(void){
     GtkListStore	*list = NULL;
     GtkTreeIter         iter;
 
-    list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
+    list = gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT);
     
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("Never"), 1, 0, -1);
+    gtk_list_store_set(list, &iter, 0, _("Never"), 1, 0, 2, 0, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every 5 minutes"), 1, 5, -1);
+    gtk_list_store_set(list, &iter, 0, _("every 5 minutes"), 1, 5, 2, 0, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every 30 minutes"), 1, 30, -1);
+    gtk_list_store_set(list, &iter, 0, _("every 30 minutes"), 1, 30, 2, 0, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every hour"), 1, 60, -1);
+    gtk_list_store_set(list, &iter, 0, _("every hour"), 1, 60, 2, 0, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every 2 hours"), 1, 120, -1);
+    gtk_list_store_set(list, &iter, 0, _("every 2 hours"), 1, 120, 2, 0, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every 4 hours"), 1, 240, -1);
+    gtk_list_store_set(list, &iter, 0, _("every 4 hours"), 1, 240, 2, 0, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every 8 hours"), 1, 480, -1);
+    gtk_list_store_set(list, &iter, 0, _("every 8 hours"), 1, 480, 2, 0, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every 24 hours"), 1, 1440, -1);
+    gtk_list_store_set(list, &iter, 0, _("every 24 hours"), 1, 1440, 2, 0, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every minute (Debug)"), 1, 1, -1);
+    gtk_list_store_set(list, &iter, 0, _("every minute (Debug)"), 1, 1, 2, 0, -1);
 
     return list;
 }

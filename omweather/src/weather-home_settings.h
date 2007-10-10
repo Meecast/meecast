@@ -80,7 +80,8 @@ int create_icon_set_list(GtkWidget *store); /* scan /usr/share/weather/icons */
 void create_help_dialog(void);	/* create help dialog */
 GtkWidget* create_scrolled_window_with_text(const char* text,
 					    GtkJustification justification);
-int get_active_time_update(GtkTreeModel *list, int time, const gchar *text);
+int get_active_item_index(GtkTreeModel *list, int time, const gchar *text,
+					    gboolean use_index_as_result);
 void update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data);
 void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
                                             gpointer user_data);

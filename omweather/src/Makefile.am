@@ -48,6 +48,7 @@ libweather_home_la_CFLAGS = $(GTK_CFLAGS) $(OSSO_CFLAGS) $(LIBXML2_CFLAGS) $(GNO
 libweather_home_la_LDFLAGS = -module -avoid-version 
 libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCONF_LIBS) $(LIBCURL_LIBS) $(CONIC_LIBS) -losso-ic
 
+
 clean-local:
 	$(RM) *.core core core.* stamp-*.h *~
 

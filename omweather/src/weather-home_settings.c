@@ -531,7 +531,7 @@ void weather_window_add_station(GtkWidget *widget,
 				get_active_item_index((GtkTreeModel*)app->countrys_list,
 				    -1, app->config->current_country, TRUE));
     changed_country();
-    
+    changed_state();
     g_signal_connect((gpointer)countrys, "changed",
             		G_CALLBACK (changed_country), NULL);
     g_signal_connect((gpointer)states, "changed",

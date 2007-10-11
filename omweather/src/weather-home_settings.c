@@ -498,7 +498,7 @@ void weather_window_add_station(GtkWidget *widget,
     gtk_dialog_add_button(GTK_DIALOG(window_add_station),
         			_("OK"), GTK_RESPONSE_ACCEPT);
     gtk_dialog_add_button(GTK_DIALOG(window_add_station),
-        			_("Cancel"), GTK_RESPONSE_REJECT);
+        			_("Cancel"), GTK_RESPONSE_REJECT);				
 /* Add Country */
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(_("Country:")),
@@ -514,7 +514,7 @@ void weather_window_add_station(GtkWidget *widget,
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
         			1, 2, 2, 3);
-  gtk_container_add(GTK_CONTAINER(label),states = gtk_combo_box_new_text());
+    gtk_container_add(GTK_CONTAINER(label),states = gtk_combo_box_new_text());
 /* Add Station */
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(_("Station(Place):")),
@@ -523,9 +523,7 @@ void weather_window_add_station(GtkWidget *widget,
         			label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f) ,
         			1, 2, 3, 4);
     gtk_container_add(GTK_CONTAINER(label),stations = gtk_combo_box_new_text());
- 
     gtk_widget_show_all(window_add_station);
-
     gtk_combo_box_set_row_span_column((GtkComboBox*)countrys, 0);
     gtk_combo_box_set_model((GtkComboBox*)countrys, (GtkTreeModel*)app->countrys_list);
 /* Set default value to country combo_box */
@@ -533,7 +531,7 @@ void weather_window_add_station(GtkWidget *widget,
 				get_active_item_index((GtkTreeModel*)app->countrys_list,
 				    -1, app->config->current_country, TRUE));
     changed_country();
-
+    
     g_signal_connect((gpointer)countrys, "changed",
             		G_CALLBACK (changed_country), NULL);
     g_signal_connect((gpointer)states, "changed",
@@ -1378,6 +1376,7 @@ int get_active_item_index(GtkTreeModel *list, int time, const gchar *text,
 	    }
 	}
 	g_free(str_data);
+	str_data = NULL;
 	index++;
 	valid = gtk_tree_model_iter_next(list, &iter);
     }

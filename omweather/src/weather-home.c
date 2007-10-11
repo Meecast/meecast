@@ -520,6 +520,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     }
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
+    app->countrys_list = NULL;
     app->countrys_list = create_items_list(COUNTRYSFILE, -1, -1, NULL);
 /* Start timer */
 /*    timer(6000); */ /* One per secund */

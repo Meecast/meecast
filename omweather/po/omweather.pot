@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-12 18:16+0300\n"
+"POT-Creation-Date: 2007-10-12 18:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -672,26 +672,34 @@ msgid "Rain / Snow"
 msgstr ""
 
 #: src/weather-home_hash.c:99
-msgid "Rain / Snow Showers"
-msgstr ""
-
-#: src/weather-home_hash.c:100
-msgid "Rain / Snow Showers / Wind"
+msgid "Rain / Snow / Wind"
 msgstr ""
 
 #: src/weather-home_hash.c:98
-msgid "Rain / Snow Showers Late"
+msgid "Rain / Snow Early"
 msgstr ""
 
 #: src/weather-home_hash.c:101
+msgid "Rain / Snow Showers"
+msgstr ""
+
+#: src/weather-home_hash.c:102
+msgid "Rain / Snow Showers / Wind"
+msgstr ""
+
+#: src/weather-home_hash.c:100
+msgid "Rain / Snow Showers Late"
+msgstr ""
+
+#: src/weather-home_hash.c:103
 msgid "Rain / Thunder"
 msgstr ""
 
-#: src/weather-home_hash.c:105
+#: src/weather-home_hash.c:107
 msgid "Rain / Wind"
 msgstr ""
 
-#: src/weather-home_hash.c:104
+#: src/weather-home_hash.c:106
 msgid "Rain / Wind Early"
 msgstr ""
 
@@ -711,11 +719,11 @@ msgstr ""
 msgid "Rain and Snow"
 msgstr ""
 
-#: src/weather-home_hash.c:102
+#: src/weather-home_hash.c:104
 msgid "Rain to Wintry Mix"
 msgstr ""
 
-#: src/weather-home_hash.c:103
+#: src/weather-home_hash.c:105
 msgid "Rain to Wintry Mix / Wind"
 msgstr ""
 
@@ -727,39 +735,39 @@ msgstr ""
 msgid "Rename Station"
 msgstr ""
 
-#: src/weather-home_hash.c:126
+#: src/weather-home_hash.c:128
 msgid "S"
 msgstr ""
 
-#: src/weather-home_hash.c:111
+#: src/weather-home_hash.c:113
 msgid "SE"
 msgstr ""
 
-#: src/weather-home_hash.c:127
+#: src/weather-home_hash.c:129
 msgid "SSE"
 msgstr ""
 
-#: src/weather-home_hash.c:128
+#: src/weather-home_hash.c:130
 msgid "SSW"
 msgstr ""
 
-#: src/weather-home_hash.c:133
+#: src/weather-home_hash.c:135
 msgid "SW"
 msgstr ""
 
-#: src/weather-home_hash.c:107
+#: src/weather-home_hash.c:109
 msgid "Scattered Showers"
 msgstr ""
 
-#: src/weather-home_hash.c:108
+#: src/weather-home_hash.c:110
 msgid "Scattered Snow"
 msgstr ""
 
-#: src/weather-home_hash.c:109
+#: src/weather-home_hash.c:111
 msgid "Scattered Snow Showers"
 msgstr ""
 
-#: src/weather-home_hash.c:110
+#: src/weather-home_hash.c:112
 msgid "Scattered T-Storms"
 msgstr ""
 
@@ -771,23 +779,23 @@ msgstr ""
 msgid "Show only current weather on first icon:"
 msgstr ""
 
-#: src/weather-home_hash.c:115
+#: src/weather-home_hash.c:117
 msgid "Showers"
 msgstr ""
 
-#: src/weather-home_hash.c:116
+#: src/weather-home_hash.c:118
 msgid "Showers / Wind"
 msgstr ""
 
-#: src/weather-home_hash.c:112
+#: src/weather-home_hash.c:114
 msgid "Showers Early"
 msgstr ""
 
-#: src/weather-home_hash.c:114
+#: src/weather-home_hash.c:116
 msgid "Showers Late"
 msgstr ""
 
-#: src/weather-home_hash.c:113
+#: src/weather-home_hash.c:115
 msgid "Showers in the Vicinity"
 msgstr ""
 
@@ -795,39 +803,39 @@ msgstr ""
 msgid "Small"
 msgstr ""
 
-#: src/weather-home_hash.c:117
+#: src/weather-home_hash.c:119
 msgid "Smoke"
 msgstr ""
 
-#: src/weather-home_hash.c:122
+#: src/weather-home_hash.c:124
 msgid "Snow"
 msgstr ""
 
-#: src/weather-home_hash.c:119
+#: src/weather-home_hash.c:121
 msgid "Snow Shower"
 msgstr ""
 
-#: src/weather-home_hash.c:120
+#: src/weather-home_hash.c:122
 msgid "Snow Shower / Wind"
 msgstr ""
 
-#: src/weather-home_hash.c:118
+#: src/weather-home_hash.c:120
 msgid "Snow Showers Late"
 msgstr ""
 
-#: src/weather-home_hash.c:123
+#: src/weather-home_hash.c:125
 msgid "Snow to Rain"
 msgstr ""
 
-#: src/weather-home_hash.c:124
+#: src/weather-home_hash.c:126
 msgid "Snow to Wintry Mix"
 msgstr ""
 
-#: src/weather-home_hash.c:125
+#: src/weather-home_hash.c:127
 msgid "Snow to Wintry Mix / Wind"
 msgstr ""
 
-#: src/weather-home_hash.c:121
+#: src/weather-home_hash.c:123
 msgid "Snows Showers / Wind Early"
 msgstr ""
 
@@ -853,15 +861,15 @@ msgstr ""
 msgid "Station:"
 msgstr ""
 
-#: src/weather-home_hash.c:130
+#: src/weather-home_hash.c:132
 msgid "Storm"
 msgstr ""
 
-#: src/weather-home_hash.c:131
+#: src/weather-home_hash.c:133
 msgid "Sunny"
 msgstr ""
 
-#: src/weather-home_hash.c:132
+#: src/weather-home_hash.c:134
 msgid "Sunny / Wind"
 msgstr ""
 
@@ -877,11 +885,11 @@ msgstr ""
 msgid "Swap hi/low temperature:"
 msgstr ""
 
-#: src/weather-home_hash.c:134
+#: src/weather-home_hash.c:136
 msgid "T-Storms"
 msgstr ""
 
-#: src/weather-home_hash.c:135
+#: src/weather-home_hash.c:137
 msgid "T-Storms Early"
 msgstr ""
 
@@ -897,7 +905,7 @@ msgstr ""
 msgid "Thanks"
 msgstr ""
 
-#: src/weather-home_hash.c:136
+#: src/weather-home_hash.c:138
 msgid "Thunder"
 msgstr ""
 
@@ -925,7 +933,7 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: src/weather-home_hash.c:137
+#: src/weather-home_hash.c:139
 msgid "Unlimited"
 msgstr ""
 
@@ -947,7 +955,7 @@ msgid ""
 "for tuning images of applet"
 msgstr ""
 
-#: src/weather-home_hash.c:149
+#: src/weather-home_hash.c:151
 msgid "VAR"
 msgstr ""
 
@@ -959,27 +967,27 @@ msgstr ""
 msgid "Visible items:"
 msgstr ""
 
-#: src/weather-home_hash.c:148
+#: src/weather-home_hash.c:150
 msgid "W"
 msgstr ""
 
-#: src/weather-home_hash.c:146
+#: src/weather-home_hash.c:148
 msgid "WNW"
 msgstr ""
 
-#: src/weather-home_hash.c:147
+#: src/weather-home_hash.c:149
 msgid "WSW"
 msgstr ""
 
-#: src/weather-home_hash.c:138
+#: src/weather-home_hash.c:140
 msgid "Waning Crescent"
 msgstr ""
 
-#: src/weather-home_hash.c:139
+#: src/weather-home_hash.c:141
 msgid "Waning Gibbous"
 msgstr ""
 
-#: src/weather-home_hash.c:140
+#: src/weather-home_hash.c:142
 msgid "Waxing Crescent"
 msgstr ""
 
@@ -987,7 +995,7 @@ msgstr ""
 msgid "Weather updated"
 msgstr ""
 
-#: src/weather-home_hash.c:141
+#: src/weather-home_hash.c:143
 msgid "Wind"
 msgstr ""
 
@@ -999,19 +1007,19 @@ msgstr ""
 msgid "Wind: "
 msgstr ""
 
-#: src/weather-home_hash.c:145
+#: src/weather-home_hash.c:147
 msgid "Wintry Mix"
 msgstr ""
 
-#: src/weather-home_hash.c:144
+#: src/weather-home_hash.c:146
 msgid "Wintry Mix / Wind"
 msgstr ""
 
-#: src/weather-home_hash.c:143
+#: src/weather-home_hash.c:145
 msgid "Wintry Mix / Wind Early"
 msgstr ""
 
-#: src/weather-home_hash.c:142
+#: src/weather-home_hash.c:144
 msgid "Wintry Mix to Snow"
 msgstr ""
 
@@ -1097,10 +1105,10 @@ msgstr ""
 msgid "mi/s"
 msgstr ""
 
-#: src/weather-home_hash.c:106
+#: src/weather-home_hash.c:108
 msgid "rising"
 msgstr ""
 
-#: src/weather-home_hash.c:129
+#: src/weather-home_hash.c:131
 msgid "steady"
 msgstr ""

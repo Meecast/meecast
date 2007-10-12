@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.18\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-12 18:16+0300\n"
+"POT-Creation-Date: 2007-10-12 18:23+0300\n"
 "PO-Revision-Date: 2007-10-07 22:04+0200\n"
 "Last-Translator: Nicolas GRAZIANO <nicolas.graziano@gmail.com>\n"
 "Language-Team: French\n"
@@ -719,26 +719,36 @@ msgid "Rain / Snow"
 msgstr "Pluie / Neige"
 
 #: src/weather-home_hash.c:99
-msgid "Rain / Snow Showers"
-msgstr "Pluie / Averses de neige"
-
-#: src/weather-home_hash.c:100
-msgid "Rain / Snow Showers / Wind"
+#, fuzzy
+msgid "Rain / Snow / Wind"
 msgstr "Pluie / Averses de neige / Vent"
 
 #: src/weather-home_hash.c:98
+#, fuzzy
+msgid "Rain / Snow Early"
+msgstr "Pluie / Vent en matinée"
+
+#: src/weather-home_hash.c:101
+msgid "Rain / Snow Showers"
+msgstr "Pluie / Averses de neige"
+
+#: src/weather-home_hash.c:102
+msgid "Rain / Snow Showers / Wind"
+msgstr "Pluie / Averses de neige / Vent"
+
+#: src/weather-home_hash.c:100
 msgid "Rain / Snow Showers Late"
 msgstr "Pluie / Averses de neige en fin de soirée"
 
-#: src/weather-home_hash.c:101
+#: src/weather-home_hash.c:103
 msgid "Rain / Thunder"
 msgstr "Pluie / Orages"
 
-#: src/weather-home_hash.c:105
+#: src/weather-home_hash.c:107
 msgid "Rain / Wind"
 msgstr "Pluie / Vent"
 
-#: src/weather-home_hash.c:104
+#: src/weather-home_hash.c:106
 msgid "Rain / Wind Early"
 msgstr "Pluie / Vent en matinée"
 
@@ -758,11 +768,11 @@ msgstr "Averses et vent"
 msgid "Rain and Snow"
 msgstr "Pluie et vent"
 
-#: src/weather-home_hash.c:102
+#: src/weather-home_hash.c:104
 msgid "Rain to Wintry Mix"
 msgstr "pluie vers mix hivernal"
 
-#: src/weather-home_hash.c:103
+#: src/weather-home_hash.c:105
 msgid "Rain to Wintry Mix / Wind"
 msgstr "pluie vers mix hivernal / vent"
 
@@ -774,39 +784,39 @@ msgstr "Renommer"
 msgid "Rename Station"
 msgstr "Renommer la station"
 
-#: src/weather-home_hash.c:126
+#: src/weather-home_hash.c:128
 msgid "S"
 msgstr "S"
 
-#: src/weather-home_hash.c:111
+#: src/weather-home_hash.c:113
 msgid "SE"
 msgstr "SE"
 
-#: src/weather-home_hash.c:127
+#: src/weather-home_hash.c:129
 msgid "SSE"
 msgstr "SSE"
 
-#: src/weather-home_hash.c:128
+#: src/weather-home_hash.c:130
 msgid "SSW"
 msgstr "SSO"
 
-#: src/weather-home_hash.c:133
+#: src/weather-home_hash.c:135
 msgid "SW"
 msgstr "SO"
 
-#: src/weather-home_hash.c:107
+#: src/weather-home_hash.c:109
 msgid "Scattered Showers"
 msgstr "Quelques averses"
 
-#: src/weather-home_hash.c:108
+#: src/weather-home_hash.c:110
 msgid "Scattered Snow"
 msgstr "Faible neiges"
 
-#: src/weather-home_hash.c:109
+#: src/weather-home_hash.c:111
 msgid "Scattered Snow Showers"
 msgstr "Quelques averses de neige"
 
-#: src/weather-home_hash.c:110
+#: src/weather-home_hash.c:112
 msgid "Scattered T-Storms"
 msgstr "Quelques orages"
 
@@ -818,23 +828,23 @@ msgstr "Paramètres"
 msgid "Show only current weather on first icon:"
 msgstr "Afficher seulement la météo courante sur le premier icone :"
 
-#: src/weather-home_hash.c:115
+#: src/weather-home_hash.c:117
 msgid "Showers"
 msgstr "Averses"
 
-#: src/weather-home_hash.c:116
+#: src/weather-home_hash.c:118
 msgid "Showers / Wind"
 msgstr "Averses / Vent"
 
-#: src/weather-home_hash.c:112
+#: src/weather-home_hash.c:114
 msgid "Showers Early"
 msgstr "Averses en matiné"
 
-#: src/weather-home_hash.c:114
+#: src/weather-home_hash.c:116
 msgid "Showers Late"
 msgstr "Averse en soiré"
 
-#: src/weather-home_hash.c:113
+#: src/weather-home_hash.c:115
 msgid "Showers in the Vicinity"
 msgstr "Averses à proximité"
 
@@ -842,39 +852,39 @@ msgstr "Averses à proximité"
 msgid "Small"
 msgstr "Petit"
 
-#: src/weather-home_hash.c:117
+#: src/weather-home_hash.c:119
 msgid "Smoke"
 msgstr "Fumée"
 
-#: src/weather-home_hash.c:122
+#: src/weather-home_hash.c:124
 msgid "Snow"
 msgstr "Neige"
 
-#: src/weather-home_hash.c:119
+#: src/weather-home_hash.c:121
 msgid "Snow Shower"
 msgstr "Averse de neige"
 
-#: src/weather-home_hash.c:120
+#: src/weather-home_hash.c:122
 msgid "Snow Shower / Wind"
 msgstr "Averse de neige / Vent"
 
-#: src/weather-home_hash.c:118
+#: src/weather-home_hash.c:120
 msgid "Snow Showers Late"
 msgstr "Averse de neige en soirée"
 
-#: src/weather-home_hash.c:123
+#: src/weather-home_hash.c:125
 msgid "Snow to Rain"
 msgstr "Neige vers pluie"
 
-#: src/weather-home_hash.c:124
+#: src/weather-home_hash.c:126
 msgid "Snow to Wintry Mix"
 msgstr "Neige vers mix Hivernal"
 
-#: src/weather-home_hash.c:125
+#: src/weather-home_hash.c:127
 msgid "Snow to Wintry Mix / Wind"
 msgstr "Neige vers mix Hivernal / Vent"
 
-#: src/weather-home_hash.c:121
+#: src/weather-home_hash.c:123
 msgid "Snows Showers / Wind Early"
 msgstr "Averse de neige / Vent en matinée"
 
@@ -902,15 +912,15 @@ msgstr "Station (lieux):"
 msgid "Station:"
 msgstr "Station:"
 
-#: src/weather-home_hash.c:130
+#: src/weather-home_hash.c:132
 msgid "Storm"
 msgstr "Orage"
 
-#: src/weather-home_hash.c:131
+#: src/weather-home_hash.c:133
 msgid "Sunny"
 msgstr "Ensoleillé"
 
-#: src/weather-home_hash.c:132
+#: src/weather-home_hash.c:134
 msgid "Sunny / Wind"
 msgstr "Ensoleillé / Vent"
 
@@ -926,11 +936,11 @@ msgstr "Coucher du soleil : "
 msgid "Swap hi/low temperature:"
 msgstr "Inverser température haute/basse :"
 
-#: src/weather-home_hash.c:134
+#: src/weather-home_hash.c:136
 msgid "T-Storms"
 msgstr "Orages"
 
-#: src/weather-home_hash.c:135
+#: src/weather-home_hash.c:137
 msgid "T-Storms Early"
 msgstr "Orage en matiné"
 
@@ -946,7 +956,7 @@ msgstr "Température :"
 msgid "Thanks"
 msgstr "Remerciment"
 
-#: src/weather-home_hash.c:136
+#: src/weather-home_hash.c:138
 msgid "Thunder"
 msgstr "Orage"
 
@@ -974,7 +984,7 @@ msgstr "Unitées"
 msgid "Unknown"
 msgstr "Inconnu"
 
-#: src/weather-home_hash.c:137
+#: src/weather-home_hash.c:139
 msgid "Unlimited"
 msgstr "Infini"
 
@@ -998,7 +1008,7 @@ msgstr ""
 "Utiliser Modifier la mise en page \n"
 "pour ajuster l'image de l'applet"
 
-#: src/weather-home_hash.c:149
+#: src/weather-home_hash.c:151
 msgid "VAR"
 msgstr "VAR"
 
@@ -1010,27 +1020,27 @@ msgstr "Durée de validitée pour la météo courante :"
 msgid "Visible items:"
 msgstr "Éléments visibles :"
 
-#: src/weather-home_hash.c:148
+#: src/weather-home_hash.c:150
 msgid "W"
 msgstr "O"
 
-#: src/weather-home_hash.c:146
+#: src/weather-home_hash.c:148
 msgid "WNW"
 msgstr "ONO"
 
-#: src/weather-home_hash.c:147
+#: src/weather-home_hash.c:149
 msgid "WSW"
 msgstr "OSO"
 
-#: src/weather-home_hash.c:138
+#: src/weather-home_hash.c:140
 msgid "Waning Crescent"
 msgstr "Premier croissant"
 
-#: src/weather-home_hash.c:139
+#: src/weather-home_hash.c:141
 msgid "Waning Gibbous"
 msgstr "Premier quartier"
 
-#: src/weather-home_hash.c:140
+#: src/weather-home_hash.c:142
 msgid "Waxing Crescent"
 msgstr "Dernier croissant"
 
@@ -1038,7 +1048,7 @@ msgstr "Dernier croissant"
 msgid "Weather updated"
 msgstr "Météo MàJ"
 
-#: src/weather-home_hash.c:141
+#: src/weather-home_hash.c:143
 msgid "Wind"
 msgstr "Vent"
 
@@ -1050,19 +1060,19 @@ msgstr "Unité de vitesse :"
 msgid "Wind: "
 msgstr "Vent :"
 
-#: src/weather-home_hash.c:145
+#: src/weather-home_hash.c:147
 msgid "Wintry Mix"
 msgstr "Mix Hivernal"
 
-#: src/weather-home_hash.c:144
+#: src/weather-home_hash.c:146
 msgid "Wintry Mix / Wind"
 msgstr "Mix hivernal / vent"
 
-#: src/weather-home_hash.c:143
+#: src/weather-home_hash.c:145
 msgid "Wintry Mix / Wind Early"
 msgstr "Mix hivernal / vent en matiné"
 
-#: src/weather-home_hash.c:142
+#: src/weather-home_hash.c:144
 msgid "Wintry Mix to Snow"
 msgstr "Mix hivernal vers neige"
 
@@ -1150,11 +1160,11 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: src/weather-home_hash.c:106
+#: src/weather-home_hash.c:108
 msgid "rising"
 msgstr "montant"
 
-#: src/weather-home_hash.c:129
+#: src/weather-home_hash.c:131
 msgid "steady"
 msgstr "stable"
 

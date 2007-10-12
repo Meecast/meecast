@@ -75,6 +75,7 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Mostly Sunny", _("Mostly Sunny"));
     g_hash_table_insert(hash, "N/A", _("N/A"));
     g_hash_table_insert(hash, "NE", _("NE"));
+    g_hash_table_insert(hash, "New", _("New"));
     g_hash_table_insert(hash, "N", _("N"));
     g_hash_table_insert(hash, "NNE", _("NNE"));
     g_hash_table_insert(hash, "NNW", _("NNW"));

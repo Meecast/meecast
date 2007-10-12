@@ -467,11 +467,11 @@ msgstr "Интерфейс"
 
 #: src/weather-home_hash.c:56
 msgid "Isolated T-Storms"
-msgstr "Отдельные грозы"
+msgstr "Местами грозы"
 
 #: src/weather-home_hash.c:57
 msgid "Isolated T-Storms / Wind"
-msgstr "Отдельные грозы / Ветер"
+msgstr "Местами грозы / Ветер"
 
 #: src/weather-home_settings.c:860
 msgid "Kilometers"
@@ -519,7 +519,7 @@ msgstr "Небольшой дождь позже"
 
 #: src/weather-home_hash.c:66
 msgid "Light Rain Shower"
-msgstr "Легкий ливневой дождь"
+msgstr "Небольшой ливень"
 
 #: src/weather-home_hash.c:60
 msgid "Light Rain and Shower"
@@ -640,8 +640,8 @@ msgid ""
 "Not connected to Internet\n"
 "Connection time is expired"
 msgstr ""
-"Нет соединения с интернетом\n"
-"Превышено время ожидания"
+"Нет соединения с Интернет\n"
+"Время соединения истекло"
 
 #: src/weather-home.c:319 src/weather-home.c:327 src/weather-home.c:337
 msgid "Now"
@@ -735,7 +735,7 @@ msgstr "Дождь / Позже мокрый снег"
 
 #: src/weather-home_hash.c:100
 msgid "Rain / Thunder"
-msgstr "Дождь / Гроза"
+msgstr "Дождь / Гром"
 
 #: src/weather-home_hash.c:104
 msgid "Rain / Wind"
@@ -799,15 +799,15 @@ msgstr "юго-западный"
 
 #: src/weather-home_hash.c:106
 msgid "Scattered Showers"
-msgstr "Редкие ливни"
+msgstr "Местами ливни"
 
 #: src/weather-home_hash.c:107
 msgid "Scattered Snow"
-msgstr "Редкий снег"
+msgstr "Местами снег"
 
 #: src/weather-home_hash.c:108
 msgid "Scattered Snow Showers"
-msgstr "Редкий мокрый снег"
+msgstr "Местами мокрый снег"
 
 #: src/weather-home_hash.c:109
 msgid "Scattered T-Storms"
@@ -951,11 +951,11 @@ msgstr "Благодарности"
 
 #: src/weather-home_hash.c:135
 msgid "Thunder"
-msgstr "Гроза"
+msgstr "Гром"
 
 #: src/weather-home_settings.c:1229
 msgid "Translators"
-msgstr "Перевод"
+msgstr "Переводчики"
 
 #: src/weather-home_settings.c:792
 msgid "Transparency:"
@@ -1075,8 +1075,8 @@ msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
 msgstr ""
-"Ошибка в коде станции\n"
-"или индексе!!!"
+"Неправильный код станции\n"
+"или индекс!!!"
 
 #: src/weather-home_config.c:181
 msgid "every 2 hours"

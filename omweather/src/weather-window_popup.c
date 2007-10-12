@@ -893,7 +893,7 @@ GtkWidget* create_moon_phase_widget(void){
        fprintf(stderr, "Begin %s(): \n", __PRETTY_FUNCTION__);
     #endif
     memset(buffer, 0, sizeof(buffer));
-    snprintf(buffer, sizeof(buffer) - 1, "%s", _("Moon: "));
+/*    snprintf(buffer, sizeof(buffer) - 1, "%s", _("Moon: "));*/
     snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 			"%s",
 			(char*)hash_table_find((gpointer)app->weather_current_day.day.moon));
@@ -904,7 +904,8 @@ GtkWidget* create_moon_phase_widget(void){
     main_widget = gtk_hbox_new(FALSE, 10);
 
 /* Moon icon */
-    sprintf(icon, "%s%d.png", MOON_ICONS, app->weather_current_day.day.moon_icon);
+/*    sprintf(icon, "%s%d.png", MOON_ICONS, app->weather_current_day.day.moon_icon);*/
+    sprintf(icon, "%s31.png", path_large_icon);
     icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, 64, 64, NULL);
     if(icon_buffer){
 	icon_image = gtk_image_new_from_pixbuf(icon_buffer);

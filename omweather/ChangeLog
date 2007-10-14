@@ -11,8 +11,8 @@
   * Postinstall script in deb packet: It provide warning message for rebooting the device after installing applet
   * The code that forming list of countrys, regions and locations is fully rewritten
   * Now if country have one region, it selected automatically
-  * Fix error: while read config, if upate interval is greater than 8 hours, then update interval always set to 'never'
-  * Fix error: after applet first start or after reboot the field 'Next update' is always never
+  * Fixed error: while read config, if upate interval is greater than 8 hours, then update interval always set to 'never'
+  * Fixed error: after applet first start or after reboot the field 'Next update' is always never
   * The use libconic instead ooss-ic for version of OS2007
   * Long pressing on the applet have to call pop up menus with the list of cities for change of current city
   * Opportunity to change background color has been made
@@ -23,6 +23,7 @@
   * Added check for empty station code while adding custom station
   * Finish translation has been added
   * France and Russian translation has been updated
+
 
 0.18.5
   * The problem not correct saving of intervals of updating has been solved

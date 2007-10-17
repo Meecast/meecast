@@ -1,8 +1,8 @@
 omweather (0.19.1) unstable; urgency=low
 
-  * Time of "Last update at server:" has been corrected
+  * Time of 'Last update at server:' has been corrected
  
-  -- Vlad Vasiliev <vlad@gas.by>  Nov, 4 Oct 2007 13:11:00 +0200 
+  -- Vlad Vasiliev <vlad@gas.by>  Sun, 4 Nov 2007 13:11:00 +0200 
 
 omweather (0.19) unstable; urgency=low
 

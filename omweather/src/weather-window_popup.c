@@ -929,11 +929,11 @@ GtkWidget* create_time_updates_widget(void){
     struct stat	statv;
     time_t	tmp_time = 0;
 
-    tmp_time = app->weather_current_day.date_time + 3600;
+    tmp_time = app->weather_current_day.date_time;
     
     memset(buffer, 0, sizeof(buffer));
     snprintf(buffer, sizeof(buffer) - 1, "%s", _("Last update at server: \n"));
-    if(tmp_time <= 3600)	/* if weather data for station wasn't download */
+    if(tmp_time <= 0)	/* if weather data for station wasn't download */
 	strcat(buffer, _("Unknown"));
     else
 	strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,

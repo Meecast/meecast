@@ -826,7 +826,7 @@ msgstr "Paramètres"
 
 #: src/weather-home_settings.c:807
 msgid "Show only current weather on first icon:"
-msgstr "Afficher seulement la météo courante sur le premier icone :"
+msgstr "Météo courante uniquement sur le premier icone :"
 
 #: src/weather-home_hash.c:117
 msgid "Showers"
@@ -1014,7 +1014,8 @@ msgstr "VAR"
 
 #: src/weather-home_settings.c:912
 msgid "Valid time for current weather:"
-msgstr "Durée de validitée pour la météo courante :"
+msgstr "Durée de validitée \n"
+"pour la météo courante :"
 
 #: src/weather-home_settings.c:688
 msgid "Visible items:"

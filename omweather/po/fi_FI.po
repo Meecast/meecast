@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-12 18:23+0300\n"
+"POT-Creation-Date: 2007-10-20 12:11+0300\n"
 "PO-Revision-Date: 2007-10-08 21:02+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -1014,7 +1014,7 @@ msgstr ""
 "Muokkaa asettelua, \n"
 "sovelman koon muuttamiseksi."
 
-#: src/weather-home_hash.c:151
+#: src/weather-home_hash.c:152
 msgid "VAR"
 msgstr "Vaihteleva"
 
@@ -1026,15 +1026,15 @@ msgstr "Nykyisen sään voimassaolo:"
 msgid "Visible items:"
 msgstr "Näkyvät elementit:"
 
-#: src/weather-home_hash.c:150
+#: src/weather-home_hash.c:151
 msgid "W"
 msgstr "Lännestä"
 
-#: src/weather-home_hash.c:148
+#: src/weather-home_hash.c:149
 msgid "WNW"
 msgstr "Länsiluoteesta"
 
-#: src/weather-home_hash.c:149
+#: src/weather-home_hash.c:150
 msgid "WSW"
 msgstr "Länsilounaasta"
 
@@ -1050,11 +1050,16 @@ msgstr "Suureneva puolikuu"
 msgid "Waxing Crescent"
 msgstr "Suureneva kuunsirppi"
 
+#: src/weather-home_hash.c:143
+#, fuzzy
+msgid "Waxing Gibbous"
+msgstr "Suureneva puolikuu"
+
 #: src/weather-home_download.c:432
 msgid "Weather updated"
 msgstr "Säätiedot päivitetty."
 
-#: src/weather-home_hash.c:143
+#: src/weather-home_hash.c:144
 msgid "Wind"
 msgstr "Tuulista"
 
@@ -1066,19 +1071,19 @@ msgstr "Tuulen nopeuden yksikkö:"
 msgid "Wind: "
 msgstr "Tuuli:"
 
-#: src/weather-home_hash.c:147
+#: src/weather-home_hash.c:148
 msgid "Wintry Mix"
 msgstr "Räntäsadetta"
 
-#: src/weather-home_hash.c:146
+#: src/weather-home_hash.c:147
 msgid "Wintry Mix / Wind"
 msgstr "Räntäsadetta / Tuulista"
 
-#: src/weather-home_hash.c:145
+#: src/weather-home_hash.c:146
 msgid "Wintry Mix / Wind Early"
 msgstr "Räntäsadetta / Aiemmin tuulista"
 
-#: src/weather-home_hash.c:144
+#: src/weather-home_hash.c:145
 msgid "Wintry Mix to Snow"
 msgstr "Räntäsateesta lumisateeseen"
 

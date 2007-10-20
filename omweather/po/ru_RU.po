@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-12 18:23+0300\n"
+"POT-Creation-Date: 2007-10-20 12:11+0300\n"
 "PO-Revision-Date: 2007-07-12 12:35+0300\n"
 "Last-Translator: Vlad Vasiliev <vlad@gas.by>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -1010,7 +1010,7 @@ msgstr ""
 "'Редактировать компоновку' \n"
 "для настройки изображения апплета."
 
-#: src/weather-home_hash.c:151
+#: src/weather-home_hash.c:152
 msgid "VAR"
 msgstr "Переменный"
 
@@ -1022,15 +1022,15 @@ msgstr "Актуальность текущей погоды:"
 msgid "Visible items:"
 msgstr "Количество элементов:"
 
-#: src/weather-home_hash.c:150
+#: src/weather-home_hash.c:151
 msgid "W"
 msgstr "западный"
 
-#: src/weather-home_hash.c:148
+#: src/weather-home_hash.c:149
 msgid "WNW"
 msgstr "западно-северо-западный"
 
-#: src/weather-home_hash.c:149
+#: src/weather-home_hash.c:150
 msgid "WSW"
 msgstr "западно-юго-западный"
 
@@ -1046,11 +1046,15 @@ msgstr "Убывающая"
 msgid "Waxing Crescent"
 msgstr "Растущая"
 
+#: src/weather-home_hash.c:143
+msgid "Waxing Gibbous"
+msgstr "Waxing Gibbous"
+
 #: src/weather-home_download.c:432
 msgid "Weather updated"
 msgstr "Данные о погоде обновлены."
 
-#: src/weather-home_hash.c:143
+#: src/weather-home_hash.c:144
 msgid "Wind"
 msgstr "Ветер"
 
@@ -1062,19 +1066,19 @@ msgstr "Единицы скорости ветра:"
 msgid "Wind: "
 msgstr "Ветер: "
 
-#: src/weather-home_hash.c:147
+#: src/weather-home_hash.c:148
 msgid "Wintry Mix"
 msgstr "Поземка"
 
-#: src/weather-home_hash.c:146
+#: src/weather-home_hash.c:147
 msgid "Wintry Mix / Wind"
 msgstr "Поземка / Ветер"
 
-#: src/weather-home_hash.c:145
+#: src/weather-home_hash.c:146
 msgid "Wintry Mix / Wind Early"
 msgstr "Поземка / C утра ветер"
 
-#: src/weather-home_hash.c:144
+#: src/weather-home_hash.c:145
 msgid "Wintry Mix to Snow"
 msgstr "Поземка переходящая в снег"
 

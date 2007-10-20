@@ -43,6 +43,28 @@
 #define DT_DIR 4
 #endif
 /*******************************************************************************/
+#define OMW_RESPONSE_ADD_CUSTOM_STATION 10000
+/*******************************************************************************/
+static GtkWidget    *countrys,
+		    *states,
+		    *stations,
+		    *icon_size,
+		    *layout_type,
+		    *update_time,
+		    *temperature_unit,
+		    *days_number,
+		    *custom_station_name,
+		    *custom_station_code,
+		    *units,
+		    *iconset,
+		    *wunits,
+		    *valid_time_list,
+		    *station_list_view,
+		    *window_add_station;
+static GtkListStore *station_list_store;
+static char flag_update_station = FALSE; /* Flag update station list */
+static gchar *_weather_station_id_temp; /* Temporary value for weather_station_id */
+/*******************************************************************************/
 void changed_country(void){
     GtkTreeModel	*model;
     GtkTreeIter		iter;

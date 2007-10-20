@@ -57,7 +57,6 @@
 #include <libintl.h>
 #include <locale.h>
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
-
 #define Max_count_weather_day		10
 #define MAX_SETTINGS_PAGE_NUMBER	3
 #define COUNTRYSFILE		"/usr/share/omweather/countrys.list"
@@ -250,7 +249,7 @@ void free_list_time_event(void);
 void time_event_add(time_t time_value, short int type_event);
 void update_weather(void);
 void weather_frame_update(gboolean check);
-void popup_window_destroy();
+extern void popup_window_destroy(void);
 extern int new_read_config(AppletConfig*);
 /*******************************************************************************/
 extern OMWeatherApp	*app;

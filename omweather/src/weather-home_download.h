@@ -47,11 +47,6 @@ struct HtmlFile {
   FILE *stream;
 };
 /*******************************************************************************/
-struct HtmlFile html_file;
-gint num_transfers = 0, num_msgs = 0;
-GSList *tmplist = NULL;
-struct weather_station *ws;
-gboolean second_attempt=FALSE;
 extern void config_update_proxy(void);
 extern void add_current_time_event(void);
 extern void popup_window_destroy(void);

@@ -53,7 +53,7 @@ void popup_window_more_show(GtkWidget *widget,GdkEvent *event,gpointer user_data
 float convert_wind_units(int to, float value);
 void pre_update_weather(void);
 void popup_window_destroy(void);
-/* extern functions */
+/*******************************************************************************/
 extern gpointer hash_table_find(gpointer key);
 extern void weather_initialize_dbus(void);
 extern void swap_temperature(int *hi, int *low);

@@ -29,17 +29,20 @@
 /*******************************************************************************/
 #include "weather-home_download.h"
 /*******************************************************************************/
-static GString *url = NULL;
-static GString *full_filename_new_xml = NULL;
-CURL *curl_handle = NULL;
-CURL *curl_multi = NULL;
-GtkWidget *update_window = NULL;     
 #ifdef USE_CONIC
 #include <conic/conic.h>
 #define USER_DATA_MAGIC 0xaadcaadc
 static ConIcConnection *connection;
 #endif
-
+/*******************************************************************************/
+static GString *url = NULL;
+static GString *full_filename_new_xml = NULL;
+static GSList *tmplist = NULL;
+static struct HtmlFile html_file;
+static gboolean second_attempt = FALSE;
+static CURL *curl_handle = NULL;
+static CURL *curl_multi = NULL;
+static GtkWidget *update_window = NULL;
 /*******************************************************************************/
 /* Create standard Hildon animation small window */
 static void create_window_update(void){
@@ -270,6 +273,8 @@ static int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
    Else return FLASE. This the end list
 */
 static gboolean form_url_and_filename(){
+    struct weather_station *ws;
+
     if(tmplist != NULL){
         ws = tmplist->data;
         if(ws->id_station != NULL){
@@ -306,6 +311,8 @@ gboolean download_html(gpointer data){
     CURLMcode	mret;
     fd_set	rs, ws, es;
     int		max;
+    gint	num_transfers = 0,
+		num_msgs = 0;
 
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
     if(app->popup_window && app->show_update_window){

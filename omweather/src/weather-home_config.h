@@ -75,9 +75,8 @@ GtkListStore* create_time_update_list(void);
 void fill_station_from_clock_plugin_data(void);
 void reinitilize_stations_list2(GSList *stlist);
 GSList* prepare_idlist(void);
-/* extern functions */
+/*******************************************************************************/
 extern void remove_periodic_event(void);
 extern void add_periodic_event(time_t last_update);
 /*******************************************************************************/
-
 #endif

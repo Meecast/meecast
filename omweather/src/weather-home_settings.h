@@ -30,8 +30,6 @@
 #ifndef _weather_home_settings_h
 #define _weather_home_settings_h 1
 /*******************************************************************************/
-#define OMW_RESPONSE_ADD_CUSTOM_STATION 10000
-/*******************************************************************************/
 #include "weather-home_common.h"
 /*******************************************************************************/
 extern gboolean  not_event;
@@ -53,29 +51,7 @@ void changed_country(void);
 void changed_state(void);
 void changed_stations(void);
 void weather_window_add_custom_station(void);
-
-GtkWidget	*countrys,
-		*states,
-		*stations,
-		*icon_size,
-		*layout_type,
-		*update_time,
-		*temperature_unit,
-		*days_number,
-		*custom_station_name,
-		*custom_station_code,
-		*units,
-		*iconset,
-		*wunits,
-		*valid_time_list;
-
-static GtkListStore *station_list_store;
-static GtkWidget *station_list_view;
-static GtkWidget *window_add_station;
-
-static char flag_update_station = FALSE; /* Flag update station list */
-static gchar *_weather_station_id_temp; /* Temporary value for weather_station_id */
-int create_icon_set_list(GtkWidget *store); /* scan /usr/share/weather/icons */
+int create_icon_set_list(GtkWidget *store); /* scan /usr/share/omweather/icons */
 					     /* and add names to the list */
 void create_help_dialog(void);	/* create help dialog */
 GtkWidget* create_scrolled_window_with_text(const char* text,
@@ -86,7 +62,7 @@ void update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data);
 void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
                                             gpointer user_data);
 gboolean check_station_code(const gchar *station_code);
-/* extern functions */
+/*******************************************************************************/
 extern void remove_periodic_event(void);
 extern void weather_buttons_init(void);
 extern void weather_initialize_dbus(void);

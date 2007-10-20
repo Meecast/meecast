@@ -40,8 +40,16 @@
 #include <unistd.h>
 #include "weather-home_hash.h"
 /*******************************************************************************/
+#define APPLET_X_SIZE		200
+#define APPLET_Y_SIZE		40
+#define FONT_MAIN_SIZE_LARGE	14
+#define FONT_MAIN_SIZE_MEDIUM	12
+#define FONT_MAIN_SIZE_SMALL	10
+/*******************************************************************************/
 /* main struct */
 OMWeatherApp	*app = NULL;
+int		boxs_offset[Max_count_weather_day];
+gchar		path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
 /* Translate  temperature Celsius to Farenhait */
 int c2f(int temp){

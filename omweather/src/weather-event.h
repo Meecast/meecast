@@ -33,6 +33,8 @@
 /*******************************************************************************/
 #include "weather-home_common.h"
 /*******************************************************************************/
+extern gboolean not_event;
+/*******************************************************************************/
 gboolean timer_handler(gpointer data);
 void timer(int interval);
 void create_timer_with_interval(guint interval);
@@ -42,7 +44,6 @@ void remove_daytime_event(void);
 void remove_periodic_event(void);
 void print_list(char *buff, size_t buff_size);
 void time_event_add(time_t time_value, short type_event);
-extern gboolean not_event;
 extern void weather_initialize_dbus(void);
 time_t next_update(void);
 /*******************************************************************************/

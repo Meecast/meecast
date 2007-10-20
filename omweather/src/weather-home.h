@@ -34,12 +34,6 @@
 #include <locale.h>
 #include <libintl.h>
 /*******************************************************************************/
-#define APPLET_X_SIZE		200
-#define APPLET_Y_SIZE		40
-#define FONT_MAIN_SIZE_LARGE	14
-#define FONT_MAIN_SIZE_MEDIUM	12
-#define FONT_MAIN_SIZE_SMALL	10
-/*******************************************************************************/
 gboolean change_station_select(GtkWidget *widget, gpointer user_data);
 WDB* create_weather_day_button(const char *text, const char *icon,
 				const int icon_size, gboolean transparency,
@@ -65,7 +59,7 @@ void station_error_window(void);
 void menu_init(void);
 void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 void set_widget_background(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
-/* external functions */
+/*******************************************************************************/
 extern void timer(int interval);
 extern void create_timer_with_interval(guint interval);
 extern void weather_initialize_dbus(void);
@@ -80,9 +74,9 @@ extern GtkListStore* create_items_list(const char *filename, long start, long en
 extern GtkListStore* create_time_update_list(void);
 extern void fill_station_from_clock_plugin_data(void);
 extern void reinitilize_stations_list2(GSList *stlist);
-gboolean not_event = FALSE;
-int	boxs_offset[Max_count_weather_day];
-gchar	path_large_icon[_POSIX_PATH_MAX];
+/*******************************************************************************/
+extern int	boxs_offset[];
+extern gchar	path_large_icon[];
 /*******************************************************************************/
 typedef struct _HomeAppletHandler HomeAppletHandler;
 /*******************************************************************************/

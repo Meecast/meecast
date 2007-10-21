@@ -530,6 +530,7 @@ void* hildon_home_applet_lib_initialize(void *state_data,
         g_free(app);
         exit(1);
     }
+
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
     app->countrys_list = NULL;
@@ -547,7 +548,6 @@ void* hildon_home_applet_lib_initialize(void *state_data,
     time_event_add(time(NULL) + 5, DBUSINITEVENT);    
     add_periodic_event(time(NULL));
 */
-    
     (*widget) = app->top_widget;
     return (void*)osso;
 }

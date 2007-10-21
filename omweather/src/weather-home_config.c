@@ -202,6 +202,10 @@ int new_read_config(AppletConfig *config){
 		*home_dir,
 		*tmp = NULL;
 
+#ifndef RELEASE
+    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+#endif
+
     gconf_client = gconf_client_get_default();
 
     if(!gconf_client){
@@ -220,7 +224,7 @@ int new_read_config(AppletConfig *config){
 	memset(tmp_buff, 0, sizeof(tmp_buff));
 	snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s%s",
 		    home_dir, "/apps/omweather");
-	g_free(home_dir);
+	home_dir = NULL;
     }
     else
 	snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s", tmp);

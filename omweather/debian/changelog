@@ -1,7 +1,7 @@
 omweather (0.19.1) unstable; urgency=low
 
   * Time of 'Last update at server:' has been corrected
-  * France translation has been updated 
+  * Finish, France and Russian translation has been updated 
   * Compatibility with OS2008 has been begun 
   
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 21 Oct 2007 03:36:00 +0200

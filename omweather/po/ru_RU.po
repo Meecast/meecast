@@ -1136,19 +1136,19 @@ msgstr "Без ограничений"
 
 #: src/weather-home_hash.c:149
 msgid "Waning Crescent"
-msgstr "Убывающая"
+msgstr "Убывающая старая луна"
 
 #: src/weather-home_hash.c:150
 msgid "Waning Gibbous"
-msgstr "Убывающая"
+msgstr "Убывающая Луна"
 
 #: src/weather-home_hash.c:151
 msgid "Waxing Crescent"
-msgstr "Растущая"
+msgstr "Растущая Луна"
 
 #: src/weather-home_hash.c:152
 msgid "Waxing Gibbous"
-msgstr "Waxing Gibbous"
+msgstr "Растущая молодая Луна"
 
 #: src/weather-home_hash.c:153
 msgid "Wind"

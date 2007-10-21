@@ -35,7 +35,11 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <glib.h>
-#include <hildon-home-plugin/hildon-home-plugin-interface.h>
+#if HILDON == 1
+    #include <libhildondesktop/libhildondesktop.h>
+#else
+    #include <hildon-home-plugin/hildon-home-plugin-interface.h>
+#endif
 #include "weather-home.h"
 #include <unistd.h>
 #include "weather-home_hash.h"

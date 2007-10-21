@@ -73,6 +73,13 @@ PKG_CHECK_MODULES(GCONF, [gconf-2.0 >= 2.6.2])
 AC_SUBST(GCONF_LIBS)
 AC_SUBST(GCONF_CFLAGS)
 
+PKG_CHECK_MODULES(HILDON, hildon-1 >= 0.9.9, \
+                  AC_DEFINE(HILDON, 1, [Version of hildon libraries]), \
+                  [AC_DEFINE(HILDON, 0, [Version of hildon libraries]) \
+                  PKG_CHECK_MODULES(HILDON_LIBS, hildon-libs >= 0.12.0)])
+AC_SUBST(HILDON_CFLAGS)
+AC_SUBST(HILDON_LIBS)
+
 AC_ARG_ENABLE(conic, [ --enable-conic=[yes|no] ], [use_conic=$enableval ])
 if test "$use_conic" != "no"; then
 PKG_CHECK_MODULES(CONIC, [conic],

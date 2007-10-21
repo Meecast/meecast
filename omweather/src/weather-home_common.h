@@ -47,7 +47,11 @@
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 #include <string.h>
-#include <hildon-widgets/hildon-banner.h>
+#if HILDON == 1
+ # include <hildon/hildon-banner.h>
+#else
+ #include <hildon-widgets/hildon-banner.h>
+#endif
 #include <sys/types.h>
 #include <libosso.h>
 #include <wchar.h>

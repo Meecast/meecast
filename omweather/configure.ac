@@ -73,6 +73,10 @@ PKG_CHECK_MODULES(GCONF, [gconf-2.0 >= 2.6.2])
 AC_SUBST(GCONF_LIBS)
 AC_SUBST(GCONF_CFLAGS)
 
+PKG_CHECK_MODULES(DESKTOP, hildon-desktop)
+AC_SUBST(DESKTOP_LIBS)
+AC_SUBST(DESKTOP_CFLAGS)
+
 PKG_CHECK_MODULES(HILDON, hildon-1 >= 0.9.9, \
                   AC_DEFINE(HILDON, 1, [Version of hildon libraries]), \
                   [AC_DEFINE(HILDON, 0, [Version of hildon libraries]) \

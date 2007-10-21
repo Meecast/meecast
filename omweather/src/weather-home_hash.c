@@ -22,6 +22,7 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "AM Light Snow", _("AM Light Snow"));
     g_hash_table_insert(hash, "AM Light Wintry Mix", _("AM Light Wintry Mix"));
     g_hash_table_insert(hash, "AM Rain", _("AM Rain"));
+    g_hash_table_insert(hash, "AM Rain / Snow", _("AM Rain / Snow"));
     g_hash_table_insert(hash, "AM Rain / Snow Showers", _("AM Rain / Snow Showers"));
     g_hash_table_insert(hash, "AM Rain / Snow Showers / Wind", _("AM Rain / Snow Showers / Wind"));    
     g_hash_table_insert(hash, "AM Showers", _("AM Showers"));
@@ -45,8 +46,10 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Few Showers / Wind", _("Few Showers / Wind"));
     g_hash_table_insert(hash, "Few Snow", _("Few Snow"));
     g_hash_table_insert(hash, "Few Snow Showers", _("Few Snow Showers"));
+    g_hash_table_insert(hash, "First Quarter", _("First Quarter"));
     g_hash_table_insert(hash, "Fog", _("Fog"));
     g_hash_table_insert(hash, "Foggy", _("Foggy"));    
+    g_hash_table_insert(hash, "Fog Early / Clouds Late", _("Fog Early / Clouds Late"));
     g_hash_table_insert(hash, "Fog Late", _("Fog Late"));    
     g_hash_table_insert(hash, "Full", _("Full"));
     g_hash_table_insert(hash, "Haze", _("Haze"));
@@ -66,6 +69,8 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Light Rain Late", _("Light Rain Late"));
     g_hash_table_insert(hash, "Light Rain Shower", _("Light Rain Shower"));    
     g_hash_table_insert(hash, "Light Snow", _("Light Snow"));
+    g_hash_table_insert(hash, "Light Snow Early", _("Light Snow Early"));
+    g_hash_table_insert(hash, "Light Snow Late", _("Light Snow Late"));
     g_hash_table_insert(hash, "Light Snow Shower", _("Light Snow Shower"));
     g_hash_table_insert(hash, "Low", _("Low"));
     g_hash_table_insert(hash, "Mist", _("Mist"));
@@ -84,6 +89,7 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Overcast", _("Overcast"));
     g_hash_table_insert(hash, "Partly Cloudy", _("Partly Cloudy"));
     g_hash_table_insert(hash, "Partly Cloudy / Wind", _("Partly Cloudy / Wind"));
+    g_hash_table_insert(hash, "PM Fog", _("PM Fog"));
     g_hash_table_insert(hash, "PM Light Rain", _("PM Light Rain"));
     g_hash_table_insert(hash, "PM Rain", _("PM Rain"));
     g_hash_table_insert(hash, "PM Rain / Wind", _("PM Rain / Wind"));

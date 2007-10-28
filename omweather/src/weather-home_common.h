@@ -46,7 +46,7 @@
 #include <libxml/tree.h>
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
-#include <string.h>
+#include <string.h> 
 #if HILDON == 1
  # include <hildon/hildon-banner.h>
 #else

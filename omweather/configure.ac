@@ -80,8 +80,8 @@ PKG_CHECK_MODULES(HILDON, hildon-1 >= 0.9.9, \
                   PKG_CHECK_MODULES(HILDON_LIBS, hildon-libs >= 0.12.0)])
 
 PKG_CHECK_MODULES(DESKTOP, hildon-desktop, \
-                  AC_DEFINE(HILDON-DESKTOP4, 1, [Version of hildon desktop libraries]), \
-                  [AC_DEFINE(HILDON-DESKTOP4, 0, [Version of hildon desktop libraries]) \
+                  AC_DEFINE(HILDONDESKTOP4, 1, [Version of hildon desktop libraries]), \
+                  [AC_DEFINE(HILDONDESKTOP4, 0, [Version of hildon desktop libraries]) \
 		  PKG_CHECK_MODULES(DESKTOP, hildon-home)])
 AC_SUBST(DESKTOP_LIBS)
 AC_SUBST(DESKTOP_CFLAGS)

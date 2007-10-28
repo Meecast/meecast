@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: omweather 0.18\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-10-21 13:58+0300\n"
-"PO-Revision-Date: 2007-10-07 22:04+0200\n"
+"PO-Revision-Date: 2007-10-22 20:02+0200\n"
 "Last-Translator: Nicolas GRAZIANO <nicolas.graziano@gmail.com>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -640,9 +640,8 @@ msgid "AM Rain"
 msgstr "Pluie le matin"
 
 #: src/weather-home_hash.c:25
-#, fuzzy
 msgid "AM Rain / Snow"
-msgstr "Pluie / Neige"
+msgstr "Matin Pluie / Neige"
 
 #: src/weather-home_hash.c:26
 msgid "AM Rain / Snow Showers"
@@ -657,9 +656,8 @@ msgid "AM Showers"
 msgstr "Matin, averses"
 
 #: src/weather-home_hash.c:29
-#, fuzzy
 msgid "AM Snow"
-msgstr "Neige"
+msgstr "Matin Neige"
 
 #: src/weather-home_hash.c:30
 msgid "AM Snow Showers"
@@ -739,7 +737,7 @@ msgstr "Quelques averses de neige"
 
 #: src/weather-home_hash.c:49
 msgid "First Quarter"
-msgstr ""
+msgstr "Premier quartier"
 
 #: src/weather-home_hash.c:50
 msgid "Fog"
@@ -750,9 +748,8 @@ msgid "Foggy"
 msgstr "Brumeux"
 
 #: src/weather-home_hash.c:52
-#, fuzzy
 msgid "Fog Early / Clouds Late"
-msgstr "Nuageux en matinée / clair en soirée"
+msgstr "Brouillard en matinée / nuages en soirée"
 
 #: src/weather-home_hash.c:53
 msgid "Fog Late"
@@ -831,14 +828,12 @@ msgid "Light Snow"
 msgstr "Neige légère"
 
 #: src/weather-home_hash.c:72
-#, fuzzy
 msgid "Light Snow Early"
-msgstr "Pluie légère en matinée"
+msgstr "Neige légère en matinée"
 
 #: src/weather-home_hash.c:73
-#, fuzzy
 msgid "Light Snow Late"
-msgstr "Pluie légère en soirée"
+msgstr "Neige légère en soirée"
 
 #: src/weather-home_hash.c:74
 msgid "Light Snow Shower"
@@ -877,9 +872,8 @@ msgid "NE"
 msgstr "NE"
 
 #: src/weather-home_hash.c:84
-#, fuzzy
 msgid "New"
-msgstr "Maintenant"
+msgstr "Nouveau"
 
 #: src/weather-home_hash.c:85
 msgid "N"
@@ -910,9 +904,8 @@ msgid "Partly Cloudy / Wind"
 msgstr "Un peu Nuageux / Vent"
 
 #: src/weather-home_hash.c:92
-#, fuzzy
 msgid "PM Fog"
-msgstr "Brouillard"
+msgstr "Brouillard après midi"
 
 #: src/weather-home_hash.c:93
 msgid "PM Light Rain"
@@ -963,14 +956,12 @@ msgid "Rain / Snow"
 msgstr "Pluie / Neige"
 
 #: src/weather-home_hash.c:105
-#, fuzzy
 msgid "Rain / Snow Early"
-msgstr "Pluie / Vent en matinée"
+msgstr "Pluie / neige en matinée"
 
 #: src/weather-home_hash.c:106
-#, fuzzy
 msgid "Rain / Snow / Wind"
-msgstr "Pluie / Averses de neige / Vent"
+msgstr "Pluie / Neige / Vent"
 
 #: src/weather-home_hash.c:107
 msgid "Rain / Snow Showers Late"
@@ -1069,18 +1060,16 @@ msgid "Snows Showers / Wind Early"
 msgstr "Averse de neige / Vent en matinée"
 
 #: src/weather-home_hash.c:131
-#, fuzzy
 msgid "Snows Showers Early"
-msgstr "Averse de neige / Vent en matinée"
+msgstr "Averse de neige"
 
 #: src/weather-home_hash.c:132
 msgid "Snow"
 msgstr "Neige"
 
 #: src/weather-home_hash.c:133
-#, fuzzy
 msgid "Snow / Wind"
-msgstr "Averses / Vent"
+msgstr "Neige / Vent"
 
 #: src/weather-home_hash.c:134
 msgid "Snow to Rain"
@@ -1155,9 +1144,8 @@ msgid "Waxing Crescent"
 msgstr "Dernier croissant"
 
 #: src/weather-home_hash.c:152
-#, fuzzy
 msgid "Waxing Gibbous"
-msgstr "Premier quartier"
+msgstr "Lune gibbeuse"
 
 #: src/weather-home_hash.c:153
 msgid "Wind"

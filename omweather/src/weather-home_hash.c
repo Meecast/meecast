@@ -89,6 +89,7 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Overcast", _("Overcast"));
     g_hash_table_insert(hash, "Partly Cloudy", _("Partly Cloudy"));
     g_hash_table_insert(hash, "Partly Cloudy / Wind", _("Partly Cloudy / Wind"));
+    g_hash_table_insert(hash, "Partly Cloudy and Windy", _("Partly Cloudy and Windy"));
     g_hash_table_insert(hash, "PM Fog", _("PM Fog"));
     g_hash_table_insert(hash, "PM Light Rain", _("PM Light Rain"));
     g_hash_table_insert(hash, "PM Rain", _("PM Rain"));

@@ -46,7 +46,7 @@ GETTEXT_PACKAGE=$PACKAGE
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], "${GETTEXT_PACKAGE}", [Name of gettext package])
 AC_DEFINE_UNQUOTED([LOCALEDIR], "${localedir}", [Path to store localization files])
-ALL_LINGUAS="ru_RU fr_FR fi_FI"
+ALL_LINGUAS="ru_RU fr_FR fi_FI en_GB en_US"
 AM_GLIB_GNU_GETTEXT
 
 PKG_CHECK_MODULES(GTK, [gtk+-2.0])
@@ -73,14 +73,19 @@ PKG_CHECK_MODULES(GCONF, [gconf-2.0 >= 2.6.2])
 AC_SUBST(GCONF_LIBS)
 AC_SUBST(GCONF_CFLAGS)
 
-PKG_CHECK_MODULES(DESKTOP, hildon-desktop)
-AC_SUBST(DESKTOP_LIBS)
-AC_SUBST(DESKTOP_CFLAGS)
 
 PKG_CHECK_MODULES(HILDON, hildon-1 >= 0.9.9, \
                   AC_DEFINE(HILDON, 1, [Version of hildon libraries]), \
                   [AC_DEFINE(HILDON, 0, [Version of hildon libraries]) \
                   PKG_CHECK_MODULES(HILDON_LIBS, hildon-libs >= 0.12.0)])
+
+PKG_CHECK_MODULES(DESKTOP, hildon-desktop, \
+                  AC_DEFINE(HILDON-DESKTOP4, 1, [Version of hildon desktop libraries]), \
+                  [AC_DEFINE(HILDON-DESKTOP4, 0, [Version of hildon desktop libraries]) \
+		  PKG_CHECK_MODULES(DESKTOP, hildon-home)])
+AC_SUBST(DESKTOP_LIBS)
+AC_SUBST(DESKTOP_CFLAGS)
+		  
 AC_SUBST(HILDON_CFLAGS)
 AC_SUBST(HILDON_LIBS)
 

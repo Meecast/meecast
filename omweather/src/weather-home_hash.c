@@ -104,6 +104,7 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Rain Shower", _("Rain Shower"));
     g_hash_table_insert(hash, "Rain / Snow", _("Rain / Snow"));
     g_hash_table_insert(hash, "Rain / Snow Early", _("Rain / Snow Early"));
+    g_hash_table_insert(hash, "Rain / Snow Late", _("Rain / Snow Late"));
     g_hash_table_insert(hash, "Rain / Snow / Wind", _("Rain / Snow / Wind"));
     g_hash_table_insert(hash, "Rain / Snow Showers Late", _("Rain / Snow Showers Late"));
     g_hash_table_insert(hash, "Rain / Snow Showers", _("Rain / Snow Showers"));

@@ -24,10 +24,19 @@ helpfile_engb_DATA = en_GB/omweather.xml
 
 EXTRA_DIST = $(helpfile_engb_DATA) $(helpfile_enus_DATA)
 
+xmldir = $(datadir)/xml
+
+xml_in_files = omweather.xml.in
+xml_DATA = $(xml_in_files:.xml.in=.xml)
+
+@INTLTOOL_XML_RULE@
+
+#EXTRA_DIST=$(xml_in_files) $(xml_DATA)
+
 #  # Replace version in help files
 %.xml: %.xml.in
 	sed "s/__VERSION__/$(VERSION)/g" $< >$@
 
-%.xml.in: ../%.xml.en
-	cat $< >$@
+#%.xml.in: ../%.xml.en
+#	cat $< >$@
 

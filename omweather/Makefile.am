@@ -32,7 +32,16 @@ EXTRA_DIST =					\
         debian/compat				\
         debian/copyright			\
         debian/control				\
-        debian/rules				
+        debian/rules				\
+	intltool-extract.in			\
+	intltool-merge.in			\
+	intltool-update.in			
+	
+DISTCLEANFILES =				\
+	intltool-extract.in			\
+	intltool-merge.in			\
+	intltool-update.in			
+    
 
 deb:
 	./make-package $(PACKAGE) $(VERSION)

@@ -1,3 +1,9 @@
+omweather (0.20) unstable; urgency=low
+
+  * English help file has been added  
+        
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 02 Nov 2007 03:36:00 +0200
+
 omweather (0.19.1) unstable; urgency=low
 
   * Time of 'Last update at server:' has been corrected

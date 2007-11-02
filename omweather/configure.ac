@@ -1,6 +1,6 @@
 AC_PREREQ(2.59)
-AC_INIT(omweather, 0.19.1)
-AM_INIT_AUTOMAKE(omweather, 0.19.1)
+AC_INIT(omweather, 0.20)
+AM_INIT_AUTOMAKE(omweather, 0.20)
 AC_CONFIG_HEADER([src/config.h:src/config.h.in])
 AC_CONFIG_SRCDIR([src/weather-home.c])
 AC_CANONICAL_HOST
@@ -108,7 +108,9 @@ fi
 fi
 
 # Help file install directory
-helpfile_engbdir=$datadir/osso-help/en_US
+helpfile_enusdir=$datadir/osso-help/en_US
+AC_SUBST(helpfile_enusdir)
+helpfile_engbdir=$datadir/osso-help/en_GB
 AC_SUBST(helpfile_engbdir)
 
 # Checks for library functions.
@@ -118,6 +120,7 @@ AC_CHECK_FUNCS([setlocale])
 AC_CONFIG_FILES([Makefile
 		src/Makefile
 		po/Makefile.in
+		data/help/Makefile
 		data/Makefile])
 # Produce output files
 AC_OUTPUT

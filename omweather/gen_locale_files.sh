@@ -8,6 +8,7 @@ for language in ru_RU fi_FI fr_FR en_GB en_US; do
 done
 cd ..
 
+intltool-extract --type=gettext/xml data/help/omweather.xml.in
 #xgettext -L Glade --keyword=_ -f data/help/POTFILES.in -s -C -o data/help/omweather_help.pot
 #cd data/help
 #for language in ru_RU fi_FI fr_FR en_GB en_US; do

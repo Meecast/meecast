@@ -84,56 +84,6 @@ enum {	METERS_S,
 enum { CELSIUS, FAHRENHEIT };
 enum { LARGE, MEDIUM, SMALL };
 /*******************************************************************************/
-typedef struct{
-    gchar	speed[80];		/* wind speed */
-    gchar	gust[80];		/* gust */
-    gchar	direction[5];		/* direction in degrees */
-    gchar	direction_text[80];	/* direction text */
-}wind_data;
-/*******************************************************************************/
-typedef struct{
-    float	value;			/* Pressure value */
-    gchar	direction[80];		/* Pressure direction */
-}pressure_data;
-/*******************************************************************************/
-typedef struct{
-    gchar	name[50];		/* Location (station name) */
-    gchar	id[50];			/* Location id (code) */
-    time_t      zone;			/* time zone */
-    gchar	lattitude[50];		/* Lattitide */
-    gchar	longitude[50];		/* Longitude */
-}location_data;
-/*******************************************************************************/
-typedef struct{
-    unsigned	icon;			/* icon number */
-    gchar       text[80];		/* weather text */
-    wind_data	wind;			/* wind data */
-    gchar       humidity[80];		/* humidity */
-}day_part;
-/*******************************************************************************/
-typedef struct{
-    time_t		last_update;		/* time of last update */
-    gchar		temperature[20];	/* temperature valuse */
-    gchar		feel_like[20];		/* feel like */
-    day_part		data;			/* current weather data */
-    pressure_data	pressure;		/* pressure data */
-    gchar		visibility[80];		/* visibilty */
-}current_weather;
-/*******************************************************************************/
-typedef struct{
-    location_data	location;
-    time_t		last_update;		/* time of last update */
-    unsigned		index;			/* index */
-    gchar		day_name[60];		/* week day */
-    gchar		date[40];		/* date */
-    gchar		hi_temp[20];		/* temperature hi valuse */
-    gchar		low_temp[20];		/* temperature low value */
-    gchar		sunrise[60];		/* sunrise */
-    gchar		sunset[60];		/* sunset */
-    day_part		day;			/* day data */
-    day_part		night;			/* night data */
-}twenty_four_hours;
-/*******************************************************************************/
 typedef struct weather_day_button_with_image{
     GtkWidget	*button;                                                                                               
     GtkWidget	*label;                                                                                                

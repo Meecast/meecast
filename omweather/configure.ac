@@ -112,7 +112,7 @@ helpfile_enusdir=$datadir/osso-help/en_US
 AC_SUBST(helpfile_enusdir)
 helpfile_engbdir=$datadir/osso-help/en_GB
 AC_SUBST(helpfile_engbdir)
-helpfile_engbdir=$datadir/osso-help/ru_RU
+helpfile_rurudir=$datadir/osso-help/ru_RU
 AC_SUBST(helpfile_rurudir)
 helpfile_fifidir=$datadir/osso-help/fi_FI
 AC_SUBST(helpfile_fifidir)

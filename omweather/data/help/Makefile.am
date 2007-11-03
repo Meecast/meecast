@@ -42,6 +42,4 @@ clean:
 	    rm -f "$$lang/omweather.xml.in" "$$lang/omweather.xml" ; \
 	done
 
-#%.xml.in: ../%.xml.en
-#	cat $< >$@
 

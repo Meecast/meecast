@@ -260,6 +260,13 @@ void weather_buttons_fill(gboolean check_error){
 /* Init weather buttons */
     weather_buttons_init();
     count_day = parse_weather_com_xml();
+/*    new_parse_weather_com_xml();
+    #include "weather-data.h"
+    fprintf(stderr, "\n>>>%s<<<\n", item_value(current, "temperature"));
+    fprintf(stderr, "\n>>>%s<<<\n", item_value(current, "feel_like"));
+    fprintf(stderr, "\n>>>%s<<<\n", item_value(current, "title"));
+    fprintf(stderr, "\n>>>%s<<<\n", item_value(current, "icon"));
+*/
     if(check_error)
 	if(count_day == -2){
 	    count_day = 0;

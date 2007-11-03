@@ -21,21 +21,26 @@
 
 helpfile_enus_DATA = en_US/omweather.xml
 helpfile_engb_DATA = en_GB/omweather.xml
+helpfile_ruru_DATA = ru_RU/omweather.xml
+helpfile_fifi_DATA = fi_FI/omweather.xml
+helpfile_frfr_DATA = fr_FR/omweather.xml
 
 EXTRA_DIST = $(helpfile_engb_DATA) $(helpfile_enus_DATA)
 
-xmldir = $(datadir)/xml
-
-xml_in_files = omweather.xml.in
-xml_DATA = $(xml_in_files:.xml.in=.xml)
-
-@INTLTOOL_XML_RULE@
-
-#EXTRA_DIST=$(xml_in_files) $(xml_DATA)
 
 #  # Replace version in help files
 %.xml: %.xml.in
 	sed "s/__VERSION__/$(VERSION)/g" $< >$@
+
+%.xml.in:
+	for lang in $(ALL_LINGUAS); do \
+	    ./intltool-merge4help -x "po/$$lang.po" omweather.xml.in "$$lang/omweather.xml.in" ; \
+	done
+
+clean:
+	for lang in $(ALL_LINGUAS); do \
+	    rm -f "$$lang/omweather.xml.in" "$$lang/omweather.xml" ; \
+	done
 
 #%.xml.in: ../%.xml.en
 #	cat $< >$@

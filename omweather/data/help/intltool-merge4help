@@ -284,7 +284,6 @@ sub get_po_encoding
 {
     my ($in_po_file) = @_;
     my $encoding = "";
-
     open IN_PO_FILE, $in_po_file or die;
     while (<IN_PO_FILE>) 
     {

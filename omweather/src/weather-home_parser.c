@@ -473,3 +473,204 @@ int parse_weather_com_xml(void){
     return count_day;     
 }
 /*******************************************************************************/
+#include "weather-data.h"
+int new_parse_weather_com_xml(void){
+    weather_com_parser	*parser;
+    xmlNode	*cur_node = NULL,
+		*child_node = NULL,
+		*child_node2 = NULL,
+		*child_node3 = NULL,
+		*child_node4 = NULL; 
+    xmlChar	*temp_xml_string;
+    xmlChar	*part_of_day = NULL;
+    int		day = 0,
+		count_day = 0,
+		i,
+		current_month = 1,
+		year;
+    char	*icon,
+		*temp_string_pointer,
+		id_station[10],
+		date_in_string[255];
+    gchar	buffer[2048],
+		newname[2048];
+    time_t	current_time;
+    struct tm	*tm;
+    Item	*itm;
+    
+/*Prepare date string */
+/* Imortant need will Check New Year in future !!!!!!!!!!! */
+    current_time = time(NULL);
+    tm = localtime(&current_time);
+    year = 1900 + tm->tm_year;
+    parser = NULL;
+    
+    if(!app->config->current_station_id)
+	return -1;
+    sprintf(buffer, "%s/%s.xml.new", app->config->cache_dir_name,
+				    app->config->current_station_id); /* Used new file */
+    if(!access(buffer, R_OK)){  /* Not Access to cache weather xml file */
+	parser = weather_parser_new_from_file(buffer); 
+	    if(!(parser->error)){
+		sprintf(newname, "%s/%s.xml", app->config->cache_dir_name,
+			    app->config->current_station_id);
+		rename(buffer, newname);
+	    }
+    }
+    if(((parser == NULL) && (access(buffer,R_OK) != 0)) || (parser != NULL && parser->error)){ /* Used old xml file */
+    	if(parser){
+	    free(parser);
+	    parser = NULL;
+	}    
+	sprintf(buffer, "%s/%s.xml", app->config->cache_dir_name,
+		app->config->current_station_id);
+	/* Not Access to cache weather xml file or not valid XML file */
+	if(!access(buffer,R_OK)){ 
+	    parser = weather_parser_new_from_file(buffer);
+	    if(parser->error){
+		free(parser);
+		parser = NULL;
+		return -1; 
+	    }	
+	}
+	else{
+	    if(parser){			
+		free(parser);
+		parser = NULL;
+	    }
+	    return -1;
+	}    
+    }
+
+    for(cur_node = parser->weather_com_root->children; cur_node != NULL; cur_node = cur_node->next){
+	if( cur_node->type == XML_ELEMENT_NODE ){
+        /* Check error */
+	    if(!xmlStrcmp(cur_node->name, (const xmlChar *) "err" ) ){
+	        xmlFreeDoc(parser->doc);
+		xmlCleanupParser();
+		free(parser);
+		return -2;
+	    }
+	/* Fill current day */
+	    if(!xmlStrcmp(cur_node->name, (const xmlChar *) "cc" ) ){
+		for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next){
+		    if( child_node->type == XML_ELEMENT_NODE  &&
+        		    ( !xmlStrcmp(child_node->name, (const xmlChar *)"tmp") ) ){
+			temp_xml_string = xmlNodeGetContent(child_node);
+			itm = create_item("temperature", (char*)temp_xml_string);
+			xmlFree(temp_xml_string);
+			add_item2object(&current, itm);
+			continue;
+		    }
+		    if( child_node->type == XML_ELEMENT_NODE  &&
+            		    ( !xmlStrcmp(child_node->name, (const xmlChar *)"flik") ) ){
+			temp_xml_string = xmlNodeGetContent(child_node);
+			itm = create_item("feel_like", (char*)temp_xml_string);
+			xmlFree(temp_xml_string);
+			add_item2object(&current, itm);
+			continue;
+		    }
+		    if(!xmlStrcmp(child_node->name, (const xmlChar *)"t") ){
+			temp_xml_string = xmlNodeGetContent(child_node);
+			itm = create_item("title", (char*)hash_table_find(temp_xml_string));
+			xmlFree(temp_xml_string);
+			add_item2object(&current, itm);
+			continue;
+		    }
+    		    if(!xmlStrcmp(child_node->name, (const xmlChar *)"icon") ){
+			temp_xml_string = xmlNodeGetContent(child_node);					    
+    			itm = create_item("icon", (char*)temp_xml_string);
+			xmlFree(temp_xml_string);
+			add_item2object(&current, itm);
+			continue;
+        	    }
+    		    if(!xmlStrcmp(child_node->name, (const xmlChar *)"bar") ){
+			for(child_node2 = child_node->children; child_node2 != NULL; child_node2 = child_node2->next){
+    			    if( child_node2->type == XML_ELEMENT_NODE ){
+        			if(!xmlStrcmp(child_node2->name, (const xmlChar *)"r") ){
+				    temp_xml_string = xmlNodeGetContent(child_node2);
+				    itm = create_item("pressure", (char*)temp_xml_string);
+				    xmlFree(temp_xml_string);
+				    add_item2object(&current, itm);
+				}    
+    				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"d") ){
+				    temp_xml_string = xmlNodeGetContent(child_node2);
+				    itm = create_item("pressure_description",
+					    (char*)hash_table_find(temp_xml_string));
+				    xmlFree(temp_xml_string);
+				    add_item2object(&current, itm);		    
+				}
+			    }
+        		}
+			continue;
+        	    }
+		    if(!xmlStrcmp(child_node->name, (const xmlChar *)"hmid") ){
+    			temp_xml_string = xmlNodeGetContent(child_node);
+			itm = create_item("humidity", (char*)temp_xml_string);
+			xmlFree(temp_xml_string);
+			add_item2object(&current, itm);
+			continue;
+		    }
+    		    if(!xmlStrcmp(child_node->name, (const xmlChar *)"vis") ){
+			temp_xml_string = xmlNodeGetContent(child_node);
+			itm = create_item("visible", (char*)temp_xml_string);
+			xmlFree(temp_xml_string);
+			add_item2object(&current, itm);
+			continue;
+		    }
+		    if(!xmlStrcmp(child_node->name, (const xmlChar *)"wind") ){
+			for(child_node2 = child_node->children; child_node2 != NULL; child_node2 = child_node2->next){
+    			    if( child_node2->type == XML_ELEMENT_NODE ){
+        			if(!xmlStrcmp(child_node2->name, (const xmlChar *)"s") ){
+				    temp_xml_string = xmlNodeGetContent(child_node2);
+				    itm = create_item("wind_speed", (char*)temp_xml_string);
+				    xmlFree(temp_xml_string);
+				    add_item2object(&current, itm);
+				}
+        			if(!xmlStrcmp(child_node2->name, (const xmlChar *)"gust") ){
+				    temp_xml_string = xmlNodeGetContent(child_node2);
+				    itm = create_item("wind_gust", (char*)temp_xml_string);
+				    xmlFree(temp_xml_string);
+				    add_item2object(&current, itm);
+				}
+    				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t") ){
+				    temp_xml_string = xmlNodeGetContent(child_node2);
+				    itm = create_item("wind_text",					
+					    (char*)hash_table_find(temp_xml_string));
+				    xmlFree(temp_xml_string);
+				    add_item2object(&current, itm);
+				}
+			    }
+        		}
+			continue;
+        	    }
+		    if(!xmlStrcmp(child_node->name, (const xmlChar *)"moon") ){
+			for(child_node2 = child_node->children; child_node2 != NULL; child_node2 = child_node2->next){
+    			    if( child_node2->type == XML_ELEMENT_NODE ){
+        			if(!xmlStrcmp(child_node2->name, (const xmlChar *)"icon") ){
+				    temp_xml_string = xmlNodeGetContent(child_node2);
+				    itm = create_item("moon_icon", (char*)temp_xml_string);
+				    xmlFree(temp_xml_string);
+				    add_item2object(&current, itm);
+				}
+        			if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t") ){
+				    temp_xml_string = xmlNodeGetContent(child_node2);
+				    itm = create_item("moon_phase",						
+        				    (char*)hash_table_find(temp_xml_string));
+				    xmlFree(temp_xml_string);
+				    add_item2object(&current, itm);
+				}
+			    }
+        		}
+			continue;
+        	    }
+		}
+	    }
+	}
+    }
+    xmlFreeDoc(parser->doc);
+    xmlCleanupParser();
+    free(parser);
+    return count_day;     
+}
+/*******************************************************************************/

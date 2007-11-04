@@ -31,18 +31,27 @@
 #define _weather_data_h 1
 /*******************************************************************************/
 #include <glib.h>
-/*******************************************************************************/
-extern GSList	*current;
+#include "weather-home_common.h"
 /*******************************************************************************/
 typedef struct{
     GString	*name;
     GString	*value;
 }Item;
 /*******************************************************************************/
+typedef struct{
+    GSList	*current_data;
+    GSList	*day_data[Max_count_weather_day];
+}WeatherComStation;
+/*******************************************************************************/
+extern	WeatherComStation wcs;
+/*******************************************************************************/
 Item* create_item(const char *name, const char *value);
 void destroy_item(Item **item);
 GSList*	add_item2object(GSList **object, Item *item);
 char* item_value(GSList *object, const char *name);
 void destroy_object(GSList **object);
+#ifndef RELEASE
+void display_all_object_items(GSList *object);
+#endif
 /*******************************************************************************/
 #endif

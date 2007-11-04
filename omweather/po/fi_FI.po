@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-31 18:36+0200\n"
+"POT-Creation-Date: 2007-11-04 09:12+0200\n"
 "PO-Revision-Date: 2007-10-21 14:18+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -355,12 +355,12 @@ msgstr "Itäkoilisesta"
 msgid "ESE"
 msgstr "Itäkaakosta"
 
-#: src/weather-home.c:266
+#: src/weather-home.c:273
 #, c-format
 msgid "Error in xml file\n"
 msgstr "Virhe xml tiedostossa\n"
 
-#: src/weather-home.c:500
+#: src/weather-home.c:507
 msgid "Error initializing the OMWeather applet"
 msgstr "Virhe alustettaessa OMWeather sovelmaa"
 
@@ -619,9 +619,9 @@ msgstr "Enimmäkseen aurinkoista"
 msgid "N"
 msgstr "Pohjoisesta"
 
-#: src/weather-home.c:332 src/weather-home.c:350 src/weather-home.c:373
-#: src/weather-home.c:377 src/weather-home.c:411 src/weather-home.c:415
-#: src/weather-home.c:427 src/weather-home_hash.c:83
+#: src/weather-home.c:339 src/weather-home.c:357 src/weather-home.c:380
+#: src/weather-home.c:384 src/weather-home.c:418 src/weather-home.c:422
+#: src/weather-home.c:434 src/weather-home_hash.c:83
 msgid "N/A"
 msgstr "N/A"
 
@@ -673,7 +673,7 @@ msgstr ""
 "Ei yhteyttä Internettiin\n"
 "Yhteys on vanhentunut"
 
-#: src/weather-home.c:331 src/weather-home.c:339 src/weather-home.c:349
+#: src/weather-home.c:338 src/weather-home.c:346 src/weather-home.c:356
 msgid "Now"
 msgstr "Nyt"
 
@@ -687,7 +687,7 @@ msgstr "Nyt: "
 msgid "OK"
 msgstr "OK"
 
-#: src/weather-home.c:636
+#: src/weather-home.c:643
 msgid "OMWeather settings"
 msgstr "OMWeather asetukset"
 

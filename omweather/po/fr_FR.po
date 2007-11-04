@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.18\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-31 18:48+0200\n"
+"POT-Creation-Date: 2007-11-04 09:12+0200\n"
 "PO-Revision-Date: 2007-10-22 20:02+0200\n"
 "Last-Translator: Nicolas GRAZIANO <nicolas.graziano@gmail.com>\n"
 "Language-Team: French\n"
@@ -349,12 +349,12 @@ msgstr "ENE"
 msgid "ESE"
 msgstr "ESE"
 
-#: src/weather-home.c:266
+#: src/weather-home.c:273
 #, c-format
 msgid "Error in xml file\n"
 msgstr "Erreur dans le fichier xml\n"
 
-#: src/weather-home.c:500
+#: src/weather-home.c:507
 msgid "Error initializing the OMWeather applet"
 msgstr "Erreur à l'initialisation de l'applet OMWeather"
 
@@ -614,9 +614,9 @@ msgstr "Plutôt ensoleillé"
 msgid "N"
 msgstr "N"
 
-#: src/weather-home.c:332 src/weather-home.c:350 src/weather-home.c:373
-#: src/weather-home.c:377 src/weather-home.c:411 src/weather-home.c:415
-#: src/weather-home.c:427 src/weather-home_hash.c:83
+#: src/weather-home.c:339 src/weather-home.c:357 src/weather-home.c:380
+#: src/weather-home.c:384 src/weather-home.c:418 src/weather-home.c:422
+#: src/weather-home.c:434 src/weather-home_hash.c:83
 msgid "N/A"
 msgstr "N/A"
 
@@ -668,7 +668,7 @@ msgstr ""
 "Non connecté à internet\n"
 "Temps de connexion expiré"
 
-#: src/weather-home.c:331 src/weather-home.c:339 src/weather-home.c:349
+#: src/weather-home.c:338 src/weather-home.c:346 src/weather-home.c:356
 msgid "Now"
 msgstr "Maintenant"
 
@@ -682,7 +682,7 @@ msgstr "Maintenant: "
 msgid "OK"
 msgstr "OK"
 
-#: src/weather-home.c:636
+#: src/weather-home.c:643
 msgid "OMWeather settings"
 msgstr "Parametres de OMWeather"
 

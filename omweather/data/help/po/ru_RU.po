@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-04 09:20+0200\n"
+"POT-Creation-Date: 2007-11-04 09:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:1
 msgid "3 icon size kinds"
-msgstr ""
+msgstr "3 размера иконок"
 
 #: data/help/omweather.xml.in.h:2
 msgid "4 icon sets (default: crystal)"
-msgstr ""
+msgstr "4 набора иконок (по умолчанию: crystal)"
 
 #: data/help/omweather.xml.in.h:3
 msgid "4 view modes"
@@ -154,13 +154,15 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:22
 msgid "About OMWeather"
-msgstr ""
+msgstr "O OMWeather"
 
 #: data/help/omweather.xml.in.h:23
 msgid ""
 "Automatic update weather forecast information from the Internet (Data "
 "available from xoap.weather.com)"
 msgstr ""
+"Автоматическое обновление информации о прогнозе погоды через Интернет (Данные "
+"доступны на xoap.weather.com)"
 
 #: data/help/omweather.xml.in.h:24
 msgid "Copyright © 2006-2007 Vlad Vasiliev."
@@ -168,7 +170,7 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:25
 msgid "Current Version: __VERSION__"
-msgstr ""
+msgstr "Текущая версия:  __VERSION__"
 
 #: data/help/omweather.xml.in.h:26
 msgid "Custom city support"

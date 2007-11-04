@@ -31,7 +31,7 @@
 #include "weather-data.h"
 #include <stdio.h>
 /*******************************************************************************/
-GSList	*current;
+WeatherComStation wcs = { NULL };
 /*******************************************************************************/
 Item* create_item(const char *name, const char *value){
     Item	*itm;
@@ -92,4 +92,17 @@ void destroy_object(GSList **object){
     g_slist_free(*object);
     *object = NULL;
 }
+/*******************************************************************************/
+#ifndef RELEASE
+void display_all_object_items(GSList *object){
+    Item	*itm = NULL;
+    fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    while(object){
+	itm = (Item*)object->data;
+	fprintf(stderr, "\n%s: %s", itm->name->str, itm->value->str);
+	object = g_slist_next(object);
+    }
+    fprintf(stderr, "\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+}
+#endif
 /*******************************************************************************/

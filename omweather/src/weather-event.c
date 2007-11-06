@@ -63,7 +63,7 @@ gboolean timer_handler(gpointer data){
      		    weather_frame_update(FALSE);   
 		break;
 		case DBUSINITEVENT:
-		#ifdef PC_EMULATOR
+		#ifndef RELEASE
 		    fprintf(stderr,"DBUSINITEVENT %s\n",ctime(&evt->time));
 		#endif
 		    g_free(evt);

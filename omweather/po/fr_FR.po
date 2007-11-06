@@ -1,10 +1,16 @@
-# 
+# translation of OMWeather fr_FR.po to French
+# This file is distributed under the same license as the OMWeather package.
+#
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Pavel Fialko <pavelnf@gmail.com>, 2007.
+# vlad <vlad@gas.by>, 2007.
+# Vlad Vasiliev <vlad@gas.by>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: omweather 0.18\n"
+"Project-Id-Version: omweather 0.19.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-11-06 06:41+0200\n"
-"PO-Revision-Date: 2007-10-22 20:02+0200\n"
+"PO-Revision-Date: 2007-11-06 22:58+0100\n"
 "Last-Translator: Nicolas GRAZIANO <nicolas.graziano@gmail.com>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -522,9 +528,8 @@ msgid "Light Rain / Wind"
 msgstr "Pluie légère / Vent"
 
 #: src/weather-home_hash.c:68
-#, fuzzy
 msgid "Light Rain / Wind Late"
-msgstr "Pluie légère / Vent"
+msgstr "Pluie légère / Vent en soirée"
 
 #: src/weather-home_hash.c:69
 msgid "Light Rain Early"
@@ -551,9 +556,8 @@ msgid "Light Snow"
 msgstr "Neige légère"
 
 #: src/weather-home_hash.c:76
-#, fuzzy
 msgid "Light Snow / Fog"
-msgstr "Pluie légère / Brouillard"
+msgstr "Neige légère / Brouillard"
 
 #: src/weather-home_hash.c:73
 msgid "Light Snow Early"
@@ -720,9 +724,8 @@ msgid "PM Light Rain"
 msgstr "A-Midi:Pluie fine"
 
 #: src/weather-home_hash.c:97
-#, fuzzy
 msgid "PM Light Snow"
-msgstr "Matin : Légère Neige"
+msgstr "A-Midi : Légère Neige"
 
 #: src/weather-home_hash.c:98
 msgid "PM Rain"
@@ -753,9 +756,8 @@ msgid "Partly Cloudy / Wind"
 msgstr "Un peu Nuageux / Vent"
 
 #: src/weather-home_hash.c:94
-#, fuzzy
 msgid "Partly Cloudy and Windy"
-msgstr "Un peu Nuageux / Vent"
+msgstr "Partiellement nuageux et venteux"
 
 #: src/weather-home_hash.c:105
 msgid "Rain"
@@ -774,9 +776,8 @@ msgid "Rain / Snow Early"
 msgstr "Pluie / neige en matinée"
 
 #: src/weather-home_hash.c:110
-#, fuzzy
 msgid "Rain / Snow Late"
-msgstr "Pluie / Neige"
+msgstr "Pluie / Neige en soirée"
 
 #: src/weather-home_hash.c:113
 msgid "Rain / Snow Showers"
@@ -1235,10 +1236,6 @@ msgstr "stable"
 #~ msgid "Moon: "
 #~ msgstr "Lune : "
 
-#, fuzzy
-#~ msgid "Edit Station"
-#~ msgstr "Ajouter une station"
-
 #~ msgid "Separate current weather data"
 #~ msgstr "Separation des données météo"
 
@@ -1248,92 +1245,4 @@ msgstr "stable"
 #~ msgid "Miles (Imperial)"
 #~ msgstr "Miles (Impérial)"
 
-#~ msgid "French - Nicolas Granziano\n"
-#~ msgstr "French  - Nicolas Granziano\n"
 
-#~ msgid "Apr"
-#~ msgstr "Avr"
-
-#~ msgid "Aug"
-#~ msgstr "Aou"
-
-#~ msgid "Dec"
-#~ msgstr "Déc"
-
-#~ msgid "Feb"
-#~ msgstr "Fév"
-
-#~ msgid "Fr"
-#~ msgstr "Ve"
-
-#~ msgid "Friday"
-#~ msgstr "Vendredi"
-
-#~ msgid "Jan"
-#~ msgstr "Jan"
-
-#~ msgid "Jul"
-#~ msgstr "Jul"
-
-#~ msgid "Jun"
-#~ msgstr "Jun"
-
-#~ msgid "Last update: Unknown"
-#~ msgstr "Dernière MàJ : Inconnue"
-
-#~ msgid "Mar"
-#~ msgstr "Mar"
-
-#~ msgid "May"
-#~ msgstr "Mai"
-
-#~ msgid "Mo"
-#~ msgstr "Lu"
-
-#~ msgid "Monday"
-#~ msgstr "Lundi"
-
-#~ msgid "Nov"
-#~ msgstr "Nov"
-
-#~ msgid "Now:\n"
-#~ msgstr "Maintenant:\n"
-
-#~ msgid "Oct"
-#~ msgstr "Oct"
-
-#~ msgid "Sa"
-#~ msgstr "Sa"
-
-#~ msgid "Saturday"
-#~ msgstr "Samedi"
-
-#~ msgid "Sep"
-#~ msgstr "Sep"
-
-#~ msgid "Su"
-#~ msgstr "Di"
-
-#~ msgid "Sunday"
-#~ msgstr "Dimanche"
-
-#~ msgid "Th"
-#~ msgstr "Je"
-
-#~ msgid "Thursday"
-#~ msgstr "Jeudi"
-
-#~ msgid "Tu"
-#~ msgstr "Ma"
-
-#~ msgid "Tuesday"
-#~ msgstr "Mardi"
-
-#~ msgid "We"
-#~ msgstr "Me"
-
-#~ msgid "Valid time for current weather data:"
-#~ msgstr "Durée de validité pour la météo courante :"
-
-#~ msgid "Wednesday"
-#~ msgstr "Mercredi"

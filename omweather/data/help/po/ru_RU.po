@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -26,7 +25,7 @@ msgstr "4 набора иконок (по умолчанию: crystal)"
 
 #: data/help/omweather.xml.in.h:3
 msgid "4 view modes"
-msgstr ""
+msgstr "4 режима просмотра"
 
 #: data/help/omweather.xml.in.h:4
 msgid ""
@@ -36,6 +35,11 @@ msgid ""
 "weather.com/search/search?here=station_name) or you can use ZIP code for US "
 "stations."
 msgstr ""
+"<display_text>Добавить станцию</display_text> диалог также имеет кнопку, <display_text>Добавить "
+"свою станцию</display_text> которая может быть использована для добавления станции которая "
+"не найдена в списке станций. Код станции может быть найден с (http://xoap."
+"weather.com/search/search?here=имя_станции) или Вы можете использовать ZIP код (только для США)."
+""
 
 #: data/help/omweather.xml.in.h:5
 msgid ""
@@ -327,11 +331,11 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:54
 msgid "Weather data provided by: xoap.weather.com"
-msgstr ""
+msgstr "Погодные данные предоставляются: xoap.weather.com"
 
 #: data/help/omweather.xml.in.h:55
 msgid "Welcome to OMWeather."
-msgstr ""
+msgstr "Добро пожаловать в OMWeather."
 
 #: data/help/omweather.xml.in.h:56
 msgid ""

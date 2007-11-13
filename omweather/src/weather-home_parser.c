@@ -489,9 +489,10 @@ int new_parse_weather_com_xml(void){
 		year;
     gchar	buffer[2048],
     		id_station[10],
-		newname[2048];
+		newname[2048],
+		buff[256];
     time_t	current_time;
-    struct tm	*tm;
+    struct tm	*tm, tmp_tm;
     Item	*itm;
     
 /*Prepare date string */
@@ -744,8 +745,13 @@ int new_parse_weather_com_xml(void){
 			    ( !xmlStrcmp(child_node->name, (const xmlChar *)"day") ) ){
 			/* get 24h name */
 			temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"t");
-			itm = create_item("24h_name",
-                                    (char*)hash_table_find(temp_xml_string));
+			/* prepare locale value for day name */
+			memset(buff, 0, sizeof(buff));
+			memcpy(buff, temp_xml_string, sizeof(buff) - 1);
+			strptime(buff, "%A", &tmp_tm);
+			memset(buff, 0, sizeof(buff));
+			strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
+			itm = create_item("24h_name", buff);
 			xmlFree(temp_xml_string);
 			add_item2object(&(wcs.day_data[count_day]), itm);
 			/* get 24h date */

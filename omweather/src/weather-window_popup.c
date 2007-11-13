@@ -58,13 +58,6 @@ static gboolean popup_window_event_cb(GtkWidget *widget,
     return TRUE; 
 }
 /*******************************************************************************/
-void pre_update_weather(void){
-    if (!app->dbus_is_initialize)
-	weather_initialize_dbus();
-    app->show_update_window = TRUE;
-    update_weather();
-}
-/*******************************************************************************/
 /* Show additional information about weather */
 void weather_window_popup_more_show(void){
     int		i;

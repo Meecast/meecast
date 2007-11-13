@@ -65,18 +65,21 @@ GSList*	add_item2object(GSList **object, Item *item){
 char* item_value(GSList *object, const char *name){
     GString	*tmp = NULL;
     Item	*itm = NULL;
-    
-    tmp = g_string_new(name);
-    while(object){
-	itm = (Item*)object->data;
-	if(g_string_equal(itm->name, tmp)){
-	    g_string_free(tmp, TRUE);
-	    return itm->value->str;
+    char	*result = "";
+
+    if(object){
+        tmp = g_string_new(name);
+	while(object){
+	    itm = (Item*)object->data;
+	    if(g_string_equal(itm->name, tmp)){
+		result = itm->value->str;
+		break;
+	    }
+	    object = g_slist_next(object);
 	}
-	object = g_slist_next(object);
+	g_string_free(tmp, TRUE);
     }
-    g_string_free(tmp, TRUE);
-    return NULL;
+    return result;
 }
 /*******************************************************************************/
 void destroy_object(GSList **object){
@@ -93,13 +96,28 @@ void destroy_object(GSList **object){
     *object = NULL;
 }
 /*******************************************************************************/
+time_t last_update_time(GSList *object){
+    time_t	last_update = 0;
+    struct tm	tm = {0};
+
+    if(!object)
+	return 0;
+    
+    strptime(item_value(object, "last_update"), "%D %I:%M", &tm);
+    last_update = mktime(&tm);
+    /* Add 12 hours if  date have PM field */
+    if(strstr(item_value(object, "last_update"), "PM"))
+	last_update += 12 * 3600;
+    return last_update;
+}
+/*******************************************************************************/
 #ifndef RELEASE
 void display_all_object_items(GSList *object){
     Item	*itm = NULL;
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     while(object){
 	itm = (Item*)object->data;
-	fprintf(stderr, "\n%s: %s", itm->name->str, itm->value->str);
+	fprintf(stderr, "\n>%s: %s<", itm->name->str, itm->value->str);
 	object = g_slist_next(object);
     }
     fprintf(stderr, "\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");

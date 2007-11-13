@@ -50,6 +50,7 @@ void destroy_item(Item **item);
 GSList*	add_item2object(GSList **object, Item *item);
 char* item_value(GSList *object, const char *name);
 void destroy_object(GSList **object);
+time_t last_update_time(GSList *object);
 #ifndef RELEASE
 void display_all_object_items(GSList *object);
 #endif

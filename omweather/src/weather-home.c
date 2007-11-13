@@ -43,6 +43,7 @@
 #include "weather-home.h"
 #include <unistd.h>
 #include "weather-home_hash.h"
+#include "weather-data.h"
 /*******************************************************************************/
 #define APPLET_X_SIZE		200
 #define APPLET_Y_SIZE		40
@@ -221,12 +222,26 @@ void station_error_window(void){
 /*******************************************************************************/
 /* Fill buttons data */
 void weather_buttons_fill(gboolean check_error){
-    int		i, j = 0, k = 0, offset = 0, count_day;
-    gchar	buffer[2048], buffer_icon[2048];
-    time_t	current_day,current_time, last_day = 0,
-		utc_time;
+    int		i,
+		j = 0,
+		k = 0,
+		offset = 0,
+		count_day,
+		year,
+		current_month = 1;
+    gchar	buffer[2048],
+		buffer_icon[2048],
+		date_in_string[255];
+    time_t	current_day,
+		current_time,
+		last_day = 0,
+		utc_time,
+		date_time,
+		day_begin_time,
+		night_begin_time;
     long int    diff_time;
-    struct tm	*tm;
+    struct tm	*tm = NULL,
+		tmp_tm;
     gboolean	flag_last_day = FALSE, error_station_code = FALSE;
     GSList	*tmplist = NULL;
     struct weather_station *ws = NULL;
@@ -241,6 +256,7 @@ void weather_buttons_fill(gboolean check_error){
 /* Check main widget */
     if(!app->top_widget)
 	return;
+    tm = &tmp_tm;
 /* select image and font size */
     switch(app->config->icons_size){
 	default:
@@ -259,13 +275,8 @@ void weather_buttons_fill(gboolean check_error){
     }
 /* Init weather buttons */
     weather_buttons_init();
-    count_day = parse_weather_com_xml();
-/*
-    new_parse_weather_com_xml();
-    #include "weather-data.h"
-    display_all_object_items(wcs.current_data);
-    display_all_object_items(wcs.day_data[0]);
-*/
+    count_day = new_parse_weather_com_xml();
+    
     if(check_error)
 	if(count_day == -2){
 	    count_day = 0;
@@ -277,33 +288,63 @@ void weather_buttons_fill(gboolean check_error){
 /* get current day */  
     current_time = time(NULL);
     utc_time = mktime(gmtime(&current_time));
-    diff_time = utc_time - current_time + app->weather_days[0].zone;
-    current_time = current_day = utc_time + app->weather_days[0].zone;
+    diff_time = utc_time - current_time + atol(item_value(wcs.day_data[0], "station_time_zone"));
+    current_time = current_day = utc_time + atol(item_value(wcs.day_data[0], "station_time_zone"));
     tm = localtime(&current_day);
+    year = 1900 + tm->tm_year;
+    current_month = tm->tm_mon;
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     current_day = mktime(tm);
 
-    offset = (int)( abs( (current_day - app->weather_days[0].date_time) / (24 * 60 * 60) ) );
+    memset(date_in_string, 0, sizeof(date_in_string));
+    sprintf(date_in_string, "%s %i 00:00:00",
+	    item_value(wcs.day_data[0], "24h_date"), year);
 
+    strptime(date_in_string, "%b %d %Y %T", tm);
+    /* Check New Year */
+    if((current_month == 11) && (tm->tm_mon == 0)){
+	sprintf(date_in_string, "%s %i 00:00:00",
+		item_value(wcs.day_data[count_day - 1], "24h_date"), year + 1);
+	strptime(date_in_string, "%b %d %Y %T", tm);
+    }
+    date_time = mktime(tm);
+
+    offset = (int)( abs( (current_day - date_time) / (24 * 60 * 60) ) );
+
+    if(offset >= Max_count_weather_day)
+	offset = Max_count_weather_day;
+    /* delete old weather data */
+    for(i = 0; i < offset; i++)
+	destroy_object(&(wcs.day_data[i]));
+    /* move weather data */
+    j = i;
+    if(j > 0){
+	for(; j < Max_count_weather_day; j++){
+	    wcs.day_data[j - i] = wcs.day_data[j];
+	    wcs.day_data[j] = NULL;
+	}
+    }
+    j = 0;
     (app->config->separate) ? (k = 1) : (k = 0); /* add one more day if data is config->separate */
     for(i = 0; i < app->config->days_to_show; i++){
-	if( i + offset < Max_count_weather_day + k ){
+	if( i < Max_count_weather_day - offset + k ){
 	    if(i == 0 || (app->config->separate && i == 1)){	/* first day */
 		/* repeat the same data in second button for first day if data is config->separate */
-		(app->config->separate && i == 1) ? (j = -1) : (j = 0); 
+		(app->config->separate && i == 1) ? (j = -1) : (j = 0);
 		/* prepare temperature for first day */
-		if(!strcmp(app->weather_days[i + offset + j].hi_temp, "N/A"))
+		if(!strcmp(item_value(wcs.day_data[i + j], "24h_hi_temperature"), "N/A"))
 		    temp_hi = INT_MAX;
 		else
-		    temp_hi = atoi(app->weather_days[i + offset + j].hi_temp);
-		if(!strcmp(app->weather_days[i + offset + j].low_temp, "N/A"))
+		    temp_hi = atoi(item_value(wcs.day_data[i + j], "24h_hi_temperature"));
+
+		if(!strcmp(item_value(wcs.day_data[i + j], "24h_low_temperature"), "N/A"))
         	    temp_low = INT_MAX;
 		else
-		    temp_low = atoi(app->weather_days[i + offset + j].low_temp);
-		if(!strcmp(app->weather_current_day.day.temp, "N/A"))
+		    temp_low = atoi(item_value(wcs.day_data[i + j], "24h_low_temperature"));
+		if(!strcmp(item_value(wcs.current_data, "temperature"), "N/A"))
 		    temp_current = INT_MAX;
 		else
-		    temp_current = atoi(app->weather_current_day.day.temp);
+		    temp_current = atoi(item_value(wcs.current_data, "temperature"));
         	if(app->config->temperature_units == FAHRENHEIT){
 		    if(temp_hi != INT_MAX)
             		temp_hi = c2f(temp_hi);
@@ -312,29 +353,45 @@ void weather_buttons_fill(gboolean check_error){
 		    if(temp_current != INT_MAX)
 			temp_current = c2f(temp_current);
         	}
+	
+		/* day begin */
+		sprintf(date_in_string, "%s %i %s",
+			item_value(wcs.day_data[i + j], "24h_date"),
+			year,
+			item_value(wcs.day_data[i + j], "24h_sunrise"));
+		strptime(date_in_string, "%b %d %Y %I:%M %p", tm);
+		day_begin_time = mktime(tm);
+		/* night begin */
+		sprintf(date_in_string, "%s %i %s",
+			item_value(wcs.day_data[i + j], "24h_date"),
+			year,
+			item_value(wcs.day_data[i + j], "24h_sunset"));
+		strptime(date_in_string, "%b %d %Y %I:%M %p", tm);
+		night_begin_time = mktime(tm);
 		/* add events for first day */
-		if(current_time < app->weather_days[i + offset + j].day.begin_time)
-        	    time_event_add(app->weather_days[i + offset + j].day.begin_time - diff_time, DAYTIMEEVENT);
-		if(current_time < app->weather_days[i + offset + j].night.begin_time)
-            	    time_event_add(app->weather_days[i + offset + j].night.begin_time - diff_time, DAYTIMEEVENT);
+		if(current_time < day_begin_time)
+        	    time_event_add(day_begin_time - diff_time, DAYTIMEEVENT);
+		if(current_time < night_begin_time)
+            	    time_event_add(night_begin_time - diff_time, DAYTIMEEVENT);
 		
-		current_time = utc_time + app->weather_days[i + offset + j].zone;
+		current_time = utc_time + atol(item_value(wcs.day_data[i + j], "station_time_zone"));
 		#ifndef RELEASE
 		fprintf(stderr, "\nUTC time %s", ctime(&utc_time));
 		fprintf(stderr, "Zone time %s", ctime(&current_time));
-		fprintf(stderr, "Last update time %s\n", ctime(&(app->weather_current_day.date_time)));
+		fprintf(stderr, "\nLast update: %li\n", last_update_time(wcs.current_data));
 		#endif
 		/* check weather data for actuality */
-		if( (app->weather_current_day.date_time > (current_time - app->config->data_valid_interval - 3600)) &&
-            	    (app->weather_current_day.date_time < (current_time + app->config->data_valid_interval + 3600)) && i == 0){
-		    time_event_add(app->weather_current_day.date_time + app->config->data_valid_interval - diff_time + 3600, DAYTIMEEVENT);
+		if( (last_update_time(wcs.current_data) > (current_time - app->config->data_valid_interval - 3600)) &&
+            	    (last_update_time(wcs.current_data) < (current_time + app->config->data_valid_interval + 3600)) && i == 0){
+
+		    time_event_add(last_update_time(wcs.current_data) + app->config->data_valid_interval - diff_time + 3600, DAYTIMEEVENT);
 		    if(temp_current == INT_MAX)
 			sprintf(buffer,
 				"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%s\302\260\n</span>",
 				app->config->font_color.red >> 8,
 				app->config->font_color.green >> 8,
 				app->config->font_color.blue >> 8,
-				(app->config->separate) ? (_("Now")) : (app->weather_days[i + offset + j].dayshname),
+				(app->config->separate) ? (_("Now")) : (item_value(wcs.day_data[i + j], "24h_name")),
 				_("N/A") );
 		    else
 			sprintf(buffer,
@@ -342,12 +399,13 @@ void weather_buttons_fill(gboolean check_error){
 				app->config->font_color.red >> 8,
 				app->config->font_color.green >> 8,
 				app->config->font_color.blue >> 8,
-				(app->config->separate) ? (_("Now")) : (app->weather_days[i + offset + j].dayshname),
+				(app->config->separate) ? (_("Now")) : (item_value(wcs.day_data[i + j], "24h_name")),
 				temp_current );
-		    sprintf(buffer_icon, "%s%i.png", path_large_icon, app->weather_current_day.day.icon);
+		    sprintf(buffer_icon, "%s%s.png", path_large_icon, item_value(wcs.current_data, "icon"));
 		}
 		else{ /* if current data is not actual */
 		    if(i == 0 && app->config->separate){ /* if current data isn't actual and first day */
+		    
 		    	sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260</span>",
 				    app->config->font_color.red >> 8,
 				    app->config->font_color.green >> 8,
@@ -358,13 +416,13 @@ void weather_buttons_fill(gboolean check_error){
 		    }
 		    else{ /* if first day and not config->separate data */
 			/* if current time is night show night icon */
-			if(current_time < app->weather_days[i + offset + j].day.begin_time)
-			    sprintf(buffer_icon, "%s%i.png", path_large_icon, app->weather_days[i + offset + j].night.icon);
+			if(current_time < day_begin_time)
+			    sprintf(buffer_icon, "%s%s.png", path_large_icon, item_value(wcs.day_data[i + j], "night_icon"));
 			else{/* if current time is day show day icon */
-			    if(current_time < app->weather_days[i + offset + j].night.begin_time)
-				sprintf(buffer_icon, "%s%i.png", path_large_icon, app->weather_days[i + offset + j].day.icon);
+			    if(current_time < night_begin_time)
+				sprintf(buffer_icon, "%s%s.png", path_large_icon, item_value(wcs.day_data[i + j], "day_icon"));
 			    else
-				sprintf(buffer_icon, "%s%i.png", path_large_icon, app->weather_days[i + offset + j].night.icon);
+				sprintf(buffer_icon, "%s%s.png", path_large_icon, item_value(wcs.day_data[i + j], "night_icon"));
 			}
 			/* show temperature */
 			if(app->config->swap_hi_low_temperature)
@@ -374,7 +432,7 @@ void weather_buttons_fill(gboolean check_error){
 				app->config->font_color.red >> 8,
 				app->config->font_color.green >> 8,
 				app->config->font_color.blue >> 8,
-				app->weather_days[i + offset + j].dayshname);
+				item_value(wcs.day_data[i + j], "24h_name"));
 			if(temp_low == INT_MAX)
 			    sprintf(buffer + strlen(buffer), "%s\302\260\n", _("N/A") );
 			else
@@ -386,33 +444,34 @@ void weather_buttons_fill(gboolean check_error){
 			strcat(buffer, "</span>");
 		    }
 		}
+
 	    }
 	    else{ /* other days, from two and to app->config->days_to_show */
-	    	if(!strcmp(app->weather_days[i + offset + j].hi_temp, "N/A"))
+	    	if(!strcmp(item_value(wcs.day_data[i + j], "24h_hi_temperature"), "N/A"))
 		    temp_hi = INT_MAX;
 		else
-		    temp_hi = atoi(app->weather_days[i + offset + j].hi_temp);
-		if(!strcmp(app->weather_days[i + offset + j].low_temp, "N/A"))
+		    temp_hi = atoi(item_value(wcs.day_data[i + j], "24h_hi_temperature"));
+		if(!strcmp(item_value(wcs.day_data[i + j], "24h_low_temperature"), "N/A"))
         	    temp_low = INT_MAX;
 		else
-		    temp_low = atoi(app->weather_days[i + offset + j].low_temp);
+		    temp_low = atoi(item_value(wcs.day_data[i + j], "24h_low_temperature"));
         	if(app->config->temperature_units == FAHRENHEIT){
 		    if(temp_hi != INT_MAX)
             		temp_hi = c2f(temp_hi);
 		    if(temp_low != INT_MAX)
             		temp_low = c2f(temp_low);
         	}
-	        time_event_add(app->weather_days[i + offset + j].date_time, DAYTIMEEVENT);
-                last_day = app->weather_days[i + offset + j].date_time;
+	        time_event_add(date_time, DAYTIMEEVENT);
+                last_day = date_time;
 		if(app->config->swap_hi_low_temperature)
 		    swap_temperature(&temp_hi, &temp_low);
-		sprintf(buffer_icon, "%s%i.png", path_large_icon, app->weather_days[i + offset + j].day.icon);
+		sprintf(buffer_icon, "%s%s.png", path_large_icon, item_value(wcs.day_data[i + j], "day_icon"));
 		sprintf(buffer,
 			"<span foreground='#%02x%02x%02x'>%s\n",
 			app->config->font_color.red >> 8,
 			app->config->font_color.green >> 8,
 			app->config->font_color.blue >> 8,
-			app->weather_days[i + offset + j].dayshname);
+			item_value(wcs.day_data[i + j], "24h_name"));
 		if(temp_low == INT_MAX)
 		    sprintf(buffer + strlen(buffer), "%s\302\260\n", _("N/A") );
 		else
@@ -443,7 +502,7 @@ void weather_buttons_fill(gboolean check_error){
 						    font_size, &(app->config->background_color));
 
 	if(app->buttons[i]){
-	    g_signal_connect(app->buttons[i]->button, "button_release_event", G_CALLBACK(weather_window_popup_show), NULL); 
+	    g_signal_connect(app->buttons[i]->button, "button_release_event", G_CALLBACK(show_popup_window_handler), NULL); 
 	}    
 
     }/* end for */
@@ -483,7 +542,7 @@ void weather_frame_update(gboolean check){
     if(app->main_window){
         gtk_widget_destroy(app->main_window);
 	app->main_window = NULL;
-	}
+    }
     if(check) 
 	weather_buttons_fill(TRUE);
     else
@@ -907,14 +966,18 @@ void free_memory(gboolean flag){
 	    app->stations_view_list = NULL;
 	}
     }
-    
+
+    destroy_object(&(wcs.current_data));    
     if(app->top_widget){
 #ifndef RELEASE
 	fprintf(stderr, "\nDays current %d\n", app->config->days_to_show);
 	fprintf(stderr, "\nDays previos %d\n", app->config->previos_days_to_show);
 #endif
-	for(i = 0; i < app->config->previos_days_to_show; i++)
-	    delete_weather_day_button(FALSE, &(app->buttons[i]) );    
+
+	for(i = 0; i < app->config->previos_days_to_show; i++){
+	    delete_weather_day_button(FALSE, &(app->buttons[i]) );
+	    destroy_object(&(wcs.day_data[i]));
+	}
 	if(app->main_window){
 	    gtk_widget_destroy(app->main_window);
 	    app->main_window = NULL;

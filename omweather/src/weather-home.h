@@ -48,7 +48,7 @@ void set_font_color (GtkWidget *widget, guint16 red, guint16 green, guint16 blue
 void set_background_color(GtkWidget *widget, GdkColor *bgc);
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size);
 weather_com_parser *weather_com_parser_new( const gchar * weather_com );
-int parse_weather_com_xml(void);
+
 int c2f(int temp);
 void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 gboolean download_html(gpointer data);
@@ -74,6 +74,11 @@ extern GtkListStore* create_items_list(const char *filename, long start, long en
 extern GtkListStore* create_time_update_list(void);
 extern void fill_station_from_clock_plugin_data(void);
 extern void reinitilize_stations_list2(GSList *stlist);
+extern gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
+				    gpointer user_data);
+extern int parse_weather_com_xml(void);
+extern int new_parse_weather_com_xml(void);
+extern time_t last_update_time(GSList *object);
 /*******************************************************************************/
 extern int	boxs_offset[];
 extern gchar	path_large_icon[];

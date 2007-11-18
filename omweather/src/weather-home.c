@@ -249,6 +249,9 @@ void weather_buttons_fill(gboolean check_error){
     char	font_size;
     gint	icon_size;
     gchar	*tmp_station_name;
+#ifndef RELEASE
+    time_t	tmp_time;
+#endif
 
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
@@ -288,8 +291,8 @@ void weather_buttons_fill(gboolean check_error){
 /* get current day */  
     current_time = time(NULL);
     utc_time = mktime(gmtime(&current_time));
-    diff_time = utc_time - current_time + atol(item_value(wcs.day_data[0], "station_time_zone"));
-    current_time = current_day = utc_time + atol(item_value(wcs.day_data[0], "station_time_zone"));
+    diff_time = utc_time - current_time + 60 * 60 * atol(item_value(wcs.day_data[0], "station_time_zone"));
+    current_time = current_day = utc_time + 60 * 60 * atol(item_value(wcs.day_data[0], "station_time_zone"));
     tm = localtime(&current_day);
     year = 1900 + tm->tm_year;
     current_month = tm->tm_mon;
@@ -374,11 +377,12 @@ void weather_buttons_fill(gboolean check_error){
 		if(current_time < night_begin_time)
             	    time_event_add(night_begin_time - diff_time, DAYTIMEEVENT);
 		
-		current_time = utc_time + atol(item_value(wcs.day_data[i + j], "station_time_zone"));
+		current_time = utc_time + 60 * 60 * atol(item_value(wcs.day_data[i + j], "station_time_zone"));
 		#ifndef RELEASE
 		fprintf(stderr, "\nUTC time %s", ctime(&utc_time));
 		fprintf(stderr, "Zone time %s", ctime(&current_time));
-		fprintf(stderr, "\nLast update: %li\n", last_update_time(wcs.current_data));
+		tmp_time = last_update_time(wcs.current_data);
+		fprintf(stderr, "Last update: %s\n", ctime(&tmp_time));
 		#endif
 		/* check weather data for actuality */
 		if( (last_update_time(wcs.current_data) > (current_time - app->config->data_valid_interval - 3600)) &&

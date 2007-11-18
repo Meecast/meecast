@@ -1,4 +1,4 @@
-/*    current_time = utc_time + atol(item_value(wcs.day_data[i], "station_time_zone"));
+/*
  * This file is part of Other Maemo Weather(omweather)
  *
  * Copyright (C) 2006 Vlad Vasiliev
@@ -110,7 +110,7 @@ gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
     current_time = time(NULL); /* get current day */
     /* correct time for current location */
     utc_time = mktime(gmtime(&current_time));
-    current_time = utc_time + atol(item_value(wcs.day_data[i + k], "station_time_zone"));
+    current_time = utc_time + 60 * 60 * atol(item_value(wcs.day_data[i + k], "station_time_zone"));
 /* check if fist day is pressed */
     if(i == 0){
 	first_day = TRUE;
@@ -521,7 +521,7 @@ GtkWidget* create_24_hours_widget(GSList *day){
     tm = localtime(&current_time);
     year = 1900 + tm->tm_year;
     utc_time = mktime(gmtime(&current_time));
-    current_day = current_time = utc_time + atol(item_value(day, "station_time_zone"));
+    current_day = current_time = utc_time + 60 * 60 * atol(item_value(day, "station_time_zone"));
     tm = localtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     current_day = mktime(tm);
@@ -683,7 +683,7 @@ GtkWidget* create_sun_time_widget(GSList *day){
 /* prepare additional time values */
     current_time = time(NULL);
     utc_time = mktime(gmtime(&current_time));
-    current_time = utc_time + atol(item_value(day, "station_time_zone"));
+    current_time = utc_time + 60 * 60 * atol(item_value(day, "station_time_zone"));
 /* Sun icon */
     sprintf(icon, "%s32.png", path_large_icon);
     icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, 64, 64, NULL);
@@ -872,7 +872,7 @@ GtkWidget	*popup_frame = NULL,
     current_time = time(NULL); /* get current day */
     /* correct time for current location */
     utc_time = mktime(gmtime(&current_time));
-    current_time = utc_time + atol(item_value(wcs.day_data[i], "station_time_zone"));
+    current_time = utc_time + 60 * 60 * atol(item_value(wcs.day_data[i], "station_time_zone"));
     /* check if fist day is pressed */
     if(i == 0){
 	first_day = TRUE;

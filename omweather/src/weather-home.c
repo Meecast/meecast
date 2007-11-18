@@ -292,7 +292,8 @@ void weather_buttons_fill(gboolean check_error){
     current_time = time(NULL);
     utc_time = mktime(gmtime(&current_time));
     diff_time = utc_time - current_time + 60 * 60 * atol(item_value(wcs.day_data[0], "station_time_zone"));
-    current_time = current_day = utc_time + 60 * 60 * atol(item_value(wcs.day_data[0], "station_time_zone"));
+    current_time += diff_time;
+    current_day = current_time;
     tm = localtime(&current_day);
     year = 1900 + tm->tm_year;
     current_month = tm->tm_mon;
@@ -377,18 +378,19 @@ void weather_buttons_fill(gboolean check_error){
 		if(current_time < night_begin_time)
             	    time_event_add(night_begin_time - diff_time, DAYTIMEEVENT);
 		
-		current_time = utc_time + 60 * 60 * atol(item_value(wcs.day_data[i + j], "station_time_zone"));
 		#ifndef RELEASE
+		fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		fprintf(stderr, "\nUTC time %s", ctime(&utc_time));
 		fprintf(stderr, "Zone time %s", ctime(&current_time));
 		tmp_time = last_update_time(wcs.current_data);
-		fprintf(stderr, "Last update: %s\n", ctime(&tmp_time));
+		fprintf(stderr, "Last update: %s", ctime(&tmp_time));
+		fprintf(stderr, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
 		#endif
 		/* check weather data for actuality */
-		if( (last_update_time(wcs.current_data) > (current_time - app->config->data_valid_interval - 3600)) &&
-            	    (last_update_time(wcs.current_data) < (current_time + app->config->data_valid_interval + 3600)) && i == 0){
+		if( (last_update_time(wcs.current_data) > (current_time - app->config->data_valid_interval)) &&
+            	    (last_update_time(wcs.current_data) < (current_time + app->config->data_valid_interval)) && i == 0){
 
-		    time_event_add(last_update_time(wcs.current_data) + app->config->data_valid_interval - diff_time + 3600, DAYTIMEEVENT);
+		    time_event_add(last_update_time(wcs.current_data) + app->config->data_valid_interval - diff_time, DAYTIMEEVENT);
 		    if(temp_current == INT_MAX)
 			sprintf(buffer,
 				"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%s\302\260\n</span>",

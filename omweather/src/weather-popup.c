@@ -61,6 +61,7 @@ gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
     int		i, k;
     time_t	current_time = 0,
 		utc_time,
+		diff_time,
 		current_data_last_update = 0;
     GtkWidget	*popup_frame = NULL,
 		*popup_vbox = NULL,
@@ -110,7 +111,11 @@ gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
     current_time = time(NULL); /* get current day */
     /* correct time for current location */
     utc_time = mktime(gmtime(&current_time));
-    current_time = utc_time + 60 * 60 * atol(item_value(wcs.day_data[i + k], "station_time_zone"));
+    diff_time = utc_time - current_time  + 60 * 60 * atol(item_value(wcs.day_data[i], "station_time_zone"));
+    #ifndef RELEASE
+    fprintf(stderr, "\n>>>>>>>Diff time=%li<<<<<<\n", diff_time);
+    #endif
+    current_time += diff_time;
 /* check if fist day is pressed */
     if(i == 0){
 	first_day = TRUE;
@@ -151,8 +156,8 @@ gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
 		    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_temperature,
 					FALSE, FALSE, 0);
 		    /* current weather */
-		    if((current_data_last_update > ( current_time - app->config->data_valid_interval - 3600)) &&
-        		    (current_data_last_update < ( current_time + app->config->data_valid_interval + 3600))){
+		    if((current_data_last_update > ( current_time - app->config->data_valid_interval)) &&
+        		    (current_data_last_update < ( current_time + app->config->data_valid_interval))){
 			popup_current_weather_widget = create_current_weather_widget(wcs.current_data);
 			if(popup_current_weather_widget)
 			    gtk_box_pack_start(GTK_BOX(popup_vbox), popup_current_weather_widget,
@@ -171,8 +176,8 @@ gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
 					FALSE, FALSE, 0);		
 		}
 		else{/* if weather data is separated */
-		    if((current_data_last_update > ( current_time - app->config->data_valid_interval - 3600)) &&
-        		    (current_data_last_update < ( current_time + app->config->data_valid_interval + 3600))){
+		    if((current_data_last_update > ( current_time - app->config->data_valid_interval)) &&
+        		    (current_data_last_update < ( current_time + app->config->data_valid_interval))){
 			popup_current_weather_widget = create_current_weather_widget(wcs.current_data);
 			if(popup_current_weather_widget)
 			    gtk_box_pack_start(GTK_BOX(popup_vbox), popup_current_weather_widget,
@@ -787,9 +792,12 @@ GtkWidget* create_time_updates_widget(GSList *current){
     snprintf(buffer, sizeof(buffer) - 1, "%s", _("Last update at server: \n"));
     if(tmp_time <= 0)	/* if weather data for station wasn't download */
 	strcat(buffer, _("Unknown"));
-    else
+    else{
 	strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 		    "%X %x", localtime(&tmp_time));
+	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+		    " %s", _("station local time"));
+    }
     strcat(buffer, "\n");
     
     sprintf(full_filename, "%s/%s.xml", app->config->cache_dir_name,
@@ -804,7 +812,7 @@ GtkWidget* create_time_updates_widget(GSList *current){
     	strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 		"%X %x", localtime(&statv.st_mtime));
 	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-		"%s", _(" local time"));
+		" %s", _("current location local time"));
     }
     label_update = gtk_label_new(buffer);    
     set_font_size(label_update, 14);

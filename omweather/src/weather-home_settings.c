@@ -702,7 +702,7 @@ void weather_window_settings(GtkWidget *widget,
                 	NULL);
 /* Interface tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			table = gtk_table_new(1, 8, FALSE),
+        			table = gtk_table_new(1, 7, FALSE),
         			label = gtk_label_new(_("Interface")));
 /* Days to show */
     app->config->days_to_show--; /* count down, because combobox items start with 0 */
@@ -810,8 +810,6 @@ void weather_window_settings(GtkWidget *widget,
         gtk_widget_set_sensitive(background_color, FALSE);	
     else
         gtk_widget_set_sensitive(background_color, TRUE);
-	
-		
 /* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Transparency:")),
@@ -834,16 +832,6 @@ void weather_window_settings(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label), separate_button = gtk_check_button_new());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(separate_button),
         			    app->config->separate);
-/* Swap temperature */
-    gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new(_("Swap hi/low temperature:")),
-        			0, 1, 8, 9);
-    gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
-        			1, 2, 8, 9);
-    gtk_container_add(GTK_CONTAINER(label), swap_temperature_button = gtk_check_button_new());
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(swap_temperature_button),
-        			    app->config->swap_hi_low_temperature);
 /* Hide station name button */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_label_new(_("Hide station name and arrows:")),
@@ -873,13 +861,23 @@ void weather_window_settings(GtkWidget *widget,
 	case CELSIUS: gtk_combo_box_set_active(GTK_COMBO_BOX(temperature_unit), 0); break;
 	case FAHRENHEIT: gtk_combo_box_set_active(GTK_COMBO_BOX(temperature_unit), 1); break;
     }
+/* Swap temperature */
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+        			label = gtk_label_new(_("Swap hi/low temperature:")),
+        			0, 1, 1, 2);
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f) ,
+        			1, 2, 1, 2);
+    gtk_container_add(GTK_CONTAINER(label), swap_temperature_button = gtk_check_button_new());
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(swap_temperature_button),
+        			    app->config->swap_hi_low_temperature);
 /* Distance units */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
 				label = gtk_label_new(_("Distance units:")),
-				0, 1, 1, 2);
+				0, 1, 2, 3);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
-				1, 2, 1, 2);
+				1, 2, 2, 3);
     gtk_container_add(GTK_CONTAINER(label), units = gtk_combo_box_new_text());
     gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Meters"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(units), _("Kilometers"));
@@ -895,10 +893,10 @@ void weather_window_settings(GtkWidget *widget,
 /* Wind units */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
 				label = gtk_label_new(_("Wind speed units:")),
-				0, 1, 2, 3);
+				0, 1, 3, 4);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
-				1, 2, 2, 3);
+				1, 2, 3, 4);
     gtk_container_add(GTK_CONTAINER(label), wunits = gtk_combo_box_new_text());
     gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("m/s"));
 /*    gtk_combo_box_append_text(GTK_COMBO_BOX(wunits), _("km/s"));
@@ -1251,7 +1249,8 @@ void create_help_dialog(void){
     snprintf(tmp_buff, sizeof(tmp_buff), "%s",
 	    _("French - Nicolas Granziano\n"
 	      "Russian - Pavel Fialko, Vlad Vasiliev,\n\t    Ed Bartosh\n"
-	      "Finnish - Marko Vertainen\n"));
+	      "Finnish - Marko Vertainen\n"
+	      "Italian - Pavel Fialko\n"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),

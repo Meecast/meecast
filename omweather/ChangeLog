@@ -1,5 +1,7 @@
 0.20.0
   * English help file has been added
+  * Added translation for Italian
+  * The field "Swap hi/low temperature" is moved to the "Units" tab
   
 0.19.1
   * Time of "Last update at server:" has been corrected

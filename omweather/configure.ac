@@ -118,6 +118,8 @@ helpfile_fifidir=$datadir/osso-help/fi_FI
 AC_SUBST(helpfile_fifidir)
 helpfile_frfrdir=$datadir/osso-help/fr_FR
 AC_SUBST(helpfile_frfrdir)
+helpfile_ititdir=$datadir/osso-help/it_IT
+AC_SUBST(helpfile_ititdir)
 
 # Checks for library functions.
 AC_CHECK_FUNCS([setlocale])

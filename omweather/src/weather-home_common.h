@@ -154,6 +154,7 @@ typedef struct applet_config{
     gchar 	*iap_http_proxy_host;
     gint 	iap_http_proxy_port;
     gint	update_interval;
+    gint	switch_time;
     gint	icons_size;
     gint	icons_layout;
     gint	current_settings_page;
@@ -186,6 +187,7 @@ typedef struct OMWeatherApplet{
     gboolean		iap_connecting;    
     long		iap_connecting_timer;  
     guint		timer;
+    guint		switch_timer;
     WDB			*buttons[Max_count_weather_day];
     guint		flag_updating;
     gboolean		dbus_is_initialize;

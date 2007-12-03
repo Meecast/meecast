@@ -3,6 +3,7 @@ omweather (0.20) unstable; urgency=low
   * English help file has been added
   * Added translation for Italian
   * The field "Swap hi/low temperature" is moved to the "Units" tab
+  * Added auto-switch to the next station on selected time
         
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 02 Nov 2007 03:36:00 +0200
 

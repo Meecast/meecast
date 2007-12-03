@@ -396,7 +396,28 @@ int new_read_config(AppletConfig *config){
 	config->wind_units = METERS_S;
 	g_error_free(gerror);
     }
-
+    /* Get switch time */
+    config->switch_time = gconf_client_get_int(gconf_client,
+				    GCONF_KEY_WEATHER_SWITCH_TIME,
+				    &gerror);
+    if(gerror || (config->switch_time != 0 &&
+		    config->switch_time != 10 &&
+		    config->switch_time != 20 &&
+		    config->switch_time != 30 &&
+		    config->switch_time != 40 &&
+		    config->switch_time != 50 &&
+		    config->switch_time != 60) ){
+	config->switch_time = 0;	/* Default value - Never */
+	g_error_free(gerror);
+    }
+    else{
+	if(config->switch_time > 0){
+	    g_source_remove(app->switch_timer);
+	    app->switch_timer = g_timeout_add(config->switch_time * 1000,
+                    		(GtkFunction)switch_timer_handler,
+                        	app->main_window);
+	}
+    }
     /* Get valid data time for current weather */
     config->data_valid_interval =
 	    gconf_client_get_int(gconf_client,
@@ -565,6 +586,10 @@ void new_config_save(AppletConfig *config){
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_WIND_UNITS,
 			config->wind_units, NULL);
+    /* Save switch time */
+    gconf_client_set_int(gconf_client,
+        		GCONF_KEY_WEATHER_SWITCH_TIME,
+			config->switch_time, NULL);
     /* Save valid data time */
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_VALID_DATA_TIME,

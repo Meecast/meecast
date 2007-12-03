@@ -654,6 +654,8 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     #ifndef RELEASE
 	fprintf(stderr, "\nOMWeather applet deinitialize\n");
     #endif
+    /* remove switch timer */
+    g_source_remove(app->switch_timer);
     /* It is switch off the timer */	
     check = g_source_remove(app->timer);
     /* Clean the queue of event */ 
@@ -1090,3 +1092,13 @@ void set_background_color(GtkWidget *widget, GdkColor *bgc){
     gtk_widget_modify_bg(widget, GTK_STATE_NORMAL, bgc);
 }
 /*******************************************************************************/
+gboolean switch_timer_handler(gpointer data){
+    if(app->popup_window){
+        gtk_widget_destroy(app->popup_window);
+        app->popup_window = NULL;
+    }
+    change_station_next(NULL, NULL, NULL);
+    return TRUE;
+}
+/*******************************************************************************/
+

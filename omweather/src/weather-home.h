@@ -59,6 +59,7 @@ void station_error_window(void);
 void menu_init(void);
 void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 void set_widget_background(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
+gboolean switch_timer_handler(gpointer data);
 /*******************************************************************************/
 extern void timer(int interval);
 extern void create_timer_with_interval(guint interval);

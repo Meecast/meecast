@@ -74,5 +74,6 @@ extern void add_periodic_event(time_t last_update);
 extern void remove_periodic_event(void);
 extern void popup_window_destroy(void);
 extern gboolean change_station_select(GtkWidget *widget, gpointer user_data);
+extern gboolean switch_timer_handler(gpointer data);
 /*******************************************************************************/
 #endif

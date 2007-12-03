@@ -59,6 +59,7 @@ static GtkWidget    *countrys,
 		    *iconset,
 		    *wunits,
 		    *valid_time_list,
+		    *time_2switch_list,
 		    *station_list_view,
 		    *window_add_station;
 static GtkListStore *station_list_store;
@@ -915,7 +916,7 @@ void weather_window_settings(GtkWidget *widget,
     }    
 /* Update tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			table = gtk_table_new(4, 2, FALSE),
+        			table = gtk_table_new(5, 2, FALSE),
         			label = gtk_label_new(_("Update")));
 			
     gtk_table_attach_defaults(GTK_TABLE(table),
@@ -927,13 +928,40 @@ void weather_window_settings(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label), chk_downloading_after_connection = gtk_check_button_new());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_downloading_after_connection),
         			    app->config->downloading_after_connecting);
-				    
+    /* Switch time to the next station */
     gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new(_("Valid time for current weather:")),
+        			label = gtk_label_new(_("Switch to the next station after:")),
         			0, 1, 1, 2);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
         			1, 2, 1, 2);
+    gtk_container_add(GTK_CONTAINER(label), time_2switch_list = gtk_combo_box_new_text());
+    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("Never"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("10 seconds"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("20 seconds"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("30 seconds"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("40 seconds"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("50 seconds"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("60 seconds"));
+
+    switch((guint)(app->config->switch_time / 10)){
+	default:
+	case 0:  gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 0);break;
+	case 1:  gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 1);break;
+	case 2:  gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 2);break;
+	case 3:  gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 3);break;
+	case 4:  gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 4);break;
+	case 5:  gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 5);break;
+	case 6:  gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 6);break;
+    }
+
+    /* Vaild time */    
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_label_new(_("Valid time for current weather:")),
+        			0, 1, 2, 3);
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
+        			1, 2, 2, 3);
     gtk_container_add(GTK_CONTAINER(label), valid_time_list = gtk_combo_box_new_text());
     gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("1 hour"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("2 hours"));
@@ -949,18 +977,18 @@ void weather_window_settings(GtkWidget *widget,
 
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(_("Updating of weather data:")),
-        			0, 1, 2, 3);
-    gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
-        			1, 2, 2, 3);
-    gtk_container_add(GTK_CONTAINER(label), update_time = gtk_combo_box_new_text());
-    
-    gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new(_("Next update:")),
         			0, 1, 3, 4);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
         			1, 2, 3, 4);
+    gtk_container_add(GTK_CONTAINER(label), update_time = gtk_combo_box_new_text());
+    
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_label_new(_("Next update:")),
+        			0, 1, 5, 6);
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
+        			1, 2, 5, 6);
 
     time_update_label = gtk_label_new(NULL);
     gtk_container_add(GTK_CONTAINER(label), time_update_label);
@@ -1081,6 +1109,16 @@ void weather_window_settings(GtkWidget *widget,
 /* Wind units */
 	    if( gtk_combo_box_get_active((GtkComboBox*)wunits) != app->config->wind_units ){
 		app->config->wind_units = gtk_combo_box_get_active((GtkComboBox*)wunits);
+    		flag_update_icon = TRUE;
+	    }
+/* Switch time */
+	    if( gtk_combo_box_get_active((GtkComboBox*)time_2switch_list) != app->config->switch_time / 10){
+		app->config->switch_time = 10 * gtk_combo_box_get_active((GtkComboBox*)time_2switch_list);    
+		g_source_remove(app->switch_timer);
+		if(app->config->switch_time > 0)
+		    app->switch_timer = g_timeout_add(app->config->switch_time * 1000,
+                    					(GtkFunction)switch_timer_handler,
+                        				app->main_window);
     		flag_update_icon = TRUE;
 	    }
 /* Data valid time */

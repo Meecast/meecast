@@ -47,11 +47,11 @@ libweather_home_la_SOURCES = weather-home.c \
 			     weather-popup.c
 
 libweather_home_la_CFLAGS = $(GTK_CFLAGS) $(OSSO_CFLAGS) $(LIBXML2_CFLAGS) $(GNOME_VFS_CFLAGS) \
-			    $(GCONF_CFLAGS) $(CONIC_CFLAGS)  $(DESKTOP_CFLAGS) \
+			    $(GCONF_CFLAGS) $(CONIC_CFLAGS)  $(DESKTOP_CFLAGS) $(OSSOIC_CFLAGS) \
 			    -Wall -pedantic -Wmissing-prototypes
 libweather_home_la_LDFLAGS = -module -avoid-version 
 libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCONF_LIBS) \
-			    $(LIBCURL_LIBS) $(CONIC_LIBS) -losso-ic
+			    $(LIBCURL_LIBS) $(CONIC_LIBS) $(OSSOIC_LIBS)
 
 
 clean-local:

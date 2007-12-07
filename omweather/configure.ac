@@ -73,6 +73,10 @@ PKG_CHECK_MODULES(GCONF, [gconf-2.0 >= 2.6.2])
 AC_SUBST(GCONF_LIBS)
 AC_SUBST(GCONF_CFLAGS)
 
+PKG_CHECK_MODULES(OSSOIC, [osso-ic >= 0.21])
+AC_SUBST(OSSOIC_LIBS)
+AC_SUBST(OSSOIC_CFLAGS)
+
 
 PKG_CHECK_MODULES(HILDON, hildon-1 >= 0.9.9, \
                   AC_DEFINE(HILDON, 1, [Version of hildon libraries]), \

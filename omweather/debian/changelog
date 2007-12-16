@@ -4,6 +4,7 @@ omweather (0.20) unstable; urgency=low
   * Added translation for Italian
   * The field "Swap hi/low temperature" is moved to the "Units" tab
   * Added auto-switch to the next station on selected time
+  * The arrows that switch to the next/previos station is made bigger, to press it with a finger
         
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 02 Nov 2007 03:36:00 +0200
 

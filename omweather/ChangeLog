@@ -3,6 +3,7 @@
   * Added translation for Italian
   * The field "Swap hi/low temperature" is moved to the "Units" tab
   * Added auto-switch to the next station on selected time
+  * The arrows that switch to the next/previos station is made bigger, to press it with a finger
   
 0.19.1
   * Time of "Last update at server:" has been corrected

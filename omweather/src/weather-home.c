@@ -744,6 +744,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     gchar	buffer[2048];
     GtkWidget	*header_panel,
 		*days_panel,
+		*days_panel_with_buttons,
 		*previos_station_name_btn = NULL,
 		*previos_station_name = NULL,
 		*previos_station_box = NULL,
@@ -764,20 +765,21 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     else
 	elements = app->config->days_to_show / 2;
 /* create header panel */
-    header_panel = gtk_table_new(1, 3, FALSE);
+/*    header_panel = gtk_table_new(1, 3, FALSE);*/
+    header_panel = gtk_hbox_new(FALSE, 0);
 /* check number of elements in stations list */
     if(g_slist_length(app->stations_view_list) > 1 && !app->config->hide_station_name){
 	/* create previos station button */
 	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&lt;</span>",
 		app->config->font_color.red >> 8, app->config->font_color.green >> 8,
 		app->config->font_color.blue >> 8);
-	previos_station_box		= gtk_hbox_new(FALSE, 0);
-	previos_station_name_btn	= gtk_event_box_new();
+	previos_station_box = gtk_hbox_new(FALSE, 0);
+	previos_station_name_btn = gtk_event_box_new();
 	set_background_color(previos_station_name_btn, &(app->config->background_color));
 	
 	gtk_widget_set_events(previos_station_name_btn, GDK_BUTTON_RELEASE_MASK |
     							GDK_BUTTON_PRESS_MASK);
-	previos_station_name        = gtk_label_new(NULL);
+	previos_station_name = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(previos_station_name), GTK_JUSTIFY_CENTER);
 	set_font_size(previos_station_name, f_size);
@@ -789,9 +791,9 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&gt;</span>",
 		app->config->font_color.red >> 8, app->config->font_color.green >> 8,
 		app->config->font_color.blue >> 8);
-	next_station_box		= gtk_hbox_new(FALSE, 0);
-	next_station_name_btn	= gtk_event_box_new();
-	set_background_color(next_station_name_btn, &(app->config->background_color));	
+	next_station_box = gtk_hbox_new(FALSE, 0);
+	next_station_name_btn = gtk_event_box_new();
+	set_background_color(next_station_name_btn, &(app->config->background_color));
 	
 	gtk_widget_set_events(next_station_name_btn, GDK_BUTTON_RELEASE_MASK|
 						     GDK_BUTTON_PRESS_MASK);
@@ -836,20 +838,26 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	if(station_name_btn)
 	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
     }
+    days_panel_with_buttons = gtk_hbox_new(FALSE, 10);
 /* attach buttons to header panel */
+/*
     if(previos_station_name_btn)
 	gtk_table_attach( (GtkTable*)header_panel,
 			    previos_station_name_btn,
 			    0, 1, 0, 1 , GTK_EXPAND, GTK_EXPAND, 0, 0);
+*/
     if(station_name_btn)
-	gtk_table_attach( (GtkTable*)header_panel,
+	gtk_box_pack_start( (GtkBox*)header_panel, station_name_btn, TRUE, TRUE, 0); 
+/*	gtk_table_attach( (GtkTable*)header_panel,
 			station_name_btn,
 			1, 2, 0, 1  , GTK_EXPAND, GTK_EXPAND, 0, 0); 
+*/
+/*
     if(next_station_name_btn)
 	gtk_table_attach( (GtkTable*)header_panel,
 			    next_station_name_btn,
 			    2, 3, 0, 1, GTK_EXPAND, GTK_EXPAND, 0, 0);
-
+*/
 /* create days panel */
     switch(layout){
 	default:
@@ -898,9 +906,19 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	}
       }	
     }
+
 /* attach to main panel header and days panels */
-    gtk_table_attach( (GtkTable*)panel, header_panel, 0, 1, 0, 1 ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
-    gtk_table_attach( (GtkTable*)panel, days_panel, 0, 1, 1, 2 ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+    gtk_table_attach( (GtkTable*)panel, header_panel, 0, 1, 0, 1, (GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+    if(previos_station_name_btn)
+	gtk_box_pack_start( (GtkBox*)days_panel_with_buttons, previos_station_name_btn, TRUE, TRUE, 0);    
+    if(days_panel)
+	gtk_box_pack_start( (GtkBox*)days_panel_with_buttons, days_panel, TRUE, TRUE, 0);
+    if(next_station_name_btn)
+	gtk_box_pack_start( (GtkBox*)days_panel_with_buttons, next_station_name_btn, TRUE, TRUE, 0);
+
+    gtk_table_attach( (GtkTable*)panel, days_panel_with_buttons, 0, 1, 1, 2, (GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+/*    gtk_table_attach( (GtkTable*)panel, days_panel, 0, 1, 1, 2, (GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+*/    
 /* Connect signal button */
     if(previos_station_name_btn){
 	g_signal_connect(previos_station_name_btn, "button-release-event",

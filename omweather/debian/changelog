@@ -5,6 +5,7 @@ omweather (0.20) unstable; urgency=low
   * The field "Swap hi/low temperature" is moved to the "Units" tab
   * Added auto-switch to the next station on selected time
   * The arrows that switch to the next/previos station is made bigger, to press it with a finger
+  * Fixed error: while station data xml file is absence, displaying weather data is garbage  
         
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 02 Jan 2008 03:36:00 +0200
  

@@ -1173,7 +1173,6 @@ void weather_window_settings(GtkWidget *widget,
 		    app->show_update_window = TRUE;
 		    update_weather();
 		}
-		weather_buttons_init();
 	    }
 	break;
       }

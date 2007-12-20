@@ -228,6 +228,7 @@ int new_read_config(AppletConfig *config){
     }
     else
 	snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s", tmp);
+    config->cache_directory = g_strdup(tmp);
     if(tmp)
 	g_free(tmp);
     tmp = NULL;

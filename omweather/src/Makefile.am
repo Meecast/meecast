@@ -44,14 +44,19 @@ libweather_home_la_SOURCES = weather-home.c \
 			     weather-data.h \
 			     weather-data.c \
 			     weather-popup.h \
-			     weather-popup.c
+			     weather-popup.c \
+			     hildon_home_area.c \
+			     hildon_home_area.h
 
 libweather_home_la_CFLAGS = $(GTK_CFLAGS) $(OSSO_CFLAGS) $(LIBXML2_CFLAGS) $(GNOME_VFS_CFLAGS) \
-			    $(GCONF_CFLAGS) $(CONIC_CFLAGS)  $(DESKTOP_CFLAGS) $(OSSOIC_CFLAGS) \
+			    $(GCONF_CFLAGS) $(CONIC_CFLAGS) $(DBUS_CFLAGS) $(HILDONDESKTOP_CFLAGS) \
+			    $(DESKTOP_CFLAGS) $(OSSOIC_CFLAGS) \
 			    -Wall -pedantic -Wmissing-prototypes
-libweather_home_la_LDFLAGS = -module -avoid-version 
-libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCONF_LIBS) \
-			    $(LIBCURL_LIBS) $(CONIC_LIBS) $(OSSOIC_LIBS)
+
+libweather_home_la_LDFLAGS =  -module -avoid-version 
+
+libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCONF_LIBS) $(DBUS_LIBS) \
+			    $(LIBCURL_LIBS) $(CONIC_LIBS) $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS)  $(OSSOIC_LIBS)
 
 
 clean-local:

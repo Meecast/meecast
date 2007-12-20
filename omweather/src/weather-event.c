@@ -60,6 +60,11 @@ gboolean timer_handler(gpointer data){
 	if(evt->time <= current_time){
 	    switch(evt->type_event){
 		case DAYTIMEEVENT :
+		#ifdef PC_EMULATOR
+		    fprintf(stderr,"DAYTIMEEVENT %s\n",ctime(&evt->time));
+		#endif
+		    g_free(evt);
+                    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
      		    weather_frame_update(FALSE);   
 		break;
 		case DBUSINITEVENT:

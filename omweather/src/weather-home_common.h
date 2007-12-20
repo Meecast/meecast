@@ -48,7 +48,13 @@
 #include <libxml/xpathInternals.h>
 #include <string.h> 
 #if HILDON == 1
- # include <hildon/hildon-banner.h>
+ #include <hildon/hildon-banner.h>
+ #include <libhildondesktop/hildon-desktop-picture.h>
+ #include <libhildondesktop/hildon-desktop-home-item.h>
+ #include <libhildondesktop/libhildondesktop/hildon-home-area.h>
+ #include <X11/extensions/Xcomposite.h>
+ #include <X11/extensions/Xdamage.h>
+ #include <X11/extensions/Xrender.h>
 #else
  #include <hildon-widgets/hildon-banner.h>
 #endif
@@ -63,6 +69,7 @@
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
 #define Max_count_weather_day		10
 #define MAX_SETTINGS_PAGE_NUMBER	3
+#define CLICK_TIMEOUT                   500
 #define COUNTRYSFILE		"/usr/share/omweather/countrys.list"
 #define REGIONSFILE		"/usr/share/omweather/regions.list"
 #define LOCATIONSFILE		"/usr/share/omweather/locations.list"
@@ -152,6 +159,7 @@ typedef struct applet_config{
     gchar	*current_station_name;
     gchar	*current_station_id;
     gchar 	*iap_http_proxy_host;
+    gchar 	*cache_directory;
     gint 	iap_http_proxy_port;
     gint	update_interval;
     gint	switch_time;
@@ -187,6 +195,7 @@ typedef struct OMWeatherApplet{
     gboolean		iap_connecting;    
     long		iap_connecting_timer;  
     guint		timer;
+    guint		timer_for_os2008;
     guint		switch_timer;
     WDB			*buttons[Max_count_weather_day];
     guint		flag_updating;
@@ -199,7 +208,32 @@ typedef struct OMWeatherApplet{
     GtkListStore	*time_update_list;
     GtkWidget 		*contextmenu;
     GSList		*stations_view_list; 
+    gboolean 		widget_first_start;
+    int 		widget_showing;
+    gboolean 		home_item_flag_expose;
+    gboolean 		area_button_pressed;
+    gboolean 		area_button_release;
+    gboolean		area_changed;
+    GdkPixbuf 		*pixbuf;
+    guint		signal_expose;
+    guint		signal_area_expose;
+    guint		signal_item_expose;
+    guint		my_applet_signal_release;
+    guint		signal_release;
+    guint		signal_press;
+    guint		signal_size_request;
+    guint		signal_area_changed;
+    GtkWidget 		*parent_parent;
+    GtkWidget 		*parent;
+    gpointer		*child_data;
+    int 		ax;
+    int			ay;
+    int			aw;
+    int			ah;
 }OMWeatherApp;
+FILE *filed;
+
+
 /*******************************************************************************/
 void free_list_time_event(void);
 void time_event_add(time_t time_value, short int type_event);
@@ -210,4 +244,5 @@ extern int new_read_config(AppletConfig*);
 /*******************************************************************************/
 extern OMWeatherApp	*app;
 /*******************************************************************************/
+
 #endif

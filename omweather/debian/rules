@@ -22,7 +22,10 @@ configure: configure-stamp
 configure-stamp:
 	dh_testdir
 	# Add here commands to configure the package.
-	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  
+#	#For OS2006 OS2007
+#	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-dbus=yes
+	#For OS2008
+	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static
 	touch configure-stamp
 
 

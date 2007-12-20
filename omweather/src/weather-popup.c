@@ -81,6 +81,12 @@ gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
        fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
     #endif
 
+/*For OS2008 - accelerating of showing popup window */    
+#if HILDON == 1
+    if(app->timer_for_os2008 != 0)
+    	 g_source_remove(app->timer_for_os2008);
+#endif
+
     /* if no one station present in list show only preference */
     if(!app->config->current_station_id){
 	weather_window_settings(widget, event, user_data);

@@ -82,7 +82,6 @@ GtkWidget	*popup_frame = NULL,
     /* Not found pressed button */
     if( i >= app->config->days_to_show )
 	return;
-
     /* Create POPUP WINDOW */ 
     app->popup_window_more = gtk_window_new( GTK_WINDOW_POPUP );
     gtk_window_set_decorated(GTK_WINDOW(app->popup_window_more), FALSE);
@@ -182,7 +181,11 @@ gboolean weather_window_popup_show(GtkWidget *widget,
     #ifndef RELEASE
        fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
     #endif
-
+/*For OS2008 - accelerating of showing popup window */    
+#if HILDON == 1
+    if(app->timer_for_os2008 != 0)
+    	 g_source_remove(app->timer_for_os2008);
+#endif
     /* if no one station present in list show only preference */
     if(!app->config->current_station_id){
 	weather_window_settings(widget, event, user_data);
@@ -361,6 +364,12 @@ void popup_window_more_close(GtkWidget *widget,
     }
 }
 /*******************************************************************************/
+void popup_close(GtkWidget *widget,
+                    		    GdkEvent *event,
+                    	    	    gpointer user_data){
+    popup_window_destroy();
+}
+/*******************************************************************************/
 GtkWidget* create_header_widget(int i){
     GtkWidget	*main_widget = NULL,
 		*location_button_hbox,
@@ -431,12 +440,18 @@ GtkWidget* create_header_widget(int i){
 GtkWidget* create_footer_widget(void){
     GtkWidget	*main_widget = NULL,
     		*button = NULL,
-		*popup_window_button_more = NULL;
+		*popup_window_button_more = NULL,
+		*button_close;
 /* prepare More button */
     popup_window_button_more = gtk_button_new_with_label(">>");
     set_font_size(popup_window_button_more, 14);
     g_signal_connect(popup_window_button_more, "clicked",
 		    G_CALLBACK(popup_window_more_show), NULL);
+/* prepare Close button */
+    button_close = gtk_button_new_with_label(_("Close"));
+    set_font_size(button_close, 14);
+    g_signal_connect(button_close, "clicked",
+		    G_CALLBACK(popup_close), NULL);      		    
 /* prepare Settings button */
     button = gtk_button_new_with_label(_("Settings"));
     set_font_size(button, 14);
@@ -445,6 +460,7 @@ GtkWidget* create_footer_widget(void){
 /* prepare main widget */
     main_widget = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_start(GTK_BOX(main_widget), popup_window_button_more, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(main_widget), button_close, TRUE, FALSE, 0);
     gtk_box_pack_end(GTK_BOX(main_widget), button, FALSE, FALSE, 0);
     return main_widget;
 }
@@ -452,12 +468,19 @@ GtkWidget* create_footer_widget(void){
 GtkWidget* create_footer_more_widget(void){
     GtkWidget	*main_widget = NULL,
     		*button = NULL,
-		*popup_window_button_more = NULL;
+		*popup_window_button_more = NULL,
+		*button_close;
 /* prepare More button */
     popup_window_button_more = gtk_button_new_with_label("<<");
     set_font_size(popup_window_button_more, 14);
     g_signal_connect(popup_window_button_more, "clicked",
 		    G_CALLBACK(popup_window_more_close), NULL);
+/* prepare Close button */
+    button_close = gtk_button_new_with_label(_("Close"));
+    set_font_size(button_close, 14);
+    g_signal_connect(button_close, "clicked",
+		    G_CALLBACK(popup_close), NULL);      		    
+		    
 /* prepare Settings button */
     button = gtk_button_new_with_label(_("Settings"));
     set_font_size(button, 14);
@@ -466,6 +489,7 @@ GtkWidget* create_footer_more_widget(void){
 /* prepare main widget */
     main_widget = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_start(GTK_BOX(main_widget), popup_window_button_more, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(main_widget), button_close, TRUE, FALSE, 0);
     gtk_box_pack_end(GTK_BOX(main_widget), button, FALSE, FALSE, 0);
     return main_widget;
 }

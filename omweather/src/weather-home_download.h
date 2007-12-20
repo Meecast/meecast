@@ -32,8 +32,13 @@
 /*******************************************************************************/
 #include "weather-home_common.h"
 #include <curl/multi.h>
+
+#ifdef USE_DBUS
 #include <osso-ic.h>
 #include <osso-ic-dbus.h>
+#include <dbus/dbus.h>
+#endif
+
 #include <dbus/dbus-glib.h>
 /*******************************************************************************/
 CURL* weather_curl_init(CURL *curl_handle);

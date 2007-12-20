@@ -73,25 +73,61 @@ PKG_CHECK_MODULES(GCONF, [gconf-2.0 >= 2.6.2])
 AC_SUBST(GCONF_LIBS)
 AC_SUBST(GCONF_CFLAGS)
 
-PKG_CHECK_MODULES(OSSOIC, [osso-ic >= 0.21])
+PKG_CHECK_MODULES(DESKTOP, hildon-desktop, [desktop=yes], [desktop=no])
+if test "$hildon-desktop" == "yes"; then 
+         AC_DEFINE(DESKTOP, 1, [hildon-desktop used]) 
+else 
+         AC_DEFINE(DESKTOP, 0, [hildon-desktop used]) 
+fi 
+AC_SUBST(DESKTOP_LIBS)
+AC_SUBST(DESKTOP_CFLAGS)
+
+
+PKG_CHECK_MODULES(HILDONDESKTOP, libhildondesktop, [hildondesktop=yes], [hildondesktop=no]) 
+if test "$hildondesktop" == "yes"; then 
+         AC_DEFINE(HILDONDESKTOP, 1, [Hildon desktop used]) 
+else 
+         AC_DEFINE(HILDONDESKTOP, 0, [Hildon desktop used]) 
+         PKG_CHECK_MODULES(DESK, hildon-status-bar-lib >= 0.7.1) 
+fi 
+AC_SUBST(HILDONDESKTOP_LIBS)
+AC_SUBST(HILDONDESKTOP_CFLAGS)  
+
+
+PKG_CHECK_MODULES(HILDON, hildon-1 >= 0.9.9, [hildon=yes],[hildon=no])
+if test "$hildon" == "yes"; then
+          AC_DEFINE(HILDON, 1, [Version of hildon libraries])
+else    
+    	  AC_DEFINE(HILDON, 0, [Version of hildon libraries])
+	  PKG_CHECK_MODULES(HILDON_LIBS, hildon-libs >= 0.12.0)
+	  PKG_CHECK_MODULES(DBUS, [dbus-1],
+	    [
+        	use_dbus="yes"
+	    ],
+	    [
+	        use_dbus="no"
+	        echo 'No New Connectivity DBUS Library!!!!.'
+	    ]
+	    )
+	    if test "$use_dbus" = "yes"; then
+		AC_SUBST(DBUS_CFLAGS)
+		AC_SUBST(DBUS_LIBS)
+	        AC_DEFINE(USE_DBUS, 1,"Set to 1 if enable-dbus is yes")
+	    fi
+fi	                  
+AC_SUBST(HILDON_CFLAGS)
+AC_SUBST(HILDON_LIBS)
+
+PKG_CHECK_MODULES(OSSOIC, osso-ic >= 0.21,[ossoic=yes],[ossoic=no])
+if test "$ossoic" == "yes"; then
+	AC_DEFINE(OSSOIC, 1 , [OSSO IC used])
+else	
+	AC_DEFINE(OSSOIC, 0 , [OSSO IC not used])
+fi	
 AC_SUBST(OSSOIC_LIBS)
 AC_SUBST(OSSOIC_CFLAGS)
 
 
-PKG_CHECK_MODULES(HILDON, hildon-1 >= 0.9.9, \
-                  AC_DEFINE(HILDON, 1, [Version of hildon libraries]), \
-                  [AC_DEFINE(HILDON, 0, [Version of hildon libraries]) \
-                  PKG_CHECK_MODULES(HILDON_LIBS, hildon-libs >= 0.12.0)])
-
-PKG_CHECK_MODULES(DESKTOP, hildon-desktop, \
-                  AC_DEFINE(HILDONDESKTOP4, 1, [Version of hildon desktop libraries]), \
-                  [AC_DEFINE(HILDONDESKTOP4, 0, [Version of hildon desktop libraries]) \
-		  PKG_CHECK_MODULES(DESKTOP, hildon-home)])
-AC_SUBST(DESKTOP_LIBS)
-AC_SUBST(DESKTOP_CFLAGS)
-		  
-AC_SUBST(HILDON_CFLAGS)
-AC_SUBST(HILDON_LIBS)
 
 AC_ARG_ENABLE(conic, [ --enable-conic=[yes|no] ], [use_conic=$enableval ])
 if test "$use_conic" != "no"; then
@@ -110,6 +146,9 @@ AC_SUBST(CONIC_LIBS)
         AC_DEFINE(USE_CONIC, 1,"Set to 1 if enable-conic is yes")
 fi
 fi
+
+
+AM_CONDITIONAL(OS2008, test "x$use_dbus" != "xyes")		  
 
 # Help file install directory
 helpfile_enusdir=$datadir/osso-help/en_US

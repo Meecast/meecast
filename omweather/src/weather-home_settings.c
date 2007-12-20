@@ -662,7 +662,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window), GTK_SHADOW_OUT);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                  GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 250, 180);
+    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 450, 280);
 
     station_list_store = create_station_list_store();
     station_list_view = create_tree_view(station_list_store);
@@ -1004,7 +1004,7 @@ void weather_window_settings(GtkWidget *widget,
 	    get_active_item_index((GtkTreeModel*)app->time_update_list,
 				    app->config->update_interval, NULL, FALSE));
 #ifndef RELEASE
-/* Evetns list tab */
+/* Events list tab */
     memset(tmp_buff, 0, sizeof(tmp_buff));
     print_list(tmp_buff, sizeof(tmp_buff) - 1);
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
@@ -1181,10 +1181,12 @@ void weather_window_settings(GtkWidget *widget,
     	    break; /* We are leave a cycle WHILE */
     }
     not_event = FALSE;
+#if HILDON != 1    
     if(flag_tuning_warning)
 	hildon_banner_show_information(app->main_window,
 					NULL,
 					_("Use Edit layout \nfor tuning images of applet"));
+#endif					
     gtk_widget_destroy(window_config);
 }
 /*******************************************************************************/
@@ -1242,7 +1244,7 @@ void create_help_dialog(void){
 /* About tab */
     snprintf(tmp_buff, sizeof(tmp_buff), "%s%s%s",
 	    _("\nHildon desktop applet\n"
-	    "for Nokia 770/N800\n"
+	    "for Nokia 770/N800/N810\n"
 	    "to show weather forecasts.\n"
 	    "Version "), VERSION, 
 	    _("\nCopyright(c) 2006-2007\n"
@@ -1281,6 +1283,9 @@ void create_help_dialog(void){
 	    "Jarek Szczepanski aka Imrahil - for testing\n"
 	    "Vladimir Shakhov aka Mendoza - for testing \n"
 	    "Marc Dilon - for spell/stylecheck text of English\n"));
+    strcat(tmp_buff,
+	    _("Arkady Glazov aka Globster - for testing\n"
+	      "Alexander Savchenko aka dizel - for testing\n"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),

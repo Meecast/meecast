@@ -32,7 +32,7 @@
 #ifdef USE_CONIC
 #include <conic/conic.h>
 #define USER_DATA_MAGIC 0xaadcaadc
-static ConIcConnection *connection;
+static ConIcConnection *connection = NULL;
 #endif
 /*******************************************************************************/
 static GString *url = NULL;
@@ -51,6 +51,7 @@ static void create_window_update(void){
 						    _("Update weather"));
 }
 /*******************************************************************************/
+#ifdef USE_DBUS
 static DBusHandlerResult
 get_connection_status_signal_cb(DBusConnection *connection,
         DBusMessage *message, void *user_data){
@@ -101,6 +102,7 @@ get_connection_status_signal_cb(DBusConnection *connection,
 
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 }
+#endif
 /*******************************************************************************/
 /* Callback function for request  connection to Internet */
 
@@ -191,6 +193,7 @@ void weather_initialize_dbus(void){
         app->iap_connecting = FALSE;
 	app->iap_connected = FALSE;
 	app->iap_connecting_timer = 0;
+	
 	/* Check connection */
 	gconf_client = gconf_client_get_default();
 	if(gconf_client){
@@ -204,7 +207,18 @@ void weather_initialize_dbus(void){
 		app->iap_connected = FALSE;
 	    gconf_client_clear_cache(gconf_client);
 	    g_object_unref(gconf_client);		
-	}    
+	} 
+#ifdef USE_CONIC
+	connection = con_ic_connection_new();
+	if(connection != NULL)
+	    g_signal_connect(G_OBJECT(connection), "connection-event",
+                    	     G_CALLBACK(connection_cb),
+                	     GINT_TO_POINTER(USER_DATA_MAGIC));
+#else	
+    	osso_iap_cb(iap_callback);
+#endif
+
+#ifdef USE_DBUS	   
 	/* Add D-BUS signal handler for 'status_changed' */
         dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
         filter_string = g_strdup_printf("interface=%s", ICD_DBUS_INTERFACE);
@@ -215,15 +229,8 @@ void weather_initialize_dbus(void){
         dbus_connection_add_filter(dbus_conn,
                 		    get_connection_status_signal_cb,
                 		    NULL, NULL);	     
-#ifdef USE_CONIC
-	connection = con_ic_connection_new();
-	if(connection != NULL)
-	    g_signal_connect(G_OBJECT(connection), "connection-event",
-                    	     G_CALLBACK(connection_cb),
-                	     GINT_TO_POINTER(USER_DATA_MAGIC));
-#else	
-    	osso_iap_cb(iap_callback);
-#endif
+				    
+#endif /* USE_DBUS */
     /* For Debug on i386 */
 #ifndef RELEASE
 	app->iap_connected = TRUE; 
@@ -328,10 +335,12 @@ gboolean download_html(gpointer data){
 
 /* Connection wake up */    
     if( app->show_update_window && (!second_attempt) && (!app->iap_connecting) ){    
-    
         app->iap_connecting = TRUE;
 #ifdef USE_CONIC
-        con_ic_connection_connect(connection, CON_IC_CONNECT_FLAG_NONE);
+	if (connection)
+    	    con_ic_connection_connect(connection, CON_IC_CONNECT_FLAG_NONE);
+	else
+	    return FALSE;
 #else
         if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){
     	    fprintf(stderr,"after 1 osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){\n");		
@@ -342,7 +351,7 @@ gboolean download_html(gpointer data){
 	second_attempt = TRUE;
         return TRUE;
     }
-        
+
     if (app->iap_connecting){
 	/* Check buggy */
 	if (app->iap_connecting_timer > 150){
@@ -362,7 +371,8 @@ gboolean download_html(gpointer data){
     	    app->iap_connecting_timer++;
 	    return TRUE;
 	}    
-    }	
+    }
+	
     second_attempt = FALSE;
     /* The second stage */
     /* call curl_multi_perform for read weather data from Inet */

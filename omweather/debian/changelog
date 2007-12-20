@@ -6,7 +6,20 @@ omweather (0.20) unstable; urgency=low
   * Added auto-switch to the next station on selected time
   * The arrows that switch to the next/previos station is made bigger, to press it with a finger
         
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 02 Nov 2007 03:36:00 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wen, 02 Jan 2008 03:36:00 +0200
+ 
+omweather (0.19.3) unstable; urgency=low
+ 
+  * Size of locations window on configuration dialog has been raised 
+  * For OS2008 - accelerating of showing popup window
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 17 Dec 2007 12:24:00 +0200
+ 
+omweather (0.19.2) unstable; urgency=low
+
+  * OS2008 compatibility
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wen, 21 Nov 2007 15:36:00 +0200
 
 omweather (0.19.1) unstable; urgency=low
 

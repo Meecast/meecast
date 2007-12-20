@@ -2,8 +2,8 @@
 #For OS2008
 test -x /usr/bin/maemo-confirm-text || exit 0
 
-if  test -f "/etc/osso_software_version"; then 
-    if [ `awk -F . '{print $2}'  "/etc/osso_software_version"` = "2007" ] && test -x /sbin/mcetool ; then
+if  test -f "/etc/osso_software_version" && grep \\. "/etc/osso_software_version" > /dev/null ; then 
+    if   [ `awk -F . '{print $2}'  "/etc/osso_software_version"` = "2007" ] && test -x /sbin/mcetool ; then
         # Reboot
 	cat <<EOF > /tmp/request-reboot.txt
 In order to complete plugin upgrade the device must be rebooted.

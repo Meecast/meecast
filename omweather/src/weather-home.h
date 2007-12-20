@@ -60,6 +60,10 @@ void menu_init(void);
 void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 void set_widget_background(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 gboolean switch_timer_handler(gpointer data);
+gboolean expose_main_window(GtkWidget *widget, GdkEventExpose *event);
+gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
+gboolean remitted_update(void);
+
 /*******************************************************************************/
 extern void timer(int interval);
 extern void create_timer_with_interval(guint interval);

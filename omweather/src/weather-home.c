@@ -200,20 +200,6 @@ gboolean change_station_select(GtkWidget *widget,
     return TRUE;
 }
 /*******************************************************************************/
-/* Set default value */
-void weather_buttons_init(void){
-    int i;
-/* Set default icon N/A */
-    for(i = 0; i < app->config->days_to_show; i++){
-	memset(&app->weather_days[i], 0, sizeof(weather_day));
-	app->weather_days[i].night.icon = 48;
-	app->weather_days[i].day.icon = 48;
-	sprintf(app->weather_days[i].hi_temp, (char*)hash_table_find("N/A"));
-	sprintf(app->weather_days[i].low_temp, (char*)hash_table_find("N/A"));
-    }
-    memset(&app->weather_current_day, 0, sizeof(weather_day));
-}
-/*******************************************************************************/
 /* Error Window */
 void station_error_window(void){
    hildon_banner_show_information(app->main_window,
@@ -278,9 +264,7 @@ void weather_buttons_fill(gboolean check_error){
 	break;
     }
 /* Init weather buttons */
-    weather_buttons_init();
     count_day = new_parse_weather_com_xml();
-    
     if(check_error)
 	if(count_day == -2){
 	    count_day = 0;
@@ -316,7 +300,7 @@ void weather_buttons_fill(gboolean check_error){
 
     offset = (int)( abs( (current_day - date_time) / (24 * 60 * 60) ) );
 
-    if(offset >= Max_count_weather_day)
+    if(offset >= Max_count_weather_day || count_day < 0)
 	offset = Max_count_weather_day;
     /* delete old weather data */
     for(i = 0; i < offset; i++)
@@ -834,7 +818,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 
 	buffer[0] = 0;
 	/* create next station button */
-	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&gt;</span>",
+	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>  &gt;  </span>",
 		app->config->font_color.red >> 8, app->config->font_color.green >> 8,
 		app->config->font_color.blue >> 8);
 	next_station_box = gtk_hbox_new(FALSE, 0);
@@ -843,7 +827,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	
 	gtk_widget_set_events(next_station_name_btn, GDK_BUTTON_RELEASE_MASK|
 						     GDK_BUTTON_PRESS_MASK);
-	next_station_name        	= gtk_label_new(NULL);
+	next_station_name = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(next_station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(next_station_name), GTK_JUSTIFY_CENTER);
 	set_font_size(next_station_name, f_size);
@@ -884,7 +868,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	if(station_name_btn)
 	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
     }
-    days_panel_with_buttons = gtk_hbox_new(FALSE, 10);
+    days_panel_with_buttons = gtk_hbox_new(FALSE, 0);
 /* attach buttons to header panel */
 /*
     if(previos_station_name_btn)

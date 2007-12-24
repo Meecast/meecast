@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en_GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-03 19:08+0200\n"
+"POT-Creation-Date: 2007-12-24 12:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/weather-home_settings.c:1255
+#: src/weather-home_settings.c:1258
 msgid ""
 "\n"
 "Author and maintenance:\n"
@@ -25,14 +25,14 @@ msgid ""
 "\tPavel Fialko, pavelnf@gmail.com"
 msgstr ""
 
-#: src/weather-home_settings.c:1246
+#: src/weather-home_settings.c:1249
 msgid ""
 "\n"
 "Copyright(c) 2006-2007\n"
 "Vlad Vasiliev, Pavel Fialko"
 msgstr ""
 
-#: src/weather-home_settings.c:1264
+#: src/weather-home_settings.c:1267
 msgid ""
 "\n"
 "Ed Bartosh - for more feature requests,\n"
@@ -47,94 +47,94 @@ msgid ""
 "\t\t\t\tand donation ;-)\n"
 msgstr ""
 
-#: src/weather-popup.c:419
+#: src/weather-popup.c:425
 msgid ""
 "\n"
 "Feels like: "
 msgstr ""
 
-#: src/weather-home_settings.c:1242
+#: src/weather-home_settings.c:1245
 msgid ""
 "\n"
 "Hildon desktop applet\n"
-"for Nokia 770/N800\n"
+"for Nokia 770/N800/N810\n"
 "to show weather forecasts.\n"
 "Version "
 msgstr ""
 
-#: src/weather-popup.c:546 src/weather-popup.c:581
+#: src/weather-popup.c:552 src/weather-popup.c:587
 msgid ""
 "\n"
 "Humidity: "
 msgstr ""
 
-#: src/weather-popup.c:454
+#: src/weather-popup.c:460
 msgid ""
 "\n"
 "Pressure: "
 msgstr ""
 
-#: src/weather-popup.c:434
+#: src/weather-popup.c:440
 msgid ""
 "\n"
 "Visible: "
 msgstr ""
 
-#: src/weather-popup.c:459
+#: src/weather-popup.c:465
 msgid ""
 "\n"
 "Wind: "
 msgstr ""
 
-#: src/weather-home_settings.c:674
+#: src/weather-home_settings.c:676
 msgid " Add "
 msgstr ""
 
-#: src/weather-popup.c:467
+#: src/weather-popup.c:473
 msgid " Gust: "
 msgstr ""
 
-#: src/weather-popup.c:426
+#: src/weather-popup.c:432
 msgid " Humidity: "
 msgstr ""
 
-#: src/weather-home_settings.c:966
+#: src/weather-home_settings.c:968
 msgid "1 hour"
 msgstr ""
 
-#: src/weather-home_settings.c:940
+#: src/weather-home_settings.c:942
 msgid "10 seconds"
 msgstr ""
 
-#: src/weather-home_settings.c:967
+#: src/weather-home_settings.c:969
 msgid "2 hours"
 msgstr ""
 
-#: src/weather-home_settings.c:941
+#: src/weather-home_settings.c:943
 msgid "20 seconds"
 msgstr ""
 
-#: src/weather-home_settings.c:942
+#: src/weather-home_settings.c:944
 msgid "30 seconds"
 msgstr ""
 
-#: src/weather-home_settings.c:968
+#: src/weather-home_settings.c:970
 msgid "4 hours"
 msgstr ""
 
-#: src/weather-home_settings.c:943
+#: src/weather-home_settings.c:945
 msgid "40 seconds"
 msgstr ""
 
-#: src/weather-home_settings.c:944
+#: src/weather-home_settings.c:946
 msgid "50 seconds"
 msgstr ""
 
-#: src/weather-home_settings.c:945
+#: src/weather-home_settings.c:947
 msgid "60 seconds"
 msgstr ""
 
-#: src/weather-home_settings.c:969
+#: src/weather-home_settings.c:971
 msgid "8 hours"
 msgstr ""
 
@@ -202,7 +202,7 @@ msgstr ""
 msgid "AM Snow Showers"
 msgstr ""
 
-#: src/weather-home_settings.c:646 src/weather-home_settings.c:1252
+#: src/weather-home_settings.c:648 src/weather-home_settings.c:1255
 msgid "About"
 msgstr ""
 
@@ -214,7 +214,7 @@ msgstr ""
 msgid "Add Station"
 msgstr ""
 
-#: src/weather-home_settings.c:1275
+#: src/weather-home_settings.c:1278
 msgid ""
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
@@ -225,17 +225,23 @@ msgid ""
 "Marc Dilon - for spell/stylecheck text of English\n"
 msgstr ""
 
-#: src/weather-home_settings.c:1261
+#: src/weather-home_settings.c:1286
+msgid ""
+"Arkady Glazov aka Globster - for testing\n"
+"Alexander Savchenko aka dizel - for testing\n"
+msgstr ""
+
+#: src/weather-home_settings.c:1264
 msgid "Authors"
 msgstr ""
 
-#: src/weather-home_settings.c:923
+#: src/weather-home_settings.c:925
 msgid ""
 "Automatically updating data\t\n"
 "after connect to the Internet:"
 msgstr ""
 
-#: src/weather-home_settings.c:802
+#: src/weather-home_settings.c:804
 msgid "Background color:"
 msgstr ""
 
@@ -243,7 +249,7 @@ msgstr ""
 msgid "Blowing Snow"
 msgstr ""
 
-#: src/weather-popup.c:408 src/weather-popup.c:423
+#: src/weather-popup.c:414 src/weather-popup.c:429
 msgid "C"
 msgstr ""
 
@@ -257,11 +263,11 @@ msgid "Can not get path to the HOME directory. Quitting.\n"
 msgstr ""
 
 #: src/weather-home_settings.c:220 src/weather-home_settings.c:449
-#: src/weather-home_settings.c:524 src/weather-home_settings.c:643
+#: src/weather-home_settings.c:524 src/weather-home_settings.c:645
 msgid "Cancel"
 msgstr ""
 
-#: src/weather-home_settings.c:858
+#: src/weather-home_settings.c:860
 msgid "Celsius (Metric)"
 msgstr ""
 
@@ -285,7 +291,7 @@ msgstr ""
 msgid "Cloudy and Windy"
 msgstr ""
 
-#: src/weather-home_config.c:236
+#: src/weather-home_config.c:237
 #, c-format
 msgid "Could not create Weather Cache directory.\n"
 msgstr ""
@@ -294,19 +300,19 @@ msgstr ""
 msgid "Country:"
 msgstr ""
 
-#: src/weather-popup.c:575
+#: src/weather-popup.c:581
 msgid "Day:"
 msgstr ""
 
-#: src/weather-home_settings.c:688
+#: src/weather-home_settings.c:690
 msgid "Delete"
 msgstr ""
 
-#: src/weather-home_download.c:422
+#: src/weather-home_download.c:432
 msgid "Did not download weather"
 msgstr ""
 
-#: src/weather-home_settings.c:877
+#: src/weather-home_settings.c:879
 msgid "Distance units:"
 msgstr ""
 
@@ -334,24 +340,24 @@ msgstr ""
 msgid "ESE"
 msgstr ""
 
-#: src/weather-home.c:286
+#: src/weather-home.c:271
 #, c-format
 msgid "Error in xml file\n"
 msgstr ""
 
-#: src/weather-home.c:571
+#: src/weather-home.c:572
 msgid "Error initializing the OMWeather applet"
 msgstr ""
 
-#: src/weather-home_settings.c:1011
+#: src/weather-home_settings.c:1013
 msgid "Events"
 msgstr ""
 
-#: src/weather-popup.c:409 src/weather-popup.c:424
+#: src/weather-popup.c:415 src/weather-popup.c:430
 msgid "F"
 msgstr ""
 
-#: src/weather-home_settings.c:859
+#: src/weather-home_settings.c:861
 msgid "Fahrenheit (Imperial)"
 msgstr ""
 
@@ -360,7 +366,7 @@ msgstr ""
 msgid "Failed to initialize GConf. Quitting.\n"
 msgstr ""
 
-#: src/weather-home_config.c:484
+#: src/weather-home_config.c:485
 #, c-format
 msgid "Failed to initialize GConf. Settings were not saved.\n"
 msgstr ""
@@ -405,11 +411,11 @@ msgstr ""
 msgid "Foggy"
 msgstr ""
 
-#: src/weather-home_settings.c:792
+#: src/weather-home_settings.c:794
 msgid "Font color:"
 msgstr ""
 
-#: src/weather-home_settings.c:1288
+#: src/weather-home_settings.c:1294
 msgid ""
 "French - Nicolas Granziano\n"
 "Russian - Pavel Fialko, Vlad Vasiliev,\n"
@@ -438,7 +444,7 @@ msgstr ""
 msgid "Heavy Snow"
 msgstr ""
 
-#: src/weather-home_settings.c:838
+#: src/weather-home_settings.c:840
 msgid "Hide station name and arrows:"
 msgstr ""
 
@@ -446,15 +452,15 @@ msgstr ""
 msgid "High"
 msgstr ""
 
-#: src/weather-home_settings.c:762
+#: src/weather-home_settings.c:764
 msgid "Icon set:"
 msgstr ""
 
-#: src/weather-home_settings.c:775
+#: src/weather-home_settings.c:777
 msgid "Icon size:"
 msgstr ""
 
-#: src/weather-home_settings.c:707
+#: src/weather-home_settings.c:709
 msgid "Interface"
 msgstr ""
 
@@ -466,23 +472,23 @@ msgstr ""
 msgid "Isolated T-Storms / Wind"
 msgstr ""
 
-#: src/weather-home_settings.c:884
+#: src/weather-home_settings.c:886
 msgid "Kilometers"
 msgstr ""
 
-#: src/weather-home_settings.c:781
+#: src/weather-home_settings.c:783
 msgid "Large"
 msgstr ""
 
-#: src/weather-popup.c:792
+#: src/weather-popup.c:798
 msgid "Last update at server: \n"
 msgstr ""
 
-#: src/weather-popup.c:807 src/weather-popup.c:811
+#: src/weather-popup.c:813 src/weather-popup.c:817
 msgid "Last update from server: \n"
 msgstr ""
 
-#: src/weather-home_settings.c:743
+#: src/weather-home_settings.c:745
 msgid "Layout:"
 msgstr ""
 
@@ -546,7 +552,7 @@ msgstr ""
 msgid "Light Snow Shower"
 msgstr ""
 
-#: src/weather-home_settings.c:653
+#: src/weather-home_settings.c:655
 msgid "Locations"
 msgstr ""
 
@@ -554,19 +560,19 @@ msgstr ""
 msgid "Low"
 msgstr ""
 
-#: src/weather-home_settings.c:782
+#: src/weather-home_settings.c:784
 msgid "Medium"
 msgstr ""
 
-#: src/weather-home_settings.c:883
+#: src/weather-home_settings.c:885
 msgid "Meters"
 msgstr ""
 
-#: src/weather-home_settings.c:885
+#: src/weather-home_settings.c:887
 msgid "Miles"
 msgstr ""
 
-#: src/weather-home_settings.c:886
+#: src/weather-home_settings.c:888
 msgid "Miles (Sea)"
 msgstr ""
 
@@ -598,9 +604,9 @@ msgstr ""
 msgid "N"
 msgstr ""
 
-#: src/weather-home.c:401 src/weather-home.c:420 src/weather-home.c:443
-#: src/weather-home.c:447 src/weather-home.c:482 src/weather-home.c:486
-#: src/weather-home.c:498 src/weather-home_hash.c:85
+#: src/weather-home.c:386 src/weather-home.c:405 src/weather-home.c:428
+#: src/weather-home.c:432 src/weather-home.c:467 src/weather-home.c:471
+#: src/weather-home.c:483 src/weather-home_hash.c:85
 msgid "N/A"
 msgstr ""
 
@@ -624,7 +630,7 @@ msgstr ""
 msgid "NW"
 msgstr ""
 
-#: src/weather-home_settings.c:939 src/weather-home_settings.c:1394
+#: src/weather-home_settings.c:941 src/weather-home_settings.c:1400
 #: src/weather-home_config.c:173
 msgid "Never"
 msgstr ""
@@ -633,55 +639,55 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: src/weather-home_settings.c:987
+#: src/weather-home_settings.c:989
 msgid "Next update:"
 msgstr ""
 
-#: src/weather-popup.c:540
+#: src/weather-popup.c:546
 msgid "Night:"
 msgstr ""
 
-#: src/weather-home_download.c:174
+#: src/weather-home_download.c:176
 msgid "Not connected to Internet"
 msgstr ""
 
-#: src/weather-home_download.c:356
+#: src/weather-home_download.c:365
 msgid ""
 "Not connected to Internet\n"
 "Connection time is expired"
 msgstr ""
 
-#: src/weather-home.c:400 src/weather-home.c:408 src/weather-home.c:419
+#: src/weather-home.c:385 src/weather-home.c:393 src/weather-home.c:404
 msgid "Now"
 msgstr ""
 
-#: src/weather-popup.c:404
+#: src/weather-popup.c:410
 msgid "Now: "
 msgstr ""
 
 #: src/weather-home_settings.c:218 src/weather-home_settings.c:447
-#: src/weather-home_settings.c:522 src/weather-home_settings.c:640
-#: src/weather-home_settings.c:1235
+#: src/weather-home_settings.c:522 src/weather-home_settings.c:642
+#: src/weather-home_settings.c:1238
 msgid "OK"
 msgstr ""
 
-#: src/weather-home.c:709
+#: src/weather-home.c:739
 msgid "OMWeather settings"
 msgstr ""
 
-#: src/weather-home_settings.c:750
+#: src/weather-home_settings.c:752
 msgid "One column"
 msgstr ""
 
-#: src/weather-home_settings.c:749
+#: src/weather-home_settings.c:751
 msgid "One row"
 msgstr ""
 
-#: src/weather-home_settings.c:1232
+#: src/weather-home_settings.c:1235
 msgid "Other Maemo Weather Info"
 msgstr ""
 
-#: src/weather-home_settings.c:634
+#: src/weather-home_settings.c:636
 msgid "Other Maemo Weather Settings"
 msgstr ""
 
@@ -801,7 +807,7 @@ msgstr ""
 msgid "Rain to Wintry Mix / Wind"
 msgstr ""
 
-#: src/weather-home_settings.c:681
+#: src/weather-home_settings.c:683
 msgid "Rename"
 msgstr ""
 
@@ -845,11 +851,11 @@ msgstr ""
 msgid "Scattered T-Storms"
 msgstr ""
 
-#: src/weather-popup.c:662 src/weather-popup.c:947
+#: src/weather-popup.c:668 src/weather-popup.c:953
 msgid "Settings"
 msgstr ""
 
-#: src/weather-home_settings.c:828
+#: src/weather-home_settings.c:830
 msgid "Show only current weather on first icon:"
 msgstr ""
 
@@ -873,7 +879,7 @@ msgstr ""
 msgid "Showers in the Vicinity"
 msgstr ""
 
-#: src/weather-home_settings.c:783
+#: src/weather-home_settings.c:785
 msgid "Small"
 msgstr ""
 
@@ -955,19 +961,19 @@ msgstr ""
 msgid "Sunny / Wind"
 msgstr ""
 
-#: src/weather-popup.c:706
+#: src/weather-popup.c:712
 msgid "Sunrise: "
 msgstr ""
 
-#: src/weather-popup.c:714
+#: src/weather-popup.c:720
 msgid "Sunset: "
 msgstr ""
 
-#: src/weather-home_settings.c:867
+#: src/weather-home_settings.c:869
 msgid "Swap hi/low temperature:"
 msgstr ""
 
-#: src/weather-home_settings.c:933
+#: src/weather-home_settings.c:935
 msgid "Switch to the next station after:"
 msgstr ""
 
@@ -979,15 +985,15 @@ msgstr ""
 msgid "T-Storms Early"
 msgstr ""
 
-#: src/weather-home_settings.c:852
+#: src/weather-home_settings.c:854
 msgid "Temperature units:"
 msgstr ""
 
-#: src/weather-popup.c:367
+#: src/weather-popup.c:373
 msgid "Temperature: "
 msgstr ""
 
-#: src/weather-home_settings.c:1285
+#: src/weather-home_settings.c:1291
 msgid "Thanks"
 msgstr ""
 
@@ -995,27 +1001,27 @@ msgstr ""
 msgid "Thunder"
 msgstr ""
 
-#: src/weather-home_settings.c:1295
+#: src/weather-home_settings.c:1301
 msgid "Translators"
 msgstr ""
 
-#: src/weather-home_settings.c:816
+#: src/weather-home_settings.c:818
 msgid "Transparency:"
 msgstr ""
 
-#: src/weather-home_settings.c:752
+#: src/weather-home_settings.c:754
 msgid "Two columns"
 msgstr ""
 
-#: src/weather-home_settings.c:751
+#: src/weather-home_settings.c:753
 msgid "Two rows"
 msgstr ""
 
-#: src/weather-home_settings.c:849
+#: src/weather-home_settings.c:851
 msgid "Units"
 msgstr ""
 
-#: src/weather-popup.c:794 src/weather-popup.c:807
+#: src/weather-popup.c:800 src/weather-popup.c:813
 msgid "Unknown"
 msgstr ""
 
@@ -1023,7 +1029,7 @@ msgstr ""
 msgid "Unlimited"
 msgstr ""
 
-#: src/weather-home_settings.c:920
+#: src/weather-home_settings.c:922
 msgid "Update"
 msgstr ""
 
@@ -1031,11 +1037,11 @@ msgstr ""
 msgid "Update weather"
 msgstr ""
 
-#: src/weather-home_settings.c:979
+#: src/weather-home_settings.c:981
 msgid "Updating of weather data:"
 msgstr ""
 
-#: src/weather-home_settings.c:1185
+#: src/weather-home_settings.c:1187
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"
@@ -1045,11 +1051,11 @@ msgstr ""
 msgid "VAR"
 msgstr ""
 
-#: src/weather-home_settings.c:960
+#: src/weather-home_settings.c:962
 msgid "Valid time for current weather:"
 msgstr ""
 
-#: src/weather-home_settings.c:711
+#: src/weather-home_settings.c:713
 msgid "Visible items:"
 msgstr ""
 
@@ -1081,7 +1087,7 @@ msgstr ""
 msgid "Waxing Gibbous"
 msgstr ""
 
-#: src/weather-home_download.c:439
+#: src/weather-home_download.c:449
 msgid "Weather updated"
 msgstr ""
 
@@ -1089,11 +1095,11 @@ msgstr ""
 msgid "Wind"
 msgstr ""
 
-#: src/weather-home_settings.c:896
+#: src/weather-home_settings.c:898
 msgid "Wind speed units:"
 msgstr ""
 
-#: src/weather-popup.c:553 src/weather-popup.c:588
+#: src/weather-popup.c:559 src/weather-popup.c:594
 msgid "Wind: "
 msgstr ""
 
@@ -1113,13 +1119,13 @@ msgstr ""
 msgid "Wintry Mix to Snow"
 msgstr ""
 
-#: src/weather-home.c:220
+#: src/weather-home.c:207
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
 msgstr ""
 
-#: src/weather-popup.c:815
+#: src/weather-popup.c:821
 msgid "current location local time"
 msgstr ""
 
@@ -1159,11 +1165,11 @@ msgstr ""
 msgid "falling"
 msgstr ""
 
-#: src/weather-popup.c:444
+#: src/weather-popup.c:450
 msgid "km"
 msgstr ""
 
-#: src/weather-home_settings.c:906 src/weather-home_hash.c:13
+#: src/weather-home_settings.c:908 src/weather-home_hash.c:13
 msgid "km/h"
 msgstr ""
 
@@ -1171,7 +1177,7 @@ msgstr ""
 msgid "km/s"
 msgstr ""
 
-#: src/weather-popup.c:443
+#: src/weather-popup.c:449
 msgid "m"
 msgstr ""
 
@@ -1179,19 +1185,19 @@ msgstr ""
 msgid "m/h"
 msgstr ""
 
-#: src/weather-home_settings.c:902 src/weather-home_hash.c:9
+#: src/weather-home_settings.c:904 src/weather-home_hash.c:9
 msgid "m/s"
 msgstr ""
 
-#: src/weather-popup.c:456
+#: src/weather-popup.c:462
 msgid "mb"
 msgstr ""
 
-#: src/weather-popup.c:445 src/weather-popup.c:446
+#: src/weather-popup.c:451 src/weather-popup.c:452
 msgid "mi"
 msgstr ""
 
-#: src/weather-home_settings.c:907 src/weather-home_hash.c:14
+#: src/weather-home_settings.c:909 src/weather-home_hash.c:14
 msgid "mi/h"
 msgstr ""
 
@@ -1203,7 +1209,7 @@ msgstr ""
 msgid "rising"
 msgstr ""
 
-#: src/weather-popup.c:799
+#: src/weather-popup.c:805
 msgid "station local time"
 msgstr ""
 

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=OMWeather
+Comment=World Weather
+Type=HildonHomeApplet
+X-home-applet=libweather-home.so
+X-home-applet-minwidth=64
+X-home-applet-minheight=64
+X-home-applet-maxheight=410

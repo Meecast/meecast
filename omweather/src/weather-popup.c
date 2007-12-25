@@ -38,6 +38,12 @@ void popup_window_destroy(void){
 	gtk_widget_destroy(app->popup_window_more);
 	app->popup_window_more = NULL;
     }
+}
+/*******************************************************************************/
+void popup_close(GtkWidget *widget,
+                    		    GdkEvent *event,
+                    	    	    gpointer user_data){
+    popup_window_destroy();
 }	
 /*******************************************************************************/
 gboolean popup_window_event_cb(GtkWidget *widget, GdkEvent *event, 
@@ -655,8 +661,9 @@ GtkWidget* create_24_hours_widget(GSList *day){
 GtkWidget* create_footer_widget(gboolean enable_more_info){
     GtkWidget	*main_widget = NULL,
     		*button = NULL,
-		*popup_window_button_more = NULL;
-
+		*popup_window_button_more = NULL,
+		*button_close = NULL;
+		
     if(enable_more_info){
 	/* prepare More button */
 	popup_window_button_more = gtk_button_new_with_label(">>");
@@ -668,11 +675,18 @@ GtkWidget* create_footer_widget(gboolean enable_more_info){
     button = gtk_button_new_with_label(_("Settings"));
     set_font_size(button, 14);
     g_signal_connect(button, "clicked",
-		    G_CALLBACK(weather_window_settings), NULL);      
+		    G_CALLBACK(weather_window_settings), NULL);
+/* prepare Close button */
+    button_close = gtk_button_new_with_label(_("Close"));
+    set_font_size(button_close, 14);
+    g_signal_connect(button_close, "clicked",
+		    G_CALLBACK(popup_close), NULL);      		    
+		    		    
 /* prepare main widget */
     main_widget = gtk_hbox_new(FALSE, 10);
     if(enable_more_info)
 	gtk_box_pack_start(GTK_BOX(main_widget), popup_window_button_more, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(main_widget), button_close, TRUE, FALSE, 0);	
     gtk_box_pack_end(GTK_BOX(main_widget), button, FALSE, FALSE, 0);
     return main_widget;
 }

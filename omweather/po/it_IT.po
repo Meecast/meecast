@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-12-24 12:49+0200\n"
+"POT-Creation-Date: 2007-12-26 12:26+0200\n"
 "PO-Revision-Date: 2007-11-21 18:13+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Italiano\n"
@@ -68,7 +68,7 @@ msgstr ""
 "Brian Knight - per l'idea di iconset, critiche \n"
 "\t\t\t\te donazione ;-)\n"
 
-#: src/weather-popup.c:425
+#: src/weather-popup.c:431
 msgid ""
 "\n"
 "Feels like: "
@@ -90,7 +90,7 @@ msgstr ""
 "per mostrare le previsioni meteo.\n"
 "Versione "
 
-#: src/weather-popup.c:552 src/weather-popup.c:587
+#: src/weather-popup.c:558 src/weather-popup.c:593
 msgid ""
 "\n"
 "Humidity: "
@@ -98,7 +98,7 @@ msgstr ""
 "\n"
 "Umidità: "
 
-#: src/weather-popup.c:460
+#: src/weather-popup.c:466
 msgid ""
 "\n"
 "Pressure: "
@@ -106,7 +106,7 @@ msgstr ""
 "\n"
 "Pressione: "
 
-#: src/weather-popup.c:440
+#: src/weather-popup.c:446
 msgid ""
 "\n"
 "Visible: "
@@ -114,7 +114,7 @@ msgstr ""
 "\n"
 "Visibile: "
 
-#: src/weather-popup.c:465
+#: src/weather-popup.c:471
 msgid ""
 "\n"
 "Wind: "
@@ -126,11 +126,11 @@ msgstr ""
 msgid " Add "
 msgstr " Aggiungi "
 
-#: src/weather-popup.c:473
+#: src/weather-popup.c:479
 msgid " Gust: "
 msgstr " Raffica: "
 
-#: src/weather-popup.c:432
+#: src/weather-popup.c:438
 msgid " Humidity: "
 msgstr " Umidità: "
 
@@ -301,7 +301,7 @@ msgstr "Colore di sfondo:"
 msgid "Blowing Snow"
 msgstr "Sollevamento di neve"
 
-#: src/weather-popup.c:414 src/weather-popup.c:429
+#: src/weather-popup.c:420 src/weather-popup.c:435
 msgid "C"
 msgstr "C"
 
@@ -332,6 +332,11 @@ msgstr "Cancella"
 msgid "Clear / Wind"
 msgstr "Cancella / Vento"
 
+#: src/weather-popup.c:680
+#, fuzzy
+msgid "Close"
+msgstr "Cancella"
+
 #: src/weather-home_hash.c:35
 msgid "Clouds Early / Clearing Late"
 msgstr ""
@@ -353,7 +358,7 @@ msgstr "Impossibile creare directory di Cache tempo.\n"
 msgid "Country:"
 msgstr "Paese:"
 
-#: src/weather-popup.c:581
+#: src/weather-popup.c:587
 msgid "Day:"
 msgstr "Giornata:"
 
@@ -406,7 +411,7 @@ msgstr "Errore durante l'inizializzazione del OMWeather l'applet"
 msgid "Events"
 msgstr "Eventi"
 
-#: src/weather-popup.c:415 src/weather-popup.c:430
+#: src/weather-popup.c:421 src/weather-popup.c:436
 msgid "F"
 msgstr "F"
 
@@ -539,11 +544,11 @@ msgstr "Chilometri"
 msgid "Large"
 msgstr "Grande"
 
-#: src/weather-popup.c:798
+#: src/weather-popup.c:812
 msgid "Last update at server: \n"
 msgstr "Ultimo aggiornamento al server di: \n"
 
-#: src/weather-popup.c:813 src/weather-popup.c:817
+#: src/weather-popup.c:827 src/weather-popup.c:831
 msgid "Last update from server: \n"
 msgstr "Ultimo aggiornamento del server: \n"
 
@@ -702,7 +707,7 @@ msgstr "Nuovo"
 msgid "Next update:"
 msgstr "Prossimo aggiornamento:"
 
-#: src/weather-popup.c:546
+#: src/weather-popup.c:552
 msgid "Night:"
 msgstr "Notte:"
 
@@ -722,7 +727,7 @@ msgstr ""
 msgid "Now"
 msgstr "Ora"
 
-#: src/weather-popup.c:410
+#: src/weather-popup.c:416
 msgid "Now: "
 msgstr "Ora:"
 
@@ -912,7 +917,7 @@ msgstr "Sparse nevose"
 msgid "Scattered T-Storms"
 msgstr ""
 
-#: src/weather-popup.c:668 src/weather-popup.c:953
+#: src/weather-popup.c:675 src/weather-popup.c:967
 msgid "Settings"
 msgstr "Impostazioni"
 
@@ -1026,11 +1031,11 @@ msgstr ""
 msgid "Sunny / Wind"
 msgstr " / Vento"
 
-#: src/weather-popup.c:712
+#: src/weather-popup.c:726
 msgid "Sunrise: "
 msgstr "L'alzata del sole: "
 
-#: src/weather-popup.c:720
+#: src/weather-popup.c:734
 msgid "Sunset: "
 msgstr "Tramonto: "
 
@@ -1054,7 +1059,7 @@ msgstr ""
 msgid "Temperature units:"
 msgstr "Temperatura unità:"
 
-#: src/weather-popup.c:373
+#: src/weather-popup.c:379
 msgid "Temperature: "
 msgstr "Temperatura: "
 
@@ -1086,7 +1091,7 @@ msgstr "Due righe"
 msgid "Units"
 msgstr "Unità"
 
-#: src/weather-popup.c:800 src/weather-popup.c:813
+#: src/weather-popup.c:814 src/weather-popup.c:827
 msgid "Unknown"
 msgstr "Sconosciuto"
 
@@ -1168,7 +1173,7 @@ msgstr "Vento"
 msgid "Wind speed units:"
 msgstr "Unità di velocità del vento:"
 
-#: src/weather-popup.c:559 src/weather-popup.c:594
+#: src/weather-popup.c:565 src/weather-popup.c:600
 msgid "Wind: "
 msgstr "Vento: "
 
@@ -1196,7 +1201,7 @@ msgstr ""
 "Sbagliato stazione codice \n"
 "O CAP!"
 
-#: src/weather-popup.c:821
+#: src/weather-popup.c:835
 msgid "current location local time"
 msgstr "posizione attuale ora locale"
 
@@ -1236,7 +1241,7 @@ msgstr "ogni minuto (Debug)"
 msgid "falling"
 msgstr "rientranti"
 
-#: src/weather-popup.c:450
+#: src/weather-popup.c:456
 msgid "km"
 msgstr "ch"
 
@@ -1248,7 +1253,7 @@ msgstr "ch/o"
 msgid "km/s"
 msgstr "ch/s"
 
-#: src/weather-popup.c:449
+#: src/weather-popup.c:455
 msgid "m"
 msgstr "m"
 
@@ -1260,11 +1265,11 @@ msgstr "m/o"
 msgid "m/s"
 msgstr "m/s"
 
-#: src/weather-popup.c:462
+#: src/weather-popup.c:468
 msgid "mb"
 msgstr ""
 
-#: src/weather-popup.c:451 src/weather-popup.c:452
+#: src/weather-popup.c:457 src/weather-popup.c:458
 msgid "mi"
 msgstr "mi"
 
@@ -1280,7 +1285,7 @@ msgstr "mi/s"
 msgid "rising"
 msgstr "aumento"
 
-#: src/weather-popup.c:805
+#: src/weather-popup.c:819
 msgid "station local time"
 msgstr "ora locale stazione"
 

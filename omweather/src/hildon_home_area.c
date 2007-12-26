@@ -177,7 +177,6 @@ hildon_home_area_expose (GtkWidget *widget,
       rectangle.width = event->area.width;
       rectangle.height = event->area.height;
 
-     
       priv->picture = hildon_desktop_picture_from_drawable (drawable);
 
       region = XFixesCreateRegion (GDK_DISPLAY (),

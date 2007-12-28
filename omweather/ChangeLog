@@ -5,6 +5,7 @@
   * Added auto-switch to the next station on selected time
   * The arrows that switch to the next/previos station is made bigger, to press it with a finger
   * Fixed error: while station data xml file is absence, displaying weather data is garbage
+  * New layout - "Combination" has been added
   
 0.19.3
   * Size of locations window on configuration dialog has been raised 

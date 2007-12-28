@@ -80,7 +80,7 @@
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
 /*******************************************************************************/
 enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT, UPDATE_AFTER_CONNECTED};
-enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS };
+enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
 enum {	METERS_S,
 /*	KILOMETERS_S,

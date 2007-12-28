@@ -1,5 +1,4 @@
-/*
- * This file is part of Other Maemo Weather(omweather)
+/* This file is part of Other Maemo Weather(omweather)
  *
  * Copyright (C) 2006 Vlad Vasiliev
  * Copyright (C) 2006 Pavel Fialko
@@ -488,9 +487,15 @@ void weather_buttons_fill(gboolean check_error){
 	    }
 	    boxs_offset[i] = Max_count_weather_day;
     	}
-	app->buttons[i] = create_weather_day_button(buffer, buffer_icon, icon_size,
-						    app->config->transparency,
-						    font_size, &(app->config->background_color));
+	if (app->config->icons_layout == COMBINATION && i == 0)
+	   /* First icon in COMBINATION layout */
+	    app->buttons[i] = create_weather_day_button(buffer, buffer_icon, icon_size*2,
+							app->config->transparency,
+							0, &(app->config->background_color));
+	else
+	    app->buttons[i] = create_weather_day_button(buffer, buffer_icon, icon_size,
+							app->config->transparency,
+							font_size, &(app->config->background_color));
 
 	if(app->buttons[i]){
 	    g_signal_connect(app->buttons[i]->button, "button_release_event", G_CALLBACK(show_popup_window_handler), NULL); 
@@ -767,6 +772,131 @@ void menu_init(void){
     gtk_widget_show_all(GTK_WIDGET(app->contextmenu));
     gtk_widget_tap_and_hold_setup(app->main_window, GTK_WIDGET(app->contextmenu), NULL, 0);
 }
+
+/*******************************************************************************/
+/* For Combination layout */
+GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
+    GtkWidget	*main_widget = NULL,
+		*temperature_vbox,
+		*temperature_label,
+		*main_data_vbox,
+		*main_data_label,
+		*icon_temperature_vbox;
+    gchar	buffer[1024],
+		*units;
+    const gchar	*wind_units_str[] = {	"m/s",
+/*					"km/s",
+					"mi/s",
+					"m/h",
+*/					"km/h",
+					"mi/h"
+				    };
+    float	tmp_distance = 0;
+
+    if(!current)
+	return NULL;
+/* prepare current temperature */
+    temperature_vbox = gtk_vbox_new(FALSE, 0);
+    memset(buffer, 0, sizeof(buffer));
+    sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>",
+				app->config->font_color.red >> 8,
+				app->config->font_color.green >> 8,
+				app->config->font_color.blue >> 8);
+
+    sprintf(buffer + strlen(buffer), _("Now: "));
+    sprintf(buffer + strlen(buffer), "\n%d\302\260",
+		((app->config->temperature_units == CELSIUS) ? ( atoi(item_value(current, "temperature")))
+							: ( c2f(atoi(item_value(current, "temperature"))))));
+    (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
+						: ( strcat(buffer, _("F")) );
+    strcat(buffer,"</span>");
+    temperature_label = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(temperature_label), buffer);
+    set_font_size(temperature_label, 2*f_size);
+
+    gtk_box_pack_start(GTK_BOX(temperature_vbox), temperature_label, FALSE, FALSE, 0);
+    
+/* prepare "feels like", "visible", "pressure", "humidity", "wind", "gust" */
+/* feels like */
+    memset(buffer, 0, sizeof(buffer));
+    sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>",
+				app->config->font_color.red >> 8,
+				app->config->font_color.green >> 8,
+				app->config->font_color.blue >> 8);
+
+    strcat(buffer, item_value(current, "title"));
+    strcat(buffer, _("\nFL: "));
+    sprintf(buffer + strlen(buffer), "%d\302\260", 
+	    (app->config->temperature_units == CELSIUS) ? (atoi(item_value(current, "feel_like"))) 
+						: (c2f(atoi(item_value(current, "feel_like")))));
+    (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
+					: ( strcat(buffer, _("F")) );
+/* humidity */
+    strcat(buffer, _(" H: "));
+    if( strcmp(item_value(current, "humidity"), "N/A") )
+	sprintf(buffer + strlen(buffer), "%d%%",
+		atoi(item_value(current, "humidity")));
+    else
+	sprintf(buffer + strlen(buffer), "%s",
+		    (char*)hash_table_find((gpointer)"N/A"));
+/* visible */
+    strcat(buffer, _("\nV: "));
+    if( !strcmp(item_value(current, "humidity"), "Unlimited") )
+	sprintf(buffer + strlen(buffer), "%s",
+                (char*)hash_table_find((gpointer)"Unlimited"));
+    else
+	if( strcmp(item_value(current, "visible"), "N/A") ){
+	    tmp_distance = atof(item_value(current, "visible"));
+	    switch(app->config->distance_units){
+		default:
+		case METERS: units = _("m"); tmp_distance *= 1000.0f; break;
+		case KILOMETERS: units = _("km"); tmp_distance *= 1.0f; break;
+		case MILES: units = _("mi"); tmp_distance /= 1.609344f; break;
+		case SEA_MILES: units = _("mi"); tmp_distance /= 1.852f; break;
+	    }
+	    sprintf(buffer + strlen(buffer), "%.2f %s", tmp_distance, units);
+	}
+	else    
+	    sprintf(buffer + strlen(buffer), "%s",
+                    (char*)hash_table_find((gpointer)"N/A"));
+/* pressure */
+    strcat(buffer, _("\nP: "));
+    sprintf(buffer + strlen(buffer), "%.2f %s, ", atof(item_value(current, "pressure")),
+		    _("mb"));
+    strcat(buffer, item_value(current, "pressure_direction"));
+/* wind */
+    strcat(buffer, _("\nW: "));
+    sprintf(buffer + strlen(buffer), "%s", item_value(current, "wind_direction"));
+    if( strcmp(item_value(current, "wind_speed"), "N/A") )
+	sprintf(buffer + strlen(buffer), " %.2f %s", 
+		    convert_wind_units(app->config->wind_units, atof(item_value(current, "wind_speed"))),
+		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
+/* gust */
+    if( strcmp(item_value(current, "wind_gust"), "N/A") ){
+	strcat(buffer, _(" G: "));
+	sprintf(buffer + strlen(buffer), "%.2f %s",
+		    convert_wind_units(app->config->wind_units, atof(item_value(current, "wind_gust"))),
+		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
+    }
+    strcat(buffer,"</span>");
+
+    main_data_vbox = gtk_vbox_new(FALSE, 0);	
+    main_data_label = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(main_data_label), buffer);
+    set_font_size(main_data_label, f_size);
+    gtk_box_pack_start(GTK_BOX(main_data_vbox), main_data_label,
+			    FALSE, FALSE, 0);
+			    
+/* prepare icon and temperature vbox */
+    icon_temperature_vbox = gtk_vbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(icon_temperature_vbox), temperature_vbox, FALSE, FALSE, 0);
+/* prepare main widget */
+    main_widget = gtk_hbox_new(FALSE, 10);
+    gtk_box_pack_start(GTK_BOX(main_widget), icon_temperature_vbox, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(main_widget), main_data_vbox, FALSE, FALSE, 0);
+    return main_widget;
+}
+
 /*******************************************************************************/
 /* create days panel and station name panel */
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
@@ -775,6 +905,8 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     GtkWidget	*header_panel,
 		*days_panel,
 		*days_panel_with_buttons,
+		*combination_vbox,
+		*current_weather_widget,
 		*previos_station_name_btn = NULL,
 		*previos_station_name = NULL,
 		*previos_station_box = NULL,
@@ -854,7 +986,10 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	station_name        = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
-	set_font_size(station_name, f_size);
+	if (app->config->icons_layout == COMBINATION)
+	    set_font_size(station_name, 2*f_size);
+	else
+	    set_font_size(station_name, f_size);
 	gtk_box_pack_start((GtkBox*) station_box, station_name, TRUE, TRUE, 0);
     
 	gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
@@ -903,6 +1038,10 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	case TWO_COLUMNS:
 	    days_panel = gtk_table_new(elements, 2, FALSE);
 	break;
+	case COMBINATION:
+	    days_panel = gtk_table_new(Max_count_weather_day, 2, FALSE);
+	break;
+
     }
 /* attach days buttons */
     for(n = 0, x = 0, y = 0; n < app->config->days_to_show; n++, x++){
@@ -933,20 +1072,38 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		else
 		    gtk_table_attach( (GtkTable*)days_panel, app->buttons[n]->button, 1, 2, x, x + 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 	    break;
+	    case COMBINATION:
+		if (n == 0)
+		    gtk_table_attach( (GtkTable*)days_panel, app->buttons[n]->button, 0,  1, 0, 1,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0 );
+		else
+		    gtk_table_attach( (GtkTable*)days_panel, app->buttons[n]->button, x-1, x, 1, 2 ,(GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+	    break;
+
 	}
       }	
     }
-
-/* attach to main panel header and days panels */
-    gtk_table_attach( (GtkTable*)panel, header_panel, 0, 1, 0, 1, (GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+    /* attach to main panel header and days panels */
+    if (layout == COMBINATION){
+        combination_vbox =  gtk_vbox_new(FALSE, 0);;
+	current_weather_widget = create_current_weather_simple_widget(wcs.current_data,f_size);
+	gtk_box_pack_start(GTK_BOX(combination_vbox), header_panel, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(combination_vbox), current_weather_widget, FALSE, FALSE, 0);
+	
+	gtk_table_attach( (GtkTable*)days_panel, combination_vbox, 1, Max_count_weather_day, 0, 1, (GtkAttachOptions) (0), (GtkAttachOptions) (0), 0, 0);
+    }
+    else{
+	
+	gtk_table_attach( (GtkTable*)panel, header_panel, 0, 1, 0, 1, (GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+    }
     if(previos_station_name_btn)
 	gtk_box_pack_start( (GtkBox*)days_panel_with_buttons, previos_station_name_btn, TRUE, TRUE, 0);    
     if(days_panel)
 	gtk_box_pack_start( (GtkBox*)days_panel_with_buttons, days_panel, TRUE, TRUE, 0);
     if(next_station_name_btn)
-	gtk_box_pack_start( (GtkBox*)days_panel_with_buttons, next_station_name_btn, TRUE, TRUE, 0);
+        gtk_box_pack_start( (GtkBox*)days_panel_with_buttons, next_station_name_btn, TRUE, TRUE, 0);
 
     gtk_table_attach( (GtkTable*)panel, days_panel_with_buttons, 0, 1, 1, 2, (GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
+
 /*    gtk_table_attach( (GtkTable*)panel, days_panel, 0, 1, 1, 2, (GtkAttachOptions) (0),(GtkAttachOptions) (0), 0, 0);
 */    
 /* Connect signal button */
@@ -1344,6 +1501,7 @@ void item_size_request(GtkWidget *widget, GtkRequisition *rq, gpointer  user_dat
 /**********************************************************************************/
 gboolean expose_main_window(GtkWidget *widget, GdkEventExpose *event)
 {
+    int x,y;
     /* Run once */
     if (!app->widget_first_start){
 //	filed=fopen("/tmp/omw.text","a+"); 
@@ -1395,7 +1553,7 @@ gboolean expose_main_window(GtkWidget *widget, GdkEventExpose *event)
 	return FALSE;
     }	
 
-    int x,y;
+
     get_x_y_hildon_home_area(app->child_data, &x, &y);
         
     app->aw=event->area.width; app->ah=event->area.height;

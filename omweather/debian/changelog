@@ -6,6 +6,7 @@ omweather (0.20) unstable; urgency=low
   * Added auto-switch to the next station on selected time
   * The arrows that switch to the next/previos station is made bigger, to press it with a finger
   * Fixed error: while station data xml file is absence, displaying weather data is garbage  
+  * New layout - "Combination" has been added
         
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 02 Jan 2008 03:36:00 +0200
  

@@ -752,12 +752,14 @@ void weather_window_settings(GtkWidget *widget,
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One column"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two rows"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two columns"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Combination"));    
     switch(app->config->icons_layout){
 	default:
 	case ONE_ROW: 	  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),0);break;
 	case ONE_COLUMN:  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),1);break;
 	case TWO_ROWS:    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),2);break;
 	case TWO_COLUMNS: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),3);break;
+	case COMBINATION: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),4);break;	
     }
 /* Icon set */
     gtk_table_attach_defaults(GTK_TABLE(table),	    

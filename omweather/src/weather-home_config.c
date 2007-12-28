@@ -366,7 +366,7 @@ int new_read_config(AppletConfig *config){
                 				GCONF_KEY_ICONS_LAYOUT,
 						NULL);
     if(config->icons_layout < ONE_ROW ||
-	config->icons_layout > TWO_COLUMNS)
+	config->icons_layout > COMBINATION)
 	config->icons_layout = ONE_ROW;
 
     /* Get number days to show default 5 */

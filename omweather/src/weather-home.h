@@ -83,6 +83,7 @@ extern gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
 extern int parse_weather_com_xml(void);
 extern int new_parse_weather_com_xml(void);
 extern time_t last_update_time(GSList *object);
+extern float convert_wind_units(int to, float value);
 /*******************************************************************************/
 extern int	boxs_offset[];
 extern gchar	path_large_icon[];

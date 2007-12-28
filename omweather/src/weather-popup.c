@@ -399,8 +399,8 @@ GtkWidget* create_current_weather_widget(GSList *current){
 */					"km/h",
 					"mi/h"
 				    };
-    GdkPixbuf	*icon;
-    GtkWidget	*icon_image;
+    GdkPixbuf	*icon = NULL;
+    GtkWidget	*icon_image = NULL;
     float	tmp_distance = 0;
 
     if(!current)
@@ -409,7 +409,8 @@ GtkWidget* create_current_weather_widget(GSList *current){
     icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64,NULL);
     icon_image = gtk_image_new_from_pixbuf(icon);
     if(icon)
-	g_object_unref(icon);
+        g_object_unref(icon);
+    
 /* prepare current temperature */
     temperature_vbox = gtk_vbox_new(FALSE, 0);
     memset(buffer, 0, sizeof(buffer));
@@ -420,7 +421,7 @@ GtkWidget* create_current_weather_widget(GSList *current){
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
 						: ( strcat(buffer, _("F")) );
     temperature_label = gtk_label_new(buffer);
-    set_font_size(temperature_label, 14);
+    set_font_size(temperature_label, 2*14);
     set_font_color(temperature_label, 0x0000, 0x0000, 0x0000);
     gtk_box_pack_start(GTK_BOX(temperature_vbox), temperature_label, FALSE, FALSE, 0);
     
@@ -488,6 +489,7 @@ GtkWidget* create_current_weather_widget(GSList *current){
     set_font_color(main_data_label, 0x0000, 0x0000, 0x0000);
     gtk_box_pack_start(GTK_BOX(main_data_vbox), main_data_label,
 			    FALSE, FALSE, 0);
+			    
 /* prepare icon and temperature vbox */
     icon_temperature_vbox = gtk_vbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(icon_temperature_vbox), temperature_vbox, FALSE, FALSE, 0);

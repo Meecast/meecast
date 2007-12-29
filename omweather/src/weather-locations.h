@@ -41,6 +41,8 @@ typedef	struct{
 typedef struct{
     char	name[50];
     char	id0[10];
+    char	lattitude[10];
+    char	longitude[10];
 }Station;
 /*******************************************************************************/
 GtkListStore* create_items_list(const char *filename, long start, long end,

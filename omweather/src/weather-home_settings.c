@@ -146,17 +146,24 @@ void changed_stations(void){
     GtkTreeModel	*model = NULL;
     GtkTreeIter		iter;
     gchar		*station_name = NULL,
-			*station_id0 = NULL;
+			*station_id0 = NULL,
+			*station_lattitude = NULL,
+			*station_longitude = NULL;
 
     if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(stations), &iter)){
 	model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
 	gtk_tree_model_get(model, &iter, 0, &station_name,
 					 1, &station_id0,
+					 2, &station_lattitude,
+					 3, &station_longitude,
 					-1);
 
+	fprintf(stderr, "\nLat=%s Lon=%s\n", station_lattitude, station_longitude);
 	_weather_station_id_temp = g_strdup(station_id0);
 	g_free(station_name);
 	g_free(station_id0);
+	g_free(station_lattitude);
+	g_free(station_longitude);
     }
 }
 /*******************************************************************************/

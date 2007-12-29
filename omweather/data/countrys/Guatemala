@@ -1,17 +1,17 @@
 Region=Guatemala
-GTXX0001=Chimaltenango
-GTXX0008=Coban
-GTXX0014=El Progreso
-GTXX0012=Escuintla
-GTXX0009=Flores
-GTXX0002=Guatemala City
-GTXX0010=Huehuetenango
-GTXX0016=Jalapa
-GTXX0013=Jutiapa
-GTXX0015=Mazatenango
-GTXX0003=Poptun
-GTXX0004=Puerto Barrios
-GTXX0005=Quetzaltenango
-GTXX0006=Retalhuleu
-GTXX0007=San Jose
-GTXX0011=Zacapa
+GTXX0001=Chimaltenango=15.47=19.92
+GTXX0008=Coban=15.47=-90.82
+GTXX0014=El Progreso=14.35=-89.50
+GTXX0012=Escuintla=14.18=-89.53
+GTXX0009=Flores=16.93=-90.38
+GTXX0002=Guatemala City=14.58=-91.72
+GTXX0010=Huehuetenango=15.32=-89.89
+GTXX0016=Jalapa=14.39=-91.30
+GTXX0013=Jutiapa=14.17=-90.47
+GTXX0015=Mazatenango=14.31=-89.85
+GTXX0003=Poptun=16.33=-90.52
+GTXX0004=Puerto Barrios=15.73=-89.42
+GTXX0005=Quetzaltenango=14.84=-88.60
+GTXX0006=Retalhuleu=14.54=-91.53
+GTXX0007=San Jose=13.92=-91.69
+GTXX0011=Zacapa=14.98=-91.47

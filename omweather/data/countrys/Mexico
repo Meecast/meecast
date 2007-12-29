@@ -1,180 +1,180 @@
 Region=Mexico
-MXGR0150=Acapulco
-MXSR0085=Agua Prieta
-MXAS0002=Aguascalientes
-MXSR0151=Altar
-MXJO0158=Altos De Jalisco
-MXNL0066=Anahuac
-MXVZ2302=Antsn Lizardo
-MXMN0056=Apatzingan
-MXJO0040=Arandas
-MXGR0038=Atoyac De Alvarez
-MXTS0125=Bagdad
-MXJO0760=Barra de Navidad
-MXBS0135=Cabo San Lucas
-MXSR0087=Caborca
-MXCE0008=Campeche
-MXSR0088=Cananea
-MXQR0138=Cancun
-MXGO0032=Celaya
-MXQR0133=Chetumal
-MXCA0022=Chihuahua
-MXGR0039=Chilpancingo
-MXYN0162=Chinquila
-MXSA0081=Choix
-MXCL0010=Ciudad Acuna
-MXCA0021=Ciudad Camargo
-MXCE0009=Ciudad Del Carmen
-MXJO0041=Ciudad Guzman
-MXMN0057=Ciudad Hidalgo
-MXCA0026=Ciudad Juarez
-MXTS0100=Ciudad Madero
-MXSR0159=Ciudad Obregon
-MXSP0077=Ciudad Valles
-MXTS0107=Ciudad Victoria
-MXVZ0109=Coatzacoalcos
-MXCM0015=Colima
-MXJO0042=Colotlan
-MXCS0018=Comitan
-MXVZ0110=Cordoba
-MXQR0074=Cozumel
-MXGR0144=Cruz Grande
-MXSA0155=Cuauhtemoc
-MXMO0053=Cuautitlan
-MXMS0064=Cuernavaca
-MXSA0080=Culiacan
-MXCA0023=Delicias
-MXDO0030=Durango
-MXSP0078=Ebano
-MXTS2043=El Mante
-MXSR0089=Empalme
-MXBC0003=Ensenada
-MXSA0082=Escuinapa
-MXVZ2301=Fortmn de las Flores
-MXZS0121=Fresnillo
-MXNL0067=Galeana
-MXNL1082=Garza Garcia
-MXJO0043=Guadalajara
-MXSA0148=Guamuchil
-MXGO0033=Guanajuato
-MXSA0083=Guasave
-MXSR0090=Guaymas
-MXBS0149=Guerrero Negro
-MXSR0091=Hermosillo
-MXCA0024=Hidalgo Del Parral
-MXSR0092=Huatabampo
-MXGO0034=Irapuato
-MXQR0075=Isla Mujeres
-MXGR0137=Ixtapa
-MXVZ0127=Jalapa Enriquez
-MXJO0044=Jalostotitlan
-MXCA0025=Jiminez
-MXSA0166=Juan Carrasco
-MXOA1123=Juchitan De Zaragoza
-MXBS0006=La Paz
-MXMN0060=La Piedad Cavadas
-MXJO0045=Lagos De Moreno
-MXMN0058=Lazaro Cardenas
-MXGO0035=Leon
-MXBS0129=Loreto
-MXBS0007=Los Cabos
-MXSA0130=Los Mochis
-MXTO0098=Macuspana
-MXSR0093=Magdalena
-MXCM0016=Manzanillo
-MXTS0101=Matamoros
-MXSA0084=Mazatlan
-MXYN0117=Merida
-MXBC0004=Mexicali
-MXDF0132=Mexico City
-MXVZ0112=Minatitlan
-MXCL0011=Monclova
-MXNL0068=Monterrey
-MXMN0059=Morelia
-MXMS0140=Morelos
-MXYN0118=Motul
-MXSR0094=Navojoa
-MXSR0095=Nogales
-MXNT0156=Novillero
-MXMN0160=Nueva Italia De Ruiz
-MXCL0146=Nueva Rosita
-MXCA0027=Nuevo Casas Grandes
-MXTS0102=Nuevo Laredo
-MXOA0069=Oaxaca
-MXJO0046=Ocotlan
-MXVZ0113=Orizaba
-MXHO0134=Pachuca
-MXTO0099=Paraiso
-MXCE0011=Pich
-MXCL0012=Piedras Negras
-MXQR0076=Playa Del Carmen
-MXVZ0114=Poza Rica
-MXVZ0163=Poza Rica De Hidalgo
-MXYN0119=Progreso
-MXPA0070=Puebla
-MXOA0141=Puerto Escondido
-MXQR0164=Puerto Juarez
-MXQR0165=Puerto Morelos
-MXSR0096=Puerto Penasco
-MXJO0047=Puerto Vallarta
-MXOA1650=Putla de Guerrero
-MXQA0072=Queretaro
-MXTS0103=Reynosa
-MXMN0947=Sahuayo
-MXGO0036=Salamanca
-MXCL0013=Saltillo
-MXVZ0115=San Andres Tuxtla
-MXTS0104=San Carlos
-MXBC0145=San Felipe
-MXGO0037=San Francisco Del Rincon
-MXBS0157=San Jose Del Cabo
-MXQA0073=San Juan Del Rio
-MXJO0048=San Julian
-MXSP0079=San Luis Potosi
-MXSR0097=San Luis Rio Colorado
-MXMO0154=San Marcos
-MXJO0715=San Miguel El Alto
-MXGO0501=San Miguel de Allende
-MXBS0185=San Sebastian Vizcaino Bay
-MXBC0161=San Vicente
-MXBS0167=Santa Rosalia
-MXCE0010=Seybaplaya
-MXZS0122=Sombrerete
-MXJO0049=Tala
-MXTS0105=Tampico
-MXCS0019=Tapachula
-MXCM0017=Tecoman
-MXPA0071=Tehuacan
-MXGR0563=Teirra Colorada
-MXCA0028=Temosachic
-MXJO0729=Tepatitlan De Morelos
-MXDO0031=Tepehuanes
-MXNT0065=Tepic
-MXBC0005=Tijuana
-MXMO0054=Tlalnepantla
-MXJO0050=Tlaquepaque
-MXTA0108=Tlaxcala
-MXBS0126=Todos Santos
-MXMO0055=Toluca
-MXJO0051=Tomatlan
-MXCL0014=Torreon
-MXHO0639=Tulancingo De Bravo
-MXQR1886=Tulum
-MXVZ0128=Tuxpan
-MXCS0020=Tuxtla Gutierrez
-MXMN0061=Uruapan
-MXYN0120=Valladolid
-MXTS0106=Valle Hermoso
-MXMO0876=Valle de Bravo Lake
-MXVZ0116=Veracruz
-MXDO0142=Victoria De Durango
-MXSA0147=Villa Union
-MXTO0152=Villahermosa
-MXVZ0111=Xalapa
-MXQR1887=Xcaret
-MXDF0029=Xochimilco
-MXMN0062=Zacapu
-MXZS0123=Zacatecas
-MXMN0063=Zamora
-MXJO0052=Zapopan
-MXGR0136=Zihuatanejo
+MXGR0150=Acapulco=16.85=-99.13
+MXSR0085=Agua Prieta=31.33=-100.98
+MXAS0002=Aguascalientes=21.88=73.50
+MXSR0151=Altar=30.70=-114.78
+MXJO0158=Altos De Jalisco=20.00=-103.40
+MXNL0066=Anahuac=27.23=-99.00
+MXVZ2302=Antsn Lizardo=19.05=-97.00
+MXMN0056=Apatzingan=19.08=-104.68
+MXJO0040=Arandas=20.70=-98.37
+MXGR0038=Atoyac De Alvarez=17.21=-100.75
+MXTS0125=Bagdad=25.95=-99.14
+MXJO0760=Barra de Navidad=19.20=-102.76
+MXBS0135=Cabo San Lucas=22.88=-111.34
+MXSR0087=Caborca=30.72=-109.56
+MXCE0008=Campeche=19.85=-107.84
+MXSR0088=Cananea=30.99=-112.16
+MXQR0138=Cancun=21.17=-88.29
+MXGO0032=Celaya=20.52=-104.67
+MXQR0133=Chetumal=18.50=-87.07
+MXCA0022=Chihuahua=28.63=-105.17
+MXGR0039=Chilpancingo=17.55=-100.43
+MXYN0162=Chinquila=21.35=-88.21
+MXSA0081=Choix=26.72=-107.39
+MXCL0010=Ciudad Acuna=29.32=-90.12
+MXCA0021=Ciudad Camargo=27.69=-112.00
+MXCE0009=Ciudad Del Carmen=18.64=-90.53
+MXJO0041=Ciudad Guzman=19.71=-102.35
+MXMN0057=Ciudad Hidalgo=19.69=-102.35
+MXCA0026=Ciudad Juarez=31.74=-104.91
+MXTS0100=Ciudad Madero=22.28=-92.92
+MXSR0159=Ciudad Obregon=27.49=-111.82
+MXSP0077=Ciudad Valles=21.98=-106.38
+MXTS0107=Ciudad Victoria=23.74=-97.83
+MXVZ0109=Coatzacoalcos=18.14=-98.97
+MXCM0015=Colima=19.24=-101.22
+MXJO0042=Colotlan=22.10=-103.47
+MXCS0018=Comitan=16.25=-103.88
+MXVZ0110=Cordoba=18.90=-94.42
+MXQR0074=Cozumel=20.43=-99.99
+MXGR0144=Cruz Grande=16.73=-101.59
+MXSA0155=Cuauhtemoc=25.42=-108.09
+MXMO0053=Cuautitlan=19.67=-102.72
+MXMS0064=Cuernavaca=18.92=-100.13
+MXSA0080=Culiacan=24.80=-87.18
+MXCA0023=Delicias=28.19=-106.08
+MXDO0030=Durango=24.03=-99.14
+MXSP0078=Ebano=22.22=-99.02
+MXTS2043=El Mante=22.73=-97.15
+MXSR0089=Empalme=27.97=-110.30
+MXBC0003=Ensenada=31.87=-102.30
+MXSA0082=Escuinapa=22.85=-108.33
+MXVZ2301=Fortmn de las Flores=18.90=-97.45
+MXZS0121=Fresnillo=23.17=-89.16
+MXNL0067=Galeana=24.83=-100.15
+MXNL1082=Garza Garcia=25.66=-100.32
+MXJO0043=Guadalajara=20.67=-103.27
+MXSA0148=Guamuchil=25.47=-106.23
+MXGO0033=Guanajuato=21.02=-100.82
+MXSA0083=Guasave=25.57=-105.80
+MXSR0090=Guaymas=27.92=-110.82
+MXBS0149=Guerrero Negro=27.99=-109.90
+MXSR0091=Hermosillo=29.07=-110.91
+MXCA0024=Hidalgo Del Parral=26.93=-105.47
+MXSR0092=Huatabampo=26.83=-110.97
+MXGO0034=Irapuato=20.68=-101.28
+MXQR0075=Isla Mujeres=21.20=-86.88
+MXGR0137=Ixtapa=17.66=-101.57
+MXVZ0127=Jalapa Enriquez=19.28=-96.14
+MXJO0044=Jalostotitlan=21.20=-103.35
+MXCA0025=Jiminez=27.16=-105.67
+MXSA0166=Juan Carrasco=23.22=-107.87
+MXOA1123=Juchitan De Zaragoza=16.43=-97.07
+MXBS0006=La Paz=24.14=-116.25
+MXMN0060=La Piedad Cavadas=20.30=-101.18
+MXJO0045=Lagos De Moreno=21.37=-102.47
+MXMN0058=Lazaro Cardenas=17.95=-100.55
+MXGO0035=Leon=21.12=-101.36
+MXBS0129=Loreto=26.01=-110.22
+MXBS0007=Los Cabos=23.16=-110.32
+MXSA0130=Los Mochis=25.79=-106.42
+MXTO0098=Macuspana=17.77=-98.24
+MXSR0093=Magdalena=30.75=-109.63
+MXCM0016=Manzanillo=19.05=-103.73
+MXTS0101=Matamoros=25.88=-97.83
+MXSA0084=Mazatlan=23.22=-108.47
+MXYN0117=Merida=20.97=-95.98
+MXBC0004=Mexicali=32.65=-116.62
+MXDF0132=Mexico City=
+MXVZ0112=Minatitlan=17.98=-96.92
+MXCL0011=Monclova=26.91=-100.93
+MXNL0068=Monterrey=25.67=-100.07
+MXMN0059=Morelia=19.72=-102.18
+MXMS0140=Morelos=18.75=-99.25
+MXYN0118=Motul=21.10=-89.62
+MXSR0094=Navojoa=27.08=-110.96
+MXSR0095=Nogales=31.31=-109.45
+MXNT0156=Novillero=21.82=-104.89
+MXMN0160=Nueva Italia De Ruiz=19.02=-102.29
+MXCL0146=Nueva Rosita=27.95=-103.43
+MXCA0027=Nuevo Casas Grandes=30.42=-106.47
+MXTS0102=Nuevo Laredo=27.48=-97.50
+MXOA0069=Oaxaca=17.07=-105.25
+MXJO0046=Ocotlan=20.37=-101.93
+MXVZ0113=Orizaba=18.83=-94.52
+MXHO0134=Pachuca=20.12=-99.30
+MXTO0099=Paraiso=18.40=-92.60
+MXCE0011=Pich=19.49=-90.42
+MXCL0012=Piedras Negras=28.71=-101.42
+MXQR0076=Playa Del Carmen=20.62=-86.72
+MXVZ0114=Poza Rica=20.55=-97.10
+MXVZ0163=Poza Rica De Hidalgo=20.53=-97.40
+MXYN0119=Progreso=21.28=-89.28
+MXPA0070=Puebla=19.05=-97.94
+MXOA0141=Puerto Escondido=15.85=-96.72
+MXQR0164=Puerto Juarez=
+MXQR0165=Puerto Morelos=20.84=-86.81
+MXSR0096=Puerto Penasco=31.32=-110.95
+MXJO0047=Puerto Vallarta=20.62=-102.77
+MXOA1650=Putla de Guerrero=17.04=-95.02
+MXQA0072=Queretaro=20.59=-97.38
+MXTS0103=Reynosa=26.08=-99.51
+MXMN0947=Sahuayo=20.07=-102.10
+MXGO0036=Salamanca=20.57=-101.69
+MXCL0013=Saltillo=25.24=-100.53
+MXVZ0115=San Andres Tuxtla=18.44=-97.47
+MXTS0104=San Carlos=24.52=-98.28
+MXBC0145=San Felipe=31.03=-117.02
+MXGO0037=San Francisco Del Rincon=21.02=-101.20
+MXBS0157=San Jose Del Cabo=23.07=-114.17
+MXQA0073=San Juan Del Rio=20.39=-100.40
+MXJO0048=San Julian=21.02=-105.23
+MXSP0079=San Luis Potosi=22.16=-98.37
+MXSR0097=San Luis Rio Colorado=32.46=-113.53
+MXMO0154=San Marcos=18.72=-99.67
+MXJO0715=San Miguel El Alto=21.02=-104.00
+MXGO0501=San Miguel de Allende=20.92=-101.86
+MXBS0185=San Sebastian Vizcaino Bay=26.50=-112.28
+MXBC0161=San Vicente=31.33=-114.84
+MXBS0167=Santa Rosalia=27.32=-109.68
+MXCE0010=Seybaplaya=19.45=-91.82
+MXZS0122=Sombrerete=23.63=-102.86
+MXJO0049=Tala=20.67=-102.17
+MXTS0105=Tampico=22.22=-98.97
+MXCS0019=Tapachula=14.91=-92.13
+MXCM0017=Tecoman=18.92=-104.32
+MXPA0071=Tehuacan=18.45=-98.22
+MXGR0563=Teirra Colorada=17.10=-99.92
+MXCA0028=Temosachic=28.97=-107.92
+MXJO0729=Tepatitlan De Morelos=20.82=-102.35
+MXDO0031=Tepehuanes=25.34=-104.67
+MXNT0065=Tepic=21.50=-100.38
+MXBC0005=Tijuana=32.53=-115.47
+MXMO0054=Tlalnepantla=19.54=-99.18
+MXJO0050=Tlaquepaque=20.64=-103.72
+MXTA0108=Tlaxcala=19.31=-109.94
+MXBS0126=Todos Santos=23.45=-109.73
+MXMO0055=Toluca=19.29=-99.19
+MXJO0051=Tomatlan=19.93=-103.32
+MXCL0014=Torreon=25.55=-100.67
+MXHO0639=Tulancingo De Bravo=20.09=-98.76
+MXQR1886=Tulum=20.22=-86.89
+MXVZ0128=Tuxpan=20.95=-96.45
+MXCS0020=Tuxtla Gutierrez=16.75=-92.27
+MXMN0061=Uruapan=19.42=-102.06
+MXYN0120=Valladolid=20.69=-89.67
+MXTS0106=Valle Hermoso=25.67=-97.85
+MXMO0876=Valle de Bravo Lake=19.18=-100.27
+MXVZ0116=Veracruz=19.19=-95.21
+MXDO0142=Victoria De Durango=24.02=-105.80
+MXSA0147=Villa Union=23.20=-109.00
+MXTO0152=Villahermosa=17.98=-93.23
+MXVZ0111=Xalapa=19.53=-96.97
+MXQR1887=Xcaret=20.55=-87.47
+MXDF0029=Xochimilco=19.27=-93.12
+MXMN0062=Zacapu=19.82=-102.07
+MXZS0123=Zacatecas=22.78=-103.65
+MXMN0063=Zamora=19.99=-101.78
+MXJO0052=Zapopan=20.72=-105.25
+MXGR0136=Zihuatanejo=17.63=-99.50

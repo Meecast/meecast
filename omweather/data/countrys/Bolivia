@@ -1,41 +1,41 @@
 Region=Bolivia
-BLXX0020=Apolo
-BLXX0001=Banegas
-BLXX0021=Bella Vista
-BLXX0030=Bermejo
-BLXX0022=Camiri
-BLXX0023=Charana
-BLXX0002=Cobija
-BLXX0003=Cochabamba
-BLXX0004=Concepcion
-BLXX0005=Coroico
-BLXX0024=Guayaramerin
-BLXX0006=La Paz
-BLXX0033=Magdalena
-BLXX0025=Oruro
-BLXX0007=Portachuelo
-BLXX0008=Potosi
-BLXX0037=Puerto Suarez
-BLXX0009=Quillacollo
-BLXX0038=Reyes
-BLXX0010=Riberalta
-BLXX0026=Robore
-BLXX0027=Rurrenabaque
-BLXX0028=San Borja
-BLXX0011=San Ignacio Velasco
-BLXX0029=San Javier
-BLXX0039=San Joaquin
-BLXX0031=San Matias
-BLXX0040=Santa Ana
-BLXX0012=Santa Cruz de la Sierra
-BLXX0035=Santa Cruz/El Trompillo
-BLXX0013=Sucre
-BLXX0014=Tarata
-BLXX0015=Tarija
-BLXX0016=Trinidad
-BLXX0017=Uyuni
-BLXX0032=Valle Grande
-BLXX0018=Viacha
-BLXX0019=Villa Montes
-BLXX0034=Viru-Viru
-BLXX0036=Yacuiba
+BLXX0020=Apolo=-14.72=-63.50
+BLXX0001=Banegas=-17.16=18.38
+BLXX0021=Bella Vista=-13.12=-68.51
+BLXX0030=Bermejo=-22.73=-62.47
+BLXX0022=Camiri=-20.05=-63.78
+BLXX0023=Charana=-17.59=-63.52
+BLXX0002=Cobija=-11.02=-62.82
+BLXX0003=Cochabamba=-17.38=-68.77
+BLXX0004=Concepcion=-16.25=-66.17
+BLXX0005=Coroico=-16.19=-62.10
+BLXX0024=Guayaramerin=-10.83=-69.44
+BLXX0006=La Paz=-16.50=-67.72
+BLXX0033=Magdalena=-13.35=-64.11
+BLXX0025=Oruro=-17.98=-65.41
+BLXX0007=Portachuelo=-17.36=-68.15
+BLXX0008=Potosi=-19.57=-63.40
+BLXX0037=Puerto Suarez=-18.95=-63.70
+BLXX0009=Quillacollo=-17.40=-65.75
+BLXX0038=Reyes=-14.31=-57.85
+BLXX0010=Riberalta=-11.00=-66.28
+BLXX0026=Robore=-18.33=-67.12
+BLXX0027=Rurrenabaque=-14.46=-59.76
+BLXX0028=San Borja=-14.82=-67.56
+BLXX0011=San Ignacio Velasco=-16.38=-66.10
+BLXX0029=San Javier=-16.27=-66.85
+BLXX0039=San Joaquin=-13.07=-67.37
+BLXX0031=San Matias=-16.36=-64.35
+BLXX0040=Santa Ana=-13.77=-64.82
+BLXX0012=Santa Cruz de la Sierra=-17.79=-60.95
+BLXX0035=Santa Cruz/El Trompillo=-17.81=-63.13
+BLXX0013=Sucre=-19.06=-63.20
+BLXX0014=Tarata=-17.62=-65.26
+BLXX0015=Tarija=-21.53=-66.03
+BLXX0016=Trinidad=-14.84=-64.74
+BLXX0017=Uyuni=-20.46=-64.91
+BLXX0032=Valle Grande=-18.49=-58.42
+BLXX0018=Viacha=-16.65=-66.83
+BLXX0019=Villa Montes=-21.27=-68.30
+BLXX0034=Viru-Viru=-17.63=-64.13
+BLXX0036=Yacuiba=-22.03=-63.17

@@ -1,158 +1,158 @@
 Region=Argentina
-ARDF0127=Aeroparque Buenos Aires
-ARCA0001=Alta Gracia
-ARDF0002=Avellaneda
-ARBA0129=Azul
-ARBA0134=Bahia Blanca
-ARBA0004=Bahia Blanca
-ARBA0005=Balcarce
-ARSL0006=Balde
-ARNN0007=Banos de Copahue
-ARRN0116=Bariloche
-ARBA0128=Bolivar
-ARBA0008=Bragado
-ARBA0009=Buenos Aires
-ARSA0135=Cafayate
-ARBA0010=Campana
-ARSF0011=Canada de Gomez
-ARSF0012=Casilda
-ARCC0013=Catamarca
-ARNN0062=Caviahue
-ARNN0063=Caviahue/Copahue
-ARLR0014=Cebollar
-ARSF0015=Ceres
-ARLR0119=Chamical
-ARBA0016=Chascomus
-ARLR0017=Chepes
-ARSJ0018=Chimbas
-ARBA0019=Chivilcoy
-ARFA0020=Clorinda
-ARCT0021=Comodoro Rivadavia
-ARER0024=Concepcion del Uruguay
-ARER0022=Concordia
-ARNN0064=Copahue
-ARCA0023=Cordoba
-ARSA0024=Corrida de Cori
-ARCS0025=Corrientes
-ARCA0026=Cruz del Eje
-ARCS0027=Curuzu Cuatia
-ARBA0130=Dolores
-ARSC0134=El Calafate
-ARCS0028=Empedrado
-ARSF0029=Esperanza
-ARCT0132=Esquel
-ARFA0030=Formosa
-ARSL0031=Fraga
-ARBA0032=General Daniel Cerri
-ARRN0033=General Roca
-ARBA0034=General San Martin
-ARBA0135=Gerli
-ARSC0035=Gobernador Gregores
-ARMA0036=Godoy Cruz
-ARER0125=Gualeguaychu
-ARMA0037=Guaymallen
-ARMS0117=Iguazu Aerodrome
-ARSJ0038=Jachal
-ARSF0039=Jesus Maria
-ARBA0040=Junin
-ARSE0041=La Banda
-ARCA0042=La Falda
-ARBA0043=La Plata
-ARJY0044=La Quiaca
-ARLR0045=La Rioja
-ARCA0126=Laboulaye
-ARSC0046=Lago Argentino
-ARJY0094=Laguna de Pozuelos
-ARMA0047=Las Heras
-ARMA0124=Las Lenas/Los Molles
-ARFA0048=Las Lomitas
-ARCC0192=Las Peladas
-ARBA0049=Lomas de Zamora
-ARMA0126=Los Molles
-ARMA0050=Lujan de Cuyo
-ARBA0051=Maipu
-ARMA0052=Malargue
-ARRN0053=Maquinchao
-ARBA0131=Mar de Ajo
-ARBA0054=Mar del Plata
-ARCA0124=Marcos Juarez
-ARBA0055=Medanos
-ARMA0056=Mendoza
-ARBA0057=Mercedes
-ARCS0122=Monte Caseros
-ARBA0058=Necochea
-ARRN0059=Neuquen
-ARBA0060=Olavarria
-ARSA0061=Oran
-ARSF0062=Parana
-ARCT0063=Paso de Indios
-ARBA0064=Pergamino
-ARBA0065=Pigue
-ARCS0120=Pilar Observatorio
-ARBA0137=Polvorines
-ARMS0118=Posadas
-ARCO0066=Presidencia Roque Saenz Pena
-ARLR0121=Pucha Pucha
-ARSC0067=Puerto Deseado
-ARMS0120=Puerto Iguazu
-ARBA0068=Punta Alta
-ARLR0069=Punta de Agua
-ARMA0125=Punta de Vacas
-ARSF0071=Reconquista
-ARCO0072=Resistencia
-ARCA0073=Rio Cuarto
-ARSC0074=Rio Gallegos
-ARCA0075=Rio Segundo
-ARCA0076=Rio Tercero
-ARSJ0077=Rivadavia
-ARBA0132=River Plate Estuary
-ARSF0078=Rosario
-ARSA0079=Salta
-ARSJ0112=San Agustin del Valle Ferti
-ARRN0080=San Antonio Oeste
-ARRN0081=San Carlos de Bariloche
-ARCA0082=San Francisco
-ARBA0083=San Isidro
-ARSJ0084=San Juan
-ARSC0133=San Julian
-ARSF0085=San Justo
-ARSF0086=San Lorenzo
-ARCS0087=San Luis
-ARMA0123=San Martin
-ARNN0061=San Martin de los Andes
-ARTN0088=San Miguel de Tucuman
-ARBA0089=San Nicolas de los Arroyos
-ARJY0090=San Pedro
-ARMA0091=San Rafael
-ARTU0127=San Rafael
-ARJY0092=San Salvador de Jujuy
-ARER0093=Santa Fe
-ARSJ0094=Santa Lucia
-ARLP0095=Santa Rosa
-ARSE0096=Santiago del Estero
-ARCS0097=Santo Tome
-ARBA0136=Sarandi
-ARSF0121=Sauce Viejo
-ARBA0133=Sierra de la Ventana
-ARTN0090=Tafi del Valle
-ARBA0098=Tandil
-ARSA0134=Tartagal
-ARSE0099=Termas de Rio Hondo
-ARCC0100=Tinogasta
-ARBA0101=Tornquist
-ARCT0102=Trelew/Rawson
-ARBA0103=Trenque Lauquen
-ARBA0104=Tres Arroyos
-ARTF0105=Ushuaia
-ARMA0106=Uspallata
-ARBA0107=Vicente Lopez
-ARRN0131=Viedma
-ARCA0108=Villa Carlos Paz
-ARSF0109=Villa Constitucion
-ARCA0110=Villa Dolores
-ARCA0191=Villa General Belgrano
-ARSJ0111=Villa Krause
-ARSL0112=Villa Mercedes
-ARSL0113=Villa Reynolds
-ARBA0114=Vivorata
-ARBA0115=Zarate
+ARDF0127=Aeroparque Buenos Aires=-34.58=-58.38
+ARCA0001=Alta Gracia=-31.66=-58.68
+ARDF0002=Avellaneda=-34.57=-71.32
+ARBA0129=Azul=-36.78=-61.12
+ARBA0134=Bahia Blanca=
+ARBA0004=Bahia Blanca=-38.72=13.24
+ARBA0005=Balcarce=-37.85=-62.28
+ARSL0006=Balde=-33.33=-60.93
+ARNN0007=Banos de Copahue=-37.80=-54.57
+ARRN0116=Bariloche=
+ARBA0128=Bolivar=-36.23=-59.04
+ARBA0008=Bragado=-35.12=-58.26
+ARBA0009=Buenos Aires=-34.61=-60.51
+ARSA0135=Cafayate=-26.07=-63.81
+ARBA0010=Campana=-34.16=-58.37
+ARSF0011=Canada de Gomez=-32.82=-64.86
+ARSF0012=Casilda=-33.05=-61.40
+ARCC0013=Catamarca=-28.47=-64.57
+ARNN0062=Caviahue=-37.85=-71.36
+ARNN0063=Caviahue/Copahue=-37.80=-71.01
+ARLR0014=Cebollar=-29.13=-64.30
+ARSF0015=Ceres=-29.88=-61.17
+ARLR0119=Chamical=-30.36=-68.65
+ARBA0016=Chascomus=-35.58=-58.96
+ARLR0017=Chepes=-31.35=-66.88
+ARSJ0018=Chimbas=-31.48=-60.83
+ARBA0019=Chivilcoy=-34.90=-58.02
+ARFA0020=Clorinda=-25.29=-58.52
+ARCT0021=Comodoro Rivadavia=-45.86=-57.63
+ARER0024=Concepcion del Uruguay=-32.58=-58.03
+ARER0022=Concordia=-31.39=-58.43
+ARNN0064=Copahue=-31.35=-71.12
+ARCA0023=Cordoba=-31.40=-64.43
+ARSA0024=Corrida de Cori=-25.10=-63.00
+ARCS0025=Corrientes=-27.49=-58.99
+ARCA0026=Cruz del Eje=-30.72=-64.19
+ARCS0027=Curuzu Cuatia=-29.79=-58.81
+ARBA0130=Dolores=-36.33=-59.87
+ARSC0134=El Calafate=-50.28=-67.71
+ARCS0028=Empedrado=-27.96=-58.05
+ARSF0029=Esperanza=-31.48=-61.94
+ARCT0132=Esquel=-42.91=-65.27
+ARFA0030=Formosa=-26.18=-57.72
+ARSL0031=Fraga=-33.51=-66.63
+ARBA0032=General Daniel Cerri=-38.72=-60.04
+ARRN0033=General Roca=-39.02=-66.17
+ARBA0034=General San Martin=-34.56=-62.40
+ARBA0135=Gerli=-34.70=-66.10
+ARSC0035=Gobernador Gregores=-48.75=-65.98
+ARMA0036=Godoy Cruz=-32.93=-69.22
+ARER0125=Gualeguaychu=-33.02=-60.37
+ARMA0037=Guaymallen=-32.90=-68.83
+ARMS0117=Iguazu Aerodrome=-25.73=-65.03
+ARSJ0038=Jachal=-30.25=-68.53
+ARSF0039=Jesus Maria=-32.67=-60.85
+ARBA0040=Junin=-34.59=-58.53
+ARSE0041=La Banda=-27.73=-72.05
+ARCA0042=La Falda=-31.09=-64.81
+ARBA0043=La Plata=-34.92=-60.96
+ARJY0044=La Quiaca=-22.11=-60.58
+ARLR0045=La Rioja=-29.23=-66.58
+ARCA0126=Laboulaye=-34.13=-62.11
+ARSC0046=Lago Argentino=-50.34=-70.24
+ARJY0094=Laguna de Pozuelos=-22.37=-65.30
+ARMA0047=Las Heras=-32.85=-68.78
+ARMA0124=Las Lenas/Los Molles=-34.97=-68.49
+ARFA0048=Las Lomitas=-24.70=-58.18
+ARCC0192=Las Peladas=-27.04=-67.56
+ARBA0049=Lomas de Zamora=-34.77=-57.96
+ARMA0126=Los Molles=-31.95=-69.76
+ARMA0050=Lujan de Cuyo=-33.05=-68.82
+ARBA0051=Maipu=-36.83=-58.40
+ARMA0052=Malargue=-35.48=-68.87
+ARRN0053=Maquinchao=-41.25=-67.61
+ARBA0131=Mar de Ajo=-36.72=-57.69
+ARBA0054=Mar del Plata=-38.00=-57.85
+ARCA0124=Marcos Juarez=-32.71=-65.15
+ARBA0055=Medanos=-38.83=-57.58
+ARMA0056=Mendoza=-32.89=-69.60
+ARBA0057=Mercedes=-34.65=-62.68
+ARCS0122=Monte Caseros=-30.25=-63.88
+ARBA0058=Necochea=-36.90=-59.43
+ARRN0059=Neuquen=-38.95=-68.72
+ARBA0060=Olavarria=
+ARSA0061=Oran=-23.14=-68.33
+ARSF0062=Parana=
+ARCT0063=Paso de Indios=-43.86=-67.49
+ARBA0064=Pergamino=-33.90=-60.33
+ARBA0065=Pigue=-37.61=-60.57
+ARCS0120=Pilar Observatorio=-31.67=-56.04
+ARBA0137=Polvorines=-34.50=-58.33
+ARMS0118=Posadas=-27.40=-54.47
+ARCO0066=Presidencia Roque Saenz Pena=-26.79=-68.09
+ARLR0121=Pucha Pucha=-28.34=-66.31
+ARSC0067=Puerto Deseado=-47.75=-72.25
+ARMS0120=Puerto Iguazu=-25.57=-55.91
+ARBA0068=Punta Alta=-38.50=-62.41
+ARLR0069=Punta de Agua=-28.60=-66.49
+ARMA0125=Punta de Vacas=-32.85=-68.65
+ARSF0071=Reconquista=-29.14=-60.80
+ARCO0072=Resistencia=-27.46=-60.45
+ARCA0073=Rio Cuarto=-33.13=-64.47
+ARSC0074=Rio Gallegos=-51.62=-65.89
+ARCA0075=Rio Segundo=-31.67=-64.35
+ARCA0076=Rio Tercero=-32.18=-63.92
+ARSJ0077=Rivadavia=-31.55=-68.75
+ARBA0132=River Plate Estuary=-35.00=-56.69
+ARSF0078=Rosario=-32.94=-59.65
+ARSA0079=Salta=-24.79=-64.32
+ARSJ0112=San Agustin del Valle Ferti=-31.68=-68.53
+ARRN0080=San Antonio Oeste=-40.74=-68.06
+ARRN0081=San Carlos de Bariloche=-41.14=-64.95
+ARCA0082=San Francisco=-31.43=-64.12
+ARBA0083=San Isidro=-34.45=-62.08
+ARSJ0084=San Juan=-31.54=-68.65
+ARSC0133=San Julian=-49.31=-69.24
+ARSF0085=San Justo=-30.79=-60.67
+ARSF0086=San Lorenzo=-32.75=-60.58
+ARCS0087=San Luis=-33.31=-58.81
+ARMA0123=San Martin=-33.07=-69.35
+ARNN0061=San Martin de los Andes=-40.16=-71.12
+ARTN0088=San Miguel de Tucuman=-26.83=-68.31
+ARBA0089=San Nicolas de los Arroyos=-33.33=-58.50
+ARJY0090=San Pedro=-24.22=-65.59
+ARMA0091=San Rafael=-34.62=-68.83
+ARTU0127=San Rafael=
+ARJY0092=San Salvador de Jujuy=-24.20=-64.87
+ARER0093=Santa Fe=-31.77=-58.58
+ARSJ0094=Santa Lucia=-31.53=-68.53
+ARLP0095=Santa Rosa=-36.62=-66.02
+ARSE0096=Santiago del Estero=-27.80=-64.25
+ARCS0097=Santo Tome=-28.55=-66.35
+ARBA0136=Sarandi=-34.67=-58.38
+ARSF0121=Sauce Viejo=-31.77=-60.35
+ARBA0133=Sierra de la Ventana=-41.63=-57.00
+ARTN0090=Tafi del Valle=-26.87=-65.21
+ARBA0098=Tandil=-37.32=-60.22
+ARSA0134=Tartagal=-22.55=-65.41
+ARSE0099=Termas de Rio Hondo=-27.50=-64.28
+ARCC0100=Tinogasta=-28.07=-65.78
+ARBA0101=Tornquist=-38.10=-59.15
+ARCT0102=Trelew/Rawson=-43.20=-69.05
+ARBA0103=Trenque Lauquen=-35.97=-62.22
+ARBA0104=Tres Arroyos=-38.37=-62.73
+ARTF0105=Ushuaia=-54.79=-65.39
+ARMA0106=Uspallata=-32.59=-68.34
+ARBA0107=Vicente Lopez=-34.53=-60.27
+ARRN0131=Viedma=-40.81=-71.32
+ARCA0108=Villa Carlos Paz=-31.42=-62.09
+ARSF0109=Villa Constitucion=-33.23=-60.73
+ARCA0110=Villa Dolores=-31.95=-64.50
+ARCA0191=Villa General Belgrano=-31.98=-63.39
+ARSJ0111=Villa Krause=-31.57=-68.48
+ARSL0112=Villa Mercedes=-33.67=-65.78
+ARSL0113=Villa Reynolds=-33.73=-65.47
+ARBA0114=Vivorata=-37.67=-58.47
+ARBA0115=Zarate=-34.09=-57.67

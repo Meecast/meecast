@@ -1,14 +1,14 @@
 Region=Costa Rica
-CSXX0001=Alajuela
-CSXX0002=Canas
-CSXX0003=Cartago
-CSXX0010=Chacarita
-CSXX0004=Guapiles
-CSXX0013=Heredia
-CSXX0005=Liberia
-CSXX0011=Nicoya
-CSXX0006=Puerto Limon
-CSXX0007=Puntarenas
-CSXX0008=San Isidro del General
-CSXX0009=San Jose
-CSXX0014=Turrialba
+CSXX0001=Alajuela=10.50=-74.51
+CSXX0002=Canas=10.43=-84.50
+CSXX0003=Cartago=9.87=-85.10
+CSXX0010=Chacarita=9.99=-84.22
+CSXX0004=Guapiles=10.21=-83.93
+CSXX0013=Heredia=10.00=-85.46
+CSXX0005=Liberia=10.64=-83.79
+CSXX0011=Nicoya=10.14=-84.78
+CSXX0006=Puerto Limon=9.99=-85.45
+CSXX0007=Puntarenas=9.58=-83.04
+CSXX0008=San Isidro del General=9.38=-84.50
+CSXX0009=San Jose=10.00=-83.70
+CSXX0014=Turrialba=9.56=-84.12

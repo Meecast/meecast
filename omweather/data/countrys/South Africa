@@ -1,71 +1,71 @@
 Region=South Africa
-SFXX0001=Alexander Bay
-SFXX0002=Annadale
-SFXX0003=Barkly West
-SFXX0004=Beauvallon
-SFXX0005=Bellville
-SFXX0006=Benoni
-SFXX0007=Berlin
-SFXX0062=Bethlehem Airport
-SFXX0008=Bloemfontein
-SFXX0009=Boshof
-SFXX0064=Calvinia
-SFXX0068=Cape Point
-SFXX0010=Cape Town
-SFXX0011=Durban
-SFXX0012=East London
-SFXX0013=Edenburg
-SFXX0014=Ferreira
-SFXX0066=George Airport
-SFXX0015=Germiston
-SFXX0067=Gough Island
-SFXX0016=Grootmis
-SFXX0017=Haga-Haga
-SFXX0018=Hamburg
-SFXX0019=Hermanus
-SFXX0020=Illovo
-SFXX0021=Jacobsdal
-SFXX0022=Jeffrey's Bay
-SFXX0023=Johannesburg
-SFXX0024=Kakamas
-SFXX0025=Karos
-SFXX0026=Keimoes
-SFXX0027=Kempton Park
-SFXX0028=Kimberley
-SFXX0029=King William's Town
-SFXX0030=Kleinsee
-SFXX0031=Krugersdorp
-SFXX0065=Langebaanweg
-SFXX0032=Louisvale
-SFXX0033=Lyttelton
-SFXX0034=Malmesbury
-SFXX0069=Marion Island
-SFXX0035=Mphakane
-SFXX0036=Paarl
-SFXX0037=Parow
-SFXX0070=Pietermaritzburg
-SFXX0038=Pietersburg
-SFXX0039=Pinetown
-SFXX0040=Port Alfred
-SFXX0041=Port Elizabeth
-SFXX0042=Port Nolloth
-SFXX0043=Potgietersrus
-SFXX0044=Pretoria
-SFXX0061=Pretoria Irene
-SFXX0045=Ritchie
-SFXX0046=Rustenburg
-SFXX0047=Saldanha
-SFXX0048=Sekuruwe
-SFXX0049=Soweto
-SFXX0063=Springbok
-SFXX0050=Stanger
-SFXX0051=Strand
-SFXX0052=Tembisa
-SFXX0053=Tongaat
-SFXX0054=Uitenhage
-SFXX0055=Ulco
-SFXX0056=Upington
-SFXX0057=Vereeniging
-SFXX0058=Walmer
-SFXX0059=Welkom
-SFXX0060=Witbank
+SFXX0001=Alexander Bay=-28.60=55.52
+SFXX0002=Annadale=-23.88=16.49
+SFXX0003=Barkly West=-28.53=29.45
+SFXX0004=Beauvallon=-28.50=24.53
+SFXX0005=Bellville=-33.88=16.63
+SFXX0006=Benoni=-26.15=18.60
+SFXX0007=Berlin=-32.88=28.33
+SFXX0062=Bethlehem Airport=-28.25=28.22
+SFXX0008=Bloemfontein=-29.15=27.58
+SFXX0009=Boshof=-28.54=26.23
+SFXX0064=Calvinia=-31.47=17.88
+SFXX0068=Cape Point=-34.35=-9.88
+SFXX0010=Cape Town=-33.93=25.24
+SFXX0011=Durban=-29.87=18.46
+SFXX0012=East London=-32.97=30.99
+SFXX0013=Edenburg=-29.74=27.87
+SFXX0014=Ferreira=-29.20=25.94
+SFXX0066=George Airport=-34.00=18.15
+SFXX0015=Germiston=-26.16=26.18
+SFXX0067=Gough Island=-40.35=22.38
+SFXX0016=Grootmis=-29.65=28.19
+SFXX0017=Haga-Haga=-32.75=17.08
+SFXX0018=Hamburg=-33.29=28.25
+SFXX0019=Hermanus=-34.41=27.46
+SFXX0020=Illovo=-30.12=19.23
+SFXX0021=Jacobsdal=-29.13=30.85
+SFXX0022=Jeffrey's Bay=-34.05=24.77
+SFXX0023=Johannesburg=-26.19=24.92
+SFXX0024=Kakamas=-28.77=28.04
+SFXX0025=Karos=-28.42=20.61
+SFXX0026=Keimoes=-28.71=21.57
+SFXX0027=Kempton Park=-26.11=20.98
+SFXX0028=Kimberley=-28.75=28.24
+SFXX0029=King William's Town=-32.88=24.77
+SFXX0030=Kleinsee=-29.68=27.40
+SFXX0031=Krugersdorp=-26.09=17.07
+SFXX0065=Langebaanweg=-32.97=19.77
+SFXX0032=Louisvale=-28.57=27.77
+SFXX0033=Lyttelton=-25.83=21.20
+SFXX0034=Malmesbury=-33.45=28.22
+SFXX0069=Marion Island=-46.90=18.50
+SFXX0035=Mphakane=-23.52=18.72
+SFXX0036=Paarl=-33.70=29.70
+SFXX0037=Parow=-33.90=18.96
+SFXX0070=Pietermaritzburg=-29.61=37.75
+SFXX0038=Pietersburg=-23.89=18.60
+SFXX0039=Pinetown=-29.76=29.45
+SFXX0040=Port Alfred=-33.60=30.83
+SFXX0041=Port Elizabeth=-33.96=26.88
+SFXX0042=Port Nolloth=-29.24=25.59
+SFXX0043=Potgietersrus=-24.16=16.88
+SFXX0044=Pretoria=-25.73=29.00
+SFXX0061=Pretoria Irene=-25.92=29.22
+SFXX0045=Ritchie=-29.04=28.22
+SFXX0046=Rustenburg=-25.65=24.60
+SFXX0047=Saldanha=-33.01=27.24
+SFXX0048=Sekuruwe=-23.95=17.93
+SFXX0049=Soweto=-26.28=28.93
+SFXX0063=Springbok=-29.67=28.33
+SFXX0050=Stanger=-29.34=27.84
+SFXX0051=Strand=-34.10=31.29
+SFXX0052=Tembisa=-25.99=18.82
+SFXX0053=Tongaat=-29.58=28.22
+SFXX0054=Uitenhage=-33.76=31.12
+SFXX0055=Ulco=-28.33=25.39
+SFXX0056=Upington=-28.46=24.21
+SFXX0057=Vereeniging=-26.65=21.23
+SFXX0058=Walmer=-33.98=27.96
+SFXX0059=Welkom=-27.97=25.58
+SFXX0060=Witbank=-25.86=26.73

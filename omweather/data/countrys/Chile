@@ -1,51 +1,51 @@
 Region=Chile
-CIXX0001=Antofagasta
-CIXX0002=Arica
-CIXX0003=Balmaceda
-CIXX0004=Baquedano
-CIXX0033=Calama
-CIXX0005=Caldera
-CIXX0051=Cerro Blanco
-CIXX0046=Cerro Canasta
-CIXX0029=Chaiten
-CIXX0006=Chillan
-CIXX0049=Colina
-CIXX0007=Concepcion
-CIXX0030=Copiapo
-CIXX0008=Coquimbo
-CIXX0054=Curacavi
-CIXX0031=Curico
-CIXX0009=Iquique
-CIXX0035=Isla Diego Ramirez
-CIXX0034=Islotes Evangelistas
-CIXX0010=La Serena
-CIXX0042=Los Cuartitos
-CIXX0045=Monturaque
-CIXX0050=Morro de La Bandera
-CIXX0011=Nunoa
-CIXX0012=Osorno
-CIXX0013=Ovalle
-CIXX0032=Palena
-CIXX0044=Portillo
-CIXX0040=Pucon
-CIXX0014=Puerto Aisen
-CIXX0015=Puerto Montt
-CIXX0016=Puerto Natales
-CIXX0017=Punta Arenas
-CIXX0018=Rancagua
-CIXX0052=Rocas de Santo Domingo
-CIXX0047=San Antonio
-CIXX0019=San Bernardo
-CIXX0020=Santiago
-CIXX0053=Talagante
-CIXX0021=Talca
-CIXX0022=Talcahuano
-CIXX0023=Temuco
-CIXX0041=Termas de Chillan
-CIXX0024=Toco
-CIXX0025=Valdivia
-CIXX0026=Valparaiso
-CIXX0048=Villa Alemana
-CIXX0038=Villarrica
-CIXX0027=Vina del Mar
-CIXX0028=Vitacura
+CIXX0001=Antofagasta=-23.65=113.54
+CIXX0002=Arica=-18.49=-70.39
+CIXX0003=Balmaceda=-45.92=-70.30
+CIXX0004=Baquedano=-23.33=-71.70
+CIXX0033=Calama=-22.45=-71.81
+CIXX0005=Caldera=-27.08=-69.85
+CIXX0051=Cerro Blanco=-30.07=-71.22
+CIXX0046=Cerro Canasta=-32.48=-68.43
+CIXX0029=Chaiten=-42.92=-70.60
+CIXX0006=Chillan=-36.60=-70.81
+CIXX0049=Colina=-33.20=-71.36
+CIXX0007=Concepcion=-36.83=-72.11
+CIXX0030=Copiapo=-27.36=-72.71
+CIXX0008=Coquimbo=-29.96=-73.05
+CIXX0054=Curacavi=-33.20=-70.50
+CIXX0031=Curico=-34.98=-70.34
+CIXX0009=Iquique=-20.23=-71.33
+CIXX0035=Isla Diego Ramirez=-56.60=-75.10
+CIXX0034=Islotes Evangelistas=-52.40=-68.92
+CIXX0010=La Serena=-29.90=-70.14
+CIXX0042=Los Cuartitos=-29.64=-71.52
+CIXX0045=Monturaque=-24.34=-70.12
+CIXX0050=Morro de La Bandera=-33.28=-70.68
+CIXX0011=Nunoa=-33.47=-71.25
+CIXX0012=Osorno=-40.57=-70.60
+CIXX0013=Ovalle=-30.59=-73.16
+CIXX0032=Palena=-43.62=-71.24
+CIXX0044=Portillo=-25.47=-70.17
+CIXX0040=Pucon=
+CIXX0014=Puerto Aisen=-45.40=-71.20
+CIXX0015=Puerto Montt=-41.47=-72.70
+CIXX0016=Puerto Natales=-51.73=-72.94
+CIXX0017=Punta Arenas=-53.16=-72.51
+CIXX0018=Rancagua=-34.17=-70.93
+CIXX0052=Rocas de Santo Domingo=-33.64=-71.12
+CIXX0047=San Antonio=-33.60=-71.33
+CIXX0019=San Bernardo=-33.60=-70.74
+CIXX0020=Santiago=-33.46=-70.70
+CIXX0053=Talagante=-33.40=-71.62
+CIXX0021=Talca=-35.42=-70.64
+CIXX0022=Talcahuano=-36.74=-71.66
+CIXX0023=Temuco=-38.73=-73.13
+CIXX0041=Termas de Chillan=-36.90=-71.97
+CIXX0024=Toco=-22.07=-72.58
+CIXX0025=Valdivia=-39.82=-69.59
+CIXX0026=Valparaiso=-33.04=-73.23
+CIXX0048=Villa Alemana=-33.04=-71.61
+CIXX0038=Villarrica=-39.28=-68.72
+CIXX0027=Vina del Mar=-33.01=-71.64
+CIXX0028=Vitacura=-33.40=-71.55

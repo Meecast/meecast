@@ -1,49 +1,49 @@
 Region=Venezuela
-VEXX0001=Acarigua
-VEXX0048=Anaco
-VEXX0046=Antimano
-VEXX0002=Barcelona
-VEXX0003=Barinas
-VEXX0004=Barquisimeto
-VEXX0049=Barrio El Guafel
-VEXX0041=Baruta
-VEXX0005=Cabimas
-VEXX0006=Calabozo
-VEXX0007=Cantaura
-VEXX0008=Caracas
-VEXX0040=Carora
-VEXX0042=Charallave
-VEXX0009=Ciudad Bolivar
-VEXX0010=Ciudad Guayana
-VEXX0047=Colonia Tovar
-VEXX0011=Coro
-VEXX0012=Cumana
-VEXX0013=El Tigre
-VEXX0044=Generalisimo Francisco De Miranda AB
-VEXX0014=Guanare
-VEXX0043=Guarenas
-VEXX0015=Guasdualito
-VEXX0016=Isla de Margarita
-VEXX0017=Los Teques
-VEXX0050=Mantecal
-VEXX0018=Maracaibo
-VEXX0019=Maracay
-VEXX0020=Maturin
-VEXX0021=Mene Grande
-VEXX0022=Merida
-VEXX0033=Muelle Paraguana
-VEXX0023=Porlamar
-VEXX0024=Puerto Cabello
-VEXX0037=Puerto Fijo
-VEXX0035=Puerto Ordaz
-VEXX0025=Puerto la Cruz
-VEXX0026=San Antonio del Tachira
-VEXX0027=San Cristobal
-VEXX0028=San Fernando
-VEXX0034=Santa Elena
-VEXX0045=Santa Teresa
-VEXX0036=Trujilo
-VEXX0029=Tumeremo
-VEXX0030=Upata
-VEXX0031=Valencia
-VEXX0032=Valera
+VEXX0001=Acarigua=9.58=-61.24
+VEXX0048=Anaco=9.44=-67.27
+VEXX0046=Antimano=10.47=-66.66
+VEXX0002=Barcelona=10.13=-69.20
+VEXX0003=Barinas=8.60=-64.72
+VEXX0004=Barquisimeto=10.05=-70.25
+VEXX0049=Barrio El Guafel=9.35=-64.46
+VEXX0041=Baruta=10.43=-70.08
+VEXX0005=Cabimas=10.43=-69.30
+VEXX0006=Calabozo=8.93=-71.45
+VEXX0007=Cantaura=9.31=-67.44
+VEXX0008=Caracas=10.54=-64.37
+VEXX0040=Carora=10.19=-70.13
+VEXX0042=Charallave=10.24=-66.88
+VEXX0009=Ciudad Bolivar=8.10=-66.93
+VEXX0010=Ciudad Guayana=8.37=-63.60
+VEXX0047=Colonia Tovar=10.38=-66.98
+VEXX0011=Coro=11.42=-62.62
+VEXX0012=Cumana=10.45=-69.68
+VEXX0013=El Tigre=8.89=-64.18
+VEXX0044=Generalisimo Francisco De Miranda AB=10.48=-66.62
+VEXX0014=Guanare=9.05=-64.26
+VEXX0043=Guarenas=10.47=-66.86
+VEXX0015=Guasdualito=7.24=-69.75
+VEXX0016=Isla de Margarita=11.02=-70.74
+VEXX0017=Los Teques=10.42=-64.09
+VEXX0050=Mantecal=7.56=-69.12
+VEXX0018=Maracaibo=10.73=-67.02
+VEXX0019=Maracay=10.33=-71.66
+VEXX0020=Maturin=9.75=-67.47
+VEXX0021=Mene Grande=9.84=-63.17
+VEXX0022=Merida=8.40=-70.92
+VEXX0033=Muelle Paraguana=11.78=-70.62
+VEXX0023=Porlamar=10.96=-71.13
+VEXX0024=Puerto Cabello=10.47=-63.85
+VEXX0037=Puerto Fijo=11.48=-70.43
+VEXX0035=Puerto Ordaz=8.32=-61.18
+VEXX0025=Puerto la Cruz=10.17=-68.17
+VEXX0026=San Antonio del Tachira=7.81=-64.68
+VEXX0027=San Cristobal=7.77=-72.45
+VEXX0028=San Fernando=7.87=-72.25
+VEXX0034=Santa Elena=4.68=-70.15
+VEXX0045=Santa Teresa=10.23=-66.84
+VEXX0036=Trujilo=9.37=-62.72
+VEXX0029=Tumeremo=7.29=-67.43
+VEXX0030=Upata=8.02=-61.48
+VEXX0031=Valencia=10.23=-62.41
+VEXX0032=Valera=9.32=-67.98

@@ -1,9 +1,9 @@
 Region=Gabon
-GBXX0006=Bitam
-GBXX0001=Franceville
-GBXX0002=Koulamoutou
-GBXX0008=Lambarene
-GBXX0003=Lastoursville
-GBXX0004=Libreville
-GBXX0007=Moanda
-GBXX0005=Port-Gentil
+GBXX0006=Bitam=2.08=8.78
+GBXX0001=Franceville=-1.63=-16.60
+GBXX0002=Koulamoutou=-1.12=13.60
+GBXX0008=Lambarene=-.70=13.22
+GBXX0003=Lastoursville=-.81=12.50
+GBXX0004=Libreville=.39=12.71
+GBXX0007=Moanda=-1.56=11.48
+GBXX0005=Port-Gentil=-.72=9.45

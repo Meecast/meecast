@@ -51,7 +51,8 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Fog", _("Fog"));
     g_hash_table_insert(hash, "Foggy", _("Foggy"));    
     g_hash_table_insert(hash, "Fog Early / Clouds Late", _("Fog Early / Clouds Late"));
-    g_hash_table_insert(hash, "Fog Late", _("Fog Late"));    
+    g_hash_table_insert(hash, "Fog Late", _("Fog Late"));
+    g_hash_table_insert(hash, "Freezing Drizzle", _("Freezing Drizzle"));
     g_hash_table_insert(hash, "Full", _("Full"));
     g_hash_table_insert(hash, "Haze", _("Haze"));
     g_hash_table_insert(hash, "Heavy Rain", _("Heavy Rain"));

@@ -21,7 +21,7 @@ foreach my $country (sort(@$countrys)){
     else{
 	$region_start = tell(REGIONS);
 	open(FH, "<$source/$country") || die "Can't create file $source/$country: $!\n";
-	my ($region, $code, $location) = (undef);
+	my ($region, $code, $location, $lat, $lon) = (undef);
 	my ($location_start) = (undef);
 	while(my $line = <FH>){
 	    if($line =~ /^Region=(.+)/){
@@ -37,10 +37,10 @@ foreach my $country (sort(@$countrys)){
 		}
 	    }
 	    else{
-		if($line =~ /(.+)=(.+)/){
-		    ($code, $location) = ($1, $2);
+		if($line =~ /(.+)=(.+)=(.+)=(.+)/){
+		    ($code, $location, $lat, $lon) = ($1, $2, $3, $4);
 		    die "Can't get current position in $locationsfile: $!\n" if $location_start == -1;
-		    print LOCATIONS "$location;$code;\n";
+		    print LOCATIONS "$location;$code;$lat;$lon;\n";
 		}
 	    }
 	}

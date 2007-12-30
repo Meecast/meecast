@@ -523,7 +523,8 @@ GtkWidget* create_24_hours_widget(GSList *day){
 		current_time,
 		day_begin_time,
 		night_begin_time;
-    int 	year = 0;
+    int 	year = 0,
+		month = 0;
     struct tm	*tm = NULL, tmp_tm;
     char	date_in_string[255];
 
@@ -544,6 +545,8 @@ GtkWidget* create_24_hours_widget(GSList *day){
     tm = localtime(&current_day);
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     current_day = mktime(tm);
+/* save current month number */
+    month = tm->tm_mon;
 /* prepare night data */
     sprintf(buffer, "%s%s.png", path_large_icon, item_value(day, "night_icon"));
 	icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
@@ -618,6 +621,9 @@ GtkWidget* create_24_hours_widget(GSList *day){
     main_widget = gtk_vbox_new(FALSE, 0);
     separator_after_night = gtk_hseparator_new();
 /* set the part of firts 24 hours */
+/* check for new year */
+    if(month == 11 && !strncmp(item_value(day, "24h_date"), "Jan", 3))
+	year++;
 /* calculate the begin of night and day */
     /* day begin */
     sprintf(date_in_string, "%s %i %s",

@@ -40,9 +40,7 @@ void popup_window_destroy(void){
     }
 }
 /*******************************************************************************/
-void popup_close(GtkWidget *widget,
-                    		    GdkEvent *event,
-                    	    	    gpointer user_data){
+void popup_close(GtkWidget *widget, GdkEvent *event, gpointer user_data){
     popup_window_destroy();
 }	
 /*******************************************************************************/
@@ -138,7 +136,6 @@ gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
 /* check if second day is pressed */
     if(i == 1)
 	second_day = TRUE;
-
 
     if(app->config->separate){
 	if(!i)
@@ -263,7 +260,6 @@ GtkWidget* create_header_widget(GSList *day){
     GtkIconInfo *gtkicon_update;
     gchar       buffer[1024];
     struct tm	tmp_time_date_struct = {0};
-
 
 /* Show full or short name station */
     location_label = gtk_label_new(app->config->current_station_name);

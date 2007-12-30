@@ -62,7 +62,7 @@ gboolean switch_timer_handler(gpointer data);
 gboolean expose_main_window(GtkWidget *widget, GdkEventExpose *event);
 gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
 gboolean remitted_update(void);
-
+GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size);
 /*******************************************************************************/
 extern void timer(int interval);
 extern void create_timer_with_interval(guint interval);

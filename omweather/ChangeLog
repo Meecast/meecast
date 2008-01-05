@@ -3,7 +3,7 @@
   * Added translation for Italian
   * The field "Swap hi/low temperature" is moved to the "Units" tab
   * Added auto-switch to the next station on selected time
-  * The arrows that switch to the next/previos station is made bigger, to press it with a finger
+  * The arrows that switch to the next/previous station is made bigger, to press it with a finger
   * Fixed error: while station data xml file is absence, displaying weather data is garbage
   * New layout - "Combination" has been added
   

@@ -38,7 +38,7 @@ omweather (0.19) unstable; urgency=low
   * Now the selected tab in settings dialog is saved
   * Added possibility to hide station name with 'previos' and 'next' statons buttons
   * Added displaying sunrise and sunset time
-  * Added full staions list for all available countrys on weather.com
+  * Added full staions list for all available countries on weather.com
   * Added menuitem in Home menu for call applet settings
   * The calculating of wind speed is corrected
   * Wind speed units: km/s, mi/s, m/h has been removed

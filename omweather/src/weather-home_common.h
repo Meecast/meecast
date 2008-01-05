@@ -70,7 +70,7 @@
 #define Max_count_weather_day		10
 #define MAX_SETTINGS_PAGE_NUMBER	3
 #define CLICK_TIMEOUT                   500
-#define COUNTRYSFILE		"/usr/share/omweather/countrys.list"
+#define COUNTRYSFILE		"/usr/share/omweather/countries.list"
 #define REGIONSFILE		"/usr/share/omweather/regions.list"
 #define LOCATIONSFILE		"/usr/share/omweather/locations.list"
 #define CLOCK_FILE		"/usr/share/omweather/city_in_clock.txt"

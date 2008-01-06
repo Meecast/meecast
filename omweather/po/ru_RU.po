@@ -328,9 +328,8 @@ msgid "Background color:"
 msgstr "Цвет фона:"
 
 #: src/weather-home_hash.c:31
-#, fuzzy
 msgid "Blowing Snow"
-msgstr "Небольшой снег"
+sgstr "Снежная буря"
 
 #: src/weather-home.c:810 src/weather-home.c:832 src/weather-popup.c:421
 #: src/weather-popup.c:436
@@ -509,9 +508,8 @@ msgid "Font color:"
 msgstr "Цвет шрифта:"
 
 #: src/weather-home_hash.c:55
-#, fuzzy
 msgid "Freezing Drizzle"
-msgstr "Небольшой мелкий дождь"
+msgstr "Изморось с градом"
 
 #: src/weather-home_settings.c:1303
 msgid ""

@@ -1,4 +1,10 @@
 #! /bin/sh
+
+#if first installation then exit
+if [ -z "$2" ]; then
+    exit 0
+fi 
+
 #For OS2008
 test -x /usr/bin/maemo-confirm-text || exit 0
 

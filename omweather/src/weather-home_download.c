@@ -132,6 +132,8 @@ static void connection_cb(ConIcConnection *connection,
             app->iap_connecting = FALSE;
     	    app->iap_connected = TRUE;
 	    app->iap_connecting_timer = 0;
+	    if (app->config->downloading_after_connecting)
+		add_current_time_event();
 	    break ;
 
         case CON_IC_STATUS_DISCONNECTED:
@@ -210,10 +212,15 @@ void weather_initialize_dbus(void){
 	} 
 #ifdef USE_CONIC
 	connection = con_ic_connection_new();
-	if(connection != NULL)
+	if(connection != NULL){
+	    g_object_set(connection, "automatic-connection-events", TRUE, NULL);
 	    g_signal_connect(G_OBJECT(connection), "connection-event",
                     	     G_CALLBACK(connection_cb),
                 	     GINT_TO_POINTER(USER_DATA_MAGIC));
+	    #if HILDON == 1		     
+    		app->iap_connected = FALSE;		     
+	    #endif		     
+	}
 #else	
     	osso_iap_cb(iap_callback);
 #endif

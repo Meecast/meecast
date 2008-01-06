@@ -6,7 +6,11 @@
   * The arrows that switch to the next/previous station is made bigger, to press it with a finger
   * Fixed error: while station data xml file is absence, displaying weather data is garbage
   * New layout - "Combination" has been added
-  
+
+0.19.4
+  * Autoconnecting and  downloading after connecting for OS2008  has been made
+  * Changing in postinstall script
+
 0.19.3
   * Size of locations window on configuration dialog has been raised 
   * For OS2008 - accelerating of showing popup window

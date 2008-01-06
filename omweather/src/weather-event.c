@@ -248,7 +248,7 @@ void add_current_time_event(void){
     
     /* get current time */  
     current_time = time(NULL);
-    time_event_add(current_time + 3 , UPDATE_AFTER_CONNECTED); /* The current time plus 3 seconds */
+    time_event_add(current_time + 4 , UPDATE_AFTER_CONNECTED); /* The current time plus 4 seconds */
     
     #ifndef RELEASE
 	fprintf(stderr,"Item added to list\n");

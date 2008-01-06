@@ -549,7 +549,7 @@ msgstr "Сильный снег"
 
 #: src/weather-home_settings.c:849
 msgid "Hide station name and arrows:"
-msgstr "Убрать имя станции и стрелки:"
+msgstr "Убрать название станции и стрелки:"
 
 #: src/weather-home_hash.c:61
 msgid "High"

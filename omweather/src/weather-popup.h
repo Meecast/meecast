@@ -54,6 +54,7 @@ GtkWidget* create_time_updates_widget(GSList *current);
 float convert_wind_units(int to, float value);
 void popup_window_more_show(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 void weather_window_popup_more_show(void);
+void popup_close(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 /*******************************************************************************/
 extern void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    gpointer user_data);

@@ -62,6 +62,9 @@ void update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data);
 void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
                                             gpointer user_data);
 gboolean check_station_code(const gchar *station_code);
+void up_key_handler(GtkButton *button, gpointer list);
+void down_key_handler(GtkButton *button, gpointer list);
+GtkWidget* create_tree_view(GtkListStore* list);
 /*******************************************************************************/
 extern void remove_periodic_event(void);
 extern void weather_initialize_dbus(void);

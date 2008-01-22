@@ -201,3 +201,40 @@ int parse_station_string(const char *string, Station *result){
     return res;
 }
 /*******************************************************************************/
+gboolean find_iterator(GtkListStore *store, gint field_number, GType type,
+					gchar *field_value, GtkTreeIter *result){
+    GtkTreeIter	iter;
+    gboolean	valid;
+    void	*field_data;
+    
+    if(field_number < 0 || !field_value)
+	return FALSE;
+
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(store), &iter);
+    while(valid){
+        gtk_tree_model_get(GTK_TREE_MODEL(store),
+                            &iter,
+                            field_number, &field_data,
+                            -1);
+	switch(type){
+	    default:
+	    case G_TYPE_STRING:
+		if(!strcmp((gchar*)field_data, field_value)){
+		    g_free((gchar*)field_data);
+		    memcpy(&iter, result, sizeof(GtkTreeIter));
+		    return TRUE;
+		}
+	    break;
+	    case G_TYPE_INT:
+		if(*((gint*)field_data) == atoi(field_value)){
+		    g_free((gint*)field_data);
+		    memcpy(&iter, result, sizeof(GtkTreeIter));
+		    return TRUE;
+		}
+	    break;
+	}
+        valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(store), &iter);
+    }
+    return FALSE;
+}
+/*******************************************************************************/

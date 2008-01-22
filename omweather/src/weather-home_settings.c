@@ -44,6 +44,9 @@
 #endif
 /*******************************************************************************/
 #define OMW_RESPONSE_ADD_CUSTOM_STATION 10000
+#define ZERO(type, name) type name; memset(&name, 0, sizeof name)
+#define SIG_TIMER_EXPIRATION SIGRTMIN
+#define CLOCK_TYPE CLOCK_MONOTONIC
 /*******************************************************************************/
 static GtkWidget    *countrys,
 		    *states,
@@ -62,7 +65,6 @@ static GtkWidget    *countrys,
 		    *time_2switch_list,
 		    *station_list_view,
 		    *window_add_station;
-static GtkListStore *station_list_store;
 static char flag_update_station = FALSE; /* Flag update station list */
 static gchar *_weather_station_id_temp; /* Temporary value for weather_station_id */
 /*******************************************************************************/
@@ -182,8 +184,10 @@ void fill_station_list_view(GtkWidget *station_list_view,
 	gtk_list_store_append(GTK_LIST_STORE
                         	(station_list_store), &iter);
 	gtk_list_store_set(GTK_LIST_STORE(station_list_store),
-                        	&iter, 0,
-                        	ws->name_station, -1);
+                        	&iter,
+				0, ws->name_station,
+				1, ws->number,
+				-1);
 	if((app->config->current_station_id)&&streq(app->config->current_station_id, ws->id_station))
     	    gtk_tree_selection_select_iter(list_selection, &iter);
 	tmplist = g_slist_next(tmplist);
@@ -201,11 +205,12 @@ void weather_window_edit_station(GtkWidget *widget, GdkEvent *event,
 		*station_name_edit;
 /*		*station_code_edit;*/
     
-    GSList	*tmplist = NULL; /* Temporary for station list */
-    struct weather_station *ws; /* Description Weather station */
     GtkTreeIter	iter;
     gchar	*selected_station_name = NULL,
-		*selected_station_code = NULL;
+		*station_name = NULL,
+		*station_code = NULL;
+    gint	station_number;
+    gboolean	valid;
     GtkTreeModel	*model;
     GtkTreeSelection	*selection;
 
@@ -240,31 +245,6 @@ void weather_window_edit_station(GtkWidget *widget, GdkEvent *event,
     gtk_entry_set_max_length(GTK_ENTRY(station_name_edit), 50);
     gtk_entry_set_text(GTK_ENTRY(station_name_edit), selected_station_name);
     gtk_container_add(GTK_CONTAINER(label), station_name_edit);
-    /* Added Label and Edit field for station code */
-/*    gtk_table_attach_defaults(GTK_TABLE(table),
-        			code_label = gtk_label_new(_("Code:")),
-        			0, 1, 1, 2);
-    gtk_table_attach_defaults(GTK_TABLE(table),
-        			code_label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
-        			1, 2, 1, 2);
-    station_code_edit = gtk_entry_new();
-    gtk_entry_set_max_length(GTK_ENTRY(station_code_edit), 8);
-*/
-    /* search station code */
-/*    tmplist = app->stations_view_list;
-    while(tmplist){
-	ws = tmplist->data;
-	if((ws->name_station && selected_station_name &&
-		streq(selected_station_name, ws->name_station))||
-		(!ws->name_station && !selected_station_name)){
-	    selected_station_code = g_strdup(ws->id_station);
-	    break;
-	}
-	tmplist = g_slist_next(tmplist);
-    }
-    gtk_entry_set_text(GTK_ENTRY(station_code_edit), selected_station_code);
-    gtk_container_add(GTK_CONTAINER(code_label), station_code_edit);
-*/
     /* set size for dialog */
     gtk_widget_set_size_request(GTK_WIDGET(window_edit_station), 350, -1);
     gtk_widget_show_all(window_edit_station);
@@ -272,52 +252,60 @@ void weather_window_edit_station(GtkWidget *widget, GdkEvent *event,
     /* start dialog */
     switch(gtk_dialog_run(GTK_DIALOG(window_edit_station))){
 	case GTK_RESPONSE_ACCEPT:/* Press Button Ok */
-	    tmplist = app->stations_view_list;
-	    while(tmplist){
-		ws = tmplist->data;
-		if((ws->name_station && selected_station_name &&
-				streq(selected_station_name, ws->name_station))||
-		  (!ws->name_station && !selected_station_name)){
-		    if(ws->name_station)
-			g_free(ws->name_station);
-   		    ws->name_station = g_strdup(gtk_entry_get_text(GTK_ENTRY(station_name_edit)));
-/*		    if(ws->id_station)
-			g_free(ws->id_station);
-		    ws->id_station = g_strdup(gtk_entry_get_text(GTK_ENTRY(station_code_edit)));
-*/
-		    /* Update station list */	    
-		    gtk_list_store_clear(station_list_store);
-		    fill_station_list_view(station_list_view, station_list_store);
-		    /* Update config file */
+	    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                                  &iter);
+	    while(valid){
+    		gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                        	    &iter,
+                    		    0, &station_name,
+                        	    1, &station_code,
+                        	    2, &station_number,
+                        	    -1);
+    		if(!strcmp(selected_station_name, station_name)){
+		    /* update current station name */
+		    g_free(station_name);
+		    gtk_list_store_remove(app->user_stations_list, &iter);
+		    gtk_list_store_append(app->user_stations_list, &iter);
+		    gtk_list_store_set(app->user_stations_list, &iter,
+					0, g_strdup(gtk_entry_get_text(GTK_ENTRY(station_name_edit))),
+					1, station_code,
+					2, station_number,
+					-1);
+		    if(app->config->current_station_name)
+			g_free(app->config->current_station_name);
+		    app->config->current_station_name = g_strdup(gtk_entry_get_text(GTK_ENTRY(station_name_edit)));
 		    new_config_save(app->config);
 		    flag_update_station = TRUE;
-/*		    change_station_select(NULL, ws->id_station);
-*/
-		    break;
+		    weather_frame_update(TRUE);
+        	    break;
+		}else{
+		    g_free(station_name);
+		    g_free(station_code);
 		}
- 		tmplist = g_slist_next(tmplist);  
-	    }
+		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+                                                        &iter);
+    	    }
 	break;
 	default:
 	break;
     }
     if(selected_station_name)
         g_free(selected_station_name);
-    if(selected_station_code)
-        g_free(selected_station_code);    
     gtk_widget_destroy(window_edit_station);
 }
 /*******************************************************************************/
 /* Delete station from list */
-static gboolean weather_delete_station(GtkWidget *widget,
-                    		GdkEvent *event,
-                    		gpointer user_data){
-    GSList *tmplist = NULL; /* Temporary for station list */
-    struct weather_station *ws; /* Description Weather station */
-    GtkTreeIter iter;
-    gchar *station_selected = NULL;
-    GtkTreeModel *model;
-    GtkTreeSelection *selection;
+static gboolean weather_delete_station(GtkWidget *widget, GdkEvent *event,
+                    					    gpointer user_data){
+    GtkTreeIter		iter,
+			prev_iter;
+    gchar		*station_selected = NULL,
+			*station_name = NULL,
+			*station_code = NULL;
+    GtkTreeModel	*model;
+    GtkTreeSelection	*selection;
+    gboolean		valid;
+    gint		station_number;
 
 #ifndef RELEASE    
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
@@ -328,90 +316,62 @@ static gboolean weather_delete_station(GtkWidget *widget,
 	return FALSE;
  
     gtk_tree_model_get(model, &iter, 0, &station_selected, -1); 
-    tmplist = app->stations_view_list;
-    while(tmplist){
-	ws = tmplist->data;
-	if((ws->name_station != NULL && station_selected != NULL && streq(station_selected, ws->name_station))||
-	  (ws->name_station == NULL && station_selected == NULL)){
-      /* Remove station from the Station List */
-	    app->stations_view_list = g_slist_remove(app->stations_view_list, ws);
-	    g_free(ws->id_station);
-	    g_free(ws->name_station);
-	    g_free(ws);
-	    gtk_list_store_clear(station_list_store);
-	    tmplist = app->stations_view_list;
-
-      /* If not selected station, select first */	    
-	    if (!(gtk_tree_selection_get_selected(selection, NULL, &iter)) && (tmplist != NULL )) {
-	     ws = tmplist->data;
-	     if(app->config->current_station_id)
-		g_free(app->config->current_station_id);
-   	     app->config->current_station_id = g_strdup(ws->id_station); 
-	    }
-	    
-	    fill_station_list_view (station_list_view,station_list_store);
-      /* Update station list */
-	    flag_update_station = TRUE;
-	    model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
-	    selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
-      /* Search new selected station */    
-	    if( gtk_tree_selection_get_selected(selection, NULL, &iter) ){
-		if (station_selected)
-	            g_free (station_selected);	
-		gtk_tree_model_get(model, &iter, 0, &station_selected,-1);
-		tmplist = app->stations_view_list;
-		while(tmplist){
-		    ws = tmplist->data;
-		    if(streq(station_selected, ws->name_station)){
-         /* Set New selected station on default on main display*/
-    			if(app->config->current_station_id)
-			    g_free(app->config->current_station_id);
-			app->config->current_station_id = g_strdup(ws->id_station); 
-			if(app->config->current_station_name)
-			    g_free(app->config->current_station_name);
-    			app->config->current_station_name = g_strdup(ws->name_station); 
-		    }
-		    tmplist = g_slist_next(tmplist);
-		} 
-	    }
-	    else
-		app->config->current_station_id = NULL;
-      /* Update config file */
-	    new_config_save(app->config);
-	    break; 
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                                  &iter);
+    while(valid){
+        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                            &iter,
+                            0, &station_name,
+                            1, &station_code,
+                            2, &station_number,
+                            -1);
+	if(!strcmp(station_name, station_selected)){
+	    gtk_list_store_remove(app->user_stations_list, &iter);
+	    g_free(station_name);
+    	    g_free(station_code);
+	    /* set current station */
+	    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                        	&prev_iter,
+                        	0, &station_name,
+                        	1, &station_code,
+                        	2, &station_number,
+                        	-1);
+	    /* update current station code */
+            if(app->config->current_station_id)
+                g_free(app->config->current_station_id);
+            app->config->current_station_id = station_code;
+            /* update current station name */
+            if(app->config->current_station_name)
+                g_free(app->config->current_station_name);
+            app->config->current_station_name = station_name;
+            app->config->previos_days_to_show = app->config->days_to_show;
+            weather_frame_update(TRUE);
+	    break;
 	}
-	tmplist = g_slist_next(tmplist);
+	else{
+	    g_free(station_name);
+    	    g_free(station_code);
+	}
+	prev_iter = iter;
+	valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+                                                        &iter);
     }
-    if (g_slist_length(app->stations_view_list) == 0){
-       if(app->config->current_station_name)
-          g_free(app->config->current_station_name);
-       if(app->config->current_station_id)
-          g_free(app->config->current_station_id);
-       app->config->current_station_name = NULL;
-       app->config->current_station_id = NULL;
-       weather_frame_update(FALSE);
-       /* Update config file */
-       new_config_save(app->config);
-    }
+    g_free(station_selected);
+    /* Update station list */
+    flag_update_station = TRUE;
+    /* Update config file */
+    new_config_save(app->config);
 #ifndef RELEASE
     fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);    
 #endif
-    if(station_selected)
-        g_free (station_selected);
     return TRUE;
 }
 /*******************************************************************************/
-static GtkListStore* create_station_list_store(void){
-    GtkListStore *station_list = NULL;
-    station_list = gtk_list_store_new(1, G_TYPE_STRING);
-    return station_list;
-}
-/*******************************************************************************/
-static GtkWidget* create_tree_view(GtkListStore * list){
-    GtkWidget *tree_view = NULL;
-    GtkTreeSelection *list_selection = NULL;
-    GtkCellRenderer *list_renderer = NULL;
-    GtkTreeViewColumn *list_column = NULL;
+GtkWidget* create_tree_view(GtkListStore* list){
+    GtkWidget		*tree_view = NULL;
+    GtkTreeSelection	*list_selection = NULL;
+    GtkCellRenderer	*renderer = NULL;
+    GtkTreeViewColumn	*column = NULL;
 
 /* create the tree view model LIST */
     tree_view = gtk_tree_view_new_with_model(GTK_TREE_MODEL(list));
@@ -419,30 +379,28 @@ static GtkWidget* create_tree_view(GtkListStore * list){
     list_selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
     gtk_tree_selection_set_mode(list_selection, GTK_SELECTION_SINGLE);
 /* add name column to the view */
-    list_renderer = gtk_cell_renderer_text_new();
-    list_column = gtk_tree_view_column_new();
-    gtk_tree_view_column_set_sizing(list_column, GTK_TREE_VIEW_COLUMN_FIXED);
-    g_object_set(G_OBJECT(list_renderer), "ellipsize", PANGO_ELLIPSIZE_END, NULL);
-    gtk_tree_view_column_set_expand(list_column, TRUE);
+    renderer = gtk_cell_renderer_text_new();
+    column = gtk_tree_view_column_new();
+    gtk_tree_view_column_set_sizing(column, GTK_TREE_VIEW_COLUMN_FIXED);
+    g_object_set(G_OBJECT(renderer), "ellipsize", PANGO_ELLIPSIZE_END, NULL);
+    gtk_tree_view_column_set_expand(column, TRUE);
 
-    gtk_tree_view_column_pack_start(list_column, list_renderer, TRUE);
-    gtk_tree_view_column_set_attributes(list_column, list_renderer,
+    gtk_tree_view_column_pack_start(column, renderer, TRUE);
+    gtk_tree_view_column_set_attributes(column, renderer,
                                       "text", 0, NULL);
-    gtk_tree_view_append_column(GTK_TREE_VIEW(tree_view), list_column);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(tree_view), column);
 /* return widget to caller */
     return tree_view;
 }
 /*******************************************************************************/
-#define ZERO(type, name) type name; memset(&name, 0, sizeof name)
-#define SIG_TIMER_EXPIRATION SIGRTMIN
-#define CLOCK_TYPE CLOCK_MONOTONIC
-/*******************************************************************************/
 void weather_window_add_custom_station(void){
-    struct weather_station *ws;       /* Temp struct for station */
     GtkWidget	*window_add_custom_station,
 		*label,
 		*table;
     gboolean	station_code_invalid = TRUE;
+    GtkTreeIter iter;
+    gchar       *station_name = NULL,
+                *station_code = NULL;
 
 /* Create dialog window */
     window_add_custom_station = gtk_dialog_new_with_buttons(_("Add Custom Station"),
@@ -482,20 +440,21 @@ void weather_window_add_custom_station(void){
 	    case GTK_RESPONSE_ACCEPT:/* Press Button Ok */
 		    station_code_invalid = check_station_code(gtk_entry_get_text((GtkEntry*)custom_station_code));
 		    if(!station_code_invalid){
-			ws = g_new0(struct weather_station, 1);
 			if(app->config->current_station_id != NULL)
 			    g_free(app->config->current_station_id);
 			app->config->current_station_id = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_code));
-			ws->id_station = g_strdup(app->config->current_station_id);
+			station_code = g_strdup(app->config->current_station_id);
 			if(app->config->current_station_name)
 			    g_free(app->config->current_station_name);
 			app->config->current_station_name = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_name));
-			ws->name_station = g_strdup(app->config->current_station_name);
+			station_name = g_strdup(app->config->current_station_name);
 		    /* Add station to stations list */
-			app->stations_view_list = g_slist_append(app->stations_view_list, ws); 
-		    /* Add station to View List(Tree) */
-			gtk_list_store_clear(station_list_store);
-			fill_station_list_view(station_list_view,station_list_store);
+        		gtk_list_store_append(app->user_stations_list, &iter);
+        		gtk_list_store_set(app->user_stations_list, &iter,
+                            		    0, station_name,
+                            		    1, station_code,
+                            		    2, 0,
+                            		    -1);
 		    /* Update config file */
 			new_config_save(app->config);
 			flag_update_station = TRUE;
@@ -509,13 +468,13 @@ void weather_window_add_custom_station(void){
     gtk_widget_destroy(window_add_custom_station);
 }
 /*******************************************************************************/
-void weather_window_add_station(GtkWidget *widget,
-            			GdkEvent *event,
-                    		gpointer user_data){
-    struct		weather_station *ws;   	/* Temp struct for station */
-    GtkWidget		*label,
-			*table;
-
+void weather_window_add_station(GtkWidget *widget, GdkEvent *event,
+                    					    gpointer user_data){
+    GtkWidget	*label,
+		*table;
+    GtkTreeIter iter;
+    gchar	*station_name = NULL,
+		*station_code = NULL;
 /* Create dialog window */
     window_add_station = gtk_dialog_new_with_buttons(_("Add Station"),
         						NULL,
@@ -580,22 +539,23 @@ void weather_window_add_station(GtkWidget *widget,
 	    if (gtk_combo_box_get_active(GTK_COMBO_BOX(stations)) == -1) /* Item not selected */
 		break;
 	    flag_update_station = TRUE;
-	    ws = g_new0(struct weather_station,1);
 	    if(app->config->current_station_id != NULL)
 	        g_free(app->config->current_station_id);
 	    app->config->current_station_id = g_strdup(_weather_station_id_temp);
-	    ws->id_station = g_strdup(_weather_station_id_temp);
+	    station_code = g_strdup(_weather_station_id_temp);
 	    if(app->config->current_station_name)
 		g_free(app->config->current_station_name);
 	    app->config->current_station_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations));
-	    ws->name_station = g_strdup(app->config->current_station_name);
+	    station_name = g_strdup(app->config->current_station_name);
 /* Add station to stations list */
-	    app->stations_view_list = g_slist_append(app->stations_view_list, ws); 
+            gtk_list_store_append(app->user_stations_list, &iter);
+            gtk_list_store_set(app->user_stations_list, &iter,
+                                0, station_name,
+                                1, station_code,
+                                2, 0,
+                                -1);
 /* Update config file */
 	    new_config_save(app->config);
-/* Add station to View List(Tree) */
-	    gtk_list_store_clear(station_list_store);
-	    fill_station_list_view (station_list_view,station_list_store);
 	    break;
     }
     gtk_widget_destroy(window_add_station); 
@@ -621,7 +581,12 @@ void weather_window_settings(GtkWidget *widget,
 		*scrolled_window = NULL,
 		*button_add = NULL,
 		*button_del = NULL,
-		*button_ren = NULL;		
+		*button_ren = NULL,
+		*up_icon = NULL,
+		*down_icon = NULL,
+		*up_station_button = NULL,
+		*down_station_button = NULL;
+    GtkIconInfo *gtkicon_arrow;
     char	flag_update_icon = '\0'; /* Flag update main weather icon of desktop */
 #ifndef RELEASE
     char	tmp_buff[1024];
@@ -658,49 +623,82 @@ void weather_window_settings(GtkWidget *widget,
         		notebook = gtk_notebook_new(), TRUE, TRUE, 0);
 /* Locations tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        	    table = gtk_table_new(4, 2, FALSE),
+        	    table = gtk_table_new(7, 4, FALSE),
         	    label = gtk_label_new(_("Locations")));
 	    
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         	    label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
         	    0, 1, 0, 6);
+
   
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);
-    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window), GTK_SHADOW_OUT);
+    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
+					GTK_SHADOW_OUT);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                  GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
     gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 450, 280);
 
-    station_list_store = create_station_list_store();
-    station_list_view = create_tree_view(station_list_store);
+    station_list_view = create_tree_view(app->user_stations_list);
     gtk_container_add(GTK_CONTAINER(scrolled_window),
                 	GTK_WIDGET(station_list_view));
-    fill_station_list_view(station_list_view,station_list_store);
     gtk_container_add(GTK_CONTAINER(label), scrolled_window);
+/* Up Station and Down Station Buttons */
+/* prepare icon */
+    gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
+        	                        	"qgn_toolb_messagin_previous", 16, 0);
+    up_icon = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
+    gtk_icon_info_free(gtkicon_arrow);
+/* prepare up_station_button */    
+    up_station_button = gtk_button_new();
+    gtk_button_set_focus_on_click(GTK_BUTTON(up_station_button), FALSE);
+    gtk_container_add(GTK_CONTAINER(up_station_button), up_icon);
+    gtk_widget_set_events(up_station_button, GDK_BUTTON_PRESS_MASK);
+    g_signal_connect(up_station_button, "clicked",
+			G_CALLBACK(up_key_handler), (gpointer)station_list_view);
+    gtk_table_attach_defaults(GTK_TABLE(table), up_station_button,
+        			1, 2, 2, 3);
+/* prepare icon */
+    gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
+        	                        	"qgn_toolb_messagin_next", 16, 0);
+    down_icon = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
+    gtk_icon_info_free(gtkicon_arrow);
+/* prepare down_station_button */    
+    down_station_button = gtk_button_new();
+    gtk_button_set_focus_on_click(GTK_BUTTON(down_station_button), FALSE);
+    gtk_container_add(GTK_CONTAINER(down_station_button), down_icon);
+    gtk_widget_set_events(down_station_button, GDK_BUTTON_PRESS_MASK);
+    g_signal_connect(down_station_button, "clicked",
+		    	G_CALLBACK(down_key_handler), (gpointer)station_list_view);
+    gtk_table_attach_defaults(GTK_TABLE(table), down_station_button,
+        			1, 2, 4, 5);
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        	    label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
+        	    2, 3, 0, 6);
+/* buttons Add, Delete, Rename */
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
-        			1, 2, 0, 1);
+        			3, 4, 0, 1);
     button_add = gtk_button_new_with_label(_(" Add "));
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			button_add,
-        			1, 2, 1, 2);
+        			3, 4, 1, 2);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
-        			1, 2, 2, 3);
+        			3, 4, 2, 3);
     button_ren = gtk_button_new_with_label(_("Rename"));
     gtk_table_attach_defaults(GTK_TABLE(table),
         			button_ren,
-        			1, 2, 3, 4);				
+        			3, 4, 3, 4);				
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
-        			1, 2, 4, 5);				
+        			3, 4, 4, 5);				
     button_del = gtk_button_new_with_label(_("Delete"));
     gtk_table_attach_defaults(GTK_TABLE(table),
         			button_del,
-        			1, 2, 5, 6);
+        			3, 4, 5, 6);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(" "),
-        			1, 2, 6, 7);
+        			3, 4, 6, 7);
     g_signal_connect(station_list_view, "cursor-changed",
                 	G_CALLBACK(station_list_view_select_handler), NULL);
     g_signal_connect(button_ren, "clicked",
@@ -708,8 +706,8 @@ void weather_window_settings(GtkWidget *widget,
     g_signal_connect(button_del, "clicked",
                 	G_CALLBACK(weather_delete_station), NULL);
     g_signal_connect(button_add, "clicked",
-                	G_CALLBACK(weather_window_add_station),
-                	NULL);
+                	G_CALLBACK(weather_window_add_station), NULL);
+
 /* Interface tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			table = gtk_table_new(1, 7, FALSE),
@@ -1255,7 +1253,7 @@ void create_help_dialog(void){
 	    "for Nokia 770/N800/N810\n"
 	    "to show weather forecasts.\n"
 	    "Version "), VERSION, 
-	    _("\nCopyright(c) 2006-2007\n"
+	    _("\nCopyright(c) 2006-2008\n"
 	    "Vlad Vasiliev, Pavel Fialko"));
 	    
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
@@ -1347,10 +1345,12 @@ GtkWidget* create_scrolled_window_with_text(const char* text,
 /*******************************************************************************/
 void station_list_view_select_handler(GtkTreeView *tree_view,
                                         gpointer user_data){
-    struct weather_station *ws;
-    GSList		*tmplist = NULL;
     GtkTreeIter		iter;
-    gchar		*station_selected = NULL;
+    gchar		*station_selected = NULL,
+			*station_name = NULL,
+			*station_code = NULL;
+    gint		station_number;
+    gboolean		valid;
     GtkTreeSelection	*selected_line;
     GtkTreeModel	*model;
 
@@ -1361,21 +1361,32 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
         return;
     gtk_tree_model_get(model, &iter, 0, &station_selected, -1);
 
-    tmplist = app->stations_view_list;
-    while(tmplist){
-        ws = tmplist->data;
-        if( ws->name_station &&
-		station_selected && 
-		!strcmp(ws->name_station, station_selected) ){
-	    if(app->config->current_station_name)
-		g_free(app->config->current_station_name);
-	    app->config->current_station_name = g_strdup(ws->name_station);
-	    if(app->config->current_station_id)
-		g_free(app->config->current_station_id);
-	    app->config->current_station_id = g_strdup(ws->id_station);
-	    break;
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                                  &iter);
+    while(valid){
+        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                            &iter,
+                            0, &station_name,
+                            1, &station_code,
+                            2, &station_number,
+                            -1);
+        if(!strcmp(station_selected, station_name)){
+        /* update current station code */
+            if(app->config->current_station_id)
+                g_free(app->config->current_station_id);
+            app->config->current_station_id = station_code;
+            /* update current station name */
+            if(app->config->current_station_name)
+                g_free(app->config->current_station_name);
+            app->config->current_station_name = station_name;
+            break;
+        }
+	else{
+	    g_free(station_name);
+	    g_free(station_code);
 	}
-	tmplist = g_slist_next(tmplist);
+	valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+                                    	    &iter);
     }
     g_free(station_selected);
     weather_frame_update(TRUE);
@@ -1475,5 +1486,28 @@ gboolean check_station_code(const gchar *station_code){
     if(strlen((char*)station_code) < 5)
 	return TRUE;
     return FALSE;
+}
+/*******************************************************************************/
+void up_key_handler(GtkButton *button, gpointer list){
+    GtkTreeView		*stations = (GtkTreeView*)list;
+    GtkTreeIter		iter;
+    gchar		*station_selected = NULL;
+    GtkTreeSelection	*selected_line;
+    GtkTreeModel	*model;
+    gint		number;
+
+    selected_line = gtk_tree_view_get_selection(GTK_TREE_VIEW(stations));
+    model = gtk_tree_view_get_model(GTK_TREE_VIEW(stations));
+    if( !gtk_tree_selection_get_selected(selected_line, NULL, &iter) )
+        return;
+    gtk_tree_model_get(model, &iter, 0, &station_selected, 1, &number, -1);
+    
+    fprintf(stderr, "\nStation - %s\nNumber - %d\n", station_selected, number);
+    
+    g_free(station_selected);
+}
+/*******************************************************************************/
+void down_key_handler(GtkButton *button, gpointer list){
+
 }
 /*******************************************************************************/

@@ -68,8 +68,6 @@
 #include <locale.h>
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
 #define Max_count_weather_day		10
-#define MAX_SETTINGS_PAGE_NUMBER	3
-#define CLICK_TIMEOUT                   500
 #define COUNTRYSFILE		"/usr/share/omweather/countries.list"
 #define REGIONSFILE		"/usr/share/omweather/regions.list"
 #define LOCATIONSFILE		"/usr/share/omweather/locations.list"
@@ -150,6 +148,7 @@ struct time_update{
 struct weather_station{
     gchar	*id_station;
     gchar	*name_station;
+    gint	number;
 };
 /*******************************************************************************/
 typedef struct applet_config{
@@ -205,6 +204,7 @@ typedef struct OMWeatherApplet{
     GtkListStore	*countrys_list;
     GtkListStore	*regions_list;
     GtkListStore	*stations_list;
+    GtkListStore	*user_stations_list;
     GtkListStore	*time_update_list;
     GtkWidget 		*contextmenu;
     GSList		*stations_view_list; 
@@ -231,9 +231,6 @@ typedef struct OMWeatherApplet{
     int			aw;
     int			ah;
 }OMWeatherApp;
-FILE *filed;
-
-
 /*******************************************************************************/
 void free_list_time_event(void);
 void time_event_add(time_t time_value, short int type_event);

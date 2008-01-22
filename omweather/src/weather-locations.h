@@ -49,5 +49,7 @@ GtkListStore* create_items_list(const char *filename, long start, long end,
 				long *items_number);
 int parse_item_string(const char *string, Item *result);
 int parse_station_string(const char *string, Station *result);
+gboolean find_iterator(GtkListStore *store, gint field_number, GType type,
+					gchar *field_value, GtkTreeIter *result);
 /*******************************************************************************/
 #endif

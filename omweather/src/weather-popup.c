@@ -294,7 +294,7 @@ GtkWidget* create_header_widget(GSList *day){
 	sprintf(buffer,"%s %s", item_value(day, "24h_name"), item_value(day, "24h_date"));
         strptime(buffer, "%A %b %d", &tmp_time_date_struct);
 	memset(buffer, 0, sizeof(buffer));
-	strftime(buffer, sizeof(buffer) - 1, "%d %B, %A", &tmp_time_date_struct);
+	strftime(buffer, sizeof(buffer) - 1, "%A, %d %B", &tmp_time_date_struct);
 	date_label = gtk_label_new(buffer);
 	set_font_size(date_label, 16); 
 	set_font_color(date_label, 0x0000, 0x0000, 0x0000);

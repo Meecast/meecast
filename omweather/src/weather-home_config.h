@@ -66,6 +66,8 @@
 #define GCONF_KEY_CLOCK_HOME_LOCATION		GCONF_KEY_CLOCK_PREFIX"/home-location"
 #define GCONF_KEY_DOWNLOADING_AFTER_CONNECTING  GCONF_KEY_PREFIX"/downloading-after-connecting"
 /*******************************************************************************/
+#define MAX_SETTINGS_PAGE_NUMBER	3
+/*******************************************************************************/
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
@@ -76,6 +78,9 @@ GtkListStore* create_time_update_list(void);
 void fill_station_from_clock_plugin_data(void);
 void reinitilize_stations_list2(GSList *stlist);
 GSList* prepare_idlist(void);
+void fill_user_stations_list_from_clock(GtkListStore** list);
+void fill_user_stations_list(GSList *source_list, GtkListStore** list);
+GSList* create_stations_string_list(void);
 /*******************************************************************************/
 extern void remove_periodic_event(void);
 extern void add_periodic_event(time_t last_update);

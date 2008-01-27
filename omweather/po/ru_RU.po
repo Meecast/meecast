@@ -329,7 +329,7 @@ msgstr "Цвет фона:"
 
 #: src/weather-home_hash.c:31
 msgid "Blowing Snow"
-sgstr "Снежная буря"
+msgstr "Снежная буря"
 
 #: src/weather-home.c:810 src/weather-home.c:832 src/weather-popup.c:421
 #: src/weather-popup.c:436

@@ -36,13 +36,18 @@ static ConIcConnection *connection = NULL;
 #endif
 /*******************************************************************************/
 static GString *url = NULL;
-static GString *full_filename_new_xml = NULL;
-static GSList *tmplist = NULL;
-static struct HtmlFile html_file;
 static gboolean second_attempt = FALSE;
 static CURL *curl_handle = NULL;
 static CURL *curl_multi = NULL;
+static struct HtmlFile html_file;
 static GtkWidget *update_window = NULL;
+static GString *full_filename_new_xml = NULL;
+static gboolean	valid;
+static GtkTreeIter	iter;
+static     gchar	*station_name = NULL,
+ 			*station_code = NULL;
+static     gint	station_number;
+
 /*******************************************************************************/
 /* Create standard Hildon animation small window */
 static void create_window_update(void){
@@ -286,37 +291,28 @@ static int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
    Returns TRUE if the station is taken from the list
    Else return FLASE. This the end list
 */
-static gboolean form_url_and_filename(){
-    struct weather_station *ws;
+static gboolean form_url_and_filename(gchar *station_code){
 
-    if(tmplist != NULL){
-        ws = tmplist->data;
-        if(ws->id_station != NULL){
-	    if(url){
-		g_string_free(url, TRUE);    
-		url = NULL;
-	    } 
-	    if(full_filename_new_xml){
-	        g_string_free(full_filename_new_xml, TRUE);    
-		full_filename_new_xml = NULL;
-	    } 
-	    url = g_string_new(NULL);        
-    	    g_string_append_printf(url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=%d",
-				    ws->id_station, Max_count_weather_day);
-	    full_filename_new_xml = g_string_new(NULL);        
-	    g_string_append_printf(full_filename_new_xml,"%s/%s.xml.new",
-				    app->config->cache_dir_name, ws->id_station);
-	    tmplist = g_slist_next(tmplist);
-	    /* Forming structure for download data of weather */
-	    html_file.filename = full_filename_new_xml->str;
-    	    html_file.stream = NULL;
-	    return TRUE;
-	}
-	else
-	    return FALSE;	
-    }
-    else
+    if(station_code == NULL)
 	return FALSE;
+    if(url){
+	    g_string_free(url, TRUE);    
+	    url = NULL;
+    } 
+    if(full_filename_new_xml){
+        g_string_free(full_filename_new_xml, TRUE);    
+        full_filename_new_xml = NULL;
+    } 
+    url = g_string_new(NULL);        
+    g_string_append_printf(url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=%d",
+				    station_code, Max_count_weather_day);
+    full_filename_new_xml = g_string_new(NULL);        
+    g_string_append_printf(full_filename_new_xml,"%s/%s.xml.new",
+				    app->config->cache_dir_name,station_code);
+    /* Forming structure for download data of weather */
+    html_file.filename = full_filename_new_xml->str;
+    html_file.stream = NULL;
+    return TRUE;
 }
 /*******************************************************************************/
 /* Download html/xml file. Call every 100 ms after begin download */
@@ -326,9 +322,10 @@ gboolean download_html(gpointer data){
     fd_set	rs, ws, es;
     int		max;
     gint	num_transfers = 0,
-		num_msgs = 0;
-
+		num_msgs = 0;		
+#ifndef RELEASE
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
+#endif    
     if(app->popup_window && app->show_update_window){
         popup_window_destroy();
     }
@@ -391,8 +388,17 @@ gboolean download_html(gpointer data){
 	if(app->show_update_window)
     	    create_window_update(); /* Window with update information */
         /* Initialize list */
-        tmplist = app->stations_view_list;
-	if(!form_url_and_filename()){
+	valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+					    &iter);
+	if (valid)
+	    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+				&iter, 
+                    		0, &station_name,
+                    		1, &station_code,
+				2, &station_number,
+                		-1);
+				    
+	if(!valid || !form_url_and_filename(station_code)){
 	    if(url){
 		g_string_free(url, TRUE);    
 		url = NULL;
@@ -403,7 +409,16 @@ gboolean download_html(gpointer data){
 	    }
 	    app->flag_updating = 0;	 
 	    return FALSE; /* The strange error */		
-	}    
+	} 
+	valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+					    &iter);
+	if (valid)				    
+	    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+				&iter, 
+                    		0, &station_name,
+                    		1, &station_code,
+				2, &station_number,
+                		-1);			
 	/* Init easy_curl */
 	curl_handle = weather_curl_init(curl_handle);
 	curl_easy_setopt(curl_handle, CURLOPT_URL, url->str);
@@ -448,8 +463,8 @@ gboolean download_html(gpointer data){
 
 		    if(html_file.stream)
         		fclose(html_file.stream);
-		    				
-		    if(!form_url_and_filename()){ /* Success - all is downloaded */
+		    
+		    if(!valid || !form_url_and_filename(station_code) ){ /* Success - all is downloaded */
 			if(app->show_update_window)
 			    hildon_banner_show_information(app->main_window,
 							    NULL,
@@ -457,6 +472,15 @@ gboolean download_html(gpointer data){
         		weather_frame_update(FALSE);	
 		    }
 		    else{
+			valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+					    &iter);
+			if (valid)		    
+			    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+				&iter, 
+                    		0, &station_name,
+                    		1, &station_code,
+				2, &station_number,
+                		-1);
 			/* set options for the curl easy handle */
 			curl_handle = weather_curl_init(curl_handle);
 			curl_easy_setopt(curl_handle, CURLOPT_URL, url->str);

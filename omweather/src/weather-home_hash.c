@@ -24,7 +24,8 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "AM Rain", _("AM Rain"));
     g_hash_table_insert(hash, "AM Rain / Snow", _("AM Rain / Snow"));
     g_hash_table_insert(hash, "AM Rain / Snow Showers", _("AM Rain / Snow Showers"));
-    g_hash_table_insert(hash, "AM Rain / Snow Showers / Wind", _("AM Rain / Snow Showers / Wind"));    
+    g_hash_table_insert(hash, "AM Rain / Wind", _("AM Rain / Wind"));    
+    g_hash_table_insert(hash, "AM Rain / Snow Showers / Wind", _("AM Rain / Snow Showers / Wind"));        
     g_hash_table_insert(hash, "AM Showers", _("AM Showers"));
     g_hash_table_insert(hash, "AM Snow", _("AM Snow"));
     g_hash_table_insert(hash, "AM Snow Showers", _("AM Snow Showers"));
@@ -104,11 +105,12 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "PM Showers", _("PM Showers"));
     g_hash_table_insert(hash, "PM Showers / Wind", _("PM Showers / Wind"));
     g_hash_table_insert(hash, "PM Snow Showers", _("PM Snow Showers"));
+    g_hash_table_insert(hash, "Rain", _("Rain"));    
     g_hash_table_insert(hash, "Rain and Snow", _("Rain and Snow"));
     g_hash_table_insert(hash, "Rain Early", _("Rain Early"));
-    g_hash_table_insert(hash, "Rain", _("Rain"));
     g_hash_table_insert(hash, "Rain Shower and Windy", _("Rain Shower and Windy"));
     g_hash_table_insert(hash, "Rain Shower", _("Rain Shower"));
+    g_hash_table_insert(hash, "Rain / Freezing Rain", _("Rain / Freezing Rain"));
     g_hash_table_insert(hash, "Rain / Snow", _("Rain / Snow"));
     g_hash_table_insert(hash, "Rain / Snow Early", _("Rain / Snow Early"));
     g_hash_table_insert(hash, "Rain / Snow Late", _("Rain / Snow Late"));

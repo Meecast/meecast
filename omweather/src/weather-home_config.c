@@ -127,6 +127,7 @@ void fill_user_stations_list_from_clock(GtkListStore** list){
 		*station_name = NULL,
 		*station_code = NULL,
 		buffer[1024];
+    gint	station_number = 0;
     GtkTreeIter	iter;
         
     GConfClient *gconf_client = gconf_client_get_default();
@@ -160,7 +161,7 @@ void fill_user_stations_list_from_clock(GtkListStore** list){
                 gtk_list_store_set(*list, &iter,
                                     0, station_name,
                                     1, station_code,
-                                    2, 0,
+                                    2, station_number++,
                                     -1);
 		/* A current station */
 /*		if(!strncmp(out_buffer, home_city, tmp - out_buffer)){
@@ -240,7 +241,7 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 	    if(temp2 != NULL)
 		station_number = atoi(temp2); 
 	    else
-		station_number = 0;
+		station_number++ ;
 	    /* Add station to stations list */
             gtk_list_store_append(*list, &iter);
             gtk_list_store_set(*list, &iter,
@@ -581,7 +582,7 @@ int new_read_config(AppletConfig *config){
                 		    GCONF_KEY_WEATHER_PROGRAM_VERSION, NULL);
     if(!tmp){
 	if(!app->config->current_station_id){
-	    fill_station_from_clock_plugin_data();
+/*	    fill_station_from_clock_plugin_data();*/
 	    fill_user_stations_list_from_clock(&app->user_stations_list);
 	    if(app->iap_connected){
 		app->show_update_window = TRUE;

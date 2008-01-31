@@ -123,6 +123,8 @@ msgid ""
 "\n"
 "V: "
 msgstr ""
+"\n"
+"V: "
 
 #: src/weather-popup.c:447
 msgid ""
@@ -133,13 +135,12 @@ msgstr ""
 "Visibile: "
 
 #: src/weather-home.c:868
-#, fuzzy
 msgid ""
 "\n"
 "W: "
 msgstr ""
 "\n"
-"Vento: "
+"V: "
 
 #: src/weather-popup.c:472
 msgid ""
@@ -154,9 +155,8 @@ msgid " Add "
 msgstr " Aggiungi "
 
 #: src/weather-home.c:876
-#, fuzzy
 msgid " G: "
-msgstr " Raffica: "
+msgstr " Raf.: "
 
 #: src/weather-popup.c:480
 msgid " Gust: "

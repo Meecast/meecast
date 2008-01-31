@@ -132,13 +132,12 @@ msgstr ""
 "Видимость: "
 
 #: src/weather-home.c:868
-#, fuzzy
 msgid ""
 "\n"
 "W: "
 msgstr ""
 "\n"
-"Ветер: "
+"В: "
 
 #: src/weather-popup.c:472
 msgid ""
@@ -153,9 +152,8 @@ msgid " Add "
 msgstr " Добавить "
 
 #: src/weather-home.c:876
-#, fuzzy
 msgid " G: "
-msgstr " Порывы: "
+msgstr " Пор.: "
 
 #: src/weather-popup.c:480
 msgid " Gust: "

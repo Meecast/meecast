@@ -390,14 +390,18 @@ gboolean download_html(gpointer data){
         /* Initialize list */
 	valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
 					    &iter);
-	if (valid)
+	if (valid){
+	    if (station_name)
+		g_free(station_name);
+	    if (station_code)
+		g_free(station_code);
 	    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
 				&iter, 
                     		0, &station_name,
                     		1, &station_code,
 				2, &station_number,
                 		-1);
-				    
+	}			    
 	if(!valid || !form_url_and_filename(station_code)){
 	    if(url){
 		g_string_free(url, TRUE);    
@@ -412,13 +416,18 @@ gboolean download_html(gpointer data){
 	} 
 	valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
 					    &iter);
-	if (valid)				    
+	if (valid){
+	    if (station_name)
+		g_free(station_name);
+	    if (station_code)
+		g_free(station_code);
 	    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
 				&iter, 
                     		0, &station_name,
                     		1, &station_code,
 				2, &station_number,
                 		-1);			
+	}
 	/* Init easy_curl */
 	curl_handle = weather_curl_init(curl_handle);
 	curl_easy_setopt(curl_handle, CURLOPT_URL, url->str);
@@ -474,13 +483,18 @@ gboolean download_html(gpointer data){
 		    else{
 			valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
 					    &iter);
-			if (valid)		    
+			if (valid){
+			    if (station_name)
+				g_free(station_name);
+			    if (station_code)
+				g_free(station_code);			
 			    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
 				&iter, 
                     		0, &station_name,
                     		1, &station_code,
 				2, &station_number,
                 		-1);
+			}	
 			/* set options for the curl easy handle */
 			curl_handle = weather_curl_init(curl_handle);
 			curl_easy_setopt(curl_handle, CURLOPT_URL, url->str);

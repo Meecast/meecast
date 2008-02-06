@@ -48,6 +48,7 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Few Showers / Wind", _("Few Showers / Wind"));
     g_hash_table_insert(hash, "Few Snow", _("Few Snow"));
     g_hash_table_insert(hash, "Few Snow Showers", _("Few Snow Showers"));
+    g_hash_table_insert(hash, "Few Snow Showers / Wind", _("Few Snow Showers / Wind"));    
     g_hash_table_insert(hash, "First Quarter", _("First Quarter"));
     g_hash_table_insert(hash, "Fog", _("Fog"));
     g_hash_table_insert(hash, "Foggy", _("Foggy"));    
@@ -154,6 +155,7 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "Sunny", _("Sunny"));
     g_hash_table_insert(hash, "Sunny / Wind", _("Sunny / Wind"));
     g_hash_table_insert(hash, "SW", _("SW"));
+    g_hash_table_insert(hash, "T-Showers", _("T-Showers"));    
     g_hash_table_insert(hash, "T-Storms", _("T-Storms"));
     g_hash_table_insert(hash, "T-Storms Early", _("T-Storms Early"));    
     g_hash_table_insert(hash, "Thunder", _("Thunder"));    

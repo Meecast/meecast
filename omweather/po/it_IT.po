@@ -164,7 +164,7 @@ msgstr " Raffica: "
 
 #: src/weather-home.c:835
 msgid " H: "
-msgstr ""
+msgstr " U: "
 
 #: src/weather-popup.c:439
 msgid " Humidity: "
@@ -468,8 +468,7 @@ msgstr "Impossibile inizializzare GConf. Smettere.\n"
 #: src/weather-home_config.c:485
 #, c-format
 msgid "Failed to initialize GConf. Settings were not saved.\n"
-msgstr ""
-"Impossibile inizializzare GConf. Impostazioni non sono state salvate.\n"
+msgstr "Impossibile inizializzare GConf. Impostazioni non sono state salvate.\n"
 
 #: src/weather-home_hash.c:44
 msgid "Fair"

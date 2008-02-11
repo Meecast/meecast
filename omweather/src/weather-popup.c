@@ -263,7 +263,7 @@ GtkWidget* create_header_widget(GSList *day){
 
 /* Show full or short name station */
     location_label = gtk_label_new(app->config->current_station_name);
-    set_font_color(location_label, 0x0000, 0x0000, 0x0000);
+/*    set_font_color(location_label, 0x0000, 0x0000, 0x0000);*/
 /* prepare icon */
     gtkicon_update = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
         	                        	"qgn_toolb_gene_refresh", 26, 0);
@@ -297,7 +297,7 @@ GtkWidget* create_header_widget(GSList *day){
 	strftime(buffer, sizeof(buffer) - 1, "%A, %d %B", &tmp_time_date_struct);
 	date_label = gtk_label_new(buffer);
 	set_font_size(date_label, 16); 
-	set_font_color(date_label, 0x0000, 0x0000, 0x0000);
+/*	set_font_color(date_label, 0x0000, 0x0000, 0x0000);*/
 	gtk_box_pack_start(GTK_BOX(date_hbox), date_label, FALSE, FALSE, 5);
     }
 /* prepare main vbox */
@@ -370,7 +370,7 @@ GtkWidget* create_temperature_range_widget(GSList *day){
     /* prepare temperature hbox */
     temperature_value_label = gtk_label_new(buffer);
     set_font_size(temperature_value_label, 16);
-    set_font_color(temperature_value_label, 0x0000, 0x0000, 0x0000);
+/*    set_font_color(temperature_value_label, 0x0000, 0x0000, 0x0000);*/
     main_widget = gtk_hbox_new(FALSE, 10);
     temperature_title_label = gtk_label_new(_("Temperature: "));
     set_font_size(temperature_title_label, 14);
@@ -418,7 +418,7 @@ GtkWidget* create_current_weather_widget(GSList *current){
 						: ( strcat(buffer, _("F")) );
     temperature_label = gtk_label_new(buffer);
     set_font_size(temperature_label, 2*14);
-    set_font_color(temperature_label, 0x0000, 0x0000, 0x0000);
+/*    set_font_color(temperature_label, 0x0000, 0x0000, 0x0000);*/
     gtk_box_pack_start(GTK_BOX(temperature_vbox), temperature_label, FALSE, FALSE, 0);
     
 /* prepare "feels like", "visible", "pressure", "humidity", "wind", "gust" */
@@ -482,7 +482,7 @@ GtkWidget* create_current_weather_widget(GSList *current){
     main_data_vbox = gtk_vbox_new(FALSE, 0);	
     main_data_label = gtk_label_new(buffer);
     set_font_size(main_data_label, 14);
-    set_font_color(main_data_label, 0x0000, 0x0000, 0x0000);
+/*    set_font_color(main_data_label, 0x0000, 0x0000, 0x0000);*/
     gtk_box_pack_start(GTK_BOX(main_data_vbox), main_data_label,
 			    FALSE, FALSE, 0);
 			    
@@ -552,7 +552,7 @@ GtkWidget* create_24_hours_widget(GSList *day){
 /* prepare night label */
     night_label = gtk_label_new(_("Night:"));
     set_font_size(night_label, 14);
-    set_font_color(night_label, 0x0000, 0x0000, 0x0000);            
+/*    set_font_color(night_label, 0x0000, 0x0000, 0x0000);*/
 /* preapare night data */
     memset(buffer, 0, sizeof(buffer));
     strcat(buffer, item_value(day, "night_title"));
@@ -569,7 +569,7 @@ GtkWidget* create_24_hours_widget(GSList *day){
 			(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
     night_data_label = gtk_label_new(buffer);
     set_font_size(night_data_label, 14);
-    set_font_color(night_data_label, 0x0000, 0x0000, 0x0000);
+/*    set_font_color(night_data_label, 0x0000, 0x0000, 0x0000);*/
 /* prepare icon and label vbox */
     night_icon_label_vbox = gtk_vbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(night_icon_label_vbox), night_label, FALSE, FALSE, 0);
@@ -587,7 +587,7 @@ GtkWidget* create_24_hours_widget(GSList *day){
 /* prepare day label */
     day_label = gtk_label_new(_("Day:"));
     set_font_size(day_label, 14);
-    set_font_color(day_label, 0x0000, 0x0000, 0x0000); 
+/*    set_font_color(day_label, 0x0000, 0x0000, 0x0000);*/
 /* preapare day data */
     memset(buffer, 0, sizeof(buffer));
     strcat(buffer, item_value(day, "day_title"));
@@ -604,7 +604,7 @@ GtkWidget* create_24_hours_widget(GSList *day){
 			(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
     day_data_label = gtk_label_new(buffer);
     set_font_size(day_data_label, 14);
-    set_font_color(day_data_label, 0x0000, 0x0000, 0x0000);
+/*    set_font_color(day_data_label, 0x0000, 0x0000, 0x0000);*/
 /* prepare icon and label vbox */
     day_icon_label_vbox = gtk_vbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(day_icon_label_vbox), day_label, FALSE, FALSE, 0);
@@ -746,7 +746,7 @@ GtkWidget* create_sun_time_widget(GSList *day){
 
     main_label = gtk_label_new(buffer);
     set_font_size(main_label, 14);
-    set_font_color(main_label, 0x0000, 0x0000, 0x0000);
+/*    set_font_color(main_label, 0x0000, 0x0000, 0x0000);*/
     main_widget = gtk_hbox_new(FALSE, 10);
     
     /* Packing all to the box */
@@ -777,7 +777,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
 			(char*)item_value(current, "moon_phase"));
     main_label = gtk_label_new(buffer);
     set_font_size(main_label, 14);
-    set_font_color(main_label, 0x0000, 0x0000, 0x0000);
+/*    set_font_color(main_label, 0x0000, 0x0000, 0x0000);*/
 
     main_widget = gtk_hbox_new(FALSE, 10);
 
@@ -840,7 +840,7 @@ GtkWidget* create_time_updates_widget(GSList *current){
     }
     label_update = gtk_label_new(buffer);    
     set_font_size(label_update, 14);
-    set_font_color(label_update, 0x0000, 0x0000, 0x0000);
+/*    set_font_color(label_update, 0x0000, 0x0000, 0x0000);*/
     main_widget = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_start(GTK_BOX(main_widget), label_update, FALSE, FALSE, 0);
 

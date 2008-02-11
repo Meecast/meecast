@@ -515,6 +515,9 @@ void weather_window_add_station(GtkWidget *widget, GdkEvent *event,
     gtk_widget_show_all(window_add_station);
     gtk_combo_box_set_row_span_column((GtkComboBox*)countrys, 0);
     gtk_combo_box_set_model((GtkComboBox*)countrys, (GtkTreeModel*)app->countrys_list);
+    gtk_widget_set_size_request(GTK_WIDGET(countrys), 350, -1);
+    gtk_widget_set_size_request(GTK_WIDGET(states), 350, -1);
+    gtk_widget_set_size_request(GTK_WIDGET(stations), 350, -1);
 /* Set default value to country combo_box */
     gtk_combo_box_set_active(GTK_COMBO_BOX(countrys),
 				get_active_item_index((GtkTreeModel*)app->countrys_list,
@@ -1491,23 +1494,56 @@ gboolean check_station_code(const gchar *station_code){
 void up_key_handler(GtkButton *button, gpointer list){
     GtkTreeView		*stations = (GtkTreeView*)list;
     GtkTreeIter		iter;
-    gchar		*station_selected = NULL;
+    gchar		*station_name = NULL,
+			*station_code = NULL;
     GtkTreeSelection	*selected_line;
     GtkTreeModel	*model;
-    gint		number;
+    gint		station_number;
 
     selected_line = gtk_tree_view_get_selection(GTK_TREE_VIEW(stations));
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(stations));
     if( !gtk_tree_selection_get_selected(selected_line, NULL, &iter) )
         return;
-    gtk_tree_model_get(model, &iter, 0, &station_selected, 1, &number, -1);
+    gtk_tree_model_get(model, &iter, 0, &station_name, 1, &station_code, 2, &station_number, -1);
     
-    fprintf(stderr, "\nStation - %s\nNumber - %d\n", station_selected, number);
+    if(station_number > 1){
+	gtk_list_store_remove(GTK_LIST_STORE(model), &iter);
+	gtk_list_store_append(GTK_LIST_STORE(model), &iter);
+	gtk_list_store_set(GTK_LIST_STORE(model), &iter,
+			    0, station_name,
+			    1, station_code,
+			    2, --station_number,
+			    -1);
+    }
     
-    g_free(station_selected);
+    fprintf(stderr, "\nStation - %s\nNumber - %d\n", station_name, station_number);
 }
 /*******************************************************************************/
 void down_key_handler(GtkButton *button, gpointer list){
+    GtkTreeView		*stations = (GtkTreeView*)list;
+    GtkTreeIter		iter;
+    gchar		*station_name = NULL,
+			*station_code = NULL;
+    GtkTreeSelection	*selected_line;
+    GtkTreeModel	*model;
+    gint		station_number;
 
+    selected_line = gtk_tree_view_get_selection(GTK_TREE_VIEW(stations));
+    model = gtk_tree_view_get_model(GTK_TREE_VIEW(stations));
+    if( !gtk_tree_selection_get_selected(selected_line, NULL, &iter) )
+        return;
+    gtk_tree_model_get(model, &iter, 0, &station_name, 1, &station_code, 2, &station_number, -1);
+    
+    if(station_number >= 1){
+	gtk_list_store_remove(GTK_LIST_STORE(model), &iter);
+	gtk_list_store_append(GTK_LIST_STORE(model), &iter);
+	gtk_list_store_set(GTK_LIST_STORE(model), &iter,
+			    0, station_name,
+			    1, station_code,
+			    2, ++station_number,
+			    -1);
+    }
+    
+    fprintf(stderr, "\nStation - %s\nNumber - %d\n", station_name, station_number);
 }
 /*******************************************************************************/

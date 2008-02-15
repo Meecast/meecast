@@ -6,6 +6,7 @@
   * The arrows that switch to the next/previous station is made bigger, to press it with a finger
   * Fixed error: while station data xml file is absence, displaying weather data is garbage
   * New layout - "Combination" has been added
+  * Added possibility to change stations order in the stations list
 
 0.19.4
   * Autoconnecting and  downloading after connecting for OS2008  has been made

@@ -46,8 +46,6 @@ static gboolean	valid;
 static GtkTreeIter	iter;
 static     gchar	*station_name = NULL,
  			*station_code = NULL;
-static     gint	station_number;
-
 /*******************************************************************************/
 /* Create standard Hildon animation small window */
 static void create_window_update(void){
@@ -399,7 +397,6 @@ gboolean download_html(gpointer data){
 				&iter, 
                     		0, &station_name,
                     		1, &station_code,
-				2, &station_number,
                 		-1);
 	}			    
 	if(!valid || !form_url_and_filename(station_code)){
@@ -425,7 +422,6 @@ gboolean download_html(gpointer data){
 				&iter, 
                     		0, &station_name,
                     		1, &station_code,
-				2, &station_number,
                 		-1);			
 	}
 	/* Init easy_curl */
@@ -492,7 +488,6 @@ gboolean download_html(gpointer data){
 				&iter, 
                     		0, &station_name,
                     		1, &station_code,
-				2, &station_number,
                 		-1);
 			}	
 			/* set options for the curl easy handle */

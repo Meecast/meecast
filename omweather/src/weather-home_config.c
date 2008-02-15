@@ -127,7 +127,6 @@ void fill_user_stations_list_from_clock(GtkListStore** list){
 		*station_name = NULL,
 		*station_code = NULL,
 		buffer[1024];
-    gint	station_number = 0;
     GtkTreeIter	iter;
         
     GConfClient *gconf_client = gconf_client_get_default();
@@ -161,7 +160,6 @@ void fill_user_stations_list_from_clock(GtkListStore** list){
                 gtk_list_store_set(*list, &iter,
                                     0, station_name,
                                     1, station_code,
-                                    2, station_number++,
                                     -1);
 		/* A current station */
 /*		if(!strncmp(out_buffer, home_city, tmp - out_buffer)){
@@ -220,7 +218,6 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 		*temp2 = NULL,
 		*station_name = NULL,
 		*station_code = NULL;
-    gint	station_number = 0;
 
     while(source_list){
 	temp1 = strdup((gchar*)source_list->data);
@@ -236,18 +233,11 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 	    temp2 = strtok(NULL,"@"); /* Delimiter - @ */ 
 	    if(temp2 != NULL)
 		station_name = g_strdup(temp2); 
-	    /* station number */
-	    temp2 = strtok(NULL,"@"); /* Delimiter - @ */
-	    if(temp2 != NULL)
-		station_number = atoi(temp2); 
-	    else
-		station_number++ ;
 	    /* Add station to stations list */
             gtk_list_store_append(*list, &iter);
             gtk_list_store_set(*list, &iter,
                                 0, station_name,
                                 1, station_code,
-                                2, station_number,
                                 -1);
 	}
 	g_free(source_list->data);
@@ -282,7 +272,6 @@ GSList* create_stations_string_list(void){
     gchar	*station_name = NULL,
 		*station_code = NULL,
 		*str = NULL;
-    gint	station_number;
     
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
 					    &iter);
@@ -291,11 +280,9 @@ GSList* create_stations_string_list(void){
 			    &iter, 
                     	    0, &station_name,
                     	    1, &station_code,
-			    2, &station_number,
                     	    -1);
-	str = g_strdup_printf("%s@%s@%i", station_code,
-					    station_name,
-					    station_number);
+	str = g_strdup_printf("%s@%s", station_code,
+					    station_name);
 	stlist = g_slist_append(stlist, str);
 	g_free(station_name);
 	g_free(station_code);

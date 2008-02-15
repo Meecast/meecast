@@ -104,7 +104,6 @@ static gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 		ready = FALSE;
     gchar       *station_name = NULL,
                 *station_code = NULL;
-    gint        station_number;
     GtkTreePath	*path;
 
     path = gtk_tree_path_new_first();
@@ -115,7 +114,6 @@ static gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 			    &iter, 
                     	    0, &station_name,
                     	    1, &station_code,
-			    2, &station_number,
                     	    -1);
 	if(ready){
 	    /* update current station code */
@@ -166,7 +164,6 @@ static gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
 		ready = FALSE;
     gchar       *station_name = NULL,
                 *station_code = NULL;
-    gint        station_number;
     GtkTreePath	*path;
 
     path = gtk_tree_path_new_first();
@@ -177,7 +174,6 @@ static gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
 			    &iter, 
                     	    0, &station_name,
                     	    1, &station_code,
-			    2, &station_number,
                     	    -1);
 	if(ready){
 	    /* update current station code */
@@ -217,7 +213,6 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
     gboolean    valid;
     gchar       *station_name = NULL,
                 *station_code = NULL;
-    gint        station_number;
 
     if(!strcmp((char*)user_data, app->config->current_station_id))
 	return TRUE;
@@ -229,7 +224,6 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
                             &iter,
                             0, &station_name,
                             1, &station_code,
-                            2, &station_number,
                             -1);
 	if(!strcmp((char*)user_data, station_code)){
         /* update current station code */
@@ -795,7 +789,6 @@ void menu_init(void){
     gboolean	valid;
     gchar	*station_name = NULL,
 		*station_code = NULL;
-    gint	station_number;
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif
@@ -809,7 +802,6 @@ void menu_init(void){
                             &iter,
                             0, &station_name,
                             1, &station_code,
-                            2, &station_number,
                             -1);
 	gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu),
 				menu_item = gtk_menu_item_new_with_label(station_name));
@@ -1633,6 +1625,6 @@ gboolean expose_main_window(GtkWidget *widget, GdkEventExpose *event){
 #endif
 /*******************************************************************************/
 GtkListStore* create_user_stations_list(void){
-    return gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT);
+    return gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_STRING);
 }
 /*******************************************************************************/

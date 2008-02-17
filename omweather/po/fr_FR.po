@@ -1,16 +1,17 @@
 # translation of OMWeather fr_FR.po to French
 # This file is distributed under the same license as the OMWeather package.
-#
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
 # Pavel Fialko <pavelnf@gmail.com>, 2007.
 # vlad <vlad@gas.by>, 2007.
 # Vlad Vasiliev <vlad@gas.by>, 2007.
+# 
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.19.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-01-27 20:46+0200\n"
-"PO-Revision-Date: 2007-11-06 22:58+0100\n"
+"PO-Revision-Date: 2008-02-17 22:10+0100\n"
 "Last-Translator: Nicolas GRAZIANO <nicolas.graziano@gmail.com>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -33,14 +34,13 @@ msgstr ""
 "\tPavel Fialko, pavelnf@gmail.com"
 
 #: src/weather-home_settings.c:1256
-#, fuzzy
 msgid ""
 "\n"
 "Copyright(c) 2006-2008\n"
 "Vlad Vasiliev, Pavel Fialko"
 msgstr ""
 "\n"
-"Copyright(c) 2006-2007\n"
+"Copyright(c) 2006-2008\n"
 "Vlad Vasiliev, Pavel Fialko"
 
 #: src/weather-home_settings.c:1274
@@ -70,10 +70,13 @@ msgstr ""
 "\t\t\t\tet les donations ;-)\n"
 
 #: src/weather-home.c:877
+#, fuzzy
 msgid ""
 "\n"
 "FL: "
 msgstr ""
+"\n"
+"FL: "
 
 #: src/weather-popup.c:428
 msgid ""
@@ -106,10 +109,13 @@ msgstr ""
 "Humidité : "
 
 #: src/weather-home.c:912
+#, fuzzy
 msgid ""
 "\n"
 "P: "
 msgstr ""
+"\n"
+"P: "
 
 #: src/weather-popup.c:463
 msgid ""
@@ -120,10 +126,13 @@ msgstr ""
 "Pression : "
 
 #: src/weather-home.c:892
+#, fuzzy
 msgid ""
 "\n"
 "V: "
 msgstr ""
+"\n"
+"V: "
 
 #: src/weather-popup.c:443
 msgid ""
@@ -140,7 +149,7 @@ msgid ""
 "W: "
 msgstr ""
 "\n"
-"Vent : "
+"W : "
 
 #: src/weather-popup.c:468
 msgid ""
@@ -157,7 +166,7 @@ msgstr " Ajouter "
 #: src/weather-home.c:925
 #, fuzzy
 msgid " G: "
-msgstr " Rafale :"
+msgstr " G :"
 
 #: src/weather-popup.c:476
 msgid " Gust: "
@@ -165,7 +174,7 @@ msgstr " Rafale :"
 
 #: src/weather-home.c:884
 msgid " H: "
-msgstr ""
+msgstr " H: "
 
 #: src/weather-popup.c:435
 msgid " Humidity: "
@@ -177,7 +186,7 @@ msgstr "1 heure"
 
 #: src/weather-home_settings.c:949
 msgid "10 seconds"
-msgstr ""
+msgstr "10 secondes"
 
 #: src/weather-home_settings.c:976
 msgid "2 hours"
@@ -185,11 +194,11 @@ msgstr "2 heures"
 
 #: src/weather-home_settings.c:950
 msgid "20 seconds"
-msgstr ""
+msgstr "20 secondes"
 
 #: src/weather-home_settings.c:951
 msgid "30 seconds"
-msgstr ""
+msgstr "30 secondes"
 
 #: src/weather-home_settings.c:977
 msgid "4 hours"
@@ -197,15 +206,15 @@ msgstr "4 heures"
 
 #: src/weather-home_settings.c:952
 msgid "40 seconds"
-msgstr ""
+msgstr "40 secondes"
 
 #: src/weather-home_settings.c:953
 msgid "50 seconds"
-msgstr ""
+msgstr "50 secondes"
 
 #: src/weather-home_settings.c:954
 msgid "60 seconds"
-msgstr ""
+msgstr "60 secondes"
 
 #: src/weather-home_settings.c:978
 msgid "8 hours"
@@ -330,9 +339,8 @@ msgid "Background color:"
 msgstr "Couleur du fond :"
 
 #: src/weather-home_hash.c:31
-#, fuzzy
 msgid "Blowing Snow"
-msgstr "Neige légère"
+msgstr "Tempete de neige"
 
 #: src/weather-home.c:859 src/weather-home.c:881 src/weather-popup.c:417
 #: src/weather-popup.c:432
@@ -382,9 +390,8 @@ msgid "Cloudy and Windy"
 msgstr "Nuageux et venteux"
 
 #: src/weather-home_settings.c:760
-#, fuzzy
 msgid "Combination"
-msgstr "Emplacements"
+msgstr "Combinaison"
 
 #: src/weather-home_config.c:378
 #, c-format
@@ -513,12 +520,10 @@ msgid "Font color:"
 msgstr "Couleur de police:"
 
 #: src/weather-home_hash.c:55
-#, fuzzy
 msgid "Freezing Drizzle"
-msgstr "Bruine légère"
+msgstr "Bruine verglaçante"
 
 #: src/weather-home_settings.c:1301
-#, fuzzy
 msgid ""
 "French - Nicolas Granziano\n"
 "Russian - Pavel Fialko, Vlad Vasiliev,\n"
@@ -530,6 +535,7 @@ msgstr ""
 "Russe - Pavel Fialko, Vlad Vasiliev,\n"
 "\t    Ed Bartosh\n"
 "Finlandais·-·Marko·Vertainen\n"
+"Italien - Pavel Fialko\n"
 
 #: src/weather-home_hash.c:56
 msgid "Full"
@@ -632,9 +638,8 @@ msgid "Light Rain Shower"
 msgstr "Averse de pluie légère"
 
 #: src/weather-home_hash.c:65
-#, fuzzy
 msgid "Light Rain and Freezing Rain"
-msgstr "Pluie légère et vent"
+msgstr "Pluie légère et pluie verglaçante"
 
 #: src/weather-home_hash.c:67
 msgid "Light Rain and Shower"
@@ -1024,7 +1029,7 @@ msgstr "Averse de neige en soirée"
 
 #: src/weather-home_hash.c:143
 msgid "Snow and Freezing Rain"
-msgstr ""
+msgstr "Neige et pluie verglaçante"
 
 #: src/weather-home_hash.c:144
 msgid "Snow to Rain"
@@ -1096,7 +1101,7 @@ msgstr "Inverser température haute/basse :"
 
 #: src/weather-home_settings.c:942
 msgid "Switch to the next station after:"
-msgstr ""
+msgstr "Passer a la station suivante aprés :"
 
 #: src/weather-home_hash.c:155
 msgid "T-Storms"
@@ -1254,7 +1259,7 @@ msgstr ""
 
 #: src/weather-popup.c:839
 msgid "current location local time"
-msgstr ""
+msgstr "heure locale de la position courante"
 
 #: src/weather-home_config.c:322
 msgid "every 2 hours"
@@ -1338,9 +1343,8 @@ msgid "rising"
 msgstr "montant"
 
 #: src/weather-popup.c:823
-#, fuzzy
 msgid "station local time"
-msgstr " heure locale"
+msgstr "heure locale de la station"
 
 #: src/weather-home_hash.c:150
 msgid "steady"

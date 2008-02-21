@@ -68,7 +68,7 @@
 #include <locale.h>
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
 #define Max_count_weather_day		10
-#define COUNTRYSFILE		"/usr/share/omweather/countries.list"
+#define COUNTRYSFILE		"/usr/share/omweather/countrys.list"
 #define REGIONSFILE		"/usr/share/omweather/regions.list"
 #define LOCATIONSFILE		"/usr/share/omweather/locations.list"
 #define CLOCK_FILE		"/usr/share/omweather/city_in_clock.txt"

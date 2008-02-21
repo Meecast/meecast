@@ -72,6 +72,8 @@ msgid ""
 "\n"
 "FL: "
 msgstr ""
+"\n"
+"Ком.:"
 
 #: src/weather-popup.c:432
 msgid ""
@@ -525,7 +527,7 @@ msgstr ""
 
 #: src/weather-home_hash.c:56
 msgid "Full"
-msgstr "Полный"
+msgstr "Полнолуние"
 
 #: src/weather-home_hash.c:57
 msgid "Haze"

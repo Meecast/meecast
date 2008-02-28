@@ -2,6 +2,7 @@
 
 use strict;
 
+
 my $source = "./countries";
 my ($countriesfile, $regionsfile, $locationsfile) = ("countries.list", "regions.list", "locations.list");
 
@@ -12,7 +13,7 @@ open(LOCATIONS, ">$locationsfile") || die "Can't create file $locationsfile: $!\
 my $countries = countrylist($source);
 foreach my $country (sort(@$countries)){
     my $region_start = undef;
-    
+    my ($minlat,$maxlat,$minlon,$maxlon)= (90,0,180,-180);
     if(defined $region_start){
 	my $pos = tell(REGIONS);
 	print COUNTRIES "$country;$region_start;$pos;\n";
@@ -27,7 +28,8 @@ foreach my $country (sort(@$countries)){
 	    if($line =~ /^Region=(.+)/){
 		if(defined $location_start && $region ne $1){
 		    my $pos = tell(LOCATIONS);
-		    print REGIONS "$region;$location_start;".scalar($pos - 1).";\n";
+		    print REGIONS "$region;$location_start;".scalar($pos - 1).";$minlat;$minlon;$maxlat;$maxlon;\n";
+		    ($minlat,$maxlat,$minlon,$maxlon)= (90,0,180,-180);
 		    $location_start = $pos;
 		    $region = $1;
 		}
@@ -40,13 +42,17 @@ foreach my $country (sort(@$countries)){
 		if($line =~ /(.+)=(.+)=(.+)=(.+)/){
 		    ($code, $location, $lat, $lon) = ($1, $2, $3, $4);
 		    die "Can't get current position in $locationsfile: $!\n" if $location_start == -1;
+		    if ($lat < $minlat) {$minlat = $lat;}
+		    if ($lat > $maxlat) {$maxlat = $lat;}
+		    if ($lon < $minlon) {$minlon = $lon;}
+		    if ($lon > $maxlon) {$maxlon = $lon;}
 		    print LOCATIONS "$location;$code;$lat;$lon;\n";
 		}
 	    }
 	}
 	close FH;
 	if(defined $location_start){
-            print REGIONS "$region;$location_start;".scalar(tell(LOCATIONS) - 1).";\n";
+            print REGIONS "$region;$location_start;".scalar(tell(LOCATIONS) - 1).";$minlat;$minlon;$maxlat;$maxlon;\n";
         }
     }
     if(defined $region_start){

@@ -598,19 +598,19 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
     osso_context_t	*osso;
 
-#if HILDON == 1
+//#if HILDON == 1
     char       tmp_buff[2048];
-#endif
+//#endif
 
     osso = osso_initialize(PACKAGE, VERSION, FALSE, NULL);
     if(!osso){
         g_debug(_("Error initializing the OMWeather applet"));
         return NULL;
     }
-    #ifndef RELEASE
+//    #ifndef RELEASE
 	fprintf(stderr, "\nOMWeather applet initialize %p %d\n",
 			state_data, *state_size);
-    #endif
+//    #endif
     app = g_new0(OMWeatherApp, 1);
     if(!app){
 	fprintf(stderr, "\nCan not allocate memory for applet.\n");
@@ -643,7 +643,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
     app->countrys_list = NULL;
-    app->countrys_list = create_items_list(COUNTRYSFILE, -1, -1, NULL);
+    app->countrys_list = create_items_list(COUNTRIESFILE, -1, -1, NULL);
 
 /* Start timer */
 /*    timer(600); */  /* One per secund */
@@ -673,6 +673,10 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #endif
     
     (*widget) = app->top_widget;
+#ifndef RELEASE
+    fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
+#endif
+  
     return (void*)osso;
 }
 /*******************************************************************************/

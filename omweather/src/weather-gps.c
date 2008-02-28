@@ -44,13 +44,21 @@ location_changed (LocationGPSDevice *device, gpointer userdata)
  
 void
 initial_gps_connect(void)
-{    
+{ 
+#ifndef RELEASE
+    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+#endif 
     app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
+    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
     app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (location_changed), NULL);
     FILE *file_log;
     file_log=fopen("/tmp/omw.log","a+");
     fprintf(file_log,"Begin GPS \n");
     fclose(file_log);
+#ifndef RELEASE
+    fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
+#endif 
+    
 }
 void
 deinitial_gps_connect(void)

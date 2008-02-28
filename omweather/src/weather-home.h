@@ -85,6 +85,7 @@ extern int parse_weather_com_xml(void);
 extern int new_parse_weather_com_xml(void);
 extern time_t last_update_time(GSList *object);
 extern float convert_wind_units(int to, float value);
+extern void initial_gps_connect(void);
 /*******************************************************************************/
 extern int	boxs_offset[];
 extern gchar	path_large_icon[];

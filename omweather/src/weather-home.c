@@ -658,7 +658,8 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     time_event_add(time(NULL) + 5, DBUSINITEVENT);    
     add_periodic_event(time(NULL));
 */
-#if HILDON == 1		     
+#if HILDON == 1
+    initial_gps_connect();
     app->signal_expose = g_signal_connect(app->top_widget, "expose-event",
                 			    G_CALLBACK(expose_main_window),
                 			    NULL);
@@ -723,6 +724,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 			On n800 this work */
 			
     #if HILDON == 1
+	deinitial_gps_connect();
     	g_signal_handler_disconnect(app->parent,app->signal_size_request);
 	g_signal_handler_disconnect(app->parent_parent,app->signal_press);  
 	g_signal_handler_disconnect(app->parent_parent,app->signal_release);   

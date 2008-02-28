@@ -55,6 +55,7 @@
  #include <X11/extensions/Xcomposite.h>
  #include <X11/extensions/Xdamage.h>
  #include <X11/extensions/Xrender.h>
+ #include <location/location-gps-device.h>
 #else
  #include <hildon-widgets/hildon-banner.h>
 #endif
@@ -230,6 +231,10 @@ typedef struct OMWeatherApplet{
     int			ay;
     int			aw;
     int			ah;
+#if HILDON == 1		         
+    guint		gps_id_connection;
+    LocationGPSDevice 	*gps_device;
+#endif    
 }OMWeatherApp;
 /*******************************************************************************/
 void free_list_time_event(void);

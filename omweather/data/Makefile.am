@@ -19,7 +19,7 @@
 #
  
 omweatherdir = $(datadir)/omweather
-omweather_DATA = city_in_clock.txt countries.list regions.list locations.list stations.txt
+omweather_DATA = city_in_clock.txt countries.list regions.list locations.list 
 icons_crystallargedir = $(datadir)/omweather/icons/Crystal
 icons_crystallarge_DATA = icons/Crystal/*.png 
 moon_iconsdir = $(datadir)/omweather/moon_icons

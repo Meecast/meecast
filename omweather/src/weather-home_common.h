@@ -237,6 +237,30 @@ typedef struct OMWeatherApplet{
 #endif    
 }OMWeatherApp;
 /*******************************************************************************/
+typedef	struct{
+    char	name[50];
+    long	start;
+    long	end;
+}Country_item;
+/*******************************************************************************/
+typedef	struct{
+    char	name[50];
+    long	start;
+    long	end;
+    float	minlat;
+    float	minlon;
+    float	maxlat;
+    float 	maxlon;
+}Region_item;
+/*******************************************************************************/
+typedef struct{
+    char	name[50];
+    char	id0[10];
+    char	lattitude[10];
+    char	longitude[10];
+}Station;
+/*******************************************************************************/
+/*******************************************************************************/
 void free_list_time_event(void);
 void time_event_add(time_t time_value, short int type_event);
 void update_weather(void);

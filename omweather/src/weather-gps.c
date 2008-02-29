@@ -31,33 +31,71 @@
 #include "weather-home_common.h"
 #include "weather-gps.h"
 
+gchar *
+get_region( float lat, float lon)
+{
+    FILE		*fh;
+    char		buffer[512];
+//#ifndef RELEASE
+    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+//#endif     
+    float min_lat,max_lat,min_lon,max_lon;
+    int i,r_start,r_end;
+    gchar region_string[4096];
+    Region_item result;
+
+    FILE *file_log;
+    file_log=fopen("/tmp/omw.log","a+");
+
+    fh = fopen(REGIONSFILE, "rt");
+    if(!fh){
+	fprintf(stderr, "\nCan't read file %s: %s", REGIONSFILE,
+		strerror(errno));
+	return NULL;
+    }
+    while(!feof(fh)){
+	memset(buffer, 0, sizeof(buffer));
+	fgets(buffer, sizeof(buffer) - 1, fh);
+	parse_region_string(buffer,&result);
+	fprintf(file_log,"Count %s %f %f %f %f\n",result.name,result.minlat,result.minlon,result.maxlat,result.maxlon);
+    }
+    fclose(fh);
+    fclose(file_log);
+//#ifndef RELEASE
+    fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
+//#endif 
+    
+}
 static void
 location_changed (LocationGPSDevice *device, gpointer userdata)
 {
     FILE *file_log;
     file_log=fopen("/tmp/omw.log","a+");
-    
-    fprintf (file_log,"Latitude: %.2f\nLongitude: %.2f\nAltitude: %.2f\n",
-    device->fix->latitude, device->fix->longitude, device->fix->altitude);
-    fclose(file_log);
+    if (device->fix->fields & LOCATION_GPS_DEVICE_LATLONG_SET){
+	fprintf (file_log,"Latitude: %.2f\nLongitude: %.2f\nAltitude: %.2f\n",
+	device->fix->latitude, device->fix->longitude, device->fix->altitude);
+	fclose(file_log);
+	get_region(device->fix->latitude,device->fix->longitude);
+    }
 }
  
 void
 initial_gps_connect(void)
 { 
-#ifndef RELEASE
+//#ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
-#endif 
-    app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
+//#endif 
+    get_region(55.28,30.23);
+//    app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
-    app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (location_changed), NULL);
+//    app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (location_changed), NULL);
     FILE *file_log;
     file_log=fopen("/tmp/omw.log","a+");
     fprintf(file_log,"Begin GPS \n");
     fclose(file_log);
-#ifndef RELEASE
+//#ifndef RELEASE
     fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
-#endif 
+//#endif 
     
 }
 void
@@ -70,5 +108,3 @@ deinitial_gps_connect(void)
     fprintf(file_log,"END GPS \n");
     fclose(file_log);
 }
-
-

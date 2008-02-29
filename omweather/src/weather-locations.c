@@ -39,7 +39,8 @@ GtkListStore* create_items_list(const char *filename, long start, long end,
     GtkListStore	*list = NULL;
     GtkTreeIter		iter;
     char		buffer[512];
-    Item		item;
+    Region_item		r_item;
+    Country_item	c_item;    
     Station		station;
     long		max_bytes = 0,
 			readed_bytes = 0,
@@ -85,14 +86,27 @@ GtkListStore* create_items_list(const char *filename, long start, long end,
 		}
 	    }
 	    else{
-		if(!parse_item_string(buffer, &item)){
+		if(!strcmp(filename,REGIONSFILE)){
+		if(!parse_region_string(buffer, &r_item)){
 		    gtk_list_store_append(list, &iter);
 		    gtk_list_store_set(list, &iter,
-					0, item.name,
-					1, item.start,
-					2, item.end,
+					0, r_item.name,
+					1, r_item.start,
+					2, r_item.end,
 					-1);
 		    count++;
+		}
+		}
+		else{
+		    if(!parse_country_string(buffer, &c_item)){
+			gtk_list_store_append(list, &iter);
+			gtk_list_store_set(list, &iter,
+					    0, c_item.name,
+					    1, c_item.start,
+					    2, c_item.end,
+					    -1);
+			count++;
+		    }	
 		}
 	    }
 
@@ -105,7 +119,7 @@ GtkListStore* create_items_list(const char *filename, long start, long end,
     return list;
 }
 /*******************************************************************************/
-int parse_item_string(const char *string, Item *result){
+int parse_country_string(const char *string, Country_item *result){
     char	*delimiter = NULL,
 		*tmp,
 		buffer[32];
@@ -142,6 +156,86 @@ int parse_item_string(const char *string, Item *result){
 		memcpy(buffer, tmp, ((sizeof(buffer) - 1 > (int)(delimiter - tmp)) ?
 				    ((int)(delimiter - tmp)) : (sizeof(buffer) - 1)));
 		result->end = atol(buffer);
+	    }
+	}
+    }
+    return res;
+}
+
+/*******************************************************************************/
+int parse_region_string(const char *string, Region_item *result){
+    char	*delimiter = NULL,
+		*tmp;
+    int		res = 0;
+    
+    tmp = (char*)string;
+    delimiter = strchr(tmp, ';');
+    if(!delimiter)
+	res = 1;
+    else{
+	memset(result->name, 0, sizeof(result->name));
+    	memcpy(result->name, tmp,
+		((sizeof(result->name) - 1 > (int)(delimiter - tmp)) ?
+		((int)(delimiter - tmp)) : (sizeof(result->name) - 1)));
+	tmp = delimiter + 1;
+	delimiter = strchr(tmp, ';');
+	if(!delimiter){
+	    result->start = -1;
+	    res = 1;
+	}
+	else{
+	    *delimiter = 0;
+	    result->start = atol(tmp);
+	    tmp = delimiter + 1;
+	    delimiter = strchr(tmp, ';');
+	    if(!delimiter){
+		result->end = -1;
+		res = 1;
+	    }
+	    else{
+		*delimiter = 0;
+		result->end = atol(tmp);
+		tmp = delimiter + 1;
+		delimiter = strchr(tmp, ';');
+		if(!delimiter){
+		    result->minlat = 0;
+		    res = 1;
+		}
+		else{
+		    *delimiter = 0;
+		    result->minlat = atof(tmp);
+		    tmp = delimiter + 1;
+		    delimiter = strchr(tmp, ';');
+		    if(!delimiter){
+			result->minlon = 0;
+			res = 1;
+		    }
+		    else{
+			*delimiter = 0;
+			result->minlon = atof(tmp);
+			tmp = delimiter + 1;
+			delimiter = strchr(tmp, ';');
+			if(!delimiter){
+			    result->maxlat = 0;
+			    res = 1;
+			}
+			else{
+			    *delimiter = 0;
+			    result->maxlat = atof(tmp);
+			    tmp = delimiter + 1;
+			    delimiter = strchr(tmp, ';');
+			    if(!delimiter){
+				result->maxlon = 0;
+				res = 1;
+			    }
+			    else{
+				*delimiter = 0;
+				result->maxlon = atof(tmp);
+				}
+			    }
+			}			    
+		}	
+			
 	    }
 	}
     }

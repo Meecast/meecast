@@ -29,5 +29,7 @@
 /*******************************************************************************/
 
 #include "weather-home_common.h"
+#include <errno.h>
 void initial_gps_connect(void);
 void deinitial_gps_connect(void);
+extern int parse_region_string(const char *string, Region_item *result);

@@ -31,23 +31,11 @@
 #define _weather_locations_h 1
 /*******************************************************************************/
 #include "weather-home_common.h"
-/*******************************************************************************/
-typedef	struct{
-    char	name[50];
-    long	start;
-    long	end;
-}Item;
-/*******************************************************************************/
-typedef struct{
-    char	name[50];
-    char	id0[10];
-    char	lattitude[10];
-    char	longitude[10];
-}Station;
-/*******************************************************************************/
+
 GtkListStore* create_items_list(const char *filename, long start, long end,
 				long *items_number);
-int parse_item_string(const char *string, Item *result);
+int parse_country_string(const char *string, Country_item *result);
+int parse_region_string(const char *string, Region_item *result);
 int parse_station_string(const char *string, Station *result);
 gboolean find_iterator(GtkListStore *store, gint field_number, GType type,
 					gchar *field_value, GtkTreeIter *result);

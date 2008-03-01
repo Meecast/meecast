@@ -727,8 +727,7 @@ int new_parse_weather_com_xml(void){
 				/* phase */
         			if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t") ){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
-				    itm = create_item("moon_phase",						
-        				    (char*)hash_table_find(temp_xml_string));
+				    itm = create_item("moon_phase", (char*)temp_xml_string);
 				    xmlFree(temp_xml_string);
 				    add_item2object(&(wcs.current_data), itm);
 				}

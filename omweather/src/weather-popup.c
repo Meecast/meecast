@@ -761,9 +761,10 @@ GtkWidget* create_moon_phase_widget(GSList *current){
     GtkWidget	*main_widget = NULL,
 		*main_label = NULL;
     gchar	buffer[1024],
-		icon[50];
+		icon[50],
+		*space_symbol = NULL;
     GdkPixbuf   *icon_buffer;                                                                                                             
-    GtkWidget   *icon_image; 
+    GtkWidget   *icon_image;
 
     if(!current)
 	return NULL;
@@ -774,16 +775,18 @@ GtkWidget* create_moon_phase_widget(GSList *current){
 /*    snprintf(buffer, sizeof(buffer) - 1, "%s", _("Moon: "));*/
     snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 			"%s",
-			(char*)item_value(current, "moon_phase"));
+			(char*)hash_table_find(item_value(current, "moon_phase")));
     main_label = gtk_label_new(buffer);
     set_font_size(main_label, 14);
 /*    set_font_color(main_label, 0x0000, 0x0000, 0x0000);*/
 
     main_widget = gtk_hbox_new(FALSE, 10);
-
 /* Moon icon */
-/*    sprintf(icon, "%s%d.png", MOON_ICONS, item_value(current, "moon_icon"));*/
-    sprintf(icon, "%s31.png", path_large_icon);
+    sprintf(icon, "%s%s.png", MOON_ICONS, item_value(current, "moon_phase"));
+    space_symbol = strchr(icon, ' ');
+    if(space_symbol)
+	*space_symbol = '_';
+/*    sprintf(icon, "%s31.png", path_large_icon);*/
     icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, 64, 64, NULL);
     if(icon_buffer){
 	icon_image = gtk_image_new_from_pixbuf(icon_buffer);

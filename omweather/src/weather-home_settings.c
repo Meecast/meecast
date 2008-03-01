@@ -294,18 +294,31 @@ void weather_window_edit_station(GtkWidget *widget, GdkEvent *event,
 /* Delete station from list */
 static gboolean weather_delete_station(GtkWidget *widget, GdkEvent *event,
                     					    gpointer user_data){
-    GtkTreeIter		iter,
-			prev_iter;
+    GtkWidget		*dialog;
+    GtkTreeIter		iter;
     gchar		*station_selected = NULL,
 			*station_name = NULL,
 			*station_code = NULL;
     GtkTreeModel	*model;
     GtkTreeSelection	*selection;
     gboolean		valid;
+    gint		result = GTK_RESPONSE_NONE;
+    GtkTreePath		*path;
 
 #ifndef RELEASE    
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
 #endif
+/* create confirm dialog */
+    dialog = gtk_message_dialog_new(NULL,
+                            	    GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+                            	    GTK_MESSAGE_QUESTION,
+                            	    GTK_BUTTONS_YES_NO,
+                            	    _("Are you sure to want delete this station ?"));
+    result = gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_widget_destroy(dialog);
+    if(result != GTK_RESPONSE_YES)
+	return FALSE;
+/* search station for delete */    
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
     selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
     if( !gtk_tree_selection_get_selected(selection, NULL, &iter) )
@@ -321,38 +334,63 @@ static gboolean weather_delete_station(GtkWidget *widget, GdkEvent *event,
                             1, &station_code,
                             -1);
 	if(!strcmp(station_name, station_selected)){
+	    path = gtk_tree_model_get_path(GTK_TREE_MODEL(app->user_stations_list),
+					    &iter);	
+	    /* delete selected station */
 	    gtk_list_store_remove(app->user_stations_list, &iter);
 	    g_free(station_name);
     	    g_free(station_code);
-	    /* set current station */
-	    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
-                        	&prev_iter,
-                        	0, &station_name,
-                        	1, &station_code,
-                        	-1);
-	    /* update current station code */
-            if(app->config->current_station_id)
-                g_free(app->config->current_station_id);
-            app->config->current_station_id = station_code;
-            /* update current station name */
-            if(app->config->current_station_name)
-                g_free(app->config->current_station_name);
-            app->config->current_station_name = station_name;
-            app->config->previos_days_to_show = app->config->days_to_show;
-            weather_frame_update(TRUE);
-	    break;
+	    /* try to get previos station data */
+	    if(gtk_tree_path_prev(path)){
+		valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
+						&iter,
+						path);
+		if(valid){
+		    /* set current station */
+		    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                        		&iter,
+                        		0, &station_name,
+                        		1, &station_code,
+                        		-1);
+		    /* update current station code */
+        	    if(app->config->current_station_id)
+            		g_free(app->config->current_station_id);
+        	    app->config->current_station_id = station_code;
+        	    /* update current station name */
+        	    if(app->config->current_station_name)
+            		g_free(app->config->current_station_name);
+        	    app->config->current_station_name = station_name;
+        	    app->config->previos_days_to_show = app->config->days_to_show;
+		    break;
+		}
+		else
+		    gtk_tree_path_free(path);
+	    }
+	    else{/* if no next station than set current station to NO STATION */
+		/* update current station code */
+        	if(app->config->current_station_id)
+            	    g_free(app->config->current_station_id);
+        	app->config->current_station_id = NULL;
+        	/* update current station name */
+        	if(app->config->current_station_name)
+            	    g_free(app->config->current_station_name);
+        	app->config->current_station_name = NULL;
+        	app->config->previos_days_to_show = app->config->days_to_show;
+		gtk_tree_path_free(path);
+		break;
+	    }
 	}
 	else{
 	    g_free(station_name);
     	    g_free(station_code);
 	}
-	prev_iter = iter;
 	valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
                                                         &iter);
     }
     g_free(station_selected);
     /* Update station list */
     flag_update_station = TRUE;
+    weather_frame_update(TRUE);    
     /* Update config file */
     new_config_save(app->config);
 #ifndef RELEASE
@@ -551,6 +589,7 @@ void weather_window_add_station(GtkWidget *widget, GdkEvent *event,
                                 -1);
 /* Update config file */
 	    new_config_save(app->config);
+	    weather_frame_update(TRUE);
 	    break;
     }
     gtk_widget_destroy(window_add_station); 

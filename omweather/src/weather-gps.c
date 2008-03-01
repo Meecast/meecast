@@ -27,10 +27,9 @@
 	
 */
 /*******************************************************************************/
-
 #include "weather-home_common.h"
 #include "weather-gps.h"
-
+/*******************************************************************************/
 gchar *
 get_region( float lat, float lon)
 {
@@ -66,6 +65,7 @@ get_region( float lat, float lon)
 //#endif 
     
 }
+/*******************************************************************************/
 static void
 location_changed (LocationGPSDevice *device, gpointer userdata)
 {
@@ -78,7 +78,7 @@ location_changed (LocationGPSDevice *device, gpointer userdata)
 	get_region(device->fix->latitude,device->fix->longitude);
     }
 }
- 
+/*******************************************************************************/ 
 void
 initial_gps_connect(void)
 { 
@@ -98,6 +98,7 @@ initial_gps_connect(void)
 //#endif 
     
 }
+/*******************************************************************************/
 void
 deinitial_gps_connect(void)
 {
@@ -108,3 +109,4 @@ deinitial_gps_connect(void)
     fprintf(file_log,"END GPS \n");
     fclose(file_log);
 }
+/*******************************************************************************/

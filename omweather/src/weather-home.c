@@ -963,7 +963,10 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		*station_name = NULL,
 		*station_box = NULL;
     int		n, elements, x, y;
-
+    GtkTreeIter	iter;
+    gboolean	valid = FALSE,
+		user_stations_list_has_two_or_more_elements = FALSE;
+    
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif
@@ -974,8 +977,14 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /* create header panel */
 /*    header_panel = gtk_table_new(1, 3, FALSE);*/
     header_panel = gtk_hbox_new(FALSE, 0);
-/* check number of elements in stations list */
-    if(!app->config->hide_station_name){
+/* check number of elements in user stations list */
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                                  &iter);
+    if(valid && gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+						    &iter))
+	user_stations_list_has_two_or_more_elements = TRUE;
+/* draw arrows */
+    if(!app->config->hide_station_name && user_stations_list_has_two_or_more_elements){
 	/* create previos station button */
 	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&lt;</span>",
 		app->config->font_color.red >> 8, app->config->font_color.green >> 8,
@@ -990,7 +999,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(previos_station_name), GTK_JUSTIFY_CENTER);
 	set_font_size(previos_station_name, f_size);
-	gtk_box_pack_start((GtkBox*) previos_station_box, previos_station_name, TRUE, TRUE, 10);
+	gtk_box_pack_start((GtkBox*) previos_station_box, previos_station_name, TRUE, TRUE, 15);
 	gtk_container_add (GTK_CONTAINER(previos_station_name_btn), previos_station_box);
 
 	buffer[0] = 0;
@@ -1008,7 +1017,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	gtk_label_set_markup(GTK_LABEL(next_station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(next_station_name), GTK_JUSTIFY_CENTER);
 	set_font_size(next_station_name, f_size);
-        gtk_box_pack_start((GtkBox*) next_station_box, next_station_name, TRUE, TRUE, 10);
+        gtk_box_pack_start((GtkBox*) next_station_box, next_station_name, TRUE, TRUE, 15);
 	gtk_container_add (GTK_CONTAINER(next_station_name_btn), next_station_box);
     }
     buffer[0] = 0;

@@ -231,7 +231,7 @@ typedef struct OMWeatherApplet{
     int			ay;
     int			aw;
     int			ah;
-#if HILDON == 1		         
+#if HILDON == 1
     guint		gps_id_connection;
     LocationGPSDevice 	*gps_device;
 #endif    

@@ -147,9 +147,11 @@ AC_SUBST(CONIC_LIBS)
 fi
 fi
 
-PKG_CHECK_MODULES(LOCATION, [liblocation])
-AC_SUBST(LOCATION_CFLAGS)
-AC_SUBST(LOCATION_LIBS)
+if test "$hildon" == "yes"; then
+  PKG_CHECK_MODULES(LOCATION, [liblocation])
+  AC_SUBST(LOCATION_CFLAGS)
+  AC_SUBST(LOCATION_LIBS)
+fi
 
 AM_CONDITIONAL(OS2008, test "x$use_dbus" != "xyes")		  
 

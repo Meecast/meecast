@@ -174,7 +174,7 @@ int parse_region_string(const char *string, Region_item *result){
 	res = 1;
     else{
 	memset(result->name, 0, sizeof(result->name));
-    	memcpy(result->name, tmp,
+    memcpy(result->name, tmp,
 		((sizeof(result->name) - 1 > (int)(delimiter - tmp)) ?
 		((int)(delimiter - tmp)) : (sizeof(result->name) - 1)));
 	tmp = delimiter + 1;
@@ -207,31 +207,28 @@ int parse_region_string(const char *string, Region_item *result){
 		    tmp = delimiter + 1;
 		    delimiter = strchr(tmp, ';');
 		    if(!delimiter){
-			result->minlon = 0;
-			res = 1;
+			  result->minlon = 0;res = 1;
 		    }
 		    else{
-			*delimiter = 0;
-			result->minlon = atof(tmp);
-			tmp = delimiter + 1;
-			delimiter = strchr(tmp, ';');
-			if(!delimiter){
-			    result->maxlat = 0;
-			    res = 1;
-			}
-			else{
 			    *delimiter = 0;
-			    result->maxlat = atof(tmp);
+			    result->minlon = atof(tmp);
 			    tmp = delimiter + 1;
 			    delimiter = strchr(tmp, ';');
 			    if(!delimiter){
-				result->maxlon = 0;
-				res = 1;
+			      result->maxlat = 0;res = 1;
 			    }
 			    else{
-				*delimiter = 0;
-				result->maxlon = atof(tmp);
-				}
+			        *delimiter = 0;
+			        result->maxlat = atof(tmp);
+			        tmp = delimiter + 1;
+			        delimiter = strchr(tmp, ';');
+			        if(!delimiter){
+				      result->maxlon = 0;res = 1;
+			        }
+			        else{
+				        *delimiter = 0;
+				        result->maxlon = atof(tmp);
+				    }
 			    }
 			}			    
 		}	

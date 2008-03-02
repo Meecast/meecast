@@ -207,8 +207,8 @@ void weather_window_edit_station(GtkWidget *widget, GdkEvent *event,
     
     GtkTreeIter	iter;
     gchar	*selected_station_name = NULL,
-		*station_name = NULL,
-		*station_code = NULL;
+	        *station_name = NULL,
+	        *station_code = NULL;
     gboolean	valid;
     GtkTreeModel	*model;
     GtkTreeSelection	*selection;

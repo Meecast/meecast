@@ -288,9 +288,9 @@ void weather_buttons_fill(gboolean check_error){
     time_t	tmp_time;
 #endif
 
-#ifndef RELEASE
+//#ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
-#endif
+//#endif
 /* Check main widget */
     if(!app->top_widget)
 	return;
@@ -598,9 +598,9 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
     osso_context_t	*osso;
 
-//#if HILDON == 1
+#if HILDON == 1
     char       tmp_buff[2048];
-//#endif
+#endif
 
     osso = osso_initialize(PACKAGE, VERSION, FALSE, NULL);
     if(!osso){

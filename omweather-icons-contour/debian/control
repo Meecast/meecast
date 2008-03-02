@@ -1,0 +1,48 @@
+Source: omweather-icons-contour
+Section: user/accessories
+Priority: optional
+Maintainer: Vlad Vasiliev <vlad@gas.by>
+Build-Depends: 
+Standards-Version: 3.6.0
+
+Package: omweather-icons-contour
+Architecture: all
+Depends: omweather (>=0.16)
+Description: Contour iconset 
+ for Other Maemo Weather
+ Andrew Zhilin 2008
+ http://tabletui.wordpress.com
+ Contact: az@pocketpcrussia.com
+ Other Maemo Weather "Contour" icons set is licensed under the terms of the GNU GPL.
+XB-Maemo-Icon-26: 
+ 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
+ rkJggg==
+

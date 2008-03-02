@@ -57,7 +57,7 @@ GtkListStore* create_items_list(const char *filename, long start, long end,
     else{
 	if(!strcmp(filename, LOCATIONSFILE))
 	    list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING,
-					    G_TYPE_STRING, G_TYPE_STRING);
+					    G_TYPE_DOUBLE, G_TYPE_DOUBLE);
 	else
 	    list = gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT);
 	if(start > -1)
@@ -82,6 +82,7 @@ GtkListStore* create_items_list(const char *filename, long start, long end,
 					2, station.lattitude,
 					3, station.longitude,
 					-1);
+                    fprintf(stderr,"%s %f %f\n",station.name,station.lattitude,station.longitude);
 		    count++;
 		}
 	    }
@@ -270,21 +271,16 @@ int parse_station_string(const char *string, Station *result){
 		res = 1;
 	    }
 	    else{
-		memset(result->lattitude, 0, sizeof(result->lattitude));
-		memcpy(result->lattitude, tmp,
-			((sizeof(result->lattitude) - 1 > (int)(delimiter - tmp)) ?
-			((int)(delimiter - tmp)) : (sizeof(result->lattitude) - 1)));
-
+                *delimiter = 0;
+                result->lattitude = atof(tmp);
 		tmp = delimiter + 1;
 		delimiter = strchr(tmp, ';');
 		if(!delimiter){
 		    res = 1;
 		}
 		else{
-		    memset(result->longitude, 0, sizeof(result->longitude));
-		    memcpy(result->longitude, tmp,
-			    ((sizeof(result->longitude) - 1 > (int)(delimiter - tmp)) ?
-			    ((int)(delimiter - tmp)) : (sizeof(result->longitude) - 1)));
+                     *delimiter = 0;
+                     result->longitude = atof(tmp);
 		}
 	    }
 	}

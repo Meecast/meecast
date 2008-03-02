@@ -32,7 +32,7 @@
 /*******************************************************************************/
 #if HILDON == 1		         
 gchar *
-get_region( float lat, float lon)
+get_region( double lat, double lon)
 {
     FILE		*fh;
     char		buffer[512];
@@ -48,9 +48,10 @@ get_region( float lat, float lon)
     gboolean     valid;
     GtkTreeModel *model;
     gchar       *station_name = NULL,
-                *station_id0 = NULL,
-                *station_lattitude = NULL,
-                *station_longitude = NULL;
+                *station_id0 = NULL;
+    double       station_lattitude,
+                station_longitude,
+                distance;
 
     FILE *file_log;
     file_log=fopen("/tmp/omw.log","a+");
@@ -70,6 +71,7 @@ get_region( float lat, float lon)
             stations_list = create_items_list(LOCATIONSFILE, result.start,result.end, NULL);
             valid =  gtk_tree_model_get_iter_first(GTK_TREE_MODEL(stations_list), &iter);
             while (valid){
+            
                 gtk_tree_model_get(GTK_TREE_MODEL(stations_list),
 				                &iter, 
                                                 0, &station_name,
@@ -77,7 +79,10 @@ get_region( float lat, float lon)
 					        2, &station_lattitude,
 					        3, &station_longitude,
                 		                -1);
-                fprintf(stderr,"station %s\n",station_name);
+//                distance = location_distance_between(lat,lon,station_lattitude,station_longitude);
+                distance = location_distance_between(1,1,1,1);
+                fprintf(stderr,"station %s - %f \n",station_name,distance);
+                
             	valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(stations_list),&iter);
             }
             if(stations_list){

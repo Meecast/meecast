@@ -256,8 +256,8 @@ typedef	struct{
 typedef struct{
     char	name[50];
     char	id0[10];
-    char	lattitude[10];
-    char	longitude[10];
+    double	lattitude;
+    double	longitude;
 }Station;
 /*******************************************************************************/
 /*******************************************************************************/

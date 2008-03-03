@@ -136,9 +136,9 @@ typedef struct{
 }weather_com_parser;
 /*******************************************************************************/
 struct event_time{
-    time_t	time;          /* Time event */
-    short	type_event; /* Type of event: Automatic update event AUTOUPDATE, 
-			   time of day event DAYTIMEEVENT */ 
+    time_t	time;          	/* Time event */
+    short	type_event; 	/* Type of event: Automatic update event AUTOUPDATE, 
+				    time of day event DAYTIMEEVENT */ 
 };
 /*******************************************************************************/
 struct time_update{ 
@@ -151,6 +151,29 @@ struct weather_station{
     gchar	*name_station;
     gint	number;
 };
+/*******************************************************************************/
+typedef	struct{
+    char	name[50];
+    long	start;
+    long	end;
+}Country_item;
+/*******************************************************************************/
+typedef	struct{
+    char	name[50];
+    long	start;
+    long	end;
+    float	minlat;
+    float	minlon;
+    float	maxlat;
+    float 	maxlon;
+}Region_item;
+/*******************************************************************************/
+typedef struct{
+    char	name[50];
+    char	id0[10];
+    double	lattitude;
+    double	longitude;
+}Station;
 /*******************************************************************************/
 typedef struct applet_config{
     gchar	*cache_dir_name;
@@ -234,32 +257,11 @@ typedef struct OMWeatherApplet{
 #if HILDON == 1
     guint		gps_id_connection;
     LocationGPSDevice 	*gps_device;
+    Station		gps_station;
+    Station		temporary_gps_station;
 #endif    
 }OMWeatherApp;
-/*******************************************************************************/
-typedef	struct{
-    char	name[50];
-    long	start;
-    long	end;
-}Country_item;
-/*******************************************************************************/
-typedef	struct{
-    char	name[50];
-    long	start;
-    long	end;
-    float	minlat;
-    float	minlon;
-    float	maxlat;
-    float 	maxlon;
-}Region_item;
-/*******************************************************************************/
-typedef struct{
-    char	name[50];
-    char	id0[10];
-    double	lattitude;
-    double	longitude;
-}Station;
-/*******************************************************************************/
+
 /*******************************************************************************/
 void free_list_time_event(void);
 void time_event_add(time_t time_value, short int type_event);

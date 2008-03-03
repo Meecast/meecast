@@ -103,6 +103,7 @@ get_nearest_station( double lat, double lon, Station *result)
 		                
             	valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(stations_list),&iter);
             }
+	    
 	    /* Clearing station list */
             if(stations_list){
 	          gtk_list_store_clear(stations_list);
@@ -127,8 +128,10 @@ location_changed (LocationGPSDevice *device, gpointer userdata)
     if (device->fix->fields & LOCATION_GPS_DEVICE_LATLONG_SET){
 	fprintf (file_log,"Latitude: %.2f\nLongitude: %.2f\nAltitude: %.2f\n",
 	device->fix->latitude, device->fix->longitude, device->fix->altitude);
+	app->temporary_station_latitude = device->fix->latitude;
+	app->temporary_station_longtitude = device->fix->longitude;	
 	fclose(file_log);
-	get_nearest_station(device->fix->latitude,device->fix->longitude,&app->temporary_gps_station);
+//	get_nearest_station(device->fix->latitude,device->fix->longitude,&app->temporary_gps_station);
     }
 }
 /*******************************************************************************/ 
@@ -138,7 +141,7 @@ initial_gps_connect(void)
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif 
-    get_nearest_station(55.28,30.23,&app->temporary_gps_station);
+    get_nearest_station(55.28,30.23,&app->gps_station);
     app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
     app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (location_changed), NULL);

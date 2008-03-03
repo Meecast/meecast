@@ -258,7 +258,8 @@ typedef struct OMWeatherApplet{
     guint		gps_id_connection;
     LocationGPSDevice 	*gps_device;
     Station		gps_station;
-    Station		temporary_gps_station;
+    gdouble		temporary_station_latitude;
+    gdouble		temporary_station_longtitude;
 #endif    
 }OMWeatherApp;
 

@@ -603,6 +603,7 @@ void weather_window_settings(GtkWidget *widget,
     GtkWidget	*window_config = NULL,
 		*notebook = NULL,
 		*label = NULL,
+                *label_gps = NULL,
 		*time_update_label = NULL,
 		*table = NULL,
 		*font_color = NULL,
@@ -670,12 +671,20 @@ void weather_window_settings(GtkWidget *widget,
 					GTK_SHADOW_OUT);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                  GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 450, 280);
+    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 450, 270);
 
     station_list_view = create_tree_view(app->user_stations_list);
     gtk_container_add(GTK_CONTAINER(scrolled_window),
                 	GTK_WIDGET(station_list_view));
     gtk_container_add(GTK_CONTAINER(label), scrolled_window);
+
+
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+        	    label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
+        	    0, 1, 6, 7);
+    label_gps = gtk_label_new(_("Enable station from GPS:"));
+    gtk_container_add(GTK_CONTAINER(label), label_gps);
+    
 /* Up Station and Down Station Buttons */
 /* prepare icon */
     gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),

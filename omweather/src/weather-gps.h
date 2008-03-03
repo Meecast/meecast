@@ -37,5 +37,6 @@ void initial_gps_connect(void);
 void deinitial_gps_connect(void);
 /*******************************************************************************/
 extern int parse_region_string(const char *string, Region_item *result);
+extern gdouble calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2);
 /*******************************************************************************/
 #endif

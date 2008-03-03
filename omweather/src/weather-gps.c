@@ -30,28 +30,30 @@
 #include "weather-home_common.h"
 #include "weather-gps.h"
 /*******************************************************************************/
-#if HILDON == 1		         
-gchar *
-get_region( double lat, double lon)
+#if HILDON == 1
+
+void
+get_nearest_station( double lat, double lon, Station *result)
 {
     FILE		*fh;
     char		buffer[512];
-//#ifndef RELEASE
+#ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
-//#endif     
+#endif     
     float        min_lat,max_lat,min_lon,max_lon;
-    int          i,r_start,r_end;
     gchar        region_string[4096];
-    Region_item  result;
+    Region_item  region;
     GtkListStore *stations_list = NULL;
     GtkTreeIter  iter;
     gboolean     valid;
     GtkTreeModel *model;
-    gchar       *station_name = NULL,
-                *station_id0 = NULL;
+    gchar        *station_name = NULL,
+                 *station_id0 = NULL,
+		 *nearst_station_name = NULL;
     double       station_lattitude,
-                station_longitude,
-                distance;
+                 station_longitude,
+                 distance,
+		 min_distance = 40000;
 
     FILE *file_log;
     file_log=fopen("/tmp/omw.log","a+");
@@ -65,10 +67,9 @@ get_region( double lat, double lon)
     while(!feof(fh)){
 	memset(buffer, 0, sizeof(buffer));
 	fgets(buffer, sizeof(buffer) - 1, fh);
-        parse_region_string(buffer,&result);
-        if ( lat >= result.minlat && lat <= result.maxlat && lon >= result.minlon && lon <= result.maxlon){
-            fprintf(file_log,"Count %s %f %f %f %f\n",result.name,result.minlat,result.minlon,result.maxlat,result.maxlon);
-            stations_list = create_items_list(LOCATIONSFILE, result.start,result.end, NULL);
+        parse_region_string(buffer,&region);
+        if ( lat >= region.minlat && lat <= region.maxlat && lon >= region.minlon && lon <= region.maxlon){
+            stations_list = create_items_list(LOCATIONSFILE, region.start,region.end, NULL);
             valid =  gtk_tree_model_get_iter_first(GTK_TREE_MODEL(stations_list), &iter);
             while (valid){
             
@@ -79,25 +80,37 @@ get_region( double lat, double lon)
 					        2, &station_lattitude,
 					        3, &station_longitude,
                 		                -1);
-//                distance = location_distance_between(lat,lon,station_lattitude,station_longitude);
-                distance = location_distance_between(1,1,1,1);
-                fprintf(stderr,"station %s - %f \n",station_name,distance);
-                
+		/* Calculating distance */				
+		distance = calculate_distance(lat,lon,station_lattitude,station_longitude);
+		if (distance<min_distance){
+		    min_distance = distance;
+    		    memset(result->name, 0, sizeof(result->name));
+    		    memcpy(result->name, station_name,
+		    	    ((sizeof(result->name) - 1) > (int)(strlen(station_name)) ?
+			    (int)(strlen(station_name)) : (sizeof(result->name) - 1)));
+		    fprintf(stderr,"lalal %s %i\n",result->name, ((sizeof(result->name) - 1) > (int)(strlen(station_name)) ?
+			    (int)(strlen(station_name)) : (sizeof(result->name) - 1)));
+		    result->lattitude = station_lattitude;
+		    result->longitude = station_longitude;
+		}                
             	valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(stations_list),&iter);
             }
             if(stations_list){
 	          gtk_list_store_clear(stations_list);
 	          stations_list = NULL;
 	    }
-
-	    
+	    if(nearst_station_name){
+		fprintf(file_log,"Minimal station: %s %f \n",nearst_station_name,min_distance);
+		g_free(nearst_station_name);
+		nearst_station_name = NULL;
+	    }	
         }          
     }
     fclose(fh);
     fclose(file_log);
-//#ifndef RELEASE
+#ifndef RELEASE
     fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
-//#endif 
+#endif 
     
 }
 /*******************************************************************************/
@@ -110,17 +123,18 @@ location_changed (LocationGPSDevice *device, gpointer userdata)
 	fprintf (file_log,"Latitude: %.2f\nLongitude: %.2f\nAltitude: %.2f\n",
 	device->fix->latitude, device->fix->longitude, device->fix->altitude);
 	fclose(file_log);
-	get_region(device->fix->latitude,device->fix->longitude);
+//	get_nearest_station(device->fix->latitude,device->fix->longitude,);
     }
 }
 /*******************************************************************************/ 
 void
 initial_gps_connect(void)
 { 
+    Station station;
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif 
-    get_region(55.28,30.23);
+    get_nearest_station(55.28,30.23,&station);
     app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
     app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (location_changed), NULL);

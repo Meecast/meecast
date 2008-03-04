@@ -79,10 +79,9 @@ GtkListStore* create_items_list(const char *filename, long start, long end,
 		    gtk_list_store_set(list, &iter,
 					0, station.name,
 					1, station.id0,
-					2, station.lattitude,
+					2, station.latitude,
 					3, station.longitude,
 					-1);
-                    fprintf(stderr,"%s %f %f\n",station.name,station.lattitude,station.longitude);
 		    count++;
 		}
 	    }
@@ -272,7 +271,7 @@ int parse_station_string(const char *string, Station *result){
 	    }
 	    else{
                 *delimiter = 0;
-                result->lattitude = atof(tmp);
+                result->latitude = atof(tmp);
 		tmp = delimiter + 1;
 		delimiter = strchr(tmp, ';');
 		if(!delimiter){

@@ -65,6 +65,7 @@
 #define GCONF_KEY_CLOCK_REMOTE_LOCATION		GCONF_KEY_CLOCK_PREFIX"/remote-location"
 #define GCONF_KEY_CLOCK_HOME_LOCATION		GCONF_KEY_CLOCK_PREFIX"/home-location"
 #define GCONF_KEY_DOWNLOADING_AFTER_CONNECTING  GCONF_KEY_PREFIX"/downloading-after-connecting"
+#define GCONF_KEY_USE_GPS_STATION		GCONF_KEY_PREFIX"/gps-station"
 /*******************************************************************************/
 #define MAX_SETTINGS_PAGE_NUMBER	3
 /*******************************************************************************/
@@ -84,6 +85,7 @@ GSList* create_stations_string_list(void);
 /*******************************************************************************/
 extern void remove_periodic_event(void);
 extern void add_periodic_event(time_t last_update);
+extern void add_gps_event(time_t last_update);
 extern gboolean switch_timer_handler(gpointer data);
 /*******************************************************************************/
 #endif

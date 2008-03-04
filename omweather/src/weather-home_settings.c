@@ -149,22 +149,22 @@ void changed_stations(void){
     GtkTreeIter		iter;
     gchar		*station_name = NULL,
 			*station_id0 = NULL,
-			*station_lattitude = NULL,
+			*station_latitude = NULL,
 			*station_longitude = NULL;
 
     if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(stations), &iter)){
 	model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
 	gtk_tree_model_get(model, &iter, 0, &station_name,
 					 1, &station_id0,
-					 2, &station_lattitude,
+					 2, &station_latitude,
 					 3, &station_longitude,
 					-1);
 
-	fprintf(stderr, "\nLat=%s Lon=%s\n", station_lattitude, station_longitude);
+	fprintf(stderr, "\nLat=%s Lon=%s\n", station_latitude, station_longitude);
 	_weather_station_id_temp = g_strdup(station_id0);
 	g_free(station_name);
 	g_free(station_id0);
-	g_free(station_lattitude);
+	g_free(station_latitude);
 	g_free(station_longitude);
     }
 }
@@ -603,15 +603,15 @@ void weather_window_settings(GtkWidget *widget,
     GtkWidget	*window_config = NULL,
 		*notebook = NULL,
 		*label = NULL,
-        *label_gps = NULL,
-        *hbox_gps = NULL,
-    	*chk_gps = NULL,
+                *label_gps = NULL,
+                *hbox_gps = NULL,
 		*time_update_label = NULL,
 		*table = NULL,
 		*font_color = NULL,
 		*background_color = NULL,
 		*chk_transparency = NULL,
 		*chk_downloading_after_connection = NULL,
+                *chk_gps = NULL,
 		*separate_button = NULL,
 		*swap_temperature_button = NULL,
 		*hide_station_name = NULL,
@@ -680,13 +680,15 @@ void weather_window_settings(GtkWidget *widget,
                 	GTK_WIDGET(station_list_view));
     gtk_container_add(GTK_CONTAINER(label), scrolled_window);
 
-
+/* preparing GPS checkbox */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         	    label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
         	    0, 1, 6, 7);
     hbox_gps = 	 gtk_hbox_new(FALSE, 0);
     label_gps = gtk_label_new(_("Enable station from GPS:"));
     chk_gps = gtk_check_button_new();
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_gps),
+        			    app->config->gps_station);
     gtk_box_pack_start(GTK_BOX(hbox_gps),
 				label_gps, FALSE, FALSE, 2);
     gtk_box_pack_end(GTK_BOX(hbox_gps),
@@ -1138,7 +1140,7 @@ void weather_window_settings(GtkWidget *widget,
 		flag_tuning_warning = TRUE;
 	    }
 /* Transparency mode */
-    	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_transparency)) != app->config->transparency){
+            if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_transparency)) != app->config->transparency){
 		app->config->transparency = 
 		    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_transparency));
     		flag_update_icon = TRUE;
@@ -1191,6 +1193,11 @@ void weather_window_settings(GtkWidget *widget,
 		app->config->downloading_after_connecting = TRUE;
 	    else
 		app->config->downloading_after_connecting = FALSE;
+/* Use GPS station */	    
+	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_gps)))
+		app->config->gps_station = TRUE;
+	    else
+		app->config->gps_station = FALSE;
 	    
 /* Current tab number */
 	    if(app->config->current_settings_page != gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook))){

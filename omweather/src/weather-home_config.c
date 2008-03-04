@@ -420,6 +420,16 @@ int new_read_config(AppletConfig *config){
     remove_periodic_event();		/* delete event from list */
     add_periodic_event(time(NULL));	/* add new event */
 
+    /* Get gps_station. Default is FALSE */
+    value = gconf_client_get(gconf_client, GCONF_KEY_USE_GPS_STATION, NULL);
+    if(value){
+        config->gps_station = gconf_value_get_bool(value);
+        gconf_value_free(value);
+        add_gps_event(time(NULL));
+    }
+    else
+        config->gps_station = FALSE;
+
     /* Get Weather font color. */    	
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_FONT_COLOR, NULL);
@@ -694,6 +704,10 @@ void new_config_save(AppletConfig *config){
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_DOWNLOADING_AFTER_CONNECTING,
 			config->downloading_after_connecting, NULL);	    
+     /* Save Use GPS station */
+    gconf_client_set_bool(gconf_client,
+        		GCONF_KEY_USE_GPS_STATION,
+			config->gps_station, NULL);	    
      /* Save Swap Temperature Button State */
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_SWAP_TEMPERATURE,

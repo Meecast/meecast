@@ -91,6 +91,27 @@ gboolean timer_handler(gpointer data){
 		    app->show_update_window = FALSE;
 		    update_weather();
     		break;		    
+		case CHECK_GPS_POSITION:
+		    /* delete periodic update */
+		#ifndef RELEASE
+		    fprintf(stderr,"Delete evt %s\n",ctime(&evt->time));
+		#endif
+		    g_free(evt);
+                    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
+		#ifndef RELEASE
+		    fprintf(stderr,"UPDATE by event\n");
+		#endif
+		    app->show_update_window = FALSE;
+                    if (calculate_distance(app->gps_station.latitude,app->gps_station.longitude,
+                                           app->temporary_station_latitude,app->temporary_station_longtitude)>10){
+                        get_nearest_station(app->temporary_station_latitude,app->temporary_station_longtitude
+                                            ,&app->gps_station);
+                
+		        update_weather();
+                    }
+                    /* add periodic gps check */
+                    add_gps_event(current_time);                    
+    		break;		    
   
 		default:
 		case AUTOUPDATE:
@@ -219,7 +240,7 @@ void time_event_add(time_t time_value, short type_event){
 }
 /*******************************************************************************/
 /*  Addition the periodic time in the list of events  for weather forecast updating */	  
-void add_periodic_event(time_t last_update){
+void add_gps_event(time_t last_update){
 
     #ifndef RELEASE
     fprintf(stderr,"Add in list\n");
@@ -227,6 +248,24 @@ void add_periodic_event(time_t last_update){
     #endif
 
     if(app->config->update_interval > 0)
+	time_event_add(last_update + 5*60, CHECK_GPS_POSITION); /* Every five minutes */ 
+
+    #ifndef RELEASE
+    fprintf(stderr,"Item added to list\n");
+    print_list(NULL, 0);
+    #endif
+	
+}
+/*******************************************************************************/
+/*  Addition the periodic time in the list of events  for GPS checking */	  
+void add_periodic_event(time_t last_update){
+
+    #ifndef RELEASE
+    fprintf(stderr,"Add in list\n");
+    print_list(NULL, 0);
+    #endif
+
+    if(app->config->gps_station)
 	time_event_add(last_update + app->config->update_interval * 60, AUTOUPDATE);
 
     #ifndef RELEASE

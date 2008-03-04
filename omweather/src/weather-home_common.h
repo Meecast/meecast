@@ -78,7 +78,7 @@
 #define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
 /*******************************************************************************/
-enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT, UPDATE_AFTER_CONNECTED};
+enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT, UPDATE_AFTER_CONNECTED, CHECK_GPS_POSITION};
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
 enum {	METERS_S,
@@ -171,7 +171,7 @@ typedef	struct{
 typedef struct{
     char	name[50];
     char	id0[10];
-    double	lattitude;
+    double	latitude;
     double	longitude;
 }Station;
 /*******************************************************************************/
@@ -200,6 +200,7 @@ typedef struct applet_config{
     gboolean	swap_hi_low_temperature;
     gboolean	hide_station_name;
     gboolean	downloading_after_connecting;
+    gboolean    gps_station;
     GdkColor	font_color;
     GdkColor	background_color;
 }AppletConfig;
@@ -215,7 +216,7 @@ typedef struct OMWeatherApplet{
     AppletConfig	*config;
     gboolean		show_update_window;
     gboolean		iap_connected;
-    gboolean		iap_connecting;    
+    gboolean		iap_connecting;
     long		iap_connecting_timer;  
     guint		timer;
     guint		timer_for_os2008;

@@ -49,7 +49,7 @@ get_nearest_station( double lat, double lon, Station *result)
     GtkTreeModel *model;
     gchar        *station_name = NULL,
                  *station_id0 = NULL;
-    double       station_lattitude,
+    double       station_latitude,
                  station_longitude,
                  distance,
 		 min_distance = 40000;
@@ -79,11 +79,11 @@ get_nearest_station( double lat, double lon, Station *result)
 				                &iter, 
                                                 0, &station_name,
 					        1, &station_id0,
-					        2, &station_lattitude,
+					        2, &station_latitude,
 					        3, &station_longitude,
                 		                -1);
 		/* Calculating distance */				
-		distance = calculate_distance(lat,lon,station_lattitude,station_longitude);
+		distance = calculate_distance(lat,lon,station_latitude,station_longitude);
 		
 		if (distance<min_distance){
 		    /* New minimal distance */
@@ -97,7 +97,7 @@ get_nearest_station( double lat, double lon, Station *result)
     		    memcpy(result->name, station_id0,
 		    	    ((sizeof(result->id0) - 1) > (int)(strlen(station_id0)) ?
 			    (int)(strlen(station_id0)) : (sizeof(result->id0) - 1)));			    
-		    result->lattitude = station_lattitude;
+		    result->latitude = station_latitude;
 		    result->longitude = station_longitude;
 		}
 		                
@@ -123,6 +123,8 @@ get_nearest_station( double lat, double lon, Station *result)
 static void
 location_changed (LocationGPSDevice *device, gpointer userdata)
 {
+    if (!app->config->gps_station)
+        return;
     FILE *file_log;
     file_log=fopen("/tmp/omw.log","a+");
     if (device->fix->fields & LOCATION_GPS_DEVICE_LATLONG_SET){

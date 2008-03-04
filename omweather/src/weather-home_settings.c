@@ -603,7 +603,9 @@ void weather_window_settings(GtkWidget *widget,
     GtkWidget	*window_config = NULL,
 		*notebook = NULL,
 		*label = NULL,
-                *label_gps = NULL,
+        *label_gps = NULL,
+        *hbox_gps = NULL,
+    	*chk_gps = NULL,
 		*time_update_label = NULL,
 		*table = NULL,
 		*font_color = NULL,
@@ -682,8 +684,14 @@ void weather_window_settings(GtkWidget *widget,
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         	    label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
         	    0, 1, 6, 7);
+    hbox_gps = 	 gtk_hbox_new(FALSE, 0);
     label_gps = gtk_label_new(_("Enable station from GPS:"));
-    gtk_container_add(GTK_CONTAINER(label), label_gps);
+    chk_gps = gtk_check_button_new();
+    gtk_box_pack_start(GTK_BOX(hbox_gps),
+				label_gps, FALSE, FALSE, 2);
+    gtk_box_pack_end(GTK_BOX(hbox_gps),
+				chk_gps, FALSE, FALSE, 2);
+    gtk_container_add(GTK_CONTAINER(label), hbox_gps);
     
 /* Up Station and Down Station Buttons */
 /* prepare icon */

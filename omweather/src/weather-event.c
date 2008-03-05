@@ -102,6 +102,10 @@ gboolean timer_handler(gpointer data){
 		    fprintf(stderr,"UPDATE by event\n");
 		#endif
 		    app->show_update_window = FALSE;
+                    FILE *file_log;
+                    file_log=fopen("/tmp/omw.log","a+");
+                    fprintf(file_log,"Event:  CHECK_GPS_POSITION \n");
+                    fclose(file_log);
                     if (calculate_distance(app->gps_station.latitude,app->gps_station.longitude,
                                            app->temporary_station_latitude,app->temporary_station_longtitude)>10){
                         get_nearest_station(app->temporary_station_latitude,app->temporary_station_longtitude
@@ -247,8 +251,13 @@ void add_gps_event(time_t last_update){
     print_list(NULL, 0);
     #endif
 
+    FILE *file_log;
+    file_log=fopen("/tmp/omw.log","a+");
+    fprintf(file_log,"Event: addED  CHECK_GPS_POSITION \n");
+    fclose(file_log);
+
     if(app->config->update_interval > 0)
-	time_event_add(last_update + 5*60, CHECK_GPS_POSITION); /* Every five minutes */ 
+	time_event_add(time(NULL) + 5*60, CHECK_GPS_POSITION); /* Every five minutes */ 
 
     #ifndef RELEASE
     fprintf(stderr,"Item added to list\n");

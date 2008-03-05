@@ -1194,8 +1194,10 @@ void weather_window_settings(GtkWidget *widget,
 	    else
 		app->config->downloading_after_connecting = FALSE;
 /* Use GPS station */	    
-	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_gps)))
+	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_gps))){
 		app->config->gps_station = TRUE;
+                add_gps_event(time(NULL));
+            }
 	    else
 		app->config->gps_station = FALSE;
 	    

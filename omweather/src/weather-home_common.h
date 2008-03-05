@@ -162,10 +162,10 @@ typedef	struct{
     char	name[50];
     long	start;
     long	end;
-    float	minlat;
-    float	minlon;
-    float	maxlat;
-    float 	maxlon;
+    double	minlat;
+    double	minlon;
+    double	maxlat;
+    double	maxlon;
 }Region_item;
 /*******************************************************************************/
 typedef struct{

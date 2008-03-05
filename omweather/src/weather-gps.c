@@ -69,9 +69,10 @@ get_nearest_station( double lat, double lon, Station *result)
 	fgets(buffer, sizeof(buffer) - 1, fh);
         parse_region_string(buffer,&region);
 	/* Checking insiding point in to region */
+        fprintf(file_log,"Region: %s %f %f %f %f - %f %f \n",region.name,region.minlat,region.maxlat,region.minlon,region.maxlon,lat,lon);
         if ( lat >= region.minlat && lat <= region.maxlat && lon >= region.minlon && lon <= region.maxlon){
-            fprintf(file_log,"Region: %s  \n",region.name);
-	    stations_list = create_items_list(LOCATIONSFILE, region.start,region.end, NULL);
+            fprintf(file_log,"Result Region: %s  \n",region.name);
+	        stations_list = create_items_list(LOCATIONSFILE, region.start,region.end, NULL);
             valid =  gtk_tree_model_get_iter_first(GTK_TREE_MODEL(stations_list), &iter);
 	    
             while (valid){

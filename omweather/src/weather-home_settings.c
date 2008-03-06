@@ -1077,10 +1077,12 @@ void weather_window_settings(GtkWidget *widget,
 						    GTK_JUSTIFY_LEFT),
         			label = gtk_label_new(_("Events")));
 #endif
-    gtk_widget_show_all(window_config);
-    gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), app->config->current_settings_page);
 /* enable help for this window */
     ossohelp_dialog_help_enable(window_config, "help_omweather_intro", app->osso);
+
+    gtk_widget_show_all(window_config);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), app->config->current_settings_page);
+
 /* kill popup window :-) */
     if(app->popup_window){
         popup_window_destroy();
@@ -1243,7 +1245,7 @@ void weather_window_settings(GtkWidget *widget,
 	    create_about_dialog();
 	break;
 	case GTK_RESPONSE_HELP:/* Pressed Help Button */
-	    help_activated_handler(NULL, "");
+	    help_activated_handler(NULL, "help_omweather_intro");
 	break;
 	default:/* Pressed CANCEL */
 	    if( flag_update_station && app->iap_connected ){

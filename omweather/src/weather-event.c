@@ -35,10 +35,11 @@ gboolean not_event = FALSE;
 static GSList *event_time_list = NULL;
 /*******************************************************************************/
 gboolean timer_handler(gpointer data){
-    static GSList *list_time_event_temp = NULL;
-    struct event_time *evt;
-    time_t current_time;
-    int check;
+    static	GSList *list_time_event_temp = NULL;
+    struct	event_time *evt;
+    time_t	current_time;
+    int		check;
+    FILE	*file_log;
 #ifndef RELEASE
     char   *temp_string;
     fprintf(stderr, "Begin %s(): \n", __PRETTY_FUNCTION__);
@@ -102,10 +103,11 @@ gboolean timer_handler(gpointer data){
 		    fprintf(stderr,"UPDATE by event\n");
 		#endif
 		    app->show_update_window = FALSE;
-                    FILE *file_log;
+
                     file_log=fopen("/tmp/omw.log","a+");
                     fprintf(file_log,"Event:  CHECK_GPS_POSITION \n");
                     fclose(file_log);
+		#if HILDON == 1
                     if (calculate_distance(app->gps_station.latitude,app->gps_station.longitude,
                                            app->temporary_station_latitude,app->temporary_station_longtitude)>10){
                         get_nearest_station(app->temporary_station_latitude,app->temporary_station_longtitude
@@ -113,6 +115,7 @@ gboolean timer_handler(gpointer data){
                 
 		        update_weather();
                     }
+		#endif
                     /* add periodic gps check */
                     add_gps_event(current_time);                    
     		break;		    
@@ -245,13 +248,12 @@ void time_event_add(time_t time_value, short type_event){
 /*******************************************************************************/
 /*  Addition the periodic time in the list of events  for weather forecast updating */	  
 void add_gps_event(time_t last_update){
-
+    FILE *file_log;
     #ifndef RELEASE
     fprintf(stderr,"Add in list\n");
     print_list(NULL, 0);
     #endif
 
-    FILE *file_log;
     file_log=fopen("/tmp/omw.log","a+");
     fprintf(file_log,"Event: addED  CHECK_GPS_POSITION \n");
     fclose(file_log);

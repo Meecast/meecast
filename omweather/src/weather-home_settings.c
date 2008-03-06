@@ -603,15 +603,17 @@ void weather_window_settings(GtkWidget *widget,
     GtkWidget	*window_config = NULL,
 		*notebook = NULL,
 		*label = NULL,
+#if HILDON == 1
                 *label_gps = NULL,
                 *hbox_gps = NULL,
+                *chk_gps = NULL,
+#endif
 		*time_update_label = NULL,
 		*table = NULL,
 		*font_color = NULL,
 		*background_color = NULL,
 		*chk_transparency = NULL,
 		*chk_downloading_after_connection = NULL,
-                *chk_gps = NULL,
 		*separate_button = NULL,
 		*swap_temperature_button = NULL,
 		*hide_station_name = NULL,
@@ -679,7 +681,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(scrolled_window),
                 	GTK_WIDGET(station_list_view));
     gtk_container_add(GTK_CONTAINER(label), scrolled_window);
-
+#if HILDON == 1
 /* preparing GPS checkbox */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         	    label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
@@ -694,7 +696,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_box_pack_end(GTK_BOX(hbox_gps),
 				chk_gps, FALSE, FALSE, 2);
     gtk_container_add(GTK_CONTAINER(label), hbox_gps);
-    
+#endif
 /* Up Station and Down Station Buttons */
 /* prepare icon */
     gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
@@ -1193,6 +1195,7 @@ void weather_window_settings(GtkWidget *widget,
 		app->config->downloading_after_connecting = TRUE;
 	    else
 		app->config->downloading_after_connecting = FALSE;
+#if HILDON == 1
 /* Use GPS station */	    
 	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_gps))){
 		app->config->gps_station = TRUE;
@@ -1200,7 +1203,7 @@ void weather_window_settings(GtkWidget *widget,
             }
 	    else
 		app->config->gps_station = FALSE;
-	    
+#endif
 /* Current tab number */
 	    if(app->config->current_settings_page != gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook))){
 		app->config->current_settings_page = gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook));

@@ -419,7 +419,7 @@ int new_read_config(AppletConfig *config){
 	config->update_interval = 0;
     remove_periodic_event();		/* delete event from list */
     add_periodic_event(time(NULL));	/* add new event */
-
+#if HILDON == 1
     /* Get gps_station. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_USE_GPS_STATION, NULL);
     if(value){
@@ -429,7 +429,7 @@ int new_read_config(AppletConfig *config){
     }
     else
         config->gps_station = FALSE;
-
+#endif
     /* Get Weather font color. */    	
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_FONT_COLOR, NULL);
@@ -703,11 +703,13 @@ void new_config_save(AppletConfig *config){
      /* Save Downloading after connecting State */
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_DOWNLOADING_AFTER_CONNECTING,
-			config->downloading_after_connecting, NULL);	    
+			config->downloading_after_connecting, NULL);
+#if HILDON == 1
      /* Save Use GPS station */
     gconf_client_set_bool(gconf_client,
-        		GCONF_KEY_USE_GPS_STATION,
-			config->gps_station, NULL);	    
+        		    GCONF_KEY_USE_GPS_STATION,
+			    config->gps_station, NULL);
+#endif
      /* Save Swap Temperature Button State */
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_SWAP_TEMPERATURE,

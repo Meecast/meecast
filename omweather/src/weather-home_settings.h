@@ -32,6 +32,8 @@
 /*******************************************************************************/
 #include "weather-home_common.h"
 /*******************************************************************************/
+#define OMWEATHER_RESPONSE_ABOUT 5000
+/*******************************************************************************/
 extern gboolean  not_event;
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
@@ -53,7 +55,7 @@ void changed_stations(void);
 void weather_window_add_custom_station(void);
 int create_icon_set_list(GtkWidget *store); /* scan /usr/share/omweather/icons */
 					     /* and add names to the list */
-void create_help_dialog(void);	/* create help dialog */
+void create_about_dialog(void);	/* create help dialog */
 GtkWidget* create_scrolled_window_with_text(const char* text,
 					    GtkJustification justification);
 int get_active_item_index(GtkTreeModel *list, int time, const gchar *text,
@@ -77,5 +79,6 @@ extern void remove_periodic_event(void);
 extern void popup_window_destroy(void);
 extern gboolean change_station_select(GtkWidget *widget, gpointer user_data);
 extern gboolean switch_timer_handler(gpointer data);
+extern void help_activated_handler(GtkWidget *window, gchar *help_id);
 /*******************************************************************************/
 #endif

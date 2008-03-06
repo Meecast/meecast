@@ -654,9 +654,12 @@ void weather_window_settings(GtkWidget *widget,
     /* add CANCEL button */
     gtk_dialog_add_button(GTK_DIALOG(window_config),
         		    _("Cancel"), GTK_RESPONSE_REJECT);
+    /* add About button */
+    gtk_dialog_add_button(GTK_DIALOG(window_config),
+        		    _("About"), OMWEATHER_RESPONSE_ABOUT);
     /* add Help button */
     gtk_dialog_add_button(GTK_DIALOG(window_config),
-        		    _("About"), GTK_RESPONSE_HELP);
+        		    _("Help"), GTK_RESPONSE_HELP);
 /* Create Notebook widget */
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_config)->vbox),
         		notebook = gtk_notebook_new(), TRUE, TRUE, 0);
@@ -1076,6 +1079,8 @@ void weather_window_settings(GtkWidget *widget,
 #endif
     gtk_widget_show_all(window_config);
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), app->config->current_settings_page);
+/* enable help for this window */
+    ossohelp_dialog_help_enable(window_config, NULL, app->osso);
 /* kill popup window :-) */
     if(app->popup_window){
         popup_window_destroy();
@@ -1234,8 +1239,11 @@ void weather_window_settings(GtkWidget *widget,
 	    if(app->stations_list)
 		gtk_list_store_clear(app->stations_list);    
 	break;
-	case GTK_RESPONSE_HELP:/* Pressed Button Help */
-	    create_help_dialog();
+	case OMWEATHER_RESPONSE_ABOUT:/* Pressed About Button */
+	    create_about_dialog();
+	break;
+	case GTK_RESPONSE_HELP:/* Pressed Help Button */
+	    help_activated_handler(NULL, "");
 	break;
 	default:/* Pressed CANCEL */
 	    if( flag_update_station && app->iap_connected ){
@@ -1246,7 +1254,7 @@ void weather_window_settings(GtkWidget *widget,
 	    }
 	break;
       }
-	if(result_gtk_dialog_run !=  GTK_RESPONSE_HELP) 
+	if(result_gtk_dialog_run !=  OMWEATHER_RESPONSE_ABOUT) 
     	    break; /* We are leave a cycle WHILE */
     }
     not_event = FALSE;
@@ -1295,7 +1303,7 @@ int create_icon_set_list(GtkWidget *store){
     return sets_number;
 }
 /*******************************************************************************/
-void create_help_dialog(void){
+void create_about_dialog(void){
     GtkWidget	*help_dialog,
 		*notebook,
 		*title;

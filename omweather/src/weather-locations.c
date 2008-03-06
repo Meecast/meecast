@@ -227,7 +227,14 @@ int parse_region_string(const char *string, Region_item *result){
 			        }
 			        else{
 				        *delimiter = 0;
+					tmp[0] = '1';
+					tmp[1] = ',';
+					tmp[2] = '3';
 				        result->maxlon = atof(tmp);
+					FILE *file_log;    
+				        file_log=fopen("/tmp/omw.log","a+");
+					fprintf(file_log,"MAXLON %f \n",result->maxlon);
+					fclose(file_log);
 				    }
 			    }
 			}			    

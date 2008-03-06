@@ -107,7 +107,7 @@ gboolean timer_handler(gpointer data){
                     file_log=fopen("/tmp/omw.log","a+");
                     fprintf(file_log,"Event:  CHECK_GPS_POSITION \n");
                     fclose(file_log);
-		#if HILDON == 1
+		#ifdef HILDON
                     if (calculate_distance(app->gps_station.latitude,app->gps_station.longitude,
                                            app->temporary_station_latitude,app->temporary_station_longtitude)>10){
                         get_nearest_station(app->temporary_station_latitude,app->temporary_station_longtitude

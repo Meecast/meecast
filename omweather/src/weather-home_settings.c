@@ -1080,7 +1080,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_widget_show_all(window_config);
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), app->config->current_settings_page);
 /* enable help for this window */
-    ossohelp_dialog_help_enable(window_config, NULL, app->osso);
+    ossohelp_dialog_help_enable(window_config, "help_omweather_intro", app->osso);
 /* kill popup window :-) */
     if(app->popup_window){
         popup_window_destroy();

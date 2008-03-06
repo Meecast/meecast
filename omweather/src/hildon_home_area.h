@@ -29,7 +29,7 @@
 #endif
 #include "weather-home_common.h"
 
-#if HILDON == 1
+#ifdef HILDON
  typedef struct HildonHomeAreaPriv_
 {
   gboolean      layout_changed;

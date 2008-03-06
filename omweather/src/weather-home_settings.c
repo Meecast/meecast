@@ -603,7 +603,7 @@ void weather_window_settings(GtkWidget *widget,
     GtkWidget	*window_config = NULL,
 		*notebook = NULL,
 		*label = NULL,
-#if HILDON == 1
+#ifdef HILDON
                 *label_gps = NULL,
                 *hbox_gps = NULL,
                 *chk_gps = NULL,
@@ -681,7 +681,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(scrolled_window),
                 	GTK_WIDGET(station_list_view));
     gtk_container_add(GTK_CONTAINER(label), scrolled_window);
-#if HILDON == 1
+#ifdef HILDON
 /* preparing GPS checkbox */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         	    label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
@@ -1195,7 +1195,7 @@ void weather_window_settings(GtkWidget *widget,
 		app->config->downloading_after_connecting = TRUE;
 	    else
 		app->config->downloading_after_connecting = FALSE;
-#if HILDON == 1
+#ifdef HILDON
 /* Use GPS station */	    
 	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_gps))){
 		app->config->gps_station = TRUE;

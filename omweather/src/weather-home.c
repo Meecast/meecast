@@ -27,14 +27,10 @@
 	
 */
 /*******************************************************************************/
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-/*******************************************************************************/
 #include <stdio.h>
 #include <unistd.h>
 #include <glib.h>
-#if HILDON == 1
+#ifdef HILDON
     #include <libhildondesktop/libhildondesktop.h>
 #else
     #include <hildon-home-plugin/hildon-home-plugin-interface.h>
@@ -55,7 +51,7 @@
 OMWeatherApp	*app = NULL;
 int		boxs_offset[Max_count_weather_day];
 gchar		path_large_icon[_POSIX_PATH_MAX];
-#if HILDON == 1
+#ifdef HILDON
 static	FILE	*filed;
 #endif
 /*******************************************************************************/
@@ -561,7 +557,7 @@ void weather_buttons_fill(gboolean check_error){
     gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
 
     gtk_widget_show_all(app->top_widget);
-    #if HILDON == 1
+    #ifdef HILDON
 	if(!app->config->transparency && app->parent)
 	    gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);
     #endif 
@@ -598,7 +594,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
     osso_context_t	*osso;
 
-#if HILDON == 1
+#ifdef HILDON
     char       tmp_buff[2048];
 #endif
 
@@ -658,7 +654,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     time_event_add(time(NULL) + 5, DBUSINITEVENT);    
     add_periodic_event(time(NULL));
 */
-#if HILDON == 1
+#ifdef HILDON
     initial_gps_connect();
     app->signal_expose = g_signal_connect(app->top_widget, "expose-event",
                 			    G_CALLBACK(expose_main_window),
@@ -676,7 +672,11 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #ifndef RELEASE
     fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
 #endif
-  
+#ifndef DESKTOP
+    fprintf(stderr, "\n>>>>>>>>>>>>>>>DESKTOP is defined.\n");
+#else
+    fprintf(stderr, "\n>>>>>>>>>>>>>>>DESKTOP is not defined.\n");
+#endif
     return (void*)osso;
 }
 /*******************************************************************************/
@@ -727,7 +727,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     new_config_save(app->config); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
 			On n800 this work */
 			
-    #if HILDON == 1
+    #ifdef HILDON
 	deinitial_gps_connect();
     	g_signal_handler_disconnect(app->parent,app->signal_size_request);
 	g_signal_handler_disconnect(app->parent_parent,app->signal_press);  
@@ -1361,7 +1361,7 @@ gboolean switch_timer_handler(gpointer data){
 }
 /*******************************************************************************/
 /* Next couple functions for OS2008 */ 
-#if HILDON == 1
+#ifdef HILDON
 gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
     int x = 0,
 	y = 0,

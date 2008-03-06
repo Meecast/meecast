@@ -29,7 +29,7 @@
 */
 /*******************************************************************************/
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
 /*******************************************************************************/
 #ifndef _weather_home_common_h
@@ -47,7 +47,7 @@
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 #include <string.h> 
-#if HILDON == 1
+#ifdef HILDON
  #include <hildon/hildon-banner.h>
  #include <libhildondesktop/hildon-desktop-picture.h>
  #include <libhildondesktop/hildon-desktop-home-item.h>
@@ -255,7 +255,7 @@ typedef struct OMWeatherApplet{
     int			ay;
     int			aw;
     int			ah;
-#if HILDON == 1
+#ifdef HILDON
     guint		gps_id_connection;
     LocationGPSDevice 	*gps_device;
     Station		gps_station;

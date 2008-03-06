@@ -30,7 +30,7 @@
 #include "weather-home_common.h"
 #include "weather-gps.h"
 /*******************************************************************************/
-#if HILDON == 1
+#ifdef HILDON
 
 void
 get_nearest_station( double lat, double lon, Station *result)

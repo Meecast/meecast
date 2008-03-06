@@ -26,7 +26,7 @@
 
 #include "hildon_home_area.h"
 
-#if HILDON == 1
+#ifdef HILDON
 
 
 

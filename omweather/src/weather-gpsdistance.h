@@ -26,7 +26,7 @@
 /*******************************************************************************/
 #include "weather-home_common.h"
 /*******************************************************************************/
-#if HILDON == 1
+#ifdef HILDON
 gdouble
 calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2);
 #endif

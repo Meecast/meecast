@@ -220,7 +220,7 @@ void weather_initialize_dbus(void){
 	    g_signal_connect(G_OBJECT(connection), "connection-event",
                     	     G_CALLBACK(connection_cb),
                 	     GINT_TO_POINTER(USER_DATA_MAGIC));
-	    #if HILDON == 1		     
+	    #ifdef HILDON
     		app->iap_connected = FALSE;		     
 	    #endif		     
 	}

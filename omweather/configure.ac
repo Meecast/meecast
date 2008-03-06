@@ -90,6 +90,11 @@ fi
 AC_SUBST(HILDONDESKTOP_LIBS)
 AC_SUBST(HILDONDESKTOP_CFLAGS)  
 
+dnl check for osso-help
+PKG_CHECK_MODULES(LIBOSSOHELP, [libossohelp])
+AC_SUBST(LIBOSSOHELP_LIBS)
+AC_SUBST(LIBOSSOHELP_CFLAGS)
+
 
 PKG_CHECK_MODULES(HILDON, hildon-1 >= 0.9.9, [hildon=yes],[hildon=no])
 if test "$hildon" == "yes"; then

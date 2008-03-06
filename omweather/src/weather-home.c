@@ -598,7 +598,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     char       tmp_buff[2048];
 #endif
 
-    osso = osso_initialize(PACKAGE, VERSION, FALSE, NULL);
+    osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
     if(!osso){
         g_debug(_("Error initializing the OMWeather applet"));
         return NULL;
@@ -671,11 +671,6 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     (*widget) = app->top_widget;
 #ifndef RELEASE
     fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
-#endif
-#ifndef DESKTOP
-    fprintf(stderr, "\n>>>>>>>>>>>>>>>DESKTOP is defined.\n");
-#else
-    fprintf(stderr, "\n>>>>>>>>>>>>>>>DESKTOP is not defined.\n");
 #endif
     return (void*)osso;
 }

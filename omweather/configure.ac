@@ -90,11 +90,6 @@ fi
 AC_SUBST(HILDONDESKTOP_LIBS)
 AC_SUBST(HILDONDESKTOP_CFLAGS)  
 
-dnl check for osso-help
-PKG_CHECK_MODULES(LIBOSSOHELP, [libossohelp])
-AC_SUBST(LIBOSSOHELP_LIBS)
-AC_SUBST(LIBOSSOHELP_CFLAGS)
-
 
 PKG_CHECK_MODULES(HILDON, hildon-1 >= 0.9.9, [hildon=yes],[hildon=no])
 if test "$hildon" == "yes"; then
@@ -151,6 +146,16 @@ if test "$hildon" == "yes"; then
   AC_SUBST(LOCATION_CFLAGS)
   AC_SUBST(LOCATION_LIBS)
 fi
+
+if test "$hildon" == "yes"; then
+    PKG_CHECK_MODULES(LIBOSSOHELP, libosso >= 1 hildon-help)
+else
+    dnl check for osso-help
+    PKG_CHECK_MODULES(LIBOSSOHELP, [libossohelp])
+fi
+AC_SUBST(LIBOSSOHELP_LIBS)
+AC_SUBST(LIBOSSOHELP_CFLAGS)
+
 
 AM_CONDITIONAL(OS2008, test "x$use_dbus" != "xyes")		  
 

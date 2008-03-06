@@ -27,6 +27,7 @@
 	
 */
 /*******************************************************************************/
+#include "weather-home.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <glib.h>
@@ -35,7 +36,6 @@
 #else
     #include <hildon-home-plugin/hildon-home-plugin-interface.h>
 #endif
-#include "weather-home.h"
 #include <unistd.h>
 #include "weather-home_hash.h"
 #include "weather-data.h"

@@ -47,7 +47,7 @@
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 #include <string.h> 
-#ifdef HILDON
+#ifdef HILDON 
  #include <hildon/hildon-banner.h>
  #include <libhildondesktop/hildon-desktop-picture.h>
  #include <libhildondesktop/hildon-desktop-home-item.h>

@@ -21,8 +21,14 @@
  * You should have received a copy of the GNU General Public License
  * along with Maemo Mapper.  If not, see <http://www.gnu.org/licenses/>.
  */
+#ifndef _weather_gpsdistance_h
+#define _weather_gpsdistance_h 1
+/*******************************************************************************/
 #include "weather-home_common.h"
+/*******************************************************************************/
 #if HILDON == 1
 gdouble
 calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2);
+#endif
+/*******************************************************************************/
 #endif

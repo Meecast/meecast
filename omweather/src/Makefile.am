@@ -47,7 +47,7 @@ libweather_home_la_SOURCES = weather-home.c \
 			     weather-popup.c \
 			     weather-gps.h \
 			     weather-gps.c \
-     			     weather-gpsdistance.h \
+			     weather-gpsdistance.h \
 			     weather-gpsdistance.c \
 			     hildon_home_area.c \
 			     hildon_home_area.h

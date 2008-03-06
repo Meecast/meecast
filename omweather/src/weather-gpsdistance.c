@@ -26,14 +26,15 @@
  * Calculate the distance between two lat/lon pairs.  The distance is returned
  * in nautical miles and should be converted using UNITS_CONVERT[_units].
  */
+/*******************************************************************************/
 #include "weather-gpsdistance.h"
-
+/*******************************************************************************/
 #if HILDON == 1
 
 #define PI   (3.14159265358979323846)
 #define EARTH_RADIUS (3443.91847)
 #define deg2rad(deg) ((deg) * (PI / 180.0)) 
- 
+/*******************************************************************************/ 
 gdouble
 calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2)
 {
@@ -52,5 +53,5 @@ calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2)
     a = (slat * slat) + (cos(lat1) * cos(lat2) * slon * slon);
     return ((2.0 * atan2(sqrt(a), sqrt(1.0 - a))) * EARTH_RADIUS);
 }
-
+/*******************************************************************************/
 #endif

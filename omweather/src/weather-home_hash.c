@@ -174,6 +174,7 @@ GHashTable* hash_table_create(void){
     g_hash_table_insert(hash, "WSW", _("WSW"));
     g_hash_table_insert(hash, "W", _("W"));
     g_hash_table_insert(hash, "VAR", _("VAR"));
+    g_hash_table_insert(hash, "Very High", _("Very High"));
     return  hash;
 }
 /*******************************************************************************/

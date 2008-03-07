@@ -29,6 +29,7 @@
 /*******************************************************************************/
 #include "weather-home_settings.h"
 #include "weather-locations.h"
+#include "weather-help.h"
 #if defined (BSD) && !_POSIX_SOURCE
     #include <sys/dir.h>
     typedef struct dirent Dirent;
@@ -657,9 +658,6 @@ void weather_window_settings(GtkWidget *widget,
     /* add About button */
     gtk_dialog_add_button(GTK_DIALOG(window_config),
         		    _("About"), OMWEATHER_RESPONSE_ABOUT);
-    /* add Help button */
-    gtk_dialog_add_button(GTK_DIALOG(window_config),
-        		    _("Help"), GTK_RESPONSE_HELP);
 /* Create Notebook widget */
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_config)->vbox),
         		notebook = gtk_notebook_new(), TRUE, TRUE, 0);
@@ -1078,7 +1076,7 @@ void weather_window_settings(GtkWidget *widget,
         			label = gtk_label_new(_("Events")));
 #endif
 /* enable help for this window */
-    ossohelp_dialog_help_enable(window_config, "help_omweather_intro", app->osso);
+    ossohelp_dialog_help_enable(window_config, OMWEATHER_SETTINGS_HELP_ID, app->osso);
 
     gtk_widget_show_all(window_config);
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), app->config->current_settings_page);
@@ -1243,9 +1241,6 @@ void weather_window_settings(GtkWidget *widget,
 	break;
 	case OMWEATHER_RESPONSE_ABOUT:/* Pressed About Button */
 	    create_about_dialog();
-	break;
-	case GTK_RESPONSE_HELP:/* Pressed Help Button */
-	    help_activated_handler(NULL, "help_omweather_intro");
 	break;
 	default:/* Pressed CANCEL */
 	    if( flag_update_station && app->iap_connected ){

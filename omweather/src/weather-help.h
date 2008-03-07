@@ -31,8 +31,15 @@
 #define _weather_help_h 1
 /*******************************************************************************/
 #include "weather-home_common.h"
+#include <libosso.h>
+#ifdef HILDON
+    #include <hildon/hildon-help.h>
+#else
+    #include <osso-helplib.h>
+#endif
 /*******************************************************************************/
 #define OMWEATHER_SETTINGS_HELP_ID	"help_omweather_settings"
+#define OMWEATHER_ABOUT_HELP_ID		"help_omweather_about"
 /*******************************************************************************/
 void help_activated_handler(GtkWidget *window, gchar *help_id);
 /*******************************************************************************/

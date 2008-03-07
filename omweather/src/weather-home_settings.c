@@ -1076,7 +1076,7 @@ void weather_window_settings(GtkWidget *widget,
         			label = gtk_label_new(_("Events")));
 #endif
 /* enable help for this window */
-    ossohelp_dialog_help_enable(window_config, OMWEATHER_SETTINGS_HELP_ID, app->osso);
+    ossohelp_dialog_help_enable(GTK_DIALOG(window_config), OMWEATHER_SETTINGS_HELP_ID, app->osso);
 
     gtk_widget_show_all(window_config);
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), app->config->current_settings_page);
@@ -1374,7 +1374,8 @@ void create_about_dialog(void){
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),
         			title = gtk_label_new(_("Translators")));
-
+/* enable help for this window */
+    ossohelp_dialog_help_enable(GTK_DIALOG(help_dialog), OMWEATHER_ABOUT_HELP_ID, app->osso);
     gtk_widget_show_all(help_dialog);
 /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(help_dialog));

@@ -28,17 +28,10 @@
 */
 /*******************************************************************************/
 #include "weather-help.h"
-#include <libosso.h>
-#ifdef HILDON
-    #include <hildon/hildon-help.h>
-#else
-    #include <osso-helplib.h>
-#endif
 /*******************************************************************************/
 void help_activated_handler(GtkWidget *window, gchar *help_id){
     if(!help_id)
 	return;
-    fprintf(stderr, "\n>>>>>>>>>>Id %s\n", help_id);
 #ifdef HILDON
     hildon_help_show(app->osso, help_id, HILDON_HELP_SHOW_DIALOG);
 #else

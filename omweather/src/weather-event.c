@@ -267,7 +267,8 @@ void add_gps_event(time_t last_update){
     fclose(file_log);
 
     if(app->config->update_interval > 0)
-	time_event_add(time(NULL) + 5*60, CHECK_GPS_POSITION); /* Every five minutes */ 
+//	time_event_add(time(NULL) + 5*60, CHECK_GPS_POSITION); /* Every five minutes */ 
+	time_event_add(time(NULL) + 1*60, CHECK_GPS_POSITION); /* Every one minute */ 
 
     #ifndef RELEASE
     fprintf(stderr,"Item added to list\n");

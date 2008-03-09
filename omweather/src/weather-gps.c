@@ -40,7 +40,6 @@ get_nearest_station( double lat, double lon, Station *result)
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif     
-    float        min_lat,max_lat,min_lon,max_lon;
     gchar        region_string[4096];
     Region_item  region;
     GtkListStore *stations_list = NULL;
@@ -126,7 +125,18 @@ location_changed (LocationGPSDevice *device, gpointer userdata)
         return;
     if (device->fix->fields & LOCATION_GPS_DEVICE_LATLONG_SET){
 	app->temporary_station_latitude = device->fix->latitude;
-	app->temporary_station_longtitude = device->fix->longitude;	
+	app->temporary_station_longtitude = device->fix->longitude;
+        double r;
+        r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
+        app->temporary_station_latitude = r*90;
+        r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
+        app->temporary_station_longtitude = r*200;
+        r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
+        if (r<0.5)
+            app->temporary_station_latitude = app->temporary_station_latitude  * -1;
+        r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
+        if (r<0.5)
+            app->temporary_station_longtitude = app->temporary_station_longtitude  * -1;
     }
 }
 /*******************************************************************************/ 

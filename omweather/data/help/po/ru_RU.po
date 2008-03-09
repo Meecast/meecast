@@ -1,19 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
+# translation of ru_RU.po to Russian
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Pavel Fialko <pavelnf@gmail.com>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-11-04 09:13+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2008-03-09 11:22+0200\n"
+"Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
+"Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: data/help/omweather.xml.in.h:1
 msgid "3 icon size kinds"
@@ -39,7 +40,6 @@ msgstr ""
 "свою станцию</display_text> которая может быть использована для добавления станции которая "
 "не найдена в списке станций. Код станции может быть найден с (http://xoap."
 "weather.com/search/search?here=имя_станции) или Вы можете использовать ZIP код (только для США)."
-""
 
 #: data/help/omweather.xml.in.h:5
 msgid ""
@@ -49,6 +49,9 @@ msgid ""
 "you need first select country from a drop down menu. Next you need to select "
 "correct state or province and a place which weather you want to monitor."
 msgstr ""
+"Кнопка <display_text>Добавить</display_text> позволяет вам добавлять новые города в список, который "
+"потом будет показан на вкладке Местоположения. После нажатия кнопки <display_text>Добавить</display_text>, открывается новое окно, в котором"
+"вам необходимо выбрать сначала страну из выпадающего списка. Затем вы должны выбрать необходимый штат или область, а также город в котором вы хотите наблюдать погоду."
 
 #: data/help/omweather.xml.in.h:6
 msgid ""
@@ -62,6 +65,8 @@ msgid ""
 "<display_text>Delete</display_text> button deletes selected station from the "
 "list."
 msgstr ""
+"Кнопка <display_text>Удалить</display_text> удаляет выбранную станцию из "
+"списка."
 
 #: data/help/omweather.xml.in.h:8
 msgid ""
@@ -75,6 +80,8 @@ msgid ""
 "<display_text>Hide station name and arrows:</display_text> selection will "
 "controls if station name and arrows are shown on the applet."
 msgstr ""
+"<display_text>Убрать имя станции и стрелки:</display_text> позволяет "
+"вам контролировать отображение имени станции и стрелок."
 
 #: data/help/omweather.xml.in.h:10
 msgid ""
@@ -89,12 +96,16 @@ msgid ""
 "<display_text>Icon size:</display_text> defines icon size. Size can be "
 "large, medium or small."
 msgstr ""
+"<display_text>Размер иконок:</display_text> устанавливает размер значков. Размер может быть "
+"большим, средним или маленьким."
 
 #: data/help/omweather.xml.in.h:12
 msgid ""
 "<display_text>Interface</display_text> tab is used to configure settings "
 "that controls visual appearance of the OMWeather."
 msgstr ""
+"Закладка <display_text>Интерфейс</display_text> позволяет настроить "
+"внешний вид апплета OMWeather."
 
 #: data/help/omweather.xml.in.h:13
 msgid ""
@@ -113,6 +124,8 @@ msgid ""
 "<display_text>Rename</display_text> button allows you to change name of the "
 "selected station."
 msgstr ""
+"Кнопка <display_text>Переименовать</display_text> позволяет вам изменить имя "
+"выбранной станции."
 
 #: data/help/omweather.xml.in.h:16
 msgid ""
@@ -174,7 +187,7 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:25
 msgid "Current Version: __VERSION__"
-msgstr "Текущая версия:  __VERSION__"
+msgstr "Текущая версия: __VERSION__"
 
 #: data/help/omweather.xml.in.h:26
 msgid "Custom city support"
@@ -200,19 +213,19 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:30
 msgid "Interface"
-msgstr ""
+msgstr "Интерфейс"
 
 #: data/help/omweather.xml.in.h:31
 msgid "Introduction"
-msgstr ""
+msgstr "Введение"
 
 #: data/help/omweather.xml.in.h:32
 msgid "Locations"
-msgstr ""
+msgstr "Местоположения"
 
 #: data/help/omweather.xml.in.h:33
 msgid "OMWeather"
-msgstr ""
+msgstr "OMWeather"
 
 #: data/help/omweather.xml.in.h:34
 msgid ""
@@ -235,7 +248,7 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:37
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: data/help/omweather.xml.in.h:38
 msgid ""
@@ -299,11 +312,11 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:47
 msgid "Units"
-msgstr ""
+msgstr "Единицы измерения"
 
 #: data/help/omweather.xml.in.h:48
 msgid "Update"
-msgstr ""
+msgstr "Обновление"
 
 #: data/help/omweather.xml.in.h:49
 msgid ""
@@ -343,3 +356,4 @@ msgid ""
 "this program; if not, write to the Free Software Foundation, Inc., 59 Temple "
 "Place, Suite 330, Boston, MA 02111-1307 USA"
 msgstr ""
+

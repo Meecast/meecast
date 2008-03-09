@@ -106,16 +106,24 @@ gboolean timer_handler(gpointer data){
 
                     file_log=fopen("/tmp/omw.log","a+");
                     fprintf(file_log,"Event:  CHECK_GPS_POSITION \n");
-                    fclose(file_log);
+
 		#ifdef HILDON
+                    fprintf(file_log,"Event:  Calculate CHECK_GPS_POSITION %f %f %f %f %f\n",
+                                    app->gps_station.latitude,app->gps_station.longitude,
+                                    app->temporary_station_latitude,app->temporary_station_longtitude,
+                                    calculate_distance(app->gps_station.latitude,app->gps_station.longitude,
+                                           app->temporary_station_latitude,app->temporary_station_longtitude));
                     if (calculate_distance(app->gps_station.latitude,app->gps_station.longitude,
                                            app->temporary_station_latitude,app->temporary_station_longtitude)>10){
                         get_nearest_station(app->temporary_station_latitude,app->temporary_station_longtitude
                                             ,&app->gps_station);
+                        fprintf(file_log,"Event:  CHECK_GPS_POSITION Changing %s\n",app->gps_station.name);
+                        add_station_to_user_list(app->gps_station.name,app->gps_station.id0, TRUE);
                 
 		        update_weather();
                     }
 		#endif
+                     fclose(file_log);
                     /* add periodic gps check */
                     add_gps_event(current_time);                    
     		break;		    

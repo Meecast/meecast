@@ -93,8 +93,8 @@ get_nearest_station( double lat, double lon, Station *result)
     		    memcpy(result->name, station_name,
 		    	    ((sizeof(result->name) - 1) > (int)(strlen(station_name)) ?
 			    (int)(strlen(station_name)) : (sizeof(result->name) - 1)));
-    		    memset(result->name, 0, sizeof(result->name));
-    		    memcpy(result->name, station_id0,
+    		    memset(result->id0, 0, sizeof(result->name));
+    		    memcpy(result->id0, station_id0,
 		    	    ((sizeof(result->id0) - 1) > (int)(strlen(station_id0)) ?
 			    (int)(strlen(station_id0)) : (sizeof(result->id0) - 1)));			    
 		    result->latitude = station_latitude;
@@ -136,7 +136,7 @@ initial_gps_connect(void)
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif 
-    get_nearest_station(43.01,75.01,&app->gps_station);
+    get_nearest_station(43.63,-73.64,&app->gps_station);
     app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
     app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (location_changed), NULL);

@@ -68,6 +68,18 @@ static GtkWidget    *countrys,
 		    *window_add_station;
 static char flag_update_station = FALSE; /* Flag update station list */
 static gchar *_weather_station_id_temp; /* Temporary value for weather_station_id */
+
+/*******************************************************************************/
+void add_station_to_user_list(gchar *weather_station_name,gchar *weather_station_id, gboolean is_gps){
+    GtkTreeIter		iter;
+    /* Add station to stations list */
+    gtk_list_store_append(app->user_stations_list, &iter);
+    gtk_list_store_set(app->user_stations_list, &iter,
+                                0, weather_station_name,
+                                1, weather_station_id,
+                                2, is_gps,
+                                -1);
+}
 /*******************************************************************************/
 void changed_country(void){
     GtkTreeModel	*model;
@@ -478,13 +490,11 @@ void weather_window_add_custom_station(void){
 			    g_free(app->config->current_station_name);
 			app->config->current_station_name = g_strdup(gtk_entry_get_text((GtkEntry*)custom_station_name));
 			station_name = g_strdup(app->config->current_station_name);
-		    /* Add station to stations list */
-        		gtk_list_store_append(app->user_stations_list, &iter);
-        		gtk_list_store_set(app->user_stations_list, &iter,
-                            		    0, station_name,
-                            		    1, station_code,
-                            		    -1);
-		    /* Update config file */
+                        
+                        /* Add station to stations list */
+                        add_station_to_user_list(station_code,station_name, FALSE);
+
+		        /* Update config file */
 			new_config_save(app->config);
 			flag_update_station = TRUE;
 		    }

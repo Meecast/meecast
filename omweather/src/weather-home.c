@@ -1635,6 +1635,6 @@ gboolean expose_main_window(GtkWidget *widget, GdkEventExpose *event){
 #endif
 /*******************************************************************************/
 GtkListStore* create_user_stations_list(void){
-    return gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_STRING);
+    return gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_STRING,G_TYPE_BOOLEAN);
 }
 /*******************************************************************************/

@@ -149,6 +149,7 @@ struct time_update{
 struct weather_station{
     gchar	*id_station;
     gchar	*name_station;
+    gboolean    is_gps;
     gint	number;
 };
 /*******************************************************************************/

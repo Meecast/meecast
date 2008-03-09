@@ -170,11 +170,12 @@ int parse_region_string(const char *string, Region_item *result){
     
     tmp = (char*)string;
     delimiter = strchr(tmp, ';');
+    setlocale(LC_NUMERIC,"POSIX");
     if(!delimiter)
 	res = 1;
     else{
 	memset(result->name, 0, sizeof(result->name));
-    memcpy(result->name, tmp,
+        memcpy(result->name, tmp,
 		((sizeof(result->name) - 1 > (int)(delimiter - tmp)) ?
 		((int)(delimiter - tmp)) : (sizeof(result->name) - 1)));
 	tmp = delimiter + 1;
@@ -227,14 +228,8 @@ int parse_region_string(const char *string, Region_item *result){
 			        }
 			        else{
 				        *delimiter = 0;
-					tmp[0] = '1';
-					tmp[1] = ',';
-					tmp[2] = '3';
 				        result->maxlon = atof(tmp);
 					FILE *file_log;    
-				        file_log=fopen("/tmp/omw.log","a+");
-					fprintf(file_log,"MAXLON %f \n",result->maxlon);
-					fclose(file_log);
 				    }
 			    }
 			}			    
@@ -243,6 +238,7 @@ int parse_region_string(const char *string, Region_item *result){
 	    }
 	}
     }
+    setlocale(LC_NUMERIC,"");    
     return res;
 }
 /*******************************************************************************/
@@ -253,6 +249,7 @@ int parse_station_string(const char *string, Station *result){
     
     tmp = (char*)string;
     delimiter = strchr(tmp, ';');
+    setlocale(LC_NUMERIC,"POSIX");
     if(!delimiter)
 	res = 1;
     else{
@@ -291,6 +288,7 @@ int parse_station_string(const char *string, Station *result){
 	    }
 	}
     }
+    setlocale(LC_NUMERIC,"");
     return res;
 }
 /*******************************************************************************/

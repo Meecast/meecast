@@ -37,9 +37,9 @@ get_nearest_station( double lat, double lon, Station *result)
 {
     FILE		*fh;
     char		buffer[512];
-//#ifndef RELEASE
+#ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
-//#endif     
+#endif     
     float        min_lat,max_lat,min_lon,max_lon;
     gchar        region_string[4096];
     Region_item  region;
@@ -69,7 +69,6 @@ get_nearest_station( double lat, double lon, Station *result)
 	fgets(buffer, sizeof(buffer) - 1, fh);
         parse_region_string(buffer,&region);
 	/* Checking insiding point in to region */
-	fprintf(file_log,"Ragion %s %f %f %f %f lat %f lon %f\n",region.name,region.minlat,region.maxlat,region.minlon,region.maxlon,lat,lon);
         if ( lat >= region.minlat && lat <= region.maxlat && lon >= region.minlon && lon <= region.maxlon){
 	    
             stations_list = create_items_list(LOCATIONSFILE, region.start,region.end, NULL);
@@ -115,9 +114,9 @@ get_nearest_station( double lat, double lon, Station *result)
     }
     fclose(fh);
     fclose(file_log);
-//#ifndef RELEASE
+#ifndef RELEASE
     fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
-//#endif 
+#endif 
 }
 /*******************************************************************************/
 static void
@@ -125,15 +124,9 @@ location_changed (LocationGPSDevice *device, gpointer userdata)
 {
     if (!app->config->gps_station)
         return;
-    FILE *file_log;
-    file_log=fopen("/tmp/omw.log","a+");
     if (device->fix->fields & LOCATION_GPS_DEVICE_LATLONG_SET){
-	fprintf (file_log,"Latitude: %.2f\nLongitude: %.2f\nAltitude: %.2f\n",
-	device->fix->latitude, device->fix->longitude, device->fix->altitude);
 	app->temporary_station_latitude = device->fix->latitude;
 	app->temporary_station_longtitude = device->fix->longitude;	
-	fclose(file_log);
-//	get_nearest_station(device->fix->latitude,device->fix->longitude,&app->temporary_gps_station);
     }
 }
 /*******************************************************************************/ 
@@ -143,7 +136,7 @@ initial_gps_connect(void)
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif 
-    get_nearest_station(55.28,30.23,&app->gps_station);
+    get_nearest_station(43.01,75.01,&app->gps_station);
     app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
     app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (location_changed), NULL);

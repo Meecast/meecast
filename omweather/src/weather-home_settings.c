@@ -1255,7 +1255,7 @@ void weather_window_settings(GtkWidget *widget,
     	    break; /* We are leave a cycle WHILE */
     }
     not_event = FALSE;
-#if HILDON != 1    
+#ifndef HILDON
     if(flag_tuning_warning)
 	hildon_banner_show_information(app->main_window,
 					NULL,

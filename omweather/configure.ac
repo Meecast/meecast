@@ -61,7 +61,7 @@ PKG_CHECK_MODULES(LIBXML2, [libxml-2.0 >= 2.6.16])
 AC_SUBST(LIBXML2_LIBS)
 AC_SUBST(LIBXML2_CFLAGS)
 
-PKG_CHECK_MODULES(LIBCURL, libcurl)
+PKG_CHECK_MODULES(LIBCURL, [libcurl])
 AC_SUBST(LIBCURL_LIBS)
 AC_SUBST(LIBCURL_CFLAGS)
 
@@ -73,7 +73,7 @@ PKG_CHECK_MODULES(GCONF, [gconf-2.0 >= 2.6.2])
 AC_SUBST(GCONF_LIBS)
 AC_SUBST(GCONF_CFLAGS)
 
-PKG_CHECK_MODULES(DESKTOP, hildon-desktop, [desktop=yes], [desktop=no])
+PKG_CHECK_MODULES(DESKTOP, [hildon-desktop], [desktop=yes], [desktop=no])
 if test "$hildon-desktop" == "yes"; then 
          AC_DEFINE(DESKTOP, 1, [hildon-desktop used]) 
 fi 
@@ -81,7 +81,7 @@ AC_SUBST(DESKTOP_LIBS)
 AC_SUBST(DESKTOP_CFLAGS)
 
 
-PKG_CHECK_MODULES(HILDONDESKTOP, libhildondesktop, [hildondesktop=yes], [hildondesktop=no]) 
+PKG_CHECK_MODULES(HILDONDESKTOP, [libhildondesktop], [hildondesktop=yes], [hildondesktop=no]) 
 if test "$hildondesktop" == "yes"; then 
          AC_DEFINE(HILDONDESKTOP, 1, [Hildon desktop used]) 
 else 
@@ -91,11 +91,11 @@ AC_SUBST(HILDONDESKTOP_LIBS)
 AC_SUBST(HILDONDESKTOP_CFLAGS)  
 
 
-PKG_CHECK_MODULES(HILDON, hildon-1 >= 0.9.9, [hildon=yes],[hildon=no])
+PKG_CHECK_MODULES(HILDON, [hildon-1 >= 0.9.9], [hildon=yes],[hildon=no])
 if test "$hildon" == "yes"; then
           AC_DEFINE(HILDON, 1, [Version of hildon libraries])
 else    
-	  PKG_CHECK_MODULES(HILDON_LIBS, hildon-libs >= 0.12.0)
+	  PKG_CHECK_MODULES(HILDON_LIBS, [hildon-libs >= 0.12.0])
 	  PKG_CHECK_MODULES(DBUS, [dbus-1],
 	    [
         	use_dbus="yes"
@@ -114,7 +114,7 @@ fi
 AC_SUBST(HILDON_CFLAGS)
 AC_SUBST(HILDON_LIBS)
 
-PKG_CHECK_MODULES(OSSOIC, osso-ic >= 0.21,[ossoic=yes],[ossoic=no])
+PKG_CHECK_MODULES(OSSOIC, [osso-ic >= 0.21], [ossoic=yes], [ossoic=no])
 if test "$ossoic" == "yes"; then
 	AC_DEFINE(OSSOIC, 1 , [OSSO IC used])
 fi	
@@ -148,7 +148,7 @@ if test "$hildon" == "yes"; then
 fi
 
 if test "$hildon" == "yes"; then
-    PKG_CHECK_MODULES(LIBOSSOHELP, libosso >= 1 hildon-help)
+    PKG_CHECK_MODULES(LIBOSSOHELP, [libosso >= 1 hildon-help])
 else
     dnl check for osso-help
     PKG_CHECK_MODULES(LIBOSSOHELP, [libossohelp])

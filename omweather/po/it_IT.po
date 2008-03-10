@@ -31,14 +31,13 @@ msgstr ""
 "\tPavel Fialko, pavelnf@gmail.com"
 
 #: src/weather-home_settings.c:1324
-#, fuzzy
 msgid ""
 "\n"
 "Copyright(c) 2006-2008\n"
 "Vlad Vasiliev, Pavel Fialko"
 msgstr ""
 "\n"
-"Copyright(c) 2006-2007\n"
+"Copyright(c) 2006-2008\n"
 "Vlad Vasiliev, Pavel Fialko"
 
 #: src/weather-home_settings.c:1342
@@ -264,7 +263,6 @@ msgid "AM Rain / Snow Showers / Wind"
 msgstr " / / Vento"
 
 #: src/weather-home_hash.c:27
-#, fuzzy
 msgid "AM Rain / Wind"
 msgstr " / Vento"
 
@@ -1109,7 +1107,7 @@ msgstr "Tempesta"
 
 #: src/weather-home_hash.c:156
 msgid "Sunny"
-msgstr ""
+msgstr "Soleggiato"
 
 #: src/weather-home_hash.c:157
 msgid "Sunny / Wind"
@@ -1361,7 +1359,7 @@ msgstr "m/s"
 
 #: src/weather-home.c:907 src/weather-popup.c:465
 msgid "mb"
-msgstr ""
+msgstr "mb"
 
 #: src/weather-home.c:896 src/weather-home.c:897 src/weather-popup.c:454
 #: src/weather-popup.c:455

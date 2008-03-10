@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-07 16:19+0200\n"
+"POT-Creation-Date: 2008-03-10 11:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,20 +30,14 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:4
 msgid ""
-"<display_text>Add Station</display_text> dialog has also <display_text>Add "
-"Custom Station</display_text> button, which can be used to add stations not "
-"found on drop down menus. Station codes can be found from (http://xoap."
-"weather.com/search/search?here=station_name) or you can use ZIP code for US "
-"stations."
+"<display_text>Add Custom Station</display_text> button used to add stations "
+"not found on drop down menus."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:5
 msgid ""
 "<display_text>Add</display_text> button allows you to add new cities which "
-"will then be listed in the locations screen. When <display_text>Add</"
-"display_text> button is touched, new dialog window is opened. In this window "
-"you need first select country from a drop down menu. Next you need to select "
-"correct state or province and a place which weather you want to monitor."
+"will then be listed in the locations screen."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:6
@@ -157,28 +151,36 @@ msgid "About OMWeather"
 msgstr ""
 
 #: data/help/omweather.xml.in.h:23
+msgid "Add Custom Station"
+msgstr ""
+
+#: data/help/omweather.xml.in.h:24
+msgid "Add Station"
+msgstr ""
+
+#: data/help/omweather.xml.in.h:25
 msgid ""
 "Automatic update weather forecast information from the Internet (Data "
 "available from xoap.weather.com)"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:24
+#: data/help/omweather.xml.in.h:26
 msgid "Copyright © 2006-2007 Vlad Vasiliev."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:25
+#: data/help/omweather.xml.in.h:27
 msgid "Current Version: __VERSION__"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:26
+#: data/help/omweather.xml.in.h:28
 msgid "Custom city support"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:27
+#: data/help/omweather.xml.in.h:29
 msgid "Detailed weather forecast for 10 days"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:28
+#: data/help/omweather.xml.in.h:30
 msgid ""
 "First thing to do is select the size and position of a OMWeather applet. You "
 "can change position of the applet simply touching it and dragging it where "
@@ -188,37 +190,51 @@ msgid ""
 "button will lead you back to desktop."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:29
+#: data/help/omweather.xml.in.h:31
 msgid "Getting Started"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:30
-msgid "Interface"
-msgstr ""
-
-#: data/help/omweather.xml.in.h:31
-msgid "Introduction"
-msgstr ""
-
 #: data/help/omweather.xml.in.h:32
-msgid "Locations"
+msgid ""
+"In this window you need first select country from a drop down menu. Next you "
+"need to select correct state or province and a place which weather you want "
+"to monitor."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:33
-msgid "OMWeather"
+msgid ""
+"In this window you need to enter station name and station code. Station "
+"codes can be found from (http://xoap.weather.com/search/search?"
+"here=station_name) or you can use ZIP code for US stations."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:34
+msgid "Interface"
+msgstr ""
+
+#: data/help/omweather.xml.in.h:35
+msgid "Introduction"
+msgstr ""
+
+#: data/help/omweather.xml.in.h:36
+msgid "Locations"
+msgstr ""
+
+#: data/help/omweather.xml.in.h:37
+msgid "OMWeather"
+msgstr ""
+
+#: data/help/omweather.xml.in.h:38
 msgid ""
 "OMWeather is a weather applet for Nokia Internet Tablets desktop that can be "
 "used to:"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:35
+#: data/help/omweather.xml.in.h:39
 msgid "OMWeather was developed by Vlad Vasiliev (vlad@gas.by)."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:36
+#: data/help/omweather.xml.in.h:40
 msgid ""
 "OMWeather will use Tablets Home city selection as a default location for "
 "weather data. This location can be changed by touching the applet and "
@@ -227,11 +243,11 @@ msgid ""
 "\"help_omweather_settings\" refdoc=\"Settings\"/> page."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:37
+#: data/help/omweather.xml.in.h:41
 msgid "Settings"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:38
+#: data/help/omweather.xml.in.h:42
 msgid ""
 "The <display_text>Settings</display_text> dialog (accessible from the "
 "desktop applet or home screens Applet settings menu) provides access to the "
@@ -240,11 +256,11 @@ msgid ""
 "show information of the OMWeather."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:39
+#: data/help/omweather.xml.in.h:43
 msgid "The list of stations in window \"Add station\" is sorted"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:40
+#: data/help/omweather.xml.in.h:44
 msgid ""
 "This program is distributed in the hope that it will be useful, but WITHOUT "
 "ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
@@ -252,7 +268,7 @@ msgid ""
 "more details."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:41
+#: data/help/omweather.xml.in.h:45
 msgid ""
 "This program is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License as published by the Free "
@@ -260,26 +276,26 @@ msgid ""
 "any later version."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:42
+#: data/help/omweather.xml.in.h:46
 msgid ""
 "To activate OMWeather select <display_text>Home</display_text> > "
 "<display_text>Select applets...</display_text> > <display_text>OMWeather</"
 "display_text>."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:43
+#: data/help/omweather.xml.in.h:47
 msgid ""
 "To manually update weather data select refresh button from the detailed "
 "weather window (two small arrows in the upper right corner)."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:44
+#: data/help/omweather.xml.in.h:48
 msgid ""
 "To see time of the sunrise/sunset or phase of the moon select >>. This "
 "window will also show some weather data update times."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:45
+#: data/help/omweather.xml.in.h:49
 msgid ""
 "Touching icon of a day brings up a small windows where you can see current "
 "weather or detailed forecast of a selected day. Touching "
@@ -287,51 +303,51 @@ msgid ""
 "dialog."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:46
+#: data/help/omweather.xml.in.h:50
 msgid "Transparency option"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:47
+#: data/help/omweather.xml.in.h:51
 msgid "Units"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:48
+#: data/help/omweather.xml.in.h:52
 msgid "Update"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:49
+#: data/help/omweather.xml.in.h:53
 msgid ""
 "Use the <ref refid=\"help_omweather_\" refdoc=\"index\"/> to use the various "
 "sections of this help document."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:50
+#: data/help/omweather.xml.in.h:54
 msgid ""
 "User is able to add station on the basis of a code for weather.com (http://"
 "xoap.weather.com/search/search?here=station_name) or ZIP code USA"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:51
+#: data/help/omweather.xml.in.h:55
 msgid "User is able to change amount of days from 1 to 10"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:52
+#: data/help/omweather.xml.in.h:56
 msgid "User is able to select font color and background color which he likes"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:53
+#: data/help/omweather.xml.in.h:57
 msgid "Using Desktop Applet"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:54
+#: data/help/omweather.xml.in.h:58
 msgid "Weather data provided by: xoap.weather.com"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:55
+#: data/help/omweather.xml.in.h:59
 msgid "Welcome to OMWeather."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:56
+#: data/help/omweather.xml.in.h:60
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "this program; if not, write to the Free Software Foundation, Inc., 59 Temple "

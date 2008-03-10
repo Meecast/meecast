@@ -98,18 +98,7 @@
       </_para>
       <_para>
         <display_text>Add</display_text> button allows you to add new
-        cities which will then be listed in the locations screen.  When
-         <display_text>Add</display_text> button is touched, new dialog
-        window is opened.  In this window you need first select country
-        from a drop down menu.  Next you need to select correct state or
-        province and a place which weather you want to monitor.
-      </_para>
-      <_para>
-        <display_text>Add Station</display_text> dialog has also 
-	<display_text>Add Custom Station</display_text> button, which can 
-	be used to add stations not found on drop down menus.  Station codes
-	can be found from (http://xoap.weather.com/search/search?here=station_name)
-        or you can use ZIP code for US stations.
+        cities which will then be listed in the locations screen.
       </_para>
       <_para>
         <display_text>Rename</display_text> button allows you to change 
@@ -187,6 +176,30 @@
 	is established.  Valid time for current weather and update interval
 	can be selected from a drop down menu.  This tab shows also time
 	when next update will be done. 
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Add Station</_topictitle>
+      <context contextUID="help_omweather_add_station"/>
+      <_para>
+        In this window you need first select country
+        from a drop down menu.  Next you need to select correct state or
+        province and a place which weather you want to monitor.
+      </_para>
+      <_para>
+	<display_text>Add Custom Station</display_text> button
+	used to add stations not found on drop down menus.
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Add Custom Station</_topictitle>
+      <context contextUID="help_omweather_add_custom_station"/>
+      <_para>
+        In this window you need to enter
+	station name and station code.
+	Station codes can be found from 
+	(http://xoap.weather.com/search/search?here=station_name)
+        or you can use ZIP code for US stations.
       </_para>
     </topic>
     <topic>

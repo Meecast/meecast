@@ -35,8 +35,7 @@
       <para>The <display_text>Settings</display_text> dialog (accessible from the desktop applet or home screens Applet settings menu) provides access to the configurable options that control how OMWeather appears and run. In addition to the tabs, there are also a <display_text>About</display_text> button to show information of the OMWeather.</para>
       <heading>Locations</heading>
       <para><display_text>Locations</display_text> tab lists all locations which weather data OMWeather will receive when weather data refreshed.</para>
-      <para><display_text>Add</display_text> button allows you to add new cities which will then be listed in the locations screen. When <display_text>Add</display_text> button is touched, new dialog window is opened. In this window you need first select country from a drop down menu. Next you need to select correct state or province and a place which weather you want to monitor.</para>
-      <para><display_text>Add Station</display_text> dialog has also <display_text>Add Custom Station</display_text> button, which can be used to add stations not found on drop down menus. Station codes can be found from (http://xoap.weather.com/search/search?here=station_name) or you can use ZIP code for US stations.</para>
+      <para><display_text>Add</display_text> button allows you to add new cities which will then be listed in the locations screen.</para>
       <para><display_text>Rename</display_text> button allows you to change name of the selected station.</para>
       <para><display_text>Delete</display_text> button deletes selected station from the list.</para>
       <heading>Interface</heading>
@@ -55,6 +54,17 @@
       <para><display_text>Units</display_text> tab is used to select temperature, distance and wind speed units shown on weather data. Used units can be selected from a drop down menus.</para>
       <heading>Update</heading>
       <para><display_text>Update</display_text> tab is used to configure update interval of a weather data. Update tab includes also selection box for automatic weather update when Internet connection is established. Valid time for current weather and update interval can be selected from a drop down menu. This tab shows also time when next update will be done.</para>
+    </topic>
+    <topic>
+      <topictitle>Add Station</topictitle>
+      <context contextUID="help_omweather_add_station"/>
+      <para>In this window you need first select country from a drop down menu. Next you need to select correct state or province and a place which weather you want to monitor.</para>
+      <para><display_text>Add Custom Station</display_text> button used to add stations not found on drop down menus.</para>
+    </topic>
+    <topic>
+      <topictitle>Add Custom Station</topictitle>
+      <context contextUID="help_omweather_add_custom_station"/>
+      <para>In this window you need to enter station name and station code. Station codes can be found from (http://xoap.weather.com/search/search?here=station_name) or you can use ZIP code for US stations.</para>
     </topic>
     <topic>
       <topictitle>Using Desktop Applet</topictitle>

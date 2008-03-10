@@ -1,8 +1,8 @@
 char *s = N_("3 icon size kinds");
 char *s = N_("4 icon sets (default: crystal)");
 char *s = N_("4 view modes");
-char *s = N_("<display_text>Add Station</display_text> dialog has also <display_text>Add Custom Station</display_text> button, which can be used to add stations not found on drop down menus. Station codes can be found from (http://xoap.weather.com/search/search?here=station_name) or you can use ZIP code for US stations.");
-char *s = N_("<display_text>Add</display_text> button allows you to add new cities which will then be listed in the locations screen. When <display_text>Add</display_text> button is touched, new dialog window is opened. In this window you need first select country from a drop down menu. Next you need to select correct state or province and a place which weather you want to monitor.");
+char *s = N_("<display_text>Add Custom Station</display_text> button used to add stations not found on drop down menus.");
+char *s = N_("<display_text>Add</display_text> button allows you to add new cities which will then be listed in the locations screen.");
 char *s = N_("<display_text>Background color:</display_text> setting defines used background color for icons. Color selection works same way as selecting font color. Background color is not selectable if transparency is used.");
 char *s = N_("<display_text>Delete</display_text> button deletes selected station from the list.");
 char *s = N_("<display_text>Font color:</display_text> defines applets font color. Touching color button will open <display_text>Pick a Color</display_text> dialog where it's possible to select used font color.");
@@ -20,6 +20,8 @@ char *s = N_("<display_text>Units</display_text> tab is used to select temperatu
 char *s = N_("<display_text>Update</display_text> tab is used to configure update interval of a weather data. Update tab includes also selection box for automatic weather update when Internet connection is established. Valid time for current weather and update interval can be selected from a drop down menu. This tab shows also time when next update will be done.");
 char *s = N_("<display_text>Visible items:</display_text> selects how many icons will be shown in the tablets home screen. Possibilities go from 1 to 10.");
 char *s = N_("About OMWeather");
+char *s = N_("Add Custom Station");
+char *s = N_("Add Station");
 char *s = N_("Automatic update weather forecast information from the Internet (Data available from xoap.weather.com)");
 char *s = N_("Copyright © 2006-2007 Vlad Vasiliev.");
 char *s = N_("Current Version: __VERSION__");
@@ -27,6 +29,8 @@ char *s = N_("Custom city support");
 char *s = N_("Detailed weather forecast for 10 days");
 char *s = N_("First thing to do is select the size and position of a OMWeather applet. You can change position of the applet simply touching it and dragging it where you want it. Size of the applet can be changed touching and dragging triangle in the applets bottom right corner. When you are finished setting up applet to your preferences, touching the <display_text>Ok</display_text> button will lead you back to desktop.");
 char *s = N_("Getting Started");
+char *s = N_("In this window you need first select country from a drop down menu. Next you need to select correct state or province and a place which weather you want to monitor.");
+char *s = N_("In this window you need to enter station name and station code. Station codes can be found from (http://xoap.weather.com/search/search?here=station_name) or you can use ZIP code for US stations.");
 char *s = N_("Interface");
 char *s = N_("Introduction");
 char *s = N_("Locations");

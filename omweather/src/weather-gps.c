@@ -137,24 +137,13 @@ get_nearest_station( double lat, double lon, Station *result)
 }
 /*******************************************************************************/
 static void
-location_changed (LocationGPSDevice *device, gpointer userdata)
+gps_location_changed (LocationGPSDevice *device, gpointer userdata)
 {
     if (!app->config->gps_station)
         return;
     if (device->fix->fields & LOCATION_GPS_DEVICE_LATLONG_SET){
 	app->temporary_station_latitude = device->fix->latitude;
 	app->temporary_station_longtitude = device->fix->longitude;
-        double r;
-        r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
-        app->temporary_station_latitude = r*90;
-        r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
-        app->temporary_station_longtitude = r*200;
-        r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
-        if (r<0.5)
-            app->temporary_station_latitude = app->temporary_station_latitude  * -1;
-        r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
-        if (r<0.5)
-            app->temporary_station_longtitude = app->temporary_station_longtitude  * -1;
     }
 }
 /*******************************************************************************/ 
@@ -167,7 +156,7 @@ initial_gps_connect(void)
     get_nearest_station(43.63,-73.64,&app->gps_station);
     app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
-    app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (location_changed), NULL);
+    app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
     FILE *file_log;
     file_log=fopen("/tmp/omw.log","a+");
     fprintf(file_log,"Begin GPS \n");

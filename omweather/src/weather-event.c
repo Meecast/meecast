@@ -94,25 +94,38 @@ gboolean timer_handler(gpointer data){
     		break;		    
 		case CHECK_GPS_POSITION:
 		    /* delete periodic update */
-		#ifndef RELEASE
+//		#ifndef RELEASE
 		    fprintf(stderr,"Delete evt %s\n",ctime(&evt->time));
-		#endif
+//		#endif
 		    g_free(evt);
                     event_time_list = g_slist_remove(event_time_list, event_time_list->data);
-		#ifndef RELEASE
+//		#ifndef RELEASE
 		    fprintf(stderr,"UPDATE by event\n");
-		#endif
-		    app->show_update_window = FALSE;
+//		#endif
+
 
                     file_log=fopen("/tmp/omw.log","a+");
                     fprintf(file_log,"Event:  CHECK_GPS_POSITION \n");
 
 		#ifdef HILDON
+                    double r;
+                    r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
+                    app->temporary_station_latitude = r*90;
+                    r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
+                    app->temporary_station_longtitude = r*200;
+                    r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
+                    if (r<0.5)
+                        app->temporary_station_latitude = app->temporary_station_latitude  * -1;
+                    r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
+                    if (r<0.5)
+                        app->temporary_station_longtitude = app->temporary_station_longtitude  * -1;
+                
                     fprintf(file_log,"Event:  Calculate CHECK_GPS_POSITION %f %f %f %f %f\n",
                                     app->gps_station.latitude,app->gps_station.longitude,
                                     app->temporary_station_latitude,app->temporary_station_longtitude,
                                     calculate_distance(app->gps_station.latitude,app->gps_station.longitude,
-                                           app->temporary_station_latitude,app->temporary_station_longtitude));
+                                                    app->temporary_station_latitude,app->temporary_station_longtitude));
+
                     if (calculate_distance(app->gps_station.latitude,app->gps_station.longitude,
                                            app->temporary_station_latitude,app->temporary_station_longtitude)>10){
                         get_nearest_station(app->temporary_station_latitude,app->temporary_station_longtitude
@@ -122,14 +135,15 @@ gboolean timer_handler(gpointer data){
 			delete_all_gps_stations();
                         fprintf(file_log,"Event:  CHECK_GPS_POSITION Changing %s\n",app->gps_station.name);
                         add_station_to_user_list(app->gps_station.name,app->gps_station.id0, TRUE);
-			fflush(file_log);                
+			fflush(file_log);           
+                        app->show_update_window = FALSE;     
 		        update_weather();
 			weather_frame_update(FALSE);
                     }
 		#endif
                      fclose(file_log);
                     /* add periodic gps check */
-                    add_gps_event(current_time);                    
+                    add_gps_event();                    
     		break;		    
   
 		default:
@@ -156,7 +170,7 @@ gboolean timer_handler(gpointer data){
     return TRUE;    
 }
 /*******************************************************************************/
-#ifndef RELEASE
+//#ifndef RELEASE
 /*For debug */
 void print_list(char *buff, size_t buff_size){
     static GSList *list_time_event_temp = NULL;
@@ -181,7 +195,7 @@ void print_list(char *buff, size_t buff_size){
     else
 	fprintf(stderr, tmp);
 }
-#endif
+//#endif
 /*******************************************************************************/
 void create_timer_with_interval(guint interval){
     app->timer = g_timeout_add(interval,
@@ -259,25 +273,25 @@ void time_event_add(time_t time_value, short type_event){
 }
 /*******************************************************************************/
 /*  Addition the periodic time in the list of events  for weather forecast updating */	  
-void add_gps_event(time_t last_update){
-    FILE *file_log;
+void add_gps_event(void){
+
     #ifndef RELEASE
     fprintf(stderr,"Add in list\n");
     print_list(NULL, 0);
     #endif
 
+    FILE *file_log;
     file_log=fopen("/tmp/omw.log","a+");
     fprintf(file_log,"Event: addED  CHECK_GPS_POSITION \n");
     fclose(file_log);
 
-    if(app->config->update_interval > 0)
 //	time_event_add(time(NULL) + 5*60, CHECK_GPS_POSITION); /* Every five minutes */ 
 	time_event_add(time(NULL) + 1*20, CHECK_GPS_POSITION); /* Every 20 secunds */ 
 
-    #ifndef RELEASE
+//    #ifndef RELEASE
     fprintf(stderr,"Item added to list\n");
     print_list(NULL, 0);
-    #endif
+//    #endif
 	
 }
 /*******************************************************************************/

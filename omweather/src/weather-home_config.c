@@ -448,7 +448,7 @@ int new_read_config(AppletConfig *config){
     if(value){
         config->gps_station = gconf_value_get_bool(value);
         gconf_value_free(value);
-        add_gps_event(time(NULL));
+        add_gps_event();
     }
     else
         config->gps_station = FALSE;

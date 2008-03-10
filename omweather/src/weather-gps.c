@@ -85,14 +85,32 @@ get_nearest_station( double lat, double lon, Station *result)
 		distance = calculate_distance(lat,lon,station_latitude,station_longitude);
 
 		if (distance<min_distance){
+
 		    /* New minimal distance */
 		    min_distance = distance;
+
 		    /* Copying to result */
-    		    memset(result->name, 0, sizeof(result->name));
+    		    memset(result->name, 0, sizeof(result->name)+5);
     		    memcpy(result->name, station_name,
 		    	    ((sizeof(result->name) - 1) > (int)(strlen(station_name)) ?
 			    (int)(strlen(station_name)) : (sizeof(result->name) - 1)));
-    		    memset(result->id0, 0, sizeof(result->name));
+
+		    /* Add word (GPS) */
+		    if (strlen(result->name)<(sizeof(result->name)-5)){
+			result->name[strlen(result->name)] = '(';
+			result->name[strlen(result->name)] = 'G';
+			result->name[strlen(result->name)] = 'P';
+			result->name[strlen(result->name)] = 'S';
+			result->name[strlen(result->name)] = ')';
+		    }else{
+		    	result->name[sizeof(result->name)-5] = '(';
+		    	result->name[sizeof(result->name)-4] = 'G';
+		    	result->name[sizeof(result->name)-3] = 'P';
+		    	result->name[sizeof(result->name)-2] = 'S';
+			result->name[sizeof(result->name)-1] = ')';						
+		    }
+		    
+    		    memset(result->id0, 0, sizeof(result->id0));
     		    memcpy(result->id0, station_id0,
 		    	    ((sizeof(result->id0) - 1) > (int)(strlen(station_id0)) ?
 			    (int)(strlen(station_id0)) : (sizeof(result->id0) - 1)));			    

@@ -66,6 +66,9 @@
 #define GCONF_KEY_CLOCK_HOME_LOCATION		GCONF_KEY_CLOCK_PREFIX"/home-location"
 #define GCONF_KEY_DOWNLOADING_AFTER_CONNECTING  GCONF_KEY_PREFIX"/downloading-after-connecting"
 #define GCONF_KEY_USE_GPS_STATION		GCONF_KEY_PREFIX"/gps-station"
+#define GCONF_KEY_GPS_STATION_NAME		GCONF_KEY_PREFIX"/gps-station_name"
+#define GCONF_KEY_GPS_STATION_ID		GCONF_KEY_PREFIX"/gps-station_id"
+
 /*******************************************************************************/
 #define MAX_SETTINGS_PAGE_NUMBER	3
 /*******************************************************************************/

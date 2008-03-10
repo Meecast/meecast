@@ -67,6 +67,7 @@ gboolean check_station_code(const gchar *station_code);
 void up_key_handler(GtkButton *button, gpointer list);
 void down_key_handler(GtkButton *button, gpointer list);
 void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name, gboolean is_gps);
+void delete_all_gps_stations(void);
 GtkWidget* create_tree_view(GtkListStore* list);
 /*******************************************************************************/
 extern void remove_periodic_event(void);

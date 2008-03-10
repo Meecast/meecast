@@ -72,6 +72,7 @@ static gchar *_weather_station_id_temp; /* Temporary value for weather_station_i
 /*******************************************************************************/
 void add_station_to_user_list(gchar *weather_station_name,gchar *weather_station_id, gboolean is_gps){
     GtkTreeIter		iter;
+    
     /* Add station to stations list */
     gtk_list_store_append(app->user_stations_list, &iter);
     gtk_list_store_set(app->user_stations_list, &iter,
@@ -79,6 +80,85 @@ void add_station_to_user_list(gchar *weather_station_name,gchar *weather_station
                                 1, weather_station_id,
                                 2, is_gps,
                                 -1);
+    /* Set it station how current (for GPS stations) */				
+    if (is_gps && app->gps_must_be_current){
+	if(app->config->current_station_id != NULL)
+	    g_free(app->config->current_station_id);
+	app->config->current_station_id = g_strdup(weather_station_id);
+	if(app->config->current_station_name)
+	    g_free(app->config->current_station_name);
+	app->config->current_station_name = g_strdup(weather_station_name);
+    }
+				
+}
+/*******************************************************************************/
+void delete_all_gps_stations(void){
+
+    gboolean		valid;
+    GtkTreeModel	*model;
+    GtkTreeIter		iter;
+    gchar		*station_name = NULL,
+	    		*station_code = NULL;
+    gboolean		is_gps;
+
+
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                                  &iter);
+		    FILE *file_log;    
+		    file_log=fopen("/tmp/omw.log","a+");
+		    fprintf(file_log," begin DELETE  \n");
+		    fclose(file_log);
+						  
+    while(valid){
+    		gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                        	    &iter,
+                    		    0, &station_name,
+                        	    1, &station_code,
+				    2, &is_gps,
+                        	    -1);
+    		if(is_gps){
+		    if(!strcmp (app->config->current_station_id,station_code) &&
+		       !strcmp (app->config->current_station_name,station_name)){
+		        app->gps_must_be_current=TRUE;
+		        app->config->current_station_id = NULL;
+			app->config->current_station_name = NULL;
+		       	g_free(app->config->current_station_id);
+            		g_free(app->config->current_station_name);		
+        		app->config->previos_days_to_show = app->config->days_to_show;	
+//		    FILE *file_log;    
+		    file_log=fopen("/tmp/omw.log","a+");
+		    fprintf(file_log,"DELETE  current station %s \n",station_name);
+		    fclose(file_log);
+
+            	    }
+		    else
+			app->gps_must_be_current=FALSE;
+		    
+		    FILE *file_log;    
+		    file_log=fopen("/tmp/omw.log","a+");
+		    fprintf(file_log,"DELETE GPS station %s \n",station_name);
+		    fclose(file_log);
+
+		    gtk_list_store_remove(app->user_stations_list, &iter);
+		}
+		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+                                                        &iter);
+    	    }
+    /* Set new current_station */
+    if (!app->config->current_station_id){
+	valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                                  &iter);
+	if (valid){
+	    		gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                        	    &iter,
+                    		    0, &station_name,
+                        	    1, &station_code,
+				    2, &is_gps,
+                        	    -1);
+			    app->config->current_station_id = g_strdup(station_code);
+			    app->config->current_station_name = g_strdup(station_name);
+		 }		    	
+    }
 }
 /*******************************************************************************/
 void changed_country(void){
@@ -273,11 +353,10 @@ void weather_window_edit_station(GtkWidget *widget, GdkEvent *event,
 		    /* update current station name */
 		    g_free(station_name);
 		    gtk_list_store_remove(app->user_stations_list, &iter);
-		    gtk_list_store_append(app->user_stations_list, &iter);
-		    gtk_list_store_set(app->user_stations_list, &iter,
-					0, g_strdup(gtk_entry_get_text(GTK_ENTRY(station_name_edit))),
-					1, station_code,
-					-1);
+		    
+		    /* Add station to stations list */
+                    add_station_to_user_list( g_strdup(gtk_entry_get_text(GTK_ENTRY(station_name_edit))),
+					    station_code, FALSE);
 		    if(app->config->current_station_name)
 			g_free(app->config->current_station_name);
 		    app->config->current_station_name = g_strdup(gtk_entry_get_text(GTK_ENTRY(station_name_edit)));
@@ -440,6 +519,7 @@ void weather_window_add_custom_station(void){
 		*label,
 		*table;
     gboolean	station_code_invalid = TRUE;
+    GtkTreeIter iter;
     gchar       *station_name = NULL,
                 *station_code = NULL;
 
@@ -474,9 +554,9 @@ void weather_window_add_custom_station(void){
     gtk_entry_set_max_length((GtkEntry*)custom_station_code, 9);
     gtk_entry_set_width_chars((GtkEntry*)custom_station_code, 9);
 /* enable help for this window */
-    ossohelp_dialog_help_enable(GTK_DIALOG(window_add_custom_station), OMWEATHER_ADD_CUSTOM_STATION_HELP_ID, app->osso);
+    ossohelp_dialog_help_enable(GTK_DIALOG(window_add_custom_station), 
+     OMWEATHER_ADD_CUSTOM_STATION_HELP_ID, app->osso);
     gtk_widget_show_all(window_add_custom_station);
-
     while(station_code_invalid){
 	/* start dialog */
 	switch(gtk_dialog_run(GTK_DIALOG(window_add_custom_station))){
@@ -493,7 +573,7 @@ void weather_window_add_custom_station(void){
 			station_name = g_strdup(app->config->current_station_name);
                         
                         /* Add station to stations list */
-                        add_station_to_user_list(station_code,station_name, FALSE);
+                        add_station_to_user_list(station_name,station_code, FALSE);
 
 		        /* Update config file */
 			new_config_save(app->config);
@@ -570,10 +650,11 @@ void weather_window_add_station(GtkWidget *widget, GdkEvent *event,
                 	G_CALLBACK (changed_state), NULL);
     g_signal_connect((gpointer) stations, "changed",
             		G_CALLBACK (changed_stations), NULL);
-
-/* enable help for this window */
-    ossohelp_dialog_help_enable(GTK_DIALOG(window_add_station), OMWEATHER_ADD_STATION_HELP_ID, app->osso);
-/* run dialog */
+    
+    /* enable help for this window */
+    ossohelp_dialog_help_enable(GTK_DIALOG(window_add_station), 
+				OMWEATHER_ADD_STATION_HELP_ID, app->osso);
+    /* run dialog */
     switch(gtk_dialog_run(GTK_DIALOG(window_add_station))){
 	default:
 	case GTK_RESPONSE_REJECT:/* Press Cancel  */
@@ -593,13 +674,9 @@ void weather_window_add_station(GtkWidget *widget, GdkEvent *event,
 		g_free(app->config->current_station_name);
 	    app->config->current_station_name = gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations));
 	    station_name = g_strdup(app->config->current_station_name);
-/* Add station to stations list */
-            gtk_list_store_append(app->user_stations_list, &iter);
-            gtk_list_store_set(app->user_stations_list, &iter,
-                                0, station_name,
-                                1, station_code,
-                                -1);
-/* Update config file */
+	    /* Add station to stations list */
+            add_station_to_user_list(station_name,station_code, FALSE);
+	    /* Update config file */
 	    new_config_save(app->config);
 	    weather_frame_update(TRUE);
 	    break;

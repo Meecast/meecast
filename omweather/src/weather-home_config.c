@@ -218,6 +218,7 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 		*temp2 = NULL,
 		*station_name = NULL,
 		*station_code = NULL;
+    gboolean	is_gps;
 
     while(source_list){
 	temp1 = strdup((gchar*)source_list->data);
@@ -233,11 +234,17 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 	    temp2 = strtok(NULL,"@"); /* Delimiter - @ */ 
 	    if(temp2 != NULL)
 		station_name = g_strdup(temp2); 
+	    if (!strcmp(app->gps_station.id0,station_code)&&
+		!strcmp(app->gps_station.name,station_name))
+		is_gps = TRUE;
+	    else
+		is_gps = FALSE;
 	    /* Add station to stations list */
             gtk_list_store_append(*list, &iter);
             gtk_list_store_set(*list, &iter,
                                 0, station_name,
                                 1, station_code,
+				2, is_gps,
                                 -1);
 	}
 	g_free(source_list->data);
@@ -367,6 +374,22 @@ int new_read_config(AppletConfig *config){
     /* Get Weather Station ID for current station */
     config->current_station_id = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_CURRENT_STATION_ID, NULL);
+    /* Get GPS station name and id */
+    
+    tmp = gconf_client_get_string(gconf_client,
+        			    GCONF_KEY_GPS_STATION_NAME, NULL);
+    if(tmp){
+	snprintf(app->gps_station.name,sizeof(app->gps_station.name)-1,"%s",tmp);
+    	g_free(tmp);
+    }	
+    tmp = NULL;
+    tmp = gconf_client_get_string(gconf_client,
+        			    GCONF_KEY_GPS_STATION_ID, NULL);
+    if(tmp){
+    	snprintf(app->gps_station.id0,sizeof(app->gps_station.id0)-1,"%s",tmp);
+	g_free(tmp);
+	tmp = NULL;
+    }
     /* Get Weather Stations ID and NAME */
     stlist = gconf_client_get_list(gconf_client,
         			    GCONF_KEY_WEATHER_STATIONS_LIST,
@@ -505,7 +528,7 @@ int new_read_config(AppletConfig *config){
     config->icons_layout = gconf_client_get_int(gconf_client,
                 				GCONF_KEY_ICONS_LAYOUT,
 						NULL);
-    if(config->icons_layout < ONE_ROW ||
+    if (config->icons_layout < ONE_ROW ||
 	config->icons_layout > COMBINATION)
 	config->icons_layout = ONE_ROW;
 
@@ -755,6 +778,17 @@ void new_config_save(AppletConfig *config){
     /* Free stlist */	    
     g_slist_foreach(stlist, (GFunc)g_free, NULL);
     g_slist_free(stlist);
+    /* Save current GPS station */
+    if (config->gps_station){
+	if (app->gps_station.name)
+	    gconf_client_set_string(gconf_client,
+        		    GCONF_KEY_GPS_STATION_NAME,
+			    app->gps_station.name, NULL);
+	if (app->gps_station.id0)		    
+	    gconf_client_set_string(gconf_client,
+        		    GCONF_KEY_GPS_STATION_ID,
+			    app->gps_station.id0, NULL);
+    }
     g_object_unref(gconf_client);
 }
 /*******************************************************************************/

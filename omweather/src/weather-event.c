@@ -117,10 +117,14 @@ gboolean timer_handler(gpointer data){
                                            app->temporary_station_latitude,app->temporary_station_longtitude)>10){
                         get_nearest_station(app->temporary_station_latitude,app->temporary_station_longtitude
                                             ,&app->gps_station);
+		        fprintf(file_log,"Event:  DELETE ALL GPS STATIOn\n");
+			fflush(file_log);
+			delete_all_gps_stations();
                         fprintf(file_log,"Event:  CHECK_GPS_POSITION Changing %s\n",app->gps_station.name);
                         add_station_to_user_list(app->gps_station.name,app->gps_station.id0, TRUE);
-                
+			fflush(file_log);                
 		        update_weather();
+			weather_frame_update(FALSE);
                     }
 		#endif
                      fclose(file_log);
@@ -268,7 +272,7 @@ void add_gps_event(time_t last_update){
 
     if(app->config->update_interval > 0)
 //	time_event_add(time(NULL) + 5*60, CHECK_GPS_POSITION); /* Every five minutes */ 
-	time_event_add(time(NULL) + 1*60, CHECK_GPS_POSITION); /* Every one minute */ 
+	time_event_add(time(NULL) + 1*20, CHECK_GPS_POSITION); /* Every 20 secunds */ 
 
     #ifndef RELEASE
     fprintf(stderr,"Item added to list\n");

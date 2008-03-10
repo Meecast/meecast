@@ -225,6 +225,7 @@ typedef struct OMWeatherApplet{
     WDB			*buttons[Max_count_weather_day];
     guint		flag_updating;
     gboolean		dbus_is_initialize;
+    gboolean		gps_must_be_current;    
     weather_day		weather_current_day;
     weather_day		weather_days[Max_count_weather_day];
     GtkListStore	*countrys_list;

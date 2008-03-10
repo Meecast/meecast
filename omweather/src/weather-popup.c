@@ -772,7 +772,6 @@ GtkWidget* create_moon_phase_widget(GSList *current){
        fprintf(stderr, "Begin %s(): \n", __PRETTY_FUNCTION__);
 #endif
     memset(buffer, 0, sizeof(buffer));
-/*    snprintf(buffer, sizeof(buffer) - 1, "%s", _("Moon: "));*/
     snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 			"%s",
 			(char*)hash_table_find(item_value(current, "moon_phase")));

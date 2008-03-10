@@ -38,8 +38,10 @@
     #include <osso-helplib.h>
 #endif
 /*******************************************************************************/
-#define OMWEATHER_SETTINGS_HELP_ID	"help_omweather_settings"
-#define OMWEATHER_ABOUT_HELP_ID		"help_omweather_about"
+#define OMWEATHER_SETTINGS_HELP_ID		"help_omweather_settings"
+#define OMWEATHER_ABOUT_HELP_ID			"help_omweather_about"
+#define OMWEATHER_ADD_STATION_HELP_ID		"help_omweather_add_station"
+#define OMWEATHER_ADD_CUSTOM_STATION_HELP_ID	"help_omweather_add_custom_station"
 /*******************************************************************************/
 void help_activated_handler(GtkWidget *window, gchar *help_id);
 /*******************************************************************************/

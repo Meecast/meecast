@@ -440,7 +440,6 @@ void weather_window_add_custom_station(void){
 		*label,
 		*table;
     gboolean	station_code_invalid = TRUE;
-    GtkTreeIter iter;
     gchar       *station_name = NULL,
                 *station_code = NULL;
 
@@ -474,8 +473,10 @@ void weather_window_add_custom_station(void){
     gtk_container_add(GTK_CONTAINER(label),custom_station_code = gtk_entry_new());	    
     gtk_entry_set_max_length((GtkEntry*)custom_station_code, 9);
     gtk_entry_set_width_chars((GtkEntry*)custom_station_code, 9);
-
+/* enable help for this window */
+    ossohelp_dialog_help_enable(GTK_DIALOG(window_add_custom_station), OMWEATHER_ADD_CUSTOM_STATION_HELP_ID, app->osso);
     gtk_widget_show_all(window_add_custom_station);
+
     while(station_code_invalid){
 	/* start dialog */
 	switch(gtk_dialog_run(GTK_DIALOG(window_add_custom_station))){
@@ -570,6 +571,9 @@ void weather_window_add_station(GtkWidget *widget, GdkEvent *event,
     g_signal_connect((gpointer) stations, "changed",
             		G_CALLBACK (changed_stations), NULL);
 
+/* enable help for this window */
+    ossohelp_dialog_help_enable(GTK_DIALOG(window_add_station), OMWEATHER_ADD_STATION_HELP_ID, app->osso);
+/* run dialog */
     switch(gtk_dialog_run(GTK_DIALOG(window_add_station))){
 	default:
 	case GTK_RESPONSE_REJECT:/* Press Cancel  */

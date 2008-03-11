@@ -132,13 +132,18 @@ gboolean timer_handler(gpointer data){
                                             ,&app->gps_station);
 		        fprintf(file_log,"Event:  DELETE ALL GPS STATIOn\n");
 			fflush(file_log);
+			fprintf(stderr,"test01\n");     
 			delete_all_gps_stations();
+			fprintf(stderr,"test02\n"); 
                         fprintf(file_log,"Event:  CHECK_GPS_POSITION Changing %s\n",app->gps_station.name);
                         add_station_to_user_list(app->gps_station.name,app->gps_station.id0, TRUE);
 			fflush(file_log);           
-                        app->show_update_window = FALSE;     
+                        app->show_update_window = FALSE;
+			fprintf(stderr,"test1\n");     
 		        update_weather();
+			fprintf(stderr,"test2\n");     			
 			weather_frame_update(FALSE);
+			fprintf(stderr,"test3\n");     
                     }
 		#endif
                      fclose(file_log);

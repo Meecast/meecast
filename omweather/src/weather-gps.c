@@ -170,12 +170,16 @@ initial_gps_connect(void)
 void
 deinitial_gps_connect(void)
 {
+    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+
     g_signal_handler_disconnect (app->gps_device,app->gps_id_connection);
     g_object_unref(app->gps_device);
     FILE *file_log;    
     file_log=fopen("/tmp/omw.log","a+");
     fprintf(file_log,"END GPS \n");
     fclose(file_log);
+
+    fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
 }
 /*******************************************************************************/
 #endif

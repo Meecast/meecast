@@ -706,7 +706,8 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	fprintf(stderr, "\nOMWeather applet deinitialize\n");
     #endif
     /* remove switch timer */
-    g_source_remove(app->switch_timer);
+    if(app->switch_timer != 0)
+	g_source_remove(app->switch_timer);
     /* It is switch off the timer */	
     check = g_source_remove(app->timer);
     /* Clean the queue of event */ 

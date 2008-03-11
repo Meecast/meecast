@@ -95,19 +95,15 @@ void add_station_to_user_list(gchar *weather_station_name,gchar *weather_station
 void delete_all_gps_stations(void){
 
     gboolean		valid;
+    GtkTreeModel	*model;
     GtkTreeIter		iter;
     gchar		*station_name = NULL,
 	    		*station_code = NULL;
     gboolean		is_gps = FALSE;
-    FILE		*file_log;
+
 
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);
-
-		    file_log=fopen("/tmp/omw.log","a+");
-		    fprintf(file_log," begin DELETE  \n");
-		    fclose(file_log);
-						  
     while(valid){
     		gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                         	    &iter,
@@ -118,30 +114,23 @@ void delete_all_gps_stations(void){
     		if(is_gps){
 		    if(!strcmp (app->config->current_station_id,station_code) &&
 		       !strcmp (app->config->current_station_name,station_name)){
+		        /* deleting current station */
 		        app->gps_must_be_current=TRUE;
 		        app->config->current_station_id = NULL;
 			app->config->current_station_name = NULL;
 		       	g_free(app->config->current_station_id);
             		g_free(app->config->current_station_name);		
         		app->config->previos_days_to_show = app->config->days_to_show;	
-//		    FILE *file_log;    
-		    file_log=fopen("/tmp/omw.log","a+");
-		    fprintf(file_log,"DELETE  current station %s \n",station_name);
-		    fclose(file_log);
 
             	    }
 		    else
-			app->gps_must_be_current=FALSE;
-		    
-		    FILE *file_log;    
-		    file_log=fopen("/tmp/omw.log","a+");
-		    fprintf(file_log,"DELETE GPS station %s \n",station_name);
-		    fclose(file_log);
-
-		    gtk_list_store_remove(app->user_stations_list, &iter);
-		}
-		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
-                                                        &iter);
+			app->gps_must_be_current=FALSE;		    
+		    valid = gtk_list_store_remove(app->user_stations_list, &iter);
+		
+		}else
+		    valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+                                                        &iter);					
+							
     	    }
     /* Set new current_station */
     if (!app->config->current_station_id){

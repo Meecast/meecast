@@ -153,7 +153,6 @@ initial_gps_connect(void)
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif 
-    get_nearest_station(43.63,-73.64,&app->gps_station);
     app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
     app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
@@ -170,16 +169,14 @@ initial_gps_connect(void)
 void
 deinitial_gps_connect(void)
 {
+#ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
-
+#endif 
     g_signal_handler_disconnect (app->gps_device,app->gps_id_connection);
     g_object_unref(app->gps_device);
-    FILE *file_log;    
-    file_log=fopen("/tmp/omw.log","a+");
-    fprintf(file_log,"END GPS \n");
-    fclose(file_log);
-
+#ifndef RELEASE
     fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
+#endif     
 }
 /*******************************************************************************/
 #endif

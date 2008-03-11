@@ -175,7 +175,7 @@ gboolean timer_handler(gpointer data){
     return TRUE;    
 }
 /*******************************************************************************/
-//#ifndef RELEASE
+#ifndef RELEASE
 /*For debug */
 void print_list(char *buff, size_t buff_size){
     static GSList *list_time_event_temp = NULL;
@@ -200,7 +200,7 @@ void print_list(char *buff, size_t buff_size){
     else
 	fprintf(stderr, tmp);
 }
-//#endif
+#endif
 /*******************************************************************************/
 void create_timer_with_interval(guint interval){
     app->timer = g_timeout_add(interval,
@@ -290,13 +290,13 @@ void add_gps_event(void){
     fprintf(file_log,"Event: addED  CHECK_GPS_POSITION \n");
     fclose(file_log);
 
-//	time_event_add(time(NULL) + 5*60, CHECK_GPS_POSITION); /* Every five minutes */ 
-	time_event_add(time(NULL) + 1*20, CHECK_GPS_POSITION); /* Every 20 secunds */ 
+	time_event_add(time(NULL) + 5*60, CHECK_GPS_POSITION); /* Every five minutes */ 
+//	time_event_add(time(NULL) + 1*20, CHECK_GPS_POSITION); /* Every 20 secunds */ 
 
-//    #ifndef RELEASE
+    #ifndef RELEASE
     fprintf(stderr,"Item added to list\n");
     print_list(NULL, 0);
-//    #endif
+    #endif
 	
 }
 /*******************************************************************************/

@@ -95,16 +95,15 @@ void add_station_to_user_list(gchar *weather_station_name,gchar *weather_station
 void delete_all_gps_stations(void){
 
     gboolean		valid;
-    GtkTreeModel	*model;
     GtkTreeIter		iter;
     gchar		*station_name = NULL,
 	    		*station_code = NULL;
-    gboolean		is_gps;
-
+    gboolean		is_gps = FALSE;
+    FILE		*file_log;
 
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);
-		    FILE *file_log;    
+
 		    file_log=fopen("/tmp/omw.log","a+");
 		    fprintf(file_log," begin DELETE  \n");
 		    fclose(file_log);

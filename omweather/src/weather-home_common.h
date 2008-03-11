@@ -129,12 +129,6 @@ typedef struct{
     gchar	location[50];	/* Location */
 }weather_day;
 /*******************************************************************************/
-typedef struct{
-    gint	error;
-    xmlDoc	*doc;
-    xmlNode	*weather_com_root;
-}weather_com_parser;
-/*******************************************************************************/
 struct event_time{
     time_t	time;          	/* Time event */
     short	type_event; 	/* Type of event: Automatic update event AUTOUPDATE, 

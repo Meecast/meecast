@@ -218,7 +218,7 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 		*temp2 = NULL,
 		*station_name = NULL,
 		*station_code = NULL;
-    gboolean	is_gps;
+    gboolean	is_gps = FALSE;
 
     while(source_list){
 	temp1 = strdup((gchar*)source_list->data);

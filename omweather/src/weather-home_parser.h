@@ -32,6 +32,12 @@
 /*******************************************************************************/
 #include "weather-home_common.h"
 /*******************************************************************************/
+typedef struct{
+    gint	error;
+    xmlDoc	*doc;
+    xmlNode	*weather_com_root;
+}weather_com_parser;
+/*******************************************************************************/
 weather_com_parser *weather_parser_new_from_file(const gchar *filename);
 int new_parse_weather_com_xml(void);
 /*******************************************************************************/

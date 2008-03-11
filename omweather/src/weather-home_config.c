@@ -233,12 +233,14 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 	    /* station code */
 	    temp2 = strtok(NULL,"@"); /* Delimiter - @ */ 
 	    if(temp2 != NULL)
-		station_name = g_strdup(temp2); 
+		station_name = g_strdup(temp2);
+#ifdef HILDON		
 	    if (!strcmp(app->gps_station.id0,station_code)&&
 		!strcmp(app->gps_station.name,station_name))
 		is_gps = TRUE;
 	    else
 		is_gps = FALSE;
+#endif		
 	    /* Add station to stations list */
             gtk_list_store_append(*list, &iter);
             gtk_list_store_set(*list, &iter,
@@ -375,7 +377,7 @@ int new_read_config(AppletConfig *config){
     config->current_station_id = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_CURRENT_STATION_ID, NULL);
     /* Get GPS station name and id */
-    
+#ifdef HILDON    
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_GPS_STATION_NAME, NULL);
     if(tmp){
@@ -390,6 +392,7 @@ int new_read_config(AppletConfig *config){
 	g_free(tmp);
 	tmp = NULL;
     }
+#endif    
     /* Get Weather Stations ID and NAME */
     stlist = gconf_client_get_list(gconf_client,
         			    GCONF_KEY_WEATHER_STATIONS_LIST,
@@ -778,6 +781,7 @@ void new_config_save(AppletConfig *config){
     /* Free stlist */	    
     g_slist_foreach(stlist, (GFunc)g_free, NULL);
     g_slist_free(stlist);
+#ifdef HILDON    
     /* Save current GPS station */
     if (config->gps_station){
 	if (app->gps_station.name)
@@ -789,6 +793,7 @@ void new_config_save(AppletConfig *config){
         		    GCONF_KEY_GPS_STATION_ID,
 			    app->gps_station.id0, NULL);
     }
+#endif    
     g_object_unref(gconf_client);
 }
 /*******************************************************************************/

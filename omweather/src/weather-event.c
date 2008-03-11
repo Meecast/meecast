@@ -94,20 +94,21 @@ gboolean timer_handler(gpointer data){
     		break;		    
 		case CHECK_GPS_POSITION:
 		    /* delete periodic update */
-//		#ifndef RELEASE
+		#ifndef RELEASE
 		    fprintf(stderr,"Delete evt %s\n",ctime(&evt->time));
-//		#endif
+		#endif
 		    g_free(evt);
                     event_time_list = g_slist_remove(event_time_list, event_time_list->data);
-//		#ifndef RELEASE
+		#ifndef RELEASE
 		    fprintf(stderr,"UPDATE by event\n");
-//		#endif
+		#endif
 
 
                     file_log=fopen("/tmp/omw.log","a+");
                     fprintf(file_log,"Event:  CHECK_GPS_POSITION \n");
 
 		#ifdef HILDON
+/*
                     double r;
                     r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
                     app->temporary_station_latitude = r*90;
@@ -125,25 +126,20 @@ gboolean timer_handler(gpointer data){
                                     app->temporary_station_latitude,app->temporary_station_longtitude,
                                     calculate_distance(app->gps_station.latitude,app->gps_station.longitude,
                                                     app->temporary_station_latitude,app->temporary_station_longtitude));
-
+*/
                     if (calculate_distance(app->gps_station.latitude,app->gps_station.longitude,
                                            app->temporary_station_latitude,app->temporary_station_longtitude)>10){
                         get_nearest_station(app->temporary_station_latitude,app->temporary_station_longtitude
                                             ,&app->gps_station);
 		        fprintf(file_log,"Event:  DELETE ALL GPS STATIOn\n");
 			fflush(file_log);
-			fprintf(stderr,"test01\n");     
 			delete_all_gps_stations();
-			fprintf(stderr,"test02\n"); 
                         fprintf(file_log,"Event:  CHECK_GPS_POSITION Changing %s\n",app->gps_station.name);
                         add_station_to_user_list(app->gps_station.name,app->gps_station.id0, TRUE);
 			fflush(file_log);           
                         app->show_update_window = FALSE;
-			fprintf(stderr,"test1\n");     
 		        update_weather();
-			fprintf(stderr,"test2\n");     			
 			weather_frame_update(FALSE);
-			fprintf(stderr,"test3\n");     
                     }
 		#endif
                      fclose(file_log);

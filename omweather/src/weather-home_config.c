@@ -376,6 +376,9 @@ int new_read_config(AppletConfig *config){
     /* Get Weather Station ID for current station */
     config->current_station_id = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_CURRENT_STATION_ID, NULL);
+    if (strlen(config->current_station_id) == 0)
+	config->current_station_id = NULL;
+				    
     /* Get GPS station name and id */
 #ifdef HILDON    
     tmp = gconf_client_get_string(gconf_client,
@@ -433,10 +436,12 @@ int new_read_config(AppletConfig *config){
     config->current_country = gconf_client_get_string(gconf_client,
         					    GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
 						    NULL);
-    /* Get Weather station name. */
+    /* Get Weather cuurent station name. */
     config->current_station_name = gconf_client_get_string(gconf_client,
     							GCONF_KEY_WEATHER_CURRENT_STATION_NAME,
 							NULL);
+    if (strlen(config->current_station_name) == 0)
+	config->current_station_name = NULL;
     /* Get Weather periodic update time. */
     config->update_interval = gconf_client_get_int(gconf_client,
         			    GCONF_KEY_WEATHER_UPDATE_INTERVAL,

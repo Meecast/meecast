@@ -119,13 +119,17 @@ void delete_all_gps_stations(void){
 			app->config->current_station_name = NULL;
 		       	g_free(app->config->current_station_id);
             		g_free(app->config->current_station_name);		
-        		app->config->previos_days_to_show = app->config->days_to_show;	
-
+        		app->config->previos_days_to_show = app->config->days_to_show;
+			
             	    }
 		    else
 			app->gps_must_be_current=FALSE;		    
 		    valid = gtk_list_store_remove(app->user_stations_list, &iter);
-		
+		    /* Reset gps station */
+		    app->gps_station.id0[0] = 0;
+		    app->gps_station.name[0] = 0;
+		    app->gps_station.latitude = 0;
+		    app->gps_station.longtitude = 0;		
 		}else
 		    valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
                                                         &iter);					
@@ -380,6 +384,7 @@ static gboolean weather_delete_station(GtkWidget *widget, GdkEvent *event,
     gboolean		valid;
     gint		result = GTK_RESPONSE_NONE;
     GtkTreePath		*path;
+    gboolean 		is_gps = FALSE;
 
 #ifndef RELEASE    
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
@@ -408,14 +413,24 @@ static gboolean weather_delete_station(GtkWidget *widget, GdkEvent *event,
                             &iter,
                             0, &station_name,
                             1, &station_code,
+			    2, &is_gps,
                             -1);
 	if(!strcmp(station_name, station_selected)){
 	    path = gtk_tree_model_get_path(GTK_TREE_MODEL(app->user_stations_list),
-					    &iter);	
+					    &iter);
+	    if (is_gps){
+		/* Reset gps station */
+		app->gps_station.id0[0] = 0;
+		app->gps_station.name[0] = 0;
+		app->gps_station.latitude = 0;
+		app->gps_station.longtitude = 0;
+	    }	
 	    /* delete selected station */
 	    gtk_list_store_remove(app->user_stations_list, &iter);
 	    g_free(station_name);
     	    g_free(station_code);
+	    
+	    
 	    /* try to get previos station data */
 	    if(gtk_tree_path_prev(path)){
 		valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),

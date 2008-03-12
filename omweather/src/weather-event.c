@@ -136,6 +136,11 @@ gboolean timer_handler(gpointer data){
 			delete_all_gps_stations();
                         fprintf(file_log,"Event:  CHECK_GPS_POSITION Changing %s\n",app->gps_station.name);
                         add_station_to_user_list(app->gps_station.name,app->gps_station.id0, TRUE);
+			if(!app->config->current_station_name && !app->config->current_station_id){
+			    app->config->current_station_name = g_strdup(app->gps_station.name);
+			    app->config->current_station_id = g_strdup(app->gps_station.id0);			    
+			}
+			new_config_save(app->config);
 			fflush(file_log);           
                         app->show_update_window = FALSE;
 		        update_weather();

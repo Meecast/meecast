@@ -80,7 +80,7 @@ GtkListStore* create_items_list(const char *filename, long start, long end,
 					0, station.name,
 					1, station.id0,
 					2, station.latitude,
-					3, station.longitude,
+					3, station.longtitude,
 					-1);
 		    count++;
 		}
@@ -229,7 +229,6 @@ int parse_region_string(const char *string, Region_item *result){
 			        else{
 				        *delimiter = 0;
 				        result->maxlon = atof(tmp);
-					FILE *file_log;    
 				    }
 			    }
 			}			    
@@ -283,7 +282,7 @@ int parse_station_string(const char *string, Station *result){
 		}
 		else{
                      *delimiter = 0;
-                     result->longitude = atof(tmp);
+                     result->longtitude = atof(tmp);
 		}
 	    }
 	}

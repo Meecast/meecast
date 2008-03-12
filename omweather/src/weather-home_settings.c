@@ -95,7 +95,6 @@ void add_station_to_user_list(gchar *weather_station_name,gchar *weather_station
 void delete_all_gps_stations(void){
 
     gboolean		valid;
-    GtkTreeModel	*model;
     GtkTreeIter		iter;
     gchar		*station_name = NULL,
 	    		*station_code = NULL;
@@ -1282,8 +1281,14 @@ void weather_window_settings(GtkWidget *widget,
 		app->config->gps_station = TRUE;
                 add_gps_event();
             }
-	    else
+	    else{
 		app->config->gps_station = FALSE;
+		/* Reset gps station */
+		app->gps_station.id0[0] = 0;
+		app->gps_station.name[0] = 0;
+		app->gps_station.latitude = 0;
+		app->gps_station.longtitude = 0;		
+	    }	
 #endif
 /* Current tab number */
 	    if(app->config->current_settings_page != gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook))){

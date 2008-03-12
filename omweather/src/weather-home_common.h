@@ -167,7 +167,7 @@ typedef struct{
     char	name[50];
     char	id0[10];
     double	latitude;
-    double	longitude;
+    double	longtitude;
 }Station;
 /*******************************************************************************/
 typedef struct applet_config{

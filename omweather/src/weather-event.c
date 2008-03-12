@@ -127,7 +127,7 @@ gboolean timer_handler(gpointer data){
                                     calculate_distance(app->gps_station.latitude,app->gps_station.longitude,
                                                     app->temporary_station_latitude,app->temporary_station_longtitude));
 */
-                    if (calculate_distance(app->gps_station.latitude,app->gps_station.longitude,
+                    if (calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
                                            app->temporary_station_latitude,app->temporary_station_longtitude)>10){
                         get_nearest_station(app->temporary_station_latitude,app->temporary_station_longtitude
                                             ,&app->gps_station);

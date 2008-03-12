@@ -40,16 +40,14 @@ get_nearest_station( double lat, double lon, Station *result)
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif     
-    gchar        region_string[4096];
     Region_item  region;
     GtkListStore *stations_list = NULL;
     GtkTreeIter  iter;
     gboolean     valid;
-    GtkTreeModel *model;
     gchar        *station_name = NULL,
                  *station_id0 = NULL;
     double       station_latitude,
-                 station_longitude,
+                 station_longtitude,
                  distance,
 		 min_distance = 40000;
 
@@ -60,7 +58,7 @@ get_nearest_station( double lat, double lon, Station *result)
     if(!fh){
 	fprintf(stderr, "\nCan't read file %s: %s", REGIONSFILE,
 		strerror(errno));
-	return NULL;
+	return;
     }
     /* Reading region settings */
     while(!feof(fh)){
@@ -79,10 +77,10 @@ get_nearest_station( double lat, double lon, Station *result)
                                                 0, &station_name,
 					        1, &station_id0,
 					        2, &station_latitude,
-					        3, &station_longitude,
+					        3, &station_longtitude,
                 		                -1);
 		/* Calculating distance */				
-		distance = calculate_distance(lat,lon,station_latitude,station_longitude);
+		distance = calculate_distance(lat,lon,station_latitude,station_longtitude);
 
 		if (distance<min_distance){
 
@@ -115,7 +113,7 @@ get_nearest_station( double lat, double lon, Station *result)
 		    	    ((sizeof(result->id0) - 1) > (int)(strlen(station_id0)) ?
 			    (int)(strlen(station_id0)) : (sizeof(result->id0) - 1)));			    
 		    result->latitude = station_latitude;
-		    result->longitude = station_longitude;
+		    result->longtitude = station_longtitude;
 		}
 		                
             	valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(stations_list),&iter);

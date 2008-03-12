@@ -88,7 +88,7 @@ GSList* create_stations_string_list(void);
 /*******************************************************************************/
 extern void remove_periodic_event(void);
 extern void add_periodic_event(time_t last_update);
-extern void add_gps_event(void);
+extern void add_gps_event(guint interval);
 extern gboolean switch_timer_handler(gpointer data);
 /*******************************************************************************/
 #endif

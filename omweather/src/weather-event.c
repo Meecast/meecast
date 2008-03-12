@@ -149,7 +149,10 @@ gboolean timer_handler(gpointer data){
 		#endif
                      fclose(file_log);
                     /* add periodic gps check */
-                    add_gps_event();                    
+                    if (app->gps_station.latitude==0 && app->gps_station.longtitude == 0)
+                        add_gps_event(1);
+                    else    
+                        add_gps_event(5);
     		break;		    
   
 		default:
@@ -278,8 +281,9 @@ void time_event_add(time_t time_value, short type_event){
     #endif
 }
 /*******************************************************************************/
-/*  Addition the periodic time in the list of events  for weather forecast updating */	  
-void add_gps_event(void){
+/*  Addition the periodic time in the list of events  for weather forecast updating.  
+    Interval is a count of minutes for the next interval */	  
+void add_gps_event(guint interval){
 
     #ifndef RELEASE
     fprintf(stderr,"Add in list\n");
@@ -291,7 +295,7 @@ void add_gps_event(void){
     fprintf(file_log,"Event: addED  CHECK_GPS_POSITION \n");
     fclose(file_log);
 
-	time_event_add(time(NULL) + 5*60, CHECK_GPS_POSITION); /* Every five minutes */ 
+	time_event_add(time(NULL) + interval *60, CHECK_GPS_POSITION); /* Every 'interval' minutes */ 
 //	time_event_add(time(NULL) + 1*20, CHECK_GPS_POSITION); /* Every 20 secunds */ 
 
     #ifndef RELEASE

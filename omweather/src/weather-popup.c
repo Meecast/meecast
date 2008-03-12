@@ -931,14 +931,16 @@ GtkWidget	*popup_frame = NULL,
     separator_after_sun_time = gtk_hseparator_new();                                                                    
     gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_sun_time,
                                             FALSE, FALSE, 0);
-    /* moon phase */
-    popup_window_moon_widget = create_moon_phase_widget(wcs.current_data);
-    if(popup_window_moon_widget)
-	gtk_box_pack_start(GTK_BOX(popup_vbox),popup_window_moon_widget,
-				      FALSE, FALSE, 0);
-    separator_after_moon_phase = gtk_hseparator_new();
-    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_moon_phase,
-                                           FALSE, FALSE, 0);			    
+    if(first_day){
+	/* moon phase */
+	popup_window_moon_widget = create_moon_phase_widget(wcs.current_data);
+	if(popup_window_moon_widget)
+	    gtk_box_pack_start(GTK_BOX(popup_vbox),popup_window_moon_widget,
+				        FALSE, FALSE, 0);
+	separator_after_moon_phase = gtk_hseparator_new();
+	gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_moon_phase,
+                                            FALSE, FALSE, 0);
+    }
     /* create time updates */
     popup_time_updates_widget = create_time_updates_widget(wcs.current_data);
     if(popup_time_updates_widget)

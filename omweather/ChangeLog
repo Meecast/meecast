@@ -9,6 +9,7 @@
   * Added possibility to change stations order in the stations list
   * Added confirm dialog while delete station
   * Added icons to display Moon phases
+  * Moon phase now displayed only in first icon
 
 0.19.4
   * Autoconnecting and  downloading after connecting for OS2008  has been made

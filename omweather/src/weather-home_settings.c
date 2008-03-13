@@ -418,13 +418,15 @@ static gboolean weather_delete_station(GtkWidget *widget, GdkEvent *event,
 	if(!strcmp(station_name, station_selected)){
 	    path = gtk_tree_model_get_path(GTK_TREE_MODEL(app->user_stations_list),
 					    &iter);
+#ifdef HILDON					    
 	    if (is_gps){
 		/* Reset gps station */
 		app->gps_station.id0[0] = 0;
 		app->gps_station.name[0] = 0;
 		app->gps_station.latitude = 0;
 		app->gps_station.longtitude = 0;
-	    }	
+	    }
+#endif	    	    
 	    /* delete selected station */
 	    gtk_list_store_remove(app->user_stations_list, &iter);
 	    g_free(station_name);

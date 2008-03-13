@@ -93,7 +93,7 @@ void add_station_to_user_list(gchar *weather_station_name,gchar *weather_station
 }
 /*******************************************************************************/
 void delete_all_gps_stations(void){
-
+#ifdef HILDON					    		    
     gboolean		valid;
     GtkTreeIter		iter;
     gchar		*station_name = NULL,
@@ -125,11 +125,12 @@ void delete_all_gps_stations(void){
 		    else
 			app->gps_must_be_current=FALSE;		    
 		    valid = gtk_list_store_remove(app->user_stations_list, &iter);
+
 		    /* Reset gps station */
 		    app->gps_station.id0[0] = 0;
 		    app->gps_station.name[0] = 0;
 		    app->gps_station.latitude = 0;
-		    app->gps_station.longtitude = 0;		
+		    app->gps_station.longtitude = 0;
 		}else
 		    valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
                                                         &iter);					
@@ -150,6 +151,7 @@ void delete_all_gps_stations(void){
 			    app->config->current_station_name = g_strdup(station_name);
 		 }		    	
     }
+#endif    
 }
 /*******************************************************************************/
 void changed_country(void){
@@ -418,7 +420,7 @@ static gboolean weather_delete_station(GtkWidget *widget, GdkEvent *event,
 	if(!strcmp(station_name, station_selected)){
 	    path = gtk_tree_model_get_path(GTK_TREE_MODEL(app->user_stations_list),
 					    &iter);
-#ifdef HILDON					    
+#ifdef HILDON
 	    if (is_gps){
 		/* Reset gps station */
 		app->gps_station.id0[0] = 0;

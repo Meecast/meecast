@@ -309,6 +309,7 @@ void weather_buttons_fill(gboolean check_error){
     }
 /* Init weather buttons */
     count_day = new_parse_weather_com_xml();
+    parse_underground_com_data("26666");
     if(check_error)
 	if(count_day == -2){
 	    count_day = 0;
@@ -763,6 +764,10 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	if(app->user_stations_list){
 	    gtk_list_store_clear(app->user_stations_list);
 	    app->user_stations_list = NULL;
+	}
+	if(app->contextmenu){
+	    gtk_widget_destroy(app->contextmenu);
+	    app->contextmenu = NULL;
 	}
 	g_free(app);
 	app = NULL;

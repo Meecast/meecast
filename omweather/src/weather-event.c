@@ -148,11 +148,13 @@ gboolean timer_handler(gpointer data){
                     }
 		#endif
                      fclose(file_log);
+		#ifdef HILDON
                     /* add periodic gps check */
                     if (app->gps_station.latitude==0 && app->gps_station.longtitude == 0)
                         add_gps_event(1);
                     else    
                         add_gps_event(5);
+		#endif
     		break;		    
   
 		default:

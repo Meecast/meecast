@@ -362,6 +362,20 @@ void weather_buttons_fill(gboolean check_error){
     (app->config->separate) ? (k = 1) : (k = 0); /* add one more day if data is config->separate */
     for(i = 0; i < app->config->days_to_show; i++){
 	if( i < Max_count_weather_day - offset + k ){
+	    /* add DAYTIMEEVENT for all days */
+	    memset(date_in_string, 0, sizeof(date_in_string));
+	    sprintf(date_in_string, "%s %i 00:00:00",
+		item_value(wcs.day_data[i], "24h_date"), year);
+
+	    strptime(date_in_string, "%b %d %Y %T", tm);
+	    /* Check New Year */
+	    if((current_month == 11) && (tm->tm_mon == 0)){
+		sprintf(date_in_string, "%s %i 00:00:00",
+		    item_value(wcs.day_data[count_day - 1], "24h_date"), year + 1);
+		strptime(date_in_string, "%b %d %Y %T", tm);
+	    }
+	    date_time = mktime(tm);	
+	
 	    if(i == 0 || (app->config->separate && i == 1)){	/* first day */
 		/* repeat the same data in second button for first day if data is config->separate */
 		(app->config->separate && i == 1) ? (j = -1) : (j = 0);
@@ -496,6 +510,7 @@ void weather_buttons_fill(gboolean check_error){
 		    if(temp_low != INT_MAX)
             		temp_low = c2f(temp_low);
         	}
+		fprintf(stderr, ">>>>>>>>>>>>>>>DAYTIMEEVENT time %s", ctime(&date_time));
 	        time_event_add(date_time, DAYTIMEEVENT);
                 last_day = date_time;
 		if(app->config->swap_hi_low_temperature)

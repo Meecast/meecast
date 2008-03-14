@@ -510,7 +510,6 @@ void weather_buttons_fill(gboolean check_error){
 		    if(temp_low != INT_MAX)
             		temp_low = c2f(temp_low);
         	}
-		fprintf(stderr, ">>>>>>>>>>>>>>>DAYTIMEEVENT time %s", ctime(&date_time));
 	        time_event_add(date_time, DAYTIMEEVENT);
                 last_day = date_time;
 		if(app->config->swap_hi_low_temperature)
@@ -669,7 +668,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 /* Initialize DBUS */
     weather_initialize_dbus();
 /*    
-    time_event_add(time(NULL) + 5, DBUSINITEVENT);    
+    time_event_add(time(NULL) + 5, DBUSINITEVENT);
     add_periodic_event(time(NULL));
 */
 

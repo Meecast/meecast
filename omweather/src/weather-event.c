@@ -315,7 +315,7 @@ void add_periodic_event(time_t last_update){
     print_list(NULL, 0);
     #endif
 
-    if(app->config->gps_station)
+/*    if(app->config->gps_station) */
 	time_event_add(last_update + app->config->update_interval * 60, AUTOUPDATE);
 
     #ifndef RELEASE

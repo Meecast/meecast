@@ -27,7 +27,7 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-#include "weather-home_config.h"
+#include "weather-config.h"
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>

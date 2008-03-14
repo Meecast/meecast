@@ -30,7 +30,7 @@
 #ifndef _weather_parser_h
 #define _weather_parser_h 1
 /*******************************************************************************/
-#include "weather-home_common.h"
+#include "weather-common.h"
 /*******************************************************************************/
 typedef struct{
     gint	error;

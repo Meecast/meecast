@@ -30,7 +30,7 @@
 #ifndef _weather_config_h
 #define _weather_config_h 1
 /*******************************************************************************/
-#include "weather-home_common.h"
+#include "weather-common.h"
 /*******************************************************************************/
 #define GCONF_KEY_PREFIX		"/apps/maemo/omweather"
 #define GCONF_KEY_HTTP_PROXY_PREFIX	"/system/http_proxy"

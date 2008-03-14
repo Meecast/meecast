@@ -24,7 +24,7 @@
 #ifndef _weather_gpsdistance_h
 #define _weather_gpsdistance_h 1
 /*******************************************************************************/
-#include "weather-home_common.h"
+#include "weather-common.h"
 #include <math.h>
 /*******************************************************************************/
 #ifdef HILDON

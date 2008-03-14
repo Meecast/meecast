@@ -27,7 +27,7 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
-#include "weather-home_common.h"
+#include "weather-common.h"
 
 #ifdef HILDON
  typedef struct HildonHomeAreaPriv_

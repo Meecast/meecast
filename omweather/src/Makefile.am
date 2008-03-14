@@ -32,7 +32,7 @@ libweather_home_la_SOURCES = weather-home.c \
 			     weather-config.c \
 			     weather-settings.h \
 			     weather-settings.c \
-			     weather-home_common.h \
+			     weather-common.h \
 			     weather-event.c \
 			     weather-event.h \
 			     weather-hash.h \

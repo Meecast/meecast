@@ -30,7 +30,7 @@
 #ifndef _weather_hash_h
 #define _weather_hash_h 1
 /*******************************************************************************/
-#include "weather-home_common.h"
+#include "weather-common.h"
 /*******************************************************************************/
 GHashTable* hash_table_create(void);
 gpointer hash_table_find(gpointer key);

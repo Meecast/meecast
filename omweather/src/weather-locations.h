@@ -30,7 +30,7 @@
 #ifndef _weather_locations_h
 #define _weather_locations_h 1
 /*******************************************************************************/
-#include "weather-home_common.h"
+#include "weather-common.h"
 
 GtkListStore* create_items_list(const char *filename, long start, long end,
 				long *items_number);

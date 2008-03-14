@@ -30,7 +30,7 @@
 #ifndef _weather_gps_h
 #define _weather_gps_h 1
 /*******************************************************************************/
-#include "weather-home_common.h"
+#include "weather-common.h"
 #include <errno.h>
 /*******************************************************************************/
 void initial_gps_connect(void);

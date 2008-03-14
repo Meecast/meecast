@@ -30,7 +30,7 @@
 #ifndef _weather_help_h
 #define _weather_help_h 1
 /*******************************************************************************/
-#include "weather-home_common.h"
+#include "weather-common.h"
 #include <libosso.h>
 #ifdef HILDON
     #include <hildon/hildon-help.h>

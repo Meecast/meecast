@@ -30,7 +30,7 @@
 #ifndef _weather_home_h
 #define _weather_home_h 1
 /*******************************************************************************/
-#include "weather-home_common.h"
+#include "weather-common.h"
 #include <locale.h>
 #include <libintl.h>
 /*******************************************************************************/

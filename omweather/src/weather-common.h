@@ -32,8 +32,8 @@
 #include <config.h>
 #endif
 /*******************************************************************************/
-#ifndef _weather_home_common_h
-#define _weather_home_common_h 1
+#ifndef _weather_common_h
+#define _weather_common_h 1
 /*******************************************************************************/
 #include <gtk/gtk.h>
 #include <gconf/gconf-client.h>

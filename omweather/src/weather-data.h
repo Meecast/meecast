@@ -31,7 +31,7 @@
 #define _weather_data_h 1
 /*******************************************************************************/
 #include <glib.h>
-#include "weather-home_common.h"
+#include "weather-common.h"
 /*******************************************************************************/
 typedef struct{
     GString	*name;

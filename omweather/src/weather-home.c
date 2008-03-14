@@ -37,7 +37,7 @@
     #include <hildon-home-plugin/hildon-home-plugin-interface.h>
 #endif
 #include <unistd.h>
-#include "weather-home_hash.h"
+#include "weather-hash.h"
 #include "weather-data.h"
 /*******************************************************************************/
 #define APPLET_X_SIZE		200

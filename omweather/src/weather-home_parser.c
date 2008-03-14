@@ -28,7 +28,7 @@
 */
 /*******************************************************************************/
 #include "weather-home_parser.h"
-#include "weather-home_hash.h"
+#include "weather-hash.h"
 #include "weather-data.h"
 #include <libxml/HTMLparser.h>
 /*******************************************************************************/

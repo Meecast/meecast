@@ -1,5 +1,5 @@
 #include <glib.h>
-#include "weather-home_hash.h"
+#include "weather-hash.h"
 /*******************************************************************************/
 GHashTable* hash_table_create(void){
     GHashTable *hash;

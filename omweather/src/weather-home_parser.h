@@ -40,5 +40,6 @@ typedef struct{
 /*******************************************************************************/
 weather_com_parser *weather_parser_new_from_file(const gchar *filename);
 int new_parse_weather_com_xml(void);
+int parse_underground_com_data(const gchar *station);
 /*******************************************************************************/
 #endif

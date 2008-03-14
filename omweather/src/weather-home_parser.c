@@ -30,6 +30,7 @@
 #include "weather-home_parser.h"
 #include "weather-home_hash.h"
 #include "weather-data.h"
+#include <libxml/HTMLparser.h>
 /*******************************************************************************/
 weather_com_parser *weather_parser_new_from_file(const gchar *filename){
     weather_com_parser *parser;
@@ -462,3 +463,28 @@ int new_parse_weather_com_xml(void){
     return count_day;     
 }
 /*******************************************************************************/
+int parse_underground_com_data(const gchar *station){
+    htmlDocPtr	doc;
+    gchar	buffer[512];
+    htmlNodePtr	current_node = NULL;
+    gint	day_count = 0;
+    
+    if(!station)
+	return -1;
+    snprintf(buffer, sizeof(buffer) - 1, "%s/%s.htm", app->config->cache_dir_name, station);
+
+    if(access(buffer, R_OK)){  /* htm file does not exist or no permissions */
+	strcat(buffer, "l");
+	if(access(buffer, R_OK))
+	    return -1;			/* no one of htm or html was found */
+    }
+    doc = htmlReadFile(buffer, "UTF-8", HTML_PARSE_NOERROR);
+    
+    for(current_node = doc->children; current_node; current_node = current_node->next){
+	fprintf(stderr, "\nName - %s\n", current_node->name);
+    }
+    xmlFreeDoc(doc);
+    return day_count;
+}
+/*******************************************************************************/
+

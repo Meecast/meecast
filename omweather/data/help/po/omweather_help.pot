@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-10 11:17+0200\n"
+"POT-Creation-Date: 2008-03-14 13:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,7 +89,8 @@ msgstr ""
 #: data/help/omweather.xml.in.h:13
 msgid ""
 "<display_text>Layout:</display_text> selects how icons are shown in the home "
-"screen. Possible selections are one row, one column, two rows or two columns."
+"screen. Possible selections are one row, one column, two rows, two columns "
+"or combinated."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:14
@@ -165,7 +166,7 @@ msgid ""
 msgstr ""
 
 #: data/help/omweather.xml.in.h:26
-msgid "Copyright © 2006-2007 Vlad Vasiliev."
+msgid "Copyright © 2006-2008 Vlad Vasiliev."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:27

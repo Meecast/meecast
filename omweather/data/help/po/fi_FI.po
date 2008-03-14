@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-10 11:12+0200\n"
+"POT-Creation-Date: 2008-03-14 13:51+0200\n"
 "PO-Revision-Date: 2007-11-06 21:18+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,9 +113,11 @@ msgstr ""
 "sovelman ulkonäköön liittyviä asetuksia."
 
 #: data/help/omweather.xml.in.h:13
+#, fuzzy
 msgid ""
 "<display_text>Layout:</display_text> selects how icons are shown in the home "
-"screen. Possible selections are one row, one column, two rows or two columns."
+"screen. Possible selections are one row, one column, two rows, two columns "
+"or combinated."
 msgstr ""
 "<display_text>Asettelu:</display_text> valinnalla valitaan kuinka kuvakkeet "
 "näytetään työpöydällä.  Mahdolliset valinnat ovat yksi rivi, yksi sarake, "
@@ -221,7 +223,8 @@ msgstr ""
 "com palvelusta)"
 
 #: data/help/omweather.xml.in.h:26
-msgid "Copyright © 2006-2007 Vlad Vasiliev."
+#, fuzzy
+msgid "Copyright © 2006-2008 Vlad Vasiliev."
 msgstr "Copyright © 2006-2007 Vlad Vasiliev."
 
 #: data/help/omweather.xml.in.h:27

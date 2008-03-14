@@ -121,7 +121,7 @@
       <_para>
         <display_text>Layout:</display_text> selects how icons are shown in
 	the home screen.  Possible selections are one row, one column, two
-	rows or two columns.
+	rows, two columns or combinated.
       </_para>
       <_para>
         <display_text>Icon set:</display_text> selects which icon set is used.

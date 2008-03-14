@@ -37,8 +37,8 @@ libweather_home_la_SOURCES = weather-home.c \
 			     weather-event.h \
 			     weather-home_hash.h \
 			     weather-home_hash.c \
-			     weather-home_download.h \
-			     weather-home_download.c \
+			     weather-download.h \
+			     weather-download.c \
 			     weather-locations.h \
 			     weather-locations.c \
 			     weather-data.h \

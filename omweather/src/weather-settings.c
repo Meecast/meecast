@@ -27,7 +27,7 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-#include "weather-home_settings.h"
+#include "weather-settings.h"
 #include "weather-locations.h"
 #include "weather-help.h"
 #if defined (BSD) && !_POSIX_SOURCE

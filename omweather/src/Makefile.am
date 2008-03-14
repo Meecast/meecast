@@ -30,8 +30,8 @@ libweather_home_la_SOURCES = weather-home.c \
 			     weather-home_parser.c \
 			     weather-config.h \
 			     weather-config.c \
-			     weather-home_settings.h \
-			     weather-home_settings.c \
+			     weather-settings.h \
+			     weather-settings.c \
 			     weather-home_common.h \
 			     weather-event.c \
 			     weather-event.h \

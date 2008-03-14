@@ -373,12 +373,13 @@ int new_read_config(AppletConfig *config){
 
     if(!config_set_weather_dir_name(gnome_vfs_expand_initial_tilde(tmp_buff)))
         fprintf(stderr, _("Could not create Weather Cache directory.\n"));
+    
+    config->current_station_id	= NULL;
     /* Get Weather Station ID for current station */
     config->current_station_id = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_CURRENT_STATION_ID, NULL);
-    if (strlen(config->current_station_id) == 0)
+    if (config->current_station_id && strlen(config->current_station_id) == 0)
 	config->current_station_id = NULL;
-				    
     /* Get GPS station name and id */
 #ifdef HILDON    
     tmp = gconf_client_get_string(gconf_client,
@@ -396,6 +397,8 @@ int new_read_config(AppletConfig *config){
 	tmp = NULL;
     }
 #endif    
+
+
     /* Get Weather Stations ID and NAME */
     stlist = gconf_client_get_list(gconf_client,
         			    GCONF_KEY_WEATHER_STATIONS_LIST,
@@ -424,6 +427,9 @@ int new_read_config(AppletConfig *config){
     if(config->icons_size < LARGE || config->icons_size > SMALL)
         config->icons_size = LARGE;
 
+
+				    
+
     /* Get setting tab number  */		     
     config->current_settings_page = gconf_client_get_int(gconf_client,
         				    GCONF_KEY_WEATHER_SETTING_TAB_NUMBER,
@@ -437,10 +443,11 @@ int new_read_config(AppletConfig *config){
         					    GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
 						    NULL);
     /* Get Weather cuurent station name. */
+    config->current_station_name = NULL;
     config->current_station_name = gconf_client_get_string(gconf_client,
     							GCONF_KEY_WEATHER_CURRENT_STATION_NAME,
 							NULL);
-    if (strlen(config->current_station_name) == 0)
+    if (config->current_station_name && strlen(config->current_station_name) == 0)
 	config->current_station_name = NULL;
     /* Get Weather periodic update time. */
     config->update_interval = gconf_client_get_int(gconf_client,
@@ -450,6 +457,7 @@ int new_read_config(AppletConfig *config){
 	config->update_interval = 0;
     remove_periodic_event();		/* delete event from list */
     add_periodic_event(time(NULL));	/* add new event */
+    
 #ifdef HILDON
     /* Get gps_station. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_USE_GPS_STATION, NULL);
@@ -461,6 +469,7 @@ int new_read_config(AppletConfig *config){
     else
         config->gps_station = FALSE;
 #endif
+
     /* Get Weather font color. */    	
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_FONT_COLOR, NULL);
@@ -624,6 +633,7 @@ int new_read_config(AppletConfig *config){
     }    
     gconf_client_clear_cache(gconf_client);
     g_object_unref(gconf_client);
+    
     return 0;
 }
 /*******************************************************************************/

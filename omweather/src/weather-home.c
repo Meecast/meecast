@@ -309,7 +309,7 @@ void weather_buttons_fill(gboolean check_error){
     }
 /* Init weather buttons */
     count_day = new_parse_weather_com_xml();
-    parse_underground_com_data("26666");
+//    parse_underground_com_data("26666");
     if(check_error)
 	if(count_day == -2){
 	    count_day = 0;
@@ -642,6 +642,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->countrys_list = NULL;
     app->countrys_list = create_items_list(COUNTRIESFILE, -1, -1, NULL);
 
+
 /* Start timer */
 /*    timer(600); */  /* One per secund */
     timer(60000);  /* One per minute */
@@ -649,12 +650,14 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
     weather_buttons_fill(FALSE);
+    
 /* Initialize DBUS */
     weather_initialize_dbus();
 /*    
     time_event_add(time(NULL) + 5, DBUSINITEVENT);    
     add_periodic_event(time(NULL));
 */
+
 #ifdef HILDON
     initial_gps_connect();
     app->signal_expose = g_signal_connect(app->top_widget, "expose-event",
@@ -670,6 +673,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #endif
     
     (*widget) = app->top_widget;
+    
 #ifndef RELEASE
     fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
 #endif

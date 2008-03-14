@@ -284,9 +284,9 @@ void weather_buttons_fill(gboolean check_error){
     time_t	tmp_time;
 #endif
 
-//#ifndef RELEASE
+#ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
-//#endif
+#endif
 /* Check main widget */
     if(!app->top_widget)
 	return;
@@ -618,10 +618,10 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         g_debug(_("Error initializing the OMWeather applet"));
         return NULL;
     }
-//    #ifndef RELEASE
+#ifndef RELEASE
 	fprintf(stderr, "\nOMWeather applet initialize %p %d\n",
 			state_data, *state_size);
-//    #endif
+#endif
     app = g_new0(OMWeatherApp, 1);
     if(!app){
 	fprintf(stderr, "\nCan not allocate memory for applet.\n");

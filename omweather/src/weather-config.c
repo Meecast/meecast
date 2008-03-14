@@ -162,11 +162,11 @@ void fill_user_stations_list_from_clock(GtkListStore** list){
                                     1, station_code,
                                     -1);
 		/* A current station */
-/*		if(!strncmp(out_buffer, home_city, tmp - out_buffer)){
-		    app->config->current_station_id = g_strdup(ws->id_station);
-		    app->config->current_station_name = g_strdup(ws->name_station);
+		if(!strncmp(buffer, home_city, tmp - buffer)){
+		    app->config->current_station_id = station_code;
+		    app->config->current_station_name = station_name;
 		}
-*/	    }	    
+	    }	    
 	}
 	fclose(clock_file);
     }
@@ -425,10 +425,7 @@ int new_read_config(AppletConfig *config){
         				    GCONF_KEY_WEATHER_ICONS_SIZE,
 					    NULL);
     if(config->icons_size < LARGE || config->icons_size > SMALL)
-        config->icons_size = LARGE;
-
-
-				    
+        config->icons_size = LARGE;    
 
     /* Get setting tab number  */		     
     config->current_settings_page = gconf_client_get_int(gconf_client,
@@ -442,7 +439,7 @@ int new_read_config(AppletConfig *config){
     config->current_country = gconf_client_get_string(gconf_client,
         					    GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
 						    NULL);
-    /* Get Weather cuurent station name. */
+    /* Get Weather current station name. */
     config->current_station_name = NULL;
     config->current_station_name = gconf_client_get_string(gconf_client,
     							GCONF_KEY_WEATHER_CURRENT_STATION_NAME,

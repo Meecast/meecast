@@ -61,7 +61,7 @@ gboolean timer_handler(gpointer data){
 	if(evt->time <= current_time){
 	    switch(evt->type_event){
 		case DAYTIMEEVENT :
-		#ifdef PC_EMULATOR
+		#ifndef RELEASE
 		    fprintf(stderr,"DAYTIMEEVENT %s\n",ctime(&evt->time));
 		#endif
 		    g_free(evt);

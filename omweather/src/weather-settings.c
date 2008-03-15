@@ -795,7 +795,7 @@ void weather_window_settings(GtkWidget *widget,
 /* Up Station and Down Station Buttons */
 /* prepare icon */
     gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
-        	                        	"qgn_toolb_messagin_previous", 16, 0);
+        	                        	"qgn_indi_arrow_up", 16, 0);
     up_icon = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
     gtk_icon_info_free(gtkicon_arrow);
 /* prepare up_station_button */    
@@ -809,7 +809,7 @@ void weather_window_settings(GtkWidget *widget,
         			1, 2, 2, 3);
 /* prepare icon */
     gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
-        	                        	"qgn_toolb_messagin_next", 16, 0);
+        	                        	"qgn_indi_arrow_down", 16, 0);
     down_icon = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
     gtk_icon_info_free(gtkicon_arrow);
 /* prepare down_station_button */    

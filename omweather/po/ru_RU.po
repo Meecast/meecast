@@ -416,9 +416,8 @@ msgid "Distance units:"
 msgstr "Единицы расстояния:"
 
 #: src/weather-hash.c:39
-#, fuzzy
-msgid "Drifting Snow"
-msgstr "Снежная буря"
+msgid " Drifting Snow"
+msgstr "Поземка"
 
 #: src/weather-hash.c:40
 msgid "Drizzle"
@@ -446,11 +445,12 @@ msgstr "восточно-юго-восточный"
 
 #: src/weather-settings.c:785
 msgid "Enable station from GPS:"
-msgstr ""
+msgstr "Включить GPS-станцию "
 
 #: src/weather-settings.c:1468
 msgid "Eric Link - for feature request and donation\n"
-msgstr ""
+msgstr "Eric Link - за предложенные улучшения и \n"
+"за финансовую поддержку"
 
 #: src/weather-home.c:326
 #, c-format
@@ -505,9 +505,8 @@ msgid "Few Snow Showers"
 msgstr "Небольшой мокрый снег"
 
 #: src/weather-hash.c:52
-#, fuzzy
 msgid "Few Snow Showers / Wind"
-msgstr "Небольшие ливни / Ветер"
+msgstr "Небольшой снег с дождем / Ветер"
 
 #: src/weather-hash.c:53
 msgid "First Quarter"
@@ -538,7 +537,6 @@ msgid "Freezing Drizzle"
 msgstr "Изморось с градом"
 
 #: src/weather-settings.c:1476
-#, fuzzy
 msgid ""
 "French - Nicolas Granziano\n"
 "Russian - Pavel Fialko, Vlad Vasiliev,\n"
@@ -551,6 +549,7 @@ msgstr ""
 "Русский - Павел Фиалко, Владислав Васильев,\n"
 "\t    Эдуард Бартош\n"
 "Финнский - Marko Vertainen\n"
+"Немецкий -Claudius Henrichs\n"
 "Итальянский - Павел Фиалко\n"
 
 #: src/weather-hash.c:59
@@ -559,7 +558,7 @@ msgstr "Полнолуние"
 
 #: src/weather-settings.c:944
 msgid "Giant"
-msgstr ""
+msgstr "Гигантские"
 
 #: src/weather-hash.c:60
 msgid "Haze"
@@ -853,9 +852,8 @@ msgid "PM Rain"
 msgstr "После полудня дождь"
 
 #: src/weather-hash.c:106
-#, fuzzy
 msgid "PM Rain / Snow"
-msgstr "До обеда дождь / Снег"
+msgstr "После обеда дождь / Снег"
 
 #: src/weather-hash.c:107
 msgid "PM Rain / Wind"
@@ -1054,12 +1052,10 @@ msgid "Snow Shower / Wind"
 msgstr "Мокрый снег / Ветер"
 
 #: src/weather-hash.c:144
-#, fuzzy
 msgid "Snow Showers / Wind Early"
 msgstr "Мокрый снег / С утра ветер"
 
 #: src/weather-hash.c:145
-#, fuzzy
 msgid "Snow Showers Early"
 msgstr "С утра мокрый снег"
 
@@ -1136,9 +1132,8 @@ msgid "Switch to the next station after:"
 msgstr "Переключится на следующую станцию через:"
 
 #: src/weather-hash.c:160
-#, fuzzy
 msgid "T-Showers"
-msgstr "Ливни"
+msgstr "Грозовые ливни"
 
 #: src/weather-hash.c:161
 msgid "T-Storms"
@@ -1166,7 +1161,7 @@ msgstr "Гром"
 
 #: src/weather-settings.c:940
 msgid "Tiny"
-msgstr ""
+msgstr "Крошечные"
 
 #: src/weather-settings.c:1484
 msgid "Translators"
@@ -1226,9 +1221,8 @@ msgid "Valid time for current weather:"
 msgstr "Актуальность текущей погоды:"
 
 #: src/weather-hash.c:178
-#, fuzzy
 msgid "Very High"
-msgstr "Высокий"
+msgstr "Очень высокое"
 
 #: src/weather-settings.c:868
 msgid "Visible items:"

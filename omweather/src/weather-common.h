@@ -83,7 +83,7 @@
 #define MEDIUM_ICON_SIZE  64
 #define SMALL_ICON_SIZE   48
 #define TINY_ICON_SIZE    32
-4/*******************************************************************************/
+/*******************************************************************************/
 enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT, UPDATE_AFTER_CONNECTED, CHECK_GPS_POSITION};
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };

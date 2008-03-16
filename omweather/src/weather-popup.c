@@ -103,7 +103,7 @@ gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
     /* Not found pressed button */
     if( i >= app->config->days_to_show )
 	return FALSE;
-
+/*	i = boxs_offset[i];  */
     app->button_pressed = i;
     /* Create POPUP WINDOW */ 
     app->popup_window = gtk_window_new( GTK_WINDOW_POPUP );
@@ -255,6 +255,8 @@ GtkWidget* create_header_widget(GSList *day){
 		*location_label = NULL,
 		*icon = NULL,
 		*button = NULL,
+                *button_box = NULL,
+		*button_label = NULL,
 		*date_hbox = NULL,
 		*date_label = NULL;
     GtkIconInfo *gtkicon_update;
@@ -265,15 +267,15 @@ GtkWidget* create_header_widget(GSList *day){
     location_label = gtk_label_new(app->config->current_station_name);
 /*    set_font_color(location_label, 0x0000, 0x0000, 0x0000);*/
 /* prepare icon */
-    gtkicon_update = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
-        	                        	"qgn_toolb_gene_refresh", 26, 0);
-    icon = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_update));
-    gtk_icon_info_free(gtkicon_update);
+    icon =gtk_image_new_from_icon_name("qgn_toolb_gene_refresh",
+                                         GTK_ICON_SIZE_INVALID);
+    gtk_image_set_pixel_size(GTK_IMAGE(icon), 26);
+
 /* prepare button */    
     button = gtk_button_new();
-    gtk_button_set_relief(GTK_BUTTON(button), GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click(GTK_BUTTON(button), FALSE);
-    gtk_container_add(GTK_CONTAINER(button), icon);
+    gtk_button_set_image(GTK_BUTTON(button), icon);
+    
     gtk_widget_set_events(button, GDK_BUTTON_PRESS_MASK);
     g_signal_connect(button, "clicked",
 		    	    G_CALLBACK(pre_update_weather), NULL);
@@ -369,11 +371,11 @@ GtkWidget* create_temperature_range_widget(GSList *day){
 			"%d\302\260%c", hi_temp, symbol);
     /* prepare temperature hbox */
     temperature_value_label = gtk_label_new(buffer);
-    set_font_size(temperature_value_label, 16);
+    set_font_size(temperature_value_label, 18);
 /*    set_font_color(temperature_value_label, 0x0000, 0x0000, 0x0000);*/
     main_widget = gtk_hbox_new(FALSE, 10);
     temperature_title_label = gtk_label_new(_("Temperature: "));
-    set_font_size(temperature_title_label, 14);
+    set_font_size(temperature_title_label, 16);
     gtk_box_pack_start(GTK_BOX(main_widget), temperature_title_label, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(main_widget), temperature_value_label, FALSE, FALSE, 0);
     return main_widget;
@@ -402,7 +404,7 @@ GtkWidget* create_current_weather_widget(GSList *current){
     if(!current)
 	return NULL;
     sprintf(buffer,"%s%s.png", path_large_icon, item_value(current, "icon"));
-    icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64,NULL);
+    icon = gdk_pixbuf_new_from_file_at_size(buffer, BIG_ICON_SIZE, BIG_ICON_SIZE, NULL);
     icon_image = gtk_image_new_from_pixbuf(icon);
     if(icon)
         g_object_unref(icon);
@@ -481,7 +483,7 @@ GtkWidget* create_current_weather_widget(GSList *current){
 
     main_data_vbox = gtk_vbox_new(FALSE, 0);	
     main_data_label = gtk_label_new(buffer);
-    set_font_size(main_data_label, 14);
+    set_font_size(main_data_label, 17);
 /*    set_font_color(main_data_label, 0x0000, 0x0000, 0x0000);*/
     gtk_box_pack_start(GTK_BOX(main_data_vbox), main_data_label,
 			    FALSE, FALSE, 0);
@@ -545,13 +547,14 @@ GtkWidget* create_24_hours_widget(GSList *day){
     month = tm->tm_mon;
 /* prepare night data */
     sprintf(buffer, "%s%s.png", path_large_icon, item_value(day, "night_icon"));
-	icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
-	night_icon = gtk_image_new_from_pixbuf(icon);
+    icon = gdk_pixbuf_new_from_file_at_size(buffer, BIG_ICON_SIZE, BIG_ICON_SIZE, NULL);
+    night_icon = gtk_image_new_from_pixbuf(icon);
+    
     if(icon)
 	g_object_unref(icon);
 /* prepare night label */
     night_label = gtk_label_new(_("Night:"));
-    set_font_size(night_label, 14);
+    set_font_size(night_label, 17);
 /*    set_font_color(night_label, 0x0000, 0x0000, 0x0000);*/
 /* preapare night data */
     memset(buffer, 0, sizeof(buffer));
@@ -568,7 +571,7 @@ GtkWidget* create_24_hours_widget(GSList *day){
 			convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed"))),
 			(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
     night_data_label = gtk_label_new(buffer);
-    set_font_size(night_data_label, 14);
+    set_font_size(night_data_label, 17);
 /*    set_font_color(night_data_label, 0x0000, 0x0000, 0x0000);*/
 /* prepare icon and label vbox */
     night_icon_label_vbox = gtk_vbox_new(FALSE, 0);
@@ -580,13 +583,13 @@ GtkWidget* create_24_hours_widget(GSList *day){
     gtk_box_pack_start(GTK_BOX(night_hbox), night_data_label, FALSE, FALSE, 0);	    
 /* prepare day data */
     sprintf(buffer, "%s%s.png", path_large_icon, item_value(day, "day_icon"));
-    icon = gdk_pixbuf_new_from_file_at_size(buffer, 64, 64, NULL);
+    icon = gdk_pixbuf_new_from_file_at_size(buffer, BIG_ICON_SIZE, BIG_ICON_SIZE, NULL);
     day_icon = gtk_image_new_from_pixbuf(icon);
     if(icon)
 	g_object_unref(icon);
 /* prepare day label */
     day_label = gtk_label_new(_("Day:"));
-    set_font_size(day_label, 14);
+    set_font_size(day_label, 17);
 /*    set_font_color(day_label, 0x0000, 0x0000, 0x0000);*/
 /* preapare day data */
     memset(buffer, 0, sizeof(buffer));
@@ -603,7 +606,7 @@ GtkWidget* create_24_hours_widget(GSList *day){
 			convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed"))),
 			(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
     day_data_label = gtk_label_new(buffer);
-    set_font_size(day_data_label, 14);
+    set_font_size(day_data_label, 17);
 /*    set_font_color(day_data_label, 0x0000, 0x0000, 0x0000);*/
 /* prepare icon and label vbox */
     day_icon_label_vbox = gtk_vbox_new(FALSE, 0);
@@ -671,7 +674,7 @@ GtkWidget* create_footer_widget(gboolean enable_more_info){
     if(enable_more_info){
 	/* prepare More button */
 	popup_window_button_more = gtk_button_new_with_label(">>");
-	set_font_size(popup_window_button_more, 14);
+	set_font_size(popup_window_button_more, 17);
 	g_signal_connect(popup_window_button_more, "clicked",
 			G_CALLBACK(popup_window_more_show), NULL);
     }
@@ -715,7 +718,7 @@ GtkWidget* create_sun_time_widget(GSList *day){
     current_time = utc_time + 60 * 60 * atol(item_value(day, "station_time_zone"));
 /* Sun icon */
     sprintf(icon, "%s32.png", path_large_icon);
-    icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, 64, 64, NULL);
+    icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, BIG_ICON_SIZE, BIG_ICON_SIZE, NULL);
     if(icon_buffer){
 	/* create Sun icon image from buffer */
 	icon_image = gtk_image_new_from_pixbuf(icon_buffer);
@@ -786,7 +789,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
     if(space_symbol)
 	*space_symbol = '_';
 /*    sprintf(icon, "%s31.png", path_large_icon);*/
-    icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, 64, 64, NULL);
+    icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, BIG_ICON_SIZE, BIG_ICON_SIZE, NULL);
     if(icon_buffer){
 	icon_image = gtk_image_new_from_pixbuf(icon_buffer);
 	g_object_unref(G_OBJECT(icon_buffer));

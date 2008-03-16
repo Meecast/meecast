@@ -42,9 +42,11 @@
 /*******************************************************************************/
 #define APPLET_X_SIZE		200
 #define APPLET_Y_SIZE		40
-#define FONT_MAIN_SIZE_LARGE	14
-#define FONT_MAIN_SIZE_MEDIUM	12
-#define FONT_MAIN_SIZE_SMALL	10
+#define FONT_MAIN_SIZE_GIANT	18
+#define FONT_MAIN_SIZE_LARGE	16
+#define FONT_MAIN_SIZE_MEDIUM	14
+#define FONT_MAIN_SIZE_SMALL	12
+#define FONT_MAIN_SIZE_TINY	10
 #define CLICK_TIMEOUT		500
 /*******************************************************************************/
 /* main struct */
@@ -252,7 +254,7 @@ void station_error_window(void){
 				    _("Wrong station code \nor ZIP code!!!"));
 }
 /*******************************************************************************/
-/* Fill buttons data */
+/* Filling data of buttons  */
 void weather_buttons_fill(gboolean check_error){
     int		i,
 		j = 0,
@@ -294,18 +296,26 @@ void weather_buttons_fill(gboolean check_error){
 /* select image and font size */
     switch(app->config->icons_size){
 	default:
+        case GIANT: 
+	    font_size = FONT_MAIN_SIZE_GIANT;
+	    icon_size = GIANT_ICON_SIZE;
+	break;	
 	case LARGE: 
 	    font_size = FONT_MAIN_SIZE_LARGE;
-	    icon_size = 64;
+	    icon_size = LARGE_ICON_SIZE;
 	break;
 	case MEDIUM:
 	    font_size = FONT_MAIN_SIZE_MEDIUM;
-	    icon_size = 48;
+	    icon_size = MEDIUM_ICON_SIZE;
 	break;
 	case SMALL:
 	    font_size = FONT_MAIN_SIZE_SMALL;
-	    icon_size = 32;
+	    icon_size = SMALL_ICON_SIZE;
 	break;
+	case TINY:
+	    font_size = FONT_MAIN_SIZE_TINY;
+	    icon_size = TINY_ICON_SIZE;
+	break;        
     }
 /* Init weather buttons */
     count_day = new_parse_weather_com_xml();

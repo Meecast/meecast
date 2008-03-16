@@ -937,14 +937,18 @@ void weather_window_settings(GtkWidget *widget,
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
         			1, 2, 3, 4);
     gtk_container_add(GTK_CONTAINER(label),icon_size = gtk_combo_box_new_text());
-    gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), _("Large"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), _("Medium"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), _("Tiny"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), _("Small"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), _("Medium"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), _("Large"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(icon_size), _("Giant"));    
     switch(app->config->icons_size){
+	case TINY: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size), TINY - 1);break;
+	case SMALL: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size), SMALL - 1);break;
+	case MEDIUM: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size), MEDIUM - 1);break;
 	default:
-	case LARGE: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),0);break;
-	case MEDIUM: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),1);break;
-	case SMALL: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size),2);break;
+	case LARGE: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size), LARGE - 1);break;
+	case GIANT: gtk_combo_box_set_active(GTK_COMBO_BOX(icon_size), GIANT - 1);break;
     }
 /* Font color */   
     gtk_table_attach_defaults(GTK_TABLE(table),	    
@@ -1196,8 +1200,8 @@ void weather_window_settings(GtkWidget *widget,
 	    }
 	    g_free(temp_string);
 /* icon size */	    
-	    if(app->config->icons_size != gtk_combo_box_get_active(GTK_COMBO_BOX(icon_size))){
-		app->config->icons_size = gtk_combo_box_get_active(GTK_COMBO_BOX(icon_size));
+	    if(app->config->icons_size != gtk_combo_box_get_active(GTK_COMBO_BOX(icon_size)) + 1){
+		app->config->icons_size = gtk_combo_box_get_active(GTK_COMBO_BOX(icon_size)) + 1;
 		flag_update_icon = TRUE;
 		flag_tuning_warning = TRUE;
 	    }
@@ -1460,6 +1464,9 @@ void create_about_dialog(void){
     strcat(tmp_buff,
 	    _("Arkady Glazov aka Globster - for testing\n"
 	      "Alexander Savchenko aka dizel - for testing\n"));
+    strcat(tmp_buff,
+	    _("Eric Link - for feature request and donation\n"));
+              
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),
@@ -1469,6 +1476,7 @@ void create_about_dialog(void){
 	    _("French - Nicolas Granziano\n"
 	      "Russian - Pavel Fialko, Vlad Vasiliev,\n\t    Ed Bartosh\n"
 	      "Finnish - Marko Vertainen\n"
+	      "German - Claudius Henrichs\n"
 	      "Italian - Pavel Fialko\n"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,

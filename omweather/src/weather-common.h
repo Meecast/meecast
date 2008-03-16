@@ -77,7 +77,13 @@
 #define MOON_ICONS		"/usr/share/omweather/moon_icons/"
 #define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
 #define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
-/*******************************************************************************/
+#define GIANT_ICON_SIZE  128
+#define LARGE_ICON_SIZE   96
+#define BIG_ICON_SIZE     80
+#define MEDIUM_ICON_SIZE  64
+#define SMALL_ICON_SIZE   48
+#define TINY_ICON_SIZE    32
+4/*******************************************************************************/
 enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT, UPDATE_AFTER_CONNECTED, CHECK_GPS_POSITION};
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
@@ -88,7 +94,7 @@ enum {	METERS_S,
 */	KILOMETERS_H,
 	MILES_H };
 enum { CELSIUS, FAHRENHEIT };
-enum { LARGE, MEDIUM, SMALL };
+enum {  UNKNOWN, TINY, SMALL, MEDIUM, LARGE, GIANT };
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{
     GtkWidget	*button;                                                                                               

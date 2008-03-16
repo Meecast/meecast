@@ -42,7 +42,6 @@ void delete_weather_day_button(gboolean after_all_destroy,WDB **day);
 void weather_buttons_fill(gboolean check_error);
 void update_weather(void);
 void set_font_size(GtkWidget *widget, char font_size);
-void set_font_color (GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 void set_background_color(GtkWidget *widget, GdkColor *bgc);
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size);
 int c2f(int temp);

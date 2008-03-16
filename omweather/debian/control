@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 4.0.0), libxml2-dev,libcurl3-dev, libpango1.0-dev, 
 Standards-Version: 3.6.0
 
 Package: omweather
-Architecture: armel arm i386
+Architecture: any
 Depends: ${shlibs:Depends}, mawk | awk, osso-application-installer | hildon-application-manager
 Description: World Weather on Nokia 770/N800. This applet uses weather.com
 XB-Maemo-Icon-26:

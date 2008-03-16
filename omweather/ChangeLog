@@ -10,17 +10,27 @@
   * Added confirm dialog while delete station
   * Added icons to display Moon phases
   * Moon phase now displayed only in first icon
+0.19.6
+  * Default size of icons is Large
+  * Germany translation has been added
+  * Corrected size for countries, states and stations list in 'add station' dialog
+  * Font on window popup now uses default color of Theme
+  * Small bug with date of second window popup has been fixed 
+  
+0.19.5
+  * New sizes of icons: Big and Giant has been added 
+  * Icons and font size in popup window  has been increased
 
 0.19.4
   * Autoconnecting and  downloading after connecting for OS2008  has been made
   * Changing in postinstall script
-
+  
 0.19.3
   * Size of locations window on configuration dialog has been raised 
   * For OS2008 - accelerating of showing popup window
 
 0.19.2
-  * OS2008 compatibility  
+  * OS2008 compatibility
   
 0.19.1
   * Time of "Last update at server:" has been corrected
@@ -33,12 +43,12 @@
   * Now the selected tab in settings dialog is saved
   * Added possibility to hide station name with 'previos' and 'next' statons buttons
   * Added displaying sunrise and sunset time
-  * Added full staions list for all available countries on weather.com
+  * Added full staions list for all available countrys on weather.com
   * Added menuitem in Home menu for call applet settings
   * The calculating of wind speed is corrected
   * Wind speed units: km/s, mi/s, m/h has been removed
   * Postinstall script in deb packet: It provide warning message for rebooting the device after installing applet
-  * The code that forming list of countries, regions and locations is fully  rewritten
+  * The code that forming list of countrys, regions and locations is fully  rewritten
   * Now if country have one region, it selected automatically
   * Fixed error: while read config, if upate interval is greater than 8 hours, then update interval always set to 'never'
   * Fixed error: after applet first start or after reboot the field 'Next update' is always never

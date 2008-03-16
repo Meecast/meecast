@@ -14,20 +14,37 @@ omweather (0.20) unstable; urgency=low
         
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 02 Jan 2008 03:36:00 +0200
  
+omweather (0.19.6) unstable; urgency=low
+
+  * Default size of icons is Large
+  * Germany translation has been added
+  * Corrected size for countries, states and stations list in 'add station' dialog
+  * Font on window popup now uses default color of Theme
+  * Small bug with date of second window popup has been fixed 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 20 Feb  2008 11:22:00 +0200
+
+omweather (0.19.5) unstable; urgency=low
+
+  * New sizes of icons: Big and Giant has been added 
+  * Icons and font size in popup window  has been increased  
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 01 Feb  2008 17:22:00 +0200
+
 omweather (0.19.4) unstable; urgency=low
 
   * Autoconnecting and  downloading after connecting for OS2008  has been made
   * Changing in postinstall script
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 02 Wen 2008 12:24:00 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 02 Jan 2008 12:24:00 +0200
 
 omweather (0.19.3) unstable; urgency=low
- 
+
   * Size of locations window on configuration dialog has been raised 
   * For OS2008 - accelerating of showing popup window
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 17 Dec 2007 12:24:00 +0200
- 
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 17 Mon 2007 12:24:00 +0200
+
 omweather (0.19.2) unstable; urgency=low
 
   * OS2008 compatibility
@@ -49,12 +66,12 @@ omweather (0.19) unstable; urgency=low
   * Now the selected tab in settings dialog is saved
   * Added possibility to hide station name with 'previos' and 'next' statons buttons
   * Added displaying sunrise and sunset time
-  * Added full staions list for all available countries on weather.com
+  * Added full staions list for all available countrys on weather.com
   * Added menuitem in Home menu for call applet settings
   * The calculating of wind speed is corrected
   * Wind speed units: km/s, mi/s, m/h has been removed
   * Postinstall script in deb packet: It provide warning message for rebooting the device after installing applet
-  * The code that forming list of countries, regions and locations is fully rewritten
+  * The code that forming list of countrys, regions and locations is fully rewritten
   * Now if country have one region, it selected automatically  
   * Fixed error: while read config, if upate interval is greater than 8 hours, then update interval always set to 'never'
   * Fixed error: after applet first start or after reboot the field 'Next update' is always never
@@ -70,6 +87,7 @@ omweather (0.19) unstable; urgency=low
   * France and Russian translation has been updated
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 14 Oct 2007 03:35:00 +0200
+
 
 omweather (0.18.5) unstable; urgency=low
 

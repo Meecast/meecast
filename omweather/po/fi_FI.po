@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-07 16:19+0200\n"
+"POT-Creation-Date: 2008-03-16 18:31+0200\n"
 "PO-Revision-Date: 2008-03-16 13:01+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: src/weather-home_settings.c:1333
+#: src/weather-settings.c:1437
 msgid ""
 "\n"
 "Author and maintenance:\n"
@@ -32,7 +32,7 @@ msgstr ""
 "Ylläpito:\n"
 "\tPavel Fialko, pavelnf@gmail.com"
 
-#: src/weather-home_settings.c:1324
+#: src/weather-settings.c:1428
 msgid ""
 "\n"
 "Copyright(c) 2006-2008\n"
@@ -42,7 +42,7 @@ msgstr ""
 "Copyright(c) 2006-2008\n"
 "Vlad Vasiliev, Pavel Fialko"
 
-#: src/weather-home_settings.c:1342
+#: src/weather-settings.c:1446
 msgid ""
 "\n"
 "Ed Bartosh - for more feature requests,\n"
@@ -68,13 +68,13 @@ msgstr ""
 "Brian Knight - kuvakkeiden ideasta, kritiikistä\n"
 "\t\t\t\tja lahjoituksesta ;-)\n"
 
-#: src/weather-home.c:870
+#: src/weather-home.c:904
 msgid ""
 "\n"
 "FL: "
 msgstr ""
 
-#: src/weather-popup.c:428
+#: src/weather-popup.c:430
 msgid ""
 "\n"
 "Feels like: "
@@ -82,7 +82,7 @@ msgstr ""
 "\n"
 "Tuntuu iholla:"
 
-#: src/weather-home_settings.c:1320
+#: src/weather-settings.c:1424
 msgid ""
 "\n"
 "Hildon desktop applet\n"
@@ -96,8 +96,7 @@ msgstr ""
 "Nokia 770/N800/N810:lla\n"
 "Versio "
 
-#: src/weather-popup.c:559
-#: src/weather-popup.c:594
+#: src/weather-popup.c:562 src/weather-popup.c:597
 msgid ""
 "\n"
 "Humidity: "
@@ -105,13 +104,13 @@ msgstr ""
 "\n"
 "Ilmankosteus: "
 
-#: src/weather-home.c:905
+#: src/weather-home.c:939
 msgid ""
 "\n"
 "P: "
 msgstr ""
 
-#: src/weather-popup.c:463
+#: src/weather-popup.c:465
 msgid ""
 "\n"
 "Pressure: "
@@ -119,13 +118,13 @@ msgstr ""
 "\n"
 "Ilmanpaine: "
 
-#: src/weather-home.c:885
+#: src/weather-home.c:919
 msgid ""
 "\n"
 "V: "
 msgstr ""
 
-#: src/weather-popup.c:443
+#: src/weather-popup.c:445
 msgid ""
 "\n"
 "Visible: "
@@ -133,7 +132,7 @@ msgstr ""
 "\n"
 "Näkyvyys: "
 
-#: src/weather-home.c:910
+#: src/weather-home.c:944
 #, fuzzy
 msgid ""
 "\n"
@@ -142,7 +141,7 @@ msgstr ""
 "\n"
 "Tuuli: "
 
-#: src/weather-popup.c:468
+#: src/weather-popup.c:470
 msgid ""
 "\n"
 "Wind: "
@@ -150,150 +149,148 @@ msgstr ""
 "\n"
 "Tuuli: "
 
-#: src/weather-home_settings.c:737
+#: src/weather-settings.c:831
 msgid " Add "
 msgstr " Lisää"
 
-#: src/weather-home.c:918
+#: src/weather-home.c:952
 #, fuzzy
 msgid " G: "
 msgstr " Puuskat:"
 
-#: src/weather-popup.c:476
+#: src/weather-popup.c:478
 msgid " Gust: "
 msgstr " Puuskat:"
 
-#: src/weather-home.c:877
+#: src/weather-home.c:911
 msgid " H: "
 msgstr ""
 
-#: src/weather-popup.c:435
+#: src/weather-popup.c:437
 msgid " Humidity: "
 msgstr " Ilmankosteus: "
 
-#: src/weather-home_settings.c:1031
+#: src/weather-settings.c:1129
 msgid "1 hour"
 msgstr "1 tunti"
 
-#: src/weather-home_settings.c:1005
+#: src/weather-settings.c:1103
 msgid "10 seconds"
 msgstr "10 sekuntia"
 
-#: src/weather-home_settings.c:1032
+#: src/weather-settings.c:1130
 msgid "2 hours"
 msgstr "2 tuntia"
 
-#: src/weather-home_settings.c:1006
+#: src/weather-settings.c:1104
 msgid "20 seconds"
 msgstr "20 sekuntia"
 
-#: src/weather-home_settings.c:1007
+#: src/weather-settings.c:1105
 msgid "30 seconds"
 msgstr "30 sekuntia"
 
-#: src/weather-home_settings.c:1033
+#: src/weather-settings.c:1131
 msgid "4 hours"
 msgstr "4 tuntia"
 
-#: src/weather-home_settings.c:1008
+#: src/weather-settings.c:1106
 msgid "40 seconds"
 msgstr "40 sekuntia"
 
-#: src/weather-home_settings.c:1009
+#: src/weather-settings.c:1107
 msgid "50 seconds"
 msgstr "50 sekuntia"
 
-#: src/weather-home_settings.c:1010
+#: src/weather-settings.c:1108
 msgid "60 seconds"
 msgstr "60 sekuntia"
 
-#: src/weather-home_settings.c:1034
+#: src/weather-settings.c:1132
 msgid "8 hours"
 msgstr "8 tuntia"
 
-#: src/weather-home_hash.c:15
+#: src/weather-hash.c:15
 msgid "AM Clouds / PM Sun"
 msgstr "ap: Pilvistä / ip: Selkeää"
 
-#: src/weather-home_hash.c:16
+#: src/weather-hash.c:16
 msgid "AM Drizzle"
 msgstr "ap: Tihkusadetta"
 
-#: src/weather-home_hash.c:17
+#: src/weather-hash.c:17
 msgid "AM Drizzle / Wind"
 msgstr "ap: Tihkusadetta / Tuulista"
 
-#: src/weather-home_hash.c:18
+#: src/weather-hash.c:18
 msgid "AM Fog / PM Clouds"
 msgstr "ap: Sumua / ip: Pilvistä"
 
-#: src/weather-home_hash.c:19
+#: src/weather-hash.c:19
 msgid "AM Fog / PM Sun"
 msgstr "ap: Sumua / ip: Selkeää"
 
-#: src/weather-home_hash.c:20
+#: src/weather-hash.c:20
 msgid "AM Light Rain"
 msgstr "ap: Kevyttä vesisadetta"
 
-#: src/weather-home_hash.c:21
+#: src/weather-hash.c:21
 msgid "AM Light Rain / Wind"
 msgstr "ap: Kevyttä vesisadetta / Tuulista"
 
-#: src/weather-home_hash.c:22
+#: src/weather-hash.c:22
 msgid "AM Light Snow"
 msgstr "ap: Kevyttä lumisadetta"
 
-#: src/weather-home_hash.c:23
+#: src/weather-hash.c:23
 msgid "AM Light Wintry Mix"
 msgstr "ap: Kevyttä räntäsadetta"
 
-#: src/weather-home_hash.c:24
+#: src/weather-hash.c:24
 msgid "AM Rain"
 msgstr "ap: Vesisadetta"
 
-#: src/weather-home_hash.c:25
+#: src/weather-hash.c:25
 msgid "AM Rain / Snow"
 msgstr "ap: Vesisadetta / Lumisadetta"
 
-#: src/weather-home_hash.c:26
+#: src/weather-hash.c:26
 msgid "AM Rain / Snow Showers"
 msgstr "ap: Vesisadetta / Lumikuuroja"
 
-#: src/weather-home_hash.c:28
+#: src/weather-hash.c:28
 msgid "AM Rain / Snow Showers / Wind"
 msgstr "ap: Vesisadetta / Lumikuuroja / Tuulista"
 
-#: src/weather-home_hash.c:27
+#: src/weather-hash.c:27
 msgid "AM Rain / Wind"
 msgstr "ap: Vesiadetta / Tuulista"
 
-#: src/weather-home_hash.c:29
+#: src/weather-hash.c:29
 msgid "AM Showers"
 msgstr "ap: Vesikuuroja"
 
-#: src/weather-home_hash.c:30
+#: src/weather-hash.c:30
 msgid "AM Snow"
 msgstr "ap: Lumisadetta"
 
-#: src/weather-home_hash.c:31
+#: src/weather-hash.c:31
 msgid "AM Snow Showers"
 msgstr "ap: Lumikuuroja"
 
-#: src/weather-home_settings.c:660
-#: src/weather-home_settings.c:1330
+#: src/weather-settings.c:754 src/weather-settings.c:1434
 msgid "About"
 msgstr "Tietoja"
 
-#: src/weather-home_settings.c:439
-#: src/weather-home_settings.c:518
+#: src/weather-settings.c:533 src/weather-settings.c:612
 msgid "Add Custom Station"
 msgstr "Lisää muu asema"
 
-#: src/weather-home_settings.c:511
+#: src/weather-settings.c:605
 msgid "Add Station"
 msgstr "Lisää asema"
 
-#: src/weather-home_settings.c:1353
+#: src/weather-settings.c:1457
 msgid ""
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
@@ -311,11 +308,11 @@ msgstr ""
 "Vladimir Shakhov aka Mendoza - testauksesta\n"
 "Marc Dilon - Englanninkielen version oikoluvusta\n"
 
-#: src/weather-home_settings.c:317
+#: src/weather-settings.c:399
 msgid "Are you sure to want delete this station ?"
 msgstr "Haluatko varmasti poistaa tämän aseman?"
 
-#: src/weather-home_settings.c:1361
+#: src/weather-settings.c:1465
 msgid ""
 "Arkady Glazov aka Globster - for testing\n"
 "Alexander Savchenko aka dizel - for testing\n"
@@ -323,11 +320,11 @@ msgstr ""
 "Arkady Glazov aka Globster - testauksesta\n"
 "Alexander Savchenko aka dizel - testauksesta\n"
 
-#: src/weather-home_settings.c:1339
+#: src/weather-settings.c:1443
 msgid "Authors"
 msgstr "Tekijät"
 
-#: src/weather-home_settings.c:988
+#: src/weather-settings.c:1086
 msgid ""
 "Automatically updating data\t\n"
 "after connect to the Internet:"
@@ -335,218 +332,218 @@ msgstr ""
 "Säätietojen automaattinen\t\n"
 "päivitys aktivoitaessa Internet yhteys:"
 
-#: src/weather-home_settings.c:867
+#: src/weather-settings.c:965
 msgid "Background color:"
 msgstr "Taustaväri:"
 
-#: src/weather-home_hash.c:32
+#: src/weather-hash.c:32
 msgid "Blowing Snow"
 msgstr "Lumituiskua"
 
-#: src/weather-home.c:852
-#: src/weather-home.c:874
-#: src/weather-popup.c:417
-#: src/weather-popup.c:432
+#: src/weather-home.c:886 src/weather-home.c:908 src/weather-popup.c:419
+#: src/weather-popup.c:434
 msgid "C"
 msgstr "С"
 
-#: src/weather-home_hash.c:33
+#: src/weather-hash.c:33
 msgid "CALM"
 msgstr "Tyyntä"
 
-#: src/weather-home_config.c:350
+#: src/weather-config.c:359
 #, c-format
 msgid "Can not get path to the HOME directory. Quitting.\n"
 msgstr "Polkua kotihakemistoon ei löydy. Lopetetaan.\n"
 
-#: src/weather-home_settings.c:232
-#: src/weather-home_settings.c:447
-#: src/weather-home_settings.c:522
-#: src/weather-home_settings.c:657
+#: src/weather-settings.c:314 src/weather-settings.c:541
+#: src/weather-settings.c:616 src/weather-settings.c:751
 msgid "Cancel"
 msgstr "Peruuta"
 
-#: src/weather-home_settings.c:923
+#: src/weather-settings.c:1021
 msgid "Celsius (Metric)"
 msgstr "Celsius (metrinen)"
 
-#: src/weather-home_hash.c:34
+#: src/weather-hash.c:34
 msgid "Clear"
 msgstr "Selkeää"
 
-#: src/weather-home_hash.c:35
+#: src/weather-hash.c:35
 msgid "Clear / Wind"
 msgstr "Selkeää / Tuulista"
 
-#: src/weather-popup.c:684
+#: src/weather-popup.c:687
 msgid "Close"
 msgstr "Sulje"
 
-#: src/weather-home_hash.c:36
+#: src/weather-hash.c:36
 msgid "Clouds Early / Clearing Late"
 msgstr "Aikaisin pilvistä / Myöhemmin selkenevää"
 
-#: src/weather-home_hash.c:38
+#: src/weather-hash.c:38
 msgid "Cloudy"
 msgstr "Pilvistä"
 
-#: src/weather-home_hash.c:37
+#: src/weather-hash.c:37
 msgid "Cloudy and Windy"
 msgstr "Pilvistä ja tuulista"
 
-#: src/weather-home_settings.c:816
+#: src/weather-settings.c:910
 msgid "Combination"
 msgstr "Yhdistelmät"
 
-#: src/weather-home_config.c:366
+#: src/weather-config.c:375
 #, c-format
 msgid "Could not create Weather Cache directory.\n"
 msgstr "Välimuistihakemiston luonti säälle epäonnistui.\n"
 
-#: src/weather-home_settings.c:525
+#: src/weather-settings.c:619
 msgid "Country:"
 msgstr "Maa:"
 
-#: src/weather-popup.c:588
+#: src/weather-popup.c:591
 msgid "Day:"
 msgstr "Päivällä:"
 
-#: src/weather-home_settings.c:751
+#: src/weather-settings.c:845
 msgid "Delete"
 msgstr "Poista"
 
-#: src/weather-home_download.c:459
+#: src/weather-download.c:459
 msgid "Did not download weather"
 msgstr "Säätietoja ei ladattu."
 
-#: src/weather-home_settings.c:942
+#: src/weather-settings.c:1040
 msgid "Distance units:"
 msgstr "Etäisyyden yksikkö:"
 
-#: src/weather-home_hash.c:39
+#: src/weather-hash.c:39
 msgid "Drifting Snow"
 msgstr "Lumituiskuja"
 
-#: src/weather-home_hash.c:40
+#: src/weather-hash.c:40
 msgid "Drizzle"
 msgstr "Tihkusadetta"
 
-#: src/weather-home_hash.c:41
+#: src/weather-hash.c:41
 msgid "Drizzle / Fog"
 msgstr "Sadekuuroja / Sumua"
 
-#: src/weather-home_hash.c:42
+#: src/weather-hash.c:42
 msgid "Drizzle Late"
 msgstr "Myöhemmin tihkusadetta"
 
-#: src/weather-home_hash.c:43
+#: src/weather-hash.c:43
 msgid "E"
 msgstr "Idästä"
 
-#: src/weather-home_hash.c:44
+#: src/weather-hash.c:44
 msgid "ENE"
 msgstr "Itäkoilisesta"
 
-#: src/weather-home_hash.c:45
+#: src/weather-hash.c:45
 msgid "ESE"
 msgstr "Itäkaakosta"
 
-#: src/weather-home_settings.c:691
+#: src/weather-settings.c:785
 msgid "Enable station from GPS:"
 msgstr "Käytä GPS:ää aseman valintaan:"
 
-#: src/weather-home.c:315
+#: src/weather-settings.c:1468
+msgid "Eric Link - for feature request and donation\n"
+msgstr ""
+
+#: src/weather-home.c:326
 #, c-format
 msgid "Error in xml file\n"
 msgstr "Virhe xml tiedostossa\n"
 
-#: src/weather-home.c:603
+#: src/weather-home.c:628
 msgid "Error initializing the OMWeather applet"
 msgstr "Virhe alustettaessa OMWeather sovelmaa"
 
-#: src/weather-home_settings.c:1076
+#: src/weather-settings.c:1174
 msgid "Events"
 msgstr "Tapahtumat"
 
-#: src/weather-home.c:853
-#: src/weather-home.c:875
-#: src/weather-popup.c:418
-#: src/weather-popup.c:433
+#: src/weather-home.c:887 src/weather-home.c:909 src/weather-popup.c:420
+#: src/weather-popup.c:435
 msgid "F"
 msgstr "F"
 
-#: src/weather-home_settings.c:924
+#: src/weather-settings.c:1022
 msgid "Fahrenheit (Imperial)"
 msgstr "Fahrenheit (Imperial)"
 
-#: src/weather-home_config.c:341
+#: src/weather-config.c:350
 #, c-format
 msgid "Failed to initialize GConf. Quitting.\n"
 msgstr "GConfin asetus epäonnistui. Lopetetaan.\n"
 
-#: src/weather-home_config.c:626
+#: src/weather-config.c:690
 #, c-format
 msgid "Failed to initialize GConf. Settings were not saved.\n"
 msgstr "GConfin asetus epäonnistui. Asetuksia ei tallennettu.\n"
 
-#: src/weather-home_hash.c:46
+#: src/weather-hash.c:46
 msgid "Fair"
 msgstr "Melko selkeää"
 
-#: src/weather-home_hash.c:48
+#: src/weather-hash.c:48
 msgid "Few Showers"
 msgstr "Ajoittaisia sadekuuroja"
 
-#: src/weather-home_hash.c:49
+#: src/weather-hash.c:49
 msgid "Few Showers / Wind"
 msgstr "Ajoittaisia sadekuuroja / Tuulista"
 
-#: src/weather-home_hash.c:50
+#: src/weather-hash.c:50
 msgid "Few Snow"
 msgstr "Ajoittaisia lumisateita"
 
-#: src/weather-home_hash.c:51
+#: src/weather-hash.c:51
 msgid "Few Snow Showers"
 msgstr "Ajoittaisia lumikuuroja"
 
-#: src/weather-home_hash.c:52
+#: src/weather-hash.c:52
 msgid "Few Snow Showers / Wind"
 msgstr "Ajoittaisia lumikuuroja / Tuulista"
 
-#: src/weather-home_hash.c:53
+#: src/weather-hash.c:53
 msgid "First Quarter"
 msgstr "Ensimmäinen neljännes"
 
-#: src/weather-home_hash.c:54
+#: src/weather-hash.c:54
 msgid "Fog"
 msgstr "Sumua"
 
-#: src/weather-home_hash.c:56
+#: src/weather-hash.c:56
 msgid "Fog Early / Clouds Late"
 msgstr "Aikaisin sumua / Myöhemmin pilvistä"
 
-#: src/weather-home_hash.c:57
+#: src/weather-hash.c:57
 msgid "Fog Late"
 msgstr "Myöhemmin sumua"
 
-#: src/weather-home_hash.c:55
+#: src/weather-hash.c:55
 msgid "Foggy"
 msgstr "Sumuista"
 
-#: src/weather-home_settings.c:857
+#: src/weather-settings.c:955
 msgid "Font color:"
 msgstr "Kirjasimen väri:"
 
-#: src/weather-home_hash.c:58
+#: src/weather-hash.c:58
 msgid "Freezing Drizzle"
 msgstr "Jäätävää tihkusadetta"
 
-#: src/weather-home_settings.c:1369
+#: src/weather-settings.c:1476
+#, fuzzy
 msgid ""
 "French - Nicolas Granziano\n"
 "Russian - Pavel Fialko, Vlad Vasiliev,\n"
 "\t    Ed Bartosh\n"
 "Finnish - Marko Vertainen\n"
+"German - Claudius Henrichs\n"
 "Italian - Pavel Fialko\n"
 msgstr ""
 "Ranska - Nicolas Granziano\n"
@@ -555,246 +552,242 @@ msgstr ""
 "Suomi - Marko Vertainen\n"
 "Italia - Pavel Fialko\n"
 
-#: src/weather-home_hash.c:59
+#: src/weather-hash.c:59
 msgid "Full"
 msgstr "Täysikuu"
 
-#: src/weather-home_hash.c:60
+#: src/weather-settings.c:944
+msgid "Giant"
+msgstr ""
+
+#: src/weather-hash.c:60
 msgid "Haze"
 msgstr "Utua"
 
-#: src/weather-home_hash.c:61
+#: src/weather-hash.c:61
 msgid "Heavy Rain"
 msgstr "Rankkasadetta"
 
-#: src/weather-home_hash.c:62
+#: src/weather-hash.c:62
 msgid "Heavy Rain / Wind"
 msgstr "Rankkasadetta / Tuulista"
 
-#: src/weather-home_hash.c:63
+#: src/weather-hash.c:63
 msgid "Heavy Snow"
 msgstr "Kova lumisade"
 
-#: src/weather-home_settings.c:903
+#: src/weather-settings.c:1001
 msgid "Hide station name and arrows:"
 msgstr "Piilota aseman nimi ja nuolet:"
 
-#: src/weather-home_hash.c:64
+#: src/weather-hash.c:64
 msgid "High"
 msgstr "Korkea"
 
-#: src/weather-home_settings.c:827
+#: src/weather-settings.c:921
 msgid "Icon set:"
 msgstr "Kuvakkeet:"
 
-#: src/weather-home_settings.c:840
+#: src/weather-settings.c:934
 msgid "Icon size:"
 msgstr "Kuvakkeen koko:"
 
-#: src/weather-home_settings.c:770
+#: src/weather-settings.c:864
 msgid "Interface"
 msgstr "Ulkoasu"
 
-#: src/weather-home_hash.c:65
+#: src/weather-hash.c:65
 msgid "Isolated T-Storms"
 msgstr "Ukkoskuuroja"
 
-#: src/weather-home_hash.c:66
+#: src/weather-hash.c:66
 msgid "Isolated T-Storms / Wind"
 msgstr "Ukkoskuuroja / Tuulista"
 
-#: src/weather-home_settings.c:949
+#: src/weather-settings.c:1047
 msgid "Kilometers"
 msgstr "Kilometrejä"
 
-#: src/weather-home_settings.c:846
+#: src/weather-settings.c:943
 msgid "Large"
 msgstr "Suuri"
 
-#: src/weather-popup.c:819
+#: src/weather-popup.c:821
 msgid "Last update at server: \n"
 msgstr "Viimeisin päivitys palvelimella: \n"
 
-#: src/weather-popup.c:834
-#: src/weather-popup.c:838
+#: src/weather-popup.c:836 src/weather-popup.c:840
 msgid "Last update from server: \n"
 msgstr "Viimeisin päivitys palvelimelta: \n"
 
-#: src/weather-home_settings.c:806
+#: src/weather-settings.c:900
 msgid "Layout:"
 msgstr "Asettelu:"
 
-#: src/weather-home_hash.c:67
+#: src/weather-hash.c:67
 msgid "Light Drizzle"
 msgstr "Kevyttä tihkusadetta"
 
-#: src/weather-home_hash.c:71
+#: src/weather-hash.c:71
 msgid "Light Rain"
 msgstr "Kevyttä vesisadetta"
 
-#: src/weather-home_hash.c:72
+#: src/weather-hash.c:72
 msgid "Light Rain / Fog"
 msgstr "Kevyttä vesisadetta / Sumua"
 
-#: src/weather-home_hash.c:73
+#: src/weather-hash.c:73
 msgid "Light Rain / Wind"
 msgstr "Kevyttä vesisadetta / Tuulista"
 
-#: src/weather-home_hash.c:74
+#: src/weather-hash.c:74
 msgid "Light Rain / Wind Late"
 msgstr "Kevyttä vesisadetta / Myöhemmin tuulista"
 
-#: src/weather-home_hash.c:75
+#: src/weather-hash.c:75
 msgid "Light Rain Early"
 msgstr "Aikaisin kevyttä vesisadetta"
 
-#: src/weather-home_hash.c:76
+#: src/weather-hash.c:76
 msgid "Light Rain Late"
 msgstr "Myöhemmin kevyttä sadetta"
 
-#: src/weather-home_hash.c:77
+#: src/weather-hash.c:77
 msgid "Light Rain Shower"
 msgstr "Kevyitä sadekuuroja"
 
-#: src/weather-home_hash.c:68
+#: src/weather-hash.c:68
 msgid "Light Rain and Freezing Rain"
 msgstr "Kevyttä vesisadetta ja jäätävää sadetta"
 
-#: src/weather-home_hash.c:70
+#: src/weather-hash.c:70
 msgid "Light Rain and Shower"
 msgstr "Kevyttä vesisadetta ja vesikuuroja"
 
-#: src/weather-home_hash.c:69
+#: src/weather-hash.c:69
 msgid "Light Rain and Windy"
 msgstr "Kevyttä vesisadetta ja tuulista"
 
-#: src/weather-home_hash.c:78
+#: src/weather-hash.c:78
 msgid "Light Snow"
 msgstr "Kevyttä lumisadetta"
 
-#: src/weather-home_hash.c:79
-#: src/weather-home_hash.c:83
+#: src/weather-hash.c:79 src/weather-hash.c:83
 msgid "Light Snow / Fog"
 msgstr "Kevyttä lumisadetta / Sumua"
 
-#: src/weather-home_hash.c:80
+#: src/weather-hash.c:80
 msgid "Light Snow Early"
 msgstr "Aikaisin kevyttä lumisadetta"
 
-#: src/weather-home_hash.c:81
+#: src/weather-hash.c:81
 msgid "Light Snow Late"
 msgstr "Myöhemmin kevyttä lumisadetta"
 
-#: src/weather-home_hash.c:82
+#: src/weather-hash.c:82
 msgid "Light Snow Shower"
 msgstr "Kevyitä lumikuuroja"
 
-#: src/weather-home_settings.c:667
+#: src/weather-settings.c:761
 msgid "Locations"
 msgstr "Sijainnit"
 
-#: src/weather-home_hash.c:84
+#: src/weather-hash.c:84
 msgid "Low"
 msgstr "Matala"
 
-#: src/weather-home_settings.c:847
+#: src/weather-settings.c:942
 msgid "Medium"
 msgstr "Keskikoko"
 
-#: src/weather-home_settings.c:948
+#: src/weather-settings.c:1046
 msgid "Meters"
 msgstr "Metrejä"
 
-#: src/weather-home_settings.c:950
+#: src/weather-settings.c:1048
 msgid "Miles"
 msgstr "Maileja"
 
-#: src/weather-home_settings.c:951
+#: src/weather-settings.c:1049
 msgid "Miles (Sea)"
 msgstr "Merimaileja"
 
-#: src/weather-home_hash.c:85
+#: src/weather-hash.c:85
 msgid "Mist"
 msgstr "Utua"
 
-#: src/weather-home_hash.c:86
+#: src/weather-hash.c:86
 msgid "Mostly Clear"
 msgstr "Melko selkeää"
 
-#: src/weather-home_hash.c:87
+#: src/weather-hash.c:87
 msgid "Mostly Cloudy"
 msgstr "Melko pilvistä"
 
-#: src/weather-home_hash.c:89
+#: src/weather-hash.c:89
 msgid "Mostly Cloudy / Wind"
 msgstr "Melko pilvistä / Tuulista"
 
-#: src/weather-home_hash.c:88
+#: src/weather-hash.c:88
 msgid "Mostly Cloudy and Windy"
 msgstr "Melko pilvistä ja tuulista"
 
-#: src/weather-home_hash.c:90
+#: src/weather-hash.c:90
 msgid "Mostly Sunny"
 msgstr "Melko selkeää"
 
-#: src/weather-home_hash.c:94
+#: src/weather-hash.c:94
 msgid "N"
 msgstr "Pohjoisesta"
 
-#: src/weather-home.c:429
-#: src/weather-home.c:448
-#: src/weather-home.c:471
-#: src/weather-home.c:475
-#: src/weather-home.c:510
-#: src/weather-home.c:514
-#: src/weather-home.c:526
-#: src/weather-home_hash.c:91
+#: src/weather-home.c:454 src/weather-home.c:473 src/weather-home.c:496
+#: src/weather-home.c:500 src/weather-home.c:535 src/weather-home.c:539
+#: src/weather-home.c:551 src/weather-hash.c:91
 msgid "N/A"
 msgstr "N/A"
 
-#: src/weather-home_hash.c:92
+#: src/weather-hash.c:92
 msgid "NE"
 msgstr "Koilisesta"
 
-#: src/weather-home_hash.c:95
+#: src/weather-hash.c:95
 msgid "NNE"
 msgstr "Pohjoiskoilisesta"
 
-#: src/weather-home_hash.c:96
+#: src/weather-hash.c:96
 msgid "NNW"
 msgstr "Pohjoisluoteesta"
 
-#: src/weather-home_hash.c:8
+#: src/weather-hash.c:8
 msgid "NO STATION"
 msgstr "Ei asemaa"
 
-#: src/weather-home_hash.c:97
+#: src/weather-hash.c:97
 msgid "NW"
 msgstr "Luoteesta"
 
-#: src/weather-home_settings.c:1004
-#: src/weather-home_settings.c:1487
-#: src/weather-home_config.c:302
+#: src/weather-settings.c:1102 src/weather-settings.c:1595
+#: src/weather-config.c:311
 msgid "Never"
 msgstr "Ei koskaan"
 
-#: src/weather-home_hash.c:93
+#: src/weather-hash.c:93
 msgid "New"
 msgstr "Uusikuu"
 
-#: src/weather-home_settings.c:1052
+#: src/weather-settings.c:1150
 msgid "Next update:"
 msgstr "Seuraava päivitys:"
 
-#: src/weather-popup.c:553
+#: src/weather-popup.c:556
 msgid "Night:"
 msgstr "Yöllä:"
 
-#: src/weather-home_download.c:181
+#: src/weather-download.c:181
 msgid "Not connected to Internet"
 msgstr "Ei yhteyttä Internettiin."
 
-#: src/weather-home_download.c:367
+#: src/weather-download.c:367
 msgid ""
 "Not connected to Internet\n"
 "Connection time is expired"
@@ -802,296 +795,297 @@ msgstr ""
 "Ei yhteyttä Internettiin\n"
 "Yhteys on vanhentunut"
 
-#: src/weather-home.c:428
-#: src/weather-home.c:436
-#: src/weather-home.c:447
+#: src/weather-home.c:453 src/weather-home.c:461 src/weather-home.c:472
 msgid "Now"
 msgstr "Nyt"
 
-#: src/weather-home.c:848
-#: src/weather-popup.c:413
+#: src/weather-home.c:882 src/weather-popup.c:415
 #, c-format
 msgid "Now: "
 msgstr "Nyt: "
 
-#: src/weather-home_settings.c:230
-#: src/weather-home_settings.c:445
-#: src/weather-home_settings.c:520
-#: src/weather-home_settings.c:654
-#: src/weather-home_settings.c:1313
+#: src/weather-settings.c:312 src/weather-settings.c:539
+#: src/weather-settings.c:614 src/weather-settings.c:748
+#: src/weather-settings.c:1417
 msgid "OK"
 msgstr "OK"
 
-#: src/weather-home.c:780
+#: src/weather-home.c:814
 msgid "OMWeather settings"
 msgstr "OMWeather asetukset"
 
-#: src/weather-home_settings.c:813
+#: src/weather-settings.c:907
 msgid "One column"
 msgstr "Yksi sarake"
 
-#: src/weather-home_settings.c:812
+#: src/weather-settings.c:906
 msgid "One row"
 msgstr "Yksi rivi"
 
-#: src/weather-home_settings.c:1310
+#: src/weather-settings.c:1414
 msgid "Other Maemo Weather Info"
 msgstr "Other Maemo Weather Tietoja"
 
-#: src/weather-home_settings.c:648
+#: src/weather-settings.c:742
 msgid "Other Maemo Weather Settings"
 msgstr "Other Maemo Weather asetukset"
 
-#: src/weather-home_hash.c:98
+#: src/weather-hash.c:98
 msgid "Overcast"
 msgstr "Pilvistä"
 
-#: src/weather-home_hash.c:102
+#: src/weather-hash.c:102
 msgid "PM Fog"
 msgstr "ip: Sumua"
 
-#: src/weather-home_hash.c:103
+#: src/weather-hash.c:103
 msgid "PM Light Rain"
 msgstr "ip: Kevyttä vesisadetta"
 
-#: src/weather-home_hash.c:104
+#: src/weather-hash.c:104
 msgid "PM Light Snow"
 msgstr "ip: Kevyttä lumisadetta"
 
-#: src/weather-home_hash.c:105
+#: src/weather-hash.c:105
 msgid "PM Rain"
 msgstr "ip: Vesisadetta"
 
-#: src/weather-home_hash.c:106
+#: src/weather-hash.c:106
+#, fuzzy
+msgid "PM Rain / Snow"
+msgstr "ap: Vesisadetta / Lumisadetta"
+
+#: src/weather-hash.c:107
 msgid "PM Rain / Wind"
 msgstr "ip: Vesiadetta / Tuulista"
 
-#: src/weather-home_hash.c:107
+#: src/weather-hash.c:108
 msgid "PM Showers"
 msgstr "ip: Vesikuuroja"
 
-#: src/weather-home_hash.c:108
+#: src/weather-hash.c:109
 msgid "PM Showers / Wind"
 msgstr "ip: Vesikuuroja / Tuulista"
 
-#: src/weather-home_hash.c:109
+#: src/weather-hash.c:110
 msgid "PM Snow Showers"
 msgstr "ip: Lumikuuroja"
 
-#: src/weather-home_hash.c:99
+#: src/weather-hash.c:99
 msgid "Partly Cloudy"
 msgstr "Puolipilvistä"
 
-#: src/weather-home_hash.c:100
+#: src/weather-hash.c:100
 msgid "Partly Cloudy / Wind"
 msgstr "Puolipilvistä / Tuulista"
 
-#: src/weather-home_hash.c:101
+#: src/weather-hash.c:101
 msgid "Partly Cloudy and Windy"
 msgstr "Osittain pilvistä ja tuulista"
 
-#: src/weather-home_hash.c:110
+#: src/weather-hash.c:111
 msgid "Rain"
 msgstr "Vesisadetta"
 
-#: src/weather-home_hash.c:115
+#: src/weather-hash.c:116
 msgid "Rain / Freezing Rain"
 msgstr "Vesisadetta / Jäätävää sadetta"
 
-#: src/weather-home_hash.c:116
+#: src/weather-hash.c:117
 msgid "Rain / Snow"
 msgstr "Vesisadetta / Lumisadetta"
 
-#: src/weather-home_hash.c:119
+#: src/weather-hash.c:120
 msgid "Rain / Snow / Wind"
 msgstr "Vesisadetta / Lumisadetta / Tuulista"
 
-#: src/weather-home_hash.c:117
+#: src/weather-hash.c:118
 msgid "Rain / Snow Early"
 msgstr "Vesisadetta / Aikaisin lumisadetta"
 
-#: src/weather-home_hash.c:118
+#: src/weather-hash.c:119
 msgid "Rain / Snow Late"
 msgstr "Vesisadetta / Myöhemmin lumisadetta"
 
-#: src/weather-home_hash.c:121
+#: src/weather-hash.c:122
 msgid "Rain / Snow Showers"
 msgstr "Vesisadetta / Lumikuuroja"
 
-#: src/weather-home_hash.c:122
+#: src/weather-hash.c:123
 msgid "Rain / Snow Showers / Wind"
 msgstr "Vesisadetta / Lumikuuroja / Tuulista"
 
-#: src/weather-home_hash.c:120
+#: src/weather-hash.c:121
 msgid "Rain / Snow Showers Late"
 msgstr "Vesisadetta / Myöhemmin lumikuuroja"
 
-#: src/weather-home_hash.c:123
+#: src/weather-hash.c:124
 msgid "Rain / Thunder"
 msgstr "Vesisadetta / Ukkosta"
 
-#: src/weather-home_hash.c:127
+#: src/weather-hash.c:128
 msgid "Rain / Wind"
 msgstr "Vesisadetta / Tuulista"
 
-#: src/weather-home_hash.c:126
+#: src/weather-hash.c:127
 msgid "Rain / Wind Early"
 msgstr "Vesisadetta / Aikaisin tuulista"
 
-#: src/weather-home_hash.c:112
+#: src/weather-hash.c:113
 msgid "Rain Early"
 msgstr "Aikaisin sadetta"
 
-#: src/weather-home_hash.c:114
+#: src/weather-hash.c:115
 msgid "Rain Shower"
 msgstr "Vesikuuroja"
 
-#: src/weather-home_hash.c:113
+#: src/weather-hash.c:114
 msgid "Rain Shower and Windy"
 msgstr "Vesikuuroja ja tuulista"
 
-#: src/weather-home_hash.c:111
+#: src/weather-hash.c:112
 msgid "Rain and Snow"
 msgstr "Vesi- ja lumisadetta"
 
-#: src/weather-home_hash.c:124
+#: src/weather-hash.c:125
 msgid "Rain to Wintry Mix"
 msgstr "Vesi- ja räntäsadetta"
 
-#: src/weather-home_hash.c:125
+#: src/weather-hash.c:126
 msgid "Rain to Wintry Mix / Wind"
 msgstr "Vesi- ja räntäsadetta / Tuulista"
 
-#: src/weather-home_settings.c:744
+#: src/weather-settings.c:838
 msgid "Rename"
 msgstr "Uudelleennimeä"
 
-#: src/weather-home_settings.c:224
+#: src/weather-settings.c:306
 msgid "Rename Station"
 msgstr "Uudelleennimeä asema"
 
-#: src/weather-home_hash.c:151
+#: src/weather-hash.c:152
 msgid "S"
 msgstr "Etelästä"
 
-#: src/weather-home_hash.c:133
+#: src/weather-hash.c:134
 msgid "SE"
 msgstr "Kaakosta"
 
-#: src/weather-home_hash.c:152
+#: src/weather-hash.c:153
 msgid "SSE"
 msgstr "Eteläkaakosta"
 
-#: src/weather-home_hash.c:153
+#: src/weather-hash.c:154
 msgid "SSW"
 msgstr "Etelälounaasta"
 
-#: src/weather-home_hash.c:158
+#: src/weather-hash.c:159
 msgid "SW"
 msgstr "Lounaasta"
 
-#: src/weather-home_hash.c:129
+#: src/weather-hash.c:130
 msgid "Scattered Showers"
 msgstr "Hajanaisia vesikuuroja"
 
-#: src/weather-home_hash.c:130
+#: src/weather-hash.c:131
 msgid "Scattered Snow"
 msgstr "Hajanaisia lumisateita"
 
-#: src/weather-home_hash.c:131
+#: src/weather-hash.c:132
 msgid "Scattered Snow Showers"
 msgstr "Hajanaisia lumikuuroja"
 
-#: src/weather-home_hash.c:132
+#: src/weather-hash.c:133
 msgid "Scattered T-Storms"
 msgstr "Hajanaisia ukkoskuuroja"
 
-#: src/weather-popup.c:679
-#: src/weather-popup.c:974
+#: src/weather-popup.c:682 src/weather-popup.c:978
 msgid "Settings"
 msgstr "Asetukset"
 
-#: src/weather-home_settings.c:893
+#: src/weather-settings.c:991
 msgid "Show only current weather on first icon:"
 msgstr "Nykyinen säätieto ensimmäisessä kuvakkeessa:"
 
-#: src/weather-home_hash.c:137
+#: src/weather-hash.c:138
 msgid "Showers"
 msgstr "Vesikuuroja"
 
-#: src/weather-home_hash.c:138
+#: src/weather-hash.c:139
 msgid "Showers / Wind"
 msgstr "Vesikuuroja / Tuulista"
 
-#: src/weather-home_hash.c:134
+#: src/weather-hash.c:135
 msgid "Showers Early"
 msgstr "Aikaisin vesikuuroja"
 
-#: src/weather-home_hash.c:136
+#: src/weather-hash.c:137
 msgid "Showers Late"
 msgstr "Myöhemmin vesikuuroja"
 
-#: src/weather-home_hash.c:135
+#: src/weather-hash.c:136
 msgid "Showers in the Vicinity"
 msgstr "Vesikuuroja lähialueilla"
 
-#: src/weather-home_settings.c:848
+#: src/weather-settings.c:941
 msgid "Small"
 msgstr "Pieni"
 
-#: src/weather-home_hash.c:139
+#: src/weather-hash.c:140
 msgid "Smoke"
 msgstr "Savusumua"
 
-#: src/weather-home_hash.c:145
+#: src/weather-hash.c:146
 msgid "Snow"
 msgstr "Lumisadetta"
 
-#: src/weather-home_hash.c:146
+#: src/weather-hash.c:147
 msgid "Snow / Wind"
 msgstr "Lumisadetta / Tuulista"
 
-#: src/weather-home_hash.c:141
+#: src/weather-hash.c:142
 msgid "Snow Shower"
 msgstr "Lumikuuroja"
 
-#: src/weather-home_hash.c:142
+#: src/weather-hash.c:143
 msgid "Snow Shower / Wind"
 msgstr "Lumikuuroja / Tuulista"
 
-#: src/weather-home_hash.c:140
+#: src/weather-hash.c:144
+#, fuzzy
+msgid "Snow Showers / Wind Early"
+msgstr "Lumikuuroja / Aikaisin tuulista"
+
+#: src/weather-hash.c:145
+#, fuzzy
+msgid "Snow Showers Early"
+msgstr "Aikaisin lumikuuroja"
+
+#: src/weather-hash.c:141
 msgid "Snow Showers Late"
 msgstr "Myöhemmin lumikuuroja"
 
-#: src/weather-home_hash.c:147
+#: src/weather-hash.c:148
 msgid "Snow and Freezing Rain"
 msgstr "Lumisadetta ja Jäätävää sadetta"
 
-#: src/weather-home_hash.c:148
+#: src/weather-hash.c:149
 msgid "Snow to Rain"
 msgstr "Lumi- ja vesisadetta"
 
-#: src/weather-home_hash.c:149
+#: src/weather-hash.c:150
 msgid "Snow to Wintry Mix"
 msgstr "Lumi- ja räntäsadetta"
 
-#: src/weather-home_hash.c:150
+#: src/weather-hash.c:151
 msgid "Snow to Wintry Mix / Wind"
 msgstr "Lumi- ja räntäsadetta / Tuulista"
 
-#: src/weather-home_hash.c:143
-msgid "Snows Showers / Wind Early"
-msgstr "Lumikuuroja / Aikaisin tuulista"
-
-#: src/weather-home_hash.c:144
-msgid "Snows Showers Early"
-msgstr "Aikaisin lumikuuroja"
-
-#: src/weather-home_settings.c:533
+#: src/weather-settings.c:627
 msgid "State(Province):"
 msgstr "Osavaltio (Lääni):"
 
-#: src/weather-home_settings.c:460
+#: src/weather-settings.c:554
 msgid ""
 "Station code\n"
 " (ZIP Code):"
@@ -1099,116 +1093,119 @@ msgstr ""
 "Aseman koodi\n"
 " (posti nro):"
 
-#: src/weather-home_settings.c:450
+#: src/weather-settings.c:544
 msgid "Station name:"
 msgstr "Aseman nimi:"
 
-#: src/weather-home_settings.c:541
+#: src/weather-settings.c:635
 msgid "Station(Place):"
 msgstr "Asema (Paikkakunta):"
 
-#: src/weather-home_settings.c:239
+#: src/weather-settings.c:321
 msgid "Station:"
 msgstr "Asema:"
 
-#: src/weather-home_hash.c:155
+#: src/weather-hash.c:156
 msgid "Storm"
 msgstr "Myrsky"
 
-#: src/weather-home_hash.c:156
+#: src/weather-hash.c:157
 msgid "Sunny"
 msgstr "Aurinkoista"
 
-#: src/weather-home_hash.c:157
+#: src/weather-hash.c:158
 msgid "Sunny / Wind"
 msgstr "Aurinkoista / Tuulista"
 
-#: src/weather-popup.c:730
+#: src/weather-popup.c:733
 msgid "Sunrise: "
 msgstr "Auringonnousu:"
 
-#: src/weather-popup.c:738
+#: src/weather-popup.c:741
 msgid "Sunset: "
 msgstr "Auringonlasku:"
 
-#: src/weather-home_settings.c:932
+#: src/weather-settings.c:1030
 msgid "Swap hi/low temperature:"
 msgstr "Käänteinen lämpötilan korkea/matala näyttö:"
 
-#: src/weather-home_settings.c:998
+#: src/weather-settings.c:1096
 msgid "Switch to the next station after:"
 msgstr "Aika seuraavan aseman vaihtoon:"
 
-#: src/weather-home_hash.c:159
+#: src/weather-hash.c:160
 msgid "T-Showers"
 msgstr "Ukkoskuuroja"
 
-#: src/weather-home_hash.c:160
+#: src/weather-hash.c:161
 msgid "T-Storms"
 msgstr "Ukkosta"
 
-#: src/weather-home_hash.c:161
+#: src/weather-hash.c:162
 msgid "T-Storms Early"
 msgstr "Aikaisin ukkoskuuroja"
 
-#: src/weather-home_settings.c:917
+#: src/weather-settings.c:1015
 msgid "Temperature units:"
 msgstr "Lämpötilan yksikkö:"
 
-#: src/weather-popup.c:375
+#: src/weather-popup.c:377
 msgid "Temperature: "
 msgstr "Lämpötila:"
 
-#: src/weather-home_settings.c:1366
+#: src/weather-settings.c:1473
 msgid "Thanks"
 msgstr "Kiitokset"
 
-#: src/weather-home_hash.c:162
+#: src/weather-hash.c:163
 msgid "Thunder"
 msgstr "Ukkosta"
 
-#: src/weather-home_settings.c:1376
+#: src/weather-settings.c:940
+msgid "Tiny"
+msgstr ""
+
+#: src/weather-settings.c:1484
 msgid "Translators"
 msgstr "Kääntäjät"
 
-#: src/weather-home_settings.c:881
+#: src/weather-settings.c:979
 msgid "Transparency:"
 msgstr "Läpinäkyvyys:"
 
-#: src/weather-home_settings.c:815
+#: src/weather-settings.c:909
 msgid "Two columns"
 msgstr "Kaksi saraketta"
 
-#: src/weather-home_settings.c:814
+#: src/weather-settings.c:908
 msgid "Two rows"
 msgstr "Kaksi riviä"
 
-#: src/weather-home_settings.c:914
+#: src/weather-settings.c:1012
 msgid "Units"
 msgstr "Yksiköt"
 
-#: src/weather-popup.c:821
-#: src/weather-popup.c:834
+#: src/weather-popup.c:823 src/weather-popup.c:836
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: src/weather-home_hash.c:163
+#: src/weather-hash.c:164
 msgid "Unlimited"
 msgstr "Rajatonta"
 
-#: src/weather-home_settings.c:985
+#: src/weather-settings.c:1083
 msgid "Update"
 msgstr "Päivitys"
 
-#: src/weather-home_download.c:54
+#: src/weather-download.c:54
 msgid "Update weather"
 msgstr "Päivitetään säätietoja."
 
-#: src/weather-home_settings.c:1044
+#: src/weather-settings.c:1142
 msgid "Updating of weather data:"
 msgstr "Päivitetään sääennustetta:"
 
-#: src/weather-home_settings.c:1262
+#: src/weather-settings.c:1366
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"
@@ -1217,84 +1214,83 @@ msgstr ""
 "Muokkaa asettelua, \n"
 "sovelman koon muuttamiseksi."
 
-#: src/weather-home_hash.c:176
+#: src/weather-hash.c:177
 msgid "VAR"
 msgstr "Vaihteleva"
 
-#: src/weather-home_settings.c:1025
+#: src/weather-settings.c:1123
 msgid "Valid time for current weather:"
 msgstr "Nykyisen sään voimassaolo:"
 
-#: src/weather-home_hash.c:177
+#: src/weather-hash.c:178
 msgid "Very High"
 msgstr "Erittäin korkea"
 
-#: src/weather-home_settings.c:774
+#: src/weather-settings.c:868
 msgid "Visible items:"
 msgstr "Näkyvät elementit:"
 
-#: src/weather-home_hash.c:175
+#: src/weather-hash.c:176
 msgid "W"
 msgstr "Lännestä"
 
-#: src/weather-home_hash.c:173
+#: src/weather-hash.c:174
 msgid "WNW"
 msgstr "Länsiluoteesta"
 
-#: src/weather-home_hash.c:174
+#: src/weather-hash.c:175
 msgid "WSW"
 msgstr "Länsilounaasta"
 
-#: src/weather-home_hash.c:164
+#: src/weather-hash.c:165
 msgid "Waning Crescent"
 msgstr "Vähenevä sirppi"
 
-#: src/weather-home_hash.c:165
+#: src/weather-hash.c:166
 msgid "Waning Gibbous"
 msgstr "Vähenevä kuperakuu"
 
-#: src/weather-home_hash.c:166
+#: src/weather-hash.c:167
 msgid "Waxing Crescent"
 msgstr "Kasvava sirppi"
 
-#: src/weather-home_hash.c:167
+#: src/weather-hash.c:168
 msgid "Waxing Gibbous"
 msgstr "Kasvava kuperakuu"
 
-#: src/weather-home_download.c:476
+#: src/weather-download.c:476
 msgid "Weather updated"
 msgstr "Säätiedot päivitetty."
 
-#: src/weather-home_hash.c:168
+#: src/weather-hash.c:169
 msgid "Wind"
 msgstr "Tuulista"
 
-#: src/weather-home_settings.c:961
+#: src/weather-settings.c:1059
 msgid "Wind speed units:"
 msgstr "Tuulen nopeuden yksikkö:"
 
-#: src/weather-popup.c:566
-#: src/weather-popup.c:601
+#: src/weather-popup.c:569 src/weather-popup.c:604
 msgid "Wind: "
 msgstr "Tuuli:"
 
-#: src/weather-home_hash.c:172
+#: src/weather-hash.c:173
 msgid "Wintry Mix"
 msgstr "Räntäsadetta"
 
-#: src/weather-home_hash.c:171
+#: src/weather-hash.c:172
 msgid "Wintry Mix / Wind"
 msgstr "Räntäsadetta / Tuulista"
 
-#: src/weather-home_hash.c:170
+#: src/weather-hash.c:171
 msgid "Wintry Mix / Wind Early"
 msgstr "Räntäsadetta / Aiemmin tuulista"
 
-#: src/weather-home_hash.c:169
+#: src/weather-hash.c:170
 msgid "Wintry Mix to Snow"
 msgstr "Räntä- ja lumisadetta"
 
-#: src/weather-home.c:252
+#: src/weather-home.c:254
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
@@ -1302,104 +1298,96 @@ msgstr ""
 "Väärä asemakoodi \n"
 "tai postinumero!"
 
-#: src/weather-popup.c:842
+#: src/weather-popup.c:844
 msgid "current location local time"
 msgstr "sijainnin paikallisaika"
 
-#: src/weather-home_config.c:310
+#: src/weather-config.c:319
 msgid "every 2 hours"
 msgstr "2 tunnin välein"
 
-#: src/weather-home_config.c:316
+#: src/weather-config.c:325
 msgid "every 24 hours"
 msgstr "kerran vuorokaudessa"
 
-#: src/weather-home_config.c:306
+#: src/weather-config.c:315
 msgid "every 30 minutes"
 msgstr "30 minuutin välein"
 
-#: src/weather-home_config.c:312
+#: src/weather-config.c:321
 msgid "every 4 hours"
 msgstr "4 tunnin välein"
 
-#: src/weather-home_config.c:304
+#: src/weather-config.c:313
 msgid "every 5 minutes"
 msgstr "5 minuutin välein"
 
-#: src/weather-home_config.c:314
+#: src/weather-config.c:323
 msgid "every 8 hours"
 msgstr "8 tunnin välein"
 
-#: src/weather-home_config.c:308
+#: src/weather-config.c:317
 msgid "every hour"
 msgstr "kerran tunnissa"
 
-#: src/weather-home_config.c:318
+#: src/weather-config.c:327
 msgid "every minute (Debug)"
 msgstr "kerran minuutissa (Debug)"
 
-#: src/weather-home_hash.c:47
+#: src/weather-hash.c:47
 msgid "falling"
 msgstr "laskeva"
 
-#: src/weather-home.c:895
-#: src/weather-popup.c:453
+#: src/weather-home.c:929 src/weather-popup.c:455
 msgid "km"
 msgstr "km"
 
-#: src/weather-home_settings.c:971
-#: src/weather-home_hash.c:13
+#: src/weather-settings.c:1069 src/weather-hash.c:13
 msgid "km/h"
 msgstr "km/h"
 
-#: src/weather-home_hash.c:10
+#: src/weather-hash.c:10
 msgid "km/s"
 msgstr "km/s"
 
-#: src/weather-home.c:894
-#: src/weather-popup.c:452
+#: src/weather-home.c:928 src/weather-popup.c:454
 msgid "m"
 msgstr "m"
 
-#: src/weather-home_hash.c:12
+#: src/weather-hash.c:12
 msgid "m/h"
 msgstr "m/h"
 
-#: src/weather-home_settings.c:967
-#: src/weather-home_hash.c:9
+#: src/weather-settings.c:1065 src/weather-hash.c:9
 msgid "m/s"
 msgstr "m/s"
 
-#: src/weather-home.c:907
-#: src/weather-popup.c:465
+#: src/weather-home.c:941 src/weather-popup.c:467
 msgid "mb"
 msgstr "mbar"
 
-#: src/weather-home.c:896
-#: src/weather-home.c:897
-#: src/weather-popup.c:454
-#: src/weather-popup.c:455
+#: src/weather-home.c:930 src/weather-home.c:931 src/weather-popup.c:456
+#: src/weather-popup.c:457
 msgid "mi"
 msgstr "mi"
 
-#: src/weather-home_settings.c:972
-#: src/weather-home_hash.c:14
+#: src/weather-settings.c:1070 src/weather-hash.c:14
 msgid "mi/h"
 msgstr "mi/h"
 
-#: src/weather-home_hash.c:11
+#: src/weather-hash.c:11
 msgid "mi/s"
 msgstr "mi/s"
 
-#: src/weather-home_hash.c:128
+#: src/weather-hash.c:129
 msgid "rising"
 msgstr "nousussa"
 
-#: src/weather-popup.c:826
+#: src/weather-popup.c:828
 msgid "station local time"
 msgstr "aseman paikallisaika"
 
-#: src/weather-home_hash.c:154
+#: src/weather-hash.c:155
 msgid "steady"
 msgstr "tasainen"
 
@@ -1409,6 +1397,6 @@ msgstr "tasainen"
 #, fuzzy
 #~ msgid "Edit Station"
 #~ msgstr "Lisää asema"
+
 #~ msgid "Separate current weather data"
 #~ msgstr "Näytä nykyinen säätieto erikseen"
-

@@ -1,8 +1,8 @@
 # List of source files containing translatable strings.
 
 src/weather-home.c
-src/weather-home_settings.c
-src/weather-home_config.c
+src/weather-settings.c
+src/weather-config.c
 src/weather-popup.c
-src/weather-home_hash.c
-src/weather-home_download.c
+src/weather-hash.c
+src/weather-download.c

@@ -405,7 +405,6 @@ int new_read_config(AppletConfig *config){
 				    GCONF_VALUE_STRING, NULL);
     if(stlist){
 	fill_user_stations_list(stlist, &app->user_stations_list);
-//	reinitilize_stations_list2(stlist);
 	g_slist_free(stlist);
     }
     /* Get icon set name */ 
@@ -527,6 +526,14 @@ int new_read_config(AppletConfig *config){
     }
     else
         config->hide_station_name = FALSE;
+    /* Get Hide Arrows State. Default is FALSE */
+    value = gconf_client_get(gconf_client, GCONF_KEY_HIDE_ARROWS, NULL);
+    if(value){
+        config->hide_arrows = gconf_value_get_bool(value);
+        gconf_value_free(value);
+    }
+    else
+        config->hide_arrows = FALSE;
 
     /* Get Temperature Unit  Default Celsius */
     config->temperature_units = gconf_client_get_int(gconf_client,
@@ -778,10 +785,14 @@ void new_config_save(AppletConfig *config){
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_SWAP_TEMPERATURE,
 			config->swap_hi_low_temperature, NULL);	    
-     /* Hide Station Name and Arrows */
+     /* Hide Station Name */
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_HIDE_STATION_NAME,
 			config->hide_station_name, NULL);
+     /* Hide Arrows */
+    gconf_client_set_bool(gconf_client,
+        		GCONF_KEY_HIDE_ARROWS,
+			config->hide_arrows, NULL);
     /* Save Weather Temperature Unit  */		     	    
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_TEMPERATURE_UNIT,

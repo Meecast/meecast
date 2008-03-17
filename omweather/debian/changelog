@@ -11,6 +11,7 @@ omweather (0.20) unstable; urgency=low
   * Added confirm dialog while delete station
   * Added icons to display Moon phases
   * Moon phase now displayed only in first icon
+  * Now option hide station name with 'previos' and 'next' stations buttons is separated
         
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 02 Jan 2008 03:36:00 +0200
  

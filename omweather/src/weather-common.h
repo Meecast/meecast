@@ -200,6 +200,7 @@ typedef struct applet_config{
     gboolean	separate;
     gboolean	swap_hi_low_temperature;
     gboolean	hide_station_name;
+    gboolean	hide_arrows;
     gboolean	downloading_after_connecting;
     gboolean    gps_station;
     GdkColor	font_color;

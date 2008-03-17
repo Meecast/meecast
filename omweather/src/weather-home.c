@@ -1013,7 +1013,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 						    &iter))
 	user_stations_list_has_two_or_more_elements = TRUE;
 /* draw arrows */
-    if(!app->config->hide_station_name && user_stations_list_has_two_or_more_elements){
+    if(!app->config->hide_arrows && user_stations_list_has_two_or_more_elements){
 	/* create previos station button */
 	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&lt;</span>",
 		app->config->font_color.red >> 8, app->config->font_color.green >> 8,

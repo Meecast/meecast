@@ -10,6 +10,8 @@
   * Added confirm dialog while delete station
   * Added icons to display Moon phases
   * Moon phase now displayed only in first icon
+  * Now option hide station name with 'previos' and 'next' stations buttons is separated
+
 0.19.6
   * Default size of icons is Large
   * Germany translation has been added
@@ -41,7 +43,7 @@
   * Hide buttons 'next station', 'previos station' when one station is used
   * Correct creating the cache directory
   * Now the selected tab in settings dialog is saved
-  * Added possibility to hide station name with 'previos' and 'next' statons buttons
+  * Added possibility to hide station name with 'previos' and 'next' stations buttons
   * Added displaying sunrise and sunset time
   * Added full staions list for all available countrys on weather.com
   * Added menuitem in Home menu for call applet settings

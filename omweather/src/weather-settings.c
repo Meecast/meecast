@@ -712,6 +712,7 @@ void weather_window_settings(GtkWidget *widget,
 		*separate_button = NULL,
 		*swap_temperature_button = NULL,
 		*hide_station_name = NULL,
+		*hide_arrows = NULL,
 		*scrolled_window = NULL,
 		*button_add = NULL,
 		*button_del = NULL,
@@ -860,7 +861,7 @@ void weather_window_settings(GtkWidget *widget,
 
 /* Interface tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			table = gtk_table_new(1, 7, FALSE),
+        			table = gtk_table_new(7, 4, FALSE),
         			label = gtk_label_new(_("Interface")));
 /* Days to show */
     app->config->days_to_show--; /* count down, because combobox items start with 0 */
@@ -998,7 +999,7 @@ void weather_window_settings(GtkWidget *widget,
         			    app->config->separate);
 /* Hide station name button */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new(_("Hide station name and arrows:")),
+        			label = gtk_label_new(_("Hide station name:")),
         			0, 1, 9, 10);
     gtk_table_attach_defaults(GTK_TABLE(table),	    
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
@@ -1006,6 +1007,16 @@ void weather_window_settings(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(label), hide_station_name = gtk_check_button_new());
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_station_name),
         			    app->config->hide_station_name);
+/* Hide arrows button */
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+        			label = gtk_label_new(_("Hide arrows:")),
+        			0, 1, 10, 11);
+    gtk_table_attach_defaults(GTK_TABLE(table),	    
+        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
+        			1, 2, 10, 11);
+    gtk_container_add(GTK_CONTAINER(label), hide_arrows = gtk_check_button_new());
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_arrows),
+        			    app->config->hide_arrows);
 /* Units tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			table = gtk_table_new(1, 3, FALSE),
@@ -1262,10 +1273,16 @@ void weather_window_settings(GtkWidget *widget,
 		    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(swap_temperature_button));
     		flag_update_icon = TRUE;
 	    }
-/* Hide station name and arrows */
+/* Hide station name */
     	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_station_name)) != app->config->hide_station_name){
 		app->config->hide_station_name = 
 		    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_station_name));
+    		flag_update_icon = TRUE;
+	    }
+/* Hide arrows */
+    	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_arrows)) != app->config->hide_arrows){
+		app->config->hide_arrows = 
+		    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_arrows));
     		flag_update_icon = TRUE;
 	    }
 /* Distance units */

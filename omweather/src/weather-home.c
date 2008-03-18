@@ -64,6 +64,10 @@ int c2f(int temp){
 /*******************************************************************************/
 /* Set font size. Usually on label widget */
 void set_font_size(GtkWidget *widget, char font_size){
+#ifndef RELEASE
+    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+#endif
+
     PangoFontDescription *pfd = NULL;
     if(!widget)
 	return;
@@ -284,9 +288,7 @@ void weather_buttons_fill(gboolean check_error){
     gchar	*tmp_station_name;
 #ifndef RELEASE
     time_t	tmp_time;
-#endif
 
-#ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif
 /* Check main widget */
@@ -580,7 +582,6 @@ void weather_buttons_fill(gboolean check_error){
     create_panel(app->main_window, app->config->icons_layout,
 		    app->config->transparency, tmp_station_name, font_size);
     gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
-
     gtk_widget_show_all(app->top_widget);
     #ifdef HILDON
 	if(!app->config->transparency && app->parent)
@@ -589,6 +590,10 @@ void weather_buttons_fill(gboolean check_error){
     
     if(error_station_code)
 	station_error_window();
+#ifndef RELEASE
+    fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
+#endif
+	
 }
 /*******************************************************************************/
 void weather_frame_update(gboolean check){
@@ -869,8 +874,13 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
 				    };
     float	tmp_distance = 0;
 
+#ifndef RELEASE
+    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+#endif
+
     if(!current)
 	return NULL;
+	
 /* prepare current temperature */
     temperature_vbox = gtk_vbox_new(FALSE, 0);
     memset(buffer, 0, sizeof(buffer));
@@ -969,6 +979,10 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
     main_widget = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_start(GTK_BOX(main_widget), icon_temperature_vbox, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(main_widget), main_data_vbox, FALSE, FALSE, 0);
+#ifndef RELEASE
+    fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
+#endif
+    
     return main_widget;
 }
 
@@ -1170,8 +1184,8 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         combination_vbox =  gtk_vbox_new(FALSE, 0);;
 	current_weather_widget = create_current_weather_simple_widget(wcs.current_data,f_size);
 	gtk_box_pack_start(GTK_BOX(combination_vbox), header_panel, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(combination_vbox), current_weather_widget, FALSE, FALSE, 0);
-	
+	if (current_weather_widget)
+	    gtk_box_pack_start(GTK_BOX(combination_vbox), current_weather_widget, FALSE, FALSE, 0);
 	gtk_table_attach( (GtkTable*)days_panel, combination_vbox, 1, Max_count_weather_day, 0, 1, (GtkAttachOptions) (0), (GtkAttachOptions) (0), 0, 0);
     }
     else{
@@ -1306,11 +1320,15 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     if(transparency)
       gtk_event_box_set_visible_window(GTK_EVENT_BOX(new_day_button->button), FALSE);
     /* create day label */
-    new_day_button->label = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
-    gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_RIGHT);
-    /* Set font size for label */
-    set_font_size(new_day_button->label, font_size);
+    if (font_size != 0)
+    {
+	new_day_button->label = gtk_label_new(NULL);
+	gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
+	gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_RIGHT);
+	/* Set font size for label */
+	set_font_size(new_day_button->label, font_size);
+    }else
+    	new_day_button->label = NULL;
     /* create day box to contain icon and label */
     new_day_button->box = gtk_hbox_new(FALSE, 0);
     /* create day icon buffer */
@@ -1329,7 +1347,8 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     /* Packing all to the box */
     if(new_day_button->icon_buffer)
 	gtk_box_pack_start(GTK_BOX(new_day_button->box), new_day_button->icon_image, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(new_day_button->box), new_day_button->label, FALSE, FALSE, 0);
+    if(new_day_button->label)
+	gtk_box_pack_start(GTK_BOX(new_day_button->box), new_day_button->label, FALSE, FALSE, 0);
     gtk_container_add(GTK_CONTAINER(new_day_button->button), new_day_button->box);
 
     return new_day_button;

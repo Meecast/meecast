@@ -108,7 +108,8 @@ gboolean timer_handler(gpointer data){
                     fprintf(file_log,"Event:  CHECK_GPS_POSITION \n");
 
 		#ifdef HILDON
-/*
+
+/* This is code for debug GPS
                     double r;
                     r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
                     app->temporary_station_latitude = r*90;
@@ -135,8 +136,9 @@ gboolean timer_handler(gpointer data){
 			fflush(file_log);
 			delete_all_gps_stations();
                         fprintf(file_log,"Event:  CHECK_GPS_POSITION Changing %s\n",app->gps_station.name);
+                        fprintf(file_log,"Event:  CHECK_GPS_POSITION before add station  %p %p\n",app->config->current_station_name,app->config->current_station_id);			
                         add_station_to_user_list(app->gps_station.name,app->gps_station.id0, TRUE);
-                        fprintf(file_log,"Event:  CHECK_GPS_POSITION  %s\n",app->config->current_station_name,app->config->current_station_id);
+                        fprintf(file_log,"Event:  CHECK_GPS_POSITION after add station  %p %p\n",app->config->current_station_name,app->config->current_station_id);
 			if(!app->config->current_station_name && !app->config->current_station_id){
 			
 			    app->config->current_station_name = g_strdup(app->gps_station.name);

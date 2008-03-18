@@ -99,8 +99,11 @@ void delete_all_gps_stations(void){
     gchar		*station_name = NULL,
 	    		*station_code = NULL;
     gboolean		is_gps = FALSE;
+    FILE		*file_log;
 
 
+    file_log=fopen("/tmp/omw.log","a+");
+    
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);
     while(valid){
@@ -111,8 +114,12 @@ void delete_all_gps_stations(void){
 				    2, &is_gps,
                         	    -1);
     		if(is_gps){
+
+                    fprintf(file_log,"delete %s\n",station_name);
+
 		    if(!strcmp (app->config->current_station_id,station_code) &&
 		       !strcmp (app->config->current_station_name,station_name)){
+		        fprintf(file_log,"delete code %s\n",station_code );
 		        /* deleting current station */
 		        app->gps_must_be_current = TRUE;
 		       	g_free(app->config->current_station_id);
@@ -124,7 +131,7 @@ void delete_all_gps_stations(void){
 		    else
 			app->gps_must_be_current = FALSE;		    
 		    valid = gtk_list_store_remove(app->user_stations_list, &iter);
-
+		    fclose(file_log);
 		    /* Reset gps station */
 		    app->gps_station.id0[0] = 0;
 		    app->gps_station.name[0] = 0;
@@ -148,8 +155,10 @@ void delete_all_gps_stations(void){
                         	    -1);
 			    app->config->current_station_id = g_strdup(station_code);
 			    app->config->current_station_name = g_strdup(station_name);
+			    fprintf(file_log,"add new current  %s %s\n",app->config->current_station_name,app->config->current_station_id);
 		 }		    	
     }
+fclose(file_log);
 #endif    
 }
 /*******************************************************************************/

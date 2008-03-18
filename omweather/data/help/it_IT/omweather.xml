@@ -33,27 +33,26 @@
       <topictitle>Settings</topictitle>
       <context contextUID="help_omweather_settings"/>
       <para>The <display_text>Settings</display_text> dialog (accessible from the desktop applet or home screens Applet settings menu) provides access to the configurable options that control how OMWeather appears and run. In addition to the tabs, there are also a <display_text>About</display_text> button to show information of the OMWeather.</para>
-      <heading>Locations</heading>
       <para><display_text>Locations</display_text> tab lists all locations which weather data OMWeather will receive when weather data refreshed.</para>
       <para><display_text>Add</display_text> button allows you to add new cities which will then be listed in the locations screen.</para>
       <para><display_text>Rename</display_text> button allows you to change name of the selected station.</para>
       <para><display_text>Delete</display_text> button deletes selected station from the list.</para>
-      <heading>Interface</heading>
+      <para><display_text>Up</display_text> and <display_text>down</display_text> arrows allow user to change the order of the selected locations.</para>
       <para><display_text>Interface</display_text> tab is used to configure settings that controls visual appearance of the OMWeather.</para>
       <para><display_text>Visible items:</display_text> selects how many icons will be shown in the tablets home screen. Possibilities go from 1 to 10.</para>
       <para><display_text>Layout:</display_text> selects how icons are shown in the home screen. Possible selections are one row, one column, two rows, two columns or combinated.</para>
       <para><display_text>Icon set:</display_text> selects which icon set is used. You can install more icon sets with the application manager (if Maemo extras repository is configured) or going to OMWeathers Maemo garage page (http://omweather.garage.maemo.org/) and downloading icon sets directly from there.</para>
-      <para><display_text>Icon size:</display_text> defines icon size. Size can be large, medium or small.</para>
+      <para><display_text>Icon size:</display_text> defines icon size. Size can be tiny, small, medium, large and giant.</para>
       <para><display_text>Font color:</display_text> defines applets font color. Touching color button will open <display_text>Pick a Color</display_text> dialog where it's possible to select used font color.</para>
       <para><display_text>Background color:</display_text> setting defines used background color for icons. Color selection works same way as selecting font color. Background color is not selectable if transparency is used.</para>
       <para><display_text>Transparency:</display_text> selection will show background image behind the icons.</para>
       <para><display_text>Show only current weather on first icon:</display_text> selection will show current weather on first icon and forecast for a rest of the day is shown on the next icon.</para>
-      <para><display_text>Swap hi/low temperature:</display_text> selection will change way how lowest and highest temperature is shown on the applet. If selected applet will show high temperature first.</para>
-      <para><display_text>Hide station name and arrows:</display_text> selection will controls if station name and arrows are shown on the applet.</para>
-      <heading>Units</heading>
+      <para><display_text>Hide station name:</display_text> selection will controls if station name are shown on the applet.</para>
+      <para><display_text>Hide arrows:</display_text> selection will controls if arrows are shown on the applet.</para>
       <para><display_text>Units</display_text> tab is used to select temperature, distance and wind speed units shown on weather data. Used units can be selected from a drop down menus.</para>
-      <heading>Update</heading>
+      <para><display_text>Swap hi/low temperature:</display_text> selection will change way how lowest and highest temperature is shown on the applet. If selected applet will show high temperature first.</para>
       <para><display_text>Update</display_text> tab is used to configure update interval of a weather data. Update tab includes also selection box for automatic weather update when Internet connection is established. Valid time for current weather and update interval can be selected from a drop down menu. This tab shows also time when next update will be done.</para>
+      <para>This tab also include drop down menu <display_text>Switch to the next station after</display_text>, that controls time to switch to the next station.</para>
     </topic>
     <topic>
       <topictitle>Add Station</topictitle>

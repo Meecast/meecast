@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-14 13:51+0200\n"
+"POT-Creation-Date: 2008-03-18 09:23+0200\n"
 "PO-Revision-Date: 2007-11-06 21:18+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,14 +75,24 @@ msgstr ""
 "valintaikkuna, josta käytettävä kirjasinväri voidaan valita."
 
 #: data/help/omweather.xml.in.h:9
+#, fuzzy
 msgid ""
-"<display_text>Hide station name and arrows:</display_text> selection will "
-"controls if station name and arrows are shown on the applet."
+"<display_text>Hide arrows:</display_text> selection will controls if arrows "
+"are shown on the applet."
 msgstr ""
 "<display_text>Piilota aseman nimi ja nuolet:</display_text> asetuksella "
 "hallitaan sitä miten sääaseman nimi ja nuolet näytetään sovelmassa."
 
 #: data/help/omweather.xml.in.h:10
+#, fuzzy
+msgid ""
+"<display_text>Hide station name:</display_text> selection will controls if "
+"station name are shown on the applet."
+msgstr ""
+"<display_text>Piilota aseman nimi ja nuolet:</display_text> asetuksella "
+"hallitaan sitä miten sääaseman nimi ja nuolet näytetään sovelmassa."
+
+#: data/help/omweather.xml.in.h:11
 msgid ""
 "<display_text>Icon set:</display_text> selects which icon set is used. You "
 "can install more icon sets with the application manager (if Maemo extras "
@@ -95,16 +105,17 @@ msgstr ""
 "Maemo garage sivulle (http://omweather.garage.maemo.org/) ja ladata "
 "lisäkuvakkeet suoraan sivulta."
 
-#: data/help/omweather.xml.in.h:11
+#: data/help/omweather.xml.in.h:12
+#, fuzzy
 msgid ""
-"<display_text>Icon size:</display_text> defines icon size. Size can be "
-"large, medium or small."
+"<display_text>Icon size:</display_text> defines icon size. Size can be tiny, "
+"small, medium, large and giant."
 msgstr ""
 "<display_text>Kuvakkeen koko:</display_text> määrittelee käytettävän "
 "kuvakekoon.  Pudotuslistasta valittavat vaihtoehdot ovat suuri, "
 "keskikokoinen ja pieni."
 
-#: data/help/omweather.xml.in.h:12
+#: data/help/omweather.xml.in.h:13
 msgid ""
 "<display_text>Interface</display_text> tab is used to configure settings "
 "that controls visual appearance of the OMWeather."
@@ -112,7 +123,7 @@ msgstr ""
 "<display_text>Ulkoasu:</display_text> välilehdellä voidaan muuttaa OMWeather "
 "sovelman ulkonäköön liittyviä asetuksia."
 
-#: data/help/omweather.xml.in.h:13
+#: data/help/omweather.xml.in.h:14
 #, fuzzy
 msgid ""
 "<display_text>Layout:</display_text> selects how icons are shown in the home "
@@ -123,7 +134,7 @@ msgstr ""
 "näytetään työpöydällä.  Mahdolliset valinnat ovat yksi rivi, yksi sarake, "
 "kaksi riviä tai kaksi saraketta."
 
-#: data/help/omweather.xml.in.h:14
+#: data/help/omweather.xml.in.h:15
 msgid ""
 "<display_text>Locations</display_text> tab lists all locations which weather "
 "data OMWeather will receive when weather data refreshed."
@@ -131,7 +142,7 @@ msgstr ""
 "<display_text>Sijainnit</display_text> välilehti listaa kaikki sääasemat "
 "joidenka sään OMWeather noutaa silloin, kun säätiedot päivitetään."
 
-#: data/help/omweather.xml.in.h:15
+#: data/help/omweather.xml.in.h:16
 msgid ""
 "<display_text>Rename</display_text> button allows you to change name of the "
 "selected station."
@@ -139,7 +150,7 @@ msgstr ""
 "<display_text>Uudelleennimeä</display_text> nappi mahdollistaa sääaseman "
 "nimen muuttamisen."
 
-#: data/help/omweather.xml.in.h:16
+#: data/help/omweather.xml.in.h:17
 msgid ""
 "<display_text>Show only current weather on first icon:</display_text> "
 "selection will show current weather on first icon and forecast for a rest of "
@@ -149,7 +160,7 @@ msgstr ""
 "valinta näyttää sen hetkisen säätilan ensimmäisessä kuvakkeessa ja "
 "sääennuste loppupäivälle näytetään seuraavassa kuvakkeessa."
 
-#: data/help/omweather.xml.in.h:17
+#: data/help/omweather.xml.in.h:18
 msgid ""
 "<display_text>Swap hi/low temperature:</display_text> selection will change "
 "way how lowest and highest temperature is shown on the applet. If selected "
@@ -160,7 +171,7 @@ msgstr ""
 "sovelmassa.  Mikäli valintaruutu on valittuna, sovelma näyttää korkeamman "
 "lämpötilan ensin."
 
-#: data/help/omweather.xml.in.h:18
+#: data/help/omweather.xml.in.h:19
 msgid ""
 "<display_text>Transparency:</display_text> selection will show background "
 "image behind the icons."
@@ -168,7 +179,7 @@ msgstr ""
 "<display_text>Läpinäkyvyys::</display_text> valinta näyttää taustakuvan "
 "sovelman kuvakkeiden takana."
 
-#: data/help/omweather.xml.in.h:19
+#: data/help/omweather.xml.in.h:20
 msgid ""
 "<display_text>Units</display_text> tab is used to select temperature, "
 "distance and wind speed units shown on weather data. Used units can be "
@@ -178,7 +189,16 @@ msgstr ""
 "lämpötilan, etäisyyden ja tuulennopeuden yksiköt.  Halutut yksiköt voidaan "
 "valita valintalistasta."
 
-#: data/help/omweather.xml.in.h:20
+#: data/help/omweather.xml.in.h:21
+#, fuzzy
+msgid ""
+"<display_text>Up</display_text> and <display_text>down</display_text> arrows "
+"allow user to change the order of the selected locations."
+msgstr ""
+"<display_text>Uudelleennimeä</display_text> nappi mahdollistaa sääaseman "
+"nimen muuttamisen."
+
+#: data/help/omweather.xml.in.h:22
 msgid ""
 "<display_text>Update</display_text> tab is used to configure update interval "
 "of a weather data. Update tab includes also selection box for automatic "
@@ -193,7 +213,7 @@ msgstr ""
 "pudotusvalikosta.  Tällä välilehdellä näytetään myös milloin seuraava "
 "säätietojen päivitys tehdään."
 
-#: data/help/omweather.xml.in.h:21
+#: data/help/omweather.xml.in.h:23
 msgid ""
 "<display_text>Visible items:</display_text> selects how many icons will be "
 "shown in the tablets home screen. Possibilities go from 1 to 10."
@@ -202,19 +222,19 @@ msgstr ""
 "monta kuvaketta näytetään tabletin työpöydällä.  Valintamahdollisuudet on 1-"
 "10."
 
-#: data/help/omweather.xml.in.h:22
+#: data/help/omweather.xml.in.h:24
 msgid "About OMWeather"
 msgstr "Tietoja ohjelmasta OMWeather"
 
-#: data/help/omweather.xml.in.h:23
+#: data/help/omweather.xml.in.h:25
 msgid "Add Custom Station"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:24
+#: data/help/omweather.xml.in.h:26
 msgid "Add Station"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:25
+#: data/help/omweather.xml.in.h:27
 msgid ""
 "Automatic update weather forecast information from the Internet (Data "
 "available from xoap.weather.com)"
@@ -222,24 +242,24 @@ msgstr ""
 "Automaattinen säätietojen päivitys Internetistä.  (Säätiedot xoap.weather."
 "com palvelusta)"
 
-#: data/help/omweather.xml.in.h:26
+#: data/help/omweather.xml.in.h:28
 #, fuzzy
 msgid "Copyright © 2006-2008 Vlad Vasiliev."
 msgstr "Copyright © 2006-2007 Vlad Vasiliev."
 
-#: data/help/omweather.xml.in.h:27
+#: data/help/omweather.xml.in.h:29
 msgid "Current Version: __VERSION__"
 msgstr "Asennettu versio: __VERSION__"
 
-#: data/help/omweather.xml.in.h:28
+#: data/help/omweather.xml.in.h:30
 msgid "Custom city support"
 msgstr "Tuki vapaavalinitaisille sääasemille"
 
-#: data/help/omweather.xml.in.h:29
+#: data/help/omweather.xml.in.h:31
 msgid "Detailed weather forecast for 10 days"
 msgstr "10 päivän yksityiskohtainen sääennuste."
 
-#: data/help/omweather.xml.in.h:30
+#: data/help/omweather.xml.in.h:32
 msgid ""
 "First thing to do is select the size and position of a OMWeather applet. You "
 "can change position of the applet simply touching it and dragging it where "
@@ -255,11 +275,11 @@ msgstr ""
 "koskettamalla <display_text>Ok</display_text> näppäintä pääset takaisin "
 "työpöydälle."
 
-#: data/help/omweather.xml.in.h:31
+#: data/help/omweather.xml.in.h:33
 msgid "Getting Started"
 msgstr "Aloitusohje"
 
-#: data/help/omweather.xml.in.h:32
+#: data/help/omweather.xml.in.h:34
 #, fuzzy
 msgid ""
 "In this window you need first select country from a drop down menu. Next you "
@@ -272,7 +292,7 @@ msgstr ""
 "valita valintalistasta haluamasi maa. Seuraavaksi tulee valita osavaltio tai "
 "lääni ja kaupunki jonka säätietoja haluat seurata. "
 
-#: data/help/omweather.xml.in.h:33
+#: data/help/omweather.xml.in.h:35
 #, fuzzy
 msgid ""
 "In this window you need to enter station name and station code. Station "
@@ -286,17 +306,9 @@ msgstr ""
 "here=station_name) sivustolta tai USA:n kaupunkien osalta voidaan käyttää "
 "myös postinumeroa."
 
-#: data/help/omweather.xml.in.h:34
-msgid "Interface"
-msgstr "Käyttöliittymä"
-
-#: data/help/omweather.xml.in.h:35
+#: data/help/omweather.xml.in.h:36
 msgid "Introduction"
 msgstr "Esittely"
-
-#: data/help/omweather.xml.in.h:36
-msgid "Locations"
-msgstr "Sijainnit"
 
 #: data/help/omweather.xml.in.h:37
 msgid "OMWeather"
@@ -375,6 +387,13 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:46
 msgid ""
+"This tab also include drop down menu <display_text>Switch to the next "
+"station after</display_text>, that controls time to switch to the next "
+"station."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:47
+msgid ""
 "To activate OMWeather select <display_text>Home</display_text> > "
 "<display_text>Select applets...</display_text> > <display_text>OMWeather</"
 "display_text>."
@@ -383,7 +402,7 @@ msgstr ""
 "<display_text>Työpöytä</display_text> > <display_text>Valitse sovelma...</"
 "display_text> > <display_text>OMWeather</display_text>."
 
-#: data/help/omweather.xml.in.h:47
+#: data/help/omweather.xml.in.h:48
 msgid ""
 "To manually update weather data select refresh button from the detailed "
 "weather window (two small arrows in the upper right corner)."
@@ -392,7 +411,7 @@ msgstr ""
 "yksityiskohtaisessa säätietoikkunassa (kaksi vihreätä nuolta ikkunan "
 "oikeassa yläkulmassa)."
 
-#: data/help/omweather.xml.in.h:48
+#: data/help/omweather.xml.in.h:49
 msgid ""
 "To see time of the sunrise/sunset or phase of the moon select >>. This "
 "window will also show some weather data update times."
@@ -400,7 +419,7 @@ msgstr ""
 "Nähdäksesi auringon nousu/laskuajat tai kuun vaiheen valitse >>.  Samassa "
 "ikkunassa on nähtävissä myös säätietojen päivitysajat."
 
-#: data/help/omweather.xml.in.h:49
+#: data/help/omweather.xml.in.h:50
 msgid ""
 "Touching icon of a day brings up a small windows where you can see current "
 "weather or detailed forecast of a selected day. Touching "
@@ -412,19 +431,11 @@ msgstr ""
 "Koskettamalla <display_text>Asetukset</display_text> nappia avautuu "
 "OMWeatherin asetusikkuna."
 
-#: data/help/omweather.xml.in.h:50
+#: data/help/omweather.xml.in.h:51
 msgid "Transparency option"
 msgstr "Läpinäkyvyyden valinta"
 
-#: data/help/omweather.xml.in.h:51
-msgid "Units"
-msgstr "Yksiköt"
-
 #: data/help/omweather.xml.in.h:52
-msgid "Update"
-msgstr "Päivitä"
-
-#: data/help/omweather.xml.in.h:53
 msgid ""
 "Use the <ref refid=\"help_omweather_\" refdoc=\"index\"/> to use the various "
 "sections of this help document."
@@ -432,7 +443,7 @@ msgstr ""
 "Käytä <ref refid=\"help_omweather_\" refdoc=\"index\"/> sivua selataksesi "
 "tämän ohjeen eri osia."
 
-#: data/help/omweather.xml.in.h:54
+#: data/help/omweather.xml.in.h:53
 msgid ""
 "User is able to add station on the basis of a code for weather.com (http://"
 "xoap.weather.com/search/search?here=station_name) or ZIP code USA"
@@ -441,28 +452,28 @@ msgstr ""
 "käyttämiin koodeihin (http://xoap.weather.com/search/search?"
 "here=station_name) tai käyttämällä postinumeroa USA:n asemien osalta."
 
-#: data/help/omweather.xml.in.h:55
+#: data/help/omweather.xml.in.h:54
 msgid "User is able to change amount of days from 1 to 10"
 msgstr ""
 "Käyttäjä voi valita työpöydällä näkyvien päivien määrän 1 ja 10 väliltä"
 
-#: data/help/omweather.xml.in.h:56
+#: data/help/omweather.xml.in.h:55
 msgid "User is able to select font color and background color which he likes"
 msgstr "Käyttäjä voi valita haluamansa kirjasin- ja taustavärin"
 
-#: data/help/omweather.xml.in.h:57
+#: data/help/omweather.xml.in.h:56
 msgid "Using Desktop Applet"
 msgstr "Työpöytäsovelman käyttö"
 
-#: data/help/omweather.xml.in.h:58
+#: data/help/omweather.xml.in.h:57
 msgid "Weather data provided by: xoap.weather.com"
 msgstr "Säätietojen lähde: xoap.weather.com"
 
-#: data/help/omweather.xml.in.h:59
+#: data/help/omweather.xml.in.h:58
 msgid "Welcome to OMWeather."
 msgstr "Tervetuoloa OMWeatheriin."
 
-#: data/help/omweather.xml.in.h:60
+#: data/help/omweather.xml.in.h:59
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "this program; if not, write to the Free Software Foundation, Inc., 59 Temple "
@@ -470,3 +481,15 @@ msgid ""
 msgstr ""
 "Tämän ohjelman mukana pitäisi tulla kopio GPL-lisenssistä. Jos näin ei ole, "
 "katso (http://www.gnu.org/licenses)."
+
+#~ msgid "Interface"
+#~ msgstr "Käyttöliittymä"
+
+#~ msgid "Locations"
+#~ msgstr "Sijainnit"
+
+#~ msgid "Units"
+#~ msgstr "Yksiköt"
+
+#~ msgid "Update"
+#~ msgstr "Päivitä"

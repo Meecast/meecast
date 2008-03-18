@@ -90,7 +90,6 @@
          <display_text>About</display_text> button to show information
         of the OMWeather.
       </_para>
-      <_heading>Locations</_heading>
       <_para>
         <display_text>Locations</display_text> tab lists all locations 
         which weather data OMWeather will receive when weather data 
@@ -108,7 +107,9 @@
         <display_text>Delete</display_text> button deletes selected station 
 	from the list.
       </_para>
-      <_heading>Interface</_heading>
+      <_para>
+        <display_text>Up</display_text> and <display_text>down</display_text> arrows allow user to change the order of the selected locations.
+      </_para>
       <_para>
         <display_text>Interface</display_text> tab is used to configure 
         settings that controls visual appearance of the OMWeather.
@@ -132,7 +133,7 @@
       </_para>
       <_para>
 	<display_text>Icon size:</display_text> defines icon size.  Size can
-	be large, medium or small.
+	be tiny, small, medium, large and giant.
       </_para>
       <_para>
 	<display_text>Font color:</display_text> defines applets font color.
@@ -154,21 +155,23 @@
 	of the day is shown on the next icon.
       </_para>
       <_para>
-	<display_text>Swap hi/low temperature:</display_text> selection will change
-	way how lowest and highest temperature is shown on the applet.  If selected
-	applet will show high temperature first.	
+	<display_text>Hide station name:</display_text> selection will
+	controls if station name are shown on the applet.
       </_para>
       <_para>
-	<display_text>Hide station name and arrows:</display_text> selection will
-	controls if station name and arrows are shown on the applet.
+	<display_text>Hide arrows:</display_text> selection will
+	controls if arrows are shown on the applet.
       </_para>
-      <_heading>Units</_heading>
       <_para>
         <display_text>Units</display_text> tab is used to select temperature,
         distance and wind speed units shown on weather data.  Used units can
 	be selected from a drop down menus.
       </_para>
-      <_heading>Update</_heading>
+      <_para>
+	<display_text>Swap hi/low temperature:</display_text> selection will change
+	way how lowest and highest temperature is shown on the applet.  If selected
+	applet will show high temperature first.	
+      </_para>
       <_para>
         <display_text>Update</display_text> tab is used to configure 
         update interval of a weather data.  Update tab includes also
@@ -176,6 +179,10 @@
 	is established.  Valid time for current weather and update interval
 	can be selected from a drop down menu.  This tab shows also time
 	when next update will be done. 
+      </_para>
+      <_para>
+        This tab also include drop down menu <display_text>Switch to the next station after</display_text>,
+	that controls time to switch to the next station.
       </_para>
     </topic>
     <topic>

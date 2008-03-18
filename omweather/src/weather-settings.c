@@ -114,16 +114,15 @@ void delete_all_gps_stations(void){
 		    if(!strcmp (app->config->current_station_id,station_code) &&
 		       !strcmp (app->config->current_station_name,station_name)){
 		        /* deleting current station */
-		        app->gps_must_be_current=TRUE;
+		        app->gps_must_be_current = TRUE;
+		       	g_free(app->config->current_station_id);
+            		g_free(app->config->current_station_name);					
 		        app->config->current_station_id = NULL;
 			app->config->current_station_name = NULL;
-		       	g_free(app->config->current_station_id);
-            		g_free(app->config->current_station_name);		
         		app->config->previos_days_to_show = app->config->days_to_show;
-			
             	    }
 		    else
-			app->gps_must_be_current=FALSE;		    
+			app->gps_must_be_current = FALSE;		    
 		    valid = gtk_list_store_remove(app->user_stations_list, &iter);
 
 		    /* Reset gps station */

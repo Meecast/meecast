@@ -143,10 +143,13 @@ void delete_all_gps_stations(void){
 							
     	    }
     /* Set new current_station */
+    fprintf(file_log,"before add id %p\n",app->config->current_station_id);
     if (!app->config->current_station_id){
 	valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);
+        fprintf(file_log,"before add2222 id %p\n",app->config->current_station_id);
 	if (valid){
+            fprintf(file_log,"before add333333 id %p\n",app->config->current_station_id);
 	    		gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                         	    &iter,
                     		    0, &station_name,

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-03-18 09:23+0200\n"
-"PO-Revision-Date: 2008-03-18 09:51+0200\n"
+"PO-Revision-Date: 2008-03-19 08:27+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -106,7 +106,7 @@ msgstr "Вкладка <display_text>Обновление</display_text> исп�
 
 #: data/help/omweather.xml.in.h:23
 msgid "<display_text>Visible items:</display_text> selects how many icons will be shown in the tablets home screen. Possibilities go from 1 to 10."
-msgstr ""
+msgstr "Параметр <display_text>Количество элементов:</display_text> определяет сколько иконок отображается на экране. Возможные значения от 1 до 10."
 
 #: data/help/omweather.xml.in.h:24
 msgid "About OMWeather"
@@ -126,7 +126,7 @@ msgstr "Автоматическое обновление информации �
 
 #: data/help/omweather.xml.in.h:28
 msgid "Copyright © 2006-2008 Vlad Vasiliev."
-msgstr ""
+msgstr "Copyright © 2006-2008 Владислав Васильев."
 
 #: data/help/omweather.xml.in.h:29
 msgid "Current Version: __VERSION__"
@@ -170,7 +170,7 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:39
 msgid "OMWeather was developed by Vlad Vasiliev (vlad@gas.by)."
-msgstr ""
+msgstr "OMWeather был разработан Владиславом Васильевым (vlad@gas.by)."
 
 #: data/help/omweather.xml.in.h:40
 msgid "OMWeather will use Tablets Home city selection as a default location for weather data. This location can be changed by touching the applet and selecting <display_text>Settings</display_text>. More info of how to add, rename and delete locations can be found on <ref refid=\"help_omweather_settings\" refdoc=\"Settings\"/> page."
@@ -198,7 +198,7 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:46
 msgid "This tab also include drop down menu <display_text>Switch to the next station after</display_text>, that controls time to switch to the next station."
-msgstr ""
+msgstr "Данная вкладка содержит выпадающее меню <display_text>Переключится на следующую станцию через</display_text>, которое определяет вермя переключения на следующую станцию."
 
 #: data/help/omweather.xml.in.h:47
 msgid "To activate OMWeather select <display_text>Home</display_text> > <display_text>Select applets...</display_text> > <display_text>OMWeather</display_text>."

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.19.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-19 10:24+0200\n"
+"POT-Creation-Date: 2008-03-19 15:38+0200\n"
 "PO-Revision-Date: 2008-02-17 22:10+0100\n"
 "Last-Translator: Nicolas GRAZIANO <nicolas.graziano@gmail.com>\n"
 "Language-Team: French\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: src/weather-settings.c:1465
+#: src/weather-settings.c:1466
 #, fuzzy
 msgid ""
 "\n"
@@ -36,7 +36,7 @@ msgstr ""
 "Maintenance:\n"
 "\tPavel Fialko, pavelnf@gmail.com"
 
-#: src/weather-settings.c:1456
+#: src/weather-settings.c:1457
 msgid ""
 "\n"
 "Copyright(c) 2006-2008\n"
@@ -46,7 +46,7 @@ msgstr ""
 "Copyright(c) 2006-2008\n"
 "Vlad Vasiliev, Pavel Fialko"
 
-#: src/weather-settings.c:1475
+#: src/weather-settings.c:1476
 msgid ""
 "\n"
 "Ed Bartosh - for more feature requests,\n"
@@ -89,7 +89,7 @@ msgstr ""
 "\n"
 "Ressenti : "
 
-#: src/weather-settings.c:1452
+#: src/weather-settings.c:1453
 msgid ""
 "\n"
 "Hildon desktop applet\n"
@@ -292,7 +292,7 @@ msgstr "Matin Neige"
 msgid "AM Snow Showers"
 msgstr "Matin : Averses de neige"
 
-#: src/weather-settings.c:766 src/weather-settings.c:1462
+#: src/weather-settings.c:766 src/weather-settings.c:1463
 msgid "About"
 msgstr "À Propos"
 
@@ -304,7 +304,7 @@ msgstr "Ajouter une station personnalisée"
 msgid "Add Station"
 msgstr "Ajouter une station"
 
-#: src/weather-settings.c:1486
+#: src/weather-settings.c:1487
 msgid ""
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
@@ -326,7 +326,7 @@ msgstr ""
 msgid "Are you sure to want delete this station ?"
 msgstr ""
 
-#: src/weather-settings.c:1494
+#: src/weather-settings.c:1495
 msgid ""
 "Arkady Glazov aka Globster - for testing\n"
 "Alexander Savchenko aka dizel - for testing\n"
@@ -334,7 +334,7 @@ msgstr ""
 "Arkady Glazov dit Globster - pour les tests\n"
 "Alexander Savchenko dit dizel - pour les tests\n"
 
-#: src/weather-settings.c:1472
+#: src/weather-settings.c:1473
 msgid "Authors"
 msgstr "Auteurs"
 
@@ -463,7 +463,7 @@ msgstr "ESE"
 msgid "Enable station from GPS:"
 msgstr ""
 
-#: src/weather-settings.c:1497
+#: src/weather-settings.c:1498
 msgid "Eric Link - for feature request and donation\n"
 msgstr ""
 
@@ -553,7 +553,7 @@ msgstr "Couleur de police:"
 msgid "Freezing Drizzle"
 msgstr "Bruine verglaçante"
 
-#: src/weather-settings.c:1505
+#: src/weather-settings.c:1506
 #, fuzzy
 msgid ""
 "French - Nicolas Granziano\n"
@@ -788,7 +788,7 @@ msgstr "PAS DE STATION"
 msgid "NW"
 msgstr "NO"
 
-#: src/weather-settings.c:1124 src/weather-settings.c:1624
+#: src/weather-settings.c:1124 src/weather-settings.c:1625
 #: src/weather-config.c:311
 msgid "Never"
 msgstr "Jamais"
@@ -828,7 +828,7 @@ msgstr "Maintenant: "
 
 #: src/weather-settings.c:323 src/weather-settings.c:550
 #: src/weather-settings.c:625 src/weather-settings.c:760
-#: src/weather-settings.c:1445
+#: src/weather-settings.c:1446
 msgid "OK"
 msgstr "OK"
 
@@ -844,7 +844,7 @@ msgstr "Une colonne"
 msgid "One row"
 msgstr "Une ligne"
 
-#: src/weather-settings.c:1442
+#: src/weather-settings.c:1443
 msgid "Other Maemo Weather Info"
 msgstr "Information de Other Maemo Weather"
 
@@ -1177,7 +1177,7 @@ msgstr "Unité de température :"
 msgid "Temperature: "
 msgstr "Température :"
 
-#: src/weather-settings.c:1502
+#: src/weather-settings.c:1503
 msgid "Thanks"
 msgstr "Remerciment"
 
@@ -1189,7 +1189,7 @@ msgstr "Orage"
 msgid "Tiny"
 msgstr ""
 
-#: src/weather-settings.c:1513
+#: src/weather-settings.c:1514
 msgid "Translators"
 msgstr "Traducteurs"
 
@@ -1229,7 +1229,7 @@ msgstr "Mise à Jour météo"
 msgid "Updating of weather data:"
 msgstr "MàJ des données météo : "
 
-#: src/weather-settings.c:1394
+#: src/weather-settings.c:1395
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"

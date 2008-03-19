@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-19 10:24+0200\n"
+"POT-Creation-Date: 2008-03-19 15:38+0200\n"
 "PO-Revision-Date: 2008-03-16 13:01+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: src/weather-settings.c:1465
+#: src/weather-settings.c:1466
 #, fuzzy
 msgid ""
 "\n"
@@ -35,7 +35,7 @@ msgstr ""
 "Ylläpito:\n"
 "\tPavel Fialko, pavelnf@gmail.com"
 
-#: src/weather-settings.c:1456
+#: src/weather-settings.c:1457
 msgid ""
 "\n"
 "Copyright(c) 2006-2008\n"
@@ -45,7 +45,7 @@ msgstr ""
 "Copyright(c) 2006-2008\n"
 "Vlad Vasiliev, Pavel Fialko"
 
-#: src/weather-settings.c:1475
+#: src/weather-settings.c:1476
 msgid ""
 "\n"
 "Ed Bartosh - for more feature requests,\n"
@@ -85,7 +85,7 @@ msgstr ""
 "\n"
 "Tuntuu iholla:"
 
-#: src/weather-settings.c:1452
+#: src/weather-settings.c:1453
 msgid ""
 "\n"
 "Hildon desktop applet\n"
@@ -281,7 +281,7 @@ msgstr "ap: Lumisadetta"
 msgid "AM Snow Showers"
 msgstr "ap: Lumikuuroja"
 
-#: src/weather-settings.c:766 src/weather-settings.c:1462
+#: src/weather-settings.c:766 src/weather-settings.c:1463
 msgid "About"
 msgstr "Tietoja"
 
@@ -293,7 +293,7 @@ msgstr "Lisää muu asema"
 msgid "Add Station"
 msgstr "Lisää asema"
 
-#: src/weather-settings.c:1486
+#: src/weather-settings.c:1487
 msgid ""
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
@@ -315,7 +315,7 @@ msgstr ""
 msgid "Are you sure to want delete this station ?"
 msgstr "Haluatko varmasti poistaa tämän aseman?"
 
-#: src/weather-settings.c:1494
+#: src/weather-settings.c:1495
 msgid ""
 "Arkady Glazov aka Globster - for testing\n"
 "Alexander Savchenko aka dizel - for testing\n"
@@ -323,7 +323,7 @@ msgstr ""
 "Arkady Glazov aka Globster - testauksesta\n"
 "Alexander Savchenko aka dizel - testauksesta\n"
 
-#: src/weather-settings.c:1472
+#: src/weather-settings.c:1473
 msgid "Authors"
 msgstr "Tekijät"
 
@@ -451,7 +451,7 @@ msgstr "Itäkaakosta"
 msgid "Enable station from GPS:"
 msgstr "Käytä GPS:ää aseman valintaan:"
 
-#: src/weather-settings.c:1497
+#: src/weather-settings.c:1498
 msgid "Eric Link - for feature request and donation\n"
 msgstr ""
 
@@ -539,7 +539,7 @@ msgstr "Kirjasimen väri:"
 msgid "Freezing Drizzle"
 msgstr "Jäätävää tihkusadetta"
 
-#: src/weather-settings.c:1505
+#: src/weather-settings.c:1506
 #, fuzzy
 msgid ""
 "French - Nicolas Granziano\n"
@@ -774,7 +774,7 @@ msgstr "Ei asemaa"
 msgid "NW"
 msgstr "Luoteesta"
 
-#: src/weather-settings.c:1124 src/weather-settings.c:1624
+#: src/weather-settings.c:1124 src/weather-settings.c:1625
 #: src/weather-config.c:311
 msgid "Never"
 msgstr "Ei koskaan"
@@ -814,7 +814,7 @@ msgstr "Nyt: "
 
 #: src/weather-settings.c:323 src/weather-settings.c:550
 #: src/weather-settings.c:625 src/weather-settings.c:760
-#: src/weather-settings.c:1445
+#: src/weather-settings.c:1446
 msgid "OK"
 msgstr "OK"
 
@@ -830,7 +830,7 @@ msgstr "Yksi sarake"
 msgid "One row"
 msgstr "Yksi rivi"
 
-#: src/weather-settings.c:1442
+#: src/weather-settings.c:1443
 msgid "Other Maemo Weather Info"
 msgstr "Other Maemo Weather Tietoja"
 
@@ -1161,7 +1161,7 @@ msgstr "Lämpötilan yksikkö:"
 msgid "Temperature: "
 msgstr "Lämpötila:"
 
-#: src/weather-settings.c:1502
+#: src/weather-settings.c:1503
 msgid "Thanks"
 msgstr "Kiitokset"
 
@@ -1173,7 +1173,7 @@ msgstr "Ukkosta"
 msgid "Tiny"
 msgstr ""
 
-#: src/weather-settings.c:1513
+#: src/weather-settings.c:1514
 msgid "Translators"
 msgstr "Kääntäjät"
 
@@ -1213,7 +1213,7 @@ msgstr "Päivitetään säätietoja."
 msgid "Updating of weather data:"
 msgstr "Päivitetään sääennustetta:"
 
-#: src/weather-settings.c:1394
+#: src/weather-settings.c:1395
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"

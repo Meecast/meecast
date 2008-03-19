@@ -1464,7 +1464,8 @@ void create_about_dialog(void){
     snprintf(tmp_buff, sizeof(tmp_buff), "%s",
 		_("\nAuthor and maintenance:\n"
 		"\tVlad Vasiliev, vlad@gas.by\n"
-		"Maintenance:\n\tPavel Fialko, pavelnf@gmail.com"));
+		"Maintenance:\n\tPavel Fialko, pavelnf@gmail.com\n"
+		"Documentation:\n\tMarko Vertainen"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),

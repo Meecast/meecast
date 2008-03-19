@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-18 09:23+0200\n"
+"POT-Creation-Date: 2008-03-19 08:49+0200\n"
 "PO-Revision-Date: 2008-03-19 08:27+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -29,84 +29,187 @@ msgid "4 view modes"
 msgstr "4 режима просмотра"
 
 #: data/help/omweather.xml.in.h:4
-msgid "<display_text>Add Custom Station</display_text> button used to add stations not found on drop down menus."
-msgstr "Кнопка <display_text>Добавить свою станцию</display_text> используется для добавления станции не найденной в списке."
+msgid ""
+"<display_text>Add Custom Station</display_text> button used to add stations "
+"not found on drop down menus."
+msgstr ""
+"Кнопка <display_text>Добавить свою станцию</display_text> используется для "
+"добавления станции не найденной в списке."
 
 #: data/help/omweather.xml.in.h:5
-msgid "<display_text>Add</display_text> button allows you to add new cities which will then be listed in the locations screen."
-msgstr "Кнопка <display_text>Добавить</display_text> позволяет вам добавлять новые города в список, расположенный на вкладке Местоположения."
+msgid ""
+"<display_text>Add</display_text> button allows you to add new cities which "
+"will then be listed in the locations screen."
+msgstr ""
+"Кнопка <display_text>Добавить</display_text> позволяет вам добавлять новые "
+"города в список, расположенный на вкладке Местоположения."
 
 #: data/help/omweather.xml.in.h:6
-msgid "<display_text>Background color:</display_text> setting defines used background color for icons. Color selection works same way as selecting font color. Background color is not selectable if transparency is used."
-msgstr "Параметр <display_text>Цвет фона:</display_text> определяет цвет фона для иконок. Выбор цвета фона работает аналогично выбору цвета шрифта. Когда используется прозрачность, цвет фона не доступен."
+msgid ""
+"<display_text>Background color:</display_text> setting defines used "
+"background color for icons. Color selection works same way as selecting font "
+"color. Background color is not selectable if transparency is used."
+msgstr ""
+"Параметр <display_text>Цвет фона:</display_text> определяет цвет фона для "
+"иконок. Выбор цвета фона работает аналогично выбору цвета шрифта. Когда "
+"используется прозрачность, цвет фона не доступен."
 
 #: data/help/omweather.xml.in.h:7
-msgid "<display_text>Delete</display_text> button deletes selected station from the list."
-msgstr "Кнопка <display_text>Удалить</display_text> удаляет выбранную станцию из списка."
+msgid ""
+"<display_text>Delete</display_text> button deletes selected station from the "
+"list."
+msgstr ""
+"Кнопка <display_text>Удалить</display_text> удаляет выбранную станцию из "
+"списка."
 
 #: data/help/omweather.xml.in.h:8
-msgid "<display_text>Font color:</display_text> defines applets font color. Touching color button will open <display_text>Pick a Color</display_text> dialog where it's possible to select used font color."
-msgstr "Параметр <display_text>Цвет шрифта:</display_text> определяет цвет шрифта. Нажатие цветной кнопки, открывает диалог <display_text>Pick a Color</display_text> в котором можно выбрать необходимый цвет шрифта."
+msgid ""
+"<display_text>Font color:</display_text> defines applets font color. "
+"Touching color button will open <display_text>Pick a Color</display_text> "
+"dialog where it's possible to select used font color."
+msgstr ""
+"Параметр <display_text>Цвет шрифта:</display_text> определяет цвет шрифта. "
+"Нажатие цветной кнопки, открывает диалог <display_text>Pick a Color</"
+"display_text> в котором можно выбрать необходимый цвет шрифта."
 
 #: data/help/omweather.xml.in.h:9
-msgid "<display_text>Hide arrows:</display_text> selection will controls if arrows are shown on the applet."
-msgstr "<display_text>Убрать стрелки:</display_text> позволяет вам контролировать отображение стрелок."
+msgid ""
+"<display_text>Hide arrows:</display_text> selection will controls if arrows "
+"are shown on the applet."
+msgstr ""
+"<display_text>Убрать стрелки:</display_text> позволяет вам контролировать "
+"отображение стрелок."
 
 #: data/help/omweather.xml.in.h:10
-msgid "<display_text>Hide station name:</display_text> selection will controls if station name are shown on the applet."
-msgstr "<display_text>Убрать имя станции:</display_text> позволяет вам контролировать отображение имени станции."
+msgid ""
+"<display_text>Hide station name:</display_text> selection will controls if "
+"station name are shown on the applet."
+msgstr ""
+"<display_text>Убрать имя станции:</display_text> позволяет вам "
+"контролировать отображение имени станции."
 
 #: data/help/omweather.xml.in.h:11
-msgid "<display_text>Icon set:</display_text> selects which icon set is used. You can install more icon sets with the application manager (if Maemo extras repository is configured) or going to OMWeathers Maemo garage page (http://omweather.garage.maemo.org/) and downloading icon sets directly from there."
-msgstr "Параметр <display_text>Набор иконок:</display_text> устанавливает используемый набор иконок. Вы можете установить дополнительные наборы иконок используя менеджер приложений (если сконфигурирован репозитарий Maemo extras) или перейти на страницу OMWeathers (http://omweather.garage.maemo.org/) и загрузить набор иконок прямо с неё."
+msgid ""
+"<display_text>Icon set:</display_text> selects which icon set is used. You "
+"can install more icon sets with the application manager (if Maemo extras "
+"repository is configured) or going to OMWeathers Maemo garage page (http://"
+"omweather.garage.maemo.org/) and downloading icon sets directly from there."
+msgstr ""
+"Параметр <display_text>Набор иконок:</display_text> устанавливает "
+"используемый набор иконок. Вы можете установить дополнительные наборы иконок "
+"используя менеджер приложений (если сконфигурирован репозитарий Maemo "
+"extras) или перейти на страницу OMWeathers (http://omweather.garage.maemo."
+"org/) и загрузить набор иконок прямо с неё."
 
 #: data/help/omweather.xml.in.h:12
-msgid "<display_text>Icon size:</display_text> defines icon size. Size can be tiny, small, medium, large and giant."
-msgstr "<display_text>Размер иконок:</display_text> устанавливает размер значков. Размер может быть крошечным, маленьким, средним, большим и гигантским."
+msgid ""
+"<display_text>Icon size:</display_text> defines icon size. Size can be tiny, "
+"small, medium, large and giant."
+msgstr ""
+"<display_text>Размер иконок:</display_text> устанавливает размер значков. "
+"Размер может быть крошечным, маленьким, средним, большим и гигантским."
 
 #: data/help/omweather.xml.in.h:13
-msgid "<display_text>Interface</display_text> tab is used to configure settings that controls visual appearance of the OMWeather."
-msgstr "Закладка <display_text>Интерфейс</display_text> позволяет настроить внешний вид апплета OMWeather."
+msgid ""
+"<display_text>Interface</display_text> tab is used to configure settings "
+"that controls visual appearance of the OMWeather."
+msgstr ""
+"Закладка <display_text>Интерфейс</display_text> позволяет настроить внешний "
+"вид апплета OMWeather."
 
 #: data/help/omweather.xml.in.h:14
-msgid "<display_text>Layout:</display_text> selects how icons are shown in the home screen. Possible selections are one row, one column, two rows, two columns or combinated."
-msgstr "Параметр <display_text>Расположение:</display_text> определяет как иконки отображаются на экране. Возможные варианты: одна строка, один столбец, две строки, два столбца или комбинированный."
+msgid ""
+"<display_text>Layout:</display_text> selects how icons are shown in the home "
+"screen. Possible selections are one row, one column, two rows, two columns "
+"or combinated."
+msgstr ""
+"Параметр <display_text>Расположение:</display_text> определяет как иконки "
+"отображаются на экране. Возможные варианты: одна строка, один столбец, две "
+"строки, два столбца или комбинированный."
 
 #: data/help/omweather.xml.in.h:15
-msgid "<display_text>Locations</display_text> tab lists all locations which weather data OMWeather will receive when weather data refreshed."
-msgstr "Вкладка <display_text>Местоположения</display_text> содержит список всех станций, информация о погоде которых, будет получена при обновлении данных."
+msgid ""
+"<display_text>Locations</display_text> tab lists all locations which weather "
+"data OMWeather will receive when weather data refreshed."
+msgstr ""
+"Вкладка <display_text>Местоположения</display_text> содержит список всех "
+"станций, информация о погоде которых, будет получена при обновлении данных."
 
 #: data/help/omweather.xml.in.h:16
-msgid "<display_text>Rename</display_text> button allows you to change name of the selected station."
-msgstr "Кнопка <display_text>Переименовать</display_text> позволяет вам изменить имя выбранной станции."
+msgid ""
+"<display_text>Rename</display_text> button allows you to change name of the "
+"selected station."
+msgstr ""
+"Кнопка <display_text>Переименовать</display_text> позволяет вам изменить имя "
+"выбранной станции."
 
 #: data/help/omweather.xml.in.h:17
-msgid "<display_text>Show only current weather on first icon:</display_text> selection will show current weather on first icon and forecast for a rest of the day is shown on the next icon."
-msgstr "Параметр <display_text>Только текущая погода в первой иконке:</display_text> включает отображение только текущей погоды в первой иконке."
+msgid ""
+"<display_text>Show only current weather on first icon:</display_text> "
+"selection will show current weather on first icon and forecast for a rest of "
+"the day is shown on the next icon."
+msgstr ""
+"Параметр <display_text>Только текущая погода в первой иконке:</display_text> "
+"включает отображение только текущей погоды в первой иконке."
 
 #: data/help/omweather.xml.in.h:18
-msgid "<display_text>Swap hi/low temperature:</display_text> selection will change way how lowest and highest temperature is shown on the applet. If selected applet will show high temperature first."
-msgstr "Параметр <display_text>Поменять местами температуры:</display_text> позволяет изменить порядок отображения температур. Если отмечено, то первой отображается большая температура."
+msgid ""
+"<display_text>Swap hi/low temperature:</display_text> selection will change "
+"way how lowest and highest temperature is shown on the applet. If selected "
+"applet will show high temperature first."
+msgstr ""
+"Параметр <display_text>Поменять местами температуры:</display_text> "
+"позволяет изменить порядок отображения температур. Если отмечено, то первой "
+"отображается большая температура."
 
 #: data/help/omweather.xml.in.h:19
-msgid "<display_text>Transparency:</display_text> selection will show background image behind the icons."
-msgstr "Параметр <display_text>Прозрачность:</display_text> позволяет использовать в качестве фона иконок, рисунок рабочего стола."
+msgid ""
+"<display_text>Transparency:</display_text> selection will show background "
+"image behind the icons."
+msgstr ""
+"Параметр <display_text>Прозрачность:</display_text> позволяет использовать в "
+"качестве фона иконок, рисунок рабочего стола."
 
 #: data/help/omweather.xml.in.h:20
-msgid "<display_text>Units</display_text> tab is used to select temperature, distance and wind speed units shown on weather data. Used units can be selected from a drop down menus."
-msgstr "Вкладка <display_text>Единицы измерения</display_text> используется для выбора единиц измерения температуры, расстояния и скорости ветра. Единицы измерения выбираются из выпадающих меню."
+msgid ""
+"<display_text>Units</display_text> tab is used to select temperature, "
+"distance and wind speed units shown on weather data. Used units can be "
+"selected from a drop down menus."
+msgstr ""
+"Вкладка <display_text>Единицы измерения</display_text> используется для "
+"выбора единиц измерения температуры, расстояния и скорости ветра. Единицы "
+"измерения выбираются из выпадающих меню."
 
 #: data/help/omweather.xml.in.h:21
-msgid "<display_text>Up</display_text> and <display_text>down</display_text> arrows allow user to change the order of the selected locations."
-msgstr "Стрелки <display_text>вверх</display_text> и <display_text>вниз</display_text> позволяет пользователю изменить порядок выбранных станций."
+msgid ""
+"<display_text>Up</display_text> and <display_text>down</display_text> arrows "
+"allow user to change the order of the selected locations."
+msgstr ""
+"Стрелки <display_text>вверх</display_text> и <display_text>вниз</"
+"display_text> позволяет пользователю изменить порядок выбранных станций."
 
 #: data/help/omweather.xml.in.h:22
-msgid "<display_text>Update</display_text> tab is used to configure update interval of a weather data. Update tab includes also selection box for automatic weather update when Internet connection is established. Valid time for current weather and update interval can be selected from a drop down menu. This tab shows also time when next update will be done."
-msgstr "Вкладка <display_text>Обновление</display_text> используется для настройки интервала обновления погодных данных. Эта вкладка также содержит параметр для автоматического обновления данных после подключения к интернету. Актуальность текущей погоды и интервал обновления выбираются из выпадающих меню. На вкладке также есть поля для отображения времени следующего обновления."
+msgid ""
+"<display_text>Update</display_text> tab is used to configure update interval "
+"of a weather data. Update tab includes also selection box for automatic "
+"weather update when Internet connection is established. Valid time for "
+"current weather and update interval can be selected from a drop down menu. "
+"This tab shows also time when next update will be done."
+msgstr ""
+"Вкладка <display_text>Обновление</display_text> используется для настройки "
+"интервала обновления погодных данных. Эта вкладка также содержит параметр "
+"для автоматического обновления данных после подключения к интернету. "
+"Актуальность текущей погоды и интервал обновления выбираются из выпадающих "
+"меню. На вкладке также есть поля для отображения времени следующего "
+"обновления."
 
 #: data/help/omweather.xml.in.h:23
-msgid "<display_text>Visible items:</display_text> selects how many icons will be shown in the tablets home screen. Possibilities go from 1 to 10."
-msgstr "Параметр <display_text>Количество элементов:</display_text> определяет сколько иконок отображается на экране. Возможные значения от 1 до 10."
+msgid ""
+"<display_text>Visible items:</display_text> selects how many icons will be "
+"shown in the tablets home screen. Possibilities go from 1 to 10."
+msgstr ""
+"Параметр <display_text>Количество элементов:</display_text> определяет "
+"сколько иконок отображается на экране. Возможные значения от 1 до 10."
 
 #: data/help/omweather.xml.in.h:24
 msgid "About OMWeather"
@@ -121,12 +224,16 @@ msgid "Add Station"
 msgstr "Добавить станцию"
 
 #: data/help/omweather.xml.in.h:27
-msgid "Automatic update weather forecast information from the Internet (Data available from xoap.weather.com)"
-msgstr "Автоматическое обновление информации о прогнозе погоды через Интернет (Данные доступны на xoap.weather.com)"
+msgid ""
+"Automatic update weather forecast information from the Internet (Data "
+"available from xoap.weather.com)"
+msgstr ""
+"Автоматическое обновление информации о прогнозе погоды через Интернет "
+"(Данные доступны на xoap.weather.com)"
 
 #: data/help/omweather.xml.in.h:28
-msgid "Copyright © 2006-2008 Vlad Vasiliev."
-msgstr "Copyright © 2006-2008 Владислав Васильев."
+msgid "Copyright © 2006-2008 Vlad Vasiliev, Pavel Fialko."
+msgstr "Copyright © 2006-2008 Владислав Васильев, Павел Фиалко."
 
 #: data/help/omweather.xml.in.h:29
 msgid "Current Version: __VERSION__"
@@ -141,7 +248,13 @@ msgid "Detailed weather forecast for 10 days"
 msgstr "Детальный прогноз на 10 дней"
 
 #: data/help/omweather.xml.in.h:32
-msgid "First thing to do is select the size and position of a OMWeather applet. You can change position of the applet simply touching it and dragging it where you want it. Size of the applet can be changed touching and dragging triangle in the applets bottom right corner. When you are finished setting up applet to your preferences, touching the <display_text>Ok</display_text> button will lead you back to desktop."
+msgid ""
+"First thing to do is select the size and position of a OMWeather applet. You "
+"can change position of the applet simply touching it and dragging it where "
+"you want it. Size of the applet can be changed touching and dragging "
+"triangle in the applets bottom right corner. When you are finished setting "
+"up applet to your preferences, touching the <display_text>Ok</display_text> "
+"button will lead you back to desktop."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:33
@@ -149,12 +262,24 @@ msgid "Getting Started"
 msgstr ""
 
 #: data/help/omweather.xml.in.h:34
-msgid "In this window you need first select country from a drop down menu. Next you need to select correct state or province and a place which weather you want to monitor."
-msgstr "В этом окне вам необходимо выбрать сначала страну из выпадающего списка. Затем вы должны выбрать необходимый штат или область, а также город в котором вы хотите наблюдать погоду."
+msgid ""
+"In this window you need first select country from a drop down menu. Next you "
+"need to select correct state or province and a place which weather you want "
+"to monitor."
+msgstr ""
+"В этом окне вам необходимо выбрать сначала страну из выпадающего списка. "
+"Затем вы должны выбрать необходимый штат или область, а также город в "
+"котором вы хотите наблюдать погоду."
 
 #: data/help/omweather.xml.in.h:35
-msgid "In this window you need to enter station name and station code. Station codes can be found from (http://xoap.weather.com/search/search?here=station_name) or you can use ZIP code for US stations."
-msgstr "В данном окне вам необходимо ввести название станции и ее код. Код станции может быть найден с (http://xoap.weather.com/search/search?here=имя_станции) или вы можете использовать ZIP код (только для США)."
+msgid ""
+"In this window you need to enter station name and station code. Station "
+"codes can be found from (http://xoap.weather.com/search/search?"
+"here=station_name) or you can use ZIP code for US stations."
+msgstr ""
+"В данном окне вам необходимо ввести название станции и ее код. Код станции "
+"может быть найден с (http://xoap.weather.com/search/search?here=имя_станции) "
+"или вы можете использовать ZIP код (только для США)."
 
 #: data/help/omweather.xml.in.h:36
 msgid "Introduction"
@@ -165,7 +290,9 @@ msgid "OMWeather"
 msgstr "OMWeather"
 
 #: data/help/omweather.xml.in.h:38
-msgid "OMWeather is a weather applet for Nokia Internet Tablets desktop that can be used to:"
+msgid ""
+"OMWeather is a weather applet for Nokia Internet Tablets desktop that can be "
+"used to:"
 msgstr ""
 
 #: data/help/omweather.xml.in.h:39
@@ -173,7 +300,12 @@ msgid "OMWeather was developed by Vlad Vasiliev (vlad@gas.by)."
 msgstr "OMWeather был разработан Владиславом Васильевым (vlad@gas.by)."
 
 #: data/help/omweather.xml.in.h:40
-msgid "OMWeather will use Tablets Home city selection as a default location for weather data. This location can be changed by touching the applet and selecting <display_text>Settings</display_text>. More info of how to add, rename and delete locations can be found on <ref refid=\"help_omweather_settings\" refdoc=\"Settings\"/> page."
+msgid ""
+"OMWeather will use Tablets Home city selection as a default location for "
+"weather data. This location can be changed by touching the applet and "
+"selecting <display_text>Settings</display_text>. More info of how to add, "
+"rename and delete locations can be found on <ref refid="
+"\"help_omweather_settings\" refdoc=\"Settings\"/> page."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:41
@@ -181,7 +313,12 @@ msgid "Settings"
 msgstr "Настройки"
 
 #: data/help/omweather.xml.in.h:42
-msgid "The <display_text>Settings</display_text> dialog (accessible from the desktop applet or home screens Applet settings menu) provides access to the configurable options that control how OMWeather appears and run. In addition to the tabs, there are also a <display_text>About</display_text> button to show information of the OMWeather."
+msgid ""
+"The <display_text>Settings</display_text> dialog (accessible from the "
+"desktop applet or home screens Applet settings menu) provides access to the "
+"configurable options that control how OMWeather appears and run. In addition "
+"to the tabs, there are also a <display_text>About</display_text> button to "
+"show information of the OMWeather."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:43
@@ -189,31 +326,56 @@ msgid "The list of stations in window \"Add station\" is sorted"
 msgstr ""
 
 #: data/help/omweather.xml.in.h:44
-msgid "This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details."
+msgid ""
+"This program is distributed in the hope that it will be useful, but WITHOUT "
+"ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
+"FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for "
+"more details."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:45
-msgid "This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version."
+msgid ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:46
-msgid "This tab also include drop down menu <display_text>Switch to the next station after</display_text>, that controls time to switch to the next station."
-msgstr "Данная вкладка содержит выпадающее меню <display_text>Переключится на следующую станцию через</display_text>, которое определяет вермя переключения на следующую станцию."
+msgid ""
+"This tab also include drop down menu <display_text>Switch to the next "
+"station after</display_text>, that controls time to switch to the next "
+"station."
+msgstr ""
+"Данная вкладка содержит выпадающее меню <display_text>Переключится на "
+"следующую станцию через</display_text>, которое определяет вермя "
+"переключения на следующую станцию."
 
 #: data/help/omweather.xml.in.h:47
-msgid "To activate OMWeather select <display_text>Home</display_text> > <display_text>Select applets...</display_text> > <display_text>OMWeather</display_text>."
+msgid ""
+"To activate OMWeather select <display_text>Home</display_text> > "
+"<display_text>Select applets...</display_text> > <display_text>OMWeather</"
+"display_text>."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:48
-msgid "To manually update weather data select refresh button from the detailed weather window (two small arrows in the upper right corner)."
+msgid ""
+"To manually update weather data select refresh button from the detailed "
+"weather window (two small arrows in the upper right corner)."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:49
-msgid "To see time of the sunrise/sunset or phase of the moon select >>. This window will also show some weather data update times."
+msgid ""
+"To see time of the sunrise/sunset or phase of the moon select >>. This "
+"window will also show some weather data update times."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:50
-msgid "Touching icon of a day brings up a small windows where you can see current weather or detailed forecast of a selected day. Touching <display_text>Settings</display_text> button will open OMWeather settings dialog."
+msgid ""
+"Touching icon of a day brings up a small windows where you can see current "
+"weather or detailed forecast of a selected day. Touching "
+"<display_text>Settings</display_text> button will open OMWeather settings "
+"dialog."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:51
@@ -221,11 +383,15 @@ msgid "Transparency option"
 msgstr ""
 
 #: data/help/omweather.xml.in.h:52
-msgid "Use the <ref refid=\"help_omweather_\" refdoc=\"index\"/> to use the various sections of this help document."
+msgid ""
+"Use the <ref refid=\"help_omweather_\" refdoc=\"index\"/> to use the various "
+"sections of this help document."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:53
-msgid "User is able to add station on the basis of a code for weather.com (http://xoap.weather.com/search/search?here=station_name) or ZIP code USA"
+msgid ""
+"User is able to add station on the basis of a code for weather.com (http://"
+"xoap.weather.com/search/search?here=station_name) or ZIP code USA"
 msgstr ""
 
 #: data/help/omweather.xml.in.h:54
@@ -249,15 +415,20 @@ msgid "Welcome to OMWeather."
 msgstr "Добро пожаловать в OMWeather."
 
 #: data/help/omweather.xml.in.h:59
-msgid "You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA"
+msgid ""
+"You should have received a copy of the GNU General Public License along with "
+"this program; if not, write to the Free Software Foundation, Inc., 59 Temple "
+"Place, Suite 330, Boston, MA 02111-1307 USA"
 msgstr ""
 
 #~ msgid "Interface"
 #~ msgstr "Интерфейс"
+
 #~ msgid "Locations"
 #~ msgstr "Местоположения"
+
 #~ msgid "Units"
 #~ msgstr "Единицы измерения"
+
 #~ msgid "Update"
 #~ msgstr "Обновление"
-

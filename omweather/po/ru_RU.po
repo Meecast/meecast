@@ -416,9 +416,8 @@ msgid "Distance units:"
 msgstr "Единицы расстояния:"
 
 #: src/weather-hash.c:39
-#, fuzzy
 msgid "Drifting Snow"
-msgstr "Поземка"
+msgstr "Поземка, снежные заносы"
 
 #: src/weather-hash.c:40
 msgid "Drizzle"
@@ -661,9 +660,8 @@ msgid "Light Rain Shower"
 msgstr "Небольшой ливень"
 
 #: src/weather-hash.c:68
-#, fuzzy
 msgid "Light Rain and Freezing Rain"
-msgstr "Небольшой дождь и ветрено"
+msgstr "Небольшой дождь и Холодный дождь"
 
 #: src/weather-hash.c:70
 msgid "Light Rain and Shower"

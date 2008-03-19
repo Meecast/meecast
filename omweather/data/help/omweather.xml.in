@@ -59,7 +59,7 @@
       <context contextUID="help_omweather_getstarted"/>
       <_para>
         To activate OMWeather select <display_text>Home</display_text> 
-        > <display_text>Select applets...</display_text> >
+        <display_text>Select applets...</display_text>
         <display_text>OMWeather</display_text>.
       </_para>
       <_para>

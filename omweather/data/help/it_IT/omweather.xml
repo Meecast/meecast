@@ -3,19 +3,19 @@
   <folder>
     <title>OMWeather</title>
     <topic>
-      <topictitle>Introduction</topictitle>
+      <topictitle>Introduzione</topictitle>
       <context contextUID="help_omweather_intro"/>
-      <para>Welcome to OMWeather.</para>
-      <para>OMWeather is a weather applet for Nokia Internet Tablets desktop that can be used to:</para>
+      <para>Benvenuti a OMWeather.</para>
+      <para>OMWeather è un applet meteo per Nokia Internet Tablets desktop, che può essere utilizzato per:</para>
       <list>
-        <listitem>Detailed weather forecast for 10 days</listitem>
-        <listitem>Automatic update weather forecast information from the Internet (Data available from xoap.weather.com)</listitem>
-        <listitem>Custom city support</listitem>
-        <listitem>4 view modes</listitem>
-        <listitem>3 icon size kinds</listitem>
-        <listitem>4 icon sets (default: crystal)</listitem>
+        <listitem>Dettagliata previsioni meteo per 10 giorni</listitem>
+        <listitem>Previsioni del tempo di aggiornamento automatico di informazioni da Internet (dati disponibili da xoap.weather.com)</listitem>
+        <listitem>Città di sostegno personalizzato</listitem>
+        <listitem>4 modalità di visualizzazione</listitem>
+        <listitem>3 dimensioni icona tipo</listitem>
+        <listitem>4 set icona (default: cristallo)</listitem>
         <listitem>Transparency option</listitem>
-        <listitem>The list of stations in window "Add station" is sorted</listitem>
+        <listitem>L'elenco delle stazioni e la finestra "Aggiungi stazione" è ordinata</listitem>
         <listitem>User is able to select font color and background color which he likes</listitem>
         <listitem>User is able to change amount of days from 1 to 10</listitem>
         <listitem>User is able to add station on the basis of a code for weather.com (http://xoap.weather.com/search/search?here=station_name) or ZIP code USA</listitem>
@@ -23,14 +23,14 @@
       <para>Use the <ref refid="help_omweather_" refdoc="index"/> to use the various sections of this help document.</para>
     </topic>
     <topic>
-      <topictitle>Getting Started</topictitle>
+      <topictitle>Come iniziare</topictitle>
       <context contextUID="help_omweather_getstarted"/>
-      <para>To activate OMWeather select <display_text>Home</display_text> > <display_text>Select applets...</display_text> > <display_text>OMWeather</display_text>.</para>
+      <para>To activate OMWeather select <display_text>Home</display_text> <display_text>Select applets...</display_text> <display_text>OMWeather</display_text>.</para>
       <para>First thing to do is select the size and position of a OMWeather applet. You can change position of the applet simply touching it and dragging it where you want it. Size of the applet can be changed touching and dragging triangle in the applets bottom right corner. When you are finished setting up applet to your preferences, touching the <display_text>Ok</display_text> button will lead you back to desktop.</para>
       <para>OMWeather will use Tablets Home city selection as a default location for weather data. This location can be changed by touching the applet and selecting <display_text>Settings</display_text>. More info of how to add, rename and delete locations can be found on <ref refid="help_omweather_settings" refdoc="Settings"/> page.</para>
     </topic>
     <topic>
-      <topictitle>Settings</topictitle>
+      <topictitle>Impostazioni</topictitle>
       <context contextUID="help_omweather_settings"/>
       <para>The <display_text>Settings</display_text> dialog (accessible from the desktop applet or home screens Applet settings menu) provides access to the configurable options that control how OMWeather appears and run. In addition to the tabs, there are also a <display_text>About</display_text> button to show information of the OMWeather.</para>
       <para><display_text>Locations</display_text> tab lists all locations which weather data OMWeather will receive when weather data refreshed.</para>
@@ -55,15 +55,15 @@
       <para>This tab also include drop down menu <display_text>Switch to the next station after</display_text>, that controls time to switch to the next station.</para>
     </topic>
     <topic>
-      <topictitle>Add Station</topictitle>
+      <topictitle>Aggiungi Station</topictitle>
       <context contextUID="help_omweather_add_station"/>
-      <para>In this window you need first select country from a drop down menu. Next you need to select correct state or province and a place which weather you want to monitor.</para>
-      <para><display_text>Add Custom Station</display_text> button used to add stations not found on drop down menus.</para>
+      <para>In questa finestra è necessario prima seleziona il paese da un menu a discesa. Dopodiché è necessario selezionare corretto stato o la provincia e un luogo che meteo si desidera monitorare.</para>
+      <para><display_text>Aggiungi personalizzato Station</display_text> il pulsante utilizzato per aggiungere le stazioni non trovato sul menu a discesa.</para>
     </topic>
     <topic>
-      <topictitle>Add Custom Station</topictitle>
+      <topictitle>Aggiungi personalizzato stazione</topictitle>
       <context contextUID="help_omweather_add_custom_station"/>
-      <para>In this window you need to enter station name and station code. Station codes can be found from (http://xoap.weather.com/search/search?here=station_name) or you can use ZIP code for US stations.</para>
+      <para>In questa finestra è necessario immettere nome di stazione e stazione di codice. Stazione codici possono essere trovati da (http://xoap.weather.com/search/search?here=station_name) o si può usare per CAP US stazioni.</para>
     </topic>
     <topic>
       <topictitle>Using Desktop Applet</topictitle>
@@ -73,10 +73,10 @@
       <para>To see time of the sunrise/sunset or phase of the moon select >>. This window will also show some weather data update times.</para>
     </topic>
     <topic>
-      <topictitle>About OMWeather</topictitle>
+      <topictitle>Chi OMWeather</topictitle>
       <context contextUID="help_omweather_about"/>
       <para>Current Version: 0.20</para>
-      <para>OMWeather was developed by Vlad Vasiliev (vlad@gas.by).</para>
+      <para>OMWeather è stato sviluppato da Vlad Vasiliev (vlad@gas.by).</para>
       <para>Copyright © 2006-2008 Vlad Vasiliev, Pavel Fialko.</para>
       <para>Weather data provided by: xoap.weather.com</para>
       <para>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</para>

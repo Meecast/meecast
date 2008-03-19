@@ -536,7 +536,7 @@ void weather_window_add_custom_station(void){
 		*label,
 		*table;
     gboolean	station_code_invalid = TRUE;
-    GtkTreeIter iter;
+/*    GtkTreeIter iter;*/
     gchar       *station_name = NULL,
                 *station_code = NULL;
 
@@ -609,7 +609,7 @@ void weather_window_add_station(GtkWidget *widget, GdkEvent *event,
                     					    gpointer user_data){
     GtkWidget	*label,
 		*table;
-    GtkTreeIter iter;
+/*    GtkTreeIter iter;*/
     gchar	*station_name = NULL,
 		*station_code = NULL;
 /* Create dialog window */
@@ -1184,7 +1184,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_combo_box_set_model(GTK_COMBO_BOX(update_time),
 				(GtkTreeModel*)app->time_update_list);
     gtk_combo_box_set_active(GTK_COMBO_BOX(update_time),
-	    get_active_item_index((GtkTreeModel*)app->time_update_list,
+    get_active_item_index((GtkTreeModel*)app->time_update_list,
 				    app->config->update_interval, NULL, FALSE));
 #ifndef RELEASE
 /* Events list tab */
@@ -1200,6 +1200,7 @@ void weather_window_settings(GtkWidget *widget,
 
     gtk_widget_show_all(window_config);
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), app->config->current_settings_page);
+    highlight_current_station(GTK_TREE_VIEW(station_list_view));
 
 /* kill popup window :-) */
     if(app->popup_window){
@@ -1733,5 +1734,37 @@ void down_key_handler(GtkButton *button, gpointer list){
     if(gtk_tree_model_get_iter(model, &next_iter, path))
 	gtk_list_store_move_after(GTK_LIST_STORE(model), &iter, &next_iter);
     gtk_tree_path_free(path);
+}
+/*******************************************************************************/
+void highlight_current_station(GtkTreeView *tree_view){
+    GtkTreeIter		iter;
+    gchar		*station_name = NULL,
+			*station_code = NULL;
+    gboolean		valid;
+    GtkTreePath		*path;
+    GtkTreeModel	*model;
+    
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                                  &iter);
+    while(valid){
+        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                            &iter,
+                            0, &station_name,
+                            1, &station_code,
+                            -1);
+        if(!strcmp(app->config->current_station_name, station_name)){
+	    model = gtk_tree_view_get_model(GTK_TREE_VIEW(tree_view));
+	    path = gtk_tree_model_get_path(model, &iter);
+	    gtk_tree_view_set_cursor(GTK_TREE_VIEW(tree_view), path, NULL, FALSE);
+	    gtk_tree_path_free(path);
+            break;
+        }
+	else{
+	    g_free(station_name);
+	    g_free(station_code);
+	}
+	valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+                                    	    &iter);
+    }
 }
 /*******************************************************************************/

@@ -69,6 +69,7 @@ void down_key_handler(GtkButton *button, gpointer list);
 void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name, gboolean is_gps);
 void delete_all_gps_stations(void);
 GtkWidget* create_tree_view(GtkListStore* list);
+void highlight_current_station(GtkTreeView *tree_view);
 /*******************************************************************************/
 extern void remove_periodic_event(void);
 extern void weather_initialize_dbus(void);

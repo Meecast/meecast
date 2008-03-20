@@ -263,31 +263,6 @@ void changed_stations(void){
     }
 }
 /*******************************************************************************/
-/* Fill station list (tree) */
-void fill_station_list_view(GtkWidget *station_list_view,
-			    GtkListStore *station_list_store){
-    GSList *tmplist = NULL; /* Temporary for station list */
-    struct weather_station *ws; /* Description Weather station */
-    GtkTreeSelection *list_selection;
-    GtkTreeIter iter;
-
-    list_selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
-    tmplist = app->stations_view_list;
-    while(tmplist){
-	ws = tmplist->data;
-	gtk_list_store_append(GTK_LIST_STORE
-                        	(station_list_store), &iter);
-	gtk_list_store_set(GTK_LIST_STORE(station_list_store),
-                        	&iter,
-				0, ws->name_station,
-				1, ws->number,
-				-1);
-	if((app->config->current_station_id)&&streq(app->config->current_station_id, ws->id_station))
-    	    gtk_tree_selection_select_iter(list_selection, &iter);
-	tmplist = g_slist_next(tmplist);
-    }
-}
-/*******************************************************************************/
 /* Edit the station */
 void weather_window_edit_station(GtkWidget *widget, GdkEvent *event,
                     					    gpointer user_data){
@@ -733,6 +708,8 @@ void weather_window_settings(GtkWidget *widget,
 		*up_station_button = NULL,
 		*down_station_button = NULL;
     GtkIconInfo *gtkicon_arrow;
+    gboolean	valid = FALSE;
+    GtkTreeIter	iter;
     char	flag_update_icon = '\0'; /* Flag update main weather icon of desktop */
 #ifndef RELEASE
     char	tmp_buff[1024];
@@ -1357,11 +1334,15 @@ void weather_window_settings(GtkWidget *widget,
 	    }	
 	    if(flag_update_station){
 		if(app->iap_connected){
-		    if( g_slist_length(app->stations_view_list) > 0 ){
+		    /* check number of elements in user stations list */
+		    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                            		    &iter);
+		    if(valid && gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+							    &iter)){
 			app->show_update_window = TRUE;
 			update_weather();
 		    }
-		}    
+		} 
 		else    
     		    weather_frame_update(TRUE);
 	    }
@@ -1377,7 +1358,11 @@ void weather_window_settings(GtkWidget *widget,
 	break;
 	default:/* Pressed CANCEL */
 	    if( flag_update_station && app->iap_connected ){
-		if( g_slist_length(app->stations_view_list) > 0 ){
+		/* check number of elements in user stations list */
+		valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                            		    &iter);
+		if(valid && gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+							    &iter)){
 		    app->show_update_window = TRUE;
 		    update_weather();
 		}

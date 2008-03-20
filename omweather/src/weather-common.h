@@ -235,7 +235,6 @@ typedef struct OMWeatherApplet{
     GtkListStore	*user_stations_list;
     GtkListStore	*time_update_list;
     GtkWidget 		*contextmenu;
-    GSList		*stations_view_list; 
     gboolean 		widget_first_start;
     int 		widget_showing;
     gboolean 		home_item_flag_expose;

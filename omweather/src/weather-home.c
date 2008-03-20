@@ -321,7 +321,7 @@ void weather_buttons_fill(gboolean check_error){
     }
 /* Init weather buttons */
     count_day = new_parse_weather_com_xml();
-//    parse_underground_com_data("26666");
+/*    parse_underground_com_data("26666");	* TODO next release, maybe */
     if(check_error)
 	if(count_day == -2){
 	    count_day = 0;
@@ -1228,8 +1228,6 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /* free used memory from OMWeather struct */
 void free_memory(gboolean flag){
     int    i;
-    GSList *tmplist = NULL;
-    struct weather_station *ws;
     
     if(flag){
 	if(app->config->cache_dir_name){
@@ -1259,21 +1257,6 @@ void free_memory(gboolean flag){
 	if(app->hash){
 	    g_hash_table_destroy(app->hash);
 	    app->hash = NULL;
-	}
-	/* clean stations_view_list */
-	if(app->stations_view_list){
-	    if(g_slist_length(app->stations_view_list) > 0){
-		tmplist = app->stations_view_list;
-    		while(tmplist){
-    		    ws = tmplist->data;
-		    g_free(ws->id_station);
-		    g_free(ws->name_station);
-		    g_free(ws);
-		    tmplist = g_slist_next(tmplist);
-		}
-	    }	    
-	    g_slist_free(app->stations_view_list);
-	    app->stations_view_list = NULL;
 	}
     }
 

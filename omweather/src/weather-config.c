@@ -66,59 +66,6 @@ gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
     return retval;
 }
 /*******************************************************************************/
-/* The stations data  fill from clock plugin data */
-void fill_station_from_clock_plugin_data(void){
-    FILE  *clock_file;  
-    gchar *home_city = NULL;
-    gchar *remote_city = NULL;
-    gchar *tmp = NULL;
-    char  out_buffer[1024]; /* buffer for work with city_in_clock.txt files*/
-    struct weather_station *ws;
-    
-    GConfClient *gconf_client = gconf_client_get_default();
-    /* City name from config file of clock */
-    home_city = gconf_client_get_string(gconf_client,
-        			    GCONF_KEY_CLOCK_HOME_LOCATION, NULL);
-    if(!home_city)
-	return;
-    remote_city = gconf_client_get_string(gconf_client,
-        			    GCONF_KEY_CLOCK_REMOTE_LOCATION, NULL);
-    if(!remote_city)
-	return;
-    if((clock_file = fopen(CLOCK_FILE, "r")) != NULL){
-	while(!feof(clock_file)){
-	    memset(out_buffer, 0, sizeof(out_buffer));
-	    fgets(out_buffer, sizeof(out_buffer) - 1, clock_file);
-	    tmp = strchr(out_buffer, ';'); /* Separator changed from | to ; in 0.19 version */
-	    if(!tmp)
-		tmp = strchr(out_buffer, '|'); /* Finding old separator */
-	    if(!tmp)
-		continue;
-	    if(!strncmp(out_buffer, home_city, tmp - out_buffer) || 
-	        !strncmp(out_buffer, remote_city, tmp - out_buffer)){
-		/* Prepare struct */
-    		ws = g_new0(struct weather_station, 1);
-		tmp[ strlen(tmp) - 1 ] = 0;
-		ws->id_station = g_strdup(tmp + 1);
-		tmp[0] = 0;
-		ws->name_station = g_strdup(out_buffer);
-		/* Add station to stations list */
-		app->stations_view_list = g_slist_append(app->stations_view_list, ws); 
-		/* A current station */
-		if(!strncmp(out_buffer, home_city, tmp - out_buffer)){
-		    app->config->current_station_id = g_strdup(ws->id_station);
-		    app->config->current_station_name = g_strdup(ws->name_station);
-		}
-	    }	    
-	}
-	fclose(clock_file);
-    }
-    if(home_city)
-	g_free(home_city);
-    if(remote_city)
-	g_free(remote_city);	
-}
-/*******************************************************************************/
 void fill_user_stations_list_from_clock(GtkListStore** list){
     FILE	*clock_file;  
     gchar	*home_city = NULL,
@@ -176,42 +123,6 @@ void fill_user_stations_list_from_clock(GtkListStore** list){
 	g_free(remote_city);	
 }
 /*******************************************************************************/
-/* New Reinitialize stations list */
-void reinitilize_stations_list2(GSList *stlist){
-    struct weather_station *ws = NULL;
-    gchar *temp1 = NULL, *temp2 = NULL;
-    app->stations_view_list = NULL; /* Initialize value */
-
-    while(stlist){
-	temp1 = strdup(stlist->data);
-   /* Delimit Id and name */
-	if(strlen(temp1) > 0){
-	    /* station name */
-	    temp2 = strtok(temp1,"@\0"); /* Delimiter - @ */
-	    if(temp2 != NULL)  /* Check random error */      
-		if(strlen(temp2) > 0){
-		    ws = g_new0(struct weather_station, 1);
-		    ws->id_station = g_strdup(temp2); 
-		}
-	    /* station code */
-	    temp2 = strtok(NULL,"@\0"); /* Delimiter - @ */ 
-	    if(temp2 != NULL)
-		ws->name_station = g_strdup(temp2); 
-	    /* station number */
-	    temp2 = strtok(NULL,"@\0"); /* Delimiter - @ */
-	    if(temp2 != NULL)
-		ws->number = atoi(temp2); 
-	    else
-		ws->number = 0;
-	    /* Add station to stations list */
-	    app->stations_view_list = g_slist_append(app->stations_view_list, ws);
-	}
-	g_free(stlist->data);      
-	g_free(temp1);
-	stlist = g_slist_next(stlist);
-    }
-}
-/*******************************************************************************/
 void fill_user_stations_list(GSList *source_list, GtkListStore** list){
     GtkTreeIter iter;
     gchar	*temp1 = NULL,
@@ -253,25 +164,6 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 	g_free(temp1);
 	source_list = g_slist_next(source_list);
     }
-}
-/*******************************************************************************/
-/* Prepare stations ID list  to write config file */
-GSList* prepare_idlist(void){
-    GSList	*stlist = NULL,
-		*tmplist = NULL;
-    struct weather_station *ws;
-    char *str;
-
-    tmplist = app->stations_view_list;
-    while(tmplist != NULL){ 
-	ws = tmplist->data;
-	str = g_strdup_printf("%s@%s@%i", ws->id_station,
-					    ws->name_station,
-					    ws->number);
-	stlist = g_slist_append(stlist, str);
-	tmplist = g_slist_next(tmplist);
-    }
-    return stlist;
 }
 /*******************************************************************************/
 GSList* create_stations_string_list(void){
@@ -623,7 +515,6 @@ int new_read_config(AppletConfig *config){
                 		    GCONF_KEY_WEATHER_PROGRAM_VERSION, NULL);
     if(!tmp){
 	if(!app->config->current_station_id){
-/*	    fill_station_from_clock_plugin_data();*/
 	    fill_user_stations_list_from_clock(&app->user_stations_list);
 	    if(app->iap_connected){
 		app->show_update_window = TRUE;
@@ -822,7 +713,6 @@ void new_config_save(AppletConfig *config){
         		GCONF_KEY_ICONS_LAYOUT,
 			config->icons_layout, NULL);	    
     /* Save station list */
-//    stlist = prepare_idlist();
     stlist = create_stations_string_list();
     gconf_client_set_list(gconf_client,
         		GCONF_KEY_WEATHER_STATIONS_LIST,

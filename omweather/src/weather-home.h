@@ -73,8 +73,6 @@ extern void new_config_save(AppletConfig*);
 extern GtkListStore* create_items_list(const char *filename, long start, long end,
 					long *items_number);
 extern GtkListStore* create_time_update_list(void);
-extern void fill_station_from_clock_plugin_data(void);
-extern void reinitilize_stations_list2(GSList *stlist);
 extern gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
 				    gpointer user_data);
 extern int parse_weather_com_xml(void);

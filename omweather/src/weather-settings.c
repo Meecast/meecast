@@ -469,8 +469,6 @@ static gboolean weather_delete_station(GtkWidget *widget, GdkEvent *event,
                                                         &iter);
     }
     g_free(station_selected);
-    /* Update station list */
-    flag_update_station = FALSE;
     weather_frame_update(TRUE);    
     /* Update config file */
     new_config_save(app->config);

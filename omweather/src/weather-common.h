@@ -269,7 +269,6 @@ typedef struct OMWeatherApplet{
 /*******************************************************************************/
 void free_list_time_event(void);
 void time_event_add(time_t time_value, short int type_event);
-void update_weather(void);
 void weather_frame_update(gboolean check);
 extern void popup_window_destroy(void);
 extern int new_read_config(AppletConfig*);

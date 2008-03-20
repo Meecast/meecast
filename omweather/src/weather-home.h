@@ -47,7 +47,6 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* s
 int c2f(int temp);
 void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 gboolean download_html(gpointer data);
-void update_weather(void);
 void free_memory(gboolean flag);
 void swap_temperature(int *hi, int *low);
 void station_error_window(void);

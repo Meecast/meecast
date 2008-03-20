@@ -82,5 +82,6 @@ extern void add_gps_event(guint interval);
 extern gboolean change_station_select(GtkWidget *widget, gpointer user_data);
 extern gboolean switch_timer_handler(gpointer data);
 extern void help_activated_handler(GtkWidget *window, gchar *help_id);
+extern void update_weather(void);
 /*******************************************************************************/
 #endif

@@ -1735,7 +1735,8 @@ void highlight_current_station(GtkTreeView *tree_view){
                             0, &station_name,
                             1, &station_code,
                             -1);
-        if(!strcmp(app->config->current_station_name, station_name)){
+        if(app->config->current_station_name && station_name &&                    
+            !strcmp(app->config->current_station_name, station_name)){
 	    model = gtk_tree_view_get_model(GTK_TREE_VIEW(tree_view));
 	    path = gtk_tree_model_get_path(model, &iter);
 	    gtk_tree_view_set_cursor(GTK_TREE_VIEW(tree_view), path, NULL, FALSE);

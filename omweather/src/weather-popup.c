@@ -968,21 +968,30 @@ GtkWidget	*popup_frame = NULL,
 GtkWidget* create_footer_more_widget(void){
     GtkWidget	*main_widget = NULL,
     		*button = NULL,
-		*popup_window_button_more = NULL;
+		*popup_window_button_more = NULL,
+		*button_close = NULL;
 /* prepare More button */
     popup_window_button_more = gtk_button_new_with_label("<<");
     set_font_size(popup_window_button_more, 14);
     g_signal_connect(popup_window_button_more, "clicked",
 		    G_CALLBACK(popup_window_more_close), NULL);
+/* prepare Close button */
+    button_close = gtk_button_new_with_label(_("Close"));
+    set_font_size(button_close, 14);
+    g_signal_connect(button_close, "clicked",
+		    G_CALLBACK(popup_close), NULL);      		    
+		    
 /* prepare Settings button */
     button = gtk_button_new_with_label(_("Settings"));
     set_font_size(button, 14);
     g_signal_connect(button, "clicked",
-		    G_CALLBACK(weather_window_settings), NULL);      
+		    G_CALLBACK(weather_window_settings), NULL);
 /* prepare main widget */
     main_widget = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_start(GTK_BOX(main_widget), popup_window_button_more, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(main_widget), button_close, TRUE, FALSE, 0);
     gtk_box_pack_end(GTK_BOX(main_widget), button, FALSE, FALSE, 0);
+    
     return main_widget;
 }
 /*******************************************************************************/

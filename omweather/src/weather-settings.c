@@ -127,6 +127,7 @@ void delete_all_gps_stations(void){
 		        app->config->current_station_id = NULL;
 			app->config->current_station_name = NULL;
         		app->config->previos_days_to_show = app->config->days_to_show;
+			fprintf(file_log,"delete code 2 %p\n",app->config->current_station_id );
             	    }
 		    else
 			app->gps_must_be_current = FALSE;		    

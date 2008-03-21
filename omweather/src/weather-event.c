@@ -130,6 +130,10 @@ gboolean timer_handler(gpointer data){
 */
                     if (calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
                                            app->temporary_station_latitude,app->temporary_station_longtitude)>10){
+			fprintf(file_log,"Event: app->gps_station.latitude %f app->gps_station.longtitude %f  app->temporary_station_latitude %f app->temporary_station_longtitude %f\n",
+					   app->gps_station.latitude,app->gps_station.longtitude,
+                                           app->temporary_station_latitude,app->temporary_station_longtitude);
+			fflush(file_log);					   
                         get_nearest_station(app->temporary_station_latitude,app->temporary_station_longtitude
                                             ,&app->gps_station);
 		        fprintf(file_log,"Event:  DELETE ALL GPS STATIOn\n");

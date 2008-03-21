@@ -273,13 +273,15 @@ int new_read_config(AppletConfig *config){
     if (config->current_station_id && strlen(config->current_station_id) == 0)
 	config->current_station_id = NULL;
     /* Get GPS station name and id */
-#ifdef HILDON    
+#ifdef HILDON
+    app->gps_station.name[0] = 0;
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_GPS_STATION_NAME, NULL);
     if(tmp){
 	snprintf(app->gps_station.name,sizeof(app->gps_station.name)-1,"%s",tmp);
     	g_free(tmp);
     }	
+    app->gps_station.id0[0] = 0;
     tmp = NULL;
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_GPS_STATION_ID, NULL);

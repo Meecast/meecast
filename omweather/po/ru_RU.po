@@ -114,6 +114,8 @@ msgid ""
 "\n"
 "P: "
 msgstr ""
+"\n"
+"Д: "
 
 #: src/weather-popup.c:465
 msgid ""
@@ -128,6 +130,8 @@ msgid ""
 "\n"
 "V: "
 msgstr ""
+"\n"
+"В: "
 
 #: src/weather-popup.c:445
 msgid ""
@@ -897,7 +901,7 @@ msgstr "Дождь"
 
 #: src/weather-hash.c:116
 msgid "Rain / Freezing Rain"
-msgstr ""
+msgstr "Дождь / Холодный дождь"
 
 #: src/weather-hash.c:117
 msgid "Rain / Snow"
@@ -1073,7 +1077,7 @@ msgstr "Позже мокрый снег"
 
 #: src/weather-hash.c:148
 msgid "Snow and Freezing Rain"
-msgstr ""
+msgstr "Снег с холодным дождем"
 
 #: src/weather-hash.c:149
 msgid "Snow to Rain"
@@ -1397,5 +1401,3 @@ msgstr "местного времени станции"
 msgid "steady"
 msgstr "устойчивое"
 
-#~ msgid "Hide station name and arrows:"
-#~ msgstr "Убрать название станции и стрелки:"

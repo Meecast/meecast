@@ -5,81 +5,81 @@
     <topic>
       <topictitle>Introduzione</topictitle>
       <context contextUID="help_omweather_intro"/>
-      <para>Welcome to Other Maemo Weather.</para>
-      <para>Other Maemo Weather (OMWeather) is a weather applet for Nokia Internet Tablets. It can be used to:</para>
+      <para>Benvenuti a Other Maemo Weather.</para>
+      <para>Other Maemo Weather (OMWeather) è un applet meteo per Nokia Internet Tablets. Esso può essere utilizzato per:</para>
       <list>
-        <listitem>Check detailed weather forecast for up to 10 days</listitem>
-        <listitem>Automatically to update weather information from the Internet (Data available from xoap.weather.com)</listitem>
-        <listitem>Configure closest weather station automatically using GPS</listitem>
-        <listitem>Easily to select custom weather station from the sorted drop down menu</listitem>
-        <listitem>See sunrise and sunset times for selected weather stations</listitem>
-        <listitem>See current phase of the Moon</listitem>
-        <listitem>Select between different icon sizes, icon sets, colors and view modes</listitem>
-        <listitem>See some eye candy with transparency option</listitem>
+        <listitem>Check dettagliate previsioni meteorologiche per un massimo di 10 giorni</listitem>
+        <listitem>Per aggiornare automaticamente le informazioni meteorologiche da Internet (dati disponibili da xoap.weather.com)</listitem>
+        <listitem>Configurare più vicina stazione meteorologica automatica utilizzando le coordinate GPS</listitem>
+        <listitem>Facilmente personalizzato per selezionare stazione meteo ordinati dal menu a discesa</listitem>
+        <listitem>Vedere l'alba e il tramonto volte selezionato per stazioni meteorologiche</listitem>
+        <listitem>Vedi fase attuale della Luna</listitem>
+        <listitem>Selezionare tra le diverse dimensioni icona, icona fissa, i colori e la modalità di visualizzazione</listitem>
+        <listitem>Vedere alcune caramelle con occhio trasparenza opzione</listitem>
        </list>
-      <para>Use the <ref refid="help_omweather_" refdoc="index"/> to use the various sections of this help document.</para>
+      <para>Utilizzare il <ref refid="help_omweather_" refdoc="index"/> di usare le varie sezioni di questo documento di aiuto.</para>
     </topic>
     <topic>
       <topictitle>Come iniziare</topictitle>
       <context contextUID="help_omweather_getstarted"/>
       <para>To activate OMWeather select <display_text>Home</display_text> <display_text>Select applets...</display_text> <display_text>OMWeather</display_text>.</para>
-      <para>First thing to do is select the position of a OMWeather applet in home view. You can change applets position simply touching it and dragging it where you want it. Appearance of the applet can be changed from the <display_text>Interface</display_text> tab in OMWeather settings window.</para>
-      <para>OMWeather will use Tablets Home city selection as a default location for weather data. This location can be changed by touching the applet and selecting <display_text>Settings</display_text> and then <display_text>Locations</display_text> tab. GPS functionality can be also enabled from this tab.</para>
-      <para>More info of how to change appearance of the applet and add, rename and delete locations can be found on <ref refid="help_omweather_settings" refdoc="Settings"/> page.</para>
+      <para>Prima cosa da fare è selezionare la posizione di un OMWeather applet in casa. È possibile modificare le applet posizione semplicemente toccarla e trascinandola dove desideri. Aspetto delle applet può essere cambiato dal <display_text>Interface</display_text> scheda OMWeather finestra delle impostazioni.</para>
+      <para>OMWeather utilizzerà compresse Home città selezione come un percorso predefinito di dati meteo. Questo percorso può essere cambiato da toccare l'applet e selezionando <display_text>Impostazioni</display_text> e poi <display_text>Località</display_text> scheda. La funzionalità GPS può essere attivato anche da questa scheda.</para>
+      <para>Più informazioni di come cambiare l'aspetto delle applet e di aggiungere, eliminare e rinominare le località possono essere trovate sul <ref refid="help_omweather_settings" refdoc="Impostazioni"/> pagina.</para>
     </topic>
     <topic>
       <topictitle>Impostazioni</topictitle>
       <context contextUID="help_omweather_settings"/>
-      <para>The <display_text>Settings</display_text> dialog (accessible from the desktop applet or home views Applet settings menu) provides access to the configurable options that control how OMWeather appears and run. In addition to the tabs, there are also a <display_text>About</display_text> button to show information of the OMWeather.</para>
-      <para><display_text>Locations</display_text> tab lists all locations which weather data OMWeather will receive when applets refresh button is touched or automatic update happens.</para>
-      <para><display_text>Add</display_text> button allows you to add new weather stations, which will then be listed in the locations screen.</para>
+      <para>Il <display_text>Impostazioni</display_text> finestra di dialogo (accessibile dal desktop o applet casa opinioni Applet dal menu Impostazioni), prevede l'accesso al configurabile opzioni che controllano come appare OMWeather ed eseguire. In aggiunta alle schede, ci sono anche un <display_text>Chi</display_text> pulsante per visualizzare le informazioni di OMWeather.</para>
+      <para><display_text>Località</display_text> scheda elenca tutti i luoghi in cui i dati meteo OMWeather riceverà quando applet pulsante di aggiornamento è toccato o aggiornamento automatico succede.</para>
+      <para><display_text>Aggiungi</display_text> pulsante ti permette di aggiungere nuove stazioni meteorologiche, che poi verranno elencati nella località schermo.</para>
       <para><display_text>Rename</display_text> button allows you to change name of the selected station.</para>
-      <para><display_text>Delete</display_text> button deletes selected station from the list.</para>
-      <para><display_text>Up</display_text> and <display_text>down</display_text> arrows allows you to change the order of the selected locations.</para>
-      <para><display_text>Enable station from GPS:</display_text> check box is used to enable automatic weather station selection when ever GPS is enabled.</para>
+      <para><display_text>Elimina</display_text> pulsante Cancella stazione selezionata dalla lista.</para>
+      <para><display_text>Up</display_text> e <display_text>giù</display_text> frecce ti permette di modificare l'ordine delle località selezionate.</para>
+      <para><display_text>Attiva da stazione GPS:</display_text> casella di controllo è usato per attivare la selezione automatica della stazione meteo quando mai GPS è attivata.</para>
       <para><display_text>Interface</display_text> tab is used to configure settings that controls visual appearance of the OMWeather.</para>
       <para><display_text>Visible items:</display_text> selects how many icons will be shown in the tablets home screen. Possibilities go from 1 to 10.</para>
       <para><display_text>Layout:</display_text> selects how icons are shown in the home screen. Possible selections are one row, one column, two rows, two columns or combinated.</para>
       <para><display_text>Icon set:</display_text> selects which icon set is used. You can install more icon sets with the application manager (if Maemo extras repository is configured) or going to OMWeathers Maemo garage page (http://omweather.garage.maemo.org/) and downloading icon sets directly from there.</para>
-      <para><display_text>Icon size:</display_text> defines icon size. Size can be tiny, small, medium, large or giant.</para>
+      <para><display_text>Icona dimensioni:</display_text> definisce icona dimensione. Dimensioni può essere piccolo, piccolo, medio, grande o gigante.</para>
       <para><display_text>Font color:</display_text> defines applets font color. Touching color button will open <display_text>Pick a Color</display_text> dialog where it's possible to select font color.</para>
-      <para><display_text>Background color:</display_text> setting defines used background color for icons. Color selection works same way as selecting font color. Background color is not selectable if transparency is used.</para>
+      <para><display_text>Colore di sfondo:</display_text> impostazione definisce il colore di sfondo usato per le icone. Colore di selezione allo stesso modo in cui funziona la selezione colore. Colore di sfondo non è selezionabile, se la trasparenza è utilizzato.</para>
       <para><display_text>Transparency:</display_text> selection will show background image behind the icons.</para>
       <para><display_text>Show only current weather on first icon:</display_text> selection will show current weather on first icon and forecast for a rest of the day is shown on the next icon.</para>
       <para><display_text>Hide station name:</display_text> selection will controls if station name are shown on the applet.</para>
-      <para><display_text>Hide arrows:</display_text> selection will controls if arrows used to change weather station are shown on the applet.</para>
+      <para><display_text>Nascondi le frecce:</display_text> selezione controlli frecce se usato per cambiare stazione meteo sono mostrati sulla applet.</para>
       <para><display_text>Units</display_text> tab is used to select temperature, distance and wind speed units shown on weather data. Used units can be selected from a drop down menus.</para>
-      <para><display_text>Swap hi/low temperature:</display_text> selection will change way how lowest and highest temperature for a day is shown on the applet. If selected, applet will show high temperature first.</para>
-      <para><display_text>Update</display_text> tab is used to configure update interval of a weather data. This tab shows also time when next update will be done.</para>
-      <para><display_text>Automatically updating data after connect to Internet: </display_text> selection will controls if weather data is automatically updated when Internet connection is established.</para>
-      <para><display_text>Switch to the next station after:</display_text> drop down menu controls time after applet changes to next weather station.</para>
-      <para>Valid time for current weather and update interval can be selected from a drop down menu.</para>
+      <para><display_text> Swap hi/bassa temperatura:</display_text> selezione cambierà modo come la temperatura più alta e la più bassa per un giorno è mostrato sulla applet. Se è selezionata, verranno visualizzati applet ad alta temperatura prima.</para>
+      <para><display_text>Update</display_text> scheda viene utilizzata per configurare l'aggiornamento di un intervallo di dati meteo. Questa scheda mostra anche il tempo quando prossimo aggiornamento sarà fatto.</para>
+      <para><display_text>Automaticamente l'aggiornamento dei dati dopo la connessione a Internet:</display_text> selezione controlli se i dati meteo vengono aggiornate automaticamente quando viene stabilita una connessione a Internet.</para>
+      <para><display_text>Switch per la prossima stazione dopo:</display_text> menu a discesa controlli tempo dopo applet modifiche alla prossima stazione meteo.</para>
+      <para>Valido per tempo meteorologiche correnti e intervallo di aggiornamento può essere selezionato da un menu a discesa.</para>
     </topic>
     <topic>
       <topictitle>Aggiungi Station</topictitle>
       <context contextUID="help_omweather_add_station"/>
-      <para>In this window you need to select first a country from a drop down menu. Next you need to select correct state or province (only some countries) and a place which weather you want to monitor.</para>
-      <para><display_text>Add Custom Station</display_text> button is used to add weather stations not found on drop down menus.</para>
+      <para>In questa finestra è necessario selezionare prima un paese da un menu a discesa. Dopodiché è necessario selezionare corretto stato o la provincia (solo in alcuni paesi) e di un posto meteo che si desidera monitorare.</para>
+      <para>Aggiungi <display_text>Station Custom</display_text> pulsante viene utilizzato per aggiungere stazioni meteorologiche non trovato sul menu a discesa.</para>
     </topic>
     <topic>
       <topictitle>Aggiungi personalizzato stazione</topictitle>
       <context contextUID="help_omweather_add_custom_station"/>
-      <para>This window you need to enter station name and station code for a custom weather station. Station codes can be found from the (http://xoap.weather.com/search/search?here=station_name) or you can use ZIP code for US stations.</para>
+      <para>Questa finestra dovete inserire il nome e la stazione stazione codice personalizzato per una stazione meteo. Stazione codici possono essere trovati da (http://xoap.weather.com/search/search?here=station_name) o si può usare per CAP US stazioni.</para>
     </topic>
     <topic>
-      <topictitle>Using Desktop Applet</topictitle>
+      <topictitle>Desktop utilizzando applet</topictitle>
       <context contextUID="help_omweather_usingdesktopapplet"/>
-      <para>Touching icon of a day brings up a small windows where you can see current weather or detailed forecast of a selected day. Touching <display_text>Settings</display_text> button will open OMWeather settings dialog.</para>
-      <para>To manually update weather data select refresh button from the detailed weather window (two small arrows in the upper right corner).</para>
-      <para>To see time of the sunrise/sunset or current phase of the moon select >> in the current/detailed weather window. This window will also show last update times of the weather data.</para>
+      <para>Toccando l'icona di un giorno porta una piccola finestra in cui è possibile visualizzare le previsioni del tempo o corrente dettagliata previsione di un giorno selezionato. Toccando <display_text>Impostazioni</display_text> pulsante si aprirà il dialogo OMWeather impostazioni.</para>
+      <para>Per aggiornare manualmente i dati meteo selezionare il pulsante di aggiornamento da dettagliate meteo finestra (due piccole frecce nell'angolo in alto a destra).</para>
+      <para>Di tempo per vedere il sorgere del sole/tramonto o attuale fase di selezionare la luna >> nella corrente/meteo dettagliate finestra. Questa finestra mostrerà anche tempi di aggiornamento dei dati meteo.</para>
     </topic>
     <topic>
       <topictitle>Chi OMWeather</topictitle>
       <context contextUID="help_omweather_about"/>
-      <para>Current Version: 0.20</para>
+      <para>Attuale Versione: 0.20</para>
       <para>OMWeather è stato sviluppato da Vlad Vasiliev (vlad@gas.by).</para>
       <para>Copyright © 2006-2008 Vlad Vasiliev, Pavel Fialko.</para>
-      <para>Weather data provided by: xoap.weather.com</para>
+      <para>Meteo dati forniti da: xoap.weather.com</para>
       <para>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</para>
       <para>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</para>
       <para>You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA</para>

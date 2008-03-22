@@ -544,8 +544,11 @@ void weather_window_add_custom_station(void){
     gtk_entry_set_width_chars((GtkEntry*)custom_station_code, 9);
 /* enable help for this window */
     ossohelp_dialog_help_enable(GTK_DIALOG(window_add_custom_station), 
-     OMWEATHER_ADD_CUSTOM_STATION_HELP_ID, app->osso);
+			    OMWEATHER_ADD_CUSTOM_STATION_HELP_ID, app->osso);
     gtk_widget_show_all(window_add_custom_station);
+    gtk_widget_set_size_request(GTK_WIDGET(custom_station_name), 230, -1);
+    gtk_widget_set_size_request(GTK_WIDGET(custom_station_code), 230, -1);
+    gtk_widget_set_size_request(GTK_WIDGET(window_add_custom_station), 450, -1);
     while(station_code_invalid){
 	/* start dialog */
 	switch(gtk_dialog_run(GTK_DIALOG(window_add_custom_station))){

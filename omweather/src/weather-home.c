@@ -64,11 +64,10 @@ int c2f(int temp){
 /*******************************************************************************/
 /* Set font size. Usually on label widget */
 void set_font_size(GtkWidget *widget, char font_size){
+    PangoFontDescription *pfd = NULL;
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif
-
-    PangoFontDescription *pfd = NULL;
     if(!widget)
 	return;
     pfd = pango_font_description_copy( 
@@ -1576,7 +1575,7 @@ gboolean expose_main_window(GtkWidget *widget, GdkEventExpose *event){
     int	x,y;
     /* Run once */
     if(!app->widget_first_start){
-//	filed=fopen("/tmp/omw.text","a+"); 
+/*	filed=fopen("/tmp/omw.text","a+"); */
 	gtk_widget_set_name(GTK_WIDGET(widget), PACKAGE_NAME);
 	app->area_button_pressed = FALSE;
 	app->area_changed = FALSE;

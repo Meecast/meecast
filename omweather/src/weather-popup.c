@@ -266,7 +266,7 @@ GtkWidget* create_header_widget(GSList *day){
     location_label = gtk_label_new(app->config->current_station_name);
 /*    set_font_color(location_label, 0x0000, 0x0000, 0x0000);*/
 /* prepare icon */
-    icon =gtk_image_new_from_icon_name("qgn_toolb_gene_refresh",
+    icon = gtk_image_new_from_icon_name("qgn_toolb_gene_refresh",
                                          GTK_ICON_SIZE_INVALID);
     gtk_image_set_pixel_size(GTK_IMAGE(icon), 26);
 

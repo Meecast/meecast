@@ -798,12 +798,6 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	    gtk_list_store_clear(app->user_stations_list);
 	    app->user_stations_list = NULL;
 	}
-	if(app->contextmenu){
-	    gtk_widget_destroy(app->contextmenu);
-	    app->contextmenu = NULL;
-	}
-	g_free(app);
-	app = NULL;
     }
     /* Deinitialize libosso */
     osso_deinitialize(osso);

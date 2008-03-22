@@ -103,7 +103,6 @@ gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
     /* Not found pressed button */
     if( i >= app->config->days_to_show )
 	return FALSE;
-/*	i = boxs_offset[i];  */
     app->button_pressed = i;
     /* Create POPUP WINDOW */ 
     app->popup_window = gtk_window_new( GTK_WINDOW_POPUP );

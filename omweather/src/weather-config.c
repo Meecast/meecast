@@ -137,17 +137,16 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 	if(strlen(temp1) > 0){
 	    /* station name */
 	    temp2 = strtok(temp1, "@"); /* Delimiter - @ */
-	    if(temp2 != NULL)  /* Check random error */      
-		if(strlen(temp2) > 0){
+	    if(temp2)  /* Check random error */      
+		if(strlen(temp2) > 0)
 		    station_code = g_strdup(temp2); 
-		}
 	    /* station code */
 	    temp2 = strtok(NULL,"@"); /* Delimiter - @ */ 
-	    if(temp2 != NULL)
+	    if(temp2)
 		station_name = g_strdup(temp2);
 #ifdef HILDON		
-	    if (!strcmp(app->gps_station.id0,station_code)&&
-		!strcmp(app->gps_station.name,station_name))
+	    if(!strcmp(app->gps_station.id0, station_code) &&
+		!strcmp(app->gps_station.name, station_name))
 		is_gps = TRUE;
 	    else
 		is_gps = FALSE;
@@ -160,7 +159,6 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 				2, is_gps,
                                 -1);
 	}
-	g_free(source_list->data);
 	g_free(temp1);
 	source_list = g_slist_next(source_list);
     }
@@ -197,26 +195,26 @@ GtkListStore* create_time_update_list(void){
     GtkListStore	*list = NULL;
     GtkTreeIter         iter;
 
-    list = gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT);
+    list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
     
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("Never"), 1, 0, 2, 0, -1);
+    gtk_list_store_set(list, &iter, 0, _("Never"), 1, 0, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every 5 minutes"), 1, 5, 2, 0, -1);
+    gtk_list_store_set(list, &iter, 0, _("every 5 minutes"), 1, 5, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every 30 minutes"), 1, 30, 2, 0, -1);
+    gtk_list_store_set(list, &iter, 0, _("every 30 minutes"), 1, 30, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every hour"), 1, 60, 2, 0, -1);
+    gtk_list_store_set(list, &iter, 0, _("every hour"), 1, 60, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every 2 hours"), 1, 120, 2, 0, -1);
+    gtk_list_store_set(list, &iter, 0, _("every 2 hours"), 1, 120, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every 4 hours"), 1, 240, 2, 0, -1);
+    gtk_list_store_set(list, &iter, 0, _("every 4 hours"), 1, 240, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every 8 hours"), 1, 480, 2, 0, -1);
+    gtk_list_store_set(list, &iter, 0, _("every 8 hours"), 1, 480, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every 24 hours"), 1, 1440, 2, 0, -1);
+    gtk_list_store_set(list, &iter, 0, _("every 24 hours"), 1, 1440, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every minute (Debug)"), 1, 1, 2, 0, -1);
+    gtk_list_store_set(list, &iter, 0, _("every minute (Debug)"), 1, 1, -1);
 
     return list;
 }
@@ -255,17 +253,20 @@ int new_read_config(AppletConfig *config){
 	snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s%s",
 		    home_dir, "/apps/omweather");
 	home_dir = NULL;
+	tmp = tmp_buff;
     }
-    else
+    else{
 	snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s", tmp);
-    config->cache_directory = g_strdup(tmp);
-    if(tmp)
-	g_free(tmp);
-    tmp = NULL;
+	if(tmp)
+	    g_free(tmp);
+	tmp = NULL;            
+    }
+    config->cache_directory = g_strdup(tmp_buff);
 
     if(!config_set_weather_dir_name(gnome_vfs_expand_initial_tilde(tmp_buff)))
         fprintf(stderr, _("Could not create Weather Cache directory.\n"));
-    
+
+
     config->current_station_id	= NULL;
     /* Get Weather Station ID for current station */
     config->current_station_id = gconf_client_get_string(gconf_client,

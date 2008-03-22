@@ -323,7 +323,9 @@ int new_parse_weather_com_xml(void){
 			temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"t");
 			/* prepare locale value for day name */
 			memset(buff, 0, sizeof(buff));
-			memcpy(buff, temp_xml_string, sizeof(buff) - 1);
+			memcpy(buff, temp_xml_string, (strlen((char*)temp_xml_string) > sizeof(buff)) ?
+						      (sizeof(buff) - 1) : 
+						      (strlen((char*)temp_xml_string)));
 			strptime(buff, "%A", &tmp_tm);
 			memset(buff, 0, sizeof(buff));
 			strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);

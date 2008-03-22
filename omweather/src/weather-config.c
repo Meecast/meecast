@@ -229,7 +229,6 @@ int new_read_config(AppletConfig *config){
     gchar	tmp_buff[1024],
 		*home_dir,
 		*tmp = NULL;
-    float	version;
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif
@@ -292,7 +291,6 @@ int new_read_config(AppletConfig *config){
 	tmp = NULL;
     }
 #endif    
-
 
     /* Get Weather Stations ID and NAME */
     stlist = gconf_client_get_list(gconf_client,

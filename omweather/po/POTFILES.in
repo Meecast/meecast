@@ -4,5 +4,5 @@ src/weather-home.c
 src/weather-settings.c
 src/weather-config.c
 src/weather-popup.c
-src/weather-hash.c
+src/hash.data
 src/weather-download.c

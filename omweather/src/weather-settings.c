@@ -1082,7 +1082,7 @@ void weather_window_settings(GtkWidget *widget,
         			label = gtk_label_new(_("Update")));
 			
     gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new(_("Automatically updating data\t\nafter connect to the Internet:")),
+        			label = gtk_label_new(_("Automatically update data\t\nwhen connecting to the Internet:")),
         			0, 1, 0, 1);
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),

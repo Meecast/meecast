@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-23 13:28+0200\n"
+"POT-Creation-Date: 2008-03-23 20:10+0200\n"
 "PO-Revision-Date: 2008-03-21 13:39+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Italiano\n"
@@ -348,9 +348,10 @@ msgid "Authors"
 msgstr "Autori"
 
 #: src/weather-settings.c:1085
+#, fuzzy
 msgid ""
-"Automatically updating data\t\n"
-"after connect to the Internet:"
+"Automatically update data\t\n"
+"when connecting to the Internet:"
 msgstr ""
 "Aggiornare automaticamente i \t\n"
 "dati dopo la connessione a\n"
@@ -417,8 +418,8 @@ msgid "Combination"
 msgstr "Combinazione"
 
 #: src/weather-config.c:266
-#, c-format
-msgid "Could not create Weather Cache directory.\n"
+#, fuzzy, c-format
+msgid "Could not create weather cache directory.\n"
 msgstr "Impossibile creare directory di Cache tempo.\n"
 
 #: src/weather-settings.c:605

@@ -263,7 +263,7 @@ int new_read_config(AppletConfig *config){
     config->cache_directory = g_strdup(tmp_buff);
 
     if(!config_set_weather_dir_name(gnome_vfs_expand_initial_tilde(tmp_buff)))
-        fprintf(stderr, _("Could not create Weather Cache directory.\n"));
+        fprintf(stderr, _("Could not create weather cache directory.\n"));
 
 
     config->current_station_id	= NULL;

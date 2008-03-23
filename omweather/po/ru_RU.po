@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-23 13:28+0200\n"
+"POT-Creation-Date: 2008-03-23 20:10+0200\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -278,9 +278,8 @@ msgid "AM Showers"
 msgstr "До полудня ливни"
 
 #: src/hash.data:16
-#, fuzzy
 msgid "AM Showers / Wind"
-msgstr "После полудня ливни / Ветер"
+msgstr "До полудня ливни / Ветер"
 
 #: src/hash.data:19
 msgid "AM Snow"
@@ -338,11 +337,11 @@ msgstr "Авторы"
 
 #: src/weather-settings.c:1085
 msgid ""
-"Automatically updating data\t\n"
-"after connect to the Internet:"
+"Automatically update data\t\n"
+"when connecting to the Internet:"
 msgstr ""
 "Автоматически обновлять данные\t\n"
-"после соединения с интернетом:"
+"после соединения с Интернетом:"
 
 #: src/weather-settings.c:954
 msgid "Background color:"
@@ -404,8 +403,7 @@ msgid "Combination"
 msgstr "комбинированное"
 
 #: src/weather-config.c:266
-#, c-format
-msgid "Could not create Weather Cache directory.\n"
+msgid "Could not create weather cache directory.\n"
 msgstr "Невозможно создать директорию кэша.\n"
 
 #: src/weather-settings.c:605
@@ -699,9 +697,8 @@ msgid "Light Snow / Fog"
 msgstr "Небольшой снег / Туман"
 
 #: src/hash.data:67
-#, fuzzy
 msgid "Light Snow / Wind"
-msgstr "Небольшой дождь / Ветер"
+msgstr "Небольшой снег / Ветер"
 
 #: src/hash.data:68
 msgid "Light Snow Early"
@@ -744,9 +741,8 @@ msgid "Mist"
 msgstr "Легкий туман"
 
 #: src/hash.data:74
-#, fuzzy
 msgid "Moderate"
-msgstr "Позже ливни"
+msgstr "Умеренный"
 
 #: src/hash.data:75
 msgid "Mostly Clear"
@@ -903,9 +899,8 @@ msgid "PM Snow Showers"
 msgstr "После полудня мокрый снег"
 
 #: src/hash.data:98
-#, fuzzy
 msgid "PM T-Storms"
-msgstr "Грозы"
+msgstr "После обеда грозы"
 
 #: src/hash.data:101
 msgid "Partly Cloudy"
@@ -972,9 +967,8 @@ msgid "Rain Early"
 msgstr "Утром дождь"
 
 #: src/hash.data:114
-#, fuzzy
 msgid "Rain Late"
-msgstr "Небольшой дождь позже"
+msgstr "Позже дождь"
 
 #: src/hash.data:116
 msgid "Rain Shower"
@@ -1057,9 +1051,8 @@ msgid "Showers / Wind"
 msgstr "Ливни / Ветер"
 
 #: src/hash.data:130
-#, fuzzy
 msgid "Showers / Wind Early"
-msgstr "Мокрый снег / С утра ветер"
+msgstr "Ливни / С утра ветер"
 
 #: src/hash.data:132
 msgid "Showers Early"

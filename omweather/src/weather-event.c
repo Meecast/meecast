@@ -110,7 +110,7 @@ gboolean timer_handler(gpointer data){
 		#ifdef HILDON
 
 /* This is code for debug GPS
-*/
+
                     double r;
                     r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
                     app->temporary_station_latitude = r*90;
@@ -129,6 +129,7 @@ gboolean timer_handler(gpointer data){
                                     calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
                                                     app->temporary_station_latitude,app->temporary_station_longtitude));
 		    fflush(file_log);
+*/                    
                     if (calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
                                            app->temporary_station_latitude,app->temporary_station_longtitude)>10){
 			fprintf(file_log,"Event: app->gps_station.latitude %f app->gps_station.longtitude %f  app->temporary_station_latitude %f app->temporary_station_longtitude %f\n",

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-23 13:28+0200\n"
+"POT-Creation-Date: 2008-03-23 20:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -283,8 +283,8 @@ msgstr ""
 
 #: src/weather-settings.c:1085
 msgid ""
-"Automatically updating data\t\n"
-"after connect to the Internet:"
+"Automatically update data\t\n"
+"when connecting to the Internet:"
 msgstr ""
 
 #: src/weather-settings.c:954
@@ -348,7 +348,7 @@ msgstr ""
 
 #: src/weather-config.c:266
 #, c-format
-msgid "Could not create Weather Cache directory.\n"
+msgid "Could not create weather cache directory.\n"
 msgstr ""
 
 #: src/weather-settings.c:605

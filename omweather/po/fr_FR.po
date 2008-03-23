@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.19.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-23 13:28+0200\n"
+"POT-Creation-Date: 2008-03-23 20:10+0200\n"
 "PO-Revision-Date: 2008-02-17 22:10+0100\n"
 "Last-Translator: Nicolas GRAZIANO <nicolas.graziano@gmail.com>\n"
 "Language-Team: French\n"
@@ -344,9 +344,10 @@ msgid "Authors"
 msgstr "Auteurs"
 
 #: src/weather-settings.c:1085
+#, fuzzy
 msgid ""
-"Automatically updating data\t\n"
-"after connect to the Internet:"
+"Automatically update data\t\n"
+"when connecting to the Internet:"
 msgstr ""
 "MàJ des données automatique\t\n"
 "après la connexion à internet :"
@@ -411,8 +412,8 @@ msgid "Combination"
 msgstr "Combinaison"
 
 #: src/weather-config.c:266
-#, c-format
-msgid "Could not create Weather Cache directory.\n"
+#, fuzzy, c-format
+msgid "Could not create weather cache directory.\n"
 msgstr "Impossible de créer le répertoire de cache.\n"
 
 #: src/weather-settings.c:605

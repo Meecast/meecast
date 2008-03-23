@@ -284,7 +284,7 @@ msgstr ""
 #: src/weather-settings.c:1085
 msgid ""
 "Automatically update data\t\n"
-"when connecting to the internet:"
+"when connecting to the Internet:"
 msgstr ""
 
 #: src/weather-settings.c:954
@@ -348,7 +348,7 @@ msgstr ""
 
 #: src/weather-config.c:266
 #, c-format
-msgid "Could not create Weather Cache directory.\n"
+msgid "Could not create weather cache directory.\n"
 msgstr ""
 
 #: src/weather-settings.c:605

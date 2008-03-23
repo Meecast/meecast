@@ -283,8 +283,8 @@ msgstr ""
 
 #: src/weather-settings.c:1085
 msgid ""
-"Automatically updating data\t\n"
-"after connect to the Internet:"
+"Automatically update data\t\n"
+"when connecting to the internet:"
 msgstr ""
 
 #: src/weather-settings.c:954

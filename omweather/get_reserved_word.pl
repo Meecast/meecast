@@ -1,7 +1,6 @@
 #!/usr/bin/perl
 
 use strict;
-use Data::Dumper;
 
 my %text;
 my $key;
@@ -17,6 +16,9 @@ while(my $buf = <>){
 	}
     }
 }
+open(FOUT, ">>", "src/hash.data") or die "Can't open file: $!";
 foreach $key (sort(keys %text)){
-    print "\tg_hash_table_insert(hash, \"$key\", _(\"$text{$key}\"));\n";
+    print FOUT "\tg_hash_table_insert(hash, \"$key\", _(\"$text{$key}\"));\n";
 }
+
+close FOUT;

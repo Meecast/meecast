@@ -65,6 +65,14 @@ libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCON
 			    $(LIBCURL_LIBS) $(CONIC_LIBS) $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS)  $(OSSOIC_LIBS) \
 			    $(LOCATION_LIBS) $(LIBOSSOHELP_LIBS)
 
+weather-hash.c:		hash.data
+	if test -f hash.data; then \
+	    TMP_FILE=`mktemp`; \
+	    sort -bu hash.data > $$TMP_FILE; \
+	    rm hash.data; \
+	    cat $$TMP_FILE > hash.data; \
+	    rm $$TMP_FILE; \
+	fi
 
 clean-local:
 	$(RM) *.core core core.* stamp-*.h *~

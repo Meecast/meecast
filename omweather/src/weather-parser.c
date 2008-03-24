@@ -217,6 +217,10 @@ int new_parse_weather_com_xml(void){
     		    if(!xmlStrcmp(child_node->name, (const xmlChar *)"icon") ){
 			temp_xml_string = xmlNodeGetContent(child_node);					    
     			itm = create_item("icon", (char*)temp_xml_string);
+			if(!strcmp((char*)temp_xml_string, "-"))
+			    wcs.current_data_is_invalid = TRUE;
+			else
+			    wcs.current_data_is_invalid = FALSE;
 			xmlFree(temp_xml_string);
 			add_item2object(&(wcs.current_data), itm);
 			continue;

@@ -164,7 +164,8 @@ gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
 		    gtk_box_pack_start(GTK_BOX(popup_vbox), separator_after_temperature,
 					FALSE, FALSE, 0);
 		    /* current weather */
-		    if((current_data_last_update > ( current_time - app->config->data_valid_interval)) &&
+		    if(!wcs.current_data_is_invalid &&
+			(current_data_last_update > ( current_time - app->config->data_valid_interval)) &&
         		    (current_data_last_update < ( current_time + app->config->data_valid_interval))){
 			popup_current_weather_widget = create_current_weather_widget(wcs.current_data);
 			if(popup_current_weather_widget)
@@ -184,7 +185,8 @@ gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
 					FALSE, FALSE, 0);		
 		}
 		else{/* if weather data is separated */
-		    if((current_data_last_update > ( current_time - app->config->data_valid_interval)) &&
+		    if(!wcs.current_data_is_invalid &&
+			(current_data_last_update > ( current_time - app->config->data_valid_interval)) &&
         		    (current_data_last_update < ( current_time + app->config->data_valid_interval))){
 			popup_current_weather_widget = create_current_weather_widget(wcs.current_data);
 			if(popup_current_weather_widget)

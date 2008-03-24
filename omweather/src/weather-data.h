@@ -41,6 +41,7 @@ typedef struct{
 typedef struct{
     GSList	*current_data;
     GSList	*day_data[Max_count_weather_day];
+    gboolean	current_data_is_invalid;
 }WeatherComStation;
 /*******************************************************************************/
 extern	WeatherComStation wcs;

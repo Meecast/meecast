@@ -441,7 +441,8 @@ void weather_buttons_fill(gboolean check_error){
 		fprintf(stderr, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
 		#endif
 		/* check weather data for actuality */
-		if( (last_update_time(wcs.current_data) > (current_time - app->config->data_valid_interval)) &&
+		if( !wcs.current_data_is_invalid && 
+		    (last_update_time(wcs.current_data) > (current_time - app->config->data_valid_interval)) &&
             	    (last_update_time(wcs.current_data) < (current_time + app->config->data_valid_interval)) && i == 0){
 
 		    time_event_add(last_update_time(wcs.current_data) + app->config->data_valid_interval - diff_time, DAYTIMEEVENT);

@@ -20,8 +20,8 @@
  
 omweatherdir = $(datadir)/omweather
 omweather_DATA = city_in_clock.txt countries.list regions.list locations.list 
-icons_crystallargedir = $(datadir)/omweather/icons/Crystal
-icons_crystallarge_DATA = icons/Crystal/*.png 
+icons_crystallargedir = $(datadir)/omweather/icons/Glance
+icons_crystallarge_DATA = icons/Glance/*.png 
 moon_iconsdir = $(datadir)/omweather/moon_icons
 moon_icons_DATA = moon_icons/*.png
 homeapplet_desktopdir = $(datadir)/applications/hildon-home

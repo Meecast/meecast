@@ -12,6 +12,7 @@
   * Moon phase now displayed only in first icon
   * Now option hide station name with 'previos' and 'next' stations buttons is separated
   * Updating of weather forecast  after station removal is deleted
+  * Changed default icon set from "Crystal" to "Glance"
 
 0.19.6
   * Default size of icons is Large

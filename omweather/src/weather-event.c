@@ -104,8 +104,6 @@ gboolean timer_handler(gpointer data){
 		#endif
 
 
-                    file_log=fopen("/tmp/omw.log","a+");
-                    fprintf(file_log,"Event:  CHECK_GPS_POSITION \n");
 
 		#ifdef HILDON
 
@@ -132,34 +130,19 @@ gboolean timer_handler(gpointer data){
 */                    
                     if (calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
                                            app->temporary_station_latitude,app->temporary_station_longtitude)>10){
-			fprintf(file_log,"Event: app->gps_station.latitude %f app->gps_station.longtitude %f  app->temporary_station_latitude %f app->temporary_station_longtitude %f\n",
-					   app->gps_station.latitude,app->gps_station.longtitude,
-                                           app->temporary_station_latitude,app->temporary_station_longtitude);
-			fflush(file_log);
 								   
                         get_nearest_station(app->temporary_station_latitude,app->temporary_station_longtitude
             		                    ,&app->gps_station);		    
 			if ((strlen(app->gps_station.id0) > 0) && (strlen(app->gps_station.name) > 0)){
 		    
-		    	    fprintf(file_log,"Event: FIND station %s code %s\n",app->gps_station.name,app->gps_station.id0);
-			    fflush(file_log);
 			    app->gps_station.latitude = app->temporary_station_latitude;
 			    app->gps_station.longtitude = app->temporary_station_longtitude;
-		    	    fprintf(file_log,"Event:  DELETE ALL GPS STATIOn\n");
-			    fflush(file_log);
 			    delete_all_gps_stations();
-                    	    fprintf(file_log,"Event:  CHECK_GPS_POSITION Changing %s\n",app->gps_station.name);
-			    fflush(file_log);
-                    	    fprintf(file_log,"Event:  CHECK_GPS_POSITION before add station  %p %p\n",app->config->current_station_name,app->config->current_station_id);
-			    fflush(file_log);
                     	    add_station_to_user_list(app->gps_station.name,app->gps_station.id0, TRUE);
-                    	    fprintf(file_log,"Event:  CHECK_GPS_POSITION after add station  %p %p\n",app->config->current_station_name,app->config->current_station_id);
 			    fflush(file_log);
 			    if(!app->config->current_station_name && !app->config->current_station_id){
 				app->config->current_station_name = g_strdup(app->gps_station.name);
 				app->config->current_station_id = g_strdup(app->gps_station.id0);		
-				fprintf(file_log,"Event:  CHECK_GPS_POSITION Changing1 %s\n",app->gps_station.name);
-				fflush(file_log);
 			    }
 			    new_config_save(app->config);
 			    fflush(file_log);           
@@ -175,8 +158,7 @@ gboolean timer_handler(gpointer data){
                     if (app->gps_station.latitude == 0 && app->gps_station.longtitude == 0)
                         add_gps_event(1);
                     else    
-//                        add_gps_event(5);
-                        add_gps_event(1);
+                        add_gps_event(5);
 		#endif
     		break;		    
   
@@ -316,9 +298,6 @@ void add_gps_event(guint interval){
     #endif
 
     FILE *file_log;
-    file_log=fopen("/tmp/omw.log","a+");
-    fprintf(file_log,"Event: addED  CHECK_GPS_POSITION \n");
-    fclose(file_log);
 
 	time_event_add(time(NULL) + interval *60, CHECK_GPS_POSITION); /* Every 'interval' minutes */ 
 //	time_event_add(time(NULL) + 1*20, CHECK_GPS_POSITION); /* Every 20 secunds */ 

@@ -52,7 +52,6 @@ get_nearest_station( double lat, double lon, Station *result)
 		 min_distance = 40000;
 
     FILE *file_log;
-    file_log=fopen("/tmp/omw.log","a+");
 
     fh = fopen(REGIONSFILE, "rt");
     if(!fh){
@@ -124,11 +123,9 @@ get_nearest_station( double lat, double lon, Station *result)
 	          gtk_list_store_clear(stations_list);
 	          stations_list = NULL;
 	    }	    
-	    fprintf(file_log,"Minimal station: %s %f \n",result->name,min_distance);
         }          
     }
     fclose(fh);
-    fclose(file_log);
 #ifndef RELEASE
     fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
 #endif 
@@ -152,12 +149,7 @@ initial_gps_connect(void)
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif 
     app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
-    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
     app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
-    FILE *file_log;
-    file_log=fopen("/tmp/omw.log","a+");
-    fprintf(file_log,"Begin GPS \n");
-    fclose(file_log);
 #ifndef RELEASE
     fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
 #endif 

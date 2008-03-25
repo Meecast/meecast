@@ -89,11 +89,6 @@ void add_station_to_user_list(gchar *weather_station_name,gchar *weather_station
 	    g_free(app->config->current_station_name);
 	app->config->current_station_name = g_strdup(weather_station_name);
     }
-    FILE		*file_log;
-    file_log=fopen("/tmp/omw.log","a+");
-    fprintf(file_log," add_station_to_user_list %i %s %s %s  %s\n",is_gps,weather_station_name, weather_station_id,
-								   app->config->current_station_id,app->config->current_station_name);
-    fclose(file_log);		
 }
 /*******************************************************************************/
 void delete_all_gps_stations(void){
@@ -106,7 +101,6 @@ void delete_all_gps_stations(void){
     FILE		*file_log;
 
 
-    file_log=fopen("/tmp/omw.log","a+");
     
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);
@@ -119,11 +113,8 @@ void delete_all_gps_stations(void){
                         	    -1);
     		if(is_gps){
 
-                    fprintf(file_log,"delete %s\n",station_name);
-
 		    if(app->config->current_station_id && !strcmp (app->config->current_station_id,station_code) &&
 		       app->config->current_station_name && !strcmp (app->config->current_station_name,station_name)){
-		        fprintf(file_log,"delete code %s\n",station_code );
 		        /* deleting current station */
 		        app->gps_must_be_current = TRUE;
 		       	g_free(app->config->current_station_id);
@@ -131,7 +122,6 @@ void delete_all_gps_stations(void){
 		        app->config->current_station_id = NULL;
 			app->config->current_station_name = NULL;
         		app->config->previos_days_to_show = app->config->days_to_show;
-			fprintf(file_log,"delete code 2 %p\n",app->config->current_station_id);
             	    }
 		    else
 			app->gps_must_be_current = FALSE;		    
@@ -142,13 +132,10 @@ void delete_all_gps_stations(void){
 							
     	    }
     /* Set new current_station */
-    fprintf(file_log,"before add id %p\n",app->config->current_station_id);
     if (!app->config->current_station_id){
 	valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);
-        fprintf(file_log,"before add2222 id %p\n",app->config->current_station_id);
 	if (valid){
-            fprintf(file_log,"before add333333 id %p\n",app->config->current_station_id);
 	    		gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                         	    &iter,
                     		    0, &station_name,
@@ -157,10 +144,8 @@ void delete_all_gps_stations(void){
                         	    -1);
 			    app->config->current_station_id = g_strdup(station_code);
 			    app->config->current_station_name = g_strdup(station_name);
-			    fprintf(file_log,"add new current  %s %s\n",app->config->current_station_name,app->config->current_station_id);
 		 }		    	
     }
-fclose(file_log);
 #endif    
 }
 /*******************************************************************************/

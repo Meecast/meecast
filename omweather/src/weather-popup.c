@@ -418,7 +418,7 @@ GtkWidget* create_current_weather_widget(GSList *current){
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
 						: ( strcat(buffer, _("F")) );
     temperature_label = gtk_label_new(buffer);
-    set_font_size(temperature_label, 2*14);
+    set_font_size(temperature_label, 14);
 /*    set_font_color(temperature_label, 0x0000, 0x0000, 0x0000);*/
     gtk_box_pack_start(GTK_BOX(temperature_vbox), temperature_label, FALSE, FALSE, 0);
     
@@ -875,7 +875,7 @@ void weather_window_popup_more_show(void){
     int		i;
     time_t	current_time = 0,
 		utc_time;
-GtkWidget	*popup_frame = NULL,
+    GtkWidget	*popup_frame = NULL,
 		*popup_vbox = NULL,
 		*popup_header_widget = NULL,
 		*popup_sun_time_widget = NULL,

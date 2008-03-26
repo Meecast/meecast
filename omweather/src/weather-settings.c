@@ -1422,13 +1422,18 @@ void create_about_dialog(void){
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(help_dialog)->vbox),
         	    notebook = gtk_notebook_new(), TRUE, TRUE, 0);
 /* About tab */
-    snprintf(tmp_buff, sizeof(tmp_buff), "%s%s%s",
+    snprintf(tmp_buff, sizeof(tmp_buff), "%s%s%s%s",
 	    _("\nHildon desktop applet\n"
 	    "for Nokia 770/N800/N810\n"
 	    "to show weather forecasts.\n"
 	    "Version "), VERSION, 
 	    _("\nCopyright(c) 2006-2008\n"
-	    "Vlad Vasiliev, Pavel Fialko"));
+	    "Vlad Vasiliev, Pavel Fialko"),
+    	    _("\nCopyright(c) 2008\n"
+	    "for default icon set (Glance)\n"
+	    "Andrew Zhilin")
+	    );
+
 	    
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
@@ -1439,7 +1444,8 @@ void create_about_dialog(void){
 		_("\nAuthor and maintenance:\n"
 		"\tVlad Vasiliev, vlad@gas.by\n"
 		"Maintenance:\n\tPavel Fialko, pavelnf@gmail.com\n"
-		"Documentation:\n\tMarko Vertainen"));
+		"Documentation:\n\tMarko Vertainen\n"
+		"Design of default iconset:\n\tAndrew Zhilin"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),

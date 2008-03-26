@@ -5,11 +5,9 @@
  * Copyright (C) 2006 Pavel Fialko
  * 	for the code
  *        
- * Copyright (C) Superkaramba's Liquid Weather ++ team
- *	for ALL the artwork (icons)
- *        The maintainer (also the main author I believe)
- *        is Matthew <dmbkiwi@yahoo.com>
- *  http://liquidweather.net/icons.html#iconsets
+ * Copyright (C) 2008 Andrew Zhilin
+ *		      az@pocketpcrussia.com 
+ *	for default icon set (Glance)
  *
  * This software is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License

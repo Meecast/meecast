@@ -365,8 +365,12 @@ static gboolean weather_delete_station(GtkWidget *widget, GdkEvent *event,
     dialog = gtk_message_dialog_new(NULL,
                             	    GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                             	    GTK_MESSAGE_QUESTION,
-                            	    GTK_BUTTONS_YES_NO,
+                            	    GTK_BUTTONS_NONE,
                             	    _("Are you sure to want delete this station ?"));
+    gtk_dialog_add_button(GTK_DIALOG(dialog),
+        		    _("Yes"), GTK_RESPONSE_YES);
+    gtk_dialog_add_button(GTK_DIALOG(dialog),
+        		    _("No"), GTK_RESPONSE_NO);
     result = gtk_dialog_run(GTK_DIALOG(dialog));
     gtk_widget_destroy(dialog);
     if(result != GTK_RESPONSE_YES)
@@ -456,6 +460,7 @@ static gboolean weather_delete_station(GtkWidget *widget, GdkEvent *event,
     weather_frame_update(TRUE);    
     /* Update config file */
     new_config_save(app->config);
+    highlight_current_station(GTK_TREE_VIEW(station_list_view));
 #ifndef RELEASE
     fprintf(stderr,"End %s()\n", __PRETTY_FUNCTION__);    
 #endif

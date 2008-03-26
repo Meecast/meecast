@@ -126,7 +126,7 @@ gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
 /* check if fist day is pressed */
     if(i == 0){
 	first_day = TRUE;
-	gtk_window_move(GTK_WINDOW(app->popup_window), 180, 60);
+	gtk_window_move(GTK_WINDOW(app->popup_window), 180, 50);
     }
     else
 	gtk_window_move(GTK_WINDOW(app->popup_window), 180, 140);
@@ -386,7 +386,7 @@ GtkWidget* create_current_weather_widget(GSList *current){
 		*temperature_label,
 		*main_data_vbox,
 		*main_data_label,
-		*icon_temperature_vbox;
+		*icon_temperature_hbox;
     gchar	buffer[1024],
 		*units;
     const gchar	*wind_units_str[] = {	"m/s",
@@ -412,13 +412,13 @@ GtkWidget* create_current_weather_widget(GSList *current){
     temperature_vbox = gtk_vbox_new(FALSE, 0);
     memset(buffer, 0, sizeof(buffer));
     strcat(buffer, _("Now: "));
-    sprintf(buffer + strlen(buffer), "%d\302\260",
+    sprintf(buffer + strlen(buffer), "\n%d\302\260",
 		((app->config->temperature_units == CELSIUS) ? ( atoi(item_value(current, "temperature")))
 							: ( c2f(atoi(item_value(current, "temperature"))))));
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
 						: ( strcat(buffer, _("F")) );
     temperature_label = gtk_label_new(buffer);
-    set_font_size(temperature_label, 14);
+    set_font_size(temperature_label, 2*14);
 /*    set_font_color(temperature_label, 0x0000, 0x0000, 0x0000);*/
     gtk_box_pack_start(GTK_BOX(temperature_vbox), temperature_label, FALSE, FALSE, 0);
     
@@ -487,13 +487,13 @@ GtkWidget* create_current_weather_widget(GSList *current){
     gtk_box_pack_start(GTK_BOX(main_data_vbox), main_data_label,
 			    FALSE, FALSE, 0);
 			    
-/* prepare icon and temperature vbox */
-    icon_temperature_vbox = gtk_vbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(icon_temperature_vbox), temperature_vbox, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(icon_temperature_vbox), icon_image, FALSE, FALSE, 0);    
+/* prepare icon and temperature hbox */
+    icon_temperature_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(icon_temperature_hbox), icon_image, FALSE, FALSE, 0);        
+    gtk_box_pack_start(GTK_BOX(icon_temperature_hbox), temperature_vbox, FALSE, FALSE, 0);
 /* prepare main widget */
     main_widget = gtk_hbox_new(FALSE, 10);
-    gtk_box_pack_start(GTK_BOX(main_widget), icon_temperature_vbox, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(main_widget), icon_temperature_hbox, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(main_widget), main_data_vbox, FALSE, FALSE, 0);
     return main_widget;
 }
@@ -673,18 +673,18 @@ GtkWidget* create_footer_widget(gboolean enable_more_info){
     if(enable_more_info){
 	/* prepare More button */
 	popup_window_button_more = gtk_button_new_with_label(">>");
-	set_font_size(popup_window_button_more, 17);
+	set_font_size(popup_window_button_more, 19);
 	g_signal_connect(popup_window_button_more, "clicked",
 			G_CALLBACK(popup_window_more_show), NULL);
     }
 /* prepare Settings button */
     button = gtk_button_new_with_label(_("Settings"));
-    set_font_size(button, 14);
+    set_font_size(button, 17);
     g_signal_connect(button, "clicked",
 		    G_CALLBACK(weather_window_settings), NULL);
 /* prepare Close button */
     button_close = gtk_button_new_with_label(_("Close"));
-    set_font_size(button_close, 14);
+    set_font_size(button_close, 17);
     g_signal_connect(button_close, "clicked",
 		    G_CALLBACK(popup_close), NULL);      		    
 		    		    

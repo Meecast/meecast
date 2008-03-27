@@ -37,7 +37,6 @@ gboolean timer_handler(gpointer data){
     struct	event_time *evt;
     time_t	current_time;
     int		check;
-    FILE	*file_log;
 #ifndef RELEASE
     char   *temp_string;
     fprintf(stderr, "Begin %s(): \n", __PRETTY_FUNCTION__);

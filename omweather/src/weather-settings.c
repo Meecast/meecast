@@ -68,18 +68,25 @@ static char flag_update_station = FALSE; /* Flag update station list */
 static gchar *_weather_station_id_temp; /* Temporary value for weather_station_id */
 
 /*******************************************************************************/
-void add_station_to_user_list(gchar *weather_station_name,gchar *weather_station_id, gboolean is_gps){
+void add_station_to_user_list(gchar *weather_station_name,
+				gchar *weather_station_id, gboolean is_gps){
     GtkTreeIter		iter;
     
     /* Add station to stations list */
     gtk_list_store_append(app->user_stations_list, &iter);
     gtk_list_store_set(app->user_stations_list, &iter,
+#ifdef HILDON
                                 0, weather_station_name,
                                 1, weather_station_id,
                                 2, is_gps,
+#else
+                                0, weather_station_name,
+                                1, weather_station_id,
+#endif
                                 -1);
+			
     /* Set it station how current (for GPS stations) */				
-    if (is_gps && app->gps_must_be_current){
+    if(is_gps && app->gps_must_be_current){
 	if(app->config->current_station_id != NULL)
 	    g_free(app->config->current_station_id);
 	app->config->current_station_id = g_strdup(weather_station_id);
@@ -89,8 +96,8 @@ void add_station_to_user_list(gchar *weather_station_name,gchar *weather_station
     }
 }
 /*******************************************************************************/
+#ifdef HILDON
 void delete_all_gps_stations(void){
-#ifdef HILDON					    		    
     gboolean		valid;
     GtkTreeIter		iter;
     gchar		*station_name = NULL,
@@ -98,8 +105,6 @@ void delete_all_gps_stations(void){
     gboolean		is_gps = FALSE;
     FILE		*file_log;
 
-
-    
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);
     while(valid){
@@ -110,9 +115,10 @@ void delete_all_gps_stations(void){
 				    2, &is_gps,
                         	    -1);
     		if(is_gps){
-
-		    if(app->config->current_station_id && !strcmp (app->config->current_station_id,station_code) &&
-		       app->config->current_station_name && !strcmp (app->config->current_station_name,station_name)){
+		    if(app->config->current_station_id &&
+			!strcmp(app->config->current_station_id,station_code) &&
+			app->config->current_station_name && 
+			!strcmp(app->config->current_station_name,station_name)){
 		        /* deleting current station */
 		        app->gps_must_be_current = TRUE;
 		       	g_free(app->config->current_station_id);
@@ -130,22 +136,22 @@ void delete_all_gps_stations(void){
 							
     	    }
     /* Set new current_station */
-    if (!app->config->current_station_id){
+    if(!app->config->current_station_id){
 	valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);
-	if (valid){
-	    		gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+	if(valid){
+	    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                         	    &iter,
                     		    0, &station_name,
                         	    1, &station_code,
 				    2, &is_gps,
                         	    -1);
-			    app->config->current_station_id = g_strdup(station_code);
-			    app->config->current_station_name = g_strdup(station_name);
-		 }		    	
+	    app->config->current_station_id = g_strdup(station_code);
+	    app->config->current_station_name = g_strdup(station_name);
+	}		    	
     }
-#endif    
 }
+#endif
 /*******************************************************************************/
 void changed_country(void){
     GtkTreeModel	*model;
@@ -354,8 +360,9 @@ static gboolean weather_delete_station(GtkWidget *widget, GdkEvent *event,
     gboolean		valid;
     gint		result = GTK_RESPONSE_NONE;
     GtkTreePath		*path;
+#ifdef HILDON
     gboolean 		is_gps = FALSE;
-
+#endif
 #ifndef RELEASE    
     fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
 #endif
@@ -385,9 +392,14 @@ static gboolean weather_delete_station(GtkWidget *widget, GdkEvent *event,
     while(valid){
         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                             &iter,
+#ifdef HILDON
                             0, &station_name,
                             1, &station_code,
 			    2, &is_gps,
+#else
+                            0, &station_name,
+                            1, &station_code,
+#endif
                             -1);
 	if(!strcmp(station_name, station_selected)){
 	    path = gtk_tree_model_get_path(GTK_TREE_MODEL(app->user_stations_list),
@@ -665,9 +677,8 @@ void weather_window_add_station(GtkWidget *widget, GdkEvent *event,
 }
 /*******************************************************************************/
 /* Main preference window */
-void weather_window_settings(GtkWidget *widget,
-				GdkEvent *event,
-				gpointer user_data){
+void weather_window_settings(GtkWidget *widget,	GdkEvent *event,
+							    gpointer user_data){
 
     GtkWidget	*window_config = NULL,
 		*notebook = NULL,
@@ -753,6 +764,7 @@ void weather_window_settings(GtkWidget *widget,
     gtk_container_add(GTK_CONTAINER(scrolled_window),
                 	GTK_WIDGET(station_list_view));
     gtk_container_add(GTK_CONTAINER(label), scrolled_window);
+
 #ifdef HILDON
 /* preparing GPS checkbox */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
@@ -887,11 +899,11 @@ void weather_window_settings(GtkWidget *widget,
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Combination"));    
     switch(app->config->icons_layout){
 	default:
-	case ONE_ROW: 	  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),0);break;
-	case ONE_COLUMN:  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),1);break;
-	case TWO_ROWS:    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),2);break;
-	case TWO_COLUMNS: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),3);break;
-	case COMBINATION: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type),4);break;	
+	case ONE_ROW: 	  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 0);break;
+	case ONE_COLUMN:  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 1);break;
+	case TWO_ROWS:    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 2);break;
+	case TWO_COLUMNS: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 3);break;
+	case COMBINATION: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 4);break;	
     }
 /* Icon set */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
@@ -1168,9 +1180,8 @@ void weather_window_settings(GtkWidget *widget,
     highlight_current_station(GTK_TREE_VIEW(station_list_view));
 
 /* kill popup window :-) */
-    if(app->popup_window){
+    if(app->popup_window)
         popup_window_destroy();
-    }
 
     while (0 != (result_gtk_dialog_run = gtk_dialog_run(GTK_DIALOG(window_config)))){
 /* start dialog window */
@@ -1199,7 +1210,7 @@ void weather_window_settings(GtkWidget *widget,
 		flag_update_icon = TRUE;
 	    }
 /* Font color */
-	    if (font_color){
+	    if(font_color){
 		gtk_color_button_get_color(GTK_COLOR_BUTTON(font_color), &_weather_font_color_temp);
 		if(( _weather_font_color_temp.red - app->config->font_color.red ) ||
 		    ( _weather_font_color_temp.green - app->config->font_color.green ) ||
@@ -1209,7 +1220,7 @@ void weather_window_settings(GtkWidget *widget,
 		}
 	    }	
 /* Background color */
-	    if (background_color){
+	    if(background_color){
 		gtk_color_button_get_color(GTK_COLOR_BUTTON(background_color), &background_color_temp);
 		if(( background_color_temp.red - app->config->background_color.red ) ||
 		    ( background_color_temp.green - app->config->background_color.green ) ||
@@ -1620,15 +1631,14 @@ int get_active_item_index(GtkTreeModel *list, int time, const gchar *text,
     gboolean	valid = FALSE;
     GtkTreeIter	iter;
     gchar	*str_data = NULL;
-    gint	int_data,
-		int_data1;
+    gint	int_data;
 
     valid = gtk_tree_model_get_iter_first((GtkTreeModel*)list, &iter);
     while(valid){
 	gtk_tree_model_get(list, &iter, 
                     	    0, &str_data,
                     	    1, &int_data,
-			    2, &int_data1, -1);
+			    -1);
 	if(text){ /* if parameter is string */
 	    if(!strcmp((char*)text, str_data)){
 		if(use_index_as_result)

@@ -46,7 +46,9 @@ void time_event_add(time_t time_value, short type_event);
 extern void weather_initialize_dbus(void);
 extern void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name, gboolean is_gps);
 extern gdouble calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2);
+#ifdef HILDON
 extern void delete_all_gps_stations(void);
+#endif
 extern void update_weather(void);
 time_t next_update(void);
 /*******************************************************************************/

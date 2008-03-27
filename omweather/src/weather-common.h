@@ -26,13 +26,12 @@
 	
 */
 /*******************************************************************************/
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
-/*******************************************************************************/
 #ifndef _weather_common_h
 #define _weather_common_h 1
 /*******************************************************************************/
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <gtk/gtk.h>
 #include <gconf/gconf-client.h>
 #ifndef _XOPEN_SOURCE

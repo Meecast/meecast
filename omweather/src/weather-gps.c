@@ -49,7 +49,6 @@ get_nearest_station( double lat, double lon, Station *result)
                  distance,
 		 min_distance = 40000;
 
-    FILE *file_log;
 
     fh = fopen(REGIONSFILE, "rt");
     if(!fh){

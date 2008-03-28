@@ -103,7 +103,6 @@ void delete_all_gps_stations(void){
     gchar		*station_name = NULL,
 	    		*station_code = NULL;
     gboolean		is_gps = FALSE;
-    FILE		*file_log;
 
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);

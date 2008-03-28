@@ -136,13 +136,11 @@ gboolean timer_handler(gpointer data){
 			    app->gps_station.longtitude = app->temporary_station_longtitude;
 			    delete_all_gps_stations();
                     	    add_station_to_user_list(app->gps_station.name,app->gps_station.id0, TRUE);
-			    fflush(file_log);
 			    if(!app->config->current_station_name && !app->config->current_station_id){
 				app->config->current_station_name = g_strdup(app->gps_station.name);
 				app->config->current_station_id = g_strdup(app->gps_station.id0);		
 			    }
 			    new_config_save(app->config);
-			    fflush(file_log);           
                     	    app->show_update_window = FALSE;
 		    	    update_weather();
 			    weather_frame_update(FALSE);
@@ -293,7 +291,6 @@ void add_gps_event(guint interval){
     print_list(NULL, 0);
     #endif
 
-    FILE *file_log;
 
 	time_event_add(time(NULL) + interval *60, CHECK_GPS_POSITION); /* Every 'interval' minutes */ 
 //	time_event_add(time(NULL) + 1*20, CHECK_GPS_POSITION); /* Every 20 secunds */ 

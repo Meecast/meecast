@@ -418,6 +418,7 @@ GtkWidget* create_current_weather_widget(GSList *current){
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
 						: ( strcat(buffer, _("F")) );
     temperature_label = gtk_label_new(buffer);
+    gtk_label_set_justify(GTK_LABEL(temperature_label), GTK_JUSTIFY_CENTER);
     set_font_size(temperature_label, 2*14);
 /*    set_font_color(temperature_label, 0x0000, 0x0000, 0x0000);*/
     gtk_box_pack_start(GTK_BOX(temperature_vbox), temperature_label, FALSE, FALSE, 0);

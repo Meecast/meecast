@@ -127,7 +127,9 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 		*temp2 = NULL,
 		*station_name = NULL,
 		*station_code = NULL;
+#ifdef HILDON
     gboolean	is_gps = FALSE;
+#endif
 
     while(source_list){
 	temp1 = strdup((gchar*)source_list->data);
@@ -152,10 +154,17 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 	    /* Add station to stations list */
             gtk_list_store_append(*list, &iter);
             gtk_list_store_set(*list, &iter,
+#ifdef HILDON
                                 0, station_name,
                                 1, station_code,
 				2, is_gps,
+#else
+                                0, station_name,
+                                1, station_code,
+#endif
                                 -1);
+	    station_name && (g_free(station_name) , station_name = NULL);
+	    station_code && (g_free(station_code) , station_code = NULL);
 	}
 	g_free(temp1);
 	source_list = g_slist_next(source_list);

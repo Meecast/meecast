@@ -837,8 +837,10 @@ void menu_init(void){
                             -1);
 	gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu),
 				menu_item = gtk_menu_item_new_with_label(station_name));
+	station_name && (g_free(station_name) , station_name = NULL);
         g_signal_connect(G_OBJECT(menu_item), "activate",
                     	    G_CALLBACK(change_station_select), station_code);
+	station_code && (g_free(station_code) , station_code = NULL);
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
                                                         &iter);
     }

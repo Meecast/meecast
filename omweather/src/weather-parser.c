@@ -66,8 +66,9 @@ int new_parse_weather_com_xml(void){
     		id_station[10],
 		newname[2048],
 		buff[256];
-    time_t	current_time;
-    struct tm	*tm, tmp_tm;
+    time_t	current_time = 0;
+    struct tm	*tm = NULL,
+		tmp_tm = {0};
     Item	*itm;
     
 /*Prepare date string */

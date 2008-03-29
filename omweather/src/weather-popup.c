@@ -254,11 +254,8 @@ GtkWidget* create_header_widget(GSList *day){
 		*location_label = NULL,
 		*icon = NULL,
 		*button = NULL,
-                *button_box = NULL,
-		*button_label = NULL,
 		*date_hbox = NULL,
 		*date_label = NULL;
-    GtkIconInfo *gtkicon_update;
     gchar       buffer[1024];
     struct tm	tmp_time_date_struct = {0};
 

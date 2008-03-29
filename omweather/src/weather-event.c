@@ -293,7 +293,6 @@ void add_gps_event(guint interval){
 
 
 	time_event_add(time(NULL) + interval *60, CHECK_GPS_POSITION); /* Every 'interval' minutes */ 
-//	time_event_add(time(NULL) + 1*20, CHECK_GPS_POSITION); /* Every 20 secunds */ 
 
     #ifndef RELEASE
     fprintf(stderr,"Item added to list\n");

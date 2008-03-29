@@ -19,7 +19,6 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 
 #: src/weather-settings.c:1444
-#, fuzzy
 msgid ""
 "\n"
 "Author and maintenance:\n"
@@ -37,7 +36,9 @@ msgstr ""
 "Поддержка:\n"
 "\tПавел Фиалко, pavelnf@gmail.com\n"
 "Документация:\n"
-"\tMarko Vertainen"
+"\tMarko Vertainen\n"
+"Дизайн набора иконок по-умолчанию:\n"
+"\tАндрей Жилин"
 
 #: src/weather-settings.c:1430
 msgid ""
@@ -56,6 +57,10 @@ msgid ""
 "for default icon set (Glance)\n"
 "Andrew Zhilin"
 msgstr ""
+"\n"
+"Copyright(c) 2008\n"
+"для набора иконок по-умолчанию (Glance)\n"
+"Андрей Жилин"
 
 #: src/weather-settings.c:1455
 msgid ""

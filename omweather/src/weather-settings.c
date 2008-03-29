@@ -1432,11 +1432,20 @@ void create_about_dialog(void){
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(help_dialog)->vbox),
         	    notebook = gtk_notebook_new(), TRUE, TRUE, 0);
 /* About tab */
-    snprintf(tmp_buff, sizeof(tmp_buff), "%s%s%s%s",
+    snprintf(tmp_buff, sizeof(tmp_buff),
+#ifdef DISPLAY_BUILD
+	    "%s%s%s%s%s%s",
+#else
+	    "%s%s%s%s",
+#endif
 	    _("\nHildon desktop applet\n"
 	    "for Nokia 770/N800/N810\n"
 	    "to show weather forecasts.\n"
 	    "Version "), VERSION, 
+#ifdef DISPLAY_BUILD
+    " Build: ",
+    BUILD,
+#endif	    
 	    _("\nCopyright(c) 2006-2008\n"
 	    "Vlad Vasiliev, Pavel Fialko"),
     	    _("\nCopyright(c) 2008\n"

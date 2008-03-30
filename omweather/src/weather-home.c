@@ -367,7 +367,6 @@ void weather_buttons_fill(gboolean check_error){
     if(j > 0){
 	for(; j < Max_count_weather_day; j++){
 	    wcs.day_data[j - offset] = wcs.day_data[j];
-	    display_all_object_items(wcs.day_data[j]);
 	    wcs.day_data[j] = NULL;
 	}
     }

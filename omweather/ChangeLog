@@ -13,6 +13,8 @@
   * Now option hide station name with 'previos' and 'next' stations buttons is separated
   * Updating of weather forecast  after station removal is deleted
   * Changed default icon set from "Crystal" to "Glance"
+  * Fix error while calculate days offset
+  * Fix error with last icon displaying, when visible items less then 10
 
 0.19.6
   * Default size of icons is Large

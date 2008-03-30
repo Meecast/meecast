@@ -50,7 +50,6 @@
 /*******************************************************************************/
 /* main struct */
 OMWeatherApp	*app = NULL;
-int		boxs_offset[Max_count_weather_day];
 gchar		path_large_icon[_POSIX_PATH_MAX];
 #ifdef HILDON
 static	FILE	*filed;
@@ -364,10 +363,11 @@ void weather_buttons_fill(gboolean check_error){
     for(i = 0; i < offset; i++)
 	destroy_object(&(wcs.day_data[i]));
     /* move weather data */
-    j = i;
+    j = offset;
     if(j > 0){
 	for(; j < Max_count_weather_day; j++){
-	    wcs.day_data[j - i] = wcs.day_data[j];
+	    wcs.day_data[j - offset] = wcs.day_data[j];
+	    display_all_object_items(wcs.day_data[j]);
 	    wcs.day_data[j] = NULL;
 	}
     }
@@ -545,7 +545,6 @@ void weather_buttons_fill(gboolean check_error){
 		    sprintf(buffer + strlen(buffer), "%i\302\260", temp_hi );
 		strcat(buffer, "</span>");		
 	    }
-	    boxs_offset[i] = i + offset + j;
 	}
 	else{ /* Show N/A for all others day buttons when it not inside range */
 	    sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
@@ -558,7 +557,6 @@ void weather_buttons_fill(gboolean check_error){
 		time_event_add(last_day + 24 * 60 * 60, DAYTIMEEVENT);
 		flag_last_day = TRUE;
 	    }
-	    boxs_offset[i] = Max_count_weather_day;
     	}
 	if (app->config->icons_layout == COMBINATION && i == 0)
 	   /* First icon in COMBINATION layout */
@@ -1265,10 +1263,10 @@ void free_memory(gboolean flag){
 	fprintf(stderr, "\nDays previos %d\n", app->config->previos_days_to_show);
 #endif
 
-	for(i = 0; i < app->config->previos_days_to_show; i++){
+	for(i = 0; i < app->config->previos_days_to_show; i++)
 	    delete_weather_day_button(FALSE, &(app->buttons[i]) );
+	for(i = 0; i < Max_count_weather_day; i++)
 	    destroy_object(&(wcs.day_data[i]));
-	}
 	if(app->main_window){
 	    gtk_widget_destroy(app->main_window);
 	    app->main_window = NULL;

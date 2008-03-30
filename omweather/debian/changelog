@@ -14,6 +14,8 @@ omweather (0.20) unstable; urgency=low
   * Now option hide station name with 'previos' and 'next' stations buttons is separated
   * Updating of weather forecast  after station removal is deleted
   * Changed default icon set from "Crystal" to "Glance"
+  * Fix error while calculate days offset
+  * Fix error with last icon displaying, when visible items less then 10
         
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 02 Jan 2008 03:36:00 +0200
  

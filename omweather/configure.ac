@@ -40,10 +40,6 @@ AC_FUNC_STAT
 AC_FUNC_STRFTIME
 AC_CHECK_FUNCS([clock_gettime gethostbyname gettimeofday memset strcasecmp strchr strdup strerror strncasecmp strstr setlocale strptime sqrt])
 
-dnl Build date
-BUILD_DATE=`date +%j`
-AC_DEFINE_UNQUOTED([BUILD], "${BUILD_DATE}", [Build])
-
 # Localisation
 localedir=`pkg-config osso-af-settings --variable=localedir`
 GETTEXT_PACKAGE=$PACKAGE

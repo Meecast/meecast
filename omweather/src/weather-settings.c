@@ -28,6 +28,7 @@
 #include "weather-settings.h"
 #include "weather-locations.h"
 #include "weather-help.h"
+#include "build"
 #if defined (BSD) && !_POSIX_SOURCE
     #include <sys/dir.h>
     typedef struct dirent Dirent;
@@ -1443,8 +1444,7 @@ void create_about_dialog(void){
 	    "to show weather forecasts.\n"
 	    "Version "), VERSION, 
 #ifdef DISPLAY_BUILD
-    " Build: ",
-    BUILD,
+    " Build: ", BUILD,
 #endif	    
 	    _("\nCopyright(c) 2006-2008\n"
 	    "Vlad Vasiliev, Pavel Fialko"),

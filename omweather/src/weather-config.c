@@ -30,6 +30,8 @@
 #include <fcntl.h>
 #include <errno.h>
 /*******************************************************************************/
+#define CLOCK_FILE		"/usr/share/omweather/city_in_clock.txt"
+/*******************************************************************************/
 /* Change the weather cache directory and update dependent variables. */
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
     GnomeVFSURI *weather_dir_uri;

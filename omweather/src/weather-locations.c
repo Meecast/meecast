@@ -206,32 +206,34 @@ int parse_region_string(const char *string, Region_item *result){
 		    tmp = delimiter + 1;
 		    delimiter = strchr(tmp, ';');
 		    if(!delimiter){
-			  result->minlon = 0;res = 1;
+			  result->minlon = 0;
+			  res = 1;
 		    }
 		    else{
+			*delimiter = 0;
+			result->minlon = atof(tmp);
+			tmp = delimiter + 1;
+			delimiter = strchr(tmp, ';');
+			if(!delimiter){
+			    result->maxlat = 0;
+			    res = 1;
+			}
+			else{
 			    *delimiter = 0;
-			    result->minlon = atof(tmp);
+			    result->maxlat = atof(tmp);
 			    tmp = delimiter + 1;
 			    delimiter = strchr(tmp, ';');
 			    if(!delimiter){
-			      result->maxlat = 0;res = 1;
+				result->maxlon = 0;
+				res = 1;
 			    }
 			    else{
-			        *delimiter = 0;
-			        result->maxlat = atof(tmp);
-			        tmp = delimiter + 1;
-			        delimiter = strchr(tmp, ';');
-			        if(!delimiter){
-				      result->maxlon = 0;res = 1;
-			        }
-			        else{
-				        *delimiter = 0;
-				        result->maxlon = atof(tmp);
-				    }
+				*delimiter = 0;
+				result->maxlon = atof(tmp);
 			    }
-			}			    
+			}
+		    }			    
 		}	
-			
 	    }
 	}
     }
@@ -256,9 +258,8 @@ int parse_station_string(const char *string, Station *result){
 		((int)(delimiter - tmp)) : (sizeof(result->name) - 1)));
 	tmp = delimiter + 1;
 	delimiter = strchr(tmp, ';');
-	if(!delimiter){
+	if(!delimiter)
 	    res = 1;
-	}
 	else{
 	    memset(result->id0, 0, sizeof(result->id0));
 	    memcpy(result->id0, tmp,
@@ -267,17 +268,15 @@ int parse_station_string(const char *string, Station *result){
 	    
 	    tmp = delimiter + 1;
 	    delimiter = strchr(tmp, ';');
-	    if(!delimiter){
+	    if(!delimiter)
 		res = 1;
-	    }
 	    else{
                 *delimiter = 0;
                 result->latitude = atof(tmp);
 		tmp = delimiter + 1;
 		delimiter = strchr(tmp, ';');
-		if(!delimiter){
+		if(!delimiter)
 		    res = 1;
-		}
 		else{
                      *delimiter = 0;
                      result->longtitude = atof(tmp);

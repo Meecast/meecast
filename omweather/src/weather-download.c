@@ -32,6 +32,7 @@
 #define USER_DATA_MAGIC 0xaadcaadc
 static ConIcConnection *connection = NULL;
 #endif
+#define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
 /*******************************************************************************/
 static GString *url = NULL;
 static gboolean second_attempt = FALSE;

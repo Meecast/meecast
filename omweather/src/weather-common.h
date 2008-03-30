@@ -45,16 +45,16 @@
 #include <libxml/xpathInternals.h>
 #include <string.h> 
 #ifdef HILDON 
- #include <hildon/hildon-banner.h>
- #include <libhildondesktop/hildon-desktop-picture.h>
- #include <libhildondesktop/hildon-desktop-home-item.h>
- #include <libhildondesktop/libhildondesktop/hildon-home-area.h>
- #include <X11/extensions/Xcomposite.h>
- #include <X11/extensions/Xdamage.h>
- #include <X11/extensions/Xrender.h>
- #include <location/location-gps-device.h>
+    #include <hildon/hildon-banner.h>
+    #include <libhildondesktop/hildon-desktop-picture.h>
+    #include <libhildondesktop/hildon-desktop-home-item.h>
+    #include <libhildondesktop/libhildondesktop/hildon-home-area.h>
+    #include <X11/extensions/Xcomposite.h>
+    #include <X11/extensions/Xdamage.h>
+    #include <X11/extensions/Xrender.h>
+    #include <location/location-gps-device.h>
 #else
- #include <hildon-widgets/hildon-banner.h>
+    #include <hildon-widgets/hildon-banner.h>
 #endif
 #include <sys/types.h>
 #include <libosso.h>
@@ -64,22 +64,19 @@
 /* localization headers and defines */
 #include <libintl.h>
 #include <locale.h>
+/*******************************************************************************/
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
-#define Max_count_weather_day		10
+#define Max_count_weather_day	10
 #define COUNTRIESFILE		"/usr/share/omweather/countries.list"
 #define REGIONSFILE		"/usr/share/omweather/regions.list"
 #define LOCATIONSFILE		"/usr/share/omweather/locations.list"
-#define CLOCK_FILE		"/usr/share/omweather/city_in_clock.txt"
 #define ICONS_PATH		"/usr/share/omweather/icons/"
-#define MOON_ICONS		"/usr/share/omweather/moon_icons/"
-#define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
-#define streq(a, b)   (*(a)==*(b)&&!strcmp(a,b))
-#define GIANT_ICON_SIZE  128
-#define LARGE_ICON_SIZE   96
-#define BIG_ICON_SIZE     80
-#define MEDIUM_ICON_SIZE  64
-#define SMALL_ICON_SIZE   48
-#define TINY_ICON_SIZE    32
+#define GIANT_ICON_SIZE		128
+#define LARGE_ICON_SIZE		96
+#define BIG_ICON_SIZE		80
+#define MEDIUM_ICON_SIZE	64
+#define SMALL_ICON_SIZE		48
+#define TINY_ICON_SIZE		32
 /*******************************************************************************/
 enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT, UPDATE_AFTER_CONNECTED, CHECK_GPS_POSITION};
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION };
@@ -147,7 +144,6 @@ struct weather_station{
     gchar	*id_station;
     gchar	*name_station;
     gboolean    is_gps;
-    gint	number;
 };
 /*******************************************************************************/
 typedef	struct{
@@ -272,5 +268,4 @@ extern int new_read_config(AppletConfig*);
 /*******************************************************************************/
 extern OMWeatherApp	*app;
 /*******************************************************************************/
-
 #endif

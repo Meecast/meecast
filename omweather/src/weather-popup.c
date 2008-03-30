@@ -27,6 +27,8 @@
 /*******************************************************************************/
 #include "weather-popup.h"
 /*******************************************************************************/
+#define MOON_ICONS		"/usr/share/omweather/moon_icons/"
+/*******************************************************************************/
 void popup_window_destroy(void){
     if(app->popup_window){
     	gtk_widget_destroy(app->popup_window);

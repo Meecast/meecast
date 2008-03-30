@@ -35,6 +35,5 @@ void help_activated_handler(GtkWidget *window, gchar *help_id){
 #else
     ossohelp_show(app->osso, help_id, OSSO_HELP_SHOW_DIALOG);
 #endif
-    
 }
 /*******************************************************************************/

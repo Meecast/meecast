@@ -244,7 +244,6 @@ void changed_stations(void){
 					 2, &station_latitude,
 					 3, &station_longitude,
 					-1);
-	fprintf(stderr, "\nLat=%f Lon=%f\n", station_latitude, station_longitude);
 	_weather_station_id_temp = g_strdup(station_id0);
 	g_free(station_name);
 	g_free(station_id0);
@@ -405,7 +404,7 @@ static gboolean weather_delete_station(GtkWidget *widget, GdkEvent *event,
 	    path = gtk_tree_model_get_path(GTK_TREE_MODEL(app->user_stations_list),
 					    &iter);
 #ifdef HILDON
-	    if (is_gps){
+	    if(is_gps){
 		/* Reset gps station */
 		app->gps_station.id0[0] = 0;
 		app->gps_station.name[0] = 0;
@@ -417,8 +416,6 @@ static gboolean weather_delete_station(GtkWidget *widget, GdkEvent *event,
 	    gtk_list_store_remove(app->user_stations_list, &iter);
 	    g_free(station_name);
     	    g_free(station_code);
-	    
-	    
 	    /* try to get previos station data */
 	    if(gtk_tree_path_prev(path)){
 		valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
@@ -764,7 +761,6 @@ void weather_window_settings(GtkWidget *widget,	GdkEvent *event,
     gtk_container_add(GTK_CONTAINER(scrolled_window),
                 	GTK_WIDGET(station_list_view));
     gtk_container_add(GTK_CONTAINER(label), scrolled_window);
-
 #ifdef HILDON
 /* preparing GPS checkbox */
     gtk_table_attach_defaults(GTK_TABLE(table),	    
@@ -1549,7 +1545,7 @@ GtkWidget* create_scrolled_window_with_text(const char* text,
 }
 /*******************************************************************************/
 void station_list_view_select_handler(GtkTreeView *tree_view,
-                                        gpointer user_data){
+                                    			    gpointer user_data){
     GtkTreeIter		iter;
     gchar		*station_selected = NULL,
 			*station_name = NULL,

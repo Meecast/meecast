@@ -24,6 +24,7 @@ AC_CHECK_HEADERS([arpa/inet.h fcntl.h memory.h netdb.h netinet/in.h stdlib.h str
 AC_CHECK_HEADERS([libintl.h])
 AC_CHECK_HEADERS([wchar.h])
 AC_CHECK_HEADERS([limits.h])
+AC_CHECK_HEADERS([math.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST

@@ -29,6 +29,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <glib.h>
+#include <math.h>
 #ifdef HILDON
     #include <libhildondesktop/libhildondesktop.h>
 #else
@@ -283,6 +284,7 @@ void weather_buttons_fill(gboolean check_error){
     char	font_size;
     gint	icon_size;
     gchar	*tmp_station_name;
+    double	pre_offset = 0.0F;
 #ifndef RELEASE
     time_t	tmp_time;
 
@@ -352,7 +354,9 @@ void weather_buttons_fill(gboolean check_error){
     }
     date_time = mktime(tm);
 
-    offset = (int)( abs( (current_day - date_time) / (24 * 60 * 60) ) );
+    pre_offset = (double)(abs(current_day - date_time));
+    pre_offset /= 24.0F * 60.0F * 60.0F;
+    offset = (int)( round(pre_offset) );
 
     if(offset >= Max_count_weather_day || count_day < 0)
 	offset = Max_count_weather_day;

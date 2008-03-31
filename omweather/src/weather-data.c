@@ -100,12 +100,15 @@ time_t last_update_time(GSList *object){
 
     if(!object)
 	return 0;
-    
+
     strptime(item_value(object, "last_update"), "%D %I:%M", &tm);
     last_update = mktime(&tm);
+
     /* Add 12 hours if  date have PM field */
     if(strstr(item_value(object, "last_update"), "PM"))
 	last_update += 12 * 3600;
+
+    last_update -= 3600; /* TODO. I don't understand why this is needed. */
     return last_update;
 }
 /*******************************************************************************/

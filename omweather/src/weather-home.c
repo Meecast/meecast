@@ -964,11 +964,11 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 					    gchar* st_name, char f_size){
     gchar	buffer[2048];
-    GtkWidget	*header_panel,
-		*days_panel,
-		*days_panel_with_buttons,
-		*combination_vbox,
-		*current_weather_widget,
+    GtkWidget	*header_panel = NULL,
+		*days_panel = NULL,
+		*days_panel_with_buttons = NULL,
+		*combination_vbox = NULL,
+		*current_weather_widget = NULL,
 		*previos_station_name_btn = NULL,
 		*previos_station_name = NULL,
 		*previos_station_box = NULL,
@@ -1173,7 +1173,8 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     /* attach to main panel header and days panels */
     if(layout == COMBINATION){
         combination_vbox = gtk_vbox_new(FALSE, 0);
-	current_weather_widget = create_current_weather_simple_widget(wcs.current_data, f_size);
+	if(!wcs.current_data_is_invalid)
+	    current_weather_widget = create_current_weather_simple_widget(wcs.current_data, f_size);
 	gtk_box_pack_start(GTK_BOX(combination_vbox), header_panel, FALSE, FALSE, 0);
 	if(current_weather_widget)
 	    gtk_box_pack_start(GTK_BOX(combination_vbox), current_weather_widget, FALSE, FALSE, 0);

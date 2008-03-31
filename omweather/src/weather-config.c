@@ -316,7 +316,7 @@ int new_read_config(AppletConfig *config){
     sprintf(path_large_icon, "%s%s/", ICONS_PATH, config->icon_set);
     if( ( fd = open(path_large_icon, O_RDONLY) ) == -1 ){
 	memset(path_large_icon, 0, sizeof(path_large_icon));
-	config->icon_set = g_strdup("Crystal");
+	config->icon_set = g_strdup("Glance");
 	sprintf(path_large_icon, "%s%s/", ICONS_PATH, config->icon_set);
     }
     else

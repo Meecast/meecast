@@ -16,6 +16,7 @@ omweather (0.20) unstable; urgency=low
   * Changed default icon set from "Crystal" to "Glance"
   * Fixed error while calculate days offset
   * Fixed error with last icon displaying, when visible items less then 10
+  * Fixed error with displaying 'Feel like' parameter
         
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 02 Jan 2008 03:36:00 +0200
  

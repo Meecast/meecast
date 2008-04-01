@@ -37,6 +37,8 @@ extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
 void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				gpointer user_data);
+void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
+				gpointer user_data);
 void station_list_view_select_handler(GtkTreeView *tree_view,
 			    gpointer user_data);
 void weather_window_edit_station(GtkWidget *widget,
@@ -68,6 +70,11 @@ void delete_all_gps_stations(void);
 #endif
 GtkWidget* create_tree_view(GtkListStore* list);
 void highlight_current_station(GtkTreeView *tree_view);
+/*******************************************************************************/
+void apply_button_handler(GtkButton *button, gpointer user_data);
+void about_button_handler(GtkButton *button, gpointer user_data);
+void close_button_handler(GtkButton *button, gpointer user_data);
+void back_button_handler(GtkButton *button, gpointer user_data);
 /*******************************************************************************/
 extern void remove_periodic_event(void);
 extern void weather_initialize_dbus(void);

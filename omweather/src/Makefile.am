@@ -63,7 +63,7 @@ libweather_home_la_LDFLAGS =  -module -avoid-version
 
 libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCONF_LIBS) $(DBUS_LIBS) \
 			    $(LIBCURL_LIBS) $(CONIC_LIBS) $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS)  $(OSSOIC_LIBS) \
-			    $(LOCATION_LIBS) $(LIBOSSOHELP_LIBS) -lm
+			    $(LOCATION_LIBS) $(LIBOSSOHELP_LIBS)
 
 weather-hash.c:		hash.data
 	if test -f hash.data; then \

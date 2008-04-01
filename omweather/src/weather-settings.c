@@ -1762,3 +1762,242 @@ void highlight_current_station(GtkTreeView *tree_view){
     }
 }
 /*******************************************************************************/
+void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
+							    gpointer user_data){
+
+    GtkWidget	*window_config = NULL,
+		*notebook = NULL,
+		*label = NULL,
+		*vbox = NULL,
+		*buttons_box = NULL,
+		*about_button = NULL,
+		*apply_button = NULL,
+		*close_button = NULL,
+		*back_button = NULL,
+		*left_vbox = NULL,
+		*right_vbox = NULL,
+		*stations_list_with_buttons_hbox = NULL,
+		*up_down_delete_buttons_vbox = NULL,
+#ifdef HILDON
+                *label_gps = NULL,
+                *hbox_gps = NULL,
+                *chk_gps = NULL,
+#endif
+		*time_update_label = NULL,
+		*table = NULL,
+		*font_color = NULL,
+		*background_color = NULL,
+		*chk_transparency = NULL,
+		*chk_downloading_after_connection = NULL,
+		*separate_button = NULL,
+		*swap_temperature_button = NULL,
+		*hide_station_name = NULL,
+		*hide_arrows = NULL,
+		*scrolled_window = NULL,
+		*button_add = NULL,
+		*button_ren = NULL,
+		*up_icon = NULL,
+		*down_icon = NULL,
+		*delete_icon = NULL,
+		*up_station_button = NULL,
+		*down_station_button = NULL,
+		*delete_station_button = NULL;
+    GtkIconInfo *gtkicon_arrow;
+    gboolean	valid = FALSE;
+    GtkTreeIter	iter;
+    char	flag_update_icon = '\0'; /* Flag update main weather icon of desktop */
+#ifndef RELEASE
+    char	tmp_buff[1024];
+#endif
+    gboolean	flag_tuning_warning; /* Flag for show the warnings about tuning images of applet */
+    GdkColor	_weather_font_color_temp, /* Temporary for font color */
+		background_color_temp;
+    static char *temp_string; /* Temporary for the results differnet strdup functions */
+    static int result_gtk_dialog_run; /* Temporary for the gtk_dialog_run result */
+
+    not_event = TRUE;
+    flag_update_station = FALSE;
+    flag_update_icon = FALSE;
+    flag_tuning_warning = FALSE; 
+
+    if(!app->dbus_is_initialize)
+	weather_initialize_dbus();
+
+/* Main window */
+    window_config = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(window_config), _("Other Maemo Weather Settings"));
+    gtk_window_set_modal(GTK_WINDOW(window_config), TRUE);
+    gtk_window_fullscreen(GTK_WINDOW(window_config));
+    /* create frame vbox */    
+    vbox = gtk_vbox_new(FALSE, 0);
+    gtk_container_add(GTK_CONTAINER(window_config), vbox);
+/* create tabs widget */
+    notebook = gtk_notebook_new();
+    gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
+/* Locations tab */
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        	    table = gtk_table_new(2, 2, FALSE),
+        	    label = gtk_label_new(_("Stations")));
+    /* Stations hbox */
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			gtk_label_new(_("Arrange")),
+        			0, 1, 0, 1);
+    /* left side vbox */
+    gtk_table_attach_defaults(GTK_TABLE(table),
+				left_vbox = gtk_vbox_new(FALSE, 0),
+        			0, 1, 1, 2);
+    stations_list_with_buttons_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(left_vbox), stations_list_with_buttons_hbox,
+			TRUE, TRUE, 0);
+    /* Stations list */
+    scrolled_window = gtk_scrolled_window_new(NULL, NULL);
+    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
+					GTK_SHADOW_ETCHED_IN);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
+                                 GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), -1, 300);
+
+    station_list_view = create_tree_view(app->user_stations_list);
+    gtk_container_add(GTK_CONTAINER(scrolled_window),
+                	GTK_WIDGET(station_list_view));
+    gtk_box_pack_start(GTK_BOX(stations_list_with_buttons_hbox), scrolled_window,
+                        TRUE, TRUE, 0);
+/* Up Station and Down Station and Delete Station Buttons */
+    up_down_delete_buttons_vbox = gtk_vbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(stations_list_with_buttons_hbox),
+			up_down_delete_buttons_vbox,
+                        FALSE, FALSE, 0);
+/* prepare icon */
+    gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
+        	                        	"qgn_indi_arrow_up", 16, 0);
+    up_icon = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
+    gtk_icon_info_free(gtkicon_arrow);
+/* prepare up_station_button */    
+    up_station_button = gtk_button_new();
+    gtk_button_set_focus_on_click(GTK_BUTTON(up_station_button), FALSE);
+    gtk_container_add(GTK_CONTAINER(up_station_button), up_icon);
+    gtk_widget_set_events(up_station_button, GDK_BUTTON_PRESS_MASK);
+    gtk_button_set_focus_on_click(GTK_BUTTON(up_station_button), FALSE);
+    g_signal_connect(up_station_button, "clicked",
+			G_CALLBACK(up_key_handler), (gpointer)station_list_view);
+/* prepare icon */
+    gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
+        	                        	"qgn_indi_arrow_down", 16, 0);
+    down_icon = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
+    gtk_icon_info_free(gtkicon_arrow);
+/* prepare down_station_button */    
+    down_station_button = gtk_button_new();
+    gtk_button_set_focus_on_click(GTK_BUTTON(down_station_button), FALSE);
+    gtk_container_add(GTK_CONTAINER(down_station_button), down_icon);
+    gtk_widget_set_events(down_station_button, GDK_BUTTON_PRESS_MASK);
+    gtk_button_set_focus_on_click(GTK_BUTTON(down_station_button), FALSE);
+    g_signal_connect(down_station_button, "clicked",
+		    	G_CALLBACK(down_key_handler), (gpointer)station_list_view);
+/* prepare icon */
+    gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
+        	                        	"qgn_list_gene_invalid", 16, 0);
+    delete_icon = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
+    gtk_icon_info_free(gtkicon_arrow);
+/* prepare delete_station_button */    
+    delete_station_button = gtk_button_new();
+    gtk_button_set_focus_on_click(GTK_BUTTON(delete_station_button), FALSE);
+    gtk_container_add(GTK_CONTAINER(delete_station_button), delete_icon);
+    gtk_widget_set_events(delete_station_button, GDK_BUTTON_PRESS_MASK);
+    gtk_button_set_focus_on_click(GTK_BUTTON(delete_station_button), FALSE);
+    g_signal_connect(delete_station_button, "clicked",
+                	G_CALLBACK(weather_delete_station), NULL);
+/* Pack Up, Down and Delete buttons */
+    gtk_box_pack_start(GTK_BOX(up_down_delete_buttons_vbox), up_station_button,
+                        TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(up_down_delete_buttons_vbox), delete_station_button,
+                        FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(up_down_delete_buttons_vbox), down_station_button,
+                        TRUE, TRUE, 0);
+    /* right side vbox */
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			gtk_label_new(_("Add")),
+        			1, 2, 0, 1);
+    gtk_table_attach_defaults(GTK_TABLE(table),
+				right_vbox = gtk_vbox_new(FALSE, 0),
+        			1, 2, 1, 2);
+/* Interface tab */
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			table = gtk_table_new(7, 4, FALSE),
+        			label = gtk_label_new(_("Interface")));
+
+/* Units tab */
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			table = gtk_table_new(1, 3, FALSE),
+        			label = gtk_label_new(_("Units")));
+
+/* Update tab */
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			table = gtk_table_new(5, 2, FALSE),
+        			label = gtk_label_new(_("Update")));
+
+#ifdef RELEASE
+/* Events list tab */
+    memset(tmp_buff, 0, sizeof(tmp_buff));
+    print_list(tmp_buff, sizeof(tmp_buff) - 1);
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			create_scrolled_window_with_text(tmp_buff,
+						    GTK_JUSTIFY_LEFT),
+        			label = gtk_label_new(_("Events")));
+#endif
+/* Bottom buttons box */
+    buttons_box = gtk_hbox_new(FALSE, 0);
+    gtk_widget_set_size_request(buttons_box, -1, 40);
+    /* Back buton */
+    back_button = gtk_button_new_with_label(_("Back"));
+    gtk_button_set_relief(GTK_BUTTON(back_button), GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(back_button), FALSE);
+    g_signal_connect(back_button, "clicked",
+                        G_CALLBACK(back_button_handler), NULL);
+    /* About buton */
+    about_button = gtk_button_new_with_label(_("About"));
+    gtk_button_set_relief(GTK_BUTTON(about_button), GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(about_button), FALSE);
+    g_signal_connect(about_button, "clicked",
+                        G_CALLBACK(about_button_handler), NULL);
+    /* Apply button */
+    apply_button = gtk_button_new_with_label(_("Apply"));
+    gtk_button_set_relief(GTK_BUTTON(apply_button), GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(apply_button), FALSE);
+    g_signal_connect(GTK_BUTTON(apply_button), "clicked",
+                        G_CALLBACK(apply_button_handler), (gpointer)window_config);
+    /* Close button */
+    close_button = gtk_button_new_with_label(_("Close"));
+    gtk_button_set_relief(GTK_BUTTON(close_button), GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(close_button), FALSE);
+    g_signal_connect(GTK_BUTTON(close_button), "clicked",
+                        G_CALLBACK(close_button_handler), (gpointer)window_config);
+/* Pack buttons to the buttons box */
+    gtk_box_pack_start(GTK_BOX(buttons_box), back_button, FALSE, FALSE, 10);
+    gtk_box_pack_start(GTK_BOX(buttons_box), apply_button, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(buttons_box), about_button, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(buttons_box), close_button, FALSE, FALSE, 10);
+/* Pack items to config window */
+    gtk_box_pack_start(GTK_BOX(vbox), notebook, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE, FALSE, 0);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), app->config->current_settings_page);
+    gtk_widget_show_all(window_config);
+/* Highlight current station */
+    highlight_current_station(GTK_TREE_VIEW(station_list_view));
+/* kill popup window :-) */
+    if(app->popup_window)
+        popup_window_destroy();
+}
+/*******************************************************************************/
+void apply_button_handler(GtkButton *button, gpointer user_data){
+}
+/*******************************************************************************/
+void close_button_handler(GtkButton *button, gpointer user_data){
+    gtk_widget_destroy(GTK_WIDGET(user_data));
+}
+/*******************************************************************************/
+void about_button_handler(GtkButton *button, gpointer user_data){
+}
+/*******************************************************************************/
+void back_button_handler(GtkButton *button, gpointer user_data){
+}
+/*******************************************************************************/

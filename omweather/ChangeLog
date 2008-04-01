@@ -15,6 +15,7 @@
   * Changed default icon set from "Crystal" to "Glance"
   * Fixed error while calculate days offset
   * Fixed error with last icon displaying, when visible items less then 10
+  * Fixed error with displaying 'Feel like' parameter
 
 0.19.6
   * Default size of icons is Large

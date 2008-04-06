@@ -1,7 +1,8 @@
-/* This file is part of Other Maemo Weather(omweather)
+/*
+ * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2008 Vlad Vasiliev
- * Copyright (C) 2006-2008 Pavel Fialko
+ * Copyright (C) 2006 Vlad Vasiliev
+ * Copyright (C) 2006 Pavel Fialko
  * 	for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
@@ -22,38 +23,17 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
- *
 */
-#include <glib.h>
-#include "weather-hash.h"
 /*******************************************************************************/
-GHashTable* hash_table_create(void){
-    GHashTable *hash;
-    
-    hash = g_hash_table_new(g_str_hash, g_str_equal);
-/*
- * WARNING!
- * Do not insert new lines to this file, use file hash.data
- * To add new reserved word from data (xml) file you can use
- * script get_reserved_word.pl like this:
- * cat BOXX0014.xml USCA0001.xml >./get_reserved_word.pl
-*/
-#include "hash.data"
-    return  hash;
-}
+#ifndef _weather_utils_h
+#define _weather_utils_h 1
 /*******************************************************************************/
-gpointer hash_table_find(gpointer key){
-    gpointer	orig_key,
-		value,
-		result;
-    
-    if(g_hash_table_lookup_extended(app->hash,
-				    key,
-				    &orig_key,
-				    &value))
-	result = value;
-    else
-	result = key;
-    return result;
-}
+#include "weather-common.h"
 /*******************************************************************************/
+float convert_wind_units(int to, float value);
+void set_font_size(GtkWidget *widget, char font_size);
+void set_background_color(GtkWidget *widget, GdkColor *bgc);
+int c2f(int temp);
+void swap_temperature(int *hi, int *low);
+/*******************************************************************************/
+#endif

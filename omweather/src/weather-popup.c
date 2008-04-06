@@ -851,21 +851,6 @@ GtkWidget* create_time_updates_widget(GSList *current){
     return main_widget;
 }
 /*******************************************************************************/
-float convert_wind_units(int to, float value){
-    float	result = value;
-    switch(to){
-	    default:
-	    case METERS_S: result *= 10.0f / 36.0f; break;
-/*	    case KILOMETERS_S: result /= 3600.0f; break;
- *
-	    case MILES_S: result /= (1.609344f * 3600.0f); break;
-	    case METERS_H: result *= 1000.0f; break;
-*/	    case KILOMETERS_H: result *= 1.0f; break;
-	    case MILES_H: result /= 1.609344f; break;
-	}
-    return result;
-}
-/*******************************************************************************/
 void popup_window_more_show(GtkWidget *widget, GdkEvent *event, gpointer user_data){
     gtk_widget_hide(app->popup_window);
     weather_window_popup_more_show();	    

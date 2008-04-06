@@ -1998,6 +1998,8 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     highlight_current_station(GTK_TREE_VIEW(station_list_view));
     gtk_entry_set_text(GTK_ENTRY(rename_entry),
 			app->config->current_station_name);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook),
+			app->config->current_settings_page);
 /* kill popup window :-) */
     if(app->popup_window)
         popup_window_destroy();

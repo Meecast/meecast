@@ -49,7 +49,7 @@ GtkWidget* create_footer_more_widget(void);
 GtkWidget* create_sun_time_widget(GSList *day);
 GtkWidget* create_moon_phase_widget(GSList *current);
 GtkWidget* create_time_updates_widget(GSList *current);
-float convert_wind_units(int to, float value);
+
 void popup_window_more_show(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 void weather_window_popup_more_show(void);
 void popup_close(GtkWidget *widget, GdkEvent *event, gpointer user_data);
@@ -64,5 +64,6 @@ extern void set_font_color (GtkWidget *widget, guint16 red, guint16 green, guint
 extern int c2f(int temp);
 extern void swap_temperature(int *hi, int *low);
 extern gpointer hash_table_find(gpointer key);
+extern float convert_wind_units(int to, float value);
 /*******************************************************************************/
 #endif

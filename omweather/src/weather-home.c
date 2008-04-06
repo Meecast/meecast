@@ -55,45 +55,6 @@ gchar		path_large_icon[_POSIX_PATH_MAX];
 static	FILE	*filed;
 #endif
 /*******************************************************************************/
-/* Translate  temperature Celsius to Farenhait */
-int c2f(int temp){
-    return (temp * 1.8f ) + 32;
-}
-/*******************************************************************************/
-/* Set font size. Usually on label widget */
-void set_font_size(GtkWidget *widget, char font_size){
-    PangoFontDescription *pfd = NULL;
-#ifndef RELEASE
-    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
-#endif
-    if(!widget)
-	return;
-    pfd = pango_font_description_copy( 
-            pango_context_get_font_description(gtk_widget_get_pango_context(widget)));
-    pango_font_description_set_absolute_size(pfd, font_size * PANGO_SCALE);	    
-    gtk_widget_modify_font(GTK_WIDGET(widget), NULL);   /* this function is leaking */
-    gtk_widget_modify_font(GTK_WIDGET(widget), pfd);   /* this function is leaking */
-    pango_font_description_free(pfd);
-}
-/*******************************************************************************/
-/* Set font color. Usually on label widget */
-void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue){
-    PangoAttribute	*attr;
-    PangoAttrList	*attrs = NULL;
-
-    if(!widget)
-	return;
-
-    attrs = pango_attr_list_new();
-    attr = pango_attr_foreground_new(red,green,blue);
-    attr->start_index = 0;
-    attr->end_index = G_MAXUINT;
-    pango_attr_list_insert(attrs, attr);
-    /* Set the attributes */
-    g_object_set(widget, "attributes", attrs, NULL);
-    pango_attr_list_unref(attrs);
-}
-/*******************************************************************************/
 /* Change station to previos at main display */
 static gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
                     		    gpointer user_data){
@@ -1360,19 +1321,6 @@ void delete_weather_day_button(gboolean after_all_destroy, WDB **day){
 	    *day = NULL;
 	}
     }
-}
-/*******************************************************************************/
-void swap_temperature(int *hi, int *low){
-    int tmp;
-    
-    tmp = *hi; *hi = *low; *low = tmp;
-}
-/*******************************************************************************/
-void set_background_color(GtkWidget *widget, GdkColor *bgc){
-/* undo previos changes */
-    gtk_widget_modify_bg(widget, GTK_STATE_NORMAL, NULL);
-/* set one color for all states of widget */
-    gtk_widget_modify_bg(widget, GTK_STATE_NORMAL, bgc);
 }
 /*******************************************************************************/
 gboolean switch_timer_handler(gpointer data){

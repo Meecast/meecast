@@ -1578,6 +1578,8 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
             if(app->config->current_station_name)
                 g_free(app->config->current_station_name);
             app->config->current_station_name = station_name;
+	    /* add selected station name to the rename entry */
+	    gtk_entry_set_text(GTK_ENTRY(user_data), station_name);
             break;
         }
 	else{
@@ -1778,6 +1780,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 		*right_vbox = NULL,
 		*stations_list_with_buttons_hbox = NULL,
 		*up_down_delete_buttons_vbox = NULL,
+		*rename_entry = NULL,
 #ifdef HILDON
                 *label_gps = NULL,
                 *hbox_gps = NULL,
@@ -1825,7 +1828,8 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 
 /* Main window */
     window_config = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    gtk_window_set_title(GTK_WINDOW(window_config), _("Other Maemo Weather Settings"));
+    gtk_window_set_title(GTK_WINDOW(window_config),
+			    _("Other Maemo Weather Settings"));
     gtk_window_set_modal(GTK_WINDOW(window_config), TRUE);
     gtk_window_fullscreen(GTK_WINDOW(window_config));
     /* create frame vbox */    
@@ -1913,6 +1917,10 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
                         FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(up_down_delete_buttons_vbox), down_station_button,
                         TRUE, TRUE, 0);
+/* Rename station entry */
+    rename_entry = gtk_entry_new();
+    gtk_box_pack_start(GTK_BOX(left_vbox), rename_entry,
+			TRUE, TRUE, 0);
     /* right side vbox */
     gtk_table_attach_defaults(GTK_TABLE(table),
         			gtk_label_new(_("Add")),
@@ -1920,6 +1928,10 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_table_attach_defaults(GTK_TABLE(table),
 				right_vbox = gtk_vbox_new(FALSE, 0),
         			1, 2, 1, 2);
+
+    g_signal_connect(station_list_view, "cursor-changed",
+                        G_CALLBACK(station_list_view_select_handler),
+			rename_entry);
 /* Interface tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			table = gtk_table_new(7, 4, FALSE),
@@ -1979,10 +1991,13 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 /* Pack items to config window */
     gtk_box_pack_start(GTK_BOX(vbox), notebook, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE, FALSE, 0);
-    gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), app->config->current_settings_page);
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook),
+				    app->config->current_settings_page);
     gtk_widget_show_all(window_config);
 /* Highlight current station */
     highlight_current_station(GTK_TREE_VIEW(station_list_view));
+    gtk_entry_set_text(GTK_ENTRY(rename_entry),
+			app->config->current_station_name);
 /* kill popup window :-) */
     if(app->popup_window)
         popup_window_destroy();
@@ -1996,6 +2011,7 @@ void close_button_handler(GtkButton *button, gpointer user_data){
 }
 /*******************************************************************************/
 void about_button_handler(GtkButton *button, gpointer user_data){
+    create_about_dialog();
 }
 /*******************************************************************************/
 void back_button_handler(GtkButton *button, gpointer user_data){

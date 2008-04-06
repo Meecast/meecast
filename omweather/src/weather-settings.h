@@ -90,5 +90,6 @@ extern gboolean change_station_select(GtkWidget *widget, gpointer user_data);
 extern gboolean switch_timer_handler(gpointer data);
 extern void help_activated_handler(GtkWidget *window, gchar *help_id);
 extern void update_weather(void);
+extern GtkWidget* lookup_widget(GtkWidget *widget, const gchar *widget_name);
 /*******************************************************************************/
 #endif

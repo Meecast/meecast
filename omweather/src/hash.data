@@ -54,6 +54,7 @@
 	g_hash_table_insert(hash, "Isolated T-Storms", _("Isolated T-Storms"));
 	g_hash_table_insert(hash, "Last Quarter", _("Last Quarter"));
     g_hash_table_insert(hash, "Light Drizzle", _("Light Drizzle"));
+	g_hash_table_insert(hash, "Light Freezing Rain", _("Light Freezing Rain"));
     g_hash_table_insert(hash, "Light Rain / Fog", _("Light Rain / Fog"));    
     g_hash_table_insert(hash, "Light Rain / Wind Late", _("Light Rain / Wind Late"));    
 	g_hash_table_insert(hash, "Light Rain / Wind", _("Light Rain / Wind"));

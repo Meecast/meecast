@@ -15,8 +15,8 @@
           Check detailed weather forecast for up to 10 days
         </_listitem>
         <_listitem>
-          Automatically to update weather information from the
-	  Internet (Data available from xoap.weather.com)
+          Update weather information automatically from the Internet (Data
+	  provided by xoap.weather.com)
         </_listitem>
         <_listitem>
           Configure closest weather station automatically using GPS
@@ -28,7 +28,7 @@
           See sunrise and sunset times for selected weather stations
         </_listitem>
         <_listitem>
-          See current phase of the Moon
+          See current phase of the moon
         </_listitem>
         <_listitem>
           Select between different icon sizes, icon sets, colors and view modes
@@ -137,8 +137,8 @@
 	select font color.
       </_para>
       <_para>
-	<display_text>Background color:</display_text> setting defines used
-	background color for icons.  Color selection works same way as selecting
+	<display_text>Background color:</display_text> setting defines the
+	background color used for icons.  Color selection works same way as selecting
 	font color.  Background color is not selectable if transparency is used.
       </_para>
       <_para>
@@ -259,8 +259,7 @@
       </_para>
       <_para>
 	You should have received a copy of the GNU General Public License
-	along with this program; if not, write to the Free Software
-	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+        along with this program.  If not, see: http://www.gnu.org/licenses
       </_para>
     </topic>
   </folder>

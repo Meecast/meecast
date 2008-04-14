@@ -173,6 +173,7 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
     gboolean    valid;
     gchar       *station_name = NULL,
                 *station_code = NULL;
+    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 
     if(!strcmp((char*)user_data, app->config->current_station_id))
 	return TRUE;
@@ -785,7 +786,6 @@ void menu_init(void){
 	station_name && (g_free(station_name) , station_name = NULL);
         g_signal_connect(G_OBJECT(menu_item), "activate",
                     	    G_CALLBACK(change_station_select), station_code);
-	station_code && (g_free(station_code) , station_code = NULL);
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
                                                         &iter);
     }

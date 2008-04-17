@@ -48,7 +48,7 @@
 #define SIG_TIMER_EXPIRATION SIGRTMIN
 #define CLOCK_TYPE CLOCK_MONOTONIC
 /*******************************************************************************/
-static GtkWidget    *countrys,
+static GtkWidget    *countries,
 		    *states,
 		    *stations,
 		    *icon_size,
@@ -168,8 +168,8 @@ void changed_country(void){
     if(app->stations_list)
 	gtk_list_store_clear(app->stations_list);    
 
-    if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(countrys), &iter)){
-	model = gtk_combo_box_get_model(GTK_COMBO_BOX(countrys));
+    if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(countries), &iter)){
+	model = gtk_combo_box_get_model(GTK_COMBO_BOX(countries));
 	gtk_tree_model_get(model, &iter, 0, &country_name,
 					 1, &regions_start,
 					 2, &regions_end,
@@ -604,7 +604,7 @@ void weather_window_add_station(GtkWidget *widget, GdkEvent *event,
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
         			1, 2, 0, 1);
-    gtk_container_add(GTK_CONTAINER(label),countrys = gtk_combo_box_new_text());
+    gtk_container_add(GTK_CONTAINER(label),countries = gtk_combo_box_new_text());
 /* Add State */
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(_("State(Province):")),
@@ -622,18 +622,18 @@ void weather_window_add_station(GtkWidget *widget, GdkEvent *event,
         			1, 2, 3, 4);
     gtk_container_add(GTK_CONTAINER(label),stations = gtk_combo_box_new_text());
     gtk_widget_show_all(window_add_station);
-    gtk_combo_box_set_row_span_column((GtkComboBox*)countrys, 0);
-    gtk_combo_box_set_model((GtkComboBox*)countrys, (GtkTreeModel*)app->countrys_list);
-    gtk_widget_set_size_request(GTK_WIDGET(countrys), 350, -1);
+    gtk_combo_box_set_row_span_column((GtkComboBox*)countries, 0);
+    gtk_combo_box_set_model((GtkComboBox*)countries, (GtkTreeModel*)app->countrys_list);
+    gtk_widget_set_size_request(GTK_WIDGET(countries), 350, -1);
     gtk_widget_set_size_request(GTK_WIDGET(states), 350, -1);
     gtk_widget_set_size_request(GTK_WIDGET(stations), 350, -1);
 /* Set default value to country combo_box */
-    gtk_combo_box_set_active(GTK_COMBO_BOX(countrys),
+    gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
 				get_active_item_index((GtkTreeModel*)app->countrys_list,
 				    -1, app->config->current_country, TRUE));
     changed_country();
     changed_state();
-    g_signal_connect((gpointer)countrys, "changed",
+    g_signal_connect((gpointer)countries, "changed",
             		G_CALLBACK (changed_country), NULL);
     g_signal_connect((gpointer)states, "changed",
                 	G_CALLBACK (changed_state), NULL);
@@ -1781,6 +1781,20 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 		*stations_list_with_buttons_hbox = NULL,
 		*up_down_delete_buttons_vbox = NULL,
 		*rename_entry = NULL,
+		*station_name = NULL,
+		*station_code = NULL,
+		*add_station_button = NULL,
+		*add_station_button1 = NULL,
+		*add_station_button2 = NULL,
+		*name_code_add_button_hbox = NULL,
+		*label_and_station_name_hbox = NULL,
+		*label_and_station_code_hbox = NULL,
+		*labels_name_code_vbox = NULL,
+		*countries_regions_stations_add_hbox = NULL,
+		*countries_regions_stations_vbox = NULL,
+		*stations_and_add_button_hbox = NULL,
+		*countries_hbox = NULL,
+		*states_hbox = NULL,
 #ifdef HILDON
                 *label_gps = NULL,
                 *hbox_gps = NULL,
@@ -1802,6 +1816,9 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 		*up_icon = NULL,
 		*down_icon = NULL,
 		*delete_icon = NULL,
+		*add_icon = NULL,
+		*add_icon1 = NULL,
+		*add_icon2 = NULL,
 		*up_station_button = NULL,
 		*down_station_button = NULL,
 		*delete_station_button = NULL;
@@ -1859,7 +1876,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 					GTK_SHADOW_ETCHED_IN);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                  GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), -1, 300);
+    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 300, 300);
 
     station_list_view = create_tree_view(app->user_stations_list);
     gtk_container_add(GTK_CONTAINER(scrolled_window),
@@ -1867,7 +1884,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(stations_list_with_buttons_hbox), scrolled_window,
                         TRUE, TRUE, 0);
 /* Up Station and Down Station and Delete Station Buttons */
-    up_down_delete_buttons_vbox = gtk_vbox_new(FALSE, 0);
+    up_down_delete_buttons_vbox = gtk_vbox_new(FALSE, 5);
     gtk_box_pack_start(GTK_BOX(stations_list_with_buttons_hbox),
 			up_down_delete_buttons_vbox,
                         FALSE, FALSE, 0);
@@ -1928,6 +1945,123 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_table_attach_defaults(GTK_TABLE(table),
 				right_vbox = gtk_vbox_new(FALSE, 0),
         			1, 2, 1, 2);
+    /* hbox for fields and add button */
+    gtk_box_pack_start(GTK_BOX(right_vbox),
+			label_and_station_name_hbox = gtk_hbox_new(FALSE, 0),
+                        FALSE, TRUE, 5);
+    /* label By name */
+    gtk_box_pack_start(GTK_BOX(label_and_station_name_hbox),
+			gtk_label_new(_("Name:       ")),
+                        TRUE, TRUE, 0);
+    /* entry for station name */
+    gtk_box_pack_start(GTK_BOX(label_and_station_name_hbox),
+			station_name = gtk_entry_new(),
+                        TRUE, TRUE, 0);
+    /* add station button */
+    /* prepare icon */
+    gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
+        	                        	"qgn_indi_gene_plus", 16, 0);
+    add_icon = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
+    gtk_icon_info_free(gtkicon_arrow);
+/* prepare add_station_button */    
+    add_station_button = gtk_button_new();
+    gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button), FALSE);
+    gtk_container_add(GTK_CONTAINER(add_station_button), add_icon);
+    gtk_widget_set_events(add_station_button, GDK_BUTTON_PRESS_MASK);
+    gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button), FALSE);
+//    g_signal_connect(add_station_button, "clicked",
+//			G_CALLBACK(up_key_handler), (gpointer)station_list_view);
+    gtk_box_pack_start(GTK_BOX(label_and_station_name_hbox),
+			add_station_button,
+			FALSE, FALSE, 5);
+    /* hbox for station code and label */
+    gtk_box_pack_start(GTK_BOX(right_vbox),
+			label_and_station_code_hbox = gtk_hbox_new(FALSE, 0),
+                        FALSE, TRUE, 5);
+    /* label By (Zip) code */
+    gtk_box_pack_start(GTK_BOX(label_and_station_code_hbox),
+			gtk_label_new(_("Code (Zip):")),
+                        TRUE, TRUE, 0);
+    /* entry for station name */
+    gtk_box_pack_start(GTK_BOX(label_and_station_code_hbox),
+			station_code = gtk_entry_new(),
+                        TRUE, TRUE, 0);
+    /* add button */
+    /* prepare icon */
+    gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
+        	                        	"qgn_indi_gene_plus", 16, 0);
+    add_icon1 = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
+    gtk_icon_info_free(gtkicon_arrow);
+/* prepare add_station_button */    
+    add_station_button1 = gtk_button_new();
+    gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button1), FALSE);
+    gtk_container_add(GTK_CONTAINER(add_station_button1), add_icon1);
+    gtk_widget_set_events(add_station_button1, GDK_BUTTON_PRESS_MASK);
+    gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button1), FALSE);
+//    g_signal_connect(add_station_button1, "clicked",
+//			G_CALLBACK(up_key_handler), (gpointer)station_list_view);
+    gtk_box_pack_start(GTK_BOX(label_and_station_code_hbox),
+			add_station_button1,
+			FALSE, FALSE, 5);    
+    /* Label */
+    gtk_box_pack_start(GTK_BOX(right_vbox),
+			gtk_label_new(_("From the list:")),
+                        FALSE, TRUE, 20);
+    /* countries list  */
+    countries = gtk_combo_box_new_text();
+    gtk_combo_box_set_row_span_column((GtkComboBox*)countries, 0);
+    gtk_combo_box_set_model((GtkComboBox*)countries,
+			    (GtkTreeModel*)app->countrys_list);
+    gtk_box_pack_start(GTK_BOX(right_vbox),
+			countries_hbox = gtk_hbox_new(FALSE, 0),
+			FALSE, TRUE, 10);
+    gtk_box_pack_start(GTK_BOX(countries_hbox),
+			countries, TRUE, TRUE, 10);
+    /* states list */
+    states = gtk_combo_box_new_text();
+    gtk_box_pack_start(GTK_BOX(right_vbox),
+			states_hbox = gtk_hbox_new(FALSE, 0),
+			FALSE, TRUE, 10);
+    gtk_box_pack_start(GTK_BOX(states_hbox),
+			states, TRUE, TRUE, 10);
+    /* stations list */
+    stations = gtk_combo_box_new_text();
+    /* add button */
+    /* prepare icon */
+    gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
+        	                        	"qgn_indi_gene_plus", 16, 0);
+    add_icon2 = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
+    gtk_icon_info_free(gtkicon_arrow);
+/* prepare add_station_button */    
+    add_station_button2 = gtk_button_new();
+    gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button2), FALSE);
+    gtk_container_add(GTK_CONTAINER(add_station_button2), add_icon2);
+    gtk_widget_set_events(add_station_button2, GDK_BUTTON_PRESS_MASK);
+    gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button2), FALSE);
+//    g_signal_connect(add_station_button2, "clicked",
+//			G_CALLBACK(up_key_handler), (gpointer)station_list_view);
+    gtk_box_pack_start(GTK_BOX(right_vbox),
+			stations_and_add_button_hbox = gtk_hbox_new(FALSE, 0),
+			FALSE, TRUE, 10);
+    /* pack items to the box */
+    gtk_box_pack_start(GTK_BOX(stations_and_add_button_hbox),
+			stations, TRUE, TRUE, 10);
+    gtk_box_pack_start(GTK_BOX(stations_and_add_button_hbox),
+			add_station_button2,
+			FALSE, FALSE, 10);
+
+/* Set default value to country combo_box */
+    gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
+				get_active_item_index((GtkTreeModel*)app->countrys_list,
+				-1, app->config->current_country, TRUE));
+    changed_country();
+    changed_state();
+    g_signal_connect((gpointer)countries, "changed",
+            		G_CALLBACK(changed_country), NULL);
+    g_signal_connect((gpointer)states, "changed",
+                	G_CALLBACK(changed_state), NULL);
+    g_signal_connect((gpointer) stations, "changed",
+            		G_CALLBACK(changed_stations), NULL);
 
     g_signal_connect(station_list_view, "cursor-changed",
                         G_CALLBACK(station_list_view_select_handler),
@@ -1947,7 +2081,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
         			table = gtk_table_new(5, 2, FALSE),
         			label = gtk_label_new(_("Update")));
 
-#ifdef RELEASE
+#ifndef RELEASE
 /* Events list tab */
     memset(tmp_buff, 0, sizeof(tmp_buff));
     print_list(tmp_buff, sizeof(tmp_buff) - 1);

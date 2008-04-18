@@ -75,6 +75,7 @@ void apply_button_handler(GtkButton *button, gpointer user_data);
 void about_button_handler(GtkButton *button, gpointer user_data);
 void close_button_handler(GtkButton *button, gpointer user_data);
 void back_button_handler(GtkButton *button, gpointer user_data);
+void add_button_handler(GtkButton *button, gpointer user_data);
 /*******************************************************************************/
 extern void remove_periodic_event(void);
 extern void weather_initialize_dbus(void);

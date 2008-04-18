@@ -28,6 +28,7 @@
 #include "weather-settings.h"
 #include "weather-locations.h"
 #include "weather-help.h"
+#include "weather-utils.h"
 #include "build"
 #if defined (BSD) && !_POSIX_SOURCE
     #include <sys/dir.h>
@@ -1845,6 +1846,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 
 /* Main window */
     window_config = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    GLADE_HOOKUP_OBJECT_NO_REF(window_config, window_config, "window_config");
     gtk_window_set_title(GTK_WINDOW(window_config),
 			    _("Other Maemo Weather Settings"));
     gtk_window_set_modal(GTK_WINDOW(window_config), TRUE);
@@ -1957,6 +1959,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(label_and_station_name_hbox),
 			station_name = gtk_entry_new(),
                         TRUE, TRUE, 0);
+    GLADE_HOOKUP_OBJECT(window_config, station_name, "station_name_entry");
     /* add station button */
     /* prepare icon */
     gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
@@ -1969,8 +1972,8 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_container_add(GTK_CONTAINER(add_station_button), add_icon);
     gtk_widget_set_events(add_station_button, GDK_BUTTON_PRESS_MASK);
     gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button), FALSE);
-//    g_signal_connect(add_station_button, "clicked",
-//			G_CALLBACK(up_key_handler), (gpointer)station_list_view);
+    g_signal_connect(add_station_button, "clicked",
+			G_CALLBACK(add_button_handler), (gpointer)window_config);
     gtk_box_pack_start(GTK_BOX(label_and_station_name_hbox),
 			add_station_button,
 			FALSE, FALSE, 5);
@@ -1986,6 +1989,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(label_and_station_code_hbox),
 			station_code = gtk_entry_new(),
                         TRUE, TRUE, 0);
+    GLADE_HOOKUP_OBJECT(window_config, station_code, "station_code_entry");
     /* add button */
     /* prepare icon */
     gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
@@ -1998,8 +2002,8 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_container_add(GTK_CONTAINER(add_station_button1), add_icon1);
     gtk_widget_set_events(add_station_button1, GDK_BUTTON_PRESS_MASK);
     gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button1), FALSE);
-//    g_signal_connect(add_station_button1, "clicked",
-//			G_CALLBACK(up_key_handler), (gpointer)station_list_view);
+    g_signal_connect(add_station_button1, "clicked",
+			G_CALLBACK(add_button_handler), (gpointer)window_config);
     gtk_box_pack_start(GTK_BOX(label_and_station_code_hbox),
 			add_station_button1,
 			FALSE, FALSE, 5);    
@@ -2026,6 +2030,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 			states, TRUE, TRUE, 10);
     /* stations list */
     stations = gtk_combo_box_new_text();
+    GLADE_HOOKUP_OBJECT(window_config, stations, "stations");
     /* add button */
     /* prepare icon */
     gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
@@ -2038,8 +2043,8 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_container_add(GTK_CONTAINER(add_station_button2), add_icon2);
     gtk_widget_set_events(add_station_button2, GDK_BUTTON_PRESS_MASK);
     gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button2), FALSE);
-//    g_signal_connect(add_station_button2, "clicked",
-//			G_CALLBACK(up_key_handler), (gpointer)station_list_view);
+    g_signal_connect(add_station_button2, "clicked",
+			G_CALLBACK(add_button_handler), (gpointer)window_config);
     gtk_box_pack_start(GTK_BOX(right_vbox),
 			stations_and_add_button_hbox = gtk_hbox_new(FALSE, 0),
 			FALSE, TRUE, 10);
@@ -2140,6 +2145,11 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 }
 /*******************************************************************************/
 void apply_button_handler(GtkButton *button, gpointer user_data){
+    GtkWidget	*tmp;
+    
+    tmp = lookup_widget(GTK_WIDGET(user_data), "window_config");
+    fprintf(stderr, "\n>>>>>>>>>%p", user_data);
+    fprintf(stderr, "\n>>>>>>>>>%p\n", tmp);
 }
 /*******************************************************************************/
 void close_button_handler(GtkButton *button, gpointer user_data){
@@ -2151,5 +2161,9 @@ void about_button_handler(GtkButton *button, gpointer user_data){
 }
 /*******************************************************************************/
 void back_button_handler(GtkButton *button, gpointer user_data){
+}
+/*******************************************************************************/
+void add_button_handler(GtkButton *button, gpointer user_data){
+    fprintf(stderr, "\ninside handler\n");
 }
 /*******************************************************************************/

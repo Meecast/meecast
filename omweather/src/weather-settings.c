@@ -1939,6 +1939,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
                         TRUE, TRUE, 0);
 /* Rename station entry */
     rename_entry = gtk_entry_new();
+    GLADE_HOOKUP_OBJECT(window_config, rename_entry, "rename_entry");
     gtk_box_pack_start(GTK_BOX(left_vbox), rename_entry,
 			TRUE, TRUE, 0);
     /* right side vbox */
@@ -2149,6 +2150,44 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 }
 /*******************************************************************************/
 void apply_button_handler(GtkButton *button, gpointer user_data){
+    GtkWidget		*config_window = GTK_WIDGET(user_data),
+		        *rename_entry = NULL;
+    gboolean		valid = FALSE;
+    GtkTreeIter		iter;
+    gchar		*new_station_name = NULL,
+			*station_name = NULL;
+
+/* check where the station name is changed */
+    rename_entry = lookup_widget(config_window, "rename_entry");
+    if(rename_entry){
+	new_station_name = (gchar*)gtk_entry_get_text(GTK_ENTRY(rename_entry));
+	if(strcmp(app->config->current_station_name, new_station_name)){
+    	    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                                  &iter);
+	    while(valid){
+    		gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                        	    &iter, 0, &station_name, -1);
+    		if(!strcmp(app->config->current_station_name, station_name)){
+		    /* update current station name */
+		    g_free(station_name);
+		    gtk_list_store_remove(app->user_stations_list, &iter);
+                    add_station_to_user_list(g_strdup(new_station_name),
+					    app->config->current_station_id, FALSE);
+		    if(app->config->current_station_name)
+			g_free(app->config->current_station_name);
+		    app->config->current_station_name = g_strdup(new_station_name);
+		    new_config_save(app->config);
+		    flag_update_station = TRUE;
+		    weather_frame_update(TRUE);
+        	    break;
+		}
+		else
+		    g_free(station_name);
+		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+                                    	    &iter);
+	    }
+	}
+    }
 }
 /*******************************************************************************/
 void close_button_handler(GtkButton *button, gpointer user_data){

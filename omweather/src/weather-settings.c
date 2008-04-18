@@ -66,7 +66,7 @@ static GtkWidget    *countries,
 		    *time_2switch_list,
 		    *station_list_view,
 		    *window_add_station;
-static char flag_update_station = FALSE; /* Flag update station list */
+static gboolean flag_update_station = FALSE; /* Flag update station list */
 static gchar *_weather_station_id_temp; /* Temporary value for weather_station_id */
 
 /*******************************************************************************/
@@ -1856,6 +1856,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_container_add(GTK_CONTAINER(window_config), vbox);
 /* create tabs widget */
     notebook = gtk_notebook_new();
+    GLADE_HOOKUP_OBJECT(window_config, notebook, "notebook");
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
 /* Locations tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
@@ -1968,6 +1969,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_icon_info_free(gtkicon_arrow);
 /* prepare add_station_button */    
     add_station_button = gtk_button_new();
+    gtk_widget_set_name(add_station_button, "add_name");
     gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button), FALSE);
     gtk_container_add(GTK_CONTAINER(add_station_button), add_icon);
     gtk_widget_set_events(add_station_button, GDK_BUTTON_PRESS_MASK);
@@ -1998,6 +2000,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_icon_info_free(gtkicon_arrow);
 /* prepare add_station_button */    
     add_station_button1 = gtk_button_new();
+    gtk_widget_set_name(add_station_button1, "add_code");
     gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button1), FALSE);
     gtk_container_add(GTK_CONTAINER(add_station_button1), add_icon1);
     gtk_widget_set_events(add_station_button1, GDK_BUTTON_PRESS_MASK);
@@ -2039,6 +2042,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_icon_info_free(gtkicon_arrow);
 /* prepare add_station_button */    
     add_station_button2 = gtk_button_new();
+    gtk_widget_set_name(add_station_button2, "add_from_list");
     gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button2), FALSE);
     gtk_container_add(GTK_CONTAINER(add_station_button2), add_icon2);
     gtk_widget_set_events(add_station_button2, GDK_BUTTON_PRESS_MASK);
@@ -2145,15 +2149,17 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 }
 /*******************************************************************************/
 void apply_button_handler(GtkButton *button, gpointer user_data){
-    GtkWidget	*tmp;
-    
-    tmp = lookup_widget(GTK_WIDGET(user_data), "window_config");
-    fprintf(stderr, "\n>>>>>>>>>%p", user_data);
-    fprintf(stderr, "\n>>>>>>>>>%p\n", tmp);
 }
 /*******************************************************************************/
 void close_button_handler(GtkButton *button, gpointer user_data){
-    gtk_widget_destroy(GTK_WIDGET(user_data));
+    GtkWidget	*config_window = GTK_WIDGET(user_data),
+		*notebook = NULL;
+
+    notebook = lookup_widget(config_window, "notebook");
+    if(notebook)
+	app->config->current_settings_page = 
+		gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook));
+    gtk_widget_destroy(config_window);
 }
 /*******************************************************************************/
 void about_button_handler(GtkButton *button, gpointer user_data){
@@ -2164,6 +2170,40 @@ void back_button_handler(GtkButton *button, gpointer user_data){
 }
 /*******************************************************************************/
 void add_button_handler(GtkButton *button, gpointer user_data){
+    GtkWidget		*config = GTK_WIDGET(user_data),
+			*station_name_entry = NULL,
+		        *station_code_entry = NULL,
+			*stations = NULL;
+    gchar		*pressed_button = NULL;
+    GtkTreeModel	*model = NULL;
+    GtkTreeIter		iter;
+    gchar		*station_name = NULL,
+			*station_code = NULL;
+
+    /* get pressed button name */    
+    pressed_button = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
+    if(!strcmp((char*)pressed_button, "add_name") ||
+	    !strcmp((char*)pressed_button, "add_code")){
+	station_name_entry = lookup_widget(config, "station_name_entry");
+	station_code_entry = lookup_widget(config, "station_code_entry");
+    }
+    else{
+	stations = lookup_widget(config, "stations");
+	if(stations){
+	    if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(stations), &iter)){
+		model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
+		gtk_tree_model_get(model, &iter, 0, &station_name,
+					    1, &station_code, -1);
+		add_station_to_user_list(station_name, station_code, FALSE);
+		g_free(station_name);
+		g_free(station_code);
+		new_config_save(app->config);
+		flag_update_station = TRUE;
+		weather_frame_update(TRUE);
+		gtk_combo_box_set_active((GtkComboBox*)stations, -1);
+	    }
+	}
+    }
     fprintf(stderr, "\ninside handler\n");
 }
 /*******************************************************************************/

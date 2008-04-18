@@ -963,7 +963,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /* draw arrows */
     if(!app->config->hide_arrows && user_stations_list_has_two_or_more_elements){
 	/* create previos station button */
-	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&lt;</span>",
+	sprintf(buffer, "<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>&lt;</span>",
 		app->config->font_color.red >> 8,
 		app->config->font_color.green >> 8,
 		app->config->font_color.blue >> 8);
@@ -983,7 +983,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 
 	buffer[0] = 0;
 	/* create next station button */
-	sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>&gt;</span>",
+	sprintf(buffer, "<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>&gt;</span>",
 		app->config->font_color.red >> 8,
 		app->config->font_color.green >> 8,
 		app->config->font_color.blue >> 8);
@@ -1004,13 +1004,13 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     if(!app->config->hide_station_name){
 /* create station name button */
         if(!st_name)
-	    sprintf(buffer, "<span weight=\"bold\" foreground='#%02x%02x%02x'>%s</span>",
+	    sprintf(buffer, "<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>%s</span>",
 		    app->config->font_color.red >> 8,
 		    app->config->font_color.green >> 8,
 		    app->config->font_color.blue >> 8,
 		    (char*)hash_table_find("NO STATION"));
         else
-	    sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s</span>",
+	    sprintf(buffer,"<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>%s</span>",
         	    app->config->font_color.red >> 8,
 		    app->config->font_color.green >> 8,
 		    app->config->font_color.blue >> 8, st_name);

@@ -9,11 +9,11 @@
       <para>Other Maemo Weather (OMWeather) è un applet meteo per Nokia Internet Tablets. Esso può essere utilizzato per:</para>
       <list>
         <listitem>Check dettagliate previsioni meteorologiche per un massimo di 10 giorni</listitem>
-        <listitem>Per aggiornare automaticamente le informazioni meteorologiche da Internet (dati disponibili da xoap.weather.com)</listitem>
+        <listitem>Update weather information automatically from the Internet (Data provided by xoap.weather.com)</listitem>
         <listitem>Configurare più vicina stazione meteorologica automatica utilizzando le coordinate GPS</listitem>
         <listitem>Facilmente personalizzato per selezionare stazione meteo ordinati dal menu a discesa</listitem>
         <listitem>Vedere l'alba e il tramonto volte selezionato per stazioni meteorologiche</listitem>
-        <listitem>Vedi fase attuale della Luna</listitem>
+        <listitem>See current phase of the moon</listitem>
         <listitem>Selezionare tra le diverse dimensioni icona, icona fissa, i colori e la modalità di visualizzazione</listitem>
         <listitem>Vedere alcune caramelle con occhio trasparenza opzione</listitem>
        </list>
@@ -43,7 +43,7 @@
       <para><display_text>Icon set:</display_text> selects which icon set is used. You can install more icon sets with the application manager (if Maemo extras repository is configured) or going to OMWeathers Maemo garage page (http://omweather.garage.maemo.org/) and downloading icon sets directly from there.</para>
       <para><display_text>Icona dimensioni:</display_text> definisce icona dimensione. Dimensioni può essere piccolo, piccolo, medio, grande o gigante.</para>
       <para><display_text>Font color:</display_text> defines applets font color. Touching color button will open <display_text>Pick a Color</display_text> dialog where it's possible to select font color.</para>
-      <para><display_text>Colore di sfondo:</display_text> impostazione definisce il colore di sfondo usato per le icone. Colore di selezione allo stesso modo in cui funziona la selezione colore. Colore di sfondo non è selezionabile, se la trasparenza è utilizzato.</para>
+      <para><display_text>Background color:</display_text> setting defines the background color used for icons. Color selection works same way as selecting font color. Background color is not selectable if transparency is used.</para>
       <para><display_text>Transparency:</display_text> selection will show background image behind the icons.</para>
       <para><display_text>Show only current weather on first icon:</display_text> selection will show current weather on first icon and forecast for a rest of the day is shown on the next icon.</para>
       <para><display_text>Hide station name:</display_text> selection will controls if station name are shown on the applet.</para>
@@ -76,13 +76,13 @@
     <topic>
       <topictitle>Chi OMWeather</topictitle>
       <context contextUID="help_omweather_about"/>
-      <para>Attuale Versione: 0.20</para>
+      <para>Attuale Versione: 0.21</para>
       <para>OMWeather è stato sviluppato da Vlad Vasiliev (vlad@gas.by).</para>
       <para>Copyright © 2006-2008 Vlad Vasiliev, Pavel Fialko.</para>
       <para>Meteo dati forniti da: xoap.weather.com</para>
       <para>This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.</para>
       <para>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</para>
-      <para>You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA</para>
+      <para>You should have received a copy of the GNU General Public License along with this program. If not, see: http://www.gnu.org/licenses</para>
     </topic>
   </folder>
 </ossohelpsource>

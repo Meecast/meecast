@@ -526,8 +526,8 @@ void weather_buttons_fill(gboolean check_error){
 	if(app->buttons[i])
 	    g_signal_connect(app->buttons[i]->button,
 				"button_release_event",
-				G_CALLBACK(show_popup_window_handler),
-				NULL); 
+				G_CALLBACK(weather_window_popup),
+				(gpointer)i);
     }/* end for */
     if(app->config->current_station_id)
 	tmp_station_name = app->config->current_station_name;

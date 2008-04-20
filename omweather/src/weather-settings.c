@@ -2108,7 +2108,8 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_button_set_relief(GTK_BUTTON(back_button), GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click(GTK_BUTTON(back_button), FALSE);
     g_signal_connect(back_button, "clicked",
-                        G_CALLBACK(back_button_handler), NULL);
+                        G_CALLBACK(back_button_handler),
+			(gpointer)window_config);
     /* About buton */
     about_button = gtk_button_new_with_label(_("About"));
     gtk_button_set_relief(GTK_BUTTON(about_button), GTK_RELIEF_NONE);
@@ -2120,7 +2121,8 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_button_set_relief(GTK_BUTTON(apply_button), GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click(GTK_BUTTON(apply_button), FALSE);
     g_signal_connect(GTK_BUTTON(apply_button), "clicked",
-                        G_CALLBACK(apply_button_handler), (gpointer)window_config);
+                        G_CALLBACK(apply_button_handler),
+			(gpointer)window_config);
     /* Close button */
     close_button = gtk_button_new_with_label(_("Close"));
     gtk_button_set_relief(GTK_BUTTON(close_button), GTK_RELIEF_NONE);
@@ -2206,6 +2208,8 @@ void about_button_handler(GtkButton *button, gpointer user_data){
 }
 /*******************************************************************************/
 void back_button_handler(GtkButton *button, gpointer user_data){
+    gtk_widget_destroy(GTK_WIDGET(user_data));
+    weather_window_popup(NULL, NULL, NULL);
 }
 /*******************************************************************************/
 void add_button_handler(GtkButton *button, gpointer user_data){

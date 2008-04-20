@@ -92,5 +92,6 @@ extern gboolean switch_timer_handler(gpointer data);
 extern void help_activated_handler(GtkWidget *window, gchar *help_id);
 extern void update_weather(void);
 extern GtkWidget* lookup_widget(GtkWidget *widget, const gchar *widget_name);
+extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 /*******************************************************************************/
 #endif

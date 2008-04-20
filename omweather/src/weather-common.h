@@ -71,6 +71,7 @@
 #define REGIONSFILE		"/usr/share/omweather/regions.list"
 #define LOCATIONSFILE		"/usr/share/omweather/locations.list"
 #define ICONS_PATH		"/usr/share/omweather/icons/"
+#define SUPER_GIANT_ICON_SIZE	256
 #define GIANT_ICON_SIZE		128
 #define LARGE_ICON_SIZE		96
 #define BIG_ICON_SIZE		80

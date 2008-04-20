@@ -400,11 +400,9 @@ int new_parse_weather_com_xml(void){
 					    if(!xmlStrcmp(child_node3->name, (const xmlChar *)"t") ){
 						temp_xml_string = xmlNodeGetContent(child_node3);
 						if(!day)
-						    itm = create_item("night_title",
-							    (char*)hash_table_find(temp_xml_string));
+						    itm = create_item("night_title", (char*)temp_xml_string);
 						else
-						    itm = create_item("day_title",
-                                    			    (char*)hash_table_find(temp_xml_string));													    
+						    itm = create_item("day_title", (char*)temp_xml_string);
 						xmlFree(temp_xml_string);
 						add_item2object(&(wcs.day_data[count_day]), itm);
 						continue;
@@ -440,10 +438,10 @@ int new_parse_weather_com_xml(void){
 							    temp_xml_string = xmlNodeGetContent(child_node4);
 							    if(!day)
 								itm = create_item("night_wind_title",
-									    (char*)hash_table_find(temp_xml_string));
+									    (char*)temp_xml_string);
 							    else
     								itm = create_item("day_wind_title",
-									    (char*)hash_table_find(temp_xml_string));
+									    (char*)temp_xml_string);
 							    xmlFree(temp_xml_string);
 							    add_item2object(&(wcs.day_data[count_day]), itm);
 							    continue;

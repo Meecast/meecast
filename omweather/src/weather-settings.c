@@ -1401,7 +1401,7 @@ int create_icon_set_list(GtkWidget *store){
 	}
 	closedir(dir_fd);
 	/* check if selected icon set not found */
-	temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(iconset));
+	temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(store));
 	if(!temp_string)
 	    gtk_combo_box_set_active(GTK_COMBO_BOX(store), 0);
 	else 
@@ -1796,6 +1796,21 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 		*stations_and_add_button_hbox = NULL,
 		*countries_hbox = NULL,
 		*states_hbox = NULL,
+		*interface_vbox = NULL,
+		*visible_items_label_number_hbox = NULL,
+		*visible_items_number = NULL,
+		*layout_label_list_hbox = NULL,
+		*layout_type = NULL,
+		*icon_set_label_list_hbox = NULL,
+		*icon_set = NULL,
+		*icon_size_label_number_hbox = NULL,
+		*icon_size = NULL,
+		*hide_station_name = NULL,
+		*hide_arrows = NULL,
+		*hide_station_name_label_button_hbox = NULL,
+		*hide_arrows_label_button_hbox = NULL,
+		*transparency = NULL,
+		*transparency_label_button_hbox = NULL,
 #ifdef HILDON
                 *label_gps = NULL,
                 *hbox_gps = NULL,
@@ -1804,13 +1819,13 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 		*time_update_label = NULL,
 		*table = NULL,
 		*font_color = NULL,
+		*font_color_label_button_hbox = NULL,
 		*background_color = NULL,
 		*chk_transparency = NULL,
 		*chk_downloading_after_connection = NULL,
-		*separate_button = NULL,
+		*separate = NULL,
+		*separate_label_button_hbox = NULL,
 		*swap_temperature_button = NULL,
-		*hide_station_name = NULL,
-		*hide_arrows = NULL,
 		*scrolled_window = NULL,
 		*button_add = NULL,
 		*button_ren = NULL,
@@ -1851,7 +1866,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 			    _("Other Maemo Weather Settings"));
     gtk_window_set_modal(GTK_WINDOW(window_config), TRUE);
     gtk_window_fullscreen(GTK_WINDOW(window_config));
-    /* create frame vbox */    
+    /* create frame vbox */
     vbox = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(window_config), vbox);
 /* create tabs widget */
@@ -1879,7 +1894,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 					GTK_SHADOW_ETCHED_IN);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                  GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 300, 300);
+    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 280, 300);
 
     station_list_view = create_tree_view(app->user_stations_list);
     gtk_container_add(GTK_CONTAINER(scrolled_window),
@@ -2078,9 +2093,184 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 			rename_entry);
 /* Interface tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			table = gtk_table_new(7, 4, FALSE),
+        			interface_vbox = gtk_vbox_new(FALSE, 0),
         			label = gtk_label_new(_("Interface")));
-
+    /* Visible items */
+    visible_items_label_number_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_vbox),
+			visible_items_label_number_hbox, TRUE, TRUE, 0);
+    /* Visible items label */
+    gtk_box_pack_start(GTK_BOX(visible_items_label_number_hbox),
+			gtk_label_new(_("Visible items")), TRUE, TRUE, 0);
+    /* Visible items number */
+    visible_items_number = hildon_controlbar_new();
+    GLADE_HOOKUP_OBJECT(window_config, visible_items_number, "visible_items_number");
+    hildon_controlbar_set_min(visible_items_number, 1);
+    hildon_controlbar_set_max(visible_items_number, Max_count_weather_day);
+    hildon_controlbar_set_value(visible_items_number, app->config->days_to_show);
+    gtk_box_pack_start(GTK_BOX(visible_items_label_number_hbox),
+			visible_items_number, TRUE, TRUE, 5);
+    /* Layout */
+    layout_label_list_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_vbox),
+			layout_label_list_hbox, TRUE, TRUE, 0);
+    /* Layout label */
+    gtk_box_pack_start(GTK_BOX(layout_label_list_hbox),
+			gtk_label_new(_("Layout")), TRUE, TRUE, 0);
+    /* Layout type */
+    layout_type = gtk_combo_box_new_text();
+    GLADE_HOOKUP_OBJECT(window_config, layout_type, "layout_type");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One row"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One column"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two rows"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two columns"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Combination"));    
+    switch(app->config->icons_layout){
+	default:
+	case ONE_ROW: 	  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 0);break;
+	case ONE_COLUMN:  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 1);break;
+	case TWO_ROWS:    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 2);break;
+	case TWO_COLUMNS: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 3);break;
+	case COMBINATION: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 4);break;	
+    }
+    gtk_box_pack_start(GTK_BOX(layout_label_list_hbox),
+			layout_type, TRUE, TRUE, 5);
+    /* Icon set */
+    icon_set_label_list_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_vbox),
+			icon_set_label_list_hbox, TRUE, TRUE, 0);
+    /* Layout label */
+    gtk_box_pack_start(GTK_BOX(icon_set_label_list_hbox),
+			gtk_label_new(_("Icon set")), TRUE, TRUE, 0);
+    /* Icon set list */
+    icon_set = gtk_combo_box_new_text();
+    GLADE_HOOKUP_OBJECT(window_config, icon_set, "icon_set");
+/* add icons set to list */
+    if(create_icon_set_list(icon_set) < 2)
+	gtk_widget_set_sensitive(icon_set, FALSE);
+    else
+	gtk_widget_set_sensitive(icon_set, TRUE);
+    gtk_box_pack_start(GTK_BOX(icon_set_label_list_hbox),
+			icon_set, TRUE, TRUE, 5);
+    /* Icon size */
+    icon_size_label_number_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_vbox),
+			icon_size_label_number_hbox, TRUE, TRUE, 0);
+    /* Icon size label */
+    gtk_box_pack_start(GTK_BOX(icon_size_label_number_hbox),
+			gtk_label_new(_("Icon size")), TRUE, TRUE, 0);
+    /* Icon size number */
+    icon_size = hildon_controlbar_new();
+    GLADE_HOOKUP_OBJECT(window_config, icon_size, "icon_size");
+    hildon_controlbar_set_min(icon_size, 1);
+    hildon_controlbar_set_max(icon_size, 5);
+    switch(app->config->icons_size){
+	case TINY: hildon_controlbar_set_value(icon_size, TINY); break;
+	case SMALL: hildon_controlbar_set_value(icon_size, SMALL); break;
+	case MEDIUM: hildon_controlbar_set_value(icon_size, MEDIUM); break;
+	default:
+	case LARGE: hildon_controlbar_set_value(icon_size, LARGE); break;
+	case GIANT: hildon_controlbar_set_value(icon_size, GIANT); break;
+    }
+    gtk_box_pack_start(GTK_BOX(icon_size_label_number_hbox),
+			icon_size, TRUE, TRUE, 5);
+    /* Separate weather */
+    separate_label_button_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_vbox),
+			separate_label_button_hbox, TRUE, TRUE, 0);
+    /* Separate label */
+    gtk_box_pack_start(GTK_BOX(separate_label_button_hbox),
+			gtk_label_new(_("Show only current weather on first icon")),
+			TRUE, TRUE, 0);
+    /* Separate button */
+    separate = gtk_check_button_new();
+    GLADE_HOOKUP_OBJECT(window_config, separate, "separate");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(separate),
+        			    app->config->separate);
+    gtk_box_pack_start(GTK_BOX(separate_label_button_hbox),
+			separate,
+			TRUE, TRUE, 5);
+    /* Hide station name */
+    hide_station_name_label_button_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_vbox),
+			hide_station_name_label_button_hbox, TRUE, TRUE, 0);
+    /* Hide station name label */
+    gtk_box_pack_start(GTK_BOX(hide_station_name_label_button_hbox),
+			gtk_label_new(_("Hide station name")),
+			TRUE, TRUE, 0);
+    /* Hide station name button */
+    hide_station_name = gtk_check_button_new();
+    GLADE_HOOKUP_OBJECT(window_config, hide_station_name, "hide_station_name");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_station_name),
+        			    app->config->hide_station_name);
+    gtk_box_pack_start(GTK_BOX(hide_station_name_label_button_hbox),
+			hide_station_name,
+			TRUE, TRUE, 5);
+    /* Hide arrows */
+    hide_arrows_label_button_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_vbox),
+			hide_arrows_label_button_hbox, TRUE, TRUE, 0);
+    /* Hide arrows label */
+    gtk_box_pack_start(GTK_BOX(hide_arrows_label_button_hbox),
+			gtk_label_new(_("Hide arrows")),
+			TRUE, TRUE, 0);
+    /* Hide arrows button */
+    hide_arrows = gtk_check_button_new();
+    GLADE_HOOKUP_OBJECT(window_config, hide_arrows, "hide_arrows");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_arrows),
+        			    app->config->hide_arrows);
+    gtk_box_pack_start(GTK_BOX(hide_arrows_label_button_hbox),
+			hide_arrows,
+			TRUE, TRUE, 5);
+    /* Transparency */
+    transparency_label_button_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_vbox),
+			transparency_label_button_hbox, TRUE, TRUE, 0);
+    /* Transparency label */
+    gtk_box_pack_start(GTK_BOX(transparency_label_button_hbox),
+			gtk_label_new(_("Transparency")),
+			TRUE, TRUE, 0);
+    /* Transparency button */
+    transparency = gtk_check_button_new();
+    GLADE_HOOKUP_OBJECT(window_config, transparency, "transparency");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),
+        			    app->config->transparency);
+    gtk_box_pack_start(GTK_BOX(transparency_label_button_hbox),
+			transparency,
+			FALSE, FALSE, 5);
+    /* Background color */
+    /* Background label */
+    gtk_box_pack_start(GTK_BOX(transparency_label_button_hbox),
+			gtk_label_new(_("Background color")),
+			TRUE, TRUE, 0);
+    /* Background color button */
+    background_color = gtk_color_button_new();
+    GLADE_HOOKUP_OBJECT(window_config, background_color, "background_color");
+    g_signal_connect(GTK_TOGGLE_BUTTON(transparency), "toggled",
+            		    G_CALLBACK(transparency_button_toggled_handler), background_color);
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(background_color), &(app->config->background_color));
+    if((background_color) && app->config->transparency)
+        gtk_widget_set_sensitive(background_color, FALSE);	
+    else
+        gtk_widget_set_sensitive(background_color, TRUE);
+    gtk_box_pack_start(GTK_BOX(transparency_label_button_hbox),
+			background_color,
+			FALSE, FALSE, 5);
+    /* Font color */
+    font_color_label_button_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_vbox),
+			font_color_label_button_hbox, TRUE, TRUE, 0);
+    /* Font color label */
+    gtk_box_pack_start(GTK_BOX(font_color_label_button_hbox),
+			gtk_label_new(_("Font color")),
+			TRUE, TRUE, 0);
+    /* Font color button */
+    font_color = gtk_color_button_new();
+    GLADE_HOOKUP_OBJECT(window_config, font_color, "font_color");
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &(app->config->font_color));
+    gtk_box_pack_start(GTK_BOX(font_color_label_button_hbox),
+			font_color,
+			FALSE, FALSE, 5);
 /* Units tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			table = gtk_table_new(1, 3, FALSE),
@@ -2098,7 +2288,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),
-        			label = gtk_label_new(_("Events")));
+        			label = gtk_label_new("Events"));
 #endif
 /* Bottom buttons box */
     buttons_box = gtk_hbox_new(FALSE, 0);
@@ -2153,11 +2343,22 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 /*******************************************************************************/
 void apply_button_handler(GtkButton *button, gpointer user_data){
     GtkWidget		*config_window = GTK_WIDGET(user_data),
-		        *rename_entry = NULL;
+		        *rename_entry = NULL,
+			*visible_items_number = NULL,
+			*layout_type = NULL,
+			*icon_set = NULL,
+			*icon_size = NULL,
+			*separate = NULL,
+			*hide_station_name = NULL,
+			*hide_arrows = NULL,
+			*transparency = NULL,
+			*background_color = NULL,
+			*font_color = NULL;
     gboolean		valid = FALSE;
     GtkTreeIter		iter;
     gchar		*new_station_name = NULL,
-			*station_name = NULL;
+			*station_name = NULL,
+			*temp_string = NULL;
 
 /* check where the station name is changed */
     rename_entry = lookup_widget(config_window, "rename_entry");
@@ -2178,9 +2379,6 @@ void apply_button_handler(GtkButton *button, gpointer user_data){
 		    if(app->config->current_station_name)
 			g_free(app->config->current_station_name);
 		    app->config->current_station_name = g_strdup(new_station_name);
-		    new_config_save(app->config);
-		    flag_update_station = TRUE;
-		    weather_frame_update(TRUE);
         	    break;
 		}
 		else
@@ -2190,6 +2388,67 @@ void apply_button_handler(GtkButton *button, gpointer user_data){
 	    }
 	}
     }
+/* visible items */
+    visible_items_number = lookup_widget(config_window, "visible_items_number");
+    if(visible_items_number){
+	app->config->days_to_show = hildon_controlbar_get_value(visible_items_number);
+	(!app->config->days_to_show) && (app->config->days_to_show = 1);
+    }
+/* layout type */
+    layout_type = lookup_widget(config_window, "layout_type");
+    if(layout_type)
+	app->config->icons_layout = gtk_combo_box_get_active((GtkComboBox*)layout_type);
+/* icon set */	
+    icon_set = lookup_widget(config_window, "icon_set");
+    if(icon_set){
+	temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(icon_set));
+	if(strcmp(app->config->icon_set, temp_string)){
+	    if(app->config->icon_set)
+		g_free(app->config->icon_set);
+	    app->config->icon_set = g_strdup(temp_string);
+	    memset(path_large_icon, 0, sizeof(path_large_icon));
+	    sprintf(path_large_icon, "%s%s/", ICONS_PATH, app->config->icon_set);
+	}
+	g_free(temp_string);
+    }
+/* icon size */
+    icon_size = lookup_widget(config_window, "icon_size");
+    if(icon_size){
+	app->config->icons_size = hildon_controlbar_get_value(icon_size);
+	(!app->config->icons_size) && (app->config->icons_size = 1);
+    }
+/* separate */
+    separate = lookup_widget(config_window, "separate");
+    if(separate)
+	app->config->separate = 
+		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(separate));
+/* hide station name */
+    hide_station_name = lookup_widget(config_window, "hide_station_name");
+    if(hide_station_name)
+	app->config->hide_station_name = 
+		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_station_name));
+/* hide arrows */
+    hide_arrows = lookup_widget(config_window, "hide_arrows");
+    if(hide_arrows)
+	app->config->hide_arrows = 
+		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_arrows));
+/* transparency */
+    transparency = lookup_widget(config_window, "transparency");
+    if(transparency)
+	app->config->transparency = 
+		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(transparency));
+/* background color */
+    background_color = lookup_widget(config_window, "background_color");
+    if(background_color)
+    	gtk_color_button_get_color(GTK_COLOR_BUTTON(background_color), &(app->config->background_color));
+/* font color */
+    font_color = lookup_widget(config_window, "font_color");
+    if(font_color)
+    	gtk_color_button_get_color(GTK_COLOR_BUTTON(font_color), &(app->config->font_color));
+/* save settings */
+    new_config_save(app->config);
+    flag_update_station = TRUE;
+    weather_frame_update(TRUE);
 }
 /*******************************************************************************/
 void close_button_handler(GtkButton *button, gpointer user_data){

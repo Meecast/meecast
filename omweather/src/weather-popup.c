@@ -1071,7 +1071,7 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
     }
 /* Bottom buttons box */
     buttons_box = gtk_hbox_new(FALSE, 0);
-    gtk_widget_set_size_request(buttons_box, -1, 40);
+    gtk_widget_set_size_request(buttons_box, -1, 60);
     /* Settings button */
     settings_button = gtk_button_new_with_label(_("Settings"));
     gtk_button_set_relief(GTK_BUTTON(settings_button), GTK_RELIEF_NONE);

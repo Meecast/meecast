@@ -2292,7 +2292,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 #endif
 /* Bottom buttons box */
     buttons_box = gtk_hbox_new(FALSE, 0);
-    gtk_widget_set_size_request(buttons_box, -1, 40);
+    gtk_widget_set_size_request(buttons_box, -1, 60);
     /* Back buton */
     back_button = gtk_button_new_with_label(_("Back"));
     gtk_button_set_relief(GTK_BUTTON(back_button), GTK_RELIEF_NONE);

@@ -675,7 +675,7 @@ void weather_window_add_station(GtkWidget *widget, GdkEvent *event,
 }
 /*******************************************************************************/
 /* Main preference window */
-void weather_window_settings(GtkWidget *widget,	GdkEvent *event,
+void weather_window_settings_old(GtkWidget *widget,	GdkEvent *event,
 							    gpointer user_data){
 
     GtkWidget	*window_config = NULL,
@@ -1765,7 +1765,7 @@ void highlight_current_station(GtkTreeView *tree_view){
     }
 }
 /*******************************************************************************/
-void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
+void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 							    gpointer user_data){
 
     GtkWidget	*window_config = NULL,
@@ -1779,6 +1779,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 		*back_button = NULL,
 		*left_vbox = NULL,
 		*right_vbox = NULL,
+		*left_right_hbox = NULL,
 		*stations_list_with_buttons_hbox = NULL,
 		*up_down_delete_buttons_vbox = NULL,
 		*rename_entry = NULL,
@@ -1862,9 +1863,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 /* Main window */
     window_config = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     GLADE_HOOKUP_OBJECT_NO_REF(window_config, window_config, "window_config");
-    gtk_window_set_title(GTK_WINDOW(window_config),
-			    _("Other Maemo Weather Settings"));
-    gtk_window_set_modal(GTK_WINDOW(window_config), TRUE);
+//    gtk_window_set_modal(GTK_WINDOW(window_config), TRUE);
     gtk_window_fullscreen(GTK_WINDOW(window_config));
     /* create frame vbox */
     vbox = gtk_vbox_new(FALSE, 0);
@@ -1875,16 +1874,15 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
 /* Locations tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        	    table = gtk_table_new(2, 2, FALSE),
+        	    left_right_hbox = gtk_hbox_new(FALSE, 0),
         	    label = gtk_label_new(_("Stations")));
-    /* Stations hbox */
-    gtk_table_attach_defaults(GTK_TABLE(table),
-        			gtk_label_new(_("Arrange")),
-        			0, 1, 0, 1);
     /* left side vbox */
-    gtk_table_attach_defaults(GTK_TABLE(table),
-				left_vbox = gtk_vbox_new(FALSE, 0),
-        			0, 1, 1, 2);
+    left_vbox = gtk_vbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(left_right_hbox), left_vbox,
+			TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(left_vbox),
+        			gtk_label_new(_("Arrange")),
+        			TRUE, TRUE, 0);
     stations_list_with_buttons_hbox = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(left_vbox), stations_list_with_buttons_hbox,
 			TRUE, TRUE, 0);
@@ -1894,7 +1892,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
 					GTK_SHADOW_ETCHED_IN);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                  GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 280, 300);
+    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 280, 190);
 
     station_list_view = create_tree_view(app->user_stations_list);
     gtk_container_add(GTK_CONTAINER(scrolled_window),
@@ -1958,12 +1956,12 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(left_vbox), rename_entry,
 			TRUE, TRUE, 0);
     /* right side vbox */
-    gtk_table_attach_defaults(GTK_TABLE(table),
-        			gtk_label_new(_("Add")),
-        			1, 2, 0, 1);
-    gtk_table_attach_defaults(GTK_TABLE(table),
-				right_vbox = gtk_vbox_new(FALSE, 0),
-        			1, 2, 1, 2);
+    right_vbox = gtk_vbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(left_right_hbox), right_vbox,
+			TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(right_vbox),
+			gtk_label_new(_("Add")),
+        		TRUE, TRUE, 0);
     /* hbox for fields and add button */
     gtk_box_pack_start(GTK_BOX(right_vbox),
 			label_and_station_name_hbox = gtk_hbox_new(FALSE, 0),
@@ -2029,7 +2027,7 @@ void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
     /* Label */
     gtk_box_pack_start(GTK_BOX(right_vbox),
 			gtk_label_new(_("From the list:")),
-                        FALSE, TRUE, 20);
+                        FALSE, TRUE, 25);
     /* countries list  */
     countries = gtk_combo_box_new_text();
     gtk_combo_box_set_row_span_column((GtkComboBox*)countries, 0);

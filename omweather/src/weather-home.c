@@ -758,7 +758,7 @@ GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent)
     
     menu_item = gtk_menu_item_new_with_label(_("OMWeather settings"));
     g_signal_connect(menu_item, "activate",
-	    G_CALLBACK(weather_window_settings), NULL);
+	    G_CALLBACK(weather_window_settings_old), NULL);
 
     return menu_item;
 }

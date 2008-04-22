@@ -61,9 +61,9 @@ void popup_close_button_handler(GtkButton *button, gpointer user_data);
 GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_current_tab(GSList *current);
 /*******************************************************************************/
-extern void weather_window_settings(GtkWidget *widget, GdkEvent *event,
+extern void weather_window_settings_old(GtkWidget *widget, GdkEvent *event,
 				    gpointer user_data);
-extern void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
+extern void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    gpointer user_data);
 extern void pre_update_weather(void);
 extern void set_font_size(GtkWidget *widget, char font_size);
@@ -72,7 +72,7 @@ extern int c2f(int temp);
 extern void swap_temperature(int *hi, int *low);
 extern gpointer hash_table_find(gpointer key);
 extern float convert_wind_units(int to, float value);
-extern void weather_window_settings_021(GtkWidget *widget, GdkEvent *event,
+extern void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				gpointer user_data);
 /*******************************************************************************/
 #endif

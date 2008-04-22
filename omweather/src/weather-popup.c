@@ -94,7 +94,7 @@ gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
 
     /* if no one station present in list show only preference */
     if(!app->config->current_station_id){
-	weather_window_settings_021(widget, event, user_data);
+	weather_window_settings(widget, event, user_data);
 	return FALSE;
     }
     /* Search: Which button is pressed */
@@ -682,7 +682,7 @@ GtkWidget* create_footer_widget(gboolean enable_more_info){
     button = gtk_button_new_with_label(_("Settings"));
     set_font_size(button, 17);
     g_signal_connect(button, "clicked",
-		    G_CALLBACK(weather_window_settings_021), NULL);
+		    G_CALLBACK(weather_window_settings), NULL);
 /* prepare Close button */
     button_close = gtk_button_new_with_label(_("Close"));
     set_font_size(button_close, 17);
@@ -968,7 +968,7 @@ GtkWidget* create_footer_more_widget(void){
     button = gtk_button_new_with_label(_("Settings"));
     set_font_size(button, 14);
     g_signal_connect(button, "clicked",
-		    G_CALLBACK(weather_window_settings_021), NULL);
+		    G_CALLBACK(weather_window_settings), NULL);
 /* prepare main widget */
     main_widget = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_start(GTK_BOX(main_widget), popup_window_button_more, FALSE, FALSE, 0);
@@ -1130,7 +1130,7 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 /*******************************************************************************/
 void settings_button_handler(GtkButton *button, gpointer user_data){
     gtk_widget_destroy(GTK_WIDGET(user_data));
-    weather_window_settings_021(NULL, NULL, NULL);
+    weather_window_settings(NULL, NULL, NULL);
 }
 /*******************************************************************************/
 void refresh_button_handler(GtkButton *button, gpointer user_data){

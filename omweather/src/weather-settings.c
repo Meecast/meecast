@@ -1788,30 +1788,18 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*add_station_button = NULL,
 		*add_station_button1 = NULL,
 		*add_station_button2 = NULL,
-		*name_code_add_button_hbox = NULL,
 		*label_and_station_name_hbox = NULL,
 		*label_and_station_code_hbox = NULL,
-		*labels_name_code_vbox = NULL,
-		*countries_regions_stations_add_hbox = NULL,
-		*countries_regions_stations_vbox = NULL,
 		*stations_and_add_button_hbox = NULL,
 		*countries_hbox = NULL,
 		*states_hbox = NULL,
-		*interface_vbox = NULL,
-		*visible_items_label_number_hbox = NULL,
 		*visible_items_number = NULL,
-		*layout_label_list_hbox = NULL,
 		*layout_type = NULL,
-		*icon_set_label_list_hbox = NULL,
 		*icon_set = NULL,
-		*icon_size_label_number_hbox = NULL,
 		*icon_size = NULL,
 		*hide_station_name = NULL,
 		*hide_arrows = NULL,
-		*hide_station_name_label_button_hbox = NULL,
-		*hide_arrows_label_button_hbox = NULL,
 		*transparency = NULL,
-		*transparency_label_button_hbox = NULL,
 #ifdef HILDON
                 *label_gps = NULL,
                 *hbox_gps = NULL,
@@ -1820,16 +1808,11 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*time_update_label = NULL,
 		*table = NULL,
 		*font_color = NULL,
-		*font_color_label_button_hbox = NULL,
 		*background_color = NULL,
-		*chk_transparency = NULL,
 		*chk_downloading_after_connection = NULL,
 		*separate = NULL,
-		*separate_label_button_hbox = NULL,
 		*swap_temperature_button = NULL,
 		*scrolled_window = NULL,
-		*button_add = NULL,
-		*button_ren = NULL,
 		*up_icon = NULL,
 		*down_icon = NULL,
 		*delete_icon = NULL,
@@ -1847,10 +1830,6 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     char	tmp_buff[1024];
 #endif
     gboolean	flag_tuning_warning; /* Flag for show the warnings about tuning images of applet */
-    GdkColor	_weather_font_color_temp, /* Temporary for font color */
-		background_color_temp;
-    static char *temp_string; /* Temporary for the results differnet strdup functions */
-    static int result_gtk_dialog_run; /* Temporary for the gtk_dialog_run result */
 
     not_event = TRUE;
     flag_update_station = FALSE;
@@ -2091,31 +2070,25 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 			rename_entry);
 /* Interface tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			interface_vbox = gtk_vbox_new(FALSE, 0),
+        			table = gtk_table_new(10, 2, FALSE),
         			label = gtk_label_new(_("Interface")));
     /* Visible items */
-    visible_items_label_number_hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(interface_vbox),
-			visible_items_label_number_hbox, TRUE, TRUE, 0);
-    /* Visible items label */
-    gtk_box_pack_start(GTK_BOX(visible_items_label_number_hbox),
-			gtk_label_new(_("Visible items")), TRUE, TRUE, 0);
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				gtk_label_new(_("Visible items")),
+				0, 1, 0, 1);
     /* Visible items number */
     visible_items_number = hildon_controlbar_new();
     GLADE_HOOKUP_OBJECT(window_config, visible_items_number, "visible_items_number");
     hildon_controlbar_set_min(visible_items_number, 1);
     hildon_controlbar_set_max(visible_items_number, Max_count_weather_day);
     hildon_controlbar_set_value(visible_items_number, app->config->days_to_show);
-    gtk_box_pack_start(GTK_BOX(visible_items_label_number_hbox),
-			visible_items_number, TRUE, TRUE, 5);
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				visible_items_number,
+				1, 2, 0, 1);
     /* Layout */
-    layout_label_list_hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(interface_vbox),
-			layout_label_list_hbox, TRUE, TRUE, 0);
-    /* Layout label */
-    gtk_box_pack_start(GTK_BOX(layout_label_list_hbox),
-			gtk_label_new(_("Layout")), TRUE, TRUE, 0);
-    /* Layout type */
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				gtk_label_new(_("Layout")),
+				0, 1, 1, 2);
     layout_type = gtk_combo_box_new_text();
     GLADE_HOOKUP_OBJECT(window_config, layout_type, "layout_type");
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One row"));
@@ -2131,16 +2104,13 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 	case TWO_COLUMNS: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 3);break;
 	case COMBINATION: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 4);break;	
     }
-    gtk_box_pack_start(GTK_BOX(layout_label_list_hbox),
-			layout_type, TRUE, TRUE, 5);
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				layout_type,
+				1, 2, 1, 2);
     /* Icon set */
-    icon_set_label_list_hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(interface_vbox),
-			icon_set_label_list_hbox, TRUE, TRUE, 0);
-    /* Layout label */
-    gtk_box_pack_start(GTK_BOX(icon_set_label_list_hbox),
-			gtk_label_new(_("Icon set")), TRUE, TRUE, 0);
-    /* Icon set list */
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				gtk_label_new(_("Icon set")),
+				0, 1, 2, 3);
     icon_set = gtk_combo_box_new_text();
     GLADE_HOOKUP_OBJECT(window_config, icon_set, "icon_set");
 /* add icons set to list */
@@ -2148,16 +2118,13 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 	gtk_widget_set_sensitive(icon_set, FALSE);
     else
 	gtk_widget_set_sensitive(icon_set, TRUE);
-    gtk_box_pack_start(GTK_BOX(icon_set_label_list_hbox),
-			icon_set, TRUE, TRUE, 5);
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				icon_set,
+				1, 2, 2, 3);
     /* Icon size */
-    icon_size_label_number_hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(interface_vbox),
-			icon_size_label_number_hbox, TRUE, TRUE, 0);
-    /* Icon size label */
-    gtk_box_pack_start(GTK_BOX(icon_size_label_number_hbox),
-			gtk_label_new(_("Icon size")), TRUE, TRUE, 0);
-    /* Icon size number */
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				gtk_label_new(_("Icon size")),
+				0, 1, 3, 4);
     icon_size = hildon_controlbar_new();
     GLADE_HOOKUP_OBJECT(window_config, icon_size, "icon_size");
     hildon_controlbar_set_min(icon_size, 1);
@@ -2170,78 +2137,57 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 	case LARGE: hildon_controlbar_set_value(icon_size, LARGE); break;
 	case GIANT: hildon_controlbar_set_value(icon_size, GIANT); break;
     }
-    gtk_box_pack_start(GTK_BOX(icon_size_label_number_hbox),
-			icon_size, TRUE, TRUE, 5);
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				icon_size,
+				1, 2, 3, 4);
     /* Separate weather */
-    separate_label_button_hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(interface_vbox),
-			separate_label_button_hbox, TRUE, TRUE, 0);
-    /* Separate label */
-    gtk_box_pack_start(GTK_BOX(separate_label_button_hbox),
+    gtk_table_attach_defaults(GTK_TABLE(table), 
 			gtk_label_new(_("Show only current weather on first icon")),
-			TRUE, TRUE, 0);
-    /* Separate button */
+			0, 1, 4, 5);
     separate = gtk_check_button_new();
     GLADE_HOOKUP_OBJECT(window_config, separate, "separate");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(separate),
         			    app->config->separate);
-    gtk_box_pack_start(GTK_BOX(separate_label_button_hbox),
-			separate,
-			TRUE, TRUE, 5);
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				separate,
+				1, 2, 4, 5);
     /* Hide station name */
-    hide_station_name_label_button_hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(interface_vbox),
-			hide_station_name_label_button_hbox, TRUE, TRUE, 0);
-    /* Hide station name label */
-    gtk_box_pack_start(GTK_BOX(hide_station_name_label_button_hbox),
-			gtk_label_new(_("Hide station name")),
-			TRUE, TRUE, 0);
-    /* Hide station name button */
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				gtk_label_new(_("Hide station name")),
+				0, 1, 5, 6);
     hide_station_name = gtk_check_button_new();
     GLADE_HOOKUP_OBJECT(window_config, hide_station_name, "hide_station_name");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_station_name),
         			    app->config->hide_station_name);
-    gtk_box_pack_start(GTK_BOX(hide_station_name_label_button_hbox),
-			hide_station_name,
-			TRUE, TRUE, 5);
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				hide_station_name,
+				1, 2, 5, 6);
     /* Hide arrows */
-    hide_arrows_label_button_hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(interface_vbox),
-			hide_arrows_label_button_hbox, TRUE, TRUE, 0);
-    /* Hide arrows label */
-    gtk_box_pack_start(GTK_BOX(hide_arrows_label_button_hbox),
-			gtk_label_new(_("Hide arrows")),
-			TRUE, TRUE, 0);
-    /* Hide arrows button */
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				gtk_label_new(_("Hide arrows")),
+				0, 1, 6, 7);
     hide_arrows = gtk_check_button_new();
     GLADE_HOOKUP_OBJECT(window_config, hide_arrows, "hide_arrows");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_arrows),
         			    app->config->hide_arrows);
-    gtk_box_pack_start(GTK_BOX(hide_arrows_label_button_hbox),
-			hide_arrows,
-			TRUE, TRUE, 5);
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				hide_arrows,
+				1, 2, 6, 7);
     /* Transparency */
-    transparency_label_button_hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(interface_vbox),
-			transparency_label_button_hbox, TRUE, TRUE, 0);
-    /* Transparency label */
-    gtk_box_pack_start(GTK_BOX(transparency_label_button_hbox),
-			gtk_label_new(_("Transparency")),
-			TRUE, TRUE, 0);
-    /* Transparency button */
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				gtk_label_new(_("Transparency")),
+				0, 1, 7, 8);
     transparency = gtk_check_button_new();
     GLADE_HOOKUP_OBJECT(window_config, transparency, "transparency");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),
         			    app->config->transparency);
-    gtk_box_pack_start(GTK_BOX(transparency_label_button_hbox),
-			transparency,
-			FALSE, FALSE, 5);
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				transparency,
+				1, 2, 7, 8);
     /* Background color */
-    /* Background label */
-    gtk_box_pack_start(GTK_BOX(transparency_label_button_hbox),
-			gtk_label_new(_("Background color")),
-			TRUE, TRUE, 0);
-    /* Background color button */
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				gtk_label_new(_("Background color")),
+				0, 1, 8, 9);
     background_color = gtk_color_button_new();
     GLADE_HOOKUP_OBJECT(window_config, background_color, "background_color");
     g_signal_connect(GTK_TOGGLE_BUTTON(transparency), "toggled",
@@ -2251,24 +2197,28 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
         gtk_widget_set_sensitive(background_color, FALSE);	
     else
         gtk_widget_set_sensitive(background_color, TRUE);
-    gtk_box_pack_start(GTK_BOX(transparency_label_button_hbox),
-			background_color,
-			FALSE, FALSE, 5);
+    gtk_button_set_relief(GTK_BUTTON(background_color), GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(background_color), FALSE);
+    gtk_table_attach(GTK_TABLE(table), 
+				background_color,
+				1, 2, 8, 9,
+				GTK_SHRINK, GTK_SHRINK,
+				0, 0);
     /* Font color */
-    font_color_label_button_hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(interface_vbox),
-			font_color_label_button_hbox, TRUE, TRUE, 0);
-    /* Font color label */
-    gtk_box_pack_start(GTK_BOX(font_color_label_button_hbox),
-			gtk_label_new(_("Font color")),
-			TRUE, TRUE, 0);
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				gtk_label_new(_("Font color")),
+				0, 1, 9, 10);
     /* Font color button */
     font_color = gtk_color_button_new();
     GLADE_HOOKUP_OBJECT(window_config, font_color, "font_color");
     gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color), &(app->config->font_color));
-    gtk_box_pack_start(GTK_BOX(font_color_label_button_hbox),
-			font_color,
-			FALSE, FALSE, 5);
+    gtk_button_set_relief(GTK_BUTTON(font_color), GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(font_color), FALSE);
+    gtk_table_attach(GTK_TABLE(table), 
+				font_color,
+				1, 2, 9, 10,
+				GTK_SHRINK, GTK_SHRINK,
+				0, 0);
 /* Units tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			table = gtk_table_new(1, 3, FALSE),

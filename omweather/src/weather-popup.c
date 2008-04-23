@@ -1468,7 +1468,7 @@ GtkWidget* create_current_tab(GSList *current){
     }
 /* gust */
     if( strcmp(item_value(current, "wind_gust"), "N/A") ){
-        sprintf(buffer + strlen(buffer), "  %s", _("Gust:"));
+        sprintf(buffer + strlen(buffer), "%s", _("Gust:"));
 	sprintf(buffer + strlen(buffer), "  %.2f %s\n",
 		convert_wind_units(app->config->wind_units, atof(item_value(current, "wind_gust"))),
 		(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));

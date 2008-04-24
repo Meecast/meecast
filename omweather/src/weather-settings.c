@@ -2196,10 +2196,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     g_signal_connect(G_OBJECT(close_button), "button_press_event",
                         G_CALLBACK(close_button_handler), (gpointer)window_config);
 /* Pack buttons to the buttons box */
-    gtk_box_pack_start(GTK_BOX(buttons_box), back_button, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(buttons_box), apply_button, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(buttons_box), about_button, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(buttons_box), close_button, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(buttons_box), back_button, TRUE, TRUE, 25);
+    gtk_box_pack_start(GTK_BOX(buttons_box), apply_button, TRUE, TRUE, 10);
+    gtk_box_pack_start(GTK_BOX(buttons_box), about_button, TRUE, TRUE, 10);
+    gtk_box_pack_start(GTK_BOX(buttons_box), close_button, TRUE, TRUE, 25);
 /* Pack items to config window */
     gtk_box_pack_start(GTK_BOX(vbox), notebook, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE, FALSE, 0);

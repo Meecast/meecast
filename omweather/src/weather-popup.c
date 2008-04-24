@@ -1086,9 +1086,9 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
                         G_CALLBACK(popup_close_button_handler),
 			(gpointer)window_popup);
 /* Pack buttons to the buttons box */
-    gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, FALSE, FALSE, 10);
-    gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(buttons_box), close_button, FALSE, FALSE, 10);
+    gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, FALSE, FALSE, 25);
+    gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 10);
+    gtk_box_pack_start(GTK_BOX(buttons_box), close_button, FALSE, FALSE, 25);
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE, FALSE, 0);
 /* check pressed day data accessibility */
     if((gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0) &&

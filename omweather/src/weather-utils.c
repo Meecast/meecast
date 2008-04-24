@@ -132,12 +132,14 @@ GtkWidget* create_button_with_image(const char *path, const char *image_name,
     if(with_border){
 	button = gtk_button_new();
 	gtk_button_set_focus_on_click(GTK_BUTTON(button), FALSE);
-	gtk_button_set_image(GTK_BUTTON(button), icon);
+	if(icon)
+	    gtk_button_set_image(GTK_BUTTON(button), icon);
 	gtk_button_set_focus_on_click(GTK_BUTTON(button), FALSE);
     }
     else{
 	button = gtk_event_box_new();
-	gtk_container_add(GTK_CONTAINER(button), icon);
+	if(icon)
+	    gtk_container_add(GTK_CONTAINER(button), icon);
     }
 	gtk_widget_set_events(button, GDK_BUTTON_RELEASE_MASK | GDK_BUTTON_PRESS_MASK);
 

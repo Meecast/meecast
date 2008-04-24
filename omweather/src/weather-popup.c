@@ -786,7 +786,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
     space_symbol = strchr(icon, ' ');
     if(space_symbol)
 	*space_symbol = '_';
-    icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, BIG_ICON_SIZE, BIG_ICON_SIZE, NULL);
+    icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, GIANT_ICON_SIZE, GIANT_ICON_SIZE, NULL);
     if(icon_buffer){
 	icon_image = gtk_image_new_from_pixbuf(icon_buffer);
 	g_object_unref(G_OBJECT(icon_buffer));
@@ -1472,10 +1472,10 @@ GtkWidget* create_current_tab(GSList *current){
     text = gtk_label_new(buffer);
     set_font_size(text, 24);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), text, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(icon_text_hbox), create_moon_phase_widget(current),
+			TRUE, TRUE, 0);
 
     gtk_box_pack_start(GTK_BOX(main_widget), icon_text_hbox, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(main_widget), create_moon_phase_widget(current),
-			TRUE, TRUE, 0);
     /* last update time */
     gtk_box_pack_start(GTK_BOX(main_widget),
 			    create_time_updates_widget(current),

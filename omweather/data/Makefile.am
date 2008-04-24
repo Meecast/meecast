@@ -24,6 +24,8 @@ icons_crystallargedir = $(datadir)/omweather/icons/Glance
 icons_crystallarge_DATA = icons/Glance/*.png 
 moon_iconsdir = $(datadir)/omweather/moon_icons
 moon_icons_DATA = moon_icons/*.png
+button_iconsdir = $(datadir)/omweather/button_icons
+button_icons_DATA = button_icons/*.png
 homeapplet_desktopdir = $(datadir)/applications/hildon-home
 if OS2008 
 homeapplet_desktop_DATA = os2008/omweather-home.desktop
@@ -34,6 +36,7 @@ EXTRA_DIST = $(homeapplet_desktop_DATA) \
 	     $(omweather_DATA) \
 	     $(icons_crystallarge_DATA) \
 	     $(moon_icons_DATA) \
+	     $(button_icons_DATA) \
 	     omweather.png
 
 SUBDIRS = help

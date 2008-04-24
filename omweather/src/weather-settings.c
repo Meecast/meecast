@@ -1921,7 +1921,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
                         TRUE, TRUE, 0);
     GLADE_HOOKUP_OBJECT(window_config, station_name, "station_name_entry");
     /* add station button */
-    add_station_button = create_button_with_image(BUTTON_ICONS, "plus", 30, TRUE);
+    add_station_button = create_button_with_image(BUTTON_ICONS, "add", 30, TRUE);
     gtk_widget_set_name(add_station_button, "add_name");
     g_signal_connect(add_station_button, "clicked",
 			G_CALLBACK(add_button_handler), (gpointer)window_config);
@@ -1942,7 +1942,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
                         TRUE, TRUE, 0);
     GLADE_HOOKUP_OBJECT(window_config, station_code, "station_code_entry");
     /* add button */
-    add_station_button1 = create_button_with_image(BUTTON_ICONS, "plus", 30, TRUE);
+    add_station_button1 = create_button_with_image(BUTTON_ICONS, "add", 30, TRUE);
     gtk_widget_set_name(add_station_button1, "add_code");
     g_signal_connect(add_station_button1, "clicked",
 			G_CALLBACK(add_button_handler), (gpointer)window_config);
@@ -1974,7 +1974,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     stations = gtk_combo_box_new_text();
     GLADE_HOOKUP_OBJECT(window_config, stations, "stations");
     /* add button */
-    add_station_button2 = create_button_with_image(BUTTON_ICONS, "plus", 30, TRUE);
+    add_station_button2 = create_button_with_image(BUTTON_ICONS, "add", 30, TRUE);
     gtk_widget_set_name(add_station_button2, "add_from_list");
     g_signal_connect(add_station_button2, "clicked",
 			G_CALLBACK(add_button_handler), (gpointer)window_config);

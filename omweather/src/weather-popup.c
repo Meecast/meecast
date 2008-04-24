@@ -1186,9 +1186,6 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 	(low_temp != INT_MAX) && ( low_temp = c2f(low_temp) );
 	symbol = 'F';
     }
-    if(app->config->swap_hi_low_temperature)
-	swap_temperature(&hi_temp, &low_temp);
-
     main_widget = gtk_vbox_new(FALSE, 0);
     /* prepare localized day name */
     memset(buffer, 0, sizeof(buffer));

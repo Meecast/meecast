@@ -42,5 +42,7 @@ GtkWidget* lookup_widget(GtkWidget* widget, const gchar* widget_name);
 
 #define GLADE_HOOKUP_OBJECT_NO_REF(component,widget,name) \
     g_object_set_data (G_OBJECT (component), name, widget)
+GtkWidget* create_button_with_image(const char *path, const char *image_name,
+				    int image_size, gboolean with_border);
 /*******************************************************************************/
 #endif

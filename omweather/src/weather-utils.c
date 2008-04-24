@@ -103,3 +103,44 @@ GtkWidget* lookup_widget(GtkWidget* widget, const gchar* widget_name){
     return found_widget;
 }
 /*******************************************************************************/
+GtkWidget* create_button_with_image(const char *path, const char *image_name,
+					int image_size, gboolean with_border){
+    GtkIconInfo	*gtkicon = NULL;
+    GtkWidget	*button = NULL,
+		*icon = NULL;
+    GdkPixbuf   *icon_buffer = NULL;
+    gchar	buffer[512];
+
+    /* prepare icon */
+    if(path){
+	memset(buffer, 0, sizeof(buffer));
+	snprintf(buffer, sizeof(buffer) - 1, "%s/%s.png",
+		    path, image_name);
+	icon_buffer = gdk_pixbuf_new_from_file_at_size(buffer, image_size,
+							image_size, NULL);
+	if(icon_buffer){
+	    icon = gtk_image_new_from_pixbuf(icon_buffer);
+	    g_object_unref(G_OBJECT(icon_buffer));
+	}
+    }
+    else{
+	gtkicon = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
+        	                    	image_name, image_size, 0);
+	icon = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon));
+	gtk_icon_info_free(gtkicon);
+    }
+    if(with_border){
+	button = gtk_button_new();
+	gtk_button_set_focus_on_click(GTK_BUTTON(button), FALSE);
+	gtk_button_set_image(GTK_BUTTON(button), icon);
+	gtk_button_set_focus_on_click(GTK_BUTTON(button), FALSE);
+    }
+    else{
+	button = gtk_event_box_new();
+	gtk_container_add(GTK_CONTAINER(button), icon);
+    }
+	gtk_widget_set_events(button, GDK_BUTTON_RELEASE_MASK | GDK_BUTTON_PRESS_MASK);
+
+    return button;
+}
+/*******************************************************************************/

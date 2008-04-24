@@ -70,11 +70,17 @@ void delete_all_gps_stations(void);
 #endif
 GtkWidget* create_tree_view(GtkListStore* list);
 void highlight_current_station(GtkTreeView *tree_view);
+extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
+				    int image_size, gboolean with_border);
 /*******************************************************************************/
-void apply_button_handler(GtkButton *button, gpointer user_data);
-void about_button_handler(GtkButton *button, gpointer user_data);
-void close_button_handler(GtkButton *button, gpointer user_data);
-void back_button_handler(GtkButton *button, gpointer user_data);
+void apply_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data);
+void about_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data);
+void close_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data);
+void back_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data);
 void add_button_handler(GtkButton *button, gpointer user_data);
 /*******************************************************************************/
 extern void remove_periodic_event(void);

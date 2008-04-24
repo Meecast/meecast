@@ -1813,16 +1813,9 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*separate = NULL,
 		*swap_temperature_button = NULL,
 		*scrolled_window = NULL,
-		*up_icon = NULL,
-		*down_icon = NULL,
-		*delete_icon = NULL,
-		*add_icon = NULL,
-		*add_icon1 = NULL,
-		*add_icon2 = NULL,
 		*up_station_button = NULL,
 		*down_station_button = NULL,
 		*delete_station_button = NULL;
-    GtkIconInfo *gtkicon_arrow;
     gboolean	valid = FALSE;
     GtkTreeIter	iter;
     char	flag_update_icon = '\0'; /* Flag update main weather icon of desktop */
@@ -1883,43 +1876,16 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(stations_list_with_buttons_hbox),
 			up_down_delete_buttons_vbox,
                         FALSE, FALSE, 0);
-/* prepare icon */
-    gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
-        	                        	"qgn_indi_arrow_up", 16, 0);
-    up_icon = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
-    gtk_icon_info_free(gtkicon_arrow);
 /* prepare up_station_button */    
-    up_station_button = gtk_button_new();
-    gtk_button_set_focus_on_click(GTK_BUTTON(up_station_button), FALSE);
-    gtk_container_add(GTK_CONTAINER(up_station_button), up_icon);
-    gtk_widget_set_events(up_station_button, GDK_BUTTON_PRESS_MASK);
-    gtk_button_set_focus_on_click(GTK_BUTTON(up_station_button), FALSE);
+    up_station_button = create_button_with_image(NULL, "qgn_indi_arrow_up", 16, TRUE);
     g_signal_connect(up_station_button, "clicked",
 			G_CALLBACK(up_key_handler), (gpointer)station_list_view);
-/* prepare icon */
-    gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
-        	                        	"qgn_indi_arrow_down", 16, 0);
-    down_icon = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
-    gtk_icon_info_free(gtkicon_arrow);
 /* prepare down_station_button */    
-    down_station_button = gtk_button_new();
-    gtk_button_set_focus_on_click(GTK_BUTTON(down_station_button), FALSE);
-    gtk_container_add(GTK_CONTAINER(down_station_button), down_icon);
-    gtk_widget_set_events(down_station_button, GDK_BUTTON_PRESS_MASK);
-    gtk_button_set_focus_on_click(GTK_BUTTON(down_station_button), FALSE);
+    down_station_button = create_button_with_image(NULL, "qgn_indi_arrow_down", 16, TRUE);
     g_signal_connect(down_station_button, "clicked",
 		    	G_CALLBACK(down_key_handler), (gpointer)station_list_view);
-/* prepare icon */
-    gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
-        	                        	"qgn_list_gene_invalid", 16, 0);
-    delete_icon = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
-    gtk_icon_info_free(gtkicon_arrow);
 /* prepare delete_station_button */    
-    delete_station_button = gtk_button_new();
-    gtk_button_set_focus_on_click(GTK_BUTTON(delete_station_button), FALSE);
-    gtk_container_add(GTK_CONTAINER(delete_station_button), delete_icon);
-    gtk_widget_set_events(delete_station_button, GDK_BUTTON_PRESS_MASK);
-    gtk_button_set_focus_on_click(GTK_BUTTON(delete_station_button), FALSE);
+    delete_station_button = create_button_with_image(BUTTON_ICONS, "red", 30, TRUE);
     g_signal_connect(delete_station_button, "clicked",
                 	G_CALLBACK(weather_delete_station), NULL);
 /* Pack Up, Down and Delete buttons */
@@ -1955,18 +1921,8 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
                         TRUE, TRUE, 0);
     GLADE_HOOKUP_OBJECT(window_config, station_name, "station_name_entry");
     /* add station button */
-    /* prepare icon */
-    gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
-        	                        	"qgn_indi_gene_plus", 16, 0);
-    add_icon = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
-    gtk_icon_info_free(gtkicon_arrow);
-/* prepare add_station_button */    
-    add_station_button = gtk_button_new();
+    add_station_button = create_button_with_image(BUTTON_ICONS, "plus", 30, TRUE);
     gtk_widget_set_name(add_station_button, "add_name");
-    gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button), FALSE);
-    gtk_container_add(GTK_CONTAINER(add_station_button), add_icon);
-    gtk_widget_set_events(add_station_button, GDK_BUTTON_PRESS_MASK);
-    gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button), FALSE);
     g_signal_connect(add_station_button, "clicked",
 			G_CALLBACK(add_button_handler), (gpointer)window_config);
     gtk_box_pack_start(GTK_BOX(label_and_station_name_hbox),
@@ -1986,18 +1942,8 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
                         TRUE, TRUE, 0);
     GLADE_HOOKUP_OBJECT(window_config, station_code, "station_code_entry");
     /* add button */
-    /* prepare icon */
-    gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
-        	                        	"qgn_indi_gene_plus", 16, 0);
-    add_icon1 = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
-    gtk_icon_info_free(gtkicon_arrow);
-/* prepare add_station_button */    
-    add_station_button1 = gtk_button_new();
+    add_station_button1 = create_button_with_image(BUTTON_ICONS, "plus", 30, TRUE);
     gtk_widget_set_name(add_station_button1, "add_code");
-    gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button1), FALSE);
-    gtk_container_add(GTK_CONTAINER(add_station_button1), add_icon1);
-    gtk_widget_set_events(add_station_button1, GDK_BUTTON_PRESS_MASK);
-    gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button1), FALSE);
     g_signal_connect(add_station_button1, "clicked",
 			G_CALLBACK(add_button_handler), (gpointer)window_config);
     gtk_box_pack_start(GTK_BOX(label_and_station_code_hbox),
@@ -2028,18 +1974,8 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     stations = gtk_combo_box_new_text();
     GLADE_HOOKUP_OBJECT(window_config, stations, "stations");
     /* add button */
-    /* prepare icon */
-    gtkicon_arrow = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
-        	                        	"qgn_indi_gene_plus", 16, 0);
-    add_icon2 = gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon_arrow));
-    gtk_icon_info_free(gtkicon_arrow);
-/* prepare add_station_button */    
-    add_station_button2 = gtk_button_new();
+    add_station_button2 = create_button_with_image(BUTTON_ICONS, "plus", 30, TRUE);
     gtk_widget_set_name(add_station_button2, "add_from_list");
-    gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button2), FALSE);
-    gtk_container_add(GTK_CONTAINER(add_station_button2), add_icon2);
-    gtk_widget_set_events(add_station_button2, GDK_BUTTON_PRESS_MASK);
-    gtk_button_set_focus_on_click(GTK_BUTTON(add_station_button2), FALSE);
     g_signal_connect(add_station_button2, "clicked",
 			G_CALLBACK(add_button_handler), (gpointer)window_config);
     gtk_box_pack_start(GTK_BOX(right_vbox),
@@ -2242,30 +2178,22 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     buttons_box = gtk_hbox_new(FALSE, 0);
     gtk_widget_set_size_request(buttons_box, -1, 60);
     /* Back buton */
-    back_button = gtk_button_new_with_label(_("Back"));
-    gtk_button_set_relief(GTK_BUTTON(back_button), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(back_button), FALSE);
-    g_signal_connect(back_button, "clicked",
+    back_button = create_button_with_image(BUTTON_ICONS, "back", 40, FALSE);
+    g_signal_connect(G_OBJECT(back_button), "button_press_event",
                         G_CALLBACK(back_button_handler),
 			(gpointer)window_config);
     /* About buton */
-    about_button = gtk_button_new_with_label(_("About"));
-    gtk_button_set_relief(GTK_BUTTON(about_button), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(about_button), FALSE);
-    g_signal_connect(about_button, "clicked",
+    about_button = create_button_with_image(BUTTON_ICONS, "about", 40, FALSE);
+    g_signal_connect(G_OBJECT(about_button), "button_press_event",
                         G_CALLBACK(about_button_handler), NULL);
     /* Apply button */
-    apply_button = gtk_button_new_with_label(_("Apply"));
-    gtk_button_set_relief(GTK_BUTTON(apply_button), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(apply_button), FALSE);
-    g_signal_connect(GTK_BUTTON(apply_button), "clicked",
+    apply_button = create_button_with_image(BUTTON_ICONS, "apply", 40, FALSE);
+    g_signal_connect(G_OBJECT(apply_button), "button_press_event",
                         G_CALLBACK(apply_button_handler),
 			(gpointer)window_config);
     /* Close button */
-    close_button = gtk_button_new_with_label(_("Close"));
-    gtk_button_set_relief(GTK_BUTTON(close_button), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(close_button), FALSE);
-    g_signal_connect(GTK_BUTTON(close_button), "clicked",
+    close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE);
+    g_signal_connect(G_OBJECT(close_button), "button_press_event",
                         G_CALLBACK(close_button_handler), (gpointer)window_config);
 /* Pack buttons to the buttons box */
     gtk_box_pack_start(GTK_BOX(buttons_box), back_button, FALSE, FALSE, 10);
@@ -2289,7 +2217,8 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
         popup_window_destroy();
 }
 /*******************************************************************************/
-void apply_button_handler(GtkButton *button, gpointer user_data){
+void apply_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data){
     GtkWidget		*config_window = GTK_WIDGET(user_data),
 		        *rename_entry = NULL,
 			*visible_items_number = NULL,
@@ -2399,22 +2328,27 @@ void apply_button_handler(GtkButton *button, gpointer user_data){
     weather_frame_update(TRUE);
 }
 /*******************************************************************************/
-void close_button_handler(GtkButton *button, gpointer user_data){
+void close_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data){
     GtkWidget	*config_window = GTK_WIDGET(user_data),
 		*notebook = NULL;
 
     notebook = lookup_widget(config_window, "notebook");
-    if(notebook)
+    if(notebook){
 	app->config->current_settings_page = 
 		gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook));
+	new_config_save(app->config);
+    }
     gtk_widget_destroy(config_window);
 }
 /*******************************************************************************/
-void about_button_handler(GtkButton *button, gpointer user_data){
+void about_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data){
     create_about_dialog();
 }
 /*******************************************************************************/
-void back_button_handler(GtkButton *button, gpointer user_data){
+void back_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data){
     gtk_widget_destroy(GTK_WIDGET(user_data));
     weather_window_popup(NULL, NULL, NULL);
 }

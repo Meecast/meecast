@@ -55,9 +55,12 @@ void weather_window_popup_more_show(void);
 void popup_close(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 
 void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
-void settings_button_handler(GtkButton *button, gpointer user_data);
-void refresh_button_handler(GtkButton *button, gpointer user_data);
-void popup_close_button_handler(GtkButton *button, gpointer user_data);
+void settings_button_handler(GtkWidget *button, GdkEventButton *event,
+                                                            gpointer user_data);
+void refresh_button_handler(GtkWidget *button, GdkEventButton *event,
+                                                            gpointer user_data);
+void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
+                                                            gpointer user_data);
 GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_current_tab(GSList *current);
 /*******************************************************************************/
@@ -74,5 +77,7 @@ extern gpointer hash_table_find(gpointer key);
 extern float convert_wind_units(int to, float value);
 extern void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				gpointer user_data);
+extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
+				    int image_size, gboolean with_border);
 /*******************************************************************************/
 #endif

@@ -779,15 +779,13 @@ GtkWidget* create_moon_phase_widget(GSList *current){
 			(char*)hash_table_find(item_value(current, "moon_phase")));
     main_label = gtk_label_new(buffer);
     set_font_size(main_label, 14);
-/*    set_font_color(main_label, 0x0000, 0x0000, 0x0000);*/
 
-    main_widget = gtk_hbox_new(FALSE, 10);
+    main_widget = gtk_hbox_new(FALSE, 0);
 /* Moon icon */
     sprintf(icon, "%s%s.png", MOON_ICONS, item_value(current, "moon_phase"));
     space_symbol = strchr(icon, ' ');
     if(space_symbol)
 	*space_symbol = '_';
-/*    sprintf(icon, "%s31.png", path_large_icon);*/
     icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, BIG_ICON_SIZE, BIG_ICON_SIZE, NULL);
     if(icon_buffer){
 	icon_image = gtk_image_new_from_pixbuf(icon_buffer);
@@ -797,9 +795,9 @@ GtkWidget* create_moon_phase_widget(GSList *current){
     	icon_image = NULL;
 
     if(icon_image)
-	gtk_box_pack_start(GTK_BOX(main_widget), icon_image, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(main_widget), icon_image, FALSE, TRUE, 0);
 
-    gtk_box_pack_start(GTK_BOX(main_widget), main_label, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(main_widget), main_label, FALSE, TRUE, 0);
     return main_widget;
 }
 /*******************************************************************************/
@@ -1073,24 +1071,18 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
     buttons_box = gtk_hbox_new(FALSE, 0);
     gtk_widget_set_size_request(buttons_box, -1, 60);
     /* Settings button */
-    settings_button = gtk_button_new_with_label(_("Settings"));
-    gtk_button_set_relief(GTK_BUTTON(settings_button), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(settings_button), FALSE);
-    g_signal_connect(GTK_BUTTON(settings_button), "clicked",
+    settings_button = create_button_with_image(BUTTON_ICONS, "settings", 40, FALSE);
+    g_signal_connect(G_OBJECT(settings_button), "button_press_event",
                         G_CALLBACK(settings_button_handler),
 			(gpointer)window_popup);
     /* Refresh buton */
-    refresh_button = gtk_button_new_with_label(_("Refresh"));
-    gtk_button_set_relief(GTK_BUTTON(refresh_button), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(refresh_button), FALSE);
-    g_signal_connect(refresh_button, "clicked",
+    refresh_button = create_button_with_image(BUTTON_ICONS, "refresh", 40, FALSE);
+    g_signal_connect(G_OBJECT(refresh_button), "button_press_event",
                         G_CALLBACK(refresh_button_handler),
 			(gpointer)window_popup);
     /* Close button */
-    close_button = gtk_button_new_with_label(_("Close"));
-    gtk_button_set_relief(GTK_BUTTON(close_button), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(close_button), FALSE);
-    g_signal_connect(GTK_BUTTON(close_button), "clicked",
+    close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE);
+    g_signal_connect(G_OBJECT(close_button), "button_press_event",
                         G_CALLBACK(popup_close_button_handler),
 			(gpointer)window_popup);
 /* Pack buttons to the buttons box */
@@ -1128,17 +1120,20 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
     }
 }
 /*******************************************************************************/
-void settings_button_handler(GtkButton *button, gpointer user_data){
+void settings_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data){
     gtk_widget_destroy(GTK_WIDGET(user_data));
     weather_window_settings(NULL, NULL, NULL);
 }
 /*******************************************************************************/
-void refresh_button_handler(GtkButton *button, gpointer user_data){
+void refresh_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data){
     gtk_widget_destroy(GTK_WIDGET(user_data));
     pre_update_weather();
 }
 /*******************************************************************************/
-void popup_close_button_handler(GtkButton *button, gpointer user_data){
+void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data){
     gtk_widget_destroy(GTK_WIDGET(user_data));
 }
 /*******************************************************************************/
@@ -1401,8 +1396,8 @@ GtkWidget* create_current_tab(GSList *current){
     icon_text_hbox = gtk_hbox_new(FALSE, 0);
 /* icon */
     sprintf(buffer,"%s%s.png", path_large_icon, item_value(current, "icon"));
-    icon = gdk_pixbuf_new_from_file_at_size(buffer, SUPER_GIANT_ICON_SIZE,
-						    SUPER_GIANT_ICON_SIZE, NULL);
+    icon = gdk_pixbuf_new_from_file_at_size(buffer, GIANT_ICON_SIZE,
+						    GIANT_ICON_SIZE, NULL);
     icon_image = gtk_image_new_from_pixbuf(icon);
     if(icon)
         g_object_unref(icon);
@@ -1475,10 +1470,12 @@ GtkWidget* create_current_tab(GSList *current){
     }
 
     text = gtk_label_new(buffer);
-    set_font_size(text, 30);
+    set_font_size(text, 24);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), text, TRUE, TRUE, 0);
 
     gtk_box_pack_start(GTK_BOX(main_widget), icon_text_hbox, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_widget), create_moon_phase_widget(current),
+			TRUE, TRUE, 0);
     /* last update time */
     gtk_box_pack_start(GTK_BOX(main_widget),
 			    create_time_updates_widget(current),

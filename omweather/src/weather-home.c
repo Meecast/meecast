@@ -1240,7 +1240,7 @@ WDB* create_weather_day_button(const char *text, const char *icon,
 				const int icon_size, gboolean transparency,
 				char font_size, GdkColor *color){
 
-    WDB	*new_day_button;
+    WDB		*new_day_button = NULL;
 #ifndef RELEASE
     fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif
@@ -1277,8 +1277,19 @@ WDB* create_weather_day_button(const char *text, const char *icon,
 	    gtk_image_new_from_pixbuf(new_day_button->icon_buffer);
 	g_object_unref(G_OBJECT(new_day_button->icon_buffer));
     }
-    else
-    	new_day_button->icon_image = NULL;
+    else{/* try to use default icon */
+/*	pixmap =
+	    gdk_pixmap_create_from_data(NULL, (gchar*)default_image.pixel_data,
+					default_image.width,
+						default_image.height,
+						default_image.bytes_per_pixel,
+						color, color);
+	new_day_button->icon_image =
+	    gtk_image_new_from_pixmap(pixmap, NULL);
+	g_object_unref(G_OBJECT(pixmap));
+*/
+	new_day_button->icon_image = NULL;
+    }
     /* Packing all to the box */
     if(new_day_button->icon_buffer)
 	gtk_box_pack_start(GTK_BOX(new_day_button->box),

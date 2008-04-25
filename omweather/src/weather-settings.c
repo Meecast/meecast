@@ -1768,6 +1768,7 @@ void highlight_current_station(GtkTreeView *tree_view){
 void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 							    gpointer user_data){
 
+    gint	day_number = (gint)user_data;/* last looking day on detail window */
     GtkWidget	*window_config = NULL,
 		*notebook = NULL,
 		*label = NULL,
@@ -1835,7 +1836,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 /* Main window */
     window_config = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     GLADE_HOOKUP_OBJECT_NO_REF(window_config, window_config, "window_config");
-//    gtk_window_set_modal(GTK_WINDOW(window_config), TRUE);
+    g_object_set_data(G_OBJECT(window_config), "day_number", (gpointer)day_number);
     gtk_window_fullscreen(GTK_WINDOW(window_config));
     /* create frame vbox */
     vbox = gtk_vbox_new(FALSE, 0);
@@ -2349,8 +2350,10 @@ void about_button_handler(GtkWidget *button, GdkEventButton *event,
 /*******************************************************************************/
 void back_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data){
+    gint day_number
+	    = (gint)g_object_get_data(G_OBJECT(user_data), "day_number");
     gtk_widget_destroy(GTK_WIDGET(user_data));
-    weather_window_popup(NULL, NULL, NULL);
+    weather_window_popup(NULL, NULL, (gpointer)day_number);
 }
 /*******************************************************************************/
 void add_button_handler(GtkButton *button, gpointer user_data){

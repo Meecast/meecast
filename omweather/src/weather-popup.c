@@ -389,13 +389,7 @@ GtkWidget* create_current_weather_widget(GSList *current){
 		*icon_temperature_hbox;
     gchar	buffer[1024],
 		*units;
-    const gchar	*wind_units_str[] = {	"m/s",
-/*					"km/s",
-					"mi/s",
-					"m/h",
-*/					"km/h",
-					"mi/h"
-				    };
+    const gchar	*wind_units_str[] = {	"m/s", "km/h", "mi/h" };
     GdkPixbuf	*icon = NULL;
     GtkWidget	*icon_image = NULL;
     float	tmp_distance = 0;
@@ -1006,10 +1000,10 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
                 diff_time,
                 current_data_last_update = 0;
 /* day number */
-    user_data && (active_tab = (int)user_data);
+    active_tab = (gint)user_data;
 /* Main window */
     window_popup = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    gtk_window_set_modal(GTK_WINDOW(window_popup), TRUE);
+    g_object_set_data(G_OBJECT(window_popup), "active_tab", (gpointer)active_tab);
     gtk_window_fullscreen(GTK_WINDOW(window_popup));
     /* create frame vbox */    
     vbox = gtk_vbox_new(FALSE, 0);
@@ -1086,13 +1080,13 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
                         G_CALLBACK(popup_close_button_handler),
 			(gpointer)window_popup);
 /* Pack buttons to the buttons box */
-    gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, FALSE, FALSE, 25);
+    gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, FALSE, FALSE, 30);
     gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 10);
-    gtk_box_pack_start(GTK_BOX(buttons_box), close_button, FALSE, FALSE, 25);
+    gtk_box_pack_start(GTK_BOX(buttons_box), close_button, FALSE, FALSE, 30);
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE, FALSE, 0);
 /* check pressed day data accessibility */
     if((gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0) &&
-	    !wcs.day_data[active_tab]){
+	    !wcs.day_data[active_tab] && !app->config->separate){
     	hildon_banner_show_information(app->main_window,
 					NULL,
 					_("No weather data for this day."));
@@ -1122,8 +1116,10 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 /*******************************************************************************/
 void settings_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data){
+    gint day_number
+	= (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");
     gtk_widget_destroy(GTK_WIDGET(user_data));
-    weather_window_settings(NULL, NULL, NULL);
+    weather_window_settings(NULL, NULL, (gpointer)day_number);
 }
 /*******************************************************************************/
 void refresh_button_handler(GtkWidget *button, GdkEventButton *event,

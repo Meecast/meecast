@@ -772,7 +772,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
 			"%s",
 			(char*)hash_table_find(item_value(current, "moon_phase")));
     main_label = gtk_label_new(buffer);
-    set_font_size(main_label, 14);
+    set_font_size(main_label, 18);
 
     main_widget = gtk_hbox_new(FALSE, 0);
 /* Moon icon */
@@ -1463,7 +1463,7 @@ GtkWidget* create_current_tab(GSList *current){
     }
 
     text = gtk_label_new(buffer);
-    set_font_size(text, 20);
+    set_font_size(text, 18);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), text, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), create_moon_phase_widget(current),
 			TRUE, TRUE, 0);

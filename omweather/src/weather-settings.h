@@ -32,24 +32,22 @@
 /*******************************************************************************/
 #define OMWEATHER_RESPONSE_ABOUT 5000
 /*******************************************************************************/
+struct lists_struct{
+    GtkWidget	*countries;
+    GtkWidget	*states;
+    GtkWidget	*stations;
+};
+/*******************************************************************************/
 extern gboolean  not_event;
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
-void weather_window_settings_old(GtkWidget *widget, GdkEvent *event,
-				gpointer user_data);
 void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				gpointer user_data);
 void station_list_view_select_handler(GtkTreeView *tree_view,
 			    gpointer user_data);
-void weather_window_edit_station(GtkWidget *widget,
-            			   GdkEvent *event,
-                    		   gpointer user_data);
-void weather_window_add_station(GtkWidget *widget,
-            			GdkEvent *event,
-                    		gpointer user_data);
-void changed_country(void);
-void changed_state(void);
-void changed_stations(void);
+void changed_country_handler(GtkWidget *widget, gpointer user_data);
+void changed_state_handler(GtkWidget *widget, gpointer user_data);
+void changed_stations_handler(GtkWidget *widget, gpointer user_data);
 void weather_window_add_custom_station(void);
 int create_icon_set_list(GtkWidget *store); /* scan /usr/share/omweather/icons */
 					     /* and add names to the list */
@@ -64,6 +62,7 @@ void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
 gboolean check_station_code(const gchar *station_code);
 void up_key_handler(GtkButton *button, gpointer list);
 void down_key_handler(GtkButton *button, gpointer list);
+void delete_station_handler(GtkButton *button, gpointer user_data);
 void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name, gboolean is_gps);
 #ifdef HILDON
 void delete_all_gps_stations(void);

@@ -46,7 +46,7 @@ float convert_wind_units(int to, float value){
 void set_font_size(GtkWidget *widget, char font_size){
     PangoFontDescription *pfd = NULL;
 #ifndef RELEASE
-    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+//    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif
     if(!widget)
 	return;

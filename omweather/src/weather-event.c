@@ -51,7 +51,7 @@ gboolean timer_handler(gpointer data){
     temp_string = ctime(&current_time);
     fprintf(stderr,"\nCurrent Time: %s\n",  temp_string);
 /*    g_free(temp_string);*/
-    print_list(NULL, 0);
+//    print_list(NULL, 0);
 #endif	
     while(list_time_event_temp != NULL){
 	evt = list_time_event_temp->data;
@@ -226,7 +226,7 @@ void free_list_time_event(void){
     
     #ifndef RELEASE
     fprintf(stderr,"Free ALL in list\n");
-    print_list(NULL, 0);
+//    print_list(NULL, 0);
     #endif
     if(!event_time_list)
 	return;
@@ -244,7 +244,7 @@ void free_list_time_event(void){
     event_time_list = NULL;
     #ifndef RELEASE
     fprintf(stderr,"list clean\n");
-    print_list(NULL, 0);
+//    print_list(NULL, 0);
     #endif
 
 }
@@ -264,7 +264,7 @@ void time_event_add(time_t time_value, short type_event){
 
     #ifndef RELEASE
     fprintf(stderr,"time_event_add in list\n");
-    print_list(NULL, 0); 
+//    print_list(NULL, 0); 
     #endif
     if( time_value && time_value > time(NULL)){ 
 	evt = g_new0(struct event_time, 1);
@@ -278,7 +278,7 @@ void time_event_add(time_t time_value, short type_event){
     }
     #ifndef RELEASE
     fprintf(stderr,"time_event_add in list finished\n");
-    print_list(NULL, 0);
+//    print_list(NULL, 0);
     #endif
 }
 /*******************************************************************************/
@@ -288,7 +288,7 @@ void add_gps_event(guint interval){
 
     #ifndef RELEASE
     fprintf(stderr,"Add in list\n");
-    print_list(NULL, 0);
+//    print_list(NULL, 0);
     #endif
 
 
@@ -296,7 +296,7 @@ void add_gps_event(guint interval){
 
     #ifndef RELEASE
     fprintf(stderr,"Item added to list\n");
-    print_list(NULL, 0);
+//    print_list(NULL, 0);
     #endif
 	
 }
@@ -306,7 +306,7 @@ void add_periodic_event(time_t last_update){
 
     #ifndef RELEASE
     fprintf(stderr,"Add in list\n");
-    print_list(NULL, 0);
+//    print_list(NULL, 0);
     #endif
 
 /*    if(app->config->gps_station) */
@@ -314,7 +314,7 @@ void add_periodic_event(time_t last_update){
 
     #ifndef RELEASE
     fprintf(stderr,"Item added to list\n");
-    print_list(NULL, 0);
+//    print_list(NULL, 0);
     #endif
 	
 }
@@ -326,7 +326,7 @@ void add_current_time_event(void){
     
     #ifndef RELEASE
 	fprintf(stderr,"Add in list\n");
-        print_list(NULL, 0);
+//        print_list(NULL, 0);
     #endif
     
     /* get current time */  
@@ -335,7 +335,7 @@ void add_current_time_event(void){
     
     #ifndef RELEASE
 	fprintf(stderr,"Item added to list\n");
-	print_list(NULL, 0);
+//	print_list(NULL, 0);
     #endif
 	
 }
@@ -348,7 +348,7 @@ void remove_periodic_event(void){
     
     #ifndef RELEASE
     fprintf(stderr,"Periodic remove from list\n");
-    print_list(NULL, 0);
+//    print_list(NULL, 0);
     #endif
 
     if(!event_time_list)
@@ -366,7 +366,7 @@ void remove_periodic_event(void){
 
     #ifndef RELEASE
     fprintf(stderr,"Periodic is remove from list\n");
-    print_list(NULL, 0);
+//    print_list(NULL, 0);
     #endif
 }
 /*******************************************************************************/
@@ -376,7 +376,7 @@ void remove_daytime_event(void){
     
     #ifndef RELEASE
     fprintf(stderr,"DAYTIMEEVENT remove from list\n");
-    print_list(NULL, 0);
+//    print_list(NULL, 0);
     #endif
 
     if(!event_time_list)
@@ -394,7 +394,7 @@ void remove_daytime_event(void){
 
     #ifndef RELEASE
     fprintf(stderr,"DAYTIMEEVENT is remove from list\n");
-    print_list(NULL, 0);
+//    print_list(NULL, 0);
     #endif
 }
 /*******************************************************************************/

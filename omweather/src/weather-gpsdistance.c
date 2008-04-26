@@ -48,10 +48,10 @@ calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2)
     dlat = lat2 - lat1;
     dlon = lon2 - lon1;
 
-    slat = sin(dlat / 2.0);
-    slon = sin(dlon / 2.0);
+    slat = sin(dlat / 2.0F);
+    slon = sin(dlon / 2.0F);
     a = (slat * slat) + (cos(lat1) * cos(lat2) * slon * slon);
-    return ((2.0 * atan2(sqrt(a), sqrt(1.0 - a))) * EARTH_RADIUS);
+    return ((2.0F * atan2(sqrt(a), sqrt(1.0F - a))) * EARTH_RADIUS);
 }
 /*******************************************************************************/
 #endif

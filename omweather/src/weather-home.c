@@ -758,7 +758,7 @@ GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent)
     
     menu_item = gtk_menu_item_new_with_label(_("OMWeather settings"));
     g_signal_connect(menu_item, "activate",
-	    G_CALLBACK(weather_window_settings_old), NULL);
+	    G_CALLBACK(weather_window_settings), NULL);
 
     return menu_item;
 }
@@ -1242,7 +1242,7 @@ WDB* create_weather_day_button(const char *text, const char *icon,
 
     WDB		*new_day_button = NULL;
 #ifndef RELEASE
-    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+//    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
 #endif
     new_day_button = g_new0(WDB, 1);
     if(!new_day_button)

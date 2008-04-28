@@ -1030,6 +1030,9 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 
     gint	day_number = (gint)user_data;/* last looking day on detail window */
     static struct lists_struct	list = { NULL, NULL, NULL };
+    GSList	*temperature_group = NULL,
+		*distance_group = NULL,
+		*wind_group = NULL;
     GtkWidget	*countries = NULL,
 		*states = NULL,
 		*stations = NULL,
@@ -1057,6 +1060,15 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*hide_station_name = NULL,
 		*hide_arrows = NULL,
 		*transparency = NULL,
+		*celcius_temperature = NULL,
+		*fahrenheit_temperature = NULL,
+		*distance_meters = NULL,
+		*distance_kilometers = NULL,
+		*distance_miles = NULL,
+		*distance_sea_miles = NULL,
+		*wind_meters = NULL,
+		*wind_kilometers = NULL,
+		*wind_miles = NULL,
 #ifdef HILDON
                 *label_gps = NULL,
                 *hbox_gps = NULL,
@@ -1463,9 +1475,87 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				0, 0);
 /* Units tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			table = gtk_table_new(1, 3, FALSE),
+        			table = gtk_table_new(5, 4, FALSE),
         			gtk_label_new(_("Units")));
+    /* temperature */
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				gtk_label_new(_("Temperature units:")),
+				0, 1, 0, 1);
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				celcius_temperature
+				    = gtk_radio_button_new_with_label(NULL,
+									_("Celcius (Metric)")),
+				1, 2, 0, 1);
+    temperature_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(celcius_temperature));
+    GLADE_HOOKUP_OBJECT(window_config, celcius_temperature, "celcius_temperature");
+    gtk_button_set_focus_on_click(GTK_BUTTON(celcius_temperature), FALSE);
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				fahrenheit_temperature
+				    = gtk_radio_button_new_with_label(temperature_group,
+									_("Fahrenheit (Imperial)")),
+				1, 2, 1, 2);
+    gtk_button_set_focus_on_click(GTK_BUTTON(fahrenheit_temperature), FALSE);
+    GLADE_HOOKUP_OBJECT(window_config, fahrenheit_temperature, "fahrenheit_temperature");
+    /* distance */
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				gtk_label_new(_("Distance units:")),
+				0, 1, 2, 3);
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				distance_meters
+				    = gtk_radio_button_new_with_label(NULL, _("Meters")),
+				1, 2, 2, 3);
+    distance_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_meters));
+    GLADE_HOOKUP_OBJECT(window_config, distance_meters, "distance_meters");
+    gtk_button_set_focus_on_click(GTK_BUTTON(distance_meters), FALSE);
 
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				distance_kilometers
+				    = gtk_radio_button_new_with_label(distance_group, _("Kilometers")),
+				2, 3, 2, 3);
+    GLADE_HOOKUP_OBJECT(window_config, distance_kilometers, "distance_kilometers");
+    gtk_button_set_focus_on_click(GTK_BUTTON(distance_kilometers), FALSE);
+
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				distance_miles
+				    = gtk_radio_button_new_with_label(gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_kilometers)),
+									_("Miles")),
+				1, 2, 3, 4);
+    GLADE_HOOKUP_OBJECT(window_config, distance_miles, "distance_miles");
+    gtk_button_set_focus_on_click(GTK_BUTTON(distance_miles), FALSE);
+
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				distance_sea_miles
+				    = gtk_radio_button_new_with_label(gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_miles)),
+									_("Sea miles")),
+				2, 3, 3, 4);
+    GLADE_HOOKUP_OBJECT(window_config, distance_sea_miles, "distance_sea_miles");
+    gtk_button_set_focus_on_click(GTK_BUTTON(distance_sea_miles), FALSE);
+    /* wind */
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				gtk_label_new(_("Wind speed units:")),
+				0, 1, 4, 5);
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				wind_meters
+				    = gtk_radio_button_new_with_label(NULL, _("m/s")),
+				1, 2, 4, 5);
+    wind_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(wind_meters));
+    GLADE_HOOKUP_OBJECT(window_config, wind_meters, "wind_meters");
+    gtk_button_set_focus_on_click(GTK_BUTTON(wind_meters), FALSE);
+
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				wind_kilometers
+				    = gtk_radio_button_new_with_label(wind_group, _("km/s")),
+				2, 3, 4, 5);
+    GLADE_HOOKUP_OBJECT(window_config, wind_kilometers, "wind_kilometers");
+    gtk_button_set_focus_on_click(GTK_BUTTON(wind_kilometers), FALSE);
+
+    gtk_table_attach_defaults(GTK_TABLE(table), 
+				wind_miles
+				    = gtk_radio_button_new_with_label(gtk_radio_button_get_group(GTK_RADIO_BUTTON(wind_kilometers)),
+									_("mi/s")),
+				3, 4, 4, 5);
+    GLADE_HOOKUP_OBJECT(window_config, wind_miles, "wind_miles");
+    gtk_button_set_focus_on_click(GTK_BUTTON(wind_miles), FALSE);
 /* Update tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			table = gtk_table_new(5, 2, FALSE),

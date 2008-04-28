@@ -29,7 +29,13 @@
 #include "weather-locations.h"
 #include "weather-help.h"
 #include "weather-utils.h"
-#include <hildon-widgets/hildon-controlbar.h>
+#ifdef HILDON
+    #include <hildon/hildon-controlbar.h>
+#else
+    #include <hildon-widgets/hildon-controlbar.h>
+#endif
+
+
 #include "build"
 #if defined (BSD) && !_POSIX_SOURCE
     #include <sys/dir.h>

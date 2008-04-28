@@ -409,22 +409,6 @@ GtkWidget* create_tree_view(GtkListStore* list){
 }
 /*******************************************************************************/
 /*
-        			table = gtk_table_new(1, 3, FALSE),
-        			label = gtk_label_new(_("Units")));
-    gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_label_new(_("Temperature units:")),
-        			0, 1, 0, 1);
-    gtk_table_attach_defaults(GTK_TABLE(table),	    
-        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
-        			1, 2, 0, 1);
-    gtk_container_add(GTK_CONTAINER(label),temperature_unit = gtk_combo_box_new_text());
-    gtk_combo_box_append_text(GTK_COMBO_BOX(temperature_unit), _("Celsius (Metric)"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(temperature_unit), _("Fahrenheit (Imperial)"));
-    switch(app->config->temperature_units){
-	default:
-	case CELSIUS: gtk_combo_box_set_active(GTK_COMBO_BOX(temperature_unit), 0); break;
-	case FAHRENHEIT: gtk_combo_box_set_active(GTK_COMBO_BOX(temperature_unit), 1); break;
-    }
 // Distance units
     gtk_table_attach_defaults(GTK_TABLE(table),	    
 				label = gtk_label_new(_("Distance units:")),
@@ -1493,15 +1477,24 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 									_("Celcius (Metric)")),
 				1, 2, 0, 1);
     temperature_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(celcius_temperature));
-    GLADE_HOOKUP_OBJECT(window_config, celcius_temperature, "celcius_temperature");
+    gtk_widget_set_name(celcius_temperature, "celcius_temperature");
     gtk_button_set_focus_on_click(GTK_BUTTON(celcius_temperature), FALSE);
+    g_signal_connect(GTK_RADIO_BUTTON(celcius_temperature), "toggled",
+            		    G_CALLBACK(temperature_units_change_handler), NULL);
     gtk_table_attach_defaults(GTK_TABLE(table), 
 				fahrenheit_temperature
 				    = gtk_radio_button_new_with_label(temperature_group,
 									_("Fahrenheit (Imperial)")),
 				1, 2, 1, 2);
     gtk_button_set_focus_on_click(GTK_BUTTON(fahrenheit_temperature), FALSE);
-    GLADE_HOOKUP_OBJECT(window_config, fahrenheit_temperature, "fahrenheit_temperature");
+    gtk_widget_set_name(fahrenheit_temperature, "fahrenheit_temperature");
+    g_signal_connect(GTK_RADIO_BUTTON(fahrenheit_temperature), "toggled",
+            		    G_CALLBACK(temperature_units_change_handler), NULL);
+    if(app->config->temperature_units == CELSIUS)
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(celcius_temperature), TRUE);
+    else
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fahrenheit_temperature), TRUE);
+	
     /* distance */
     gtk_table_attach_defaults(GTK_TABLE(table), 
 				gtk_label_new(_("Distance units:")),
@@ -1510,15 +1503,19 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				distance_meters
 				    = gtk_radio_button_new_with_label(NULL, _("Meters")),
 				1, 2, 2, 3);
+    gtk_widget_set_name(distance_meters, "distance_meters");
+    g_signal_connect(GTK_RADIO_BUTTON(distance_meters), "toggled",
+            		    G_CALLBACK(distance_units_change_handler), NULL);
     distance_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_meters));
-    GLADE_HOOKUP_OBJECT(window_config, distance_meters, "distance_meters");
     gtk_button_set_focus_on_click(GTK_BUTTON(distance_meters), FALSE);
 
     gtk_table_attach_defaults(GTK_TABLE(table), 
 				distance_kilometers
 				    = gtk_radio_button_new_with_label(distance_group, _("Kilometers")),
 				2, 3, 2, 3);
-    GLADE_HOOKUP_OBJECT(window_config, distance_kilometers, "distance_kilometers");
+    gtk_widget_set_name(distance_kilometers, "distance_kilometers");
+    g_signal_connect(GTK_RADIO_BUTTON(distance_kilometers), "toggled",
+            		    G_CALLBACK(distance_units_change_handler), NULL);
     gtk_button_set_focus_on_click(GTK_BUTTON(distance_kilometers), FALSE);
 
     gtk_table_attach_defaults(GTK_TABLE(table), 
@@ -1526,7 +1523,9 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    = gtk_radio_button_new_with_label(gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_kilometers)),
 									_("Miles")),
 				1, 2, 3, 4);
-    GLADE_HOOKUP_OBJECT(window_config, distance_miles, "distance_miles");
+    gtk_widget_set_name(distance_miles, "distance_miles");
+    g_signal_connect(GTK_RADIO_BUTTON(distance_miles), "toggled",
+            		    G_CALLBACK(distance_units_change_handler), NULL);
     gtk_button_set_focus_on_click(GTK_BUTTON(distance_miles), FALSE);
 
     gtk_table_attach_defaults(GTK_TABLE(table), 
@@ -1534,8 +1533,17 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    = gtk_radio_button_new_with_label(gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_miles)),
 									_("Sea miles")),
 				2, 3, 3, 4);
-    GLADE_HOOKUP_OBJECT(window_config, distance_sea_miles, "distance_sea_miles");
+    gtk_widget_set_name(distance_sea_miles, "distance_sea_miles");
+    g_signal_connect(GTK_RADIO_BUTTON(distance_sea_miles), "toggled",
+            		    G_CALLBACK(distance_units_change_handler), NULL);
     gtk_button_set_focus_on_click(GTK_BUTTON(distance_sea_miles), FALSE);
+    switch(app->config->distance_units){
+	default:
+	case METERS: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_meters), TRUE); break;
+	case KILOMETERS: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_kilometers), TRUE); break;
+	case MILES: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_miles), TRUE); break;
+	case SEA_MILES: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_sea_miles), TRUE); break;
+    }
     /* wind */
     gtk_table_attach_defaults(GTK_TABLE(table), 
 				gtk_label_new(_("Wind speed units:")),
@@ -1545,14 +1553,18 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    = gtk_radio_button_new_with_label(NULL, _("m/s")),
 				1, 2, 4, 5);
     wind_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(wind_meters));
-    GLADE_HOOKUP_OBJECT(window_config, wind_meters, "wind_meters");
+    gtk_widget_set_name(wind_meters, "wind_meters");
+    g_signal_connect(GTK_RADIO_BUTTON(wind_meters), "toggled",
+            		    G_CALLBACK(wind_units_change_handler), NULL);
     gtk_button_set_focus_on_click(GTK_BUTTON(wind_meters), FALSE);
 
     gtk_table_attach_defaults(GTK_TABLE(table), 
 				wind_kilometers
 				    = gtk_radio_button_new_with_label(wind_group, _("km/s")),
 				2, 3, 4, 5);
-    GLADE_HOOKUP_OBJECT(window_config, wind_kilometers, "wind_kilometers");
+    gtk_widget_set_name(wind_kilometers, "wind_kilometers");
+    g_signal_connect(GTK_RADIO_BUTTON(wind_kilometers), "toggled",
+            		    G_CALLBACK(wind_units_change_handler), NULL);
     gtk_button_set_focus_on_click(GTK_BUTTON(wind_kilometers), FALSE);
 
     gtk_table_attach_defaults(GTK_TABLE(table), 
@@ -1560,8 +1572,16 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    = gtk_radio_button_new_with_label(gtk_radio_button_get_group(GTK_RADIO_BUTTON(wind_kilometers)),
 									_("mi/s")),
 				3, 4, 4, 5);
-    GLADE_HOOKUP_OBJECT(window_config, wind_miles, "wind_miles");
+    gtk_widget_set_name(wind_miles, "wind_miles");
+    g_signal_connect(GTK_RADIO_BUTTON(wind_miles), "toggled",
+            		    G_CALLBACK(wind_units_change_handler), NULL);
     gtk_button_set_focus_on_click(GTK_BUTTON(wind_miles), FALSE);
+    switch(app->config->wind_units){
+	default:
+	case METERS_S: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_meters), TRUE); break;
+	case KILOMETERS_H: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_kilometers), TRUE); break;
+	case MILES_H: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_miles), TRUE); break;
+    }
 /* Update tab */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			table = gtk_table_new(5, 2, FALSE),
@@ -1844,5 +1864,59 @@ void rename_button_handler(GtkWidget *button, GdkEventButton *event,
     new_config_save(app->config);
     flag_update_station = TRUE;
     weather_frame_update(TRUE);
+}
+/*******************************************************************************/
+void temperature_units_change_handler(GtkRadioButton *button, gpointer user_data){
+    gchar	*button_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)) ){
+	if( !strcmp(button_name, "celcius_temperature") ){
+	    app->config->temperature_units = CELSIUS;
+	    return;
+	}
+	if( !strcmp(button_name, "fahrenheit_temperature") ){
+	    app->config->temperature_units = FAHRENHEIT;
+	    return;
+	}
+    }
+}
+/*******************************************************************************/
+void distance_units_change_handler(GtkRadioButton *button, gpointer user_data){
+    gchar	*button_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)) ){
+	if( !strcmp(button_name, "distance_meters") ){
+	    app->config->distance_units = METERS;
+	    return;
+	}
+	if( !strcmp(button_name, "distance_kilometers") ){
+	    app->config->distance_units = KILOMETERS;
+	    return;
+	}
+	if( !strcmp(button_name, "distance_miles") ){
+	    app->config->distance_units = MILES;
+	    return;
+	}
+	if( !strcmp(button_name, "distance_sea_miles") ){
+	    app->config->distance_units = SEA_MILES;
+	    return;
+	}
+    }
+}
+/*******************************************************************************/
+void wind_units_change_handler(GtkRadioButton *button, gpointer user_data){
+    gchar	*button_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)) ){
+	if( !strcmp(button_name, "wind_meters") ){
+	    app->config->wind_units = METERS_S;
+	    return;
+	}
+	if( !strcmp(button_name, "wind_kilometers") ){
+	    app->config->wind_units = KILOMETERS_H;
+	    return;
+	}
+	if( !strcmp(button_name, "wind_miles") ){
+	    app->config->wind_units = MILES_H;
+	    return;
+	}
+    }
 }
 /*******************************************************************************/

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-26 12:24+0300\n"
+"POT-Creation-Date: 2008-04-28 16:27+0300\n"
 "PO-Revision-Date: 2008-03-21 13:39+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Italiano\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: src/weather-settings.c:722
+#: src/weather-settings.c:710
 #, fuzzy
 msgid ""
 "\n"
@@ -37,7 +37,7 @@ msgstr ""
 "Documentazione:\n"
 "\tMarko Vertainen"
 
-#: src/weather-settings.c:708
+#: src/weather-settings.c:698
 msgid ""
 "\n"
 "Copyright(c) 2006-2008\n"
@@ -47,7 +47,7 @@ msgstr ""
 "Copyright(c) 2006-2008\n"
 "Vlad Vasiliev, Pavel Fialko"
 
-#: src/weather-settings.c:710
+#: src/weather-settings.c:700
 msgid ""
 "\n"
 "Copyright(c) 2008\n"
@@ -55,7 +55,7 @@ msgid ""
 "Andrew Zhilin"
 msgstr ""
 
-#: src/weather-settings.c:733
+#: src/weather-settings.c:721
 msgid ""
 "\n"
 "Ed Bartosh - for more feature requests,\n"
@@ -97,7 +97,7 @@ msgstr ""
 "\n"
 "Atmosfera: "
 
-#: src/weather-settings.c:701
+#: src/weather-settings.c:691
 msgid ""
 "\n"
 "Hildon desktop applet\n"
@@ -168,7 +168,7 @@ msgstr ""
 "\n"
 "Vento: "
 
-#: src/weather-settings.c:706
+#: src/weather-settings.c:696
 #, fuzzy
 msgid " Build: "
 msgstr " Umidità: "
@@ -272,7 +272,7 @@ msgstr "Neve"
 msgid "AM Snow Showers"
 msgstr "Neve Doccia"
 
-#: src/weather-settings.c:719
+#: src/weather-settings.c:707
 msgid "About"
 msgstr "Chi"
 
@@ -281,7 +281,7 @@ msgstr "Chi"
 msgid "Add"
 msgstr " Aggiungi "
 
-#: src/weather-settings.c:744
+#: src/weather-settings.c:732
 msgid ""
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
@@ -303,11 +303,11 @@ msgstr ""
 "Marc Dilon - per il correttore ortografico /\n"
 " stylecheck testo di inglese\n"
 
-#: src/weather-settings.c:276
+#: src/weather-settings.c:282
 msgid "Are you sure to want delete this station ?"
 msgstr "Sei sicuro di voler cancellare questa stazione?"
 
-#: src/weather-settings.c:752
+#: src/weather-settings.c:740
 msgid ""
 "Arkady Glazov aka Globster - for testing\n"
 "Alexander Savchenko aka dizel - for testing\n"
@@ -319,7 +319,7 @@ msgstr ""
 msgid "Arrange"
 msgstr ""
 
-#: src/weather-settings.c:730
+#: src/weather-settings.c:718
 msgid "Authors"
 msgstr "Autori"
 
@@ -349,6 +349,11 @@ msgstr "CALMA"
 msgid "Can not get path to the HOME directory. Quitting.\n"
 msgstr ""
 "Non si possono ottenere per il percorso della directory HOME. Smettere.\n"
+
+#: src/weather-settings.c:1477
+#, fuzzy
+msgid "Celcius (Metric)"
+msgstr "Celsius (Metrica)"
 
 #: src/weather-settings.c:1250
 #, fuzzy
@@ -411,6 +416,10 @@ msgstr "Giornata:"
 msgid "Did not download weather"
 msgstr "Non scaricare meteo"
 
+#: src/weather-settings.c:1500
+msgid "Distance units:"
+msgstr "Distanza unità:"
+
 #: src/hash.data:27
 msgid "Drifting Snow"
 msgstr "Di neve"
@@ -440,7 +449,7 @@ msgstr "Est-Nord-Est"
 msgid "ESE"
 msgstr "Est-Sud-Est"
 
-#: src/weather-settings.c:755
+#: src/weather-settings.c:743
 msgid "Eric Link - for feature request and donation\n"
 msgstr "Eric Link - per la richiesta di funzione e di donazione\n"
 
@@ -466,6 +475,10 @@ msgstr "F"
 #, fuzzy
 msgid "F\n"
 msgstr "F"
+
+#: src/weather-settings.c:1487
+msgid "Fahrenheit (Imperial)"
+msgstr "Fahrenheit (Imperiale)"
 
 #: src/weather-config.c:248
 #, c-format
@@ -539,7 +552,7 @@ msgstr "Caratteri colore:"
 msgid "Freezing Drizzle"
 msgstr "Pioviggine gelata"
 
-#: src/weather-settings.c:763
+#: src/weather-settings.c:751
 msgid ""
 "French - Nicolas Granziano\n"
 "Russian - Pavel Fialko, Vlad Vasiliev,\n"
@@ -623,6 +636,10 @@ msgstr " / Vento"
 #: src/hash.data:53
 msgid "Isolated T-Storms / Wind"
 msgstr " / Vento"
+
+#: src/weather-settings.c:1514
+msgid "Kilometers"
+msgstr "Chilometri"
 
 #: src/hash.data:55
 #, fuzzy
@@ -727,6 +744,14 @@ msgstr "Luce neve doccia"
 msgid "Low"
 msgstr "Bassa"
 
+#: src/weather-settings.c:1504
+msgid "Meters"
+msgstr "Metri"
+
+#: src/weather-settings.c:1524
+msgid "Miles"
+msgstr "Miglia"
+
 #: src/hash.data:75
 msgid "Mist"
 msgstr "Nebbia"
@@ -789,7 +814,7 @@ msgstr "Nord-Ovest"
 msgid "Name:"
 msgstr ""
 
-#: src/weather-settings.c:884 src/weather-config.c:210
+#: src/weather-settings.c:872 src/weather-config.c:210
 msgid "Never"
 msgstr "Mai"
 
@@ -801,7 +826,7 @@ msgstr "Nuovo"
 msgid "Night:"
 msgstr "Notte:"
 
-#: src/weather-settings.c:280
+#: src/weather-settings.c:286
 #, fuzzy
 msgid "No"
 msgstr "Ora"
@@ -841,7 +866,7 @@ msgstr "Ora"
 msgid "Now: "
 msgstr "Ora:"
 
-#: src/weather-settings.c:689
+#: src/weather-settings.c:679
 msgid "OK"
 msgstr "OK"
 
@@ -857,7 +882,7 @@ msgstr "Una colonna"
 msgid "One row"
 msgstr "Una riga"
 
-#: src/weather-settings.c:686
+#: src/weather-settings.c:676
 msgid "Other Maemo Weather Info"
 msgstr "Other Maemo Weather Informazioni"
 
@@ -1049,6 +1074,10 @@ msgstr "Sparse nevose"
 msgid "Scattered T-Storms"
 msgstr "Rovesci sparsi"
 
+#: src/weather-settings.c:1534
+msgid "Sea miles"
+msgstr ""
+
 #: src/weather-popup.c:676 src/weather-popup.c:960
 msgid "Settings"
 msgstr "Impostazioni"
@@ -1179,11 +1208,15 @@ msgstr "Tempesta"
 msgid "T-Storms Early"
 msgstr "Nevicate precoce"
 
+#: src/weather-settings.c:1472
+msgid "Temperature units:"
+msgstr "Temperatura unità:"
+
 #: src/weather-popup.c:376 src/weather-popup.c:1400
 msgid "Temperature: "
 msgstr "Temperatura: "
 
-#: src/weather-settings.c:760
+#: src/weather-settings.c:748
 msgid "Thanks"
 msgstr "Grazie"
 
@@ -1191,7 +1224,7 @@ msgstr "Grazie"
 msgid "Thunder"
 msgstr "Tuono"
 
-#: src/weather-settings.c:771
+#: src/weather-settings.c:759
 msgid "Translators"
 msgstr "Traduttori"
 
@@ -1219,7 +1252,7 @@ msgstr "Sconosciuto"
 msgid "Unlimited"
 msgstr "Illimitato"
 
-#: src/weather-settings.c:1474
+#: src/weather-settings.c:1588
 msgid "Update"
 msgstr "Aggiornamento"
 
@@ -1284,6 +1317,10 @@ msgstr "Tempo aggiornato"
 msgid "Wind"
 msgstr "Vento"
 
+#: src/weather-settings.c:1549
+msgid "Wind speed units:"
+msgstr "Unità di velocità del vento:"
+
 #: src/weather-popup.c:1449
 #, fuzzy
 msgid "Wind:"
@@ -1320,7 +1357,7 @@ msgstr ""
 "Sbagliato stazione codice \n"
 "O CAP!"
 
-#: src/weather-settings.c:278
+#: src/weather-settings.c:284
 msgid "Yes"
 msgstr ""
 
@@ -1372,7 +1409,7 @@ msgstr "ch"
 msgid "km/h"
 msgstr "ch/o"
 
-#: src/hash.data:174
+#: src/weather-settings.c:1563 src/hash.data:174
 msgid "km/s"
 msgstr "ch/s"
 
@@ -1384,7 +1421,7 @@ msgstr "m"
 msgid "m/h"
 msgstr "m/o"
 
-#: src/hash.data:176
+#: src/weather-settings.c:1553 src/hash.data:176
 msgid "m/s"
 msgstr "m/s"
 
@@ -1401,7 +1438,7 @@ msgstr "mi"
 msgid "mi/h"
 msgstr "mi/o"
 
-#: src/hash.data:178
+#: src/weather-settings.c:1573 src/hash.data:178
 msgid "mi/s"
 msgstr "mi/s"
 
@@ -1468,14 +1505,8 @@ msgstr "costante"
 #~ msgid "Cancel"
 #~ msgstr "Annulla"
 
-#~ msgid "Celsius (Metric)"
-#~ msgstr "Celsius (Metrica)"
-
 #~ msgid "Delete"
 #~ msgstr "Elimina"
-
-#~ msgid "Distance units:"
-#~ msgstr "Distanza unità:"
 
 #~ msgid "Enable station from GPS:"
 #~ msgstr "Attiva da stazione GPS:"
@@ -1483,14 +1514,8 @@ msgstr "costante"
 #~ msgid "Events"
 #~ msgstr "Eventi"
 
-#~ msgid "Fahrenheit (Imperial)"
-#~ msgstr "Fahrenheit (Imperiale)"
-
 #~ msgid "Giant"
 #~ msgstr "Gigante"
-
-#~ msgid "Kilometers"
-#~ msgstr "Chilometri"
 
 #~ msgid "Large"
 #~ msgstr "Grande"
@@ -1500,12 +1525,6 @@ msgstr "costante"
 
 #~ msgid "Medium"
 #~ msgstr "Medio"
-
-#~ msgid "Meters"
-#~ msgstr "Metri"
-
-#~ msgid "Miles"
-#~ msgstr "Miglia"
 
 #~ msgid "Miles (Sea)"
 #~ msgstr "Miglia (Mar)"
@@ -1552,9 +1571,6 @@ msgstr "costante"
 #~ msgid "Switch to the next station after:"
 #~ msgstr "Passare alla prossima stazione dopo:"
 
-#~ msgid "Temperature units:"
-#~ msgstr "Temperatura unità:"
-
 #~ msgid "Updating of weather data:"
 #~ msgstr ""
 #~ "Aggiornamento dei dati\n"
@@ -1569,9 +1585,6 @@ msgstr "costante"
 
 #~ msgid "Valid time for current weather:"
 #~ msgstr "Valido tempo per tempo:"
-
-#~ msgid "Wind speed units:"
-#~ msgstr "Unità di velocità del vento:"
 
 #, fuzzy
 #~ msgid "Background color"

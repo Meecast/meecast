@@ -84,6 +84,9 @@ void back_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
 void add_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
+void temperature_units_change_handler(GtkRadioButton *button, gpointer user_data);
+void distance_units_change_handler(GtkRadioButton *button, gpointer user_data);
+void wind_units_change_handler(GtkRadioButton *button, gpointer user_data);
 /*******************************************************************************/
 extern void remove_periodic_event(void);
 extern void weather_initialize_dbus(void);

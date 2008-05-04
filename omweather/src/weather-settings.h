@@ -67,7 +67,7 @@ void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_n
 #ifdef HILDON
 void delete_all_gps_stations(void);
 #endif
-GtkWidget* create_tree_view(GtkListStore* list);
+
 void highlight_current_station(GtkTreeView *tree_view);
 extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
 				    int image_size, gboolean with_border);
@@ -107,5 +107,6 @@ extern void help_activated_handler(GtkWidget *window, gchar *help_id);
 extern void update_weather(gboolean show_update_window);
 extern GtkWidget* lookup_widget(GtkWidget *widget, const gchar *widget_name);
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
+extern GtkWidget* create_tree_view(GtkListStore* list);
 /*******************************************************************************/
 #endif

@@ -34,25 +34,9 @@
 extern	gchar		path_large_icon[];
 /*******************************************************************************/
 void popup_window_destroy(void);
-gboolean popup_window_event_cb(GtkWidget *widget, GdkEvent *event, 
-                    		    gpointer user_data);
-gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
-				    gpointer user_data);
-void popup_window_more_close(GtkWidget *widget, GdkEvent *event,
-                    	    	    gpointer user_data);
-GtkWidget* create_header_widget(GSList *day);
-GtkWidget* create_temperature_range_widget(GSList *day);
-GtkWidget* create_current_weather_widget(GSList *current);
-GtkWidget* create_24_hours_widget(GSList *day);
-GtkWidget* create_footer_widget(gboolean enable_more_info);
-GtkWidget* create_footer_more_widget(void);
 GtkWidget* create_sun_time_widget(GSList *day);
 GtkWidget* create_moon_phase_widget(GSList *current);
 GtkWidget* create_time_updates_widget(GSList *current);
-
-void popup_window_more_show(GtkWidget *widget, GdkEvent *event, gpointer user_data);
-void weather_window_popup_more_show(void);
-void popup_close(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 
 void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 void settings_button_handler(GtkWidget *button, GdkEventButton *event,

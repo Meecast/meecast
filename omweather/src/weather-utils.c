@@ -146,3 +146,31 @@ GtkWidget* create_button_with_image(const char *path, const char *image_name,
     return button;
 }
 /*******************************************************************************/
+GtkWidget* create_tree_view(GtkListStore* list){
+    GtkWidget		*tree_view = NULL;
+    GtkTreeSelection	*list_selection = NULL;
+    GtkCellRenderer	*renderer = NULL;
+    GtkTreeViewColumn	*column = NULL;
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
+/* create the tree view model LIST */
+    tree_view = gtk_tree_view_new_with_model(GTK_TREE_MODEL(list));
+/* make the list component single selectable */
+    list_selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
+    gtk_tree_selection_set_mode(list_selection, GTK_SELECTION_SINGLE);
+/* add name column to the view */
+    renderer = gtk_cell_renderer_text_new();
+    column = gtk_tree_view_column_new();
+    gtk_tree_view_column_set_sizing(column, GTK_TREE_VIEW_COLUMN_FIXED);
+    g_object_set(G_OBJECT(renderer), "ellipsize", PANGO_ELLIPSIZE_END, NULL);
+    gtk_tree_view_column_set_expand(column, TRUE);
+
+    gtk_tree_view_column_pack_start(column, renderer, TRUE);
+    gtk_tree_view_column_set_attributes(column, renderer,
+                                      "text", 0, NULL);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(tree_view), column);
+/* return widget to caller */
+    return tree_view;
+}
+/*******************************************************************************/

@@ -90,6 +90,7 @@ void wind_units_change_handler(GtkRadioButton *button, gpointer user_data);
 void change_notebook_page_handler(GtkNotebook *notebook, GtkNotebookPage *page,
                                     guint page_num, gpointer user_data);
 /*******************************************************************************/
+extern void redraw_home_window(void);
 extern void remove_periodic_event(void);
 extern void weather_initialize_dbus(void);
 extern time_t next_update(void);
@@ -103,7 +104,7 @@ extern void add_gps_event(guint interval);
 extern gboolean change_station_select(GtkWidget *widget, gpointer user_data);
 extern gboolean switch_timer_handler(gpointer data);
 extern void help_activated_handler(GtkWidget *window, gchar *help_id);
-extern void update_weather(void);
+extern void update_weather(gboolean show_update_window);
 extern GtkWidget* lookup_widget(GtkWidget *widget, const gchar *widget_name);
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 /*******************************************************************************/

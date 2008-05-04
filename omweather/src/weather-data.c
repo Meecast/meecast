@@ -33,7 +33,9 @@ WeatherComStation wcs = { NULL };
 /*******************************************************************************/
 Item* create_item(const char *name, const char *value){
     Item	*itm;
-
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     if(!name)
 	return NULL;
     
@@ -44,6 +46,9 @@ Item* create_item(const char *name, const char *value){
 }
 /*******************************************************************************/
 void destroy_item(Item **item){
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     if(!(*item))
 	return;
     if((*item)->name)
@@ -55,6 +60,9 @@ void destroy_item(Item **item){
 }
 /*******************************************************************************/
 GSList*	add_item2object(GSList **object, Item *item){
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     if(item)
 	*object = g_slist_append(*object, item);
     return (*object);
@@ -64,7 +72,9 @@ char* item_value(GSList *object, const char *name){
     GString	*tmp = NULL;
     Item	*itm = NULL;
     char	*result = "";
-
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     if(object){
         tmp = g_string_new(name);
 	while(object){
@@ -83,7 +93,9 @@ char* item_value(GSList *object, const char *name){
 void destroy_object(GSList **object){
     Item	*itm = NULL;
     GSList	*tmp = *object;
-
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     while(tmp){
 	itm = (Item*)tmp->data;
 	if(itm)
@@ -97,7 +109,9 @@ void destroy_object(GSList **object){
 time_t last_update_time(GSList *object){
     time_t	last_update = 0;
     struct tm	tm = {0};
-
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     if(!object)
 	return 0;
 
@@ -115,6 +129,9 @@ time_t last_update_time(GSList *object){
 #ifndef RELEASE
 void display_all_object_items(GSList *object){
     Item	*itm = NULL;
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
     while(object){
 	itm = (Item*)object->data;

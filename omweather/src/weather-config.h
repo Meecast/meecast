@@ -86,6 +86,6 @@ extern void remove_periodic_event(void);
 extern void add_periodic_event(time_t last_update);
 extern void add_gps_event(guint interval);
 extern gboolean switch_timer_handler(gpointer data);
-extern void update_weather(void);
+extern void update_weather(gboolean show_update_window);
 /*******************************************************************************/
 #endif

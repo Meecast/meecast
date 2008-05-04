@@ -38,7 +38,9 @@ gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
     gboolean retval = FALSE;
     GnomeVFSURI *parent, *curr_uri;
     GList *list = NULL;
-
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     /* Rest of the function devoted to making sure the directory exists. */
     weather_dir_uri = gnome_vfs_uri_new(new_weather_dir_name);
     if(!gnome_vfs_uri_exists(weather_dir_uri)){
@@ -75,8 +77,10 @@ void fill_user_stations_list_from_clock(GtkListStore** list){
 		*station_code = NULL,
 		buffer[1024];
     GtkTreeIter	iter;
-        
     GConfClient *gconf_client = gconf_client_get_default();
+#ifndef RELEASE
+    START_FUNCTION;
+#endif        
     /* City name from config file of clock */
     home_city = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_CLOCK_HOME_LOCATION, NULL);
@@ -132,7 +136,9 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 #ifdef HILDON
     gboolean	is_gps = FALSE;
 #endif
-
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     while(source_list){
 	temp1 = strdup((gchar*)source_list->data);
    /* Delimit Id and name */
@@ -180,7 +186,9 @@ GSList* create_stations_string_list(void){
     gchar	*station_name = NULL,
 		*station_code = NULL,
 		*str = NULL;
-    
+#ifndef RELEASE
+    START_FUNCTION;
+#endif    
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
 					    &iter);
     while(valid){
@@ -203,7 +211,9 @@ GSList* create_stations_string_list(void){
 GtkListStore* create_time_update_list(void){
     GtkListStore	*list = NULL;
     GtkTreeIter         iter;
-
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
     
     gtk_list_store_append(list, &iter);
@@ -239,9 +249,8 @@ int new_read_config(AppletConfig *config){
 		*home_dir,
 		*tmp = NULL;
 #ifndef RELEASE
-    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+    START_FUNCTION;
 #endif
-
     gconf_client = gconf_client_get_default();
 
     if(!gconf_client){
@@ -300,7 +309,6 @@ int new_read_config(AppletConfig *config){
 	tmp = NULL;
     }
 #endif    
-
     /* Get Weather Stations ID and NAME */
     stlist = gconf_client_get_list(gconf_client,
         			    GCONF_KEY_WEATHER_STATIONS_LIST,
@@ -526,10 +534,8 @@ int new_read_config(AppletConfig *config){
     if(!tmp){
 	if(!app->config->current_station_id){
 	    fill_user_stations_list_from_clock(&app->user_stations_list);
-	    if(app->iap_connected){
-		app->show_update_window = TRUE;
-		update_weather();
-	    }
+	    if(app->iap_connected)
+		update_weather(TRUE);
 	}	    
     }
     else{
@@ -570,6 +576,9 @@ int new_read_config(AppletConfig *config){
 /*******************************************************************************/
 void config_update_proxy(void){
     GConfClient *gconf_client = gconf_client_get_default();
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     if(app->config->iap_http_proxy_host)
         g_free(app->config->iap_http_proxy_host);
     /* Get proxy data */
@@ -592,7 +601,9 @@ void new_config_save(AppletConfig *config){
     gchar temp_buffer[16];
     GConfClient *gconf_client;
     GSList *stlist = NULL;
-   
+#ifndef RELEASE
+    START_FUNCTION;
+#endif   
     gconf_client = gconf_client_get_default();
     if(!gconf_client){
 	fprintf(stderr, _("Failed to initialize GConf. Settings were not saved.\n"));

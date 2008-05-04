@@ -36,8 +36,8 @@ get_nearest_station( double lat, double lon, Station *result)
     FILE		*fh;
     char		buffer[512];
 #ifndef RELEASE
-    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
-#endif     
+    START_FUNCTION;
+#endif
     Region_item  region;
     GtkListStore *stations_list = NULL;
     GtkTreeIter  iter;
@@ -124,13 +124,16 @@ get_nearest_station( double lat, double lon, Station *result)
     }
     fclose(fh);
 #ifndef RELEASE
-    fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
-#endif 
+    END_FUNCTION;
+#endif
 }
 /*******************************************************************************/
 static void
 gps_location_changed (LocationGPSDevice *device, gpointer userdata)
 {
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     if (!app->config->gps_station)
         return;
     if (device->fix->fields & LOCATION_GPS_DEVICE_LATLONG_SET){
@@ -143,27 +146,26 @@ void
 initial_gps_connect(void)
 { 
 #ifndef RELEASE
-    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
-#endif 
+    START_FUNCTION;
+#endif
     app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
     app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
 #ifndef RELEASE
-    fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
-#endif 
-    
+    END_FUNCTION;
+#endif    
 }
 /*******************************************************************************/
 void
 deinitial_gps_connect(void)
 {
 #ifndef RELEASE
-    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
-#endif 
+    START_FUNCTION;
+#endif
     g_signal_handler_disconnect (app->gps_device,app->gps_id_connection);
     g_object_unref(app->gps_device);
 #ifndef RELEASE
-    fprintf(stderr,"END %s(): \n", __PRETTY_FUNCTION__);
-#endif     
+    END_FUNCTION;
+#endif
 }
 /*******************************************************************************/
 #endif

@@ -49,7 +49,7 @@ extern gdouble calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdou
 #ifdef HILDON
 extern void delete_all_gps_stations(void);
 #endif
-extern void update_weather(void);
+extern void update_weather(gboolean show_update_window);
 time_t next_update(void);
 /*******************************************************************************/
 #endif

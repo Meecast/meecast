@@ -39,7 +39,7 @@ gboolean timer_handler(gpointer data){
     int		check;
 #ifndef RELEASE
     char   *temp_string;
-    fprintf(stderr, "Begin %s(): \n", __PRETTY_FUNCTION__);
+    START_FUNCTION;
 #endif
     if(not_event == TRUE || !event_time_list)
 	return TRUE;
@@ -63,7 +63,7 @@ gboolean timer_handler(gpointer data){
 		#endif
 		    g_free(evt);
                     event_time_list = g_slist_remove(event_time_list, event_time_list->data);
-     		    weather_frame_update(FALSE);   
+     		    redraw_home_window();   
 		break;
 		case DBUSINITEVENT:
 		#ifndef RELEASE
@@ -86,8 +86,7 @@ gboolean timer_handler(gpointer data){
 		#ifndef RELEASE
 		    fprintf(stderr,"UPDATE by event\n");
 		#endif
-		    app->show_update_window = FALSE;
-		    update_weather();
+		    update_weather(TRUE);
     		break;		    
 		case CHECK_GPS_POSITION:
 		    /* delete periodic update */
@@ -141,9 +140,8 @@ gboolean timer_handler(gpointer data){
 				app->config->current_station_id = g_strdup(app->gps_station.id0);		
 			    }
 			    new_config_save(app->config);
-                    	    app->show_update_window = FALSE;
-		    	    update_weather();
-			    weather_frame_update(FALSE);
+		    	    update_weather(TRUE);
+			    redraw_home_window();
 			}        
                     }
 		#endif
@@ -167,8 +165,7 @@ gboolean timer_handler(gpointer data){
 		#ifndef RELEASE
 		    fprintf(stderr,"UPDATE by event\n");
 		#endif
-		    app->show_update_window = FALSE;
-		    update_weather();
+		    update_weather(TRUE);
                     /* add periodic update */
                     add_periodic_event(current_time);
     		break;		    
@@ -186,7 +183,9 @@ void print_list(char *buff, size_t buff_size){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
     char	tmp[3072];
-
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     memset(tmp, 0, sizeof(tmp));
     if(!event_time_list)
 	return;
@@ -208,12 +207,18 @@ void print_list(char *buff, size_t buff_size){
 #endif
 /*******************************************************************************/
 void create_timer_with_interval(guint interval){
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     app->timer = g_timeout_add(interval,
 			       (GtkFunction)timer_handler,
 			       NULL); /* One per minute */
 }
 /*******************************************************************************/
 void timer(int interval){
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     app->timer = g_timeout_add(interval,
 			       (GtkFunction)timer_handler,
 			       app->main_window);
@@ -223,7 +228,9 @@ void timer(int interval){
 void free_list_time_event(void){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
-    
+#ifndef RELEASE
+    START_FUNCTION;
+#endif    
     #ifndef RELEASE
     fprintf(stderr,"Free ALL in list\n");
 //    print_list(NULL, 0);
@@ -252,7 +259,9 @@ void free_list_time_event(void){
 /* Compare function for sort event list */
 static gint compare_time(gconstpointer a, gconstpointer b){
     struct event_time *evta, *evtb;
-    
+#ifndef RELEASE
+    START_FUNCTION;
+#endif    
     evta = (struct event_time*)a;
     evtb = (struct event_time*)b;
     return(evta->time < evtb->time) ? -1 : (evta->time > evtb->time) ? +1 : 0;
@@ -261,7 +270,9 @@ static gint compare_time(gconstpointer a, gconstpointer b){
 /* Add time event  to list */	  
 void time_event_add(time_t time_value, short type_event){
     struct event_time *evt = NULL;
-
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     #ifndef RELEASE
     fprintf(stderr,"time_event_add in list\n");
 //    print_list(NULL, 0); 
@@ -285,7 +296,9 @@ void time_event_add(time_t time_value, short type_event){
 /*  Addition the periodic time in the list of events  for weather forecast updating.  
     Interval is a count of minutes for the next interval */	  
 void add_gps_event(guint interval){
-
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     #ifndef RELEASE
     fprintf(stderr,"Add in list\n");
 //    print_list(NULL, 0);
@@ -303,7 +316,9 @@ void add_gps_event(guint interval){
 /*******************************************************************************/
 /*  Addition the periodic time in the list of events  for GPS checking */	  
 void add_periodic_event(time_t last_update){
-
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     #ifndef RELEASE
     fprintf(stderr,"Add in list\n");
 //    print_list(NULL, 0);
@@ -321,9 +336,10 @@ void add_periodic_event(time_t last_update){
 /*******************************************************************************/
 /* Addition the current time in the list of events  for weather forecast updating */	  
 void add_current_time_event(void){
-
     time_t current_time;	
-    
+#ifndef RELEASE
+    START_FUNCTION;
+#endif    
     #ifndef RELEASE
 	fprintf(stderr,"Add in list\n");
 //        print_list(NULL, 0);
@@ -345,7 +361,9 @@ void add_current_time_event(void){
 void remove_periodic_event(void){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
-    
+#ifndef RELEASE
+    START_FUNCTION;
+#endif    
     #ifndef RELEASE
     fprintf(stderr,"Periodic remove from list\n");
 //    print_list(NULL, 0);
@@ -373,7 +391,9 @@ void remove_periodic_event(void){
 void remove_daytime_event(void){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
-    
+#ifndef RELEASE
+    START_FUNCTION;
+#endif    
     #ifndef RELEASE
     fprintf(stderr,"DAYTIMEEVENT remove from list\n");
 //    print_list(NULL, 0);
@@ -401,7 +421,9 @@ void remove_daytime_event(void){
 time_t next_update(void){
     GSList	*tmp_list = NULL;
     time_t	result	= 0;
-
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     if(!event_time_list)
 	return result;
     tmp_list = event_time_list;

@@ -48,6 +48,9 @@ static     gchar	*station_name = NULL,
 /*******************************************************************************/
 /* Create standard Hildon animation small window */
 static void create_window_update(void){
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     update_window = hildon_banner_show_animation(app->main_window,
 						    NULL,
 						    _("Update weather"));
@@ -59,9 +62,8 @@ get_connection_status_signal_cb(DBusConnection *connection,
         DBusMessage *message, void *user_data){
 
     gchar *iap_name = NULL, *iap_nw_type = NULL, *iap_state = NULL;
-    
 #ifndef RELEASE
-    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
+    START_FUNCTION;
 #endif
     /* check signal */
     if(!dbus_message_is_signal(message,
@@ -107,7 +109,6 @@ get_connection_status_signal_cb(DBusConnection *connection,
 #endif
 /*******************************************************************************/
 /* Callback function for request  connection to Internet */
-
 #ifdef USE_CONIC
 #define OSSO_CON_IC_CONNECTING             0x05
 static void connection_cb(ConIcConnection *connection,
@@ -118,7 +119,7 @@ static void connection_cb(ConIcConnection *connection,
     ConIcConnectionStatus status;
     ConIcConnectionError error;
 #ifndef RELEASE
-    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
+    START_FUNCTION;
 #endif
     status = con_ic_connection_event_get_status(event);
     error = con_ic_connection_event_get_error(event);
@@ -129,7 +130,7 @@ static void connection_cb(ConIcConnection *connection,
         case CON_IC_STATUS_CONNECTED:
 #ifndef RELEASE
 	    second_attempt = TRUE;
-	    update_weather();
+	    update_weather(FALSE);
 #endif
             app->iap_connecting = FALSE;
     	    app->iap_connected = TRUE;
@@ -159,14 +160,14 @@ static void connection_cb(ConIcConnection *connection,
 
 void iap_callback(struct iap_event_t *event, void *arg){
 #ifndef RELEASE
-    fprintf(stderr,"%s() %i\n", __PRETTY_FUNCTION__,event->type);
-#endif    
+    START_FUNCTION;
+#endif
     app->iap_connecting = FALSE;
     switch(event->type){
 	case OSSO_IAP_CONNECTED:
 #ifndef RELEASE
 	    second_attempt = TRUE;
-	    update_weather();
+	    update_weather(FALSE);
 #endif
     	    app->iap_connected = TRUE;
 	break;
@@ -190,8 +191,9 @@ void weather_initialize_dbus(void){
 			*tmp;
     GConfClient		*gconf_client = NULL;
     DBusConnection	*dbus_conn;
-    
-    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
+#ifndef RELEASE
+    START_FUNCTION;
+#endif    
     if(!app->dbus_is_initialize){   
 	/* Reseting values */
         app->iap_connecting = FALSE;
@@ -251,6 +253,9 @@ void weather_initialize_dbus(void){
 /*******************************************************************************/
 /* Init easy curl */
 CURL* weather_curl_init(CURL *curl_handle){
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     curl_handle = curl_easy_init(); 
     curl_easy_setopt(curl_handle, CURLOPT_NOPROGRESS, 1); 
     curl_easy_setopt(curl_handle, CURLOPT_FOLLOWLOCATION, 1); 
@@ -273,7 +278,9 @@ CURL* weather_curl_init(CURL *curl_handle){
 static int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
     int result;
     struct HtmlFile *out = (struct HtmlFile *)stream;
-
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     if(out && !out->stream){
     /* open file for writing */
 	out->stream = fopen(out->filename, "wb");
@@ -289,7 +296,9 @@ static int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
    Else return FLASE. This the end list
 */
 static gboolean form_url_and_filename(gchar *station_code){
-
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     if(station_code == NULL)
 	return FALSE;
     if(url){
@@ -321,8 +330,8 @@ gboolean download_html(gpointer data){
     gint	num_transfers = 0,
 		num_msgs = 0;		
 #ifndef RELEASE
-    fprintf(stderr,"%s()\n", __PRETTY_FUNCTION__);
-#endif    
+    START_FUNCTION;
+#endif
     if(app->popup_window && app->show_update_window){
         popup_window_destroy();
     }
@@ -473,7 +482,7 @@ gboolean download_html(gpointer data){
 			    hildon_banner_show_information(app->main_window,
 							    NULL,
 							    _("Weather updated"));
-        		weather_frame_update(FALSE);	
+        		redraw_home_window();	
 		    }
 		    else{
 			valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
@@ -538,6 +547,9 @@ gboolean download_html(gpointer data){
 }
 /*******************************************************************************/
 void clean_download(void){
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     if(curl_multi)
 	curl_multi_cleanup(curl_multi);
     curl_multi = NULL;
@@ -549,9 +561,11 @@ void clean_download(void){
 }
 /*******************************************************************************/
 void pre_update_weather(void){
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     if (!app->dbus_is_initialize)
 	weather_initialize_dbus();
-    app->show_update_window = TRUE;
-    update_weather();
+    update_weather(TRUE);
 }
 /*******************************************************************************/

@@ -79,6 +79,8 @@
 #define MEDIUM_ICON_SIZE	64
 #define SMALL_ICON_SIZE		48
 #define TINY_ICON_SIZE		32
+#define START_FUNCTION		fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
+#define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
 /*******************************************************************************/
 enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT, UPDATE_AFTER_CONNECTED, CHECK_GPS_POSITION};
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION };
@@ -264,7 +266,6 @@ typedef struct OMWeatherApplet{
 /*******************************************************************************/
 void free_list_time_event(void);
 void time_event_add(time_t time_value, short int type_event);
-void weather_frame_update(gboolean check);
 extern void popup_window_destroy(void);
 extern int new_read_config(AppletConfig*);
 /*******************************************************************************/

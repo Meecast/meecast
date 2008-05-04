@@ -31,8 +31,10 @@
 #include <libxml/HTMLparser.h>
 /*******************************************************************************/
 weather_com_parser *weather_parser_new_from_file(const gchar *filename){
-    weather_com_parser *parser;
-
+    weather_com_parser *parser = NULL;
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     parser = (weather_com_parser *) malloc(sizeof(weather_com_parser));
     if(!parser)
 	return NULL;
@@ -70,7 +72,9 @@ int new_parse_weather_com_xml(void){
     struct tm	*tm = NULL,
 		tmp_tm = {0};
     Item	*itm;
-    
+#ifndef RELEASE
+    START_FUNCTION;
+#endif    
 /*Prepare date string */
 /* Imortant need will Check New Year in future !!!!!!!!!!! */
     current_time = time(NULL);
@@ -90,7 +94,7 @@ int new_parse_weather_com_xml(void){
 		rename(buffer, newname);
 	    }
     }
-    if(((parser == NULL) && (access(buffer,R_OK) != 0)) || (parser != NULL && parser->error)){ /* Used old xml file */
+    if(( !parser && (access(buffer,R_OK) != 0)) || (parser && parser->error)){ /* Used old xml file */
     	if(parser){
 	    free(parser);
 	    parser = NULL;
@@ -471,7 +475,9 @@ int parse_underground_com_data(const gchar *station){
     gchar	buffer[512];
     htmlNodePtr	current_node = NULL;
     gint	day_count = 0;
-    
+#ifndef RELEASE
+    START_FUNCTION;
+#endif    
     if(!station)
 	return -1;
     snprintf(buffer, sizeof(buffer) - 1, "%s/%s.htm", app->config->cache_dir_name, station);

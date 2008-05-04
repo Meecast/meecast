@@ -54,6 +54,7 @@ struct HtmlFile {
 extern void config_update_proxy(void);
 extern void add_current_time_event(void);
 extern void popup_window_destroy(void);
-extern void update_weather(void);
+extern void update_weather(gboolean show_update_window);
+extern void redraw_home_window(void);
 /*******************************************************************************/
 #endif

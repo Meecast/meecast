@@ -43,7 +43,9 @@ GtkListStore* create_items_list(const char *filename, long start, long end,
     long		max_bytes = 0,
 			readed_bytes = 0,
 			count = 0;
-    
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     max_bytes = end - start;
     fh = fopen(filename, "rt");
     if(!fh){
@@ -122,7 +124,9 @@ int parse_country_string(const char *string, Country_item *result){
 		*tmp,
 		buffer[32];
     int		res = 0;
-    
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     tmp = (char*)string;
     delimiter = strchr(tmp, ';');
     if(!delimiter)
@@ -165,7 +169,9 @@ int parse_region_string(const char *string, Region_item *result){
     char	*delimiter = NULL,
 		*tmp;
     int		res = 0;
-    
+#ifndef RELEASE
+    START_FUNCTION;
+#endif    
     tmp = (char*)string;
     delimiter = strchr(tmp, ';');
     setlocale(LC_NUMERIC, "POSIX");
@@ -245,7 +251,9 @@ int parse_station_string(const char *string, Station *result){
     char	*delimiter = NULL,
 		*tmp;
     int		res = 0;
-    
+#ifndef RELEASE
+    START_FUNCTION;
+#endif    
     tmp = (char*)string;
     delimiter = strchr(tmp, ';');
     setlocale(LC_NUMERIC, "POSIX");

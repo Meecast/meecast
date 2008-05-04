@@ -37,13 +37,13 @@ WDB* create_weather_day_button(const char *text, const char *icon,
 				const int icon_size, gboolean transparency,
 				char font_size, GdkColor *color);
 void delete_weather_day_button(gboolean after_all_destroy,WDB **day);
-void weather_buttons_fill(gboolean check_error);
-void update_weather(void);
+void draw_home_window(void);
+void update_weather(gboolean show_update_window);
+void redraw_home_window(void);
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size);
 void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 gboolean download_html(gpointer data);
-void free_memory(gboolean flag);
-void station_error_window(void);
+void free_memory(void);
 void menu_init(void);
 gboolean switch_timer_handler(gpointer data);
 gboolean expose_main_window(GtkWidget *widget, GdkEventExpose *event);

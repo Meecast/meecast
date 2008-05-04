@@ -28,6 +28,9 @@
 #include "weather-help.h"
 /*******************************************************************************/
 void help_activated_handler(GtkWidget *window, gchar *help_id){
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
     if(!help_id)
 	return;
 #ifdef HILDON

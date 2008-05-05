@@ -389,19 +389,6 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
 /*******************************************************************************/
 /*
 // Update tab
-    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			table = gtk_table_new(5, 2, FALSE),
-        			label = gtk_label_new(_("Update")));
-			
-    gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_label_new(_("Automatically update data\t\nwhen connecting to the Internet:")),
-        			0, 1, 0, 1);
-    gtk_table_attach_defaults(GTK_TABLE(table),
-        			label = gtk_alignment_new(0, 0.5, 0.f, 0.f),
-        			1, 2, 0, 1);
-    gtk_container_add(GTK_CONTAINER(label), chk_downloading_after_connection = gtk_check_button_new());
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_downloading_after_connection),
-        			    app->config->downloading_after_connecting);
     // Switch time to the next station
     gtk_table_attach_defaults(GTK_TABLE(table),
         			label = gtk_label_new(_("Switch to the next station after:")),
@@ -1051,9 +1038,6 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     notebook = gtk_notebook_new();
     GLADE_HOOKUP_OBJECT(window_config, notebook, "notebook");
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
-    g_signal_connect(GTK_NOTEBOOK(notebook), "switch-page",
-                        G_CALLBACK(change_notebook_page_handler),
-			(gpointer)window_config);
 /* add empty pages to the notebook */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         	    left_right_hbox = gtk_hbox_new(FALSE, 0),
@@ -1067,6 +1051,11 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			update_page = gtk_table_new(5, 2, FALSE),
         			gtk_label_new(_("Update")));
+/*
+    g_signal_connect(GTK_NOTEBOOK(notebook), "switch-page",
+                        G_CALLBACK(change_notebook_page_handler),
+			(gpointer)window_config);
+*/
 #ifndef RELEASE
 /* Events list tab */
     memset(tmp_buff, 0, sizeof(tmp_buff));
@@ -1577,11 +1566,26 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 	case MILES_H: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_miles), TRUE); break;
     }
 /* Update tab */
-
+/* auto download when connect */
+    gtk_table_attach_defaults(GTK_TABLE(update_page),
+        			gtk_label_new(_("Automatically update data\nwhen connecting to the Internet:")),
+        			0, 1, 0, 1);
+    gtk_table_attach_defaults(GTK_TABLE(update_page),
+				chk_downloading_after_connection = gtk_check_button_new(),
+        			1, 2, 0, 1);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_downloading_after_connection),
+        			    app->config->downloading_after_connecting);
+    GLADE_HOOKUP_OBJECT(window_config, chk_downloading_after_connection,
+			    "download_after_connection");
+    g_signal_connect(GTK_TOGGLE_BUTTON(chk_downloading_after_connection), "toggled",
+            		    G_CALLBACK(chk_download_button_toggled_handler),
+			    NULL);
 /* Highlight current station */
     highlight_current_station(GTK_TREE_VIEW(station_list_view));
     gtk_entry_set_text(GTK_ENTRY(rename_entry),
 			app->config->current_station_name);
+
+    gtk_widget_show_all(window_config);
 /* set current page and show it for notebook */
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook),
 				    app->config->current_settings_page);
@@ -1592,7 +1596,6 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 /* kill popup window :-) */
     if(app->popup_window)
         gtk_widget_destroy(app->popup_window);
-    gtk_widget_show_all(window_config);
 }
 /*******************************************************************************/
 void apply_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -1764,7 +1767,9 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 /*******************************************************************************/
 void close_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data){
-    GtkWidget	*config_window = GTK_WIDGET(user_data);
+    GtkWidget	*config_window = GTK_WIDGET(user_data),
+		*notebook = NULL;
+    guint	current_page = 0;
     gboolean	need_update_weather = FALSE;
 #ifndef HILDON
     gboolean	need_correct_layout_for_OS2007 = FALSE;
@@ -1772,6 +1777,10 @@ void close_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifndef RELEASE
     START_FUNCTION;
 #endif
+    notebook = lookup_widget(config_window, "notebook");
+    if(notebook)
+	current_page = gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook));
+    
     if(g_object_get_data(G_OBJECT(user_data), "need_update_weather"))
 	need_update_weather = TRUE;
 #ifndef HILDON
@@ -1791,6 +1800,9 @@ void close_button_handler(GtkWidget *button, GdkEventButton *event,
                                         NULL,
                                         _("Use Edit layout \nfor tuning images of applet"));
 #endif
+    app->config->current_settings_page = current_page;
+/* save config */
+    new_config_save(app->config);
 }
 /*******************************************************************************/
 void about_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -1962,6 +1974,18 @@ void wind_units_change_handler(GtkRadioButton *button, gpointer user_data){
     }
 }
 /*******************************************************************************/
+void chk_download_button_toggled_handler(GtkRadioButton *button,
+							    gpointer user_data){
+#ifndef RELEASE
+    START_FUNCTION;
+#endif
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)) ){
+	app->config->downloading_after_connecting = TRUE;
+    }
+    else
+	app->config->downloading_after_connecting = FALSE;
+}
+/*******************************************************************************/
 void change_notebook_page_handler(GtkNotebook *notebook, GtkNotebookPage *page,
                                 	    guint page_num, gpointer user_data){
 /*
@@ -1973,10 +1997,6 @@ void change_notebook_page_handler(GtkNotebook *notebook, GtkNotebookPage *page,
     gtk_widget_show_all(gtk_notebook_get_nth_page(notebook, page_num));
     gtk_widget_show_all(GTK_WIDGET(user_data));
 */
-    if(app->config->current_settings_page != page_num){
-	app->config->current_settings_page = page_num;
-	new_config_save(app->config);
-    }
 }
 /*******************************************************************************/
 

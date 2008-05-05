@@ -87,6 +87,8 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 void temperature_units_change_handler(GtkRadioButton *button, gpointer user_data);
 void distance_units_change_handler(GtkRadioButton *button, gpointer user_data);
 void wind_units_change_handler(GtkRadioButton *button, gpointer user_data);
+void chk_download_button_toggled_handler(GtkRadioButton *button,
+							    gpointer user_data);
 void change_notebook_page_handler(GtkNotebook *notebook, GtkNotebookPage *page,
                                     guint page_num, gpointer user_data);
 /*******************************************************************************/

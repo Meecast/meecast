@@ -27,6 +27,9 @@
 */
 /*******************************************************************************/
 #include "weather-event.h"
+#ifdef RELEASE
+#undef DEBUGFUNCTIONCALL
+#endif
 /*******************************************************************************/
 gboolean not_event = FALSE;
 /*******************************************************************************/
@@ -39,6 +42,8 @@ gboolean timer_handler(gpointer data){
     int		check;
 #ifndef RELEASE
     char   *temp_string;
+#endif
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(not_event == TRUE || !event_time_list)
@@ -183,7 +188,7 @@ void print_list(char *buff, size_t buff_size){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
     char	tmp[3072];
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     memset(tmp, 0, sizeof(tmp));
@@ -207,7 +212,7 @@ void print_list(char *buff, size_t buff_size){
 #endif
 /*******************************************************************************/
 void create_timer_with_interval(guint interval){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     app->timer = g_timeout_add(interval,
@@ -216,7 +221,7 @@ void create_timer_with_interval(guint interval){
 }
 /*******************************************************************************/
 void timer(int interval){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     app->timer = g_timeout_add(interval,
@@ -228,7 +233,7 @@ void timer(int interval){
 void free_list_time_event(void){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
     #ifndef RELEASE
@@ -259,7 +264,7 @@ void free_list_time_event(void){
 /* Compare function for sort event list */
 static gint compare_time(gconstpointer a, gconstpointer b){
     struct event_time *evta, *evtb;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
     evta = (struct event_time*)a;
@@ -270,7 +275,7 @@ static gint compare_time(gconstpointer a, gconstpointer b){
 /* Add time event  to list */	  
 void time_event_add(time_t time_value, short type_event){
     struct event_time *evt = NULL;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     #ifndef RELEASE
@@ -296,7 +301,7 @@ void time_event_add(time_t time_value, short type_event){
 /*  Addition the periodic time in the list of events  for weather forecast updating.  
     Interval is a count of minutes for the next interval */	  
 void add_gps_event(guint interval){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     #ifndef RELEASE
@@ -316,7 +321,7 @@ void add_gps_event(guint interval){
 /*******************************************************************************/
 /*  Addition the periodic time in the list of events  for GPS checking */	  
 void add_periodic_event(time_t last_update){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     #ifndef RELEASE
@@ -337,7 +342,7 @@ void add_periodic_event(time_t last_update){
 /* Addition the current time in the list of events  for weather forecast updating */	  
 void add_current_time_event(void){
     time_t current_time;	
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
     #ifndef RELEASE
@@ -361,7 +366,7 @@ void add_current_time_event(void){
 void remove_periodic_event(void){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
     #ifndef RELEASE
@@ -391,7 +396,7 @@ void remove_periodic_event(void){
 void remove_daytime_event(void){
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
     #ifndef RELEASE
@@ -421,7 +426,7 @@ void remove_daytime_event(void){
 time_t next_update(void){
     GSList	*tmp_list = NULL;
     time_t	result	= 0;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!event_time_list)

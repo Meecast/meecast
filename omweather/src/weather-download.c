@@ -33,6 +33,10 @@
 static ConIcConnection *connection = NULL;
 #endif
 #define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
+#define URL "http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&link=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=%d"
+#ifdef RELEASE
+#undef DEBUGFUNCTIONCALL
+#endif
 /*******************************************************************************/
 static GString *url = NULL;
 static gboolean second_attempt = FALSE;
@@ -48,7 +52,7 @@ static     gchar	*station_name = NULL,
 /*******************************************************************************/
 /* Create standard Hildon animation small window */
 static void create_window_update(void){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     update_window = hildon_banner_show_animation(app->main_window,
@@ -62,7 +66,7 @@ get_connection_status_signal_cb(DBusConnection *connection,
         DBusMessage *message, void *user_data){
 
     gchar *iap_name = NULL, *iap_nw_type = NULL, *iap_state = NULL;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     /* check signal */
@@ -118,7 +122,7 @@ static void connection_cb(ConIcConnection *connection,
     const gchar *iap_id, *bearer;
     ConIcConnectionStatus status;
     ConIcConnectionError error;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     status = con_ic_connection_event_get_status(event);
@@ -128,7 +132,7 @@ static void connection_cb(ConIcConnection *connection,
 
     switch (status) {
         case CON_IC_STATUS_CONNECTED:
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
 	    second_attempt = TRUE;
 	    update_weather(FALSE);
 #endif
@@ -159,13 +163,13 @@ static void connection_cb(ConIcConnection *connection,
 #else
 
 void iap_callback(struct iap_event_t *event, void *arg){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     app->iap_connecting = FALSE;
     switch(event->type){
 	case OSSO_IAP_CONNECTED:
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
 	    second_attempt = TRUE;
 	    update_weather(FALSE);
 #endif
@@ -191,7 +195,7 @@ void weather_initialize_dbus(void){
 			*tmp;
     GConfClient		*gconf_client = NULL;
     DBusConnection	*dbus_conn;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
     if(!app->dbus_is_initialize){   
@@ -253,7 +257,7 @@ void weather_initialize_dbus(void){
 /*******************************************************************************/
 /* Init easy curl */
 CURL* weather_curl_init(CURL *curl_handle){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     curl_handle = curl_easy_init(); 
@@ -278,7 +282,7 @@ CURL* weather_curl_init(CURL *curl_handle){
 static int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
     int result;
     struct HtmlFile *out = (struct HtmlFile *)stream;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(out && !out->stream){
@@ -296,7 +300,7 @@ static int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
    Else return FLASE. This the end list
 */
 static gboolean form_url_and_filename(gchar *station_code){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(station_code == NULL)
@@ -310,7 +314,7 @@ static gboolean form_url_and_filename(gchar *station_code){
         full_filename_new_xml = NULL;
     } 
     url = g_string_new(NULL);        
-    g_string_append_printf(url,"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=%d",
+    g_string_append_printf(url, URL,
 				    station_code, Max_count_weather_day);
     full_filename_new_xml = g_string_new(NULL);        
     g_string_append_printf(full_filename_new_xml,"%s/%s.xml.new",
@@ -329,7 +333,7 @@ gboolean download_html(gpointer data){
     int		max;
     gint	num_transfers = 0,
 		num_msgs = 0;		
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(app->popup_window && app->show_update_window){
@@ -548,7 +552,7 @@ gboolean download_html(gpointer data){
 }
 /*******************************************************************************/
 void clean_download(void){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(curl_multi)
@@ -562,7 +566,7 @@ void clean_download(void){
 }
 /*******************************************************************************/
 void pre_update_weather(void){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if (!app->dbus_is_initialize)

@@ -29,6 +29,9 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
+#ifdef RELEASE
+#undef DEBUGFUNCTIONCALL
+#endif
 /*******************************************************************************/
 #define CLOCK_FILE		"/usr/share/omweather/city_in_clock.txt"
 /*******************************************************************************/
@@ -38,7 +41,7 @@ gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
     gboolean retval = FALSE;
     GnomeVFSURI *parent, *curr_uri;
     GList *list = NULL;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     /* Rest of the function devoted to making sure the directory exists. */
@@ -78,7 +81,7 @@ void fill_user_stations_list_from_clock(GtkListStore** list){
 		buffer[1024];
     GtkTreeIter	iter;
     GConfClient *gconf_client = gconf_client_get_default();
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif        
     /* City name from config file of clock */
@@ -136,7 +139,7 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 #ifdef HILDON
     gboolean	is_gps = FALSE;
 #endif
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     while(source_list){
@@ -186,7 +189,7 @@ GSList* create_stations_string_list(void){
     gchar	*station_name = NULL,
 		*station_code = NULL,
 		*str = NULL;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
@@ -211,7 +214,7 @@ GSList* create_stations_string_list(void){
 GtkListStore* create_time_update_list(void){
     GtkListStore	*list = NULL;
     GtkTreeIter         iter;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
@@ -248,7 +251,7 @@ int new_read_config(AppletConfig *config){
     gchar	tmp_buff[1024],
 		*home_dir,
 		*tmp = NULL;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     gconf_client = gconf_client_get_default();
@@ -344,6 +347,7 @@ int new_read_config(AppletConfig *config){
 	config->current_settings_page > MAX_SETTINGS_PAGE_NUMBER)
         config->current_settings_page = 0;
 
+
     /* Get Weather country name. */    
     config->current_country = gconf_client_get_string(gconf_client,
         					    GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
@@ -408,7 +412,34 @@ int new_read_config(AppletConfig *config){
     }
     else
         config->separate = FALSE;
-
+#ifdef HILDON
+    /* Get Use sensor Button State. Default is FALSE */
+    value = gconf_client_get(gconf_client, GCONF_KEY_USE_SENSOR, NULL);
+    if(value){
+        config->use_sensor = gconf_value_get_bool(value);
+        gconf_value_free(value);
+    }
+    else
+        config->use_sensor = FALSE;
+    /* Get display sensor at  */		     
+    config->display_at = gconf_client_get_int(gconf_client,
+        				    GCONF_KEY_DISPLAY_SENSOR_AT,
+					    NULL);
+    if(config->display_at < ICON || config->display_at > STATION_NAME)
+        config->display_at = STATION_NAME;
+    /* Get sensor update time  */		     
+    config->sensor_update_time = gconf_client_get_int(gconf_client,
+        				    GCONF_KEY_SENSOR_UPDATE_TIME,
+					    NULL);
+    if(config->sensor_update_time < 1 || config->sensor_update_time > 9999)
+        config->sensor_update_time = 1;
+/* start timer for read data from device temperature sensor */
+    if(config->use_sensor){
+	app->sensor_timer = g_timeout_add(config->sensor_update_time * 1000,
+                                            (GtkFunction)read_sensor,
+                                            app->main_window);
+    }
+#endif
     /* Get auto_downloading_after_connecting. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_DOWNLOADING_AFTER_CONNECTING, NULL);
     if(value){
@@ -576,7 +607,7 @@ int new_read_config(AppletConfig *config){
 /*******************************************************************************/
 void config_update_proxy(void){
     GConfClient *gconf_client = gconf_client_get_default();
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(app->config->iap_http_proxy_host)
@@ -601,7 +632,7 @@ void new_config_save(AppletConfig *config){
     gchar temp_buffer[16];
     GConfClient *gconf_client;
     GSList *stlist = NULL;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif   
     gconf_client = gconf_client_get_default();
@@ -655,6 +686,20 @@ void new_config_save(AppletConfig *config){
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_SETTING_TAB_NUMBER,
 			config->current_settings_page, NULL);
+#ifdef HILDON
+     /* Save Use sensor Button State */
+    gconf_client_set_bool(gconf_client,
+        		GCONF_KEY_USE_SENSOR,
+			config->use_sensor, NULL);
+    /* Save display sensor at  */		     	    
+    gconf_client_set_int(gconf_client,
+        		GCONF_KEY_DISPLAY_SENSOR_AT,
+			config->display_at, NULL);
+    /* Save sensor update time */
+    gconf_client_set_int(gconf_client,
+        		GCONF_KEY_SENSOR_UPDATE_TIME,
+			config->sensor_update_time, NULL);
+#endif
     /* Save Weather Font Color */
     sprintf(temp_buffer, "#%02x%02x%02x",
             config->font_color.red >> 8,
@@ -682,7 +727,8 @@ void new_config_save(AppletConfig *config){
      /* Save Split Button State */
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_SEPARATE_DATA,
-			config->separate, NULL);	    
+			config->separate, NULL);
+
      /* Save Downloading after connecting State */
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_DOWNLOADING_AFTER_CONNECTING,

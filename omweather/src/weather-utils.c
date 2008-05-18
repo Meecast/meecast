@@ -27,17 +27,19 @@
 /*******************************************************************************/
 #include "weather-utils.h"
 #include "weather-common.h"
+#ifdef RELEASE
+#undef DEBUGFUNCTIONCALL
+#endif
 /*******************************************************************************/
 float convert_wind_units(int to, float value){
     float	result = value;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     switch(to){
 	    default:
 	    case METERS_S: result *= 10.0f / 36.0f; break;
-/*	    case KILOMETERS_S: result /= 3600.0f; break;
- *
-	    case MILES_S: result /= (1.609344f * 3600.0f); break;
-	    case METERS_H: result *= 1000.0f; break;
-*/	    case KILOMETERS_H: result *= 1.0f; break;
+	    case KILOMETERS_H: result *= 1.0f; break;
 	    case MILES_H: result /= 1.609344f; break;
 	}
     return result;
@@ -45,8 +47,8 @@ float convert_wind_units(int to, float value){
 /*******************************************************************************/
 void set_font_size(GtkWidget *widget, char font_size){
     PangoFontDescription *pfd = NULL;
-#ifndef RELEASE
-//    fprintf(stderr,"BEGIN %s(): \n", __PRETTY_FUNCTION__);
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
 #endif
     if(!widget)
 	return;
@@ -61,7 +63,9 @@ void set_font_size(GtkWidget *widget, char font_size){
 void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue){
     PangoAttribute	*attr;
     PangoAttrList	*attrs = NULL;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     if(!widget)
 	return;
 
@@ -77,16 +81,24 @@ void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue)
 /*******************************************************************************/
 /* Convert Celsius temperature to Farenhait temperature */
 int c2f(int temp){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     return (temp * 1.8f ) + 32;
 }
 /*******************************************************************************/
 void swap_temperature(int *hi, int *low){
     int tmp;
-    
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif    
     tmp = *hi; *hi = *low; *low = tmp;
 }
 /*******************************************************************************/
 void set_background_color(GtkWidget *widget, GdkColor *bgc){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
 /* undo previos changes */
     gtk_widget_modify_bg(widget, GTK_STATE_NORMAL, NULL);
 /* set one color for all states of widget */
@@ -95,7 +107,9 @@ void set_background_color(GtkWidget *widget, GdkColor *bgc){
 /*******************************************************************************/
 GtkWidget* lookup_widget(GtkWidget* widget, const gchar* widget_name){
     GtkWidget	*found_widget = NULL;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     found_widget = (GtkWidget*) g_object_get_data(G_OBJECT(widget),
                                                  widget_name);
     if(!found_widget)
@@ -110,7 +124,9 @@ GtkWidget* create_button_with_image(const char *path, const char *image_name,
 		*icon = NULL;
     GdkPixbuf   *icon_buffer = NULL;
     gchar	buffer[512];
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     /* prepare icon */
     if(path){
 	memset(buffer, 0, sizeof(buffer));
@@ -151,7 +167,7 @@ GtkWidget* create_tree_view(GtkListStore* list){
     GtkTreeSelection	*list_selection = NULL;
     GtkCellRenderer	*renderer = NULL;
     GtkTreeViewColumn	*column = NULL;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 /* create the tree view model LIST */

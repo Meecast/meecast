@@ -27,6 +27,9 @@
 /*******************************************************************************/
 #include "weather-popup.h"
 #include "weather-utils.h"
+#ifdef RELEASE
+#undef DEBUGFUNCTIONCALL
+#endif
 /*******************************************************************************/
 #define MOON_ICONS		"/usr/share/omweather/moon_icons/"
 /*******************************************************************************/
@@ -46,7 +49,7 @@ GtkWidget* create_sun_time_widget(GSList *day){
     struct tm	time_show = {0};
     time_t 	current_time,
 		utc_time;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!day)
@@ -94,7 +97,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
 		*space_symbol = NULL;
     GdkPixbuf   *icon_buffer;                                                                                                             
     GtkWidget   *icon_image;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!current)
@@ -135,7 +138,7 @@ GtkWidget* create_time_updates_widget(GSList *current){
 		full_filename[2048];
     struct stat	statv;
     time_t	tmp_time = 0;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!current)
@@ -197,7 +200,7 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
                 utc_time,
                 diff_time,
                 current_data_last_update = 0;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 /* day number */
@@ -324,7 +327,7 @@ void settings_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data){
     gint day_number
 	= (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     gtk_widget_destroy(GTK_WIDGET(user_data));
@@ -333,7 +336,7 @@ void settings_button_handler(GtkWidget *button, GdkEventButton *event,
 /*******************************************************************************/
 void refresh_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     gtk_widget_destroy(GTK_WIDGET(user_data));
@@ -342,7 +345,7 @@ void refresh_button_handler(GtkWidget *button, GdkEventButton *event,
 /*******************************************************************************/
 void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     gtk_widget_destroy(GTK_WIDGET(user_data));
@@ -376,7 +379,7 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 		day_invalid_count = 0,
 		night_invalid_count = 0;
     const gchar	*wind_units_str[] = { "m/s", "km/h", "mi/h" };
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!day)
@@ -599,7 +602,7 @@ GtkWidget* create_current_tab(GSList *current){
     const gchar *wind_units_str[] = { "m/s", "km/h", "mi/h" };
     GdkPixbuf   *icon = NULL;
     float       tmp_distance = 0;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!current)

@@ -84,9 +84,6 @@ void back_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
 void add_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
-void temperature_units_change_handler(GtkRadioButton *button, gpointer user_data);
-void distance_units_change_handler(GtkRadioButton *button, gpointer user_data);
-void wind_units_change_handler(GtkRadioButton *button, gpointer user_data);
 void chk_download_button_toggled_handler(GtkRadioButton *button,
 							    gpointer user_data);
 void change_notebook_page_handler(GtkNotebook *notebook, GtkNotebookPage *page,
@@ -110,5 +107,10 @@ extern void update_weather(gboolean show_update_window);
 extern GtkWidget* lookup_widget(GtkWidget *widget, const gchar *widget_name);
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 extern GtkWidget* create_tree_view(GtkListStore* list);
+#ifdef HILDON
+extern GtkWidget* create_sensor_page(GtkWidget *config_window);
+extern int check_entry_text(GtkEntry *entry);
+extern void read_sensor(void);
+#endif
 /*******************************************************************************/
 #endif

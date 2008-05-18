@@ -26,9 +26,12 @@
 */
 /*******************************************************************************/
 #include "weather-help.h"
+#ifdef RELEASE
+#undef DEBUGFUNCTIONCALL
+#endif
 /*******************************************************************************/
 void help_activated_handler(GtkWidget *window, gchar *help_id){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!help_id)

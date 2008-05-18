@@ -38,6 +38,9 @@
 #include <unistd.h>
 #include "weather-hash.h"
 #include "weather-data.h"
+#ifdef RELEASE
+#undef DEBUGFUNCTIONCALL
+#endif
 /*******************************************************************************/
 #define APPLET_X_SIZE		200
 #define APPLET_Y_SIZE		40
@@ -65,7 +68,7 @@ static gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
     gchar       *station_name = NULL,
                 *station_code = NULL;
     GtkTreePath	*path;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     path = gtk_tree_path_new_first();
@@ -127,7 +130,7 @@ static gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
     gchar       *station_name = NULL,
                 *station_code = NULL;
     GtkTreePath	*path;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     path = gtk_tree_path_new_first();
@@ -177,7 +180,7 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
     gboolean    valid;
     gchar       *station_name = NULL,
                 *station_code = NULL;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!strcmp((char*)user_data, app->config->current_station_id))
@@ -216,12 +219,11 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
 }
 /*******************************************************************************/
 /* Filling data of buttons  */
-void draw_home_window(void){
+void draw_home_window(gint count_day){
     int		i,
 		j = 0,
 		k = 0,
 		offset = 0,
-		count_day,
 		year,
 		current_month = 1;
     gchar	buffer[2048],
@@ -245,22 +247,13 @@ void draw_home_window(void){
     double	pre_offset = 0.0F;
 #ifndef RELEASE
     time_t	tmp_time;
-
+#endif
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 /* Check main widget */
     if(!app->top_widget)
 	return;
-/* Parse data file */
-    count_day = new_parse_weather_com_xml();
-/*    parse_underground_com_data("26666");	* TODO next release, maybe */
-    if(count_day == -2){
-	fprintf(stderr, _("Error in xml file\n"));
-	    hildon_banner_show_information(app->main_window,
-					    NULL,
-					    _("Wrong station code \nor ZIP code!!!"));
-	    return;
-    } /* Error in xml file */
     tm = &tmp_tm;
 /* select image and font size */
     switch(app->config->icons_size){
@@ -541,14 +534,15 @@ void draw_home_window(void){
 	if(!app->config->transparency && app->parent)
 	    gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);
     #endif 
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
 }
 /*******************************************************************************/
 void redraw_home_window(void){
-    gint	i;
-#ifndef RELEASE
+    gint	i,
+		count_day;
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     destroy_object(&(wcs.current_data));    
@@ -564,11 +558,22 @@ void redraw_home_window(void){
         gtk_widget_destroy(app->main_window);
 	app->main_window = NULL;
     }
-    draw_home_window();
+/* Parse data file */
+    count_day = new_parse_weather_com_xml();
+/*    parse_underground_com_data("26666");	* TODO next release, maybe */
+    if(count_day == -2){
+	fprintf(stderr, _("Error in xml file\n"));
+	    hildon_banner_show_information(app->main_window,
+					    NULL,
+					    _("Wrong station code \nor ZIP code!!!"));
+	weather_window_settings(NULL, NULL, 0);
+	    return;
+    } /* Error in xml file */
+    draw_home_window(count_day);
 }
 /*******************************************************************************/
 gboolean remitted_update(void){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     redraw_home_window();
@@ -577,7 +582,7 @@ gboolean remitted_update(void){
 /*******************************************************************************/
 /* Get Weather xml file from weather.com */
 void update_weather(gboolean show_update_window){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     (app->iap_connected) && show_update_window && (app->show_update_window = TRUE);
@@ -629,7 +634,6 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         g_free(app);
         exit(1);
     }
-
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
     app->countrys_list = NULL;
@@ -639,7 +643,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     timer(60000);  /* One per minute */
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
-    draw_home_window();
+    redraw_home_window();
 /* Initialize DBUS */
     weather_initialize_dbus();
 /*    
@@ -660,7 +664,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     gtk_rc_parse(tmp_buff);
 #endif
     (*widget) = app->top_widget;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
     return (void*)osso;
@@ -697,7 +701,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     fprintf(stderr, "\nOMWeather applet deinitialize\n");
 #endif
     /* remove switch timer */
-    if(app->switch_timer != 0)
+    if(app->switch_timer > 0)
 	g_source_remove(app->switch_timer);
     /* It is switch off the timer */	
     check = g_source_remove(app->timer);
@@ -714,6 +718,9 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     new_config_save(app->config); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
 			On n800 this work */
 #ifdef HILDON
+    /* remove sensor time */
+    if(app->sensor_timer > 0)
+	g_source_remove(app->sensor_timer);
 	deinitial_gps_connect();
     	g_signal_handler_disconnect(app->parent,app->signal_size_request);
 	g_signal_handler_disconnect(app->parent_parent,app->signal_press);  
@@ -779,7 +786,7 @@ void menu_init(void){
     gboolean	valid;
     gchar	*station_name = NULL,
 		*station_code = NULL;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     app->contextmenu = gtk_menu_new();
@@ -817,7 +824,7 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
     const gchar	*wind_units_str[] = { "m/s", "km/h", "mi/h" };
     float	tmp_distance = 0;
 
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!current)
@@ -919,7 +926,7 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
     main_widget = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_start(GTK_BOX(main_widget), icon_temperature_vbox, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(main_widget), main_data_vbox, FALSE, FALSE, 0);
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
     return main_widget;
@@ -947,7 +954,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     GtkTreeIter	iter;
     gboolean	valid = FALSE,
 		user_stations_list_has_two_or_more_elements = FALSE;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(app->config->days_to_show % 2)
@@ -1187,7 +1194,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /* free used memory from OMWeather struct */
 void free_memory(void){
     int    i;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
     for(i = 0; i < app->config->days_to_show; i++)
@@ -1236,7 +1243,7 @@ WDB* create_weather_day_button(const char *text, const char *icon,
 				char font_size, GdkColor *color){
 
     WDB		*new_day_button = NULL;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     new_day_button = g_new0(WDB, 1);
@@ -1287,7 +1294,7 @@ WDB* create_weather_day_button(const char *text, const char *icon,
 }
 /*******************************************************************************/
 void delete_weather_day_button(gboolean after_all_destroy, WDB **day){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(after_all_destroy){
@@ -1321,7 +1328,7 @@ void delete_weather_day_button(gboolean after_all_destroy, WDB **day){
 }
 /*******************************************************************************/
 gboolean switch_timer_handler(gpointer data){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(app->popup_window){
@@ -1612,7 +1619,7 @@ gboolean expose_main_window(GtkWidget *widget, GdkEventExpose *event){
 #endif
 /*******************************************************************************/
 GtkListStore* create_user_stations_list(void){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     return gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_BOOLEAN);

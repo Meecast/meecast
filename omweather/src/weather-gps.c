@@ -27,6 +27,9 @@
 /*******************************************************************************/
 #include "weather-common.h"
 #include "weather-gps.h"
+#ifdef RELEASE
+#undef DEBUGFUNCTIONCALL
+#endif
 /*******************************************************************************/
 #ifdef HILDON
 
@@ -35,7 +38,7 @@ get_nearest_station( double lat, double lon, Station *result)
 {
     FILE		*fh;
     char		buffer[512];
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     Region_item  region;
@@ -123,7 +126,7 @@ get_nearest_station( double lat, double lon, Station *result)
         }          
     }
     fclose(fh);
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
 }
@@ -131,7 +134,7 @@ get_nearest_station( double lat, double lon, Station *result)
 static void
 gps_location_changed (LocationGPSDevice *device, gpointer userdata)
 {
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if (!app->config->gps_station)
@@ -145,12 +148,12 @@ gps_location_changed (LocationGPSDevice *device, gpointer userdata)
 void
 initial_gps_connect(void)
 { 
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
     app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif    
 }
@@ -158,12 +161,12 @@ initial_gps_connect(void)
 void
 deinitial_gps_connect(void)
 {
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     g_signal_handler_disconnect (app->gps_device,app->gps_id_connection);
     g_object_unref(app->gps_device);
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
 }

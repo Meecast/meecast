@@ -28,12 +28,15 @@
 /*******************************************************************************/
 #include "weather-data.h"
 #include <stdio.h>
+#ifdef RELEASE
+#undef DEBUGFUNCTIONCALL
+#endif
 /*******************************************************************************/
 WeatherComStation wcs = { NULL };
 /*******************************************************************************/
 Item* create_item(const char *name, const char *value){
     Item	*itm;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!name)
@@ -46,7 +49,7 @@ Item* create_item(const char *name, const char *value){
 }
 /*******************************************************************************/
 void destroy_item(Item **item){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!(*item))
@@ -60,7 +63,7 @@ void destroy_item(Item **item){
 }
 /*******************************************************************************/
 GSList*	add_item2object(GSList **object, Item *item){
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(item)
@@ -72,7 +75,7 @@ char* item_value(GSList *object, const char *name){
     GString	*tmp = NULL;
     Item	*itm = NULL;
     char	*result = "";
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(object){
@@ -93,7 +96,7 @@ char* item_value(GSList *object, const char *name){
 void destroy_object(GSList **object){
     Item	*itm = NULL;
     GSList	*tmp = *object;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     while(tmp){
@@ -109,7 +112,7 @@ void destroy_object(GSList **object){
 time_t last_update_time(GSList *object){
     time_t	last_update = 0;
     struct tm	tm = {0};
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!object)
@@ -129,7 +132,7 @@ time_t last_update_time(GSList *object){
 #ifndef RELEASE
 void display_all_object_items(GSList *object){
     Item	*itm = NULL;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");

@@ -37,7 +37,7 @@ WDB* create_weather_day_button(const char *text, const char *icon,
 				const int icon_size, gboolean transparency,
 				char font_size, GdkColor *color);
 void delete_weather_day_button(gboolean after_all_destroy,WDB **day);
-void draw_home_window(void);
+void draw_home_window(gint count_day);
 void update_weather(gboolean show_update_window);
 void redraw_home_window(void);
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size);
@@ -77,6 +77,9 @@ extern time_t last_update_time(GSList *object);
 extern float convert_wind_units(int to, float value);
 extern void initial_gps_connect(void);
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
+#ifdef HILDON
+extern void read_sensor(void);
+#endif
 /*******************************************************************************/
 extern gchar	path_large_icon[];
 /*******************************************************************************/

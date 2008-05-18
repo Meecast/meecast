@@ -33,6 +33,7 @@
 float convert_wind_units(int to, float value);
 void set_font_size(GtkWidget *widget, char font_size);
 void set_background_color(GtkWidget *widget, GdkColor *bgc);
+void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 int c2f(int temp);
 void swap_temperature(int *hi, int *low);
 GtkWidget* lookup_widget(GtkWidget* widget, const gchar* widget_name);

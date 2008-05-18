@@ -30,6 +30,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
+#ifdef RELEASE
+#undef DEBUGFUNCTIONCALL
+#endif
 /*******************************************************************************/
 GtkListStore* create_items_list(const char *filename, long start, long end,
 							    long *items_number){
@@ -43,7 +46,7 @@ GtkListStore* create_items_list(const char *filename, long start, long end,
     long		max_bytes = 0,
 			readed_bytes = 0,
 			count = 0;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     max_bytes = end - start;
@@ -124,7 +127,7 @@ int parse_country_string(const char *string, Country_item *result){
 		*tmp,
 		buffer[32];
     int		res = 0;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     tmp = (char*)string;
@@ -169,7 +172,7 @@ int parse_region_string(const char *string, Region_item *result){
     char	*delimiter = NULL,
 		*tmp;
     int		res = 0;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
     tmp = (char*)string;
@@ -251,7 +254,7 @@ int parse_station_string(const char *string, Station *result){
     char	*delimiter = NULL,
 		*tmp;
     int		res = 0;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
     tmp = (char*)string;

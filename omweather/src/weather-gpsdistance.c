@@ -28,6 +28,9 @@
  */
 /*******************************************************************************/
 #include "weather-gpsdistance.h"
+#ifdef RELEASE
+#undef DEBUGFUNCTIONCALL
+#endif
 /*******************************************************************************/
 #ifdef HILDON
 
@@ -39,7 +42,7 @@ gdouble
 calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2)
 {
     gdouble dlat, dlon, slat, slon, a;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     /* Convert to radians. */

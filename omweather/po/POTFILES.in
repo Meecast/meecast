@@ -6,3 +6,5 @@ src/weather-config.c
 src/weather-popup.c
 src/hash.data
 src/weather-download.c
+src/weather-sensor.c
+

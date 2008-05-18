@@ -29,10 +29,13 @@
 #include "weather-hash.h"
 #include "weather-data.h"
 #include <libxml/HTMLparser.h>
+#ifdef RELEASE
+#undef DEBUGFUNCTIONCALL
+#endif
 /*******************************************************************************/
 weather_com_parser *weather_parser_new_from_file(const gchar *filename){
     weather_com_parser *parser = NULL;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     parser = (weather_com_parser *) malloc(sizeof(weather_com_parser));
@@ -72,7 +75,7 @@ int new_parse_weather_com_xml(void){
     struct tm	*tm = NULL,
 		tmp_tm = {0};
     Item	*itm;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
 /*Prepare date string */
@@ -323,7 +326,7 @@ int new_parse_weather_com_xml(void){
 	    }
 	    /* Fill other days */
 	    if(!xmlStrcmp(cur_node->name, (const xmlChar *) "dayf" ) ){
-    		for(child_node = cur_node->children; child_node; child_node = child_node->next){
+    		for(child_node = cur_node->children; child_node && count_day <= Max_count_weather_day; child_node = child_node->next){
     		    if( child_node->type == XML_ELEMENT_NODE  &&
 			    ( !xmlStrcmp(child_node->name, (const xmlChar *)"day") ) ){
 			/* get 24h name */
@@ -475,7 +478,7 @@ int parse_underground_com_data(const gchar *station){
     gchar	buffer[512];
     htmlNodePtr	current_node = NULL;
     gint	day_count = 0;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
     if(!station)

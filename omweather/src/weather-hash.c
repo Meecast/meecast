@@ -26,10 +26,13 @@
 */
 #include <glib.h>
 #include "weather-hash.h"
+#ifdef RELEASE
+#undef DEBUGFUNCTIONCALL
+#endif
 /*******************************************************************************/
 GHashTable* hash_table_create(void){
     GHashTable *hash;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     hash = g_hash_table_new(g_str_hash, g_str_equal);
@@ -48,7 +51,7 @@ gpointer hash_table_find(gpointer key){
     gpointer	orig_key,
 		value,
 		result;
-#ifndef RELEASE
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
     if(g_hash_table_lookup_extended(app->hash,

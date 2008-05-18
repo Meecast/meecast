@@ -53,6 +53,8 @@ libweather_home_la_SOURCES = weather-home.c \
 			     weather-help.c \
 			     weather-utils.h \
 			     weather-utils.c \
+			     weather-sensor.h \
+			     weather-sensor.c \
 			     hildon_home_area.c \
 			     hildon_home_area.h
 

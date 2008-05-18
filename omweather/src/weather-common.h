@@ -66,7 +66,7 @@
 #include <locale.h>
 /*******************************************************************************/
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
-#define Max_count_weather_day	10
+#define Max_count_weather_day	5
 #define COUNTRIESFILE		"/usr/share/omweather/countries.list"
 #define REGIONSFILE		"/usr/share/omweather/regions.list"
 #define LOCATIONSFILE		"/usr/share/omweather/locations.list"
@@ -85,14 +85,10 @@
 enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT, UPDATE_AFTER_CONNECTED, CHECK_GPS_POSITION};
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
-enum {	METERS_S,
-/*	KILOMETERS_S,
-	MILES_S,
-	METERS_H,
-*/	KILOMETERS_H,
-	MILES_H };
+enum { METERS_S, KILOMETERS_H, MILES_H };
 enum { CELSIUS, FAHRENHEIT };
-enum {  UNKNOWN, TINY, SMALL, MEDIUM, LARGE, GIANT };
+enum { UNKNOWN, TINY, SMALL, MEDIUM, LARGE, GIANT };
+enum { ICON, STATION_NAME };
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{
     GtkWidget	*button;                                                                                               
@@ -192,6 +188,11 @@ typedef struct applet_config{
     gint	distance_units;
     gint	wind_units;
     gint	temperature_units;
+#ifdef HILDON
+    gint	display_at;
+    gboolean	use_sensor;
+    guint	sensor_update_time;
+#endif
     guint	data_valid_interval;
     gboolean	transparency;
     gboolean	separate;
@@ -220,6 +221,7 @@ typedef struct OMWeatherApplet{
     guint		timer;
     guint		timer_for_os2008;
     guint		switch_timer;
+    guint		sensor_timer;
     WDB			*buttons[Max_count_weather_day];
     guint		flag_updating;
     gboolean		dbus_is_initialize;

@@ -28,7 +28,6 @@
 #include "weather-parser.h"
 #include "weather-hash.h"
 #include "weather-data.h"
-#include <libxml/HTMLparser.h>
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
@@ -476,7 +475,9 @@ int new_parse_weather_com_xml(void){
 int parse_underground_com_data(const gchar *station){
     htmlDocPtr	doc;
     gchar	buffer[512];
-    htmlNodePtr	current_node = NULL;
+    htmlNodePtr	current_node = NULL,
+		root_node = NULL,
+		child_node = NULL;
     gint	day_count = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -490,13 +491,68 @@ int parse_underground_com_data(const gchar *station){
 	if(access(buffer, R_OK))
 	    return -1;			/* no one of htm or html was found */
     }
-    doc = htmlReadFile(buffer, "UTF-8", HTML_PARSE_NOERROR);
+    doc = htmlReadFile(buffer, NULL, HTML_PARSE_NOERROR);
     
-    for(current_node = doc->children; current_node; current_node = current_node->next){
-	fprintf(stderr, "\nName - %s\n", current_node->name);
-    }
+    root_node = xmlDocGetRootElement(doc);
+    /* error in html document */
+    if(!root_node)
+	return -1;
+    /* search node named 'body' */
+    current_node = root_node->children;
+    while(current_node && strcmp(current_node->name, "body"))
+	current_node = current_node->next;
+    /* search node named 'table' */
+    current_node = current_node->children;
+    while(current_node && strcmp(current_node->name, "table"))
+	current_node = current_node->next;
+    /* process tags <tr> */
+    /* first <tr> contains current weather */
+    process_undeground_com_current_weather(current_node->children->children);
+    /* second <tr> must be skipped */
+    current_node = current_node->next;
+    /* third <tr> contains forecast weather */
+    process_undeground_com_forecast_weather(current_node->next);
+
     xmlFreeDoc(doc);
     return day_count;
 }
 /*******************************************************************************/
+void process_undeground_com_current_weather(const htmlNodePtr node){
+    htmlNodePtr	current_node = node,
+		child_node = NULL,
+		child_node1 = NULL,
+		child_node2 = NULL;
+#ifndef RELEASE
+    START_FUNCTION;
+#endif    
+    /* search tag named 'center' */
+    current_node = current_node->children;
+    while(current_node && strcmp(current_node->name, "center"))
+	current_node = current_node->next;
+    /* search tag named 'table' */
+    current_node = current_node->children;
+    while(current_node && strcmp(current_node->name, "table"))
+	current_node = current_node->next;
 
+    for(child_node = current_node->children; child_node; child_node = child_node->next){
+	fprintf(stderr, "\nChild name - %s\n", child_node->name);
+	for(child_node1 = child_node->children; child_node1; child_node1 = child_node1->next){
+	    fprintf(stderr, "\nChild name - %s\n", child_node1->name);
+	    for(child_node2 = child_node1->children; child_node2; child_node2 = child_node2->next)
+		fprintf(stderr, "\nChild name - %s\nContent - %s\n", child_node2->name, child_node2->content);
+	}
+    }
+}
+/*******************************************************************************/
+void process_undeground_com_forecast_weather(const htmlNodePtr node){
+    htmlNodePtr	current_node = node,
+		child_node = NULL;
+#ifndef RELEASE
+    START_FUNCTION;
+#endif    
+    fprintf(stderr, "\nName - %s\n", current_node->name);
+    /* process tags <td> */
+    for(child_node = current_node->children; child_node; child_node = child_node->next)
+	    fprintf(stderr, "\nChild name - %s\n", child_node->name);
+}
+/*******************************************************************************/

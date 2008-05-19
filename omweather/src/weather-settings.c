@@ -142,9 +142,10 @@ void delete_all_gps_stations(void){
 /*******************************************************************************/
 void changed_country_handler(GtkWidget *widget, gpointer user_data){
     struct lists_struct	*list
-			= (struct lists_struct*)user_data;
-    GtkWidget		*countries = list->countries,
-			*states = list->states;
+			= NULL;
+    GtkWidget		*config = GTK_WIDGET(user_data),
+			*countries = NULL,
+			*states = NULL;
     GtkTreeModel	*model;
     GtkTreeIter		iter;
     gchar		*country_name = NULL;
@@ -154,6 +155,13 @@ void changed_country_handler(GtkWidget *widget, gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
+    if(list){
+	countries = list->countries;
+	states = list->states;
+    }
+    else
+	return;
     /* clear regions list */
     if(app->regions_list)
 	gtk_list_store_clear(app->regions_list);
@@ -192,10 +200,10 @@ void changed_country_handler(GtkWidget *widget, gpointer user_data){
 }
 /*******************************************************************************/
 void changed_state_handler(GtkWidget *widget, gpointer user_data){
-    struct lists_struct	*list
-			= (struct lists_struct*)user_data;
-    GtkWidget		*states = list->states,
-			*stations = list->stations;
+    struct lists_struct	*list = NULL;
+    GtkWidget		*config = GTK_WIDGET(user_data),
+			*states = NULL,
+			*stations = NULL;
     GtkTreeModel	*model = NULL;
     GtkTreeIter		iter;
     gchar		*state_name = NULL;
@@ -204,6 +212,13 @@ void changed_state_handler(GtkWidget *widget, gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
+    if(list){
+	states = list->states;
+	stations = list->stations;
+    }
+    else
+	return;
 /* clear locations list */
     if(app->stations_list)
 	gtk_list_store_clear(app->stations_list);
@@ -229,9 +244,10 @@ void changed_state_handler(GtkWidget *widget, gpointer user_data){
 }
 /*******************************************************************************/
 void changed_stations_handler(GtkWidget *widget, gpointer user_data){
-    struct lists_struct	*list
-			= (struct lists_struct*)user_data;
-    GtkWidget		*stations = list->stations;
+    struct lists_struct	*list = NULL;
+    GtkWidget		*config = GTK_WIDGET(user_data),
+			*stations = NULL,
+			*add_button = NULL;
     GtkTreeModel	*model = NULL;
     GtkTreeIter		iter;
     gchar		*station_name = NULL,
@@ -241,6 +257,12 @@ void changed_stations_handler(GtkWidget *widget, gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
+    if(list)
+	stations = list->stations;
+    else
+	return;
+    add_button = lookup_widget(config, "add_from_list");
     if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(stations), &iter)){
 	model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
 	gtk_tree_model_get(model, &iter, 0, &station_name,
@@ -252,6 +274,8 @@ void changed_stations_handler(GtkWidget *widget, gpointer user_data){
 	g_free(station_id0);
     }
     list->stations = stations;
+    if(add_button)
+	gtk_widget_set_sensitive(add_button, TRUE);
 }
 /*******************************************************************************/
 /* Delete station from list */
@@ -927,6 +951,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     window_config = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     GLADE_HOOKUP_OBJECT_NO_REF(window_config, window_config, "window_config");
     g_object_set_data(G_OBJECT(window_config), "day_number", (gpointer)day_number);
+    g_object_set_data(G_OBJECT(window_config), "list", (gpointer)&list);
 
     gtk_window_fullscreen(GTK_WINDOW(window_config));
     /* create frame vbox */
@@ -1152,6 +1177,8 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     add_station_button2 = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
     gtk_widget_set_size_request(add_station_button2, 30, 30);
     gtk_widget_set_name(add_station_button2, "add_from_list");
+    GLADE_HOOKUP_OBJECT(window_config, add_station_button2, "add_from_list");
+    gtk_widget_set_sensitive(add_station_button2, FALSE);
     g_signal_connect(G_OBJECT(add_station_button2), "button_press_event",
 			G_CALLBACK(add_button_handler),
 			(gpointer)window_config);
@@ -1167,18 +1194,18 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				get_active_item_index((GtkTreeModel*)app->countrys_list,
 				-1, app->config->current_country, TRUE));
     /* fill states list */
-    changed_country_handler(NULL, (gpointer)&list);
+    changed_country_handler(NULL, (gpointer)window_config);
     /* fill stations list */
-    changed_state_handler(NULL, (gpointer)&list);
+    changed_state_handler(NULL, (gpointer)window_config);
     g_signal_connect(countries, "changed",
             		G_CALLBACK(changed_country_handler),
-			(gpointer)&list);
+			(gpointer)window_config);
     g_signal_connect(states, "changed",
                 	G_CALLBACK(changed_state_handler),
-			(gpointer)&list);
+			(gpointer)window_config);
     g_signal_connect(stations, "changed",
             		G_CALLBACK(changed_stations_handler),
-			(gpointer)&list);
+			(gpointer)window_config);
     g_signal_connect(station_list_view, "cursor-changed",
                         G_CALLBACK(station_list_view_select_handler),
 			rename_entry);

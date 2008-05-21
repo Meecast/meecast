@@ -913,7 +913,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*wind_kilometers = NULL,
 		*wind_miles = NULL,
 		*mb_pressure = NULL,
-		*psi_pressure = NULL,
+		*inch_pressure = NULL,
 #ifdef HILDON
                 *label_gps = NULL,
                 *hbox_gps = NULL,
@@ -1493,15 +1493,15 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     pressure_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(mb_pressure));
     gtk_button_set_focus_on_click(GTK_BUTTON(mb_pressure), FALSE);
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				psi_pressure
+				inch_pressure
 				    = gtk_radio_button_new_with_label(pressure_group,
-									_("psi")),
+									_("inHg")),
 				2, 3, 6, 7);
-    gtk_button_set_focus_on_click(GTK_BUTTON(psi_pressure), FALSE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(inch_pressure), FALSE);
     if(app->config->pressure_units == MB)
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(mb_pressure), TRUE);
     else
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(psi_pressure), TRUE);
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(inch_pressure), TRUE);
 /* Update tab */
 /* auto download when connect */
     gtk_table_attach_defaults(GTK_TABLE(update_page),
@@ -1759,7 +1759,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(pressure)))
             app->config->pressure_units = MB;
 	else
-            app->config->pressure_units = PSI;
+            app->config->pressure_units = INCH;
     }
 /* temperature */
     temperature = lookup_widget(config_window, "temperature");

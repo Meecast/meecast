@@ -89,7 +89,7 @@ enum { METERS_S, KILOMETERS_H, MILES_H };
 enum { CELSIUS, FAHRENHEIT };
 enum { UNKNOWN, TINY, SMALL, MEDIUM, LARGE, GIANT };
 enum { ICON, STATION_NAME };
-enum { MB, PSI };
+enum { MB, INCH };
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{
     GtkWidget	*button;                                                                                               

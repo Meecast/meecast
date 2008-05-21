@@ -517,7 +517,7 @@ int new_read_config(AppletConfig *config){
     config->pressure_units = gconf_client_get_int(gconf_client,                                                                                     
                 				    GCONF_KEY_WEATHER_PRESSURE_UNITS,
 						    &gerror);
-    if(gerror || config->pressure_units > PSI){
+    if(gerror || config->pressure_units > INCH){
 	config->pressure_units = MB;
 	g_error_free(gerror);
     }

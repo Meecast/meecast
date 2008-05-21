@@ -1,7 +1,8 @@
 omweather (0.21) unstable; urgency=low
 
-  * Testing
-        
+  * Created new design for popup and settings windows
+  * Added possibility to change pressure units       
+ 
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 02 Jan 2008 03:36:00 +0200
 omweather (0.20) unstable; urgency=low
 

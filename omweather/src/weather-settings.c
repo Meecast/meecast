@@ -874,7 +874,8 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     static struct lists_struct	list = { NULL, NULL, NULL };
     GSList	*temperature_group = NULL,
 		*distance_group = NULL,
-		*wind_group = NULL;
+		*wind_group = NULL,
+		*pressure_group = NULL;
     GtkWidget	*countries = NULL,
 		*states = NULL,
 		*stations = NULL,
@@ -911,6 +912,8 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*wind_meters = NULL,
 		*wind_kilometers = NULL,
 		*wind_miles = NULL,
+		*mb_pressure = NULL,
+		*psi_pressure = NULL,
 #ifdef HILDON
                 *label_gps = NULL,
                 *hbox_gps = NULL,
@@ -969,7 +972,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
         			interface_page = gtk_table_new(10, 4, FALSE),
         			gtk_label_new(_("Interface")));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			 units_page = gtk_table_new(6, 3, FALSE),
+        			 units_page = gtk_table_new(7, 3, FALSE),
         			gtk_label_new(_("Units")));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			update_page = gtk_table_new(5, 2, FALSE),
@@ -1399,7 +1402,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				fahrenheit_temperature
 				    = gtk_radio_button_new_with_label(temperature_group,
 									_("Fahrenheit (Imperial)")),
-				1, 2, 1, 2);
+				2, 3, 0, 1);
     gtk_button_set_focus_on_click(GTK_BUTTON(fahrenheit_temperature), FALSE);
     if(app->config->temperature_units == CELSIUS)
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(celcius_temperature), TRUE);
@@ -1477,6 +1480,28 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 	case KILOMETERS_H: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_kilometers), TRUE); break;
 	case MILES_H: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_miles), TRUE); break;
     }
+    /* pressure */
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				gtk_label_new(_("Pressure units:")),
+				0, 1, 6, 7);
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				mb_pressure
+				    = gtk_radio_button_new_with_label(NULL,
+									_("mb")),
+				1, 2, 6, 7);
+    GLADE_HOOKUP_OBJECT(window_config, mb_pressure, "mb_pressure");
+    pressure_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(mb_pressure));
+    gtk_button_set_focus_on_click(GTK_BUTTON(mb_pressure), FALSE);
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				psi_pressure
+				    = gtk_radio_button_new_with_label(pressure_group,
+									_("psi")),
+				2, 3, 6, 7);
+    gtk_button_set_focus_on_click(GTK_BUTTON(psi_pressure), FALSE);
+    if(app->config->pressure_units == MB)
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(mb_pressure), TRUE);
+    else
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(psi_pressure), TRUE);
 /* Update tab */
 /* auto download when connect */
     gtk_table_attach_defaults(GTK_TABLE(update_page),
@@ -1599,6 +1624,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*sensor_update_time = NULL,
 #endif
 			*temperature = NULL,
+			*pressure = NULL,
 			*meters = NULL,
 			*kilometers = NULL,
 			*miles = NULL,
@@ -1726,6 +1752,14 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	    else
 		app->config->wind_units = MILES_H;
 	}
+    }
+/* pressure */
+    pressure = lookup_widget(config_window, "mb_pressure");
+    if(pressure){
+	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(pressure)))
+            app->config->pressure_units = MB;
+	else
+            app->config->pressure_units = PSI;
     }
 /* temperature */
     temperature = lookup_widget(config_window, "temperature");
@@ -1934,7 +1968,10 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 		g_free(station_name);
 		g_free(station_code);
 		new_config_save(app->config);
+		/* set selected station to nothing */
 		gtk_combo_box_set_active((GtkComboBox*)stations, -1);
+		/* disable add button */
+		gtk_widget_set_sensitive(GTK_WIDGET(button), FALSE);
 	    }
 	}
     }

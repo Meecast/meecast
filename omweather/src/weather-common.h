@@ -89,6 +89,7 @@ enum { METERS_S, KILOMETERS_H, MILES_H };
 enum { CELSIUS, FAHRENHEIT };
 enum { UNKNOWN, TINY, SMALL, MEDIUM, LARGE, GIANT };
 enum { ICON, STATION_NAME };
+enum { MB, PSI };
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{
     GtkWidget	*button;                                                                                               
@@ -188,6 +189,7 @@ typedef struct applet_config{
     gint	distance_units;
     gint	wind_units;
     gint	temperature_units;
+    gint	pressure_units;
 #ifdef HILDON
     gint	display_at;
     gboolean	use_sensor;

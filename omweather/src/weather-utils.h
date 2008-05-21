@@ -31,6 +31,7 @@
 #include "weather-common.h"
 /*******************************************************************************/
 float convert_wind_units(int to, float value);
+float mb2psi(float pressure);
 void set_font_size(GtkWidget *widget, char font_size);
 void set_background_color(GtkWidget *widget, GdkColor *bgc);
 void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);

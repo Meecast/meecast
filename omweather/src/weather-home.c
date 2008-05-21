@@ -822,7 +822,8 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
     gchar	buffer[1024],
 		*units;
     const gchar	*wind_units_str[] = { "m/s", "km/h", "mi/h" };
-    float	tmp_distance = 0;
+    float	tmp_distance = 0.0f,
+		tmp_pressure = 0.0f;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -890,13 +891,18 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
 	    }
 	    sprintf(buffer + strlen(buffer), "%.2f %s", tmp_distance, units);
 	}
-	else    
+	else
 	    sprintf(buffer + strlen(buffer), "%s",
                     (char*)hash_table_find((gpointer)"N/A"));
 /* pressure */
+    tmp_pressure = atof(item_value(current, "pressure"));
+    switch(app->config->pressure_units){
+	default:
+	case MB: units = _("mb"); break;
+	case PSI: units = _("psi"); tmp_pressure = mb2psi(tmp_pressure); break;
+    }
     strcat(buffer, _("\nP: "));
-    sprintf(buffer + strlen(buffer), "%.2f %s, ", atof(item_value(current, "pressure")),
-		    _("mb"));
+    sprintf(buffer + strlen(buffer), "%.2f %s, ", tmp_pressure, units);
     strcat(buffer, item_value(current, "pressure_direction"));
 /* wind */
     strcat(buffer, _("\nW: "));

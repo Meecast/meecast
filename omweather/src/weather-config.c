@@ -513,7 +513,14 @@ int new_read_config(AppletConfig *config){
 	config->distance_units = METERS;
 	g_error_free(gerror);
     }
-
+    /* Get pressure units */
+    config->pressure_units = gconf_client_get_int(gconf_client,                                                                                     
+                				    GCONF_KEY_WEATHER_PRESSURE_UNITS,
+						    &gerror);
+    if(gerror || config->pressure_units > PSI){
+	config->pressure_units = MB;
+	g_error_free(gerror);
+    }
     /* Get wind units */
     config->wind_units = gconf_client_get_int(gconf_client,                                                                                     
 						GCONF_KEY_WEATHER_WIND_UNITS,
@@ -763,6 +770,10 @@ void new_config_save(AppletConfig *config){
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_DISTANCE_UNITS,
 			config->distance_units, NULL);
+    /* Save pressure units. */
+    gconf_client_set_int(gconf_client,
+        		GCONF_KEY_WEATHER_PRESSURE_UNITS,
+			config->pressure_units, NULL);
     /* Save wind units. */
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_WIND_UNITS,

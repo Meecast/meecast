@@ -87,6 +87,14 @@ int c2f(int temp){
     return (temp * 1.8f ) + 32;
 }
 /*******************************************************************************/
+/* convert preesure */
+float mb2psi(float pressure){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    return ( (pressure / 1000.0f) * 14.504f );
+}
+/*******************************************************************************/
 void swap_temperature(int *hi, int *low){
     int tmp;
 #ifdef DEBUGFUNCTIONCALL

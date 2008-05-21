@@ -601,7 +601,8 @@ GtkWidget* create_current_tab(GSList *current){
                 *units;
     const gchar *wind_units_str[] = { "m/s", "km/h", "mi/h" };
     GdkPixbuf   *icon = NULL;
-    float       tmp_distance = 0;
+    float       tmp_distance = 0.0f,
+		tmp_pressure = 0.0f;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -661,8 +662,15 @@ GtkWidget* create_current_tab(GSList *current){
 /* pressure */
     if( strcmp(item_value(current, "pressure"), "N/A") ){
 	sprintf(buffer + strlen(buffer), "%s", _("Pressure:"));
-	sprintf(buffer + strlen(buffer), "  %.2f %s,",
-		atof(item_value(current, "pressure")), _("mb"));
+
+	tmp_pressure = atof(item_value(current, "pressure"));
+	switch(app->config->pressure_units){
+	    default:
+	    case MB: units = _("mb"); break;
+	    case PSI: units = _("psi"); tmp_pressure = mb2psi(tmp_pressure); break;
+	}
+
+	sprintf(buffer + strlen(buffer), "  %.2f %s,", tmp_pressure, units);
 	sprintf(buffer + strlen(buffer), "  %s\n",
 		    item_value(current, "pressure_direction"));
     }

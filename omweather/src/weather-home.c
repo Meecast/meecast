@@ -1026,10 +1026,22 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		    app->config->font_color.blue >> 8,
 		    (char*)hash_table_find("NO STATION"));
         else
+#ifdef HILDON
+	    {
+	    if(app->config->display_at == STATION_NAME)/* draw sensor data at the station name */
+	    	sprintf(buffer,"<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>%s (%.2f)</span>",
+        	    app->config->font_color.red >> 8,
+		    app->config->font_color.green >> 8,
+		    app->config->font_color.blue >> 8, st_name, app->sensor_data);
+	    else
+#endif
 	    sprintf(buffer,"<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>%s</span>",
         	    app->config->font_color.red >> 8,
 		    app->config->font_color.green >> 8,
 		    app->config->font_color.blue >> 8, st_name);
+#ifdef HILDON
+	}
+#endif
 	station_box = gtk_hbox_new(FALSE, 0);
 	station_name_btn = gtk_event_box_new();
 	set_background_color(station_name_btn, &(app->config->background_color));		

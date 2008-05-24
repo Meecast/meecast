@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-21 10:05+0300\n"
+"POT-Creation-Date: 2008-05-24 12:57+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -345,8 +345,8 @@ msgid "Can not get path to the HOME directory. Quitting.\n"
 msgstr "Невозможно получить путь к домашней директории. Выходим.\n"
 
 #: src/weather-settings.c:1396
-msgid "Celcius (Metric)"
-msgstr "Цельсий (метрическая система)"
+msgid "Celcius"
+msgstr "Цельсий"
 
 #: src/weather-settings.c:1171
 msgid "City:"
@@ -461,8 +461,8 @@ msgid "F\n"
 msgstr "F\n"
 
 #: src/weather-settings.c:1404
-msgid "Fahrenheit (Imperial)"
-msgstr "Фаренгейт (США и др.)"
+msgid "Fahrenheit"
+msgstr "Фаренгейт"
 
 #: src/weather-config.c:260
 #, c-format
@@ -602,7 +602,7 @@ msgstr "Размер иконок:"
 msgid "Interface"
 msgstr "Интерфейс"
 
-#: src/weather-sensor.c:139
+#: src/weather-sensor.c:143
 msgid "Invalid symbol in field or field is empty."
 msgstr "Недопустимый символ в поле или пустое поле."
 
@@ -912,9 +912,8 @@ msgid "Partly Cloudy and Windy"
 msgstr "Небольшая облачность и ветер"
 
 #: src/weather-settings.c:1485
-#, fuzzy
 msgid "Pressure units:"
-msgstr "Давление:"
+msgstr "Единицы давления:"
 
 #: src/weather-popup.c:664
 msgid "Pressure:"
@@ -996,7 +995,7 @@ msgstr "Дождь переходящий в поземку"
 msgid "Rain to Wintry Mix / Wind"
 msgstr "Дождь переходящий в поземку / Ветер"
 
-#: src/weather-sensor.c:90
+#: src/weather-sensor.c:91
 msgid "Read sensor every:"
 msgstr "Опрашивать датчик каждые:"
 
@@ -1044,7 +1043,7 @@ msgstr "Морские мили"
 msgid "Sensor"
 msgstr "Датчик"
 
-#: src/weather-sensor.c:68
+#: src/weather-sensor.c:69
 msgid "Show temperature at:"
 msgstr "Показать температуру:"
 
@@ -1233,7 +1232,7 @@ msgstr ""
 "'Редактировать компоновку' \n"
 "для настройки изображения апплета."
 
-#: src/weather-sensor.c:52
+#: src/weather-sensor.c:53
 msgid "Use device temperature sensor"
 msgstr "Использовать встроенный датчик температуры"
 
@@ -1373,6 +1372,10 @@ msgstr "каждую минуту (отладка)"
 msgid "falling"
 msgstr "падает"
 
+#: src/weather-home.c:902 src/weather-settings.c:1498 src/weather-popup.c:670
+msgid "inHg"
+msgstr "дюймы рт. ст."
+
 #: src/weather-home.c:888 src/weather-popup.c:655
 msgid "km"
 msgstr "км"
@@ -1414,19 +1417,15 @@ msgstr "ми/ч"
 msgid "mi/s"
 msgstr "ми/с"
 
-#: src/weather-sensor.c:81
+#: src/weather-sensor.c:82
 msgid "new icon"
 msgstr "в новой иконке"
-
-#: src/weather-home.c:902 src/weather-settings.c:1498 src/weather-popup.c:670
-msgid "psi"
-msgstr ""
 
 #: src/hash.data:179
 msgid "rising"
 msgstr "возрастает"
 
-#: src/weather-sensor.c:102
+#: src/weather-sensor.c:103
 msgid "seconds"
 msgstr "секунд"
 
@@ -1434,7 +1433,7 @@ msgstr "секунд"
 msgid "station local time"
 msgstr "местного времени станции"
 
-#: src/weather-sensor.c:73
+#: src/weather-sensor.c:74
 msgid "station name"
 msgstr "в названии станции"
 

@@ -1393,7 +1393,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
 				celcius_temperature
 				    = gtk_radio_button_new_with_label(NULL,
-									_("Celcius (Metric)")),
+									_("Celcius")),
 				1, 2, 0, 1);
     GLADE_HOOKUP_OBJECT(window_config, celcius_temperature, "temperature");
     temperature_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(celcius_temperature));
@@ -1401,7 +1401,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
 				fahrenheit_temperature
 				    = gtk_radio_button_new_with_label(temperature_group,
-									_("Fahrenheit (Imperial)")),
+									_("Fahrenheit")),
 				2, 3, 0, 1);
     gtk_button_set_focus_on_click(GTK_BUTTON(fahrenheit_temperature), FALSE);
     if(app->config->temperature_units == CELSIUS)

@@ -264,6 +264,7 @@ typedef struct OMWeatherApplet{
     Station		gps_station;
     gdouble		temporary_station_latitude;
     gdouble		temporary_station_longtitude;
+    float		sensor_data;
 #endif    
 }OMWeatherApp;
 

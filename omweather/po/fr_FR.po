@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.19.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-21 10:05+0300\n"
+"POT-Creation-Date: 2008-05-24 12:57+0300\n"
 "PO-Revision-Date: 2008-04-27 20:32+0200\n"
 "Last-Translator: Nicolas GRAZIANO <nicolas.graziano@gmail.com>\n"
 "Language-Team: French\n"
@@ -349,7 +349,7 @@ msgstr "Impossible de trouver le répertoire HOME. Sortie.\n"
 
 #: src/weather-settings.c:1396
 #, fuzzy
-msgid "Celcius (Metric)"
+msgid "Celcius"
 msgstr "Celsius (métrique)"
 
 #: src/weather-settings.c:1171
@@ -463,7 +463,8 @@ msgid "F\n"
 msgstr "F\n"
 
 #: src/weather-settings.c:1404
-msgid "Fahrenheit (Imperial)"
+#, fuzzy
+msgid "Fahrenheit"
 msgstr "Fahrenheit (Imperial)"
 
 #: src/weather-config.c:260
@@ -606,7 +607,7 @@ msgstr "Taille d'icone :"
 msgid "Interface"
 msgstr "Interface"
 
-#: src/weather-sensor.c:139
+#: src/weather-sensor.c:143
 msgid "Invalid symbol in field or field is empty."
 msgstr ""
 
@@ -1000,7 +1001,7 @@ msgstr "pluie vers mix hivernal"
 msgid "Rain to Wintry Mix / Wind"
 msgstr "pluie vers mix hivernal / vent"
 
-#: src/weather-sensor.c:90
+#: src/weather-sensor.c:91
 msgid "Read sensor every:"
 msgstr ""
 
@@ -1049,7 +1050,7 @@ msgstr ""
 msgid "Sensor"
 msgstr "Neige"
 
-#: src/weather-sensor.c:68
+#: src/weather-sensor.c:69
 #, fuzzy
 msgid "Show temperature at:"
 msgstr "Inverser température haute/basse :"
@@ -1238,7 +1239,7 @@ msgstr ""
 "Utiliser Modifier la mise en page \n"
 "pour ajuster l'image de l'applet"
 
-#: src/weather-sensor.c:52
+#: src/weather-sensor.c:53
 msgid "Use device temperature sensor"
 msgstr ""
 
@@ -1380,6 +1381,11 @@ msgstr "toutes les minutes (Debug)"
 msgid "falling"
 msgstr "tombant"
 
+#: src/weather-home.c:902 src/weather-settings.c:1498 src/weather-popup.c:670
+#, fuzzy
+msgid "inHg"
+msgstr "montant"
+
 #: src/weather-home.c:888 src/weather-popup.c:655
 msgid "km"
 msgstr "km"
@@ -1421,20 +1427,16 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: src/weather-sensor.c:81
+#: src/weather-sensor.c:82
 #, fuzzy
 msgid "new icon"
 msgstr "Une colonne"
-
-#: src/weather-home.c:902 src/weather-settings.c:1498 src/weather-popup.c:670
-msgid "psi"
-msgstr ""
 
 #: src/hash.data:179
 msgid "rising"
 msgstr "montant"
 
-#: src/weather-sensor.c:102
+#: src/weather-sensor.c:103
 #, fuzzy
 msgid "seconds"
 msgstr "60 secondes"
@@ -1443,7 +1445,7 @@ msgstr "60 secondes"
 msgid "station local time"
 msgstr "heure locale de la station"
 
-#: src/weather-sensor.c:73
+#: src/weather-sensor.c:74
 #, fuzzy
 msgid "station name"
 msgstr "Nom de la station :"

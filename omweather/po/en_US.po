@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en_GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-21 10:05+0300\n"
+"POT-Creation-Date: 2008-05-24 12:57+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -291,7 +291,7 @@ msgid "Can not get path to the HOME directory. Quitting.\n"
 msgstr ""
 
 #: src/weather-settings.c:1396
-msgid "Celcius (Metric)"
+msgid "Celcius"
 msgstr ""
 
 #: src/weather-settings.c:1171
@@ -405,7 +405,7 @@ msgid "F\n"
 msgstr ""
 
 #: src/weather-settings.c:1404
-msgid "Fahrenheit (Imperial)"
+msgid "Fahrenheit"
 msgstr ""
 
 #: src/weather-config.c:260
@@ -540,7 +540,7 @@ msgstr ""
 msgid "Interface"
 msgstr ""
 
-#: src/weather-sensor.c:139
+#: src/weather-sensor.c:143
 msgid "Invalid symbol in field or field is empty."
 msgstr ""
 
@@ -931,7 +931,7 @@ msgstr ""
 msgid "Rain to Wintry Mix / Wind"
 msgstr ""
 
-#: src/weather-sensor.c:90
+#: src/weather-sensor.c:91
 msgid "Read sensor every:"
 msgstr ""
 
@@ -979,7 +979,7 @@ msgstr ""
 msgid "Sensor"
 msgstr ""
 
-#: src/weather-sensor.c:68
+#: src/weather-sensor.c:69
 msgid "Show temperature at:"
 msgstr ""
 
@@ -1165,7 +1165,7 @@ msgid ""
 "for tuning images of applet"
 msgstr ""
 
-#: src/weather-sensor.c:52
+#: src/weather-sensor.c:53
 msgid "Use device temperature sensor"
 msgstr ""
 
@@ -1303,6 +1303,10 @@ msgstr ""
 msgid "falling"
 msgstr ""
 
+#: src/weather-home.c:902 src/weather-settings.c:1498 src/weather-popup.c:670
+msgid "inHg"
+msgstr ""
+
 #: src/weather-home.c:888 src/weather-popup.c:655
 msgid "km"
 msgstr ""
@@ -1344,19 +1348,15 @@ msgstr ""
 msgid "mi/s"
 msgstr ""
 
-#: src/weather-sensor.c:81
+#: src/weather-sensor.c:82
 msgid "new icon"
-msgstr ""
-
-#: src/weather-home.c:902 src/weather-settings.c:1498 src/weather-popup.c:670
-msgid "psi"
 msgstr ""
 
 #: src/hash.data:179
 msgid "rising"
 msgstr ""
 
-#: src/weather-sensor.c:102
+#: src/weather-sensor.c:103
 msgid "seconds"
 msgstr ""
 
@@ -1364,7 +1364,7 @@ msgstr ""
 msgid "station local time"
 msgstr ""
 
-#: src/weather-sensor.c:73
+#: src/weather-sensor.c:74
 msgid "station name"
 msgstr ""
 

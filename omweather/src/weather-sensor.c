@@ -28,6 +28,7 @@
 #include "weather-sensor.h"
 #include "weather-utils.h"
 #include <string.h>
+#include <stdlib.h>
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
@@ -132,8 +133,11 @@ int check_entry_text(GtkEntry *entry){
     if(text && strlen(text) < 1)
 	error = TRUE;
     for(i = 0; !error && i < strlen(text); i++)
-	if(text[i] < '0' || text[i] > '9')
+	if(text[i] < '0' || text[i] > '9'){
 	    error = TRUE;
+	    break;
+	}
+    
     if(error)
 	hildon_banner_show_information(app->main_window, NULL,
 					_("Invalid symbol in field or field is empty."));
@@ -141,9 +145,20 @@ int check_entry_text(GtkEntry *entry){
 }
 /*******************************************************************************/
 void read_sensor(void){
+    FILE	*file;
+    gchar	buffer[128];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    if( !(file = fopen(SENSOR, "r") )
+	return;
+    memset(buffer, 0, sizeof(buffer));
+    if(!fgets(buffer, sizeof(buffer) - 1, file)){
+	fclose(file);
+	return;
+    }
+    fclose(file);
+    app->sensor_data = atof(buffer) / 1000.0f;
     redraw_home_window();
 }
 /*******************************************************************************/

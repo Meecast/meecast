@@ -915,8 +915,6 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*mb_pressure = NULL,
 		*inch_pressure = NULL,
 #ifdef HILDON
-                *label_gps = NULL,
-                *hbox_gps = NULL,
                 *chk_gps = NULL,
 		*sensor_page = NULL,
 #endif
@@ -1097,7 +1095,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				apply_rename_button,
 				1, 2, 2, 3);
     /* right side */
-    right_table = gtk_table_new(8, 3, FALSE);
+    right_table = gtk_table_new(9, 3, FALSE);
     gtk_box_pack_start(GTK_BOX(left_right_hbox), right_table,
                         TRUE, TRUE, 0);
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
@@ -1140,19 +1138,31 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 			(gpointer)window_config);
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				add_station_button1,
-				2, 3, 2, 3);    
+				2, 3, 2, 3);
+#ifdef HILDON
+/* GPS */
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				gtk_label_new(_("Enable GPS:")),
+                    		0, 1, 3, 4);
+    gtk_table_attach_defaults(GTK_TABLE(right_table),
+				chk_gps = gtk_check_button_new(),
+				1, 2, 3, 4);
+    GLADE_HOOKUP_OBJECT(window_config, chk_gps, "enable_gps");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_gps),
+        			    app->config->gps_station);
+#endif
     /* Label */
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				gtk_label_new(_("From the list:")),
-                    		1, 2, 3, 4);
+                    		1, 2, 4, 5);
     /* Countries label */
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				gtk_label_new(_("Country:")),
-                    		0, 1, 4, 5);
+                    		0, 1, 5, 6);
     /* countries list  */
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				countries = gtk_combo_box_new_text(),
-				1, 2, 4, 5);
+				1, 2, 5, 6);
     list.countries = countries;
     gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(countries), 0);
     gtk_combo_box_set_model(GTK_COMBO_BOX(countries),
@@ -1160,20 +1170,20 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     /* States label */
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				gtk_label_new(_("State:")),
-                    		0, 1, 5, 6);
+                    		0, 1, 6, 7);
     /* states list */
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				states = gtk_combo_box_new_text(),
-				1, 2, 5, 6);
+				1, 2, 6, 7);
     list.states = states;
     /* Stations label */
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				gtk_label_new(_("City:")),
-                    		0, 1, 6, 7);
+                    		0, 1, 7, 8);
     /* stations list */
     gtk_table_attach_defaults(GTK_TABLE(right_table),
 				stations = gtk_combo_box_new_text(),
-				1, 2, 6, 7);
+				1, 2, 7, 8);
     list.stations = stations;
     GLADE_HOOKUP_OBJECT(window_config, GTK_WIDGET(stations), "stations");
     /* add button */
@@ -1187,7 +1197,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 			(gpointer)window_config);
     gtk_table_attach_defaults(GTK_TABLE(right_table),
 				add_station_button2,
-				2, 3, 6, 7);
+				2, 3, 7, 8);
     /* Set size */
     gtk_widget_set_size_request(countries, 300, -1);
     gtk_widget_set_size_request(states, 300, -1);
@@ -1610,6 +1620,9 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*icon_set = NULL,
 			*icon_size = NULL,
 			*separate = NULL,
+#ifdef HILDON
+			*enable_gps = NULL,
+#endif
 			*swap_temperature = NULL,
 			*hide_station_name = NULL,
 			*hide_arrows = NULL,
@@ -1769,6 +1782,22 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	else
             app->config->temperature_units = FAHRENHEIT;
     }
+#ifdef HILDON
+/* enable gps */
+    enable_gps = lookup_widget(config_window, "enable_gps");
+    if(enable_gps){
+	app->config->gps_station = 
+	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(enable_gps));
+	if(app->config->gps_station)
+            add_gps_event(1);
+	else{/* Reset gps station */
+	    app->gps_station.id0[0] = 0;
+	    app->gps_station.name[0] = 0;
+	    app->gps_station.latitude = 0;
+	    app->gps_station.longtitude = 0;		
+	}
+    }
+#endif
 /* swap temperature */
     swap_temperature = lookup_widget(config_window, "swap_temperature");
     if(swap_temperature)

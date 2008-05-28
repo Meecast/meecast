@@ -2,6 +2,7 @@
   * Created new design for popup and settings windows
   * Added possibility to change pressure units
   * Added possibility to displaying wind speed and direction on desktop
+  * Files countries.list, regions.list and stations.list has moved into new package (omweather-stations-db)
 
 0.20.0
   * English help file has been added

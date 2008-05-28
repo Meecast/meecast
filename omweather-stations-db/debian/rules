@@ -1,0 +1,38 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# GNU copyright 1997 to 1999 by Joey Hess.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+
+build:
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean 
+
+# Build architecture-independent files here.
+binary-indep: 
+	dh_clean
+	dh_testdir
+	dh_testroot
+	dh_installdirs /usr/share/omweather
+	cp data/*.list $(CURDIR)/debian/omweather-stations-db/usr/share/omweather
+	find $(CURDIR)/debian/omweather-stations-db/usr/share/omweather -type f -exec chmod 644 {} \;
+	dh_fixperms
+	dh_compress
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+	dh_installchangelogs
+	dh_installdocs
+# We have nothing to do by default.
+
+#binary-arch:
+ 
+binary: binary-indep 
+.PHONY: build  binary-indep clean build

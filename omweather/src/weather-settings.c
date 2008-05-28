@@ -929,6 +929,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*left_table = NULL,
 		*right_table = NULL,
 		*swap_temperature = NULL,
+		*show_wind = NULL,
 		*scrolled_window = NULL,
 		*apply_rename_button = NULL,
 		*up_station_button = NULL,
@@ -1313,6 +1314,16 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     GLADE_HOOKUP_OBJECT(window_config, swap_temperature, "swap_temperature");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(swap_temperature),
         			    app->config->swap_hi_low_temperature);
+    /* Show wind */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page),
+        			gtk_label_new(_("Show wind:")),
+        			2, 3, 4, 5);
+    gtk_table_attach_defaults(GTK_TABLE(interface_page),
+				show_wind = gtk_check_button_new(),
+				3, 4, 4, 5);
+    GLADE_HOOKUP_OBJECT(window_config, show_wind, "show_wind");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(show_wind),
+        			    app->config->show_wind);
     /* Separate weather */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 			gtk_label_new(_("Current weather on first icon:")),
@@ -1624,6 +1635,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*enable_gps = NULL,
 #endif
 			*swap_temperature = NULL,
+			*show_wind = NULL,
 			*hide_station_name = NULL,
 			*hide_arrows = NULL,
 			*transparency = NULL,
@@ -1803,6 +1815,11 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     if(swap_temperature)
 	app->config->swap_hi_low_temperature = 
 	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(swap_temperature));
+/* show wind */
+    show_wind = lookup_widget(config_window, "show_wind");
+    if(show_wind)
+	app->config->show_wind = 
+	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(show_wind));
 /* separate */
     separate = lookup_widget(config_window, "separate");
     if(separate)

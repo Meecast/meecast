@@ -203,6 +203,7 @@ typedef struct applet_config{
     gboolean	hide_arrows;
     gboolean	downloading_after_connecting;
     gboolean    gps_station;
+    gboolean	show_wind;
     GdkColor	font_color;
     GdkColor	background_color;
 }AppletConfig;

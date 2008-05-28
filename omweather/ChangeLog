@@ -1,6 +1,7 @@
 0.21
   * Created new design for popup and settings windows
   * Added possibility to change pressure units
+  * Added possibility to displaying wind speed and direction on desktop
 
 0.20.0
   * English help file has been added

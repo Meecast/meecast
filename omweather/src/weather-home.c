@@ -243,7 +243,8 @@ void draw_home_window(gint count_day){
     int		temp_hi = 0, temp_low = 0, temp_current = 0;
     char	font_size;
     gint	icon_size;
-    gchar	*tmp_station_name;
+    gchar	*tmp_station_name,
+		*wind_direction;
     double	pre_offset = 0.0F;
 #ifndef RELEASE
     time_t	tmp_time;
@@ -452,6 +453,18 @@ void draw_home_window(gint count_day){
 			    sprintf(buffer + strlen(buffer), "%s\302\260", _("N/A") );
 			else
 			    sprintf(buffer + strlen(buffer), "%i\302\260", temp_hi );
+			if(app->config->show_wind){
+			    if(strcmp((char*)item_value(wcs.day_data[i + j], "day_wind_speed"), "N/A")){
+				if(!strcmp((char*)item_value(wcs.day_data[i + j], "day_wind_title"), "N/A"))
+				    wind_direction = _("N/A");
+				else
+				    wind_direction = (char*)hash_table_find(item_value(wcs.day_data[i + j], "day_wind_title"));
+			    	sprintf(buffer + strlen(buffer), "\n%s\n%.1f", wind_direction,
+					convert_wind_units(app->config->wind_units, atof(item_value(wcs.day_data[i + j], "day_wind_speed"))));
+			    }
+			    else
+				sprintf(buffer + strlen(buffer), "\n%s\n%s", _("N/A"), _("N/A"));
+			}
 			strcat(buffer, "</span>");
 		    }
 		}
@@ -490,11 +503,31 @@ void draw_home_window(gint count_day){
 		    sprintf(buffer + strlen(buffer), "%s\302\260", _("N/A") );
 		else
 		    sprintf(buffer + strlen(buffer), "%i\302\260", temp_hi );
+		if(app->config->show_wind){
+		    if(strcmp((char*)item_value(wcs.day_data[i + j], "day_wind_speed"), "N/A")){
+			if(!strcmp((char*)item_value(wcs.day_data[i + j], "day_wind_title"), "N/A"))
+			    wind_direction = _("N/A");
+			else
+			    wind_direction = (char*)hash_table_find(item_value(wcs.day_data[i + j], "day_wind_title"));
+			    sprintf(buffer + strlen(buffer), "\n%s\n%.1f", wind_direction,
+				    convert_wind_units(app->config->wind_units, atof(item_value(wcs.day_data[i + j], "day_wind_speed"))));
+		    }
+		    else
+			sprintf(buffer + strlen(buffer), "\n%s\n%s", _("N/A"), _("N/A"));
+		}
 		strcat(buffer, "</span>");		
 	    }
 	}
 	else{ /* Show N/A for all others day buttons when it not inside range */
-	    sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
+	    if(app->config->show_wind)
+		sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260\n%s\n%s</span>",
+			app->config->font_color.red >> 8,
+			app->config->font_color.green >> 8,
+			app->config->font_color.blue >> 8,
+			_("N/A"), _("N/A"), _("N/A"),
+			_("N/A"), _("N/A"));
+	    else
+		sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
 			app->config->font_color.red >> 8,
 			app->config->font_color.green >> 8,
 			app->config->font_color.blue >> 8,

@@ -150,7 +150,7 @@ void read_sensor(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if( !(file = fopen(SENSOR, "r") )
+    if(!(file = fopen(SENSOR, "r")))
 	return;
     memset(buffer, 0, sizeof(buffer));
     if(!fgets(buffer, sizeof(buffer) - 1, file)){

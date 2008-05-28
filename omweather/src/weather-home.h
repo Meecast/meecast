@@ -51,6 +51,8 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
 gboolean remitted_update(void);
 GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size);
 GtkListStore* create_user_stations_list(void);
+GtkWidget* create_forecast_weather_simple_widget(char f_size);
+int calculate_offset_of_day(int count_day);
 /*******************************************************************************/
 extern void swap_temperature(int *hi, int *low);
 extern int c2f(int temp);

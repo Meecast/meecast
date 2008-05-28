@@ -584,7 +584,7 @@ void create_about_dialog(void){
 	      "Russian - Pavel Fialko, Vlad Vasiliev,\n\t    Ed Bartosh\n"
 	      "Finnish - Marko Vertainen\n"
 	      "German - Claudius Henrichs\n"
-	      "Italian - Pavel Fialko\n"));
+	      "Italian - Pavel Fialko, Alessandro Pasotti\n"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),

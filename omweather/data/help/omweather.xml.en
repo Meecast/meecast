@@ -12,7 +12,7 @@
       </para>
       <list>
         <listitem>
-          Detailed weather forecast for 10 days
+          Detailed weather forecast for 5 days
         </listitem>
         <listitem>
           Automatic update weather forecast information from the
@@ -41,7 +41,7 @@
 	  which he likes
         </listitem>
         <listitem>
-          User is able to change amount of days from 1 to 10
+          User is able to change amount of days from 1 to 5
         </listitem>
         <listitem>
           User is able to add station on the basis of a code for weather.com
@@ -127,7 +127,7 @@
       <para>
         <display_text>Visible items:</display_text> selects how many icons
         will be shown in the tablets home screen.  Possibilities go from
-	1 to 10.
+	1 to 5.
       </para>
       <para>
         <display_text>Layout:</display_text> selects how icons are shown in

@@ -35,7 +35,7 @@
 WeatherComStation wcs = { NULL };
 /*******************************************************************************/
 Item* create_item(const char *name, const char *value){
-    Item	*itm;
+    Item	*itm=NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -44,7 +44,8 @@ Item* create_item(const char *name, const char *value){
     
     itm = g_new0(Item, 1);
     itm->name = g_string_new(name);
-    value && (itm->value = g_string_new(value));
+    if(value)
+	itm->value = g_string_new(value);
     return itm;
 }
 /*******************************************************************************/

@@ -8,7 +8,7 @@
       <para>Benvenuti a Other Maemo Weather.</para>
       <para>Other Maemo Weather (OMWeather) è un applet meteo per Nokia Internet Tablets. Esso può essere utilizzato per:</para>
       <list>
-        <listitem>Check dettagliate previsioni meteorologiche per un massimo di 10 giorni</listitem>
+        <listitem>Check detailed weather forecast for up to 5 days</listitem>
         <listitem>Update weather information automatically from the Internet (Data provided by xoap.weather.com)</listitem>
         <listitem>Configurare più vicina stazione meteorologica automatica utilizzando le coordinate GPS</listitem>
         <listitem>Facilmente personalizzato per selezionare stazione meteo ordinati dal menu a discesa</listitem>
@@ -38,7 +38,7 @@
       <para><display_text>Up</display_text> e <display_text>giù</display_text> frecce ti permette di modificare l'ordine delle località selezionate.</para>
       <para><display_text>Attiva da stazione GPS:</display_text> casella di controllo è usato per attivare la selezione automatica della stazione meteo quando mai GPS è attivata.</para>
       <para><display_text>Interface</display_text> tab is used to configure settings that controls visual appearance of the OMWeather.</para>
-      <para><display_text>Visible items:</display_text> selects how many icons will be shown in the tablets home screen. Possibilities go from 1 to 10.</para>
+      <para><display_text>Visible items:</display_text> selects how many icons will be shown in the tablets home screen. Possibilities go from 1 to 5.</para>
       <para><display_text>Layout:</display_text> selects how icons are shown in the home screen. Possible selections are one row, one column, two rows, two columns or combinated.</para>
       <para><display_text>Icon set:</display_text> selects which icon set is used. You can install more icon sets with the application manager (if Maemo extras repository is configured) or going to OMWeathers Maemo garage page (http://omweather.garage.maemo.org/) and downloading icon sets directly from there.</para>
       <para><display_text>Icona dimensioni:</display_text> definisce icona dimensione. Dimensioni può essere piccolo, piccolo, medio, grande o gigante.</para>

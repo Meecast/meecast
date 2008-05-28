@@ -64,6 +64,9 @@
 /* localization headers and defines */
 #include <libintl.h>
 #include <locale.h>
+#ifdef USE_CONIC
+#include <conic/conic.h>
+#endif
 /*******************************************************************************/
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
 #define Max_count_weather_day	5
@@ -266,7 +269,12 @@ typedef struct OMWeatherApplet{
     gdouble		temporary_station_latitude;
     gdouble		temporary_station_longtitude;
     float		sensor_data;
-#endif    
+#endif
+    gchar               temperature_string[1024];
+    gchar               forecast_string[2048];
+#ifdef USE_CONIC    
+    ConIcConnection 	*connection;
+#endif        
 }OMWeatherApp;
 
 /*******************************************************************************/

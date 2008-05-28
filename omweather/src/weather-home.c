@@ -218,6 +218,56 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
     return TRUE;
 }
 /*******************************************************************************/
+int calculate_offset_of_day(int count_day){
+
+    long int    diff_time;
+    int		year,
+    		current_month,
+		offset;
+    time_t	current_day,
+		current_time,
+		utc_time,
+		date_time;
+    struct tm	*tm = NULL;
+    double	pre_offset = 0.0F;
+    gchar	date_in_string[255];
+
+/* get current day */  
+    current_time = time(NULL);
+    utc_time = mktime(gmtime(&current_time));
+    diff_time = utc_time - current_time + 60 * 60 * atol(item_value(wcs.day_data[0], "station_time_zone"));
+    current_time += diff_time;
+    current_day = current_time;
+    tm = localtime(&current_day);
+    year = 1900 + tm->tm_year;
+    current_month = tm->tm_mon;
+    tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+    current_day = mktime(tm);
+
+    memset(date_in_string, 0, sizeof(date_in_string));
+    sprintf(date_in_string, "%s %i 00:00:00",
+	    item_value(wcs.day_data[0], "24h_date"), year);
+
+    strptime(date_in_string, "%b %d %Y %T", tm);
+    /* Check New Year */
+    if((current_month == 11) && (tm->tm_mon == 0)){
+	sprintf(date_in_string, "%s %i 00:00:00",
+		item_value(wcs.day_data[count_day - 1], "24h_date"), year + 1);
+	strptime(date_in_string, "%b %d %Y %T", tm);
+    }
+    date_time = mktime(tm);
+    /* calculate days offset */
+    pre_offset = (double)(abs(current_day - date_time));
+    pre_offset /= 24.0F * 60.0F * 60.0F;
+    offset = (int)( round(pre_offset) );
+
+    if(offset >= Max_count_weather_day || count_day < 0)
+	offset = Max_count_weather_day;
+    
+    return offset;    
+    
+}
+/*******************************************************************************/
 /* Filling data of buttons  */
 void draw_home_window(gint count_day){
     int		i,
@@ -245,7 +295,11 @@ void draw_home_window(gint count_day){
     gint	icon_size;
     gchar	*tmp_station_name,
 		*wind_direction;
-    double	pre_offset = 0.0F;
+    const gchar	*wind_units_str[] = {	"m/s",
+					"km/h",
+					"mi/h"
+				    };
+
 #ifndef RELEASE
     time_t	tmp_time;
 #endif
@@ -280,6 +334,9 @@ void draw_home_window(gint count_day){
 	    icon_size = TINY_ICON_SIZE;
 	break;        
     }
+    memset(app->temperature_string, 0, sizeof(app->temperature_string));
+    memset(app->forecast_string, 0, sizeof(app->forecast_string));
+
 /* Clear daytime elments in queue of timer */
     remove_daytime_event();
 /* get current day */  
@@ -294,25 +351,7 @@ void draw_home_window(gint count_day){
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
     current_day = mktime(tm);
 
-    memset(date_in_string, 0, sizeof(date_in_string));
-    sprintf(date_in_string, "%s %i 00:00:00",
-	    item_value(wcs.day_data[0], "24h_date"), year);
-
-    strptime(date_in_string, "%b %d %Y %T", tm);
-    /* Check New Year */
-    if((current_month == 11) && (tm->tm_mon == 0)){
-	sprintf(date_in_string, "%s %i 00:00:00",
-		item_value(wcs.day_data[count_day - 1], "24h_date"), year + 1);
-	strptime(date_in_string, "%b %d %Y %T", tm);
-    }
-    date_time = mktime(tm);
-    /* calculate days offset */
-    pre_offset = (double)(abs(current_day - date_time));
-    pre_offset /= 24.0F * 60.0F * 60.0F;
-    offset = (int)( round(pre_offset) );
-
-    if(offset >= Max_count_weather_day || count_day < 0)
-	offset = Max_count_weather_day;
+    offset = calculate_offset_of_day(count_day);
     /* delete old weather data */
     for(i = 0; i < offset; i++)
 	destroy_object(&(wcs.day_data[i]));
@@ -342,7 +381,7 @@ void draw_home_window(gint count_day){
 	    }
 	    date_time = mktime(tm);	
 	
-	    if(i == 0 || (app->config->separate && i == 1)){	/* first day */
+	    if(i == 0){	/* first day */
 		/* repeat the same data in second button for first day if data is config->separate */
 		(app->config->separate && i == 1) ? (j = -1) : (j = 0);
 		/* prepare temperature for first day */
@@ -397,6 +436,7 @@ void draw_home_window(gint count_day){
 		    (last_update_time(wcs.current_data) > (current_time - app->config->data_valid_interval)) &&
             	    (last_update_time(wcs.current_data) < (current_time + app->config->data_valid_interval)) && i == 0){
 
+		    /* add  time of the termination  valid period */
 		    time_event_add(last_update_time(wcs.current_data) + app->config->data_valid_interval - diff_time, DAYTIMEEVENT);
 		    if(temp_current == INT_MAX)
 			sprintf(buffer,
@@ -445,14 +485,27 @@ void draw_home_window(gint count_day){
 				app->config->font_color.green >> 8,
 				app->config->font_color.blue >> 8,
 				item_value(wcs.day_data[i + j], "24h_name"));
-			if(temp_low == INT_MAX)
+
+                        memset(app->temperature_string, 0, sizeof(app->temperature_string));
+			if(temp_low == INT_MAX){
+			    sprintf(app->temperature_string + strlen(app->temperature_string), "%s\302\260 - ", _("N/A") );
 			    sprintf(buffer + strlen(buffer), "%s\302\260\n", _("N/A") );
-			else
+			}    
+			else{
+			    sprintf(app->temperature_string + strlen(app->temperature_string), "%i\302\260 - ", temp_low );
 			    sprintf(buffer + strlen(buffer), "%i\302\260\n", temp_low );
-			if(temp_hi == INT_MAX)
+			}
+			if(temp_hi == INT_MAX){
+			    sprintf(app->temperature_string + strlen(app->temperature_string), "%s\302\260 ", _("N/A") );
 			    sprintf(buffer + strlen(buffer), "%s\302\260", _("N/A") );
-			else
+			}
+			else{
+			    sprintf(app->temperature_string + strlen(app->temperature_string), "%i\302\260", temp_hi );
 			    sprintf(buffer + strlen(buffer), "%i\302\260", temp_hi );
+			}    
+			(app->config->temperature_units == CELSIUS) ? ( strcat(app->temperature_string, _("C")) )
+						: ( strcat(app->temperature_string, _("F")) );
+    
 			if(app->config->show_wind){
 			    if(strcmp((char*)item_value(wcs.day_data[i + j], "day_wind_speed"), "N/A")){
 				if(!strcmp((char*)item_value(wcs.day_data[i + j], "day_wind_title"), "N/A"))
@@ -466,10 +519,42 @@ void draw_home_window(gint count_day){
 				sprintf(buffer + strlen(buffer), "\n%s\n%s", _("N/A"), _("N/A"));
 			}
 			strcat(buffer, "</span>");
+			/* The string of forecast for Combination mode */
+			if((current_time > day_begin_time) && (current_time < night_begin_time)){
+			        memset(app->forecast_string, 0, sizeof(app->forecast_string));
+				strcat(app->forecast_string, item_value(wcs.day_data[i + j], "day_title"));
+				strcat(app->forecast_string, _("\nHumidity: "));
+				if(strcmp(item_value(wcs.day_data[i + j], "day_humidity"), "N/A"))
+				    sprintf(app->forecast_string + strlen(app->forecast_string), "%s%%\n",
+					    item_value(wcs.day_data[i + j], "day_humidity"));
+			        else
+				    sprintf(app->forecast_string + strlen(app->forecast_string), "%s\n",
+					    (char*)hash_table_find((gpointer)"N/A"));
+			        strcat(app->forecast_string, _("Wind: "));
+				sprintf(app->forecast_string + strlen(app->forecast_string), "%s %.2f %s", item_value(wcs.day_data[i + j], "day_wind_title"),
+				convert_wind_units(app->config->wind_units, atof(item_value(wcs.day_data[i + j], "day_wind_speed"))),
+						    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
+			}else{
+			        memset(app->forecast_string, 0, sizeof(app->forecast_string));
+				strcat(app->forecast_string, item_value(wcs.day_data[i + j], "night_title"));
+				strcat(app->forecast_string, _("\nHumidity: "));
+				if(strcmp(item_value(wcs.day_data[i + j], "night_humidity"), "N/A"))
+				    sprintf(app->forecast_string + strlen(app->forecast_string), "%s%%\n",
+					    item_value(wcs.day_data[i + j], "night_humidity"));
+				else
+				    sprintf(app->forecast_string + strlen(app->forecast_string), "%s\n",
+					    (char*)hash_table_find((gpointer)"N/A"));
+				strcat(app->forecast_string, _("Wind: "));
+				sprintf(app->forecast_string + strlen(app->forecast_string), "%s %.2f %s", item_value(wcs.day_data[i + j], "night_wind_title"),
+					convert_wind_units(app->config->wind_units, atof(item_value(wcs.day_data[i + j], "night_wind_speed"))),
+					(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
+			}
 		    }
 		}
 	    }
-	    else{ /* other days, from two and to app->config->days_to_show */
+	    else{
+	    	(app->config->separate) ? (j = -1) : (j = 0);
+		/* other days, from two and to app->config->days_to_show */
 	    	if(!strcmp(item_value(wcs.day_data[i + j], "24h_hi_temperature"), "N/A"))
 		    temp_hi = INT_MAX;
 		else
@@ -639,6 +724,11 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	fprintf(stderr, "\nOMWeather applet initialize %p %d\n",
 			state_data, *state_size);
 #endif
+/* Checking noomweather.txt file */
+    if ((access("/media/mmc1/noomweather.txt", R_OK) == 0)||
+        (access("/media/mmc2/noomweather.txt", R_OK) == 0))
+        return NULL;
+
     app = g_new0(OMWeatherApp, 1);
     if(!app){
 	fprintf(stderr, "\nCan not allocate memory for applet.\n");
@@ -659,6 +749,12 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     }
 /* list of user select stations */
     app->user_stations_list = create_user_stations_list();
+    #ifdef USE_CONIC
+	app->connection = NULL;
+    #endif    
+/* Initialize DBUS */
+    weather_initialize_dbus();
+
 /* Init gconf. */
     gnome_vfs_init();
     if(new_read_config(app->config)){
@@ -677,8 +773,6 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
     redraw_home_window();
-/* Initialize DBUS */
-    weather_initialize_dbus();
 /*    
     time_event_add(time(NULL) + 5, DBUSINITEVENT);
     add_periodic_event(time(NULL));
@@ -750,6 +844,11 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     }
     new_config_save(app->config); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
 			On n800 this work */
+    #ifdef USE_CONIC
+	if (app->connection)
+	    g_object_unref(app->connection);
+    #endif
+
 #ifdef HILDON
     /* remove sensor time */
     if(app->sensor_timer > 0)
@@ -795,6 +894,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	    app->user_stations_list = NULL;
 	}
     }
+    app && (g_free(app), app = NULL);
     /* Deinitialize libosso */
     osso_deinitialize(osso);
 }
@@ -845,6 +945,66 @@ void menu_init(void){
 }
 /*******************************************************************************/
 /* For Combination layout */
+GtkWidget* create_forecast_weather_simple_widget(char f_size)
+{
+	
+        GtkWidget	*temperature_label = NULL,
+			*main_data_vbox = NULL,
+			*main_data_label = NULL,
+			*main_widget = NULL,
+			*temperature_vbox = NULL;
+
+    	gchar		buffer[1024];
+	calculate_offset_of_day(Max_count_weather_day);
+	/* prepare forecast temperature */
+	temperature_vbox = gtk_vbox_new(FALSE, 0);
+
+        memset(buffer, 0, sizeof(buffer));
+	sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>",
+				app->config->font_color.red >> 8,
+				app->config->font_color.green >> 8,
+				app->config->font_color.blue >> 8);
+	if (app->temperature_string[0] != 0){
+        	sprintf(buffer + strlen(buffer), _("Forecast: \n"));
+        	strcat(buffer, app->temperature_string);
+	}else{
+        	sprintf(buffer + strlen(buffer), _("The current weather\nis not available"));
+	}
+
+	strcat(buffer,"</span>");
+	temperature_label = gtk_label_new(NULL);
+	gtk_label_set_markup(GTK_LABEL(temperature_label), buffer);
+	gtk_label_set_justify(GTK_LABEL(temperature_label), GTK_JUSTIFY_CENTER);
+
+	if (app->temperature_string[0] != 0)
+        	set_font_size(temperature_label, 1.7*f_size);
+	gtk_box_pack_start(GTK_BOX(temperature_vbox), temperature_label, FALSE, FALSE, 0);
+
+	/* prepare "title" "humidity", "wind", "gust" */
+	main_data_vbox = gtk_vbox_new(FALSE, 0);	
+	memset(buffer, 0, sizeof(buffer));
+        sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>",
+				app->config->font_color.red >> 8,
+				app->config->font_color.green >> 8,
+				app->config->font_color.blue >> 8);
+        strcat(buffer, app->forecast_string);				
+	strcat(buffer,"</span>");
+	main_data_vbox = gtk_vbox_new(FALSE, 0);	
+	main_data_label = gtk_label_new(NULL);
+	gtk_label_set_markup(GTK_LABEL(main_data_label), buffer);
+        set_font_size(main_data_label, f_size);
+	gtk_box_pack_start(GTK_BOX(main_data_vbox), main_data_label, FALSE, FALSE, 0);
+
+        /* prepare main widget */
+	main_widget = gtk_hbox_new(FALSE, 10);
+	gtk_box_pack_start(GTK_BOX(main_widget), temperature_vbox, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(main_widget), main_data_vbox, FALSE, FALSE, 0);
+
+
+	return main_widget;
+
+}
+/*******************************************************************************/
 GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
     GtkWidget	*main_widget = NULL,
 		*temperature_vbox,
@@ -880,6 +1040,7 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
     strcat(buffer,"</span>");
     temperature_label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(temperature_label), buffer);
+    gtk_label_set_justify(GTK_LABEL(temperature_label), GTK_JUSTIFY_CENTER);
     set_font_size(temperature_label, 2*f_size);
 
     gtk_box_pack_start(GTK_BOX(temperature_vbox), temperature_label, FALSE, FALSE, 0);
@@ -989,6 +1150,10 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		*station_name_btn = NULL,
 		*station_name = NULL,
 		*station_box = NULL;
+    time_t	current_time,
+                diff_time,
+                utc_time;
+
     int		n, elements, x, y;
     GtkTreeIter	iter;
     gboolean	valid = FALSE,
@@ -1195,9 +1360,20 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     /* attach to main panel header and days panels */
     if(layout == COMBINATION){
         combination_vbox = gtk_vbox_new(FALSE, 0);
-	if(!wcs.current_data_is_invalid)
-	    current_weather_widget = create_current_weather_simple_widget(wcs.current_data, f_size);
-	gtk_box_pack_start(GTK_BOX(combination_vbox), header_panel, FALSE, FALSE, 0);
+	/* get current time */  
+        current_time = time(NULL);
+        utc_time = mktime(gmtime(&current_time));
+        diff_time = utc_time - current_time + 60 * 60 * atol(item_value(wcs.day_data[0], "station_time_zone"));
+        current_time += diff_time;
+	
+        if(!wcs.current_data_is_invalid){
+	    if( (last_update_time(wcs.current_data) > (current_time - app->config->data_valid_interval)) &&
+    		(last_update_time(wcs.current_data) < (current_time + app->config->data_valid_interval))){
+		current_weather_widget = create_current_weather_simple_widget(wcs.current_data, f_size);
+	    }else
+	    	current_weather_widget = create_forecast_weather_simple_widget(f_size);
+	}
+        gtk_box_pack_start(GTK_BOX(combination_vbox), header_panel, FALSE, FALSE, 0);
 	if(current_weather_widget)
 	    gtk_box_pack_start(GTK_BOX(combination_vbox), current_weather_widget, FALSE, FALSE, 0);
 	gtk_table_attach((GtkTable*)days_panel, combination_vbox, 1,

@@ -93,6 +93,12 @@ void fill_user_stations_list_from_clock(GtkListStore** list){
         			    GCONF_KEY_CLOCK_REMOTE_LOCATION, NULL);
     if(!remote_city)
 	return;
+    /* This is code for the first start during installation of deb packet */
+    if ((clock_file = fopen(CLOCK_FILE, "r")) == NULL)
+	sleep (25);
+    else
+	fclose(clock_file);
+	
     if((clock_file = fopen(CLOCK_FILE, "r"))){
 	while(!feof(clock_file)){
 	    memset(buffer, 0, sizeof(buffer));
@@ -156,7 +162,9 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 	    if(temp2)
 		station_name = g_strdup(temp2);
 #ifdef HILDON		
-	    if(!strcmp(app->gps_station.id0, station_code) &&
+	    if (app->gps_station.id0 && app->gps_station.name &&
+                station_code && station_name &&
+                !strcmp(app->gps_station.id0, station_code) &&
 		!strcmp(app->gps_station.name, station_name))
 		is_gps = TRUE;
 	    else
@@ -296,6 +304,7 @@ int new_read_config(AppletConfig *config){
     /* Get GPS station name and id */
 #ifdef HILDON
     app->gps_station.name[0] = 0;
+    tmp = NULL;
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_GPS_STATION_NAME, NULL);
     if(tmp){
@@ -380,15 +389,16 @@ int new_read_config(AppletConfig *config){
         config->gps_station = FALSE;
 #endif
 
-    /* Get Weather font color. */    	
+    /* Get Weather font color. */
+    tmp = NULL;
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_FONT_COLOR, NULL);
     if(!tmp || !gdk_color_parse(tmp, &(config->font_color)))
          config->font_color = DEFAULT_FONT_COLOR; 
     g_free(tmp);
-    tmp = NULL;
 
-    /* Get background color. */    	
+    /* Get background color. */
+    tmp = NULL;
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_BACKGROUND_COLOR, NULL);
     if(!tmp || !gdk_color_parse(tmp, &(config->background_color)))
@@ -449,7 +459,6 @@ int new_read_config(AppletConfig *config){
     else
         config->downloading_after_connecting = FALSE;
 
-    
     /* Get Swap Temperature Button State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_SWAP_TEMPERATURE, NULL);
     if(value){
@@ -510,7 +519,8 @@ int new_read_config(AppletConfig *config){
     if(gerror || config->days_to_show <= 0
 	      || config->days_to_show > Max_count_weather_day){
 	config->days_to_show = 5;
-	g_error_free(gerror);
+	if(gerror)
+	    g_error_free(gerror);
     }
     config->previos_days_to_show = config->days_to_show;
 
@@ -520,7 +530,8 @@ int new_read_config(AppletConfig *config){
 						    &gerror);
     if(gerror || config->distance_units > SEA_MILES){
 	config->distance_units = METERS;
-	g_error_free(gerror);
+	if(gerror)
+	    g_error_free(gerror);
     }
     /* Get pressure units */
     config->pressure_units = gconf_client_get_int(gconf_client,                                                                                     
@@ -550,7 +561,8 @@ int new_read_config(AppletConfig *config){
 		    config->switch_time != 50 &&
 		    config->switch_time != 60) ){
 	config->switch_time = 0;	/* Default value - Never */
-	g_error_free(gerror);
+	if(gerror)
+	    g_error_free(gerror);
     }
     else{
 	if(config->switch_time > 0){
@@ -570,12 +582,14 @@ int new_read_config(AppletConfig *config){
 		    config->data_valid_interval != 4 &&
 		    config->data_valid_interval != 8) ){
 	config->data_valid_interval = 2 * 3600; /* Default value - 2 hours */
-	g_error_free(gerror);
+	if(gerror)
+	    g_error_free(gerror);
     }
     else
 	config->data_valid_interval *= 3600;
 
     /* If this first start then fill default station from clock config */ 
+    tmp = NULL;
     tmp = gconf_client_get_string(gconf_client,
                 		    GCONF_KEY_WEATHER_PROGRAM_VERSION, NULL);
     if(!tmp){

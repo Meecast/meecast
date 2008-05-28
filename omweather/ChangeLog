@@ -4,6 +4,28 @@
   * Added possibility to displaying wind speed and direction on desktop
   * Files countries.list, regions.list and stations.list has moved into new package (omweather-stations-db)
 
+0.20.4
+  * Updated Italian translation
+  * Fixed error while delete station from list
+
+0.20.3
+  * The critical bug leading restart of a desktop is corrected.
+  * Restored image on button 'Update', 'Down', 'Up' for OS2006
+  * Added opportunity to switch off the plugin launch at startup by creating a file nomweather.txt on memory card
+  
+0.20.2
+  * Updated France translation
+  * Maximum count day is 5 now
+  * Fixed bug with updating weather forecast ( Bug #2528)
+    
+0.20.1
+  * Modified algorithm for calculating the icon of the second day
+  * Displaced to the left popup window for the icon with current weather
+  * Fixed error while change the station in popup menu
+  * Made more information of weather forecast  in Combination mode.
+  * Corrected the work in Combination mode
+  * The first loading of weather forecast of stations by default after installation of the program is corrected
+
 0.20.0
   * English help file has been added
   * Added translation for Italian

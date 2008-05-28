@@ -30,7 +30,6 @@
 #ifdef USE_CONIC
 #include <conic/conic.h>
 #define USER_DATA_MAGIC 0xaadcaadc
-static ConIcConnection *connection = NULL;
 #endif
 #define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
 #define URL "http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&link=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=%d"
@@ -219,15 +218,12 @@ void weather_initialize_dbus(void){
 	    g_object_unref(gconf_client);		
 	} 
 #ifdef USE_CONIC
-	connection = con_ic_connection_new();
-	if(connection != NULL){
-	    g_object_set(connection, "automatic-connection-events", TRUE, NULL);
-	    g_signal_connect(G_OBJECT(connection), "connection-event",
+	app->connection = con_ic_connection_new();
+	if(app->connection != NULL){
+	    g_object_set(app->connection, "automatic-connection-events", TRUE, NULL);
+	    g_signal_connect(G_OBJECT(app->connection), "connection-event",
                     	     G_CALLBACK(connection_cb),
                 	     GINT_TO_POINTER(USER_DATA_MAGIC));
-	    #ifdef HILDON
-    		app->iap_connected = FALSE;		     
-	    #endif		     
 	}
 #else	
     	osso_iap_cb(iap_callback);
@@ -352,8 +348,8 @@ gboolean download_html(gpointer data){
     if( app->show_update_window && (!second_attempt) && (!app->iap_connecting) ){    
         app->iap_connecting = TRUE;
 #ifdef USE_CONIC
-	if (connection)
-    	    con_ic_connection_connect(connection, CON_IC_CONNECT_FLAG_NONE);
+	if (app->connection)
+    	    con_ic_connection_connect(app->connection, CON_IC_CONNECT_FLAG_NONE);
 	else
 	    return FALSE;
 #else

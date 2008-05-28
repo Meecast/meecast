@@ -12,7 +12,7 @@
       </_para>
       <list>
         <_listitem>
-          Check detailed weather forecast for up to 10 days
+          Check detailed weather forecast for up to 5 days
         </_listitem>
         <_listitem>
           Update weather information automatically from the Internet (Data
@@ -112,7 +112,7 @@
       <_para>
         <display_text>Visible items:</display_text> selects how many icons
         will be shown in the tablets home screen.  Possibilities go from
-	1 to 10.
+	1 to 5.
       </_para>
       <_para>
         <display_text>Layout:</display_text> selects how icons are shown in

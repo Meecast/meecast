@@ -700,7 +700,8 @@ void update_weather(gboolean show_update_window){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    (app->iap_connected) && show_update_window && (app->show_update_window = TRUE);
+    if(app->iap_connected && show_update_window)
+	app->show_update_window = TRUE;
     if(!app->flag_updating)
 	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }

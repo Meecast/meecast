@@ -363,7 +363,7 @@ gboolean download_html(gpointer data){
         return TRUE;
     }
 
-    if (app->iap_connecting){
+    if(app->iap_connecting){
 	/* Check buggy */
 	if (app->iap_connecting_timer > 150){
 	    if(app->show_update_window){

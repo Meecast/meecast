@@ -440,22 +440,6 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
 // Update tab
 // enable help for this window
     ossohelp_dialog_help_enable(GTK_DIALOG(window_config), OMWEATHER_SETTINGS_HELP_ID, app->osso);
-
-#ifdef HILDON
-// Use GPS station
-	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(chk_gps))){
-		app->config->gps_station = TRUE;
-                add_gps_event(1);
-            }
-	    else{
-		app->config->gps_station = FALSE;
-		// Reset gps station
-		app->gps_station.id0[0] = 0;
-		app->gps_station.name[0] = 0;
-		app->gps_station.latitude = 0;
-		app->gps_station.longtitude = 0;		
-	    }	
-#endif
 */
 /*******************************************************************************/
 /* get icon set names */

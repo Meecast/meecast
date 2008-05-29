@@ -295,10 +295,7 @@ void draw_home_window(gint count_day){
     gint	icon_size;
     gchar	*tmp_station_name,
 		*wind_direction;
-    const gchar	*wind_units_str[] = {	"m/s",
-					"km/h",
-					"mi/h"
-				    };
+    const gchar	*wind_units_str[] = { "m/s", "km/h", "mi/h" };
 
 #ifndef RELEASE
     time_t	tmp_time;

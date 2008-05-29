@@ -943,6 +943,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     g_object_set_data(G_OBJECT(window_config), "list", (gpointer)&list);
 
     gtk_window_fullscreen(GTK_WINDOW(window_config));
+    gtk_widget_show(window_config);
     /* create frame vbox */
     vbox = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(window_config), vbox);

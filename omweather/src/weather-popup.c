@@ -27,6 +27,11 @@
 /*******************************************************************************/
 #include "weather-popup.h"
 #include "weather-utils.h"
+
+/* Temporary  for debug */
+#include <sys/time.h>
+#include <time.h>
+
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
@@ -322,6 +327,25 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), active_tab);
     }
 }
+
+/*******************************************************************************/
+/* For debug */
+struct timeval tv1,tv2,dtv;
+
+struct timezone tz;
+
+void time_start() { gettimeofday(&tv1, &tz); }
+
+double time_stop()
+
+{  
+
+    gettimeofday(&tv2, &tz);
+    dtv.tv_sec= tv2.tv_sec  -  tv1.tv_sec;
+    dtv.tv_usec=tv2.tv_usec -  tv1.tv_usec;
+    if(dtv.tv_usec<0) { dtv.tv_sec--; dtv.tv_usec+=1000000; }
+        return dtv.tv_sec*1000.0+dtv.tv_usec/1000.0;
+}
 /*******************************************************************************/
 void settings_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data){
@@ -330,8 +354,10 @@ void settings_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+time_start();  
     gtk_widget_destroy(GTK_WIDGET(user_data));
     weather_window_settings(NULL, NULL, (gpointer)day_number);
+ fprintf(stderr,"Time: %lf msec Pi = %lf\n",time_stop(),weather_window_settings);
 }
 /*******************************************************************************/
 void refresh_button_handler(GtkWidget *button, GdkEventButton *event,

@@ -561,6 +561,7 @@ void clean_download(void){
     }
 }
 /*******************************************************************************/
+/*
 void pre_update_weather(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -569,4 +570,5 @@ void pre_update_weather(void){
 	weather_initialize_dbus();
     update_weather(TRUE);
 }
+*/
 /*******************************************************************************/

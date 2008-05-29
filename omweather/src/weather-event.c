@@ -76,7 +76,7 @@ gboolean timer_handler(gpointer data){
 		#endif
 		    g_free(evt);
                     event_time_list = g_slist_remove(event_time_list, event_time_list->data);
-		    weather_initialize_dbus();
+/*		    weather_initialize_dbus();*/
 		    /* It is switch off the timer */	
 		    check = g_source_remove(app->timer);
 		    timer (60000);  /*Reintilize timer One per minute */

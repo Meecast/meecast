@@ -340,7 +340,8 @@ void refresh_button_handler(GtkWidget *button, GdkEventButton *event,
     START_FUNCTION;
 #endif
     gtk_widget_destroy(GTK_WIDGET(user_data));
-    pre_update_weather();
+/*    pre_update_weather(); */
+    update_weather(TRUE);
 }
 /*******************************************************************************/
 void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,

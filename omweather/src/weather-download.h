@@ -44,7 +44,7 @@ gboolean download_html(gpointer data);
 void weather_initialize_dbus(void);
 gboolean check_connected(void);
 void clean_download(void);
-void pre_update_weather(void);
+/*void pre_update_weather(void);*/
 /*******************************************************************************/
 struct HtmlFile {
   char *filename;

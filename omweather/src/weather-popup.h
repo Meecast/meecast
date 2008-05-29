@@ -50,7 +50,7 @@ GtkWidget* create_current_tab(GSList *current);
 /*******************************************************************************/
 extern void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    gpointer user_data);
-extern void pre_update_weather(void);
+/*extern void pre_update_weather(void);*/
 extern void set_font_size(GtkWidget *widget, char font_size);
 extern void set_font_color (GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 extern int c2f(int temp);

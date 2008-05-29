@@ -944,8 +944,11 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+/*
     if(!app->dbus_is_initialize)
 	weather_initialize_dbus();
+*/
+
 /* kill popup window :-) */
     if(app->popup_window)
         gtk_widget_destroy(app->popup_window);

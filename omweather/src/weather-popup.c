@@ -106,7 +106,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
     memset(buffer, 0, sizeof(buffer));
     snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 			"%s",
-			(char*)hash_table_find(item_value(current, "moon_phase")));
+			(char*)hash_table_find(item_value(current, "moon_phase"), FALSE));
     main_label = gtk_label_new(buffer);
     set_font_size(main_label, 18);
 
@@ -433,10 +433,10 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     /* day temperature */
     memset(buffer, 0, sizeof(buffer));
     if(hi_temp == INT_MAX)
-	strncat(buffer, (char*)hash_table_find("N/A"),
-			( (strlen((char*)hash_table_find("N/A")) > sizeof(buffer)) ?
+	strncat(buffer, (char*)hash_table_find("N/A", FALSE),
+			( (strlen((char*)hash_table_find("N/A", FALSE)) > sizeof(buffer)) ?
 		        (sizeof(buffer) - 1) :
-		        (strlen((char*)hash_table_find("N/A"))) ) );
+		        (strlen((char*)hash_table_find("N/A", FALSE))) ) );
     else
 	snprintf(buffer, sizeof(hi_temp) + 
 			( (strlen(("\302\260%c")) > sizeof(buffer)) ?
@@ -466,14 +466,14 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     memset(buffer, 0, sizeof(buffer));
     if(!strcmp((char*)item_value(day, "day_title"), "N/A"))
 	day_invalid_count++;
-    strcat(buffer, (char*)hash_table_find(item_value(day, "day_title")));
+    strcat(buffer, (char*)hash_table_find(item_value(day, "day_title"), FALSE));
     strcat(buffer, _("\nHumidity: "));
     if(strcmp(item_value(day, "day_humidity"), "N/A"))
 	sprintf(buffer + strlen(buffer), "%s%%\n",
 		item_value(day, "day_humidity"));
     else{
 	sprintf(buffer + strlen(buffer), "%s\n",
-			(char*)hash_table_find((gpointer)"N/A"));
+			(char*)hash_table_find("N/A", FALSE));
 	day_invalid_count++;
     }
     strcat(buffer, _("Wind: "));
@@ -482,9 +482,9 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     if(!strcmp((char*)item_value(day, "day_wind_speed"), "N/A"))
 	day_invalid_count++;
     sprintf(buffer + strlen(buffer), "%s\n%.2f %s",
-	    (char*)hash_table_find(item_value(day, "day_wind_title")),
+	    (char*)hash_table_find(item_value(day, "day_wind_title"), FALSE),
 	    convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed"))),
-	    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
+	    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     day_text = gtk_label_new(buffer);
     set_font_size(day_label, font_size);
     set_font_size(day_text, font_size);
@@ -504,10 +504,10 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     /* night temperature */
     memset(buffer, 0, sizeof(buffer));
     if(low_temp == INT_MAX)
-	strncat(buffer, (char*)hash_table_find("N/A"),
-			( (strlen((char*)hash_table_find("N/A")) > sizeof(buffer)) ?
+	strncat(buffer, (char*)hash_table_find("N/A", FALSE),
+			( (strlen((char*)hash_table_find("N/A", FALSE)) > sizeof(buffer)) ?
 		        (sizeof(buffer) - 1) :
-		        (strlen((char*)hash_table_find("N/A"))) ) );
+		        (strlen((char*)hash_table_find("N/A", FALSE))) ) );
     else
 	snprintf(buffer, sizeof(low_temp) + 
 			( (strlen(("\302\260%c")) > sizeof(buffer)) ?
@@ -537,14 +537,14 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     memset(buffer, 0, sizeof(buffer));
     if(!strcmp((char*)item_value(day, "night_title"), "N/A"))
         night_invalid_count++;
-    strcat(buffer, (char*)hash_table_find(item_value(day, "night_title")));
+    strcat(buffer, (char*)hash_table_find(item_value(day, "night_title"), FALSE));
     strcat(buffer, _("\nHumidity: "));
     if(strcmp(item_value(day, "night_humidity"), "N/A"))
 	sprintf(buffer + strlen(buffer), "%s%%\n",
 		item_value(day, "night_humidity"));
     else{
 	sprintf(buffer + strlen(buffer), "%s\n",
-			(char*)hash_table_find((gpointer)"N/A"));
+			(char*)hash_table_find("N/A", FALSE));
 	night_invalid_count++;			
     }
     strcat(buffer, _("Wind: "));
@@ -553,9 +553,9 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     if(!strcmp((char*)item_value(day, "night_wind_speed"), "N/A"))
         night_invalid_count++;
     sprintf(buffer + strlen(buffer), "%s\n%.2f %s",
-	    (char*)hash_table_find(item_value(day, "night_wind_title")),
+	    (char*)hash_table_find(item_value(day, "night_wind_title"), FALSE),
 	    convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed"))),
-	    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
+	    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     night_text = gtk_label_new(buffer);
     set_font_size(night_label, font_size);
     set_font_size(night_text, font_size);
@@ -647,7 +647,7 @@ GtkWidget* create_current_tab(GSList *current){
 	sprintf(buffer + strlen(buffer), "%s", _("Visible:"));
 	if( !strcmp(item_value(current, "visible"), "Unlimited") )
     	    sprintf(buffer + strlen(buffer), "  %s\n",
-            	    (char*)hash_table_find((gpointer)"Unlimited"));
+            	    (char*)hash_table_find("Unlimited", FALSE));
 	else{
     	    tmp_distance = atof(item_value(current, "visible"));
             switch(app->config->distance_units){
@@ -683,14 +683,14 @@ GtkWidget* create_current_tab(GSList *current){
 	if( strcmp(item_value(current, "wind_speed"), "N/A") )
 	    sprintf(buffer + strlen(buffer), "  %.2f %s\n",
 		    convert_wind_units(app->config->wind_units, atof(item_value(current, "wind_speed"))),
-		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
+		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     }
 /* gust */
     if( strcmp(item_value(current, "wind_gust"), "N/A") ){
         sprintf(buffer + strlen(buffer), "%s", _("Gust:"));
 	sprintf(buffer + strlen(buffer), "  %.2f %s\n",
 		convert_wind_units(app->config->wind_units, atof(item_value(current, "wind_gust"))),
-		(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
+		(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     }
 
     text = gtk_label_new(buffer);

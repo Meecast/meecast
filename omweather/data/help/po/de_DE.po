@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-13 19:27+0300\n"
+"POT-Creation-Date: 2008-05-29 20:17+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -161,7 +161,7 @@ msgstr ""
 #: data/help/omweather.xml.in.h:23
 msgid ""
 "<display_text>Visible items:</display_text> selects how many icons will be "
-"shown in the tablets home screen. Possibilities go from 1 to 10."
+"shown in the tablets home screen. Possibilities go from 1 to 5."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:24
@@ -177,7 +177,7 @@ msgid "Add Station"
 msgstr ""
 
 #: data/help/omweather.xml.in.h:27
-msgid "Check detailed weather forecast for up to 10 days"
+msgid "Check detailed weather forecast for up to 5 days"
 msgstr ""
 
 #: data/help/omweather.xml.in.h:28

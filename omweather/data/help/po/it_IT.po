@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather 0.20\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-13 19:27+0300\n"
+"POT-Creation-Date: 2008-05-29 20:17+0300\n"
 "PO-Revision-Date: 2008-03-21 13:15+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
@@ -222,9 +222,10 @@ msgstr ""
 "il tempo quando prossimo aggiornamento sarà fatto."
 
 #: data/help/omweather.xml.in.h:23
+#, fuzzy
 msgid ""
 "<display_text>Visible items:</display_text> selects how many icons will be "
-"shown in the tablets home screen. Possibilities go from 1 to 10."
+"shown in the tablets home screen. Possibilities go from 1 to 5."
 msgstr ""
 "<display_text>Visibili gli oggetti:</ display_text> seleziona il numero di "
 "icone che sarà visibile nella schermata principale di compresse. Possibilità "
@@ -243,7 +244,8 @@ msgid "Add Station"
 msgstr "Aggiungi Station"
 
 #: data/help/omweather.xml.in.h:27
-msgid "Check detailed weather forecast for up to 10 days"
+#, fuzzy
+msgid "Check detailed weather forecast for up to 5 days"
 msgstr ""
 "Check dettagliate previsioni meteorologiche per un massimo di 10 giorni"
 

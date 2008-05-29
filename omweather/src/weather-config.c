@@ -613,7 +613,7 @@ int new_read_config(AppletConfig *config){
 	}
 	/* Correcting icon size for version  0.19.5. It  must be deleted after version 0.21 */
 	if (tmp[0]=='0' && tmp[2]=='1' && tmp[3]=='9' && tmp[5]=='5'){
-	    if (gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 0)	
+	    if (gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 0)
 		config->icons_size = GIANT;
 	    if (gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 1)	
 		config->icons_size = LARGE;		
@@ -827,12 +827,12 @@ void new_config_save(AppletConfig *config){
     g_slist_free(stlist);
 #ifdef HILDON    
     /* Save current GPS station */
-    if (config->gps_station){
-	if (app->gps_station.name)
+    if(config->gps_station){
+	if(app->gps_station.name)
 	    gconf_client_set_string(gconf_client,
         		    GCONF_KEY_GPS_STATION_NAME,
 			    app->gps_station.name, NULL);
-	if (app->gps_station.id0)		    
+	if(app->gps_station.id0)		    
 	    gconf_client_set_string(gconf_client,
         		    GCONF_KEY_GPS_STATION_ID,
 			    app->gps_station.id0, NULL);

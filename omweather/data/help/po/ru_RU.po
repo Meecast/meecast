@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-13 19:27+0300\n"
+"POT-Creation-Date: 2008-05-29 20:17+0300\n"
 "PO-Revision-Date: 2008-03-20 12:46+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -215,9 +215,10 @@ msgstr ""
 "информацией о времени следующего обновления."
 
 #: data/help/omweather.xml.in.h:23
+#, fuzzy
 msgid ""
 "<display_text>Visible items:</display_text> selects how many icons will be "
-"shown in the tablets home screen. Possibilities go from 1 to 10."
+"shown in the tablets home screen. Possibilities go from 1 to 5."
 msgstr ""
 "Параметр <display_text>Количество элементов:</display_text> определяет "
 "сколько иконок отображается на экране. Возможные значения от 1 до 10."
@@ -236,7 +237,7 @@ msgstr "Добавить станцию"
 
 #: data/help/omweather.xml.in.h:27
 #, fuzzy
-msgid "Check detailed weather forecast for up to 10 days"
+msgid "Check detailed weather forecast for up to 5 days"
 msgstr "Детальный прогноз на 10 дней"
 
 #: data/help/omweather.xml.in.h:28

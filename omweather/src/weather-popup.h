@@ -51,11 +51,12 @@ GtkWidget* create_current_tab(GSList *current);
 extern void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    gpointer user_data);
 /*extern void pre_update_weather(void);*/
+extern void update_weather(gboolean show_update_window);
 extern void set_font_size(GtkWidget *widget, char font_size);
 extern void set_font_color (GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 extern int c2f(int temp);
 extern void swap_temperature(int *hi, int *low);
-extern gpointer hash_table_find(gpointer key);
+extern gpointer hash_table_find(gpointer key, gboolean search_short_name);
 extern float convert_wind_units(int to, float value);
 extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
 				    int image_size, gboolean with_border);

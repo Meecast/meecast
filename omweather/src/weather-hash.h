@@ -31,6 +31,6 @@
 #include "weather-common.h"
 /*******************************************************************************/
 GHashTable* hash_table_create(void);
-gpointer hash_table_find(gpointer key);
+gpointer hash_table_find(gpointer key, gboolean search_short_name);
 /*******************************************************************************/
 #endif

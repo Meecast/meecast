@@ -508,7 +508,7 @@ void draw_home_window(gint count_day){
 				if(!strcmp((char*)item_value(wcs.day_data[i + j], "day_wind_title"), "N/A"))
 				    wind_direction = _("N/A");
 				else
-				    wind_direction = (char*)hash_table_find(item_value(wcs.day_data[i + j], "day_wind_title"));
+				    wind_direction = (char*)hash_table_find(item_value(wcs.day_data[i + j], "day_wind_title"), TRUE);
 			    	sprintf(buffer + strlen(buffer), "\n%s\n%.1f", wind_direction,
 					convert_wind_units(app->config->wind_units, atof(item_value(wcs.day_data[i + j], "day_wind_speed"))));
 			    }
@@ -526,11 +526,11 @@ void draw_home_window(gint count_day){
 					    item_value(wcs.day_data[i + j], "day_humidity"));
 			        else
 				    sprintf(app->forecast_string + strlen(app->forecast_string), "%s\n",
-					    (char*)hash_table_find((gpointer)"N/A"));
+					    (char*)hash_table_find("N/A", FALSE));
 			        strcat(app->forecast_string, _("Wind: "));
 				sprintf(app->forecast_string + strlen(app->forecast_string), "%s %.2f %s", item_value(wcs.day_data[i + j], "day_wind_title"),
 				convert_wind_units(app->config->wind_units, atof(item_value(wcs.day_data[i + j], "day_wind_speed"))),
-						    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
+						    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
 			}else{
 			        memset(app->forecast_string, 0, sizeof(app->forecast_string));
 				strcat(app->forecast_string, item_value(wcs.day_data[i + j], "night_title"));
@@ -540,11 +540,11 @@ void draw_home_window(gint count_day){
 					    item_value(wcs.day_data[i + j], "night_humidity"));
 				else
 				    sprintf(app->forecast_string + strlen(app->forecast_string), "%s\n",
-					    (char*)hash_table_find((gpointer)"N/A"));
+					    (char*)hash_table_find("N/A", FALSE));
 				strcat(app->forecast_string, _("Wind: "));
 				sprintf(app->forecast_string + strlen(app->forecast_string), "%s %.2f %s", item_value(wcs.day_data[i + j], "night_wind_title"),
 					convert_wind_units(app->config->wind_units, atof(item_value(wcs.day_data[i + j], "night_wind_speed"))),
-					(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
+					(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
 			}
 		    }
 		}
@@ -590,7 +590,7 @@ void draw_home_window(gint count_day){
 			if(!strcmp((char*)item_value(wcs.day_data[i + j], "day_wind_title"), "N/A"))
 			    wind_direction = _("N/A");
 			else
-			    wind_direction = (char*)hash_table_find(item_value(wcs.day_data[i + j], "day_wind_title"));
+			    wind_direction = (char*)hash_table_find(item_value(wcs.day_data[i + j], "day_wind_title"), TRUE);
 			    sprintf(buffer + strlen(buffer), "\n%s\n%.1f", wind_direction,
 				    convert_wind_units(app->config->wind_units, atof(item_value(wcs.day_data[i + j], "day_wind_speed"))));
 		    }
@@ -675,7 +675,7 @@ void redraw_home_window(void){
     }
 /* Parse data file */
     count_day = new_parse_weather_com_xml();
-/*    parse_underground_com_data("26666");	* TODO next release, maybe */
+/*    parse_underground_com_data("vitebsk");	*//* TODO next release, maybe */
     if(count_day == -2){
 	fprintf(stderr, _("Error in xml file\n"));
 	    hildon_banner_show_information(app->main_window,
@@ -743,7 +743,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     if(!app->config){
         fprintf(stderr, "\nCan not allocate memory for config.\n");
         g_free(app);
-        exit(1);
+        return NULL;
     }
 /* list of user select stations */
     app->user_stations_list = create_user_stations_list();
@@ -759,7 +759,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         fprintf(stderr, "\nCan not read config file.\n");
         g_free(app->config);
         g_free(app);
-        exit(1);
+        return NULL;
     }
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
@@ -1065,12 +1065,12 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
 		atoi(item_value(current, "humidity")));
     else
 	sprintf(buffer + strlen(buffer), "%s",
-		    (char*)hash_table_find((gpointer)"N/A"));
+		    (char*)hash_table_find("N/A", FALSE));
 /* visible */
     strcat(buffer, _("\nV: "));
     if( !strcmp(item_value(current, "humidity"), "Unlimited") )
 	sprintf(buffer + strlen(buffer), "%s",
-                (char*)hash_table_find((gpointer)"Unlimited"));
+                (char*)hash_table_find("Unlimited", FALSE));
     else
 	if( strcmp(item_value(current, "visible"), "N/A") ){
 	    tmp_distance = atof(item_value(current, "visible"));
@@ -1085,7 +1085,7 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
 	}
 	else
 	    sprintf(buffer + strlen(buffer), "%s",
-                    (char*)hash_table_find((gpointer)"N/A"));
+                    (char*)hash_table_find("N/A", FALSE));
 /* pressure */
     tmp_pressure = atof(item_value(current, "pressure"));
     switch(app->config->pressure_units){
@@ -1102,13 +1102,13 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
     if( strcmp(item_value(current, "wind_speed"), "N/A") )
 	sprintf(buffer + strlen(buffer), " %.2f %s", 
 		    convert_wind_units(app->config->wind_units, atof(item_value(current, "wind_speed"))),
-		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
+		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
 /* gust */
     if( strcmp(item_value(current, "wind_gust"), "N/A") ){
 	strcat(buffer, _(" G: "));
 	sprintf(buffer + strlen(buffer), "%.2f %s",
 		    convert_wind_units(app->config->wind_units, atof(item_value(current, "wind_gust"))),
-		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units]));
+		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     }
     strcat(buffer,"</span>");
 
@@ -1203,7 +1203,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	next_station_name_btn = gtk_event_box_new();
 	set_background_color(next_station_name_btn, &(app->config->background_color));
 	
-	gtk_widget_set_events(next_station_name_btn, GDK_BUTTON_RELEASE_MASK|
+	gtk_widget_set_events(next_station_name_btn, GDK_BUTTON_RELEASE_MASK |
 						     GDK_BUTTON_PRESS_MASK);
 	next_station_name = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(next_station_name), buffer);
@@ -1220,7 +1220,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		    app->config->font_color.red >> 8,
 		    app->config->font_color.green >> 8,
 		    app->config->font_color.blue >> 8,
-		    (char*)hash_table_find("NO STATION"));
+		    (char*)hash_table_find("NO STATION", FALSE));
         else
 #ifdef HILDON
 	    {

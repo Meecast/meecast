@@ -213,7 +213,7 @@ int new_parse_weather_com_xml(void){
 		    /* title */
 		    if(!xmlStrcmp(child_node->name, (const xmlChar *)"t") ){
 			temp_xml_string = xmlNodeGetContent(child_node);
-			itm = create_item("title", (char*)hash_table_find(temp_xml_string));
+			itm = create_item("title", (char*)hash_table_find(temp_xml_string, FALSE));
 			xmlFree(temp_xml_string);
 			add_item2object(&(wcs.current_data), itm);
 			continue;
@@ -245,7 +245,7 @@ int new_parse_weather_com_xml(void){
     				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"d") ){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
 				    itm = create_item("pressure_direction",
-					    (char*)hash_table_find(temp_xml_string));
+					    (char*)hash_table_find(temp_xml_string, FALSE));
 				    xmlFree(temp_xml_string);
 				    add_item2object(&(wcs.current_data), itm);		    
 				}
@@ -291,7 +291,7 @@ int new_parse_weather_com_xml(void){
     				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t") ){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
 				    itm = create_item("wind_direction",
-					    (char*)hash_table_find(temp_xml_string));
+					    (char*)hash_table_find(temp_xml_string, FALSE));
 				    xmlFree(temp_xml_string);
 				    add_item2object(&(wcs.current_data), itm);
 				}
@@ -481,9 +481,10 @@ int parse_underground_com_data(const gchar *station){
     gint	day_count = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif    
+#endif
     if(!station)
 	return -1;
+
     snprintf(buffer, sizeof(buffer) - 1, "%s/%s.htm", app->config->cache_dir_name, station);
 
     if(access(buffer, R_OK)){  /* htm file does not exist or no permissions */
@@ -521,7 +522,13 @@ void process_undeground_com_current_weather(const htmlNodePtr node){
     htmlNodePtr	current_node = node,
 		child_node = NULL,
 		child_node1 = NULL,
-		child_node2 = NULL;
+		child_node2 = NULL,
+		child_node3 = NULL;
+    enum { Nothing = -1, Temperature = 0, Windchill, Humidity, DewPoint, Wind,
+	    Pressure, Conditions, Visibility, UV, Clouds, YesterdayMaximum,
+	    YesterdayMinimum, YesterdayHeating, Sunrise, Sunset, MoonRise,
+	    MoonSet, MoonPhase, RawMETAR };
+    gint	what_process = Nothing;
 #ifndef RELEASE
     START_FUNCTION;
 #endif    
@@ -537,9 +544,126 @@ void process_undeground_com_current_weather(const htmlNodePtr node){
     for(child_node = current_node->children; child_node; child_node = child_node->next){
 	fprintf(stderr, "\nChild name - %s\n", child_node->name);
 	for(child_node1 = child_node->children; child_node1; child_node1 = child_node1->next){
-	    fprintf(stderr, "\nChild name - %s\n", child_node1->name);
-	    for(child_node2 = child_node1->children; child_node2; child_node2 = child_node2->next)
-		fprintf(stderr, "\nChild name - %s\nContent - %s\n", child_node2->name, child_node2->content);
+	    fprintf(stderr, "\n\tChild1 name - %s\n", child_node1->name);
+	    for(child_node2 = child_node1->children; child_node2; child_node2 = child_node2->next){
+		fprintf(stderr, "\n\t\tChild2 name - %s\n\t\t\tContent - %s\n", child_node2->name, child_node2->content);
+	    	for(child_node3 = child_node2->children; child_node3; child_node3 = child_node3->next)
+		    fprintf(stderr, "\n\t\t\tChild3 name - %s\n\t\t\t\tContent - %s\n", child_node3->name, child_node3->content);
+		/* find update field */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Updated:")){
+		    if(!strcmp(child_node2->next->name, "b") && !strcmp(child_node2->next->children->name, "text")){
+			fprintf(stderr, "\n>>>>>>>>>>Last update at: %s\n", child_node2->next->children->content);
+		    }
+		}
+		/* select what process */
+		/* temperature */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Temperature"))
+		    what_process = Temperature;
+		/* windchill */
+		if(!strcmp(child_node2->name, "text") && !strcmp((char*)child_node2->content, "Windchill"))
+		    what_process = Windchill;
+		/* humidity */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Humidity"))
+		    what_process = Humidity;
+		/* DewPoint */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Dew Point"))
+		    what_process = DewPoint;
+		/* wind */
+		if(!strcmp(child_node2->name, "text") && !strcmp((char*)child_node2->content, "Wind"))
+		    what_process = Wind;
+		/* pressure  */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Pressure"))
+		    what_process = Pressure;
+		/* conditions */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Conditions"))
+		    what_process = Conditions;
+		/* visibility  */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Visibility"))
+		    what_process = Visibility;
+		/* UV */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "UV"))
+		    what_process = UV;
+		/* Clouds */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Clouds"))
+		    what_process = Clouds;
+		/* Yesterday's Maximum */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Yesterday's Maximum"))
+		    what_process = YesterdayMaximum;
+		/* Yesterday's Minimum */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Yesterday's Minimum"))
+		    what_process = YesterdayMinimum;
+		/* Yesterday's Heating */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Yesterday's Heating"))
+		    what_process = YesterdayHeating;
+		/* sunrise */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Sunrise"))
+		    what_process = Sunrise;
+		/* sunset */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Sunset"))
+		    what_process = Sunset;
+		/* Moon Rise */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Moon Rise"))
+		    what_process = MoonRise;
+		/* Moon Set */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Moon Set"))
+		    what_process = MoonSet;
+		/* Moon Phase */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Moon Phase"))
+		    what_process = MoonPhase;
+		/* Raw METAR */
+		if(!strcmp(child_node2->name, "text") && strstr((char*)child_node2->content, "Raw METAR"))
+		    what_process = RawMETAR;
+		/* process selected tag */
+		if(what_process != Nothing &&
+			((!strcmp(child_node2->name, "span") && !strcmp(child_node2->children->name, "b")) ||
+			(!strcmp(child_node2->name, "b") && !strcmp(child_node2->children->name, "text")) ) ){
+		    switch(what_process){
+			default: what_process = Nothing;
+			break;
+			case Temperature:
+			    fprintf(stderr, "\n>>>>>>>>>>>>>>Temperature: %s\n", child_node2->children->children->content);
+			    what_process = Nothing;
+			break;
+			case Windchill:
+			    fprintf(stderr, "\n>>>>>>>>>>>>>>Windchill: %s\n", child_node2->children->children->content);
+			    what_process = Nothing;
+			break;
+			case Humidity:
+			    fprintf(stderr, "\n>>>>>>>>>>>>>>Humidity: %s\n", child_node2->children->content);
+			    what_process = Nothing;
+			break;
+			case Wind:
+			    if(!child_node2->children->children)
+				fprintf(stderr, "\n>>>>>>>>>>>>>>Wind direction: %s\n", child_node2->children->content);
+			    else{
+				fprintf(stderr, "\n>>>>>>>>>>>>>>Wind speed: %s\n", child_node2->children->children->content);
+				what_process = Nothing;
+			    }
+			break;
+			case Pressure:
+			    fprintf(stderr, "\n>>>>>>>>>>>>>>Pressure: %s\n", child_node2->children->children->content);
+			    fprintf(stderr, "\n>>>>>>>>>>>>>>Pressure direction: %s\n", child_node2->next->next->children->content);
+			    what_process = Nothing;
+			break;
+			case Conditions:
+			    fprintf(stderr, "\n>>>>>>>>>>>>>>Conditions: %s\n", child_node2->children->content);
+			    what_process = Nothing;
+			break;
+			case Visibility:
+			    fprintf(stderr, "\n>>>>>>>>>>>>>>Visibility: %s\n", child_node2->children->content);
+			    what_process = Nothing;
+			break;
+			case Sunrise:
+			    fprintf(stderr, "\n>>>>>>>>>>>>>>Sunrise: %s\n", child_node2->children->children->content);
+			    what_process = Nothing;
+			break;
+			case Sunset:
+			    fprintf(stderr, "\n>>>>>>>>>>>>>>Sunset: %s\n", child_node2->children->children->content);
+			    what_process = Nothing;
+			break;
+		    }
+		}
+	    }
 	}
     }
 }

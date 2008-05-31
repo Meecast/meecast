@@ -702,6 +702,8 @@ void update_weather(gboolean show_update_window){
 #endif
     if(app->iap_connected && show_update_window)
 	app->show_update_window = TRUE;
+    else
+        app->show_update_window = FALSE;
     if(!app->flag_updating)
 	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }

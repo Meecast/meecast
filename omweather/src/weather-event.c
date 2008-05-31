@@ -170,7 +170,7 @@ gboolean timer_handler(gpointer data){
 		#ifndef RELEASE
 		    fprintf(stderr,"UPDATE by event\n");
 		#endif
-		    update_weather(TRUE);
+		    update_weather(FALSE);
                     /* add periodic update */
                     add_periodic_event(current_time);
     		break;		    

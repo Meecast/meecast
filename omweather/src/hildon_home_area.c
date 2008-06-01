@@ -26,7 +26,7 @@
 
 #include "hildon_home_area.h"
 
-#ifdef HILDON
+#ifdef OS2008
 
 
 

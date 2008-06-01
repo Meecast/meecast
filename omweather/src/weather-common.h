@@ -44,7 +44,7 @@
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 #include <string.h> 
-#ifdef HILDON 
+#ifdef OS2008 
     #include <hildon/hildon-banner.h>
     #include <libhildondesktop/hildon-desktop-picture.h>
     #include <libhildondesktop/hildon-desktop-home-item.h>
@@ -193,7 +193,7 @@ typedef struct applet_config{
     gint	wind_units;
     gint	temperature_units;
     gint	pressure_units;
-#ifdef HILDON
+#ifdef OS2008
     gint	display_at;
     gboolean	use_sensor;
     guint	sensor_update_time;
@@ -262,7 +262,7 @@ typedef struct OMWeatherApplet{
     int			ay;
     int			aw;
     int			ah;
-#ifdef HILDON
+#ifdef OS2008
     guint		gps_id_connection;
     LocationGPSDevice 	*gps_device;
     Station		gps_station;

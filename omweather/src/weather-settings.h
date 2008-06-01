@@ -64,7 +64,7 @@ void up_key_handler(GtkButton *button, gpointer list);
 void down_key_handler(GtkButton *button, gpointer list);
 void delete_station_handler(GtkButton *button, gpointer user_data);
 void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name, gboolean is_gps);
-#ifdef HILDON
+#ifdef OS2008
 void delete_all_gps_stations(void);
 #endif
 
@@ -107,7 +107,7 @@ extern void update_weather(gboolean show_update_window);
 extern GtkWidget* lookup_widget(GtkWidget *widget, const gchar *widget_name);
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 extern GtkWidget* create_tree_view(GtkListStore* list);
-#ifdef HILDON
+#ifdef OS2008
 extern GtkWidget* create_sensor_page(GtkWidget *config_window);
 extern int check_entry_text(GtkEntry *entry);
 extern void read_sensor(void);

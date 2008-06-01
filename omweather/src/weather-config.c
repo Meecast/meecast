@@ -142,7 +142,7 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 		*temp2 = NULL,
 		*station_name = NULL,
 		*station_code = NULL;
-#ifdef HILDON
+#ifdef OS2008
     gboolean	is_gps = FALSE;
 #endif
 #ifdef DEBUGFUNCTIONCALL
@@ -161,7 +161,7 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 	    temp2 = strtok(NULL,"@"); /* Delimiter - @ */ 
 	    if(temp2)
 		station_name = g_strdup(temp2);
-#ifdef HILDON		
+#ifdef OS2008		
 	    if (app->gps_station.id0 && app->gps_station.name &&
                 station_code && station_name &&
                 !strcmp(app->gps_station.id0, station_code) &&
@@ -173,7 +173,7 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 	    /* Add station to stations list */
             gtk_list_store_append(*list, &iter);
             gtk_list_store_set(*list, &iter,
-#ifdef HILDON
+#ifdef OS2008
                                 0, station_name,
                                 1, station_code,
 				2, is_gps,
@@ -302,7 +302,7 @@ int new_read_config(AppletConfig *config){
     if (config->current_station_id && strlen(config->current_station_id) == 0)
 	config->current_station_id = NULL;
     /* Get GPS station name and id */
-#ifdef HILDON
+#ifdef OS2008
     app->gps_station.name[0] = 0;
     tmp = NULL;
     tmp = gconf_client_get_string(gconf_client,
@@ -377,7 +377,7 @@ int new_read_config(AppletConfig *config){
     remove_periodic_event();		/* delete event from list */
     add_periodic_event(time(NULL));	/* add new event */
     
-#ifdef HILDON
+#ifdef OS2008
     /* Get gps_station. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_USE_GPS_STATION, NULL);
     if(value){
@@ -422,7 +422,7 @@ int new_read_config(AppletConfig *config){
     }
     else
         config->separate = FALSE;
-#ifdef HILDON
+#ifdef OS2008
     /* Get Use sensor Button State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_USE_SENSOR, NULL);
     if(value){
@@ -716,7 +716,7 @@ void new_config_save(AppletConfig *config){
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_SETTING_TAB_NUMBER,
 			config->current_settings_page, NULL);
-#ifdef HILDON
+#ifdef OS2008
      /* Save Use sensor Button State */
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_USE_SENSOR,
@@ -763,7 +763,7 @@ void new_config_save(AppletConfig *config){
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_DOWNLOADING_AFTER_CONNECTING,
 			config->downloading_after_connecting, NULL);
-#ifdef HILDON
+#ifdef OS2008
      /* Save Use GPS station */
     gconf_client_set_bool(gconf_client,
         		    GCONF_KEY_USE_GPS_STATION,
@@ -825,7 +825,7 @@ void new_config_save(AppletConfig *config){
     /* Free stlist */	    
     g_slist_foreach(stlist, (GFunc)g_free, NULL);
     g_slist_free(stlist);
-#ifdef HILDON    
+#ifdef OS2008    
     /* Save current GPS station */
     if(config->gps_station){
 	if(app->gps_station.name)

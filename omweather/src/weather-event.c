@@ -106,7 +106,7 @@ gboolean timer_handler(gpointer data){
 
 
 
-		#ifdef HILDON
+		#ifdef OS2008
 
 /* This is code for debug GPS
 
@@ -150,7 +150,7 @@ gboolean timer_handler(gpointer data){
 			}        
                     }
 		#endif
-		#ifdef HILDON
+		#ifdef OS2008
                     /* add periodic gps check */
                     if (app->gps_station.latitude == 0 && app->gps_station.longtitude == 0)
                         add_gps_event(1);

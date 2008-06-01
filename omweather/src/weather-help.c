@@ -36,7 +36,7 @@ void help_activated_handler(GtkWidget *window, gchar *help_id){
 #endif
     if(!help_id)
 	return;
-#ifdef HILDON
+#ifdef OS2008
     hildon_help_show(app->osso, help_id, HILDON_HELP_SHOW_DIALOG);
 #else
     ossohelp_show(app->osso, help_id, OSSO_HELP_SHOW_DIALOG);

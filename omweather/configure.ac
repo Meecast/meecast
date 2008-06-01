@@ -94,7 +94,7 @@ AC_SUBST(HILDONDESKTOP_CFLAGS)
 
 PKG_CHECK_MODULES(HILDON, [hildon-1 >= 0.9.9], [hildon=yes],[hildon=no])
 if test "$hildon" == "yes"; then
-          AC_DEFINE(HILDON, 1, [Version of hildon libraries])
+          AC_DEFINE(OS2008, 1, [Version of hildon libraries])
 else    
 	  PKG_CHECK_MODULES(HILDON_LIBS, [hildon-libs >= 0.12.0])
 	  PKG_CHECK_MODULES(DBUS, [dbus-1],

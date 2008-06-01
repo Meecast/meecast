@@ -80,7 +80,7 @@ extern float convert_wind_units(int to, float value);
 extern void initial_gps_connect(void);
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 extern float mb2inch(float pressure);
-#ifdef HILDON
+#ifdef OS2008
 extern void read_sensor(void);
 #endif
 /*******************************************************************************/

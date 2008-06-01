@@ -33,7 +33,7 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-#ifdef HILDON
+#ifdef OS2008
 #define SENSOR	"/sys/devices/platform/i2c_omap.1/i2c-1/1-0048/temp1_input"
 /*******************************************************************************/
 GtkWidget* create_sensor_page(GtkWidget *config_window){

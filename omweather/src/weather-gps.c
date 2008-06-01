@@ -31,7 +31,7 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-#ifdef HILDON
+#ifdef OS2008
 
 void
 get_nearest_station( double lat, double lon, Station *result)

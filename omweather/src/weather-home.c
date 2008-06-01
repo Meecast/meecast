@@ -30,7 +30,7 @@
 #include <unistd.h>
 #include <glib.h>
 #include <math.h>
-#ifdef HILDON
+#ifdef OS2008
     #include <libhildondesktop/libhildondesktop.h>
 #else
     #include <hildon-home-plugin/hildon-home-plugin-interface.h>
@@ -54,7 +54,7 @@
 /* main struct */
 OMWeatherApp	*app = NULL;
 gchar		path_large_icon[_POSIX_PATH_MAX];
-#ifdef HILDON
+#ifdef OS2008
 static	FILE	*filed;
 #endif
 /*******************************************************************************/
@@ -645,7 +645,7 @@ void draw_home_window(gint count_day){
 		    app->config->transparency, tmp_station_name, font_size);
     gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
     gtk_widget_show_all(app->top_widget);
-    #ifdef HILDON
+    #ifdef OS2008
 	if(!app->config->transparency && app->parent)
 	    gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);
     #endif 
@@ -712,7 +712,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
     osso_context_t	*osso;
 
-#ifdef HILDON
+#ifdef OS2008
     char       tmp_buff[2048];
 #endif
     osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
@@ -777,7 +777,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     time_event_add(time(NULL) + 5, DBUSINITEVENT);
     add_periodic_event(time(NULL));
 */
-#ifdef HILDON
+#ifdef OS2008
     initial_gps_connect();
     app->signal_expose = g_signal_connect(app->top_widget, "expose-event",
                 			    G_CALLBACK(expose_main_window),
@@ -849,7 +849,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	    g_object_unref(app->connection);
     #endif
 
-#ifdef HILDON
+#ifdef OS2008
     /* remove sensor time */
     if(app->sensor_timer > 0)
 	g_source_remove(app->sensor_timer);
@@ -1224,7 +1224,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		    app->config->font_color.blue >> 8,
 		    (char*)hash_table_find("NO STATION", FALSE));
         else
-#ifdef HILDON
+#ifdef OS2008
 	    {
 	    if(app->config->display_at == STATION_NAME)/* draw sensor data at the station name */
 	    	sprintf(buffer,"<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>%s (%.2f)</span>",
@@ -1237,7 +1237,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         	    app->config->font_color.red >> 8,
 		    app->config->font_color.green >> 8,
 		    app->config->font_color.blue >> 8, st_name);
-#ifdef HILDON
+#ifdef OS2008
 	}
 #endif
 	station_box = gtk_hbox_new(FALSE, 0);
@@ -1567,7 +1567,7 @@ gboolean switch_timer_handler(gpointer data){
 }
 /*******************************************************************************/
 /* Next couple functions for OS2008 */ 
-#ifdef HILDON
+#ifdef OS2008
 gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
     int x = 0,
 	y = 0,

@@ -29,7 +29,7 @@
 #include "weather-locations.h"
 #include "weather-help.h"
 #include "weather-utils.h"
-#ifdef HILDON
+#ifdef OS2008
     #include <hildon/hildon-controlbar.h>
 #else
     #include <hildon-widgets/hildon-controlbar.h>
@@ -61,7 +61,7 @@ void add_station_to_user_list(gchar *weather_station_name,
     /* Add station to stations list */
     gtk_list_store_append(app->user_stations_list, &iter);
     gtk_list_store_set(app->user_stations_list, &iter,
-#ifdef HILDON
+#ifdef OS2008
                                 0, weather_station_name,
                                 1, weather_station_id,
                                 2, is_gps,
@@ -82,7 +82,7 @@ void add_station_to_user_list(gchar *weather_station_name,
     }
 }
 /*******************************************************************************/
-#ifdef HILDON
+#ifdef OS2008
 void delete_all_gps_stations(void){
     gboolean		valid;
     GtkTreeIter		iter;
@@ -293,7 +293,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
     gboolean		valid;
     gint		result = GTK_RESPONSE_NONE;
     GtkTreePath		*path;
-#ifdef HILDON
+#ifdef OS2008
     gboolean 		is_gps = FALSE;
 #endif
 #ifdef DEBUGFUNCTIONCALL
@@ -329,7 +329,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
     while(valid){
         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                             &iter,
-#ifdef HILDON
+#ifdef OS2008
                             0, &station_name,
                             1, &station_code,
 			    2, &is_gps,
@@ -341,7 +341,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
 	if(!strcmp(station_name, station_selected)){
 	    path = gtk_tree_model_get_path(GTK_TREE_MODEL(app->user_stations_list),
 					    &iter);
-#ifdef HILDON
+#ifdef OS2008
 	    if(is_gps){
 		/* Reset gps station */
 		app->gps_station.id0[0] = 0;
@@ -898,7 +898,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*wind_miles = NULL,
 		*mb_pressure = NULL,
 		*inch_pressure = NULL,
-#ifdef HILDON
+#ifdef OS2008
                 *chk_gps = NULL,
 		*sensor_page = NULL,
 #endif
@@ -969,7 +969,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
                         G_CALLBACK(change_notebook_page_handler),
 			(gpointer)window_config);
 */
-#ifdef HILDON
+#ifdef OS2008
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			sensor_page = create_sensor_page(window_config),
         			gtk_label_new(_("Sensor")));
@@ -1128,7 +1128,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				add_station_button1,
 				2, 3, 2, 3);
-#ifdef HILDON
+#ifdef OS2008
 /* GPS */
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				gtk_label_new(_("Enable GPS:")),
@@ -1619,7 +1619,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*icon_set = NULL,
 			*icon_size = NULL,
 			*separate = NULL,
-#ifdef HILDON
+#ifdef OS2008
 			*enable_gps = NULL,
 #endif
 			*swap_temperature = NULL,
@@ -1631,7 +1631,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*font_color = NULL,
 			*time2switch = NULL,
 			*validtime = NULL,
-#ifdef HILDON
+#ifdef OS2008
 			*use_sensor = NULL,
 			*display_at = NULL,
 			*sensor_update_time = NULL,
@@ -1782,7 +1782,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	else
             app->config->temperature_units = FAHRENHEIT;
     }
-#ifdef HILDON
+#ifdef OS2008
 /* enable gps */
     enable_gps = lookup_widget(config_window, "enable_gps");
     if(enable_gps){
@@ -1825,7 +1825,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 #endif
 	}
     }
-#ifdef HILDON
+#ifdef OS2008
 /* use sensor */
     use_sensor = lookup_widget(config_window, "use_sensor");
     if(use_sensor)

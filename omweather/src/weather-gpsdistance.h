@@ -27,7 +27,7 @@
 #include "weather-common.h"
 #include <math.h>
 /*******************************************************************************/
-#ifdef HILDON
+#ifdef OS2008
 gdouble
 calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2);
 #endif

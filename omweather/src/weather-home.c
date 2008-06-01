@@ -864,6 +864,10 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	/* disconnected from HildonHomeArea expose-event */
 	g_signal_handler_disconnect(app->parent_parent,app->signal_area_expose);
         g_signal_handler_disconnect(app->top_widget,app->signal_expose);
+        if(app->pixbuf){ 
+	    gdk_pixbuf_unref(app->pixbuf);
+	    app->pixbuf = NULL; 
+	}
 #endif	
 			
     osso = (osso_context_t*)applet_data;
@@ -875,23 +879,23 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     	    g_free(app->config);
 	if(app->countrys_list){
 	    gtk_list_store_clear(app->countrys_list);
-	    app->countrys_list = NULL;
+	    g_object_unref(app->countrys_list);
 	}
 	if(app->regions_list){
 	    gtk_list_store_clear(app->regions_list);
-	    app->regions_list = NULL;
+	    g_object_unref(app->regions_list);
 	}
 	if(app->stations_list){
 	    gtk_list_store_clear(app->stations_list);
-	    app->stations_list = NULL;
+	    g_object_unref(app->stations_list);
 	}
 	if(app->time_update_list){
 	    gtk_list_store_clear(app->time_update_list);
-	    app->time_update_list = NULL;
+	    g_object_unref(app->time_update_list);
 	}
 	if(app->user_stations_list){
 	    gtk_list_store_clear(app->user_stations_list);
-	    app->user_stations_list = NULL;
+	    g_object_unref(app->user_stations_list);
 	}
     }
     app && (g_free(app), app = NULL);

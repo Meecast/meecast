@@ -70,9 +70,9 @@
 /*******************************************************************************/
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
 #define Max_count_weather_day	5
-#define COUNTRIESFILE		"/usr/share/omweather/countries.list"
-#define REGIONSFILE		"/usr/share/omweather/regions.list"
-#define LOCATIONSFILE		"/usr/share/omweather/locations.list"
+#define COUNTRIESFILE		"/usr/share/omweather/db/weather/countries.list"
+#define REGIONSFILE		"/usr/share/omweather/db/weather/regions.list"
+#define LOCATIONSFILE		"/usr/share/omweather/db/weather/locations.list"
 #define ICONS_PATH		"/usr/share/omweather/icons/"
 #define BUTTON_ICONS		"/usr/share/omweather/button_icons/"
 #define SUPER_GIANT_ICON_SIZE	256

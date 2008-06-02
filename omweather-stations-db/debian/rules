@@ -19,7 +19,7 @@ binary-indep:
 	dh_clean
 	dh_testdir
 	dh_testroot
-	dh_installdirs /usr/share/omweather
+	dh_installdirs /usr/share/omweather/db/weather
 	cp data/*.list $(CURDIR)/debian/omweather-stations-db/usr/share/omweather/db/weather
 	find $(CURDIR)/debian/omweather-stations-db/usr/share/omweather/db/weather -type f -exec chmod 644 {} \;
 	dh_fixperms

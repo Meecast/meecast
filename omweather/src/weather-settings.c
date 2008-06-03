@@ -1189,7 +1189,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				add_station_button2,
 				2, 3, 7, 8);
     /* Set size */
-    gtk_widget_set_size_request(countries, 300, -1);
+    gtk_widget_set_size_request(app->countries, 300, -1);
     gtk_widget_set_size_request(states, 300, -1);
     gtk_widget_set_size_request(stations, 300, -1);
 /* Set default value to country combo_box */

@@ -100,7 +100,7 @@ GtkWidget* create_sensor_page(GtkWidget *config_window){
     snprintf(buffer, sizeof(buffer) - 1, "%u", app->config->sensor_update_time);
     gtk_entry_set_text(GTK_ENTRY(update_time_entry), buffer);
     gtk_table_attach_defaults(GTK_TABLE(table), 
-				gtk_label_new(_("seconds")),
+				gtk_label_new(_("minutes")),
         			2, 3, 1, 2);
     /* pack items to the main widget */
     gtk_box_pack_start(GTK_BOX(main_widget), use_sensor, FALSE, FALSE, 5);

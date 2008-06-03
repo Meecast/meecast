@@ -700,7 +700,7 @@ void update_weather(gboolean show_update_window){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(app->iap_connected && show_update_window)
+    if(show_update_window)
 	app->show_update_window = TRUE;
     else
         app->show_update_window = FALSE;

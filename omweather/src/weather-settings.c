@@ -964,11 +964,6 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			update_page = gtk_table_new(5, 2, FALSE),
         			gtk_label_new(_("Update")));
-/*
-    g_signal_connect(GTK_NOTEBOOK(notebook), "switch-page",
-                        G_CALLBACK(change_notebook_page_handler),
-			(gpointer)window_config);
-*/
 #ifdef OS2008
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			sensor_page = create_sensor_page(window_config),
@@ -2076,17 +2071,3 @@ void chk_download_button_toggled_handler(GtkRadioButton *button,
 	app->config->downloading_after_connecting = FALSE;
 }
 /*******************************************************************************/
-void change_notebook_page_handler(GtkNotebook *notebook, GtkNotebookPage *page,
-                                	    guint page_num, gpointer user_data){
-/*
-    guint	current_page = gtk_notebook_get_current_page(notebook);
-    // if not first start hide previos page
-    if(current_page >= 0)
-	gtk_widget_hide_all(gtk_notebook_get_nth_page(notebook, current_page));
-    // and allways show requested page
-    gtk_widget_show_all(gtk_notebook_get_nth_page(notebook, page_num));
-    gtk_widget_show_all(GTK_WIDGET(user_data));
-*/
-}
-/*******************************************************************************/
-

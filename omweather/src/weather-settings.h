@@ -67,10 +67,7 @@ void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_n
 #ifdef OS2008
 void delete_all_gps_stations(void);
 #endif
-
 void highlight_current_station(GtkTreeView *tree_view);
-extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
-				    int image_size, gboolean with_border);
 /*******************************************************************************/
 void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
@@ -86,8 +83,6 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
 void chk_download_button_toggled_handler(GtkRadioButton *button,
 							    gpointer user_data);
-void change_notebook_page_handler(GtkNotebook *notebook, GtkNotebookPage *page,
-                                    guint page_num, gpointer user_data);
 /*******************************************************************************/
 extern void redraw_home_window(void);
 extern void remove_periodic_event(void);
@@ -112,5 +107,7 @@ extern GtkWidget* create_sensor_page(GtkWidget *config_window);
 extern int check_entry_text(GtkEntry *entry);
 extern void read_sensor(void);
 #endif
+extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
+				    int image_size, gboolean with_border);
 /*******************************************************************************/
 #endif

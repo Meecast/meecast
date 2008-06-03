@@ -7,7 +7,7 @@ Standards-Version: 3.6.0
 
 Package: omweather-stations-db
 Architecture: all
-Depends: omweather (>=0.16)
+Depends: omweather (>=0.21)
 Description: Stations database
  for Other Maemo Weather
  © 2006-2008 by Vlad Vasiliev and Pavel Fialko

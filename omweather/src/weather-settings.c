@@ -1144,6 +1144,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				gtk_label_new(_("Country:")),
                     		0, 1, 5, 6);
     /* countries list  */
+/*
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				countries = gtk_combo_box_new_text(),
 				1, 2, 5, 6);
@@ -1151,6 +1152,11 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(countries), 0);
     gtk_combo_box_set_model(GTK_COMBO_BOX(countries),
 			    (GtkTreeModel*)app->countrys_list);
+*/
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				app->countries,
+				1, 2, 5, 6);
+    list.countries = app->countries;
     /* States label */
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				gtk_label_new(_("State:")),
@@ -1187,14 +1193,14 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_widget_set_size_request(states, 300, -1);
     gtk_widget_set_size_request(stations, 300, -1);
 /* Set default value to country combo_box */
-    gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
+    gtk_combo_box_set_active(GTK_COMBO_BOX(app->countries),
 				get_active_item_index((GtkTreeModel*)app->countrys_list,
 				-1, app->config->current_country, TRUE));
     /* fill states list */
     changed_country_handler(NULL, (gpointer)window_config);
     /* fill stations list */
     changed_state_handler(NULL, (gpointer)window_config);
-    g_signal_connect(countries, "changed",
+    g_signal_connect(app->countries, "changed",
             		G_CALLBACK(changed_country_handler),
 			(gpointer)window_config);
     g_signal_connect(states, "changed",
@@ -1639,7 +1645,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*wind_meters = NULL,
 			*wind_kilometers = NULL;
     gboolean		valid = FALSE;
-#ifndef HILDON
+#ifndef OS2008
     gboolean		need_correct_layout_for_OS2007 = FALSE;
 #endif
     GtkTreeIter		iter;
@@ -1687,7 +1693,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	    app->config->days_to_show
 		= hildon_controlbar_get_value(HILDON_CONTROLBAR(visible_items_number));
 	    (!app->config->days_to_show) && (app->config->days_to_show = 1);
-#ifndef HILDON
+#ifndef OS2008
 	    need_correct_layout_for_OS2007 = TRUE;
 #endif
 	}
@@ -1699,7 +1705,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 		!= gtk_combo_box_get_active((GtkComboBox*)layout_type)){
 	    app->config->icons_layout
 		= gtk_combo_box_get_active((GtkComboBox*)layout_type);
-#ifndef HILDON
+#ifndef OS2008
 	    need_correct_layout_for_OS2007 = TRUE;
 #endif
 	}
@@ -1725,7 +1731,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	    app->config->icons_size
 		= hildon_controlbar_get_value(HILDON_CONTROLBAR(icon_size));
 	    (!app->config->icons_size) && (app->config->icons_size = 1);
-#ifndef HILDON
+#ifndef OS2008
 	    need_correct_layout_for_OS2007 = TRUE;
 #endif
 	}
@@ -1815,7 +1821,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 		!= gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_station_name))){
 	    app->config->hide_station_name
 		= gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_station_name));
-#ifndef HILDON
+#ifndef OS2008
 	    need_correct_layout_for_OS2007 = TRUE;
 #endif
 	}
@@ -1854,7 +1860,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 		!= gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_arrows))){
 	    app->config->hide_arrows
 		= gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_arrows));
-#ifndef HILDON
+#ifndef OS2008
 	    need_correct_layout_for_OS2007 = TRUE;
 #endif
 	}
@@ -1893,7 +1899,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	    app->config->data_valid_interval = 3600 * (1 << gtk_combo_box_get_active((GtkComboBox*)validtime));
 	}
     }
-#ifndef HILDON
+#ifndef OS2008
 /* add param for close button handler */
     if(need_correct_layout_for_OS2007)
 	g_object_set_data(G_OBJECT(config_window),
@@ -1911,7 +1917,7 @@ void close_button_handler(GtkWidget *button, GdkEventButton *event,
 		*notebook = NULL;
     guint	current_page = 0;
     gboolean	need_update_weather = FALSE;
-#ifndef HILDON
+#ifndef OS2008
     gboolean	need_correct_layout_for_OS2007 = FALSE;
 #endif
 #ifdef DEBUGFUNCTIONCALL
@@ -1923,17 +1929,18 @@ void close_button_handler(GtkWidget *button, GdkEventButton *event,
     
     if(g_object_get_data(G_OBJECT(user_data), "need_update_weather"))
 	need_update_weather = TRUE;
-#ifndef HILDON
+#ifndef OS2008
     if(g_object_get_data(G_OBJECT(user_data), "need_correct_layout_for_OS2007"))
 	need_correct_layout_for_OS2007 = TRUE;
 #endif
     gtk_widget_destroy(config_window);
+    app->countries = create_countries_widget();
 /* check if update is needed */
     if(need_update_weather){
 	update_weather(TRUE);
 	redraw_home_window();
     }
-#ifndef HILDON
+#ifndef OS2008
 /* check if correct layout needed */
     if(need_correct_layout_for_OS2007)
         hildon_banner_show_information(app->main_window,
@@ -2069,5 +2076,15 @@ void chk_download_button_toggled_handler(GtkRadioButton *button,
     }
     else
 	app->config->downloading_after_connecting = FALSE;
+}
+/*******************************************************************************/
+GtkWidget* create_countries_widget(void){
+    GtkWidget	*countries = NULL;
+    
+    countries = gtk_combo_box_new_text();
+    gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(countries), 0);
+    gtk_combo_box_set_model(GTK_COMBO_BOX(countries),
+			    (GtkTreeModel*)app->countrys_list);
+    return countries;
 }
 /*******************************************************************************/

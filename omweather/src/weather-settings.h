@@ -68,6 +68,7 @@ void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_n
 void delete_all_gps_stations(void);
 #endif
 void highlight_current_station(GtkTreeView *tree_view);
+GtkWidget* create_countries_widget(void);
 /*******************************************************************************/
 void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);

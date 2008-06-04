@@ -647,7 +647,8 @@ GtkWidget* create_current_tab(GSList *current){
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), icon_image, TRUE, TRUE, 0);
     /* temperature */
     memset(buffer, 0, sizeof(buffer));
-    strcat(buffer, _("Temperature: "));
+    sprintf(buffer, "%s\n", item_value(current, "title"));
+    sprintf(buffer + strlen(buffer), "%s",  _("Temperature: "));
     sprintf(buffer + strlen(buffer), "  %d\302\260",
                 ((app->config->temperature_units == CELSIUS) ?
 			( atoi(item_value(current, "temperature"))) :

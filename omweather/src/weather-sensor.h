@@ -35,7 +35,7 @@ void use_sensor_button_toggled_handler(GtkToggleButton *togglebutton,
                                         		    gpointer user_data);
 void display_group_change_handler(GtkRadioButton *button, gpointer user_data);
 int check_entry_text(GtkEntry *entry);
-void read_sensor(gboolean need_redraw);
+void read_sensor();
 /*******************************************************************************/
 extern void redraw_home_window(void);
 /*******************************************************************************/

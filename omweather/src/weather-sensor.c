@@ -144,13 +144,12 @@ int check_entry_text(GtkEntry *entry){
     return error;
 }
 /*******************************************************************************/
-void read_sensor(gboolean need_redraw){
+void read_sensor(){
     FILE	*file;
     gchar	buffer[128];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    fprintf(stderr,"TEST %i\n",need_redraw);
     if(!(file = fopen(SENSOR, "r")))
 	return;
     memset(buffer, 0, sizeof(buffer));
@@ -160,7 +159,7 @@ void read_sensor(gboolean need_redraw){
     }
     fclose(file);
     app->sensor_data = atof(buffer) / 1000.0f;
-    if (need_redraw)
+    if (app->need_redraw)
 	redraw_home_window();
 }
 /*******************************************************************************/

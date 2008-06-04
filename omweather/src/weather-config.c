@@ -445,10 +445,12 @@ int new_read_config(AppletConfig *config){
         config->sensor_update_time = 1;
 /* start timer for read data from device temperature sensor */
     if(config->use_sensor){
-	read_sensor(FALSE);
+    	app->need_redraw = FALSE;
+	read_sensor();
+	app->need_redraw = TRUE;
 	app->sensor_timer = g_timeout_add(config->sensor_update_time * 1000 * 60,
-                                            (GtkFunction)read_sensor(TRUE),
-                                            app->main_window);
+                                            (GtkFunction)read_sensor,
+                                            NULL);
     }
 #endif
     /* Get auto_downloading_after_connecting. Default is FALSE */

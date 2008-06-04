@@ -81,7 +81,7 @@ extern void initial_gps_connect(void);
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 extern float mb2inch(float pressure);
 #ifdef OS2008
-extern void read_sensor(gboolean need_redraw);
+extern void read_sensor(void);
 #endif
 /*******************************************************************************/
 extern gchar	path_large_icon[];

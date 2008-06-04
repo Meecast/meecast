@@ -1842,8 +1842,8 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	if(app->config->use_sensor){
 	    g_source_remove(app->sensor_timer);
 	    app->sensor_timer = g_timeout_add(app->config->sensor_update_time * 1000,
-                                            (GtkFunction)read_sensor(TRUE),
-                                            app->main_window);
+                                            (GtkFunction)read_sensor,
+                                            NULL);
 	}
     }
 #endif

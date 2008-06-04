@@ -269,6 +269,7 @@ typedef struct OMWeatherApplet{
     gdouble		temporary_station_latitude;
     gdouble		temporary_station_longtitude;
     float		sensor_data;
+    gboolean		need_redraw;
 #endif
     gchar               temperature_string[1024];
     gchar               forecast_string[2048];

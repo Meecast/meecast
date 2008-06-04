@@ -106,7 +106,7 @@ extern GtkWidget* create_tree_view(GtkListStore* list);
 #ifdef OS2008
 extern GtkWidget* create_sensor_page(GtkWidget *config_window);
 extern int check_entry_text(GtkEntry *entry);
-extern void read_sensor(void);
+extern void read_sensor(gboolean need_redraw);
 #endif
 extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
 				    int image_size, gboolean with_border);

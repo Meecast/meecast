@@ -99,7 +99,7 @@ extern void add_gps_event(guint interval);
 extern gboolean switch_timer_handler(gpointer data);
 extern void update_weather(gboolean show_update_window);
 #ifdef OS2008
-extern void read_sensor(void);
+extern void read_sensor(gboolean need_redraw);
 #endif
 /*******************************************************************************/
 #endif

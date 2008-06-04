@@ -767,7 +767,6 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->show_update_window = FALSE;
     app->countrys_list = NULL;
     app->countrys_list = create_items_list(COUNTRIESFILE, -1, -1, NULL);
-    app->countries = create_countries_widget();
 
 /* Start timer */
     timer(60000);  /* One per minute */

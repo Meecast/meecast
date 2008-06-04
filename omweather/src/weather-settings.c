@@ -1144,7 +1144,6 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				gtk_label_new(_("Country:")),
                     		0, 1, 5, 6);
     /* countries list  */
-/*
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				countries = gtk_combo_box_new_text(),
 				1, 2, 5, 6);
@@ -1152,11 +1151,6 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(countries), 0);
     gtk_combo_box_set_model(GTK_COMBO_BOX(countries),
 			    (GtkTreeModel*)app->countrys_list);
-*/
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				app->countries,
-				1, 2, 5, 6);
-    list.countries = app->countries;
     /* States label */
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				gtk_label_new(_("State:")),
@@ -1189,18 +1183,18 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				add_station_button2,
 				2, 3, 7, 8);
     /* Set size */
-    gtk_widget_set_size_request(app->countries, 300, -1);
+    gtk_widget_set_size_request(countries, 300, -1);
     gtk_widget_set_size_request(states, 300, -1);
     gtk_widget_set_size_request(stations, 300, -1);
 /* Set default value to country combo_box */
-    gtk_combo_box_set_active(GTK_COMBO_BOX(app->countries),
+    gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
 				get_active_item_index((GtkTreeModel*)app->countrys_list,
 				-1, app->config->current_country, TRUE));
     /* fill states list */
     changed_country_handler(NULL, (gpointer)window_config);
     /* fill stations list */
     changed_state_handler(NULL, (gpointer)window_config);
-    g_signal_connect(app->countries, "changed",
+    g_signal_connect(countries, "changed",
             		G_CALLBACK(changed_country_handler),
 			(gpointer)window_config);
     g_signal_connect(states, "changed",
@@ -1934,7 +1928,6 @@ void close_button_handler(GtkWidget *button, GdkEventButton *event,
 	need_correct_layout_for_OS2007 = TRUE;
 #endif
     gtk_widget_destroy(config_window);
-    app->countries = create_countries_widget();
 /* check if update is needed */
     if(need_update_weather){
 	update_weather(TRUE);
@@ -2076,15 +2069,5 @@ void chk_download_button_toggled_handler(GtkRadioButton *button,
     }
     else
 	app->config->downloading_after_connecting = FALSE;
-}
-/*******************************************************************************/
-GtkWidget* create_countries_widget(void){
-    GtkWidget	*countries = NULL;
-    
-    countries = gtk_combo_box_new_text();
-    gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(countries), 0);
-    gtk_combo_box_set_model(GTK_COMBO_BOX(countries),
-			    (GtkTreeModel*)app->countrys_list);
-    return countries;
 }
 /*******************************************************************************/

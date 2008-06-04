@@ -83,7 +83,6 @@ extern float mb2inch(float pressure);
 #ifdef OS2008
 extern void read_sensor(gboolean need_redraw);
 #endif
-extern GtkWidget* create_countries_widget(void);
 /*******************************************************************************/
 extern gchar	path_large_icon[];
 /*******************************************************************************/

@@ -1981,10 +1981,13 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 #endif
     /* get pressed button name */    
     pressed_button = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
-    if(!strcmp((char*)pressed_button, "add_name") ||
+    fprintf(stderr,"1Pressed %s\n",pressed_button);
+    if(pressed_button &&
+	    !strcmp((char*)pressed_button, "add_name") ||
 	    !strcmp((char*)pressed_button, "add_code")){
 	station_name_entry = lookup_widget(config, "station_name_entry");
 	station_code_entry = lookup_widget(config, "station_code_entry");
+	fprintf(stderr,"Pressed %s\n",pressed_button);
     }
     else{
 	stations = lookup_widget(config, "stations");

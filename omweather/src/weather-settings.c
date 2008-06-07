@@ -1981,29 +1981,34 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 #endif
     /* get pressed button name */    
     pressed_button = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
-    fprintf(stderr,"1Pressed %s\n",pressed_button);
-    if(pressed_button &&
-	    !strcmp((char*)pressed_button, "add_name") ||
-	    !strcmp((char*)pressed_button, "add_code")){
+
+    if (!pressed_button)
+        return;
+
+    if  ( !strcmp((char*)pressed_button, "add_name")){
 	station_name_entry = lookup_widget(config, "station_name_entry");
-	station_code_entry = lookup_widget(config, "station_code_entry");
 	fprintf(stderr,"Pressed %s\n",pressed_button);
     }
     else{
-	stations = lookup_widget(config, "stations");
-	if(stations){
-	    if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(stations), &iter)){
-		model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
-		gtk_tree_model_get(model, &iter, 0, &station_name,
+        if (!strcmp((char*)pressed_button, "add_code")){
+	    station_code_entry = lookup_widget(config, "station_code_entry");
+        }
+        else{
+	    stations = lookup_widget(config, "stations");
+	    if(stations){
+	        if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(stations), &iter)){
+		    model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
+		    gtk_tree_model_get(model, &iter, 0, &station_name,
 					    1, &station_code, -1);
-		add_station_to_user_list(station_name, station_code, FALSE);
-		g_free(station_name);
-		g_free(station_code);
-		new_config_save(app->config);
-		/* set selected station to nothing */
-		gtk_combo_box_set_active((GtkComboBox*)stations, -1);
-		/* disable add button */
-		gtk_widget_set_sensitive(GTK_WIDGET(button), FALSE);
+		    add_station_to_user_list(station_name, station_code, FALSE);
+		    g_free(station_name);
+		    g_free(station_code);
+		    new_config_save(app->config);
+		    /* set selected station to nothing */
+		    gtk_combo_box_set_active((GtkComboBox*)stations, -1);
+		    /* disable add button */
+		    gtk_widget_set_sensitive(GTK_WIDGET(button), FALSE);
+		}
 	    }
 	}
     }

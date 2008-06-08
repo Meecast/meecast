@@ -1097,11 +1097,16 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				station_name = gtk_entry_new(),
                     		1, 2, 1, 2);
     GLADE_HOOKUP_OBJECT(window_config, station_name, "station_name_entry");
+    gtk_widget_set_name(station_name, "station_name");
+    g_signal_connect(G_OBJECT(station_name), "changed",
+			G_CALLBACK(changed_handler),
+			(gpointer)window_config);
     /* add station button */
     add_station_button = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
     gtk_widget_set_size_request(add_station_button, 30, 30);
     gtk_widget_set_name(add_station_button, "add_name");
     GLADE_HOOKUP_OBJECT(window_config, add_station_button, "add_station_button_name");
+    gtk_widget_set_sensitive(add_station_button, FALSE);
     g_signal_connect(G_OBJECT(add_station_button), "button_press_event",
 			G_CALLBACK(add_button_handler),
 			(gpointer)window_config);
@@ -1120,8 +1125,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     GLADE_HOOKUP_OBJECT(window_config, station_code, "station_code_entry");
     g_signal_connect(G_OBJECT(station_code), "changed",
 			G_CALLBACK(changed_handler),
-			(gpointer)window_config);    			
-
+			(gpointer)window_config);
 
     /* add button */
     add_station_button1 = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
@@ -1980,23 +1984,30 @@ void changed_handler(GtkWidget *edit,  gpointer user_data){
     gchar		*pressed_edit = NULL;
     GtkWidget		*config = GTK_WIDGET(user_data),
 			*button = NULL;
-
-
+			
     /* get pressed gtkedit name */    
     pressed_edit = (gchar*)gtk_widget_get_name(GTK_WIDGET(edit));
 
     if (!pressed_edit)
         return;
         
-    if  ( !strcmp((char*)pressed_edit, "station_code")){
+    if  ( !strcmp((char*)pressed_edit, "station_code"))
 	button = lookup_widget(user_data, "add_code_button_name");
-	
-	if (strlen(gtk_entry_get_text((GtkEntry*)edit))>0)
-		gtk_widget_set_sensitive(GTK_WIDGET(button), TRUE);
-	else
-		gtk_widget_set_sensitive(GTK_WIDGET(button), FALSE);
-	
-    }
+    else
+	button = lookup_widget(user_data, "add_station_button_name");
+    /* Change sensitive of button */
+    if (strlen(gtk_entry_get_text((GtkEntry*)edit))>0)
+	gtk_widget_set_sensitive(GTK_WIDGET(button), TRUE);
+    else
+	gtk_widget_set_sensitive(GTK_WIDGET(button), FALSE);
+}
+/*******************************************************************************/
+int lookup_and_select_station(gchar *station_name, Station *result){
+    memset(result->name, 0, sizeof(result->name));
+    memset(result->id0, 0, sizeof(result->id0));
+//    result->id0="BOXX0014";
+//    result->name="Vicebsk";
+    return 0;
 }
 /*******************************************************************************/
 void add_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -2012,6 +2023,7 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
     gchar		*station_name = NULL,
 			*station_code = NULL;
     gboolean            station_code_invalid = TRUE;
+    Station		select_station;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -2023,6 +2035,10 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 
     if  ( !strcmp((char*)pressed_button, "add_name")){
 	station_name_entry = lookup_widget(config, "station_name_entry");
+	if (lookup_and_select_station(gtk_entry_get_text((GtkEntry*)station_name_entry),&select_station)==0){
+	    gtk_entry_set_text(((GtkEntry*)station_name_entry),"");
+	}
+	  
     }
     else{
         if (!strcmp((char*)pressed_button, "add_code")){

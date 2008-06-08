@@ -144,12 +144,6 @@ struct time_update{
     gchar	*name_between_time;  /* Human string it time */
 };
 /*******************************************************************************/
-struct weather_station{
-    gchar	*id_station;
-    gchar	*name_station;
-    gboolean    is_gps;
-};
-/*******************************************************************************/
 typedef	struct{
     char	name[50];
     long	start;

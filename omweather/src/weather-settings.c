@@ -29,6 +29,7 @@
 #include "weather-locations.h"
 #include "weather-help.h"
 #include "weather-utils.h"
+#include <errno.h>
 #ifdef OS2008
     #include <hildon/hildon-controlbar.h>
 #else
@@ -2003,10 +2004,126 @@ void changed_handler(GtkWidget *edit,  gpointer user_data){
 }
 /*******************************************************************************/
 int lookup_and_select_station(gchar *station_name, Station *result){
+
+    FILE		*fh;
+    GtkListStore	*list = NULL;
+    GtkTreeIter		iter;
+    char		buffer[512];
+    Station		station;
+    GtkWidget		*window_select_station = NULL,
+			*station_list_view = NULL,
+			*scrolled_window = NULL,
+			*label = NULL,
+			*table = NULL;
+
+    /* Prepare */
     memset(result->name, 0, sizeof(result->name));
     memset(result->id0, 0, sizeof(result->id0));
+
+    fh = fopen(LOCATIONSFILE, "rt");
+    if(!fh){
+	fprintf(stderr, "\nCan't read file %s: %s", LOCATIONSFILE,
+		strerror(errno));
+	return -1;	
+    }
+    list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING,
+				 G_TYPE_DOUBLE, G_TYPE_DOUBLE);
+    while(!feof(fh)){
+	memset(buffer, 0, sizeof(buffer));
+	fgets(buffer, sizeof(buffer) - 1, fh);
+	if(!parse_station_string(buffer, &station)){
+	    if (strcasestr(station.name,station_name)){
+		fprintf(stderr,"Name: %s\n",station.name);
+		gtk_list_store_append(list, &iter);
+		gtk_list_store_set(list, &iter,
+				    0, station.name,
+				    1, station.id0,
+				    2, station.latitude,
+				    3, station.longtitude,
+				    -1);
+	    }
+	}
+    }
+    
+    /* Create dialog window */
+    window_select_station = gtk_dialog_new_with_buttons(_("Select Station"),
+        						NULL,
+							GTK_DIALOG_MODAL,
+							NULL);
+    /* Add buttons */
+    gtk_dialog_add_button(GTK_DIALOG(window_select_station),
+        		    _("OK"), GTK_RESPONSE_ACCEPT);
+    gtk_dialog_add_button(GTK_DIALOG(window_select_station),
+        		    _("Cancel"), GTK_RESPONSE_REJECT);
+
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window_select_station)->vbox),
+        		    table = gtk_table_new(2, 2, FALSE), TRUE, TRUE, 0);	    
+
+   /* Add Label and Edit field for station name */
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_label_new(_("List of the found station(s):")),
+        			0, 1, 0, 1);
+    gtk_table_attach_defaults(GTK_TABLE(table),
+        			label = gtk_alignment_new(0.f, 0.f, 0.f, 0.f),
+        			0, 1, 1, 2);
+    /* Stations list */
+    scrolled_window = gtk_scrolled_window_new(NULL, NULL);
+    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
+					GTK_SHADOW_ETCHED_IN);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
+                                 GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 220, 280);
+
+    station_list_view = create_tree_view(list);
+    gtk_container_add(GTK_CONTAINER(scrolled_window),
+                	GTK_WIDGET(station_list_view));
+
+    gtk_container_add(GTK_CONTAINER(label), scrolled_window);
+    /* set size for dialog */
+    gtk_widget_set_size_request(GTK_WIDGET(window_select_station), 350, -1);
+    gtk_widget_show_all(window_select_station);
+
+    /* start dialog */
+    switch(gtk_dialog_run(GTK_DIALOG(window_select_station))){
+	case GTK_RESPONSE_ACCEPT:/* Press Button Ok */
+	/*
+	    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list),
+                                                  &iter);
+	    while(valid){
+    		gtk_tree_model_get(GTK_TREE_MODEL(list),
+                        	    &iter,
+                    		    0, &station_name,
+                        	    1, &station_code,
+                        	    -1);
+    		if(!strcmp(selected_station_name, station_name)){
+		    g_free(station_name);
+		    gtk_list_store_remove(app->user_stations_list, &iter);
+		    
+                    add_station_to_user_list( g_strdup(gtk_entry_get_text(GTK_ENTRY(station_name_edit))),
+					    station_code, FALSE);
+		    if(app->config->current_station_name)
+			g_free(app->config->current_station_name);
+		    app->config->current_station_name = g_strdup(gtk_entry_get_text(GTK_ENTRY(station_name_edit)));
+		    new_config_save(app->config);
+		    flag_update_station = TRUE;
+		    weather_frame_update(TRUE);
+        	    break;
+		}else{
+		    g_free(station_name);
+		    g_free(station_code);
+		}
+		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+                                                        &iter);
+    	    }
+    	*/
+	break;
+	default:
+	break;
+    }
+    gtk_widget_destroy(window_select_station);
 //    result->id0="BOXX0014";
 //    result->name="Vicebsk";
+    fclose(fh);
     return 0;
 }
 /*******************************************************************************/

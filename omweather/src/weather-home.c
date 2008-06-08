@@ -681,8 +681,6 @@ void redraw_home_window(void){
 	    hildon_banner_show_information(app->main_window,
 					    NULL,
 					    _("Wrong station code \nor ZIP code!!!"));
-	weather_window_settings(NULL, NULL, 0);
-	    return;
     } /* Error in xml file */
     draw_home_window(count_day);
 }

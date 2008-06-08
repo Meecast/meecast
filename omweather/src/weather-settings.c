@@ -818,6 +818,9 @@ void highlight_current_station(GtkTreeView *tree_view){
     gboolean		valid;
     GtkTreePath		*path;
     GtkTreeModel	*model;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);
@@ -1098,6 +1101,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     add_station_button = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
     gtk_widget_set_size_request(add_station_button, 30, 30);
     gtk_widget_set_name(add_station_button, "add_name");
+    GLADE_HOOKUP_OBJECT(window_config, add_station_button, "add_station_button_name");
     g_signal_connect(G_OBJECT(add_station_button), "button_press_event",
 			G_CALLBACK(add_button_handler),
 			(gpointer)window_config);
@@ -1112,11 +1116,19 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				station_code = gtk_entry_new(),
                     		1, 2, 2, 3);
+    gtk_widget_set_name(station_code, "station_code");
     GLADE_HOOKUP_OBJECT(window_config, station_code, "station_code_entry");
+    g_signal_connect(G_OBJECT(station_code), "changed",
+			G_CALLBACK(changed_handler),
+			(gpointer)window_config);    			
+
+
     /* add button */
     add_station_button1 = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
     gtk_widget_set_size_request(add_station_button1, 30, 30);
     gtk_widget_set_name(add_station_button1, "add_code");
+    GLADE_HOOKUP_OBJECT(window_config, add_station_button1, "add_code_button_name");
+    gtk_widget_set_sensitive(add_station_button1, FALSE);
     g_signal_connect(G_OBJECT(add_station_button1), "button_press_event",
 			G_CALLBACK(add_button_handler),
 			(gpointer)window_config);
@@ -1964,6 +1976,29 @@ void back_button_handler(GtkWidget *button, GdkEventButton *event,
     weather_window_popup(NULL, NULL, (gpointer)day_number);
 }
 /*******************************************************************************/
+void changed_handler(GtkWidget *edit,  gpointer user_data){
+    gchar		*pressed_edit = NULL;
+    GtkWidget		*config = GTK_WIDGET(user_data),
+			*button = NULL;
+
+
+    /* get pressed gtkedit name */    
+    pressed_edit = (gchar*)gtk_widget_get_name(GTK_WIDGET(edit));
+
+    if (!pressed_edit)
+        return;
+        
+    if  ( !strcmp((char*)pressed_edit, "station_code")){
+	button = lookup_widget(user_data, "add_code_button_name");
+	
+	if (strlen(gtk_entry_get_text((GtkEntry*)edit))>0)
+		gtk_widget_set_sensitive(GTK_WIDGET(button), TRUE);
+	else
+		gtk_widget_set_sensitive(GTK_WIDGET(button), FALSE);
+	
+    }
+}
+/*******************************************************************************/
 void add_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data){
     GtkWidget		*config = GTK_WIDGET(user_data),
@@ -1976,6 +2011,7 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
     GtkTreeIter		iter;
     gchar		*station_name = NULL,
 			*station_code = NULL;
+    gboolean            station_code_invalid = TRUE;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1987,11 +2023,22 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 
     if  ( !strcmp((char*)pressed_button, "add_name")){
 	station_name_entry = lookup_widget(config, "station_name_entry");
-	fprintf(stderr,"Pressed %s\n",pressed_button);
     }
     else{
         if (!strcmp((char*)pressed_button, "add_code")){
 	    station_code_entry = lookup_widget(config, "station_code_entry");
+	    station_code_invalid = check_station_code(gtk_entry_get_text((GtkEntry*)station_code_entry));
+	    if(!station_code_invalid){
+	        add_station_to_user_list(g_strdup(gtk_entry_get_text((GtkEntry*)station_code_entry)),
+	                                 g_strdup(gtk_entry_get_text((GtkEntry*)station_code_entry)), 
+	                                 FALSE);
+	        new_config_save(app->config);
+	        gtk_entry_set_text(((GtkEntry*)station_code_entry),"");
+	        /* disable add button */
+		gtk_widget_set_sensitive(GTK_WIDGET(button), FALSE);
+	    }else{
+	    /* Need Error window */
+	    }
         }
         else{
 	    stations = lookup_widget(config, "stations");
@@ -1999,7 +2046,7 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 	        if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(stations), &iter)){
 		    model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
 		    gtk_tree_model_get(model, &iter, 0, &station_name,
-					    1, &station_code, -1);
+					   1, &station_code, -1);
 		    add_station_to_user_list(station_name, station_code, FALSE);
 		    g_free(station_name);
 		    g_free(station_code);

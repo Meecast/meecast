@@ -2151,7 +2151,7 @@ int lookup_and_select_station(gchar *station_name, Station *result){
     		    /* copy selected station to result */
     		    memcpy(result->name, station_name_temp, ((sizeof(result->name) - 1) > ((int)strlen(station_name_temp)) ?
 				    ((int)strlen(station_name_temp)) : (sizeof(result->name) - 1)));
-    		    memcpy(result->id0, station_name_temp, ((sizeof(result->id0) - 1) > ((int)strlen(station_id0)) ?
+    		    memcpy(result->id0, station_id0, ((sizeof(result->id0) - 1) > ((int)strlen(station_id0)) ?
 				    ((int)strlen(station_id0)) : (sizeof(result->id0) - 1)));
 		}
 		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list),

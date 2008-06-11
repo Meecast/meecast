@@ -1070,12 +1070,19 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 /* Rename station entry */
     rename_entry = gtk_entry_new();
     GLADE_HOOKUP_OBJECT(window_config, rename_entry, "rename_entry");
+    g_signal_connect(G_OBJECT(rename_entry), "changed",
+			G_CALLBACK(changed_handler),
+			(gpointer)window_config);
+
     gtk_table_attach_defaults(GTK_TABLE(left_table), 
 				rename_entry,
 				0, 1, 2, 3);
 /* Rename apply button */
     apply_rename_button =
 	    create_button_with_image(BUTTON_ICONS, "apply", 30, FALSE);
+    GLADE_HOOKUP_OBJECT(window_config, apply_rename_button , "apply_rename_button_name");
+    gtk_widget_set_name(apply_rename_button, "apply_rename_button");
+    gtk_widget_set_sensitive(GTK_WIDGET(apply_rename_button), FALSE);
     g_signal_connect(G_OBJECT(apply_rename_button), "button_press_event",
                 	G_CALLBACK(rename_button_handler),
 			(gpointer)window_config);
@@ -1985,7 +1992,7 @@ void changed_handler(GtkWidget *edit,  gpointer user_data){
     gchar		*pressed_edit = NULL;
     GtkWidget		*config = GTK_WIDGET(user_data),
 			*button = NULL;
-			
+
     /* get pressed gtkedit name */    
     pressed_edit = (gchar*)gtk_widget_get_name(GTK_WIDGET(edit));
 
@@ -1995,7 +2002,10 @@ void changed_handler(GtkWidget *edit,  gpointer user_data){
     if  ( !strcmp((char*)pressed_edit, "station_code"))
 	button = lookup_widget(user_data, "add_code_button_name");
     else
-	button = lookup_widget(user_data, "add_station_button_name");
+	if ( !strcmp((char*)pressed_edit, "station_name"))
+	    button = lookup_widget(user_data, "add_station_button_name");
+	else 
+	    button = lookup_widget(user_data, "apply_rename_button_name");
     /* Change sensitive of button */
     if (strlen(gtk_entry_get_text((GtkEntry*)edit))>0)
 	gtk_widget_set_sensitive(GTK_WIDGET(button), TRUE);

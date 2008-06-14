@@ -34,9 +34,6 @@
 #endif
 #include <gtk/gtk.h>
 #include <gconf/gconf-client.h>
-#ifndef _XOPEN_SOURCE
-#define _XOPEN_SOURCE /* glibc2 needs this */
-#endif
 #include <time.h>
 #include <libgnomevfs/gnome-vfs.h>
 #include <libxml/parser.h>

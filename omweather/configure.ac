@@ -5,7 +5,7 @@ AC_CONFIG_HEADER([src/config.h:src/config.h.in])
 AC_CONFIG_SRCDIR([src/weather-home.c])
 AC_CANONICAL_HOST
 AC_GNU_SOURCE
-# Checks for programs.
+dnl Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
 AC_PROG_CPP
@@ -16,9 +16,9 @@ AC_PROG_RANLIB
 AC_PROG_CC
 AC_PROG_LIBTOOL
 AC_PROG_INTLTOOL([0.23])	
-# Checks for libraries.
+dnl Checks for libraries.
 
-# Checks for header files.
+dnl Checks for header files.
 AC_HEADER_DIRENT
 AC_HEADER_STDC
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h memory.h netdb.h netinet/in.h stdlib.h string.h sys/param.h sys/socket.h sys/time.h unistd.h])
@@ -27,13 +27,13 @@ AC_CHECK_HEADERS([wchar.h])
 AC_CHECK_HEADERS([limits.h])
 AC_CHECK_HEADERS([math.h])
 
-# Checks for typedefs, structures, and compiler characteristics.
+dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
 AC_HEADER_TIME
 AC_STRUCT_TM
 AC_TYPE_SIZE_T
 
-# Checks for library functions.
+dnl Checks for library functions.
 AC_FUNC_CLOSEDIR_VOID
 AC_FUNC_MALLOC
 AC_FUNC_MKTIME
@@ -42,7 +42,10 @@ AC_FUNC_STAT
 AC_FUNC_STRFTIME
 AC_CHECK_FUNCS([clock_gettime gethostbyname gettimeofday memset strcasecmp strchr strdup strerror strncasecmp strstr setlocale strptime sqrt])
 
-# Localisation
+dnl glibc2 needs this
+AC_DEFINE([_XOPEN_SOURCE], [1], [glibc2 needs this])
+
+dnl Localisation
 localedir=`pkg-config osso-af-settings --variable=localedir`
 GETTEXT_PACKAGE=$PACKAGE
 AC_SUBST(GETTEXT_PACKAGE)
@@ -123,8 +126,6 @@ fi
 AC_SUBST(OSSOIC_LIBS)
 AC_SUBST(OSSOIC_CFLAGS)
 
-
-
 AC_ARG_ENABLE(conic, [ --enable-conic=[yes|no] ], [use_conic=$enableval ])
 if test "$use_conic" != "no"; then
 PKG_CHECK_MODULES(CONIC, [conic],
@@ -161,7 +162,7 @@ AC_SUBST(LIBOSSOHELP_CFLAGS)
 
 AM_CONDITIONAL(OS2008, test "x$use_dbus" != "xyes")		  
 
-# Help file install directory
+dnl Help file install directory
 helpfile_enusdir=$datadir/osso-help/en_US
 AC_SUBST(helpfile_enusdir)
 helpfile_engbdir=$datadir/osso-help/en_GB
@@ -177,16 +178,12 @@ AC_SUBST(helpfile_ititdir)
 helpfile_ititdir=$datadir/osso-help/de_DE
 AC_SUBST(helpfile_dededir)
 
-
-# Checks for library functions.
-AC_CHECK_FUNCS([setlocale])
-
-# Config files
+dnl Config files
 AC_CONFIG_FILES([Makefile
 		src/Makefile
 		po/Makefile.in
 		data/help/Makefile
 		data/Makefile])
-# Produce output files
+dnl Produce output files
 AC_OUTPUT
 

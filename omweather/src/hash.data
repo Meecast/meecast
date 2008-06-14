@@ -17,6 +17,7 @@
 	g_hash_table_insert(hash, "AM Showers", _("AM Showers"));
 	g_hash_table_insert(hash, "AM Snow Showers", _("AM Snow Showers"));
     g_hash_table_insert(hash, "AM Snow", _("AM Snow"));
+	g_hash_table_insert(hash, "Airport Conditions", _("Airport Conditions"));
     g_hash_table_insert(hash, "Blowing Snow", _("Blowing Snow"));    
 	g_hash_table_insert(hash, "CALM", _("CALM"));
     g_hash_table_insert(hash, "Clear / Wind", _("Clear / Wind"));
@@ -56,6 +57,7 @@
 	g_hash_table_insert(hash, "Isolated T-Storms / Wind", _("Isolated T-Storms / Wind"));
 	g_hash_table_insert(hash, "Isolated T-Storms", _("Isolated T-Storms"));
 	g_hash_table_insert(hash, "Last Quarter", _("Last Quarter"));
+	g_hash_table_insert(hash, "Lawn and Garden Weather", _("Lawn and Garden Weather"));
     g_hash_table_insert(hash, "Light Drizzle", _("Light Drizzle"));
 	g_hash_table_insert(hash, "Light Freezing Rain", _("Light Freezing Rain"));
         g_hash_table_insert(hash, "Light Rain / Fog", _("Light Rain / Fog"));    
@@ -75,6 +77,7 @@
 	g_hash_table_insert(hash, "Light Snow Late", _("Light Snow Late"));
     g_hash_table_insert(hash, "Light Snow Shower", _("Light Snow Shower"));
 	g_hash_table_insert(hash, "Light Snow", _("Light Snow"));
+	g_hash_table_insert(hash, "Local Pollen Reports", _("Local Pollen Reports"));
 	g_hash_table_insert(hash, "Low", _("Low"));
     g_hash_table_insert(hash, "Mist", _("Mist"));
 	g_hash_table_insert(hash, "Moderate", _("Moderate"));
@@ -129,6 +132,7 @@
     g_hash_table_insert(hash, "Rain to Wintry Mix / Wind", _("Rain to Wintry Mix / Wind"));
     g_hash_table_insert(hash, "Rain to Wintry Mix", _("Rain to Wintry Mix"));
 	g_hash_table_insert(hash, "Rain", _("Rain"));
+	g_hash_table_insert(hash, "Rush Hour Traffic", _("Rush Hour Traffic"));
 	g_hash_table_insert(hash, "S", _("S"));
 	g_hash_table_insert(hash, "SE", _("SE"));
 	g_hash_table_insert(hash, "SE_short", _("SE_short"));

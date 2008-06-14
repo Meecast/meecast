@@ -170,18 +170,20 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 	    else
 		is_gps = FALSE;
 #endif		
-	    /* Add station to stations list */
-            gtk_list_store_append(*list, &iter);
-            gtk_list_store_set(*list, &iter,
+	    if (station_name && station_code){
+		/* Add station to stations list */
+        	gtk_list_store_append(*list, &iter);
+        	gtk_list_store_set(*list, &iter,
 #ifdef OS2008
-                                0, station_name,
-                                1, station_code,
-				2, is_gps,
+                            	    0, station_name,
+                            	    1, station_code,
+				    2, is_gps,
 #else
-                                0, station_name,
-                                1, station_code,
+                            	    0, station_name,
+                            	    1, station_code,
 #endif
-                                -1);
+                            	    -1);
+            }
 	    station_name && (g_free(station_name) , station_name = NULL);
 	    station_code && (g_free(station_code) , station_code = NULL);
 	}

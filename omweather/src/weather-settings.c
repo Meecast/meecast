@@ -2015,7 +2015,7 @@ int lookup_and_select_station(gchar *station_name, Station *result){
                 	*station_id0 = NULL;
     double       	station_latitude,
         		station_longtitude;
-
+    int 		return_code = 0;
 
     /* Prepare */
     memset(result->name, 0, sizeof(result->name));
@@ -2144,15 +2144,17 @@ int lookup_and_select_station(gchar *station_name, Station *result){
 		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list),
                                                         &iter);
     	    }
+    	    return_code = 0;
 	break;
-	default:
+	default: 
+	    return_code = -1;
 	break;
     }
     if(selected_station_name)
         g_free(selected_station_name);
     gtk_widget_destroy(window_select_station);
 
-    return 0;
+    return return_code;
 }
 /*******************************************************************************/
 void add_button_handler(GtkWidget *button, GdkEventButton *event,

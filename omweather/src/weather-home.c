@@ -71,6 +71,9 @@ static gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    if (!(app->config->current_station_id))
+	return FALSE;
+
     path = gtk_tree_path_new_first();
     valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
 					&iter, path);
@@ -95,7 +98,7 @@ static gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 	    break;
 	}
 	else{
-	    if((app->config->current_station_id) &&
+	    if((app->config->current_station_id) && (station_code) &&
             	    !strcmp(app->config->current_station_id, station_code))
 		ready = TRUE;
 	    g_free(station_name);
@@ -133,6 +136,9 @@ static gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    if (!(app->config->current_station_id))
+	return FALSE;
+
     path = gtk_tree_path_new_first();
     valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
 					&iter, path);
@@ -157,7 +163,8 @@ static gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
 	    break;
 	}
 	else{
-	    if((app->config->current_station_id) &&
+		
+	    if((app->config->current_station_id) && (station_code) &&
             	    !strcmp(app->config->current_station_id, station_code))
 		ready = TRUE;
 	    g_free(station_name);
@@ -183,6 +190,9 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    if (!(app->config->current_station_id) || (!(char*)user_data))
+	return FALSE;
+
     if(!strcmp((char*)user_data, app->config->current_station_id))
 	return TRUE;
 
@@ -194,7 +204,8 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
                             0, &station_name,
                             1, &station_code,
                             -1);
-	if(!strcmp((char*)user_data, station_code)){
+	if( (station_code) &&
+	    !strcmp((char*)user_data, station_code)){
         /* update current station code */
             if(app->config->current_station_id)
                 g_free(app->config->current_station_id);
@@ -933,9 +944,12 @@ void menu_init(void){
                             0, &station_name,
                             1, &station_code,
                             -1);
-	gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu),
-				menu_item = gtk_menu_item_new_with_label(station_name));
-	station_name && (g_free(station_name) , station_name = NULL);
+	if (station_name){
+		gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu),
+					menu_item = gtk_menu_item_new_with_label(station_name));
+		g_free(station_name);
+		station_name = NULL;
+	}
         g_signal_connect(G_OBJECT(menu_item), "activate",
                     	    G_CALLBACK(change_station_select), station_code);
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),

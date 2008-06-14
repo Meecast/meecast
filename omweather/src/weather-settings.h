@@ -83,7 +83,7 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
 void chk_download_button_toggled_handler(GtkRadioButton *button,
 							    gpointer user_data);
-void changed_handler(GtkWidget *edit, gpointer user_data);
+void entry_changed_handler(GtkWidget *entry, gpointer user_data);
 /*******************************************************************************/
 extern void redraw_home_window(void);
 extern void remove_periodic_event(void);

@@ -748,12 +748,10 @@ int get_active_item_index(GtkTreeModel *list, int time, const gchar *text,
 /*******************************************************************************/
 void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
                                         		    gpointer user_data){
-    GtkWidget	*background_color;
+    GtkWidget	*background_color = GTK_WIDGET(user_data);
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    background_color = GTK_WIDGET(user_data);
-    
     if(gtk_toggle_button_get_active(togglebutton))
 	gtk_widget_set_sensitive(background_color, FALSE);
     else
@@ -982,7 +980,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 						    GTK_JUSTIFY_LEFT),
         			gtk_label_new("Events"));
 #endif
-
+    gtk_widget_show(notebook);
 /* Bottom buttons box */
     buttons_box = gtk_hbox_new(FALSE, 0);
     gtk_widget_set_size_request(buttons_box, -1, 60);
@@ -1013,7 +1011,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 /* Pack items to config window */
     gtk_box_pack_start(GTK_BOX(vbox), notebook, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE, FALSE, 0);
-
+    gtk_widget_show(buttons_box);
 /* Locations tab */
     /* left side */
     left_table = gtk_table_new(3, 2, FALSE);
@@ -1036,12 +1034,13 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
                 	GTK_WIDGET(station_list_view));
     gtk_table_attach_defaults(GTK_TABLE(left_table), 
 				scrolled_window,
-                    		0, 1, 1, 2);
+                    		0, 1, 2, 3);
+    
 /* Up Station and Down Station and Delete Station Buttons */
     up_down_delete_buttons_vbox = gtk_vbox_new(FALSE, 5);
     gtk_table_attach_defaults(GTK_TABLE(left_table), 
 				up_down_delete_buttons_vbox,
-                    		1, 2, 1, 2);
+                    		1, 2, 2, 3);
 /* prepare up_station_button */    
     up_station_button = create_button_with_image(NULL, "qgn_indi_arrow_up", 16, TRUE);
     gtk_widget_set_size_request(GTK_WIDGET(up_station_button), 30, -1);
@@ -1070,25 +1069,26 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 /* Rename station entry */
     rename_entry = gtk_entry_new();
     GLADE_HOOKUP_OBJECT(window_config, rename_entry, "rename_entry");
+    gtk_widget_set_name(rename_entry, "rename_entry");
     g_signal_connect(G_OBJECT(rename_entry), "changed",
-			G_CALLBACK(changed_handler),
+			G_CALLBACK(entry_changed_handler),
 			(gpointer)window_config);
 
     gtk_table_attach_defaults(GTK_TABLE(left_table), 
 				rename_entry,
-				0, 1, 2, 3);
+				0, 1, 1, 2);
 /* Rename apply button */
     apply_rename_button =
 	    create_button_with_image(BUTTON_ICONS, "apply", 30, FALSE);
     GLADE_HOOKUP_OBJECT(window_config, apply_rename_button , "apply_rename_button_name");
     gtk_widget_set_name(apply_rename_button, "apply_rename_button");
-    gtk_widget_set_sensitive(GTK_WIDGET(apply_rename_button), FALSE);
     g_signal_connect(G_OBJECT(apply_rename_button), "button_press_event",
                 	G_CALLBACK(rename_button_handler),
 			(gpointer)window_config);
     gtk_table_attach_defaults(GTK_TABLE(left_table), 
 				apply_rename_button,
-				1, 2, 2, 3);
+				1, 2, 1, 2);
+    gtk_widget_set_sensitive(GTK_WIDGET(apply_rename_button), FALSE);
     /* right side */
     right_table = gtk_table_new(9, 3, FALSE);
     gtk_box_pack_start(GTK_BOX(left_right_hbox), right_table,
@@ -1107,7 +1107,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     GLADE_HOOKUP_OBJECT(window_config, station_name, "station_name_entry");
     gtk_widget_set_name(station_name, "station_name");
     g_signal_connect(G_OBJECT(station_name), "changed",
-			G_CALLBACK(changed_handler),
+			G_CALLBACK(entry_changed_handler),
 			(gpointer)window_config);
     /* add station button */
     add_station_button = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
@@ -1132,7 +1132,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_widget_set_name(station_code, "station_code");
     GLADE_HOOKUP_OBJECT(window_config, station_code, "station_code_entry");
     g_signal_connect(G_OBJECT(station_code), "changed",
-			G_CALLBACK(changed_handler),
+			G_CALLBACK(entry_changed_handler),
 			(gpointer)window_config);
 
     /* add button */
@@ -1175,6 +1175,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(countries), 0);
     gtk_combo_box_set_model(GTK_COMBO_BOX(countries),
 			    (GtkTreeModel*)app->countrys_list);
+    gtk_widget_show(countries);
     /* States label */
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				gtk_label_new(_("State:")),
@@ -1184,6 +1185,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				states = gtk_combo_box_new_text(),
 				1, 2, 6, 7);
     list.states = states;
+    gtk_widget_show(states);
     /* Stations label */
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				gtk_label_new(_("City:")),
@@ -1193,6 +1195,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				stations = gtk_combo_box_new_text(),
 				1, 2, 7, 8);
     list.stations = stations;
+    gtk_widget_show(stations);
     GLADE_HOOKUP_OBJECT(window_config, GTK_WIDGET(stations), "stations");
     /* add button */
     add_station_button2 = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
@@ -1618,8 +1621,6 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     highlight_current_station(GTK_TREE_VIEW(station_list_view));
     gtk_entry_set_text(GTK_ENTRY(rename_entry),
 			app->config->current_station_name);
-
-    gtk_widget_show_all(window_config);
 /* set current page and show it for notebook */
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook),
 				    app->config->current_settings_page);
@@ -1627,6 +1628,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_widget_show_all(gtk_notebook_get_nth_page(GTK_NOTEBOOK(notebook),
 				    app->config->current_settings_page));
 */
+    gtk_widget_show_all(window_config);
 }
 /*******************************************************************************/
 void apply_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -1988,29 +1990,41 @@ void back_button_handler(GtkWidget *button, GdkEventButton *event,
     weather_window_popup(NULL, NULL, (gpointer)day_number);
 }
 /*******************************************************************************/
-void changed_handler(GtkWidget *edit,  gpointer user_data){
-    gchar		*pressed_edit = NULL;
-    GtkWidget		*config = GTK_WIDGET(user_data),
-			*button = NULL;
-
+void entry_changed_handler(GtkWidget *entry, gpointer user_data){
+    gchar	*changed_entry_name = NULL;
+    GtkWidget	*button = NULL,
+		*config_window = GTK_WIDGET(user_data);
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     /* get pressed gtkedit name */    
-    pressed_edit = (gchar*)gtk_widget_get_name(GTK_WIDGET(edit));
+    changed_entry_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(entry));
 
-    if (!pressed_edit)
+    if(!changed_entry_name)
         return;
         
-    if  ( !strcmp((char*)pressed_edit, "station_code"))
-	button = lookup_widget(user_data, "add_code_button_name");
-    else
-	if ( !strcmp((char*)pressed_edit, "station_name"))
-	    button = lookup_widget(user_data, "add_station_button_name");
-	else 
-	    button = lookup_widget(user_data, "apply_rename_button_name");
-    /* Change sensitive of button */
-    if (strlen(gtk_entry_get_text((GtkEntry*)edit))>0)
-	gtk_widget_set_sensitive(GTK_WIDGET(button), TRUE);
-    else
-	gtk_widget_set_sensitive(GTK_WIDGET(button), FALSE);
+    if( !strcmp(changed_entry_name, "rename_entry") ){/* check rename entry */
+	button = lookup_widget(config_window, "apply_rename_button_name");
+	if(button){
+	    if(strcmp((char*)gtk_entry_get_text(GTK_ENTRY(entry)),
+			app->config->current_station_name))
+		gtk_widget_set_sensitive(button, TRUE);
+	    else
+		gtk_widget_set_sensitive(button, FALSE);
+	}
+    }
+    else{
+	if( !strcmp(changed_entry_name, "station_code") )/* check code entry */
+	    button = lookup_widget(config_window, "add_code_button_name");
+	else
+	    if( !strcmp(changed_entry_name, "station_name") )/* check name entry */
+		button = lookup_widget(config_window, "add_station_button_name");
+	/* Change sensitive of button */
+	if(strlen(gtk_entry_get_text(GTK_ENTRY(entry))) > 0)
+	    gtk_widget_set_sensitive(button, TRUE);
+	else
+	    gtk_widget_set_sensitive(button, FALSE);
+    }
 }
 /*******************************************************************************/
 int lookup_and_select_station(gchar *station_name, Station *result){
@@ -2289,6 +2303,7 @@ void rename_button_handler(GtkWidget *button, GdkEventButton *event,
 		    if(app->config->current_station_name)
 			g_free(app->config->current_station_name);
 		    app->config->current_station_name = g_strdup(new_station_name);
+		    gtk_widget_set_sensitive(button, FALSE);
         	    break;
 		}
 		else

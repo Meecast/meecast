@@ -275,6 +275,7 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 			TRUE, TRUE, 0);
 	set_font_size(label, 40);
     }
+    gtk_widget_show(notebook);
 /* Bottom buttons box */
     buttons_box = gtk_hbox_new(FALSE, 0);
     gtk_widget_set_size_request(buttons_box, -1, 60);

@@ -4,6 +4,7 @@ AM_INIT_AUTOMAKE(omweather, 0.21)
 AC_CONFIG_HEADER([src/config.h:src/config.h.in])
 AC_CONFIG_SRCDIR([src/weather-home.c])
 AC_CANONICAL_HOST
+AC_GNU_SOURCE
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC

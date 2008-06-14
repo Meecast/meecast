@@ -47,5 +47,7 @@ GtkWidget* lookup_widget(GtkWidget* widget, const gchar* widget_name);
 GtkWidget* create_button_with_image(const char *path, const char *image_name,
 				    int image_size, gboolean with_border);
 GtkWidget* create_tree_view(GtkListStore* list);
+GtkWidget* create_scrolled_window_with_text(const char* text,
+					    GtkJustification justification);
 /*******************************************************************************/
 #endif

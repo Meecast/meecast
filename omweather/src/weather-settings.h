@@ -52,8 +52,7 @@ void weather_window_add_custom_station(void);
 int create_icon_set_list(GtkWidget *store); /* scan /usr/share/omweather/icons */
 					     /* and add names to the list */
 void create_about_dialog(void);	/* create help dialog */
-GtkWidget* create_scrolled_window_with_text(const char* text,
-					    GtkJustification justification);
+
 int get_active_item_index(GtkTreeModel *list, int time, const gchar *text,
 					    gboolean use_index_as_result);
 void update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data);
@@ -63,11 +62,13 @@ gboolean check_station_code(const gchar *station_code);
 void up_key_handler(GtkButton *button, gpointer list);
 void down_key_handler(GtkButton *button, gpointer list);
 void delete_station_handler(GtkButton *button, gpointer user_data);
-void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name, gboolean is_gps);
+void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
+				gboolean is_gps);
 #ifdef OS2008
 void delete_all_gps_stations(void);
 #endif
 void highlight_current_station(GtkTreeView *tree_view);
+int lookup_and_select_station(gchar *station_name, Station *result);
 /*******************************************************************************/
 void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
@@ -110,5 +111,7 @@ extern void read_sensor(void);
 #endif
 extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
 				    int image_size, gboolean with_border);
+extern GtkWidget* create_scrolled_window_with_text(const char* text,
+					    GtkJustification justification);
 /*******************************************************************************/
 #endif

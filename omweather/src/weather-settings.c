@@ -583,38 +583,6 @@ void create_about_dialog(void){
     gtk_widget_destroy(help_dialog);
 }
 /*******************************************************************************/
-GtkWidget* create_scrolled_window_with_text(const char* text,
-				GtkJustification justification){
-
-    GtkWidget		*text_view = NULL,
-			*scrolled_window = NULL;
-    GtkTextBuffer	*text_buffer = NULL;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    text_view = gtk_text_view_new();
-    text_buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(text_view));
-    gtk_text_buffer_set_text(GTK_TEXT_BUFFER(text_buffer), text, -1);
-    /* set params of text view */
-    gtk_text_view_set_editable(GTK_TEXT_VIEW(text_view), FALSE);
-    gtk_text_view_set_cursor_visible(GTK_TEXT_VIEW(text_view), FALSE);
-    gtk_text_view_set_justification(GTK_TEXT_VIEW(text_view),
-				    justification);
-    gtk_text_view_set_overwrite(GTK_TEXT_VIEW(text_view), FALSE);
-    gtk_text_view_set_accepts_tab(GTK_TEXT_VIEW(text_view), FALSE);
-    gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(text_view), GTK_WRAP_NONE);
-    /* scrolled window */
-    scrolled_window = gtk_scrolled_window_new(NULL, NULL);
-    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
-					GTK_SHADOW_OUT);
-    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
-                                 GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 550, 200);
-    /* pack childs to the scrolled window */
-    gtk_container_add(GTK_CONTAINER(scrolled_window), GTK_WIDGET(text_view));
-    return scrolled_window;
-}
-/*******************************************************************************/
 void station_list_view_select_handler(GtkTreeView *tree_view,
                                     			    gpointer user_data){
     GtkTreeIter		iter;
@@ -930,11 +898,6 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-/*
-    if(!app->dbus_is_initialize)
-	weather_initialize_dbus();
-*/
-
 /* kill popup window :-) */
     if(app->popup_window)
         gtk_widget_destroy(app->popup_window);

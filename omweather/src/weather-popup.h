@@ -47,6 +47,7 @@ void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
                                                             gpointer user_data);
 GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_current_tab(GSList *current);
+GtkWidget* create_copyright_widget(const gchar *text, const gchar *image);
 /*******************************************************************************/
 extern void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    gpointer user_data);

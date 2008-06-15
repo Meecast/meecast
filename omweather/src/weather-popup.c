@@ -37,6 +37,7 @@
 #endif
 /*******************************************************************************/
 #define MOON_ICONS		"/usr/share/omweather/moon_icons/"
+#define COPYRIGHT_ICONS		"/usr/share/omweather/copyright_icons/"
 /*******************************************************************************/
 /*
 #ifdef HILDON
@@ -298,6 +299,10 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, FALSE, FALSE, 30);
     gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 10);
     gtk_box_pack_start(GTK_BOX(buttons_box), close_button, FALSE, FALSE, 30);
+/* Show copyright widget */
+    gtk_box_pack_start(GTK_BOX(vbox), create_copyright_widget("Test", NULL),
+			FALSE, FALSE, 0);
+/* Pack buttons to the vbox */
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE, FALSE, 0);
 /* check pressed day data accessibility */
     if((gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0) &&
@@ -733,6 +738,48 @@ GtkWidget* create_current_tab(GSList *current){
 			    create_time_updates_widget(current),
 			    TRUE, FALSE, 5);
     gtk_widget_show_all(main_widget);
+    return main_widget;
+}
+/*******************************************************************************/
+GtkWidget* create_copyright_widget(const gchar *text, const gchar *image){
+    GtkWidget	*main_widget = NULL,
+		*hbox = NULL,
+		*label= NULL,
+		*icon = NULL;
+    GdkPixbuf   *icon_buffer = NULL;
+    gchar	image_buffer[512],
+		text_buffer[512];
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    main_widget = gtk_vbox_new(FALSE, 0);
+    hbox = gtk_hbox_new(FALSE, 0);
+/* text */
+    text_buffer[0] = 0;
+    snprintf(text_buffer, sizeof(text_buffer) - 1, "%s%s",
+		_("Weather data provided by: "), text);
+    gtk_box_pack_start(GTK_BOX(hbox),
+			label = gtk_label_new(text_buffer),
+			FALSE, FALSE, 10);
+    set_font_size(label, 12);
+/* icon */
+    if(image){
+	sprintf(image_buffer, "%s%s.png", COPYRIGHT_ICONS, image);
+	icon_buffer = gdk_pixbuf_new_from_file_at_size(image_buffer,
+							MEDIUM_ICON_SIZE,
+							MEDIUM_ICON_SIZE,
+							NULL);
+	if(icon_buffer){
+	    icon = gtk_image_new_from_pixbuf(icon_buffer);
+	    g_object_unref(G_OBJECT(icon_buffer));
+	}
+	else
+    	    icon = NULL;
+	if(icon)
+	    gtk_box_pack_start(GTK_BOX(hbox), icon, FALSE, FALSE, 0);
+    }
+    gtk_box_pack_start(GTK_BOX(main_widget), hbox, FALSE, FALSE, 5);
+    gtk_box_pack_start(GTK_BOX(main_widget), gtk_hseparator_new(), FALSE, TRUE, 5);
     return main_widget;
 }
 /*******************************************************************************/

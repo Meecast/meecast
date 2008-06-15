@@ -42,5 +42,9 @@
 #define OMWEATHER_ADD_CUSTOM_STATION_HELP_ID	"help_omweather_add_custom_station"
 /*******************************************************************************/
 void help_activated_handler(GtkWidget *window, gchar *help_id);
+void create_about_dialog(void);	/* create help dialog */
+/*******************************************************************************/
+extern GtkWidget* create_scrolled_window_with_text(const char* text,
+					    GtkJustification justification);
 /*******************************************************************************/
 #endif

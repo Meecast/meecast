@@ -67,7 +67,7 @@ weather-hash.c:		hash.data
 	    rm $$TMP_FILE; \
 	fi
 
-weather-settings.c:	build
+weather-help.c:	build
 	if test -f build; then \
 	    rm build; \
 	    echo "#define BUILD \""`date +%j`"\"" > build; \

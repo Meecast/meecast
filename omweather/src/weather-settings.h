@@ -64,9 +64,6 @@ void down_key_handler(GtkButton *button, gpointer list);
 void delete_station_handler(GtkButton *button, gpointer user_data);
 void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
 				gboolean is_gps);
-#ifdef OS2008
-void delete_all_gps_stations(void);
-#endif
 void highlight_current_station(GtkTreeView *tree_view);
 int lookup_and_select_station(gchar *station_name, Station *result);
 /*******************************************************************************/

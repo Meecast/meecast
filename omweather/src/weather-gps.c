@@ -171,4 +171,60 @@ deinitial_gps_connect(void)
 #endif
 }
 /*******************************************************************************/
+void delete_all_gps_stations(void){
+    gboolean		valid;
+    GtkTreeIter		iter;
+    gchar		*station_name = NULL,
+	    		*station_code = NULL;
+    gboolean		is_gps = FALSE;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                                  &iter);
+    while(valid){
+    		gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                        	    &iter,
+                    		    0, &station_name,
+                        	    1, &station_code,
+				    2, &is_gps,
+                        	    -1);
+    		if(is_gps){
+		    if(app->config->current_station_id &&
+			!strcmp(app->config->current_station_id,station_code) &&
+			app->config->current_station_name && 
+			!strcmp(app->config->current_station_name,station_name)){
+		        /* deleting current station */
+		        app->gps_must_be_current = TRUE;
+		       	g_free(app->config->current_station_id);
+            		g_free(app->config->current_station_name);					
+		        app->config->current_station_id = NULL;
+			app->config->current_station_name = NULL;
+        		app->config->previos_days_to_show = app->config->days_to_show;
+            	    }
+		    else
+			app->gps_must_be_current = FALSE;		    
+		    valid = gtk_list_store_remove(app->user_stations_list, &iter);
+		}else
+		    valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+                                                        &iter);					
+							
+    	    }
+    /* Set new current_station */
+    if(!app->config->current_station_id){
+	valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                                  &iter);
+	if(valid){
+	    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                        	    &iter,
+                    		    0, &station_name,
+                        	    1, &station_code,
+				    2, &is_gps,
+                        	    -1);
+	    app->config->current_station_id = g_strdup(station_code);
+	    app->config->current_station_name = g_strdup(station_name);
+	}		    	
+    }
+}
+/*******************************************************************************/
 #endif

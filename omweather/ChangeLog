@@ -3,6 +3,7 @@
   * Added possibility to change pressure units
   * Added possibility to displaying wind speed and direction on desktop
   * Files countries.list, regions.list and stations.list has moved into new package (omweather-stations-db)
+  * Added copyright info for weather data
 
 0.20.4
   * Updated Italian translation

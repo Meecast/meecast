@@ -927,7 +927,7 @@ GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent)
 }
 /*******************************************************************************/
 void menu_init(void){
-    GtkWidget	*menu_item;
+    GtkWidget	*menu_item = NULL;
     GtkTreeIter	iter;
     gboolean	valid;
     gchar	*station_name = NULL,
@@ -944,11 +944,11 @@ void menu_init(void){
                             0, &station_name,
                             1, &station_code,
                             -1);
-	if (station_name){
-		gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu),
+	if(station_name){
+	    gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu),
 					menu_item = gtk_menu_item_new_with_label(station_name));
-		g_free(station_name);
-		station_name = NULL;
+	    g_free(station_name);
+	    station_name = NULL;
 	}
         g_signal_connect(G_OBJECT(menu_item), "activate",
                     	    G_CALLBACK(change_station_select), station_code);

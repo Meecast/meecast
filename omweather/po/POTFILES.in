@@ -7,4 +7,5 @@ src/weather-popup.c
 src/hash.data
 src/weather-download.c
 src/weather-sensor.c
+src/weather-help.c
 

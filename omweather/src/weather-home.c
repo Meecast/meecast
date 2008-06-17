@@ -52,11 +52,11 @@
 #define CLICK_TIMEOUT		500
 /*******************************************************************************/
 const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
-    {	"weather.com",
+    {	"weather.com - 1",
 	"/usr/share/omweather/db/weather_com/",
 	"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&link=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5"
     },
-    {	"weather.com",
+    {	"weather.com - 2",
 	"/usr/share/omweather/db/weather_com/",
 	"http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10"
     }

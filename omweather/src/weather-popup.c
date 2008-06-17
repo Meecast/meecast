@@ -300,8 +300,9 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 10);
     gtk_box_pack_start(GTK_BOX(buttons_box), close_button, FALSE, FALSE, 30);
 /* Show copyright widget */
-    gtk_box_pack_start(GTK_BOX(vbox), create_copyright_widget("Test", NULL),
-			FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(vbox),
+	create_copyright_widget(weather_sources[app->config->weather_source].name, NULL),
+				FALSE, FALSE, 0);
 /* Pack buttons to the vbox */
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE, FALSE, 0);
 /* check pressed day data accessibility */

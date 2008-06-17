@@ -32,6 +32,7 @@
 #include "weather-data.h"
 /*******************************************************************************/
 extern	gchar		path_large_icon[];
+extern	WeatherSource	weather_sources[];
 /*******************************************************************************/
 void popup_window_destroy(void);
 GtkWidget* create_sun_time_widget(GSList *day);

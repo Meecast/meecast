@@ -5,6 +5,7 @@ omweather (0.21) unstable; urgency=low
   * Added possibility to displaying wind speed and direction on desktop
   * Files countries.list, regions.list and stations.list has moved into new package (omweather-stations-db)
   * Added copyright info for weather data
+  * Added possibility to change weather data source
  
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 02 Jan 2008 03:36:00 +0200
 

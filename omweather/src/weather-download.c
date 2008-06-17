@@ -32,7 +32,6 @@
 #define USER_DATA_MAGIC 0xaadcaadc
 #endif
 #define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
-#define URL "http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&link=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=%d"
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
@@ -310,8 +309,9 @@ static gboolean form_url_and_filename(gchar *station_code){
         full_filename_new_xml = NULL;
     } 
     url = g_string_new(NULL);        
-    g_string_append_printf(url, URL,
-				    station_code, Max_count_weather_day);
+    g_string_append_printf(url,
+			    weather_sources[app->config->weather_source].url,
+			    station_code);
     full_filename_new_xml = g_string_new(NULL);        
     g_string_append_printf(full_filename_new_xml,"%s/%s.xml.new",
 				    app->config->cache_dir_name,station_code);

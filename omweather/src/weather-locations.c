@@ -34,12 +34,13 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-GtkListStore* create_items_list(const char *filename, long start, long end,
-							    long *items_number){
+GtkListStore* create_items_list(const char *path, const char *filename,
+				long start, long end, long *items_number){
     FILE		*fh;
     GtkListStore	*list = NULL;
     GtkTreeIter		iter;
-    char		buffer[512];
+    gchar		buffer[512],
+			buff[512];
     Region_item		r_item;
     Country_item	c_item;    
     Station		station;
@@ -49,10 +50,14 @@ GtkListStore* create_items_list(const char *filename, long start, long end,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+/* prepare full file name with path */
+    buff[0] = 0;
+    snprintf(buff, sizeof(buff) - 1, "%s%s", path, filename);
+
     max_bytes = end - start;
-    fh = fopen(filename, "rt");
+    fh = fopen(buff, "rt");
     if(!fh){
-	fprintf(stderr, "\nCan't read file %s: %s", filename,
+	fprintf(stderr, "\nCan't read file %s: %s", buff,
 		strerror(errno));
 	items_number && (*items_number = count);
 	list = NULL;
@@ -67,7 +72,7 @@ GtkListStore* create_items_list(const char *filename, long start, long end,
 	    if(fseek(fh, start, SEEK_SET)){
 		fprintf(stderr,
 			"\nCan't seek to the position %ld on %s file: %s\n",
-			start, filename, strerror(errno));
+			start, buff, strerror(errno));
 		items_number && (*items_number = count);
 		return NULL;
 	    }

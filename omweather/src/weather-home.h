@@ -68,8 +68,8 @@ extern void clean_download(void);
 extern void weather_window_settings(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 extern int new_read_config(AppletConfig*);
 extern void new_config_save(AppletConfig*);
-extern GtkListStore* create_items_list(const char *filename, long start, long end,
-					long *items_number);
+extern GtkListStore* create_items_list(const char *path, const char *filename,
+				long start, long end, long *items_number);
 extern GtkListStore* create_time_update_list(void);
 extern gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
 				    gpointer user_data);

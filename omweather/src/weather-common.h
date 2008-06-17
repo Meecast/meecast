@@ -66,19 +66,12 @@
 #endif
 /*******************************************************************************/
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
-#define Max_count_weather_day	5
-#define COUNTRIESFILE		"/usr/share/omweather/db/weather/countries.list"
-#define REGIONSFILE		"/usr/share/omweather/db/weather/regions.list"
-#define LOCATIONSFILE		"/usr/share/omweather/db/weather/locations.list"
+#define Max_count_weather_day	10
+#define COUNTRIESFILE		"countries.list"
+#define REGIONSFILE		"regions.list"
+#define LOCATIONSFILE		"locations.list"
 #define ICONS_PATH		"/usr/share/omweather/icons/"
 #define BUTTON_ICONS		"/usr/share/omweather/button_icons/"
-#define SUPER_GIANT_ICON_SIZE	256
-#define GIANT_ICON_SIZE		128
-#define LARGE_ICON_SIZE		96
-#define BIG_ICON_SIZE		80
-#define MEDIUM_ICON_SIZE	64
-#define SMALL_ICON_SIZE		48
-#define TINY_ICON_SIZE		32
 #define START_FUNCTION		fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
 /*******************************************************************************/
@@ -90,6 +83,16 @@ enum { CELSIUS, FAHRENHEIT };
 enum { UNKNOWN, TINY, SMALL, MEDIUM, LARGE, GIANT };
 enum { ICON, STATION_NAME };
 enum { MB, INCH };
+enum { WEATHER_COM1, WEATHER_COM2, MAX_WEATHER_SOURCE_NUMBER };
+enum { TINY_ICON_SIZE = 32, SMALL_ICON_SIZE = 48, MEDIUM_ICON_SIZE = 64,
+	BIG_ICON_SIZE = 80, LARGE_ICON_SIZE = 96, GIANT_ICON_SIZE = 128,
+	SUPER_GIANT_ICON_SIZE = 256 };
+/*******************************************************************************/
+typedef struct weather_data_source{
+    gchar	*name;
+    gchar	*db_path;
+    gchar	*url;
+}WeatherSource;
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{
     GtkWidget	*button;                                                                                               
@@ -172,6 +175,7 @@ typedef struct applet_config{
     gchar	*current_station_id;
     gchar 	*iap_http_proxy_host;
     gchar 	*cache_directory;
+    gint	weather_source;
     gint 	iap_http_proxy_port;
     gint	update_interval;
     gint	switch_time;
@@ -232,7 +236,7 @@ typedef struct OMWeatherApplet{
     GtkListStore	*time_update_list;
     GtkWidget 		*contextmenu;
     gboolean 		widget_first_start;
-    int 		widget_showing;
+    gint 		widget_showing;
     gboolean 		home_item_flag_expose;
     gboolean 		area_button_pressed;
     gboolean 		area_button_release;
@@ -268,13 +272,12 @@ typedef struct OMWeatherApplet{
     ConIcConnection 	*connection;
 #endif        
 }OMWeatherApp;
-
 /*******************************************************************************/
 void free_list_time_event(void);
 void time_event_add(time_t time_value, short int type_event);
 extern void popup_window_destroy(void);
 extern int new_read_config(AppletConfig*);
 /*******************************************************************************/
-extern OMWeatherApp	*app;
+extern	OMWeatherApp	*app;
 /*******************************************************************************/
 #endif

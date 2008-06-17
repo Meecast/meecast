@@ -51,6 +51,8 @@ struct HtmlFile {
   FILE *stream;
 };
 /*******************************************************************************/
+extern WeatherSource	weather_sources[];
+/*******************************************************************************/
 extern void config_update_proxy(void);
 extern void add_current_time_event(void);
 extern void popup_window_destroy(void);

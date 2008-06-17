@@ -51,6 +51,16 @@
 #define FONT_MAIN_SIZE_TINY	10
 #define CLICK_TIMEOUT		500
 /*******************************************************************************/
+const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
+    {	"weather.com - 1",
+	"/usr/share/omweather/db/weather_com/",
+	"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&link=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5"
+    },
+    {	"weather.com - 2",
+	"/usr/share/omweather/db/weather_com/",
+	"http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10"
+    }
+};
 /* main struct */
 OMWeatherApp	*app = NULL;
 gchar		path_large_icon[_POSIX_PATH_MAX];
@@ -774,9 +784,10 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     }
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
-    app->countrys_list = NULL;
-    app->countrys_list = create_items_list(COUNTRIESFILE, -1, -1, NULL);
-
+/* Read Coutries list from file */
+    app->countrys_list
+	= create_items_list(weather_sources[app->config->weather_source].db_path,
+			    COUNTRIESFILE, -1, -1, NULL);
 /* Start timer */
     timer(60000);  /* One per minute */
 /* Start main applet */ 

@@ -38,8 +38,9 @@ struct lists_struct{
     GtkWidget	*stations;
 };
 /*******************************************************************************/
-extern gboolean  not_event;
-extern	gchar	path_large_icon[_POSIX_PATH_MAX];
+extern gboolean		not_event;
+extern gchar		path_large_icon[_POSIX_PATH_MAX];
+extern WeatherSource	weather_sources[];
 /*******************************************************************************/
 void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				gpointer user_data);
@@ -48,6 +49,7 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
 void changed_country_handler(GtkWidget *widget, gpointer user_data);
 void changed_state_handler(GtkWidget *widget, gpointer user_data);
 void changed_stations_handler(GtkWidget *widget, gpointer user_data);
+void changed_weather_source_handler(GtkWidget *widget, gpointer user_data);
 void weather_window_add_custom_station(void);
 int create_icon_set_list(GtkWidget *store); /* scan /usr/share/omweather/icons */
 					     /* and add names to the list */
@@ -63,7 +65,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data);
 void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
 				gboolean is_gps);
 void highlight_current_station(GtkTreeView *tree_view);
-int lookup_and_select_station(gchar *station_name, Station *result);
+int lookup_and_select_station(gchar *db_path, gchar *station_name, Station *result);
 /*******************************************************************************/
 void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);

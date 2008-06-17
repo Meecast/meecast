@@ -343,6 +343,13 @@ int new_read_config(AppletConfig *config){
     }
     else
 	close(fd);
+    /* Get weather data source */ 
+    config->weather_source = gconf_client_get_int(gconf_client,
+					    GCONF_KEY_WEATHER_DATA_SOURCE,
+					    NULL);
+    if(config->weather_source < WEATHER_COM1 || config->weather_source > WEATHER_COM2)
+	config->weather_source = WEATHER_COM1;
+
     /* Get Weather Icon Size  */		     
     config->icons_size = gconf_client_get_int(gconf_client,
         				    GCONF_KEY_WEATHER_ICONS_SIZE,
@@ -717,6 +724,10 @@ void new_config_save(AppletConfig *config){
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_ICONS_SIZE,
 			config->icons_size, NULL);
+    /* Save Weather Data Source  */		     	    
+    gconf_client_set_int(gconf_client,
+        		GCONF_KEY_WEATHER_DATA_SOURCE,
+			config->weather_source, NULL);
     /* Save current setting tab number  */		     	    
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_SETTING_TAB_NUMBER,

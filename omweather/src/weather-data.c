@@ -26,6 +26,7 @@
  *	
 */
 /*******************************************************************************/
+#include "weather-common.h"
 #include "weather-data.h"
 #include <stdio.h>
 #ifdef RELEASE

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-17 14:03+0300\n"
+"POT-Creation-Date: 2008-06-18 10:55+0300\n"
 "PO-Revision-Date: 2008-03-23 17:37+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
@@ -77,7 +77,7 @@ msgstr ""
 "Brian Knight - für die Idee zum Iconset, Kritik\n"
 "\t\t\t\tund Spenden ;-)\n"
 
-#: src/weather-home.c:1084
+#: src/weather-home.c:1087
 msgid ""
 "\n"
 "FL: "
@@ -99,8 +99,8 @@ msgstr ""
 "zur Anzeige des Wetterberichts.\n"
 "Version "
 
-#: src/weather-home.c:544 src/weather-home.c:558 src/weather-popup.c:502
-#: src/weather-popup.c:573
+#: src/weather-home.c:547 src/weather-home.c:561 src/weather-popup.c:503
+#: src/weather-popup.c:574
 msgid ""
 "\n"
 "Humidity: "
@@ -108,7 +108,7 @@ msgstr ""
 "\n"
 "Luftfeuchtigkeit: "
 
-#: src/weather-home.c:1125
+#: src/weather-home.c:1128
 msgid ""
 "\n"
 "P: "
@@ -116,7 +116,7 @@ msgstr ""
 "\n"
 "P: "
 
-#: src/weather-home.c:1099
+#: src/weather-home.c:1102
 msgid ""
 "\n"
 "V: "
@@ -124,7 +124,7 @@ msgstr ""
 "\n"
 "V: "
 
-#: src/weather-home.c:1129
+#: src/weather-home.c:1132
 msgid ""
 "\n"
 "W: "
@@ -137,11 +137,11 @@ msgstr ""
 msgid " Build: "
 msgstr " Luftfeuchtigkeit:"
 
-#: src/weather-home.c:1137
+#: src/weather-home.c:1140
 msgid " G: "
 msgstr "B:"
 
-#: src/weather-home.c:1091
+#: src/weather-home.c:1094
 msgid " H: "
 msgstr " H: "
 
@@ -185,7 +185,7 @@ msgstr "60 Sekunden"
 msgid "8 hours"
 msgstr "8 Stunden"
 
-#: src/hash.data:2
+#: src/hash.data:2 src/hash.data:202
 msgid "AM Clouds / PM Sun"
 msgstr "Vormittags Wolken / nachmittags Sonne"
 
@@ -197,11 +197,11 @@ msgstr "Vormittags Nieselregen"
 msgid "AM Drizzle / Wind"
 msgstr "Vormittags Nieselregen / Wind"
 
-#: src/hash.data:5
+#: src/hash.data:5 src/hash.data:203
 msgid "AM Fog / PM Clouds"
 msgstr "Vormittags Nebel / Nachmittags Wolken"
 
-#: src/hash.data:6
+#: src/hash.data:6 src/hash.data:204
 msgid "AM Fog / PM Sun"
 msgstr "Vormittags Nebel / Nachmittags Sonne"
 
@@ -209,7 +209,7 @@ msgstr "Vormittags Nebel / Nachmittags Sonne"
 msgid "AM Light Rain"
 msgstr "Vormittags leichter Regen"
 
-#: src/hash.data:7
+#: src/hash.data:7 src/hash.data:205
 msgid "AM Light Rain / Wind"
 msgstr "Vormittags leichter Regen / Wind"
 
@@ -241,11 +241,11 @@ msgstr "Vormittags Regen / Schneeschauer / Wind"
 msgid "AM Rain / Wind"
 msgstr "Vormittags Regen / Wind"
 
-#: src/hash.data:17
+#: src/hash.data:17 src/hash.data:206
 msgid "AM Showers"
 msgstr "Vormittags Schauer"
 
-#: src/hash.data:16
+#: src/hash.data:16 src/hash.data:207
 msgid "AM Showers / Wind"
 msgstr "Vormittags Schauer / Wind"
 
@@ -253,7 +253,7 @@ msgstr "Vormittags Schauer / Wind"
 msgid "AM Snow"
 msgstr "Vormittags Schnee"
 
-#: src/hash.data:18
+#: src/hash.data:18 src/hash.data:208
 msgid "AM Snow Showers"
 msgstr "Vormittags Schneeschauer"
 
@@ -266,7 +266,7 @@ msgstr "Info"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: src/hash.data:20
+#: src/hash.data:20 src/hash.data:209
 msgid "Airport Conditions"
 msgstr ""
 
@@ -325,16 +325,16 @@ msgstr "Hintergrundfarbe:"
 msgid "Blowing Snow"
 msgstr "Schneeverwehungen"
 
-#: src/weather-home.c:524 src/weather-home.c:1065 src/weather-home.c:1088
+#: src/weather-home.c:527 src/weather-home.c:1068 src/weather-home.c:1091
 msgid "C"
 msgstr "C"
 
-#: src/weather-popup.c:662 src/weather-popup.c:670
+#: src/weather-popup.c:663 src/weather-popup.c:671
 #, fuzzy
 msgid "C\n"
 msgstr "C"
 
-#: src/hash.data:22
+#: src/hash.data:22 src/hash.data:210
 msgid "CALM"
 msgstr "RUHIG"
 
@@ -358,7 +358,7 @@ msgstr "Celsius (Metrisch)"
 msgid "City:"
 msgstr "Land:"
 
-#: src/hash.data:24
+#: src/hash.data:24 src/hash.data:211
 msgid "Clear"
 msgstr "Klar"
 
@@ -366,13 +366,18 @@ msgstr "Klar"
 msgid "Clear / Wind"
 msgstr "Klar / Wind"
 
-#: src/hash.data:25
+#: src/hash.data:25 src/hash.data:212
 msgid "Clouds Early / Clearing Late"
 msgstr "Bewölkt früh / Aufklarend spät"
 
-#: src/hash.data:27
+#: src/hash.data:27 src/hash.data:213
 msgid "Cloudy"
 msgstr "Bewölkt"
+
+#: src/hash.data:214
+#, fuzzy
+msgid "Cloudy / Wind"
+msgstr "Bewölkt und windig"
 
 #: src/hash.data:26
 msgid "Cloudy and Windy"
@@ -400,7 +405,7 @@ msgstr "Land:"
 msgid "Current weather on first icon:"
 msgstr "Aktuelles Wetter auf erstem Symbol zeigen:"
 
-#: src/weather-popup.c:462
+#: src/weather-popup.c:463
 msgid "Day:"
 msgstr "Tag:"
 
@@ -428,11 +433,11 @@ msgstr "Nieselregen / Nebel"
 msgid "Drizzle Late"
 msgstr "Nieselregen spät"
 
-#: src/hash.data:32
+#: src/hash.data:32 src/hash.data:215
 msgid "E"
 msgstr "O"
 
-#: src/hash.data:33
+#: src/hash.data:33 src/hash.data:216
 msgid "ENE"
 msgstr "ONO"
 
@@ -440,7 +445,7 @@ msgstr "ONO"
 msgid "ENE_short"
 msgstr ""
 
-#: src/hash.data:35
+#: src/hash.data:35 src/hash.data:217
 msgid "ESE"
 msgstr "OSO"
 
@@ -461,24 +466,24 @@ msgstr "Station per GPS ermitteln:"
 msgid "Eric Link - for feature request and donation\n"
 msgstr "Eric Link - für Feature Requests und Spenden\n"
 
-#: src/weather-home.c:701
+#: src/weather-home.c:704
 #, c-format
 msgid "Error in xml file\n"
 msgstr "Fehler in XML-Datei\n"
 
-#: src/weather-home.c:739
+#: src/weather-home.c:742
 msgid "Error initializing the OMWeather applet"
 msgstr "Fehler bei der Initialisierung des OMWeather-Applet"
 
-#: src/hash.data:38
+#: src/hash.data:38 src/hash.data:218
 msgid "Extreme"
 msgstr "Extrem"
 
-#: src/weather-home.c:525 src/weather-home.c:1066 src/weather-home.c:1089
+#: src/weather-home.c:528 src/weather-home.c:1069 src/weather-home.c:1092
 msgid "F"
 msgstr "F"
 
-#: src/weather-popup.c:663 src/weather-popup.c:671
+#: src/weather-popup.c:664 src/weather-popup.c:672
 #, fuzzy
 msgid "F\n"
 msgstr "F"
@@ -499,22 +504,22 @@ msgid "Failed to initialize GConf. Settings were not saved.\n"
 msgstr ""
 "Initialisierung von GConf fehlgeschlagen. Einstellungen nicht gespeichert.\n"
 
-#: src/hash.data:39
+#: src/hash.data:39 src/hash.data:219
 msgid "Fair"
 msgstr "Heiter"
 
-#: src/weather-popup.c:665
+#: src/weather-popup.c:666
 #, fuzzy
 msgid "Feels like:"
 msgstr ""
 "\n"
 "Gefühlt: "
 
-#: src/hash.data:41
+#: src/hash.data:41 src/hash.data:220
 msgid "Few Showers"
 msgstr "Leichte Schauer"
 
-#: src/hash.data:40
+#: src/hash.data:40 src/hash.data:221
 msgid "Few Showers / Wind"
 msgstr "Leichte Schauer / Wind"
 
@@ -546,7 +551,7 @@ msgstr "Nebel spät / Wolken spät"
 msgid "Fog Late"
 msgstr "Nebel spät"
 
-#: src/hash.data:49
+#: src/hash.data:49 src/hash.data:222
 msgid "Foggy"
 msgstr "Neblig"
 
@@ -554,7 +559,7 @@ msgstr "Neblig"
 msgid "Font color:"
 msgstr "Schriftfarbe:"
 
-#: src/weather-home.c:995
+#: src/weather-home.c:998
 #, c-format
 msgid "Forecast: \n"
 msgstr ""
@@ -584,11 +589,11 @@ msgstr ""
 msgid "From the list:"
 msgstr ""
 
-#: src/hash.data:51
+#: src/hash.data:51 src/hash.data:223
 msgid "Full"
 msgstr "Voll"
 
-#: src/weather-popup.c:724
+#: src/weather-popup.c:725
 #, fuzzy
 msgid "Gust:"
 msgstr "Böen:"
@@ -617,11 +622,11 @@ msgstr "Pfeile verbergen:"
 msgid "Hide station name:"
 msgstr "Stationsname verbergen:"
 
-#: src/hash.data:56
+#: src/hash.data:56 src/hash.data:224
 msgid "High"
 msgstr "Hoch"
 
-#: src/weather-popup.c:674
+#: src/weather-popup.c:675
 #, fuzzy
 msgid "Humidity:"
 msgstr ""
@@ -644,11 +649,11 @@ msgstr "Oberfläche"
 msgid "Invalid symbol in field or field is empty."
 msgstr ""
 
-#: src/hash.data:58
+#: src/hash.data:58 src/hash.data:225
 msgid "Isolated T-Storms"
 msgstr "Vereinzelt Gewitter"
 
-#: src/hash.data:57
+#: src/hash.data:57 src/hash.data:226
 msgid "Isolated T-Storms / Wind"
 msgstr "Vereinzelt Gewitter / Wind"
 
@@ -671,7 +676,7 @@ msgstr "Letzte Aktualisierung auf dem Server: \n"
 msgid "Last update from server: "
 msgstr "Letzte Aktualisierung vom Server:\n"
 
-#: src/hash.data:60
+#: src/hash.data:60 src/hash.data:227
 msgid "Lawn and Garden Weather"
 msgstr ""
 
@@ -688,7 +693,7 @@ msgstr "Leichter Nieselregen"
 msgid "Light Freezing Rain"
 msgstr "Leichter und überfrierender Regen"
 
-#: src/hash.data:73
+#: src/hash.data:73 src/hash.data:228
 msgid "Light Rain"
 msgstr "Leichter Regen"
 
@@ -696,7 +701,7 @@ msgstr "Leichter Regen"
 msgid "Light Rain / Fog"
 msgstr "Leichter Regen / Nebel"
 
-#: src/hash.data:65
+#: src/hash.data:65 src/hash.data:229
 msgid "Light Rain / Wind"
 msgstr "Leichter Regen / Wind"
 
@@ -733,7 +738,7 @@ msgstr "Leichter Regen und windig"
 msgid "Light Rain with Thunder"
 msgstr "Regen / Donner"
 
-#: src/hash.data:79
+#: src/hash.data:79 src/hash.data:230
 msgid "Light Snow"
 msgstr "Leichter Schneefall"
 
@@ -741,7 +746,7 @@ msgstr "Leichter Schneefall"
 msgid "Light Snow / Fog"
 msgstr "Leichter Schnee / Nebel"
 
-#: src/hash.data:75
+#: src/hash.data:75 src/hash.data:231
 msgid "Light Snow / Wind"
 msgstr "Leichter Schnee / Wind"
 
@@ -762,11 +767,11 @@ msgstr "Leichte Schneeschauer"
 msgid "List of the found station(s):"
 msgstr "Zur nächsten Station wechseln nach:"
 
-#: src/hash.data:80
+#: src/hash.data:80 src/hash.data:232
 msgid "Local Pollen Reports"
 msgstr ""
 
-#: src/hash.data:81
+#: src/hash.data:81 src/hash.data:233
 msgid "Low"
 msgstr "Niedrig"
 
@@ -782,15 +787,15 @@ msgstr "Meilen"
 msgid "Mist"
 msgstr "Leichter Nebel"
 
-#: src/hash.data:83
+#: src/hash.data:83 src/hash.data:234
 msgid "Moderate"
 msgstr "Mäßig"
 
-#: src/hash.data:84
+#: src/hash.data:84 src/hash.data:235
 msgid "Mostly Clear"
 msgstr "Meist klar"
 
-#: src/hash.data:87
+#: src/hash.data:87 src/hash.data:236
 msgid "Mostly Cloudy"
 msgstr "Meist bewölkt"
 
@@ -798,28 +803,28 @@ msgstr "Meist bewölkt"
 msgid "Mostly Cloudy / Wind"
 msgstr "Meist bewölkt / Wind"
 
-#: src/hash.data:86
+#: src/hash.data:86 src/hash.data:237
 msgid "Mostly Cloudy and Windy"
 msgstr "Meist bewölkt und windig"
 
-#: src/hash.data:88
+#: src/hash.data:88 src/hash.data:238
 msgid "Mostly Sunny"
 msgstr "Meist sonnig"
 
-#: src/hash.data:89
+#: src/hash.data:89 src/hash.data:239
 msgid "N"
 msgstr "N"
 
-#: src/weather-home.c:466 src/weather-home.c:484 src/weather-home.c:509
-#: src/weather-home.c:510 src/weather-home.c:517 src/weather-home.c:518
-#: src/weather-home.c:530 src/weather-home.c:537 src/weather-home.c:602
-#: src/weather-home.c:606 src/weather-home.c:612 src/weather-home.c:619
-#: src/weather-home.c:630 src/weather-home.c:631 src/weather-home.c:637
-#: src/hash.data:90
+#: src/weather-home.c:469 src/weather-home.c:487 src/weather-home.c:512
+#: src/weather-home.c:513 src/weather-home.c:520 src/weather-home.c:521
+#: src/weather-home.c:533 src/weather-home.c:540 src/weather-home.c:605
+#: src/weather-home.c:609 src/weather-home.c:615 src/weather-home.c:622
+#: src/weather-home.c:633 src/weather-home.c:634 src/weather-home.c:640
+#: src/hash.data:90 src/hash.data:240
 msgid "N/A"
 msgstr "N.v."
 
-#: src/hash.data:91
+#: src/hash.data:91 src/hash.data:241
 msgid "NE"
 msgstr "NO"
 
@@ -827,7 +832,7 @@ msgstr "NO"
 msgid "NE_short"
 msgstr ""
 
-#: src/hash.data:93
+#: src/hash.data:93 src/hash.data:242
 msgid "NNE"
 msgstr "NNO"
 
@@ -835,7 +840,7 @@ msgstr "NNO"
 msgid "NNE_short"
 msgstr ""
 
-#: src/hash.data:95
+#: src/hash.data:95 src/hash.data:243
 msgid "NNW"
 msgstr "NNW"
 
@@ -847,7 +852,7 @@ msgstr ""
 msgid "NO STATION"
 msgstr "KEINE STATION"
 
-#: src/hash.data:98
+#: src/hash.data:98 src/hash.data:244
 msgid "NW"
 msgstr "NW"
 
@@ -868,7 +873,7 @@ msgstr ""
 msgid "Never"
 msgstr "Nie"
 
-#: src/hash.data:101
+#: src/hash.data:101 src/hash.data:245
 msgid "New"
 msgstr "Neu"
 
@@ -876,7 +881,7 @@ msgstr "Neu"
 msgid "Next update:"
 msgstr "Nächste Aktualisierung:"
 
-#: src/weather-popup.c:533
+#: src/weather-popup.c:534
 msgid "Night:"
 msgstr "Nacht:"
 
@@ -885,12 +890,12 @@ msgstr "Nacht:"
 msgid "No"
 msgstr "Jetzt"
 
-#: src/weather-popup.c:323
+#: src/weather-popup.c:324
 #, fuzzy
 msgid "No current weather data."
 msgstr "Gültigkeit für aktuelles Wetter:"
 
-#: src/weather-popup.c:312
+#: src/weather-popup.c:313
 msgid "No weather data for this day."
 msgstr ""
 
@@ -910,12 +915,12 @@ msgstr ""
 "Nicht mit dem Internet verbunden\n"
 "Max. Verbindungszeit überschritten"
 
-#: src/weather-home.c:465 src/weather-home.c:473 src/weather-home.c:483
+#: src/weather-home.c:468 src/weather-home.c:476 src/weather-home.c:486
 #: src/weather-popup.c:256
 msgid "Now"
 msgstr "Jetzt"
 
-#: src/weather-home.c:1061
+#: src/weather-home.c:1064
 #, c-format
 msgid "Now: "
 msgstr "Jetzt:"
@@ -924,7 +929,7 @@ msgstr "Jetzt:"
 msgid "OK"
 msgstr "OK"
 
-#: src/weather-home.c:933
+#: src/weather-home.c:936
 msgid "OMWeather settings"
 msgstr "OMWeather Einstellungen"
 
@@ -948,9 +953,14 @@ msgstr "Bedeckt"
 msgid "PM Fog"
 msgstr "Nachmittags Nebel"
 
-#: src/hash.data:104
+#: src/hash.data:104 src/hash.data:246
 msgid "PM Light Rain"
 msgstr "Nachmittags leichter Regen"
+
+#: src/hash.data:247
+#, fuzzy
+msgid "PM Light Rain / Wind"
+msgstr "Vormittags leichter Regen / Wind"
 
 #: src/hash.data:105
 msgid "PM Light Snow"
@@ -968,27 +978,27 @@ msgstr "Nachmittags Regen / Schnee"
 msgid "PM Rain / Wind"
 msgstr "Nachmittags Regen / Wind"
 
-#: src/hash.data:110
+#: src/hash.data:110 src/hash.data:248
 msgid "PM Showers"
 msgstr "Nachmittags Schauer"
 
-#: src/hash.data:109
+#: src/hash.data:109 src/hash.data:249
 msgid "PM Showers / Wind"
 msgstr "Nachmittags Schauer / Wind"
 
-#: src/hash.data:111
+#: src/hash.data:111 src/hash.data:250
 msgid "PM Snow Showers"
 msgstr "Nachmittags Schneeschauer"
 
-#: src/hash.data:112
+#: src/hash.data:112 src/hash.data:251
 msgid "PM T-Storms"
 msgstr "Nachmittags Gewitter"
 
-#: src/hash.data:115
+#: src/hash.data:115 src/hash.data:252
 msgid "Partly Cloudy"
 msgstr "Teilweise bewölkt"
 
-#: src/hash.data:113
+#: src/hash.data:113 src/hash.data:253
 msgid "Partly Cloudy / Wind"
 msgstr "Teilweise bewölkt / Wind"
 
@@ -1003,14 +1013,14 @@ msgstr ""
 "\n"
 "Luftdruck: "
 
-#: src/weather-popup.c:698
+#: src/weather-popup.c:699
 #, fuzzy
 msgid "Pressure:"
 msgstr ""
 "\n"
 "Luftdruck: "
 
-#: src/hash.data:134
+#: src/hash.data:134 src/hash.data:254
 msgid "Rain"
 msgstr "Regen"
 
@@ -1018,7 +1028,7 @@ msgstr "Regen"
 msgid "Rain / Freezing Rain"
 msgstr "Regen / Überfrierender Regen"
 
-#: src/hash.data:123
+#: src/hash.data:123 src/hash.data:255
 msgid "Rain / Snow"
 msgstr "Regen / Snow"
 
@@ -1034,11 +1044,11 @@ msgstr "Regen / Schnee früh"
 msgid "Rain / Snow Late"
 msgstr "Regen / Schnee spät"
 
-#: src/hash.data:122
+#: src/hash.data:122 src/hash.data:256
 msgid "Rain / Snow Showers"
 msgstr "Regen / Schneeschauer"
 
-#: src/hash.data:120
+#: src/hash.data:120 src/hash.data:257
 msgid "Rain / Snow Showers / Wind"
 msgstr "Regen / Schneeschauer / Wind"
 
@@ -1050,7 +1060,7 @@ msgstr "Regen / Schneeschauer spät"
 msgid "Rain / Thunder"
 msgstr "Regen / Donner"
 
-#: src/hash.data:126
+#: src/hash.data:126 src/hash.data:258
 msgid "Rain / Wind"
 msgstr "Regen / Wind"
 
@@ -1058,7 +1068,7 @@ msgstr "Regen / Wind"
 msgid "Rain / Wind Early"
 msgstr "Regen / Wind früh"
 
-#: src/hash.data:127
+#: src/hash.data:127 src/hash.data:259
 msgid "Rain Early"
 msgstr "Regen früh"
 
@@ -1066,7 +1076,7 @@ msgstr "Regen früh"
 msgid "Rain Late"
 msgstr "Regen spät"
 
-#: src/hash.data:130
+#: src/hash.data:130 src/hash.data:260
 msgid "Rain Shower"
 msgstr "Regenschauer"
 
@@ -1090,15 +1100,15 @@ msgstr "Regen bis Winterlich / Wind"
 msgid "Read sensor every:"
 msgstr ""
 
-#: src/hash.data:135
+#: src/hash.data:135 src/hash.data:261
 msgid "Rush Hour Traffic"
 msgstr ""
 
-#: src/hash.data:136
+#: src/hash.data:136 src/hash.data:262
 msgid "S"
 msgstr "S"
 
-#: src/hash.data:137
+#: src/hash.data:137 src/hash.data:263
 msgid "SE"
 msgstr "SO"
 
@@ -1106,7 +1116,7 @@ msgstr "SO"
 msgid "SE_short"
 msgstr ""
 
-#: src/hash.data:139
+#: src/hash.data:139 src/hash.data:264
 msgid "SSE"
 msgstr "SSO"
 
@@ -1114,7 +1124,7 @@ msgstr "SSO"
 msgid "SSE_short"
 msgstr ""
 
-#: src/hash.data:141
+#: src/hash.data:141 src/hash.data:265
 msgid "SSW"
 msgstr "SSW"
 
@@ -1122,7 +1132,7 @@ msgstr "SSW"
 msgid "SSW_short"
 msgstr ""
 
-#: src/hash.data:143
+#: src/hash.data:143 src/hash.data:266
 msgid "SW"
 msgstr "SW"
 
@@ -1135,7 +1145,7 @@ msgstr ""
 msgid "S_short"
 msgstr "Schnee"
 
-#: src/hash.data:146
+#: src/hash.data:146 src/hash.data:267
 msgid "Scattered Showers"
 msgstr "Vereinzelte Schauer"
 
@@ -1143,11 +1153,11 @@ msgstr "Vereinzelte Schauer"
 msgid "Scattered Snow"
 msgstr "Vereinzelt Schneefall"
 
-#: src/hash.data:147
+#: src/hash.data:147 src/hash.data:268
 msgid "Scattered Snow Showers"
 msgstr "Vereinzelte Schneeschauer"
 
-#: src/hash.data:149
+#: src/hash.data:149 src/hash.data:269
 msgid "Scattered T-Storms"
 msgstr "Vereinzelt Gewitter"
 
@@ -1175,23 +1185,23 @@ msgstr "Max/Min Temperatur tauschen:"
 msgid "Show wind:"
 msgstr "Schnee / Wind"
 
-#: src/hash.data:155
+#: src/hash.data:155 src/hash.data:270
 msgid "Showers"
 msgstr "Schauer"
 
-#: src/hash.data:151
+#: src/hash.data:151 src/hash.data:271
 msgid "Showers / Wind"
 msgstr "Schauer / Wind"
 
-#: src/hash.data:150
+#: src/hash.data:150 src/hash.data:272
 msgid "Showers / Wind Early"
 msgstr "Schauer / Wind früh"
 
-#: src/hash.data:152
+#: src/hash.data:152 src/hash.data:273
 msgid "Showers Early"
 msgstr "Schauer früh"
 
-#: src/hash.data:153
+#: src/hash.data:153 src/hash.data:274
 msgid "Showers Late"
 msgstr "Schauer spät"
 
@@ -1207,15 +1217,15 @@ msgstr "Rauch"
 msgid "Snow"
 msgstr "Schnee"
 
-#: src/hash.data:157
+#: src/hash.data:157 src/hash.data:275
 msgid "Snow / Wind"
 msgstr "Schnee / Wind"
 
-#: src/hash.data:159
+#: src/hash.data:159 src/hash.data:276
 msgid "Snow Shower"
 msgstr "Schneeschauer"
 
-#: src/hash.data:158
+#: src/hash.data:158 src/hash.data:277
 msgid "Snow Shower / Wind"
 msgstr "Schneeschauer / Wind"
 
@@ -1223,11 +1233,11 @@ msgstr "Schneeschauer / Wind"
 msgid "Snow Showers / Wind Early"
 msgstr "Schneeschauer / Wind früh"
 
-#: src/hash.data:161
+#: src/hash.data:161 src/hash.data:278
 msgid "Snow Showers Early"
 msgstr "Schneeschauer früh"
 
-#: src/hash.data:162
+#: src/hash.data:162 src/hash.data:279
 msgid "Snow Showers Late"
 msgstr "Schneeschauer spät"
 
@@ -1252,7 +1262,7 @@ msgstr "Schneefall bis Winterlich / Wind"
 msgid "Source:"
 msgstr "Sonnenaufgang: "
 
-#: src/weather-popup.c:717
+#: src/weather-popup.c:718
 msgid "Speed:"
 msgstr ""
 
@@ -1270,11 +1280,11 @@ msgstr "Station:"
 msgid "Storm"
 msgstr "Sturm"
 
-#: src/hash.data:170
+#: src/hash.data:170 src/hash.data:280
 msgid "Sunny"
 msgstr "Sonnig"
 
-#: src/hash.data:169
+#: src/hash.data:169 src/hash.data:281
 msgid "Sunny / Wind"
 msgstr "Sonnig / Wind"
 
@@ -1294,11 +1304,11 @@ msgstr "Max/Min Temperatur tauschen:"
 msgid "Switch to the next station after:"
 msgstr "Zur nächsten Station wechseln nach:"
 
-#: src/hash.data:171
+#: src/hash.data:171 src/hash.data:282
 msgid "T-Showers"
 msgstr "Gewitterschauer"
 
-#: src/hash.data:173
+#: src/hash.data:173 src/hash.data:283
 msgid "T-Storms"
 msgstr "Gewitter"
 
@@ -1310,7 +1320,7 @@ msgstr "baldige Gewitter"
 msgid "Temperature units:"
 msgstr "Temperatur:"
 
-#: src/weather-popup.c:657
+#: src/weather-popup.c:658
 msgid "Temperature: "
 msgstr "Temperatur:"
 
@@ -1318,7 +1328,7 @@ msgstr "Temperatur:"
 msgid "Thanks"
 msgstr "Dank"
 
-#: src/weather-home.c:998
+#: src/weather-home.c:1001
 #, fuzzy, c-format
 msgid ""
 "The current weather\n"
@@ -1389,7 +1399,7 @@ msgstr "VAR"
 msgid "Valid time for current weather:"
 msgstr "Gültigkeit für aktuelles Wetter:"
 
-#: src/hash.data:177
+#: src/hash.data:177 src/hash.data:284
 msgid "Very High"
 msgstr "Sehr hoch"
 
@@ -1397,18 +1407,18 @@ msgstr "Sehr hoch"
 msgid "Visible items:"
 msgstr "Angezeigte Elemente:"
 
-#: src/weather-popup.c:680
+#: src/weather-popup.c:681
 #, fuzzy
 msgid "Visible:"
 msgstr ""
 "\n"
 "Sichtweite: "
 
-#: src/hash.data:178
+#: src/hash.data:178 src/hash.data:285
 msgid "W"
 msgstr "W"
 
-#: src/hash.data:179
+#: src/hash.data:179 src/hash.data:286
 msgid "WNW"
 msgstr "WNW"
 
@@ -1416,7 +1426,7 @@ msgstr "WNW"
 msgid "WNW_short"
 msgstr ""
 
-#: src/hash.data:181
+#: src/hash.data:181 src/hash.data:287
 msgid "WSW"
 msgstr "WSW"
 
@@ -1428,23 +1438,23 @@ msgstr ""
 msgid "W_short"
 msgstr ""
 
-#: src/hash.data:184
+#: src/hash.data:184 src/hash.data:288
 msgid "Waning Crescent"
 msgstr "Abnehmender Halbmond"
 
-#: src/hash.data:185
+#: src/hash.data:185 src/hash.data:289
 msgid "Waning Gibbous"
 msgstr "Abnehmender Vollmond"
 
-#: src/hash.data:186
+#: src/hash.data:186 src/hash.data:290
 msgid "Waxing Crescent"
 msgstr "Zunehmender Halbmond"
 
-#: src/hash.data:187
+#: src/hash.data:187 src/hash.data:291
 msgid "Waxing Gibbous"
 msgstr "Zunehmender Vollmond"
 
-#: src/weather-popup.c:761
+#: src/weather-popup.c:762
 #, fuzzy
 msgid "Weather data provided by: "
 msgstr "Wetter aktualisiert"
@@ -1461,13 +1471,13 @@ msgstr "Wind"
 msgid "Wind speed units:"
 msgstr "Windgeschwindigkeit:"
 
-#: src/weather-popup.c:713
+#: src/weather-popup.c:714
 #, fuzzy
 msgid "Wind:"
 msgstr "Wind: "
 
-#: src/weather-home.c:551 src/weather-home.c:565 src/weather-popup.c:511
-#: src/weather-popup.c:582
+#: src/weather-home.c:554 src/weather-home.c:568 src/weather-popup.c:512
+#: src/weather-popup.c:583
 msgid "Wind: "
 msgstr "Wind: "
 
@@ -1487,7 +1497,7 @@ msgstr "Winterlich / Wind früh"
 msgid "Wintry Mix to Snow"
 msgstr "Winterlich bis Schneefall"
 
-#: src/weather-home.c:704
+#: src/weather-home.c:707
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
@@ -1539,12 +1549,12 @@ msgstr "jede Minute (Debug)"
 msgid "falling"
 msgstr "fallend"
 
-#: src/weather-home.c:1123 src/weather-settings.c:1336 src/weather-popup.c:704
+#: src/weather-home.c:1126 src/weather-settings.c:1336 src/weather-popup.c:705
 #, fuzzy
 msgid "inHg"
 msgstr "steigend"
 
-#: src/weather-home.c:1109 src/weather-popup.c:689
+#: src/weather-home.c:1112 src/weather-popup.c:690
 msgid "km"
 msgstr "km"
 
@@ -1556,7 +1566,7 @@ msgstr "km/h"
 msgid "km/s"
 msgstr "km/s"
 
-#: src/weather-home.c:1108 src/weather-popup.c:688
+#: src/weather-home.c:1111 src/weather-popup.c:689
 msgid "m"
 msgstr "m"
 
@@ -1568,12 +1578,12 @@ msgstr "m/h"
 msgid "m/s"
 msgstr "m/s"
 
-#: src/weather-home.c:1122 src/weather-settings.c:1328 src/weather-popup.c:703
+#: src/weather-home.c:1125 src/weather-settings.c:1328 src/weather-popup.c:704
 msgid "mb"
 msgstr "mb"
 
-#: src/weather-home.c:1110 src/weather-home.c:1111 src/weather-popup.c:690
-#: src/weather-popup.c:691
+#: src/weather-home.c:1113 src/weather-home.c:1114 src/weather-popup.c:691
+#: src/weather-popup.c:692
 msgid "mi"
 msgstr "mi"
 

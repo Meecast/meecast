@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-06-17 14:03+0300\n"
+"POT-Creation-Date: 2008-06-18 10:55+0300\n"
 "PO-Revision-Date: 2008-06-07 16:51+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -87,7 +87,7 @@ msgstr ""
 "Brian Knight - kuvakkeiden ideasta, kritiikistä\n"
 "\t\t\t\tja lahjoituksesta ;-)\n"
 
-#: src/weather-home.c:1084
+#: src/weather-home.c:1087
 msgid ""
 "\n"
 "FL: "
@@ -109,8 +109,8 @@ msgstr ""
 "Nokia 770/N800/N810:lla\n"
 "Versio "
 
-#: src/weather-home.c:544 src/weather-home.c:558 src/weather-popup.c:502
-#: src/weather-popup.c:573
+#: src/weather-home.c:547 src/weather-home.c:561 src/weather-popup.c:503
+#: src/weather-popup.c:574
 msgid ""
 "\n"
 "Humidity: "
@@ -118,7 +118,7 @@ msgstr ""
 "\n"
 "Ilmankosteus: "
 
-#: src/weather-home.c:1125
+#: src/weather-home.c:1128
 msgid ""
 "\n"
 "P: "
@@ -126,7 +126,7 @@ msgstr ""
 "\n"
 "P:"
 
-#: src/weather-home.c:1099
+#: src/weather-home.c:1102
 msgid ""
 "\n"
 "V: "
@@ -134,7 +134,7 @@ msgstr ""
 "\n"
 "N:"
 
-#: src/weather-home.c:1129
+#: src/weather-home.c:1132
 msgid ""
 "\n"
 "W: "
@@ -147,11 +147,11 @@ msgstr ""
 msgid " Build: "
 msgstr " Ilmankosteus: "
 
-#: src/weather-home.c:1137
+#: src/weather-home.c:1140
 msgid " G: "
 msgstr " P:"
 
-#: src/weather-home.c:1091
+#: src/weather-home.c:1094
 msgid " H: "
 msgstr " K:"
 
@@ -195,7 +195,7 @@ msgstr "60 sekuntia"
 msgid "8 hours"
 msgstr "8 tuntia"
 
-#: src/hash.data:2
+#: src/hash.data:2 src/hash.data:202
 msgid "AM Clouds / PM Sun"
 msgstr "ap: Pilvistä / ip: Selkeää"
 
@@ -207,11 +207,11 @@ msgstr "ap: Tihkusadetta"
 msgid "AM Drizzle / Wind"
 msgstr "ap: Tihkusadetta / Tuulista"
 
-#: src/hash.data:5
+#: src/hash.data:5 src/hash.data:203
 msgid "AM Fog / PM Clouds"
 msgstr "ap: Sumua / ip: Pilvistä"
 
-#: src/hash.data:6
+#: src/hash.data:6 src/hash.data:204
 msgid "AM Fog / PM Sun"
 msgstr "ap: Sumua / ip: Selkeää"
 
@@ -219,7 +219,7 @@ msgstr "ap: Sumua / ip: Selkeää"
 msgid "AM Light Rain"
 msgstr "ap: Kevyttä vesisadetta"
 
-#: src/hash.data:7
+#: src/hash.data:7 src/hash.data:205
 msgid "AM Light Rain / Wind"
 msgstr "ap: Kevyttä vesisadetta / Tuulista"
 
@@ -251,11 +251,11 @@ msgstr "ap: Vesisadetta / Lumikuuroja / Tuulista"
 msgid "AM Rain / Wind"
 msgstr "ap: Vesiadetta / Tuulista"
 
-#: src/hash.data:17
+#: src/hash.data:17 src/hash.data:206
 msgid "AM Showers"
 msgstr "ap: Vesikuuroja"
 
-#: src/hash.data:16
+#: src/hash.data:16 src/hash.data:207
 msgid "AM Showers / Wind"
 msgstr "ap: Vesikuuroja / Tuulista"
 
@@ -263,7 +263,7 @@ msgstr "ap: Vesikuuroja / Tuulista"
 msgid "AM Snow"
 msgstr "ap: Lumisadetta"
 
-#: src/hash.data:18
+#: src/hash.data:18 src/hash.data:208
 msgid "AM Snow Showers"
 msgstr "ap: Lumikuuroja"
 
@@ -275,7 +275,7 @@ msgstr "Tietoja"
 msgid "Add"
 msgstr "Lisää"
 
-#: src/hash.data:20
+#: src/hash.data:20 src/hash.data:209
 msgid "Airport Conditions"
 msgstr ""
 
@@ -333,15 +333,15 @@ msgstr "Taustaväri:"
 msgid "Blowing Snow"
 msgstr "Lumituiskua"
 
-#: src/weather-home.c:524 src/weather-home.c:1065 src/weather-home.c:1088
+#: src/weather-home.c:527 src/weather-home.c:1068 src/weather-home.c:1091
 msgid "C"
 msgstr "С"
 
-#: src/weather-popup.c:662 src/weather-popup.c:670
+#: src/weather-popup.c:663 src/weather-popup.c:671
 msgid "C\n"
 msgstr "С\n"
 
-#: src/hash.data:22
+#: src/hash.data:22 src/hash.data:210
 msgid "CALM"
 msgstr "Tyyntä"
 
@@ -362,7 +362,7 @@ msgstr "Celsius"
 msgid "City:"
 msgstr "Kaupunki:"
 
-#: src/hash.data:24
+#: src/hash.data:24 src/hash.data:211
 msgid "Clear"
 msgstr "Selkeää"
 
@@ -370,13 +370,18 @@ msgstr "Selkeää"
 msgid "Clear / Wind"
 msgstr "Selkeää / Tuulista"
 
-#: src/hash.data:25
+#: src/hash.data:25 src/hash.data:212
 msgid "Clouds Early / Clearing Late"
 msgstr "Aikaisin pilvistä / Myöhemmin selkenevää"
 
-#: src/hash.data:27
+#: src/hash.data:27 src/hash.data:213
 msgid "Cloudy"
 msgstr "Pilvistä"
+
+#: src/hash.data:214
+#, fuzzy
+msgid "Cloudy / Wind"
+msgstr "Pilvistä ja tuulista"
 
 #: src/hash.data:26
 msgid "Cloudy and Windy"
@@ -403,7 +408,7 @@ msgstr "Maa:"
 msgid "Current weather on first icon:"
 msgstr "Nykyinen säätieto ensimmäisessä kuvakkeessa:"
 
-#: src/weather-popup.c:462
+#: src/weather-popup.c:463
 msgid "Day:"
 msgstr "Päivällä:"
 
@@ -431,11 +436,11 @@ msgstr "Sadekuuroja / Sumua"
 msgid "Drizzle Late"
 msgstr "Myöhemmin tihkusadetta"
 
-#: src/hash.data:32
+#: src/hash.data:32 src/hash.data:215
 msgid "E"
 msgstr "Idästä"
 
-#: src/hash.data:33
+#: src/hash.data:33 src/hash.data:216
 msgid "ENE"
 msgstr "Itäkoilisesta"
 
@@ -443,7 +448,7 @@ msgstr "Itäkoilisesta"
 msgid "ENE_short"
 msgstr "ENE_lyhyt"
 
-#: src/hash.data:35
+#: src/hash.data:35 src/hash.data:217
 msgid "ESE"
 msgstr "Itäkaakosta"
 
@@ -463,24 +468,24 @@ msgstr "Käytä GPS:ää"
 msgid "Eric Link - for feature request and donation\n"
 msgstr "Eric Link - muutospyynnöstä ja lahjoituksesta\n"
 
-#: src/weather-home.c:701
+#: src/weather-home.c:704
 #, c-format
 msgid "Error in xml file\n"
 msgstr "Virhe xml tiedostossa\n"
 
-#: src/weather-home.c:739
+#: src/weather-home.c:742
 msgid "Error initializing the OMWeather applet"
 msgstr "Virhe alustettaessa OMWeather sovelmaa"
 
-#: src/hash.data:38
+#: src/hash.data:38 src/hash.data:218
 msgid "Extreme"
 msgstr "Raju"
 
-#: src/weather-home.c:525 src/weather-home.c:1066 src/weather-home.c:1089
+#: src/weather-home.c:528 src/weather-home.c:1069 src/weather-home.c:1092
 msgid "F"
 msgstr "F"
 
-#: src/weather-popup.c:663 src/weather-popup.c:671
+#: src/weather-popup.c:664 src/weather-popup.c:672
 msgid "F\n"
 msgstr "F\n"
 
@@ -498,19 +503,19 @@ msgstr "GConfin asetus epäonnistui. Lopetetaan.\n"
 msgid "Failed to initialize GConf. Settings were not saved.\n"
 msgstr "GConfin asetus epäonnistui. Asetuksia ei tallennettu.\n"
 
-#: src/hash.data:39
+#: src/hash.data:39 src/hash.data:219
 msgid "Fair"
 msgstr "Melko selkeää"
 
-#: src/weather-popup.c:665
+#: src/weather-popup.c:666
 msgid "Feels like:"
 msgstr "Tuntuu iholla:"
 
-#: src/hash.data:41
+#: src/hash.data:41 src/hash.data:220
 msgid "Few Showers"
 msgstr "Ajoittaisia sadekuuroja"
 
-#: src/hash.data:40
+#: src/hash.data:40 src/hash.data:221
 msgid "Few Showers / Wind"
 msgstr "Ajoittaisia sadekuuroja / Tuulista"
 
@@ -542,7 +547,7 @@ msgstr "Aikaisin sumua / Myöhemmin pilvistä"
 msgid "Fog Late"
 msgstr "Myöhemmin sumua"
 
-#: src/hash.data:49
+#: src/hash.data:49 src/hash.data:222
 msgid "Foggy"
 msgstr "Sumuista"
 
@@ -550,7 +555,7 @@ msgstr "Sumuista"
 msgid "Font color:"
 msgstr "Kirjasimen väri:"
 
-#: src/weather-home.c:995
+#: src/weather-home.c:998
 #, c-format
 msgid "Forecast: \n"
 msgstr "Ennuste: \n"
@@ -579,11 +584,11 @@ msgstr ""
 msgid "From the list:"
 msgstr "Listalta:"
 
-#: src/hash.data:51
+#: src/hash.data:51 src/hash.data:223
 msgid "Full"
 msgstr "Täysikuu"
 
-#: src/weather-popup.c:724
+#: src/weather-popup.c:725
 msgid "Gust:"
 msgstr "Puuskat:"
 
@@ -611,11 +616,11 @@ msgstr "Piilota nuolet:"
 msgid "Hide station name:"
 msgstr "Piilota aseman nimi:"
 
-#: src/hash.data:56
+#: src/hash.data:56 src/hash.data:224
 msgid "High"
 msgstr "Korkea"
 
-#: src/weather-popup.c:674
+#: src/weather-popup.c:675
 msgid "Humidity:"
 msgstr "Ilmankosteus: "
 
@@ -635,11 +640,11 @@ msgstr "Ulkoasu"
 msgid "Invalid symbol in field or field is empty."
 msgstr "Laiton merkki kentässä, tai tyhjä kenttä."
 
-#: src/hash.data:58
+#: src/hash.data:58 src/hash.data:225
 msgid "Isolated T-Storms"
 msgstr "Ukkoskuuroja"
 
-#: src/hash.data:57
+#: src/hash.data:57 src/hash.data:226
 msgid "Isolated T-Storms / Wind"
 msgstr "Ukkoskuuroja / Tuulista"
 
@@ -659,7 +664,7 @@ msgstr "Viimeisin päivitys palvelimella:"
 msgid "Last update from server: "
 msgstr "Viimeisin päivitys palvelimelta:"
 
-#: src/hash.data:60
+#: src/hash.data:60 src/hash.data:227
 msgid "Lawn and Garden Weather"
 msgstr ""
 
@@ -675,7 +680,7 @@ msgstr "Kevyttä tihkusadetta"
 msgid "Light Freezing Rain"
 msgstr "Kevyttä jäätävää sadetta"
 
-#: src/hash.data:73
+#: src/hash.data:73 src/hash.data:228
 msgid "Light Rain"
 msgstr "Kevyttä vesisadetta"
 
@@ -683,7 +688,7 @@ msgstr "Kevyttä vesisadetta"
 msgid "Light Rain / Fog"
 msgstr "Kevyttä vesisadetta / Sumua"
 
-#: src/hash.data:65
+#: src/hash.data:65 src/hash.data:229
 msgid "Light Rain / Wind"
 msgstr "Kevyttä vesisadetta / Tuulista"
 
@@ -720,7 +725,7 @@ msgstr "Kevyttä vesisadetta ja tuulista"
 msgid "Light Rain with Thunder"
 msgstr "Vesisadetta / Ukkosta"
 
-#: src/hash.data:79
+#: src/hash.data:79 src/hash.data:230
 msgid "Light Snow"
 msgstr "Kevyttä lumisadetta"
 
@@ -728,7 +733,7 @@ msgstr "Kevyttä lumisadetta"
 msgid "Light Snow / Fog"
 msgstr "Kevyttä lumisadetta / Sumua"
 
-#: src/hash.data:75
+#: src/hash.data:75 src/hash.data:231
 msgid "Light Snow / Wind"
 msgstr "Kevyttä lumisadetta / Tuulista"
 
@@ -749,11 +754,11 @@ msgstr "Kevyitä lumikuuroja"
 msgid "List of the found station(s):"
 msgstr "Aika seuraavan aseman vaihtoon:"
 
-#: src/hash.data:80
+#: src/hash.data:80 src/hash.data:232
 msgid "Local Pollen Reports"
 msgstr ""
 
-#: src/hash.data:81
+#: src/hash.data:81 src/hash.data:233
 msgid "Low"
 msgstr "Matala"
 
@@ -769,15 +774,15 @@ msgstr "Maileja"
 msgid "Mist"
 msgstr "Utua"
 
-#: src/hash.data:83
+#: src/hash.data:83 src/hash.data:234
 msgid "Moderate"
 msgstr "Keskinkertainen"
 
-#: src/hash.data:84
+#: src/hash.data:84 src/hash.data:235
 msgid "Mostly Clear"
 msgstr "Melko selkeää"
 
-#: src/hash.data:87
+#: src/hash.data:87 src/hash.data:236
 msgid "Mostly Cloudy"
 msgstr "Melko pilvistä"
 
@@ -785,28 +790,28 @@ msgstr "Melko pilvistä"
 msgid "Mostly Cloudy / Wind"
 msgstr "Melko pilvistä / Tuulista"
 
-#: src/hash.data:86
+#: src/hash.data:86 src/hash.data:237
 msgid "Mostly Cloudy and Windy"
 msgstr "Melko pilvistä ja tuulista"
 
-#: src/hash.data:88
+#: src/hash.data:88 src/hash.data:238
 msgid "Mostly Sunny"
 msgstr "Melko selkeää"
 
-#: src/hash.data:89
+#: src/hash.data:89 src/hash.data:239
 msgid "N"
 msgstr "Pohjoisesta"
 
-#: src/weather-home.c:466 src/weather-home.c:484 src/weather-home.c:509
-#: src/weather-home.c:510 src/weather-home.c:517 src/weather-home.c:518
-#: src/weather-home.c:530 src/weather-home.c:537 src/weather-home.c:602
-#: src/weather-home.c:606 src/weather-home.c:612 src/weather-home.c:619
-#: src/weather-home.c:630 src/weather-home.c:631 src/weather-home.c:637
-#: src/hash.data:90
+#: src/weather-home.c:469 src/weather-home.c:487 src/weather-home.c:512
+#: src/weather-home.c:513 src/weather-home.c:520 src/weather-home.c:521
+#: src/weather-home.c:533 src/weather-home.c:540 src/weather-home.c:605
+#: src/weather-home.c:609 src/weather-home.c:615 src/weather-home.c:622
+#: src/weather-home.c:633 src/weather-home.c:634 src/weather-home.c:640
+#: src/hash.data:90 src/hash.data:240
 msgid "N/A"
 msgstr "N/A"
 
-#: src/hash.data:91
+#: src/hash.data:91 src/hash.data:241
 msgid "NE"
 msgstr "Koilisesta"
 
@@ -814,7 +819,7 @@ msgstr "Koilisesta"
 msgid "NE_short"
 msgstr "NE_lyhyt"
 
-#: src/hash.data:93
+#: src/hash.data:93 src/hash.data:242
 msgid "NNE"
 msgstr "Pohjoiskoilisesta"
 
@@ -822,7 +827,7 @@ msgstr "Pohjoiskoilisesta"
 msgid "NNE_short"
 msgstr "NNE_lyhyt"
 
-#: src/hash.data:95
+#: src/hash.data:95 src/hash.data:243
 msgid "NNW"
 msgstr "Pohjoisluoteesta"
 
@@ -834,7 +839,7 @@ msgstr "NNW_lyhyt"
 msgid "NO STATION"
 msgstr "Ei asemaa"
 
-#: src/hash.data:98
+#: src/hash.data:98 src/hash.data:244
 msgid "NW"
 msgstr "Luoteesta"
 
@@ -855,7 +860,7 @@ msgstr "Nimi:"
 msgid "Never"
 msgstr "Ei koskaan"
 
-#: src/hash.data:101
+#: src/hash.data:101 src/hash.data:245
 msgid "New"
 msgstr "Uusikuu"
 
@@ -863,7 +868,7 @@ msgstr "Uusikuu"
 msgid "Next update:"
 msgstr "Seuraava päivitys:"
 
-#: src/weather-popup.c:533
+#: src/weather-popup.c:534
 msgid "Night:"
 msgstr "Yöllä:"
 
@@ -871,11 +876,11 @@ msgstr "Yöllä:"
 msgid "No"
 msgstr "Ei"
 
-#: src/weather-popup.c:323
+#: src/weather-popup.c:324
 msgid "No current weather data."
 msgstr "Ei tämän hetkistä säätietoa."
 
-#: src/weather-popup.c:312
+#: src/weather-popup.c:313
 msgid "No weather data for this day."
 msgstr "Ei säätietoja tälle päivälle."
 
@@ -895,12 +900,12 @@ msgstr ""
 "Ei yhteyttä Internettiin\n"
 "Yhteys on vanhentunut"
 
-#: src/weather-home.c:465 src/weather-home.c:473 src/weather-home.c:483
+#: src/weather-home.c:468 src/weather-home.c:476 src/weather-home.c:486
 #: src/weather-popup.c:256
 msgid "Now"
 msgstr "Nyt"
 
-#: src/weather-home.c:1061
+#: src/weather-home.c:1064
 #, c-format
 msgid "Now: "
 msgstr "Nyt: "
@@ -909,7 +914,7 @@ msgstr "Nyt: "
 msgid "OK"
 msgstr "OK"
 
-#: src/weather-home.c:933
+#: src/weather-home.c:936
 msgid "OMWeather settings"
 msgstr "OMWeather asetukset"
 
@@ -933,9 +938,14 @@ msgstr "Pilvistä"
 msgid "PM Fog"
 msgstr "ip: Sumua"
 
-#: src/hash.data:104
+#: src/hash.data:104 src/hash.data:246
 msgid "PM Light Rain"
 msgstr "ip: Kevyttä vesisadetta"
+
+#: src/hash.data:247
+#, fuzzy
+msgid "PM Light Rain / Wind"
+msgstr "ap: Kevyttä vesisadetta / Tuulista"
 
 #: src/hash.data:105
 msgid "PM Light Snow"
@@ -953,27 +963,27 @@ msgstr "ip: Vesisadetta / Lumisadetta"
 msgid "PM Rain / Wind"
 msgstr "ip: Vesiadetta / Tuulista"
 
-#: src/hash.data:110
+#: src/hash.data:110 src/hash.data:248
 msgid "PM Showers"
 msgstr "ip: Vesikuuroja"
 
-#: src/hash.data:109
+#: src/hash.data:109 src/hash.data:249
 msgid "PM Showers / Wind"
 msgstr "ip: Vesikuuroja / Tuulista"
 
-#: src/hash.data:111
+#: src/hash.data:111 src/hash.data:250
 msgid "PM Snow Showers"
 msgstr "ip: Lumikuuroja"
 
-#: src/hash.data:112
+#: src/hash.data:112 src/hash.data:251
 msgid "PM T-Storms"
 msgstr "ip: Ukkosta"
 
-#: src/hash.data:115
+#: src/hash.data:115 src/hash.data:252
 msgid "Partly Cloudy"
 msgstr "Puolipilvistä"
 
-#: src/hash.data:113
+#: src/hash.data:113 src/hash.data:253
 msgid "Partly Cloudy / Wind"
 msgstr "Puolipilvistä / Tuulista"
 
@@ -985,11 +995,11 @@ msgstr "Osittain pilvistä ja tuulista"
 msgid "Pressure units:"
 msgstr "Paineen yksiköt:"
 
-#: src/weather-popup.c:698
+#: src/weather-popup.c:699
 msgid "Pressure:"
 msgstr "Ilmanpaine: "
 
-#: src/hash.data:134
+#: src/hash.data:134 src/hash.data:254
 msgid "Rain"
 msgstr "Vesisadetta"
 
@@ -997,7 +1007,7 @@ msgstr "Vesisadetta"
 msgid "Rain / Freezing Rain"
 msgstr "Vesisadetta / Jäätävää sadetta"
 
-#: src/hash.data:123
+#: src/hash.data:123 src/hash.data:255
 msgid "Rain / Snow"
 msgstr "Vesisadetta / Lumisadetta"
 
@@ -1013,11 +1023,11 @@ msgstr "Vesisadetta / Aikaisin lumisadetta"
 msgid "Rain / Snow Late"
 msgstr "Vesisadetta / Myöhemmin lumisadetta"
 
-#: src/hash.data:122
+#: src/hash.data:122 src/hash.data:256
 msgid "Rain / Snow Showers"
 msgstr "Vesisadetta / Lumikuuroja"
 
-#: src/hash.data:120
+#: src/hash.data:120 src/hash.data:257
 msgid "Rain / Snow Showers / Wind"
 msgstr "Vesisadetta / Lumikuuroja / Tuulista"
 
@@ -1029,7 +1039,7 @@ msgstr "Vesisadetta / Myöhemmin lumikuuroja"
 msgid "Rain / Thunder"
 msgstr "Vesisadetta / Ukkosta"
 
-#: src/hash.data:126
+#: src/hash.data:126 src/hash.data:258
 msgid "Rain / Wind"
 msgstr "Vesisadetta / Tuulista"
 
@@ -1037,7 +1047,7 @@ msgstr "Vesisadetta / Tuulista"
 msgid "Rain / Wind Early"
 msgstr "Vesisadetta / Aikaisin tuulista"
 
-#: src/hash.data:127
+#: src/hash.data:127 src/hash.data:259
 msgid "Rain Early"
 msgstr "Aikaisin sadetta"
 
@@ -1045,7 +1055,7 @@ msgstr "Aikaisin sadetta"
 msgid "Rain Late"
 msgstr "Myöhemmin vesisadetta"
 
-#: src/hash.data:130
+#: src/hash.data:130 src/hash.data:260
 msgid "Rain Shower"
 msgstr "Vesikuuroja"
 
@@ -1069,15 +1079,15 @@ msgstr "Vesi- ja räntäsadetta / Tuulista"
 msgid "Read sensor every:"
 msgstr "Lue sensori joka:"
 
-#: src/hash.data:135
+#: src/hash.data:135 src/hash.data:261
 msgid "Rush Hour Traffic"
 msgstr ""
 
-#: src/hash.data:136
+#: src/hash.data:136 src/hash.data:262
 msgid "S"
 msgstr "Etelästä"
 
-#: src/hash.data:137
+#: src/hash.data:137 src/hash.data:263
 msgid "SE"
 msgstr "Kaakosta"
 
@@ -1085,7 +1095,7 @@ msgstr "Kaakosta"
 msgid "SE_short"
 msgstr "SE_lyhyt"
 
-#: src/hash.data:139
+#: src/hash.data:139 src/hash.data:264
 msgid "SSE"
 msgstr "Eteläkaakosta"
 
@@ -1093,7 +1103,7 @@ msgstr "Eteläkaakosta"
 msgid "SSE_short"
 msgstr "SSE_lyhyt"
 
-#: src/hash.data:141
+#: src/hash.data:141 src/hash.data:265
 msgid "SSW"
 msgstr "Etelälounaasta"
 
@@ -1101,7 +1111,7 @@ msgstr "Etelälounaasta"
 msgid "SSW_short"
 msgstr "SSW_lyhyt"
 
-#: src/hash.data:143
+#: src/hash.data:143 src/hash.data:266
 msgid "SW"
 msgstr "Lounaasta"
 
@@ -1113,7 +1123,7 @@ msgstr "SW_lyhyt"
 msgid "S_short"
 msgstr "E_lyhyt"
 
-#: src/hash.data:146
+#: src/hash.data:146 src/hash.data:267
 msgid "Scattered Showers"
 msgstr "Hajanaisia vesikuuroja"
 
@@ -1121,11 +1131,11 @@ msgstr "Hajanaisia vesikuuroja"
 msgid "Scattered Snow"
 msgstr "Hajanaisia lumisateita"
 
-#: src/hash.data:147
+#: src/hash.data:147 src/hash.data:268
 msgid "Scattered Snow Showers"
 msgstr "Hajanaisia lumikuuroja"
 
-#: src/hash.data:149
+#: src/hash.data:149 src/hash.data:269
 msgid "Scattered T-Storms"
 msgstr "Hajanaisia ukkoskuuroja"
 
@@ -1150,23 +1160,23 @@ msgstr "Näytä lämpötila"
 msgid "Show wind:"
 msgstr "Näytä tuuli:"
 
-#: src/hash.data:155
+#: src/hash.data:155 src/hash.data:270
 msgid "Showers"
 msgstr "Vesikuuroja"
 
-#: src/hash.data:151
+#: src/hash.data:151 src/hash.data:271
 msgid "Showers / Wind"
 msgstr "Vesikuuroja / Tuulista"
 
-#: src/hash.data:150
+#: src/hash.data:150 src/hash.data:272
 msgid "Showers / Wind Early"
 msgstr "Sadekuuroja / Aikaisin tuulista"
 
-#: src/hash.data:152
+#: src/hash.data:152 src/hash.data:273
 msgid "Showers Early"
 msgstr "Aikaisin vesikuuroja"
 
-#: src/hash.data:153
+#: src/hash.data:153 src/hash.data:274
 msgid "Showers Late"
 msgstr "Myöhemmin vesikuuroja"
 
@@ -1182,15 +1192,15 @@ msgstr "Savusumua"
 msgid "Snow"
 msgstr "Lumisadetta"
 
-#: src/hash.data:157
+#: src/hash.data:157 src/hash.data:275
 msgid "Snow / Wind"
 msgstr "Lumisadetta / Tuulista"
 
-#: src/hash.data:159
+#: src/hash.data:159 src/hash.data:276
 msgid "Snow Shower"
 msgstr "Lumikuuroja"
 
-#: src/hash.data:158
+#: src/hash.data:158 src/hash.data:277
 msgid "Snow Shower / Wind"
 msgstr "Lumikuuroja / Tuulista"
 
@@ -1198,11 +1208,11 @@ msgstr "Lumikuuroja / Tuulista"
 msgid "Snow Showers / Wind Early"
 msgstr "Lumikuuroja / Aikaisin tuulista"
 
-#: src/hash.data:161
+#: src/hash.data:161 src/hash.data:278
 msgid "Snow Showers Early"
 msgstr "Aikaisin lumikuuroja"
 
-#: src/hash.data:162
+#: src/hash.data:162 src/hash.data:279
 msgid "Snow Showers Late"
 msgstr "Myöhemmin lumikuuroja"
 
@@ -1227,7 +1237,7 @@ msgstr "Lumi- ja räntäsadetta / Tuulista"
 msgid "Source:"
 msgstr "Auringonnousu:"
 
-#: src/weather-popup.c:717
+#: src/weather-popup.c:718
 msgid "Speed:"
 msgstr ""
 
@@ -1243,11 +1253,11 @@ msgstr "Asemat"
 msgid "Storm"
 msgstr "Myrsky"
 
-#: src/hash.data:170
+#: src/hash.data:170 src/hash.data:280
 msgid "Sunny"
 msgstr "Aurinkoista"
 
-#: src/hash.data:169
+#: src/hash.data:169 src/hash.data:281
 msgid "Sunny / Wind"
 msgstr "Aurinkoista / Tuulista"
 
@@ -1267,11 +1277,11 @@ msgstr "Käänteinen lämpötilan korkea/matala näyttö:"
 msgid "Switch to the next station after:"
 msgstr "Aika seuraavan aseman vaihtoon:"
 
-#: src/hash.data:171
+#: src/hash.data:171 src/hash.data:282
 msgid "T-Showers"
 msgstr "Ukkoskuuroja"
 
-#: src/hash.data:173
+#: src/hash.data:173 src/hash.data:283
 msgid "T-Storms"
 msgstr "Ukkosta"
 
@@ -1283,7 +1293,7 @@ msgstr "Aikaisin ukkoskuuroja"
 msgid "Temperature units:"
 msgstr "Lämpötilan yksikkö:"
 
-#: src/weather-popup.c:657
+#: src/weather-popup.c:658
 msgid "Temperature: "
 msgstr "Lämpötila:"
 
@@ -1291,7 +1301,7 @@ msgstr "Lämpötila:"
 msgid "Thanks"
 msgstr "Kiitokset"
 
-#: src/weather-home.c:998
+#: src/weather-home.c:1001
 #, c-format
 msgid ""
 "The current weather\n"
@@ -1365,7 +1375,7 @@ msgstr "Vaihteleva"
 msgid "Valid time for current weather:"
 msgstr "Nykyisen sään voimassaolo:"
 
-#: src/hash.data:177
+#: src/hash.data:177 src/hash.data:284
 msgid "Very High"
 msgstr "Erittäin korkea"
 
@@ -1373,15 +1383,15 @@ msgstr "Erittäin korkea"
 msgid "Visible items:"
 msgstr "Näkyvät elementit:"
 
-#: src/weather-popup.c:680
+#: src/weather-popup.c:681
 msgid "Visible:"
 msgstr "Näkyvyys: "
 
-#: src/hash.data:178
+#: src/hash.data:178 src/hash.data:285
 msgid "W"
 msgstr "Lännestä"
 
-#: src/hash.data:179
+#: src/hash.data:179 src/hash.data:286
 msgid "WNW"
 msgstr "Länsiluoteesta"
 
@@ -1389,7 +1399,7 @@ msgstr "Länsiluoteesta"
 msgid "WNW_short"
 msgstr "WNW_lyhyt"
 
-#: src/hash.data:181
+#: src/hash.data:181 src/hash.data:287
 msgid "WSW"
 msgstr "Länsilounaasta"
 
@@ -1401,23 +1411,23 @@ msgstr "WSW_lyhyt"
 msgid "W_short"
 msgstr "W_lyhyt"
 
-#: src/hash.data:184
+#: src/hash.data:184 src/hash.data:288
 msgid "Waning Crescent"
 msgstr "Vähenevä sirppi"
 
-#: src/hash.data:185
+#: src/hash.data:185 src/hash.data:289
 msgid "Waning Gibbous"
 msgstr "Vähenevä kuperakuu"
 
-#: src/hash.data:186
+#: src/hash.data:186 src/hash.data:290
 msgid "Waxing Crescent"
 msgstr "Kasvava sirppi"
 
-#: src/hash.data:187
+#: src/hash.data:187 src/hash.data:291
 msgid "Waxing Gibbous"
 msgstr "Kasvava kuperakuu"
 
-#: src/weather-popup.c:761
+#: src/weather-popup.c:762
 #, fuzzy
 msgid "Weather data provided by: "
 msgstr "Säätiedot päivitetty."
@@ -1434,12 +1444,12 @@ msgstr "Tuulista"
 msgid "Wind speed units:"
 msgstr "Tuulen nopeuden yksikkö:"
 
-#: src/weather-popup.c:713
+#: src/weather-popup.c:714
 msgid "Wind:"
 msgstr "Tuuli:"
 
-#: src/weather-home.c:551 src/weather-home.c:565 src/weather-popup.c:511
-#: src/weather-popup.c:582
+#: src/weather-home.c:554 src/weather-home.c:568 src/weather-popup.c:512
+#: src/weather-popup.c:583
 msgid "Wind: "
 msgstr "Tuuli:"
 
@@ -1459,7 +1469,7 @@ msgstr "Räntäsadetta / Aiemmin tuulista"
 msgid "Wintry Mix to Snow"
 msgstr "Räntä- ja lumisadetta"
 
-#: src/weather-home.c:704
+#: src/weather-home.c:707
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
@@ -1511,11 +1521,11 @@ msgstr "kerran minuutissa (Debug)"
 msgid "falling"
 msgstr "laskeva"
 
-#: src/weather-home.c:1123 src/weather-settings.c:1336 src/weather-popup.c:704
+#: src/weather-home.c:1126 src/weather-settings.c:1336 src/weather-popup.c:705
 msgid "inHg"
 msgstr "inHg"
 
-#: src/weather-home.c:1109 src/weather-popup.c:689
+#: src/weather-home.c:1112 src/weather-popup.c:690
 msgid "km"
 msgstr "km"
 
@@ -1527,7 +1537,7 @@ msgstr "km/h"
 msgid "km/s"
 msgstr "km/s"
 
-#: src/weather-home.c:1108 src/weather-popup.c:688
+#: src/weather-home.c:1111 src/weather-popup.c:689
 msgid "m"
 msgstr "m"
 
@@ -1539,12 +1549,12 @@ msgstr "m/h"
 msgid "m/s"
 msgstr "m/s"
 
-#: src/weather-home.c:1122 src/weather-settings.c:1328 src/weather-popup.c:703
+#: src/weather-home.c:1125 src/weather-settings.c:1328 src/weather-popup.c:704
 msgid "mb"
 msgstr "mbar"
 
-#: src/weather-home.c:1110 src/weather-home.c:1111 src/weather-popup.c:690
-#: src/weather-popup.c:691
+#: src/weather-home.c:1113 src/weather-home.c:1114 src/weather-popup.c:691
+#: src/weather-popup.c:692
 msgid "mi"
 msgstr "mi"
 

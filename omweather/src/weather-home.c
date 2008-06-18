@@ -540,7 +540,7 @@ void draw_home_window(gint count_day){
 			/* The string of forecast for Combination mode */
 			if((current_time > day_begin_time) && (current_time < night_begin_time)){
 			        memset(app->forecast_string, 0, sizeof(app->forecast_string));
-				strcat(app->forecast_string, item_value(wcs.day_data[i + j], "day_title"));
+				strcat(app->forecast_string, (char*)hash_table_find(item_value(wcs.day_data[i + j], "day_title"), FALSE));
 				strcat(app->forecast_string, _("\nHumidity: "));
 				if(strcmp(item_value(wcs.day_data[i + j], "day_humidity"), "N/A"))
 				    sprintf(app->forecast_string + strlen(app->forecast_string), "%s%%\n",

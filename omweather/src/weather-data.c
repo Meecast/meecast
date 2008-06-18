@@ -127,7 +127,7 @@ time_t last_update_time(GSList *object){
     if(strstr(item_value(object, "last_update"), "PM"))
 	last_update += 12 * 3600;
 
-    last_update -= 3600; /* TODO. I don't understand why this is needed. */
+//    last_update -= 3600; /* TODO. I don't understand why this is needed. */
     return last_update;
 }
 /*******************************************************************************/

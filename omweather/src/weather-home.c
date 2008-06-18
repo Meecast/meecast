@@ -442,12 +442,15 @@ void draw_home_window(gint count_day){
             	    time_event_add(night_begin_time - diff_time, DAYTIMEEVENT);
 		
 		#ifndef RELEASE
-		fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+		fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 		fprintf(stderr, "\nUTC time %s", ctime(&utc_time));
 		fprintf(stderr, "Zone time %s", ctime(&current_time));
 		tmp_time = last_update_time(wcs.current_data);
 		fprintf(stderr, "Last update: %s", ctime(&tmp_time));
 		fprintf(stderr, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+		fprintf(stderr, "Current time: %s", ctime(&current_time));
+ 		fprintf(stderr, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+
 		#endif
 		/* check weather data for actuality */
 		if( !wcs.current_data_is_invalid && 

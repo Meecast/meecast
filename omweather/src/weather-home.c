@@ -247,7 +247,6 @@ int calculate_offset_of_day(int count_day){
 		offset;
     time_t	current_day,
 		current_time,
-		utc_time,
 		date_time;
     struct tm	*tm = NULL;
     double	pre_offset = 0.0F;
@@ -255,8 +254,7 @@ int calculate_offset_of_day(int count_day){
 
 /* get current day */  
     current_time = time(NULL);
-    utc_time = mktime(gmtime(&current_time));
-    diff_time = utc_time - current_time + 60 * 60 * atol(item_value(wcs.day_data[0], "station_time_zone"));
+    diff_time = calculate_diff_time(atol(item_value(wcs.day_data[0], "station_time_zone")));
     current_time += diff_time;
     current_day = current_time;
     tm = localtime(&current_day);
@@ -303,7 +301,6 @@ void draw_home_window(gint count_day){
     time_t	current_day,
 		current_time,
 		last_day = 0,
-		utc_time,
 		date_time,
 		day_begin_time,
 		night_begin_time;
@@ -359,8 +356,7 @@ void draw_home_window(gint count_day){
     remove_daytime_event();
 /* get current day */  
     current_time = time(NULL);
-    utc_time = mktime(gmtime(&current_time));
-    diff_time = utc_time - current_time + 60 * 60 * atol(item_value(wcs.day_data[0], "station_time_zone"));
+    diff_time = calculate_diff_time(atol(item_value(wcs.day_data[0], "station_time_zone")));
     current_time += diff_time;
     current_day = current_time;
     tm = localtime(&current_day);
@@ -1392,9 +1388,10 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         combination_vbox = gtk_vbox_new(FALSE, 0);
 	/* get current time */  
         current_time = time(NULL);
-        utc_time = mktime(gmtime(&current_time));
-        diff_time = utc_time - current_time + 60 * 60 * atol(item_value(wcs.day_data[0], "station_time_zone"));
+	
+	diff_time = calculate_diff_time(atol(item_value(wcs.day_data[0], "station_time_zone")));
         current_time += diff_time;
+
 	
         if(!wcs.current_data_is_invalid){
 	    if( (last_update_time(wcs.current_data) > (current_time - app->config->data_valid_interval)) &&

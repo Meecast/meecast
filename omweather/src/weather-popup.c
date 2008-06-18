@@ -62,6 +62,7 @@ GtkWidget* create_sun_time_widget(GSList *day){
 	return NULL;
 /* prepare additional time values */
     current_time = time(NULL);
+
     utc_time = mktime(gmtime(&current_time));
     current_time = utc_time + 60 * 60 * atol(item_value(day, "station_time_zone"));
 
@@ -203,7 +204,6 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 		k = 0;
     gchar	*day_name = NULL;
     time_t      current_time = 0,
-                utc_time,
                 diff_time,
                 current_data_last_update = 0;
 #ifdef DEBUGFUNCTIONCALL
@@ -234,10 +234,7 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 /* Current weather */
     current_time = time(NULL); /* get current day */
     /* correct time for current location */
-    utc_time = mktime(gmtime(&current_time));
-    diff_time = utc_time - current_time
-			+ 60 * 60
-			* atol(item_value(wcs.day_data[active_tab], "station_time_zone"));
+    diff_time =  calculate_diff_time(atol(item_value(wcs.day_data[i], "station_time_zone")));
 #ifndef RELEASE
     fprintf(stderr, "\n>>>>>>>Diff time=%li<<<<<<\n", diff_time);
 #endif

@@ -95,6 +95,26 @@ char* item_value(GSList *object, const char *name){
     return result;
 }
 /*******************************************************************************/
+time_t calculate_diff_time(int timezone){
+
+    time_t	current_time,
+                diff_time = 0,
+                utc_time;
+    struct tm	*gmt;
+    
+    current_time = time(NULL); /* get current day */
+     /* set Daylight */
+    gmt = gmtime(&current_time);
+    gmt->tm_isdst = 1;
+    /* correct time for current location */
+    utc_time = mktime(gmtime(&current_time));
+    utc_time = mktime(gmt);
+
+    diff_time = utc_time - current_time  + 60 * 60 * timezone;
+
+    return diff_time;
+}
+/*******************************************************************************/
 void destroy_object(GSList **object){
     Item	*itm = NULL;
     GSList	*tmp = *object;
@@ -127,7 +147,6 @@ time_t last_update_time(GSList *object){
     if(strstr(item_value(object, "last_update"), "PM"))
 	last_update += 12 * 3600;
 
-//    last_update -= 3600; /* TODO. I don't understand why this is needed. */
     return last_update;
 }
 /*******************************************************************************/

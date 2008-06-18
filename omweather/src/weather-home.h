@@ -63,6 +63,7 @@ extern void timer(int interval);
 extern void create_timer_with_interval(guint interval);
 extern void weather_initialize_dbus(void);
 extern void add_periodic_event(time_t last_update);
+extern time_t calculate_diff_time(int timezone);
 extern void remove_daytime_event(void);
 extern void clean_download(void);
 extern void weather_window_settings(GtkWidget *widget,GdkEvent *event,gpointer user_data);

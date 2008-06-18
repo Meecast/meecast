@@ -1,13 +1,13 @@
-Source: omweather-stations-db
+Source: omweather-weather-com-stations-db
 Section: user/accessories
 Priority: optional
 Maintainer: Vlad Vasiliev <vlad@gas.by>
 Build-Depends: 
 Standards-Version: 3.6.0
 
-Package: omweather-stations-db
+Package:  omweather-weather-com-stations-db
 Architecture: all
 Depends: omweather (>=0.21)
-Description: Stations database
+Description: Stations database (weather.com)
  for Other Maemo Weather
  © 2006-2008 by Vlad Vasiliev and Pavel Fialko

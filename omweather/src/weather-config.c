@@ -348,7 +348,7 @@ int new_read_config(AppletConfig *config){
 					    GCONF_KEY_WEATHER_DATA_SOURCE,
 					    NULL);
     if(config->weather_source < WEATHER_COM1 || config->weather_source > WEATHER_COM2)
-	config->weather_source = WEATHER_COM1;
+	config->weather_source = WEATHER_COM2;
 
     /* Get Weather Icon Size  */		     
     config->icons_size = gconf_client_get_int(gconf_client,

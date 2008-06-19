@@ -53,18 +53,12 @@ GtkWidget* create_sun_time_widget(GSList *day){
     gchar	buffer[1024],
 		time_buffer[1024];
     struct tm	time_show = {0};
-    time_t 	current_time,
-		utc_time;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!day)
 	return NULL;
 /* prepare additional time values */
-    current_time = time(NULL);
-
-    utc_time = mktime(gmtime(&current_time));
-    current_time = utc_time + 60 * 60 * atol(item_value(day, "station_time_zone"));
 
     memset(buffer, 0, sizeof(buffer));
     memset(time_buffer, 0, sizeof(time_buffer));

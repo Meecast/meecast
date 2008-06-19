@@ -261,6 +261,7 @@ int calculate_offset_of_day(int count_day){
     year = 1900 + tm->tm_year;
     current_month = tm->tm_mon;
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+    tm->tm_isdst = 1;
     current_day = mktime(tm);
 
     memset(date_in_string, 0, sizeof(date_in_string));
@@ -364,6 +365,7 @@ void draw_home_window(gint count_day){
     year = 1900 + tm->tm_year;
     current_month = tm->tm_mon;
     tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+    tm->tm_isdst = 1;
     current_day = mktime(tm);
 
     offset = calculate_offset_of_day(count_day);

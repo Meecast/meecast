@@ -107,7 +107,6 @@ time_t calculate_diff_time(int timezone){
     gmt = gmtime(&current_time);
     gmt->tm_isdst = 1;
     /* correct time for current location */
-    utc_time = mktime(gmtime(&current_time));
     utc_time = mktime(gmt);
 
     diff_time = utc_time - current_time  + 60 * 60 * timezone;
@@ -141,6 +140,7 @@ time_t last_update_time(GSList *object){
 	return 0;
 
     strptime(item_value(object, "last_update"), "%D %I:%M", &tm);
+    tm.tm_isdst = 1;
     last_update = mktime(&tm);
 
     /* Add 12 hours if  date have PM field */

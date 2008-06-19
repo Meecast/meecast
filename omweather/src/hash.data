@@ -23,6 +23,7 @@
     g_hash_table_insert(hash, "Clear / Wind", _("Clear / Wind"));
 	g_hash_table_insert(hash, "Clear", _("Clear"));
 	g_hash_table_insert(hash, "Clouds Early / Clearing Late", _("Clouds Early / Clearing Late"));
+	g_hash_table_insert(hash, "Cloudy / Wind", _("Cloudy / Wind"));
     g_hash_table_insert(hash, "Cloudy and Windy", _("Cloudy and Windy"));
 	g_hash_table_insert(hash, "Cloudy", _("Cloudy"));
     g_hash_table_insert(hash, "Drifting Snow", _("Drifting Snow"));
@@ -101,6 +102,7 @@
 	g_hash_table_insert(hash, "New", _("New"));
     g_hash_table_insert(hash, "Overcast", _("Overcast"));
     g_hash_table_insert(hash, "PM Fog", _("PM Fog"));
+	g_hash_table_insert(hash, "PM Light Rain / Wind", _("PM Light Rain / Wind"));
 	g_hash_table_insert(hash, "PM Light Rain", _("PM Light Rain"));
 	g_hash_table_insert(hash, "PM Light Snow", _("PM Light Snow"));
     g_hash_table_insert(hash, "PM Rain / Snow", _("PM Rain / Snow"));    

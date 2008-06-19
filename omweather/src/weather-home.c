@@ -316,7 +316,8 @@ void draw_home_window(gint count_day){
     const gchar	*wind_units_str[] = { "m/s", "km/h", "mi/h" };
 
 #ifndef RELEASE
-    time_t	tmp_time;
+    time_t	tmp_time,
+		utc_time;
 #endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -1177,8 +1178,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		*station_name = NULL,
 		*station_box = NULL;
     time_t	current_time,
-                diff_time,
-                utc_time;
+                diff_time;
 
     int		n, elements, x, y;
     GtkTreeIter	iter;

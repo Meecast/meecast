@@ -60,7 +60,7 @@
 #define GCONF_KEY_WEATHER_VALID_DATA_TIME	GCONF_KEY_PREFIX"/valid-time"
 #define GCONF_KEY_WEATHER_PROGRAM_VERSION	GCONF_KEY_PREFIX"/version"
 #define GCONF_KEY_WEATHER_SETTING_TAB_NUMBER	GCONF_KEY_PREFIX"/settings-tab-number"
-#ifdef OS2008
+#if defined(OS2008) || defined(DEBUGTEMP)
 #define GCONF_KEY_USE_SENSOR			GCONF_KEY_PREFIX"/use-sensor"
 #define GCONF_KEY_DISPLAY_SENSOR_AT		GCONF_KEY_PREFIX"/display-sensor-at"
 #define GCONF_KEY_SENSOR_UPDATE_TIME		GCONF_KEY_PREFIX"/sensor-update-time"
@@ -99,8 +99,8 @@ extern void add_periodic_event(time_t last_update);
 extern void add_gps_event(guint interval);
 extern gboolean switch_timer_handler(gpointer data);
 extern void update_weather(gboolean show_update_window);
-#ifdef OS2008
-extern void read_sensor(void);
+#if defined(OS2008) || defined(DEBUGTEMP)
+extern void read_sensor(gint need_redraw);
 #endif
 /*******************************************************************************/
 #endif

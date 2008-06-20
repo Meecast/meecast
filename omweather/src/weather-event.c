@@ -68,7 +68,7 @@ gboolean timer_handler(gpointer data){
 		#endif
 		    g_free(evt);
                     event_time_list = g_slist_remove(event_time_list, event_time_list->data);
-     		    redraw_home_window();   
+     		    redraw_home_window(FALSE);   
 		break;
 		case DBUSINITEVENT:
 		#ifndef RELEASE
@@ -146,7 +146,7 @@ gboolean timer_handler(gpointer data){
 			    }
 			    new_config_save(app->config);
 		    	    update_weather(TRUE);
-			    redraw_home_window();
+			    redraw_home_window(FALSE);
 			}        
                     }
 		#endif

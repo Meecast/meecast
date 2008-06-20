@@ -44,6 +44,7 @@ void remove_periodic_event(void);
 void print_list(char *buff, size_t buff_size);
 void time_event_add(time_t time_value, short type_event);
 time_t next_update(void);
+void free_list_time_event(void);
 /*******************************************************************************/
 extern void weather_initialize_dbus(void);
 extern void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name, gboolean is_gps);
@@ -52,6 +53,6 @@ extern gdouble calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdou
 extern void delete_all_gps_stations(void);
 #endif
 extern void update_weather(gboolean show_update_window);
-extern void redraw_home_window(void);
+extern void redraw_home_window(gboolean first_start);
 /*******************************************************************************/
 #endif

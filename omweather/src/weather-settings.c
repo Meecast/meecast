@@ -355,7 +355,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
                                                         &iter);
     }
     g_free(station_selected);
-    redraw_home_window();    
+    redraw_home_window(FALSE);
     /* Update config file */
     new_config_save(app->config);
     highlight_current_station(GTK_TREE_VIEW(station_list_view));
@@ -456,7 +456,7 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
                                     	    &iter);
     }
     g_free(station_selected);
-    redraw_home_window();
+    redraw_home_window(FALSE);
     new_config_save(app->config);
 }
 /*******************************************************************************/
@@ -697,6 +697,8 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*weather_source = NULL,
 #ifdef OS2008
                 *chk_gps = NULL,
+#endif
+#if defined(OS2008) || defined(DEBUGTEMP)
 		*sensor_page = NULL,
 #endif
 		*time_update_label = NULL,
@@ -756,7 +758,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			update_page = gtk_table_new(5, 2, FALSE),
         			gtk_label_new(_("Update")));
-#ifdef OS2008
+#if defined(OS2008) || defined(DEBUGTEMP)
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			sensor_page = create_sensor_page(window_config),
         			gtk_label_new(_("Sensor")));
@@ -1461,7 +1463,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*time2switch = NULL,
 			*validtime = NULL,
 			*weather_source = NULL,
-#ifdef OS2008
+#if defined(OS2008) || defined(DEBUGTEMP)
 			*use_sensor = NULL,
 			*display_at = NULL,
 			*sensor_update_time = NULL,
@@ -1660,12 +1662,14 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 #endif
 	}
     }
-#ifdef OS2008
+#if defined(OS2008) || defined(DEBUGTEMP)
 /* use sensor */
     use_sensor = lookup_widget(config_window, "use_sensor");
     if(use_sensor)
 	app->config->use_sensor = 
 	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(use_sensor));
+    if(app->config->use_sensor) /* if enabled sensor */
+	read_sensor(1);		/* immediately read and display sensor data */
 /* display sensor at */
     display_at = lookup_widget(config_window, "display_at");
     if(display_at){
@@ -1683,7 +1687,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	    g_source_remove(app->sensor_timer);
 	    app->sensor_timer = g_timeout_add(app->config->sensor_update_time * 1000,
                                             (GtkFunction)read_sensor,
-                                            NULL);
+                                            GINT_TO_POINTER(1));
 	}
     }
 #endif
@@ -1769,7 +1773,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 #endif
 /* save settings */
     new_config_save(app->config);
-    redraw_home_window();
+    redraw_home_window(FALSE);
 }
 /*******************************************************************************/
 void close_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -1798,7 +1802,7 @@ void close_button_handler(GtkWidget *button, GdkEventButton *event,
 /* check if update is needed */
     if(need_update_weather){
 	update_weather(TRUE);
-	redraw_home_window();
+	redraw_home_window(FALSE);
     }
 #ifndef OS2008
 /* check if correct layout needed */
@@ -2118,7 +2122,7 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
     stations_list_view = lookup_widget(config, "station_list_view");
     if(stations_list_view){
 	highlight_current_station(GTK_TREE_VIEW(stations_list_view));
-	redraw_home_window();
+	redraw_home_window(FALSE);
     }
 }
 /*******************************************************************************/
@@ -2164,7 +2168,7 @@ void rename_button_handler(GtkWidget *button, GdkEventButton *event,
     }
 /* save settings */
     new_config_save(app->config);
-    redraw_home_window();
+    redraw_home_window(FALSE);
 }
 /*******************************************************************************/
 void chk_download_button_toggled_handler(GtkRadioButton *button,

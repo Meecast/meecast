@@ -33,8 +33,14 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-#ifdef OS2008
-#define SENSOR	"/sys/devices/platform/i2c_omap.1/i2c-1/1-0048/temp1_input"
+#if defined(OS2008) || defined(DEBUGTEMP)
+#ifdef OS2008	/* sensor path at Nokia N810 */
+    #define SENSOR "/sys/devices/platform/i2c_omap.1/i2c-1/1-0048/temp1_input"
+#else	/* sensor path at the PC */
+    #define SENSOR "/sys/devices/platform/w83627hf.656/temp2_input"
+#endif
+#endif
+#if defined(OS2008) || defined(DEBUGTEMP)
 /*******************************************************************************/
 GtkWidget* create_sensor_page(GtkWidget *config_window){
     GtkWidget	*main_widget = NULL,
@@ -144,7 +150,7 @@ int check_entry_text(GtkEntry *entry){
     return error;
 }
 /*******************************************************************************/
-void read_sensor(){
+void read_sensor(gint need_redraw){
     FILE	*file;
     gchar	buffer[128];
 #ifdef DEBUGFUNCTIONCALL
@@ -159,8 +165,26 @@ void read_sensor(){
     }
     fclose(file);
     app->sensor_data = atof(buffer) / 1000.0f;
-    if (app->need_redraw)
-	redraw_home_window();
+    if(need_redraw)
+	redraw_home_window(FALSE);
+    fprintf(stderr, "\n>>>>>>>>>>>>>>>>Inside read temp\n");
+}
+/*******************************************************************************/
+WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,
+						char font_size, GdkColor *color){
+    gchar	buffer[10],
+		buffer_icon[256];
+    
+    /* prepare temperature data */
+    buffer[0] = 0;
+    snprintf(buffer, sizeof(buffer) - 1, "%.2f", app->sensor_data);
+    /* prepare icon */
+    buffer_icon[0] = 0;
+    snprintf(buffer_icon, sizeof(buffer_icon) - 1, "%ssensor.png", BUTTON_ICONS);
+    return create_weather_day_button(buffer, buffer_icon, icon_size,
+							transparency,
+							font_size,
+							color);
 }
 /*******************************************************************************/
 #endif

@@ -35,8 +35,13 @@ void use_sensor_button_toggled_handler(GtkToggleButton *togglebutton,
                                         		    gpointer user_data);
 void display_group_change_handler(GtkRadioButton *button, gpointer user_data);
 int check_entry_text(GtkEntry *entry);
-void read_sensor();
+void read_sensor(gint need_redraw);
+WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,
+					char font_size, GdkColor *color);
 /*******************************************************************************/
-extern void redraw_home_window(void);
+extern void redraw_home_window(gboolean first_start);
+extern WDB* create_weather_day_button(const char *text, const char *icon,
+				const int icon_size, gboolean transparency,
+				char font_size, GdkColor *color);
 /*******************************************************************************/
 #endif

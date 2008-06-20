@@ -83,7 +83,7 @@ void chk_download_button_toggled_handler(GtkRadioButton *button,
 							    gpointer user_data);
 void entry_changed_handler(GtkWidget *entry, gpointer user_data);
 /*******************************************************************************/
-extern void redraw_home_window(void);
+extern void redraw_home_window(gboolean first_start);
 extern void remove_periodic_event(void);
 extern void weather_initialize_dbus(void);
 extern time_t next_update(void);
@@ -101,10 +101,10 @@ extern void update_weather(gboolean show_update_window);
 extern GtkWidget* lookup_widget(GtkWidget *widget, const gchar *widget_name);
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 extern GtkWidget* create_tree_view(GtkListStore* list);
-#ifdef OS2008
+#if defined(OS2008) || defined(DEBUGTEMP)
 extern GtkWidget* create_sensor_page(GtkWidget *config_window);
 extern int check_entry_text(GtkEntry *entry);
-extern void read_sensor(void);
+extern void read_sensor(gint need_redraw);
 #endif
 extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
 				    int image_size, gboolean with_border);

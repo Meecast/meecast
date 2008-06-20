@@ -102,37 +102,6 @@ typedef struct weather_day_button_with_image{
     GtkWidget   *icon_image; 
 }WDB;
 /*******************************************************************************/
-typedef struct{
-    int		icon;
-    gchar	title[80];		/* Title */
-    gchar	hmid[80];       	/* Humidity */
-    gchar	wind_speed[80];       	/* Wind Speed */
-    gchar	wind_gust[80];        	/* Wind Gust */
-    gchar	vis[80];              	/* Visibilty */
-    gchar	wind_title[80];		/* Wind Title */
-    gchar	temp[20];		/* Temperature */
-    time_t	begin_time;		/* Begin time party of the day */
-    float	pressure;		/* Pressure value */
-    gchar	pressure_str[80];	/* Pressure direction */
-    int		moon_icon;		/* moon icon */
-    gchar	moon[60];		/* moon phase */
-}part_of_day;
-/*******************************************************************************/
-typedef struct{
-    part_of_day	day;		/* Or current weather */
-    part_of_day	night;
-    gchar	date[40];	/* Date */     
-    time_t	date_time;	/* Date of the year or current time*/  
-    time_t      zone;           /* time zone */
-    gchar	sunrise[60];	/* sunrise */
-    gchar	sunset[60];	/* sunset */
-    gchar	dayshname[60];	/* Short name of day */
-    gchar	dayfuname[60];	/* Full name of day */
-    gchar	hi_temp[20];	/* High temperature of day or real current temperature for current day */
-    gchar	low_temp[20];	/* Low temperature  of day or feels like temperature for current day */
-    gchar	location[50];	/* Location */
-}weather_day;
-/*******************************************************************************/
 struct event_time{
     time_t	time;          	/* Time event */
     short	type_event; 	/* Type of event: Automatic update event AUTOUPDATE, 
@@ -188,7 +157,7 @@ typedef struct applet_config{
     gint	wind_units;
     gint	temperature_units;
     gint	pressure_units;
-#ifdef OS2008
+#if defined(OS2008) || defined(DEBUGTEMP)
     gint	display_at;
     gboolean	use_sensor;
     guint	sensor_update_time;
@@ -213,22 +182,20 @@ typedef struct OMWeatherApplet{
     GtkWidget		*main_window;
     GtkWidget		*popup_window;
     GtkWidget		*popup_window_more;    
-    int			button_pressed;
+    gint		button_pressed;
     AppletConfig	*config;
     gboolean		show_update_window;
     gboolean		iap_connected;
     gboolean		iap_connecting;
-    long		iap_connecting_timer;  
+    glong		iap_connecting_timer;  
     guint		timer;
     guint		timer_for_os2008;
     guint		switch_timer;
     guint		sensor_timer;
-    WDB			*buttons[Max_count_weather_day];
+    GSList		*buttons;
     guint		flag_updating;
     gboolean		dbus_is_initialize;
     gboolean		gps_must_be_current;    
-    weather_day		weather_current_day;
-    weather_day		weather_days[Max_count_weather_day];
     GtkListStore	*countrys_list;
     GtkListStore	*regions_list;
     GtkListStore	*stations_list;
@@ -253,18 +220,19 @@ typedef struct OMWeatherApplet{
     GtkWidget 		*parent_parent;
     GtkWidget 		*parent;
     gpointer		*child_data;
-    int 		ax;
-    int			ay;
-    int			aw;
-    int			ah;
+    gint 		ax;
+    gint		ay;
+    gint		aw;
+    gint		ah;
 #ifdef OS2008
     guint		gps_id_connection;
     LocationGPSDevice 	*gps_device;
     Station		gps_station;
     gdouble		temporary_station_latitude;
     gdouble		temporary_station_longtitude;
-    float		sensor_data;
-    gboolean		need_redraw;
+#endif
+#if defined(OS2008) || defined(DEBUGTEMP)
+    gfloat		sensor_data;
 #endif
     gchar               temperature_string[1024];
     gchar               forecast_string[2048];
@@ -272,11 +240,6 @@ typedef struct OMWeatherApplet{
     ConIcConnection 	*connection;
 #endif        
 }OMWeatherApp;
-/*******************************************************************************/
-void free_list_time_event(void);
-void time_event_add(time_t time_value, short int type_event);
-extern void popup_window_destroy(void);
-extern int new_read_config(AppletConfig*);
 /*******************************************************************************/
 extern	OMWeatherApp	*app;
 /*******************************************************************************/

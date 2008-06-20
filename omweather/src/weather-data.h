@@ -46,7 +46,7 @@ extern	WeatherComStation wcs;
 /*******************************************************************************/
 Item* create_item(const char *name, const char *value);
 void destroy_item(Item **item);
-GSList*	add_item2object(GSList **object, Item *item);
+GSList*	add_item2object(GSList **object, void *item);
 char* item_value(GSList *object, const char *name);
 void destroy_object(GSList **object);
 time_t last_update_time(GSList *object);

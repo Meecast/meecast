@@ -64,7 +64,7 @@ void destroy_item(Item **item){
     *item = NULL;
 }
 /*******************************************************************************/
-GSList*	add_item2object(GSList **object, Item *item){
+GSList*	add_item2object(GSList **object, void *item){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif

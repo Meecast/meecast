@@ -103,7 +103,7 @@ static gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 		g_free(app->config->current_station_name);
 	    app->config->current_station_name = station_name;
 	    app->config->previos_days_to_show = app->config->days_to_show;
-	    redraw_home_window();
+	    redraw_home_window(FALSE);
 	    new_config_save(app->config);
 	    break;
 	}
@@ -168,7 +168,7 @@ static gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
 		g_free(app->config->current_station_name);
 	    app->config->current_station_name = station_name;
 	    app->config->previos_days_to_show = app->config->days_to_show;
-	    redraw_home_window();
+	    redraw_home_window(FALSE);
 	    new_config_save(app->config);
 	    break;
 	}
@@ -225,7 +225,7 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
                 g_free(app->config->current_station_name);
             app->config->current_station_name = station_name;
             app->config->previos_days_to_show = app->config->days_to_show;
-            redraw_home_window();
+            redraw_home_window(FALSE);
             new_config_save(app->config);
             break;
         }
@@ -297,7 +297,7 @@ void draw_home_window(gint count_day){
 		year,
 		current_month = 1;
     gchar	buffer[2048],
-		buffer_icon[2048],
+		buffer_icon[1024],
 		date_in_string[255];
     time_t	current_day,
 		current_time,
@@ -314,6 +314,7 @@ void draw_home_window(gint count_day){
     gint	icon_size;
     gchar	*tmp_station_name,
 		*wind_direction;
+    WDB		*tmp_button = NULL;
     const gchar	*wind_units_str[] = { "m/s", "km/h", "mi/h" };
 
 #ifndef RELEASE
@@ -644,20 +645,28 @@ void draw_home_window(gint count_day){
 	    }
     	}
 	if(app->config->icons_layout == COMBINATION && i == 0)/* First icon in COMBINATION layout */
-	    app->buttons[i] = create_weather_day_button(buffer, buffer_icon, icon_size*2,
-							app->config->transparency,
-							0, &(app->config->background_color));
+	    tmp_button = create_weather_day_button(buffer, buffer_icon, icon_size * 2,
+						    app->config->transparency,
+						    0,
+						    &(app->config->background_color));
 	else
-	    app->buttons[i] = create_weather_day_button(buffer, buffer_icon, icon_size,
-							app->config->transparency,
-							font_size, &(app->config->background_color));
-
-	if(app->buttons[i])
-	    g_signal_connect(app->buttons[i]->button,
-				"button_release_event",
-				G_CALLBACK(weather_window_popup),
-				(gpointer)i);
+	    tmp_button = create_weather_day_button(buffer, buffer_icon, icon_size,
+						    app->config->transparency,
+						    font_size,
+						    &(app->config->background_color));
+	g_signal_connect(tmp_button->button, "button_release_event",
+			    G_CALLBACK(weather_window_popup), (gpointer)i);
+	add_item2object(&(app->buttons), (void*)tmp_button);
     }/* end for */
+#if defined(OS2008) || defined(DEBUGTEMP)
+    if(app->config->use_sensor &&
+		    app->config->display_at == ICON)/* draw sensor data at the new icon */
+	add_item2object(&(app->buttons),
+			create_sensor_icon_widget(icon_size,
+						    app->config->transparency,
+						    font_size,
+						    &(app->config->background_color)));
+#endif
     if(app->config->current_station_id)
 	tmp_station_name = app->config->current_station_name;
     else
@@ -677,21 +686,33 @@ void draw_home_window(gint count_day){
 #endif
 }
 /*******************************************************************************/
-void redraw_home_window(void){
-    gint	i,
-		count_day;
+void redraw_home_window(gboolean first_start){
+    gint	count_day,
+		i;
+    GSList	*tmp = NULL;
+    WDB		*tmp_button = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    destroy_object(&(wcs.current_data));    
 #ifndef RELEASE
     fprintf(stderr, "\nDays current %d\n", app->config->days_to_show);
     fprintf(stderr, "\nDays previos %d\n", app->config->previos_days_to_show);
 #endif
-    for(i = 0; i < app->config->previos_days_to_show; i++)
-	delete_weather_day_button(FALSE, &(app->buttons[i]) );
-    for(i = 0; i < Max_count_weather_day; i++)
-	destroy_object(&(wcs.day_data[i]));
+    if(!first_start){
+	destroy_object(&(wcs.current_data));    
+
+	for(i = 0; i < Max_count_weather_day; i++)
+	    destroy_object(&(wcs.day_data[i]));
+
+	tmp = app->buttons;
+	while(tmp){
+	    tmp_button = (WDB*)tmp->data;
+	    delete_weather_day_button(&tmp_button);
+	    tmp = g_slist_next(tmp);
+	}
+	g_slist_free(app->buttons);
+	app->buttons = NULL;
+    }
     if(app->main_window){
         gtk_widget_destroy(app->main_window);
 	app->main_window = NULL;
@@ -712,7 +733,7 @@ gboolean remitted_update(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    redraw_home_window();
+    redraw_home_window(FALSE);
     return FALSE;
 }
 /*******************************************************************************/
@@ -794,7 +815,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     timer(60000);  /* One per minute */
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
-    redraw_home_window();
+    redraw_home_window(TRUE);
 /*    
     time_event_add(time(NULL) + 5, DBUSINITEVENT);
     add_periodic_event(time(NULL));
@@ -1186,6 +1207,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     GtkTreeIter	iter;
     gboolean	valid = FALSE,
 		user_stations_list_has_two_or_more_elements = FALSE;
+    GSList	*tmp = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1252,9 +1274,10 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		    app->config->font_color.blue >> 8,
 		    (char*)hash_table_find("NO STATION", FALSE));
         else
-#ifdef OS2008
+#if defined(OS2008) || defined(DEBUGTEMP)
 	    {
-	    if(app->config->display_at == STATION_NAME)/* draw sensor data at the station name */
+	    if(app->config->use_sensor &&
+		    app->config->display_at == STATION_NAME)/* draw sensor data at the station name */
 	    	sprintf(buffer,"<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>%s (%.2f)</span>",
         	    app->config->font_color.red >> 8,
 		    app->config->font_color.green >> 8,
@@ -1265,7 +1288,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         	    app->config->font_color.red >> 8,
 		    app->config->font_color.green >> 8,
 		    app->config->font_color.blue >> 8, st_name);
-#ifdef OS2008
+#if defined(OS2008) || defined(DEBUGTEMP)
 	}
 #endif
 	station_box = gtk_hbox_new(FALSE, 0);
@@ -1332,17 +1355,18 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	break;
     }
 /* attach days buttons */
+    tmp = app->buttons;
     for(n = 0, x = 0, y = 0; n < app->config->days_to_show; n++, x++){
-	if(app->buttons[n]){
+	if(tmp){
 	    switch(layout){
 		default:
 		case ONE_ROW:
-		    gtk_table_attach((GtkTable*)days_panel, app->buttons[n]->button,
+		    gtk_table_attach((GtkTable*)days_panel, ((WDB*)tmp->data)->button,
 				    n, n + 1, 0, 1, (GtkAttachOptions)0,
 				    (GtkAttachOptions)0, 0, 0 );
 		break;
 		case ONE_COLUMN:
-		    gtk_table_attach((GtkTable*)days_panel, app->buttons[n]->button,
+		    gtk_table_attach((GtkTable*)days_panel, ((WDB*)tmp->data)->button,
 				    0, 1, n, n + 1, (GtkAttachOptions)0,
 				    (GtkAttachOptions)0, 0, 0);
 		break;
@@ -1351,11 +1375,11 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 			x = 0; y = 1;
 		    }
 		    if(!y)
-			gtk_table_attach((GtkTable*)days_panel, app->buttons[n]->button,
+			gtk_table_attach((GtkTable*)days_panel, ((WDB*)tmp->data)->button,
 					x, x + 1, 0, 1, (GtkAttachOptions)0,
 					(GtkAttachOptions)0, 0, 0);
 		    else
-			gtk_table_attach((GtkTable*)days_panel, app->buttons[n]->button,
+			gtk_table_attach((GtkTable*)days_panel, ((WDB*)tmp->data)->button,
 					x, x + 1, 1, 2, (GtkAttachOptions)0,
 					(GtkAttachOptions)0, 0, 0);
 		break;
@@ -1364,26 +1388,27 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 			x = 0; y = 1;
 		    }
 		    if(!y)
-			gtk_table_attach((GtkTable*)days_panel, app->buttons[n]->button,
+			gtk_table_attach((GtkTable*)days_panel, ((WDB*)tmp->data)->button,
 					0, 1, x, x + 1, (GtkAttachOptions)0,
 					(GtkAttachOptions)0, 0, 0);
 		    else
-			gtk_table_attach((GtkTable*)days_panel, app->buttons[n]->button,
+			gtk_table_attach((GtkTable*)days_panel, ((WDB*)tmp->data)->button,
 					1, 2, x, x + 1, (GtkAttachOptions)0,
 					(GtkAttachOptions)0, 0, 0);
 		break;
 		case COMBINATION:
 		    if(!n)
-			gtk_table_attach((GtkTable*)days_panel, app->buttons[n]->button,
+			gtk_table_attach((GtkTable*)days_panel, ((WDB*)tmp->data)->button,
 					0, 1, 0, 1, (GtkAttachOptions)0,
 					(GtkAttachOptions)0, 0, 0);
 		    else
-			gtk_table_attach((GtkTable*)days_panel, app->buttons[n]->button,
+			gtk_table_attach((GtkTable*)days_panel, ((WDB*)tmp->data)->button,
 					x - 1, x, 1, 2, (GtkAttachOptions)0,
 					(GtkAttachOptions)0, 0, 0);
 		break;
 	    }
 	}	
+	tmp = g_slist_next(tmp);
     }
     /* attach to main panel header and days panels */
     if(layout == COMBINATION){
@@ -1449,17 +1474,25 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /*******************************************************************************/
 /* free used memory from OMWeather struct */
 void free_memory(void){
-    int    i;
+    gint	i;
+    GSList	*tmp = NULL;
+    WDB		*tmp_button = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif    
-    for(i = 0; i < app->config->days_to_show; i++)
-	delete_weather_day_button( TRUE, &(app->buttons[i]) );
+#endif
+    tmp = app->buttons;
+    while(tmp){
+	tmp_button = (WDB*)tmp->data;
+	delete_weather_day_button(&tmp_button);
+	tmp = g_slist_next(tmp);
+    }
+    g_slist_free(app->buttons);
+    app->buttons = NULL;
 
-    destroy_object(&(wcs.current_data));
     for(i = 0; i < Max_count_weather_day; i++)
 	destroy_object(&(wcs.day_data[i]));
-
+    destroy_object(&(wcs.current_data));
+    
     if(app->main_window){
         gtk_widget_destroy(app->main_window);
 	app->main_window = NULL;
@@ -1549,37 +1582,29 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     return new_day_button;
 }
 /*******************************************************************************/
-void delete_weather_day_button(gboolean after_all_destroy, WDB **day){
+void delete_weather_day_button(WDB **day){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(after_all_destroy){
-	if(*day){
-	    g_free(*day);
-	    *day = NULL;
+    if(*day){
+	if( (*day)->icon_image ){
+	    gtk_widget_destroy( (*day)->icon_image );
+	    (*day)->icon_image = NULL;
 	}
-    }
-    else{
-	if(*day){
-	    if( (*day)->icon_image ){
-		gtk_widget_destroy( (*day)->icon_image );
-		(*day)->icon_image = NULL;
-	    }
-	    if( (*day)->label ){
-		gtk_widget_destroy( (*day)->label );    
-		(*day)->label = NULL;
-	    }    
-	    if( (*day)->box ){
-		gtk_widget_destroy( (*day)->box );
-		(*day)->box = NULL;
-	    }    
-	    if( (*day)->button ){
-		gtk_widget_destroy( (*day)->button );
-		(*day)->button = NULL;
-	    }    
-	    g_free(*day);
-	    *day = NULL;
-	}
+	if( (*day)->label ){
+	    gtk_widget_destroy( (*day)->label );    
+	    (*day)->label = NULL;
+	}    
+	if( (*day)->box ){
+	    gtk_widget_destroy( (*day)->box );
+	    (*day)->box = NULL;
+	}    
+	if( (*day)->button ){
+	    gtk_widget_destroy( (*day)->button );
+	    (*day)->button = NULL;
+	}    
+	g_free(*day);
+	*day = NULL;
     }
 }
 /*******************************************************************************/

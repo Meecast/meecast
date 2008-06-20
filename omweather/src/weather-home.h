@@ -36,10 +36,10 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data);
 WDB* create_weather_day_button(const char *text, const char *icon,
 				const int icon_size, gboolean transparency,
 				char font_size, GdkColor *color);
-void delete_weather_day_button(gboolean after_all_destroy,WDB **day);
+void delete_weather_day_button(WDB **day);
 void draw_home_window(gint count_day);
 void update_weather(gboolean show_update_window);
-void redraw_home_window(void);
+void redraw_home_window(gboolean first_start);
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size);
 void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 gboolean download_html(gpointer data);
@@ -81,9 +81,14 @@ extern float convert_wind_units(int to, float value);
 extern void initial_gps_connect(void);
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 extern float mb2inch(float pressure);
-#ifdef OS2008
-extern void read_sensor(void);
+#if defined(OS2008) || defined(DEBUGTEMP)
+extern void read_sensor(gint need_redraw);
+extern WDB* create_sensor_icon_widget(const int icon_size,
+					    gboolean transparency,
+					    char font_size, GdkColor *color);
 #endif
+extern void free_list_time_event(void);
+extern void time_event_add(time_t time_value, short int type_event);
 /*******************************************************************************/
 extern gchar	path_large_icon[];
 /*******************************************************************************/

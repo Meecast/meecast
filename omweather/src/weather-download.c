@@ -483,7 +483,7 @@ gboolean download_html(gpointer data){
 			    hildon_banner_show_information(app->main_window,
 							    NULL,
 							    _("Weather updated"));
-        		redraw_home_window();	
+        		redraw_home_window(FALSE);	
 		    }
 		    else{
 			valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),

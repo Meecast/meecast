@@ -80,11 +80,11 @@ void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue)
 }
 /*******************************************************************************/
 /* Convert Celsius temperature to Farenhait temperature */
-int c2f(int temp){
+float c2f(float temp){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    return (temp * 1.8f ) + 32;
+    return (temp * 1.8f ) + 32.0f;
 }
 /*******************************************************************************/
 /* convert preesure */

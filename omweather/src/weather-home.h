@@ -58,7 +58,7 @@ GtkWidget* create_forecast_weather_simple_widget(char f_size,
 int calculate_offset_of_day(int count_day);
 /*******************************************************************************/
 extern void swap_temperature(int *hi, int *low);
-extern int c2f(int temp);
+extern float c2f(float temp);
 extern void set_font_size(GtkWidget *widget, char font_size);
 extern void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 extern void set_background_color(GtkWidget *widget, GdkColor *bgc);

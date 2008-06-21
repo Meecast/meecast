@@ -165,19 +165,29 @@ void read_sensor(gint need_redraw){
     }
     fclose(file);
     app->sensor_data = atof(buffer) / 1000.0f;
+    if(app->config->temperature_units == FAHRENHEIT)
+	app->sensor_data = c2f(app->sensor_data);
     if(need_redraw)
 	redraw_home_window(FALSE);
-    fprintf(stderr, "\n>>>>>>>>>>>>>>>>Inside read temp\n");
 }
 /*******************************************************************************/
 WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,
 						char font_size, GdkColor *color){
-    gchar	buffer[10],
+    gchar	buffer[256],
 		buffer_icon[256];
     
     /* prepare temperature data */
     buffer[0] = 0;
-    snprintf(buffer, sizeof(buffer) - 1, "%.2f", app->sensor_data);
+    snprintf(buffer, sizeof(buffer) - 1,
+		"%s%02x%02x%02x%s%s\n%.2f%s",
+		"<span foreground='#",
+		app->config->font_color.red >> 8,
+		app->config->font_color.green >> 8,
+		app->config->font_color.blue >> 8,
+		"'>",
+		_("Sensor"),
+		app->sensor_data,
+		"\302\260</span>");
     /* prepare icon */
     buffer_icon[0] = 0;
     snprintf(buffer_icon, sizeof(buffer_icon) - 1, "%ssensor.png", BUTTON_ICONS);

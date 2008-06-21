@@ -1685,7 +1685,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	    = (guint)atoi(gtk_entry_get_text(GTK_ENTRY(sensor_update_time)));
 	if(app->config->use_sensor){
 	    g_source_remove(app->sensor_timer);
-	    app->sensor_timer = g_timeout_add(app->config->sensor_update_time * 1000,
+	    app->sensor_timer = g_timeout_add(app->config->sensor_update_time * 1000 * 60,
                                             (GtkFunction)read_sensor,
                                             GINT_TO_POINTER(1));
 	}

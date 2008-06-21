@@ -647,7 +647,7 @@ GtkWidget* create_current_tab(GSList *current){
     sprintf(buffer + strlen(buffer), "  %d\302\260",
                 ((app->config->temperature_units == CELSIUS) ?
 			( atoi(item_value(current, "temperature"))) :
-			( c2f(atoi(item_value(current, "temperature"))))));
+			( (int)c2f(atoi(item_value(current, "temperature"))))));
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")) )
                                                 : ( strcat(buffer, _("F\n")) );
     /* feels like */
@@ -655,7 +655,7 @@ GtkWidget* create_current_tab(GSList *current){
     sprintf(buffer + strlen(buffer), "  %d\302\260",
 	    (app->config->temperature_units == CELSIUS) ?
 		(atoi(item_value(current, "feel_like"))) :
-		(c2f(atoi(item_value(current, "feel_like")))));
+		((int)c2f(atoi(item_value(current, "feel_like")))));
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")) )
                                                 : ( strcat(buffer, _("F\n")) );
 /* humidity */

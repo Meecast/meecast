@@ -43,5 +43,6 @@ extern void redraw_home_window(gboolean first_start);
 extern WDB* create_weather_day_button(const char *text, const char *icon,
 				const int icon_size, gboolean transparency,
 				char font_size, GdkColor *color);
+extern float c2f(float temp);
 /*******************************************************************************/
 #endif

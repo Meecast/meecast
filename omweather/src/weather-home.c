@@ -1089,7 +1089,7 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
     sprintf(buffer + strlen(buffer), _("Now: "));
     sprintf(buffer + strlen(buffer), "\n%d\302\260",
 		((app->config->temperature_units == CELSIUS) ? ( atoi(item_value(current, "temperature")))
-							: ( c2f(atoi(item_value(current, "temperature"))))));
+							: ((int)c2f(atof(item_value(current, "temperature"))))));
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
 						: ( strcat(buffer, _("F")) );
     strcat(buffer,"</span>");
@@ -1112,7 +1112,7 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
     strcat(buffer, _("\nFL: "));
     sprintf(buffer + strlen(buffer), "%d\302\260", 
 	    (app->config->temperature_units == CELSIUS) ? (atoi(item_value(current, "feel_like"))) 
-						: (c2f(atoi(item_value(current, "feel_like")))));
+						: ((int)c2f(atof(item_value(current, "feel_like")))));
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
 					: ( strcat(buffer, _("F")) );
 /* humidity */
@@ -1209,7 +1209,11 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     time_t	current_time,
                 diff_time;
 
-    int		n, elements, x, y;
+    int		n,
+		elements,
+		x,
+		y,
+		total_elements = 0;
     GtkTreeIter	iter;
     gboolean	valid = FALSE,
 		user_stations_list_has_two_or_more_elements = FALSE;
@@ -1217,10 +1221,17 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(app->config->days_to_show % 2)
-	elements = app->config->days_to_show / 2 + 1;
+/* calculate number of elements to display */
+    total_elements = app->config->days_to_show;
+#if defined(OS2008) || defined(DEBUGTEMP)
+    if(app->config->use_sensor &&
+		    app->config->display_at == ICON)/* draw sensor data at the new icon */
+	total_elements++;
+#endif
+    if(total_elements % 2)
+	elements = total_elements / 2 + 1;
     else
-	elements = app->config->days_to_show / 2;
+	elements = total_elements / 2;
 /* create header panel */
     header_panel = gtk_table_new(1, 3, FALSE);
 /*    header_panel = gtk_hbox_new(FALSE, 0);*/
@@ -1362,7 +1373,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     }
 /* attach days buttons */
     tmp = app->buttons;
-    for(n = 0, x = 0, y = 0; n < app->config->days_to_show; n++, x++){
+    for(n = 0, x = 0, y = 0; n < total_elements; n++, x++){
 	if(tmp){
 	    switch(layout){
 		default:

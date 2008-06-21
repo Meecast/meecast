@@ -32,15 +32,19 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+#include <string.h>
 #include <gtk/gtk.h>
 #include <gconf/gconf-client.h>
-#include <time.h>
 #include <libgnomevfs/gnome-vfs.h>
-#include <libxml/parser.h>
-#include <libxml/tree.h>
-#include <libxml/xpath.h>
-#include <libxml/xpathInternals.h>
-#include <string.h> 
+#include <sys/types.h>
+#include <libosso.h>
+#include <wchar.h>
+#include <limits.h>
+#include <libintl.h>
+#include <locale.h> 
 #ifdef OS2008 
     #include <hildon/hildon-banner.h>
     #include <libhildondesktop/hildon-desktop-picture.h>
@@ -53,14 +57,7 @@
 #else
     #include <hildon-widgets/hildon-banner.h>
 #endif
-#include <sys/types.h>
-#include <libosso.h>
-#include <wchar.h>
-#include <stdio.h>
-#include <limits.h>
-/* localization headers and defines */
-#include <libintl.h>
-#include <locale.h>
+
 #ifdef USE_CONIC
 #include <conic/conic.h>
 #endif
@@ -234,8 +231,6 @@ typedef struct OMWeatherApplet{
 #if defined(OS2008) || defined(DEBUGTEMP)
     gfloat		sensor_data;
 #endif
-    gchar               temperature_string[1024];
-    gchar               forecast_string[2048];
 #ifdef USE_CONIC    
     ConIcConnection 	*connection;
 #endif        

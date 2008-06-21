@@ -45,6 +45,9 @@ void weather_initialize_dbus(void);
 gboolean check_connected(void);
 void clean_download(void);
 /*void pre_update_weather(void);*/
+#ifndef USE_CONIC
+void iap_callback(struct iap_event_t *event, void *arg);
+#endif
 /*******************************************************************************/
 struct HtmlFile {
   char *filename;

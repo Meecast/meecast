@@ -357,7 +357,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
     g_free(station_selected);
     redraw_home_window(FALSE);
     /* Update config file */
-    new_config_save(app->config);
+    config_save(app->config);
     highlight_current_station(GTK_TREE_VIEW(station_list_view));
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -457,7 +457,7 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
     }
     g_free(station_selected);
     redraw_home_window(FALSE);
-    new_config_save(app->config);
+    config_save(app->config);
 }
 /*******************************************************************************/
 void update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data){
@@ -1430,14 +1430,14 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     highlight_current_station(GTK_TREE_VIEW(station_list_view));
     gtk_entry_set_text(GTK_ENTRY(rename_entry),
 			app->config->current_station_name);
-/* set current page and show it for notebook */
-    gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook),
-				    app->config->current_settings_page);
 /*
     gtk_widget_show_all(gtk_notebook_get_nth_page(GTK_NOTEBOOK(notebook),
 				    app->config->current_settings_page));
 */
     gtk_widget_show_all(window_config);
+/* set current page and show it for notebook */
+    gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook),
+				    app->config->current_settings_page);
 }
 /*******************************************************************************/
 void apply_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -1772,7 +1772,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			    (gpointer)1 );
 #endif
 /* save settings */
-    new_config_save(app->config);
+    config_save(app->config);
     redraw_home_window(FALSE);
 }
 /*******************************************************************************/
@@ -1813,7 +1813,7 @@ void close_button_handler(GtkWidget *button, GdkEventButton *event,
 #endif
     app->config->current_settings_page = current_page;
 /* save config */
-    new_config_save(app->config);
+    config_save(app->config);
 }
 /*******************************************************************************/
 void about_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -2076,7 +2076,7 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 	    add_station_to_user_list(g_strdup(select_station.name),
 	                                g_strdup(select_station.id0),
 	                                FALSE);
-	    new_config_save(app->config);
+	    config_save(app->config);
 	    gtk_entry_set_text(((GtkEntry*)station_name_entry),"");
 	}
     }
@@ -2088,7 +2088,7 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 	        add_station_to_user_list(g_strdup(gtk_entry_get_text((GtkEntry*)station_code_entry)),
 	                                 g_strdup(gtk_entry_get_text((GtkEntry*)station_code_entry)), 
 	                                 FALSE);
-	        new_config_save(app->config);
+	        config_save(app->config);
 	        gtk_entry_set_text(((GtkEntry*)station_code_entry),"");
 	        /* disable add button */
 		gtk_widget_set_sensitive(GTK_WIDGET(button), FALSE);
@@ -2106,7 +2106,7 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 		    add_station_to_user_list(station_name, station_code, FALSE);
 		    g_free(station_name);
 		    g_free(station_code);
-		    new_config_save(app->config);
+		    config_save(app->config);
 		    /* set selected station to nothing */
 		    gtk_combo_box_set_active((GtkComboBox*)stations, -1);
 		    /* disable add button */
@@ -2167,7 +2167,7 @@ void rename_button_handler(GtkWidget *button, GdkEventButton *event,
 	}
     }
 /* save settings */
-    new_config_save(app->config);
+    config_save(app->config);
     redraw_home_window(FALSE);
 }
 /*******************************************************************************/

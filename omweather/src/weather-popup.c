@@ -27,11 +27,8 @@
 /*******************************************************************************/
 #include "weather-popup.h"
 #include "weather-utils.h"
-
-/* Temporary  for debug */
+#include "weather-data.h"
 #include <sys/time.h>
-#include <time.h>
-
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif

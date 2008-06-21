@@ -29,7 +29,6 @@
 #define _weather_popup_h 1
 /*******************************************************************************/
 #include "weather-common.h"
-#include "weather-data.h"
 /*******************************************************************************/
 extern	gchar		path_large_icon[];
 extern	WeatherSource	weather_sources[];

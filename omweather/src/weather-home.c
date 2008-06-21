@@ -104,7 +104,7 @@ static gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 	    app->config->current_station_name = station_name;
 	    app->config->previos_days_to_show = app->config->days_to_show;
 	    redraw_home_window(FALSE);
-	    new_config_save(app->config);
+	    config_save(app->config);
 	    break;
 	}
 	else{
@@ -169,7 +169,7 @@ static gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
 	    app->config->current_station_name = station_name;
 	    app->config->previos_days_to_show = app->config->days_to_show;
 	    redraw_home_window(FALSE);
-	    new_config_save(app->config);
+	    config_save(app->config);
 	    break;
 	}
 	else{
@@ -226,7 +226,7 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
             app->config->current_station_name = station_name;
             app->config->previos_days_to_show = app->config->days_to_show;
             redraw_home_window(FALSE);
-            new_config_save(app->config);
+            config_save(app->config);
             break;
         }
 	else{
@@ -298,7 +298,9 @@ void draw_home_window(gint count_day){
 		current_month = 1;
     gchar	buffer[2048],
 		buffer_icon[1024],
-		date_in_string[255];
+		date_in_string[255],
+		temperature_string[1024],
+		forecast_string[2048];
     time_t	current_day,
 		current_time,
 		last_day = 0,
@@ -352,8 +354,8 @@ void draw_home_window(gint count_day){
 	    icon_size = TINY_ICON_SIZE;
 	break;        
     }
-    memset(app->temperature_string, 0, sizeof(app->temperature_string));
-    memset(app->forecast_string, 0, sizeof(app->forecast_string));
+    memset(temperature_string, 0, sizeof(temperature_string));
+    memset(forecast_string, 0, sizeof(forecast_string));
 
 /* Clear daytime elments in queue of timer */
     remove_daytime_event();
@@ -507,25 +509,25 @@ void draw_home_window(gint count_day){
 				app->config->font_color.blue >> 8,
 				item_value(wcs.day_data[i + j], "24h_name"));
 
-                        memset(app->temperature_string, 0, sizeof(app->temperature_string));
+                        memset(temperature_string, 0, sizeof(temperature_string));
 			if(temp_low == INT_MAX){
-			    sprintf(app->temperature_string + strlen(app->temperature_string), "%s\302\260 - ", _("N/A") );
+			    sprintf(temperature_string + strlen(temperature_string), "%s\302\260 - ", _("N/A") );
 			    sprintf(buffer + strlen(buffer), "%s\302\260\n", _("N/A") );
 			}    
 			else{
-			    sprintf(app->temperature_string + strlen(app->temperature_string), "%i\302\260 - ", temp_low );
+			    sprintf(temperature_string + strlen(temperature_string), "%i\302\260 - ", temp_low );
 			    sprintf(buffer + strlen(buffer), "%i\302\260\n", temp_low );
 			}
 			if(temp_hi == INT_MAX){
-			    sprintf(app->temperature_string + strlen(app->temperature_string), "%s\302\260 ", _("N/A") );
+			    sprintf(temperature_string + strlen(temperature_string), "%s\302\260 ", _("N/A") );
 			    sprintf(buffer + strlen(buffer), "%s\302\260", _("N/A") );
 			}
 			else{
-			    sprintf(app->temperature_string + strlen(app->temperature_string), "%i\302\260", temp_hi );
+			    sprintf(temperature_string + strlen(temperature_string), "%i\302\260", temp_hi );
 			    sprintf(buffer + strlen(buffer), "%i\302\260", temp_hi );
 			}    
-			(app->config->temperature_units == CELSIUS) ? ( strcat(app->temperature_string, _("C")) )
-						: ( strcat(app->temperature_string, _("F")) );
+			(app->config->temperature_units == CELSIUS) ? ( strcat(temperature_string, _("C")) )
+						: ( strcat(temperature_string, _("F")) );
     
 			if(app->config->show_wind){
 			    if(strcmp((char*)item_value(wcs.day_data[i + j], "day_wind_speed"), "N/A")){
@@ -542,31 +544,31 @@ void draw_home_window(gint count_day){
 			strcat(buffer, "</span>");
 			/* The string of forecast for Combination mode */
 			if((current_time > day_begin_time) && (current_time < night_begin_time)){
-			        memset(app->forecast_string, 0, sizeof(app->forecast_string));
-				strcat(app->forecast_string, (char*)hash_table_find(item_value(wcs.day_data[i + j], "day_title"), FALSE));
-				strcat(app->forecast_string, _("\nHumidity: "));
+			        memset(forecast_string, 0, sizeof(forecast_string));
+				strcat(forecast_string, (char*)hash_table_find(item_value(wcs.day_data[i + j], "day_title"), FALSE));
+				strcat(forecast_string, _("\nHumidity: "));
 				if(strcmp(item_value(wcs.day_data[i + j], "day_humidity"), "N/A"))
-				    sprintf(app->forecast_string + strlen(app->forecast_string), "%s%%\n",
+				    sprintf(forecast_string + strlen(forecast_string), "%s%%\n",
 					    item_value(wcs.day_data[i + j], "day_humidity"));
 			        else
-				    sprintf(app->forecast_string + strlen(app->forecast_string), "%s\n",
+				    sprintf(forecast_string + strlen(forecast_string), "%s\n",
 					    (char*)hash_table_find("N/A", FALSE));
-			        strcat(app->forecast_string, _("Wind: "));
-				sprintf(app->forecast_string + strlen(app->forecast_string), "%s %.2f %s", item_value(wcs.day_data[i + j], "day_wind_title"),
+			        strcat(forecast_string, _("Wind: "));
+				sprintf(forecast_string + strlen(forecast_string), "%s %.2f %s", item_value(wcs.day_data[i + j], "day_wind_title"),
 				convert_wind_units(app->config->wind_units, atof(item_value(wcs.day_data[i + j], "day_wind_speed"))),
 						    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
 			}else{
-			        memset(app->forecast_string, 0, sizeof(app->forecast_string));
-				strcat(app->forecast_string, item_value(wcs.day_data[i + j], "night_title"));
-				strcat(app->forecast_string, _("\nHumidity: "));
+			        memset(forecast_string, 0, sizeof(forecast_string));
+				strcat(forecast_string, item_value(wcs.day_data[i + j], "night_title"));
+				strcat(forecast_string, _("\nHumidity: "));
 				if(strcmp(item_value(wcs.day_data[i + j], "night_humidity"), "N/A"))
-				    sprintf(app->forecast_string + strlen(app->forecast_string), "%s%%\n",
+				    sprintf(forecast_string + strlen(forecast_string), "%s%%\n",
 					    item_value(wcs.day_data[i + j], "night_humidity"));
 				else
-				    sprintf(app->forecast_string + strlen(app->forecast_string), "%s\n",
+				    sprintf(forecast_string + strlen(forecast_string), "%s\n",
 					    (char*)hash_table_find("N/A", FALSE));
-				strcat(app->forecast_string, _("Wind: "));
-				sprintf(app->forecast_string + strlen(app->forecast_string), "%s %.2f %s", item_value(wcs.day_data[i + j], "night_wind_title"),
+				strcat(forecast_string, _("Wind: "));
+				sprintf(forecast_string + strlen(forecast_string), "%s %.2f %s", item_value(wcs.day_data[i + j], "night_wind_title"),
 					convert_wind_units(app->config->wind_units, atof(item_value(wcs.day_data[i + j], "night_wind_speed"))),
 					(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
 			}
@@ -674,7 +676,8 @@ void draw_home_window(gint count_day){
 /* creating main panel */
     app->main_window = gtk_table_new(2, 1, FALSE);
     create_panel(app->main_window, app->config->icons_layout,
-		    app->config->transparency, tmp_station_name, font_size);
+		    app->config->transparency, tmp_station_name, font_size,
+		    temperature_string, forecast_string);
     gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
     gtk_widget_show_all(app->top_widget);
     #ifdef OS2008
@@ -885,7 +888,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     if(app->timer_for_os2008 != 0){
     	check = g_source_remove(app->timer_for_os2008);
     }
-    new_config_save(app->config); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
+    config_save(app->config); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
 			On n800 this work */
     #ifdef USE_CONIC
 	if (app->connection)
@@ -995,7 +998,9 @@ void menu_init(void){
 }
 /*******************************************************************************/
 /* For Combination layout */
-GtkWidget* create_forecast_weather_simple_widget(char f_size)
+GtkWidget* create_forecast_weather_simple_widget(char f_size,
+						    gchar *temperature_string,
+							gchar *forecast_string)
 {
 	
         GtkWidget	*temperature_label = NULL,
@@ -1014,9 +1019,9 @@ GtkWidget* create_forecast_weather_simple_widget(char f_size)
 				app->config->font_color.red >> 8,
 				app->config->font_color.green >> 8,
 				app->config->font_color.blue >> 8);
-	if (app->temperature_string[0] != 0){
+	if (temperature_string){
         	sprintf(buffer + strlen(buffer), _("Forecast: \n"));
-        	strcat(buffer, app->temperature_string);
+        	strcat(buffer, temperature_string);
 	}else{
         	sprintf(buffer + strlen(buffer), _("The current weather\nis not available"));
 	}
@@ -1026,7 +1031,7 @@ GtkWidget* create_forecast_weather_simple_widget(char f_size)
 	gtk_label_set_markup(GTK_LABEL(temperature_label), buffer);
 	gtk_label_set_justify(GTK_LABEL(temperature_label), GTK_JUSTIFY_CENTER);
 
-	if (app->temperature_string[0] != 0)
+	if (temperature_string)
         	set_font_size(temperature_label, 1.7*f_size);
 	gtk_box_pack_start(GTK_BOX(temperature_vbox), temperature_label, FALSE, FALSE, 0);
 
@@ -1037,7 +1042,7 @@ GtkWidget* create_forecast_weather_simple_widget(char f_size)
 				app->config->font_color.red >> 8,
 				app->config->font_color.green >> 8,
 				app->config->font_color.blue >> 8);
-        strcat(buffer, app->forecast_string);				
+        strcat(buffer, forecast_string);				
 	strcat(buffer,"</span>");
 	main_data_vbox = gtk_vbox_new(FALSE, 0);	
 	main_data_label = gtk_label_new(NULL);
@@ -1184,7 +1189,8 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
 /*******************************************************************************/
 /* create days panel and station name panel */
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
-					    gchar* st_name, char f_size){
+			gchar *st_name, char f_size, gchar *temperature_string,
+							gchar *forecast_string){
     gchar	buffer[2048];
     GtkWidget	*header_panel = NULL,
 		*days_panel = NULL,
@@ -1425,7 +1431,10 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     		(last_update_time(wcs.current_data) < (current_time + app->config->data_valid_interval))){
 		current_weather_widget = create_current_weather_simple_widget(wcs.current_data, f_size);
 	    }else
-	    	current_weather_widget = create_forecast_weather_simple_widget(f_size);
+	    	current_weather_widget 
+		    = create_forecast_weather_simple_widget(f_size,
+								temperature_string,
+								forecast_string);
 	}
         gtk_box_pack_start(GTK_BOX(combination_vbox), header_panel, FALSE, FALSE, 0);
 	if(current_weather_widget)

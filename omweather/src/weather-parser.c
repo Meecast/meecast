@@ -25,6 +25,10 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
+#include <libxml/parser.h>
+#include <libxml/tree.h>
+#include <libxml/xpath.h>
+#include <libxml/xpathInternals.h>
 #include "weather-parser.h"
 #include "weather-hash.h"
 #include "weather-data.h"
@@ -476,8 +480,7 @@ int parse_underground_com_data(const gchar *station){
     htmlDocPtr	doc;
     gchar	buffer[512];
     htmlNodePtr	current_node = NULL,
-		root_node = NULL,
-		child_node = NULL;
+		root_node = NULL;
     gint	day_count = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

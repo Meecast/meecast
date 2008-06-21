@@ -668,7 +668,7 @@ void config_update_proxy(void){
     g_object_unref(gconf_client);
 }
 /*******************************************************************************/ 
-void new_config_save(AppletConfig *config){
+void config_save(AppletConfig *config){
     gchar temp_buffer[16];
     GConfClient *gconf_client;
     GSList *stlist = NULL;

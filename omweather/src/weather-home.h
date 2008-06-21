@@ -40,7 +40,8 @@ void delete_weather_day_button(WDB **day);
 void draw_home_window(gint count_day);
 void update_weather(gboolean show_update_window);
 void redraw_home_window(gboolean first_start);
-void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name, char f_size);
+void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name,
+		    char f_size, gchar *temperature_string, gchar *forecast_string);
 void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 gboolean download_html(gpointer data);
 void free_memory(void);
@@ -51,7 +52,9 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
 gboolean remitted_update(void);
 GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size);
 GtkListStore* create_user_stations_list(void);
-GtkWidget* create_forecast_weather_simple_widget(char f_size);
+GtkWidget* create_forecast_weather_simple_widget(char f_size,
+						    gchar *temperature_string,
+						    gchar *forecast_string);
 int calculate_offset_of_day(int count_day);
 /*******************************************************************************/
 extern void swap_temperature(int *hi, int *low);
@@ -68,7 +71,7 @@ extern void remove_daytime_event(void);
 extern void clean_download(void);
 extern void weather_window_settings(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 extern int new_read_config(AppletConfig*);
-extern void new_config_save(AppletConfig*);
+extern void config_save(AppletConfig*);
 extern GtkListStore* create_items_list(const char *path, const char *filename,
 				long start, long end, long *items_number);
 extern GtkListStore* create_time_update_list(void);

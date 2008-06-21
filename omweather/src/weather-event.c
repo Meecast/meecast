@@ -144,7 +144,7 @@ gboolean timer_handler(gpointer data){
 				app->config->current_station_name = g_strdup(app->gps_station.name);
 				app->config->current_station_id = g_strdup(app->gps_station.id0);		
 			    }
-			    new_config_save(app->config);
+			    config_save(app->config);
 		    	    update_weather(TRUE);
 			    redraw_home_window(FALSE);
 			}        

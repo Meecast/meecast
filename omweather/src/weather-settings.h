@@ -88,7 +88,7 @@ extern void remove_periodic_event(void);
 extern void weather_initialize_dbus(void);
 extern time_t next_update(void);
 extern void print_list(char *buff, size_t buff_size);
-extern void new_config_save(AppletConfig *config);
+extern void config_save(AppletConfig *config);
 extern void set_background_color(GtkWidget *widget, GdkColor *bgc);
 extern void add_periodic_event(time_t last_update);
 extern void remove_periodic_event(void);

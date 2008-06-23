@@ -47,8 +47,7 @@ void help_activated_handler(GtkWidget *window, gchar *help_id){
 /*******************************************************************************/
 void create_about_dialog(void){
     GtkWidget	*help_dialog,
-		*notebook,
-		*title;
+		*notebook;
     char	tmp_buff[2048];
     gint	result;
 #ifdef DEBUGFUNCTIONCALL
@@ -85,7 +84,7 @@ void create_about_dialog(void){
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_CENTER),
-				title = gtk_label_new(_("About")));
+				gtk_label_new(_("About")));
 /* Authors tab */
     snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s",
 		_("\nAuthor and maintenance:\n"
@@ -96,7 +95,7 @@ void create_about_dialog(void){
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),
-				title = gtk_label_new(_("Authors")));
+				gtk_label_new(_("Authors")));
 /* Thanks tab */
     snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s",
 	    _("\nEd Bartosh - for more feature requests,\n"
@@ -126,7 +125,7 @@ void create_about_dialog(void){
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),
-        			title = gtk_label_new(_("Thanks")));
+        			gtk_label_new(_("Thanks")));
 /* Translators tab */
     snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s",
 	    _("French - Nicolas Granziano\n"
@@ -137,10 +136,7 @@ void create_about_dialog(void){
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),
-        			title = gtk_label_new(_("Translators")));
-/* enable help for this window */
-    ossohelp_dialog_help_enable(GTK_DIALOG(help_dialog), OMWEATHER_ABOUT_HELP_ID,
-								app->osso);
+        			gtk_label_new(_("Translators")));
     gtk_widget_show_all(help_dialog);
 /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(help_dialog));

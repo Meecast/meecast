@@ -84,6 +84,8 @@ enum { WEATHER_COM1, WEATHER_COM2, MAX_WEATHER_SOURCE_NUMBER };
 enum { TINY_ICON_SIZE = 32, SMALL_ICON_SIZE = 48, MEDIUM_ICON_SIZE = 64,
 	BIG_ICON_SIZE = 80, LARGE_ICON_SIZE = 96, GIANT_ICON_SIZE = 128,
 	SUPER_GIANT_ICON_SIZE = 256 };
+enum { SETTINGS_STATIONS_PAGE, SETTINGS_INTERFACE_PAGE, SETTINGS_UNITS_PAGE,
+	SETTINGS_UPDATE_PAGE, SETTINGS_SENSOR_PAGE, ABOUT_PAGE };
 /*******************************************************************************/
 typedef struct weather_data_source{
     gchar	*name;

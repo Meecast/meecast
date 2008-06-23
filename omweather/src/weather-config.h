@@ -78,9 +78,9 @@
 
 /*******************************************************************************/
 #ifdef OS2008
-#define MAX_SETTINGS_PAGE_NUMBER	4
+#define MAX_SETTINGS_PAGE_NUMBER	SETTINGS_SENSOR_PAGE
 #else
-#define MAX_SETTINGS_PAGE_NUMBER	3
+#define MAX_SETTINGS_PAGE_NUMBER	SETTINGS_UPDATE_PAGE
 #endif
 /*******************************************************************************/
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];

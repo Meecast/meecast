@@ -359,12 +359,6 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
 #endif
 }
 /*******************************************************************************/
-/*
-// Update tab
-// enable help for this window
-    ossohelp_dialog_help_enable(GTK_DIALOG(window_config), OMWEATHER_SETTINGS_HELP_ID, app->osso);
-*/
-/*******************************************************************************/
 /* get icon set names */
 int create_icon_set_list(GtkWidget *store){
     Dirent	*dp;
@@ -649,7 +643,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*notebook = NULL,
 		*vbox = NULL,
 		*buttons_box = NULL,
-		*about_button = NULL,
+		*help_button = NULL,
 		*apply_button = NULL,
 		*close_button = NULL,
 		*back_button = NULL,
@@ -766,10 +760,11 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     g_signal_connect(G_OBJECT(back_button), "button_press_event",
                         G_CALLBACK(back_button_handler),
 			(gpointer)window_config);
-    /* About buton */
-    about_button = create_button_with_image(BUTTON_ICONS, "about", 40, FALSE);
-    g_signal_connect(G_OBJECT(about_button), "button_press_event",
-                        G_CALLBACK(about_button_handler), NULL);
+    /* Help buton */
+    help_button = create_button_with_image(BUTTON_ICONS, "about", 40, FALSE);
+    g_signal_connect(G_OBJECT(help_button), "button_press_event",
+                        G_CALLBACK(help_button_handler),
+			(gpointer)window_config);
     /* Apply button */
     apply_button = create_button_with_image(BUTTON_ICONS, "apply", 40, FALSE);
     g_signal_connect(G_OBJECT(apply_button), "button_press_event",
@@ -784,7 +779,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 /* Pack buttons to the buttons box */
     gtk_box_pack_start(GTK_BOX(buttons_box), back_button, TRUE, TRUE, 25);
     gtk_box_pack_start(GTK_BOX(buttons_box), apply_button, TRUE, TRUE, 10);
-    gtk_box_pack_start(GTK_BOX(buttons_box), about_button, TRUE, TRUE, 10);
+    gtk_box_pack_start(GTK_BOX(buttons_box), help_button, TRUE, TRUE, 10);
     gtk_box_pack_start(GTK_BOX(buttons_box), close_button, TRUE, TRUE, 25);
 /* Pack items to config window */
     gtk_box_pack_start(GTK_BOX(vbox), notebook, TRUE, TRUE, 0);
@@ -1935,12 +1930,36 @@ void close_button_handler(GtkWidget *button, GdkEventButton *event,
     config_save(app->config);
 }
 /*******************************************************************************/
-void about_button_handler(GtkWidget *button, GdkEventButton *event,
+void help_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    create_about_dialog();
+    GtkWidget	*config = GTK_WIDGET(user_data),
+		*notebook = NULL;
+    gint	page_number = -1;
+
+    notebook = lookup_widget(config, "notebook");
+    if(notebook){
+	page_number = gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook));
+	switch(page_number){
+	    case SETTINGS_STATIONS_PAGE:
+		help_activated_handler(NULL, OMWEATHER_SETTINGS_STATIONS_HELP_ID);
+	    break;
+	    case SETTINGS_INTERFACE_PAGE:
+		help_activated_handler(NULL, OMWEATHER_SETTINGS_INTERFACE_HELP_ID);
+	    break;
+	    case SETTINGS_UNITS_PAGE:
+		help_activated_handler(NULL, OMWEATHER_SETTINGS_UNITS_HELP_ID);
+	    break;
+	    case SETTINGS_UPDATE_PAGE:
+		help_activated_handler(NULL, OMWEATHER_SETTINGS_UPDATE_HELP_ID);
+	    break;
+	    case SETTINGS_SENSOR_PAGE:
+		help_activated_handler(NULL, OMWEATHER_SETTINGS_SENSOR_HELP_ID);
+	    break;
+	}
+    }
 }
 /*******************************************************************************/
 void back_button_handler(GtkWidget *button, GdkEventButton *event,

@@ -114,7 +114,8 @@ GtkWidget* create_moon_phase_widget(GSList *current){
     space_symbol = strchr(icon, ' ');
     if(space_symbol)
 	*space_symbol = '_';
-    icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, GIANT_ICON_SIZE, GIANT_ICON_SIZE, NULL);
+    icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, GIANT_ICON_SIZE,
+						    GIANT_ICON_SIZE, NULL);
     if(icon_buffer){
 	icon_image = gtk_image_new_from_pixbuf(icon_buffer);
 	g_object_unref(G_OBJECT(icon_buffer));
@@ -189,6 +190,7 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 		*buttons_box = NULL,
 		*settings_button = NULL,
 		*refresh_button = NULL,
+		*about_button = NULL,
 		*close_button = NULL;
     gint	i = 0,
 		active_tab = 0,
@@ -278,15 +280,21 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
     g_signal_connect(G_OBJECT(refresh_button), "button_press_event",
                         G_CALLBACK(refresh_button_handler),
 			(gpointer)window_popup);
+    /* About buton */
+    about_button = create_button_with_image(BUTTON_ICONS, "about", 40, FALSE);
+    g_signal_connect(G_OBJECT(about_button), "button_press_event",
+                        G_CALLBACK(about_button_handler),
+			NULL);
     /* Close button */
     close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE);
     g_signal_connect(G_OBJECT(close_button), "button_press_event",
                         G_CALLBACK(popup_close_button_handler),
 			(gpointer)window_popup);
 /* Pack buttons to the buttons box */
-    gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, FALSE, FALSE, 30);
-    gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 10);
-    gtk_box_pack_start(GTK_BOX(buttons_box), close_button, FALSE, FALSE, 30);
+    gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, FALSE, FALSE, 60);
+    gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 5);
+    gtk_box_pack_start(GTK_BOX(buttons_box), about_button, TRUE, TRUE, 5);
+    gtk_box_pack_start(GTK_BOX(buttons_box), close_button, FALSE, FALSE, 60);
 /* Show copyright widget */
     gtk_box_pack_start(GTK_BOX(vbox),
 	create_copyright_widget(weather_sources[app->config->weather_source].name, NULL),
@@ -361,8 +369,12 @@ void refresh_button_handler(GtkWidget *button, GdkEventButton *event,
     START_FUNCTION;
 #endif
     gtk_widget_destroy(GTK_WIDGET(user_data));
-/*    pre_update_weather(); */
     update_weather(TRUE);
+}
+/*******************************************************************************/
+void about_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data){
+    create_about_dialog();
 }
 /*******************************************************************************/
 void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,

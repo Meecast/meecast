@@ -76,7 +76,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
 void rename_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
-void about_button_handler(GtkWidget *button, GdkEventButton *event,
+void help_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
 void close_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
@@ -119,6 +119,5 @@ extern GtkWidget* create_button_with_image(const char *path, const char *image_n
 				    int image_size, gboolean with_border);
 extern GtkWidget* create_scrolled_window_with_text(const char* text,
 					    GtkJustification justification);
-extern void create_about_dialog(void);	/* create help dialog */
 /*******************************************************************************/
 #endif

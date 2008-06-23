@@ -29,6 +29,11 @@
 #define _weather_settings_h 1
 /*******************************************************************************/
 #include "weather-common.h"
+#ifdef OS2008
+    #include <hildon/hildon-controlbar.h>
+#else
+    #include <hildon-widgets/hildon-controlbar.h>
+#endif
 /*******************************************************************************/
 #define OMWEATHER_RESPONSE_ABOUT 5000
 /*******************************************************************************/
@@ -82,6 +87,10 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 void chk_download_button_toggled_handler(GtkRadioButton *button,
 							    gpointer user_data);
 void entry_changed_handler(GtkWidget *entry, gpointer user_data);
+void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data);
+void color_buttons_changed_handler(GtkColorButton *button, gpointer user_data);
+void combo_boxs_changed_handler(GtkComboBox *combobox, gpointer user_data);
+void control_bars_changed_handler(HildonControlbar *control, gpointer user_data);
 /*******************************************************************************/
 extern void redraw_home_window(gboolean first_start);
 extern void remove_periodic_event(void);

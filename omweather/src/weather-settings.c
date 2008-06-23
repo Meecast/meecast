@@ -30,11 +30,6 @@
 #include "weather-help.h"
 #include "weather-utils.h"
 #include <errno.h>
-#ifdef OS2008
-    #include <hildon/hildon-controlbar.h>
-#else
-    #include <hildon-widgets/hildon-controlbar.h>
-#endif
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
@@ -462,7 +457,6 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
 /*******************************************************************************/
 void update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data){
     time_t		update_time = 0;
-    GtkLabel		*label;
     GtkTreeModel	*model;
     GtkTreeIter		iter;
     gchar		*temp_string,
@@ -470,30 +464,21 @@ void update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    label = GTK_LABEL(user_data);
-
-    if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)){
-	model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
-	gtk_tree_model_get(model, &iter, 0, &temp_string,
-					 1, &update_time,
-    					    -1);
-	g_free(temp_string);
-	if(app->config->update_interval != update_time){
-	    app->config->update_interval = update_time;
-	    remove_periodic_event();
-	    add_periodic_event(time(NULL));
-	}
+    if(gtk_combo_box_get_active_iter(widget, &iter)){
+	model = gtk_combo_box_get_model(widget);
+	gtk_tree_model_get(model, &iter, 1, &update_time, -1);
 	/* fill next update field */
-	update_time = next_update();
 	if(!update_time)
 	    temp_string = _("Never");
 	else{
+	    update_time *= 60;
+	    update_time += time(NULL);
 	    tmp_buff[0] = 0;
 	    strftime(tmp_buff, sizeof(tmp_buff) - 1, "%X %x",
-	    		    localtime(&update_time));
+	    			    localtime(&update_time));
 	    temp_string = tmp_buff;
 	}
-	gtk_label_set_text(label, temp_string);
+	gtk_label_set_text(GTK_LABEL(user_data), temp_string);
     }
 }
 /*******************************************************************************/
@@ -790,6 +775,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     g_signal_connect(G_OBJECT(apply_button), "button_press_event",
                         G_CALLBACK(apply_button_handler),
 			(gpointer)window_config);
+    gtk_widget_set_sensitive(apply_button, FALSE);
     /* Close button */
     close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE);
     g_signal_connect(G_OBJECT(close_button), "button_press_event",
@@ -902,9 +888,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_combo_box_set_active(GTK_COMBO_BOX(weather_source),
 				app->config->weather_source);
     GLADE_HOOKUP_OBJECT(window_config, weather_source, "weather_source");
+    gtk_widget_set_name(weather_source, "weather_source");
     g_signal_connect(weather_source, "changed",
-            		G_CALLBACK(changed_weather_source_handler),
-			(gpointer)window_config);
+            		G_CALLBACK(combo_boxs_changed_handler),
+			(gpointer)apply_button);
     /* label By name */
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				gtk_label_new(_("Name:")),
@@ -965,6 +952,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				chk_gps = gtk_check_button_new(),
 				1, 2, 4, 5);
     GLADE_HOOKUP_OBJECT(window_config, chk_gps, "enable_gps");
+    gtk_widget_set_name(chk_gps, "enable_gps");
+    g_signal_connect(chk_gps, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_gps),
         			    app->config->gps_station);
 #endif
@@ -1050,6 +1041,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     /* Visible items number */
     visible_items_number = hildon_controlbar_new();
     GLADE_HOOKUP_OBJECT(window_config, visible_items_number, "visible_items_number");
+    gtk_widget_set_name(visible_items_number, "visible_items_number");
+    g_signal_connect(visible_items_number, "value-changed",
+            		G_CALLBACK(control_bars_changed_handler),
+			(gpointer)apply_button);
     hildon_controlbar_set_min(HILDON_CONTROLBAR(visible_items_number), 1);
     hildon_controlbar_set_max(HILDON_CONTROLBAR(visible_items_number),
 				Max_count_weather_day);
@@ -1064,6 +1059,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				0, 1, 1, 2);
     layout_type = gtk_combo_box_new_text();
     GLADE_HOOKUP_OBJECT(window_config, layout_type, "layout_type");
+    gtk_widget_set_name(layout_type, "layout_type");
+    g_signal_connect(layout_type, "changed",
+            		G_CALLBACK(combo_boxs_changed_handler),
+			(gpointer)apply_button);
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One row"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One column"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two rows"));
@@ -1086,6 +1085,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				0, 1, 2, 3);
     icon_set = gtk_combo_box_new_text();
     GLADE_HOOKUP_OBJECT(window_config, icon_set, "icon_set");
+    gtk_widget_set_name(icon_set, "icon_set");
+    g_signal_connect(icon_set, "changed",
+            		G_CALLBACK(combo_boxs_changed_handler),
+			(gpointer)apply_button);
 /* add icons set to list */
     if(create_icon_set_list(icon_set) < 2)
 	gtk_widget_set_sensitive(icon_set, FALSE);
@@ -1100,6 +1103,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				0, 1, 3, 4);
     icon_size = hildon_controlbar_new();
     GLADE_HOOKUP_OBJECT(window_config, icon_size, "icon_size");
+    gtk_widget_set_name(icon_size, "icon_size");
+    g_signal_connect(icon_size, "value-changed",
+            		G_CALLBACK(control_bars_changed_handler),
+			(gpointer)apply_button);
     hildon_controlbar_set_min(HILDON_CONTROLBAR(icon_size), 1);
     hildon_controlbar_set_max(HILDON_CONTROLBAR(icon_size), 5);
     switch(app->config->icons_size){
@@ -1133,6 +1140,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     GLADE_HOOKUP_OBJECT(window_config, swap_temperature, "swap_temperature");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(swap_temperature),
         			    app->config->swap_hi_low_temperature);
+    gtk_widget_set_name(swap_temperature, "swap_temperature");
+    g_signal_connect(swap_temperature, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
     /* Show wind */
     gtk_table_attach_defaults(GTK_TABLE(interface_page),
         			gtk_label_new(_("Show wind:")),
@@ -1143,6 +1154,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     GLADE_HOOKUP_OBJECT(window_config, show_wind, "show_wind");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(show_wind),
         			    app->config->show_wind);
+    gtk_widget_set_name(show_wind, "show_wind");
+    g_signal_connect(show_wind, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
     /* Separate weather */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 			gtk_label_new(_("Current weather on first icon:")),
@@ -1151,6 +1166,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     GLADE_HOOKUP_OBJECT(window_config, separate, "separate");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(separate),
         			    app->config->separate);
+    gtk_widget_set_name(separate, "separate");
+    g_signal_connect(separate, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				separate,
 				1, 2, 5, 6);
@@ -1162,6 +1181,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     GLADE_HOOKUP_OBJECT(window_config, hide_station_name, "hide_station_name");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_station_name),
         			    app->config->hide_station_name);
+    gtk_widget_set_name(hide_station_name, "hide_station_name");
+    g_signal_connect(hide_station_name, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				hide_station_name,
 				1, 2, 6, 7);
@@ -1173,6 +1196,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     GLADE_HOOKUP_OBJECT(window_config, hide_arrows, "hide_arrows");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_arrows),
         			    app->config->hide_arrows);
+    gtk_widget_set_name(hide_arrows, "hide_arrows");
+    g_signal_connect(hide_arrows, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				hide_arrows,
 				3, 4, 6, 7);
@@ -1184,6 +1211,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     GLADE_HOOKUP_OBJECT(window_config, transparency, "transparency");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),
         			    app->config->transparency);
+    gtk_widget_set_name(transparency, "transparency");
+    g_signal_connect(transparency, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				transparency,
 				1, 2, 7, 8);
@@ -1193,6 +1224,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				0, 1, 8, 9);
     background_color = gtk_color_button_new();
     GLADE_HOOKUP_OBJECT(window_config, background_color, "background_color");
+    gtk_widget_set_name(background_color, "background_color");
+    g_signal_connect(background_color, "color-set",
+            		G_CALLBACK(color_buttons_changed_handler),
+			(gpointer)apply_button);
     g_signal_connect(GTK_TOGGLE_BUTTON(transparency), "toggled",
             		    G_CALLBACK(transparency_button_toggled_handler),
 			    background_color);
@@ -1216,6 +1251,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     /* Font color button */
     font_color = gtk_color_button_new();
     GLADE_HOOKUP_OBJECT(window_config, font_color, "font_color");
+    gtk_widget_set_name(font_color, "font_color");
+    g_signal_connect(font_color, "color-set",
+            		G_CALLBACK(color_buttons_changed_handler),
+			(gpointer)apply_button);
     gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color),
 				&(app->config->font_color));
     gtk_button_set_relief(GTK_BUTTON(font_color), GTK_RELIEF_NONE);
@@ -1354,9 +1393,11 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
         			    app->config->downloading_after_connecting);
     GLADE_HOOKUP_OBJECT(window_config, chk_downloading_after_connection,
 			    "download_after_connection");
-    g_signal_connect(GTK_TOGGLE_BUTTON(chk_downloading_after_connection), "toggled",
-            		    G_CALLBACK(chk_download_button_toggled_handler),
-			    NULL);
+    gtk_widget_set_name(chk_downloading_after_connection,
+			    "download_after_connection");
+    g_signal_connect(chk_downloading_after_connection, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
 /* Switch time to the next station */
     gtk_table_attach_defaults(GTK_TABLE(update_page),
         			gtk_label_new(_("Switch to the next station after:")),
@@ -1365,6 +1406,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				time_2switch_list = gtk_combo_box_new_text(),
         			1, 2, 1, 2);
     GLADE_HOOKUP_OBJECT(window_config, time_2switch_list, "time2switch");
+    gtk_widget_set_name(time_2switch_list, "time2switch");
+    g_signal_connect(time_2switch_list, "changed",
+            		G_CALLBACK(combo_boxs_changed_handler),
+			(gpointer)apply_button);
     gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("Never"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("10 seconds"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("20 seconds"));
@@ -1383,7 +1428,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 	case 5: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 5); break;
 	case 6: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 6); break;
     }
-/* Vaild time */
+/* Valid time */
     gtk_table_attach_defaults(GTK_TABLE(update_page),
         			gtk_label_new(_("Valid time for current weather:")),
         			0, 1, 2, 3);
@@ -1391,6 +1436,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				valid_time_list = gtk_combo_box_new_text(),
         			1, 2, 2, 3);
     GLADE_HOOKUP_OBJECT(window_config, valid_time_list, "valid_time");
+    gtk_widget_set_name(valid_time_list, "valid_time");
+    g_signal_connect(valid_time_list, "changed",
+            		G_CALLBACK(combo_boxs_changed_handler),
+			(gpointer)apply_button);
     gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("1 hour"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("2 hours"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("4 hours"));
@@ -1410,6 +1459,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				update_time = gtk_combo_box_new_text(),
         			1, 2, 3, 4);
     GLADE_HOOKUP_OBJECT(window_config, update_time, "update_time");
+    gtk_widget_set_name(update_time, "update_time");
+    g_signal_connect(update_time, "changed",
+            		G_CALLBACK(combo_boxs_changed_handler),
+			(gpointer)apply_button);
     gtk_table_attach_defaults(GTK_TABLE(update_page),
         			gtk_label_new(_("Next update:")),
         			0, 1, 5, 6);
@@ -1443,6 +1496,9 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data){
     struct lists_struct	*list = NULL;
+    GtkTreeModel	*model;
+    GtkTreeIter		iter;
+    time_t		updatetime = 0;
     GtkWidget		*config_window = GTK_WIDGET(user_data),
 		        *rename_entry = NULL,
 			*visible_items_number = NULL,
@@ -1462,7 +1518,9 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*font_color = NULL,
 			*time2switch = NULL,
 			*validtime = NULL,
+			*update_time = NULL,
 			*weather_source = NULL,
+			*download_after_connection = NULL,
 #if defined(OS2008) || defined(DEBUGTEMP)
 			*use_sensor = NULL,
 			*display_at = NULL,
@@ -1482,7 +1540,6 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifndef OS2008
     gboolean		need_correct_layout_for_OS2007 = FALSE;
 #endif
-    GtkTreeIter		iter;
     gchar		*new_station_name = NULL,
 			*station_name = NULL,
 			*temp_string = NULL;
@@ -1635,6 +1692,11 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	}
     }
 #endif
+/* download after connection */
+    download_after_connection = lookup_widget(config_window,
+						"download_after_connection");
+    app->config->downloading_after_connecting 
+	= gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(download_after_connection));
 /* swap temperature */
     swap_temperature = lookup_widget(config_window, "swap_temperature");
     if(swap_temperature)
@@ -1737,6 +1799,19 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	    app->config->data_valid_interval = 3600 * (1 << gtk_combo_box_get_active((GtkComboBox*)validtime));
 	}
     }
+/* Update time */
+    update_time = lookup_widget(config_window, "update_time");
+    if(update_time){
+	if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(update_time), &iter)){
+	    model = gtk_combo_box_get_model(GTK_COMBO_BOX(update_time));
+	    gtk_tree_model_get(model, &iter, 1, &updatetime, -1);
+	    if(app->config->update_interval != updatetime){
+		app->config->update_interval = updatetime;
+		remove_periodic_event();
+		add_periodic_event(time(NULL));
+	    }
+	}
+    }
 /* Weather data source */	
     weather_source = lookup_widget(config_window, "weather_source");
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config_window), "list");
@@ -1774,6 +1849,8 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 /* save settings */
     config_save(app->config);
     redraw_home_window(FALSE);
+/* disable button */
+    gtk_widget_set_sensitive(button, FALSE);
 }
 /*******************************************************************************/
 void close_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -2171,22 +2248,156 @@ void rename_button_handler(GtkWidget *button, GdkEventButton *event,
     redraw_home_window(FALSE);
 }
 /*******************************************************************************/
-void chk_download_button_toggled_handler(GtkRadioButton *button,
-							    gpointer user_data){
+void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
+    gchar	*button_name = NULL;
+    gboolean	something = FALSE;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)) ){
-	app->config->downloading_after_connecting = TRUE;
+    button_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
+#ifdef OS2008
+    if(!strcmp(button_name, "enable_gps")){
+	something = app->config->gps_station;
+	goto check;
     }
+#endif
+    if(!strcmp(button_name, "swap_temperature")){
+	something = app->config->swap_hi_low_temperature;
+	goto check;
+    }
+    if(!strcmp(button_name, "show_wind")){
+	something = app->config->show_wind;
+	goto check;
+    }
+    if(!strcmp(button_name, "separate")){
+	something = app->config->separate;
+	goto check;
+    }
+    if(!strcmp(button_name, "hide_station_name")){
+	something = app->config->hide_station_name;
+	goto check;
+    }
+    if(!strcmp(button_name, "hide_arrows")){
+	something = app->config->hide_arrows;
+	goto check;
+    }
+    if(!strcmp(button_name, "transparency")){
+	something = app->config->transparency;
+	goto check;
+    }
+    if(!strcmp(button_name, "download_after_connection")){
+	something = app->config->downloading_after_connecting;
+	goto check;
+    }
+    return;
+check:
+/* if previos state not equal current state than enable apply button */
+    if(something != gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)))
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
     else
-	app->config->downloading_after_connecting = FALSE;
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
 }
 /*******************************************************************************/
-void changed_weather_source_handler(GtkWidget *widget, gpointer user_data){
+void color_buttons_changed_handler(GtkColorButton *button, gpointer user_data){
+    gchar	*button_name = NULL;
+    GdkColor	something,
+		tmp_color;
+    gboolean	previos_state = FALSE;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    fprintf(stderr, "\n>>>>>>>>>>>>>>>Inside handler\n");
+    button_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
+    if(!strcmp(button_name, "font_color")){
+	memcpy(&something, &app->config->font_color, sizeof(something));
+	goto check;
+    }
+    if(!strcmp(button_name, "background_color")){
+	memcpy(&something, &app->config->background_color, sizeof(something));
+	previos_state = GTK_WIDGET_SENSITIVE(GTK_WIDGET(user_data));
+	goto check;
+    }
+    return;
+check:
+    gtk_color_button_get_color(button, &tmp_color);
+    if( (something.red - tmp_color.red) ||
+	    (something.green - tmp_color.green) ||
+	    (something.blue - tmp_color.blue) )
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+    else
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), previos_state);
+}
+/*******************************************************************************/
+void combo_boxs_changed_handler(GtkComboBox *combobox, gpointer user_data){
+    gchar	*combobox_name = NULL;
+    gint	something = -1,
+		count = 0;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    combobox_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(combobox));
+    if(!strcmp(combobox_name, "weather_source")){
+	something = app->config->weather_source;
+	goto check;
+    }
+    if(!strcmp(combobox_name, "layout_type")){
+	something = app->config->icons_layout;
+	goto check;
+    }
+    if(!strcmp(combobox_name, "icon_set")){
+	if(strcmp(app->config->icon_set,
+		gtk_combo_box_get_active_text(combobox)))
+	    gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+	else
+	    gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+	return;
+    }
+    if(!strcmp(combobox_name, "time2switch")){
+	something = app->config->switch_time / 10;
+	goto check;
+    }
+    if(!strcmp(combobox_name, "valid_time")){
+	something = app->config->data_valid_interval / 3600;
+	while(something >>= 1)
+	    count++;
+	something = count;
+	goto check;
+    }
+    if(!strcmp(combobox_name, "update_time")){
+        something = get_active_item_index((GtkTreeModel*)app->time_update_list,
+					    app->config->update_interval,
+					    NULL, TRUE);
+	goto check;
+    }
+    return;
+check:
+/* if previos state not equal current state than enable apply button */
+    if(something != gtk_combo_box_get_active(combobox))
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+    else
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+}
+/*******************************************************************************/
+void control_bars_changed_handler(HildonControlbar *control, gpointer user_data){
+    gchar	*control_name = NULL;
+    gint	something = -1;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(control));
+    if(!strcmp(control_name, "visible_items_number")){
+        something = app->config->days_to_show;
+	goto check;
+    }
+    if(!strcmp(control_name, "icon_size")){
+        something = app->config->icons_size;
+	goto check;
+    }
+    return;
+check:
+/* if previos state not equal current state than enable apply button */
+    if(something != hildon_controlbar_get_value(control))
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+    else
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
 }
 /*******************************************************************************/

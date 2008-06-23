@@ -1070,19 +1070,27 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Combination"));    
     switch(app->config->icons_layout){
 	default:
-	case ONE_ROW: 	  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 0);break;
-	case ONE_COLUMN:  gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 1);break;
-	case TWO_ROWS:    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 2);break;
-	case TWO_COLUMNS: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 3);break;
-	case COMBINATION: gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), 4);break;	
+	case ONE_ROW:
+	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), ONE_ROW);
+	break;
+	case ONE_COLUMN:
+	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), ONE_COLUMN);
+	break;
+	case TWO_ROWS:
+	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), TWO_ROWS);
+	break;
+	case TWO_COLUMNS:
+	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), TWO_COLUMNS);
+	break;
+	case COMBINATION:
+	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), COMBINATION);
+	break;
     }
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				layout_type,
-				1, 2, 1, 2);
+				layout_type, 1, 2, 1, 2);
     /* Icon set */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Icon set:")),
-				0, 1, 2, 3);
+				gtk_label_new(_("Icon set:")), 0, 1, 2, 3);
     icon_set = gtk_combo_box_new_text();
     GLADE_HOOKUP_OBJECT(window_config, icon_set, "icon_set");
     gtk_widget_set_name(icon_set, "icon_set");
@@ -1095,41 +1103,38 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     else
 	gtk_widget_set_sensitive(icon_set, TRUE);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				icon_set,
-				1, 2, 2, 3);
+				icon_set, 1, 2, 2, 3);
     /* Icon size */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Icon size:")),
-				0, 1, 3, 4);
+				gtk_label_new(_("Icon size:")), 0, 1, 3, 4);
     icon_size = hildon_controlbar_new();
     GLADE_HOOKUP_OBJECT(window_config, icon_size, "icon_size");
     gtk_widget_set_name(icon_size, "icon_size");
     g_signal_connect(icon_size, "value-changed",
             		G_CALLBACK(control_bars_changed_handler),
 			(gpointer)apply_button);
-    hildon_controlbar_set_min(HILDON_CONTROLBAR(icon_size), 1);
-    hildon_controlbar_set_max(HILDON_CONTROLBAR(icon_size), 5);
+    hildon_controlbar_set_min(HILDON_CONTROLBAR(icon_size), TINY);
+    hildon_controlbar_set_max(HILDON_CONTROLBAR(icon_size), GIANT);
     switch(app->config->icons_size){
-	case TINY: hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
-						TINY);
+	case TINY:
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), TINY);
 	break;
-	case SMALL: hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
-						SMALL);
+	case SMALL:
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), SMALL);
 	break;
-	case MEDIUM: hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
-						MEDIUM);
+	case MEDIUM:
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), MEDIUM);
 	break;
 	default:
-	case LARGE: hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
-						LARGE);
+	case LARGE:
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), LARGE);
 	break;
-	case GIANT: hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
-						GIANT);
+	case GIANT:
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), GIANT);
 	break;
     }
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				icon_size,
-				1, 2, 3, 4);
+				icon_size, 1, 2, 3, 4);
     /* Swap temperature */
     gtk_table_attach_defaults(GTK_TABLE(interface_page),
         			gtk_label_new(_("Swap hi/low temperature:")),
@@ -1171,8 +1176,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
             		G_CALLBACK(check_buttons_changed_handler),
 			(gpointer)apply_button);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				separate,
-				1, 2, 5, 6);
+				separate, 1, 2, 5, 6);
     /* Hide station name */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				gtk_label_new(_("Hide station name:")),
@@ -1186,8 +1190,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
             		G_CALLBACK(check_buttons_changed_handler),
 			(gpointer)apply_button);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				hide_station_name,
-				1, 2, 6, 7);
+				hide_station_name, 1, 2, 6, 7);
     /* Hide arrows */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				gtk_label_new(_("Hide arrows:")),
@@ -1201,8 +1204,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
             		G_CALLBACK(check_buttons_changed_handler),
 			(gpointer)apply_button);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				hide_arrows,
-				3, 4, 6, 7);
+				hide_arrows, 3, 4, 6, 7);
     /* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				gtk_label_new(_("Transparency:")),
@@ -1216,8 +1218,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
             		G_CALLBACK(check_buttons_changed_handler),
 			(gpointer)apply_button);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				transparency,
-				1, 2, 7, 8);
+				transparency, 1, 2, 7, 8);
     /* Background color */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				gtk_label_new(_("Background color:")),
@@ -1240,8 +1241,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_button_set_relief(GTK_BUTTON(background_color), GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click(GTK_BUTTON(background_color), FALSE);
     gtk_table_attach(GTK_TABLE(interface_page), 
-				background_color,
-				1, 2, 8, 9,
+				background_color, 1, 2, 8, 9,
 				GTK_SHRINK, GTK_SHRINK,
 				0, 0);
     /* Font color */
@@ -1260,8 +1260,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_button_set_relief(GTK_BUTTON(font_color), GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click(GTK_BUTTON(font_color), FALSE);
     gtk_table_attach(GTK_TABLE(interface_page), 
-				font_color,
-				1, 2, 9, 10,
+				font_color, 1, 2, 9, 10,
 				GTK_SHRINK, GTK_SHRINK,
 				0, 0);
 /* Units tab */
@@ -1275,6 +1274,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 									_("Celcius")),
 				1, 2, 0, 1);
     GLADE_HOOKUP_OBJECT(window_config, celcius_temperature, "temperature");
+    gtk_widget_set_name(celcius_temperature, "celcius");
+    g_signal_connect(celcius_temperature, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
     temperature_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(celcius_temperature));
     gtk_button_set_focus_on_click(GTK_BUTTON(celcius_temperature), FALSE);
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
@@ -1282,6 +1285,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    = gtk_radio_button_new_with_label(temperature_group,
 									_("Fahrenheit")),
 				2, 3, 0, 1);
+    gtk_widget_set_name(fahrenheit_temperature, "fahrenheit");
     gtk_button_set_focus_on_click(GTK_BUTTON(fahrenheit_temperature), FALSE);
     if(app->config->temperature_units == CELSIUS)
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(celcius_temperature), TRUE);
@@ -1296,6 +1300,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    = gtk_radio_button_new_with_label(NULL, _("Meters")),
 				1, 2, 2, 3);
     GLADE_HOOKUP_OBJECT(window_config, distance_meters, "meters");
+    gtk_widget_set_name(distance_meters, "meters");
+    g_signal_connect(distance_meters, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
     distance_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_meters));
     gtk_button_set_focus_on_click(GTK_BUTTON(distance_meters), FALSE);
 
@@ -1305,6 +1313,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 									_("Kilometers")),
 				2, 3, 2, 3);
     GLADE_HOOKUP_OBJECT(window_config, distance_kilometers, "kilometers");
+    gtk_widget_set_name(distance_kilometers, "meters");
+    g_signal_connect(distance_kilometers, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
     gtk_button_set_focus_on_click(GTK_BUTTON(distance_kilometers), FALSE);
 
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
@@ -1313,6 +1325,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 									_("Miles")),
 				1, 2, 3, 4);
     GLADE_HOOKUP_OBJECT(window_config, distance_miles, "miles");
+    gtk_widget_set_name(distance_miles, "meters");
+    g_signal_connect(distance_miles, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
     gtk_button_set_focus_on_click(GTK_BUTTON(distance_miles), FALSE);
 
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
@@ -1323,10 +1339,18 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_button_set_focus_on_click(GTK_BUTTON(distance_sea_miles), FALSE);
     switch(app->config->distance_units){
 	default:
-	case METERS: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_meters), TRUE); break;
-	case KILOMETERS: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_kilometers), TRUE); break;
-	case MILES: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_miles), TRUE); break;
-	case SEA_MILES: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_sea_miles), TRUE); break;
+	case METERS:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_meters), TRUE);
+	break;
+	case KILOMETERS:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_kilometers), TRUE);
+	break;
+	case MILES:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_miles), TRUE);
+	break;
+	case SEA_MILES:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_sea_miles), TRUE);
+	break;
     }
     /* wind */
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
@@ -1338,6 +1362,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				1, 2, 4, 5);
     wind_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(wind_meters));
     GLADE_HOOKUP_OBJECT(window_config, wind_meters, "wind_meters");
+    gtk_widget_set_name(wind_meters, "wind_meters");
+    g_signal_connect(wind_meters, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
     gtk_button_set_focus_on_click(GTK_BUTTON(wind_meters), FALSE);
 
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
@@ -1345,6 +1373,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    = gtk_radio_button_new_with_label(wind_group, _("km/h")),
 				2, 3, 4, 5);
     GLADE_HOOKUP_OBJECT(window_config, wind_kilometers, "wind_kilometers");
+    gtk_widget_set_name(wind_kilometers, "wind_meters");
+    g_signal_connect(wind_kilometers, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
     gtk_button_set_focus_on_click(GTK_BUTTON(wind_kilometers), FALSE);
 
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
@@ -1355,9 +1387,15 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_button_set_focus_on_click(GTK_BUTTON(wind_miles), FALSE);
     switch(app->config->wind_units){
 	default:
-	case METERS_S: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_meters), TRUE); break;
-	case KILOMETERS_H: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_kilometers), TRUE); break;
-	case MILES_H: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_miles), TRUE); break;
+	case METERS_S:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_meters), TRUE);
+	break;
+	case KILOMETERS_H:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_kilometers), TRUE);
+	break;
+	case MILES_H:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_miles), TRUE);
+	break;
     }
     /* pressure */
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
@@ -1369,6 +1407,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 									_("mb")),
 				1, 2, 6, 7);
     GLADE_HOOKUP_OBJECT(window_config, mb_pressure, "mb_pressure");
+    gtk_widget_set_name(mb_pressure, "pressure");
+    g_signal_connect(mb_pressure, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
     pressure_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(mb_pressure));
     gtk_button_set_focus_on_click(GTK_BUTTON(mb_pressure), FALSE);
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
@@ -2255,6 +2297,37 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
     START_FUNCTION;
 #endif
     button_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
+    fprintf(stderr, "\n>>>Inside handler, name - %s\n", button_name);
+    if(!strcmp(button_name, "celcius")){
+	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button))){
+	    if(app->config->temperature_units == CELSIUS)
+	    	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+	    else
+		gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+	}
+	else{
+	    if(app->config->temperature_units != CELSIUS)
+		gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+	    else
+		gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+	}
+	return;
+    }
+    if(!strcmp(button_name, "pressure")){
+	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button))){
+	    if(app->config->pressure_units == MB)
+	    	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+	    else
+		gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+	}
+	else{
+	    if(app->config->pressure_units != MB)
+		gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+	    else
+		gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+	}
+	return;
+    }
 #ifdef OS2008
     if(!strcmp(button_name, "enable_gps")){
 	something = app->config->gps_station;

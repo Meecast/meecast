@@ -105,14 +105,62 @@
         <display_text>Enable station from GPS:</display_text> check box is used
 	to enable automatic weather station selection when ever GPS is enabled.
       </_para>
+
+
+      <_para>
+	<display_text>Automatically updating data after connect to Internet:
+	</display_text> selection will controls if weather data is
+	automatically updated when Internet connection is established.
+      </_para>
+      <_para>
+	<display_text>Switch to the next station after:</display_text> drop down
+	menu controls time after applet changes to next weather station.
+      </_para>
+      <_para>
+	Valid time for current weather and update interval can be selected from
+	a drop down menu. 
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Add Station</_topictitle>
+      <context contextUID="help_omweather_add_station"/>
+      <_para>
+        In this window you need to select first a country from a drop down menu.
+	Next you need to select correct state or province (only some countries)
+	and a place which weather you want to monitor.
+      </_para>
+      <_para>
+	<display_text>Add Custom Station</display_text> button is used to add
+	weather stations not found on drop down menus.
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Add Custom Station</_topictitle>
+      <context contextUID="help_omweather_add_custom_station"/>
+      <_para>
+	This window you need to enter station name and station code for a custom
+	weather station.  Station codes can be found from the
+	(http://xoap.weather.com/search/search?here=station_name) or you can
+	use ZIP code for US stations.
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Settings. Stations tab</_topictitle>
+      <context contextUID="help_omweather_settings_stations"/>
+      <_para>
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Settings. Interface tab</_topictitle>
+      <context contextUID="help_omweather_settings_interface"/>
       <_para>
         <display_text>Interface</display_text> tab is used to configure 
         settings that controls visual appearance of the OMWeather.
       </_para>
       <_para>
         <display_text>Visible items:</display_text> selects how many icons
-        will be shown in the tablets home screen.  Possibilities go from
-	1 to 5.
+        will be shown in the tablets home screen. Possibilities go from
+	1 to 10.
       </_para>
       <_para>
         <display_text>Layout:</display_text> selects how icons are shown in
@@ -160,55 +208,33 @@
 	applet.
       </_para>
       <_para>
-        <display_text>Units</display_text> tab is used to select temperature,
-        distance and wind speed units shown on weather data.  Used units can
-	be selected from a drop down menus.
-      </_para>
-      <_para>
 	<display_text>Swap hi/low temperature:</display_text> selection will
 	change way how lowest and highest temperature for a day is shown on the
 	applet.	If selected, applet will show high temperature first.	
       </_para>
+    </topic>
+    <topic>
+      <_topictitle>Settings. Units tab</_topictitle>
+      <context contextUID="help_omweather_settings_units"/>
+      <_para>
+        <display_text>Units</display_text> tab is used to select temperature,
+        distance, wind speed and pressure units shown on weather data. Necessary units can
+	be selected by clicking on corresponding button.
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Settings. Update tab</_topictitle>
+      <context contextUID="help_omweather_settings_update"/>
       <_para>
         <display_text>Update</display_text> tab is used to configure 
         update interval of a weather data.  This tab shows also time
 	when next update will be done. 
       </_para>
-      <_para>
-	<display_text>Automatically updating data after connect to Internet:
-	</display_text> selection will controls if weather data is
-	automatically updated when Internet connection is established.
-      </_para>
-      <_para>
-	<display_text>Switch to the next station after:</display_text> drop down
-	menu controls time after applet changes to next weather station.
-      </_para>
-      <_para>
-	Valid time for current weather and update interval can be selected from
-	a drop down menu. 
-      </_para>
     </topic>
     <topic>
-      <_topictitle>Add Station</_topictitle>
-      <context contextUID="help_omweather_add_station"/>
+      <_topictitle>Settings. Sensor tab</_topictitle>
+      <context contextUID="help_omweather_settings_sensor"/>
       <_para>
-        In this window you need to select first a country from a drop down menu.
-	Next you need to select correct state or province (only some countries)
-	and a place which weather you want to monitor.
-      </_para>
-      <_para>
-	<display_text>Add Custom Station</display_text> button is used to add
-	weather stations not found on drop down menus.
-      </_para>
-    </topic>
-    <topic>
-      <_topictitle>Add Custom Station</_topictitle>
-      <context contextUID="help_omweather_add_custom_station"/>
-      <_para>
-	This window you need to enter station name and station code for a custom
-	weather station.  Station codes can be found from the
-	(http://xoap.weather.com/search/search?here=station_name) or you can
-	use ZIP code for US stations.
       </_para>
     </topic>
     <topic>

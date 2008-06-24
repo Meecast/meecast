@@ -65,7 +65,6 @@ void add_station_to_user_list(gchar *weather_station_name,
                                 1, weather_station_id,
 #endif
                                 -1);
-			
     /* Set it station how current (for GPS stations) */				
     if(is_gps && app->gps_must_be_current){
 	if(app->config->current_station_id != NULL)
@@ -131,7 +130,6 @@ void changed_country_handler(GtkWidget *widget, gpointer user_data){
 	    gtk_combo_box_set_active(GTK_COMBO_BOX(states), -1);
 	    gtk_widget_set_sensitive(GTK_WIDGET(states), TRUE);
 	}
-
 	g_free(app->config->current_country);
 	app->config->current_country = country_name;
     }
@@ -178,7 +176,6 @@ void changed_state_handler(GtkWidget *widget, gpointer user_data){
 	gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(stations), 0);
 	gtk_combo_box_set_model(GTK_COMBO_BOX(stations),
 				(GtkTreeModel*)app->stations_list);
-
 	g_free(state_name);
     }
 }
@@ -520,14 +517,13 @@ int get_active_item_index(GtkTreeModel *list, int time, const gchar *text,
 /*******************************************************************************/
 void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
                                         		    gpointer user_data){
-    GtkWidget	*background_color = GTK_WIDGET(user_data);
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(gtk_toggle_button_get_active(togglebutton))
-	gtk_widget_set_sensitive(background_color, FALSE);
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
     else
-	gtk_widget_set_sensitive(background_color, TRUE);
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
 }
 /*******************************************************************************/
 gboolean check_station_code(const gchar *station_code){
@@ -592,7 +588,6 @@ void highlight_current_station(GtkTreeView *tree_view){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);
     while(valid){
@@ -627,79 +622,19 @@ void highlight_current_station(GtkTreeView *tree_view){
 /*******************************************************************************/
 void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 							    gpointer user_data){
+    gint	day_number = (gint)user_data;/* last looking day on detail window */
 
-    gint	day_number = (gint)user_data,/* last looking day on detail window */
-		i = 0;
-    static struct lists_struct	list = { NULL, NULL, NULL };
-    GSList	*temperature_group = NULL,
-		*distance_group = NULL,
-		*wind_group = NULL,
-		*pressure_group = NULL;
-    GtkWidget	*countries = NULL,
-		*states = NULL,
-		*stations = NULL,
-		*station_list_view = NULL,
-		*window_config = NULL,
+    GtkWidget	*window_config = NULL,
 		*notebook = NULL,
 		*vbox = NULL,
+#if defined(OS2008) || defined(DEBUGTEMP)
+		*sensor_page = NULL,
+#endif
 		*buttons_box = NULL,
 		*help_button = NULL,
 		*apply_button = NULL,
 		*close_button = NULL,
-		*back_button = NULL,
-		*left_right_hbox = NULL,
-		*up_down_delete_buttons_vbox = NULL,
-		*rename_entry = NULL,
-		*station_name = NULL,
-		*station_code = NULL,
-		*add_station_button = NULL,
-		*add_station_button1 = NULL,
-		*add_station_button2 = NULL,
-		*visible_items_number = NULL,
-		*layout_type = NULL,
-		*icon_set = NULL,
-		*icon_size = NULL,
-		*hide_station_name = NULL,
-		*hide_arrows = NULL,
-		*transparency = NULL,
-		*celcius_temperature = NULL,
-		*fahrenheit_temperature = NULL,
-		*distance_meters = NULL,
-		*distance_kilometers = NULL,
-		*distance_miles = NULL,
-		*distance_sea_miles = NULL,
-		*wind_meters = NULL,
-		*wind_kilometers = NULL,
-		*wind_miles = NULL,
-		*mb_pressure = NULL,
-		*inch_pressure = NULL,
-		*weather_source = NULL,
-#ifdef OS2008
-                *chk_gps = NULL,
-#endif
-#if defined(OS2008) || defined(DEBUGTEMP)
-		*sensor_page = NULL,
-#endif
-		*time_update_label = NULL,
-		*interface_page = NULL,
-		*units_page = NULL,
-		*update_page = NULL,
-		*font_color = NULL,
-		*background_color = NULL,
-		*chk_downloading_after_connection = NULL,
-		*separate = NULL,
-		*left_table = NULL,
-		*right_table = NULL,
-		*swap_temperature = NULL,
-		*show_wind = NULL,
-		*scrolled_window = NULL,
-		*apply_rename_button = NULL,
-		*up_station_button = NULL,
-		*down_station_button = NULL,
-		*delete_station_button = NULL,
-		*update_time = NULL,
-		*valid_time_list = NULL,
-		*time_2switch_list = NULL;
+		*back_button = NULL;
 #ifndef RELEASE
     char	tmp_buff[1024];
 #endif
@@ -713,45 +648,11 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     window_config = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     GLADE_HOOKUP_OBJECT_NO_REF(window_config, window_config, "window_config");
     g_object_set_data(G_OBJECT(window_config), "day_number", (gpointer)day_number);
-    g_object_set_data(G_OBJECT(window_config), "list", (gpointer)&list);
-
     gtk_window_fullscreen(GTK_WINDOW(window_config));
     gtk_widget_show(window_config);
     /* create frame vbox */
     vbox = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(window_config), vbox);
-/* create tabs widget */
-    notebook = gtk_notebook_new();
-    GLADE_HOOKUP_OBJECT(window_config, notebook, "notebook");
-    gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
-/* add empty pages to the notebook */
-    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        	    left_right_hbox = gtk_hbox_new(FALSE, 0),
-        	    gtk_label_new(_("Stations")));
-    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			interface_page = gtk_table_new(10, 4, FALSE),
-        			gtk_label_new(_("Interface")));
-    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			 units_page = gtk_table_new(7, 3, FALSE),
-        			gtk_label_new(_("Units")));
-    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			update_page = gtk_table_new(5, 2, FALSE),
-        			gtk_label_new(_("Update")));
-#if defined(OS2008) || defined(DEBUGTEMP)
-    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			sensor_page = create_sensor_page(window_config),
-        			gtk_label_new(_("Sensor")));
-#endif
-#ifndef RELEASE
-/* Events list tab */
-    memset(tmp_buff, 0, sizeof(tmp_buff));
-    print_list(tmp_buff, sizeof(tmp_buff) - 1);
-    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			create_scrolled_window_with_text(tmp_buff,
-						    GTK_JUSTIFY_LEFT),
-        			gtk_label_new("Events"));
-#endif
-    gtk_widget_show(notebook);
 /* Bottom buttons box */
     buttons_box = gtk_hbox_new(FALSE, 0);
     gtk_widget_set_size_request(buttons_box, -1, 60);
@@ -781,749 +682,43 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(buttons_box), apply_button, TRUE, TRUE, 10);
     gtk_box_pack_start(GTK_BOX(buttons_box), help_button, TRUE, TRUE, 10);
     gtk_box_pack_start(GTK_BOX(buttons_box), close_button, TRUE, TRUE, 25);
+/* create tabs widget */
+    notebook = gtk_notebook_new();
+    GLADE_HOOKUP_OBJECT(window_config, notebook, "notebook");
+    gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
+/* add pages to the notebook */
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+		    create_locations_tab(window_config, (gpointer)apply_button),
+        	    gtk_label_new(_("Stations")));
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			create_interface_tab(window_config, (gpointer)apply_button),
+        			gtk_label_new(_("Interface")));
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			 create_units_tab(window_config, (gpointer)apply_button),
+        			gtk_label_new(_("Units")));
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			create_update_tab(window_config, (gpointer)apply_button),
+        			gtk_label_new(_("Update")));
+#if defined(OS2008) || defined(DEBUGTEMP)
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			sensor_page = create_sensor_page(window_config),
+        			gtk_label_new(_("Sensor")));
+#endif
+#ifndef RELEASE
+/* Events list tab */
+    memset(tmp_buff, 0, sizeof(tmp_buff));
+    print_list(tmp_buff, sizeof(tmp_buff) - 1);
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			create_scrolled_window_with_text(tmp_buff,
+						    GTK_JUSTIFY_LEFT),
+        			gtk_label_new("Events"));
+#endif
+    gtk_widget_show(notebook);
 /* Pack items to config window */
     gtk_box_pack_start(GTK_BOX(vbox), notebook, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE, FALSE, 0);
     gtk_widget_show(buttons_box);
-/* Locations tab */
-    /* left side */
-    left_table = gtk_table_new(3, 2, FALSE);
-    gtk_box_pack_start(GTK_BOX(left_right_hbox), left_table,
-			TRUE, TRUE, 0);
-    gtk_table_attach_defaults(GTK_TABLE(left_table), 
-				gtk_label_new(_("Arrange")),
-				0, 1, 0, 1);
-    /* Stations list */
-    scrolled_window = gtk_scrolled_window_new(NULL, NULL);
-    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
-					GTK_SHADOW_ETCHED_IN);
-    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
-                                 GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 220, 280);
 
-    station_list_view = create_tree_view(app->user_stations_list);
-    GLADE_HOOKUP_OBJECT(window_config, station_list_view, "station_list_view");
-    gtk_container_add(GTK_CONTAINER(scrolled_window),
-                	GTK_WIDGET(station_list_view));
-    gtk_table_attach_defaults(GTK_TABLE(left_table), 
-				scrolled_window,
-                    		0, 1, 2, 3);
-    
-/* Up Station and Down Station and Delete Station Buttons */
-    up_down_delete_buttons_vbox = gtk_vbox_new(FALSE, 5);
-    gtk_table_attach_defaults(GTK_TABLE(left_table), 
-				up_down_delete_buttons_vbox,
-                    		1, 2, 2, 3);
-/* prepare up_station_button */    
-    up_station_button = create_button_with_image(NULL, "qgn_indi_arrow_up", 16, TRUE);
-    gtk_widget_set_size_request(GTK_WIDGET(up_station_button), 30, -1);
-    g_signal_connect(up_station_button, "clicked",
-			G_CALLBACK(up_key_handler),
-			(gpointer)station_list_view);
-/* prepare down_station_button */    
-    down_station_button = create_button_with_image(NULL, "qgn_indi_arrow_down", 16, TRUE);
-    gtk_widget_set_size_request(GTK_WIDGET(down_station_button), 30, -1);
-    g_signal_connect(down_station_button, "clicked",
-		    	G_CALLBACK(down_key_handler),
-			(gpointer)station_list_view);
-/* prepare delete_station_button */    
-    delete_station_button = create_button_with_image(BUTTON_ICONS, "red", 30, TRUE);
-    gtk_widget_set_size_request(GTK_WIDGET(delete_station_button), 30, -1);
-    g_signal_connect(delete_station_button, "clicked",
-                	G_CALLBACK(delete_station_handler),
-			(gpointer)window_config);
-/* Pack Up, Down and Delete buttons */
-    gtk_box_pack_start(GTK_BOX(up_down_delete_buttons_vbox), up_station_button,
-                        TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(up_down_delete_buttons_vbox), delete_station_button,
-                        FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(up_down_delete_buttons_vbox), down_station_button,
-                        TRUE, TRUE, 0);
-/* Rename station entry */
-    rename_entry = gtk_entry_new();
-    GLADE_HOOKUP_OBJECT(window_config, rename_entry, "rename_entry");
-    gtk_widget_set_name(rename_entry, "rename_entry");
-    g_signal_connect(G_OBJECT(rename_entry), "changed",
-			G_CALLBACK(entry_changed_handler),
-			(gpointer)window_config);
-
-    gtk_table_attach_defaults(GTK_TABLE(left_table), 
-				rename_entry,
-				0, 1, 1, 2);
-/* Rename apply button */
-    apply_rename_button =
-	    create_button_with_image(BUTTON_ICONS, "apply", 30, FALSE);
-    GLADE_HOOKUP_OBJECT(window_config, apply_rename_button , "apply_rename_button_name");
-    gtk_widget_set_name(apply_rename_button, "apply_rename_button");
-    g_signal_connect(G_OBJECT(apply_rename_button), "button_press_event",
-                	G_CALLBACK(rename_button_handler),
-			(gpointer)window_config);
-    gtk_table_attach_defaults(GTK_TABLE(left_table), 
-				apply_rename_button,
-				1, 2, 1, 2);
-    gtk_widget_set_sensitive(GTK_WIDGET(apply_rename_button), FALSE);
-    /* right side */
-    right_table = gtk_table_new(10, 3, FALSE);
-    gtk_box_pack_start(GTK_BOX(left_right_hbox), right_table,
-                        TRUE, TRUE, 0);
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				gtk_label_new(_("Add")),
-        			1, 2, 0, 1);
-    /* source label */
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				gtk_label_new(_("Source:")),
-        			0, 1, 1, 2);
-    /* source list */
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				weather_source = gtk_combo_box_new_text(),
-        			1, 2, 1, 2);
-    for(i = 0; i < MAX_WEATHER_SOURCE_NUMBER; i++)
-	gtk_combo_box_append_text(GTK_COMBO_BOX(weather_source),
-				    weather_sources[i].name);
-    gtk_combo_box_set_active(GTK_COMBO_BOX(weather_source),
-				app->config->weather_source);
-    GLADE_HOOKUP_OBJECT(window_config, weather_source, "weather_source");
-    gtk_widget_set_name(weather_source, "weather_source");
-    g_signal_connect(weather_source, "changed",
-            		G_CALLBACK(combo_boxs_changed_handler),
-			(gpointer)apply_button);
-    /* label By name */
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				gtk_label_new(_("Name:")),
-                    		0, 1, 2, 3);
-    /* entry for station name */
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				station_name = gtk_entry_new(),
-                    		1, 2, 2, 3);
-    GLADE_HOOKUP_OBJECT(window_config, station_name, "station_name_entry");
-    gtk_widget_set_name(station_name, "station_name");
-    g_signal_connect(G_OBJECT(station_name), "changed",
-			G_CALLBACK(entry_changed_handler),
-			(gpointer)window_config);
-    /* add station button */
-    add_station_button = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
-    gtk_widget_set_size_request(add_station_button, 30, 30);
-    gtk_widget_set_name(add_station_button, "add_name");
-    GLADE_HOOKUP_OBJECT(window_config, add_station_button, "add_station_button_name");
-    gtk_widget_set_sensitive(add_station_button, FALSE);
-    g_signal_connect(G_OBJECT(add_station_button), "button_press_event",
-			G_CALLBACK(add_button_handler),
-			(gpointer)window_config);
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				add_station_button,
-				2, 3, 2, 3);
-    /* label By (Zip) code */
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				gtk_label_new(_("Code (Zip):")),
-                    		0, 1, 3, 4);
-    /* entry for station name */
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				station_code = gtk_entry_new(),
-                    		1, 2, 3, 4);
-    gtk_widget_set_name(station_code, "station_code");
-    GLADE_HOOKUP_OBJECT(window_config, station_code, "station_code_entry");
-    g_signal_connect(G_OBJECT(station_code), "changed",
-			G_CALLBACK(entry_changed_handler),
-			(gpointer)window_config);
-
-    /* add button */
-    add_station_button1 = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
-    gtk_widget_set_size_request(add_station_button1, 30, 30);
-    gtk_widget_set_name(add_station_button1, "add_code");
-    GLADE_HOOKUP_OBJECT(window_config, add_station_button1, "add_code_button_name");
-    gtk_widget_set_sensitive(add_station_button1, FALSE);
-    g_signal_connect(G_OBJECT(add_station_button1), "button_press_event",
-			G_CALLBACK(add_button_handler),
-			(gpointer)window_config);
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				add_station_button1,
-				2, 3, 3, 4);
-#ifdef OS2008
-/* GPS */
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				gtk_label_new(_("Enable GPS:")),
-                    		0, 1, 4, 5);
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-				chk_gps = gtk_check_button_new(),
-				1, 2, 4, 5);
-    GLADE_HOOKUP_OBJECT(window_config, chk_gps, "enable_gps");
-    gtk_widget_set_name(chk_gps, "enable_gps");
-    g_signal_connect(chk_gps, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_gps),
-        			    app->config->gps_station);
-#endif
-    /* Label */
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				gtk_label_new(_("From the list:")),
-                    		1, 2, 5, 6);
-    /* Countries label */
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				gtk_label_new(_("Country:")),
-                    		0, 1, 6, 7);
-    /* countries list  */
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				countries = gtk_combo_box_new_text(),
-				1, 2, 6, 7);
-    list.countries = countries;
-    gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(countries), 0);
-    gtk_combo_box_set_model(GTK_COMBO_BOX(countries),
-			    (GtkTreeModel*)app->countrys_list);
-    gtk_widget_show(countries);
-    /* States label */
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				gtk_label_new(_("State:")),
-                    		0, 1, 7, 8);
-    /* states list */
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				states = gtk_combo_box_new_text(),
-				1, 2, 7, 8);
-    list.states = states;
-    gtk_widget_show(states);
-    /* Stations label */
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				gtk_label_new(_("City:")),
-                    		0, 1, 8, 9);
-    /* stations list */
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-				stations = gtk_combo_box_new_text(),
-				1, 2, 8, 9);
-    list.stations = stations;
-    gtk_widget_show(stations);
-    GLADE_HOOKUP_OBJECT(window_config, GTK_WIDGET(stations), "stations");
-    /* add button */
-    add_station_button2 = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
-    gtk_widget_set_size_request(add_station_button2, 30, 30);
-    gtk_widget_set_name(add_station_button2, "add_from_list");
-    GLADE_HOOKUP_OBJECT(window_config, add_station_button2, "add_from_list");
-    gtk_widget_set_sensitive(add_station_button2, FALSE);
-    g_signal_connect(G_OBJECT(add_station_button2), "button_press_event",
-			G_CALLBACK(add_button_handler),
-			(gpointer)window_config);
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-				add_station_button2,
-				2, 3, 8, 9);
-    /* Set size */
-    gtk_widget_set_size_request(countries, 300, -1);
-    gtk_widget_set_size_request(states, 300, -1);
-    gtk_widget_set_size_request(stations, 300, -1);
-/* Set default value to country combo_box */
-    gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
-				get_active_item_index((GtkTreeModel*)app->countrys_list,
-				-1, app->config->current_country, TRUE));
-    /* fill states list */
-    changed_country_handler(NULL, (gpointer)window_config);
-    /* fill stations list */
-    changed_state_handler(NULL, (gpointer)window_config);
-    g_signal_connect(countries, "changed",
-            		G_CALLBACK(changed_country_handler),
-			(gpointer)window_config);
-    g_signal_connect(states, "changed",
-                	G_CALLBACK(changed_state_handler),
-			(gpointer)window_config);
-    g_signal_connect(stations, "changed",
-            		G_CALLBACK(changed_stations_handler),
-			(gpointer)window_config);
-    g_signal_connect(station_list_view, "cursor-changed",
-                        G_CALLBACK(station_list_view_select_handler),
-			rename_entry);
-/* Interface tab */
-    /* Visible items */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Visible items:")),
-				0, 1, 0, 1);
-    /* Visible items number */
-    visible_items_number = hildon_controlbar_new();
-    GLADE_HOOKUP_OBJECT(window_config, visible_items_number, "visible_items_number");
-    gtk_widget_set_name(visible_items_number, "visible_items_number");
-    g_signal_connect(visible_items_number, "value-changed",
-            		G_CALLBACK(control_bars_changed_handler),
-			(gpointer)apply_button);
-    hildon_controlbar_set_min(HILDON_CONTROLBAR(visible_items_number), 1);
-    hildon_controlbar_set_max(HILDON_CONTROLBAR(visible_items_number),
-				Max_count_weather_day);
-    hildon_controlbar_set_value(HILDON_CONTROLBAR(visible_items_number),
-				    app->config->days_to_show);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				visible_items_number,
-				1, 2, 0, 1);
-    /* Layout */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Layout:")),
-				0, 1, 1, 2);
-    layout_type = gtk_combo_box_new_text();
-    GLADE_HOOKUP_OBJECT(window_config, layout_type, "layout_type");
-    gtk_widget_set_name(layout_type, "layout_type");
-    g_signal_connect(layout_type, "changed",
-            		G_CALLBACK(combo_boxs_changed_handler),
-			(gpointer)apply_button);
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One row"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One column"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two rows"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two columns"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Combination"));    
-    switch(app->config->icons_layout){
-	default:
-	case ONE_ROW:
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), ONE_ROW);
-	break;
-	case ONE_COLUMN:
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), ONE_COLUMN);
-	break;
-	case TWO_ROWS:
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), TWO_ROWS);
-	break;
-	case TWO_COLUMNS:
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), TWO_COLUMNS);
-	break;
-	case COMBINATION:
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), COMBINATION);
-	break;
-    }
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				layout_type, 1, 2, 1, 2);
-    /* Icon set */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Icon set:")), 0, 1, 2, 3);
-    icon_set = gtk_combo_box_new_text();
-    GLADE_HOOKUP_OBJECT(window_config, icon_set, "icon_set");
-    gtk_widget_set_name(icon_set, "icon_set");
-    g_signal_connect(icon_set, "changed",
-            		G_CALLBACK(combo_boxs_changed_handler),
-			(gpointer)apply_button);
-/* add icons set to list */
-    if(create_icon_set_list(icon_set) < 2)
-	gtk_widget_set_sensitive(icon_set, FALSE);
-    else
-	gtk_widget_set_sensitive(icon_set, TRUE);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				icon_set, 1, 2, 2, 3);
-    /* Icon size */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Icon size:")), 0, 1, 3, 4);
-    icon_size = hildon_controlbar_new();
-    GLADE_HOOKUP_OBJECT(window_config, icon_size, "icon_size");
-    gtk_widget_set_name(icon_size, "icon_size");
-    g_signal_connect(icon_size, "value-changed",
-            		G_CALLBACK(control_bars_changed_handler),
-			(gpointer)apply_button);
-    hildon_controlbar_set_min(HILDON_CONTROLBAR(icon_size), TINY);
-    hildon_controlbar_set_max(HILDON_CONTROLBAR(icon_size), GIANT);
-    switch(app->config->icons_size){
-	case TINY:
-	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), TINY);
-	break;
-	case SMALL:
-	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), SMALL);
-	break;
-	case MEDIUM:
-	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), MEDIUM);
-	break;
-	default:
-	case LARGE:
-	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), LARGE);
-	break;
-	case GIANT:
-	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), GIANT);
-	break;
-    }
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				icon_size, 1, 2, 3, 4);
-    /* Swap temperature */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page),
-        			gtk_label_new(_("Swap hi/low temperature:")),
-        			0, 1, 4, 5);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page),
-			    swap_temperature = gtk_check_button_new(),
-			    1, 2, 4, 5);
-    GLADE_HOOKUP_OBJECT(window_config, swap_temperature, "swap_temperature");
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(swap_temperature),
-        			    app->config->swap_hi_low_temperature);
-    gtk_widget_set_name(swap_temperature, "swap_temperature");
-    g_signal_connect(swap_temperature, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-    /* Show wind */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page),
-        			gtk_label_new(_("Show wind:")),
-        			2, 3, 4, 5);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page),
-				show_wind = gtk_check_button_new(),
-				3, 4, 4, 5);
-    GLADE_HOOKUP_OBJECT(window_config, show_wind, "show_wind");
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(show_wind),
-        			    app->config->show_wind);
-    gtk_widget_set_name(show_wind, "show_wind");
-    g_signal_connect(show_wind, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-    /* Separate weather */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-			gtk_label_new(_("Current weather on first icon:")),
-			0, 1, 5, 6);
-    separate = gtk_check_button_new();
-    GLADE_HOOKUP_OBJECT(window_config, separate, "separate");
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(separate),
-        			    app->config->separate);
-    gtk_widget_set_name(separate, "separate");
-    g_signal_connect(separate, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				separate, 1, 2, 5, 6);
-    /* Hide station name */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Hide station name:")),
-				0, 1, 6, 7);
-    hide_station_name = gtk_check_button_new();
-    GLADE_HOOKUP_OBJECT(window_config, hide_station_name, "hide_station_name");
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_station_name),
-        			    app->config->hide_station_name);
-    gtk_widget_set_name(hide_station_name, "hide_station_name");
-    g_signal_connect(hide_station_name, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				hide_station_name, 1, 2, 6, 7);
-    /* Hide arrows */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Hide arrows:")),
-				2, 3, 6, 7);
-    hide_arrows = gtk_check_button_new();
-    GLADE_HOOKUP_OBJECT(window_config, hide_arrows, "hide_arrows");
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_arrows),
-        			    app->config->hide_arrows);
-    gtk_widget_set_name(hide_arrows, "hide_arrows");
-    g_signal_connect(hide_arrows, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				hide_arrows, 3, 4, 6, 7);
-    /* Transparency */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Transparency:")),
-				0, 1, 7, 8);
-    transparency = gtk_check_button_new();
-    GLADE_HOOKUP_OBJECT(window_config, transparency, "transparency");
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),
-        			    app->config->transparency);
-    gtk_widget_set_name(transparency, "transparency");
-    g_signal_connect(transparency, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				transparency, 1, 2, 7, 8);
-    /* Background color */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Background color:")),
-				0, 1, 8, 9);
-    background_color = gtk_color_button_new();
-    GLADE_HOOKUP_OBJECT(window_config, background_color, "background_color");
-    gtk_widget_set_name(background_color, "background_color");
-    g_signal_connect(background_color, "color-set",
-            		G_CALLBACK(color_buttons_changed_handler),
-			(gpointer)apply_button);
-    g_signal_connect(GTK_TOGGLE_BUTTON(transparency), "toggled",
-            		    G_CALLBACK(transparency_button_toggled_handler),
-			    background_color);
-    gtk_color_button_set_color(GTK_COLOR_BUTTON(background_color),
-				&(app->config->background_color));
-    if(background_color && app->config->transparency)
-        gtk_widget_set_sensitive(background_color, FALSE);	
-    else
-        gtk_widget_set_sensitive(background_color, TRUE);
-    gtk_button_set_relief(GTK_BUTTON(background_color), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(background_color), FALSE);
-    gtk_table_attach(GTK_TABLE(interface_page), 
-				background_color, 1, 2, 8, 9,
-				GTK_SHRINK, GTK_SHRINK,
-				0, 0);
-    /* Font color */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Font color:")),
-				0, 1, 9, 10);
-    /* Font color button */
-    font_color = gtk_color_button_new();
-    GLADE_HOOKUP_OBJECT(window_config, font_color, "font_color");
-    gtk_widget_set_name(font_color, "font_color");
-    g_signal_connect(font_color, "color-set",
-            		G_CALLBACK(color_buttons_changed_handler),
-			(gpointer)apply_button);
-    gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color),
-				&(app->config->font_color));
-    gtk_button_set_relief(GTK_BUTTON(font_color), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(font_color), FALSE);
-    gtk_table_attach(GTK_TABLE(interface_page), 
-				font_color, 1, 2, 9, 10,
-				GTK_SHRINK, GTK_SHRINK,
-				0, 0);
-/* Units tab */
-    /* temperature */
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				gtk_label_new(_("Temperature units:")),
-				0, 1, 0, 1);
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				celcius_temperature
-				    = gtk_radio_button_new_with_label(NULL,
-									_("Celcius")),
-				1, 2, 0, 1);
-    GLADE_HOOKUP_OBJECT(window_config, celcius_temperature, "temperature");
-    gtk_widget_set_name(celcius_temperature, "celcius");
-    g_signal_connect(celcius_temperature, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-    temperature_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(celcius_temperature));
-    gtk_button_set_focus_on_click(GTK_BUTTON(celcius_temperature), FALSE);
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				fahrenheit_temperature
-				    = gtk_radio_button_new_with_label(temperature_group,
-									_("Fahrenheit")),
-				2, 3, 0, 1);
-    gtk_widget_set_name(fahrenheit_temperature, "fahrenheit");
-    gtk_button_set_focus_on_click(GTK_BUTTON(fahrenheit_temperature), FALSE);
-    if(app->config->temperature_units == CELSIUS)
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(celcius_temperature), TRUE);
-    else
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fahrenheit_temperature), TRUE);
-    /* distance */
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				gtk_label_new(_("Distance units:")),
-				0, 1, 2, 3);
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				distance_meters
-				    = gtk_radio_button_new_with_label(NULL, _("Meters")),
-				1, 2, 2, 3);
-    GLADE_HOOKUP_OBJECT(window_config, distance_meters, "meters");
-    gtk_widget_set_name(distance_meters, "meters");
-    g_signal_connect(distance_meters, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-    distance_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_meters));
-    gtk_button_set_focus_on_click(GTK_BUTTON(distance_meters), FALSE);
-
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				distance_kilometers
-				    = gtk_radio_button_new_with_label(distance_group,
-									_("Kilometers")),
-				2, 3, 2, 3);
-    GLADE_HOOKUP_OBJECT(window_config, distance_kilometers, "kilometers");
-    gtk_widget_set_name(distance_kilometers, "meters");
-    g_signal_connect(distance_kilometers, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-    gtk_button_set_focus_on_click(GTK_BUTTON(distance_kilometers), FALSE);
-
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				distance_miles
-				    = gtk_radio_button_new_with_label(gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_kilometers)),
-									_("Miles")),
-				1, 2, 3, 4);
-    GLADE_HOOKUP_OBJECT(window_config, distance_miles, "miles");
-    gtk_widget_set_name(distance_miles, "meters");
-    g_signal_connect(distance_miles, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-    gtk_button_set_focus_on_click(GTK_BUTTON(distance_miles), FALSE);
-
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				distance_sea_miles
-				    = gtk_radio_button_new_with_label(gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_miles)),
-									_("Sea miles")),
-				2, 3, 3, 4);
-    gtk_button_set_focus_on_click(GTK_BUTTON(distance_sea_miles), FALSE);
-    switch(app->config->distance_units){
-	default:
-	case METERS:
-	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_meters), TRUE);
-	break;
-	case KILOMETERS:
-	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_kilometers), TRUE);
-	break;
-	case MILES:
-	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_miles), TRUE);
-	break;
-	case SEA_MILES:
-	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_sea_miles), TRUE);
-	break;
-    }
-    /* wind */
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				gtk_label_new(_("Wind speed units:")),
-				0, 1, 4, 5);
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				wind_meters
-				    = gtk_radio_button_new_with_label(NULL, _("m/s")),
-				1, 2, 4, 5);
-    wind_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(wind_meters));
-    GLADE_HOOKUP_OBJECT(window_config, wind_meters, "wind_meters");
-    gtk_widget_set_name(wind_meters, "wind_meters");
-    g_signal_connect(wind_meters, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-    gtk_button_set_focus_on_click(GTK_BUTTON(wind_meters), FALSE);
-
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				wind_kilometers
-				    = gtk_radio_button_new_with_label(wind_group, _("km/h")),
-				2, 3, 4, 5);
-    GLADE_HOOKUP_OBJECT(window_config, wind_kilometers, "wind_kilometers");
-    gtk_widget_set_name(wind_kilometers, "wind_meters");
-    g_signal_connect(wind_kilometers, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-    gtk_button_set_focus_on_click(GTK_BUTTON(wind_kilometers), FALSE);
-
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				wind_miles
-				    = gtk_radio_button_new_with_label(gtk_radio_button_get_group(GTK_RADIO_BUTTON(wind_kilometers)),
-									_("mi/h")),
-				1, 2, 5, 6);
-    gtk_button_set_focus_on_click(GTK_BUTTON(wind_miles), FALSE);
-    switch(app->config->wind_units){
-	default:
-	case METERS_S:
-	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_meters), TRUE);
-	break;
-	case KILOMETERS_H:
-	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_kilometers), TRUE);
-	break;
-	case MILES_H:
-	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_miles), TRUE);
-	break;
-    }
-    /* pressure */
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				gtk_label_new(_("Pressure units:")),
-				0, 1, 6, 7);
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				mb_pressure
-				    = gtk_radio_button_new_with_label(NULL,
-									_("mb")),
-				1, 2, 6, 7);
-    GLADE_HOOKUP_OBJECT(window_config, mb_pressure, "mb_pressure");
-    gtk_widget_set_name(mb_pressure, "pressure");
-    g_signal_connect(mb_pressure, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-    pressure_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(mb_pressure));
-    gtk_button_set_focus_on_click(GTK_BUTTON(mb_pressure), FALSE);
-    gtk_table_attach_defaults(GTK_TABLE(units_page), 
-				inch_pressure
-				    = gtk_radio_button_new_with_label(pressure_group,
-									_("inHg")),
-				2, 3, 6, 7);
-    gtk_button_set_focus_on_click(GTK_BUTTON(inch_pressure), FALSE);
-    if(app->config->pressure_units == MB)
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(mb_pressure), TRUE);
-    else
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(inch_pressure), TRUE);
-/* Update tab */
-/* auto download when connect */
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-        			gtk_label_new(_("Automatically update data\nwhen connecting to the Internet:")),
-        			0, 1, 0, 1);
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-				chk_downloading_after_connection = gtk_check_button_new(),
-        			1, 2, 0, 1);
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_downloading_after_connection),
-        			    app->config->downloading_after_connecting);
-    GLADE_HOOKUP_OBJECT(window_config, chk_downloading_after_connection,
-			    "download_after_connection");
-    gtk_widget_set_name(chk_downloading_after_connection,
-			    "download_after_connection");
-    g_signal_connect(chk_downloading_after_connection, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)apply_button);
-/* Switch time to the next station */
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-        			gtk_label_new(_("Switch to the next station after:")),
-        			0, 1, 1, 2);
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-				time_2switch_list = gtk_combo_box_new_text(),
-        			1, 2, 1, 2);
-    GLADE_HOOKUP_OBJECT(window_config, time_2switch_list, "time2switch");
-    gtk_widget_set_name(time_2switch_list, "time2switch");
-    g_signal_connect(time_2switch_list, "changed",
-            		G_CALLBACK(combo_boxs_changed_handler),
-			(gpointer)apply_button);
-    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("Never"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("10 seconds"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("20 seconds"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("30 seconds"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("40 seconds"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("50 seconds"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("60 seconds"));
-
-    switch((guint)(app->config->switch_time / 10)){
-	default:
-	case 0: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 0); break;
-	case 1: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 1); break;
-	case 2: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 2); break;
-	case 3: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 3); break;
-	case 4: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 4); break;
-	case 5: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 5); break;
-	case 6: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 6); break;
-    }
-/* Valid time */
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-        			gtk_label_new(_("Valid time for current weather:")),
-        			0, 1, 2, 3);
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-				valid_time_list = gtk_combo_box_new_text(),
-        			1, 2, 2, 3);
-    GLADE_HOOKUP_OBJECT(window_config, valid_time_list, "valid_time");
-    gtk_widget_set_name(valid_time_list, "valid_time");
-    g_signal_connect(valid_time_list, "changed",
-            		G_CALLBACK(combo_boxs_changed_handler),
-			(gpointer)apply_button);
-    gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("1 hour"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("2 hours"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("4 hours"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("8 hours"));
-    switch((guint)(app->config->data_valid_interval / 3600)){
-	case 1:  gtk_combo_box_set_active(GTK_COMBO_BOX(valid_time_list), 0); break;
-	default:
-	case 2:  gtk_combo_box_set_active(GTK_COMBO_BOX(valid_time_list), 1); break;
-	case 4:  gtk_combo_box_set_active(GTK_COMBO_BOX(valid_time_list), 2); break;
-	case 8:  gtk_combo_box_set_active(GTK_COMBO_BOX(valid_time_list), 3); break;
-    }
-/* Update interval */
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-        			gtk_label_new(_("Updating of weather data:")),
-        			0, 1, 3, 4);
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-				update_time = gtk_combo_box_new_text(),
-        			1, 2, 3, 4);
-    GLADE_HOOKUP_OBJECT(window_config, update_time, "update_time");
-    gtk_widget_set_name(update_time, "update_time");
-    g_signal_connect(update_time, "changed",
-            		G_CALLBACK(combo_boxs_changed_handler),
-			(gpointer)apply_button);
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-        			gtk_label_new(_("Next update:")),
-        			0, 1, 5, 6);
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-				time_update_label = gtk_label_new(NULL),
-        			1, 2, 5, 6);
-    g_signal_connect(update_time, "changed",
-                	G_CALLBACK(update_iterval_changed_handler), time_update_label);
-/* Fill update time box */
-    gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(update_time), 0);
-    gtk_combo_box_set_model(GTK_COMBO_BOX(update_time),
-				(GtkTreeModel*)app->time_update_list);
-    gtk_combo_box_set_active(GTK_COMBO_BOX(update_time),
-    get_active_item_index((GtkTreeModel*)app->time_update_list,
-				    app->config->update_interval, NULL, FALSE));
-
-/* Highlight current station */
-    highlight_current_station(GTK_TREE_VIEW(station_list_view));
-    gtk_entry_set_text(GTK_ENTRY(rename_entry),
-			app->config->current_station_name);
-/*
-    gtk_widget_show_all(gtk_notebook_get_nth_page(GTK_NOTEBOOK(notebook),
-				    app->config->current_settings_page));
-*/
     gtk_widget_show_all(window_config);
 /* set current page and show it for notebook */
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook),
@@ -1537,7 +732,6 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     GtkTreeIter		iter;
     time_t		updatetime = 0;
     GtkWidget		*config_window = GTK_WIDGET(user_data),
-		        *rename_entry = NULL,
 			*visible_items_number = NULL,
 			*layout_type = NULL,
 			*icon_set = NULL,
@@ -1573,46 +767,14 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*countries = NULL,
 			*states = NULL,
 			*stations = NULL;
-    gboolean		valid = FALSE;
 #ifndef OS2008
     gboolean		need_correct_layout_for_OS2007 = FALSE;
 #endif
-    gchar		*new_station_name = NULL,
-			*station_name = NULL,
-			*temp_string = NULL;
+    gchar		*temp_string = NULL;
     gint		active_index = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
-/* check where the station name is changed */
-    rename_entry = lookup_widget(config_window, "rename_entry");
-    if(rename_entry){
-	new_station_name = (gchar*)gtk_entry_get_text(GTK_ENTRY(rename_entry));
-	if(strcmp(app->config->current_station_name, new_station_name)){
-    	    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
-                                                  &iter);
-	    while(valid){
-    		gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
-                        	    &iter, 0, &station_name, -1);
-    		if(!strcmp(app->config->current_station_name, station_name)){
-		    /* update current station name */
-		    g_free(station_name);
-		    gtk_list_store_remove(app->user_stations_list, &iter);
-                    add_station_to_user_list(g_strdup(new_station_name),
-					    app->config->current_station_id, FALSE);
-		    if(app->config->current_station_name)
-			g_free(app->config->current_station_name);
-		    app->config->current_station_name = g_strdup(new_station_name);
-        	    break;
-		}
-		else
-		    g_free(station_name);
-		valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
-                                    	    &iter);
-	    }
-	}
-    }
 /* visible items */
     visible_items_number = lookup_widget(config_window, "visible_items_number");
     if(visible_items_number){
@@ -2491,5 +1653,833 @@ check:
 	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
     else
 	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+}
+/*******************************************************************************/
+GtkWidget* create_locations_tab(GtkWidget *window, gpointer user_data){
+    static struct lists_struct	list = { NULL, NULL, NULL };
+    GtkWidget	*countries = NULL,
+		*states = NULL,
+		*stations = NULL,
+#ifdef OS2008
+                *chk_gps = NULL,
+#endif
+		*left_table = NULL,
+		*weather_source = NULL,
+		*right_table = NULL,
+		*left_right_hbox = NULL,
+		*scrolled_window = NULL,
+		*apply_rename_button = NULL,
+		*up_station_button = NULL,
+		*down_station_button = NULL,
+		*delete_station_button = NULL,
+		*station_list_view = NULL,
+		*up_down_delete_buttons_vbox = NULL,
+		*station_name = NULL,
+		*station_code = NULL,
+		*add_station_button = NULL,
+		*add_station_button1 = NULL,
+		*add_station_button2 = NULL,
+		*rename_entry = NULL;
+    gint	i = 0;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    g_object_set_data(G_OBJECT(window), "list", (gpointer)&list);
+    left_right_hbox = gtk_hbox_new(FALSE, 0);
+/* Locations tab */
+    /* left side */
+    left_table = gtk_table_new(3, 2, FALSE);
+    gtk_box_pack_start(GTK_BOX(left_right_hbox), left_table,
+			TRUE, TRUE, 0);
+    gtk_table_attach_defaults(GTK_TABLE(left_table), 
+				gtk_label_new(_("Arrange")),
+				0, 1, 0, 1);
+    /* Stations list */
+    scrolled_window = gtk_scrolled_window_new(NULL, NULL);
+    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
+					GTK_SHADOW_ETCHED_IN);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
+                                 GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 220, 280);
+
+    station_list_view = create_tree_view(app->user_stations_list);
+    GLADE_HOOKUP_OBJECT(window, station_list_view, "station_list_view");
+    gtk_container_add(GTK_CONTAINER(scrolled_window),
+                	GTK_WIDGET(station_list_view));
+    gtk_table_attach_defaults(GTK_TABLE(left_table), 
+				scrolled_window,
+                    		0, 1, 2, 3);
+    
+/* Up Station and Down Station and Delete Station Buttons */
+    up_down_delete_buttons_vbox = gtk_vbox_new(FALSE, 5);
+    gtk_table_attach_defaults(GTK_TABLE(left_table), 
+				up_down_delete_buttons_vbox,
+                    		1, 2, 2, 3);
+/* prepare up_station_button */    
+    up_station_button = create_button_with_image(NULL, "qgn_indi_arrow_up", 16, TRUE);
+    gtk_widget_set_size_request(GTK_WIDGET(up_station_button), 30, -1);
+    g_signal_connect(up_station_button, "clicked",
+			G_CALLBACK(up_key_handler),
+			(gpointer)station_list_view);
+/* prepare down_station_button */    
+    down_station_button = create_button_with_image(NULL, "qgn_indi_arrow_down", 16, TRUE);
+    gtk_widget_set_size_request(GTK_WIDGET(down_station_button), 30, -1);
+    g_signal_connect(down_station_button, "clicked",
+		    	G_CALLBACK(down_key_handler),
+			(gpointer)station_list_view);
+/* prepare delete_station_button */    
+    delete_station_button = create_button_with_image(BUTTON_ICONS, "red", 30, TRUE);
+    gtk_widget_set_size_request(GTK_WIDGET(delete_station_button), 30, -1);
+    g_signal_connect(delete_station_button, "clicked",
+                	G_CALLBACK(delete_station_handler),
+			(gpointer)window);
+/* Pack Up, Down and Delete buttons */
+    gtk_box_pack_start(GTK_BOX(up_down_delete_buttons_vbox), up_station_button,
+                        TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(up_down_delete_buttons_vbox), delete_station_button,
+                        FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(up_down_delete_buttons_vbox), down_station_button,
+                        TRUE, TRUE, 0);
+/* Rename station entry */
+    rename_entry = gtk_entry_new();
+    GLADE_HOOKUP_OBJECT(window, rename_entry, "rename_entry");
+    gtk_widget_set_name(rename_entry, "rename_entry");
+    g_signal_connect(G_OBJECT(rename_entry), "changed",
+			G_CALLBACK(entry_changed_handler),
+			(gpointer)window);
+
+    gtk_table_attach_defaults(GTK_TABLE(left_table), 
+				rename_entry,
+				0, 1, 1, 2);
+/* Rename apply button */
+    apply_rename_button =
+	    create_button_with_image(BUTTON_ICONS, "apply", 30, FALSE);
+    GLADE_HOOKUP_OBJECT(window, apply_rename_button , "apply_rename_button_name");
+    gtk_widget_set_name(apply_rename_button, "apply_rename_button");
+    g_signal_connect(G_OBJECT(apply_rename_button), "button_press_event",
+                	G_CALLBACK(rename_button_handler),
+			(gpointer)window);
+    gtk_table_attach_defaults(GTK_TABLE(left_table), 
+				apply_rename_button,
+				1, 2, 1, 2);
+    gtk_widget_set_sensitive(GTK_WIDGET(apply_rename_button), FALSE);
+    /* right side */
+    right_table = gtk_table_new(10, 3, FALSE);
+    gtk_box_pack_start(GTK_BOX(left_right_hbox), right_table,
+                        TRUE, TRUE, 0);
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				gtk_label_new(_("Add")),
+        			1, 2, 0, 1);
+    /* source label */
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				gtk_label_new(_("Source:")),
+        			0, 1, 1, 2);
+    /* source list */
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				weather_source = gtk_combo_box_new_text(),
+        			1, 2, 1, 2);
+    for(i = 0; i < MAX_WEATHER_SOURCE_NUMBER; i++)
+	gtk_combo_box_append_text(GTK_COMBO_BOX(weather_source),
+				    weather_sources[i].name);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(weather_source),
+				app->config->weather_source);
+    GLADE_HOOKUP_OBJECT(window, weather_source, "weather_source");
+    gtk_widget_set_name(weather_source, "weather_source");
+    g_signal_connect(weather_source, "changed",
+            		G_CALLBACK(combo_boxs_changed_handler),
+			user_data);
+    /* label By name */
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				gtk_label_new(_("Name:")),
+                    		0, 1, 2, 3);
+    /* entry for station name */
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				station_name = gtk_entry_new(),
+                    		1, 2, 2, 3);
+    GLADE_HOOKUP_OBJECT(window, station_name, "station_name_entry");
+    gtk_widget_set_name(station_name, "station_name");
+    g_signal_connect(G_OBJECT(station_name), "changed",
+			G_CALLBACK(entry_changed_handler),
+			(gpointer)window);
+    /* add station button */
+    add_station_button = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
+    gtk_widget_set_size_request(add_station_button, 30, 30);
+    gtk_widget_set_name(add_station_button, "add_name");
+    GLADE_HOOKUP_OBJECT(window, add_station_button, "add_station_button_name");
+    gtk_widget_set_sensitive(add_station_button, FALSE);
+    g_signal_connect(G_OBJECT(add_station_button), "button_press_event",
+			G_CALLBACK(add_button_handler),
+			(gpointer)window);
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				add_station_button,
+				2, 3, 2, 3);
+    /* label By (Zip) code */
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				gtk_label_new(_("Code (Zip):")),
+                    		0, 1, 3, 4);
+    /* entry for station name */
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				station_code = gtk_entry_new(),
+                    		1, 2, 3, 4);
+    gtk_widget_set_name(station_code, "station_code");
+    GLADE_HOOKUP_OBJECT(window, station_code, "station_code_entry");
+    g_signal_connect(G_OBJECT(station_code), "changed",
+			G_CALLBACK(entry_changed_handler),
+			(gpointer)window);
+
+    /* add button */
+    add_station_button1 = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
+    gtk_widget_set_size_request(add_station_button1, 30, 30);
+    gtk_widget_set_name(add_station_button1, "add_code");
+    GLADE_HOOKUP_OBJECT(window, add_station_button1, "add_code_button_name");
+    gtk_widget_set_sensitive(add_station_button1, FALSE);
+    g_signal_connect(G_OBJECT(add_station_button1), "button_press_event",
+			G_CALLBACK(add_button_handler),
+			(gpointer)window);
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				add_station_button1,
+				2, 3, 3, 4);
+#ifdef OS2008
+/* GPS */
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				gtk_label_new(_("Enable GPS:")),
+                    		0, 1, 4, 5);
+    gtk_table_attach_defaults(GTK_TABLE(right_table),
+				chk_gps = gtk_check_button_new(),
+				1, 2, 4, 5);
+    GLADE_HOOKUP_OBJECT(window, chk_gps, "enable_gps");
+    gtk_widget_set_name(chk_gps, "enable_gps");
+    g_signal_connect(chk_gps, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)apply_button);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_gps),
+        			    app->config->gps_station);
+#endif
+    /* Label */
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				gtk_label_new(_("From the list:")),
+                    		1, 2, 5, 6);
+    /* Countries label */
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				gtk_label_new(_("Country:")),
+                    		0, 1, 6, 7);
+    /* countries list  */
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				countries = gtk_combo_box_new_text(),
+				1, 2, 6, 7);
+    list.countries = countries;
+    gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(countries), 0);
+    gtk_combo_box_set_model(GTK_COMBO_BOX(countries),
+			    (GtkTreeModel*)app->countrys_list);
+    gtk_widget_show(countries);
+    /* States label */
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				gtk_label_new(_("State:")),
+                    		0, 1, 7, 8);
+    /* states list */
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				states = gtk_combo_box_new_text(),
+				1, 2, 7, 8);
+    list.states = states;
+    gtk_widget_show(states);
+    /* Stations label */
+    gtk_table_attach_defaults(GTK_TABLE(right_table), 
+				gtk_label_new(_("City:")),
+                    		0, 1, 8, 9);
+    /* stations list */
+    gtk_table_attach_defaults(GTK_TABLE(right_table),
+				stations = gtk_combo_box_new_text(),
+				1, 2, 8, 9);
+    list.stations = stations;
+    gtk_widget_show(stations);
+    GLADE_HOOKUP_OBJECT(window, GTK_WIDGET(stations), "stations");
+    /* add button */
+    add_station_button2 = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
+    gtk_widget_set_size_request(add_station_button2, 30, 30);
+    gtk_widget_set_name(add_station_button2, "add_from_list");
+    GLADE_HOOKUP_OBJECT(window, add_station_button2, "add_from_list");
+    gtk_widget_set_sensitive(add_station_button2, FALSE);
+    g_signal_connect(G_OBJECT(add_station_button2), "button_press_event",
+			G_CALLBACK(add_button_handler),
+			(gpointer)window);
+    gtk_table_attach_defaults(GTK_TABLE(right_table),
+				add_station_button2,
+				2, 3, 8, 9);
+    /* Set size */
+    gtk_widget_set_size_request(countries, 300, -1);
+    gtk_widget_set_size_request(states, 300, -1);
+    gtk_widget_set_size_request(stations, 300, -1);
+/* Set default value to country combo_box */
+    gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
+				get_active_item_index((GtkTreeModel*)app->countrys_list,
+				-1, app->config->current_country, TRUE));
+    /* fill states list */
+    changed_country_handler(NULL, (gpointer)window);
+    /* fill stations list */
+    changed_state_handler(NULL, (gpointer)window);
+    g_signal_connect(countries, "changed",
+            		G_CALLBACK(changed_country_handler),
+			(gpointer)window);
+    g_signal_connect(states, "changed",
+                	G_CALLBACK(changed_state_handler),
+			(gpointer)window);
+    g_signal_connect(stations, "changed",
+            		G_CALLBACK(changed_stations_handler),
+			(gpointer)window);
+    g_signal_connect(station_list_view, "cursor-changed",
+                        G_CALLBACK(station_list_view_select_handler),
+			rename_entry);
+/* Highlight current station */
+    highlight_current_station(GTK_TREE_VIEW(station_list_view));
+/* Filling rename entry */
+    gtk_entry_set_text(GTK_ENTRY(rename_entry),
+			app->config->current_station_name);
+    return left_right_hbox;
+}
+/*******************************************************************************/
+GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
+    GtkWidget	*interface_page = NULL,
+    		*visible_items_number = NULL,
+		*layout_type = NULL,
+		*icon_set = NULL,
+		*icon_size = NULL,
+		*hide_station_name = NULL,
+		*hide_arrows = NULL,
+		*transparency = NULL,
+		*separate = NULL,
+		*font_color = NULL,
+		*background_color = NULL,
+		*swap_temperature = NULL,
+		*show_wind = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    interface_page = gtk_table_new(10, 4, FALSE);
+/* Interface tab */
+    /* Visible items */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				gtk_label_new(_("Visible items:")),
+				0, 1, 0, 1);
+    /* Visible items number */
+    visible_items_number = hildon_controlbar_new();
+    GLADE_HOOKUP_OBJECT(window, visible_items_number, "visible_items_number");
+    gtk_widget_set_name(visible_items_number, "visible_items_number");
+    g_signal_connect(visible_items_number, "value-changed",
+            		G_CALLBACK(control_bars_changed_handler),
+			user_data);
+    hildon_controlbar_set_min(HILDON_CONTROLBAR(visible_items_number), 1);
+    hildon_controlbar_set_max(HILDON_CONTROLBAR(visible_items_number),
+				Max_count_weather_day);
+    hildon_controlbar_set_value(HILDON_CONTROLBAR(visible_items_number),
+				    app->config->days_to_show);
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				visible_items_number,
+				1, 2, 0, 1);
+    /* Layout */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				gtk_label_new(_("Layout:")),
+				0, 1, 1, 2);
+    layout_type = gtk_combo_box_new_text();
+    GLADE_HOOKUP_OBJECT(window, layout_type, "layout_type");
+    gtk_widget_set_name(layout_type, "layout_type");
+    g_signal_connect(layout_type, "changed",
+            		G_CALLBACK(combo_boxs_changed_handler),
+			user_data);
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One row"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One column"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two rows"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two columns"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Combination"));    
+    switch(app->config->icons_layout){
+	default:
+	case ONE_ROW:
+	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), ONE_ROW);
+	break;
+	case ONE_COLUMN:
+	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), ONE_COLUMN);
+	break;
+	case TWO_ROWS:
+	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), TWO_ROWS);
+	break;
+	case TWO_COLUMNS:
+	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), TWO_COLUMNS);
+	break;
+	case COMBINATION:
+	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), COMBINATION);
+	break;
+    }
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				layout_type, 1, 2, 1, 2);
+    /* Icon set */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				gtk_label_new(_("Icon set:")), 0, 1, 2, 3);
+    icon_set = gtk_combo_box_new_text();
+    GLADE_HOOKUP_OBJECT(window, icon_set, "icon_set");
+    gtk_widget_set_name(icon_set, "icon_set");
+    g_signal_connect(icon_set, "changed",
+            		G_CALLBACK(combo_boxs_changed_handler),
+			user_data);
+/* add icons set to list */
+    if(create_icon_set_list(icon_set) < 2)
+	gtk_widget_set_sensitive(icon_set, FALSE);
+    else
+	gtk_widget_set_sensitive(icon_set, TRUE);
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				icon_set, 1, 2, 2, 3);
+    /* Icon size */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				gtk_label_new(_("Icon size:")), 0, 1, 3, 4);
+    icon_size = hildon_controlbar_new();
+    GLADE_HOOKUP_OBJECT(window, icon_size, "icon_size");
+    gtk_widget_set_name(icon_size, "icon_size");
+    g_signal_connect(icon_size, "value-changed",
+            		G_CALLBACK(control_bars_changed_handler),
+			user_data);
+    hildon_controlbar_set_min(HILDON_CONTROLBAR(icon_size), TINY);
+    hildon_controlbar_set_max(HILDON_CONTROLBAR(icon_size), GIANT);
+    switch(app->config->icons_size){
+	case TINY:
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), TINY);
+	break;
+	case SMALL:
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), SMALL);
+	break;
+	case MEDIUM:
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), MEDIUM);
+	break;
+	default:
+	case LARGE:
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), LARGE);
+	break;
+	case GIANT:
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), GIANT);
+	break;
+    }
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				icon_size, 1, 2, 3, 4);
+    /* Swap temperature */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page),
+        			gtk_label_new(_("Swap hi/low temperature:")),
+        			0, 1, 4, 5);
+    gtk_table_attach_defaults(GTK_TABLE(interface_page),
+			    swap_temperature = gtk_check_button_new(),
+			    1, 2, 4, 5);
+    GLADE_HOOKUP_OBJECT(window, swap_temperature, "swap_temperature");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(swap_temperature),
+        			    app->config->swap_hi_low_temperature);
+    gtk_widget_set_name(swap_temperature, "swap_temperature");
+    g_signal_connect(swap_temperature, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			user_data);
+    /* Show wind */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page),
+        			gtk_label_new(_("Show wind:")),
+        			2, 3, 4, 5);
+    gtk_table_attach_defaults(GTK_TABLE(interface_page),
+				show_wind = gtk_check_button_new(),
+				3, 4, 4, 5);
+    GLADE_HOOKUP_OBJECT(window, show_wind, "show_wind");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(show_wind),
+        			    app->config->show_wind);
+    gtk_widget_set_name(show_wind, "show_wind");
+    g_signal_connect(show_wind, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			user_data);
+    /* Separate weather */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+			gtk_label_new(_("Current weather on first icon:")),
+			0, 1, 5, 6);
+    separate = gtk_check_button_new();
+    GLADE_HOOKUP_OBJECT(window, separate, "separate");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(separate),
+        			    app->config->separate);
+    gtk_widget_set_name(separate, "separate");
+    g_signal_connect(separate, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			user_data);
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				separate, 1, 2, 5, 6);
+    /* Hide station name */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				gtk_label_new(_("Hide station name:")),
+				0, 1, 6, 7);
+    hide_station_name = gtk_check_button_new();
+    GLADE_HOOKUP_OBJECT(window, hide_station_name, "hide_station_name");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_station_name),
+        			    app->config->hide_station_name);
+    gtk_widget_set_name(hide_station_name, "hide_station_name");
+    g_signal_connect(hide_station_name, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			user_data);
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				hide_station_name, 1, 2, 6, 7);
+    /* Hide arrows */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				gtk_label_new(_("Hide arrows:")),
+				2, 3, 6, 7);
+    hide_arrows = gtk_check_button_new();
+    GLADE_HOOKUP_OBJECT(window, hide_arrows, "hide_arrows");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_arrows),
+        			    app->config->hide_arrows);
+    gtk_widget_set_name(hide_arrows, "hide_arrows");
+    g_signal_connect(hide_arrows, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			user_data);
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				hide_arrows, 3, 4, 6, 7);
+    /* Transparency */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				gtk_label_new(_("Transparency:")),
+				0, 1, 7, 8);
+    transparency = gtk_check_button_new();
+    GLADE_HOOKUP_OBJECT(window, transparency, "transparency");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),
+        			    app->config->transparency);
+    gtk_widget_set_name(transparency, "transparency");
+    g_signal_connect(transparency, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			user_data);
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				transparency, 1, 2, 7, 8);
+    /* Background color */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				gtk_label_new(_("Background color:")),
+				0, 1, 8, 9);
+    background_color = gtk_color_button_new();
+    GLADE_HOOKUP_OBJECT(window, background_color, "background_color");
+    gtk_widget_set_name(background_color, "background_color");
+    g_signal_connect(background_color, "color-set",
+            		G_CALLBACK(color_buttons_changed_handler),
+			user_data);
+    g_signal_connect(GTK_TOGGLE_BUTTON(transparency), "toggled",
+            		    G_CALLBACK(transparency_button_toggled_handler),
+			    background_color);
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(background_color),
+				&(app->config->background_color));
+    if(background_color && app->config->transparency)
+        gtk_widget_set_sensitive(background_color, FALSE);	
+    else
+        gtk_widget_set_sensitive(background_color, TRUE);
+    gtk_button_set_relief(GTK_BUTTON(background_color), GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(background_color), FALSE);
+    gtk_table_attach(GTK_TABLE(interface_page), 
+				background_color, 1, 2, 8, 9,
+				GTK_SHRINK, GTK_SHRINK,
+				0, 0);
+    /* Font color */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				gtk_label_new(_("Font color:")),
+				0, 1, 9, 10);
+    /* Font color button */
+    font_color = gtk_color_button_new();
+    GLADE_HOOKUP_OBJECT(window, font_color, "font_color");
+    gtk_widget_set_name(font_color, "font_color");
+    g_signal_connect(font_color, "color-set",
+            		G_CALLBACK(color_buttons_changed_handler),
+			user_data);
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color),
+				&(app->config->font_color));
+    gtk_button_set_relief(GTK_BUTTON(font_color), GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(font_color), FALSE);
+    gtk_table_attach(GTK_TABLE(interface_page), 
+				font_color, 1, 2, 9, 10,
+				GTK_SHRINK, GTK_SHRINK,
+				0, 0);
+    return interface_page;
+}
+/*******************************************************************************/
+GtkWidget* create_units_tab(GtkWidget *window, gpointer user_data){
+    GSList	*temperature_group = NULL,
+		*distance_group = NULL,
+		*wind_group = NULL,
+		*pressure_group = NULL;
+    GtkWidget	*units_page = NULL,
+		*celcius_temperature = NULL,
+		*fahrenheit_temperature = NULL,
+		*distance_meters = NULL,
+		*distance_kilometers = NULL,
+		*distance_miles = NULL,
+		*distance_sea_miles = NULL,
+		*wind_meters = NULL,
+		*wind_kilometers = NULL,
+		*wind_miles = NULL,
+		*mb_pressure = NULL,
+		*inch_pressure = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    units_page = gtk_table_new(7, 3, FALSE);
+/* Units tab */
+    /* temperature */
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				gtk_label_new(_("Temperature units:")),
+				0, 1, 0, 1);
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				celcius_temperature
+				    = gtk_radio_button_new_with_label(NULL,
+									_("Celcius")),
+				1, 2, 0, 1);
+    GLADE_HOOKUP_OBJECT(window, celcius_temperature, "temperature");
+    gtk_widget_set_name(celcius_temperature, "celcius");
+    g_signal_connect(celcius_temperature, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			user_data);
+    temperature_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(celcius_temperature));
+    gtk_button_set_focus_on_click(GTK_BUTTON(celcius_temperature), FALSE);
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				fahrenheit_temperature
+				    = gtk_radio_button_new_with_label(temperature_group,
+									_("Fahrenheit")),
+				2, 3, 0, 1);
+    gtk_widget_set_name(fahrenheit_temperature, "fahrenheit");
+    gtk_button_set_focus_on_click(GTK_BUTTON(fahrenheit_temperature), FALSE);
+    if(app->config->temperature_units == CELSIUS)
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(celcius_temperature), TRUE);
+    else
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fahrenheit_temperature), TRUE);
+    /* distance */
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				gtk_label_new(_("Distance units:")),
+				0, 1, 2, 3);
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				distance_meters
+				    = gtk_radio_button_new_with_label(NULL, _("Meters")),
+				1, 2, 2, 3);
+    GLADE_HOOKUP_OBJECT(window, distance_meters, "meters");
+    gtk_widget_set_name(distance_meters, "meters");
+    g_signal_connect(distance_meters, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			user_data);
+    distance_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_meters));
+    gtk_button_set_focus_on_click(GTK_BUTTON(distance_meters), FALSE);
+
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				distance_kilometers
+				    = gtk_radio_button_new_with_label(distance_group,
+									_("Kilometers")),
+				2, 3, 2, 3);
+    GLADE_HOOKUP_OBJECT(window, distance_kilometers, "kilometers");
+    gtk_widget_set_name(distance_kilometers, "meters");
+    g_signal_connect(distance_kilometers, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			user_data);
+    gtk_button_set_focus_on_click(GTK_BUTTON(distance_kilometers), FALSE);
+
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				distance_miles
+				    = gtk_radio_button_new_with_label(gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_kilometers)),
+									_("Miles")),
+				1, 2, 3, 4);
+    GLADE_HOOKUP_OBJECT(window, distance_miles, "miles");
+    gtk_widget_set_name(distance_miles, "meters");
+    g_signal_connect(distance_miles, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			user_data);
+    gtk_button_set_focus_on_click(GTK_BUTTON(distance_miles), FALSE);
+
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				distance_sea_miles
+				    = gtk_radio_button_new_with_label(gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_miles)),
+									_("Sea miles")),
+				2, 3, 3, 4);
+    gtk_button_set_focus_on_click(GTK_BUTTON(distance_sea_miles), FALSE);
+    switch(app->config->distance_units){
+	default:
+	case METERS:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_meters), TRUE);
+	break;
+	case KILOMETERS:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_kilometers), TRUE);
+	break;
+	case MILES:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_miles), TRUE);
+	break;
+	case SEA_MILES:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_sea_miles), TRUE);
+	break;
+    }
+    /* wind */
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				gtk_label_new(_("Wind speed units:")),
+				0, 1, 4, 5);
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				wind_meters
+				    = gtk_radio_button_new_with_label(NULL, _("m/s")),
+				1, 2, 4, 5);
+    wind_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(wind_meters));
+    GLADE_HOOKUP_OBJECT(window, wind_meters, "wind_meters");
+    gtk_widget_set_name(wind_meters, "wind_meters");
+    g_signal_connect(wind_meters, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			user_data);
+    gtk_button_set_focus_on_click(GTK_BUTTON(wind_meters), FALSE);
+
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				wind_kilometers
+				    = gtk_radio_button_new_with_label(wind_group, _("km/h")),
+				2, 3, 4, 5);
+    GLADE_HOOKUP_OBJECT(window, wind_kilometers, "wind_kilometers");
+    gtk_widget_set_name(wind_kilometers, "wind_meters");
+    g_signal_connect(wind_kilometers, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			user_data);
+    gtk_button_set_focus_on_click(GTK_BUTTON(wind_kilometers), FALSE);
+
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				wind_miles
+				    = gtk_radio_button_new_with_label(gtk_radio_button_get_group(GTK_RADIO_BUTTON(wind_kilometers)),
+									_("mi/h")),
+				1, 2, 5, 6);
+    gtk_button_set_focus_on_click(GTK_BUTTON(wind_miles), FALSE);
+    switch(app->config->wind_units){
+	default:
+	case METERS_S:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_meters), TRUE);
+	break;
+	case KILOMETERS_H:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_kilometers), TRUE);
+	break;
+	case MILES_H:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_miles), TRUE);
+	break;
+    }
+    /* pressure */
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				gtk_label_new(_("Pressure units:")),
+				0, 1, 6, 7);
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				mb_pressure
+				    = gtk_radio_button_new_with_label(NULL,
+									_("mb")),
+				1, 2, 6, 7);
+    GLADE_HOOKUP_OBJECT(window, mb_pressure, "mb_pressure");
+    gtk_widget_set_name(mb_pressure, "pressure");
+    g_signal_connect(mb_pressure, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			user_data);
+    pressure_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(mb_pressure));
+    gtk_button_set_focus_on_click(GTK_BUTTON(mb_pressure), FALSE);
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				inch_pressure
+				    = gtk_radio_button_new_with_label(pressure_group,
+									_("inHg")),
+				2, 3, 6, 7);
+    gtk_button_set_focus_on_click(GTK_BUTTON(inch_pressure), FALSE);
+    if(app->config->pressure_units == MB)
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(mb_pressure), TRUE);
+    else
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(inch_pressure), TRUE);
+    return units_page;
+}
+/*******************************************************************************/
+GtkWidget* create_update_tab(GtkWidget *window, gpointer user_data){
+    GtkWidget	*time_update_label = NULL,
+		*update_page = NULL,
+		*chk_downloading_after_connection = NULL,
+		*update_time = NULL,
+		*valid_time_list = NULL,
+		*time_2switch_list = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    update_page = gtk_table_new(5, 2, FALSE);
+/* Update tab */
+/* auto download when connect */
+    gtk_table_attach_defaults(GTK_TABLE(update_page),
+        			gtk_label_new(_("Automatically update data\nwhen connecting to the Internet:")),
+        			0, 1, 0, 1);
+    gtk_table_attach_defaults(GTK_TABLE(update_page),
+				chk_downloading_after_connection = gtk_check_button_new(),
+        			1, 2, 0, 1);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_downloading_after_connection),
+        			    app->config->downloading_after_connecting);
+    GLADE_HOOKUP_OBJECT(window, chk_downloading_after_connection,
+			    "download_after_connection");
+    gtk_widget_set_name(chk_downloading_after_connection,
+			    "download_after_connection");
+    g_signal_connect(chk_downloading_after_connection, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			user_data);
+/* Switch time to the next station */
+    gtk_table_attach_defaults(GTK_TABLE(update_page),
+        			gtk_label_new(_("Switch to the next station after:")),
+        			0, 1, 1, 2);
+    gtk_table_attach_defaults(GTK_TABLE(update_page),
+				time_2switch_list = gtk_combo_box_new_text(),
+        			1, 2, 1, 2);
+    GLADE_HOOKUP_OBJECT(window, time_2switch_list, "time2switch");
+    gtk_widget_set_name(time_2switch_list, "time2switch");
+    g_signal_connect(time_2switch_list, "changed",
+            		G_CALLBACK(combo_boxs_changed_handler),
+			user_data);
+    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("Never"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("10 seconds"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("20 seconds"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("30 seconds"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("40 seconds"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("50 seconds"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("60 seconds"));
+
+    switch((guint)(app->config->switch_time / 10)){
+	default:
+	case 0: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 0); break;
+	case 1: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 1); break;
+	case 2: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 2); break;
+	case 3: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 3); break;
+	case 4: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 4); break;
+	case 5: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 5); break;
+	case 6: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 6); break;
+    }
+/* Valid time */
+    gtk_table_attach_defaults(GTK_TABLE(update_page),
+        			gtk_label_new(_("Valid time for current weather:")),
+        			0, 1, 2, 3);
+    gtk_table_attach_defaults(GTK_TABLE(update_page),
+				valid_time_list = gtk_combo_box_new_text(),
+        			1, 2, 2, 3);
+    GLADE_HOOKUP_OBJECT(window, valid_time_list, "valid_time");
+    gtk_widget_set_name(valid_time_list, "valid_time");
+    g_signal_connect(valid_time_list, "changed",
+            		G_CALLBACK(combo_boxs_changed_handler),
+			user_data);
+    gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("1 hour"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("2 hours"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("4 hours"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("8 hours"));
+    switch((guint)(app->config->data_valid_interval / 3600)){
+	case 1:  gtk_combo_box_set_active(GTK_COMBO_BOX(valid_time_list), 0); break;
+	default:
+	case 2:  gtk_combo_box_set_active(GTK_COMBO_BOX(valid_time_list), 1); break;
+	case 4:  gtk_combo_box_set_active(GTK_COMBO_BOX(valid_time_list), 2); break;
+	case 8:  gtk_combo_box_set_active(GTK_COMBO_BOX(valid_time_list), 3); break;
+    }
+/* Update interval */
+    gtk_table_attach_defaults(GTK_TABLE(update_page),
+        			gtk_label_new(_("Updating of weather data:")),
+        			0, 1, 3, 4);
+    gtk_table_attach_defaults(GTK_TABLE(update_page),
+				update_time = gtk_combo_box_new_text(),
+        			1, 2, 3, 4);
+    GLADE_HOOKUP_OBJECT(window, update_time, "update_time");
+    gtk_widget_set_name(update_time, "update_time");
+    g_signal_connect(update_time, "changed",
+            		G_CALLBACK(combo_boxs_changed_handler),
+			user_data);
+    gtk_table_attach_defaults(GTK_TABLE(update_page),
+        			gtk_label_new(_("Next update:")),
+        			0, 1, 5, 6);
+    gtk_table_attach_defaults(GTK_TABLE(update_page),
+				time_update_label = gtk_label_new(NULL),
+        			1, 2, 5, 6);
+    g_signal_connect(update_time, "changed",
+                	G_CALLBACK(update_iterval_changed_handler), time_update_label);
+/* Fill update time box */
+    gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(update_time), 0);
+    gtk_combo_box_set_model(GTK_COMBO_BOX(update_time),
+				(GtkTreeModel*)app->time_update_list);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(update_time),
+    get_active_item_index((GtkTreeModel*)app->time_update_list,
+				    app->config->update_interval, NULL, FALSE));
+    return update_page;
 }
 /*******************************************************************************/

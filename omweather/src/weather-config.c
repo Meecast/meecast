@@ -251,7 +251,7 @@ GtkListStore* create_time_update_list(void){
     return list;
 }
 /*******************************************************************************/
-int new_read_config(AppletConfig *config){
+int read_config(AppletConfig *config){
     GConfValue	*value = NULL;
     GConfClient *gconf_client = NULL;
     int		fd = -1;

@@ -70,7 +70,7 @@ extern time_t calculate_diff_time(int timezone);
 extern void remove_daytime_event(void);
 extern void clean_download(void);
 extern void weather_window_settings(GtkWidget *widget,GdkEvent *event,gpointer user_data);
-extern int new_read_config(AppletConfig*);
+extern int read_config(AppletConfig*);
 extern void config_save(AppletConfig*);
 extern GtkListStore* create_items_list(const char *path, const char *filename,
 				long start, long end, long *items_number);

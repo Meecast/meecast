@@ -802,7 +802,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 
 /* Init gconf. */
     gnome_vfs_init();
-    if(new_read_config(app->config)){
+    if(read_config(app->config)){
         fprintf(stderr, "\nCan not read config file.\n");
         g_free(app->config);
         g_free(app);

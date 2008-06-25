@@ -78,7 +78,7 @@ GtkWidget* create_sun_time_widget(GSList *day){
 			"%X ", &time_show);
 
     main_label = gtk_label_new(buffer);
-    set_font_size(main_label, 20);
+    set_font(main_label, NULL, 18);
     main_widget = gtk_hbox_new(FALSE, 10);
     
     /* Packing all to the box */
@@ -106,7 +106,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
 			"%s",
 			(char*)hash_table_find(item_value(current, "moon_phase"), FALSE));
     main_label = gtk_label_new(buffer);
-    set_font_size(main_label, 18);
+    set_font(main_label, NULL, 18);
 
     main_widget = gtk_hbox_new(FALSE, 0);
 /* Moon icon */
@@ -172,7 +172,7 @@ GtkWidget* create_time_updates_widget(GSList *current){
 		" %s", _("current location local time"));
     }
     label_update = gtk_label_new(buffer);    
-    set_font_size(label_update, 16);
+    set_font(label_update, NULL, 12);
     main_widget = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_start(GTK_BOX(main_widget), label_update, TRUE, TRUE, 0);
 
@@ -220,7 +220,7 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(vbox),
     			label = gtk_label_new(app->config->current_station_name),
 			FALSE, TRUE, 20);
-    set_font_size(label, 28);
+    set_font(label, NULL, 28);
 /* create tabs widget */
     notebook = gtk_notebook_new();
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
@@ -264,7 +264,7 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	gtk_box_pack_start(GTK_BOX(vbox),
 			label = gtk_label_new(_("No weather data for this station.")),
 			TRUE, TRUE, 0);
-	set_font_size(label, 40);
+	set_font(label, NULL, 40);
     }
     gtk_widget_show(notebook);
 /* Bottom buttons box */
@@ -386,7 +386,7 @@ void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 }
 /*******************************************************************************/
 GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
-    const gint	font_size = 18;
+    const gint	font_size = 16;
     GtkWidget	*main_widget = NULL,
 		*day_night_hbox = NULL,
 		*day_vbox = NULL,
@@ -449,7 +449,7 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     memset(buffer, 0, sizeof(buffer));
     strftime(buffer, sizeof(buffer) - 1, "%A, %d %B", &tmp_time_date_struct);
     title = gtk_label_new(buffer);
-    set_font_size(title, font_size + 2); 
+    set_font(title, NULL, font_size + 2); 
     /* create 24 hours data widget */
     day_night_hbox = gtk_hbox_new(FALSE, 10);
     /* day data */
@@ -519,8 +519,8 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 	    convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed"))),
 	    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     day_text = gtk_label_new(buffer);
-    set_font_size(day_label, font_size);
-    set_font_size(day_text, font_size);
+    set_font(day_label, NULL, font_size);
+    set_font(day_text, NULL, font_size);
     gtk_box_pack_start(GTK_BOX(day_text_vbox),
 			day_text, TRUE, TRUE, 0);
     /* night data */
@@ -590,8 +590,8 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 	    convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed"))),
 	    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     night_text = gtk_label_new(buffer);
-    set_font_size(night_label, font_size);
-    set_font_size(night_text, font_size);
+    set_font(night_label, NULL, font_size);
+    set_font(night_text, NULL, font_size);
     gtk_box_pack_start(GTK_BOX(night_text_vbox),
 			night_text, TRUE, TRUE, 0);
     /* add day and night items to main widget */
@@ -729,7 +729,7 @@ GtkWidget* create_current_tab(GSList *current){
     }
 
     text = gtk_label_new(buffer);
-    set_font_size(text, 18);
+    set_font(text, NULL, 18);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), text, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), create_moon_phase_widget(current),
 			TRUE, TRUE, 0);
@@ -763,7 +763,7 @@ GtkWidget* create_copyright_widget(const gchar *text, const gchar *image){
     gtk_box_pack_start(GTK_BOX(hbox),
 			label = gtk_label_new(text_buffer),
 			FALSE, FALSE, 10);
-    set_font_size(label, 12);
+    set_font(label, NULL, 12);
 /* icon */
     if(image){
 	sprintf(image_buffer, "%s%s.png", COPYRIGHT_ICONS, image);

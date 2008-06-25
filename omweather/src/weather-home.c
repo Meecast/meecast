@@ -312,7 +312,7 @@ void draw_home_window(gint count_day){
 		tmp_tm;
     gboolean	flag_last_day = FALSE;
     int		temp_hi = 0, temp_low = 0, temp_current = 0;
-    char	font_size;
+/*    char	font_size;*/
     gint	icon_size;
     gchar	*tmp_station_name,
 		*wind_direction;
@@ -334,23 +334,23 @@ void draw_home_window(gint count_day){
     switch(app->config->icons_size){
 	default:
         case GIANT: 
-	    font_size = FONT_MAIN_SIZE_GIANT;
+/*	    font_size = FONT_MAIN_SIZE_GIANT;*/
 	    icon_size = GIANT_ICON_SIZE;
 	break;	
 	case LARGE: 
-	    font_size = FONT_MAIN_SIZE_LARGE;
+/*	    font_size = FONT_MAIN_SIZE_LARGE;*/
 	    icon_size = LARGE_ICON_SIZE;
 	break;
 	case MEDIUM:
-	    font_size = FONT_MAIN_SIZE_MEDIUM;
+/*	    font_size = FONT_MAIN_SIZE_MEDIUM;*/
 	    icon_size = MEDIUM_ICON_SIZE;
 	break;
 	case SMALL:
-	    font_size = FONT_MAIN_SIZE_SMALL;
+/*	    font_size = FONT_MAIN_SIZE_SMALL;*/
 	    icon_size = SMALL_ICON_SIZE;
 	break;
 	case TINY:
-	    font_size = FONT_MAIN_SIZE_TINY;
+/*	    font_size = FONT_MAIN_SIZE_TINY;*/
 	    icon_size = TINY_ICON_SIZE;
 	break;        
     }
@@ -654,7 +654,7 @@ void draw_home_window(gint count_day){
 	else
 	    tmp_button = create_weather_day_button(buffer, buffer_icon, icon_size,
 						    app->config->transparency,
-						    font_size,
+						    -1,
 						    &(app->config->background_color));
 	g_signal_connect(tmp_button->button, "button_release_event",
 			    G_CALLBACK(weather_window_popup), (gpointer)i);
@@ -666,7 +666,7 @@ void draw_home_window(gint count_day){
 	add_item2object(&(app->buttons),
 			create_sensor_icon_widget(icon_size,
 						    app->config->transparency,
-						    font_size,
+						    -1,
 						    &(app->config->background_color)));
 #endif
     if(app->config->current_station_id)
@@ -676,7 +676,7 @@ void draw_home_window(gint count_day){
 /* creating main panel */
     app->main_window = gtk_table_new(2, 1, FALSE);
     create_panel(app->main_window, app->config->icons_layout,
-		    app->config->transparency, tmp_station_name, font_size,
+		    app->config->transparency, tmp_station_name, -1,
 		    temperature_string, forecast_string);
     gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
     gtk_widget_show_all(app->top_widget);
@@ -1019,20 +1019,19 @@ GtkWidget* create_forecast_weather_simple_widget(char f_size,
 				app->config->font_color.red >> 8,
 				app->config->font_color.green >> 8,
 				app->config->font_color.blue >> 8);
-	if (temperature_string){
-        	sprintf(buffer + strlen(buffer), _("Forecast: \n"));
-        	strcat(buffer, temperature_string);
-	}else{
-        	sprintf(buffer + strlen(buffer), _("The current weather\nis not available"));
+	if(temperature_string){
+    	    sprintf(buffer + strlen(buffer), _("Forecast: \n"));
+    	    strcat(buffer, temperature_string);
 	}
-
+	else
+    	    sprintf(buffer + strlen(buffer), _("The current weather\nis not available"));
 	strcat(buffer,"</span>");
 	temperature_label = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(temperature_label), buffer);
 	gtk_label_set_justify(GTK_LABEL(temperature_label), GTK_JUSTIFY_CENTER);
 
-	if (temperature_string)
-        	set_font_size(temperature_label, 1.7*f_size);
+	if(temperature_string)
+    	    set_font(temperature_label, app->config->font, 2);
 	gtk_box_pack_start(GTK_BOX(temperature_vbox), temperature_label, FALSE, FALSE, 0);
 
 	/* prepare "title" "humidity", "wind", "gust" */
@@ -1047,7 +1046,7 @@ GtkWidget* create_forecast_weather_simple_widget(char f_size,
 	main_data_vbox = gtk_vbox_new(FALSE, 0);	
 	main_data_label = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(main_data_label), buffer);
-        set_font_size(main_data_label, f_size);
+        set_font(main_data_label, app->config->font, -1);
 	gtk_box_pack_start(GTK_BOX(main_data_vbox), main_data_label, FALSE, FALSE, 0);
 
         /* prepare main widget */
@@ -1096,7 +1095,7 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
     temperature_label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(temperature_label), buffer);
     gtk_label_set_justify(GTK_LABEL(temperature_label), GTK_JUSTIFY_CENTER);
-    set_font_size(temperature_label, 2*f_size);
+    set_font(temperature_label, app->config->font, 2);
 
     gtk_box_pack_start(GTK_BOX(temperature_vbox), temperature_label, FALSE, FALSE, 0);
     
@@ -1172,7 +1171,7 @@ GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size){
     main_data_vbox = gtk_vbox_new(FALSE, 0);	
     main_data_label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(main_data_label), buffer);
-    set_font_size(main_data_label, f_size);
+    set_font(main_data_label, app->config->font, -1);
     gtk_box_pack_start(GTK_BOX(main_data_vbox), main_data_label, FALSE, FALSE, 0);
 /* prepare icon and temperature vbox */
     icon_temperature_vbox = gtk_vbox_new(FALSE, 0);
@@ -1258,7 +1257,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	previos_station_name = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(previos_station_name), GTK_JUSTIFY_CENTER);
-	set_font_size(previos_station_name, f_size);
+	set_font(previos_station_name, app->config->font, -1);
 	gtk_box_pack_start((GtkBox*) previos_station_box, previos_station_name, TRUE, TRUE, 15);
 	gtk_container_add(GTK_CONTAINER(previos_station_name_btn), previos_station_box);
 
@@ -1277,7 +1276,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	next_station_name = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(next_station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(next_station_name), GTK_JUSTIFY_CENTER);
-	set_font_size(next_station_name, f_size);
+	set_font(next_station_name, app->config->font, -1);
         gtk_box_pack_start((GtkBox*) next_station_box, next_station_name, TRUE, TRUE, 15);
 	gtk_container_add (GTK_CONTAINER(next_station_name_btn), next_station_box);
     }
@@ -1317,9 +1316,9 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	gtk_label_set_markup(GTK_LABEL(station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
 	if(app->config->icons_layout == COMBINATION)
-	    set_font_size(station_name, 2 * f_size);
+	    set_font(station_name, app->config->font, 2);
 	else
-	    set_font_size(station_name, f_size);
+	    set_font(station_name, app->config->font, -1);
 	gtk_box_pack_start((GtkBox*)station_box, station_name, TRUE, TRUE, 0);
     	gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
     }
@@ -1525,6 +1524,10 @@ void free_memory(void){
         g_free(app->config->icon_set);
         app->config->icon_set = NULL;
     }
+    if(app->config->font){
+        g_free(app->config->font);
+        app->config->font = NULL;
+    }
     if(app->config->current_country){
         g_free(app->config->current_country);
         app->config->current_country = NULL;
@@ -1549,7 +1552,7 @@ void free_memory(void){
 /*******************************************************************************/
 WDB* create_weather_day_button(const char *text, const char *icon,
 				const int icon_size, gboolean transparency,
-				char font_size, GdkColor *color){
+						char font_size,	GdkColor *color){
 
     WDB		*new_day_button = NULL;
 #ifdef DEBUGFUNCTIONCALL
@@ -1560,21 +1563,18 @@ WDB* create_weather_day_button(const char *text, const char *icon,
 	return NULL;
     /* create day button */
     new_day_button->button = gtk_event_box_new();
-    gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK|
+    gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK |
 						  GDK_BUTTON_PRESS_MASK);
     set_background_color(new_day_button->button, color);
     
     if(transparency)
       gtk_event_box_set_visible_window(GTK_EVENT_BOX(new_day_button->button), FALSE);
     /* create day label */
-    if(font_size){
-	new_day_button->label = gtk_label_new(NULL);
-	gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
-	gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_RIGHT);
-	/* Set font size for label */
-	set_font_size(new_day_button->label, font_size);
-    }else
-    	new_day_button->label = NULL;
+    new_day_button->label = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
+    gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_RIGHT);
+    /* Set font size for label */
+    set_font(new_day_button->label, app->config->font, -1);
     /* create day box to contain icon and label */
     new_day_button->box = gtk_hbox_new(FALSE, 0);
     /* create day icon buffer */

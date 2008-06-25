@@ -138,6 +138,7 @@ typedef struct{
 typedef struct applet_config{
     gchar	*cache_dir_name;
     gchar	*icon_set;
+    gchar	*font;
     gchar	*current_country;
     gchar	*current_station_name;
     gchar	*current_station_id;
@@ -235,7 +236,7 @@ typedef struct OMWeatherApplet{
 #endif
 #ifdef USE_CONIC    
     ConIcConnection 	*connection;
-#endif        
+#endif
 }OMWeatherApp;
 /*******************************************************************************/
 extern	OMWeatherApp	*app;

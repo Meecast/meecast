@@ -35,7 +35,7 @@
 gboolean change_station_select(GtkWidget *widget, gpointer user_data);
 WDB* create_weather_day_button(const char *text, const char *icon,
 				const int icon_size, gboolean transparency,
-				char font_size, GdkColor *color);
+						char font_size, GdkColor *color);
 void delete_weather_day_button(WDB **day);
 void draw_home_window(gint count_day);
 void update_weather(gboolean show_update_window);
@@ -59,7 +59,7 @@ int calculate_offset_of_day(int count_day);
 /*******************************************************************************/
 extern void swap_temperature(int *hi, int *low);
 extern float c2f(float temp);
-extern void set_font_size(GtkWidget *widget, char font_size);
+extern void set_font(GtkWidget *widget, const gchar *description, const gint size);
 extern void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 extern void set_background_color(GtkWidget *widget, GdkColor *bgc);
 extern void timer(int interval);

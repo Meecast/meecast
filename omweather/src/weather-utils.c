@@ -27,6 +27,7 @@
 /*******************************************************************************/
 #include "weather-utils.h"
 #include "weather-common.h"
+#include <string.h>
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
@@ -37,26 +38,37 @@ float convert_wind_units(int to, float value){
     START_FUNCTION;
 #endif
     switch(to){
-	    default:
-	    case METERS_S: result *= 10.0f / 36.0f; break;
-	    case KILOMETERS_H: result *= 1.0f; break;
-	    case MILES_H: result /= 1.609344f; break;
-	}
+	default:
+	case METERS_S: result *= 10.0f / 36.0f; break;
+	case KILOMETERS_H: result *= 1.0f; break;
+	case MILES_H: result /= 1.609344f; break;
+    }
     return result;
 }
 /*******************************************************************************/
-void set_font_size(GtkWidget *widget, char font_size){
+void set_font(GtkWidget *widget, const gchar *description, const gint size){
     PangoFontDescription *pfd = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!widget)
 	return;
-    pfd = pango_font_description_copy( 
+    if(!description){
+	pfd = pango_font_description_copy(
             pango_context_get_font_description(gtk_widget_get_pango_context(widget)));
-    pango_font_description_set_absolute_size(pfd, font_size * PANGO_SCALE);	    
+	if(size > 0)
+	    pango_font_description_set_size(pfd, size * PANGO_SCALE);
+    }
+    else{
+	pfd = pango_font_description_from_string(description);
+	if(size > 0)
+	    pango_font_description_set_size(pfd,
+					    pango_font_description_get_size(pfd) * size);
+    }
+
     gtk_widget_modify_font(GTK_WIDGET(widget), NULL);   /* this function is leaking */
     gtk_widget_modify_font(GTK_WIDGET(widget), pfd);   /* this function is leaking */
+
     pango_font_description_free(pfd);
 }
 /*******************************************************************************/
@@ -165,7 +177,7 @@ GtkWidget* create_button_with_image(const char *path, const char *image_name,
 	if(icon)
 	    gtk_container_add(GTK_CONTAINER(button), icon);
     }
-	gtk_widget_set_events(button, GDK_BUTTON_RELEASE_MASK | GDK_BUTTON_PRESS_MASK);
+    gtk_widget_set_events(button, GDK_BUTTON_RELEASE_MASK | GDK_BUTTON_PRESS_MASK);
 
     return button;
 }
@@ -199,7 +211,7 @@ GtkWidget* create_tree_view(GtkListStore* list){
 }
 /*******************************************************************************/
 GtkWidget* create_scrolled_window_with_text(const char* text,
-				GtkJustification justification){
+						GtkJustification justification){
 
     GtkWidget		*text_view = NULL,
 			*scrolled_window = NULL;

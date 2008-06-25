@@ -33,7 +33,8 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-#define CLOCK_FILE		"/usr/share/omweather/city_in_clock.txt"
+#define CLOCK_FILE	"/usr/share/omweather/city_in_clock.txt"
+#define	DEFAULT_FONT	"Sans 12"
 /*******************************************************************************/
 /* Change the weather cache directory and update dependent variables. */
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
@@ -406,6 +407,17 @@ int read_config(AppletConfig *config){
          config->font_color = DEFAULT_FONT_COLOR; 
     g_free(tmp);
 
+    /* Get font description. */
+    tmp = NULL;
+    tmp = gconf_client_get_string(gconf_client,
+        			    GCONF_KEY_WEATHER_FONT, NULL);
+    if(!tmp)
+        config->font = g_strdup(DEFAULT_FONT);
+    else{
+	config->font = g_strdup(tmp);
+	g_free(tmp);
+    }
+
     /* Get background color. */
     tmp = NULL;
     tmp = gconf_client_get_string(gconf_client,
@@ -752,6 +764,10 @@ void config_save(AppletConfig *config){
     gconf_client_set_string(gconf_client,
         		    GCONF_KEY_WEATHER_FONT_COLOR,
 			    temp_buffer, NULL);
+    /* Save Font Description */
+    gconf_client_set_string(gconf_client,
+        		    GCONF_KEY_WEATHER_FONT,
+			    config->font, NULL);
     /* Save Background Color */
     sprintf(temp_buffer, "#%02x%02x%02x",
             config->background_color.red >> 8,

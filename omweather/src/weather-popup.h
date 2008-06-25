@@ -55,7 +55,7 @@ extern void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    gpointer user_data);
 /*extern void pre_update_weather(void);*/
 extern void update_weather(gboolean show_update_window);
-extern void set_font_size(GtkWidget *widget, char font_size);
+extern void set_font(GtkWidget *widget, const gchar *description, const gint size);
 extern void set_font_color (GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 extern float c2f(float temp);
 extern void swap_temperature(int *hi, int *low);

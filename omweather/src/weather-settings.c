@@ -737,6 +737,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*icon_set = NULL,
 			*icon_size = NULL,
 			*separate = NULL,
+			*font = NULL,
 #ifdef OS2008
 			*enable_gps = NULL,
 #endif
@@ -974,6 +975,14 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     if(background_color)
     	gtk_color_button_get_color(GTK_COLOR_BUTTON(background_color),
 					&(app->config->background_color));
+/* font */
+    font = lookup_widget(config_window, "font");
+    if(font){
+	if(app->config->font)
+	    g_free(app->config->font);
+	app->config->font
+	    = g_strdup((gchar*)gtk_font_button_get_font_name(GTK_FONT_BUTTON(font)));
+    }
 /* font color */
     font_color = lookup_widget(config_window, "font_color");
     if(font_color)
@@ -1948,13 +1957,14 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
 		*transparency = NULL,
 		*separate = NULL,
 		*font_color = NULL,
+		*font = NULL,
 		*background_color = NULL,
 		*swap_temperature = NULL,
 		*show_wind = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    interface_page = gtk_table_new(10, 4, FALSE);
+    interface_page = gtk_table_new(13, 2, FALSE);
 /* Interface tab */
     /* Visible items */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
@@ -2074,10 +2084,10 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     /* Show wind */
     gtk_table_attach_defaults(GTK_TABLE(interface_page),
         			gtk_label_new(_("Show wind:")),
-        			2, 3, 4, 5);
+        			0, 1, 5, 6);
     gtk_table_attach_defaults(GTK_TABLE(interface_page),
 				show_wind = gtk_check_button_new(),
-				3, 4, 4, 5);
+				1, 2, 5, 6);
     GLADE_HOOKUP_OBJECT(window, show_wind, "show_wind");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(show_wind),
         			    app->config->show_wind);
@@ -2088,7 +2098,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     /* Separate weather */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 			gtk_label_new(_("Current weather on first icon:")),
-			0, 1, 5, 6);
+			0, 1, 6, 7);
     separate = gtk_check_button_new();
     GLADE_HOOKUP_OBJECT(window, separate, "separate");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(separate),
@@ -2098,11 +2108,11 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
             		G_CALLBACK(check_buttons_changed_handler),
 			user_data);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				separate, 1, 2, 5, 6);
+				separate, 1, 2, 6, 7);
     /* Hide station name */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				gtk_label_new(_("Hide station name:")),
-				0, 1, 6, 7);
+				0, 1, 7, 8);
     hide_station_name = gtk_check_button_new();
     GLADE_HOOKUP_OBJECT(window, hide_station_name, "hide_station_name");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_station_name),
@@ -2112,11 +2122,11 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
             		G_CALLBACK(check_buttons_changed_handler),
 			user_data);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				hide_station_name, 1, 2, 6, 7);
+				hide_station_name, 1, 2, 7, 8);
     /* Hide arrows */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				gtk_label_new(_("Hide arrows:")),
-				2, 3, 6, 7);
+				0, 1, 8, 9);
     hide_arrows = gtk_check_button_new();
     GLADE_HOOKUP_OBJECT(window, hide_arrows, "hide_arrows");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_arrows),
@@ -2126,11 +2136,11 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
             		G_CALLBACK(check_buttons_changed_handler),
 			user_data);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				hide_arrows, 3, 4, 6, 7);
+				hide_arrows, 1, 2, 8, 9);
     /* Transparency */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				gtk_label_new(_("Transparency:")),
-				0, 1, 7, 8);
+				0, 1, 9, 10);
     transparency = gtk_check_button_new();
     GLADE_HOOKUP_OBJECT(window, transparency, "transparency");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),
@@ -2140,11 +2150,42 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
             		G_CALLBACK(check_buttons_changed_handler),
 			user_data);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				transparency, 1, 2, 7, 8);
+				transparency, 1, 2, 9, 10);
+    /* Font family */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				gtk_label_new(_("Font:")),
+				0, 1, 10, 11);
+    font = gtk_font_button_new_with_font(app->config->font);
+    GLADE_HOOKUP_OBJECT(window, font, "font");
+/* disable displaying font style at button */
+    gtk_font_button_set_show_style(GTK_FONT_BUTTON(font), FALSE);
+    gtk_table_attach(GTK_TABLE(interface_page), 
+				font, 1, 2, 10, 11,
+				GTK_SHRINK, GTK_SHRINK, 0, 0);
+    g_signal_connect(font, "font-set", G_CALLBACK(font_changed_handler),
+			user_data);
+    /* Font color */
+    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
+				gtk_label_new(_("Font color:")),
+				0, 1, 11, 12);
+    /* Font color button */
+    font_color = gtk_color_button_new();
+    GLADE_HOOKUP_OBJECT(window, font_color, "font_color");
+    gtk_widget_set_name(font_color, "font_color");
+    g_signal_connect(font_color, "color-set",
+            		G_CALLBACK(color_buttons_changed_handler),
+			user_data);
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color),
+				&(app->config->font_color));
+    gtk_button_set_relief(GTK_BUTTON(font_color), GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(font_color), FALSE);
+    gtk_table_attach(GTK_TABLE(interface_page), 
+				font_color, 1, 2, 11, 12,
+				GTK_SHRINK, GTK_SHRINK, 0, 0);
     /* Background color */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				gtk_label_new(_("Background color:")),
-				0, 1, 8, 9);
+				0, 1, 12, 13);
     background_color = gtk_color_button_new();
     GLADE_HOOKUP_OBJECT(window, background_color, "background_color");
     gtk_widget_set_name(background_color, "background_color");
@@ -2163,26 +2204,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     gtk_button_set_relief(GTK_BUTTON(background_color), GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click(GTK_BUTTON(background_color), FALSE);
     gtk_table_attach(GTK_TABLE(interface_page), 
-				background_color, 1, 2, 8, 9,
-				GTK_SHRINK, GTK_SHRINK,
-				0, 0);
-    /* Font color */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Font color:")),
-				0, 1, 9, 10);
-    /* Font color button */
-    font_color = gtk_color_button_new();
-    GLADE_HOOKUP_OBJECT(window, font_color, "font_color");
-    gtk_widget_set_name(font_color, "font_color");
-    g_signal_connect(font_color, "color-set",
-            		G_CALLBACK(color_buttons_changed_handler),
-			user_data);
-    gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color),
-				&(app->config->font_color));
-    gtk_button_set_relief(GTK_BUTTON(font_color), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(font_color), FALSE);
-    gtk_table_attach(GTK_TABLE(interface_page), 
-				font_color, 1, 2, 9, 10,
+				background_color, 1, 2, 12, 13,
 				GTK_SHRINK, GTK_SHRINK,
 				0, 0);
     return interface_page;
@@ -2481,5 +2503,12 @@ GtkWidget* create_update_tab(GtkWidget *window, gpointer user_data){
     get_active_item_index((GtkTreeModel*)app->time_update_list,
 				    app->config->update_interval, NULL, FALSE));
     return update_page;
+}
+/*******************************************************************************/
+void font_changed_handler(GtkFontButton *widget, gpointer user_data){
+    if(strcmp(app->config->font, (gchar*)gtk_font_button_get_font_name(widget)))
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+    else
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
 }
 /*******************************************************************************/

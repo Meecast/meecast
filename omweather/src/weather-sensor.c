@@ -143,7 +143,6 @@ int check_entry_text(GtkEntry *entry){
 	    error = TRUE;
 	    break;
 	}
-    
     if(error)
 	hildon_banner_show_information(app->main_window, NULL,
 					_("Invalid symbol in field or field is empty."));
@@ -192,9 +191,7 @@ WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,
     buffer_icon[0] = 0;
     snprintf(buffer_icon, sizeof(buffer_icon) - 1, "%ssensor.png", BUTTON_ICONS);
     return create_weather_day_button(buffer, buffer_icon, icon_size,
-							transparency,
-							font_size,
-							color);
+						font_size, transparency, color);
 }
 /*******************************************************************************/
 #endif

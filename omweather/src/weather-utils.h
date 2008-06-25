@@ -32,7 +32,7 @@
 /*******************************************************************************/
 float convert_wind_units(int to, float value);
 float mb2inch(float pressure);
-void set_font_size(GtkWidget *widget, char font_size);
+void set_font(GtkWidget *widget, const gchar *description, const gint size);
 void set_background_color(GtkWidget *widget, GdkColor *bgc);
 void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 float c2f(float temp);

@@ -95,6 +95,7 @@ GtkWidget* create_locations_tab(GtkWidget *window, gpointer user_data);
 GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data);
 GtkWidget* create_units_tab(GtkWidget *window, gpointer user_data);
 GtkWidget* create_update_tab(GtkWidget *window, gpointer user_data);
+void font_changed_handler(GtkFontButton *widget, gpointer user_data);
 /*******************************************************************************/
 extern void redraw_home_window(gboolean first_start);
 extern void remove_periodic_event(void);

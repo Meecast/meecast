@@ -36,14 +36,6 @@ typedef struct{
     GString	*value;
 }Item;
 /*******************************************************************************/
-typedef struct{
-    GSList	*current_data;
-    GSList	*day_data[Max_count_weather_day+1];
-    gboolean	current_data_is_invalid;
-}WeatherComStation;
-/*******************************************************************************/
-extern	WeatherComStation wcs;
-/*******************************************************************************/
 Item* create_item(const char *name, const char *value);
 void destroy_item(Item **item);
 GSList*	add_item2object(GSList **object, void *item);

@@ -1103,13 +1103,12 @@ void close_button_handler(GtkWidget *button, GdkEventButton *event,
 /*******************************************************************************/
 void help_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data){
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
     GtkWidget	*config = GTK_WIDGET(user_data),
 		*notebook = NULL;
     gint	page_number = -1;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     notebook = lookup_widget(config, "notebook");
     if(notebook){
 	page_number = gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook));

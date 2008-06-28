@@ -42,7 +42,7 @@ void add_current_time_event(void);
 void remove_daytime_event(void);
 void remove_periodic_event(void);
 void print_list(char *buff, size_t buff_size);
-void time_event_add(time_t time_value, short type_event);
+void event_add(time_t time_value, short type_event);
 time_t next_update(void);
 void free_list_time_event(void);
 /*******************************************************************************/

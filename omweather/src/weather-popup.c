@@ -106,7 +106,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
 			"%s",
 			(char*)hash_table_find(item_value(current, "moon_phase"), FALSE));
     main_label = gtk_label_new(buffer);
-    set_font(main_label, NULL, 18);
+    set_font(main_label, NULL, 14);
 
     main_widget = gtk_hbox_new(FALSE, 0);
 /* Moon icon */
@@ -192,13 +192,15 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 		*refresh_button = NULL,
 		*about_button = NULL,
 		*close_button = NULL;
-    gint	i = 0,
-		active_tab = 0,
-		k = 0;
+    gint	active_tab = 0,
+		k = 0,
+		i = 0;
     gchar	*day_name = NULL;
     time_t      current_time = 0,
                 diff_time,
                 current_data_last_update = 0;
+    GSList	*tmp = NULL,
+		*day = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -227,19 +229,19 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 /* Current weather */
     current_time = time(NULL); /* get current day */
     /* correct time for current location */
-    diff_time =  calculate_diff_time(atol(item_value(wcs.day_data[i], "station_time_zone")));
+    diff_time = calculate_diff_time(atol(item_value(app->wsd.location, "station_time_zone")));
 #ifndef RELEASE
     fprintf(stderr, "\n>>>>>>>Diff time=%li<<<<<<\n", diff_time);
 #endif
     current_time += diff_time;
 
-    current_data_last_update = last_update_time(wcs.current_data);
-    if(!wcs.current_data_is_invalid &&
+    current_data_last_update = last_update_time(app->wsd.current);
+    if(!app->wsd.current_data_is_invalid &&
 	    (current_data_last_update >
 		( current_time - app->config->data_valid_interval)) &&
 	    (current_data_last_update <
 		( current_time + app->config->data_valid_interval)))
-	current_tab = create_current_tab(wcs.current_data);
+	current_tab = create_current_tab(app->wsd.current);
     if(current_tab)
 	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 				current_tab,
@@ -247,26 +249,24 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 /* if weather is separated than hide one day */
     (app->config->separate) ? (k = 1) : (k = 0);
 /* Day tabs */
-    for(i = 0; i < app->config->days_to_show - k; i++){
-	tab = create_day_tab(wcs.current_data, wcs.day_data[i],
-				&day_name);
+    tmp = app->wsd.days;
+    while(tmp && i < app->config->days_to_show){
+	day = (GSList*)tmp->data;
+	tab = create_day_tab(app->wsd.current, day, &day_name);
 	if(tab)
 	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         				tab,
         				gtk_label_new(day_name));
 	day_name && (g_free(day_name), day_name = NULL);
+	tmp = g_slist_next(tmp);
+	i++;
     }
-    /* check if no data file for this station */
-    if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0)
+/* prepare day tabs */
+    if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){
 	gtk_box_pack_start(GTK_BOX(vbox), notebook,
 			TRUE, TRUE, 0);
-    else{
-	gtk_box_pack_start(GTK_BOX(vbox),
-			label = gtk_label_new(_("No weather data for this station.")),
-			TRUE, TRUE, 0);
-	set_font(label, NULL, 40);
+        gtk_widget_show(notebook);
     }
-    gtk_widget_show(notebook);
 /* Bottom buttons box */
     buttons_box = gtk_hbox_new(FALSE, 0);
     gtk_widget_set_size_request(buttons_box, -1, 60);
@@ -295,42 +295,51 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 5);
     gtk_box_pack_start(GTK_BOX(buttons_box), about_button, TRUE, TRUE, 5);
     gtk_box_pack_start(GTK_BOX(buttons_box), close_button, FALSE, FALSE, 60);
+
+    /* check if no data file for this station */
+    if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){
+	if(active_tab == -1){
+    	    hildon_banner_show_information(app->main_window,
+					    NULL,
+					    _("No weather data for this day."));
+	    gtk_widget_destroy(window_popup);
+	    return;
+	}
+	else{
+	    if(app->config->separate){
+		if(!current_tab){
+		    if(active_tab)
+			active_tab--;
+		    else{
+			hildon_banner_show_information(app->main_window,
+							NULL,
+							_("No current weather data."));
+		        gtk_widget_destroy(window_popup);
+			return;
+		    }
+		}
+	    }
+	    else
+		if(current_tab && active_tab)
+		    active_tab++;
+	    gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), active_tab);
+	}
+    }
+    else{
+	gtk_widget_destroy(notebook);
+	gtk_box_pack_start(GTK_BOX(vbox),
+			label = gtk_label_new(_("No weather data for this station.")),
+			TRUE, TRUE, 0);
+	set_font(label, NULL, 64);
+    }
 /* Show copyright widget */
     gtk_box_pack_start(GTK_BOX(vbox),
 	create_copyright_widget(weather_sources[app->config->weather_source].name, NULL),
 				FALSE, FALSE, 0);
 /* Pack buttons to the vbox */
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE, FALSE, 0);
-/* check pressed day data accessibility */
-    if((gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0) &&
-	    !wcs.day_data[active_tab] && !app->config->separate){
-    	hildon_banner_show_information(app->main_window,
-					NULL,
-					_("No weather data for this day."));
-	gtk_widget_destroy(window_popup);
-    }
-    else{
-	if(app->config->separate){
-	    if(!current_tab){
-		if(active_tab)
-		    active_tab--;
-		else{
-		    hildon_banner_show_information(app->main_window,
-					NULL,
-					_("No current weather data."));
-		    gtk_widget_destroy(window_popup);
-		    return;
-		}
-	    }
-	}
-	else
-	    if(current_tab && active_tab)
-		    active_tab++;
-	gtk_widget_show_all(window_popup);
-	gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), active_tab);
-    }
+    gtk_widget_show_all(window_popup);
 }
-
 /*******************************************************************************/
 /* For debug */
 struct timeval tv1,tv2,dtv;
@@ -658,8 +667,8 @@ GtkWidget* create_current_tab(GSList *current){
     sprintf(buffer + strlen(buffer), "%s",  _("Temperature: "));
     sprintf(buffer + strlen(buffer), "  %d\302\260",
                 ((app->config->temperature_units == CELSIUS) ?
-			( atoi(item_value(current, "temperature"))) :
-			( (int)c2f(atoi(item_value(current, "temperature"))))));
+			( atoi(item_value(current, "24h_hi_temperature"))) :
+			( (int)c2f(atoi(item_value(current, "24h_hi_temperature"))))));
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")) )
                                                 : ( strcat(buffer, _("F\n")) );
     /* feels like */
@@ -729,7 +738,7 @@ GtkWidget* create_current_tab(GSList *current){
     }
 
     text = gtk_label_new(buffer);
-    set_font(text, NULL, 18);
+    set_font(text, NULL, 14);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), text, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), create_moon_phase_widget(current),
 			TRUE, TRUE, 0);

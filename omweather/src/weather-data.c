@@ -33,8 +33,6 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-WeatherComStation wcs = { NULL };
-/*******************************************************************************/
 Item* create_item(const char *name, const char *value){
     Item	*itm=NULL;
 #ifdef DEBUGFUNCTIONCALL

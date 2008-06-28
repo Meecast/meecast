@@ -38,7 +38,7 @@ typedef struct{
 }weather_com_parser;
 /*******************************************************************************/
 weather_com_parser *weather_parser_new_from_file(const gchar *filename);
-int new_parse_weather_com_xml(void);
+int new_parse_weather_com_xml(WeatherStationData *wsd);
 int parse_underground_com_data(const gchar *station);
 void process_undeground_com_current_weather(const htmlNodePtr node);
 void process_undeground_com_forecast_weather(const htmlNodePtr node);

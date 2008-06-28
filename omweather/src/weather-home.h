@@ -34,15 +34,16 @@
 /*******************************************************************************/
 gboolean change_station_select(GtkWidget *widget, gpointer user_data);
 WDB* create_weather_day_button(const char *text, const char *icon,
-				const int icon_size, gboolean transparency,
-						char font_size, GdkColor *color);
+				const gint icon_size, gboolean transparency,
+				gboolean draw_day_label, GdkColor *color);
 void delete_weather_day_button(WDB **day);
 void draw_home_window(gint count_day);
 void update_weather(gboolean show_update_window);
 void redraw_home_window(gboolean first_start);
-void create_panel(GtkWidget* panel, gint layout, gboolean transparency, gchar* st_name,
-		    char f_size, gchar *temperature_string, gchar *forecast_string);
-void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,gpointer user_data);
+void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
+								gchar* st_name);
+void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,
+							    gpointer user_data);
 gboolean download_html(gpointer data);
 void free_memory(void);
 void menu_init(void);
@@ -50,12 +51,17 @@ gboolean switch_timer_handler(gpointer data);
 gboolean expose_main_window(GtkWidget *widget, GdkEventExpose *event);
 gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
 gboolean remitted_update(void);
-GtkWidget* create_current_weather_simple_widget(GSList *current, char f_size);
+GtkWidget* create_current_weather_simple_widget(GSList *current);
 GtkListStore* create_user_stations_list(void);
-GtkWidget* create_forecast_weather_simple_widget(char f_size,
-						    gchar *temperature_string,
-						    gchar *forecast_string);
+GtkWidget* create_forecast_weather_simple_widget(GSList *day);
 int calculate_offset_of_day(int count_day);
+void add_change_day_part_event(GSList *day, guint year, guint month);
+time_t get_day_part_begin_time(GSList *day, guint year, const gchar *day_part);
+void add_wind_text(GSList *day, gchar *buffer);
+void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
+							const gchar *day_name);
+void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
+						gboolean for_combination_mode);
 /*******************************************************************************/
 extern void swap_temperature(int *hi, int *low);
 extern float c2f(float temp);
@@ -78,7 +84,7 @@ extern GtkListStore* create_time_update_list(void);
 extern gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
 				    gpointer user_data);
 extern int parse_weather_com_xml(void);
-extern int new_parse_weather_com_xml(void);
+extern int new_parse_weather_com_xml(WeatherStationData *wsd);
 extern time_t last_update_time(GSList *object);
 extern float convert_wind_units(int to, float value);
 extern void initial_gps_connect(void);
@@ -91,7 +97,7 @@ extern WDB* create_sensor_icon_widget(const int icon_size,
 					    char font_size, GdkColor *color);
 #endif
 extern void free_list_time_event(void);
-extern void time_event_add(time_t time_value, short int type_event);
+extern void event_add(time_t time_value, short int type_event);
 /*******************************************************************************/
 extern gchar	path_large_icon[];
 /*******************************************************************************/

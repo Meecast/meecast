@@ -63,7 +63,8 @@ void set_font(GtkWidget *widget, const gchar *description, const gint size){
 	pfd = pango_font_description_from_string(description);
 	if(size > 0)
 	    pango_font_description_set_size(pfd,
-					    pango_font_description_get_size(pfd) * size);
+					    pango_font_description_get_size(pfd) *
+					    size);
     }
 
     gtk_widget_modify_font(GTK_WIDGET(widget), NULL);   /* this function is leaking */

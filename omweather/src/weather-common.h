@@ -72,7 +72,7 @@
 #define START_FUNCTION		fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
 /*******************************************************************************/
-enum { AUTOUPDATE, DAYTIMEEVENT, DBUSINITEVENT, UPDATE_AFTER_CONNECTED, CHECK_GPS_POSITION};
+enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED, CHECK_GPS_POSITION};
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
 enum { METERS_S, KILOMETERS_H, MILES_H };
@@ -92,6 +92,13 @@ typedef struct weather_data_source{
     gchar	*db_path;
     gchar	*url;
 }WeatherSource;
+/*******************************************************************************/
+typedef struct{
+    GSList	*location;
+    GSList	*current;
+    GSList	*days;
+    gboolean	current_data_is_invalid;
+}WeatherStationData;
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{
     GtkWidget	*button;                                                                                               
@@ -192,6 +199,7 @@ typedef struct OMWeatherApplet{
     guint		timer_for_os2008;
     guint		switch_timer;
     guint		sensor_timer;
+    guint		count_day;		/* days number from parser */
     GSList		*buttons;
     guint		flag_updating;
     gboolean		dbus_is_initialize;
@@ -237,6 +245,7 @@ typedef struct OMWeatherApplet{
 #ifdef USE_CONIC    
     ConIcConnection 	*connection;
 #endif
+    WeatherStationData	wsd;
 }OMWeatherApp;
 /*******************************************************************************/
 extern	OMWeatherApp	*app;

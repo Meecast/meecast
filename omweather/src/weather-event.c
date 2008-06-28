@@ -62,9 +62,9 @@ gboolean timer_handler(gpointer data){
 	evt = list_time_event_temp->data;
 	if(evt->time <= current_time){
 	    switch(evt->type_event){
-		case DAYTIMEEVENT :
+		case CHANGE_DAY_PART :
 		#ifndef RELEASE
-		    fprintf(stderr,"DAYTIMEEVENT %s\n",ctime(&evt->time));
+		    fprintf(stderr,"CHANGE_DAY_PART %s\n",ctime(&evt->time));
 		#endif
 		    g_free(evt);
                     event_time_list = g_slist_remove(event_time_list, event_time_list->data);
@@ -273,13 +273,13 @@ static gint compare_time(gconstpointer a, gconstpointer b){
 }
 /*******************************************************************************/
 /* Add time event  to list */	  
-void time_event_add(time_t time_value, short type_event){
+void event_add(time_t time_value, short type_event){
     struct event_time *evt = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     #ifndef RELEASE
-    fprintf(stderr,"time_event_add in list\n");
+    fprintf(stderr, "event_add in list\n");
 //    print_list(NULL, 0); 
     #endif
     if( time_value && time_value > time(NULL)){ 
@@ -293,7 +293,7 @@ void time_event_add(time_t time_value, short type_event){
 	    fprintf(stderr,"evt NULL\n");
     }
     #ifndef RELEASE
-    fprintf(stderr,"time_event_add in list finished\n");
+    fprintf(stderr, "event_add in list finished\n");
 //    print_list(NULL, 0);
     #endif
 }
@@ -310,7 +310,7 @@ void add_gps_event(guint interval){
     #endif
 
 
-	time_event_add(time(NULL) + interval *60, CHECK_GPS_POSITION); /* Every 'interval' minutes */ 
+	event_add(time(NULL) + interval *60, CHECK_GPS_POSITION); /* Every 'interval' minutes */ 
 
     #ifndef RELEASE
     fprintf(stderr,"Item added to list\n");
@@ -330,7 +330,7 @@ void add_periodic_event(time_t last_update){
     #endif
 
 /*    if(app->config->gps_station) */
-	time_event_add(last_update + app->config->update_interval * 60, AUTOUPDATE);
+	event_add(last_update + app->config->update_interval * 60, AUTOUPDATE);
 
     #ifndef RELEASE
     fprintf(stderr,"Item added to list\n");
@@ -352,7 +352,7 @@ void add_current_time_event(void){
     
     /* get current time */  
     current_time = time(NULL);
-    time_event_add(current_time + 4 , UPDATE_AFTER_CONNECTED); /* The current time plus 4 seconds */
+    event_add(current_time + 4 , UPDATE_AFTER_CONNECTED); /* The current time plus 4 seconds */
     
     #ifndef RELEASE
 	fprintf(stderr,"Item added to list\n");
@@ -400,7 +400,7 @@ void remove_daytime_event(void){
     START_FUNCTION;
 #endif    
     #ifndef RELEASE
-    fprintf(stderr,"DAYTIMEEVENT remove from list\n");
+    fprintf(stderr,"CHANGE_DAY_PART remove from list\n");
 //    print_list(NULL, 0);
     #endif
 
@@ -409,7 +409,7 @@ void remove_daytime_event(void){
     list_time_event_temp = event_time_list;  
     while(list_time_event_temp != NULL){
 	evt = list_time_event_temp->data;
-	if(evt->type_event == DAYTIMEEVENT){
+	if(evt->type_event == CHANGE_DAY_PART){
 	    event_time_list = g_slist_remove(event_time_list, list_time_event_temp->data);
 	    list_time_event_temp = event_time_list;  
 	    g_free(evt);
@@ -418,7 +418,7 @@ void remove_daytime_event(void){
     }
 
     #ifndef RELEASE
-    fprintf(stderr,"DAYTIMEEVENT is remove from list\n");
+    fprintf(stderr,"CHANGE_DAY_PART is remove from list\n");
 //    print_list(NULL, 0);
     #endif
 }

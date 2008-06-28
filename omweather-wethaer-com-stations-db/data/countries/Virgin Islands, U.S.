@@ -1,7 +1,0 @@
-Region=Virgin Islands, US
-USVI0001=Christiansted=17.74=-64.70
-USVI0002=Frederiksted=17.71=-64.86
-USVI0003=Kingshill=17.72=-64.78
-USVI0004=Saint Croix=17.70=-64.80
-USVI0005=Saint John=18.33=-64.79
-USVI0006=Saint Thomas=18.34=-64.97

@@ -9,6 +9,15 @@ omweather (0.21) unstable; urgency=low
  
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 02 Jan 2008 03:36:00 +0200
 
+omweather (0.20.5) unstable; urgency=low
+  * Fixed error out of range
+  * Fixed small memory leak
+  * Fixed not translated line in combination mode
+  * Changed algorithm of calculating current time 
+  * Compatibility with Maemo 4.1 (codename Diablo)
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 29 Jun 2008 14:21:00 +0200
+
 omweather (0.20.4) unstable; urgency=high
   * Updated Italian translation
   * Fixed error while delete station from list

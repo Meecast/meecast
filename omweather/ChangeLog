@@ -6,6 +6,13 @@
   * Added copyright info for weather data
   * Added possibility to change weather data source
 
+0.20.5
+  * Fixed error out of range
+  * Fixed small memory leak
+  * Fixed not translated line in combination mode
+  * Changed algorithm of calculating current time 
+  * Compatibility with Maemo 4.1 (codename Diablo)
+
 0.20.4
   * Updated Italian translation
   * Fixed error while delete station from list

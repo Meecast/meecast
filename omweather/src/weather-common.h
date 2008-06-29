@@ -61,6 +61,10 @@
 #ifdef USE_CONIC
 #include <conic/conic.h>
 #endif
+#include <libxml/parser.h>
+#include <libxml/tree.h>
+#include <libxml/xpath.h>
+#include <libxml/xpathInternals.h>
 /*******************************************************************************/
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
 #define Max_count_weather_day	10
@@ -80,18 +84,18 @@ enum { CELSIUS, FAHRENHEIT };
 enum { UNKNOWN, TINY, SMALL, MEDIUM, LARGE, GIANT };
 enum { ICON, STATION_NAME };
 enum { MB, INCH };
-enum { WEATHER_COM1, WEATHER_COM2, MAX_WEATHER_SOURCE_NUMBER };
+enum { WEATHER_COM1, WEATHER_COM2, RP5_RU, MAX_WEATHER_SOURCE_NUMBER };
 enum { TINY_ICON_SIZE = 32, SMALL_ICON_SIZE = 48, MEDIUM_ICON_SIZE = 64,
 	BIG_ICON_SIZE = 80, LARGE_ICON_SIZE = 96, GIANT_ICON_SIZE = 128,
 	SUPER_GIANT_ICON_SIZE = 256 };
 enum { SETTINGS_STATIONS_PAGE, SETTINGS_INTERFACE_PAGE, SETTINGS_UNITS_PAGE,
 	SETTINGS_UPDATE_PAGE, SETTINGS_SENSOR_PAGE, ABOUT_PAGE };
 /*******************************************************************************/
-typedef struct weather_data_source{
-    gchar	*name;
-    gchar	*db_path;
-    gchar	*url;
-}WeatherSource;
+typedef struct{
+    gint	error;
+    xmlDoc	*doc;
+    xmlNode	*weather_com_root;
+}weather_com_parser;
 /*******************************************************************************/
 typedef struct{
     GSList	*location;
@@ -99,6 +103,13 @@ typedef struct{
     GSList	*days;
     gboolean	current_data_is_invalid;
 }WeatherStationData;
+/*******************************************************************************/
+typedef struct weather_data_source{
+    gchar	*name;
+    gchar	*db_path;
+    gchar	*url;
+    gint 	(*parser)(weather_com_parser *parser, WeatherStationData *wsd);
+}WeatherSource;
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{
     GtkWidget	*button;                                                                                               

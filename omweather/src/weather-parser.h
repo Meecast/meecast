@@ -31,16 +31,14 @@
 #include "weather-common.h"
 #include <libxml/HTMLparser.h>
 /*******************************************************************************/
-typedef struct{
-    gint	error;
-    xmlDoc	*doc;
-    xmlNode	*weather_com_root;
-}weather_com_parser;
-/*******************************************************************************/
+gint parse_weather_file_data(const gchar *station_id, WeatherStationData *wsd);
 weather_com_parser *weather_parser_new_from_file(const gchar *filename);
-int new_parse_weather_com_xml(WeatherStationData *wsd);
-int parse_underground_com_data(const gchar *station);
+gint parse_weather_com_xml(weather_com_parser *parser, WeatherStationData *wsd);
+gint parse_rp5_ru_xml(weather_com_parser *parser, WeatherStationData *wsd);
+gint parse_underground_com_data(const gchar *station);
 void process_undeground_com_current_weather(const htmlNodePtr node);
 void process_undeground_com_forecast_weather(const htmlNodePtr node);
+/*******************************************************************************/
+extern WeatherSource	weather_sources[];
 /*******************************************************************************/
 #endif

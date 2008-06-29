@@ -54,11 +54,18 @@
 const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
     {	"weather.com - 1",
 	"/usr/share/omweather/db/weather_com/",
-	"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&link=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5"
+	"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&link=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5",
+	parse_weather_com_xml
     },
     {	"weather.com - 2",
 	"/usr/share/omweather/db/weather_com/",
-	"http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10"
+	"http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10",
+	parse_weather_com_xml
+    },
+    {	"rp5.ru",
+	"/usr/share/omweather/db/rp5_ru/",
+	"http://rp5.ru/xml.php?id=%s",
+	parse_rp5_ru_xml
     }
 };
 /* main struct */
@@ -567,7 +574,7 @@ void redraw_home_window(gboolean first_start){
 	app->main_window = NULL;
     }
 /* Parse data file */
-    count_day = new_parse_weather_com_xml(&(app->wsd));
+    count_day = parse_weather_file_data(app->config->current_station_id, &(app->wsd));
 /*    parse_underground_com_data("vitebsk");	*//* TODO next release, maybe */
     if(count_day == -2){
 	fprintf(stderr, _("Error in xml file\n"));

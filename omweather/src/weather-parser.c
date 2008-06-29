@@ -25,10 +25,6 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-#include <libxml/parser.h>
-#include <libxml/tree.h>
-#include <libxml/xpath.h>
-#include <libxml/xpathInternals.h>
 #include "weather-common.h"
 #include "weather-parser.h"
 #include "weather-hash.h"
@@ -36,6 +32,56 @@
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
+/*******************************************************************************/
+gint parse_weather_file_data(const gchar *station_id, WeatherStationData *wsd){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    gchar		buffer[2048],
+			newname[2048];
+    weather_com_parser	*parser = NULL;
+    gint 		(*handler)(weather_com_parser *parser,
+					    WeatherStationData *wsd);
+/* check storage is aviable */
+    if(!wsd || !station_id)
+	return -1;
+/* init parser */
+    handler = weather_sources[app->config->weather_source].parser;
+/* Used new file */
+    sprintf(buffer, "%s/%s.xml.new", app->config->cache_dir_name, station_id);
+    if(!access(buffer, R_OK)){  /* Not Access to cache weather xml file */
+	parser = weather_parser_new_from_file(buffer); 
+	if(!(parser->error)){
+	    sprintf(newname, "%s/%s.xml", app->config->cache_dir_name, station_id);
+	    rename(buffer, newname);
+	}
+    }
+/* Used old xml file */
+    if(( !parser && (access(buffer,R_OK) != 0)) || (parser && parser->error)){
+    	if(parser){
+	    free(parser);
+	    parser = NULL;
+	}    
+	sprintf(buffer, "%s/%s.xml", app->config->cache_dir_name, station_id);
+/* Not Access to cache weather xml file or not valid XML file */
+	if(!access(buffer, R_OK)){ 
+    	    parser = weather_parser_new_from_file(buffer);
+	    if(parser->error){
+		free(parser);
+		parser = NULL;
+		return -1; 
+	    }
+	}
+	else{
+	    if(parser){
+		free(parser);
+		parser = NULL;
+	    }
+	    return -1;
+	}
+    }
+    return (handler(parser, &(app->wsd)));
+}
 /*******************************************************************************/
 weather_com_parser *weather_parser_new_from_file(const gchar *filename){
     weather_com_parser *parser = NULL;
@@ -58,8 +104,7 @@ weather_com_parser *weather_parser_new_from_file(const gchar *filename){
     return parser;
 }
 /*******************************************************************************/
-int new_parse_weather_com_xml(WeatherStationData *wsd){
-    weather_com_parser	*parser;
+gint parse_weather_com_xml(weather_com_parser *parser, WeatherStationData *wsd){
     xmlNode	*cur_node = NULL,
 		*child_node = NULL,
 		*child_node2 = NULL,
@@ -67,67 +112,16 @@ int new_parse_weather_com_xml(WeatherStationData *wsd){
 		*child_node4 = NULL; 
     xmlChar	*temp_xml_string;
     xmlChar	*part_of_day = NULL;
-    int		store2day = 0,
-		count_day = 0,
-		year;
-    gchar	buffer[2048],
-    		id_station[10],
-		newname[2048],
+    gint	store2day = 0,
+		count_day = 0;
+    gchar	id_station[10],
 		buff[256];
-    time_t	current_time = 0;
-    struct tm	*tm = NULL,
-		tmp_tm = {0};
+    struct tm	tmp_tm = {0};
     Item	*itm;
     GSList	*day = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-/* check storage is aviable */
-    if(!wsd)
-	return 0;
-/*Prepare date string */
-/* Imortant need will Check New Year in future !!!!!!!!!!! */
-    current_time = time(NULL);
-    tm = localtime(&current_time);
-    year = 1900 + tm->tm_year;
-    parser = NULL;
-    
-    if(!app->config->current_station_id)
-	return -1;
-    sprintf(buffer, "%s/%s.xml.new", app->config->cache_dir_name,
-				    app->config->current_station_id); /* Used new file */
-    if(!access(buffer, R_OK)){  /* Not Access to cache weather xml file */
-	parser = weather_parser_new_from_file(buffer); 
-	    if(!(parser->error)){
-		sprintf(newname, "%s/%s.xml", app->config->cache_dir_name,
-			    app->config->current_station_id);
-		rename(buffer, newname);
-	    }
-    }
-    if(( !parser && (access(buffer,R_OK) != 0)) || (parser && parser->error)){ /* Used old xml file */
-    	if(parser){
-	    free(parser);
-	    parser = NULL;
-	}    
-	sprintf(buffer, "%s/%s.xml", app->config->cache_dir_name,
-		app->config->current_station_id);
-	/* Not Access to cache weather xml file or not valid XML file */
-	if(!access(buffer,R_OK)){ 
-	    parser = weather_parser_new_from_file(buffer);
-	    if(parser->error){
-		free(parser);
-		parser = NULL;
-		return -1; 
-	    }	
-	}
-	else{
-	    if(parser){			
-		free(parser);
-		parser = NULL;
-	    }
-	    return -1;
-	}    
-    }
 
     for(cur_node = parser->weather_com_root->children; cur_node; cur_node = cur_node->next){
 	if( cur_node->type == XML_ELEMENT_NODE ){
@@ -486,7 +480,11 @@ int new_parse_weather_com_xml(WeatherStationData *wsd){
     return count_day;     
 }
 /*******************************************************************************/
-int parse_underground_com_data(const gchar *station){
+gint parse_rp5_ru_xml(weather_com_parser *parser, WeatherStationData *wsd){
+    return 0;
+}
+/*******************************************************************************/
+gint parse_underground_com_data(const gchar *station){
     htmlDocPtr	doc;
     gchar	buffer[512];
     htmlNodePtr	current_node = NULL,

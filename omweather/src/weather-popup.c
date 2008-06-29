@@ -529,7 +529,7 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 	    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     day_text = gtk_label_new(buffer);
     set_font(day_label, NULL, font_size);
-    set_font(day_text, NULL, font_size);
+    set_font(day_text, NULL, font_size-1);
     gtk_box_pack_start(GTK_BOX(day_text_vbox),
 			day_text, TRUE, TRUE, 0);
     /* night data */
@@ -600,7 +600,7 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 	    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     night_text = gtk_label_new(buffer);
     set_font(night_label, NULL, font_size);
-    set_font(night_text, NULL, font_size);
+    set_font(night_text, NULL, font_size-1);
     gtk_box_pack_start(GTK_BOX(night_text_vbox),
 			night_text, TRUE, TRUE, 0);
     /* add day and night items to main widget */

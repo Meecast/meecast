@@ -916,7 +916,7 @@ GtkWidget* create_forecast_weather_simple_widget(GSList *day){
 			    (gchar*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     }
     else{
-	strcat(buffer, item_value(day, "night_title"));
+	strcat(buffer, (gchar*)hash_table_find(item_value(day, "night_title"), FALSE));
 	strcat(buffer, _("\nHumidity: "));
 	if(strcmp(item_value(day, "night_humidity"), "N/A"))
 	    sprintf(buffer + strlen(buffer), "%s%%\n",

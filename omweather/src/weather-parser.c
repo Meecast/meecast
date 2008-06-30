@@ -32,7 +32,7 @@
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
-static enum { RP5RU_DAY_BEGIN = 3, RP5RU_NIGHT_BEGIN = 15 };
+enum { RP5RU_DAY_BEGIN = 3, RP5RU_NIGHT_BEGIN = 15 };
 /*******************************************************************************/
 gint parse_weather_file_data(const gchar *station_id, WeatherStationData *wsd){
 #ifdef DEBUGFUNCTIONCALL
@@ -488,10 +488,8 @@ gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser,
     xmlNode	*cur_node = NULL,
 		*child_node = NULL,
 		*child_node2 = NULL,
-		*child_node3 = NULL,
-		*child_node4 = NULL; 
-    xmlChar	*temp_xml_string;
-    xmlChar	*part_of_day = NULL;
+		*child_node3 = NULL;
+    xmlChar     *temp_xml_string;
     gint	store2day = 0,
 		count_day = 0;
     gchar	id_station[10],

@@ -692,6 +692,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 			(gpointer)window_config);
     /* Apply button */
     apply_button = create_button_with_image(BUTTON_ICONS, "apply", 40, FALSE);
+    GLADE_HOOKUP_OBJECT(window_config, apply_button, "apply_button");
     g_signal_connect(G_OBJECT(apply_button), "button_press_event",
                         G_CALLBACK(apply_button_handler),
 			(gpointer)window_config);
@@ -706,6 +707,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(buttons_box), apply_button, TRUE, TRUE, 10);
     gtk_box_pack_start(GTK_BOX(buttons_box), help_button, TRUE, TRUE, 10);
     gtk_box_pack_start(GTK_BOX(buttons_box), close_button, TRUE, TRUE, 25);
+
 /* create tabs widget */
     notebook = gtk_notebook_new();
     GLADE_HOOKUP_OBJECT(window_config, notebook, "notebook");
@@ -741,7 +743,6 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 /* Pack items to config window */
     gtk_box_pack_start(GTK_BOX(vbox), notebook, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE, FALSE, 0);
-    gtk_widget_show(buttons_box);
 
     gtk_widget_show_all(window_config);
 /* set current page and show it for notebook */
@@ -1514,7 +1515,6 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
     START_FUNCTION;
 #endif
     button_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
-    fprintf(stderr, "\n>>>Inside handler, name - %s\n", button_name);
     if(!strcmp(button_name, "celcius")){
 	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button))){
 	    if(app->config->temperature_units == CELSIUS)
@@ -1545,6 +1545,27 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 	}
 	return;
     }
+#if defined(OS2008) || defined(DEBUGTEMP)
+    if(!strcmp(button_name, "display_at")){
+	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button))){
+	    if(app->config->display_at == STATION_NAME)
+	    	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+	    else
+		gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+	}
+	else{
+	    if(app->config->display_at != STATION_NAME)
+		gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+	    else
+		gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+	}
+	return;
+    }
+    if(!strcmp(button_name, "use_sensor")){
+	something = app->config->use_sensor;
+	goto check;
+    }
+#endif
 #ifdef OS2008
     if(!strcmp(button_name, "enable_gps")){
 	something = app->config->gps_station;

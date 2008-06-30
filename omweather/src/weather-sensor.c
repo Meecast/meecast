@@ -48,12 +48,14 @@ GtkWidget* create_sensor_page(GtkWidget *config_window){
 		*table = NULL,
 		*display_at_station_name = NULL,
 		*display_at_new_icon = NULL,
-		*update_time_entry = NULL;
+		*update_time_entry = NULL,
+		*apply_button = NULL;
     GSList	*display_group = NULL;
     gchar	buffer[10];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    apply_button = lookup_widget(config_window, "apply_button");
     main_widget = gtk_vbox_new(FALSE, 0);
     use_sensor
 	= gtk_check_button_new_with_label(_("Use device temperature sensor"));
@@ -70,6 +72,11 @@ GtkWidget* create_sensor_page(GtkWidget *config_window){
     }
     g_signal_connect(GTK_TOGGLE_BUTTON(use_sensor), "toggled",
             		G_CALLBACK(use_sensor_button_toggled_handler), table);
+    gtk_widget_set_name(use_sensor, "use_sensor");
+    if(apply_button)
+	g_signal_connect(use_sensor, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			apply_button);
     /* display sensor at */
     gtk_table_attach_defaults(GTK_TABLE(table), 
 				gtk_label_new(_("Show temperature at:")),
@@ -80,6 +87,11 @@ GtkWidget* create_sensor_page(GtkWidget *config_window){
 									_("station name")),
 				1, 2, 0, 1);
     GLADE_HOOKUP_OBJECT(config_window, display_at_station_name, "display_at");
+    gtk_widget_set_name(display_at_station_name, "display_at");
+    if(apply_button)
+	g_signal_connect(display_at_station_name, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			apply_button);
     gtk_button_set_focus_on_click(GTK_BUTTON(display_at_station_name), FALSE);
     display_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(display_at_station_name));
     gtk_table_attach_defaults(GTK_TABLE(table), 

@@ -44,5 +44,7 @@ extern WDB* create_weather_day_button(const char *text, const char *icon,
 				const int icon_size, gboolean transparency,
 						char font_size, GdkColor *color);
 extern float c2f(float temp);
+extern void check_buttons_changed_handler(GtkToggleButton *button,
+							    gpointer user_data);
 /*******************************************************************************/
 #endif

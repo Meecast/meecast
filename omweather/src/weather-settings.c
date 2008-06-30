@@ -48,7 +48,8 @@
 #endif
 /*******************************************************************************/
 void add_station_to_user_list(gchar *weather_station_name,
-				gchar *weather_station_id, gboolean is_gps){
+				gchar *weather_station_id, gboolean is_gps,
+								guint source){
     GtkTreeIter		iter;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -64,6 +65,7 @@ void add_station_to_user_list(gchar *weather_station_name,
                                 0, weather_station_name,
                                 1, weather_station_id,
 #endif
+				3, source,
                                 -1);
     /* Set it station how current (for GPS stations) */				
     if(is_gps && app->gps_must_be_current){
@@ -213,6 +215,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
     gboolean		valid;
     gint		result = GTK_RESPONSE_NONE;
     GtkTreePath		*path;
+    guint		station_source = -1;
 #ifdef OS2008
     gboolean 		is_gps = FALSE;
 #endif
@@ -285,6 +288,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
                         		&iter,
                         		0, &station_name,
                         		1, &station_code,
+					3, &station_source,
                         		-1);
 		    /* update current station code */
         	    if(app->config->current_station_id)
@@ -295,6 +299,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
             		g_free(app->config->current_station_name);
         	    app->config->current_station_name = station_name;
         	    app->config->previos_days_to_show = app->config->days_to_show;
+		    app->config->current_station_source = station_source;
 		    break;
 		}
 		else
@@ -309,6 +314,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
                         		    &iter,
                         		    0, &station_name,
                         		    1, &station_code,
+					    3, &station_source,
                         		    -1);
 		    /* update current station code */
         	    if(app->config->current_station_id)
@@ -319,6 +325,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
             	        g_free(app->config->current_station_name);
         	    app->config->current_station_name = station_name;
         	    app->config->previos_days_to_show = app->config->days_to_show;
+		    app->config->current_station_source = station_source;
 		    break;
 		}
 		else{/* if no next station than set current station to NO STATION */
@@ -332,6 +339,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
             		g_free(app->config->current_station_name);
         	    app->config->current_station_name = NULL;
         	    app->config->previos_days_to_show = app->config->days_to_show;
+		    app->config->current_station_source = -1;
 		    /* clear rename field */
 		    if(rename_entry)
 			gtk_entry_set_text(GTK_ENTRY(rename_entry), "");
@@ -403,6 +411,7 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
     gboolean		valid = FALSE;
     GtkTreeSelection	*selected_line = NULL;
     GtkTreeModel	*model = NULL;
+    guint		station_source = -1;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -420,6 +429,7 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
                             &iter,
                             0, &station_name,
                             1, &station_code,
+			    3, &station_source,
                             -1);
         if(!strcmp(station_selected, station_name)){
         /* update current station code */
@@ -432,6 +442,7 @@ void station_list_view_select_handler(GtkTreeView *tree_view,
             app->config->current_station_name = station_name;
 	    /* add selected station name to the rename entry */
 	    gtk_entry_set_text(GTK_ENTRY(user_data), station_name);
+	    app->config->current_station_source = station_source;
             break;
         }
 	else{
@@ -595,6 +606,7 @@ void highlight_current_station(GtkTreeView *tree_view){
     gboolean		valid;
     GtkTreePath		*path;
     GtkTreeModel	*model;
+    guint		station_source = -1;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -605,10 +617,12 @@ void highlight_current_station(GtkTreeView *tree_view){
                             &iter,
                             0, &station_name,
                             1, &station_code,
+			    3, &station_source,
                             -1);
 	if(!app->config->current_station_name){
 	    app->config->current_station_name = station_name;
 	    app->config->current_station_id = station_code;
+	    app->config->current_station_source = station_source;
 	    break;
 	}
 	else{
@@ -1393,7 +1407,7 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 					(gchar*)gtk_entry_get_text((GtkEntry*)station_name_entry), &select_station)){
 	    add_station_to_user_list(g_strdup(select_station.name),
 	                                g_strdup(select_station.id0),
-	                                FALSE);
+	                                FALSE, app->config->weather_source);
 	    config_save(app->config);
 	    gtk_entry_set_text(((GtkEntry*)station_name_entry),"");
 	}
@@ -1407,7 +1421,7 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 	    if(!station_code_invalid){
 	        add_station_to_user_list(g_strdup(gtk_entry_get_text((GtkEntry*)station_code_entry)),
 	                                 g_strdup(gtk_entry_get_text((GtkEntry*)station_code_entry)), 
-	                                 FALSE);
+	                                 FALSE, app->config->weather_source);
 	        config_save(app->config);
 	        gtk_entry_set_text(((GtkEntry*)station_code_entry),"");
 	        /* disable add button */
@@ -1423,7 +1437,8 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 		    model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
 		    gtk_tree_model_get(model, &iter, 0, &station_name,
 					   1, &station_code, -1);
-		    add_station_to_user_list(station_name, station_code, FALSE);
+		    add_station_to_user_list(station_name, station_code,
+						FALSE, app->config->weather_source);
 		    g_free(station_name);
 		    g_free(station_code);
 		    config_save(app->config);
@@ -1472,7 +1487,8 @@ void rename_button_handler(GtkWidget *button, GdkEventButton *event,
 		    g_free(station_name);
 		    gtk_list_store_remove(app->user_stations_list, &iter);
                     add_station_to_user_list(g_strdup(new_station_name),
-					    app->config->current_station_id, FALSE);
+					    app->config->current_station_id,
+					    FALSE, app->config->current_station_source);
 		    if(app->config->current_station_name)
 			g_free(app->config->current_station_name);
 		    app->config->current_station_name = g_strdup(new_station_name);
@@ -1803,6 +1819,9 @@ GtkWidget* create_locations_tab(GtkWidget *window, gpointer user_data){
 				    weather_sources[i].name);
     gtk_combo_box_set_active(GTK_COMBO_BOX(weather_source),
 				app->config->weather_source);
+/*  delete on 0.22 release */
+    gtk_widget_set_sensitive(weather_source, FALSE);
+
     GLADE_HOOKUP_OBJECT(window, weather_source, "weather_source");
     gtk_widget_set_name(weather_source, "weather_source");
     g_signal_connect(weather_source, "changed",

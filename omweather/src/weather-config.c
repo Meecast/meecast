@@ -121,11 +121,13 @@ void fill_user_stations_list_from_clock(GtkListStore** list){
                 gtk_list_store_set(*list, &iter,
                                     0, station_name,
                                     1, station_code,
+				    2, 0,
                                     -1);
 		/* A current station */
 		if(!strncmp(buffer, home_city, tmp - buffer)){
 		    app->config->current_station_id = station_code;
 		    app->config->current_station_name = station_name;
+		    app->config->current_station_source = 0;
 		}
 	    }	    
 	}
@@ -141,8 +143,10 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
     GtkTreeIter iter;
     gchar	*temp1 = NULL,
 		*temp2 = NULL,
+		*temp3 = NULL,
 		*station_name = NULL,
 		*station_code = NULL;
+    guint	station_source = 0;
 #ifdef OS2008
     gboolean	is_gps = FALSE;
 #endif
@@ -162,6 +166,11 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 	    temp2 = strtok(NULL,"@"); /* Delimiter - @ */ 
 	    if(temp2)
 		station_name = g_strdup(temp2);
+	    /* station source */
+	    temp3 = strtok(NULL, "@");
+	    if(temp3)
+		station_source = (guint)atoi(temp3);
+	    
 #ifdef OS2008		
 	    if (app->gps_station.id0 && app->gps_station.name &&
                 station_code && station_name &&
@@ -179,9 +188,11 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
                             	    0, station_name,
                             	    1, station_code,
 				    2, is_gps,
+				    3, station_source,
 #else
                             	    0, station_name,
                             	    1, station_code,
+				    3, station_source,
 #endif
                             	    -1);
             }
@@ -200,6 +211,7 @@ GSList* create_stations_string_list(void){
     gchar	*station_name = NULL,
 		*station_code = NULL,
 		*str = NULL;
+    guint	station_source = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
@@ -210,9 +222,10 @@ GSList* create_stations_string_list(void){
 			    &iter, 
                     	    0, &station_name,
                     	    1, &station_code,
+			    3, &station_source,
                     	    -1);
-	str = g_strdup_printf("%s@%s", station_code,
-					    station_name);
+	str = g_strdup_printf("%s@%s@%d", station_code, station_name,
+				station_source);
 	stlist = g_slist_append(stlist, str);
 	g_free(station_name);
 	g_free(station_code);
@@ -311,7 +324,7 @@ int read_config(AppletConfig *config){
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_GPS_STATION_NAME, NULL);
     if(tmp){
-	snprintf(app->gps_station.name,sizeof(app->gps_station.name)-1,"%s",tmp);
+	snprintf(app->gps_station.name, sizeof(app->gps_station.name) - 1, "%s", tmp);
     	g_free(tmp);
     }	
     app->gps_station.id0[0] = 0;
@@ -319,7 +332,7 @@ int read_config(AppletConfig *config){
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_GPS_STATION_ID, NULL);
     if(tmp){
-    	snprintf(app->gps_station.id0,sizeof(app->gps_station.id0)-1,"%s",tmp);
+    	snprintf(app->gps_station.id0, sizeof(app->gps_station.id0) - 1, "%s", tmp);
 	g_free(tmp);
 	tmp = NULL;
     }
@@ -348,7 +361,8 @@ int read_config(AppletConfig *config){
     config->weather_source = gconf_client_get_int(gconf_client,
 					    GCONF_KEY_WEATHER_DATA_SOURCE,
 					    NULL);
-    if(config->weather_source < WEATHER_COM1 || config->weather_source > WEATHER_COM2)
+    if(config->weather_source < WEATHER_COM1 &&
+	    config->weather_source > RP5_RU)
 	config->weather_source = WEATHER_COM2;
 
     /* Get Weather Icon Size  */		     

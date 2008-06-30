@@ -161,6 +161,7 @@ typedef struct applet_config{
     gchar	*current_country;
     gchar	*current_station_name;
     gchar	*current_station_id;
+    guint	current_station_source;
     gchar 	*iap_http_proxy_host;
     gchar 	*cache_directory;
     gint	weather_source;

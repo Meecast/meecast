@@ -61,15 +61,12 @@ const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
 	"/usr/share/omweather/db/weather_com/",
 	"http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10",
 	parse_weather_com_xml
-    }
-/*
-    ,
+    },
     {	"rp5.ru",
 	"/usr/share/omweather/db/rp5_ru/",
 	"http://rp5.ru/xml.php?id=%s",
 	parse_rp5_ru_xml
     }
-*/
 };
 /* main struct */
 OMWeatherApp	*app = NULL;
@@ -671,6 +668,8 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->countrys_list
 	= create_items_list(weather_sources[app->config->weather_source].db_path,
 			    COUNTRIESFILE, -1, -1, NULL);
+/* delete on 0.22 release */
+    app->config->weather_source = 1;
 /* Start timer */
     timer(60000);  /* One per minute */
 /* Start main applet */ 
@@ -1827,7 +1826,8 @@ GtkListStore* create_user_stations_list(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    return gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_BOOLEAN);
+    return gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING,
+				G_TYPE_BOOLEAN, G_TYPE_UINT);
 }
 /*******************************************************************************/
 void add_change_day_part_event(GSList *day, guint year, guint month){

@@ -1911,7 +1911,7 @@ GtkWidget* create_locations_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(chk_gps, "enable_gps");
     g_signal_connect(chk_gps, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)window);
+			(gpointer)user_data);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_gps),
         			    app->config->gps_station);
 #endif

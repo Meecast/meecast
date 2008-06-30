@@ -526,11 +526,21 @@ void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
 	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
 }
 /*******************************************************************************/
-gboolean check_station_code(const gchar *station_code){
+gboolean check_station_code(const gint source, const gchar *station_code){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(strlen((char*)station_code) < 5)
+    gint	min_length = 0;
+    switch(source){
+	case WEATHER_COM1:
+	case WEATHER_COM2:
+	    min_length = 5;
+	break;
+	case RP5_RU:
+	    min_length = 2;
+	break;
+    }
+    if(strlen((char*)station_code) < min_length)
 	return TRUE;
     return FALSE;
 }
@@ -1391,7 +1401,9 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
     else{
         if(!strcmp((char*)pressed_button, "add_code")){
 	    station_code_entry = lookup_widget(config, "station_code_entry");
-	    station_code_invalid = check_station_code(gtk_entry_get_text((GtkEntry*)station_code_entry));
+	    station_code_invalid
+		= check_station_code(app->config->weather_source,
+					gtk_entry_get_text((GtkEntry*)station_code_entry));
 	    if(!station_code_invalid){
 	        add_station_to_user_list(g_strdup(gtk_entry_get_text((GtkEntry*)station_code_entry)),
 	                                 g_strdup(gtk_entry_get_text((GtkEntry*)station_code_entry)), 

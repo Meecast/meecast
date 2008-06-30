@@ -40,8 +40,9 @@ gint parse_weather_file_data(const gchar *station_id, WeatherStationData *wsd){
     gchar		buffer[2048],
 			newname[2048];
     weather_com_parser	*parser = NULL;
-    gint 		(*handler)(weather_com_parser *parser,
-					    WeatherStationData *wsd);
+    gint 		(*handler)(const gchar *station_id,
+				    weather_com_parser *parser,
+				    WeatherStationData *wsd);
 /* check storage is aviable */
     if(!wsd || !station_id)
 	return -1;
@@ -80,7 +81,7 @@ gint parse_weather_file_data(const gchar *station_id, WeatherStationData *wsd){
 	    return -1;
 	}
     }
-    return (handler(parser, &(app->wsd)));
+    return (handler(station_id, parser, &(app->wsd)));
 }
 /*******************************************************************************/
 weather_com_parser *weather_parser_new_from_file(const gchar *filename){
@@ -104,7 +105,8 @@ weather_com_parser *weather_parser_new_from_file(const gchar *filename){
     return parser;
 }
 /*******************************************************************************/
-gint parse_weather_com_xml(weather_com_parser *parser, WeatherStationData *wsd){
+gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
+							WeatherStationData *wsd){
     xmlNode	*cur_node = NULL,
 		*child_node = NULL,
 		*child_node2 = NULL,
@@ -140,7 +142,7 @@ gint parse_weather_com_xml(weather_com_parser *parser, WeatherStationData *wsd){
 			    "%s", temp_xml_string);
 		xmlFree(temp_xml_string);
 		/* If station in xml not station in config file exit */ 
-		if( strcmp(id_station, app->config->current_station_id) ){
+		if( strcmp(id_station, station_id) ){
 		    free(parser);
 		    return -1;
 		}
@@ -480,7 +482,57 @@ gint parse_weather_com_xml(weather_com_parser *parser, WeatherStationData *wsd){
     return count_day;     
 }
 /*******************************************************************************/
-gint parse_rp5_ru_xml(weather_com_parser *parser, WeatherStationData *wsd){
+gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser,
+							WeatherStationData *wsd){
+    xmlNode	*cur_node = NULL,
+		*child_node = NULL,
+		*child_node2 = NULL,
+		*child_node3 = NULL,
+		*child_node4 = NULL; 
+    xmlChar	*temp_xml_string;
+    xmlChar	*part_of_day = NULL;
+    gint	store2day = 0,
+		count_day = 0;
+    gchar	id_station[10],
+		buff[256];
+    struct tm	tmp_tm = {0};
+    Item	*itm;
+    GSList	*day = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    cur_node = parser->weather_com_root->children;
+    while(cur_node){
+	if( cur_node->type == XML_ELEMENT_NODE ){
+	    /* get weather station data */
+    	    if(!xmlStrcmp(cur_node->name, (const xmlChar*) "point" ) ){
+		temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"id");
+		snprintf(id_station, sizeof(id_station) - 1,
+			    "%s", temp_xml_string);
+		xmlFree(temp_xml_string);
+		/* If station in xml not station in config file exit */ 
+		if( strcmp(id_station, app->config->current_station_id) ){
+		    free(parser);
+		    return -1;
+		}
+		child_node = cur_node->children;
+		while(child_node){
+		    if( child_node->type == XML_ELEMENT_NODE ){
+			if( !xmlStrcmp(child_node->name, (const xmlChar *)"dnam") ){
+			    temp_xml_string = xmlNodeGetContent(child_node);
+			    itm = create_item("station_name", (char*)temp_xml_string);
+			    xmlFree(temp_xml_string);
+			    add_item2object(&(wsd->location), itm);
+			    continue;
+			}
+		    }
+		    child_node = child_node->next;
+		}
+	    }
+	}
+	cur_node = cur_node->next;
+    }
     return 0;
 }
 /*******************************************************************************/

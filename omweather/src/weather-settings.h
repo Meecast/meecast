@@ -63,7 +63,7 @@ int get_active_item_index(GtkTreeModel *list, int time, const gchar *text,
 void update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data);
 void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
                                             gpointer user_data);
-gboolean check_station_code(const gchar *station_code);
+gboolean check_station_code(const gint source, const gchar *station_code);
 void up_key_handler(GtkButton *button, gpointer list);
 void down_key_handler(GtkButton *button, gpointer list);
 void delete_station_handler(GtkButton *button, gpointer user_data);

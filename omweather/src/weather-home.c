@@ -61,12 +61,15 @@ const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
 	"/usr/share/omweather/db/weather_com/",
 	"http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10",
 	parse_weather_com_xml
-    },
+    }
+/*
+    ,
     {	"rp5.ru",
 	"/usr/share/omweather/db/rp5_ru/",
 	"http://rp5.ru/xml.php?id=%s",
 	parse_rp5_ru_xml
     }
+*/
 };
 /* main struct */
 OMWeatherApp	*app = NULL;

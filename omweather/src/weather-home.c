@@ -392,10 +392,11 @@ void draw_home_window(gint count_day){
 	    i++;
 	}
 	app->wsd.days = tmp;
-	
 	tmp = app->wsd.days;
-	first = (GSList*)((app->wsd.days)->data);
-	last = (GSList*)((g_slist_last(tmp))->data);
+	if (app->wsd.days){
+	    first = (GSList*)((app->wsd.days)->data);
+	    last = (GSList*)((g_slist_last(tmp))->data);
+	}    
     }
 
     i = 0;
@@ -568,6 +569,8 @@ void redraw_home_window(gboolean first_start){
 	}
 	g_slist_free(app->buttons);
 	app->buttons = NULL;
+    }else{
+	app->wsd.days = NULL;
     }
     if(app->main_window){
         gtk_widget_destroy(app->main_window);
@@ -653,7 +656,6 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     #endif    
 /* Initialize DBUS */
     weather_initialize_dbus(); /* TODO connect this function with app->dbus_is_initialize */
-
 /* Init gconf. */
     gnome_vfs_init();
     if(read_config(app->config)){
@@ -1330,12 +1332,16 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	update_time = last_update_time(app->wsd.current);
         if(!app->wsd.current_data_is_invalid && 
 		update_time > (current_time - app->config->data_valid_interval) &&
-    		update_time < (current_time + app->config->data_valid_interval) )
+    		update_time < (current_time + app->config->data_valid_interval) ){
+	    if (app->wsd.current)
 	    current_weather_widget
 		    = create_current_weather_simple_widget(app->wsd.current);
-	else
-	    current_weather_widget 
-		    = create_forecast_weather_simple_widget(((GSList*)(app->wsd.days))->data);
+	}	    
+	else{
+	    if(app->wsd.days)
+		current_weather_widget 
+			= create_forecast_weather_simple_widget(((GSList*)(app->wsd.days))->data);
+		    }
         gtk_box_pack_start(GTK_BOX(combination_vbox), header_panel, FALSE, FALSE, 0);
 	if(current_weather_widget)
 	    gtk_box_pack_start(GTK_BOX(combination_vbox), current_weather_widget, FALSE, FALSE, 0);
@@ -1360,7 +1366,6 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 */
     gtk_table_attach((GtkTable*)panel, days_panel, 0, 1, 1, 2,
 		    (GtkAttachOptions)0, (GtkAttachOptions)0, 0, 0);
-    
 /* Connect signal button */
     if(previos_station_name_btn)
 	g_signal_connect(previos_station_name_btn, "button-release-event",

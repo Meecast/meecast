@@ -1562,6 +1562,7 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 	return;
     }
     if(!strcmp(button_name, "use_sensor")){
+//	fprintf(stderr,"USE_SENSOR\n");
 	something = app->config->use_sensor;
 	goto check;
     }

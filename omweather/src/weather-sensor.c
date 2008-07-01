@@ -76,7 +76,7 @@ GtkWidget* create_sensor_page(GtkWidget *config_window){
     if(apply_button)
 	g_signal_connect(use_sensor, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			apply_button);
+			config_window);
     /* display sensor at */
     gtk_table_attach_defaults(GTK_TABLE(table), 
 				gtk_label_new(_("Show temperature at:")),
@@ -91,7 +91,7 @@ GtkWidget* create_sensor_page(GtkWidget *config_window){
     if(apply_button)
 	g_signal_connect(display_at_station_name, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			apply_button);
+			config_window);
     gtk_button_set_focus_on_click(GTK_BUTTON(display_at_station_name), FALSE);
     display_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(display_at_station_name));
     gtk_table_attach_defaults(GTK_TABLE(table), 
@@ -113,7 +113,11 @@ GtkWidget* create_sensor_page(GtkWidget *config_window){
 				update_time_entry
 				    = gtk_entry_new_with_max_length(4),
 				1, 2, 1, 2);
+    g_signal_connect(G_OBJECT(update_time_entry), "changed",
+			G_CALLBACK(check_buttons_changed_handler),
+			(gpointer)config_window);
     GLADE_HOOKUP_OBJECT(config_window, update_time_entry, "update_time_entry");
+    gtk_widget_set_name(update_time_entry, "update_time_entry");
     memset(buffer, 0, sizeof(buffer));
     snprintf(buffer, sizeof(buffer) - 1, "%u", app->config->sensor_update_time);
     gtk_entry_set_text(GTK_ENTRY(update_time_entry), buffer);

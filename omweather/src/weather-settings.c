@@ -714,16 +714,16 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
 /* add pages to the notebook */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-		    create_locations_tab(window_config, (gpointer)apply_button),
+		    create_locations_tab(window_config),
         	    gtk_label_new(_("Stations")));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			create_interface_tab(window_config, (gpointer)apply_button),
+        			create_interface_tab(window_config),
         			gtk_label_new(_("Interface")));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			 create_units_tab(window_config, (gpointer)apply_button),
+        			 create_units_tab(window_config) ,
         			gtk_label_new(_("Units")));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			create_update_tab(window_config, (gpointer)apply_button),
+        			create_update_tab(window_config),
         			gtk_label_new(_("Update")));
 #if defined(OS2008) || defined(DEBUGTEMP)
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
@@ -1508,65 +1508,49 @@ void rename_button_handler(GtkWidget *button, GdkEventButton *event,
     redraw_home_window(FALSE);
 }
 /*******************************************************************************/
-void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
+void check_buttons_changed_handler(GtkToggleButton *button, gpointer config_window){
     gchar	*button_name = NULL;
     gboolean	something = FALSE;
-#ifdef DEBUGFUNCTIONCALL
+    GtkWidget	*sensor_check = NULL,
+		*sensor_update_time = NULL,
+		*apply_button = NULL;
+    gboolean	sensor_page_is_changed = FALSE;
+
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
+    apply_button = lookup_widget(config_window, "apply_button");
     button_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
     if(!strcmp(button_name, "celcius")){
 	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button))){
 	    if(app->config->temperature_units == CELSIUS)
-	    	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+	    	gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
 	    else
-		gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
 	}
 	else{
 	    if(app->config->temperature_units != CELSIUS)
-		gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
 	    else
-		gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
 	}
 	return;
     }
     if(!strcmp(button_name, "pressure")){
 	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button))){
 	    if(app->config->pressure_units == MB)
-	    	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+	    	gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
 	    else
-		gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
 	}
 	else{
 	    if(app->config->pressure_units != MB)
-		gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
 	    else
-		gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
 	}
 	return;
     }
-#if defined(OS2008) || defined(DEBUGTEMP)
-    if(!strcmp(button_name, "display_at")){
-	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button))){
-	    if(app->config->display_at == STATION_NAME)
-	    	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
-	    else
-		gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
-	}
-	else{
-	    if(app->config->display_at != STATION_NAME)
-		gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
-	    else
-		gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
-	}
-	return;
-    }
-    if(!strcmp(button_name, "use_sensor")){
-//	fprintf(stderr,"USE_SENSOR\n");
-	something = app->config->use_sensor;
-	goto check;
-    }
-#endif
 #ifdef OS2008
     if(!strcmp(button_name, "enable_gps")){
 	something = app->config->gps_station;
@@ -1601,13 +1585,59 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 	something = app->config->downloading_after_connecting;
 	goto check;
     }
+#if defined(OS2008) || defined(DEBUGTEMP)
+    /* Check sensor tab */
+    if(!strcmp(button_name, "display_at")||!strcmp(button_name, "use_sensor") || !strcmp(button_name,"update_time_entry")){
+	
+	sensor_check = lookup_widget(config_window, "display_at");
+        sensor_update_time = lookup_widget(config_window, "update_time_entry");
+	
+	if(!strcmp(button_name,"update_time_entry") && !check_entry_text(GTK_ENTRY(sensor_update_time))){
+    	    if ((app->config->use_sensor) &&
+		(app->config->sensor_update_time != (guint)atoi(gtk_entry_get_text(GTK_ENTRY(sensor_update_time))))){
+		sensor_page_is_changed = TRUE;
+		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
+	    }else{
+		sensor_page_is_changed = FALSE;
+		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
+	    }
+	}
+	    
+	if (!sensor_page_is_changed){
+	
+	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(sensor_check))){
+		if(app->config->display_at == STATION_NAME)
+	    	    gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
+		else
+		    gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
+	    }else{
+		if(app->config->display_at != STATION_NAME)
+		    gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
+		else
+		    gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
+	    }
+	    
+	    if(!strcmp(button_name, "use_sensor")){
+		if(app->config->use_sensor != gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)))
+	    	    gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
+		else
+		    if((gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(sensor_check))&&(app->config->display_at == STATION_NAME))||
+			(!(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(sensor_check))&&(app->config->display_at != STATION_NAME)))){
+	    	        gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
+		    }
+	    }	    
+	}
+    return;
+    }
+#endif
+
     return;
 check:
 /* if previos state not equal current state than enable apply button */
     if(something != gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)))
-	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+	gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
     else
-	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+	gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
 }
 /*******************************************************************************/
 void color_buttons_changed_handler(GtkColorButton *button, gpointer user_data){
@@ -1713,7 +1743,7 @@ check:
 	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
 }
 /*******************************************************************************/
-GtkWidget* create_locations_tab(GtkWidget *window, gpointer user_data){
+GtkWidget* create_locations_tab(GtkWidget *window){
     static struct lists_struct	list = { NULL, NULL, NULL };
     GtkWidget	*countries = NULL,
 		*states = NULL,
@@ -1737,6 +1767,7 @@ GtkWidget* create_locations_tab(GtkWidget *window, gpointer user_data){
 		*add_station_button = NULL,
 		*add_station_button1 = NULL,
 		*add_station_button2 = NULL,
+		*apply_button = NULL,
 		*rename_entry = NULL;
     gint	i = 0;
 #ifdef DEBUGFUNCTIONCALL
@@ -1846,9 +1877,10 @@ GtkWidget* create_locations_tab(GtkWidget *window, gpointer user_data){
 
     GLADE_HOOKUP_OBJECT(window, weather_source, "weather_source");
     gtk_widget_set_name(weather_source, "weather_source");
+    apply_button = lookup_widget(window, "apply_button");    
     g_signal_connect(weather_source, "changed",
             		G_CALLBACK(combo_boxs_changed_handler),
-			user_data);
+			apply_button);
     /* label By name */
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				gtk_label_new(_("Name:")),
@@ -1912,7 +1944,7 @@ GtkWidget* create_locations_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(chk_gps, "enable_gps");
     g_signal_connect(chk_gps, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)user_data);
+			(gpointer)window);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_gps),
         			    app->config->gps_station);
 #endif
@@ -1998,7 +2030,7 @@ GtkWidget* create_locations_tab(GtkWidget *window, gpointer user_data){
     return left_right_hbox;
 }
 /*******************************************************************************/
-GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
+GtkWidget* create_interface_tab(GtkWidget *window){
     GtkWidget	*interface_page = NULL,
     		*visible_items_number = NULL,
 		*layout_type = NULL,
@@ -2012,10 +2044,12 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
 		*font = NULL,
 		*background_color = NULL,
 		*swap_temperature = NULL,
+		*apply_button = NULL,
 		*show_wind = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    apply_button = lookup_widget(window, "apply_button");
     interface_page = gtk_table_new(13, 2, FALSE);
 /* Interface tab */
     /* Visible items */
@@ -2028,7 +2062,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(visible_items_number, "visible_items_number");
     g_signal_connect(visible_items_number, "value-changed",
             		G_CALLBACK(control_bars_changed_handler),
-			user_data);
+			apply_button);
     hildon_controlbar_set_min(HILDON_CONTROLBAR(visible_items_number), 1);
     hildon_controlbar_set_max(HILDON_CONTROLBAR(visible_items_number),
 				Max_count_weather_day);
@@ -2046,7 +2080,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(layout_type, "layout_type");
     g_signal_connect(layout_type, "changed",
             		G_CALLBACK(combo_boxs_changed_handler),
-			user_data);
+			apply_button);
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One row"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One column"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two rows"));
@@ -2080,7 +2114,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(icon_set, "icon_set");
     g_signal_connect(icon_set, "changed",
             		G_CALLBACK(combo_boxs_changed_handler),
-			user_data);
+			apply_button);
 /* add icons set to list */
     if(create_icon_set_list(icon_set) < 2)
 	gtk_widget_set_sensitive(icon_set, FALSE);
@@ -2096,7 +2130,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(icon_size, "icon_size");
     g_signal_connect(icon_size, "value-changed",
             		G_CALLBACK(control_bars_changed_handler),
-			user_data);
+			apply_button);
     hildon_controlbar_set_min(HILDON_CONTROLBAR(icon_size), TINY);
     hildon_controlbar_set_max(HILDON_CONTROLBAR(icon_size), GIANT);
     switch(app->config->icons_size){
@@ -2132,7 +2166,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(swap_temperature, "swap_temperature");
     g_signal_connect(swap_temperature, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			user_data);
+			window);
     /* Show wind */
     gtk_table_attach_defaults(GTK_TABLE(interface_page),
         			gtk_label_new(_("Show wind:")),
@@ -2146,7 +2180,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(show_wind, "show_wind");
     g_signal_connect(show_wind, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			user_data);
+			window);
     /* Separate weather */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 			gtk_label_new(_("Current weather on first icon:")),
@@ -2158,7 +2192,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(separate, "separate");
     g_signal_connect(separate, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			user_data);
+			window);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				separate, 1, 2, 6, 7);
     /* Hide station name */
@@ -2172,7 +2206,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(hide_station_name, "hide_station_name");
     g_signal_connect(hide_station_name, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			user_data);
+			window);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				hide_station_name, 1, 2, 7, 8);
     /* Hide arrows */
@@ -2186,7 +2220,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(hide_arrows, "hide_arrows");
     g_signal_connect(hide_arrows, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			user_data);
+			window);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				hide_arrows, 1, 2, 8, 9);
     /* Transparency */
@@ -2200,7 +2234,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(transparency, "transparency");
     g_signal_connect(transparency, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			user_data);
+			window);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				transparency, 1, 2, 9, 10);
     /* Font family */
@@ -2215,7 +2249,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
 				font, 1, 2, 10, 11,
 				GTK_SHRINK, GTK_SHRINK, 0, 0);
     g_signal_connect(font, "font-set", G_CALLBACK(font_changed_handler),
-			user_data);
+			apply_button);
     /* Font color */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				gtk_label_new(_("Font color:")),
@@ -2226,7 +2260,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(font_color, "font_color");
     g_signal_connect(font_color, "color-set",
             		G_CALLBACK(color_buttons_changed_handler),
-			user_data);
+			apply_button);
     gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color),
 				&(app->config->font_color));
     gtk_button_set_relief(GTK_BUTTON(font_color), GTK_RELIEF_NONE);
@@ -2243,7 +2277,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(background_color, "background_color");
     g_signal_connect(background_color, "color-set",
             		G_CALLBACK(color_buttons_changed_handler),
-			user_data);
+			apply_button);
     g_signal_connect(GTK_TOGGLE_BUTTON(transparency), "toggled",
             		    G_CALLBACK(transparency_button_toggled_handler),
 			    background_color);
@@ -2262,7 +2296,7 @@ GtkWidget* create_interface_tab(GtkWidget *window, gpointer user_data){
     return interface_page;
 }
 /*******************************************************************************/
-GtkWidget* create_units_tab(GtkWidget *window, gpointer user_data){
+GtkWidget* create_units_tab(GtkWidget *window){
     GSList	*temperature_group = NULL,
 		*distance_group = NULL,
 		*wind_group = NULL,
@@ -2297,7 +2331,7 @@ GtkWidget* create_units_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(celcius_temperature, "celcius");
     g_signal_connect(celcius_temperature, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			user_data);
+			window);
     temperature_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(celcius_temperature));
     gtk_button_set_focus_on_click(GTK_BUTTON(celcius_temperature), FALSE);
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
@@ -2323,7 +2357,7 @@ GtkWidget* create_units_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(distance_meters, "meters");
     g_signal_connect(distance_meters, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			user_data);
+			window);
     distance_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_meters));
     gtk_button_set_focus_on_click(GTK_BUTTON(distance_meters), FALSE);
 
@@ -2336,7 +2370,7 @@ GtkWidget* create_units_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(distance_kilometers, "meters");
     g_signal_connect(distance_kilometers, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			user_data);
+			window);
     gtk_button_set_focus_on_click(GTK_BUTTON(distance_kilometers), FALSE);
 
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
@@ -2348,7 +2382,7 @@ GtkWidget* create_units_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(distance_miles, "meters");
     g_signal_connect(distance_miles, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			user_data);
+			window);
     gtk_button_set_focus_on_click(GTK_BUTTON(distance_miles), FALSE);
 
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
@@ -2385,7 +2419,7 @@ GtkWidget* create_units_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(wind_meters, "wind_meters");
     g_signal_connect(wind_meters, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			user_data);
+			window);
     gtk_button_set_focus_on_click(GTK_BUTTON(wind_meters), FALSE);
 
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
@@ -2396,7 +2430,7 @@ GtkWidget* create_units_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(wind_kilometers, "wind_meters");
     g_signal_connect(wind_kilometers, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			user_data);
+			window);
     gtk_button_set_focus_on_click(GTK_BUTTON(wind_kilometers), FALSE);
 
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
@@ -2430,7 +2464,7 @@ GtkWidget* create_units_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(mb_pressure, "pressure");
     g_signal_connect(mb_pressure, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			user_data);
+			window);
     pressure_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(mb_pressure));
     gtk_button_set_focus_on_click(GTK_BUTTON(mb_pressure), FALSE);
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
@@ -2446,16 +2480,18 @@ GtkWidget* create_units_tab(GtkWidget *window, gpointer user_data){
     return units_page;
 }
 /*******************************************************************************/
-GtkWidget* create_update_tab(GtkWidget *window, gpointer user_data){
+GtkWidget* create_update_tab(GtkWidget *window){
     GtkWidget	*time_update_label = NULL,
 		*update_page = NULL,
 		*chk_downloading_after_connection = NULL,
 		*update_time = NULL,
 		*valid_time_list = NULL,
+		*apply_button = NULL,
 		*time_2switch_list = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    apply_button = lookup_widget(window, "apply_button");
     update_page = gtk_table_new(5, 2, FALSE);
 /* Update tab */
 /* auto download when connect */
@@ -2473,7 +2509,7 @@ GtkWidget* create_update_tab(GtkWidget *window, gpointer user_data){
 			    "download_after_connection");
     g_signal_connect(chk_downloading_after_connection, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
-			user_data);
+			window);
 /* Switch time to the next station */
     gtk_table_attach_defaults(GTK_TABLE(update_page),
         			gtk_label_new(_("Switch to the next station after:")),
@@ -2485,7 +2521,7 @@ GtkWidget* create_update_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(time_2switch_list, "time2switch");
     g_signal_connect(time_2switch_list, "changed",
             		G_CALLBACK(combo_boxs_changed_handler),
-			user_data);
+			apply_button);
     gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("Never"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("10 seconds"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(time_2switch_list), _("20 seconds"));
@@ -2515,7 +2551,7 @@ GtkWidget* create_update_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(valid_time_list, "valid_time");
     g_signal_connect(valid_time_list, "changed",
             		G_CALLBACK(combo_boxs_changed_handler),
-			user_data);
+			apply_button);
     gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("1 hour"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("2 hours"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(valid_time_list), _("4 hours"));
@@ -2538,7 +2574,7 @@ GtkWidget* create_update_tab(GtkWidget *window, gpointer user_data){
     gtk_widget_set_name(update_time, "update_time");
     g_signal_connect(update_time, "changed",
             		G_CALLBACK(combo_boxs_changed_handler),
-			user_data);
+			apply_button);
     gtk_table_attach_defaults(GTK_TABLE(update_page),
         			gtk_label_new(_("Next update:")),
         			0, 1, 5, 6);

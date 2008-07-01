@@ -1516,9 +1516,9 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer config_wind
 		*apply_button = NULL;
     gboolean	sensor_page_is_changed = FALSE;
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     apply_button = lookup_widget(config_window, "apply_button");
     button_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
     if(!strcmp(button_name, "celcius")){
@@ -1630,7 +1630,6 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer config_wind
     return;
     }
 #endif
-
     return;
 check:
 /* if previos state not equal current state than enable apply button */

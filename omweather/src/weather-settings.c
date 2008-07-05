@@ -967,7 +967,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     }
 /* sensor update time */
     sensor_update_time = lookup_widget(config_window, "update_time_entry");
-    if(sensor_update_time && !check_entry_text(GTK_ENTRY(sensor_update_time))){
+    if(sensor_update_time && !check_entry_text(GTK_ENTRY(sensor_update_time), TRUE)){
 	app->config->sensor_update_time
 	    = (guint)atoi(gtk_entry_get_text(GTK_ENTRY(sensor_update_time)));
 	if(app->config->use_sensor){
@@ -1508,46 +1508,54 @@ void rename_button_handler(GtkWidget *button, GdkEventButton *event,
     redraw_home_window(FALSE);
 }
 /*******************************************************************************/
-void check_buttons_changed_handler(GtkToggleButton *button, gpointer config_window){
+void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
     gchar	*button_name = NULL;
     gboolean	something = FALSE;
-    GtkWidget	*sensor_check = NULL,
+    GtkWidget	*config_window = NULL,
+#if defined(OS2008) || defined(DEBUGTEMP)
+		*sensor_check = NULL,
 		*sensor_update_time = NULL,
+#endif
 		*apply_button = NULL;
+#if defined(OS2008) || defined(DEBUGTEMP)
     gboolean	sensor_page_is_changed = FALSE;
+#endif
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    config_window = GTK_WIDGET(user_data);
     apply_button = lookup_widget(config_window, "apply_button");
     button_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
+
     if(!strcmp(button_name, "celcius")){
-	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button))){
+	if(gtk_toggle_button_get_active(button)){
 	    if(app->config->temperature_units == CELSIUS)
-	    	gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
+	    	gtk_widget_set_sensitive(apply_button, FALSE);
 	    else
-		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
+		gtk_widget_set_sensitive(apply_button, TRUE);
 	}
 	else{
 	    if(app->config->temperature_units != CELSIUS)
-		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
+		gtk_widget_set_sensitive(apply_button, FALSE);
 	    else
-		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
+		gtk_widget_set_sensitive(apply_button, TRUE);
 	}
 	return;
     }
+
     if(!strcmp(button_name, "pressure")){
-	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button))){
+	if(gtk_toggle_button_get_active(button)){
 	    if(app->config->pressure_units == MB)
-	    	gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
+	    	gtk_widget_set_sensitive(apply_button, FALSE);
 	    else
-		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
+		gtk_widget_set_sensitive(apply_button, TRUE);
 	}
 	else{
 	    if(app->config->pressure_units != MB)
-		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
+		gtk_widget_set_sensitive(apply_button, FALSE);
 	    else
-		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
+		gtk_widget_set_sensitive(apply_button, TRUE);
 	}
 	return;
     }
@@ -1587,44 +1595,45 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer config_wind
     }
 #if defined(OS2008) || defined(DEBUGTEMP)
     /* Check sensor tab */
-    if(!strcmp(button_name, "display_at")||!strcmp(button_name, "use_sensor") || !strcmp(button_name,"update_time_entry")){
-	
+    if(!strcmp(button_name, "display_at") ||
+	    !strcmp(button_name, "use_sensor") ||
+		!strcmp(button_name,"update_time_entry")){
 	sensor_check = lookup_widget(config_window, "display_at");
         sensor_update_time = lookup_widget(config_window, "update_time_entry");
 	
-	if(!strcmp(button_name,"update_time_entry") && !check_entry_text(GTK_ENTRY(sensor_update_time))){
-    	    if ((app->config->use_sensor) &&
-		(app->config->sensor_update_time != (guint)atoi(gtk_entry_get_text(GTK_ENTRY(sensor_update_time))))){
+	if(!strcmp(button_name,"update_time_entry") &&
+		!check_entry_text(GTK_ENTRY(sensor_update_time), FALSE)){
+    	    if(app->config->use_sensor &&
+		    (app->config->sensor_update_time != (guint)atoi(gtk_entry_get_text(GTK_ENTRY(sensor_update_time))))){
 		sensor_page_is_changed = TRUE;
-		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
+		gtk_widget_set_sensitive(apply_button, TRUE);
 	    }else{
 		sensor_page_is_changed = FALSE;
-		gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
+		gtk_widget_set_sensitive(apply_button, FALSE);
 	    }
 	}
-	    
-	if (!sensor_page_is_changed){
-	
+	if(!sensor_page_is_changed){
 	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(sensor_check))){
 		if(app->config->display_at == STATION_NAME)
-	    	    gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
+	    	    gtk_widget_set_sensitive(apply_button, FALSE);
 		else
-		    gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
+		    gtk_widget_set_sensitive(apply_button, TRUE);
 	    }else{
 		if(app->config->display_at != STATION_NAME)
-		    gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
+		    gtk_widget_set_sensitive(apply_button, FALSE);
 		else
-		    gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
+		    gtk_widget_set_sensitive(apply_button, TRUE);
 	    }
 	    
 	    if(!strcmp(button_name, "use_sensor")){
 		if(app->config->use_sensor != gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)))
-	    	    gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
+	    	    gtk_widget_set_sensitive(apply_button, TRUE);
 		else
-		    if((gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(sensor_check))&&(app->config->display_at == STATION_NAME))||
-			(!(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(sensor_check))&&(app->config->display_at != STATION_NAME)))){
-	    	        gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
-		    }
+		    if( (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(sensor_check)) &&
+			    (app->config->display_at == STATION_NAME) ) ||
+			    (!(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(sensor_check)) &&
+			    (app->config->display_at != STATION_NAME))))
+	    	        gtk_widget_set_sensitive(apply_button, FALSE);
 	    }	    
 	}
     return;

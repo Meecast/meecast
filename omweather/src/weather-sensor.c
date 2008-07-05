@@ -145,7 +145,7 @@ void use_sensor_button_toggled_handler(GtkToggleButton *togglebutton,
     }
 }
 /*******************************************************************************/
-int check_entry_text(GtkEntry *entry){
+int check_entry_text(GtkEntry *entry, gboolean display_error){
     const gchar	*text = gtk_entry_get_text(entry);
     gint	i;
     gboolean	error = FALSE;
@@ -159,7 +159,7 @@ int check_entry_text(GtkEntry *entry){
 	    error = TRUE;
 	    break;
 	}
-    if(error)
+    if(error && display_error)
 	hildon_banner_show_information(app->main_window, NULL,
 					_("Invalid symbol in field or field is empty."));
     return error;

@@ -51,6 +51,14 @@
 #define FONT_MAIN_SIZE_TINY	10
 #define CLICK_TIMEOUT		500
 /*******************************************************************************/
+#ifdef OS2008
+HD_DEFINE_PLUGIN(OMWeather, omweather, HILDON_DESKTOP_TYPE_HOME_ITEM)
+
+struct _OMWeatherPrivate {
+	GtkWidget	*desktop;
+};
+#endif
+
 const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
     {	"weather.com - 1",
 	"/usr/share/omweather/db/weather_com/",
@@ -610,6 +618,7 @@ void update_weather(gboolean show_update_window){
 	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }
 /*******************************************************************************/
+#ifndef OS2008
 void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
     osso_context_t	*osso;
@@ -806,6 +815,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     /* Deinitialize libosso */
     osso_deinitialize(osso);
 }
+#endif
 /*******************************************************************************/
 GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent){
     GtkWidget	*menu_item;
@@ -1547,285 +1557,7 @@ gboolean switch_timer_handler(gpointer data){
     change_station_next(NULL, NULL, NULL);
     return TRUE;
 }
-/*******************************************************************************/
-/* Next couple functions for OS2008 */ 
-#ifdef OS2008
-gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
-    int x = 0,
-	y = 0,
-	our_x = 0,
-	our_y = 0;
-    GdkRectangle a1,a2,a3;
-    GdkDrawable *drawable;
-    
-    if(moving_resizing(widget))
-	return FALSE;
-    
-/*    fprintf (stderr,"expose_parent\n"); */
-/*    fprintf (filed,"expose_parent\n");
-    fflush(filed);
-*/
-    get_x_y_hildon_home_area(app->child_data, &our_x, &our_y);
-    
-    /* Checking overlaps */
-    a1.x = our_x; a1.y = our_y; a1.width = app->aw; a1.height = app->ah;
-    a2.x = event->area.x; a2.y = event->area.y; 
-    a2.width = event->area.width; a2.height = event->area.height;
-    
-    if((!app->home_item_flag_expose) &&
-	    (app->area_button_release || app->area_changed || app->area_button_pressed ) &&
-	    (app->parent != widget) && gdk_rectangle_intersect(&a1, &a2, &a3)){
-	gtk_widget_hide(app->top_widget);
-	gtk_widget_show(app->top_widget);
-	app->area_button_release = FALSE;
-	app->area_changed     = FALSE;	
-        app->timer_for_os2008 = g_timeout_add(CLICK_TIMEOUT,(GSourceFunc)remitted_update,NULL);
-/*	fprintf (stderr,"gdk_rectangle_intersect\n"); */
-/*	fprintf (filed,"gdk_rectangle_intersect\n");
-	fflush(filed);
-*/	
-	return FALSE;
-    }
-    
-/*        fprintf (stderr,"expose_parent2a\n"); */
-    /* Is it Omweather applet ? */
-    if( ((our_x == event->area.x 	 || our_x == (event->area.x - 10))    && 
-	(our_y == event->area.y 	 || our_y == (event->area.y - 10))    &&
-        ((app->aw == event->area.width)  || (app->aw - 20 == event->area.width))&&
-	((app->ah == event->area.height) || (app->ah - 20 == event->area.height)))){
-/*	fprintf (stderr,"hildon_home_area_expose\n"); */
-/*
-	fprintf (filed,"hildon_home_area_expose\n");
-	fflush(filed);
-*/	
-	/* Yes it is. Preparing  of applet backrgound */	
-	hildon_home_area_expose(widget,event,app->child_data);	
-	
-	gdk_window_get_internal_paint_info(widget->window,
-                                    	    &drawable,
-                                    	    &x, &y);
-	if(app->pixbuf){ 
-	    gdk_pixbuf_unref(app->pixbuf);
-	    app->pixbuf = NULL; 
-	}
-	app->pixbuf = gdk_pixbuf_get_from_drawable(app->pixbuf,
-						    drawable,
-						    gdk_colormap_get_system(),
-						    0,0,0,0,
-						    event->area.width,
-						    event->area.height);
-	/* FR: Try to write to Picture Omweather in future */					   
-	app->home_item_flag_expose = FALSE;	
-    }else{
-/*            fprintf (stderr,"expose_parent2b\n"); */
-	if(app->home_item_flag_expose){
-	    app->home_item_flag_expose = FALSE;
-	    if(app->area_changed){
-/*	       	    fprintf(stderr,"app->area_changed\n");*/
-/*	     
-	    	    fprintf(filed,"app->area_changed\n");
-		    fflush(filed);
-*/		    
-		app->area_changed  = FALSE;
-		app->timer_for_os2008 = g_timeout_add(CLICK_TIMEOUT,(GSourceFunc)remitted_update,NULL);
-		gtk_widget_hide(app->top_widget);
-    	    	gtk_widget_show(app->top_widget);
-		return FALSE;
-	    }	    
-	    if(app->widget_showing < 3){
-/*	      
-	      	    fprintf(filed,"app->widget_showing ++;\n");
-		    fflush(filed);
-*/		    
-		app->widget_showing++;
-		app->timer_for_os2008 = g_timeout_add(CLICK_TIMEOUT,(GSourceFunc)remitted_update,NULL);
-		gtk_widget_hide(app->top_widget);
-    	    	gtk_widget_show(app->top_widget);
-		return FALSE;
-	    }	      
-    	    if(app->area_button_release){
-/*	    	    fprintf(stderr,"app->button_release\n"); */
-/*	      
-		    fprintf(filed,"app->button_release\n");
-		    fflush(filed);
-*/		    
-		app->area_button_release = FALSE;
-		app->timer_for_os2008 = g_timeout_add(CLICK_TIMEOUT,(GSourceFunc)remitted_update,NULL);
-		gtk_widget_hide(app->top_widget);
-		gtk_widget_show(app->top_widget);
-		return FALSE;
-	    }
-	}else{
-	    if(app->area_changed){
-		/* fprintf(stderr,"app->area_changed2\n"); */
-/*		 
-	    	    fprintf(filed,"app->area_changed2\n");
-		    fflush(filed);
-*/		     
-	     	app->area_changed  = FALSE;
-		app->timer_for_os2008 = g_timeout_add(CLICK_TIMEOUT,(GSourceFunc)remitted_update,NULL);
-		gtk_widget_hide(app->top_widget);
-    	    	gtk_widget_show(app->top_widget);
-		return FALSE;
-	    }	    
-	}	
-    }
-    return FALSE;	
-}
-/**********************************************************************************/
-gboolean button_press_area(GtkWidget *widget, GdkEventExpose *event){
-/*
-    fprintf(stderr,"button_press_item\n");
 
-    fprintf(filed,"button_press_item\n");
-    fflush(filed);
-*/    
-    app->area_button_pressed = TRUE;
-    return FALSE;	
-}
-/**********************************************************************************/
-gboolean area_changed(){
-/*
-    fprintf(filed,"area_changed()\n");
-    fflush(filed);
-*/    
-    app->area_changed  = TRUE;
-    app->timer_for_os2008 = g_timeout_add (CLICK_TIMEOUT,(GSourceFunc)remitted_update,NULL);
-    gtk_widget_hide(app->top_widget);
-    gtk_widget_show(app->top_widget);
-
-    return FALSE;	
-}
-/**********************************************************************************/
-gboolean button_release_area(GtkWidget *widget, GdkEventExpose *event){
-    app->area_button_pressed = FALSE;
-    app->area_button_release = TRUE;    
-    return FALSE;	
-}
-/**********************************************************************************/
-gboolean my_applet_release_item(GtkWidget *widget, GdkEventExpose *event){
-
-    app->area_button_pressed = FALSE;
-    app->area_button_release = TRUE;
-    
-    app->timer_for_os2008 = g_timeout_add (CLICK_TIMEOUT,(GSourceFunc)remitted_update,NULL);
-    gtk_widget_hide(app->top_widget);
-    gtk_widget_show(app->top_widget);
-    
-    return FALSE;	
-}
-/**********************************************************************************/
-gboolean expose_item(GtkWidget *widget, GdkEventExpose *event){
-    app->home_item_flag_expose = TRUE;    
-    return FALSE;	
-}
-/**********************************************************************************/
-void item_size_request(GtkWidget *widget, GtkRequisition *rq, gpointer  user_data){
-    int	x, y;
-    
-    get_x_y_hildon_home_area(app->child_data, &x, &y);
-    /* hack */
-    if(x < 80)
-	x = 80;
-    if(y < 60)
-	y = 60;
-    if(rq->width + x > 800) 
-	rq->width = 800 - x;
-    if(rq->height + y > 480) 
-	rq->height = 480 - y;
-}
-/**********************************************************************************/
-gboolean expose_main_window(GtkWidget *widget, GdkEventExpose *event){
-    int	x,y;
-    /* Run once */
-    if(!app->widget_first_start){
-/*	filed=fopen("/tmp/omw.text","a+"); */
-	gtk_widget_set_name(GTK_WIDGET(widget), PACKAGE_NAME);
-	app->area_button_pressed = FALSE;
-	app->area_changed = FALSE;
-	app->area_button_release = FALSE;
-	app->widget_showing = 0;
-	/* get child_data of HildonHomeArea of our applet */
-	app->parent_parent = widget->parent->parent;
-	app->parent	 = widget->parent;
-	app->child_data = (gpointer)hildon_home_area_get_child_data(app->parent_parent,widget->parent);
-
-	/* set unlimited size for applet */
-	gtk_widget_set_size_request (widget->parent, -1, -1);
-		
-	/* Connected to HildonHomeArea expose-event */	
-	app->signal_area_expose = g_signal_connect(G_OBJECT(app->parent_parent),
-						    "expose-event",
-	        				    G_CALLBACK (expose_parent),
-                				    NULL);		     
-		     
-	app->signal_area_changed = g_signal_connect_after(G_OBJECT(app->parent_parent),
-							    "layout_changed",
-	        					    G_CALLBACK(area_changed),
-							    NULL);		     
-	/* Connected to HildonDesktopHomeItem expose-event */	
-	app->signal_item_expose = g_signal_connect(G_OBJECT(widget->parent),
-						    "expose-event",
-						    G_CALLBACK(expose_item),
-						    NULL);		     
-
-	app->my_applet_signal_release = g_signal_connect_after(G_OBJECT(widget->parent),
-								"button-release-event",
-								G_CALLBACK(my_applet_release_item),
-								NULL);		     		     
-
-	app->signal_release = g_signal_connect(G_OBJECT(app->parent_parent),
-						"button-release-event",
-	        				G_CALLBACK (button_release_area),
-                				NULL);		     
-		     
-	app->signal_press = g_signal_connect_after(G_OBJECT(app->parent_parent),
-						    "button-press-event",
-	        				    G_CALLBACK(button_press_area),
-                				    NULL);		     
-	app->signal_size_request = g_signal_connect_after(G_OBJECT(widget->parent),
-							    "size-request",
-	        					    G_CALLBACK(item_size_request),
-                					    NULL);
-        app->widget_first_start = TRUE;		     	
-    }
-
-    if(!app->config->transparency)
-	return FALSE;
-
-    get_x_y_hildon_home_area(app->child_data, &x, &y);
-        
-    app->aw=event->area.width; app->ah=event->area.height;
-    
-    if(app->ax != x || app->ay != y){
-        app->ax = x; app->ay = y;
-     	gtk_widget_hide(widget);
-	gtk_widget_show(widget);
-    }
-
-    /* Drawing of applet background */
-    if((app->pixbuf) &&
-	(widget->allocation.width == gdk_pixbuf_get_width(app->pixbuf) ||
-	 widget->allocation.width - 20 == gdk_pixbuf_get_width(app->pixbuf)) &&
-	(widget->allocation.height == gdk_pixbuf_get_height(app->pixbuf)||
-	 widget->allocation.height -20 == gdk_pixbuf_get_height(app->pixbuf))){
-
-	gdk_draw_pixbuf(widget->window, NULL, app->pixbuf,
-			0, 0, 0, 0, -1, -1, GDK_RGB_DITHER_NONE, 0, 0);			
-/*	fprintf (stderr,"gdk_draw_pixbuf\n"); */
-/*			    
-	fprintf (filed,"gdk_draw_pixbuf\n");
-	fflush(filed);
-*/
-	
-    }
-    else{
-    	gtk_widget_hide(widget->parent);
-	gtk_widget_show(widget->parent);
-    }
-    return FALSE;
-}
-#endif
 /*******************************************************************************/
 GtkListStore* create_user_stations_list(void){
 #ifdef DEBUGFUNCTIONCALL
@@ -1892,7 +1624,7 @@ void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
     
     if(strcmp(item_value(day, "24h_hi_temperature"), "N/A"))
 	temp_current = atoi(item_value(day, "24h_hi_temperature"));
-
+    
     if(temp_current == INT_MAX || !valid)
 	sprintf(buffer,
 		"<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n</span>",
@@ -1967,3 +1699,126 @@ void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
     }
 }
 /*******************************************************************************/
+#ifdef OS2008
+GtkWidget* settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent)
+{
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+
+    GtkWidget	*menu_item;
+
+    OMWeather *applet = OMWEATHER(home_item);
+    OMWeatherPrivate *priv = OMWEATHER_GET_PRIVATE(OMWEATHER(home_item));
+
+    priv->desktop = parent;
+    menu_item = gtk_menu_item_new_with_label(_("OMWeather settings"));
+
+    g_signal_connect_swapped(G_OBJECT(menu_item), "activate",
+			G_CALLBACK(weather_window_settings), NULL);
+
+    return menu_item;
+}
+
+void omweather_init(OMWeather *applet)
+{
+    GtkSettings *settings;
+    GdkColormap *cm;
+    gchar *conf_file;
+
+    char       tmp_buff[2048];
+
+    app = g_new0(OMWeatherApp, 1);
+    if(!app){
+	fprintf(stderr, "\nCan not allocate memory for applet.\n");
+	return;
+    }
+    memset(app, 0, sizeof(OMWeatherApp));
+/* prepare config struct */
+    app->config = g_new0(AppletConfig, 1);
+    if(!app->config){
+        fprintf(stderr, "\nCan not allocate memory for config.\n");
+        g_free(app);
+        return;
+    }
+    	
+    /* Checking noomweather.txt file */
+    if ((access("/media/mmc1/noomweather.txt", R_OK) == 0)||
+        (access("/media/mmc2/noomweather.txt", R_OK) == 0))
+        return;
+
+    app->flag_updating = 0;
+    /* create i18n hash for values coming from xml file */
+    app->hash = hash_table_create();
+    app->dbus_is_initialize = FALSE;
+
+    /* list of user select stations */
+    app->user_stations_list = create_user_stations_list();
+    #ifdef USE_CONIC
+	app->connection = NULL;
+    #endif    
+/* Initialize DBUS */
+    weather_initialize_dbus(); /* TODO connect this function with app->dbus_is_initialize */
+/* Init gconf. */
+    gnome_vfs_init();
+    if(read_config(app->config)){
+        fprintf(stderr, "\nCan not read config file.\n");
+        g_free(app->config);
+        g_free(app);
+        return;
+    }
+    app->popup_window = NULL;
+    app->time_update_list = create_time_update_list();
+    app->show_update_window = FALSE;
+    /* Read Coutries list from file */
+    app->countrys_list
+	= create_items_list(weather_sources[app->config->weather_source].db_path,
+			    COUNTRIESFILE, -1, -1, NULL);
+    /* delete on 0.22 release */
+    app->config->weather_source = 1;
+    /* Start timer */
+    timer(60000);  /* One per minute */
+    /* Start main applet */ 
+    app->top_widget = gtk_hbox_new(FALSE, 0);
+    applet->queueRefresh=TRUE;
+    initial_gps_connect();
+    app->widget_first_start = TRUE;
+
+    gtk_widget_set_name(GTK_WIDGET(app->top_widget), PACKAGE_NAME);
+
+    snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s/%s",
+	                    app->config->cache_directory, "style.rc");
+    gtk_rc_parse(tmp_buff);
+
+    applet->priv = G_TYPE_INSTANCE_GET_PRIVATE(applet,TYPE_OMWEATHER, OMWeatherPrivate);
+
+	
+    settings = gtk_settings_get_default();
+    cm = gdk_screen_get_rgba_colormap(gdk_screen_get_default());
+	
+    if (cm != NULL) {
+	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
+    }
+	
+    gtk_container_add (GTK_CONTAINER (applet), app->top_widget);
+}
+
+static void omweather_class_init(OMWeatherClass *klass)
+{
+	HildonDesktopHomeItemClass *applet_class;
+	GtkWidgetClass *widget_class;
+	GtkObjectClass *gtk_object_class;
+
+
+
+	g_type_class_add_private(klass, sizeof(OMWeatherPrivate));
+	applet_class = HILDON_DESKTOP_HOME_ITEM_CLASS(klass);
+	widget_class = GTK_WIDGET_CLASS(klass);
+
+
+	gtk_object_class = GTK_OBJECT_CLASS(klass);
+	applet_class->settings = settings_menu;
+
+	widget_class->expose_event = expose_parent;
+}
+#endif

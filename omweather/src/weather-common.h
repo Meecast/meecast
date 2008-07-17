@@ -263,4 +263,47 @@ typedef struct OMWeatherApplet{
 /*******************************************************************************/
 extern	OMWeatherApp	*app;
 /*******************************************************************************/
+#ifdef OS2008 
+G_BEGIN_DECLS
+
+
+#define TYPE_OMWEATHER (omweather_get_type())
+#define OMWEATHER(obj)	(G_TYPE_CHECK_INSTANCE_CAST((obj), \
+			TYPE_OMWEATHER, OMWeather))
+#define OMWEATHER_CLASS(klass) \
+		(G_TYPE_CHECK_CLASS_CAST((klass), TYPE_OMWEATHER, OMWeather))
+#define IS_OMWEATHERT(obj)	(G_TYPE_CHECK_INSTANCE_TYPE((obj), \
+			TYPE_OMWEATHER))
+#define IS_OMWEATHERT_CLASS(klass) \
+		(G_TYPE_CHECK_CLASS_TYPE((klass), TYPE_OMWEATHER))
+#define IS_OMWEATHER_GET_CLASS(obj)	(G_TYPE_INSTANCE_GET_CLASS((obj), \
+			TYPE_OMWEATHER, OMWeather))
+#define OMWEATHER_GET_PRIVATE(obj) \
+		(G_TYPE_INSTANCE_GET_PRIVATE((obj), TYPE_OMWEATHER, \
+				OMWeather))
+
+typedef struct _OMWeatherPrivate OMWeatherPrivate;
+
+/* Instance struct */
+typedef struct {
+	HildonDesktopHomeItem parent;
+	GtkWidget			   *layout;
+	GnomeVFSMonitorHandle  *fileMon;
+	guint                  updateTimeout;
+	gboolean			   queueRefresh;
+	XRectangle			   clip;
+	OMWeatherPrivate *priv;
+} OMWeather;
+
+/* Class struct */
+typedef struct {
+	HildonDesktopHomeItemClass parent_class;
+} OMWeatherClass;
+
+
+GType personal_launcher_get_type(void);
+
+
+G_END_DECLS
+#endif
 #endif

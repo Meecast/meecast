@@ -62,6 +62,8 @@ void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 							const gchar *day_name);
 void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 						gboolean for_combination_mode);
+						
+gboolean expose_main_window1(GtkWidget *widget, GdkEventExpose *event);
 /*******************************************************************************/
 extern void swap_temperature(int *hi, int *low);
 extern float c2f(float temp);
@@ -93,6 +95,7 @@ extern float convert_wind_units(int to, float value);
 extern void initial_gps_connect(void);
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 extern float mb2inch(float pressure);
+extern gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
 #if defined(OS2008) || defined(DEBUGTEMP)
 extern void read_sensor(gint need_redraw);
 extern WDB* create_sensor_icon_widget(const int icon_size,

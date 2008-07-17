@@ -10,7 +10,7 @@
       <list>
         <listitem>Check detailed weather forecast for up to 5 days</listitem>
         <listitem>Update weather information automatically from the Internet (Data provided by xoap.weather.com)</listitem>
-        <listitem>Configurare più vicina stazione meteorologica automatica utilizzando le coordinate GPS</listitem>
+        <listitem>Configure nearest weather station automatically using GPS</listitem>
         <listitem>Facilmente personalizzato per selezionare stazione meteo ordinati dal menu a discesa</listitem>
         <listitem>Vedere l'alba e il tramonto volte selezionato per stazioni meteorologiche</listitem>
         <listitem>See current phase of the moon</listitem>
@@ -23,25 +23,19 @@
       <topictitle>Come iniziare</topictitle>
       <context contextUID="help_omweather_getstarted"/>
       <para>To activate OMWeather select <display_text>Home</display_text> <display_text>Select applets...</display_text> <display_text>OMWeather</display_text>.</para>
-      <para>Prima cosa da fare è selezionare la posizione di un OMWeather applet in casa. È possibile modificare le applet posizione semplicemente toccarla e trascinandola dove desideri. Aspetto delle applet può essere cambiato dal <display_text>Interface</display_text> scheda OMWeather finestra delle impostazioni.</para>
-      <para>OMWeather utilizzerà compresse Home città selezione come un percorso predefinito di dati meteo. Questo percorso può essere cambiato da toccare l'applet e selezionando <display_text>Impostazioni</display_text> e poi <display_text>Località</display_text> scheda. La funzionalità GPS può essere attivato anche da questa scheda.</para>
+      <para>First thing to do is select the position of a OMWeather applet in home view. You can change applets position simply touching it and dragging it where you want it. Appearance of the applet can be changed from the <display_text>Tool</display_text> icon in OMWeathers weather window or selecting <display_text>Home</display_text> <display_text>Applet settings</display_text> <display_text>OMWeather settings</display_text>.</para>
+      <para>OMWeather will use Tablets Home city selection as a default location for weather data. Location can be changed from the <display_text>Stations</display_text> tab in OMWeathers settings window.</para>
       <para>Più informazioni di come cambiare l'aspetto delle applet e di aggiungere, eliminare e rinominare le località possono essere trovate sul <ref refid="help_omweather_settings" refdoc="Impostazioni"/> pagina.</para>
     </topic>
     <topic>
       <topictitle>Impostazioni</topictitle>
       <context contextUID="help_omweather_settings"/>
-      <para>Il <display_text>Impostazioni</display_text> finestra di dialogo (accessibile dal desktop o applet casa opinioni Applet dal menu Impostazioni), prevede l'accesso al configurabile opzioni che controllano come appare OMWeather ed eseguire. In aggiunta alle schede, ci sono anche un <display_text>Chi</display_text> pulsante per visualizzare le informazioni di OMWeather.</para>
-      <para><display_text>Località</display_text> scheda elenca tutti i luoghi in cui i dati meteo OMWeather riceverà quando applet pulsante di aggiornamento è toccato o aggiornamento automatico succede.</para>
-      <para><display_text>Aggiungi</display_text> pulsante ti permette di aggiungere nuove stazioni meteorologiche, che poi verranno elencati nella località schermo.</para>
-      <para><display_text>Rename</display_text> button allows you to change name of the selected station.</para>
-      <para><display_text>Elimina</display_text> pulsante Cancella stazione selezionata dalla lista.</para>
-      <para><display_text>Up</display_text> e <display_text>giù</display_text> frecce ti permette di modificare l'ordine delle località selezionate.</para>
-      <para><display_text>Attiva da stazione GPS:</display_text> casella di controllo è usato per attivare la selezione automatica della stazione meteo quando mai GPS è attivata.</para>
-
-
-      <para><display_text>Automaticamente l'aggiornamento dei dati dopo la connessione a Internet:</display_text> selezione controlli se i dati meteo vengono aggiornate automaticamente quando viene stabilita una connessione a Internet.</para>
-      <para><display_text>Switch per la prossima stazione dopo:</display_text> menu a discesa controlli tempo dopo applet modifiche alla prossima stazione meteo.</para>
-      <para>Valido per tempo meteorologiche correnti e intervallo di aggiornamento può essere selezionato da un menu a discesa.</para>
+      <para>The <display_text>Settings</display_text> dialog (accessible from the desktop applet or home views Applet settings menu) provides access to the configurable options that controls how OMWeather appears and run. In addition to the tabs, there are also four buttons. Left arrow will take you to weather view, ok button saves settings, question mark opens help and x button closes settings window.</para>
+      <para><display_text>Sations</display_text> tab lists all locations which weather data OMWeather will receive when applets refresh button is touched or automatic update happens.</para>
+      <para><display_text>Interface</display_text> tab is used to configure settings that controls visual appearance of the OMWeather.</para>
+      <para><display_text>Units</display_text> tab is used to select temperature, distance, wind speed and pressure units shown on weather data. Necessary units can be selected by clicking on corresponding check button.</para>
+      <para><display_text>Update</display_text> scheda viene utilizzata per configurare l'aggiornamento di un intervallo di dati meteo. Questa scheda mostra anche il tempo quando prossimo aggiornamento sarà fatto.</para>
+      <para><display_text>Sensor</display_text> tab is used control if temperature from the internal sensor is shown on the applet.</para>
     </topic>
     <topic>
       <topictitle>Aggiungi Station</topictitle>
@@ -57,45 +51,52 @@
     <topic>
       <topictitle>Settings. Stations tab</topictitle>
       <context contextUID="help_omweather_settings_stations"/>
-      <para></para>
+	<para><display_text>Arrange</display_text> section allows you to remove or rename stations in the list. <display_text>Up</display_text> and <display_text>down</display_text> arrows allows you to change the order of the selected locations.</para>
+      <para><display_text>Add</display_text> section allows you to add new weather stations, which will then be listed in the left view.</para>
+      <para><display_text>Enable GPS:</display_text> check box is used to enable automatic weather station selection when GPS is enabled.</para>
     </topic>
     <topic>
       <topictitle>Settings. Interface tab</topictitle>
       <context contextUID="help_omweather_settings_interface"/>
       <para><display_text>Interface</display_text> tab is used to configure settings that controls visual appearance of the OMWeather.</para>
-      <para><display_text>Visible items:</display_text> selects how many icons will be shown in the tablets home screen. Possibilities go from 1 to 10.</para>
-      <para><display_text>Layout:</display_text> selects how icons are shown in the home screen. Possible selections are one row, one column, two rows, two columns or combinated.</para>
+      <para><display_text>Visible items:</display_text> selects how many icons will be shown in the tablets home screen.</para>
+      <para><display_text>Layout:</display_text> selects how icons are shown on the home screen. Possible selections are one row, one column, two rows, two columns or combination.</para>
       <para><display_text>Icon set:</display_text> selects which icon set is used. You can install more icon sets with the application manager (if Maemo extras repository is configured) or going to OMWeathers Maemo garage page (http://omweather.garage.maemo.org/) and downloading icon sets directly from there.</para>
-      <para><display_text>Icona dimensioni:</display_text> definisce icona dimensione. Dimensioni può essere piccolo, piccolo, medio, grande o gigante.</para>
-      <para><display_text>Font color:</display_text> defines applets font color. Touching color button will open <display_text>Pick a Color</display_text> dialog where it's possible to select font color.</para>
-      <para><display_text>Background color:</display_text> setting defines the background color used for icons. Color selection works same way as selecting font color. Background color is not selectable if transparency is used.</para>
-      <para><display_text>Transparency:</display_text> selection will show background image behind the icons.</para>
-      <para><display_text>Show only current weather on first icon:</display_text> selection will show current weather on first icon and forecast for a rest of the day is shown on the next icon.</para>
-      <para><display_text>Hide station name:</display_text> selection will controls if station name are shown on the applet.</para>
-      <para><display_text>Nascondi le frecce:</display_text> selezione controlli frecce se usato per cambiare stazione meteo sono mostrati sulla applet.</para>
+      <para><display_text>Icon size:</display_text> defines icon size.</para>
       <para><display_text> Swap hi/bassa temperatura:</display_text> selezione cambierà modo come la temperatura più alta e la più bassa per un giorno è mostrato sulla applet. Se è selezionata, verranno visualizzati applet ad alta temperatura prima.</para>
+      <para><display_text>Show wind:</display_text> selection will show wind on the applet.</para>
+      <para><display_text>Current weather on first icon:</display_text> selection will show current weather on first icon and forecast for a rest of the day is shown on the next icon.</para>
+      <para><display_text>Hide station name:</display_text> selection will control if station names are shown on the applet.</para>
+      <para><display_text>Hide arrows:</display_text> selection will control if arrows used to change weather station are shown on the applet.</para>
+      <para><display_text>Transparency:</display_text> selection will show background image behind the icons.</para>
+      <para><display_text>Font:</display_text> defines font and it's size used on the applet.</para>
+      <para><display_text>Font color:</display_text> defines applets font color. Touching color button will open <display_text>Pick a Color</display_text> dialog where it's possible to select font color.</para>
+      <para><display_text>Background color:</display_text> setting defines the background color used for icons. Background color is not selectable if transparency is used.</para>
     </topic>
     <topic>
       <topictitle>Settings. Units tab</topictitle>
       <context contextUID="help_omweather_settings_units"/>
-      <para><display_text>Units</display_text> tab is used to select temperature, distance, wind speed and pressure units shown on weather data. Necessary units can be selected by clicking on corresponding button.</para>
+      <para><display_text>Units</display_text> tab is used to select temperature, distance, wind speed and pressure units shown on weather data. Necessary units can be selected by clicking on corresponding check button.</para>
     </topic>
     <topic>
       <topictitle>Settings. Update tab</topictitle>
       <context contextUID="help_omweather_settings_update"/>
       <para><display_text>Update</display_text> scheda viene utilizzata per configurare l'aggiornamento di un intervallo di dati meteo. Questa scheda mostra anche il tempo quando prossimo aggiornamento sarà fatto.</para>
+      <para><display_text>Automatically updating data when connecting to the Internet: </display_text> selection controls automatic weather data update when Internet connection is established.</para>
+      <para><display_text>Switch per la prossima stazione dopo:</display_text> menu a discesa controlli tempo dopo applet modifiche alla prossima stazione meteo.</para>
+      <para>Valido per tempo meteorologiche correnti e intervallo di aggiornamento può essere selezionato da un menu a discesa.</para>
     </topic>
     <topic>
       <topictitle>Settings. Sensor tab</topictitle>
       <context contextUID="help_omweather_settings_sensor"/>
-      <para></para>
+      <para><display_text>Sensor</display_text> tab is used control if temperature from the internal sensor is shown on the applet.</para>
+      <para>When <display_text>Use device temperature sensor</display_text> check box is enabled, applet will show temperature of the build in temperature sensor. Temperature can be shown after station name or on the new icon. Sensor read interwall can be set to user defined value.</para>
     </topic>
     <topic>
       <topictitle>Desktop utilizzando applet</topictitle>
       <context contextUID="help_omweather_usingdesktopapplet"/>
-      <para>Toccando l'icona di un giorno porta una piccola finestra in cui è possibile visualizzare le previsioni del tempo o corrente dettagliata previsione di un giorno selezionato. Toccando <display_text>Impostazioni</display_text> pulsante si aprirà il dialogo OMWeather impostazioni.</para>
-      <para>Per aggiornare manualmente i dati meteo selezionare il pulsante di aggiornamento da dettagliate meteo finestra (due piccole frecce nell'angolo in alto a destra).</para>
-      <para>Di tempo per vedere il sorgere del sole/tramonto o attuale fase di selezionare la luna >> nella corrente/meteo dettagliate finestra. Questa finestra mostrerà anche tempi di aggiornamento dei dati meteo.</para>
+      <para>Touching icon of a day brings up a window where you can see current weather or detailed forecast for a selected day. On the <display_text>Now</display_text> tab you can see current weather and phase of the moon. <display_text>Day</display_text> tabs will show weather forecast and sunrise/sunset times for a selected days.</para>
+      <para><display_text>Tool</display_text> button will open OMWeather settings dialog. <display_text>Refresh</display_text> button will update weather data, <display_text>Question mark</display_text> will open OMWeather info and <display_text>X</display_text> button closes weather dialog.</para>
     </topic>
     <topic>
       <topictitle>Chi OMWeather</topictitle>

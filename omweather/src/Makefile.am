@@ -56,7 +56,9 @@ libweather_home_la_SOURCES = weather-home.c \
 			     weather-sensor.h \
 			     weather-sensor.c \
 			     hildon_home_area.c \
-			     hildon_home_area.h
+			     hildon_home_area.h \
+			     weather-applet-expose.c \
+			     weather-applet-expose.h
 
 weather-hash.c:		hash.data
 	if test -f hash.data; then \

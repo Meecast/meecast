@@ -26,29 +26,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see <http://www.gnu.org/licenses>.
  */
-
+/*******************************************************************************/
+#ifdef OS2008
 #include "weather-applet-expose.h"
+/*******************************************************************************/
+static gboolean launcher_changed(OMWeather *applet){
+    applet->updateTimeout=0;
+    applet->queueRefresh=TRUE;
+    gtk_widget_queue_draw(GTK_WIDGET(applet));
 
-static gboolean launcher_changed(OMWeather *applet)
-{
-	applet->updateTimeout=0;
-	applet->queueRefresh=TRUE;
-	gtk_widget_queue_draw(GTK_WIDGET(applet));
-
-	return FALSE;
+    return FALSE;
 }
+/*******************************************************************************/
+gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 
-gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event)
-{
-
-	OMWeather *plugin = OMWEATHER(widget);
-	GdkDrawable	*drawable;
-	gint		x_offset, y_offset;
-	XRenderColor	color;
-	Picture		picture;
-	Picture		grip,mask;
-	gint		width,height;
-	XserverRegion	region;
+    OMWeather		*plugin = OMWEATHER(widget);
+    GdkDrawable		*drawable;
+    gint		x_offset,
+			y_offset;
+    XRenderColor	color;
+    Picture		picture;
+    Picture		grip,mask;
+    gint		width,height;
+    XserverRegion	region;
 	
 	if (GTK_WIDGET_DRAWABLE(widget) == FALSE) {
 		return FALSE;
@@ -117,3 +117,5 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event)
                 GTK_FRAME_GET_CLASS(widget)))->expose_event(widget, event);
 
 }
+#endif
+/*******************************************************************************/

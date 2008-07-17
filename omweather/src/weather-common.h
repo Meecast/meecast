@@ -266,7 +266,6 @@ extern	OMWeatherApp	*app;
 #ifdef OS2008 
 G_BEGIN_DECLS
 
-
 #define TYPE_OMWEATHER (omweather_get_type())
 #define OMWEATHER(obj)	(G_TYPE_CHECK_INSTANCE_CAST((obj), \
 			TYPE_OMWEATHER, OMWeather))

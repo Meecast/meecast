@@ -2,7 +2,6 @@
 Name=OMWeather
 Comment=World Weather
 Type=default
-X-Path=libpersonal-launcher.so
 X-Path=libweather-home.so
 X-home-applet-minwidth=64
 X-home-applet-minheight=64

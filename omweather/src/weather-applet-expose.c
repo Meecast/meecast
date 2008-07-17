@@ -27,14 +27,12 @@
  * along with this program; if not, see <http://www.gnu.org/licenses>.
  */
 /*******************************************************************************/
-#ifdef OS2008
+
 #include "weather-applet-expose.h"
+#ifdef OS2008
 /*******************************************************************************/
 static gboolean launcher_changed(OMWeather *applet){
-    applet->updateTimeout=0;
-    applet->queueRefresh=TRUE;
     gtk_widget_queue_draw(GTK_WIDGET(applet));
-
     return FALSE;
 }
 /*******************************************************************************/
@@ -49,7 +47,7 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
     Picture		grip,mask;
     gint		width,height;
     XserverRegion	region;
-	
+
 	if (GTK_WIDGET_DRAWABLE(widget) == FALSE) {
 		return FALSE;
 	}
@@ -107,15 +105,14 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 	XRenderFreePicture(GDK_DISPLAY(), picture);
 
 	if (plugin->queueRefresh)
-	{
-		redraw_home_window(TRUE);;
+	{	
+		redraw_home_window(TRUE);
 		plugin->queueRefresh=FALSE;
 	}
-
+	
         return GTK_WIDGET_CLASS(
             g_type_class_peek_parent(
                 GTK_FRAME_GET_CLASS(widget)))->expose_event(widget, event);
-
 }
 #endif
 /*******************************************************************************/

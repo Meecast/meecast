@@ -49,7 +49,6 @@ void free_memory(void);
 void menu_init(void);
 gboolean switch_timer_handler(gpointer data);
 gboolean expose_main_window(GtkWidget *widget, GdkEventExpose *event);
-gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
 gboolean remitted_update(void);
 GtkWidget* create_current_weather_simple_widget(GSList *current);
 GtkListStore* create_user_stations_list(void);

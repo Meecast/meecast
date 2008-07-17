@@ -733,6 +733,21 @@ void hildon_home_applet_lib_foreground(void *raw_data){
 #endif
 }
 /*******************************************************************************/
+GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent){
+    GtkWidget	*menu_item;
+
+    #ifndef RELEASE
+	fprintf(stderr, "\nOMWeather applet settings\n");
+    #endif
+    
+    menu_item = gtk_menu_item_new_with_label(_("OMWeather settings"));
+    g_signal_connect(menu_item, "activate",
+	    G_CALLBACK(weather_window_settings), NULL);
+
+    return menu_item;
+}
+
+/*******************************************************************************/
 void hildon_home_applet_lib_deinitialize(void *applet_data){
     osso_context_t *osso;
     gboolean check;

@@ -51,7 +51,7 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 	if (GTK_WIDGET_DRAWABLE(widget) == FALSE) {
 		return FALSE;
 	}
-
+	gtk_widget_set_size_request (GTK_WIDGET(widget), -1, -1);
 	gdk_window_get_internal_paint_info(widget->window, &drawable,
 			&x_offset, &y_offset);
 	

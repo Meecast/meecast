@@ -20,8 +20,12 @@
 
 
 # The Home plugin
-
+if OS2008 
+libhhdir = $(libdir)/hildon-desktop
+else
 libhhdir = $(libdir)/hildon-home
+endif
+
 libhh_LTLIBRARIES = libweather-home.la
 
 libweather_home_la_SOURCES = weather-home.c \

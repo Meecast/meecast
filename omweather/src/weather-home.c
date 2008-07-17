@@ -1799,6 +1799,7 @@ void omweather_init(OMWeather *applet)
     if (cm != NULL) {
 	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
     }
+    
 	
     gtk_container_add (GTK_CONTAINER (applet), app->top_widget);
 }

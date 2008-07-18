@@ -179,7 +179,7 @@ GtkWidget* create_time_updates_widget(GSList *current){
     return main_widget;
 }
 /*******************************************************************************/
-void weather_window_popup(GtkWidget *widget, GdkEvent *event,
+gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
                     	    				    gpointer user_data){
     GtkWidget	*window_popup = NULL,
 		*notebook = NULL,
@@ -209,7 +209,7 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 /* if no one station present in list show settings window */
     if(!app->config->current_station_id){
 	weather_window_settings(NULL, NULL, (gpointer)active_tab);
-	return;
+	return FALSE;
     }
 /* Main window */
     window_popup = gtk_window_new(GTK_WINDOW_TOPLEVEL);
@@ -303,7 +303,7 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 					    NULL,
 					    _("No weather data for this day."));
 	    gtk_widget_destroy(window_popup);
-	    return;
+	    return FALSE;
 	}
 	else{
 	    if(app->config->separate){
@@ -315,7 +315,7 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 							NULL,
 							_("No current weather data."));
 		        gtk_widget_destroy(window_popup);
-			return;
+			return FALSE;
 		    }
 		}
 	    }
@@ -339,6 +339,7 @@ void weather_window_popup(GtkWidget *widget, GdkEvent *event,
 /* Pack buttons to the vbox */
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE, FALSE, 0);
     gtk_widget_show_all(window_popup);
+    return FALSE;
 }
 /*******************************************************************************/
 /* For debug */

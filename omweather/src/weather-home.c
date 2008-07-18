@@ -146,7 +146,7 @@ static gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 	}
     }
     gtk_tree_path_free(path);
-    return TRUE;
+    return FALSE;
 }
 /*******************************************************************************/
 /* Change station to next at main display */
@@ -204,7 +204,7 @@ static gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
 	}
     }
     gtk_tree_path_free(path);
-    return TRUE;
+    return FALSE;
 }
 /*******************************************************************************/
 gboolean change_station_select(GtkWidget *widget, gpointer user_data){
@@ -219,7 +219,7 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
 	return FALSE;
 
     if(!strcmp((char*)user_data, app->config->current_station_id))
-	return TRUE;
+	return FALSE;
 
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);
@@ -251,7 +251,7 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
                                                         &iter);
     }
-    return TRUE;
+    return FALSE;
 }
 /*******************************************************************************/
 int calculate_offset_of_day(int count_day){
@@ -1803,6 +1803,71 @@ void omweather_init(OMWeather *applet)
     gtk_container_add (GTK_CONTAINER (applet), app->top_widget);
 }
 
+static void omweather_destroy(GtkObject *widget)
+{
+    
+    gboolean check;
+#ifndef RELEASE
+    fprintf(stderr, "\nOMWeather applet deinitialize\n");
+#endif
+    /* remove switch timer */
+    if(app->switch_timer > 0)
+	g_source_remove(app->switch_timer);
+    /* It is switch off the timer */	
+    check = g_source_remove(app->timer);
+    /* Clean the queue of event */ 
+    free_list_time_event();
+    /* If downloading then switch off it */
+    if(app->flag_updating != 0){
+	check = g_source_remove(app->flag_updating);
+	clean_download();
+    }
+    if(app->timer_for_os2008 != 0){
+    	check = g_source_remove(app->timer_for_os2008);
+    }
+    config_save(app->config); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
+			On n800 this work */
+    #ifdef USE_CONIC
+	if (app->connection)
+	    g_object_unref(app->connection);
+    #endif
+
+    /* remove sensor time */
+    if(app->sensor_timer > 0)
+	g_source_remove(app->sensor_timer);
+	deinitial_gps_connect();
+    
+    if(app){
+	app->top_widget = NULL;    
+	free_memory();
+	if(app->config)
+    	    g_free(app->config);
+	if(app->countrys_list){
+	    gtk_list_store_clear(app->countrys_list);
+	    g_object_unref(app->countrys_list);
+	}
+	if(app->regions_list){
+	    gtk_list_store_clear(app->regions_list);
+	    g_object_unref(app->regions_list);
+	}
+	if(app->stations_list){
+	    gtk_list_store_clear(app->stations_list);
+	    g_object_unref(app->stations_list);
+	}
+	if(app->time_update_list){
+	    gtk_list_store_clear(app->time_update_list);
+	    g_object_unref(app->time_update_list);
+	}
+	if(app->user_stations_list){
+	    gtk_list_store_clear(app->user_stations_list);
+	    g_object_unref(app->user_stations_list);
+	}
+    }
+    app && (g_free(app), app = NULL);
+
+    gtk_object_destroy(widget);
+}
+
 static void omweather_class_init(OMWeatherClass *klass)
 {
 	HildonDesktopHomeItemClass *applet_class;
@@ -1818,7 +1883,7 @@ static void omweather_class_init(OMWeatherClass *klass)
 
 	gtk_object_class = GTK_OBJECT_CLASS(klass);
 	applet_class->settings = settings_menu;
-
+	gtk_object_class->destroy = omweather_destroy;
 	widget_class->expose_event = expose_parent;
 }
 #endif

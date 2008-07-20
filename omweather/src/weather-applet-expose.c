@@ -4,6 +4,8 @@
  * Copyright (C) 2006-2008 Vlad Vasiliev
  * Copyright (C) 2006-2008 Pavel Fialko
  * 	for the code
+ * Copyryght (C) 2008 Andrew Olmsted 
+ *	for the semi-transparency and coloured backgrounds code
  *        
  * Copyright (C) 2008 Andrew Zhilin
  *		      az@pocketpcrussia.com 
@@ -27,7 +29,7 @@
  * along with this program; if not, see <http://www.gnu.org/licenses>.
  */
 /*******************************************************************************/
-
+#include <values.h>
 #include "weather-applet-expose.h"
 #ifdef OS2008
 /*******************************************************************************/
@@ -44,8 +46,6 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 			y_offset;
     XRenderColor	color;
     Picture		picture;
-    Picture		grip,mask;
-    gint		width,height;
     XserverRegion	region;
 
 	if (GTK_WIDGET_DRAWABLE(widget) == FALSE) {
@@ -62,12 +62,6 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 		return FALSE;
 	}
 	
-	hildon_desktop_picture_and_mask_from_file("/usr/share/omweather/grip.png",
-			&grip,
-			&mask,
-			&width,
-			&height);
-
 	if ((plugin->clip.x!=event->area.x - x_offset)||(plugin->clip.y!=event->area.y - y_offset)||(plugin->clip.width!=event->area.width)||(plugin->clip.height!=event->area.height))
 	{
 		if (!plugin->updateTimeout)
@@ -82,25 +76,19 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 
 	XFixesSetPictureClipRegion(GDK_DISPLAY(), picture, 0, 0, region);
 
-	color.red = color.blue = color.green = 0;
-	color.alpha = 0;
+
+	color.red = app->config->background_color.red;
+	color.blue = app->config->background_color.blue;
+	color.green = app->config->background_color.green;
+	color.alpha = app->config->alpha_comp;
+	if (app->config->alpha_comp == 0)
+	    color.alpha = color.red = color.blue = color.green = 0;
 
 	XRenderFillRectangle(GDK_DISPLAY(), PictOpSrc, picture, &color,
 			0, 0,
 			widget->allocation.width,
 			widget->allocation.height);
-
-	if (grip) {
-		XRenderComposite(GDK_DISPLAY(), PictOpSrc,
-				grip,
-				mask,
-				picture,
-				0, 0,
-				0, 0,
-				widget->allocation.width-width, widget->allocation.height-height,
-				widget->allocation.width, widget->allocation.height);
-	}
-
+			
 	XFixesDestroyRegion(GDK_DISPLAY(), region);
 	XRenderFreePicture(GDK_DISPLAY(), picture);
 

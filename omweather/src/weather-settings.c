@@ -992,9 +992,16 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     }
 /* transparency */
     transparency = lookup_widget(config_window, "transparency");
+#ifdef OS2008
+    if(transparency){
+	app->config->alpha_comp =
+		hildon_controlbar_get_value(HILDON_CONTROLBAR(transparency))*65535/100;
+    }
+#else
     if(transparency)
 	app->config->transparency = 
 		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(transparency));
+#endif		
 /* background color */
     background_color = lookup_widget(config_window, "background_color");
     if(background_color)
@@ -1718,6 +1725,7 @@ void combo_boxs_changed_handler(GtkComboBox *combobox, gpointer user_data){
 					    NULL, TRUE);
 	goto check;
     }
+    
     return;
 check:
 /* if previos state not equal current state than enable apply button */
@@ -1742,6 +1750,10 @@ void control_bars_changed_handler(HildonControlbar *control, gpointer user_data)
         something = app->config->icons_size;
 	goto check;
     }
+    if(!strcmp(control_name, "transparency")){
+        something = app->config->alpha_comp;
+	goto check;
+    }
     return;
 check:
 /* if previos state not equal current state than enable apply button */
@@ -1749,6 +1761,10 @@ check:
 	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
     else
 	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
 }
 /*******************************************************************************/
 GtkWidget* create_locations_tab(GtkWidget *window){
@@ -2235,14 +2251,24 @@ GtkWidget* create_interface_tab(GtkWidget *window){
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				gtk_label_new(_("Transparency:")),
 				0, 1, 9, 10);
-    transparency = gtk_check_button_new();
-    GLADE_HOOKUP_OBJECT(window, transparency, "transparency");
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),
+    #ifdef OS2008
+	transparency = hildon_controlbar_new();
+	hildon_controlbar_set_min(HILDON_CONTROLBAR(transparency), 0);
+	hildon_controlbar_set_max(HILDON_CONTROLBAR(transparency), 100);
+	hildon_controlbar_set_value(HILDON_CONTROLBAR(transparency), app->config->alpha_comp*100/65535);
+	fprintf(stderr,"test %i %i %i\n",app->config->alpha_comp,(int)app->config->alpha_comp*100/65535,hildon_controlbar_get_value(HILDON_CONTROLBAR(transparency))/100*65535);
+    #else
+	transparency = gtk_check_button_new();
+	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),
         			    app->config->transparency);
+    #endif
+    GLADE_HOOKUP_OBJECT(window, transparency, "transparency");
     gtk_widget_set_name(transparency, "transparency");
+/*    
     g_signal_connect(transparency, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
+*/			
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				transparency, 1, 2, 9, 10);
     /* Font family */
@@ -2286,21 +2312,35 @@ GtkWidget* create_interface_tab(GtkWidget *window){
     g_signal_connect(background_color, "color-set",
             		G_CALLBACK(color_buttons_changed_handler),
 			apply_button);
+#ifdef OS2008
+    g_signal_connect(transparency, "value-changed",
+            		G_CALLBACK(control_bars_changed_handler),
+			apply_button);
+#else
     g_signal_connect(GTK_TOGGLE_BUTTON(transparency), "toggled",
             		    G_CALLBACK(transparency_button_toggled_handler),
 			    background_color);
+			    
+#endif
     gtk_color_button_set_color(GTK_COLOR_BUTTON(background_color),
 				&(app->config->background_color));
+#ifdef OS2008    
+    gtk_widget_set_sensitive(background_color, TRUE);
+#else
     if(background_color && app->config->transparency)
         gtk_widget_set_sensitive(background_color, FALSE);	
     else
         gtk_widget_set_sensitive(background_color, TRUE);
+#endif
     gtk_button_set_relief(GTK_BUTTON(background_color), GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click(GTK_BUTTON(background_color), FALSE);
     gtk_table_attach(GTK_TABLE(interface_page), 
 				background_color, 1, 2, 12, 13,
 				GTK_SHRINK, GTK_SHRINK,
 				0, 0);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return interface_page;
 }
 /*******************************************************************************/

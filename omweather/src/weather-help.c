@@ -78,8 +78,11 @@ void create_about_dialog(void){
 	    _("\nCopyright(c) 2006-2008\n"
 	    "Vlad Vasiliev, Pavel Fialko"),
     	    _("\nCopyright(c) 2008\n"
-	    "for default icon set (Glance)\n"
-	    "Andrew Zhilin")
+	    "for default icon set (Glance) and design of interface\n"
+	    "Andrew Zhilin"),
+	    _("\nCopyright(c) 2008\n"
+	      "Andrew Olmsted\n"
+	      "for Semi-transparency and coloured backgrounds\n")
 	    );
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
@@ -91,7 +94,7 @@ void create_about_dialog(void){
 		"\tVlad Vasiliev, vlad@gas.by\n"
 		"Maintenance:\n\tPavel Fialko, pavelnf@gmail.com\n"
 		"Documentation:\n\tMarko Vertainen\n"
-		"Design of default iconset:\n\tAndrew Zhilin"));
+		"Design of default iconset and design of interface:\n\tAndrew Zhilin"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_scrolled_window_with_text(tmp_buff,
 						    GTK_JUSTIFY_LEFT),

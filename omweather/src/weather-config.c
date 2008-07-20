@@ -440,15 +440,16 @@ int read_config(AppletConfig *config){
          config->background_color = DEFAULT_FONT_COLOR; 
     g_free(tmp);
     tmp = NULL;
-
-    /* Get Enable Transparency flag. Default is TRUE. */
-    value = gconf_client_get(gconf_client, GCONF_KEY_ENABLE_TRANSPARENCY, NULL);
-    if(value){
-        config->transparency = gconf_value_get_bool(value);
-        gconf_value_free(value);
-    }
-    else
-        config->transparency = TRUE;
+    #ifndef OS2008
+	/* Get Enable Transparency flag. Default is TRUE. */
+	value = gconf_client_get(gconf_client, GCONF_KEY_ENABLE_TRANSPARENCY, NULL);
+	if(value){
+    	    config->transparency = gconf_value_get_bool(value);
+    	    gconf_value_free(value);
+	}
+	else
+    	    config->transparency = TRUE;
+    #endif    
     /* Get Split Button State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_SEPARATE_DATA, NULL);
     if(value){
@@ -466,25 +467,35 @@ int read_config(AppletConfig *config){
     }
     else
         config->use_sensor = FALSE;
-    /* Get display sensor at  */		     
+    /* Get display sensor at  */
     config->display_at = gconf_client_get_int(gconf_client,
         				    GCONF_KEY_DISPLAY_SENSOR_AT,
 					    NULL);
     if(config->display_at < ICON || config->display_at > STATION_NAME)
         config->display_at = STATION_NAME;
-    /* Get sensor update time  */		     
+    /* Get sensor update time  */
     config->sensor_update_time = gconf_client_get_int(gconf_client,
         				    GCONF_KEY_SENSOR_UPDATE_TIME,
 					    NULL);
     if(config->sensor_update_time < 1 || config->sensor_update_time > 9999)
         config->sensor_update_time = 1;
-/* start timer for read data from device temperature sensor */
+    /* start timer for read data from device temperature sensor */
     if(config->use_sensor){
 	read_sensor(0);
 	app->sensor_timer = g_timeout_add(config->sensor_update_time * 1000 * 60,
                                             (GtkFunction)read_sensor,
                                             GINT_TO_POINTER(1));
     }
+    /* Get value of transparence default 0 */
+    config->alpha_comp = gconf_client_get_int(gconf_client,
+                			    GCONF_KEY_ALPHA_COMPONENT,
+					    &gerror);
+    if(gerror || config->alpha_comp <= 0){
+	config->alpha_comp = 0;
+	if(gerror)
+	    g_error_free(gerror);
+    }
+
 #endif
     /* Get auto_downloading_after_connecting. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_DOWNLOADING_AFTER_CONNECTING, NULL);
@@ -812,6 +823,10 @@ void config_save(AppletConfig *config){
     gconf_client_set_bool(gconf_client,
         		    GCONF_KEY_USE_GPS_STATION,
 			    config->gps_station, NULL);
+    /* Save Alpha component */
+    gconf_client_set_int(gconf_client,
+        		    GCONF_KEY_ALPHA_COMPONENT,
+			    config->alpha_comp, NULL);
 #endif
      /* Save Swap Temperature Button State */
     gconf_client_set_bool(gconf_client,

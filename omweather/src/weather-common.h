@@ -181,6 +181,7 @@ typedef struct applet_config{
     gint	display_at;
     gboolean	use_sensor;
     guint	sensor_update_time;
+    guint 	alpha_comp;
 #endif
     guint	data_valid_interval;
     gboolean	transparency;

@@ -1223,6 +1223,14 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	gtk_box_pack_start((GtkBox*)station_box, station_name, TRUE, TRUE, 0);
     	gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
     }
+#ifdef OS2008
+    	if(previos_station_name_btn)
+	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
+	if(next_station_name_btn)
+	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(next_station_name_btn), FALSE);
+	if(station_name_btn)
+	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
+#else
 /* check config->transparency */
     if(transparency){
     	if(previos_station_name_btn)
@@ -1232,6 +1240,8 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	if(station_name_btn)
 	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
     }
+
+#endif
 /*    days_panel_with_buttons = gtk_hbox_new(FALSE, 0);*/
 /* attach buttons to header panel */
     if(previos_station_name_btn)
@@ -1480,10 +1490,13 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     new_day_button->button = gtk_event_box_new();
     gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK |
 						  GDK_BUTTON_PRESS_MASK);
+#ifdef OS2008
+    gtk_event_box_set_visible_window(GTK_EVENT_BOX(new_day_button->button), FALSE);
+#else
     set_background_color(new_day_button->button, color);
-    
     if(transparency)
-      gtk_event_box_set_visible_window(GTK_EVENT_BOX(new_day_button->button), FALSE);
+	gtk_event_box_set_visible_window(GTK_EVENT_BOX(new_day_button->button), FALSE);
+#endif
     /* create day label */
     if(draw_day_label){
 	new_day_button->label = gtk_label_new(NULL);

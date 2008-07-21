@@ -64,9 +64,9 @@ void create_about_dialog(void){
 /* About tab */
     snprintf(tmp_buff, sizeof(tmp_buff) - 1,
 #ifdef DISPLAY_BUILD
-	    "%s%s%s%s%s%s",
+	    "%s%s%s%s%s%s%s",
 #else
-	    "%s%s%s%s",
+	    "%s%s%s%s%s",
 #endif
 	    _("\nHildon desktop applet\n"
 	    "for Nokia 770/N800/N810\n"

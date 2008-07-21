@@ -1750,10 +1750,12 @@ void control_bars_changed_handler(HildonControlbar *control, gpointer user_data)
         something = app->config->icons_size;
 	goto check;
     }
+#ifdef OS2008
     if(!strcmp(control_name, "transparency")){
         something = app->config->alpha_comp;
 	goto check;
     }
+#endif
     return;
 check:
 /* if previos state not equal current state than enable apply button */

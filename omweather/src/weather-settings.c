@@ -2537,20 +2537,32 @@ GtkWidget* create_update_tab(GtkWidget *window){
 		*update_time = NULL,
 		*valid_time_list = NULL,
 		*apply_button = NULL,
-		*time_2switch_list = NULL;
+		*time_2switch_list = NULL,
+		*first_line = NULL,
+		*second_line = NULL,
+		*third_line = NULL,
+		*fourth_line = NULL,
+		*fifth_line = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     apply_button = lookup_widget(window, "apply_button");
-    update_page = gtk_table_new(5, 2, FALSE);
 /* Update tab */
+    update_page = gtk_vbox_new(FALSE, 0);
+    first_line = gtk_hbox_new(FALSE, 0);
+    second_line = gtk_hbox_new(FALSE, 0);
+    third_line = gtk_hbox_new(FALSE, 0);
+    fourth_line = gtk_hbox_new(FALSE, 0);
+    fifth_line = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(update_page), first_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(update_page), second_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(update_page), third_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(update_page), fourth_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(update_page), fifth_line, TRUE, TRUE, 0);
 /* auto download when connect */
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-        			gtk_label_new(_("Automatically update data\nwhen connecting to the Internet:")),
-        			0, 1, 0, 1);
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-				chk_downloading_after_connection = gtk_check_button_new(),
-        			1, 2, 0, 1);
+    gtk_box_pack_start(GTK_BOX(first_line),
+			chk_downloading_after_connection = gtk_check_button_new(),
+        		FALSE, FALSE, 5);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_downloading_after_connection),
         			    app->config->downloading_after_connecting);
     GLADE_HOOKUP_OBJECT(window, chk_downloading_after_connection,
@@ -2560,15 +2572,19 @@ GtkWidget* create_update_tab(GtkWidget *window){
     g_signal_connect(chk_downloading_after_connection, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
+    gtk_box_pack_start(GTK_BOX(first_line),
+			gtk_label_new(_("Automatically update data when connecting to the Internet")),
+                        FALSE, FALSE, 0);
 /* Switch time to the next station */
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-        			gtk_label_new(_("Switch to the next station after:")),
-        			0, 1, 1, 2);
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-				time_2switch_list = gtk_combo_box_new_text(),
-        			1, 2, 1, 2);
+    gtk_box_pack_start(GTK_BOX(second_line),
+        		gtk_label_new(_("Switch to the next station after:")),
+        		FALSE, FALSE, 20);
+    gtk_box_pack_end(GTK_BOX(second_line),
+			time_2switch_list = gtk_combo_box_new_text(),
+        		FALSE, TRUE, 20);
     GLADE_HOOKUP_OBJECT(window, time_2switch_list, "time2switch");
     gtk_widget_set_name(time_2switch_list, "time2switch");
+    gtk_widget_set_size_request(time_2switch_list, 300, -1);
     g_signal_connect(time_2switch_list, "changed",
             		G_CALLBACK(combo_boxs_changed_handler),
 			apply_button);
@@ -2591,14 +2607,15 @@ GtkWidget* create_update_tab(GtkWidget *window){
 	case 6: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 6); break;
     }
 /* Valid time */
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-        			gtk_label_new(_("Valid time for current weather:")),
-        			0, 1, 2, 3);
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-				valid_time_list = gtk_combo_box_new_text(),
-        			1, 2, 2, 3);
+    gtk_box_pack_start(GTK_BOX(third_line),
+        		gtk_label_new(_("Valid time for current weather:")),
+        		FALSE, FALSE, 20);
+    gtk_box_pack_end(GTK_BOX(third_line),
+			valid_time_list = gtk_combo_box_new_text(),
+        		FALSE, TRUE, 20);
     GLADE_HOOKUP_OBJECT(window, valid_time_list, "valid_time");
     gtk_widget_set_name(valid_time_list, "valid_time");
+    gtk_widget_set_size_request(valid_time_list, 300, -1);
     g_signal_connect(valid_time_list, "changed",
             		G_CALLBACK(combo_boxs_changed_handler),
 			apply_button);
@@ -2614,23 +2631,25 @@ GtkWidget* create_update_tab(GtkWidget *window){
 	case 8:  gtk_combo_box_set_active(GTK_COMBO_BOX(valid_time_list), 3); break;
     }
 /* Update interval */
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-        			gtk_label_new(_("Updating of weather data:")),
-        			0, 1, 3, 4);
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-				update_time = gtk_combo_box_new_text(),
-        			1, 2, 3, 4);
+    gtk_box_pack_start(GTK_BOX(fourth_line),
+        		gtk_label_new(_("Updating of weather data:")),
+        		FALSE, FALSE, 20);
+    gtk_box_pack_end(GTK_BOX(fourth_line),
+			update_time = gtk_combo_box_new_text(),
+        		FALSE, TRUE, 20);
     GLADE_HOOKUP_OBJECT(window, update_time, "update_time");
     gtk_widget_set_name(update_time, "update_time");
+    gtk_widget_set_size_request(update_time, 300, -1);
     g_signal_connect(update_time, "changed",
             		G_CALLBACK(combo_boxs_changed_handler),
 			apply_button);
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-        			gtk_label_new(_("Next update:")),
-        			0, 1, 5, 6);
-    gtk_table_attach_defaults(GTK_TABLE(update_page),
-				time_update_label = gtk_label_new(NULL),
-        			1, 2, 5, 6);
+    gtk_box_pack_start(GTK_BOX(fifth_line),
+        		gtk_label_new(_("Next update:")),
+        		FALSE, FALSE, 20);
+    gtk_box_pack_end(GTK_BOX(fifth_line),
+			time_update_label = gtk_label_new(NULL),
+        		FALSE, TRUE, 20);
+    gtk_widget_set_size_request(time_update_label, 300, -1);
     g_signal_connect(update_time, "changed",
                 	G_CALLBACK(update_iterval_changed_handler), time_update_label);
 /* Fill update time box */

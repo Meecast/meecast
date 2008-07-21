@@ -2265,14 +2265,12 @@ GtkWidget* create_interface_tab(GtkWidget *window){
 	transparency = gtk_check_button_new();
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),
         			    app->config->transparency);
+        g_signal_connect(transparency, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			window);
     #endif
     GLADE_HOOKUP_OBJECT(window, transparency, "transparency");
     gtk_widget_set_name(transparency, "transparency");
-/*    
-    g_signal_connect(transparency, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			window);
-*/			
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				transparency, 1, 2, 9, 10);
     /* Font family */

@@ -212,7 +212,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
 			*station_code = NULL;
     GtkTreeModel	*model;
     GtkTreeSelection	*selection;
-    gboolean		valid;
+    gboolean		valid = FALSE;
     gint		result = GTK_RESPONSE_NONE;
     GtkTreePath		*path;
     guint		station_source = -1;
@@ -245,8 +245,8 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
     selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
     if( !gtk_tree_selection_get_selected(selection, NULL, &iter) )
 	return;
- 
-    gtk_tree_model_get(model, &iter, 0, &station_selected, -1); 
+
+    gtk_tree_model_get(model, &iter, 0, &station_selected, -1);
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);
     while(valid){
@@ -323,6 +323,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
         	    /* update current station name */
         	    if(app->config->current_station_name)
             	        g_free(app->config->current_station_name);
+
         	    app->config->current_station_name = station_name;
         	    app->config->previos_days_to_show = app->config->days_to_show;
 		    app->config->current_station_source = station_source;
@@ -342,7 +343,7 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
 		    app->config->current_station_source = -1;
 		    /* clear rename field */
 		    if(rename_entry)
-			gtk_entry_set_text(GTK_ENTRY(rename_entry), "");
+			gtk_entry_set_text((GtkEntry*)rename_entry, "");
 		    break;
 		}
 	    }
@@ -1187,15 +1188,16 @@ void entry_changed_handler(GtkWidget *entry, gpointer user_data){
 
     if(!changed_entry_name)
         return;
-        
+
     if( !strcmp(changed_entry_name, "rename_entry") ){/* check rename entry */
 	button = lookup_widget(config_window, "apply_rename_button_name");
 	if(button){
-	    if(strcmp((char*)gtk_entry_get_text(GTK_ENTRY(entry)),
-			app->config->current_station_name))
-		gtk_widget_set_sensitive(button, TRUE);
-	    else
-		gtk_widget_set_sensitive(button, FALSE);
+	    if(strlen(gtk_entry_get_text(GTK_ENTRY(entry))) > 0)
+		if(strcmp((char*)gtk_entry_get_text(GTK_ENTRY(entry)),
+			    app->config->current_station_name))
+		    gtk_widget_set_sensitive(button, TRUE);
+		else
+		    gtk_widget_set_sensitive(button, FALSE);
 	}
     }
     else{

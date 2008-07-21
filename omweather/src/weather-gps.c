@@ -68,9 +68,8 @@ get_nearest_station( double lat, double lon, Station *result)
         parse_region_string(buffer,&region);
 	/* Checking insiding point in to region */
         if ( lat >= region.minlat && lat <= region.maxlat && lon >= region.minlon && lon <= region.maxlon){
-	    filename[0] = 0;
-	    snprintf(filename,sizeof(filename) - 1,"%s%s",weather_sources[app->config->weather_source].db_path,LOCATIONSFILE);
-            stations_list = create_items_list(filename, region.start,region.end, NULL);
+            stations_list = create_items_list(weather_sources[app->config->weather_source].db_path,
+			    LOCATIONSFILE, region.start, region.end, NULL);
             valid =  gtk_tree_model_get_iter_first(GTK_TREE_MODEL(stations_list), &iter);
             
             while (valid){
@@ -83,7 +82,6 @@ get_nearest_station( double lat, double lon, Station *result)
                 		                -1);
 		/* Calculating distance */				
 		distance = calculate_distance(lat,lon,station_latitude,station_longtitude);
-
 		if (distance<min_distance){
 
 		    /* New minimal distance */
@@ -156,6 +154,7 @@ initial_gps_connect(void)
 #endif
     app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
     app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
+    
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif    

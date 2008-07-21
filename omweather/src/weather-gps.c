@@ -38,6 +38,7 @@ get_nearest_station( double lat, double lon, Station *result)
 {
     FILE		*fh;
     char		buffer[512];
+    char		filename[4096];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -52,10 +53,11 @@ get_nearest_station( double lat, double lon, Station *result)
                  distance,
 		 min_distance = 40000;
 
-
-    fh = fopen(REGIONSFILE, "rt");
+    filename[0] = 0;
+    snprintf(filename, sizeof(filename) - 1,"%s%s",weather_sources[app->config->weather_source].db_path,REGIONSFILE);
+    fh = fopen(filename, "rt");
     if(!fh){
-	fprintf(stderr, "\nCan't read file %s: %s", REGIONSFILE,
+	fprintf(stderr, "\nCan't read file %s: %s", filename,
 		strerror(errno));
 	return;
     }
@@ -66,8 +68,9 @@ get_nearest_station( double lat, double lon, Station *result)
         parse_region_string(buffer,&region);
 	/* Checking insiding point in to region */
         if ( lat >= region.minlat && lat <= region.maxlat && lon >= region.minlon && lon <= region.maxlon){
-	    
-            stations_list = create_items_list(LOCATIONSFILE, region.start,region.end, NULL);
+	    filename[0] = 0;
+	    snprintf(filename,sizeof(filename) - 1,"%s%s",weather_sources[app->config->weather_source].db_path,LOCATIONSFILE);
+            stations_list = create_items_list(filename, region.start,region.end, NULL);
             valid =  gtk_tree_model_get_iter_first(GTK_TREE_MODEL(stations_list), &iter);
             
             while (valid){

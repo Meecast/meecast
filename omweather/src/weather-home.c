@@ -738,7 +738,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     gboolean check;
     
 #ifndef RELEASE
-    fprintf(stderr, "\nOMWeather applet deinitialize\n");
+    fprintf(stderr, "\nOMWeather applet deinitialize1\n");
 #endif
     /* remove switch timer */
     if(app->switch_timer > 0)
@@ -1538,19 +1538,19 @@ void delete_weather_day_button(WDB **day){
     START_FUNCTION;
 #endif
     if(*day){
-	if( (*day)->icon_image ){
+	if((*day)->icon_image && GTK_IS_WIDGET((*day)->icon_image)){
 	    gtk_widget_destroy( (*day)->icon_image );
 	    (*day)->icon_image = NULL;
 	}
-	if( (*day)->label ){
+	if((*day)->label && GTK_IS_WIDGET((*day)->label)){
 	    gtk_widget_destroy( (*day)->label );    
 	    (*day)->label = NULL;
 	}    
-	if( (*day)->box ){
+	if((*day)->box && GTK_IS_WIDGET((*day)->box)){
 	    gtk_widget_destroy( (*day)->box );
 	    (*day)->box = NULL;
 	}    
-	if( (*day)->button ){
+	if((*day)->button && GTK_IS_WIDGET((*day)->button)){
 	    gtk_widget_destroy( (*day)->button );
 	    (*day)->button = NULL;
 	}    
@@ -1715,9 +1715,9 @@ void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 #ifdef OS2008
 GtkWidget* settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent)
 {
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
     GtkWidget	*menu_item;
 
@@ -1821,13 +1821,16 @@ static void omweather_destroy(GtkObject *widget)
     
     gboolean check;
 #ifndef RELEASE
-    fprintf(stderr, "\nOMWeather applet deinitialize\n");
+    fprintf(stderr, "\nOMWeather applet deinitialize2\n");
 #endif
+    if (!app)
+	return;
     /* remove switch timer */
     if(app->switch_timer > 0)
 	g_source_remove(app->switch_timer);
     /* It is switch off the timer */	
-    check = g_source_remove(app->timer);
+    if(app->timer > 0)
+	check = g_source_remove(app->timer);
     /* Clean the queue of event */ 
     free_list_time_event();
     /* If downloading then switch off it */
@@ -1848,7 +1851,8 @@ static void omweather_destroy(GtkObject *widget)
     /* remove sensor time */
     if(app->sensor_timer > 0)
 	g_source_remove(app->sensor_timer);
-	deinitial_gps_connect();
+    
+    deinitial_gps_connect();
     
     if(app){
 	app->top_widget = NULL;    
@@ -1876,8 +1880,9 @@ static void omweather_destroy(GtkObject *widget)
 	    g_object_unref(app->user_stations_list);
 	}
     }
+    
     app && (g_free(app), app = NULL);
-
+    
     gtk_object_destroy(widget);
 }
 

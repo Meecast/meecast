@@ -213,6 +213,10 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     }
 /* Main window */
     window_popup = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    
+    if (app->config->ui_background_color_on)
+	set_background_color(window_popup, &(app->config->ui_background_color));
+
     g_object_set_data(G_OBJECT(window_popup), "active_tab", (gpointer)active_tab);
     gtk_window_fullscreen(GTK_WINDOW(window_popup));
     /* create frame vbox */    
@@ -290,6 +294,14 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     g_signal_connect(G_OBJECT(close_button), "button_press_event",
                         G_CALLBACK(popup_close_button_handler),
 			(gpointer)window_popup);
+
+/* Change background color on buttons */
+    if (app->config->ui_background_color_on){
+	set_background_color(close_button, &(app->config->ui_background_color));
+	set_background_color(settings_button, &(app->config->ui_background_color));
+	set_background_color(refresh_button, &(app->config->ui_background_color));	
+	set_background_color(about_button, &(app->config->ui_background_color));	
+    }			
 /* Pack buttons to the buttons box */
     gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, FALSE, FALSE, 60);
     gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 5);

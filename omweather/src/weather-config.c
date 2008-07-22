@@ -432,6 +432,11 @@ int read_config(AppletConfig *config){
 	g_free(tmp);
     }
 
+    /* Get UI background color */
+    config->ui_background_color_on = TRUE;
+    config->ui_background_color.red = 0xCCCC;
+    config->ui_background_color.blue = 0xCCCC;
+    config->ui_background_color.green = 0xCCCC;
     /* Get background color. */
     tmp = NULL;
     tmp = gconf_client_get_string(gconf_client,

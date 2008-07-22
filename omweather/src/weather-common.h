@@ -194,6 +194,8 @@ typedef struct applet_config{
     gboolean	show_wind;
     GdkColor	font_color;
     GdkColor	background_color;
+    GdkColor	ui_background_color;
+    gboolean	ui_background_color_on;
 }AppletConfig;
 /*******************************************************************************/
 typedef struct OMWeatherApplet{

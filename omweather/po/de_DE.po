@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-07-06 12:59+0300\n"
-"PO-Revision-Date: 2008-07-20 18:45+0100\n"
+"PO-Revision-Date: 2008-07-22 19:30+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
 "MIME-Version: 1.0\n"
@@ -88,7 +88,7 @@ msgid ""
 "FL: "
 msgstr ""
 "\n"
-"FL: "
+"GT: "
 
 #: src/weather-help.c:71
 msgid ""
@@ -121,7 +121,7 @@ msgid ""
 "P: "
 msgstr ""
 "\n"
-"P: "
+"L: "
 
 #: src/weather-home.c:1013
 msgid ""
@@ -129,7 +129,7 @@ msgid ""
 "V: "
 msgstr ""
 "\n"
-"V: "
+"S: "
 
 #: src/weather-home.c:1043
 msgid ""
@@ -141,15 +141,15 @@ msgstr ""
 
 #: src/weather-help.c:76
 msgid " Build: "
-msgstr " Build:"
+msgstr " Build: "
 
 #: src/weather-home.c:1051
 msgid " G: "
-msgstr "B:"
+msgstr " B: "
 
 #: src/weather-home.c:1005
 msgid " H: "
-msgstr " H: "
+msgstr " F: "
 
 #: src/weather-settings.c:2563
 msgid "1 hour"

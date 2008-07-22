@@ -30,6 +30,7 @@
  */
 /*******************************************************************************/
 #include <values.h>
+#include <cairo.h>
 #include "weather-applet-expose.h"
 #ifdef OS2008
 /*******************************************************************************/
@@ -38,6 +39,7 @@ static gboolean launcher_changed(OMWeather *applet){
     return FALSE;
 }
 /*******************************************************************************/
+
 gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 
     OMWeather		*plugin = OMWEATHER(widget);
@@ -47,6 +49,9 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
     XRenderColor	color;
     Picture		picture;
     XserverRegion	region;
+    cairo_t *cr;
+    gint radius=15;
+    gint o=0;
 
 	if (GTK_WIDGET_DRAWABLE(widget) == FALSE) {
 		return FALSE;
@@ -77,6 +82,14 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 	XFixesSetPictureClipRegion(GDK_DISPLAY(), picture, 0, 0, region);
 
 
+	color.red = color.blue = color.green = 0;
+	color.alpha = 0;
+
+	XRenderFillRectangle(GDK_DISPLAY(), PictOpSrc, picture, &color,
+			0, 0,
+			widget->allocation.width,
+			widget->allocation.height);
+	
 	color.red = app->config->background_color.red;
 	color.blue = app->config->background_color.blue;
 	color.green = app->config->background_color.green;
@@ -84,10 +97,19 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 	if (app->config->alpha_comp == 0)
 	    color.alpha = color.red = color.blue = color.green = 0;
 
-	XRenderFillRectangle(GDK_DISPLAY(), PictOpSrc, picture, &color,
-			0, 0,
-			widget->allocation.width,
-			widget->allocation.height);
+	cr=gdk_cairo_create(drawable);
+	cairo_set_source_rgba(cr,app->config->background_color.red/(MAXSHORT*2+1),app->config->background_color.blue/(MAXSHORT*2+1),app->config->background_color.green/(MAXSHORT*2+1),(double)app->config->alpha_comp/100);
+printf("alpha: %f\n",(double)app->config->alpha_comp/100);
+	cairo_move_to(cr,plugin->clip.x+radius+o,plugin->clip.y+o);
+	cairo_line_to(cr,plugin->clip.x+plugin->clip.width-radius,plugin->clip.y+o);
+	cairo_curve_to(cr,plugin->clip.x+plugin->clip.width-radius-o,plugin->clip.y+o,plugin->clip.x+plugin->clip.width,plugin->clip.y,plugin->clip.x+plugin->clip.width-o,plugin->clip.y+radius+o);
+	cairo_line_to(cr,plugin->clip.x+plugin->clip.width-o,plugin->clip.y+plugin->clip.height-radius-o);
+	cairo_curve_to(cr,plugin->clip.x+plugin->clip.width-o,plugin->clip.y+plugin->clip.height-o-radius,plugin->clip.x+plugin->clip.width,plugin->clip.y+plugin->clip.height,plugin->clip.x+plugin->clip.width-o-radius,plugin->clip.y+plugin->clip.height-o);
+	cairo_line_to(cr,plugin->clip.x+radius+o,plugin->clip.y+plugin->clip.height-o);
+	cairo_curve_to(cr,plugin->clip.x+o+radius,plugin->clip.y+plugin->clip.height-o,plugin->clip.x,plugin->clip.y+plugin->clip.height,plugin->clip.x+o,plugin->clip.y+plugin->clip.height-o-radius);
+	cairo_line_to(cr,plugin->clip.x+o,plugin->clip.y+o+radius);
+	cairo_curve_to(cr,plugin->clip.x+o,plugin->clip.y+o+radius,plugin->clip.x,plugin->clip.y,plugin->clip.x+o+radius,plugin->clip.y+o);
+	cairo_fill(cr);
 			
 	XFixesDestroyRegion(GDK_DISPLAY(), region);
 	XRenderFreePicture(GDK_DISPLAY(), picture);

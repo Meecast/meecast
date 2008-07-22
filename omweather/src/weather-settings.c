@@ -996,7 +996,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef OS2008
     if(transparency){
 	app->config->alpha_comp =
-		hildon_controlbar_get_value(HILDON_CONTROLBAR(transparency))*65535/100;
+		hildon_controlbar_get_value(HILDON_CONTROLBAR(transparency));
     }
 #else
     if(transparency)
@@ -2259,8 +2259,8 @@ GtkWidget* create_interface_tab(GtkWidget *window){
 	transparency = hildon_controlbar_new();
 	hildon_controlbar_set_min(HILDON_CONTROLBAR(transparency), 0);
 	hildon_controlbar_set_max(HILDON_CONTROLBAR(transparency), 100);
-	hildon_controlbar_set_value(HILDON_CONTROLBAR(transparency), app->config->alpha_comp*100/65535);
-	fprintf(stderr,"test %i %i %i\n",app->config->alpha_comp,(int)app->config->alpha_comp*100/65535,hildon_controlbar_get_value(HILDON_CONTROLBAR(transparency))/100*65535);
+	hildon_controlbar_set_value(HILDON_CONTROLBAR(transparency), app->config->alpha_comp);
+	fprintf(stderr,"test %i %i %i\n",app->config->alpha_comp,(int)app->config->alpha_comp,hildon_controlbar_get_value(HILDON_CONTROLBAR(transparency)));
     #else
 	transparency = gtk_check_button_new();
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),

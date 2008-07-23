@@ -342,7 +342,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	gtk_box_pack_start(GTK_BOX(vbox),
 			label = gtk_label_new(_("No weather data for this station.")),
 			TRUE, TRUE, 0);
-	set_font(label, NULL, 64);
+	set_font(label, NULL, 24);
     }
 /* Show copyright widget */
     gtk_box_pack_start(GTK_BOX(vbox),

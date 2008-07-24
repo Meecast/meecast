@@ -98,8 +98,8 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 	    color.alpha = color.red = color.blue = color.green = 0;
 
 	cr=gdk_cairo_create(drawable);
-	cairo_set_source_rgba(cr,app->config->background_color.red/(MAXSHORT*2+1),app->config->background_color.blue/(MAXSHORT*2+1),app->config->background_color.green/(MAXSHORT*2+1),(double)app->config->alpha_comp/100);
-printf("alpha: %f\n",(double)app->config->alpha_comp/100);
+	cairo_set_source_rgba(cr,(double)app->config->background_color.red/(MAXSHORT*2+1),(double)app->config->background_color.green/(MAXSHORT*2+1),(double)app->config->background_color.blue/(MAXSHORT*2+1),(double)app->config->alpha_comp/100);
+
 	cairo_move_to(cr,plugin->clip.x+radius+o,plugin->clip.y+o);
 	cairo_line_to(cr,plugin->clip.x+plugin->clip.width-radius,plugin->clip.y+o);
 	cairo_curve_to(cr,plugin->clip.x+plugin->clip.width-radius-o,plugin->clip.y+o,plugin->clip.x+plugin->clip.width,plugin->clip.y,plugin->clip.x+plugin->clip.width-o,plugin->clip.y+radius+o);

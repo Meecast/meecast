@@ -175,7 +175,7 @@ helpfile_frfrdir=$datadir/osso-help/fr_FR
 AC_SUBST(helpfile_frfrdir)
 helpfile_ititdir=$datadir/osso-help/it_IT
 AC_SUBST(helpfile_ititdir)
-helpfile_ititdir=$datadir/osso-help/de_DE
+helpfile_dededir=$datadir/osso-help/de_DE
 AC_SUBST(helpfile_dededir)
 
 dnl Config files

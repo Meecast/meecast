@@ -500,7 +500,15 @@ int read_config(AppletConfig *config){
 	if(gerror)
 	    g_error_free(gerror);
     }
-
+	/* Get value of corner radius. Default is 0 */
+	config->corner_radius = gconf_client_get_int(gconf_client,
+								GCONF_KEY_CORNER_RADIUS,
+						&gerror);
+	if (gerror || config->corner_radius <=0){
+	config->corner_radius = 0;
+	if (gerror)
+		g_error_free(gerror);
+	}
 #endif
     /* Get auto_downloading_after_connecting. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_DOWNLOADING_AFTER_CONNECTING, NULL);
@@ -832,6 +840,10 @@ void config_save(AppletConfig *config){
     gconf_client_set_int(gconf_client,
         		    GCONF_KEY_ALPHA_COMPONENT,
 			    config->alpha_comp, NULL);
+	/* Save Corner Radius */
+	gconf_client_set_int(gconf_client,
+					GCONF_KEY_CORNER_RADIUS,
+				config->corner_radius, NULL);
 #endif
      /* Save Swap Temperature Button State */
     gconf_client_set_bool(gconf_client,

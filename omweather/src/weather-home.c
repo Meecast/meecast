@@ -1278,6 +1278,9 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	    days_panel = gtk_table_new(Max_count_weather_day, 2, FALSE);
 	break;
     }
+/* add padding around the outside of the container so the text
+ * is not right to the very edge */
+    gtk_container_set_border_width(GTK_CONTAINER(days_panel),10);
 /* attach days buttons */
     tmp = app->buttons;
     for(n = 0, x = 0, y = 0; n < total_elements; n++, x++){

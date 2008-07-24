@@ -182,6 +182,7 @@ typedef struct applet_config{
     gboolean	use_sensor;
     guint	sensor_update_time;
     guint 	alpha_comp;
+    guint	corner_radius;
 #endif
     guint	data_valid_interval;
     gboolean	transparency;

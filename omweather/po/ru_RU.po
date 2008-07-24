@@ -1318,7 +1318,7 @@ msgstr "в две строки"
 
 #: src/weather-settings.c:742
 msgid "Units"
-msgstr "Единицы измерения"
+msgstr "Единицы"
 
 #: src/weather-popup.c:151 src/weather-popup.c:164
 msgid "Unknown"

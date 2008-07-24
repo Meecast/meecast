@@ -621,7 +621,7 @@ void update_weather(gboolean show_update_window){
 #ifndef OS2008
 void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
-    osso_context_t	*osso;
+    osso_context_t	*osso = NULL;
 
 #ifdef OS2008
     char       tmp_buff[2048];
@@ -1740,13 +1740,23 @@ void omweather_init(OMWeather *applet)
     gchar *conf_file;
 
     char       tmp_buff[2048];
+    osso_context_t	*osso = NULL;
 
+    osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
+    if(!osso){
+        g_debug(_("Error initializing the OMWeather applet"));
+        return NULL;
+    }
+    
     app = g_new0(OMWeatherApp, 1);
     if(!app){
 	fprintf(stderr, "\nCan not allocate memory for applet.\n");
 	return;
     }
     memset(app, 0, sizeof(OMWeatherApp));
+
+    app->osso = osso;
+
 /* prepare config struct */
     app->config = g_new0(AppletConfig, 1);
     if(!app->config){

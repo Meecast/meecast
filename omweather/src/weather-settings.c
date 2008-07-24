@@ -1938,9 +1938,30 @@ GtkWidget* create_locations_tab(GtkWidget *window){
     left_table = gtk_table_new(3, 2, FALSE);
     gtk_box_pack_start(GTK_BOX(left_right_hbox), left_table,
 			TRUE, TRUE, 0);
+/* Rename station entry */
+    rename_entry = gtk_entry_new();
+    GLADE_HOOKUP_OBJECT(window, rename_entry, "rename_entry");
+    gtk_widget_set_name(rename_entry, "rename_entry");
+    g_signal_connect(G_OBJECT(rename_entry), "changed",
+			G_CALLBACK(entry_changed_handler),
+			(gpointer)window);
+
     gtk_table_attach_defaults(GTK_TABLE(left_table), 
-				gtk_label_new(_("Arrange")),
+				rename_entry,
 				0, 1, 0, 1);
+/* Rename apply button */
+    apply_rename_button =
+	    create_button_with_image(BUTTON_ICONS, "apply", 30, FALSE);
+    GLADE_HOOKUP_OBJECT(window, apply_rename_button , "apply_rename_button_name");
+    gtk_widget_set_name(apply_rename_button, "apply_rename_button");
+    g_signal_connect(G_OBJECT(apply_rename_button), "button_press_event",
+                	G_CALLBACK(rename_button_handler),
+			(gpointer)window);
+    gtk_table_attach_defaults(GTK_TABLE(left_table), 
+				apply_rename_button,
+				1, 2, 0, 1);
+    gtk_widget_set_sensitive(GTK_WIDGET(apply_rename_button), FALSE);
+
     /* Stations list */
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);
     gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
@@ -1955,13 +1976,13 @@ GtkWidget* create_locations_tab(GtkWidget *window){
                 	GTK_WIDGET(station_list_view));
     gtk_table_attach_defaults(GTK_TABLE(left_table), 
 				scrolled_window,
-                    		0, 1, 2, 3);
+                    		0, 1, 1, 2);
     
 /* Up Station and Down Station and Delete Station Buttons */
     up_down_delete_buttons_vbox = gtk_vbox_new(FALSE, 5);
     gtk_table_attach_defaults(GTK_TABLE(left_table), 
 				up_down_delete_buttons_vbox,
-                    		1, 2, 2, 3);
+                    		1, 2, 1, 2);
 /* prepare up_station_button */    
     up_station_button = create_button_with_image(NULL, "qgn_indi_arrow_up", 16, TRUE);
     gtk_widget_set_size_request(GTK_WIDGET(up_station_button), 30, -1);
@@ -1987,30 +2008,19 @@ GtkWidget* create_locations_tab(GtkWidget *window){
                         FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(up_down_delete_buttons_vbox), down_station_button,
                         TRUE, TRUE, 0);
-/* Rename station entry */
-    rename_entry = gtk_entry_new();
-    GLADE_HOOKUP_OBJECT(window, rename_entry, "rename_entry");
-    gtk_widget_set_name(rename_entry, "rename_entry");
-    g_signal_connect(G_OBJECT(rename_entry), "changed",
-			G_CALLBACK(entry_changed_handler),
+#ifdef OS2008
+/* GPS */
+    gtk_table_attach_defaults(GTK_TABLE(left_table),
+				chk_gps = gtk_check_button_new_with_label(_("Enable GPS")),
+				0, 1, 2, 3);
+    GLADE_HOOKUP_OBJECT(window, chk_gps, "enable_gps");
+    gtk_widget_set_name(chk_gps, "enable_gps");
+    g_signal_connect(chk_gps, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
 			(gpointer)window);
-
-    gtk_table_attach_defaults(GTK_TABLE(left_table), 
-				rename_entry,
-				0, 1, 1, 2);
-/* Rename apply button */
-    apply_rename_button =
-	    create_button_with_image(BUTTON_ICONS, "apply", 30, FALSE);
-    GLADE_HOOKUP_OBJECT(window, apply_rename_button , "apply_rename_button_name");
-    gtk_widget_set_name(apply_rename_button, "apply_rename_button");
-    g_signal_connect(G_OBJECT(apply_rename_button), "button_press_event",
-                	G_CALLBACK(rename_button_handler),
-			(gpointer)window);
-    gtk_table_attach_defaults(GTK_TABLE(left_table), 
-				apply_rename_button,
-				1, 2, 1, 2);
-    gtk_widget_set_sensitive(GTK_WIDGET(apply_rename_button), FALSE);
-
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_gps),
+        			    app->config->gps_station);
+#endif
     /* right side */
     right_table = gtk_table_new(10, 3, FALSE);
     gtk_box_pack_start(GTK_BOX(left_right_hbox), right_table,
@@ -2091,22 +2101,7 @@ GtkWidget* create_locations_tab(GtkWidget *window){
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				add_station_button1,
 				2, 3, 3, 4);
-#ifdef OS2008
-/* GPS */
-    gtk_table_attach_defaults(GTK_TABLE(right_table), 
-				gtk_label_new(_("Enable GPS:")),
-                    		0, 1, 4, 5);
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-				chk_gps = gtk_check_button_new(),
-				1, 2, 4, 5);
-    GLADE_HOOKUP_OBJECT(window, chk_gps, "enable_gps");
-    gtk_widget_set_name(chk_gps, "enable_gps");
-    g_signal_connect(chk_gps, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)window);
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_gps),
-        			    app->config->gps_station);
-#endif
+
     /* Label */
     gtk_table_attach_defaults(GTK_TABLE(right_table), 
 				gtk_label_new(_("From the list:")),

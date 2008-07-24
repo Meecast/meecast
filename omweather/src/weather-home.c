@@ -520,7 +520,7 @@ void draw_home_window(gint count_day){
 	add_item2object(&(app->buttons),
 			create_sensor_icon_widget(icon_size,
 						    app->config->transparency,
-						    -1,
+						    TRUE,
 						    &(app->config->background_color)));
 #endif
     if(app->config->current_station_id)

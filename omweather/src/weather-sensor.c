@@ -187,7 +187,7 @@ void read_sensor(gint need_redraw){
 }
 /*******************************************************************************/
 WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,
-						char font_size, GdkColor *color){
+				    gboolean draw_day_label, GdkColor *color){
     gchar	buffer[256],
 		buffer_icon[256];
     
@@ -207,7 +207,7 @@ WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,
     buffer_icon[0] = 0;
     snprintf(buffer_icon, sizeof(buffer_icon) - 1, "%ssensor.png", BUTTON_ICONS);
     return create_weather_day_button(buffer, buffer_icon, icon_size,
-						font_size, transparency, color);
+					transparency, draw_day_label, color);
 }
 /*******************************************************************************/
 #endif

@@ -97,9 +97,8 @@ extern float mb2inch(float pressure);
 extern gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
 #if defined(OS2008) || defined(DEBUGTEMP)
 extern void read_sensor(gint need_redraw);
-extern WDB* create_sensor_icon_widget(const int icon_size,
-					    gboolean transparency,
-					    char font_size, GdkColor *color);
+extern WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,
+				gboolean draw_day_label, GdkColor *color);
 #endif
 extern void free_list_time_event(void);
 extern void event_add(time_t time_value, short int type_event);

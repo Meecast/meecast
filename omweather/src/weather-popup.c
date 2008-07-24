@@ -427,7 +427,7 @@ void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 }
 /*******************************************************************************/
 GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
-    const gint	font_size = 16;
+    const gint	font_size = 14;
     GtkWidget	*main_widget = NULL,
 		*day_night_hbox = NULL,
 		*day_vbox = NULL,

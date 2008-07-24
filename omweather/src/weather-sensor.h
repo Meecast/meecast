@@ -37,12 +37,12 @@ void display_group_change_handler(GtkRadioButton *button, gpointer user_data);
 int check_entry_text(GtkEntry *entry, gboolean display_error);
 void read_sensor(gint need_redraw);
 WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,
-					char font_size, GdkColor *color);
+				gboolean draw_day_label, GdkColor *color);
 /*******************************************************************************/
 extern void redraw_home_window(gboolean first_start);
 extern WDB* create_weather_day_button(const char *text, const char *icon,
-				const int icon_size, gboolean transparency,
-						char font_size, GdkColor *color);
+				const gint icon_size, gboolean transparency,
+				gboolean draw_day_label, GdkColor *color);
 extern float c2f(float temp);
 extern void check_buttons_changed_handler(GtkToggleButton *button,
 							    gpointer user_data);

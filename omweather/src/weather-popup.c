@@ -201,6 +201,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
                 current_data_last_update = 0;
     GSList	*tmp = NULL,
 		*day = NULL;
+    GtkStyle	*style = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -229,6 +230,23 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     set_font(label, NULL, 28);
 /* create tabs widget */
     notebook = gtk_notebook_new();
+    if (app->config->ui_background_color_on){
+	set_background_color(notebook, &(app->config->ui_background_color));
+	style = gtk_widget_get_style(notebook);
+	/*
+	fprintf(stderr,"test %s %i\n",gtk_widget_get_composite_name(notebook),style->bg[GTK_STATE_ACTIVE].green);
+	fprintf(stderr,"test %s %i\n",gtk_widget_get_composite_name(notebook),style->bg[GTK_STATE_ACTIVE].red);
+	fprintf(stderr,"test %s %i\n",gtk_widget_get_composite_name(notebook),style->bg[GTK_STATE_ACTIVE].blue);
+    
+	style->fg[GTK_STATE_NORMAL].green = 10000;
+	style->fg[GTK_STATE_NORMAL].red = 60000;
+	style->fg[GTK_STATE_NORMAL].blue = 00000;    
+	style->fg[GTK_STATE_ACTIVE].green = 10000;
+	style->fg[GTK_STATE_ACTIVE].red = 60000;
+	style->fg[GTK_STATE_ACTIVE].blue = 40000;    
+	*/
+	gtk_widget_set_style(notebook,style);    
+    }	
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
 /* Current weather */
     current_time = time(NULL); /* get current day */
@@ -246,6 +264,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	    (current_data_last_update <
 		( current_time + app->config->data_valid_interval)))
 	current_tab = create_current_tab(app->wsd.current);
+
     if(current_tab)
 	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 				current_tab,
@@ -257,10 +276,11 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     while(tmp && i < app->config->days_to_show){
 	day = (GSList*)tmp->data;
 	tab = create_day_tab(app->wsd.current, day, &day_name);
-	if(tab)
+	if(tab){
 	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         				tab,
         				gtk_label_new(day_name));
+	}
 	day_name && (g_free(day_name), day_name = NULL);
 	tmp = g_slist_next(tmp);
 	i++;
@@ -364,7 +384,6 @@ void time_start() { gettimeofday(&tv1, &tz); }
 double time_stop()
 
 {  
-
     gettimeofday(&tv2, &tz);
     dtv.tv_sec= tv2.tv_sec  -  tv1.tv_sec;
     dtv.tv_usec=tv2.tv_usec -  tv1.tv_usec;

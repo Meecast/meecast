@@ -660,6 +660,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*apply_button = NULL,
 		*close_button = NULL,
 		*back_button = NULL;
+    GtkStyle    *style = NULL;
 #ifndef RELEASE
     char	tmp_buff[1024];
 #endif
@@ -674,6 +675,8 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     GLADE_HOOKUP_OBJECT_NO_REF(window_config, window_config, "window_config");
     g_object_set_data(G_OBJECT(window_config), "day_number", (gpointer)day_number);
     gtk_window_fullscreen(GTK_WINDOW(window_config));
+    if (app->config->ui_background_color_on)
+       set_background_color(window_config, &(app->config->ui_background_color));
     gtk_widget_show(window_config);
     /* create frame vbox */
     vbox = gtk_vbox_new(FALSE, 0);
@@ -703,6 +706,15 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     g_signal_connect(G_OBJECT(close_button), "button_press_event",
                         G_CALLBACK(close_button_handler),
 			(gpointer)window_config);
+/* Change background color on buttons */
+     if (app->config->ui_background_color_on){
+       gtk_widget_modify_bg(apply_button, GTK_STATE_INSENSITIVE, &(app->config->ui_background_color));
+       set_background_color(close_button, &(app->config->ui_background_color));
+       set_background_color(apply_button, &(app->config->ui_background_color));
+       set_background_color(help_button, &(app->config->ui_background_color));
+       set_background_color(back_button, &(app->config->ui_background_color));
+     }
+
 /* Pack buttons to the buttons box */
     gtk_box_pack_start(GTK_BOX(buttons_box), back_button, TRUE, TRUE, 25);
     gtk_box_pack_start(GTK_BOX(buttons_box), apply_button, TRUE, TRUE, 10);
@@ -712,6 +724,11 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 /* create tabs widget */
     notebook = gtk_notebook_new();
     GLADE_HOOKUP_OBJECT(window_config, notebook, "notebook");
+    if (app->config->ui_background_color_on){
+	set_background_color(notebook, &(app->config->ui_background_color));
+	style = gtk_widget_get_style(notebook);
+	gtk_widget_set_style(notebook,style);    
+    }
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
 /* add pages to the notebook */
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
@@ -1092,6 +1109,8 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     redraw_home_window(FALSE);
 /* disable button */
     gtk_widget_set_sensitive(button, FALSE);
+    if (app->config->ui_background_color_on)
+	set_background_color(button, &(app->config->ui_background_color));
 }
 /*******************************************************************************/
 void close_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -1553,6 +1572,68 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 	return;
     }
 
+    if(!strcmp(button_name, "meters")){
+	if(gtk_toggle_button_get_active(button)){
+	    if(app->config->distance_units == METERS)
+	    	gtk_widget_set_sensitive(apply_button, FALSE);
+	    else
+		gtk_widget_set_sensitive(apply_button, TRUE);
+	}
+	else{
+	    if(app->config->temperature_units != METERS)
+		gtk_widget_set_sensitive(apply_button, FALSE);
+	    else
+		gtk_widget_set_sensitive(apply_button, TRUE);
+	}
+	return;
+    }
+    if(!strcmp(button_name, "kilometers")){
+	if(gtk_toggle_button_get_active(button)){
+	    if(app->config->distance_units == KILOMETERS)
+	    	gtk_widget_set_sensitive(apply_button, FALSE);
+	    else
+		gtk_widget_set_sensitive(apply_button, TRUE);
+	}
+	else{
+	    if(app->config->temperature_units != KILOMETERS)
+		gtk_widget_set_sensitive(apply_button, FALSE);
+	    else
+		gtk_widget_set_sensitive(apply_button, TRUE);
+	}
+	return;
+    }
+    if(!strcmp(button_name, "sea_miles")){
+	if(gtk_toggle_button_get_active(button)){
+	    if(app->config->distance_units == SEA_MILES)
+	    	gtk_widget_set_sensitive(apply_button, FALSE);
+	    else
+		gtk_widget_set_sensitive(apply_button, TRUE);
+	}
+	else{
+	    if(app->config->temperature_units != SEA_MILES)
+		gtk_widget_set_sensitive(apply_button, FALSE);
+	    else
+		gtk_widget_set_sensitive(apply_button, TRUE);
+	}
+	return;
+    }
+    if(!strcmp(button_name, "miles")){
+	if(gtk_toggle_button_get_active(button)){
+	    if(app->config->distance_units == MILES)
+	    	gtk_widget_set_sensitive(apply_button, FALSE);
+	    else
+		gtk_widget_set_sensitive(apply_button, TRUE);
+	}
+	else{
+	    if(app->config->temperature_units != MILES)
+		gtk_widget_set_sensitive(apply_button, FALSE);
+	    else
+		gtk_widget_set_sensitive(apply_button, TRUE);
+	}
+	return;
+    }
+
+
     if(!strcmp(button_name, "pressure")){
 	if(gtk_toggle_button_get_active(button)){
 	    if(app->config->pressure_units == MB)
@@ -1797,6 +1878,7 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 		*add_station_button2 = NULL,
 		*apply_button = NULL,
 		*rename_entry = NULL;
+		GtkStyle	*style = NULL;
     gint	i = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -1880,6 +1962,7 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 				apply_rename_button,
 				1, 2, 1, 2);
     gtk_widget_set_sensitive(GTK_WIDGET(apply_rename_button), FALSE);
+
     /* right side */
     right_table = gtk_table_new(10, 3, FALSE);
     gtk_box_pack_start(GTK_BOX(left_right_hbox), right_table,
@@ -2055,6 +2138,7 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 /* Filling rename entry */
     gtk_entry_set_text(GTK_ENTRY(rename_entry),
 			app->config->current_station_name);
+
     return left_right_hbox;
 }
 /*******************************************************************************/
@@ -2417,7 +2501,7 @@ GtkWidget* create_units_tab(GtkWidget *window){
 									_("Kilometers")),
 				2, 3, 2, 3);
     GLADE_HOOKUP_OBJECT(window, distance_kilometers, "kilometers");
-    gtk_widget_set_name(distance_kilometers, "meters");
+    gtk_widget_set_name(distance_kilometers, "kilometers");
     g_signal_connect(distance_kilometers, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
@@ -2429,7 +2513,7 @@ GtkWidget* create_units_tab(GtkWidget *window){
 									_("Miles")),
 				1, 2, 3, 4);
     GLADE_HOOKUP_OBJECT(window, distance_miles, "miles");
-    gtk_widget_set_name(distance_miles, "meters");
+    gtk_widget_set_name(distance_miles, "miles");
     g_signal_connect(distance_miles, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
@@ -2440,6 +2524,11 @@ GtkWidget* create_units_tab(GtkWidget *window){
 				    = gtk_radio_button_new_with_label(gtk_radio_button_get_group(GTK_RADIO_BUTTON(distance_miles)),
 									_("Sea miles")),
 				2, 3, 3, 4);
+    gtk_widget_set_name(distance_sea_miles, "sea_miles");
+    g_signal_connect(distance_sea_miles, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			window);
+				
     gtk_button_set_focus_on_click(GTK_BUTTON(distance_sea_miles), FALSE);
     switch(app->config->distance_units){
 	default:

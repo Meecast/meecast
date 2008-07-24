@@ -808,6 +808,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*miles = NULL,
 			*wind_meters = NULL,
 			*wind_kilometers = NULL,
+			*wind_miles = NULL,
 			*countries = NULL,
 			*states = NULL,
 			*stations = NULL;
@@ -893,7 +894,8 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 /* wind units */
     wind_meters = lookup_widget(config_window, "wind_meters");
     wind_kilometers = lookup_widget(config_window, "wind_kilometers");
-    if(wind_meters && wind_kilometers){
+    wind_miles = lookup_widget(config_window, "wind_miles");
+    if(wind_meters && wind_kilometers && wind_miles){
 	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wind_meters)))
             app->config->wind_units = METERS_S;
 	else{
@@ -1580,7 +1582,7 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 		gtk_widget_set_sensitive(apply_button, TRUE);
 	}
 	else{
-	    if(app->config->temperature_units != METERS)
+	    if(app->config->distance_units != METERS)
 		gtk_widget_set_sensitive(apply_button, FALSE);
 	    else
 		gtk_widget_set_sensitive(apply_button, TRUE);
@@ -1595,7 +1597,7 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 		gtk_widget_set_sensitive(apply_button, TRUE);
 	}
 	else{
-	    if(app->config->temperature_units != KILOMETERS)
+	    if(app->config->distance_units != KILOMETERS)
 		gtk_widget_set_sensitive(apply_button, FALSE);
 	    else
 		gtk_widget_set_sensitive(apply_button, TRUE);
@@ -1610,7 +1612,7 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 		gtk_widget_set_sensitive(apply_button, TRUE);
 	}
 	else{
-	    if(app->config->temperature_units != SEA_MILES)
+	    if(app->config->distance_units != SEA_MILES)
 		gtk_widget_set_sensitive(apply_button, FALSE);
 	    else
 		gtk_widget_set_sensitive(apply_button, TRUE);
@@ -1625,13 +1627,59 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 		gtk_widget_set_sensitive(apply_button, TRUE);
 	}
 	else{
-	    if(app->config->temperature_units != MILES)
+	    if(app->config->distance_units != MILES)
 		gtk_widget_set_sensitive(apply_button, FALSE);
 	    else
 		gtk_widget_set_sensitive(apply_button, TRUE);
 	}
 	return;
     }
+    if(!strcmp(button_name, "wind_meters")){
+	if(gtk_toggle_button_get_active(button)){
+	    if(app->config->wind_units == METERS_S)
+	    	gtk_widget_set_sensitive(apply_button, FALSE);
+	    else
+		gtk_widget_set_sensitive(apply_button, TRUE);
+	}
+	else{
+	    if(app->config->wind_units != METERS_S)
+		gtk_widget_set_sensitive(apply_button, FALSE);
+	    else
+		gtk_widget_set_sensitive(apply_button, TRUE);
+	}
+	return;
+    }
+    if(!strcmp(button_name, "wind_kilometers")){
+	if(gtk_toggle_button_get_active(button)){
+	    if(app->config->wind_units == KILOMETERS_H)
+	    	gtk_widget_set_sensitive(apply_button, FALSE);
+	    else
+		gtk_widget_set_sensitive(apply_button, TRUE);
+	}
+	else{
+	    if(app->config->wind_units != KILOMETERS_H)
+		gtk_widget_set_sensitive(apply_button, FALSE);
+	    else
+		gtk_widget_set_sensitive(apply_button, TRUE);
+	}
+	return;
+    }
+    if(!strcmp(button_name, "wind_miles")){
+	if(gtk_toggle_button_get_active(button)){
+	    if(app->config->wind_units == MILES_H)
+	    	gtk_widget_set_sensitive(apply_button, FALSE);
+	    else
+		gtk_widget_set_sensitive(apply_button, TRUE);
+	}
+	else{
+	    if(app->config->wind_units != MILES_H)
+		gtk_widget_set_sensitive(apply_button, FALSE);
+	    else
+		gtk_widget_set_sensitive(apply_button, TRUE);
+	}
+	return;
+    }
+
 
 
     if(!strcmp(button_name, "pressure")){
@@ -2566,7 +2614,7 @@ GtkWidget* create_units_tab(GtkWidget *window){
 				    = gtk_radio_button_new_with_label(wind_group, _("km/h")),
 				2, 3, 4, 5);
     GLADE_HOOKUP_OBJECT(window, wind_kilometers, "wind_kilometers");
-    gtk_widget_set_name(wind_kilometers, "wind_meters");
+    gtk_widget_set_name(wind_kilometers, "wind_kilometers");
     g_signal_connect(wind_kilometers, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
@@ -2577,6 +2625,12 @@ GtkWidget* create_units_tab(GtkWidget *window){
 				    = gtk_radio_button_new_with_label(gtk_radio_button_get_group(GTK_RADIO_BUTTON(wind_kilometers)),
 									_("mi/h")),
 				1, 2, 5, 6);
+    GLADE_HOOKUP_OBJECT(window, wind_miles, "wind_miles");
+    gtk_widget_set_name(wind_miles, "wind_miles");
+    g_signal_connect(wind_miles, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			window);
+				
     gtk_button_set_focus_on_click(GTK_BUTTON(wind_miles), FALSE);
     switch(app->config->wind_units){
 	default:

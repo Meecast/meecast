@@ -36,6 +36,7 @@ void help_activated_handler(GtkWidget *window, gchar *help_id){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    fprintf(stderr, "\n>>>>>>>>>>Inside handler - %s\n", help_id);
     if(!help_id)
 	return;
 #ifdef OS2008

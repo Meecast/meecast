@@ -823,13 +823,12 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 /* visible items */
     visible_items_number = lookup_widget(config_window, "visible_items_number");
     if(visible_items_number){
-	if(app->config->days_to_show
+	if(app->config->days_to_show - 1
 		!= hildon_controlbar_get_value(HILDON_CONTROLBAR(visible_items_number))){
 	    /* store previos number of icons */
 	    app->config->previos_days_to_show = app->config->days_to_show;
 	    app->config->days_to_show
-		= hildon_controlbar_get_value(HILDON_CONTROLBAR(visible_items_number));
-	    (!app->config->days_to_show) && (app->config->days_to_show = 1);
+		= hildon_controlbar_get_value(HILDON_CONTROLBAR(visible_items_number)) + 1;
 #ifndef OS2008
 	    need_correct_layout_for_OS2007 = TRUE;
 #endif
@@ -863,11 +862,10 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 /* icon size */
     icon_size = lookup_widget(config_window, "icon_size");
     if(icon_size){
-	if(app->config->icons_size
+	if(app->config->icons_size - 1
 		!= hildon_controlbar_get_value(HILDON_CONTROLBAR(icon_size))){
 	    app->config->icons_size
-		= hildon_controlbar_get_value(HILDON_CONTROLBAR(icon_size));
-	    (!app->config->icons_size) && (app->config->icons_size = 1);
+		= hildon_controlbar_get_value(HILDON_CONTROLBAR(icon_size)) + 1;
 #ifndef OS2008
 	    need_correct_layout_for_OS2007 = TRUE;
 #endif
@@ -1874,11 +1872,11 @@ void control_bars_changed_handler(HildonControlbar *control, gpointer user_data)
 #endif
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(control));
     if(!strcmp(control_name, "visible_items_number")){
-        something = app->config->days_to_show;
+        something = app->config->days_to_show - 1;
 	goto check;
     }
     if(!strcmp(control_name, "icon_size")){
-        something = app->config->icons_size;
+        something = app->config->icons_size - 1;
 	goto check;
     }
 #ifdef OS2008
@@ -2218,11 +2216,11 @@ GtkWidget* create_interface_tab(GtkWidget *window){
     g_signal_connect(visible_items_number, "value-changed",
             		G_CALLBACK(control_bars_changed_handler),
 			apply_button);
-    hildon_controlbar_set_min(HILDON_CONTROLBAR(visible_items_number), 1);
+    hildon_controlbar_set_min(HILDON_CONTROLBAR(visible_items_number), 0);
     hildon_controlbar_set_max(HILDON_CONTROLBAR(visible_items_number),
-				Max_count_weather_day);
+				Max_count_weather_day - 1);
     hildon_controlbar_set_value(HILDON_CONTROLBAR(visible_items_number),
-				    app->config->days_to_show);
+				    app->config->days_to_show - 1);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				visible_items_number,
 				1, 2, 0, 1);
@@ -2288,7 +2286,7 @@ GtkWidget* create_interface_tab(GtkWidget *window){
 			apply_button);
     hildon_controlbar_set_min(HILDON_CONTROLBAR(icon_size), TINY);
     hildon_controlbar_set_max(HILDON_CONTROLBAR(icon_size), GIANT);
-    switch(app->config->icons_size){
+    switch(app->config->icons_size - 1){
 	case TINY:
 	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), TINY);
 	break;

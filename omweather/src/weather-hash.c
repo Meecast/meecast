@@ -47,7 +47,8 @@ GHashTable* hash_table_create(void){
     return  hash;
 }
 /*******************************************************************************/
-gpointer hash_table_find(gpointer key, gboolean search_short_name){
+gpointer
+hash_table_find(gpointer key, gboolean search_short_name){
     gpointer	orig_key,
 		search_text,
 		value,

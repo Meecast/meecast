@@ -1716,8 +1716,8 @@ void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 }
 /*******************************************************************************/
 #ifdef OS2008
-GtkWidget* settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent)
-{
+GtkWidget*
+settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1735,9 +1735,9 @@ GtkWidget* settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent)
 
     return menu_item;
 }
-
-void omweather_init(OMWeather *applet)
-{
+/*******************************************************************************/
+void
+omweather_init(OMWeather *applet){
     GtkSettings *settings;
     GdkColormap *cm;
     gchar *conf_file;
@@ -1817,20 +1817,19 @@ void omweather_init(OMWeather *applet)
     gtk_rc_parse(tmp_buff);
 
     applet->priv = G_TYPE_INSTANCE_GET_PRIVATE(applet,TYPE_OMWEATHER, OMWeatherPrivate);
-
 	
     settings = gtk_settings_get_default();
     cm = gdk_screen_get_rgba_colormap(gdk_screen_get_default());
 	
-    if (cm != NULL) {
+    if(cm != NULL){
 	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
     }
     
     gtk_container_add (GTK_CONTAINER (applet), app->top_widget);
 }
-
-static void omweather_destroy(GtkObject *widget)
-{
+/*******************************************************************************/
+static void
+omweather_destroy(GtkObject *widget){
     
     gboolean check;
 #ifndef RELEASE
@@ -1898,14 +1897,12 @@ static void omweather_destroy(GtkObject *widget)
     
     gtk_object_destroy(widget);
 }
-
-static void omweather_class_init(OMWeatherClass *klass)
-{
+/*******************************************************************************/
+static void
+omweather_class_init(OMWeatherClass *klass){
 	HildonDesktopHomeItemClass *applet_class;
 	GtkWidgetClass *widget_class;
 	GtkObjectClass *gtk_object_class;
-
-
 
 	g_type_class_add_private(klass, sizeof(OMWeatherPrivate));
 	applet_class = HILDON_DESKTOP_HOME_ITEM_CLASS(klass);
@@ -1917,4 +1914,5 @@ static void omweather_class_init(OMWeatherClass *klass)
 	gtk_object_class->destroy = omweather_destroy;
 	widget_class->expose_event = expose_parent;
 }
+/*******************************************************************************/
 #endif

@@ -21,11 +21,9 @@ dnl Checks for libraries.
 dnl Checks for header files.
 AC_HEADER_DIRENT
 AC_HEADER_STDC
-AC_CHECK_HEADERS([arpa/inet.h fcntl.h memory.h netdb.h netinet/in.h stdlib.h string.h sys/param.h sys/socket.h sys/time.h unistd.h])
-AC_CHECK_HEADERS([libintl.h])
-AC_CHECK_HEADERS([wchar.h])
-AC_CHECK_HEADERS([limits.h])
-AC_CHECK_HEADERS([math.h])
+AC_CHECK_HEADERS([arpa/inet.h fcntl.h memory.h netdb.h netinet/in.h stdlib.h])
+AC_CHECK_HEADERS([libintl.h values.h wchar.h limits.h math.h string.h])
+AC_CHECK_HEADERS([sys/param.h sys/socket.h sys/time.h unistd.h])
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST

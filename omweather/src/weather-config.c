@@ -37,7 +37,8 @@
 #define	DEFAULT_FONT	"Sans 12"
 /*******************************************************************************/
 /* Change the weather cache directory and update dependent variables. */
-gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
+gboolean
+config_set_weather_dir_name(gchar *new_weather_dir_name){
     GnomeVFSURI *weather_dir_uri;
     gboolean retval = FALSE;
     GnomeVFSURI *parent, *curr_uri;
@@ -72,7 +73,8 @@ gboolean config_set_weather_dir_name(gchar *new_weather_dir_name){
     return retval;
 }
 /*******************************************************************************/
-void fill_user_stations_list_from_clock(GtkListStore** list){
+void
+fill_user_stations_list_from_clock(GtkListStore** list){
     FILE	*clock_file;  
     gchar	*home_city = NULL,
 		*remote_city = NULL,
@@ -139,7 +141,8 @@ void fill_user_stations_list_from_clock(GtkListStore** list){
 	g_free(remote_city);	
 }
 /*******************************************************************************/
-void fill_user_stations_list(GSList *source_list, GtkListStore** list){
+void
+fill_user_stations_list(GSList *source_list, GtkListStore** list){
     GtkTreeIter iter;
     gchar	*temp1 = NULL,
 		*temp2 = NULL,
@@ -172,15 +175,15 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
 		station_source = (guint)atoi(temp3);
 	    
 #ifdef OS2008		
-	    if (app->gps_station.id0 && app->gps_station.name &&
-                station_code && station_name &&
-                !strcmp(app->gps_station.id0, station_code) &&
-		!strcmp(app->gps_station.name, station_name))
+	    if(app->gps_station.id0 && app->gps_station.name &&
+            	    station_code && station_name &&
+            	    !strcmp(app->gps_station.id0, station_code) &&
+		    !strcmp(app->gps_station.name, station_name))
 		is_gps = TRUE;
 	    else
 		is_gps = FALSE;
 #endif		
-	    if (station_name && station_code){
+	    if(station_name && station_code){
 		/* Add station to stations list */
         	gtk_list_store_append(*list, &iter);
         	gtk_list_store_set(*list, &iter,
@@ -204,7 +207,8 @@ void fill_user_stations_list(GSList *source_list, GtkListStore** list){
     }
 }
 /*******************************************************************************/
-GSList* create_stations_string_list(void){
+GSList*
+create_stations_string_list(void){
     GSList      *stlist = NULL;
     GtkTreeIter	iter;
     gboolean	valid;
@@ -235,7 +239,8 @@ GSList* create_stations_string_list(void){
     return stlist;
 }
 /*******************************************************************************/
-GtkListStore* create_time_update_list(void){
+GtkListStore*
+create_time_update_list(void){
     GtkListStore	*list = NULL;
     GtkTreeIter         iter;
 #ifdef DEBUGFUNCTIONCALL
@@ -265,7 +270,8 @@ GtkListStore* create_time_update_list(void){
     return list;
 }
 /*******************************************************************************/
-int read_config(AppletConfig *config){
+gint
+read_config(AppletConfig *config){
     GConfValue	*value = NULL;
     GConfClient *gconf_client = NULL;
     int		fd = -1;
@@ -502,11 +508,11 @@ int read_config(AppletConfig *config){
     }
 	/* Get value of corner radius. Default is 0 */
 	config->corner_radius = gconf_client_get_int(gconf_client,
-								GCONF_KEY_CORNER_RADIUS,
-						&gerror);
-	if (gerror || config->corner_radius <=0){
-	config->corner_radius = 0;
-	if (gerror)
+							GCONF_KEY_CORNER_RADIUS,
+							&gerror);
+	if(gerror || config->corner_radius <= 0){
+	    config->corner_radius = 0;
+	    if(gerror)
 		g_error_free(gerror);
 	}
 #endif
@@ -568,8 +574,8 @@ int read_config(AppletConfig *config){
     config->icons_layout = gconf_client_get_int(gconf_client,
                 				GCONF_KEY_ICONS_LAYOUT,
 						NULL);
-    if (config->icons_layout < ONE_ROW ||
-	config->icons_layout > COMBINATION)
+    if(config->icons_layout < ONE_ROW ||
+	    config->icons_layout > COMBINATION)
 	config->icons_layout = ONE_ROW;
 
     /* Get number days to show default 5 */
@@ -661,7 +667,7 @@ int read_config(AppletConfig *config){
     }
     else{
     	/* Correcting icon size for version less 0.19.5. It  must be deleted after version 0.21 */
-	if (tmp[0]=='0' && tmp[2]<'2' && tmp[3]<='9' && tmp[5]<'5'){
+	if(tmp[0]=='0' && tmp[2]<'2' && tmp[3]<='9' && tmp[5]<'5'){
 	    if (gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 0)	
 		config->icons_size = MEDIUM;
 	    if (gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 1)	
@@ -673,15 +679,15 @@ int read_config(AppletConfig *config){
 	}
 	/* Correcting icon size for version  0.19.5. It  must be deleted after version 0.21 */
 	if (tmp[0]=='0' && tmp[2]=='1' && tmp[3]=='9' && tmp[5]=='5'){
-	    if (gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 0)
+	    if(gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 0)
 		config->icons_size = GIANT;
-	    if (gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 1)	
+	    if(gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 1)	
 		config->icons_size = LARGE;		
-	    if (gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 2)	
+	    if(gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 2)	
 		config->icons_size = MEDIUM;			
-	    if (gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 3)	
+	    if(gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 3)	
 		config->icons_size = SMALL;						
-	    if (gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 4)	
+	    if(gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 4)	
 		config->icons_size = TINY;			
 	    if(config->icons_size < TINY || config->icons_size > GIANT)
     		config->icons_size = LARGE;
@@ -695,7 +701,8 @@ int read_config(AppletConfig *config){
     return 0;
 }
 /*******************************************************************************/
-void config_update_proxy(void){
+void
+config_update_proxy(void){
     GConfClient *gconf_client = gconf_client_get_default();
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -718,7 +725,8 @@ void config_update_proxy(void){
     g_object_unref(gconf_client);
 }
 /*******************************************************************************/ 
-void config_save(AppletConfig *config){
+void
+config_save(AppletConfig *config){
     gchar temp_buffer[16];
     GConfClient *gconf_client;
     GSList *stlist = NULL;

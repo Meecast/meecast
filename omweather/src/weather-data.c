@@ -33,7 +33,8 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-Item* create_item(const char *name, const char *value){
+Item*
+create_item(const char *name, const char *value){
     Item	*itm=NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -48,7 +49,8 @@ Item* create_item(const char *name, const char *value){
     return itm;
 }
 /*******************************************************************************/
-void destroy_item(Item **item){
+void
+destroy_item(Item **item){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -62,7 +64,8 @@ void destroy_item(Item **item){
     *item = NULL;
 }
 /*******************************************************************************/
-GSList*	add_item2object(GSList **object, void *item){
+GSList*
+add_item2object(GSList **object, void *item){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -71,7 +74,8 @@ GSList*	add_item2object(GSList **object, void *item){
     return (*object);
 }
 /*******************************************************************************/
-char* item_value(GSList *object, const char *name){
+char*
+item_value(GSList *object, const char *name){
     GString	*tmp = NULL;
     Item	*itm = NULL;
     char	*result = "";
@@ -93,7 +97,8 @@ char* item_value(GSList *object, const char *name){
     return result;
 }
 /*******************************************************************************/
-time_t calculate_diff_time(int timezone){
+time_t
+calculate_diff_time(int timezone){
 
     time_t	current_time,
                 diff_time = 0,
@@ -112,7 +117,8 @@ time_t calculate_diff_time(int timezone){
     return diff_time;
 }
 /*******************************************************************************/
-void destroy_object(GSList **object){
+void
+destroy_object(GSList **object){
     Item	*itm = NULL;
     GSList	*tmp = *object;
 #ifdef DEBUGFUNCTIONCALL
@@ -128,7 +134,8 @@ void destroy_object(GSList **object){
     *object = NULL;
 }
 /*******************************************************************************/
-time_t last_update_time(GSList *object){
+time_t
+last_update_time(GSList *object){
     time_t	last_update = 0;
     struct tm	tm = {0};
 #ifdef DEBUGFUNCTIONCALL
@@ -149,7 +156,8 @@ time_t last_update_time(GSList *object){
 }
 /*******************************************************************************/
 #ifndef RELEASE
-void display_all_object_items(GSList *object){
+void
+display_all_object_items(GSList *object){
     Item	*itm = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

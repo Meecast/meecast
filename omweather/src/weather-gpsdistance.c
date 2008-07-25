@@ -39,8 +39,7 @@
 #define deg2rad(deg) ((deg) * (PI / 180.0)) 
 /*******************************************************************************/ 
 gdouble
-calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2)
-{
+calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2){
     gdouble dlat, dlon, slat, slon, a;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

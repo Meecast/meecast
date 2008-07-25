@@ -32,11 +32,11 @@
 #endif
 #include "build"
 /*******************************************************************************/
-void help_activated_handler(GtkWidget *window, gchar *help_id){
+void
+help_activated_handler(GtkWidget *window, gchar *help_id){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    fprintf(stderr, "\n>>>>>>>>>>Inside handler - %s\n", help_id);
     if(!help_id)
 	return;
 #ifdef OS2008
@@ -46,7 +46,8 @@ void help_activated_handler(GtkWidget *window, gchar *help_id){
 #endif
 }
 /*******************************************************************************/
-void create_about_dialog(void){
+void
+create_about_dialog(void){
     GtkWidget	*help_dialog,
 		*notebook;
     char	tmp_buff[2048];

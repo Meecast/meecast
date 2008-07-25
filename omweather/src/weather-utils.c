@@ -32,7 +32,8 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-float convert_wind_units(int to, float value){
+float
+convert_wind_units(int to, float value){
     float	result = value;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -46,7 +47,8 @@ float convert_wind_units(int to, float value){
     return result;
 }
 /*******************************************************************************/
-void set_font(GtkWidget *widget, const gchar *description, const gint size){
+void
+set_font(GtkWidget *widget, const gchar *description, const gint size){
     PangoFontDescription *pfd = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -73,7 +75,8 @@ void set_font(GtkWidget *widget, const gchar *description, const gint size){
     pango_font_description_free(pfd);
 }
 /*******************************************************************************/
-void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue){
+void
+set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue){
     PangoAttribute	*attr;
     PangoAttrList	*attrs = NULL;
 #ifdef DEBUGFUNCTIONCALL
@@ -93,7 +96,8 @@ void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue)
 }
 /*******************************************************************************/
 /* Convert Celsius temperature to Farenhait temperature */
-float c2f(float temp){
+float
+c2f(float temp){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -101,14 +105,16 @@ float c2f(float temp){
 }
 /*******************************************************************************/
 /* convert preesure */
-float mb2inch(float pressure){
+float
+mb2inch(float pressure){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     return ( pressure / 1000.0f / 100000.0f * 3386.389f );
 }
 /*******************************************************************************/
-void swap_temperature(int *hi, int *low){
+void
+swap_temperature(int *hi, int *low){
     int tmp;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -116,7 +122,8 @@ void swap_temperature(int *hi, int *low){
     tmp = *hi; *hi = *low; *low = tmp;
 }
 /*******************************************************************************/
-void set_background_color(GtkWidget *widget, GdkColor *bgc){
+void
+set_background_color(GtkWidget *widget, GdkColor *bgc){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -126,7 +133,8 @@ void set_background_color(GtkWidget *widget, GdkColor *bgc){
     gtk_widget_modify_bg(widget, GTK_STATE_NORMAL, bgc);
 }
 /*******************************************************************************/
-GtkWidget* lookup_widget(GtkWidget* widget, const gchar* widget_name){
+GtkWidget*
+lookup_widget(GtkWidget* widget, const gchar* widget_name){
     GtkWidget	*found_widget = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -138,7 +146,8 @@ GtkWidget* lookup_widget(GtkWidget* widget, const gchar* widget_name){
     return found_widget;
 }
 /*******************************************************************************/
-GtkWidget* create_button_with_image(const char *path, const char *image_name,
+GtkWidget*
+create_button_with_image(const char *path, const char *image_name,
 					int image_size, gboolean with_border){
     GtkIconInfo	*gtkicon = NULL;
     GtkWidget	*button = NULL,
@@ -183,7 +192,8 @@ GtkWidget* create_button_with_image(const char *path, const char *image_name,
     return button;
 }
 /*******************************************************************************/
-GtkWidget* create_tree_view(GtkListStore* list){
+GtkWidget*
+create_tree_view(GtkListStore* list){
     GtkWidget		*tree_view = NULL;
     GtkTreeSelection	*list_selection = NULL;
     GtkCellRenderer	*renderer = NULL;
@@ -211,7 +221,8 @@ GtkWidget* create_tree_view(GtkListStore* list){
     return tree_view;
 }
 /*******************************************************************************/
-GtkWidget* create_scrolled_window_with_text(const char* text,
+GtkWidget*
+create_scrolled_window_with_text(const char* text,
 						GtkJustification justification){
 
     GtkWidget		*text_view = NULL,

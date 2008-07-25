@@ -735,6 +735,9 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		    create_locations_tab(window_config),
         	    gtk_label_new(_("Stations")));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+		    create_visuals_tab(window_config),
+        	    gtk_label_new(_("Visuals")));
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_interface_tab(window_config),
         			gtk_label_new(_("Interface")));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
@@ -2181,6 +2184,143 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 			app->config->current_station_name);
 
     return left_right_hbox;
+}
+/*******************************************************************************/
+GtkWidget* create_visuals_tab(GtkWidget *window){
+    GtkWidget	*visuals_page = NULL,
+		*apply_button = NULL,
+		*first_line = NULL,
+		*layouts_hbox = NULL,
+		*second_line = NULL,
+		*iconsets_hbox = NULL,
+		*third_line = NULL,
+		*theme_overide = NULL,
+		*fourth_line = NULL,
+		*transparency = NULL,
+		*fifth_line = NULL,
+		*font = NULL,
+		*sixth_line = NULL,
+		*font_color = NULL,
+		*background_color = NULL;
+/* Visuals tab */
+    visuals_page = gtk_vbox_new(FALSE, 0);
+    apply_button = lookup_widget(window, "apply_button");
+/* first line */
+    first_line = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(first_line), gtk_label_new(_("Layout:")),
+			FALSE, FALSE, 20);
+    layouts_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_end(GTK_BOX(first_line), layouts_hbox, TRUE, TRUE, 20);
+/* second line */
+    second_line = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(second_line), gtk_label_new(_("Icon set:")),
+			FALSE, FALSE, 20);
+    iconsets_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_end(GTK_BOX(second_line), iconsets_hbox, TRUE, TRUE, 20);
+/* thrid line */
+    third_line = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(third_line),
+		theme_overide = gtk_check_button_new_with_label(_("UI Theme Overide")),
+			FALSE, FALSE, 20);
+/* fourth line */
+    fourth_line = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(fourth_line),
+			gtk_label_new(_("Transparency:")),
+			FALSE, FALSE, 20);
+#ifdef OS2008
+    transparency = hildon_controlbar_new();
+    hildon_controlbar_set_min(HILDON_CONTROLBAR(transparency), 0);
+    hildon_controlbar_set_max(HILDON_CONTROLBAR(transparency), 100);
+    hildon_controlbar_set_value(HILDON_CONTROLBAR(transparency), app->config->alpha_comp);
+    fprintf(stderr,"test %i %i %i\n",
+	    app->config->alpha_comp,
+	    (int)app->config->alpha_comp,
+	    hildon_controlbar_get_value(HILDON_CONTROLBAR(transparency)));
+    gtk_widget_set_size_request(transparency, 350, -1);
+#else
+    transparency = gtk_check_button_new_with_label(_("Transparency:"));
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),
+        			    app->config->transparency);
+    g_signal_connect(transparency, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			window);
+#endif
+    GLADE_HOOKUP_OBJECT(window, transparency, "transparency");
+    gtk_widget_set_name(transparency, "transparency");
+    gtk_box_pack_end(GTK_BOX(fourth_line), transparency, FALSE, FALSE, 20);
+/* fifth line */
+    fifth_line = gtk_hbox_new(FALSE, 0);
+/* Font family */
+    gtk_box_pack_start(GTK_BOX(fifth_line),
+			gtk_label_new(_("Font:")),
+			FALSE, FALSE, 20);
+    font = gtk_font_button_new_with_font(app->config->font);
+    GLADE_HOOKUP_OBJECT(window, font, "font");
+/* disable displaying font style at button */
+    gtk_font_button_set_show_style(GTK_FONT_BUTTON(font), FALSE);
+    gtk_box_pack_start(GTK_BOX(fifth_line), font, FALSE, FALSE, 20);
+    g_signal_connect(font, "font-set", G_CALLBACK(font_changed_handler),
+			apply_button);
+    /* Font color button */
+    font_color = gtk_color_button_new();
+    GLADE_HOOKUP_OBJECT(window, font_color, "font_color");
+    gtk_widget_set_name(font_color, "font_color");
+    g_signal_connect(font_color, "color-set",
+            		G_CALLBACK(color_buttons_changed_handler),
+			apply_button);
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color),
+				&(app->config->font_color));
+    gtk_button_set_relief(GTK_BUTTON(font_color), GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(font_color), FALSE);
+    gtk_box_pack_end(GTK_BOX(fifth_line), font_color, FALSE, FALSE, 20);
+    gtk_box_pack_end(GTK_BOX(fifth_line),
+		    gtk_label_new(_("Font color:")),
+			FALSE, FALSE, 0);
+/* sixth line */
+    sixth_line = gtk_hbox_new(FALSE, 0);
+    /* Background color */
+    background_color = gtk_color_button_new();
+    GLADE_HOOKUP_OBJECT(window, background_color, "background_color");
+    gtk_widget_set_name(background_color, "background_color");
+    g_signal_connect(background_color, "color-set",
+            		G_CALLBACK(color_buttons_changed_handler),
+			apply_button);
+#ifdef OS2008
+    g_signal_connect(transparency, "value-changed",
+            		G_CALLBACK(control_bars_changed_handler),
+			apply_button);
+#else
+    g_signal_connect(GTK_TOGGLE_BUTTON(transparency), "toggled",
+            		    G_CALLBACK(transparency_button_toggled_handler),
+			    background_color);
+			    
+#endif
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(background_color),
+				&(app->config->background_color));
+#ifdef OS2008    
+    gtk_widget_set_sensitive(background_color, TRUE);
+#else
+    if(background_color && app->config->transparency)
+        gtk_widget_set_sensitive(background_color, FALSE);	
+    else
+        gtk_widget_set_sensitive(background_color, TRUE);
+#endif
+    gtk_button_set_relief(GTK_BUTTON(background_color), GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(background_color), FALSE);
+    gtk_box_pack_end(GTK_BOX(sixth_line), background_color, FALSE, FALSE, 20);
+
+    gtk_box_pack_end(GTK_BOX(sixth_line),
+				gtk_label_new(_("Background color:")),
+				FALSE, FALSE, 0);
+/* pack lines */
+    gtk_box_pack_start(GTK_BOX(visuals_page), first_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(visuals_page), second_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(visuals_page), third_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(visuals_page), fourth_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(visuals_page), fifth_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(visuals_page), sixth_line, TRUE, TRUE, 0);
+    
+    return visuals_page;
 }
 /*******************************************************************************/
 GtkWidget* create_interface_tab(GtkWidget *window){

@@ -172,7 +172,7 @@ GtkWidget* create_time_updates_widget(GSList *current){
 		" %s", _("current location local time"));
     }
     label_update = gtk_label_new(buffer);    
-    set_font(label_update, NULL, 12);
+    set_font(label_update, NULL, 10);
     main_widget = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_start(GTK_BOX(main_widget), label_update, TRUE, TRUE, 0);
 

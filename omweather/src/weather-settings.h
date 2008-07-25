@@ -123,7 +123,7 @@ extern int check_entry_text(GtkEntry *entry, gboolean display_error);
 extern void read_sensor(gint need_redraw);
 #endif
 extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
-				    int image_size, gboolean with_border);
+			int image_size, gboolean with_border, gboolean toggled);
 extern GtkWidget* create_scrolled_window_with_text(const char* text,
 					    GtkJustification justification);
 /*******************************************************************************/

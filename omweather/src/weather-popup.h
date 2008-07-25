@@ -64,7 +64,7 @@ extern void swap_temperature(int *hi, int *low);
 extern gpointer hash_table_find(gpointer key, gboolean search_short_name);
 extern float convert_wind_units(int to, float value);
 extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
-				    int image_size, gboolean with_border);
+			int image_size, gboolean with_border, gboolean toggled);
 extern void create_about_dialog(void);  /* create help dialog */
 /*******************************************************************************/
 #endif

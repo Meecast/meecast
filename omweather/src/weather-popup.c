@@ -295,22 +295,22 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     buttons_box = gtk_hbox_new(FALSE, 0);
     gtk_widget_set_size_request(buttons_box, -1, 60);
     /* Settings button */
-    settings_button = create_button_with_image(BUTTON_ICONS, "settings", 40, FALSE);
+    settings_button = create_button_with_image(BUTTON_ICONS, "settings", 40, FALSE, FALSE);
     g_signal_connect(G_OBJECT(settings_button), "button_press_event",
                         G_CALLBACK(settings_button_handler),
 			(gpointer)window_popup);
     /* Refresh buton */
-    refresh_button = create_button_with_image(BUTTON_ICONS, "refresh", 40, FALSE);
+    refresh_button = create_button_with_image(BUTTON_ICONS, "refresh", 40, FALSE, FALSE);
     g_signal_connect(G_OBJECT(refresh_button), "button_press_event",
                         G_CALLBACK(refresh_button_handler),
 			(gpointer)window_popup);
     /* About buton */
-    about_button = create_button_with_image(BUTTON_ICONS, "about", 40, FALSE);
+    about_button = create_button_with_image(BUTTON_ICONS, "about", 40, FALSE, FALSE);
     g_signal_connect(G_OBJECT(about_button), "button_press_event",
                         G_CALLBACK(about_button_handler),
 			NULL);
     /* Close button */
-    close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE);
+    close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE, FALSE);
     g_signal_connect(G_OBJECT(close_button), "button_press_event",
                         G_CALLBACK(popup_close_button_handler),
 			(gpointer)window_popup);

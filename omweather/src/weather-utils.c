@@ -148,7 +148,7 @@ lookup_widget(GtkWidget* widget, const gchar* widget_name){
 /*******************************************************************************/
 GtkWidget*
 create_button_with_image(const char *path, const char *image_name,
-					int image_size, gboolean with_border){
+			int image_size, gboolean with_border, gboolean toggled){
     GtkIconInfo	*gtkicon = NULL;
     GtkWidget	*button = NULL,
 		*icon = NULL;
@@ -176,7 +176,12 @@ create_button_with_image(const char *path, const char *image_name,
 	gtk_icon_info_free(gtkicon);
     }
     if(with_border){
-	button = gtk_button_new();
+	if(toggled){
+	    button = gtk_radio_button_new(NULL);
+	    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(button), FALSE);
+	}
+	else
+	    button = gtk_button_new();
 	gtk_button_set_focus_on_click(GTK_BUTTON(button), FALSE);
 	if(icon)
 	    gtk_button_set_image(GTK_BUTTON(button), icon);

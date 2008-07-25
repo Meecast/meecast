@@ -685,24 +685,24 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     buttons_box = gtk_hbox_new(FALSE, 0);
     gtk_widget_set_size_request(buttons_box, -1, 60);
     /* Back buton */
-    back_button = create_button_with_image(BUTTON_ICONS, "back", 40, FALSE);
+    back_button = create_button_with_image(BUTTON_ICONS, "back", 40, FALSE, FALSE);
     g_signal_connect(G_OBJECT(back_button), "button_press_event",
                         G_CALLBACK(back_button_handler),
 			(gpointer)window_config);
     /* Help buton */
-    help_button = create_button_with_image(BUTTON_ICONS, "about", 40, FALSE);
+    help_button = create_button_with_image(BUTTON_ICONS, "about", 40, FALSE, FALSE);
     g_signal_connect(G_OBJECT(help_button), "button_press_event",
                         G_CALLBACK(help_button_handler),
 			(gpointer)window_config);
     /* Apply button */
-    apply_button = create_button_with_image(BUTTON_ICONS, "apply", 40, FALSE);
+    apply_button = create_button_with_image(BUTTON_ICONS, "apply", 40, FALSE, FALSE);
     GLADE_HOOKUP_OBJECT(window_config, apply_button, "apply_button");
     g_signal_connect(G_OBJECT(apply_button), "button_press_event",
                         G_CALLBACK(apply_button_handler),
 			(gpointer)window_config);
     gtk_widget_set_sensitive(apply_button, FALSE);
     /* Close button */
-    close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE);
+    close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE, FALSE);
     g_signal_connect(G_OBJECT(close_button), "button_press_event",
                         G_CALLBACK(close_button_handler),
 			(gpointer)window_config);
@@ -779,7 +779,6 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     time_t		updatetime = 0;
     GtkWidget		*config_window = GTK_WIDGET(user_data),
 			*visible_items_number = NULL,
-			*layout_type = NULL,
 			*icon_set = NULL,
 			*icon_size = NULL,
 			*separate = NULL,
@@ -812,6 +811,10 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*wind_meters = NULL,
 			*wind_kilometers = NULL,
 			*wind_miles = NULL,
+			*row = NULL,
+			*column = NULL,
+			*two_rows = NULL,
+			*two_columns = NULL,
 			*countries = NULL,
 			*states = NULL,
 			*stations = NULL;
@@ -838,16 +841,30 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	}
     }
 /* layout type */
-    layout_type = lookup_widget(config_window, "layout_type");
-    if(layout_type){
-	if(app->config->icons_layout
-		!= gtk_combo_box_get_active((GtkComboBox*)layout_type)){
-	    app->config->icons_layout
-		= gtk_combo_box_get_active((GtkComboBox*)layout_type);
+    row = lookup_widget(config_window, "one_row");
+    column = lookup_widget(config_window, "one_column");
+    two_rows = lookup_widget(config_window, "two_rows");
+    two_columns = lookup_widget(config_window, "two_columns");
+    if(row && column && two_rows && two_columns){
+    	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(row)))
+            app->config->icons_layout = ONE_ROW;
+	else{
+	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(column)))
+        	app->config->icons_layout = ONE_COLUMN;
+	    else{
+		if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(two_rows)))
+            	    app->config->icons_layout = TWO_ROWS;
+		else{
+		    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(two_columns)))		
+    			app->config->icons_layout = TWO_COLUMNS;
+		    else
+			app->config->icons_layout = COMBINATION;
+		}
+	    }
+	}
 #ifndef OS2008
 	    need_correct_layout_for_OS2007 = TRUE;
 #endif
-	}
     }
 /* icon set */	
     icon_set = lookup_widget(config_window, "icon_set");
@@ -1551,7 +1568,8 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 #if defined(OS2008) || defined(DEBUGTEMP)
     gboolean	sensor_page_is_changed = FALSE;
 #endif
-
+    gpointer	layout = NULL;
+    guint	number = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1574,7 +1592,19 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 	}
 	return;
     }
-
+/* layout */
+    layout = g_object_get_data(G_OBJECT(button), "number");
+    if(layout){
+	number = (guint)layout;
+	if(number == COMBINATION + 1)
+	    number = ONE_ROW;
+	if(number != app->config->icons_layout)
+	    gtk_widget_set_sensitive(apply_button, TRUE);
+	else
+	    gtk_widget_set_sensitive(apply_button, FALSE);
+	return;
+    }
+/* distance units */
     if(!strcmp(button_name, "meters")){
 	if(gtk_toggle_button_get_active(button)){
 	    if(app->config->distance_units == METERS)
@@ -1952,7 +1982,7 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 				0, 1, 0, 1);
 /* Rename apply button */
     apply_rename_button =
-	    create_button_with_image(BUTTON_ICONS, "apply", 30, FALSE);
+	    create_button_with_image(BUTTON_ICONS, "apply", 30, FALSE, FALSE);
     GLADE_HOOKUP_OBJECT(window, apply_rename_button , "apply_rename_button_name");
     gtk_widget_set_name(apply_rename_button, "apply_rename_button");
     g_signal_connect(G_OBJECT(apply_rename_button), "button_press_event",
@@ -1985,19 +2015,19 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 				up_down_delete_buttons_vbox,
                     		1, 2, 1, 2);
 /* prepare up_station_button */    
-    up_station_button = create_button_with_image(NULL, "qgn_indi_arrow_up", 16, TRUE);
+    up_station_button = create_button_with_image(NULL, "qgn_indi_arrow_up", 16, TRUE, FALSE);
     gtk_widget_set_size_request(GTK_WIDGET(up_station_button), 30, -1);
     g_signal_connect(up_station_button, "clicked",
 			G_CALLBACK(up_key_handler),
 			(gpointer)station_list_view);
 /* prepare down_station_button */    
-    down_station_button = create_button_with_image(NULL, "qgn_indi_arrow_down", 16, TRUE);
+    down_station_button = create_button_with_image(NULL, "qgn_indi_arrow_down", 16, TRUE, FALSE);
     gtk_widget_set_size_request(GTK_WIDGET(down_station_button), 30, -1);
     g_signal_connect(down_station_button, "clicked",
 		    	G_CALLBACK(down_key_handler),
 			(gpointer)station_list_view);
 /* prepare delete_station_button */    
-    delete_station_button = create_button_with_image(BUTTON_ICONS, "red", 30, TRUE);
+    delete_station_button = create_button_with_image(BUTTON_ICONS, "red", 30, TRUE, FALSE);
     gtk_widget_set_size_request(GTK_WIDGET(delete_station_button), 30, -1);
     g_signal_connect(delete_station_button, "clicked",
                 	G_CALLBACK(delete_station_handler),
@@ -2065,7 +2095,7 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 			G_CALLBACK(entry_changed_handler),
 			(gpointer)window);
     /* add station button */
-    add_station_button = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
+    add_station_button = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE, FALSE);
     gtk_widget_set_size_request(add_station_button, 30, 30);
     gtk_widget_set_name(add_station_button, "add_name");
     GLADE_HOOKUP_OBJECT(window, add_station_button, "add_station_button_name");
@@ -2091,7 +2121,7 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 			(gpointer)window);
 
     /* add button */
-    add_station_button1 = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
+    add_station_button1 = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE, FALSE);
     gtk_widget_set_size_request(add_station_button1, 30, 30);
     gtk_widget_set_name(add_station_button1, "add_code");
     GLADE_HOOKUP_OBJECT(window, add_station_button1, "add_code_button_name");
@@ -2142,7 +2172,7 @@ GtkWidget* create_locations_tab(GtkWidget *window){
     gtk_widget_show(stations);
     GLADE_HOOKUP_OBJECT(window, GTK_WIDGET(stations), "stations");
     /* add button */
-    add_station_button2 = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE);
+    add_station_button2 = create_button_with_image(BUTTON_ICONS, "add", 30, FALSE, FALSE);
     gtk_widget_set_size_request(add_station_button2, 30, 30);
     gtk_widget_set_name(add_station_button2, "add_from_list");
     GLADE_HOOKUP_OBJECT(window, add_station_button2, "add_from_list");
@@ -2201,7 +2231,13 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
 		*font = NULL,
 		*sixth_line = NULL,
 		*font_color = NULL,
-		*background_color = NULL;
+		*background_color = NULL,
+		*one_row_button = NULL,
+		*one_column_button = NULL,
+		*two_rows_button = NULL,
+		*two_columns_button = NULL,
+		*combination_button = NULL;
+    GSList	*group = NULL;
 /* Visuals tab */
     visuals_page = gtk_vbox_new(FALSE, 0);
     apply_button = lookup_widget(window, "apply_button");
@@ -2209,8 +2245,70 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
     first_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(first_line), gtk_label_new(_("Layout:")),
 			FALSE, FALSE, 20);
-    layouts_hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_end(GTK_BOX(first_line), layouts_hbox, TRUE, TRUE, 20);
+    layouts_hbox = gtk_hbox_new(FALSE, 10);
+    gtk_box_pack_end(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 20);
+    /* make buttons */
+    /* one row */
+    one_row_button = create_button_with_image(BUTTON_ICONS, "one_row", 40, TRUE, TRUE);
+    GLADE_HOOKUP_OBJECT(window, one_row_button, "one_row");
+    g_object_set_data(G_OBJECT(one_row_button), "number", GINT_TO_POINTER(COMBINATION + 1));
+    gtk_box_pack_start(GTK_BOX(layouts_hbox), one_row_button, FALSE, FALSE, 0);
+    group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(one_row_button));
+    g_signal_connect(one_row_button, "clicked", G_CALLBACK(check_buttons_changed_handler),
+                        (gpointer)window);
+    /* one column */
+    one_column_button = create_button_with_image(BUTTON_ICONS, "one_column", 40, TRUE, TRUE);
+    GLADE_HOOKUP_OBJECT(window, one_column_button, "one_column");
+    g_object_set_data(G_OBJECT(one_column_button), "number", GINT_TO_POINTER(ONE_COLUMN));
+    gtk_box_pack_start(GTK_BOX(layouts_hbox), one_column_button, FALSE, FALSE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(one_column_button), group);
+    g_signal_connect(one_column_button, "clicked", G_CALLBACK(check_buttons_changed_handler),
+                        (gpointer)window);
+    /* two rows */
+    two_rows_button = create_button_with_image(BUTTON_ICONS, "two_rows", 40, TRUE, TRUE);
+    GLADE_HOOKUP_OBJECT(window, two_rows_button, "two_rows");
+    g_object_set_data(G_OBJECT(two_rows_button), "number", GINT_TO_POINTER(TWO_ROWS));
+    gtk_box_pack_start(GTK_BOX(layouts_hbox), two_rows_button, FALSE, FALSE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(two_rows_button),
+	    gtk_radio_button_get_group(GTK_RADIO_BUTTON(one_column_button)));
+    g_signal_connect(two_rows_button, "clicked", G_CALLBACK(check_buttons_changed_handler),
+                        (gpointer)window);
+    /* two columns */
+    two_columns_button = create_button_with_image(BUTTON_ICONS, "two_columns", 40, TRUE, TRUE);
+    GLADE_HOOKUP_OBJECT(window, two_columns_button, "two_columns");
+    g_object_set_data(G_OBJECT(two_columns_button), "number", GINT_TO_POINTER(TWO_COLUMNS));
+    gtk_box_pack_start(GTK_BOX(layouts_hbox), two_columns_button, FALSE, FALSE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(two_columns_button),
+	    gtk_radio_button_get_group(GTK_RADIO_BUTTON(two_rows_button)));
+    g_signal_connect(two_columns_button, "clicked", G_CALLBACK(check_buttons_changed_handler),
+                        (gpointer)window);
+    /* combination */
+    combination_button = create_button_with_image(BUTTON_ICONS, "combination", 40, TRUE, TRUE);
+    GLADE_HOOKUP_OBJECT(window, combination_button, "combination");
+    g_object_set_data(G_OBJECT(combination_button), "number", GINT_TO_POINTER(COMBINATION));
+    gtk_box_pack_start(GTK_BOX(layouts_hbox), combination_button, FALSE, FALSE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(combination_button),
+	    gtk_radio_button_get_group(GTK_RADIO_BUTTON(two_columns_button)));
+    g_signal_connect(combination_button, "clicked", G_CALLBACK(check_buttons_changed_handler),
+                        (gpointer)window);
+    switch(app->config->icons_layout){
+	default:
+	case ONE_ROW:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(one_row_button), TRUE);
+	break;
+	case ONE_COLUMN:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(one_column_button), TRUE);
+	break;
+	case TWO_ROWS:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(two_rows_button), TRUE);
+	break;
+	case TWO_COLUMNS:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(two_columns_button), TRUE);
+	break;
+	case COMBINATION:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(combination_button), TRUE);
+	break;
+    }
 /* second line */
     second_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(second_line), gtk_label_new(_("Icon set:")),
@@ -2231,7 +2329,8 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
     transparency = hildon_controlbar_new();
     hildon_controlbar_set_min(HILDON_CONTROLBAR(transparency), 0);
     hildon_controlbar_set_max(HILDON_CONTROLBAR(transparency), 100);
-    hildon_controlbar_set_value(HILDON_CONTROLBAR(transparency), app->config->alpha_comp);
+    hildon_controlbar_set_value(HILDON_CONTROLBAR(transparency),
+				app->config->alpha_comp);
     fprintf(stderr,"test %i %i %i\n",
 	    app->config->alpha_comp,
 	    (int)app->config->alpha_comp,
@@ -2326,16 +2425,11 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
 GtkWidget* create_interface_tab(GtkWidget *window){
     GtkWidget	*interface_page = NULL,
     		*visible_items_number = NULL,
-		*layout_type = NULL,
 		*icon_set = NULL,
 		*icon_size = NULL,
 		*hide_station_name = NULL,
 		*hide_arrows = NULL,
-		*transparency = NULL,
 		*separate = NULL,
-		*font_color = NULL,
-		*font = NULL,
-		*background_color = NULL,
 		*swap_temperature = NULL,
 		*apply_button = NULL,
 		*show_wind = NULL;
@@ -2364,41 +2458,6 @@ GtkWidget* create_interface_tab(GtkWidget *window){
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				visible_items_number,
 				1, 2, 0, 1);
-    /* Layout */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Layout:")),
-				0, 1, 1, 2);
-    layout_type = gtk_combo_box_new_text();
-    GLADE_HOOKUP_OBJECT(window, layout_type, "layout_type");
-    gtk_widget_set_name(layout_type, "layout_type");
-    g_signal_connect(layout_type, "changed",
-            		G_CALLBACK(combo_boxs_changed_handler),
-			apply_button);
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One row"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("One column"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two rows"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Two columns"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(layout_type), _("Combination"));    
-    switch(app->config->icons_layout){
-	default:
-	case ONE_ROW:
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), ONE_ROW);
-	break;
-	case ONE_COLUMN:
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), ONE_COLUMN);
-	break;
-	case TWO_ROWS:
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), TWO_ROWS);
-	break;
-	case TWO_COLUMNS:
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), TWO_COLUMNS);
-	break;
-	case COMBINATION:
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(layout_type), COMBINATION);
-	break;
-    }
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				layout_type, 1, 2, 1, 2);
     /* Icon set */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				gtk_label_new(_("Icon set:")), 0, 1, 2, 3);
@@ -2516,95 +2575,6 @@ GtkWidget* create_interface_tab(GtkWidget *window){
 			window);
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				hide_arrows, 1, 2, 8, 9);
-    /* Transparency */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Transparency:")),
-				0, 1, 9, 10);
-    #ifdef OS2008
-	transparency = hildon_controlbar_new();
-	hildon_controlbar_set_min(HILDON_CONTROLBAR(transparency), 0);
-	hildon_controlbar_set_max(HILDON_CONTROLBAR(transparency), 100);
-	hildon_controlbar_set_value(HILDON_CONTROLBAR(transparency), app->config->alpha_comp);
-	fprintf(stderr,"test %i %i %i\n",app->config->alpha_comp,(int)app->config->alpha_comp,hildon_controlbar_get_value(HILDON_CONTROLBAR(transparency)));
-    #else
-	transparency = gtk_check_button_new();
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),
-        			    app->config->transparency);
-        g_signal_connect(transparency, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			window);
-    #endif
-    GLADE_HOOKUP_OBJECT(window, transparency, "transparency");
-    gtk_widget_set_name(transparency, "transparency");
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				transparency, 1, 2, 9, 10);
-    /* Font family */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Font:")),
-				0, 1, 10, 11);
-    font = gtk_font_button_new_with_font(app->config->font);
-    GLADE_HOOKUP_OBJECT(window, font, "font");
-/* disable displaying font style at button */
-    gtk_font_button_set_show_style(GTK_FONT_BUTTON(font), FALSE);
-    gtk_table_attach(GTK_TABLE(interface_page), 
-				font, 1, 2, 10, 11,
-				GTK_SHRINK, GTK_SHRINK, 0, 0);
-    g_signal_connect(font, "font-set", G_CALLBACK(font_changed_handler),
-			apply_button);
-    /* Font color */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Font color:")),
-				0, 1, 11, 12);
-    /* Font color button */
-    font_color = gtk_color_button_new();
-    GLADE_HOOKUP_OBJECT(window, font_color, "font_color");
-    gtk_widget_set_name(font_color, "font_color");
-    g_signal_connect(font_color, "color-set",
-            		G_CALLBACK(color_buttons_changed_handler),
-			apply_button);
-    gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color),
-				&(app->config->font_color));
-    gtk_button_set_relief(GTK_BUTTON(font_color), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(font_color), FALSE);
-    gtk_table_attach(GTK_TABLE(interface_page), 
-				font_color, 1, 2, 11, 12,
-				GTK_SHRINK, GTK_SHRINK, 0, 0);
-    /* Background color */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Background color:")),
-				0, 1, 12, 13);
-    background_color = gtk_color_button_new();
-    GLADE_HOOKUP_OBJECT(window, background_color, "background_color");
-    gtk_widget_set_name(background_color, "background_color");
-    g_signal_connect(background_color, "color-set",
-            		G_CALLBACK(color_buttons_changed_handler),
-			apply_button);
-#ifdef OS2008
-    g_signal_connect(transparency, "value-changed",
-            		G_CALLBACK(control_bars_changed_handler),
-			apply_button);
-#else
-    g_signal_connect(GTK_TOGGLE_BUTTON(transparency), "toggled",
-            		    G_CALLBACK(transparency_button_toggled_handler),
-			    background_color);
-			    
-#endif
-    gtk_color_button_set_color(GTK_COLOR_BUTTON(background_color),
-				&(app->config->background_color));
-#ifdef OS2008    
-    gtk_widget_set_sensitive(background_color, TRUE);
-#else
-    if(background_color && app->config->transparency)
-        gtk_widget_set_sensitive(background_color, FALSE);	
-    else
-        gtk_widget_set_sensitive(background_color, TRUE);
-#endif
-    gtk_button_set_relief(GTK_BUTTON(background_color), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(background_color), FALSE);
-    gtk_table_attach(GTK_TABLE(interface_page), 
-				background_color, 1, 2, 12, 13,
-				GTK_SHRINK, GTK_SHRINK,
-				0, 0);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

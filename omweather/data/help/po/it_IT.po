@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather 0.20\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-06 12:59+0300\n"
+"POT-Creation-Date: 2008-07-26 15:59+0300\n"
 "PO-Revision-Date: 2008-03-21 13:15+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Italian <LL@li.org>\n"
@@ -398,7 +398,7 @@ msgid "Settings"
 msgstr "Impostazioni"
 
 #: data/help/omweather.xml.in.h:48
-msgid "Settings. Interface tab"
+msgid "Settings. Display tab"
 msgstr ""
 
 #: data/help/omweather.xml.in.h:49
@@ -418,6 +418,10 @@ msgid "Settings. Update tab"
 msgstr ""
 
 #: data/help/omweather.xml.in.h:53
+msgid "Settings. Visuals tab"
+msgstr ""
+
+#: data/help/omweather.xml.in.h:54
 #, fuzzy
 msgid ""
 "The <display_text>Settings</display_text> dialog (accessible from the "
@@ -434,7 +438,7 @@ msgstr ""
 "<display_text>Chi</display_text> pulsante per visualizzare le informazioni "
 "di OMWeather."
 
-#: data/help/omweather.xml.in.h:54
+#: data/help/omweather.xml.in.h:55
 msgid ""
 "This program is distributed in the hope that it will be useful, but WITHOUT "
 "ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
@@ -442,7 +446,7 @@ msgid ""
 "more details."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:55
+#: data/help/omweather.xml.in.h:56
 msgid ""
 "This program is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License as published by the Free "
@@ -450,7 +454,7 @@ msgid ""
 "any later version."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:56
+#: data/help/omweather.xml.in.h:57
 msgid ""
 "This window you need to enter station name and station code for a custom "
 "weather station. Station codes can be found from the (http://xoap.weather."
@@ -461,7 +465,7 @@ msgstr ""
 "trovati da (http://xoap.weather.com/search/search?here=station_name) o si "
 "può usare per CAP US stazioni."
 
-#: data/help/omweather.xml.in.h:57
+#: data/help/omweather.xml.in.h:58
 msgid ""
 "To activate OMWeather select <display_text>Home</display_text> "
 "<display_text>Select applets...</display_text> <display_text>OMWeather</"
@@ -471,7 +475,7 @@ msgstr ""
 "<display_text>Selezionare display_text ...</display_text> "
 "<display_text>OMWeather</ display_text>."
 
-#: data/help/omweather.xml.in.h:58
+#: data/help/omweather.xml.in.h:59
 #, fuzzy
 msgid ""
 "Touching icon of a day brings up a window where you can see current weather "
@@ -485,7 +489,7 @@ msgstr ""
 "giorno selezionato. Toccando <display_text>Impostazioni</display_text> "
 "pulsante si aprirà il dialogo OMWeather impostazioni."
 
-#: data/help/omweather.xml.in.h:59
+#: data/help/omweather.xml.in.h:60
 #, fuzzy
 msgid ""
 "Update weather information automatically from the Internet (Data provided by "
@@ -494,7 +498,7 @@ msgstr ""
 "Per aggiornare automaticamente le informazioni meteorologiche da Internet "
 "(dati disponibili da xoap.weather.com)"
 
-#: data/help/omweather.xml.in.h:60
+#: data/help/omweather.xml.in.h:61
 msgid ""
 "Use the <ref refid=\"help_omweather_\" refdoc=\"index\"/> to use the various "
 "sections of this help document."
@@ -502,11 +506,11 @@ msgstr ""
 "Utilizzare il <ref refid=\"help_omweather_\" refdoc=\"index\"/> di usare le "
 "varie sezioni di questo documento di aiuto."
 
-#: data/help/omweather.xml.in.h:61
+#: data/help/omweather.xml.in.h:62
 msgid "Using Desktop Applet"
 msgstr "Desktop utilizzando applet"
 
-#: data/help/omweather.xml.in.h:62
+#: data/help/omweather.xml.in.h:63
 msgid ""
 "Valid time for current weather and update interval can be selected from a "
 "drop down menu."
@@ -514,15 +518,15 @@ msgstr ""
 "Valido per tempo meteorologiche correnti e intervallo di aggiornamento può "
 "essere selezionato da un menu a discesa."
 
-#: data/help/omweather.xml.in.h:63
+#: data/help/omweather.xml.in.h:64
 msgid "Weather data provided by: xoap.weather.com"
 msgstr "Meteo dati forniti da: xoap.weather.com"
 
-#: data/help/omweather.xml.in.h:64
+#: data/help/omweather.xml.in.h:65
 msgid "Welcome to Other Maemo Weather."
 msgstr "Benvenuti a Other Maemo Weather."
 
-#: data/help/omweather.xml.in.h:65
+#: data/help/omweather.xml.in.h:66
 msgid ""
 "When <display_text>Use device temperature sensor</display_text> check box is "
 "enabled, applet will show temperature of the build in temperature sensor. "
@@ -530,7 +534,7 @@ msgid ""
 "interwall can be set to user defined value."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:66
+#: data/help/omweather.xml.in.h:67
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "this program. If not, see: http://www.gnu.org/licenses"

@@ -805,6 +805,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*two_columns = NULL,
 			*countries = NULL,
 			*states = NULL,
+			*theme_override = NULL,
 			*stations = NULL;
     GSList		*icon_set = NULL;
     gpointer		*selected_icon_set = NULL;
@@ -1038,7 +1039,13 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     if(transparency)
 	app->config->transparency = 
 		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(transparency));
-#endif		
+#endif
+/* UI Theme Override */
+    theme_override = lookup_widget(config_window, "theme_override");
+    if(theme_override){
+	app->config->ui_background_color_on =
+	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(theme_override));
+    }
 /* background color */
     background_color = lookup_widget(config_window, "background_color");
     if(background_color)
@@ -1751,6 +1758,8 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 	}
 	return;
     }
+
+
 #ifdef OS2008
     if(!strcmp(button_name, "enable_gps")){
 	something = app->config->gps_station;
@@ -1763,6 +1772,10 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
     }
     if(!strcmp(button_name, "show_wind")){
 	something = app->config->show_wind;
+	goto check;
+    }
+    if(!strcmp(button_name, "theme_override")){
+	something = app->config->ui_background_color_on;
 	goto check;
     }
     if(!strcmp(button_name, "separate")){
@@ -2371,6 +2384,13 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
     gtk_box_pack_start(GTK_BOX(third_line),
 		theme_override = gtk_check_button_new_with_label(_("UI Theme Override")),
 			FALSE, FALSE, 20);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(theme_override),
+        			    app->config->ui_background_color_on);
+    gtk_widget_set_name(theme_override, "theme_override");
+    GLADE_HOOKUP_OBJECT(window, theme_override, "theme_override");
+    g_signal_connect(theme_override, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			window);
 /* fourth line */
     fourth_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(fourth_line),

@@ -506,12 +506,12 @@ read_config(AppletConfig *config){
 	if(gerror)
 	    g_error_free(gerror);
     }
-	/* Get value of corner radius. Default is 0 */
+	/* Get value of corner radius. Default is 10 */
 	config->corner_radius = gconf_client_get_int(gconf_client,
 							GCONF_KEY_CORNER_RADIUS,
 							&gerror);
 	if(gerror || config->corner_radius <= 0){
-	    config->corner_radius = 0;
+	    config->corner_radius = 10;
 	    if(gerror)
 		g_error_free(gerror);
 	}

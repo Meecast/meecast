@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-06 12:59+0300\n"
+"POT-Creation-Date: 2008-07-26 15:59+0300\n"
 "PO-Revision-Date: 2008-03-20 12:46+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -363,7 +363,7 @@ msgid "Settings"
 msgstr "Настройки"
 
 #: data/help/omweather.xml.in.h:48
-msgid "Settings. Interface tab"
+msgid "Settings. Display tab"
 msgstr ""
 
 #: data/help/omweather.xml.in.h:49
@@ -383,6 +383,10 @@ msgid "Settings. Update tab"
 msgstr ""
 
 #: data/help/omweather.xml.in.h:53
+msgid "Settings. Visuals tab"
+msgstr ""
+
+#: data/help/omweather.xml.in.h:54
 #, fuzzy
 msgid ""
 "The <display_text>Settings</display_text> dialog (accessible from the "
@@ -397,7 +401,7 @@ msgstr ""
 "параметры аплета OMWeather. Дополнительная вкладка <display_text>О "
 "программе</display_text> отображает информацию об OMWeather."
 
-#: data/help/omweather.xml.in.h:54
+#: data/help/omweather.xml.in.h:55
 msgid ""
 "This program is distributed in the hope that it will be useful, but WITHOUT "
 "ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or "
@@ -405,7 +409,7 @@ msgid ""
 "more details."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:55
+#: data/help/omweather.xml.in.h:56
 msgid ""
 "This program is free software; you can redistribute it and/or modify it "
 "under the terms of the GNU General Public License as published by the Free "
@@ -413,7 +417,7 @@ msgid ""
 "any later version."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:56
+#: data/help/omweather.xml.in.h:57
 msgid ""
 "This window you need to enter station name and station code for a custom "
 "weather station. Station codes can be found from the (http://xoap.weather."
@@ -423,14 +427,14 @@ msgstr ""
 "может быть найден с (http://xoap.weather.com/search/search?here=имя_станции) "
 "или вы можете использовать ZIP код (только для США)."
 
-#: data/help/omweather.xml.in.h:57
+#: data/help/omweather.xml.in.h:58
 msgid ""
 "To activate OMWeather select <display_text>Home</display_text> "
 "<display_text>Select applets...</display_text> <display_text>OMWeather</"
 "display_text>."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:58
+#: data/help/omweather.xml.in.h:59
 msgid ""
 "Touching icon of a day brings up a window where you can see current weather "
 "or detailed forecast for a selected day. On the <display_text>Now</"
@@ -439,7 +443,7 @@ msgid ""
 "sunset times for a selected days."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:59
+#: data/help/omweather.xml.in.h:60
 #, fuzzy
 msgid ""
 "Update weather information automatically from the Internet (Data provided by "
@@ -448,17 +452,17 @@ msgstr ""
 "Автоматическое обновление информации о прогнозе погоды через Интернет "
 "(Данные доступны на xoap.weather.com)"
 
-#: data/help/omweather.xml.in.h:60
+#: data/help/omweather.xml.in.h:61
 msgid ""
 "Use the <ref refid=\"help_omweather_\" refdoc=\"index\"/> to use the various "
 "sections of this help document."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:61
+#: data/help/omweather.xml.in.h:62
 msgid "Using Desktop Applet"
 msgstr "Использование апплета"
 
-#: data/help/omweather.xml.in.h:62
+#: data/help/omweather.xml.in.h:63
 msgid ""
 "Valid time for current weather and update interval can be selected from a "
 "drop down menu."
@@ -466,15 +470,15 @@ msgstr ""
 "Параметр <display_text>Актуальность текущей погоды</display_text> и интервал "
 "обновления выбираются из выпадающих списков."
 
-#: data/help/omweather.xml.in.h:63
+#: data/help/omweather.xml.in.h:64
 msgid "Weather data provided by: xoap.weather.com"
 msgstr "Погодные данные предоставляются: xoap.weather.com"
 
-#: data/help/omweather.xml.in.h:64
+#: data/help/omweather.xml.in.h:65
 msgid "Welcome to Other Maemo Weather."
 msgstr "Добро пожаловать в Other Maemo Weather."
 
-#: data/help/omweather.xml.in.h:65
+#: data/help/omweather.xml.in.h:66
 msgid ""
 "When <display_text>Use device temperature sensor</display_text> check box is "
 "enabled, applet will show temperature of the build in temperature sensor. "
@@ -482,7 +486,7 @@ msgid ""
 "interwall can be set to user defined value."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:66
+#: data/help/omweather.xml.in.h:67
 msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "this program. If not, see: http://www.gnu.org/licenses"

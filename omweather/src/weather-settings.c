@@ -727,8 +727,8 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		    create_visuals_tab(window_config),
         	    gtk_label_new(_("Visuals")));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			create_interface_tab(window_config),
-        			gtk_label_new(_("Interface")));
+        			create_display_tab(window_config),
+        			gtk_label_new(_("Display")));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			 create_units_tab(window_config) ,
         			gtk_label_new(_("Units")));
@@ -1200,8 +1200,11 @@ void help_button_handler(GtkWidget *button, GdkEventButton *event,
 	    case SETTINGS_STATIONS_PAGE:
 		help_activated_handler(NULL, OMWEATHER_SETTINGS_STATIONS_HELP_ID);
 	    break;
-	    case SETTINGS_INTERFACE_PAGE:
-		help_activated_handler(NULL, OMWEATHER_SETTINGS_INTERFACE_HELP_ID);
+	    case SETTINGS_VISUALS_PAGE:
+		help_activated_handler(NULL, OMWEATHER_SETTINGS_VISUALS_HELP_ID);
+	    break;
+	    case SETTINGS_DISPLAY_PAGE:
+		help_activated_handler(NULL, OMWEATHER_SETTINGS_DISPLAY_HELP_ID);
 	    break;
 	    case SETTINGS_UNITS_PAGE:
 		help_activated_handler(NULL, OMWEATHER_SETTINGS_UNITS_HELP_ID);
@@ -1733,8 +1736,6 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 	return;
     }
 
-
-
     if(!strcmp(button_name, "pressure")){
 	if(gtk_toggle_button_get_active(button)){
 	    if(app->config->pressure_units == MB)
@@ -2247,7 +2248,7 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
 		*second_line = NULL,
 		*iconsets_hbox = NULL,
 		*third_line = NULL,
-		*theme_overide = NULL,
+		*theme_override = NULL,
 		*fourth_line = NULL,
 		*transparency = NULL,
 		*fifth_line = NULL,
@@ -2368,7 +2369,7 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
 /* thrid line */
     third_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(third_line),
-		theme_overide = gtk_check_button_new_with_label(_("UI Theme Overide")),
+		theme_override = gtk_check_button_new_with_label(_("UI Theme Override")),
 			FALSE, FALSE, 20);
 /* fourth line */
     fourth_line = gtk_hbox_new(FALSE, 0);
@@ -2472,8 +2473,13 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
     return visuals_page;
 }
 /*******************************************************************************/
-GtkWidget* create_interface_tab(GtkWidget *window){
+GtkWidget* create_display_tab(GtkWidget *window){
     GtkWidget	*interface_page = NULL,
+		*first_line = NULL,
+		*second_line = NULL,
+		*third_line = NULL,
+		*fourth_line = NULL,
+		*fifth_line = NULL,
     		*visible_items_number = NULL,
 		*icon_size = NULL,
 		*hide_station_name = NULL,
@@ -2487,12 +2493,15 @@ GtkWidget* create_interface_tab(GtkWidget *window){
     START_FUNCTION;
 #endif
     apply_button = lookup_widget(window, "apply_button");
-    interface_page = gtk_table_new(13, 2, FALSE);
 /* Interface tab */
+    interface_page = gtk_vbox_new(FALSE, 0);
+/* first line */
+    first_line = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_page), first_line, TRUE, TRUE, 0);
     /* Visible items */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Visible items:")),
-				0, 1, 0, 1);
+    gtk_box_pack_start(GTK_BOX(first_line),
+			gtk_label_new(_("Visible items:")),
+			FALSE, FALSE, 20);
     /* Visible items number */
     visible_items_number = hildon_controlbar_new();
     GLADE_HOOKUP_OBJECT(window, visible_items_number, "visible_items_number");
@@ -2505,13 +2514,17 @@ GtkWidget* create_interface_tab(GtkWidget *window){
 				Max_count_weather_day - 1);
     hildon_controlbar_set_value(HILDON_CONTROLBAR(visible_items_number),
 				    app->config->days_to_show - 1);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				visible_items_number,
-				1, 2, 0, 1);
-
+    gtk_box_pack_end(GTK_BOX(first_line),
+			visible_items_number,
+			FALSE, FALSE, 20);
+    gtk_widget_set_size_request(visible_items_number, 350, -1);
+/* second line */
+    second_line = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_page), second_line, TRUE, TRUE, 0);
     /* Icon size */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Icon size:")), 0, 1, 3, 4);
+    gtk_box_pack_start(GTK_BOX(second_line),
+			gtk_label_new(_("Icon size:")),
+			FALSE, FALSE, 20);
     icon_size = hildon_controlbar_new();
     GLADE_HOOKUP_OBJECT(window, icon_size, "icon_size");
     gtk_widget_set_name(icon_size, "icon_size");
@@ -2538,15 +2551,15 @@ GtkWidget* create_interface_tab(GtkWidget *window){
 	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), GIANT);
 	break;
     }
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				icon_size, 1, 2, 3, 4);
+    gtk_box_pack_end(GTK_BOX(second_line), icon_size, FALSE, FALSE, 20);
+    gtk_widget_set_size_request(icon_size, 350, -1);
+/* third line */
+    third_line = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_page), third_line, TRUE, TRUE, 0);
     /* Swap temperature */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page),
-        			gtk_label_new(_("Swap hi/low temperature:")),
-        			0, 1, 4, 5);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page),
-			    swap_temperature = gtk_check_button_new(),
-			    1, 2, 4, 5);
+    gtk_box_pack_start(GTK_BOX(third_line),
+			swap_temperature = gtk_check_button_new_with_label(_("Swap hi/low temperature")),
+			FALSE, FALSE, 20);
     GLADE_HOOKUP_OBJECT(window, swap_temperature, "swap_temperature");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(swap_temperature),
         			    app->config->swap_hi_low_temperature);
@@ -2555,12 +2568,9 @@ GtkWidget* create_interface_tab(GtkWidget *window){
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
     /* Show wind */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page),
-        			gtk_label_new(_("Show wind:")),
-        			0, 1, 5, 6);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page),
-				show_wind = gtk_check_button_new(),
-				1, 2, 5, 6);
+    gtk_box_pack_end(GTK_BOX(third_line),
+			show_wind = gtk_check_button_new(),
+			FALSE, FALSE, 20);
     GLADE_HOOKUP_OBJECT(window, show_wind, "show_wind");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(show_wind),
         			    app->config->show_wind);
@@ -2568,11 +2578,14 @@ GtkWidget* create_interface_tab(GtkWidget *window){
     g_signal_connect(show_wind, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
+    gtk_box_pack_end(GTK_BOX(third_line),
+        		gtk_label_new(_("Show wind")),
+        		FALSE, FALSE, 0);
+/* fourth line */
+    fourth_line = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_page), fourth_line, TRUE, TRUE, 0);
     /* Separate weather */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-			gtk_label_new(_("Current weather on first icon:")),
-			0, 1, 6, 7);
-    separate = gtk_check_button_new();
+    separate = gtk_check_button_new_with_label(_("Show only current weather on first icon"));
     GLADE_HOOKUP_OBJECT(window, separate, "separate");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(separate),
         			    app->config->separate);
@@ -2580,13 +2593,12 @@ GtkWidget* create_interface_tab(GtkWidget *window){
     g_signal_connect(separate, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				separate, 1, 2, 6, 7);
+    gtk_box_pack_start(GTK_BOX(fourth_line), separate, FALSE, FALSE, 20);
+/* fifth line */
+    fifth_line = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_page), fifth_line, TRUE, TRUE, 0);
     /* Hide station name */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Hide station name:")),
-				0, 1, 7, 8);
-    hide_station_name = gtk_check_button_new();
+    hide_station_name = gtk_check_button_new_with_label(_("Hide station name"));
     GLADE_HOOKUP_OBJECT(window, hide_station_name, "hide_station_name");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_station_name),
         			    app->config->hide_station_name);
@@ -2594,12 +2606,9 @@ GtkWidget* create_interface_tab(GtkWidget *window){
     g_signal_connect(hide_station_name, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				hide_station_name, 1, 2, 7, 8);
+    gtk_box_pack_start(GTK_BOX(fifth_line),
+			hide_station_name, FALSE, FALSE, 20);
     /* Hide arrows */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Hide arrows:")),
-				0, 1, 8, 9);
     hide_arrows = gtk_check_button_new();
     GLADE_HOOKUP_OBJECT(window, hide_arrows, "hide_arrows");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_arrows),
@@ -2608,8 +2617,11 @@ GtkWidget* create_interface_tab(GtkWidget *window){
     g_signal_connect(hide_arrows, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				hide_arrows, 1, 2, 8, 9);
+    gtk_box_pack_end(GTK_BOX(fifth_line),
+			hide_arrows, FALSE, FALSE, 20);
+    gtk_box_pack_end(GTK_BOX(fifth_line),
+			gtk_label_new(_("Hide arrows")),
+			FALSE, FALSE, 0);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

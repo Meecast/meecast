@@ -147,8 +147,8 @@
       </_para>
     </topic>
     <topic>
-      <_topictitle>Settings. Interface tab</_topictitle>
-      <context contextUID="help_omweather_settings_interface"/>
+      <_topictitle>Settings. Visuals tab</_topictitle>
+      <context contextUID="help_omweather_settings_visuals"/>
       <_para>
         <display_text>Interface</display_text> tab is used to configure 
         settings that controls visual appearance of the OMWeather.
@@ -214,6 +214,10 @@
 	background color used for icons.  Background color is not selectable
 	if transparency is used.
       </_para>
+    </topic>
+    <topic>
+      <_topictitle>Settings. Display tab</_topictitle>
+      <context contextUID="help_omweather_settings_display"/>
     </topic>
     <topic>
       <_topictitle>Settings. Units tab</_topictitle>

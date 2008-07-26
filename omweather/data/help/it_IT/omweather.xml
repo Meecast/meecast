@@ -56,8 +56,8 @@
       <para><display_text>Enable GPS:</display_text> check box is used to enable automatic weather station selection when GPS is enabled.</para>
     </topic>
     <topic>
-      <topictitle>Settings. Interface tab</topictitle>
-      <context contextUID="help_omweather_settings_interface"/>
+      <topictitle>Settings. Visuals tab</topictitle>
+      <context contextUID="help_omweather_settings_visuals"/>
       <para><display_text>Interface</display_text> tab is used to configure settings that controls visual appearance of the OMWeather.</para>
       <para><display_text>Visible items:</display_text> selects how many icons will be shown in the tablets home screen.</para>
       <para><display_text>Layout:</display_text> selects how icons are shown on the home screen. Possible selections are one row, one column, two rows, two columns or combination.</para>
@@ -72,6 +72,10 @@
       <para><display_text>Font:</display_text> defines font and it's size used on the applet.</para>
       <para><display_text>Font color:</display_text> defines applets font color. Touching color button will open <display_text>Pick a Color</display_text> dialog where it's possible to select font color.</para>
       <para><display_text>Background color:</display_text> setting defines the background color used for icons. Background color is not selectable if transparency is used.</para>
+    </topic>
+    <topic>
+      <topictitle>Settings. Display tab</topictitle>
+      <context contextUID="help_omweather_settings_display"/>
     </topic>
     <topic>
       <topictitle>Settings. Units tab</topictitle>

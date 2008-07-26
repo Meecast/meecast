@@ -93,7 +93,7 @@ void combo_boxs_changed_handler(GtkComboBox *combobox, gpointer user_data);
 void control_bars_changed_handler(HildonControlbar *control, gpointer user_data);
 GtkWidget* create_locations_tab(GtkWidget *window);
 GtkWidget* create_visuals_tab(GtkWidget *window);
-GtkWidget* create_interface_tab(GtkWidget *window);
+GtkWidget* create_display_tab(GtkWidget *window);
 GtkWidget* create_units_tab(GtkWidget *window);
 GtkWidget* create_update_tab(GtkWidget *window);
 GtkWidget* create_test_tab(GtkWidget *window);

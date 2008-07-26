@@ -37,7 +37,8 @@
 #endif
 /*******************************************************************************/
 #define OMWEATHER_SETTINGS_STATIONS_HELP_ID	"help_omweather_settings_stations"
-#define OMWEATHER_SETTINGS_INTERFACE_HELP_ID	"help_omweather_settings_interface"
+#define OMWEATHER_SETTINGS_VISUALS_HELP_ID	"help_omweather_settings_visuals"
+#define OMWEATHER_SETTINGS_DISPLAY_HELP_ID	"help_omweather_settings_display"
 #define OMWEATHER_SETTINGS_UNITS_HELP_ID	"help_omweather_settings_units"
 #define OMWEATHER_SETTINGS_UPDATE_HELP_ID	"help_omweather_settings_update"
 #define OMWEATHER_SETTINGS_SENSOR_HELP_ID	"help_omweather_settings_sensor"

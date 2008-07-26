@@ -1627,11 +1627,17 @@ void add_wind_text(GSList *day, gchar *buffer){
 	    wind_direction = _("N/A");
 	else
 	    wind_direction = (char*)hash_table_find(item_value(day, "day_wind_title"), TRUE);
-	sprintf(buffer + strlen(buffer), "\n%s\n%.1f", wind_direction,
+	sprintf(buffer + strlen(buffer),
+		"<span foreground='#%02x%02x%02x'>\n%s\n%.1f</span>",
+		app->config->font_color.red >> 8,
+		app->config->font_color.green >> 8,
+		app->config->font_color.blue >> 8,
+		wind_direction,
 		convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed"))));
     }
     else
-	sprintf(buffer + strlen(buffer), "\n%s\n%s", _("N/A"), _("N/A"));
+	sprintf(buffer + strlen(buffer),
+		"<span foreground='#%02x%02x%02x'>\n%s\n%s</span>", _("N/A"), _("N/A"));
 }
 /*******************************************************************************/
 void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,

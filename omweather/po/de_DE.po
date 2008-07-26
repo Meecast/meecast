@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-07-26 20:20+0300\n"
-"PO-Revision-Date: 2008-07-26 22:24+0100\n"
+"PO-Revision-Date: 2008-07-26 23:20+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
 "MIME-Version: 1.0\n"
@@ -870,7 +870,7 @@ msgstr "Neu"
 
 #: src/weather-settings.c:2960
 msgid "Next update:"
-msgstr "Nächste Aktualisierung:"
+msgstr "Nächste Aktualisierung um:"
 
 #: src/weather-popup.c:575
 msgid "Night:"
@@ -1354,7 +1354,7 @@ msgstr ""
 
 #: src/weather-sensor.c:61
 msgid "Use device temperature sensor"
-msgstr "Temperatursensor des Gerätes verwenden"
+msgstr "Temperatursensor des Gerätes auslesen"
 
 #: src/hash.data:178
 msgid "VAR"

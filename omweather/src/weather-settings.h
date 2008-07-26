@@ -56,7 +56,7 @@ void changed_state_handler(GtkWidget *widget, gpointer user_data);
 void changed_stations_handler(GtkWidget *widget, gpointer user_data);
 void changed_weather_source_handler(GtkWidget *widget, gpointer user_data);
 void weather_window_add_custom_station(void);
-int create_icon_set_list(GtkWidget *store); /* scan /usr/share/omweather/icons */
+int create_icon_set_list(GSList **store); /* scan /usr/share/omweather/icons */
 					     /* and add names to the list */
 int get_active_item_index(GtkTreeModel *list, int time, const gchar *text,
 					    gboolean use_index_as_result);

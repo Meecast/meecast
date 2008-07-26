@@ -366,39 +366,28 @@ void delete_station_handler(GtkButton *button, gpointer user_data){
 }
 /*******************************************************************************/
 /* get icon set names */
-int create_icon_set_list(GtkWidget *store){
+int create_icon_set_list(GSList **store){
     Dirent	*dp;
     DIR		*dir_fd;
-    gint	i = 0;
-    char 	*temp_string = NULL;
     int		sets_number = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
-    dir_fd	= opendir(ICONS_PATH);
+    dir_fd = opendir(ICONS_PATH);
     if(dir_fd){
 	while( (dp = readdir(dir_fd)) ){
 	    if(!strcmp(dp->d_name, ".") || !strcmp(dp->d_name, ".."))
 		continue;
 	    if(dp->d_type == DT_DIR){
-		gtk_combo_box_append_text(GTK_COMBO_BOX(store), dp->d_name);
+		*store = g_slist_append(*store, g_strdup(dp->d_name));
 		sets_number++;
-		if(!strcmp(app->config->icon_set, dp->d_name))
-		    gtk_combo_box_set_active(GTK_COMBO_BOX(store), i);
-		i++;
 	    }
 	}
 	closedir(dir_fd);
-	/* check if selected icon set not found */
-	temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(store));
-	if(!temp_string)
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(store), 0);
-	else 
-	    g_free(temp_string);
     }
     else{
-    	gtk_combo_box_append_text(GTK_COMBO_BOX(store), app->config->icon_set);
-	gtk_combo_box_set_active(GTK_COMBO_BOX(store), 0);
+    	*store = g_slist_append(*store, app->config->icon_set);
+	sets_number++;
     }
     return sets_number;
 }
@@ -779,7 +768,6 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     time_t		updatetime = 0;
     GtkWidget		*config_window = GTK_WIDGET(user_data),
 			*visible_items_number = NULL,
-			*icon_set = NULL,
 			*icon_size = NULL,
 			*separate = NULL,
 			*font = NULL,
@@ -818,10 +806,11 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*countries = NULL,
 			*states = NULL,
 			*stations = NULL;
+    GSList		*icon_set = NULL;
+    gpointer		*selected_icon_set = NULL;
 #ifndef OS2008
     gboolean		need_correct_layout_for_OS2007 = FALSE;
 #endif
-    gchar		*temp_string = NULL;
     gint		active_index = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -863,21 +852,31 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	    }
 	}
 #ifndef OS2008
-	    need_correct_layout_for_OS2007 = TRUE;
+	need_correct_layout_for_OS2007 = TRUE;
 #endif
     }
 /* icon set */	
-    icon_set = lookup_widget(config_window, "icon_set");
+    icon_set = (GSList*)g_object_get_data(G_OBJECT(config_window), "iconsetlist");
     if(icon_set){
-	temp_string = gtk_combo_box_get_active_text(GTK_COMBO_BOX(icon_set));
-	if(strcmp(app->config->icon_set, temp_string)){
-	    if(app->config->icon_set)
-		g_free(app->config->icon_set);
-	    app->config->icon_set = g_strdup(temp_string);
-	    memset(path_large_icon, 0, sizeof(path_large_icon));
-	    sprintf(path_large_icon, "%s%s/", ICONS_PATH, app->config->icon_set);
+	while(icon_set){
+	    selected_icon_set = g_object_get_data(G_OBJECT(config_window),
+						    ((gchar*)icon_set->data));
+	    if(selected_icon_set){
+		if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(selected_icon_set))){
+		    if(app->config->icon_set)
+			g_free(app->config->icon_set);
+		    app->config->icon_set = g_strdup((gchar*)icon_set->data);
+		    break;
+		}
+	    }
+	    icon_set = g_slist_next(icon_set);
 	}
-	g_free(temp_string);
+	memset(path_large_icon, 0, sizeof(path_large_icon));
+	snprintf(path_large_icon, sizeof(path_large_icon) - 1,
+		    "%s%s/", ICONS_PATH, app->config->icon_set);
+#ifndef OS2008
+	need_correct_layout_for_OS2007 = TRUE;
+#endif
     }
 /* icon size */
     icon_size = lookup_widget(config_window, "icon_size");
@@ -1139,12 +1138,25 @@ void close_button_handler(GtkWidget *button, GdkEventButton *event,
 		*notebook = NULL;
     guint	current_page = 0;
     gboolean	need_update_weather = FALSE;
+    GSList	*iconset = NULL,
+		*tmp = NULL;
 #ifndef OS2008
     gboolean	need_correct_layout_for_OS2007 = FALSE;
 #endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+/* free memory used by iconset list */
+    iconset = g_object_get_data(G_OBJECT(config_window), "iconsetlist");
+    if(iconset){
+        tmp = (GSList*)iconset;
+	while(tmp){
+	    if(tmp->data)
+		g_free((gchar*)(tmp->data));
+	    tmp = g_slist_next(tmp);
+	}
+    }
+/* get settings tab number */
     notebook = lookup_widget(config_window, "notebook");
     if(notebook)
 	current_page = gtk_notebook_get_current_page(GTK_NOTEBOOK(notebook));
@@ -1557,7 +1569,8 @@ void rename_button_handler(GtkWidget *button, GdkEventButton *event,
 }
 /*******************************************************************************/
 void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
-    gchar	*button_name = NULL;
+    gchar	*button_name = NULL,
+		*iconset = NULL;
     gboolean	something = FALSE;
     GtkWidget	*config_window = NULL,
 #if defined(OS2008) || defined(DEBUGTEMP)
@@ -1599,6 +1612,15 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 	if(number == COMBINATION + 1)
 	    number = ONE_ROW;
 	if(number != app->config->icons_layout)
+	    gtk_widget_set_sensitive(apply_button, TRUE);
+	else
+	    gtk_widget_set_sensitive(apply_button, FALSE);
+	return;
+    }
+/* iconset */
+    iconset = g_object_get_data(G_OBJECT(button), "iconset");
+    if(iconset){
+	if(strcmp(iconset, app->config->icon_set))
 	    gtk_widget_set_sensitive(apply_button, TRUE);
 	else
 	    gtk_widget_set_sensitive(apply_button, FALSE);
@@ -2219,6 +2241,7 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 GtkWidget* create_visuals_tab(GtkWidget *window){
     GtkWidget	*visuals_page = NULL,
 		*apply_button = NULL,
+		*button = NULL,
 		*first_line = NULL,
 		*layouts_hbox = NULL,
 		*second_line = NULL,
@@ -2237,7 +2260,10 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
 		*two_rows_button = NULL,
 		*two_columns_button = NULL,
 		*combination_button = NULL;
-    GSList	*group = NULL;
+    GSList	*group = NULL,
+		*icon_set = NULL,
+		*tmp = NULL;
+    gchar	buffer[256];
 /* Visuals tab */
     visuals_page = gtk_vbox_new(FALSE, 0);
     apply_button = lookup_widget(window, "apply_button");
@@ -2314,7 +2340,31 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
     gtk_box_pack_start(GTK_BOX(second_line), gtk_label_new(_("Icon set:")),
 			FALSE, FALSE, 20);
     iconsets_hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_end(GTK_BOX(second_line), iconsets_hbox, TRUE, TRUE, 20);
+    gtk_box_pack_end(GTK_BOX(second_line), iconsets_hbox, FALSE, FALSE, 20);
+    /* Icon sets */
+    group = NULL;
+    create_icon_set_list(&icon_set);
+    tmp = icon_set;
+    while(tmp){
+	memset(buffer, 0, sizeof(buffer));
+	snprintf(buffer, sizeof(buffer) - 1, "%s%s", ICONS_PATH,
+		    (gchar*)(tmp->data));
+	button = create_button_with_image(buffer, "44", 40, TRUE, TRUE);
+	gtk_radio_button_set_group(GTK_RADIO_BUTTON(button), group);
+	group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(button));
+	/* store button name */
+	g_object_set_data(G_OBJECT(button), "iconset", (gchar*)(tmp->data));
+	/* store button for each item in iconset list */
+	g_object_set_data(G_OBJECT(window), (gchar*)(tmp->data), button);
+	gtk_box_pack_start(GTK_BOX(iconsets_hbox), button, FALSE, FALSE, 0);
+	if(!strcmp(tmp->data, app->config->icon_set))
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button), TRUE);
+	g_signal_connect(button, "clicked",
+            		    G_CALLBACK(check_buttons_changed_handler),
+			    window);
+	tmp = g_slist_next(tmp);
+    }
+    g_object_set_data(G_OBJECT(window), "iconsetlist", icon_set);
 /* thrid line */
     third_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(third_line),
@@ -2425,7 +2475,6 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
 GtkWidget* create_interface_tab(GtkWidget *window){
     GtkWidget	*interface_page = NULL,
     		*visible_items_number = NULL,
-		*icon_set = NULL,
 		*icon_size = NULL,
 		*hide_station_name = NULL,
 		*hide_arrows = NULL,
@@ -2433,6 +2482,7 @@ GtkWidget* create_interface_tab(GtkWidget *window){
 		*swap_temperature = NULL,
 		*apply_button = NULL,
 		*show_wind = NULL;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -2458,22 +2508,7 @@ GtkWidget* create_interface_tab(GtkWidget *window){
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				visible_items_number,
 				1, 2, 0, 1);
-    /* Icon set */
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				gtk_label_new(_("Icon set:")), 0, 1, 2, 3);
-    icon_set = gtk_combo_box_new_text();
-    GLADE_HOOKUP_OBJECT(window, icon_set, "icon_set");
-    gtk_widget_set_name(icon_set, "icon_set");
-    g_signal_connect(icon_set, "changed",
-            		G_CALLBACK(combo_boxs_changed_handler),
-			apply_button);
-/* add icons set to list */
-    if(create_icon_set_list(icon_set) < 2)
-	gtk_widget_set_sensitive(icon_set, FALSE);
-    else
-	gtk_widget_set_sensitive(icon_set, TRUE);
-    gtk_table_attach_defaults(GTK_TABLE(interface_page), 
-				icon_set, 1, 2, 2, 3);
+
     /* Icon size */
     gtk_table_attach_defaults(GTK_TABLE(interface_page), 
 				gtk_label_new(_("Icon size:")), 0, 1, 3, 4);

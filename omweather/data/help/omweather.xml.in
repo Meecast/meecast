@@ -52,21 +52,21 @@
       </_para>
       <_para>
         First thing to do is select the position of a OMWeather applet in home
-	view.  You can change applets position simply touching it and dragging
-	it where you want it.  Appearance of the applet can be changed from the
+	view. You can change applet's position simply touching it and dragging
+	it where you want it. Appearance of the applet can be changed from the
 	<display_text>Tool</display_text> icon in OMWeathers weather window or
 	selecting <display_text>Home</display_text>
 	<display_text>Applet settings</display_text>
         <display_text>OMWeather settings</display_text>.
       </_para>
       <_para>
-        OMWeather will use Tablets Home city selection as a default location
-        for weather data.  Location can be changed from the
+        OMWeather will use the tablet's home city selection as a default location
+        for weather data. Location can be changed from the
 	<display_text>Stations</display_text> tab in OMWeathers	settings window.
       </_para>
       <_para>
-	More info of how to change appearance of the applet and add, rename and
-	delete locations can be	found on
+	More info about how to change appearance of the applet and add, rename and
+	delete locations can be	found on the 
 	<ref refid="help_omweather_settings" refdoc="Settings"/> page.
       </_para>
     </topic>
@@ -75,15 +75,15 @@
       <context contextUID="help_omweather_settings"/>
       <_para>
         The <display_text>Settings</display_text> dialog (accessible from
-        the desktop applet or home views Applet settings menu) provides
+        the desktop applet or home view's Applet settings menu) provides
         access to the configurable options that controls how OMWeather
-        appears and run.  In addition to the tabs, there are also four
+        appears and run. In addition to the tabs, there are also four
 	buttons. Left arrow will take you to weather view, ok button saves settings,
 	question mark opens help and x button closes settings window.
       </_para>
       <_para>
-        <display_text>Sations</display_text> tab lists all locations 
-        which weather data OMWeather will receive when applets refresh button
+        <display_text>Stations</display_text> tab lists all locations 
+        which weather data OMWeather will receive when the applet's refresh button
 	is touched or automatic update happens.
       </_para>
       <_para>
@@ -134,7 +134,7 @@
 	<_para>
         <display_text>Arrange</display_text> section allows you to remove or
 	rename stations in the list.  <display_text>Up</display_text> and
-	<display_text>down</display_text> arrows allows you to change the
+	<display_text>down</display_text> arrows allow you to change the
 	order of the selected locations.
       </_para>
       <_para>
@@ -143,7 +143,7 @@
       </_para>
       <_para>
         <display_text>Enable GPS:</display_text> check box is used to
-	enable automatic weather station selection when GPS is enabled.
+	enable automatic weather station selection if GPS is enabled.
       </_para>
     </topic>
     <topic>
@@ -151,11 +151,11 @@
       <context contextUID="help_omweather_settings_visuals"/>
       <_para>
         <display_text>Interface</display_text> tab is used to configure 
-        settings that controls visual appearance of the OMWeather.
+        settings that control the visual appearance of the OMWeather.
       </_para>
       <_para>
         <display_text>Visible items:</display_text> selects how many icons
-        will be shown in the tablets home screen.
+        will be shown in the tablet's home screen.
       </_para>
       <_para>
         <display_text>Layout:</display_text> selects how icons are shown on
@@ -204,7 +204,7 @@
 	on the applet.
       </_para>
       <_para>
-	<display_text>Font color:</display_text> defines applets font color.
+	<display_text>Font color:</display_text> defines applet's font color.
 	Touching color button will open
 	<display_text>Pick a Color</display_text> dialog where it's possible to
 	select font color.

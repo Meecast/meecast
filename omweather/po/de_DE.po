@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-07-26 20:20+0300\n"
-"PO-Revision-Date: 2008-07-26 23:20+0100\n"
+"PO-Revision-Date: 2008-07-27 15:15+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
 "MIME-Version: 1.0\n"
@@ -557,7 +557,7 @@ msgstr "Schriftfarbe:"
 
 #: src/weather-settings.c:2425
 msgid "Font:"
-msgstr "Schrift:"
+msgstr "Schriftart:"
 
 #: src/weather-home.c:892
 msgid "Forecast: \n"
@@ -991,7 +991,7 @@ msgstr "Teilweise bewölkt und windig"
 
 #: src/weather-settings.c:2819
 msgid "Pressure units:"
-msgstr "Luftdruck Einheit:"
+msgstr "Luftdruck:"
 
 #: src/weather-popup.c:740
 msgid "Pressure:"
@@ -1152,7 +1152,7 @@ msgstr "Sensor"
 
 #: src/weather-settings.c:2608
 msgid "Show only current weather on first icon"
-msgstr "Aktuelles Wetter neben erstem Symbol zeigen"
+msgstr "Nur aktuelles Wetter neben erstem Symbol zeigen"
 
 #: src/weather-sensor.c:82
 msgid "Show temperature at:"
@@ -1317,7 +1317,7 @@ msgstr "Transparenz:"
 
 #: src/weather-settings.c:2385
 msgid "UI Theme Override"
-msgstr "Schema"
+msgstr "UI Schema überschreiben"
 
 #: src/weather-settings.c:734
 msgid "Units"

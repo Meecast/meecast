@@ -253,7 +253,7 @@ create_scrolled_window_with_text(const char* text,
 					GTK_SHADOW_OUT);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                  GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 550, 250);
+    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 650, 250);
     /* pack childs to the scrolled window */
     gtk_container_add(GTK_CONTAINER(scrolled_window), GTK_WIDGET(text_view));
     return scrolled_window;

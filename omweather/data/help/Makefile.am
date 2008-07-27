@@ -19,6 +19,7 @@
 # #
 #  
 
+helpfile_dede_DATA = de_DE/omweather.xml
 helpfile_enus_DATA = en_US/omweather.xml
 helpfile_engb_DATA = en_GB/omweather.xml
 helpfile_ruru_DATA = ru_RU/omweather.xml

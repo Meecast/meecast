@@ -775,7 +775,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*enable_gps = NULL,
 #endif
 			*swap_temperature = NULL,
-			*show_wind = NULL,
+			*hide_wind = NULL,
 			*hide_station_name = NULL,
 			*hide_arrows = NULL,
 			*transparency = NULL,
@@ -966,10 +966,10 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	app->config->swap_hi_low_temperature = 
 	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(swap_temperature));
 /* show wind */
-    show_wind = lookup_widget(config_window, "show_wind");
-    if(show_wind)
-	app->config->show_wind = 
-	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(show_wind));
+    hide_wind = lookup_widget(config_window, "hide_wind");
+    if(hide_wind)
+	app->config->hide_wind = 
+	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_wind));
 /* separate */
     separate = lookup_widget(config_window, "separate");
     if(separate)
@@ -1770,8 +1770,8 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 	something = app->config->swap_hi_low_temperature;
 	goto check;
     }
-    if(!strcmp(button_name, "show_wind")){
-	something = app->config->show_wind;
+    if(!strcmp(button_name, "hide_wind")){
+	something = app->config->hide_wind;
 	goto check;
     }
     if(!strcmp(button_name, "theme_override")){
@@ -2507,7 +2507,7 @@ GtkWidget* create_display_tab(GtkWidget *window){
 		*separate = NULL,
 		*swap_temperature = NULL,
 		*apply_button = NULL,
-		*show_wind = NULL;
+		*hide_wind = NULL;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -2587,19 +2587,19 @@ GtkWidget* create_display_tab(GtkWidget *window){
     g_signal_connect(swap_temperature, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
-    /* Show wind */
+    /* Hide wind */
     gtk_box_pack_end(GTK_BOX(third_line),
-			show_wind = gtk_check_button_new(),
+			hide_wind = gtk_check_button_new(),
 			FALSE, FALSE, 20);
-    GLADE_HOOKUP_OBJECT(window, show_wind, "show_wind");
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(show_wind),
-        			    app->config->show_wind);
-    gtk_widget_set_name(show_wind, "show_wind");
-    g_signal_connect(show_wind, "toggled",
+    GLADE_HOOKUP_OBJECT(window, hide_wind, "hide_wind");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_wind),
+        			    app->config->hide_wind);
+    gtk_widget_set_name(hide_wind, "hide_wind");
+    g_signal_connect(hide_wind, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
     gtk_box_pack_end(GTK_BOX(third_line),
-        		gtk_label_new(_("Show wind")),
+        		gtk_label_new(_("Hide wind")),
         		FALSE, FALSE, 0);
 /* fourth line */
     fourth_line = gtk_hbox_new(FALSE, 0);

@@ -23,15 +23,15 @@
       <topictitle>Come iniziare</topictitle>
       <context contextUID="help_omweather_getstarted"/>
       <para>To activate OMWeather select <display_text>Home</display_text> <display_text>Select applets...</display_text> <display_text>OMWeather</display_text>.</para>
-      <para>First thing to do is select the position of a OMWeather applet in home view. You can change applets position simply touching it and dragging it where you want it. Appearance of the applet can be changed from the <display_text>Tool</display_text> icon in OMWeathers weather window or selecting <display_text>Home</display_text> <display_text>Applet settings</display_text> <display_text>OMWeather settings</display_text>.</para>
-      <para>OMWeather will use Tablets Home city selection as a default location for weather data. Location can be changed from the <display_text>Stations</display_text> tab in OMWeathers settings window.</para>
-      <para>Più informazioni di come cambiare l'aspetto delle applet e di aggiungere, eliminare e rinominare le località possono essere trovate sul <ref refid="help_omweather_settings" refdoc="Impostazioni"/> pagina.</para>
+      <para>First thing to do is select the position of a OMWeather applet in home view. You can change applet's position simply touching it and dragging it where you want it. Appearance of the applet can be changed from the <display_text>Tool</display_text> icon in OMWeathers weather window or selecting <display_text>Home</display_text> <display_text>Applet settings</display_text> <display_text>OMWeather settings</display_text>.</para>
+      <para>OMWeather will use the tablet's home city selection as a default location for weather data. Location can be changed from the <display_text>Stations</display_text> tab in OMWeathers settings window.</para>
+      <para>More info about how to change appearance of the applet and add, rename and delete locations can be found on the <ref refid="help_omweather_settings" refdoc="Settings"/> page.</para>
     </topic>
     <topic>
       <topictitle>Impostazioni</topictitle>
       <context contextUID="help_omweather_settings"/>
-      <para>The <display_text>Settings</display_text> dialog (accessible from the desktop applet or home views Applet settings menu) provides access to the configurable options that controls how OMWeather appears and run. In addition to the tabs, there are also four buttons. Left arrow will take you to weather view, ok button saves settings, question mark opens help and x button closes settings window.</para>
-      <para><display_text>Sations</display_text> tab lists all locations which weather data OMWeather will receive when applets refresh button is touched or automatic update happens.</para>
+      <para>The <display_text>Settings</display_text> dialog (accessible from the desktop applet or home view's Applet settings menu) provides access to the configurable options that controls how OMWeather appears and run. In addition to the tabs, there are also four buttons. Left arrow will take you to weather view, ok button saves settings, question mark opens help and x button closes settings window.</para>
+      <para><display_text>Stations</display_text> tab lists all locations which weather data OMWeather will receive when the applet's refresh button is touched or automatic update happens.</para>
       <para><display_text>Interface</display_text> tab is used to configure settings that controls visual appearance of the OMWeather.</para>
       <para><display_text>Units</display_text> tab is used to select temperature, distance, wind speed and pressure units shown on weather data. Necessary units can be selected by clicking on corresponding check button.</para>
       <para><display_text>Update</display_text> scheda viene utilizzata per configurare l'aggiornamento di un intervallo di dati meteo. Questa scheda mostra anche il tempo quando prossimo aggiornamento sarà fatto.</para>
@@ -51,15 +51,15 @@
     <topic>
       <topictitle>Settings. Stations tab</topictitle>
       <context contextUID="help_omweather_settings_stations"/>
-	<para><display_text>Arrange</display_text> section allows you to remove or rename stations in the list. <display_text>Up</display_text> and <display_text>down</display_text> arrows allows you to change the order of the selected locations.</para>
+	<para><display_text>Arrange</display_text> section allows you to remove or rename stations in the list. <display_text>Up</display_text> and <display_text>down</display_text> arrows allow you to change the order of the selected locations.</para>
       <para><display_text>Add</display_text> section allows you to add new weather stations, which will then be listed in the left view.</para>
-      <para><display_text>Enable GPS:</display_text> check box is used to enable automatic weather station selection when GPS is enabled.</para>
+      <para><display_text>Enable GPS:</display_text> check box is used to enable automatic weather station selection if GPS is enabled.</para>
     </topic>
     <topic>
       <topictitle>Settings. Visuals tab</topictitle>
       <context contextUID="help_omweather_settings_visuals"/>
-      <para><display_text>Interface</display_text> tab is used to configure settings that controls visual appearance of the OMWeather.</para>
-      <para><display_text>Visible items:</display_text> selects how many icons will be shown in the tablets home screen.</para>
+      <para><display_text>Interface</display_text> tab is used to configure settings that control the visual appearance of the OMWeather.</para>
+      <para><display_text>Visible items:</display_text> selects how many icons will be shown in the tablet's home screen.</para>
       <para><display_text>Layout:</display_text> selects how icons are shown on the home screen. Possible selections are one row, one column, two rows, two columns or combination.</para>
       <para><display_text>Icon set:</display_text> selects which icon set is used. You can install more icon sets with the application manager (if Maemo extras repository is configured) or going to OMWeathers Maemo garage page (http://omweather.garage.maemo.org/) and downloading icon sets directly from there.</para>
       <para><display_text>Icon size:</display_text> defines icon size.</para>
@@ -70,7 +70,7 @@
       <para><display_text>Hide arrows:</display_text> selection will control if arrows used to change weather station are shown on the applet.</para>
       <para><display_text>Transparency:</display_text> selection will show background image behind the icons.</para>
       <para><display_text>Font:</display_text> defines font and it's size used on the applet.</para>
-      <para><display_text>Font color:</display_text> defines applets font color. Touching color button will open <display_text>Pick a Color</display_text> dialog where it's possible to select font color.</para>
+      <para><display_text>Font color:</display_text> defines applet's font color. Touching color button will open <display_text>Pick a Color</display_text> dialog where it's possible to select font color.</para>
       <para><display_text>Background color:</display_text> setting defines the background color used for icons. Background color is not selectable if transparency is used.</para>
     </topic>
     <topic>

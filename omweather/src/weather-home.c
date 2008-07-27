@@ -455,7 +455,7 @@ void draw_home_window(gint count_day){
 		    else{ /* if first day and not config->separate data */
 			create_day_temperature_text(day, buffer, FALSE, FALSE);
 			/* displaying wind if necessary */    
-			if(app->config->show_wind)
+			if(!app->config->hide_wind)
 			    add_wind_text(day, buffer + strlen(buffer));
 			/* if current time is night show night icon */
 			if(current_time > night_begin_time && current_time < day_begin_time)
@@ -469,7 +469,7 @@ void draw_home_window(gint count_day){
 		buffer[0] = 0;
 		(app->config->separate && i == 1) ? (tmp_day = first) : (tmp_day = day);
 		create_day_temperature_text(tmp_day, buffer, FALSE, FALSE);
-		if(app->config->show_wind)
+		if(!app->config->hide_wind)
 		    add_wind_text(tmp_day, buffer + strlen(buffer));
 		sprintf(buffer_icon, "%s%s.png", path_large_icon,
 			item_value(tmp_day, "day_icon"));
@@ -477,7 +477,7 @@ void draw_home_window(gint count_day){
 	}
 	else{ /* Show N/A for all others day buttons when it not inside range */
 	    is_na_day = TRUE;
-	    if(app->config->show_wind)
+	    if(!app->config->hide_wind)
 		sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260\n%s\n%s</span>",
 			app->config->font_color.red >> 8,
 			app->config->font_color.green >> 8,

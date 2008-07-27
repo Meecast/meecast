@@ -534,14 +534,14 @@ read_config(AppletConfig *config){
     else
         config->swap_hi_low_temperature = FALSE;
 
-    /* Get Show wind Button State. Default is FALSE */
-    value = gconf_client_get(gconf_client, GCONF_KEY_SHOW_WIND, NULL);
+    /* Get Hide wind Button State. Default is TRUE */
+    value = gconf_client_get(gconf_client, GCONF_KEY_HIDE_WIND, NULL);
     if(value){
-        config->show_wind = gconf_value_get_bool(value);
+        config->hide_wind = gconf_value_get_bool(value);
         gconf_value_free(value);
     }
     else
-        config->show_wind = FALSE;
+        config->hide_wind = TRUE;
 
     /* Get Hide Station State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_HIDE_STATION_NAME, NULL);
@@ -859,8 +859,8 @@ config_save(AppletConfig *config){
 			config->swap_hi_low_temperature, NULL);	    
      /* Save Show Wind Button State */
     gconf_client_set_bool(gconf_client,
-        		GCONF_KEY_SHOW_WIND,
-			config->show_wind, NULL);	    
+        		GCONF_KEY_HIDE_WIND,
+			config->hide_wind, NULL);	    
      /* Hide Station Name */
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_HIDE_STATION_NAME,

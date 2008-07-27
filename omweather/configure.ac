@@ -49,7 +49,7 @@ GETTEXT_PACKAGE=$PACKAGE
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], "${GETTEXT_PACKAGE}", [Name of gettext package])
 AC_DEFINE_UNQUOTED([LOCALEDIR], "${localedir}", [Path to store localization files])
-ALL_LINGUAS="ru_RU fr_FR fi_FI en_GB en_US it_IT de_DE"
+ALL_LINGUAS="ru_RU fr_FR fi_FI en_GB en_US it_IT de_DE es_ES es_MX"
 AM_GLIB_GNU_GETTEXT
 
 PKG_CHECK_MODULES(GTK, [gtk+-2.0])
@@ -175,6 +175,11 @@ helpfile_ititdir=$datadir/osso-help/it_IT
 AC_SUBST(helpfile_ititdir)
 helpfile_dededir=$datadir/osso-help/de_DE
 AC_SUBST(helpfile_dededir)
+helpfile_esesdir=$datadir/osso-help/es_ES
+AC_SUBST(helpfile_esesdir)
+helpfile_esmxdir=$datadir/osso-help/es_MX
+AC_SUBST(helpfile_esmxdir)
+
 
 dnl Config files
 AC_CONFIG_FILES([Makefile

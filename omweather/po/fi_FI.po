@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-26 20:20+0300\n"
+"POT-Creation-Date: 2008-07-28 09:20+0300\n"
 "PO-Revision-Date: 2008-07-06 13:29+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -621,6 +621,11 @@ msgstr "Piilota nuolet:"
 msgid "Hide station name"
 msgstr "Piilota aseman nimi:"
 
+#: src/weather-settings.c:2602
+#, fuzzy
+msgid "Hide wind"
+msgstr "Piilota nuolet:"
+
 #: src/hash.data:57
 msgid "High"
 msgstr "Korkea"
@@ -1147,11 +1152,6 @@ msgstr "Nykyinen säätieto ensimmäisessä kuvakkeessa:"
 msgid "Show temperature at:"
 msgstr "Näytä lämpötila:"
 
-#: src/weather-settings.c:2602
-#, fuzzy
-msgid "Show wind"
-msgstr "Näytä tuuli:"
-
 #: src/hash.data:157
 msgid "Showers"
 msgstr "Sadekuuroja"
@@ -1571,6 +1571,10 @@ msgstr "aseman nimessä"
 #: src/hash.data:203
 msgid "steady"
 msgstr "tasainen"
+
+#, fuzzy
+#~ msgid "Show wind"
+#~ msgstr "Näytä tuuli:"
 
 #~ msgid "Combination"
 #~ msgstr "Yhdistelmä"

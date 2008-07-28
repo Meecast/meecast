@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-26 20:20+0300\n"
+"POT-Creation-Date: 2008-07-28 09:20+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -619,6 +619,11 @@ msgstr "Убрать стрелки"
 msgid "Hide station name"
 msgstr "Убрать название станции"
 
+#: src/weather-settings.c:2602
+#, fuzzy
+msgid "Hide wind"
+msgstr "Убрать стрелки"
+
 #: src/hash.data:57
 msgid "High"
 msgstr "Высокий"
@@ -1144,10 +1149,6 @@ msgstr "Только текущая погода в первой иконке"
 msgid "Show temperature at:"
 msgstr "Показать температуру:"
 
-#: src/weather-settings.c:2602
-msgid "Show wind"
-msgstr "Показать ветер"
-
 #: src/hash.data:157
 msgid "Showers"
 msgstr "Ливни"
@@ -1566,6 +1567,9 @@ msgstr "в названии станции"
 #: src/hash.data:203
 msgid "steady"
 msgstr "устойчивое"
+
+#~ msgid "Show wind"
+#~ msgstr "Показать ветер"
 
 #~ msgid "Combination"
 #~ msgstr "комбинированное"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.19.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-26 20:20+0300\n"
+"POT-Creation-Date: 2008-07-28 09:20+0300\n"
 "PO-Revision-Date: 2008-04-27 20:32+0200\n"
 "Last-Translator: Nicolas GRAZIANO <nicolas.graziano@gmail.com>\n"
 "Language-Team: French\n"
@@ -630,6 +630,11 @@ msgstr "Cacher les flèches:"
 msgid "Hide station name"
 msgstr "Nom de la station :"
 
+#: src/weather-settings.c:2602
+#, fuzzy
+msgid "Hide wind"
+msgstr "Cacher les flèches:"
+
 #: src/hash.data:57
 msgid "High"
 msgstr "Haut"
@@ -1164,11 +1169,6 @@ msgstr "Météo courante uniquement sur le premier icone :"
 msgid "Show temperature at:"
 msgstr "Inverser température haute/basse :"
 
-#: src/weather-settings.c:2602
-#, fuzzy
-msgid "Show wind"
-msgstr "Neige / Vent"
-
 #: src/hash.data:157
 msgid "Showers"
 msgstr "Averses"
@@ -1595,6 +1595,10 @@ msgstr "Nom de la station :"
 #: src/hash.data:203
 msgid "steady"
 msgstr "stable"
+
+#, fuzzy
+#~ msgid "Show wind"
+#~ msgstr "Neige / Vent"
 
 #~ msgid "Combination"
 #~ msgstr "Combinaison"

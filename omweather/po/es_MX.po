@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-27 10:52+0300\n"
+"POT-Creation-Date: 2008-07-28 09:20+0300\n"
 "PO-Revision-Date: 2008-07-26 22:52+0100\n"
 "Last-Translator: Alejandro López <alejandro.lopez@free.fr>\n"
 "Language-Team: \n"
@@ -636,6 +636,11 @@ msgstr "Ocultar flechas:"
 msgid "Hide station name"
 msgstr "Ocultar el nombre de la estación: "
 
+#: src/weather-settings.c:2602
+#, fuzzy
+msgid "Hide wind"
+msgstr "Ocultar flechas:"
+
 # I guess it's the temperature
 #: src/hash.data:57
 msgid "High"
@@ -1184,11 +1189,6 @@ msgstr "Clima actual en el primer ícono:"
 msgid "Show temperature at:"
 msgstr "Invertir alta/baja temperatura:"
 
-#: src/weather-settings.c:2602
-#, fuzzy
-msgid "Show wind"
-msgstr "Nieve / Viento"
-
 #: src/hash.data:157
 msgid "Showers"
 msgstr "Lluvias ligeras"
@@ -1623,6 +1623,10 @@ msgstr "Nombre de la estación:"
 #: src/hash.data:203
 msgid "steady"
 msgstr "estable"
+
+#, fuzzy
+#~ msgid "Show wind"
+#~ msgstr "Nieve / Viento"
 
 #~ msgid ""
 #~ "\n"

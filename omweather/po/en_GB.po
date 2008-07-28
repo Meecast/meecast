@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en_GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-26 20:20+0300\n"
+"POT-Creation-Date: 2008-07-28 09:20+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -555,6 +555,10 @@ msgstr ""
 msgid "Hide station name"
 msgstr ""
 
+#: src/weather-settings.c:2602
+msgid "Hide wind"
+msgstr ""
+
 #: src/hash.data:57
 msgid "High"
 msgstr ""
@@ -1076,10 +1080,6 @@ msgstr ""
 
 #: src/weather-sensor.c:82
 msgid "Show temperature at:"
-msgstr ""
-
-#: src/weather-settings.c:2602
-msgid "Show wind"
 msgstr ""
 
 #: src/hash.data:157

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-26 22:18+0300\n"
+"POT-Creation-Date: 2008-07-28 09:20+0300\n"
 "PO-Revision-Date: 2008-03-21 13:39+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Italiano\n"
@@ -617,6 +617,11 @@ msgstr "Nascondi frecce"
 msgid "Hide station name"
 msgstr "Nascondi stazione nome"
 
+#: src/weather-settings.c:2602
+#, fuzzy
+msgid "Hide wind"
+msgstr "Nascondi frecce"
+
 #: src/hash.data:57
 msgid "High"
 msgstr "Alta"
@@ -1149,11 +1154,6 @@ msgstr "Mostra solo meteorologiche correnti sulla prima icona"
 msgid "Show temperature at:"
 msgstr "Swap hi/bassa temperatura:"
 
-#: src/weather-settings.c:2602
-#, fuzzy
-msgid "Show wind"
-msgstr "Neve / Vento"
-
 #: src/hash.data:157
 msgid "Showers"
 msgstr "Docce"
@@ -1578,6 +1578,10 @@ msgstr "città nome"
 #: src/hash.data:203
 msgid "steady"
 msgstr "costante"
+
+#, fuzzy
+#~ msgid "Show wind"
+#~ msgstr "Neve / Vento"
 
 #~ msgid "Combination"
 #~ msgstr "Combinazione"

@@ -119,12 +119,13 @@ extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer us
 extern GtkWidget* create_tree_view(GtkListStore* list);
 #if defined(OS2008) || defined(DEBUGTEMP)
 extern GtkWidget* create_sensor_page(GtkWidget *config_window);
-extern int check_entry_text(GtkEntry *entry, gboolean display_error);
 extern void read_sensor(gint need_redraw);
+extern guint get_time_from_index(guint index);
 #endif
 extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
 			int image_size, gboolean with_border, gboolean toggled);
 extern GtkWidget* create_scrolled_window_with_text(const char* text,
 					    GtkJustification justification);
+extern guint get_index_from_time(guint time);
 /*******************************************************************************/
 #endif

@@ -63,6 +63,10 @@ void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 						gboolean for_combination_mode);
 						
 gboolean expose_main_window1(GtkWidget *widget, GdkEventExpose *event);
+#ifdef OS2008
+GtkWidget*
+settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent);
+#endif
 /*******************************************************************************/
 extern void swap_temperature(int *hi, int *low);
 extern float c2f(float temp);
@@ -91,7 +95,10 @@ extern gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser
 								WeatherStationData *wsd);
 extern time_t last_update_time(GSList *object);
 extern float convert_wind_units(int to, float value);
+#ifdef OS2008
 extern void initial_gps_connect(void);
+extern void deinitial_gps_connect(void);
+#endif
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 extern float mb2inch(float pressure);
 extern gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
@@ -121,5 +128,7 @@ struct _HomeAppletHandler {
     gint resizable_width;
     gint resizable_height;
 };
+/*******************************************************************************/
+GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent);
 /*******************************************************************************/
 #endif

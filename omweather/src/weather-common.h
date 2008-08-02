@@ -90,6 +90,57 @@ enum { TINY_ICON_SIZE = 32, SMALL_ICON_SIZE = 48, MEDIUM_ICON_SIZE = 64,
 	SUPER_GIANT_ICON_SIZE = 256 };
 enum { SETTINGS_STATIONS_PAGE, SETTINGS_VISUALS_PAGE, SETTINGS_DISPLAY_PAGE,
 	SETTINGS_UNITS_PAGE, SETTINGS_UPDATE_PAGE, SETTINGS_SENSOR_PAGE, ABOUT_PAGE };
+/* station tab */
+enum { STATE_ENABLE_GPS	= 1U,
+       STATE_SOURCE	= 2U
+};
+/* visuals tab */
+enum { STATE_ONE_ROW		= 1U,
+       STATE_ONE_COLUMN		= 2U,
+       STATE_TWO_ROWS		= 4U,
+       STATE_TWO_COLUMNS	= 8U,
+       STATE_COMBINATION	= 16U,
+       STATE_THEME_OVERRIDE	= 32U,
+       STATE_TRANSPARENCY	= 64U,
+       STATE_FONT		= 128U,
+       STATE_FONT_COLOR		= 256U,
+       STATE_BACKGROUND_COLOR	= 512U,
+       STATE_ICONSET		= 1024U
+};
+/* display tab */
+enum { STATE_VISIBLE_ITEMS	= 1U,
+       STATE_ICON_SIZE		= 2U,
+       STATE_SHOW_CURRENT	= 4U,
+       STATE_SWAP_TEMPERATURE	= 8U,
+       STATE_SHOW_WIND		= 16U,
+       STATE_SHOW_STATION_NAME	= 32U,
+       STATE_SHOW_ARROWS	= 64U
+};
+/* units tab */
+enum { STATE_CELCIUS		= 1U,
+       STATE_FAHRENHEIT		= 2U,
+       STATE_METERS		= 4U,
+       STATE_KILOMETERS		= 8U,
+       STATE_MILES		= 16U,
+       STATE_SEA_MILES		= 32U,
+       STATE_METERS_S		= 64U,
+       STATE_KILOMETERS_H	= 128U,
+       STATE_MILES_H		= 256U,
+       STATE_PRESSURE_MB	= 512U,
+       STATE_PRESSURE_IN	= 1024U
+};
+/* update tab */
+enum { STATE_AUTO_CONNECT	= 1U,
+       STATE_SWITCH_TO_NEXT	= 2U,
+       STATE_VALID_TIME		= 4U,
+       STATE_UPDATING_TIME	= 8U
+};
+/* sensor tab */
+enum { STATE_USE_SENSOR		= 1U,
+       STATE_SHOW_AT_NAME	= 2U,
+       STATE_SHOW_AT_ICON	= 4U,
+       STATE_SENSOR_READ_TIME	= 8U
+};
 /*******************************************************************************/
 typedef struct{
     gint	error;
@@ -188,11 +239,11 @@ typedef struct applet_config{
     gboolean	transparency;
     gboolean	separate;
     gboolean	swap_hi_low_temperature;
-    gboolean	hide_station_name;
-    gboolean	hide_arrows;
+    gboolean	show_station_name;
+    gboolean	show_arrows;
     gboolean	downloading_after_connecting;
     gboolean    gps_station;
-    gboolean	hide_wind;
+    gboolean	show_wind;
     GdkColor	font_color;
     GdkColor	background_color;
     GdkColor	ui_background_color;
@@ -217,6 +268,18 @@ typedef struct OMWeatherApplet{
     guint		switch_timer;
     guint		sensor_timer;
     guint		count_day;		/* days number from parser */
+    guint		stations_tab_start_state;
+    guint		stations_tab_current_state;
+    guint		visuals_tab_start_state;
+    guint		visuals_tab_current_state;
+    guint		display_tab_start_state;
+    guint		display_tab_current_state;
+    guint		units_tab_start_state;
+    guint		units_tab_current_state;
+    guint		update_tab_start_state;
+    guint		update_tab_current_state;
+    guint		sensor_tab_start_state;
+    guint		sensor_tab_current_state;
     GSList		*buttons;
     guint		flag_updating;
     gboolean		dbus_is_initialize;

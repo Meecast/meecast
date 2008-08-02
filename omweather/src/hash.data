@@ -17,7 +17,6 @@
 	g_hash_table_insert(hash, "AM Showers", _("AM Showers"));
 	g_hash_table_insert(hash, "AM Snow Showers", _("AM Snow Showers"));
     g_hash_table_insert(hash, "AM Snow", _("AM Snow"));
-	g_hash_table_insert(hash, "Airport Conditions", _("Airport Conditions"));
     g_hash_table_insert(hash, "Blowing Snow", _("Blowing Snow"));    
 	g_hash_table_insert(hash, "CALM", _("CALM"));
     g_hash_table_insert(hash, "Clear / Wind", _("Clear / Wind"));
@@ -81,7 +80,6 @@
 	g_hash_table_insert(hash, "Local Pollen Reports", _("Local Pollen Reports"));
 	g_hash_table_insert(hash, "Low", _("Low"));
     g_hash_table_insert(hash, "Mist", _("Mist"));
-	g_hash_table_insert(hash, "Moderate", _("Moderate"));
 	g_hash_table_insert(hash, "Mostly Clear", _("Mostly Clear"));
     g_hash_table_insert(hash, "Mostly Cloudy / Wind", _("Mostly Cloudy / Wind"));
 	g_hash_table_insert(hash, "Mostly Cloudy and Windy", _("Mostly Cloudy and Windy"));

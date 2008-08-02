@@ -488,8 +488,8 @@ read_config(AppletConfig *config){
     config->sensor_update_time = gconf_client_get_int(gconf_client,
         				    GCONF_KEY_SENSOR_UPDATE_TIME,
 					    NULL);
-    if(config->sensor_update_time < 1 || config->sensor_update_time > 9999)
-        config->sensor_update_time = 1;
+    if(config->sensor_update_time < 0 || config->sensor_update_time > 30)
+        config->sensor_update_time = 0;
     /* start timer for read data from device temperature sensor */
     if(config->use_sensor){
 	read_sensor(0);
@@ -534,31 +534,31 @@ read_config(AppletConfig *config){
     else
         config->swap_hi_low_temperature = FALSE;
 
-    /* Get Hide wind Button State. Default is TRUE */
-    value = gconf_client_get(gconf_client, GCONF_KEY_HIDE_WIND, NULL);
+    /* Get Show wind Button State. Default is FALSE */
+    value = gconf_client_get(gconf_client, GCONF_KEY_SHOW_WIND, NULL);
     if(value){
-        config->hide_wind = gconf_value_get_bool(value);
+        config->show_wind = gconf_value_get_bool(value);
         gconf_value_free(value);
     }
     else
-        config->hide_wind = TRUE;
+        config->show_wind = FALSE;
 
-    /* Get Hide Station State. Default is FALSE */
-    value = gconf_client_get(gconf_client, GCONF_KEY_HIDE_STATION_NAME, NULL);
+    /* Get Show Station Name. Default is TRUE */
+    value = gconf_client_get(gconf_client, GCONF_KEY_SHOW_STATION_NAME, NULL);
     if(value){
-        config->hide_station_name = gconf_value_get_bool(value);
+        config->show_station_name = gconf_value_get_bool(value);
         gconf_value_free(value);
     }
     else
-        config->hide_station_name = FALSE;
-    /* Get Hide Arrows State. Default is FALSE */
-    value = gconf_client_get(gconf_client, GCONF_KEY_HIDE_ARROWS, NULL);
+        config->show_station_name = TRUE;
+    /* Get Show Arrows State. Default is TRUE */
+    value = gconf_client_get(gconf_client, GCONF_KEY_SHOW_ARROWS, NULL);
     if(value){
-        config->hide_arrows = gconf_value_get_bool(value);
+        config->show_arrows = gconf_value_get_bool(value);
         gconf_value_free(value);
     }
     else
-        config->hide_arrows = FALSE;
+        config->show_arrows = TRUE;
 
     /* Get Temperature Unit  Default Celsius */
     config->temperature_units = gconf_client_get_int(gconf_client,
@@ -859,16 +859,16 @@ config_save(AppletConfig *config){
 			config->swap_hi_low_temperature, NULL);	    
      /* Save Show Wind Button State */
     gconf_client_set_bool(gconf_client,
-        		GCONF_KEY_HIDE_WIND,
-			config->hide_wind, NULL);	    
-     /* Hide Station Name */
+        		GCONF_KEY_SHOW_WIND,
+			config->show_wind, NULL);	    
+     /* Show Station Name */
     gconf_client_set_bool(gconf_client,
-        		GCONF_KEY_HIDE_STATION_NAME,
-			config->hide_station_name, NULL);
-     /* Hide Arrows */
+        		GCONF_KEY_SHOW_STATION_NAME,
+			config->show_station_name, NULL);
+     /* Show Arrows */
     gconf_client_set_bool(gconf_client,
-        		GCONF_KEY_HIDE_ARROWS,
-			config->hide_arrows, NULL);
+        		GCONF_KEY_SHOW_ARROWS,
+			config->show_arrows, NULL);
     /* Save Weather Temperature Unit  */		     	    
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_TEMPERATURE_UNIT,

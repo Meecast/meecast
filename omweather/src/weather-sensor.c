@@ -48,31 +48,30 @@ GtkWidget* create_sensor_page(GtkWidget *config_window){
 		*table = NULL,
 		*display_at_station_name = NULL,
 		*display_at_new_icon = NULL,
-		*update_time_entry = NULL,
+		*sensor_update_time = NULL,
 		*apply_button = NULL;
     GSList	*display_group = NULL;
-    gchar	buffer[10];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    app->sensor_tab_start_state = 0;
     apply_button = lookup_widget(config_window, "apply_button");
     main_widget = gtk_vbox_new(FALSE, 0);
     use_sensor
 	= gtk_check_button_new_with_label(_("Use device temperature sensor"));
     GLADE_HOOKUP_OBJECT(config_window, use_sensor, "use_sensor");
+    gtk_widget_set_name(use_sensor, "use_sensor");
     table = gtk_table_new(2, 3, FALSE);
     /* check if sensor is enable */
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(use_sensor), app->config->use_sensor);
     if(app->config->use_sensor){
 	gtk_widget_set_sensitive(table, TRUE);
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(use_sensor), TRUE);
+	app->sensor_tab_start_state |= STATE_USE_SENSOR;
     }
-    else{
+    else
         gtk_widget_set_sensitive(table, FALSE);
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(use_sensor), FALSE);
-    }
     g_signal_connect(GTK_TOGGLE_BUTTON(use_sensor), "toggled",
             		G_CALLBACK(use_sensor_button_toggled_handler), table);
-    gtk_widget_set_name(use_sensor, "use_sensor");
     if(apply_button)
 	g_signal_connect(use_sensor, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
@@ -87,7 +86,7 @@ GtkWidget* create_sensor_page(GtkWidget *config_window){
 									_("station name")),
 				1, 2, 0, 1);
     GLADE_HOOKUP_OBJECT(config_window, display_at_station_name, "display_at");
-    gtk_widget_set_name(display_at_station_name, "display_at");
+    gtk_widget_set_name(display_at_station_name, "display_at_name");
     if(apply_button)
 	g_signal_connect(display_at_station_name, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
@@ -99,36 +98,60 @@ GtkWidget* create_sensor_page(GtkWidget *config_window){
 				    = gtk_radio_button_new_with_label(display_group,
 									_("new icon")),
 				2, 3, 0, 1);
+    gtk_widget_set_name(display_at_new_icon, "display_at_icon");
     gtk_button_set_focus_on_click(GTK_BUTTON(display_at_new_icon), FALSE);
-    if(app->config->display_at == STATION_NAME)
+    if(apply_button)
+	g_signal_connect(display_at_new_icon, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			config_window);
+
+    if(app->config->display_at == STATION_NAME){
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(display_at_station_name), TRUE);
-    else
+	app->sensor_tab_start_state |= STATE_SHOW_AT_NAME;
+    }
+    else{
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(display_at_new_icon), TRUE);
+	app->sensor_tab_start_state |= STATE_SHOW_AT_ICON;
+    }
     /* update time label */
     gtk_table_attach_defaults(GTK_TABLE(table), 
 				gtk_label_new(_("Read sensor every:")),
         			0, 1, 1, 2);
     /* update time entry */
     gtk_table_attach_defaults(GTK_TABLE(table), 
-				update_time_entry
-				    = gtk_entry_new_with_max_length(4),
+				sensor_update_time
+				    = gtk_combo_box_new_text(),
 				1, 2, 1, 2);
-    g_signal_connect(G_OBJECT(update_time_entry), "changed",
-			G_CALLBACK(check_buttons_changed_handler),
-			(gpointer)config_window);
-    GLADE_HOOKUP_OBJECT(config_window, update_time_entry, "update_time_entry");
-    gtk_widget_set_name(update_time_entry, "update_time_entry");
-    memset(buffer, 0, sizeof(buffer));
-    snprintf(buffer, sizeof(buffer) - 1, "%u", app->config->sensor_update_time);
-    gtk_entry_set_text(GTK_ENTRY(update_time_entry), buffer);
-    gtk_table_attach_defaults(GTK_TABLE(table), 
-				gtk_label_new(_("minutes")),
-        			2, 3, 1, 2);
+    GLADE_HOOKUP_OBJECT(config_window, sensor_update_time, "sensor_update_time");
+    gtk_widget_set_name(sensor_update_time, "sensor_update_time");
+    g_signal_connect(G_OBJECT(sensor_update_time), "changed",
+			G_CALLBACK(combo_boxs_changed_handler),
+			(gpointer)apply_button);
+
+    gtk_combo_box_append_text(GTK_COMBO_BOX(sensor_update_time), _("Never"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(sensor_update_time), _("1 minute"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(sensor_update_time), _("3 minutes"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(sensor_update_time), _("5 minutes"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(sensor_update_time), _("10 minutes"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(sensor_update_time), _("15 minutes"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(sensor_update_time), _("30 minutes"));
+
+    switch(get_index_from_time(app->config->sensor_update_time)){
+	default:
+	case 0: gtk_combo_box_set_active(GTK_COMBO_BOX(sensor_update_time), 0); break;
+	case 1: gtk_combo_box_set_active(GTK_COMBO_BOX(sensor_update_time), 1); break;
+	case 2: gtk_combo_box_set_active(GTK_COMBO_BOX(sensor_update_time), 2); break;
+	case 3: gtk_combo_box_set_active(GTK_COMBO_BOX(sensor_update_time), 3); break;
+	case 4: gtk_combo_box_set_active(GTK_COMBO_BOX(sensor_update_time), 4); break;
+	case 5: gtk_combo_box_set_active(GTK_COMBO_BOX(sensor_update_time), 5); break;
+	case 6: gtk_combo_box_set_active(GTK_COMBO_BOX(sensor_update_time), 6); break;
+    }
     /* pack items to the main widget */
     gtk_box_pack_start(GTK_BOX(main_widget), use_sensor, FALSE, FALSE, 5);
     gtk_box_pack_start(GTK_BOX(main_widget), table, TRUE, TRUE, 0);
     gtk_widget_show_all(main_widget);
-    
+
+    app->sensor_tab_current_state = app->sensor_tab_start_state;
     return main_widget;
 }
 /*******************************************************************************/
@@ -143,26 +166,6 @@ void use_sensor_button_toggled_handler(GtkToggleButton *togglebutton,
 	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
 	g_source_remove(app->sensor_timer);
     }
-}
-/*******************************************************************************/
-int check_entry_text(GtkEntry *entry, gboolean display_error){
-    const gchar	*text = gtk_entry_get_text(entry);
-    gint	i;
-    gboolean	error = FALSE;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    if(text && strlen(text) < 1)
-	error = TRUE;
-    for(i = 0; !error && i < strlen(text); i++)
-	if(text[i] < '0' || text[i] > '9'){
-	    error = TRUE;
-	    break;
-	}
-    if(error && display_error)
-	hildon_banner_show_information(app->main_window, NULL,
-					_("Invalid symbol in field or field is empty."));
-    return error;
 }
 /*******************************************************************************/
 void read_sensor(gint need_redraw){
@@ -208,6 +211,36 @@ WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,
     snprintf(buffer_icon, sizeof(buffer_icon) - 1, "%ssensor.png", BUTTON_ICONS);
     return create_weather_day_button(buffer, buffer_icon, icon_size,
 					transparency, draw_day_label, color);
+}
+/*******************************************************************************/
+guint get_time_from_index(guint index){
+    guint	result = 0;
+    switch(index){
+	default:
+	case 0: result = 0; break;
+	case 1: result = 1; break;
+	case 2: result = 3; break;
+	case 3: result = 5; break;
+	case 4: result = 10; break;
+	case 5: result = 15; break;
+	case 6: result = 30; break;
+    }
+    return result;
+}
+/*******************************************************************************/
+guint get_index_from_time(guint time){
+    guint	result = 0;
+    switch(time){
+	default:
+	case 0: result = 0; break;
+	case 1: result = 1; break;
+	case 3: result = 2; break;
+	case 5: result = 3; break;
+	case 10: result = 4; break;
+	case 15: result = 5; break;
+	case 30: result = 6; break;
+    }
+    return result;
 }
 /*******************************************************************************/
 #endif

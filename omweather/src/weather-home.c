@@ -79,9 +79,6 @@ const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
 /* main struct */
 OMWeatherApp	*app = NULL;
 gchar		path_large_icon[_POSIX_PATH_MAX];
-#ifdef OS2008
-static	FILE	*filed;
-#endif
 /*******************************************************************************/
 /* Change station to previos at main display */
 static gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
@@ -455,7 +452,7 @@ void draw_home_window(gint count_day){
 		    else{ /* if first day and not config->separate data */
 			create_day_temperature_text(day, buffer, FALSE, FALSE);
 			/* displaying wind if necessary */    
-			if(!app->config->hide_wind)
+			if(app->config->show_wind)
 			    add_wind_text(day, buffer + strlen(buffer));
 			/* if current time is night show night icon */
 			if(current_time > night_begin_time && current_time < day_begin_time)
@@ -469,7 +466,7 @@ void draw_home_window(gint count_day){
 		buffer[0] = 0;
 		(app->config->separate && i == 1) ? (tmp_day = first) : (tmp_day = day);
 		create_day_temperature_text(tmp_day, buffer, FALSE, FALSE);
-		if(!app->config->hide_wind)
+		if(app->config->show_wind)
 		    add_wind_text(tmp_day, buffer + strlen(buffer));
 		sprintf(buffer_icon, "%s%s.png", path_large_icon,
 			item_value(tmp_day, "day_icon"));
@@ -477,7 +474,7 @@ void draw_home_window(gint count_day){
 	}
 	else{ /* Show N/A for all others day buttons when it not inside range */
 	    is_na_day = TRUE;
-	    if(!app->config->hide_wind)
+	    if(app->config->show_wind)
 		sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260\n%s\n%s</span>",
 			app->config->font_color.red >> 8,
 			app->config->font_color.green >> 8,
@@ -1138,7 +1135,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 						    &iter))
 	user_stations_list_has_two_or_more_elements = TRUE;
 /* draw arrows */
-    if(!app->config->hide_arrows && user_stations_list_has_two_or_more_elements){
+    if(app->config->show_arrows && user_stations_list_has_two_or_more_elements){
 	/* create previos station button */
 	sprintf(buffer,
 		"<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>&lt;</span>",
@@ -1179,7 +1176,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	gtk_container_add (GTK_CONTAINER(next_station_name_btn), next_station_box);
     }
     buffer[0] = 0;
-    if(!app->config->hide_station_name){
+    if(app->config->show_station_name){
 /* create station name button */
         if(!st_name)
 	    sprintf(buffer,
@@ -1637,7 +1634,11 @@ void add_wind_text(GSList *day, gchar *buffer){
     }
     else
 	sprintf(buffer + strlen(buffer),
-		"<span foreground='#%02x%02x%02x'>\n%s\n%s</span>", _("N/A"), _("N/A"));
+		"<span foreground='#%02x%02x%02x'>\n%s\n%s</span>",
+		app->config->font_color.red >> 8,
+		app->config->font_color.green >> 8,
+		app->config->font_color.blue >> 8,
+		_("N/A"), _("N/A"));
 }
 /*******************************************************************************/
 void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
@@ -1733,7 +1734,7 @@ settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent){
     OMWeather *applet = OMWEATHER(home_item);
     OMWeatherPrivate *priv = OMWEATHER_GET_PRIVATE(OMWEATHER(home_item));
 
-    priv->desktop = parent;
+    priv->desktop = GTK_WIDGET(parent);
     menu_item = gtk_menu_item_new_with_label(_("OMWeather settings"));
 
     g_signal_connect_swapped(G_OBJECT(menu_item), "activate",
@@ -1746,15 +1747,13 @@ void
 omweather_init(OMWeather *applet){
     GtkSettings *settings;
     GdkColormap *cm;
-    gchar *conf_file;
-
     char       tmp_buff[2048];
     osso_context_t	*osso = NULL;
 
     osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
     if(!osso){
         g_debug(_("Error initializing the OMWeather applet"));
-        return NULL;
+        return;
     }
     
     app = g_new0(OMWeatherApp, 1);

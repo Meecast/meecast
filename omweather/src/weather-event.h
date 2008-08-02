@@ -49,8 +49,10 @@ void free_list_time_event(void);
 extern void weather_initialize_dbus(void);
 extern void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name, gboolean is_gps);
 extern gdouble calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2);
+extern void config_save(AppletConfig*);
 #ifdef OS2008
 extern void delete_all_gps_stations(void);
+extern void get_nearest_station( double lat, double lon, Station *result);
 #endif
 extern void update_weather(gboolean show_update_window);
 extern void redraw_home_window(gboolean first_start);

@@ -189,10 +189,12 @@ void iap_callback(struct iap_event_t *event, void *arg){
 /*******************************************************************************/
 void weather_initialize_dbus(void){
 
-    gchar		*filter_string,
-			*tmp;
-    GConfClient		*gconf_client = NULL;
+    gchar		*tmp;		
+#ifdef USE_DBUS
+    gchar		*filter_string;
     DBusConnection	*dbus_conn;
+#endif
+    GConfClient		*gconf_client = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    

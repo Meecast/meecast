@@ -38,7 +38,6 @@ GtkWidget* create_sun_time_widget(GSList *day);
 GtkWidget* create_moon_phase_widget(GSList *current);
 GtkWidget* create_time_updates_widget(GSList *current);
 
-//void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 
 void settings_button_handler(GtkWidget *button, GdkEventButton *event,

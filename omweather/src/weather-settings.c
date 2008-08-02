@@ -775,9 +775,9 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*enable_gps = NULL,
 #endif
 			*swap_temperature = NULL,
-			*hide_wind = NULL,
-			*hide_station_name = NULL,
-			*hide_arrows = NULL,
+			*show_wind = NULL,
+			*show_station_name = NULL,
+			*show_arrows = NULL,
 			*transparency = NULL,
 			*background_color = NULL,
 			*font_color = NULL,
@@ -806,9 +806,9 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*countries = NULL,
 			*states = NULL,
 			*theme_override = NULL,
+			*selected_icon_set = NULL,
 			*stations = NULL;
     GSList		*icon_set = NULL;
-    gpointer		*selected_icon_set = NULL;
 #ifndef OS2008
     gboolean		need_correct_layout_for_OS2007 = FALSE;
 #endif
@@ -860,8 +860,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     icon_set = (GSList*)g_object_get_data(G_OBJECT(config_window), "iconsetlist");
     if(icon_set){
 	while(icon_set){
-	    selected_icon_set = g_object_get_data(G_OBJECT(config_window),
-						    ((gchar*)icon_set->data));
+	    selected_icon_set = lookup_widget(config_window, (gchar*)icon_set->data);
 	    if(selected_icon_set){
 		if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(selected_icon_set))){
 		    if(app->config->icon_set)
@@ -966,22 +965,22 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	app->config->swap_hi_low_temperature = 
 	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(swap_temperature));
 /* show wind */
-    hide_wind = lookup_widget(config_window, "hide_wind");
-    if(hide_wind)
-	app->config->hide_wind = 
-	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_wind));
+    show_wind = lookup_widget(config_window, "show_wind");
+    if(show_wind)
+	app->config->show_wind = 
+	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(show_wind));
 /* separate */
     separate = lookup_widget(config_window, "separate");
     if(separate)
 	app->config->separate = 
 		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(separate));
 /* hide station name */
-    hide_station_name = lookup_widget(config_window, "hide_station_name");
-    if(hide_station_name){
-	if(app->config->hide_station_name
-		!= gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_station_name))){
-	    app->config->hide_station_name
-		= gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_station_name));
+    show_station_name = lookup_widget(config_window, "show_station_name");
+    if(show_station_name){
+	if(app->config->show_station_name
+		!= gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(show_station_name))){
+	    app->config->show_station_name
+		= gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(show_station_name));
 #ifndef OS2008
 	    need_correct_layout_for_OS2007 = TRUE;
 #endif
@@ -1004,25 +1003,24 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	    app->config->display_at = ICON;
     }
 /* sensor update time */
-    sensor_update_time = lookup_widget(config_window, "update_time_entry");
-    if(sensor_update_time && !check_entry_text(GTK_ENTRY(sensor_update_time), TRUE)){
-	app->config->sensor_update_time
-	    = (guint)atoi(gtk_entry_get_text(GTK_ENTRY(sensor_update_time)));
+    sensor_update_time = lookup_widget(config_window, "sensor_update_time");
+    if(sensor_update_time){
 	if(app->config->use_sensor){
-	    g_source_remove(app->sensor_timer);
+	    app->config->sensor_update_time
+		= get_time_from_index(gtk_combo_box_get_active(GTK_COMBO_BOX(sensor_update_time)));
 	    app->sensor_timer = g_timeout_add(app->config->sensor_update_time * 1000 * 60,
                                             (GtkFunction)read_sensor,
                                             GINT_TO_POINTER(1));
 	}
     }
 #endif
-/* hide arrows */
-    hide_arrows = lookup_widget(config_window, "hide_arrows");
-    if(hide_arrows){
-	if(app->config->hide_arrows
-		!= gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_arrows))){
-	    app->config->hide_arrows
-		= gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(hide_arrows));
+/* Show arrows */
+    show_arrows = lookup_widget(config_window, "show_arrows");
+    if(show_arrows){
+	if(app->config->show_arrows
+		!= gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(show_arrows))){
+	    app->config->show_arrows
+		= gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(show_arrows));
 #ifndef OS2008
 	    need_correct_layout_for_OS2007 = TRUE;
 #endif
@@ -1580,274 +1578,245 @@ void rename_button_handler(GtkWidget *button, GdkEventButton *event,
 /*******************************************************************************/
 void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
     gchar	*button_name = NULL,
-		*iconset = NULL;
-    gboolean	something = FALSE;
+		*iconset_name = NULL;
     GtkWidget	*config_window = NULL,
-#if defined(OS2008) || defined(DEBUGTEMP)
-		*sensor_check = NULL,
-		*sensor_update_time = NULL,
-#endif
 		*apply_button = NULL;
-#if defined(OS2008) || defined(DEBUGTEMP)
-    gboolean	sensor_page_is_changed = FALSE;
-#endif
-    gpointer	layout = NULL;
-    guint	number = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     config_window = GTK_WIDGET(user_data);
     apply_button = lookup_widget(config_window, "apply_button");
     button_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
-
-    if(!strcmp(button_name, "celcius")){
-	if(gtk_toggle_button_get_active(button)){
-	    if(app->config->temperature_units == CELSIUS)
-	    	gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	else{
-	    if(app->config->temperature_units != CELSIUS)
-		gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	return;
-    }
 /* layout */
-    layout = g_object_get_data(G_OBJECT(button), "number");
-    if(layout){
-	number = (guint)layout;
-	if(number == COMBINATION + 1)
-	    number = ONE_ROW;
-	if(number != app->config->icons_layout)
-	    gtk_widget_set_sensitive(apply_button, TRUE);
+    if(!strcmp(button_name, "one_row")){
+    	if(gtk_toggle_button_get_active(button))
+	    app->visuals_tab_current_state |= STATE_ONE_ROW;
 	else
-	    gtk_widget_set_sensitive(apply_button, FALSE);
-	return;
+	    app->visuals_tab_current_state &= ~STATE_ONE_ROW;
+	goto check;
+    }
+    if(!strcmp(button_name, "one_column")){
+    	if(gtk_toggle_button_get_active(button))
+	    app->visuals_tab_current_state |= STATE_ONE_COLUMN;
+	else
+	    app->visuals_tab_current_state &= ~STATE_ONE_COLUMN;
+	goto check;
+    }
+    if(!strcmp(button_name, "two_rows")){
+    	if(gtk_toggle_button_get_active(button))
+	    app->visuals_tab_current_state |= STATE_TWO_ROWS;
+	else
+	    app->visuals_tab_current_state &= ~STATE_TWO_ROWS;
+	goto check;
+    }
+    if(!strcmp(button_name, "two_columns")){
+    	if(gtk_toggle_button_get_active(button))
+	    app->visuals_tab_current_state |= STATE_TWO_COLUMNS;
+	else
+	    app->visuals_tab_current_state &= ~STATE_TWO_COLUMNS;
+	goto check;
+    }
+    if(!strcmp(button_name, "combination")){
+    	if(gtk_toggle_button_get_active(button))
+	    app->visuals_tab_current_state |= STATE_COMBINATION;
+	else
+	    app->visuals_tab_current_state &= ~STATE_COMBINATION;
+	goto check;
     }
 /* iconset */
-    iconset = g_object_get_data(G_OBJECT(button), "iconset");
-    if(iconset){
-	if(strcmp(iconset, app->config->icon_set))
-	    gtk_widget_set_sensitive(apply_button, TRUE);
+    if(!strcmp(button_name, "iconset")){
+	iconset_name = g_object_get_data(G_OBJECT(button), "name");
+        if(iconset_name){
+	    if(strcmp(iconset_name, app->config->icon_set))
+		app->visuals_tab_current_state |= STATE_ICONSET;
+	    else
+		app->visuals_tab_current_state &= ~STATE_ICONSET;
+	    goto check;
+	}
+    }
+/* theme override */
+    if(!strcmp(button_name, "theme_override")){
+	if(gtk_toggle_button_get_active(button))
+	    app->visuals_tab_current_state |= STATE_THEME_OVERRIDE;
 	else
-	    gtk_widget_set_sensitive(apply_button, FALSE);
-	return;
+	    app->visuals_tab_current_state &= ~STATE_THEME_OVERRIDE;
+	goto check;
+    }
+#ifndef OS2008
+/* transparency */
+    if(!strcmp(button_name, "transparency")){
+	if(gtk_toggle_button_get_active(button))
+	    app->visuals_tab_current_state |= STATE_TRANSPARENCY;
+	else
+	    app->visuals_tab_current_state &= ~STATE_TRANSPARENCY;
+	goto check;
+    }
+#endif
+/* temperature */
+    if(!strcmp(button_name, "celcius")){
+	if(gtk_toggle_button_get_active(button))
+	    app->units_tab_current_state |= STATE_CELCIUS;
+	else
+	    app->units_tab_current_state &= ~STATE_CELCIUS;
+	goto check;
+    }
+    if(!strcmp(button_name, "fahrenheit")){
+	if(gtk_toggle_button_get_active(button))
+	    app->units_tab_current_state |= STATE_FAHRENHEIT;
+	else
+	    app->units_tab_current_state &= ~STATE_FAHRENHEIT;
+	goto check;
     }
 /* distance units */
     if(!strcmp(button_name, "meters")){
-	if(gtk_toggle_button_get_active(button)){
-	    if(app->config->distance_units == METERS)
-	    	gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	else{
-	    if(app->config->distance_units != METERS)
-		gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	return;
+	if(gtk_toggle_button_get_active(button))
+	    app->units_tab_current_state |= STATE_METERS;
+	else
+	    app->units_tab_current_state &= ~STATE_METERS;
+	goto check;
     }
     if(!strcmp(button_name, "kilometers")){
-	if(gtk_toggle_button_get_active(button)){
-	    if(app->config->distance_units == KILOMETERS)
-	    	gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	else{
-	    if(app->config->distance_units != KILOMETERS)
-		gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	return;
+	if(gtk_toggle_button_get_active(button))
+	    app->units_tab_current_state |= STATE_KILOMETERS;
+	else
+	    app->units_tab_current_state &= ~STATE_KILOMETERS;
+	goto check;
     }
     if(!strcmp(button_name, "sea_miles")){
-	if(gtk_toggle_button_get_active(button)){
-	    if(app->config->distance_units == SEA_MILES)
-	    	gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	else{
-	    if(app->config->distance_units != SEA_MILES)
-		gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	return;
+	if(gtk_toggle_button_get_active(button))
+	    app->units_tab_current_state |= STATE_SEA_MILES;
+	else
+	    app->units_tab_current_state &= ~STATE_SEA_MILES;
+	goto check;
     }
     if(!strcmp(button_name, "miles")){
-	if(gtk_toggle_button_get_active(button)){
-	    if(app->config->distance_units == MILES)
-	    	gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	else{
-	    if(app->config->distance_units != MILES)
-		gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	return;
+	if(gtk_toggle_button_get_active(button))
+	    app->units_tab_current_state |= STATE_MILES;
+	else
+	    app->units_tab_current_state &= ~STATE_MILES;
+	goto check;
     }
     if(!strcmp(button_name, "wind_meters")){
-	if(gtk_toggle_button_get_active(button)){
-	    if(app->config->wind_units == METERS_S)
-	    	gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	else{
-	    if(app->config->wind_units != METERS_S)
-		gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	return;
+	if(gtk_toggle_button_get_active(button))
+	    app->units_tab_current_state |= STATE_METERS_S;
+	else
+	    app->units_tab_current_state &= ~STATE_METERS_S;
+	goto check;
     }
     if(!strcmp(button_name, "wind_kilometers")){
-	if(gtk_toggle_button_get_active(button)){
-	    if(app->config->wind_units == KILOMETERS_H)
-	    	gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	else{
-	    if(app->config->wind_units != KILOMETERS_H)
-		gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	return;
+	if(gtk_toggle_button_get_active(button))
+	    app->units_tab_current_state |= STATE_KILOMETERS_H;
+	else
+	    app->units_tab_current_state &= ~STATE_KILOMETERS_H;
+	goto check;
     }
     if(!strcmp(button_name, "wind_miles")){
-	if(gtk_toggle_button_get_active(button)){
-	    if(app->config->wind_units == MILES_H)
-	    	gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	else{
-	    if(app->config->wind_units != MILES_H)
-		gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	return;
+	if(gtk_toggle_button_get_active(button))
+	    app->units_tab_current_state |= STATE_MILES_H;
+	else
+	    app->units_tab_current_state &= ~STATE_MILES_H;
+	goto check;
     }
-
+/* pressure */
     if(!strcmp(button_name, "pressure")){
-	if(gtk_toggle_button_get_active(button)){
-	    if(app->config->pressure_units == MB)
-	    	gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	else{
-	    if(app->config->pressure_units != MB)
-		gtk_widget_set_sensitive(apply_button, FALSE);
-	    else
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	}
-	return;
+	if(gtk_toggle_button_get_active(button))
+	    app->units_tab_current_state |= STATE_PRESSURE_MB;
+	else
+	    app->units_tab_current_state &= ~STATE_PRESSURE_MB;
+	goto check;
     }
-
 
 #ifdef OS2008
     if(!strcmp(button_name, "enable_gps")){
-	something = app->config->gps_station;
+	if(gtk_toggle_button_get_active(button))
+	    app->stations_tab_current_state |= STATE_ENABLE_GPS;
+	else
+	    app->stations_tab_current_state &= ~STATE_ENABLE_GPS;
 	goto check;
     }
 #endif
-    if(!strcmp(button_name, "swap_temperature")){
-	something = app->config->swap_hi_low_temperature;
-	goto check;
-    }
-    if(!strcmp(button_name, "hide_wind")){
-	something = app->config->hide_wind;
-	goto check;
-    }
-    if(!strcmp(button_name, "theme_override")){
-	something = app->config->ui_background_color_on;
-	goto check;
-    }
     if(!strcmp(button_name, "separate")){
-	something = app->config->separate;
+	if(gtk_toggle_button_get_active(button))
+	    app->display_tab_current_state |= STATE_SHOW_CURRENT;
+	else
+	    app->display_tab_current_state &= ~STATE_SHOW_CURRENT;
 	goto check;
     }
-    if(!strcmp(button_name, "hide_station_name")){
-	something = app->config->hide_station_name;
+    if(!strcmp(button_name, "swap_temperature")){
+	if(gtk_toggle_button_get_active(button))
+	    app->display_tab_current_state |= STATE_SWAP_TEMPERATURE;
+	else
+	    app->display_tab_current_state &= ~STATE_SWAP_TEMPERATURE;
 	goto check;
     }
-    if(!strcmp(button_name, "hide_arrows")){
-	something = app->config->hide_arrows;
+    if(!strcmp(button_name, "show_wind")){
+	if(gtk_toggle_button_get_active(button))
+	    app->display_tab_current_state |= STATE_SHOW_WIND;
+	else
+	    app->display_tab_current_state &= ~STATE_SHOW_WIND;
 	goto check;
     }
-    if(!strcmp(button_name, "transparency")){
-	something = app->config->transparency;
+    if(!strcmp(button_name, "show_station_name")){
+	if(gtk_toggle_button_get_active(button))
+	    app->display_tab_current_state |= STATE_SHOW_STATION_NAME;
+	else
+	    app->display_tab_current_state &= ~STATE_SHOW_STATION_NAME;
 	goto check;
     }
+    if(!strcmp(button_name, "show_arrows")){
+	if(gtk_toggle_button_get_active(button))
+	    app->display_tab_current_state |= STATE_SHOW_ARROWS;
+	else
+	    app->display_tab_current_state &= ~STATE_SHOW_ARROWS;
+	goto check;
+    }
+
     if(!strcmp(button_name, "download_after_connection")){
-	something = app->config->downloading_after_connecting;
+	if(gtk_toggle_button_get_active(button))
+	    app->update_tab_current_state |= STATE_AUTO_CONNECT;
+	else
+	    app->update_tab_current_state &= ~STATE_AUTO_CONNECT;
 	goto check;
     }
 #if defined(OS2008) || defined(DEBUGTEMP)
-    /* Check sensor tab */
-    if(!strcmp(button_name, "display_at") ||
-	    !strcmp(button_name, "use_sensor") ||
-		!strcmp(button_name,"update_time_entry")){
-	sensor_check = lookup_widget(config_window, "display_at");
-        sensor_update_time = lookup_widget(config_window, "update_time_entry");
-	
-	if(!strcmp(button_name,"update_time_entry") &&
-		!check_entry_text(GTK_ENTRY(sensor_update_time), FALSE)){
-    	    if(app->config->use_sensor &&
-		    (app->config->sensor_update_time != (guint)atoi(gtk_entry_get_text(GTK_ENTRY(sensor_update_time))))){
-		sensor_page_is_changed = TRUE;
-		gtk_widget_set_sensitive(apply_button, TRUE);
-	    }else{
-		sensor_page_is_changed = FALSE;
-		gtk_widget_set_sensitive(apply_button, FALSE);
-	    }
-	}
-	if(!sensor_page_is_changed){
-	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(sensor_check))){
-		if(app->config->display_at == STATION_NAME)
-	    	    gtk_widget_set_sensitive(apply_button, FALSE);
-		else
-		    gtk_widget_set_sensitive(apply_button, TRUE);
-	    }else{
-		if(app->config->display_at != STATION_NAME)
-		    gtk_widget_set_sensitive(apply_button, FALSE);
-		else
-		    gtk_widget_set_sensitive(apply_button, TRUE);
-	    }
-	    
-	    if(!strcmp(button_name, "use_sensor")){
-		if(app->config->use_sensor != gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)))
-	    	    gtk_widget_set_sensitive(apply_button, TRUE);
-		else
-		    if( (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(sensor_check)) &&
-			    (app->config->display_at == STATION_NAME) ) ||
-			    (!(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(sensor_check)) &&
-			    (app->config->display_at != STATION_NAME))))
-	    	        gtk_widget_set_sensitive(apply_button, FALSE);
-	    }	    
-	}
-    return;
+/* use sensor */
+    if(!strcmp(button_name, "use_sensor")){
+	if(gtk_toggle_button_get_active(button))
+	    app->sensor_tab_current_state |= STATE_USE_SENSOR;
+	else
+	    app->sensor_tab_current_state &= ~STATE_USE_SENSOR;
+	goto check;
     }
+/* display at name */
+    if(!strcmp(button_name, "display_at_name")){
+	if(gtk_toggle_button_get_active(button))
+	    app->sensor_tab_current_state |= STATE_SHOW_AT_NAME;
+	else
+	    app->sensor_tab_current_state &= ~STATE_SHOW_AT_NAME;
+	goto check;
+    } 
+/* display at icon */
+    if(!strcmp(button_name, "display_at_icon")){
+	if(gtk_toggle_button_get_active(button))
+	    app->sensor_tab_current_state |= STATE_SHOW_AT_ICON;
+	else
+	    app->sensor_tab_current_state &= ~STATE_SHOW_AT_ICON;
+	goto check;
+    } 
 #endif
     return;
-check:
 /* if previos state not equal current state than enable apply button */
-    if(something != gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)))
+check:
+    if((app->stations_tab_current_state != app->stations_tab_start_state) ||
+    	    (app->visuals_tab_current_state != app->visuals_tab_start_state) ||
+	    (app->display_tab_current_state != app->display_tab_start_state) ||
+	    (app->units_tab_current_state != app->units_tab_start_state) ||
+	    (app->update_tab_current_state != app->update_tab_start_state)
+#ifdef OS2008
+									 ||
+	    (app->sensor_tab_current_state != app->sensor_tab_start_state)
+#endif
+									    )
 	gtk_widget_set_sensitive(GTK_WIDGET(apply_button), TRUE);
     else
 	gtk_widget_set_sensitive(GTK_WIDGET(apply_button), FALSE);
@@ -1855,31 +1824,47 @@ check:
 /*******************************************************************************/
 void color_buttons_changed_handler(GtkColorButton *button, gpointer user_data){
     gchar	*button_name = NULL;
-    GdkColor	something,
-		tmp_color;
-    gboolean	previos_state = FALSE;
+    GdkColor	tmp_color;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     button_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
     if(!strcmp(button_name, "font_color")){
-	memcpy(&something, &app->config->font_color, sizeof(something));
+	gtk_color_button_get_color(button, &tmp_color);
+	if( (app->config->font_color.red - tmp_color.red) ||
+		(app->config->font_color.green - tmp_color.green) ||
+		(app->config->font_color.blue - tmp_color.blue) )
+	    app->visuals_tab_current_state |= STATE_FONT_COLOR;
+	else
+	    app->visuals_tab_current_state &= ~STATE_FONT_COLOR;
 	goto check;
     }
     if(!strcmp(button_name, "background_color")){
-	memcpy(&something, &app->config->background_color, sizeof(something));
-	previos_state = GTK_WIDGET_SENSITIVE(GTK_WIDGET(user_data));
+	gtk_color_button_get_color(button, &tmp_color);
+	if( (app->config->background_color.red - tmp_color.red) ||
+		(app->config->background_color.green - tmp_color.green) ||
+		(app->config->background_color.blue - tmp_color.blue) )
+	    app->visuals_tab_current_state |= STATE_BACKGROUND_COLOR;
+	else
+	    app->visuals_tab_current_state &= ~STATE_BACKGROUND_COLOR;
 	goto check;
     }
     return;
 check:
-    gtk_color_button_get_color(button, &tmp_color);
-    if( (something.red - tmp_color.red) ||
-	    (something.green - tmp_color.green) ||
-	    (something.blue - tmp_color.blue) )
+/* enable or disable apply button */
+    if((app->stations_tab_current_state != app->stations_tab_start_state) ||
+    	    (app->visuals_tab_current_state != app->visuals_tab_start_state) ||
+	    (app->display_tab_current_state != app->display_tab_start_state) ||
+	    (app->units_tab_current_state != app->units_tab_start_state) ||
+	    (app->update_tab_current_state != app->update_tab_start_state)
+									    ||
+#ifdef OS2008
+	    (app->sensor_tab_current_state != app->sensor_tab_start_state)
+#endif
+									    )
 	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
     else
-	gtk_widget_set_sensitive(GTK_WIDGET(user_data), previos_state);
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
 }
 /*******************************************************************************/
 void combo_boxs_changed_handler(GtkComboBox *combobox, gpointer user_data){
@@ -1890,44 +1875,67 @@ void combo_boxs_changed_handler(GtkComboBox *combobox, gpointer user_data){
     START_FUNCTION;
 #endif
     combobox_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(combobox));
+/* weather source */
     if(!strcmp(combobox_name, "weather_source")){
-	something = app->config->weather_source;
-	goto check;
-    }
-    if(!strcmp(combobox_name, "layout_type")){
-	something = app->config->icons_layout;
-	goto check;
-    }
-    if(!strcmp(combobox_name, "icon_set")){
-	if(strcmp(app->config->icon_set,
-		gtk_combo_box_get_active_text(combobox)))
-	    gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+	if(gtk_combo_box_get_active(combobox) != app->config->weather_source)
+	    app->stations_tab_current_state |= STATE_SOURCE;
 	else
-	    gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
-	return;
-    }
-    if(!strcmp(combobox_name, "time2switch")){
-	something = app->config->switch_time / 10;
+	    app->stations_tab_current_state &= ~STATE_SOURCE;
 	goto check;
     }
+/* switch to next station */
+    if(!strcmp(combobox_name, "time2switch")){
+	if(gtk_combo_box_get_active(combobox) != app->config->switch_time / 10)
+	    app->update_tab_current_state |= STATE_SWITCH_TO_NEXT;
+	else
+	    app->update_tab_current_state &= ~STATE_SWITCH_TO_NEXT;
+	goto check;
+    }
+/* valid time */
     if(!strcmp(combobox_name, "valid_time")){
 	something = app->config->data_valid_interval / 3600;
 	while(something >>= 1)
 	    count++;
 	something = count;
+	if(gtk_combo_box_get_active(combobox) != something)
+	    app->update_tab_current_state |= STATE_VALID_TIME;
+	else
+	    app->update_tab_current_state &= ~STATE_VALID_TIME;
 	goto check;
     }
+/* update time */
     if(!strcmp(combobox_name, "update_time")){
         something = get_active_item_index((GtkTreeModel*)app->time_update_list,
 					    app->config->update_interval,
 					    NULL, TRUE);
+	if(gtk_combo_box_get_active(combobox) != something)
+	    app->update_tab_current_state |= STATE_UPDATING_TIME;
+	else
+	    app->update_tab_current_state &= ~STATE_UPDATING_TIME;
 	goto check;
     }
-    
+/* sensor read time */
+    if(!strcmp(combobox_name, "sensor_update_time")){
+	if(gtk_combo_box_get_active(combobox) !=
+		get_index_from_time(app->config->sensor_update_time))
+	    app->sensor_tab_current_state |= STATE_SENSOR_READ_TIME;
+	else
+	    app->sensor_tab_current_state &= ~STATE_SENSOR_READ_TIME;
+	goto check;
+    }
     return;
 check:
 /* if previos state not equal current state than enable apply button */
-    if(something != gtk_combo_box_get_active(combobox))
+    if((app->stations_tab_current_state != app->stations_tab_start_state) ||
+    	    (app->visuals_tab_current_state != app->visuals_tab_start_state) ||
+	    (app->display_tab_current_state != app->display_tab_start_state) ||
+	    (app->units_tab_current_state != app->units_tab_start_state) ||
+	    (app->update_tab_current_state != app->update_tab_start_state)
+									    ||
+#ifdef OS2008
+	    (app->sensor_tab_current_state != app->sensor_tab_start_state)
+#endif
+									    )
 	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
     else
 	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
@@ -1935,36 +1943,52 @@ check:
 /*******************************************************************************/
 void control_bars_changed_handler(HildonControlbar *control, gpointer user_data){
     gchar	*control_name = NULL;
-    gint	something = -1;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(control));
     if(!strcmp(control_name, "visible_items_number")){
-        something = app->config->days_to_show - 1;
+	if(hildon_controlbar_get_value(control) != app->config->days_to_show - 1)
+	    app->display_tab_current_state |= STATE_VISIBLE_ITEMS;
+	else
+	    app->display_tab_current_state &= ~STATE_VISIBLE_ITEMS;
 	goto check;
     }
     if(!strcmp(control_name, "icon_size")){
-        something = app->config->icons_size - 1;
+	if(hildon_controlbar_get_value(control) != app->config->icons_size - 1)
+	    app->display_tab_current_state |= STATE_ICON_SIZE;
+	else
+	    app->display_tab_current_state &= ~STATE_ICON_SIZE;
 	goto check;
     }
 #ifdef OS2008
     if(!strcmp(control_name, "transparency")){
-        something = app->config->alpha_comp;
+	if(hildon_controlbar_get_value(control) != app->config->alpha_comp)
+	    app->visuals_tab_current_state |= STATE_TRANSPARENCY;
+	else
+	    app->visuals_tab_current_state &= ~STATE_TRANSPARENCY;
 	goto check;
     }
 #endif
     return;
 check:
 /* if previos state not equal current state than enable apply button */
-    if(something != hildon_controlbar_get_value(control))
+    if((app->stations_tab_current_state != app->stations_tab_start_state) ||
+    	    (app->visuals_tab_current_state != app->visuals_tab_start_state) ||
+	    (app->display_tab_current_state != app->display_tab_start_state) ||
+	    (app->units_tab_current_state != app->units_tab_start_state) ||
+	    (app->update_tab_current_state != app->update_tab_start_state)
+									    ||
+#ifdef OS2008
+	    (app->sensor_tab_current_state != app->sensor_tab_start_state)
+#endif
+									    )
 	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
     else
 	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-
 }
 /*******************************************************************************/
 GtkWidget* create_locations_tab(GtkWidget *window){
@@ -1993,11 +2017,11 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 		*add_station_button2 = NULL,
 		*apply_button = NULL,
 		*rename_entry = NULL;
-		GtkStyle	*style = NULL;
     gint	i = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    app->stations_tab_start_state = 0;
     g_object_set_data(G_OBJECT(window), "list", (gpointer)&list);
     left_right_hbox = gtk_hbox_new(FALSE, 0);
 /* Locations tab */
@@ -2087,6 +2111,10 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 			(gpointer)window);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_gps),
         			    app->config->gps_station);
+    if(app->config->gps_station)
+	app->stations_tab_start_state |= STATE_ENABLE_GPS;
+    else
+	app->stations_tab_start_state &= ~STATE_ENABLE_GPS;
 #endif
     /* right side */
     right_table = gtk_table_new(10, 3, FALSE);
@@ -2249,6 +2277,7 @@ GtkWidget* create_locations_tab(GtkWidget *window){
     gtk_entry_set_text(GTK_ENTRY(rename_entry),
 			app->config->current_station_name);
 
+    app->stations_tab_current_state = app->stations_tab_start_state;
     return left_right_hbox;
 }
 /*******************************************************************************/
@@ -2279,6 +2308,7 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
 		*tmp = NULL;
     gchar	buffer[256];
 /* Visuals tab */
+    app->visuals_tab_start_state = 0;
     visuals_page = gtk_vbox_new(FALSE, 0);
     apply_button = lookup_widget(window, "apply_button");
 /* first line */
@@ -2291,7 +2321,7 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
     /* one row */
     one_row_button = create_button_with_image(BUTTON_ICONS, "one_row", 40, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, one_row_button, "one_row");
-    g_object_set_data(G_OBJECT(one_row_button), "number", GINT_TO_POINTER(COMBINATION + 1));
+    gtk_widget_set_name(one_row_button, "one_row");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), one_row_button, FALSE, FALSE, 0);
     group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(one_row_button));
     g_signal_connect(one_row_button, "clicked", G_CALLBACK(check_buttons_changed_handler),
@@ -2299,6 +2329,7 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
     /* one column */
     one_column_button = create_button_with_image(BUTTON_ICONS, "one_column", 40, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, one_column_button, "one_column");
+    gtk_widget_set_name(one_column_button, "one_column");
     g_object_set_data(G_OBJECT(one_column_button), "number", GINT_TO_POINTER(ONE_COLUMN));
     gtk_box_pack_start(GTK_BOX(layouts_hbox), one_column_button, FALSE, FALSE, 0);
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(one_column_button), group);
@@ -2307,7 +2338,7 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
     /* two rows */
     two_rows_button = create_button_with_image(BUTTON_ICONS, "two_rows", 40, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, two_rows_button, "two_rows");
-    g_object_set_data(G_OBJECT(two_rows_button), "number", GINT_TO_POINTER(TWO_ROWS));
+    gtk_widget_set_name(two_rows_button, "two_rows");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), two_rows_button, FALSE, FALSE, 0);
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(two_rows_button),
 	    gtk_radio_button_get_group(GTK_RADIO_BUTTON(one_column_button)));
@@ -2316,7 +2347,7 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
     /* two columns */
     two_columns_button = create_button_with_image(BUTTON_ICONS, "two_columns", 40, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, two_columns_button, "two_columns");
-    g_object_set_data(G_OBJECT(two_columns_button), "number", GINT_TO_POINTER(TWO_COLUMNS));
+    gtk_widget_set_name(two_columns_button, "two_columns");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), two_columns_button, FALSE, FALSE, 0);
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(two_columns_button),
 	    gtk_radio_button_get_group(GTK_RADIO_BUTTON(two_rows_button)));
@@ -2325,7 +2356,7 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
     /* combination */
     combination_button = create_button_with_image(BUTTON_ICONS, "combination", 40, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, combination_button, "combination");
-    g_object_set_data(G_OBJECT(combination_button), "number", GINT_TO_POINTER(COMBINATION));
+    gtk_widget_set_name(combination_button, "combination");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), combination_button, FALSE, FALSE, 0);
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(combination_button),
 	    gtk_radio_button_get_group(GTK_RADIO_BUTTON(two_columns_button)));
@@ -2335,18 +2366,23 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
 	default:
 	case ONE_ROW:
 	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(one_row_button), TRUE);
+	    app->visuals_tab_start_state |= STATE_ONE_ROW;
 	break;
 	case ONE_COLUMN:
 	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(one_column_button), TRUE);
+	    app->visuals_tab_start_state |= STATE_ONE_COLUMN;
 	break;
 	case TWO_ROWS:
 	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(two_rows_button), TRUE);
+	    app->visuals_tab_start_state |= STATE_TWO_ROWS;
 	break;
 	case TWO_COLUMNS:
 	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(two_columns_button), TRUE);
+	    app->visuals_tab_start_state |= STATE_TWO_COLUMNS;
 	break;
 	case COMBINATION:
 	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(combination_button), TRUE);
+	    app->visuals_tab_start_state |= STATE_COMBINATION;
 	break;
     }
 /* second line */
@@ -2367,9 +2403,9 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
 	gtk_radio_button_set_group(GTK_RADIO_BUTTON(button), group);
 	group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(button));
 	/* store button name */
-	g_object_set_data(G_OBJECT(button), "iconset", (gchar*)(tmp->data));
-	/* store button for each item in iconset list */
-	g_object_set_data(G_OBJECT(window), (gchar*)(tmp->data), button);
+	gtk_widget_set_name(button, "iconset");
+	g_object_set_data(G_OBJECT(button), "name", (gchar*)(tmp->data));
+	GLADE_HOOKUP_OBJECT(window, button, (gchar*)(tmp->data));
 	gtk_box_pack_start(GTK_BOX(iconsets_hbox), button, FALSE, FALSE, 0);
 	if(!strcmp(tmp->data, app->config->icon_set))
 	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button), TRUE);
@@ -2386,6 +2422,8 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
 			FALSE, FALSE, 20);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(theme_override),
         			    app->config->ui_background_color_on);
+    if(app->config->ui_background_color_on)
+	app->visuals_tab_start_state |= STATE_THEME_OVERRIDE;
     gtk_widget_set_name(theme_override, "theme_override");
     GLADE_HOOKUP_OBJECT(window, theme_override, "theme_override");
     g_signal_connect(theme_override, "toggled",
@@ -2402,15 +2440,20 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
     hildon_controlbar_set_max(HILDON_CONTROLBAR(transparency), 100);
     hildon_controlbar_set_value(HILDON_CONTROLBAR(transparency),
 				app->config->alpha_comp);
+    gtk_scale_set_value_pos(GTK_SCALE(transparency), GTK_POS_LEFT);
+#ifndef RELEASE
     fprintf(stderr,"test %i %i %i\n",
 	    app->config->alpha_comp,
 	    (int)app->config->alpha_comp,
 	    hildon_controlbar_get_value(HILDON_CONTROLBAR(transparency)));
+#endif
     gtk_widget_set_size_request(transparency, 350, -1);
 #else
     transparency = gtk_check_button_new_with_label(_("Transparency:"));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),
         			    app->config->transparency);
+    if(app->config->transparency)
+	app->visuals_tab_start_state |= STATE_TRANSPARENCY;
     g_signal_connect(transparency, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
@@ -2489,7 +2532,8 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
     gtk_box_pack_start(GTK_BOX(visuals_page), fourth_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(visuals_page), fifth_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(visuals_page), sixth_line, TRUE, TRUE, 0);
-    
+
+    app->visuals_tab_current_state = app->visuals_tab_start_state;
     return visuals_page;
 }
 /*******************************************************************************/
@@ -2502,16 +2546,17 @@ GtkWidget* create_display_tab(GtkWidget *window){
 		*fifth_line = NULL,
     		*visible_items_number = NULL,
 		*icon_size = NULL,
-		*hide_station_name = NULL,
-		*hide_arrows = NULL,
+		*show_station_name = NULL,
+		*show_arrows = NULL,
 		*separate = NULL,
 		*swap_temperature = NULL,
 		*apply_button = NULL,
-		*hide_wind = NULL;
+		*show_wind = NULL;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    app->display_tab_start_state = 0;
     apply_button = lookup_widget(window, "apply_button");
 /* Interface tab */
     interface_page = gtk_vbox_new(FALSE, 0);
@@ -2576,75 +2621,87 @@ GtkWidget* create_display_tab(GtkWidget *window){
 /* third line */
     third_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(interface_page), third_line, TRUE, TRUE, 0);
-    /* Swap temperature */
-    gtk_box_pack_start(GTK_BOX(third_line),
-			swap_temperature = gtk_check_button_new_with_label(_("Swap hi/low temperature")),
-			FALSE, FALSE, 20);
-    GLADE_HOOKUP_OBJECT(window, swap_temperature, "swap_temperature");
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(swap_temperature),
-        			    app->config->swap_hi_low_temperature);
-    gtk_widget_set_name(swap_temperature, "swap_temperature");
-    g_signal_connect(swap_temperature, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			window);
-    /* Hide wind */
-    gtk_box_pack_end(GTK_BOX(third_line),
-			hide_wind = gtk_check_button_new(),
-			FALSE, FALSE, 20);
-    GLADE_HOOKUP_OBJECT(window, hide_wind, "hide_wind");
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_wind),
-        			    app->config->hide_wind);
-    gtk_widget_set_name(hide_wind, "hide_wind");
-    g_signal_connect(hide_wind, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
-			window);
-    gtk_box_pack_end(GTK_BOX(third_line),
-        		gtk_label_new(_("Hide wind")),
-        		FALSE, FALSE, 0);
-/* fourth line */
-    fourth_line = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(interface_page), fourth_line, TRUE, TRUE, 0);
     /* Separate weather */
     separate = gtk_check_button_new_with_label(_("Show only current weather on first icon"));
     GLADE_HOOKUP_OBJECT(window, separate, "separate");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(separate),
         			    app->config->separate);
+    if(app->config->separate)
+	app->display_tab_start_state |= STATE_SHOW_CURRENT;
     gtk_widget_set_name(separate, "separate");
     g_signal_connect(separate, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
-    gtk_box_pack_start(GTK_BOX(fourth_line), separate, FALSE, FALSE, 20);
+    gtk_box_pack_start(GTK_BOX(third_line), separate, FALSE, FALSE, 20);
+/* fourth line */
+    fourth_line = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_page), fourth_line, TRUE, TRUE, 0);
+
+    /* Swap temperature */
+    gtk_box_pack_start(GTK_BOX(fourth_line),
+			swap_temperature = gtk_check_button_new_with_label(_("Swap hi/low temperature")),
+			FALSE, FALSE, 20);
+    GLADE_HOOKUP_OBJECT(window, swap_temperature, "swap_temperature");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(swap_temperature),
+        			    app->config->swap_hi_low_temperature);
+    if(app->config->swap_hi_low_temperature)
+	app->display_tab_start_state |= STATE_SWAP_TEMPERATURE;
+    gtk_widget_set_name(swap_temperature, "swap_temperature");
+    g_signal_connect(swap_temperature, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			window);
+    /* Show wind */
+    gtk_box_pack_end(GTK_BOX(fourth_line),
+			show_wind = gtk_check_button_new(),
+			FALSE, FALSE, 20);
+    GLADE_HOOKUP_OBJECT(window, show_wind, "show_wind");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(show_wind),
+        			    app->config->show_wind);
+    if(app->config->show_wind)
+	app->display_tab_start_state |= STATE_SHOW_WIND;
+    gtk_widget_set_name(show_wind, "show_wind");
+    g_signal_connect(show_wind, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			window);
+    gtk_box_pack_end(GTK_BOX(fourth_line),
+        		gtk_label_new(_("Show wind")),
+        		FALSE, FALSE, 0);
 /* fifth line */
     fifth_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(interface_page), fifth_line, TRUE, TRUE, 0);
-    /* Hide station name */
-    hide_station_name = gtk_check_button_new_with_label(_("Hide station name"));
-    GLADE_HOOKUP_OBJECT(window, hide_station_name, "hide_station_name");
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_station_name),
-        			    app->config->hide_station_name);
-    gtk_widget_set_name(hide_station_name, "hide_station_name");
-    g_signal_connect(hide_station_name, "toggled",
+    /* Show station name */
+    show_station_name = gtk_check_button_new_with_label(_("Show station name"));
+    GLADE_HOOKUP_OBJECT(window, show_station_name, "show_station_name");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(show_station_name),
+        			    app->config->show_station_name);
+    if(app->config->show_station_name)
+	app->display_tab_start_state |= STATE_SHOW_STATION_NAME;
+    gtk_widget_set_name(show_station_name, "show_station_name");
+    g_signal_connect(show_station_name, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
     gtk_box_pack_start(GTK_BOX(fifth_line),
-			hide_station_name, FALSE, FALSE, 20);
-    /* Hide arrows */
-    hide_arrows = gtk_check_button_new();
-    GLADE_HOOKUP_OBJECT(window, hide_arrows, "hide_arrows");
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(hide_arrows),
-        			    app->config->hide_arrows);
-    gtk_widget_set_name(hide_arrows, "hide_arrows");
-    g_signal_connect(hide_arrows, "toggled",
+			show_station_name, FALSE, FALSE, 20);
+    /* Show arrows */
+    show_arrows = gtk_check_button_new();
+    GLADE_HOOKUP_OBJECT(window, show_arrows, "show_arrows");
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(show_arrows),
+        			    app->config->show_arrows);
+    if(app->config->show_arrows)
+	app->display_tab_start_state |= STATE_SHOW_ARROWS;
+    gtk_widget_set_name(show_arrows, "show_arrows");
+    g_signal_connect(show_arrows, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
     gtk_box_pack_end(GTK_BOX(fifth_line),
-			hide_arrows, FALSE, FALSE, 20);
+			show_arrows, FALSE, FALSE, 20);
     gtk_box_pack_end(GTK_BOX(fifth_line),
-			gtk_label_new(_("Hide arrows")),
+			gtk_label_new(_("Show arrows")),
 			FALSE, FALSE, 0);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
+    app->display_tab_current_state = app->display_tab_start_state;
     return interface_page;
 }
 /*******************************************************************************/
@@ -2670,6 +2727,7 @@ GtkWidget* create_units_tab(GtkWidget *window){
 #endif
     units_page = gtk_table_new(7, 3, FALSE);
 /* Units tab */
+    app->units_tab_start_state = 0U;
     /* temperature */
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
 				gtk_label_new(_("Temperature units:")),
@@ -2692,11 +2750,18 @@ GtkWidget* create_units_tab(GtkWidget *window){
 									_("Fahrenheit")),
 				2, 3, 0, 1);
     gtk_widget_set_name(fahrenheit_temperature, "fahrenheit");
+    g_signal_connect(fahrenheit_temperature, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			window);
     gtk_button_set_focus_on_click(GTK_BUTTON(fahrenheit_temperature), FALSE);
-    if(app->config->temperature_units == CELSIUS)
+    if(app->config->temperature_units == CELSIUS){
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(celcius_temperature), TRUE);
-    else
+	app->units_tab_start_state |= STATE_CELCIUS;
+    }
+    else{
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(fahrenheit_temperature), TRUE);
+	app->units_tab_start_state |= STATE_FAHRENHEIT;
+    }
     /* distance */
     gtk_table_attach_defaults(GTK_TABLE(units_page), 
 				gtk_label_new(_("Distance units:")),
@@ -2752,15 +2817,19 @@ GtkWidget* create_units_tab(GtkWidget *window){
 	default:
 	case METERS:
 	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_meters), TRUE);
+	    app->units_tab_start_state |= STATE_METERS;
 	break;
 	case KILOMETERS:
 	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_kilometers), TRUE);
+	    app->units_tab_start_state |= STATE_KILOMETERS;
 	break;
 	case MILES:
 	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_miles), TRUE);
+	    app->units_tab_start_state |= STATE_MILES;
 	break;
 	case SEA_MILES:
 	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(distance_sea_miles), TRUE);
+	    app->units_tab_start_state |= STATE_SEA_MILES;
 	break;
     }
     /* wind */
@@ -2806,12 +2875,15 @@ GtkWidget* create_units_tab(GtkWidget *window){
 	default:
 	case METERS_S:
 	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_meters), TRUE);
+	    app->units_tab_start_state |= STATE_METERS_S;
 	break;
 	case KILOMETERS_H:
 	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_kilometers), TRUE);
+	    app->units_tab_start_state |= STATE_KILOMETERS_H;
 	break;
 	case MILES_H:
 	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_miles), TRUE);
+	    app->units_tab_start_state |= STATE_MILES_H;
 	break;
     }
     /* pressure */
@@ -2836,10 +2908,15 @@ GtkWidget* create_units_tab(GtkWidget *window){
 									_("inHg")),
 				2, 3, 6, 7);
     gtk_button_set_focus_on_click(GTK_BUTTON(inch_pressure), FALSE);
-    if(app->config->pressure_units == MB)
+    if(app->config->pressure_units == MB){
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(mb_pressure), TRUE);
-    else
+	app->units_tab_start_state |= STATE_PRESSURE_MB;
+    }
+    else{
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(inch_pressure), TRUE);
+	app->units_tab_start_state |= STATE_PRESSURE_IN;
+    }
+    app->units_tab_current_state = app->units_tab_start_state;
     return units_page;
 }
 /*******************************************************************************/
@@ -2861,6 +2938,7 @@ GtkWidget* create_update_tab(GtkWidget *window){
 #endif
     apply_button = lookup_widget(window, "apply_button");
 /* Update tab */
+    app->update_tab_start_state = 0;
     update_page = gtk_vbox_new(FALSE, 0);
     first_line = gtk_hbox_new(FALSE, 0);
     second_line = gtk_hbox_new(FALSE, 0);
@@ -2878,6 +2956,8 @@ GtkWidget* create_update_tab(GtkWidget *window){
         		FALSE, FALSE, 5);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_downloading_after_connection),
         			    app->config->downloading_after_connecting);
+    if(app->config->downloading_after_connecting)
+	app->update_tab_start_state |= STATE_AUTO_CONNECT;
     GLADE_HOOKUP_OBJECT(window, chk_downloading_after_connection,
 			    "download_after_connection");
     gtk_widget_set_name(chk_downloading_after_connection,
@@ -2972,13 +3052,28 @@ GtkWidget* create_update_tab(GtkWidget *window){
     gtk_combo_box_set_active(GTK_COMBO_BOX(update_time),
     get_active_item_index((GtkTreeModel*)app->time_update_list,
 				    app->config->update_interval, NULL, FALSE));
+
+    app->update_tab_current_state = app->update_tab_start_state;
     return update_page;
 }
 /*******************************************************************************/
 void font_changed_handler(GtkFontButton *widget, gpointer user_data){
     if(strcmp(app->config->font, (gchar*)gtk_font_button_get_font_name(widget)))
-	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+	app->visuals_tab_current_state |= STATE_FONT;
     else
-	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+	app->visuals_tab_current_state &= ~STATE_FONT;
+    if((app->stations_tab_current_state != app->stations_tab_start_state) ||
+            (app->visuals_tab_current_state != app->visuals_tab_start_state) ||
+            (app->display_tab_current_state != app->display_tab_start_state) ||
+            (app->units_tab_current_state != app->units_tab_start_state) ||
+            (app->update_tab_current_state != app->update_tab_start_state)
+									    ||
+#ifdef OS2008
+            (app->sensor_tab_current_state != app->sensor_tab_start_state)
+#endif
+									    )
+        gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+    else
+        gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
 }
 /*******************************************************************************/

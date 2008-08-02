@@ -4,7 +4,7 @@
   * Added possibility to displaying wind speed and direction on desktop
   * Files countries.list, regions.list and stations.list has moved into new package (omweather-stations-db)
   * Added copyright info for weather data
-  * Added possibility to change weather data source
+  * Start added possibility to change weather data source
   * Added possibility to change font family, style and size for desktop icons
 
 0.20.5

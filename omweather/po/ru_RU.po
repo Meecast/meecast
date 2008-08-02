@@ -432,7 +432,7 @@ msgstr "Невозможно загрузить данные о погоде."
 
 #: src/weather-settings.c:731
 msgid "Display"
-msgstr "Экран"
+msgstr "Отображение"
 
 #: src/weather-settings.c:2767
 msgid "Distance units:"
@@ -1375,7 +1375,7 @@ msgstr "Видимость:"
 
 #: src/weather-settings.c:728
 msgid "Visuals"
-msgstr ""
+msgstr "Оформление"
 
 #: src/hash.data:178
 msgid "W"

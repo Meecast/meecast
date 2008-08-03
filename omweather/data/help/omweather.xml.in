@@ -149,8 +149,8 @@
 	directly from there.
       </_para>
       <_para>
-        <display_text>UI Theme Override</display_text> selection allows to disable
-	grey background.
+        <display_text>UI Theme Override</display_text> selection allows to override
+	theme settings.
       </_para>
       <_para>
 	<display_text>Transparency:</display_text> selection for OS2006-OS2007 will show

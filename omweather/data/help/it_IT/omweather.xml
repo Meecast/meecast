@@ -51,7 +51,7 @@
       <para><display_text>Visuals</display_text> tab is used to configure settings that control the visual appearance of the OMWeather.</para>
       <para><display_text>Layout:</display_text> selects how icons are shown on the home screen. Possible selections are one row, one column, two rows, two columns or combination.</para>
       <para><display_text>Icon set:</display_text> selects which icon set is used. You can install more icon sets with the application manager (if Maemo extras repository is configured) or going to OMWeathers Maemo garage page (http://omweather.garage.maemo.org/) and downloading icon sets directly from there.</para>
-      <para><display_text>UI Theme Override</display_text> selection allows to disable grey background.</para>
+      <para><display_text>UI Theme Override</display_text> selection allows to override theme settings.</para>
       <para><display_text>Transparency:</display_text> selection for OS2006-OS2007 will show background image behind the icons. For OS2008 this option allows to select percent for semi-transparency.</para>
       <para><display_text>Font:</display_text> defines font and it's size used by applet on the tablet home screen.</para>
       <para><display_text>Font color:</display_text> defines applet's font color. Touching color button will open <display_text>Pick a Color</display_text> dialog where it's possible to select font color.</para>

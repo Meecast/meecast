@@ -234,7 +234,7 @@ msgid ""
 "<display_text>Visuals</display_text> tab is used to configure settings that "
 "control the visual appearance of the OMWeather."
 msgstr ""
-"Закладка <display_text>Отображение</display_text> позволяет настроить "
+"Закладка <display_text>Оформление</display_text> позволяет настроить "
 "внешний вид апплета OMWeather."
 
 #: data/help/omweather.xml.in.h:25

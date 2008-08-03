@@ -191,8 +191,8 @@ msgid ""
 "select percent for semi-transparency."
 msgstr ""
 "Параметр <display_text>Прозрачность:</display_text> для OS2006-Os2007 "
-"позволяет использовать в качестве фона иконок, рисунок рабочего стола.Для "
-"OS2008 данная опция задает процент полу-прозрачности."
+"позволяет использовать в качестве фона иконок, рисунок рабочего стола. Для "
+"OS2008 данная опция задает процент полупрозрачности."
 
 #: data/help/omweather.xml.in.h:20
 msgid ""
@@ -326,13 +326,12 @@ msgid ""
 msgstr ""
 
 #: data/help/omweather.xml.in.h:41
-#, fuzzy
 msgid ""
 "Right (<display_text>Add</display_text>) section allows you to add new "
 "weather stations, which will then be listed in the left view."
 msgstr ""
-"Кнопка <display_text>Добавить</display_text> позволяет вам добавлять новые "
-"города в список, расположенный на вкладке Местоположения."
+"Правая <display_text>Добавить</display_text> часть позволяет вам добавлять новые "
+"города в список, расположенный в левой части экрана."
 
 #: data/help/omweather.xml.in.h:42
 msgid "See current phase of the moon"
@@ -426,13 +425,12 @@ msgid ""
 msgstr ""
 
 #: data/help/omweather.xml.in.h:58
-#, fuzzy
 msgid ""
 "Update weather information automatically from the Internet (Data provided by "
 "weather.com)"
 msgstr ""
 "Автоматическое обновление информации о прогнозе погоды через Интернет "
-"(Данные доступны на xoap.weather.com)"
+"(Данные доступны с сервера weather.com)"
 
 #: data/help/omweather.xml.in.h:59
 msgid ""
@@ -453,9 +451,8 @@ msgstr ""
 "обновления выбираются из выпадающих списков."
 
 #: data/help/omweather.xml.in.h:62
-#, fuzzy
 msgid "Weather data provided by: weather.com"
-msgstr "Погодные данные предоставляются: xoap.weather.com"
+msgstr "Погодные данные предоставляются: weather.com"
 
 #: data/help/omweather.xml.in.h:63
 msgid "Welcome to Other Maemo Weather."

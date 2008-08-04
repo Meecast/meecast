@@ -615,7 +615,6 @@ void update_weather(gboolean show_update_window){
 	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }
 /*******************************************************************************/
-#ifndef OS2008
 void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
     osso_context_t	*osso = NULL;
@@ -689,9 +688,9 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 */
 #ifdef OS2008
     initial_gps_connect();
-    app->signal_expose = g_signal_connect(app->top_widget, "expose-event",
-                			    G_CALLBACK(expose_main_window),
-                			    NULL);
+//    app->signal_expose = g_signal_connect(app->top_widget, "expose-event",
+//                			    G_CALLBACK(expose_main_window),
+//                			    NULL);
     app->widget_first_start = FALSE;		     
 
     gtk_widget_set_name(GTK_WIDGET(app->top_widget), PACKAGE_NAME);
@@ -812,7 +811,6 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     /* Deinitialize libosso */
     osso_deinitialize(osso);
 }
-#endif
 /*******************************************************************************/
 GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent){
     GtkWidget	*menu_item;

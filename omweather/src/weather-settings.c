@@ -1133,8 +1133,17 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     redraw_home_window(FALSE);
 /* disable button */
     gtk_widget_set_sensitive(button, FALSE);
-    if (app->config->ui_background_color_on)
+    if(app->config->ui_background_color_on)
 	set_background_color(button, &(app->config->ui_background_color));
+/* store current settings state */
+    app->stations_tab_start_state = app->stations_tab_current_state;
+    app->visuals_tab_start_state = app->visuals_tab_current_state;
+    app->display_tab_start_state = app->display_tab_current_state;
+    app->units_tab_start_state = app->units_tab_current_state;
+    app->update_tab_start_state = app->update_tab_current_state;
+#ifdef OS2008
+    app->sensor_tab_start_state = app->sensor_tab_current_state;
+#endif;
 }
 /*******************************************************************************/
 void close_button_handler(GtkWidget *button, GdkEventButton *event,

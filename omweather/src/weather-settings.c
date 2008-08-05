@@ -1143,7 +1143,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     app->update_tab_start_state = app->update_tab_current_state;
 #ifdef OS2008
     app->sensor_tab_start_state = app->sensor_tab_current_state;
-#endif;
+#endif
 }
 /*******************************************************************************/
 void close_button_handler(GtkWidget *button, GdkEventButton *event,

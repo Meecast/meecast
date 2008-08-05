@@ -1488,6 +1488,9 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 	                                FALSE, app->config->weather_source);
 	    config_save(app->config);
 	    gtk_entry_set_text(((GtkEntry*)station_name_entry),"");
+	    /* set need update weather flag for close button handler */
+	    g_object_set_data(G_OBJECT(config),	"need_update_weather",
+				(gpointer) 1);
 	}
 	else{/* no one station found */
 	    hildon_banner_show_information(app->main_window,
@@ -1510,6 +1513,9 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 	        gtk_entry_set_text(((GtkEntry*)station_code_entry),"");
 	        /* disable add button */
 		gtk_widget_set_sensitive(GTK_WIDGET(button), FALSE);
+		/* set need update weather flag for close button handler */
+		g_object_set_data(G_OBJECT(config), "need_update_weather",
+				    (gpointer) 1);
 	    }else{
 	    /* Need Error window */
 	    }
@@ -1530,14 +1536,13 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 		    gtk_combo_box_set_active((GtkComboBox*)stations, -1);
 		    /* disable add button */
 		    gtk_widget_set_sensitive(GTK_WIDGET(button), FALSE);
+		    /* set need update weather flag for close button handler */
+		    g_object_set_data(G_OBJECT(config), "need_update_weather",
+					(gpointer) 1);
 		}
 	    }
 	}
     }
-/* set need update weather flag for close button handler */
-    g_object_set_data(G_OBJECT(config),
-			"need_update_weather",
-			(gpointer) 1);
     stations_list_view = lookup_widget(config, "station_list_view");
     if(stations_list_view){
 	highlight_current_station(GTK_TREE_VIEW(stations_list_view));

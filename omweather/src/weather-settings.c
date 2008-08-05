@@ -1489,6 +1489,12 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 	    config_save(app->config);
 	    gtk_entry_set_text(((GtkEntry*)station_name_entry),"");
 	}
+	else{/* no one station found */
+	    hildon_banner_show_information(app->main_window,
+					    NULL,
+					    _("No one station found!"));
+	    gtk_entry_set_text((GtkEntry*)station_name_entry, "");
+	}
     }
     else{
         if(!strcmp((char*)pressed_button, "add_code")){

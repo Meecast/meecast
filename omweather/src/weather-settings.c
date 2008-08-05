@@ -950,7 +950,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	    app->gps_station.id0[0] = 0;
 	    app->gps_station.name[0] = 0;
 	    app->gps_station.latitude = 0;
-	    app->gps_station.longtitude = 0;		
+	    app->gps_station.longtitude = 0;
 	}
     }
 #endif
@@ -1117,7 +1117,9 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	gtk_combo_box_set_model(GTK_COMBO_BOX(countries),
 				(GtkTreeModel*)app->countrys_list);
 	/* set active item for all lists to nothing */
-	gtk_combo_box_set_active(GTK_COMBO_BOX(countries), -1);
+	gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
+				get_active_item_index((GtkTreeModel*)app->countrys_list,
+				-1, app->config->current_country, TRUE));
 	gtk_combo_box_set_active(GTK_COMBO_BOX(states), -1);
 	gtk_combo_box_set_active(GTK_COMBO_BOX(stations), -1);
     }

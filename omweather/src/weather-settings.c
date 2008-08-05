@@ -2011,6 +2011,18 @@ check:
 #endif
 }
 /*******************************************************************************/
+gboolean changed_country_process(gpointer window)
+{
+	changed_country_handler(NULL,window);
+	return FALSE;
+}
+/*******************************************************************************/
+gboolean changed_state_process(gpointer window)
+{
+	changed_state_handler(NULL,window);
+	return FALSE;
+}
+/*******************************************************************************/
 GtkWidget* create_locations_tab(GtkWidget *window){
     static struct lists_struct	list = { NULL, NULL, NULL };
     GtkWidget	*countries = NULL,
@@ -2276,10 +2288,10 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 				get_active_item_index((GtkTreeModel*)app->countrys_list,
 				-1, app->config->current_country, TRUE));
     /* fill states list */
-    changed_country_handler(NULL, (gpointer)window);
+		g_idle_add(changed_country_process,(gpointer)window);
     /* fill stations list */
-    changed_state_handler(NULL, (gpointer)window);
-    g_signal_connect(countries, "changed",
+		g_idle_add(changed_state_process,(gpointer)window);
+		g_signal_connect(countries, "changed",
             		G_CALLBACK(changed_country_handler),
 			(gpointer)window);
     g_signal_connect(states, "changed",

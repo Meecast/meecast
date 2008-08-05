@@ -1495,7 +1495,7 @@ void add_button_handler(GtkWidget *button, GdkEventButton *event,
 	else{/* no one station found */
 	    hildon_banner_show_information(app->main_window,
 					    NULL,
-					    _("No one station found!"));
+					    _("No one station found! May be you don't have installed omweather-*-station-db packet"));
 	    gtk_entry_set_text((GtkEntry*)station_name_entry, "");
 	}
     }

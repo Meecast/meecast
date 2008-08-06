@@ -1,17 +1,17 @@
 # translation of OMWeather fr_FR.po to French
 # This file is distributed under the same license as the OMWeather package.
-# Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) 2007 THE omweather'S COPYRIGHT HOLDER
 # Pavel Fialko <pavelnf@gmail.com>, 2007.
 # vlad <vlad@gas.by>, 2007.
 # Vlad Vasiliev <vlad@gas.by>, 2007.
-#
-#
+# 
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: omweather 0.19.1\n"
+"Project-Id-Version: omweather 0.21\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-08-05 13:24+0300\n"
-"PO-Revision-Date: 2008-04-27 20:32+0200\n"
+"PO-Revision-Date: 2008-08-06 22:29+0200\n"
 "Last-Translator: Nicolas GRAZIANO <nicolas.graziano@gmail.com>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/weather-help.c:95
-#, fuzzy
 msgid ""
 "\n"
 "Author and maintenance:\n"
@@ -59,9 +58,12 @@ msgid ""
 "Andrew Olmsted\n"
 "for Semi-transparency and coloured backgrounds\n"
 msgstr ""
+"\n"
+"Copyright(c) 2008\n"
+"Andrew Olmsted\n"
+"pour les fonds semi transparent et coloré\n"
 
 #: src/weather-help.c:82
-#, fuzzy
 msgid ""
 "\n"
 "Copyright(c) 2008\n"
@@ -70,7 +72,7 @@ msgid ""
 msgstr ""
 "\n"
 "Copyright(c) 2008\n"
-"pour les icones par defaut (Glance)\n"
+"pour les icones par defaut (Glance) et le design de l'interface\n"
 "Andrew Zhilin"
 
 #: src/weather-help.c:106
@@ -155,9 +157,8 @@ msgstr ""
 "W : "
 
 #: src/weather-help.c:78
-#, fuzzy
 msgid " Build: "
-msgstr " Humidité : "
+msgstr " Construction : "
 
 #: src/weather-home.c:1055
 msgid " G: "
@@ -172,23 +173,20 @@ msgid "1 hour"
 msgstr "1 heure"
 
 #: src/weather-sensor.c:132
-#, fuzzy
 msgid "1 minute"
-msgstr "toutes les 5 minutes"
+msgstr "1 minute"
 
 #: src/weather-sensor.c:135
-#, fuzzy
 msgid "10 minutes"
-msgstr "toutes les 5 minutes"
+msgstr "10 minutes"
 
 #: src/weather-settings.c:3005
 msgid "10 seconds"
 msgstr "10 secondes"
 
 #: src/weather-sensor.c:136
-#, fuzzy
 msgid "15 minutes"
-msgstr "toutes les 5 minutes"
+msgstr "15 minutes"
 
 #: src/weather-settings.c:3036
 msgid "2 hours"
@@ -199,14 +197,12 @@ msgid "20 seconds"
 msgstr "20 secondes"
 
 #: src/weather-sensor.c:133
-#, fuzzy
 msgid "3 minutes"
-msgstr "toutes les 5 minutes"
+msgstr "3 minutes"
 
 #: src/weather-sensor.c:137
-#, fuzzy
 msgid "30 minutes"
-msgstr "toutes les 5 minutes"
+msgstr "30 minutes"
 
 #: src/weather-settings.c:3007
 msgid "30 seconds"
@@ -221,9 +217,8 @@ msgid "40 seconds"
 msgstr "40 secondes"
 
 #: src/weather-sensor.c:134
-#, fuzzy
 msgid "5 minutes"
-msgstr "toutes les 5 minutes"
+msgstr "5 minutes"
 
 #: src/weather-settings.c:3009
 msgid "50 seconds"
@@ -352,11 +347,8 @@ msgid "Authors"
 msgstr "Auteurs"
 
 #: src/weather-settings.c:2989
-#, fuzzy
 msgid "Automatically update data when connecting to the Internet"
-msgstr ""
-"MàJ des données automatique\t\n"
-"après la connexion à internet :"
+msgstr "MàJ des données automatique à la connexion à internet"
 
 #: src/weather-settings.c:2546
 msgid "Background color:"
@@ -388,9 +380,8 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #: src/weather-settings.c:2758
-#, fuzzy
 msgid "Celcius"
-msgstr "Celsius (métrique)"
+msgstr "Celsius"
 
 #: src/weather-settings.c:2249
 msgid "City:"
@@ -413,9 +404,8 @@ msgid "Cloudy"
 msgstr "Nuageux"
 
 #: src/hash.data:25
-#, fuzzy
 msgid "Cloudy / Wind"
-msgstr "Nuageux et venteux"
+msgstr "Nuageux / vent"
 
 #: src/hash.data:26
 msgid "Cloudy and Windy"
@@ -444,7 +434,7 @@ msgstr "Ne charge pas le temps"
 
 #: src/weather-settings.c:731
 msgid "Display"
-msgstr ""
+msgstr "Affichage"
 
 #: src/weather-settings.c:2787
 msgid "Distance units:"
@@ -476,7 +466,7 @@ msgstr "ENE"
 
 #: src/hash.data:34
 msgid "ENE_short"
-msgstr ""
+msgstr "ENE"
 
 #: src/hash.data:35
 msgid "ESE"
@@ -484,15 +474,15 @@ msgstr "ESE"
 
 #: src/hash.data:36
 msgid "ESE_short"
-msgstr ""
+msgstr "ESE"
 
 #: src/hash.data:37
 msgid "E_short"
-msgstr ""
+msgstr "E"
 
 #: src/weather-settings.c:2125
 msgid "Enable GPS"
-msgstr ""
+msgstr "Activer le GPS"
 
 #: src/weather-help.c:128
 msgid "Eric Link - for feature request and donation\n"
@@ -520,9 +510,8 @@ msgid "F\n"
 msgstr "F\n"
 
 #: src/weather-settings.c:2770
-#, fuzzy
 msgid "Fahrenheit"
-msgstr "Fahrenheit (Imperial)"
+msgstr "Fahrenheit"
 
 #: src/weather-config.c:290
 #, c-format
@@ -588,20 +577,18 @@ msgid "Font color:"
 msgstr "Couleur de police:"
 
 #: src/weather-settings.c:2488
-#, fuzzy
 msgid "Font:"
-msgstr "Couleur de police:"
+msgstr "Police:"
 
 #: src/weather-home.c:886
 msgid "Forecast: \n"
-msgstr ""
+msgstr "Prévision : \n"
 
 #: src/hash.data:50
 msgid "Freezing Drizzle"
 msgstr "Bruine verglaçante"
 
 #: src/weather-help.c:136
-#, fuzzy
 msgid ""
 "French - Nicolas Granziano\n"
 "Russian - Pavel Fialko, Vlad Vasiliev,\n"
@@ -626,7 +613,6 @@ msgid "Full"
 msgstr "Plein"
 
 #: src/weather-popup.c:766
-#, fuzzy
 msgid "Gust:"
 msgstr "Rafale :"
 
@@ -688,7 +674,7 @@ msgstr "Dernière MàJ depuis le serveur : "
 
 #: src/hash.data:60
 msgid "Lawn and Garden Weather"
-msgstr ""
+msgstr "Lawn and Garden Weather"
 
 #: src/weather-settings.c:2336
 msgid "Layout:"
@@ -743,9 +729,8 @@ msgid "Light Rain and Windy"
 msgstr "Pluie légère et vent"
 
 #: src/hash.data:72
-#, fuzzy
 msgid "Light Rain with Thunder"
-msgstr "Pluie / Orages"
+msgstr "Pluie légère orageuse"
 
 #: src/hash.data:79
 msgid "Light Snow"
@@ -772,13 +757,12 @@ msgid "Light Snow Shower"
 msgstr "Petite averse de neige"
 
 #: src/weather-settings.c:1393
-#, fuzzy
 msgid "List of the found station(s):"
-msgstr "Passer a la station suivante aprés :"
+msgstr "Liste des stations trouvés :"
 
 #: src/hash.data:80
 msgid "Local Pollen Reports"
-msgstr ""
+msgstr "Rapport de pollen"
 
 #: src/hash.data:81
 msgid "Low"
@@ -833,7 +817,7 @@ msgstr "NE"
 
 #: src/hash.data:91
 msgid "NE_short"
-msgstr ""
+msgstr "NE"
 
 #: src/hash.data:92
 msgid "NNE"
@@ -841,7 +825,7 @@ msgstr "NNE"
 
 #: src/hash.data:93
 msgid "NNE_short"
-msgstr ""
+msgstr "NNE"
 
 #: src/hash.data:94
 msgid "NNW"
@@ -849,7 +833,7 @@ msgstr "NNO"
 
 #: src/hash.data:95
 msgid "NNW_short"
-msgstr ""
+msgstr "NNO"
 
 #: src/hash.data:96
 msgid "NO STATION"
@@ -861,11 +845,11 @@ msgstr "NO"
 
 #: src/hash.data:98
 msgid "NW_short"
-msgstr ""
+msgstr "NO"
 
 #: src/hash.data:99
 msgid "N_short"
-msgstr ""
+msgstr "N"
 
 #: src/weather-settings.c:2170
 msgid "Name:"
@@ -901,6 +885,8 @@ msgid ""
 "No one station found! May be you don't have installed omweather-*-station-db "
 "packet"
 msgstr ""
+"Aucune station trouvé ! Peut etre n'avait vous pas installé un paquet "
+"omweather-*-station-db"
 
 #: src/weather-popup.c:336
 msgid "No weather data for this day."
@@ -956,9 +942,8 @@ msgid "PM Light Rain"
 msgstr "A-Midi : Pluie fine"
 
 #: src/hash.data:103
-#, fuzzy
 msgid "PM Light Rain / Wind"
-msgstr "Matin pluie légère / Vent"
+msgstr "A-Midi pluie légère / Vent"
 
 #: src/hash.data:105
 msgid "PM Light Snow"
@@ -1005,9 +990,8 @@ msgid "Partly Cloudy and Windy"
 msgstr "Partiellement nuageux et venteux"
 
 #: src/weather-settings.c:2911
-#, fuzzy
 msgid "Pressure units:"
-msgstr "Pression :"
+msgstr "Unité de pression :"
 
 #: src/weather-popup.c:740
 msgid "Pressure:"
@@ -1091,11 +1075,11 @@ msgstr "pluie vers mix hivernal / vent"
 
 #: src/weather-sensor.c:118
 msgid "Read sensor every:"
-msgstr ""
+msgstr "Lire le capteur tous les : "
 
 #: src/hash.data:135
 msgid "Rush Hour Traffic"
-msgstr ""
+msgstr "Heure de pointe"
 
 #: src/hash.data:136
 msgid "S"
@@ -1107,7 +1091,7 @@ msgstr "SE"
 
 #: src/hash.data:138
 msgid "SE_short"
-msgstr ""
+msgstr "SE"
 
 #: src/hash.data:139
 msgid "SSE"
@@ -1115,7 +1099,7 @@ msgstr "SSE"
 
 #: src/hash.data:140
 msgid "SSE_short"
-msgstr ""
+msgstr "SSE"
 
 #: src/hash.data:141
 msgid "SSW"
@@ -1123,7 +1107,7 @@ msgstr "SSO"
 
 #: src/hash.data:142
 msgid "SSW_short"
-msgstr ""
+msgstr "SSO"
 
 #: src/hash.data:143
 msgid "SW"
@@ -1131,12 +1115,11 @@ msgstr "SO"
 
 #: src/hash.data:144
 msgid "SW_short"
-msgstr ""
+msgstr "SO"
 
 #: src/hash.data:145
-#, fuzzy
 msgid "S_short"
-msgstr "Neige"
+msgstr "S"
 
 #: src/hash.data:146
 msgid "Scattered Showers"
@@ -1156,42 +1139,35 @@ msgstr "Quelques orages"
 
 #: src/weather-settings.c:2828
 msgid "Sea miles"
-msgstr ""
+msgstr "Miles marin"
 
 #: src/weather-settings.c:1378
-#, fuzzy
 msgid "Select Station"
-msgstr "Renommer la station"
+msgstr "Choisir la station"
 
 #: src/weather-settings.c:741 src/weather-sensor.c:206
-#, fuzzy
 msgid "Sensor"
-msgstr "Neige"
+msgstr "Capteur"
 
 #: src/weather-settings.c:2719
-#, fuzzy
 msgid "Show arrows"
-msgstr "Averses"
+msgstr "Afficher les flèches"
 
 #: src/weather-settings.c:2645
-#, fuzzy
 msgid "Show only current weather on first icon"
-msgstr "Météo courante uniquement sur le premier icone :"
+msgstr "Météo courante uniquement sur le premier icone"
 
 #: src/weather-settings.c:2693
-#, fuzzy
 msgid "Show station name"
-msgstr "Nom de la station :"
+msgstr "Afficher le nom de la station"
 
 #: src/weather-sensor.c:81
-#, fuzzy
 msgid "Show temperature at:"
-msgstr "Inverser température haute/basse :"
+msgstr "Afficher la température à :"
 
 #: src/weather-settings.c:2687
-#, fuzzy
 msgid "Show wind"
-msgstr "Neige / Vent"
+msgstr "Afficher le vent"
 
 #: src/hash.data:155
 msgid "Showers"
@@ -1266,13 +1242,12 @@ msgid "Snow to Wintry Mix / Wind"
 msgstr "Neige vers mix Hivernal / Vent"
 
 #: src/weather-settings.c:2148
-#, fuzzy
 msgid "Source:"
-msgstr "Lever du soleil :"
+msgstr "Source :"
 
 #: src/weather-popup.c:759
 msgid "Speed:"
-msgstr ""
+msgstr "Vitesse :"
 
 #: src/weather-settings.c:2239
 msgid "State:"
@@ -1303,9 +1278,8 @@ msgid "Sunset: "
 msgstr "Coucher du soleil : "
 
 #: src/weather-settings.c:2662
-#, fuzzy
 msgid "Swap hi/low temperature"
-msgstr "Inverser température haute/basse :"
+msgstr "Inverser température haute/basse"
 
 #: src/weather-settings.c:2993
 msgid "Switch to the next station after:"
@@ -1349,7 +1323,7 @@ msgstr "Transparence :"
 
 #: src/weather-settings.c:2441
 msgid "UI Theme Override"
-msgstr ""
+msgstr "Surchage du theme"
 
 #: src/weather-settings.c:734
 msgid "Units"
@@ -1385,7 +1359,7 @@ msgstr ""
 
 #: src/weather-sensor.c:61
 msgid "Use device temperature sensor"
-msgstr ""
+msgstr "Utiliser le capteur de température"
 
 #: src/hash.data:176
 msgid "VAR"
@@ -1411,7 +1385,7 @@ msgstr "Visibilité :"
 
 #: src/weather-settings.c:728
 msgid "Visuals"
-msgstr ""
+msgstr "Visuel"
 
 #: src/hash.data:178
 msgid "W"
@@ -1423,7 +1397,7 @@ msgstr "ONO"
 
 #: src/hash.data:180
 msgid "WNW_short"
-msgstr ""
+msgstr "ONO"
 
 #: src/hash.data:181
 msgid "WSW"
@@ -1431,11 +1405,11 @@ msgstr "OSO"
 
 #: src/hash.data:182
 msgid "WSW_short"
-msgstr ""
+msgstr "OSO"
 
 #: src/hash.data:183
 msgid "W_short"
-msgstr ""
+msgstr "O"
 
 #: src/hash.data:184
 msgid "Waning Crescent"
@@ -1454,9 +1428,8 @@ msgid "Waxing Gibbous"
 msgstr "Lune gibbeuse"
 
 #: src/weather-popup.c:803
-#, fuzzy
 msgid "Weather data provided by: "
-msgstr "Météo MàJ"
+msgstr "Météo fourni par :"
 
 #: src/weather-download.c:487
 msgid "Weather updated"
@@ -1548,9 +1521,8 @@ msgid "falling"
 msgstr "tombant"
 
 #: src/weather-home.c:1041 src/weather-settings.c:2928 src/weather-popup.c:746
-#, fuzzy
 msgid "inHg"
-msgstr "montant"
+msgstr "inHg"
 
 #: src/weather-home.c:1027 src/weather-popup.c:731
 msgid "km"
@@ -1594,9 +1566,8 @@ msgid "mi/s"
 msgstr "mi/s"
 
 #: src/weather-sensor.c:99
-#, fuzzy
 msgid "new icon"
-msgstr "Une colonne"
+msgstr "Nouvel icone"
 
 #: src/hash.data:200
 msgid "rising"
@@ -1607,9 +1578,8 @@ msgid "station local time"
 msgstr "heure locale de la station"
 
 #: src/weather-sensor.c:86
-#, fuzzy
 msgid "station name"
-msgstr "Nom de la station :"
+msgstr "Nom de la station"
 
 #: src/hash.data:201
 msgid "steady"

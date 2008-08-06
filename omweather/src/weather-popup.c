@@ -126,7 +126,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
     if(icon_image)
 	gtk_box_pack_start(GTK_BOX(main_widget), icon_image, FALSE, TRUE, 0);
 
-    gtk_box_pack_start(GTK_BOX(main_widget), main_label, FALSE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_widget), main_label, FALSE, TRUE, 10);
     return main_widget;
 }
 /*******************************************************************************/

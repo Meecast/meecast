@@ -1,20 +1,18 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# translation of omweather Help.
+# Copyright (C) 2008 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# 
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-08-03 17:09+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2008-08-06 22:51+0200\n"
+"Last-Translator: Nicolas Graziano <nicolas.graziano@wanadoo.fr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bit"
 
 #: data/help/omweather.xml.in.h:1
 msgid ""
@@ -22,6 +20,9 @@ msgid ""
 "display_text> selection controls automatic weather data update when Internet "
 "connection is established."
 msgstr ""
+"<display_text>MàJ des données automatique à la connexion à internet</"
+"display_text> controle permettant de sélectionner la mise à jour des données"
+"météo quand la connexion est établi."
 
 #: data/help/omweather.xml.in.h:2
 msgid ""
@@ -29,6 +30,8 @@ msgid ""
 "background color used for icons. For OS2006-OS2007 background color is not "
 "selectable if transparency is used."
 msgstr ""
+"<display_text>Couleur du fond :</display_text> permet de définir la couleur du fond utilisé pour les icones."
+" Pour OS2006-OS2007 la couleur de fond n'est pas définissable si la transparence est utilisé."
 
 #: data/help/omweather.xml.in.h:3
 msgid ""
@@ -391,3 +394,4 @@ msgid ""
 "You should have received a copy of the GNU General Public License along with "
 "this program. If not, see: http://www.gnu.org/licenses"
 msgstr ""
+

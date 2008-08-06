@@ -40,7 +40,7 @@ gboolean timer_handler(gpointer data){
     struct	event_time *evt;
     time_t	current_time;
     int		check;
-#ifndef RELEASE
+#ifdef DEBUGEVENTS
     char   *temp_string;
 #endif
 #ifdef DEBUGFUNCTIONCALL
@@ -52,7 +52,7 @@ gboolean timer_handler(gpointer data){
     list_time_event_temp = event_time_list;  
     /* get current time */  
     current_time = time(NULL);
-#ifndef RELEASE
+#ifdef DEBUGEVENTS
     temp_string = ctime(&current_time);
     fprintf(stderr,"\nCurrent Time: %s\n",  temp_string);
 /*    g_free(temp_string);*/
@@ -236,10 +236,10 @@ void free_list_time_event(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
-    #ifndef RELEASE
+#ifdef DEBUGEVENTS
     fprintf(stderr,"Free ALL in list\n");
     print_list(NULL, 0);
-    #endif
+#endif
     if(!event_time_list)
 	return;
     list_time_event_temp = event_time_list; 
@@ -254,11 +254,10 @@ void free_list_time_event(void){
     }
     g_slist_free(event_time_list);
     event_time_list = NULL;
-    #ifndef RELEASE
+#ifdef DEBUGEVENTS
     fprintf(stderr,"list clean\n");
     print_list(NULL, 0);
-    #endif
-
+#endif
 }
 /*******************************************************************************/
 /* Compare function for sort event list */
@@ -278,10 +277,10 @@ void event_add(time_t time_value, short type_event){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    #ifndef RELEASE
+#ifdef DEBUGEVENTS
     fprintf(stderr, "event_add in list\n");
     print_list(NULL, 0); 
-    #endif
+#endif
     if( time_value && time_value > time(NULL)){ 
 	evt = g_new0(struct event_time, 1);
 	if (evt != NULL){
@@ -292,10 +291,10 @@ void event_add(time_t time_value, short type_event){
 	else
 	    fprintf(stderr,"evt NULL\n");
     }
-    #ifndef RELEASE
+#ifdef DEBUGEVENTS
     fprintf(stderr, "event_add in list finished\n");
     print_list(NULL, 0);
-    #endif
+#endif
 }
 /*******************************************************************************/
 /*  Addition the periodic time in the list of events  for weather forecast updating.  
@@ -304,19 +303,15 @@ void add_gps_event(guint interval){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    #ifndef RELEASE
+#ifdef DEBUGEVENTS
     fprintf(stderr,"Add in list\n");
     print_list(NULL, 0);
-    #endif
-
-
-	event_add(time(NULL) + interval *60, CHECK_GPS_POSITION); /* Every 'interval' minutes */ 
-
-    #ifndef RELEASE
+#endif
+    event_add(time(NULL) + interval *60, CHECK_GPS_POSITION); /* Every 'interval' minutes */ 
+#ifdef DEBUGEVENTS
     fprintf(stderr,"Item added to list\n");
     print_list(NULL, 0);
-    #endif
-	
+#endif
 }
 /*******************************************************************************/
 /*  Addition the periodic time in the list of events  for GPS checking */	  
@@ -324,19 +319,15 @@ void add_periodic_event(time_t last_update){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    #ifndef RELEASE
+#ifdef DEBUGEVENTS
     fprintf(stderr,"Add in list\n");
     print_list(NULL, 0);
-    #endif
-
-/*    if(app->config->gps_station) */
-	event_add(last_update + app->config->update_interval * 60, AUTOUPDATE);
-
-    #ifndef RELEASE
+#endif
+    event_add(last_update + app->config->update_interval * 60, AUTOUPDATE);
+#ifdef DEBUGEVENTS
     fprintf(stderr,"Item added to list\n");
     print_list(NULL, 0);
-    #endif
-	
+#endif
 }
 /*******************************************************************************/
 /* Addition the current time in the list of events  for weather forecast updating */	  
@@ -345,22 +336,19 @@ void add_current_time_event(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
-    #ifndef RELEASE
-	fprintf(stderr,"Add in list\n");
-        print_list(NULL, 0);
-    #endif
-    
+#ifdef DEBUGEVENTS
+    fprintf(stderr,"Add in list\n");
+    print_list(NULL, 0);
+#endif
     /* get current time */  
     current_time = time(NULL);
     event_add(current_time + 4 , UPDATE_AFTER_CONNECTED); /* The current time plus 4 seconds */
     
-    #ifndef RELEASE
-	fprintf(stderr,"Item added to list\n");
-	print_list(NULL, 0);
-    #endif
-	
+#ifdef DEBUGEVENTS
+    fprintf(stderr,"Item added to list\n");
+    print_list(NULL, 0);
+#endif
 }
-
 /*******************************************************************************/
 /* Remove periodic time event  from list */	  
 void remove_periodic_event(void){
@@ -369,11 +357,10 @@ void remove_periodic_event(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
-    #ifndef RELEASE
+#ifdef DEBUGEVENTS
     fprintf(stderr,"Periodic remove from list\n");
     print_list(NULL, 0);
-    #endif
-
+#endif
     if(!event_time_list)
 	return;
     list_time_event_temp = event_time_list;  
@@ -387,10 +374,10 @@ void remove_periodic_event(void){
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
 
-    #ifndef RELEASE
+#ifdef DEBUGEVENTS
     fprintf(stderr,"Periodic is remove from list\n");
     print_list(NULL, 0);
-    #endif
+#endif
 }
 /*******************************************************************************/
 void remove_daytime_event(void){
@@ -399,11 +386,10 @@ void remove_daytime_event(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif    
-    #ifndef RELEASE
+#ifdef DEBUGEVENTS
     fprintf(stderr,"CHANGE_DAY_PART remove from list\n");
     print_list(NULL, 0);
-    #endif
-
+#endif
     if(!event_time_list)
 	return;
     list_time_event_temp = event_time_list;  
@@ -417,10 +403,10 @@ void remove_daytime_event(void){
 	list_time_event_temp = g_slist_next(list_time_event_temp);
     }
 
-    #ifndef RELEASE
+#ifdef DEBUGEVENTS
     fprintf(stderr,"CHANGE_DAY_PART is remove from list\n");
     print_list(NULL, 0);
-    #endif
+#endif
 }
 /*******************************************************************************/
 time_t next_update(void){

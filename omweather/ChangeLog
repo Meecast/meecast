@@ -6,7 +6,9 @@
   * Added copyright info for weather data
   * Start added possibility to change weather data source
   * Added possibility to change font family, style and size for desktop icons
-
+  * Changed algorithm in transparent and background colour
+  * Added semi-transparency
+  
 0.20.5
   * Fixed error out of range
   * Fixed small memory leak

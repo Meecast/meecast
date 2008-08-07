@@ -75,7 +75,7 @@
       <context contextUID="help_omweather_settings"/>
       <_para>
         The <display_text>Settings</display_text> dialog (accessible from
-        the desktop applet or home view's Applet settings menu) provides
+        the desktop applet or home view's applet settings menu) provides
         access to the configurable options that controls how OMWeather
         appears and run. In addition to the tabs, there are also four
 	buttons. Left arrow will take you to weather view, ok button saves settings,
@@ -154,7 +154,7 @@
       </_para>
       <_para>
 	<display_text>Transparency:</display_text> selection for OS2006-OS2007 will show
-	background image behind the icons. For OS2008 this option allows to select percent
+	background image behind the icons. For OS2008 this option allows to select the percentage
 	for semi-transparency.
       </_para>
       <_para>
@@ -178,8 +178,8 @@
       <context contextUID="help_omweather_settings_display"/>
       <_para>
         <display_text>Display</display_text> tab is used to configure 
-        settings that control the number of visible items, its size and
-	some other parameters of the OMWeather.
+        settings that control the number of visible items, it's size and
+	some other parameters of OMWeather.
       </_para>
       <_para>
         <display_text>Visible items:</display_text> selects how many icons
@@ -190,7 +190,7 @@
       </_para>
       <_para>
 	<display_text>Show only current weather on first icon</display_text>
-	selection will show current weather on first icon and forecast for a
+	selection will show current weather on first icon and forecast for the
 	rest of the day is shown on the next icon.
       </_para>
       <_para>
@@ -252,9 +252,9 @@
       </_para>
       <_para>
 	When <display_text>Use device temperature sensor</display_text> check
-	box is enabled, applet will show temperature of the build in temperature
-	sensor. Temperature can be shown after station name or on the new icon.
-	Sensor read interwall can be set by user from range 1-30 minutes.
+	box is enabled, applet will show the temperature of the built-in temperature
+	sensor. Temperature can be shown after station name or on a new icon.
+	Sensor read interval can be set by user from 1-30 minutes.
       </_para>
     </topic>
     <topic>

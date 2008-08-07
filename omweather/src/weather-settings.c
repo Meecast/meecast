@@ -1977,7 +1977,7 @@ void control_bars_changed_handler(HildonControlbar *control, gpointer user_data)
 	goto check;
     }
     if(!strcmp(control_name, "icon_size")){
-	if(hildon_controlbar_get_value(control) != app->config->icons_size - 2)
+	if(hildon_controlbar_get_value(control) - 1 != app->config->icons_size - 2)
 	    app->display_tab_current_state |= STATE_ICON_SIZE;
 	else
 	    app->display_tab_current_state &= ~STATE_ICON_SIZE;

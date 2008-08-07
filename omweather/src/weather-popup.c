@@ -48,6 +48,7 @@ GtkWidget* create_sun_time_widget(GSList *day){
     GtkWidget	*main_widget = NULL,
 		*main_label;
     gchar	buffer[1024],
+	        temp_buffer[1024],
 		time_buffer[1024];
     struct tm	time_show = {0};
 #ifdef DEBUGFUNCTIONCALL
@@ -59,23 +60,34 @@ GtkWidget* create_sun_time_widget(GSList *day){
 
     memset(buffer, 0, sizeof(buffer));
     memset(time_buffer, 0, sizeof(time_buffer));
+    memset(temp_buffer, 0, sizeof(temp_buffer));
     
     snprintf(buffer, sizeof(buffer) - 1, "%s", _("Sunrise: "));
     strptime(item_value(day, "24h_sunrise"), "%r", &time_show);
     if(strstr(item_value(day, "24h_sunrise"), "PM"))
 	time_show.tm_hour += 12;
-    strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+    
+    strftime(temp_buffer, sizeof(temp_buffer) - 1,
 			"%X", &time_show);
-
+    /* Remove chars of seconds */
+    memmove(temp_buffer+4,temp_buffer+7,6);
+    
+    strcat(buffer, temp_buffer);
     snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 			" %s", _("Sunset: "));
 
     memset(time_buffer, 0, sizeof(time_buffer));
+    memset(temp_buffer, 0, sizeof(temp_buffer));
     strptime(item_value(day, "24h_sunset"), "%r", &time_show);
     if(strstr(item_value(day, "24h_sunset"), "PM"))
 	time_show.tm_hour += 12;
-    strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+
+    strftime(temp_buffer, sizeof(temp_buffer) - 1,
 			"%X ", &time_show);
+    /* Remove chars of seconds */
+    memmove(temp_buffer+4,temp_buffer+7,6);
+    
+    strcat(buffer, temp_buffer);
 
     main_label = gtk_label_new(buffer);
     set_font(main_label, NULL, 18);

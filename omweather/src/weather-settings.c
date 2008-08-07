@@ -1977,7 +1977,7 @@ void control_bars_changed_handler(HildonControlbar *control, gpointer user_data)
 	goto check;
     }
     if(!strcmp(control_name, "icon_size")){
-	if(hildon_controlbar_get_value(control) != app->config->icons_size - 1)
+	if(hildon_controlbar_get_value(control) != app->config->icons_size - 2)
 	    app->display_tab_current_state |= STATE_ICON_SIZE;
 	else
 	    app->display_tab_current_state &= ~STATE_ICON_SIZE;
@@ -2630,24 +2630,24 @@ GtkWidget* create_display_tab(GtkWidget *window){
     g_signal_connect(icon_size, "value-changed",
             		G_CALLBACK(control_bars_changed_handler),
 			apply_button);
-    hildon_controlbar_set_min(HILDON_CONTROLBAR(icon_size), TINY);
-    hildon_controlbar_set_max(HILDON_CONTROLBAR(icon_size), GIANT);
-    switch(app->config->icons_size - 1){
+    hildon_controlbar_set_min(HILDON_CONTROLBAR(icon_size), TINY - 1);
+    hildon_controlbar_set_max(HILDON_CONTROLBAR(icon_size), GIANT - 1);
+    switch(app->config->icons_size){
 	case TINY:
-	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), TINY);
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), TINY - 1);
 	break;
 	case SMALL:
-	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), SMALL);
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), SMALL - 1);
 	break;
 	case MEDIUM:
-	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), MEDIUM);
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), MEDIUM - 1);
 	break;
 	default:
 	case LARGE:
-	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), LARGE);
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), LARGE - 1);
 	break;
 	case GIANT:
-	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), GIANT);
+	    hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size), GIANT - 1);
 	break;
     }
     gtk_box_pack_end(GTK_BOX(second_line), icon_size, FALSE, FALSE, 20);

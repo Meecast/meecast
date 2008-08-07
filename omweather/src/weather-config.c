@@ -371,13 +371,12 @@ read_config(AppletConfig *config){
 	    config->weather_source > RP5_RU)
 	config->weather_source = WEATHER_COM2;
 
-    /* Get Weather Icon Size  */		     
+    /* Get Weather Icon Size  */
     config->icons_size = gconf_client_get_int(gconf_client,
         				    GCONF_KEY_WEATHER_ICONS_SIZE,
 					    NULL);
     if(config->icons_size < TINY || config->icons_size > GIANT)
         config->icons_size = LARGE;    
-
     /* Get setting tab number  */		     
     config->current_settings_page = gconf_client_get_int(gconf_client,
         				    GCONF_KEY_WEATHER_SETTING_TAB_NUMBER,
@@ -666,32 +665,6 @@ read_config(AppletConfig *config){
 	}	    
     }
     else{
-    	/* Correcting icon size for version less 0.19.5. It  must be deleted after version 0.21 */
-	if(tmp[0]=='0' && tmp[2]<'2' && tmp[3]<='9' && tmp[5]<'5'){
-	    if (gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 0)	
-		config->icons_size = MEDIUM;
-	    if (gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 1)	
-		config->icons_size = SMALL;		
-	    if (gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 2)	
-		config->icons_size = TINY;				
-	    if(config->icons_size < TINY || config->icons_size > GIANT)
-    		config->icons_size = LARGE;
-	}
-	/* Correcting icon size for version  0.19.5. It  must be deleted after version 0.21 */
-	if (tmp[0]=='0' && tmp[2]=='1' && tmp[3]=='9' && tmp[5]=='5'){
-	    if(gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 0)
-		config->icons_size = GIANT;
-	    if(gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 1)	
-		config->icons_size = LARGE;		
-	    if(gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 2)	
-		config->icons_size = MEDIUM;			
-	    if(gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 3)	
-		config->icons_size = SMALL;						
-	    if(gconf_client_get_int(gconf_client,GCONF_KEY_WEATHER_ICONS_SIZE,NULL) == 4)	
-		config->icons_size = TINY;			
-	    if(config->icons_size < TINY || config->icons_size > GIANT)
-    		config->icons_size = LARGE;
-	}
 	g_free(tmp);		     
 	tmp = NULL;		
     }    

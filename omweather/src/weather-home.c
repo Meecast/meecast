@@ -351,10 +351,10 @@ void draw_home_window(gint count_day){
     tm = &tmp_tm;
 /* select image and font size */
     switch(app->config->icons_size){
-	default:
         case GIANT: 
 	    icon_size = GIANT_ICON_SIZE;
 	break;	
+	default:
 	case LARGE: 
 	    icon_size = LARGE_ICON_SIZE;
 	break;

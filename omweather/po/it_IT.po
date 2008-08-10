@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-08 07:58+0300\n"
+"POT-Creation-Date: 2008-08-10 20:43+0300\n"
 "PO-Revision-Date: 2008-03-21 13:39+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Italiano\n"
@@ -586,13 +586,15 @@ msgid "Freezing Drizzle"
 msgstr "Pioviggine gelata"
 
 #: src/weather-help.c:136
+#, fuzzy
 msgid ""
 "French - Nicolas Granziano\n"
 "Russian - Pavel Fialko, Vlad Vasiliev,\n"
 "\t    Ed Bartosh\n"
 "Finnish - Marko Vertainen\n"
 "German - Claudius Henrichs\n"
-"Italian - Pavel Fialko, Alessandro Pasotti\n"
+"Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo\n"
+"Spanish - Alejandro Lopez\n"
 msgstr ""
 "Francese - Nicolas Granziano\n"
 "Russo - Pavel Fialko, Vlad Vasiliev,\n"
@@ -1320,7 +1322,7 @@ msgstr "Grazie"
 msgid "Thunder"
 msgstr "Tuono"
 
-#: src/weather-help.c:144
+#: src/weather-help.c:146
 msgid "Translators"
 msgstr "Traduttori"
 

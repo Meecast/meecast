@@ -4,13 +4,13 @@
 # Pavel Fialko <pavelnf@gmail.com>, 2007.
 # vlad <vlad@gas.by>, 2007.
 # Vlad Vasiliev <vlad@gas.by>, 2007.
-# 
-# 
+#
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.21\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-08 07:58+0300\n"
+"POT-Creation-Date: 2008-08-10 20:45+0300\n"
 "PO-Revision-Date: 2008-08-06 22:29+0200\n"
 "Last-Translator: Nicolas GRAZIANO <nicolas.graziano@gmail.com>\n"
 "Language-Team: French\n"
@@ -589,13 +589,15 @@ msgid "Freezing Drizzle"
 msgstr "Bruine verglaçante"
 
 #: src/weather-help.c:136
+#, fuzzy
 msgid ""
 "French - Nicolas Granziano\n"
 "Russian - Pavel Fialko, Vlad Vasiliev,\n"
 "\t    Ed Bartosh\n"
 "Finnish - Marko Vertainen\n"
 "German - Claudius Henrichs\n"
-"Italian - Pavel Fialko, Alessandro Pasotti\n"
+"Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo\n"
+"Spanish - Alejandro Lopez\n"
 msgstr ""
 "Français - Nicolas Graziano\n"
 "Russe - Pavel Fialko, Vlad Vasiliev,\n"
@@ -1313,7 +1315,7 @@ msgstr "Remerciment"
 msgid "Thunder"
 msgstr "Orage"
 
-#: src/weather-help.c:144
+#: src/weather-help.c:146
 msgid "Translators"
 msgstr "Traducteurs"
 

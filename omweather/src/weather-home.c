@@ -1644,6 +1644,9 @@ void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
     
     if(strcmp(item_value(day, "24h_hi_temperature"), "N/A"))
 	temp_current = atoi(item_value(day, "24h_hi_temperature"));
+
+    if(app->config->temperature_units == FAHRENHEIT)
+	( temp_current != INT_MAX ) && ( temp_current = c2f(temp_current) );
     
     if(temp_current == INT_MAX || !valid)
 	sprintf(buffer,

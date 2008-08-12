@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en_GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-10 20:43+0300\n"
+"POT-Creation-Date: 2008-08-12 21:51+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -435,7 +435,7 @@ msgstr ""
 msgid "Error in xml file\n"
 msgstr ""
 
-#: src/weather-home.c:628 src/weather-home.c:1752
+#: src/weather-home.c:628 src/weather-home.c:1755
 msgid "Error initializing the OMWeather applet"
 msgstr ""
 
@@ -741,9 +741,9 @@ msgid "N"
 msgstr ""
 
 #: src/weather-home.c:482 src/weather-home.c:483 src/weather-home.c:489
-#: src/weather-home.c:1621 src/weather-home.c:1638 src/weather-home.c:1655
-#: src/weather-home.c:1694 src/weather-home.c:1698 src/weather-home.c:1711
-#: src/weather-home.c:1715 src/hash.data:89
+#: src/weather-home.c:1621 src/weather-home.c:1638 src/weather-home.c:1658
+#: src/weather-home.c:1697 src/weather-home.c:1701 src/weather-home.c:1714
+#: src/weather-home.c:1718 src/hash.data:89
 msgid "N/A"
 msgstr ""
 
@@ -840,7 +840,7 @@ msgid ""
 "Connection time is expired"
 msgstr ""
 
-#: src/weather-home.c:1654 src/weather-home.c:1662 src/weather-popup.c:283
+#: src/weather-home.c:1657 src/weather-home.c:1665 src/weather-popup.c:283
 msgid "Now"
 msgstr ""
 
@@ -853,7 +853,7 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: src/weather-home.c:820 src/weather-home.c:1735
+#: src/weather-home.c:820 src/weather-home.c:1738
 msgid "OMWeather settings"
 msgstr ""
 

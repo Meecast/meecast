@@ -92,22 +92,21 @@
       </_para>
       <_para>
         <display_text>Display</display_text> tab is used to configure 
-        settings that control the number of visible items, its size and
+        settings that controls the number of visible items, icon size and
 	some other parameters of the OMWeather.
       </_para>
       <_para>
-        <display_text>Units</display_text> tab is used to select temperature,
-        distance, wind speed and pressure units shown on weather data.  Necessary units can
-	be selected by clicking on corresponding check button.
+        <display_text>Units</display_text> tab is used to select units
+	for temperature, distance, wind speed and pressure.
       </_para>
       <_para>
         <display_text>Update</display_text> tab is used to configure 
         update interval of a weather data.  This tab shows also time
-	when next update will be done. 
+	to next update. 
       </_para>
       <_para>
-	<display_text>Sensor</display_text> tab is used control if temperature from
-	the internal sensor is shown on the applet.
+	<display_text>Sensor</display_text> tab is used control the
+	usage of internal temperature sensor.
       </_para>
     </topic>
     <topic>
@@ -116,16 +115,16 @@
 	<_para>
         Left section allows you to rename and remove
 	stations in the list. <display_text>Up</display_text> and
-	<display_text>down</display_text> arrows allow you to change the
+	<display_text>down</display_text> arrows allow you to change
 	order of the selected locations.
       </_para>
       <_para>
-        Right (<display_text>Add</display_text>) section allows you to add new
+        <display_text>Add</display_text> section allows you to add new
         weather stations, which will then be listed in the left view.
       </_para>
       <_para>
-        <display_text>Enable GPS:</display_text> check box is used to
-	enable automatic weather station selection if GPS is enabled. 
+        <display_text>Enable GPS</display_text> check box is used to
+	enable automatic weather station selection when GPS is enabled. 
 	This option works only for OS2008.
       </_para>
     </topic>
@@ -133,16 +132,11 @@
       <_topictitle>Settings. Visuals tab</_topictitle>
       <context contextUID="help_omweather_settings_visuals"/>
       <_para>
-        <display_text>Visuals</display_text> tab is used to configure 
-        settings that control the visual appearance of the OMWeather.
+        <display_text>Layout:</display_text> defines how icons are shown on
+	the home screen.
       </_para>
       <_para>
-        <display_text>Layout:</display_text> selects how icons are shown on
-	the home screen.  Possible selections are one row, one column, two
-	rows, two columns or combination.
-      </_para>
-      <_para>
-        <display_text>Icon set:</display_text> selects which icon set is used.
+        <display_text>Icon set:</display_text> defines which icon set is used.
 	You can install more icon sets with the application manager (if Maemo
 	extras repository is configured) or going to OMWeathers Maemo garage
 	page (http://omweather.garage.maemo.org/) and downloading icon sets
@@ -158,8 +152,8 @@
 	for semi-transparency.
       </_para>
       <_para>
-	<display_text>Font:</display_text> defines font and it's size used
-	by applet on the tablet home screen.
+	<display_text>Font:</display_text> defines font and font size used
+	by the applet.
       </_para>
       <_para>
 	<display_text>Font color:</display_text> defines applet's font color.
@@ -177,13 +171,8 @@
       <_topictitle>Settings. Display tab</_topictitle>
       <context contextUID="help_omweather_settings_display"/>
       <_para>
-        <display_text>Display</display_text> tab is used to configure 
-        settings that control the number of visible items, it's size and
-	some other parameters of OMWeather.
-      </_para>
-      <_para>
-        <display_text>Visible items:</display_text> selects how many icons
-        will be shown in the tablet's home screen.
+        <display_text>Visible items:</display_text> defines how many icons
+        will be shown on the tablet's home screen.
       </_para>
       <_para>
 	<display_text>Icon size:</display_text> defines icon size.
@@ -195,8 +184,8 @@
       </_para>
       <_para>
 	<display_text>Swap hi/low temperature</display_text> selection will
-	change way how lowest and highest temperature for a day is shown on the
-	applet.	If selected, applet will show high temperature first.	
+	change the way how lowest and highest temperature for a day is shown.
+	If selected, applet will show high temperature first.	
       </_para>
       <_para>
 	<display_text>Show wind</display_text> selection will show wind
@@ -207,8 +196,8 @@
 	control if station names are shown on the applet.
       </_para>
       <_para>
-	<display_text>Show arrows:</display_text> selection will
-	control if arrows used to change weather station are shown on the
+	<display_text>Show arrows:</display_text> selection controls
+	if arrows used to change weather station are shown on the
 	applet.
       </_para>
     </topic>
@@ -216,21 +205,16 @@
       <_topictitle>Settings. Units tab</_topictitle>
       <context contextUID="help_omweather_settings_units"/>
       <_para>
-        <display_text>Units</display_text> tab is used to select temperature,
-        distance, wind speed and pressure units shown on weather data.
-	Necessary units can be selected by clicking on corresponding check button.
+        <display_text>Units</display_text> tab is used to select units
+	for temperature, distance, wind speed and pressure.  Necessary
+	units can be selected by clicking on corresponding button.
       </_para>
     </topic>
     <topic>
       <_topictitle>Settings. Update tab</_topictitle>
       <context contextUID="help_omweather_settings_update"/>
       <_para>
-        <display_text>Update</display_text> tab is used to configure 
-        update interval of a weather data.  This tab shows also time
-	when next update will be done. 
-      </_para>
-      <_para>
-	<display_text>Automatically updating data when connecting to the Internet:
+	<display_text>Automatically update data when connecting to the Internet:
 	</display_text> selection controls automatic weather data update when
 	Internet connection is established.
       </_para>
@@ -239,22 +223,18 @@
 	menu controls time after applet changes to next weather station.
       </_para>
       <_para>
-	Valid time for current weather and update interval can be selected from
-	a drop down menu. 
+	Valid time for current weather and update interval can be also selected from
+	corresponding drop down menu. 
       </_para>
     </topic>
     <topic>
       <_topictitle>Settings. Sensor tab</_topictitle>
       <context contextUID="help_omweather_settings_sensor"/>
       <_para>
-	<display_text>Sensor</display_text> tab is used control if temperature from
-	the internal sensor is shown on the applet.
-      </_para>
-      <_para>
 	When <display_text>Use device temperature sensor</display_text> check
-	box is enabled, applet will show the temperature of the built-in temperature
+	box is enabled, applet will show temperature of the built-in temperature
 	sensor. Temperature can be shown after station name or on a new icon.
-	Sensor read interval can be set by user from 1-30 minutes.
+	Sensor read interval can be set from 1-30 minutes.
       </_para>
     </topic>
     <topic>

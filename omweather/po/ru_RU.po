@@ -588,7 +588,6 @@ msgid "Freezing Drizzle"
 msgstr "Изморось с градом"
 
 #: src/weather-help.c:136
-#, fuzzy
 msgid ""
 "French - Nicolas Granziano\n"
 "Russian - Pavel Fialko, Vlad Vasiliev,\n"
@@ -603,7 +602,8 @@ msgstr ""
 "\t    Эдуард Бартош\n"
 "Финнский - Marko Vertainen\n"
 "Немецкий - Claudius Henrichs\n"
-"Итальянский - Павел Фиалко, Alessandro Pasotti\n"
+"Итальянский - Павел Фиалко, Alessandro Pasotti, Salvatore Fiorenzo\n"
+"Испанский - Alejandro Lopez\n"
 
 #: src/weather-settings.c:2236
 msgid "From the list:"
@@ -885,7 +885,7 @@ msgstr "Нет данных для текущей погоды."
 msgid ""
 "No one station found! May be you don't have installed omweather-*-station-db "
 "packet"
-msgstr ""
+msgstr "Не найдено ни одной станции! Возмодно вы не установили пакет omweather-*-station-db"
 
 #: src/weather-popup.c:348
 msgid "No weather data for this day."

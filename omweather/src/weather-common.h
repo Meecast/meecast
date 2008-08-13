@@ -348,6 +348,7 @@ G_BEGIN_DECLS
 		(G_TYPE_INSTANCE_GET_PRIVATE((obj), TYPE_OMWEATHER, \
 				OMWeather))
 
+
 typedef struct _OMWeatherPrivate OMWeatherPrivate;
 
 /* Instance struct */
@@ -367,7 +368,7 @@ typedef struct {
 } OMWeatherClass;
 
 
-GType personal_launcher_get_type(void);
+GType omweather_get_type(void);
 
 
 G_END_DECLS

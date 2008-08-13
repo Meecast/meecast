@@ -8,6 +8,14 @@
   * Added possibility to change font family, style and size for desktop icons
   * Changed algorithm in transparent and background colour
   * Added semi-transparency
+  * Updated help file
+  * Updated Finish,Franch,German,Russian,Spanish translation
+  
+0.20.6 
+  * Updated Italian translation of help
+  * Added Spanish translation
+  * Fixed not translated line in combination mode (night title)
+
   
 0.20.5
   * Fixed error out of range

@@ -50,8 +50,9 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
     XRenderColor	color;
     Picture		picture;
     XserverRegion	region;
-    cairo_t *cr;
-    gint radius=0;
+    cairo_t 		*cr;
+    gint 		radius=0;
+    gint		width,height,x,y;
 
 	if (GTK_WIDGET_DRAWABLE(widget) == FALSE) {
 		return FALSE;
@@ -95,10 +96,10 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 	cr=gdk_cairo_create(drawable);
 	cairo_set_source_rgba(cr,(double)app->config->background_color.red/(MAXSHORT*2+1),(double)app->config->background_color.green/(MAXSHORT*2+1),(double)app->config->background_color.blue/(MAXSHORT*2+1),(double)app->config->alpha_comp/100);
 
-	gint width=plugin->clip.width;
-	gint height=plugin->clip.height;
-	gint x=plugin->clip.x;
-	gint y=plugin->clip.y;
+	width=plugin->clip.width;
+	height=plugin->clip.height;
+	x=plugin->clip.x;
+	y=plugin->clip.y;
 	
 	if ((radius>height/2)||(radius>width/2))
 	{

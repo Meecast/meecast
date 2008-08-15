@@ -648,7 +648,8 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*help_button = NULL,
 		*apply_button = NULL,
 		*close_button = NULL,
-		*back_button = NULL;
+		*back_button = NULL,
+		*locations_tab = NULL;
     GtkStyle    *style = NULL;
 #ifndef RELEASE
     char	tmp_buff[1024];
@@ -720,9 +721,11 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     }
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
 /* add pages to the notebook */
+	locations_tab=gtk_vbox_new(FALSE,0);
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-		    create_locations_tab(window_config),
+		    locations_tab,
         	    gtk_label_new(_("Stations")));
+    g_idle_add((GSourceFunc)process_locations_tab,locations_tab);
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 		    create_visuals_tab(window_config),
         	    gtk_label_new(_("Visuals")));
@@ -2013,6 +2016,14 @@ check:
 #endif
 }
 /*******************************************************************************/
+gboolean process_locations_tab(GtkWidget *vbox)
+{
+	GtkWidget *child=create_locations_tab(gtk_widget_get_toplevel(vbox));
+	gtk_container_add(GTK_CONTAINER(vbox),child);
+	gtk_widget_show_all(vbox);
+	return FALSE;
+}
+/*******************************************************************************/
 gboolean changed_country_process(gpointer window)
 {
 	changed_country_handler(NULL,window);
@@ -2290,9 +2301,9 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 				get_active_item_index((GtkTreeModel*)app->countrys_list,
 				-1, app->config->current_country, TRUE));
     /* fill states list */
-		g_idle_add(changed_country_process,(gpointer)window);
+		g_idle_add((GSourceFunc)changed_country_process,(gpointer)window);
     /* fill stations list */
-		g_idle_add(changed_state_process,(gpointer)window);
+		g_idle_add((GSourceFunc)changed_state_process,(gpointer)window);
 		g_signal_connect(countries, "changed",
             		G_CALLBACK(changed_country_handler),
 			(gpointer)window);

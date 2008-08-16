@@ -38,7 +38,8 @@ AC_FUNC_MKTIME
 AC_FUNC_REALLOC
 AC_FUNC_STAT
 AC_FUNC_STRFTIME
-AC_CHECK_FUNCS([clock_gettime gethostbyname gettimeofday memset strcasecmp strchr strdup strerror strncasecmp strstr setlocale strptime sqrt])
+AC_CHECK_FUNCS([clock_gettime gethostbyname gettimeofday memset strcasecmp strchr strncasecmp])
+AC_CHECK_FUNCS([strdup strerror strstr memmove setlocale strptime sqrt])
 
 dnl glibc2 needs this
 AC_DEFINE([_XOPEN_SOURCE], [1], [glibc2 needs this])

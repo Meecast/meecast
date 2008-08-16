@@ -39,20 +39,21 @@
 
 #include <dbus/dbus-glib.h>
 /*******************************************************************************/
+struct HtmlFile {
+  char *filename;
+  FILE *stream;
+};
+/*******************************************************************************/
 CURL* weather_curl_init(CURL *curl_handle);
 gboolean download_html(gpointer data);
 void weather_initialize_dbus(void);
 gboolean check_connected(void);
 void clean_download(void);
-/*void pre_update_weather(void);*/
 #ifndef USE_CONIC
 void iap_callback(struct iap_event_t *event, void *arg);
 #endif
-/*******************************************************************************/
-struct HtmlFile {
-  char *filename;
-  FILE *stream;
-};
+gboolean get_station_url(gchar **url, struct HtmlFile *html_file, gboolean first);
+GtkWidget* create_window_update(void);
 /*******************************************************************************/
 extern WeatherSource	weather_sources[];
 /*******************************************************************************/

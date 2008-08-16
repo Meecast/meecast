@@ -36,24 +36,19 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-static GString *url = NULL;
+static gchar *url = NULL;
 static gboolean second_attempt = FALSE;
 static CURL *curl_handle = NULL;
 static CURL *curl_multi = NULL;
 static struct HtmlFile html_file;
 static GtkWidget *update_window = NULL;
-static GString *full_filename_new_xml = NULL;
-static gboolean	valid;
-static GtkTreeIter	iter;
-static     gchar	*station_name = NULL,
- 			*station_code = NULL;
 /*******************************************************************************/
 /* Create standard Hildon animation small window */
-static void create_window_update(void){
+GtkWidget* create_window_update(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    update_window = hildon_banner_show_animation(app->main_window,
+    return hildon_banner_show_animation(app->main_window,
 						    NULL,
 						    _("Update weather"));
 }
@@ -292,37 +287,6 @@ static int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
     return result;
 }			  
 /*******************************************************************************/
-/* Form URL and filename for  write xml file. 
-   Returns TRUE if the station is taken from the list
-   Else return FLASE. This the end list
-*/
-static gboolean form_url_and_filename(gchar *station_code){
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    if(station_code == NULL)
-	return FALSE;
-    if(url){
-	    g_string_free(url, TRUE);    
-	    url = NULL;
-    } 
-    if(full_filename_new_xml){
-        g_string_free(full_filename_new_xml, TRUE);    
-        full_filename_new_xml = NULL;
-    } 
-    url = g_string_new(NULL);        
-    g_string_append_printf(url,
-			    weather_sources[app->config->weather_source].url,
-			    station_code);
-    full_filename_new_xml = g_string_new(NULL);        
-    g_string_append_printf(full_filename_new_xml,"%s/%s.xml.new",
-				    app->config->cache_dir_name,station_code);
-    /* Forming structure for download data of weather */
-    html_file.filename = full_filename_new_xml->str;
-    html_file.stream = NULL;
-    return TRUE;
-}
-/*******************************************************************************/
 /* Download html/xml file. Call every 100 ms after begin download */
 gboolean download_html(gpointer data){
     CURLMsg	*msg;
@@ -330,7 +294,7 @@ gboolean download_html(gpointer data){
     fd_set	rs, ws, es;
     int		max;
     gint	num_transfers = 0,
-		num_msgs = 0;		
+		num_msgs = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -350,14 +314,13 @@ gboolean download_html(gpointer data){
     if( app->show_update_window && (!second_attempt) && (!app->iap_connecting) ){    
         app->iap_connecting = TRUE;
 #ifdef USE_CONIC
-	if (app->connection)
+	if(app->connection)
     	    con_ic_connection_connect(app->connection, CON_IC_CONNECT_FLAG_NONE);
 	else
 	    return FALSE;
 #else
         if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){
-    	    fprintf(stderr,"after 1 osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){\n");		
-
+    	    fprintf(stderr,"after 1 osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)\n");
 	}  	
 #endif
     	app->flag_updating = 0; 
@@ -366,8 +329,8 @@ gboolean download_html(gpointer data){
     }
 
     if(app->iap_connecting){
-	/* Check buggy */
-	if (app->iap_connecting_timer > 150){
+	/* Check timeout */
+	if(app->iap_connecting_timer > 150){
 	    if(app->show_update_window){
 		if(update_window){
 		    gtk_widget_destroy(update_window);
@@ -383,7 +346,7 @@ gboolean download_html(gpointer data){
 	}else{
     	    app->iap_connecting_timer++;
 	    return TRUE;
-	}    
+	}
     }
 	
     second_attempt = FALSE;
@@ -394,50 +357,22 @@ gboolean download_html(gpointer data){
         return TRUE; /* return to UI */
     /* The first stage */
     if(!curl_handle){
+#ifndef RELEASE
+	fprintf(stderr, "\n>>>>>>>>>>>First stage\n");
+#endif
 	if(app->show_update_window)
-    	    create_window_update(); /* Window with update information */
-        /* Initialize list */
-	valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
-					    &iter);
-	if (valid){
-	    if (station_name)
-		g_free(station_name);
-	    if (station_code)
-		g_free(station_code);
-	    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
-				&iter, 
-                    		0, &station_name,
-                    		1, &station_code,
-                		-1);
-	}			    
-	if(!valid || !form_url_and_filename(station_code)){
-	    if(url){
-		g_string_free(url, TRUE);    
-		url = NULL;
-	    }	 
-	    if(full_filename_new_xml){
-	        g_string_free(full_filename_new_xml, TRUE);    
-	    	full_filename_new_xml = NULL;
-	    }
+    	    update_window = create_window_update(); /* Window with update information */
+	/* get first station */
+	if(!get_station_url(&url, &html_file, TRUE)){
 	    app->flag_updating = 0;	 
 	    return FALSE; /* The strange error */		
-	} 
-	valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
-					    &iter);
-	if (valid){
-	    if (station_name)
-		g_free(station_name);
-	    if (station_code)
-		g_free(station_code);
-	    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
-				&iter, 
-                    		0, &station_name,
-                    		1, &station_code,
-                		-1);			
 	}
+	#ifndef RELEASE
+	    fprintf(stderr, "\n>>>>>Url - %s, File - %s\n", url, html_file.filename);
+	#endif
 	/* Init easy_curl */
 	curl_handle = weather_curl_init(curl_handle);
-	curl_easy_setopt(curl_handle, CURLOPT_URL, url->str);
+	curl_easy_setopt(curl_handle, CURLOPT_URL, url);
 	/* Init curl_mult */
 	if(!curl_multi)
     	    curl_multi = curl_multi_init();
@@ -445,13 +380,13 @@ gboolean download_html(gpointer data){
 	FD_ZERO(&rs);
 	FD_ZERO(&ws);
 	FD_ZERO(&es);
-	mret = curl_multi_fdset(curl_multi,&rs,&ws,&es,&max);
+	mret = curl_multi_fdset(curl_multi, &rs, &ws, &es, &max);
 	if(mret != CURLM_OK){
 	    fprintf (stderr,"Error CURL\n");
 	}
 	/* set options for the curl easy handle */
-        curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);		
-        curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);	
+        curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);
+        curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);
         /* for debug */
         /*    curl_easy_setopt(curl_handle, CURLOPT_URL, "http://127.0.0.1"); */
         /* add the easy handle to a multi session */
@@ -462,48 +397,54 @@ gboolean download_html(gpointer data){
         /* The third stage */
 	num_msgs = 0;
 	while(curl_multi && (msg = curl_multi_info_read(curl_multi, &num_msgs))){
-	    if(msg->msg == CURLMSG_DONE){	  
+	    if(msg->msg == CURLMSG_DONE){
+		/* Clean */
+		mret = curl_multi_remove_handle(curl_multi,curl_handle); /* Delete curl_handle from curl_multi */
+		if(mret != CURLM_OK)
+		    fprintf(stderr," Error remove handle %p\n",curl_handle);
+		
+		curl_easy_cleanup(curl_handle);
+		curl_handle = NULL;
+
+		if(url){
+		    g_free(url);
+		    url = NULL;
+		}
+
+		if(html_file.stream){
+        	    fclose(html_file.stream);
+		    html_file.stream = NULL;
+		}
+
+		if(html_file.filename){
+		    g_free(html_file.filename);    	  
+		    html_file.filename = NULL;
+		}
+
 		if(msg->data.result != CURLE_OK){ /* Not success of the download */
 		    if(app->show_update_window)
-			hildon_banner_show_information(app->main_window, 
+			hildon_banner_show_information(app->main_window,
 							NULL,
 							_("Did not download weather"));
 		}
-		else{ /* Clean */
-		    mret = curl_multi_remove_handle(curl_multi,curl_handle); /* Delete curl_handle from curl_multi */
-		    if (mret != CURLM_OK)
-			fprintf(stderr," Error remove handle %p\n",curl_handle);
-			
-		    curl_easy_cleanup(curl_handle); 
-		    curl_handle = NULL;
-
-		    if(html_file.stream)
-        		fclose(html_file.stream);
-		    
-		    if(!valid || !form_url_and_filename(station_code) ){ /* Success - all is downloaded */
+		else{ /* get next station url */
+		    if(!get_station_url(&url, &html_file, FALSE)){ /* Success - all is downloaded */
 			if(app->show_update_window)
 			    hildon_banner_show_information(app->main_window,
 							    NULL,
 							    _("Weather updated"));
-        		redraw_home_window(FALSE);	
+        		redraw_home_window(FALSE);
+			#ifndef RELEASE
+			    fprintf(stderr, "\n>>>>>>>>>>>>>>End of update cycle\n");
+			#endif
 		    }
 		    else{
-			valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
-					    &iter);
-			if (valid){
-			    if (station_name)
-				g_free(station_name);
-			    if (station_code)
-				g_free(station_code);			
-			    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
-				&iter, 
-                    		0, &station_name,
-                    		1, &station_code,
-                		-1);
-			}	
+			#ifndef RELEASE
+		    	    fprintf(stderr, "\n>>>>>Url - %s, File - %s\n", url, html_file.filename);
+			#endif
 			/* set options for the curl easy handle */
 			curl_handle = weather_curl_init(curl_handle);
-			curl_easy_setopt(curl_handle, CURLOPT_URL, url->str);
+			curl_easy_setopt(curl_handle, CURLOPT_URL, url);
         		curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);		
         		curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);	
     			/* add the easy handle to a multi session */
@@ -511,34 +452,13 @@ gboolean download_html(gpointer data){
 			return TRUE;/* Download next station */
 		    }		    
 		}
-
+	  /* Clean all */    
 		if(update_window){
 		    gtk_widget_destroy(update_window);
 		    update_window = NULL;
 		}
-	  /* Clean all */    
-	  /*
-		if (msg->easy_handle) {
-    		    curl_multi_remove_handle(curl_multi,msg->easy_handle);
-		    curl_easy_cleanup(msg->easy_handle);
-		    msg->easy_handle = NULL;
-		}
-		*/
-		if(curl_handle){
-		    curl_easy_cleanup(curl_handle); 
-		    curl_handle = NULL;
-		}
 		curl_multi_cleanup(curl_multi);
 		curl_multi = NULL;
-		curl_handle = NULL;
-		if(url){
-		    g_string_free(url, TRUE);    
-		    url = NULL;
-		}	 
-		if(full_filename_new_xml){
-		    g_string_free(full_filename_new_xml, TRUE);    	  
-		    full_filename_new_xml = NULL;
-		}
 		app->flag_updating = 0;     
 		return FALSE; /* This is the end */
 	    }
@@ -546,6 +466,9 @@ gboolean download_html(gpointer data){
 	return TRUE;
     }
     app->flag_updating = 0;
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return FALSE;
 }
 /*******************************************************************************/
@@ -563,14 +486,54 @@ void clean_download(void){
     }
 }
 /*******************************************************************************/
-/*
-void pre_update_weather(void){
+/* Create URL and filename for xml file. 
+ * Returns TRUE if all right otherwise return FLASE.
+*/
+gboolean
+get_station_url(gchar **url, struct HtmlFile *html_file, gboolean first){
+		gboolean	valid = FALSE;
+    static	GtkTreeIter	iter;
+		gchar		*station_code = NULL;
+		gint		station_source = 0;
+		gchar		buffer[512];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (!app->dbus_is_initialize)
-	weather_initialize_dbus();
-    update_weather(TRUE);
+    if(first)
+    	valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+						&iter);
+    else
+	valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+						&iter);
+    if(valid){
+	gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+				&iter, 
+                    		1, &station_code,
+				3, &station_source,
+                		-1);
+        /* prepare url */
+	memset(buffer, 0, sizeof(buffer));
+	snprintf(buffer, sizeof(buffer) - 1,
+		    weather_sources[station_source].url, station_code);
+	*url = g_strdup(buffer);
+	#ifndef RELEASE
+	    fprintf(stderr, "\n>>>>>>>>>>URL %s\n", *url);
+	#endif
+	/* preapare filename */
+	memset(buffer, 0, sizeof(buffer));
+	snprintf(buffer, sizeof(buffer) - 1,
+		    "%s/%s.xml.new",
+		    app->config->cache_dir_name, station_code);
+	html_file->filename = g_strdup(buffer);
+	html_file->stream = NULL;
+	#ifndef RELEASE
+	    fprintf(stderr, "\n>>>>>>>>>NAME %s\n", html_file->filename);
+	#endif
+	g_free(station_code);
+    }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+    return valid;
 }
-*/
 /*******************************************************************************/

@@ -32,6 +32,10 @@
 #include <locale.h>
 #include <libintl.h>
 /*******************************************************************************/
+gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
+                    		    gpointer user_data);
+gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
+                    		    gpointer user_data);
 gboolean change_station_select(GtkWidget *widget, gpointer user_data);
 WDB* create_weather_day_button(const char *text, const char *icon,
 				const gint icon_size, gboolean transparency,

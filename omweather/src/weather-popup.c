@@ -227,7 +227,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 /* Main window */
     window_popup = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     
-    if (app->config->ui_background_color_on)
+    if(app->config->ui_background_color_on)
 	set_background_color(window_popup, &(app->config->ui_background_color));
 
     g_object_set_data(G_OBJECT(window_popup), "active_tab", (gpointer)active_tab);
@@ -237,9 +237,8 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     gtk_container_add(GTK_CONTAINER(window_popup), vbox);
 /* station name */
     gtk_box_pack_start(GTK_BOX(vbox),
-    			label = gtk_label_new(app->config->current_station_name),
+			create_window_header(app->config->current_station_name, window_popup),
 			FALSE, TRUE, 20);
-    set_font(label, NULL, 28);
 /* create tabs widget */
     notebook = gtk_notebook_new();
     if (app->config->ui_background_color_on){
@@ -328,7 +327,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 			(gpointer)window_popup);
 
 /* Change background color on buttons */
-    if (app->config->ui_background_color_on){
+    if(app->config->ui_background_color_on){
 	set_background_color(close_button, &(app->config->ui_background_color));
 	set_background_color(settings_button, &(app->config->ui_background_color));
 	set_background_color(refresh_button, &(app->config->ui_background_color));	
@@ -838,6 +837,44 @@ GtkWidget* create_copyright_widget(const gchar *text, const gchar *image){
     }
     gtk_box_pack_start(GTK_BOX(main_widget), hbox, FALSE, FALSE, 5);
     gtk_box_pack_start(GTK_BOX(main_widget), gtk_hseparator_new(), FALSE, TRUE, 5);
+    return main_widget;
+}
+/*******************************************************************************/
+GtkWidget* create_window_header(const gchar *station_name, GtkWidget *popup_window){
+    GtkWidget	*main_widget = NULL,
+		*label = NULL,
+		*previos_button = NULL,
+		*next_button = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    main_widget = gtk_hbox_new(FALSE, 0);
+/* station name */
+    label = gtk_label_new(station_name);
+    set_font(label, NULL, 28);
+/* previos button */
+    previos_button = create_button_with_image(NULL, "qgn_list_hw_button_left",
+                    				26, FALSE, FALSE);
+/* next button */
+    next_button = create_button_with_image(NULL, "qgn_list_hw_button_right",
+                    				26, FALSE, FALSE);
+    if(previos_button){
+	gtk_box_pack_start(GTK_BOX(main_widget), previos_button, FALSE, FALSE, 10);
+	g_signal_connect(G_OBJECT(previos_button), "button_press_event",
+                	G_CALLBACK(change_station_prev), popup_window);
+    }
+    if(label)
+	gtk_box_pack_start(GTK_BOX(main_widget), label, TRUE, TRUE, 0);
+    if(next_button){
+	gtk_box_pack_start(GTK_BOX(main_widget), next_button, FALSE, FALSE, 10);
+	g_signal_connect(G_OBJECT(next_button), "button_press_event",
+                	G_CALLBACK(change_station_next), popup_window);
+    }
+
+    if(app->config->ui_background_color_on){
+	set_background_color(previos_button, &(app->config->ui_background_color));
+	set_background_color(next_button, &(app->config->ui_background_color));
+    }
     return main_widget;
 }
 /*******************************************************************************/

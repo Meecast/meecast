@@ -51,6 +51,7 @@ void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_current_tab(GSList *current);
 GtkWidget* create_copyright_widget(const gchar *text, const gchar *image);
+GtkWidget* create_window_header(const gchar *station_name, GtkWidget *popup_window);
 /*******************************************************************************/
 extern void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    gpointer user_data);
@@ -65,5 +66,9 @@ extern float convert_wind_units(int to, float value);
 extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
 			int image_size, gboolean with_border, gboolean toggled);
 extern void create_about_dialog(void);  /* create help dialog */
+extern gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
+                    		    gpointer user_data);
+extern gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
+                    		    gpointer user_data);
 /*******************************************************************************/
 #endif

@@ -81,7 +81,7 @@ OMWeatherApp	*app = NULL;
 gchar		path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
 /* Change station to previos at main display */
-static gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
+gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
                     		    gpointer user_data){
     GtkTreeIter iter,
 		prev_iter;
@@ -90,10 +90,11 @@ static gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
     gchar       *station_name = NULL,
                 *station_code = NULL;
     GtkTreePath	*path;
+    gint	day_number = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (!(app->config->current_station_id))
+    if(!(app->config->current_station_id))
 	return FALSE;
 
     path = gtk_tree_path_new_first();
@@ -143,11 +144,17 @@ static gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 	}
     }
     gtk_tree_path_free(path);
+/* show popup window if received param */
+    if(user_data){
+	day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");
+	gtk_widget_destroy(user_data);
+	weather_window_popup(NULL, NULL, (gpointer)day_number);
+    }
     return FALSE;
 }
 /*******************************************************************************/
 /* Change station to next at main display */
-static gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
+gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
                     					    gpointer user_data){
     GtkTreeIter iter;
     gboolean    valid,
@@ -155,6 +162,7 @@ static gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
     gchar       *station_name = NULL,
                 *station_code = NULL;
     GtkTreePath	*path;
+    gint	day_number = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -201,6 +209,12 @@ static gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
 	}
     }
     gtk_tree_path_free(path);
+/* show popup window if received param */
+    if(user_data){
+	day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");
+	gtk_widget_destroy(user_data);
+        weather_window_popup(NULL, NULL, (gpointer)day_number);
+    }
     return FALSE;
 }
 /*******************************************************************************/

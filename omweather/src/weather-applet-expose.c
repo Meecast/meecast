@@ -35,11 +35,6 @@
 
 #ifdef OS2008
 /*******************************************************************************/
-static gboolean launcher_changed(OMWeather *applet){
-    gtk_widget_queue_draw(GTK_WIDGET(applet));
-    return FALSE;
-}
-/*******************************************************************************/
 
 gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 
@@ -69,11 +64,6 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 		return FALSE;
 	}
 	
-	if ((plugin->clip.x!=event->area.x - x_offset)||(plugin->clip.y!=event->area.y - y_offset)||(plugin->clip.width!=event->area.width)||(plugin->clip.height!=event->area.height))
-	{
-		if (!plugin->updateTimeout)
-			plugin->updateTimeout=g_timeout_add(1000,(GSourceFunc)launcher_changed,plugin);
-	}
 	plugin->clip.x = event->area.x - x_offset;
 	plugin->clip.y = event->area.y - y_offset;
 	plugin->clip.width = event->area.width + x_offset;

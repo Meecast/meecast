@@ -1288,7 +1288,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     }
 /* add padding around the outside of the container so the text
  * is not right to the very edge */
-    gtk_container_set_border_width(GTK_CONTAINER(days_panel),10);
+    gtk_container_set_border_width(GTK_CONTAINER(days_panel),2);
 /* attach days buttons */
     tmp = app->buttons;
     for(n = 0, x = 0, y = 0; n < total_elements; n++, x++){

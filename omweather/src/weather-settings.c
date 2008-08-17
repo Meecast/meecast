@@ -1,9 +1,10 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006 Vlad Vasiliev
- * Copyright (C) 2006 Pavel Fialko
- * 	for the code
+ * Copyright (C) 2006-2008 Vlad Vasiliev
+ * Copyright (C) 2006-2008 Pavel Fialko
+ * Copyryght (C) 2008 Andrew Olmsted 
+ *  for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
  *		      az@pocketpcrussia.com 

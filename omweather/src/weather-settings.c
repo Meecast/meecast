@@ -651,7 +651,6 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*close_button = NULL,
 		*back_button = NULL,
 		*locations_tab = NULL;
-    GtkStyle    *style = NULL;
 #ifndef RELEASE
     char	tmp_buff[1024];
 #endif
@@ -662,65 +661,53 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     if(app->popup_window)
         gtk_widget_destroy(app->popup_window);
 /* Main window */
-    window_config = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    window_config = hildon_window_new();
     GLADE_HOOKUP_OBJECT_NO_REF(window_config, window_config, "window_config");
     g_object_set_data(G_OBJECT(window_config), "day_number", (gpointer)day_number);
     gtk_window_fullscreen(GTK_WINDOW(window_config));
-    if (app->config->ui_background_color_on)
-       set_background_color(window_config, &(app->config->ui_background_color));
+
     gtk_widget_show(window_config);
     /* create frame vbox */
     vbox = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(window_config), vbox);
 /* Bottom buttons box */
-    buttons_box = gtk_hbox_new(FALSE, 0);
-    gtk_widget_set_size_request(buttons_box, -1, 60);
+    buttons_box = gtk_toolbar_new();
+    gtk_widget_set_size_request(buttons_box,-1,60);
+    hildon_window_add_toolbar(HILDON_WINDOW(window_config),GTK_TOOLBAR(buttons_box));
     /* Back buton */
-    back_button = create_button_with_image(BUTTON_ICONS, "back", 40, FALSE, FALSE);
-    g_signal_connect(G_OBJECT(back_button), "button_press_event",
+    back_button = create_tool_item(BUTTON_ICONS, "back", 40);
+    g_signal_connect(G_OBJECT(back_button), "clicked",
                         G_CALLBACK(back_button_handler),
 			(gpointer)window_config);
     /* Help buton */
-    help_button = create_button_with_image(BUTTON_ICONS, "about", 40, FALSE, FALSE);
-    g_signal_connect(G_OBJECT(help_button), "button_press_event",
+    help_button = create_tool_item(BUTTON_ICONS, "about", 40);
+    g_signal_connect(G_OBJECT(help_button), "clicked",
                         G_CALLBACK(help_button_handler),
 			(gpointer)window_config);
     /* Apply button */
-    apply_button = create_button_with_image(BUTTON_ICONS, "apply", 40, FALSE, FALSE);
+    apply_button = create_tool_item(BUTTON_ICONS, "apply", 40);
     GLADE_HOOKUP_OBJECT(window_config, apply_button, "apply_button");
-    g_signal_connect(G_OBJECT(apply_button), "button_press_event",
+    g_signal_connect(G_OBJECT(apply_button), "clicked",
                         G_CALLBACK(apply_button_handler),
 			(gpointer)window_config);
     gtk_widget_set_sensitive(apply_button, FALSE);
     /* Close button */
-    close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE, FALSE);
-    g_signal_connect(G_OBJECT(close_button), "button_press_event",
+    close_button = create_tool_item(BUTTON_ICONS, "close", 40);
+    g_signal_connect(G_OBJECT(close_button), "clicked",
                         G_CALLBACK(close_button_handler),
 			(gpointer)window_config);
-/* Change background color on buttons */
-     if (app->config->ui_background_color_on){
-       gtk_widget_modify_bg(apply_button, GTK_STATE_INSENSITIVE, &(app->config->ui_background_color));
-       set_background_color(close_button, &(app->config->ui_background_color));
-       set_background_color(apply_button, &(app->config->ui_background_color));
-       set_background_color(help_button, &(app->config->ui_background_color));
-       set_background_color(back_button, &(app->config->ui_background_color));
-     }
 
 /* Pack buttons to the buttons box */
-    gtk_box_pack_start(GTK_BOX(buttons_box), back_button, TRUE, TRUE, 25);
-    gtk_box_pack_start(GTK_BOX(buttons_box), apply_button, TRUE, TRUE, 10);
-    gtk_box_pack_start(GTK_BOX(buttons_box), help_button, TRUE, TRUE, 10);
-    gtk_box_pack_start(GTK_BOX(buttons_box), close_button, TRUE, TRUE, 25);
+    gtk_toolbar_insert(GTK_TOOLBAR(buttons_box),GTK_TOOL_ITEM(back_button),-1);
+    gtk_toolbar_insert(GTK_TOOLBAR(buttons_box),GTK_TOOL_ITEM(apply_button),-1);
+    gtk_toolbar_insert(GTK_TOOLBAR(buttons_box),GTK_TOOL_ITEM(help_button),-1);
+    gtk_toolbar_insert(GTK_TOOLBAR(buttons_box),GTK_TOOL_ITEM(close_button),-1);
 
 /* create tabs widget */
     notebook = gtk_notebook_new();
-    GLADE_HOOKUP_OBJECT(window_config, notebook, "notebook");
-    if (app->config->ui_background_color_on){
-	set_background_color(notebook, &(app->config->ui_background_color));
-	style = gtk_widget_get_style(notebook);
-	gtk_widget_set_style(notebook,style);    
-    }
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
+    GLADE_HOOKUP_OBJECT(window_config, notebook, "notebook");
+
 /* add pages to the notebook */
 	locations_tab=gtk_vbox_new(FALSE,0);
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
@@ -730,7 +717,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 		    create_visuals_tab(window_config),
         	    gtk_label_new(_("Visuals")));
-    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_display_tab(window_config),
         			gtk_label_new(_("Display")));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
@@ -756,16 +743,29 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_widget_show(notebook);
 /* Pack items to config window */
     gtk_box_pack_start(GTK_BOX(vbox), notebook, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE, FALSE, 0);
 
     gtk_widget_show_all(window_config);
+    if (app->config->ui_background_color_on)
+    {
+    	gint i;
+    	gtk_rc_parse("/usr/share/omweather/theme/gtkrc-2.0/gtkrc");
+    	for (i=0;i<gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook));i++)
+    	{
+    		g_signal_connect(G_OBJECT(gtk_notebook_get_nth_page(GTK_NOTEBOOK(notebook),i)),"expose-event",G_CALLBACK(draw_top_gradient),NULL);
+		}
+    	g_signal_connect(G_OBJECT(buttons_box),"expose-event",G_CALLBACK(draw_bottom_gradient),NULL);
+	}
+	else
+	{
+		gtk_rc_reparse_all();
+	}
+
 /* set current page and show it for notebook */
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook),
 				    app->config->current_settings_page);
 }
 /*******************************************************************************/
-void apply_button_handler(GtkWidget *button, GdkEventButton *event,
-							    gpointer user_data){
+void apply_button_handler(GtkWidget *button, gpointer user_data){
     struct lists_struct	*list = NULL;
     GtkTreeModel	*model;
     GtkTreeIter		iter;
@@ -1152,8 +1152,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 #endif
 }
 /*******************************************************************************/
-void close_button_handler(GtkWidget *button, GdkEventButton *event,
-							    gpointer user_data){
+void close_button_handler(GtkWidget *button, gpointer user_data){
     GtkWidget	*config_window = GTK_WIDGET(user_data),
 		*notebook = NULL;
     guint	current_page = 0;
@@ -1205,8 +1204,7 @@ void close_button_handler(GtkWidget *button, GdkEventButton *event,
     config_save(app->config);
 }
 /*******************************************************************************/
-void help_button_handler(GtkWidget *button, GdkEventButton *event,
-							    gpointer user_data){
+void help_button_handler(GtkWidget *button, gpointer user_data){
     GtkWidget	*config = GTK_WIDGET(user_data),
 		*notebook = NULL;
     gint	page_number = -1;
@@ -1239,8 +1237,7 @@ void help_button_handler(GtkWidget *button, GdkEventButton *event,
     }
 }
 /*******************************************************************************/
-void back_button_handler(GtkWidget *button, GdkEventButton *event,
-							    gpointer user_data){
+void back_button_handler(GtkWidget *button, gpointer user_data){
     gint day_number
 	    = (gint)g_object_get_data(G_OBJECT(user_data), "day_number");
 #ifdef DEBUGFUNCTIONCALL
@@ -2036,6 +2033,7 @@ gboolean changed_state_process(gpointer window)
 	changed_state_handler(NULL,window);
 	return FALSE;
 }
+
 /*******************************************************************************/
 GtkWidget* create_locations_tab(GtkWidget *window){
     static struct lists_struct	list = { NULL, NULL, NULL };
@@ -2322,8 +2320,8 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 /* Filling rename entry */
     gtk_entry_set_text(GTK_ENTRY(rename_entry),
 			app->config->current_station_name);
-
     app->stations_tab_current_state = app->stations_tab_start_state;
+ 
     return left_right_hbox;
 }
 /*******************************************************************************/
@@ -2580,6 +2578,7 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
     gtk_box_pack_start(GTK_BOX(visuals_page), sixth_line, TRUE, TRUE, 0);
 
     app->visuals_tab_current_state = app->visuals_tab_start_state;
+
     return visuals_page;
 }
 /*******************************************************************************/

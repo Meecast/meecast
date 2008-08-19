@@ -122,6 +122,76 @@ swap_temperature(int *hi, int *low){
     tmp = *hi; *hi = *low; *low = tmp;
 }
 /*******************************************************************************/
+gboolean draw_top_gradient(GtkWidget *widget, GdkEventExpose *event)
+{
+	GdkDrawable *drawable;
+	gint x_offset, y_offset;
+	cairo_pattern_t *pattern;
+	cairo_t *cr;
+	gint x,y,width,height;
+	
+	gdk_window_get_internal_paint_info(widget->window, &drawable, &x_offset, &y_offset);
+	
+	cr=gdk_cairo_create(drawable);
+
+	width=event->area.width + x_offset;
+	height=event->area.height + y_offset;
+	x=event->area.x - x_offset;
+	y=event->area.y - y_offset;
+
+	pattern=cairo_pattern_create_linear(0,y,0,y+height);
+
+	cairo_pattern_add_color_stop_rgb(pattern,0.0,1.0,1.0,1.0);
+	cairo_pattern_add_color_stop_rgb(pattern,0.01,0.8,0.8,0.8);
+	cairo_pattern_add_color_stop_rgb(pattern,1.0,0.8,0.8,0.8);
+	cairo_set_source(cr,pattern);
+
+	cairo_move_to(cr,x,y);
+	cairo_line_to(cr,x+width,y);
+	cairo_line_to(cr,x+width,y+height);
+	cairo_line_to(cr,x,y+height);
+	cairo_line_to(cr,x,y);
+
+	cairo_fill(cr);
+	cairo_pattern_destroy(pattern);
+	return FALSE;
+}
+/*******************************************************************************/
+gboolean draw_bottom_gradient(GtkWidget *widget, GdkEventExpose *event)
+{
+	GdkDrawable *drawable;
+	gint x_offset, y_offset;
+	cairo_pattern_t *pattern;
+	cairo_t *cr;
+	gint x,y,width,height;
+	
+	gdk_window_get_internal_paint_info(widget->window, &drawable, &x_offset, &y_offset);
+	
+	cr=gdk_cairo_create(drawable);
+
+	width=event->area.width + x_offset;
+	height=event->area.height + y_offset;
+	x=event->area.x - x_offset;
+	y=event->area.y - y_offset;
+
+	pattern=cairo_pattern_create_linear(0,y,0,y+height);
+
+	cairo_pattern_add_color_stop_rgb(pattern,0.0,0.8,0.8,0.8);
+	cairo_pattern_add_color_stop_rgb(pattern,0.9,0.8,0.8,0.8);
+	cairo_pattern_add_color_stop_rgb(pattern,1.0,0.47,0.47,0.47);
+	cairo_set_source(cr,pattern);
+
+	cairo_move_to(cr,x,y);
+	cairo_line_to(cr,x+width,y);
+	cairo_line_to(cr,x+width,y+height);
+	cairo_line_to(cr,x,y+height);
+	cairo_line_to(cr,x,y);
+
+	cairo_fill(cr);
+	cairo_pattern_destroy(pattern);
+	return FALSE;
+}
+/*******************************************************************************/
 void
 set_background_color(GtkWidget *widget, GdkColor *bgc){
 #ifdef DEBUGFUNCTIONCALL
@@ -144,6 +214,33 @@ lookup_widget(GtkWidget* widget, const gchar* widget_name){
     if(!found_widget)
 	g_warning("Widget not found: %s", widget_name);
     return found_widget;
+}
+/*******************************************************************************/
+GtkWidget* create_tool_item(const char *path, const char *image_name, int image_size)
+{
+    GtkToolItem	*button = NULL;
+	GtkWidget	*icon = NULL;
+    GdkPixbuf   *icon_buffer = NULL;
+    gchar	buffer[512];
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    /* prepare icon */
+    if(path){
+	memset(buffer, 0, sizeof(buffer));
+	snprintf(buffer, sizeof(buffer) - 1, "%s/%s.png",
+		    path, image_name);
+	icon_buffer = gdk_pixbuf_new_from_file_at_size(buffer, image_size,
+							image_size, NULL);
+	if(icon_buffer){
+	    icon = gtk_image_new_from_pixbuf(icon_buffer);
+	    g_object_unref(G_OBJECT(icon_buffer));
+	}
+	}
+	button=gtk_tool_button_new(icon,image_name);
+	gtk_tool_item_set_expand(button,TRUE);
+	
+	return GTK_WIDGET(button);
 }
 /*******************************************************************************/
 GtkWidget*
@@ -189,6 +286,7 @@ create_button_with_image(const char *path, const char *image_name,
     }
     else{
 	button = gtk_event_box_new();
+	gtk_event_box_set_visible_window(GTK_EVENT_BOX(button),FALSE);
 	if(icon)
 	    gtk_container_add(GTK_CONTAINER(button), icon);
     }

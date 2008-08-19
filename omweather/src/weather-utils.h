@@ -33,6 +33,8 @@
 float convert_wind_units(int to, float value);
 float mb2inch(float pressure);
 void set_font(GtkWidget *widget, const gchar *description, const gint size);
+gboolean draw_top_gradient(GtkWidget *widget, GdkEventExpose *event);
+gboolean draw_bottom_gradient(GtkWidget *widget, GdkEventExpose *event);
 void set_background_color(GtkWidget *widget, GdkColor *bgc);
 void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
 float c2f(float temp);
@@ -44,6 +46,7 @@ GtkWidget* lookup_widget(GtkWidget* widget, const gchar* widget_name);
 
 #define GLADE_HOOKUP_OBJECT_NO_REF(component,widget,name) \
     g_object_set_data (G_OBJECT (component), name, widget)
+GtkWidget* create_tool_item(const char *path, const char *image_name, int image_size);
 GtkWidget* create_button_with_image(const char *path, const char *image_name,
 				    int image_size, gboolean with_border,
 				    gboolean toggled);

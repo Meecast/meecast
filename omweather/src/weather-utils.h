@@ -33,6 +33,7 @@
 float convert_wind_units(int to, float value);
 float mb2inch(float pressure);
 void set_font(GtkWidget *widget, const gchar *description, const gint size);
+gboolean draw_label_gradient(GtkWidget *widget, GdkEventExpose *event);
 gboolean draw_top_gradient(GtkWidget *widget, GdkEventExpose *event);
 gboolean draw_bottom_gradient(GtkWidget *widget, GdkEventExpose *event);
 void set_background_color(GtkWidget *widget, GdkColor *bgc);

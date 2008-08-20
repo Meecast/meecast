@@ -122,6 +122,40 @@ swap_temperature(int *hi, int *low){
     tmp = *hi; *hi = *low; *low = tmp;
 }
 /*******************************************************************************/
+gboolean draw_label_gradient(GtkWidget *widget, GdkEventExpose *event)
+{
+	GdkDrawable *drawable;
+	gint x_offset, y_offset;
+	cairo_pattern_t *pattern;
+	cairo_t *cr;
+	gint x,y,width,height;
+	
+	gdk_window_get_internal_paint_info(widget->window, &drawable, &x_offset, &y_offset);
+	
+	cr=gdk_cairo_create(drawable);
+
+	width=event->area.width + x_offset;
+	height=event->area.height + y_offset;
+	x=event->area.x - x_offset;
+	y=event->area.y - y_offset;
+
+	pattern=cairo_pattern_create_linear(0,y,0,y+height);
+
+	cairo_pattern_add_color_stop_rgb(pattern,0.0,0.8,0.8,0.8);
+	cairo_pattern_add_color_stop_rgb(pattern,1.0,1.0,1.0,1.0);
+	cairo_set_source(cr,pattern);
+
+	cairo_move_to(cr,x,y);
+	cairo_line_to(cr,x+width,y);
+	cairo_line_to(cr,x+width,y+height);
+	cairo_line_to(cr,x,y+height);
+	cairo_line_to(cr,x,y);
+
+	cairo_fill(cr);
+	cairo_pattern_destroy(pattern);
+	return FALSE;
+}
+/*******************************************************************************/
 gboolean draw_top_gradient(GtkWidget *widget, GdkEventExpose *event)
 {
 	GdkDrawable *drawable;
@@ -142,7 +176,7 @@ gboolean draw_top_gradient(GtkWidget *widget, GdkEventExpose *event)
 	pattern=cairo_pattern_create_linear(0,y,0,y+height);
 
 	cairo_pattern_add_color_stop_rgb(pattern,0.0,1.0,1.0,1.0);
-	cairo_pattern_add_color_stop_rgb(pattern,0.01,0.8,0.8,0.8);
+	cairo_pattern_add_color_stop_rgb(pattern,0.05,0.8,0.8,0.8);
 	cairo_pattern_add_color_stop_rgb(pattern,1.0,0.8,0.8,0.8);
 	cairo_set_source(cr,pattern);
 
@@ -177,7 +211,7 @@ gboolean draw_bottom_gradient(GtkWidget *widget, GdkEventExpose *event)
 	pattern=cairo_pattern_create_linear(0,y,0,y+height);
 
 	cairo_pattern_add_color_stop_rgb(pattern,0.0,0.8,0.8,0.8);
-	cairo_pattern_add_color_stop_rgb(pattern,0.9,0.8,0.8,0.8);
+	/*cairo_pattern_add_color_stop_rgb(pattern,0.9,0.8,0.8,0.8);*/
 	cairo_pattern_add_color_stop_rgb(pattern,1.0,0.47,0.47,0.47);
 	cairo_set_source(cr,pattern);
 

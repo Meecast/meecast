@@ -40,10 +40,14 @@ GtkWidget* create_time_updates_widget(GSList *current);
 
 gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 
-void settings_button_handler(GtkWidget *button, gpointer user_data);
-void refresh_button_handler(GtkWidget *button, gpointer user_data);
-void about_button_handler(GtkWidget *button, gpointer user_data);
-void popup_close_button_handler(GtkWidget *button, gpointer user_data);
+void settings_button_handler(GtkWidget *button, GdkEventButton *event,
+								gpointer user_data);
+void refresh_button_handler(GtkWidget *button, GdkEventButton *event,
+								gpointer user_data);
+void about_button_handler(GtkWidget *button, GdkEventButton *event,
+								gpointer user_data);
+void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
+								gpointer user_data);
 GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_current_tab(GSList *current);
 GtkWidget* create_copyright_widget(const gchar *text, const gchar *image);

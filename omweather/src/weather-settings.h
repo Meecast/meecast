@@ -75,12 +75,16 @@ void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_n
 void highlight_current_station(GtkTreeView *tree_view);
 int lookup_and_select_station(gchar *db_path, gchar *station_name, Station *result);
 /*******************************************************************************/
-void apply_button_handler(GtkWidget *button, gpointer user_data);
+void apply_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data);
 void rename_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
-void help_button_handler(GtkWidget *button, gpointer user_data);
-void close_button_handler(GtkWidget *button, gpointer user_data);
-void back_button_handler(GtkWidget *button, gpointer user_data);
+void help_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data);
+void close_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data);
+void back_button_handler(GtkWidget *button, GdkEventButton *event,
+							    gpointer user_data);
 void add_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
 void chk_download_button_toggled_handler(GtkRadioButton *button,

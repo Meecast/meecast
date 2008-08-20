@@ -377,13 +377,12 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 
 	gtk_box_pack_start(GTK_BOX(vbox),buttons_box,FALSE,FALSE,0);
 
-    gtk_widget_show_all(window_popup);
-    
-    if (app->config->ui_background_color_on)
+    if (app->config->theme_override_in_use)
     {
     	gint i;
     	GdkColor color={0,0.8*65535,0.8*65535,0.8*65535};
-    	gtk_rc_parse("/usr/share/omweather/theme/gtkrc-2.0/gtkrc");
+    	gtk_rc_parse("/usr/share/omweather/theme/gtk-2.0/gtkrc");
+    	gtk_rc_reset_styles(gtk_settings_get_for_screen(gdk_screen_get_default()));
     	if (GTK_IS_NOTEBOOK(notebook))
     	{
 			for (i=0;i<gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook));i++)
@@ -397,6 +396,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 		g_signal_connect(G_OBJECT(label_box),"expose-event",G_CALLBACK(draw_label_gradient),NULL);
 		g_signal_connect(G_OBJECT(buttons_box),"expose-event",G_CALLBACK(draw_bottom_gradient),NULL);
 	}
+    gtk_widget_show_all(window_popup);
     return FALSE;
 }
 /*******************************************************************************/

@@ -2,6 +2,7 @@
  *
  * Copyright (C) 2006 Vlad Vasiliev
  * Copyright (C) 2006 Pavel Fialko
+ * Copyright (C) 2008 Andrew Olmsted
  * 	for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
@@ -1839,7 +1840,12 @@ omweather_init(OMWeather *applet){
 	
     settings = gtk_settings_get_default();
     cm = gdk_screen_get_rgba_colormap(gdk_screen_get_default());
-	
+    
+    if (app->config->theme_override_in_use)
+	{
+    	gtk_rc_parse("/usr/share/omweather/theme/gtk-2.0/gtkrc");
+    	gtk_rc_reset_styles(gtk_settings_get_for_screen(gdk_screen_get_default()));
+	}
     if(cm != NULL){
 	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
     }

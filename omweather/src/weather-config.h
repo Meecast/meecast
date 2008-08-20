@@ -3,6 +3,7 @@
  *
  * Copyright (C) 2006-2008 Vlad Vasiliev
  * Copyright (C) 2006-2008 Pavel Fialko
+ * Copyright (C) 2008      Andrew Olmsted
  * 	for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
@@ -41,6 +42,7 @@
 #define GCONF_KEY_WEATHER_ICONS_SIZE		GCONF_KEY_PREFIX"/icons-size"
 #define GCONF_KEY_WEATHER_FONT_COLOR		GCONF_KEY_PREFIX"/font-color"
 #define GCONF_KEY_WEATHER_FONT			GCONF_KEY_PREFIX"/font"
+#define GCONF_KEY_WEATHER_THEME_OVERRIDE		GCONF_KEY_PREFIX"/theme-override"
 #define GCONF_KEY_WEATHER_BACKGROUND_COLOR	GCONF_KEY_PREFIX"/background-color"
 #define GCONF_KEY_ENABLE_TRANSPARENCY		GCONF_KEY_PREFIX"/transparency"
 #define GCONF_KEY_ALPHA_COMPONENT		GCONF_KEY_PREFIX"/alpha-component"

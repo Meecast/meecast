@@ -756,19 +756,14 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE,FALSE, 0);
 
     gtk_widget_show_all(window_config);
-    if (app->config->ui_background_color_on)
+    if (app->config->theme_override_in_use)
     {
     	gint i;
-    	gtk_rc_parse("/usr/share/omweather/theme/gtkrc-2.0/gtkrc");
     	for (i=0;i<gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook));i++)
     	{
     		g_signal_connect(G_OBJECT(gtk_notebook_get_nth_page(GTK_NOTEBOOK(notebook),i)),"expose-event",G_CALLBACK(draw_top_gradient),NULL);
 		}
     	g_signal_connect(G_OBJECT(buttons_box),"expose-event",G_CALLBACK(draw_bottom_gradient),NULL);
-	}
-	else
-	{
-		gtk_rc_reparse_all();
 	}
 
 /* set current page and show it for notebook */

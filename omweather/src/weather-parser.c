@@ -52,7 +52,8 @@ gint parse_weather_file_data(const gchar *station_id, WeatherStationData *wsd){
 /* Used new file */
     sprintf(buffer, "%s/%s.xml.new", app->config->cache_dir_name, station_id);
     if(!access(buffer, R_OK)){  /* Not Access to cache weather xml file */
-	parser = weather_parser_new_from_file(buffer); 
+	parser = weather_parser_new_from_file(buffer,
+				weather_sources[app->config->weather_source].encoding); 
 	if(!(parser->error)){
 	    sprintf(newname, "%s/%s.xml", app->config->cache_dir_name, station_id);
 	    rename(buffer, newname);
@@ -67,7 +68,8 @@ gint parse_weather_file_data(const gchar *station_id, WeatherStationData *wsd){
 	sprintf(buffer, "%s/%s.xml", app->config->cache_dir_name, station_id);
 /* Not Access to cache weather xml file or not valid XML file */
 	if(!access(buffer, R_OK)){ 
-    	    parser = weather_parser_new_from_file(buffer);
+	    parser = weather_parser_new_from_file(buffer,
+				weather_sources[app->config->weather_source].encoding);
 	    if(parser->error){
 		free(parser);
 		parser = NULL;
@@ -85,7 +87,8 @@ gint parse_weather_file_data(const gchar *station_id, WeatherStationData *wsd){
     return (handler(station_id, parser, &(app->wsd)));
 }
 /*******************************************************************************/
-weather_com_parser *weather_parser_new_from_file(const gchar *filename){
+weather_com_parser *weather_parser_new_from_file(const gchar *filename,
+						        const gchar *encoding){
     weather_com_parser *parser = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -94,7 +97,7 @@ weather_com_parser *weather_parser_new_from_file(const gchar *filename){
     if(!parser)
 	return NULL;
     parser->doc = NULL;
-    parser->doc = xmlReadFile( filename, NULL, 0 );
+    parser->doc = xmlReadFile( filename, encoding, 0 );
     if(!(parser->doc)){
         parser->error = TRUE;
         parser->weather_com_root = NULL;

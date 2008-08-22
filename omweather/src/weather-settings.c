@@ -2190,8 +2190,6 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 				    weather_sources[i].name);
     gtk_combo_box_set_active(GTK_COMBO_BOX(weather_source),
 				app->config->weather_source);
-/*  delete on 0.22 release */
-    gtk_widget_set_sensitive(weather_source, FALSE);
 
     GLADE_HOOKUP_OBJECT(window, weather_source, "weather_source");
     gtk_widget_set_name(weather_source, "weather_source");

@@ -64,16 +64,19 @@ const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
     {	"weather.com - 1",
 	"/usr/share/omweather/db/weather_com/",
 	"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&link=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5",
+	"ISO-8859-1",
 	parse_weather_com_xml
     },
     {	"weather.com - 2",
 	"/usr/share/omweather/db/weather_com/",
 	"http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10",
+	"ISO-8859-1",
 	parse_weather_com_xml
     },
     {	"rp5.ru",
 	"/usr/share/omweather/db/rp5_ru/",
 	"http://rp5.ru/xml.php?id=%s",
+	"windows-1251",
 	parse_rp5_ru_xml
     }
 };
@@ -691,8 +694,6 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->countrys_list
 	= create_items_list(weather_sources[app->config->weather_source].db_path,
 			    COUNTRIESFILE, -1, -1, NULL);
-/* delete on 0.22 release */
-    app->config->weather_source = 1;
 /* Start timer */
     timer(60000);  /* One per minute */
 /* Start main applet */ 

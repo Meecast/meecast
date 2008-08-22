@@ -161,6 +161,7 @@ typedef struct weather_data_source{
     gchar	*name;
     gchar	*db_path;
     gchar	*url;
+    gchar	*encoding;
     gint 	(*parser)(const gchar *station_id, weather_com_parser *parser,
 			    WeatherStationData *wsd);
 }WeatherSource;

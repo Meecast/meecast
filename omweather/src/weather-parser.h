@@ -32,7 +32,8 @@
 #include <libxml/HTMLparser.h>
 /*******************************************************************************/
 gint parse_weather_file_data(const gchar *station_id, WeatherStationData *wsd);
-weather_com_parser *weather_parser_new_from_file(const gchar *filename);
+weather_com_parser *weather_parser_new_from_file(const gchar *filename,
+						    const gchar *encoding);
 gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 							WeatherStationData *wsd);
 gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser,

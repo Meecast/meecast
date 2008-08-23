@@ -148,29 +148,32 @@ gps_location_changed (LocationGPSDevice *device, gpointer userdata)
 /*******************************************************************************/ 
 void
 initial_gps_connect(void)
-{ 
-#ifdef DEBUGFUNCTIONCALL
+{
+LocationGPSDevice *device = NULL;
+ 
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
-    app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
-    app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
-    
-#ifdef DEBUGFUNCTIONCALL
+//#endif
+    app->gps_device =  (LocationGPSDevice*) g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
+//    app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
+//    g_signal_handler_disconnect (app->gps_device,app->gps_id_connection);
+    g_object_unref(app->gps_device);
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif    
+//#endif    
 }
 /*******************************************************************************/
 void
 deinitial_gps_connect(void)
 {
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
-    g_signal_handler_disconnect (app->gps_device,app->gps_id_connection);
-    g_object_unref(app->gps_device);
-#ifdef DEBUGFUNCTIONCALL
+//#endif
+//    g_signal_handler_disconnect (app->gps_device,app->gps_id_connection);
+//    g_object_unref(app->gps_device);
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
 }
 /*******************************************************************************/
 void delete_all_gps_stations(void){

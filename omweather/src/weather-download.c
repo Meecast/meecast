@@ -37,7 +37,7 @@
 #endif
 /*******************************************************************************/
 static gchar *url = NULL;
-static GString *hour_url = NULL;
+static gchar *hour_url = NULL;
 static gboolean second_attempt = FALSE;
 static CURL *curl_handle = NULL;
 static CURL *curl_handle_hour = NULL;
@@ -329,7 +329,6 @@ gboolean download_html(gpointer data){
 	second_attempt = TRUE;
         return TRUE;
     }
-fprintf(stderr,"sssssssssssss\n");
     if(app->iap_connecting){
 	/* Check timeout */
 	if(app->iap_connecting_timer > 150){
@@ -351,14 +350,12 @@ fprintf(stderr,"sssssssssssss\n");
 	}
     }
 	
-    fprintf(stderr,"ttttttttttttttt\n");
     second_attempt = FALSE;
     /* The second stage */
     /* call curl_multi_perform for read weather data from Inet */
     if(curl_multi && CURLM_CALL_MULTI_PERFORM ==
             curl_multi_perform(curl_multi, &num_transfers))
         return TRUE; /* return to UI */
-    fprintf(stderr,"aaaaaaaaa\n");
     /* The first stage */
     if(!curl_handle && !curl_handle_hour){
 #ifndef RELEASE
@@ -397,13 +394,12 @@ fprintf(stderr,"sssssssssssss\n");
 	
         if(app->config->show_weather_for_two_hours){
             curl_handle_hour = weather_curl_init(curl_handle_hour);
-            curl_easy_setopt(curl_handle_hour, CURLOPT_URL, hour_url->str);
-            curl_easy_setopt(curl_handle_hour, CURLOPT_WRITEDATA, &html_file_hour);	
-            curl_easy_setopt(curl_handle_hour, CURLOPT_WRITEFUNCTION, data_read);	
+            curl_easy_setopt(curl_handle_hour, CURLOPT_URL, hour_url);
+            curl_easy_setopt(curl_handle_hour, CURLOPT_WRITEDATA, &html_file_hour);
+            curl_easy_setopt(curl_handle_hour, CURLOPT_WRITEFUNCTION, data_read);
 	}
-//	fprintf(stderr,"hour_url->str %s \n", hour_url->str);
         curl_multi_add_handle(curl_multi, curl_handle);	
-//        curl_multi_add_handle(curl_multi, curl_handle_hour);
+        curl_multi_add_handle(curl_multi, curl_handle_hour);
         return TRUE; /* return to UI */
     }
     else{
@@ -418,7 +414,7 @@ fprintf(stderr,"sssssssssssss\n");
 		/* Clean */
 		mret = curl_multi_remove_handle(curl_multi,curl_handle); /* Delete curl_handle from curl_multi */
 		if (mret != CURLM_OK)
-		    fprintf(stderr," Error remove handle %p\n",curl_handle);		    
+		    fprintf(stderr," Error remove handle %p\n",curl_handle);
 		mret = curl_multi_remove_handle(curl_multi,curl_handle_hour); /* Delete curl_handle from curl_multi */		    
 		if (mret != CURLM_OK)
 		    fprintf(stderr," Error remove handle %p\n",curl_handle);
@@ -438,7 +434,7 @@ fprintf(stderr,"sssssssssssss\n");
 		}
 
 		if(html_file.filename){
-		    g_free(html_file.filename);    	  
+		    g_free(html_file.filename);
 		    html_file.filename = NULL;
 		}
 		
@@ -452,7 +448,7 @@ fprintf(stderr,"sssssssssssss\n");
 			html_file_hour.stream = NULL;
 		    }
 		    if(html_file_hour.filename){
-			g_free(html_file_hour.filename);    	  
+			g_free(html_file_hour.filename);
 			html_file_hour.filename = NULL;
 		    }
 		}
@@ -485,25 +481,24 @@ fprintf(stderr,"sssssssssssss\n");
         		curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);	
 			if(app->config->show_weather_for_two_hours){
                             curl_handle_hour = weather_curl_init(curl_handle_hour);
-                            curl_easy_setopt(curl_handle_hour, CURLOPT_URL, hour_url->str);
+                            curl_easy_setopt(curl_handle_hour, CURLOPT_URL, hour_url);
                             curl_easy_setopt(curl_handle_hour, CURLOPT_WRITEDATA, &html_file_hour);
                             curl_easy_setopt(curl_handle_hour, CURLOPT_WRITEFUNCTION, data_read);
                         }
     			/* add the easy handle to a multi session */
     			curl_multi_add_handle(curl_multi, curl_handle);	
-//			fprintf(stderr,"hour_url->str %s \n", *hour_url);
-//			curl_multi_add_handle(curl_multi, curl_handle_hour);
+  			    curl_multi_add_handle(curl_multi, curl_handle_hour);
 			return TRUE;/* Download next station */
-		    }		    
+		    }
 		}
-	  /* Clean all */    
+	  /* Clean all */
 		if(update_window){
 		    gtk_widget_destroy(update_window);
 		    update_window = NULL;
 		}
 		curl_multi_cleanup(curl_multi);
 		curl_multi = NULL;
-		app->flag_updating = 0;     
+		app->flag_updating = 0;
 		return FALSE; /* This is the end */
 	    }
 	}

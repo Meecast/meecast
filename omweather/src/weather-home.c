@@ -650,7 +650,7 @@ void update_weather(gboolean show_update_window){
 	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }
 /*******************************************************************************/
-//#ifndef OS2008
+#ifndef OS2008
 void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
     osso_context_t	*osso = NULL;
@@ -842,7 +842,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     /* Deinitialize libosso */
     osso_deinitialize(osso);
 }
-//#endif
+#endif
 /*******************************************************************************/
 GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent){
     GtkWidget	*menu_item;
@@ -1846,6 +1846,7 @@ omweather_init(OMWeather *applet){
     /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
     applet->queueRefresh=TRUE;
+    app->gps_device = NULL;
     initial_gps_connect();
     app->widget_first_start = TRUE;
 
@@ -1876,9 +1877,9 @@ static void
 omweather_destroy(GtkObject *widget){
     
     gboolean check;
-#ifndef RELEASE
+//#ifndef RELEASE
     fprintf(stderr, "\nOMWeather applet deinitialize2\n");
-#endif
+//#endif
     if (!app)
 	return;
     /* remove switch timer */
@@ -1936,10 +1937,15 @@ omweather_destroy(GtkObject *widget){
 	    g_object_unref(app->user_stations_list);
 	}
     }
-    
+
+    osso_deinitialize(app->osso);
     app && (g_free(app), app = NULL);
-    
+
     gtk_object_destroy(widget);
+}
+destr()
+{
+  fprintf (stderr,"sddddddddddddd\n");
 }
 /*******************************************************************************/
 static void

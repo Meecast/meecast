@@ -789,6 +789,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*show_wind = NULL,
 			*show_station_name = NULL,
 			*show_arrows = NULL,
+                        *show_weather_for_two_hours = NULL,
 			*transparency = NULL,
 			*background_color = NULL,
 			*font_color = NULL,
@@ -980,6 +981,13 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     if(show_wind)
 	app->config->show_wind = 
 	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(show_wind));
+/*show detailed weather*/
+    show_weather_for_two_hours = lookup_widget(config_window,
+                                                    "show_weather_for_two_hours");
+    if(show_weather_for_two_hours){
+        app->config->show_weather_for_two_hours =
+        gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(show_weather_for_two_hours));
+    }
 /* separate */
     separate = lookup_widget(config_window, "separate");
     if(separate)
@@ -1788,6 +1796,13 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 	else
 	    app->display_tab_current_state &= ~STATE_SHOW_WIND;
 	goto check;
+    }
+    if(!strcmp(button_name, "show_weather_for_two_hours")){
+        if(gtk_toggle_button_get_active(button))
+            app->update_tab_current_state |= STATE_SHOW_WEATHER_FOR_TWO_HOURS;
+        else
+            app->update_tab_current_state &= ~STATE_SHOW_WEATHER_FOR_TWO_HOURS;
+        goto check;
     }
     if(!strcmp(button_name, "show_station_name")){
 	if(gtk_toggle_button_get_active(button))
@@ -2985,7 +3000,9 @@ GtkWidget* create_update_tab(GtkWidget *window){
 		*second_line = NULL,
 		*third_line = NULL,
 		*fourth_line = NULL,
-		*fifth_line = NULL;
+		*fifth_line = NULL,
+                *sixth_line = NULL,
+                *chk_show_weather_for_two_hours = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -2998,11 +3015,13 @@ GtkWidget* create_update_tab(GtkWidget *window){
     third_line = gtk_hbox_new(FALSE, 0);
     fourth_line = gtk_hbox_new(FALSE, 0);
     fifth_line = gtk_hbox_new(FALSE, 0);
+    sixth_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(update_page), first_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(update_page), second_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(update_page), third_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(update_page), fourth_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(update_page), fifth_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(update_page), sixth_line, TRUE, TRUE, 0);
 /* auto download when connect */
     gtk_box_pack_start(GTK_BOX(first_line),
 			chk_downloading_after_connection = gtk_check_button_new(),
@@ -3021,11 +3040,31 @@ GtkWidget* create_update_tab(GtkWidget *window){
     gtk_box_pack_start(GTK_BOX(first_line),
 			gtk_label_new(_("Automatically update data when connecting to the Internet")),
                         FALSE, FALSE, 0);
-/* Switch time to the next station */
+/*Show weather for two hours*/
     gtk_box_pack_start(GTK_BOX(second_line),
+                        chk_show_weather_for_two_hours = gtk_check_button_new(),
+                        FALSE, FALSE, 5);
+    gtk_box_pack_start(GTK_BOX(second_line),
+                            gtk_label_new(_("Show detailed weather")),
+                            FALSE, FALSE, 0);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_show_weather_for_two_hours),
+                                    app->config->show_weather_for_two_hours);
+    if(app->config->show_weather_for_two_hours)
+             app->update_tab_start_state |= STATE_SHOW_WEATHER_FOR_TWO_HOURS;
+    GLADE_HOOKUP_OBJECT(window, chk_show_weather_for_two_hours,
+                                 "show_weather_for_two_hours");
+    gtk_widget_set_name(chk_show_weather_for_two_hours,
+                                    "show_weather_for_two_hours");
+    g_signal_connect(chk_show_weather_for_two_hours, "toggled",
+                        G_CALLBACK(check_buttons_changed_handler),
+                        window);
+/*    fprintf(stderr,"show_weather_for_two_hours %s\n",
+                                    app->config->show_weather_for_two_hours);*/
+/* Switch time to the next station */
+    gtk_box_pack_start(GTK_BOX(third_line),
         		gtk_label_new(_("Switch to the next station after:")),
         		FALSE, FALSE, 20);
-    gtk_box_pack_end(GTK_BOX(second_line),
+    gtk_box_pack_end(GTK_BOX(third_line),
 			time_2switch_list = gtk_combo_box_new_text(),
         		FALSE, TRUE, 20);
     GLADE_HOOKUP_OBJECT(window, time_2switch_list, "time2switch");
@@ -3053,10 +3092,10 @@ GtkWidget* create_update_tab(GtkWidget *window){
 	case 6: gtk_combo_box_set_active(GTK_COMBO_BOX(time_2switch_list), 6); break;
     }
 /* Valid time */
-    gtk_box_pack_start(GTK_BOX(third_line),
+    gtk_box_pack_start(GTK_BOX(fourth_line),
         		gtk_label_new(_("Valid time for current weather:")),
         		FALSE, FALSE, 20);
-    gtk_box_pack_end(GTK_BOX(third_line),
+    gtk_box_pack_end(GTK_BOX(fourth_line),
 			valid_time_list = gtk_combo_box_new_text(),
         		FALSE, TRUE, 20);
     GLADE_HOOKUP_OBJECT(window, valid_time_list, "valid_time");
@@ -3077,10 +3116,10 @@ GtkWidget* create_update_tab(GtkWidget *window){
 	case 8:  gtk_combo_box_set_active(GTK_COMBO_BOX(valid_time_list), 3); break;
     }
 /* Update interval */
-    gtk_box_pack_start(GTK_BOX(fourth_line),
+    gtk_box_pack_start(GTK_BOX(fifth_line),
         		gtk_label_new(_("Updating of weather data:")),
         		FALSE, FALSE, 20);
-    gtk_box_pack_end(GTK_BOX(fourth_line),
+    gtk_box_pack_end(GTK_BOX(fifth_line),
 			update_time = gtk_combo_box_new_text(),
         		FALSE, TRUE, 20);
     GLADE_HOOKUP_OBJECT(window, update_time, "update_time");
@@ -3089,10 +3128,10 @@ GtkWidget* create_update_tab(GtkWidget *window){
     g_signal_connect(update_time, "changed",
             		G_CALLBACK(combo_boxs_changed_handler),
 			apply_button);
-    gtk_box_pack_start(GTK_BOX(fifth_line),
+    gtk_box_pack_start(GTK_BOX(sixth_line),
         		gtk_label_new(_("Next update:")),
         		FALSE, FALSE, 20);
-    gtk_box_pack_end(GTK_BOX(fifth_line),
+    gtk_box_pack_end(GTK_BOX(sixth_line),
 			time_update_label = gtk_label_new(NULL),
         		FALSE, TRUE, 20);
     gtk_widget_set_size_request(time_update_label, 300, -1);

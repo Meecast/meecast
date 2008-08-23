@@ -473,7 +473,16 @@ read_config(AppletConfig *config){
 	}
 	else
     	    config->transparency = TRUE;
-    #endif    
+    #endif 
+    /*Get Enable Weather For Two Hours. Default is TRUE.*/
+    value = gconf_client_get(gconf_client, GCONF_KEY_SHOW_WEATHER_FOR_TWO_HOURS,
+                                                                                NULL);
+    if(value){
+        config->show_weather_for_two_hours = gconf_value_get_bool(value);
+        gconf_value_free(value);
+    }
+    else
+        config->show_weather_for_two_hours = TRUE;
     /* Get Split Button State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_SEPARATE_DATA, NULL);
     if(value){
@@ -821,6 +830,10 @@ config_save(AppletConfig *config){
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_ENABLE_TRANSPARENCY,
 			config->transparency, NULL);
+    /*Save Enable Weather For Two Hours*/
+    gconf_client_set_bool(gconf_client,
+                                    GCONF_KEY_SHOW_WEATHER_FOR_TWO_HOURS,
+                                    config->show_weather_for_two_hours, NULL);
      /* Save Split Button State */
     gconf_client_set_bool(gconf_client,
         		GCONF_KEY_SEPARATE_DATA,

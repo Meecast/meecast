@@ -95,8 +95,9 @@ extern gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
 extern gint parse_weather_file_data(const gchar *station_id, WeatherStationData *wsd);
 extern gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 								WeatherStationData *wsd);
-extern gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser,
+extern gint parse_weather_com_xml_hour(const gchar *station_id, weather_com_parser *parser,
 								WeatherStationData *wsd);
+extern gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser, WeatherStationData *wsd);
 extern time_t last_update_time(GSList *object);
 extern float convert_wind_units(int to, float value);
 #ifdef OS2008

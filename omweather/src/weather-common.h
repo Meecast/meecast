@@ -132,10 +132,11 @@ enum { STATE_CELCIUS		= 1U,
        STATE_PRESSURE_IN	= 1024U
 };
 /* update tab */
-enum { STATE_AUTO_CONNECT	= 1U,
-       STATE_SWITCH_TO_NEXT	= 2U,
-       STATE_VALID_TIME		= 4U,
-       STATE_UPDATING_TIME	= 8U
+enum { STATE_AUTO_CONNECT		= 1U,
+       STATE_SWITCH_TO_NEXT		= 2U,
+       STATE_VALID_TIME			= 4U,
+       STATE_UPDATING_TIME		= 8U,
+       STATE_SHOW_WEATHER_FOR_TWO_HOURS = 16U
 };
 /* sensor tab */
 enum { STATE_USE_SENSOR		= 1U,
@@ -151,20 +152,31 @@ typedef struct{
 }weather_com_parser;
 /*******************************************************************************/
 typedef struct{
+    gint	error;
+    xmlDoc	*doc;
+    xmlNode	*weather_com_root;
+}weather_com_parser_hour;
+/*******************************************************************************/
+typedef struct{
     GSList	*location;
     GSList	*current;
     GSList	*days;
     gboolean	current_data_is_invalid;
+    GSList      *hours_weather;
 }WeatherStationData;
 /*******************************************************************************/
 typedef struct weather_data_source{
     gchar	*name;
     gchar	*db_path;
     gchar	*url;
-    gchar	*encoding;
+    gchar	*hour_url;
+    gchar	*encoding;    
     gint 	(*parser)(const gchar *station_id, weather_com_parser *parser,
 			    WeatherStationData *wsd);
+    gint 	(*parser_hour)(const gchar *station_id, weather_com_parser_hour *parser,
+			    WeatherStationData *wsd);			    
 }WeatherSource;
+
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{
     GtkWidget	*button;                                                                                               
@@ -247,6 +259,7 @@ typedef struct applet_config{
     gboolean	downloading_after_connecting;
     gboolean    gps_station;
     gboolean	show_wind;
+    gboolean    show_weather_for_two_hours;
     GdkColor	font_color;
     GdkColor	background_color;
     GdkColor	ui_background_color;

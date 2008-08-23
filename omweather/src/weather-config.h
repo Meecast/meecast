@@ -80,6 +80,7 @@
 #define GCONF_KEY_USE_GPS_STATION		GCONF_KEY_PREFIX"/gps-station"
 #define GCONF_KEY_GPS_STATION_NAME		GCONF_KEY_PREFIX"/gps-station_name"
 #define GCONF_KEY_GPS_STATION_ID		GCONF_KEY_PREFIX"/gps-station_id"
+#define GCONF_KEY_SHOW_WEATHER_FOR_TWO_HOURS    GCONF_KEY_PREFIX"/show-weather-for-two-hours"
 
 /*******************************************************************************/
 #ifdef OS2008

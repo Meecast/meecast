@@ -82,6 +82,7 @@ item_value(GSList *object, const char *name){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    fprintf(stderr,"Name: %s\n",name);
     if(object){
         tmp = g_string_new(name);
 	while(object){

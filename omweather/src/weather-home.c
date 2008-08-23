@@ -59,25 +59,30 @@ struct _OMWeatherPrivate {
 	GtkWidget	*desktop;
 };
 #endif
-
 const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
     {	"weather.com - 1",
 	"/usr/share/omweather/db/weather_com/",
 	"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&link=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5",
+        "http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
 	"ISO-8859-1",
-	parse_weather_com_xml
+	parse_weather_com_xml,
+	parse_weather_com_xml_hour
     },
     {	"weather.com - 2",
 	"/usr/share/omweather/db/weather_com/",
 	"http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10",
+        "http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
 	"ISO-8859-1",
-	parse_weather_com_xml
+	parse_weather_com_xml,
+	parse_weather_com_xml_hour
     },
     {	"rp5.ru",
 	"/usr/share/omweather/db/rp5_ru/",
 	"http://rp5.ru/xml.php?id=%s",
+        "http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
 	"windows-1251",
-	parse_rp5_ru_xml
+	parse_rp5_ru_xml,
+	NULL
     }
 };
 /* main struct */
@@ -583,6 +588,16 @@ void redraw_home_window(gboolean first_start){
 	}
 	g_slist_free(app->wsd.days);
 	app->wsd.days = NULL;
+	/* free station hours data */
+	tmp = app->wsd.hours_weather;
+	while(tmp){
+	    tmp_data = (GSList*)tmp->data;
+	    destroy_object(&tmp_data);
+	    tmp = g_slist_next(tmp);
+	}
+	g_slist_free(app->wsd.hours_weather);
+	app->wsd.hours_weather = NULL;
+	
 	/* free days buttons */
 	tmp = app->buttons;
 	while(tmp){
@@ -601,6 +616,8 @@ void redraw_home_window(gboolean first_start){
     }
 /* Parse data file */
     count_day = parse_weather_file_data(app->config->current_station_id, &(app->wsd));
+    if (app->config->show_weather_for_two_hours)
+	parse_weather_file_hour_data(app->config->current_station_id, &(app->wsd));
 /*    parse_underground_com_data("vitebsk");	*//* TODO next release, maybe */
     if(count_day == -2){
 	fprintf(stderr, _("Error in xml file\n"));
@@ -632,8 +649,8 @@ void update_weather(gboolean show_update_window){
     if(!app->flag_updating)
 	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }
-#ifndef OS2008
 /*******************************************************************************/
+//#ifndef OS2008
 void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
     osso_context_t	*osso = NULL;
@@ -825,6 +842,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     /* Deinitialize libosso */
     osso_deinitialize(osso);
 }
+//#endif
 /*******************************************************************************/
 GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent){
     GtkWidget	*menu_item;
@@ -839,7 +857,7 @@ GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent)
 
     return menu_item;
 }
-#endif
+//#endif
 /*******************************************************************************/
 void menu_init(void){
     GtkWidget	*menu_item = NULL;

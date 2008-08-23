@@ -87,6 +87,59 @@ gint parse_weather_file_data(const gchar *station_id, WeatherStationData *wsd){
     return (handler(station_id, parser, &(app->wsd)));
 }
 /*******************************************************************************/
+gint parse_weather_file_hour_data(const gchar *station_id, WeatherStationData *wsd){
+     
+ #ifdef DEBUGFUNCTIONCALL
+     START_FUNCTION;
+ #endif
+     gchar               buffer[2048],
+                         newname[2048];
+     weather_com_parser  *parser = NULL;
+     gint                (*handler)(const gchar *station_id,
+                                         weather_com_parser_hour *parser,
+                                         WeatherStationData *wsd);
+     /* check storage is aviable */
+     if(!wsd || !station_id)
+              return -1;
+     /* init parser */
+     handler = weather_sources[app->config->weather_source].parser_hour;
+     /* Used new file */
+     sprintf(buffer, "%s/%s_hour.xml.new", app->config->cache_dir_name, station_id);
+     if(!access(buffer, R_OK)){ /* Not Access to cache weather xml file */
+         parser = weather_parser_hour_new_from_file(buffer);
+         if(!(parser->error)){
+         sprintf(newname, "%s/%s_hour.xml", app->config->cache_dir_name, station_id);
+         rename(buffer, newname);
+         }
+     }
+     /* Used old xml file */
+     if(( !parser && (access(buffer,R_OK) != 0)) || (parser && parser->error)){
+        if(parser){
+            free(parser);
+            parser = NULL;
+        }
+        sprintf(buffer, "%s/%s_hour.xml", app->config->cache_dir_name, station_id);
+/* Not Access to cache weather xml file or not valid XML file */
+        if(!access(buffer, R_OK)){
+            parser = weather_parser_hour_new_from_file(buffer);
+            if(parser->error){
+                free(parser);
+                parser = NULL;
+                return -1;
+            }
+        }
+        else{
+            if(parser){
+                 free(parser);
+                 parser = NULL;
+            }
+            return -1;
+        }
+    }
+    return (handler(station_id, parser, &(app->wsd)));
+}
+/***************************************************************************
+****/
 weather_com_parser *weather_parser_new_from_file(const gchar *filename,
 						        const gchar *encoding){
     weather_com_parser *parser = NULL;
@@ -105,6 +158,27 @@ weather_com_parser *weather_parser_new_from_file(const gchar *filename,
     else{
         parser->error = FALSE;
 	parser->weather_com_root = xmlDocGetRootElement(parser->doc);
+    }
+    return parser;
+}
+/*******************************************************************************/
+weather_com_parser *weather_parser_hour_new_from_file(const gchar *filename){
+    weather_com_parser_hour *parser = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    parser = (weather_com_parser_hour *) malloc(sizeof(weather_com_parser_hour));
+    if(!parser)
+        return NULL;
+    parser->doc = NULL;
+    parser->doc = xmlReadFile( filename, NULL, 0 );
+    if(!(parser->doc)){
+        parser->error = TRUE;
+        parser->weather_com_root = NULL;
+    }
+    else{
+        parser->error = FALSE;
+        parser->weather_com_root = xmlDocGetRootElement(parser->doc);
     }
     return parser;
 }
@@ -484,6 +558,155 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
     xmlCleanupParser();
     free(parser);
     return count_day;     
+}
+/*******************************************************************************/
+gint parse_weather_com_xml_hour(const gchar *station_id, weather_com_parser
+    *parser, WeatherStationData *wsd){
+    xmlNode     *cur_node = NULL,
+                *child_node = NULL,
+                *child_node2 = NULL,
+                *child_node3 = NULL,
+                *child_node4 = NULL;
+    xmlChar     *temp_xml_string;
+    xmlChar     *part_of_day = NULL;
+    gint        store2day = 0,
+                count_hour = 0;
+    gchar       id_station[10],
+                buff[256];
+    struct tm   tmp_tm = {0};
+    Item        *itm;
+   // GSList      *day = NULL;
+    GSList      *hour_weather = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    for(cur_node = parser->weather_com_root->children; cur_node; cur_node = cur_node->next){
+        if( cur_node->type == XML_ELEMENT_NODE ){
+            /* Check error */
+            if(!xmlStrcmp(cur_node->name, (const xmlChar *) "err" ) ){
+                xmlFreeDoc(parser->doc);
+                xmlCleanupParser();
+                free(parser);
+                return -2;
+            }
+            if(!xmlStrcmp(cur_node->name, (const xmlChar *) "hbhf" ) ){
+                for(child_node = cur_node->children; child_node; child_node = child_node->next){
+                fprintf(stderr, "11111111111111111111111111111111\n");
+               /*     if( child_node->type == XML_ELEMENT_NODE  &&
+                 (!xmlStrcmp(child_node->name, (const xmlChar *)"lsup") )){
+                        temp_xml_string = xmlNodeGetContent(child_node);
+                        itm = create_item("hour_last_update", (char*)temp_xml_string);
+                        xmlFree(temp_xml_string);
+                        add_item2object(&hour_weather, itm);
+                        continue;
+                   }*/
+                   if( child_node->type == XML_ELEMENT_NODE  &&
+                  (!xmlStrcmp(child_node->name, (const xmlChar *)"hour") )){
+                        /*Get an hour*/
+                        temp_xml_string = xmlGetProp(child_node, (const xmlChar *)"c");
+                        /* prepare locale value for hour */
+                        memset(buff, 0, sizeof(buff));
+                        memcpy(buff, temp_xml_string, (strlen((char*)temp_xml_string)                                                                    > sizeof(buff)) ?
+                                                                 (sizeof(buff) - 1) :
+                                                   (strlen((char*)temp_xml_string)));
+                        strptime(buff, "%H", &tmp_tm);
+                        memset(buff, 0, sizeof(buff));
+                         strftime(buff, sizeof(buff) - 1, "%H", &tmp_tm);
+                        itm = create_item("hours", buff);
+                        xmlFree(temp_xml_string);
+                        add_item2object(&hour_weather, itm);
+                        for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
+                            if( child_node2->type == XML_ELEMENT_NODE){
+                                /*hour temperature*/
+                               if(!xmlStrcmp(child_node2->name, (const xmlChar *)"tmp"))    {
+                                    temp_xml_string = xmlNodeGetContent(child_node2);
+                                    itm = create_item("hour_temperature", (char*)temp_xml_string);
+                                    xmlFree(temp_xml_string);
+                                    add_item2object(&hour_weather, itm);
+                                    continue;
+                               }
+                               /*feels like for hour*/
+                               if(!xmlStrcmp(child_node2->name, (const xmlChar *)"flik")){
+                                    temp_xml_string = xmlNodeGetContent(child_node2);
+                                    itm = create_item("hour_feels_like", (char*)temp_xml_string);
+                                    xmlFree(temp_xml_string);
+                                    add_item2object(&hour_weather, itm);
+                                    continue;
+                               }
+                               /*icon for hour*/
+                               if(!xmlStrcmp(child_node2->name, (const xmlChar *)"icon")    ){
+                                    temp_xml_string = xmlNodeGetContent(child_node2);
+                                    itm = create_item("hour_icon", (char*)temp_xml_string);
+                                    if(!strcmp((char*)temp_xml_string, "-"))
+                                        wsd->current_data_is_invalid = TRUE;
+                                    else
+                                        wsd->current_data_is_invalid = FALSE;
+                                    xmlFree(temp_xml_string);
+                                    add_item2object(&hour_weather, itm);
+                                    continue;
+                               }
+                               /*title for hour*/
+                               if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t")){
+                                    temp_xml_string = xmlNodeGetContent(child_node2);
+                                    itm = create_item("hour_title", (char*)temp_xml_string);
+                                    xmlFree(temp_xml_string);
+                                    add_item2object(&hour_weather, itm);
+                                    continue;
+                               }
+                               /*wind data for hour*/
+                               if(!xmlStrcmp(child_node2->name, (const xmlChar *)"wind")){
+                                    for(child_node3 = child_node2->children; child_node3 != NULL; child_node3 = child_node3->next){
+                                    if( child_node3->type == XML_ELEMENT_NODE ){
+                                        /* speed */
+                                        if(!xmlStrcmp(child_node3->name, (const xmlChar *)"s")){
+                                            temp_xml_string = xmlNodeGetContent(child_node3);
+                                            itm = create_item("hour_wind_speed", (char*)temp_xml_string);
+                                            xmlFree(temp_xml_string);
+                                            add_item2object(&hour_weather, itm);
+                                     }
+                                     /* gust */
+                                     if(!xmlStrcmp(child_node3->name, (const xmlChar *)"gust") ){
+                                        temp_xml_string = xmlNodeGetContent(child_node3);
+                                        itm = create_item("hour_wind_gust", (char*)temp_xml_string);
+                                        xmlFree(temp_xml_string);
+                                        add_item2object(&hour_weather, itm);
+                                     }
+                                     /* direction */
+                                     if(!xmlStrcmp(child_node3->name, (const xmlChar *)    "t")){
+                                        temp_xml_string = xmlNodeGetContent(child_node3);
+                                        itm = create_item("hour_wind_direction", (char *)hash_table_find(temp_xml_string, FALSE));
+                                        xmlFree(temp_xml_string);
+                                        add_item2object(&hour_weather, itm);
+                                     }
+                                }
+                             }
+                         }
+                         /* hour humidity */
+                         if(!xmlStrcmp(child_node2->name, (const xmlChar *)"hmid") ){
+                             temp_xml_string = xmlNodeGetContent(child_node2);
+                             itm = create_item("hour_humidity", (char*)temp_xml_string);
+                             xmlFree(temp_xml_string);
+                             add_item2object(&hour_weather, itm);
+                             continue;
+                         }
+                    }
+                 }
+                 if(hour_weather){
+                    add_item2object(&(wsd->hours_weather), hour_weather);
+                    hour_weather = NULL;
+                    count_hour++;
+                 }
+             }
+         }
+         
+    }
+ }
+}
+    xmlFreeDoc(parser->doc);
+    xmlCleanupParser();
+    free(parser);
+    fprintf(stderr, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<count_hour = %d\n", count_hour);
+    return count_hour;
 }
 /*******************************************************************************/
 gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser,

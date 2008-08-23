@@ -34,8 +34,11 @@
 gint parse_weather_file_data(const gchar *station_id, WeatherStationData *wsd);
 weather_com_parser *weather_parser_new_from_file(const gchar *filename,
 						    const gchar *encoding);
+weather_com_parser *weather_parser_hour_new_from_file(const gchar *filename);
 gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 							WeatherStationData *wsd);
+gint parse_weather_com_xml_hour(const gchar *station_id, weather_com_parser *parser,
+							WeatherStationData *wsd);														
 gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser,
 							WeatherStationData *wsd);
 gint parse_underground_com_data(const gchar *station);

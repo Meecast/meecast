@@ -19,7 +19,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
  *
- * You should have received a copy of the GNU Lesser General Public
+  * You should have received a copy of the GNU Lesser General Public
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
@@ -37,10 +37,12 @@
 #endif
 /*******************************************************************************/
 static gchar *url = NULL;
+static GString *hour_url = NULL;
 static gboolean second_attempt = FALSE;
 static CURL *curl_handle = NULL;
+static CURL *curl_handle_hour = NULL;
 static CURL *curl_multi = NULL;
-static struct HtmlFile html_file;
+static struct HtmlFile html_file,html_file_hour;
 static GtkWidget *update_window = NULL;
 /*******************************************************************************/
 /* Create standard Hildon animation small window */
@@ -248,27 +250,27 @@ void weather_initialize_dbus(void){
 }
 /*******************************************************************************/
 /* Init easy curl */
-CURL* weather_curl_init(CURL *curl_handle){
+CURL* weather_curl_init(CURL *my_curl_handle){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    curl_handle = curl_easy_init(); 
-    curl_easy_setopt(curl_handle, CURLOPT_NOPROGRESS, 1); 
-    curl_easy_setopt(curl_handle, CURLOPT_FOLLOWLOCATION, 1); 
-    curl_easy_setopt(curl_handle, CURLOPT_FAILONERROR, 1); 
-    curl_easy_setopt(curl_handle, CURLOPT_USERAGENT, 
+    my_curl_handle = curl_easy_init(); 
+    curl_easy_setopt(my_curl_handle, CURLOPT_NOPROGRESS, 1); 
+    curl_easy_setopt(my_curl_handle, CURLOPT_FOLLOWLOCATION, 1); 
+    curl_easy_setopt(my_curl_handle, CURLOPT_FAILONERROR, 1); 
+    curl_easy_setopt(my_curl_handle, CURLOPT_USERAGENT, 
             "Mozilla/5.0 (X11; U; Linux i686; en-US; " 
             "rv:1.8.1.1) Gecko/20061205 Iceweasel/2.0.0.1"); 
-    curl_easy_setopt(curl_handle, CURLOPT_TIMEOUT, 30); 
-    curl_easy_setopt(curl_handle, CURLOPT_CONNECTTIMEOUT, 10); 
+    curl_easy_setopt(my_curl_handle, CURLOPT_TIMEOUT, 30); 
+    curl_easy_setopt(my_curl_handle, CURLOPT_CONNECTTIMEOUT, 10); 
     config_update_proxy();
     /* Set Proxy option */
     if(app->config->iap_http_proxy_host){ 
-        curl_easy_setopt(curl_handle, CURLOPT_PROXY, app->config->iap_http_proxy_host); 
+        curl_easy_setopt(my_curl_handle, CURLOPT_PROXY, app->config->iap_http_proxy_host); 
         if(app->config->iap_http_proxy_port) 
-            curl_easy_setopt(curl_handle, CURLOPT_PROXYPORT, app->config->iap_http_proxy_port); 
+            curl_easy_setopt(my_curl_handle, CURLOPT_PROXYPORT, app->config->iap_http_proxy_port); 
     } 
-    return curl_handle;    
+    return my_curl_handle;    
 }
 /*******************************************************************************/
 static int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
@@ -283,11 +285,11 @@ static int data_read(void *buffer, size_t size, size_t nmemb, void *stream){
 	if(!out->stream)
 	    return -1; /* failure, can't open file to write */      
     }
+    fprintf(stderr,"SIZE %i %i\n",size,nmemb);
     result = fwrite(buffer, size, nmemb, out->stream);
     return result;
 }			  
 /*******************************************************************************/
-/* Download html/xml file. Call every 100 ms after begin download */
 gboolean download_html(gpointer data){
     CURLMsg	*msg;
     CURLMcode	mret;
@@ -327,7 +329,7 @@ gboolean download_html(gpointer data){
 	second_attempt = TRUE;
         return TRUE;
     }
-
+fprintf(stderr,"sssssssssssss\n");
     if(app->iap_connecting){
 	/* Check timeout */
 	if(app->iap_connecting_timer > 150){
@@ -349,21 +351,23 @@ gboolean download_html(gpointer data){
 	}
     }
 	
+    fprintf(stderr,"ttttttttttttttt\n");
     second_attempt = FALSE;
     /* The second stage */
     /* call curl_multi_perform for read weather data from Inet */
     if(curl_multi && CURLM_CALL_MULTI_PERFORM ==
             curl_multi_perform(curl_multi, &num_transfers))
         return TRUE; /* return to UI */
+    fprintf(stderr,"aaaaaaaaa\n");
     /* The first stage */
-    if(!curl_handle){
+    if(!curl_handle && !curl_handle_hour){
 #ifndef RELEASE
 	fprintf(stderr, "\n>>>>>>>>>>>First stage\n");
 #endif
 	if(app->show_update_window)
     	    update_window = create_window_update(); /* Window with update information */
 	/* get first station */
-	if(!get_station_url(&url, &html_file, TRUE)){
+	if(!get_station_url(&url, &html_file,&hour_url, &html_file_hour, TRUE)){
 	    app->flag_updating = 0;	 
 	    return FALSE; /* The strange error */		
 	}
@@ -390,27 +394,44 @@ gboolean download_html(gpointer data){
         /* for debug */
         /*    curl_easy_setopt(curl_handle, CURLOPT_URL, "http://127.0.0.1"); */
         /* add the easy handle to a multi session */
+	
+        if(app->config->show_weather_for_two_hours){
+            curl_handle_hour = weather_curl_init(curl_handle_hour);
+            curl_easy_setopt(curl_handle_hour, CURLOPT_URL, hour_url->str);
+            curl_easy_setopt(curl_handle_hour, CURLOPT_WRITEDATA, &html_file_hour);	
+            curl_easy_setopt(curl_handle_hour, CURLOPT_WRITEFUNCTION, data_read);	
+	}
+//	fprintf(stderr,"hour_url->str %s \n", hour_url->str);
         curl_multi_add_handle(curl_multi, curl_handle);	
+//        curl_multi_add_handle(curl_multi, curl_handle_hour);
         return TRUE; /* return to UI */
     }
     else{
+    #ifndef RELEASE
+	fprintf(stderr, "\n>>>>>>>>>>>Third stage\n");
+    #endif
+
         /* The third stage */
 	num_msgs = 0;
 	while(curl_multi && (msg = curl_multi_info_read(curl_multi, &num_msgs))){
 	    if(msg->msg == CURLMSG_DONE){
 		/* Clean */
 		mret = curl_multi_remove_handle(curl_multi,curl_handle); /* Delete curl_handle from curl_multi */
-		if(mret != CURLM_OK)
+		if (mret != CURLM_OK)
+		    fprintf(stderr," Error remove handle %p\n",curl_handle);		    
+		mret = curl_multi_remove_handle(curl_multi,curl_handle_hour); /* Delete curl_handle from curl_multi */		    
+		if (mret != CURLM_OK)
 		    fprintf(stderr," Error remove handle %p\n",curl_handle);
 		
-		curl_easy_cleanup(curl_handle);
+		curl_easy_cleanup(curl_handle); 
 		curl_handle = NULL;
+		curl_easy_cleanup(curl_handle_hour); 
+		curl_handle_hour = NULL;
 
 		if(url){
 		    g_free(url);
 		    url = NULL;
 		}
-
 		if(html_file.stream){
         	    fclose(html_file.stream);
 		    html_file.stream = NULL;
@@ -420,6 +441,21 @@ gboolean download_html(gpointer data){
 		    g_free(html_file.filename);    	  
 		    html_file.filename = NULL;
 		}
+		
+		if(app->config->show_weather_for_two_hours){
+		    if(hour_url){
+			g_free(hour_url);
+			hour_url = NULL;
+		    }
+		    if(html_file_hour.stream){
+        		fclose(html_file_hour.stream);
+			html_file_hour.stream = NULL;
+		    }
+		    if(html_file_hour.filename){
+			g_free(html_file_hour.filename);    	  
+			html_file_hour.filename = NULL;
+		    }
+		}
 
 		if(msg->data.result != CURLE_OK){ /* Not success of the download */
 		    if(app->show_update_window)
@@ -428,7 +464,7 @@ gboolean download_html(gpointer data){
 							_("Did not download weather"));
 		}
 		else{ /* get next station url */
-		    if(!get_station_url(&url, &html_file, FALSE)){ /* Success - all is downloaded */
+		    if(!get_station_url(&url, &html_file, &hour_url, &html_file_hour, FALSE)){ /* Success - all is downloaded */
 			if(app->show_update_window)
 			    hildon_banner_show_information(app->main_window,
 							    NULL,
@@ -447,8 +483,16 @@ gboolean download_html(gpointer data){
 			curl_easy_setopt(curl_handle, CURLOPT_URL, url);
         		curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);		
         		curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);	
+			if(app->config->show_weather_for_two_hours){
+                            curl_handle_hour = weather_curl_init(curl_handle_hour);
+                            curl_easy_setopt(curl_handle_hour, CURLOPT_URL, hour_url->str);
+                            curl_easy_setopt(curl_handle_hour, CURLOPT_WRITEDATA, &html_file_hour);
+                            curl_easy_setopt(curl_handle_hour, CURLOPT_WRITEFUNCTION, data_read);
+                        }
     			/* add the easy handle to a multi session */
     			curl_multi_add_handle(curl_multi, curl_handle);	
+//			fprintf(stderr,"hour_url->str %s \n", *hour_url);
+//			curl_multi_add_handle(curl_multi, curl_handle_hour);
 			return TRUE;/* Download next station */
 		    }		    
 		}
@@ -480,6 +524,7 @@ void clean_download(void){
 	curl_multi_cleanup(curl_multi);
     curl_multi = NULL;
     curl_handle = NULL;
+    curl_handle_hour = NULL;
     if(update_window){
         gtk_widget_destroy(update_window);
         update_window = NULL;
@@ -490,7 +535,7 @@ void clean_download(void){
  * Returns TRUE if all right otherwise return FLASE.
 */
 gboolean
-get_station_url(gchar **url, struct HtmlFile *html_file, gboolean first){
+get_station_url(gchar **url, struct HtmlFile *html_file, gchar **hour_url, struct HtmlFile *html_file_hour,gboolean first){
 		gboolean	valid = FALSE;
     static	GtkTreeIter	iter;
 		gchar		*station_code = NULL;
@@ -516,6 +561,11 @@ get_station_url(gchar **url, struct HtmlFile *html_file, gboolean first){
 	snprintf(buffer, sizeof(buffer) - 1,
 		    weather_sources[station_source].url, station_code);
 	*url = g_strdup(buffer);
+	memset(buffer, 0, sizeof(buffer));
+	snprintf(buffer, sizeof(buffer) - 1,
+		    weather_sources[station_source].hour_url, station_code);
+	*hour_url = g_strdup(buffer);
+
 	#ifndef RELEASE
 	    fprintf(stderr, "\n>>>>>>>>>>URL %s\n", *url);
 	#endif
@@ -526,6 +576,13 @@ get_station_url(gchar **url, struct HtmlFile *html_file, gboolean first){
 		    app->config->cache_dir_name, station_code);
 	html_file->filename = g_strdup(buffer);
 	html_file->stream = NULL;
+	memset(buffer, 0, sizeof(buffer));
+	snprintf(buffer, sizeof(buffer) - 1,
+		    "%s/%s_hour.xml.new",
+		    app->config->cache_dir_name, station_code);
+	html_file_hour->filename = g_strdup(buffer);
+	html_file_hour->stream = NULL;
+
 	#ifndef RELEASE
 	    fprintf(stderr, "\n>>>>>>>>>NAME %s\n", html_file->filename);
 	#endif
@@ -536,4 +593,4 @@ get_station_url(gchar **url, struct HtmlFile *html_file, gboolean first){
 #endif
     return valid;
 }
-/*******************************************************************************/
+

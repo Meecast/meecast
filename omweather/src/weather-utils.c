@@ -69,11 +69,13 @@ set_font(GtkWidget *widget, const gchar *description, const gint size){
 					    pango_font_description_get_size(pfd) *
 					    size);
     }
-
     gtk_widget_modify_font(GTK_WIDGET(widget), NULL);   /* this function is leaking */
     gtk_widget_modify_font(GTK_WIDGET(widget), pfd);   /* this function is leaking */
 
     pango_font_description_free(pfd);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif    
 }
 /*******************************************************************************/
 void

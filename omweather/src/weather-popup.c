@@ -382,7 +382,8 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	}
 /* Show copyright widget */
 	copyright_box=gtk_event_box_new();
-	gtk_container_add(GTK_CONTAINER(copyright_box),create_copyright_widget(weather_sources[app->config->weather_source].name, NULL));
+	gtk_container_add(GTK_CONTAINER(copyright_box),
+			create_copyright_widget(weather_sources[app->config->current_station_source].name, NULL));
     gtk_box_pack_start(GTK_BOX(vbox),
 			copyright_box,
 			FALSE, TRUE, 0);

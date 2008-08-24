@@ -615,9 +615,13 @@ void redraw_home_window(gboolean first_start){
 	app->main_window = NULL;
     }
 /* Parse data file */
-    count_day = parse_weather_file_data(app->config->current_station_id, &(app->wsd));
-    if (app->config->show_weather_for_two_hours)
-	parse_weather_file_hour_data(app->config->current_station_id, &(app->wsd));
+    count_day = parse_weather_file_data(app->config->current_station_id,
+					app->config->current_station_source,
+					&(app->wsd));
+    if(app->config->show_weather_for_two_hours)
+	parse_weather_file_hour_data(app->config->current_station_id,
+					app->config->current_station_source,
+					&(app->wsd));
 /*    parse_underground_com_data("vitebsk");	*//* TODO next release, maybe */
     if(count_day == -2){
 	fprintf(stderr, _("Error in xml file\n"));

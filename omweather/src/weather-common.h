@@ -5,7 +5,7 @@
  * Copyright (C) 2006-2008 Pavel Fialko
  * Copyright (C) 2008      Andrew Olmsted
  * 	for the code
- *        
+ *
  * Copyright (C) 2008 Andrew Zhilin
  *		      az@pocketpcrussia.com 
  *	for default icon set (Glance)
@@ -24,7 +24,6 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-	
 */
 /*******************************************************************************/
 #ifndef _weather_common_h
@@ -47,7 +46,7 @@
 #include <libintl.h>
 #include <locale.h> 
 #ifdef OS2008 
-	#include <hildon/hildon-window.h>
+    #include <hildon/hildon-window.h>
     #include <hildon/hildon-banner.h>
     #include <libhildondesktop/hildon-desktop-picture.h>
     #include <libhildondesktop/hildon-desktop-home-item.h>
@@ -78,7 +77,7 @@
 #define START_FUNCTION		fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
 /*******************************************************************************/
-enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED, CHECK_GPS_POSITION};
+enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED, CHECK_GPS_POSITION };
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
 enum { METERS_S, KILOMETERS_H, MILES_H };
@@ -179,10 +178,10 @@ typedef struct weather_data_source{
 
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{
-    GtkWidget	*button;                                                                                               
-    GtkWidget	*label;                                                                                                
+    GtkWidget	*button;
+    GtkWidget	*label;
     GtkWidget	*box;
-    GdkPixbuf   *icon_buffer;                                                                                                             
+    GdkPixbuf   *icon_buffer;
     GtkWidget   *icon_image; 
 }WDB;
 /*******************************************************************************/

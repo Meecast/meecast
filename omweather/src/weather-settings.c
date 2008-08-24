@@ -1113,7 +1113,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	    }
 	}
     }
-/* Weather data source */	
+/* Weather data source */
     weather_source = lookup_widget(config_window, "weather_source");
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config_window), "list");
     if(weather_source && list){
@@ -2208,7 +2208,7 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 
     GLADE_HOOKUP_OBJECT(window, weather_source, "weather_source");
     gtk_widget_set_name(weather_source, "weather_source");
-    apply_button = lookup_widget(window, "apply_button");    
+    apply_button = lookup_widget(window, "apply_button");
     g_signal_connect(weather_source, "changed",
             		G_CALLBACK(combo_boxs_changed_handler),
 			apply_button);

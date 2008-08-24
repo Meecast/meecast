@@ -581,7 +581,6 @@ gint parse_weather_com_xml_hour(const gchar *station_id, weather_com_parser
                 buff[256];
     struct tm   tmp_tm = {0};
     Item        *itm;
-   // GSList      *day = NULL;
     GSList      *hour_weather = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -597,7 +596,6 @@ gint parse_weather_com_xml_hour(const gchar *station_id, weather_com_parser
             }
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "hbhf" ) ){
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
-                fprintf(stderr, "11111111111111111111111111111111\n");
                /*     if( child_node->type == XML_ELEMENT_NODE  &&
                  (!xmlStrcmp(child_node->name, (const xmlChar *)"lsup") )){
                         temp_xml_string = xmlNodeGetContent(child_node);
@@ -711,7 +709,6 @@ gint parse_weather_com_xml_hour(const gchar *station_id, weather_com_parser
     xmlFreeDoc(parser->doc);
     xmlCleanupParser();
     free(parser);
-    fprintf(stderr, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<count_hour = %d\n", count_hour);
     return count_hour;
 }
 /*******************************************************************************/

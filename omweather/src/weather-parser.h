@@ -33,6 +33,8 @@
 /*******************************************************************************/
 gint parse_weather_file_data(const gchar *station_id, const gint station_source,
 							WeatherStationData *wsd);
+gint parse_weather_file_hour_data(const gchar *station_id, const gint station_source,
+                                                        WeatherStationData *wsd);
 weather_com_parser *weather_parser_new_from_file(const gchar *filename,
 						    const gchar *encoding);
 weather_com_parser *weather_parser_hour_new_from_file(const gchar *filename);

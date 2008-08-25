@@ -882,7 +882,6 @@ GtkWidget* create_hour_tab(){
                    ( (int)c2f(atoi(item_value(hour_weather, "hour_temperature"))))));
         (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")))
                                     : ( strcat(buffer, _("F\n")));
-        fprintf(stderr, "ghkkdglhjflhjgl;jkgh;jkhj;'klhj'kl");
    /* feels like */
         sprintf(buffer + strlen(buffer), "%s", _("Feels like:"));
         sprintf(buffer + strlen(buffer), "  %d\302\260",
@@ -929,7 +928,6 @@ GtkWidget* create_hour_tab(){
             if (!tmp)
                 break;
         }
-        g_slist_free(hour_weather);       
    }
 
    gtk_box_pack_start(GTK_BOX(main_widget), window_tmp, TRUE, TRUE, 0);

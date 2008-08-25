@@ -56,12 +56,19 @@ destroy_item(Item **item){
 #endif
     if(!(*item))
 	return;
-    if((*item)->name)
+    if((*item)->name){
 	g_string_free((*item)->name, TRUE);
-    if((*item)->value)
+	(*item)->name = NULL;
+    }
+    if((*item)->value){
 	g_string_free((*item)->value, TRUE);
+	(*item)->value = NULL;
+    }	
     g_free(*item);
     *item = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif    
 }
 /*******************************************************************************/
 GSList*
@@ -128,10 +135,14 @@ destroy_object(GSList **object){
 	itm = (Item*)tmp->data;
 	if(itm)
 	    destroy_item(&itm);
+	itm = NULL;
 	tmp = g_slist_next(tmp);
     }
     g_slist_free(*object);
     *object = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif    
 }
 /*******************************************************************************/
 time_t

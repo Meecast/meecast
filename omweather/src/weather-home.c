@@ -576,28 +576,33 @@ void redraw_home_window(gboolean first_start){
 #endif
     if(!first_start){
 	/* free station location data */
+	fprintf(stderr,"destroy_object(&(app->wsd.location));\n");
 	destroy_object(&(app->wsd.location));
 	/* free station current data */
+	fprintf(stderr,"destroy_object(&(app->wsd.current));");
 	destroy_object(&(app->wsd.current));
 	/* free station days data */
 	tmp = app->wsd.days;
 	while(tmp){
 	    tmp_data = (GSList*)tmp->data;
-	    destroy_object(&tmp_data);
+	    if (tmp_data)
+		destroy_object(&tmp_data);
 	    tmp = g_slist_next(tmp);
 	}
-	g_slist_free(app->wsd.days);
+	if (app->wsd.days)
+    	    g_slist_free(app->wsd.days);
 	app->wsd.days = NULL;
 	/* free station hours data */
 	tmp = app->wsd.hours_weather;
 	while(tmp){
 	    tmp_data = (GSList*)tmp->data;
-	    destroy_object(&tmp_data);
+	    if (tmp_data)
+		destroy_object(&tmp_data);
 	    tmp = g_slist_next(tmp);
 	}
-	g_slist_free(app->wsd.hours_weather);
+	if (app->wsd.hours_weather)
+	    g_slist_free(app->wsd.hours_weather);
 	app->wsd.hours_weather = NULL;
-	
 	/* free days buttons */
 	tmp = app->buttons;
 	while(tmp){

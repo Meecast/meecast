@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-12 22:55+0300\n"
+"POT-Creation-Date: 2008-08-25 20:09-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,301 +18,310 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:1
 msgid ""
-"<display_text>Add</display_text> section allows you to add new weather "
-"stations, which will then be listed in the left view."
+"<display_text>Automatically update data when connecting to the Internet: </"
+"display_text> this selection controls the automatic weather data update when "
+"an Internet connection is established."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:2
 msgid ""
-"<display_text>Automatically update data when connecting to the Internet: </"
-"display_text> selection controls automatic weather data update when Internet "
-"connection is established."
+"<display_text>Background color:</display_text> setting defines the "
+"background color used for icons. Under OS2006-OS2007, the background color "
+"can not be selected if the transparency option is selected."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:3
 msgid ""
-"<display_text>Background color:</display_text> setting defines the "
-"background color used for icons. For OS2006-OS2007 background color is not "
-"selectable if transparency is used."
+"<display_text>Font color:</display_text> defines applet's font color. "
+"Selecting the color button will open the <display_text>Pick a Color</"
+"display_text> dialog where you may choose a font color."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:4
 msgid ""
-"<display_text>Display</display_text> tab is used to configure settings that "
-"controls the number of visible items, icon size and some other parameters of "
-"the OMWeather."
+"<display_text>Font:</display_text> defines the font and font size used by "
+"the applet."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:5
 msgid ""
-"<display_text>Enable GPS</display_text> check box is used to enable "
-"automatic weather station selection when GPS is enabled. This option works "
-"only for OS2008."
+"<display_text>Icon set:</display_text> defines which icon set is used. More "
+"icon sets may be installed via the Application Manager (if you have the "
+"Maemo Extras repository configured) or by downloading icon sets directly "
+"from OMWeather's Maemo garage page (http://omweather.garage.maemo.org/)."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:6
-msgid ""
-"<display_text>Font color:</display_text> defines applet's font color. "
-"Touching color button will open <display_text>Pick a Color</display_text> "
-"dialog where it's possible to select font color."
+msgid "<display_text>Icon size:</display_text> defines icon size."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:7
 msgid ""
-"<display_text>Font:</display_text> defines font and font size used by the "
-"applet."
+"<display_text>Layout:</display_text> defines how icons are arranged on the "
+"home screen."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:8
 msgid ""
-"<display_text>Icon set:</display_text> defines which icon set is used. You "
-"can install more icon sets with the application manager (if Maemo extras "
-"repository is configured) or going to OMWeathers Maemo garage page (http://"
-"omweather.garage.maemo.org/) and downloading icon sets directly from there."
+"<display_text>Show arrows:</display_text> this selection controls whether "
+"the arrows (used to change the displayed weather station) are shown on the "
+"applet."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:9
-msgid "<display_text>Icon size:</display_text> defines icon size."
+msgid ""
+"<display_text>Show station name:</display_text> this selection will control "
+"whether station names are shown on the applet."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:10
 msgid ""
-"<display_text>Layout:</display_text> defines how icons are shown on the home "
-"screen."
+"<display_text>Switch to the next station after:</display_text> this drop "
+"down menu controls the amount of time a specific weather station's data is "
+"displayed before changing to the next weather station."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:11
-msgid ""
-"<display_text>Sensor</display_text> tab is used control the usage of "
-"internal temperature sensor."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:12
-msgid ""
-"<display_text>Show arrows:</display_text> selection controls if arrows used "
-"to change weather station are shown on the applet."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:13
-msgid ""
-"<display_text>Show only current weather on first icon</display_text> "
-"selection will show current weather on first icon and forecast for the rest "
-"of the day is shown on the next icon."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:14
-msgid ""
-"<display_text>Show station name:</display_text> selection will control if "
-"station names are shown on the applet."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:15
-msgid ""
-"<display_text>Show wind</display_text> selection will show wind speed and "
-"direction on the applet."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:16
-msgid ""
-"<display_text>Stations</display_text> tab lists all locations which weather "
-"data OMWeather will receive when the applet's refresh button is touched or "
-"automatic update happens."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:17
-msgid ""
-"<display_text>Swap hi/low temperature</display_text> selection will change "
-"the way how lowest and highest temperature for a day is shown. If selected, "
-"applet will show high temperature first."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:18
-msgid ""
-"<display_text>Switch to the next station after:</display_text> drop down "
-"menu controls time after applet changes to next weather station."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:19
-msgid ""
-"<display_text>Tool</display_text> button will open OMWeather settings "
-"dialog. <display_text>Refresh</display_text> button will update weather "
-"data, <display_text>Question mark</display_text> will open OMWeather info "
-"and <display_text>X</display_text> button closes weather dialog."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:20
-msgid ""
-"<display_text>Transparency:</display_text> selection for OS2006-OS2007 will "
-"show background image behind the icons. For OS2008 this option allows to "
-"select the percentage for semi-transparency."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:21
-msgid ""
-"<display_text>UI Theme Override</display_text> selection allows to override "
-"theme settings."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:22
-msgid ""
-"<display_text>Units</display_text> tab is used to select units for "
-"temperature, distance, wind speed and pressure."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:23
-msgid ""
-"<display_text>Units</display_text> tab is used to select units for "
-"temperature, distance, wind speed and pressure. Necessary units can be "
-"selected by clicking on corresponding button."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:24
-msgid ""
-"<display_text>Update</display_text> tab is used to configure update interval "
-"of a weather data. This tab shows also time to next update."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:25
 msgid ""
 "<display_text>Visible items:</display_text> defines how many icons will be "
 "shown on the tablet's home screen."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:26
-msgid ""
-"<display_text>Visuals</display_text> tab is used to configure settings that "
-"controls visual appearance of the OMWeather."
-msgstr ""
-
-#: data/help/omweather.xml.in.h:27
+#: data/help/omweather.xml.in.h:12
 msgid "About OMWeather"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:28
-msgid "Check detailed weather forecast for up to 10 days"
+#: data/help/omweather.xml.in.h:13
+msgid "Check the detailed weather forecast for up to 10 days"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:29
-msgid "Configure nearest weather station automatically using GPS"
+#: data/help/omweather.xml.in.h:14
+msgid "Configure the nearest weather station automatically using GPS"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:30
+#: data/help/omweather.xml.in.h:15
 msgid "Copyright © 2006-2008 Vlad Vasiliev, Pavel Fialko."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:31
+#: data/help/omweather.xml.in.h:16
 msgid "Current Version: __VERSION__"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:32
-msgid "Easily to select custom weather station from the sorted drop down menu"
+#: data/help/omweather.xml.in.h:17
+msgid "Easily select a custom weather station from the sorted drop down menu"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:33
+#: data/help/omweather.xml.in.h:18
 msgid ""
-"First thing to do is select the position of a OMWeather applet in home view. "
-"You can change applet's position simply touching it and dragging it where "
-"you want it. Appearance of the applet can be changed from the "
-"<display_text>Tool</display_text> icon in OMWeathers weather window or "
-"selecting <display_text>Home</display_text> <display_text>Applet settings</"
+"First, select the position of a OMWeather applet in home view. You can "
+"change applet's position simply touching it and dragging it where you want "
+"it. The applet's appearance can be changed from the <display_text>Tool</"
+"display_text> icon in OMWeather's weather window or by selecting "
+"<display_text>Home</display_text> <display_text>Applet settings</"
 "display_text> <display_text>OMWeather settings</display_text>."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:34
+#: data/help/omweather.xml.in.h:19
 msgid "Getting Started"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:35
+#: data/help/omweather.xml.in.h:20
 msgid "Introduction"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:36
-msgid ""
-"Left section allows you to rename and remove stations in the list. "
-"<display_text>Up</display_text> and <display_text>down</display_text> arrows "
-"allow you to change order of the selected locations."
+#: data/help/omweather.xml.in.h:21
+msgid "Marvel at the eye candy with the new transparency option"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:37
+#: data/help/omweather.xml.in.h:22
 msgid ""
-"More info about how to change appearance of the applet and add, rename and "
-"delete locations can be found on the <ref refid=\"help_omweather_settings\" "
-"refdoc=\"Settings\"/> page."
+"More information on changing the applet's appearance and adding, renaming "
+"and deleting locations can be found on the <ref refid="
+"\"help_omweather_settings\" refdoc=\"Settings\"/> page."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:38
+#: data/help/omweather.xml.in.h:23
 msgid "OMWeather was developed by Vlad Vasiliev (vlad@gas.by)."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:39
+#: data/help/omweather.xml.in.h:24
 msgid ""
 "OMWeather will use the tablet's home city selection as a default location "
-"for weather data. Location can be changed from the <display_text>Stations</"
-"display_text> tab in OMWeathers settings window."
+"for weather data. The location can be changed from the "
+"<display_text>Stations</display_text> tab in OMWeather's settings window."
 msgstr ""
 
-#: data/help/omweather.xml.in.h:40
+#: data/help/omweather.xml.in.h:25
 msgid "Other Maemo Weather"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:41
+#: data/help/omweather.xml.in.h:26
 msgid ""
 "Other Maemo Weather (OMWeather) is a weather applet for Nokia Internet "
 "Tablets. It can be used to:"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:42
-msgid "See current phase of the moon"
+#: data/help/omweather.xml.in.h:27
+msgid "See the current phase of the moon"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:43
-msgid "See some eye candy with transparency option"
+#: data/help/omweather.xml.in.h:28
+msgid "See the sunrise and sunset times for selected weather stations"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:44
-msgid "See sunrise and sunset times for selected weather stations"
-msgstr ""
-
-#: data/help/omweather.xml.in.h:45
+#: data/help/omweather.xml.in.h:29
 msgid "Select between different icon sizes, icon sets, colors and view modes"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:46
+#: data/help/omweather.xml.in.h:30
 msgid "Settings"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:47
+#: data/help/omweather.xml.in.h:31
 msgid "Settings. Display tab"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:48
+#: data/help/omweather.xml.in.h:32
 msgid "Settings. Sensor tab"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:49
+#: data/help/omweather.xml.in.h:33
 msgid "Settings. Stations tab"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:50
+#: data/help/omweather.xml.in.h:34
 msgid "Settings. Units tab"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:51
+#: data/help/omweather.xml.in.h:35
 msgid "Settings. Update tab"
 msgstr ""
 
-#: data/help/omweather.xml.in.h:52
+#: data/help/omweather.xml.in.h:36
 msgid "Settings. Visuals tab"
+msgstr ""
+
+#: data/help/omweather.xml.in.h:37
+msgid ""
+"The <display_text>Display</display_text> tab is used to configure settings "
+"that control the number of visible items on-screen, the icon size, and other "
+"OMWeather parameters."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:38
+msgid ""
+"The <display_text>Enable GPS</display_text> check box is used to enable "
+"automatic weather station selection when GPS is enabled. This option is only "
+"functional under OS2008."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:39
+msgid ""
+"The <display_text>Sensor</display_text> tab is used control the usage of the "
+"Nokia's internal temperature sensor."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:40
+msgid ""
+"The <display_text>Settings</display_text> dialog (accessible from the "
+"desktop applet or home view's applet settings menu) provides access to the "
+"configurable options that control how OMWeather looks and operates. In "
+"addition to the tabs to switch between screens, there are also four buttons: "
+"the left arrow will take you to the weather view, the [OK] button saves any "
+"changes you made to the settings, the question mark [?] opens the help "
+"window, and the [x] button closes the settings window."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:41
+msgid ""
+"The <display_text>Show only current weather on first icon</display_text> "
+"selection will show current weather on first icon and forecast for the rest "
+"of the day is shown on the next icon."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:42
+msgid ""
+"The <display_text>Show wind</display_text> selection will display wind speed "
+"and direction on the applet."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:43
+msgid ""
+"The <display_text>Stations</display_text> tab lists all of the locations for "
+"which OMWeather will retrieve weather data when an update is manually or "
+"automatically triggered."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:44
+msgid ""
+"The <display_text>Swap hi/low temperature</display_text> selection will "
+"change the manner in which the forecast low and high temperatures are "
+"displayed. If selected, applet will show high temperature first."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:45
+msgid ""
+"The <display_text>Tool</display_text> button will open the OMWeather "
+"settings dialog: The <display_text>Refresh</display_text> button will update "
+"weather data, the <display_text>Question mark</display_text> will open "
+"OMWeather help text, and the <display_text>X</display_text> button closes "
+"weather dialog and returns to the applet's main display."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:46
+msgid ""
+"The <display_text>Transparency:</display_text> selection operates "
+"differently according to which Operating System is installed on your tablet: "
+"Under OS2006-OS2007, it will show a background image behind the weather "
+"icons. Under OS2008, this option allows you to select the percentage of "
+"transparency."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:47
+msgid ""
+"The <display_text>UI Theme Override</display_text> selection allows you to "
+"override the theme settings on your tablet and use settings specified within "
+"OMWeather, instead."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:48
+msgid ""
+"The <display_text>Units</display_text> tab is used to select the display "
+"units used for display of temperature, distance, wind speed and barometric "
+"pressure."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:49
+msgid ""
+"The <display_text>Units</display_text> tab is used to select units for "
+"temperature, distance, wind speed and barometric pressure. Necessary units "
+"can be selected by clicking on the corresponding button."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:50
+msgid ""
+"The <display_text>Update</display_text> tab is used to configure the "
+"interval between weather data updates. This tab will also indicate the time "
+"until the next update."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:51
+msgid ""
+"The <display_text>Visuals</display_text> tab is used to configure settings "
+"that control the visual appearance of OMWeather."
+msgstr ""
+
+#: data/help/omweather.xml.in.h:52
+msgid ""
+"The <display_text>add</display_text> pane allows you to add new weather "
+"stations, which will then appear in the left view."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:53
 msgid ""
-"The <display_text>Settings</display_text> dialog (accessible from the "
-"desktop applet or home view's applet settings menu) provides access to the "
-"configurable options that controls how OMWeather appears and run. In "
-"addition to the tabs, there are also four buttons. Left arrow will take you "
-"to weather view, ok button saves settings, question mark opens help and x "
-"button closes settings window."
+"The left pane allows you to rename or remove stations from the list. The "
+"<display_text>up</display_text> and <display_text>down</display_text> arrows "
+"allow you to change the display order of the locations."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:54
@@ -340,11 +349,11 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:57
 msgid ""
-"Touching icon of a day brings up a window where you can see current weather "
-"or detailed forecast for a selected day. On the <display_text>Now</"
-"display_text> tab you can see current weather and phase of the moon. "
-"<display_text>Day</display_text> tabs will show weather forecast and sunrise/"
-"sunset times for a selected days."
+"Touching the icon for a specific day brings up a window displaying the "
+"current weather or detailed forecast for that day. On the <display_text>Now</"
+"display_text> tab you can see current weather at that station, and phase of "
+"the moon. <display_text>Day</display_text> tabs will show weather forecast "
+"and sunrise/sunset times for selected days."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:58
@@ -355,8 +364,8 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:59
 msgid ""
-"Use the <ref refid=\"help_omweather_\" refdoc=\"index\"/> to use the various "
-"sections of this help document."
+"Use the <ref refid=\"help_omweather_\" refdoc=\"index\"/> to access the "
+"various sections of this help document."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:60
@@ -365,8 +374,8 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:61
 msgid ""
-"Valid time for current weather and update interval can be also selected from "
-"corresponding drop down menu."
+"Valid time for current weather and update interval may be also selected from "
+"the corresponding drop down menu."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:62
@@ -379,10 +388,11 @@ msgstr ""
 
 #: data/help/omweather.xml.in.h:64
 msgid ""
-"When <display_text>Use device temperature sensor</display_text> check box is "
-"enabled, applet will show temperature of the built-in temperature sensor. "
-"Temperature can be shown after station name or on a new icon. Sensor read "
-"interval can be set from 1-30 minutes."
+"When the <display_text>Use device temperature sensor</display_text> check "
+"box is enabled, the applet will display the temperature indicated by the "
+"built-in temperature sensor on the Nokia tablet. Temperature can be shown "
+"after station name, or on a new icon. The sensor read interval may be set "
+"from 1 to 30 minutes."
 msgstr ""
 
 #: data/help/omweather.xml.in.h:65

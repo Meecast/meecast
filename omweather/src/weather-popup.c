@@ -785,7 +785,7 @@ GtkWidget* create_current_tab(GSList *current){
 
 	tmp_pressure = atof(item_value(current, "pressure"));
 	switch(app->config->pressure_units){
-	    default:
+	    default_tmp:
 	    case MB: units = _("mb"); break;
 	    case INCH: units = _("inHg"); tmp_pressure = mb2inch(tmp_pressure); break;
 	}
@@ -832,6 +832,7 @@ GtkWidget* create_hour_tab(){
    GtkWidget   *main_widget = NULL,
                *window = NULL,
                *window_tmp = NULL, 
+               *icon_window = NULL,
                *icon_text_hbox = NULL,
                *text = NULL,
                *icon_image = NULL;
@@ -857,12 +858,12 @@ GtkWidget* create_hour_tab(){
    tmp = app->wsd.hours_weather;
    while(tmp){
         hour_weather = (GSList*)tmp->data; 
-        window = gtk_hbox_new(FALSE, 0);
+        window = gtk_vbox_new(FALSE, 0);
         icon_text_hbox = gtk_hbox_new(FALSE, 0);
    /* icon */
         sprintf(buffer,"%s%s.png", path_large_icon, item_value(hour_weather, "hour_icon"));
-        icon = gdk_pixbuf_new_from_file_at_size(buffer, BIG_ICON_SIZE,
-                                                   BIG_ICON_SIZE, NULL);
+        icon = gdk_pixbuf_new_from_file_at_size(buffer, SMALL_ICON_SIZE,
+                                                   SMALL_ICON_SIZE, NULL);
         icon_image = gtk_image_new_from_pixbuf(icon);
         if(icon)
             g_object_unref(icon);
@@ -881,7 +882,7 @@ GtkWidget* create_hour_tab(){
                    ( atoi(item_value(hour_weather, "hour_temperature"))) :
                    ( (int)c2f(atoi(item_value(hour_weather, "hour_temperature"))))));
         (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")))
-                                    : ( strcat(buffer, _("F\n")));
+                                  : ( strcat(buffer, _("F\n")));
    /* feels like */
         sprintf(buffer + strlen(buffer), "%s", _("Feels like:"));
         sprintf(buffer + strlen(buffer), "  %d\302\260",

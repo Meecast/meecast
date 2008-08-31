@@ -283,7 +283,7 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 		    if( child_node->type == XML_ELEMENT_NODE  &&
         		    ( !xmlStrcmp(child_node->name, (const xmlChar *)"tmp") ) ){
 			temp_xml_string = xmlNodeGetContent(child_node);
-			itm = create_item("24h_hi_temperature", (char*)temp_xml_string);
+			itm = create_item("day_hi_temperature", (char*)temp_xml_string);
 			xmlFree(temp_xml_string);
 			add_item2object(&(wsd->current), itm);
 			continue;
@@ -427,12 +427,12 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 			strptime(buff, "%A", &tmp_tm);
 			memset(buff, 0, sizeof(buff));
 			strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
-			itm = create_item("24h_name", buff);
+			itm = create_item("day_name", buff);
 			xmlFree(temp_xml_string);
 			add_item2object(&day, itm);
 			/* get 24h date */
 			temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"dt");
-			itm = create_item("24h_date", (char*)temp_xml_string);
+			itm = create_item("day_date", (char*)temp_xml_string);
 			xmlFree(temp_xml_string);
 			add_item2object(&day, itm);
 			
@@ -441,7 +441,7 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 				/* 24h hi temperature */
 				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"hi")){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
-    				    itm = create_item("24h_hi_temperature", (char*)temp_xml_string);
+    				    itm = create_item("day_hi_temperature", (char*)temp_xml_string);
 				    xmlFree(temp_xml_string);
 				    add_item2object(&day, itm);
 				    continue;
@@ -449,7 +449,7 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 				/* 24h low temperature */
 				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"low")){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
-				    itm = create_item("24h_low_temperature", (char*)temp_xml_string);
+				    itm = create_item("day_low_temperature", (char*)temp_xml_string);
 				    xmlFree(temp_xml_string);
 				    add_item2object(&day, itm);
 				    continue;
@@ -457,7 +457,7 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 				/* 24h sunrise */
 				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"sunr")){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
-				    itm = create_item("24h_sunrise", (char*)temp_xml_string);
+				    itm = create_item("day_sunrise", (char*)temp_xml_string);
 				    xmlFree(temp_xml_string);
 				    add_item2object(&day, itm);
 				    continue;
@@ -465,7 +465,7 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 				/* 24h sunset */
 				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"suns")){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
-    			    	    itm = create_item("24h_sunset", (char*)temp_xml_string);
+    			    	    itm = create_item("day_sunset", (char*)temp_xml_string);
 				    xmlFree(temp_xml_string);
 				    add_item2object(&day, itm);
 				    continue;
@@ -787,13 +787,13 @@ gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser,
 					strptime(buff, "%Y-%m-%d", &tmp_tm);
 					memset(buff, 0, sizeof(buff));
 					strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
-					itm = create_item("24h_name", buff);
+					itm = create_item("day_name", buff);
 					xmlFree(temp_xml_string);
 					add_item2object(&day, itm);
 					/* get 24h date */
 					memset(buff, 0, sizeof(buff));
 					strftime(buff, sizeof(buff) - 1, "%b %d", &tmp_tm);
-					itm = create_item("24h_date", (char*)temp_xml_string);
+					itm = create_item("day_date", (char*)temp_xml_string);
 					add_item2object(&day, itm);
 				    }
 				    /* day part */

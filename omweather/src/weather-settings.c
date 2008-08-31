@@ -2203,8 +2203,13 @@ GtkWidget* create_locations_tab(GtkWidget *window){
     for(i = 0; i < MAX_WEATHER_SOURCE_NUMBER; i++)
 	gtk_combo_box_append_text(GTK_COMBO_BOX(weather_source),
 				    weather_sources[i].name);
+/* uncomment on 0.22
     gtk_combo_box_set_active(GTK_COMBO_BOX(weather_source),
 				app->config->weather_source);
+*/
+/* delete on 0.22 */
+    gtk_combo_box_set_active(GTK_COMBO_BOX(weather_source), 1);
+    gtk_widget_set_sensitive(GTK_WIDGET(weather_source), FALSE);
 
     GLADE_HOOKUP_OBJECT(window, weather_source, "weather_source");
     gtk_widget_set_name(weather_source, "weather_source");

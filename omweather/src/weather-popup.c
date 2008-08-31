@@ -64,8 +64,8 @@ GtkWidget* create_sun_time_widget(GSList *day){
     memset(temp_buffer, 0, sizeof(temp_buffer));
     
     snprintf(buffer, sizeof(buffer) - 1, "%s", _("Sunrise: "));
-    strptime(item_value(day, "24h_sunrise"), "%r", &time_show);
-    if(strstr(item_value(day, "24h_sunrise"), "PM"))
+    strptime(item_value(day, "day_sunrise"), "%r", &time_show);
+    if(strstr(item_value(day, "day_sunrise"), "PM"))
 	time_show.tm_hour += 12;
     
     strftime(temp_buffer, sizeof(temp_buffer) - 1,
@@ -79,8 +79,8 @@ GtkWidget* create_sun_time_widget(GSList *day){
 
     memset(time_buffer, 0, sizeof(time_buffer));
     memset(temp_buffer, 0, sizeof(temp_buffer));
-    strptime(item_value(day, "24h_sunset"), "%r", &time_show);
-    if(strstr(item_value(day, "24h_sunset"), "PM"))
+    strptime(item_value(day, "day_sunset"), "%r", &time_show);
+    if(strstr(item_value(day, "day_sunset"), "PM"))
 	time_show.tm_hour += 12;
 
     strftime(temp_buffer, sizeof(temp_buffer) - 1,
@@ -505,18 +505,18 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     if(!day)
 	return NULL;
     /* prepare temperature */
-    if(!strcmp(item_value(day, "24h_hi_temperature"), "N/A")){
+    if(!strcmp(item_value(day, "day_hi_temperature"), "N/A")){
 	hi_temp = INT_MAX;
 	day_invalid_count++;
     }
     else
-	hi_temp = atoi(item_value(day, "24h_hi_temperature"));
-    if(!strcmp(item_value(day, "24h_low_temperature"), "N/A")){
+	hi_temp = atoi(item_value(day, "day_hi_temperature"));
+    if(!strcmp(item_value(day, "day_low_temperature"), "N/A")){
 	low_temp = INT_MAX;
 	night_invalid_count++;
     }
     else
-	low_temp = atoi(item_value(day, "24h_low_temperature"));
+	low_temp = atoi(item_value(day, "day_low_temperature"));
     if(app->config->temperature_units == FAHRENHEIT){
 	(hi_temp != INT_MAX) && ( hi_temp = c2f(hi_temp) );
 	(low_temp != INT_MAX) && ( low_temp = c2f(low_temp) );
@@ -525,12 +525,12 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     main_widget = gtk_vbox_new(FALSE, 0);
     /* prepare localized day name */
     memset(buffer, 0, sizeof(buffer));
-    sprintf(buffer,"%s", item_value(day, "24h_name"));
+    sprintf(buffer,"%s", item_value(day, "day_name"));
     strptime(buffer, "%a", &tmp_time_date_struct);
     *day_name = g_strdup(buffer);
     /* prepare title */
     memset(buffer, 0, sizeof(buffer));
-    sprintf(buffer,"%s %s", item_value(day, "24h_name"), item_value(day, "24h_date"));
+    sprintf(buffer,"%s %s", item_value(day, "day_name"), item_value(day, "day_date"));
     strptime(buffer, "%A %b %d", &tmp_time_date_struct);
     memset(buffer, 0, sizeof(buffer));
     strftime(buffer, sizeof(buffer) - 1, "%A, %d %B", &tmp_time_date_struct);
@@ -744,8 +744,8 @@ GtkWidget* create_current_tab(GSList *current){
     sprintf(buffer + strlen(buffer), "%s",  _("Temperature: "));
     sprintf(buffer + strlen(buffer), "  %d\302\260",
                 ((app->config->temperature_units == CELSIUS) ?
-			( atoi(item_value(current, "24h_hi_temperature"))) :
-			( (int)c2f(atoi(item_value(current, "24h_hi_temperature"))))));
+			( atoi(item_value(current, "day_hi_temperature"))) :
+			( (int)c2f(atoi(item_value(current, "day_hi_temperature"))))));
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")) )
                                                 : ( strcat(buffer, _("F\n")) );
     /* feels like */

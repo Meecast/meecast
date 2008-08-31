@@ -202,7 +202,6 @@ fill_user_stations_list(GSList *source_list, GtkListStore** list){
             }
             if(!strcmp(station_name, app->config->current_station_name) &&
 			!strcmp(station_code, app->config->current_station_id)){
-		fprintf(stderr, "\n>>>>>>>>>>>>>>TEST\n");
 		app->config->current_station_id = g_strdup(station_code);
 		app->config->current_station_name = g_strdup(station_name);
 		app->config->current_station_source = station_source;
@@ -348,6 +347,8 @@ read_config(AppletConfig *config){
     if(config->weather_source < WEATHER_COM1 &&
 	    config->weather_source > RP5_RU)
 	config->weather_source = WEATHER_COM2;
+/* delete on 0.22 */
+    config->weather_source = WEATHER_COM2;
     /* Get GPS station name and id */
 #ifdef OS2008
     app->gps_station.name[0] = 0;

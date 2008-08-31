@@ -320,13 +320,13 @@ int calculate_offset_of_day(int count_day){
 
     memset(date_in_string, 0, sizeof(date_in_string));
     sprintf(date_in_string, "%s %i 00:00:00",
-	    item_value(first_day, "24h_date"), year);
+	    item_value(first_day, "day_date"), year);
 
     strptime(date_in_string, "%b %d %Y %T", tm);
     /* Check New Year */
     if((current_month == 11) && (tm->tm_mon == 0)){
 	sprintf(date_in_string, "%s %i 00:00:00",
-		item_value(last_day, "24h_date"), year + 1);
+		item_value(last_day, "day_date"), year + 1);
 	strptime(date_in_string, "%b %d %Y %T", tm);
     }
     date_time = mktime(tm);
@@ -443,9 +443,9 @@ void draw_home_window(gint count_day){
 	    /* add CHANGE_DAY_PART for all days */
 	    add_change_day_part_event(day, year, current_month);
 	    /* day begin */
-	    day_begin_time = get_day_part_begin_time(day, year, "24h_sunrise");
+	    day_begin_time = get_day_part_begin_time(day, year, "day_sunrise");
 	    /* night begin */
-	    night_begin_time = get_day_part_begin_time(day, year, "24h_sunset");
+	    night_begin_time = get_day_part_begin_time(day, year, "day_sunset");
 	    /* add events for first day */
 	    if(current_time < day_begin_time)
         	event_add(day_begin_time - diff_time, CHANGE_DAY_PART);
@@ -472,13 +472,13 @@ void draw_home_window(gint count_day){
 		    /* add event for terminate valid period */
 		    event_add(update_time + app->config->data_valid_interval - diff_time, CHANGE_DAY_PART);
 		    buffer[0] = 0;
-		    create_current_temperature_text(app->wsd.current, buffer, TRUE, item_value(day, "24h_name"));
+		    create_current_temperature_text(app->wsd.current, buffer, TRUE, item_value(day, "day_name"));
 		    sprintf(buffer_icon, "%s%s.png", path_large_icon, item_value(app->wsd.current, "icon"));
 		}
 		else{ /* if current data is not actual */
 		    buffer[0] = 0;
 		    if(app->config->separate){ /* if current data isn't actual and first day */
-			create_current_temperature_text(app->wsd.current, buffer, FALSE, item_value(day, "24h_name"));
+			create_current_temperature_text(app->wsd.current, buffer, FALSE, item_value(day, "day_name"));
 			sprintf(buffer_icon, "%s48.png", path_large_icon);
 		    }
 		    else{ /* if first day and not config->separate data */
@@ -948,9 +948,9 @@ GtkWidget* create_forecast_weather_simple_widget(GSList *day){
     tm = localtime(&current_time);
     year = 1900 + tm->tm_year;
     /* day begin */
-    day_begin_time = get_day_part_begin_time(day, year, "24h_sunrise");
+    day_begin_time = get_day_part_begin_time(day, year, "day_sunrise");
     /* night begin */
-    night_begin_time = get_day_part_begin_time(day, year, "24h_sunset");
+    night_begin_time = get_day_part_begin_time(day, year, "day_sunset");
 
     /* prepare "title" "humidity", "wind", "gust" */
     main_data_label = gtk_label_new(NULL);
@@ -1030,8 +1030,8 @@ GtkWidget* create_current_weather_simple_widget(GSList *current){
 
     sprintf(buffer + strlen(buffer), _("Now: "));
     sprintf(buffer + strlen(buffer), "\n%d\302\260",
-		((app->config->temperature_units == CELSIUS) ? ( atoi(item_value(current, "24h_hi_temperature")))
-							: ((int)c2f(atof(item_value(current, "24h_hi_temperature"))))));
+		((app->config->temperature_units == CELSIUS) ? ( atoi(item_value(current, "day_hi_temperature")))
+							: ((int)c2f(atof(item_value(current, "day_hi_temperature"))))));
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
 						: ( strcat(buffer, _("F")) );
     strcat(buffer,"</span>");
@@ -1638,12 +1638,12 @@ void add_change_day_part_event(GSList *day, guint year, guint month){
 #endif
     memset(buffer, 0, sizeof(buffer));
     snprintf(buffer, sizeof(buffer) - 1,
-		"%s %i 00:00:00", item_value(day, "24h_date"), year);
+		"%s %i 00:00:00", item_value(day, "day_date"), year);
     strptime(buffer, "%b %d %Y %T", &tm);
     /* Check New Year */
     if(month == 11 && tm.tm_mon == 0){
 	snprintf(buffer, sizeof(buffer) - 1,
-		"%s %i 00:00:00", item_value(day, "24h_date"), year + 1);
+		"%s %i 00:00:00", item_value(day, "day_date"), year + 1);
 	strptime(buffer, "%b %d %Y %T", &tm);
     }
     time = mktime(&tm);
@@ -1658,7 +1658,7 @@ time_t get_day_part_begin_time(GSList *day, guint year, const gchar *day_part){
 #endif
     memset(buffer, 0, sizeof(buffer));
     snprintf(buffer, sizeof(buffer) - 1,
-	    "%s %i %s", item_value(day, "24h_date"), year, item_value(day, day_part));
+	    "%s %i %s", item_value(day, "day_date"), year, item_value(day, day_part));
     strptime(buffer, "%b %d %Y %I:%M %p", &tm);
     return  mktime(&tm);
 }
@@ -1694,8 +1694,8 @@ void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 							const gchar *day_name){
     gint	temp_current = INT_MAX;
     
-    if(strcmp(item_value(day, "24h_hi_temperature"), "N/A"))
-	temp_current = atoi(item_value(day, "24h_hi_temperature"));
+    if(strcmp(item_value(day, "day_hi_temperature"), "N/A"))
+	temp_current = atoi(item_value(day, "day_hi_temperature"));
 
     if(app->config->temperature_units == FAHRENHEIT)
 	( temp_current != INT_MAX ) && ( temp_current = c2f(temp_current) );
@@ -1723,11 +1723,11 @@ void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
     gint	temp_hi = INT_MAX,
 		temp_low = INT_MAX;
     
-    if(strcmp(item_value(day, "24h_hi_temperature"), "N/A"))
-	temp_hi = atoi(item_value(day, "24h_hi_temperature"));
+    if(strcmp(item_value(day, "day_hi_temperature"), "N/A"))
+	temp_hi = atoi(item_value(day, "day_hi_temperature"));
 
-    if(strcmp(item_value(day, "24h_low_temperature"), "N/A"))
-	temp_low = atoi(item_value(day, "24h_low_temperature"));
+    if(strcmp(item_value(day, "day_low_temperature"), "N/A"))
+	temp_low = atoi(item_value(day, "day_low_temperature"));
     
     if(app->config->temperature_units == FAHRENHEIT){
 	( temp_hi != INT_MAX ) && ( temp_hi = c2f(temp_hi) );
@@ -1744,7 +1744,7 @@ void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 		app->config->font_color.red >> 8,
 		app->config->font_color.green >> 8,
 		app->config->font_color.blue >> 8,
-		item_value(day, "24h_name"));
+		item_value(day, "day_name"));
 	if(temp_low == INT_MAX)
 	    sprintf(buffer + strlen(buffer), "%s\302\260\n", _("N/A") );
 	else

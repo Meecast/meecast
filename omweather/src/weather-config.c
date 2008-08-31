@@ -124,13 +124,13 @@ fill_user_stations_list_from_clock(GtkListStore** list){
                 gtk_list_store_set(*list, &iter,
                                     0, station_name,
                                     1, station_code,
-				    2, 0,
+				    3, app->config->weather_source,
                                     -1);
 		/* A current station */
 		if(!strncmp(buffer, home_city, tmp - buffer)){
 		    app->config->current_station_id = station_code;
 		    app->config->current_station_name = station_name;
-		    app->config->current_station_source = 0;
+		    app->config->current_station_source = app->config->weather_source;
 		}
 	    }	    
 	}
@@ -200,6 +200,13 @@ fill_user_stations_list(GSList *source_list, GtkListStore** list){
 #endif
                             	    -1);
             }
+            if(!strcmp(station_name, app->config->current_station_name) &&
+			!strcmp(station_code, app->config->current_station_id)){
+		fprintf(stderr, "\n>>>>>>>>>>>>>>TEST\n");
+		app->config->current_station_id = g_strdup(station_code);
+		app->config->current_station_name = g_strdup(station_name);
+		app->config->current_station_source = station_source;
+	    }
 	    station_name && (g_free(station_name) , station_name = NULL);
 	    station_code && (g_free(station_code) , station_code = NULL);
 	}
@@ -317,13 +324,30 @@ read_config(AppletConfig *config){
     if(!config_set_weather_dir_name(gnome_vfs_expand_initial_tilde(tmp_buff)))
         fprintf(stderr, _("Could not create weather cache directory.\n"));
 
-
-    config->current_station_id	= NULL;
-    /* Get Weather Station ID for current station */
+    /* Get Weather country name. */    
+    config->current_country = gconf_client_get_string(gconf_client,
+        					    GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
+						    NULL);
+    /* Get current station id */
+    config->current_station_id = NULL;
     config->current_station_id = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_CURRENT_STATION_ID, NULL);
-    if (config->current_station_id && strlen(config->current_station_id) == 0)
+    if(config->current_station_id && strlen(config->current_station_id) == 0)
 	config->current_station_id = NULL;
+    /* Get Weather current station name. */
+    config->current_station_name = NULL;
+    config->current_station_name = gconf_client_get_string(gconf_client,
+							GCONF_KEY_WEATHER_CURRENT_STATION_NAME,
+							NULL);
+    if(config->current_station_name && strlen(config->current_station_name) == 0)
+	config->current_station_name = NULL;
+    /* Get weather data source */ 
+    config->weather_source = gconf_client_get_int(gconf_client,
+					    GCONF_KEY_WEATHER_DATA_SOURCE,
+					    NULL);
+    if(config->weather_source < WEATHER_COM1 &&
+	    config->weather_source > RP5_RU)
+	config->weather_source = WEATHER_COM2;
     /* Get GPS station name and id */
 #ifdef OS2008
     app->gps_station.name[0] = 0;
@@ -344,9 +368,9 @@ read_config(AppletConfig *config){
 	tmp = NULL;
     }
 #endif    
-    /* Get Weather Stations ID and NAME */
+    /* Get user Weather Stations list */
     stlist = gconf_client_get_list(gconf_client,
-        			    GCONF_KEY_WEATHER_STATIONS_LIST,
+				    GCONF_KEY_WEATHER_STATIONS_LIST,
 				    GCONF_VALUE_STRING, NULL);
     if(stlist){
 	fill_user_stations_list(stlist, &app->user_stations_list);
@@ -364,13 +388,7 @@ read_config(AppletConfig *config){
     }
     else
 	close(fd);
-    /* Get weather data source */ 
-    config->weather_source = gconf_client_get_int(gconf_client,
-					    GCONF_KEY_WEATHER_DATA_SOURCE,
-					    NULL);
-    if(config->weather_source < WEATHER_COM1 &&
-	    config->weather_source > RP5_RU)
-	config->weather_source = WEATHER_COM2;
+
 
     /* Get Weather Icon Size  */
     config->icons_size = gconf_client_get_int(gconf_client,
@@ -387,17 +405,7 @@ read_config(AppletConfig *config){
         config->current_settings_page = 0;
 
 
-    /* Get Weather country name. */    
-    config->current_country = gconf_client_get_string(gconf_client,
-        					    GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
-						    NULL);
-    /* Get Weather current station name. */
-    config->current_station_name = NULL;
-    config->current_station_name = gconf_client_get_string(gconf_client,
-    							GCONF_KEY_WEATHER_CURRENT_STATION_NAME,
-							NULL);
-    if (config->current_station_name && strlen(config->current_station_name) == 0)
-	config->current_station_name = NULL;
+
     /* Get Weather periodic update time. */
     config->update_interval = gconf_client_get_int(gconf_client,
         			    GCONF_KEY_WEATHER_UPDATE_INTERVAL,
@@ -772,15 +780,15 @@ config_save(AppletConfig *config){
 	gconf_client_set_string(gconf_client,
 				GCONF_KEY_WEATHER_ICON_SET,
 				config->icon_set, NULL);
-    /* Save Weather Icon Size  */		     	    
+    /* Save Weather Icon Size  */
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_ICONS_SIZE,
 			config->icons_size, NULL);
-    /* Save Weather Data Source  */		     	    
+    /* Save Weather Data Source  */
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_DATA_SOURCE,
 			config->weather_source, NULL);
-    /* Save current setting tab number  */		     	    
+    /* Save current setting tab number  */
     gconf_client_set_int(gconf_client,
         		GCONF_KEY_WEATHER_SETTING_TAB_NUMBER,
 			config->current_settings_page, NULL);

@@ -736,7 +736,7 @@ gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser,
 	fprintf(stderr, "\n>>>Name %s\n", cur_node->name);
 	if( cur_node->type == XML_ELEMENT_NODE ){
 	    /* get weather station data */
-    	    if(!xmlStrcmp(cur_node->name, (const xmlChar*) "point" ) ){
+	    if(!xmlStrcmp(cur_node->name, (const xmlChar*) "point" ) ){
 		temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"id");
 		snprintf(id_station, sizeof(id_station) - 1,
 			    "%s", temp_xml_string);

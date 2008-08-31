@@ -231,14 +231,14 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     }
 /* Main window */
     window_popup = hildon_window_new();
-    
+
     g_object_set_data(G_OBJECT(window_popup), "active_tab", (gpointer)active_tab);
     gtk_window_fullscreen(GTK_WINDOW(window_popup));
     /* create frame vbox */    
     vbox = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(window_popup), vbox);
 /* station name */
-	label_box=gtk_event_box_new();
+    label_box = gtk_event_box_new();
 	gtk_container_add(GTK_CONTAINER(label_box),create_window_header(app->config->current_station_name, window_popup));
     gtk_box_pack_start(GTK_BOX(vbox),
 			label_box,
@@ -278,8 +278,6 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
         gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                     hour_tab,
                                     gtk_label_new(_("Detailed weather")));
-    
-    
 /* Day tabs */
     tmp = app->wsd.days;
     while(tmp && i < app->config->days_to_show){
@@ -344,7 +342,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     /* check if no data file for this station */
     if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){
 	if(active_tab == -1){
-    	    hildon_banner_show_information(app->main_window,
+	    hildon_banner_show_information(app->main_window,
 					    NULL,
 					    _("No weather data for this day."));
 	    gtk_widget_destroy(window_popup);
@@ -377,9 +375,12 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	gtk_box_pack_start(GTK_BOX(vbox), no_weather_box, TRUE, TRUE, 0);
 	gtk_event_box_set_visible_window(GTK_EVENT_BOX(no_weather_box),FALSE);
 	set_font(label, NULL, 24);
-	}
+    }
 /* Show copyright widget */
-	copyright_box=gtk_event_box_new();
+	fprintf(stderr, "\n>>>>>>>>>>>>>>>>Source %d\n", app->config->current_station_source);
+	if(app->config->current_station_source < 0)
+	    app->config->current_station_source = app->config->weather_source;
+	copyright_box = gtk_event_box_new();
 	gtk_container_add(GTK_CONTAINER(copyright_box),
 			create_copyright_widget(weather_sources[app->config->current_station_source].name, NULL));
     gtk_box_pack_start(GTK_BOX(vbox),
@@ -785,7 +786,7 @@ GtkWidget* create_current_tab(GSList *current){
 
 	tmp_pressure = atof(item_value(current, "pressure"));
 	switch(app->config->pressure_units){
-	    default_tmp:
+	    default:
 	    case MB: units = _("mb"); break;
 	    case INCH: units = _("inHg"); tmp_pressure = mb2inch(tmp_pressure); break;
 	}

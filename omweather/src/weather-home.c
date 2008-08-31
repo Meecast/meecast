@@ -98,6 +98,7 @@ gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 		ready = FALSE;
     gchar       *station_name = NULL,
                 *station_code = NULL;
+    gint	station_source = -1;
     GtkTreePath	*path;
     gint	day_number = 0;
 #ifdef DEBUGFUNCTIONCALL
@@ -114,6 +115,7 @@ gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 			    &iter, 
                     	    0, &station_name,
                     	    1, &station_code,
+                    	    3, &station_source,
                     	    -1);
 	if(ready){
 	    /* update current station code */
@@ -125,6 +127,7 @@ gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 		g_free(app->config->current_station_name);
 	    app->config->current_station_name = station_name;
 	    app->config->previos_days_to_show = app->config->days_to_show;
+	    app->config->current_station_source = station_source;
 	    redraw_home_window(FALSE);
 	    config_save(app->config);
 	    break;
@@ -170,6 +173,7 @@ gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
 		ready = FALSE;
     gchar       *station_name = NULL,
                 *station_code = NULL;
+    gint	station_source = -1;
     GtkTreePath	*path;
     gint	day_number = 0;
 #ifdef DEBUGFUNCTIONCALL
@@ -186,6 +190,7 @@ gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
 			    &iter, 
                     	    0, &station_name,
                     	    1, &station_code,
+                    	    3, &station_source,
                     	    -1);
 	if(ready){
 	    /* update current station code */
@@ -197,6 +202,7 @@ gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
 		g_free(app->config->current_station_name);
 	    app->config->current_station_name = station_name;
 	    app->config->previos_days_to_show = app->config->days_to_show;
+	    app->config->current_station_source = station_source;
 	    redraw_home_window(FALSE);
 	    config_save(app->config);
 	    break;
@@ -232,6 +238,7 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
     gboolean    valid;
     gchar       *station_name = NULL,
                 *station_code = NULL;
+    gint	station_source = -1;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -248,6 +255,7 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
                             &iter,
                             0, &station_name,
                             1, &station_code,
+                            3, &station_source,
                             -1);
 	if( (station_code) &&
 	    !strcmp((char*)user_data, station_code)){
@@ -260,6 +268,7 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
                 g_free(app->config->current_station_name);
             app->config->current_station_name = station_name;
             app->config->previos_days_to_show = app->config->days_to_show;
+            app->config->current_station_source = station_source;
             redraw_home_window(FALSE);
             config_save(app->config);
             break;

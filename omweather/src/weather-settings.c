@@ -529,10 +529,10 @@ void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
 }
 /*******************************************************************************/
 gboolean check_station_code(const gint source, const gchar *station_code){
+    gint	min_length = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    gint	min_length = 0;
     switch(source){
 	case WEATHER_COM1:
 	case WEATHER_COM2:

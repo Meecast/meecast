@@ -42,7 +42,7 @@
 #define GCONF_KEY_WEATHER_ICONS_SIZE		GCONF_KEY_PREFIX"/icons-size"
 #define GCONF_KEY_WEATHER_FONT_COLOR		GCONF_KEY_PREFIX"/font-color"
 #define GCONF_KEY_WEATHER_FONT			GCONF_KEY_PREFIX"/font"
-#define GCONF_KEY_WEATHER_THEME_OVERRIDE		GCONF_KEY_PREFIX"/theme-override"
+#define GCONF_KEY_WEATHER_THEME_OVERRIDE	GCONF_KEY_PREFIX"/theme-override"
 #define GCONF_KEY_WEATHER_BACKGROUND_COLOR	GCONF_KEY_PREFIX"/background-color"
 #define GCONF_KEY_ENABLE_TRANSPARENCY		GCONF_KEY_PREFIX"/transparency"
 #define GCONF_KEY_ALPHA_COMPONENT		GCONF_KEY_PREFIX"/alpha-component"
@@ -82,12 +82,6 @@
 #define GCONF_KEY_GPS_STATION_ID		GCONF_KEY_PREFIX"/gps-station_id"
 #define GCONF_KEY_SHOW_WEATHER_FOR_TWO_HOURS    GCONF_KEY_PREFIX"/show-weather-for-two-hours"
 
-/*******************************************************************************/
-#ifdef OS2008
-#define MAX_SETTINGS_PAGE_NUMBER	SETTINGS_SENSOR_PAGE
-#else
-#define MAX_SETTINGS_PAGE_NUMBER	SETTINGS_UPDATE_PAGE
-#endif
 /*******************************************************************************/
 extern	gchar	path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/

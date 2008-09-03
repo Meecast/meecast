@@ -30,6 +30,7 @@
 #include "weather-locations.h"
 #include "weather-help.h"
 #include "weather-utils.h"
+#include "weather-alerts.h"
 #include <errno.h>
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
@@ -741,6 +742,10 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
         			sensor_page = create_sensor_page(window_config),
         			gtk_label_new(_("Sensor")));
 #endif
+/* Alerts */
+    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			create_alerts_page(window_config),
+        			gtk_label_new(_("Alerts")));
 #ifndef RELEASE
 /* Events list tab */
     memset(tmp_buff, 0, sizeof(tmp_buff));

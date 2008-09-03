@@ -668,27 +668,40 @@ void update_weather(gboolean show_update_window){
 	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }
 /*******************************************************************************/
-#ifndef OS2008
+#ifdef OS2008
+void omweather_init(OMWeather *applet){
+    GtkSettings *settings;
+    GdkColormap *cm;
+    gchar       tmp_buff[2048];
+#else
 void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
+#endif
     osso_context_t	*osso = NULL;
 
-#ifdef OS2008
-    char       tmp_buff[2048];
-#endif
     osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
     if(!osso){
         g_debug(_("Error initializing the OMWeather applet"));
+#ifndef OS2008
         return NULL;
+#else
+	return;
+#endif
     }
 #ifndef RELEASE
+#ifndef OS2008
 	fprintf(stderr, "\nOMWeather applet initialize %p %d\n",
 			state_data, *state_size);
+#endif
 #endif
 /* Checking noomweather.txt file */
     if ((access("/media/mmc1/noomweather.txt", R_OK) == 0)||
         (access("/media/mmc2/noomweather.txt", R_OK) == 0))
+#ifndef OS2008
         return NULL;
+#else
+	return;
+#endif
 
     app = g_new0(OMWeatherApp, 1);
     if(!app){
@@ -706,7 +719,11 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     if(!app->config){
         fprintf(stderr, "\nCan not allocate memory for config.\n");
         g_free(app);
+#ifndef OS2008
         return NULL;
+#else
+	return;
+#endif
     }
 /* list of user select stations */
     app->user_stations_list = create_user_stations_list();
@@ -721,7 +738,11 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         fprintf(stderr, "\nCan not read config file.\n");
         g_free(app->config);
         g_free(app);
+#ifndef OS2008
         return NULL;
+#else
+	return;
+#endif
     }
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
@@ -733,28 +754,39 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     timer(60000);  /* One per minute */
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
+#ifndef OS2008
     redraw_home_window(TRUE);
-/*    
-    event_add(time(NULL) + 5, DBUSINITEVENT);
-    add_periodic_event(time(NULL));
-*/
+#endif
 #ifdef OS2008
+    applet->queueRefresh = TRUE;
+    app->gps_device = NULL;
     initial_gps_connect();
-    app->widget_first_start = FALSE;		     
+    app->widget_first_start = TRUE;		     
 
     gtk_widget_set_name(GTK_WIDGET(app->top_widget), PACKAGE_NAME);
 
     snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s/%s",
 	                    app->config->cache_directory, "style.rc");
     gtk_rc_parse(tmp_buff);
-#endif
+    applet->priv = G_TYPE_INSTANCE_GET_PRIVATE(applet, TYPE_OMWEATHER, OMWeatherPrivate);
+
+    settings = gtk_settings_get_default();
+    cm = gdk_screen_get_rgba_colormap(gdk_screen_get_default());
+    if(app->config->theme_override_in_use){
+    	gtk_rc_parse("/usr/share/omweather/theme/gtk-2.0/gtkrc");
+    	gtk_rc_reset_styles(gtk_settings_get_for_screen(gdk_screen_get_default()));
+    }
+    if(cm)
+	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
+    
+    gtk_container_add(GTK_CONTAINER(applet), app->top_widget);
+#else
     (*widget) = app->top_widget;
-#ifdef DEBUGFUNCTIONCALL
-    END_FUNCTION;
-#endif
     return (void*)osso;
+#endif
 }
 /*******************************************************************************/
+#ifndef OS2008
 int hildon_home_applet_lib_save_state(void *raw_data, void **state_data, 
 								int *state_size){
 #ifndef RELEASE
@@ -777,33 +809,40 @@ void hildon_home_applet_lib_foreground(void *raw_data){
     fprintf(stderr, "\nOMWeather applet foreground\n");
 #endif
 }
+#endif
 /*******************************************************************************/
+#ifdef OS2008
+static void omweather_destroy(GtkObject *widget){
+#else
 void hildon_home_applet_lib_deinitialize(void *applet_data){
-    osso_context_t *osso;
-    gboolean check;
-    
+#endif
+    osso_context_t *osso = NULL;
 #ifndef RELEASE
     fprintf(stderr, "\nOMWeather applet deinitialize1\n");
+#endif
+#ifdef OS2008
+    if(!app)
+	return;
 #endif
     /* remove switch timer */
     if(app->switch_timer > 0)
 	g_source_remove(app->switch_timer);
     /* It is switch off the timer */	
-    check = g_source_remove(app->timer);
+    if(app->timer > 0)
+	g_source_remove(app->timer);
     /* Clean the queue of event */ 
     free_list_time_event();
     /* If downloading then switch off it */
     if(app->flag_updating != 0){
-	check = g_source_remove(app->flag_updating);
+	g_source_remove(app->flag_updating);
 	clean_download();
     }
-    if(app->timer_for_os2008 != 0){
-    	check = g_source_remove(app->timer_for_os2008);
-    }
+    if(app->timer_for_os2008 != 0)
+    	g_source_remove(app->timer_for_os2008);
     config_save(app->config); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
 			On n800 this work */
     #ifdef USE_CONIC
-	if (app->connection)
+	if(app->connection)
 	    g_object_unref(app->connection);
     #endif
 
@@ -827,9 +866,9 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	    app->pixbuf = NULL; 
 	}
 #endif	
-			
+#ifndef OS2008			
     osso = (osso_context_t*)applet_data;
-    
+#endif
     if(app){
 	app->top_widget = NULL;    
 	free_memory();
@@ -859,8 +898,10 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     app && (g_free(app), app = NULL);
     /* Deinitialize libosso */
     osso_deinitialize(osso);
-}
+#ifdef OS2008
+    gtk_object_destroy(widget);
 #endif
+}
 /*******************************************************************************/
 GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent){
     GtkWidget	*menu_item;
@@ -875,7 +916,6 @@ GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent)
 
     return menu_item;
 }
-//#endif
 /*******************************************************************************/
 void menu_init(void){
     GtkWidget	*menu_item = NULL;
@@ -1795,172 +1835,6 @@ settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent){
     return menu_item;
 }
 /*******************************************************************************/
-void
-omweather_init(OMWeather *applet){
-    GtkSettings *settings;
-    GdkColormap *cm;
-    char       tmp_buff[2048];
-    osso_context_t	*osso = NULL;
-
-    osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
-    if(!osso){
-        g_debug(_("Error initializing the OMWeather applet"));
-        return;
-    }
-    
-    app = g_new0(OMWeatherApp, 1);
-    if(!app){
-	fprintf(stderr, "\nCan not allocate memory for applet.\n");
-	return;
-    }
-    memset(app, 0, sizeof(OMWeatherApp));
-
-    app->osso = osso;
-
-/* prepare config struct */
-    app->config = g_new0(AppletConfig, 1);
-    if(!app->config){
-        fprintf(stderr, "\nCan not allocate memory for config.\n");
-        g_free(app);
-        return;
-    }
-    	
-    /* Checking noomweather.txt file */
-    if ((access("/media/mmc1/noomweather.txt", R_OK) == 0)||
-        (access("/media/mmc2/noomweather.txt", R_OK) == 0))
-        return;
-
-    app->flag_updating = 0;
-    /* create i18n hash for values coming from xml file */
-    app->hash = hash_table_create();
-    app->dbus_is_initialize = FALSE;
-
-    /* list of user select stations */
-    app->user_stations_list = create_user_stations_list();
-    #ifdef USE_CONIC
-	app->connection = NULL;
-    #endif    
-/* Initialize DBUS */
-    weather_initialize_dbus(); /* TODO connect this function with app->dbus_is_initialize */
-/* Init gconf. */
-    gnome_vfs_init();
-    if(read_config(app->config)){
-        fprintf(stderr, "\nCan not read config file.\n");
-        g_free(app->config);
-        g_free(app);
-        return;
-    }
-    app->popup_window = NULL;
-    app->time_update_list = create_time_update_list();
-    app->show_update_window = FALSE;
-    /* Read Coutries list from file */
-    app->countrys_list
-	= create_items_list(weather_sources[app->config->weather_source].db_path,
-			    COUNTRIESFILE, -1, -1, NULL);
-    /* delete on 0.22 release */
-    app->config->weather_source = 1;
-    /* Start timer */
-    timer(60000);  /* One per minute */
-    /* Start main applet */ 
-    app->top_widget = gtk_hbox_new(FALSE, 0);
-    applet->queueRefresh=TRUE;
-    app->gps_device = NULL;
-    initial_gps_connect();
-    app->widget_first_start = TRUE;
-
-    gtk_widget_set_name(GTK_WIDGET(app->top_widget), PACKAGE_NAME);
-
-    snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s/%s",
-	                    app->config->cache_directory, "style.rc");
-    gtk_rc_parse(tmp_buff);
-
-    applet->priv = G_TYPE_INSTANCE_GET_PRIVATE(applet,TYPE_OMWEATHER, OMWeatherPrivate);
-	
-    settings = gtk_settings_get_default();
-    cm = gdk_screen_get_rgba_colormap(gdk_screen_get_default());
-    
-    if (app->config->theme_override_in_use)
-	{
-    	gtk_rc_parse("/usr/share/omweather/theme/gtk-2.0/gtkrc");
-    	gtk_rc_reset_styles(gtk_settings_get_for_screen(gdk_screen_get_default()));
-	}
-    if(cm != NULL){
-	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
-    }
-    
-    gtk_container_add (GTK_CONTAINER (applet), app->top_widget);
-}
-/*******************************************************************************/
-static void
-omweather_destroy(GtkObject *widget){
-    
-    gboolean check;
-//#ifndef RELEASE
-    fprintf(stderr, "\nOMWeather applet deinitialize2\n");
-//#endif
-    if (!app)
-	return;
-    /* remove switch timer */
-    if(app->switch_timer > 0)
-	g_source_remove(app->switch_timer);
-    /* It is switch off the timer */	
-    if(app->timer > 0)
-	check = g_source_remove(app->timer);
-    /* Clean the queue of event */ 
-    free_list_time_event();
-    /* If downloading then switch off it */
-    if(app->flag_updating != 0){
-	check = g_source_remove(app->flag_updating);
-	clean_download();
-    }
-    if(app->timer_for_os2008 != 0){
-    	check = g_source_remove(app->timer_for_os2008);
-    }
-    config_save(app->config); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
-			On n800 this work */
-    #ifdef USE_CONIC
-	if (app->connection)
-	    g_object_unref(app->connection);
-    #endif
-
-    /* remove sensor time */
-    if(app->sensor_timer > 0)
-	g_source_remove(app->sensor_timer);
-    
-    deinitial_gps_connect();
-    
-    if(app){
-	app->top_widget = NULL;    
-	free_memory();
-	if(app->config)
-    	    g_free(app->config);
-	if(app->countrys_list){
-	    gtk_list_store_clear(app->countrys_list);
-	    g_object_unref(app->countrys_list);
-	}
-	if(app->regions_list){
-	    gtk_list_store_clear(app->regions_list);
-	    g_object_unref(app->regions_list);
-	}
-	if(app->stations_list){
-	    gtk_list_store_clear(app->stations_list);
-	    g_object_unref(app->stations_list);
-	}
-	if(app->time_update_list){
-	    gtk_list_store_clear(app->time_update_list);
-	    g_object_unref(app->time_update_list);
-	}
-	if(app->user_stations_list){
-	    gtk_list_store_clear(app->user_stations_list);
-	    g_object_unref(app->user_stations_list);
-	}
-    }
-
-    osso_deinitialize(app->osso);
-    app && (g_free(app), app = NULL);
-
-    gtk_object_destroy(widget);
-}
 destr()
 {
   fprintf (stderr,"sddddddddddddd\n");

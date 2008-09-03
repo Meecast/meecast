@@ -77,7 +77,9 @@
 #define START_FUNCTION		fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
 /*******************************************************************************/
-enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED, CHECK_GPS_POSITION };
+enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
+	CHECK_GPS_POSITION
+};
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
 enum { METERS_S, KILOMETERS_H, MILES_H };
@@ -88,9 +90,15 @@ enum { MB, INCH };
 enum { WEATHER_COM1, WEATHER_COM2, RP5_RU, MAX_WEATHER_SOURCE_NUMBER };
 enum { TINY_ICON_SIZE = 32, SMALL_ICON_SIZE = 48, MEDIUM_ICON_SIZE = 64,
 	BIG_ICON_SIZE = 80, LARGE_ICON_SIZE = 96, GIANT_ICON_SIZE = 128,
-	SUPER_GIANT_ICON_SIZE = 256 };
+	SUPER_GIANT_ICON_SIZE = 256
+};
 enum { SETTINGS_STATIONS_PAGE, SETTINGS_VISUALS_PAGE, SETTINGS_DISPLAY_PAGE,
-	SETTINGS_UNITS_PAGE, SETTINGS_UPDATE_PAGE, SETTINGS_SENSOR_PAGE, ABOUT_PAGE };
+	SETTINGS_UNITS_PAGE, SETTINGS_UPDATE_PAGE,
+#ifdef OS2008
+	SETTINGS_SENSOR_PAGE,
+#endif
+	ALERTS_PAGE, MAX_SETTINGS_PAGE_NUMBER, ABOUT_PAGE
+};
 /* station tab */
 enum { STATE_ENABLE_GPS	= 1U,
        STATE_SOURCE	= 2U
@@ -295,6 +303,8 @@ typedef struct OMWeatherApplet{
     guint		update_tab_current_state;
     guint		sensor_tab_start_state;
     guint		sensor_tab_current_state;
+    guint		alerts_tab_start_state;
+    guint		alerts_tab_current_state;
     GSList		*buttons;
     guint		flag_updating;
     gboolean		dbus_is_initialize;
@@ -304,6 +314,7 @@ typedef struct OMWeatherApplet{
     GtkListStore	*stations_list;
     GtkListStore	*user_stations_list;
     GtkListStore	*time_update_list;
+    GtkListStore	*user_alerts_list;
     GtkWidget 		*contextmenu;
     gboolean 		widget_first_start;
     gint 		widget_showing;

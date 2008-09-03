@@ -27,6 +27,7 @@
 */
 /*******************************************************************************/
 #include "weather-config.h"
+#include "weather-alerts.h"
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
@@ -347,8 +348,6 @@ read_config(AppletConfig *config){
     if(config->weather_source < WEATHER_COM1 &&
 	    config->weather_source > RP5_RU)
 	config->weather_source = WEATHER_COM2;
-/* delete on 0.22 */
-    config->weather_source = WEATHER_COM2;
     /* Get GPS station name and id */
 #ifdef OS2008
     app->gps_station.name[0] = 0;
@@ -375,6 +374,14 @@ read_config(AppletConfig *config){
 				    GCONF_VALUE_STRING, NULL);
     if(stlist){
 	fill_user_stations_list(stlist, &app->user_stations_list);
+	g_slist_free(stlist);
+    }
+    /* Get user alerts list */
+    stlist = gconf_client_get_list(gconf_client,
+				    GCONF_KEY_WEATHER_ALERTS_LIST,
+				    GCONF_VALUE_STRING, NULL);
+    if(stlist){
+	fill_user_alerts_list(stlist, &app->user_alerts_list);
 	g_slist_free(stlist);
     }
     /* Get icon set name */ 
@@ -531,15 +538,15 @@ read_config(AppletConfig *config){
 	if(gerror)
 	    g_error_free(gerror);
     }
-	/* Get value of corner radius. Default is 10 */
-	config->corner_radius = gconf_client_get_int(gconf_client,
+    /* Get value of corner radius. Default is 10 */
+    config->corner_radius = gconf_client_get_int(gconf_client,
 							GCONF_KEY_CORNER_RADIUS,
 							&gerror);
-	if(gerror || config->corner_radius <= 0){
-	    config->corner_radius = 10;
-	    if(gerror)
-		g_error_free(gerror);
-	}
+    if(gerror || config->corner_radius <= 0){
+	config->corner_radius = 10;
+	if(gerror)
+	    g_error_free(gerror);
+    }
 #endif
     /* Get auto_downloading_after_connecting. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_DOWNLOADING_AFTER_CONNECTING, NULL);
@@ -912,6 +919,14 @@ config_save(AppletConfig *config){
     stlist = create_stations_string_list();
     gconf_client_set_list(gconf_client,
         		GCONF_KEY_WEATHER_STATIONS_LIST,
+			GCONF_VALUE_STRING, stlist, NULL);
+    /* Free stlist */	    
+    g_slist_foreach(stlist, (GFunc)g_free, NULL);
+    g_slist_free(stlist);
+    /* Save alerts list */
+    stlist = create_list_of_user_alerts(app->user_alerts_list);
+    gconf_client_set_list(gconf_client,
+        		GCONF_KEY_WEATHER_ALERTS_LIST,
 			GCONF_VALUE_STRING, stlist, NULL);
     /* Free stlist */	    
     g_slist_foreach(stlist, (GFunc)g_free, NULL);

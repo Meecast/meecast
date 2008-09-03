@@ -78,3 +78,25 @@ void fill_user_alerts_list(GSList *source_list, GtkListStore** list){
     }
 }
 /*******************************************************************************/
+GSList* create_list_of_user_alerts(GtkListStore* list){
+    GSList      *stlist = NULL;
+    GtkTreeIter	iter;
+    gboolean	valid = FALSE;
+    gchar	*alert_name = NULL,
+		*str = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif    
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list), &iter);
+    while(valid){
+	gtk_tree_model_get(GTK_TREE_MODEL(list), &iter, 
+                    	    0, &alert_name,
+                    	    -1);
+	str = g_strdup_(alert_name);
+	stlist = g_slist_append(stlist, str);
+	g_free(alert_name);
+	valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list), &iter);
+    }
+    return stlist;
+}
+/*******************************************************************************/

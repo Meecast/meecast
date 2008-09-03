@@ -725,8 +725,10 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	return;
 #endif
     }
-/* list of user select stations */
+/* list of user selected stations */
     app->user_stations_list = create_user_stations_list();
+/* list of user selected alerts */
+    app->user_alerts_list = create_user_alerts_list();
     #ifdef USE_CONIC
 	app->connection = NULL;
     #endif    

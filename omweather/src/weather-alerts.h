@@ -34,5 +34,6 @@
 GtkWidget* create_alerts_page(GtkWidget *window);
 GtkListStore* create_user_alerts_list(void);
 void fill_user_alerts_list(GSList *source_list, GtkListStore** list);
+GSList* create_list_of_user_alerts(GtkListStore* list);
 /*******************************************************************************/
 #endif

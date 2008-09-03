@@ -277,7 +277,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     if(hour_tab)
         gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                     hour_tab,
-                                    gtk_label_new(_("Detailed weather")));
+                                    gtk_label_new(_("Detailed")));
 /* Day tabs */
     tmp = app->wsd.days;
     while(tmp && i < app->config->days_to_show){

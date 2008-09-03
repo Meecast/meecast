@@ -756,15 +756,13 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE,FALSE, 0);
 
     gtk_widget_show_all(window_config);
-    if (app->config->theme_override_in_use)
-    {
+    if(app->config->theme_override_in_use){
     	gint i;
-    	for (i=0;i<gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook));i++)
-    	{
-    		g_signal_connect(G_OBJECT(gtk_notebook_get_nth_page(GTK_NOTEBOOK(notebook),i)),"expose-event",G_CALLBACK(draw_top_gradient),NULL);
-		}
-    	g_signal_connect(G_OBJECT(buttons_box),"expose-event",G_CALLBACK(draw_bottom_gradient),NULL);
+    	for(i=0;i<gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook));i++){
+    	    g_signal_connect(G_OBJECT(gtk_notebook_get_nth_page(GTK_NOTEBOOK(notebook),i)),"expose-event",G_CALLBACK(draw_top_gradient),NULL);
 	}
+    	g_signal_connect(G_OBJECT(buttons_box),"expose-event",G_CALLBACK(draw_bottom_gradient),NULL);
+    }
 
 /* set current page and show it for notebook */
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook),
@@ -1060,7 +1058,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 /* UI Theme Override */
     theme_override = lookup_widget(config_window, "theme_override");
     if(theme_override){
-	app->config->ui_background_color_on =
+	app->config->theme_override_in_use =
 	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(theme_override));
     }
 /* background color */
@@ -1154,7 +1152,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     redraw_home_window(FALSE);
 /* disable button */
     gtk_widget_set_sensitive(button, FALSE);
-    if(app->config->ui_background_color_on)
+    if(app->config->theme_override_in_use)
 	set_background_color(button, &(app->config->ui_background_color));
 /* store current settings state */
     app->stations_tab_start_state = app->stations_tab_current_state;
@@ -2493,8 +2491,8 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
 		theme_override = gtk_check_button_new_with_label(_("UI Theme Override")),
 			FALSE, FALSE, 20);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(theme_override),
-        			    app->config->ui_background_color_on);
-    if(app->config->ui_background_color_on)
+        			    app->config->theme_override_in_use);
+    if(app->config->theme_override_in_use)
 	app->visuals_tab_start_state |= STATE_THEME_OVERRIDE;
     gtk_widget_set_name(theme_override, "theme_override");
     GLADE_HOOKUP_OBJECT(window, theme_override, "theme_override");

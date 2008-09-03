@@ -262,7 +262,6 @@ typedef struct applet_config{
     GdkColor	font_color;
     GdkColor	background_color;
     GdkColor	ui_background_color;
-    gboolean	ui_background_color_on;
     gboolean	theme_override_in_use;
 }AppletConfig;
 /*******************************************************************************/

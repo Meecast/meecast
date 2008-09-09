@@ -1965,6 +1965,7 @@ void combo_boxs_changed_handler(GtkComboBox *combobox, gpointer user_data){
 	    app->update_tab_current_state &= ~STATE_UPDATING_TIME;
 	goto check;
     }
+#ifdef OS2008    
 /* sensor read time */
     if(!strcmp(combobox_name, "sensor_update_time")){
 	if(gtk_combo_box_get_active(combobox) !=
@@ -1974,6 +1975,7 @@ void combo_boxs_changed_handler(GtkComboBox *combobox, gpointer user_data){
 	    app->sensor_tab_current_state &= ~STATE_SENSOR_READ_TIME;
 	goto check;
     }
+#endif    
     return;
 check:
 /* if previos state not equal current state than enable apply button */

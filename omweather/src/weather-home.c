@@ -63,18 +63,20 @@ const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
     {	"weather.com - 1",
 	"/usr/share/omweather/db/weather_com/",
 	"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&link=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5",
-        "http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
+	"http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
 	"ISO-8859-1",
 	parse_weather_com_xml,
-	parse_weather_com_xml_hour
+	parse_weather_com_xml_hour,
+	"/usr/share/omweathr/templates/popup.xml"
     },
     {	"weather.com - 2",
 	"/usr/share/omweather/db/weather_com/",
 	"http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10",
-        "http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
+	"http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
 	"ISO-8859-1",
 	parse_weather_com_xml,
-	parse_weather_com_xml_hour
+	parse_weather_com_xml_hour,
+	"/usr/share/omweathr/templates/popup.xml"
     },
     {	"rp5.ru",
 	"/usr/share/omweather/db/rp5_ru/",
@@ -82,6 +84,7 @@ const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
         "http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
 	"windows-1251",
 	parse_rp5_ru_xml,
+	NULL,
 	NULL
     }
 };
@@ -433,9 +436,8 @@ void draw_home_window(gint count_day){
 	if (app->wsd.days){
 	    first = (GSList*)((app->wsd.days)->data);
 	    last = (GSList*)((g_slist_last(tmp))->data);
-	}    
+	}
     }
-
     i = 0;
     while(i < app->config->days_to_show){
 	if(tmp){
@@ -631,11 +633,11 @@ void redraw_home_window(gboolean first_start){
 /* Parse data file */
     count_day = parse_weather_file_data(app->config->current_station_id,
 					app->config->current_station_source,
-					&(app->wsd));
+					&(app->wsd), FALSE);
     if(app->config->show_weather_for_two_hours)
-	parse_weather_file_hour_data(app->config->current_station_id,
+	parse_weather_file_data(app->config->current_station_id,
 					app->config->current_station_source,
-					&(app->wsd));
+					&(app->wsd), TRUE);
 /*    parse_underground_com_data("vitebsk");	*//* TODO next release, maybe */
     if(count_day == -2){
 	fprintf(stderr, _("Error in xml file\n"));
@@ -688,12 +690,6 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	return;
 #endif
     }
-#ifndef RELEASE
-#ifndef OS2008
-	fprintf(stderr, "\nOMWeather applet initialize %p %d\n",
-			state_data, *state_size);
-#endif
-#endif
 /* Checking noomweather.txt file */
     if ((access("/media/mmc1/noomweather.txt", R_OK) == 0)||
         (access("/media/mmc2/noomweather.txt", R_OK) == 0))
@@ -746,6 +742,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	return;
 #endif
     }
+/*    parse_template_from_file("/usr/share/omweather/templates/weather_com/popup.xml", "UTF-8");*/
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
 /* Read Coutries list from file */
@@ -791,9 +788,6 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #ifndef OS2008
 int hildon_home_applet_lib_save_state(void *raw_data, void **state_data, 
 								int *state_size){
-#ifndef RELEASE
-    fprintf(stderr, "\nOMWeather applet save state\n");
-#endif
     (*state_data) = NULL;
     if(state_size)
 	(*state_size) = 0;
@@ -801,15 +795,9 @@ int hildon_home_applet_lib_save_state(void *raw_data, void **state_data,
 }
 /*******************************************************************************/
 void hildon_home_applet_lib_background(void *raw_data){
-#ifndef RELEASE
-    fprintf(stderr, "\nOMWeather applet background\n");
-#endif
 }
 /*******************************************************************************/
 void hildon_home_applet_lib_foreground(void *raw_data){
-#ifndef RELEASE
-    fprintf(stderr, "\nOMWeather applet foreground\n");
-#endif
 }
 #endif
 /*******************************************************************************/
@@ -1819,15 +1807,12 @@ void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 #ifdef OS2008
 GtkWidget*
 settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent){
+    GtkWidget		*menu_item = NULL;
+    OMWeatherPrivate	*priv = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
-    GtkWidget	*menu_item;
-
-    OMWeather *applet = OMWEATHER(home_item);
-    OMWeatherPrivate *priv = OMWEATHER_GET_PRIVATE(OMWEATHER(home_item));
-
+    priv = OMWEATHER_GET_PRIVATE(OMWEATHER(home_item));
     priv->desktop = GTK_WIDGET(parent);
     menu_item = gtk_menu_item_new_with_label(_("OMWeather settings"));
 
@@ -1835,11 +1820,6 @@ settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent){
 			G_CALLBACK(weather_window_settings), NULL);
 
     return menu_item;
-}
-/*******************************************************************************/
-destr()
-{
-  fprintf (stderr,"sddddddddddddd\n");
 }
 /*******************************************************************************/
 static void

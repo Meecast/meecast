@@ -55,7 +55,10 @@ gint parse_weather_file_data(const gchar *station_id, const gint station_source,
     (station_source < 0) ? (source = app->config->weather_source)
 			 : (source = station_source);
 /* init parser */
-    handler = weather_sources[source].parser;
+    if(selected_detail_weather)
+	handler = weather_sources[source].parser_hour;
+    else
+	handler = weather_sources[source].parser;
     if(!handler)
         return -1;
 /* Used new file */

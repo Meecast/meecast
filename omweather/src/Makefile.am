@@ -62,7 +62,9 @@ libweather_home_la_SOURCES = weather-home.c \
 			     weather-applet-expose.c \
 			     weather-applet-expose.h \
 			     weather-alerts.h \
-			     weather-alerts.c
+			     weather-alerts.c \
+			     weather-templates.h \
+			     weather-templates.c
 
 weather-hash.c:		hash.data
 	if test -f hash.data; then \
@@ -82,7 +84,7 @@ weather-help.c:	build
 libweather_home_la_CFLAGS = $(GTK_CFLAGS) $(OSSO_CFLAGS) $(LIBXML2_CFLAGS) $(GNOME_VFS_CFLAGS) \
 			    $(GCONF_CFLAGS) $(CONIC_CFLAGS) $(DBUS_CFLAGS) $(HILDONDESKTOP_CFLAGS) \
 			    $(DESKTOP_CFLAGS) $(OSSOIC_CFLAGS) $(LOCATION_CFLAGS) $(LIBOSSOHELP_CFLAGS) \
-			    -Wall -pedantic -Wmissing-prototypes -DDISPLAY_BUILD
+			    -Wall -pedantic -Wmissing-prototypes -DDISPLAY_BUILD -DDEBUGFUNCTIONCALL
 
 libweather_home_la_LDFLAGS =  -module -avoid-version 
 

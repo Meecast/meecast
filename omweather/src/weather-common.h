@@ -159,12 +159,6 @@ typedef struct{
 }weather_com_parser;
 /*******************************************************************************/
 typedef struct{
-    gint	error;
-    xmlDoc	*doc;
-    xmlNode	*weather_com_root;
-}weather_com_parser_hour;
-/*******************************************************************************/
-typedef struct{
     GSList	*location;
     GSList	*current;
     GSList	*days;
@@ -177,13 +171,13 @@ typedef struct weather_data_source{
     gchar	*db_path;
     gchar	*url;
     gchar	*hour_url;
-    gchar	*encoding;    
+    gchar	*encoding;
     gint 	(*parser)(const gchar *station_id, weather_com_parser *parser,
 			    WeatherStationData *wsd);
-    gint 	(*parser_hour)(const gchar *station_id, weather_com_parser_hour *parser,
-			    WeatherStationData *wsd);			    
+    gint 	(*parser_hour)(const gchar *station_id, weather_com_parser *parser,
+				WeatherStationData *wsd);
+    gchar	*popup_template;
 }WeatherSource;
-
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{
     GtkWidget	*button;

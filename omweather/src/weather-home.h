@@ -93,7 +93,8 @@ extern GtkListStore* create_time_update_list(void);
 extern gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
 				    gpointer user_data);
 extern gint parse_weather_file_data(const gchar *station_id, const gint station_source,
-							WeatherStationData *wsd);
+					WeatherStationData *wsd,
+						gboolean selected_detail_weather);
 extern gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 								WeatherStationData *wsd);
 extern gint parse_weather_com_xml_hour(const gchar *station_id, weather_com_parser *parser,
@@ -104,10 +105,10 @@ extern float convert_wind_units(int to, float value);
 #ifdef OS2008
 extern void initial_gps_connect(void);
 extern void deinitial_gps_connect(void);
+extern gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
 #endif
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 extern float mb2inch(float pressure);
-extern gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
 #if defined(OS2008) || defined(DEBUGTEMP)
 extern void read_sensor(gint need_redraw);
 extern WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,

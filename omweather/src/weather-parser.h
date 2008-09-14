@@ -32,18 +32,20 @@
 #include <libxml/HTMLparser.h>
 /*******************************************************************************/
 gint parse_weather_file_data(const gchar *station_id, const gint station_source,
-							WeatherStationData *wsd);
-gint parse_weather_file_hour_data(const gchar *station_id, const gint station_source,
-                                                        WeatherStationData *wsd);
+					WeatherStationData *wsd,
+						gboolean selected_detail_weather);
+/* weather.com */
 weather_com_parser *weather_parser_new_from_file(const gchar *filename,
-						    const gchar *encoding);
-weather_com_parser *weather_parser_hour_new_from_file(const gchar *filename);
+							const gchar *encoding);
+
 gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 							WeatherStationData *wsd);
 gint parse_weather_com_xml_hour(const gchar *station_id, weather_com_parser *parser,
 							WeatherStationData *wsd);
+/* rp5.ru */
 gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser,
 							WeatherStationData *wsd);
+/* underground.com */
 gint parse_underground_com_data(const gchar *station);
 void process_undeground_com_current_weather(const htmlNodePtr node);
 void process_undeground_com_forecast_weather(const htmlNodePtr node);

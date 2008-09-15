@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-25 20:09-0400\n"
-"PO-Revision-Date: 2008-03-20 12:46+0200\n"
+"POT-Creation-Date: 2008-09-10 08:11+0300\n"
+"PO-Revision-Date: 2008-09-15 18:46+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,6 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 
 #: data/help/omweather.xml.in.h:1
-#, fuzzy
 msgid ""
 "<display_text>Automatically update data when connecting to the Internet: </"
 "display_text> this selection controls the automatic weather data update when "
@@ -28,7 +27,6 @@ msgstr ""
 "после соединения с интернетом."
 
 #: data/help/omweather.xml.in.h:2
-#, fuzzy
 msgid ""
 "<display_text>Background color:</display_text> setting defines the "
 "background color used for icons. Under OS2006-OS2007, the background color "
@@ -39,18 +37,16 @@ msgstr ""
 "прозрачность."
 
 #: data/help/omweather.xml.in.h:3
-#, fuzzy
 msgid ""
 "<display_text>Font color:</display_text> defines applet's font color. "
 "Selecting the color button will open the <display_text>Pick a Color</"
 "display_text> dialog where you may choose a font color."
 msgstr ""
-"Параметр <display_text>Цвет шрифта:</display_text> определяет цвет шрифта. "
-"Нажатие цветной кнопки, открывает диалог <display_text>Выберите цвет</"
+"Параметр <display_text>Цвет шрифта:</display_text> определяет цвет шрифта аплета. "
+"Нажатие кнопки выбора цвета, открывает диалог <display_text>Выберите цвет</"
 "display_text> в котором можно выбрать необходимый цвет шрифта."
 
 #: data/help/omweather.xml.in.h:4
-#, fuzzy
 msgid ""
 "<display_text>Font:</display_text> defines the font and font size used by "
 "the applet."
@@ -59,7 +55,6 @@ msgstr ""
 "апплетом для отображения данных на рабочем столе."
 
 #: data/help/omweather.xml.in.h:5
-#, fuzzy
 msgid ""
 "<display_text>Icon set:</display_text> defines which icon set is used. More "
 "icon sets may be installed via the Application Manager (if you have the "
@@ -78,7 +73,6 @@ msgstr ""
 "<display_text>Размер иконок:</display_text> устанавливает размер значков."
 
 #: data/help/omweather.xml.in.h:7
-#, fuzzy
 msgid ""
 "<display_text>Layout:</display_text> defines how icons are arranged on the "
 "home screen."
@@ -87,34 +81,31 @@ msgstr ""
 "отображаются на экране."
 
 #: data/help/omweather.xml.in.h:8
-#, fuzzy
 msgid ""
 "<display_text>Show arrows:</display_text> this selection controls whether "
 "the arrows (used to change the displayed weather station) are shown on the "
 "applet."
 msgstr ""
 "<display_text>Показать стрелки:</display_text> позволяет вам контролировать "
-"отображение стрелок."
+"отображение стрелок на аплете.(Эти стрелки используются для смены станции)"
 
 #: data/help/omweather.xml.in.h:9
-#, fuzzy
 msgid ""
 "<display_text>Show station name:</display_text> this selection will control "
 "whether station names are shown on the applet."
 msgstr ""
 "<display_text>Показать имя станции:</display_text> позволяет вам "
-"контролировать отображение имени станции."
+"контролировать отображение имени станции на аплете."
 
 #: data/help/omweather.xml.in.h:10
-#, fuzzy
 msgid ""
 "<display_text>Switch to the next station after:</display_text> this drop "
 "down menu controls the amount of time a specific weather station's data is "
 "displayed before changing to the next weather station."
 msgstr ""
 "Выпадающее меню <display_text>Переключится на следующую станцию через</"
-"display_text>, определяет время автоматического отображения следующей "
-"станции."
+"display_text>, определяет время автоматического переключения на следующюю "
+"станцию."
 
 #: data/help/omweather.xml.in.h:11
 msgid ""
@@ -129,12 +120,10 @@ msgid "About OMWeather"
 msgstr "O OMWeather"
 
 #: data/help/omweather.xml.in.h:13
-#, fuzzy
 msgid "Check the detailed weather forecast for up to 10 days"
-msgstr "Детальный прогноз на 10 дней"
+msgstr "Проверьте детальный прогноз погоды в течение 10 дней"
 
 #: data/help/omweather.xml.in.h:14
-#, fuzzy
 msgid "Configure the nearest weather station automatically using GPS"
 msgstr "Автоматически устанавливает ближайшую станцию используя GPS"
 
@@ -148,7 +137,7 @@ msgstr "Текущая версия: __VERSION__"
 
 #: data/help/omweather.xml.in.h:17
 msgid "Easily select a custom weather station from the sorted drop down menu"
-msgstr ""
+msgstr "Легко выбрать необходимую станцию в отсортированом списке в выпадающем меню"
 
 #: data/help/omweather.xml.in.h:18
 msgid ""
@@ -158,7 +147,12 @@ msgid ""
 "display_text> icon in OMWeather's weather window or by selecting "
 "<display_text>Home</display_text> <display_text>Applet settings</"
 "display_text> <display_text>OMWeather settings</display_text>."
-msgstr ""
+msgstr "Первое, что нужно сделать, это выбрать расположение апплета OMWeather на "
+"основном экране. Вы можете изменить расположение апплета просто прикосновшись к нему и "
+"не отпуская перетащить его туда, куда вы хотите. Внешний вид аплета может быть изменен "
+"в иконке <display_text>Инструменты</display_text> в всплывающем окне OMWeather или выбран "
+"в <display_text>Старт</display_text> <display_text>Настройка аплета</display_text> "
+"<display_text>Настройка OMWeather</display_text>"
 
 #: data/help/omweather.xml.in.h:19
 msgid "Getting Started"
@@ -170,7 +164,7 @@ msgstr "Введение"
 
 #: data/help/omweather.xml.in.h:21
 msgid "Marvel at the eye candy with the new transparency option"
-msgstr ""
+msgstr "Поразитесь удивительной картинке с новой опцией прозрачности"
 
 #: data/help/omweather.xml.in.h:22
 msgid ""
@@ -178,6 +172,9 @@ msgid ""
 "and deleting locations can be found on the <ref refid="
 "\"help_omweather_settings\" refdoc=\"Settings\"/> page."
 msgstr ""
+"Подробнее о том как изменять внешний вид аплета, добавлять, переименовывать и "
+"удалять станции может быть найдено  на странице <ref refid=\"help_omweather_settings\" "
+"refdoc=\"Settings\"/> "
 
 #: data/help/omweather.xml.in.h:23
 msgid "OMWeather was developed by Vlad Vasiliev (vlad@gas.by)."
@@ -188,7 +185,9 @@ msgid ""
 "OMWeather will use the tablet's home city selection as a default location "
 "for weather data. The location can be changed from the "
 "<display_text>Stations</display_text> tab in OMWeather's settings window."
-msgstr ""
+msgstr "OMWeather будет использовать\"Свой город\" (\"Свой город выбирается в аплете Часы) "
+"как станцию по умолчанию для показа прогноза погоды. Местоположение  может быть изменено во "
+"вкладке <display_text>Станции</display_text> в окне настроек OMWeather."
 
 #: data/help/omweather.xml.in.h:25
 msgid "Other Maemo Weather"
@@ -198,19 +197,20 @@ msgstr "Other Maemo Weather"
 msgid ""
 "Other Maemo Weather (OMWeather) is a weather applet for Nokia Internet "
 "Tablets. It can be used to:"
-msgstr ""
+msgstr "Other Maemo Weather (OMWeather) это аплет прогноза погоды для Nokia Internet Tablet. "
+"Он может быть использован для:"
 
 #: data/help/omweather.xml.in.h:27
 msgid "See the current phase of the moon"
-msgstr ""
+msgstr "Смотрите текущую фазу луны"
 
 #: data/help/omweather.xml.in.h:28
 msgid "See the sunrise and sunset times for selected weather stations"
-msgstr ""
+msgstr "Смотрите время восхода и захода солнца для выбранной станции"
 
 #: data/help/omweather.xml.in.h:29
 msgid "Select between different icon sizes, icon sets, colors and view modes"
-msgstr ""
+msgstr "Выберите между различными размерами иконок, наборами иконок, цветами и режимами просмотра"
 
 #: data/help/omweather.xml.in.h:30
 msgid "Settings"
@@ -241,7 +241,6 @@ msgid "Settings. Visuals tab"
 msgstr "Настройки. Закладка оформление"
 
 #: data/help/omweather.xml.in.h:37
-#, fuzzy
 msgid ""
 "The <display_text>Display</display_text> tab is used to configure settings "
 "that control the number of visible items on-screen, the icon size, and other "
@@ -252,7 +251,6 @@ msgstr ""
 "параметры OMWeather."
 
 #: data/help/omweather.xml.in.h:38
-#, fuzzy
 msgid ""
 "The <display_text>Enable GPS</display_text> check box is used to enable "
 "automatic weather station selection when GPS is enabled. This option is only "
@@ -263,16 +261,14 @@ msgstr ""
 "только для OS2008"
 
 #: data/help/omweather.xml.in.h:39
-#, fuzzy
 msgid ""
 "The <display_text>Sensor</display_text> tab is used control the usage of the "
 "Nokia's internal temperature sensor."
 msgstr ""
-"Закладка <display_text>Сенсор</display_text> используется для контроля "
+"Закладка <display_text>Датчик</display_text> используется для контроля "
 "температуры, получаемой со встроенного датчика температуры."
 
 #: data/help/omweather.xml.in.h:40
-#, fuzzy
 msgid ""
 "The <display_text>Settings</display_text> dialog (accessible from the "
 "desktop applet or home view's applet settings menu) provides access to the "
@@ -285,12 +281,11 @@ msgstr ""
 "Диалог <display_text>Настройки программы</display_text> (доступный из аплета "
 "и меню Старт-Настройки аплета) дает возможность настроить различные "
 "параметры аплета OMWeather. К дополнениею к вкладком есть четыре кнопки."
-"Левая кнопка вернет Вас кокну прогнозво погоды, Кнопка OK сохранит "
-"измененныенастройки,помеченная знаком вопроса откроет Справку и кнопка X "
-"закроетокно настроек"
+"Левая кнопка вернет Вас к окну прогнозов погоды, Кнопка [OK] сохранит "
+"измененные настройки, помеченная знаком [?] откроет Справку и кнопка [X] "
+"закроет окно настроек"
 
 #: data/help/omweather.xml.in.h:41
-#, fuzzy
 msgid ""
 "The <display_text>Show only current weather on first icon</display_text> "
 "selection will show current weather on first icon and forecast for the rest "
@@ -298,19 +293,17 @@ msgid ""
 msgstr ""
 "Параметр <display_text>Только текущая погода в первой иконке:</display_text> "
 "включает отображение только текущей погоды в первой иконке и прогноз для "
-"оставшегосядня показывается в следующей иконке"
+"оставшегося дня показывается в следующей иконке"
 
 #: data/help/omweather.xml.in.h:42
-#, fuzzy
 msgid ""
 "The <display_text>Show wind</display_text> selection will display wind speed "
 "and direction on the applet."
 msgstr ""
-"<display_text>Показать ветер</display_text> позволяет вам контролировать "
-"отображение скорости и направления ветра."
+"Параметр <display_text>Показать ветер</display_text> позволяет вам видеть "
+"отображение скорости и направления ветра на аплете. "
 
 #: data/help/omweather.xml.in.h:43
-#, fuzzy
 msgid ""
 "The <display_text>Stations</display_text> tab lists all of the locations for "
 "which OMWeather will retrieve weather data when an update is manually or "
@@ -320,7 +313,6 @@ msgstr ""
 "станций, информация о погоде которых, будет получена при обновлении данных."
 
 #: data/help/omweather.xml.in.h:44
-#, fuzzy
 msgid ""
 "The <display_text>Swap hi/low temperature</display_text> selection will "
 "change the manner in which the forecast low and high temperatures are "
@@ -330,8 +322,8 @@ msgstr ""
 "изменить порядок отображения температур. Если отмечено, то первой "
 "отображается большая температура."
 
+
 #: data/help/omweather.xml.in.h:45
-#, fuzzy
 msgid ""
 "The <display_text>Tool</display_text> button will open the OMWeather "
 "settings dialog: The <display_text>Refresh</display_text> button will update "
@@ -343,10 +335,9 @@ msgstr ""
 "OMWeather. Кнопка <display_text>Обновить</display_text> обновляет данные о "
 "погоде, кнопка <display_text>Вопрос</display_text> отображает информацию о "
 "программе OMWeather и кнопка <display_text>X</display_text> закрывает диалог "
-"настроек."
+"настроек и возвращает Вас к аплету на основном экране."
 
 #: data/help/omweather.xml.in.h:46
-#, fuzzy
 msgid ""
 "The <display_text>Transparency:</display_text> selection operates "
 "differently according to which Operating System is installed on your tablet: "
@@ -359,7 +350,6 @@ msgstr ""
 "OS2008 данная опция задает процент полупрозрачности."
 
 #: data/help/omweather.xml.in.h:47
-#, fuzzy
 msgid ""
 "The <display_text>UI Theme Override</display_text> selection allows you to "
 "override the theme settings on your tablet and use settings specified within "
@@ -369,7 +359,6 @@ msgstr ""
 "игнорировать параметры темы для апплета."
 
 #: data/help/omweather.xml.in.h:48
-#, fuzzy
 msgid ""
 "The <display_text>Units</display_text> tab is used to select the display "
 "units used for display of temperature, distance, wind speed and barometric "
@@ -379,7 +368,6 @@ msgstr ""
 "выбора единиц измерения температуры, расстояния, скорости ветра и давления. "
 
 #: data/help/omweather.xml.in.h:49
-#, fuzzy
 msgid ""
 "The <display_text>Units</display_text> tab is used to select units for "
 "temperature, distance, wind speed and barometric pressure. Necessary units "
@@ -390,7 +378,6 @@ msgstr ""
 "Необходимые единицы измерения выбираются щелчком по соответствующей кнопке."
 
 #: data/help/omweather.xml.in.h:50
-#, fuzzy
 msgid ""
 "The <display_text>Update</display_text> tab is used to configure the "
 "interval between weather data updates. This tab will also indicate the time "
@@ -401,7 +388,6 @@ msgstr ""
 "информацией о времени следующего обновления."
 
 #: data/help/omweather.xml.in.h:51
-#, fuzzy
 msgid ""
 "The <display_text>Visuals</display_text> tab is used to configure settings "
 "that control the visual appearance of OMWeather."
@@ -410,7 +396,6 @@ msgstr ""
 "вид апплета OMWeather."
 
 #: data/help/omweather.xml.in.h:52
-#, fuzzy
 msgid ""
 "The <display_text>add</display_text> pane allows you to add new weather "
 "stations, which will then appear in the left view."
@@ -419,7 +404,6 @@ msgstr ""
 "добавлять новые города в список, расположенный в левой части экрана."
 
 #: data/help/omweather.xml.in.h:53
-#, fuzzy
 msgid ""
 "The left pane allows you to rename or remove stations from the list. The "
 "<display_text>up</display_text> and <display_text>down</display_text> arrows "
@@ -451,6 +435,9 @@ msgid ""
 "<display_text>Select applets...</display_text> <display_text>OMWeather</"
 "display_text>."
 msgstr ""
+"Для активации OMWeather выберите <display_text>Старт</display_text> "
+"<display_text>Выбор аплетов...</display_text> <display_text>OMWeather</"
+"display_text>."
 
 #: data/help/omweather.xml.in.h:57
 msgid ""
@@ -460,6 +447,10 @@ msgid ""
 "the moon. <display_text>Day</display_text> tabs will show weather forecast "
 "and sunrise/sunset times for selected days."
 msgstr ""
+"Нажав на иконку дня вызывается окно где вы можете увидеть текущую погоду "
+"или детализированный прогноз для выбранного дня. В закладке <display_text>Сейчас</display_text> "
+"вы можете увидеть текущую погоду и фазу луны. В закладке <display_text>День недели</display_text> "
+"будет отображен прогноз погоды и время восхода и захода солнца для выбранного дня "
 
 #: data/help/omweather.xml.in.h:58
 msgid ""
@@ -474,13 +465,14 @@ msgid ""
 "Use the <ref refid=\"help_omweather_\" refdoc=\"index\"/> to access the "
 "various sections of this help document."
 msgstr ""
+"Используйте <ref refid=\"help_omweather_\" refdoc=\"index\"/> для того, чтобы получить доступ "
+"к различным секциям этого файла помощи."
 
 #: data/help/omweather.xml.in.h:60
 msgid "Using Desktop Applet"
 msgstr "Использование апплета"
 
 #: data/help/omweather.xml.in.h:61
-#, fuzzy
 msgid ""
 "Valid time for current weather and update interval may be also selected from "
 "the corresponding drop down menu."
@@ -504,6 +496,10 @@ msgid ""
 "after station name, or on a new icon. The sensor read interval may be set "
 "from 1 to 30 minutes."
 msgstr ""
+ "Когда параметр <display_text>Использовать встроенный датчик температуры</display_text> "
+"включен, фплет будет показывать температуру встроенного датчика температуры. Температура может "
+"быть показана после имени станции или в новой иконке. Интервал считывания датчика может быть "
+"установлен от 1 до 30 минут."
 
 #: data/help/omweather.xml.in.h:65
 msgid ""

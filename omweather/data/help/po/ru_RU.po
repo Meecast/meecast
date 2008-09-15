@@ -400,7 +400,7 @@ msgid ""
 "The <display_text>add</display_text> pane allows you to add new weather "
 "stations, which will then appear in the left view."
 msgstr ""
-"Правая секция <display_text>Добавить</display_text> часть позволяет Вам "
+"Правая секция <display_text>Добавить</display_text> позволяет Вам "
 "добавлять новые города в список, расположенный в левой части экрана."
 
 #: data/help/omweather.xml.in.h:53

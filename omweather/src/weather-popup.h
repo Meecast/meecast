@@ -50,6 +50,7 @@ void about_button_handler(GtkWidget *button, GdkEventButton *event,
 void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 								gpointer user_data);
 GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name);
+GtkWidget* create_pseudo_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_current_tab(GSList *current);
 GtkWidget* create_hour_tab();
 GtkWidget* create_copyright_widget(const gchar *text, const gchar *image);

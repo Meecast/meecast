@@ -36,6 +36,8 @@
 /*******************************************************************************/
 #define MOON_ICONS		"/usr/share/omweather/moon_icons/"
 #define COPYRIGHT_ICONS		"/usr/share/omweather/copyright_icons/"
+#define DETAILED_PAGE -1
+#define CURRENT_PAGE -2
 /*******************************************************************************/
 /*
 #ifdef HILDON
@@ -45,6 +47,27 @@
 
 */
 /*******************************************************************************/
+
+/*******************************************************************************/
+/* For debug */
+
+struct timeval tv1,tv2,dtv;
+
+struct timezone tz;
+
+void time_start() { gettimeofday(&tv1, &tz); }
+
+double time_stop()
+
+{  
+    gettimeofday(&tv2, &tz);
+    dtv.tv_sec= tv2.tv_sec  -  tv1.tv_sec;
+    dtv.tv_usec=tv2.tv_usec -  tv1.tv_usec;
+    if(dtv.tv_usec<0) { dtv.tv_sec--; dtv.tv_usec+=1000000; }
+        return dtv.tv_sec*1000.0+dtv.tv_usec/1000.0;
+}
+
+
 GtkWidget* create_sun_time_widget(GSList *day){
     GtkWidget	*main_widget = NULL,
 		*main_label;
@@ -192,12 +215,80 @@ GtkWidget* create_time_updates_widget(GSList *current){
     return main_widget;
 }
 /*******************************************************************************/
+gboolean switch_cb (GtkNotebook *nb, gpointer nb_page, gint page, gpointer data)
+{
+    GtkWidget *child, *new_tab;
+    GtkWidget *tab;
+    int i = 0;  
+    GSList *tmp = NULL,
+ 	   *day = NULL;
+    gchar   *day_name = NULL;
+
+    GtkWidget *window = GTK_WIDGET(data);
+    /* Check Loopback of signal switch_cb */
+    if (g_object_get_data(G_OBJECT(window), "lock_notebook"))
+    	return FALSE;
+    /* Start blocking */
+    g_object_set_data(G_OBJECT(window), "lock_notebook", (gboolean)TRUE);
+
+    child = gtk_notebook_get_nth_page (nb, page);
+#ifndef RELEASE
+    tab = gtk_notebook_get_tab_label(nb, child); 
+    fprintf (stderr,"Notepad_page: %s %i\n", gtk_label_get_text (GTK_LABEL(tab)),
+            (gint)g_object_get_data(G_OBJECT(child), "number_of_day_in_list"));
+#endif
+    /* If TAB did not draw than draw it */	    
+    if (!(gboolean)g_object_get_data(G_OBJECT(child), "ready")){
+    	#ifndef RELEASE
+    		fprintf (stderr, "Not Ready\n");
+	#endif
+	switch ((gint)g_object_get_data(G_OBJECT(child), "number_of_day_in_list")){
+		case DETAILED_PAGE :
+			new_tab = create_hour_tab();
+			i = DETAILED_PAGE;
+			day_name = g_strdup(_("Detailed"));
+			break;
+		case CURRENT_PAGE:
+			new_tab = create_current_tab(app->wsd.current);
+		        i = CURRENT_PAGE;	
+			day_name = g_strdup(_("Now"));
+			break;
+		default:
+    			tmp = app->wsd.days;
+    			while(tmp && i < app->config->days_to_show){
+				if (i ==  (gint)g_object_get_data(G_OBJECT(child), "number_of_day_in_list")){
+					day = (GSList*)tmp->data;
+					new_tab = create_day_tab(app->wsd.current, day, &day_name);
+					break;
+				}
+				tmp = g_slist_next(tmp);
+				i++;
+    			}
+	}
+	if (new_tab){
+		g_object_set_data(G_OBJECT(new_tab), "ready", (gboolean)TRUE);
+		g_object_set_data(G_OBJECT(new_tab), "number_of_day_in_list", (gint)i);
+		gtk_notebook_remove_page (nb,page);
+		gtk_notebook_insert_page(nb,new_tab,gtk_label_new(day_name),page);
+		gtk_notebook_set_current_page(nb,page);
+	}
+
+    }
+#ifndef RELEASE
+    else
+    	fprintf (stderr,"Ready\n");
+#endif
+    /* Remove blocking */
+    g_object_set_data(G_OBJECT(window), "lock_notebook", (gboolean)FALSE);
+    return FALSE;
+}
+/*******************************************************************************/
 gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
                     	    				    gpointer user_data){
-    GtkWidget	*window_popup = NULL,
+        GtkWidget	*window_popup = NULL,
 		*notebook = NULL,
 		*tab = NULL,
-                *hour_tab = NULL,
+        *hour_tab = NULL,
 		*current_tab = NULL,
 		*label = NULL,
 		*vbox = NULL,
@@ -209,19 +300,22 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 		*label_box = NULL,
 		*copyright_box = NULL,
 		*no_weather_box = NULL;
-    gint	active_tab = 0,
+        gint	active_tab = 0,
 		k = 0,
+		page = 0,
 		i = 0;
-    gchar	*day_name = NULL;
-    time_t      current_time = 0,
-                diff_time,
-                current_data_last_update = 0;
-    GSList	*tmp = NULL,
+        gchar	*day_name = NULL;
+        time_t      current_time = 0,
+        diff_time,
+        current_data_last_update = 0;
+        GSList	*tmp = NULL,
 		*day = NULL,
-                *hour_weather = NULL;
+        *hour_weather = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+/* Debug */
+  time_start();
 /* day number */
     active_tab = (gint)user_data;
 /* if no one station present in list show settings window */
@@ -233,6 +327,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     window_popup = hildon_window_new();
 
     g_object_set_data(G_OBJECT(window_popup), "active_tab", (gpointer)active_tab);
+    g_object_set_data(G_OBJECT(window_popup), "lock_notebook", (gboolean)FALSE);
     gtk_window_fullscreen(GTK_WINDOW(window_popup));
     /* create frame vbox */    
     vbox = gtk_vbox_new(FALSE, 0);
@@ -263,17 +358,24 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 		( current_time - app->config->data_valid_interval)) &&
 	    (current_data_last_update <
 		( current_time + app->config->data_valid_interval)))
-	current_tab = create_current_tab(app->wsd.current);
+	current_tab = gtk_vbox_new(FALSE, 0);
 
-    if(current_tab)
+    if(current_tab){
 	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 				current_tab,
 				gtk_label_new(_("Now")));
+	g_object_set_data(G_OBJECT(current_tab), "ready", (gboolean)FALSE);
+	g_object_set_data(G_OBJECT(current_tab), "number_of_day_in_list", (gint)CURRENT_PAGE);
+
+    }
 /* if weather is separated than hide one day */
     (app->config->separate) ? (k = 1) : (k = 0);
 /* Detailed weather tab */
-    if(app->config->show_weather_for_two_hours)
-        hour_tab = create_hour_tab();
+    if(app->config->show_weather_for_two_hours){
+        hour_tab = gtk_vbox_new(FALSE, 0);
+	g_object_set_data(G_OBJECT(hour_tab), "ready", (gboolean)FALSE);
+	g_object_set_data(G_OBJECT(hour_tab), "number_of_day_in_list", (gint)DETAILED_PAGE);
+    }	
     if(hour_tab)
         gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                     hour_tab,
@@ -282,16 +384,29 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     tmp = app->wsd.days;
     while(tmp && i < app->config->days_to_show){
 	day = (GSList*)tmp->data;
-	tab = create_day_tab(app->wsd.current, day, &day_name);
+	/* Acceleration of starting gtk_notebook. Adding only  necessary now tabs */
+	if (active_tab == i){
+		tab = create_day_tab(app->wsd.current, day, &day_name);
+		g_object_set_data(G_OBJECT(tab), "ready", (gboolean)TRUE);
+	}	
+	else{
+		tab = create_pseudo_day_tab(app->wsd.current, day, &day_name);
+		g_object_set_data(G_OBJECT(tab), "ready", (gboolean)FALSE);
+	}
+	g_object_set_data(G_OBJECT(tab), "number_of_day_in_list", (gint)i);
 	if(tab){
-	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+	    	page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         				tab,
         				gtk_label_new(day_name));
+		if (active_tab == i)
+			gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook),page);
 	}
 	day_name && (g_free(day_name), day_name = NULL);
 	tmp = g_slist_next(tmp);
 	i++;
     }
+    /* Connect to signal "changing notebook page" */
+    g_signal_connect (G_OBJECT(notebook), "switch-page", G_CALLBACK(switch_cb), window_popup);
 /* prepare day tabs */
     if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){
 	gtk_box_pack_start(GTK_BOX(vbox), notebook,
@@ -365,6 +480,8 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	    else
 		if(current_tab && active_tab)
 		    active_tab++;
+		if(hour_tab && active_tab)
+		    active_tab++;
 	    gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), active_tab);
 	}
     }
@@ -413,27 +530,10 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     #ifdef DEBUGFUNCTIONCALL
 	END_FUNCTION;
     #endif
+     fprintf(stderr,"Time: %lf msec Pi = %lf\n",time_stop(),weather_window_settings);
     return FALSE;
 }
-/*******************************************************************************/
-/* For debug */
-/*
-struct timeval tv1,tv2,dtv;
 
-struct timezone tz;
-
-void time_start() { gettimeofday(&tv1, &tz); }
-
-double time_stop()
-
-{  
-    gettimeofday(&tv2, &tz);
-    dtv.tv_sec= tv2.tv_sec  -  tv1.tv_sec;
-    dtv.tv_usec=tv2.tv_usec -  tv1.tv_usec;
-    if(dtv.tv_usec<0) { dtv.tv_sec--; dtv.tv_usec+=1000000; }
-        return dtv.tv_sec*1000.0+dtv.tv_usec/1000.0;
-}
-*/
 /*******************************************************************************/
 void settings_button_handler(GtkWidget *button, GdkEventButton *event,
 								gpointer user_data){
@@ -469,6 +569,21 @@ void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
     START_FUNCTION;
 #endif
     gtk_widget_destroy(GTK_WIDGET(user_data));
+}
+/*******************************************************************************/
+GtkWidget* create_pseudo_day_tab(GSList *current, GSList *day, gchar **day_name){
+    GtkWidget	*main_widget = NULL;
+    gchar	buffer[1024];
+    struct tm	tmp_time_date_struct = {0};
+
+    main_widget = gtk_vbox_new(FALSE, 0);
+    /* prepare localized day name */
+    memset(buffer, 0, sizeof(buffer));
+    sprintf(buffer,"%s", item_value(day, "day_name"));
+    strptime(buffer, "%a", &tmp_time_date_struct);
+    *day_name = g_strdup(buffer);
+
+    return main_widget;
 }
 /*******************************************************************************/
 GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
@@ -941,8 +1056,7 @@ GtkWidget* create_hour_tab(){
    gtk_widget_show_all(main_widget);
    return main_widget;
 }
-/***************************************************************************
-****/
+/*******************************************************************************/
 GtkWidget* create_copyright_widget(const gchar *text, const gchar *image){
     GtkWidget	*main_widget = NULL,
 		*hbox = NULL,

@@ -221,8 +221,12 @@ gboolean switch_cb (GtkNotebook *nb, gpointer nb_page, gint page, gpointer data)
     GtkWidget *tab;
     int i = 0;  
     GSList *tmp = NULL,
- 	   *day = NULL;
+    *day = NULL;
     gchar   *day_name = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
 
     GtkWidget *window = GTK_WIDGET(data);
     /* Check Loopback of signal switch_cb */
@@ -232,16 +236,16 @@ gboolean switch_cb (GtkNotebook *nb, gpointer nb_page, gint page, gpointer data)
     g_object_set_data(G_OBJECT(window), "lock_notebook", (gboolean)TRUE);
 
     child = gtk_notebook_get_nth_page (nb, page);
-#ifndef RELEASE
+//#ifndef RELEASE
     tab = gtk_notebook_get_tab_label(nb, child); 
     fprintf (stderr,"Notepad_page: %s %i\n", gtk_label_get_text (GTK_LABEL(tab)),
             (gint)g_object_get_data(G_OBJECT(child), "number_of_day_in_list"));
-#endif
+//#endif
     /* If TAB did not draw than draw it */	    
     if (!(gboolean)g_object_get_data(G_OBJECT(child), "ready")){
-    	#ifndef RELEASE
+//    	#ifndef RELEASE
     		fprintf (stderr, "Not Ready\n");
-	#endif
+//	    #endif
 	switch ((gint)g_object_get_data(G_OBJECT(child), "number_of_day_in_list")){
 		case DETAILED_PAGE :
 			new_tab = create_hour_tab();
@@ -274,12 +278,17 @@ gboolean switch_cb (GtkNotebook *nb, gpointer nb_page, gint page, gpointer data)
 	}
 
     }
-#ifndef RELEASE
+//#ifndef RELEASE
     else
     	fprintf (stderr,"Ready\n");
-#endif
+//#endif
+//#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+//#endif
+
     /* Remove blocking */
     g_object_set_data(G_OBJECT(window), "lock_notebook", (gboolean)FALSE);
+
     return FALSE;
 }
 /*******************************************************************************/

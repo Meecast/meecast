@@ -285,7 +285,6 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     window_popup = hildon_window_new();
 
     g_object_set_data(G_OBJECT(window_popup), "active_tab", (gpointer)active_tab);
-    g_object_set_data(G_OBJECT(window_popup), "lock_notebook", (gboolean)FALSE);
     gtk_window_fullscreen(GTK_WINDOW(window_popup));
     
 /* create frame vbox */    

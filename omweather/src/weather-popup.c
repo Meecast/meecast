@@ -36,8 +36,6 @@
 /*******************************************************************************/
 #define MOON_ICONS		"/usr/share/omweather/moon_icons/"
 #define COPYRIGHT_ICONS		"/usr/share/omweather/copyright_icons/"
-#define DETAILED_PAGE -1
-#define CURRENT_PAGE -2
 /*******************************************************************************/
 /*
 #ifdef HILDON

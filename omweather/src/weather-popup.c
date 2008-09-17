@@ -344,16 +344,28 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     tmp = app->wsd.days;
     while(tmp && i < app->config->days_to_show){
 	day = (GSList*)tmp->data;
-	/* Acceleration of starting gtk_notebook. */
-	tab = create_pseudo_day_tab(app->wsd.current, day, &day_name);
-
-	if(tab){
+	
+	/* Acceleration of starting gtk_notebook */
+	if (active_tab != i){
+	    /* Create empty page */
+	    tab = create_pseudo_day_tab(app->wsd.current, day, &day_name);
+	    if(tab){
 	    	page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         				tab,
         				gtk_label_new(day_name));
 		g_object_set_data(G_OBJECT(tab), "day", (gpointer)tmp->data);		
 		g_idle_add((GSourceFunc)make_tab,tab);
-	}
+	    }
+	}else{	
+	    /* Create page with data */
+	    tab = create_day_tab(app->wsd.current, day, &day_name);
+	    if(tab){
+		page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        				tab,
+        				gtk_label_new(day_name));
+	    }
+	}    
+	
 	day_name && (g_free(day_name), day_name = NULL);
 	tmp = g_slist_next(tmp);
 	i++;

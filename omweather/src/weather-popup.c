@@ -215,81 +215,31 @@ GtkWidget* create_time_updates_widget(GSList *current){
     return main_widget;
 }
 /*******************************************************************************/
-gboolean switch_cb (GtkNotebook *nb, gpointer nb_page, gint page, gpointer data)
+gboolean make_current_tab(GtkWidget *vbox)
 {
-    GtkWidget *child, *new_tab;
-    GtkWidget *tab;
-    int i = 0;  
-    GSList *tmp = NULL,
-    *day = NULL;
-    gchar   *day_name = NULL;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-
-
-    GtkWidget *window = GTK_WIDGET(data);
-    /* Check Loopback of signal switch_cb */
-    if (g_object_get_data(G_OBJECT(window), "lock_notebook"))
-    	return FALSE;
-    /* Start blocking */
-    g_object_set_data(G_OBJECT(window), "lock_notebook", (gboolean)TRUE);
-
-    child = gtk_notebook_get_nth_page (nb, page);
-//#ifndef RELEASE
-    tab = gtk_notebook_get_tab_label(nb, child); 
-    fprintf (stderr,"Notepad_page: %s %i\n", gtk_label_get_text (GTK_LABEL(tab)),
-            (gint)g_object_get_data(G_OBJECT(child), "number_of_day_in_list"));
-//#endif
-    /* If TAB did not draw than draw it */	    
-    if (!(gboolean)g_object_get_data(G_OBJECT(child), "ready")){
-//    	#ifndef RELEASE
-    		fprintf (stderr, "Not Ready\n");
-//	    #endif
-	switch ((gint)g_object_get_data(G_OBJECT(child), "number_of_day_in_list")){
-		case DETAILED_PAGE :
-			new_tab = create_hour_tab();
-			i = DETAILED_PAGE;
-			day_name = g_strdup(_("Detailed"));
-			break;
-		case CURRENT_PAGE:
-			new_tab = create_current_tab(app->wsd.current);
-		        i = CURRENT_PAGE;	
-			day_name = g_strdup(_("Now"));
-			break;
-		default:
-    			tmp = app->wsd.days;
-    			while(tmp && i < app->config->days_to_show){
-				if (i ==  (gint)g_object_get_data(G_OBJECT(child), "number_of_day_in_list")){
-					day = (GSList*)tmp->data;
-					new_tab = create_day_tab(app->wsd.current, day, &day_name);
-					break;
-				}
-				tmp = g_slist_next(tmp);
-				i++;
-    			}
-	}
-	if (new_tab){
-		g_object_set_data(G_OBJECT(new_tab), "ready", (gboolean)TRUE);
-		g_object_set_data(G_OBJECT(new_tab), "number_of_day_in_list", (gint)i);
-		gtk_notebook_remove_page (nb,page);
-		gtk_notebook_insert_page(nb,new_tab,gtk_label_new(day_name),page);
-		gtk_notebook_set_current_page(nb,page);
-	}
-
-    }
-//#ifndef RELEASE
-    else
-    	fprintf (stderr,"Ready\n");
-//#endif
-//#ifdef DEBUGFUNCTIONCALL
-    END_FUNCTION;
-//#endif
-
-    /* Remove blocking */
-    g_object_set_data(G_OBJECT(window), "lock_notebook", (gboolean)FALSE);
-
-    return FALSE;
+	GtkWidget *child = create_current_tab(app->wsd.current);
+	gtk_container_add(GTK_CONTAINER(vbox),child);
+	gtk_widget_show_all(vbox);
+	return FALSE;
+}
+/*******************************************************************************/
+gboolean make_tab(GtkWidget *vbox)
+{
+        GSList	*day = NULL;
+        gchar	*day_name = NULL;
+	day = (GSList*)g_object_get_data(G_OBJECT(vbox), "day");
+	GtkWidget *child = create_day_tab(app->wsd.current, day, &day_name);
+	gtk_container_add(GTK_CONTAINER(vbox),child);
+	gtk_widget_show_all(vbox);
+	return FALSE;
+}
+/*******************************************************************************/
+gboolean make_hour_tab(GtkWidget *vbox)
+{
+	GtkWidget *child = create_hour_tab();
+	gtk_container_add(GTK_CONTAINER(vbox),child);
+	gtk_widget_show_all(vbox);
+	return FALSE;
 }
 /*******************************************************************************/
 gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
@@ -352,6 +302,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     notebook = gtk_notebook_new();
 
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
+    
 /* Current weather */
     current_time = time(NULL); /* get current day */
     /* correct time for current location */
@@ -373,49 +324,41 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 				current_tab,
 				gtk_label_new(_("Now")));
-	g_object_set_data(G_OBJECT(current_tab), "ready", (gboolean)FALSE);
-	g_object_set_data(G_OBJECT(current_tab), "number_of_day_in_list", (gint)CURRENT_PAGE);
-
+	g_idle_add((GSourceFunc)make_current_tab,current_tab);				
     }
+    
 /* if weather is separated than hide one day */
     (app->config->separate) ? (k = 1) : (k = 0);
+    
 /* Detailed weather tab */
-    if(app->config->show_weather_for_two_hours){
+    if(app->config->show_weather_for_two_hours)
         hour_tab = gtk_vbox_new(FALSE, 0);
-	g_object_set_data(G_OBJECT(hour_tab), "ready", (gboolean)FALSE);
-	g_object_set_data(G_OBJECT(hour_tab), "number_of_day_in_list", (gint)DETAILED_PAGE);
-    }	
-    if(hour_tab)
+	
+    if(hour_tab){
         gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                     hour_tab,
                                     gtk_label_new(_("Detailed")));
+	g_idle_add((GSourceFunc)make_hour_tab,hour_tab);
+    }				    
 /* Day tabs */
     tmp = app->wsd.days;
     while(tmp && i < app->config->days_to_show){
 	day = (GSList*)tmp->data;
-	/* Acceleration of starting gtk_notebook. Adding only  necessary now tabs */
-	if (active_tab == i){
-		tab = create_day_tab(app->wsd.current, day, &day_name);
-		g_object_set_data(G_OBJECT(tab), "ready", (gboolean)TRUE);
-	}	
-	else{
-		tab = create_pseudo_day_tab(app->wsd.current, day, &day_name);
-		g_object_set_data(G_OBJECT(tab), "ready", (gboolean)FALSE);
-	}
-	g_object_set_data(G_OBJECT(tab), "number_of_day_in_list", (gint)i);
+	/* Acceleration of starting gtk_notebook. */
+	tab = create_pseudo_day_tab(app->wsd.current, day, &day_name);
+
 	if(tab){
 	    	page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         				tab,
         				gtk_label_new(day_name));
-		if (active_tab == i)
-			gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook),page);
+		g_object_set_data(G_OBJECT(tab), "day", (gpointer)tmp->data);		
+		g_idle_add((GSourceFunc)make_tab,tab);
 	}
 	day_name && (g_free(day_name), day_name = NULL);
 	tmp = g_slist_next(tmp);
 	i++;
     }
-    /* Connect to signal "changing notebook page" */
-    g_signal_connect (G_OBJECT(notebook), "switch-page", G_CALLBACK(switch_cb), window_popup);
+
 /* prepare day tabs */
     if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){
 	gtk_box_pack_start(GTK_BOX(vbox), notebook,

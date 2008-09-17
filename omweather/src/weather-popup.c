@@ -55,6 +55,7 @@ struct timeval tv1,tv2,dtv;
 
 struct timezone tz;
 
+/* Debug
 void time_start() { gettimeofday(&tv1, &tz); }
 
 double time_stop()
@@ -66,7 +67,7 @@ double time_stop()
     if(dtv.tv_usec<0) { dtv.tv_sec--; dtv.tv_usec+=1000000; }
         return dtv.tv_sec*1000.0+dtv.tv_usec/1000.0;
 }
-
+*/
 
 GtkWidget* create_sun_time_widget(GSList *day){
     GtkWidget	*main_widget = NULL,
@@ -227,8 +228,9 @@ gboolean make_tab(GtkWidget *vbox)
 {
         GSList	*day = NULL;
         gchar	*day_name = NULL;
+	GtkWidget *child;
 	day = (GSList*)g_object_get_data(G_OBJECT(vbox), "day");
-	GtkWidget *child = create_day_tab(app->wsd.current, day, &day_name);
+	child = create_day_tab(app->wsd.current, day, &day_name);
 	gtk_container_add(GTK_CONTAINER(vbox),child);
 	gtk_widget_show_all(vbox);
 	return FALSE;
@@ -268,13 +270,12 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
         diff_time,
         current_data_last_update = 0;
         GSList	*tmp = NULL,
-		*day = NULL,
-        *hour_weather = NULL;
+		*day = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 /* Debug */
-  time_start();
+/*  time_start(); */
 /* day number */
     active_tab = (gint)user_data;
 /* if no one station present in list show settings window */
@@ -288,9 +289,11 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     g_object_set_data(G_OBJECT(window_popup), "active_tab", (gpointer)active_tab);
     g_object_set_data(G_OBJECT(window_popup), "lock_notebook", (gboolean)FALSE);
     gtk_window_fullscreen(GTK_WINDOW(window_popup));
-    /* create frame vbox */    
+    
+/* create frame vbox */    
     vbox = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(window_popup), vbox);
+
 /* station name */
     label_box = gtk_event_box_new();
 	gtk_container_add(GTK_CONTAINER(label_box),create_window_header(app->config->current_station_name, window_popup));
@@ -298,6 +301,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 			label_box,
 			FALSE, TRUE, 0);
 	gtk_event_box_set_visible_window(GTK_EVENT_BOX(label_box),FALSE);
+    
 /* create tabs widget */
     notebook = gtk_notebook_new();
 
@@ -305,7 +309,8 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     
 /* Current weather */
     current_time = time(NULL); /* get current day */
-    /* correct time for current location */
+
+/* correct time for current location */
     diff_time = calculate_diff_time(atol(item_value(app->wsd.location, "station_time_zone")));
 #ifndef RELEASE
     fprintf(stderr, "\n>>>>>>>Diff time=%li<<<<<<\n", diff_time);
@@ -324,7 +329,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 				current_tab,
 				gtk_label_new(_("Now")));
-	g_idle_add((GSourceFunc)make_current_tab,current_tab);				
+	g_idle_add((GSourceFunc)make_current_tab,current_tab);
     }
     
 /* if weather is separated than hide one day */
@@ -347,7 +352,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	
 	/* Acceleration of starting gtk_notebook */
 	if (active_tab != i){
-	    /* Create empty page */
+	    /* Create the empty page */
 	    tab = create_pseudo_day_tab(app->wsd.current, day, &day_name);
 	    if(tab){
 	    	page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
@@ -357,7 +362,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 		g_idle_add((GSourceFunc)make_tab,tab);
 	    }
 	}else{	
-	    /* Create page with data */
+	    /* Create the page with data */
 	    tab = create_day_tab(app->wsd.current, day, &day_name);
 	    if(tab){
 		page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
@@ -494,7 +499,9 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     #ifdef DEBUGFUNCTIONCALL
 	END_FUNCTION;
     #endif
+    /* Debug
      fprintf(stderr,"Time: %lf msec Pi = %lf\n",time_stop(),weather_window_settings);
+    */ 
     return FALSE;
 }
 

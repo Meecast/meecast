@@ -53,6 +53,9 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_pseudo_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_current_tab(GSList *current);
 GtkWidget* create_hour_tab();
+gboolean make_current_tab(GtkWidget *vbox);
+gboolean make_tab(GtkWidget *vbox);
+gboolean make_hour_tab(GtkWidget *vbox);
 GtkWidget* create_copyright_widget(const gchar *text, const gchar *image);
 GtkWidget* create_window_header(const gchar *station_name, GtkWidget *popup_window);
 /*******************************************************************************/

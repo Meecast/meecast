@@ -636,6 +636,76 @@ void highlight_current_station(GtkTreeView *tree_view){
     }
 }
 /*******************************************************************************/
+gboolean switch_cb (GtkNotebook *nb, gpointer nb_page, gint page, gpointer data)
+{
+    GtkWidget *child, *new_tab;
+    GtkWidget *tab;
+    int i = 0;  
+    GSList *tmp = NULL,
+    *day = NULL;
+    gchar   *tab_name = NULL;
+
+    GtkWidget *window = GTK_WIDGET(data);
+    child = gtk_notebook_get_nth_page (nb, page);
+
+    tab = gtk_notebook_get_tab_label(nb, child); 
+    tab_name = gtk_label_get_text (GTK_LABEL(tab));
+    #ifndef RELEASE
+      fprintf (stderr,"Notepad_page: %s !!!!!!!!!!!!\n",tab_name);
+    #endif
+    if (!strcmp(tab_name,_("Stations"))){
+    	if (tab = g_object_get_data(G_OBJECT(window), "locations_tab")){
+		process_locations_tab(tab);
+		g_object_set_data(G_OBJECT(window), "locations_tab", NULL);
+		return FALSE;
+	}
+    }
+    if (!strcmp(tab_name,_("Visuals"))){
+    	if (tab = g_object_get_data(G_OBJECT(window), "visual_tab")){
+		process_visuals_tab(tab);
+		g_object_set_data(G_OBJECT(window), "visual_tab", NULL);
+		return FALSE;
+	}	
+    }
+    if (!strcmp(tab_name,_("Display"))){
+    	if (tab = g_object_get_data(G_OBJECT(window), "display_tab")){
+		process_display_tab(tab);
+		g_object_set_data(G_OBJECT(window), "display_tab", NULL);
+		return FALSE;
+	}
+    }
+    if (!strcmp(tab_name,_("Units"))){
+    	if (tab = g_object_get_data(G_OBJECT(window), "units_tab")){
+		process_units_tab(tab);
+		g_object_set_data(G_OBJECT(window), "units_tab", NULL);
+		return FALSE;
+	}
+    }
+    if (!strcmp(tab_name,_("Update"))){
+    	if (tab = g_object_get_data(G_OBJECT(window), "update_tab")){
+		process_update_tab(tab);
+		g_object_set_data(G_OBJECT(window), "update_tab", NULL);
+		return FALSE;
+	}	
+    }
+    if (!strcmp(tab_name,_("Sensor"))){
+    	if (tab = g_object_get_data(G_OBJECT(window), "sensor_tab")){
+		process_sensor_tab(tab);
+		g_object_set_data(G_OBJECT(window), "sensor_tab", NULL);
+		return FALSE;
+	}	
+    }
+    if (!strcmp(tab_name,_("Alerts"))){
+    	if (tab = g_object_get_data(G_OBJECT(window), "alerts_tab")){
+		process_alert_tab(tab);
+		g_object_set_data(G_OBJECT(window), "alerts_tab", NULL);
+		return FALSE;
+	}	
+    }
+   
+    return FALSE;
+}
+/*******************************************************************************/
 void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 							    gpointer user_data){
     gint	day_number = (gint)user_data;/* last looking day on detail window */
@@ -729,7 +799,7 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
  * on dipslay */
 
 /* Add Locations Tab Page = 0 */
-    if (app->config->current_settings_page == gtk_notebook_get_n_pages(notebook)){
+    if (app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
     	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 		    create_locations_tab(window_config),
         	    gtk_label_new(_("Stations")));
@@ -738,12 +808,11 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 		    locations_tab,
         	    gtk_label_new(_("Stations")));
-    	g_idle_add((GSourceFunc)process_locations_tab,locations_tab);
+  	g_object_set_data(G_OBJECT(window_config), "locations_tab", (gpointer)locations_tab);
     }
 
-
 /* Add Visuals Tab Page = 1 */
-    if (app->config->current_settings_page == gtk_notebook_get_n_pages(notebook)){
+    if (app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
     	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 		    create_visuals_tab(window_config),
                     gtk_label_new(_("Visuals")));
@@ -752,11 +821,11 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 		    visual_tab,
         	    gtk_label_new(_("Visuals")));
-    	g_idle_add((GSourceFunc)process_visuals_tab,visual_tab);
+    	g_object_set_data(G_OBJECT(window_config), "visual_tab", (gpointer)visual_tab);
     }
 
 /* Add Diplay Tab Page = 2 */    
-     if (app->config->current_settings_page == gtk_notebook_get_n_pages(notebook)){
+     if (app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
      	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_display_tab(window_config),
         			gtk_label_new(_("Display")));
@@ -765,11 +834,11 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
      	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			display_tab,
         			gtk_label_new(_("Display")));
-    	g_idle_add((GSourceFunc)process_display_tab,display_tab);
+	g_object_set_data(G_OBJECT(window_config), "display_tab", (gpointer)display_tab);
      }
 
 /* Add Units Tab Page = 3  */
-    if (app->config->current_settings_page == gtk_notebook_get_n_pages(notebook)){
+    if (app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
     	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_units_tab(window_config) ,
         			gtk_label_new(_("Units")));
@@ -778,23 +847,24 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
         gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                 units_tab,
                                 gtk_label_new(_("Units")));
-        g_idle_add((GSourceFunc)process_units_tab,units_tab);
+	g_object_set_data(G_OBJECT(window_config), "units_tab", (gpointer)units_tab);
     }
+
 /* Add Update Tab Page = 4 */
-    if (app->config->current_settings_page == gtk_notebook_get_n_pages(notebook)){
+    if (app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
     	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_update_tab(window_config),
         			gtk_label_new(_("Update")));
    }else{
         update_tab = gtk_vbox_new(FALSE,0);
         gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-                                 units_tab,
+                                 update_tab,
                                  gtk_label_new(_("Update")));
-        g_idle_add((GSourceFunc)process_update_tab,update_tab);
+	g_object_set_data(G_OBJECT(window_config), "update_tab", (gpointer)update_tab);
    }
 #if defined(OS2008) || defined(DEBUGTEMP)
 /* Add Sensor Tab Page = 5 */
-    if (app->config->current_settings_page == gtk_notebook_get_n_pages(notebook)){
+    if (app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
     	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			(GtkWidget*)create_sensor_page(window_config),
         			gtk_label_new(_("Sensor")));
@@ -803,20 +873,20 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
          gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 	                          sensor_tab,
 	                          gtk_label_new(_("Sensor")));
-	 g_idle_add((GSourceFunc)process_sensor_tab,sensor_tab);
+	 g_object_set_data(G_OBJECT(window_config), "sensor_tab", (gpointer)sensor_tab);
     }
 #endif
 /* Add Alerts Tab Page = 5 or 6 */
-    if (app->config->current_settings_page == gtk_notebook_get_n_pages(notebook)){
+    if (app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
     	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_alerts_page(window_config),
         			gtk_label_new(_("Alerts")));
     }else{
 	    alerts_tab = gtk_vbox_new(FALSE,0);
-        gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+       	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 	                             alerts_tab,
 				     gtk_label_new(_("Alerts")));
-	    g_idle_add((GSourceFunc)process_alert_tab,alerts_tab);
+	    g_object_set_data(G_OBJECT(window_config), "alerts_tab", (gpointer)alerts_tab);
     }
 #ifndef RELEASE
 /* Events list tab */
@@ -844,6 +914,9 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 /* set current page and show it for notebook */
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook),
 				    app->config->current_settings_page);
+ /* Connect to signal "changing notebook page" */
+    g_signal_connect (G_OBJECT(notebook), "switch-page", G_CALLBACK(switch_cb), window_config);
+
 }
 /*******************************************************************************/
 void apply_button_handler(GtkWidget *button, GdkEventButton *event,

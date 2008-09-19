@@ -644,14 +644,19 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 		*notebook = NULL,
 		*vbox = NULL,
 #if defined(OS2008) || defined(DEBUGTEMP)
-		*sensor_page = NULL,
+		*sensor_tab = NULL,
 #endif
 		*buttons_box = NULL,
 		*help_button = NULL,
 		*apply_button = NULL,
 		*close_button = NULL,
 		*back_button = NULL,
-		*locations_tab = NULL;
+		*locations_tab = NULL,
+		*visual_tab = NULL,
+		*display_tab = NULL,
+		*units_tab = NULL,
+		*update_tab = NULL,
+		*alerts_tab = NULL;
 #ifndef RELEASE
     char	tmp_buff[1024];
 #endif
@@ -719,33 +724,100 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
     GLADE_HOOKUP_OBJECT(window_config, notebook, "notebook");
 
-/* add pages to the notebook */
-	locations_tab=gtk_vbox_new(FALSE,0);
-    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+/* Add pages to the notebook. This difficult code for very simple operation -"adding 
+ * page to notebook" is neccessary for accelaration process of creating  Setting windows 
+ * on dipslay */
+
+/* Add Locations Tab Page = 0 */
+    if (app->config->current_settings_page == gtk_notebook_get_n_pages(notebook)){
+    	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+		    create_locations_tab(window_config),
+        	    gtk_label_new(_("Stations")));
+    }else{
+    	locations_tab = gtk_vbox_new(FALSE,0);
+	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 		    locations_tab,
         	    gtk_label_new(_("Stations")));
-    g_idle_add((GSourceFunc)process_locations_tab,locations_tab);
-    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+    	g_idle_add((GSourceFunc)process_locations_tab,locations_tab);
+    }
+
+
+/* Add Visuals Tab Page = 1 */
+    if (app->config->current_settings_page == gtk_notebook_get_n_pages(notebook)){
+    	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 		    create_visuals_tab(window_config),
+                    gtk_label_new(_("Visuals")));
+    }else{
+    	visual_tab = gtk_vbox_new(FALSE,0);
+	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+		    visual_tab,
         	    gtk_label_new(_("Visuals")));
-     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+    	g_idle_add((GSourceFunc)process_visuals_tab,visual_tab);
+    }
+
+/* Add Diplay Tab Page = 2 */    
+     if (app->config->current_settings_page == gtk_notebook_get_n_pages(notebook)){
+     	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_display_tab(window_config),
         			gtk_label_new(_("Display")));
-    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			 create_units_tab(window_config) ,
+     }else{
+     	display_tab = gtk_vbox_new(FALSE,0);
+     	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			display_tab,
+        			gtk_label_new(_("Display")));
+    	g_idle_add((GSourceFunc)process_display_tab,display_tab);
+     }
+
+/* Add Units Tab Page = 3  */
+    if (app->config->current_settings_page == gtk_notebook_get_n_pages(notebook)){
+    	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			create_units_tab(window_config) ,
         			gtk_label_new(_("Units")));
-    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+    }else{
+    	units_tab = gtk_vbox_new(FALSE,0);
+        gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+                                units_tab,
+                                gtk_label_new(_("Units")));
+        g_idle_add((GSourceFunc)process_units_tab,units_tab);
+    }
+/* Add Update Tab Page = 4 */
+    if (app->config->current_settings_page == gtk_notebook_get_n_pages(notebook)){
+    	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_update_tab(window_config),
         			gtk_label_new(_("Update")));
+   }else{
+        update_tab = gtk_vbox_new(FALSE,0);
+        gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+                                 units_tab,
+                                 gtk_label_new(_("Update")));
+        g_idle_add((GSourceFunc)process_update_tab,update_tab);
+   }
 #if defined(OS2008) || defined(DEBUGTEMP)
-    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			sensor_page = create_sensor_page(window_config),
+/* Add Sensor Tab Page = 5 */
+    if (app->config->current_settings_page == gtk_notebook_get_n_pages(notebook)){
+    	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+        			(GtkWidget*)create_sensor_page(window_config),
         			gtk_label_new(_("Sensor")));
+    }else{
+    	 sensor_tab = gtk_vbox_new(FALSE,0);
+         gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+	                          sensor_tab,
+	                          gtk_label_new(_("Sensor")));
+	 g_idle_add((GSourceFunc)process_sensor_tab,sensor_tab);
+    }
 #endif
-/* Alerts */
-    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+/* Add Alerts Tab Page = 5 or 6 */
+    if (app->config->current_settings_page == gtk_notebook_get_n_pages(notebook)){
+    	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         			create_alerts_page(window_config),
         			gtk_label_new(_("Alerts")));
+    }else{
+	    alerts_tab = gtk_vbox_new(FALSE,0);
+        gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+	                             alerts_tab,
+				     gtk_label_new(_("Alerts")));
+	    g_idle_add((GSourceFunc)process_alert_tab,alerts_tab);
+    }
 #ifndef RELEASE
 /* Events list tab */
     memset(tmp_buff, 0, sizeof(tmp_buff));
@@ -2047,6 +2119,54 @@ check:
 gboolean process_locations_tab(GtkWidget *vbox)
 {
 	GtkWidget *child=create_locations_tab(gtk_widget_get_toplevel(vbox));
+	gtk_container_add(GTK_CONTAINER(vbox),child);
+	gtk_widget_show_all(vbox);
+	return FALSE;
+}
+/*******************************************************************************/
+gboolean process_visuals_tab(GtkWidget *vbox)
+{
+	GtkWidget *child=create_visuals_tab(gtk_widget_get_toplevel(vbox));
+	gtk_container_add(GTK_CONTAINER(vbox),child);
+	gtk_widget_show_all(vbox);
+	return FALSE;
+}
+/*******************************************************************************/
+gboolean process_display_tab(GtkWidget *vbox)
+{
+	GtkWidget *child=create_display_tab(gtk_widget_get_toplevel(vbox));
+	gtk_container_add(GTK_CONTAINER(vbox),child);
+	gtk_widget_show_all(vbox);
+	return FALSE;
+}
+/*******************************************************************************/
+gboolean process_units_tab(GtkWidget *vbox)
+{
+	GtkWidget *child=create_units_tab(gtk_widget_get_toplevel(vbox));
+	gtk_container_add(GTK_CONTAINER(vbox),child);
+	gtk_widget_show_all(vbox);
+	return FALSE;
+}
+/*******************************************************************************/
+gboolean process_update_tab(GtkWidget *vbox)
+{
+	GtkWidget *child=create_update_tab(gtk_widget_get_toplevel(vbox));
+	gtk_container_add(GTK_CONTAINER(vbox),child);
+	gtk_widget_show_all(vbox);
+	return FALSE;
+}
+/*******************************************************************************/
+gboolean process_sensor_tab(GtkWidget *vbox)
+{
+	GtkWidget *child=create_sensor_page(gtk_widget_get_toplevel(vbox));
+	gtk_container_add(GTK_CONTAINER(vbox),child);
+	gtk_widget_show_all(vbox);
+	return FALSE;
+}
+/*******************************************************************************/
+gboolean process_alert_tab(GtkWidget *vbox)
+{
+	GtkWidget *child=create_alerts_page(gtk_widget_get_toplevel(vbox));
 	gtk_container_add(GTK_CONTAINER(vbox),child);
 	gtk_widget_show_all(vbox);
 	return FALSE;

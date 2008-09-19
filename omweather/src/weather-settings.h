@@ -53,6 +53,12 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 void station_list_view_select_handler(GtkTreeView *tree_view,
 			    gpointer user_data);
 gboolean process_locations_tab(GtkWidget *vbox);
+gboolean process_visuals_tab(GtkWidget *vbox);
+gboolean process_display_tab(GtkWidget *vbox);
+gboolean process_units_tab(GtkWidget *vbox);
+gboolean process_update_tab(GtkWidget *vbox);
+gboolean process_sensor_tab(GtkWidget *vbox);
+gboolean process_alert_tab(GtkWidget *vbox);
 gboolean changed_country_process(gpointer user_data);
 void changed_country_handler(GtkWidget *widget, gpointer user_data);
 gboolean changed_state_process(gpointer user_data);

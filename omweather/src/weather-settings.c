@@ -1129,7 +1129,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     if(show_wind)
 	app->config->show_wind = 
 	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(show_wind));
-/*show detailed weather*/
+/* show detailed weather */
     show_weather_for_two_hours = lookup_widget(config_window,
                                                     "show_weather_for_two_hours");
     if(show_weather_for_two_hours){
@@ -2401,13 +2401,8 @@ GtkWidget* create_locations_tab(GtkWidget *window){
     for(i = 0; i < MAX_WEATHER_SOURCE_NUMBER; i++)
 	gtk_combo_box_append_text(GTK_COMBO_BOX(weather_source),
 				    weather_sources[i].name);
-/* uncomment on 0.22
     gtk_combo_box_set_active(GTK_COMBO_BOX(weather_source),
 				app->config->weather_source);
-*/
-/* delete on 0.22 */
-    gtk_combo_box_set_active(GTK_COMBO_BOX(weather_source), 1);
-    gtk_widget_set_sensitive(GTK_WIDGET(weather_source), FALSE);
 
     GLADE_HOOKUP_OBJECT(window, weather_source, "weather_source");
     gtk_widget_set_name(weather_source, "weather_source");
@@ -3248,7 +3243,7 @@ GtkWidget* create_update_tab(GtkWidget *window){
                         chk_show_weather_for_two_hours = gtk_check_button_new(),
                         FALSE, FALSE, 5);
     gtk_box_pack_start(GTK_BOX(second_line),
-                            gtk_label_new(_("Show detailed weather")),
+                            gtk_label_new(_("Download and show detailed weather")),
                             FALSE, FALSE, 0);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_show_weather_for_two_hours),
                                     app->config->show_weather_for_two_hours);

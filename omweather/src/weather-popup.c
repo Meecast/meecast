@@ -912,56 +912,53 @@ GtkWidget* create_current_tab(GSList *current){
     return main_widget;
 }
 /*******************************************************************************/
-GtkWidget* create_hour_tab(){
-   GtkWidget   *main_widget = NULL,
-               *window = NULL,
-               *window_tmp = NULL, 
-               *icon_window = NULL,
-               *icon_text_hbox = NULL,
-               *text = NULL,
-               *icon_image = NULL;
-   GSList      *hour_weather = NULL,
-               *tmp = NULL; 
-   gchar       buffer[1024],
-               *units;
-   const gchar *wind_units_str[] = {"m/s", "km/h", "mi/h" };
-   GdkPixbuf   *icon = NULL;
-   float       tmp_distance = 0.0f,
-               tmp_pressure = 0.0f;
-   int         i = 0,
-               j = 0,  
-               period = 6;
-   #ifdef DEBUGFUNCTIONCALL 
-        START_FUNCTION;
-   #endif
-   if(!app->wsd.hours_weather)
-      return NULL;
+GtkWidget* create_hour_tab(void){
+    GtkWidget	*main_widget = NULL,
+		*window = NULL,
+		*window_tmp = NULL, 
+		*icon_text_hbox = NULL,
+		*text = NULL,
+		*icon_image = NULL;
+    GSList	*hour_weather = NULL,
+		*tmp = NULL; 
+    gchar	buffer[1024];
+    const gchar	*wind_units_str[] = { "m/s", "km/h", "mi/h" };
+    GdkPixbuf	*icon = NULL;
+    gint	i = 0,
+		period = 6;
+#ifdef DEBUGFUNCTIONCALL 
+    START_FUNCTION;
+#endif
+    if(!app->wsd.hours_weather)
+	return NULL;
 
-   main_widget = gtk_vbox_new(FALSE, 0);
-   window_tmp = gtk_hbox_new(FALSE, 0);
-   tmp = app->wsd.hours_weather;
-   while(tmp){
-        hour_weather = (GSList*)tmp->data; 
-        window = gtk_vbox_new(FALSE, 0);
-        icon_text_hbox = gtk_hbox_new(FALSE, 0);
-   /* icon */
-        sprintf(buffer,"%s%s.png", path_large_icon, item_value(hour_weather, "hour_icon"));
-        icon = gdk_pixbuf_new_from_file_at_size(buffer, SMALL_ICON_SIZE,
+    main_widget = gtk_vbox_new(FALSE, 0);
+    window_tmp = gtk_hbox_new(FALSE, 0);
+    tmp = app->wsd.hours_weather;
+    while(tmp){
+	hour_weather = (GSList*)tmp->data; 
+	window = gtk_vbox_new(FALSE, 0);
+	icon_text_hbox = gtk_hbox_new(FALSE, 0);
+/* icon */
+	sprintf(buffer,"%s%s.png", path_large_icon, item_value(hour_weather, "hour_icon"));
+	icon = gdk_pixbuf_new_from_file_at_size(buffer, SMALL_ICON_SIZE,
                                                    SMALL_ICON_SIZE, NULL);
-        icon_image = gtk_image_new_from_pixbuf(icon);
-        if(icon)
-            g_object_unref(icon);
-        gtk_box_pack_start(GTK_BOX(icon_text_hbox), icon_image, TRUE, FALSE, 0);
-        memset(buffer, 0, sizeof(buffer));
-   /* hour */
-        sprintf(buffer + strlen(buffer), "%s", _("Time: "));
-        sprintf(buffer + strlen(buffer), "  %s:00\n",
+	icon_image = gtk_image_new_from_pixbuf(icon);
+	if(icon)
+	    g_object_unref(icon);
+	gtk_box_pack_start(GTK_BOX(icon_text_hbox), icon_image, TRUE, FALSE, 0);
+	memset(buffer, 0, sizeof(buffer));
+/* hour */
+	sprintf(buffer + strlen(buffer), "%s", _("Forecast at: "));
+/* TODO fix this item to corret displaing localized time */
+	sprintf(buffer + strlen(buffer), "%s:00\n",
                                 item_value(hour_weather, "hours"));
-        sprintf(buffer + strlen(buffer), "%s\n",
-                                item_value(hour_weather, "hour_title"));
-   /* temperature */
-        sprintf(buffer + strlen(buffer), "%s",  _("Temperature: "));
-        sprintf(buffer + strlen(buffer), "  %d\302\260",
+/* title */
+	sprintf(buffer + strlen(buffer), "%s\n",
+                        (char*)hash_table_find(item_value(hour_weather, "hour_title"), FALSE));
+/* temperature */
+	sprintf(buffer + strlen(buffer), "%s",  _("Temperature: "));
+	sprintf(buffer + strlen(buffer), " %d\302\260",
                    ((app->config->temperature_units == CELSIUS) ?
                    ( atoi(item_value(hour_weather, "hour_temperature"))) :
                    ( (int)c2f(atoi(item_value(hour_weather, "hour_temperature"))))));
@@ -973,7 +970,8 @@ GtkWidget* create_hour_tab(){
                   (app->config->temperature_units == CELSIUS) ?
                   (atoi(item_value(hour_weather, "hour_feels_like"))) :
                   ((int)c2f(atoi(item_value(hour_weather, "hour_feels_like")))));
-        (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")))                                               : ( strcat(buffer, _("F\n")));
+        (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")))
+						    : ( strcat(buffer, _("F\n")));
    /* humidity */
         sprintf(buffer + strlen(buffer), "%s", _("Humidity:"));
         if( strcmp(item_value(hour_weather, "hour_humidity"), "N/A") ){
@@ -983,18 +981,17 @@ GtkWidget* create_hour_tab(){
         else{
             sprintf(buffer + strlen(buffer), "%s\n",
                             (char*)hash_table_find("N/A", FALSE));
-
         }
    /* wind */
         if( strcmp(item_value(hour_weather, "hour_wind_direction"), "N/A") ){
             sprintf(buffer + strlen(buffer), "%s", _("Wind:"));
             sprintf(buffer + strlen(buffer), "  %s\n",
-                           item_value(hour_weather, "hour_wind_direction"));
+                        (char*)hash_table_find(item_value(hour_weather, "hour_wind_direction"), TRUE));
             if( strcmp(item_value(hour_weather, "hour_wind_speed"), "N/A") )
                 sprintf(buffer + strlen(buffer), "%s", _("Speed:"));
             sprintf(buffer + strlen(buffer), "  %.2f %s\n",
                 convert_wind_units(app->config->wind_units, atof(item_value(hour_weather, "hour_wind_speed"))),
-                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));    
+                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
         }
    /* gust */
         if( strcmp(item_value(hour_weather, "hour_wind_gust"), "N/A") ){
@@ -1010,19 +1007,19 @@ GtkWidget* create_hour_tab(){
         gtk_box_pack_start(GTK_BOX(window_tmp), window, TRUE, FALSE, 0);
         for (i=1;i<period;i++){
             tmp = g_slist_next(tmp);
-            if (!tmp)
+            if(!tmp)
                 break;
         }
    }
 
-   gtk_box_pack_start(GTK_BOX(main_widget), window_tmp, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_widget), window_tmp, TRUE, TRUE, 0);
    /* last update time */
-   if(hour_weather)
-       gtk_box_pack_start(GTK_BOX(main_widget),
+    if(hour_weather)
+	gtk_box_pack_start(GTK_BOX(main_widget),
                              create_time_updates_widget(hour_weather),
                              TRUE, FALSE, 5);
-   gtk_widget_show_all(main_widget);
-   return main_widget;
+    gtk_widget_show_all(main_widget);
+    return main_widget;
 }
 /*******************************************************************************/
 GtkWidget* create_copyright_widget(const gchar *text, const gchar *image){

@@ -34,7 +34,6 @@ GtkWidget* create_alerts_page(GtkWidget *window){
 		*scrolled_window = NULL,
 		*user_alerts_list_view = NULL,
 		*alerts_list_view = NULL,
-		*alerts_list_viwq = NULL,
 		*buttons_box = NULL,
 		*add_button = NULL,
 		*remove_button = NULL;

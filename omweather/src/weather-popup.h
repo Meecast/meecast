@@ -52,7 +52,7 @@ void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_pseudo_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_current_tab(GSList *current);
-GtkWidget* create_hour_tab();
+GtkWidget* create_hour_tab(void);
 gboolean make_current_tab(GtkWidget *vbox);
 gboolean make_tab(GtkWidget *vbox);
 gboolean make_hour_tab(GtkWidget *vbox);

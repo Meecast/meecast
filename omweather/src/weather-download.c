@@ -415,7 +415,7 @@ gboolean download_html(gpointer data){
 		mret = curl_multi_remove_handle(curl_multi,curl_handle); /* Delete curl_handle from curl_multi */
 		if (mret != CURLM_OK)
 		    fprintf(stderr," Error remove handle %p\n",curl_handle);
-		mret = curl_multi_remove_handle(curl_multi,curl_handle_hour); /* Delete curl_handle from curl_multi */		    
+		mret = curl_multi_remove_handle(curl_multi,curl_handle_hour); /* Delete curl_handle from curl_multi */
 		if (mret != CURLM_OK)
 		    fprintf(stderr," Error remove handle %p\n",curl_handle);
 		
@@ -530,7 +530,8 @@ void clean_download(void){
  * Returns TRUE if all right otherwise return FLASE.
 */
 gboolean
-get_station_url(gchar **url, struct HtmlFile *html_file, gchar **hour_url, struct HtmlFile *html_file_hour,gboolean first){
+get_station_url(gchar **url, struct HtmlFile *html_file, gchar **hour_url,
+				struct HtmlFile *html_file_hour, gboolean first){
 		gboolean	valid = FALSE;
     static	GtkTreeIter	iter;
 		gchar		*station_code = NULL;
@@ -588,4 +589,3 @@ get_station_url(gchar **url, struct HtmlFile *html_file, gchar **hour_url, struc
 #endif
     return valid;
 }
-

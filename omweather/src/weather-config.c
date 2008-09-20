@@ -140,7 +140,7 @@ fill_user_stations_list_from_clock(GtkListStore** list){
     if(home_city)
 	g_free(home_city);
     if(remote_city)
-	g_free(remote_city);	
+	g_free(remote_city);
 }
 /*******************************************************************************/
 void

@@ -219,7 +219,7 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 		for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next){
 		    /* last update */
 		    if( child_node->type == XML_ELEMENT_NODE  &&
-            		    ( !xmlStrcmp(child_node->name, (const xmlChar *)"lsup") ) ){
+			( !xmlStrcmp(child_node->name, (const xmlChar *)"lsup") ) ){
 			temp_xml_string = xmlNodeGetContent(child_node);
 			itm = create_item("last_update", (char*)temp_xml_string);
 			xmlFree(temp_xml_string);
@@ -540,14 +540,6 @@ gint parse_weather_com_xml_hour(const gchar *station_id,
             }
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "hbhf" ) ){
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
-               /*     if( child_node->type == XML_ELEMENT_NODE  &&
-                 (!xmlStrcmp(child_node->name, (const xmlChar *)"lsup") )){
-                        temp_xml_string = xmlNodeGetContent(child_node);
-                        itm = create_item("hour_last_update", (char*)temp_xml_string);
-                        xmlFree(temp_xml_string);
-                        add_item2object(&hour_weather, itm);
-                        continue;
-                   }*/
                    if( child_node->type == XML_ELEMENT_NODE  &&
                   (!xmlStrcmp(child_node->name, (const xmlChar *)"hour") )){
                         /*Get an hour*/
@@ -622,7 +614,7 @@ gint parse_weather_com_xml_hour(const gchar *station_id,
                                      /* direction */
                                      if(!xmlStrcmp(child_node3->name, (const xmlChar *)    "t")){
                                         temp_xml_string = xmlNodeGetContent(child_node3);
-                                        itm = create_item("hour_wind_direction", (char *)hash_table_find(temp_xml_string, FALSE));
+                                        itm = create_item("hour_wind_direction", (char*)temp_xml_string);
                                         xmlFree(temp_xml_string);
                                         add_item2object(&hour_weather, itm);
                                      }

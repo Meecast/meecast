@@ -671,12 +671,14 @@ void update_weather(gboolean show_update_window){
 }
 /*******************************************************************************/
 #ifdef OS2008
-void omweather_init(OMWeather *applet){
+void
+omweather_init(OMWeather *applet){
     GtkSettings *settings;
     GdkColormap *cm;
     gchar       tmp_buff[2048];
 #else
-void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
+void*
+hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
 #endif
     osso_context_t	*osso = NULL;
@@ -742,7 +744,7 @@ void* hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	return;
 #endif
     }
-/*    parse_template_from_file("/usr/share/omweather/templates/weather_com/popup.xml", "UTF-8");*/
+    parse_template_from_file("/usr/share/omweather/templates/weather_com/popup.xml", "UTF-8");
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
 /* Read Coutries list from file */

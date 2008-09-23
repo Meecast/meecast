@@ -36,8 +36,6 @@
     #include <hildon-widgets/hildon-controlbar.h>
 #endif
 /*******************************************************************************/
-#define OMWEATHER_RESPONSE_ABOUT 5000
-/*******************************************************************************/
 struct lists_struct{
     GtkWidget	*countries;
     GtkWidget	*states;

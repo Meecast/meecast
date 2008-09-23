@@ -113,7 +113,7 @@ mb2inch(float pressure){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    return ( pressure / 1000.0f / 100000.0f * 3386.389f );
+    return ( pressure / 1000.0f * 68.948f * 0.001f );
 }
 /*******************************************************************************/
 void

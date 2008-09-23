@@ -107,13 +107,21 @@ c2f(float temp){
     return (temp * 1.8f ) + 32.0f;
 }
 /*******************************************************************************/
-/* convert preesure */
+/* convert pressure */
 float
 mb2inch(float pressure){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     return ( pressure / 1000.0f * 68.948f * 0.001f );
+}
+/*******************************************************************************/
+float
+mb2mm(float pressure){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    return ( pressure / 1000.0f * 1.3332f * 0.001f );
 }
 /*******************************************************************************/
 void

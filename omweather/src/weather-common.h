@@ -164,6 +164,7 @@ typedef struct{
     GSList	*current;
     GSList	*days;
     gboolean	current_data_is_invalid;
+    gboolean	hours_data_is_invalid;
     GSList      *hours_weather;
 }WeatherStationData;
 /*******************************************************************************/

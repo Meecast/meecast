@@ -211,6 +211,9 @@ GtkWidget* create_time_updates_widget(GSList *current){
     main_widget = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_start(GTK_BOX(main_widget), label_update, TRUE, TRUE, 0);
 
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return main_widget;
 }
 /*******************************************************************************/
@@ -246,7 +249,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
         GtkWidget	*window_popup = NULL,
 		*notebook = NULL,
 		*tab = NULL,
-        *hour_tab = NULL,
+                *hour_tab = NULL,
 		*current_tab = NULL,
 		*label = NULL,
 		*vbox = NULL,
@@ -265,7 +268,8 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
         gchar	*day_name = NULL;
         time_t      current_time = 0,
         diff_time,
-        current_data_last_update = 0;
+        current_data_last_update = 0,
+	data_last_update = 0;
         GSList	*tmp = NULL,
 		*day = NULL;
 #ifdef DEBUGFUNCTIONCALL
@@ -296,7 +300,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(vbox),
 			label_box,
 			FALSE, TRUE, 0);
-	gtk_event_box_set_visible_window(GTK_EVENT_BOX(label_box),FALSE);
+    gtk_event_box_set_visible_window(GTK_EVENT_BOX(label_box),FALSE);
     
 /* create tabs widget */
     notebook = gtk_notebook_new();
@@ -314,6 +318,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     current_time += diff_time;
 
     current_data_last_update = last_update_time(app->wsd.current);
+    /* Check a valid time for current weather */
     if(!app->wsd.current_data_is_invalid &&
 	    (current_data_last_update >
 		( current_time - app->config->data_valid_interval)) &&
@@ -341,14 +346,19 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     (app->config->separate) ? (k = 1) : (k = 0);
     
 /* Detailed weather tab */
-    if(app->config->show_weather_for_two_hours)
-        hour_tab = gtk_vbox_new(FALSE, 0);
+    data_last_update =  last_update_time((GSList*)(app->wsd.hours_weather)->data);
+
+    /* Check a valid time for hours forecast */
+    if(app->config->show_weather_for_two_hours &&(!app->wsd.current_data_is_invalid)&& 
+       (current_time-24*60*60) < data_last_update)
+	hour_tab = gtk_vbox_new(FALSE, 0);
 	
     if(hour_tab){
         gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                     hour_tab,
                                     gtk_label_new(_("Detailed")));
 	g_idle_add((GSourceFunc)make_hour_tab,hour_tab);
+	
     }				    
 /* Day tabs */
     tmp = app->wsd.days;
@@ -800,6 +810,9 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 			    create_time_updates_widget(current),
 			    TRUE, FALSE, 5);
     gtk_widget_show_all(main_widget);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif        
     return main_widget;
 }
 /*******************************************************************************/
@@ -917,6 +930,10 @@ GtkWidget* create_current_tab(GSList *current){
 			    create_time_updates_widget(current),
 			    TRUE, FALSE, 5);
     gtk_widget_show_all(main_widget);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return main_widget;
 }
 /*******************************************************************************/
@@ -934,6 +951,7 @@ GtkWidget* create_hour_tab(void){
     GdkPixbuf	*icon = NULL;
     gint	i = 0,
 		period = 6;
+
 #ifdef DEBUGFUNCTIONCALL 
     START_FUNCTION;
 #endif
@@ -943,8 +961,9 @@ GtkWidget* create_hour_tab(void){
     main_widget = gtk_vbox_new(FALSE, 0);
     window_tmp = gtk_hbox_new(FALSE, 0);
     tmp = app->wsd.hours_weather;
+    
     while(tmp){
-	hour_weather = (GSList*)tmp->data; 
+    	hour_weather = (GSList*)tmp->data; 
 	window = gtk_vbox_new(FALSE, 0);
 	icon_text_hbox = gtk_hbox_new(FALSE, 0);
 /* icon */
@@ -955,7 +974,7 @@ GtkWidget* create_hour_tab(void){
 	if(icon)
 	    g_object_unref(icon);
 	gtk_box_pack_start(GTK_BOX(icon_text_hbox), icon_image, TRUE, FALSE, 0);
-	memset(buffer, 0, sizeof(buffer));
+	memset(buffer, 0, sizeof(buffer));	
 /* hour */
 	sprintf(buffer + strlen(buffer), "%s", _("Forecast at: "));
 /* TODO fix this item to corret displaing localized time */
@@ -1028,6 +1047,9 @@ GtkWidget* create_hour_tab(void){
                              TRUE, FALSE, 5);
     gtk_widget_show_all(main_widget);
     return main_widget;
+#ifdef DEBUGFUNCTIONCALL 
+    END_FUNCTION;
+#endif    
 }
 /*******************************************************************************/
 GtkWidget* create_copyright_widget(const gchar *text, const gchar *image){
@@ -1106,6 +1128,10 @@ GtkWidget* create_window_header(const gchar *station_name, GtkWidget *popup_wind
                 	G_CALLBACK(change_station_next), popup_window);
     }
 	gtk_box_pack_start(GTK_BOX(vbox),main_widget,FALSE,FALSE,20);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+ 
     return vbox;
 }
 /*******************************************************************************/

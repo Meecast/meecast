@@ -540,7 +540,16 @@ gint parse_weather_com_xml_hour(const gchar *station_id,
             }
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "hbhf" ) ){
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
-                   if( child_node->type == XML_ELEMENT_NODE  &&
+                  /* last update */
+                  if( child_node->type == XML_ELEMENT_NODE  &&
+			( !xmlStrcmp(child_node->name, (const xmlChar *)"lsup") ) ){
+			temp_xml_string = xmlNodeGetContent(child_node);
+			itm = create_item("last_update", (char*)temp_xml_string);
+			xmlFree(temp_xml_string);
+			add_item2object(&(hour_weather), itm);
+			continue;
+		  }
+                  if( child_node->type == XML_ELEMENT_NODE  &&
                   (!xmlStrcmp(child_node->name, (const xmlChar *)"hour") )){
                         /*Get an hour*/
                         temp_xml_string = xmlGetProp(child_node, (const xmlChar *)"c");
@@ -578,9 +587,9 @@ gint parse_weather_com_xml_hour(const gchar *station_id,
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     itm = create_item("hour_icon", (char*)temp_xml_string);
                                     if(!strcmp((char*)temp_xml_string, "-"))
-                                        wsd->current_data_is_invalid = TRUE;
+                                        wsd->hours_data_is_invalid = TRUE;
                                     else
-                                        wsd->current_data_is_invalid = FALSE;
+                                        wsd->hours_data_is_invalid = FALSE;
                                     xmlFree(temp_xml_string);
                                     add_item2object(&hour_weather, itm);
                                     continue;
@@ -644,6 +653,9 @@ gint parse_weather_com_xml_hour(const gchar *station_id,
     xmlFreeDoc(parser->doc);
     xmlCleanupParser();
     free(parser);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif    
     return count_hour;
 }
 /*******************************************************************************/

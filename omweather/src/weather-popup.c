@@ -214,12 +214,11 @@ GtkWidget* create_time_updates_widget(GSList *current){
     return main_widget;
 }
 /*******************************************************************************/
-gboolean make_current_tab(GtkWidget *vbox)
-{
-	GtkWidget *child = create_current_tab(app->wsd.current);
-	gtk_container_add(GTK_CONTAINER(vbox),child);
-	gtk_widget_show_all(vbox);
-	return FALSE;
+gboolean make_current_tab(GtkWidget *vbox){
+    GtkWidget *child = create_current_tab(app->wsd.current);
+    gtk_container_add(GTK_CONTAINER(vbox), child);
+    gtk_widget_show_all(vbox);
+    return FALSE;
 }
 /*******************************************************************************/
 gboolean make_tab(GtkWidget *vbox)

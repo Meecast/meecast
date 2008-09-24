@@ -322,16 +322,19 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 		( current_time + app->config->data_valid_interval)))
 	current_tab = gtk_vbox_new(FALSE, 0);
 
-    if(active_tab == 0 && app->config->separate){
+    if(active_tab == 0 && app->config->separate && current_tab){
         gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
  				current_tab,
  				gtk_label_new(_("Now")));
 	make_current_tab(current_tab); 
-    }else{
-	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-				current_tab,
-				gtk_label_new(_("Now")));
-	g_idle_add((GSourceFunc)make_current_tab,current_tab);
+    }
+    else{
+	if(current_tab){
+	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+					current_tab,
+					gtk_label_new(_("Now")));
+	    g_idle_add((GSourceFunc)make_current_tab,current_tab);
+	}
     }
 
     

@@ -2517,7 +2517,8 @@ GtkWidget* create_locations_tab(GtkWidget *window){
     gtk_widget_set_size_request(states, 300, -1);
     gtk_widget_set_size_request(stations, 300, -1);
 /* Set default value to country combo_box */
-    gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
+    if (app->countrys_list)
+	gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
 				get_active_item_index((GtkTreeModel*)app->countrys_list,
 				-1, app->config->current_country, TRUE));
     /* fill states list */

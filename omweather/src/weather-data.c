@@ -162,7 +162,9 @@ last_update_time(GSList *object){
     /* Add 12 hours if  date have PM field */
     if(strstr(item_value(object, "last_update"), "PM"))
 	last_update += 12 * 3600;
-
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return last_update;
 }
 /*******************************************************************************/

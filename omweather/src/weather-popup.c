@@ -238,9 +238,15 @@ gboolean make_tab(GtkWidget *vbox)
 /*******************************************************************************/
 gboolean make_hour_tab(GtkWidget *vbox)
 {
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
 	GtkWidget *child = create_hour_tab();
 	gtk_container_add(GTK_CONTAINER(vbox),child);
 	gtk_widget_show_all(vbox);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 	return FALSE;
 }
 /*******************************************************************************/
@@ -341,25 +347,24 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	}
     }
 
-    
+
 /* if weather is separated than hide one day */
     (app->config->separate) ? (k = 1) : (k = 0);
     
 /* Detailed weather tab */
-    data_last_update =  last_update_time((GSList*)(app->wsd.hours_weather)->data);
-
-    /* Check a valid time for hours forecast */
-    if(app->config->show_weather_for_two_hours &&(!app->wsd.current_data_is_invalid)&& 
-       (current_time-24*60*60) < data_last_update)
-	hour_tab = gtk_vbox_new(FALSE, 0);
-	
-    if(hour_tab){
-        gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+    if (!app->wsd.hours_data_is_invalid &&  app->wsd.hours_weather){
+    	data_last_update =  last_update_time((GSList*)(app->wsd.hours_weather)->data);
+    	/* Check a valid time for hours forecast */
+    	if(app->config->show_weather_for_two_hours &&(!app->wsd.current_data_is_invalid)&& 
+       	(current_time-24*60*60) < data_last_update)
+		hour_tab = gtk_vbox_new(FALSE, 0);
+    	if(hour_tab){
+        	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                     hour_tab,
                                     gtk_label_new(_("Detailed")));
-	g_idle_add((GSourceFunc)make_hour_tab,hour_tab);
-	
-    }				    
+		g_idle_add((GSourceFunc)make_hour_tab,hour_tab);
+    	}
+    }
 /* Day tabs */
     tmp = app->wsd.days;
     while(tmp && i < app->config->days_to_show){
@@ -390,7 +395,6 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	tmp = g_slist_next(tmp);
 	i++;
     }
-
 /* prepare day tabs */
     if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){
 	gtk_box_pack_start(GTK_BOX(vbox), notebook,

@@ -454,18 +454,6 @@ read_config(AppletConfig *config){
 	g_free(tmp);
     }
 
-    /* Get UI background color */
-    config->ui_background_color.red = 0xCCCC;
-    config->ui_background_color.blue = 0xCCCC;
-    config->ui_background_color.green = 0xCCCC;
-    /* Get background color. */
-    value = gconf_client_get(gconf_client, GCONF_KEY_WEATHER_THEME_OVERRIDE, NULL);
-    if(value){
-    	config->theme_override_in_use = gconf_value_get_bool(value);
-    	gconf_value_free(value);
-    }
-    else
-	config->theme_override_in_use = TRUE;
     
     tmp = NULL;
     tmp = gconf_client_get_string(gconf_client,
@@ -820,10 +808,6 @@ config_save(AppletConfig *config){
     gconf_client_set_string(gconf_client,
         		    GCONF_KEY_WEATHER_FONT,
 			    config->font, NULL);
-	/* Save Theme Override flag. */
-	gconf_client_set_bool(gconf_client,
-					GCONF_KEY_WEATHER_THEME_OVERRIDE,
-				config->theme_override_in_use, NULL);
     /* Save Background Color */
     sprintf(temp_buffer, "#%02x%02x%02x",
             config->background_color.red >> 8,

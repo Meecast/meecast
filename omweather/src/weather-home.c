@@ -673,8 +673,6 @@ void update_weather(gboolean show_update_window){
 #ifdef OS2008
 void
 omweather_init(OMWeather *applet){
-    GtkSettings *settings;
-    GdkColormap *cm;
     gchar       tmp_buff[2048];
 #else
 void*
@@ -765,20 +763,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->widget_first_start = TRUE;		     
 
     gtk_widget_set_name(GTK_WIDGET(app->top_widget), PACKAGE_NAME);
-
-    snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s/%s",
-	                    app->config->cache_directory, "style.rc");
-    gtk_rc_parse(tmp_buff);
-    applet->priv = G_TYPE_INSTANCE_GET_PRIVATE(applet, TYPE_OMWEATHER, OMWeatherPrivate);
-
-    settings = gtk_settings_get_default();
-    cm = gdk_screen_get_rgba_colormap(gdk_screen_get_default());
-    if(app->config->theme_override_in_use){
-    	gtk_rc_parse("/usr/share/omweather/theme/gtk-2.0/gtkrc");
-    	gtk_rc_reset_styles(gtk_settings_get_for_screen(gdk_screen_get_default()));
-    }
-    if(cm)
-	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
     
     gtk_container_add(GTK_CONTAINER(applet), app->top_widget);
 #else

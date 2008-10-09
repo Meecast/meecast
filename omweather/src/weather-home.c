@@ -767,7 +767,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     applet->priv = G_TYPE_INSTANCE_GET_PRIVATE(applet, TYPE_OMWEATHER, OMWeatherPrivate);
     cm = gdk_screen_get_rgba_colormap(gdk_screen_get_default());
     if(cm)
-    	tk_widget_set_colormap(GTK_WIDGET(applet), cm);
+    	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
     gtk_container_add(GTK_CONTAINER(applet), app->top_widget);
 #else
     (*widget) = app->top_widget;

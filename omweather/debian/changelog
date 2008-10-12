@@ -3,6 +3,12 @@ omweather (0.22) unstable; urgency=low
   * Test
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 15 Aug 2008 03:36:00 +0200
+ 
+omweather (0.21.2) unstable; urgency=low
+
+  * Added mmHg units for pressure
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 15 Aug 2008 03:36:00 +0200
 
 omweather (0.21) unstable; urgency=low
 

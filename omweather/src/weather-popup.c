@@ -897,6 +897,7 @@ GtkWidget* create_current_tab(GSList *current){
 	    default:
 	    case MB: units = _("mb"); break;
 	    case INCH: units = _("inHg"); tmp_pressure = mb2inch(tmp_pressure); break;
+	    case MM: units = _("mmHg"); tmp_pressure = mb2mm(tmp_pressure); break;
 	}
 
 	sprintf(buffer + strlen(buffer), "  %.2f %s,", tmp_pressure, units);

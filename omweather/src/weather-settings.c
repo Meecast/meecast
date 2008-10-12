@@ -618,13 +618,13 @@ void highlight_current_station(GtkTreeView *tree_view){
 	    break;
 	}
 	else{
-    	    if(app->config->current_station_name && station_name &&                    
-        	!strcmp(app->config->current_station_name, station_name)){
+	    if(app->config->current_station_name && station_name &&
+		!strcmp(app->config->current_station_name, station_name)){
 		model = gtk_tree_view_get_model(GTK_TREE_VIEW(tree_view));
 		path = gtk_tree_model_get_path(model, &iter);
 		gtk_tree_view_set_cursor(GTK_TREE_VIEW(tree_view), path, NULL, FALSE);
 		gtk_tree_path_free(path);
-    		break;
+		break;
 	    }
 	    else{
 		g_free(station_name);
@@ -638,11 +638,8 @@ void highlight_current_station(GtkTreeView *tree_view){
 /*******************************************************************************/
 gboolean switch_cb (GtkNotebook *nb, gpointer nb_page, gint page, gpointer data)
 {
-    GtkWidget *child, *new_tab;
-    GtkWidget *tab;
-    int i = 0;  
-    GSList *tmp = NULL,
-    *day = NULL;
+    GtkWidget	*child;
+    GtkWidget	*tab;
     gchar   *tab_name = NULL;
 
     GtkWidget *window = GTK_WIDGET(data);
@@ -799,124 +796,133 @@ void weather_window_settings(GtkWidget *widget, GdkEvent *event,
  * on dipslay */
 
 /* Add Locations Tab Page = 0 */
-    if (app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
+    if(app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
     	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-		    create_locations_tab(window_config),
-        	    gtk_label_new(_("Stations")));
-    }else{
+				    create_locations_tab(window_config),
+				    gtk_label_new(_("Stations")));
+    }
+    else{
     	locations_tab = gtk_vbox_new(FALSE,0);
 	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-		    locations_tab,
-        	    gtk_label_new(_("Stations")));
-  	g_object_set_data(G_OBJECT(window_config), "locations_tab", (gpointer)locations_tab);
+				    locations_tab,
+				    gtk_label_new(_("Stations")));
+  	g_object_set_data(G_OBJECT(window_config), "locations_tab",
+  			    (gpointer)locations_tab);
     }
-
 /* Add Visuals Tab Page = 1 */
-    if (app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
+    if(app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
     	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-		    create_visuals_tab(window_config),
-                    gtk_label_new(_("Visuals")));
-    }else{
+				    create_visuals_tab(window_config),
+				    gtk_label_new(_("Visuals")));
+    }
+    else{
     	visual_tab = gtk_vbox_new(FALSE,0);
 	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-		    visual_tab,
-        	    gtk_label_new(_("Visuals")));
-    	g_object_set_data(G_OBJECT(window_config), "visual_tab", (gpointer)visual_tab);
+				    visual_tab,
+				    gtk_label_new(_("Visuals")));
+	g_object_set_data(G_OBJECT(window_config), "visual_tab",
+			    (gpointer)visual_tab);
     }
-
-/* Add Diplay Tab Page = 2 */    
-     if (app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
-     	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			create_display_tab(window_config),
-        			gtk_label_new(_("Display")));
-     }else{
-     	display_tab = gtk_vbox_new(FALSE,0);
-     	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			display_tab,
-        			gtk_label_new(_("Display")));
-	g_object_set_data(G_OBJECT(window_config), "display_tab", (gpointer)display_tab);
+/* Add Diplay Tab Page = 2 */
+    if(app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
+	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+				    create_display_tab(window_config),
+				    gtk_label_new(_("Display")));
+    }
+    else{
+	display_tab = gtk_vbox_new(FALSE,0);
+	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+				    display_tab,
+				    gtk_label_new(_("Display")));
+	g_object_set_data(G_OBJECT(window_config), "display_tab",
+			    (gpointer)display_tab);
      }
-
 /* Add Units Tab Page = 3  */
-    if (app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
-    	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			create_units_tab(window_config) ,
-        			gtk_label_new(_("Units")));
-    }else{
-    	units_tab = gtk_vbox_new(FALSE,0);
-        gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-                                units_tab,
-                                gtk_label_new(_("Units")));
-	g_object_set_data(G_OBJECT(window_config), "units_tab", (gpointer)units_tab);
+    if(app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
+	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+				    create_units_tab(window_config),
+				    gtk_label_new(_("Units")));
     }
-
+    else{
+	units_tab = gtk_vbox_new(FALSE,0);
+	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+				    units_tab,
+				    gtk_label_new(_("Units")));
+	g_object_set_data(G_OBJECT(window_config), "units_tab",
+			    (gpointer)units_tab);
+    }
 /* Add Update Tab Page = 4 */
-    if (app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
-    	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			create_update_tab(window_config),
-        			gtk_label_new(_("Update")));
-   }else{
-        update_tab = gtk_vbox_new(FALSE,0);
-        gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-                                 update_tab,
-                                 gtk_label_new(_("Update")));
-	g_object_set_data(G_OBJECT(window_config), "update_tab", (gpointer)update_tab);
-   }
+    if(app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
+	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+				    create_update_tab(window_config),
+				    gtk_label_new(_("Update")));
+    }
+    else{
+	update_tab = gtk_vbox_new(FALSE,0);
+	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+				    update_tab,
+				    gtk_label_new(_("Update")));
+	g_object_set_data(G_OBJECT(window_config), "update_tab",
+			    (gpointer)update_tab);
+    }
 #if defined(OS2008) || defined(DEBUGTEMP)
 /* Add Sensor Tab Page = 5 */
-    if (app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
-    	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			(GtkWidget*)create_sensor_page(window_config),
-        			gtk_label_new(_("Sensor")));
-    }else{
-    	 sensor_tab = gtk_vbox_new(FALSE,0);
-         gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-	                          sensor_tab,
-	                          gtk_label_new(_("Sensor")));
-	 g_object_set_data(G_OBJECT(window_config), "sensor_tab", (gpointer)sensor_tab);
+    if(app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
+	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+				    create_sensor_page(window_config),
+				    gtk_label_new(_("Sensor")));
+    }
+    else{
+	sensor_tab = gtk_vbox_new(FALSE,0);
+	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+				    sensor_tab,
+				    gtk_label_new(_("Sensor")));
+	g_object_set_data(G_OBJECT(window_config), "sensor_tab",
+			    (gpointer)sensor_tab);
     }
 #endif
 /* Add Alerts Tab Page = 5 or 6 */
-    if (app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
-    	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			create_alerts_page(window_config),
-        			gtk_label_new(_("Alerts")));
-    }else{
-	    alerts_tab = gtk_vbox_new(FALSE,0);
-       	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-	                             alerts_tab,
-				     gtk_label_new(_("Alerts")));
-	    g_object_set_data(G_OBJECT(window_config), "alerts_tab", (gpointer)alerts_tab);
+    if(app->config->current_settings_page == gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))){
+	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+				    create_alerts_page(window_config),
+				    gtk_label_new(_("Alerts")));
+    }
+    else{
+	alerts_tab = gtk_vbox_new(FALSE,0);
+	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+				    alerts_tab,
+				    gtk_label_new(_("Alerts")));
+	g_object_set_data(G_OBJECT(window_config), "alerts_tab",
+			    (gpointer)alerts_tab);
     }
 #ifndef RELEASE
 /* Events list tab */
     memset(tmp_buff, 0, sizeof(tmp_buff));
     print_list(tmp_buff, sizeof(tmp_buff) - 1);
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        			create_scrolled_window_with_text(tmp_buff,
-						    GTK_JUSTIFY_LEFT),
-        			gtk_label_new("Events"));
+				create_scrolled_window_with_text(tmp_buff,
+								    GTK_JUSTIFY_LEFT),
+				gtk_label_new("Events"));
 #endif
     gtk_widget_show(notebook);
 /* Pack items to config window */
     gtk_box_pack_start(GTK_BOX(vbox), notebook, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE,FALSE, 0);
 
-    gtk_widget_show_all(window_config);
     if(app->config->theme_override_in_use){
-    	gint i;
-    	for(i=0;i<gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook));i++){
-    	    g_signal_connect(G_OBJECT(gtk_notebook_get_nth_page(GTK_NOTEBOOK(notebook),i)),"expose-event",G_CALLBACK(draw_top_gradient),NULL);
-	}
-    	g_signal_connect(G_OBJECT(buttons_box),"expose-event",G_CALLBACK(draw_bottom_gradient),NULL);
+    gint i;
+    for(i=0;i<gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook));i++){
+        g_signal_connect(G_OBJECT(gtk_notebook_get_nth_page(GTK_NOTEBOOK(notebook),i)),"expose-event",G_CALLBACK(draw_top_gradient),NULL);
+}
+    g_signal_connect(G_OBJECT(buttons_box),"expose-event",G_CALLBACK(draw_bottom_gradient),NULL);
     }
 
+    gtk_widget_show_all(window_config);
 /* set current page and show it for notebook */
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook),
 				    app->config->current_settings_page);
- /* Connect to signal "changing notebook page" */
-    g_signal_connect (G_OBJECT(notebook), "switch-page", G_CALLBACK(switch_cb), window_config);
-
+/* Connect to signal "changing notebook page" */
+    g_signal_connect(G_OBJECT(notebook), "switch-page", G_CALLBACK(switch_cb), window_config);
 }
 /*******************************************************************************/
 void apply_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -952,7 +958,9 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 			*sensor_update_time = NULL,
 #endif
 			*temperature = NULL,
-			*pressure = NULL,
+			*pressure_mb = NULL,
+			*pressure_inch = NULL,
+			*pressure_mm = NULL,
 			*meters = NULL,
 			*kilometers = NULL,
 			*miles = NULL,
@@ -1005,8 +1013,8 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 		if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(two_rows)))
             	    app->config->icons_layout = TWO_ROWS;
 		else{
-		    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(two_columns)))		
-    			app->config->icons_layout = TWO_COLUMNS;
+		    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(two_columns)))
+			app->config->icons_layout = TWO_COLUMNS;
 		    else
 			app->config->icons_layout = COMBINATION;
 		}
@@ -1016,7 +1024,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	need_correct_layout_for_OS2007 = TRUE;
 #endif
     }
-/* icon set */	
+/* icon set */
     icon_set = (GSList*)g_object_get_data(G_OBJECT(config_window), "iconsetlist");
     if(icon_set){
 	while(icon_set){
@@ -1083,12 +1091,18 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	}
     }
 /* pressure */
-    pressure = lookup_widget(config_window, "mb_pressure");
-    if(pressure){
-	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(pressure)))
+    pressure_mb = lookup_widget(config_window, "mb_pressure");
+    pressure_inch = lookup_widget(config_window, "inch_pressure");
+    pressure_mm = lookup_widget(config_window, "mm_pressure");
+    if(pressure_mb && pressure_inch && pressure_mm){
+	if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(pressure_mb)))
             app->config->pressure_units = MB;
-	else
-            app->config->pressure_units = INCH;
+	else{
+	    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(pressure_inch)))
+        	app->config->pressure_units = INCH;
+	    else
+		app->config->pressure_units = MM;
+	}
     }
 /* temperature */
     temperature = lookup_widget(config_window, "temperature");
@@ -1209,7 +1223,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     theme_override = lookup_widget(config_window, "theme_override");
     if(theme_override){
 	app->config->theme_override_in_use =
-	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(theme_override));
+	gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(theme_override));
     }
 /* background color */
     background_color = lookup_widget(config_window, "background_color");
@@ -1237,8 +1251,8 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 		g_source_remove(app->switch_timer);
 		if(app->config->switch_time > 0)
 		    app->switch_timer = g_timeout_add(app->config->switch_time * 1000,
-                    					(GtkFunction)switch_timer_handler,
-                        				app->main_window);
+							(GtkFunction)switch_timer_handler,
+							app->main_window);
 	}
     }
 /* Data valid time */
@@ -1885,6 +1899,7 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 	    app->units_tab_current_state &= ~STATE_MILES;
 	goto check;
     }
+/* wind units */
     if(!strcmp(button_name, "wind_meters")){
 	if(gtk_toggle_button_get_active(button))
 	    app->units_tab_current_state |= STATE_METERS_S;
@@ -1907,14 +1922,27 @@ void check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
 	goto check;
     }
 /* pressure */
-    if(!strcmp(button_name, "pressure")){
+    if(!strcmp(button_name, "mb_pressure")){
 	if(gtk_toggle_button_get_active(button))
 	    app->units_tab_current_state |= STATE_PRESSURE_MB;
 	else
 	    app->units_tab_current_state &= ~STATE_PRESSURE_MB;
 	goto check;
     }
-
+    if(!strcmp(button_name, "inch_pressure")){
+	if(gtk_toggle_button_get_active(button))
+	    app->units_tab_current_state |= STATE_PRESSURE_IN;
+	else
+	    app->units_tab_current_state &= ~STATE_PRESSURE_IN;
+	goto check;
+    }
+    if(!strcmp(button_name, "mm_pressure")){
+	if(gtk_toggle_button_get_active(button))
+	    app->units_tab_current_state |= STATE_PRESSURE_MM;
+	else
+	    app->units_tab_current_state &= ~STATE_PRESSURE_MM;
+	goto check;
+    }
 #ifdef OS2008
     if(!strcmp(button_name, "enable_gps")){
 	if(gtk_toggle_button_get_active(button))
@@ -2684,16 +2712,16 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
 /* thrid line */
     third_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(third_line),
-		theme_override = gtk_check_button_new_with_label(_("UI Theme Override")),
+			theme_override = gtk_check_button_new_with_label(_("UI Theme Override")),
 			FALSE, FALSE, 20);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(theme_override),
-        			    app->config->theme_override_in_use);
+            app->config->theme_override_in_use);
     if(app->config->theme_override_in_use)
 	app->visuals_tab_start_state |= STATE_THEME_OVERRIDE;
     gtk_widget_set_name(theme_override, "theme_override");
     GLADE_HOOKUP_OBJECT(window, theme_override, "theme_override");
     g_signal_connect(theme_override, "toggled",
-            		G_CALLBACK(check_buttons_changed_handler),
+			G_CALLBACK(check_buttons_changed_handler),
 			window);
 /* fourth line */
     fourth_line = gtk_hbox_new(FALSE, 0);
@@ -2762,27 +2790,26 @@ GtkWidget* create_visuals_tab(GtkWidget *window){
     GLADE_HOOKUP_OBJECT(window, background_color, "background_color");
     gtk_widget_set_name(background_color, "background_color");
     g_signal_connect(background_color, "color-set",
-            		G_CALLBACK(color_buttons_changed_handler),
+			G_CALLBACK(color_buttons_changed_handler),
 			apply_button);
 #ifdef OS2008
     g_signal_connect(transparency, "value-changed",
-            		G_CALLBACK(control_bars_changed_handler),
+			G_CALLBACK(control_bars_changed_handler),
 			apply_button);
 #else
     g_signal_connect(GTK_TOGGLE_BUTTON(transparency), "toggled",
-            		    G_CALLBACK(transparency_button_toggled_handler),
-			    background_color);
-			    
+			G_CALLBACK(transparency_button_toggled_handler),
+			background_color);
 #endif
     gtk_color_button_set_color(GTK_COLOR_BUTTON(background_color),
 				&(app->config->background_color));
-#ifdef OS2008    
+#ifdef OS2008
     gtk_widget_set_sensitive(background_color, TRUE);
 #else
     if(background_color && app->config->transparency)
-        gtk_widget_set_sensitive(background_color, FALSE);	
+	gtk_widget_set_sensitive(background_color, FALSE);
     else
-        gtk_widget_set_sensitive(background_color, TRUE);
+	gtk_widget_set_sensitive(background_color, TRUE);
 #endif
     gtk_button_set_relief(GTK_BUTTON(background_color), GTK_RELIEF_NONE);
     gtk_button_set_focus_on_click(GTK_BUTTON(background_color), FALSE);
@@ -2988,11 +3015,12 @@ GtkWidget* create_units_tab(GtkWidget *window){
 		*wind_kilometers = NULL,
 		*wind_miles = NULL,
 		*mb_pressure = NULL,
-		*inch_pressure = NULL;
+		*inch_pressure = NULL,
+		*mm_pressure = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    units_page = gtk_table_new(7, 3, FALSE);
+    units_page = gtk_table_new(8, 3, FALSE);
 /* Units tab */
     app->units_tab_start_state = 0U;
     /* temperature */
@@ -3163,7 +3191,7 @@ GtkWidget* create_units_tab(GtkWidget *window){
 									_("mb")),
 				1, 2, 6, 7);
     GLADE_HOOKUP_OBJECT(window, mb_pressure, "mb_pressure");
-    gtk_widget_set_name(mb_pressure, "pressure");
+    gtk_widget_set_name(mb_pressure, "mb_pressure");
     g_signal_connect(mb_pressure, "toggled",
             		G_CALLBACK(check_buttons_changed_handler),
 			window);
@@ -3175,13 +3203,37 @@ GtkWidget* create_units_tab(GtkWidget *window){
 									_("inHg")),
 				2, 3, 6, 7);
     gtk_button_set_focus_on_click(GTK_BUTTON(inch_pressure), FALSE);
-    if(app->config->pressure_units == MB){
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(mb_pressure), TRUE);
-	app->units_tab_start_state |= STATE_PRESSURE_MB;
-    }
-    else{
-	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(inch_pressure), TRUE);
-	app->units_tab_start_state |= STATE_PRESSURE_IN;
+    GLADE_HOOKUP_OBJECT(window, inch_pressure, "inch_pressure");
+    gtk_widget_set_name(inch_pressure, "inch_pressure");
+    g_signal_connect(inch_pressure, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			window);
+    pressure_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(inch_pressure));
+    gtk_table_attach_defaults(GTK_TABLE(units_page), 
+				mm_pressure
+				    = gtk_radio_button_new_with_label(pressure_group,
+									_("mmHg")),
+				1, 2, 7, 8);
+    gtk_button_set_focus_on_click(GTK_BUTTON(mm_pressure), FALSE);
+    GLADE_HOOKUP_OBJECT(window, mm_pressure, "mm_pressure");
+    gtk_widget_set_name(mm_pressure, "mm_pressure");
+    g_signal_connect(mm_pressure, "toggled",
+            		G_CALLBACK(check_buttons_changed_handler),
+			window);
+    switch(app->config->pressure_units){
+	default:
+	case MB:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(mb_pressure), TRUE);
+	    app->units_tab_start_state |= STATE_PRESSURE_MB;
+	break;
+	case INCH:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(inch_pressure), TRUE);
+	    app->units_tab_start_state |= STATE_PRESSURE_IN;
+	break;
+	case MM:
+	    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(mm_pressure), TRUE);
+	    app->units_tab_start_state |= STATE_PRESSURE_MM;
+	break;
     }
     app->units_tab_current_state = app->units_tab_start_state;
     return units_page;
@@ -3249,16 +3301,14 @@ GtkWidget* create_update_tab(GtkWidget *window){
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(chk_show_weather_for_two_hours),
                                     app->config->show_weather_for_two_hours);
     if(app->config->show_weather_for_two_hours)
-             app->update_tab_start_state |= STATE_SHOW_WEATHER_FOR_TWO_HOURS;
+        app->update_tab_start_state |= STATE_SHOW_WEATHER_FOR_TWO_HOURS;
     GLADE_HOOKUP_OBJECT(window, chk_show_weather_for_two_hours,
                                  "show_weather_for_two_hours");
     gtk_widget_set_name(chk_show_weather_for_two_hours,
-                                    "show_weather_for_two_hours");
+                        "show_weather_for_two_hours");
     g_signal_connect(chk_show_weather_for_two_hours, "toggled",
                         G_CALLBACK(check_buttons_changed_handler),
                         window);
-/*    fprintf(stderr,"show_weather_for_two_hours %s\n",
-                                    app->config->show_weather_for_two_hours);*/
 /* Switch time to the next station */
     gtk_box_pack_start(GTK_BOX(third_line),
         		gtk_label_new(_("Switch to the next station after:")),

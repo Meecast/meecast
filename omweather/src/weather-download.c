@@ -366,7 +366,7 @@ gboolean download_html(gpointer data){
 	/* get first station */
 	if(!get_station_url(&url, &html_file,&hour_url, &html_file_hour, TRUE)){
 	    app->flag_updating = 0;	 
-	    return FALSE; /* The strange error */		
+	    return FALSE; /* The strange error */
 	}
 	#ifndef RELEASE
 	    fprintf(stderr, "\n>>>>>Url - %s, File - %s\n", url, html_file.filename);

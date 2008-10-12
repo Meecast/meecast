@@ -453,7 +453,6 @@ read_config(AppletConfig *config){
 	config->font = g_strdup(tmp);
 	g_free(tmp);
     }
-
     /* Get UI background color */
     config->ui_background_color.red = 0xCCCC;
     config->ui_background_color.blue = 0xCCCC;
@@ -461,12 +460,12 @@ read_config(AppletConfig *config){
     /* Get background color. */
     value = gconf_client_get(gconf_client, GCONF_KEY_WEATHER_THEME_OVERRIDE, NULL);
     if(value){
-    	config->theme_override_in_use = gconf_value_get_bool(value);
-    	gconf_value_free(value);
+	config->theme_override_in_use = gconf_value_get_bool(value);
+	gconf_value_free(value);
     }
     else
 	config->theme_override_in_use = TRUE;
-    
+
     tmp = NULL;
     tmp = gconf_client_get_string(gconf_client,
         			    GCONF_KEY_WEATHER_BACKGROUND_COLOR, NULL);
@@ -484,7 +483,7 @@ read_config(AppletConfig *config){
 	else
     	    config->transparency = TRUE;
     #endif 
-    /*Get Enable Weather For Two Hours. Default is TRUE.*/
+    /* Get Enable Weather For Two Hours. Default is FALSE. */
     value = gconf_client_get(gconf_client, GCONF_KEY_SHOW_WEATHER_FOR_TWO_HOURS,
                                                                                 NULL);
     if(value){
@@ -492,7 +491,7 @@ read_config(AppletConfig *config){
         gconf_value_free(value);
     }
     else
-        config->show_weather_for_two_hours = TRUE;
+        config->show_weather_for_two_hours = FALSE;
     /* Get Split Button State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_SEPARATE_DATA, NULL);
     if(value){
@@ -820,10 +819,10 @@ config_save(AppletConfig *config){
     gconf_client_set_string(gconf_client,
         		    GCONF_KEY_WEATHER_FONT,
 			    config->font, NULL);
-	/* Save Theme Override flag. */
-	gconf_client_set_bool(gconf_client,
-					GCONF_KEY_WEATHER_THEME_OVERRIDE,
-				config->theme_override_in_use, NULL);
+    /* Save Theme Override flag. */
+    gconf_client_set_bool(gconf_client,
+			    GCONF_KEY_WEATHER_THEME_OVERRIDE,
+			    config->theme_override_in_use, NULL);
     /* Save Background Color */
     sprintf(temp_buffer, "#%02x%02x%02x",
             config->background_color.red >> 8,

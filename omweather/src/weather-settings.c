@@ -81,19 +81,22 @@ void add_station_to_user_list(gchar *weather_station_name,
 }
 /*******************************************************************************/
 void changed_country_handler(GtkWidget *widget, gpointer user_data){
-    struct lists_struct	*list = NULL;
-    GtkWidget		*config = GTK_WIDGET(user_data),
-			*countries = NULL,
-			*states = NULL;
+    struct lists_struct *list = NULL;
+    GtkWidget   *config = NULL,
+                *countries = NULL,
+                *states = NULL;
     GtkTreeModel	*model;
     GtkTreeIter		iter;
     gchar		*country_name = NULL;
-    long		regions_start = -1,
-			regions_end = -1,
-			regions_number = 0;
+    long        regions_start = -1,
+                regions_end = -1,
+                regions_number = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    if (!(user_data))
+        return;
+    config = GTK_WIDGET(user_data);
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
     if(list){
 	countries = list->countries;
@@ -137,6 +140,9 @@ void changed_country_handler(GtkWidget *widget, gpointer user_data){
 	g_free(app->config->current_country);
 	app->config->current_country = country_name;
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 /*******************************************************************************/
 void changed_state_handler(GtkWidget *widget, gpointer user_data){
@@ -2292,7 +2298,7 @@ GtkWidget* create_locations_tab(GtkWidget *window){
 		*states = NULL,
 		*stations = NULL,
 #ifdef OS2008
-                *chk_gps = NULL,
+        *chk_gps = NULL,
 #endif
 		*left_table = NULL,
 		*weather_source = NULL,
@@ -2545,26 +2551,27 @@ GtkWidget* create_locations_tab(GtkWidget *window){
     gtk_widget_set_size_request(states, 300, -1);
     gtk_widget_set_size_request(stations, 300, -1);
 /* Set default value to country combo_box */
-    if (app->countrys_list)
-	gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
+    if (app->countrys_list){
+	    gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
 				get_active_item_index((GtkTreeModel*)app->countrys_list,
 				-1, app->config->current_country, TRUE));
-    /* fill states list */
+        /* fill states list */
 		g_idle_add((GSourceFunc)changed_country_process,(gpointer)window);
-    /* fill stations list */
+        /* fill stations list */
 		g_idle_add((GSourceFunc)changed_state_process,(gpointer)window);
 		g_signal_connect(countries, "changed",
             		G_CALLBACK(changed_country_handler),
 			(gpointer)window);
-    g_signal_connect(states, "changed",
+        g_signal_connect(states, "changed",
                 	G_CALLBACK(changed_state_handler),
 			(gpointer)window);
-    g_signal_connect(stations, "changed",
+        g_signal_connect(stations, "changed",
             		G_CALLBACK(changed_stations_handler),
 			(gpointer)window);
-    g_signal_connect(station_list_view, "cursor-changed",
+        g_signal_connect(station_list_view, "cursor-changed",
                         G_CALLBACK(station_list_view_select_handler),
 			rename_entry);
+    }
 /* Highlight current station */
     highlight_current_station(GTK_TREE_VIEW(station_list_view));
 /* Filling rename entry */

@@ -252,35 +252,37 @@ gboolean make_hour_tab(GtkWidget *vbox)
 /*******************************************************************************/
 gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
                     	    				    gpointer user_data){
-        GtkWidget	*window_popup = NULL,
-		*notebook = NULL,
-		*tab = NULL,
-                *hour_tab = NULL,
-		*current_tab = NULL,
-		*label = NULL,
-		*vbox = NULL,
-		*buttons_box = NULL,
-		*settings_button = NULL,
-		*refresh_button = NULL,
-		*about_button = NULL,
-		*close_button = NULL,
-		*label_box = NULL,
-		*copyright_box = NULL,
-		*no_weather_box = NULL;
-        gint	active_tab = 0,
-		k = 0,
-		page = 0,
-		i = 0;
-        gchar	*day_name = NULL;
-        time_t      current_time = 0,
-        diff_time,
-        current_data_last_update = 0,
-	data_last_update = 0;
-        GSList	*tmp = NULL,
-		*day = NULL;
+GtkWidget *notebook = NULL,
+          *tab = NULL,
+          *hour_tab = NULL,
+          *current_tab = NULL,
+          *label = NULL,
+          *vbox = NULL,
+          *buttons_box = NULL,
+          *settings_button = NULL,
+          *refresh_button = NULL,
+          *about_button = NULL,
+          *close_button = NULL,
+          *label_box = NULL,
+          *copyright_box = NULL,
+          *no_weather_box = NULL;
+gint      active_tab = 0,
+          k = 0,
+          page = 0,
+          i = 0;
+gchar     *day_name = NULL;
+time_t    current_time = 0,
+          diff_time,
+          current_data_last_update = 0,
+          data_last_update = 0;
+GSList    *tmp = NULL,
+          *day = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    if (app->popup_window)
+       return FALSE;
+
 /* Debug */
 /*  time_start(); */
 /* day number */
@@ -291,18 +293,19 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	return FALSE;
     }
 /* Main window */
-    window_popup = hildon_window_new();
+    app->popup_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 
-    g_object_set_data(G_OBJECT(window_popup), "active_tab", (gpointer)active_tab);
-    gtk_window_fullscreen(GTK_WINDOW(window_popup));
-    
-/* create frame vbox */    
+    g_object_set_data(G_OBJECT(app->popup_window), "active_tab", (gpointer)active_tab);
+    gtk_window_fullscreen(GTK_WINDOW(app->popup_window));
+
+/* create frame vbox */
     vbox = gtk_vbox_new(FALSE, 0);
-    gtk_container_add(GTK_CONTAINER(window_popup), vbox);
+    gtk_container_add(GTK_CONTAINER(app->popup_window), vbox);
 
 /* station name */
     label_box = gtk_event_box_new();
-	gtk_container_add(GTK_CONTAINER(label_box),create_window_header(app->config->current_station_name, window_popup));
+	gtk_container_add(GTK_CONTAINER(label_box),
+	create_window_header(app->config->current_station_name, app->popup_window));
     gtk_box_pack_start(GTK_BOX(vbox),
 			label_box,
 			FALSE, TRUE, 0);
@@ -389,7 +392,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
         				tab,
         				gtk_label_new(day_name));
 	    }
-	}    
+	}
 	
 	day_name && (g_free(day_name), day_name = NULL);
 	tmp = g_slist_next(tmp);
@@ -411,14 +414,14 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     /*settings_button = create_tool_item(BUTTON_ICONS, "settings", 40);*/
     settings_button = create_button_with_image(BUTTON_ICONS, "settings", 40, FALSE, FALSE);
     g_signal_connect(G_OBJECT(settings_button), "button-release-event",
-                        G_CALLBACK(settings_button_handler),
-			(gpointer)window_popup);
+                     G_CALLBACK(settings_button_handler),
+                     (gpointer)app->popup_window);
     /* Refresh buton */
     /*refresh_button = create_tool_item(BUTTON_ICONS, "refresh", 40);*/
     refresh_button = create_button_with_image(BUTTON_ICONS, "refresh", 40, FALSE, FALSE);
 	g_signal_connect(G_OBJECT(refresh_button), "button-release-event",
-                        G_CALLBACK(refresh_button_handler),
-			(gpointer)window_popup);
+                     G_CALLBACK(refresh_button_handler),
+                     (gpointer)app->popup_window);
     /* About buton */
     /*about_button = create_tool_item(BUTTON_ICONS, "about", 40);*/
     about_button = create_button_with_image(BUTTON_ICONS, "about", 40, FALSE, FALSE);
@@ -430,7 +433,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE, FALSE);
     g_signal_connect(G_OBJECT(close_button), "button-release-event",
                         G_CALLBACK(popup_close_button_handler),
-			(gpointer)window_popup);
+			(gpointer)app->popup_window);
 
 /* Pack buttons to the buttons box */
 	/*gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(settings_button), -1);
@@ -448,7 +451,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	    hildon_banner_show_information(app->main_window,
 					    NULL,
 					    _("No weather data for this day."));
-	    gtk_widget_destroy(window_popup);
+	    gtk_widget_destroy(app->popup_window);
 	    return FALSE;
 	}
 	else{
@@ -460,7 +463,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 			hildon_banner_show_information(app->main_window,
 							NULL,
 							_("No current weather data."));
-		        gtk_widget_destroy(window_popup);
+		        gtk_widget_destroy(app->popup_window);
 			return FALSE;
 		    }
 		}
@@ -514,7 +517,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 		g_signal_connect(G_OBJECT(label_box),"expose-event",G_CALLBACK(draw_label_gradient),NULL);
 		g_signal_connect(G_OBJECT(buttons_box),"expose-event",G_CALLBACK(draw_bottom_gradient),NULL);
 	}
-    gtk_widget_show_all(window_popup);
+    gtk_widget_show_all(app->popup_window);
     #ifdef DEBUGFUNCTIONCALL
 	END_FUNCTION;
     #endif
@@ -534,7 +537,8 @@ void settings_button_handler(GtkWidget *button, GdkEventButton *event,
 #endif
 /* For debug speed of creating setting window */
 /* time_start();  */
-    gtk_widget_destroy(GTK_WIDGET(user_data));
+    gtk_widget_destroy(GTK_WIDGET(app->popup_window));
+    app->popup_window = NULL;
     weather_window_settings(NULL, NULL, (gpointer)day_number);
 /* fprintf(stderr,"Time: %lf msec Pi = %lf\n",time_stop(),weather_window_settings);*/
 }
@@ -544,7 +548,8 @@ void refresh_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    gtk_widget_destroy(GTK_WIDGET(user_data));
+    gtk_widget_destroy(GTK_WIDGET(app->popup_window));
+    app->popup_window = NULL;
     update_weather(TRUE);
 }
 /*******************************************************************************/
@@ -816,7 +821,7 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     gtk_widget_show_all(main_widget);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif        
+#endif
     return main_widget;
 }
 /*******************************************************************************/

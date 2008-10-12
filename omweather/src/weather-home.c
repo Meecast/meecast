@@ -162,7 +162,8 @@ gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 /* show popup window if received param */
     if(user_data){
 	day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");
-	gtk_widget_destroy(user_data);
+	gtk_widget_destroy(app->popup_window);
+    app->popup_window = NULL;
 	weather_window_popup(NULL, NULL, (gpointer)day_number);
     }
     return FALSE;
@@ -229,9 +230,10 @@ gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
     gtk_tree_path_free(path);
 /* show popup window if received param */
     if(user_data){
-	day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");
-	gtk_widget_destroy(user_data);
-        weather_window_popup(NULL, NULL, (gpointer)day_number);
+       day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");
+       gtk_widget_destroy(app->popup_window);
+       app->popup_window = NULL;
+       weather_window_popup(NULL, NULL, (gpointer)day_number);
     }
     return FALSE;
 }
@@ -1618,6 +1620,7 @@ void delete_weather_day_button(WDB **day){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    return;
     if(*day){
 	if((*day)->icon_image && GTK_IS_WIDGET((*day)->icon_image)){
 	    gtk_widget_destroy( (*day)->icon_image );
@@ -1663,7 +1666,7 @@ GtkListStore* create_user_stations_list(void){
 /*******************************************************************************/
 void add_change_day_part_event(GSList *day, guint year, guint month){
     gchar	buffer[255];
-    struct tm	tm;
+    struct tm	tm = {0};
     time_t	time;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -1684,7 +1687,7 @@ void add_change_day_part_event(GSList *day, guint year, guint month){
 /*******************************************************************************/
 time_t get_day_part_begin_time(GSList *day, guint year, const gchar *day_part){
     gchar	buffer[255];
-    struct tm	tm;
+    struct tm	tm = {0};
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif

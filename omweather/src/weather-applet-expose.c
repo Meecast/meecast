@@ -121,7 +121,7 @@ gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 		redraw_home_window(TRUE);
 		plugin->queueRefresh=FALSE;
 	}
-	
+	cairo_destroy (cr);
         return GTK_WIDGET_CLASS(
             g_type_class_peek_parent(
                 GTK_FRAME_GET_CLASS(widget)))->expose_event(widget, event);

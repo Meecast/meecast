@@ -334,6 +334,7 @@ typedef struct OMWeatherApplet{
     gint		ay;
     gint		aw;
     gint		ah;
+    GSList		*tab_of_window_popup;
 #ifdef OS2008
     guint		gps_id_connection;
     LocationGPSDevice 	*gps_device;

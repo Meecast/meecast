@@ -162,8 +162,7 @@ gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 /* show popup window if received param */
     if(user_data){
 	day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");
-	gtk_widget_destroy(app->popup_window);
-    app->popup_window = NULL;
+	destroy_popup_window();
 	weather_window_popup(NULL, NULL, (gpointer)day_number);
     }
     return FALSE;
@@ -231,8 +230,7 @@ gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
 /* show popup window if received param */
     if(user_data){
        day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");
-       gtk_widget_destroy(app->popup_window);
-       app->popup_window = NULL;
+       destroy_popup_window();
        weather_window_popup(NULL, NULL, (gpointer)day_number);
     }
     return FALSE;
@@ -749,6 +747,8 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     parse_template_from_file("/usr/share/omweather/templates/weather_com/popup.xml", "UTF-8");
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
+    app->popup_window = NULL;
+    app->tab_of_window_popup = NULL;
 /* Read Coutries list from file */
     app->countrys_list
 	= create_items_list(weather_sources[app->config->weather_source].db_path,
@@ -1648,8 +1648,7 @@ gboolean switch_timer_handler(gpointer data){
     START_FUNCTION;
 #endif
     if(app->popup_window){
-        gtk_widget_destroy(app->popup_window);
-        app->popup_window = NULL;
+	destroy_popup_window();
     }
     change_station_next(NULL, NULL, NULL);
     return TRUE;

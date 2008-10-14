@@ -58,6 +58,7 @@ gboolean make_tab(GtkWidget *vbox);
 gboolean make_hour_tab(GtkWidget *vbox);
 GtkWidget* create_copyright_widget(const gchar *text, const gchar *image);
 GtkWidget* create_window_header(const gchar *station_name, GtkWidget *popup_window);
+void destroy_popup_window(void);
 /*******************************************************************************/
 extern void weather_window_settings(GtkWidget *widget, GdkEvent *event,
 				    gpointer user_data);

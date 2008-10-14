@@ -116,6 +116,7 @@ extern WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency
 #endif
 extern void free_list_time_event(void);
 extern void event_add(time_t time_value, short int type_event);
+extern void destroy_popup_window(void);
 /*******************************************************************************/
 extern gchar	path_large_icon[];
 /*******************************************************************************/

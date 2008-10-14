@@ -45,7 +45,29 @@
 
 */
 /*******************************************************************************/
-
+void
+destroy_popup_window(void){
+    GSList	*tmp = NULL;
+    /* free Idles */
+    tmp = app->tab_of_window_popup;
+    while(tmp){
+#ifndef RELEASE    
+	    if 	(g_idle_remove_by_data(tmp->data))
+#else
+	g_idle_remove_by_data(tmp->data);
+#endif
+#ifndef RELEASE    		
+		    fprintf(stderr,"Succes\n");
+	    else
+	        fprintf(stderr,"Not Succes\n");
+#endif	    		
+	    tmp = g_slist_next(tmp);
+    }
+    g_slist_free(app->tab_of_window_popup);
+    app->tab_of_window_popup = NULL;
+    gtk_widget_destroy(GTK_WIDGET(app->popup_window));
+    app->popup_window = NULL;
+}
 /*******************************************************************************/
 /* For debug */
 
@@ -165,7 +187,8 @@ GtkWidget* create_moon_phase_widget(GSList *current){
     return main_widget;
 }
 /*******************************************************************************/
-GtkWidget* create_time_updates_widget(GSList *current){
+GtkWidget* 
+create_time_updates_widget(GSList *current){
     GtkWidget	*main_widget = NULL,
     		*label_update;
     gchar       buffer[1024],
@@ -217,24 +240,38 @@ GtkWidget* create_time_updates_widget(GSList *current){
     return main_widget;
 }
 /*******************************************************************************/
-gboolean make_current_tab(GtkWidget *vbox){
-    GtkWidget *child = create_current_tab(app->wsd.current);
-    gtk_container_add(GTK_CONTAINER(vbox), child);
-    gtk_widget_show_all(vbox);
-    return FALSE;
+gboolean 
+make_current_tab(GtkWidget *vbox)
+{
+    if (app->popup_window){
+	GtkWidget *child = create_current_tab(app->wsd.current);
+	if (app->popup_window){
+	    gtk_container_add(GTK_CONTAINER(vbox),child);	
+	    gtk_widget_show_all(vbox);
+	}else
+	     gtk_widget_destroy(GTK_WIDGET(child));
+    }	
+	return FALSE;
 }
 /*******************************************************************************/
-gboolean make_tab(GtkWidget *vbox)
+gboolean 
+make_tab(GtkWidget *vbox)
 {
         GSList	*day = NULL;
         gchar	*day_name = NULL;
 	GtkWidget *child;
-	day = (GSList*)g_object_get_data(G_OBJECT(vbox), "day");
-	child = create_day_tab(app->wsd.current, day, &day_name);
-	gtk_container_add(GTK_CONTAINER(vbox),child);
-	gtk_widget_show_all(vbox);
+	if (app->popup_window){
+	    day = (GSList*)g_object_get_data(G_OBJECT(vbox), "day");
+	    child = create_day_tab(app->wsd.current, day, &day_name);
+	    if (app->popup_window){
+		gtk_container_add(GTK_CONTAINER(vbox),child);
+		gtk_widget_show_all(vbox);
+	    }else
+	        gtk_widget_destroy(GTK_WIDGET(child));
+	}    
 	return FALSE;
 }
+
 /*******************************************************************************/
 gboolean make_hour_tab(GtkWidget *vbox)
 {
@@ -280,8 +317,8 @@ GSList    *tmp = NULL,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (app->popup_window)
-       return FALSE;
+    if (app->popup_window || app->flag_updating != 0)
+	return FALSE;
 
 /* Debug */
 /*  time_start(); */
@@ -347,12 +384,20 @@ GSList    *tmp = NULL,
 					current_tab,
 					gtk_label_new(_("Now")));
 	    g_idle_add((GSourceFunc)make_current_tab,current_tab);
+	    add_item2object(&(app->tab_of_window_popup), (void*)current_tab);
 	}
     }
 
 
 /* if weather is separated than hide one day */
-    (app->config->separate) ? (k = 1) : (k = 0);
+    (app->config->separate) ? (k = 0) : (k = 1);
+    if(current_tab && !app->config->separate && active_tab != 0 ){
+       active_tab = active_tab + k;
+    }   
+
+    if (!app->config->separate && !current_tab ){
+	active_tab ++;
+    }	
     
 /* Detailed weather tab */
     if (!app->wsd.hours_data_is_invalid &&  app->wsd.hours_weather){
@@ -370,7 +415,7 @@ GSList    *tmp = NULL,
     }
 /* Day tabs */
     tmp = app->wsd.days;
-    while(tmp && i < app->config->days_to_show){
+    while(tmp && i < app->config->days_to_show + k){
 	day = (GSList*)tmp->data;
 	
 	/* Acceleration of starting gtk_notebook */
@@ -383,6 +428,7 @@ GSList    *tmp = NULL,
         				gtk_label_new(day_name));
 		g_object_set_data(G_OBJECT(tab), "day", (gpointer)tmp->data);		
 		g_idle_add((GSourceFunc)make_tab,tab);
+		add_item2object(&(app->tab_of_window_popup), (void*)tab);
 	    }
 	}else{	
 	    /* Create the page with data */
@@ -451,7 +497,7 @@ GSList    *tmp = NULL,
 	    hildon_banner_show_information(app->main_window,
 					    NULL,
 					    _("No weather data for this day."));
-	    gtk_widget_destroy(app->popup_window);
+	    destroy_popup_window();
 	    return FALSE;
 	}
 	else{
@@ -463,17 +509,11 @@ GSList    *tmp = NULL,
 			hildon_banner_show_information(app->main_window,
 							NULL,
 							_("No current weather data."));
-		        gtk_widget_destroy(app->popup_window);
+			destroy_popup_window();
 			return FALSE;
 		    }
 		}
 	    }
-	    else
-		if(current_tab && active_tab)
-		    active_tab++;
-		if(hour_tab && active_tab)
-		    active_tab++;
-	    gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), active_tab);
 	}
     }
     else{
@@ -537,8 +577,7 @@ void settings_button_handler(GtkWidget *button, GdkEventButton *event,
 #endif
 /* For debug speed of creating setting window */
 /* time_start();  */
-    gtk_widget_destroy(GTK_WIDGET(app->popup_window));
-    app->popup_window = NULL;
+    destroy_popup_window();
     weather_window_settings(NULL, NULL, (gpointer)day_number);
 /* fprintf(stderr,"Time: %lf msec Pi = %lf\n",time_stop(),weather_window_settings);*/
 }
@@ -548,8 +587,7 @@ void refresh_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    gtk_widget_destroy(GTK_WIDGET(app->popup_window));
-    app->popup_window = NULL;
+    destroy_popup_window();
     update_weather(TRUE);
 }
 /*******************************************************************************/
@@ -563,7 +601,7 @@ void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    gtk_widget_destroy(GTK_WIDGET(user_data));
+    destroy_popup_window();
 }
 /*******************************************************************************/
 GtkWidget* create_pseudo_day_tab(GSList *current, GSList *day, gchar **day_name){

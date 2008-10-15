@@ -306,7 +306,7 @@ GtkWidget *notebook = NULL,
 gint      active_tab = 0,
           k = 0,
           page = 0,
-          i = 0;
+          i = 1;
 gchar     *day_name = NULL;
 time_t    current_time = 0,
           diff_time,
@@ -372,22 +372,21 @@ GSList    *tmp = NULL,
 		( current_time + app->config->data_valid_interval)))
 	current_tab = gtk_vbox_new(FALSE, 0);
 
-    if(active_tab == 0 && app->config->separate && current_tab){
-        gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
- 				current_tab,
- 				gtk_label_new(_("Now")));
-	make_current_tab(current_tab); 
-    }
-    else{
-	if(current_tab){
+    if(current_tab){
+	if(active_tab == 0 && app->config->separate)
+        {
+    	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+				current_tab,
+				gtk_label_new(_("Now")));
+	    make_current_tab(current_tab); 
+        }else{
 	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-					current_tab,
-					gtk_label_new(_("Now")));
+				current_tab,
+				gtk_label_new(_("Now")));
 	    g_idle_add((GSourceFunc)make_current_tab,current_tab);
 	    add_item2object(&(app->tab_of_window_popup), (void*)current_tab);
 	}
     }
-
 
 /* if weather is separated than hide one day */
     (app->config->separate) ? (k = 0) : (k = 1);
@@ -411,6 +410,7 @@ GSList    *tmp = NULL,
                                     hour_tab,
                                     gtk_label_new(_("Detailed")));
 		g_idle_add((GSourceFunc)make_hour_tab,hour_tab);
+		add_item2object(&(app->tab_of_window_popup), (void*)hour_tab);
     	}
     }
 /* Day tabs */

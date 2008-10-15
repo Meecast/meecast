@@ -523,11 +523,12 @@ read_config(AppletConfig *config){
         config->sensor_update_time = 0;
     /* start timer for read data from device temperature sensor */
     if(config->use_sensor){
-	read_sensor(0);
+	read_sensor(FALSE);
 	app->sensor_timer = g_timeout_add(config->sensor_update_time * 1000 * 60,
                                             (GtkFunction)read_sensor,
                                             GINT_TO_POINTER(1));
-    }
+    }else
+      app->sensor_timer = 0;
     /* Get value of transparence default 0 */
     config->alpha_comp = gconf_client_get_int(gconf_client,
                 			    GCONF_KEY_ALPHA_COMPONENT,

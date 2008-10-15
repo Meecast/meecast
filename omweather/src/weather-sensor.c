@@ -164,22 +164,24 @@ void use_sensor_button_toggled_handler(GtkToggleButton *togglebutton,
 	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
     else{
 	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
-	g_source_remove(app->sensor_timer);
+	if (app->sensor_timer>0)
+	  g_source_remove(app->sensor_timer);
     }
 }
 /*******************************************************************************/
-void read_sensor(gint need_redraw){
+gboolean 
+read_sensor(gboolean need_redraw){
     FILE	*file;
     gchar	buffer[128];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!(file = fopen(SENSOR, "r")))
-	return;
+	return TRUE;
     memset(buffer, 0, sizeof(buffer));
     if(!fgets(buffer, sizeof(buffer) - 1, file)){
 	fclose(file);
-	return;
+	return TRUE;
     }
     fclose(file);
     app->sensor_data = atof(buffer) / 1000.0f;
@@ -187,6 +189,7 @@ void read_sensor(gint need_redraw){
 	app->sensor_data = c2f(app->sensor_data);
     if(need_redraw)
 	redraw_home_window(FALSE);
+	return TRUE;
 }
 /*******************************************************************************/
 WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,

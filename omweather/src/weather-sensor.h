@@ -34,7 +34,7 @@ GtkWidget* create_sensor_page(GtkWidget *config_window);
 void use_sensor_button_toggled_handler(GtkToggleButton *togglebutton,
                                         		    gpointer user_data);
 void display_group_change_handler(GtkRadioButton *button, gpointer user_data);
-void read_sensor(gint need_redraw);
+gboolean read_sensor(gboolean need_redraw);
 WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,
 				gboolean draw_day_label, GdkColor *color);
 guint get_time_from_index(guint index);

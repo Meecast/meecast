@@ -1180,7 +1180,7 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 	app->config->use_sensor = 
 	    gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(use_sensor));
     if(app->config->use_sensor) /* if enabled sensor */
-	read_sensor(1);		/* immediately read and display sensor data */
+	read_sensor(TRUE);		/* immediately read and display sensor data */
 /* display sensor at */
     display_at = lookup_widget(config_window, "display_at");
     if(display_at){
@@ -1192,13 +1192,16 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 /* sensor update time */
     sensor_update_time = lookup_widget(config_window, "sensor_update_time");
     if(sensor_update_time){
-	if(app->config->use_sensor){
+    	/* remove sensor time */
+        if(app->sensor_timer > 0)
+          g_source_remove(app->sensor_timer);
+	  if(app->config->use_sensor){
 	    app->config->sensor_update_time
 		= get_time_from_index(gtk_combo_box_get_active(GTK_COMBO_BOX(sensor_update_time)));
 	    app->sensor_timer = g_timeout_add(app->config->sensor_update_time * 1000 * 60,
                                             (GtkFunction)read_sensor,
-                                            GINT_TO_POINTER(1));
-	}
+    	                                        GINT_TO_POINTER(1));
+          }
     }
 #endif
 /* Show arrows */

@@ -4,20 +4,20 @@
 # Pavel Fialko <pavelnf@gmail.com>, 2007.
 # vlad <vlad@gas.by>, 2007.
 # Vlad Vasiliev <vlad@gas.by>, 2007.
-#
-#
+# 
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.21\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-10-12 11:32+0300\n"
-"PO-Revision-Date: 2008-08-06 22:29+0200\n"
+"PO-Revision-Date: 2008-10-19 14:08+0200\n"
 "Last-Translator: Nicolas GRAZIANO <nicolas.graziano@gmail.com>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);"
 
 #: src/weather-help.c:95
 msgid ""
@@ -315,7 +315,7 @@ msgstr "Ajouter"
 #: src/weather-settings.c:695 src/weather-settings.c:888
 #: src/weather-settings.c:894
 msgid "Alerts"
-msgstr ""
+msgstr "Alertes"
 
 #: src/weather-help.c:117
 msgid ""
@@ -436,7 +436,7 @@ msgstr "Jour:"
 
 #: src/weather-popup.c:364
 msgid "Detailed"
-msgstr ""
+msgstr "Détaillé"
 
 #: src/weather-download.c:460
 msgid "Did not download weather"
@@ -452,9 +452,8 @@ msgid "Distance units:"
 msgstr "Unité de distance :"
 
 #: src/weather-settings.c:3299
-#, fuzzy
 msgid "Download and show detailed weather"
-msgstr "Mise à Jour météo"
+msgstr "Télécharge et affiche la météo détaillé"
 
 #: src/hash.data:28
 msgid "Drifting Snow"
@@ -598,9 +597,8 @@ msgid "Font:"
 msgstr "Police:"
 
 #: src/weather-popup.c:984
-#, fuzzy
 msgid "Forecast at: "
-msgstr "Prévision : \n"
+msgstr "Prévision à : "
 
 #: src/weather-home.c:970
 msgid "Forecast: \n"
@@ -611,7 +609,6 @@ msgid "Freezing Drizzle"
 msgstr "Bruine verglaçante"
 
 #: src/weather-help.c:136
-#, fuzzy
 msgid ""
 "French - Nicolas Granziano\n"
 "Russian - Pavel Fialko, Vlad Vasiliev,\n"
@@ -626,7 +623,8 @@ msgstr ""
 "\t    Ed Bartosh\n"
 "Finlandais·-·Marko·Vertainen\n"
 "Allemand - Claudius Henrichs\n"
-"Italien - Pavel Fialko\n"
+"Italien - Pavel Fialko,·Alessandro Pasotti, Salvatore Fiorenzo\n"
+"Espagnol - Alejandro·Lopez\n"
 
 #: src/weather-settings.c:2495
 msgid "From the list:"
@@ -1597,7 +1595,7 @@ msgstr "mi/s"
 
 #: src/weather-settings.c:3215 src/weather-popup.c:900
 msgid "mmHg"
-msgstr ""
+msgstr "mmHg"
 
 #: src/weather-sensor.c:99
 msgid "new icon"
@@ -1620,11 +1618,11 @@ msgid "steady"
 msgstr "stable"
 
 #~ msgid "Moderate"
-#~ msgstr "Modéré"
+#~ msgstr "ModÃƒÂ©rÃƒÂ©"
 
 #, fuzzy
 #~ msgid "Hide arrows"
-#~ msgstr "Cacher les flèches:"
+#~ msgstr "Cacher les flÃƒÂ¨ches:"
 
 #, fuzzy
 #~ msgid "Hide station name"
@@ -1632,13 +1630,13 @@ msgstr "stable"
 
 #, fuzzy
 #~ msgid "Hide wind"
-#~ msgstr "Cacher les flèches:"
+#~ msgstr "Cacher les flÃƒÂ¨ches:"
 
 #~ msgid "Combination"
 #~ msgstr "Combinaison"
 
 #~ msgid "Current weather on first icon:"
-#~ msgstr "Météo courante sur le premier icone :"
+#~ msgstr "MÃƒÂ©tÃƒÂ©o courante sur le premier icone :"
 
 #~ msgid "Hide station name:"
 #~ msgstr "Cacher le nom de la station :"
@@ -1665,7 +1663,7 @@ msgstr "stable"
 #~ msgid ""
 #~ "The current weather\n"
 #~ "is not available"
-#~ msgstr "Pas de données météo"
+#~ msgstr "Pas de donnÃƒÂ©es mÃƒÂ©tÃƒÂ©o"
 
 #, fuzzy
 #~ msgid "seconds"
@@ -1690,7 +1688,7 @@ msgstr "stable"
 #~ "Visible: "
 #~ msgstr ""
 #~ "\n"
-#~ "Visibilité : "
+#~ "VisibilitÃƒÂ© : "
 
 #~ msgid ""
 #~ "\n"
@@ -1706,13 +1704,13 @@ msgstr "stable"
 #~ msgstr "Fermer"
 
 #~ msgid "Settings"
-#~ msgstr "Paramètres"
+#~ msgstr "ParamÃƒÂ¨tres"
 
 #~ msgid " Add "
 #~ msgstr " Ajouter "
 
 #~ msgid "Add Custom Station"
-#~ msgstr "Ajouter une station personnalisée"
+#~ msgstr "Ajouter une station personnalisÃƒÂ©e"
 
 #~ msgid "Add Station"
 #~ msgstr "Ajouter une station"
@@ -1721,7 +1719,7 @@ msgstr "stable"
 #~ msgstr "Effacer"
 
 #~ msgid "Events"
-#~ msgstr "Evènements"
+#~ msgstr "EvÃƒÂ¨nements"
 
 #~ msgid "Large"
 #~ msgstr "Large"
@@ -1736,13 +1734,13 @@ msgstr "stable"
 #~ msgstr "Miles (Marin)"
 
 #~ msgid "Other Maemo Weather Settings"
-#~ msgstr "Paramètrage de Other Maemo Weather"
+#~ msgstr "ParamÃƒÂ¨trage de Other Maemo Weather"
 
 #~ msgid "Rename"
 #~ msgstr "Renommer"
 
 #~ msgid "Show only current weather on first icon:"
-#~ msgstr "Météo courante uniquement sur le premier icone :"
+#~ msgstr "MÃƒÂ©tÃƒÂ©o courante uniquement sur le premier icone :"
 
 #~ msgid "Small"
 #~ msgstr "Petit"
@@ -1773,7 +1771,7 @@ msgstr "stable"
 
 #, fuzzy
 #~ msgid "Icon set"
-#~ msgstr "Sélection d'icone :"
+#~ msgstr "SÃƒÂ©lection d'icone :"
 
 #, fuzzy
 #~ msgid "Icon size"
@@ -1789,10 +1787,10 @@ msgstr "stable"
 
 #, fuzzy
 #~ msgid "Visible items"
-#~ msgstr "Éléments visibles :"
+#~ msgstr "ÃƒÂ‰lÃƒÂ©ments visibles :"
 
 #~ msgid "Hide station name and arrows:"
-#~ msgstr "Cacher le nom de la station et les flÃ¨ches :"
+#~ msgstr "Cacher le nom de la station et les flÃƒÂƒÃ‚Â¨ches :"
 
 #~ msgid "Moon: "
 #~ msgstr "Lune : "
@@ -1801,4 +1799,4 @@ msgstr "stable"
 #~ msgstr "Miles (International)"
 
 #~ msgid "Miles (Imperial)"
-#~ msgstr "Miles (Impérial)"
+#~ msgstr "Miles (ImpÃƒÂ©rial)"

@@ -1195,12 +1195,16 @@ void apply_button_handler(GtkWidget *button, GdkEventButton *event,
     	/* remove sensor time */
         if(app->sensor_timer > 0)
           g_source_remove(app->sensor_timer);
-	  if(app->config->use_sensor){
+	if(app->config->use_sensor){
 	    app->config->sensor_update_time
 		= get_time_from_index(gtk_combo_box_get_active(GTK_COMBO_BOX(sensor_update_time)));
-	    app->sensor_timer = g_timeout_add(app->config->sensor_update_time * 1000 * 60,
-                                            (GtkFunction)read_sensor,
-    	                                        GINT_TO_POINTER(1));
+	    if (app->config->sensor_update_time != 0)
+		app->sensor_timer = g_timeout_add(app->config->sensor_update_time * 1000 * 60,
+                                        	(GtkFunction)read_sensor,
+    	                                    	GINT_TO_POINTER(1));
+    	    else
+    		if(app->sensor_timer > 0)
+		    g_source_remove(app->sensor_timer);
           }
     }
 #endif

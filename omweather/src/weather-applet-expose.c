@@ -29,10 +29,10 @@
  * along with this program; if not, see <http://www.gnu.org/licenses>.
  */
 /*******************************************************************************/
-#include <values.h>
-#include <cairo.h>
 #include "weather-applet-expose.h"
 #ifdef OS2008
+#include <values.h>
+#include <cairo.h>
 /*******************************************************************************/
 gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event){
 

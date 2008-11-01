@@ -1,3 +1,4 @@
+# vim: sw=4 ts=4 expandtab ai
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
@@ -35,78 +36,82 @@ gboolean not_event = FALSE;
 /*******************************************************************************/
 static GSList *event_time_list = NULL;
 /*******************************************************************************/
-gboolean timer_handler(gpointer data){
-    static	GSList *list_time_event_temp = NULL;
-    struct	event_time *evt;
-    time_t	current_time;
-    int		check;
+gboolean timer_handler(gpointer data) {
+    static GSList *list_time_event_temp = NULL;
+    struct event_time *evt;
+    time_t current_time;
+    int check;
 #ifdef DEBUGEVENTS
-    char   *temp_string;
+    char *temp_string;
 #endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(not_event == TRUE || !event_time_list)
-	return TRUE;
+    if (not_event == TRUE || !event_time_list)
+        return TRUE;
 
-    list_time_event_temp = event_time_list;  
-    /* get current time */  
+    list_time_event_temp = event_time_list;
+    /* get current time */
     current_time = time(NULL);
 #ifdef DEBUGEVENTS
     temp_string = ctime(&current_time);
-    fprintf(stderr,"\nCurrent Time: %s\n",  temp_string);
+    fprintf(stderr, "\nCurrent Time: %s\n", temp_string);
 /*    g_free(temp_string);*/
     print_list(NULL, 0);
-#endif	
-    while(list_time_event_temp != NULL){
-	evt = list_time_event_temp->data;
-	if(evt->time <= current_time){
-	    switch(evt->type_event){
-		case CHANGE_DAY_PART :
-		#ifndef RELEASE
-		    fprintf(stderr,"CHANGE_DAY_PART %s\n",ctime(&evt->time));
-		#endif
-		    g_free(evt);
-                    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
-     		    redraw_home_window(FALSE);   
-		break;
-		case DBUSINITEVENT:
-		#ifndef RELEASE
-		    fprintf(stderr,"DBUSINITEVENT %s\n",ctime(&evt->time));
-		#endif
-		    g_free(evt);
-                    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
-/*		    weather_initialize_dbus();*/
-		    /* It is switch off the timer */	
-		    check = g_source_remove(app->timer);
-		    timer (60000);  /*Reintilize timer One per minute */
-		break;  
-		case UPDATE_AFTER_CONNECTED:
-		    /* delete periodic update */
-		#ifndef RELEASE
-		    fprintf(stderr,"Delete evt %s\n",ctime(&evt->time));
-		#endif
-		    g_free(evt);
-                    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
-		#ifndef RELEASE
-		    fprintf(stderr,"UPDATE by event\n");
-		#endif
-		    update_weather(TRUE);
-    		break;		    
-		case CHECK_GPS_POSITION:
-		    /* delete periodic update */
-		#ifndef RELEASE
-		    fprintf(stderr,"Delete evt %s\n",ctime(&evt->time));
-		#endif
-		    g_free(evt);
-                    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
-		#ifndef RELEASE
-		    fprintf(stderr,"UPDATE by event\n");
-		#endif
+#endif
+    while (list_time_event_temp != NULL) {
+        evt = list_time_event_temp->data;
+        if (evt->time <= current_time) {
+            switch (evt->type_event) {
+            case CHANGE_DAY_PART:
+#ifndef RELEASE
+                fprintf(stderr, "CHANGE_DAY_PART %s\n", ctime(&evt->time));
+#endif
+                g_free(evt);
+                event_time_list =
+                    g_slist_remove(event_time_list, event_time_list->data);
+                redraw_home_window(FALSE);
+                break;
+            case DBUSINITEVENT:
+#ifndef RELEASE
+                fprintf(stderr, "DBUSINITEVENT %s\n", ctime(&evt->time));
+#endif
+                g_free(evt);
+                event_time_list =
+                    g_slist_remove(event_time_list, event_time_list->data);
+/*               weather_initialize_dbus();*/
+                /* It is switch off the timer */
+                check = g_source_remove(app->timer);
+                timer(60000);   /*Reintilize timer One per minute */
+                break;
+            case UPDATE_AFTER_CONNECTED:
+                /* delete periodic update */
+#ifndef RELEASE
+                fprintf(stderr, "Delete evt %s\n", ctime(&evt->time));
+#endif
+                g_free(evt);
+                event_time_list =
+                    g_slist_remove(event_time_list, event_time_list->data);
+#ifndef RELEASE
+                fprintf(stderr, "UPDATE by event\n");
+#endif
+                update_weather(TRUE);
+                break;
+            case CHECK_GPS_POSITION:
+                /* delete periodic update */
+#ifndef RELEASE
+                fprintf(stderr, "Delete evt %s\n", ctime(&evt->time));
+#endif
+                g_free(evt);
+                event_time_list =
+                    g_slist_remove(event_time_list, event_time_list->data);
+#ifndef RELEASE
+                fprintf(stderr, "UPDATE by event\n");
+#endif
 
 
 
-		#ifdef OS2008
+#ifdef OS2008
 
 /* This is code for debug GPS
 
@@ -128,303 +133,334 @@ gboolean timer_handler(gpointer data){
                                     calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
                                                     app->temporary_station_latitude,app->temporary_station_longtitude));
 		    fflush(file_log);
-*/                    
-                    if (calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
-                                           app->temporary_station_latitude,app->temporary_station_longtitude)>10){
-								   
-                        get_nearest_station(app->temporary_station_latitude,app->temporary_station_longtitude,
-            		                    &app->gps_station);		    
-			if ((strlen(app->gps_station.id0) > 0) && (strlen(app->gps_station.name) > 0)){
-		    
-			    app->gps_station.latitude = app->temporary_station_latitude;
-			    app->gps_station.longtitude = app->temporary_station_longtitude;
-			    delete_all_gps_stations();
-                    	    add_station_to_user_list(app->gps_station.name,app->gps_station.id0, TRUE);
-			    if(!app->config->current_station_name && !app->config->current_station_id){
-				app->config->current_station_name = g_strdup(app->gps_station.name);
-				app->config->current_station_id = g_strdup(app->gps_station.id0);		
-			    }
-			    config_save(app->config);
-		    	    update_weather(FALSE);
-			    redraw_home_window(FALSE);
-			}        
+*/
+                if (calculate_distance
+                    (app->gps_station.latitude,
+                     app->gps_station.longtitude,
+                     app->temporary_station_latitude,
+                     app->temporary_station_longtitude) > 10) {
+
+                    get_nearest_station
+                        (app->temporary_station_latitude,
+                         app->temporary_station_longtitude,
+                         &app->gps_station);
+                    if ((strlen(app->gps_station.id0) > 0)
+                        && (strlen(app->gps_station.name) > 0)) {
+
+                        app->gps_station.latitude =
+                            app->temporary_station_latitude;
+                        app->gps_station.longtitude =
+                            app->temporary_station_longtitude;
+                        delete_all_gps_stations();
+                        add_station_to_user_list(app->gps_station.name,
+                                                 app->gps_station.id0,
+                                                 TRUE);
+                        if (!app->config->current_station_name
+                            && !app->config->current_station_id) {
+                            app->config->current_station_name =
+                                g_strdup(app->gps_station.name);
+                            app->config->current_station_id =
+                                g_strdup(app->gps_station.id0);
+                        }
+                        config_save(app->config);
+                        update_weather(FALSE);
+                        redraw_home_window(FALSE);
                     }
-		#endif
-		#ifdef OS2008
-                    /* add periodic gps check */
-                    if (app->gps_station.latitude == 0 && app->gps_station.longtitude == 0)
-                        add_gps_event(1);
-                    else    
-                        add_gps_event(5);
-		#endif
-    		break;		    
-  
-		default:
-		case AUTOUPDATE:
-		    /* delete periodic update */
-		#ifndef RELEASE
-		    fprintf(stderr,"Delete evt %s\n",ctime(&evt->time));
-		#endif
-		    g_free(evt);
-                    event_time_list = g_slist_remove(event_time_list, event_time_list->data);
-		#ifndef RELEASE
-		    fprintf(stderr,"UPDATE by event\n");
-		#endif
-		    update_weather(FALSE);
-                    /* add periodic update */
-                    add_periodic_event(current_time);
-    		break;		    
-	    }
-	    break;
-	}             
-	list_time_event_temp = g_slist_next(list_time_event_temp);
+                }
+#endif
+#ifdef OS2008
+                /* add periodic gps check */
+                if (app->gps_station.latitude == 0
+                    && app->gps_station.longtitude == 0)
+                    add_gps_event(1);
+                else
+                    add_gps_event(5);
+#endif
+                break;
+
+            default:
+            case AUTOUPDATE:
+                /* delete periodic update */
+#ifndef RELEASE
+                fprintf(stderr, "Delete evt %s\n", ctime(&evt->time));
+#endif
+                g_free(evt);
+                event_time_list =
+                    g_slist_remove(event_time_list, event_time_list->data);
+#ifndef RELEASE
+                fprintf(stderr, "UPDATE by event\n");
+#endif
+                update_weather(FALSE);
+                /* add periodic update */
+                add_periodic_event(current_time);
+                break;
+            }
+            break;
+        }
+        list_time_event_temp = g_slist_next(list_time_event_temp);
     }
-    return TRUE;    
+    return TRUE;
 }
+
 /*******************************************************************************/
 #ifndef RELEASE
 /*For debug */
-void print_list(char *buff, size_t buff_size){
+void print_list(char *buff, size_t buff_size) {
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
-    char	tmp[3072];
+    char tmp[3072];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     memset(tmp, 0, sizeof(tmp));
-    if(!event_time_list)
-	return;
+    if (!event_time_list)
+        return;
     list_time_event_temp = event_time_list;
-    sprintf(tmp, "Length %i\n",g_slist_length (list_time_event_temp)  );    
-    while(list_time_event_temp){
-	evt = list_time_event_temp->data;
-	snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,
-		    "Event %i Time: %s\n", 
-		    evt->type_event, ctime(&evt->time));
-	list_time_event_temp = g_slist_next(list_time_event_temp);
+    sprintf(tmp, "Length %i\n", g_slist_length(list_time_event_temp));
+    while (list_time_event_temp) {
+        evt = list_time_event_temp->data;
+        snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,
+                 "Event %i Time: %s\n", evt->type_event,
+                 ctime(&evt->time));
+        list_time_event_temp = g_slist_next(list_time_event_temp);
     }
     snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "\n");
-    if(buff && buff_size)
-	memcpy(buff, tmp, buff_size);
+    if (buff && buff_size)
+        memcpy(buff, tmp, buff_size);
     else
-	fprintf(stderr, tmp);
+        fprintf(stderr, tmp);
 }
 #endif
 /*******************************************************************************/
-void create_timer_with_interval(guint interval){
+void create_timer_with_interval(guint interval) {
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    app->timer = g_timeout_add(interval, (GtkFunction) timer_handler, NULL);    /* One per minute */
+}
+
+/*******************************************************************************/
+void timer(int interval) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     app->timer = g_timeout_add(interval,
-			       (GtkFunction)timer_handler,
-			       NULL); /* One per minute */
+                               (GtkFunction) timer_handler,
+                               app->main_window);
 }
-/*******************************************************************************/
-void timer(int interval){
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    app->timer = g_timeout_add(interval,
-			       (GtkFunction)timer_handler,
-			       app->main_window);
-}
+
 /*******************************************************************************/
 /* Free memory allocated for time event */
-void free_list_time_event(void){
+void free_list_time_event(void) {
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif    
+#endif
 #ifdef DEBUGEVENTS
-    fprintf(stderr,"Free ALL in list\n");
+    fprintf(stderr, "Free ALL in list\n");
     print_list(NULL, 0);
 #endif
-    if(!event_time_list)
-	return;
-    list_time_event_temp = event_time_list; 
-    while(list_time_event_temp != NULL){
-        #ifndef RELEASE
-	fprintf(stderr,"delete\n");
-	#endif
-	evt = list_time_event_temp->data;
-	g_free(evt);
+    if (!event_time_list)
+        return;
+    list_time_event_temp = event_time_list;
+    while (list_time_event_temp != NULL) {
+#ifndef RELEASE
+        fprintf(stderr, "delete\n");
+#endif
+        evt = list_time_event_temp->data;
+        g_free(evt);
 /*	list_time_event_temp = g_slist_remove(list_time_event_temp, list_time_event_temp->data);*/
-	list_time_event_temp = g_slist_next(list_time_event_temp);
+        list_time_event_temp = g_slist_next(list_time_event_temp);
     }
     g_slist_free(event_time_list);
     event_time_list = NULL;
 #ifdef DEBUGEVENTS
-    fprintf(stderr,"list clean\n");
+    fprintf(stderr, "list clean\n");
     print_list(NULL, 0);
 #endif
 }
+
 /*******************************************************************************/
 /* Compare function for sort event list */
-static gint compare_time(gconstpointer a, gconstpointer b){
+static gint compare_time(gconstpointer a, gconstpointer b) {
     struct event_time *evta, *evtb;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif    
-    evta = (struct event_time*)a;
-    evtb = (struct event_time*)b;
-    return(evta->time < evtb->time) ? -1 : (evta->time > evtb->time) ? +1 : 0;
+#endif
+    evta = (struct event_time *)a;
+    evtb = (struct event_time *)b;
+    return (evta->time < evtb->time) ? -1 : (evta->time >
+                                             evtb->time) ? +1 : 0;
 }
+
 /*******************************************************************************/
-/* Add time event  to list */	  
-void event_add(time_t time_value, short type_event){
+/* Add time event  to list */
+void event_add(time_t time_value, short type_event) {
     struct event_time *evt = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 #ifdef DEBUGEVENTS
     fprintf(stderr, "event_add in list\n");
-    print_list(NULL, 0); 
+    print_list(NULL, 0);
 #endif
-    if( time_value && time_value > time(NULL)){ 
-	evt = g_new0(struct event_time, 1);
-	if (evt != NULL){
-	    evt->time = time_value;	  
-	    evt->type_event = type_event;
-	    event_time_list = g_slist_insert_sorted(event_time_list,evt,compare_time);
-	}    
-	else
-	    fprintf(stderr,"evt NULL\n");
+    if (time_value && time_value > time(NULL)) {
+        evt = g_new0(struct event_time, 1);
+        if (evt != NULL) {
+            evt->time = time_value;
+            evt->type_event = type_event;
+            event_time_list =
+                g_slist_insert_sorted(event_time_list, evt, compare_time);
+        } else
+            fprintf(stderr, "evt NULL\n");
     }
 #ifdef DEBUGEVENTS
     fprintf(stderr, "event_add in list finished\n");
     print_list(NULL, 0);
 #endif
 }
+
 /*******************************************************************************/
 /*  Addition the periodic time in the list of events  for weather forecast updating.  
-    Interval is a count of minutes for the next interval */	  
-void add_gps_event(guint interval){
+    Interval is a count of minutes for the next interval */
+void add_gps_event(guint interval) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 #ifdef DEBUGEVENTS
-    fprintf(stderr,"Add in list\n");
+    fprintf(stderr, "Add in list\n");
     print_list(NULL, 0);
 #endif
-    event_add(time(NULL) + interval *60, CHECK_GPS_POSITION); /* Every 'interval' minutes */ 
+    event_add(time(NULL) + interval * 60, CHECK_GPS_POSITION);  /* Every 'interval' minutes */
 #ifdef DEBUGEVENTS
-    fprintf(stderr,"Item added to list\n");
+    fprintf(stderr, "Item added to list\n");
     print_list(NULL, 0);
 #endif
 }
+
 /*******************************************************************************/
-/*  Addition the periodic time in the list of events  for GPS checking */	  
-void add_periodic_event(time_t last_update){
+/*  Addition the periodic time in the list of events  for GPS checking */
+void add_periodic_event(time_t last_update) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 #ifdef DEBUGEVENTS
-    fprintf(stderr,"Add in list\n");
+    fprintf(stderr, "Add in list\n");
     print_list(NULL, 0);
 #endif
     event_add(last_update + app->config->update_interval * 60, AUTOUPDATE);
 #ifdef DEBUGEVENTS
-    fprintf(stderr,"Item added to list\n");
+    fprintf(stderr, "Item added to list\n");
     print_list(NULL, 0);
 #endif
 }
+
 /*******************************************************************************/
-/* Addition the current time in the list of events  for weather forecast updating */	  
-void add_current_time_event(void){
-    time_t current_time;	
+/* Addition the current time in the list of events  for weather forecast updating */
+void add_current_time_event(void) {
+    time_t current_time;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif    
+#endif
 #ifdef DEBUGEVENTS
-    fprintf(stderr,"Add in list\n");
+    fprintf(stderr, "Add in list\n");
     print_list(NULL, 0);
 #endif
-    /* get current time */  
+    /* get current time */
     current_time = time(NULL);
-    event_add(current_time + 4 , UPDATE_AFTER_CONNECTED); /* The current time plus 4 seconds */
-    
+    event_add(current_time + 4, UPDATE_AFTER_CONNECTED);        /* The current time plus 4 seconds */
+
 #ifdef DEBUGEVENTS
-    fprintf(stderr,"Item added to list\n");
+    fprintf(stderr, "Item added to list\n");
     print_list(NULL, 0);
 #endif
 }
+
 /*******************************************************************************/
-/* Remove periodic time event  from list */	  
-void remove_periodic_event(void){
+/* Remove periodic time event  from list */
+void remove_periodic_event(void) {
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif    
+#endif
 #ifdef DEBUGEVENTS
-    fprintf(stderr,"Periodic remove from list\n");
+    fprintf(stderr, "Periodic remove from list\n");
     print_list(NULL, 0);
 #endif
-    if(!event_time_list)
-	return;
-    list_time_event_temp = event_time_list;  
-    while(list_time_event_temp != NULL){
-	evt = list_time_event_temp->data;
-	if(evt->type_event == AUTOUPDATE){
-	    event_time_list = g_slist_remove(event_time_list, list_time_event_temp->data);
-	    list_time_event_temp = event_time_list;  
-	    g_free(evt);
-	}
-	list_time_event_temp = g_slist_next(list_time_event_temp);
+    if (!event_time_list)
+        return;
+    list_time_event_temp = event_time_list;
+    while (list_time_event_temp != NULL) {
+        evt = list_time_event_temp->data;
+        if (evt->type_event == AUTOUPDATE) {
+            event_time_list =
+                g_slist_remove(event_time_list,
+                               list_time_event_temp->data);
+            list_time_event_temp = event_time_list;
+            g_free(evt);
+        }
+        list_time_event_temp = g_slist_next(list_time_event_temp);
     }
 
 #ifdef DEBUGEVENTS
-    fprintf(stderr,"Periodic is remove from list\n");
+    fprintf(stderr, "Periodic is remove from list\n");
     print_list(NULL, 0);
 #endif
 }
+
 /*******************************************************************************/
-void remove_daytime_event(void){
+void remove_daytime_event(void) {
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif    
+#endif
 #ifdef DEBUGEVENTS
-    fprintf(stderr,"CHANGE_DAY_PART remove from list\n");
+    fprintf(stderr, "CHANGE_DAY_PART remove from list\n");
     print_list(NULL, 0);
 #endif
-    if(!event_time_list)
-	return;
-    list_time_event_temp = event_time_list;  
-    while(list_time_event_temp != NULL){
-	evt = list_time_event_temp->data;
-	if(evt->type_event == CHANGE_DAY_PART){
-	    event_time_list = g_slist_remove(event_time_list, list_time_event_temp->data);
-	    list_time_event_temp = event_time_list;  
-	    g_free(evt);
-	}
-	list_time_event_temp = g_slist_next(list_time_event_temp);
+    if (!event_time_list)
+        return;
+    list_time_event_temp = event_time_list;
+    while (list_time_event_temp != NULL) {
+        evt = list_time_event_temp->data;
+        if (evt->type_event == CHANGE_DAY_PART) {
+            event_time_list =
+                g_slist_remove(event_time_list,
+                               list_time_event_temp->data);
+            list_time_event_temp = event_time_list;
+            g_free(evt);
+        }
+        list_time_event_temp = g_slist_next(list_time_event_temp);
     }
 
 #ifdef DEBUGEVENTS
-    fprintf(stderr,"CHANGE_DAY_PART is remove from list\n");
+    fprintf(stderr, "CHANGE_DAY_PART is remove from list\n");
     print_list(NULL, 0);
 #endif
 }
+
 /*******************************************************************************/
-time_t next_update(void){
-    GSList	*tmp_list = NULL;
-    time_t	result	= 0;
+time_t next_update(void) {
+    GSList *tmp_list = NULL;
+    time_t result = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(!event_time_list)
-	return result;
+    if (!event_time_list)
+        return result;
     tmp_list = event_time_list;
-    while(tmp_list){
-	if(((struct event_time*)tmp_list->data)->type_event == AUTOUPDATE){
-	    result = ((struct event_time*)tmp_list->data)->time;
-	    break;
-	}
-	tmp_list = g_slist_next(tmp_list);
+    while (tmp_list) {
+        if (((struct event_time *)tmp_list->data)->type_event ==
+            AUTOUPDATE) {
+            result = ((struct event_time *)tmp_list->data)->time;
+            break;
+        }
+        tmp_list = g_slist_next(tmp_list);
     }
     return result;
 }
+
 /*******************************************************************************/

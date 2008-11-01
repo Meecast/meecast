@@ -1,3 +1,4 @@
+# vim: sw=4 ts=4 expandtab ai
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
@@ -33,153 +34,150 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-Item*
-create_item(const char *name, const char *value){
-    Item	*itm=NULL;
+Item *create_item(const char *name, const char *value) {
+    Item *itm = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(!name)
-	return NULL;
-    
+    if (!name)
+        return NULL;
+
     itm = g_new0(Item, 1);
     itm->name = g_string_new(name);
-    if(value)
-	itm->value = g_string_new(value);
+    if (value)
+        itm->value = g_string_new(value);
     return itm;
 }
+
 /*******************************************************************************/
-void
-destroy_item(Item **item){
+void destroy_item(Item ** item) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(!(*item))
-	return;
-    if((*item)->name){
-	g_string_free((*item)->name, TRUE);
-	(*item)->name = NULL;
+    if (!(*item))
+        return;
+    if ((*item)->name) {
+        g_string_free((*item)->name, TRUE);
+        (*item)->name = NULL;
     }
-    if((*item)->value){
-	g_string_free((*item)->value, TRUE);
-	(*item)->value = NULL;
-    }	
+    if ((*item)->value) {
+        g_string_free((*item)->value, TRUE);
+        (*item)->value = NULL;
+    }
     g_free(*item);
     *item = NULL;
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif    
+#endif
 }
+
 /*******************************************************************************/
-GSList*
-add_item2object(GSList **object, void *item){
+GSList *add_item2object(GSList ** object, void *item) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(item)
-	*object = g_slist_append(*object, item);
+    if (item)
+        *object = g_slist_append(*object, item);
     return (*object);
 }
+
 /*******************************************************************************/
-char*
-item_value(GSList *object, const char *name){
-    GString	*tmp = NULL;
-    Item	*itm = NULL;
-    char	*result = "";
+char *item_value(GSList * object, const char *name) {
+    GString *tmp = NULL;
+    Item *itm = NULL;
+    char *result = "";
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(object){
+    if (object) {
         tmp = g_string_new(name);
-	while(object){
-	    itm = (Item*)object->data;
-	    if(g_string_equal(itm->name, tmp)){
-		result = itm->value->str;
-		break;
-	    }
-	    object = g_slist_next(object);
-	}
-	g_string_free(tmp, TRUE);
+        while (object) {
+            itm = (Item *) object->data;
+            if (g_string_equal(itm->name, tmp)) {
+                result = itm->value->str;
+                break;
+            }
+            object = g_slist_next(object);
+        }
+        g_string_free(tmp, TRUE);
     }
     return result;
 }
-/*******************************************************************************/
-time_t
-calculate_diff_time(int timezone){
 
-    time_t	current_time,
-                diff_time = 0,
-                utc_time;
-    struct tm	*gmt;
-    
-    current_time = time(NULL); /* get current day */
-     /* set Daylight */
+/*******************************************************************************/
+time_t calculate_diff_time(int timezone) {
+
+    time_t current_time, diff_time = 0, utc_time;
+    struct tm *gmt;
+
+    current_time = time(NULL);  /* get current day */
+    /* set Daylight */
     gmt = gmtime(&current_time);
     gmt->tm_isdst = 1;
     /* correct time for current location */
     utc_time = mktime(gmt);
 
-    diff_time = utc_time - current_time  + 60 * 60 * timezone;
+    diff_time = utc_time - current_time + 60 * 60 * timezone;
 
     return diff_time;
 }
+
 /*******************************************************************************/
-void
-destroy_object(GSList **object){
-    Item	*itm = NULL;
-    GSList	*tmp = *object;
+void destroy_object(GSList ** object) {
+    Item *itm = NULL;
+    GSList *tmp = *object;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    while(tmp){
-	itm = (Item*)tmp->data;
-	if(itm)
-	    destroy_item(&itm);
-	itm = NULL;
-	tmp = g_slist_next(tmp);
+    while (tmp) {
+        itm = (Item *) tmp->data;
+        if (itm)
+            destroy_item(&itm);
+        itm = NULL;
+        tmp = g_slist_next(tmp);
     }
     g_slist_free(*object);
     *object = NULL;
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif    
+#endif
 }
+
 /*******************************************************************************/
-time_t
-last_update_time(GSList *object){
-    time_t	last_update = 0;
-    struct tm	tm = {0};
+time_t last_update_time(GSList * object) {
+    time_t last_update = 0;
+    struct tm tm = { 0 };
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(!object)
-	return 0;
+    if (!object)
+        return 0;
 
     strptime(item_value(object, "last_update"), "%D %I:%M", &tm);
     tm.tm_isdst = 1;
     last_update = mktime(&tm);
 
     /* Add 12 hours if  date have PM field */
-    if(strstr(item_value(object, "last_update"), "PM"))
-	last_update += 12 * 3600;
+    if (strstr(item_value(object, "last_update"), "PM"))
+        last_update += 12 * 3600;
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
     return last_update;
 }
+
 /*******************************************************************************/
 #ifndef RELEASE
-void
-display_all_object_items(GSList *object){
-    Item	*itm = NULL;
+void display_all_object_items(GSList * object) {
+    Item *itm = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-    while(object){
-	itm = (Item*)object->data;
-	fprintf(stderr, "\n>%s: %s<", itm->name->str, itm->value->str);
-	object = g_slist_next(object);
+    while (object) {
+        itm = (Item *) object->data;
+        fprintf(stderr, "\n>%s: %s<", itm->name->str, itm->value->str);
+        object = g_slist_next(object);
     }
     fprintf(stderr, "\n<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
 }

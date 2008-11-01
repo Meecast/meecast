@@ -1,3 +1,4 @@
+# vim: sw=4 ts=4 expandtab ai
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
@@ -34,19 +35,16 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-GtkListStore* create_items_list(const char *path, const char *filename,
-				long start, long end, long *items_number){
-    FILE		*fh;
-    GtkListStore	*list = NULL;
-    GtkTreeIter		iter;
-    gchar		buffer[512],
-			buff[512];
-    Region_item		r_item;
-    Country_item	c_item;    
-    Station		station;
-    long		max_bytes = 0,
-			readed_bytes = 0,
-			count = 0;
+GtkListStore *create_items_list(const char *path, const char *filename,
+                                long start, long end, long *items_number) {
+    FILE *fh;
+    GtkListStore *list = NULL;
+    GtkTreeIter iter;
+    gchar buffer[512], buff[512];
+    Region_item r_item;
+    Country_item c_item;
+    Station station;
+    long max_bytes = 0, readed_bytes = 0, count = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -56,251 +54,245 @@ GtkListStore* create_items_list(const char *path, const char *filename,
 
     max_bytes = end - start;
     fh = fopen(buff, "rt");
-    if(!fh){
-	fprintf(stderr, "\nCan't read file %s: %s", buff,
-		strerror(errno));
-	items_number && (*items_number = count);
-	list = NULL;
-    }
-    else{
-	if(!strcmp(filename, LOCATIONSFILE))
-	    list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING,
-					    G_TYPE_DOUBLE, G_TYPE_DOUBLE);
-	else
-	    list = gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT);
-	if(start > -1)
-	    if(fseek(fh, start, SEEK_SET)){
-		fprintf(stderr,
-			"\nCan't seek to the position %ld on %s file: %s\n",
-			start, buff, strerror(errno));
-		items_number && (*items_number = count);
-		return NULL;
-	    }
-        while(!feof(fh)){
-	    memset(buffer, 0, sizeof(buffer));
-	    fgets(buffer, sizeof(buffer) - 1, fh);
-	    readed_bytes += strlen(buffer);
+    if (!fh) {
+        fprintf(stderr, "\nCan't read file %s: %s", buff, strerror(errno));
+        items_number && (*items_number = count);
+        list = NULL;
+    } else {
+        if (!strcmp(filename, LOCATIONSFILE))
+            list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING,
+                                      G_TYPE_DOUBLE, G_TYPE_DOUBLE);
+        else
+            list =
+                gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_INT,
+                                   G_TYPE_INT);
+        if (start > -1)
+            if (fseek(fh, start, SEEK_SET)) {
+                fprintf(stderr,
+                        "\nCan't seek to the position %ld on %s file: %s\n",
+                        start, buff, strerror(errno));
+                items_number && (*items_number = count);
+                return NULL;
+            }
+        while (!feof(fh)) {
+            memset(buffer, 0, sizeof(buffer));
+            fgets(buffer, sizeof(buffer) - 1, fh);
+            readed_bytes += strlen(buffer);
 
-	    if(!strcmp(filename, LOCATIONSFILE)){
-		if(!parse_station_string(buffer, &station)){
-		    gtk_list_store_append(list, &iter);
-		    gtk_list_store_set(list, &iter,
-					0, station.name,
-					1, station.id0,
-					2, station.latitude,
-					3, station.longtitude,
-					-1);
-		    count++;
-		}
-	    }
-	    else{
-		if(!strcmp(filename,REGIONSFILE)){
-		    if(!parse_region_string(buffer, &r_item)){
-			gtk_list_store_append(list, &iter);
-			gtk_list_store_set(list, &iter,
-					    0, r_item.name,
-					    1, r_item.start,
-					    2, r_item.end,
-					    -1);
-			count++;
-		    }
-		}
-		else{
-		    if(!parse_country_string(buffer, &c_item)){
-			gtk_list_store_append(list, &iter);
-			gtk_list_store_set(list, &iter,
-					    0, c_item.name,
-					    1, c_item.start,
-					    2, c_item.end,
-					    -1);
-			count++;
-		    }	
-		}
-	    }
+            if (!strcmp(filename, LOCATIONSFILE)) {
+                if (!parse_station_string(buffer, &station)) {
+                    gtk_list_store_append(list, &iter);
+                    gtk_list_store_set(list, &iter,
+                                       0, station.name,
+                                       1, station.id0,
+                                       2, station.latitude,
+                                       3, station.longtitude, -1);
+                    count++;
+                }
+            } else {
+                if (!strcmp(filename, REGIONSFILE)) {
+                    if (!parse_region_string(buffer, &r_item)) {
+                        gtk_list_store_append(list, &iter);
+                        gtk_list_store_set(list, &iter,
+                                           0, r_item.name,
+                                           1, r_item.start, 2, r_item.end,
+                                           -1);
+                        count++;
+                    }
+                } else {
+                    if (!parse_country_string(buffer, &c_item)) {
+                        gtk_list_store_append(list, &iter);
+                        gtk_list_store_set(list, &iter,
+                                           0, c_item.name,
+                                           1, c_item.start, 2, c_item.end,
+                                           -1);
+                        count++;
+                    }
+                }
+            }
 
-	    if(start > -1 && end > -1 && readed_bytes >= max_bytes)
-		break;
-	}
-	fclose(fh);
+            if (start > -1 && end > -1 && readed_bytes >= max_bytes)
+                break;
+        }
+        fclose(fh);
     }
     items_number && (*items_number = count);
     return list;
 }
+
 /*******************************************************************************/
-int parse_country_string(const char *string, Country_item *result){
-    char	*delimiter = NULL,
-		*tmp,
-		buffer[32];
-    int		res = 0;
+int parse_country_string(const char *string, Country_item * result) {
+    char *delimiter = NULL, *tmp, buffer[32];
+    int res = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    tmp = (char*)string;
+    tmp = (char *)string;
     delimiter = strchr(tmp, ';');
-    if(!delimiter)
-	res = 1;
-    else{
-	memset(result->name, 0, sizeof(result->name));
-    	memcpy(result->name, tmp,
-		((sizeof(result->name) - 1 > (int)(delimiter - tmp)) ?
-		((int)(delimiter - tmp)) : (sizeof(result->name) - 1)));
-	tmp = delimiter + 1;
-	delimiter = strchr(tmp, ';');
-	if(!delimiter){
-	    result->start = -1;
-	    res = 1;
-	}
-	else{
-	    memset(buffer, 0, sizeof(buffer));
-	    memcpy(buffer, tmp, ((sizeof(buffer) - 1 > (int)(delimiter - tmp)) ?
-				    ((int)(delimiter - tmp)) : (sizeof(buffer) - 1)));
-	    result->start = atol(buffer);
-	    tmp = delimiter + 1;
-	    delimiter = strchr(tmp, ';');
-	    if(!delimiter){
-		result->end = -1;
-		res = 1;
-	    }
-	    else{
-	    	memset(buffer, 0, sizeof(buffer));
-		memcpy(buffer, tmp, ((sizeof(buffer) - 1 > (int)(delimiter - tmp)) ?
-				    ((int)(delimiter - tmp)) : (sizeof(buffer) - 1)));
-		result->end = atol(buffer);
-	    }
-	}
+    if (!delimiter)
+        res = 1;
+    else {
+        memset(result->name, 0, sizeof(result->name));
+        memcpy(result->name, tmp,
+               ((sizeof(result->name) - 1 >
+                 (int)(delimiter - tmp)) ? ((int)(delimiter - tmp))
+                : (sizeof(result->name) - 1)));
+        tmp = delimiter + 1;
+        delimiter = strchr(tmp, ';');
+        if (!delimiter) {
+            result->start = -1;
+            res = 1;
+        } else {
+            memset(buffer, 0, sizeof(buffer));
+            memcpy(buffer, tmp,
+                   ((sizeof(buffer) - 1 >
+                     (int)(delimiter - tmp)) ? ((int)(delimiter - tmp))
+                    : (sizeof(buffer) - 1)));
+            result->start = atol(buffer);
+            tmp = delimiter + 1;
+            delimiter = strchr(tmp, ';');
+            if (!delimiter) {
+                result->end = -1;
+                res = 1;
+            } else {
+                memset(buffer, 0, sizeof(buffer));
+                memcpy(buffer, tmp,
+                       ((sizeof(buffer) - 1 >
+                         (int)(delimiter - tmp)) ? ((int)(delimiter - tmp))
+                        : (sizeof(buffer) - 1)));
+                result->end = atol(buffer);
+            }
+        }
     }
     return res;
 }
 
 /*******************************************************************************/
-int parse_region_string(const char *string, Region_item *result){
-    char	*delimiter = NULL,
-		*tmp;
-    int		res = 0;
+int parse_region_string(const char *string, Region_item * result) {
+    char *delimiter = NULL, *tmp;
+    int res = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif    
-    tmp = (char*)string;
+#endif
+    tmp = (char *)string;
     delimiter = strchr(tmp, ';');
     setlocale(LC_NUMERIC, "POSIX");
-    if(!delimiter)
-	res = 1;
-    else{
-	memset(result->name, 0, sizeof(result->name));
+    if (!delimiter)
+        res = 1;
+    else {
+        memset(result->name, 0, sizeof(result->name));
         memcpy(result->name, tmp,
-		((sizeof(result->name) - 1 > (int)(delimiter - tmp)) ?
-		((int)(delimiter - tmp)) : (sizeof(result->name) - 1)));
-	tmp = delimiter + 1;
-	delimiter = strchr(tmp, ';');
-	if(!delimiter){
-	    result->start = -1;
-	    res = 1;
-	}
-	else{
-	    *delimiter = 0;
-	    result->start = atol(tmp);
-	    tmp = delimiter + 1;
-	    delimiter = strchr(tmp, ';');
-	    if(!delimiter){
-		result->end = -1;
-		res = 1;
-	    }
-	    else{
-		*delimiter = 0;
-		result->end = atol(tmp);
-		tmp = delimiter + 1;
-		delimiter = strchr(tmp, ';');
-		if(!delimiter){
-		    result->minlat = 0;
-		    res = 1;
-		}
-		else{
-		    *delimiter = 0;
-		    result->minlat = atof(tmp);
-		    tmp = delimiter + 1;
-		    delimiter = strchr(tmp, ';');
-		    if(!delimiter){
-			  result->minlon = 0;
-			  res = 1;
-		    }
-		    else{
-			*delimiter = 0;
-			result->minlon = atof(tmp);
-			tmp = delimiter + 1;
-			delimiter = strchr(tmp, ';');
-			if(!delimiter){
-			    result->maxlat = 0;
-			    res = 1;
-			}
-			else{
-			    *delimiter = 0;
-			    result->maxlat = atof(tmp);
-			    tmp = delimiter + 1;
-			    delimiter = strchr(tmp, ';');
-			    if(!delimiter){
-				result->maxlon = 0;
-				res = 1;
-			    }
-			    else{
-				*delimiter = 0;
-				result->maxlon = atof(tmp);
-			    }
-			}
-		    }			    
-		}	
-	    }
-	}
-    }
-    setlocale(LC_NUMERIC, "");    
-    return res;
-}
-/*******************************************************************************/
-int parse_station_string(const char *string, Station *result){
-    char	*delimiter = NULL,
-		*tmp;
-    int		res = 0;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif    
-    tmp = (char*)string;
-    delimiter = strchr(tmp, ';');
-    setlocale(LC_NUMERIC, "POSIX");
-    if(!delimiter)
-	res = 1;
-    else{
-	memset(result->name, 0, sizeof(result->name));
-    	memcpy(result->name, tmp,
-		((sizeof(result->name) - 1 > (int)(delimiter - tmp)) ?
-		((int)(delimiter - tmp)) : (sizeof(result->name) - 1)));
-	tmp = delimiter + 1;
-	delimiter = strchr(tmp, ';');
-	if(!delimiter)
-	    res = 1;
-	else{
-	    memset(result->id0, 0, sizeof(result->id0));
-	    memcpy(result->id0, tmp,
-		    ((sizeof(result->id0) - 1 > (int)(delimiter - tmp)) ?
-		    ((int)(delimiter - tmp)) : (sizeof(result->id0) - 1)));
-	    
-	    tmp = delimiter + 1;
-	    delimiter = strchr(tmp, ';');
-	    if(!delimiter)
-		res = 1;
-	    else{
+               ((sizeof(result->name) - 1 >
+                 (int)(delimiter - tmp)) ? ((int)(delimiter - tmp))
+                : (sizeof(result->name) - 1)));
+        tmp = delimiter + 1;
+        delimiter = strchr(tmp, ';');
+        if (!delimiter) {
+            result->start = -1;
+            res = 1;
+        } else {
+            *delimiter = 0;
+            result->start = atol(tmp);
+            tmp = delimiter + 1;
+            delimiter = strchr(tmp, ';');
+            if (!delimiter) {
+                result->end = -1;
+                res = 1;
+            } else {
                 *delimiter = 0;
-                result->latitude = atof(tmp);
-		tmp = delimiter + 1;
-		delimiter = strchr(tmp, ';');
-		if(!delimiter)
-		    res = 1;
-		else{
-                     *delimiter = 0;
-                     result->longtitude = atof(tmp);
-		}
-	    }
-	}
+                result->end = atol(tmp);
+                tmp = delimiter + 1;
+                delimiter = strchr(tmp, ';');
+                if (!delimiter) {
+                    result->minlat = 0;
+                    res = 1;
+                } else {
+                    *delimiter = 0;
+                    result->minlat = atof(tmp);
+                    tmp = delimiter + 1;
+                    delimiter = strchr(tmp, ';');
+                    if (!delimiter) {
+                        result->minlon = 0;
+                        res = 1;
+                    } else {
+                        *delimiter = 0;
+                        result->minlon = atof(tmp);
+                        tmp = delimiter + 1;
+                        delimiter = strchr(tmp, ';');
+                        if (!delimiter) {
+                            result->maxlat = 0;
+                            res = 1;
+                        } else {
+                            *delimiter = 0;
+                            result->maxlat = atof(tmp);
+                            tmp = delimiter + 1;
+                            delimiter = strchr(tmp, ';');
+                            if (!delimiter) {
+                                result->maxlon = 0;
+                                res = 1;
+                            } else {
+                                *delimiter = 0;
+                                result->maxlon = atof(tmp);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     setlocale(LC_NUMERIC, "");
     return res;
 }
+
+/*******************************************************************************/
+int parse_station_string(const char *string, Station * result) {
+    char *delimiter = NULL, *tmp;
+    int res = 0;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    tmp = (char *)string;
+    delimiter = strchr(tmp, ';');
+    setlocale(LC_NUMERIC, "POSIX");
+    if (!delimiter)
+        res = 1;
+    else {
+        memset(result->name, 0, sizeof(result->name));
+        memcpy(result->name, tmp,
+               ((sizeof(result->name) - 1 >
+                 (int)(delimiter - tmp)) ? ((int)(delimiter - tmp))
+                : (sizeof(result->name) - 1)));
+        tmp = delimiter + 1;
+        delimiter = strchr(tmp, ';');
+        if (!delimiter)
+            res = 1;
+        else {
+            memset(result->id0, 0, sizeof(result->id0));
+            memcpy(result->id0, tmp,
+                   ((sizeof(result->id0) - 1 >
+                     (int)(delimiter - tmp)) ? ((int)(delimiter - tmp))
+                    : (sizeof(result->id0) - 1)));
+
+            tmp = delimiter + 1;
+            delimiter = strchr(tmp, ';');
+            if (!delimiter)
+                res = 1;
+            else {
+                *delimiter = 0;
+                result->latitude = atof(tmp);
+                tmp = delimiter + 1;
+                delimiter = strchr(tmp, ';');
+                if (!delimiter)
+                    res = 1;
+                else {
+                    *delimiter = 0;
+                    result->longtitude = atof(tmp);
+                }
+            }
+        }
+    }
+    setlocale(LC_NUMERIC, "");
+    return res;
+}
+
 /*******************************************************************************/

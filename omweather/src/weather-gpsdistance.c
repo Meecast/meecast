@@ -1,3 +1,4 @@
+# vim: sw=4 ts=4 expandtab ai
 /*
  * Copyright (C) 2006, 2007 John Costigan.
  *
@@ -36,10 +37,11 @@
 
 #define PI   (3.14159265358979323846)
 #define EARTH_RADIUS (3443.91847)
-#define deg2rad(deg) ((deg) * (PI / 180.0)) 
-/*******************************************************************************/ 
+#define deg2rad(deg) ((deg) * (PI / 180.0))
+/*******************************************************************************/
 gdouble
-calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2){
+calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2,
+                   gdouble lon2) {
     gdouble dlat, dlon, slat, slon, a;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -58,5 +60,6 @@ calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2){
     a = (slat * slat) + (cos(lat1) * cos(lat2) * slon * slon);
     return ((2.0F * atan2(sqrt(a), sqrt(1.0F - a))) * EARTH_RADIUS);
 }
+
 /*******************************************************************************/
 #endif

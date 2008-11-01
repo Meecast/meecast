@@ -1,3 +1,4 @@
+# vim: sw=4 ts=4 expandtab ai
 /* This file is part of Other Maemo Weather(omweather)
  *
  * Copyright (C) 2006-2008 Vlad Vasiliev
@@ -30,7 +31,7 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-GHashTable* hash_table_create(void){
+GHashTable *hash_table_create(void) {
     GHashTable *hash;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -44,33 +45,28 @@ GHashTable* hash_table_create(void){
  * cat BOXX0014.xml USCA0001.xml > |./get_reserved_word.pl
 */
 #include "hash.data"
-    return  hash;
+    return hash;
 }
+
 /*******************************************************************************/
-gpointer
-hash_table_find(gpointer key, gboolean search_short_name){
-    gpointer	orig_key,
-		search_text,
-		value,
-		result;
-    gchar	buffer[512];
+gpointer hash_table_find(gpointer key, gboolean search_short_name) {
+    gpointer orig_key, search_text, value, result;
+    gchar buffer[512];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(search_short_name){
-	buffer[0] = 0;
-	snprintf(buffer, sizeof(buffer) - 1, "%s_short", (gchar*)key);
-	search_text = buffer;
-    }
+    if (search_short_name) {
+        buffer[0] = 0;
+        snprintf(buffer, sizeof(buffer) - 1, "%s_short", (gchar *) key);
+        search_text = buffer;
+    } else
+        search_text = key;
+    if (g_hash_table_lookup_extended(app->hash,
+                                     search_text, &orig_key, &value))
+        result = value;
     else
-	search_text = key;
-    if(g_hash_table_lookup_extended(app->hash,
-				    search_text,
-				    &orig_key,
-				    &value))
-	result = value;
-    else
-	result = key;
+        result = key;
     return result;
 }
+
 /*******************************************************************************/

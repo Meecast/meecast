@@ -63,8 +63,8 @@ libweather_home_la_SOURCES = weather-home.c \
 			     weather-applet-expose.h \
 			     weather-alerts.h \
 			     weather-alerts.c \
-			     weather-templates.h \
-			     weather-templates.c
+			     weather-units.h \
+			     weather-units.c
 
 weather-hash.c:		hash.data
 	if test -f hash.data; then \
@@ -78,7 +78,7 @@ weather-hash.c:		hash.data
 weather-help.c:	build
 	if test -f build; then \
 	    rm build; \
-	    echo "#define BUILD \""`date +%j`"\"" > build; \
+	    echo "#define BUILD \""`date +%V`"\"" > build; \
 	fi
 
 libweather_home_la_CFLAGS = $(GTK_CFLAGS) $(OSSO_CFLAGS) $(LIBXML2_CFLAGS) $(GNOME_VFS_CFLAGS) \

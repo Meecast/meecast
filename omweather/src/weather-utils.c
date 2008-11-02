@@ -1,4 +1,4 @@
-# vim: sw=4 ts=4 expandtab ai
+/* # vim: sw=4 ts=4 expandtab ai */
 /*
  * This file is part of Other Maemo Weather(omweather)
  *

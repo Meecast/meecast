@@ -19,7 +19,7 @@
 #
  
 omweatherdir = $(datadir)/omweather
-omweather_DATA = city_in_clock.txt grip.png
+omweather_DATA = city_in_clock.txt grip.png units.xml
 icons_crystallargedir = $(datadir)/omweather/icons/Glance
 icons_crystallarge_DATA = icons/Glance/*.png 
 moon_iconsdir = $(datadir)/omweather/moon_icons
@@ -40,6 +40,7 @@ EXTRA_DIST = $(homeapplet_desktop_DATA) \
 	     $(moon_icons_DATA) \
 	     $(copyright_icons_DATA) \
 	     $(button_icons_DATA) \
+	     units.xml \
 	     omweather.png
 
 SUBDIRS = help

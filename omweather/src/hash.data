@@ -1,4 +1,4 @@
-    
+
 	g_hash_table_insert(hash, "AM Clouds / PM Sun", _("AM Clouds / PM Sun"));
     g_hash_table_insert(hash, "AM Drizzle / Wind", _("AM Drizzle / Wind"));
     g_hash_table_insert(hash, "AM Drizzle", _("AM Drizzle"));    
@@ -199,3 +199,11 @@
     g_hash_table_insert(hash, "mi/s", _("mi/s"));
     g_hash_table_insert(hash, "rising", _("rising"));
     g_hash_table_insert(hash, "steady", _("steady"));
+    g_hash_table_insert(hash, "В", _("В"));
+    g_hash_table_insert(hash, "З", _("З"));
+    g_hash_table_insert(hash, "С", _("С"));
+    g_hash_table_insert(hash, "С-В", _("С-В"));
+    g_hash_table_insert(hash, "С-З", _("С-З"));
+    g_hash_table_insert(hash, "Ю", _("Ю"));
+    g_hash_table_insert(hash, "Ю-В", _("Ю-В"));
+    g_hash_table_insert(hash, "Ю-З", _("Ю-З"));

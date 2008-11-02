@@ -178,7 +178,6 @@ typedef struct weather_data_source{
 			    WeatherStationData *wsd);
     gint 	(*parser_hour)(const gchar *station_id, weather_com_parser *parser,
 				WeatherStationData *wsd);
-    gchar	*popup_template;
 }WeatherSource;
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{
@@ -271,17 +270,18 @@ typedef struct applet_config{
 /*******************************************************************************/
 typedef struct OMWeatherApplet{
     osso_context_t	*osso;
-    GHashTable		*hash;
+    GHashTable		*hash,
+			*sources_units;
     GtkWidget		*top_widget;
     GtkWidget		*main_window;
     GtkWidget		*popup_window;
-    GtkWidget		*popup_window_more;    
+    GtkWidget		*popup_window_more;
     gint		button_pressed;
     AppletConfig	*config;
     gboolean		show_update_window;
     gboolean		iap_connected;
     gboolean		iap_connecting;
-    glong		iap_connecting_timer;  
+    glong		iap_connecting_timer;
     guint		timer;
     guint		timer_for_os2008;
     guint		switch_timer;

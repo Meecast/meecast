@@ -1,4 +1,4 @@
-/* # vim: sw=4 ts=4 expandtab ai */
+/* vim: set sw=4 ts=4 et: */
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
@@ -103,7 +103,7 @@ gboolean expose_parent(GtkWidget * widget, GdkEventExpose * event) {
             radius = height / 2 - 2;
         }
     }
-
+  
     cairo_move_to(cr, x + radius, y);
     cairo_line_to(cr, x + width - radius, y);
     cairo_curve_to(cr, x + width - radius, y, x + width, y, x + width,

@@ -1,4 +1,4 @@
-/* # vim: sw=4 ts=4 expandtab ai */
+/* vim: set sw=4 ts=4 et: */
 /*
  * Copyright (C) 2006, 2007 John Costigan.
  *

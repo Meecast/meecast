@@ -1,3 +1,4 @@
+/* vim: set sw=4 ts=4 et: */
 /*
  * This file is part of Other Maemo Weather(omweather)
  *

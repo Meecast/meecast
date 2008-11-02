@@ -1,4 +1,4 @@
-# vim: sw=4 ts=4 expandtab ai
+/* # vim: sw=4 ts=4 expandtab ai */
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
@@ -33,11 +33,11 @@
 #endif
 #include "build"
 /*******************************************************************************/
-void help_activated_handler(GtkWidget * window, gchar * help_id) {
+void help_activated_handler(GtkWidget * window, gchar * help_id){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (!help_id)
+    if(!help_id)
         return;
 #ifdef OS2008
     hildon_help_show(app->osso, help_id, HILDON_HELP_SHOW_DIALOG);
@@ -45,12 +45,12 @@ void help_activated_handler(GtkWidget * window, gchar * help_id) {
     ossohelp_show(app->osso, help_id, OSSO_HELP_SHOW_DIALOG);
 #endif
 }
-
 /*******************************************************************************/
-void create_about_dialog(void) {
-    GtkWidget *help_dialog, *notebook;
-    char tmp_buff[2048];
-    gint result;
+void create_about_dialog(void){
+    GtkWidget	*help_dialog,
+		*notebook;
+    char	tmp_buff[2048];
+    gint	result;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -130,7 +130,7 @@ void create_about_dialog(void) {
 /* Translators tab */
     snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s",
              _("French - Nicolas Granziano\n"
-               "Russian - Pavel Fialko, Vlad Vasiliev,\n\t    Ed Bartosh\n"
+               "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
                "Finnish - Marko Vertainen\n"
                "German - Claudius Henrichs\n"
                "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo\n"
@@ -145,5 +145,4 @@ void create_about_dialog(void) {
     result = gtk_dialog_run(GTK_DIALOG(help_dialog));
     gtk_widget_destroy(help_dialog);
 }
-
 /*******************************************************************************/

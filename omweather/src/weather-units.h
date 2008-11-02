@@ -25,15 +25,13 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-#ifndef _weather_templates_h
-#define _weather_templates_h 1
+#ifndef _weather_units_h
+#define _weather_units_h 1
 /*******************************************************************************/
 #include "weather-common.h"
 /*******************************************************************************/
-GtkWidget* parse_template_from_file(const gchar *filename, const gchar *encoding);
-void parse_children(xmlNode *node, GtkWidget *object);
-/*******************************************************************************/
-extern void set_font(GtkWidget *widget, const gchar *description, const gint size);
+GHashTable* parse_units_file(const gchar *filename, const gchar *encoding);
+void parse_children(xmlNode *node, GHashTable *object);
 /*******************************************************************************/
 #endif
 

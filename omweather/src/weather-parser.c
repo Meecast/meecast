@@ -721,6 +721,7 @@ gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser,
 		strftime(buffer, sizeof(buffer) - 1, "%m/%d/%y %I:%M %p Local Time", &tm);
 		itm = create_item("last_update", buffer);
 		add_item2object(&(wsd->current), itm);
+		wsd->current_data_is_invalid = TRUE;
 		setlocale(LC_TIME, "");
 	    }
 	    /* timestep */

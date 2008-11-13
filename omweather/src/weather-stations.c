@@ -26,7 +26,7 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-#include "weather-locations.h"
+#include "weather-stations.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

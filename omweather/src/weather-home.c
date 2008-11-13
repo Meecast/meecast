@@ -750,9 +750,9 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->popup_window = NULL;
     app->tab_of_window_popup = NULL;
 /* Read Coutries list from file */
-    app->countrys_list
-	= create_items_list(weather_sources[app->config->weather_source].db_path,
-			    COUNTRIESFILE, -1, -1, NULL);
+//    app->countrys_list
+//	= create_items_list(weather_sources[app->config->weather_source].db_path,
+//			    COUNTRIESFILE, -1, -1, NULL);
 /* Start timer */
     timer(60000);  /* One per minute */
 /* Start main applet */ 
@@ -868,10 +868,10 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	free_memory();
 	if(app->config)
     	    g_free(app->config);
-	if(app->countrys_list){
-	    gtk_list_store_clear(app->countrys_list);
-	    g_object_unref(app->countrys_list);
-	}
+//	if(app->countrys_list){
+//	    gtk_list_store_clear(app->countrys_list);
+//	    g_object_unref(app->countrys_list);
+//	}
 	if(app->regions_list){
 	    gtk_list_store_clear(app->regions_list);
 	    g_object_unref(app->regions_list);

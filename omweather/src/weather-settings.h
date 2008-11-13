@@ -58,9 +58,7 @@ gboolean process_units_tab(GtkWidget *vbox);
 gboolean process_update_tab(GtkWidget *vbox);
 gboolean process_sensor_tab(GtkWidget *vbox);
 gboolean process_alert_tab(GtkWidget *vbox);
-gboolean changed_country_process(gpointer user_data);
 void changed_country_handler(GtkWidget *widget, gpointer user_data);
-gboolean changed_state_process(gpointer user_data);
 void changed_state_handler(GtkWidget *widget, gpointer user_data);
 void changed_stations_handler(GtkWidget *widget, gpointer user_data);
 void changed_weather_source_handler(GtkWidget *widget, gpointer user_data);
@@ -75,6 +73,7 @@ void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
 gboolean check_station_code(const gint source, const gchar *station_code);
 void up_key_handler(GtkButton *button, gpointer list);
 void down_key_handler(GtkButton *button, gpointer list);
+void new_station_handler(GtkButton *button, gpointer user_data);
 void delete_station_handler(GtkButton *button, gpointer user_data);
 void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
 				gboolean is_gps, guint source);

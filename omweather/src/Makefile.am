@@ -43,8 +43,8 @@ libweather_home_la_SOURCES = weather-home.c \
 			     weather-hash.c \
 			     weather-download.h \
 			     weather-download.c \
-			     weather-locations.h \
-			     weather-locations.c \
+			     weather-stations.h \
+			     weather-stations.c \
 			     weather-data.h \
 			     weather-data.c \
 			     weather-popup.h \

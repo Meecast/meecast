@@ -102,8 +102,8 @@
     g_hash_table_insert(hash, "PM Fog", _("PM Fog"));
     g_hash_table_insert(hash, "PM Light Rain / Wind", _("PM Light Rain / Wind"));
     g_hash_table_insert(hash, "PM Light Rain", _("PM Light Rain"));
-    g_hash_table_insert(hash, "PM Light Snow", _("PM Light Snow"));
     g_hash_table_insert(hash, "PM Light Snow / Wind", _("PM Light Snow / Wind"));
+    g_hash_table_insert(hash, "PM Light Snow", _("PM Light Snow"));
     g_hash_table_insert(hash, "PM Rain / Snow", _("PM Rain / Snow"));
     g_hash_table_insert(hash, "PM Rain / Wind", _("PM Rain / Wind"));
     g_hash_table_insert(hash, "PM Rain", _("PM Rain"));

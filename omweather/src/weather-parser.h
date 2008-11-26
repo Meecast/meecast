@@ -48,6 +48,10 @@ gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser,
 							WeatherStationData *wsd);
 void calculate_day_icon(gint cover, gint falls, gint drops, GSList **day,
 							gboolean store2day);
+/* wunderground.com */
+gint parse_wunderground_com_xml(const gchar *station_id,
+				weather_com_parser *parser,
+							WeatherStationData *wsd);
 /* underground.com */
 gint parse_underground_com_data(const gchar *station);
 void process_undeground_com_current_weather(const htmlNodePtr node);

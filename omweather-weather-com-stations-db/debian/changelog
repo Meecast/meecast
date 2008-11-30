@@ -1,11 +1,12 @@
 omweather-weather-com-stations-db (0.2) unstable; urgency=low
 
   * Added stations for Republic Of Serbia
+  * Added icon to deb package
 
  --  Vlad Vasiliev <vlad@gas.by>  Mon, 24 Nov 2008 13:53:20 +0200
 
 omweather-weather-com-stations-db (0.1) unstable; urgency=low
 
-  * Initial release. 
+  * Initial release.
 
  --  Vlad Vasiliev <vlad@gas.by>  Wed, 28 May 2008 13:53:20 +0200

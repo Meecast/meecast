@@ -439,6 +439,17 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 						add_item2object(&day, itm);
 						continue;
 					    }
+					    /* ppcp */
+            				    if(!xmlStrcmp(child_node3->name, (const xmlChar *)"ppcp") ){
+						temp_xml_string = xmlNodeGetContent(child_node3);
+						if(!store2day)
+						    itm = create_item("night_ppcp", (char*)temp_xml_string);
+						else
+						    itm = create_item("day_ppcp", (char*)temp_xml_string);
+						xmlFree(temp_xml_string);
+						add_item2object(&day, itm);
+						continue;
+					    }
 					    /* title */
 					    if(!xmlStrcmp(child_node3->name, (const xmlChar *)"t") ){
 						temp_xml_string = xmlNodeGetContent(child_node3);

@@ -51,7 +51,7 @@ void get_nearest_station(double lat, double lon, Station * result) {
 
     filename[0] = 0;
     snprintf(filename, sizeof(filename) - 1, "%s%s",
-             weather_sources[app->config->weather_source].db_path,
+             DATABASEPATH,
              REGIONSFILE);
     fh = fopen(filename, "rt");
     if (!fh) {
@@ -68,8 +68,7 @@ void get_nearest_station(double lat, double lon, Station * result) {
         if (lat >= region.minlat && lat <= region.maxlat
             && lon >= region.minlon && lon <= region.maxlon) {
             stations_list =
-                create_items_list(weather_sources
-                                  [app->config->weather_source].db_path,
+                create_items_list(DATABASEPATH,
                                   LOCATIONSFILE, region.start, region.end,
                                   NULL);
             valid =
@@ -79,8 +78,8 @@ void get_nearest_station(double lat, double lon, Station * result) {
             while (valid) {
                 gtk_tree_model_get(GTK_TREE_MODEL(stations_list),
                                    &iter,
-                                   0, &station_name,
-                                   1, &station_id0,
+                                   NAME_COLUMN, &station_name,
+                                   ID0_COLUMN, &station_id0,
                                    2, &station_latitude,
                                    3, &station_longtitude, -1);
                 /* Calculating distance */
@@ -201,7 +200,9 @@ void delete_all_gps_stations(void) {
     while (valid) {
         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                            &iter,
-                           0, &station_name, 1, &station_code, 2, &is_gps,
+                           NAME_COLUMN, &station_name,
+                           ID0_COLUMN, &station_code,
+                           2, &is_gps,
                            -1);
         if (is_gps) {
             if (app->config->current_station_id &&
@@ -235,8 +236,9 @@ void delete_all_gps_stations(void) {
         if (valid) {
             gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                                &iter,
-                               0, &station_name,
-                               1, &station_code, 2, &is_gps, -1);
+                               NAME_COLUMN, &station_name,
+                               ID0_COLUMN, &station_code,
+                               2, &is_gps, -1);
             app->config->current_station_id = g_strdup(station_code);
             app->config->current_station_name = g_strdup(station_name);
         }

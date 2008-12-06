@@ -54,7 +54,6 @@ GtkWidget *create_window_update(void) {
     return hildon_banner_show_animation(app->main_window,
                                         NULL, _("Update weather"));
 }
-
 /*******************************************************************************/
 #ifdef USE_DBUS
 static DBusHandlerResult
@@ -246,9 +245,7 @@ void weather_initialize_dbus(void) {
 #endif
         app->dbus_is_initialize = TRUE;
     }
-
 }
-
 /*******************************************************************************/
 /* Init easy curl */
 CURL *weather_curl_init(CURL * my_curl_handle) {
@@ -275,7 +272,6 @@ CURL *weather_curl_init(CURL * my_curl_handle) {
     }
     return my_curl_handle;
 }
-
 /*******************************************************************************/
 static int data_read(void *buffer, size_t size, size_t nmemb, void *stream) {
     int result;
@@ -289,11 +285,12 @@ static int data_read(void *buffer, size_t size, size_t nmemb, void *stream) {
         if (!out->stream)
             return -1;          /* failure, can't open file to write */
     }
+#ifndef RELEASE
     fprintf(stderr, "SIZE %i %i\n", size, nmemb);
+#endif
     result = fwrite(buffer, size, nmemb, out->stream);
     return result;
 }
-
 /*******************************************************************************/
 gboolean download_html(gpointer data) {
     CURLMsg *msg;
@@ -534,7 +531,6 @@ gboolean download_html(gpointer data) {
 #endif
     return FALSE;
 }
-
 /*******************************************************************************/
 void clean_download(void) {
 #ifdef DEBUGFUNCTIONCALL
@@ -550,7 +546,6 @@ void clean_download(void) {
         update_window = NULL;
     }
 }
-
 /*******************************************************************************/
 /* Create URL and filename for xml file. 
  * Returns TRUE if all right otherwise return FLASE.
@@ -578,7 +573,9 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
                                      (app->user_stations_list), &iter);
     if (valid) {
         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
-                           &iter, 1, &station_code, 3, &station_source,
+                           &iter,
+                           ID0_COLUMN, &station_code,
+                           3, &station_source,
                            -1);
         /* prepare url */
         memset(buffer, 0, sizeof(buffer));

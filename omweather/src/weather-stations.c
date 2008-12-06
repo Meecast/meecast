@@ -60,7 +60,8 @@ GtkListStore *create_items_list(const char *path, const char *filename,
         list = NULL;
     } else {
         if (!strcmp(filename, LOCATIONSFILE))
-            list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING,
+            list = gtk_list_store_new(5, G_TYPE_STRING, G_TYPE_STRING,
+					G_TYPE_STRING,
                                       G_TYPE_DOUBLE, G_TYPE_DOUBLE);
         else
             list =
@@ -83,10 +84,12 @@ GtkListStore *create_items_list(const char *path, const char *filename,
                 if (!parse_station_string(buffer, &station)) {
                     gtk_list_store_append(list, &iter);
                     gtk_list_store_set(list, &iter,
-                                       0, station.name,
-                                       1, station.id0,
-                                       2, station.latitude,
-                                       3, station.longtitude, -1);
+                                       NAME_COLUMN, station.name,
+                                       ID0_COLUMN, station.id0,
+                                       ID1_COLUMN, station.id1,
+                                       LATITUDE_COLUMN, station.latitude,
+                                       LONGTITUDE_COLUMN, station.longtitude,
+                                       -1);
                     count++;
                 }
             } else {
@@ -277,18 +280,29 @@ int parse_station_string(const char *string, Station * result) {
             delimiter = strchr(tmp, ';');
             if (!delimiter)
                 res = 1;
-            else {
-                *delimiter = 0;
-                result->latitude = atof(tmp);
-                tmp = delimiter + 1;
-                delimiter = strchr(tmp, ';');
-                if (!delimiter)
-                    res = 1;
-                else {
-                    *delimiter = 0;
-                    result->longtitude = atof(tmp);
-                }
-            }
+            else{
+		memset(result->id1, 0, sizeof(result->id1));
+		memcpy(result->id1, tmp,
+			((sizeof(result->id1) - 1 >
+			(int)(delimiter - tmp)) ? ((int)(delimiter - tmp))
+						: (sizeof(result->id1) - 1)));
+		tmp = delimiter + 1;
+		delimiter = strchr(tmp, ';');
+		if (!delimiter)
+		    res = 1;
+		else {
+            	    *delimiter = 0;
+            	    result->latitude = atof(tmp);
+            	    tmp = delimiter + 1;
+            	    delimiter = strchr(tmp, ';');
+            	    if (!delimiter)
+                	res = 1;
+            	    else {
+                	*delimiter = 0;
+                	result->longtitude = atof(tmp);
+            	    }
+        	}
+    	    }
         }
     }
     setlocale(LC_NUMERIC, "");

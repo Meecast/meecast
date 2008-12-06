@@ -38,14 +38,6 @@
 #define MOON_ICONS		"/usr/share/omweather/moon_icons/"
 #define COPYRIGHT_ICONS		"/usr/share/omweather/copyright_icons/"
 /*******************************************************************************/
-/*
-#ifdef HILDON
-    if(app->timer_for_os2008 != 0)
-    	 g_source_remove(app->timer_for_os2008);
-#endif
-
-*/
-/*******************************************************************************/
 void
 destroy_popup_window(void){
     GSList	*tmp = NULL;

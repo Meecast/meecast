@@ -70,6 +70,7 @@
 /*******************************************************************************/
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
 #define Max_count_weather_day	10
+#define DATABASEPATH		"/usr/share/omweather/db/"
 #define COUNTRIESFILE		"countries.list"
 #define REGIONSFILE		"regions.list"
 #define LOCATIONSFILE		"locations.list"
@@ -171,7 +172,6 @@ typedef struct{
 /*******************************************************************************/
 typedef struct weather_data_source{
     gchar	*name;
-    gchar	*db_path;
     gchar	*url;
     gchar	*hour_url;
     gchar	*encoding;
@@ -219,9 +219,13 @@ typedef	struct{
 typedef struct{
     char	name[50];
     char	id0[10];
+    char	id1[10];
     double	latitude;
     double	longtitude;
 }Station;
+/*******************************************************************************/
+enum{ NAME_COLUMN = 0, ID0_COLUMN, ID1_COLUMN, LATITUDE_COLUMN,
+	LONGTITUDE_COLUMN };
 /*******************************************************************************/
 typedef struct applet_config{
     gchar	*cache_dir_name;

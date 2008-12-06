@@ -109,8 +109,6 @@ gboolean timer_handler(gpointer data) {
                 fprintf(stderr, "UPDATE by event\n");
 #endif
 
-
-
 #ifdef OS2008
 
 /* This is code for debug GPS

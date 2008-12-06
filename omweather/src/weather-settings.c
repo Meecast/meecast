@@ -115,8 +115,7 @@ void changed_country_handler(GtkWidget * widget, gpointer user_data) {
             gtk_list_store_clear(app->regions_list);
         app->regions_list
             =
-            create_items_list(weather_sources
-                              [app->config->weather_source].db_path,
+            create_items_list(DATABASEPATH,
                               REGIONSFILE, regions_start, regions_end,
                               &regions_number);
 
@@ -173,8 +172,7 @@ void changed_state_handler(GtkWidget * widget, gpointer user_data) {
 
         app->stations_list
             =
-            create_items_list(weather_sources
-                              [app->config->weather_source].db_path,
+            create_items_list(DATABASEPATH,
                               LOCATIONSFILE, stations_start, stations_end,
                               NULL);
         gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(stations), 0);
@@ -187,23 +185,23 @@ void changed_state_handler(GtkWidget * widget, gpointer user_data) {
 /*******************************************************************************/
 void changed_stations_handler(GtkWidget * widget, gpointer user_data) {
     struct lists_struct *list = NULL;
-    GtkWidget *config = GTK_WIDGET(user_data),
-        *stations = NULL, *add_button = NULL;
+    GtkWidget		*config = GTK_WIDGET(user_data),
+			*stations = NULL,
+			*add_button = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     list =
         (struct lists_struct *)g_object_get_data(G_OBJECT(config), "list");
-    if (list)
+    if(list)
         stations = list->stations;
     else
         return;
     add_button = lookup_widget(config, "add_from_list");
-    if (add_button
+    if(add_button
         && gtk_combo_box_get_active_text(GTK_COMBO_BOX(stations)))
         gtk_widget_set_sensitive(add_button, TRUE);
 }
-
 /*******************************************************************************/
 void
 new_station_handler(GtkButton *button, gpointer user_data){
@@ -219,9 +217,12 @@ new_station_handler(GtkButton *button, gpointer user_data){
 		*add_station_button1 = NULL,
 		*add_station_button2 = NULL;
 
+    hildon_banner_show_information(GTK_WIDGET(user_data),
+				    NULL,
+				    _("Loading station list"));
 /* Read Coutries list from file */
     app->countrys_list
-	= create_items_list(weather_sources[app->config->weather_source].db_path,
+	= create_items_list(DATABASEPATH,
 			    COUNTRIESFILE, -1, -1, NULL);
     window =
         gtk_dialog_new_with_buttons(_("Add Station"), NULL,
@@ -530,7 +531,6 @@ void delete_station_handler(GtkButton * button, gpointer user_data) {
     END_FUNCTION;
 #endif
 }
-
 /*******************************************************************************/
 /* get icon set names */
 int create_icon_set_list(GSList ** store) {
@@ -694,7 +694,8 @@ transparency_button_toggled_handler(GtkToggleButton * togglebutton,
         gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
 }
 /*******************************************************************************/
-gboolean check_station_code(const gint source, const gchar * station_code) {
+gboolean
+check_station_code(const gint source, const gchar * station_code) {
     gint min_length = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -821,49 +822,49 @@ switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
     fprintf(stderr, "Notepad_page: %s !!!!!!!!!!!!\n", tab_name);
 #endif
     if (!strcmp(tab_name, _("Stations"))) {
-        if (tab = g_object_get_data(G_OBJECT(window), "locations_tab")) {
+        if ((tab = g_object_get_data(G_OBJECT(window), "locations_tab"))) {
             process_locations_tab(tab);
             g_object_set_data(G_OBJECT(window), "locations_tab", NULL);
             return FALSE;
         }
     }
     if (!strcmp(tab_name, _("Visuals"))) {
-        if (tab = g_object_get_data(G_OBJECT(window), "visual_tab")) {
+        if ((tab = g_object_get_data(G_OBJECT(window), "visual_tab"))) {
             process_visuals_tab(tab);
             g_object_set_data(G_OBJECT(window), "visual_tab", NULL);
             return FALSE;
         }
     }
     if (!strcmp(tab_name, _("Display"))) {
-        if (tab = g_object_get_data(G_OBJECT(window), "display_tab")) {
+        if ((tab = g_object_get_data(G_OBJECT(window), "display_tab"))) {
             process_display_tab(tab);
             g_object_set_data(G_OBJECT(window), "display_tab", NULL);
             return FALSE;
         }
     }
     if (!strcmp(tab_name, _("Units"))) {
-        if (tab = g_object_get_data(G_OBJECT(window), "units_tab")) {
+        if ((tab = g_object_get_data(G_OBJECT(window), "units_tab"))) {
             process_units_tab(tab);
             g_object_set_data(G_OBJECT(window), "units_tab", NULL);
             return FALSE;
         }
     }
     if (!strcmp(tab_name, _("Update"))) {
-        if (tab = g_object_get_data(G_OBJECT(window), "update_tab")) {
+        if ((tab = g_object_get_data(G_OBJECT(window), "update_tab"))) {
             process_update_tab(tab);
             g_object_set_data(G_OBJECT(window), "update_tab", NULL);
             return FALSE;
         }
     }
     if (!strcmp(tab_name, _("Sensor"))) {
-        if (tab = g_object_get_data(G_OBJECT(window), "sensor_tab")) {
+        if ((tab = g_object_get_data(G_OBJECT(window), "sensor_tab"))) {
             process_sensor_tab(tab);
             g_object_set_data(G_OBJECT(window), "sensor_tab", NULL);
             return FALSE;
         }
     }
     if (!strcmp(tab_name, _("Alerts"))) {
-        if (tab = g_object_get_data(G_OBJECT(window), "alerts_tab")) {
+        if ((tab = g_object_get_data(G_OBJECT(window), "alerts_tab"))) {
             process_alert_tab(tab);
             g_object_set_data(G_OBJECT(window), "alerts_tab", NULL);
             return FALSE;
@@ -894,9 +895,8 @@ weather_window_settings(GtkWidget *widget, GdkEvent *event, gpointer user_data){
 		*units_tab = NULL,
 		*update_tab = NULL,
 		*alerts_tab = NULL;
-#ifndef RELEASE
+/*    GdkPixbuf	*icon = NULL;*/
     gchar	tmp_buff[1024];
-#endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -905,6 +905,17 @@ weather_window_settings(GtkWidget *widget, GdkEvent *event, gpointer user_data){
         gtk_widget_destroy(app->popup_window);
 /* Main window */
     window_config = hildon_window_new();
+/* set window title and icon */
+    gtk_window_set_title(GTK_WINDOW(window_config),
+			    _("OMWeather Settings"));
+/*
+    tmp_buff[0] = 0;
+    snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s%s",
+		ICONS_PATH, "omweather.png");
+    icon = gdk_pixbuf_new_from_file_at_size(tmp_buff, 26, 26, NULL);
+    if(icon)
+	gtk_window_set_icon(GTK_WINDOW(window_config), icon);
+*/
     GLADE_HOOKUP_OBJECT_NO_REF(window_config, window_config,
                                "window_config");
     g_object_set_data(G_OBJECT(window_config), "day_number",
@@ -1502,8 +1513,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event,
         /* create new countries list */
         app->countrys_list
             =
-            create_items_list(weather_sources
-                              [app->config->weather_source].db_path,
+            create_items_list(DATABASEPATH,
                               COUNTRIESFILE, -1, -1, NULL);
         gtk_combo_box_set_model(GTK_COMBO_BOX(countries),
                                 (GtkTreeModel *) app->countrys_list);
@@ -1894,7 +1904,7 @@ add_button_handler(GtkWidget * button, GdkEventButton * event,
     if (!strcmp((char *)pressed_button, "add_name")) {
         station_name_entry = lookup_widget(config, "station_name_entry");
         if (!lookup_and_select_station
-            (weather_sources[app->config->weather_source].db_path,
+            (DATABASEPATH,
              (gchar *) gtk_entry_get_text((GtkEntry *)
                                           station_name_entry),
              &select_station)) {

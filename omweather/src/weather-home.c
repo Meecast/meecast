@@ -63,7 +63,6 @@ struct _OMWeatherPrivate {
 #endif
 const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
     {	"weather.com",
-	"/usr/share/omweather/db/weather_com/",
 	"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&link=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5",
 	"http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
 	"ISO-8859-1",
@@ -71,7 +70,6 @@ const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
 	parse_weather_com_xml_hour
     },
     {	"weather.com",
-	"/usr/share/omweather/db/weather_com/",
 	"http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10",
 	"http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
 	"ISO-8859-1",
@@ -79,7 +77,6 @@ const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
 	parse_weather_com_xml_hour
     },
     {	"rp5.ru",
-	"/usr/share/omweather/db/rp5_ru/",
 	"http://rp5.ru/xml.php?id=%s",
         "http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
 	"windows-1251",
@@ -115,8 +112,8 @@ gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
     while(valid){
 	gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
 			    &iter, 
-                    	    0, &station_name,
-                    	    1, &station_code,
+                    	    NAME_COLUMN, &station_name,
+                    	    ID0_COLUMN, &station_code,
                     	    3, &station_source,
                     	    -1);
 	if(ready){
@@ -190,8 +187,8 @@ gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
     while(valid){
 	gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
 			    &iter, 
-                    	    0, &station_name,
-                    	    1, &station_code,
+                    	    NAME_COLUMN, &station_name,
+                    	    ID0_COLUMN, &station_code,
                     	    3, &station_source,
                     	    -1);
 	if(ready){
@@ -255,8 +252,8 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
     while(valid){
         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                             &iter,
-                            0, &station_name,
-                            1, &station_code,
+                            NAME_COLUMN, &station_name,
+                            ID0_COLUMN, &station_code,
                             3, &station_source,
                             -1);
 	if( (station_code) &&
@@ -926,8 +923,8 @@ void menu_init(void){
     while(valid){
         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                             &iter,
-                            0, &station_name,
-                            1, &station_code,
+                            NAME_COLUMN, &station_name,
+                            ID0_COLUMN, &station_code,
                             -1);
 	if(station_name){
 	    gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu),

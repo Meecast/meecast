@@ -126,15 +126,13 @@ void fill_user_stations_list_from_clock(GtkListStore ** list) {
                 /* Add station to the user stations list */
                 gtk_list_store_append(*list, &iter);
                 gtk_list_store_set(*list, &iter,
-                                   0, station_name,
-                                   1, station_code,
-                                   3, app->config->weather_source, -1);
+                                   NAME_COLUMN, station_name,
+                                   ID0_COLUMN, station_code,
+                                   -1);
                 /* A current station */
                 if (!strncmp(buffer, home_city, tmp - buffer)) {
                     app->config->current_station_id = station_code;
                     app->config->current_station_name = station_name;
-                    app->config->current_station_source =
-                        app->config->weather_source;
                 }
             }
         }
@@ -148,13 +146,15 @@ void fill_user_stations_list_from_clock(GtkListStore ** list) {
 
 /*******************************************************************************/
 void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
-    GtkTreeIter iter;
-    gchar *temp1 = NULL,
-        *temp2 = NULL, *temp3 = NULL, *station_name = NULL, *station_code =
-        NULL;
-    guint station_source = 0;
+    GtkTreeIter	iter;
+    gchar	*temp1 = NULL,
+		*temp2 = NULL,
+		*temp3 = NULL,
+		*station_name = NULL,
+		*station_code = NULL;
+    guint	station_source = 0;
 #ifdef OS2008
-    gboolean is_gps = FALSE;
+    gboolean	is_gps = FALSE;
 #endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -191,12 +191,14 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
                 gtk_list_store_append(*list, &iter);
                 gtk_list_store_set(*list, &iter,
 #ifdef OS2008
-                                   0, station_name,
-                                   1, station_code,
-                                   2, is_gps, 3, station_source,
+                                   NAME_COLUMN, station_name,
+                                   ID0_COLUMN, station_code,
+                                   2, is_gps,
+                                   3, station_source,
 #else
-                                   0, station_name,
-                                   1, station_code, 3, station_source,
+                                   NAME_COLUMN, station_name,
+                                   ID0_COLUMN, station_code,
+                                   3, station_source,
 #endif
                                    -1);
             }
@@ -213,14 +215,15 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
         source_list = g_slist_next(source_list);
     }
 }
-
 /*******************************************************************************/
 GSList *create_stations_string_list(void) {
-    GSList *stlist = NULL;
-    GtkTreeIter iter;
-    gboolean valid;
-    gchar *station_name = NULL, *station_code = NULL, *str = NULL;
-    guint station_source = 0;
+    GSList	*stlist = NULL;
+    GtkTreeIter	iter;
+    gboolean	valid;
+    gchar	*station_name = NULL,
+		*station_code = NULL,
+		*str = NULL;
+    guint	station_source = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -230,8 +233,9 @@ GSList *create_stations_string_list(void) {
     while (valid) {
         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                            &iter,
-                           0, &station_name,
-                           1, &station_code, 3, &station_source, -1);
+                           NAME_COLUMN, &station_name,
+                           ID0_COLUMN, &station_code,
+                           3, &station_source, -1);
         str = g_strdup_printf("%s@%s@%d", station_code, station_name,
                               station_source);
         stlist = g_slist_append(stlist, str);
@@ -270,12 +274,10 @@ GtkListStore *create_time_update_list(void) {
     gtk_list_store_append(list, &iter);
     gtk_list_store_set(list, &iter, 0, _("every 24 hours"), 1, 1440, -1);
     gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, _("every minute (Debug)"), 1, 1,
-                       -1);
+    gtk_list_store_set(list, &iter, 0, _("every minute (Debug)"), 1, 1, -1);
 
     return list;
 }
-
 /*******************************************************************************/
 gint read_config(AppletConfig * config) {
     GConfValue *value = NULL;

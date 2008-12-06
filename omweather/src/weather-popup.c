@@ -724,12 +724,12 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 			day_text_vbox = gtk_vbox_new(FALSE, 0),
 			TRUE, TRUE, 0);
     memset(buffer, 0, sizeof(buffer));
-    strcat(buffer, _("Precipitation: "));
-    snprintf(buffer + strlen(buffer), sizeof(buffer) - 1, "%s%%\n",
-		(char*)hash_table_find(item_value(day, "day_ppcp"), FALSE));
     if(!strcmp((char*)item_value(day, "day_title"), "N/A"))
 	day_invalid_count++;
     strcat(buffer, (char*)hash_table_find(item_value(day, "day_title"), FALSE));
+    strcat(buffer, _("\nPrecipitation: "));
+    snprintf(buffer + strlen(buffer), sizeof(buffer) - 1, "%s%%",
+		(char*)hash_table_find(item_value(day, "day_ppcp"), FALSE));
     strcat(buffer, _("\nHumidity: "));
     if(strcmp(item_value(day, "day_humidity"), "N/A"))
 	sprintf(buffer + strlen(buffer), "%s%%\n",
@@ -798,12 +798,12 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 			night_text_vbox = gtk_vbox_new(FALSE, 0),
 			TRUE, TRUE, 0);
     memset(buffer, 0, sizeof(buffer));
-    strcat(buffer, _("Precipitation: "));
-    snprintf(buffer + strlen(buffer), sizeof(buffer) - 1, "%s%%\n",
-		(char*)hash_table_find(item_value(day, "night_ppcp"), FALSE));
     if(!strcmp((char*)item_value(day, "night_title"), "N/A"))
         night_invalid_count++;
     strcat(buffer, (char*)hash_table_find(item_value(day, "night_title"), FALSE));
+    strcat(buffer, _("\nPrecipitation: "));
+    snprintf(buffer + strlen(buffer), sizeof(buffer) - 1, "%s%%",
+		(char*)hash_table_find(item_value(day, "night_ppcp"), FALSE));
     strcat(buffer, _("\nHumidity: "));
     if(strcmp(item_value(day, "night_humidity"), "N/A"))
 	sprintf(buffer + strlen(buffer), "%s%%\n",

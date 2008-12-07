@@ -211,7 +211,8 @@ changed_stations_handler(GtkWidget *widget, gpointer user_data){
     GtkTreeIter		iter,
 			store_iter;
     gchar		*station_ids[MAX_WEATHER_SOURCE_NUMBER];
-    guint		i;
+    guint		i,
+			added_items = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -227,6 +228,8 @@ changed_stations_handler(GtkWidget *widget, gpointer user_data){
     }
     else
         return;
+/* activate sources list */
+    gtk_widget_set_sensitive(GTK_WIDGET(sources), TRUE);
 /* clear sources list */
     if(app->sources_list)
         gtk_list_store_clear(app->sources_list);
@@ -240,10 +243,16 @@ changed_stations_handler(GtkWidget *widget, gpointer user_data){
 		gtk_list_store_set(app->sources_list, &store_iter,
 				    0, weather_sources[i].name, -1);
 		g_free(station_ids[i]);
+		added_items++;
 	    }
 	}
 	gtk_combo_box_set_model(GTK_COMBO_BOX(sources),
 				    (GtkTreeModel*) app->sources_list);
+	/* check number of added items */
+	if(added_items == 1){
+	    gtk_combo_box_set_active(GTK_COMBO_BOX(sources), 0);
+	    gtk_widget_set_sensitive(GTK_WIDGET(sources), FALSE);
+	}
     }
 }
 /*******************************************************************************/

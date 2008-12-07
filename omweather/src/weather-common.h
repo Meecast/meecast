@@ -89,7 +89,7 @@ enum { CELSIUS, FAHRENHEIT };
 enum { INVALID_VALUE = 0, TINY, SMALL, MEDIUM, LARGE, GIANT };
 enum { ICON, STATION_NAME };
 enum { MB, INCH, MM };
-enum { WEATHER_COM1, WEATHER_COM2, RP5_RU, MAX_WEATHER_SOURCE_NUMBER };
+enum { WEATHER_COM, RP5_RU, MAX_WEATHER_SOURCE_NUMBER };
 enum { TINY_ICON_SIZE = 32, SMALL_ICON_SIZE = 48, MEDIUM_ICON_SIZE = 64,
 	BIG_ICON_SIZE = 80, LARGE_ICON_SIZE = 96, GIANT_ICON_SIZE = 128,
 	SUPER_GIANT_ICON_SIZE = 256
@@ -313,6 +313,7 @@ typedef struct OMWeatherApplet{
     GtkListStore	*countrys_list;
     GtkListStore	*regions_list;
     GtkListStore	*stations_list;
+    GtkListStore	*sources_list;
     GtkListStore	*user_stations_list;
     GtkListStore	*time_update_list;
     GtkListStore	*user_alerts_list;

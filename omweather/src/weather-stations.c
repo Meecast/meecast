@@ -291,12 +291,12 @@ int parse_station_string(const char *string, Station * result) {
 		if (!delimiter)
 		    res = 1;
 		else {
-            	    *delimiter = 0;
-            	    result->latitude = atof(tmp);
-            	    tmp = delimiter + 1;
-            	    delimiter = strchr(tmp, ';');
-            	    if (!delimiter)
-                	res = 1;
+		    *delimiter = 0;
+		    result->latitude = atof(tmp);
+		    tmp = delimiter + 1;
+		    delimiter = strchr(tmp, ';');
+		    if (!delimiter)
+			res = 1;
             	    else {
                 	*delimiter = 0;
                 	result->longtitude = atof(tmp);
@@ -308,5 +308,4 @@ int parse_station_string(const char *string, Station * result) {
     setlocale(LC_NUMERIC, "");
     return res;
 }
-
 /*******************************************************************************/

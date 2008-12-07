@@ -41,6 +41,7 @@ struct lists_struct{
     GtkWidget	*countries;
     GtkWidget	*states;
     GtkWidget	*stations;
+    GtkWidget	*sources;
 };
 /*******************************************************************************/
 extern gboolean		not_event;
@@ -61,7 +62,7 @@ gboolean process_alert_tab(GtkWidget *vbox);
 void changed_country_handler(GtkWidget *widget, gpointer user_data);
 void changed_state_handler(GtkWidget *widget, gpointer user_data);
 void changed_stations_handler(GtkWidget *widget, gpointer user_data);
-void changed_weather_source_handler(GtkWidget *widget, gpointer user_data);
+void changed_sources_handler(GtkWidget *widget, gpointer user_data);
 void weather_window_add_custom_station(void);
 int create_icon_set_list(GSList **store); /* scan /usr/share/omweather/icons */
 					     /* and add names to the list */

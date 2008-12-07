@@ -950,7 +950,6 @@ msgid "OK"
 msgstr "ОК"
 
 #: src/weather-settings.c:910
-#, fuzzy
 msgid "OMWeather Settings"
 msgstr "Настройки OMWeather"
 

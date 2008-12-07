@@ -62,6 +62,7 @@ struct _OMWeatherPrivate {
 };
 #endif
 const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
+/*
     {	"weather.com",
 	"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&link=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5",
 	"http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
@@ -69,6 +70,7 @@ const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
 	parse_weather_com_xml,
 	parse_weather_com_xml_hour
     },
+*/
     {	"weather.com",
 	"http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10",
 	"http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",

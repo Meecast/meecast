@@ -407,11 +407,10 @@ new_station_handler(GtkButton *button, gpointer user_data){
     gtk_widget_set_name(add_station_button2, "add_from_list");
     GLADE_HOOKUP_OBJECT(window, add_station_button2, "add_from_list");
     gtk_widget_set_sensitive(add_station_button2, FALSE);
-/*
     g_signal_connect(G_OBJECT(add_station_button2),
                      "button_press_event",
                      G_CALLBACK(add_button_handler), (gpointer) window);
-*/
+
     gtk_table_attach_defaults(GTK_TABLE(right_table),
                               add_station_button2, 2, 3, 9, 10);
     /* Set size */
@@ -489,8 +488,7 @@ void delete_station_handler(GtkButton * button, gpointer user_data) {
                                     GTK_DIALOG_DESTROY_WITH_PARENT,
                                     GTK_MESSAGE_QUESTION,
                                     GTK_BUTTONS_NONE,
-                                    _
-                                    ("Are you sure to want delete this station ?"));
+                                    _("Are you sure to want delete this station ?"));
     gtk_dialog_add_button(GTK_DIALOG(dialog), _("Yes"), GTK_RESPONSE_YES);
     gtk_dialog_add_button(GTK_DIALOG(dialog), _("No"), GTK_RESPONSE_NO);
     result = gtk_dialog_run(GTK_DIALOG(dialog));
@@ -1971,34 +1969,35 @@ lookup_and_select_station(gchar * db_path, gchar * station_name,
 
 /*******************************************************************************/
 void
-add_button_handler(GtkWidget * button, GdkEventButton * event,
-                   gpointer user_data) {
-    GtkWidget *config = GTK_WIDGET(user_data),
-        *station_name_entry = NULL,
-        *station_code_entry = NULL, *stations = NULL, *stations_list_view =
-        NULL;
-    gchar *pressed_button = NULL;
-    GtkTreeModel *model = NULL;
-    GtkTreeIter iter;
-    gchar *station_name = NULL, *station_code = NULL;
-    gboolean station_code_invalid = TRUE;
-    Station select_station;
+add_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data){
+    GtkWidget		*config = GTK_WIDGET(user_data),
+			*station_name_entry = NULL,
+			*station_code_entry = NULL,
+			*stations = NULL,
+			*sources = NULL,
+			*stations_list_view = NULL;
+    gchar		*pressed_button = NULL;
+    GtkTreeModel	*model = NULL;
+    GtkTreeIter		iter;
+    gchar		*station_name = NULL,
+			*station_code = NULL;
+    gboolean		station_code_invalid = TRUE;
+    Station		select_station;
+    guint		source_number = -1;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     /* get pressed button name */
-    pressed_button = (gchar *) gtk_widget_get_name(GTK_WIDGET(button));
+    pressed_button = (gchar*) gtk_widget_get_name(GTK_WIDGET(button));
 
-    if (!pressed_button)
+    if(!pressed_button)
         return;
 
-    if (!strcmp((char *)pressed_button, "add_name")) {
+    if(!strcmp((gchar*)pressed_button, "add_name")){
         station_name_entry = lookup_widget(config, "station_name_entry");
-        if (!lookup_and_select_station
-            (DATABASEPATH,
-             (gchar *) gtk_entry_get_text((GtkEntry *)
-                                          station_name_entry),
-             &select_station)) {
+        if(!lookup_and_select_station(DATABASEPATH,
+        			(gchar *) gtk_entry_get_text((GtkEntry*) station_name_entry),
+								 &select_station)) {
             add_station_to_user_list(g_strdup(select_station.name),
                                      g_strdup(select_station.id0),
                                      FALSE, app->config->weather_source);
@@ -2041,18 +2040,20 @@ add_button_handler(GtkWidget * button, GdkEventButton * event,
             } else {
                 /* Need Error window */
             }
-        } else {
+        }
+	else{ /* added from list */
             stations = lookup_widget(config, "stations");
-            if (stations) {
-                if (gtk_combo_box_get_active_iter
-                    (GTK_COMBO_BOX(stations), &iter)) {
-                    model =
-                        gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
-                    gtk_tree_model_get(model, &iter, 0, &station_name, 1,
-                                       &station_code, -1);
+            sources = lookup_widget(config, "sources");
+            if(stations && sources){
+                if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(stations), &iter)){
+                    model = gtk_combo_box_get_model(GTK_COMBO_BOX(stations));
+                    source_number = gtk_combo_box_get_active(GTK_COMBO_BOX(sources));
+                    gtk_tree_model_get(model, &iter,
+					0, &station_name,
+					source_number + 1, &station_code,
+					-1);
                     add_station_to_user_list(station_name, station_code,
-                                             FALSE,
-                                             app->config->weather_source);
+                                             FALSE, source_number);
                     g_free(station_name);
                     g_free(station_code);
                     config_save(app->config);

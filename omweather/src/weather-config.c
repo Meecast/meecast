@@ -348,9 +348,9 @@ gint read_config(AppletConfig * config) {
     config->weather_source = gconf_client_get_int(gconf_client,
                                                   GCONF_KEY_WEATHER_DATA_SOURCE,
                                                   NULL);
-    if (config->weather_source < WEATHER_COM1 &&
+    if (config->weather_source < WEATHER_COM &&
         config->weather_source > RP5_RU)
-        config->weather_source = WEATHER_COM2;
+        config->weather_source = WEATHER_COM;
     /* Get GPS station name and id */
 #ifdef OS2008
     app->gps_station.name[0] = 0;

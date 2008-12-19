@@ -21,7 +21,8 @@ Bludenz=AUXX0073==47.16=9.82
 Braunau=AUXX0080==48.26=13.04
 Bregenz=AUXX0032=7195=47.51=9.73
 Brenner==7233==
-Bruck An Der Mur=AUXX0042=7387=47.42=15.27
+Bruck / Mur==7387==
+Bruck An Der Mur=AUXX0042==47.42=15.27
 Bruck an der Leitha=AUXX0091==48.02=16.78
 Dellach Im Drautal==7477==
 Deutschlandsberg=AUXX0112==46.82=15.21
@@ -40,7 +41,6 @@ Freistadt=AUXX0079=7108=48.52=14.50
 Freistadt-Flugfeld==7110==
 Friesach=AUXX0043==46.95=14.40
 Furstenfeld=AUXX0110==47.05=16.08
-Galzig==7214==
 Ganserndorf=AUXX0088==48.34=16.72
 Gerlos==7239==
 Gleisdorf=AUXX0006==47.11=15.71
@@ -189,6 +189,7 @@ Spielberg=AUXX0061==48.50=15.87
 Spittal / Drau-Kleinsass==7425==
 Spittal an der Drau=AUXX0119==46.80=13.50
 St Sebastian / Mariazell==7370==
+St. Anton / Galzig==7214==
 St. Cristoph=AUXX0069==47.13=10.22
 St. Johann=AUXX0045==47.52=12.45
 St. Veit=AUXX0116==47.93=16.15

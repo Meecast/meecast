@@ -53,6 +53,14 @@ AC_DEFINE_UNQUOTED([LOCALEDIR], "${localedir}", [Path to store localization file
 ALL_LINGUAS="ru_RU fr_FR fi_FI en_GB en_US it_IT de_DE es_ES es_MX"
 AM_GLIB_GNU_GETTEXT
 
+dnl Path for .desktop files
+DESKTOPDIR=`pkg-config osso-af-settings --variable=homedesktopentrydir`
+AC_SUBST(DESKTOPDIR)
+
+dnl Path for .so .a .la files
+DESKTOPLIBDIR=`pkg-config osso-af-settings --variable=hildondesktoplibdir`
+AC_SUBST(DESKTOPLIBDIR)
+
 PKG_CHECK_MODULES(GTK, [gtk+-2.0])
 AC_SUBST(GTK_LIBS)
 AC_SUBST(GTK_CFLAGS)

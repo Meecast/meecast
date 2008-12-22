@@ -21,7 +21,7 @@
 
 # The Home plugin
 if OS2008 
-libhhdir = $(libdir)/hildon-desktop
+libhhdir = $(DESKTOPLIBDIR)
 else
 libhhdir = $(libdir)/hildon-home
 endif

@@ -88,9 +88,13 @@ libweather_home_la_CFLAGS = $(GTK_CFLAGS) $(OSSO_CFLAGS) $(LIBXML2_CFLAGS) $(GNO
 
 libweather_home_la_LDFLAGS =  -module -avoid-version 
 
+#libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCONF_LIBS) $(DBUS_LIBS) \
+#			    $(LIBCURL_LIBS) $(CONIC_LIBS) $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS) $(OSSOIC_LIBS) \
+#			    $(LOCATION_LIBS) $(LIBOSSOHELP_LIBS)
+
 libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCONF_LIBS) $(DBUS_LIBS) \
-			    $(LIBCURL_LIBS) $(CONIC_LIBS) $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS)  $(OSSOIC_LIBS) \
-			    $(LOCATION_LIBS) $(LIBOSSOHELP_LIBS)
+			    $(LIBCURL_LIBS) $(CONIC_LIBS) $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS) $(OSSOIC_LIBS) \
+			    $(LIBOSSOHELP_LIBS)
 
 clean-local:
 	$(RM) *.core core core.* stamp-*.h *~

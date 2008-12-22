@@ -748,10 +748,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->show_update_window = FALSE;
     app->popup_window = NULL;
     app->tab_of_window_popup = NULL;
-/* Read Coutries list from file */
-//    app->countrys_list
-//	= create_items_list(weather_sources[app->config->weather_source].db_path,
-//			    COUNTRIESFILE, -1, -1, NULL);
 /* Start timer */
     timer(60000);  /* One per minute */
 /* Start main applet */ 
@@ -761,8 +757,10 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #endif
 #ifdef OS2008
     applet->queueRefresh = TRUE;
+#ifdef ENABLE_GPS
     app->gps_device = NULL;
     initial_gps_connect();
+#endif
     app->widget_first_start = TRUE;		     
 
     gtk_widget_set_name(GTK_WIDGET(app->top_widget), PACKAGE_NAME);
@@ -843,7 +841,9 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     /* remove sensor time */
     if(app->sensor_timer > 0)
 	g_source_remove(app->sensor_timer);
+#ifdef ENABLE_GPS
 	deinitial_gps_connect();
+#endif
     	g_signal_handler_disconnect(app->parent,app->signal_size_request);
 	g_signal_handler_disconnect(app->parent_parent,app->signal_press);  
 	g_signal_handler_disconnect(app->parent_parent,app->signal_release);   
@@ -1827,19 +1827,18 @@ settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent){
 /*******************************************************************************/
 static void
 omweather_class_init(OMWeatherClass *klass){
-	HildonDesktopHomeItemClass *applet_class;
-	GtkWidgetClass *widget_class;
-	GtkObjectClass *gtk_object_class;
+    HildonDesktopHomeItemClass	*applet_class;
+    GtkWidgetClass		*widget_class;
+    GtkObjectClass		*gtk_object_class;
 
-	g_type_class_add_private(klass, sizeof(OMWeatherPrivate));
-	applet_class = HILDON_DESKTOP_HOME_ITEM_CLASS(klass);
-	widget_class = GTK_WIDGET_CLASS(klass);
+    g_type_class_add_private(klass, sizeof(OMWeatherPrivate));
+    applet_class = HILDON_DESKTOP_HOME_ITEM_CLASS(klass);
+    widget_class = GTK_WIDGET_CLASS(klass);
 
-
-	gtk_object_class = GTK_OBJECT_CLASS(klass);
-	applet_class->settings = settings_menu;
-	gtk_object_class->destroy = omweather_destroy;
-	widget_class->expose_event = expose_parent;
+    gtk_object_class = GTK_OBJECT_CLASS(klass);
+    applet_class->settings = settings_menu;
+    gtk_object_class->destroy = omweather_destroy;
+    widget_class->expose_event = expose_parent;
 }
 /*******************************************************************************/
 #endif

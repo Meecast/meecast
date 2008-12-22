@@ -133,6 +133,12 @@ fi
 AC_SUBST(OSSOIC_LIBS)
 AC_SUBST(OSSOIC_CFLAGS)
 
+dnl GPS
+AC_ARG_ENABLE(gps, [ --enable-gps=[yes|no] ], [use_gps=$enableval ])
+if test "$use_gps" == "yes"; then
+    AC_DEFINE(ENABLE_GPS, 1, [Enable GPS])
+fi
+
 AC_ARG_ENABLE(conic, [ --enable-conic=[yes|no] ], [use_conic=$enableval ])
 if test "$use_conic" != "no"; then
 PKG_CHECK_MODULES(CONIC, [conic],
@@ -151,7 +157,7 @@ AC_SUBST(CONIC_LIBS)
 fi
 fi
 
-if test "$hildon" == "yes"; then
+if test "$hildon" == "yes" && test "$use_gps" == "yes"; then
   PKG_CHECK_MODULES(LOCATION, [liblocation])
   AC_SUBST(LOCATION_CFLAGS)
   AC_SUBST(LOCATION_LIBS)

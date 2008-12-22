@@ -33,6 +33,7 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
+#ifdef ENABLE_GPS
 #ifdef OS2008
 
 #define PI   (3.14159265358979323846)
@@ -62,4 +63,5 @@ calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2,
 }
 
 /*******************************************************************************/
+#endif
 #endif

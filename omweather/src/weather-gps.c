@@ -32,6 +32,7 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
+#ifdef ENABLE_GPS
 #ifdef OS2008
 
 void get_nearest_station(double lat, double lon, Station * result) {
@@ -246,4 +247,5 @@ void delete_all_gps_stations(void) {
 }
 
 /*******************************************************************************/
+#endif
 #endif

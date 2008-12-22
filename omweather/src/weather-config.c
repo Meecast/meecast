@@ -153,8 +153,10 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
 		*station_name = NULL,
 		*station_code = NULL;
     guint	station_source = 0;
+#ifdef ENABLE_GPS
 #ifdef OS2008
     gboolean	is_gps = FALSE;
+#endif
 #endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -176,8 +178,8 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
             temp3 = strtok(NULL, "@");
             if (temp3)
                 station_source = (guint) atoi(temp3);
-
 #ifdef OS2008
+#ifdef ENABLE_GPS
             if (app->gps_station.id0 && app->gps_station.name &&
                 station_code && station_name &&
                 !strcmp(app->gps_station.id0, station_code) &&
@@ -186,11 +188,12 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
             else
                 is_gps = FALSE;
 #endif
+#endif
             if (station_name && station_code) {
                 /* Add station to stations list */
                 gtk_list_store_append(*list, &iter);
                 gtk_list_store_set(*list, &iter,
-#ifdef OS2008
+#if defined(OS2008) && defined(ENABLE_GPS)
                                    NAME_COLUMN, station_name,
                                    ID0_COLUMN, station_code,
                                    2, is_gps,
@@ -353,6 +356,7 @@ gint read_config(AppletConfig * config) {
         config->weather_source = WEATHER_COM;
     /* Get GPS station name and id */
 #ifdef OS2008
+#ifdef ENABLE_GPS
     app->gps_station.name[0] = 0;
     tmp = NULL;
     tmp = gconf_client_get_string(gconf_client,
@@ -372,6 +376,7 @@ gint read_config(AppletConfig * config) {
         g_free(tmp);
         tmp = NULL;
     }
+#endif
 #endif
     /* Get user Weather Stations list */
     stlist = gconf_client_get_list(gconf_client,
@@ -860,10 +865,12 @@ void config_save(AppletConfig * config) {
                           GCONF_KEY_DOWNLOADING_AFTER_CONNECTING,
                           config->downloading_after_connecting, NULL);
 #ifdef OS2008
+#ifdef ENABLE_GPS
     /* Save Use GPS station */
     gconf_client_set_bool(gconf_client,
                           GCONF_KEY_USE_GPS_STATION,
                           config->gps_station, NULL);
+#endif
     /* Save Alpha component */
     gconf_client_set_int(gconf_client,
                          GCONF_KEY_ALPHA_COMPONENT, config->alpha_comp,
@@ -937,6 +944,7 @@ void config_save(AppletConfig * config) {
     g_slist_foreach(stlist, (GFunc) g_free, NULL);
     g_slist_free(stlist);
 #ifdef OS2008
+#ifdef ENABLE_GPS
     /* Save current GPS station */
     if (config->gps_station) {
         if (app->gps_station.name)
@@ -948,6 +956,7 @@ void config_save(AppletConfig * config) {
                                     GCONF_KEY_GPS_STATION_ID,
                                     app->gps_station.id0, NULL);
     }
+#endif
 #endif
     g_object_unref(gconf_client);
 }

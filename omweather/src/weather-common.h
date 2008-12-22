@@ -55,7 +55,9 @@
     #include <X11/extensions/Xcomposite.h>
     #include <X11/extensions/Xdamage.h>
     #include <X11/extensions/Xrender.h>
+#ifdef ENABLE_GPS
     #include <location/location-gps-device.h>
+#endif
 #else
     #include <hildon-widgets/hildon-banner.h>
 #endif
@@ -341,12 +343,14 @@ typedef struct OMWeatherApplet{
     gint		aw;
     gint		ah;
     GSList		*tab_of_window_popup;
+#ifdef ENABLE_GPS
 #ifdef OS2008
     guint		gps_id_connection;
     LocationGPSDevice 	*gps_device;
     Station		gps_station;
     gdouble		temporary_station_latitude;
     gdouble		temporary_station_longtitude;
+#endif
 #endif
 #if defined(OS2008) || defined(DEBUGTEMP)
     gfloat		sensor_data;

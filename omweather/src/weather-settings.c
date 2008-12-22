@@ -61,13 +61,14 @@ add_station_to_user_list(gchar * weather_station_name,
     /* Add station to stations list */
     gtk_list_store_append(app->user_stations_list, &iter);
     gtk_list_store_set(app->user_stations_list, &iter,
-#ifdef OS2008
+#if defined(OS2008) && defined(ENABLE_GPS)
                        0, weather_station_name,
                        1, weather_station_id, 2, is_gps,
 #else
                        0, weather_station_name, 1, weather_station_id,
 #endif
                        3, source, -1);
+#ifdef ENABLE_GPS
     /* Set it station how current (for GPS stations) */
     if (is_gps && app->gps_must_be_current) {
         if (app->config->current_station_id != NULL)
@@ -77,6 +78,7 @@ add_station_to_user_list(gchar * weather_station_name,
             g_free(app->config->current_station_name);
         app->config->current_station_name = g_strdup(weather_station_name);
     }
+#endif
 }
 
 /*******************************************************************************/
@@ -483,7 +485,9 @@ void delete_station_handler(GtkButton * button, gpointer user_data) {
     GtkTreePath *path;
     guint station_source = -1;
 #ifdef OS2008
+#ifdef ENABLE_GPS
     gboolean is_gps = FALSE;
+#endif
 #endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -519,7 +523,7 @@ void delete_station_handler(GtkButton * button, gpointer user_data) {
                                       (app->user_stations_list), &iter);
     while (valid) {
         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list), &iter,
-#ifdef OS2008
+#if defined(OS2008) && defined(ENABLE_GPS)
                            0, &station_name, 1, &station_code, 2, &is_gps,
 #else
                            0, &station_name, 1, &station_code,
@@ -529,7 +533,7 @@ void delete_station_handler(GtkButton * button, gpointer user_data) {
             path =
                 gtk_tree_model_get_path(GTK_TREE_MODEL
                                         (app->user_stations_list), &iter);
-#ifdef OS2008
+#if defined(OS2008) && defined(ENABLE_GPS)
             if (is_gps) {
                 /* Reset gps station */
                 app->gps_station.id0[0] = 0;
@@ -1210,7 +1214,9 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event,
         *visible_items_number = NULL,
         *icon_size = NULL, *separate = NULL, *font = NULL,
 #ifdef OS2008
+#ifdef ENABLE_GPS
         *enable_gps = NULL,
+#endif
 #endif
         *swap_temperature = NULL,
         *show_wind = NULL,
@@ -1398,6 +1404,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event,
             app->config->temperature_units = FAHRENHEIT;
     }
 #ifdef OS2008
+#ifdef ENABLE_GPS
 /* enable gps */
     enable_gps = lookup_widget(config_window, "enable_gps");
     if (enable_gps) {
@@ -1412,6 +1419,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event,
             app->gps_station.longtitude = 0;
         }
     }
+#endif
 #endif
 /* download after connection */
     download_after_connection = lookup_widget(config_window,
@@ -2306,6 +2314,7 @@ check_buttons_changed_handler(GtkToggleButton * button,
         goto check;
     }
 #ifdef OS2008
+#ifdef ENABLE_GPS
     if (!strcmp(button_name, "enable_gps")) {
         if (gtk_toggle_button_get_active(button))
             app->stations_tab_current_state |= STATE_ENABLE_GPS;
@@ -2313,6 +2322,7 @@ check_buttons_changed_handler(GtkToggleButton * button,
             app->stations_tab_current_state &= ~STATE_ENABLE_GPS;
         goto check;
     }
+#endif
 #endif
     if (!strcmp(button_name, "separate")) {
         if (gtk_toggle_button_get_active(button))
@@ -2652,9 +2662,10 @@ gboolean process_alert_tab(GtkWidget * vbox) {
 GtkWidget *create_locations_tab(GtkWidget * window) {
     GtkWidget	*left_table = NULL,
 #ifdef OS2008
+#ifdef ENABLE_GPS
 		*chk_gps = NULL,
 #endif
-		
+#endif		
 		*left_right_hbox = NULL,
 		*scrolled_window = NULL,
 		*apply_rename_button = NULL,
@@ -2764,6 +2775,7 @@ GtkWidget *create_locations_tab(GtkWidget * window) {
     gtk_box_pack_start(GTK_BOX(new_delete_buttons_vbox),
                        delete_station_button, TRUE, TRUE, 0);
 #ifdef OS2008
+#ifdef ENABLE_GPS
 /* GPS */
     gtk_table_attach_defaults(GTK_TABLE(left_table),
                               chk_gps =
@@ -2781,6 +2793,7 @@ GtkWidget *create_locations_tab(GtkWidget * window) {
         app->stations_tab_start_state |= STATE_ENABLE_GPS;
     else
         app->stations_tab_start_state &= ~STATE_ENABLE_GPS;
+#endif
 #endif
     g_signal_connect(station_list_view, "cursor-changed",
                      G_CALLBACK(station_list_view_select_handler),

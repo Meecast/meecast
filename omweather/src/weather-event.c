@@ -97,6 +97,7 @@ gboolean timer_handler(gpointer data) {
 #endif
                 update_weather(TRUE);
                 break;
+#ifdef ENABLE_GPS
             case CHECK_GPS_POSITION:
                 /* delete periodic update */
 #ifndef RELEASE
@@ -175,7 +176,7 @@ gboolean timer_handler(gpointer data) {
                     add_gps_event(5);
 #endif
                 break;
-
+#endif
             default:
             case AUTOUPDATE:
                 /* delete periodic update */

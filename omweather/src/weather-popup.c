@@ -234,79 +234,81 @@ create_time_updates_widget(GSList *current){
 }
 /*******************************************************************************/
 gboolean 
-make_current_tab(GtkWidget *vbox)
-{
-    if (app->popup_window){
-	GtkWidget *child = create_current_tab(app->wsd.current);
-	if (app->popup_window){
+make_current_tab(GtkWidget *vbox){
+    GtkWidget	*child;
+    if(app->popup_window){
+	child = create_current_tab(app->wsd.current);
+	if(app->popup_window){
 	    gtk_container_add(GTK_CONTAINER(vbox),child);	
 	    gtk_widget_show_all(vbox);
-	}else
-	     gtk_widget_destroy(GTK_WIDGET(child));
-    }	
-	return FALSE;
+	}
+	else
+	    gtk_widget_destroy(GTK_WIDGET(child));
+    }
+    return FALSE;
 }
 /*******************************************************************************/
 gboolean 
-make_tab(GtkWidget *vbox)
-{
-        GSList	*day = NULL;
-        gchar	*day_name = NULL;
-	GtkWidget *child;
-	if (app->popup_window){
-	    day = (GSList*)g_object_get_data(G_OBJECT(vbox), "day");
-	    child = create_day_tab(app->wsd.current, day, &day_name);
-	    if (app->popup_window){
-		gtk_container_add(GTK_CONTAINER(vbox),child);
-		gtk_widget_show_all(vbox);
-	    }else
-	        gtk_widget_destroy(GTK_WIDGET(child));
-	}    
-	return FALSE;
+make_tab(GtkWidget *vbox){
+    GSList	*day = NULL;
+    gchar	*day_name = NULL;
+    GtkWidget	*child;
+
+    if(app->popup_window){
+	day = (GSList*)g_object_get_data(G_OBJECT(vbox), "day");
+	child = create_day_tab(app->wsd.current, day, &day_name);
+	if(app->popup_window){
+	    gtk_container_add(GTK_CONTAINER(vbox),child);
+	    gtk_widget_show_all(vbox);
+	}
+	else
+	    gtk_widget_destroy(GTK_WIDGET(child));
+    }
+    return FALSE;
 }
 
 /*******************************************************************************/
-gboolean make_hour_tab(GtkWidget *vbox)
-{
+gboolean make_hour_tab(GtkWidget *vbox){
+    GtkWidget	*child;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-	GtkWidget *child = create_hour_tab();
-	gtk_container_add(GTK_CONTAINER(vbox),child);
-	gtk_widget_show_all(vbox);
+    child = create_hour_tab();
+    gtk_container_add(GTK_CONTAINER(vbox),child);
+    gtk_widget_show_all(vbox);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-	return FALSE;
+    return FALSE;
 }
 /*******************************************************************************/
 gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
                     	    				    gpointer user_data){
-GtkWidget *notebook = NULL,
-          *tab = NULL,
-          *hour_tab = NULL,
-          *current_tab = NULL,
-          *label = NULL,
-          *vbox = NULL,
-          *buttons_box = NULL,
-          *settings_button = NULL,
-          *refresh_button = NULL,
-          *about_button = NULL,
-          *close_button = NULL,
-          *label_box = NULL,
-          *copyright_box = NULL,
-          *no_weather_box = NULL;
-gint      active_tab = 0,
-          k = 0,
-          page = 0,
-          i = 1;
-gchar     *day_name = NULL;
-time_t    current_time = 0,
-          diff_time,
-          current_data_last_update = 0,
-          data_last_update = 0;
-GSList    *tmp = NULL,
-          *day = NULL;
+    GtkWidget	*notebook = NULL,
+		*tab = NULL,
+		*hour_tab = NULL,
+		*current_tab = NULL,
+		*label = NULL,
+		*vbox = NULL,
+		*buttons_box = NULL,
+		*settings_button = NULL,
+		*refresh_button = NULL,
+		*about_button = NULL,
+		*close_button = NULL,
+		*label_box = NULL,
+		*copyright_box = NULL,
+		*no_weather_box = NULL;
+    gint	active_tab = 0,
+		k = 0,
+		page = 0,
+		i = 1;
+    gchar	*day_name = NULL;
+    time_t	current_time = 0,
+		diff_time,
+		current_data_last_update = 0,
+		data_last_update = 0;
+    GSList	*tmp = NULL,
+		*day = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -366,16 +368,16 @@ GSList    *tmp = NULL,
 	current_tab = gtk_vbox_new(FALSE, 0);
 
     if(current_tab){
-	if(active_tab == 0 && app->config->separate)
-        {
+	if(active_tab == 0 && app->config->separate){
     	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-				current_tab,
-				gtk_label_new(_("Now")));
+					current_tab,
+					gtk_label_new(_("Now")));
 	    make_current_tab(current_tab); 
-        }else{
+        }
+	else{
 	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-				current_tab,
-				gtk_label_new(_("Now")));
+					current_tab,
+					gtk_label_new(_("Now")));
 	    g_idle_add((GSourceFunc)make_current_tab,current_tab);
 	    add_item2object(&(app->tab_of_window_popup), (void*)current_tab);
 	}
@@ -383,27 +385,25 @@ GSList    *tmp = NULL,
 
 /* if weather is separated than hide one day */
     (app->config->separate) ? (k = 0) : (k = 1);
-    if(current_tab && !app->config->separate && active_tab != 0 ){
+    if(current_tab && !app->config->separate && active_tab != 0 )
        active_tab = active_tab + k;
-    }   
 
-    if (!app->config->separate && !current_tab ){
+    if(!app->config->separate && !current_tab )
 	active_tab ++;
-    }	
     
 /* Detailed weather tab */
     if (!app->wsd.hours_data_is_invalid &&  app->wsd.hours_weather){
-    	data_last_update =  last_update_time((GSList*)(app->wsd.hours_weather)->data);
+    	data_last_update = last_update_time((GSList*)(app->wsd.hours_weather)->data);
     	/* Check a valid time for hours forecast */
-    	if(app->config->show_weather_for_two_hours &&(!app->wsd.current_data_is_invalid)&& 
-       	(current_time-24*60*60) < data_last_update)
-		hour_tab = gtk_vbox_new(FALSE, 0);
+    	if(app->config->show_weather_for_two_hours && (!app->wsd.current_data_is_invalid) && 
+		(current_time - 24 * 60 * 60) < data_last_update)
+	    hour_tab = gtk_vbox_new(FALSE, 0);
     	if(hour_tab){
-        	gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-                                    hour_tab,
-                                    gtk_label_new(_("Detailed")));
-		g_idle_add((GSourceFunc)make_hour_tab,hour_tab);
-		add_item2object(&(app->tab_of_window_popup), (void*)hour_tab);
+    	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+                                	hour_tab,
+                                	gtk_label_new(_("Detailed")));
+	    g_idle_add((GSourceFunc)make_hour_tab,hour_tab);
+	    add_item2object(&(app->tab_of_window_popup), (void*)hour_tab);
     	}
     }
 /* Day tabs */
@@ -423,7 +423,8 @@ GSList    *tmp = NULL,
 		g_idle_add((GSourceFunc)make_tab,tab);
 		add_item2object(&(app->tab_of_window_popup), (void*)tab);
 	    }
-	}else{	
+	}
+	else{	
 	    /* Create the page with data */
 	    tab = create_day_tab(app->wsd.current, day, &day_name);
 	    if(tab){

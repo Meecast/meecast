@@ -80,6 +80,7 @@
 #define BUTTON_ICONS		"/usr/share/omweather/button_icons/"
 #define START_FUNCTION		fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
+#define OMWEATHER_ADD_STATION	1000
 /*******************************************************************************/
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
 	CHECK_GPS_POSITION

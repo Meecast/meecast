@@ -160,10 +160,9 @@ gps_location_changed(LocationGPSDevice * device, gpointer userdata) {
 /*******************************************************************************/
 void initial_gps_connect(void) {
     LocationGPSDevice *device = NULL;
-
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     app->gps_device =
         (LocationGPSDevice *) g_object_new(LOCATION_TYPE_GPS_DEVICE, NULL);
 //    app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);

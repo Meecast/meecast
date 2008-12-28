@@ -726,7 +726,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 /* list of user selected stations */
     app->user_stations_list = create_user_stations_list();
 /* list of user selected alerts */
-    app->user_alerts_list = create_user_alerts_list();
+/*    app->user_alerts_list = create_user_alerts_list();*/
     #ifdef USE_CONIC
 	app->connection = NULL;
     #endif    
@@ -866,11 +866,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	app->top_widget = NULL;    
 	free_memory();
 	if(app->config)
-    	    g_free(app->config);
-//	if(app->countrys_list){
-//	    gtk_list_store_clear(app->countrys_list);
-//	    g_object_unref(app->countrys_list);
-//	}
+	    g_free(app->config);
 	if(app->regions_list){
 	    gtk_list_store_clear(app->regions_list);
 	    g_object_unref(app->regions_list);

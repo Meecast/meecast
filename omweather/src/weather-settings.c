@@ -284,15 +284,13 @@ new_station_handler(GtkButton *button, gpointer user_data){
     static struct lists_struct list = { NULL, NULL, NULL, NULL };
     GtkWidget	*window = NULL,
 		*station_name = NULL,
-		*station_code = NULL,
 		*right_table = NULL,
 		*countries = NULL,
 		*states = NULL,
 		*stations = NULL,
 		*sources = NULL,
-		*add_station_button = NULL,
-		*add_station_button1 = NULL,
-		*add_station_button2 = NULL;
+		*add_button = NULL;
+    gint	result;
 
     hildon_banner_show_information(GTK_WIDGET(user_data),
 				    NULL,
@@ -308,75 +306,42 @@ new_station_handler(GtkButton *button, gpointer user_data){
         gtk_dialog_new_with_buttons(_("Add Station"), NULL,
                                     GTK_DIALOG_MODAL |
                                     GTK_DIALOG_DESTROY_WITH_PARENT,
-                                    _("Close"), GTK_RESPONSE_REJECT, NULL);
+                                    NULL);
+
+    add_button = gtk_dialog_add_button(GTK_DIALOG(window),
+					_("Add"), OMWEATHER_ADD_STATION);
+    GLADE_HOOKUP_OBJECT(window, add_button, "add_station_button");
+    gtk_widget_set_sensitive(add_button, FALSE);
+    gtk_dialog_add_button(GTK_DIALOG(window),
+			    _("Close"), GTK_RESPONSE_REJECT);
+
     gtk_widget_set_size_request(window, 600, -1);
     g_object_set_data(G_OBJECT(window), "list", (gpointer)&list);
     /* right side */
-    right_table = gtk_table_new(10, 3, FALSE);
+    right_table = gtk_table_new(10, 2, FALSE);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        right_table, TRUE, TRUE, 10);
     /* label By name */
     gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              gtk_label_new(_("Name:")), 0, 1, 2, 3);
+                              gtk_label_new(_("Name:")), 0, 1, 0, 1);
     /* entry for station name */
     gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              station_name = gtk_entry_new(), 1, 2, 2, 3);
+                              station_name = gtk_entry_new(), 1, 2, 0, 1);
     GLADE_HOOKUP_OBJECT(window, station_name, "station_name_entry");
     gtk_widget_set_name(station_name, "station_name");
     g_signal_connect(G_OBJECT(station_name), "changed",
                      G_CALLBACK(entry_changed_handler), (gpointer)window);
-    /* add station button */
-    add_station_button =
-        create_button_with_image(BUTTON_ICONS, "add", 30, FALSE, FALSE);
-    gtk_widget_set_size_request(add_station_button, 30, 30);
-    gtk_widget_set_name(add_station_button, "add_name");
-    GLADE_HOOKUP_OBJECT(window, add_station_button,
-                        "add_station_button_name");
-    gtk_widget_set_sensitive(add_station_button, FALSE);
-/*
-    g_signal_connect(G_OBJECT(add_station_button), "button_press_event",
-                     G_CALLBACK(add_button_handler), (gpointer) window);
-*/
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              add_station_button, 2, 3, 2, 3);
-    /* label By (Zip) code */
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              gtk_label_new(_("Code (Zip):")), 0, 1, 3, 4);
-    /* entry for station name */
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              station_code = gtk_entry_new(), 1, 2, 3, 4);
-    gtk_widget_set_name(station_code, "station_code");
-    GLADE_HOOKUP_OBJECT(window, station_code, "station_code_entry");
-    g_signal_connect(G_OBJECT(station_code), "changed",
-                     G_CALLBACK(entry_changed_handler), (gpointer) window);
-
-    /* add button */
-    add_station_button1 =
-        create_button_with_image(BUTTON_ICONS, "add", 30, FALSE, FALSE);
-    gtk_widget_set_size_request(add_station_button1, 30, 30);
-    gtk_widget_set_name(add_station_button1, "add_code");
-    GLADE_HOOKUP_OBJECT(window, add_station_button1,
-                        "add_code_button_name");
-    gtk_widget_set_sensitive(add_station_button1, FALSE);
-/*
-    g_signal_connect(G_OBJECT(add_station_button1),
-                     "button_press_event",
-                     G_CALLBACK(add_button_handler), (gpointer) window);
-*/
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              add_station_button1, 2, 3, 3, 4);
-
     /* Label */
     gtk_table_attach_defaults(GTK_TABLE(right_table),
                               gtk_label_new(_("From the list:")), 1,
-                              2, 5, 6);
+                              2, 1, 2);
     /* Countries label */
     gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              gtk_label_new(_("Country:")), 0, 1, 6, 7);
+                              gtk_label_new(_("Country:")), 0, 1, 2, 3);
     /* countries list  */
     gtk_table_attach_defaults(GTK_TABLE(right_table),
                               countries = gtk_combo_box_new_text(),
-                              1, 2, 6, 7);
+                              1, 2, 2, 3);
     list.countries = countries;
     gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(countries), 0);
     gtk_combo_box_set_model(GTK_COMBO_BOX(countries),
@@ -384,46 +349,34 @@ new_station_handler(GtkButton *button, gpointer user_data){
     gtk_widget_show(countries);
     /* States label */
     gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              gtk_label_new(_("State:")), 0, 1, 7, 8);
+                              gtk_label_new(_("State:")), 0, 1, 3, 4);
     /* states list */
     gtk_table_attach_defaults(GTK_TABLE(right_table),
                               states =
-                              gtk_combo_box_new_text(), 1, 2, 7, 8);
+                              gtk_combo_box_new_text(), 1, 2, 3, 4);
     list.states = states;
     gtk_widget_show(states);
     /* Stations label */
     gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              gtk_label_new(_("City:")), 0, 1, 8, 9);
+                              gtk_label_new(_("City:")), 0, 1, 4, 5);
     /* stations list */
     gtk_table_attach_defaults(GTK_TABLE(right_table),
                               stations = gtk_combo_box_new_text(),
-                              1, 2, 8, 9);
+                              1, 2, 4, 5);
     list.stations = stations;
     gtk_widget_show(stations);
     GLADE_HOOKUP_OBJECT(window, GTK_WIDGET(stations), "stations");
     /* Sources label */
     gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              gtk_label_new(_("Source:")), 0, 1, 9, 10);
+                              gtk_label_new(_("Source:")), 0, 1, 5, 6);
     /* sources list */
     gtk_table_attach_defaults(GTK_TABLE(right_table),
                               sources = gtk_combo_box_new_text(),
-                              1, 2, 9, 10);
+                              1, 2, 5, 6);
     list.sources = sources;
     gtk_widget_show(sources);
     GLADE_HOOKUP_OBJECT(window, GTK_WIDGET(sources), "sources");
-    /* add button */
-    add_station_button2 =
-        create_button_with_image(BUTTON_ICONS, "add", 30, FALSE, FALSE);
-    gtk_widget_set_size_request(add_station_button2, 30, 30);
-    gtk_widget_set_name(add_station_button2, "add_from_list");
-    GLADE_HOOKUP_OBJECT(window, add_station_button2, "add_from_list");
-    gtk_widget_set_sensitive(add_station_button2, FALSE);
-    g_signal_connect(G_OBJECT(add_station_button2),
-                     "button_press_event",
-                     G_CALLBACK(add_button_handler), (gpointer) window);
 
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              add_station_button2, 2, 3, 9, 10);
     /* Set size */
     gtk_widget_set_size_request(countries, 300, -1);
     gtk_widget_set_size_request(states, 300, -1);
@@ -432,7 +385,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
 /* Set default value to country combo_box */
     if (app->countrys_list) {
         gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
-                                 get_active_item_index((GtkTreeModel *)
+                                 get_active_item_index((GtkTreeModel*)
                                                        app->countrys_list,
                                                        -1,
                                                        app->config->current_country,
@@ -456,7 +409,10 @@ new_station_handler(GtkButton *button, gpointer user_data){
     }
     gtk_widget_show_all(window);
 /* start dialog window */
-    gtk_dialog_run(GTK_DIALOG(window));
+    while( (result = gtk_dialog_run(GTK_DIALOG(window))) != GTK_RESPONSE_REJECT ){
+	if(result == OMWEATHER_ADD_STATION){
+	}
+    }
     gtk_widget_destroy(window);
     if(app->countrys_list){
 	gtk_list_store_clear(app->countrys_list);
@@ -1769,43 +1725,43 @@ back_button_handler(GtkWidget * button, GdkEventButton * event,
 }
 
 /*******************************************************************************/
-void entry_changed_handler(GtkWidget * entry, gpointer user_data) {
-    gchar *changed_entry_name = NULL;
-    GtkWidget *button = NULL, *config_window = GTK_WIDGET(user_data);
+void
+entry_changed_handler(GtkWidget *entry, gpointer user_data){
+    gchar	*changed_entry_name = NULL;
+    GtkWidget	*button = NULL,
+		*config_window = GTK_WIDGET(user_data);
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     /* get pressed gtkedit name */
-    changed_entry_name = (gchar *) gtk_widget_get_name(GTK_WIDGET(entry));
+    changed_entry_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(entry));
 
-    if (!changed_entry_name)
+    if(!changed_entry_name)
         return;
 
-    if (!strcmp(changed_entry_name, "rename_entry")) {  /* check rename entry */
+    if(!strcmp(changed_entry_name, "rename_entry")){  /* check rename entry */
         button = lookup_widget(config_window, "apply_rename_button_name");
-        if (button) {
-            if (strlen(gtk_entry_get_text(GTK_ENTRY(entry))) > 0)
-                if (strcmp
-                    ((char *)gtk_entry_get_text(GTK_ENTRY(entry)),
-                     app->config->current_station_name))
+        if(button){
+            if(strlen(gtk_entry_get_text(GTK_ENTRY(entry))) > 0)
+                if(strcmp((gchar*)gtk_entry_get_text(GTK_ENTRY(entry)),
+                					app->config->current_station_name))
                     gtk_widget_set_sensitive(button, TRUE);
                 else
                     gtk_widget_set_sensitive(button, FALSE);
         }
-    } else {
-        if (!strcmp(changed_entry_name, "station_code"))        /* check code entry */
-            button = lookup_widget(config_window, "add_code_button_name");
-        else if (!strcmp(changed_entry_name, "station_name"))   /* check name entry */
-            button =
-                lookup_widget(config_window, "add_station_button_name");
-        /* Change sensitive of button */
-        if (strlen(gtk_entry_get_text(GTK_ENTRY(entry))) > 0)
-            gtk_widget_set_sensitive(button, TRUE);
-        else
-            gtk_widget_set_sensitive(button, FALSE);
+    }
+    else{
+	if(!strcmp(changed_entry_name, "station_name"))   /* check name entry */
+            button = lookup_widget(config_window, "add_station_button");
+	/* Change sensitive of button */
+	if(button){
+	    if(strlen(gtk_entry_get_text(GTK_ENTRY(entry))) > 0)
+		gtk_widget_set_sensitive(button, TRUE);
+	    else
+		gtk_widget_set_sensitive(button, FALSE);
+	}
     }
 }
-
 /*******************************************************************************/
 int
 lookup_and_select_station(gchar * db_path, gchar * station_name,

@@ -37,4 +37,9 @@ int parse_country_string(const char *string, Country_item *result);
 int parse_region_string(const char *string, Region_item *result);
 int parse_station_string(const char *string, Station *result);
 /*******************************************************************************/
+sqlite3* open_database(const char *path, const char *filename);
+GtkListStore* create_countries_list(void);
+GtkListStore* create_regions_list(int country_id);
+GtkListStore* create_stations_list(int region_id);
+/*******************************************************************************/
 #endif

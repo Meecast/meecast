@@ -146,7 +146,8 @@ msgstr ""
 msgid ""
 "\n"
 "Precipitation: "
-msgstr "/nSade:"
+msgstr "\n"
+"Sade: "
 
 #: src/weather-home.c:1098
 msgid ""

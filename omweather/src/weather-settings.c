@@ -299,7 +299,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
     app->sources_list = gtk_list_store_new(1, G_TYPE_STRING);
     list.sources = sources;
 /* Read Coutries list from file */
-    app->countrys_list
+    app->countries_list
 	= create_items_list(DATABASEPATH,
 			    COUNTRIESFILE, -1, -1, NULL);
     window =
@@ -345,7 +345,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
     list.countries = countries;
     gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(countries), 0);
     gtk_combo_box_set_model(GTK_COMBO_BOX(countries),
-                            (GtkTreeModel *) app->countrys_list);
+                            (GtkTreeModel *) app->countries_list);
     gtk_widget_show(countries);
     /* States label */
     gtk_table_attach_defaults(GTK_TABLE(right_table),
@@ -383,10 +383,10 @@ new_station_handler(GtkButton *button, gpointer user_data){
     gtk_widget_set_size_request(stations, 300, -1);
     gtk_widget_set_size_request(sources, 300, -1);
 /* Set default value to country combo_box */
-    if (app->countrys_list) {
+    if (app->countries_list) {
         gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
                                  get_active_item_index((GtkTreeModel*)
-                                                       app->countrys_list,
+                                                       app->countries_list,
                                                        -1,
                                                        app->config->current_country,
                                                        TRUE));
@@ -414,9 +414,9 @@ new_station_handler(GtkButton *button, gpointer user_data){
 	}
     }
     gtk_widget_destroy(window);
-    if(app->countrys_list){
-	gtk_list_store_clear(app->countrys_list);
-	g_object_unref(app->countrys_list);
+    if(app->countries_list){
+	gtk_list_store_clear(app->countries_list);
+	g_object_unref(app->countries_list);
     }
     if(app->sources_list){
 	gtk_list_store_clear(app->sources_list);
@@ -1568,21 +1568,21 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event,
         if (app->config->weather_source != active_index)
             app->config->weather_source = active_index;
         /* clear and delete old countries list */
-        if (app->countrys_list) {
-            gtk_list_store_clear(app->countrys_list);
-            g_object_unref(app->countrys_list);
+        if (app->countries_list) {
+            gtk_list_store_clear(app->countries_list);
+            g_object_unref(app->countries_list);
         }
         /* create new countries list */
-        app->countrys_list
+        app->countries_list
             =
             create_items_list(DATABASEPATH,
                               COUNTRIESFILE, -1, -1, NULL);
         gtk_combo_box_set_model(GTK_COMBO_BOX(countries),
-                                (GtkTreeModel *) app->countrys_list);
+                                (GtkTreeModel *) app->countries_list);
         /* set active item for all lists to nothing */
         gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
                                  get_active_item_index((GtkTreeModel *)
-                                                       app->countrys_list,
+                                                       app->countries_list,
                                                        -1,
                                                        app->config->
                                                        current_country,

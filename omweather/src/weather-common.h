@@ -45,7 +45,8 @@
 #include <wchar.h>
 #include <limits.h>
 #include <libintl.h>
-#include <locale.h> 
+#include <locale.h>
+#include <sqlite3.h>
 #ifdef OS2008 
     #include <hildon/hildon-window.h>
     #include <hildon/hildon-banner.h>
@@ -313,7 +314,7 @@ typedef struct OMWeatherApplet{
     guint		flag_updating;
     gboolean		dbus_is_initialize;
     gboolean		gps_must_be_current;    
-    GtkListStore	*countrys_list;
+    GtkListStore	*countries_list;
     GtkListStore	*regions_list;
     GtkListStore	*stations_list;
     GtkListStore	*sources_list;
@@ -360,6 +361,7 @@ typedef struct OMWeatherApplet{
     ConIcConnection 	*connection;
 #endif
     WeatherStationData	wsd;
+    sqlite3		*db;
 }OMWeatherApp;
 /*******************************************************************************/
 extern	OMWeatherApp	*app;

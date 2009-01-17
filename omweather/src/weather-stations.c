@@ -27,7 +27,6 @@
 */
 /*******************************************************************************/
 #include "weather-stations.h"
-#include <sqlite3.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -308,5 +307,41 @@ int parse_station_string(const char *string, Station * result) {
     }
     setlocale(LC_NUMERIC, "");
     return res;
+}
+/*******************************************************************************/
+sqlite3* open_database(const char *path, const char *filename){
+    sqlite3	*db = NULL;
+    gchar	name[256];
+
+    if(!path || !filename)
+	return NULL;
+    *name = 0;
+    snprintf(name, sizeof(name) - 1, "%s%s", path, filename);
+    sqlite3_open(name, &db);
+
+    return db;
+}
+/*******************************************************************************/
+GtkListStore* create_countries_list(void){
+    GtkListStore	*list = NULL;
+    GtkTreeIter		iter;
+    gint		id;
+    gchar		*name = NULL;
+
+    if(!app->db)
+	return NULL;	/* database doesn't open */
+
+    list = gtk_list_store_new(2, G_TYPE_INT, G_TYPE_STRING);
+
+    gtk_list_store_append(list, &iter);
+    gtk_list_store_set(list, &iter, 0, id, 1, name, -1);
+
+    return list;
+}
+/*******************************************************************************/
+GtkListStore* create_regions_list(int country_id){
+}
+/*******************************************************************************/
+GtkListStore* create_stations_list(int region_id){
 }
 /*******************************************************************************/

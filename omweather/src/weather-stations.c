@@ -317,25 +317,44 @@ sqlite3* open_database(const char *path, const char *filename){
 	return NULL;
     *name = 0;
     snprintf(name, sizeof(name) - 1, "%s%s", path, filename);
-    sqlite3_open(name, &db);
+    if(sqlite3_open(name, &db))
+	return NULL;		/* error */
 
     return db;
 }
 /*******************************************************************************/
+void close_database(void){
+    if(app->db){
+        sqlite3_close(app->db);
+        app->db = NULL;
+    }
+}
+/*******************************************************************************/
 GtkListStore* create_countries_list(void){
     GtkListStore	*list = NULL;
-    GtkTreeIter		iter;
-    gint		id;
+
+    gint		rc;
     gchar		*name = NULL;
+    gchar		*errMsg = NULL;
 
     if(!app->db)
 	return NULL;	/* database doesn't open */
 
     list = gtk_list_store_new(2, G_TYPE_INT, G_TYPE_STRING);
 
+    rc = sqlite3_exec(app->db, "SELECT * FROM countries ORDER BY name", callback,
+			(void*)list, &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+	fprintf(stderr, "\n>>>>%s\n", errMsg);
+#endif
+	sqlite3_free(errMsg);
+	return NULL;
+    }
+/*
     gtk_list_store_append(list, &iter);
     gtk_list_store_set(list, &iter, 0, id, 1, name, -1);
-
+*/
     return list;
 }
 /*******************************************************************************/
@@ -343,5 +362,17 @@ GtkListStore* create_regions_list(int country_id){
 }
 /*******************************************************************************/
 GtkListStore* create_stations_list(int region_id){
+}
+/*******************************************************************************/
+static int callback(void *user_data, int argc, char **argv, char **azColName){
+    int			i;
+    GtkTreeIter		iter;
+    GtkListStore<------>*list = GTK_LIST_STORE(user_data);
+
+    fprintf(stderr, "\n>>>%d\n", argc);
+    for(i = 0; i < argc; i++){
+	printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+    }
+    return 0;
 }
 /*******************************************************************************/

@@ -38,10 +38,14 @@ int parse_region_string(const char *string, Region_item *result);
 int parse_station_string(const char *string, Station *result);
 /*******************************************************************************/
 sqlite3* open_database(const char *path, const char *filename);
-void close_database(void);
-GtkListStore* create_countries_list(void);
-GtkListStore* create_regions_list(int country_id);
-GtkListStore* create_stations_list(int region_id);
-static int callback(void *user_data, int argc, char **argv, char **azColName);
+void close_database(sqlite3 *database);
+GtkListStore* create_countries_list(sqlite3 *database);
+GtkListStore* create_regions_list(sqlite3 *database, int country_id, int *region_count);
+GtkListStore* create_stations_list(sqlite3 *database, int region_id);
+GtkListStore* create_sources_list(sqlite3 *database, int country_id, int *source_count);
+int countries_callback(void *user_data, int argc, char **argv, char **azColName);
+int regions_callback(void *user_data, int argc, char **argv, char **azColName);
+int stations_callback(void *user_data, int argc, char **argv, char **azColName);
+int sources_callback(void *user_data, int argc, char **argv, char **azColName);
 /*******************************************************************************/
 #endif

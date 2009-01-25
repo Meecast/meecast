@@ -361,7 +361,6 @@ typedef struct OMWeatherApplet{
     ConIcConnection 	*connection;
 #endif
     WeatherStationData	wsd;
-    sqlite3		*db;
 }OMWeatherApp;
 /*******************************************************************************/
 extern	OMWeatherApp	*app;

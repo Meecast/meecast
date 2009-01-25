@@ -42,6 +42,7 @@ struct lists_struct{
     GtkWidget	*states;
     GtkWidget	*stations;
     GtkWidget	*sources;
+    sqlite3	*database;
 };
 /*******************************************************************************/
 extern gboolean		not_event;

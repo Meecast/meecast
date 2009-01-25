@@ -702,11 +702,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->hash = hash_table_create();
 /* create sources units table */
     app->sources_units = parse_units_file("/usr/share/omweather/units.xml", "UTF-8");
-/*
-    app->db = open_database(DATABASEPATH, "stations.db");
-    create_countries_list();
-    close_database();
-*/
+
     app->dbus_is_initialize = FALSE;
 /* prepare config struct */
     app->config = g_new0(AppletConfig, 1);

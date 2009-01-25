@@ -35,6 +35,11 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
+struct request_data{
+    GtkListStore	*list;
+    gint		count;
+};
+/*******************************************************************************/
 GtkListStore *create_items_list(const char *path, const char *filename,
                                 long start, long end, long *items_number) {
     FILE *fh;
@@ -323,27 +328,22 @@ sqlite3* open_database(const char *path, const char *filename){
     return db;
 }
 /*******************************************************************************/
-void close_database(void){
-    if(app->db){
-        sqlite3_close(app->db);
-        app->db = NULL;
-    }
+void close_database(sqlite3 *database){
+    if(database)
+        sqlite3_close(database);
 }
 /*******************************************************************************/
-GtkListStore* create_countries_list(void){
+GtkListStore* create_countries_list(sqlite3 *database){
     GtkListStore	*list = NULL;
-
     gint		rc;
-    gchar		*name = NULL;
     gchar		*errMsg = NULL;
 
-    if(!app->db)
+    if(!database)
 	return NULL;	/* database doesn't open */
 
-    list = gtk_list_store_new(2, G_TYPE_INT, G_TYPE_STRING);
-
-    rc = sqlite3_exec(app->db, "SELECT * FROM countries ORDER BY name", callback,
-			(void*)list, &errMsg);
+    list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
+    rc = sqlite3_exec(database, "SELECT * FROM countries ORDER BY name",
+			countries_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
 #ifndef RELEASE
 	fprintf(stderr, "\n>>>>%s\n", errMsg);
@@ -351,27 +351,155 @@ GtkListStore* create_countries_list(void){
 	sqlite3_free(errMsg);
 	return NULL;
     }
-/*
-    gtk_list_store_append(list, &iter);
-    gtk_list_store_set(list, &iter, 0, id, 1, name, -1);
-*/
     return list;
 }
 /*******************************************************************************/
-GtkListStore* create_regions_list(int country_id){
+GtkListStore* create_regions_list(sqlite3 *database, int country_id, int *region_count){
+    GtkListStore	*list = NULL;
+    gint		rc;
+    gchar		*errMsg = NULL;
+    gchar		sql[256];
+    struct request_data	data = { 0, 0 };
+
+    if(!database || !country_id)
+	return NULL;	/* database doesn't open */
+
+    list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
+    data.list = list;
+    *sql = 0;
+    snprintf(sql, sizeof(sql) - 1,
+		"SELECT id, name FROM regions WHERE country_id = %d ORDER BY name",
+		country_id);
+    rc = sqlite3_exec(database, sql, regions_callback, (void*)&data, &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+	fprintf(stderr, "\n>>>>%s\n", errMsg);
+#endif
+	sqlite3_free(errMsg);
+	return NULL;
+    }
+    *region_count = data.count;
+    return list;
 }
 /*******************************************************************************/
-GtkListStore* create_stations_list(int region_id){
+GtkListStore* create_stations_list(sqlite3 *database, int region_id){
+    GtkListStore	*list = NULL;
+    gint		rc;
+    gchar		*errMsg = NULL;
+    gchar		sql[256];
+
+    if(!database || !region_id)
+	return NULL;	/* database doesn't open */
+
+    list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
+    *sql = 0;
+    snprintf(sql, sizeof(sql) - 1,
+		"SELECT id, name FROM stations WHERE region_id = %d ORDER BY name",
+		region_id);
+    rc = sqlite3_exec(database, sql, stations_callback, (void*)list, &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+	fprintf(stderr, "\n>>>>%s\n", errMsg);
+#endif
+	sqlite3_free(errMsg);
+	return NULL;
+    }
+    return list;
 }
 /*******************************************************************************/
-static int callback(void *user_data, int argc, char **argv, char **azColName){
+GtkListStore* create_sources_list(sqlite3 *database, int station_id, int *source_count){
+    GtkListStore	*list = NULL;
+    gint		rc;
+    gchar		*errMsg = NULL;
+    gchar		sql[256];
+    struct request_data	data = { 0, 0 };
+
+    if(!database || !station_id)
+	return NULL;	/* database doesn't open */
+
+    list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
+    data.list = list;
+    *sql = 0;
+    snprintf(sql, sizeof(sql) - 1,
+		"SELECT id, code FROM sources WHERE station_id = %d",
+		station_id);
+    rc = sqlite3_exec(database, sql, sources_callback, (void*)&data, &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+	fprintf(stderr, "\n>>>>%s\n", errMsg);
+#endif
+	sqlite3_free(errMsg);
+	return NULL;
+    }
+    *source_count = data.count;
+    return list;
+}
+/*******************************************************************************/
+int countries_callback(void *user_data, int argc, char **argv, char **azColName){
     int			i;
     GtkTreeIter		iter;
-    GtkListStore<------>*list = GTK_LIST_STORE(user_data);
+    GtkListStore	*list = GTK_LIST_STORE(user_data);
 
-    fprintf(stderr, "\n>>>%d\n", argc);
     for(i = 0; i < argc; i++){
-	printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+	if(!(i & 1U))	/* add new item for each first element */
+	    gtk_list_store_append(list, &iter);
+	if(!strcmp(azColName[i], "id"))
+	    gtk_list_store_set(list, &iter, 1, atoi(argv[i]), -1);
+	if(!strcmp(azColName[i], "name"))
+	    gtk_list_store_set(list, &iter, 0, argv[i], -1);
+    }
+    return 0;
+}
+/*******************************************************************************/
+int regions_callback(void *user_data, int argc, char **argv, char **azColName){
+    int			i;
+    GtkTreeIter		iter;
+    struct request_data	*data = (struct request_data*)user_data;
+    GtkListStore	*list = GTK_LIST_STORE(data->list);
+
+    data->count += (int)argc / 2;
+
+    for(i = 0; i < argc; i++){
+	if(!(i & 1U))	/* add new item for each first element */
+	    gtk_list_store_append(list, &iter);
+	if(!strcmp(azColName[i], "id"))
+	    gtk_list_store_set(list, &iter, 1, atoi(argv[i]), -1);
+	if(!strcmp(azColName[i], "name"))
+	    gtk_list_store_set(list, &iter, 0, argv[i], -1);
+    }
+    return 0;
+}
+/*******************************************************************************/
+int stations_callback(void *user_data, int argc, char **argv, char **azColName){
+    int			i;
+    GtkTreeIter		iter;
+    GtkListStore	*list = GTK_LIST_STORE(user_data);
+
+    for(i = 0; i < argc; i++){
+	if(!(i & 1U))	/* add new item for each first element */
+	    gtk_list_store_append(list, &iter);
+	if(!strcmp(azColName[i], "id"))
+	    gtk_list_store_set(list, &iter, 1, atoi(argv[i]), -1);
+	if(!strcmp(azColName[i], "name"))
+	    gtk_list_store_set(list, &iter, 0, argv[i], -1);
+    }
+    return 0;
+}
+/*******************************************************************************/
+int sources_callback(void *user_data, int argc, char **argv, char **azColName){
+    int			i;
+    GtkTreeIter		iter;
+    struct request_data	*data = (struct request_data*)user_data;
+    GtkListStore	*list = GTK_LIST_STORE(data->list);
+
+    data->count += (int)argc / 2;
+    for(i = 0; i < argc; i++){
+	if(!(i & 1U))	/* add new item for each first element */
+	    gtk_list_store_append(list, &iter);
+	if(!strcmp(azColName[i], "id"))
+	    gtk_list_store_set(list, &iter, 1, atoi(argv[i]), -1);
+	if(!strcmp(azColName[i], "code"))
+	    gtk_list_store_set(list, &iter, 0, argv[i], -1);
     }
     return 0;
 }

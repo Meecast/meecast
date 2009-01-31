@@ -417,13 +417,12 @@ GtkListStore* create_sources_list(sqlite3 *database, int station_id, int *source
     if(!database || !station_id)
 	return NULL;	/* database doesn't open */
 
-    list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_STRING);
+    list = gtk_list_store_new(1, G_TYPE_STRING);
     data.list = list;
     *sql = 0;
     snprintf(sql, sizeof(sql) - 1,
-		"SELECT sources.code, sources_name.name FROM sources, sources_name \
-		WHERE source_id IN (SELECT id FROM sources WHERE station_id = %d) \
-		AND sources.source_id = sources_name.id",
+		"SELECT sources_name.name FROM sources_name \
+		WHERE id IN (SELECT source_id FROM sources WHERE station_id = %d)",
 		station_id);
     rc = sqlite3_exec(database, sql, sources_callback, (void*)&data, &errMsg);
     if(rc != SQLITE_OK){
@@ -437,14 +436,44 @@ GtkListStore* create_sources_list(sqlite3 *database, int station_id, int *source
     return list;
 }
 /*******************************************************************************/
+GtkListStore* search_station_in_database(sqlite3 *database, char *code_name){
+    GtkListStore	*list = NULL;
+    gint		rc;
+    gchar		*errMsg = NULL;
+    gchar		sql[256];
+
+    if(!database || !code_name)
+	return NULL;
+    *sql = 0;
+
+    list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,
+				G_TYPE_STRING);
+    snprintf(sql, sizeof(sql) - 1,
+	    "SELECT stations.name, sources.code, regions.name AS region_name, \
+	    countries.name AS country_name FROM stations JOIN sources,regions, \
+	    countries ON stations.id = sources.station_id AND stations.region_id \
+	    = regions.id AND regions.country_id = countries.id WHERE stations.name \
+	    LIKE('%s%%') OR sources.code LIKE('%s%%')",
+	    code_name, code_name);
+    rc = sqlite3_exec(database, sql, search_callback, (void*)list, &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+	fprintf(stderr, "\n>>>>%s\n", errMsg);
+#endif
+	sqlite3_free(errMsg);
+	return NULL;
+    }
+    return list;
+}
+/*******************************************************************************/
 int countries_callback(void *user_data, int argc, char **argv, char **azColName){
     int			i;
     GtkTreeIter		iter;
     GtkListStore	*list = GTK_LIST_STORE(user_data);
 
+/* add new item for each first element */
+    gtk_list_store_append(list, &iter);
     for(i = 0; i < argc; i++){
-	if(!(i & 1U))	/* add new item for each first element */
-	    gtk_list_store_append(list, &iter);
 	if(!strcmp(azColName[i], "id"))
 	    gtk_list_store_set(list, &iter, 1, atoi(argv[i]), -1);
 	if(!strcmp(azColName[i], "name"))
@@ -460,10 +489,9 @@ int regions_callback(void *user_data, int argc, char **argv, char **azColName){
     GtkListStore	*list = GTK_LIST_STORE(data->list);
 
     data->count += (int)argc / 2;
-
+/* add new item for each first element */
+    gtk_list_store_append(list, &iter);
     for(i = 0; i < argc; i++){
-	if(!(i & 1U))	/* add new item for each first element */
-	    gtk_list_store_append(list, &iter);
 	if(!strcmp(azColName[i], "id"))
 	    gtk_list_store_set(list, &iter, 1, atoi(argv[i]), -1);
 	if(!strcmp(azColName[i], "name"))
@@ -477,9 +505,10 @@ int stations_callback(void *user_data, int argc, char **argv, char **azColName){
     GtkTreeIter		iter;
     GtkListStore	*list = GTK_LIST_STORE(user_data);
 
+/* add new item for each first element */
+    gtk_list_store_append(list, &iter);
+
     for(i = 0; i < argc; i++){
-	if(!(i & 1U))	/* add new item for each first element */
-	    gtk_list_store_append(list, &iter);
 	if(!strcmp(azColName[i], "id"))
 	    gtk_list_store_set(list, &iter, 1, atoi(argv[i]), -1);
 	if(!strcmp(azColName[i], "name"))
@@ -494,14 +523,34 @@ int sources_callback(void *user_data, int argc, char **argv, char **azColName){
     struct request_data	*data = (struct request_data*)user_data;
     GtkListStore	*list = GTK_LIST_STORE(data->list);
 
-    data->count += (int)argc / 2;
+    data->count += argc;
+/* add new item for each first element */
+    gtk_list_store_append(list, &iter);
+
     for(i = 0; i < argc; i++){
-	if(!(i & 1U))	/* add new item for each first element */
-	    gtk_list_store_append(list, &iter);
 	if(!strcmp(azColName[i], "name"))
 	    gtk_list_store_set(list, &iter, 0, argv[i], -1);
+    }
+    return 0;
+}
+/*******************************************************************************/
+int search_callback(void *user_data, int argc, char **argv, char **azColName){
+    int			i;
+    GtkTreeIter		iter;
+    GtkListStore	*list = GTK_LIST_STORE(user_data);
+
+/* add new item for each first element */
+    gtk_list_store_append(list, &iter);
+
+    for(i = 0; i < argc; i++){
 	if(!strcmp(azColName[i], "code"))
+	    gtk_list_store_set(list, &iter, 0, argv[i], -1);
+	if(!strcmp(azColName[i], "name"))
 	    gtk_list_store_set(list, &iter, 1, argv[i], -1);
+	if(!strcmp(azColName[i], "region_name"))
+	    gtk_list_store_set(list, &iter, 2, argv[i], -1);
+	if(!strcmp(azColName[i], "country_name"))
+	    gtk_list_store_set(list, &iter, 3, argv[i], -1);
     }
     return 0;
 }

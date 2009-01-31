@@ -43,9 +43,11 @@ GtkListStore* create_countries_list(sqlite3 *database);
 GtkListStore* create_regions_list(sqlite3 *database, int country_id, int *region_count);
 GtkListStore* create_stations_list(sqlite3 *database, int region_id);
 GtkListStore* create_sources_list(sqlite3 *database, int country_id, int *source_count);
+GtkListStore* search_station_in_database(sqlite3 *database, char *code_name);
 int countries_callback(void *user_data, int argc, char **argv, char **azColName);
 int regions_callback(void *user_data, int argc, char **argv, char **azColName);
 int stations_callback(void *user_data, int argc, char **argv, char **azColName);
 int sources_callback(void *user_data, int argc, char **argv, char **azColName);
+int search_callback(void *user_data, int argc, char **argv, char **azColName);
 /*******************************************************************************/
 #endif

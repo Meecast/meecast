@@ -271,7 +271,8 @@ new_station_handler(GtkButton *button, gpointer user_data){
 		*states = NULL,
 		*stations = NULL,
 		*sources = NULL,
-		*add_button = NULL;
+		*add_button = NULL,
+		*search_button = NULL;
     gint	result;
     sqlite3	*database = NULL;
 
@@ -291,11 +292,17 @@ new_station_handler(GtkButton *button, gpointer user_data){
                                     GTK_DIALOG_MODAL |
                                     GTK_DIALOG_DESTROY_WITH_PARENT,
                                     NULL);
-
+    /* add button */
     add_button = gtk_dialog_add_button(GTK_DIALOG(window),
 					_("Add"), OMWEATHER_ADD_STATION);
     GLADE_HOOKUP_OBJECT(window, add_button, "add_station_button");
     gtk_widget_set_sensitive(add_button, FALSE);
+    /* search button */
+    search_button = gtk_dialog_add_button(GTK_DIALOG(window),
+					_("Search"), OMWEATHER_SEARCH_STATION);
+    GLADE_HOOKUP_OBJECT(window, search_button, "search_station_button");
+    gtk_widget_set_sensitive(search_button, FALSE);
+    /* close button */
     gtk_dialog_add_button(GTK_DIALOG(window),
 			    _("Close"), GTK_RESPONSE_REJECT);
 
@@ -397,6 +404,8 @@ new_station_handler(GtkButton *button, gpointer user_data){
 /* start dialog window */
     while( (result = gtk_dialog_run(GTK_DIALOG(window))) != GTK_RESPONSE_REJECT ){
 	if(result == OMWEATHER_ADD_STATION){
+	}
+	if(result == OMWEATHER_SEARCH_STATION){
 	}
     }
     gtk_widget_destroy(window);
@@ -1740,7 +1749,7 @@ entry_changed_handler(GtkWidget *entry, gpointer user_data){
     }
     else{
 	if(!strcmp(changed_entry_name, "station_name"))   /* check name entry */
-            button = lookup_widget(config_window, "add_station_button");
+            button = lookup_widget(config_window, "search_station_button");
 	/* Change sensitive of button */
 	if(button){
 	    if(strlen(gtk_entry_get_text(GTK_ENTRY(entry))) > 0)

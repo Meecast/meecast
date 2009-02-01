@@ -377,8 +377,7 @@ GtkWidget *create_tree_view(GtkListStore * list) {
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new();
     gtk_tree_view_column_set_sizing(column, GTK_TREE_VIEW_COLUMN_FIXED);
-    g_object_set(G_OBJECT(renderer), "ellipsize", PANGO_ELLIPSIZE_END,
-                 NULL);
+    g_object_set(G_OBJECT(renderer), "ellipsize", PANGO_ELLIPSIZE_END, NULL);
     gtk_tree_view_column_set_expand(column, TRUE);
 
     gtk_tree_view_column_pack_start(column, renderer, TRUE);

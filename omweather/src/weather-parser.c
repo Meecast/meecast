@@ -53,7 +53,7 @@ gint parse_weather_file_data(const gchar *station_id, const gint station_source,
 /* check storage is aviable */
     if(!wsd || !station_id)
 	return -1;
-    (station_source < 0) ? (source = app->config->weather_source)
+    (station_source < 0) ? (source = 0)
 			 : (source = station_source);
 /* init parser */
     if(selected_detail_weather)

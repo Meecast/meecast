@@ -38,11 +38,15 @@
 #endif
 /*******************************************************************************/
 struct lists_struct{
-    GtkWidget	*countries;
-    GtkWidget	*states;
-    GtkWidget	*stations;
-    GtkWidget	*sources;
-    sqlite3	*database;
+    GtkWidget		*countries;
+    GtkListStore	*countries_list;
+    GtkWidget		*states;
+    GtkListStore	*regions_list;
+    GtkWidget		*stations;
+    GtkListStore	*stations_list;
+    GtkWidget		*sources;
+    GtkListStore	*sources_list;
+    sqlite3		*database;
 };
 /*******************************************************************************/
 extern gboolean		not_event;
@@ -92,8 +96,7 @@ void close_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
 void back_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);
-void add_button_handler(GtkWidget *button, GdkEventButton *event,
-							    gpointer user_data);
+void add_button_handler(GtkWidget *button, gpointer user_data);
 void chk_download_button_toggled_handler(GtkRadioButton *button,
 							    gpointer user_data);
 void entry_changed_handler(GtkWidget *entry, gpointer user_data);

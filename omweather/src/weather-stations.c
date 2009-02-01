@@ -417,12 +417,14 @@ GtkListStore* create_sources_list(sqlite3 *database, int station_id, int *source
     if(!database || !station_id)
 	return NULL;	/* database doesn't open */
 
-    list = gtk_list_store_new(1, G_TYPE_STRING);
+    list = gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT);
     data.list = list;
     *sql = 0;
     snprintf(sql, sizeof(sql) - 1,
-		"SELECT sources_name.name FROM sources_name \
-		WHERE id IN (SELECT source_id FROM sources WHERE station_id = %d)",
+		"SELECT sources.code AS code, sources.source_id AS source_number, \
+		sources_name.name AS name \
+		FROM sources JOIN sources_name ON \
+		sources.source_id = sources_name.id WHERE station_id = %d",
 		station_id);
     rc = sqlite3_exec(database, sql, sources_callback, (void*)&data, &errMsg);
     if(rc != SQLITE_OK){
@@ -523,13 +525,17 @@ int sources_callback(void *user_data, int argc, char **argv, char **azColName){
     struct request_data	*data = (struct request_data*)user_data;
     GtkListStore	*list = GTK_LIST_STORE(data->list);
 
-    data->count += argc;
+    data->count += argc / 3;
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
 
     for(i = 0; i < argc; i++){
 	if(!strcmp(azColName[i], "name"))
 	    gtk_list_store_set(list, &iter, 0, argv[i], -1);
+	if(!strcmp(azColName[i], "code"))
+	    gtk_list_store_set(list, &iter, 1, argv[i], -1);
+	if(!strcmp(azColName[i], "source_number"))
+	    gtk_list_store_set(list, &iter, 2, atoi(argv[i]), -1);
     }
     return 0;
 }

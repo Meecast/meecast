@@ -62,15 +62,15 @@ struct _OMWeatherPrivate {
 };
 #endif
 const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
-/*
-    {	"weather.com",
-	"http://xoap.weather.com/weather/local/%s?cc=*&prod=xoap&link=xoap&par=1004517364&key=a29796f587f206b2&unit=m&dayf=5",
-	"http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
-	"ISO-8859-1",
-	parse_weather_com_xml,
-	parse_weather_com_xml_hour
+
+    {	"dummy",
+	NULL,
+	NULL,
+	NULL,
+	NULL,
+	NULL
     },
-*/
+
     {	"weather.com",
 	"http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10",
 	"http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
@@ -100,7 +100,8 @@ gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
     gchar       *station_name = NULL,
                 *station_code = NULL;
     GtkTreePath	*path;
-    gint	day_number = 0;
+    gint	day_number = 0,
+		station_source = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -115,6 +116,7 @@ gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 			    &iter, 
                     	    NAME_COLUMN, &station_name,
                     	    ID0_COLUMN, &station_code,
+                    	    6, &station_source,
                     	    -1);
 	if(ready){
 	    /* update current station code */
@@ -125,6 +127,7 @@ gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
     	    if(app->config->current_station_name)
 		g_free(app->config->current_station_name);
 	    app->config->current_station_name = station_name;
+	    app->config->current_station_source = station_source;
 	    app->config->previos_days_to_show = app->config->days_to_show;
 	    redraw_home_window(FALSE);
 	    config_save(app->config);
@@ -172,7 +175,8 @@ gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
     gchar       *station_name = NULL,
                 *station_code = NULL;
     GtkTreePath	*path;
-    gint	day_number = 0;
+    gint	day_number = 0,
+		station_source = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -187,6 +191,7 @@ gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
 			    &iter, 
                     	    NAME_COLUMN, &station_name,
                     	    ID0_COLUMN, &station_code,
+                    	    3, &station_source,
                     	    -1);
 	if(ready){
 	    /* update current station code */
@@ -197,6 +202,7 @@ gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
     	    if(app->config->current_station_name)
 		g_free(app->config->current_station_name);
 	    app->config->current_station_name = station_name;
+	    app->config->current_station_source = station_source;
 	    app->config->previos_days_to_show = app->config->days_to_show;
 	    redraw_home_window(FALSE);
 	    config_save(app->config);
@@ -233,6 +239,7 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
     gboolean    valid;
     gchar       *station_name = NULL,
                 *station_code = NULL;
+    gint	station_source = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -249,6 +256,7 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
                             &iter,
                             NAME_COLUMN, &station_name,
                             ID0_COLUMN, &station_code,
+                            3, &station_source,
                             -1);
 	if( (station_name) &&
 	    !strcmp((char*)user_data, station_name)){
@@ -260,6 +268,7 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
             if(app->config->current_station_name)
                 g_free(app->config->current_station_name);
             app->config->current_station_name = station_name;
+            app->config->current_station_source = station_source;
             app->config->previos_days_to_show = app->config->days_to_show;
             redraw_home_window(FALSE);
             config_save(app->config);
@@ -859,14 +868,6 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	free_memory();
 	if(app->config)
 	    g_free(app->config);
-	if(app->regions_list){
-	    gtk_list_store_clear(app->regions_list);
-	    g_object_unref(app->regions_list);
-	}
-	if(app->stations_list){
-	    gtk_list_store_clear(app->stations_list);
-	    g_object_unref(app->stations_list);
-	}
 	if(app->time_update_list){
 	    gtk_list_store_clear(app->time_update_list);
 	    g_object_unref(app->time_update_list);

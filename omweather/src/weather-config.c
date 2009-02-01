@@ -347,13 +347,13 @@ gint read_config(AppletConfig * config) {
     if (config->current_station_name
         && strlen(config->current_station_name) == 0)
         config->current_station_name = NULL;
-    /* Get weather data source */
-    config->weather_source = gconf_client_get_int(gconf_client,
-                                                  GCONF_KEY_WEATHER_DATA_SOURCE,
+    /* Get weather current station source */
+    config->current_station_source = gconf_client_get_int(gconf_client,
+                                                  GCONF_KEY_CURRENT_STATION_SOURCE,
                                                   NULL);
-    if (config->weather_source < WEATHER_COM &&
-        config->weather_source > RP5_RU)
-        config->weather_source = WEATHER_COM;
+    if (config->current_station_source < WEATHER_COM &&
+        config->current_station_source > RP5_RU)
+        config->current_station_source = WEATHER_COM;
     /* Get GPS station name and id */
 #ifdef OS2008
 #ifdef ENABLE_GPS
@@ -803,8 +803,8 @@ void config_save(AppletConfig * config) {
                          config->icons_size, NULL);
     /* Save Weather Data Source  */
     gconf_client_set_int(gconf_client,
-                         GCONF_KEY_WEATHER_DATA_SOURCE,
-                         config->weather_source, NULL);
+                         GCONF_KEY_CURRENT_STATION_SOURCE,
+                         config->current_station_source, NULL);
     /* Save current setting tab number  */
     gconf_client_set_int(gconf_client,
                          GCONF_KEY_WEATHER_SETTING_TAB_NUMBER,

@@ -94,7 +94,7 @@ enum { CELSIUS, FAHRENHEIT };
 enum { INVALID_VALUE = 0, TINY, SMALL, MEDIUM, LARGE, GIANT };
 enum { ICON, STATION_NAME };
 enum { MB, INCH, MM };
-enum { WEATHER_COM, RP5_RU, MAX_WEATHER_SOURCE_NUMBER };
+enum { DUMMY = 0, WEATHER_COM, RP5_RU, MAX_WEATHER_SOURCE_NUMBER };
 enum { TINY_ICON_SIZE = 32, SMALL_ICON_SIZE = 48, MEDIUM_ICON_SIZE = 64,
 	BIG_ICON_SIZE = 80, LARGE_ICON_SIZE = 96, GIANT_ICON_SIZE = 128,
 	SUPER_GIANT_ICON_SIZE = 256
@@ -242,7 +242,6 @@ typedef struct applet_config{
     guint	current_station_source;
     gchar 	*iap_http_proxy_host;
     gchar 	*cache_directory;
-    gint	weather_source;
     gint 	iap_http_proxy_port;
     gint	update_interval;
     gint	switch_time;
@@ -314,11 +313,7 @@ typedef struct OMWeatherApplet{
     GSList		*buttons;
     guint		flag_updating;
     gboolean		dbus_is_initialize;
-    gboolean		gps_must_be_current;    
-    GtkListStore	*countries_list;
-    GtkListStore	*regions_list;
-    GtkListStore	*stations_list;
-    GtkListStore	*sources_list;
+    gboolean		gps_must_be_current;
     GtkListStore	*user_stations_list;
     GtkListStore	*time_update_list;
     GtkListStore	*user_alerts_list;

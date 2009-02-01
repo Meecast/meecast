@@ -1935,7 +1935,6 @@ add_button_handler(GtkWidget *button, gpointer user_data){
 	    gtk_tree_model_get(model, &iter,
 				1, &station_code,
 				2, &source_number, -1);
-	    fprintf(stderr, "\n>>>>>Name - %s >>>Code - %s>>>Source - %d\n", station_name, station_code, source_number);
 	    add_station_to_user_list(station_name, station_code,
 					 FALSE, source_number);
 	    /* set added station as current */

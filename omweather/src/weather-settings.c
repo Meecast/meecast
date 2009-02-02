@@ -970,10 +970,12 @@ weather_window_settings(GtkWidget *widget, GdkEvent *event, gpointer user_data){
     if (app->popup_window)
         gtk_widget_destroy(app->popup_window);
 /* Main window */
-    window_config = hildon_window_new();
+    window_config = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 /* set window title and icon */
     gtk_window_set_title(GTK_WINDOW(window_config),
 			    _("OMWeather Settings"));
+    gtk_window_set_modal(GTK_WINDOW(window_config), TRUE);
+    gtk_window_set_destroy_with_parent(GTK_WINDOW(window_config), TRUE);
 /*
     tmp_buff[0] = 0;
     snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s%s",
@@ -1142,21 +1144,6 @@ weather_window_settings(GtkWidget *widget, GdkEvent *event, gpointer user_data){
 /* Pack items to config window */
     gtk_box_pack_start(GTK_BOX(vbox), notebook, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vbox), buttons_box, FALSE, FALSE, 0);
-
-    if (app->config->theme_override_in_use) {
-        gint i;
-        for (i = 0;
-             i < gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)); i++) {
-            g_signal_connect(G_OBJECT
-                             (gtk_notebook_get_nth_page
-                              (GTK_NOTEBOOK(notebook), i)),
-                             "expose-event",
-                             G_CALLBACK(draw_top_gradient), NULL);
-        }
-        g_signal_connect(G_OBJECT(buttons_box), "expose-event",
-                         G_CALLBACK(draw_bottom_gradient), NULL);
-    }
-
     gtk_widget_show_all(window_config);
 /* set current page and show it for notebook */
     gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook),
@@ -1213,7 +1200,6 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 			*column = NULL,
 			*two_rows = NULL,
 			*two_columns = NULL,
-			*theme_override = NULL,
 			*selected_icon_set = NULL;
     GSList		*icon_set = NULL;
 #ifndef OS2008
@@ -1495,13 +1481,6 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
         app->config->transparency =
             gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(transparency));
 #endif
-/* UI Theme Override */
-    theme_override = lookup_widget(config_window, "theme_override");
-    if (theme_override) {
-        app->config->theme_override_in_use =
-            gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON
-                                         (theme_override));
-    }
 /* background color */
     background_color = lookup_widget(config_window, "background_color");
     if (background_color)
@@ -1572,8 +1551,6 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     redraw_home_window(FALSE);
 /* disable button */
     gtk_widget_set_sensitive(button, FALSE);
-    if (app->config->theme_override_in_use)
-        set_background_color(button, &(app->config->ui_background_color));
 /* store current settings state */
     app->stations_tab_start_state = app->stations_tab_current_state;
     app->visuals_tab_start_state = app->visuals_tab_current_state;
@@ -2681,8 +2658,6 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
         *layouts_hbox = NULL,
         *second_line = NULL,
         *iconsets_hbox = NULL,
-        *third_line = NULL,
-        *theme_override = NULL,
         *fourth_line = NULL,
         *transparency = NULL,
         *fifth_line = NULL,
@@ -2834,20 +2809,6 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
     }
     g_object_set_data(G_OBJECT(window), "iconsetlist", icon_set);
 /* thrid line */
-    third_line = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(third_line),
-                       theme_override =
-                       gtk_check_button_new_with_label(_
-                                                       ("UI Theme Override")),
-                       FALSE, FALSE, 20);
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(theme_override),
-                                 app->config->theme_override_in_use);
-    if (app->config->theme_override_in_use)
-        app->visuals_tab_start_state |= STATE_THEME_OVERRIDE;
-    gtk_widget_set_name(theme_override, "theme_override");
-    GLADE_HOOKUP_OBJECT(window, theme_override, "theme_override");
-    g_signal_connect(theme_override, "toggled",
-                     G_CALLBACK(check_buttons_changed_handler), window);
 /* fourth line */
     fourth_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(fourth_line),
@@ -2944,7 +2905,6 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
 /* pack lines */
     gtk_box_pack_start(GTK_BOX(visuals_page), first_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(visuals_page), second_line, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(visuals_page), third_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(visuals_page), fourth_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(visuals_page), fifth_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(visuals_page), sixth_line, TRUE, TRUE, 0);

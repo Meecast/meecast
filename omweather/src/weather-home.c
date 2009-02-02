@@ -773,10 +773,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 
     settings = gtk_settings_get_default();
     cm = gdk_screen_get_rgba_colormap(gdk_screen_get_default());
-    if(app->config->theme_override_in_use){
-    	gtk_rc_parse("/usr/share/omweather/theme/gtk-2.0/gtkrc");
-    	gtk_rc_reset_styles(gtk_settings_get_for_screen(gdk_screen_get_default()));
-    }
     if(cm)
 	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
     

@@ -326,6 +326,11 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     }
 /* Main window */
     app->popup_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+/* set window title and icon */
+    gtk_window_set_title(GTK_WINDOW(app->popup_window),
+			    _("OMWeather Forecast"));
+    gtk_window_set_modal(GTK_WINDOW(app->popup_window), TRUE);
+    gtk_window_set_destroy_with_parent(GTK_WINDOW(app->popup_window), TRUE);
 
     g_object_set_data(G_OBJECT(app->popup_window), "active_tab", (gpointer)active_tab);
     gtk_window_fullscreen(GTK_WINDOW(app->popup_window));
@@ -529,26 +534,6 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	gtk_event_box_set_visible_window(GTK_EVENT_BOX(copyright_box),TRUE);
 
 	gtk_box_pack_start(GTK_BOX(vbox),buttons_box,FALSE,FALSE,0);
-
-    if (app->config->theme_override_in_use)
-    {
-    	gint i;
-    	GdkColor color={0,0.8*65535,0.8*65535,0.8*65535};
-    	gtk_rc_parse("/usr/share/omweather/theme/gtk-2.0/gtkrc");
-    	gtk_rc_reset_styles(gtk_settings_get_for_screen(gdk_screen_get_default()));
-    	if (GTK_IS_NOTEBOOK(notebook))
-    	{
-			for (i=0;i<gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook));i++)
-			{
-				g_signal_connect(G_OBJECT(gtk_notebook_get_nth_page(GTK_NOTEBOOK(notebook),i)),"expose-event",G_CALLBACK(draw_top_gradient),NULL);
-			}
-		}
-		g_signal_connect(G_OBJECT(no_weather_box),"expose-event",G_CALLBACK(draw_top_gradient),NULL);
-
-		gtk_widget_modify_bg(copyright_box,GTK_STATE_NORMAL,&color);
-		g_signal_connect(G_OBJECT(label_box),"expose-event",G_CALLBACK(draw_label_gradient),NULL);
-		g_signal_connect(G_OBJECT(buttons_box),"expose-event",G_CALLBACK(draw_bottom_gradient),NULL);
-	}
     gtk_widget_show_all(app->popup_window);
     #ifdef DEBUGFUNCTIONCALL
 	END_FUNCTION;

@@ -273,8 +273,6 @@ typedef struct applet_config{
     gboolean    show_weather_for_two_hours;
     GdkColor	font_color;
     GdkColor	background_color;
-    GdkColor	ui_background_color;
-    gboolean	theme_override_in_use;
 }AppletConfig;
 /*******************************************************************************/
 typedef struct OMWeatherApplet{

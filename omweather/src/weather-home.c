@@ -1132,7 +1132,7 @@ GtkWidget* create_current_weather_simple_widget(GSList *current){
 	default:
 	case MB: units = _("mb"); break;
 	case INCH: units = _("inHg"); tmp_pressure = mb2inch(tmp_pressure); break;
-    case MM: units = _("mmHg"); tmp_pressure = mb2mm(tmp_pressure); break;
+	case MM: units = _("mmHg"); tmp_pressure = mb2mm(tmp_pressure); break;
     }
     strcat(buffer, _("\nP: "));
     sprintf(buffer + strlen(buffer), "%.2f %s, ", tmp_pressure, units);

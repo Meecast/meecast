@@ -28,6 +28,9 @@ copyright_iconsdir = $(datadir)/omweather/copyright_icons
 copyright_icons_DATA = copyright_icons/*.png
 button_iconsdir = $(datadir)/omweather/button_icons
 button_icons_DATA = button_icons/*.png
+databasedir = $(datadir)/omweather/db
+database_DATA = weather_com.db
+
 homeapplet_desktopdir = $(DESKTOPDIR)
 if OS2008 
 homeapplet_desktop_DATA = os2008/omweather-home.desktop

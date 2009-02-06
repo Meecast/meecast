@@ -493,7 +493,7 @@ void draw_home_window(gint count_day){
 			        sprintf(buffer_icon, "%s%s.png", path_large_icon, item_value(day, "night_icon"));
 			    }else
                     create_day_temperature_text(day, buffer, FALSE, FALSE);
-                    /* displaying wind if necessary */....
+                    /* displaying wind if necessary */
                     if(app->config->show_wind)
                         add_wind_text(day, buffer + strlen(buffer),TRUE);
 			        sprintf(buffer_icon, "%s%s.png", path_large_icon, item_value(day, "day_icon"));

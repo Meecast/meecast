@@ -880,7 +880,7 @@ void config_save(AppletConfig * config) {
      /* Save Show Wind gust Button State */
     gconf_client_set_bool(gconf_client,
                           GCONF_KEY_SHOW_WIND_GUST,
-                          config->show_wind_gust, NULL)
+                          config->show_wind_gust, NULL);
     /* Show Station Name */
     gconf_client_set_bool(gconf_client,
                           GCONF_KEY_SHOW_STATION_NAME,

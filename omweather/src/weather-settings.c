@@ -664,6 +664,7 @@ station_list_view_select_handler(GtkTreeView *tree_view, gpointer user_data){
             app->config->current_station_name = station_name;
             /* add selected station name to the rename entry */
             gtk_entry_set_text(GTK_ENTRY(user_data), station_name);
+            gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
             app->config->current_station_source = station_source;
             break;
         } else {
@@ -922,6 +923,7 @@ switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
             return FALSE;
         }
     }
+#if defined(OS2008)
     if (!strcmp(tab_name, _("Sensor"))) {
         if ((tab = g_object_get_data(G_OBJECT(window), "sensor_tab"))) {
             process_sensor_tab(tab);
@@ -929,6 +931,7 @@ switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
             return FALSE;
         }
     }
+#endif
     if (!strcmp(tab_name, _("Alerts"))) {
         if ((tab = g_object_get_data(G_OBJECT(window), "alerts_tab"))) {
             process_alert_tab(tab);
@@ -942,8 +945,8 @@ switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
 
 /*******************************************************************************/
 void
-weather_window_settings(GtkWidget *widget, GdkEvent *event, gpointer user_data){
-    gint day_number = (gint) user_data; /* last looking day on detail window */
+weather_window_settings(GtkWidget *widget, gpointer user_data){
+    gint day_number; 
     GtkWidget	*window_config = NULL,
 		*notebook = NULL,
 		*vbox = NULL,
@@ -986,10 +989,11 @@ weather_window_settings(GtkWidget *widget, GdkEvent *event, gpointer user_data){
 */
     GLADE_HOOKUP_OBJECT_NO_REF(window_config, window_config,
                                "window_config");
-    g_object_set_data(G_OBJECT(window_config), "day_number",
-                      (gpointer) day_number);
+    if (user_data){
+       day_number = (gint)user_data;/* last looking day on detail window */
+        g_object_set_data(G_OBJECT(window_config), "day_number", (gpointer)day_number);
+    }
     gtk_window_fullscreen(GTK_WINDOW(window_config));
-
     gtk_widget_show(window_config);
     /* create frame vbox */
     vbox = gtk_vbox_new(FALSE, 0);
@@ -1690,7 +1694,9 @@ entry_changed_handler(GtkWidget *entry, gpointer user_data){
         button = lookup_widget(config_window, "apply_rename_button_name");
         if(button){
 	    if(strlen(gtk_entry_get_text(GTK_ENTRY(entry))) > 0)
-		if(strcmp((gchar*)gtk_entry_get_text(GTK_ENTRY(entry)),
+               if(gtk_entry_get_text(GTK_ENTRY(entry)) &&
+                  app->config->current_station_name &&
+                  strcmp((char*)gtk_entry_get_text(GTK_ENTRY(entry)),
                 					app->config->current_station_name))
                     gtk_widget_set_sensitive(button, TRUE);
                 else
@@ -1846,9 +1852,10 @@ lookup_and_select_station(gchar * db_path, gchar * station_name,
         model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
         selection =
             gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
-        if (!gtk_tree_selection_get_selected(selection, NULL, &iter))
-            return -1;
-        gtk_tree_model_get(model, &iter, 0, &selected_station_name, -1);
+        if( !gtk_tree_selection_get_selected(selection, NULL, &iter) ){
+               return_code = -1;
+        }else{
+               gtk_tree_model_get(model, &iter, 0, &selected_station_name, -1);
 
         valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list), &iter);
         while (valid) {
@@ -1876,6 +1883,7 @@ lookup_and_select_station(gchar * db_path, gchar * station_name,
         }
         return_code = 0;
         break;
+       }
     default:
         return_code = -1;
         break;
@@ -1893,6 +1901,7 @@ add_button_handler(GtkWidget *button, gpointer user_data){
     GtkWidget		*config = GTK_WIDGET(user_data),
 			*stations = NULL,
 			*sources = NULL,
+            *rename_entry = NULL,
 			*stations_list_view = NULL;
     GtkTreeModel	*model = NULL;
     GtkTreeIter		iter;
@@ -2638,12 +2647,11 @@ GtkWidget *create_locations_tab(GtkWidget * window) {
     highlight_current_station(GTK_TREE_VIEW(station_list_view));
 /* Filling rename entry */
     if(app->config->current_station_name){
-	gtk_entry_set_text(GTK_ENTRY(rename_entry),
+	    gtk_entry_set_text(GTK_ENTRY(rename_entry),
 			    app->config->current_station_name);
-	gtk_widget_set_sensitive(GTK_WIDGET(rename_entry), TRUE);
-    }
-    else
-	gtk_widget_set_sensitive(GTK_WIDGET(rename_entry), FALSE);
+	    gtk_widget_set_sensitive(GTK_WIDGET(rename_entry), TRUE);
+    }else
+	    gtk_widget_set_sensitive(GTK_WIDGET(rename_entry), FALSE);
 
     app->stations_tab_current_state = app->stations_tab_start_state;
 

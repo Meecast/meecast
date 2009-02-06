@@ -1,6 +1,42 @@
 0.22
   * Added precipitation
 
+0.21.9
+  * Fixed the bug #3398 "Omweather doesn't show mmHg in main form (Combo mode)"
+  * Fixed the bug #3397 "Destroying the hildon desktop after pressing of any button 
+    the keyboard (input any of a symbol) in the field ' renaming' in the settings window"
+  
+0.21.8
+  * Fixed the bug #3277 'Omweather causes Desktop to do constant polling for 127.0.0.1 address'. Thanks Eero Tamminen for feedback
+  * Fixed problem with switching between stations bug #3278
+  * Added possibility to switching off wind speed in main view (use only gconfedit for it parametr 'show-wind-gust')
+  
+0.21.7
+  * Fixed the bug #1929 "Problem with New Year period"
+  * Fixed the bug [#3120] Selection dialog stuck if pressing okay on station search
+  * Reverted broken popup menu
+  * Improvement in responses to clicking in main form
+  
+0.21.6
+  * Fixed the bug #3102 "Only moon in second icon"
+  * Fixed various memory leaks and uninitialized values. Thanks Eero Tamminen for feedback
+  
+0.21.5 
+  * Fixed the bug - background color is not saving and loading properly #3006
+  * Increased  events area of buttons in popup and settings windows
+  * Fixed problem with multi starting of popup window
+  * Fixed problem with accelerated starting of window popup with current weather
+  * Corrected showing of icon, title wind and wind direction in night time on main display
+  
+0.21.4
+  * Fixed problem starting of applet under OS2008, if the checkbox of internal
+    temperature is switched on and  time of updating the temperature is set to never
+    
+0.21.3
+  * Fixed the problem of start applet under OS2006-2007
+  * Fixed bug: Trying to connect to internet after finding GPS station #2953
+
+
 0.21.2
   * Added mmHg units for pressure
 

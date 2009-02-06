@@ -61,7 +61,7 @@ GtkWidget* create_copyright_widget(const gchar *text, const gchar *image);
 GtkWidget* create_window_header(const gchar *station_name, GtkWidget *popup_window);
 void destroy_popup_window(void);
 /*******************************************************************************/
-extern void weather_window_settings(GtkWidget *widget, GdkEvent *event,
+extern void weather_window_settings(GtkWidget *widget,
 				    gpointer user_data);
 /*extern void pre_update_weather(void);*/
 extern void update_weather(gboolean show_update_window);

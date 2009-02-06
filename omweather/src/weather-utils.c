@@ -353,8 +353,7 @@ GtkWidget *create_button_with_image(const char *path,
         if (icon)
             gtk_container_add(GTK_CONTAINER(button), icon);
     }
-    gtk_widget_set_events(button,
-                          GDK_BUTTON_RELEASE_MASK | GDK_BUTTON_PRESS_MASK);
+    gtk_widget_set_events(button, GDK_BUTTON_RELEASE_MASK);
 
     return button;
 }

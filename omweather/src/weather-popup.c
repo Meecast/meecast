@@ -263,6 +263,7 @@ make_tab(GtkWidget *vbox){
 	}
 	else
 	    gtk_widget_destroy(GTK_WIDGET(child));
+        g_free(day_name);
     }
     return FALSE;
 }
@@ -321,7 +322,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     active_tab = (gint)user_data;
 /* if no one station present in list show settings window */
     if(!app->config->current_station_id){
-	weather_window_settings(NULL, NULL, (gpointer)active_tab);
+	weather_window_settings(NULL, (gpointer)active_tab);
 	return FALSE;
     }
 /* Main window */
@@ -373,7 +374,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	current_tab = gtk_vbox_new(FALSE, 0);
 
     if(current_tab){
-	if(active_tab == 0 && app->config->separate){
+	if(active_tab == 0){
     	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
 					current_tab,
 					gtk_label_new(_("Now")));
@@ -412,8 +413,8 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     	}
     }
 /* Day tabs */
-    tmp = app->wsd.days;
-    while(tmp && i < app->config->days_to_show + k){
+   tmp = app->wsd.days;
+   while(tmp && i < Max_count_weather_day){
 	day = (GSList*)tmp->data;
 	
 	/* Acceleration of starting gtk_notebook */
@@ -439,7 +440,10 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	    }
 	}
 	
-	day_name && (g_free(day_name), day_name = NULL);
+    if (day_name){
+        g_free(day_name);
+        day_name = NULL;
+    }
 	tmp = g_slist_next(tmp);
 	i++;
     }
@@ -485,10 +489,10 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(refresh_button), -1);
 	gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(about_button), -1);
 	gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(close_button), -1);*/
-	gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(buttons_box), about_button, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(buttons_box), close_button, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, TRUE, TRUE, 5);
+	gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 5);
+	gtk_box_pack_start(GTK_BOX(buttons_box), about_button, TRUE, TRUE, 5);
+	gtk_box_pack_start(GTK_BOX(buttons_box), close_button, TRUE, TRUE, 5);
 
     /* check if no data file for this station */
     if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){
@@ -555,7 +559,7 @@ void settings_button_handler(GtkWidget *button, GdkEventButton *event,
 /* For debug speed of creating setting window */
 /* time_start();  */
     destroy_popup_window();
-    weather_window_settings(NULL, NULL, (gpointer)day_number);
+    weather_window_settings(NULL, (gpointer)day_number);
 /* fprintf(stderr,"Time: %lf msec Pi = %lf\n",time_stop(),weather_window_settings);*/
 }
 /*******************************************************************************/

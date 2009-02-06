@@ -62,7 +62,9 @@ gboolean process_visuals_tab(GtkWidget *vbox);
 gboolean process_display_tab(GtkWidget *vbox);
 gboolean process_units_tab(GtkWidget *vbox);
 gboolean process_update_tab(GtkWidget *vbox);
+#ifdef OS2008
 gboolean process_sensor_tab(GtkWidget *vbox);
+#endif
 gboolean process_alert_tab(GtkWidget *vbox);
 void changed_country_handler(GtkWidget *widget, gpointer user_data);
 void changed_state_handler(GtkWidget *widget, gpointer user_data);

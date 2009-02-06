@@ -58,6 +58,7 @@
     #include <X11/extensions/Xrender.h>
 #ifdef ENABLE_GPS
     #include <location/location-gps-device.h>
+    #include <location/location-gpsd-control.h>
 #endif
 #else
     #include <hildon-widgets/hildon-banner.h>
@@ -270,6 +271,7 @@ typedef struct applet_config{
     gboolean	downloading_after_connecting;
     gboolean    gps_station;
     gboolean	show_wind;
+    gboolean	show_wind_gust;
     gboolean    show_weather_for_two_hours;
     GdkColor	font_color;
     GdkColor	background_color;
@@ -342,7 +344,11 @@ typedef struct OMWeatherApplet{
 #ifdef ENABLE_GPS
 #ifdef OS2008
     guint		gps_id_connection;
-    LocationGPSDevice 	*gps_device;
+    guint		gps_id_gpsdevice;
+    guint		gps_run;
+    guint		gps_stop;
+    LocationGPSDevice   *gps_device;
+    LocationGPSDControl *gps_control;
     Station		gps_station;
     gdouble		temporary_station_latitude;
     gdouble		temporary_station_longtitude;

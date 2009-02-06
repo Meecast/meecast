@@ -3,7 +3,63 @@ omweather (0.22) unstable; urgency=low
   * Added precipitation
 
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 15 Aug 2008 03:36:00 +0200
- 
+omweather (0.21.9) unstable; urgency=low
+
+  * Fixed the bug #3398 "Omweather doesn't show mmHg in main form (Combo mode)"
+  * Fixed the bug #3397 "Destroying the hildon desktop after pressing of any button 
+    the keyboard (input any of a symbol) in the field ' renaming' in the settings window"
+  * Increased the number of days in the pop-up window to the maximum extent possible
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 08 Feb 2009 09:23:00 +0200
+
+omweather (0.21.8) unstable; urgency=low
+
+  * Fixed the bug #3277 'Omweather causes Desktop to do constant polling for 127.0.0.1 address'. Thanks Eero Tamminen for feedback
+  * Fixed problem with switching between stations bug #3278
+  * Added possibility to switching off wind speed in main view (use only gconfedit for it parametr 'show-wind-gust')
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 09 Jan 2009 15:06:00 +0200
+
+omweather (0.21.7) unstable; urgency=low
+
+  * Fixed the bug #1929 "Problem with New Year period"
+  * Fixed the bug [#3120] Selection dialog stuck if pressing okay on station search
+  * Reverted broken popup menu
+  * Improvement in responses to clicking in main form
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 28 Dec 2008 15:06:00 +0200
+
+omweather (0.21.6) unstable; urgency=low
+
+  * Fixed the bug #3102 "Only moon in second icon"
+  * Fixed various memory leaks and uninitialized values. Thanks Eero Tamminen for feedback
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 24 Nov 2008 19:36:00 +0200
+
+omweather (0.21.5) unstable; urgency=low
+
+  * Fixed the bug - background color is not saving and loading properly #3006
+  * Increased  events area of buttons in popup and settings windows
+  * Fixed problem with multi starting of popup window
+  * Fixed problem with accelerated starting of window popup with current weather
+  * Corrected showing of icon, title wind and wind direction in night time on main display
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 20 Nov 2008 19:36:00 +0200
+
+omweather (0.21.4) unstable; urgency=low
+
+  * Fixed problem starting of applet under OS2008, if the checkbox of internal
+    temperature is switched on and  time of updating the temperature is set to never
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 22 Oct 2008 09:36:00 +0200
+
+omweather (0.21.3) unstable; urgency=low
+
+  * Fixed the problem of start applet under OS2006-2007
+  * Fixed bug: Trying to connect to internet after finding GPS station #2953
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 22 Oct 2008 09:36:00 +0200
+
 omweather (0.21.2) unstable; urgency=low
 
   * Added mmHg units for pressure

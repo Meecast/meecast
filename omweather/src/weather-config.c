@@ -384,6 +384,7 @@ gint read_config(AppletConfig * config) {
                                    GCONF_VALUE_STRING, NULL);
     if (stlist) {
         fill_user_stations_list(stlist, &app->user_stations_list);
+        g_slist_foreach(stlist, (GFunc)g_free, NULL);
         g_slist_free(stlist);
     }
     /* Get user alerts list */
@@ -841,7 +842,14 @@ void config_save(AppletConfig * config) {
     /* Save Split Button State */
     gconf_client_set_bool(gconf_client,
                           GCONF_KEY_SEPARATE_DATA, config->separate, NULL);
-
+  /* Save Background Color */
+    sprintf(temp_buffer, "#%02x%02x%02x",
+                         config->background_color.red >> 8,
+                         config->background_color.green >> 8,
+                         config->background_color.blue >> 8);
+    gconf_client_set_string(gconf_client,
+                         GCONF_KEY_WEATHER_BACKGROUND_COLOR,
+                         temp_buffer, NULL);
     /* Save Downloading after connecting State */
     gconf_client_set_bool(gconf_client,
                           GCONF_KEY_DOWNLOADING_AFTER_CONNECTING,
@@ -869,6 +877,10 @@ void config_save(AppletConfig * config) {
     /* Save Show Wind Button State */
     gconf_client_set_bool(gconf_client,
                           GCONF_KEY_SHOW_WIND, config->show_wind, NULL);
+     /* Save Show Wind gust Button State */
+    gconf_client_set_bool(gconf_client,
+                          GCONF_KEY_SHOW_WIND_GUST,
+                          config->show_wind_gust, NULL)
     /* Show Station Name */
     gconf_client_set_bool(gconf_client,
                           GCONF_KEY_SHOW_STATION_NAME,

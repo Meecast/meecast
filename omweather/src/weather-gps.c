@@ -32,7 +32,6 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-#ifdef ENABLE_GPS
 #ifdef OS2008
 
 void get_nearest_station(double lat, double lon, Station * result) {
@@ -47,12 +46,12 @@ void get_nearest_station(double lat, double lon, Station * result) {
     GtkTreeIter iter;
     gboolean valid;
     gchar *station_name = NULL, *station_id0 = NULL;
-    double station_latitude, station_longtitude, distance, min_distance =
-        40000;
+    double station_latitude,
+        station_longtitude, distance, min_distance = 40000;
 
     filename[0] = 0;
     snprintf(filename, sizeof(filename) - 1, "%s%s",
-             DATABASEPATH,
+             weather_sources[app->config->weather_source].db_path,
              REGIONSFILE);
     fh = fopen(filename, "rt");
     if (!fh) {
@@ -69,7 +68,8 @@ void get_nearest_station(double lat, double lon, Station * result) {
         if (lat >= region.minlat && lat <= region.maxlat
             && lon >= region.minlon && lon <= region.maxlon) {
             stations_list =
-                create_items_list(DATABASEPATH,
+                create_items_list(weather_sources
+                                  [app->config->weather_source].db_path,
                                   LOCATIONSFILE, region.start, region.end,
                                   NULL);
             valid =
@@ -79,8 +79,8 @@ void get_nearest_station(double lat, double lon, Station * result) {
             while (valid) {
                 gtk_tree_model_get(GTK_TREE_MODEL(stations_list),
                                    &iter,
-                                   NAME_COLUMN, &station_name,
-                                   ID0_COLUMN, &station_id0,
+                                   0, &station_name,
+                                   1, &station_id0,
                                    2, &station_latitude,
                                    3, &station_longtitude, -1);
                 /* Calculating distance */
@@ -126,8 +126,8 @@ void get_nearest_station(double lat, double lon, Station * result) {
                 }
 
                 valid =
-                    gtk_tree_model_iter_next(GTK_TREE_MODEL
-                                             (stations_list), &iter);
+                    gtk_tree_model_iter_next(GTK_TREE_MODEL(stations_list),
+                                             &iter);
             }
 
             /* Clearing station list */
@@ -158,31 +158,76 @@ gps_location_changed(LocationGPSDevice * device, gpointer userdata) {
 }
 
 /*******************************************************************************/
-void initial_gps_connect(void) {
-    LocationGPSDevice *device = NULL;
+static void
+gps_location_started(LocationGPSDControl * control, gpointer userdata) {
+    initial_gps_connect();
+}
+static void
+gps_location_stopped(LocationGPSDControl * control, gpointer userdata) {
+    deinitial_gps_connect();
+}
+
+/*******************************************************************************/
+void initial_gps_control(void) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    app->gps_device =
-        (LocationGPSDevice *) g_object_new(LOCATION_TYPE_GPS_DEVICE, NULL);
-//    app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
-//    g_signal_handler_disconnect (app->gps_device,app->gps_id_connection);
-    g_object_unref(app->gps_device);
-//#ifdef DEBUGFUNCTIONCALL
+    app->gps_control = location_gpsd_control_get_default();
+    app->gps_run =
+        g_signal_connect(app->gps_control, "gpsd_running",
+                         G_CALLBACK(gps_location_started), NULL);
+    app->gps_stop =
+        g_signal_connect(app->gps_control, "gpsd_stopped",
+                         G_CALLBACK(gps_location_stopped), NULL);
+
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif    
+#endif
+}
+
+/*******************************************************************************/
+void deinitial_gps_control(void) {
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    deinitial_gps_connect();
+    g_signal_handler_disconnect(app->gps_control, app->gps_run);
+    g_signal_handler_disconnect(app->gps_control, app->gps_stop);
+    g_object_unref(app->gps_control);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+}
+
+/*******************************************************************************/
+void initial_gps_connect(void) {
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    app->gps_device = g_object_new(LOCATION_TYPE_GPS_DEVICE, NULL);
+    app->gps_id_connection =
+        g_signal_connect(app->gps_device, "changed",
+                         G_CALLBACK(gps_location_changed), NULL);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 
 /*******************************************************************************/
 void deinitial_gps_connect(void) {
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
-//    g_signal_handler_disconnect (app->gps_device,app->gps_id_connection);
-//    g_object_unref(app->gps_device);
-//#ifdef DEBUGFUNCTIONCALL
+#endif
+    if (app->gps_device) {
+        g_signal_handler_disconnect(app->gps_device,
+                                    app->gps_id_connection);
+        g_object_unref(app->gps_device);
+    }
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 }
 
 /*******************************************************************************/
@@ -200,16 +245,13 @@ void delete_all_gps_stations(void) {
     while (valid) {
         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                            &iter,
-                           NAME_COLUMN, &station_name,
-                           ID0_COLUMN, &station_code,
-                           2, &is_gps,
-                           -1);
+                           0, &station_name,
+                           1, &station_code, 2, &is_gps, -1);
         if (is_gps) {
             if (app->config->current_station_id &&
-                !strcmp(app->config->current_station_id, station_code)
-                && app->config->current_station_name
-                && !strcmp(app->config->current_station_name,
-                           station_name)) {
+                !strcmp(app->config->current_station_id, station_code) &&
+                app->config->current_station_name &&
+                !strcmp(app->config->current_station_name, station_name)) {
                 /* deleting current station */
                 app->gps_must_be_current = TRUE;
                 g_free(app->config->current_station_id);
@@ -236,9 +278,8 @@ void delete_all_gps_stations(void) {
         if (valid) {
             gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                                &iter,
-                               NAME_COLUMN, &station_name,
-                               ID0_COLUMN, &station_code,
-                               2, &is_gps, -1);
+                               0, &station_name,
+                               1, &station_code, 2, &is_gps, -1);
             app->config->current_station_id = g_strdup(station_code);
             app->config->current_station_name = g_strdup(station_name);
         }
@@ -246,5 +287,4 @@ void delete_all_gps_stations(void) {
 }
 
 /*******************************************************************************/
-#endif
 #endif

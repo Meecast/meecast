@@ -61,7 +61,7 @@ GtkWidget* create_forecast_weather_simple_widget(GSList *day);
 int calculate_offset_of_day(int count_day);
 void add_change_day_part_event(GSList *day, guint year, guint month);
 time_t get_day_part_begin_time(GSList *day, guint year, const gchar *day_part);
-void add_wind_text(GSList *day, gchar *buffer);
+void add_wind_text(GSList *day, gchar *buffer, gboolean is_day);
 void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 							const gchar *day_name);
 void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
@@ -85,8 +85,8 @@ extern void add_periodic_event(time_t last_update);
 extern time_t calculate_diff_time(int timezone);
 extern void remove_daytime_event(void);
 extern void clean_download(void);
-extern void weather_window_settings(GtkWidget *widget,GdkEvent *event,gpointer user_data);
 extern int read_config(AppletConfig*);
+extern void weather_window_settings(GtkWidget *widget, gpointer user_data);
 extern void config_save(AppletConfig*);
 extern GtkListStore* create_items_list(const char *path, const char *filename,
 				long start, long end, long *items_number);

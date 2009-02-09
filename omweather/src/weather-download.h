@@ -63,5 +63,6 @@ extern void add_current_time_event(void);
 extern void popup_window_destroy(void);
 extern void update_weather(gboolean show_update_window);
 extern void redraw_home_window(gboolean first_start);
+extern void destroy_popup_window(void);
 /*******************************************************************************/
 #endif

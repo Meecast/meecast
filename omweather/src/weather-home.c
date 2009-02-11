@@ -71,7 +71,7 @@ const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
     },
     {	"rp5.ru",
 	"http://rp5.ru/xml.php?id=%s",
-        "http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
+        NULL,
 	"windows-1251",
 	parse_rp5_ru_xml,
 	NULL

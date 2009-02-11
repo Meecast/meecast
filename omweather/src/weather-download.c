@@ -152,7 +152,7 @@ connection_cb(ConIcConnection * connection,
     }
 }
 #else
-
+/*******************************************************************************/
 void iap_callback(struct iap_event_t *event, void *arg) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -556,8 +556,9 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
                 gboolean first) {
     gboolean valid = FALSE;
     static GtkTreeIter iter;
-    gchar *station_code = NULL;
-    gint station_source = 0;
+    gchar	*station_code = NULL,
+		*station_source = NULL;
+    gint	source = 0;
     gchar buffer[512];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -577,16 +578,24 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
                            ID0_COLUMN, &station_code,
                            3, &station_source,
                            -1);
+/* !!! TODO: recode this */
+	if(!strcmp(station_source, "weather.com"))
+	    source = 0;
+	if(!strcmp(station_source, "rp5.ru"))
+	    source = 1;
         /* prepare url */
-        memset(buffer, 0, sizeof(buffer));
-        snprintf(buffer, sizeof(buffer) - 1,
-                 weather_sources[station_source].url, station_code);
-        *url = g_strdup(buffer);
-        memset(buffer, 0, sizeof(buffer));
-        snprintf(buffer, sizeof(buffer) - 1,
-                 weather_sources[station_source].hour_url, station_code);
-        *hour_url = g_strdup(buffer);
-
+        if(weather_sources[source].url){
+	    *buffer = 0;
+	    snprintf(buffer, sizeof(buffer) - 1,
+			weather_sources[source].url, station_code);
+	    *url = g_strdup(buffer);
+	}
+        if(weather_sources[source].hour_url){
+	    *buffer = 0;
+	    snprintf(buffer, sizeof(buffer) - 1,
+			weather_sources[source].hour_url, station_code);
+	    *hour_url = g_strdup(buffer);
+	}
 #ifndef RELEASE
         fprintf(stderr, "\n>>>>>>>>>>URL %s\n", *url);
 #endif
@@ -608,6 +617,7 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
         fprintf(stderr, "\n>>>>>>>>>NAME %s\n", html_file->filename);
 #endif
         g_free(station_code);
+        g_free(station_source);
     }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

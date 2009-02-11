@@ -151,8 +151,8 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
 		*temp2 = NULL,
 		*temp3 = NULL,
 		*station_name = NULL,
-		*station_code = NULL;
-    guint	station_source = 0;
+		*station_code = NULL,
+		*station_source = NULL;
 #ifdef ENABLE_GPS
 #ifdef OS2008
     gboolean	is_gps = FALSE;
@@ -177,7 +177,7 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
             /* station source */
             temp3 = strtok(NULL, "@");
             if (temp3)
-                station_source = (guint) atoi(temp3);
+                station_source = g_strdup(temp3);
 #ifdef OS2008
 #ifdef ENABLE_GPS
             if (app->gps_station.id0 && app->gps_station.name &&
@@ -209,10 +209,11 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
                 && !strcmp(station_code, app->config->current_station_id)) {
                 app->config->current_station_id = g_strdup(station_code);
                 app->config->current_station_name = g_strdup(station_name);
-                app->config->current_station_source = station_source;
+                app->config->current_station_source = g_strdup(station_source);
             }
             station_name && (g_free(station_name), station_name = NULL);
             station_code && (g_free(station_code), station_code = NULL);
+            station_source && (g_free(station_source), station_source = NULL);
         }
         g_free(temp1);
         source_list = g_slist_next(source_list);
@@ -225,8 +226,8 @@ GSList *create_stations_string_list(void) {
     gboolean	valid;
     gchar	*station_name = NULL,
 		*station_code = NULL,
+		*station_source = NULL,
 		*str = NULL;
-    guint	station_source = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -239,11 +240,12 @@ GSList *create_stations_string_list(void) {
                            NAME_COLUMN, &station_name,
                            ID0_COLUMN, &station_code,
                            3, &station_source, -1);
-        str = g_strdup_printf("%s@%s@%d", station_code, station_name,
+        str = g_strdup_printf("%s@%s@%s", station_code, station_name,
                               station_source);
         stlist = g_slist_append(stlist, str);
         g_free(station_name);
         g_free(station_code);
+        g_free(station_source);
         valid =
             gtk_tree_model_iter_next(GTK_TREE_MODEL
                                      (app->user_stations_list), &iter);
@@ -327,6 +329,10 @@ gint read_config(AppletConfig * config) {
         (gnome_vfs_expand_initial_tilde(tmp_buff)))
         fprintf(stderr, _("Could not create weather cache directory.\n"));
 
+    /* Get Weather source name. */
+    config->current_source = gconf_client_get_string(gconf_client,
+                                                      GCONF_KEY_WEATHER_CURRENT_SOURCE_NAME,
+                                                      NULL);
     /* Get Weather country name. */
     config->current_country = gconf_client_get_string(gconf_client,
                                                       GCONF_KEY_WEATHER_CURRENT_COUNTRY_NAME,
@@ -348,12 +354,12 @@ gint read_config(AppletConfig * config) {
         && strlen(config->current_station_name) == 0)
         config->current_station_name = NULL;
     /* Get weather current station source */
-    config->current_station_source = gconf_client_get_int(gconf_client,
+    config->current_station_source = gconf_client_get_string(gconf_client,
                                                   GCONF_KEY_CURRENT_STATION_SOURCE,
                                                   NULL);
-    if (config->current_station_source < WEATHER_COM &&
-        config->current_station_source > RP5_RU)
-        config->current_station_source = WEATHER_COM;
+    if (config->current_station_source
+	&& strlen(config->current_station_source) == 0)
+        config->current_station_source = NULL;
     /* Get GPS station name and id */
 #ifdef OS2008
 #ifdef ENABLE_GPS
@@ -421,8 +427,6 @@ gint read_config(AppletConfig * config) {
     if (config->current_settings_page < 0 ||
         config->current_settings_page > MAX_SETTINGS_PAGE_NUMBER)
         config->current_settings_page = 0;
-
-
 
     /* Get Weather periodic update time. */
     config->update_interval = gconf_client_get_int(gconf_client,
@@ -756,6 +760,11 @@ void config_save(AppletConfig * config) {
         gconf_client_set_string(gconf_client,
                                 GCONF_KEY_WEATHER_DIR_NAME,
                                 config->cache_dir_name, NULL);
+    /* Save Weather source name. */
+    if (config->current_source)
+        gconf_client_set_string(gconf_client,
+                                GCONF_KEY_WEATHER_CURRENT_SOURCE_NAME,
+                                config->current_source, NULL);
     /* Save Weather country name. */
     if (config->current_country)
         gconf_client_set_string(gconf_client,
@@ -779,6 +788,15 @@ void config_save(AppletConfig * config) {
         gconf_client_set_string(gconf_client,
                                 GCONF_KEY_WEATHER_CURRENT_STATION_ID, "",
                                 NULL);
+    /* Save Weather Data Source  */
+    if(config->current_station_source)
+	gconf_client_set_string(gconf_client,
+                        	GCONF_KEY_CURRENT_STATION_SOURCE,
+                    		config->current_station_source, NULL);
+    else
+	gconf_client_set_string(gconf_client,
+                        	GCONF_KEY_CURRENT_STATION_SOURCE, "",
+                    		NULL);
     /* Save icon set name */
     if (config->icon_set)
         gconf_client_set_string(gconf_client,
@@ -788,10 +806,7 @@ void config_save(AppletConfig * config) {
     gconf_client_set_int(gconf_client,
                          GCONF_KEY_WEATHER_ICONS_SIZE,
                          config->icons_size, NULL);
-    /* Save Weather Data Source  */
-    gconf_client_set_int(gconf_client,
-                         GCONF_KEY_CURRENT_STATION_SOURCE,
-                         config->current_station_source, NULL);
+
     /* Save current setting tab number  */
     gconf_client_set_int(gconf_client,
                          GCONF_KEY_WEATHER_SETTING_TAB_NUMBER,

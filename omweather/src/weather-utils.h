@@ -57,5 +57,7 @@ GtkWidget* create_button_with_image(const char *path, const char *image_name,
 GtkWidget* create_tree_view(GtkListStore* list);
 GtkWidget* create_scrolled_window_with_text(const char* text,
 					    GtkJustification justification);
+int create_icon_set_list(gchar *dir_path, GSList **store, gchar *type); /* scan dir */
+					     /* and add names to the list */
 /*******************************************************************************/
 #endif

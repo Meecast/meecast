@@ -32,7 +32,7 @@
 #include "weather-common.h"
 #include <libxml/HTMLparser.h>
 /*******************************************************************************/
-gint parse_weather_file_data(const gchar *station_id, const gint station_source,
+gint parse_weather_file_data(const gchar *station_id, gchar *station_source,
 					WeatherStationData *wsd,
 						gboolean selected_detail_weather);
 /* weather.com */

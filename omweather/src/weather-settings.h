@@ -70,20 +70,18 @@ void changed_state_handler(GtkWidget *widget, gpointer user_data);
 void changed_stations_handler(GtkWidget *widget, gpointer user_data);
 void changed_sources_handler(GtkWidget *widget, gpointer user_data);
 void weather_window_add_custom_station(void);
-int create_icon_set_list(GSList **store); /* scan /usr/share/omweather/icons */
-					     /* and add names to the list */
 int get_active_item_index(GtkTreeModel *list, int time, const gchar *text,
 					    gboolean use_index_as_result);
 void update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data);
 void transparency_button_toggled_handler(GtkToggleButton *togglebutton,
                                             gpointer user_data);
-gboolean check_station_code(const gint source, const gchar *station_code);
+gboolean check_station_code(gchar *source, const gchar *station_code);
 void up_key_handler(GtkButton *button, gpointer list);
 void down_key_handler(GtkButton *button, gpointer list);
 void new_station_handler(GtkButton *button, gpointer user_data);
 void delete_station_handler(GtkButton *button, gpointer user_data);
 void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
-				gboolean is_gps, guint source);
+				gboolean is_gps, gchar *source);
 void highlight_current_station(GtkTreeView *tree_view);
 int lookup_and_select_station(gchar *db_path, gchar *station_name, Station *result);
 /*******************************************************************************/

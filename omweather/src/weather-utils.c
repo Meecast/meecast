@@ -33,6 +33,19 @@
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
+#if defined (BSD) && !_POSIX_SOURCE
+#include <sys/dir.h>
+typedef struct dirent Dirent;
+#else
+#include <dirent.h>
+#include <linux/fs.h>
+typedef struct dirent Dirent;
+#endif
+/*******************************************************************************/
+/* Hack for Maemo SDK 2.0 */
+#ifndef DT_DIR
+#define DT_DIR 4
+#endif
 /*******************************************************************************/
 float convert_wind_units(int to, float value) {
     float result = value;
@@ -420,4 +433,36 @@ GtkWidget *create_scrolled_window_with_text(const char *text,
     return scrolled_window;
 }
 
+/*******************************************************************************/
+/* get icon set names */
+int create_icon_set_list(gchar *dir_path, GSList ** store, gchar *type){
+    Dirent	*dp;
+    DIR		*dir_fd;
+    gint	sets_number = 0,
+		t = DT_DIR;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(!strcmp(type, "dir"))
+	t = DT_DIR;
+    if(!strcmp(type, "file"))
+	t = DT_REG;
+    dir_fd = opendir(dir_path);
+    if(dir_fd){
+        while((dp = readdir(dir_fd))){
+            if(!strcmp(dp->d_name, ".") || !strcmp(dp->d_name, ".."))
+                continue;
+            if(dp->d_type == t){
+                *store = g_slist_append(*store, g_strdup(dp->d_name));
+                sets_number++;
+            }
+        }
+        closedir(dir_fd);
+    }
+    else{
+        *store = g_slist_append(*store, app->config->icon_set);
+        sets_number++;
+    }
+    return sets_number;
+}
 /*******************************************************************************/

@@ -391,11 +391,12 @@ GtkListStore* create_stations_list(sqlite3 *database, int region_id){
     if(!database || !region_id)
 	return NULL;	/* database doesn't open */
 
-    list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
+    list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_DOUBLE,
+				G_TYPE_DOUBLE);
     *sql = 0;
     snprintf(sql, sizeof(sql) - 1,
-		"SELECT id, name FROM stations WHERE region_id = %d ORDER BY name",
-		region_id);
+		"SELECT name, code, longititude, latitude FROM stations WHERE \
+		region_id = %d ORDER BY name", region_id);
     rc = sqlite3_exec(database, sql, stations_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
 #ifndef RELEASE
@@ -407,34 +408,36 @@ GtkListStore* create_stations_list(sqlite3 *database, int region_id){
     return list;
 }
 /*******************************************************************************/
-GtkListStore* create_sources_list(sqlite3 *database, int station_id, int *source_count){
+GtkListStore* create_sources_list(gchar *db_path){
     GtkListStore	*list = NULL;
-    gint		rc;
-    gchar		*errMsg = NULL;
-    gchar		sql[256];
-    struct request_data	data = { 0, 0 };
+    GSList		*db_set = NULL,
+			*tmp = NULL;
+    GtkTreeIter		iter;
+    gchar		buffer[255],
+			*dot = NULL;
 
-    if(!database || !station_id)
-	return NULL;	/* database doesn't open */
+    if(!db_path)
+	return NULL;	/* error */
 
-    list = gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT);
-    data.list = list;
-    *sql = 0;
-    snprintf(sql, sizeof(sql) - 1,
-		"SELECT sources.code AS code, sources.source_id AS source_number, \
-		sources_name.name AS name \
-		FROM sources JOIN sources_name ON \
-		sources.source_id = sources_name.id WHERE station_id = %d",
-		station_id);
-    rc = sqlite3_exec(database, sql, sources_callback, (void*)&data, &errMsg);
-    if(rc != SQLITE_OK){
-#ifndef RELEASE
-	fprintf(stderr, "\n>>>>%s\n", errMsg);
-#endif
-	sqlite3_free(errMsg);
+    if(create_icon_set_list(DATABASEPATH, &db_set, "file") < 1)
 	return NULL;
+
+    list = gtk_list_store_new(1, G_TYPE_STRING);
+
+    tmp = db_set;
+    while(tmp){
+	*buffer = 0;
+	snprintf(buffer, sizeof(buffer) - 1, "%s", (gchar*)(tmp->data));
+	dot = strstr(buffer, ".db");
+	if(dot){
+	    *dot = 0;	/* delete .db */
+	    gtk_list_store_append(list, &iter);
+	    gtk_list_store_set(list, &iter, 0, buffer, -1);
+	}
+	tmp = g_slist_next(tmp);
     }
-    *source_count = data.count;
+    g_slist_free(db_set);
+
     return list;
 }
 /*******************************************************************************/
@@ -511,31 +514,14 @@ int stations_callback(void *user_data, int argc, char **argv, char **azColName){
     gtk_list_store_append(list, &iter);
 
     for(i = 0; i < argc; i++){
-	if(!strcmp(azColName[i], "id"))
-	    gtk_list_store_set(list, &iter, 1, atoi(argv[i]), -1);
-	if(!strcmp(azColName[i], "name"))
-	    gtk_list_store_set(list, &iter, 0, argv[i], -1);
-    }
-    return 0;
-}
-/*******************************************************************************/
-int sources_callback(void *user_data, int argc, char **argv, char **azColName){
-    int			i;
-    GtkTreeIter		iter;
-    struct request_data	*data = (struct request_data*)user_data;
-    GtkListStore	*list = GTK_LIST_STORE(data->list);
-
-    data->count += argc / 3;
-/* add new item for each first element */
-    gtk_list_store_append(list, &iter);
-
-    for(i = 0; i < argc; i++){
 	if(!strcmp(azColName[i], "name"))
 	    gtk_list_store_set(list, &iter, 0, argv[i], -1);
 	if(!strcmp(azColName[i], "code"))
 	    gtk_list_store_set(list, &iter, 1, argv[i], -1);
-	if(!strcmp(azColName[i], "source_number"))
-	    gtk_list_store_set(list, &iter, 2, atoi(argv[i]), -1);
+	if(!strcmp(azColName[i], "longititude"))
+	    gtk_list_store_set(list, &iter, 2, atof(argv[i]), -1);
+	if(!strcmp(azColName[i], "latitude"))
+	    gtk_list_store_set(list, &iter, 3, atof(argv[i]), -1);
     }
     return 0;
 }

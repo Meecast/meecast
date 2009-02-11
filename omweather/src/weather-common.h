@@ -95,7 +95,7 @@ enum { CELSIUS, FAHRENHEIT };
 enum { INVALID_VALUE = 0, TINY, SMALL, MEDIUM, LARGE, GIANT };
 enum { ICON, STATION_NAME };
 enum { MB, INCH, MM };
-enum { DUMMY = 0, WEATHER_COM, RP5_RU, MAX_WEATHER_SOURCE_NUMBER };
+enum { WEATHER_COM, RP5_RU, MAX_WEATHER_SOURCE_NUMBER };
 enum { TINY_ICON_SIZE = 32, SMALL_ICON_SIZE = 48, MEDIUM_ICON_SIZE = 64,
 	BIG_ICON_SIZE = 80, LARGE_ICON_SIZE = 96, GIANT_ICON_SIZE = 128,
 	SUPER_GIANT_ICON_SIZE = 256
@@ -237,10 +237,11 @@ typedef struct applet_config{
     gchar	*cache_dir_name;
     gchar	*icon_set;
     gchar	*font;
+    gchar	*current_source;
     gchar	*current_country;
     gchar	*current_station_name;
     gchar	*current_station_id;
-    guint	current_station_source;
+    gchar	*current_station_source;
     gchar 	*iap_http_proxy_host;
     gchar 	*cache_directory;
     gint 	iap_http_proxy_port;

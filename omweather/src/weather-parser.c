@@ -35,7 +35,7 @@
 #endif
 enum { RP5RU_DAY_BEGIN = 7, RP5RU_NIGHT_BEGIN = 15 };
 /*******************************************************************************/
-gint parse_weather_file_data(const gchar *station_id, const gint station_source,
+gint parse_weather_file_data(const gchar *station_id, gchar *station_source,
 					WeatherStationData *wsd,
 					    gboolean selected_detail_weather){
     gchar		buffer[2048],
@@ -46,15 +46,17 @@ gint parse_weather_file_data(const gchar *station_id, const gint station_source,
     gint 		(*handler)(const gchar *station_id,
 				    weather_com_parser *parser,
 				    WeatherStationData *wsd);
-    gint		source;
+    gint		source = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 /* check storage is aviable */
     if(!wsd || !station_id)
 	return -1;
-    (station_source < 0) ? (source = 0)
-			 : (source = station_source);
+    if(!strcmp(station_source, "weather.com"))
+	source = 0;
+    if(!strcmp(station_source, "rp5.ru"))
+	source = 1;
 /* init parser */
     if(selected_detail_weather)
 	handler = weather_sources[source].parser_hour;

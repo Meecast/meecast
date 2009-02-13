@@ -1164,6 +1164,10 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 			*column = NULL,
 			*two_rows = NULL,
 			*two_columns = NULL,
+			*right = NULL,
+			*left = NULL,
+			*top = NULL,
+			*bottom = NULL,
 			*selected_icon_set = NULL;
     GSList		*icon_set = NULL;
 #ifndef OS2008
@@ -1219,6 +1223,36 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
         need_correct_layout_for_OS2007 = TRUE;
 #endif
     }
+/* text position */
+    right = lookup_widget(config_window, "left");
+    left = lookup_widget(config_window, "right");
+    top = lookup_widget(config_window, "top");
+    bottom = lookup_widget(config_window, "bottom");
+    if (row && column && two_rows && two_columns) {
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(row)))
+            app->config->icons_layout = ONE_ROW;
+        else {
+            if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(column)))
+                app->config->icons_layout = ONE_COLUMN;
+            else {
+                if (gtk_toggle_button_get_active
+                    (GTK_TOGGLE_BUTTON(two_rows)))
+                    app->config->icons_layout = TWO_ROWS;
+                else {
+                    if (gtk_toggle_button_get_active
+                        (GTK_TOGGLE_BUTTON(two_columns)))
+                        app->config->icons_layout = TWO_COLUMNS;
+                    else
+                        app->config->icons_layout = COMBINATION;
+                }
+            }
+        }
+#ifndef OS2008
+        need_correct_layout_for_OS2007 = TRUE;
+#endif
+    }
+
+
 /* icon set */
     icon_set =
         (GSList *) g_object_get_data(G_OBJECT(config_window),
@@ -2898,7 +2932,6 @@ GtkWidget *create_display_tab(GtkWidget * window) {
         *left = NULL,
         *right = NULL,
         *top = NULL,
-        *group = NULL,
         *bottom = NULL,
         *visible_items_number = NULL,
         *icon_size = NULL,
@@ -2906,6 +2939,7 @@ GtkWidget *create_display_tab(GtkWidget * window) {
         *show_arrows = NULL,
         *separate = NULL,
         *swap_temperature = NULL, *apply_button = NULL, *show_wind = NULL;
+        GSList *group = NULL;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -2979,7 +3013,6 @@ GtkWidget *create_display_tab(GtkWidget * window) {
     gtk_widget_set_size_request(icon_size, 350, -1);
 
 /* third line */
-    fprintf(stderr,"dddddddddddddddddddddddddddddddddddddddddddddddddddd\n");
     third_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(interface_page), third_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(third_line),
@@ -3037,36 +3070,31 @@ GtkWidget *create_display_tab(GtkWidget * window) {
     g_signal_connect(bottom, "clicked",
                      G_CALLBACK(check_buttons_changed_handler),
                      (gpointer) window);
-/*
-    switch (app->config->icons_layout) {
+
+    switch (app->config->text_position) {
     default:
-    case ONE_ROW:
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(one_row_button),
+    case RIGHT:
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(right),
                                      TRUE);
-        app->visuals_tab_start_state |= STATE_ONE_ROW;
+        app->display_tab_start_state |= STATE_RIGHT_POSITION;
         break;
-    case ONE_COLUMN:
+    case LEFT:
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
-                                     (one_column_button), TRUE);
-        app->visuals_tab_start_state |= STATE_ONE_COLUMN;
+                                     (left), TRUE);
+        app->display_tab_start_state |= STATE_LEFT_POSITION;
         break;
-    case TWO_ROWS:
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(two_rows_button),
+    case TOP:
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(top),
                                      TRUE);
-        app->visuals_tab_start_state |= STATE_TWO_ROWS;
+        app->display_tab_start_state |= STATE_TOP_POSITION;
         break;
-    case TWO_COLUMNS:
+    case BOTTOM:
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
-                                     (two_columns_button), TRUE);
-        app->visuals_tab_start_state |= STATE_TWO_COLUMNS;
-        break;
-    case COMBINATION:
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
-                                     (combination_button), TRUE);
-        app->visuals_tab_start_state |= STATE_COMBINATION;
+                                     (bottom), TRUE);
+        app->display_tab_start_state |= STATE_BOTTOM_POSITION;
         break;
     }
-*/
+
 /* fourth line */
     fourth_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(interface_page), fourth_line, TRUE, TRUE, 0);

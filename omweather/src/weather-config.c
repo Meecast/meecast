@@ -616,6 +616,15 @@ gint read_config(AppletConfig * config) {
         || config->icons_layout > COMBINATION)
         config->icons_layout = ONE_ROW;
 
+    /* Get Text Position  Default Right */
+    config->text_position = RIGHT;
+    config->text_position = gconf_client_get_int(gconf_client,
+                                                GCONF_KEY_TEXT_POSITION,
+                                                NULL);
+    if (config->text_position < RIGHT
+        || config->text_position > BOTTOM)
+        config->text_position = RIGHT;
+
     /* Get number days to show default 5 */
     config->days_to_show = gconf_client_get_int(gconf_client,
                                                 GCONF_KEY_WEATHER_DAYS,
@@ -935,6 +944,10 @@ void config_save(AppletConfig * config) {
     /* Save Layout type. */
     gconf_client_set_int(gconf_client,
                          GCONF_KEY_ICONS_LAYOUT, config->icons_layout,
+                         NULL);
+    /* Save Layout type. */
+    gconf_client_set_int(gconf_client,
+                         GCONF_KEY_TEXT_POSITION, config->text_position,
                          NULL);
     /* Save station list */
     stlist = create_stations_string_list();

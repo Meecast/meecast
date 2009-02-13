@@ -89,6 +89,7 @@ enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
 	CHECK_GPS_POSITION
 };
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION };
+enum { RIGHT, LEFT, TOP, BOTTOM };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
 enum { METERS_S, KILOMETERS_H, MILES_H };
 enum { CELSIUS, FAHRENHEIT };
@@ -131,7 +132,11 @@ enum { STATE_VISIBLE_ITEMS	= 1U,
        STATE_SWAP_TEMPERATURE	= 8U,
        STATE_SHOW_WIND		= 16U,
        STATE_SHOW_STATION_NAME	= 32U,
-       STATE_SHOW_ARROWS	= 64U
+       STATE_SHOW_ARROWS	= 64U,
+       STATE_RIGHT_POSITION	= 128U,
+       STATE_LEFT_POSITION	= 256U,
+       STATE_TOP_POSITION	= 512U,
+       STATE_BOTTOM_POSITION	= 1024U
 };
 /* units tab */
 enum { STATE_CELCIUS		= 1U,
@@ -249,6 +254,7 @@ typedef struct applet_config{
     gint	switch_time;
     gint	icons_size;
     gint	icons_layout;
+    gint	text_position;
     gint	current_settings_page;
     gint	days_to_show;
     gint	previos_days_to_show;

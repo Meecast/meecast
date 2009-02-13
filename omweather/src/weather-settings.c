@@ -2893,6 +2893,13 @@ GtkWidget *create_display_tab(GtkWidget * window) {
         *third_line = NULL,
         *fourth_line = NULL,
         *fifth_line = NULL,
+        *six_line = NULL,
+        *position_hbox = NULL,
+        *left = NULL,
+        *right = NULL,
+        *top = NULL,
+        *group = NULL,
+        *bottom = NULL,
         *visible_items_number = NULL,
         *icon_size = NULL,
         *show_station_name = NULL,
@@ -2970,9 +2977,99 @@ GtkWidget *create_display_tab(GtkWidget * window) {
     }
     gtk_box_pack_end(GTK_BOX(second_line), icon_size, FALSE, FALSE, 20);
     gtk_widget_set_size_request(icon_size, 350, -1);
+
 /* third line */
+    fprintf(stderr,"dddddddddddddddddddddddddddddddddddddddddddddddddddd\n");
     third_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(interface_page), third_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(third_line),
+                       gtk_label_new(_("Position:")), FALSE, FALSE, 20);
+    position_hbox = gtk_hbox_new(FALSE, 10);
+    gtk_box_pack_end(GTK_BOX(third_line), position_hbox, FALSE, FALSE, 20);
+    /* make buttons */
+    /* Left position button */
+    left =
+        create_button_with_image(BUTTON_ICONS, "left", 40, TRUE, TRUE);
+    GLADE_HOOKUP_OBJECT(window, left, "left");
+    gtk_widget_set_name(left, "left");
+    gtk_box_pack_start(GTK_BOX(position_hbox), left, FALSE,
+                       FALSE, 0);
+    group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(left));
+    g_signal_connect(left, "clicked",
+                     G_CALLBACK(check_buttons_changed_handler),
+                     (gpointer) window);
+    /* Right position button */
+    right =
+        create_button_with_image(BUTTON_ICONS, "right", 40, TRUE,
+                                 TRUE);
+    GLADE_HOOKUP_OBJECT(window, right, "right");
+    gtk_widget_set_name(right, "right");
+    gtk_box_pack_start(GTK_BOX(position_hbox), right, FALSE,
+                       FALSE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(right), group);
+    g_signal_connect(right, "clicked",
+                     G_CALLBACK(check_buttons_changed_handler),
+                     (gpointer) window);
+    /* Top positon button */
+    top =
+        create_button_with_image(BUTTON_ICONS, "top", 40, TRUE, TRUE);
+    GLADE_HOOKUP_OBJECT(window, top, "top");
+    gtk_widget_set_name(top, "top");
+    gtk_box_pack_start(GTK_BOX(position_hbox), top, FALSE,
+                       FALSE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(top),
+                               gtk_radio_button_get_group
+                               (GTK_RADIO_BUTTON(top)));
+    g_signal_connect(top, "clicked",
+                     G_CALLBACK(check_buttons_changed_handler),
+                     (gpointer) window);
+    /* Bottom position button */
+    bottom =
+        create_button_with_image(BUTTON_ICONS, "bottom", 40, TRUE,
+                                 TRUE);
+    GLADE_HOOKUP_OBJECT(window, bottom, "bottom");
+    gtk_widget_set_name(bottom, "bottom");
+    gtk_box_pack_start(GTK_BOX(position_hbox), bottom, FALSE,
+                       FALSE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(bottom),
+                               gtk_radio_button_get_group
+                               (GTK_RADIO_BUTTON(bottom)));
+    g_signal_connect(bottom, "clicked",
+                     G_CALLBACK(check_buttons_changed_handler),
+                     (gpointer) window);
+/*
+    switch (app->config->icons_layout) {
+    default:
+    case ONE_ROW:
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(one_row_button),
+                                     TRUE);
+        app->visuals_tab_start_state |= STATE_ONE_ROW;
+        break;
+    case ONE_COLUMN:
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
+                                     (one_column_button), TRUE);
+        app->visuals_tab_start_state |= STATE_ONE_COLUMN;
+        break;
+    case TWO_ROWS:
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(two_rows_button),
+                                     TRUE);
+        app->visuals_tab_start_state |= STATE_TWO_ROWS;
+        break;
+    case TWO_COLUMNS:
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
+                                     (two_columns_button), TRUE);
+        app->visuals_tab_start_state |= STATE_TWO_COLUMNS;
+        break;
+    case COMBINATION:
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
+                                     (combination_button), TRUE);
+        app->visuals_tab_start_state |= STATE_COMBINATION;
+        break;
+    }
+*/
+/* fourth line */
+    fourth_line = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_page), fourth_line, TRUE, TRUE, 0);
     /* Separate weather */
     separate =
         gtk_check_button_new_with_label(_
@@ -2985,14 +3082,14 @@ GtkWidget *create_display_tab(GtkWidget * window) {
     gtk_widget_set_name(separate, "separate");
     g_signal_connect(separate, "toggled",
                      G_CALLBACK(check_buttons_changed_handler), window);
-    gtk_box_pack_start(GTK_BOX(third_line), separate, FALSE, FALSE, 20);
-/* fourth line */
-    fourth_line = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(interface_page), fourth_line, TRUE, TRUE,
+    gtk_box_pack_start(GTK_BOX(fourth_line), separate, FALSE, FALSE, 20);
+/* fifth line */
+    fifth_line = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_page), fifth_line, TRUE, TRUE,
                        0);
 
     /* Swap temperature */
-    gtk_box_pack_start(GTK_BOX(fourth_line),
+    gtk_box_pack_start(GTK_BOX(fifth_line),
                        swap_temperature =
                        gtk_check_button_new_with_label(_
                                                        ("Swap hi/low temperature")),
@@ -3006,7 +3103,7 @@ GtkWidget *create_display_tab(GtkWidget * window) {
     g_signal_connect(swap_temperature, "toggled",
                      G_CALLBACK(check_buttons_changed_handler), window);
     /* Show wind */
-    gtk_box_pack_end(GTK_BOX(fourth_line),
+    gtk_box_pack_end(GTK_BOX(fifth_line),
                      show_wind = gtk_check_button_new(), FALSE, FALSE, 20);
     GLADE_HOOKUP_OBJECT(window, show_wind, "show_wind");
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(show_wind),
@@ -3016,11 +3113,11 @@ GtkWidget *create_display_tab(GtkWidget * window) {
     gtk_widget_set_name(show_wind, "show_wind");
     g_signal_connect(show_wind, "toggled",
                      G_CALLBACK(check_buttons_changed_handler), window);
-    gtk_box_pack_end(GTK_BOX(fourth_line),
+    gtk_box_pack_end(GTK_BOX(fifth_line),
                      gtk_label_new(_("Show wind")), FALSE, FALSE, 0);
-/* fifth line */
-    fifth_line = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(interface_page), fifth_line, TRUE, TRUE, 0);
+/* six line */
+    six_line = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(interface_page), six_line, TRUE, TRUE, 0);
     /* Show station name */
     show_station_name =
         gtk_check_button_new_with_label(_("Show station name"));
@@ -3032,7 +3129,7 @@ GtkWidget *create_display_tab(GtkWidget * window) {
     gtk_widget_set_name(show_station_name, "show_station_name");
     g_signal_connect(show_station_name, "toggled",
                      G_CALLBACK(check_buttons_changed_handler), window);
-    gtk_box_pack_start(GTK_BOX(fifth_line), show_station_name, FALSE,
+    gtk_box_pack_start(GTK_BOX(six_line), show_station_name, FALSE,
                        FALSE, 20);
     /* Show arrows */
     show_arrows = gtk_check_button_new();
@@ -3044,8 +3141,8 @@ GtkWidget *create_display_tab(GtkWidget * window) {
     gtk_widget_set_name(show_arrows, "show_arrows");
     g_signal_connect(show_arrows, "toggled",
                      G_CALLBACK(check_buttons_changed_handler), window);
-    gtk_box_pack_end(GTK_BOX(fifth_line), show_arrows, FALSE, FALSE, 20);
-    gtk_box_pack_end(GTK_BOX(fifth_line),
+    gtk_box_pack_end(GTK_BOX(six_line), show_arrows, FALSE, FALSE, 20);
+    gtk_box_pack_end(GTK_BOX(six_line),
                      gtk_label_new(_("Show arrows")), FALSE, FALSE, 0);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

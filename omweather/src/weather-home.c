@@ -39,7 +39,6 @@
 #endif
 #include <unistd.h>
 #include "weather-hash.h"
-#include "weather-units.h"
 #include "weather-data.h"
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL

@@ -729,9 +729,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->flag_updating = 0;
 /* create i18n hash for values coming from xml file */
     app->hash = hash_table_create();
-/* create sources units table */
-    app->sources_units = parse_units_file("/usr/share/omweather/units.xml", "UTF-8");
-
     app->dbus_is_initialize = FALSE;
 /* prepare config struct */
     app->config = g_new0(AppletConfig, 1);

@@ -84,6 +84,7 @@ void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_n
 				gboolean is_gps, gchar *source);
 void highlight_current_station(GtkTreeView *tree_view);
 int lookup_and_select_station(gchar *db_path, gchar *station_name, Station *result);
+gboolean switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data);
 /*******************************************************************************/
 void apply_button_handler(GtkWidget *button, GdkEventButton *event,
 							    gpointer user_data);

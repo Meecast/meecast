@@ -838,8 +838,9 @@ gboolean
 switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
     GtkWidget	*child;
     GtkWidget	*tab;
-    gchar	*tab_name = NULL;
+    const gchar	*tab_name;
 
+    tab_name = NULL;
     GtkWidget *window = GTK_WIDGET(data);
     child = gtk_notebook_get_nth_page(nb, page);
 
@@ -2010,6 +2011,7 @@ check_buttons_changed_handler(GtkToggleButton * button,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+
     config_window = GTK_WIDGET(user_data);
     apply_button = lookup_widget(config_window, "apply_button");
     button_name = (gchar *) gtk_widget_get_name(GTK_WIDGET(button));
@@ -2049,6 +2051,43 @@ check_buttons_changed_handler(GtkToggleButton * button,
             app->visuals_tab_current_state &= ~STATE_COMBINATION;
         goto check;
     }
+/* text position */
+    if (!strcmp(button_name, "right")) {
+        if (gtk_toggle_button_get_active(button))
+            app->display_tab_current_state |= STATE_RIGHT_POSITION;
+        else
+            app->display_tab_current_state &= ~STATE_RIGHT_POSITION;
+        goto check;
+    }
+    if (!strcmp(button_name, "left")) {
+        if (gtk_toggle_button_get_active(button))
+            app->display_tab_current_state |= STATE_LEFT_POSITION;
+        else
+            app->display_tab_current_state &= ~STATE_LEFT_POSITION;
+        goto check;
+    }
+    if (!strcmp(button_name, "top")) {
+        if (gtk_toggle_button_get_active(button))
+            app->display_tab_current_state |= STATE_TOP_POSITION;
+        else
+            app->display_tab_current_state &= ~STATE_TOP_POSITION;
+        goto check;
+    }
+    if (!strcmp(button_name, "bottom")) {
+        if (gtk_toggle_button_get_active(button))
+            app->display_tab_current_state |= STATE_BOTTOM_POSITION;
+        else
+            app->display_tab_current_state &= ~STATE_BOTTOM_POSITION;
+        goto check;
+    }
+    if (!strcmp(button_name, "nothing")) {
+        if (gtk_toggle_button_get_active(button))
+            app->display_tab_current_state |= STATE_NOTHING_POSITION;
+        else
+            app->display_tab_current_state &= ~STATE_NOTHING_POSITION;
+        goto check;
+    }
+
 /* iconset */
     if (!strcmp(button_name, "iconset")) {
         iconset_name = g_object_get_data(G_OBJECT(button), "name");
@@ -3034,10 +3073,10 @@ GtkWidget *create_display_tab(GtkWidget * window) {
     g_signal_connect(left, "clicked",
                      G_CALLBACK(check_buttons_changed_handler),
                      (gpointer) window);
+
     /* Right position button */
     right =
-        create_button_with_image(BUTTON_ICONS, "right", 40, TRUE,
-                                 TRUE);
+        create_button_with_image(BUTTON_ICONS, "right", 40, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, right, "right");
     gtk_widget_set_name(right, "right");
     gtk_box_pack_start(GTK_BOX(position_hbox), right, FALSE,
@@ -3055,7 +3094,7 @@ GtkWidget *create_display_tab(GtkWidget * window) {
                        FALSE, 0);
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(top),
                                gtk_radio_button_get_group
-                               (GTK_RADIO_BUTTON(top)));
+                               (GTK_RADIO_BUTTON(right)));
     g_signal_connect(top, "clicked",
                      G_CALLBACK(check_buttons_changed_handler),
                      (gpointer) window);
@@ -3069,10 +3108,11 @@ GtkWidget *create_display_tab(GtkWidget * window) {
                        FALSE, 0);
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(bottom),
                                gtk_radio_button_get_group
-                               (GTK_RADIO_BUTTON(bottom)));
+                               (GTK_RADIO_BUTTON(top)));
     g_signal_connect(bottom, "clicked",
                      G_CALLBACK(check_buttons_changed_handler),
                      (gpointer) window);
+
     /* Nothing position button */
     nothing =
         create_button_with_image(BUTTON_ICONS, "nothing", 40, TRUE,
@@ -3083,7 +3123,7 @@ GtkWidget *create_display_tab(GtkWidget * window) {
                        FALSE, 0);
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(nothing),
                                gtk_radio_button_get_group
-                               (GTK_RADIO_BUTTON(nothing)));
+                               (GTK_RADIO_BUTTON(bottom)));
     g_signal_connect(bottom, "clicked",
                      G_CALLBACK(check_buttons_changed_handler),
                      (gpointer) window);

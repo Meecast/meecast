@@ -622,7 +622,7 @@ gint read_config(AppletConfig * config) {
                                                 GCONF_KEY_TEXT_POSITION,
                                                 NULL);
     if (config->text_position < RIGHT
-        || config->text_position > BOTTOM)
+        || config->text_position > NOTHING)
         config->text_position = RIGHT;
 
     /* Get number days to show default 5 */

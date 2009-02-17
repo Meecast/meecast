@@ -1168,6 +1168,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 			*left = NULL,
 			*top = NULL,
 			*bottom = NULL,
+			*nothing = NULL,
 			*selected_icon_set = NULL;
     GSList		*icon_set = NULL;
 #ifndef OS2008
@@ -1228,6 +1229,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     left = lookup_widget(config_window, "right");
     top = lookup_widget(config_window, "top");
     bottom = lookup_widget(config_window, "bottom");
+    nothing = lookup_widget(config_window, "nothing");
     if (row && column && two_rows && two_columns) {
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(row)))
             app->config->icons_layout = ONE_ROW;
@@ -2933,6 +2935,7 @@ GtkWidget *create_display_tab(GtkWidget * window) {
         *right = NULL,
         *top = NULL,
         *bottom = NULL,
+        *nothing = NULL,
         *visible_items_number = NULL,
         *icon_size = NULL,
         *show_station_name = NULL,
@@ -3070,6 +3073,20 @@ GtkWidget *create_display_tab(GtkWidget * window) {
     g_signal_connect(bottom, "clicked",
                      G_CALLBACK(check_buttons_changed_handler),
                      (gpointer) window);
+    /* Nothing position button */
+    nothing =
+        create_button_with_image(BUTTON_ICONS, "nothing", 40, TRUE,
+                                 TRUE);
+    GLADE_HOOKUP_OBJECT(window, nothing, "nothing");
+    gtk_widget_set_name(nothing, "nothing");
+    gtk_box_pack_start(GTK_BOX(position_hbox), nothing, FALSE,
+                       FALSE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(nothing),
+                               gtk_radio_button_get_group
+                               (GTK_RADIO_BUTTON(nothing)));
+    g_signal_connect(bottom, "clicked",
+                     G_CALLBACK(check_buttons_changed_handler),
+                     (gpointer) window);
 
     switch (app->config->text_position) {
     default:
@@ -3092,6 +3109,11 @@ GtkWidget *create_display_tab(GtkWidget * window) {
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
                                      (bottom), TRUE);
         app->display_tab_start_state |= STATE_BOTTOM_POSITION;
+        break;
+    case NOTHING:
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
+                                     (bottom), TRUE);
+        app->display_tab_start_state |= STATE_NOTHING_POSITION;
         break;
     }
 

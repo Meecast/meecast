@@ -1591,7 +1591,12 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     if(draw_day_label){
 	    new_day_button->label = gtk_label_new(NULL);
 	    gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
-	    gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_RIGHT);
+        if  (app->config->text_position == LEFT ||
+             app->config->text_position == RIGHT ||
+             app->config->text_position == NOTHING)
+            gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_RIGHT);
+        else
+	        gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_CENTER);
 	    /* Set font size for label */
 	    set_font(new_day_button->label, app->config->font, -1);
     }else
@@ -1753,6 +1758,10 @@ void add_wind_text(GSList *day, gchar *buffer, gboolean is_day){
 void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 							const gchar *day_name){
     gint	temp_current = INT_MAX;
+
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     
     if(strcmp(item_value(day, "day_hi_temperature"), "N/A"))
 	temp_current = atoi(item_value(day, "day_hi_temperature"));
@@ -1783,19 +1792,29 @@ void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
     gint	temp_hi = INT_MAX,
 		temp_low = INT_MAX;
     
+    char delemiter[2] ;
+
+    memset(delemiter, 0, sizeof(delemiter));
     if(strcmp(item_value(day, "day_hi_temperature"), "N/A"))
-	temp_hi = atoi(item_value(day, "day_hi_temperature"));
+	    temp_hi = atoi(item_value(day, "day_hi_temperature"));
 
     if(strcmp(item_value(day, "day_low_temperature"), "N/A"))
-	temp_low = atoi(item_value(day, "day_low_temperature"));
+	    temp_low = atoi(item_value(day, "day_low_temperature"));
     
     if(app->config->temperature_units == FAHRENHEIT){
-	( temp_hi != INT_MAX ) && ( temp_hi = c2f(temp_hi) );
-	( temp_low != INT_MAX ) && ( temp_low = c2f(temp_low) );
+	    ( temp_hi != INT_MAX ) && ( temp_hi = c2f(temp_hi) );
+	    ( temp_low != INT_MAX ) && ( temp_low = c2f(temp_low) );
     }
     
     if(app->config->swap_hi_low_temperature)
-	swap_temperature(&temp_hi, &temp_low);
+	    swap_temperature(&temp_hi, &temp_low);
+    
+    if (app->config->text_position == TOP || app->config->text_position == BOTTOM){ 
+        delemiter[0] = '/';
+    }    
+    else{
+        delemiter[0] = '\n';
+    }
 
     if(!for_combination_mode){
 	sprintf(buffer,
@@ -1806,9 +1825,9 @@ void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 		app->config->font_color.blue >> 8,
 		item_value(day, "day_name"));
 	if(temp_low == INT_MAX)
-	    sprintf(buffer + strlen(buffer), "%s\302\260\n", _("N/A") );
+	    sprintf(buffer + strlen(buffer), "%s\302\260%s", _("N/A"), delemiter );
 	else
-	    sprintf(buffer + strlen(buffer), "%i\302\260\n", temp_low );
+	    sprintf(buffer + strlen(buffer), "%i\302\260%s", temp_low, delemiter );
 	if(temp_hi == INT_MAX)
 	    sprintf(buffer + strlen(buffer), "%s\302\260", _("N/A") );
 	else

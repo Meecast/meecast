@@ -1231,22 +1231,23 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     top = lookup_widget(config_window, "top");
     bottom = lookup_widget(config_window, "bottom");
     nothing = lookup_widget(config_window, "nothing");
-    if (row && column && two_rows && two_columns) {
-        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(row)))
-            app->config->icons_layout = ONE_ROW;
+
+    if ( right && left && top &&  bottom && nothing) {
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(right)))
+            app->config->text_position = RIGHT;
         else {
-            if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(column)))
-                app->config->icons_layout = ONE_COLUMN;
+            if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(left)))
+                app->config->text_position = LEFT;
             else {
                 if (gtk_toggle_button_get_active
-                    (GTK_TOGGLE_BUTTON(two_rows)))
-                    app->config->icons_layout = TWO_ROWS;
+                    (GTK_TOGGLE_BUTTON(top)))
+                    app->config->text_position = TOP;
                 else {
                     if (gtk_toggle_button_get_active
-                        (GTK_TOGGLE_BUTTON(two_columns)))
-                        app->config->icons_layout = TWO_COLUMNS;
+                        (GTK_TOGGLE_BUTTON(bottom)))
+                        app->config->text_position = BOTTOM;
                     else
-                        app->config->icons_layout = COMBINATION;
+                        app->config->text_position = NOTHING;
                 }
             }
         }
@@ -1561,6 +1562,10 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 #ifdef OS2008
     app->sensor_tab_start_state = app->sensor_tab_current_state;
 #endif
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
 }
 
 /*******************************************************************************/

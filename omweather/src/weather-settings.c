@@ -1226,8 +1226,8 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 #endif
     }
 /* text position */
-    right = lookup_widget(config_window, "left");
-    left = lookup_widget(config_window, "right");
+    right = lookup_widget(config_window, "right");
+    left = lookup_widget(config_window, "left");
     top = lookup_widget(config_window, "top");
     bottom = lookup_widget(config_window, "bottom");
     nothing = lookup_widget(config_window, "nothing");
@@ -1255,7 +1255,6 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
         need_correct_layout_for_OS2007 = TRUE;
 #endif
     }
-
 
 /* icon set */
     icon_set =
@@ -3157,7 +3156,7 @@ GtkWidget *create_display_tab(GtkWidget * window) {
         break;
     case NOTHING:
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
-                                     (bottom), TRUE);
+                                     (nothing), TRUE);
         app->display_tab_start_state |= STATE_NOTHING_POSITION;
         break;
     }

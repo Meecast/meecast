@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<source xmlns="https://garage.maemo.org/projects/omweather/">
+<name>weather.com</name>
+<logo>weather.com.png</logo>
+<forecast_url>http://xoap.weather.com/weather/local/%s?cc=*&amp;unit=m&amp;dayf=10</forecast_url>
+<detail_url>http://xoap.weather.com/weather/local/%s?cc=*&amp;dayf=1&amp;unit=m&amp;hbhf=12</detail_url>
+<stattions_db>weather.com.db</stattions_db>
+<library>weather.com-source.so</library>
+</source>

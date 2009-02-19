@@ -31,7 +31,7 @@
 #include "weather-stations.h"
 #include "weather-help.h"
 #include "weather-utils.h"
-#include "weather-sources.h"
+//#include "weather-sources.h"
 #include "weather-alerts.h"
 #include <errno.h>
 #ifdef RELEASE

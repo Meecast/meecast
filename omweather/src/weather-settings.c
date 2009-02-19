@@ -31,6 +31,7 @@
 #include "weather-stations.h"
 #include "weather-help.h"
 #include "weather-utils.h"
+#include "weather-sources.h"
 #include "weather-alerts.h"
 #include <errno.h>
 #ifdef RELEASE
@@ -838,9 +839,7 @@ gboolean
 switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
     GtkWidget	*child;
     GtkWidget	*tab;
-    const gchar	*tab_name;
-
-    tab_name = NULL;
+    const gchar	*tab_name = NULL;
     GtkWidget *window = GTK_WIDGET(data);
     child = gtk_notebook_get_nth_page(nb, page);
 
@@ -2953,8 +2952,8 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
                      gtk_label_new(_("Background color:")), FALSE,
                      FALSE, 0);
 /* pack lines */
-    gtk_box_pack_start(GTK_BOX(visuals_page), first_line, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(visuals_page), second_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(visuals_page), first_line, TRUE, TRUE, 5);
+    gtk_box_pack_start(GTK_BOX(visuals_page), second_line, TRUE, TRUE, 5);
     gtk_box_pack_start(GTK_BOX(visuals_page), fourth_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(visuals_page), fifth_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(visuals_page), sixth_line, TRUE, TRUE, 0);

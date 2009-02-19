@@ -1,5 +1,6 @@
 0.22
   * Added precipitation
+  * Added possibility to change position of text near of icon on main display
 
 0.21.9
   * Fixed the bug #3398 "Omweather doesn't show mmHg in main form (Combo mode)"

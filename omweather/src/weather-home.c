@@ -1625,15 +1625,23 @@ WDB* create_weather_day_button(const char *text, const char *icon,
 
     if (new_day_button->icon_buffer)
         if(app->config->text_position == RIGHT ||
-           app->config->text_position == BOTTOM)
+           app->config->text_position == BOTTOM){
 	        gtk_box_pack_start(GTK_BOX(new_day_button->box),
 			    new_day_button->icon_image, FALSE, FALSE, 0);
-        else 
-            gtk_box_pack_end(GTK_BOX(new_day_button->box),
-			    new_day_button->icon_image, FALSE, FALSE, 0);
-    if(new_day_button->label && app->config->text_position != NOTHING)
-	gtk_box_pack_start(GTK_BOX(new_day_button->box),
+            gtk_box_pack_start(GTK_BOX(new_day_button->box),
 			    new_day_button->label, FALSE, FALSE, 0);
+        }
+        else{	
+            if(app->config->text_position == LEFT ||
+               app->config->text_position == TOP){
+                gtk_box_pack_start(GTK_BOX(new_day_button->box),
+                    new_day_button->label, FALSE, FALSE, 0);
+                gtk_box_pack_start(GTK_BOX(new_day_button->box),
+			        new_day_button->icon_image, FALSE, FALSE, 0);
+            }else
+	            gtk_box_pack_start(GTK_BOX(new_day_button->box),
+			        new_day_button->icon_image, FALSE, FALSE, 0);
+        }
     gtk_container_add(GTK_CONTAINER(new_day_button->button), new_day_button->box);
 
     return new_day_button;
@@ -1724,7 +1732,7 @@ void add_wind_text(GSList *day, gchar *buffer, gboolean is_day){
            if (is_day){
                wind_direction = (char*)hash_table_find(item_value(day, "day_wind_title"), TRUE);
                sprintf(buffer + strlen(buffer),
-                   "<span foreground='#%02x%02x%02x'>\n%s\n",
+                   "<span foreground='#%02x%02x%02x'>\n%s",
                    app->config->font_color.red >> 8,
                    app->config->font_color.green >> 8,
                    app->config->font_color.blue >> 8,
@@ -1738,7 +1746,7 @@ void add_wind_text(GSList *day, gchar *buffer, gboolean is_day){
            }else{
                wind_direction = (char*)hash_table_find(item_value(day, "night_wind_title"), TRUE);
                sprintf(buffer + strlen(buffer),
-                   "<span foreground='#%02x%02x%02x'>\n%s\n",
+                   "<span foreground='#%02x%02x%02x'>\n%s",
                    app->config->font_color.red >> 8,
                    app->config->font_color.green >> 8,
                    app->config->font_color.blue >> 8,

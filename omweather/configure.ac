@@ -15,7 +15,8 @@ AC_PROG_MAKE_SET
 AC_PROG_RANLIB
 AC_PROG_CC
 AC_PROG_LIBTOOL
-AC_PROG_INTLTOOL([0.23])	
+#Problem in Fremantle
+#AC_PROG_INTLTOOL([0.23])
 dnl Checks for libraries.
 AC_CHECK_LIB([sqlite3], [sqlite3Init], [LIBS="-lsqlite3 $LIBS"])
 
@@ -98,7 +99,8 @@ PKG_CHECK_MODULES(HILDONDESKTOP, [libhildondesktop], [hildondesktop=yes], [hildo
 if test "$hildondesktop" == "yes"; then 
          AC_DEFINE(HILDONDESKTOP, 1, [Hildon desktop used]) 
 else 
-         PKG_CHECK_MODULES(DESK, hildon-status-bar-lib >= 0.7.1) 
+#         PKG_CHECK_MODULES(DESK, hildon-status-bar-lib >= 0.7.1) 
+          AC_DEFINE(OS2009, 1, [Version of hildon libraries])
 fi 
 AC_SUBST(HILDONDESKTOP_LIBS)
 AC_SUBST(HILDONDESKTOP_CFLAGS)  
@@ -106,7 +108,9 @@ AC_SUBST(HILDONDESKTOP_CFLAGS)
 
 PKG_CHECK_MODULES(HILDON, [hildon-1 >= 0.9.9], [hildon=yes],[hildon=no])
 if test "$hildon" == "yes"; then
-          AC_DEFINE(OS2008, 1, [Version of hildon libraries])
+	  if test "$hildondesktop" == "yes"; then
+            AC_DEFINE(OS2008, 1, [Version of hildon libraries])
+          fi 
 else    
 	  PKG_CHECK_MODULES(HILDON_LIBS, [hildon-libs >= 0.12.0])
 	  PKG_CHECK_MODULES(DBUS, [dbus-1],

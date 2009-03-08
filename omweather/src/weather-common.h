@@ -60,6 +60,9 @@
     #include <location/location-gps-device.h>
     #include <location/location-gpsd-control.h>
 #endif
+
+#elif OS2009
+    #include <hildon/hildon-banner.h>
 #else
     #include <hildon-widgets/hildon-banner.h>
 #endif
@@ -104,6 +107,9 @@ enum { TINY_ICON_SIZE = 32, SMALL_ICON_SIZE = 48, MEDIUM_ICON_SIZE = 64,
 enum { SETTINGS_STATIONS_PAGE, SETTINGS_VISUALS_PAGE, SETTINGS_DISPLAY_PAGE,
 	SETTINGS_UNITS_PAGE, SETTINGS_UPDATE_PAGE,
 #ifdef OS2008
+	SETTINGS_SENSOR_PAGE,
+#endif
+#ifdef OS2009
 	SETTINGS_SENSOR_PAGE,
 #endif
 	ALERTS_PAGE, MAX_SETTINGS_PAGE_NUMBER, ABOUT_PAGE

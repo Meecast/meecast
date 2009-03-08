@@ -1688,12 +1688,11 @@ entry_changed_handler(GtkWidget *entry, gpointer user_data){
     /* get pressed gtkedit name */
     changed_entry_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(entry));
 
-    if(!changed_entry_name)
+    if (!changed_entry_name)
         return;
-    if(!strcmp(changed_entry_name, "rename_entry")){  /* check rename entry */
+    if (!strcmp(changed_entry_name, "rename_entry")){  /* check rename entry */
         button = lookup_widget(config_window, "apply_rename_button_name");
-        if(button){
-	    if(strlen(gtk_entry_get_text(GTK_ENTRY(entry))) > 0)
+	    if (button && strlen(gtk_entry_get_text(GTK_ENTRY(entry))) > 0){
                if(gtk_entry_get_text(GTK_ENTRY(entry)) &&
                   app->config->current_station_name &&
                   strcmp((char*)gtk_entry_get_text(GTK_ENTRY(entry)),
@@ -1701,18 +1700,18 @@ entry_changed_handler(GtkWidget *entry, gpointer user_data){
                     gtk_widget_set_sensitive(button, TRUE);
                 else
                     gtk_widget_set_sensitive(button, FALSE);
-	}
+        }
     }
     else{
-	if(!strcmp(changed_entry_name, "station_name"))   /* check name entry */
+	    if(!strcmp(changed_entry_name, "station_name"))   /* check name entry */
             button = lookup_widget(config_window, "search_station_button");
-	/* Change sensitive of button */
-	if(button){
-	    if(strlen(gtk_entry_get_text(GTK_ENTRY(entry))) > 0)
-		gtk_widget_set_sensitive(button, TRUE);
-	    else
-		gtk_widget_set_sensitive(button, FALSE);
-	}
+	    /* Change sensitive of button */
+	    if(button){
+	        if(strlen(gtk_entry_get_text(GTK_ENTRY(entry))) > 0)
+		        gtk_widget_set_sensitive(button, TRUE);
+	        else
+		        gtk_widget_set_sensitive(button, FALSE);
+	    }
     }
 }
 /*******************************************************************************/
@@ -2356,6 +2355,9 @@ color_buttons_changed_handler(GtkColorButton * button,
 #ifdef OS2008
         (app->sensor_tab_current_state != app->sensor_tab_start_state)
 #endif
+#ifdef OS2009
+        (app->sensor_tab_current_state != app->sensor_tab_start_state)
+#endif
         )
         gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
     else
@@ -2426,6 +2428,9 @@ void combo_boxs_changed_handler(GtkComboBox * combobox, gpointer user_data) {
 #ifdef OS2008
         (app->sensor_tab_current_state != app->sensor_tab_start_state)
 #endif
+#ifdef OS2009
+        (app->sensor_tab_current_state != app->sensor_tab_start_state)
+#endif
         )
         gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
     else
@@ -2477,6 +2482,9 @@ control_bars_changed_handler(HildonControlbar * control,
         || (app->update_tab_current_state !=
             app->update_tab_start_state) ||
 #ifdef OS2008
+        (app->sensor_tab_current_state != app->sensor_tab_start_state)
+#endif
+#ifdef OS2009
         (app->sensor_tab_current_state != app->sensor_tab_start_state)
 #endif
         )
@@ -3705,7 +3713,10 @@ void font_changed_handler(GtkFontButton * widget, gpointer user_data) {
         || (app->units_tab_current_state != app->units_tab_start_state)
         || (app->update_tab_current_state !=
             app->update_tab_start_state) ||
-#ifdef OS2008
+#ifdef OS2008 
+        (app->sensor_tab_current_state != app->sensor_tab_start_state)
+#endif
+#ifdef OS2009 
         (app->sensor_tab_current_state != app->sensor_tab_start_state)
 #endif
         )

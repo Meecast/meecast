@@ -31,7 +31,9 @@
 /*******************************************************************************/
 #include "weather-common.h"
 #include <libosso.h>
-#ifdef OS2008
+#ifdef OS2009
+    #include <hildon/hildon-help.h>
+#elif OS2008
     #include <hildon/hildon-help.h>
 #else
     #include <osso-helplib.h>

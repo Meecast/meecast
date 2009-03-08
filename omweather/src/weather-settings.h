@@ -31,7 +31,9 @@
 #define _weather_settings_h 1
 /*******************************************************************************/
 #include "weather-common.h"
-#ifdef OS2008
+#ifdef OS2009
+    #include <hildon/hildon-controlbar.h>
+#elif OS2008
     #include <hildon/hildon-controlbar.h>
 #else
     #include <hildon-widgets/hildon-controlbar.h>

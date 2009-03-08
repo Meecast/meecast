@@ -34,6 +34,8 @@
 #include <math.h>
 #ifdef OS2008
     #include <libhildondesktop/libhildondesktop.h>
+#elif OS2009
+
 #else
     #include <hildon-home-plugin/hildon-home-plugin-interface.h>
 #endif

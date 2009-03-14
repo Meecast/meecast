@@ -408,39 +408,6 @@ GtkListStore* create_stations_list(sqlite3 *database, int region_id){
     return list;
 }
 /*******************************************************************************/
-GtkListStore* create_sources_list(gchar *db_path){
-    GtkListStore	*list = NULL;
-    GSList		*db_set = NULL,
-			*tmp = NULL;
-    GtkTreeIter		iter;
-    gchar		buffer[255],
-			*dot = NULL;
-
-    if(!db_path)
-	return NULL;	/* error */
-
-    if(create_icon_set_list(DATABASEPATH, &db_set, "file") < 1)
-	return NULL;
-
-    list = gtk_list_store_new(1, G_TYPE_STRING);
-
-    tmp = db_set;
-    while(tmp){
-	*buffer = 0;
-	snprintf(buffer, sizeof(buffer) - 1, "%s", (gchar*)(tmp->data));
-	dot = strstr(buffer, ".db");
-	if(dot){
-	    *dot = 0;	/* delete .db */
-	    gtk_list_store_append(list, &iter);
-	    gtk_list_store_set(list, &iter, 0, buffer, -1);
-	}
-	tmp = g_slist_next(tmp);
-    }
-    g_slist_free(db_set);
-
-    return list;
-}
-/*******************************************************************************/
 GtkListStore* search_station_in_database(sqlite3 *database, char *code_name){
     GtkListStore	*list = NULL;
     gint		rc;

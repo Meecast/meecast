@@ -18,51 +18,72 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
 
+bin_PROGRAMS = OMWeather
 
-# The Home plugin
-if OS2008 
-libhhdir = $(DESKTOPLIBDIR)
-else
-libhhdir = $(libdir)/hildon-home
-endif
+OMWeather_SOURCES = 	weather-home.c \
+			weather-home.h \
+			weather-parser.h \
+			weather-parser.c \
+			weather-config.h \
+			weather-config.c \
+			weather-settings.h \
+			weather-settings.c \
+			weather-common.h \
+			weather-event.c \
+			weather-event.h \
+			weather-hash.h \
+			weather-hash.c \
+			weather-download.h \
+			weather-download.c \
+			weather-stations.h \
+			weather-stations.c \
+			weather-data.h \
+			weather-data.c \
+			weather-popup.h \
+			weather-popup.c \
+			weather-gps.h \
+			weather-gps.c \
+			weather-gpsdistance.h \
+			weather-gpsdistance.c \
+			weather-help.h \
+			weather-help.c \
+			weather-utils.h \
+			weather-utils.c \
+			weather-sensor.h \
+			weather-sensor.c \
+			weather-applet-expose.c \
+			weather-applet-expose.h \
+			weather-alerts.h \
+			weather-alerts.c \
+			weather-sources.h \
+			weather-sources.c \
+			weather-main.h \
+			weather-main.c
 
-libhh_LTLIBRARIES = libweather-home.la
+OMWeather_CFLAGS =	$(GTK_CFLAGS) \
+			$(OSSO_CFLAGS) \
+			$(DBUS_CFLAGS) \
+			$(GNOME_VFS_CFLAGS) \
+			$(GCONF_CFLAGS) \
+			$(LIBXML2_CFLAGS) \
+			$(HILDON_CFLAGS) \
+			$(CONIC_CFLAGS) \
+			$(LIBOSSOHELP_CFLAGS) \
+			$(LIBCURL_CFLAGS) \
+			-DDEBUGFUNCTIONCALL \
+			-Wall -pedantic \
+			-Wmissing-prototypes
 
-libweather_home_la_SOURCES = weather-home.c \
-			     weather-home.h \
-			     weather-parser.h \
-			     weather-parser.c \
-			     weather-config.h \
-			     weather-config.c \
-			     weather-settings.h \
-			     weather-settings.c \
-			     weather-common.h \
-			     weather-event.c \
-			     weather-event.h \
-			     weather-hash.h \
-			     weather-hash.c \
-			     weather-download.h \
-			     weather-download.c \
-			     weather-stations.h \
-			     weather-stations.c \
-			     weather-data.h \
-			     weather-data.c \
-			     weather-popup.h \
-			     weather-popup.c \
-			     weather-gps.h \
-			     weather-gps.c \
-			     weather-gpsdistance.h \
-			     weather-gpsdistance.c \
-			     weather-help.h \
-			     weather-help.c \
-			     weather-utils.h \
-			     weather-utils.c \
-			     weather-sensor.h \
-			     weather-sensor.c \
-			     weather-applet-expose.c \
-			     weather-applet-expose.h \
-			     weather-alerts.h \
-			     weather-alerts.c
+OMWeather_LDADD =	$(GTK_LIBS) \
+			$(OSSO_LIBS) \
+			$(DBUS_LIBS) \
+			$(GNOME_VFS_LIBS) \
+			$(GCONF_LIBS) \
+			$(LIBXML2_LIBS) \
+			$(HILDON_LIBS) \
+			$(CONIC_LIBS) \
+			$(LIBOSSOHELP_LIBS) \
+			$(LIBCURL_LIBS)
 
 weather-hash.c:		hash.data
 	if test -f hash.data; then \
@@ -79,20 +100,19 @@ weather-help.c:	build
 	    echo "#define BUILD \""`date +%V`"\"" > build; \
 	fi
 
-libweather_home_la_CFLAGS = $(GTK_CFLAGS) $(OSSO_CFLAGS) $(LIBXML2_CFLAGS) $(GNOME_VFS_CFLAGS) \
-			    $(GCONF_CFLAGS) $(CONIC_CFLAGS) $(DBUS_CFLAGS) $(HILDONDESKTOP_CFLAGS) \
-			    $(DESKTOP_CFLAGS) $(OSSOIC_CFLAGS) $(LOCATION_CFLAGS) $(LIBOSSOHELP_CFLAGS) \
-			    $(HILDON_CFLAGS) \
-			    -Wall -pedantic -Wmissing-prototypes -DDISPLAY_BUILD
+#libweather_home_la_CFLAGS =  $(DBUS_CFLAGS) 
+#			    $(DESKTOP_CFLAGS) $(OSSOIC_CFLAGS) $(LOCATION_CFLAGS)  \
+#			    
+#			    -Wall -pedantic -Wmissing-prototypes -DDISPLAY_BUILD
 
-libweather_home_la_LDFLAGS =  -module -avoid-version 
+#libweather_home_la_LDFLAGS =  -module -avoid-version 
 
-libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCONF_LIBS) $(DBUS_LIBS) \
-			    $(LIBCURL_LIBS) $(CONIC_LIBS) $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS) $(OSSOIC_LIBS) \
-			    $(LOCATION_LIBS) $(LIBOSSOHELP_LIBS) $(HILDON_LIBS)
+#libweather_home_la_LIBADD = $(DBUS_LIBS) \
+#			    $(LIBCURL_LIBS)  $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS) $(OSSOIC_LIBS) \
+#			    $(LOCATION_LIBS)  $(HILDON_LIBS)
 
 #libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCONF_LIBS) $(DBUS_LIBS) \
-#			    $(LIBCURL_LIBS) $(CONIC_LIBS) $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS) $(OSSOIC_LIBS) \
+#			     $(CONIC_LIBS) $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS) $(OSSOIC_LIBS) \
 #			    $(LIBOSSOHELP_LIBS)
 
 clean-local:

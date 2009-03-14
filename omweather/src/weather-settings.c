@@ -31,7 +31,7 @@
 #include "weather-stations.h"
 #include "weather-help.h"
 #include "weather-utils.h"
-//#include "weather-sources.h"
+#include "weather-sources.h"
 #include "weather-alerts.h"
 #include <errno.h>
 #ifdef RELEASE
@@ -256,8 +256,10 @@ new_station_handler(GtkButton *button, gpointer user_data){
 		*sources = NULL,
 		*add_button = NULL,
 		*search_button = NULL,
-		*banner = NULL;
-    gint	result;
+		*banner = NULL,
+		*label = NULL;
+    gint	result,
+		sources_number = 0;
 
     banner = hildon_banner_show_information(GTK_WIDGET(user_data),
 				    NULL,
@@ -286,104 +288,113 @@ new_station_handler(GtkButton *button, gpointer user_data){
     gtk_widget_set_size_request(window, 600, -1);
     g_object_set_data(G_OBJECT(window), "list", (gpointer)&list);
     /* right side */
-    right_table = gtk_table_new(10, 2, FALSE);
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
-                       right_table, TRUE, TRUE, 10);
-    /* label By name */
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              gtk_label_new(_("Name:")), 0, 1, 0, 1);
-    /* entry for station name */
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              station_name = gtk_entry_new(),
-                              1, 2, 0, 1);
-    GLADE_HOOKUP_OBJECT(window, station_name, "station_name_entry");
-    gtk_widget_set_name(station_name, "station_name");
+    /* create sources list from aviable sources */
+    list.sources_list = create_sources_list(SOURCESPATH, &sources_number);
+    if(list.sources_list){
+	right_table = gtk_table_new(10, 2, FALSE);
+	gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
+			    right_table, TRUE, TRUE, 10);
+	/* Sources label */
+	gtk_table_attach_defaults(GTK_TABLE(right_table),
+				    gtk_label_new(_("Source:")), 0, 1, 0, 1);
+	/* sources list */
+	gtk_table_attach_defaults(GTK_TABLE(right_table),
+				    sources = gtk_combo_box_new_text(),
+				    1, 2, 0, 1);
+	gtk_combo_box_set_model(GTK_COMBO_BOX(sources),
+				(GtkTreeModel*)list.sources_list);
+	gtk_widget_show(sources);
+	GLADE_HOOKUP_OBJECT(window, GTK_WIDGET(sources), "sources");
+	/* label By name */
+	gtk_table_attach_defaults(GTK_TABLE(right_table),
+				    gtk_label_new(_("Name:")), 0, 1, 1, 2);
+	/* entry for station name */
+	gtk_table_attach_defaults(GTK_TABLE(right_table),
+				    station_name = gtk_entry_new(),
+				    1, 2, 1, 2);
+	GLADE_HOOKUP_OBJECT(window, station_name, "station_name_entry");
+	gtk_widget_set_name(station_name, "station_name");
 //    g_signal_connect(G_OBJECT(station_name), "changed",
 //                     G_CALLBACK(entry_changed_handler), (gpointer)window);
-    /* Label */
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              gtk_label_new(_("From the list:")),
-                              1, 2, 1, 2);
-    /* Sources label */
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              gtk_label_new(_("Source:")), 0, 1, 2, 3);
-    /* sources list */
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              sources = gtk_combo_box_new_text(),
-                              1, 2, 2, 3);
-    list.sources = sources;
-    list.sources_list = create_sources_list(DATABASEPATH);
-    gtk_combo_box_set_model(GTK_COMBO_BOX(sources),
-                            (GtkTreeModel*)list.sources_list);
-    gtk_widget_show(sources);
-    GLADE_HOOKUP_OBJECT(window, GTK_WIDGET(sources), "sources");
-    /* Countries label */
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              gtk_label_new(_("Country:")),
-                              0, 1, 3, 4);
-    /* countries list  */
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              countries = gtk_combo_box_new_text(),
-                              1, 2, 3, 4);
-    list.countries = countries;
-    gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(countries), 0);
-    gtk_widget_show(countries);
-    /* States label */
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              gtk_label_new(_("State:")),
-                              0, 1, 4, 5);
-    /* states list */
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              states = gtk_combo_box_new_text(),
-				1, 2, 4, 5);
-    list.states = states;
-    gtk_widget_show(states);
-    /* Stations label */
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              gtk_label_new(_("City:")), 0, 1, 5, 6);
-    /* stations list */
-    gtk_table_attach_defaults(GTK_TABLE(right_table),
-                              stations = gtk_combo_box_new_text(),
-                              1, 2, 5, 6);
-    list.stations = stations;
-    gtk_widget_show(stations);
-    GLADE_HOOKUP_OBJECT(window, GTK_WIDGET(stations), "stations");
-    /* Set size */
-    gtk_widget_set_size_request(countries, 300, -1);
-    gtk_widget_set_size_request(states, 300, -1);
-    gtk_widget_set_size_request(stations, 300, -1);
-    gtk_widget_set_size_request(sources, 300, -1);
-/* Set default value to country combo_box */
-    if(list.sources_list && app->config->current_source){
-	/* set active last selected source */
-	gtk_combo_box_set_active(GTK_COMBO_BOX(sources),
+	/* Label */
+	gtk_table_attach_defaults(GTK_TABLE(right_table),
+				    gtk_label_new(_("From the list:")),
+				    1, 2, 2, 3);
+	/* Countries label */
+	gtk_table_attach_defaults(GTK_TABLE(right_table),
+				    gtk_label_new(_("Country:")),
+				    0, 1, 3, 4);
+	/* countries list  */
+	gtk_table_attach_defaults(GTK_TABLE(right_table),
+				    countries = gtk_combo_box_new_text(),
+				    1, 2, 3, 4);
+	list.countries = countries;
+	gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(countries), 0);
+	gtk_widget_show(countries);
+	/* States label */
+	gtk_table_attach_defaults(GTK_TABLE(right_table),
+				    gtk_label_new(_("State:")),
+				    0, 1, 4, 5);
+	/* states list */
+	gtk_table_attach_defaults(GTK_TABLE(right_table),
+				    states = gtk_combo_box_new_text(),
+				    1, 2, 4, 5);
+	list.states = states;
+	gtk_widget_show(states);
+	/* Stations label */
+	gtk_table_attach_defaults(GTK_TABLE(right_table),
+				    gtk_label_new(_("City:")), 0, 1, 5, 6);
+	/* stations list */
+	gtk_table_attach_defaults(GTK_TABLE(right_table),
+				    stations = gtk_combo_box_new_text(),
+				    1, 2, 5, 6);
+	list.stations = stations;
+	gtk_widget_show(stations);
+	GLADE_HOOKUP_OBJECT(window, GTK_WIDGET(stations), "stations");
+	/* Set size */
+	gtk_widget_set_size_request(countries, 300, -1);
+	gtk_widget_set_size_request(states, 300, -1);
+	gtk_widget_set_size_request(stations, 300, -1);
+	gtk_widget_set_size_request(sources, 300, -1);
+	/* Set default value to country combo_box */
+	if(list.sources_list && app->config->current_source){
+	    /* set active last selected source */
+	    gtk_combo_box_set_active(GTK_COMBO_BOX(sources),
 				get_active_item_index((GtkTreeModel*)list.sources_list,
 							-1,
 							app->config->current_source,
 							TRUE));
-	/* fill countries list */
-	changed_sources_handler(sources, window);
-	/* set active last selected country */
-	gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
+	    /* fill countries list */
+	    changed_sources_handler(sources, window);
+	    /* set active last selected country */
+	    gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
 				get_active_item_index((GtkTreeModel*)list.countries_list,
 							-1,
 							app->config->current_country,
 							TRUE));
-	/* fill states list */
-	changed_country_handler(countries, window);
-        /* fill stations list */
-        changed_state_handler(states, window);
+	    /* fill states list */
+	    changed_country_handler(countries, window);
+	    /* fill stations list */
+	    changed_state_handler(states, window);
+	}
+	/* assign signals */
+	g_signal_connect(sources, "changed", G_CALLBACK(changed_sources_handler),
+			    (gpointer)window);
+	g_signal_connect(countries, "changed", G_CALLBACK(changed_country_handler),
+			    (gpointer)window);
+	g_signal_connect(states, "changed", G_CALLBACK(changed_state_handler),
+			    (gpointer)window);
+	g_signal_connect(stations, "changed", G_CALLBACK(changed_stations_handler),
+			    (gpointer)window);
+    }/* end if(list.sources_list) */
+    else{
+	gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
+			    label = gtk_label_new(_("Does not to add station, "
+						    "because no one\n"
+						    "of '*-source' packages was installed.")),
+			    TRUE, TRUE, 10);
+	set_font(label, NULL, 18);
     }
-/* assign signals */
-    g_signal_connect(sources, "changed", G_CALLBACK(changed_sources_handler),
-			(gpointer)window);
-    g_signal_connect(countries, "changed", G_CALLBACK(changed_country_handler),
-			(gpointer)window);
-    g_signal_connect(states, "changed", G_CALLBACK(changed_state_handler),
-			(gpointer)window);
-    g_signal_connect(stations, "changed", G_CALLBACK(changed_stations_handler),
-			(gpointer)window);
-
     gtk_widget_show_all(window);
     gtk_widget_destroy(banner);
 /* start dialog window */
@@ -910,7 +921,7 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
     GtkWidget	*window_config = NULL,
 		*notebook = NULL,
 		*vbox = NULL,
-#if defined(OS2008) || defined(DEBUGTEMP)
+#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
 		*sensor_tab = NULL,
 #endif
 		*buttons_box = NULL,
@@ -1067,7 +1078,7 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
         g_object_set_data(G_OBJECT(window_config), "update_tab",
                           (gpointer) update_tab);
     }
-#if defined(OS2008) || defined(DEBUGTEMP)
+#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
 /* Add Sensor Tab Page = 5 */
     if (app->config->current_settings_page ==
         gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))) {
@@ -1145,7 +1156,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 			*validtime = NULL,
 			*update_time = NULL,
 			*download_after_connection = NULL,
-#if defined(OS2008) || defined(DEBUGTEMP)
+#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
 			*use_sensor = NULL,
 			*display_at = NULL,
 			*sensor_update_time = NULL,
@@ -1417,7 +1428,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 #endif
         }
     }
-#if defined(OS2008) || defined(DEBUGTEMP)
+#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
 /* use sensor */
     use_sensor = lookup_widget(config_window, "use_sensor");
     if (use_sensor)
@@ -2270,7 +2281,7 @@ check_buttons_changed_handler(GtkToggleButton * button,
             app->update_tab_current_state &= ~STATE_AUTO_CONNECT;
         goto check;
     }
-#if defined(OS2008) || defined(DEBUGTEMP)
+#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
 /* use sensor */
     if (!strcmp(button_name, "use_sensor")) {
         if (gtk_toggle_button_get_active(button))

@@ -34,14 +34,14 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-#if defined(OS2008) || defined(DEBUGTEMP)
-#ifdef OS2008                   /* sensor path at Nokia N810 */
+#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
+#if defined(OS2008) || defined(OS2009)	/* sensor path at Nokia N810 */
 #define SENSOR "/sys/devices/platform/i2c_omap.1/i2c-1/1-0048/temp1_input"
 #else                           /* sensor path at the PC */
 #define SENSOR "/sys/devices/platform/w83627hf.656/temp2_input"
 #endif
 #endif
-#if defined(OS2008) || defined(DEBUGTEMP)
+#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
 /*******************************************************************************/
 GtkWidget *create_sensor_page(GtkWidget * config_window) {
     GtkWidget *main_widget = NULL,

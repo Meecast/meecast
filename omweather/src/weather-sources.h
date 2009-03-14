@@ -26,26 +26,20 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-#ifndef _weather_stations_h
-#define _weather_stations_h 1
+#ifndef _weather_sources_h
+#define _weather_sourcess_h 1
 /*******************************************************************************/
 #include "weather-common.h"
 /*******************************************************************************/
-GtkListStore* create_items_list(const char *path, const char *filename,
-				long start, long end, long *items_number);
-int parse_country_string(const char *string, Country_item *result);
-int parse_region_string(const char *string, Region_item *result);
-int parse_station_string(const char *string, Station *result);
-/*******************************************************************************/
-sqlite3* open_database(const char *path, const char *filename);
-void close_database(sqlite3 *database);
-GtkListStore* create_countries_list(sqlite3 *database);
-GtkListStore* create_regions_list(sqlite3 *database, int country_id, int *region_count);
-GtkListStore* create_stations_list(sqlite3 *database, int region_id);
-GtkListStore* search_station_in_database(sqlite3 *database, char *code_name);
-int countries_callback(void *user_data, int argc, char **argv, char **azColName);
-int regions_callback(void *user_data, int argc, char **argv, char **azColName);
-int stations_callback(void *user_data, int argc, char **argv, char **azColName);
-int search_callback(void *user_data, int argc, char **argv, char **azColName);
+GtkListStore* create_sources_list(gchar *sources_path, gint *sources_number);
+GHashTable* parse_source_file(const gchar *filename, const gchar *encoding);
+gboolean source_params_valid(GHashTable *data);
+gboolean source_library_valid(GHashTable *data);
+gboolean source_forecast_url_valid(GHashTable *data);
+gboolean source_detail_url_valid(GHashTable *data);
+gboolean source_stations_database_valid(GHashTable *data);
+gboolean source_logo_file_valid(GHashTable *data);
+void parse_children(xmlNode *node, GHashTable *object);
 /*******************************************************************************/
 #endif
+

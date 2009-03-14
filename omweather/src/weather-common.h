@@ -78,6 +78,8 @@
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
 #define Max_count_weather_day	10
 #define DATABASEPATH		"/usr/share/omweather/db/"
+#define SOURCESPATH		"/usr/share/omweather/sources/"
+#define COPYRIGHT_ICONS		"/usr/share/omweather/copyright_icons/"
 #define COUNTRIESFILE		"countries.list"
 #define REGIONSFILE		"regions.list"
 #define LOCATIONSFILE		"locations.list"
@@ -106,10 +108,7 @@ enum { TINY_ICON_SIZE = 32, SMALL_ICON_SIZE = 48, MEDIUM_ICON_SIZE = 64,
 };
 enum { SETTINGS_STATIONS_PAGE, SETTINGS_VISUALS_PAGE, SETTINGS_DISPLAY_PAGE,
 	SETTINGS_UNITS_PAGE, SETTINGS_UPDATE_PAGE,
-#ifdef OS2008
-	SETTINGS_SENSOR_PAGE,
-#endif
-#ifdef OS2009
+#if defined(OS2008) || defined(OS2009)
 	SETTINGS_SENSOR_PAGE,
 #endif
 	ALERTS_PAGE, MAX_SETTINGS_PAGE_NUMBER, ABOUT_PAGE
@@ -269,7 +268,7 @@ typedef struct applet_config{
     gint	wind_units;
     gint	temperature_units;
     gint	pressure_units;
-#if defined(OS2008) || defined(DEBUGTEMP)
+#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
     gint	display_at;
     gboolean	use_sensor;
     guint	sensor_update_time;
@@ -368,13 +367,14 @@ typedef struct OMWeatherApplet{
     gdouble		temporary_station_longtitude;
 #endif
 #endif
-#if defined(OS2008) || defined(DEBUGTEMP)
+#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
     gfloat		sensor_data;
 #endif
 #ifdef USE_CONIC    
     ConIcConnection 	*connection;
 #endif
     WeatherStationData	wsd;
+    GSList		*sources;
 }OMWeatherApp;
 /*******************************************************************************/
 extern	OMWeatherApp	*app;

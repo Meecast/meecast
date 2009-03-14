@@ -72,6 +72,10 @@ gboolean expose_main_window1(GtkWidget *widget, GdkEventExpose *event);
 GtkWidget*
 settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent);
 #endif
+#ifdef OS2009
+gboolean
+omweather_init_OS2009(GtkWidget *applet);
+#endif
 /*******************************************************************************/
 extern void swap_temperature(int *hi, int *low);
 extern float c2f(float temp);
@@ -103,14 +107,14 @@ extern gint parse_weather_com_xml_hour(const gchar *station_id, weather_com_pars
 extern gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser, WeatherStationData *wsd);
 extern time_t last_update_time(GSList *object);
 extern float convert_wind_units(int to, float value);
-#ifdef OS2008
+#if defined(OS2008) || defined(OS2009)
 extern void initial_gps_connect(void);
 extern void deinitial_gps_connect(void);
 extern gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
 #endif
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 extern float mb2inch(float pressure);
-#if defined(OS2008) || defined(DEBUGTEMP)
+#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
 extern void read_sensor(gint need_redraw);
 extern WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,
 				gboolean draw_day_label, GdkColor *color);

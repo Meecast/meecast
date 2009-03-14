@@ -36,7 +36,6 @@
 #endif
 /*******************************************************************************/
 #define MOON_ICONS		"/usr/share/omweather/moon_icons/"
-#define COPYRIGHT_ICONS		"/usr/share/omweather/copyright_icons/"
 /*******************************************************************************/
 void
 destroy_popup_window(void){
@@ -342,7 +341,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 
 /* station name */
     label_box = gtk_event_box_new();
-	gtk_container_add(GTK_CONTAINER(label_box),
+    gtk_container_add(GTK_CONTAINER(label_box),
 	create_window_header(app->config->current_station_name, app->popup_window));
     gtk_box_pack_start(GTK_BOX(vbox),
 			label_box,
@@ -395,7 +394,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
        active_tab = active_tab + k;
 
     if(!app->config->separate && !current_tab )
-	active_tab ++;
+	active_tab++;
     
 /* Detailed weather tab */
     if (!app->wsd.hours_data_is_invalid &&  app->wsd.hours_weather){

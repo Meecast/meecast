@@ -26,26 +26,13 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-#ifndef _weather_stations_h
-#define _weather_stations_h 1
+#ifndef _weather_parser_h
+#define _weather_parser_h 1
 /*******************************************************************************/
 #include "weather-common.h"
 /*******************************************************************************/
-GtkListStore* create_items_list(const char *path, const char *filename,
-				long start, long end, long *items_number);
-int parse_country_string(const char *string, Country_item *result);
-int parse_region_string(const char *string, Region_item *result);
-int parse_station_string(const char *string, Station *result);
-/*******************************************************************************/
-sqlite3* open_database(const char *path, const char *filename);
-void close_database(sqlite3 *database);
-GtkListStore* create_countries_list(sqlite3 *database);
-GtkListStore* create_regions_list(sqlite3 *database, int country_id, int *region_count);
-GtkListStore* create_stations_list(sqlite3 *database, int region_id);
-GtkListStore* search_station_in_database(sqlite3 *database, char *code_name);
-int countries_callback(void *user_data, int argc, char **argv, char **azColName);
-int regions_callback(void *user_data, int argc, char **argv, char **azColName);
-int stations_callback(void *user_data, int argc, char **argv, char **azColName);
-int search_callback(void *user_data, int argc, char **argv, char **azColName);
+GtkWidget* create_omweather(void);
+GtkWidget* create_main_screen(void);
 /*******************************************************************************/
 #endif
+

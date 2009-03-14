@@ -35,7 +35,7 @@
 #ifdef OS2008
     #include <libhildondesktop/libhildondesktop.h>
 #elif OS2009
-
+    #include <hildon/hildon.h>
 #else
     #include <hildon-home-plugin/hildon-home-plugin-interface.h>
 #endif
@@ -689,7 +689,10 @@ void update_weather(gboolean show_update_window){
 	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }
 /*******************************************************************************/
-#ifdef OS2008
+#ifdef OS2009
+gboolean
+omweather_init_OS2009(GtkWidget *applet){
+#elif OS2008
 void
 omweather_init(OMWeather *applet){
     GtkSettings *settings;
@@ -700,6 +703,7 @@ void*
 hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
 #endif
+#ifndef OS2009
     osso_context_t	*osso = NULL;
 
     osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
@@ -711,13 +715,16 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	return;
 #endif
     }
+#endif
 /* Checking noomweather.txt file */
     if ((access("/media/mmc1/noomweather.txt", R_OK) == 0)||
         (access("/media/mmc2/noomweather.txt", R_OK) == 0))
-#ifndef OS2008
-        return NULL;
+#ifdef OS2009
+	return FALSE;
+#elif OS2008
+        return;
 #else
-	return;
+	return NULL;
 #endif
 
     app = g_new0(OMWeatherApp, 1);
@@ -726,7 +733,9 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	exit(1);
     }
     memset(app, 0, sizeof(OMWeatherApp));
+#ifndef OS2009
     app->osso = osso;
+#endif
     app->flag_updating = 0;
 /* create i18n hash for values coming from xml file */
     app->hash = hash_table_create();
@@ -736,10 +745,12 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     if(!app->config){
         fprintf(stderr, "\nCan not allocate memory for config.\n");
         g_free(app);
-#ifndef OS2008
-        return NULL;
+#ifdef OS2009
+	return FALSE;
+#elif OS2008
+        return;
 #else
-	return;
+	return NULL;
 #endif
     }
 /* list of user selected stations */
@@ -757,10 +768,12 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         fprintf(stderr, "\nCan not read config file.\n");
         g_free(app->config);
         g_free(app);
-#ifndef OS2008
-        return NULL;
+#ifdef OS2009
+	return FALSE;
+#elif OS2008
+        return;
 #else
-	return;
+	return NULL;
 #endif
     }
     app->time_update_list = create_time_update_list();
@@ -772,37 +785,43 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     timer(60000);  /* One per minute */
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
-#ifndef OS2008
+    redraw_home_window(TRUE);
+#if !defined(OS2008) && !defined(OS2009)
     redraw_home_window(TRUE);
 #endif
+#if defined(OS2008) || defined(OS2009)
 #ifdef OS2008
     applet->queueRefresh = TRUE;
+#endif
 #ifdef ENABLE_GPS
     app->gps_device = NULL;
     initial_gps_control();
 #endif
     app->widget_first_start = TRUE;
-
+#ifdef OS2008
     gtk_widget_set_name(GTK_WIDGET(app->top_widget), PACKAGE_NAME);
-
+#endif
+#ifdef OS2008
     snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s/%s",
 	                    app->config->cache_directory, "style.rc");
     gtk_rc_parse(tmp_buff);
     applet->priv = G_TYPE_INSTANCE_GET_PRIVATE(applet, TYPE_OMWEATHER, OMWeatherPrivate);
-
     settings = gtk_settings_get_default();
     cm = gdk_screen_get_rgba_colormap(gdk_screen_get_default());
     if(cm)
 	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
-    
+#endif
     gtk_container_add(GTK_CONTAINER(applet), app->top_widget);
+#ifdef OS2009
+    return TRUE;
+#endif
 #else
     (*widget) = app->top_widget;
     return (void*)osso;
 #endif
 }
 /*******************************************************************************/
-#ifndef OS2008
+#if !defined(OS2008) && !defined(OS2009)
 int hildon_home_applet_lib_save_state(void *raw_data, void **state_data, 
 								int *state_size){
     (*state_data) = NULL;
@@ -880,7 +899,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 #endif
     if(app){
 	app->top_widget = NULL;    
-    app->main_window = NULL;
+	app->main_window = NULL;
 	free_memory();
 	if(app->config)
 	    g_free(app->config);
@@ -1625,7 +1644,7 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     else 
         new_day_button->box = gtk_vbox_new(FALSE, 0);
 
-    if (new_day_button->icon_buffer)
+    if (new_day_button->icon_buffer){
         if(app->config->text_position == RIGHT ||
            app->config->text_position == BOTTOM){
 	        gtk_box_pack_start(GTK_BOX(new_day_button->box),
@@ -1644,6 +1663,7 @@ WDB* create_weather_day_button(const char *text, const char *icon,
 	            gtk_box_pack_start(GTK_BOX(new_day_button->box),
 			        new_day_button->icon_image, FALSE, FALSE, 0);
         }
+    }
     gtk_container_add(GTK_CONTAINER(new_day_button->button), new_day_button->box);
 
     return new_day_button;

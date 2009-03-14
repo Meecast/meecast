@@ -4,6 +4,7 @@
 <logo>weather.com.png</logo>
 <forecast_url>http://xoap.weather.com/weather/local/%s?cc=*&amp;unit=m&amp;dayf=10</forecast_url>
 <detail_url>http://xoap.weather.com/weather/local/%s?cc=*&amp;dayf=1&amp;unit=m&amp;hbhf=12</detail_url>
+<station_search_url></station_search_url>
 <stations_db>weather.com.db</stations_db>
 <library>weather.com-source.so</library>
 </source>

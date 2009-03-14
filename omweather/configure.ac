@@ -2,7 +2,8 @@ AC_PREREQ(2.59)
 AC_INIT(omweather, 0.22)
 AM_INIT_AUTOMAKE(omweather, 0.22)
 AC_CONFIG_HEADER([src/config.h:src/config.h.in])
-AC_CONFIG_SRCDIR([src/weather-home.c])
+#AC_CONFIG_SRCDIR([src/weather-home.c])
+AC_CONFIG_SRCDIR([src/weather-main.c])
 AC_CANONICAL_HOST
 AC_GNU_SOURCE
 dnl Checks for programs.
@@ -119,7 +120,7 @@ else
 	    ],
 	    [
 	        use_dbus="no"
-	        echo 'No New Connectivity DBUS Library!!!!.'
+	        echo 'No New Connectivity DBUS Library!'
 	    ]
 	    )
 	    if test "$use_dbus" = "yes"; then

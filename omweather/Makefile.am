@@ -20,7 +20,7 @@
 
 
 SUBDIRS =	src \
-		data \
+		data 
 #                po
 
 

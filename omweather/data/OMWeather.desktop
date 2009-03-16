@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.22
+Type=Application
+Name=OMWeather
+Exec=/usr/bin/OMWeather
+Icon=OMWeather
+X-Window-Icon=OMWeather
+X-Window-Icon-Dimmed=OMWeather
+X-Osso-Service=OMWeather
+X-Osso-Type=application/x-executable

@@ -95,8 +95,9 @@ fi
 AC_SUBST(DESKTOP_LIBS)
 AC_SUBST(DESKTOP_CFLAGS)
 
+#I made both hildondesktop=no but first must be hildondesktop=yes
 
-PKG_CHECK_MODULES(HILDONDESKTOP, [libhildondesktop], [hildondesktop=yes], [hildondesktop=no]) 
+PKG_CHECK_MODULES(HILDONDESKTOP, [libhildondesktop], [hildondesktop=no], [hildondesktop=no]) 
 if test "$hildondesktop" == "yes"; then 
          AC_DEFINE(HILDONDESKTOP, 1, [Hildon desktop used]) 
 else 
@@ -113,11 +114,7 @@ if test "$hildon" == "yes"; then
             AC_DEFINE(OS2008, 1, [Version of hildon libraries])
           fi 
 else    
-	  PKG_CHECK_MODULES(HILDON_LIBS, [hildon-libs >= 0.12.0], [hildonlibs=yes], [hildonlibs=no])
-	  if test "hildonlibs" == "yes"; then
-		AC_SUBST(HILDON_LIBS)
-		echo 'hildon-libs yes'
-	  fi
+	  PKG_CHECK_MODULES(HILDON_LIBS, [hildon-libs >= 0.12.0])
 	  
 	  PKG_CHECK_MODULES(DBUS, [dbus-1],
 	    [
@@ -134,11 +131,8 @@ else
 	        AC_DEFINE(USE_DBUS, 1,"Set to 1 if enable-dbus is yes")
 	    fi
 fi
-if test "$hildonlibs" == "yes" || "$hildon" == "yes";  then
     AC_SUBST(HILDON_CFLAGS)
     AC_SUBST(HILDON_LIBS)
-    AC_DEFINE(MAEMO, 1 , [MAEMO used])
-fi
 
 PKG_CHECK_MODULES(OSSOIC, [osso-ic >= 0.21], [ossoic=yes], [ossoic=no])
 if test "$ossoic" == "yes"; then
@@ -183,12 +177,8 @@ else
     dnl check for osso-help
     PKG_CHECK_MODULES(LIBOSSOHELP, [libossohelp], [libossohelp=yes], [libossohelp=no])
 fi
-
-if test "$libossohelp" == "yes" || "$hildon" == "yes";  then
     AC_SUBST(LIBOSSOHELP_LIBS)
     AC_SUBST(LIBOSSOHELP_CFLAGS)
-    echo 'LIBOSSOHELP yes'
-fi
 
 AM_CONDITIONAL(OS2008, test "x$use_dbus" != "xyes")		  
 

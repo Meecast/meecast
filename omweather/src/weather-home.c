@@ -1599,7 +1599,11 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     /* create day button */
     new_day_button->button = gtk_event_box_new();
     gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK);
-    #ifndef NONMAEMO
+    #ifdef NONMAEMO
+//    g_signal_connect(new_day_button->button, "popup-menu", (GCallback) view_onPopupMenu, NULL);
+    g_signal_connect(new_day_button->button, "popup-menu", GTK_WIDGET(app->contextmenu), NULL);
+     
+    #else
     gtk_widget_tap_and_hold_setup(new_day_button->button, GTK_WIDGET(app->contextmenu),
                                 NULL, 0);
     #endif

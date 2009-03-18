@@ -70,6 +70,7 @@ OMWeather_CFLAGS =	$(GTK_CFLAGS) \
 			$(CONIC_CFLAGS) \
 			$(LIBOSSOHELP_CFLAGS) \
 			$(LIBCURL_CFLAGS) \
+			$(SQLITE_CFLAGS) \
 			-DDEBUGFUNCTIONCALL \
 			-Wall -pedantic \
 			-Wmissing-prototypes
@@ -82,6 +83,7 @@ OMWeather_LDADD =	$(GTK_LIBS) \
 			$(LIBXML2_LIBS) \
 			$(HILDON_LIBS) \
 			$(CONIC_LIBS) \
+			$(SQLITE_LIBS) \
 			$(LIBOSSOHELP_LIBS) \
 			$(LIBCURL_LIBS)
 

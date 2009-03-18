@@ -153,6 +153,7 @@ connection_cb(ConIcConnection * connection,
 }
 #else
 /*******************************************************************************/
+#ifndef NONMAEMO
 void iap_callback(struct iap_event_t *event, void *arg) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -178,6 +179,7 @@ void iap_callback(struct iap_event_t *event, void *arg) {
         break;
     }
 }
+#endif
 #endif
 /*******************************************************************************/
 void weather_initialize_dbus(void) {
@@ -222,7 +224,9 @@ void weather_initialize_dbus(void) {
                              GINT_TO_POINTER(USER_DATA_MAGIC));
         }
 #else
+    #ifndef NONMAEMO
         osso_iap_cb(iap_callback);
+    #endif
 #endif
 
 #ifdef USE_DBUS
@@ -323,11 +327,14 @@ gboolean download_html(gpointer data) {
         else
             return FALSE;
 #else
+    #ifndef NONMAEMO
         if (osso_iap_connect
             (OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK) {
             fprintf(stderr,
                     "after 1 osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)\n");
         }
+     #endif
+
 #endif
         app->flag_updating = 0;
         second_attempt = TRUE;

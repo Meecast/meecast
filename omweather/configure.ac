@@ -88,6 +88,11 @@ PKG_CHECK_MODULES(GCONF, [gconf-2.0 >= 2.6.2])
 AC_SUBST(GCONF_LIBS)
 AC_SUBST(GCONF_CFLAGS)
 
+PKG_CHECK_MODULES(SQLITE, [sqlite3])
+AC_SUBST(SQLITE_LIBS)
+AC_SUBST(SQLITE_CFLAGS)
+
+
 PKG_CHECK_MODULES(DESKTOP, [hildon-desktop], [desktop=yes], [desktop=no])
 if test "$hildon-desktop" == "yes"; then 
          AC_DEFINE(DESKTOP, 1, [hildon-desktop used]) 
@@ -180,7 +185,19 @@ fi
     AC_SUBST(LIBOSSOHELP_LIBS)
     AC_SUBST(LIBOSSOHELP_CFLAGS)
 
-AM_CONDITIONAL(OS2008, test "x$use_dbus" != "xyes")		  
+AM_CONDITIONAL(OS2008, test "x$use_dbus" != "xyes")
+
+AC_ARG_ENABLE(nonmaemo,
+      [  --enable-nonmaemo   Not Maemo platform],
+      [case "${enableval}" in
+            yes) nonmaemo=true ;;
+            no)  nonmaemo=false ;;
+            *) AC_MSG_ERROR(bad value ${enableval} for --enable-nonmaemo) ;;
+      esac],[nonmaemo=false])
+
+if test "$nonmaemo" == "true"; then
+    AC_DEFINE(NONMAEMO, 1, [NON MAEMO platform])
+fi
 
 dnl Help file install directory
 helpfile_enusdir=$datadir/osso-help/en_US

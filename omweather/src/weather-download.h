@@ -51,7 +51,9 @@ void weather_initialize_dbus(void);
 gboolean check_connected(void);
 void clean_download(void);
 #ifndef USE_CONIC
+#ifndef NONMAEMO
 void iap_callback(struct iap_event_t *event, void *arg);
+#endif
 #endif
 gboolean get_station_url(gchar **url, struct HtmlFile *html_file, gchar **hour_url, struct HtmlFile *html_file_hour,gboolean first);
 GtkWidget* create_window_update(void);

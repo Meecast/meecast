@@ -1599,8 +1599,10 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     /* create day button */
     new_day_button->button = gtk_event_box_new();
     gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK);
+    #ifndef NONMAEMO
     gtk_widget_tap_and_hold_setup(new_day_button->button, GTK_WIDGET(app->contextmenu),
                                 NULL, 0);
+    #endif
 #ifdef OS2008
     gtk_event_box_set_visible_window(GTK_EVENT_BOX(new_day_button->button), FALSE);
 #else

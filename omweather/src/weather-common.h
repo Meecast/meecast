@@ -113,6 +113,7 @@ enum { SETTINGS_STATIONS_PAGE, SETTINGS_VISUALS_PAGE, SETTINGS_DISPLAY_PAGE,
 #endif
 	ALERTS_PAGE, MAX_SETTINGS_PAGE_NUMBER, ABOUT_PAGE
 };
+enum {SHORT_CLICK, LONG_CLICK};
 /* station tab */
 enum { STATE_ENABLE_GPS	= 1U,
        STATE_SOURCE	= 2U
@@ -125,10 +126,13 @@ enum { STATE_ONE_ROW		= 1U,
        STATE_COMBINATION	= 16U,
        STATE_THEME_OVERRIDE	= 32U,
        STATE_TRANSPARENCY	= 64U,
-       STATE_FONT		= 128U,
+       STATE_FONT		    = 128U,
        STATE_FONT_COLOR		= 256U,
        STATE_BACKGROUND_COLOR	= 512U,
-       STATE_ICONSET		= 1024U
+       STATE_ICONSET        = 1024U,
+       STATE_LONG           = 2048U,
+       STATE_SHORT          = 4096U
+
 };
 /* display tab */
 enum { STATE_VISIBLE_ITEMS	= 1U,
@@ -266,6 +270,7 @@ typedef struct applet_config{
     gint	previos_days_to_show;
     gint	distance_units;
     gint	wind_units;
+    gint    clicking_type;
     gint	temperature_units;
     gint	pressure_units;
 #if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)

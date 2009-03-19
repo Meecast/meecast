@@ -114,12 +114,18 @@ gint parse_weather_file_data(const gchar *station_id, gchar *station_source,
 	    return -1;
 	}
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return (handler(station_id, parser, &(app->wsd)));
 }
 /*******************************************************************************/
 weather_com_parser *weather_parser_new_from_file(const gchar *filename,
 							const gchar *encoding){
     weather_com_parser	*parser = NULL;
+    xmlNode     *cur_node = NULL;
+    xmlChar     *temp_xml_string1,
+                *temp_xml_string2;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -134,8 +140,29 @@ weather_com_parser *weather_parser_new_from_file(const gchar *filename,
     }
     else{
         parser->error = FALSE;
-	parser->weather_com_root = xmlDocGetRootElement(parser->doc);
+	    parser->weather_com_root = xmlDocGetRootElement(parser->doc);
+        /* Check internal error in server in xml file */
+        cur_node = parser->weather_com_root->children;
+        cur_node = cur_node->next;
+        if( cur_node->type == XML_ELEMENT_NODE ){
+            temp_xml_string1 = xmlGetProp(cur_node, (const xmlChar*)"type");
+            temp_xml_string2 = xmlNodeGetContent(cur_node);
+            if(temp_xml_string1 && temp_xml_string2 &&
+                !strcmp((char*)temp_xml_string1, "0") &&
+                !strcmp((char*)temp_xml_string2, "An unknown error has occurred.")){
+                    parser->error = TRUE;
+                    parser->weather_com_root = NULL;
+            }
+            if (temp_xml_string1)
+                xmlFree(temp_xml_string1);
+            if (temp_xml_string2)
+                xmlFree(temp_xml_string2);
+        }   
     }
+    
+#ifdef DEBUGFUNCTIONCALL
+      END_FUNCTION;
+#endif
     return parser;
 }
 /*******************************************************************************/

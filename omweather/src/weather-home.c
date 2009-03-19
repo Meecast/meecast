@@ -82,6 +82,14 @@ const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
 OMWeatherApp	*app = NULL;
 gchar		path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
+void
+view_popup_menu (GtkWidget *treeview, GdkEventButton *event, gpointer userdata)
+{
+  fprintf(stderr,"dddddddddddddddddddddddddd\n");
+//  gtk_widget_show_all(app->contextmenu);
+menu_init();
+}
+/*******************************************************************************/
 /* Change station to previos at main display */
 gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
                     		    gpointer user_data){
@@ -556,6 +564,10 @@ void draw_home_window(gint count_day){
 	g_signal_connect(tmp_button->button, "button-release-event",
 			    G_CALLBACK(weather_window_popup),
 			    (is_na_day ? (GINT_TO_POINTER(-1)) : (GINT_TO_POINTER(i))));
+    if (app->config->clicking_type == SHORT_CLICK)
+        g_signal_connect(tmp_button->button, "button-release-event",
+                            G_CALLBACK(weather_window_popup),
+                            (is_na_day ? (GINT_TO_POINTER(-1)) : (GINT_TO_POINTER(i))));
 	add_item2object(&(app->buttons), (void*)tmp_button);
 	if(!(app->config->separate && i == 1))
 	    tmp = g_slist_next(tmp);
@@ -928,8 +940,7 @@ GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent)
 #endif
     
     menu_item = gtk_menu_item_new_with_label(_("OMWeather settings"));
-    g_signal_connect(menu_item, "activate",
-	    G_CALLBACK(weather_window_settings), NULL);
+    g_signal_connect(menu_item, "activate",G_CALLBACK(weather_window_settings), NULL);
 
     return menu_item;
 }
@@ -944,6 +955,16 @@ void menu_init(void){
     START_FUNCTION;
 #endif
     app->contextmenu = gtk_menu_new();
+
+    gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu),
+    menu_item = gtk_menu_item_new_with_label(_("Full forecast")));
+    g_signal_connect(G_OBJECT(menu_item), "activate",
+        G_CALLBACK(weather_window_popup), (GINT_TO_POINTER(-1)));
+    gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu),
+    menu_item = gtk_menu_item_new_with_label(_("Settings")));
+    g_signal_connect(G_OBJECT(menu_item), "activate",
+        G_CALLBACK(weather_window_settings), NULL);
+
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);
     while(valid){
@@ -1311,7 +1332,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	station_box = gtk_hbox_new(FALSE, 0);
 	station_name_btn = gtk_event_box_new();
 	set_background_color(station_name_btn, &(app->config->background_color));		
-    gtk_widget_set_events(station_name_btn, GDK_BUTTON_PRESS_MASK);
+        gtk_widget_set_events(station_name_btn, GDK_BUTTON_PRESS_MASK);
 	station_name = gtk_label_new(NULL);
 	gtk_label_set_markup(GTK_LABEL(station_name), buffer);
 	gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
@@ -1494,10 +1515,13 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 			    G_CALLBACK(change_station_prev), NULL);
     if(next_station_name_btn)
 	g_signal_connect(next_station_name_btn, "button-press-event",
-			    G_CALLBACK(change_station_next), NULL);  		    
+			    G_CALLBACK(change_station_next), NULL);
     if(station_name_btn){
+//        g_signal_connect(station_name_btn, "button-press-event",
+//			    G_CALLBACK(change_station_next), NULL);
         g_signal_connect(station_name_btn, "button-press-event",
-			    G_CALLBACK(change_station_next), NULL);  		    
+			    (GCallback)view_popup_menu, NULL);
+//        g_signal_connect(station_name_btn, "popup-menu", (GCallback)view_popup_menu, NULL);
         gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn);
     }
     else
@@ -1585,6 +1609,7 @@ void free_memory(void){
     }
 }
 /*******************************************************************************/
+
 WDB* create_weather_day_button(const char *text, const char *icon,
 				const gint icon_size, gboolean transparency,
 				gboolean draw_day_label, GdkColor *color){
@@ -1601,7 +1626,8 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK);
     #ifdef NONMAEMO
 //    g_signal_connect(new_day_button->button, "popup-menu", (GCallback) view_onPopupMenu, NULL);
-    g_signal_connect(new_day_button->button, "popup-menu", GTK_WIDGET(app->contextmenu), NULL);
+//    g_signal_connect(new_day_button->button, "popup-menu", GTK_WIDGET(app->contextmenu), NULL);
+    g_signal_connect(new_day_button->button, "popup-menu", (GCallback)view_popup_menu, NULL);
      
     #else
     gtk_widget_tap_and_hold_setup(new_day_button->button, GTK_WIDGET(app->contextmenu),

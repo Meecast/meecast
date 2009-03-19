@@ -357,8 +357,13 @@ GtkWidget *create_button_with_image(const char *path,
         } else
             button = gtk_button_new();
         gtk_button_set_focus_on_click(GTK_BUTTON(button), FALSE);
-        if (icon)
-            gtk_button_set_image(GTK_BUTTON(button), icon);
+        if(icon){
+            #ifdef OS2008
+               gtk_button_set_image(GTK_BUTTON(button), icon);
+            #else
+               gtk_container_add (GTK_CONTAINER (button), icon);
+            #endif
+        }
         gtk_button_set_focus_on_click(GTK_BUTTON(button), FALSE);
     } else {
         button = gtk_event_box_new();

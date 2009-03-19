@@ -632,8 +632,10 @@ gint read_config(AppletConfig * config) {
     if (gerror || config->days_to_show <= 0
         || config->days_to_show > Max_count_weather_day) {
         config->days_to_show = 5;
-        if (gerror)
+        if(gerror){
             g_error_free(gerror);
+            gerror = NULL;
+        }
     }
     config->previos_days_to_show = config->days_to_show;
 
@@ -643,8 +645,10 @@ gint read_config(AppletConfig * config) {
                                                   &gerror);
     if (gerror || config->distance_units > SEA_MILES) {
         config->distance_units = METERS;
-        if (gerror)
+        if(gerror){
             g_error_free(gerror);
+            gerror = NULL;
+        }
     }
     /* Get pressure units */
     config->pressure_units = gconf_client_get_int(gconf_client,
@@ -653,6 +657,10 @@ gint read_config(AppletConfig * config) {
     if (gerror || config->pressure_units < MB
         || config->pressure_units > MM) {
         config->pressure_units = MB;
+        if(gerror){
+            g_error_free(gerror);
+            gerror = NULL;
+        }
         g_error_free(gerror);
     }
     /* Get wind units */
@@ -661,7 +669,21 @@ gint read_config(AppletConfig * config) {
                                               &gerror);
     if (gerror || config->wind_units > MILES_H) {
         config->wind_units = METERS_S;
-        g_error_free(gerror);
+        if(gerror){
+            g_error_free(gerror);
+            gerror = NULL;
+        }
+    }
+    /* Get the  type of clicking default SHORT click */
+    config->clicking_type = gconf_client_get_int(gconf_client,
+                                                 GCONF_KEY_CLICK_FOR_LAUNCH_POPUP,
+                                                 &gerror);
+    if(gerror || config->clicking_type > LONG_CLICK){
+        config->clicking_type = SHORT_CLICK;
+        if (gerror){
+            g_error_free(gerror);
+            gerror = NULL;
+        }
     }
     /* Get switch time */
     config->switch_time = gconf_client_get_int(gconf_client,
@@ -675,8 +697,10 @@ gint read_config(AppletConfig * config) {
                    config->switch_time != 50
                    && config->switch_time != 60)) {
         config->switch_time = 0;        /* Default value - Never */
-        if (gerror)
+        if(gerror){
             g_error_free(gerror);
+            gerror = NULL;
+        }
     } else {
         if (config->switch_time > 0) {
             g_source_remove(app->switch_timer);
@@ -901,10 +925,14 @@ void config_save(AppletConfig * config) {
     /* Save Show Wind Button State */
     gconf_client_set_bool(gconf_client,
                           GCONF_KEY_SHOW_WIND, config->show_wind, NULL);
-     /* Save Show Wind gust Button State */
+    /* Save Show Wind gust Button State */
     gconf_client_set_bool(gconf_client,
                           GCONF_KEY_SHOW_WIND_GUST,
                           config->show_wind_gust, NULL);
+    /* Save Type of clicking for showing window popup */
+    gconf_client_set_int(gconf_client,
+                          GCONF_KEY_CLICK_FOR_LAUNCH_POPUP,
+                          config->clicking_type, NULL);
     /* Show Station Name */
     gconf_client_set_bool(gconf_client,
                           GCONF_KEY_SHOW_STATION_NAME,

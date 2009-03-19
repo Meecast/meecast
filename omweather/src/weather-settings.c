@@ -1162,6 +1162,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 			*sensor_update_time = NULL,
 #endif
 			*temperature = NULL,
+			*clicking = NULL,
 			*pressure_mb = NULL,
 			*pressure_inch = NULL,
 			*pressure_mm = NULL,
@@ -1362,6 +1363,14 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
             app->config->temperature_units = CELSIUS;
         else
             app->config->temperature_units = FAHRENHEIT;
+    }
+/* clicking */
+    clicking = lookup_widget(config_window, "clicking");
+    if(clicking){
+        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(clicking)))
+            app->config->clicking_type = LONG_CLICK;
+        else
+            app->config->clicking_type = SHORT_CLICK;
     }
 #ifdef OS2008
 #ifdef ENABLE_GPS
@@ -2145,6 +2154,21 @@ check_buttons_changed_handler(GtkToggleButton * button,
             app->units_tab_current_state &= ~STATE_FAHRENHEIT;
         goto check;
     }
+/* clicking */
+    if(!strcmp(button_name, "short_clicking")){
+        if(gtk_toggle_button_get_active(button))
+            app->visuals_tab_current_state |= STATE_SHORT;
+        else
+            app->visuals_tab_current_state &= ~STATE_SHORT;
+        goto check;
+    }
+    if(!strcmp(button_name, "long_clicking")){
+        if(gtk_toggle_button_get_active(button))
+            app->visuals_tab_current_state |= STATE_LONG;
+        else
+            app->visuals_tab_current_state &= ~STATE_LONG;
+        goto check;
+    }
 /* distance units */
     if (!strcmp(button_name, "meters")) {
         if (gtk_toggle_button_get_active(button))
@@ -2736,8 +2760,12 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
         *one_row_button = NULL,
         *one_column_button = NULL,
         *two_rows_button = NULL,
-        *two_columns_button = NULL, *combination_button = NULL;
-    GSList *group = NULL, *icon_set = NULL, *tmp = NULL;
+        *two_columns_button = NULL,
+        *combination_button = NULL,
+        *short_clicking = NULL,
+        *long_clicking = NULL;
+
+    GSList *group = NULL, *icon_set = NULL, *tmp = NULL, *clicking_group = NULL;
     gchar buffer[256];
 /* Visuals tab */
     app->visuals_tab_start_state = 0;
@@ -2936,6 +2964,39 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
                      gtk_label_new(_("Font color:")), FALSE, FALSE, 0);
 /* sixth line */
     sixth_line = gtk_hbox_new(FALSE, 0);
+    /* Type of click */
+    gtk_box_pack_start(GTK_BOX(sixth_line) ,
+                        gtk_label_new(_("Type of click:")),
+                        FALSE, FALSE, 20);
+    long_clicking = gtk_radio_button_new_with_label(NULL,  _("Long"));
+    gtk_widget_set_name(long_clicking, "long_clicking");
+    g_signal_connect(long_clicking, "toggled",
+                        G_CALLBACK(check_buttons_changed_handler),
+                        window);
+    GLADE_HOOKUP_OBJECT(window, long_clicking, "clicking");
+    gtk_button_set_focus_on_click(GTK_BUTTON(long_clicking), FALSE);
+    gtk_box_pack_start(GTK_BOX(sixth_line) ,
+                        long_clicking,
+                        FALSE, FALSE, 20);
+    clicking_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(long_clicking)); 
+    short_clicking = gtk_radio_button_new_with_label(clicking_group,_("Short"));
+    gtk_widget_set_name(short_clicking, "short_clicking");
+    g_signal_connect(short_clicking, "toggled",
+                        G_CALLBACK(check_buttons_changed_handler),
+                        window);
+    gtk_button_set_focus_on_click(GTK_BUTTON(short_clicking), FALSE);
+    gtk_box_pack_start(GTK_BOX(sixth_line) ,
+                        short_clicking,
+                        FALSE, FALSE, 20);
+     if(app->config->clicking_type == LONG_CLICK){
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(long_clicking), TRUE);
+        app->visuals_tab_start_state |= STATE_LONG;
+     }
+     else{
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(short_clicking), TRUE);
+        app->visuals_tab_start_state |= STATE_SHORT;
+     }
+
     /* Background color */
     background_color = gtk_color_button_new();
     GLADE_HOOKUP_OBJECT(window, background_color, "background_color");

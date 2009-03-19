@@ -8,6 +8,7 @@ char *s = N_("<display_text>Layout:</display_text> defines how icons are arrange
 char *s = N_("<display_text>Show arrows:</display_text> this selection controls whether the arrows (used to change the displayed weather station) are shown on the applet.");
 char *s = N_("<display_text>Show station name:</display_text> this selection will control whether station names are shown on the applet.");
 char *s = N_("<display_text>Switch to the next station after:</display_text> this drop down menu controls the amount of time a specific weather station's data is displayed before changing to the next weather station.");
+char *s = N_("<display_text>Type of click:</display_text> setting defines how full forecast and settings windows can be activated from home applet.");
 char *s = N_("<display_text>Visible items:</display_text> defines how many icons will be shown on the tablet's home screen.");
 char *s = N_("About OMWeather");
 char *s = N_("Check the detailed weather forecast for up to 10 days");

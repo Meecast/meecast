@@ -169,6 +169,10 @@
 	color used for icons.  Under OS2006-OS2007, the background color can not be
 	selected if the transparency option is selected.
       </_para>
+      <_para>
+	<display_text>Type of click:</display_text> setting defines how full forecast and
+	settings windows can be activated from home applet. 
+      </_para>
     </topic>
     <topic>
       <_topictitle>Settings. Display tab</_topictitle>

@@ -18,9 +18,9 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
 
-bin_PROGRAMS = OMWeather
+bin_PROGRAMS = omweather
 
-OMWeather_SOURCES = 	weather-home.c \
+omweather_SOURCES = 	weather-home.c \
 			weather-home.h \
 			weather-parser.h \
 			weather-parser.c \
@@ -60,7 +60,7 @@ OMWeather_SOURCES = 	weather-home.c \
 			weather-main.h \
 			weather-main.c
 
-OMWeather_CFLAGS =	$(GTK_CFLAGS) \
+omweather_CFLAGS =	$(GTK_CFLAGS) \
 			$(OSSO_CFLAGS) \
 			$(DBUS_CFLAGS) \
 			$(GNOME_VFS_CFLAGS) \
@@ -75,7 +75,7 @@ OMWeather_CFLAGS =	$(GTK_CFLAGS) \
 			-Wall -pedantic \
 			-Wmissing-prototypes
 
-OMWeather_LDADD =	$(GTK_LIBS) \
+omweather_LDADD =	$(GTK_LIBS) \
 			$(OSSO_LIBS) \
 			$(DBUS_LIBS) \
 			$(GNOME_VFS_LIBS) \

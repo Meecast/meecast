@@ -60,6 +60,19 @@ dnl Path for .desktop files
 DESKTOPDIR=`pkg-config osso-af-settings --variable=homedesktopentrydir`
 AC_SUBST(DESKTOPDIR)
 
+AC_ARG_ENABLE(nonmaemo,
+      [  --enable-nonmaemo   Not Maemo platform],
+      [case "${enableval}" in
+            yes) nonmaemo=true ;;
+            no)  nonmaemo=false ;;
+            *) AC_MSG_ERROR(bad value ${enableval} for --enable-nonmaemo) ;;
+      esac],[nonmaemo=false])
+
+if test "$nonmaemo" == "true"; then
+    AC_DEFINE(NONMAEMO, 1, [NON MAEMO platform])
+fi
+
+
 dnl Path for .so .a .la files
 DESKTOPLIBDIR=`pkg-config osso-af-settings --variable=hildondesktoplibdir`
 AC_SUBST(DESKTOPLIBDIR)
@@ -100,18 +113,18 @@ fi
 AC_SUBST(DESKTOP_LIBS)
 AC_SUBST(DESKTOP_CFLAGS)
 
-#I made both hildondesktop=no but first must be hildondesktop=yes
+if test "$nonmaemo" == "false"; then
 
-PKG_CHECK_MODULES(HILDONDESKTOP, [libhildondesktop], [hildondesktop=no], [hildondesktop=no]) 
-if test "$hildondesktop" == "yes"; then 
+    PKG_CHECK_MODULES(HILDONDESKTOP, [libhildondesktop], [hildondesktop=yes], [hildondesktop=no]) 
+    if test "$hildondesktop" == "yes"; then 
          AC_DEFINE(HILDONDESKTOP, 1, [Hildon desktop used]) 
-else 
-#         PKG_CHECK_MODULES(DESK, hildon-status-bar-lib >= 0.7.1) 
+    else
+         PKG_CHECK_MODULES(DESK, hildon-status-bar-lib >= 0.7.1) 
           AC_DEFINE(OS2009, 1, [Version of hildon libraries])
-fi 
-AC_SUBST(HILDONDESKTOP_LIBS)
-AC_SUBST(HILDONDESKTOP_CFLAGS)  
-
+    fi
+    AC_SUBST(HILDONDESKTOP_LIBS)
+    AC_SUBST(HILDONDESKTOP_CFLAGS)  
+fi
 
 PKG_CHECK_MODULES(HILDON, [hildon-1 >= 0.9.9], [hildon=yes],[hildon=no])
 if test "$hildon" == "yes"; then
@@ -141,8 +154,8 @@ fi
 
 PKG_CHECK_MODULES(OSSOIC, [osso-ic >= 0.21], [ossoic=yes], [ossoic=no])
 if test "$ossoic" == "yes"; then
-	AC_DEFINE(OSSOIC, 1 , [OSSO IC used])
-fi	
+    AC_DEFINE(OSSOIC, 1 , [OSSO IC used])
+fi
 AC_SUBST(OSSOIC_LIBS)
 AC_SUBST(OSSOIC_CFLAGS)
 
@@ -187,17 +200,6 @@ fi
 
 AM_CONDITIONAL(OS2008, test "x$use_dbus" != "xyes")
 
-AC_ARG_ENABLE(nonmaemo,
-      [  --enable-nonmaemo   Not Maemo platform],
-      [case "${enableval}" in
-            yes) nonmaemo=true ;;
-            no)  nonmaemo=false ;;
-            *) AC_MSG_ERROR(bad value ${enableval} for --enable-nonmaemo) ;;
-      esac],[nonmaemo=false])
-
-if test "$nonmaemo" == "true"; then
-    AC_DEFINE(NONMAEMO, 1, [NON MAEMO platform])
-fi
 
 dnl Help file install directory
 helpfile_enusdir=$datadir/osso-help/en_US

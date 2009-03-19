@@ -61,7 +61,7 @@
     #include <location/location-gpsd-control.h>
 #endif
 
-#elif OS2009
+#elif OS2009 || NONMAEMO
     #include <hildon/hildon-banner.h>
 #else
     #include <hildon-widgets/hildon-banner.h>
@@ -108,7 +108,7 @@ enum { TINY_ICON_SIZE = 32, SMALL_ICON_SIZE = 48, MEDIUM_ICON_SIZE = 64,
 };
 enum { SETTINGS_STATIONS_PAGE, SETTINGS_VISUALS_PAGE, SETTINGS_DISPLAY_PAGE,
 	SETTINGS_UNITS_PAGE, SETTINGS_UPDATE_PAGE,
-#if defined(OS2008) || defined(OS2009)
+#if defined(OS2008) || defined(OS2009) || defined(NONMAEMO)
 	SETTINGS_SENSOR_PAGE,
 #endif
 	ALERTS_PAGE, MAX_SETTINGS_PAGE_NUMBER, ABOUT_PAGE

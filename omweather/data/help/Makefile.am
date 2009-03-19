@@ -39,10 +39,10 @@ ALL_LINGUAS=ru_RU fr_FR fi_FI en_GB en_US it_IT de_DE es_ES es_MX
 
 
 #Remark for work in Fremantle
-#%.xml.in:
-#	for lang in $(ALL_LINGUAS); do \
-#	    ./intltool-merge4help -x "po/$$lang.po" omweather.xml.in "$$lang/omweather.xml.in" ; \
-#	done
+%.xml.in:
+	for lang in $(ALL_LINGUAS); do \
+	    ./intltool-merge4help -x "po/$$lang.po" omweather.xml.in "$$lang/omweather.xml.in" ; \
+	done
 
 clean:
 	for lang in $(ALL_LINGUAS); do \

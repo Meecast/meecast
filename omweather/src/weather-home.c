@@ -34,7 +34,7 @@
 #include <math.h>
 #ifdef OS2008
     #include <libhildondesktop/libhildondesktop.h>
-#elif OS2009
+#elif OS2009 || NONMAEMO 
     #include <hildon/hildon.h>
 #else
     #include <hildon-home-plugin/hildon-home-plugin-interface.h>
@@ -702,7 +702,7 @@ void update_weather(gboolean show_update_window){
 	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }
 /*******************************************************************************/
-#ifdef OS2009
+#if defined (OS2009) || defined(NONMAEMO)
 gboolean
 omweather_init_OS2009(GtkWidget *applet){
 #elif OS2008
@@ -716,7 +716,8 @@ void*
 hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
 #endif
-#ifndef OS2009
+//#ifndef OS2009 
+#if ! defined (OS2009) || ! defined (NONMAEMO)
     osso_context_t	*osso = NULL;
 
     osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
@@ -732,7 +733,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 /* Checking noomweather.txt file */
     if ((access("/media/mmc1/noomweather.txt", R_OK) == 0)||
         (access("/media/mmc2/noomweather.txt", R_OK) == 0))
-#ifdef OS2009
+#if defined(OS2009) || defined(NONMAEMO)
 	return FALSE;
 #elif OS2008
         return;
@@ -746,7 +747,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	exit(1);
     }
     memset(app, 0, sizeof(OMWeatherApp));
-#ifndef OS2009
+#if ! defined (OS2009) || ! defined (NONMAEMO)
     app->osso = osso;
 #endif
     app->flag_updating = 0;
@@ -758,7 +759,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     if(!app->config){
         fprintf(stderr, "\nCan not allocate memory for config.\n");
         g_free(app);
-#ifdef OS2009
+#if defined (OS2009) || defined (NONMAEMO)
 	return FALSE;
 #elif OS2008
         return;
@@ -781,7 +782,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         fprintf(stderr, "\nCan not read config file.\n");
         g_free(app->config);
         g_free(app);
-#ifdef OS2009
+#if  defined (OS2009) ||  defined (NONMAEMO)
 	return FALSE;
 #elif OS2008
         return;
@@ -802,7 +803,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #if !defined(OS2008) && !defined(OS2009)
     redraw_home_window(TRUE);
 #endif
-#if defined(OS2008) || defined(OS2009)
+#if defined(OS2008) || defined(OS2009) || defined(NONMAEMO)
 #ifdef OS2008
     applet->queueRefresh = TRUE;
 #endif
@@ -825,7 +826,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
 #endif
     gtk_container_add(GTK_CONTAINER(applet), app->top_widget);
-#ifdef OS2009
+#if  defined (OS2009) || defined(NONMAEMO)
     return TRUE;
 #endif
 #else

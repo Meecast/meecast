@@ -2387,10 +2387,7 @@ color_buttons_changed_handler(GtkColorButton * button,
         || (app->units_tab_current_state != app->units_tab_start_state)
         || (app->update_tab_current_state !=
             app->update_tab_start_state) ||
-#ifdef OS2008
-        (app->sensor_tab_current_state != app->sensor_tab_start_state)
-#endif
-#ifdef OS2009
+#if defined (OS2008) || defined (OS2009) || defined(NONMAEMO)
         (app->sensor_tab_current_state != app->sensor_tab_start_state)
 #endif
         )
@@ -2460,10 +2457,7 @@ void combo_boxs_changed_handler(GtkComboBox * combobox, gpointer user_data) {
         || (app->units_tab_current_state != app->units_tab_start_state)
         || (app->update_tab_current_state !=
             app->update_tab_start_state) ||
-#ifdef OS2008
-        (app->sensor_tab_current_state != app->sensor_tab_start_state)
-#endif
-#ifdef OS2009
+#if defined (OS2008) || defined (OS2009) || defined(NONMAEMO)
         (app->sensor_tab_current_state != app->sensor_tab_start_state)
 #endif
         )
@@ -2516,10 +2510,7 @@ control_bars_changed_handler(HildonControlbar * control,
         || (app->units_tab_current_state != app->units_tab_start_state)
         || (app->update_tab_current_state !=
             app->update_tab_start_state) ||
-#ifdef OS2008
-        (app->sensor_tab_current_state != app->sensor_tab_start_state)
-#endif
-#ifdef OS2009
+#if defined (OS2008) || defined (OS2009) || defined(NONMAEMO)
         (app->sensor_tab_current_state != app->sensor_tab_start_state)
 #endif
         )
@@ -2570,7 +2561,7 @@ gboolean process_update_tab(GtkWidget * vbox) {
     gtk_widget_show_all(vbox);
     return FALSE;
 }
-
+#ifdef OS2008
 /*******************************************************************************/
 gboolean process_sensor_tab(GtkWidget * vbox) {
     GtkWidget *child = create_sensor_page(gtk_widget_get_toplevel(vbox));
@@ -2578,7 +2569,7 @@ gboolean process_sensor_tab(GtkWidget * vbox) {
     gtk_widget_show_all(vbox);
     return FALSE;
 }
-
+#endif
 /*******************************************************************************/
 gboolean process_alert_tab(GtkWidget * vbox) {
     GtkWidget *child = create_alerts_page(gtk_widget_get_toplevel(vbox));
@@ -3785,13 +3776,9 @@ void font_changed_handler(GtkFontButton * widget, gpointer user_data) {
         || (app->units_tab_current_state != app->units_tab_start_state)
         || (app->update_tab_current_state !=
             app->update_tab_start_state) ||
-#ifdef OS2008 
-        (app->sensor_tab_current_state != app->sensor_tab_start_state)
+#if defined (OS2008) || defined (OS2009) || defined(NONMAEMO)
+        (app->sensor_tab_current_state != app->sensor_tab_start_state))
 #endif
-#ifdef OS2009 
-        (app->sensor_tab_current_state != app->sensor_tab_start_state)
-#endif
-        )
         gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
     else
         gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);

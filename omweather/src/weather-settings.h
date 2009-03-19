@@ -35,6 +35,8 @@
     #include <hildon/hildon-controlbar.h>
 #elif OS2008
     #include <hildon/hildon-controlbar.h>
+#elif NONMAEMO
+    #include <hildon/hildon-controlbar.h>
 #else
     #include <hildon-widgets/hildon-controlbar.h>
 #endif
@@ -131,7 +133,7 @@ extern void update_weather(gboolean show_update_window);
 extern GtkWidget* lookup_widget(GtkWidget *widget, const gchar *widget_name);
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 extern GtkWidget* create_tree_view(GtkListStore* list);
-#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
+#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009) || defined(NONMAEMO)
 extern GtkWidget* create_sensor_page(GtkWidget *config_window);
 extern void read_sensor(gint need_redraw);
 extern guint get_time_from_index(guint index);

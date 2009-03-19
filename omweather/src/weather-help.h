@@ -35,6 +35,8 @@
     #include <hildon/hildon-help.h>
 #elif OS2008
     #include <hildon/hildon-help.h>
+#elif NONMAEMO
+    #include <hildon/hildon-help.h>
 #else
     #include <osso-helplib.h>
 #endif

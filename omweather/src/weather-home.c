@@ -85,9 +85,10 @@ gchar		path_large_icon[_POSIX_PATH_MAX];
 void
 view_popup_menu (GtkWidget *treeview, GdkEventButton *event, gpointer userdata)
 {
-  fprintf(stderr,"dddddddddddddddddddddddddd\n");
+    fprintf(stderr,"dddddddddddddddddddddddddd\n");
 //  gtk_widget_show_all(app->contextmenu);
-menu_init();
+//menu_init();
+    weather_window_settings(NULL, NULL);
 }
 /*******************************************************************************/
 /* Change station to previos at main display */
@@ -956,6 +957,7 @@ void menu_init(void){
 #endif
     app->contextmenu = gtk_menu_new();
 
+
     gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu),
     menu_item = gtk_menu_item_new_with_label(_("Full forecast")));
     g_signal_connect(G_OBJECT(menu_item), "activate",
@@ -1517,11 +1519,8 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	g_signal_connect(next_station_name_btn, "button-press-event",
 			    G_CALLBACK(change_station_next), NULL);
     if(station_name_btn){
-//        g_signal_connect(station_name_btn, "button-press-event",
-//			    G_CALLBACK(change_station_next), NULL);
         g_signal_connect(station_name_btn, "button-press-event",
-			    (GCallback)view_popup_menu, NULL);
-//        g_signal_connect(station_name_btn, "popup-menu", (GCallback)view_popup_menu, NULL);
+			    G_CALLBACK(change_station_next), NULL);
         gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn);
     }
     else
@@ -1627,7 +1626,8 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     #ifdef NONMAEMO
 //    g_signal_connect(new_day_button->button, "popup-menu", (GCallback) view_onPopupMenu, NULL);
 //    g_signal_connect(new_day_button->button, "popup-menu", GTK_WIDGET(app->contextmenu), NULL);
-    g_signal_connect(new_day_button->button, "popup-menu", (GCallback)view_popup_menu, NULL);
+
+//    g_signal_connect(new_day_button->button, "popup-menu", (GCallback)view_popup_menu, NULL);
      
     #else
     gtk_widget_tap_and_hold_setup(new_day_button->button, GTK_WIDGET(app->contextmenu),

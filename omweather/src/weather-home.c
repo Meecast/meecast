@@ -24,7 +24,6 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-	
 */
 /*******************************************************************************/
 #include "weather-home.h"
@@ -378,6 +377,7 @@ void draw_home_window(gint count_day){
 		*tmp_day = NULL,
 		*first = NULL,
 		*last = NULL;
+gchar		*my_label;
 #ifndef RELEASE
     time_t	tmp_time,
 		utc_time;
@@ -516,7 +516,7 @@ void draw_home_window(gint count_day){
                 night_begin_time = get_day_part_begin_time(tmp_day, year, "24h_sunset");
             }else
                 tmp_day = day;
-		    create_day_temperature_text(tmp_day, buffer, FALSE, FALSE);
+                create_day_temperature_text(tmp_day, buffer, FALSE, FALSE);
             if((app->config->separate) && (i == 1) &&
                (current_time > night_begin_time || current_time < day_begin_time)){
                    if(app->config->show_wind)
@@ -570,6 +570,10 @@ void draw_home_window(gint count_day){
                             G_CALLBACK(weather_window_popup),
                             (is_na_day ? (GINT_TO_POINTER(-1)) : (GINT_TO_POINTER(i))));
 	add_item2object(&(app->buttons), (void*)tmp_button);
+
+	my_label = gtk_label_get_text((WDB*)tmp_button->label);
+	fprintf(stderr," Label %s\n", my_label);
+
 	if(!(app->config->separate && i == 1))
 	    tmp = g_slist_next(tmp);
 	i++;
@@ -1229,6 +1233,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		*station_box = NULL;
     time_t	current_time,
 		update_time,
+		*my_label,
                 diff_time;
 
     int		n,
@@ -1240,6 +1245,8 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     gboolean	valid = FALSE,
 		user_stations_list_has_two_or_more_elements = FALSE;
     GSList	*tmp = NULL;
+    
+    
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1365,6 +1372,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     }
 
 #endif
+
 /*    days_panel_with_buttons = gtk_hbox_new(FALSE, 0);*/
 /* attach buttons to header panel */
     if(previos_station_name_btn)
@@ -1382,6 +1390,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	gtk_table_attach( (GtkTable*)header_panel,
 			    next_station_name_btn,
 			    2, 3, 0, 1, GTK_EXPAND, GTK_EXPAND, 0, 0);
+
 /* create days panel */
     switch(layout){
 	default:
@@ -1401,20 +1410,30 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	    days_panel = gtk_table_new(Max_count_weather_day, 2, FALSE);
 	break;
     }
+fprintf(stderr,"Test dddddddddddddddd\n");    
 /* add padding around the outside of the container so the text
  * is not right to the very edge */
     gtk_container_set_border_width(GTK_CONTAINER(days_panel),2);
 /* attach days buttons */
     tmp = app->buttons;
+    fprintf(stderr,"LIST OF BUTTON %p\n",tmp);
     for(n = 0, x = 0, y = 0; n < total_elements; n++, x++){
 	if(tmp){
 	    switch(layout){
 		default:
 		case ONE_ROW:
+		    fprintf(stderr,"afrsdfsdfsdbvgggg");
+		    
 		    gtk_table_attach((GtkTable*)days_panel,
 				    ((WDB*)tmp->data)->button,
 				    n, n + 1, 0, 1, (GtkAttachOptions)0,
 				    (GtkAttachOptions)0, 0, 0 );
+//		    my_label = ((WDB*)tmp->data)->label;
+//		    gtk_table_attach(GTK_TABLE(days_panel), my_label, 0, 1, 0, 1, 
+//		        GTK_FILL | GTK_SHRINK, GTK_FILL | GTK_SHRINK, 5, 5);
+//		        my_label = gtk_label_get_text(((WDB*)tmp->data)->label);
+//	                fprintf(stderr," Label: %s\n", my_label);
+
 		break;
 		case ONE_COLUMN:
 		    gtk_table_attach((GtkTable*)days_panel,
@@ -1510,6 +1529,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     gtk_table_attach((GtkTable*)panel, days_panel_with_buttons, 0, 1, 1, 2,
 			(GtkAttachOptions)0, (GtkAttachOptions)0, 0, 0);
 */
+fprintf(stderr,"ooooooooooooo\n");
     gtk_table_attach((GtkTable*)panel, days_panel, 0, 1, 1, 2,
 		    (GtkAttachOptions)0, (GtkAttachOptions)0, 0, 0);
 /* Connect signal button */
@@ -1528,6 +1548,9 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	gtk_container_set_focus_child(GTK_CONTAINER(panel), panel);
     if(station_name_btn)
 	g_object_unref(station_name_btn);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 /*******************************************************************************/
 /* free used memory from OMWeather struct */
@@ -1607,6 +1630,10 @@ void free_memory(void){
         g_hash_table_destroy(app->hash);
         app->hash = NULL;
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
 }
 /*******************************************************************************/
 
@@ -1628,10 +1655,10 @@ WDB* create_weather_day_button(const char *text, const char *icon,
 //    g_signal_connect(new_day_button->button, "popup-menu", (GCallback) view_onPopupMenu, NULL);
 //    g_signal_connect(new_day_button->button, "popup-menu", GTK_WIDGET(app->contextmenu), NULL);
 
-//    g_signal_connect(new_day_button->button, "popup-menu", (GCallback)view_popup_menu, NULL);
+       g_signal_connect(new_day_button->button, "popup-menu", (GCallback)view_popup_menu, NULL);
      
     #else
-    gtk_widget_tap_and_hold_setup(new_day_button->button, GTK_WIDGET(app->contextmenu),
+       gtk_widget_tap_and_hold_setup(new_day_button->button, GTK_WIDGET(app->contextmenu),
                                 NULL, 0);
     #endif
 #ifdef OS2008
@@ -1645,6 +1672,7 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     if(draw_day_label){
 	    new_day_button->label = gtk_label_new(NULL);
 	    gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
+	    fprintf(stderr,"Text %s\n",text);
         if  (app->config->text_position == LEFT ||
              app->config->text_position == RIGHT ||
              app->config->text_position == NOTHING)
@@ -1699,6 +1727,10 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     }
     gtk_container_add(GTK_CONTAINER(new_day_button->button), new_day_button->box);
 
+#ifdef DEBUGFUNCTIONCALL
+    fprintf(stderr," DATA %p\n",new_day_button);
+    END_FUNCTION;
+#endif
     return new_day_button;
 }
 /*******************************************************************************/

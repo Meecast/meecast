@@ -803,8 +803,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     timer(60000);  /* One per minute */
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
-    redraw_home_window(TRUE);
-#if !defined(OS2008) && !defined(OS2009)
+#ifndef OS2008
     redraw_home_window(TRUE);
 #endif
 #if defined(OS2008) || defined(OS2009) || defined(NONMAEMO)

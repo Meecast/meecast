@@ -119,7 +119,7 @@ if test "$nonmaemo" == "false"; then
     if test "$hildondesktop" == "yes"; then 
          AC_DEFINE(HILDONDESKTOP, 1, [Hildon desktop used]) 
     else
-         PKG_CHECK_MODULES(DESK, hildon-status-bar-lib >= 0.7.1) 
+#         PKG_CHECK_MODULES(DESK, hildon-status-bar-lib >= 0.7.1) 
           AC_DEFINE(OS2009, 1, [Version of hildon libraries])
     fi
     AC_SUBST(HILDONDESKTOP_LIBS)

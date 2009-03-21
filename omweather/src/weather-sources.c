@@ -39,14 +39,15 @@ GtkListStore* create_sources_list(gchar *sources_path, gint *sources_number){
 			*dot = NULL;
     GHashTable		*source;
     gint		counter = 0;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     if(!sources_path)
 	return NULL;	/* error */
 
     counter = create_icon_set_list(sources_path, &db_set, "file");
     if(counter < 1)
 	return NULL;
-
     list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_POINTER);
 
     tmp = db_set;
@@ -57,7 +58,7 @@ GtkListStore* create_sources_list(gchar *sources_path, gint *sources_number){
 		    (gchar*)(tmp->data));
 	source = parse_source_file(buffer, "UTF-8");
 	if(source){
-	    if(source_params_valid(source)){
+//	    if(source_params_valid(source)){ /* temporaly */
 		/* add source to list */
 		*buffer = 0;
 		snprintf(buffer, sizeof(buffer) - 1, "%s", (gchar*)(tmp->data));
@@ -70,9 +71,9 @@ GtkListStore* create_sources_list(gchar *sources_path, gint *sources_number){
 						    -1);
 		    counter++;
 		}
-		tmp = g_slist_next(tmp);
-	    }
+//	    }
 	}
+	tmp = g_slist_next(tmp);
     }
     g_slist_free(db_set);
 
@@ -81,6 +82,9 @@ GtkListStore* create_sources_list(gchar *sources_path, gint *sources_number){
 }
 /*******************************************************************************/
 gboolean source_params_valid(GHashTable *data){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     if(!data)
 	return FALSE;
     if(!source_library_valid(data) ||
@@ -92,7 +96,9 @@ gboolean source_params_valid(GHashTable *data){
 gboolean source_library_valid(GHashTable *data){
     gpointer	value;
     gchar	buffer[256];
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     if(!data)
 	return FALSE;
     /* check *-source.so file */
@@ -111,6 +117,9 @@ gboolean source_library_valid(GHashTable *data){
 /*******************************************************************************/
 gboolean source_forecast_url_valid(GHashTable *data){
     gpointer	value;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     if(!data)
 	return FALSE;
     /* check forecast url*/
@@ -123,6 +132,9 @@ gboolean source_forecast_url_valid(GHashTable *data){
 /*******************************************************************************/
 gboolean source_detail_url_valid(GHashTable *data){
     gpointer	value;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     if(!data)
 	return FALSE;
     /* check forecast url*/
@@ -136,7 +148,9 @@ gboolean source_detail_url_valid(GHashTable *data){
 gboolean source_stations_database_valid(GHashTable *data){
     gpointer	value;
     gchar	buffer[256];
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     if(!data)
 	return FALSE;
     /* check *.db file */
@@ -156,7 +170,9 @@ gboolean source_stations_database_valid(GHashTable *data){
 gboolean source_logo_file_valid(GHashTable *data){
     gpointer	value;
     gchar	buffer[256];
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     if(!data)
 	return FALSE;
     /* check image file */
@@ -198,7 +214,9 @@ GHashTable* parse_source_file(const gchar *filename, const gchar *encoding){
 void parse_children(xmlNode *node, GHashTable *object){
     GHashTable	*something = NULL;
     xmlChar	*value = NULL;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     while(node){
 	if(node->type == XML_ELEMENT_NODE){
 	    /* name */

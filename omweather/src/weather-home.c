@@ -377,7 +377,6 @@ void draw_home_window(gint count_day){
 		*tmp_day = NULL,
 		*first = NULL,
 		*last = NULL;
-gchar		*my_label;
 #ifndef RELEASE
     time_t	tmp_time,
 		utc_time;
@@ -570,9 +569,6 @@ gchar		*my_label;
                             G_CALLBACK(weather_window_popup),
                             (is_na_day ? (GINT_TO_POINTER(-1)) : (GINT_TO_POINTER(i))));
 	add_item2object(&(app->buttons), (void*)tmp_button);
-
-	my_label = gtk_label_get_text((WDB*)tmp_button->label);
-	fprintf(stderr," Label %s\n", my_label);
 
 	if(!(app->config->separate && i == 1))
 	    tmp = g_slist_next(tmp);
@@ -1232,7 +1228,6 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		*station_box = NULL;
     time_t	current_time,
 		update_time,
-		*my_label,
                 diff_time;
 
     int		n,
@@ -1409,30 +1404,21 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	    days_panel = gtk_table_new(Max_count_weather_day, 2, FALSE);
 	break;
     }
-fprintf(stderr,"Test dddddddddddddddd\n");    
 /* add padding around the outside of the container so the text
  * is not right to the very edge */
     gtk_container_set_border_width(GTK_CONTAINER(days_panel),2);
 /* attach days buttons */
     tmp = app->buttons;
-    fprintf(stderr,"LIST OF BUTTON %p\n",tmp);
     for(n = 0, x = 0, y = 0; n < total_elements; n++, x++){
 	if(tmp){
 	    switch(layout){
 		default:
 		case ONE_ROW:
-		    fprintf(stderr,"afrsdfsdfsdbvgggg");
 		    
 		    gtk_table_attach((GtkTable*)days_panel,
 				    ((WDB*)tmp->data)->button,
 				    n, n + 1, 0, 1, (GtkAttachOptions)0,
 				    (GtkAttachOptions)0, 0, 0 );
-//		    my_label = ((WDB*)tmp->data)->label;
-//		    gtk_table_attach(GTK_TABLE(days_panel), my_label, 0, 1, 0, 1, 
-//		        GTK_FILL | GTK_SHRINK, GTK_FILL | GTK_SHRINK, 5, 5);
-//		        my_label = gtk_label_get_text(((WDB*)tmp->data)->label);
-//	                fprintf(stderr," Label: %s\n", my_label);
-
 		break;
 		case ONE_COLUMN:
 		    gtk_table_attach((GtkTable*)days_panel,
@@ -1528,7 +1514,6 @@ fprintf(stderr,"Test dddddddddddddddd\n");
     gtk_table_attach((GtkTable*)panel, days_panel_with_buttons, 0, 1, 1, 2,
 			(GtkAttachOptions)0, (GtkAttachOptions)0, 0, 0);
 */
-fprintf(stderr,"ooooooooooooo\n");
     gtk_table_attach((GtkTable*)panel, days_panel, 0, 1, 1, 2,
 		    (GtkAttachOptions)0, (GtkAttachOptions)0, 0, 0);
 /* Connect signal button */
@@ -1671,7 +1656,6 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     if(draw_day_label){
 	    new_day_button->label = gtk_label_new(NULL);
 	    gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
-	    fprintf(stderr,"Text %s\n",text);
         if  (app->config->text_position == LEFT ||
              app->config->text_position == RIGHT ||
              app->config->text_position == NOTHING)
@@ -1727,7 +1711,6 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     gtk_container_add(GTK_CONTAINER(new_day_button->button), new_day_button->box);
 
 #ifdef DEBUGFUNCTIONCALL
-    fprintf(stderr," DATA %p\n",new_day_button);
     END_FUNCTION;
 #endif
     return new_day_button;

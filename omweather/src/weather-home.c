@@ -928,7 +928,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     app && (g_free(app), app = NULL);
     /* Deinitialize libosso */
     osso_deinitialize(osso);
-#if defined OS2008 || ! defined (APPLICATION)
+#if defined OS2008 && ! defined (APPLICATION)
     gtk_object_destroy(widget);
 #endif
 }

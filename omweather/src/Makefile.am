@@ -73,7 +73,6 @@ omweather_CFLAGS =	$(GTK_CFLAGS) \
 			$(SQLITE_CFLAGS) \
 			$(HILDONDESKTOP_CFLAGS) \
 			-DAPPLICATION \
-			-DDEBUGFUNCTIONCALL \
 			-Wall -pedantic \
 			-Wmissing-prototypes
 

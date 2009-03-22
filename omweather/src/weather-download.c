@@ -421,7 +421,8 @@ gboolean download_html(gpointer data) {
         }
 
         curl_multi_add_handle(curl_multi, curl_handle);
-        curl_multi_add_handle(curl_multi, curl_handle_hour);
+        if (app->config->show_weather_for_two_hours)
+            curl_multi_add_handle(curl_multi, curl_handle_hour);
         return TRUE;            /* return to UI */
     } else {
 #ifndef RELEASE
@@ -438,15 +439,18 @@ gboolean download_html(gpointer data) {
                 if (mret != CURLM_OK)
                     fprintf(stderr, " Error remove handle %p\n",
                             curl_handle);
-                mret = curl_multi_remove_handle(curl_multi, curl_handle_hour);  /* Delete curl_handle from curl_multi */
+                if (app->config->show_weather_for_two_hours)
+                    mret = curl_multi_remove_handle(curl_multi, curl_handle_hour);  /* Delete curl_handle from curl_multi */
                 if (mret != CURLM_OK)
                     fprintf(stderr, " Error remove handle %p\n",
                             curl_handle);
 
                 curl_easy_cleanup(curl_handle);
                 curl_handle = NULL;
-                curl_easy_cleanup(curl_handle_hour);
-                curl_handle_hour = NULL;
+                if (app->config->show_weather_for_two_hours){
+                    curl_easy_cleanup(curl_handle_hour);
+                    curl_handle_hour = NULL;
+                }
 
                 if (url) {
                     g_free(url);
@@ -520,8 +524,9 @@ gboolean download_html(gpointer data) {
                         }
                         /* add the easy handle to a multi session */
                         curl_multi_add_handle(curl_multi, curl_handle);
-                        curl_multi_add_handle(curl_multi,
-                                              curl_handle_hour);
+                        if (app->config->show_weather_for_two_hours)
+                            curl_multi_add_handle(curl_multi,
+                                                  curl_handle_hour);
                         return TRUE;    /* Download next station */
                     }
                 }

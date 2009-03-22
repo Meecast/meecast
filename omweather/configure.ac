@@ -78,7 +78,7 @@ AC_ARG_ENABLE(debug,
             yes) debug=true ;;
             no)  debug=false ;;
             *) AC_MSG_ERROR(bad value ${enableval} for --enable-debug) ;;
-      esac],[nonmaemo=false])
+      esac],[debug=false])
 
 if test "$debug" == "true"; then
     AC_DEFINE(DEBUGFUNCTIONCALL, 1, [DEBUG])
@@ -132,17 +132,17 @@ if test "$nonmaemo" == "false"; then
          AC_DEFINE(HILDONDESKTOP, 1, [Hildon desktop used]) 
     else
 #         PKG_CHECK_MODULES(DESK, hildon-status-bar-lib >= 0.7.1) 
-          AC_DEFINE(OS2009, 1, [Version of hildon libraries])
+         AC_DEFINE(OS2009, 1, [Version of hildon libraries])
     fi
     AC_SUBST(HILDONDESKTOP_LIBS)
-    AC_SUBST(HILDONDESKTOP_CFLAGS)  
+    AC_SUBST(HILDONDESKTOP_CFLAGS)
 fi
 
 PKG_CHECK_MODULES(HILDON, [hildon-1 >= 0.9.9], [hildon=yes],[hildon=no])
 if test "$hildon" == "yes"; then
-	  if test "$hildondesktop" == "yes"; then
-            AC_DEFINE(OS2008, 1, [Version of hildon libraries])
-          fi 
+	  if test "$hildondesktop" == "yes" && test "$nonmaemo" != "true"; then
+                 AC_DEFINE(OS2008, 1, [Version of hildon libraries])
+          fi
 else    
 	  PKG_CHECK_MODULES(HILDON_LIBS, [hildon-libs >= 0.12.0])
 	  

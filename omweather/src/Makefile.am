@@ -102,20 +102,67 @@ weather-help.c:	build
 	    echo "#define BUILD \""`date +%V`"\"" > build; \
 	fi
 
-#libweather_home_la_CFLAGS =  $(DBUS_CFLAGS) 
-#			    $(DESKTOP_CFLAGS) $(OSSOIC_CFLAGS) $(LOCATION_CFLAGS)  \
-#			    
-#			    -Wall -pedantic -Wmissing-prototypes -DDISPLAY_BUILD
+if !NONMAEMO
+# The Home plugin
+if OS2008 
+libhhdir = $(libdir)/hildon-desktop
+else
+libhhdir = $(libdir)/hildon-home
+endif
 
-#libweather_home_la_LDFLAGS =  -module -avoid-version 
+libhh_LTLIBRARIES = libweather-home.la
 
-#libweather_home_la_LIBADD = $(DBUS_LIBS) \
-#			    $(LIBCURL_LIBS)  $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS) $(OSSOIC_LIBS) \
-#			    $(LOCATION_LIBS)  $(HILDON_LIBS)
+libweather_home_la_SOURCES  = 	weather-home.c \
+			weather-home.h \
+			weather-parser.h \
+			weather-parser.c \
+			weather-config.h \
+			weather-config.c \
+			weather-settings.h \
+			weather-settings.c \
+			weather-common.h \
+			weather-event.c \
+			weather-event.h \
+			weather-hash.h \
+			weather-hash.c \
+			weather-download.h \
+			weather-download.c \
+			weather-stations.h \
+			weather-stations.c \
+			weather-data.h \
+			weather-data.c \
+			weather-popup.h \
+			weather-popup.c \
+			weather-gps.h \
+			weather-gps.c \
+			weather-gpsdistance.h \
+			weather-gpsdistance.c \
+			weather-help.h \
+			weather-help.c \
+			weather-utils.h \
+			weather-utils.c \
+			weather-sensor.h \
+			weather-sensor.c \
+			weather-applet-expose.c \
+			weather-applet-expose.h \
+			weather-alerts.h \
+			weather-alerts.c \
+			weather-sources.h \
+			weather-sources.c \
+			weather-main.h \
+			weather-main.c
 
-#libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCONF_LIBS) $(DBUS_LIBS) \
-#			     $(CONIC_LIBS) $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS) $(OSSOIC_LIBS) \
-#			    $(LIBOSSOHELP_LIBS)
+libweather_home_la_CFLAGS =  $(DBUS_CFLAGS) 
+			    $(DESKTOP_CFLAGS) $(OSSOIC_CFLAGS) $(LOCATION_CFLAGS)  \
+			    -Wall -pedantic -Wmissing-prototypes -DDISPLAY_BUILD
+
+libweather_home_la_LDFLAGS =  -module -avoid-version 
+
+
+libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCONF_LIBS) $(DBUS_LIBS) \
+			    $(LIBCURL_LIBS) $(CONIC_LIBS) $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS)  $(OSSOIC_LIBS) \
+			    $(LOCATION_LIBS) $(LIBOSSOHELP_LIBS)
+endif
 
 clean-local:
 	$(RM) *.core core core.* stamp-*.h *~

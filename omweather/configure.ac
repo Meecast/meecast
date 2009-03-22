@@ -211,6 +211,7 @@ fi
     AC_SUBST(LIBOSSOHELP_CFLAGS)
 
 AM_CONDITIONAL(OS2008, test "x$use_dbus" != "xyes")
+AM_CONDITIONAL(NONMAEMO, test "x$nonmaemo" == "xtrue")
 
 
 dnl Help file install directory

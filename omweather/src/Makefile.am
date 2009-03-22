@@ -152,9 +152,20 @@ libweather_home_la_SOURCES  = 	weather-home.c \
 			weather-main.h \
 			weather-main.c
 
-libweather_home_la_CFLAGS =  $(DBUS_CFLAGS) 
-			    $(DESKTOP_CFLAGS) $(OSSOIC_CFLAGS) $(LOCATION_CFLAGS)  \
-			    -Wall -pedantic -Wmissing-prototypes -DDISPLAY_BUILD
+libweather_home_la_CFLAGS =  $(GTK_CFLAGS) \
+			$(OSSO_CFLAGS) \
+			$(DBUS_CFLAGS) \
+			$(GNOME_VFS_CFLAGS) \
+			$(GCONF_CFLAGS) \
+			$(LIBXML2_CFLAGS) \
+			$(HILDON_CFLAGS) \
+			$(CONIC_CFLAGS) \
+			$(LIBOSSOHELP_CFLAGS) \
+			$(LIBCURL_CFLAGS) \
+			$(SQLITE_CFLAGS) \
+			-DDEBUGFUNCTIONCALL \
+			-Wall -pedantic \
+			-Wmissing-prototypes
 
 libweather_home_la_LDFLAGS =  -module -avoid-version 
 
@@ -163,6 +174,7 @@ libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCON
 			    $(LIBCURL_LIBS) $(CONIC_LIBS) $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS)  $(OSSOIC_LIBS) \
 			    $(LOCATION_LIBS) $(LIBOSSOHELP_LIBS)
 endif
+
 
 clean-local:
 	$(RM) *.core core core.* stamp-*.h *~

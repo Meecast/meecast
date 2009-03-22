@@ -30,6 +30,8 @@ button_iconsdir = $(datadir)/omweather/button_icons
 button_icons_DATA = button_icons/*.png
 databasedir = $(datadir)/omweather/db
 database_DATA = weather.com.db
+sourcesdir = $(datadir)/omweather/sources
+sources_DATA = sources/*.xml
 
 homeapplet_desktopdir = $(DESKTOPDIR)
 if OS2008 

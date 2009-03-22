@@ -72,6 +72,18 @@ if test "$nonmaemo" == "true"; then
     AC_DEFINE(NONMAEMO, 1, [NON MAEMO platform])
 fi
 
+AC_ARG_ENABLE(debug,
+      [  --enable-debug   Debug],
+      [case "${enableval}" in
+            yes) debug=true ;;
+            no)  debug=false ;;
+            *) AC_MSG_ERROR(bad value ${enableval} for --enable-debug) ;;
+      esac],[nonmaemo=false])
+
+if test "$debug" == "true"; then
+    AC_DEFINE(DEBUGFUNCTIONCALL, 1, [DEBUG])
+fi
+
 
 dnl Path for .so .a .la files
 DESKTOPLIBDIR=`pkg-config osso-af-settings --variable=hildondesktoplibdir`

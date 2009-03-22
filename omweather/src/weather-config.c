@@ -766,6 +766,10 @@ void config_update_proxy(void) {
         app->config->iap_http_proxy_port = 0;
     }
     g_object_unref(gconf_client);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 
 /*******************************************************************************/

@@ -161,7 +161,7 @@ void iap_callback(struct iap_event_t *event, void *arg) {
     app->iap_connecting = FALSE;
     switch (event->type) {
     case OSSO_IAP_CONNECTED:
-#ifdef DEBUGFUNCTIONCALL
+#if defined (DEBUGFUNCTIONCALL) || defined (NONMAEMO)
         second_attempt = TRUE;
         update_weather(FALSE);
 #endif
@@ -244,7 +244,7 @@ void weather_initialize_dbus(void) {
 
 #endif                          /* USE_DBUS */
         /* For Debug on i386 */
-#ifndef RELEASE
+#if ! defined (RELEASE) || defined (NONMAEMO)
         app->iap_connected = TRUE;
 #endif
         app->dbus_is_initialize = TRUE;
@@ -274,6 +274,9 @@ CURL *weather_curl_init(CURL * my_curl_handle) {
             curl_easy_setopt(my_curl_handle, CURLOPT_PROXYPORT,
                              app->config->iap_http_proxy_port);
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return my_curl_handle;
 }
 /*******************************************************************************/
@@ -391,6 +394,7 @@ gboolean download_html(gpointer data) {
         /* Init curl_mult */
         if (!curl_multi)
             curl_multi = curl_multi_init();
+
         max = 0;
         FD_ZERO(&rs);
         FD_ZERO(&ws);
@@ -399,6 +403,7 @@ gboolean download_html(gpointer data) {
         if (mret != CURLM_OK) {
             fprintf(stderr, "Error CURL\n");
         }
+        
         /* set options for the curl easy handle */
         curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);
         curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);
@@ -414,6 +419,7 @@ gboolean download_html(gpointer data) {
             curl_easy_setopt(curl_handle_hour, CURLOPT_WRITEFUNCTION,
                              data_read);
         }
+
         curl_multi_add_handle(curl_multi, curl_handle);
         curl_multi_add_handle(curl_multi, curl_handle_hour);
         return TRUE;            /* return to UI */

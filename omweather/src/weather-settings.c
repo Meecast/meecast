@@ -941,8 +941,8 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
     START_FUNCTION;
 #endif
 /* kill popup window :-) */
-//    if(app->popup_window)
-//        gtk_widget_destroy(app->popup_window);
+    if(app->popup_window)
+        gtk_widget_destroy(app->popup_window);
 /* Main window */
     window_config = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 /* set window title and icon */

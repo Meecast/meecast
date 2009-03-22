@@ -49,6 +49,10 @@ AC_DEFINE([_XOPEN_SOURCE], [1], [glibc2 needs this])
 
 dnl Localisation
 localedir=`pkg-config osso-af-settings --variable=localedir`
+if test "$localedir" == ""; then
+    localedir="${datarootdir}/locale"
+    #${datadir}
+fi
 GETTEXT_PACKAGE=$PACKAGE
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], "${GETTEXT_PACKAGE}", [Name of gettext package])

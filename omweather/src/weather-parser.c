@@ -277,7 +277,7 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 		    /* title */
 		    if(!xmlStrcmp(child_node->name, (const xmlChar *)"t") ){
 			temp_xml_string = xmlNodeGetContent(child_node);
-			itm = create_item("title", (char*)hash_table_find(temp_xml_string, FALSE));
+			itm = create_item("title", (char*)temp_xml_string);
 			xmlFree(temp_xml_string);
 			add_item2object(&(wsd->current), itm);
 			continue;
@@ -308,8 +308,7 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 				/* direction */
     				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"d") ){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
-				    itm = create_item("pressure_direction",
-					    (char*)hash_table_find(temp_xml_string, FALSE));
+				    itm = create_item("pressure_direction", temp_xml_string);
 				    xmlFree(temp_xml_string);
 				    add_item2object(&(wsd->current), itm);
 				}
@@ -354,8 +353,7 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 				/* direction */
     				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t") ){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
-				    itm = create_item("wind_direction",
-					    (char*)hash_table_find(temp_xml_string, FALSE));
+				    itm = create_item("wind_direction", temp_xml_string);
 				    xmlFree(temp_xml_string);
 				    add_item2object(&(wsd->current), itm);
 				}

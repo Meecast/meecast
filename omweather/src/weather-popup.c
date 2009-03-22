@@ -877,7 +877,7 @@ GtkWidget* create_current_tab(GSList *current){
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), icon_image, TRUE, TRUE, 0);
     /* temperature */
     memset(buffer, 0, sizeof(buffer));
-    sprintf(buffer, "%s\n", item_value(current, "title"));
+    sprintf(buffer, "%s\n", hash_table_find(item_value(current, "title"), FALSE));
     sprintf(buffer + strlen(buffer), "%s",  _("Temperature: "));
     sprintf(buffer + strlen(buffer), "  %d\302\260",
                 ((app->config->temperature_units == CELSIUS) ?
@@ -931,13 +931,13 @@ GtkWidget* create_current_tab(GSList *current){
 
 	sprintf(buffer + strlen(buffer), "  %.2f %s,", tmp_pressure, units);
 	sprintf(buffer + strlen(buffer), "  %s\n",
-		    item_value(current, "pressure_direction"));
+		    hash_table_find(item_value(current, "pressure_direction"), FALSE));
     }
 /* wind */
     if( strcmp(item_value(current, "wind_direction"), "N/A") ){
 	sprintf(buffer + strlen(buffer), "%s", _("Wind:"));
 	sprintf(buffer + strlen(buffer), "  %s\n",
-		item_value(current, "wind_direction"));
+		hash_table_find(item_value(current, "wind_direction"), FALSE));
 	if( strcmp(item_value(current, "wind_speed"), "N/A") )
 	    sprintf(buffer + strlen(buffer), "%s", _("Speed:"));
 	    sprintf(buffer + strlen(buffer), "  %.2f %s\n",

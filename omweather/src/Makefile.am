@@ -71,6 +71,8 @@ omweather_CFLAGS =	$(GTK_CFLAGS) \
 			$(LIBOSSOHELP_CFLAGS) \
 			$(LIBCURL_CFLAGS) \
 			$(SQLITE_CFLAGS) \
+			$(HILDONDESKTOP_CFLAGS) \
+			-DAPPLICATION \
 			-DDEBUGFUNCTIONCALL \
 			-Wall -pedantic \
 			-Wmissing-prototypes
@@ -163,7 +165,7 @@ libweather_home_la_CFLAGS =  $(GTK_CFLAGS) \
 			$(LIBOSSOHELP_CFLAGS) \
 			$(LIBCURL_CFLAGS) \
 			$(SQLITE_CFLAGS) \
-			-DDEBUGFUNCTIONCALL \
+			$(HILDONDESKTOP_CFLAGS) \
 			-Wall -pedantic \
 			-Wmissing-prototypes
 

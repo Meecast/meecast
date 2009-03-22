@@ -54,7 +54,7 @@
 #define FONT_MAIN_SIZE_TINY	10
 #define CLICK_TIMEOUT		500
 /*******************************************************************************/
-#ifdef OS2008
+#if defined OS2008 && !defined (APPLICATION)
 HD_DEFINE_PLUGIN(OMWeather, omweather, HILDON_DESKTOP_TYPE_HOME_ITEM)
 
 struct _OMWeatherPrivate {
@@ -702,7 +702,7 @@ void update_weather(gboolean show_update_window){
 	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }
 /*******************************************************************************/
-#if defined (OS2009) || defined(NONMAEMO)
+#if defined (OS2009) || defined(NONMAEMO) || defined (APPLICATION)
 gboolean
 omweather_init_OS2009(GtkWidget *applet){
 #elif OS2008
@@ -717,13 +717,13 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
 #endif
 //#ifndef OS2009 
-#if ! defined (OS2009) || ! defined (NONMAEMO)
+#if ! defined (OS2009) || ! defined (NONMAEMO) || ! defined (APPLICATION)
     osso_context_t	*osso = NULL;
 
     osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
     if(!osso){
         g_debug(_("Error initializing the OMWeather applet"));
-#ifndef OS2008
+#if !defined OS2008 || defined (APPLICATION)
         return NULL;
 #else
 	return;
@@ -733,7 +733,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 /* Checking noomweather.txt file */
     if ((access("/media/mmc1/noomweather.txt", R_OK) == 0)||
         (access("/media/mmc2/noomweather.txt", R_OK) == 0))
-#if defined(OS2009) || defined(NONMAEMO)
+#if defined(OS2009) || defined(NONMAEMO) || defined (APPLICATION)
 	return FALSE;
 #elif OS2008
         return;
@@ -747,7 +747,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	exit(1);
     }
     memset(app, 0, sizeof(OMWeatherApp));
-#if ! defined (OS2009) || ! defined (NONMAEMO)
+#if ! defined (OS2009) || ! defined (NONMAEMO) || ! defined (APPLICATION)
     app->osso = osso;
 #endif
     app->flag_updating = 0;
@@ -759,7 +759,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     if(!app->config){
         fprintf(stderr, "\nCan not allocate memory for config.\n");
         g_free(app);
-#if defined (OS2009) || defined (NONMAEMO)
+#if defined (OS2009) || defined (NONMAEMO) ||  defined (APPLICATION)
 	return FALSE;
 #elif OS2008
         return;
@@ -782,7 +782,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         fprintf(stderr, "\nCan not read config file.\n");
         g_free(app->config);
         g_free(app);
-#if  defined (OS2009) ||  defined (NONMAEMO)
+#if  defined (OS2009) ||  defined (NONMAEMO) || defined (APPLICATION)
 	return FALSE;
 #elif OS2008
         return;
@@ -799,11 +799,11 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     timer(60000);  /* One per minute */
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
-#ifndef OS2008
+#if !defined OS2008 ||  defined (APPLICATION)
     redraw_home_window(TRUE);
 #endif
 #if defined(OS2008) || defined(OS2009) || defined(NONMAEMO)
-#ifdef OS2008
+#if defined OS2008 && !defined (APPLICATION)
     applet->queueRefresh = TRUE;
 #endif
 #ifdef ENABLE_GPS
@@ -811,10 +811,10 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     initial_gps_control();
 #endif
     app->widget_first_start = TRUE;
-#ifdef OS2008
+#if defined OS2008 || ! defined (APPLICATION)
     gtk_widget_set_name(GTK_WIDGET(app->top_widget), PACKAGE_NAME);
 #endif
-#ifdef OS2008
+#if defined OS2008 && !defined (APPLICATION)
     snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s/%s",
 	                    app->config->cache_directory, "style.rc");
     gtk_rc_parse(tmp_buff);
@@ -825,7 +825,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
 #endif
     gtk_container_add(GTK_CONTAINER(applet), app->top_widget);
-#if  defined (OS2009) || defined(NONMAEMO)
+#if  defined (OS2009) || defined(NONMAEMO) || defined (APPLICATION)
     return TRUE;
 #endif
 #else
@@ -859,7 +859,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 #ifndef RELEASE
     fprintf(stderr, "\nOMWeather applet deinitialize1\n");
 #endif
-#ifdef OS2008
+#if defined OS2008 || !defined (APPLICATION)
     if(!app)
 	return;
 #endif
@@ -907,7 +907,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 	    app->pixbuf = NULL; 
 	}
 #endif	
-#ifndef OS2008			
+#if !defined OS2008 && ! defined (APPLICATION)
     osso = (osso_context_t*)applet_data;
 #endif
     if(app){
@@ -928,7 +928,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     app && (g_free(app), app = NULL);
     /* Deinitialize libosso */
     osso_deinitialize(osso);
-#ifdef OS2008
+#if defined OS2008 || ! defined (APPLICATION)
     gtk_object_destroy(widget);
 #endif
 }
@@ -1619,6 +1619,7 @@ void free_memory(void){
 #endif
 
 }
+
 /*******************************************************************************/
 
 WDB* create_weather_day_button(const char *text, const char *icon,
@@ -1930,7 +1931,7 @@ void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
     }
 }
 /*******************************************************************************/
-#ifdef OS2008
+#if defined OS2008 && !defined (APPLICATION)
 GtkWidget*
 settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent){
     GtkWidget		*menu_item = NULL;

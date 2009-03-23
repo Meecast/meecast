@@ -50,7 +50,9 @@ AC_DEFINE([_XOPEN_SOURCE], [1], [glibc2 needs this])
 dnl Localisation
 localedir=`pkg-config osso-af-settings --variable=localedir`
 if test "$localedir" == ""; then
-    localedir="${datarootdir}/locale"
+#Hack for non Maemo Platform
+#    localedir="${datarootdir}/locale"
+    localedir="/usr/share/locale"
     #${datadir}
 fi
 GETTEXT_PACKAGE=$PACKAGE

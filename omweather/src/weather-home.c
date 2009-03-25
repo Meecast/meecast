@@ -45,14 +45,14 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-#define APPLET_X_SIZE		200
-#define APPLET_Y_SIZE		40
-#define FONT_MAIN_SIZE_GIANT	18
-#define FONT_MAIN_SIZE_LARGE	16
-#define FONT_MAIN_SIZE_MEDIUM	14
-#define FONT_MAIN_SIZE_SMALL	12
-#define FONT_MAIN_SIZE_TINY	10
-#define CLICK_TIMEOUT		500
+#define APPLET_X_SIZE           200
+#define APPLET_Y_SIZE           40
+#define FONT_MAIN_SIZE_GIANT    18
+#define FONT_MAIN_SIZE_LARGE    16
+#define FONT_MAIN_SIZE_MEDIUM   14
+#define FONT_MAIN_SIZE_SMALL    12
+#define FONT_MAIN_SIZE_TINY     10
+#define CLICK_TIMEOUT           500
 /*******************************************************************************/
 #if defined OS2008 && !defined (APPLICATION)
 HD_DEFINE_PLUGIN(OMWeather, omweather, HILDON_DESKTOP_TYPE_HOME_ITEM)
@@ -795,6 +795,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->popup_window = NULL;
     app->contextmenu = NULL;
     app->tab_of_window_popup = NULL;
+    app->fullscreen = FALSE;
 /* Start timer */
     timer(60000);  /* One per minute */
 /* Start main applet */ 

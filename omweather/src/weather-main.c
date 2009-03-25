@@ -47,20 +47,54 @@ main(int argc, char *argv[]){
 #endif
     osso_context = osso_initialize(PACKAGE, VERSION, FALSE, NULL);
     if(!osso_context){
-	g_error("osso_initialize failed\n");
-	return 1;
+	    g_error("osso_initialize failed\n");
+	    return 1;
     }
     gtk_init(&argc, &argv);
 
     OMWeather = create_omweather();
     if(OMWeather){
-	app->osso = osso_context;
-	gtk_widget_show(OMWeather);
-	gtk_main();
-	gtk_widget_destroy(OMWeather);
+        app->osso = osso_context;
+	    gtk_widget_show(OMWeather);
+	    gtk_main();
+	    gtk_widget_destroy(OMWeather);
     }
     osso_deinitialize(osso_context);
     return 0;
+}
+/*******************************************************************************/
+gboolean
+main_widget_button_key_press_cb (GtkWidget   *widget,
+                                        GdkEventKey *event,
+                                        gpointer     user_data)
+{
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if (event->keyval == GDK_F6){
+    /* The "Full screen" hardware key has been pressed */
+        if (app->fullscreen == GDK_WINDOW_STATE_FULLSCREEN)
+            gtk_window_unfullscreen (GTK_WINDOW(user_data));
+        else
+            gtk_window_fullscreen (GTK_WINDOW(user_data));
+    }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
+    return FALSE;
+}
+/*******************************************************************************/
+gboolean
+main_window_state_event_cb(GtkWidget   *widget,
+                                        GdkEventWindowState *event,
+                                        gpointer     user_data)
+{
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    app->fullscreen =  (event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN);
+    return FALSE;
 }
 /*******************************************************************************/
 GtkWidget*
@@ -80,7 +114,14 @@ create_omweather(void){
     g_signal_connect((gpointer)main_widget, "delete_event",
 			G_CALLBACK (gtk_main_quit), NULL);
     gtk_widget_show_all(main_widget);
+/* Connect to keypress */
+    g_signal_connect (main_widget, "key_press_event",
+                      G_CALLBACK (main_widget_button_key_press_cb),
+                      main_widget);
+/* For fullscreen/ unfullscreen mode */
+    g_signal_connect (main_widget, "window_state_event",
+                      G_CALLBACK (main_window_state_event_cb),
+                      NULL);
 
     return main_widget;
-}
-/*******************************************************************************/
+}/*******************************************************************************/

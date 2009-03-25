@@ -38,6 +38,7 @@
 #include <time.h>
 #include <string.h>
 #include <gtk/gtk.h>
+#include <gdk/gdkkeysyms.h>
 #include <gconf/gconf-client.h>
 #include <libgnomevfs/gnome-vfs.h>
 #include <sys/types.h>
@@ -359,6 +360,7 @@ typedef struct OMWeatherApplet{
     gint		aw;
     gint		ah;
     GSList		*tab_of_window_popup;
+    gboolean            fullscreen;
 #ifdef ENABLE_GPS
 #ifdef OS2008
     guint		gps_id_connection;

@@ -33,7 +33,7 @@
 /*******************************************************************************/
 GtkWidget* create_omweather(void);
 GtkWidget* create_main_screen(void);
-gboolean main_widget_button_key_press_cb (GtkWidget   *widget,
+gboolean main_window_button_key_press_cb (GtkWidget   *widget,
                                             GdkEventKey *event,
                                             gpointer     user_data);
 gboolean main_window_state_event_cb(GtkWidget   *widget,

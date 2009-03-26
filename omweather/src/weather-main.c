@@ -64,7 +64,7 @@ main(int argc, char *argv[]){
 }
 /*******************************************************************************/
 gboolean
-main_widget_button_key_press_cb (GtkWidget   *widget,
+main_window_button_key_press_cb (GtkWidget   *widget,
                                         GdkEventKey *event,
                                         gpointer     user_data)
 {
@@ -116,7 +116,7 @@ create_omweather(void){
     gtk_widget_show_all(main_widget);
 /* Connect to keypress */
     g_signal_connect (main_widget, "key_press_event",
-                      G_CALLBACK (main_widget_button_key_press_cb),
+                      G_CALLBACK (main_window_button_key_press_cb),
                       main_widget);
 /* For fullscreen/ unfullscreen mode */
     g_signal_connect (main_widget, "window_state_event",

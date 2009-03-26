@@ -1134,7 +1134,7 @@ GtkWidget* create_current_weather_simple_widget(GSList *current){
 				app->config->font_color.green >> 8,
 				app->config->font_color.blue >> 8);
 
-    strcat(buffer, item_value(current, "title"));
+    strcat(buffer, hash_table_find(item_value(current, "title"), FALSE));
     strcat(buffer, _("\nFL: "));
     sprintf(buffer + strlen(buffer), "%d\302\260", 
 	    (app->config->temperature_units == CELSIUS) ? (atoi(item_value(current, "feel_like"))) 
@@ -1179,7 +1179,7 @@ GtkWidget* create_current_weather_simple_widget(GSList *current){
     }
     strcat(buffer, _("\nP: "));
     sprintf(buffer + strlen(buffer), "%.2f %s, ", tmp_pressure, units);
-    strcat(buffer, item_value(current, "pressure_direction"));
+    strcat(buffer, hash_table_find(item_value(current, "pressure_direction"), FALSE));
 /* wind */
     strcat(buffer, _("\nW: "));
     sprintf(buffer + strlen(buffer), "%s", item_value(current, "wind_direction"));

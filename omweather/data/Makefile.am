@@ -33,6 +33,14 @@ database_DATA = weather.com.db
 sourcesdir = $(datadir)/omweather/sources
 sources_DATA = sources/*.xml
 
+dbus_servicedir = $(datadir)/dbus-1/services
+dbus_service_DATA = com.nokia.omweather.service
+
+desktopdir    = $(datadir)/applications/hildon
+desktop_files = omweather.desktop
+desktop_DATA  = $(desktop_files)
+
+
 homeapplet_desktopdir = $(DESKTOPDIR)
 if OS2008 
 homeapplet_desktop_DATA = os2008/omweather-home.desktop
@@ -46,6 +54,14 @@ EXTRA_DIST = $(homeapplet_desktop_DATA) \
 	     $(copyright_icons_DATA) \
 	     $(button_icons_DATA) \
 	     units.xml \
+	     $(dbus_service_DATA) \
+	     omweather.desktop.in
 	     omweather.png
+
+omweather.desktop: omweather.desktop.in
+	sed "s/__VERSION__/$(VERSION)/g" $< >$@.tmp && \
+	sed "s/__PACKAGE__/$(PACKAGE)/g" $@.tmp >$@ && \
+	$(RM) *.tmp
+
 
 SUBDIRS = help

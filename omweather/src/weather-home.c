@@ -1182,7 +1182,7 @@ GtkWidget* create_current_weather_simple_widget(GSList *current){
     strcat(buffer, hash_table_find(item_value(current, "pressure_direction"), FALSE));
 /* wind */
     strcat(buffer, _("\nW: "));
-    sprintf(buffer + strlen(buffer), "%s", item_value(current, "wind_direction"));
+    sprintf(buffer + strlen(buffer), "%s", hash_table_find(item_value(current, "wind_direction"), FALSE));
     if( strcmp(item_value(current, "wind_speed"), "N/A") )
 	sprintf(buffer + strlen(buffer), " %.2f %s", 
 		    convert_wind_units(app->config->wind_units, atof(item_value(current, "wind_speed"))),

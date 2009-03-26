@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Version=0.22
+Version=__VERSION__
 Type=Application
 Name=OMWeather
 Exec=/usr/bin/omweather

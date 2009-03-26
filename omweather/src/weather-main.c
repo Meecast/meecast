@@ -113,7 +113,7 @@ create_omweather(void){
 			G_CALLBACK(gtk_main_quit), NULL);
     g_signal_connect((gpointer)main_widget, "delete_event",
 			G_CALLBACK (gtk_main_quit), NULL);
-    gtk_widget_show_all(main_widget);
+
 /* Connect to keypress */
     g_signal_connect (main_widget, "key_press_event",
                       G_CALLBACK (main_window_button_key_press_cb),
@@ -122,6 +122,12 @@ create_omweather(void){
     g_signal_connect (main_widget, "window_state_event",
                       G_CALLBACK (main_window_state_event_cb),
                       NULL);
+    if(!app->config->transparency)
+        gtk_widget_modify_bg(main_widget, GTK_STATE_NORMAL, &app->config->background_color);
+    else
+        gtk_window_set_decorated((GtkWindow *) main_widget, FALSE);
+
+    gtk_widget_show_all(main_widget);
 
     return main_widget;
 }/*******************************************************************************/

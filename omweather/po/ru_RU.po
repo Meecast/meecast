@@ -139,11 +139,12 @@ msgstr ""
 "Д: "
 
 #: src/weather-popup.c:717 src/weather-popup.c:791
-#, fuzzy
 msgid ""
 "\n"
 "Precipitation: "
-msgstr "Атмосферные осадки: "
+msgstr ""
+"\n"
+"Атмосферные осадки: "
 
 #: src/weather-home.c:1147
 msgid ""
@@ -1002,9 +1003,8 @@ msgid "PM Light Snow"
 msgstr "После полудня легкий снег"
 
 #: src/hash.data:105
-#, fuzzy
 msgid "PM Light Snow / Wind"
-msgstr "Небольшой снег / Ветер"
+msgstr "После полудня небольшой снег / Ветер"
 
 #: src/hash.data:109
 msgid "PM Rain"

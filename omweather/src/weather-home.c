@@ -287,6 +287,9 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
                                                         &iter);
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return FALSE;
 }
 /*******************************************************************************/
@@ -679,6 +682,9 @@ void redraw_home_window(gboolean first_start){
     } /* Error in xml file */
     app->count_day = count_day;	/* store days number from xml file */
     draw_home_window(count_day);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 /*******************************************************************************/
 gboolean remitted_update(void){
@@ -716,7 +722,6 @@ void*
 hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
 #endif
-//#ifndef OS2009 
 #if ! defined (OS2009) || ! defined (NONMAEMO) || ! defined (APPLICATION)
     osso_context_t	*osso = NULL;
 

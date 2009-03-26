@@ -403,7 +403,7 @@ gboolean download_html(gpointer data) {
         if (mret != CURLM_OK) {
             fprintf(stderr, "Error CURL\n");
         }
-        
+
         /* set options for the curl easy handle */
         curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);
         curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);

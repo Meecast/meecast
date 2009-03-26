@@ -122,7 +122,8 @@ GSList *create_list_of_user_alerts(GtkListStore * list) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list), &iter);
+    if (list)
+        valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list), &iter);
     while (valid) {
         gtk_tree_model_get(GTK_TREE_MODEL(list), &iter, 0, &alert_name,
                            -1);

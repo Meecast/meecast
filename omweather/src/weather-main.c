@@ -122,10 +122,8 @@ create_omweather(void){
     g_signal_connect (main_widget, "window_state_event",
                       G_CALLBACK (main_window_state_event_cb),
                       NULL);
-    if(!app->config->transparency)
-        gtk_widget_modify_bg(main_widget, GTK_STATE_NORMAL, &app->config->background_color);
-    else
-        gtk_window_set_decorated((GtkWindow *) main_widget, FALSE);
+
+    gtk_widget_modify_bg(main_widget, GTK_STATE_NORMAL, &app->config->background_color);
 
     gtk_widget_show_all(main_widget);
 

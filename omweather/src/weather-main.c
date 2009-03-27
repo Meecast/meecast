@@ -82,7 +82,7 @@ main(int argc, char *argv[]){
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-#
+
     return 0;
 }
 /*******************************************************************************/
@@ -149,6 +149,5 @@ create_omweather(void){
     gtk_widget_modify_bg(main_widget, GTK_STATE_NORMAL, &app->config->background_color);
 
     gtk_widget_show_all(main_widget);
-
     return main_widget;
 }/*******************************************************************************/

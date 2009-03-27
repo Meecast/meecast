@@ -724,7 +724,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #endif
 #if ! defined (OS2009) || ! defined (NONMAEMO) || ! defined (APPLICATION)
     osso_context_t	*osso = NULL;
-
     osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
     if(!osso){
         g_debug(_("Error initializing the OMWeather applet"));

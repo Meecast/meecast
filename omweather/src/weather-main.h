@@ -39,6 +39,9 @@ gboolean main_window_button_key_press_cb (GtkWidget   *widget,
 gboolean main_window_state_event_cb(GtkWidget   *widget,
                                       GdkEventWindowState *event,
                                       gpointer     user_data);
+gint dbus_callback (const gchar *interface, const gchar *method,
+              GArray *arguments, gpointer data,
+              osso_rpc_t *retval);
 /*******************************************************************************/
 #endif
 

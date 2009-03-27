@@ -32,10 +32,25 @@
 #include "weather-main.h"
 #include "weather-home.h"
 /*******************************************************************************/
+gint
+dbus_callback (const gchar *interface, const gchar *method,
+	       GArray *arguments, gpointer data,
+	       osso_rpc_t *retval)
+{
+  fprintf (stderr,"hello-world dbus: %s, %s\n", interface, method);
+  if (!strcmp (method, "top_application"))
+      gtk_window_present (GTK_WINDOW (data));
+
+  retval->type = DBUS_TYPE_INVALID;
+  return OSSO_OK;
+}
+/*******************************************************************************/
 int
 main(int argc, char *argv[]){
-    GtkWidget		*OMWeather = NULL;
-    osso_context_t	*osso_context;
+    GtkWidget       *OMWeather = NULL;
+    osso_context_t  *osso_context;
+    osso_return_t   ret;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -45,21 +60,29 @@ main(int argc, char *argv[]){
     bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
     textdomain(GETTEXT_PACKAGE);
 #endif
-    osso_context = osso_initialize(PACKAGE, VERSION, FALSE, NULL);
+    osso_context = osso_initialize("omweather_app", VERSION, TRUE, NULL);
     if(!osso_context){
-	    g_error("osso_initialize failed\n");
-	    return 1;
+        fprintf(stderr,"osso_initialize failed\n");
+        return 1;
     }
     gtk_init(&argc, &argv);
-
     OMWeather = create_omweather();
     if(OMWeather){
-        app->osso = osso_context;
-	    gtk_widget_show(OMWeather);
-	    gtk_main();
-	    gtk_widget_destroy(OMWeather);
+          ret = osso_rpc_set_default_cb_f (osso_context, dbus_callback, OMWeather);
+          if (ret != OSSO_OK){
+              fprintf (stderr, "osso_rpc_set_default_cb_f failed: %d.\n", ret);
+              return 2;
+          }
+          app->osso = osso_context; 
+          gtk_widget_show(OMWeather);
+          gtk_main();
+          gtk_widget_destroy(OMWeather);
     }
     osso_deinitialize(osso_context);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+#
     return 0;
 }
 /*******************************************************************************/

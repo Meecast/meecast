@@ -2,9 +2,9 @@
 <source xmlns="https://garage.maemo.org/projects/omweather/">
 <name>weather.com</name>
 <logo>weather.com.png</logo>
-<forecast_url>http://xoap.weather.com/weather/local/%s?cc=*&amp;unit=m&amp;dayf=10</forecast_url>
-<detail_url>http://xoap.weather.com/weather/local/%s?cc=*&amp;dayf=1&amp;unit=m&amp;hbhf=12</detail_url>
-<station_search_url></station_search_url>
+<forecast url="http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10" />
+<detail url="http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12" />
+<search url="http://xoap.weather.com/search/search?where=%s" />
 <stations_db>weather.com.db</stations_db>
-<library>weather.com-source.so</library>
+<library>libomweather-weather-com-source.so</library>
 </source>

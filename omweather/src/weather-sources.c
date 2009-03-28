@@ -28,7 +28,8 @@
 /*******************************************************************************/
 #include "weather-sources.h"
 #include "weather-utils.h"
-#define		SOURCES_LIB	"/usr/lib/hildon-desktop/"
+#include <string.h>
+#define		SOURCES_LIB	"/usr/lib/omweather"
 /*******************************************************************************/
 GtkListStore* create_sources_list(gchar *sources_path, gint *sources_number){
     GtkListStore	*list = NULL;
@@ -234,15 +235,21 @@ void parse_children(xmlNode *node, GHashTable *object){
 		xmlFree(value);
 	    }
 	    /* forecast_url */
-	    if(!xmlStrcmp(node->name, (const xmlChar *)"forecast_url")){
-		value = xmlNodeGetContent(node);
+	    if(!xmlStrcmp(node->name, (const xmlChar *)"forecast")){
+		value = xmlGetProp(node, (const xmlChar*)"url");
 		g_hash_table_insert(object, "forecast_url", (gpointer)value);
 		xmlFree(value);
 	    }
 	    /* detail_url */
-	    if(!xmlStrcmp(node->name, (const xmlChar *)"detail_url")){
-		value = xmlNodeGetContent(node);
+	    if(!xmlStrcmp(node->name, (const xmlChar *)"detail")){
+		value = xmlGetProp(node, (const xmlChar*)"url");
 		g_hash_table_insert(object, "detail_url", (gpointer)value);
+		xmlFree(value);
+	    }
+	    /* search_url */
+	    if(!xmlStrcmp(node->name, (const xmlChar *)"search")){
+		value = xmlGetProp(node, (const xmlChar*)"url");
+		g_hash_table_insert(object, "search_url", (gpointer)value);
 		xmlFree(value);
 	    }
 	    /* stations_db */

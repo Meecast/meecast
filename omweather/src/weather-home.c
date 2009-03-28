@@ -665,6 +665,7 @@ void redraw_home_window(gboolean first_start){
         gtk_widget_destroy(app->main_window);
 	app->main_window = NULL;
     }
+//    get_station_weather_data(app->config->current_station_id, 1);
 /* Parse data file */
     count_day = parse_weather_file_data(app->config->current_station_id,
 					app->config->current_station_source,

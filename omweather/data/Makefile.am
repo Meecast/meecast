@@ -33,6 +33,27 @@ database_DATA = weather.com.db
 sourcesdir = $(datadir)/omweather/sources
 sources_DATA = sources/*.xml
 
+
+# The icons
+
+icondir = $(datadir)/icons/hicolor
+
+install-data-local:
+	i=omweather; \
+	$(mkinstalldirs) $(DESTDIR)$(icondir)/26x26/hildon; \
+	$(mkinstalldirs) $(DESTDIR)$(icondir)/40x40/hildon; \
+	$(mkinstalldirs) $(DESTDIR)$(icondir)/scalable/hildon; \
+	$(INSTALL_DATA) $(srcdir)/desktop_icons/$$i.26.png $(DESTDIR)$(icondir)/26x26/hildon/$$i.png; \
+	$(INSTALL_DATA) $(srcdir)/desktop_icons/$$i.40.png $(DESTDIR)$(icondir)/40x40/hildon/$$i.png; \
+	$(INSTALL_DATA) $(srcdir)/desktop_icons/$$i.64.png $(DESTDIR)$(icondir)/scalable/hildon/$$i.png;
+
+uninstall-local:
+	i=omweather; \
+	rm $(DESTDIR)$(icondir)/26x26/hildon/$$i.png; \
+	rm $(DESTDIR)$(icondir)/40x40/hildon/$$i.png; \
+	rm $(DESTDIR)$(icondir)/scalable/hildon/$$i.png;
+
+
 dbus_servicedir = $(datadir)/dbus-1/services
 dbus_service_DATA = com.nokia.omweather.service
 

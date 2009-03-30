@@ -553,8 +553,12 @@ void draw_home_window(gint count_day){
 		event_add(last_day + 24 * 60 * 60, CHANGE_DAY_PART);
 		flag_last_day = TRUE;
 	    }
-    	}
+   	}
+#if defined(NONMAEMO) || defined (APPLICATION)
+	if(i == 0)/* First icon in APPLICATION MODE */
+#else
 	if(app->config->icons_layout == COMBINATION && i == 0)/* First icon in COMBINATION layout */
+#endif    
 	    tmp_button = create_weather_day_button(buffer, buffer_icon, icon_size * 2,
 						    app->config->transparency,
 						    FALSE,
@@ -592,8 +596,13 @@ void draw_home_window(gint count_day){
 	tmp_station_name = NULL;
 /* creating main panel */
     app->main_window = gtk_table_new(2, 1, FALSE);
+#if defined(NONMAEMO) || defined (APPLICATION)
+    create_panel(app->main_window, APPLICATION_MODE,
+		    app->config->transparency, tmp_station_name);
+#else
     create_panel(app->main_window, app->config->icons_layout,
 		    app->config->transparency, tmp_station_name);
+#endif            
     gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
     gtk_widget_show_all(app->top_widget);
     #ifdef OS2008
@@ -1337,29 +1346,30 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		    app->config->font_color.green >> 8,
 		    app->config->font_color.blue >> 8, st_name);
 #if defined(OS2008) || defined(DEBUGTEMP)
-	}
+	    }
 #endif
-	station_box = gtk_hbox_new(FALSE, 0);
-	station_name_btn = gtk_event_box_new();
-	set_background_color(station_name_btn, &(app->config->background_color));		
+	    station_box = gtk_hbox_new(FALSE, 0);
+	    station_name_btn = gtk_event_box_new();
+	    set_background_color(station_name_btn, &(app->config->background_color));		
         gtk_widget_set_events(station_name_btn, GDK_BUTTON_PRESS_MASK);
-	station_name = gtk_label_new(NULL);
-	gtk_label_set_markup(GTK_LABEL(station_name), buffer);
-	gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
-	if(app->config->icons_layout == COMBINATION)
-	    set_font(station_name, app->config->font, 2);
-	else
-	    set_font(station_name, app->config->font, -1);
-	gtk_box_pack_start((GtkBox*)station_box, station_name, TRUE, TRUE, 0);
-    	gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
+	    station_name = gtk_label_new(NULL);
+	    gtk_label_set_markup(GTK_LABEL(station_name), buffer);
+	    gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
+
+	    if(layout == COMBINATION || layout == APPLICATION_MODE)
+	        set_font(station_name, app->config->font, 2);
+	    else
+	        set_font(station_name, app->config->font, -1);
+        gtk_box_pack_start((GtkBox*)station_box, station_name, TRUE, TRUE, 0);
+   	    gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
     }
 #ifdef OS2008
-    	if(previos_station_name_btn)
-	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
-	if(next_station_name_btn)
-	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(next_station_name_btn), FALSE);
-	if(station_name_btn)
-	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
+   	if(previos_station_name_btn)
+        gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
+    if(next_station_name_btn)
+        gtk_event_box_set_visible_window(GTK_EVENT_BOX(next_station_name_btn), FALSE);
+    if(station_name_btn)
+        gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
 #else
 /* check config->transparency */
     if(transparency){
@@ -1407,6 +1417,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	    days_panel = gtk_table_new(elements, 2, FALSE);
 	break;
 	case COMBINATION:
+    case APPLICATION_MODE:
 	    days_panel = gtk_table_new(Max_count_weather_day, 2, FALSE);
 	break;
     }
@@ -1463,6 +1474,7 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 					(GtkAttachOptions)0, 0, 0);
 		break;
 		case COMBINATION:
+        case APPLICATION_MODE:
 		    if(!n)
 			gtk_table_attach((GtkTable*)days_panel,
 					((WDB*)tmp->data)->button,
@@ -1479,13 +1491,13 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 	tmp = g_slist_next(tmp);
     }
     /* attach to main panel header and days panels */
-    if(layout == COMBINATION){
+    if(layout == COMBINATION || layout == APPLICATION_MODE){
         combination_vbox = gtk_vbox_new(FALSE, 0);
         current_time = time(NULL);
 	
-	diff_time = calculate_diff_time(atol(item_value(app->wsd.location, "station_time_zone")));
+	    diff_time = calculate_diff_time(atol(item_value(app->wsd.location, "station_time_zone")));
         current_time += diff_time;
-	update_time = last_update_time(app->wsd.current);
+	    update_time = last_update_time(app->wsd.current);
         if(!app->wsd.current_data_is_invalid && 
 		update_time > (current_time - app->config->data_valid_interval) &&
     		update_time < (current_time + app->config->data_valid_interval) ){

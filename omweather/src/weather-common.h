@@ -48,6 +48,7 @@
 #include <libintl.h>
 #include <locale.h>
 #include <sqlite3.h>
+#include <hildon/hildon-program.h>
 #ifdef OS2008 
     #include <hildon/hildon-window.h>
     #include <hildon/hildon-banner.h>
@@ -297,6 +298,8 @@ typedef struct applet_config{
 }AppletConfig;
 /*******************************************************************************/
 typedef struct OMWeatherApplet{
+    HildonProgram       *app;       /* handle to application */
+    HildonWindow        *main_view; /* handle to app's view */
     osso_context_t	*osso;
     GHashTable		*hash,
 			*sources_units;

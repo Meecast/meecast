@@ -721,6 +721,7 @@ void update_weather(gboolean show_update_window){
 #if defined (OS2009) || defined(NONMAEMO) || defined (APPLICATION)
 gboolean
 omweather_init_OS2009(GtkWidget *applet){
+    GtkWidget *main_vbox, *main_hbox;
 #elif OS2008
 void
 omweather_init(OMWeather *applet){
@@ -839,11 +840,21 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     if(cm)
 	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
 #endif
-    gtk_container_add(GTK_CONTAINER(applet), app->top_widget);
-#if  defined (OS2009) || defined(NONMAEMO) || defined (APPLICATION)
+
+#if  defined(NONMAEMO) || defined (APPLICATION)
+    main_vbox = gtk_vbox_new(FALSE, 0);
+    main_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_vbox), main_hbox, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_hbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_hbox), app->top_widget, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_hbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
+    gtk_container_add(GTK_CONTAINER(applet), main_vbox);
     return TRUE;
 #endif
 #else
+    gtk_container_add(GTK_CONTAINER(applet), app->top_widget);
     (*widget) = app->top_widget;
     return (void*)osso;
 #endif
@@ -926,7 +937,7 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
     osso = (osso_context_t*)applet_data;
 #endif
     if(app){
-	app->top_widget = NULL;    
+	app->top_widget = NULL;
 	app->main_window = NULL;
 	free_memory();
 	if(app->config)

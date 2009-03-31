@@ -138,7 +138,7 @@ create_omweather(void){
     main_widget = hildon_window_new();
     gtk_window_set_default_size(GTK_WINDOW(main_widget), 640, 480);
     if(!omweather_init_OS2009(main_widget))
-	return NULL;
+	    return NULL;
 /* signals */
     g_signal_connect((gpointer)main_widget, "destroy_event",
 			G_CALLBACK(gtk_main_quit), NULL);

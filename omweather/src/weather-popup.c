@@ -282,6 +282,58 @@ gboolean make_hour_tab(GtkWidget *vbox){
     return FALSE;
 }
 /*******************************************************************************/
+GtkWidget *
+create_toolbar_box(gpointer exit_function)
+{
+    GtkWidget	*buttons_box = NULL,
+                *settings_button = NULL,
+                *refresh_button = NULL,
+                *about_button = NULL,
+                *close_button = NULL;
+    /* Bottom buttons box */
+    /*buttons_box = gtk_toolbar_new();
+    hildon_window_add_toolbar(HILDON_WINDOW(window_popup),GTK_TOOLBAR(buttons_box));*/
+    buttons_box = gtk_hbox_new(TRUE,0);
+    gtk_widget_set_size_request(buttons_box, -1, 60);
+    
+    /* Settings button */
+    /*settings_button = create_tool_item(BUTTON_ICONS, "settings", 40);*/
+    settings_button = create_button_with_image(BUTTON_ICONS, "settings", 40, FALSE, FALSE);
+    g_signal_connect(G_OBJECT(settings_button), "button-release-event",
+                     G_CALLBACK(settings_button_handler),
+                     (gpointer)app->popup_window);
+    /* Refresh buton */
+    /*refresh_button = create_tool_item(BUTTON_ICONS, "refresh", 40);*/
+    refresh_button = create_button_with_image(BUTTON_ICONS, "refresh", 40, FALSE, FALSE);
+	g_signal_connect(G_OBJECT(refresh_button), "button-release-event",
+                     G_CALLBACK(refresh_button_handler),
+                     (gpointer)app->popup_window);
+    /* About buton */
+    /*about_button = create_tool_item(BUTTON_ICONS, "about", 40);*/
+    about_button = create_button_with_image(BUTTON_ICONS, "about", 40, FALSE, FALSE);
+    g_signal_connect(G_OBJECT(about_button), "button-release-event",
+                        G_CALLBACK(about_button_handler),
+			NULL);
+    /* Close button */
+    /*close_button = create_tool_item(BUTTON_ICONS, "close", 40);*/
+    close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE, FALSE);
+    g_signal_connect(G_OBJECT(close_button), "button-release-event",
+//                        G_CALLBACK(popup_close_button_handler),
+                        G_CALLBACK(exit_function),
+			(gpointer)app->popup_window);
+
+/* Pack buttons to the buttons box */
+	/*gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(settings_button), -1);
+	gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(refresh_button), -1);
+	gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(about_button), -1);
+	gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(close_button), -1);*/
+	gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, TRUE, TRUE, 5);
+	gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 5);
+	gtk_box_pack_start(GTK_BOX(buttons_box), about_button, TRUE, TRUE, 5);
+	gtk_box_pack_start(GTK_BOX(buttons_box), close_button, TRUE, TRUE, 5);
+        return buttons_box;
+}
+/*******************************************************************************/
 gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
                     	    				    gpointer user_data){
     GtkWidget	*notebook = NULL,
@@ -291,10 +343,6 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 		*label = NULL,
 		*vbox = NULL,
 		*buttons_box = NULL,
-		*settings_button = NULL,
-		*refresh_button = NULL,
-		*about_button = NULL,
-		*close_button = NULL,
 		*label_box = NULL,
 		*copyright_box = NULL,
 		*no_weather_box = NULL;
@@ -452,46 +500,8 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 			TRUE, TRUE, 0);
         gtk_widget_show(notebook);
     }
-/* Bottom buttons box */
-    /*buttons_box = gtk_toolbar_new();
-    hildon_window_add_toolbar(HILDON_WINDOW(window_popup),GTK_TOOLBAR(buttons_box));*/
-    buttons_box = gtk_hbox_new(TRUE,0);
-    gtk_widget_set_size_request(buttons_box, -1, 60);
-    
-    /* Settings button */
-    /*settings_button = create_tool_item(BUTTON_ICONS, "settings", 40);*/
-    settings_button = create_button_with_image(BUTTON_ICONS, "settings", 40, FALSE, FALSE);
-    g_signal_connect(G_OBJECT(settings_button), "button-release-event",
-                     G_CALLBACK(settings_button_handler),
-                     (gpointer)app->popup_window);
-    /* Refresh buton */
-    /*refresh_button = create_tool_item(BUTTON_ICONS, "refresh", 40);*/
-    refresh_button = create_button_with_image(BUTTON_ICONS, "refresh", 40, FALSE, FALSE);
-	g_signal_connect(G_OBJECT(refresh_button), "button-release-event",
-                     G_CALLBACK(refresh_button_handler),
-                     (gpointer)app->popup_window);
-    /* About buton */
-    /*about_button = create_tool_item(BUTTON_ICONS, "about", 40);*/
-    about_button = create_button_with_image(BUTTON_ICONS, "about", 40, FALSE, FALSE);
-    g_signal_connect(G_OBJECT(about_button), "button-release-event",
-                        G_CALLBACK(about_button_handler),
-			NULL);
-    /* Close button */
-    /*close_button = create_tool_item(BUTTON_ICONS, "close", 40);*/
-    close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE, FALSE);
-    g_signal_connect(G_OBJECT(close_button), "button-release-event",
-                        G_CALLBACK(popup_close_button_handler),
-			(gpointer)app->popup_window);
 
-/* Pack buttons to the buttons box */
-	/*gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(settings_button), -1);
-	gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(refresh_button), -1);
-	gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(about_button), -1);
-	gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(close_button), -1);*/
-	gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, TRUE, TRUE, 5);
-	gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 5);
-	gtk_box_pack_start(GTK_BOX(buttons_box), about_button, TRUE, TRUE, 5);
-	gtk_box_pack_start(GTK_BOX(buttons_box), close_button, TRUE, TRUE, 5);
+    buttons_box = create_toolbar_box(popup_close_button_handler);
 
     /* check if no data file for this station */
     if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){
@@ -527,16 +537,16 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	set_font(label, NULL, 24);
     }
 /* Show copyright widget */
-	fprintf(stderr, "\n>>>>>>>>>>>>>>>>Source %s\n", app->config->current_station_source);
-	copyright_box = gtk_event_box_new();
-	gtk_container_add(GTK_CONTAINER(copyright_box),
+    fprintf(stderr, "\n>>>>>>>>>>>>>>>>Source %s\n", app->config->current_station_source);
+    copyright_box = gtk_event_box_new();
+    gtk_container_add(GTK_CONTAINER(copyright_box),
 			create_copyright_widget(app->config->current_station_source, NULL));
     gtk_box_pack_start(GTK_BOX(vbox),
 			copyright_box,
 			FALSE, TRUE, 0);
-	gtk_event_box_set_visible_window(GTK_EVENT_BOX(copyright_box),TRUE);
+    gtk_event_box_set_visible_window(GTK_EVENT_BOX(copyright_box),TRUE);
 
-	gtk_box_pack_start(GTK_BOX(vbox),buttons_box,FALSE,FALSE,0);
+    gtk_box_pack_start(GTK_BOX(vbox),buttons_box,FALSE,FALSE,0);
     gtk_widget_show_all(app->popup_window);
     #ifdef DEBUGFUNCTIONCALL
 	END_FUNCTION;

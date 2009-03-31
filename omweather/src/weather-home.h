@@ -119,9 +119,11 @@ extern void read_sensor(gint need_redraw);
 extern WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,
 				gboolean draw_day_label, GdkColor *color);
 #endif
-#if defined (OS2009) || defined(NONMAEMO)
+#if defined (OS2009) || defined(NONMAEMO) || defined (APPLICATION)
 gboolean omweather_init_OS2009(GtkWidget *applet);
+void omweather_destroy(void);
 #endif
+extern GtkWidget* create_toolbar_box(gpointer exit_function);
 extern void free_list_time_event(void);
 extern void event_add(time_t time_value, short int type_event);
 extern void destroy_popup_window(void);

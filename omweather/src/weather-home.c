@@ -845,6 +845,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #endif
 
 #if  defined(NONMAEMO) || defined (APPLICATION)
+    /* pack for window in Application mode */
     main_vbox = gtk_vbox_new(FALSE, 0);
     main_hbox = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
@@ -853,6 +854,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     gtk_box_pack_start(GTK_BOX(main_hbox), app->top_widget, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_hbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_vbox), create_toolbar_box(NULL), FALSE, FALSE, 0);
     gtk_container_add(GTK_CONTAINER(applet), main_vbox);
     return TRUE;
 #endif
@@ -1205,7 +1207,7 @@ GtkWidget* create_current_weather_simple_widget(GSList *current){
     strcat(buffer, hash_table_find(item_value(current, "pressure_direction"), FALSE));
 /* wind */
     strcat(buffer, _("\nW: "));
-    sprintf(buffer + strlen(buffer), "%s", hash_table_find(item_value(current, "wind_direction"), FALSE));
+    sprintf(buffer + strlen(buffer), "%s", (char*)hash_table_find(item_value(current, "wind_direction"), FALSE));
     if( strcmp(item_value(current, "wind_speed"), "N/A") )
 	sprintf(buffer + strlen(buffer), " %.2f %s", 
 		    convert_wind_units(app->config->wind_units, atof(item_value(current, "wind_speed"))),

@@ -2,7 +2,8 @@ omweather (0.22) unstable; urgency=low
 
   * Added precipitation
   * Added possibility to change position of text near of icon on main display
-
+  * Added option 'non-cache' for downloading of weather forecast data
+  
  -- Vlad Vasiliev <vlad@gas.by>  Fri, 15 Aug 2008 03:36:00 +0200
 
 omweather (0.21.10) unstable; urgency=low

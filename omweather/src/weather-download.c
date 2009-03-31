@@ -256,15 +256,26 @@ CURL *weather_curl_init(CURL * my_curl_handle) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    struct curl_slist *headers=NULL;
+
     my_curl_handle = curl_easy_init();
+    
     curl_easy_setopt(my_curl_handle, CURLOPT_NOPROGRESS, 1);
     curl_easy_setopt(my_curl_handle, CURLOPT_FOLLOWLOCATION, 1);
     curl_easy_setopt(my_curl_handle, CURLOPT_FAILONERROR, 1);
     curl_easy_setopt(my_curl_handle, CURLOPT_USERAGENT,
                      "Mozilla/5.0 (X11; U; Linux i686; en-US; "
                      "rv:1.8.1.1) Gecko/20061205 Iceweasel/2.0.0.1");
-    curl_easy_setopt(my_curl_handle, CURLOPT_TIMEOUT, 30);
+    if (app->config->show_weather_for_two_hours)
+       curl_easy_setopt(my_curl_handle, CURLOPT_TIMEOUT, 60);
+    else
+       curl_easy_setopt(my_curl_handle, CURLOPT_TIMEOUT, 30);
     curl_easy_setopt(my_curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
+    /* For disabled cache */
+    headers = curl_slist_append(headers, "Cache-Control: no-cache");
+    headers = curl_slist_append(headers, "Pragma: no-cache");
+    curl_easy_setopt(my_curl_handle, CURLOPT_HTTPHEADER, headers);
+
     config_update_proxy();
     /* Set Proxy option */
     if (app->config->iap_http_proxy_host) {

@@ -410,6 +410,9 @@ void draw_home_window(gint count_day){
 	    icon_size = TINY_ICON_SIZE;
 	break;        
     }
+#if defined(NONMAEMO) || defined (APPLICATION)
+    icon_size = MEDIUM_ICON_SIZE; 
+#endif
     memset(temperature_string, 0, sizeof(temperature_string));
     memset(forecast_string, 0, sizeof(forecast_string));
 

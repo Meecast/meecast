@@ -295,7 +295,7 @@ create_toolbar_box(gpointer exit_function, gpointer arg_exit_function)
     hildon_window_add_toolbar(HILDON_WINDOW(window_popup),GTK_TOOLBAR(buttons_box));*/
     buttons_box = gtk_hbox_new(TRUE,0);
     gtk_widget_set_size_request(buttons_box, -1, 60);
-    
+
     /* Settings button */
     /*settings_button = create_tool_item(BUTTON_ICONS, "settings", 40);*/
     settings_button = create_button_with_image(BUTTON_ICONS, "settings", 40, FALSE, FALSE);
@@ -322,15 +322,15 @@ create_toolbar_box(gpointer exit_function, gpointer arg_exit_function)
 			            (gpointer)arg_exit_function);
 
 /* Pack buttons to the buttons box */
-	/*gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(settings_button), -1);
-	gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(refresh_button), -1);
-	gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(about_button), -1);
-	gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(close_button), -1);*/
-	gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, TRUE, TRUE, 5);
-	gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 5);
-	gtk_box_pack_start(GTK_BOX(buttons_box), about_button, TRUE, TRUE, 5);
-	gtk_box_pack_start(GTK_BOX(buttons_box), close_button, TRUE, TRUE, 5);
-        return buttons_box;
+    /*gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(settings_button), -1);
+    gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(refresh_button), -1);
+    gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(about_button), -1);
+    gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(close_button), -1);*/
+    gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, TRUE, TRUE, 5);
+    gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 5);
+    gtk_box_pack_start(GTK_BOX(buttons_box), about_button, TRUE, TRUE, 5);
+    gtk_box_pack_start(GTK_BOX(buttons_box), close_button, TRUE, TRUE, 5);
+    return buttons_box;
 }
 /*******************************************************************************/
 gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,

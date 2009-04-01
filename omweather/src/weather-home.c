@@ -599,19 +599,23 @@ draw_home_window(gint count_day){
 						    &(app->config->background_color)));
 #endif
     if(app->config->current_station_id)
-	tmp_station_name = app->config->current_station_name;
+	    tmp_station_name = app->config->current_station_name;
     else
-	tmp_station_name = NULL;
+	    tmp_station_name = NULL;
 /* creating main panel */
-    app->main_window = gtk_table_new(2, 1, FALSE);
+    app->main_window = gtk_table_new(2, 3, FALSE);
 #if defined(NONMAEMO) || defined (APPLICATION)
     create_panel(app->main_window, APPLICATION_MODE,
-		    app->config->transparency, tmp_station_name);
+		    app->config->transparency, tmp_station_name); 
+    gtk_table_attach( app->main_window,
+            create_time_updates_widget(app->wsd.current),
+		    0, 1, 2, 3, GTK_EXPAND, GTK_EXPAND, 0, 0);
+ 
 #else
     create_panel(app->main_window, app->config->icons_layout,
 		    app->config->transparency, tmp_station_name);
 #endif            
-    gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
+   gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
     gtk_widget_show_all(app->top_widget);
     #ifdef OS2008
 	if(!app->config->transparency && app->parent)

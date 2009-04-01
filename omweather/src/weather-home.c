@@ -954,8 +954,8 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 	    gdk_pixbuf_unref(app->pixbuf);
 	    app->pixbuf = NULL; 
 	}
-#endif	
-#if !defined OS2008 && ! defined (APPLICATION)
+#endif
+#if !(defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO)
     osso = (osso_context_t*)applet_data;
 #endif
     if(app){

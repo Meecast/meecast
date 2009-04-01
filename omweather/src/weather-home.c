@@ -91,7 +91,8 @@ view_popup_menu (GtkWidget *treeview, GdkEventButton *event, gpointer userdata)
 }
 /*******************************************************************************/
 /* Change station to previos at main display */
-gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
+gboolean 
+change_station_prev(GtkWidget *widget, GdkEvent *event,
                     		    gpointer user_data){
     GtkTreeIter iter,
 		prev_iter;
@@ -169,7 +170,8 @@ gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
 }
 /*******************************************************************************/
 /* Change station to next at main display */
-gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
+gboolean 
+change_station_next(GtkWidget *widget, GdkEvent *event,
                     					    gpointer user_data){
     GtkTreeIter iter;
     gboolean    valid,
@@ -238,7 +240,8 @@ gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
     return FALSE;
 }
 /*******************************************************************************/
-gboolean change_station_select(GtkWidget *widget, gpointer user_data){
+gboolean 
+change_station_select(GtkWidget *widget, gpointer user_data){
     GtkTreeIter iter;
     gboolean    valid;
     gchar       *station_name = NULL,
@@ -293,7 +296,8 @@ gboolean change_station_select(GtkWidget *widget, gpointer user_data){
     return FALSE;
 }
 /*******************************************************************************/
-int calculate_offset_of_day(int count_day){
+int 
+calculate_offset_of_day(int count_day){
 
     long int    diff_time;
     int		year,
@@ -352,30 +356,31 @@ int calculate_offset_of_day(int count_day){
 }
 /*******************************************************************************/
 /* Filling data of buttons  */
-void draw_home_window(gint count_day){
-    gint	i,
+void 
+draw_home_window(gint count_day){
+        gint	i,
 		offset = 0,
 		year,
 		current_month = 1;
-    gchar	buffer[2048],
+        gchar	buffer[2048],
 		buffer_icon[1024],
 		temperature_string[1024],
 		forecast_string[2048];
-    time_t	current_day,
+        time_t	current_day,
 		current_time,
 		update_time,
 		last_day = 0,
 		day_begin_time,
 		night_begin_time;
-    long int    diff_time;
-    struct tm	*tm = NULL,
+        long int    diff_time;
+        struct tm	*tm = NULL,
 		tmp_tm;
-    gboolean	flag_last_day = FALSE,
+        gboolean	flag_last_day = FALSE,
 		is_na_day = FALSE;
-    gint	icon_size;
-    gchar	*tmp_station_name;
-    WDB		*tmp_button = NULL;
-    GSList	*tmp = NULL,
+        gint	icon_size;
+        gchar	*tmp_station_name;
+        WDB		*tmp_button = NULL;
+        GSList	*tmp = NULL,
 		*day = NULL,
 		*tmp_day = NULL,
 		*first = NULL,
@@ -617,7 +622,8 @@ void draw_home_window(gint count_day){
 #endif
 }
 /*******************************************************************************/
-void redraw_home_window(gboolean first_start){
+void 
+redraw_home_window(gboolean first_start){
     gint	count_day;
     GSList	*tmp = NULL,
 		*tmp_data = NULL;
@@ -700,7 +706,8 @@ void redraw_home_window(gboolean first_start){
 #endif
 }
 /*******************************************************************************/
-gboolean remitted_update(void){
+gboolean 
+remitted_update(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -709,7 +716,8 @@ gboolean remitted_update(void){
 }
 /*******************************************************************************/
 /* Get Weather xml file from weather.com */
-void update_weather(gboolean show_update_window){
+void 
+update_weather(gboolean show_update_window){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -866,7 +874,8 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 }
 /*******************************************************************************/
 #if !defined(OS2008) && !defined(OS2009)
-int hildon_home_applet_lib_save_state(void *raw_data, void **state_data, 
+int 
+hildon_home_applet_lib_save_state(void *raw_data, void **state_data, 
 								int *state_size){
     (*state_data) = NULL;
     if(state_size)
@@ -874,17 +883,21 @@ int hildon_home_applet_lib_save_state(void *raw_data, void **state_data,
     return 1;
 }
 /*******************************************************************************/
-void hildon_home_applet_lib_background(void *raw_data){
+void 
+hildon_home_applet_lib_background(void *raw_data){
 }
 /*******************************************************************************/
-void hildon_home_applet_lib_foreground(void *raw_data){
+void 
+hildon_home_applet_lib_foreground(void *raw_data){
 }
 #endif
 /*******************************************************************************/
 #ifdef OS2008
-static void omweather_destroy(GtkObject *widget){
+static void 
+omweather_destroy(GtkObject *widget){
 #else
-void hildon_home_applet_lib_deinitialize(void *applet_data){
+void 
+hildon_home_applet_lib_deinitialize(void *applet_data){
 #endif
     osso_context_t *osso = NULL;
 #ifndef RELEASE
@@ -964,7 +977,8 @@ void hildon_home_applet_lib_deinitialize(void *applet_data){
 #endif
 }
 /*******************************************************************************/
-GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent){
+GtkWidget* 
+hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent){
     GtkWidget	*menu_item;
 
 #ifndef RELEASE
@@ -977,7 +991,8 @@ GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent)
     return menu_item;
 }
 /*******************************************************************************/
-void menu_init(void){
+void 
+menu_init(void){
     GtkWidget	*menu_item = NULL;
     GtkTreeIter	iter;
     gboolean	valid;
@@ -1021,7 +1036,8 @@ void menu_init(void){
 }
 /*******************************************************************************/
 /* For Combination layout */
-GtkWidget* create_forecast_weather_simple_widget(GSList *day){
+GtkWidget* 
+create_forecast_weather_simple_widget(GSList *day){
     GtkWidget	*temperature_label = NULL,
 		*main_data_vbox = NULL,
 		*main_data_label = NULL,
@@ -1112,7 +1128,8 @@ GtkWidget* create_forecast_weather_simple_widget(GSList *day){
     return main_widget;
 }
 /*******************************************************************************/
-GtkWidget* create_current_weather_simple_widget(GSList *current){
+GtkWidget* 
+create_current_weather_simple_widget(GSList *current){
     GtkWidget	*main_widget = NULL,
 		*temperature_vbox,
 		*temperature_label,
@@ -1240,7 +1257,8 @@ GtkWidget* create_current_weather_simple_widget(GSList *current){
 }
 /*******************************************************************************/
 /* create days panel and station name panel */
-void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
+void 
+create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 								gchar *st_name){
     gchar	buffer[2048];
     GtkWidget	*header_panel = NULL,
@@ -1572,7 +1590,8 @@ void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 }
 /*******************************************************************************/
 /* free used memory from OMWeather struct */
-void free_memory(void){
+void 
+free_memory(void){
     GSList	*tmp = NULL,
 		*tmp_data = NULL;
     WDB		*tmp_button = NULL;
@@ -1656,7 +1675,8 @@ void free_memory(void){
 
 /*******************************************************************************/
 
-WDB* create_weather_day_button(const char *text, const char *icon,
+WDB* 
+create_weather_day_button(const char *text, const char *icon,
 				const gint icon_size, gboolean transparency,
 				gboolean draw_day_label, GdkColor *color){
 
@@ -1751,7 +1771,8 @@ WDB* create_weather_day_button(const char *text, const char *icon,
     return new_day_button;
 }
 /*******************************************************************************/
-void delete_weather_day_button(WDB **day){
+void 
+delete_weather_day_button(WDB **day){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1761,7 +1782,8 @@ void delete_weather_day_button(WDB **day){
     }
 }
 /*******************************************************************************/
-gboolean switch_timer_handler(gpointer data){
+gboolean 
+switch_timer_handler(gpointer data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1772,7 +1794,8 @@ gboolean switch_timer_handler(gpointer data){
     return TRUE;
 }
 /*******************************************************************************/
-GtkListStore* create_user_stations_list(void){
+GtkListStore* 
+create_user_stations_list(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1780,7 +1803,8 @@ GtkListStore* create_user_stations_list(void){
 				G_TYPE_BOOLEAN, G_TYPE_STRING);
 }
 /*******************************************************************************/
-void add_change_day_part_event(GSList *day, guint year, guint month){
+void 
+add_change_day_part_event(GSList *day, guint year, guint month){
     gchar	buffer[255];
     struct tm	tm = {0};
     time_t	time;
@@ -1801,7 +1825,8 @@ void add_change_day_part_event(GSList *day, guint year, guint month){
     event_add(time, CHANGE_DAY_PART);
 }
 /*******************************************************************************/
-time_t get_day_part_begin_time(GSList *day, guint year, const gchar *day_part){
+time_t 
+get_day_part_begin_time(GSList *day, guint year, const gchar *day_part){
     gchar	buffer[255];
     struct tm	tm = {0};
 #ifdef DEBUGFUNCTIONCALL
@@ -1814,7 +1839,8 @@ time_t get_day_part_begin_time(GSList *day, guint year, const gchar *day_part){
     return  mktime(&tm);
 }
 /*******************************************************************************/
-void add_wind_text(GSList *day, gchar *buffer, gboolean is_day){
+void 
+add_wind_text(GSList *day, gchar *buffer, gboolean is_day){
     gchar	*wind_direction = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -1867,7 +1893,8 @@ void add_wind_text(GSList *day, gchar *buffer, gboolean is_day){
 
 }
 /*******************************************************************************/
-void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
+void 
+create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 							const gchar *day_name){
     gint	temp_current = INT_MAX;
 
@@ -1899,7 +1926,8 @@ void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 		temp_current );
 }
 /*******************************************************************************/
-void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
+void
+create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 						gboolean for_combination_mode){
     gint	temp_hi = INT_MAX,
 		temp_low = INT_MAX;

@@ -283,7 +283,7 @@ gboolean make_hour_tab(GtkWidget *vbox){
 }
 /*******************************************************************************/
 GtkWidget *
-create_toolbar_box(gpointer exit_function)
+create_toolbar_box(gpointer exit_function, gpointer arg_exit_function)
 {
     GtkWidget	*buttons_box = NULL,
                 *settings_button = NULL,
@@ -318,9 +318,8 @@ create_toolbar_box(gpointer exit_function)
     /*close_button = create_tool_item(BUTTON_ICONS, "close", 40);*/
     close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE, FALSE);
     g_signal_connect(G_OBJECT(close_button), "button-release-event",
-//                        G_CALLBACK(popup_close_button_handler),
                         G_CALLBACK(exit_function),
-			(gpointer)app->popup_window);
+			            (gpointer)arg_exit_function);
 
 /* Pack buttons to the buttons box */
 	/*gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(settings_button), -1);
@@ -501,7 +500,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
         gtk_widget_show(notebook);
     }
 
-    buttons_box = create_toolbar_box(popup_close_button_handler);
+    buttons_box = create_toolbar_box(popup_close_button_handler,app->popup_window);
 
     /* check if no data file for this station */
     if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){

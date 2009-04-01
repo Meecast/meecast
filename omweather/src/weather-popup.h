@@ -54,7 +54,7 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_pseudo_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_current_tab(GSList *current);
 GtkWidget* create_hour_tab(void);
-GtkWidget* create_toolbar_box(gpointer exit_function);
+GtkWidget* create_toolbar_box(gpointer exit_function, gpointer arg_exit_function);
 gboolean make_current_tab(GtkWidget *vbox);
 gboolean make_tab(GtkWidget *vbox);
 gboolean make_hour_tab(GtkWidget *vbox);

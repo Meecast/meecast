@@ -862,7 +862,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     gtk_box_pack_start(GTK_BOX(main_hbox), app->top_widget, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_hbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(main_vbox), create_toolbar_box(NULL), FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(main_vbox), create_toolbar_box(omweather_destroy,app->app), FALSE, FALSE, 0);
     gtk_container_add(GTK_CONTAINER(applet), main_vbox);
     return TRUE;
 #endif
@@ -892,16 +892,16 @@ hildon_home_applet_lib_foreground(void *raw_data){
 }
 #endif
 /*******************************************************************************/
-#ifdef OS2008
-static void 
+#if defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO
+void 
 omweather_destroy(GtkObject *widget){
 #else
 void 
 hildon_home_applet_lib_deinitialize(void *applet_data){
 #endif
     osso_context_t *osso = NULL;
-#ifndef RELEASE
-    fprintf(stderr, "\nOMWeather applet deinitialize1\n");
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
 #endif
 #if defined OS2008 || !defined (APPLICATION)
     if(!app)
@@ -972,8 +972,15 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
     app && (g_free(app), app = NULL);
     /* Deinitialize libosso */
     osso_deinitialize(osso);
-#if defined OS2008 && ! defined (APPLICATION)
+
+#if defined OS2008 
     gtk_object_destroy(widget);
+#else  defined (APPLICATION)  || defined (NONMAEMO)
+    gtk_main_quit();
+#endif
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
 #endif
 }
 /*******************************************************************************/

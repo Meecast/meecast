@@ -25,9 +25,11 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
 */
+#ifdef CLUTTER
 /*******************************************************************************/
 #include "weather-clutter.h"
 /*******************************************************************************/
+
 /* Timeline handler */
 void
 frame_cb (ClutterTimeline *timeline, 
@@ -69,3 +71,4 @@ void show_animation(void)
         list_temp = g_slist_next(list_temp);
     }
 }
+#endif

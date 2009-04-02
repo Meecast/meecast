@@ -616,7 +616,9 @@ draw_home_window(gint count_day){
 		    app->config->transparency, tmp_station_name);
 #endif            
    gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
-    gtk_widget_show_all(app->top_widget);
+#if ! defined CLUTTER
+   gtk_widget_show_all(app->top_widget);
+#endif
     #ifdef OS2008
 	if(!app->config->transparency && app->parent)
 	    gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);

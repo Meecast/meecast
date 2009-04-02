@@ -29,7 +29,9 @@
 #ifndef _weather_clutter_h
 #define _weather_clutter_h 1
 /*******************************************************************************/
+#ifdef CLUTTER
 #include "weather-common.h"
 void show_animation(void);
+#endif
 /*******************************************************************************/
 #endif

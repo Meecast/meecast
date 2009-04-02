@@ -490,7 +490,7 @@ create_icon_widget(GdkPixbuf *icon_buffer, int icon_size)
     stage_color.alpha = 0xff;
 
     oh = g_new(SuperOH, 1);
-    icon_widget = gtk_vbox_new(False, 0);
+    icon_widget = gtk_vbox_new(FALSE, 0);
     clutter = gtk_clutter_embed_new();
     gtk_widget_set_size_request (clutter, icon_size, icon_size);
     gtk_container_add (GTK_CONTAINER (icon_widget), clutter);
@@ -516,6 +516,8 @@ create_icon_widget(GdkPixbuf *icon_buffer, int icon_size)
 }
 /*******************************************************************************/
 void free_clutter_objects_list(void) {
+
+#ifdef CLUTTER
     static GSList *list_temp = NULL;
     SuperOH *oh;
 #ifdef DEBUGFUNCTIONCALL
@@ -534,5 +536,5 @@ void free_clutter_objects_list(void) {
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-
+#endif
 }

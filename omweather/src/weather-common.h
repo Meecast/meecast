@@ -305,7 +305,7 @@ typedef struct applet_config{
 #ifdef CLUTTER
 typedef struct SuperOH
 {
-  ClutterActor *main_icon;
+  ClutterActor *icon;
   ClutterGroup *group;
   ClutterActor *stage;
 } SuperOH;

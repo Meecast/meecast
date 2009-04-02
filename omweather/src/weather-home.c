@@ -830,7 +830,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         fprintf (stderr,"Unable to initialize GtkClutter");
     clutter = gtk_clutter_embed_new ();
     /* Fix ME added config value */
-    app->clutter_objects = NULL;
+    app->clutter_objects_list = NULL;
 #endif
 
     app->time_update_list = create_time_update_list();
@@ -933,6 +933,10 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 	g_source_remove(app->timer);
     /* Clean the queue of event */ 
     free_list_time_event();
+#ifdef CLUTTER
+    /* Clean clutter objects list */
+    free_clutter_objects_list();
+#endif
     /* If downloading then switch off it */
     if(app->flag_updating != 0){
 	g_source_remove(app->flag_updating);

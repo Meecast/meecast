@@ -489,9 +489,34 @@ create_icon_widget(GdkPixbuf *icon_buffer, int icon_size)
     gtk_widget_set_size_request (clutter, icon_size, icon_size);
     gtk_container_add (GTK_CONTAINER (icon_widget), clutter);
     oh->stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (clutter));
+    /* create a new group to hold multiple actors in a group */
+    oh->group = CLUTTER_GROUP (clutter_group_new ());
+    app->clutter_objects_list = g_slist_append(app->clutter_objects_list, oh);
 #else
     icon_widget = gtk_image_new_from_pixbuf(icon_buffer);
     g_object_unref(G_OBJECT(icon_buffer));
 #endif
     return icon_widget;
+}
+/*******************************************************************************/
+void free_clutter_objects_list(void) {
+    static GSList *list_temp = NULL;
+    SuperOH *oh;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if (!app->clutter_objects_list)
+        return;
+    list_temp = app->clutter_objects_list;
+    while (list_temp != NULL) {
+        oh = list_temp->data;
+        g_free(oh);
+        list_temp = g_slist_next(list_temp);
+    }
+    g_slist_free(app->clutter_objects_list);
+    app->clutter_objects_list = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
 }

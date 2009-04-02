@@ -399,7 +399,7 @@ typedef struct OMWeatherApplet{
     WeatherStationData  wsd;
     GSList              *sources;
 #ifdef CLUTTER
-    GSList              *clutter_objects;
+    GSList              *clutter_objects_list;
 #endif
 }OMWeatherApp;
 

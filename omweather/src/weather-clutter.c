@@ -35,6 +35,13 @@ frame_cb (ClutterTimeline *timeline,
 	  gpointer         data)
 {
   SuperOH        *oh = (SuperOH *)data;
+  /* Rotate everything clockwise about stage center*/
+  clutter_actor_set_rotation (CLUTTER_ACTOR (oh->group),
+                              CLUTTER_Z_AXIS,
+                              frame_num,
+                              100 / 2, 100 / 2, 0);
+
+
 }
 void show_animation(void)
 {
@@ -52,7 +59,7 @@ void show_animation(void)
         
         /* Create a timeline to manage animation */
         /* FIX ME Important need to free */
-        timeline = clutter_timeline_new (20, 60); /* num frames, fps */
+        timeline = clutter_timeline_new (360, 60); /* num frames, fps */
         g_object_set(timeline, "loop", TRUE, NULL);   /* have it loop */
         /* fire a callback for frame change */
         g_signal_connect(timeline, "new-frame",  G_CALLBACK (frame_cb), oh);

@@ -68,6 +68,12 @@
 #else
     #include <hildon-widgets/hildon-banner.h>
 #endif
+#ifdef CLUTTER
+    #include <clutter/clutter.h>
+    #include <clutter-gtk/gtk-clutter-embed.h>
+    #include <clutter-gtk/gtk-clutter-util.h>
+#endif
+
 
 #ifdef USE_CONIC
 #include <conic/conic.h>

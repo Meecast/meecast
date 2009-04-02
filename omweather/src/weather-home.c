@@ -856,6 +856,12 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
 #endif
 
+#ifdef CLUTTER
+    if (gtk_clutter_init (NULL, NULL) != CLUTTER_INIT_SUCCESS)
+        fprintf (stderr,"Unable to initialize GtkClutter");
+    /* Fix ME added config value */
+#endif
+
 #if  defined(NONMAEMO) || defined (APPLICATION)
     /* pack for window in Application mode */
     main_vbox = gtk_vbox_new(FALSE, 0);

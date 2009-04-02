@@ -736,7 +736,7 @@ update_weather(gboolean show_update_window){
 #if defined (OS2009) || defined(NONMAEMO) || defined (APPLICATION)
 gboolean
 omweather_init_OS2009(GtkWidget *applet){
-    GtkWidget *main_vbox, *main_hbox;
+    GtkWidget *main_vbox, *main_hbox, *clutter;
 #elif OS2008
 void
 omweather_init(OMWeather *applet){
@@ -748,6 +748,11 @@ void*
 hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
 #endif
+
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
 #if ! defined (OS2009) || ! defined (NONMAEMO) || ! defined (APPLICATION)
     osso_context_t	*osso = NULL;
     osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
@@ -756,7 +761,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #if !defined OS2008 || defined (APPLICATION)
         return NULL;
 #else
-	return;
+        return;
 #endif
     }
 #endif
@@ -764,11 +769,11 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     if ((access("/media/mmc1/noomweather.txt", R_OK) == 0)||
         (access("/media/mmc2/noomweather.txt", R_OK) == 0))
 #if defined(OS2009) || defined(NONMAEMO) || defined (APPLICATION)
-	return FALSE;
+       return FALSE;
 #elif OS2008
         return;
 #else
-	return NULL;
+        return NULL;
 #endif
 
     app = g_new0(OMWeatherApp, 1);
@@ -790,11 +795,11 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         fprintf(stderr, "\nCan not allocate memory for config.\n");
         g_free(app);
 #if defined (OS2009) || defined (NONMAEMO) ||  defined (APPLICATION)
-	return FALSE;
+        return FALSE;
 #elif OS2008
         return;
 #else
-	return NULL;
+        return NULL;
 #endif
     }
 /* list of user selected stations */
@@ -802,8 +807,8 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 /* list of user selected alerts */
 /*    app->user_alerts_list = create_user_alerts_list();*/
     #ifdef USE_CONIC
-	app->connection = NULL;
-    #endif    
+       app->connection = NULL;
+    #endif
 /* Initialize DBUS */
     weather_initialize_dbus(); /* TODO connect this function with app->dbus_is_initialize */
 /* Init gconf. */
@@ -820,6 +825,14 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	return NULL;
 #endif
     }
+#ifdef CLUTTER
+    if (gtk_clutter_init (NULL, NULL) != CLUTTER_INIT_SUCCESS)
+        fprintf (stderr,"Unable to initialize GtkClutter");
+    clutter = gtk_clutter_embed_new ();
+    /* Fix ME added config value */
+    app->clutter_objects = NULL;
+#endif
+
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
     app->popup_window = NULL;
@@ -856,13 +869,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
 #endif
 
-#ifdef CLUTTER
-    if (gtk_clutter_init (NULL, NULL) != CLUTTER_INIT_SUCCESS)
-        fprintf (stderr,"Unable to initialize GtkClutter");
-    /* Fix ME added config value */
-    app->oh = g_new(SuperOH, 1);
-#endif
-
 #if  defined(NONMAEMO) || defined (APPLICATION)
     /* pack for window in Application mode */
     main_vbox = gtk_vbox_new(FALSE, 0);
@@ -877,6 +883,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     gtk_container_add(GTK_CONTAINER(applet), main_vbox);
     return TRUE;
 #endif
+
 #else
     gtk_container_add(GTK_CONTAINER(applet), app->top_widget);
     (*widget) = app->top_widget;
@@ -917,9 +924,6 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 #if defined OS2008 || !defined (APPLICATION)
     if(!app)
 	return;
-#endif
-#ifdef CLUTTER
-    g_free(app->oh);    
 #endif
     /* remove switch timer */
     if(app->switch_timer > 0)
@@ -1750,8 +1754,8 @@ create_weather_day_button(const char *text, const char *icon,
 						icon_size, NULL);
     if (icon_buffer){
 	    /* create day icon image from buffer */
-	    new_day_button->icon_image =
-	        gtk_image_new_from_pixbuf(icon_buffer);
+        new_day_button->icon_image = create_icon_widget(icon_buffer, icon_size); 
+        gtk_image_new_from_pixbuf(icon_buffer);
 	    g_object_unref(G_OBJECT(icon_buffer));
     }
     else

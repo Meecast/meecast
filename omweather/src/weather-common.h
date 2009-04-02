@@ -307,6 +307,7 @@ typedef struct SuperOH
 {
   ClutterActor *main_icon;
   ClutterGroup *group;
+  ClutterActor *stage;
 } SuperOH;
 #endif
 typedef struct OMWeatherApplet{
@@ -393,12 +394,12 @@ typedef struct OMWeatherApplet{
     gfloat		sensor_data;
 #endif
 #ifdef USE_CONIC    
-    ConIcConnection 	*connection;
+    ConIcConnection     *connection;
 #endif
-    WeatherStationData	wsd;
-    GSList		*sources;
+    WeatherStationData  wsd;
+    GSList              *sources;
 #ifdef CLUTTER
-    SuperOH		*oh;
+    GSList              *clutter_objects;
 #endif
 }OMWeatherApp;
 

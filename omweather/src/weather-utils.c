@@ -471,3 +471,27 @@ int create_icon_set_list(gchar *dir_path, GSList ** store, gchar *type){
     return sets_number;
 }
 /*******************************************************************************/
+GtkWidget *
+create_icon_widget(GdkPixbuf *icon_buffer, int icon_size)
+{
+    GtkWidget *icon_widget;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+#ifdef CLUTTER
+    SuperOH *oh;
+    GtkWidget *clutter;
+
+    oh = g_new(SuperOH, 1);
+    icon_widget = gtk_vbox_new(False, 0);
+    clutter = gtk_clutter_embed_new();
+    gtk_widget_set_size_request (clutter, icon_size, icon_size);
+    gtk_container_add (GTK_CONTAINER (icon_widget), clutter);
+    oh->stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (clutter));
+#else
+    icon_widget = gtk_image_new_from_pixbuf(icon_buffer);
+    g_object_unref(G_OBJECT(icon_buffer));
+#endif
+    return icon_widget;
+}

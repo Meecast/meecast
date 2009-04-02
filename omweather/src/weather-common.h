@@ -214,7 +214,6 @@ typedef struct weather_day_button_with_image{
     GtkWidget	*button;
     GtkWidget	*label;
     GtkWidget	*box;
-    GdkPixbuf   *icon_buffer;
     GtkWidget   *icon_image; 
 }WDB;
 /*******************************************************************************/
@@ -303,6 +302,13 @@ typedef struct applet_config{
     GdkColor	background_color;
 }AppletConfig;
 /*******************************************************************************/
+#ifdef CLUTTER
+typedef struct SuperOH
+{
+  ClutterActor *main_icon;
+  ClutterGroup *group;
+} SuperOH;
+#endif
 typedef struct OMWeatherApplet{
     HildonProgram       *app;       /* handle to application */
     HildonWindow        *main_view; /* handle to app's view */
@@ -391,7 +397,13 @@ typedef struct OMWeatherApplet{
 #endif
     WeatherStationData	wsd;
     GSList		*sources;
+#ifdef CLUTTER
+    SuperOH		*oh;
+#endif
 }OMWeatherApp;
+
+
+
 /*******************************************************************************/
 extern	OMWeatherApp	*app;
 /*******************************************************************************/

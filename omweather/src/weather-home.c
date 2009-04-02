@@ -860,6 +860,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     if (gtk_clutter_init (NULL, NULL) != CLUTTER_INIT_SUCCESS)
         fprintf (stderr,"Unable to initialize GtkClutter");
     /* Fix ME added config value */
+    app->oh = g_new(SuperOH, 1);
 #endif
 
 #if  defined(NONMAEMO) || defined (APPLICATION)
@@ -916,6 +917,9 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 #if defined OS2008 || !defined (APPLICATION)
     if(!app)
 	return;
+#endif
+#ifdef CLUTTER
+    g_free(app->oh);    
 #endif
     /* remove switch timer */
     if(app->switch_timer > 0)
@@ -1698,6 +1702,7 @@ create_weather_day_button(const char *text, const char *icon,
 				gboolean draw_day_label, GdkColor *color){
 
     WDB		*new_day_button = NULL;
+    GdkPixbuf   *icon_buffer;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1739,15 +1744,15 @@ create_weather_day_button(const char *text, const char *icon,
     }else
     	new_day_button->label = NULL;
    /* create day icon buffer */
-    new_day_button->icon_buffer =
+    icon_buffer =
 	    gdk_pixbuf_new_from_file_at_size(icon,
 						icon_size,
 						icon_size, NULL);
-    if (new_day_button->icon_buffer){
+    if (icon_buffer){
 	    /* create day icon image from buffer */
 	    new_day_button->icon_image =
-	        gtk_image_new_from_pixbuf(new_day_button->icon_buffer);
-	    g_object_unref(G_OBJECT(new_day_button->icon_buffer));
+	        gtk_image_new_from_pixbuf(icon_buffer);
+	    g_object_unref(G_OBJECT(icon_buffer));
     }
     else
 	    new_day_button->icon_image = NULL;
@@ -1760,7 +1765,7 @@ create_weather_day_button(const char *text, const char *icon,
     else 
         new_day_button->box = gtk_vbox_new(FALSE, 0);
 
-    if (new_day_button->icon_buffer){
+    if (new_day_button->icon_image){
         if(app->config->text_position == RIGHT ||
            app->config->text_position == BOTTOM){
 	        gtk_box_pack_start(GTK_BOX(new_day_button->box),

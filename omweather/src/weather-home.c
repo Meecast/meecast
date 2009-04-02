@@ -705,6 +705,9 @@ redraw_home_window(gboolean first_start){
     } /* Error in xml file */
     app->count_day = count_day;	/* store days number from xml file */
     draw_home_window(count_day);
+#ifdef CLUTTER
+    show_animation();
+#endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

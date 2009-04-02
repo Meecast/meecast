@@ -131,6 +131,7 @@ extern void destroy_popup_window(void);
 extern float mb2mm(float pressure);
 extern GtkWidget *create_icon_widget(GdkPixbuf *icon_buffer, int icon_size);
 extern void free_clutter_objects_list(void);
+extern void show_animation(void);
 /*******************************************************************************/
 extern gchar	path_large_icon[];
 /*******************************************************************************/

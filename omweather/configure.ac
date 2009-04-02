@@ -215,6 +215,22 @@ fi
     AC_SUBST(LIBOSSOHELP_LIBS)
     AC_SUBST(LIBOSSOHELP_CFLAGS)
 
+AC_ARG_ENABLE(clutter,
+      [  --enable-clutter   Enable GTK-clutter],
+      [case "${enableval}" in
+            yes) clutter=true ;;
+            no)  clutter=false ;;
+            *) AC_MSG_ERROR(bad value ${enableval} for --enable-clutter) ;;
+      esac],[clutter=false])
+
+if test "$clutter" == "true"; then
+    PKG_CHECK_MODULES(CLUTTER, clutter-x11-0.8 >= 0.8)
+    AC_SUBST(CLUTTER_CFLAGS)
+    AC_SUBST(CLUTTER_LIBS)
+fi
+
+
+
 AM_CONDITIONAL(OS2008, test "x$use_dbus" != "xyes")
 AM_CONDITIONAL(NONMAEMO, test "x$nonmaemo" == "xtrue")
 

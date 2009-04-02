@@ -72,6 +72,7 @@ omweather_CFLAGS =	$(GTK_CFLAGS) \
 			$(LIBCURL_CFLAGS) \
 			$(SQLITE_CFLAGS) \
 			$(HILDONDESKTOP_CFLAGS) \
+			$(CLUTTER_CFLAGS) \
 			-DAPPLICATION \
 			-Wall -pedantic \
 			-Wmissing-prototypes
@@ -86,6 +87,7 @@ omweather_LDADD =	$(GTK_LIBS) \
 			$(CONIC_LIBS) \
 			$(SQLITE_LIBS) \
 			$(LIBOSSOHELP_LIBS) \
+			$(CLUTTER_LIBS) \
 			$(LIBCURL_LIBS)
 
 weather-hash.c:		hash.data
@@ -164,6 +166,7 @@ libweather_home_la_CFLAGS =  $(GTK_CFLAGS) \
 			$(LIBOSSOHELP_CFLAGS) \
 			$(LIBCURL_CFLAGS) \
 			$(SQLITE_CFLAGS) \
+			$(CLUTTER_CFLAGS) \
 			$(HILDONDESKTOP_CFLAGS) \
 			-Wall -pedantic \
 			-Wmissing-prototypes
@@ -171,9 +174,19 @@ libweather_home_la_CFLAGS =  $(GTK_CFLAGS) \
 libweather_home_la_LDFLAGS =  -module -avoid-version 
 
 
-libweather_home_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GNOME_VFS_LIBS) $(GCONF_LIBS) $(DBUS_LIBS) \
-			    $(LIBCURL_LIBS) $(CONIC_LIBS) $(HILDONDESKTOP_LIBS) $(DESKTOP_LIBS)  $(OSSOIC_LIBS) \
-			    $(LOCATION_LIBS) $(LIBOSSOHELP_LIBS)
+libweather_home_la_LIBADD = $(GTK_LIBS) \
+			    $(LIBXML2_LIBS) \
+			    $(GNOME_VFS_LIBS) \
+			    $(GCONF_LIBS) \
+			    $(DBUS_LIBS) \
+			    $(LIBCURL_LIBS) \
+			    $(CONIC_LIBS) \
+			    $(HILDONDESKTOP_LIBS) \
+			    $(DESKTOP_LIBS) \
+			    $(OSSOIC_LIBS) \
+			    $(LOCATION_LIBS) \
+			    $(LIBOSSOHELP_LIBS) \
+			    $(CLUTTER_LIBS)
 endif
 
 

@@ -472,7 +472,7 @@ int create_icon_set_list(gchar *dir_path, GSList ** store, gchar *type){
 }
 /*******************************************************************************/
 GtkWidget *
-create_icon_widget(GdkPixbuf *icon_buffer, int icon_size)
+create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size)
 {
     GtkWidget *icon_widget;
 #ifdef DEBUGFUNCTIONCALL
@@ -480,7 +480,11 @@ create_icon_widget(GdkPixbuf *icon_buffer, int icon_size)
 #endif
 
 #ifdef CLUTTER
-    icon_widget = create_clutter_main_icon(icon_buffer, icon_size);
+    icon_widget = create_clutter_main_icon(icon_buffer, icon_path, icon_size);
+    if (!icon_widget){
+        icon_widget = gtk_image_new_from_pixbuf(icon_buffer);
+        g_object_unref(G_OBJECT(icon_buffer));
+    }
 #else
     icon_widget = gtk_image_new_from_pixbuf(icon_buffer);
     g_object_unref(G_OBJECT(icon_buffer));

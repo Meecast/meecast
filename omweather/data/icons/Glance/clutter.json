@@ -17,10 +17,397 @@
       "function" : "sine"
     }
   },
+
+
+
   {
-     "id" : "icon",
+     "id" : "icon_name_1",
      "type" : "ClutterTexture",
-     "filename" : "/usr/share/omweather/icons/Glance/30.png",
+     "filename" : "1.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_2",
+     "type" : "ClutterTexture",
+     "filename" : "2.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_3",
+     "type" : "ClutterTexture",
+     "filename" : "3.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_4",
+     "type" : "ClutterTexture",
+     "filename" : "4.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_5",
+     "type" : "ClutterTexture",
+     "filename" : "5.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_6",
+     "type" : "ClutterTexture",
+     "filename" : "6.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_7",
+     "type" : "ClutterTexture",
+     "filename" : "7.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_8",
+     "type" : "ClutterTexture",
+     "filename" : "8.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_9",
+     "type" : "ClutterTexture",
+     "filename" : "9.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_10",
+     "type" : "ClutterTexture",
+     "filename" : "10.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_11",
+     "type" : "ClutterTexture",
+     "filename" : "11.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_12",
+     "type" : "ClutterTexture",
+     "filename" : "12.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_13",
+     "type" : "ClutterTexture",
+     "filename" : "13.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_14",
+     "type" : "ClutterTexture",
+     "filename" : "14.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_15",
+     "type" : "ClutterTexture",
+     "filename" : "15.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_16",
+     "type" : "ClutterTexture",
+     "filename" : "16.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_17",
+     "type" : "ClutterTexture",
+     "filename" : "17.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_18",
+     "type" : "ClutterTexture",
+     "filename" : "18.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_19",
+     "type" : "ClutterTexture",
+     "filename" : "19.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_20",
+     "type" : "ClutterTexture",
+     "filename" : "20.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_21",
+     "type" : "ClutterTexture",
+     "filename" : "21.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_22",
+     "type" : "ClutterTexture",
+     "filename" : "22.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_23",
+     "type" : "ClutterTexture",
+     "filename" : "23.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_24",
+     "type" : "ClutterTexture",
+     "filename" : "24.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_25",
+     "type" : "ClutterTexture",
+     "filename" : "25.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_26",
+     "type" : "ClutterTexture",
+     "filename" : "26.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_27",
+     "type" : "ClutterTexture",
+     "filename" : "27.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_28",
+     "type" : "ClutterTexture",
+     "filename" : "28.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_29",
+     "type" : "ClutterTexture",
+     "filename" : "29.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_30",
+     "type" : "ClutterTexture",
+     "filename" : "30.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_31",
+     "type" : "ClutterTexture",
+     "filename" : "31.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_32",
+     "type" : "ClutterTexture",
+     "filename" : "32.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_33",
+     "type" : "ClutterTexture",
+     "filename" : "33.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_34",
+     "type" : "ClutterTexture",
+     "filename" : "34.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_35",
+     "type" : "ClutterTexture",
+     "filename" : "35.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_36",
+     "type" : "ClutterTexture",
+     "filename" : "36.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_37",
+     "type" : "ClutterTexture",
+     "filename" : "37.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_38",
+     "type" : "ClutterTexture",
+     "filename" : "38.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_39",
+     "type" : "ClutterTexture",
+     "filename" : "39.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_40",
+     "type" : "ClutterTexture",
+     "filename" : "40.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_41",
+     "type" : "ClutterTexture",
+     "filename" : "41.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_42",
+     "type" : "ClutterTexture",
+     "filename" : "42.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_43",
+     "type" : "ClutterTexture",
+     "filename" : "43.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_44",
+     "type" : "ClutterTexture",
+     "filename" : "44.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_45",
+     "type" : "ClutterTexture",
+     "filename" : "45.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_46",
+     "type" : "ClutterTexture",
+     "filename" : "46.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_47",
+     "type" : "ClutterTexture",
+     "filename" : "47.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_48",
+     "type" : "ClutterTexture",
+     "filename" : "48.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+
+  {
+     "id" : "icon_name_na",
+     "type" : "ClutterTexture",
+     "filename" : "na.png",
      "behaviours" : [ "rotate-behaviour" ],
      "visible" : true
    }

@@ -59,8 +59,8 @@ GtkWidget* create_scrolled_window_with_text(const char* text,
 					    GtkJustification justification);
 int create_icon_set_list(gchar *dir_path, GSList **store, gchar *type); /* scan dir */
 					     /* and add names to the list */
-GtkWidget *create_icon_widget(GdkPixbuf *icon_buffer, int icon_size);
-extern GtkWidget *create_clutter_main_icon(GdkPixbuf *icon_buffer, int icon_size);
+extern GtkWidget *create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size);
+extern GtkWidget *create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size);
 void free_clutter_objects_list(void);
 /*******************************************************************************/
 #endif

@@ -46,7 +46,7 @@ show_animation(void){
 }
 /*******************************************************************************/
 GtkWidget *
-create_clutter_main_icon(GdkPixbuf *icon_buffer, int icon_size)
+create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size)
 {
     GtkWidget *icon_widget;
     SuperOH *oh;
@@ -54,10 +54,11 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, int icon_size)
     ClutterColor stage_color;
     GError *error = NULL;
     gchar  buffer[1024];
+    gchar  icon_name[3];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
- 
+
     stage_color.red = app->config->background_color.red;
     stage_color.blue = app->config->background_color.blue;
     stage_color.green = app->config->background_color.green;
@@ -69,7 +70,6 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, int icon_size)
 //    g_object_unref(oh->script);
     memset(buffer, 0, sizeof(buffer));
     sprintf(buffer, "%sclutter.json", path_large_icon);
-    fprintf (stderr,"%s\n",buffer);
     clutter_script_load_from_file(oh->script,buffer, &error);
     /* Fix Me Need free memory */
     if (error){
@@ -87,7 +87,16 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, int icon_size)
     /* and its background color */
     clutter_stage_set_color (CLUTTER_STAGE (oh->stage),
                   &stage_color);
-    oh->icon = CLUTTER_ACTOR (clutter_script_get_object (oh->script, "icon"));
+    memset(buffer, 0, sizeof(buffer));
+    memset(icon_name, 0, sizeof(icon_name));
+    icon_name[0] = icon_path[strlen(icon_path) - 6];
+    if (icon_name[0] >= '0' && icon_name[0] <= '9')
+        icon_name[1] = icon_path[strlen(icon_path) - 5];
+    else
+        icon_name[0] = icon_path[strlen(icon_path) - 5];
+
+    sprintf(buffer, "icon_name_%s", icon_name);
+    oh->icon = CLUTTER_ACTOR (clutter_script_get_object (oh->script, buffer));
 
     /* Add the group to the stage */
     clutter_container_add_actor (CLUTTER_CONTAINER (oh->stage),

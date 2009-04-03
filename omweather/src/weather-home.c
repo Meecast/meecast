@@ -1765,39 +1765,40 @@ create_weather_day_button(const char *text, const char *icon,
 						icon_size, NULL);
     if (icon_buffer){
 	    /* create day icon image from buffer */
-        new_day_button->icon_image = create_icon_widget(icon_buffer, icon_size); 
+        new_day_button->icon_image = create_icon_widget(icon_buffer, icon, icon_size); 
         gtk_image_new_from_pixbuf(icon_buffer);
-	    g_object_unref(G_OBJECT(icon_buffer));
+        g_object_unref(G_OBJECT(icon_buffer));
     }
     else
-	    new_day_button->icon_image = NULL;
+        new_day_button->icon_image = NULL;
     /* Packing all to the box */ 
     /* create day box to contain icon and label */
     if  (app->config->text_position == LEFT ||
          app->config->text_position == RIGHT ||
          app->config->text_position == NOTHING) 
         new_day_button->box = gtk_hbox_new(FALSE, 0);
-    else 
+    else
         new_day_button->box = gtk_vbox_new(FALSE, 0);
 
     if (new_day_button->icon_image){
         if(app->config->text_position == RIGHT ||
            app->config->text_position == BOTTOM){
-	        gtk_box_pack_start(GTK_BOX(new_day_button->box),
-			    new_day_button->icon_image, FALSE, FALSE, 0);
-            gtk_box_pack_start(GTK_BOX(new_day_button->box),
-			    new_day_button->label, FALSE, FALSE, 0);
+             gtk_box_pack_start(GTK_BOX(new_day_button->box),
+                 new_day_button->icon_image, FALSE, FALSE, 0);
+             if (new_day_button->label)
+                 gtk_box_pack_start(GTK_BOX(new_day_button->box),
+                         new_day_button->label, FALSE, FALSE, 0);
         }
-        else{	
+        else{
             if(app->config->text_position == LEFT ||
                app->config->text_position == TOP){
                 gtk_box_pack_start(GTK_BOX(new_day_button->box),
                     new_day_button->label, FALSE, FALSE, 0);
                 gtk_box_pack_start(GTK_BOX(new_day_button->box),
-			        new_day_button->icon_image, FALSE, FALSE, 0);
+                    new_day_button->icon_image, FALSE, FALSE, 0);
             }else
-	            gtk_box_pack_start(GTK_BOX(new_day_button->box),
-			        new_day_button->icon_image, FALSE, FALSE, 0);
+                gtk_box_pack_start(GTK_BOX(new_day_button->box),
+                    new_day_button->icon_image, FALSE, FALSE, 0);
         }
     }
     gtk_container_add(GTK_CONTAINER(new_day_button->button), new_day_button->box);

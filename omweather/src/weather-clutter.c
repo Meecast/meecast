@@ -52,7 +52,8 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, int icon_size)
     SuperOH *oh;
     GtkWidget *clutter;
     ClutterColor stage_color;
-    GError        *error = NULL;
+    GError *error = NULL;
+    gchar  buffer[1024];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -63,9 +64,13 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, int icon_size)
     stage_color.alpha = 0xff;
 
     oh = g_new(SuperOH, 1);
+    /* Download script */
     oh->script = clutter_script_new();
 //    g_object_unref(oh->script);
-    clutter_script_load_from_file(oh->script,"/usr/share/omweather/icons/Glance/clutter/32.json", &error);
+    memset(buffer, 0, sizeof(buffer));
+    sprintf(buffer, "%sclutter.json", path_large_icon);
+    fprintf (stderr,"%s\n",buffer);
+    clutter_script_load_from_file(oh->script,buffer, &error);
     /* Fix Me Need free memory */
     if (error){
         g_free (oh);

@@ -35,6 +35,7 @@
 /*******************************************************************************/
 void show_animation(void);
 GtkWidget *create_clutter_main_icon(GdkPixbuf *icon_buffer, int icon_size);
+extern	gchar		path_large_icon[];
 #endif
 /*******************************************************************************/
 #endif

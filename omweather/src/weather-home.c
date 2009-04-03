@@ -887,10 +887,11 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     gtk_box_pack_start(GTK_BOX(main_vbox), create_toolbar_box(omweather_destroy,app->app), FALSE, FALSE, 0);
     gtk_container_add(GTK_CONTAINER(applet), main_vbox);
     return TRUE;
+#else
+    gtk_container_add(GTK_CONTAINER(applet), app->top_widget);
 #endif
 
 #else
-    gtk_container_add(GTK_CONTAINER(applet), app->top_widget);
     (*widget) = app->top_widget;
     return (void*)osso;
 #endif

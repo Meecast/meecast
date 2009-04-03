@@ -741,7 +741,7 @@ update_weather(gboolean show_update_window){
 #if defined (OS2009) || defined(NONMAEMO) || defined (APPLICATION)
 gboolean
 omweather_init_OS2009(GtkWidget *applet){
-    GtkWidget *main_vbox, *main_hbox, *clutter;
+    GtkWidget *main_vbox, *main_hbox;
 #elif OS2008
 void
 omweather_init(OMWeather *applet){
@@ -754,6 +754,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
 #endif
 
+    GtkWidget *clutter;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif

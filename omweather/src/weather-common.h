@@ -308,6 +308,8 @@ typedef struct SuperOH
   ClutterActor *icon;
   ClutterGroup *group;
   ClutterActor *stage;
+  ClutterTimeline *timeline;
+  ClutterScript *script;
 } SuperOH;
 #endif
 typedef struct OMWeatherApplet{

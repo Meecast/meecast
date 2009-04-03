@@ -29,36 +29,28 @@
 /*******************************************************************************/
 #include "weather-clutter.h"
 /*******************************************************************************/
-
 /* Timeline handler */
 void
-frame_cb (ClutterTimeline *timeline, 
-	  gint             frame_num, 
-	  gpointer         data)
-{
-  SuperOH        *oh = (SuperOH *)data;
-  /* Rotate everything clockwise about stage center*/
-  clutter_actor_set_rotation (CLUTTER_ACTOR (oh->group),
-                              CLUTTER_Z_AXIS,
-                              frame_num,
-                              100 / 2, 100 / 2, 0);
-
-
+frame_cb(ClutterTimeline *timeline, gint frame_num, gpointer data){
+    SuperOH	*oh = (SuperOH*)data;
+    /* Rotate everything clockwise about stage center*/
+    clutter_actor_set_rotation(CLUTTER_ACTOR (oh->group), CLUTTER_Z_AXIS,
+				frame_num, 100 / 2, 100 / 2, 0);
 }
-void show_animation(void)
-{
-    static GSList *list_temp = NULL;
-    SuperOH *oh;
-    ClutterTimeline *timeline;
+/*******************************************************************************/
+void
+show_animation(void){
+    static GSList	*list_temp = NULL;
+    SuperOH		*oh;
+    ClutterTimeline	*timeline;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (!app->clutter_objects_list)
+    if(!app->clutter_objects_list)
         return;
     list_temp = app->clutter_objects_list;
-    while (list_temp != NULL) {
+    while(list_temp != NULL){
         oh = list_temp->data;
-        
         /* Create a timeline to manage animation */
         /* FIX ME Important need to free */
         timeline = clutter_timeline_new (360, 60); /* num frames, fps */
@@ -71,4 +63,5 @@ void show_animation(void)
         list_temp = g_slist_next(list_temp);
     }
 }
+/*******************************************************************************/
 #endif

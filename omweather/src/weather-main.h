@@ -33,15 +33,12 @@
 /*******************************************************************************/
 GtkWidget* create_omweather(void);
 GtkWidget* create_main_screen(void);
-gboolean main_window_button_key_press_cb (GtkWidget   *widget,
-                                            GdkEventKey *event,
-                                            gpointer     user_data);
-gboolean main_window_state_event_cb(GtkWidget   *widget,
-                                      GdkEventWindowState *event,
-                                      gpointer     user_data);
-gint dbus_callback (const gchar *interface, const gchar *method,
-              GArray *arguments, gpointer data,
-              osso_rpc_t *retval);
+gboolean main_window_button_key_press_cb(GtkWidget *widget, GdkEventKey *event,
+					    gpointer user_data);
+gboolean main_window_state_event_cb(GtkWidget *widget, GdkEventWindowState *event,
+					    gpointer user_data);
+gint dbus_callback(const gchar *interface, const gchar *method, GArray *arguments,
+			gpointer data, osso_rpc_t *retval);
 /*******************************************************************************/
 #endif
 

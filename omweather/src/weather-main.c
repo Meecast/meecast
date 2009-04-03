@@ -33,16 +33,15 @@
 #include "weather-home.h"
 /*******************************************************************************/
 gint
-dbus_callback (const gchar *interface, const gchar *method,
-	       GArray *arguments, gpointer data,
-	       osso_rpc_t *retval)
-{
-  fprintf (stderr,"hello-world dbus: %s, %s\n", interface, method);
-  if (!strcmp (method, "top_application"))
-      gtk_window_present (GTK_WINDOW (data));
+dbus_callback(const gchar *interface, const gchar *method, GArray *arguments,
+		gpointer data,osso_rpc_t *retval){
 
-  retval->type = DBUS_TYPE_INVALID;
-  return OSSO_OK;
+    fprintf(stderr,"hello-world dbus: %s, %s\n", interface, method);
+    if(!strcmp (method, "top_application"))
+	gtk_window_present (GTK_WINDOW (data));
+
+    retval->type = DBUS_TYPE_INVALID;
+    return OSSO_OK;
 }
 /*******************************************************************************/
 int
@@ -91,16 +90,14 @@ main(int argc, char *argv[]){
 }
 /*******************************************************************************/
 gboolean
-main_window_button_key_press_cb (GtkWidget   *widget,
-                                        GdkEventKey *event,
-                                        gpointer     user_data)
-{
+main_window_button_key_press_cb(GtkWidget *widget, GdkEventKey *event,
+				gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (event->keyval == GDK_F6){
+    if(event->keyval == GDK_F6){
     /* The "Full screen" hardware key has been pressed */
-        if (app->fullscreen == GDK_WINDOW_STATE_FULLSCREEN)
+        if(app->fullscreen == GDK_WINDOW_STATE_FULLSCREEN)
             gtk_window_unfullscreen (GTK_WINDOW(user_data));
         else
             gtk_window_fullscreen (GTK_WINDOW(user_data));
@@ -108,19 +105,16 @@ main_window_button_key_press_cb (GtkWidget   *widget,
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-
     return FALSE;
 }
 /*******************************************************************************/
 gboolean
-main_window_state_event_cb(GtkWidget   *widget,
-                                        GdkEventWindowState *event,
-                                        gpointer     user_data)
-{
+main_window_state_event_cb(GtkWidget *widget, GdkEventWindowState *event,
+				gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    app->fullscreen =  (event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN);
+    app->fullscreen = (event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN);
     return FALSE;
 }
 /*******************************************************************************/
@@ -138,7 +132,7 @@ create_omweather(void){
     main_widget = hildon_window_new();
     gtk_window_set_default_size(GTK_WINDOW(main_widget), 640, 480);
     if(!omweather_init_OS2009(main_widget))
-	    return NULL;
+	return NULL;
 /* signals */
     g_signal_connect((gpointer)main_widget, "destroy_event",
 			G_CALLBACK(gtk_main_quit), NULL);
@@ -154,7 +148,8 @@ create_omweather(void){
                       G_CALLBACK (main_window_state_event_cb),
                       NULL);
 
-    gtk_widget_modify_bg(main_widget, GTK_STATE_NORMAL, &app->config->background_color);
+    gtk_widget_modify_bg(main_widget, GTK_STATE_NORMAL,
+			    &app->config->background_color);
 
     gtk_widget_show_all(main_widget);
     return main_widget;

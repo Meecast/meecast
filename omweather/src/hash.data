@@ -44,6 +44,7 @@
     g_hash_table_insert(hash, "Few Snow", _("Few Snow"));
     g_hash_table_insert(hash, "First Quarter", _("First Quarter"));
     g_hash_table_insert(hash, "Fog Early / Clouds Late", _("Fog Early / Clouds Late"));
+    g_hash_table_insert(hash, "Fog early / Clearing late", _("Fog early / Clearing late"));
 	g_hash_table_insert(hash, "Fog Late", _("Fog Late"));
     g_hash_table_insert(hash, "Fog", _("Fog"));
 	g_hash_table_insert(hash, "Foggy", _("Foggy"));
@@ -82,7 +83,7 @@
     g_hash_table_insert(hash, "Mist", _("Mist"));
 	g_hash_table_insert(hash, "Mostly Clear", _("Mostly Clear"));
     g_hash_table_insert(hash, "Mostly Cloudy / Wind", _("Mostly Cloudy / Wind"));
-    g_hash_table_insert(hash, "Mostly Cloudy and Windy", _("Mostly Cloudy and Windy"));
+    g_hash_table_insert(hash, "Mostly Cloudy  and  Windy", _("Mostly Cloudy and Windy"));
     g_hash_table_insert(hash, "Mostly Cloudy", _("Mostly Cloudy"));
     g_hash_table_insert(hash, "Mostly Sunny", _("Mostly Sunny"));
     g_hash_table_insert(hash, "N", _("N"));

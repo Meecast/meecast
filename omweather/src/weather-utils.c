@@ -533,4 +533,5 @@ set_icons_set(const char *icon_set)
     memset(path_large_icon, 0, sizeof(path_large_icon));
     snprintf(path_large_icon, sizeof(path_large_icon) - 1,
                  "%s%s/", ICONS_PATH, icon_set);
+
 }

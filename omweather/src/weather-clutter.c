@@ -32,9 +32,9 @@ void
 show_animation(void){
     static GSList	*list_temp = NULL;
     SuperOH		*oh;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if(!app->clutter_objects_list)
         return;
     list_temp = app->clutter_objects_list;
@@ -55,7 +55,6 @@ show_animation(void){
 GtkWidget *
 create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size)
 {
-    GtkWidget *icon_widget;
     SuperOH *oh;
     GError *error = NULL;
     ClutterColor stage_color;
@@ -72,11 +71,20 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
 
     oh = g_new(SuperOH, 1);
     oh->timeline = NULL;
+
+    memset(buffer, 0, sizeof(buffer));
+    memset(icon_name, 0, sizeof(icon_name));
+    icon_name[0] = icon_path[strlen(icon_path) - 6];
+    if (icon_name[0] >= '0' && icon_name[0] <= '9')
+        icon_name[1] = icon_path[strlen(icon_path) - 5];
+    else
+        icon_name[0] = icon_path[strlen(icon_path) - 5];
+
     /* Download script */
     oh->script = clutter_script_new();
 //    g_object_unref(oh->script);
     memset(buffer, 0, sizeof(buffer));
-    sprintf(buffer, "%sclutter.json", path_large_icon);
+    sprintf(buffer, "%s%s.json", path_large_icon,icon_name);
     clutter_script_load_from_file(oh->script,buffer, &error);
     /* Fix Me Need free memory */
     if (error){
@@ -89,23 +97,19 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
     oh->icon_widget = gtk_vbox_new(FALSE, 0);
     oh->clutter = gtk_clutter_embed_new();
     gtk_widget_set_size_request (oh->clutter, icon_size, icon_size);
-    gtk_widget_set_size_request (oh->icon_widget, icon_size, icon_size);
-//    gtk_container_add (GTK_CONTAINER (icon_widget), oh->clutter);
-    gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
+//    gtk_widget_set_size_request (oh->icon_widget, icon_size, icon_size);
+    gtk_container_add (GTK_CONTAINER (oh->icon_widget), oh->clutter);
+//    gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
     oh->stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (oh->clutter));
     /* and its background color */
     clutter_stage_set_color (CLUTTER_STAGE (oh->stage),
                   &stage_color);
-    memset(buffer, 0, sizeof(buffer));
-    memset(icon_name, 0, sizeof(icon_name));
-    icon_name[0] = icon_path[strlen(icon_path) - 6];
-    if (icon_name[0] >= '0' && icon_name[0] <= '9')
-        icon_name[1] = icon_path[strlen(icon_path) - 5];
-    else
-        icon_name[0] = icon_path[strlen(icon_path) - 5];
 
     sprintf(buffer, "icon_name_%s", icon_name);
-    oh->icon = CLUTTER_ACTOR (clutter_script_get_object (oh->script, buffer));
+    if (oh->script){
+        oh->icon = CLUTTER_ACTOR (clutter_script_get_object (oh->script, buffer));
+        fprintf(stderr,"ICON name %s %i\n", icon_name, clutter_actor_get_gid(oh->icon));
+    }
 
     /* Add the group to the stage */
     clutter_container_add_actor (CLUTTER_CONTAINER (oh->stage),

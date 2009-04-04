@@ -686,7 +686,8 @@ redraw_home_window(gboolean first_start){
 	    app->wsd.days = NULL;
     }
     free_clutter_objects_list();
-    gtk_widget_show_all(app->main_window);
+    if (app->main_window)
+        gtk_widget_show_all(app->main_window);
     if(app->main_window){
         gtk_widget_destroy(app->main_window);
 	app->main_window = NULL;
@@ -757,7 +758,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #endif
 
 #ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
+     START_FUNCTION;
 #endif
 
 #if ! defined (OS2009) || ! defined (NONMAEMO) || ! defined (APPLICATION)
@@ -818,6 +819,16 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     #endif
 /* Initialize DBUS */
     weather_initialize_dbus(); /* TODO connect this function with app->dbus_is_initialize */
+
+#ifdef CLUTTER
+    /* Init clutter */
+    if (gtk_clutter_init (NULL, NULL) != CLUTTER_INIT_SUCCESS)
+        fprintf (stderr,"Unable to initialize GtkClutter");
+    /* Fix ME added config value */
+    app->clutter_objects_list = NULL;
+    app->clutter_script = NULL;
+#endif
+
 /* Init gconf. */
     gnome_vfs_init();
     if(read_config(app->config)){
@@ -832,13 +843,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	return NULL;
 #endif
     }
-#ifdef CLUTTER
-    if (gtk_clutter_init (NULL, NULL) != CLUTTER_INIT_SUCCESS)
-        fprintf (stderr,"Unable to initialize GtkClutter");
-    /* Fix ME added config value */
-    app->clutter_objects_list = NULL;
-    app->clutter_script = NULL;
-#endif
 
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
@@ -862,7 +866,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), create_toolbar_box(omweather_destroy,app->app), FALSE, FALSE, 0);
     gtk_container_add(GTK_CONTAINER(applet), main_vbox);
-//    gtk_widget_show_all(applet);
 #endif
 #if !defined OS2008 ||  defined (APPLICATION)
     redraw_home_window(TRUE);

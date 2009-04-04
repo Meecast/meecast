@@ -510,6 +510,7 @@ void free_clutter_objects_list(void) {
 //        clutter_actor_destroy(oh->stage);
 //        g_object_unref(oh->script);
         gtk_widget_destroy(oh->icon_widget);
+        g_object_unref(oh->script);
         g_free(oh);
         list_temp = g_slist_next(list_temp);
     }

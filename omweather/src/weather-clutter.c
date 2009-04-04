@@ -71,6 +71,8 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
 
     oh = g_new(SuperOH, 1);
     oh->timeline = NULL;
+    
+    oh->clutter = gtk_clutter_embed_new();
 
     memset(buffer, 0, sizeof(buffer));
     memset(icon_name, 0, sizeof(icon_name));
@@ -95,7 +97,7 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
     }
 
     oh->icon_widget = gtk_vbox_new(FALSE, 0);
-    oh->clutter = gtk_clutter_embed_new();
+
     gtk_widget_set_size_request (oh->clutter, icon_size, icon_size);
 //    gtk_widget_set_size_request (oh->icon_widget, icon_size, icon_size);
     gtk_container_add (GTK_CONTAINER (oh->icon_widget), oh->clutter);
@@ -106,10 +108,8 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
                   &stage_color);
 
     sprintf(buffer, "icon_name_%s", icon_name);
-    if (oh->script){
+    if (oh->script)
         oh->icon = CLUTTER_ACTOR (clutter_script_get_object (oh->script, buffer));
-        fprintf(stderr,"ICON name %s %i\n", icon_name, clutter_actor_get_gid(oh->icon));
-    }
 
     /* Add the group to the stage */
     clutter_container_add_actor (CLUTTER_CONTAINER (oh->stage),

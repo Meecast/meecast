@@ -25,9 +25,9 @@ configure-stamp:
 #	#For OS2006 OS2007
 #	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-dbus=yes
 	#For OS2008
-#	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static
+	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static
 	#For NONMAEMO PLATFORM
-	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --enable-static --enable-nonmaemo --enable-clutter
+#	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --enable-static --enable-nonmaemo --enable-clutter
 	touch configure-stamp
 
 

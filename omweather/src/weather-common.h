@@ -308,8 +308,10 @@ typedef struct SuperOH
   ClutterActor *icon;
   ClutterGroup *group;
   ClutterActor *stage;
-  ClutterTimeline *timeline;
   ClutterScript *script;
+  ClutterTimeline *timeline;
+  GtkWidget *clutter;
+  GtkWidget *icon_widget;
 } SuperOH;
 #endif
 typedef struct OMWeatherApplet{
@@ -402,6 +404,7 @@ typedef struct OMWeatherApplet{
     GSList              *sources;
 #ifdef CLUTTER
     GSList              *clutter_objects_list;
+    ClutterScript       *clutter_script; /* Maybe it need be deleting */
 #endif
 }OMWeatherApp;
 

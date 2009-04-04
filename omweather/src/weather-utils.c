@@ -505,6 +505,11 @@ void free_clutter_objects_list(void) {
     list_temp = app->clutter_objects_list;
     while (list_temp != NULL) {
         oh = list_temp->data;
+        if (oh->timeline)
+            clutter_timeline_stop(oh->timeline);
+//        clutter_actor_destroy(oh->stage);
+//        g_object_unref(oh->script);
+        gtk_widget_destroy(oh->icon_widget);
         g_free(oh);
         list_temp = g_slist_next(list_temp);
     }
@@ -514,4 +519,18 @@ void free_clutter_objects_list(void) {
     END_FUNCTION;
 #endif
 #endif
+}
+/******************************************************************************/
+void
+set_icons_set(const char *icon_set)
+{
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    gchar  buffer[1024];
+    GError *error = NULL;
+
+    memset(path_large_icon, 0, sizeof(path_large_icon));
+    snprintf(path_large_icon, sizeof(path_large_icon) - 1,
+                 "%s%s/", ICONS_PATH, icon_set);
 }

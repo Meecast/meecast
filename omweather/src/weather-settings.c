@@ -1287,9 +1287,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
             }
             icon_set = g_slist_next(icon_set);
         }
-        memset(path_large_icon, 0, sizeof(path_large_icon));
-        snprintf(path_large_icon, sizeof(path_large_icon) - 1,
-                 "%s%s/", ICONS_PATH, app->config->icon_set);
+        set_icons_set(app->config->icon_set);
 #ifndef OS2008
         need_correct_layout_for_OS2007 = TRUE;
 #endif

@@ -77,7 +77,7 @@ main(int argc, char *argv[]){
           }
           hildon_program_add_window( app->app, OMWeather);
           app->osso = osso_context; 
-          gtk_widget_show(OMWeather);
+          gtk_widget_show_all(OMWeather);
           gtk_main();
           gtk_widget_destroy(OMWeather);
     }
@@ -131,6 +131,8 @@ create_omweather(void){
 */
     main_widget = hildon_window_new();
     gtk_window_set_default_size(GTK_WINDOW(main_widget), 640, 480);
+//    gtk_widget_show_all(main_widget);
+    
     if(!omweather_init_OS2009(main_widget))
 	return NULL;
 /* signals */
@@ -151,6 +153,5 @@ create_omweather(void){
     gtk_widget_modify_bg(main_widget, GTK_STATE_NORMAL,
 			    &app->config->background_color);
 
-    gtk_widget_show_all(main_widget);
     return main_widget;
 }/*******************************************************************************/

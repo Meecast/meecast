@@ -32,15 +32,22 @@ void
 show_animation(void){
     static GSList	*list_temp = NULL;
     SuperOH		*oh;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     if(!app->clutter_objects_list)
         return;
     list_temp = app->clutter_objects_list;
     while(list_temp != NULL){
         oh = list_temp->data;
-        clutter_timeline_start (oh->timeline);
+        /* Add the group to the stage */
+//        clutter_container_add_actor (CLUTTER_CONTAINER (oh->stage),
+//                               CLUTTER_ACTOR (oh->icon));
+//        gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
+//        gtk_widget_show(oh->icon_widget);
+//        clutter_actor_show(oh->stage);
+        if (oh->timeline)
+            clutter_timeline_start (oh->timeline);
         list_temp = g_slist_next(list_temp);
     }
 }
@@ -50,9 +57,8 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
 {
     GtkWidget *icon_widget;
     SuperOH *oh;
-    GtkWidget *clutter;
-    ClutterColor stage_color;
     GError *error = NULL;
+    ClutterColor stage_color;
     gchar  buffer[1024];
     gchar  icon_name[3];
 #ifdef DEBUGFUNCTIONCALL
@@ -65,6 +71,7 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
     stage_color.alpha = 0xff;
 
     oh = g_new(SuperOH, 1);
+    oh->timeline = NULL;
     /* Download script */
     oh->script = clutter_script_new();
 //    g_object_unref(oh->script);
@@ -79,11 +86,13 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
         return NULL;
     }
 
-    icon_widget = gtk_vbox_new(FALSE, 0);
-    clutter = gtk_clutter_embed_new();
-    gtk_widget_set_size_request (clutter, icon_size, icon_size);
-    gtk_container_add (GTK_CONTAINER (icon_widget), clutter);
-    oh->stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (clutter));
+    oh->icon_widget = gtk_vbox_new(FALSE, 0);
+    oh->clutter = gtk_clutter_embed_new();
+    gtk_widget_set_size_request (oh->clutter, icon_size, icon_size);
+    gtk_widget_set_size_request (oh->icon_widget, icon_size, icon_size);
+//    gtk_container_add (GTK_CONTAINER (icon_widget), oh->clutter);
+    gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
+    oh->stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (oh->clutter));
     /* and its background color */
     clutter_stage_set_color (CLUTTER_STAGE (oh->stage),
                   &stage_color);
@@ -107,7 +116,6 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
- 
-    return icon_widget;
+    return oh->icon_widget;
 }
 #endif

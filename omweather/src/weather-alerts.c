@@ -132,6 +132,9 @@ GSList *create_list_of_user_alerts(GtkListStore * list) {
         g_free(alert_name);
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list), &iter);
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return stlist;
 }
 

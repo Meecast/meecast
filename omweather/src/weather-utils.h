@@ -32,6 +32,7 @@
 /*******************************************************************************/
 #include "weather-common.h"
 /*******************************************************************************/
+extern gchar		path_large_icon[_POSIX_PATH_MAX];
 float convert_wind_units(int to, float value);
 float mb2inch(float pressure);
 float mb2mm(float pressure);
@@ -59,6 +60,7 @@ GtkWidget* create_scrolled_window_with_text(const char* text,
 					    GtkJustification justification);
 int create_icon_set_list(gchar *dir_path, GSList **store, gchar *type); /* scan dir */
 					     /* and add names to the list */
+void set_icons_set(const char *icon_set);
 extern GtkWidget *create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size);
 extern GtkWidget *create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size);
 void free_clutter_objects_list(void);

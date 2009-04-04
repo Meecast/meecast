@@ -616,9 +616,9 @@ draw_home_window(gint count_day){
 		    app->config->transparency, tmp_station_name);
 #endif            
    gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
-#if ! defined CLUTTER
+//#if ! defined CLUTTER
    gtk_widget_show_all(app->top_widget);
-#endif
+//#endif
     #ifdef OS2008
 	if(!app->config->transparency && app->parent)
 	    gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);
@@ -642,49 +642,51 @@ redraw_home_window(gboolean first_start){
     fprintf(stderr, "\nDays previos %d\n", app->config->previos_days_to_show);
 #endif
     if(!first_start){
-	/* free station location data */
-	fprintf(stderr,"destroy_object(&(app->wsd.location));\n");
-	destroy_object(&(app->wsd.location));
-	/* free station current data */
-	fprintf(stderr,"destroy_object(&(app->wsd.current));");
-	destroy_object(&(app->wsd.current));
-	/* free station days data */
-	tmp = app->wsd.days;
-	while(tmp){
-	    tmp_data = (GSList*)tmp->data;
-	    if (tmp_data)
-		destroy_object(&tmp_data);
-	    tmp = g_slist_next(tmp);
-	}
-	if (app->wsd.days)
+	    /* free station location data */
+	    fprintf(stderr,"destroy_object(&(app->wsd.location));\n");
+	    destroy_object(&(app->wsd.location));
+	    /* free station current data */
+	    fprintf(stderr,"destroy_object(&(app->wsd.current));");
+	    destroy_object(&(app->wsd.current));
+	    /* free station days data */
+	    tmp = app->wsd.days;
+	    while(tmp){
+	        tmp_data = (GSList*)tmp->data;
+	        if (tmp_data)
+		        destroy_object(&tmp_data);
+	        tmp = g_slist_next(tmp);
+	    }
+	    if (app->wsd.days)
     	    g_slist_free(app->wsd.days);
-	app->wsd.days = NULL;
-	/* free station hours data */
-	tmp = app->wsd.hours_weather;
-	while(tmp){
-	    tmp_data = (GSList*)tmp->data;
-	    if (tmp_data)
-		destroy_object(&tmp_data);
-	    tmp = g_slist_next(tmp);
-	}
-	if (app->wsd.hours_weather)
-	    g_slist_free(app->wsd.hours_weather);
-	app->wsd.hours_weather = NULL;
-	/* free days buttons */
-	tmp = app->buttons;
-	while(tmp){
-	    tmp_button = (WDB*)tmp->data;
-        if (tmp_button){
+	    app->wsd.days = NULL;
+	    /* free station hours data */
+	    tmp = app->wsd.hours_weather;
+	    while(tmp){
+	        tmp_data = (GSList*)tmp->data;
+	        if (tmp_data)
+		        destroy_object(&tmp_data);
+	        tmp = g_slist_next(tmp);
+	    }
+	    if (app->wsd.hours_weather)
+	        g_slist_free(app->wsd.hours_weather);
+	    app->wsd.hours_weather = NULL;
+	    /* free days buttons */
+	    tmp = app->buttons;
+	    while(tmp){
+	        tmp_button = (WDB*)tmp->data;
+            if (tmp_button){
                delete_weather_day_button(&tmp_button);
                tmp_button = NULL;
-        }
+            }
 	    tmp = g_slist_next(tmp);
-	}
-	g_slist_free(app->buttons);
-	app->buttons = NULL;
+	    }
+	    g_slist_free(app->buttons);
+	    app->buttons = NULL;
     }else{
-	app->wsd.days = NULL;
+	    app->wsd.days = NULL;
     }
+    free_clutter_objects_list();
+    gtk_widget_show_all(app->main_window);
     if(app->main_window){
         gtk_widget_destroy(app->main_window);
 	app->main_window = NULL;
@@ -754,7 +756,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
 #endif
 
-    GtkWidget *clutter;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -834,9 +835,9 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #ifdef CLUTTER
     if (gtk_clutter_init (NULL, NULL) != CLUTTER_INIT_SUCCESS)
         fprintf (stderr,"Unable to initialize GtkClutter");
-    clutter = gtk_clutter_embed_new ();
     /* Fix ME added config value */
     app->clutter_objects_list = NULL;
+    app->clutter_script = NULL;
 #endif
 
     app->time_update_list = create_time_update_list();
@@ -849,6 +850,20 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     timer(60000);  /* One per minute */
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
+#if  defined(NONMAEMO) || defined (APPLICATION)
+    /* pack for window in Application mode */
+    main_vbox = gtk_vbox_new(FALSE, 0);
+    main_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_vbox), main_hbox, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_hbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_hbox), app->top_widget, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_hbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_vbox), create_toolbar_box(omweather_destroy,app->app), FALSE, FALSE, 0);
+    gtk_container_add(GTK_CONTAINER(applet), main_vbox);
+//    gtk_widget_show_all(applet);
+#endif
 #if !defined OS2008 ||  defined (APPLICATION)
     redraw_home_window(TRUE);
 #endif
@@ -876,17 +891,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #endif
 
 #if  defined(NONMAEMO) || defined (APPLICATION)
-    /* pack for window in Application mode */
-    main_vbox = gtk_vbox_new(FALSE, 0);
-    main_hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(main_vbox), main_hbox, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(main_hbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(main_hbox), app->top_widget, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(main_hbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(main_vbox), create_toolbar_box(omweather_destroy,app->app), FALSE, FALSE, 0);
-    gtk_container_add(GTK_CONTAINER(applet), main_vbox);
     return TRUE;
 #else
     gtk_container_add(GTK_CONTAINER(applet), app->top_widget);
@@ -1004,7 +1008,7 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 
 #if defined OS2008 
     gtk_object_destroy(widget);
-#else  defined (APPLICATION)  || defined (NONMAEMO)
+#else defined (APPLICATION)  || defined (NONMAEMO)
     gtk_main_quit();
 #endif
 
@@ -1766,8 +1770,6 @@ create_weather_day_button(const char *text, const char *icon,
     if (icon_buffer){
 	    /* create day icon image from buffer */
         new_day_button->icon_image = create_icon_widget(icon_buffer, icon, icon_size); 
-        gtk_image_new_from_pixbuf(icon_buffer);
-        g_object_unref(G_OBJECT(icon_buffer));
     }
     else
         new_day_button->icon_image = NULL;

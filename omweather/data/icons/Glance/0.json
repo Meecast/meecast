@@ -125,7 +125,6 @@
     "type" : "ClutterGroup",
     "x": 0,
     "y": 0,
-    "width" :128,
     "children" : [
     
     
@@ -133,8 +132,6 @@
         "id" : "dark_cloude",
         "type" : "ClutterTexture",
         "filename" : "dark_cloude.png",
-        "width" : 99,
-        "height" : 59,
         "visible" : true,
         "behaviours" : [
             "darkcloud-behaviour"
@@ -185,8 +182,6 @@
         "id" : "light1",
         "type" : "ClutterTexture",
         "filename" : "fulllight.png",
-        "width" : 44,
-        "height" : 64,
         "visible" : true,
         "behaviours" : [ 
             "light-fade-behaviour",
@@ -197,8 +192,6 @@
         "id" : "light2",
         "type" : "ClutterTexture",
         "filename" : "light.png",
-        "width" : 28,
-        "height" : 38,
         "visible" : true,
         "behaviours" : [ 
             "fade-behaviour",

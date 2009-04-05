@@ -74,6 +74,10 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
     gchar  buffer[1024];
     gchar  icon_name[3];
     gint   i;
+    GList  *list ,*l, *ks;
+    GSList *knots;
+    GObject *object;
+    ClutterKnot *knot;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -133,6 +137,19 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
                change_actor_size(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i),icon_size);
         else
             change_actor_size(oh->icon,icon_size);
+    }
+    list = clutter_script_list_objects(oh->script);
+    for (l = list; l != NULL; l = l->next){
+	    object = l->data;
+	    if CLUTTER_IS_BEHAVIOUR_PATH(object){
+		fprintf(stderr," BEHAVIOUR sssssssssssss\n");
+		knots = clutter_behaviour_path_get_knots((object));
+		for (ks = knots; ks != NULL; ks = ks->next){
+		    knot = ks->data;
+		    fprintf(stderr, "X: %i Y: %i\n", knot->x, knot->y);
+		}
+	    }
+	    
     }
 
     /* Add the group to the stage */

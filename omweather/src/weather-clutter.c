@@ -53,15 +53,21 @@ show_animation(void){
 }
 /*******************************************************************************/
 void
-change_actor_size(ClutterActor *actor, gint need_size)
+change_actor_size_and_position(ClutterActor *actor, gint need_size)
 {
     guint h,w;
+    gint x,y;
     if (!actor)
         return;
     w = clutter_actor_get_width(actor);
     h = clutter_actor_get_height(actor);
+    x = clutter_actor_get_x(actor);
+    y = clutter_actor_get_y(actor);
     clutter_actor_set_width(actor,(((need_size*100)/GIANT_ICON_SIZE) * w/100)); /* GIANT_ICON_SIZE must be 128 */ 
     clutter_actor_set_height(actor,(((need_size*100)/GIANT_ICON_SIZE) * h/100)); /* GIANT_ICON_SIZE must be 128 */ 
+    clutter_actor_set_x(actor,(((need_size*100)/GIANT_ICON_SIZE) * x/100)); /* GIANT_ICON_SIZE must be 128 */ 
+    clutter_actor_set_y(actor,(((need_size*100)/GIANT_ICON_SIZE) * y/100)); /* GIANT_ICON_SIZE must be 128 */ 
+    
 }
 /*******************************************************************************/
 void
@@ -71,7 +77,6 @@ change_knots_path(GSList *knots, gint need_size)
     ClutterKnot *knot;
     for (ks = knots; ks != NULL; ks = ks->next){
         knot = ks->data;
-        fprintf(stderr, "X: %i Y: %i\n", knot->x, knot->y);
         knot->x = (((need_size*100)/GIANT_ICON_SIZE) * knot->x/100);
         knot->y = (((need_size*100)/GIANT_ICON_SIZE) * knot->y/100);
     }
@@ -146,9 +151,9 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
     if (oh->icon){
         if CLUTTER_IS_GROUP(oh->icon)
            for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++)
-               change_actor_size(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i),icon_size);
+               change_actor_size_and_position(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i),icon_size);
         else
-            change_actor_size(oh->icon,icon_size);
+           change_actor_size_and_position(oh->icon,icon_size);
     }
     list = clutter_script_list_objects(oh->script);
     for (l = list; l != NULL; l = l->next){

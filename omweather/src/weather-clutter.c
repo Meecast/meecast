@@ -62,7 +62,19 @@ change_actor_size(ClutterActor *actor, gint need_size)
     h = clutter_actor_get_height(actor);
     clutter_actor_set_width(actor,(((need_size*100)/GIANT_ICON_SIZE) * w/100)); /* GIANT_ICON_SIZE must be 128 */ 
     clutter_actor_set_height(actor,(((need_size*100)/GIANT_ICON_SIZE) * h/100)); /* GIANT_ICON_SIZE must be 128 */ 
-    fprintf(stderr,"Need size %i width %i height %i\n",need_size,(((need_size*100)/GIANT_ICON_SIZE) * w/100),( need_size/GIANT_ICON_SIZE * h));
+}
+/*******************************************************************************/
+void
+change_knots_path(GSList *knots, gint need_size)
+{
+    GList  *ks;
+    ClutterKnot *knot;
+    for (ks = knots; ks != NULL; ks = ks->next){
+        knot = ks->data;
+        fprintf(stderr, "X: %i Y: %i\n", knot->x, knot->y);
+        knot->x = (((need_size*100)/GIANT_ICON_SIZE) * knot->x/100);
+        knot->y = (((need_size*100)/GIANT_ICON_SIZE) * knot->y/100);
+    }
 }
 /*******************************************************************************/
 GtkWidget *
@@ -74,10 +86,10 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
     gchar  buffer[1024];
     gchar  icon_name[3];
     gint   i;
-    GList  *list ,*l, *ks;
+    GList  *list ,*l;
     GSList *knots;
     GObject *object;
-    ClutterKnot *knot;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -141,17 +153,9 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
     list = clutter_script_list_objects(oh->script);
     for (l = list; l != NULL; l = l->next){
 	    object = l->data;
-	    if CLUTTER_IS_BEHAVIOUR_PATH(object){
-		fprintf(stderr," BEHAVIOUR sssssssssssss\n");
-		knots = clutter_behaviour_path_get_knots((object));
-		for (ks = knots; ks != NULL; ks = ks->next){
-		    knot = ks->data;
-		    fprintf(stderr, "X: %i Y: %i\n", knot->x, knot->y);
-		}
-	    }
-	    
+	    if CLUTTER_IS_BEHAVIOUR_PATH(object)
+                change_knots_path(clutter_behaviour_path_get_knots((object)),icon_size);
     }
-
     /* Add the group to the stage */
     clutter_container_add_actor (CLUTTER_CONTAINER (oh->stage),
                                CLUTTER_ACTOR (oh->icon));

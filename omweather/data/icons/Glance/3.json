@@ -98,7 +98,7 @@
     "opacity-end"   : 255,
     "alpha"         : {
       "timeline" : "main-timeline",
-      "function" : "ext-inc"
+      "function" : "exp-inc"
     }
   },
 
@@ -125,14 +125,14 @@
 
   
   {
-     "id" : "icon_name_000",
+     "id" : "icon_name_3_original",
      "type" : "ClutterTexture",
      "filename" : "0.png",
      "behaviours" : [ "rotate-behaviour" ],
      "visible" : true
    },
    {
-    "id" : "icon_name_0",
+    "id" : "icon_name_3",
     "type" : "ClutterGroup",
     "x": 0,
     "y": 0,

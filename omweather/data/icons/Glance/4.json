@@ -1,12 +1,12 @@
-
 [
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "num-frames" : 600,
+    "num-frames" : 100,
     "fps" : 60,
-    "loop" : true
+    "loop" : false
   },
+
   {
     "id"          : "rotate-behaviour",
     "type"        : "ClutterBehaviourRotate",
@@ -15,18 +15,156 @@
     "axis"        : "y-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+          } 
+  },
+
+  {
+    "id"          : "darkcloud-behaviour",
+    "type"        : "ClutterBehaviourPath",
+     "knots" : [[-128, 0], [-100, 0], [8, 0], [4, 0], [1, 0], [2, 0]],
+     "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+  {
+    "id"            : "fade-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 0,
+    "opacity-end"   : 255,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
+    "id"            : "size-behaviour",
+    "type"          : "ClutterBehaviourScale",
+    "x-scale-start"   : 1.0,
+    "x-scale-end"     : 1.5,
+    "y-scale-start"   : 1.0,
+    "y-scale-end"     : 1.5,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "exp-inc"
+    }
+  },
+
+  {
+    "id"            : "light-fade-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 0,
+    "opacity-end"   : 255,
+    "alpha"         : {
+      "timeline" : "main-timeline",
       "function" : "sine"
     }
   },
 
   {
-     "id" : "icon_name_4",
+    "id"            : "light2-fade-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 0,
+    "opacity-end"   : 255,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "exp-inc"
+    }
+  },
+
+  {
+    "id"          : "light2-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[-100, 30],  [-90, 30], [-80, 30], [-70, 30], [-60, 20], [-50, 20],  [-20, 20], [-10, 20], [-5, 30], [0, 40],  [25,45], [25, 45], [25, 50], [25, 53], [25, 55]]
+     "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+  {
+    "id"          : "light3-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[-120, 30],  [-110, 30], [-100, 30], [-90, 30], [-80, 20], [-50, 20],  [-30, 20], [-20, 20], [-25, 30], [-20, 40],  [10, 45], [10, 50], [10, 53], [10, 55]]
+     "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+  {
+    "id"          : "light4-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[-70, 30],  [-60, 30], [-50, 30], [-40, 30], [-30, 20], [0, 20],  [20, 20], [30, 20], [25, 30], [30, 40],  [60, 45], [60, 50], [60, 53], [60, 55]]
+     "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+
+  {
+     "id" : "icon_name_4_original",
      "type" : "ClutterTexture",
-     "width" : 128,
-     "height" : 128,
-     "filename" : "4.png",
+     "filename" : "0.png",
      "behaviours" : [ "rotate-behaviour" ],
      "visible" : true
-   }
+   },
+   {
+    "id" : "icon_name_4",
+    "type" : "ClutterGroup",
+    "x": 0,
+    "y": 0,
+    "children" : [
+
+      {
+        "id" : "dark_cloude",
+        "type" : "ClutterTexture",
+        "filename" : "dark_cloude.png",
+        "visible" : true,
+        "behaviours" : [
+            "darkcloud-behaviour"
+        ]
+      },
+      {
+        "id" : "light2",
+        "type" : "ClutterTexture",
+        "filename" : "light.png",
+        "visible" : true,
+        "behaviours" : [ 
+            "fade-behaviour",
+            "size-behaviour",
+            "light2-behaviour"
+        ]
+      }
+
+      {
+        "id" : "light3",
+        "type" : "ClutterTexture",
+        "filename" : "light.png",
+        "visible" : true,
+        "behaviours" : [ 
+            "fade-behaviour",
+            "light3-behaviour"
+        ]
+      }
+
+      {
+        "id" : "light4",
+        "type" : "ClutterTexture",
+        "filename" : "light.png",
+        "visible" : true,
+        "behaviours" : [ 
+            "fade-behaviour",
+            "light4-behaviour"
+        ]
+      }
+
+
+    ]
+    }
 ]
 

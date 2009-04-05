@@ -1,12 +1,12 @@
-
 [
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "num-frames" : 600,
+    "num-frames" : 300,
     "fps" : 60,
     "loop" : true
   },
+
   {
     "id"          : "rotate-behaviour",
     "type"        : "ClutterBehaviourRotate",
@@ -15,16 +15,67 @@
     "axis"        : "y-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "sine"
+      "function" : "ramp-inc"
+          } 
+  },
+  {
+    "id"            : "fade-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 0,
+    "opacity-end"   : 255,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
     }
   },
 
   {
-     "id" : "icon_name_0",
+    "id"          : "drop1-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[0, 0], [0, 0], [0, 0] [50, 10], [40, 30], [10, 50 ]],
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+          } 
+  },
+  
+  {
+     "id" : "icon_name_000",
      "type" : "ClutterTexture",
      "filename" : "0.png",
      "behaviours" : [ "rotate-behaviour" ],
      "visible" : true
-   }
+   },
+   {
+    "id" : "icon_name_0",
+    "type" : "ClutterGroup",
+    "x": 0,
+    "y": 0
+    "children" : [
+      {
+        "id" : "dark_cloude",
+        "type" : "ClutterTexture",
+        "filename" : "dark_cloude.png",
+        "width" : 99,
+        "height" : 59,
+        "visible" : true,
+        "behaviours" : [
+            {
+              "type"  : "ClutterBehaviourPath",
+              "knots" : [[-128, 0], [0, 0], [0, 0], [0, 0 ]],
+              "alpha" : {"timeline"  : "main-timeline", "function"  : "ramp-inc"}
+            }
+        ]
+      }
+      {
+        "id" : "drop1",
+        "type" : "ClutterTexture",
+        "filename" : "drop.png",
+        "visible" : true,
+        "behaviours" : [ "fade-behaviour","drop1-behaviour" ]
+      }
+
+    ]
+    }
 ]
 

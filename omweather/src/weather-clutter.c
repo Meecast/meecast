@@ -71,6 +71,7 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
 
     oh = g_new(SuperOH, 1);
     oh->timeline = NULL;
+    oh->icon = NULL;
     
     oh->clutter = gtk_clutter_embed_new();
 
@@ -110,6 +111,12 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
     sprintf(buffer, "icon_name_%s", icon_name);
     if (oh->script)
         oh->icon = CLUTTER_ACTOR (clutter_script_get_object (oh->script, buffer));
+
+    /* set valid size for actors */
+    if (oh->icon){
+        if CLUTTER_IS_GROUP(oh->icon)
+           fprintf(stderr,"Childrens %i\n",clutter_group_get_n_children(oh->icon));
+    }
 
     /* Add the group to the stage */
     clutter_container_add_actor (CLUTTER_CONTAINER (oh->stage),

@@ -22,6 +22,8 @@
   {
      "id" : "icon_name_na",
      "type" : "ClutterTexture",
+     "width" : 128,
+     "height" : 128,
      "filename" : "na.png",
      "behaviours" : [ "rotate-behaviour" ],
      "visible" : true

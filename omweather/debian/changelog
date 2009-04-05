@@ -5,7 +5,7 @@ omweather (0.22) unstable; urgency=low
   * Added option 'non-cache' for downloading of weather forecast data
   * Fixed bug #3760 'Missing or erroneous weather status translation'
   
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 15 Aug 2008 03:36:00 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wen, 15 Apr 2009 03:36:00 +0200
 
 omweather (0.21.10) unstable; urgency=low
 

@@ -3,9 +3,9 @@
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "num-frames" : 100,
+    "num-frames" : 200,
     "fps" : 60,
-    "loop" : true
+    "loop" : false
   },
   {
     "id"            : "fade-behaviour",

@@ -52,6 +52,19 @@ show_animation(void){
     }
 }
 /*******************************************************************************/
+void
+change_actor_size(ClutterActor *actor, gint need_size)
+{
+    guint h,w;
+    if (!actor)
+        return;
+    w = clutter_actor_get_width(actor);
+    h = clutter_actor_get_height(actor);
+    clutter_actor_set_width(actor,(((need_size*100)/GIANT_ICON_SIZE) * w/100)); /* GIANT_ICON_SIZE must be 128 */ 
+    clutter_actor_set_height(actor,(((need_size*100)/GIANT_ICON_SIZE) * h/100)); /* GIANT_ICON_SIZE must be 128 */ 
+    fprintf(stderr,"Need size %i width %i height %i\n",need_size,(((need_size*100)/GIANT_ICON_SIZE) * w/100),( need_size/GIANT_ICON_SIZE * h));
+}
+/*******************************************************************************/
 GtkWidget *
 create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size)
 {
@@ -60,6 +73,7 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
     ClutterColor stage_color;
     gchar  buffer[1024];
     gchar  icon_name[3];
+    gint   i;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -115,7 +129,10 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
     /* set valid size for actors */
     if (oh->icon){
         if CLUTTER_IS_GROUP(oh->icon)
-           fprintf(stderr,"Childrens %i\n",clutter_group_get_n_children(oh->icon));
+           for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++)
+               change_actor_size(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i),icon_size);
+        else
+            change_actor_size(oh->icon,icon_size);
     }
 
     /* Add the group to the stage */

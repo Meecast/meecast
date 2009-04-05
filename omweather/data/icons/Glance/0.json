@@ -92,6 +92,17 @@
   },
 
   {
+    "id"            : "light2-fade-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 0,
+    "opacity-end"   : 255,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "ext-inc"
+    }
+  },
+
+  {
     "id"          : "light1-behaviour",
     "type"        : "ClutterBehaviourPath",
      "knots" : [ [-60,20], [-55,20], [-50, 20], [-40, 20], [-40,20], [-20,20], [-10, 20], [0, 20], [10,30 ], [20, 40], [25,42], [30,44], [35, 45], [40,45], [40,48], [40, 50], [35,55], [30,60], [25,65], [20,65] ],

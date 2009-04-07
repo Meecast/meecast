@@ -3,10 +3,114 @@
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "num-frames" : 600,
+    "num-frames" : 100,
     "fps" : 60,
-    "loop" : true
+    "loop" : false
   },
+  {
+    "id"            : "fadeback-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 255,
+    "opacity-end"   : 0,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+  {
+    "id"            : "fade-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 0,
+    "opacity-end"   : 255,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
+    "id"          : "dropice1-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[20,30], [20,130]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+  {
+    "id"          : "dropice2-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[60,30], [60,140]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
+    "id"          : "dropice3-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[100,30], [100,130]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
+    "id"          : "dropice4-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[20,20], [20,70]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
+    "id"          : "dropice5-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[35,40], [35,90]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
+    "id"          : "dropice6-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[50,20], [50,70]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+  
+  {
+    "id"          : "drop7-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[65,20], [65,90]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+
+
+  {
+    "id"          : "dropice8-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[85,30], [85,70]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+
   {
     "id"          : "rotate-behaviour",
     "type"        : "ClutterBehaviourRotate",
@@ -20,13 +124,119 @@
   },
 
   {
-     "id" : "icon_name_8",
+     "id" : "icon_name_8_original",
      "type" : "ClutterTexture",
      "width" : 128,
      "height" : 128,
      "filename" : "8.png",
      "behaviours" : [ "rotate-behaviour" ],
      "visible" : true
+   },
+   {
+    "id" : "icon_name_8",
+    "type" : "ClutterGroup",
+    "x": 0,
+    "y": 0,
+    "width" : 128,
+    "height" : 128,
+    "children" : [
+      {
+        "id" : "ice_cloud",
+        "type" : "ClutterTexture",
+        "filename" : "ice_cloud.png",
+        "visible" : true,
+        "x": 5,
+        "y": 5
+
+      },
+      {
+        "id" : "dropice1",
+        "type" : "ClutterTexture",
+        "filename" : "dropice.png",
+        "visible" : true,
+        "behaviours" : [
+            "fadeback-behaviour",
+            "dropice1-behaviour"
+        ]
+      },
+
+      {
+        "id" : "dropice2",
+        "type" : "ClutterTexture",
+        "filename" : "dropice.png",
+        "visible" : true,
+        "behaviours" : [
+            "fadeback-behaviour",
+            "dropice2-behaviour"
+        ]
+      },
+      {
+        "id" : "dropice3",
+        "type" : "ClutterTexture",
+        "filename" : "dropice.png",
+        "visible" : true,
+        "behaviours" : [
+            "fadeback-behaviour",
+            "dropice3-behaviour"
+        ]
+      },
+
+      {
+        "id" : "dropice4",
+        "type" : "ClutterTexture",
+        "filename" : "dropice.png",
+        "visible" : true,
+        "behaviours" : [
+            "fade-behaviour",
+            "dropice4-behaviour"
+        ]
+      },
+
+      {
+        "id" : "dropice5",
+        "type" : "ClutterTexture",
+        "filename" : "dropice.png",
+        "visible" : true,
+        "behaviours" : [
+            "fade-behaviour",
+            "dropice5-behaviour"
+        ]
+      },
+      {
+        "id" : "dropice6",
+        "type" : "ClutterTexture",
+        "filename" : "dropice.png",
+        "visible" : true,
+        "behaviours" : [
+            "fade-behaviour",
+            "dropice6-behaviour"
+        ]
+      },
+
+      {
+        "id" : "drop7",
+        "type" : "ClutterTexture",
+        "filename" : "drop.png",
+        "visible" : true,
+        "behaviours" : [
+            "fade-behaviour",
+            "drop7-behaviour"
+        ]
+      },
+
+      {
+        "id" : "dropice8",
+        "type" : "ClutterTexture",
+        "filename" : "dropice.png",
+        "visible" : true,
+        "behaviours" : [
+            "fade-behaviour",
+            "dropice8-behaviour"
+        ]
+      },
+     
+
+    ]
    }
 ]
 

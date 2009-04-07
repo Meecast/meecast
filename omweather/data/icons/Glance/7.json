@@ -1,12 +1,12 @@
-
 [
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "num-frames" : 600,
+    "num-frames" : 100,
     "fps" : 60,
-    "loop" : true
+    "loop" : false
   },
+
   {
     "id"          : "rotate-behaviour",
     "type"        : "ClutterBehaviourRotate",
@@ -15,18 +15,174 @@
     "axis"        : "y-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "sine"
+      "function" : "ramp-inc"
+          } 
+  },
+
+  {
+    "id"          : "rotate2-behaviour",
+    "type"        : "ClutterBehaviourRotate",
+    "angle-start" : 0.0,
+    "angle-end"   : 360.0,
+    "axis"        : "z-axis",
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+          } 
+  },
+
+  {
+    "id"            : "fade-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 0,
+    "opacity-end"   : 255,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
     }
   },
 
   {
-     "id" : "icon_name_7",
+    "id"            : "size-behaviour",
+    "type"          : "ClutterBehaviourScale",
+    "x-scale-start"   : 0.5,
+    "x-scale-end"     : 1.0,
+    "y-scale-start"   : 0.4,
+    "y-scale-end"     : 1.0,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+  {
+    "id"          : "drop1-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[110, 50], [110, 50], [110, 50], [100, 50],  [95, 70], [90, 75],  [85, 80]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+
+  {
+    "id"          : "drop2-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[50, 50], [50, 50], [50, 60], [45, 70],  [45, 90], [40, 95],  [35, 100]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
+    "id"          : "snow1-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[25,30], [25,80]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+  {
+    "id"          : "snow2-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[75,40], [75,100]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+  {
+    "id"          : "snowflakelight-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[60,30], [60,80]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+
+  {
+     "id" : "icon_name_7_original",
      "type" : "ClutterTexture",
-     "width" : 128,
-     "height" : 128,
      "filename" : "7.png",
      "behaviours" : [ "rotate-behaviour" ],
      "visible" : true
-   }
+   },
+   {
+    "id" : "icon_name_7",
+    "type" : "ClutterGroup",
+    "x": 0,
+    "y": 0,
+    "width" : 128,
+    "height" : 128,
+    "children" : [
+      {
+        "id" : "gray_cloud",
+        "type" : "ClutterTexture",
+        "filename" : "gray_cloud.png",
+        "visible" : true,
+        "x": 10,
+        "y": 10,
+        "behaviours" : [
+            "fade-behaviour"
+        ]
+      },
+      {
+        "id" : "drop1",
+        "type" : "ClutterTexture",
+        "filename" : "dropice.png",
+        "visible" : true,
+        "behaviours" : [
+            "fade-behaviour",
+            "drop1-behaviour"
+        ]
+      },
+      {
+        "id" : "drop2",
+        "type" : "ClutterTexture",
+        "filename" : "dropice.png",
+        "visible" : true,
+        "behaviours" : [
+            "fade-behaviour",
+            "drop2-behaviour"
+        ]
+      },
+      {
+        "id" : "snowflake1",
+        "type" : "ClutterTexture",
+        "filename" : "snowflake.png",
+        "visible" : true,
+        "behaviours" : [
+            "snow1-behaviour",
+            "rotate-behaviour",
+        ]
+      },
+      {
+        "id" : "snowflake2",
+        "type" : "ClutterTexture",
+        "filename" : "snowflake.png",
+        "visible" : true,
+        "behaviours" : [
+            "snow2-behaviour",
+            "rotate-behaviour"
+        ]
+      },
+      {
+        "id" : "snowflakelight",
+        "type" : "ClutterTexture",
+        "filename" : "snowflake_light.png",
+        "visible" : true,
+        "behaviours" : [
+            "snowflakelight-behaviour",
+            "rotate2-behaviour"
+        ]
+      }
+
+    ]
+    }
 ]
 

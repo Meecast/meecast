@@ -35,7 +35,7 @@
     "id"            : "fade-behaviour",
     "type"          : "ClutterBehaviourOpacity",
     "opacity-start" : 0,
-    "opacity-end"   : 255,
+    "opacity-end"   : 200,
     "alpha"         : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -43,12 +43,25 @@
   },
 
   {
-    "id"            : "size-behaviour",
+    "id"            : "size1-behaviour",
     "type"          : "ClutterBehaviourScale",
-    "x-scale-start"   : 0.5,
-    "x-scale-end"     : 1.0,
-    "y-scale-start"   : 0.4,
-    "y-scale-end"     : 1.0,
+    "x-scale-start"   : 1.0,
+    "x-scale-end"     : 0.6,
+    "y-scale-start"   : 1.0,
+    "y-scale-end"     : 0.6,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+  {
+    "id"            : "size2-behaviour",
+    "type"          : "ClutterBehaviourScale",
+    "x-scale-start"   : 1.0,
+    "x-scale-end"     : 0.3,
+    "y-scale-start"   : 1.0,
+    "y-scale-end"     : 0.3,
     "alpha"         : {
       "timeline" : "main-timeline",
       "function" : "sine-inc"
@@ -67,7 +80,7 @@
   {
     "id"          : "snow2-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[75,40], [75,80]]
+    "knots" : [[75,40], [85,80]]
     "alpha"       : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -76,7 +89,7 @@
   {
     "id"          : "snow3-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[60,30], [60,100]]
+    "knots" : [[60,30], [65,80]]
     "alpha"       : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -127,6 +140,7 @@
         "visible" : true,
         "behaviours" : [
             "snow2-behaviour",
+            "size2-behaviour",
             "rotate-behaviour"
         ]
       },
@@ -137,6 +151,7 @@
         "visible" : true,
         "behaviours" : [
             "snow3-behaviour",
+            "size1-behaviour",
             "rotate-behaviour"
         ]
       }

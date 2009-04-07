@@ -1,32 +1,53 @@
-
 [
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "num-frames" : 600,
+    "num-frames" : 100,
     "fps" : 60,
-    "loop" : true
+    "loop" : false
   },
+
+
   {
-    "id"          : "rotate-behaviour",
-    "type"        : "ClutterBehaviourRotate",
-    "angle-start" : 0.0,
-    "angle-end"   : 360.0,
-    "axis"        : "y-axis",
-    "alpha"       : {
+    "id"            : "fade-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 0,
+    "opacity-end"   : 255,
+    "alpha"         : {
       "timeline" : "main-timeline",
-      "function" : "sine"
+      "function" : "ramp-inc"
     }
   },
 
+
   {
-     "id" : "icon_name_22",
+     "id" : "icon_name_22_original",
      "type" : "ClutterTexture",
-     "width" : 128,
-     "height" : 128,
      "filename" : "22.png",
      "behaviours" : [ "rotate-behaviour" ],
      "visible" : true
-   }
+   },
+   {
+    "id" : "icon_name_22",
+    "type" : "ClutterGroup",
+    "x": 0,
+    "y": 0,
+    "width" : 128,
+    "height" : 128,
+    "children" : [
+      {
+        "id" : "smoke",
+        "type" : "ClutterTexture",
+        "filename" : "smoke.png",
+        "visible" : true,
+        "x": 0,
+        "y": 0,
+        "behaviours" : [
+            "fade-behaviour"
+        ]
+      },
+
+    ]
+    }
 ]
 

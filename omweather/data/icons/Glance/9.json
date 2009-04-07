@@ -61,7 +61,7 @@
   {
     "id"          : "drop4-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[35,20], [20,70]]
+    "knots" : [[35,20], [20,90]]
     "alpha"       : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -71,7 +71,7 @@
   {
     "id"          : "drop5-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[50,40], [35,90]]
+    "knots" : [[50,40], [35,110]]
     "alpha"       : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -81,7 +81,7 @@
   {
     "id"          : "drop6-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[65,20], [50,70]]
+    "knots" : [[65,20], [50,90]]
     "alpha"       : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -91,7 +91,7 @@
   {
     "id"          : "drop7-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[80,20], [65,90]]
+    "knots" : [[80,20], [65,110]]
     "alpha"       : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -103,7 +103,7 @@
   {
     "id"          : "drop8-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[105,30], [85,70]]
+    "knots" : [[105,30], [85,90]]
     "alpha"       : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -141,12 +141,12 @@
     "height" : 128,
     "children" : [
       {
-        "id" : "dark_cloud",
+        "id" : "light_cloud",
         "type" : "ClutterTexture",
-        "filename" : "dark_cloud.png",
+        "filename" : "light_cloud.png",
         "visible" : true,
         "x": 5,
-        "y": 5
+        "y": 0
 
       },
       {

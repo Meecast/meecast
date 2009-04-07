@@ -35,7 +35,7 @@
     "id"            : "fade-behaviour",
     "type"          : "ClutterBehaviourOpacity",
     "opacity-start" : 0,
-    "opacity-end"   : 200,
+    "opacity-end"   : 180,
     "alpha"         : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"

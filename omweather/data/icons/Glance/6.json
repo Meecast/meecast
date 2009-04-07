@@ -3,10 +3,114 @@
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "num-frames" : 600,
+    "num-frames" : 100,
     "fps" : 60,
-    "loop" : true
+    "loop" : false
   },
+  {
+    "id"            : "fadeback-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 255,
+    "opacity-end"   : 0,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+  {
+    "id"            : "fade-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 0,
+    "opacity-end"   : 255,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
+    "id"          : "shatter1-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[20,30], [20,130]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+  {
+    "id"          : "shatter2-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[60,30], [60,140]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
+    "id"          : "shatter3-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[100,30], [100,130]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
+    "id"          : "shatter4-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[20,20], [20,70]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
+    "id"          : "shatter5-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[35,40], [35,90]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
+    "id"          : "shatter6-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[50,20], [50,70]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+  
+  {
+    "id"          : "shatter7-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[65,20], [65,90]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+
+
+  {
+    "id"          : "shatter8-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[85,30], [85,70]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+
   {
     "id"          : "rotate-behaviour",
     "type"        : "ClutterBehaviourRotate",
@@ -20,13 +124,119 @@
   },
 
   {
-     "id" : "icon_name_6",
+     "id" : "icon_name_6_original",
      "type" : "ClutterTexture",
      "width" : 128,
      "height" : 128,
      "filename" : "6.png",
      "behaviours" : [ "rotate-behaviour" ],
      "visible" : true
+   },
+   {
+    "id" : "icon_name_6",
+    "type" : "ClutterGroup",
+    "x": 0,
+    "y": 0,
+    "width" : 128,
+    "height" : 128,
+    "children" : [
+      {
+        "id" : "gray_cloud",
+        "type" : "ClutterTexture",
+        "filename" : "gray_cloud.png",
+        "visible" : true,
+        "x": 5,
+        "y": 5
+
+      },
+      {
+        "id" : "shatter1",
+        "type" : "ClutterTexture",
+        "filename" : "shatter.png",
+        "visible" : true,
+        "behaviours" : [
+            "fadeback-behaviour",
+            "shatter1-behaviour"
+        ]
+      },
+
+      {
+        "id" : "shatter2",
+        "type" : "ClutterTexture",
+        "filename" : "shatter.png",
+        "visible" : true,
+        "behaviours" : [
+            "fadeback-behaviour",
+            "shatter2-behaviour"
+        ]
+      },
+      {
+        "id" : "shatter3",
+        "type" : "ClutterTexture",
+        "filename" : "shatter.png",
+        "visible" : true,
+        "behaviours" : [
+            "fadeback-behaviour",
+            "shatter3-behaviour"
+        ]
+      },
+
+      {
+        "id" : "shatter4",
+        "type" : "ClutterTexture",
+        "filename" : "shatter.png",
+        "visible" : true,
+        "behaviours" : [
+            "fade-behaviour",
+            "shatter4-behaviour"
+        ]
+      },
+
+      {
+        "id" : "shatter5",
+        "type" : "ClutterTexture",
+        "filename" : "shatter.png",
+        "visible" : true,
+        "behaviours" : [
+            "fade-behaviour",
+            "shatter5-behaviour"
+        ]
+      },
+      {
+        "id" : "shatter6",
+        "type" : "ClutterTexture",
+        "filename" : "shatter.png",
+        "visible" : true,
+        "behaviours" : [
+            "fade-behaviour",
+            "shatter6-behaviour"
+        ]
+      },
+
+      {
+        "id" : "shatter7",
+        "type" : "ClutterTexture",
+        "filename" : "shatter.png",
+        "visible" : true,
+        "behaviours" : [
+            "fade-behaviour",
+            "shatter7-behaviour"
+        ]
+      },
+
+      {
+        "id" : "shatter8",
+        "type" : "ClutterTexture",
+        "filename" : "shatter.png",
+        "visible" : true,
+        "behaviours" : [
+            "fade-behaviour",
+            "shatter8-behaviour"
+        ]
+      },
+     
+
+    ]
    }
 ]
 

@@ -141,9 +141,9 @@
     "height" : 128,
     "children" : [
       {
-        "id" : "ice_cloud",
+        "id" : "light_cloud",
         "type" : "ClutterTexture",
-        "filename" : "ice_cloud.png",
+        "filename" : "light_cloud.png",
         "visible" : true,
         "x": 5,
         "y": 5

@@ -142,9 +142,9 @@
     
     
       {
-        "id" : "dark_cloude",
+        "id" : "dark_cloud",
         "type" : "ClutterTexture",
-        "filename" : "dark_cloude.png",
+        "filename" : "dark_cloud.png",
         "visible" : true,
         "behaviours" : [
             "darkcloud-behaviour"

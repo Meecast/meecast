@@ -141,9 +141,9 @@
     "height" : 128,
     "children" : [
       {
-        "id" : "gray_cloud",
+        "id" : "dark_cloud",
         "type" : "ClutterTexture",
-        "filename" : "gray_cloud.png",
+        "filename" : "dark_cloud.png",
         "visible" : true,
         "x": 5,
         "y": 5

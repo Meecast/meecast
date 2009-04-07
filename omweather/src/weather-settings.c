@@ -269,16 +269,16 @@ new_station_handler(GtkButton *button, gpointer user_data){
 					    GTK_DIALOG_MODAL |
 					    GTK_DIALOG_DESTROY_WITH_PARENT,
 					    NULL);
-    /* add button */
-    add_button = gtk_dialog_add_button(GTK_DIALOG(window),
-					_("Add"), OMWEATHER_ADD_STATION);
-    GLADE_HOOKUP_OBJECT(window, add_button, "add_station_button");
-    gtk_widget_set_sensitive(add_button, FALSE);
     /* search button */
     search_button = gtk_dialog_add_button(GTK_DIALOG(window),
 					_("Search"), OMWEATHER_SEARCH_STATION);
     GLADE_HOOKUP_OBJECT(window, search_button, "search_station_button");
     gtk_widget_set_sensitive(search_button, FALSE);
+    /* add button */
+    add_button = gtk_dialog_add_button(GTK_DIALOG(window),
+					_("Add"), OMWEATHER_ADD_STATION);
+    GLADE_HOOKUP_OBJECT(window, add_button, "add_station_button");
+    gtk_widget_set_sensitive(add_button, FALSE);
     /* close button */
     gtk_dialog_add_button(GTK_DIALOG(window),
 			    _("Close"), GTK_RESPONSE_REJECT);
@@ -292,32 +292,28 @@ new_station_handler(GtkButton *button, gpointer user_data){
 	right_table = gtk_table_new(10, 2, FALSE);
 	gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
 			    right_table, TRUE, TRUE, 10);
-	/* Sources label */
-	gtk_table_attach_defaults(GTK_TABLE(right_table),
-				    gtk_label_new(_("Source:")), 0, 1, 0, 1);
-	/* sources list */
-	gtk_table_attach_defaults(GTK_TABLE(right_table),
-				    sources = gtk_combo_box_new_text(),
-				    1, 2, 0, 1);
-	gtk_combo_box_set_model(GTK_COMBO_BOX(sources),
-				(GtkTreeModel*)list.sources_list);
-	gtk_widget_show(sources);
-	GLADE_HOOKUP_OBJECT(window, GTK_WIDGET(sources), "sources");
 	/* label By name */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
-				    gtk_label_new(_("Name:")), 0, 1, 1, 2);
+				    gtk_label_new(_("Name:")), 0, 1, 0, 1);
 	/* entry for station name */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
 				    station_name = gtk_entry_new(),
-				    1, 2, 1, 2);
+				    1, 2, 0, 1);
 	GLADE_HOOKUP_OBJECT(window, station_name, "station_name_entry");
 	gtk_widget_set_name(station_name, "station_name");
 //    g_signal_connect(G_OBJECT(station_name), "changed",
 //                     G_CALLBACK(entry_changed_handler), (gpointer)window);
-	/* Label */
+	/* Sources label */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
-				    gtk_label_new(_("From the list:")),
-				    1, 2, 2, 3);
+				    gtk_label_new(_("Source:")), 0, 1, 1, 2);
+	/* sources list */
+	gtk_table_attach_defaults(GTK_TABLE(right_table),
+				    sources = gtk_combo_box_new_text(),
+				    1, 2, 1, 2);
+	gtk_combo_box_set_model(GTK_COMBO_BOX(sources),
+				(GtkTreeModel*)list.sources_list);
+	gtk_widget_show(sources);
+	GLADE_HOOKUP_OBJECT(window, GTK_WIDGET(sources), "sources");
 	/* Countries label */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
 				    gtk_label_new(_("Country:")),
@@ -688,7 +684,7 @@ get_active_item_index(GtkTreeModel *list, int time, const gchar *text,
 						gboolean use_index_as_result){
     gint	result = 0,
 		index = 0,
-		int_data
+		int_data;
     gboolean	valid = FALSE;
     GtkTreeIter	iter;
     gchar	*str_data = NULL;
@@ -2525,7 +2521,6 @@ gboolean process_locations_tab(GtkWidget * vbox) {
     gtk_widget_show_all(vbox);
     return FALSE;
 }
-
 /*******************************************************************************/
 gboolean process_visuals_tab(GtkWidget * vbox) {
     GtkWidget *child = create_visuals_tab(gtk_widget_get_toplevel(vbox));
@@ -2533,7 +2528,6 @@ gboolean process_visuals_tab(GtkWidget * vbox) {
     gtk_widget_show_all(vbox);
     return FALSE;
 }
-
 /*******************************************************************************/
 gboolean process_display_tab(GtkWidget * vbox) {
     GtkWidget *child = create_display_tab(gtk_widget_get_toplevel(vbox));
@@ -2541,7 +2535,6 @@ gboolean process_display_tab(GtkWidget * vbox) {
     gtk_widget_show_all(vbox);
     return FALSE;
 }
-
 /*******************************************************************************/
 gboolean process_units_tab(GtkWidget * vbox) {
     GtkWidget *child = create_units_tab(gtk_widget_get_toplevel(vbox));

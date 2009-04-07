@@ -240,8 +240,6 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
 	app->config->current_source =
 		g_strdup(gtk_combo_box_get_active_text(GTK_COMBO_BOX(widget)));
     }
-    else
-        return;
 }
 /*******************************************************************************/
 void
@@ -658,102 +656,102 @@ station_list_view_select_handler(GtkTreeView *tree_view, gpointer user_data){
 
 /*******************************************************************************/
 void
-update_iterval_changed_handler(GtkComboBox * widget, gpointer user_data) {
-    time_t update_time = 0;
-    GtkTreeModel *model;
-    GtkTreeIter iter;
-    gchar *temp_string, tmp_buff[100];
+update_iterval_changed_handler(GtkComboBox *widget, gpointer user_data){
+    time_t		update_time = 0;
+    GtkTreeModel	*model;
+    GtkTreeIter		iter;
+    gchar		*temp_string,
+			tmp_buff[100];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (gtk_combo_box_get_active_iter(widget, &iter)) {
-        model = gtk_combo_box_get_model(widget);
-        gtk_tree_model_get(model, &iter, 1, &update_time, -1);
-        /* fill next update field */
-        if (!update_time)
-            temp_string = _("Never");
-        else {
-            update_time *= 60;
-            update_time += time(NULL);
-            tmp_buff[0] = 0;
-            strftime(tmp_buff, sizeof(tmp_buff) - 1, "%X %x",
-                     localtime(&update_time));
-            temp_string = tmp_buff;
-        }
-        gtk_label_set_text(GTK_LABEL(user_data), temp_string);
+    if(gtk_combo_box_get_active_iter(widget, &iter)){
+	model = gtk_combo_box_get_model(widget);
+	gtk_tree_model_get(model, &iter, 1, &update_time, -1);
+	/* fill next update field */
+	if(!update_time)
+	    temp_string = _("Never");
+	else{
+	    update_time *= 60;
+	    update_time += time(NULL);
+	    tmp_buff[0] = 0;
+	    strftime(tmp_buff, sizeof(tmp_buff) - 1, "%X %x",
+			localtime(&update_time));
+	    temp_string = tmp_buff;
+	}
+	gtk_label_set_text(GTK_LABEL(user_data), temp_string);
     }
 }
-
 /*******************************************************************************/
 int
-get_active_item_index(GtkTreeModel * list, int time, const gchar * text,
-                      gboolean use_index_as_result) {
-    int result = 0, index = 0;
-    gboolean valid = FALSE;
-    GtkTreeIter iter;
-    gchar *str_data = NULL;
-    gint int_data;
+get_active_item_index(GtkTreeModel *list, int time, const gchar *text,
+						gboolean use_index_as_result){
+    gint	result = 0,
+		index = 0,
+		int_data
+    gboolean	valid = FALSE;
+    GtkTreeIter	iter;
+    gchar	*str_data = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    valid = gtk_tree_model_get_iter_first((GtkTreeModel *) list, &iter);
-    while (valid) {
-        gtk_tree_model_get(list, &iter, 0, &str_data, 1, &int_data, -1);
-        if (text) {             /* if parameter is string */
-            if (!strcmp((char *)text, str_data)) {
-                if (use_index_as_result)
-                    result = index;
-                else
-                    result = int_data;
-                break;
-            }
-        } else {                /* if parameter is int */
-            if (time == int_data) {
-                result = index;
-                break;
-            }
-        }
-        g_free(str_data);
-        str_data = NULL;
-        index++;
-        valid = gtk_tree_model_iter_next(list, &iter);
+    valid = gtk_tree_model_get_iter_first((GtkTreeModel*)list, &iter);
+    while(valid){
+	gtk_tree_model_get(list, &iter, 0, &str_data, 1, &int_data, -1);
+	if(text){             /* if parameter is string */
+	    if(!strcmp((char*)text, str_data)){
+		if(use_index_as_result)
+		    result = index;
+		else
+		    result = int_data;
+		break;
+	    }
+	}
+	else{                /* if parameter is int */
+	    if(time == int_data){
+		result = index;
+		break;
+	    }
+	}
+	g_free(str_data);
+	str_data = NULL;
+	index++;
+	valid = gtk_tree_model_iter_next(list, &iter);
     }
-    if (str_data)
-        g_free(str_data);
+    if(str_data)
+	g_free(str_data);
     return result;
 }
-
 /*******************************************************************************/
 void
-transparency_button_toggled_handler(GtkToggleButton * togglebutton,
-                                    gpointer user_data) {
+transparency_button_toggled_handler(GtkToggleButton *togglebutton,
+							    gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (gtk_toggle_button_get_active(togglebutton))
-        gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
+    if(gtk_toggle_button_get_active(togglebutton))
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
     else
-        gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
+	gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
 }
 /*******************************************************************************/
 gboolean
-check_station_code(gchar *source, const gchar * station_code) {
+check_station_code(gchar *source, const gchar *station_code){
     gint min_length = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!strcmp(source, "weather.com"))
-        min_length = 5;
+	min_length = 5;
     if(!strcmp(source, "rp5.ru"))
-        min_length = 2;
-
-    if(strlen((char *)station_code) < min_length)
-        return TRUE;
+	min_length = 2;
+    if(strlen((char*)station_code) < min_length)
+	return TRUE;
     return FALSE;
 }
 /*******************************************************************************/
 void
-up_key_handler(GtkButton *button, gpointer list) {
+up_key_handler(GtkButton *button, gpointer list){
     GtkTreeView		*stations = (GtkTreeView*)list;
     GtkTreeIter		iter,
 			prev_iter;
@@ -763,16 +761,17 @@ up_key_handler(GtkButton *button, gpointer list) {
 
     selected_line = gtk_tree_view_get_selection(GTK_TREE_VIEW(stations));
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(stations));
-    if (!gtk_tree_selection_get_selected(selected_line, NULL, &iter))
-        return;
+    if(!gtk_tree_selection_get_selected(selected_line, NULL, &iter))
+	return;
     path = gtk_tree_model_get_path(model, &iter);
-    if (!gtk_tree_path_prev(path)) {
-        gtk_tree_path_free(path);
-        return;
-    } else {
-        if (gtk_tree_model_get_iter(model, &prev_iter, path))
-            gtk_list_store_move_before(GTK_LIST_STORE(model), &iter,
-                                       &prev_iter);
+    if(!gtk_tree_path_prev(path)){
+	gtk_tree_path_free(path);
+	return;
+    }
+    else{
+	if(gtk_tree_model_get_iter(model, &prev_iter, path))
+	    gtk_list_store_move_before(GTK_LIST_STORE(model), &iter,
+					    &prev_iter);
     }
     gtk_tree_path_free(path);
 }
@@ -788,11 +787,11 @@ down_key_handler(GtkButton *button, gpointer list){
 
     selected_line = gtk_tree_view_get_selection(GTK_TREE_VIEW(stations));
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(stations));
-    if (!gtk_tree_selection_get_selected(selected_line, NULL, &iter))
+    if(!gtk_tree_selection_get_selected(selected_line, NULL, &iter))
         return;
     path = gtk_tree_model_get_path(model, &iter);
     gtk_tree_path_next(path);
-    if (gtk_tree_model_get_iter(model, &next_iter, path))
+    if(gtk_tree_model_get_iter(model, &next_iter, path))
         gtk_list_store_move_after(GTK_LIST_STORE(model), &iter,
                                   &next_iter);
     gtk_tree_path_free(path);

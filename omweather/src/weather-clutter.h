@@ -37,7 +37,6 @@ void show_animation(void);
 GtkWidget *create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size);
 void change_actor_size_and_position(ClutterActor *actor, gint need_size);
 void change_knots_path(GSList *knots, gint need_size);
-extern	gchar		path_large_icon[];
 #endif
 /*******************************************************************************/
 #endif

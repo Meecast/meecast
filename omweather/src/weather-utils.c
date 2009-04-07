@@ -523,16 +523,16 @@ void free_clutter_objects_list(void) {
 }
 /******************************************************************************/
 void
-set_icons_set(const char *icon_set)
-{
+update_icons_set_base(const char *icon_set_name){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     gchar  buffer[1024];
-    GError *error = NULL;
 
-    memset(path_large_icon, 0, sizeof(path_large_icon));
-    snprintf(path_large_icon, sizeof(path_large_icon) - 1,
-                 "%s%s/", ICONS_PATH, icon_set);
-
+    if(app->config->icons_set_base)
+	g_free(app->config->icons_set_base);
+    *buffer = 0;
+    snprintf(buffer, sizeof(buffer) - 1, "%s%s/", ICONS_PATH, icon_set_name);
+    app->config->icons_set_base = g_strdup(buffer);
 }
+/******************************************************************************/

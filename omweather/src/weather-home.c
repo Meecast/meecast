@@ -79,11 +79,9 @@ const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
 };
 /* main struct */
 OMWeatherApp	*app = NULL;
-gchar		path_large_icon[_POSIX_PATH_MAX];
 /*******************************************************************************/
 void
-view_popup_menu (GtkWidget *treeview, GdkEventButton *event, gpointer userdata)
-{
+view_popup_menu (GtkWidget *treeview, GdkEventButton *event, gpointer userdata){
     fprintf(stderr,"dddddddddddddddddddddddddd\n");
 //  gtk_widget_show_all(app->contextmenu);
 //menu_init();
@@ -492,13 +490,14 @@ draw_home_window(gint count_day){
 		    event_add(update_time + app->config->data_valid_interval - diff_time, CHANGE_DAY_PART);
 		    buffer[0] = 0;
 		    create_current_temperature_text(app->wsd.current, buffer, TRUE, item_value(day, "day_name"));
-		    sprintf(buffer_icon, "%s%s.png", path_large_icon, item_value(app->wsd.current, "icon"));
+		    sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
+				item_value(app->wsd.current, "icon"));
 		}
 		else{ /* if current data is not actual */
 		    buffer[0] = 0;
 		    if(app->config->separate){ /* if current data isn't actual and first day */
 			    create_current_temperature_text(app->wsd.current, buffer, FALSE, item_value(day, "day_name"));
-			    sprintf(buffer_icon, "%s48.png", path_large_icon);
+			    sprintf(buffer_icon, "%s48.png", app->config->icons_set_base);
 		    }
 		    else{ /* if first day and not config->separate data */
 			/* if current time is night show night icon */
@@ -507,13 +506,15 @@ draw_home_window(gint count_day){
                     /* displaying wind if necessary */
                     if(app->config->show_wind)
                         add_wind_text(day, buffer + strlen(buffer),FALSE);
-		            sprintf(buffer_icon, "%s%s.png", path_large_icon, item_value(day, "night_icon"));
+		            sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
+		        		item_value(day, "night_icon"));
 		}else
                     create_day_temperature_text(day, buffer, FALSE, FALSE);
                     /* displaying wind if necessary */
                     if(app->config->show_wind)
                         add_wind_text(day, buffer + strlen(buffer),TRUE);
-		            sprintf(buffer_icon, "%s%s.png", path_large_icon, item_value(day, "day_icon"));
+		            sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
+					item_value(day, "day_icon"));
 		    }
 		}
 	    }
@@ -531,12 +532,12 @@ draw_home_window(gint count_day){
                (current_time > night_begin_time || current_time < day_begin_time)){
                    if(app->config->show_wind)
                        add_wind_text(tmp_day, buffer + strlen(buffer),FALSE);
-                   sprintf(buffer_icon, "%s%s.png", path_large_icon,
+                   sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
                        item_value(tmp_day, "night_icon"));
             }else{
                    if(app->config->show_wind)
                        add_wind_text(tmp_day, buffer + strlen(buffer),TRUE);
-                   sprintf(buffer_icon, "%s%s.png", path_large_icon,
+                   sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
 			       item_value(tmp_day, "day_icon"));
                }
 	    }
@@ -556,7 +557,7 @@ draw_home_window(gint count_day){
 			app->config->font_color.green >> 8,
 			app->config->font_color.blue >> 8,
 			_("N/A"), _("N/A"), _("N/A"));
-	    sprintf(buffer_icon, "%s48.png", path_large_icon);
+	    sprintf(buffer_icon, "%s48.png", app->config->icons_set_base);
 	    if(!flag_last_day && last_day){
 		event_add(last_day + 24 * 60 * 60, CHANGE_DAY_PART);
 		flag_last_day = TRUE;

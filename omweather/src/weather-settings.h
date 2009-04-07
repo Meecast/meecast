@@ -53,7 +53,6 @@ struct lists_struct{
 };
 /*******************************************************************************/
 extern gboolean		not_event;
-extern gchar		path_large_icon[_POSIX_PATH_MAX];
 extern WeatherSource	weather_sources[];
 /*******************************************************************************/
 void weather_window_settings(GtkWidget *widget, gpointer user_data);

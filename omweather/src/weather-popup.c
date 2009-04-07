@@ -706,7 +706,7 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 			day_icon_text_hbox, TRUE, TRUE, 0);
     /* day icon */
     memset(buffer, 0, sizeof(buffer));
-    sprintf(buffer, "%s%s.png", path_large_icon, item_value(day, "day_icon"));
+    sprintf(buffer, "%s%s.png", app->config->icons_set_base, item_value(day, "day_icon"));
     icon = gdk_pixbuf_new_from_file_at_size(buffer,
 					    BIG_ICON_SIZE,
 					    BIG_ICON_SIZE, NULL);
@@ -780,7 +780,7 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 			night_icon_text_hbox, TRUE, TRUE, 0);
     /* night icon */
     memset(buffer, 0, sizeof(buffer));
-    sprintf(buffer, "%s%s.png", path_large_icon, item_value(day, "night_icon"));
+    sprintf(buffer, "%s%s.png", app->config->icons_set_base, item_value(day, "night_icon"));
     icon = gdk_pixbuf_new_from_file_at_size(buffer,
 					    BIG_ICON_SIZE,
 					    BIG_ICON_SIZE, NULL);
@@ -877,7 +877,7 @@ GtkWidget* create_current_tab(GSList *current){
     main_widget = gtk_vbox_new(FALSE, 0);
     icon_text_hbox = gtk_hbox_new(FALSE, 0);
 /* icon */
-    sprintf(buffer,"%s%s.png", path_large_icon, item_value(current, "icon"));
+    sprintf(buffer,"%s%s.png", app->config->icons_set_base, item_value(current, "icon"));
     icon = gdk_pixbuf_new_from_file_at_size(buffer, GIANT_ICON_SIZE,
 						    GIANT_ICON_SIZE, NULL);
     icon_image = gtk_image_new_from_pixbuf(icon);
@@ -1010,7 +1010,7 @@ GtkWidget* create_hour_tab(void){
 	window = gtk_vbox_new(FALSE, 0);
 	icon_text_hbox = gtk_hbox_new(FALSE, 0);
 /* icon */
-	sprintf(buffer,"%s%s.png", path_large_icon, item_value(hour_weather, "hour_icon"));
+	sprintf(buffer,"%s%s.png", app->config->icons_set_base, item_value(hour_weather, "hour_icon"));
 	icon = gdk_pixbuf_new_from_file_at_size(buffer, SMALL_ICON_SIZE,
                                                    SMALL_ICON_SIZE, NULL);
 	icon_image = gtk_image_new_from_pixbuf(icon);

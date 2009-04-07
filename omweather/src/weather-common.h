@@ -257,6 +257,7 @@ enum{ NAME_COLUMN = 0, ID0_COLUMN, ID1_COLUMN, LATITUDE_COLUMN,
 /*******************************************************************************/
 typedef struct applet_config{
     gchar	*cache_dir_name;
+    gchar	*icons_set_base;
     gchar	*icon_set;
     gchar	*font;
     gchar	*current_source;
@@ -303,17 +304,17 @@ typedef struct applet_config{
 }AppletConfig;
 /*******************************************************************************/
 #ifdef CLUTTER
-typedef struct SuperOH
-{
-  ClutterActor *icon;
-  ClutterGroup *group;
-  ClutterActor *stage;
-  ClutterScript *script;
-  ClutterTimeline *timeline;
-  GtkWidget *clutter;
-  GtkWidget *icon_widget;
-} SuperOH;
+typedef struct SuperOH{
+  ClutterActor		*icon;
+  ClutterGroup		*group;
+  ClutterActor		*stage;
+  ClutterScript		*script;
+  ClutterTimeline	*timeline;
+  GtkWidget		*clutter;
+  GtkWidget		*icon_widget;
+}SuperOH;
 #endif
+/*******************************************************************************/
 typedef struct OMWeatherApplet{
     HildonProgram       *app;       /* handle to application */
     HildonWindow        *main_view; /* handle to app's view */
@@ -407,9 +408,6 @@ typedef struct OMWeatherApplet{
     ClutterScript       *clutter_script; /* Maybe it need be deleting */
 #endif
 }OMWeatherApp;
-
-
-
 /*******************************************************************************/
 extern	OMWeatherApp	*app;
 /*******************************************************************************/
@@ -436,14 +434,14 @@ typedef struct _OMWeatherPrivate OMWeatherPrivate;
 
 /* Instance struct */
 typedef struct {
-	HildonDesktopHomeItem parent;
-	GtkWidget			   *layout;
-	GnomeVFSMonitorHandle  *fileMon;
-	guint                  updateTimeout;
-	gboolean			   queueRefresh;
-	XRectangle			   clip;
-	OMWeatherPrivate *priv;
-} OMWeather;
+	HildonDesktopHomeItem	parent;
+	GtkWidget		*layout;
+	GnomeVFSMonitorHandle	*fileMon;
+	guint			updateTimeout;
+	gboolean		queueRefresh;
+	XRectangle		clip;
+	OMWeatherPrivate	*priv;
+}OMWeather;
 
 /* Class struct */
 typedef struct {

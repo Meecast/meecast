@@ -88,8 +88,6 @@
 #define GCONF_KEY_SHOW_WEATHER_FOR_TWO_HOURS    GCONF_KEY_PREFIX"/show-weather-for-two-hours"
 
 /*******************************************************************************/
-extern	gchar	path_large_icon[_POSIX_PATH_MAX];
-/*******************************************************************************/
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 void config_update_proxy(void);
 int read_config(AppletConfig*);

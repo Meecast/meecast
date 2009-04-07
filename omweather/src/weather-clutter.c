@@ -122,7 +122,7 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
     oh->script = clutter_script_new();
 //    g_object_unref(oh->script);
     memset(buffer, 0, sizeof(buffer));
-    sprintf(buffer, "%s%s.json", path_large_icon,icon_name);
+    sprintf(buffer, "%s%s.json", app->config->icons_set_base, icon_name);
     clutter_script_load_from_file(oh->script,buffer, &error);
     /* Fix Me Need free memory */
     if (error){

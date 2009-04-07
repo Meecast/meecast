@@ -133,8 +133,6 @@ extern GtkWidget *create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_pa
 extern void free_clutter_objects_list(void);
 extern void show_animation(void);
 /*******************************************************************************/
-extern gchar	path_large_icon[];
-/*******************************************************************************/
 typedef struct _HomeAppletHandler HomeAppletHandler;
 /*******************************************************************************/
 struct _HomeAppletHandler {

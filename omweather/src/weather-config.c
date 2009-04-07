@@ -405,10 +405,10 @@ gint read_config(AppletConfig * config) {
     config->icon_set = gconf_client_get_string(gconf_client,
                                                GCONF_KEY_WEATHER_ICON_SET,
                                                NULL);
-    set_icons_set(config->icon_set);
-    if ((fd = open(path_large_icon, O_RDONLY)) == -1) {
+    update_icons_set_base(config->icon_set);
+    if ((fd = open(app->config->icons_set_base, O_RDONLY)) == -1) {
         config->icon_set = g_strdup("Glance");
-        set_icons_set(config->icon_set);
+        update_icons_set_base(config->icon_set);
     } else
         close(fd);
 

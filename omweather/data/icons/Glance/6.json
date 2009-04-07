@@ -152,7 +152,7 @@
       {
         "id" : "shatter1",
         "type" : "ClutterTexture",
-        "filename" : "shatter.png",
+        "filename" : "iceshatter.png",
         "visible" : true,
         "behaviours" : [
             "fadeback-behaviour",
@@ -163,7 +163,7 @@
       {
         "id" : "shatter2",
         "type" : "ClutterTexture",
-        "filename" : "shatter.png",
+        "filename" : "iceshatter.png",
         "visible" : true,
         "behaviours" : [
             "fadeback-behaviour",
@@ -173,7 +173,7 @@
       {
         "id" : "shatter3",
         "type" : "ClutterTexture",
-        "filename" : "shatter.png",
+        "filename" : "iceshatter.png",
         "visible" : true,
         "behaviours" : [
             "fadeback-behaviour",
@@ -184,7 +184,7 @@
       {
         "id" : "shatter4",
         "type" : "ClutterTexture",
-        "filename" : "shatter.png",
+        "filename" : "iceshatter.png",
         "visible" : true,
         "behaviours" : [
             "fade-behaviour",
@@ -195,7 +195,7 @@
       {
         "id" : "shatter5",
         "type" : "ClutterTexture",
-        "filename" : "shatter.png",
+        "filename" : "iceshatter.png",
         "visible" : true,
         "behaviours" : [
             "fade-behaviour",
@@ -205,7 +205,7 @@
       {
         "id" : "shatter6",
         "type" : "ClutterTexture",
-        "filename" : "shatter.png",
+        "filename" : "iceshatter.png",
         "visible" : true,
         "behaviours" : [
             "fade-behaviour",
@@ -216,7 +216,7 @@
       {
         "id" : "shatter7",
         "type" : "ClutterTexture",
-        "filename" : "shatter.png",
+        "filename" : "iceshatter.png",
         "visible" : true,
         "behaviours" : [
             "fade-behaviour",
@@ -227,7 +227,7 @@
       {
         "id" : "shatter8",
         "type" : "ClutterTexture",
-        "filename" : "shatter.png",
+        "filename" : "iceshatter.png",
         "visible" : true,
         "behaviours" : [
             "fade-behaviour",

@@ -46,7 +46,7 @@
   {
     "id"          : "snow1-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[25,30], [40,80]]
+    "knots" : [[25,30], [30,80]]
     "alpha"       : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -65,6 +65,24 @@
     "id"          : "snow3-behaviour",
     "type"        : "ClutterBehaviourPath",
     "knots" : [[60,30], [70,100]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+  {
+    "id"          : "snowflakelight1-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[45,30], [45,100]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+  {
+    "id"          : "snowflakelight2-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[55,30], [55,80]]
     "alpha"       : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -127,7 +145,29 @@
             "snow3-behaviour",
             "rotate-behaviour"
         ]
+      },
+      {
+        "id" : "snowflakelight1",
+        "type" : "ClutterTexture",
+        "filename" : "snowflake_light.png",
+        "visible" : true,
+        "behaviours" : [
+            "snowflakelight1-behaviour",
+            "rotate2-behaviour"
+        ]
+      },
+      {
+        "id" : "snowflakelight2",
+        "type" : "ClutterTexture",
+        "filename" : "snowflake_light.png",
+        "visible" : true,
+        "behaviours" : [
+            "snowflakelight2-behaviour",
+            "rotate2-behaviour"
+        ]
       }
+
+
 
     ]
     }

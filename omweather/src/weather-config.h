@@ -102,7 +102,7 @@ extern void add_periodic_event(time_t last_update);
 extern void add_gps_event(guint interval);
 extern gboolean switch_timer_handler(gpointer data);
 extern void update_weather(gboolean show_update_window);
-extern void set_icons_set(const char *icon_set);
+extern void update_icons_set_base(const char *icon_set_name);
 #if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
 extern void read_sensor(gint need_redraw);
 #endif

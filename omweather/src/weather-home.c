@@ -31,9 +31,9 @@
 #include <unistd.h>
 #include <glib.h>
 #include <math.h>
-#ifdef OS2008
+#if defined OS2008 || defined OS2009
     #include <libhildondesktop/libhildondesktop.h>
-#elif OS2009 || NONMAEMO 
+#elif NONMAEMO 
     #include <hildon/hildon.h>
 #else
     #include <hildon-home-plugin/hildon-home-plugin-interface.h>
@@ -61,6 +61,14 @@ struct _OMWeatherPrivate {
 	GtkWidget	*desktop;
 };
 #endif
+#if defined OS2009 && !defined (APPLICATION)
+HD_DEFINE_PLUGIN_MODULE (OmweatherHomePlugin, omweather_home_plugin,
+			 HD_TYPE_HOME_PLUGIN_ITEM);
+struct _OmweatherHomePluginPrivate {
+	GtkWidget	*desktop;
+};
+#endif
+
 const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
     {	"weather.com",
 	"http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10",

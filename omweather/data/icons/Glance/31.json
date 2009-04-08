@@ -1,12 +1,12 @@
-
 [
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "num-frames" : 600,
+    "num-frames" : 100,
     "fps" : 60,
-    "loop" : true
+    "loop" : false
   },
+
   {
     "id"          : "rotate-behaviour",
     "type"        : "ClutterBehaviourRotate",
@@ -15,18 +15,46 @@
     "axis"        : "y-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "sine"
-    }
+      "function" : "ramp-inc"
+          } 
   },
 
   {
-     "id" : "icon_name_31",
+    "id"          : "moon4-behaviour",
+    "type"        : "ClutterBehaviourPath",
+     "knots" : [[15, 128], [15, 15]],
+     "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+
+
+  {
+     "id" : "icon_name_31_original",
      "type" : "ClutterTexture",
-     "width" : 128,
-     "height" : 128,
      "filename" : "31.png",
      "behaviours" : [ "rotate-behaviour" ],
      "visible" : true
-   }
+   },
+   {
+    "id" : "icon_name_31",
+    "type" : "ClutterGroup",
+    "x": 0,
+    "y": 0,
+    "children" : [
+
+      {
+        "id" : "moon4",
+        "type" : "ClutterTexture",
+        "filename" : "moon4.png",
+        "visible" : true,
+        "behaviours" : [
+            "moon4-behaviour"
+        ]
+      },
+    ]
+    }
 ]
 

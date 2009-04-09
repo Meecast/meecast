@@ -29,18 +29,6 @@
     }
   },
 
-  {
-    "id"          : "light_cloud",
-    "type"        : "ClutterBehaviourPath",
-     "knots" : [[-128, 40], [-100, 40], [60, 40], [54, 40], [53, 40], [52, 40]],
-     "alpha"       : {
-      "timeline" : "main-timeline",
-      "function" : "sine-inc"
-    }
-  },
-
-
-
 
   {
      "id" : "icon_name_33_original",
@@ -70,9 +58,6 @@
         "type" : "ClutterTexture",
         "filename" : "light_cloud.png",
         "visible" : true,
-        "behaviours" : [
-            "light_cloud"
-        ]
       }
     ]
     }

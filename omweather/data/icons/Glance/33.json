@@ -1,12 +1,12 @@
-
 [
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "num-frames" : 600,
+    "num-frames" : 100,
     "fps" : 60,
-    "loop" : true
+    "loop" : false
   },
+
   {
     "id"          : "rotate-behaviour",
     "type"        : "ClutterBehaviourRotate",
@@ -15,18 +15,66 @@
     "axis"        : "y-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "sine"
+      "function" : "ramp-inc"
+          } 
+  },
+
+  {
+    "id"          : "moon4-behaviour",
+    "type"        : "ClutterBehaviourPath",
+     "knots" : [[15, 128], [15, 15]],
+     "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
     }
   },
 
   {
-     "id" : "icon_name_33",
+    "id"          : "light_cloud",
+    "type"        : "ClutterBehaviourPath",
+     "knots" : [[-128, 40], [-100, 40], [60, 40], [54, 40], [53, 40], [52, 40]],
+     "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+
+
+
+  {
+     "id" : "icon_name_33_original",
      "type" : "ClutterTexture",
-     "width" : 128,
-     "height" : 128,
      "filename" : "33.png",
      "behaviours" : [ "rotate-behaviour" ],
      "visible" : true
-   }
+   },
+   {
+    "id" : "icon_name_33",
+    "type" : "ClutterGroup",
+    "x": 0,
+    "y": 0,
+    "children" : [
+
+      {
+        "id" : "moon4",
+        "type" : "ClutterTexture",
+        "filename" : "moon4.png",
+        "visible" : true,
+        "behaviours" : [
+            "moon4-behaviour"
+        ]
+      },
+      {
+        "id" : "light_cloud",
+        "type" : "ClutterTexture",
+        "filename" : "light_cloud.png",
+        "visible" : true,
+        "behaviours" : [
+            "light_cloud"
+        ]
+      }
+    ]
+    }
 ]
 

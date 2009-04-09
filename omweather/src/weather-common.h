@@ -476,14 +476,14 @@ typedef struct _OmweatherHomePluginPrivate OmweatherHomePluginPrivate;
 /* Instance struct */
 struct _OmweatherHomePlugin
 {
-	HDHomePluginItem parent;
-	OmweatherHomePluginPrivate *priv;
+        HDHomePluginItem parent;
+        OmweatherHomePluginPrivate *priv;
 };
 
 /* Class struct */
 struct _OmweatherHomePluginClass
 {
-	HDOmweatherPluginItemClass parent_class;
+       HDHomePluginItemClass parent_class;
 };
 
 GType  omweather_home_plugin_get_type  (void);

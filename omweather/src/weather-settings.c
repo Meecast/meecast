@@ -1282,7 +1282,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
             }
             icon_set = g_slist_next(icon_set);
         }
-        set_icons_set(app->config->icon_set);
+        update_icons_set_base(app->config->icon_set);
 #ifndef OS2008
         need_correct_layout_for_OS2007 = TRUE;
 #endif

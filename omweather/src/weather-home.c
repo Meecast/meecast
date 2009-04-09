@@ -750,7 +750,7 @@ update_weather(gboolean show_update_window){
 	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }
 /*******************************************************************************/
-#if defined (OS2009) || defined(NONMAEMO) || defined (APPLICATION)
+#if defined(NONMAEMO) || defined (APPLICATION)
 gboolean
 omweather_init_OS2009(GtkWidget *applet){
     GtkWidget *main_vbox, *main_hbox;
@@ -760,6 +760,9 @@ omweather_init(OMWeather *applet){
     GtkSettings *settings;
     GdkColormap *cm;
     gchar       tmp_buff[2048];
+#elif OS2009
+void
+omweather_home_plugin_init (OmweatherHomePlugin *applet){
 #else
 void*
 hildon_home_applet_lib_initialize(void *state_data, int *state_size,
@@ -2080,3 +2083,15 @@ omweather_class_init(OMWeatherClass *klass){
 }
 /*******************************************************************************/
 #endif
+#ifdef OS2009
+static void
+omweather_home_plugin_class_init (OmweatherHomePluginClass * klass)
+{
+}
+
+static void
+omweather_home_plugin_class_finalize (OmweatherHomePluginClass * klass)
+{
+}
+
+#endif 

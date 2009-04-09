@@ -31,7 +31,7 @@
  */
 /*******************************************************************************/
 #include "weather-applet-expose.h"
-#if defined OS2008 && !defined (APPLICATION)
+#if (defined OS2008 || defined OS2009) && !defined (APPLICATION)
 #include <values.h>
 #include <cairo.h>
 /*******************************************************************************/

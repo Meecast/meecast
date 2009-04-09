@@ -3,19 +3,19 @@
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "num-frames" : 600,
+    "num-frames" : 100,
     "fps" : 60,
-    "loop" : true
+    "loop" : false
   },
   {
     "id"          : "rotate-behaviour",
     "type"        : "ClutterBehaviourRotate",
-    "angle-start" : 0.0,
+    "angle-start" : 270.0,
     "angle-end"   : 360.0,
     "axis"        : "y-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "sine"
+      "function" : "sine-inc"
     }
   },
 

@@ -99,6 +99,7 @@
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
 #define OMWEATHER_ADD_STATION		1000
 #define OMWEATHER_SEARCH_STATION	1001
+#define OMWEATHER_CLOSE_STATION_WINDOW	1002
 /*******************************************************************************/
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
 	CHECK_GPS_POSITION

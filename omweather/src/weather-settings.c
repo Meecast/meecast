@@ -281,7 +281,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
     gtk_widget_set_sensitive(add_button, FALSE);
     /* close button */
     gtk_dialog_add_button(GTK_DIALOG(window),
-			    _("Close"), GTK_RESPONSE_REJECT);
+			    _("Close"), OMWEATHER_CLOSE_STATION_WINDOW);
 
     gtk_widget_set_size_request(window, 600, -1);
     g_object_set_data(G_OBJECT(window), "list", (gpointer)&list);
@@ -397,6 +397,9 @@ new_station_handler(GtkButton *button, gpointer user_data){
 	    add_button_handler(add_button, (gpointer)window);
 	}
 	if(result == OMWEATHER_SEARCH_STATION){
+	}
+	if(result == OMWEATHER_CLOSE_STATION_WINDOW){
+	    break;
 	}
     }
     gtk_widget_destroy(window);

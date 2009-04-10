@@ -65,9 +65,10 @@ main(int argc, char *argv[]){
         return 1;
     }
     gtk_init(&argc, &argv);
+    
     OMWeather = create_omweather();
     if(OMWeather){
-         /* Create the hildon application and setup the title */
+          /* Create the hildon application and setup the title */
           app->app = HILDON_PROGRAM ( hildon_program_get_instance () );
           g_set_application_name (PACKAGE);
           ret = osso_rpc_set_default_cb_f (osso_context, dbus_callback, OMWeather);

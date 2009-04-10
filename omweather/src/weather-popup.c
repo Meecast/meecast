@@ -377,8 +377,9 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     gtk_window_set_title(GTK_WINDOW(app->popup_window),
 			    _("OMWeather Forecast"));
     gtk_window_set_modal(GTK_WINDOW(app->popup_window), TRUE);
+#if defined OS2009  && defined APPLICATION
     gtk_window_set_destroy_with_parent(GTK_WINDOW(app->popup_window), TRUE);
-
+#endif
     g_object_set_data(G_OBJECT(app->popup_window), "active_tab", (gpointer)active_tab);
     gtk_window_fullscreen(GTK_WINDOW(app->popup_window));
 

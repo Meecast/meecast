@@ -468,11 +468,11 @@ typedef struct _OmweatherHomePluginPrivate OmweatherHomePluginPrivate;
 
 /* Common macros */
 #define OMWEATHER_TYPE_HOME_PLUGIN            (omweather_home_plugin_get_type ())
-#define OMWEATHER_HOME_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), OMWEATHER_TYPE_HOME_PLUGIN, HelloHomePlugin))
-#define OMWEATHER_HOME_PLUGIN_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  OMWEATHER_TYPE_HOME_PLUGIN, HelloHomePluginClass))
+#define OMWEATHER_HOME_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), OMWEATHER_TYPE_HOME_PLUGIN, OmweatherHomePlugin))
+#define OMWEATHER_HOME_PLUGIN_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  OMWEATHER_TYPE_HOME_PLUGIN, OmweatherHomePluginClass))
 #define OMWEATHER_IS_HOME_PLUGIN(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), OMWEATHER_TYPE_HOME_PLUGIN))
 #define OMWEATHER_IS_HOME_PLUGIN_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass),  OMWEATHER_TYPE_HOME_PLUGIN))
-#define OMWEATHER_HOME_PLUGIN_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  OMWEATHER_TYPE_HOME_PLUGIN, HelloHomePluginClass))
+#define OMWEATHER_HOME_PLUGIN_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  OMWEATHER_TYPE_HOME_PLUGIN, OmweatherHomePluginClass))
 
 /* Instance struct */
 struct _OmweatherHomePlugin

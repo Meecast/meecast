@@ -628,9 +628,11 @@ draw_home_window(gint count_day){
 //#if ! defined CLUTTER
    gtk_widget_show_all(app->top_widget);
 //#endif
-    #ifdef OS2008
-	if(!app->config->transparency && app->parent)
+    #if defined OS2008 || defined OS2009
+	if(!app->config->transparency && app->parent){
+	    fprintf(stderr,"sddddddddddddddddddddddddddddddddddddddddddddd\n");
 	    gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);
+	}    
     #endif 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -763,6 +765,7 @@ omweather_init(OMWeather *applet){
 #elif OS2009
 void
 omweather_home_plugin_init (OmweatherHomePlugin *applet){
+HDHomePluginItem *myparent;
 #else
 void*
 hildon_home_applet_lib_initialize(void *state_data, int *state_size,
@@ -802,7 +805,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	exit(1);
     }
     memset(app, 0, sizeof(OMWeatherApp));
-#if ! defined (OS2009) || ! defined (NONMAEMO) || ! defined (APPLICATION)
+#if  ! defined (NONMAEMO) || ! defined (APPLICATION)
     app->osso = osso;
 #endif
     app->flag_updating = 0;
@@ -814,9 +817,11 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     if(!app->config){
         fprintf(stderr, "\nCan not allocate memory for config.\n");
         g_free(app);
-#if defined (OS2009) || defined (NONMAEMO) ||  defined (APPLICATION)
+#if  defined (NONMAEMO) ||  defined (APPLICATION)
         return FALSE;
-#elif OS2008
+#elif OS2008 
+        return;
+#elif OS2009 
         return;
 #else
         return NULL;
@@ -847,9 +852,11 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         fprintf(stderr, "\nCan not read config file.\n");
         g_free(app->config);
         g_free(app);
-#if  defined (OS2009) ||  defined (NONMAEMO) || defined (APPLICATION)
+#if  defined (NONMAEMO) || defined (APPLICATION)
 	return FALSE;
 #elif OS2008
+        return;
+#elif OS2009
         return;
 #else
 	return NULL;
@@ -891,7 +898,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     initial_gps_control();
 #endif
     app->widget_first_start = TRUE;
-#if defined OS2008 || ! defined (APPLICATION)
+#if defined OS2008  || ! defined (APPLICATION)
     gtk_widget_set_name(GTK_WIDGET(app->top_widget), PACKAGE_NAME);
 #endif
 #if defined OS2008 && !defined (APPLICATION)
@@ -909,6 +916,12 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     return TRUE;
 #else
     gtk_container_add(GTK_CONTAINER(applet), app->top_widget);
+#endif
+
+#if defined OS2009 && ! defined (APPLICATION)
+
+//      myparent = applet->parent;
+//      app->parent = applet->parent.parent;
 #endif
 
 #else
@@ -1453,7 +1466,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
    	    gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
     }
 #ifdef OS2008
-   	if(previos_station_name_btn)
+    if(previos_station_name_btn)
         gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
     if(next_station_name_btn)
         gtk_event_box_set_visible_window(GTK_EVENT_BOX(next_station_name_btn), FALSE);
@@ -1463,11 +1476,11 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /* check config->transparency */
     if(transparency){
     	if(previos_station_name_btn)
-	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
-	if(next_station_name_btn)
-	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(next_station_name_btn), FALSE);
-	if(station_name_btn)
-	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
+	        gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
+	    if(next_station_name_btn)
+	        gtk_event_box_set_visible_window(GTK_EVENT_BOX(next_station_name_btn), FALSE);
+    	if(station_name_btn)
+	        gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
     }
 
 #endif
@@ -1705,7 +1718,7 @@ free_memory(void){
     if(app->config->current_country){
         g_free(app->config->current_country);
         app->config->current_country = NULL;
-    }	
+    }
     if(app->config->current_station_name){
         g_free(app->config->current_station_name);
         app->config->current_station_name = NULL;
@@ -1742,7 +1755,7 @@ create_weather_day_button(const char *text, const char *icon,
 #endif
     new_day_button = g_new0(WDB, 1);
     if(!new_day_button)
-	    return NULL;
+        return NULL;
     /* create day button */
     new_day_button->button = gtk_event_box_new();
     gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK);
@@ -1751,7 +1764,7 @@ create_weather_day_button(const char *text, const char *icon,
 //    g_signal_connect(new_day_button->button, "popup-menu", GTK_WIDGET(app->contextmenu), NULL);
 
        g_signal_connect(new_day_button->button, "popup-menu", (GCallback)view_popup_menu, NULL);
-     
+
     #else
        gtk_widget_tap_and_hold_setup(new_day_button->button, GTK_WIDGET(app->contextmenu),
                                 NULL, 0);

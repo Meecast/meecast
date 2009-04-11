@@ -161,7 +161,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
     main_widget = gtk_hbox_new(FALSE, 0);
 /* Moon icon */
 
-    snprintf(icon, sizeof(icon)-1, 4"%s%s.png", MOON_ICONS, item_value(current, "moon_phase"));
+    snprintf(icon, (sizeof(icon) - 1), "%s%s.png", MOON_ICONS, item_value(current, "moon_phase"));
     space_symbol = strchr(icon, ' ');
     if(space_symbol)
 	*space_symbol = '_';

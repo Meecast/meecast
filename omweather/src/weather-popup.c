@@ -140,7 +140,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
     GtkWidget	*main_widget = NULL,
 		*main_label = NULL;
     gchar	buffer[1024],
-		icon[50],
+		icon[2048],
 		*space_symbol = NULL;
     GdkPixbuf   *icon_buffer;                                                                                                             
     GtkWidget   *icon_image;
@@ -149,6 +149,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
 #endif
     if(!current)
 	return NULL;
+
 
     memset(buffer, 0, sizeof(buffer));
     snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
@@ -159,7 +160,8 @@ GtkWidget* create_moon_phase_widget(GSList *current){
 
     main_widget = gtk_hbox_new(FALSE, 0);
 /* Moon icon */
-    sprintf(icon, "%s%s.png", MOON_ICONS, item_value(current, "moon_phase"));
+
+    snprintf(icon, sizeof(icon)-1, 4"%s%s.png", MOON_ICONS, item_value(current, "moon_phase"));
     space_symbol = strchr(icon, ' ');
     if(space_symbol)
 	*space_symbol = '_';
@@ -176,6 +178,9 @@ GtkWidget* create_moon_phase_widget(GSList *current){
 	gtk_box_pack_start(GTK_BOX(main_widget), icon_image, FALSE, TRUE, 0);
 
     gtk_box_pack_start(GTK_BOX(main_widget), main_label, FALSE, TRUE, 10);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return main_widget;
 }
 /*******************************************************************************/

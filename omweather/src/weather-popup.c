@@ -377,7 +377,11 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	return FALSE;
     }
 /* Main window */
-    app->popup_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+#if defined OS2009
+     app->popup_window = hildon_stackable_window_new ();
+#else
+     app->popup_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+#endif
 /* set window title and icon */
     gtk_window_set_title(GTK_WINDOW(app->popup_window),
 			    _("OMWeather Forecast"));
@@ -596,6 +600,7 @@ void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    fprintf(stderr,"Size %i\n",hildon_window_stack_size(app->hildon_window_stack));
     destroy_popup_window();
 }
 /*******************************************************************************/

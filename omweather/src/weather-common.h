@@ -67,6 +67,8 @@
     #include <hildon/hildon-banner.h>
 #elif  OS2009
     #include <libhildondesktop/libhildondesktop.h>
+    #include <hildon/hildon-banner.h>
+    #include <hildon/hildon-window-stack.h>
 #else
     #include <hildon-widgets/hildon-banner.h>
 #endif
@@ -409,6 +411,9 @@ typedef struct OMWeatherApplet{
 #ifdef CLUTTER
     GSList              *clutter_objects_list;
     ClutterScript       *clutter_script; /* Maybe it need be deleting */
+#endif
+#ifdef OS2009
+    HildonWindowStack * hildon_window_stack;
 #endif
 }OMWeatherApp;
 /*******************************************************************************/

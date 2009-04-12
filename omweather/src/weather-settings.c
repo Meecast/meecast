@@ -952,7 +952,11 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
     if(app->popup_window)
         gtk_widget_destroy(app->popup_window);
 /* Main window */
+#if defined OS2009
+    window_config = hildon_stackable_window_new ();
+#else
     window_config = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+#endif
 /* set window title and icon */
     gtk_window_set_title(GTK_WINDOW(window_config),
 			    _("OMWeather Settings"));
@@ -1654,6 +1658,7 @@ close_button_handler(GtkWidget * button, GdkEventButton * event,
     app->config->current_settings_page = current_page;
 /* save config */
     config_save(app->config);
+    gtk_widget_show_all(app->main_view);
 }
 /*******************************************************************************/
 void

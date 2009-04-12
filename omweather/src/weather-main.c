@@ -67,20 +67,21 @@ main(int argc, char *argv[]){
     gtk_init(&argc, &argv);
     
     OMWeather = create_omweather();
-    if(OMWeather){
+    app->main_view = OMWeather;
+    if(app->main_view){
           /* Create the hildon application and setup the title */
           app->app = HILDON_PROGRAM ( hildon_program_get_instance () );
           g_set_application_name (PACKAGE);
-          ret = osso_rpc_set_default_cb_f (osso_context, dbus_callback, OMWeather);
+          ret = osso_rpc_set_default_cb_f (osso_context, dbus_callback, app->main_view);
           if (ret != OSSO_OK){
               fprintf (stderr, "osso_rpc_set_default_cb_f failed: %d.\n", ret);
               return 2;
           }
-          hildon_program_add_window( app->app, OMWeather);
-          app->osso = osso_context; 
-          gtk_widget_show_all(OMWeather);
+          hildon_program_add_window( app->app, app->main_view);
+          app->osso = osso_context;
+          gtk_widget_show_all(app->main_view);
           gtk_main();
-          gtk_widget_destroy(OMWeather);
+          gtk_widget_destroy(app->main_view);
     }
     osso_deinitialize(osso_context);
 #ifdef DEBUGFUNCTIONCALL
@@ -119,7 +120,7 @@ main_window_state_event_cb(GtkWidget *widget, GdkEventWindowState *event,
     return FALSE;
 }
 /*******************************************************************************/
-GtkWidget*
+HildonWindow*
 create_omweather(void){
     GtkWidget	*main_widget = NULL;
 #ifdef DEBUGFUNCTIONCALL
@@ -130,7 +131,12 @@ create_omweather(void){
     main_widget = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_title(GTK_WINDOW(main_widget), PACKAGE);
 */
+#if defined OS2009
+    main_widget = hildon_stackable_window_new ();
+#else
     main_widget = hildon_window_new();
+#endif
+    gtk_window_set_title(GTK_WINDOW(main_widget), PACKAGE);
     gtk_window_set_default_size(GTK_WINDOW(main_widget), 640, 480);
 //    gtk_widget_show_all(main_widget);
     

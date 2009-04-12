@@ -31,7 +31,8 @@
 /*******************************************************************************/
 #include "weather-common.h"
 /*******************************************************************************/
-GtkWidget* create_omweather(void);
+HildonWindow* create_omweather(void);
+//GtkWidget* create_omweather(void);
 GtkWidget* create_main_screen(void);
 gboolean main_window_button_key_press_cb(GtkWidget *widget, GdkEventKey *event,
 					    gpointer user_data);

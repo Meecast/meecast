@@ -185,7 +185,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
 }
 /*******************************************************************************/
 GtkWidget* 
-create_time_updates_widget(GSList *current){
+create_time_updates_widget(GSList *current, gboolean change_color){
     GtkWidget	*main_widget = NULL,
     		*label_update;
     gchar       buffer[1024],
@@ -201,7 +201,14 @@ create_time_updates_widget(GSList *current){
     tmp_time = last_update_time(current);
 
     memset(buffer, 0, sizeof(buffer));
-    snprintf(buffer, sizeof(buffer) - 1, "%s", _("Last update at server: "));
+    if (change_color)
+        snprintf(buffer, sizeof(buffer) - 1, "<span foreground='#%02x%02x%02x'>",
+                       app->config->font_color.red >> 8,
+                       app->config->font_color.green >> 8,
+                       app->config->font_color.blue >> 8);
+
+    snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+                       " %s", _("Last update at server: "));
     if(tmp_time <= 0)	/* if weather data for station wasn't download */
 	strcat(buffer, _("Unknown"));
     else{
@@ -226,7 +233,14 @@ create_time_updates_widget(GSList *current){
 	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
 		" %s", _("current location local time"));
     }
-    label_update = gtk_label_new(buffer);    
+
+    if (change_color){
+        strcat(buffer, "</span>");
+        label_update = gtk_label_new(NULL);
+        gtk_label_set_markup(GTK_LABEL(label_update), buffer);
+    }else
+        label_update = gtk_label_new(buffer);
+
     set_font(label_update, NULL, 10);
     main_widget = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_start(GTK_BOX(main_widget), label_update, TRUE, TRUE, 0);
@@ -859,7 +873,7 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     /* last update time */
     if(current)
 	gtk_box_pack_start(GTK_BOX(main_widget),
-			    create_time_updates_widget(current),
+			    create_time_updates_widget(current, FALSE),
 			    TRUE, FALSE, 5);
     gtk_widget_show_all(main_widget);
 #ifdef DEBUGFUNCTIONCALL
@@ -980,7 +994,7 @@ GtkWidget* create_current_tab(GSList *current){
     gtk_box_pack_start(GTK_BOX(main_widget), icon_text_hbox, TRUE, TRUE, 0);
     /* last update time */
     gtk_box_pack_start(GTK_BOX(main_widget),
-			    create_time_updates_widget(current),
+			    create_time_updates_widget(current, FALSE),
 			    TRUE, FALSE, 5);
     gtk_widget_show_all(main_widget);
 
@@ -1096,7 +1110,7 @@ GtkWidget* create_hour_tab(void){
    /* last update time */
     if(hour_weather)
 	gtk_box_pack_start(GTK_BOX(main_widget),
-                             create_time_updates_widget(hour_weather),
+                             create_time_updates_widget(hour_weather, FALSE),
                              TRUE, FALSE, 5);
     gtk_widget_show_all(main_widget);
     return main_widget;

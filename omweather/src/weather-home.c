@@ -617,7 +617,7 @@ draw_home_window(gint count_day){
     create_panel(app->main_window, APPLICATION_MODE,
 		    app->config->transparency, tmp_station_name); 
     gtk_table_attach( app->main_window,
-            create_time_updates_widget(app->wsd.current),
+            create_time_updates_widget(app->wsd.current, TRUE),
 		    0, 1, 2, 3, GTK_EXPAND, GTK_EXPAND, 0, 0);
  
 #else

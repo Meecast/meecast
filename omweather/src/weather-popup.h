@@ -37,7 +37,7 @@ extern	WeatherSource	weather_sources[];
 void popup_window_destroy(void);
 GtkWidget* create_sun_time_widget(GSList *day);
 GtkWidget* create_moon_phase_widget(GSList *current);
-GtkWidget* create_time_updates_widget(GSList *current);
+GtkWidget* create_time_updates_widget(GSList *current, gboolean change_color);
 
 gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 

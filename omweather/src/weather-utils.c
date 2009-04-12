@@ -346,9 +346,12 @@ GtkWidget *create_button_with_image(const char *path,
         gtkicon =
             gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
                                        image_name, image_size, 0);
-        icon =
-            gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon));
-        gtk_icon_info_free(gtkicon);
+        if (gtkicon){
+            icon =
+                 gtk_image_new_from_file(gtk_icon_info_get_filename(gtkicon));
+            gtk_icon_info_free(gtkicon);
+        }else
+            icon = NULL;
     }
     if (with_border) {
         if (toggled) {

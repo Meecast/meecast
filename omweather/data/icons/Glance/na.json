@@ -3,7 +3,7 @@
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "num-frames" : 200,
+    "num-frames" : 100,
     "fps" : 60,
     "loop" : false
   },
@@ -26,6 +26,8 @@
      "type" : "ClutterTexture",
      "width" : 128,
      "height" : 128,
+     "x": 10,
+     "y": 10,
      "filename" : "na.png",
      "behaviours" : [ "scale-behaviour" ],
      "visible" : true

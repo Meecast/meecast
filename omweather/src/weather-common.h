@@ -412,9 +412,6 @@ typedef struct OMWeatherApplet{
     GSList              *clutter_objects_list;
     ClutterScript       *clutter_script; /* Maybe it need be deleting */
 #endif
-#ifdef OS2009
-    HildonWindowStack * hildon_window_stack;
-#endif
 }OMWeatherApp;
 /*******************************************************************************/
 extern	OMWeatherApp	*app;

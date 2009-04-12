@@ -495,7 +495,7 @@ create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size,
     return icon_widget;
 }
 /*******************************************************************************/
-void free_clutter_objects_list(GSList *clutter_objects) {
+void free_clutter_objects_list(GSList **clutter_objects) {
 
 #ifdef CLUTTER
     static GSList *list_temp = NULL;
@@ -503,9 +503,9 @@ void free_clutter_objects_list(GSList *clutter_objects) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (!clutter_objects)
+    if (!*clutter_objects)
         return;
-    list_temp = clutter_objects;
+    list_temp = *clutter_objects;
     while (list_temp != NULL) {
         oh = list_temp->data;
         if (oh->timeline)
@@ -517,8 +517,8 @@ void free_clutter_objects_list(GSList *clutter_objects) {
         g_free(oh);
         list_temp = g_slist_next(list_temp);
     }
-    g_slist_free(clutter_objects);
-    clutter_objects = NULL;
+    g_slist_free(*clutter_objects);
+    *clutter_objects = NULL;
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

@@ -43,17 +43,18 @@ destroy_popup_window(void){
     /* free Idles */
     tmp = app->tab_of_window_popup;
     while(tmp){
-#ifndef RELEASE    
-	    if 	(g_idle_remove_by_data(tmp->data))
+
+#ifndef RELEASE
+         if (g_idle_remove_by_data(tmp->data))
 #else
-	g_idle_remove_by_data(tmp->data);
+              g_idle_remove_by_data(tmp->data);
 #endif
-#ifndef RELEASE    		
-		    fprintf(stderr,"Succes\n");
-	    else
-	        fprintf(stderr,"Not Succes\n");
-#endif	    		
-	    tmp = g_slist_next(tmp);
+#ifndef RELEASE
+               fprintf(stderr,"Succes\n");
+          else
+               fprintf(stderr,"Not Succes\n");
+#endif
+        tmp = g_slist_next(tmp);
     }
     g_slist_free(app->tab_of_window_popup);
     app->tab_of_window_popup = NULL;
@@ -353,7 +354,7 @@ create_toolbar_box(gpointer exit_function, gpointer arg_exit_function)
 }
 /*******************************************************************************/
 gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
-                    	    				    gpointer user_data){
+                              gpointer user_data){
     GtkWidget	*notebook = NULL,
 		*tab = NULL,
 		*hour_tab = NULL,
@@ -582,7 +583,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     gtk_box_pack_start(GTK_BOX(vbox),buttons_box,FALSE,FALSE,0);
     gtk_widget_show_all(app->popup_window);
 #ifdef CLUTTER
-    show_animation();
+    show_animation(app->clutter_objects_in_popup_form);
 #endif
 
 #ifdef DEBUGFUNCTIONCALL
@@ -748,7 +749,7 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     icon = gdk_pixbuf_new_from_file_at_size(buffer,
                         BIG_ICON_SIZE,
                         BIG_ICON_SIZE, NULL);
-    day_icon = create_icon_widget( icon, buffer, BIG_ICON_SIZE, app->clutter_objects_in_popup_form);
+    day_icon = create_icon_widget( icon, buffer, BIG_ICON_SIZE, &app->clutter_objects_in_popup_form);
 //    day_icon = gtk_image_new_from_pixbuf(icon);
 //    if(icon)
 //         g_object_unref(icon);

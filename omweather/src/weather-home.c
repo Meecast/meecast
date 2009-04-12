@@ -693,8 +693,7 @@ redraw_home_window(gboolean first_start){
     }else{
 	    app->wsd.days = NULL;
     }
-    fprintf(stderr,"free_clutter_objects_list(app->clutter_objects_in_main_form);\n");
-    free_clutter_objects_list(app->clutter_objects_in_main_form);
+    free_clutter_objects_list(&app->clutter_objects_in_main_form);
     if (app->main_window)
         gtk_widget_show_all(app->main_window);
     if(app->main_window){
@@ -841,6 +840,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         fprintf (stderr,"Unable to initialize GtkClutter");
     /* Fix ME added config value */
     app->clutter_objects_in_main_form = NULL;
+    app->clutter_objects_in_popup_form = NULL;
     app->clutter_script = NULL;
 #endif
 
@@ -972,8 +972,8 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
     free_list_time_event();
 #ifdef CLUTTER
     /* Clean clutter objects list */
-    free_clutter_objects_list(app->clutter_objects_in_main_form);
-    free_clutter_objects_list(app->clutter_objects_in_popup_form);
+    free_clutter_objects_list(&app->clutter_objects_in_main_form);
+    free_clutter_objects_list(&app->clutter_objects_in_popup_form);
 #endif
     /* If downloading then switch off it */
     if(app->flag_updating != 0){

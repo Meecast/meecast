@@ -130,7 +130,7 @@ extern void event_add(time_t time_value, short int type_event);
 extern void destroy_popup_window(void);
 extern float mb2mm(float pressure);
 extern GtkWidget *create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list);
-void free_clutter_objects_list(GSList *clutter_objects);
+void free_clutter_objects_list(GSList **clutter_objects);
 extern void show_animation(GSList *clutter_objects);
 /*******************************************************************************/
 typedef struct _HomeAppletHandler HomeAppletHandler;

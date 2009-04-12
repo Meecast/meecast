@@ -283,9 +283,9 @@ typedef struct applet_config{
     gint	previos_days_to_show;
     gint	distance_units;
     gint	wind_units;
-    gint    clicking_type;
-    gint	temperature_units;
-    gint	pressure_units;
+    gint        clicking_type;
+    gint        temperature_units;
+    gint        pressure_units;
 #if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
     gint	display_at;
     gboolean	use_sensor;
@@ -310,13 +310,15 @@ typedef struct applet_config{
 /*******************************************************************************/
 #ifdef CLUTTER
 typedef struct SuperOH{
-  ClutterActor		*icon;
-  ClutterGroup		*group;
-  ClutterActor		*stage;
-  ClutterScript		*script;
-  ClutterTimeline	*timeline;
-  GtkWidget		*clutter;
-  GtkWidget		*icon_widget;
+  ClutterActor          *icon;
+  ClutterGroup          *group;
+  ClutterActor          *stage;
+  ClutterScript         *script;
+  ClutterTimeline       *timeline;
+  GtkWidget             *clutter;
+  GtkWidget             *icon_widget;
+  GdkPixbuf             *bgpixb;
+  ClutterActor          *bgtex;
 }SuperOH;
 #endif
 /*******************************************************************************/

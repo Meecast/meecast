@@ -81,13 +81,23 @@ change_knots_path(GSList *knots, gint need_size)
         knot->y = (((need_size*100)/GIANT_ICON_SIZE) * knot->y/100);
     }
 }
+
+/*******************************************************************************/
+/* Set the clutter colors form the current gtk theme */
+static void
+create_colors (GtkWidget *widget, ClutterColor *stage, ClutterColor *text)
+{
+  gtk_clutter_get_bg_color (widget, GTK_STATE_NORMAL, stage);
+  gtk_clutter_get_text_color (widget, GTK_STATE_NORMAL, text);
+}
 /*******************************************************************************/
 GtkWidget *
-create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size)
+create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, ClutterColor *stage_color)
 {
     SuperOH *oh;
     GError *error = NULL;
-    ClutterColor stage_color;
+//    ClutterColor stage_color;
+    ClutterColor   text_color = {0, 0, 0, 255};
     gchar  buffer[1024];
     gchar  icon_name[3];
     gint   i;
@@ -98,16 +108,19 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
+/*
     stage_color.red = app->config->background_color.red;
     stage_color.blue = app->config->background_color.blue;
     stage_color.green = app->config->background_color.green;
     stage_color.alpha = 0xff;
+*/
 
     oh = g_new(SuperOH, 1);
     oh->timeline = NULL;
     oh->icon = NULL;
-    
+
+
+
     oh->clutter = gtk_clutter_embed_new();
 
     memset(buffer, 0, sizeof(buffer));
@@ -140,8 +153,10 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
 //    gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
     oh->stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (oh->clutter));
     /* and its background color */
+
     clutter_stage_set_color (CLUTTER_STAGE (oh->stage),
                   &stage_color);
+
 
     sprintf(buffer, "icon_name_%s", icon_name);
     if (oh->script)
@@ -157,9 +172,9 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
     }
     list = clutter_script_list_objects(oh->script);
     for (l = list; l != NULL; l = l->next){
-	    object = l->data;
-	    if CLUTTER_IS_BEHAVIOUR_PATH(object)
-                change_knots_path(clutter_behaviour_path_get_knots((object)),icon_size);
+        object = l->data;
+        if CLUTTER_IS_BEHAVIOUR_PATH(object)
+            change_knots_path(clutter_behaviour_path_get_knots((object)),icon_size);
     }
     /* Add the group to the stage */
     clutter_container_add_actor (CLUTTER_CONTAINER (oh->stage),

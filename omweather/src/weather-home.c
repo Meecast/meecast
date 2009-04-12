@@ -1779,26 +1779,26 @@ create_weather_day_button(const char *text, const char *icon,
 #endif
     /* create day label */
     if(draw_day_label){
-	    new_day_button->label = gtk_label_new(NULL);
-	    gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
+            new_day_button->label = gtk_label_new(NULL);
+            gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
         if  (app->config->text_position == LEFT ||
              app->config->text_position == RIGHT ||
              app->config->text_position == NOTHING)
             gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_RIGHT);
         else
-	        gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_CENTER);
-	    /* Set font size for label */
-	    set_font(new_day_button->label, app->config->font, -1);
+            gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_CENTER);
+            /* Set font size for label */
+            set_font(new_day_button->label, app->config->font, -1);
     }else
-    	new_day_button->label = NULL;
+        new_day_button->label = NULL;
    /* create day icon buffer */
     icon_buffer =
-	    gdk_pixbuf_new_from_file_at_size(icon,
+          gdk_pixbuf_new_from_file_at_size(icon,
 						icon_size,
 						icon_size, NULL);
     if (icon_buffer){
-	    /* create day icon image from buffer */
-        new_day_button->icon_image = create_icon_widget(icon_buffer, icon, icon_size); 
+        /* create day icon image from buffer */
+        new_day_button->icon_image = create_icon_widget(icon_buffer, icon, icon_size);
     }
     else
         new_day_button->icon_image = NULL;

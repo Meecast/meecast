@@ -396,6 +396,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 #else
      app->popup_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 #endif
+
 #if defined NONMAEMO
     gtk_window_set_default_size(GTK_WINDOW(app->popup_window), 640, 480);
 #endif
@@ -504,7 +505,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	    	page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
         				tab,
         				gtk_label_new(day_name));
-		g_object_set_data(G_OBJECT(tab), "day", (gpointer)tmp->data);		
+		g_object_set_data(G_OBJECT(tab), "day", (gpointer)tmp->data);
 		g_idle_add((GSourceFunc)make_tab,tab);
 		add_item2object(&(app->tab_of_window_popup), (void*)tab);
 	    }
@@ -561,12 +562,12 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	}
     }
     else{
-	gtk_widget_destroy(notebook);
-	no_weather_box = gtk_event_box_new();
-	gtk_container_add(GTK_CONTAINER(no_weather_box),label = gtk_label_new(_("No weather data for this station.")));
-	gtk_box_pack_start(GTK_BOX(vbox), no_weather_box, TRUE, TRUE, 0);
-	gtk_event_box_set_visible_window(GTK_EVENT_BOX(no_weather_box),FALSE);
-	set_font(label, NULL, 24);
+        gtk_widget_destroy(notebook);
+        no_weather_box = gtk_event_box_new();
+        gtk_container_add(GTK_CONTAINER(no_weather_box),label = gtk_label_new(_("No weather data for this station.")));
+        gtk_box_pack_start(GTK_BOX(vbox), no_weather_box, TRUE, TRUE, 0);
+        gtk_event_box_set_visible_window(GTK_EVENT_BOX(no_weather_box),FALSE);
+        set_font(label, NULL, 24);
     }
 /* Show copyright widget */
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>Source %s\n", app->config->current_station_source);
@@ -580,12 +581,16 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 
     gtk_box_pack_start(GTK_BOX(vbox),buttons_box,FALSE,FALSE,0);
     gtk_widget_show_all(app->popup_window);
-    #ifdef DEBUGFUNCTIONCALL
-	END_FUNCTION;
-    #endif
+#ifdef CLUTTER
+    show_animation();
+#endif
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     /* Debug
      fprintf(stderr,"Time: %lf msec Pi = %lf\n",time_stop(),weather_window_settings);
-    */ 
+    */
     return FALSE;
 }
 
@@ -673,17 +678,17 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     START_FUNCTION;
 #endif
     if(!day)
-	return NULL;
+        return NULL;
     /* prepare temperature */
     if(!strcmp(item_value(day, "day_hi_temperature"), "N/A")){
-	hi_temp = INT_MAX;
-	day_invalid_count++;
+        hi_temp = INT_MAX;
+        day_invalid_count++;
     }
     else
-	hi_temp = atoi(item_value(day, "day_hi_temperature"));
+        hi_temp = atoi(item_value(day, "day_hi_temperature"));
     if(!strcmp(item_value(day, "day_low_temperature"), "N/A")){
-	low_temp = INT_MAX;
-	night_invalid_count++;
+        low_temp = INT_MAX;
+        night_invalid_count++;
     }
     else
 	low_temp = atoi(item_value(day, "day_low_temperature"));
@@ -736,16 +741,17 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     /* hbox for icon and text */
     day_icon_text_hbox = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(day_vbox),
-			day_icon_text_hbox, TRUE, TRUE, 0);
+                        day_icon_text_hbox, TRUE, TRUE, 0);
     /* day icon */
     memset(buffer, 0, sizeof(buffer));
     sprintf(buffer, "%s%s.png", app->config->icons_set_base, item_value(day, "day_icon"));
     icon = gdk_pixbuf_new_from_file_at_size(buffer,
-					    BIG_ICON_SIZE,
-					    BIG_ICON_SIZE, NULL);
-    day_icon = gtk_image_new_from_pixbuf(icon);
-    if(icon)
-	g_object_unref(icon);
+                        BIG_ICON_SIZE,
+                        BIG_ICON_SIZE, NULL);
+    day_icon = create_icon_widget( icon, buffer, BIG_ICON_SIZE);
+//    day_icon = gtk_image_new_from_pixbuf(icon);
+//    if(icon)
+//         g_object_unref(icon);
     gtk_box_pack_start(GTK_BOX(day_icon_text_hbox),
 			day_icon, TRUE, TRUE, 5);
 /* preapare day text */
@@ -884,7 +890,8 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 	gtk_box_pack_start(GTK_BOX(main_widget),
 			    create_time_updates_widget(current, FALSE),
 			    TRUE, FALSE, 5);
-    gtk_widget_show_all(main_widget);
+//    gtk_widget_show_all(main_widget);
+
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

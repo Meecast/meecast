@@ -630,7 +630,6 @@ draw_home_window(gint count_day){
 //#endif
     #if defined OS2008 || defined OS2009
 	if(!app->config->transparency && app->parent){
-	    fprintf(stderr,"sddddddddddddddddddddddddddddddddddddddddddddd\n");
 	    gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);
 	}    
     #endif 
@@ -883,7 +882,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     gtk_box_pack_start(GTK_BOX(main_hbox), app->top_widget, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_hbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(main_vbox), create_toolbar_box(omweather_destroy,app->app), FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(main_vbox), create_toolbar_box(omweather_destroy,app->main_view), FALSE, FALSE, 0);
     gtk_container_add(GTK_CONTAINER(applet), main_vbox);
 #endif
 #if !defined OS2008 ||  defined (APPLICATION)
@@ -990,28 +989,32 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 	    g_object_unref(app->connection);
     #endif
 
+#if defined OS2008 && ! defined APPLICATION
+    g_signal_handler_disconnect(app->parent,app->signal_size_request);
+    g_signal_handler_disconnect(app->parent_parent,app->signal_press);  
+    g_signal_handler_disconnect(app->parent_parent,app->signal_release);   
+    g_signal_handler_disconnect(app->parent,app->my_applet_signal_release);   
+    /* disconnected from HildonDesktopHomeItem expose-event */	
+    g_signal_handler_disconnect(app->parent,app->signal_item_expose);
+    g_signal_handler_disconnect(app->parent_parent,app->signal_area_changed);
+    /* disconnected from HildonHomeArea expose-event */
+    g_signal_handler_disconnect(app->parent_parent,app->signal_area_expose);
+    g_signal_handler_disconnect(app->top_widget,app->signal_expose);
+    if(app->pixbuf){ 
+        gdk_pixbuf_unref(app->pixbuf);
+        app->pixbuf = NULL; 
+    }
+#endif
+
 #ifdef OS2008
     /* remove sensor time */
     if(app->sensor_timer > 0)
 	g_source_remove(app->sensor_timer);
+#endif
 #ifdef ENABLE_GPS
     deinitial_gps_control();
 #endif
-    	g_signal_handler_disconnect(app->parent,app->signal_size_request);
-	g_signal_handler_disconnect(app->parent_parent,app->signal_press);  
-	g_signal_handler_disconnect(app->parent_parent,app->signal_release);   
-	g_signal_handler_disconnect(app->parent,app->my_applet_signal_release);   
-	/* disconnected from HildonDesktopHomeItem expose-event */	
-	g_signal_handler_disconnect(app->parent,app->signal_item_expose);
-	g_signal_handler_disconnect(app->parent_parent,app->signal_area_changed);
-	/* disconnected from HildonHomeArea expose-event */
-	g_signal_handler_disconnect(app->parent_parent,app->signal_area_expose);
-        g_signal_handler_disconnect(app->top_widget,app->signal_expose);
-        if(app->pixbuf){ 
-	    gdk_pixbuf_unref(app->pixbuf);
-	    app->pixbuf = NULL; 
-	}
-#endif
+
 #if !(defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO)
     osso = (osso_context_t*)applet_data;
 #endif
@@ -1034,9 +1037,9 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
     /* Deinitialize libosso */
     osso_deinitialize(osso);
 
-#if defined OS2008 
+#if defined OS2008 && ! defined APPLICATION
     gtk_object_destroy(widget);
-#else defined (APPLICATION)  || defined (NONMAEMO)
+#else defined APPLICATION  || defined NONMAEMO
     gtk_main_quit();
 #endif
 

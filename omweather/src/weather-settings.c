@@ -850,7 +850,13 @@ switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
     GtkWidget	*tab;
     const gchar	*tab_name = NULL;
     GtkWidget *window = GTK_WIDGET(data);
+
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
     child = gtk_notebook_get_nth_page(nb, page);
+
 
     tab = gtk_notebook_get_tab_label(nb, child);
     tab_name = gtk_label_get_text(GTK_LABEL(tab));
@@ -909,6 +915,10 @@ switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
         }
     }
 
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
     return FALSE;
 }
 
@@ -935,9 +945,9 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
 		*alerts_tab = NULL;
 /*    GdkPixbuf	*icon = NULL;*/
     gchar	tmp_buff[1024];
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
 /* kill popup window :-) */
     if(app->popup_window)
         gtk_widget_destroy(app->popup_window);
@@ -1024,6 +1034,7 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
         g_object_set_data(G_OBJECT(window_config), "locations_tab",
                           (gpointer) locations_tab);
     }
+
 /* Add Visuals Tab Page = 1 */
     if (app->config->current_settings_page ==
         gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))) {
@@ -1032,6 +1043,7 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
                                  gtk_label_new(_("Visuals")));
     } else {
         visual_tab = gtk_vbox_new(FALSE, 0);
+        fprintf(stderr,"visuals_tab\n");
         gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                  visual_tab, gtk_label_new(_("Visuals")));
         g_object_set_data(G_OBJECT(window_config), "visual_tab",
@@ -1063,6 +1075,7 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
         g_object_set_data(G_OBJECT(window_config), "units_tab",
                           (gpointer) units_tab);
     }
+
 /* Add Update Tab Page = 4 */
     if (app->config->current_settings_page ==
         gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))) {
@@ -1113,6 +1126,7 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
                                                               GTK_JUSTIFY_LEFT),
                              gtk_label_new("Events"));
 #endif
+
     gtk_widget_show(notebook);
 /* Pack items to config window */
     gtk_box_pack_start(GTK_BOX(vbox), notebook, TRUE, TRUE, 0);
@@ -1124,6 +1138,10 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
 /* Connect to signal "changing notebook page" */
     g_signal_connect(G_OBJECT(notebook), "switch-page",
                      G_CALLBACK(switch_cb), window_config);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
 }
 
 /*******************************************************************************/

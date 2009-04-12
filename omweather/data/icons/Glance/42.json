@@ -93,7 +93,7 @@
   {
      "id" : "icon_name_42_original",
      "type" : "ClutterTexture",
-     "filename" : "41.png",
+     "filename" : "42.png",
      "behaviours" : [ "rotate-behaviour" ],
      "visible" : true
    },

@@ -28,7 +28,7 @@
 #include "weather-clutter.h"
 #ifdef CLUTTER
 /*******************************************************************************/
-void
+gboolean
 show_animation(GSList *clutter_objects){
     static GSList   *list_temp = NULL;
     SuperOH         *oh;
@@ -46,10 +46,27 @@ show_animation(GSList *clutter_objects){
 //        gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
 //        gtk_widget_show(oh->icon_widget);
 //        clutter_actor_show(oh->stage);
+//     gtk_widget_show_all(oh->icon_widget);
+//
+
+    gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
+
+
+GdkPixbuf *pixbuf;
+pixbuf = gdk_pixbuf_get_from_drawable (NULL, oh->icon_widget->window, gdk_colormap_get_system(),
+oh->icon_widget->allocation.x, oh->icon_widget->allocation.y, 0, 0,
+oh->icon_widget->allocation.width, oh->icon_widget->allocation.height);
+gdk_pixbuf_save (pixbuf , "screenie.png", "png", NULL, NULL);
+clutter_container_add_actor (CLUTTER_CONTAINER (oh->stage),
+                               CLUTTER_ACTOR (gtk_clutter_texture_new_from_pixbuf(pixbuf)));
+
+
         if (oh->timeline)
             clutter_timeline_start (oh->timeline);
         list_temp = g_slist_next(list_temp);
     }
+  gtk_widget_show_all(app->main_view);
+return FALSE;
 }
 /*******************************************************************************/
 void
@@ -148,15 +165,18 @@ create_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_path, int
     oh->icon_widget = gtk_vbox_new(FALSE, 0);
 
     gtk_widget_set_size_request (oh->clutter, icon_size, icon_size);
-//    gtk_widget_set_size_request (oh->icon_widget, icon_size, icon_size);
-    gtk_container_add (GTK_CONTAINER (oh->icon_widget), oh->clutter);
-//    gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
+    gtk_widget_set_size_request (oh->icon_widget, icon_size, icon_size);
+
+//    gtk_container_add (GTK_CONTAINER (oh->icon_widget), oh->clutter);
+
+
+////    gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
     oh->stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (oh->clutter));
     /* and its background color */
 
-    clutter_stage_set_color (CLUTTER_STAGE (oh->stage),
+/*    clutter_stage_set_color (CLUTTER_STAGE (oh->stage),
                   &stage_color);
-
+*/
 
     sprintf(buffer, "icon_name_%s", icon_name);
     if (oh->script)
@@ -182,6 +202,7 @@ create_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_path, int
     /* Create a timeline to manage animation */
     oh->timeline = CLUTTER_TIMELINE (clutter_script_get_object (oh->script, "main-timeline"));
     *objects_list = g_slist_append(*objects_list, oh);
+    gtk_widget_show_all(oh->icon_widget);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

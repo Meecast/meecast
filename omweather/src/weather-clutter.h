@@ -33,7 +33,7 @@
 #if defined CLUTTER
 /*******************************************************************************/
 /*******************************************************************************/
-void show_animation(GSList *clutter_objects);
+gboolean show_animation(GSList *clutter_objects);
 GtkWidget *create_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list);
 void change_actor_size_and_position(ClutterActor *actor, gint need_size);
 void change_knots_path(GSList *knots, gint need_size);

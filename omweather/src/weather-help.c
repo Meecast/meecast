@@ -54,6 +54,15 @@ void create_about_dialog(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+
+/* Test 
+GdkPixbuf *pixbuf;
+pixbuf = gdk_pixbuf_get_from_drawable (NULL, app->top_widget->window, NULL,
+app->top_widget->allocation.x, app->top_widget->allocation.y, 0, 0,
+app->top_widget->allocation.width, app->top_widget->allocation.height);
+gdk_pixbuf_save (pixbuf , "screenie.png", "png", NULL, NULL);
+*/
+
     help_dialog =
         gtk_dialog_new_with_buttons(_("Other Maemo Weather Info"), NULL,
                                     GTK_DIALOG_MODAL |

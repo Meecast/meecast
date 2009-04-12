@@ -631,9 +631,9 @@ draw_home_window(gint count_day){
            gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);
        }
     #endif
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
 }
 /*******************************************************************************/
 void 
@@ -719,14 +719,15 @@ redraw_home_window(gboolean first_start){
     app->count_day = count_day;	/* store days number from xml file */
     draw_home_window(count_day);
 #ifdef CLUTTER
-    show_animation(app->clutter_objects_in_main_form);
+//    show_animation(app->clutter_objects_in_main_form);
+       g_timeout_add(800, (GtkFunction) show_animation, app->clutter_objects_in_main_form);  
 #endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
 }
 /*******************************************************************************/
-gboolean 
+gboolean
 remitted_update(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

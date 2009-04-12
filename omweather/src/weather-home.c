@@ -623,16 +623,14 @@ draw_home_window(gint count_day){
 #else
     create_panel(app->main_window, app->config->icons_layout,
 		    app->config->transparency, tmp_station_name);
-#endif            
+#endif
    gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
-//#if ! defined CLUTTER
    gtk_widget_show_all(app->top_widget);
-//#endif
     #if defined OS2008 || defined OS2009
-	if(!app->config->transparency && app->parent){
-	    gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);
-	}    
-    #endif 
+       if(!app->config->transparency && app->parent){
+           gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);
+       }
+    #endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

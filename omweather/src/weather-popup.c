@@ -600,7 +600,6 @@ void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    fprintf(stderr,"Size %i\n",hildon_window_stack_size(app->hildon_window_stack));
     destroy_popup_window();
 }
 /*******************************************************************************/

@@ -1658,7 +1658,6 @@ close_button_handler(GtkWidget * button, GdkEventButton * event,
     app->config->current_settings_page = current_page;
 /* save config */
     config_save(app->config);
-    gtk_widget_show_all(app->main_view);
 }
 /*******************************************************************************/
 void

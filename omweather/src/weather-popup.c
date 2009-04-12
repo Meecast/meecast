@@ -748,7 +748,7 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     icon = gdk_pixbuf_new_from_file_at_size(buffer,
                         BIG_ICON_SIZE,
                         BIG_ICON_SIZE, NULL);
-    day_icon = create_icon_widget( icon, buffer, BIG_ICON_SIZE);
+    day_icon = create_icon_widget( icon, buffer, BIG_ICON_SIZE, app->clutter_objects_in_popup_form);
 //    day_icon = gtk_image_new_from_pixbuf(icon);
 //    if(icon)
 //         g_object_unref(icon);

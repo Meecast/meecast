@@ -693,7 +693,8 @@ redraw_home_window(gboolean first_start){
     }else{
 	    app->wsd.days = NULL;
     }
-    free_clutter_objects_list();
+    fprintf(stderr,"free_clutter_objects_list(app->clutter_objects_in_main_form);\n");
+    free_clutter_objects_list(app->clutter_objects_in_main_form);
     if (app->main_window)
         gtk_widget_show_all(app->main_window);
     if(app->main_window){
@@ -719,7 +720,7 @@ redraw_home_window(gboolean first_start){
     app->count_day = count_day;	/* store days number from xml file */
     draw_home_window(count_day);
 #ifdef CLUTTER
-    show_animation();
+    show_animation(app->clutter_objects_in_main_form);
 #endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -839,7 +840,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     if (gtk_clutter_init (NULL, NULL) != CLUTTER_INIT_SUCCESS)
         fprintf (stderr,"Unable to initialize GtkClutter");
     /* Fix ME added config value */
-    app->clutter_objects_list = NULL;
+    app->clutter_objects_in_main_form = NULL;
     app->clutter_script = NULL;
 #endif
 
@@ -971,7 +972,8 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
     free_list_time_event();
 #ifdef CLUTTER
     /* Clean clutter objects list */
-    free_clutter_objects_list();
+    free_clutter_objects_list(app->clutter_objects_in_main_form);
+    free_clutter_objects_list(app->clutter_objects_in_popup_form);
 #endif
     /* If downloading then switch off it */
     if(app->flag_updating != 0){
@@ -1798,7 +1800,7 @@ create_weather_day_button(const char *text, const char *icon,
 						icon_size, NULL);
     if (icon_buffer){
         /* create day icon image from buffer */
-        new_day_button->icon_image = create_icon_widget(icon_buffer, icon, icon_size);
+        new_day_button->icon_image = create_icon_widget(icon_buffer, icon, icon_size, &app->clutter_objects_in_main_form);
     }
     else
         new_day_button->icon_image = NULL;

@@ -29,15 +29,15 @@
 #ifdef CLUTTER
 /*******************************************************************************/
 void
-show_animation(void){
-    static GSList	*list_temp = NULL;
-    SuperOH		*oh;
+show_animation(GSList *clutter_objects){
+    static GSList   *list_temp = NULL;
+    SuperOH         *oh;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(!app->clutter_objects_list)
+    if(!clutter_objects)
         return;
-    list_temp = app->clutter_objects_list;
+    list_temp = clutter_objects;
     while(list_temp != NULL){
         oh = list_temp->data;
         /* Add the group to the stage */
@@ -92,11 +92,11 @@ create_colors (GtkWidget *widget, ClutterColor *stage, ClutterColor *text)
 }
 /*******************************************************************************/
 GtkWidget *
-create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, ClutterColor *stage_color)
+create_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list)
 {
     SuperOH *oh;
     GError *error = NULL;
-//    ClutterColor stage_color;
+    ClutterColor stage_color;
     ClutterColor   text_color = {0, 0, 0, 255};
     gchar  buffer[1024];
     gchar  icon_name[3];
@@ -108,12 +108,12 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-/*
+
     stage_color.red = app->config->background_color.red;
     stage_color.blue = app->config->background_color.blue;
     stage_color.green = app->config->background_color.green;
     stage_color.alpha = 0xff;
-*/
+
 
     oh = g_new(SuperOH, 1);
     oh->timeline = NULL;
@@ -181,7 +181,7 @@ create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon
                                CLUTTER_ACTOR (oh->icon));
     /* Create a timeline to manage animation */
     oh->timeline = CLUTTER_TIMELINE (clutter_script_get_object (oh->script, "main-timeline"));
-    app->clutter_objects_list = g_slist_append(app->clutter_objects_list, oh);
+    *objects_list = g_slist_append(*objects_list, oh);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

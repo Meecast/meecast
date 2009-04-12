@@ -475,7 +475,7 @@ int create_icon_set_list(gchar *dir_path, GSList ** store, gchar *type){
 }
 /*******************************************************************************/
 GtkWidget *
-create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size)
+create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list)
 {
     GtkWidget *icon_widget;
 #ifdef DEBUGFUNCTIONCALL
@@ -483,7 +483,7 @@ create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size)
 #endif
 
 #ifdef CLUTTER
-    icon_widget = create_clutter_main_icon(icon_buffer, icon_path, icon_size);
+    icon_widget = create_clutter_icon_animation(icon_buffer, icon_path, icon_size, objects_list);
     if (!icon_widget){
         icon_widget = gtk_image_new_from_pixbuf(icon_buffer);
         g_object_unref(G_OBJECT(icon_buffer));
@@ -495,7 +495,7 @@ create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size)
     return icon_widget;
 }
 /*******************************************************************************/
-void free_clutter_objects_list(void) {
+void free_clutter_objects_list(GSList *clutter_objects) {
 
 #ifdef CLUTTER
     static GSList *list_temp = NULL;
@@ -503,9 +503,9 @@ void free_clutter_objects_list(void) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (!app->clutter_objects_list)
+    if (!clutter_objects)
         return;
-    list_temp = app->clutter_objects_list;
+    list_temp = clutter_objects;
     while (list_temp != NULL) {
         oh = list_temp->data;
         if (oh->timeline)
@@ -517,8 +517,8 @@ void free_clutter_objects_list(void) {
         g_free(oh);
         list_temp = g_slist_next(list_temp);
     }
-    g_slist_free(app->clutter_objects_list);
-    app->clutter_objects_list = NULL;
+    g_slist_free(clutter_objects);
+    clutter_objects = NULL;
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

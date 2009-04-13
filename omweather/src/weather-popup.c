@@ -401,6 +401,12 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 #if defined NONMAEMO
     gtk_window_set_default_size(GTK_WINDOW(app->popup_window), 640, 480);
 #endif
+
+#if defined CLUTTER
+//   g_signal_connect_after(app->popup_window, "expose-event",
+//      G_CALLBACK(popup_window_expose), NULL);
+#endif
+
 /* set window title and icon */
     gtk_window_set_title(GTK_WINDOW(app->popup_window),
 			    _("OMWeather Forecast"));
@@ -432,6 +438,11 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     
 /* create tabs widget */
     notebook = gtk_notebook_new();
+
+#if defined CLUTTER
+   g_signal_connect_after(notebook, "expose-event",
+      G_CALLBACK(popup_window_expose), NULL);
+#endif
 
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
     
@@ -1215,7 +1226,15 @@ GtkWidget* create_window_header(const gchar *station_name, GtkWidget *popup_wind
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
- 
+
     return vbox;
 }
+/*******************************************************************************/
+#ifdef CLUTTER
+/* For start of Clutter animation in popup window */
+popup_window_expose(GtkWidget *widget, GdkEventExpose *event){
+    show_animation(app->clutter_objects_in_main_form);
+    gtk_widget_show_all(widget);
+}
+#endif
 /*******************************************************************************/

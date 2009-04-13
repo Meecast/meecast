@@ -28,7 +28,6 @@
 #include "weather-clutter.h"
 #ifdef CLUTTER
 /*******************************************************************************/
-gboolean
 show_animation(GSList *clutter_objects){
     static GSList   *list_temp = NULL;
     SuperOH         *oh;
@@ -82,8 +81,6 @@ show_animation(GSList *clutter_objects){
             clutter_timeline_start (oh->timeline);
         list_temp = g_slist_next(list_temp);
     }
-  gtk_widget_show_all(app->main_view);
-return FALSE;
 }
 /*******************************************************************************/
 void

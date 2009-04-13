@@ -100,6 +100,8 @@ view_popup_menu (GtkWidget *treeview, GdkEventButton *event, gpointer userdata){
 /* For start of Clutter animation in main form */
 top_widget_expose(GtkWidget *widget, GdkEventExpose *event){
     show_animation(app->clutter_objects_in_main_form);
+    gtk_widget_show_all(widget);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(widget),G_CALLBACK(top_widget_expose),NULL);
 }
 #endif
 /*******************************************************************************/
@@ -620,6 +622,13 @@ draw_home_window(gint count_day){
 	    tmp_station_name = NULL;
 /* creating main panel */
     app->main_window = gtk_table_new(2, 3, FALSE);
+
+#if defined CLUTTER
+   g_signal_connect_after(app->main_window, "expose-event",
+      G_CALLBACK(top_widget_expose), NULL);
+#endif
+
+
 #if defined(NONMAEMO) || defined (APPLICATION)
     create_panel(app->main_window, APPLICATION_MODE,
 		    app->config->transparency, tmp_station_name); 
@@ -880,8 +889,8 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
 #if defined CLUTTER
-   g_signal_connect_after(app->top_widget, "expose-event",
-      G_CALLBACK(top_widget_expose), NULL);
+//   g_signal_connect_after(app->top_widget, "expose-event",
+//      G_CALLBACK(top_widget_expose), NULL);
 #endif
 #if  defined(NONMAEMO) || defined (APPLICATION)
     /* pack for window in Application mode */

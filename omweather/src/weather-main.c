@@ -123,7 +123,13 @@ main_window_state_event_cb(GtkWidget *widget, GdkEventWindowState *event,
 /*******************************************************************************/
 HildonWindow*
 create_omweather(void){
-    GtkWidget	*main_widget = NULL;
+    GtkWidget *main_widget = NULL;
+
+    GdkPixmap *background;
+    GdkPixbuf *pixbuf;
+    GtkStyle  *style;
+    GError *error = NULL;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -137,11 +143,32 @@ create_omweather(void){
 #else
     main_widget = hildon_window_new();
 #endif
+
+
+    pixbuf = gdk_pixbuf_new_from_file ("lake.png",&error);
+    if (error != NULL) {
+        if (error->domain == GDK_PIXBUF_ERROR) {
+            g_print ("Pixbuf Related Error:\n");
+        }
+        if (error->domain == G_FILE_ERROR) {
+            g_print ("File Error: Check file permissions and state:\n");
+        }
+
+       g_printerr ("%s\n", error[0].message);
+      exit(1);
+    }
+
+    gdk_pixbuf_render_pixmap_and_mask (pixbuf, &background, NULL, 0);
+    style = gtk_style_new ();
+    style->bg_pixmap[0] = background;
+    gtk_widget_set_style (GTK_WIDGET(main_widget), GTK_STYLE(style));
+
     gtk_window_set_title(GTK_WINDOW(main_widget), PACKAGE);
     gtk_window_set_default_size(GTK_WINDOW(main_widget), 640, 480);
 
+
     if(!omweather_init_OS2009(main_widget))
-	return NULL;
+        return NULL;
 /* signals */
     g_signal_connect((gpointer)main_widget, "destroy_event",
 			G_CALLBACK(gtk_main_quit), NULL);

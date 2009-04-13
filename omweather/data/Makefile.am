@@ -79,8 +79,9 @@ EXTRA_DIST = $(homeapplet_desktop_DATA) \
 	     $(button_icons_DATA) \
 	     units.xml \
 	     $(dbus_service_DATA) \
-	     omweather.desktop.in
+	     omweather.desktop.in \
 	     omweather.png
+	     images\crime.png
 
 omweather.desktop: omweather.desktop.in
 	sed "s/__VERSION__/$(VERSION)/g" $< >$@.tmp && \

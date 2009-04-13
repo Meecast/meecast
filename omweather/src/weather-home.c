@@ -911,6 +911,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
 #endif
 
+
 #if  defined(NONMAEMO) || defined (APPLICATION)
     return TRUE;
 #else

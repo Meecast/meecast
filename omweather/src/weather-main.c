@@ -77,6 +77,7 @@ main(int argc, char *argv[]){
               fprintf (stderr, "osso_rpc_set_default_cb_f failed: %d.\n", ret);
               return 2;
           }
+
           hildon_program_add_window( app->app, app->main_view);
           app->osso = osso_context;
           gtk_widget_show_all(app->main_view);

@@ -32,6 +32,11 @@ gboolean
 show_animation(GSList *clutter_objects){
     static GSList   *list_temp = NULL;
     SuperOH         *oh;
+    ClutterActor    *texture;
+    GdkPixbuf *pixbuf;
+    GError *error;
+    error = NULL;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -49,18 +54,30 @@ show_animation(GSList *clutter_objects){
 //     gtk_widget_show_all(oh->icon_widget);
 //
 
-    gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
+       /* Make background texture */
+       gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
+       pixbuf = gdk_pixbuf_get_from_drawable (NULL, oh->icon_widget->window, gtk_widget_get_colormap(oh->icon_widget),
+                   oh->icon_widget->allocation.x, oh->icon_widget->allocation.y, 0, 0,
+                   oh->icon_widget->allocation.width, oh->icon_widget->allocation.height);
 
+       //gdk_pixbuf_save (pixbuf , "screenie.png", "png", NULL, NULL);
+       //pixbuf = gdk_pixbuf_new_from_file("./redhand.png", NULL);
 
-GdkPixbuf *pixbuf;
-pixbuf = gdk_pixbuf_get_from_drawable (NULL, oh->icon_widget->window, gdk_colormap_get_system(),
-oh->icon_widget->allocation.x, oh->icon_widget->allocation.y, 0, 0,
-oh->icon_widget->allocation.width, oh->icon_widget->allocation.height);
-gdk_pixbuf_save (pixbuf , "screenie.png", "png", NULL, NULL);
-clutter_container_add_actor (CLUTTER_CONTAINER (oh->stage),
-                               CLUTTER_ACTOR (gtk_clutter_texture_new_from_pixbuf(pixbuf)));
+       //texture =gtk_clutter_texture_new_from_pixbuf(pixbuf);
+       texture = clutter_texture_new();
+       clutter_texture_set_from_rgb_data(texture,gdk_pixbuf_get_pixels(pixbuf),FALSE,
+             oh->icon_widget->allocation.width,oh->icon_widget->allocation.height,
+             gdk_pixbuf_get_rowstride (pixbuf),3,0,&error);
+       if (error){
+            g_warning ("Unable to set the pixbuf: %s", error->message);
+                  g_error_free (error);
+       }
 
+       clutter_container_add_actor (CLUTTER_CONTAINER (oh->stage),
+                               CLUTTER_ACTOR (texture));
+       clutter_container_lower_child(CLUTTER_CONTAINER (oh->stage),CLUTTER_ACTOR (texture),NULL);
 
+        /* Start animation */
         if (oh->timeline)
             clutter_timeline_start (oh->timeline);
         list_temp = g_slist_next(list_temp);

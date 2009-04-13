@@ -139,7 +139,6 @@ create_omweather(void){
 #endif
     gtk_window_set_title(GTK_WINDOW(main_widget), PACKAGE);
     gtk_window_set_default_size(GTK_WINDOW(main_widget), 640, 480);
-    gtk_widget_show_all(main_widget);
 
     if(!omweather_init_OS2009(main_widget))
 	return NULL;

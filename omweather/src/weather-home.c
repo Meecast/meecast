@@ -96,6 +96,13 @@ view_popup_menu (GtkWidget *treeview, GdkEventButton *event, gpointer userdata){
     weather_window_settings(NULL, NULL);
 }
 /*******************************************************************************/
+#ifdef CLUTTER
+/* For start of Clutter animation in main form */
+top_widget_expose(GtkWidget *widget, GdkEventExpose *event){
+    show_animation(app->clutter_objects_in_main_form);
+}
+#endif
+/*******************************************************************************/
 /* Change station to previos at main display */
 gboolean 
 change_station_prev(GtkWidget *widget, GdkEvent *event,
@@ -720,7 +727,7 @@ redraw_home_window(gboolean first_start){
     draw_home_window(count_day);
 #ifdef CLUTTER
 //    show_animation(app->clutter_objects_in_main_form);
-       g_timeout_add(800, (GtkFunction) show_animation, app->clutter_objects_in_main_form);  
+//       g_timeout_add(800, (GtkFunction) show_animation, app->clutter_objects_in_main_form);  
 #endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -872,6 +879,10 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     timer(60000);  /* One per minute */
 /* Start main applet */ 
     app->top_widget = gtk_hbox_new(FALSE, 0);
+#if defined CLUTTER
+   g_signal_connect_after(app->top_widget, "expose-event",
+      G_CALLBACK(top_widget_expose), NULL);
+#endif
 #if  defined(NONMAEMO) || defined (APPLICATION)
     /* pack for window in Application mode */
     main_vbox = gtk_vbox_new(FALSE, 0);
@@ -902,13 +913,13 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #endif
 #if defined OS2008 && !defined (APPLICATION)
     snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s/%s",
-	                    app->config->cache_directory, "style.rc");
+                    app->config->cache_directory, "style.rc");
     gtk_rc_parse(tmp_buff);
     applet->priv = G_TYPE_INSTANCE_GET_PRIVATE(applet, TYPE_OMWEATHER, OMWeatherPrivate);
     settings = gtk_settings_get_default();
     cm = gdk_screen_get_rgba_colormap(gdk_screen_get_default());
     if(cm)
-	gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
+      gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
 #endif
 
 

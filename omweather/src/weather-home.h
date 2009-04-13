@@ -122,6 +122,9 @@ extern WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency
 #if defined (OS2009) || defined(NONMAEMO) || defined (APPLICATION)
 gboolean omweather_init_OS2009(GtkWidget *applet);
 void omweather_destroy(GtkObject *widget);
+#ifdef CLUTTER
+gboolean top_widget_expose(GtkWidget *widget, GdkEventExpose *event);
+#endif
 extern GtkWidget* create_time_updates_widget(GSList *current, gboolean change_color);
 #endif
 extern GtkWidget* create_toolbar_box(gpointer exit_function, gpointer arg_exit_function);

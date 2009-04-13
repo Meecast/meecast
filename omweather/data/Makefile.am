@@ -34,7 +34,10 @@ databasedir = $(datadir)/omweather/db
 database_DATA = weather.com.db
 sourcesdir = $(datadir)/omweather/sources
 sources_DATA = sources/*.xml
-
+if NONMAEMO
+ imagedir = $(datadir)/omweather/images
+ image_DATA = images/*.png
+endif
 
 # The icons
 
@@ -80,8 +83,8 @@ EXTRA_DIST = $(homeapplet_desktop_DATA) \
 	     units.xml \
 	     $(dbus_service_DATA) \
 	     omweather.desktop.in \
-	     omweather.png
-	     images\crime.png
+	     omweather.png \
+	     $(image_data)
 
 omweather.desktop: omweather.desktop.in
 	sed "s/__VERSION__/$(VERSION)/g" $< >$@.tmp && \

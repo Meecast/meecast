@@ -145,7 +145,7 @@ create_omweather(void){
 #endif
 
 
-    pixbuf = gdk_pixbuf_new_from_file ("lake.png",&error);
+    pixbuf = gdk_pixbuf_new_from_file ("/usr/share/omweather/images/crime.png",&error);
     if (error != NULL) {
         if (error->domain == GDK_PIXBUF_ERROR) {
             g_print ("Pixbuf Related Error:\n");
@@ -153,18 +153,15 @@ create_omweather(void){
         if (error->domain == G_FILE_ERROR) {
             g_print ("File Error: Check file permissions and state:\n");
         }
-
        g_printerr ("%s\n", error[0].message);
-      exit(1);
+    }else{
+       gdk_pixbuf_render_pixmap_and_mask (pixbuf, &background, NULL, 0);
+       style = gtk_style_new ();
+       style->bg_pixmap[0] = background;
+       gtk_widget_set_style (GTK_WIDGET(main_widget), GTK_STYLE(style));
     }
-
-    gdk_pixbuf_render_pixmap_and_mask (pixbuf, &background, NULL, 0);
-    style = gtk_style_new ();
-    style->bg_pixmap[0] = background;
-    gtk_widget_set_style (GTK_WIDGET(main_widget), GTK_STYLE(style));
-
     gtk_window_set_title(GTK_WINDOW(main_widget), PACKAGE);
-    gtk_window_set_default_size(GTK_WINDOW(main_widget), 640, 480);
+    gtk_window_set_default_size(GTK_WINDOW(main_widget), 800, 480);
 
 
     if(!omweather_init_OS2009(main_widget))

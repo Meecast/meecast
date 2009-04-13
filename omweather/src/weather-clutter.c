@@ -67,6 +67,7 @@ show_animation(GSList *clutter_objects){
        clutter_texture_set_from_rgb_data(texture,gdk_pixbuf_get_pixels(pixbuf),FALSE,
              oh->icon_widget->allocation.width,oh->icon_widget->allocation.height,
              gdk_pixbuf_get_rowstride (pixbuf),3,0,&error);
+       g_object_unref(pixbuf);
        if (error){
             g_warning ("Unable to set the pixbuf: %s", error->message);
                   g_error_free (error);

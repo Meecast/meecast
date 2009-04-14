@@ -360,6 +360,11 @@ create_toolbar_box(gpointer exit_function, gpointer arg_exit_function)
     return buttons_box;
 }
 /*******************************************************************************/
+gboolean
+popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
+    fprintf(stderr,"ssssssssssssssssfffffffffffffffff\n");
+}
+/*******************************************************************************/
 gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
                               gpointer user_data){
     GtkWidget	*notebook = NULL,
@@ -435,11 +440,6 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 /* create frame vbox */
     vbox = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(app->popup_window), vbox);
-
-
-//    g_signal_connect((gpointer)vbox, "destroy-event",
-//         G_CALLBACK(destroy_popup_window), NULL);
-
 
 /* station name */
     label_box = gtk_event_box_new();
@@ -527,8 +527,8 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
         if (active_tab != i){
             /* Create the empty page */
             tab = create_pseudo_day_tab(app->wsd.current, day, &day_name);
-           if(tab){
-               page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+            if(tab){
+                page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                         tab,
                                         gtk_label_new(day_name));
                 g_object_set_data(G_OBJECT(tab), "day", (gpointer)tmp->data);
@@ -556,8 +556,8 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     }
 /* prepare day tabs */
     if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){
-	gtk_box_pack_start(GTK_BOX(vbox), notebook,
-			TRUE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(vbox), notebook,
+                           TRUE, TRUE, 0);
         gtk_widget_show(notebook);
     }
 
@@ -596,6 +596,10 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
         gtk_event_box_set_visible_window(GTK_EVENT_BOX(no_weather_box),FALSE);
         set_font(label, NULL, 24);
     }
+    /* Connect to signal "changing notebook page" */
+    g_signal_connect(G_OBJECT(notebook), "switch-page",
+                     G_CALLBACK(popup_switch_cb), app->popup_window);
+
 /* Show copyright widget */
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>Source %s\n", app->config->current_station_source);
     copyright_box = gtk_event_box_new();
@@ -777,7 +781,7 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 //         g_object_unref(icon);
     gtk_box_pack_start(GTK_BOX(day_icon_text_hbox),
                         day_icon, TRUE, TRUE, 5);
-/* preapare day text */
+/* prepare day text */
     gtk_box_pack_start(GTK_BOX(day_icon_text_hbox),
 			day_text_vbox = gtk_vbox_new(FALSE, 0),
 			TRUE, TRUE, 0);
@@ -1148,7 +1152,7 @@ GtkWidget* create_hour_tab(void){
     gtk_box_pack_start(GTK_BOX(main_widget), window_tmp, TRUE, TRUE, 0);
    /* last update time */
     if(hour_weather)
-	gtk_box_pack_start(GTK_BOX(main_widget),
+        gtk_box_pack_start(GTK_BOX(main_widget),
                              create_time_updates_widget(hour_weather, FALSE),
                              TRUE, FALSE, 5);
     gtk_widget_show_all(main_widget);

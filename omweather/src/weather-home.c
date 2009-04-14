@@ -856,10 +856,10 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     if (gtk_clutter_init (NULL, NULL) != CLUTTER_INIT_SUCCESS)
         fprintf (stderr,"Unable to initialize GtkClutter");
     /* Fix ME added config value */
-    app->clutter_objects_in_main_form = NULL;
-    app->clutter_objects_in_popup_form = NULL;
     app->clutter_script = NULL;
 #endif
+    app->clutter_objects_in_main_form = NULL;
+    app->clutter_objects_in_popup_form = NULL;
 
 /* Init gconf. */
     gnome_vfs_init();
@@ -982,14 +982,14 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 #endif
 #if defined OS2008 || !defined (APPLICATION)
     if(!app)
-	return;
+        return;
 #endif
     /* remove switch timer */
     if(app->switch_timer > 0)
-	g_source_remove(app->switch_timer);
+        g_source_remove(app->switch_timer);
     /* It is switch off the timer */	
     if(app->timer > 0)
-	g_source_remove(app->timer);
+        g_source_remove(app->timer);
     /* Clean the queue of event */ 
     free_list_time_event();
 #ifdef CLUTTER
@@ -999,39 +999,39 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 #endif
     /* If downloading then switch off it */
     if(app->flag_updating != 0){
-	g_source_remove(app->flag_updating);
-	clean_download();
+        g_source_remove(app->flag_updating);
+        clean_download();
     }
     if(app->timer_for_os2008 != 0)
-    	g_source_remove(app->timer_for_os2008);
+        g_source_remove(app->timer_for_os2008);
     config_save(app->config); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
 			On n800 this work */
-    #ifdef USE_CONIC
-	if(app->connection)
-	    g_object_unref(app->connection);
-    #endif
+#ifdef USE_CONIC
+    if(app->connection)
+        g_object_unref(app->connection);
+#endif
 
 #if defined OS2008 && ! defined APPLICATION
     g_signal_handler_disconnect(app->parent,app->signal_size_request);
-    g_signal_handler_disconnect(app->parent_parent,app->signal_press);  
-    g_signal_handler_disconnect(app->parent_parent,app->signal_release);   
-    g_signal_handler_disconnect(app->parent,app->my_applet_signal_release);   
-    /* disconnected from HildonDesktopHomeItem expose-event */	
+    g_signal_handler_disconnect(app->parent_parent,app->signal_press);
+    g_signal_handler_disconnect(app->parent_parent,app->signal_release);
+    g_signal_handler_disconnect(app->parent,app->my_applet_signal_release);
+    /* disconnected from HildonDesktopHomeItem expose-event */
     g_signal_handler_disconnect(app->parent,app->signal_item_expose);
     g_signal_handler_disconnect(app->parent_parent,app->signal_area_changed);
     /* disconnected from HildonHomeArea expose-event */
     g_signal_handler_disconnect(app->parent_parent,app->signal_area_expose);
     g_signal_handler_disconnect(app->top_widget,app->signal_expose);
-    if(app->pixbuf){ 
+    if(app->pixbuf){
         gdk_pixbuf_unref(app->pixbuf);
-        app->pixbuf = NULL; 
+        app->pixbuf = NULL;
     }
 #endif
 
 #ifdef OS2008
     /* remove sensor time */
     if(app->sensor_timer > 0)
-	g_source_remove(app->sensor_timer);
+        g_source_remove(app->sensor_timer);
 #endif
 #ifdef ENABLE_GPS
     deinitial_gps_control();
@@ -1072,12 +1072,12 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 /*******************************************************************************/
 GtkWidget* 
 hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent){
-    GtkWidget	*menu_item;
+    GtkWidget    *menu_item;
 
 #ifndef RELEASE
     fprintf(stderr, "\nOMWeather applet settings\n");
 #endif
-    
+
     menu_item = gtk_menu_item_new_with_label(_("OMWeather settings"));
     g_signal_connect(menu_item, "activate",G_CALLBACK(weather_window_settings), NULL);
 

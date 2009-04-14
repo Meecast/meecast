@@ -410,9 +410,9 @@ typedef struct OMWeatherApplet{
 #endif
     WeatherStationData  wsd;
     GSList              *sources;
-#ifdef CLUTTER
     GSList              *clutter_objects_in_main_form;
     GSList              *clutter_objects_in_popup_form;
+#ifdef CLUTTER
     ClutterScript       *clutter_script; /* Maybe it need be deleting */
 #endif
 }OMWeatherApp;

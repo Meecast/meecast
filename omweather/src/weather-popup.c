@@ -143,7 +143,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
     gchar	buffer[1024],
 		icon[2048],
 		*space_symbol = NULL;
-    GdkPixbuf   *icon_buffer;                                                                                                             
+    GdkPixbuf   *icon_buffer;
     GtkWidget   *icon_image;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -403,13 +403,13 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 #endif
 
 #if defined CLUTTER
-//   g_signal_connect_after(app->popup_window, "expose-event",
-//      G_CALLBACK(popup_window_expose), NULL);
+   g_signal_connect_after(app->popup_window, "expose-event",
+      G_CALLBACK(popup_window_expose), NULL);
 #endif
 
 /* set window title and icon */
     gtk_window_set_title(GTK_WINDOW(app->popup_window),
-			    _("OMWeather Forecast"));
+                            _("OMWeather Forecast"));
     gtk_window_set_modal(GTK_WINDOW(app->popup_window), TRUE);
 #if defined OS2009  && defined APPLICATION
     gtk_window_set_destroy_with_parent(GTK_WINDOW(app->popup_window), TRUE);
@@ -421,7 +421,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     gtk_window_fullscreen(GTK_WINDOW(app->popup_window));
 #endif
 
-    
+
 
 /* create frame vbox */
     vbox = gtk_vbox_new(FALSE, 0);
@@ -484,10 +484,10 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 /* if weather is separated than hide one day */
     (app->config->separate) ? (k = 0) : (k = 1);
     if(current_tab && !app->config->separate && active_tab != 0 )
-       active_tab = active_tab + k;
+        active_tab = active_tab + k;
 
     if(!app->config->separate && !current_tab )
-	active_tab++;
+        active_tab++;
     
 /* Detailed weather tab */
     if (!app->wsd.hours_data_is_invalid &&  app->wsd.hours_weather){
@@ -593,9 +593,6 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 
     gtk_box_pack_start(GTK_BOX(vbox),buttons_box,FALSE,FALSE,0);
     gtk_widget_show_all(app->popup_window);
-#ifdef CLUTTER
-    show_animation(app->clutter_objects_in_popup_form);
-#endif
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -701,13 +698,12 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     if(!strcmp(item_value(day, "day_low_temperature"), "N/A")){
         low_temp = INT_MAX;
         night_invalid_count++;
-    }
-    else
-	low_temp = atoi(item_value(day, "day_low_temperature"));
+    }else
+        low_temp = atoi(item_value(day, "day_low_temperature"));
     if(app->config->temperature_units == FAHRENHEIT){
-	(hi_temp != INT_MAX) && ( hi_temp = c2f(hi_temp) );
-	(low_temp != INT_MAX) && ( low_temp = c2f(low_temp) );
-	symbol = 'F';
+        (hi_temp != INT_MAX) && ( hi_temp = c2f(hi_temp) );
+        (low_temp != INT_MAX) && ( low_temp = c2f(low_temp) );
+        symbol = 'F';
     }
     main_widget = gtk_vbox_new(FALSE, 0);
     /* prepare localized day name */
@@ -760,12 +756,12 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     icon = gdk_pixbuf_new_from_file_at_size(buffer,
                         BIG_ICON_SIZE,
                         BIG_ICON_SIZE, NULL);
-    day_icon = create_icon_widget( icon, buffer, BIG_ICON_SIZE, &app->clutter_objects_in_popup_form);
+    day_icon = create_icon_widget(icon, buffer, BIG_ICON_SIZE, &app->clutter_objects_in_popup_form);
 //    day_icon = gtk_image_new_from_pixbuf(icon);
 //    if(icon)
 //         g_object_unref(icon);
     gtk_box_pack_start(GTK_BOX(day_icon_text_hbox),
-			day_icon, TRUE, TRUE, 5);
+                        day_icon, TRUE, TRUE, 5);
 /* preapare day text */
     gtk_box_pack_start(GTK_BOX(day_icon_text_hbox),
 			day_text_vbox = gtk_vbox_new(FALSE, 0),
@@ -877,18 +873,18 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     /* add day and night items to main widget */
     /* check for N/A fields in day */
     if(day_invalid_count < 5)
-	gtk_box_pack_start(GTK_BOX(day_night_hbox),
+	    gtk_box_pack_start(GTK_BOX(day_night_hbox),
 			    day_vbox,
 			    TRUE, FALSE, 5);
     else
-	gtk_widget_destroy(day_vbox);
+	    gtk_widget_destroy(day_vbox);
     /* check for N/A fields in night */
     if(night_invalid_count < 5)
-	gtk_box_pack_start(GTK_BOX(day_night_hbox),
+	    gtk_box_pack_start(GTK_BOX(day_night_hbox),
 			    night_vbox,
 			    TRUE, FALSE, 5);
     else
-	gtk_widget_destroy(night_vbox);
+	    gtk_widget_destroy(night_vbox);
     /* day name with date */
     gtk_box_pack_start(GTK_BOX(main_widget), title, FALSE, FALSE, 5);
     /* day and/or night data */
@@ -902,7 +898,7 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 	gtk_box_pack_start(GTK_BOX(main_widget),
 			    create_time_updates_widget(current, FALSE),
 			    TRUE, FALSE, 5);
-//    gtk_widget_show_all(main_widget);
+    gtk_widget_show_all(main_widget);
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -1233,8 +1229,9 @@ GtkWidget* create_window_header(const gchar *station_name, GtkWidget *popup_wind
 #ifdef CLUTTER
 /* For start of Clutter animation in popup window */
 popup_window_expose(GtkWidget *widget, GdkEventExpose *event){
-    show_animation(app->clutter_objects_in_main_form);
+    show_animation(app->clutter_objects_in_popup_form);
     gtk_widget_show_all(widget);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(widget),G_CALLBACK(popup_window_expose),NULL);
 }
 #endif
 /*******************************************************************************/

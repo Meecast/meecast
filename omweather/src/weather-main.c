@@ -144,7 +144,7 @@ create_omweather(void){
     main_widget = hildon_window_new();
 #endif
 
-
+/* Set background image */
     pixbuf = gdk_pixbuf_new_from_file ("/usr/share/omweather/images/crime.png",&error);
     if (error != NULL) {
         if (error->domain == GDK_PIXBUF_ERROR) {
@@ -160,6 +160,7 @@ create_omweather(void){
        style->bg_pixmap[0] = background;
        gtk_widget_set_style (GTK_WIDGET(main_widget), GTK_STYLE(style));
     }
+    
     gtk_window_set_title(GTK_WINDOW(main_widget), PACKAGE);
     gtk_window_set_default_size(GTK_WINDOW(main_widget), 800, 480);
 

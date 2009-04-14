@@ -490,7 +490,8 @@ create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size,
     }
 #else
     icon_widget = gtk_image_new_from_pixbuf(icon_buffer);
-    g_object_unref(G_OBJECT(icon_buffer));
+    if (icon_buffer)
+        g_object_unref(G_OBJECT(icon_buffer));
 #endif
     return icon_widget;
 }

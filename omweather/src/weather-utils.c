@@ -494,36 +494,6 @@ create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size,
 #endif
     return icon_widget;
 }
-/*******************************************************************************/
-void free_clutter_objects_list(GSList **clutter_objects) {
-
-#ifdef CLUTTER
-    static GSList *list_temp = NULL;
-    SuperOH *oh;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    if (!*clutter_objects)
-        return;
-    list_temp = *clutter_objects;
-    while (list_temp != NULL) {
-        oh = list_temp->data;
-        if (oh->timeline)
-            clutter_timeline_stop(oh->timeline);
-//        clutter_actor_destroy(oh->stage);
-//        g_object_unref(oh->script);
-        gtk_widget_destroy(oh->icon_widget);
-        g_object_unref(oh->script);
-        g_free(oh);
-        list_temp = g_slist_next(list_temp);
-    }
-    g_slist_free(*clutter_objects);
-    *clutter_objects = NULL;
-#ifdef DEBUGFUNCTIONCALL
-    END_FUNCTION;
-#endif
-#endif
-}
 /******************************************************************************/
 void
 update_icons_set_base(const char *icon_set_name){
@@ -533,7 +503,7 @@ update_icons_set_base(const char *icon_set_name){
     gchar  buffer[1024];
 
     if(app->config->icons_set_base)
-	g_free(app->config->icons_set_base);
+         g_free(app->config->icons_set_base);
     *buffer = 0;
     snprintf(buffer, sizeof(buffer) - 1, "%s%s/", ICONS_PATH, icon_set_name);
     app->config->icons_set_base = g_strdup(buffer);

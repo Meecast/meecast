@@ -440,8 +440,8 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     notebook = gtk_notebook_new();
 
 #if defined CLUTTER
-   g_signal_connect_after(notebook, "expose-event",
-      G_CALLBACK(popup_window_expose), NULL);
+//   g_signal_connect_after(notebook, "expose-event",
+//      G_CALLBACK(popup_window_expose), NULL);
 #endif
 
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);

@@ -34,7 +34,6 @@
 /*******************************************************************************/
 extern	WeatherSource	weather_sources[];
 /*******************************************************************************/
-void popup_window_destroy(void);
 GtkWidget* create_sun_time_widget(GSList *day);
 GtkWidget* create_moon_phase_widget(GSList *current);
 GtkWidget* create_time_updates_widget(GSList *current, gboolean change_color);
@@ -60,7 +59,7 @@ gboolean make_hour_tab(GtkWidget *vbox);
 GtkWidget* create_copyright_widget(const gchar *text, const gchar *image);
 GtkWidget* create_window_header(const gchar *station_name, GtkWidget *popup_window);
 #ifdef CLUTTER
-popup_window_expose(GtkWidget *widget, GdkEventExpose *event);
+void popup_window_expose(GtkWidget *widget, GdkEventExpose *event);
 #endif
 void destroy_popup_window(void);
 /*******************************************************************************/

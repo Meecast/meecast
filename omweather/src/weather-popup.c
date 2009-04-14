@@ -1,4 +1,4 @@
-/* vim: set sw=4 ts=4 et: */
+/* v0im: set sw=4 ts=4 et: */
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
@@ -39,7 +39,7 @@
 /*******************************************************************************/
 void
 destroy_popup_window(void){
-    GSList	*tmp = NULL;
+    GSList    *tmp = NULL;
     /* free Idles */
     tmp = app->tab_of_window_popup;
     while(tmp){
@@ -57,6 +57,10 @@ destroy_popup_window(void){
         tmp = g_slist_next(tmp);
     }
     g_slist_free(app->tab_of_window_popup);
+#ifdef CLUTTER
+    /* For end of Clutter animation in popup window */
+    free_clutter_objects_list(&app->clutter_objects_in_popup_form);
+#endif
     app->tab_of_window_popup = NULL;
     gtk_widget_destroy(GTK_WIDGET(app->popup_window));
     app->popup_window = NULL;
@@ -254,34 +258,37 @@ create_time_updates_widget(GSList *current, gboolean change_color){
 /*******************************************************************************/
 gboolean 
 make_current_tab(GtkWidget *vbox){
-    GtkWidget	*child;
+    GtkWidget   *child;
     if(app->popup_window){
-	child = create_current_tab(app->wsd.current);
-	if(app->popup_window){
-	    gtk_container_add(GTK_CONTAINER(vbox),child);	
-	    gtk_widget_show_all(vbox);
-	}
-	else
-	    gtk_widget_destroy(GTK_WIDGET(child));
+        child = create_current_tab(app->wsd.current);
+        if(app->popup_window){
+            gtk_container_add(GTK_CONTAINER(vbox),child);
+#ifndef CLUTTER
+           gtk_widget_show_all(vbox);
+#endif
+        }else
+           gtk_widget_destroy(GTK_WIDGET(child));
     }
     return FALSE;
 }
 /*******************************************************************************/
 gboolean 
 make_tab(GtkWidget *vbox){
-    GSList	*day = NULL;
-    gchar	*day_name = NULL;
-    GtkWidget	*child;
+    GSList      *day = NULL;
+    gchar       *day_name = NULL;
+    GtkWidget   *child;
 
     if(app->popup_window){
-	day = (GSList*)g_object_get_data(G_OBJECT(vbox), "day");
-	child = create_day_tab(app->wsd.current, day, &day_name);
-	if(app->popup_window){
-	    gtk_container_add(GTK_CONTAINER(vbox),child);
-	    gtk_widget_show_all(vbox);
-	}
-	else
-	    gtk_widget_destroy(GTK_WIDGET(child));
+        day = (GSList*)g_object_get_data(G_OBJECT(vbox), "day");
+        child = create_day_tab(app->wsd.current, day, &day_name);
+        if(app->popup_window){
+            gtk_container_add(GTK_CONTAINER(vbox),child);
+#ifndef CLUTTER
+            gtk_widget_show_all(vbox);
+#endif
+        }
+        else
+            gtk_widget_destroy(GTK_WIDGET(child));
         g_free(day_name);
     }
     return FALSE;
@@ -325,7 +332,7 @@ create_toolbar_box(gpointer exit_function, gpointer arg_exit_function)
     /* Refresh buton */
     /*refresh_button = create_tool_item(BUTTON_ICONS, "refresh", 40);*/
     refresh_button = create_button_with_image(BUTTON_ICONS, "refresh", 40, FALSE, FALSE);
-	g_signal_connect(G_OBJECT(refresh_button), "button-release-event",
+        g_signal_connect(G_OBJECT(refresh_button), "button-release-event",
                      G_CALLBACK(refresh_button_handler),
                      (gpointer)app->popup_window);
     /* About buton */
@@ -333,13 +340,13 @@ create_toolbar_box(gpointer exit_function, gpointer arg_exit_function)
     about_button = create_button_with_image(BUTTON_ICONS, "about", 40, FALSE, FALSE);
     g_signal_connect(G_OBJECT(about_button), "button-release-event",
                         G_CALLBACK(about_button_handler),
-			NULL);
+                        NULL);
     /* Close button */
     /*close_button = create_tool_item(BUTTON_ICONS, "close", 40);*/
     close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE, FALSE);
     g_signal_connect(G_OBJECT(close_button), "button-release-event",
                         G_CALLBACK(exit_function),
-			            (gpointer)arg_exit_function);
+                        (gpointer)arg_exit_function);
 
 /* Pack buttons to the buttons box */
     /*gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(settings_button), -1);
@@ -380,7 +387,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     START_FUNCTION;
 #endif
     if (app->popup_window || app->flag_updating != 0)
-	return FALSE;
+        return FALSE;
 
 /* Debug */
 /*  time_start(); */
@@ -388,8 +395,8 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     active_tab = (gint)user_data;
 /* if no one station present in list show settings window */
     if(!app->config->current_station_id){
-	weather_window_settings(NULL, (gpointer)active_tab);
-	return FALSE;
+        weather_window_settings(NULL, (gpointer)active_tab);
+        return FALSE;
     }
 /* Main window */
 #if defined OS2009
@@ -403,8 +410,10 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 #endif
 
 #if defined CLUTTER
-   g_signal_connect_after(app->popup_window, "expose-event",
-      G_CALLBACK(popup_window_expose), NULL);
+    g_signal_connect_after(app->popup_window, "expose-event",
+         G_CALLBACK(popup_window_expose), NULL);
+    gtk_signal_connect (GTK_OBJECT (app->popup_window), "delete_event",
+                        GTK_SIGNAL_FUNC (destroy_popup_window), NULL);
 #endif
 
 /* set window title and icon */
@@ -427,15 +436,20 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     vbox = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(app->popup_window), vbox);
 
+
+//    g_signal_connect((gpointer)vbox, "destroy-event",
+//         G_CALLBACK(destroy_popup_window), NULL);
+
+
 /* station name */
     label_box = gtk_event_box_new();
     gtk_container_add(GTK_CONTAINER(label_box),
-	create_window_header(app->config->current_station_name, app->popup_window));
+           create_window_header(app->config->current_station_name, app->popup_window));
     gtk_box_pack_start(GTK_BOX(vbox),
 			label_box,
 			FALSE, TRUE, 0);
     gtk_event_box_set_visible_window(GTK_EVENT_BOX(label_box),FALSE);
-    
+
 /* create tabs widget */
     notebook = gtk_notebook_new();
 
@@ -445,7 +459,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 #endif
 
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
-    
+
 /* Current weather */
     current_time = time(NULL); /* get current day */
 
@@ -488,50 +502,51 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 
     if(!app->config->separate && !current_tab )
         active_tab++;
-    
+
 /* Detailed weather tab */
     if (!app->wsd.hours_data_is_invalid &&  app->wsd.hours_weather){
-    	data_last_update = last_update_time((GSList*)(app->wsd.hours_weather)->data);
-    	/* Check a valid time for hours forecast */
-    	if(app->config->show_weather_for_two_hours && (!app->wsd.current_data_is_invalid) && 
-		(current_time - 24 * 60 * 60) < data_last_update)
-	    hour_tab = gtk_vbox_new(FALSE, 0);
-    	if(hour_tab){
-    	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-                                	hour_tab,
-                                	gtk_label_new(_("Detailed")));
-	    g_idle_add((GSourceFunc)make_hour_tab,hour_tab);
-	    add_item2object(&(app->tab_of_window_popup), (void*)hour_tab);
-    	}
+        data_last_update = last_update_time((GSList*)(app->wsd.hours_weather)->data);
+        /* Check a valid time for hours forecast */
+        if(app->config->show_weather_for_two_hours && (!app->wsd.current_data_is_invalid) && 
+          (current_time - 24 * 60 * 60) < data_last_update)
+            hour_tab = gtk_vbox_new(FALSE, 0);
+        if(hour_tab){
+            gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+                                        hour_tab,
+                                        gtk_label_new(_("Detailed")));
+           g_idle_add((GSourceFunc)make_hour_tab,hour_tab);
+           add_item2object(&(app->tab_of_window_popup), (void*)hour_tab);
+        }
     }
 /* Day tabs */
    tmp = app->wsd.days;
    while(tmp && i < Max_count_weather_day){
-	day = (GSList*)tmp->data;
-	
-	/* Acceleration of starting gtk_notebook */
-	if (active_tab != i){
-	    /* Create the empty page */
-	    tab = create_pseudo_day_tab(app->wsd.current, day, &day_name);
-	    if(tab){
-	    	page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        				tab,
-        				gtk_label_new(day_name));
-		g_object_set_data(G_OBJECT(tab), "day", (gpointer)tmp->data);
-		g_idle_add((GSourceFunc)make_tab,tab);
-		add_item2object(&(app->tab_of_window_popup), (void*)tab);
-	    }
-	}
-	else{	
-	    /* Create the page with data */
-	    tab = create_day_tab(app->wsd.current, day, &day_name);
-	    if(tab){
-		page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-        				tab,
-        				gtk_label_new(day_name));
-	    }
-	}
-	
+        day = (GSList*)tmp->data;
+
+        /* Acceleration of starting gtk_notebook */
+        if (active_tab != i){
+            /* Create the empty page */
+            tab = create_pseudo_day_tab(app->wsd.current, day, &day_name);
+           if(tab){
+               page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+                                        tab,
+                                        gtk_label_new(day_name));
+                g_object_set_data(G_OBJECT(tab), "day", (gpointer)tmp->data);
+#ifndef CLUTTER
+                g_idle_add((GSourceFunc)make_tab,tab);
+#endif
+                add_item2object(&(app->tab_of_window_popup), (void*)tab);
+           }
+        }else{
+             /* Create the page with data */
+            tab = create_day_tab(app->wsd.current, day, &day_name);
+           if(tab){
+               page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+                                        tab,
+                                        gtk_label_new(day_name));
+           }
+        }
+
     if (day_name){
         g_free(day_name);
         day_name = NULL;
@@ -1228,6 +1243,7 @@ GtkWidget* create_window_header(const gchar *station_name, GtkWidget *popup_wind
 /*******************************************************************************/
 #ifdef CLUTTER
 /* For start of Clutter animation in popup window */
+void
 popup_window_expose(GtkWidget *widget, GdkEventExpose *event){
     show_animation(app->clutter_objects_in_popup_form);
     gtk_widget_show_all(widget);

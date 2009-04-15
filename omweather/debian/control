@@ -3,9 +3,9 @@ Section: user/accessories
 Priority: optional
 Maintainer: Vlad Vasiliev <vlad@gas.by>
 #Non Maemo
-Build-Depends: debhelper (>= 4.0.0), libxml2-dev,libcurl3-dev, libpango1.0-dev, libgtk2.0-dev, libosso-dev (>= 1), libxcomposite-dev, libxdamage-dev, libhildonhelp-dev, libhildonhelp-dev,  intltool
+#Build-Depends: debhelper (>= 4.0.0), libxml2-dev,libcurl3-dev, libpango1.0-dev, libgtk2.0-dev, libosso-dev (>= 1), libxcomposite-dev, libxdamage-dev, libhildonhelp-dev, libhildonhelp-dev,  intltool
 #Fremantle
-#Build-Depends: debhelper (>= 4.0.0), libxml2-dev,libcurl3-dev, libpango1.0-dev, libosso-gnomevfs2-dev, libgtk2.0-dev, libosso-dev (>= 1), libconic0-dev, libxcomposite-dev, libxdamage-dev, liblocation-dev, libhildonhelp-dev, libhildonhelp-dev, maemo-installer-utils, intltool
+Build-Depends: debhelper (>= 4.0.0), libxml2-dev,libcurl3-dev, libpango1.0-dev, libosso-gnomevfs2-dev, libgtk2.0-dev, libosso-dev (>= 1), libconic0-dev, libxcomposite-dev, libxdamage-dev, liblocation-dev, libhildonhelp-dev, libhildonhelp-dev, maemo-installer-utils, intltool
 #Chinook
 #Build-Depends: debhelper (>= 4.0.0), libxml2-dev,libcurl3-dev, libpango1.0-dev, libosso-gnomevfs2-dev, libgtk2.0-dev, libosso-dev (>= 1), hildon-desktop-dev, libconic0-dev, libxcomposite-dev, libxdamage-dev, liblocation-dev, libhildonhelp-dev, libhildonhelp-dev, maemo-installer-utils, intltool
 #Bora
@@ -15,9 +15,9 @@ Standards-Version: 3.6.0
 Package: omweather
 Architecture: any
 #For Maemo
-#Depends: ${shlibs:Depends}, mawk | awk, osso-application-installer | hildon-application-manager
+Depends: ${shlibs:Depends}, mawk | awk, osso-application-installer | hildon-application-manager
 #For Non Maemo
-Depends: ${shlibs:Depends}, mawk | awk
+#Depends: ${shlibs:Depends}, mawk | awk
 Description: World Weather on Nokia 770/N800/N810. This applet uses weather.com
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI

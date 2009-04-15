@@ -380,7 +380,9 @@ popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
     GtkWidget   *child;
 
     vbox = gtk_notebook_get_nth_page(nb, page);
+#ifdef CLUTTER
     free_clutter_objects_list(&app->clutter_objects_in_popup_form);
+#endif
     gtk_container_foreach (GTK_CONTAINER (vbox), (GtkCallback)destroy_container, NULL);
 
     /* Create needed Tab */

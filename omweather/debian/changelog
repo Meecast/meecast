@@ -4,8 +4,9 @@ omweather (0.22) unstable; urgency=low
   * Added possibility to change position of text near of icon on main display
   * Added option 'non-cache' for downloading of weather forecast data
   * Fixed bug #3760 'Missing or erroneous weather status translation'
-  
- -- Vlad Vasiliev <vlad@gas.by>  Wen, 15 Apr 2009 03:36:00 +0200
+  * Added clutter animations
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 20 Apr 2009 13:36:00 +0200
 
 omweather (0.21.10) unstable; urgency=low
 

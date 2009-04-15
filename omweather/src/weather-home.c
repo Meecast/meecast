@@ -708,7 +708,9 @@ redraw_home_window(gboolean first_start){
     }else{
 	    app->wsd.days = NULL;
     }
+#ifdef CLUTTER
     free_clutter_objects_list(&app->clutter_objects_in_main_form);
+#endif
     if (app->main_window)
         gtk_widget_show_all(app->main_window);
     if(app->main_window){

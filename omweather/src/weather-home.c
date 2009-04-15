@@ -108,78 +108,77 @@ top_widget_expose(GtkWidget *widget, GdkEventExpose *event){
 /* Change station to previos at main display */
 gboolean 
 change_station_prev(GtkWidget *widget, GdkEvent *event,
-                    		    gpointer user_data){
+                                   gpointer user_data){
     GtkTreeIter iter,
-		prev_iter;
+                prev_iter;
     gboolean    valid,
-		ready = FALSE;
+                ready = FALSE;
     gchar       *station_name = NULL,
                 *station_code = NULL,
                 *station_source = NULL;
-    GtkTreePath	*path;
-    gint	day_number = 0;
-#ifdef DEBUGFUNCTIONCALL
+    GtkTreePath *path;
+    gint        day_number = 0;
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     if(!(app->config->current_station_id))
-	return FALSE;
+        return FALSE;
 
     path = gtk_tree_path_new_first();
     valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
-					&iter, path);
+                                    &iter, path);
     while(valid){
-	gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
-			    &iter, 
-                    	    NAME_COLUMN, &station_name,
-                    	    ID0_COLUMN, &station_code,
-                    	    6, &station_source,
-                    	    -1);
-	if(ready){
-	    /* update current station code */
-	    if(app->config->current_station_id)
-    		g_free(app->config->current_station_id);
-    	    app->config->current_station_id = station_code; 
-	    /* update current station name */
-    	    if(app->config->current_station_name)
-		g_free(app->config->current_station_name);
-	    app->config->current_station_name = station_name;
-	    if(app->config->current_station_source)
-		g_free(app->config->current_station_source);
-	    app->config->current_station_source = station_source;
-	    app->config->previos_days_to_show = app->config->days_to_show;
-	    redraw_home_window(FALSE);
-	    config_save(app->config);
-	    break;
-	}
-	else{
-	    if((app->config->current_station_name) && (station_name) &&
-            	    !strcmp(app->config->current_station_name, station_name))
-		ready = TRUE;
-	    g_free(station_name);
-	    g_free(station_code);
-	    valid = gtk_tree_path_prev(path);
-	    if(!valid){
-		valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                            &iter,
+                            NAME_COLUMN, &station_name,
+                            ID0_COLUMN, &station_code,
+                            3, &station_source,
+                            -1);
+        if(ready){
+            /* update current station code */
+            if(app->config->current_station_id)
+                g_free(app->config->current_station_id);
+            app->config->current_station_id = station_code; 
+            /* update current station name */
+            if(app->config->current_station_name)
+                g_free(app->config->current_station_name);
+            app->config->current_station_name = station_name;
+            if(app->config->current_station_source)
+                g_free(app->config->current_station_source);
+            app->config->current_station_source = station_source;
+            app->config->previos_days_to_show = app->config->days_to_show;
+            redraw_home_window(FALSE);
+            config_save(app->config);
+            break;
+        }else{
+            if((app->config->current_station_name) && (station_name) &&
+                  !strcmp(app->config->current_station_name, station_name))
+                ready = TRUE;
+            g_free(station_name);
+            g_free(station_code);
+            valid = gtk_tree_path_prev(path);
+            if(!valid){
+                valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                         &iter);
-		if(!valid)
-		    return FALSE;
-		do{
-		    memcpy(&prev_iter, &iter, sizeof(GtkTreeIter));
-		}while(gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
-                                                        &iter));
-		path = gtk_tree_model_get_path(GTK_TREE_MODEL(app->user_stations_list),
-                                                        &prev_iter);
-	    }
-	    valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
-						&iter, path);
-	}
+                if(!valid)
+                    return FALSE;
+                do{
+                    memcpy(&prev_iter, &iter, sizeof(GtkTreeIter));
+                }while(gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+                                                    &iter));
+                path = gtk_tree_model_get_path(GTK_TREE_MODEL(app->user_stations_list),
+                                                    &prev_iter);
+            }
+            valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
+                                                   &iter, path);
+        }
     }
     gtk_tree_path_free(path);
 /* show popup window if received param */
     if(user_data){
-	day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");
-	destroy_popup_window();
-	weather_window_popup(NULL, NULL, (gpointer)day_number);
+        day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab"); 
+        destroy_popup_window();
+        weather_window_popup(NULL, NULL, (gpointer)day_number);
     }
     return FALSE;
 }
@@ -200,7 +199,7 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
     START_FUNCTION;
 #endif
     if (!(app->config->current_station_id))
-	return FALSE;
+        return FALSE;
 
     path = gtk_tree_path_new_first();
     valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),

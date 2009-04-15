@@ -37,7 +37,8 @@
 /*******************************************************************************/
 #define MOON_ICONS		"/usr/share/omweather/moon_icons/"
 /*******************************************************************************/
-void
+    
+    void
 destroy_popup_window(void){
     GSList    *tmp = NULL;
     /* free Idles */
@@ -50,11 +51,11 @@ destroy_popup_window(void){
               g_idle_remove_by_data(tmp->data);
 #endif
 #ifndef RELEASE
-               fprintf(stderr,"Succes\n");
-          else
-               fprintf(stderr,"Not Succes\n");
+              fprintf(stderr,"Succes\n");
+         else
+              fprintf(stderr,"Not Succes\n");
 #endif
-        tmp = g_slist_next(tmp);
+         tmp = g_slist_next(tmp);
     }
     g_slist_free(app->tab_of_window_popup);
 #ifdef CLUTTER
@@ -164,7 +165,8 @@ GtkWidget* create_moon_phase_widget(GSList *current){
     set_font(main_label, NULL, 14);
 
     main_widget = gtk_hbox_new(FALSE, 0);
-/* Moon icon */
+    
+    /* Moon icon */
 
     snprintf(icon, (sizeof(icon) - 1), "%s%s.png", MOON_ICONS, item_value(current, "moon_phase"));
     space_symbol = strchr(icon, ' ');
@@ -278,6 +280,7 @@ make_tab(GtkWidget *vbox){
     gchar       *day_name = NULL;
     GtkWidget   *child;
 
+
     if(app->popup_window){
         day = (GSList*)g_object_get_data(G_OBJECT(vbox), "day");
         child = create_day_tab(app->wsd.current, day, &day_name);
@@ -360,9 +363,22 @@ create_toolbar_box(gpointer exit_function, gpointer arg_exit_function)
     return buttons_box;
 }
 /*******************************************************************************/
+destroy_container (GtkWidget *widget, gpointer *data){
+    gtk_widget_destroy(GTK_WIDGET(widget));
+}
+
 gboolean
 popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
-    fprintf(stderr,"ssssssssssssssssfffffffffffffffff\n");
+    GtkWidget *vbox = NULL;
+    gint *day_number;
+    GtkWidget   *child;
+
+    vbox = gtk_notebook_get_nth_page(nb, page);
+    free_clutter_objects_list(&app->clutter_objects_in_popup_form);
+    gtk_container_foreach (GTK_CONTAINER (vbox), (GtkCallback)destroy_container, NULL);
+    make_tab(vbox);
+    gtk_widget_show_all(vbox);
+
 }
 /*******************************************************************************/
 gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
@@ -415,8 +431,6 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 #endif
 
 #if defined CLUTTER
-    g_signal_connect_after(app->popup_window, "expose-event",
-         G_CALLBACK(popup_window_expose), NULL);
     gtk_signal_connect (GTK_OBJECT (app->popup_window), "delete_event",
                         GTK_SIGNAL_FUNC (destroy_popup_window), NULL);
 #endif
@@ -596,10 +610,11 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
         gtk_event_box_set_visible_window(GTK_EVENT_BOX(no_weather_box),FALSE);
         set_font(label, NULL, 24);
     }
+#ifdef CLUTTER
     /* Connect to signal "changing notebook page" */
     g_signal_connect(G_OBJECT(notebook), "switch-page",
                      G_CALLBACK(popup_switch_cb), app->popup_window);
-
+#endif
 /* Show copyright widget */
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>Source %s\n", app->config->current_station_source);
     copyright_box = gtk_event_box_new();
@@ -919,6 +934,10 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 			    TRUE, FALSE, 5);
     gtk_widget_show_all(main_widget);
 
+#if defined CLUTTER
+    g_signal_connect_after(main_widget, "expose-event",
+         G_CALLBACK(popup_window_expose), NULL);
+#endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

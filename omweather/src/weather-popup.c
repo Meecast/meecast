@@ -174,12 +174,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
 	*space_symbol = '_';
     icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, GIANT_ICON_SIZE,
 						    GIANT_ICON_SIZE, NULL);
-    if(icon_buffer){
-	icon_image = gtk_image_new_from_pixbuf(icon_buffer);
-	g_object_unref(G_OBJECT(icon_buffer));
-    }
-    else
-    	icon_image = NULL;
+    icon_image = create_icon_widget(icon_buffer, icon, GIANT_ICON_SIZE, &app->clutter_objects_in_popup_form); 					    
 
     if(icon_image)
 	gtk_box_pack_start(GTK_BOX(main_widget), icon_image, FALSE, TRUE, 0);
@@ -261,6 +256,9 @@ create_time_updates_widget(GSList *current, gboolean change_color){
 gboolean 
 make_current_tab(GtkWidget *vbox){
     GtkWidget   *child;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     if(app->popup_window){
         child = create_current_tab(app->wsd.current);
         if(app->popup_window){
@@ -271,6 +269,9 @@ make_current_tab(GtkWidget *vbox){
         }else
            gtk_widget_destroy(GTK_WIDGET(child));
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return FALSE;
 }
 /*******************************************************************************/
@@ -303,9 +304,14 @@ gboolean make_hour_tab(GtkWidget *vbox){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    child = create_hour_tab();
-    gtk_container_add(GTK_CONTAINER(vbox),child);
-    gtk_widget_show_all(vbox);
+    if(app->popup_window){
+         child = create_hour_tab();
+         gtk_container_add(GTK_CONTAINER(vbox),child);
+#ifndef CLUTTER
+         gtk_widget_show_all(vbox);
+#endif
+     }
+     return FALSE;
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -366,7 +372,7 @@ create_toolbar_box(gpointer exit_function, gpointer arg_exit_function)
 destroy_container (GtkWidget *widget, gpointer *data){
     gtk_widget_destroy(GTK_WIDGET(widget));
 }
-
+/******************************************************************************/
 gboolean
 popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
     GtkWidget *vbox = NULL;
@@ -376,7 +382,16 @@ popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
     vbox = gtk_notebook_get_nth_page(nb, page);
     free_clutter_objects_list(&app->clutter_objects_in_popup_form);
     gtk_container_foreach (GTK_CONTAINER (vbox), (GtkCallback)destroy_container, NULL);
-    make_tab(vbox);
+
+    /* Create needed Tab */
+    if (!strcmp(_("Now"),gtk_notebook_get_tab_label_text(nb,vbox)))
+        make_current_tab(vbox);
+    else
+        if (!strcmp(_("Detailed"),gtk_notebook_get_tab_label_text(nb,vbox)))
+            make_hour_tab(vbox);
+        else
+            make_tab(vbox);
+
     gtk_widget_show_all(vbox);
 
 }
@@ -489,19 +504,20 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 	current_tab = gtk_vbox_new(FALSE, 0);
 
     if(current_tab){
-	if(active_tab == 0){
-    	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-					current_tab,
-					gtk_label_new(_("Now")));
-	    make_current_tab(current_tab); 
-        }
-	else{
-	    gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
-					current_tab,
-					gtk_label_new(_("Now")));
-	    g_idle_add((GSourceFunc)make_current_tab,current_tab);
-	    add_item2object(&(app->tab_of_window_popup), (void*)current_tab);
-	}
+        if(active_tab == 0){
+            gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+                                        current_tab,
+                                        gtk_label_new(_("Now")));
+            make_current_tab(current_tab);
+        }else{
+            gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
+                                        current_tab,
+                                        gtk_label_new(_("Now")));
+#if defined CLUTTER
+            g_idle_add((GSourceFunc)make_current_tab,current_tab);
+#endif
+            add_item2object(&(app->tab_of_window_popup), (void*)current_tab);
+       }
     }
 
 /* if weather is separated than hide one day */
@@ -523,7 +539,9 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
             gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                         hour_tab,
                                         gtk_label_new(_("Detailed")));
+#if defined CLUTTER
            g_idle_add((GSourceFunc)make_hour_tab,hour_tab);
+#endif
            add_item2object(&(app->tab_of_window_popup), (void*)hour_tab);
         }
     }
@@ -786,9 +804,6 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
                         BIG_ICON_SIZE,
                         BIG_ICON_SIZE, NULL);
     day_icon = create_icon_widget(icon, buffer, BIG_ICON_SIZE, &app->clutter_objects_in_popup_form);
-//    day_icon = gtk_image_new_from_pixbuf(icon);
-//    if(icon)
-//         g_object_unref(icon);
     gtk_box_pack_start(GTK_BOX(day_icon_text_hbox),
                         day_icon, TRUE, TRUE, 5);
 /* prepare day text */
@@ -830,45 +845,43 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     /* hbox for night label and temperature */
     night_label_temperature_hbox = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(night_vbox),
-			night_label_temperature_hbox,
-			TRUE, TRUE, 0);
+                        night_label_temperature_hbox,
+                        TRUE, TRUE, 0);
     /* prepare night label */
     night_label = gtk_label_new(_("Night:"));
     gtk_box_pack_start(GTK_BOX(night_label_temperature_hbox),
-			night_label, FALSE, TRUE, 0);
+                        night_label, FALSE, TRUE, 0);
     /* night temperature */
     memset(buffer, 0, sizeof(buffer));
     if(low_temp == INT_MAX)
-	strncat(buffer, (char*)hash_table_find("N/A", FALSE),
-			( (strlen((char*)hash_table_find("N/A", FALSE)) > sizeof(buffer)) ?
-		        (sizeof(buffer) - 1) :
-		        (strlen((char*)hash_table_find("N/A", FALSE))) ) );
+       strncat(buffer, (char*)hash_table_find("N/A", FALSE),
+                        ( (strlen((char*)hash_table_find("N/A", FALSE)) > sizeof(buffer)) ?
+                        (sizeof(buffer) - 1) :
+                        (strlen((char*)hash_table_find("N/A", FALSE))) ) );
     else
-	snprintf(buffer, sizeof(low_temp) + 
-			( (strlen(("\302\260%c")) > sizeof(buffer)) ?
-		        (sizeof(buffer) - 1) : (strlen("\302\260%c")) ),
-			"%d\302\260%c", low_temp, symbol);
+        snprintf(buffer, sizeof(low_temp) + 
+                        ( (strlen(("\302\260%c")) > sizeof(buffer)) ?
+                        (sizeof(buffer) - 1) : (strlen("\302\260%c")) ),
+                        "%d\302\260%c", low_temp, symbol);
     gtk_box_pack_start(GTK_BOX(night_label_temperature_hbox),
-			gtk_label_new(buffer), FALSE, TRUE, 40);
+                        gtk_label_new(buffer), FALSE, TRUE, 40);
     /* hbox for icon and text */
     night_icon_text_hbox = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(night_vbox),
-			night_icon_text_hbox, TRUE, TRUE, 0);
+                        night_icon_text_hbox, TRUE, TRUE, 0);
     /* night icon */
     memset(buffer, 0, sizeof(buffer));
     sprintf(buffer, "%s%s.png", app->config->icons_set_base, item_value(day, "night_icon"));
     icon = gdk_pixbuf_new_from_file_at_size(buffer,
-					    BIG_ICON_SIZE,
-					    BIG_ICON_SIZE, NULL);
-    night_icon = gtk_image_new_from_pixbuf(icon);
-    if(icon)
-	g_object_unref(icon);
+                                            BIG_ICON_SIZE,
+                                            BIG_ICON_SIZE, NULL);
+    night_icon = create_icon_widget(icon, buffer, BIG_ICON_SIZE, &app->clutter_objects_in_popup_form);
     gtk_box_pack_start(GTK_BOX(night_icon_text_hbox),
-			night_icon, TRUE, TRUE, 5);
+                       night_icon, TRUE, TRUE, 5);
 /* preapare night text */
     gtk_box_pack_start(GTK_BOX(night_icon_text_hbox),
-			night_text_vbox = gtk_vbox_new(FALSE, 0),
-			TRUE, TRUE, 0);
+                        night_text_vbox = gtk_vbox_new(FALSE, 0),
+                        TRUE, TRUE, 0);
     memset(buffer, 0, sizeof(buffer));
     if(!strcmp((char*)item_value(day, "night_title"), "N/A"))
         night_invalid_count++;
@@ -883,7 +896,7 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     else{
 	sprintf(buffer + strlen(buffer), "%s\n",
 			(char*)hash_table_find("N/A", FALSE));
-	night_invalid_count++;			
+	night_invalid_count++;
     }
     strcat(buffer, _("Wind: "));
     if(!strcmp((char*)item_value(day, "night_wind_title"), "N/A"))
@@ -961,9 +974,7 @@ GtkWidget* create_current_tab(GSList *current){
     sprintf(buffer,"%s%s.png", app->config->icons_set_base, item_value(current, "icon"));
     icon = gdk_pixbuf_new_from_file_at_size(buffer, GIANT_ICON_SIZE,
 						    GIANT_ICON_SIZE, NULL);
-    icon_image = gtk_image_new_from_pixbuf(icon);
-    if(icon)
-        g_object_unref(icon);
+    icon_image = create_icon_widget(icon, buffer, GIANT_ICON_SIZE, &app->clutter_objects_in_popup_form);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), icon_image, TRUE, TRUE, 0);
     /* temperature */
     memset(buffer, 0, sizeof(buffer));
@@ -1055,6 +1066,11 @@ GtkWidget* create_current_tab(GSList *current){
 			    TRUE, FALSE, 5);
     gtk_widget_show_all(main_widget);
 
+#if defined CLUTTER
+    g_signal_connect_after(main_widget, "expose-event",
+         G_CALLBACK(popup_window_expose), NULL);
+#endif
+
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -1080,36 +1096,34 @@ GtkWidget* create_hour_tab(void){
     START_FUNCTION;
 #endif
     if(!app->wsd.hours_weather)
-	return NULL;
+        return NULL;
 
     main_widget = gtk_vbox_new(FALSE, 0);
     window_tmp = gtk_hbox_new(FALSE, 0);
     tmp = app->wsd.hours_weather;
-    
+
     while(tmp){
-    	hour_weather = (GSList*)tmp->data; 
-	window = gtk_vbox_new(FALSE, 0);
-	icon_text_hbox = gtk_hbox_new(FALSE, 0);
+        hour_weather = (GSList*)tmp->data;
+        window = gtk_vbox_new(FALSE, 0);
+        icon_text_hbox = gtk_hbox_new(FALSE, 0);
 /* icon */
-	sprintf(buffer,"%s%s.png", app->config->icons_set_base, item_value(hour_weather, "hour_icon"));
-	icon = gdk_pixbuf_new_from_file_at_size(buffer, SMALL_ICON_SIZE,
+        sprintf(buffer,"%s%s.png", app->config->icons_set_base, item_value(hour_weather, "hour_icon"));
+        icon = gdk_pixbuf_new_from_file_at_size(buffer, SMALL_ICON_SIZE,
                                                    SMALL_ICON_SIZE, NULL);
-	icon_image = gtk_image_new_from_pixbuf(icon);
-	if(icon)
-	    g_object_unref(icon);
-	gtk_box_pack_start(GTK_BOX(icon_text_hbox), icon_image, TRUE, FALSE, 0);
-	memset(buffer, 0, sizeof(buffer));	
+        icon_image = create_icon_widget(icon, buffer, SMALL_ICON_SIZE, &app->clutter_objects_in_popup_form);
+        gtk_box_pack_start(GTK_BOX(icon_text_hbox), icon_image, TRUE, FALSE, 0);
+        memset(buffer, 0, sizeof(buffer));
 /* hour */
-	sprintf(buffer + strlen(buffer), "%s", _("Forecast at: "));
-/* TODO fix this item to corret displaing localized time */
-	sprintf(buffer + strlen(buffer), "%s:00\n",
+        sprintf(buffer + strlen(buffer), "%s", _("Forecast at: "));
+/* TODO fix this item to correct displaing localized time */
+        sprintf(buffer + strlen(buffer), "%s:00\n",
                                 item_value(hour_weather, "hours"));
 /* title */
-	sprintf(buffer + strlen(buffer), "%s\n",
+        sprintf(buffer + strlen(buffer), "%s\n",
                         (char*)hash_table_find(item_value(hour_weather, "hour_title"), FALSE));
 /* temperature */
-	sprintf(buffer + strlen(buffer), "%s",  _("Temperature: "));
-	sprintf(buffer + strlen(buffer), " %d\302\260",
+        sprintf(buffer + strlen(buffer), "%s",  _("Temperature: "));
+        sprintf(buffer + strlen(buffer), " %d\302\260",
                    ((app->config->temperature_units == CELSIUS) ?
                    ( atoi(item_value(hour_weather, "hour_temperature"))) :
                    ( (int)c2f(atoi(item_value(hour_weather, "hour_temperature"))))));
@@ -1122,7 +1136,7 @@ GtkWidget* create_hour_tab(void){
                   (atoi(item_value(hour_weather, "hour_feels_like"))) :
                   ((int)c2f(atoi(item_value(hour_weather, "hour_feels_like")))));
         (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")))
-						    : ( strcat(buffer, _("F\n")));
+                                                    : ( strcat(buffer, _("F\n")));
    /* humidity */
         sprintf(buffer + strlen(buffer), "%s", _("Humidity:"));
         if( strcmp(item_value(hour_weather, "hour_humidity"), "N/A") ){
@@ -1170,10 +1184,16 @@ GtkWidget* create_hour_tab(void){
                              create_time_updates_widget(hour_weather, FALSE),
                              TRUE, FALSE, 5);
     gtk_widget_show_all(main_widget);
-    return main_widget;
+
+#if defined CLUTTER
+    g_signal_connect_after(main_widget, "expose-event",
+         G_CALLBACK(popup_window_expose), NULL);
+#endif
+
 #ifdef DEBUGFUNCTIONCALL 
     END_FUNCTION;
-#endif    
+#endif
+    return main_widget;
 }
 /*******************************************************************************/
 GtkWidget* create_copyright_widget(const gchar *text, const gchar *image){

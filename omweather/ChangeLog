@@ -4,6 +4,7 @@
   * Added option 'non-cache' for downloading of weather forecast data
   * Fixed bug #3760 'Missing or erroneous weather status translation'
   * Added clutter animations
+  * Added new mode - "Application"
 
 0.21.10
   * Updated French tranlation

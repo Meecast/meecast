@@ -5,6 +5,7 @@ omweather (0.22) unstable; urgency=low
   * Added option 'non-cache' for downloading of weather forecast data
   * Fixed bug #3760 'Missing or erroneous weather status translation'
   * Added clutter animations
+  * Added new mode - "Application"
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 20 Apr 2009 13:36:00 +0200
 

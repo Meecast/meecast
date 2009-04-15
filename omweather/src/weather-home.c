@@ -647,9 +647,9 @@ draw_home_window(gint count_day){
            gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);
        }
     #endif
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 }
 /*******************************************************************************/
 void 

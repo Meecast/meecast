@@ -37,7 +37,7 @@
 /*******************************************************************************/
 #define MOON_ICONS		"/usr/share/omweather/moon_icons/"
 /*******************************************************************************/
-    
+
     void
 destroy_popup_window(void){
     GSList    *tmp = NULL;
@@ -467,11 +467,6 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 /* create tabs widget */
     notebook = gtk_notebook_new();
 
-#if defined CLUTTER
-//   g_signal_connect_after(notebook, "expose-event",
-//      G_CALLBACK(popup_window_expose), NULL);
-#endif
-
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
 
 /* Current weather */
@@ -554,19 +549,19 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
         }else{
              /* Create the page with data */
             tab = create_day_tab(app->wsd.current, day, &day_name);
-           if(tab){
+            if(tab){
                page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                         tab,
                                         gtk_label_new(day_name));
+               g_object_set_data(G_OBJECT(tab), "day", (gpointer)tmp->data);
            }
         }
-
-    if (day_name){
-        g_free(day_name);
-        day_name = NULL;
-    }
-	tmp = g_slist_next(tmp);
-	i++;
+        if (day_name){
+            g_free(day_name);
+            day_name = NULL;
+        }
+        tmp = g_slist_next(tmp);
+        i++;
     }
 /* prepare day tabs */
     if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){
@@ -616,13 +611,13 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
                      G_CALLBACK(popup_switch_cb), app->popup_window);
 #endif
 /* Show copyright widget */
-    fprintf(stderr, "\n>>>>>>>>>>>>>>>>Source %s\n", app->config->current_station_source);
+//    fprintf(stderr, "\n>>>>>>>>>>>>>>>>Source %s\n", app->config->current_station_source);
     copyright_box = gtk_event_box_new();
     gtk_container_add(GTK_CONTAINER(copyright_box),
-			create_copyright_widget(app->config->current_station_source, NULL));
+                  create_copyright_widget(app->config->current_station_source, NULL));
     gtk_box_pack_start(GTK_BOX(vbox),
-			copyright_box,
-			FALSE, TRUE, 0);
+                  copyright_box,
+                  FALSE, TRUE, 0);
     gtk_event_box_set_visible_window(GTK_EVENT_BOX(copyright_box),TRUE);
 
     gtk_box_pack_start(GTK_BOX(vbox),buttons_box,FALSE,FALSE,0);
@@ -818,18 +813,18 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
     }
     strcat(buffer, _("Wind: "));
     if(!strcmp((char*)item_value(day, "day_wind_title"), "N/A"))
-	day_invalid_count++;
+        day_invalid_count++;
     if(!strcmp((char*)item_value(day, "day_wind_speed"), "N/A"))
-	day_invalid_count++;
+        day_invalid_count++;
     sprintf(buffer + strlen(buffer), "%s\n%.2f %s",
-	    (char*)hash_table_find(item_value(day, "day_wind_title"), FALSE),
-	    convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed"))),
-	    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+            (char*)hash_table_find(item_value(day, "day_wind_title"), FALSE),
+            convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed"))),
+            (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     day_text = gtk_label_new(buffer);
     set_font(day_label, NULL, font_size);
     set_font(day_text, NULL, font_size-1);
     gtk_box_pack_start(GTK_BOX(day_text_vbox),
-			day_text, TRUE, TRUE, 0);
+                       day_text, TRUE, TRUE, 0);
     /* night data */
     night_vbox = gtk_vbox_new(FALSE, 0);
     /* hbox for night label and temperature */

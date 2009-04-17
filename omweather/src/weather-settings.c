@@ -195,8 +195,12 @@ changed_stations_handler(GtkWidget *widget, gpointer user_data){
 void
 changed_sources_handler(GtkWidget *widget, gpointer user_data){
     struct lists_struct	*list = NULL;
-    GtkWidget		*config = GTK_WIDGET(user_data);
-    gchar		buffer[128];
+    GtkWidget		*config = GTK_WIDGET(user_data),
+			*search_entry = NULL;
+    GtkTreeModel	*model = NULL;
+    GtkTreeIter		iter;
+    GHashTable		*source = NULL;
+    gpointer		value = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -222,23 +226,36 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
 	    gtk_list_store_clear(list->stations_list);
 	    g_object_unref(list->stations_list);
 	}
-	/* prepare database name */
-	*buffer = 0;
-	if(!gtk_combo_box_get_active_text(GTK_COMBO_BOX(widget)))
+	/* get source data */
+	if(!gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter))
 	    return;
-	snprintf(buffer, sizeof(buffer) - 1, "%s.db",
-		    gtk_combo_box_get_active_text(GTK_COMBO_BOX(widget)));
-	/* open database */
-	list->database = open_database(DATABASEPATH, buffer);
-	/* Read Coutries list from file */
-	list->countries_list = create_countries_list(list->database);
-	/* append list to the combobox */
-	gtk_combo_box_set_model(GTK_COMBO_BOX(list->countries),
-				(GtkTreeModel*)list->countries_list);
-	if(app->config->current_source)
-	    g_free(app->config->current_source);
-	app->config->current_source =
-		g_strdup(gtk_combo_box_get_active_text(GTK_COMBO_BOX(widget)));
+	model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
+	gtk_tree_model_get(model, &iter, 1, &source, -1);
+	/* prepare database name */
+	if(source_stations_database_valid(source)){
+	    value = g_hash_table_lookup(source, "base");
+	    if(value){
+		/* open database */
+		list->database = open_database(DATABASEPATH, (gchar*)value);
+		/* Read Coutries list from file */
+		list->countries_list = create_countries_list(list->database);
+		/* append list to the combobox */
+		gtk_combo_box_set_model(GTK_COMBO_BOX(list->countries),
+					(GtkTreeModel*)list->countries_list);
+		if(app->config->current_source)
+		    g_free(app->config->current_source);
+		app->config->current_source =
+			g_strdup(gtk_combo_box_get_active_text(GTK_COMBO_BOX(widget)));
+		/* enable/disable search field */
+		search_entry = lookup_widget(config, "station_name_entry");
+		if(search_entry){
+		    if(source_search_url_valid(source))
+			gtk_widget_set_sensitive(search_entry, TRUE);
+		    else
+			gtk_widget_set_sensitive(search_entry, FALSE);
+		}
+	    }
+	}
     }
 }
 /*******************************************************************************/
@@ -291,24 +308,13 @@ new_station_handler(GtkButton *button, gpointer user_data){
 	right_table = gtk_table_new(10, 2, FALSE);
 	gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
 			    right_table, TRUE, TRUE, 10);
-	/* label By name */
-	gtk_table_attach_defaults(GTK_TABLE(right_table),
-				    gtk_label_new(_("Name:")), 0, 1, 0, 1);
-	/* entry for station name */
-	gtk_table_attach_defaults(GTK_TABLE(right_table),
-				    station_name = gtk_entry_new(),
-				    1, 2, 0, 1);
-	GLADE_HOOKUP_OBJECT(window, station_name, "station_name_entry");
-	gtk_widget_set_name(station_name, "station_name");
-//    g_signal_connect(G_OBJECT(station_name), "changed",
-//                     G_CALLBACK(entry_changed_handler), (gpointer)window);
 	/* Sources label */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
-				    gtk_label_new(_("Source:")), 0, 1, 1, 2);
+				    gtk_label_new(_("Source:")), 0, 1, 0, 1);
 	/* sources list */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
 				    sources = gtk_combo_box_new_text(),
-				    1, 2, 1, 2);
+				    1, 2, 0, 1);
 	gtk_combo_box_set_model(GTK_COMBO_BOX(sources),
 				(GtkTreeModel*)list.sources_list);
 	gtk_widget_show(sources);
@@ -316,34 +322,45 @@ new_station_handler(GtkButton *button, gpointer user_data){
 	/* Countries label */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
 				    gtk_label_new(_("Country:")),
-				    0, 1, 3, 4);
+				    0, 1, 1, 2);
 	/* countries list  */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
 				    countries = gtk_combo_box_new_text(),
-				    1, 2, 3, 4);
+				    1, 2, 1, 2);
 	list.countries = countries;
 	gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(countries), 0);
 	gtk_widget_show(countries);
 	/* States label */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
 				    gtk_label_new(_("State:")),
-				    0, 1, 4, 5);
+				    0, 1, 2, 3);
 	/* states list */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
 				    states = gtk_combo_box_new_text(),
-				    1, 2, 4, 5);
+				    1, 2, 2, 3);
 	list.states = states;
 	gtk_widget_show(states);
 	/* Stations label */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
-				    gtk_label_new(_("City:")), 0, 1, 5, 6);
+				    gtk_label_new(_("City:")), 0, 1, 3, 4);
 	/* stations list */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
 				    stations = gtk_combo_box_new_text(),
-				    1, 2, 5, 6);
+				    1, 2, 3, 4);
 	list.stations = stations;
 	gtk_widget_show(stations);
 	GLADE_HOOKUP_OBJECT(window, GTK_WIDGET(stations), "stations");
+	/* label By name */
+	gtk_table_attach_defaults(GTK_TABLE(right_table),
+				    gtk_label_new(_("Name:")), 0, 1, 4, 5);
+	/* entry for station name */
+	gtk_table_attach_defaults(GTK_TABLE(right_table),
+				    station_name = gtk_entry_new(),
+				    1, 2, 4, 5);
+	GLADE_HOOKUP_OBJECT(window, station_name, "station_name_entry");
+	gtk_widget_set_name(station_name, "station_name");
+	g_signal_connect(G_OBJECT(station_name), "changed",
+			    G_CALLBACK(entry_changed_handler), (gpointer)window);
 	/* Set size */
 	gtk_widget_set_size_request(countries, 300, -1);
 	gtk_widget_set_size_request(states, 300, -1);
@@ -413,10 +430,6 @@ new_station_handler(GtkButton *button, gpointer user_data){
     if(list.stations_list){
 	gtk_list_store_clear(list.stations_list);
 	g_object_unref(list.stations_list);
-    }
-    if(list.sources_list){
-	gtk_list_store_clear(list.sources_list);
-	g_object_unref(list.sources_list);
     }
 /* close database */
     close_database(list.database);

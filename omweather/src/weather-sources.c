@@ -37,10 +37,10 @@ create_sources_list(gchar *sources_path, gint *sources_number){
     GSList		*db_set = NULL,
 			*tmp = NULL;
     GtkTreeIter		iter;
-    gchar		buffer[255],
-			*dot = NULL;
+    gchar		buffer[255];
     GHashTable		*source = NULL;
     gint		counter = 0;
+    gpointer		value = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -60,26 +60,22 @@ create_sources_list(gchar *sources_path, gint *sources_number){
 		    (gchar*)(tmp->data));
 	source = parse_source_file(buffer, "UTF-8");
 	if(source){
-	    if(source_params_valid(source)){ /* temporaly */
+	    if(source_params_valid(source)){
+		value = g_hash_table_lookup(source, "name");
 		/* add source to list */
-		*buffer = 0;
-		snprintf(buffer, sizeof(buffer) - 1, "%s", (gchar*)(tmp->data));
-		dot = strstr(buffer, ".xml");
-		if(dot){
-		    *dot = 0;	/* delete .xml */
-		    gtk_list_store_append(list, &iter);
-		    gtk_list_store_set(list, &iter, 0, buffer,
-						    1, (gpointer)source,
-						    -1);
+		gtk_list_store_append(list, &iter);
+		gtk_list_store_set(list, &iter, 0, value,
+						1, (gpointer)source,
+						-1);
 		    counter++;
-		}
 	    }
 	}
 	tmp = g_slist_next(tmp);
     }
     g_slist_free(db_set);
 
-    *sources_number = counter;
+    if(sources_number)
+	*sources_number = counter;
     return list;
 }
 /*******************************************************************************/
@@ -90,10 +86,26 @@ source_params_valid(GHashTable *data){
 #endif
     if(!data)
 	return FALSE;
-    if(!source_library_valid(data) ||
+    if((!source_name_valid(data) && !source_library_valid(data)) ||
 	    (!source_forecast_url_valid(data) && !source_detail_url_valid(data)))
 	return FALSE;
     return TRUE;
+}
+/*******************************************************************************/
+gboolean
+source_name_valid(GHashTable *data){
+    gpointer	value = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(!data)
+	return FALSE;
+    /* check name */
+    value = g_hash_table_lookup(data, "name");
+    if(!value)
+	return FALSE;
+    else
+	return TRUE;
 }
 /*******************************************************************************/
 gboolean
@@ -260,13 +272,11 @@ parse_children(xmlNode *node, GHashTable *object){
     while(node){
 	if(node->type == XML_ELEMENT_NODE){
 	    /* name */
-/*
 	    if(!xmlStrcmp(node->name, (const xmlChar*)"name")){
 		value = xmlNodeGetContent(node);
 		g_hash_table_insert(object, "name", g_strdup((gchar*)value));
 		xmlFree(value);
 	    }
-*/
 	    /* logo */
 	    if(!xmlStrcmp(node->name, (const xmlChar*)"logo")){
 		value = xmlNodeGetContent(node);

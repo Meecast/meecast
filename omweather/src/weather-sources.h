@@ -34,6 +34,7 @@
 GtkListStore* create_sources_list(gchar *sources_path, gint *sources_number);
 GHashTable* parse_source_file(const gchar *filename, const gchar *encoding);
 gboolean source_params_valid(GHashTable *data);
+gboolean source_name_valid(GHashTable *data);
 gboolean source_library_valid(GHashTable *data);
 gboolean source_forecast_url_valid(GHashTable *data);
 gboolean source_detail_url_valid(GHashTable *data);

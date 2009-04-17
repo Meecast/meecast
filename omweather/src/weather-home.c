@@ -62,7 +62,7 @@ struct _OMWeatherPrivate {
 };
 #endif
 #if defined OS2009 && !defined (APPLICATION)
-HD_DEFINE_PLUGIN_MODULE (OmweatherHomePlugin, omweather_home_plugin,
+HD_DEFINE_PLUGIN_MODULE(OmweatherHomePlugin, omweather_home_plugin,
 			 HD_TYPE_HOME_PLUGIN_ITEM);
 struct _OmweatherHomePluginPrivate {
 	GtkWidget	*desktop;
@@ -779,7 +779,7 @@ omweather_init(OMWeather *applet){
     gchar       tmp_buff[2048];
 #elif OS2009
 void
-omweather_home_plugin_init (OmweatherHomePlugin *applet){
+omweather_home_plugin_init(OmweatherHomePlugin *applet){
 HDHomePluginItem *myparent;
 #else
 void*
@@ -797,21 +797,21 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     if(!osso){
         g_debug(_("Error initializing the OMWeather applet"));
 #if !defined OS2008 || defined (APPLICATION)
-        return NULL;
-#else
         return;
+#else
+        return NULL;
 #endif
     }
 #endif
 /* Checking noomweather.txt file */
     if ((access("/media/mmc1/noomweather.txt", R_OK) == 0)||
         (access("/media/mmc2/noomweather.txt", R_OK) == 0))
-#if defined(OS2009) || defined(NONMAEMO) || defined (APPLICATION)
+#if defined(NONMAEMO) || defined (APPLICATION)
        return FALSE;
 #elif OS2008
-        return;
-#else
         return NULL;
+#else
+        return;
 #endif
 
     app = g_new0(OMWeatherApp, 1);
@@ -878,7 +878,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	return NULL;
 #endif
     }
-
+    app->sources_list = create_sources_list(SOURCESPATH, &app->sources_number);
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
     app->popup_window = NULL;
@@ -1062,7 +1062,7 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 
 #if defined OS2008 && ! defined APPLICATION
     gtk_object_destroy(widget);
-#else defined APPLICATION  || defined NONMAEMO
+#elif defined APPLICATION  || defined NONMAEMO
     gtk_main_quit();
 #endif
 

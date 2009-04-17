@@ -256,8 +256,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
 		*search_button = NULL,
 		*banner = NULL,
 		*label = NULL;
-    gint	result,
-		sources_number = 0;
+    gint	result;
 
     banner = hildon_banner_show_information(GTK_WIDGET(user_data),
 				    NULL,
@@ -287,7 +286,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
     g_object_set_data(G_OBJECT(window), "list", (gpointer)&list);
     /* right side */
     /* create sources list from aviable sources */
-    list.sources_list = create_sources_list(SOURCESPATH, &sources_number);
+    list.sources_list = app->sources_list;
     if(list.sources_list){
 	right_table = gtk_table_new(10, 2, FALSE);
 	gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),

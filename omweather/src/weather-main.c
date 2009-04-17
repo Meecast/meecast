@@ -59,7 +59,7 @@ main(int argc, char *argv[]){
     bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
     textdomain(GETTEXT_PACKAGE);
 #endif
-    osso_context = osso_initialize("omweather_app", VERSION, TRUE, NULL);
+    osso_context = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
     if(!osso_context){
         fprintf(stderr,"osso_initialize failed\n");
         return 1;

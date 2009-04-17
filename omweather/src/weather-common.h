@@ -33,6 +33,7 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#include <dlfcn.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -364,6 +365,8 @@ typedef struct OMWeatherApplet{
     GtkListStore	*user_stations_list;
     GtkListStore	*time_update_list;
     GtkListStore	*user_alerts_list;
+    GtkListStore	*sources_list;
+    gint		sources_number;
     GtkWidget 		*contextmenu;
     gboolean 		widget_first_start;
     gint 		widget_showing;
@@ -388,6 +391,7 @@ typedef struct OMWeatherApplet{
     gint		aw;
     gint		ah;
     GSList		*tab_of_window_popup;
+    GSList		*handles;
     gboolean            fullscreen;
 #ifdef ENABLE_GPS
 #ifdef OS2008

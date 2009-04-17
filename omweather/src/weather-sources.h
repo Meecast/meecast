@@ -37,6 +37,7 @@ gboolean source_params_valid(GHashTable *data);
 gboolean source_library_valid(GHashTable *data);
 gboolean source_forecast_url_valid(GHashTable *data);
 gboolean source_detail_url_valid(GHashTable *data);
+gboolean source_search_url_valid(GHashTable *data);
 gboolean source_stations_database_valid(GHashTable *data);
 gboolean source_logo_file_valid(GHashTable *data);
 void parse_children(xmlNode *node, GHashTable *object);

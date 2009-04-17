@@ -31,14 +31,15 @@
 #include <string.h>
 #define		SOURCES_LIB	"/usr/lib/omweather"
 /*******************************************************************************/
-GtkListStore* create_sources_list(gchar *sources_path, gint *sources_number){
+GtkListStore*
+create_sources_list(gchar *sources_path, gint *sources_number){
     GtkListStore	*list = NULL;
     GSList		*db_set = NULL,
 			*tmp = NULL;
     GtkTreeIter		iter;
     gchar		buffer[255],
 			*dot = NULL;
-    GHashTable		*source;
+    GHashTable		*source = NULL;
     gint		counter = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -59,7 +60,7 @@ GtkListStore* create_sources_list(gchar *sources_path, gint *sources_number){
 		    (gchar*)(tmp->data));
 	source = parse_source_file(buffer, "UTF-8");
 	if(source){
-//	    if(source_params_valid(source)){ /* temporaly */
+	    if(source_params_valid(source)){ /* temporaly */
 		/* add source to list */
 		*buffer = 0;
 		snprintf(buffer, sizeof(buffer) - 1, "%s", (gchar*)(tmp->data));
@@ -72,7 +73,7 @@ GtkListStore* create_sources_list(gchar *sources_path, gint *sources_number){
 						    -1);
 		    counter++;
 		}
-//	    }
+	    }
 	}
 	tmp = g_slist_next(tmp);
     }
@@ -82,7 +83,8 @@ GtkListStore* create_sources_list(gchar *sources_path, gint *sources_number){
     return list;
 }
 /*******************************************************************************/
-gboolean source_params_valid(GHashTable *data){
+gboolean
+source_params_valid(GHashTable *data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -94,29 +96,46 @@ gboolean source_params_valid(GHashTable *data){
     return TRUE;
 }
 /*******************************************************************************/
-gboolean source_library_valid(GHashTable *data){
-    gpointer	value;
+gboolean
+source_library_valid(GHashTable *data){
+    gpointer	value = NULL,
+		handle = NULL,
+		parser = NULL;
     gchar	buffer[256];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!data)
 	return FALSE;
-    /* check *-source.so file */
+    /* check libomweather-xxx-source.so file */
     value = g_hash_table_lookup(data, "library");
     if(!value)/* library file does not defined */
 	return FALSE;
     else{
 	*buffer = 0;
-	snprintf(buffer, sizeof(buffer) - 1, "%s%s",
+	snprintf(buffer, sizeof(buffer) - 1, "%s/%s",
 		    SOURCES_LIB, (gchar*)value);
 	if(access(buffer, R_OK))/* file does not exist or no permissions */
 	    return FALSE;
+	handle = dlopen(buffer, RTLD_NOW);
+	if(!handle)/* failed to load library */
+	    return FALSE;
+	dlerror();
+	parser = dlsym(handle, "get_station_weather_data");
+	if(dlerror()){/* can't find get_station_weather_data function in library */
+	    dlclose(handle);
+	    return FALSE;
+	}
+	/* if all OK, than add parser address to the hash */
+	g_hash_table_insert(data, "parser", parser);
+	/* store opening library handle */
+	app->handles = g_slist_append(app->handles, handle);
     }
     return TRUE;
 }
 /*******************************************************************************/
-gboolean source_forecast_url_valid(GHashTable *data){
+gboolean
+source_forecast_url_valid(GHashTable *data){
     gpointer	value;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -131,14 +150,15 @@ gboolean source_forecast_url_valid(GHashTable *data){
 	return TRUE;
 }
 /*******************************************************************************/
-gboolean source_detail_url_valid(GHashTable *data){
+gboolean
+source_detail_url_valid(GHashTable *data){
     gpointer	value;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!data)
 	return FALSE;
-    /* check forecast url*/
+    /* check detail url*/
     value = g_hash_table_lookup(data, "detail_url");
     if(!(value && strstr(value, "%s")))
 	return FALSE;
@@ -146,7 +166,24 @@ gboolean source_detail_url_valid(GHashTable *data){
 	return TRUE;
 }
 /*******************************************************************************/
-gboolean source_stations_database_valid(GHashTable *data){
+gboolean
+source_search_url_valid(GHashTable *data){
+    gpointer	value;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(!data)
+	return FALSE;
+    /* check search url*/
+    value = g_hash_table_lookup(data, "search_url");
+    if(!(value && strstr(value, "%s")))
+	return FALSE;
+    else
+	return TRUE;
+}
+/*******************************************************************************/
+gboolean
+source_stations_database_valid(GHashTable *data){
     gpointer	value;
     gchar	buffer[256];
 #ifdef DEBUGFUNCTIONCALL
@@ -155,7 +192,7 @@ gboolean source_stations_database_valid(GHashTable *data){
     if(!data)
 	return FALSE;
     /* check *.db file */
-    value = g_hash_table_lookup(data, "stations_db");
+    value = g_hash_table_lookup(data, "base");
     if(!value)/* database file does not defined */
 	return FALSE;
     else{
@@ -168,7 +205,8 @@ gboolean source_stations_database_valid(GHashTable *data){
     return TRUE;
 }
 /*******************************************************************************/
-gboolean source_logo_file_valid(GHashTable *data){
+gboolean
+source_logo_file_valid(GHashTable *data){
     gpointer	value;
     gchar	buffer[256];
 #ifdef DEBUGFUNCTIONCALL
@@ -190,7 +228,8 @@ gboolean source_logo_file_valid(GHashTable *data){
     return TRUE;
 }
 /*******************************************************************************/
-GHashTable* parse_source_file(const gchar *filename, const gchar *encoding){
+GHashTable*
+parse_source_file(const gchar *filename, const gchar *encoding){
     xmlDoc	*document = NULL;
     xmlNode	*root_node = NULL,
 		*current_node = NULL;
@@ -212,8 +251,8 @@ GHashTable* parse_source_file(const gchar *filename, const gchar *encoding){
     return object;
 }
 /*******************************************************************************/
-void parse_children(xmlNode *node, GHashTable *object){
-    GHashTable	*something = NULL;
+void
+parse_children(xmlNode *node, GHashTable *object){
     xmlChar	*value = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -222,49 +261,48 @@ void parse_children(xmlNode *node, GHashTable *object){
 	if(node->type == XML_ELEMENT_NODE){
 	    /* name */
 /*
-	    if(!xmlStrcmp(node->name, (const xmlChar *)"name")){
+	    if(!xmlStrcmp(node->name, (const xmlChar*)"name")){
 		value = xmlNodeGetContent(node);
-		g_hash_table_insert(object, "name", (gpointer)value);
+		g_hash_table_insert(object, "name", g_strdup((gchar*)value));
 		xmlFree(value);
 	    }
 */
 	    /* logo */
-	    if(!xmlStrcmp(node->name, (const xmlChar *)"logo")){
+	    if(!xmlStrcmp(node->name, (const xmlChar*)"logo")){
 		value = xmlNodeGetContent(node);
-		g_hash_table_insert(object, "logo", (gpointer)value);
+		g_hash_table_insert(object, "logo", g_strdup((gchar*)value));
 		xmlFree(value);
 	    }
 	    /* forecast_url */
-	    if(!xmlStrcmp(node->name, (const xmlChar *)"forecast")){
+	    if(!xmlStrcmp(node->name, (const xmlChar*)"forecast")){
 		value = xmlGetProp(node, (const xmlChar*)"url");
-		g_hash_table_insert(object, "forecast_url", (gpointer)value);
+		g_hash_table_insert(object, "forecast_url", g_strdup((gchar*)value));
 		xmlFree(value);
 	    }
 	    /* detail_url */
-	    if(!xmlStrcmp(node->name, (const xmlChar *)"detail")){
+	    if(!xmlStrcmp(node->name, (const xmlChar*)"detail")){
 		value = xmlGetProp(node, (const xmlChar*)"url");
-		g_hash_table_insert(object, "detail_url", (gpointer)value);
+		g_hash_table_insert(object, "detail_url", g_strdup((gchar*)value));
 		xmlFree(value);
 	    }
 	    /* search_url */
-	    if(!xmlStrcmp(node->name, (const xmlChar *)"search")){
+	    if(!xmlStrcmp(node->name, (const xmlChar*)"search")){
 		value = xmlGetProp(node, (const xmlChar*)"url");
-		g_hash_table_insert(object, "search_url", (gpointer)value);
+		g_hash_table_insert(object, "search_url", g_strdup((gchar*)value));
 		xmlFree(value);
 	    }
 	    /* stations_db */
-	    if(!xmlStrcmp(node->name, (const xmlChar *)"stations_db")){
+	    if(!xmlStrcmp(node->name, (const xmlChar*)"base")){
 		value = xmlNodeGetContent(node);
-		g_hash_table_insert(object, "stations_db", (gpointer)value);
+		g_hash_table_insert(object, "base", g_strdup((gchar*)value));
 		xmlFree(value);
 	    }
 	    /* library */
-	    if(!xmlStrcmp(node->name, (const xmlChar *)"library")){
+	    if(!xmlStrcmp(node->name, (const xmlChar*)"library")){
 		value = xmlNodeGetContent(node);
-		g_hash_table_insert(object, "library", (gpointer)value);
+		g_hash_table_insert(object, "library", g_strdup((gchar*)value));
 		xmlFree(value);
 	    }
-	    parse_children(node->children, something);
 	}
 	node = node->next;
     }

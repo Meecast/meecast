@@ -45,7 +45,7 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data){
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
 	/* check that the file containe valid data */
-        doc = xmlReadFile(station_id_with_path, NULL, 0);
+	doc = xmlReadFile(station_id_with_path, NULL, 0);
 	if(!doc)
 	    return -1;
 	root_node = xmlDocGetRootElement(doc);
@@ -60,6 +60,7 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data){
 	    *buffer = 0;
 	    delimiter = strrchr(station_id_with_path, '/');
 	    if(delimiter){
+		delimiter++; /* delete '/' */
 		snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
 		delimiter = strrchr(buffer, '.');
 		if(!delimiter){

@@ -227,36 +227,40 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
 	    g_object_unref(list->stations_list);
 	}
 	/* get source data */
-	if(!gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter))
+	if(!gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)){
+	    list->database_invalid = TRUE;
 	    return;
+	}
 	model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
 	gtk_tree_model_get(model, &iter, 1, &source, -1);
+	/* enable/disable search field */
+	search_entry = lookup_widget(config, "station_name_entry");
+	if(search_entry){
+	    if(source_search_url_valid(source))
+		gtk_widget_set_sensitive(search_entry, TRUE);
+	    else
+		gtk_widget_set_sensitive(search_entry, FALSE);
+	}
 	/* prepare database name */
 	if(source_stations_database_valid(source)){
 	    value = g_hash_table_lookup(source, "base");
-	    if(value){
-		/* open database */
-		list->database = open_database(DATABASEPATH, (gchar*)value);
-		/* Read Coutries list from file */
-		list->countries_list = create_countries_list(list->database);
-		/* append list to the combobox */
-		gtk_combo_box_set_model(GTK_COMBO_BOX(list->countries),
-					(GtkTreeModel*)list->countries_list);
-		if(app->config->current_source)
-		    g_free(app->config->current_source);
-		app->config->current_source =
+	    /* open database */
+	    list->database = open_database(DATABASEPATH, (gchar*)value);
+	    /* Read Coutries list from file */
+	    list->countries_list = create_countries_list(list->database);
+	    /* append list to the combobox */
+	    gtk_combo_box_set_model(GTK_COMBO_BOX(list->countries),
+				(GtkTreeModel*)list->countries_list);
+	    if(app->config->current_source)
+		g_free(app->config->current_source);
+	    app->config->current_source =
 			g_strdup(gtk_combo_box_get_active_text(GTK_COMBO_BOX(widget)));
-		/* enable/disable search field */
-		search_entry = lookup_widget(config, "station_name_entry");
-		if(search_entry){
-		    if(source_search_url_valid(source))
-			gtk_widget_set_sensitive(search_entry, TRUE);
-		    else
-			gtk_widget_set_sensitive(search_entry, FALSE);
-		}
-	    }
 	}
+	else
+	    list->database_invalid = TRUE;
     }
+    else
+	list->database_invalid = TRUE;
 }
 /*******************************************************************************/
 void
@@ -275,6 +279,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
 		*label = NULL;
     gint	result;
 
+    memset(&list, 0, sizeof(struct lists_struct));
     banner = hildon_banner_show_information(GTK_WIDGET(user_data),
 				    NULL,
 				    _("Loading station list"));
@@ -376,16 +381,18 @@ new_station_handler(GtkButton *button, gpointer user_data){
 							TRUE));
 	    /* fill countries list */
 	    changed_sources_handler(sources, window);
-	    /* set active last selected country */
-	    gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
+	    if(!list.database_invalid){ /* setup in changed_sources_handler */
+		/* set active last selected country */
+		gtk_combo_box_set_active(GTK_COMBO_BOX(countries),
 				get_active_item_index((GtkTreeModel*)list.countries_list,
 							-1,
 							app->config->current_country,
 							TRUE));
-	    /* fill states list */
-	    changed_country_handler(countries, window);
-	    /* fill stations list */
-	    changed_state_handler(states, window);
+		/* fill states list */
+		changed_country_handler(countries, window);
+		/* fill stations list */
+		changed_state_handler(states, window);
+	    }
 	}
 	/* assign signals */
 	g_signal_connect(sources, "changed", G_CALLBACK(changed_sources_handler),
@@ -408,14 +415,11 @@ new_station_handler(GtkButton *button, gpointer user_data){
     gtk_widget_show_all(window);
     gtk_widget_destroy(banner);
 /* start dialog window */
-    while( (result = gtk_dialog_run(GTK_DIALOG(window))) != GTK_RESPONSE_REJECT ){
+    while( (result = gtk_dialog_run(GTK_DIALOG(window))) != OMWEATHER_CLOSE_STATION_WINDOW ){
 	if(result == OMWEATHER_ADD_STATION){
 	    add_button_handler(add_button, (gpointer)window);
 	}
 	if(result == OMWEATHER_SEARCH_STATION){
-	}
-	if(result == OMWEATHER_CLOSE_STATION_WINDOW){
-	    break;
 	}
     }
     gtk_widget_destroy(window);
@@ -432,7 +436,8 @@ new_station_handler(GtkButton *button, gpointer user_data){
 	g_object_unref(list.stations_list);
     }
 /* close database */
-    close_database(list.database);
+    if(list.database)
+	close_database(list.database);
 }
 /*******************************************************************************/
 /* Delete station from list */
@@ -957,9 +962,9 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
 		*alerts_tab = NULL;
 /*    GdkPixbuf	*icon = NULL;*/
     gchar	tmp_buff[1024];
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 /* kill popup window :-) */
     if(app->popup_window)
         gtk_widget_destroy(app->popup_window);

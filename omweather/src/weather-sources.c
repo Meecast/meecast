@@ -32,7 +32,7 @@
 #define		SOURCES_LIB	"/usr/lib/omweather"
 /*******************************************************************************/
 GtkListStore*
-create_sources_list(gchar *sources_path, gint *sources_number){
+create_sources_list(gchar *sources_path, gint *sources_number, GSList **handles){
     GtkListStore	*list = NULL;
     GSList		*db_set = NULL,
 			*tmp = NULL;
@@ -60,7 +60,10 @@ create_sources_list(gchar *sources_path, gint *sources_number){
 		    (gchar*)(tmp->data));
 	source = parse_source_file(buffer, "UTF-8");
 	if(source){
-	    if(source_params_valid(source)){
+	    if(source_name_valid(source)
+		    && source_library_valid(source, handles)
+		    && (source_forecast_url_valid(source)
+			    || source_detail_url_valid(source)) ){
 		value = g_hash_table_lookup(source, "name");
 		/* add source to list */
 		gtk_list_store_append(list, &iter);
@@ -79,17 +82,14 @@ create_sources_list(gchar *sources_path, gint *sources_number){
     return list;
 }
 /*******************************************************************************/
-gboolean
-source_params_valid(GHashTable *data){
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    if(!data)
-	return FALSE;
-    if((!source_name_valid(data) && !source_library_valid(data)) ||
-	    (!source_forecast_url_valid(data) && !source_detail_url_valid(data)))
-	return FALSE;
-    return TRUE;
+void
+unload_parsers(GSList **list){
+    GSList	*tmp = *list;
+    while(tmp){
+	dlclose(tmp->data);
+	tmp = g_slist_next(tmp);
+    }
+    *list = NULL;
 }
 /*******************************************************************************/
 gboolean
@@ -109,7 +109,7 @@ source_name_valid(GHashTable *data){
 }
 /*******************************************************************************/
 gboolean
-source_library_valid(GHashTable *data){
+source_library_valid(GHashTable *data, GSList **handles){
     gpointer	value = NULL,
 		handle = NULL,
 		parser = NULL;
@@ -130,18 +130,15 @@ source_library_valid(GHashTable *data){
 	if(access(buffer, R_OK))/* file does not exist or no permissions */
 	    return FALSE;
 	handle = dlopen(buffer, RTLD_NOW);
-	if(!handle)/* failed to load library */
-	    return FALSE;
-	dlerror();
-	parser = dlsym(handle, "get_station_weather_data");
-	if(dlerror()){/* can't find get_station_weather_data function in library */
-	    dlclose(handle);
-	    return FALSE;
+	if(handle){
+	    dlerror();
+	    parser = dlsym(handle, "get_station_weather_data");
+	    if(!dlerror()){
+		g_hash_table_insert(data, "parser", parser);
+		/* store opening library handle */
+		*handles = g_slist_append(*handles, handle);
+	    }
 	}
-	/* if all OK, than add parser address to the hash */
-	g_hash_table_insert(data, "parser", parser);
-	/* store opening library handle */
-	app->handles = g_slist_append(app->handles, handle);
     }
     return TRUE;
 }

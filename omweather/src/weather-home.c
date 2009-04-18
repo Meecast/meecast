@@ -27,6 +27,7 @@
 */
 /*******************************************************************************/
 #include "weather-home.h"
+#include "weather-sources.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <glib.h>
@@ -796,7 +797,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
     if(!osso){
         g_debug(_("Error initializing the OMWeather applet"));
-#if !defined OS2008 || defined (APPLICATION)
+#if !defined OS2008 || defined (APPLICATION) 
         return;
 #else
         return NULL;
@@ -878,7 +879,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 	return NULL;
 #endif
     }
-    app->sources_list = create_sources_list(SOURCESPATH, &app->sources_number);
+    app->sources_list = create_sources_list(SOURCESPATH, &app->sources_number, &app->handles);
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
     app->popup_window = NULL;
@@ -1047,6 +1048,12 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 	free_memory();
 	if(app->config)
 	    g_free(app->config);
+	if(app->sources_list){
+	    gtk_list_store_clear(app->sources_list);
+	    g_object_unref(app->sources_list);
+	}
+	if(app->handles)
+	    unload_parsers(&app->handles);
 	if(app->time_update_list){
 	    gtk_list_store_clear(app->time_update_list);
 	    g_object_unref(app->time_update_list);

@@ -19,6 +19,7 @@ AC_PROG_LIBTOOL
 #AC_PROG_INTLTOOL([0.23])
 dnl Checks for libraries.
 AC_CHECK_LIB([sqlite3], [sqlite3Init], [LIBS="-lsqlite3 $LIBS"])
+AC_CHECK_LIB([dl], [dlopen], [LIBS="-ldl $LIBS"])
 
 dnl Checks for header files.
 AC_HEADER_DIRENT

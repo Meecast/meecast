@@ -50,6 +50,7 @@ struct lists_struct{
     GtkListStore	*stations_list;
     GtkListStore	*sources_list;
     sqlite3		*database;
+    gboolean		database_invalid;
 };
 /*******************************************************************************/
 extern gboolean		not_event;

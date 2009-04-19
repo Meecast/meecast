@@ -1664,7 +1664,7 @@ close_button_handler(GtkWidget * button, GdkEventButton * event,
         update_weather(TRUE);
         redraw_home_window(FALSE);
     }
-#ifndef OS2008
+#if !defined OS2008 && !defined OS2009
 /* check if correct layout needed */
     if (need_correct_layout_for_OS2007)
         hildon_banner_show_information(app->main_window,

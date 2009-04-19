@@ -1,3 +1,9 @@
+omweather (0.22.1) unstable; urgency=low
+
+  * Changed default background to black colour
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 20 Apr 2009 13:36:00 +0200
+
 omweather (0.22) unstable; urgency=low
 
   * Added precipitation

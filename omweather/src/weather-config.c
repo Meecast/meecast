@@ -291,6 +291,7 @@ gint read_config(AppletConfig * config) {
     GSList *stlist = NULL;
     GError *gerror = NULL;
     GdkColor DEFAULT_FONT_COLOR = { 0, 0xFF00, 0xFF00, 0x0000 };
+    GdkColor DEFAULT_BACKGROUND_FONT_COLOR = { 0, 0x0000, 0x0000, 0x0000 };
     gchar tmp_buff[1024], *home_dir, *tmp = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -472,7 +473,7 @@ gint read_config(AppletConfig * config) {
                                   GCONF_KEY_WEATHER_BACKGROUND_COLOR,
                                   NULL);
     if (!tmp || !gdk_color_parse(tmp, &(config->background_color)))
-        config->background_color = DEFAULT_FONT_COLOR;
+        config->background_color = DEFAULT_BACKGROUND_FONT_COLOR;
     g_free(tmp);
     tmp = NULL;
 #ifndef OS2008

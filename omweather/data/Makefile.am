@@ -30,10 +30,6 @@ copyright_iconsdir = $(datadir)/omweather/copyright_icons
 copyright_icons_DATA = copyright_icons/*.png
 button_iconsdir = $(datadir)/omweather/button_icons
 button_icons_DATA = button_icons/*.png
-databasedir = $(datadir)/omweather/db
-database_DATA = weather.com.db
-sourcesdir = $(datadir)/omweather/sources
-sources_DATA = sources/*.xml
 if NONMAEMO
  imagedir = $(datadir)/omweather/images
  image_DATA = images/*.png

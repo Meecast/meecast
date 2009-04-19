@@ -243,11 +243,12 @@ parse_source_file(const gchar *filename, const gchar *encoding){
     xmlNode	*root_node = NULL,
 		*current_node = NULL;
     GHashTable	*object = NULL;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     /* check file accessibility */
     if(!access(filename, R_OK | F_OK)){
+        fprintf(stderr,"file: %s\n",filename);
 	document = xmlReadFile(filename, encoding, 0);
 	if(document){
 	    root_node = xmlDocGetRootElement(document);

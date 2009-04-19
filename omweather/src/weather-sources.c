@@ -248,7 +248,6 @@ parse_source_file(const gchar *filename, const gchar *encoding){
 //#endif
     /* check file accessibility */
     if(!access(filename, R_OK | F_OK)){
-        fprintf(stderr,"file: %s\n",filename);
 	document = xmlReadFile(filename, encoding, 0);
 	if(document){
 	    root_node = xmlDocGetRootElement(document);

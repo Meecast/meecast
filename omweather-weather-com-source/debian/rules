@@ -52,7 +52,7 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/omweather
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
 
 
 # Build architecture-independent files here.
@@ -66,7 +66,7 @@ binary-arch: build install
 #	dh_installchangelogs 
 #	dh_installdocs
 #	dh_installexamples
-#	dh_install
+#	dh_install 
 #	dh_installmenu
 #	dh_installdebconf	
 #	dh_installlogrotate

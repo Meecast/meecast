@@ -23,11 +23,11 @@ configure-stamp:
 	dh_testdir
 	# Add here commands to configure the package.
 #	#For OS2006 OS2007
-#	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-dbus=yes
+	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-dbus=yes
 	#For OS2008
 #	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static 
 	#For NONMAEMO PLATFORM
-	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --enable-static --enable-nonmaemo --enable-clutter
+#	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --enable-static --enable-nonmaemo --enable-clutter
 	touch configure-stamp
 
 
@@ -69,12 +69,12 @@ binary-indep: build install
 binary-arch: build install
 	dh_testdir
 	dh_testroot
-#	dh_installchangelogs 
+#	dh_installchangelogs
 #	dh_installdocs
 #	dh_installexamples
 #	dh_install
 #	dh_installmenu
-#	dh_installdebconf	
+#	dh_installdebconf
 #	dh_installlogrotate
 #	dh_installemacsen
 #	dh_installpam

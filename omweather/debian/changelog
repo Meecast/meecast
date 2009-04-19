@@ -16,7 +16,7 @@ omweather (0.21.10) unstable; urgency=low
   * Added possibility launch popup window with long press instead of simple click FR #2967
   * Fixed problem with red button (delete) on Settings window in OS2006
 
- -- Vlad Vasiliev <vlad@gas.by>  Wen, 18 Mar 2009 19:21:00 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 18 Mar 2009 19:21:00 +0200
 
 omweather (0.21.9) unstable; urgency=low
 

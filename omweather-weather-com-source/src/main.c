@@ -270,7 +270,6 @@ gint parse_xml_data(const gchar *station_id, xmlNode *root_node,
 	    }
 	    /* Fill other days */
 	    if(!xmlStrcmp(cur_node->name, (const xmlChar *) "dayf" ) ){
-		g_hash_table_insert(data, "forecast", (gpointer)forecast);
 		for(child_node = cur_node->children; child_node; child_node = child_node->next){
 		    if( child_node->type == XML_ELEMENT_NODE  &&
 			    ( !xmlStrcmp(child_node->name, (const xmlChar *)"day") ) ){
@@ -289,7 +288,6 @@ gint parse_xml_data(const gchar *station_id, xmlNode *root_node,
 			/* get 24h date */
 			temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"dt");
 			g_hash_table_insert(day, "day_date", (char*)temp_xml_string);
-
 			for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
 			    if( child_node2->type == XML_ELEMENT_NODE){
 				/* 24h hi temperature */
@@ -402,6 +400,7 @@ gint parse_xml_data(const gchar *station_id, xmlNode *root_node,
 			}
 		    }
 		}
+		g_hash_table_insert(data, "forecast", (gpointer)forecast);
 	    }
 	}
     }

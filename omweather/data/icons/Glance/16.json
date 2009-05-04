@@ -2,9 +2,9 @@
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "num-frames" : 150,
+    "num-frames" : 200,
     "fps" : 60,
-    "loop" : true
+    "loop" : false
   },
 
   {
@@ -17,19 +17,6 @@
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
           } 
-  },
-
-  {
-    "id"            : "size-behaviour",
-    "type"          : "ClutterBehaviourScale",
-    "x-scale-start"   : 2.0,
-    "x-scale-end"     : 2.0,
-    "y-scale-start"   : 2.0,
-    "y-scale-end"     : 2.0,
-    "alpha"         : {
-      "timeline" : "main-timeline",
-      "function" : "sine-inc"
-    }
   },
 
   {
@@ -59,7 +46,7 @@
   {
     "id"          : "snow1-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[50,60], [60,160]]
+    "knots" : [[25,30], [30,80]]
     "alpha"       : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -68,7 +55,7 @@
   {
     "id"          : "snow2-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[150,80], [160,160]]
+    "knots" : [[75,40], [80,80]]
     "alpha"       : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -77,7 +64,7 @@
   {
     "id"          : "snow3-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[120,60], [140,200]]
+    "knots" : [[60,30], [70,100]]
     "alpha"       : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -86,7 +73,7 @@
   {
     "id"          : "snowflakelight1-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[90,60], [90,200]]
+    "knots" : [[45,30], [45,100]]
     "alpha"       : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -95,7 +82,7 @@
   {
     "id"          : "snowflakelight2-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[110,60], [110,160]]
+    "knots" : [[55,30], [55,80]]
     "alpha"       : {
       "timeline" : "main-timeline",
       "function" : "ramp-inc"
@@ -123,11 +110,10 @@
         "type" : "ClutterTexture",
         "filename" : "gray_cloud.png",
         "visible" : true,
-        "x": 20,
-        "y": 20,
+        "x": 10,
+        "y": 10,
         "behaviours" : [
-            "fade-behaviour",
-            "size-behaviour"
+            "fade-behaviour"
         ]
       },
       {
@@ -183,9 +169,7 @@
 
 
 
-    ],
-        "behaviours" : [
-                "size-behaviour"]
+    ]
     }
 ]
 

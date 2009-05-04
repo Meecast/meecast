@@ -1,5 +1,8 @@
 0.22.1
   * Changed default background to black colour
+  * Added omweather-home.desktop for OS2009
+  * Removed libhildon-help for OS2009
+  * Done transparency for OS2009 
 
 0.22
   * Added precipitation

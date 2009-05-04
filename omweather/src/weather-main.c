@@ -65,7 +65,7 @@ main(int argc, char *argv[]){
         return 1;
     }
     gtk_init(&argc, &argv);
-    
+
     OMWeather = create_omweather();
     app->main_view = OMWeather;
     if(app->main_view){
@@ -120,6 +120,8 @@ main_window_state_event_cb(GtkWidget *widget, GdkEventWindowState *event,
     app->fullscreen = (event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN);
     return FALSE;
 }
+
+
 /*******************************************************************************/
 HildonWindow*
 create_omweather(void){
@@ -160,10 +162,13 @@ create_omweather(void){
        style->bg_pixmap[0] = background;
        gtk_widget_set_style (GTK_WIDGET(main_widget), GTK_STYLE(style));
     }
-    
+
     gtk_window_set_title(GTK_WINDOW(main_widget), PACKAGE);
     gtk_window_set_default_size(GTK_WINDOW(main_widget), 800, 480);
-
+    
+#if defined OS2009
+//    init_portrait(main_widget);
+#endif
 
     if(!omweather_init_OS2009(main_widget))
         return NULL;

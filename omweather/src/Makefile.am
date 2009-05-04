@@ -60,7 +60,9 @@ omweather_SOURCES = 	weather-home.c \
 			weather-main.h \
 			weather-main.c \
 			weather-clutter.h \
-			weather-clutter.c
+			weather-clutter.c \
+			weather-portrait.h \
+			weather-portrait.c
 
 omweather_CFLAGS =	$(GTK_CFLAGS) \
 			$(OSSO_CFLAGS) \

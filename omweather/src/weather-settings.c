@@ -1008,11 +1008,13 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
                      G_CALLBACK(back_button_handler),
                      (gpointer) window_config);
     /* Help buton */
+#ifndef OS2009
     help_button =
         create_button_with_image(BUTTON_ICONS, "about", 40, FALSE, FALSE);
     g_signal_connect(G_OBJECT(help_button), "button-release-event",
                      G_CALLBACK(help_button_handler),
                      (gpointer) window_config);
+#endif
     /* Apply button */
     apply_button =
         create_button_with_image(BUTTON_ICONS, "apply", 40, FALSE, FALSE);
@@ -1526,7 +1528,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     }
 /* transparency */
     transparency = lookup_widget(config_window, "transparency");
-#ifdef OS2008
+#if defined OS2008 || defined OS2009
     if (transparency) {
         app->config->alpha_comp =
             hildon_controlbar_get_value(HILDON_CONTROLBAR(transparency));
@@ -1677,6 +1679,7 @@ close_button_handler(GtkWidget * button, GdkEventButton * event,
     config_save(app->config);
 }
 /*******************************************************************************/
+#ifndef OS2009
 void
 help_button_handler(GtkWidget * button, GdkEventButton * event,
                     gpointer user_data) {
@@ -1716,7 +1719,7 @@ help_button_handler(GtkWidget * button, GdkEventButton * event,
         }
     }
 }
-
+#endif
 /*******************************************************************************/
 void
 back_button_handler(GtkWidget * button, GdkEventButton * event,
@@ -2163,7 +2166,7 @@ check_buttons_changed_handler(GtkToggleButton * button,
             app->visuals_tab_current_state &= ~STATE_THEME_OVERRIDE;
         goto check;
     }
-#ifndef OS2008
+#if !defined OS2008 || !defined OS2009
 /* transparency */
     if (!strcmp(button_name, "transparency")) {
         if (gtk_toggle_button_get_active(button))
@@ -2525,7 +2528,7 @@ control_bars_changed_handler(HildonControlbar * control,
             app->display_tab_current_state &= ~STATE_ICON_SIZE;
         goto check;
     }
-#ifdef OS2008
+#if defined OS2008 || defined OS2009
     if (!strcmp(control_name, "transparency")) {
         if (hildon_controlbar_get_value(control) !=
             app->config->alpha_comp)
@@ -2932,7 +2935,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
     gtk_box_pack_start(GTK_BOX(fourth_line),
                        gtk_label_new(_("Transparency:")), FALSE,
                        FALSE, 20);
-#ifdef OS2008
+#if defined OS2008 || defined OS2009
     transparency = hildon_controlbar_new();
     hildon_controlbar_set_min(HILDON_CONTROLBAR(transparency), 0);
     hildon_controlbar_set_max(HILDON_CONTROLBAR(transparency), 100);
@@ -3026,7 +3029,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
     g_signal_connect(background_color, "color-set",
                      G_CALLBACK(color_buttons_changed_handler),
                      apply_button);
-#ifdef OS2008
+#if defined OS2008 || defined OS2009
     g_signal_connect(transparency, "value-changed",
                      G_CALLBACK(control_bars_changed_handler),
                      apply_button);
@@ -3037,7 +3040,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
 #endif
     gtk_color_button_set_color(GTK_COLOR_BUTTON(background_color),
                                &(app->config->background_color));
-#ifdef OS2008
+#if defined OS2008 || defined OS2009
     gtk_widget_set_sensitive(background_color, TRUE);
 #else
     if (background_color && app->config->transparency)

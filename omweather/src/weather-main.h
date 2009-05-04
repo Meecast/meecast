@@ -39,6 +39,7 @@ gboolean main_window_state_event_cb(GtkWidget *widget, GdkEventWindowState *even
 					    gpointer user_data);
 gint dbus_callback(const gchar *interface, const gchar *method, GArray *arguments,
 			gpointer data, osso_rpc_t *retval);
+extern init_portrait(GtkWidget *win);
 /*******************************************************************************/
 #endif
 

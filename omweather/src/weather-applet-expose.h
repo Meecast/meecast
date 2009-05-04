@@ -31,5 +31,12 @@
 #include "weather-common.h"
 #include "weather-home.h"
 /*******************************************************************************/
-gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
+#ifdef OS2008
+    gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
+#endif
+#ifdef OS2009
+    void omweather_plugin_realize (GtkWidget *widget);
+    gboolean omweather_plugin_expose_event(GtkWidget * widget, GdkEventExpose * event);
+#endif
+
 /*******************************************************************************/

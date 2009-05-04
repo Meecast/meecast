@@ -1,6 +1,12 @@
 omweather (0.22.1) unstable; urgency=low
 
   * Changed default background to black colour
+  * Added omweather-home.desktop for OS2009
+  * Removed libhildon-help for OS2009
+  * Done transparency for OS2009 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 3 May 2009 20:50:00 +0200
+
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 20 Apr 2009 13:36:00 +0200
 

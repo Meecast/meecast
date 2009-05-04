@@ -31,10 +31,10 @@
  */
 /*******************************************************************************/
 #include "weather-applet-expose.h"
-#if defined OS2008  && !defined (APPLICATION)
 #include <values.h>
 #include <cairo.h>
 /*******************************************************************************/
+#if defined OS2008  && !defined (APPLICATION)
 gboolean expose_parent(GtkWidget * widget, GdkEventExpose * event) {
 
     OMWeather *plugin = OMWEATHER(widget);
@@ -134,3 +134,99 @@ gboolean expose_parent(GtkWidget * widget, GdkEventExpose * event) {
 }
 #endif
 /*******************************************************************************/
+#if defined OS2009  && !defined (APPLICATION)
+void
+omweather_plugin_realize (GtkWidget *widget)
+{
+    GdkScreen *screen;
+
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    screen = gtk_widget_get_screen (widget);
+    gtk_widget_set_colormap (widget,
+                           gdk_screen_get_rgba_colormap (screen));
+
+    gtk_widget_set_app_paintable (widget,
+                                TRUE);
+
+    GTK_WIDGET_CLASS(g_type_class_peek_parent
+                         (GTK_FRAME_GET_CLASS(widget)))->realize(widget);
+}
+
+gboolean
+omweather_plugin_expose_event(GtkWidget * widget, GdkEventExpose * event) {
+
+    cairo_t *cr;
+    gint radius = 0;
+    gint width, height, x, y;
+
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    if (GTK_WIDGET_DRAWABLE(widget) == FALSE){
+        return FALSE;
+    }
+
+    /* Create cairo context */
+    cr = gdk_cairo_create (GDK_DRAWABLE (widget->window));
+    gdk_cairo_region (cr, event->region);
+    cairo_clip (cr);
+
+    /* Draw alpha background */
+    cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
+    cairo_set_source_rgba (cr, 0.0, 0.0, 0.0, 0.0);
+    cairo_paint (cr);
+
+    /* Free context */
+    cairo_destroy (cr);
+
+    radius = app->config->corner_radius;
+    cr = gdk_cairo_create(GDK_DRAWABLE (widget->window));
+    cairo_set_source_rgba(cr,
+                          (double)app->config->background_color.red /
+                          (MAXSHORT * 2 + 1),
+                          (double)app->config->background_color.green /
+                          (MAXSHORT * 2 + 1),
+                          (double)app->config->background_color.blue /
+                          (MAXSHORT * 2 + 1),
+                          (double)app->config->alpha_comp / 100);
+
+    width = event->area.width;
+    height = event->area.height;
+    x = event->area.x;
+    y = event->area.y;
+
+    if ((radius > height / 2) || (radius > width / 2)) {
+        if (width < height) {
+            radius = width / 2 - 1;
+        } else {
+            radius = height / 2 - 2;
+        }
+    }
+
+    cairo_move_to(cr, x + radius, y);
+    cairo_line_to(cr, x + width - radius, y);
+    cairo_curve_to(cr, x + width - radius, y, x + width, y, x + width,
+                   y + radius);
+    cairo_line_to(cr, x + width, y + height - radius);
+    cairo_curve_to(cr, x + width, y + height - radius, x + width,
+                   y + height, x + width - radius, y + height);
+    cairo_line_to(cr, x + radius, y + height);
+    cairo_curve_to(cr, x + radius, y + height, x, y + height, x,
+                   y + height - radius);
+    cairo_line_to(cr, x, y + radius);
+    cairo_curve_to(cr, x, y + radius, x, y, x + radius, y);
+
+    /* Draw alpha background */
+    cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
+
+    cairo_fill(cr);
+    cairo_destroy(cr);
+    return GTK_WIDGET_CLASS(g_type_class_peek_parent
+                         (GTK_FRAME_GET_CLASS(widget)))->expose_event(widget, event);
+
+}
+#endif

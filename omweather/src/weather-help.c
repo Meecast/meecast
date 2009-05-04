@@ -32,6 +32,8 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 #include "build"
+
+#ifndef OS2009
 /*******************************************************************************/
 void help_activated_handler(GtkWidget * window, gchar * help_id){
 #ifdef DEBUGFUNCTIONCALL
@@ -39,12 +41,13 @@ void help_activated_handler(GtkWidget * window, gchar * help_id){
 #endif
     if(!help_id)
         return;
-#if defined (OS2008) || defined (OS2009) || defined(NONMAEMO)
+#if defined (OS2008) || defined(NONMAEMO)
     hildon_help_show(app->osso, help_id, HILDON_HELP_SHOW_DIALOG);
 #else
     ossohelp_show(app->osso, help_id, OSSO_HELP_SHOW_DIALOG);
 #endif
 }
+#endif
 /*******************************************************************************/
 void create_about_dialog(void){
     GtkWidget	*help_dialog,

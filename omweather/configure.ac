@@ -140,6 +140,7 @@ if test "$nonmaemo" == "false"; then
           PKG_CHECK_MODULES(HILDONDESKTOP, [libhildondesktop-1], [hildondesktop1=yes], [hildondesktop1=no]) 
           if test "$hildondesktop1" == "yes"; then
              AC_DEFINE(OS2009, 1, [Version of hildon libraries])
+
           fi
 #         PKG_CHECK_MODULES(DESK, hildon-status-bar-lib >= 0.7.1) 
 
@@ -211,14 +212,16 @@ if test "$hildon" == "yes" && test "$use_gps" == "yes"; then
   AC_SUBST(LOCATION_LIBS)
 fi
 
-if test "$hildon" == "yes"; then
-    PKG_CHECK_MODULES(LIBOSSOHELP, [libosso >= 1 hildon-help])
-else
-    dnl check for osso-help
-    PKG_CHECK_MODULES(LIBOSSOHELP, [libossohelp], [libossohelp=yes], [libossohelp=no])
+if test "$hildondesktop1" != "yes"; then
+    if test "$hildon" == "yes"; then
+        PKG_CHECK_MODULES(LIBOSSOHELP, [libosso >= 1 hildon-help])
+    else
+        dnl check for osso-help
+        PKG_CHECK_MODULES(LIBOSSOHELP, [libossohelp], [libossohelp=yes], [libossohelp=no])
+    fi
+        AC_SUBST(LIBOSSOHELP_LIBS)
+        AC_SUBST(LIBOSSOHELP_CFLAGS)
 fi
-    AC_SUBST(LIBOSSOHELP_LIBS)
-    AC_SUBST(LIBOSSOHELP_CFLAGS)
 
 AC_ARG_ENABLE(clutter,
       [  --enable-clutter   Enable GTK-clutter],
@@ -240,6 +243,7 @@ fi
 AM_CONDITIONAL(OS2008, test "x$use_dbus" != "xyes")
 AM_CONDITIONAL(NONMAEMO, test "x$nonmaemo" == "xtrue")
 AM_CONDITIONAL(CLUTTER, test "x$clutter" == "xtrue")
+AM_CONDITIONAL(OS2009, test "$hildondesktop1" == "yes")
 
 dnl Help file install directory
 helpfile_enusdir=$datadir/osso-help/en_US

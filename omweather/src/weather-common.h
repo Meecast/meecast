@@ -468,37 +468,38 @@ G_END_DECLS
 #endif
 
 #ifdef OS2009
+
 G_BEGIN_DECLS
 
-/* Common struct types declarations */
-typedef struct _OmweatherHomePlugin OmweatherHomePlugin;
-typedef struct _OmweatherHomePluginClass OmweatherHomePluginClass;
-typedef struct _OmweatherHomePluginPrivate OmweatherHomePluginPrivate;
-
-/* Common macros */
-#define OMWEATHER_TYPE_HOME_PLUGIN            (omweather_home_plugin_get_type ())
-#define OMWEATHER_HOME_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), OMWEATHER_TYPE_HOME_PLUGIN, OmweatherHomePlugin))
-#define OMWEATHER_HOME_PLUGIN_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass),  OMWEATHER_TYPE_HOME_PLUGIN, OmweatherHomePluginClass))
+#define OMWEATHER_TYPE_HOME_PLUGIN            (omweather_plugin_get_type ())
+#define OMWEATHER_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), OMWEATHER_TYPE_HOME_PLUGIN, OmweatherPlugin))
+#define OMWEATHER_PLUGIN_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), OMWEATHER_TYPE_HOME_PLUGIN, OmweatherPluginClass))
 #define OMWEATHER_IS_HOME_PLUGIN(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), OMWEATHER_TYPE_HOME_PLUGIN))
-#define OMWEATHER_IS_HOME_PLUGIN_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass),  OMWEATHER_TYPE_HOME_PLUGIN))
-#define OMWEATHER_HOME_PLUGIN_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj),  OMWEATHER_TYPE_HOME_PLUGIN, OmweatherHomePluginClass))
+#define OMWEATHER_IS_HOME_PLUGIN_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), OMWEATHER_TYPE_HOME_PLUGIN))
+#define OMWEATHER_PLUGIN_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), OMWEATHER_TYPE_HOME_PLUGIN, OmweatherPluginClass))
 
-/* Instance struct */
-struct _OmweatherHomePlugin
+
+typedef struct _OmweatherPlugin        OmweatherPlugin;
+typedef struct _OmweatherPluginClass   OmweatherPluginClass;
+typedef struct _OmweatherPluginPrivate OmweatherPluginPrivate;
+
+struct _OmweatherPlugin
 {
-        HDHomePluginItem parent;
-        OmweatherHomePluginPrivate *priv;
+  HDHomePluginItem       parent;
+
+  OmweatherPluginPrivate       *priv;
 };
 
-/* Class struct */
-struct _OmweatherHomePluginClass
+struct _OmweatherPluginClass
 {
-       HDHomePluginItemClass parent_class;
+  HDHomePluginItemClass  parent;
 };
 
-GType  omweather_home_plugin_get_type  (void);
+GType omweather_plugin_get_type (void);
 
 G_END_DECLS
+
+
 #endif
 
 #endif

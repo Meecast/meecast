@@ -62,13 +62,20 @@ struct _OMWeatherPrivate {
 	GtkWidget	*desktop;
 };
 #endif
+
 #if defined OS2009 && !defined (APPLICATION)
-HD_DEFINE_PLUGIN_MODULE(OmweatherHomePlugin, omweather_home_plugin,
-			 HD_TYPE_HOME_PLUGIN_ITEM);
-struct _OmweatherHomePluginPrivate {
-	GtkWidget	*desktop;
+HD_DEFINE_PLUGIN_MODULE (OmweatherPlugin, omweather_plugin, HD_TYPE_HOME_PLUGIN_ITEM);
+
+#define OMWEATHER_PLUGIN_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE (obj,\
+							                         OMWEATHER_TYPE_HOME_PLUGIN,\
+							                         OmweatherPluginPrivate))
+
+struct _OmweatherPluginPrivate
+{
+  gpointer data;
 };
 #endif
+
 
 const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
     {	"weather.com",
@@ -119,9 +126,9 @@ change_station_prev(GtkWidget *widget, GdkEvent *event,
                 *station_source = NULL;
     GtkTreePath *path;
     gint        day_number = 0;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if(!(app->config->current_station_id))
         return FALSE;
 
@@ -631,21 +638,21 @@ draw_home_window(gint count_day){
 
 #if defined(NONMAEMO) || defined (APPLICATION)
     create_panel(app->main_window, APPLICATION_MODE,
-		    app->config->transparency, tmp_station_name); 
+                 app->config->transparency, tmp_station_name); 
     gtk_table_attach( app->main_window,
             create_time_updates_widget(app->wsd.current, TRUE),
-		    0, 1, 2, 3, GTK_EXPAND, GTK_EXPAND, 0, 0);
- 
+             0, 1, 2, 3, GTK_EXPAND, GTK_EXPAND, 0, 0);
 #else
     create_panel(app->main_window, app->config->icons_layout,
-		    app->config->transparency, tmp_station_name);
+                 app->config->transparency, tmp_station_name);
 #endif
    gtk_box_pack_start(GTK_BOX(app->top_widget), app->main_window, TRUE, TRUE, 0);
    gtk_widget_show_all(app->top_widget);
+
     #if defined OS2008 || defined OS2009
-       if(!app->config->transparency && app->parent){
-           gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);
-       }
+//       if(!app->config->transparency && app->parent){
+//           gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);
+//       }
     #endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -768,6 +775,7 @@ update_weather(gboolean show_update_window){
 	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
 }
 /*******************************************************************************/
+
 #if defined(NONMAEMO) || defined (APPLICATION)
 gboolean
 omweather_init_OS2009(GtkWidget *applet){
@@ -779,9 +787,9 @@ omweather_init(OMWeather *applet){
     GdkColormap *cm;
     gchar       tmp_buff[2048];
 #elif OS2009
-void
-omweather_home_plugin_init(OmweatherHomePlugin *applet){
-HDHomePluginItem *myparent;
+static void
+omweather_plugin_init (OmweatherPlugin *applet){
+    HDHomePluginItem *myparent;
 #else
 void*
 hildon_home_applet_lib_initialize(void *state_data, int *state_size,
@@ -888,8 +896,10 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->fullscreen = FALSE;
 /* Start timer */
     timer(60000);  /* One per minute */
-/* Start main applet */ 
+/* Start main applet */
     app->top_widget = gtk_hbox_new(FALSE, 0);
+    
+
 #if defined CLUTTER
 //   g_signal_connect_after(app->top_widget, "expose-event",
 //      G_CALLBACK(top_widget_expose), NULL);
@@ -933,6 +943,9 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
       gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
 #endif
 
+#if defined OS2009 && !defined(APPLICATION)
+  applet->priv = OMWEATHER_PLUGIN_GET_PRIVATE (applet);
+#endif 
 
 #if  defined(NONMAEMO) || defined (APPLICATION)
     return TRUE;
@@ -1498,7 +1511,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         gtk_box_pack_start((GtkBox*)station_box, station_name, TRUE, TRUE, 0);
    	    gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
     }
-#ifdef OS2008
+#if defined OS2008 || defined OS2009
     if(previos_station_name_btn)
         gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
     if(next_station_name_btn)
@@ -1802,7 +1815,7 @@ create_weather_day_button(const char *text, const char *icon,
        gtk_widget_tap_and_hold_setup(new_day_button->button, GTK_WIDGET(app->contextmenu),
                                 NULL, 0);
     #endif
-#ifdef OS2008
+#if defined OS2008 || defined OS2009
     gtk_event_box_set_visible_window(GTK_EVENT_BOX(new_day_button->button), FALSE);
 #else
     set_background_color(new_day_button->button, color);
@@ -2127,17 +2140,55 @@ omweather_class_init(OMWeatherClass *klass){
     gtk_object_class->destroy = omweather_destroy;
     widget_class->expose_event = expose_parent;
 }
-/*******************************************************************************/
+
 #endif
-#ifdef OS2009
+/*******************************************************************************/
+
+#if defined OS2009  && !defined APPLICATION
+
 static void
-omweather_home_plugin_class_init (OmweatherHomePluginClass * klass)
+omweather_plugin_class_finalize (OmweatherPluginClass *klass)
 {
 }
 
+
 static void
-omweather_home_plugin_class_finalize (OmweatherHomePluginClass * klass)
+omweather_plugin_class_init (OmweatherPluginClass *klass)
 {
+  GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+
+  widget_class->realize = omweather_plugin_realize;
+  widget_class->expose_event = omweather_plugin_expose_event;
+
+  g_type_class_add_private (klass, sizeof (OmweatherPluginPrivate));
 }
 
-#endif 
+static void
+omweather_plugin_visible_notify (GObject                *object,
+                                          GParamSpec             *spec,
+                                          OmweatherPlugin *applet)
+{
+  gboolean visible;
+
+  g_object_get (object, "is-on-current-desktop", &visible, NULL);
+
+  g_debug ("is-on-current-desktop changed. visible: %u", visible);
+}
+/*
+static void
+omweather_plugin_init (OmweatherPlugin *applet)
+{
+  GtkWidget *label;
+
+  applet->priv = OMWEATHER_PLUGIN_GET_PRIVATE (applet);
+
+  label = gtk_label_new ("An example applet");
+  gtk_widget_show (label);
+
+  gtk_container_add (GTK_CONTAINER (applet), label);
+
+  g_signal_connect (applet, "notify::is-on-current-desktop",
+                    G_CALLBACK (omweather_plugin_visible_notify), applet);
+}
+*/
+#endif

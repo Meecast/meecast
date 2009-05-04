@@ -476,7 +476,7 @@ gint read_config(AppletConfig * config) {
         config->background_color = DEFAULT_BACKGROUND_FONT_COLOR;
     g_free(tmp);
     tmp = NULL;
-#ifndef OS2008
+#if !defined OS2008 || !defined OS2009
     /* Get Enable Transparency flag. Default is TRUE. */
     value =
         gconf_client_get(gconf_client, GCONF_KEY_ENABLE_TRANSPARENCY,
@@ -535,6 +535,8 @@ gint read_config(AppletConfig * config) {
             app->sensor_timer = 0;
     } else
         app->sensor_timer = 0;
+#endif
+#if defined OS2008 || defined OS2009
     /* Get value of transparence default 0 */
     config->alpha_comp = gconf_client_get_int(gconf_client,
                                               GCONF_KEY_ALPHA_COMPONENT,
@@ -554,6 +556,7 @@ gint read_config(AppletConfig * config) {
             g_error_free(gerror);
     }
 #endif
+
     /* Get auto_downloading_after_connecting. Default is FALSE */
     value =
         gconf_client_get(gconf_client,
@@ -906,7 +909,7 @@ void config_save(AppletConfig * config) {
     gconf_client_set_bool(gconf_client,
                           GCONF_KEY_DOWNLOADING_AFTER_CONNECTING,
                           config->downloading_after_connecting, NULL);
-#ifdef OS2008
+#if defined OS2008 || OS2009
 #ifdef ENABLE_GPS
     /* Save Use GPS station */
     gconf_client_set_bool(gconf_client,

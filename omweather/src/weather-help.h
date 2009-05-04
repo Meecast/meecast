@@ -31,15 +31,15 @@
 /*******************************************************************************/
 #include "weather-common.h"
 #include <libosso.h>
-#ifdef OS2009
-    #include <hildon/hildon-help.h>
-#elif OS2008
-    #include <hildon/hildon-help.h>
-#elif NONMAEMO
-    #include <hildon/hildon-help.h>
-#else
-    #include <osso-helplib.h>
-#endif
+#ifndef OS2009
+    #ifdef OS2008
+        #include <hildon/hildon-help.h>
+    #elif NONMAEMO
+        #include <hildon/hildon-help.h>
+    #else
+        #include <osso-helplib.h>
+    #endif
+
 /*******************************************************************************/
 #define OMWEATHER_SETTINGS_STATIONS_HELP_ID	"help_omweather_settings_stations"
 #define OMWEATHER_SETTINGS_VISUALS_HELP_ID	"help_omweather_settings_visuals"
@@ -50,6 +50,7 @@
 #define OMWEATHER_ABOUT_HELP_ID			"help_omweather_about"
 /*******************************************************************************/
 void help_activated_handler(GtkWidget *window, gchar *help_id);
+#endif
 void create_about_dialog(void);	/* create help dialog */
 /*******************************************************************************/
 extern GtkWidget*

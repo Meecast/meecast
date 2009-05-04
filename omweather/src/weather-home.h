@@ -136,6 +136,9 @@ extern GtkWidget *create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_pa
 #ifdef CLUTTER
 void free_clutter_objects_list(GSList **clutter_objects);
 #endif
+#if defined(OS2009)
+    init_portrait(main_widget);
+#endif
 extern gboolean show_animation(GSList *clutter_objects);
 /*******************************************************************************/
 typedef struct _HomeAppletHandler HomeAppletHandler;
@@ -158,9 +161,15 @@ struct _HomeAppletHandler {
 GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent);
 /*******************************************************************************/
 #ifdef OS2009
-static void omweather_home_plugin_class_init (OmweatherHomePluginClass * klass);
-static void omweather_home_plugin_class_finalize (OmweatherHomePluginClass * klass);
-static void omweather_home_plugin_init (OmweatherHomePlugin * home_plugin);
+static void omweather_plugin_class_finalize (OmweatherPluginClass *klass);
+extern void omweather_plugin_realize (GtkWidget *widget);
+extern gboolean omweather_plugin_expose_event (GtkWidget      *widget,
+                                        GdkEventExpose *event);
+static void omweather_plugin_class_init (OmweatherPluginClass *klass);
+static void omweather_plugin_visible_notify (GObject                *object,
+                                          GParamSpec             *spec,
+                                          OmweatherPlugin *applet);
+static void omweather_plugin_init (OmweatherPlugin *applet);
 #endif 
 /*******************************************************************************/
 #endif

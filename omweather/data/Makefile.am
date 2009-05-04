@@ -30,10 +30,10 @@ copyright_iconsdir = $(datadir)/omweather/copyright_icons
 copyright_icons_DATA = copyright_icons/*.png
 button_iconsdir = $(datadir)/omweather/button_icons
 button_icons_DATA = button_icons/*.png
-if NONMAEMO
+#if NONMAEMO
  imagedir = $(datadir)/omweather/images
  image_DATA = images/*.png
-endif
+#endif
 
 # The icons
 
@@ -63,11 +63,22 @@ desktop_files = omweather.desktop
 desktop_DATA  = $(desktop_files)
 
 
-homeapplet_desktopdir = $(DESKTOPDIR)
-if OS2008 
-homeapplet_desktop_DATA = os2008/omweather-home.desktop
+
+#Hack Fremantle Alpha 
+if OS2009
+    homeapplet_desktopdir = /usr/share/applications/hildon-home
 else
-homeapplet_desktop_DATA = os2007/omweather-home.desktop
+    homeapplet_desktopdir = $(DESKTOPDIR)
+endif
+
+if OS2008
+    homeapplet_desktop_DATA = os2008/omweather-home.desktop
+else
+if OS2009
+    homeapplet_desktop_DATA = os2009/omweather-home.desktop
+else
+    homeapplet_desktop_DATA = os2007/omweather-home.desktop
+endif
 endif
 EXTRA_DIST = $(homeapplet_desktop_DATA) \
 	     $(omweather_DATA) \

@@ -409,8 +409,11 @@ typedef struct OMWeatherApplet{
 #if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
     gfloat		sensor_data;
 #endif
-#ifdef USE_CONIC    
+#ifdef USE_CONIC
     ConIcConnection     *connection;
+#endif
+#ifdef USE_DBUS
+    DBusConnection      *dbus_conn;
 #endif
     WeatherStationData  wsd;
     GSList              *sources;

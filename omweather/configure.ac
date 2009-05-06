@@ -157,23 +157,25 @@ if test "$hildon" == "yes"; then
 else    
 	  PKG_CHECK_MODULES(HILDON_LIBS, [hildon-libs >= 0.12.0])
 	  
-	  PKG_CHECK_MODULES(DBUS, [dbus-1],
-	    [
-        	use_dbus="yes"
-	    ],
-	    [
-	        use_dbus="no"
-	        echo 'No New Connectivity DBUS Library!'
-	    ]
-	    )
-	    if test "$use_dbus" = "yes"; then
-		AC_SUBST(DBUS_CFLAGS)
-		AC_SUBST(DBUS_LIBS)
-	        AC_DEFINE(USE_DBUS, 1,"Set to 1 if enable-dbus is yes")
-	    fi
 fi
     AC_SUBST(HILDON_CFLAGS)
     AC_SUBST(HILDON_LIBS)
+
+
+PKG_CHECK_MODULES(DBUS, [dbus-1],
+    [
+        use_dbus="yes"
+    ],
+    [
+        use_dbus="no"
+        echo 'No New Connectivity DBUS Library!'
+    ]
+    )
+if test "$use_dbus" = "yes"; then
+    AC_SUBST(DBUS_CFLAGS)
+    AC_SUBST(DBUS_LIBS)
+    AC_DEFINE(USE_DBUS, 1,"Set to 1 if enable-dbus is yes")
+fi
 
 PKG_CHECK_MODULES(OSSOIC, [osso-ic >= 0.21], [ossoic=yes], [ossoic=no])
 if test "$ossoic" == "yes"; then
@@ -240,7 +242,7 @@ fi
 
 
 
-AM_CONDITIONAL(OS2008, test "x$use_dbus" != "xyes")
+AM_CONDITIONAL(OS2008, test "$hildondesktop" != "xyes")
 AM_CONDITIONAL(NONMAEMO, test "x$nonmaemo" == "xtrue")
 AM_CONDITIONAL(CLUTTER, test "x$clutter" == "xtrue")
 AM_CONDITIONAL(OS2009, test "$hildondesktop1" == "yes")

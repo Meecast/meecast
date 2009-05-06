@@ -32,7 +32,7 @@
 #include "weather-common.h"
 #include <curl/multi.h>
 
-#ifdef USE_DBUS
+#if !defined OS2008 && !defined OS2009
 #include <osso-ic.h>
 #include <osso-ic-dbus.h>
 #include <dbus/dbus.h>
@@ -47,7 +47,6 @@ struct HtmlFile {
 /*******************************************************************************/
 CURL* weather_curl_init(CURL *curl_handle);
 gboolean download_html(gpointer data);
-void weather_initialize_dbus(void);
 gboolean check_connected(void);
 void clean_download(void);
 #ifndef USE_CONIC
@@ -57,6 +56,10 @@ void iap_callback(struct iap_event_t *event, void *arg);
 #endif
 gboolean get_station_url(gchar **url, struct HtmlFile *html_file, gchar **hour_url, struct HtmlFile *html_file_hour,gboolean first);
 GtkWidget* create_window_update(void);
+#ifdef USE_CONIC
+    void connection_cb(ConIcConnection * connection,ConIcConnectionEvent * event, gpointer user_data);
+#endif
+
 /*******************************************************************************/
 extern WeatherSource	weather_sources[];
 /*******************************************************************************/

@@ -62,7 +62,9 @@ omweather_SOURCES = 	weather-home.c \
 			weather-clutter.h \
 			weather-clutter.c \
 			weather-portrait.h \
-			weather-portrait.c
+			weather-portrait.c \
+			weather-dbus.h \
+			weather-dbus.c
 
 omweather_CFLAGS =	$(GTK_CFLAGS) \
 			$(OSSO_CFLAGS) \
@@ -159,7 +161,10 @@ libweather_home_la_SOURCES  = 	weather-home.c \
 			weather-main.h \
 			weather-main.c \
 			weather-clutter.h \
-			weather-clutter.c
+			weather-clutter.c \
+			weather-dbus.h \
+			weather-dbus.c
+
 
 libweather_home_la_CFLAGS =  $(GTK_CFLAGS) \
 			$(OSSO_CFLAGS) \

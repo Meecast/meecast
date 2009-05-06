@@ -32,7 +32,6 @@
 #include <conic/conic.h>
 #define USER_DATA_MAGIC 0xaadcaadc
 #endif
-#define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
@@ -55,7 +54,7 @@ GtkWidget *create_window_update(void) {
                                         NULL, _("Update weather"));
 }
 /*******************************************************************************/
-#ifdef USE_DBUS
+#if !defined OS2008 && !defined OS2009
 static DBusHandlerResult
 get_connection_status_signal_cb(DBusConnection * connection,
                                 DBusMessage * message, void *user_data) {
@@ -107,7 +106,7 @@ get_connection_status_signal_cb(DBusConnection * connection,
 /* Callback function for request  connection to Internet */
 #ifdef USE_CONIC
 #define OSSO_CON_IC_CONNECTING             0x05
-static void
+void
 connection_cb(ConIcConnection * connection,
               ConIcConnectionEvent * event, gpointer user_data) {
     const gchar *iap_id, *bearer;
@@ -181,76 +180,6 @@ void iap_callback(struct iap_event_t *event, void *arg) {
 }
 #endif
 #endif
-/*******************************************************************************/
-void weather_initialize_dbus(void) {
-
-    gchar *tmp;
-#ifdef USE_DBUS
-    gchar *filter_string;
-    DBusConnection *dbus_conn;
-#endif
-    GConfClient *gconf_client = NULL;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    if (!app->dbus_is_initialize) {
-        /* Reseting values */
-        app->iap_connecting = FALSE;
-        app->iap_connected = FALSE;
-        app->iap_connecting_timer = 0;
-
-        /* Check connection */
-        gconf_client = gconf_client_get_default();
-        if (gconf_client) {
-            tmp = gconf_client_get_string(gconf_client,
-                                          GCONF_KEY_CURRENT_CONNECTIVITY,
-                                          NULL);
-            if (tmp) {
-                app->iap_connected = TRUE;
-                g_free(tmp);
-            } else
-                app->iap_connected = FALSE;
-            gconf_client_clear_cache(gconf_client);
-            g_object_unref(gconf_client);
-        }
-#ifdef USE_CONIC
-        app->connection = con_ic_connection_new();
-        if (app->connection != NULL) {
-            g_object_set(app->connection, "automatic-connection-events",
-                         TRUE, NULL);
-            g_signal_connect(G_OBJECT(app->connection),
-                             "connection-event",
-                             G_CALLBACK(connection_cb),
-                             GINT_TO_POINTER(USER_DATA_MAGIC));
-        }
-#else
-    #ifndef NONMAEMO
-        osso_iap_cb(iap_callback);
-    #endif
-#endif
-
-#ifdef USE_DBUS
-        /* Add D-BUS signal handler for 'status_changed' */
-        dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
-        filter_string =
-            g_strdup_printf("interface=%s", ICD_DBUS_INTERFACE);
-        /* add match */
-        dbus_bus_add_match(dbus_conn, filter_string, NULL);
-        g_free(filter_string);
-        /* add the callback */
-        dbus_connection_add_filter(dbus_conn,
-                                   get_connection_status_signal_cb,
-                                   NULL, NULL);
-
-#endif                          /* USE_DBUS */
-        /* For Debug on i386 */
-#if ! defined (RELEASE) || defined (NONMAEMO)
-        app->iap_connected = TRUE;
-#endif
-        app->dbus_is_initialize = TRUE;
-    }
-}
-/*******************************************************************************/
 /* Init easy curl */
 CURL *weather_curl_init(CURL * my_curl_handle) {
 #ifdef DEBUGFUNCTIONCALL

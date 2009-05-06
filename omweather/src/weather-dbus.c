@@ -35,17 +35,28 @@
 #include "weather-common.h"
 #define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
 #ifdef USE_CONIC
-#include <conic/conic.h>
-#define USER_DATA_MAGIC 0xaadcaadc
+    #include <conic/conic.h>
+    #define USER_DATA_MAGIC 0xaadcaadc
 #endif
+
 #include "weather-dbus.h"
 
+#if defined OS2009 || defined OS2008
+    #include <mce/dbus-names.h>
+    #include <mce/mode-names.h>
+#endif
+
+#define MCE_MATCH_RULE "type='signal',interface='" MCE_SIGNAL_IF \
+                        "',member='" MCE_DEVICE_MODE_SIG "'"
+
 /*******************************************************************************/
-void weather_initialize_dbus(void) {
+void
+weather_initialize_dbus(void) {
 
     gchar *tmp;
 #ifdef USE_DBUS
     gchar *filter_string;
+    DBusError error;
 #endif
     GConfClient *gconf_client = NULL;
 //#ifdef DEBUGFUNCTIONCALL
@@ -95,7 +106,12 @@ void weather_initialize_dbus(void) {
         filter_string =
             g_strdup_printf("interface=%s", ICD_DBUS_INTERFACE);
         /* add match */
-        dbus_bus_add_match(app->dbus_conn, filter_string, NULL);
+        dbus_error_init (&error);
+        dbus_bus_add_match(app->dbus_conn, filter_string, &error);
+        if (dbus_error_is_set(&error)){
+             fprintf(stderr,"dbus_bus_add_match failed: %s", error.message);
+             dbus_error_free(&error);
+        }
         g_free(filter_string);
         /* add the callback */
         dbus_connection_add_filter(app->dbus_conn,
@@ -104,14 +120,47 @@ void weather_initialize_dbus(void) {
 
 #endif
 
+#if defined OS2009 || defined OS2008
+        dbus_error_init (&error);
+        dbus_bus_add_match(app->dbus_conn, MCE_MATCH_RULE, &error);
+        if (dbus_error_is_set(&error)){
+             fprintf(stderr,"dbus_bus_add_match failed: %s", error.message);
+             dbus_error_free(&error);
+        }
+        if (!dbus_connection_add_filter(app->dbus_conn,
+                                      get_mce_signal_cb, NULL, NULL)){
+             fprintf(stderr,"Error dbus_connection_add_filter failed\n");
+        }
+
 #endif
 
-        /* For Debug on i386 */
+#endif
+
+/* For Debug on i386 */
 #if ! defined (RELEASE) || defined (NONMAEMO)
         app->iap_connected = TRUE;
 #endif
         app->dbus_is_initialize = TRUE;
     }
+}
+/*******************************************************************************/
+void
+weather_deinitialize_dbus(void) {
+
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+
+    if (app->dbus_conn){
+#if !defined OS2008 && !defined OS2009
+         dbus_bus_remove_match(app->dbus_conn, ICD_DBUS_INTERFACE, NULL);
+         dbus_connection_remove_filter(app->dbus_conn,
+             get_connection_status_signal_cb);
+#endif
+         dbus_connection_close(app->dbus_conn);
+         dbus_connection_unref(app->dbus_conn);
+    }
+
 }
 #endif
 /*******************************************************************************/

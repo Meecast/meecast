@@ -34,4 +34,5 @@
 #include <X11/Xatom.h>
 /*******************************************************************************/
 void init_portrait(GtkWidget *win);
+DBusHandlerResult get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data);
 #endif

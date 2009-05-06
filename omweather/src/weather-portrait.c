@@ -29,6 +29,32 @@
 /*******************************************************************************/
 #include "weather-portrait.h"
 
+#if defined OS2009 || defined OS2008
+    #include <mce/dbus-names.h>
+    #include <mce/mode-names.h>
+#endif
+
+
+
+
+DBusHandlerResult
+get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
+
+    DBusMessageIter iter;
+    const char *mode_name = NULL;
+
+
+    if (dbus_message_is_signal(msg, MCE_SIGNAL_IF, MCE_DEVICE_MODE_SIG)){
+        if (dbus_message_iter_init(msg, &iter)){
+            dbus_message_iter_get_basic(&iter, &mode_name);
+            fprintf(stderr,"New status %s\n",mode_name);
+        }else
+            fprintf(stderr,"message did not have argument");
+    }
+
+    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+}
+
 void
 size_requested(GtkWidget *w, GtkRequisition *geo){
   g_warning("SIZE REQUEST %dx%d",

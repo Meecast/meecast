@@ -1051,6 +1051,9 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 #ifdef ENABLE_GPS
     deinitial_gps_control();
 #endif
+#ifdef USE_DBUS
+    weather_deinitialize_dbus();
+#endif
 
 #if !(defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO)
     osso = (osso_context_t*)applet_data;
@@ -1402,8 +1405,8 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     gboolean	valid = FALSE,
 		user_stations_list_has_two_or_more_elements = FALSE;
     GSList	*tmp = NULL;
-    
-    
+
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif

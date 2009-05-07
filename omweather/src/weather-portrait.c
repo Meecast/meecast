@@ -48,6 +48,14 @@ get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
         if (dbus_message_iter_init(msg, &iter)){
             dbus_message_iter_get_basic(&iter, &mode_name);
             fprintf(stderr,"New status %s\n",mode_name);
+/*
+            if (!strcmp(mode_name, "landscape")) {
+                
+            }else{
+                if (!strcmp(mode_name, "portrait")) {
+                
+                }
+*/                
         }else
             fprintf(stderr,"message did not have argument");
     }
@@ -78,7 +86,7 @@ set_portrait(GtkWidget *self, char const *prop, guint32 value){
 
 
 
-void 
+void
 init_portrait(GtkWidget *win){
   g_signal_connect(win, "size-request",  G_CALLBACK(size_requested),  NULL);
   g_signal_connect(win, "size-allocate", G_CALLBACK(size_allocated), NULL);
@@ -88,6 +96,50 @@ init_portrait(GtkWidget *win){
   set_portrait(win, "_HILDON_PORTRAIT_MODE_SUPPORT", 1);
 
   set_portrait(win, "_HILDON_PORTRAIT_MODE_REQUEST", 1);
+}
+
+void 
+init_landscape(GtkWidget *win){
+
+  gtk_widget_realize(win);
+
+  set_portrait(win, "_HILDON_PORTRAIT_MODE_SUPPORT", 0);
+
+  set_portrait(win, "_HILDON_PORTRAIT_MODE_REQUEST", 0);
+}
+
+gchar *get_device_position(DBusConnection *connection)
+{
+    DBusError derror;
+    char *mode, *ret;
+    DBusMessage *message, *msg, *reply;
+    DBusPendingCall* pending;
+
+    message = dbus_message_new_method_call(MCE_SERVICE,
+                                   MCE_REQUEST_PATH,
+                                   MCE_REQUEST_IF,
+                                   MCE_DEVICE_ORIENTATION_GET);
+
+    dbus_error_init(&derror);
+    reply = dbus_connection_send_with_reply_and_block(connection, message,
+                                                      -1, &derror);
+    dbus_message_unref(message);
+    if (dbus_error_is_set(&derror)) {
+            fprintf(stderr,"Getting device mode from MCE failed: %s", derror.message);
+            dbus_error_free(&derror);
+            return g_strdup("landscape");
+    }
+
+    if (!dbus_message_get_args(reply, NULL,
+                               DBUS_TYPE_STRING, &mode,
+                               DBUS_TYPE_INVALID)) {
+        error("Invalid arguments for MCE get_device_orientation reply");
+        dbus_message_unref(reply);
+        return g_strdup("landscape");
+    }
+    ret = g_strdup(mode);
+    dbus_message_unref(reply);
+    return ret;
 }
 
 #endif

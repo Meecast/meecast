@@ -80,6 +80,10 @@ main(int argc, char *argv[]){
 
           hildon_program_add_window( app->app, app->main_view);
           app->osso = osso_context;
+          #if defined OS2009
+             fprintf(stderr,"Position %s\n",get_device_position(app->dbus_conn));
+             init_portrait(app->main_view);
+          #endif
           gtk_widget_show_all(app->main_view);
           gtk_main();
           gtk_widget_destroy(app->main_view);
@@ -105,6 +109,10 @@ main_window_button_key_press_cb(GtkWidget *widget, GdkEventKey *event,
         else
             gtk_window_fullscreen (GTK_WINDOW(user_data));
     }
+
+//    if(event->keyval == GDK_F5){
+//      init_landscape(widget);
+//    }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -165,10 +173,6 @@ create_omweather(void){
 
     gtk_window_set_title(GTK_WINDOW(main_widget), PACKAGE);
     gtk_window_set_default_size(GTK_WINDOW(main_widget), 800, 480);
-    
-#if defined OS2009
-//    init_portrait(main_widget);
-#endif
 
     if(!omweather_init_OS2009(main_widget))
         return NULL;

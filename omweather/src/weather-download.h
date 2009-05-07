@@ -35,9 +35,8 @@
 #if !defined OS2008 && !defined OS2009
 #include <osso-ic.h>
 #include <osso-ic-dbus.h>
-#include <dbus/dbus.h>
 #endif
-
+#include <dbus/dbus.h>
 #include <dbus/dbus-glib.h>
 /*******************************************************************************/
 struct HtmlFile {

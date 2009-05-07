@@ -40,6 +40,8 @@ gboolean main_window_state_event_cb(GtkWidget *widget, GdkEventWindowState *even
 gint dbus_callback(const gchar *interface, const gchar *method, GArray *arguments,
 			gpointer data, osso_rpc_t *retval);
 extern init_portrait(GtkWidget *win);
+extern init_landscape(GtkWidget *win);
+extern void check_device_position(DBusConnection *connection);
 /*******************************************************************************/
 #endif
 

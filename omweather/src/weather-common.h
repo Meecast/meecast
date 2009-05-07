@@ -393,6 +393,10 @@ typedef struct OMWeatherApplet{
     GSList		*tab_of_window_popup;
     GSList		*handles;
     gboolean            fullscreen;
+    WeatherStationData  wsd;
+    GSList              *sources;
+    GSList              *clutter_objects_in_main_form;
+    GSList              *clutter_objects_in_popup_form;
 #ifdef ENABLE_GPS
 #ifdef OS2008
     guint		gps_id_connection;
@@ -406,6 +410,9 @@ typedef struct OMWeatherApplet{
     gdouble		temporary_station_longtitude;
 #endif
 #endif
+#ifdef OS2009
+    gboolean    portrait_position;
+#endif
 #if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
     gfloat		sensor_data;
 #endif
@@ -415,10 +422,6 @@ typedef struct OMWeatherApplet{
 #ifdef USE_DBUS
     DBusConnection      *dbus_conn;
 #endif
-    WeatherStationData  wsd;
-    GSList              *sources;
-    GSList              *clutter_objects_in_main_form;
-    GSList              *clutter_objects_in_popup_form;
 #ifdef CLUTTER
     ClutterScript       *clutter_script; /* Maybe it need be deleting */
 #endif

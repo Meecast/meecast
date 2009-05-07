@@ -78,11 +78,17 @@ main(int argc, char *argv[]){
               return 2;
           }
 
-          hildon_program_add_window( app->app, app->main_view);
+          hildon_program_add_window(app->app, app->main_view);
           app->osso = osso_context;
           #if defined OS2009
-             fprintf(stderr,"Position %s\n",get_device_position(app->dbus_conn));
-             init_portrait(app->main_view);
+             check_device_position(app->dbus_conn);
+             if (app->portrait_position){
+                fprintf(stderr,"Portrait Position\n ");
+                init_portrait(app->main_view);
+             }else{
+                fprintf(stderr,"Landscape Position\n ");
+                init_landscape(app->main_view);
+             }
           #endif
           gtk_widget_show_all(app->main_view);
           gtk_main();
@@ -110,9 +116,12 @@ main_window_button_key_press_cb(GtkWidget *widget, GdkEventKey *event,
             gtk_window_fullscreen (GTK_WINDOW(user_data));
     }
 
-//    if(event->keyval == GDK_F5){
-//      init_landscape(widget);
-//    }
+    if(event->keyval == GDK_F5){
+      if (app->portrait_position)
+           init_landscape(widget);
+      else
+           init_portrait(widget);
+    }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

@@ -48,14 +48,12 @@ get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
         if (dbus_message_iter_init(msg, &iter)){
             dbus_message_iter_get_basic(&iter, &mode_name);
             fprintf(stderr,"New status %s\n",mode_name);
-/*
-            if (!strcmp(mode_name, "landscape")) {
-                
-            }else{
-                if (!strcmp(mode_name, "portrait")) {
-                
-                }
-*/                
+
+            if (!strcmp(mode_name, "landscape") && app->portrait_position)
+               init_landscape(app->main_view);
+            else
+                if (!strcmp(mode_name, "portrait") && !app->portrait_position )
+                    init_landscape(app->main_view);
         }else
             fprintf(stderr,"message did not have argument");
     }
@@ -64,17 +62,6 @@ get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 }
 #endif
 #if defined OS2009 
-void
-size_requested(GtkWidget *w, GtkRequisition *geo){
-  g_warning("SIZE REQUEST %dx%d",
-            geo->width, geo->height);
-}
-
-void
-size_allocated(GtkWidget *w, GtkAllocation *geo){
-  g_warning("SIZE ALLOCATION %dx%d%+d%+d",
-            geo->width, geo->height, geo->x, geo->y);
-}
 
 void
 set_portrait(GtkWidget *self, char const *prop, guint32 value){
@@ -88,14 +75,11 @@ set_portrait(GtkWidget *self, char const *prop, guint32 value){
 
 void
 init_portrait(GtkWidget *win){
-  g_signal_connect(win, "size-request",  G_CALLBACK(size_requested),  NULL);
-  g_signal_connect(win, "size-allocate", G_CALLBACK(size_allocated), NULL);
 
   gtk_widget_realize(win);
-
   set_portrait(win, "_HILDON_PORTRAIT_MODE_SUPPORT", 1);
-
   set_portrait(win, "_HILDON_PORTRAIT_MODE_REQUEST", 1);
+  app->portrait_position = TRUE;
 }
 
 void 
@@ -104,16 +88,21 @@ init_landscape(GtkWidget *win){
   gtk_widget_realize(win);
 
   set_portrait(win, "_HILDON_PORTRAIT_MODE_SUPPORT", 0);
-
   set_portrait(win, "_HILDON_PORTRAIT_MODE_REQUEST", 0);
+  app->portrait_position = FALSE;
 }
 
-gchar *get_device_position(DBusConnection *connection)
+void
+check_device_position(DBusConnection *connection)
 {
     DBusError derror;
-    char *mode, *ret;
-    DBusMessage *message, *msg, *reply;
-    DBusPendingCall* pending;
+    char *mode;
+    DBusMessage *message, *reply;
+
+    if (!connection){
+        app->portrait_position = FALSE;
+        return;
+    }
 
     message = dbus_message_new_method_call(MCE_SERVICE,
                                    MCE_REQUEST_PATH,
@@ -125,9 +114,10 @@ gchar *get_device_position(DBusConnection *connection)
                                                       -1, &derror);
     dbus_message_unref(message);
     if (dbus_error_is_set(&derror)) {
-            fprintf(stderr,"Getting device mode from MCE failed: %s", derror.message);
-            dbus_error_free(&derror);
-            return g_strdup("landscape");
+        fprintf(stderr,"Getting device mode from MCE failed: %s", derror.message);
+        dbus_error_free(&derror);
+        app->portrait_position = FALSE;
+        return;
     }
 
     if (!dbus_message_get_args(reply, NULL,
@@ -135,11 +125,17 @@ gchar *get_device_position(DBusConnection *connection)
                                DBUS_TYPE_INVALID)) {
         error("Invalid arguments for MCE get_device_orientation reply");
         dbus_message_unref(reply);
-        return g_strdup("landscape");
+        app->portrait_position = FALSE;
+        return;
     }
-    ret = g_strdup(mode);
+
+    if (!strcmp(mode, "portrait")) {
+        app->portrait_position = TRUE;
+    }else
+        app->portrait_position = FALSE;
+
     dbus_message_unref(reply);
-    return ret;
+    return;
 }
 
 #endif

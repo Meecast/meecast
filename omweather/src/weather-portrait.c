@@ -36,7 +36,7 @@
 
 
 
-
+#if defined OS2009 || defined OS2008
 DBusHandlerResult
 get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 
@@ -54,7 +54,8 @@ get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 }
-
+#endif
+#if defined OS2009 
 void
 size_requested(GtkWidget *w, GtkRequisition *geo){
   g_warning("SIZE REQUEST %dx%d",
@@ -88,3 +89,5 @@ init_portrait(GtkWidget *win){
 
   set_portrait(win, "_HILDON_PORTRAIT_MODE_REQUEST", 1);
 }
+
+#endif

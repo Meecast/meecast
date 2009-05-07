@@ -162,6 +162,8 @@ libweather_home_la_SOURCES  = 	weather-home.c \
 			weather-main.c \
 			weather-clutter.h \
 			weather-clutter.c \
+			weather-portrait.h \
+			weather-portrait.c \
 			weather-dbus.h \
 			weather-dbus.c
 

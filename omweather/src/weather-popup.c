@@ -379,6 +379,10 @@ popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
     gint *day_number;
     GtkWidget   *child;
 
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
     vbox = gtk_notebook_get_nth_page(nb, page);
 #ifdef CLUTTER
     free_clutter_objects_list(&app->clutter_objects_in_popup_form);
@@ -541,9 +545,9 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
             gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                         hour_tab,
                                         gtk_label_new(_("Detailed")));
-#if defined CLUTTER
+//#if defined CLUTTER
            g_idle_add((GSourceFunc)make_hour_tab,hour_tab);
-#endif
+//#endif
            add_item2object(&(app->tab_of_window_popup), (void*)hour_tab);
         }
     }

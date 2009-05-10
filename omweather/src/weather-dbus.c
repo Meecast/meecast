@@ -120,7 +120,7 @@ weather_initialize_dbus(void) {
 
 #endif
 
-#if defined OS2009 || defined OS2008
+#if defined OS2009
         dbus_error_init (&error);
         dbus_bus_add_match(app->dbus_conn, MCE_MATCH_RULE, &error);
         if (dbus_error_is_set(&error)){

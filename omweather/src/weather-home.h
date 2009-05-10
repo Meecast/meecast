@@ -133,6 +133,9 @@ extern void event_add(time_t time_value, short int type_event);
 extern void destroy_popup_window(void);
 extern float mb2mm(float pressure);
 extern GtkWidget *create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list);
+#ifdef USE_DBUS
+extern void weather_deinitialize_dbus(void);
+#endif
 #ifdef CLUTTER
 void free_clutter_objects_list(GSList **clutter_objects);
 #endif

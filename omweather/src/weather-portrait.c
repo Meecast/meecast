@@ -29,14 +29,14 @@
 /*******************************************************************************/
 #include "weather-portrait.h"
 
-#if defined OS2009 || defined OS2008
+#if defined OS2009
     #include <mce/dbus-names.h>
     #include <mce/mode-names.h>
 #endif
 
 
 
-#if defined OS2009 || defined OS2008
+#if defined OS2009
 DBusHandlerResult
 get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 

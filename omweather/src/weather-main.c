@@ -115,13 +115,14 @@ main_window_button_key_press_cb(GtkWidget *widget, GdkEventKey *event,
         else
             gtk_window_fullscreen (GTK_WINDOW(user_data));
     }
-
+#ifdef OS2009
     if(event->keyval == GDK_F5){
       if (app->portrait_position)
            init_landscape(widget);
       else
            init_portrait(widget);
     }
+#endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

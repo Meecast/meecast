@@ -59,10 +59,6 @@
     #include <X11/extensions/Xcomposite.h>
     #include <X11/extensions/Xdamage.h>
     #include <X11/extensions/Xrender.h>
-#ifdef ENABLE_GPS
-    #include <location/location-gps-device.h>
-    #include <location/location-gpsd-control.h>
-#endif
 
 #elif  NONMAEMO
     #include <hildon/hildon-banner.h>
@@ -73,6 +69,11 @@
 #else
     #include <hildon-widgets/hildon-banner.h>
 #endif
+#ifdef ENABLE_GPS
+    #include <location/location-gps-device.h>
+    #include <location/location-gpsd-control.h>
+#endif
+
 #ifdef CLUTTER
     #include <clutter/clutter.h>
     #include <clutter-gtk/gtk-clutter-embed.h>
@@ -398,7 +399,6 @@ typedef struct OMWeatherApplet{
     GSList              *clutter_objects_in_main_form;
     GSList              *clutter_objects_in_popup_form;
 #ifdef ENABLE_GPS
-#ifdef OS2008
     guint		gps_id_connection;
     guint		gps_id_gpsdevice;
     guint		gps_run;
@@ -408,7 +408,6 @@ typedef struct OMWeatherApplet{
     Station		gps_station;
     gdouble		temporary_station_latitude;
     gdouble		temporary_station_longtitude;
-#endif
 #endif
 #ifdef OS2009
     gboolean    portrait_position;

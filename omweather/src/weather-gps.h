@@ -39,7 +39,7 @@ void get_nearest_station( double lat, double lon, Station *result);
 /*******************************************************************************/
 extern int parse_region_string(const char *string, Region_item *result);
 extern gdouble calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2);
-extern	WeatherSource	weather_sources[];
+extern WeatherSource weather_sources[];
 extern GtkListStore* create_items_list(const char *path, const char *filename,
 				long start, long end, long *items_number);
 /*******************************************************************************/

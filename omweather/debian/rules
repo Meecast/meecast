@@ -23,9 +23,9 @@ configure-stamp:
 	dh_testdir
 	# Add here commands to configure the package.
 #	#For OS2006 OS2007
-	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-dbus=yes
+#	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-dbus=yes --enable-gps=yes
 	#For OS2008
-	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static 
+	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes
 	#For NONMAEMO PLATFORM
 #	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --enable-static --enable-nonmaemo --enable-clutter
 	touch configure-stamp

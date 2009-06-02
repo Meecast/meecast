@@ -133,7 +133,7 @@ gboolean timer_handler(gpointer data) {
                                                     app->temporary_station_latitude,app->temporary_station_longtitude));
 		    fflush(file_log);
 */
-                if (calculate_distance
+                if (calculate_distance1
                     (app->gps_station.latitude,
                      app->gps_station.longtitude,
                      app->temporary_station_latitude,

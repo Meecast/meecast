@@ -33,7 +33,6 @@
 #endif
 /*******************************************************************************/
 #ifdef ENABLE_GPS
-#ifdef OS2008
 
 void get_nearest_station(double lat, double lon, Station * result) {
     FILE *fh;
@@ -148,6 +147,7 @@ gps_location_started (LocationGPSDControl *control, gpointer userdata)
 {
  initial_gps_connect();
 }
+
 static void 
 gps_location_stopped (LocationGPSDControl *control, gpointer userdata)
 {
@@ -155,6 +155,7 @@ gps_location_stopped (LocationGPSDControl *control, gpointer userdata)
 }
 
 /*******************************************************************************/ 
+void
 initial_gps_control(void)
 { 
 #ifdef DEBUGFUNCTIONCALL
@@ -288,5 +289,4 @@ void delete_all_gps_stations(void) {
 }
 
 /*******************************************************************************/
-#endif
 #endif

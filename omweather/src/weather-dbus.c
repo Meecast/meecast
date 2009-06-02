@@ -47,7 +47,7 @@
 #endif
 
 #define MCE_MATCH_RULE "type='signal',interface='" MCE_SIGNAL_IF \
-                        "',member='" MCE_DEVICE_MODE_SIG "'"
+                        "',member='" MCE_DEVICE_ORIENTATION_SIG "'"
 
 /*******************************************************************************/
 void

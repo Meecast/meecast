@@ -893,7 +893,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->popup_window = NULL;
     app->contextmenu = NULL;
     app->tab_of_window_popup = NULL;
-    app->fullscreen = FALSE;
 /* Start timer */
     timer(60000);  /* One per minute */
 /* Start main applet */
@@ -914,7 +913,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     gtk_box_pack_start(GTK_BOX(main_hbox), app->top_widget, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_hbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(main_vbox), create_toolbar_box(omweather_destroy,app->main_view), FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(main_vbox), create_toolbar_box(omweather_destroy, applet, TRUE), FALSE, FALSE, 0);
     gtk_container_add(GTK_CONTAINER(applet), main_vbox);
 #endif
 #if !defined OS2008 ||  defined (APPLICATION)

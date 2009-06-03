@@ -41,6 +41,7 @@ gboolean draw_top_gradient(GtkWidget *widget, GdkEventExpose *event);
 gboolean draw_bottom_gradient(GtkWidget *widget, GdkEventExpose *event);
 void set_background_color(GtkWidget *widget, GdkColor *bgc);
 void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
+void change_state_window(GtkWidget *window);
 float c2f(float temp);
 void swap_temperature(int *hi, int *low);
 GtkWidget* lookup_widget(GtkWidget* widget, const gchar* widget_name);

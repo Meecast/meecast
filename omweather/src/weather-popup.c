@@ -319,12 +319,13 @@ gboolean make_hour_tab(GtkWidget *vbox){
 }
 /*******************************************************************************/
 GtkWidget *
-create_toolbar_box(gpointer exit_function, gpointer arg_exit_function)
+create_toolbar_box(gpointer exit_function, GtkWidget *window, gboolean fullscreen_button)
 {
     GtkWidget	*buttons_box = NULL,
                 *settings_button = NULL,
                 *refresh_button = NULL,
                 *about_button = NULL,
+                *maximize_button = NULL,
                 *close_button = NULL;
     /* Bottom buttons box */
     /*buttons_box = gtk_toolbar_new();
@@ -355,8 +356,13 @@ create_toolbar_box(gpointer exit_function, gpointer arg_exit_function)
     close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE, FALSE);
     g_signal_connect(G_OBJECT(close_button), "button-release-event",
                         G_CALLBACK(exit_function),
-                        (gpointer)arg_exit_function);
-
+                        (gpointer)window);
+    /* Fullscreen button */
+    /*maximize_button = create_tool_item(BUTTON_ICONS, "maximize", 40);*/
+    maximize_button = create_button_with_image(BUTTON_ICONS, "maximize", 40, FALSE, FALSE);
+    g_signal_connect(G_OBJECT(maximize_button), "button-release-event",
+                        G_CALLBACK(maximize_button_handler),
+                        (gpointer)window);
 /* Pack buttons to the buttons box */
     /*gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(settings_button), -1);
     gtk_toolbar_insert(GTK_TOOLBAR(buttons_box), GTK_TOOL_ITEM(refresh_button), -1);
@@ -365,6 +371,8 @@ create_toolbar_box(gpointer exit_function, gpointer arg_exit_function)
     gtk_box_pack_start(GTK_BOX(buttons_box), settings_button, TRUE, TRUE, 5);
     gtk_box_pack_start(GTK_BOX(buttons_box), refresh_button, TRUE, TRUE, 5);
     gtk_box_pack_start(GTK_BOX(buttons_box), about_button, TRUE, TRUE, 5);
+    if (fullscreen_button)
+        gtk_box_pack_start(GTK_BOX(buttons_box), maximize_button, TRUE, TRUE, 5);
     gtk_box_pack_start(GTK_BOX(buttons_box), close_button, TRUE, TRUE, 5);
     return buttons_box;
 }
@@ -594,7 +602,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
         gtk_widget_show(notebook);
     }
 
-    buttons_box = create_toolbar_box(popup_close_button_handler,app->popup_window);
+    buttons_box = create_toolbar_box(popup_close_button_handler, app->popup_window, FALSE);
 
     /* check if no data file for this station */
     if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){
@@ -683,6 +691,13 @@ void refresh_button_handler(GtkWidget *button, GdkEventButton *event,
 void about_button_handler(GtkWidget *button, GdkEventButton *event,
 								gpointer user_data){
     create_about_dialog();
+}
+/*******************************************************************************/
+void maximize_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    change_state_window(GTK_WINDOW(user_data));
 }
 /*******************************************************************************/
 void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,

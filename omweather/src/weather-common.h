@@ -393,7 +393,6 @@ typedef struct OMWeatherApplet{
     gint		ah;
     GSList		*tab_of_window_popup;
     GSList		*handles;
-    gboolean            fullscreen;
     WeatherStationData  wsd;
     GSList              *sources;
     GSList              *clutter_objects_in_main_form;

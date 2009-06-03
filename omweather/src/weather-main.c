@@ -109,11 +109,8 @@ main_window_button_key_press_cb(GtkWidget *widget, GdkEventKey *event,
     START_FUNCTION;
 #endif
     if(event->keyval == GDK_F6){
-    /* The "Full screen" hardware key has been pressed */
-        if(app->fullscreen == GDK_WINDOW_STATE_FULLSCREEN)
-            gtk_window_unfullscreen (GTK_WINDOW(user_data));
-        else
-            gtk_window_fullscreen (GTK_WINDOW(user_data));
+        /* The "Full screen" hardware key has been pressed */
+        change_state_window(GTK_WINDOW(user_data));
     }
 #ifdef OS2009
     if(event->keyval == GDK_F5){
@@ -128,18 +125,6 @@ main_window_button_key_press_cb(GtkWidget *widget, GdkEventKey *event,
 #endif
     return FALSE;
 }
-/*******************************************************************************/
-gboolean
-main_window_state_event_cb(GtkWidget *widget, GdkEventWindowState *event,
-				gpointer user_data){
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    app->fullscreen = (event->new_window_state & GDK_WINDOW_STATE_FULLSCREEN);
-    return FALSE;
-}
-
-
 /*******************************************************************************/
 HildonWindow*
 create_omweather(void){
@@ -196,10 +181,6 @@ create_omweather(void){
     g_signal_connect (main_widget, "key_press_event",
                       G_CALLBACK (main_window_button_key_press_cb),
                       main_widget);
-/* For fullscreen/ unfullscreen mode */
-    g_signal_connect (main_widget, "window_state_event",
-                      G_CALLBACK (main_window_state_event_cb),
-                      NULL);
 
     gtk_widget_modify_bg(main_widget, GTK_STATE_NORMAL,
 			    &app->config->background_color);

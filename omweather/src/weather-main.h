@@ -42,6 +42,7 @@ gint dbus_callback(const gchar *interface, const gchar *method, GArray *argument
 extern init_portrait(GtkWidget *win);
 extern init_landscape(GtkWidget *win);
 extern void check_device_position(DBusConnection *connection);
+extern void change_state_window(GtkWidget *window);
 /*******************************************************************************/
 #endif
 

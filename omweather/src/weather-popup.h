@@ -48,11 +48,12 @@ void about_button_handler(GtkWidget *button, GdkEventButton *event,
 								gpointer user_data);
 void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 								gpointer user_data);
+void maximize_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
 GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_pseudo_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_current_tab(GSList *current);
 GtkWidget* create_hour_tab(void);
-GtkWidget* create_toolbar_box(gpointer exit_function, gpointer arg_exit_function);
+GtkWidget* create_toolbar_box(gpointer exit_function, GtkWidget *window, gboolean fullscreen_button);
 gboolean make_current_tab(GtkWidget *vbox);
 gboolean make_tab(GtkWidget *vbox);
 gboolean make_hour_tab(GtkWidget *vbox);

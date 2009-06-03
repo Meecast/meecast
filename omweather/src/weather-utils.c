@@ -510,3 +510,18 @@ update_icons_set_base(const char *icon_set_name){
     app->config->icons_set_base = g_strdup(buffer);
 }
 /******************************************************************************/
+/* Fullscreen/Unfullscreen window */
+void
+change_state_window(GtkWidget *window){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if (window)
+        if (gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN)
+            gtk_window_unfullscreen (GTK_WINDOW(window));
+        else
+            gtk_window_fullscreen (GTK_WINDOW(window));
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+}

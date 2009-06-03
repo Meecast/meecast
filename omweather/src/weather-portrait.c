@@ -53,7 +53,7 @@ get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
                init_landscape(app->main_view);
             else
                 if (!strcmp(mode_name, "portrait") && !app->portrait_position )
-                    init_landscape(app->main_view);
+                    init_portrait(app->main_view);
         }else
             fprintf(stderr,"message did not have argument");
     }

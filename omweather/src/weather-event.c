@@ -110,8 +110,6 @@ gboolean timer_handler(gpointer data) {
                 fprintf(stderr, "UPDATE by event\n");
 #endif
 
-#ifdef OS2008
-
 /* This is code for debug GPS
 
                     double r;
@@ -133,7 +131,7 @@ gboolean timer_handler(gpointer data) {
                                                     app->temporary_station_latitude,app->temporary_station_longtitude));
 		    fflush(file_log);
 */
-                if (calculate_distance1
+                if (calculate_distance
                     (app->gps_station.latitude,
                      app->gps_station.longtitude,
                      app->temporary_station_latitude,
@@ -166,7 +164,6 @@ gboolean timer_handler(gpointer data) {
                         redraw_home_window(FALSE);
                     }
                 }
-#endif
 #ifdef OS2008
                 /* add periodic gps check */
                 if (app->gps_station.latitude == 0

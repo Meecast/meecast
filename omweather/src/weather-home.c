@@ -893,6 +893,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->popup_window = NULL;
     app->contextmenu = NULL;
     app->tab_of_window_popup = NULL;
+    app->dbus_conn = NULL;
 /* Start timer */
     timer(60000);  /* One per minute */
 /* Start main applet */

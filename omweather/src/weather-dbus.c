@@ -59,9 +59,9 @@ weather_initialize_dbus(void) {
     DBusError error;
 #endif
     GConfClient *gconf_client = NULL;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if (!app->dbus_is_initialize) {
         /* Reseting values */
         app->iap_connecting = FALSE;
@@ -147,9 +147,9 @@ weather_initialize_dbus(void) {
 void
 weather_deinitialize_dbus(void) {
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
     if (app->dbus_conn){
 #if !defined OS2008 && !defined OS2009
@@ -160,6 +160,9 @@ weather_deinitialize_dbus(void) {
          dbus_connection_close(app->dbus_conn);
          dbus_connection_unref(app->dbus_conn);
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 
 }
 #endif

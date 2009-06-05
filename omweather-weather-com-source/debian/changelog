@@ -1,3 +1,9 @@
+omweather-weather-com-source (0.2) unstable; urgency=low
+
+  * Added GPS coordints for regions
+
+ -- Vlad Vasiliev <vlad@gas.by>  Jun, 05 Fri 2009 17:56:12 +0200
+
 omweather-weather-com-source (0.1) unstable; urgency=low
 
   * Initial Release.

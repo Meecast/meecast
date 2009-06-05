@@ -505,7 +505,7 @@ void delete_station_handler(GtkButton * button, gpointer user_data) {
             path =
                 gtk_tree_model_get_path(GTK_TREE_MODEL
                                         (app->user_stations_list), &iter);
-#if defined(OS2008) && defined(ENABLE_GPS)
+#if defined(ENABLE_GPS)
             if (is_gps) {
                 /* Reset gps station */
                 app->gps_station.id0[0] = 0;
@@ -1409,7 +1409,6 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
         else
             app->config->clicking_type = SHORT_CLICK;
     }
-#ifdef OS2008
 #ifdef ENABLE_GPS
 /* enable gps */
     enable_gps = lookup_widget(config_window, "enable_gps");
@@ -1425,7 +1424,6 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
             app->gps_station.longtitude = 0;
         }
     }
-#endif
 #endif
 /* download after connection */
     download_after_connection = lookup_widget(config_window,

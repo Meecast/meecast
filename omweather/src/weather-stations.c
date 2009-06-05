@@ -320,7 +320,6 @@ sqlite3* open_database(const char *path, const char *filename){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    fprintf (stderr, "Path %s filename %s\n",path, filename);
     if(!path || !filename)
         return NULL;
     *name = 0;
@@ -408,6 +407,11 @@ GtkListStore* create_stations_list(sqlite3 *database, int region_id){
     gchar		*errMsg = NULL;
     gchar		sql[256];
 
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+
     if(!database || !region_id)
 	return NULL;	/* database doesn't open */
 
@@ -425,6 +429,9 @@ GtkListStore* create_stations_list(sqlite3 *database, int region_id){
 	sqlite3_free(errMsg);
 	return NULL;
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return list;
 }
 /*******************************************************************************/
@@ -488,7 +495,6 @@ int regions_callback(void *user_data, int argc, char **argv, char **azColName){
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
     for(i = 0; i < argc; i++){
-        fprintf(stderr,"Name: %s\n",azColName[i]);
         if(!strcmp(azColName[i], "id"))
             gtk_list_store_set(list, &iter, 1, atoi(argv[i]), -1);
         if(!strcmp(azColName[i], "name"))

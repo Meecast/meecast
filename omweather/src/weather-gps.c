@@ -34,7 +34,8 @@
 /*******************************************************************************/
 #ifdef ENABLE_GPS
 
-void get_nearest_station(double lat, double lon, Station * result) {
+void
+get_nearest_station(double lat, double lon, Station *result) {
 
     FILE *fh;
     char buffer[512];
@@ -50,11 +51,15 @@ void get_nearest_station(double lat, double lon, Station * result) {
     gchar *station_name = NULL, *station_id0 = NULL, *region_name, *region_id;
     double station_latitude, station_longtitude, distance, min_distance =
         40000;
-    sqlite3    *database;
+    sqlite3    *database = NULL;
 
     /* Check only weather.com datase yet */
     database = open_database(DATABASEPATH, "weather.com.db");
+    if (!database)
+        return;
     regions_list = create_regions_list(database, 0, &regions_number);
+    if (!regions_list)
+        return;
     valid_region = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                               (regions_list), &iter_region);
 
@@ -74,9 +79,7 @@ void get_nearest_station(double lat, double lon, Station * result) {
         if (lat >= region.minlat && lat <= region.maxlat
             && lon >= region.minlon && lon <= region.maxlon) {
             stations_list = create_stations_list(database, region_id);
-//                create_items_list(DATABASEPATH,
-//                                  LOCATIONSFILE, region.start, region.end,
-//                                  NULL);
+
             valid =
                 gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                               (stations_list), &iter);
@@ -98,7 +101,7 @@ void get_nearest_station(double lat, double lon, Station * result) {
                     min_distance = distance;
 
                     /* Copying to result */
-                    memset(result->name, 0, sizeof(result->name) + 5);
+                    memset(result->name, 0, sizeof(result->name));
                     memcpy(result->name, station_name,
                            ((sizeof(result->name) - 1) >
                             (int)(strlen(station_name))
@@ -129,7 +132,6 @@ void get_nearest_station(double lat, double lon, Station * result) {
                     result->latitude = station_latitude;
                     result->longtitude = station_longtitude;
                 }
-
                 valid =
                     gtk_tree_model_iter_next(GTK_TREE_MODEL
                                              (stations_list), &iter);
@@ -144,7 +146,6 @@ void get_nearest_station(double lat, double lon, Station * result) {
         valid_region =
             gtk_tree_model_iter_next(GTK_TREE_MODEL
                                      (regions_list), &iter_region);
-
     }
     close_database(database);
 #ifdef DEBUGFUNCTIONCALL

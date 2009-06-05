@@ -70,14 +70,13 @@ void get_nearest_station(double lat, double lon, Station * result) {
                                    4, &region.minlon,
                                    5, &region.minlat,
                                    -1);
-#if 0
         /* Checking insiding point in to region */
         if (lat >= region.minlat && lat <= region.maxlat
             && lon >= region.minlon && lon <= region.maxlon) {
-            stations_list =
-                create_items_list(DATABASEPATH,
-                                  LOCATIONSFILE, region.start, region.end,
-                                  NULL);
+            stations_list = create_stations_list(database, region_id);
+//                create_items_list(DATABASEPATH,
+//                                  LOCATIONSFILE, region.start, region.end,
+//                                  NULL);
             valid =
                 gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                               (stations_list), &iter);
@@ -142,7 +141,6 @@ void get_nearest_station(double lat, double lon, Station * result) {
                 stations_list = NULL;
             }
         }
-#endif
         valid_region =
             gtk_tree_model_iter_next(GTK_TREE_MODEL
                                      (regions_list), &iter_region);

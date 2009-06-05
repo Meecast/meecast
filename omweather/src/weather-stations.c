@@ -317,14 +317,18 @@ int parse_station_string(const char *string, Station * result) {
 sqlite3* open_database(const char *path, const char *filename){
     sqlite3	*db = NULL;
     gchar	name[256];
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    fprintf (stderr, "Path %s filename %s\n",path, filename);
     if(!path || !filename)
-	return NULL;
+        return NULL;
     *name = 0;
     snprintf(name, sizeof(name) - 1, "%s%s", path, filename);
-    if(sqlite3_open(name, &db))
-	return NULL;		/* error */
-
+    if(sqlite3_open(name, &db)){
+        fprintf(stderr,"Error in connection to database %s\n",sqlite3_errmsg(db));
+        return NULL;   /* error */
+    }
     return db;
 }
 /*******************************************************************************/
@@ -359,26 +363,42 @@ GtkListStore* create_regions_list(sqlite3 *database, int country_id, int *region
     gint		rc;
     gchar		*errMsg = NULL;
     gchar		sql[256];
-    struct request_data	data = { 0, 0 };
+    struct request_data	data = { 0, 0, 0, 0, 0, 0 };
 
-    if(!database || !country_id)
-	return NULL;	/* database doesn't open */
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
 
-    list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
+    if(!database)
+        return NULL;    /* database doesn't open */
+
+    list = gtk_list_store_new(6, G_TYPE_STRING, G_TYPE_INT, G_TYPE_DOUBLE, G_TYPE_DOUBLE, 
+                                 G_TYPE_DOUBLE, G_TYPE_DOUBLE);
     data.list = list;
     *sql = 0;
-    snprintf(sql, sizeof(sql) - 1,
-		"SELECT id, name FROM regions WHERE country_id = %d ORDER BY name",
-		country_id);
+    if (country_id == 0)
+        snprintf(sql, sizeof(sql) - 1,
+                 "SELECT id, name, longititudemax, latitudemax, longititudemin, latitudemin \
+                  FROM regions");
+    else
+        snprintf(sql, sizeof(sql) - 1,
+                 "SELECT id, name, longititudemax, latitudemax, longititudemin, latitudemin \
+                  FROM regions WHERE country_id = %d ORDER BY name",
+                  country_id);
     rc = sqlite3_exec(database, sql, regions_callback, (void*)&data, &errMsg);
     if(rc != SQLITE_OK){
 #ifndef RELEASE
-	fprintf(stderr, "\n>>>>%s\n", errMsg);
+        fprintf(stderr, "\n>>>>%s\n", errMsg);
 #endif
-	sqlite3_free(errMsg);
-	return NULL;
+        sqlite3_free(errMsg);
+        return NULL;
     }
     *region_count = data.count;
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
     return list;
 }
 /*******************************************************************************/
@@ -460,15 +480,31 @@ int regions_callback(void *user_data, int argc, char **argv, char **azColName){
     struct request_data	*data = (struct request_data*)user_data;
     GtkListStore	*list = GTK_LIST_STORE(data->list);
 
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
     data->count += (int)argc / 2;
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
     for(i = 0; i < argc; i++){
-	if(!strcmp(azColName[i], "id"))
-	    gtk_list_store_set(list, &iter, 1, atoi(argv[i]), -1);
-	if(!strcmp(azColName[i], "name"))
-	    gtk_list_store_set(list, &iter, 0, argv[i], -1);
+        fprintf(stderr,"Name: %s\n",azColName[i]);
+        if(!strcmp(azColName[i], "id"))
+            gtk_list_store_set(list, &iter, 1, atoi(argv[i]), -1);
+        if(!strcmp(azColName[i], "name"))
+            gtk_list_store_set(list, &iter, 0, argv[i], -1);
+        if(!strcmp(azColName[i], "longititudemax"))
+            gtk_list_store_set(list, &iter, 2, atof(argv[i]), -1);
+        if(!strcmp(azColName[i], "latitudemax"))
+            gtk_list_store_set(list, &iter, 3, atof(argv[i]), -1);
+        if(!strcmp(azColName[i], "longititudemin"))
+            gtk_list_store_set(list, &iter, 4, atof(argv[i]), -1);
+        if(!strcmp(azColName[i], "latitudemin"))
+            gtk_list_store_set(list, &iter, 5, atof(argv[i]), -1);
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return 0;
 }
 /*******************************************************************************/

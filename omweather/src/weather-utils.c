@@ -513,9 +513,14 @@ update_icons_set_base(const char *icon_set_name){
 /* Fullscreen/Unfullscreen window */
 void
 change_state_window(GtkWidget *window){
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
+    get_nearest_station
+                        (10,
+                         15,
+                         &app->gps_station);
+
     if (window)
         if (gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN)
             gtk_window_unfullscreen (GTK_WINDOW(window));

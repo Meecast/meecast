@@ -35,35 +35,42 @@
 #ifdef ENABLE_GPS
 
 void get_nearest_station(double lat, double lon, Station * result) {
+
     FILE *fh;
     char buffer[512];
-    char filename[4096];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     Region_item region;
     GtkListStore *stations_list = NULL;
-    GtkTreeIter iter;
-    gboolean valid;
-    gchar *station_name = NULL, *station_id0 = NULL;
+    GtkListStore *regions_list = NULL;
+    GtkTreeIter iter, iter_region;
+    gboolean valid, valid_region;
+    int regions_number;
+    gchar *station_name = NULL, *station_id0 = NULL, *region_name, *region_id;
     double station_latitude, station_longtitude, distance, min_distance =
         40000;
+    sqlite3    *database;
 
-    filename[0] = 0;
-    snprintf(filename, sizeof(filename) - 1, "%s%s",
-             DATABASEPATH,
-             REGIONSFILE);
-    fh = fopen(filename, "rt");
-    if (!fh) {
-        fprintf(stderr, "\nCan't read file %s: %s", filename,
-                strerror(errno));
-        return;
-    }
+    /* Check only weather.com datase yet */
+    database = open_database(DATABASEPATH, "weather.com.db");
+    regions_list = create_regions_list(database, 0, &regions_number);
+    valid_region = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
+                                              (regions_list), &iter_region);
+
+
     /* Reading region settings */
-    while (!feof(fh)) {
-        memset(buffer, 0, sizeof(buffer));
-        fgets(buffer, sizeof(buffer) - 1, fh);
-        parse_region_string(buffer, &region);
+    while (valid_region) {
+        gtk_tree_model_get(GTK_TREE_MODEL(regions_list),
+                                   &iter_region,
+                                   0, &region_name,
+                                   1, &region_id,
+                                   2, &region.maxlon,
+                                   3, &region.maxlat,
+                                   4, &region.minlon,
+                                   5, &region.minlat,
+                                   -1);
+#if 0
         /* Checking insiding point in to region */
         if (lat >= region.minlat && lat <= region.maxlat
             && lon >= region.minlon && lon <= region.maxlon) {
@@ -135,8 +142,13 @@ void get_nearest_station(double lat, double lon, Station * result) {
                 stations_list = NULL;
             }
         }
+#endif
+        valid_region =
+            gtk_tree_model_iter_next(GTK_TREE_MODEL
+                                     (regions_list), &iter_region);
+
     }
-    fclose(fh);
+    close_database(database);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -157,7 +169,7 @@ gps_location_stopped (LocationGPSDControl *control, gpointer userdata)
 /*******************************************************************************/ 
 void
 initial_gps_control(void)
-{ 
+{
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -191,6 +203,7 @@ gps_location_changed(LocationGPSDevice * device, gpointer userdata) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+
     if (!app->config->gps_station)
         return;
     if (device->fix->fields & LOCATION_GPS_DEVICE_LATLONG_SET) {
@@ -202,7 +215,7 @@ gps_location_changed(LocationGPSDevice * device, gpointer userdata) {
 /*******************************************************************************/
 void
 initial_gps_connect(void)
-{ 
+{
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -221,9 +234,9 @@ deinitial_gps_connect(void)
     START_FUNCTION;
 #endif
     if (app->gps_device){
-	g_signal_handler_disconnect (app->gps_device,app->gps_id_connection);
-	g_object_unref(app->gps_device);
-    }	
+        g_signal_handler_disconnect (app->gps_device,app->gps_id_connection);
+        g_object_unref(app->gps_device);
+    }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

@@ -100,9 +100,9 @@ gboolean timer_handler(gpointer data) {
 #ifdef ENABLE_GPS
             case CHECK_GPS_POSITION:
                 /* delete periodic update */
-#ifndef RELEASE
+//#ifndef RELEASE
                 fprintf(stderr, "Delete evt %s\n", ctime(&evt->time));
-#endif
+//#endif
                 g_free(evt);
                 event_time_list =
                     g_slist_remove(event_time_list, event_time_list->data);
@@ -111,7 +111,7 @@ gboolean timer_handler(gpointer data) {
 #endif
 
 /* This is code for debug GPS
-
+*/
                     double r;
                     r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
                     app->temporary_station_latitude = r*90;
@@ -123,12 +123,19 @@ gboolean timer_handler(gpointer data) {
                     r = (   (double)rand() / ((double)(RAND_MAX)+(double)(1)) );
                     if (r<0.5)
                         app->temporary_station_longtitude = app->temporary_station_longtitude  * -1;
-                
+                    fprintf(stderr,"Event:  Calculate CHECK_GPS_POSITION %f %f %f %f %f\n",
+                                    app->gps_station.latitude,app->gps_station.longtitude,
+                                    app->temporary_station_latitude,app->temporary_station_longtitude,
+                                    calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
+                                                    app->temporary_station_latitude,app->temporary_station_longtitude));
+
+/*                
                     fprintf(file_log,"Event:  Calculate CHECK_GPS_POSITION %f %f %f %f %f\n",
                                     app->gps_station.latitude,app->gps_station.longtitude,
                                     app->temporary_station_latitude,app->temporary_station_longtitude,
                                     calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
                                                     app->temporary_station_latitude,app->temporary_station_longtitude));
+/*                                                    
 		    fflush(file_log);
 */
                 if (calculate_distance
@@ -164,7 +171,7 @@ gboolean timer_handler(gpointer data) {
                         redraw_home_window(FALSE);
                     }
                 }
-#ifdef OS2008
+#ifdef ENABLE_GPS
                 /* add periodic gps check */
                 if (app->gps_station.latitude == 0
                     && app->gps_station.longtitude == 0)

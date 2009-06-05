@@ -437,7 +437,7 @@ gint read_config(AppletConfig * config) {
     remove_periodic_event();    /* delete event from list */
     add_periodic_event(time(NULL));     /* add new event */
 
-#ifdef OS2008
+#ifdef ENABLE_GPS
     /* Get gps_station. Default is FALSE */
     value =
         gconf_client_get(gconf_client, GCONF_KEY_USE_GPS_STATION, NULL);

@@ -39,9 +39,9 @@ get_nearest_station(double lat, double lon, Station *result) {
 
     FILE *fh;
     char buffer[512];
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     Region_item region;
     GtkListStore *stations_list = NULL;
     GtkListStore *regions_list = NULL;
@@ -75,11 +75,12 @@ get_nearest_station(double lat, double lon, Station *result) {
                                    4, &region.minlon,
                                    5, &region.minlat,
                                    -1);
+        fprintf(stderr,"%s %f %f %f %f\n", region_name, region.maxlon, region.maxlat, region.minlon, region.minlat);
         /* Checking insiding point in to region */
         if (lat >= region.minlat && lat <= region.maxlat
             && lon >= region.minlon && lon <= region.maxlon) {
             stations_list = create_stations_list(database, region_id);
-
+            fprintf(stderr,"------- Country %s\n", region_name);
             valid =
                 gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                               (stations_list), &iter);
@@ -95,6 +96,7 @@ get_nearest_station(double lat, double lon, Station *result) {
                 distance =
                     calculate_distance(lat, lon, station_latitude,
                                        station_longtitude);
+                fprintf (stderr,"lat %f lon %f Station  %s distance %f\n",lat, lon, station_name,distance);
                 if (distance < min_distance) {
 
                     /* New minimal distance */

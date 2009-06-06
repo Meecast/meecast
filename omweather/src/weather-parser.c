@@ -35,7 +35,8 @@
 #endif
 enum { RP5RU_DAY_BEGIN = 7, RP5RU_NIGHT_BEGIN = 15 };
 /*******************************************************************************/
-gint parse_weather_file_data(const gchar *station_id, gchar *station_source,
+gint 
+parse_weather_file_data(const gchar *station_id, gchar *station_source,
 					WeatherStationData *wsd,
 					    gboolean selected_detail_weather){
     gchar		buffer[2048],
@@ -51,7 +52,7 @@ gint parse_weather_file_data(const gchar *station_id, gchar *station_source,
     START_FUNCTION;
 #endif
 /* check storage is aviable */
-    if(!wsd || !station_id)
+    if(!wsd || !station_id || !station_source)
 	return -1;
     if(!strcmp(station_source, "weather.com"))
 	source = 0;
@@ -120,7 +121,8 @@ gint parse_weather_file_data(const gchar *station_id, gchar *station_source,
     return (handler(station_id, parser, &(app->wsd)));
 }
 /*******************************************************************************/
-weather_com_parser *weather_parser_new_from_file(const gchar *filename,
+weather_com_parser*
+weather_parser_new_from_file(const gchar *filename,
 							const gchar *encoding){
     weather_com_parser	*parser = NULL;
     xmlNode     *cur_node = NULL;
@@ -308,7 +310,7 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 				/* direction */
     				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"d") ){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
-				    itm = create_item("pressure_direction", temp_xml_string);
+				    itm = create_item("pressure_direction", (char*)temp_xml_string);
 				    xmlFree(temp_xml_string);
 				    add_item2object(&(wsd->current), itm);
 				}
@@ -353,7 +355,7 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 				/* direction */
     				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t") ){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
-				    itm = create_item("wind_direction", temp_xml_string);
+				    itm = create_item("wind_direction", (char*)temp_xml_string);
 				    xmlFree(temp_xml_string);
 				    add_item2object(&(wsd->current), itm);
 				}

@@ -899,7 +899,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 /* Start main applet */
     app->top_widget = gtk_hbox_new(FALSE, 0);
     
-
 #if defined CLUTTER
 //   g_signal_connect_after(app->top_widget, "expose-event",
 //      G_CALLBACK(top_widget_expose), NULL);
@@ -1150,6 +1149,9 @@ menu_init(void){
                                                         &iter);
     }
     gtk_widget_show_all(GTK_WIDGET(app->contextmenu));
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 /*******************************************************************************/
 /* For Combination layout */

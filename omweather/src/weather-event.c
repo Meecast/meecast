@@ -36,7 +36,8 @@ gboolean not_event = FALSE;
 /*******************************************************************************/
 static GSList *event_time_list = NULL;
 /*******************************************************************************/
-gboolean timer_handler(gpointer data) {
+gboolean 
+timer_handler(gpointer data) {
     static GSList *list_time_event_temp = NULL;
     struct event_time *evt;
     time_t current_time;
@@ -110,14 +111,14 @@ gboolean timer_handler(gpointer data) {
                 fprintf(stderr, "UPDATE by event\n");
 #endif
 
-/* This is code for debug GPS
+/* This is code for debug GPS */
                     fprintf(stderr,"Event:  Calculate CHECK_GPS_POSITION %f %f %f %f %f\n",
                                     app->gps_station.latitude,app->gps_station.longtitude,
                                     app->temporary_station_latitude,app->temporary_station_longtitude,
                                     calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
                                                     app->temporary_station_latitude,app->temporary_station_longtitude));
 
-*/
+/**/
                 if (calculate_distance
                     (app->gps_station.latitude,
                      app->gps_station.longtitude,
@@ -157,7 +158,7 @@ gboolean timer_handler(gpointer data) {
                     && app->gps_station.longtitude == 0)
                     add_gps_event(1);
                 else
-                    add_gps_event(5);
+                    add_gps_event(1);
 #endif
                 break;
 #endif
@@ -182,6 +183,9 @@ gboolean timer_handler(gpointer data) {
         }
         list_time_event_temp = g_slist_next(list_time_event_temp);
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return TRUE;
 }
 

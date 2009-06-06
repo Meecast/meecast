@@ -92,7 +92,6 @@ main(int argc, char *argv[]){
           #endif
           gtk_widget_show_all(app->main_view);
           gtk_main();
-          gtk_widget_destroy(app->main_view);
     }
     osso_deinitialize(osso_context);
 #ifdef DEBUGFUNCTIONCALL

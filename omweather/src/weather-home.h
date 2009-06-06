@@ -127,7 +127,7 @@ gboolean top_widget_expose(GtkWidget *widget, GdkEventExpose *event);
 #endif
 extern GtkWidget* create_time_updates_widget(GSList *current, gboolean change_color);
 #endif
-extern create_toolbar_box(gpointer exit_function, GtkWidget *window, gboolean fullscreen_button);
+extern GtkWidget *create_toolbar_box(gpointer exit_function, GtkWidget *window, gboolean fullscreen_button);
 extern void free_list_time_event(void);
 extern void event_add(time_t time_value, short int type_event);
 extern void destroy_popup_window(void);

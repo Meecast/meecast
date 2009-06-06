@@ -391,7 +391,6 @@ gboolean download_html(gpointer data) {
                     curl_easy_cleanup(curl_handle_hour);
                     curl_handle_hour = NULL;
                 }
-
                 if (url) {
                     g_free(url);
                     url = NULL;
@@ -405,7 +404,6 @@ gboolean download_html(gpointer data) {
                     g_free(html_file.filename);
                     html_file.filename = NULL;
                 }
-
                 if (app->config->show_weather_for_two_hours) {
                     if (hour_url) {
                         g_free(hour_url);
@@ -420,7 +418,6 @@ gboolean download_html(gpointer data) {
                         html_file_hour.filename = NULL;
                     }
                 }
-
                 if (msg->data.result != CURLE_OK) {     /* Not success of the download */
                     if (app->show_update_window)
                         hildon_banner_show_information
@@ -521,6 +518,8 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    if (!station_source)
+        return FALSE;
     if (first)
         valid =
             gtk_tree_model_get_iter_first(GTK_TREE_MODEL

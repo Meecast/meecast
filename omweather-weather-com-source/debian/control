@@ -6,5 +6,5 @@ Build-Depends: debhelper (>= 4.0.0), libxml2-dev, libgtk2.0-dev
 
 Package: omweather-weather-com-source
 Architecture: any
-Depends: ${shlibs:Depends} omweather (>=0.22)
+Depends: ${shlibs:Depends}, omweather (>=0.22)
 Description: OMWeathe weather.com source lib

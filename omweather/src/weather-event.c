@@ -142,10 +142,23 @@ timer_handler(gpointer data) {
                                                  TRUE);
                         if (!app->config->current_station_name
                             && !app->config->current_station_id) {
+
+                            if (app->config->current_station_name)
+                                g_free(app->config->current_station_name);
                             app->config->current_station_name =
                                 g_strdup(app->gps_station.name);
+
+                            if (app->config->current_station_id)
+                                g_free(app->config->current_station_id);
                             app->config->current_station_id =
                                 g_strdup(app->gps_station.id0);
+
+
+                            if (app->config->current_source)
+                                g_free(app->config->current_source);
+                            app->config->current_source =
+                                g_strdup("weather.com");
+
                         }
                         config_save(app->config);
                         update_weather(FALSE);

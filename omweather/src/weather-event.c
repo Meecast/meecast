@@ -111,14 +111,14 @@ timer_handler(gpointer data) {
                 fprintf(stderr, "UPDATE by event\n");
 #endif
 
-/* This is code for debug GPS */
+/* This is code for debug GPS
                     fprintf(stderr,"Event:  Calculate CHECK_GPS_POSITION %f %f %f %f %f\n",
                                     app->gps_station.latitude,app->gps_station.longtitude,
                                     app->temporary_station_latitude,app->temporary_station_longtitude,
                                     calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
                                                     app->temporary_station_latitude,app->temporary_station_longtitude));
 
-/**/
+*/
                 if (calculate_distance
                     (app->gps_station.latitude,
                      app->gps_station.longtitude,

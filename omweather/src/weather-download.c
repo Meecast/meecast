@@ -374,49 +374,46 @@ gboolean download_html(gpointer data) {
         while (curl_multi
                && (msg = curl_multi_info_read(curl_multi, &num_msgs))) {
             if (msg->msg == CURLMSG_DONE) {
-                fprintf(stderr,"point1 %p Pointall %p Point hour %p\n",msg->easy_handle, curl_handle, curl_handle_hour);
-                /* Clean */
-                mret = curl_multi_remove_handle(curl_multi, curl_handle);       /* Delete curl_handle from curl_multi */
-                if (mret != CURLM_OK)
-                    fprintf(stderr, " Error remove handle %p\n",
+                if (msg->easy_handle == curl_handle){
+                    /* Clean */
+                    mret = curl_multi_remove_handle(curl_multi, curl_handle);       /* Delete curl_handle from curl_multi */
+                    if (mret != CURLM_OK)
+                       fprintf(stderr, " Error remove handle %p\n",
                             curl_handle);
-                if (app->config->show_weather_for_two_hours)
+                    curl_easy_cleanup(curl_handle);
+                    curl_handle = NULL;
+                    if (url) {
+                       g_free(url);
+                       url = NULL;
+                    }
+                    if (html_file.stream) {
+                        fclose(html_file.stream);
+                        html_file.stream = NULL;
+                    }
+
+                    if (html_file.filename) {
+                        g_free(html_file.filename);
+                        html_file.filename = NULL;
+                    }
+                }
+                if (msg->easy_handle == curl_handle_hour && app->config->show_weather_for_two_hours){
+
                     mret = curl_multi_remove_handle(curl_multi, curl_handle_hour);  /* Delete curl_handle from curl_multi */
-                if (mret != CURLM_OK)
-                    fprintf(stderr, " Error remove handle %p\n",
-                            curl_handle);
-
-                curl_easy_cleanup(curl_handle);
-                curl_handle = NULL;
-                if (app->config->show_weather_for_two_hours){
-                    curl_easy_cleanup(curl_handle_hour);
-                    curl_handle_hour = NULL;
-                }
-                if (url) {
-                    g_free(url);
-                    url = NULL;
-                }
-                if (html_file.stream) {
-                    fclose(html_file.stream);
-                    html_file.stream = NULL;
-                }
-
-                if (html_file.filename) {
-                    g_free(html_file.filename);
-                    html_file.filename = NULL;
-                }
-                if (app->config->show_weather_for_two_hours) {
-                    if (hour_url) {
-                        g_free(hour_url);
-                        hour_url = NULL;
-                    }
-                    if (html_file_hour.stream) {
-                        fclose(html_file_hour.stream);
-                        html_file_hour.stream = NULL;
-                    }
-                    if (html_file_hour.filename) {
-                        g_free(html_file_hour.filename);
-                        html_file_hour.filename = NULL;
+                    if (mret != CURLM_OK)
+                        fprintf(stderr, " Error remove handle %p\n",curl_handle);
+                        curl_easy_cleanup(curl_handle_hour);
+                        curl_handle_hour = NULL;
+                        if (hour_url) {
+                            g_free(hour_url);
+                            hour_url = NULL;
+                        if (html_file_hour.stream) {
+                            fclose(html_file_hour.stream);
+                            html_file_hour.stream = NULL;
+                        }
+                        if (html_file_hour.filename) {
+                            g_free(html_file_hour.filename);
+                            html_file_hour.filename = NULL;
+                        }
                     }
                 }
                 if (msg->data.result != CURLE_OK) {     /* Not success of the download */
@@ -424,7 +421,11 @@ gboolean download_html(gpointer data) {
                         hildon_banner_show_information
                             (app->main_window, NULL,
                              _("Did not download weather"));
-                } else {        /* get next station url */
+                } else {
+
+                    if (curl_handle_hour || curl_handle)
+                        return TRUE; /* Continue downloading */
+                    /* get next station url */
                     if (!get_station_url(&url, &html_file, &hour_url, &html_file_hour, FALSE)) {        /* Success - all is downloaded */
                         if (app->show_update_window)
                             hildon_banner_show_information

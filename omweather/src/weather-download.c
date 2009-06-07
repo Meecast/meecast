@@ -536,7 +536,7 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
                            -1);
 /* !!! TODO: recode this */
         /* Default weather.com */
-        if (station){
+        if (station_source){
             if(!strcmp(station_source, "weather.com"))
                 source = 0;
             if(!strcmp(station_source, "rp5.ru"))

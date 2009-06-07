@@ -374,6 +374,7 @@ gboolean download_html(gpointer data) {
         while (curl_multi
                && (msg = curl_multi_info_read(curl_multi, &num_msgs))) {
             if (msg->msg == CURLMSG_DONE) {
+                fprintf(stderr,"point1 %p Pointall %p Point hour %p\n",msg->easy_handle, curl_handle, curl_handle_hour);
                 /* Clean */
                 mret = curl_multi_remove_handle(curl_multi, curl_handle);       /* Delete curl_handle from curl_multi */
                 if (mret != CURLM_OK)
@@ -518,8 +519,6 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (!station_source)
-        return FALSE;
     if (first)
         valid =
             gtk_tree_model_get_iter_first(GTK_TREE_MODEL
@@ -536,10 +535,14 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
                            3, &station_source,
                            -1);
 /* !!! TODO: recode this */
-	if(!strcmp(station_source, "weather.com"))
-	    source = 0;
-	if(!strcmp(station_source, "rp5.ru"))
-	    source = 1;
+        /* Default weather.com */
+        if (station){
+            if(!strcmp(station_source, "weather.com"))
+                source = 0;
+            if(!strcmp(station_source, "rp5.ru"))
+                source = 1;
+        }else
+                source = 0;
         /* prepare url */
         if(weather_sources[source].url){
 	    *buffer = 0;

@@ -1,7 +1,9 @@
 omweather (0.22.2) unstable; urgency=low
 
   * Added possibility, automatically to change orientation (a portrait or a landscape) for OS2009
-  * Added fullscreen button for application mode 
+  * Added fullscreen button for application mode
+  * Fixed problem with downloading weather forecast
+  * Various small fixes
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 3 May 2009 20:50:00 +0200
 

@@ -1,6 +1,8 @@
 0.22.2
   * Added possibility, automatically to change orientation (a portrait or a landscape) for OS2009
   * Added fullscreen button for application mode 
+  * Fixed problem with downloading weather forecast
+  * Various small fixes
 
 0.22.1
   * Changed default background to black colour

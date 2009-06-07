@@ -137,12 +137,16 @@ timer_handler(gpointer data) {
                         app->gps_station.longtitude =
                             app->temporary_station_longtitude;
                         delete_all_gps_stations();
+                        if (app->config->current_source)
+                                g_free(app->config->current_source);
+                            app->config->current_source =
+                                g_strdup("weather.com");
                         add_station_to_user_list(app->gps_station.name,
                                                  app->gps_station.id0,
-                                                 TRUE);
+                                                 TRUE, app->config->current_source);
                         if (!app->config->current_station_name
                             && !app->config->current_station_id) {
-
+                            /* Fix me if source are not weather.com */
                             if (app->config->current_station_name)
                                 g_free(app->config->current_station_name);
                             app->config->current_station_name =
@@ -152,13 +156,6 @@ timer_handler(gpointer data) {
                                 g_free(app->config->current_station_id);
                             app->config->current_station_id =
                                 g_strdup(app->gps_station.id0);
-
-
-                            if (app->config->current_source)
-                                g_free(app->config->current_source);
-                            app->config->current_source =
-                                g_strdup("weather.com");
-
                         }
                         config_save(app->config);
                         update_weather(FALSE);

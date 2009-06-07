@@ -39,9 +39,9 @@ get_nearest_station(double lat, double lon, Station *result) {
 
     FILE *fh;
     char buffer[512];
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     Region_item region;
     GtkListStore *stations_list = NULL;
     GtkListStore *regions_list = NULL;

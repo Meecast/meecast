@@ -48,7 +48,8 @@ time_t next_update(void);
 void free_list_time_event(void);
 /*******************************************************************************/
 extern void weather_initialize_dbus(void);
-extern void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name, gboolean is_gps);
+void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
+                 gboolean is_gps, gchar *source);
 extern gdouble calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2);
 extern void config_save(AppletConfig*);
 #ifdef ENABLE_GPS

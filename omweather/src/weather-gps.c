@@ -75,7 +75,6 @@ get_nearest_station(double lat, double lon, Station *result) {
                                    4, &region.minlon,
                                    5, &region.minlat,
                                    -1);
-        fprintf(stderr,"%s %f %f %f %f\n", region_name, region.maxlon, region.maxlat, region.minlon, region.minlat);
         /* Checking insiding point in to region */
         if (lat >= (region.minlat -1) && lat <= (region.maxlat + 1)
             && lon >= (region.minlon - 1) && lon <= (region.maxlon + 1) ) {

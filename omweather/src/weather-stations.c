@@ -491,6 +491,7 @@ int regions_callback(void *user_data, int argc, char **argv, char **azColName){
     START_FUNCTION;
 #endif
 
+	setlocale(LC_NUMERIC, "POSIX");
     data->count += (int)argc / 2;
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
@@ -508,6 +509,7 @@ int regions_callback(void *user_data, int argc, char **argv, char **azColName){
         if(!strcmp(azColName[i], "latitudemin"))
             gtk_list_store_set(list, &iter, 5, atof(argv[i]), -1);
     }
+	setlocale(LC_NUMERIC, "");
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -521,7 +523,7 @@ int stations_callback(void *user_data, int argc, char **argv, char **azColName){
 
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
-
+	setlocale(LC_NUMERIC, "POSIX");
     for(i = 0; i < argc; i++){
 	if(!strcmp(azColName[i], "name"))
 	    gtk_list_store_set(list, &iter, 0, argv[i], -1);
@@ -532,6 +534,7 @@ int stations_callback(void *user_data, int argc, char **argv, char **azColName){
 	if(!strcmp(azColName[i], "latitude"))
 	    gtk_list_store_set(list, &iter, 3, atof(argv[i]), -1);
     }
+	setlocale(LC_NUMERIC, "");
     return 0;
 }
 /*******************************************************************************/

@@ -674,10 +674,10 @@ redraw_home_window(gboolean first_start){
 #endif
     if(!first_start){
 	    /* free station location data */
-	    fprintf(stderr,"destroy_object(&(app->wsd.location));\n");
+/*	    fprintf(stderr,"destroy_object(&(app->wsd.location));\n"); */
 	    destroy_object(&(app->wsd.location));
 	    /* free station current data */
-	    fprintf(stderr,"destroy_object(&(app->wsd.current));");
+/*	    fprintf(stderr,"destroy_object(&(app->wsd.current));"); */
 	    destroy_object(&(app->wsd.current));
 	    /* free station days data */
 	    tmp = app->wsd.days;

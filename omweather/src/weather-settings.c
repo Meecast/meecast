@@ -324,6 +324,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
 				(GtkTreeModel*)list.sources_list);
 	gtk_widget_show(sources);
 	GLADE_HOOKUP_OBJECT(window, GTK_WIDGET(sources), "sources");
+	gtk_widget_set_name(sources, "omweather_sources_list");
 	/* Countries label */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
 				    gtk_label_new(_("Country:")),
@@ -334,6 +335,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
 				    1, 2, 1, 2);
 	list.countries = countries;
 	gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(countries), 0);
+	gtk_widget_set_name(countries, "omweather_countries_list");
 	gtk_widget_show(countries);
 	/* States label */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
@@ -344,6 +346,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
 				    states = gtk_combo_box_new_text(),
 				    1, 2, 2, 3);
 	list.states = states;
+	gtk_widget_set_name(states, "omweather_states_list");
 	gtk_widget_show(states);
 	/* Stations label */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
@@ -353,6 +356,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
 				    stations = gtk_combo_box_new_text(),
 				    1, 2, 3, 4);
 	list.stations = stations;
+	gtk_widget_set_name(stations, "omweather_stations_list");
 	gtk_widget_show(stations);
 	GLADE_HOOKUP_OBJECT(window, GTK_WIDGET(stations), "stations");
 	/* label By name */
@@ -363,7 +367,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
 				    station_name = gtk_entry_new(),
 				    1, 2, 4, 5);
 	GLADE_HOOKUP_OBJECT(window, station_name, "station_name_entry");
-	gtk_widget_set_name(station_name, "station_name");
+	gtk_widget_set_name(station_name, "omweather_station_name");
 	g_signal_connect(G_OBJECT(station_name), "changed",
 			    G_CALLBACK(entry_changed_handler), (gpointer)window);
 	/* Set size */
@@ -1758,7 +1762,7 @@ entry_changed_handler(GtkWidget *entry, gpointer user_data){
         }
     }
     else{
-	    if(!strcmp(changed_entry_name, "station_name"))   /* check name entry */
+	    if(!strcmp(changed_entry_name, "omweather_station_name"))   /* check name entry */
             button = lookup_widget(config_window, "search_station_button");
 	    /* Change sensitive of button */
 	    if(button){

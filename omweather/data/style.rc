@@ -4,4 +4,7 @@ style "big-font" {
 widget "*.omweather_enable_gps.*" style "big-font"
 widget "*.omweather_rename_entry" style "big-font"
 widget "*.omweather_station_list_view" style "big-font"
-
+widget "*.omweather_sources_list.*" style "big-font"
+widget "*.omweather_countries_list.*" style "big-font"
+widget "*.omweather_states_list.*" style "big-font"
+widget "*.omweather_stations_list.*" style "big-font"

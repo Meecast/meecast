@@ -92,12 +92,13 @@
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
 #define Max_count_weather_day	10
 #define DATABASEPATH		"/usr/share/omweather/db/"
-#define SOURCESPATH		"/usr/share/omweather/sources/"
+#define SOURCESPATH		    "/usr/share/omweather/sources/"
+#define STYLEPATH           "/usr/share/omweather/"
 #define COPYRIGHT_ICONS		"/usr/share/omweather/copyright_icons/"
 #define COUNTRIESFILE		"countries.list"
-#define REGIONSFILE		"regions.list"
+#define REGIONSFILE		    "regions.list"
 #define LOCATIONSFILE		"locations.list"
-#define ICONS_PATH		"/usr/share/omweather/icons/"
+#define ICONS_PATH	    	"/usr/share/omweather/icons/"
 #define BUTTON_ICONS		"/usr/share/omweather/button_icons/"
 #define START_FUNCTION		fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);

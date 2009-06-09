@@ -1,3 +1,7 @@
-style "osso-SystemFont" {
-	font_name = "Nokia Sans 29.5"
+style "big-font" {
+    font_name = "Nokia Sans 29.5"
 }
+widget "*.omweather_enable_gps.*" style "big-font"
+widget "*.omweather_rename_entry" style "big-font"
+widget "*.omweather_station_list_view" style "big-font"
+

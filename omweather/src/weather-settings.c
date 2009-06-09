@@ -466,7 +466,7 @@ void delete_station_handler(GtkButton * button, gpointer user_data) {
 #endif
     station_list_view =
         (GtkTreeView *) lookup_widget(config, "station_list_view");
-    rename_entry = lookup_widget(config, "rename_entry");
+    rename_entry = lookup_widget(config, "omweather_rename_entry");
 /* create confirm dialog */
     dialog = gtk_message_dialog_new(NULL,
                                     GTK_DIALOG_MODAL |
@@ -1411,7 +1411,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     }
 #ifdef ENABLE_GPS
 /* enable gps */
-    enable_gps = lookup_widget(config_window, "enable_gps");
+    enable_gps = lookup_widget(config_window, "omweather_enable_gps");
     if (enable_gps) {
         app->config->gps_station =
             gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(enable_gps));
@@ -1745,7 +1745,7 @@ entry_changed_handler(GtkWidget *entry, gpointer user_data){
 
     if (!changed_entry_name)
         return;
-    if (!strcmp(changed_entry_name, "rename_entry")){  /* check rename entry */
+    if (!strcmp(changed_entry_name, "omweather_rename_entry")){  /* check rename entry */
         button = lookup_widget(config_window, "apply_rename_button_name");
 	    if (button && strlen(gtk_entry_get_text(GTK_ENTRY(entry))) > 0){
                if(gtk_entry_get_text(GTK_ENTRY(entry)) &&
@@ -2018,7 +2018,7 @@ rename_button_handler(GtkWidget * button, GdkEventButton * event,
     START_FUNCTION;
 #endif
 /* check where the station name is changed */
-    rename_entry = lookup_widget(config_window, "rename_entry");
+    rename_entry = lookup_widget(config_window, "omweather_rename_entry");
     if (rename_entry) {
         new_station_name =
             (gchar *) gtk_entry_get_text(GTK_ENTRY(rename_entry));
@@ -2279,7 +2279,7 @@ check_buttons_changed_handler(GtkToggleButton * button,
     }
 #ifdef OS2008
 #ifdef ENABLE_GPS
-    if (!strcmp(button_name, "enable_gps")) {
+    if (!strcmp(button_name, "omweather_enable_gps")) {
         if (gtk_toggle_button_get_active(button))
             app->stations_tab_current_state |= STATE_ENABLE_GPS;
         else
@@ -2641,8 +2641,8 @@ GtkWidget *create_locations_tab(GtkWidget * window) {
                        0);
 /* Rename station entry */
     rename_entry = gtk_entry_new();
-    GLADE_HOOKUP_OBJECT(window, rename_entry, "rename_entry");
-    gtk_widget_set_name(rename_entry, "rename_entry");
+    GLADE_HOOKUP_OBJECT(window, rename_entry, "omweather_rename_entry");
+    gtk_widget_set_name(rename_entry, "omweather_rename_entry");
     g_signal_connect(G_OBJECT(rename_entry), "changed",
                      G_CALLBACK(entry_changed_handler), (gpointer) window);
 
@@ -2671,6 +2671,7 @@ GtkWidget *create_locations_tab(GtkWidget * window) {
 
     station_list_view = create_tree_view(app->user_stations_list);
     GLADE_HOOKUP_OBJECT(window, station_list_view, "station_list_view");
+    gtk_widget_set_name(station_list_view, "omweather_station_list_view");
     gtk_container_add(GTK_CONTAINER(scrolled_window),
                       GTK_WIDGET(station_list_view));
     gtk_table_attach_defaults(GTK_TABLE(left_table),
@@ -2734,8 +2735,8 @@ GtkWidget *create_locations_tab(GtkWidget * window) {
                               gtk_check_button_new_with_label(_
                                                               ("Enable GPS")),
                               1, 2, 2, 3);
-    GLADE_HOOKUP_OBJECT(window, chk_gps, "enable_gps");
-    gtk_widget_set_name(chk_gps, "enable_gps");
+    GLADE_HOOKUP_OBJECT(window, chk_gps, "omweather_enable_gps");
+    gtk_widget_set_name(chk_gps, "omweather_enable_gps");
     g_signal_connect(chk_gps, "toggled",
                      G_CALLBACK(check_buttons_changed_handler),
                      (gpointer) window);

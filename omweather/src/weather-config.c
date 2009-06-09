@@ -357,7 +357,7 @@ gint read_config(AppletConfig * config) {
                                                   GCONF_KEY_CURRENT_STATION_SOURCE,
                                                   NULL);
     if (config->current_station_source
-	&& strlen(config->current_station_source) == 0)
+        && strlen(config->current_station_source) == 0)
         config->current_station_source = NULL;
     /* Get GPS station name and id */
 #ifdef ENABLE_GPS

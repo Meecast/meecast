@@ -785,7 +785,6 @@ void
 omweather_init(OMWeather *applet){
     GtkSettings *settings;
     GdkColormap *cm;
-    gchar       tmp_buff[2048];
 #elif OS2009
 static void
 omweather_plugin_init (OmweatherPlugin *applet){
@@ -796,6 +795,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
 #endif
 
+    gchar       tmp_buff[2048];
 #ifdef DEBUGFUNCTIONCALL
      START_FUNCTION;
 #endif
@@ -931,10 +931,10 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #if defined OS2008  || ! defined (APPLICATION)
     gtk_widget_set_name(GTK_WIDGET(app->top_widget), PACKAGE_NAME);
 #endif
-#if defined OS2008 && !defined (APPLICATION)
     snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s/%s",
-                    app->config->cache_directory, "style.rc");
+                    STYLEPATH, "style.rc");
     gtk_rc_parse(tmp_buff);
+#if defined OS2008 && !defined (APPLICATION)
     applet->priv = G_TYPE_INSTANCE_GET_PRIVATE(applet, TYPE_OMWEATHER, OMWeatherPrivate);
     settings = gtk_settings_get_default();
     cm = gdk_screen_get_rgba_colormap(gdk_screen_get_default());

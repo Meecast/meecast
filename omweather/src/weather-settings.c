@@ -2672,6 +2672,7 @@ GtkWidget *create_locations_tab(GtkWidget * window) {
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                    GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
     gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 620, 280);
+      gtk_widget_set_name(scrolled_window, "omweather_station_list_window");
 
     station_list_view = create_tree_view(app->user_stations_list);
     GLADE_HOOKUP_OBJECT(window, station_list_view, "station_list_view");

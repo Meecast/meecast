@@ -2,13 +2,13 @@ Source: omweather-weather-com-stations-db
 Section: user/accessories
 Priority: optional
 Maintainer: Vlad Vasiliev <vlad@gas.by>
-Build-Depends: 
+Build-Depends: debhelper (>= 4.0.0), libxml2-dev, libgtk2.0-dev
 Standards-Version: 3.6.0
 
 Package:  omweather-weather-com-stations-db
-Architecture: all
-Depends: omweather (>=0.21)
-Description: Stations database (weather.com)
+Architecture: any
+Depends: ${shlibs:Depends}, omweather (>=0.22)
+Description: Stations database and source lib for weather.com
  for Other Maemo Weather
  © 2006-2008 by Vlad Vasiliev and Pavel Fialko
 XB-Maemo-Icon-26:

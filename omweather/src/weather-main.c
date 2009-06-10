@@ -48,7 +48,7 @@ int
 main(int argc, char *argv[]){
     osso_context_t  *osso_context;
     osso_return_t   ret;
-
+    GtkWidget* window;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -65,8 +65,9 @@ main(int argc, char *argv[]){
     }
     gtk_init(&argc, &argv);
 
-    app->main_view =  create_omweather();
-    if(app->main_view){
+    window = create_omweather();
+    if(window){
+          app->main_view =  window;
           /* Create the hildon application and setup the title */
           app->app = HILDON_PROGRAM ( hildon_program_get_instance () );
           g_set_application_name (PACKAGE);
@@ -75,7 +76,6 @@ main(int argc, char *argv[]){
               fprintf (stderr, "osso_rpc_set_default_cb_f failed: %d.\n", ret);
               return 2;
           }
-
           hildon_program_add_window(app->app, HILDON_WINDOW(app->main_view));
           app->osso = osso_context;
           #if defined OS2009
@@ -181,6 +181,9 @@ create_omweather(void){
 
     gtk_widget_modify_bg(main_widget, GTK_STATE_NORMAL,
 			    &app->config->background_color);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 
     return main_widget;
 }/*******************************************************************************/

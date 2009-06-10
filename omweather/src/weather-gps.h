@@ -46,7 +46,7 @@ extern GtkListStore* create_items_list(const char *path, const char *filename,
                                        long start, long end, long *items_number);
 extern sqlite3* open_database(const char *path, const char *filename);
 extern GtkListStore* create_regions_list(sqlite3 *database, int country_id, int *region_count);
-extern GtkListStore* create_stations_list(sqlite3 *database, int region_id);
+extern GtkListStore* create_stations_list(sqlite3 *database, gint region_id);
 extern void close_database(sqlite3 *database);
 /*******************************************************************************/
 #endif

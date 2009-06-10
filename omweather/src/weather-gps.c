@@ -46,7 +46,8 @@ get_nearest_station(double lat, double lon, Station *result) {
     GtkTreeIter iter, iter_region;
     gboolean valid, valid_region;
     int regions_number;
-    gchar *station_name = NULL, *station_id0 = NULL, *region_name, *region_id;
+    int region_id;
+    gchar *station_name = NULL, *station_id0 = NULL, *region_name;
     double station_latitude, station_longtitude, distance, min_distance =
         40000;
     sqlite3    *database = NULL;
@@ -60,7 +61,6 @@ get_nearest_station(double lat, double lon, Station *result) {
         return;
     valid_region = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                               (regions_list), &iter_region);
-
 
     /* Reading region settings */
     while (valid_region) {
@@ -76,7 +76,7 @@ get_nearest_station(double lat, double lon, Station *result) {
         /* Checking insiding point in to region */
         if (lat >= (region.minlat -1) && lat <= (region.maxlat + 1)
             && lon >= (region.minlon - 1) && lon <= (region.maxlon + 1) ) {
-            stations_list = create_stations_list(database, *region_id);
+            stations_list = create_stations_list(database, region_id);
             valid =
                 gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                               (stations_list), &iter);

@@ -31,7 +31,7 @@
 /*******************************************************************************/
 #include "weather-common.h"
 /*******************************************************************************/
-HildonWindow* create_omweather(void);
+GtkWidget* create_omweather(void);
 GtkWidget* create_main_screen(void);
 gboolean main_window_button_key_press_cb(GtkWidget *widget, GdkEventKey *event,
 					    gpointer user_data);
@@ -39,10 +39,11 @@ gboolean main_window_state_event_cb(GtkWidget *widget, GdkEventWindowState *even
 					    gpointer user_data);
 gint dbus_callback(const gchar *interface, const gchar *method, GArray *arguments,
 			gpointer data, osso_rpc_t *retval);
-extern init_portrait(GtkWidget *win);
-extern init_landscape(GtkWidget *win);
+extern void init_portrait(GtkWidget *win);
+extern void init_landscape(GtkWidget *win);
 extern void check_device_position(DBusConnection *connection);
 extern void change_state_window(GtkWidget *window);
+extern gboolean omweather_init_OS2009(GtkWidget *applet);
 /*******************************************************************************/
 #endif
 

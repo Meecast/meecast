@@ -62,19 +62,19 @@ int calculate_offset_of_day(int count_day);
 void add_change_day_part_event(GSList *day, guint year, guint month);
 time_t get_day_part_begin_time(GSList *day, guint year, const gchar *day_part);
 void add_wind_text(GSList *day, gchar *buffer, gboolean is_day);
+void view_popup_menu (GtkWidget *treeview, GdkEventButton *event, gpointer userdata);
 void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 							const gchar *day_name);
 void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 						gboolean for_combination_mode);
-						
+#if defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO
+void omweather_destroy(GtkObject *widget);
+#endif
+
 gboolean expose_main_window1(GtkWidget *widget, GdkEventExpose *event);
 #ifdef OS2008
 GtkWidget*
 settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent);
-#endif
-#ifdef OS2009
-gboolean
-omweather_init_OS2009(GtkWidget *applet);
 #endif
 /*******************************************************************************/
 extern void swap_temperature(int *hi, int *low);
@@ -107,9 +107,11 @@ extern gint parse_weather_com_xml_hour(const gchar *station_id, weather_com_pars
 extern gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser, WeatherStationData *wsd);
 extern time_t last_update_time(GSList *object);
 extern float convert_wind_units(int to, float value);
-#if defined(OS2008) || defined(OS2009)
+#if defined (ENABLE_GPS)
+extern void initial_gps_control(void);
 extern void initial_gps_connect(void);
 extern void deinitial_gps_connect(void);
+extern void deinitial_gps_control(void);
 extern gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
 #endif
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);

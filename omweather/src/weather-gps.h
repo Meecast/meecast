@@ -34,6 +34,8 @@
 /*******************************************************************************/
 void initial_gps_connect(void);
 void deinitial_gps_connect(void);
+void initial_gps_control(void);
+void deinitial_gps_control(void);
 void delete_all_gps_stations(void);
 void get_nearest_station( double lat, double lon, Station *result);
 /*******************************************************************************/
@@ -41,6 +43,10 @@ extern int parse_region_string(const char *string, Region_item *result);
 extern gdouble calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2);
 extern WeatherSource weather_sources[];
 extern GtkListStore* create_items_list(const char *path, const char *filename,
-				long start, long end, long *items_number);
+                                       long start, long end, long *items_number);
+extern sqlite3* open_database(const char *path, const char *filename);
+extern GtkListStore* create_regions_list(sqlite3 *database, int country_id, int *region_count);
+extern GtkListStore* create_stations_list(sqlite3 *database, int region_id);
+extern void close_database(sqlite3 *database);
 /*******************************************************************************/
 #endif

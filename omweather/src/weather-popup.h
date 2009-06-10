@@ -49,17 +49,19 @@ void about_button_handler(GtkWidget *button, GdkEventButton *event,
 void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 								gpointer user_data);
 void maximize_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
+void destroy_container (GtkWidget *widget, gpointer *data);
+
 GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_pseudo_day_tab(GSList *current, GSList *day, gchar **day_name);
 GtkWidget* create_current_tab(GSList *current);
 GtkWidget* create_hour_tab(void);
-GtkWidget* create_toolbar_box(gpointer exit_function, GtkWidget *window, gboolean fullscreen_button);
+GtkWidget* create_toolbar_box(GtkCallback exit_function, GtkWidget *window, gboolean fullscreen_button);
 gboolean make_current_tab(GtkWidget *vbox);
 gboolean make_tab(GtkWidget *vbox);
 gboolean make_hour_tab(GtkWidget *vbox);
 GtkWidget* create_copyright_widget(const gchar *text, const gchar *image);
 GtkWidget* create_window_header(const gchar *station_name, GtkWidget *popup_window);
-gboolean popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data);
+void popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data);
 #ifdef CLUTTER
 void popup_window_expose(GtkWidget *widget, GdkEventExpose *event);
 #endif

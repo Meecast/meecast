@@ -109,8 +109,8 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
         gtk_tree_model_get(model, &iter, 0, &country_name, 1, &country_id, -1);
         list->regions_list = create_regions_list(list->database, country_id,
 						    &regions_number);
-	if(list->regions_list){
-	    gtk_combo_box_set_model(GTK_COMBO_BOX(list->states),
+        if(list->regions_list){
+           gtk_combo_box_set_model(GTK_COMBO_BOX(list->states),
 				    (GtkTreeModel*)list->regions_list);
 	    gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(list->states), 0);
 	    /* if region is one then set it active and disable combobox */
@@ -266,23 +266,23 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
 void
 new_station_handler(GtkButton *button, gpointer user_data){
     static struct lists_struct list;
-    GtkWidget	*window = NULL,
-		*station_name = NULL,
-		*right_table = NULL,
-		*countries = NULL,
-		*states = NULL,
-		*stations = NULL,
-		*sources = NULL,
-		*add_button = NULL,
-		*search_button = NULL,
-		*banner = NULL,
-		*label = NULL;
-    gint	result;
+    GtkWidget   *window = NULL,
+                *station_name = NULL,
+                *right_table = NULL,
+                *countries = NULL,
+                *states = NULL,
+                *stations = NULL,
+                *sources = NULL,
+                *add_button = NULL,
+                *search_button = NULL,
+                *banner = NULL,
+                *label = NULL;
+    gint        result;
 
     memset(&list, 0, sizeof(struct lists_struct));
     banner = hildon_banner_show_information(GTK_WIDGET(user_data),
-				    NULL,
-				    _("Loading station list"));
+                                     NULL,
+                                     _("Loading station list"));
     memset(&list, 0, sizeof(struct lists_struct));
 
 
@@ -965,7 +965,9 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
 		*update_tab = NULL,
 		*alerts_tab = NULL;
 /*    GdkPixbuf	*icon = NULL;*/
-    gchar	tmp_buff[1024];
+#ifndef RELEASE
+        gchar	tmp_buff[1024];
+#endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif

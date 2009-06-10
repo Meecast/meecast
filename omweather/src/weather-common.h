@@ -327,7 +327,7 @@ typedef struct SuperOH{
 /*******************************************************************************/
 typedef struct OMWeatherApplet{
     HildonProgram       *app;       /* handle to application */
-    HildonWindow        *main_view; /* handle to app's view */
+    GtkWidget           *main_view; /* handle to app's view */
     osso_context_t	*osso;
     GHashTable		*hash,
 			*sources_units;

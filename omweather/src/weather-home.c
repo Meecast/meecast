@@ -99,8 +99,10 @@ OMWeatherApp	*app = NULL;
 void
 view_popup_menu (GtkWidget *treeview, GdkEventButton *event, gpointer userdata){
     fprintf(stderr,"dddddddddddddddddddddddddd\n");
-//  gtk_widget_show_all(app->contextmenu);
-//menu_init();
+/*
+  gtk_widget_show_all(app->contextmenu);
+  menu_init();
+*/
     weather_window_settings(NULL, NULL);
 }
 /*******************************************************************************/
@@ -639,7 +641,7 @@ draw_home_window(gint count_day){
 #if defined(NONMAEMO) || defined (APPLICATION)
     create_panel(app->main_window, APPLICATION_MODE,
                  app->config->transparency, tmp_station_name); 
-    gtk_table_attach( app->main_window,
+    gtk_table_attach(GTK_TABLE(app->main_window),
             create_time_updates_widget(app->wsd.current, TRUE),
              0, 1, 2, 3, GTK_EXPAND, GTK_EXPAND, 0, 0);
 #else
@@ -650,9 +652,11 @@ draw_home_window(gint count_day){
    gtk_widget_show_all(app->top_widget);
 
     #if defined OS2008 || defined OS2009
-//       if(!app->config->transparency && app->parent){
-//           gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);
-//       }
+/*
+       if(!app->config->transparency && app->parent){
+           gtk_widget_modify_bg(app->parent, GTK_STATE_NORMAL, &app->config->background_color);
+       }
+*/
     #endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -725,7 +729,7 @@ redraw_home_window(gboolean first_start){
         gtk_widget_destroy(app->main_window);
 	app->main_window = NULL;
     }
-//    get_station_weather_data(app->config->current_station_id, 1);
+/*    get_station_weather_data(app->config->current_station_id, 1); */
 /* Parse data file */
     count_day = parse_weather_file_data(app->config->current_station_id,
 					app->config->current_station_source,
@@ -743,10 +747,6 @@ redraw_home_window(gboolean first_start){
     } /* Error in xml file */
     app->count_day = count_day;	/* store days number from xml file */
     draw_home_window(count_day);
-#ifdef CLUTTER
-//    show_animation(app->clutter_objects_in_main_form);
-//       g_timeout_add(800, (GtkFunction) show_animation, app->clutter_objects_in_main_form);  
-#endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -805,7 +805,9 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
     if(!osso){
         g_debug(_("Error initializing the OMWeather applet"));
-#if !defined OS2008 || defined (APPLICATION) 
+#if defined(NONMAEMO) || defined (APPLICATION)
+        return FALSE;
+#elif defined OS2008 || defined OS2009
         return;
 #else
         return NULL;
@@ -817,10 +819,10 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         (access("/media/mmc2/noomweather.txt", R_OK) == 0))
 #if defined(NONMAEMO) || defined (APPLICATION)
        return FALSE;
-#elif OS2008
-        return NULL;
+#elif defined (OS2008) || defined (OS2009)
+       return;
 #else
-        return;
+       return NULL;
 #endif
 
     app = g_new0(OMWeatherApp, 1);
@@ -899,10 +901,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 /* Start main applet */
     app->top_widget = gtk_hbox_new(FALSE, 0);
     
-#if defined CLUTTER
-//   g_signal_connect_after(app->top_widget, "expose-event",
-//      G_CALLBACK(top_widget_expose), NULL);
-#endif
 #if  defined(NONMAEMO) || defined (APPLICATION)
     /* pack for window in Application mode */
     main_vbox = gtk_vbox_new(FALSE, 0);
@@ -923,11 +921,14 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #if defined OS2008 && !defined (APPLICATION)
     applet->queueRefresh = TRUE;
 #endif
+
 #ifdef ENABLE_GPS
     app->gps_device = NULL;
     initial_gps_control();
 #endif
+
     app->widget_first_start = TRUE;
+
 #if defined OS2008  || ! defined (APPLICATION)
     gtk_widget_set_name(GTK_WIDGET(app->top_widget), PACKAGE_NAME);
 #endif
@@ -950,12 +951,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     return TRUE;
 #else
     gtk_container_add(GTK_CONTAINER(applet), app->top_widget);
-#endif
-
-#if defined OS2009 && ! defined (APPLICATION)
-
-//      myparent = applet->parent;
-//      app->parent = applet->parent.parent;
 #endif
 
 #else
@@ -1811,11 +1806,7 @@ create_weather_day_button(const char *text, const char *icon,
     new_day_button->button = gtk_event_box_new();
     gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK);
     #ifdef NONMAEMO
-//    g_signal_connect(new_day_button->button, "popup-menu", (GCallback) view_onPopupMenu, NULL);
-//    g_signal_connect(new_day_button->button, "popup-menu", GTK_WIDGET(app->contextmenu), NULL);
-
        g_signal_connect(new_day_button->button, "popup-menu", (GCallback)view_popup_menu, NULL);
-
     #else
        gtk_widget_tap_and_hold_setup(new_day_button->button, GTK_WIDGET(app->contextmenu),
                                 NULL, 0);

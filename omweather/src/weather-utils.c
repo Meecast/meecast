@@ -516,11 +516,12 @@ change_state_window(GtkWidget *window){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (window)
+    if (window){
         if (gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN)
             gtk_window_unfullscreen (GTK_WINDOW(window));
         else
             gtk_window_fullscreen (GTK_WINDOW(window));
+    }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

@@ -362,7 +362,7 @@ GtkListStore* create_regions_list(sqlite3 *database, int country_id, int *region
     gint		rc;
     gchar		*errMsg = NULL;
     gchar		sql[256];
-    struct request_data	data = { 0, 0, 0, 0, 0, 0 };
+    struct request_data	data = { 0, 0 };
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

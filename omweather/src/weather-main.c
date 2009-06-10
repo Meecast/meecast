@@ -46,7 +46,6 @@ dbus_callback(const gchar *interface, const gchar *method, GArray *arguments,
 /*******************************************************************************/
 int
 main(int argc, char *argv[]){
-    HildonProgram   *OMWeather = NULL;
     osso_context_t  *osso_context;
     osso_return_t   ret;
 
@@ -66,8 +65,7 @@ main(int argc, char *argv[]){
     }
     gtk_init(&argc, &argv);
 
-    OMWeather = create_omweather();
-    app->main_view = OMWeather;
+    app->main_view =  create_omweather();
     if(app->main_view){
           /* Create the hildon application and setup the title */
           app->app = HILDON_PROGRAM ( hildon_program_get_instance () );
@@ -78,7 +76,7 @@ main(int argc, char *argv[]){
               return 2;
           }
 
-          hildon_program_add_window(app->app, app->main_view);
+          hildon_program_add_window(app->app, HILDON_WINDOW(app->main_view));
           app->osso = osso_context;
           #if defined OS2009
              check_device_position(app->dbus_conn);
@@ -90,7 +88,7 @@ main(int argc, char *argv[]){
                 init_landscape(app->main_view);
              }
           #endif
-          gtk_widget_show_all(app->main_view);
+          gtk_widget_show_all(GTK_WIDGET(app->main_view));
           gtk_main();
     }
     osso_deinitialize(osso_context);
@@ -109,7 +107,7 @@ main_window_button_key_press_cb(GtkWidget *widget, GdkEventKey *event,
 #endif
     if(event->keyval == GDK_F6){
         /* The "Full screen" hardware key has been pressed */
-        change_state_window(GTK_WINDOW(user_data));
+        change_state_window(user_data);
     }
 #ifdef OS2009
     if(event->keyval == GDK_F5){
@@ -125,7 +123,7 @@ main_window_button_key_press_cb(GtkWidget *widget, GdkEventKey *event,
     return FALSE;
 }
 /*******************************************************************************/
-HildonWindow*
+GtkWidget*
 create_omweather(void){
     GtkWidget *main_widget = NULL;
 
@@ -168,7 +166,7 @@ create_omweather(void){
     gtk_window_set_title(GTK_WINDOW(main_widget), PACKAGE);
     gtk_window_set_default_size(GTK_WINDOW(main_widget), 800, 480);
 
-    if(!omweather_init_OS2009(main_widget))
+    if(!omweather_init_OS2009(GTK_WIDGET(main_widget)))
         return NULL;
 /* signals */
     g_signal_connect((gpointer)main_widget, "destroy_event",

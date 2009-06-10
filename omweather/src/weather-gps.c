@@ -37,8 +37,6 @@
 void
 get_nearest_station(double lat, double lon, Station *result) {
 
-    FILE *fh;
-    char buffer[512];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -78,7 +76,7 @@ get_nearest_station(double lat, double lon, Station *result) {
         /* Checking insiding point in to region */
         if (lat >= (region.minlat -1) && lat <= (region.maxlat + 1)
             && lon >= (region.minlon - 1) && lon <= (region.maxlon + 1) ) {
-            stations_list = create_stations_list(database, region_id);
+            stations_list = create_stations_list(database, *region_id);
             valid =
                 gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                               (stations_list), &iter);

@@ -186,7 +186,7 @@ GtkWidget* create_moon_phase_widget(GSList *current){
     return main_widget;
 }
 /*******************************************************************************/
-GtkWidget* 
+GtkWidget*
 create_time_updates_widget(GSList *current, gboolean change_color){
     GtkWidget	*main_widget = NULL,
     		*label_update;
@@ -319,7 +319,7 @@ gboolean make_hour_tab(GtkWidget *vbox){
 }
 /*******************************************************************************/
 GtkWidget *
-create_toolbar_box(gpointer exit_function, GtkWidget *window, gboolean fullscreen_button)
+create_toolbar_box(GtkCallback exit_function, GtkWidget *window, gboolean fullscreen_button)
 {
     GtkWidget	*buttons_box = NULL,
                 *settings_button = NULL,
@@ -377,15 +377,14 @@ create_toolbar_box(gpointer exit_function, GtkWidget *window, gboolean fullscree
     return buttons_box;
 }
 /*******************************************************************************/
+void
 destroy_container (GtkWidget *widget, gpointer *data){
     gtk_widget_destroy(GTK_WIDGET(widget));
 }
 /******************************************************************************/
-gboolean
+void
 popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
     GtkWidget *vbox = NULL;
-    gint *day_number;
-    GtkWidget   *child;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -553,9 +552,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
             gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                         hour_tab,
                                         gtk_label_new(_("Detailed")));
-//#if defined CLUTTER
            g_idle_add((GSourceFunc)make_hour_tab,hour_tab);
-//#endif
            add_item2object(&(app->tab_of_window_popup), (void*)hour_tab);
         }
     }
@@ -602,7 +599,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
         gtk_widget_show(notebook);
     }
 
-    buttons_box = create_toolbar_box(popup_close_button_handler, app->popup_window, FALSE);
+    buttons_box = create_toolbar_box((GtkCallback)popup_close_button_handler, app->popup_window, FALSE);
 
     /* check if no data file for this station */
     if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){
@@ -643,7 +640,6 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
                      G_CALLBACK(popup_switch_cb), app->popup_window);
 #endif
 /* Show copyright widget */
-//    fprintf(stderr, "\n>>>>>>>>>>>>>>>>Source %s\n", app->config->current_station_source);
     copyright_box = gtk_event_box_new();
     gtk_container_add(GTK_CONTAINER(copyright_box),
                   create_copyright_widget(app->config->current_station_source, NULL));
@@ -697,7 +693,7 @@ void maximize_button_handler(GtkWidget *button, GdkEventButton *event, gpointer 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    change_state_window(GTK_WINDOW(user_data));
+    change_state_window(GTK_WIDGET(user_data));
 }
 /*******************************************************************************/
 void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -977,7 +973,7 @@ GtkWidget* create_current_tab(GSList *current){
     GtkWidget   *main_widget = NULL,
                 *icon_text_hbox = NULL,
                 *text = NULL,
-		*icon_image = NULL;
+	*icon_image       = NULL;
     gchar       buffer[1024],
                 *units;
     const gchar *wind_units_str[] = { "m/s", "km/h", "mi/h" };
@@ -999,7 +995,7 @@ GtkWidget* create_current_tab(GSList *current){
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), icon_image, TRUE, TRUE, 0);
     /* temperature */
     memset(buffer, 0, sizeof(buffer));
-    sprintf(buffer, "%s\n", hash_table_find(item_value(current, "title"), FALSE));
+    sprintf(buffer, "%s\n", (char *)hash_table_find(item_value(current, "title"), FALSE));
     sprintf(buffer + strlen(buffer), "%s",  _("Temperature: "));
     sprintf(buffer + strlen(buffer), "  %d\302\260",
                 ((app->config->temperature_units == CELSIUS) ?
@@ -1053,13 +1049,13 @@ GtkWidget* create_current_tab(GSList *current){
 
 	sprintf(buffer + strlen(buffer), "  %.2f %s,", tmp_pressure, units);
 	sprintf(buffer + strlen(buffer), "  %s\n",
-		    hash_table_find(item_value(current, "pressure_direction"), FALSE));
+		    (char *)hash_table_find(item_value(current, "pressure_direction"), FALSE));
     }
 /* wind */
     if( strcmp(item_value(current, "wind_direction"), "N/A") ){
 	sprintf(buffer + strlen(buffer), "%s", _("Wind:"));
 	sprintf(buffer + strlen(buffer), "  %s\n",
-		hash_table_find(item_value(current, "wind_direction"), FALSE));
+		(char *)hash_table_find(item_value(current, "wind_direction"), FALSE));
 	if( strcmp(item_value(current, "wind_speed"), "N/A") )
 	    sprintf(buffer + strlen(buffer), "%s", _("Speed:"));
 	    sprintf(buffer + strlen(buffer), "  %.2f %s\n",

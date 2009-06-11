@@ -435,9 +435,9 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+
     if (app->popup_window || app->flag_updating != 0)
         return FALSE;
-
 /* Debug */
 /*  time_start(); */
 /* day number */

@@ -654,7 +654,7 @@ msgid "Full"
 msgstr "Полнолуние"
 
 #: src/weather-home.c:1042
-msgid "Full forecast"
+msgid "Full forecast: \n"
 msgstr "Расширенный прогноз: \n"
 
 #: src/weather-popup.c:958 src/weather-popup.c:1068

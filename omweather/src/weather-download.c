@@ -267,8 +267,10 @@ gboolean download_html(gpointer data) {
         if (app->connection)
             con_ic_connection_connect(app->connection,
                                       CON_IC_CONNECT_FLAG_NONE);
-        else
+        else{
+            app->flag_updating = 0; 
             return FALSE;
+        }
 #else
     #ifndef NONMAEMO
         if (osso_iap_connect
@@ -298,6 +300,7 @@ gboolean download_html(gpointer data) {
                 app->iap_connecting_timer = 0;
             }
             app->iap_connecting = FALSE;
+            app->flag_updating = 0;
             return FALSE;
         } else {
             app->iap_connecting_timer++;
@@ -309,8 +312,9 @@ gboolean download_html(gpointer data) {
     /* The second stage */
     /* call curl_multi_perform for read weather data from Inet */
     if (curl_multi && CURLM_CALL_MULTI_PERFORM ==
-        curl_multi_perform(curl_multi, &num_transfers))
+        curl_multi_perform(curl_multi, &num_transfers)){
         return TRUE;            /* return to UI */
+        }
     /* The first stage */
     if (!curl_handle && !curl_handle_hour) {
 #ifndef RELEASE
@@ -368,7 +372,6 @@ gboolean download_html(gpointer data) {
 #ifndef RELEASE
         fprintf(stderr, "\n>>>>>>>>>>>Third stage\n");
 #endif
-
         /* The third stage */
         num_msgs = 0;
         while (curl_multi
@@ -479,6 +482,16 @@ gboolean download_html(gpointer data) {
                 app->flag_updating = 0;
                 return FALSE;   /* This is the end */
             }
+        }
+        if (!curl_multi){
+            /* Clean all */
+            if (update_window) {
+                gtk_widget_destroy(update_window);
+                update_window = NULL;
+            }
+            curl_multi = NULL;
+            app->flag_updating = 0;
+            return FALSE;
         }
         return TRUE;
     }

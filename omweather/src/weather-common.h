@@ -89,6 +89,7 @@
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 /*******************************************************************************/
+
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
 #define Max_count_weather_day	10
 #define DATABASEPATH		"/usr/share/omweather/db/"
@@ -100,8 +101,14 @@
 #define LOCATIONSFILE		"locations.list"
 #define ICONS_PATH	    	"/usr/share/omweather/icons/"
 #define BUTTON_ICONS		"/usr/share/omweather/button_icons/"
-#define START_FUNCTION		fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
+#define START_FUNCTION        fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
+/*
+extern void write_log(char *string);
+#define START_FUNCTION          FILE *file; file=fopen("/tmp/omw.log","a+"); fprintf(file,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);fflush(file);fclose(file);
+#define DEBUG_FUNCTION(string)  write_log(string)
+#define END_FUNCTION          FILE *fileend; fileend=fopen("/tmp/omw.log","a+"); fprintf(fileend,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);fflush(fileend);fclose(fileend);
+*/
 #define OMWEATHER_ADD_STATION		1000
 #define OMWEATHER_SEARCH_STATION	1001
 #define OMWEATHER_CLOSE_STATION_WINDOW	1002

@@ -63,5 +63,7 @@ int create_icon_set_list(gchar *dir_path, GSList **store, gchar *type); /* scan 
 void update_icons_set_base(const char *icon_set_name);
 GtkWidget *create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list);
 extern GtkWidget *create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list);
+
+void write_log(char *string);
 /*******************************************************************************/
 #endif

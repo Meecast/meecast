@@ -325,7 +325,7 @@ msgstr "Добавить станцию"
 #: src/weather-settings.c:906 src/weather-settings.c:1101
 #: src/weather-settings.c:1105
 msgid "Alerts"
-msgstr ""
+msgstr "Опастности"
 
 #: src/weather-help.c:114
 msgid ""
@@ -630,7 +630,6 @@ msgid "Freezing Drizzle"
 msgstr "Изморось с градом"
 
 #: src/weather-help.c:132
-#, fuzzy
 msgid ""
 "French - Nicolas Granziano, Philippe \n"
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
@@ -639,7 +638,7 @@ msgid ""
 "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo\n"
 "Spanish - Alejandro Lopez\n"
 msgstr ""
-"Французский - Nicolas Granziano\n"
+"Французский - Nicolas Granziano, Philippe \n"
 "Русский - Павел Фиалко, Владислав Васильев, Эдуард Бартош\n"
 "Финнский - Marko Vertainen\n"
 "Немецкий - Claudius Henrichs\n"
@@ -655,9 +654,8 @@ msgid "Full"
 msgstr "Полнолуние"
 
 #: src/weather-home.c:1042
-#, fuzzy
 msgid "Full forecast"
-msgstr "Прогноз: \n"
+msgstr "Расширенный прогноз: \n"
 
 #: src/weather-popup.c:958 src/weather-popup.c:1068
 msgid "Gust:"
@@ -809,7 +807,7 @@ msgstr "Список найденных станций:"
 
 #: src/weather-settings.c:266
 msgid "Loading station list"
-msgstr ""
+msgstr "Загрузка списка сатнций"
 
 #: src/hash.data:81
 msgid "Local Pollen Reports"
@@ -817,7 +815,7 @@ msgstr ""
 
 #: src/weather-settings.c:2961
 msgid "Long"
-msgstr ""
+msgstr "Длительный"
 
 #: src/hash.data:82
 msgid "Low"
@@ -970,9 +968,8 @@ msgid "OK"
 msgstr "ОК"
 
 #: src/weather-popup.c:378
-#, fuzzy
 msgid "OMWeather Forecast"
-msgstr "Настройки OMWeather"
+msgstr "OMWeather прогноз погоды"
 
 #: src/weather-settings.c:950
 msgid "OMWeather Settings"
@@ -1051,9 +1048,8 @@ msgid "Partly Cloudy and Windy"
 msgstr "Небольшая облачность и ветер"
 
 #: src/weather-settings.c:3134
-#, fuzzy
 msgid "Position:"
-msgstr "комбинированное"
+msgstr "Позиция:"
 
 #: src/weather-settings.c:3516
 msgid "Pressure units:"
@@ -1209,7 +1205,7 @@ msgstr "Морские мили"
 
 #: src/weather-settings.c:281
 msgid "Search"
-msgstr ""
+msgstr "Поиск"
 
 #: src/weather-settings.c:1826
 msgid "Select Station"
@@ -1225,9 +1221,8 @@ msgid "Settings"
 msgstr "Настройки"
 
 #: src/weather-settings.c:2972
-#, fuzzy
 msgid "Short"
-msgstr "Ю"
+msgstr "Короткий"
 
 #: src/weather-settings.c:3309
 msgid "Show arrows"

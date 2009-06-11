@@ -807,7 +807,7 @@ msgstr "Список найденных станций:"
 
 #: src/weather-settings.c:266
 msgid "Loading station list"
-msgstr "Загрузка списка сатнций"
+msgstr "Загрузка списка станций"
 
 #: src/hash.data:81
 msgid "Local Pollen Reports"

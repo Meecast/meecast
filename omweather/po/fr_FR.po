@@ -468,6 +468,8 @@ msgid ""
 "Does not to add station, because no one\n"
 "of '*-source' packages was installed."
 msgstr ""
+"Ne peut ajouter de station, car aucun\n"
+"des paquets  '*-source' n'a été installé."
 
 #: src/weather-settings.c:3631
 msgid "Download and show detailed weather"
@@ -604,9 +606,8 @@ msgid "Fog Late"
 msgstr "Brouillard en soirée"
 
 #: src/hash.data:47
-#, fuzzy
 msgid "Fog early / Clearing late"
-msgstr "Nuageux en matinée / clair en soirée"
+msgstr "Nuageux en matinée / s'éclaircissant en soirée"
 
 #: src/hash.data:50
 msgid "Foggy"
@@ -658,9 +659,8 @@ msgid "Full"
 msgstr "Plein"
 
 #: src/weather-home.c:1042
-#, fuzzy
 msgid "Full forecast"
-msgstr "Prévision : \n"
+msgstr "Prévision complète"
 
 #: src/weather-popup.c:958 src/weather-popup.c:1068
 msgid "Gust:"
@@ -820,7 +820,7 @@ msgstr "Bulletin allergo pollinique"
 
 #: src/weather-settings.c:2961
 msgid "Long"
-msgstr ""
+msgstr "Longue"
 
 #: src/hash.data:82
 msgid "Low"
@@ -940,7 +940,7 @@ msgstr "Pas de données météo."
 
 #: src/weather-popup.c:510
 msgid "No weather data for this day."
-msgstr "Pas de données météo pour ce jour."
+msgstr "Pas de données météo pour cette journée."
 
 #: src/weather-popup.c:533
 msgid "No weather data for this station."
@@ -973,9 +973,8 @@ msgid "OK"
 msgstr "OK"
 
 #: src/weather-popup.c:378
-#, fuzzy
 msgid "OMWeather Forecast"
-msgstr "Paramètres de OMWeather"
+msgstr "Prévision d'OMWeather"
 
 #: src/weather-settings.c:950
 msgid "OMWeather Settings"
@@ -1054,9 +1053,8 @@ msgid "Partly Cloudy and Windy"
 msgstr "Partiellement nuageux et venteux"
 
 #: src/weather-settings.c:3134
-#, fuzzy
 msgid "Position:"
-msgstr "Combinaison"
+msgstr "Position :"
 
 #: src/weather-settings.c:3516
 msgid "Pressure units:"
@@ -1212,7 +1210,7 @@ msgstr "Miles marin"
 
 #: src/weather-settings.c:281
 msgid "Search"
-msgstr ""
+msgstr "Recherche"
 
 #: src/weather-settings.c:1826
 msgid "Select Station"
@@ -1228,9 +1226,8 @@ msgid "Settings"
 msgstr "ParamÃÂ¨tres"
 
 #: src/weather-settings.c:2972
-#, fuzzy
 msgid "Short"
-msgstr "S"
+msgstr "Courte"
 
 #: src/weather-settings.c:3309
 msgid "Show arrows"
@@ -1441,7 +1438,7 @@ msgid ""
 "for tuning images of applet"
 msgstr ""
 "Utiliser : modifier la mise en page \n"
-"pour ajuster l'image de l'applet"
+"pour ajuster les images de l'applet"
 
 #: src/weather-sensor.c:63
 msgid "Use device temperature sensor"

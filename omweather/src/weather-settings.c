@@ -290,11 +290,13 @@ new_station_handler(GtkButton *button, gpointer user_data){
 					    GTK_DIALOG_MODAL |
 					    GTK_DIALOG_DESTROY_WITH_PARENT,
 					    NULL);
+#if 0
     /* search button */
     search_button = gtk_dialog_add_button(GTK_DIALOG(window),
 					_("Search"), OMWEATHER_SEARCH_STATION);
     GLADE_HOOKUP_OBJECT(window, search_button, "search_station_button");
     gtk_widget_set_sensitive(search_button, FALSE);
+#endif
     /* add button */
     add_button = gtk_dialog_add_button(GTK_DIALOG(window),
 					_("Add"), OMWEATHER_ADD_STATION);
@@ -359,6 +361,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
 	gtk_widget_set_name(stations, "omweather_stations_list");
 	gtk_widget_show(stations);
 	GLADE_HOOKUP_OBJECT(window, GTK_WIDGET(stations), "stations");
+#if 0
 	/* label By name */
 	gtk_table_attach_defaults(GTK_TABLE(right_table),
 				    gtk_label_new(_("Name:")), 0, 1, 4, 5);
@@ -370,6 +373,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
 	gtk_widget_set_name(station_name, "omweather_station_name");
 	g_signal_connect(G_OBJECT(station_name), "changed",
 			    G_CALLBACK(entry_changed_handler), (gpointer)window);
+#endif
 	/* Set size */
 	gtk_widget_set_size_request(countries, 300, -1);
 	gtk_widget_set_size_request(states, 300, -1);
@@ -1133,6 +1137,7 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
                           (gpointer) sensor_tab);
     }
 #endif
+#if 0
 /* Add Alerts Tab Page = 5 or 6 */
     if (app->config->current_settings_page ==
         gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook))) {
@@ -1146,6 +1151,7 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
         g_object_set_data(G_OBJECT(window_config), "alerts_tab",
                           (gpointer) alerts_tab);
     }
+#endif
 #ifndef RELEASE
 /* Events list tab */
     memset(tmp_buff, 0, sizeof(tmp_buff));

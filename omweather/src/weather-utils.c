@@ -526,9 +526,10 @@ change_state_window(GtkWidget *window){
     END_FUNCTION;
 #endif
 }
-/* For debugging
+/* For debugging 
 void write_log(char *string)
 {
 FILE *filelog; filelog=fopen("/tmp/omw.log","a+"); fprintf(filelog,"\n%s\n", string);fflush(filelog);fclose(filelog);
 }
+
 */

@@ -268,7 +268,7 @@ gboolean download_html(gpointer data) {
             con_ic_connection_connect(app->connection,
                                       CON_IC_CONNECT_FLAG_NONE);
         else{
-            app->flag_updating = 0; 
+            app->flag_updating = 0;
             return FALSE;
         }
 #else
@@ -320,6 +320,7 @@ gboolean download_html(gpointer data) {
 #ifndef RELEASE
         fprintf(stderr, "\n>>>>>>>>>>>First stage\n");
 #endif
+//        DEBUG_FUNCTION("\n>>>>>>>>>>>First stage\n");
         if (app->show_update_window)
             update_window = create_window_update();     /* Window with update information */
         /* get first station */
@@ -372,6 +373,7 @@ gboolean download_html(gpointer data) {
 #ifndef RELEASE
         fprintf(stderr, "\n>>>>>>>>>>>Third stage\n");
 #endif
+//        DEBUG_FUNCTION("\n>>>>>>>>>>>Third stage\n");
         /* The third stage */
         num_msgs = 0;
         while (curl_multi
@@ -438,13 +440,16 @@ gboolean download_html(gpointer data) {
 #ifndef RELEASE
                         fprintf(stderr,
                                 "\n>>>>>>>>>>>>>>End of update cycle\n");
+
 #endif
+//                        DEBUG_FUNCTION("End of update cycle");
                     } else {
 #ifndef RELEASE
                         fprintf(stderr,
                                 "\n>>>>>Url - %s, File - %s\n",
                                 url, html_file.filename);
 #endif
+//                        DEBUG_FUNCTION(html_file.filename);
                         /* set options for the curl easy handle */
                         curl_handle = weather_curl_init(curl_handle);
                         curl_easy_setopt(curl_handle, CURLOPT_URL, url);
@@ -479,6 +484,9 @@ gboolean download_html(gpointer data) {
                 }
                 curl_multi_cleanup(curl_multi);
                 curl_multi = NULL;
+                curl_handle_hour = NULL;
+                curl_handle = NULL;
+//                DEBUG_FUNCTION("This is the end");
                 app->flag_updating = 0;
                 return FALSE;   /* This is the end */
             }
@@ -489,7 +497,8 @@ gboolean download_html(gpointer data) {
                 gtk_widget_destroy(update_window);
                 update_window = NULL;
             }
-            curl_multi = NULL;
+            curl_handle_hour = NULL;
+            curl_handle = NULL;
             app->flag_updating = 0;
             return FALSE;
         }

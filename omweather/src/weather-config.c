@@ -749,23 +749,30 @@ void config_update_proxy(void) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (app->config->iap_http_proxy_host)
-        g_free(app->config->iap_http_proxy_host);
-    /* Get proxy data */
-    if (gconf_client_get_bool(gconf_client, GCONF_KEY_HTTP_PROXY_ON, NULL)) {
-        /* HTTP Proxy is on. */
-        app->config->iap_http_proxy_host =
-            gconf_client_get_string(gconf_client,
+    gchar *proxy_mode;
+    proxy_mode = gconf_client_get_string(gconf_client,
+                                    GCONF_KEY_PROXY_MODE, NULL);
+
+    if (strcmp(proxy_mode, "none") != 0){
+        if (app->config->iap_http_proxy_host)
+            g_free(app->config->iap_http_proxy_host);
+        /* Get proxy data */
+        if (gconf_client_get_bool(gconf_client, GCONF_KEY_HTTP_PROXY_ON, NULL)) {
+            /* HTTP Proxy is on. */
+            app->config->iap_http_proxy_host =
+                gconf_client_get_string(gconf_client,
                                     GCONF_KEY_HTTP_PROXY_HOST, NULL);
-        app->config->iap_http_proxy_port =
-            gconf_client_get_int(gconf_client, GCONF_KEY_HTTP_PROXY_PORT,
+            app->config->iap_http_proxy_port =
+                gconf_client_get_int(gconf_client, GCONF_KEY_HTTP_PROXY_PORT,
                                  NULL);
-    } else {                    /* HTTP Proxy is off. */
-        app->config->iap_http_proxy_host = NULL;
-        app->config->iap_http_proxy_port = 0;
+        } else {                    /* HTTP Proxy is off. */
+            app->config->iap_http_proxy_host = NULL;
+            app->config->iap_http_proxy_port = 0;
+        }
     }
     g_object_unref(gconf_client);
-
+    g_free(proxy_mode);
+    
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

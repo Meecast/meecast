@@ -101,8 +101,10 @@
 #define LOCATIONSFILE		"locations.list"
 #define ICONS_PATH	    	"/usr/share/omweather/icons/"
 #define BUTTON_ICONS		"/usr/share/omweather/button_icons/"
+
 #define START_FUNCTION        fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
+
 /*
 extern void write_log(char *string);
 #define START_FUNCTION          FILE *file; file=fopen("/tmp/omw.log","a+"); fprintf(file,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);fflush(file);fclose(file);

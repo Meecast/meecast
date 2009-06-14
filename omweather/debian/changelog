@@ -4,6 +4,7 @@ omweather (0.22.2) unstable; urgency=low
   * Added fullscreen button for application mode
   * Fixed problem with downloading weather forecast
   * Increased some labels in settings window
+  * Fixed problem with proxy config parameter
   * Various small fixes
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 3 May 2009 20:50:00 +0200

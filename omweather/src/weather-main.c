@@ -161,6 +161,7 @@ create_omweather(void){
        style = gtk_style_new ();
        style->bg_pixmap[0] = background;
        gtk_widget_set_style (GTK_WIDGET(main_widget), GTK_STYLE(style));
+       g_object_unref(pixbuf);
     }
 
     gtk_window_set_title(GTK_WINDOW(main_widget), PACKAGE);

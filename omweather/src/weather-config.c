@@ -204,11 +204,11 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
                                    -1);
             }
             if (!strcmp(station_name, app->config->current_station_name)
-                && !strcmp(station_code, app->config->current_station_id)) {
-                app->config->current_station_id = g_strdup(station_code);
-                app->config->current_station_name = g_strdup(station_name);
+                && !strcmp(station_code, app->config->current_station_id)
+                && !app->config->current_station_source) {
                 app->config->current_station_source = g_strdup(station_source);
             }
+
             station_name && (g_free(station_name), station_name = NULL);
             station_code && (g_free(station_code), station_code = NULL);
             station_source && (g_free(station_source), station_source = NULL);

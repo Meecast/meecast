@@ -154,9 +154,7 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
 		*station_code = NULL,
 		*station_source = NULL;
 #ifdef ENABLE_GPS
-#ifdef OS2008
     gboolean	is_gps = FALSE;
-#endif
 #endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

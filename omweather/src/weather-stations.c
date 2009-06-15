@@ -411,7 +411,6 @@ GtkListStore* create_stations_list(sqlite3 *database, int region_id){
     START_FUNCTION;
 #endif
 
-
     if(!database || !region_id)
 	return NULL;	/* database doesn't open */
 
@@ -424,10 +423,10 @@ GtkListStore* create_stations_list(sqlite3 *database, int region_id){
     rc = sqlite3_exec(database, sql, stations_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
 #ifndef RELEASE
-	fprintf(stderr, "\n>>>>%s\n", errMsg);
+	    fprintf(stderr, "\n>>>>%s\n", errMsg);
 #endif
-	sqlite3_free(errMsg);
-	return NULL;
+    	sqlite3_free(errMsg);
+	    return NULL;
     }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

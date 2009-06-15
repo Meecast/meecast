@@ -464,10 +464,8 @@ void delete_station_handler(GtkButton * button, gpointer user_data) {
     gboolean valid = FALSE;
     gint result = GTK_RESPONSE_NONE;
     GtkTreePath *path;
-#ifdef OS2008
 #ifdef ENABLE_GPS
     gboolean is_gps = FALSE;
-#endif
 #endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -1190,10 +1188,8 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 			*icon_size = NULL,
 			*separate = NULL,
 			*font = NULL,
-#ifdef OS2008
 #ifdef ENABLE_GPS
 			*enable_gps = NULL,
-#endif
 #endif
 			*swap_temperature = NULL,
 			*show_wind = NULL,

@@ -142,7 +142,7 @@ extern void weather_deinitialize_dbus(void);
 void free_clutter_objects_list(GSList **clutter_objects);
 #endif
 #if defined(OS2009)
-    init_portrait(main_widget);
+void init_portrait(main_widget);
 #endif
 extern gboolean show_animation(GSList *clutter_objects);
 /*******************************************************************************/

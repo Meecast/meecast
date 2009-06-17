@@ -41,6 +41,9 @@
     void
 destroy_popup_window(void){
     GSList    *tmp = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     /* free Idles */
     tmp = app->tab_of_window_popup;
     while(tmp){
@@ -680,7 +683,8 @@ void refresh_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    destroy_popup_window();
+    if (app->popup_window)
+        destroy_popup_window();
     update_weather(TRUE);
 }
 /*******************************************************************************/

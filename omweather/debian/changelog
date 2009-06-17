@@ -1,6 +1,8 @@
 omweather (0.22.3) unstable; urgency=low
 
-  * Added dependency from omweather-source
+  * Added dependence on the omweather-source
+  * Fixed small memory leaks
+  * Option 'hours  weather forecast' is enabled by default now
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 17 Jun 2009 20:50:00 +0200
 

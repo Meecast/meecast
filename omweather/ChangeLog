@@ -1,6 +1,8 @@
 0.22.3
-  * Added dependency from omweather-source
-  
+  * Added dependence on the omweather-source
+  * Fixed small memory leaks
+  * Option 'hours  weather forecast' is enabled by default now
+
 0.22.2
   * Added possibility, automatically to change orientation (a portrait or a landscape) for OS2009
   * Added fullscreen button for application mode 

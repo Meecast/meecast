@@ -199,7 +199,7 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
                     					    gpointer user_data){
     GtkTreeIter iter;
     gboolean    valid,
-		ready = FALSE;
+    ready = FALSE;
     gchar       *station_name = NULL,
                 *station_code = NULL,
                 *station_source = NULL;
@@ -213,46 +213,48 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
 
     path = gtk_tree_path_new_first();
     valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
-					&iter, path);
+                                    &iter, path);
     while(valid){
-	gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
-			    &iter, 
-                    	    NAME_COLUMN, &station_name,
-                    	    ID0_COLUMN, &station_code,
-                    	    3, &station_source,
-                    	    -1);
-	if(ready){
-	    /* update current station code */
-	    if(app->config->current_station_id)
-    		g_free(app->config->current_station_id);
-    	    app->config->current_station_id = station_code; 
-	    /* update current station name */
-    	    if(app->config->current_station_name)
-		g_free(app->config->current_station_name);
-	    app->config->current_station_name = station_name;
-    	    if(app->config->current_station_source)
-		g_free(app->config->current_station_source);
-	    app->config->current_station_source = station_source;
-	    app->config->previos_days_to_show = app->config->days_to_show;
-	    redraw_home_window(FALSE);
-	    config_save(app->config);
-	    break;
-	}
-	else{
-		
-	    if((app->config->current_station_name) && (station_name) &&
-            	    !strcmp(app->config->current_station_name, station_name))
-		ready = TRUE;
-	    g_free(station_name);
-	    g_free(station_code);
-	    gtk_tree_path_next(path);
+        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                            &iter,
+                            NAME_COLUMN, &station_name,
+                            ID0_COLUMN, &station_code,
+                            3, &station_source,
+                            -1);
+        if(ready){
+            /* update current station code */
+            if(app->config->current_station_id)
+                g_free(app->config->current_station_id);
+            app->config->current_station_id = station_code; 
+            /* update current station name */
+            if(app->config->current_station_name)
+                g_free(app->config->current_station_name);
+            app->config->current_station_name = station_name;
+            /* update current station source */
+            if(app->config->current_station_source)
+                g_free(app->config->current_station_source);
+            app->config->current_station_source = station_source;
 
-	    valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
-						&iter, path);
-	    if(!valid)
-		valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
-                                        		&iter);
-	}
+            app->config->previos_days_to_show = app->config->days_to_show;
+            redraw_home_window(FALSE);
+            config_save(app->config);
+            break;
+        }
+        else{
+            if((app->config->current_station_name) && (station_name) &&
+                  !strcmp(app->config->current_station_name, station_name))
+                ready = TRUE;
+            g_free(station_name);
+            g_free(station_code);
+            g_free(station_source);
+            gtk_tree_path_next(path);
+
+            valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
+                                        &iter, path);
+            if(!valid)
+                valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                        &iter);
+        }
     }
     gtk_tree_path_free(path);
 /* show popup window if received param */
@@ -1715,7 +1717,7 @@ free_memory(void){
     /* delete main window */
     if(app->main_window){
         gtk_widget_destroy(app->main_window);
-	app->main_window = NULL;
+        app->main_window = NULL;
     }
     /* free station location data */
     destroy_object(&(app->wsd.location));
@@ -1724,21 +1726,33 @@ free_memory(void){
     /* free station days data */
     tmp = app->wsd.days;
     while(tmp){
-	tmp_data = (GSList*)tmp->data;
-	destroy_object(&tmp_data);
-	tmp = g_slist_next(tmp);
+        tmp_data = (GSList*)tmp->data;
+        destroy_object(&tmp_data);
+        tmp = g_slist_next(tmp);
     }
     g_slist_free(app->wsd.days);
     app->wsd.days = NULL;
+    /* free station hours data */
+    tmp = app->wsd.hours_weather;
+    while(tmp){
+        tmp_data = (GSList*)tmp->data;
+        if (tmp_data)
+            destroy_object(&tmp_data);
+        tmp = g_slist_next(tmp);
+    }
+    if (app->wsd.hours_weather)
+         g_slist_free(app->wsd.hours_weather);
+    app->wsd.hours_weather = NULL;
+
     /* free days button */
     tmp = app->buttons;
     while(tmp){
-	tmp_button = (WDB*)tmp->data;
-    if (tmp_button){
+        tmp_button = (WDB*)tmp->data;
+        if (tmp_button){
            delete_weather_day_button(&tmp_button);
            tmp_button = NULL;
-    }
-	tmp = g_slist_next(tmp);
+        }
+        tmp = g_slist_next(tmp);
     }
     g_slist_free(app->buttons);
     app->buttons = NULL;
@@ -1772,6 +1786,14 @@ free_memory(void){
     if(app->config->current_station_id){
         g_free(app->config->current_station_id);
         app->config->current_station_id = NULL;
+    }
+    if(app->config->current_station_source){
+        g_free(app->config->current_station_source);
+        app->config->current_station_source = NULL;
+    }
+    if(app->config->icons_set_base){
+        g_free(app->config->icons_set_base);
+        app->config->icons_set_base = NULL;
     }
     if(app->config->iap_http_proxy_host){
         g_free(app->config->iap_http_proxy_host);
@@ -1898,7 +1920,7 @@ switch_timer_handler(gpointer data){
     START_FUNCTION;
 #endif
     if(app->popup_window){
-	destroy_popup_window();
+        destroy_popup_window();
     }
     change_station_next(NULL, NULL, NULL);
     return TRUE;

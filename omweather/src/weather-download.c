@@ -42,6 +42,7 @@ static gboolean second_attempt = FALSE;
 static CURL *curl_handle = NULL;
 static CURL *curl_handle_hour = NULL;
 static CURL *curl_multi = NULL;
+static struct curl_slist *headers=NULL;
 static struct HtmlFile html_file, html_file_hour;
 static GtkWidget *update_window = NULL;
 /*******************************************************************************/
@@ -185,7 +186,7 @@ CURL *weather_curl_init(CURL * my_curl_handle) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    struct curl_slist *headers=NULL;
+
 
     my_curl_handle = curl_easy_init();
     
@@ -218,6 +219,16 @@ CURL *weather_curl_init(CURL * my_curl_handle) {
     END_FUNCTION;
 #endif
     return my_curl_handle;
+}
+/*******************************************************************************/
+void
+free_curl(void)
+{
+    curl_slist_free_all(headers);
+    curl_multi = NULL;
+    curl_handle_hour = NULL;
+    curl_handle = NULL;
+    app->flag_updating = 0;
 }
 /*******************************************************************************/
 static int data_read(void *buffer, size_t size, size_t nmemb, void *stream) {
@@ -401,24 +412,24 @@ gboolean download_html(gpointer data) {
                         html_file.filename = NULL;
                     }
                 }
-                if (msg->easy_handle == curl_handle_hour && app->config->show_weather_for_two_hours){
+                if (curl_handle_hour && msg->easy_handle == curl_handle_hour && app->config->show_weather_for_two_hours){
 
                     mret = curl_multi_remove_handle(curl_multi, curl_handle_hour);  /* Delete curl_handle from curl_multi */
                     if (mret != CURLM_OK)
                         fprintf(stderr, " Error remove handle %p\n",curl_handle);
-                        curl_easy_cleanup(curl_handle_hour);
-                        curl_handle_hour = NULL;
-                        if (hour_url) {
-                            g_free(hour_url);
-                            hour_url = NULL;
-                        if (html_file_hour.stream) {
+                    curl_easy_cleanup(curl_handle_hour);
+                    curl_handle_hour = NULL;
+                    if (hour_url) {
+                        g_free(hour_url);
+                        hour_url = NULL;
+                    }
+                    if (html_file_hour.stream) {
                             fclose(html_file_hour.stream);
                             html_file_hour.stream = NULL;
-                        }
-                        if (html_file_hour.filename) {
+                    }
+                    if (html_file_hour.filename) {
                             g_free(html_file_hour.filename);
                             html_file_hour.filename = NULL;
-                        }
                     }
                 }
                 if (msg->data.result != CURLE_OK) {     /* Not success of the download */
@@ -483,11 +494,8 @@ gboolean download_html(gpointer data) {
                     update_window = NULL;
                 }
                 curl_multi_cleanup(curl_multi);
-                curl_multi = NULL;
-                curl_handle_hour = NULL;
-                curl_handle = NULL;
+                free_curl();
 //                DEBUG_FUNCTION("This is the end");
-                app->flag_updating = 0;
                 return FALSE;   /* This is the end */
             }
         }
@@ -497,9 +505,7 @@ gboolean download_html(gpointer data) {
                 gtk_widget_destroy(update_window);
                 update_window = NULL;
             }
-            curl_handle_hour = NULL;
-            curl_handle = NULL;
-            app->flag_updating = 0;
+            free_curl();
             return FALSE;
         }
         return TRUE;

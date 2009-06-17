@@ -351,6 +351,7 @@ gint read_config(AppletConfig * config) {
         && strlen(config->current_station_name) == 0)
         config->current_station_name = NULL;
     /* Get weather current station source */
+    config->current_station_source = NULL;
     config->current_station_source = gconf_client_get_string(gconf_client,
                                                   GCONF_KEY_CURRENT_STATION_SOURCE,
                                                   NULL);
@@ -481,7 +482,7 @@ gint read_config(AppletConfig * config) {
     } else
         config->transparency = TRUE;
 #endif
-    /* Get Enable Weather For Two Hours. Default is FALSE. */
+    /* Get Enable Weather For Two Hours. Default is TRUE. */
     value =
         gconf_client_get(gconf_client,
                          GCONF_KEY_SHOW_WEATHER_FOR_TWO_HOURS, NULL);
@@ -489,7 +490,7 @@ gint read_config(AppletConfig * config) {
         config->show_weather_for_two_hours = gconf_value_get_bool(value);
         gconf_value_free(value);
     } else
-        config->show_weather_for_two_hours = FALSE;
+        config->show_weather_for_two_hours = TRUE;
     /* Get Split Button State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_SEPARATE_DATA, NULL);
     if (value) {

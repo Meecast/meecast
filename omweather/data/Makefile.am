@@ -64,12 +64,8 @@ desktop_DATA  = $(desktop_files)
 
 
 
-#Hack Fremantle Alpha 
-if OS2009
-    homeapplet_desktopdir = /usr/share/applications/hildon-home
-else
-    homeapplet_desktopdir = $(DESKTOPDIR)
-endif
+#homeapplet_desktopdir = $(DESKTOPDIR)
+homeapplet_desktopdir = /usr/share/applications/hildon-home
 
 if OS2008
     homeapplet_desktop_DATA = os2008/omweather-home.desktop

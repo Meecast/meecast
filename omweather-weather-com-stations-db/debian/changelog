@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (0.4) unstable; urgency=low
+
+  * Added Provides to deb package
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 17 Jun 2009 15:21:20 +0200
+
 omweather-weather-com-stations-db (0.3) unstable; urgency=low
 
   * Moved data to sqlite database

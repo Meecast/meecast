@@ -187,7 +187,6 @@ CURL *weather_curl_init(CURL * my_curl_handle) {
     START_FUNCTION;
 #endif
 
-
     my_curl_handle = curl_easy_init();
     
     curl_easy_setopt(my_curl_handle, CURLOPT_NOPROGRESS, 1);
@@ -224,7 +223,12 @@ CURL *weather_curl_init(CURL * my_curl_handle) {
 void
 free_curl(void)
 {
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
     curl_slist_free_all(headers);
+    headers = NULL;
     curl_multi = NULL;
     curl_handle_hour = NULL;
     curl_handle = NULL;

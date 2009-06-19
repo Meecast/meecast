@@ -52,7 +52,7 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/omweather-weather-com-stations-db
 
 
 # Build architecture-independent files here.

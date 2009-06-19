@@ -7,7 +7,7 @@ Standards-Version: 3.6.0
 
 Package:  omweather-weather-com-stations-db
 Architecture: any
-Depends: ${shlibs:Depends}, omweather (>=0.22)
+Depends: ${shlibs:Depends}
 Provides: omweather-stations-db
 Description: Stations database and source lib for weather.com
  for Other Maemo Weather

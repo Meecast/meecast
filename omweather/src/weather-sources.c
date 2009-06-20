@@ -267,9 +267,11 @@ free_source_field (gpointer key, gpointer val, gpointer user_data)
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    fprintf(stderr,"dddddddd %s\n",val);
-    if (val)
+    /* "parser" is not *gchar */
+    if (strcmp ("parser",key)){
         g_free(val);
+        val = NULL;
+    }
 }
 
 /*******************************************************************************/
@@ -278,8 +280,8 @@ free_hashtable_with_source(GHashTable* hashtable){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-//    g_hash_table_foreach (hashtable,
-//        free_source_field, NULL);
+    g_hash_table_foreach (hashtable,
+        free_source_field, NULL);
     g_hash_table_destroy (hashtable);
 }
 /*******************************************************************************/

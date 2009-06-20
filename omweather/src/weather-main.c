@@ -158,9 +158,10 @@ create_omweather(void){
        g_printerr ("%s\n", error[0].message);
     }else{
        gdk_pixbuf_render_pixmap_and_mask (pixbuf, &background, NULL, 0);
-       style = gtk_style_new ();
+       style = gtk_style_new();
        style->bg_pixmap[0] = background;
        gtk_widget_set_style (GTK_WIDGET(main_widget), GTK_STYLE(style));
+        g_object_unref(style);
        g_object_unref(pixbuf);
     }
 

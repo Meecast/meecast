@@ -988,6 +988,7 @@ void
 hildon_home_applet_lib_deinitialize(void *applet_data){
 #endif
     osso_context_t *osso = NULL;
+    GSList         *tmp = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1055,25 +1056,25 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
     osso = (osso_context_t*)applet_data;
 #endif
     if(app){
-	app->top_widget = NULL;
-	app->main_window = NULL;
-	free_memory();
-	if(app->config)
-	    g_free(app->config);
-	if(app->sources_list){
-	    gtk_list_store_clear(app->sources_list);
-	    g_object_unref(app->sources_list);
-	}
-	if(app->handles)
-	    unload_parsers(&app->handles);
-	if(app->time_update_list){
-	    gtk_list_store_clear(app->time_update_list);
-	    g_object_unref(app->time_update_list);
-	}
-	if(app->user_stations_list){
-	    gtk_list_store_clear(app->user_stations_list);
-	    g_object_unref(app->user_stations_list);
-	}
+        app->top_widget = NULL;
+        app->main_window = NULL;
+        free_memory();
+        if(app->config)
+            g_free(app->config);
+
+    if(app->handles){
+        unload_parsers(app->handles);
+        g_slist_free(app->handles);
+        app->handles = NULL;
+    }
+    if(app->time_update_list){
+        gtk_list_store_clear(app->time_update_list);
+        g_object_unref(app->time_update_list);
+    }
+    if(app->user_stations_list){
+        gtk_list_store_clear(app->user_stations_list);
+        g_object_unref(app->user_stations_list);
+    }
     }
     app && (g_free(app), app = NULL);
     /* Deinitialize libosso */
@@ -1709,8 +1710,12 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 void 
 free_memory(void){
     GSList	*tmp = NULL,
-		*tmp_data = NULL;
-    WDB		*tmp_button = NULL;
+            *tmp_data = NULL;
+    WDB     *tmp_button = NULL;
+    gboolean valid = FALSE;
+    GtkTreeIter iter;
+    GHashTable *hashtable = NULL;
+    gchar *source_name;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1779,6 +1784,10 @@ free_memory(void){
         g_free(app->config->current_country);
         app->config->current_country = NULL;
     }
+    if(app->config->current_source){
+        g_free(app->config->current_source);
+        app->config->current_source = NULL;
+    }
     if(app->config->current_station_name){
         g_free(app->config->current_station_name);
         app->config->current_station_name = NULL;
@@ -1802,6 +1811,26 @@ free_memory(void){
     if(app->hash){
         g_hash_table_destroy(app->hash);
         app->hash = NULL;
+    }
+    if(app->sources_list){
+      /* free sources list */
+      valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
+                                              (app->sources_list),
+                                              &iter);
+      while (valid) {
+          gtk_tree_model_get(GTK_TREE_MODEL
+                                   (app->sources_list), &iter,
+                                   0, &source_name,
+                                   1, &hashtable, -1);
+          g_free(source_name);
+          free_hashtable_with_source(hashtable);
+          valid =
+                  gtk_tree_model_iter_next(GTK_TREE_MODEL
+                                                         (app->sources_list), &iter);
+      }
+      gtk_list_store_clear(app->sources_list);
+      g_object_unref(app->sources_list);
+      app->sources_list = NULL;
     }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

@@ -105,6 +105,7 @@ extern gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *p
 extern gint parse_weather_com_xml_hour(const gchar *station_id, weather_com_parser *parser,
 								WeatherStationData *wsd);
 extern gint parse_rp5_ru_xml(const gchar *station_id, weather_com_parser *parser, WeatherStationData *wsd);
+void free_hashtable_with_source(GHashTable* hashtable);
 extern time_t last_update_time(GSList *object);
 extern float convert_wind_units(int to, float value);
 #if defined (ENABLE_GPS)

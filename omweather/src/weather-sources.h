@@ -34,7 +34,7 @@
 GtkListStore* create_sources_list(gchar *sources_path, gint *sources_number,
 				    GSList **handles);
 GHashTable* parse_source_file(const gchar *filename, const gchar *encoding);
-void unload_parsers(GSList **list);
+void unload_parsers(GSList *list);
 gboolean source_name_valid(GHashTable *data);
 gboolean source_library_valid(GHashTable *data, GSList **handles);
 gboolean source_forecast_url_valid(GHashTable *data);
@@ -42,6 +42,7 @@ gboolean source_detail_url_valid(GHashTable *data);
 gboolean source_search_url_valid(GHashTable *data);
 gboolean source_stations_database_valid(GHashTable *data);
 gboolean source_logo_file_valid(GHashTable *data);
+void free_hashtable_with_source(GHashTable* hashtable);
 void parse_children(xmlNode *node, GHashTable *object);
 /*******************************************************************************/
 #endif

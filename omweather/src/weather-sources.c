@@ -33,63 +33,63 @@
 /*******************************************************************************/
 GtkListStore*
 create_sources_list(gchar *sources_path, gint *sources_number, GSList **handles){
-    GtkListStore	*list = NULL;
-    GSList		*db_set = NULL,
-			*tmp = NULL;
-    GtkTreeIter		iter;
-    gchar		buffer[255];
-    GHashTable		*source = NULL;
-    gint		counter = 0;
-    gpointer		value = NULL;
+    GtkListStore    *list = NULL;
+    GSList          *db_set = NULL,
+                    *tmp = NULL;
+    GtkTreeIter     iter;
+    gchar           buffer[255];
+    GHashTable      *source = NULL;
+    gint            counter = 0;
+    gpointer        value = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!sources_path)
-	return NULL;	/* error */
+        return NULL;/* error */
 
     counter = create_icon_set_list(sources_path, &db_set, "file");
     if(counter < 1)
-	return NULL;
+        return NULL;
     list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_POINTER);
 
     tmp = db_set;
     while(tmp){
-	*buffer = 0;
-	/* parse source description file */
-	snprintf(buffer, sizeof(buffer) - 1, "%s%s", sources_path,
-		    (gchar*)(tmp->data));
-	source = parse_source_file(buffer, "UTF-8");
-	if(source){
-	    if(source_name_valid(source)
-		    && source_library_valid(source, handles)
-		    && (source_forecast_url_valid(source)
-			    || source_detail_url_valid(source)) ){
-		value = g_hash_table_lookup(source, "name");
-		/* add source to list */
-		gtk_list_store_append(list, &iter);
-		gtk_list_store_set(list, &iter, 0, value,
-						1, (gpointer)source,
-						-1);
-		    counter++;
-	    }
-	}
-	tmp = g_slist_next(tmp);
+        *buffer = 0;
+        /* parse source description file */
+        snprintf(buffer, sizeof(buffer) - 1, "%s%s", sources_path,
+                                              (gchar*)(tmp->data));
+        source = parse_source_file(buffer, "UTF-8");
+        if(source){
+            if(source_name_valid(source)
+               && source_library_valid(source, handles)
+               && (source_forecast_url_valid(source)
+               || source_detail_url_valid(source)) ){
+                value = g_hash_table_lookup(source, "name");
+                /* add source to list */
+                gtk_list_store_append(list, &iter);
+                gtk_list_store_set(list, &iter, 0, value,
+                          1, (gpointer)source,
+                          -1);
+                counter++;
+            }
+        }
+        g_free(tmp->data);
+        tmp = g_slist_next(tmp);
     }
     g_slist_free(db_set);
 
     if(sources_number)
-	*sources_number = counter;
+        *sources_number = counter;
     return list;
 }
 /*******************************************************************************/
 void
-unload_parsers(GSList **list){
-    GSList	*tmp = *list;
+unload_parsers(GSList *list){
+    GSList  *tmp = list;
     while(tmp){
-	dlclose(tmp->data);
-	tmp = g_slist_next(tmp);
+        dlclose(tmp->data);
+        tmp = g_slist_next(tmp);
     }
-    *list = NULL;
 }
 /*******************************************************************************/
 gboolean
@@ -222,42 +222,65 @@ source_logo_file_valid(GHashTable *data){
     START_FUNCTION;
 #endif
     if(!data)
-	return FALSE;
+        return FALSE;
     /* check image file */
     value = g_hash_table_lookup(data, "logo");
     if(!value)/* logo file does not defined */
-	return FALSE;
+        return FALSE;
     else{
-	*buffer = 0;
-	snprintf(buffer, sizeof(buffer) - 1, "%s%s",
-		    COPYRIGHT_ICONS, (gchar*)value);
-	if(access(buffer, R_OK))/* file does not exist or no permissions */
-	    return FALSE;
+        *buffer = 0;
+        snprintf(buffer, sizeof(buffer) - 1, "%s%s",
+              COPYRIGHT_ICONS, (gchar*)value);
+        if(access(buffer, R_OK))/* file does not exist or no permissions */
+        return FALSE;
     }
     return TRUE;
 }
 /*******************************************************************************/
 GHashTable*
 parse_source_file(const gchar *filename, const gchar *encoding){
-    xmlDoc	*document = NULL;
-    xmlNode	*root_node = NULL,
-		*current_node = NULL;
-    GHashTable	*object = NULL;
-//#ifdef DEBUGFUNCTIONCALL
+    xmlDoc     *document = NULL;
+    xmlNode    *root_node = NULL,
+               *current_node = NULL;
+    GHashTable *object = NULL;
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     /* check file accessibility */
     if(!access(filename, R_OK | F_OK)){
-	document = xmlReadFile(filename, encoding, 0);
-	if(document){
-	    root_node = xmlDocGetRootElement(document);
-	    current_node = root_node->children;
-	    object = g_hash_table_new(g_str_hash, g_str_equal);
-	    parse_children(current_node, object);
-	    return object;
-	} /* if(document) */
+        document = xmlReadFile(filename, encoding, 0);
+      if(document){
+          root_node = xmlDocGetRootElement(document);
+          current_node = root_node->children;
+          object = g_hash_table_new(g_str_hash, g_str_equal);
+          parse_children(current_node, object);
+          xmlFreeDoc(document);
+          return object;
+      } /* if(document) */
     } /* if(!access()) */
     return object;
+}
+/*******************************************************************************/
+static void
+free_source_field (gpointer key, gpointer val, gpointer user_data)
+{
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    fprintf(stderr,"dddddddd %s\n",val);
+    if (val)
+        g_free(val);
+}
+
+/*******************************************************************************/
+void
+free_hashtable_with_source(GHashTable* hashtable){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+//    g_hash_table_foreach (hashtable,
+//        free_source_field, NULL);
+    g_hash_table_destroy (hashtable);
 }
 /*******************************************************************************/
 void

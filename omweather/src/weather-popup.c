@@ -415,19 +415,19 @@ popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
 gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
                               gpointer user_data){
     GtkWidget	*notebook = NULL,
-		*tab = NULL,
-		*hour_tab = NULL,
-		*current_tab = NULL,
-		*label = NULL,
-		*vbox = NULL,
-		*buttons_box = NULL,
-		*label_box = NULL,
-		*copyright_box = NULL,
-		*no_weather_box = NULL;
+		        *tab = NULL,
+		        *hour_tab = NULL,
+		        *current_tab = NULL,
+		        *label = NULL,
+		        *vbox = NULL,
+		        *buttons_box = NULL,
+		        *label_box = NULL,
+		        *copyright_box = NULL,
+		        *no_weather_box = NULL;
     gint	active_tab = 0,
-		k = 0,
-		page = 0,
-		i = 1;
+		    k = 0,
+		    page = 0,
+		    i = 1;
     gchar	*day_name = NULL;
     time_t	current_time = 0,
 		diff_time,
@@ -529,7 +529,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
             gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                         current_tab,
                                         gtk_label_new(_("Now")));
-#if defined CLUTTER
+#ifndef CLUTTER
             g_idle_add((GSourceFunc)make_current_tab,current_tab);
 #endif
             add_item2object(&(app->tab_of_window_popup), (void*)current_tab);
@@ -743,13 +743,13 @@ GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name){
 		*day_text = NULL,
 		*night_text = NULL;
     gchar	buffer[1024],
-		symbol = 'C';
+		    symbol = 'C';
     struct tm	tmp_time_date_struct = {0};
     GdkPixbuf	*icon = NULL;
     gint	hi_temp,
-		low_temp,
-		day_invalid_count = 0,
-		night_invalid_count = 0;
+		    low_temp,
+		    day_invalid_count = 0,
+		    night_invalid_count = 0;
     const gchar	*wind_units_str[] = { "m/s", "km/h", "mi/h" };
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

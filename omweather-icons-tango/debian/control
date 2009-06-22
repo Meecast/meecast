@@ -1,0 +1,43 @@
+Source: omweather-icons-tango
+Section: user/desktop
+Priority: optional
+Maintainer: Vlad Vasiliev <vlad@gas.by>
+Build-Depends: 
+Standards-Version: 3.6.0
+
+Package: omweather-icons-tango
+Architecture: all
+Depends: omweather (>=0.16)
+Description: Tango iconset
+ for Other Maemo Weather
+ Author  Chris Stark cstark1+gnome@gmail.com
+ http://darkobra.deviantart.com/
+ and other GNOME Icon Theme artists
+ http://www.deviantart.com/users/outgoing?http://people.freedesktop.org/~jimmac/icons/#git
+ GPL 
+XB-Maemo-Icon-26:
+ iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
+ /wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9kGFhQRB9VFp7sAAATkSURBVEjH
+ 7VVLbJRVFP7Ovf9rpp3pMH1MBxjAvkl5tZVngAQ0inGhotGluvG5INFE3bkxkpiIiW5JNHGjGzdg
+ TAwxSkLCQwgCAy2UlE6ftJ3OTDud+V/3HhclRFIe1sTEhV9yNvfcL985954H8F/G9BVYy+WIfyIk
+ SOxfLsd4mDN/heohnLiEOxyyUQMWjjASEZKNffnszd9BQcW2w2ptKzifhcEANXQjWLYQIT4v7a6X
+ tCpcELqkiSxLGJmkMNPlkP31rAplz3MX8ldpHlw+AOhvl53R1GXTgVAZEolZw1jbK0ey0sxXN5Dp
+ r4UYdzig7qCu7qyfXpkjGd+kg1xOhzkG+AFB3wczWcMmirYImUzahfpeuxR7QzRv7UBjp4AdX+R4
+ JcZ0v9IT5wb8lH3crcn9zOFojoLK8IrNrB8qlL8iY9LqaGH4DOZ4JCd3W9Gt71PbviSzKSAiAN0p
+ OPYB7YLI1zx4ouiXzx2urHVPsi6MVGLViUzmERkVB/s2CXPdVmNmLuO4yUNo3VsHRAiyBpA1gIgs
+ XtRVQC0sGiqMwV8KLq5+6DXxqA5vMdgbru9G/33Lu3gNpP3rng5y4/ZU5QW0bItDa2JBYAEwaTCC
+ RSO9eCYI0Exo3Z6wy4lDeX/HE9nZ5zcyiesP7CPN0gE5UWuiuFKk2ttZeYJJA6TACMHwAFQBVMHw
+ wAgXfaTBKhS6sbPt/OQ7b5Xszz/59Mz5zAOrTrPhCGGa5mzYw2uaDCAAUwDAB0gAxNB0p010CRyM
+ AN444E9joRrFr9UPnG0b12NstspEejWA4ftmZFhraqXVmSIz0cLSFQwfDB9MPjQqUHoEKvgdYfU4
+ guoxKP8ctBpC2ffw0+gzeOrxHqxrqsHOjnpKJ2oOv/f1xeSSjGavNq4gmWohEXGAIiEYhVYVsBWD
+ VgwWAdgwwEICJnBxYjeK4SvwK1koJPHc/h2I2nIxekF4+0DbnqMnbh4FcHBpeWfNGMn6zli/86ro
+ 3vxmyFOmtiJgK4pb8+2oqBgK1TRctQv18Wbs7GyCF2gIAZhy6dj84fTo9Kn+me1HXu8ZuuePJClX
+ s+cHyeh5pzAXoN40z0w8jalgN9pXd2FF3EQ6ZWBlMnKXY5v3CjAzlFYIgwAHNjc0EnAm9t3lz+4R
+ qjN1MBt4JS+lB+0bU1mZyvTlg16xZ0MPItKDUh4MQ6FcCSGFBJG4+ySaGVoraK0QKoUwDMDMeHJD
+ vJEEPl7SsLNZMyqc3u1WMb7Xmc8fyq9qS5wa30+PZV5EjSNhSoGIdGGaFhRbUME8lAoBEGqitXC9
+ KgJEECqNfDnk/vFK7ubk/DdLJ8P1llqSK7focCKMDKldll37UdjanLw2t1lWdRxFNw0tdiEISnDd
+ UXSs2YdUjDDnEk5fH5pJxBowMFY9drvk/QbgFkiePPLaJl4ixAwUBkCsI2kS8bQzFemyi/Jdaor2
+ 6caY0I5NmgWkV4GYmgsvjmy5cMo4eAlcGni25csfCXn91Y3vB794edejpzcAFC+BlLSTJCJpaXVn
+ zBlsMMdyq4goBYDZinlhwjpfTU6eYS6XtHbHGqaDBdqHv78m/orSVWmyvW0rq/F5reYACAkAwmiK
+ EtXGlPfHWUZQauheuhqWJQQAhf5VzvztMbeuHkYIKZgZttZhYDc3JLsmp/A//k38CVYPWY5ke9EO
+ AAAAAElFTkSuQmCC

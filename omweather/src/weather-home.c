@@ -1501,11 +1501,12 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 #endif
 	    station_box = gtk_hbox_new(FALSE, 0);
 	    station_name_btn = gtk_event_box_new();
-	    set_background_color(station_name_btn, &(app->config->background_color));		
+	    set_background_color(station_name_btn, &(app->config->background_color));
         gtk_widget_set_events(station_name_btn, GDK_BUTTON_PRESS_MASK);
 	    station_name = gtk_label_new(NULL);
 	    gtk_label_set_markup(GTK_LABEL(station_name), buffer);
 	    gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
+	    gtk_widget_set_name(station_name, "station_name");
 
 	    if(layout == COMBINATION || layout == APPLICATION_MODE)
 	        set_font(station_name, app->config->font, 2);
@@ -1897,6 +1898,7 @@ create_weather_day_button(const char *text, const char *icon,
             gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_CENTER);
             /* Set font size for label */
             set_font(new_day_button->label, app->config->font, -1);
+            gtk_widget_set_name(new_day_button->label, "day_label");
     }else
         new_day_button->label = NULL;
    /* create day icon buffer */

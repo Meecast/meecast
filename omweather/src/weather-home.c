@@ -1554,95 +1554,111 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 
 /* create days panel */
     switch(layout){
-	default:
-	case ONE_ROW:
-	    days_panel = gtk_table_new(1, Max_count_weather_day, FALSE);
-	break;
-	case ONE_COLUMN:
-	    days_panel = gtk_table_new(Max_count_weather_day, 1, FALSE);
-	break;
-	case TWO_ROWS:
-	    days_panel = gtk_table_new(2, elements, FALSE);
-	break;
-	case TWO_COLUMNS:
-	    days_panel = gtk_table_new(elements, 2, FALSE);
-	break;
-	case COMBINATION:
-    case APPLICATION_MODE:
-	    days_panel = gtk_table_new(Max_count_weather_day, 2, FALSE);
-	break;
+        default:
+        case ONE_ROW:
+            days_panel = gtk_table_new(1, Max_count_weather_day, FALSE);
+            break;
+        case ONE_COLUMN:
+            days_panel = gtk_table_new(Max_count_weather_day, 1, FALSE);
+            break;
+        case TWO_ROWS:
+            days_panel = gtk_table_new(2, elements, FALSE);
+            break;
+        case TWO_COLUMNS:
+            days_panel = gtk_table_new(elements, 2, FALSE);
+            break;
+        case COMBINATION:
+        case APPLICATION_MODE:
+            days_panel = gtk_table_new(Max_count_weather_day, 2, FALSE);
+            break;
+        case PRESET_NOW:
+            days_panel = gtk_table_new(2, 1, FALSE);
+            break;
     }
 /* add padding around the outside of the container so the text
  * is not right to the very edge */
     gtk_container_set_border_width(GTK_CONTAINER(days_panel),2);
-/* attach days buttons */
     tmp = app->buttons;
-    for(n = 0, x = 0, y = 0; n < total_elements; n++, x++){
-	if(tmp){
-	    switch(layout){
-		default:
-		case ONE_ROW:
-		    
-		    gtk_table_attach((GtkTable*)days_panel,
-				    ((WDB*)tmp->data)->button,
-				    n, n + 1, 0, 1, (GtkAttachOptions)0,
-				    (GtkAttachOptions)0, 0, 0 );
-		break;
-		case ONE_COLUMN:
-		    gtk_table_attach((GtkTable*)days_panel,
-				    ((WDB*)tmp->data)->button,
-				    0, 1, n, n + 1, (GtkAttachOptions)0,
-				    (GtkAttachOptions)0, 0, 0);
-		break;
-		case TWO_ROWS:
-		    if(n == elements){
-			x = 0; y = 1;
-		    }
-		    if(!y)
-			gtk_table_attach((GtkTable*)days_panel,
-					((WDB*)tmp->data)->button,
-					x, x + 1, 0, 1, (GtkAttachOptions)0,
-					(GtkAttachOptions)0, 0, 0);
-		    else
-			gtk_table_attach((GtkTable*)days_panel,
-					((WDB*)tmp->data)->button,
-					x, x + 1, 1, 2, (GtkAttachOptions)0,
-					(GtkAttachOptions)0, 0, 0);
-		break;
-		case TWO_COLUMNS:
-		    if(n == elements){
-			x = 0; y = 1;
-		    }
-		    if(!y)
-			gtk_table_attach((GtkTable*)days_panel,
-					((WDB*)tmp->data)->button,
-					0, 1, x, x + 1, (GtkAttachOptions)0,
-					(GtkAttachOptions)0, 0, 0);
-		    else
-			gtk_table_attach((GtkTable*)days_panel,
-					((WDB*)tmp->data)->button,
-					1, 2, x, x + 1, (GtkAttachOptions)0,
-					(GtkAttachOptions)0, 0, 0);
-		break;
-		case COMBINATION:
-        case APPLICATION_MODE:
-		    if(!n)
-			gtk_table_attach((GtkTable*)days_panel,
-					((WDB*)tmp->data)->button,
-					0, 1, 0, 1, (GtkAttachOptions)0,
-					(GtkAttachOptions)0, 0, 0);
-		    else
-			gtk_table_attach((GtkTable*)days_panel,
-					((WDB*)tmp->data)->button,
-					x - 1, x, 1, 2, (GtkAttachOptions)0,
-					(GtkAttachOptions)0, 0, 0);
-		break;
-	    }
-	}	
-	tmp = g_slist_next(tmp);
+    if (layout == PRESET_NOW){
+        /* attach days buttons for simple(presets) mode */
+        switch(layout){
+            default:
+            case PRESET_NOW:
+                fprintf(stderr,"Preset Now\n");
+                gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                0, 0 + 1, 0, 1, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+            break;
+        }
+    }else{
+        /* attach days buttons for expert mode */
+        for(n = 0, x = 0, y = 0; n < total_elements; n++, x++){
+            if(tmp){
+                switch(layout){
+                    default:
+                    case ONE_ROW:
+                        gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                n, n + 1, 0, 1, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+                        break;
+                    case ONE_COLUMN:
+                        gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                0, 1, n, n + 1, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0);
+                        break;
+                    case TWO_ROWS:
+                        if(n == elements){
+                        x = 0; y = 1;
+                        }
+                        if(!y)
+                        gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                x, x + 1, 0, 1, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0);
+                        else
+                        gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                x, x + 1, 1, 2, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0);
+                        break;
+                    case TWO_COLUMNS:
+                        if(n == elements){
+                        x = 0; y = 1;
+                        }
+                        if(!y)
+                        gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                0, 1, x, x + 1, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0);
+                        else
+                        gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                1, 2, x, x + 1, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0);
+                        break;
+                    case COMBINATION:
+                    case APPLICATION_MODE:
+                        if(!n)
+                        gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                0, 1, 0, 1, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0);
+                        else
+                        gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                x - 1, x, 1, 2, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0);
+                        break;
+                }
+            }	
+            tmp = g_slist_next(tmp);
+        }
     }
     /* attach to main panel header and days panels */
-    if(layout == COMBINATION || layout == APPLICATION_MODE){
+    if (layout == COMBINATION || layout == APPLICATION_MODE){
         combination_vbox = gtk_vbox_new(FALSE, 0);
         current_time = time(NULL);
 	

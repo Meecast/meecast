@@ -606,13 +606,13 @@ gint read_config(AppletConfig * config) {
         gerror = NULL;
     }
 
-    /* Get Layout  Default Horizontal */
+    /* Get Layout Default Preset ONE */
     config->icons_layout = gconf_client_get_int(gconf_client,
                                                 GCONF_KEY_ICONS_LAYOUT,
                                                 NULL);
     if (config->icons_layout < ONE_ROW
-        || config->icons_layout > COMBINATION)
-        config->icons_layout = ONE_ROW;
+        || config->icons_layout > PRESET_NOW)
+        config->icons_layout = PRESET_NOW;
 
     /* Get Text Position  Default Right */
     config->text_position = RIGHT;

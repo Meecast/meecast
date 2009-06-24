@@ -117,7 +117,7 @@ extern void write_log(char *string);
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
 	CHECK_GPS_POSITION
 };
-enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, APPLICATION_MODE };
+enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, APPLICATION_MODE, PRESET_NOW };
 enum { RIGHT, LEFT, TOP, BOTTOM, NOTHING };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
 enum { METERS_S, KILOMETERS_H, MILES_H };
@@ -143,20 +143,20 @@ enum { STATE_ENABLE_GPS	= 1U,
        STATE_SOURCE	= 2U
 };
 /* visuals tab */
-enum { STATE_ONE_ROW		= 1U,
-       STATE_ONE_COLUMN		= 2U,
-       STATE_TWO_ROWS		= 4U,
-       STATE_TWO_COLUMNS	= 8U,
-       STATE_COMBINATION	= 16U,
-       STATE_THEME_OVERRIDE	= 32U,
-       STATE_TRANSPARENCY	= 64U,
-       STATE_FONT		= 128U,
-       STATE_FONT_COLOR		= 256U,
-       STATE_BACKGROUND_COLOR	= 512U,
-       STATE_ICONSET        = 1024U,
-       STATE_LONG           = 2048U,
-       STATE_SHORT          = 4096U
-
+enum { STATE_ONE_ROW            = 1U,
+       STATE_ONE_COLUMN         = 2U,
+       STATE_TWO_ROWS           = 4U,
+       STATE_TWO_COLUMNS        = 8U,
+       STATE_COMBINATION        = 16U,
+       STATE_THEME_OVERRIDE     = 32U,
+       STATE_TRANSPARENCY       = 64U,
+       STATE_FONT               = 128U,
+       STATE_FONT_COLOR         = 256U,
+       STATE_BACKGROUND_COLOR   = 512U,
+       STATE_ICONSET            = 1024U,
+       STATE_LONG               = 2048U,
+       STATE_SHORT              = 4096U,
+       STATE_PRESET_NOW         = 8192U
 };
 /* display tab */
 enum { STATE_VISIBLE_ITEMS	= 1U,

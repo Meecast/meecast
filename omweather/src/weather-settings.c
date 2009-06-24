@@ -1223,6 +1223,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 			*column = NULL,
 			*two_rows = NULL,
 			*two_columns = NULL,
+            *preset_now = NULL,
 			*right = NULL,
 			*left = NULL,
 			*top = NULL,
@@ -1260,7 +1261,8 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     column = lookup_widget(config_window, "one_column");
     two_rows = lookup_widget(config_window, "two_rows");
     two_columns = lookup_widget(config_window, "two_columns");
-    if (row && column && two_rows && two_columns) {
+    preset_now = lookup_widget(config_window, "preset_now");
+    if (row && column && two_rows && two_columns && preset_now) {
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(row)))
             app->config->icons_layout = ONE_ROW;
         else {
@@ -1274,8 +1276,13 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
                     if (gtk_toggle_button_get_active
                         (GTK_TOGGLE_BUTTON(two_columns)))
                         app->config->icons_layout = TWO_COLUMNS;
-                    else
-                        app->config->icons_layout = COMBINATION;
+                    else{
+                        if (gtk_toggle_button_get_active
+                            (GTK_TOGGLE_BUTTON(preset_now)))
+                            app->config->icons_layout = PRESET_NOW;
+                        else
+                            app->config->icons_layout = COMBINATION;
+                    }
                 }
             }
         }
@@ -2109,6 +2116,14 @@ check_buttons_changed_handler(GtkToggleButton * button,
             app->visuals_tab_current_state &= ~STATE_TWO_COLUMNS;
         goto check;
     }
+    if (!strcmp(button_name, "preset_now")) {
+        if (gtk_toggle_button_get_active(button))
+            app->visuals_tab_current_state |= STATE_PRESET_NOW;
+        else
+            app->visuals_tab_current_state &= ~STATE_PRESET_NOW;
+        goto check;
+    }
+
     if (!strcmp(button_name, "combination")) {
         if (gtk_toggle_button_get_active(button))
             app->visuals_tab_current_state |= STATE_COMBINATION;
@@ -2796,7 +2811,8 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
         *two_columns_button = NULL,
         *combination_button = NULL,
         *short_clicking = NULL,
-        *long_clicking = NULL;
+        *long_clicking = NULL,
+        *preset_now_button = NULL;
 
     GSList *group = NULL, *icon_set = NULL, *tmp = NULL, *clicking_group = NULL;
     gchar buffer[256];
@@ -2811,7 +2827,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
     layouts_hbox = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_end(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 20);
     /* make buttons */
-    /* one row */
+   /* one row */
     one_row_button =
         create_button_with_image(BUTTON_ICONS, "one_row", 40, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, one_row_button, "one_row");
@@ -2822,7 +2838,8 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
     g_signal_connect(one_row_button, "clicked",
                      G_CALLBACK(check_buttons_changed_handler),
                      (gpointer) window);
-    /* one column */
+
+   /* one column */
     one_column_button =
         create_button_with_image(BUTTON_ICONS, "one_column", 40, TRUE,
                                  TRUE);
@@ -2877,33 +2894,52 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
     g_signal_connect(combination_button, "clicked",
                      G_CALLBACK(check_buttons_changed_handler),
                      (gpointer) window);
+    /* preset Now */ 
+    preset_now_button =
+        create_button_with_image(BUTTON_ICONS, "nothing", 40, TRUE, TRUE);
+    GLADE_HOOKUP_OBJECT(window, preset_now_button, "preset_now");
+    gtk_widget_set_name(preset_now_button, "preset_now");
+    gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_button, FALSE,
+                       FALSE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_button),
+                               gtk_radio_button_get_group
+                               (GTK_RADIO_BUTTON(combination_button)));
+    g_signal_connect(preset_now_button, "clicked",
+                     G_CALLBACK(check_buttons_changed_handler),
+                     (gpointer) window);
+ 
     switch (app->config->icons_layout) {
-    default:
-    case ONE_ROW:
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(one_row_button),
+        default:
+        case ONE_ROW:
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(one_row_button),
                                      TRUE);
-        app->visuals_tab_start_state |= STATE_ONE_ROW;
-        break;
-    case ONE_COLUMN:
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
+            app->visuals_tab_start_state |= STATE_ONE_ROW;
+            break;
+        case ONE_COLUMN:
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
                                      (one_column_button), TRUE);
-        app->visuals_tab_start_state |= STATE_ONE_COLUMN;
+            app->visuals_tab_start_state |= STATE_ONE_COLUMN;
         break;
-    case TWO_ROWS:
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(two_rows_button),
+        case TWO_ROWS:
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(two_rows_button),
                                      TRUE);
-        app->visuals_tab_start_state |= STATE_TWO_ROWS;
-        break;
-    case TWO_COLUMNS:
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
+            app->visuals_tab_start_state |= STATE_TWO_ROWS;
+            break;
+        case TWO_COLUMNS:
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
                                      (two_columns_button), TRUE);
-        app->visuals_tab_start_state |= STATE_TWO_COLUMNS;
-        break;
-    case COMBINATION:
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
+            app->visuals_tab_start_state |= STATE_TWO_COLUMNS;
+            break;
+        case COMBINATION:
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
                                      (combination_button), TRUE);
-        app->visuals_tab_start_state |= STATE_COMBINATION;
-        break;
+            app->visuals_tab_start_state |= STATE_COMBINATION;
+            break;
+        case PRESET_NOW:
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_button),
+                                     TRUE);
+            app->visuals_tab_start_state |= STATE_PRESET_NOW;
+            break;
     }
 /* second line */
     second_line = gtk_hbox_new(FALSE, 0);

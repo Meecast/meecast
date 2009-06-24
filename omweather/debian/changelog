@@ -1,3 +1,9 @@
+omweather (0.23) unstable; urgency=low
+
+  * New design
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 21 Jun 2009 20:30:00 +0200
+
 omweather (0.22.4) unstable; urgency=low
 
   * Fixed small memory leaks

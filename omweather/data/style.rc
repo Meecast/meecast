@@ -10,3 +10,9 @@ widget "*.omweather_countries_list.*" style "big-font"
 widget "*.omweather_states_list.*" style "big-font"
 widget "*.omweather_stations_list.*" style "big-font"
 widget "*.omweather_station_name" style "big-font"
+style "applet-font" {
+  engine "sapwood" {
+      shadowcolor = @DarkerBackgroundColor
+  }
+}
+widget "*.label" style "applet-font"

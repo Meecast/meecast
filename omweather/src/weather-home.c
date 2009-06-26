@@ -421,7 +421,7 @@ draw_home_window(gint count_day){
 #endif
 /* Check main widget */
     if(!app->top_widget)
-	return;
+        return;
     tm = &tmp_tm;
     memset(temperature_string, 0, sizeof(temperature_string));
     memset(forecast_string, 0, sizeof(forecast_string));
@@ -468,141 +468,144 @@ draw_home_window(gint count_day){
         default:
             count_of_show_button = app->config->days_to_show;
     }
-    while(i < count_of_show_button){
-	if(tmp){
-	    day = (GSList*)tmp->data;
-	    /* add CHANGE_DAY_PART for all days */
-	    add_change_day_part_event(day, year, current_month);
-	    /* day begin */
-	    day_begin_time = get_day_part_begin_time(day, year, "day_sunrise");
-	    /* night begin */
-	    night_begin_time = get_day_part_begin_time(day, year, "day_sunset");
-	    /* add events for first day */
-	    if(current_time < day_begin_time)
-        	event_add(day_begin_time - diff_time, CHANGE_DAY_PART);
-	    if(current_time < night_begin_time)
-            	event_add(night_begin_time - diff_time, CHANGE_DAY_PART);
-	    
-	    #ifndef RELEASE
-		fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
-		fprintf(stderr, "\nUTC time %s", ctime(&utc_time));
-		fprintf(stderr, "Zone time %s", ctime(&current_time));
-		tmp_time = last_update_time(app->wsd.current);
-		fprintf(stderr, "Last update: %s", ctime(&tmp_time));
-		fprintf(stderr, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
-		fprintf(stderr, "Current time: %s", ctime(&current_time));
- 		fprintf(stderr, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
-	    #endif
-
-	    if(i == 0){	/* first day */
-		update_time = last_update_time(app->wsd.current);
-		/* check weather data for actuality */
-		if( !app->wsd.current_data_is_invalid &&
-		    (update_time > (current_time - app->config->data_valid_interval)) &&
-            	    (update_time < (current_time + app->config->data_valid_interval)) ){
-		    /* add event for terminate valid period */
-		    event_add(update_time + app->config->data_valid_interval - diff_time, CHANGE_DAY_PART);
-		    buffer[0] = 0;
-		    create_current_temperature_text(app->wsd.current, buffer, TRUE, item_value(day, "day_name"));
-		    sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
-				item_value(app->wsd.current, "icon"));
-		}
-		else{ /* if current data is not actual */
-		    buffer[0] = 0;
-		    if(app->config->separate){ /* if current data isn't actual and first day */
-			    create_current_temperature_text(app->wsd.current, buffer, FALSE, item_value(day, "day_name"));
-			    sprintf(buffer_icon, "%s48.png", app->config->icons_set_base);
-		    }
-		    else{ /* if first day and not config->separate data */
-			/* if current time is night show night icon */
-                 if(current_time > night_begin_time || current_time < day_begin_time){
-                    create_day_temperature_text(day, buffer, FALSE, FALSE);
-                    /* displaying wind if necessary */
-                    if(app->config->show_wind)
-                        add_wind_text(day, buffer + strlen(buffer),FALSE);
-		            sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
-		        		item_value(day, "night_icon"));
-		}else
-                    create_day_temperature_text(day, buffer, FALSE, FALSE);
-                    /* displaying wind if necessary */
-                    if(app->config->show_wind)
-                        add_wind_text(day, buffer + strlen(buffer),TRUE);
-		            sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
-					item_value(day, "day_icon"));
-		    }
-		}
-	    }
-	    else{/* other days, from two and to app->config->days_to_show */
-		    buffer[0] = 0;
-            if (app->config->separate && i == 1){
-                tmp_day = first;
-                /* Change day and nitght  begin  time */
-                day_begin_time = get_day_part_begin_time(tmp_day, year, "24h_sunrise");
-                night_begin_time = get_day_part_begin_time(tmp_day, year, "24h_sunset");
-            }else
-                tmp_day = day;
-                create_day_temperature_text(tmp_day, buffer, FALSE, FALSE);
-            if((app->config->separate) && (i == 1) &&
-               (current_time > night_begin_time || current_time < day_begin_time)){
-                   if(app->config->show_wind)
-                       add_wind_text(tmp_day, buffer + strlen(buffer),FALSE);
-                   sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
-                       item_value(tmp_day, "night_icon"));
-            }else{
-                   if(app->config->show_wind)
-                       add_wind_text(tmp_day, buffer + strlen(buffer),TRUE);
-                   sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
-			       item_value(tmp_day, "day_icon"));
-               }
-	    }
-	}
-	else{ /* Show N/A for all others day buttons when it not inside range */
-	    is_na_day = TRUE;
-	    if(app->config->show_wind)
-		sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260\n%s\n%s</span>",
-			app->config->font_color.red >> 8,
-			app->config->font_color.green >> 8,
-			app->config->font_color.blue >> 8,
-			_("N/A"), _("N/A"), _("N/A"),
-			_("N/A"), _("N/A"));
-	    else
-		sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
-			app->config->font_color.red >> 8,
-			app->config->font_color.green >> 8,
-			app->config->font_color.blue >> 8,
-			_("N/A"), _("N/A"), _("N/A"));
-	    sprintf(buffer_icon, "%s48.png", app->config->icons_set_base);
-	    if(!flag_last_day && last_day){
-		event_add(last_day + 24 * 60 * 60, CHANGE_DAY_PART);
-		flag_last_day = TRUE;
-	    }
-   	}
-#if defined(NONMAEMO) || defined (APPLICATION)
-    if(i == 0)/* First icon in APPLICATION MODE */
-#else
-    if(app->config->icons_layout == COMBINATION && i == 0)/* First icon in COMBINATION layout */
+#ifdef APPLICATION
+     count_of_show_button = app->config->days_to_show;
 #endif
-        tmp_button = create_weather_day_button(buffer, buffer_icon, FIRST_BUTTON,
-                            app->config->transparency,
-                            FALSE,
-                            &(app->config->background_color));
-    else
-        tmp_button = create_weather_day_button(buffer, buffer_icon, OTHER_BUTTON,
-                            app->config->transparency,
-                            TRUE,
-                            &(app->config->background_color));
-    g_signal_connect(tmp_button->button, "button-release-event",
-                G_CALLBACK(weather_window_popup),
-                (is_na_day ? (GINT_TO_POINTER(-1)) : (GINT_TO_POINTER(i))));
-    if (app->config->clicking_type == SHORT_CLICK)
-        g_signal_connect(tmp_button->button, "button-release-event",
-                            G_CALLBACK(weather_window_popup),
-                            (is_na_day ? (GINT_TO_POINTER(-1)) : (GINT_TO_POINTER(i))));
-    add_item2object(&(app->buttons), (void*)tmp_button);
+    while(i < count_of_show_button){
+        if(tmp){
+            day = (GSList*)tmp->data;
+            /* add CHANGE_DAY_PART for all days */
+            add_change_day_part_event(day, year, current_month);
+            /* day begin */
+            day_begin_time = get_day_part_begin_time(day, year, "day_sunrise");
+            /* night begin */
+            night_begin_time = get_day_part_begin_time(day, year, "day_sunset");
+            /* add events for first day */
+            if(current_time < day_begin_time)
+                event_add(day_begin_time - diff_time, CHANGE_DAY_PART);
+            if(current_time < night_begin_time)
+                    event_add(night_begin_time - diff_time, CHANGE_DAY_PART);
+            
+            #ifndef RELEASE
+            fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+            fprintf(stderr, "\nUTC time %s", ctime(&utc_time));
+            fprintf(stderr, "Zone time %s", ctime(&current_time));
+            tmp_time = last_update_time(app->wsd.current);
+            fprintf(stderr, "Last update: %s", ctime(&tmp_time));
+            fprintf(stderr, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+            fprintf(stderr, "Current time: %s", ctime(&current_time));
+            fprintf(stderr, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
+            #endif
 
-    if(!(app->config->separate && i == 1))
-        tmp = g_slist_next(tmp);
-        i++;
+            if(i == 0){	/* first day */
+                update_time = last_update_time(app->wsd.current);
+                /* check weather data for actuality */
+                if( !app->wsd.current_data_is_invalid &&
+                    (update_time > (current_time - app->config->data_valid_interval)) &&
+                            (update_time < (current_time + app->config->data_valid_interval)) ){
+                    /* add event for terminate valid period */
+                    event_add(update_time + app->config->data_valid_interval - diff_time, CHANGE_DAY_PART);
+                    buffer[0] = 0;
+                    create_current_temperature_text(app->wsd.current, buffer, TRUE, item_value(day, "day_name"));
+                    sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
+                        item_value(app->wsd.current, "icon"));
+                }
+                else{ /* if current data is not actual */
+                    buffer[0] = 0;
+                    if(app->config->separate){ /* if current data isn't actual and first day */
+                        create_current_temperature_text(app->wsd.current, buffer, FALSE, item_value(day, "day_name"));
+                        sprintf(buffer_icon, "%s48.png", app->config->icons_set_base);
+                    }
+                    else{ /* if first day and not config->separate data */
+                    /* if current time is night show night icon */
+                         if(current_time > night_begin_time || current_time < day_begin_time){
+                            create_day_temperature_text(day, buffer, FALSE, FALSE);
+                            /* displaying wind if necessary */
+                            if(app->config->show_wind)
+                                add_wind_text(day, buffer + strlen(buffer),FALSE);
+                            sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
+                                item_value(day, "night_icon"));
+                         }else
+                            create_day_temperature_text(day, buffer, FALSE, FALSE);
+                         /* displaying wind if necessary */
+                         if(app->config->show_wind)
+                                add_wind_text(day, buffer + strlen(buffer),TRUE);
+                         sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
+                            item_value(day, "day_icon"));
+                    }
+                }
+            }
+            else{/* other days, from two and to app->config->days_to_show */
+                buffer[0] = 0;
+                if (app->config->separate && i == 1){
+                    tmp_day = first;
+                    /* Change day and nitght  begin  time */
+                    day_begin_time = get_day_part_begin_time(tmp_day, year, "24h_sunrise");
+                    night_begin_time = get_day_part_begin_time(tmp_day, year, "24h_sunset");
+                }else
+                    tmp_day = day;
+                    create_day_temperature_text(tmp_day, buffer, FALSE, FALSE);
+                if((app->config->separate) && (i == 1) &&
+                   (current_time > night_begin_time || current_time < day_begin_time)){
+                       if(app->config->show_wind)
+                           add_wind_text(tmp_day, buffer + strlen(buffer),FALSE);
+                       sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
+                           item_value(tmp_day, "night_icon"));
+                }else{
+                       if(app->config->show_wind)
+                           add_wind_text(tmp_day, buffer + strlen(buffer),TRUE);
+                       sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
+                       item_value(tmp_day, "day_icon"));
+                }
+            }
+        }
+        else{ /* Show N/A for all others day buttons when it not inside range */
+            is_na_day = TRUE;
+            if(app->config->show_wind)
+            sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260\n%s\n%s</span>",
+                app->config->font_color.red >> 8,
+                app->config->font_color.green >> 8,
+                app->config->font_color.blue >> 8,
+                _("N/A"), _("N/A"), _("N/A"),
+                _("N/A"), _("N/A"));
+            else
+            sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
+                app->config->font_color.red >> 8,
+                app->config->font_color.green >> 8,
+                app->config->font_color.blue >> 8,
+                _("N/A"), _("N/A"), _("N/A"));
+            sprintf(buffer_icon, "%s48.png", app->config->icons_set_base);
+            if(!flag_last_day && last_day){
+            event_add(last_day + 24 * 60 * 60, CHANGE_DAY_PART);
+            flag_last_day = TRUE;
+            }
+        }
+    #if defined(NONMAEMO) || defined (APPLICATION)
+        if(i == 0)/* First icon in APPLICATION MODE */
+    #else
+        if(app->config->icons_layout == COMBINATION && i == 0)/* First icon in COMBINATION layout */
+    #endif
+            tmp_button = create_weather_day_button(buffer, buffer_icon, FIRST_BUTTON,
+                                app->config->transparency,
+                                FALSE,
+                                &(app->config->background_color));
+        else
+            tmp_button = create_weather_day_button(buffer, buffer_icon, OTHER_BUTTON,
+                                app->config->transparency,
+                                TRUE,
+                                &(app->config->background_color));
+        g_signal_connect(tmp_button->button, "button-release-event",
+                    G_CALLBACK(weather_window_popup),
+                    (is_na_day ? (GINT_TO_POINTER(-1)) : (GINT_TO_POINTER(i))));
+        if (app->config->clicking_type == SHORT_CLICK)
+            g_signal_connect(tmp_button->button, "button-release-event",
+                                G_CALLBACK(weather_window_popup),
+                                (is_na_day ? (GINT_TO_POINTER(-1)) : (GINT_TO_POINTER(i))));
+        add_item2object(&(app->buttons), (void*)tmp_button);
+
+        if(!(app->config->separate && i == 1))
+            tmp = g_slist_next(tmp);
+            i++;
     }/* end while */
 #if defined(OS2008) || defined(DEBUGTEMP)
     if(app->config->use_sensor &&
@@ -815,8 +818,8 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 
     app = g_new0(OMWeatherApp, 1);
     if(!app){
-	fprintf(stderr, "\nCan not allocate memory for applet.\n");
-	exit(1);
+        fprintf(stderr, "\nCan not allocate memory for applet.\n");
+        exit(1);
     }
     memset(app, 0, sizeof(OMWeatherApp));
 #if  ! defined (NONMAEMO) || ! defined (APPLICATION)
@@ -868,7 +871,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         g_free(app->config);
         g_free(app);
 #if  defined (NONMAEMO) || defined (APPLICATION)
-	return FALSE;
+    return FALSE;
 #elif OS2008
         return;
 #elif OS2009
@@ -891,6 +894,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     
 #if  defined(NONMAEMO) || defined (APPLICATION)
     /* pack for window in Application mode */
+    app->config->is_application_mode = TRUE;
     main_vbox = gtk_vbox_new(FALSE, 0);
     main_hbox = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
@@ -901,6 +905,8 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), create_toolbar_box(omweather_destroy, applet, TRUE), FALSE, FALSE, 0);
     gtk_container_add(GTK_CONTAINER(applet), main_vbox);
+#else
+    app->config->is_application_mode = FALSE;
 #endif
 #if !defined OS2008 ||  defined (APPLICATION)
     redraw_home_window(TRUE);
@@ -1256,7 +1262,7 @@ create_current_weather_simple_widget(GSList *current){
 				app->config->font_color.red >> 8,
 				app->config->font_color.green >> 8,
 				app->config->font_color.blue >> 8);
-
+    
     sprintf(buffer + strlen(buffer), _("Now: "));
     sprintf(buffer + strlen(buffer), "\n%d\302\260",
 		((app->config->temperature_units == CELSIUS) ? ( atoi(item_value(current, "day_hi_temperature")))
@@ -1983,43 +1989,21 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
    /* create day icon buffer */
     icon_buffer =
           gdk_pixbuf_new_from_file_at_size(icon,
-                        icon_size,
-                        icon_size, NULL);
+                        PRESET_BIG_IMAGE_SIZE,
+                        PRESET_BIG_IMAGE_SIZE,
+                        NULL);
     if (icon_buffer)
         /* create day icon image from buffer */
         new_day_button->icon_image = create_icon_widget(icon_buffer, icon, icon_size, &app->clutter_objects_in_main_form);
     else
         new_day_button->icon_image = NULL;
-    /* Packing all to the box */ 
-    /* create day box to contain icon and label */
-    if  (app->config->text_position == LEFT ||
-         app->config->text_position == RIGHT ||
-         app->config->text_position == NOTHING) 
-        new_day_button->box = gtk_hbox_new(FALSE, 0);
-    else
-        new_day_button->box = gtk_vbox_new(FALSE, 0);
-
+    /* Packing all to the box */
+    /* create day box to contain icon, label and wind image */
+    new_day_button->box  = gtk_fixed_new();
     if (new_day_button->icon_image){
-        if(app->config->text_position == RIGHT ||
-           app->config->text_position == BOTTOM){
-             gtk_box_pack_start(GTK_BOX(new_day_button->box),
-                 new_day_button->icon_image, FALSE, FALSE, 0);
-             if (new_day_button->label)
-                 gtk_box_pack_start(GTK_BOX(new_day_button->box),
-                         new_day_button->label, FALSE, FALSE, 0);
-        }
-        else{
-            if(app->config->text_position == LEFT ||
-               app->config->text_position == TOP){
-                gtk_box_pack_start(GTK_BOX(new_day_button->box),
-                    new_day_button->label, FALSE, FALSE, 0);
-                gtk_box_pack_start(GTK_BOX(new_day_button->box),
-                    new_day_button->icon_image, FALSE, FALSE, 0);
-            }else
-                gtk_box_pack_start(GTK_BOX(new_day_button->box),
-                    new_day_button->icon_image, FALSE, FALSE, 0);
-        }
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 0, 0); 
     }
+    gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->label, 97, 41); 
 } 
 /*******************************************************************************/
 WDB* 
@@ -2074,10 +2058,9 @@ create_weather_day_button(const char *text, const char *icon,
     icon_size = MEDIUM_ICON_SIZE; 
 #endif
 
-    if (app->config->icons_layout == PRESET_NOW)
+    if (!app->config->is_application_mode && app->config->icons_layout == PRESET_NOW)
         fill_weather_day_button_preset_now(new_day_button, text, icon,
-                icon_size, transparency,
-                draw_day_label, color);
+                icon_size, transparency, draw_day_label, color);
     else{
         if (type_of_button == FIRST_BUTTON)
             icon = icon_size * 2;
@@ -2220,32 +2203,38 @@ create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 							const gchar *day_name){
     gint	temp_current = INT_MAX;
 
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     
     if(strcmp(item_value(day, "day_hi_temperature"), "N/A"))
-	temp_current = atoi(item_value(day, "day_hi_temperature"));
+	    temp_current = atoi(item_value(day, "day_hi_temperature"));
 
     if(app->config->temperature_units == FAHRENHEIT)
-	( temp_current != INT_MAX ) && ( temp_current = c2f(temp_current) );
+	    ( temp_current != INT_MAX ) && ( temp_current = c2f(temp_current) );
     
     if(temp_current == INT_MAX || !valid)
-	sprintf(buffer,
-		"<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n</span>",
-		app->config->font_color.red >> 8,
-		app->config->font_color.green >> 8,
-		app->config->font_color.blue >> 8,
-		(app->config->separate) ? (_("Now")) : (day_name),
-		_("N/A") );
+        if (!app->config->is_application_mode && app->config->icons_layout == PRESET_NOW)
+            sprintf(buffer,"<span>%s</span>",_("N/A") );
+        else
+            sprintf(buffer,
+                "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n</span>",
+                app->config->font_color.red >> 8,
+                app->config->font_color.green >> 8,
+                app->config->font_color.blue >> 8,
+                (app->config->separate) ? (_("Now")) : (day_name),
+                _("N/A") );
     else
-	sprintf(buffer,
-		"<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
-		app->config->font_color.red >> 8,
-		app->config->font_color.green >> 8,
-		app->config->font_color.blue >> 8,
-		(app->config->separate) ? (_("Now")) : (day_name),
-		temp_current );
+        if (!app->config->is_application_mode && app->config->icons_layout == PRESET_NOW)
+            sprintf(buffer,"<span weight=\"bold\" %i\302\260</span>", temp_current);
+        else
+            sprintf(buffer,
+                "<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
+                app->config->font_color.red >> 8,
+                app->config->font_color.green >> 8,
+                app->config->font_color.blue >> 8,
+                (app->config->separate) ? (_("Now")) : (day_name),
+                temp_current );
 }
 /*******************************************************************************/
 void

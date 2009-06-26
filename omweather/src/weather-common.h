@@ -115,6 +115,7 @@ extern void write_log(char *string);
 #define OMWEATHER_CLOSE_STATION_WINDOW  1002
 
 #define PRESET_BIG_FONT_SIZE 48
+#define PRESET_BIG_IMAGE_SIZE 128
 /*******************************************************************************/
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
 	CHECK_GPS_POSITION
@@ -275,51 +276,52 @@ enum{ NAME_COLUMN = 0, ID0_COLUMN, ID1_COLUMN, LATITUDE_COLUMN,
 	LONGTITUDE_COLUMN };
 /*******************************************************************************/
 typedef struct applet_config{
-    gchar	*cache_dir_name;
-    gchar	*icons_set_base;
-    gchar	*icon_set;
-    gchar	*font;
-    gchar	*current_source;
-    gchar	*current_country;
-    gchar	*current_station_name;
-    gchar	*current_station_id;
-    gchar	*current_station_source;
-    gchar 	*iap_http_proxy_host;
-    gchar 	*cache_directory;
-    gint 	iap_http_proxy_port;
-    gint	update_interval;
-    gint	switch_time;
-    gint	icons_size;
-    gint	icons_layout;
-    gint	text_position;
-    gint	current_settings_page;
-    gint	days_to_show;
-    gint	previos_days_to_show;
-    gint	distance_units;
-    gint	wind_units;
-    gint        clicking_type;
-    gint        temperature_units;
-    gint        pressure_units;
+    gchar   *cache_dir_name;
+    gchar   *icons_set_base;
+    gchar   *icon_set;
+    gchar   *font;
+    gchar   *current_source;
+    gchar   *current_country;
+    gchar   *current_station_name;
+    gchar   *current_station_id;
+    gchar   *current_station_source;
+    gchar   *iap_http_proxy_host;
+    gchar   *cache_directory;
+    gint    iap_http_proxy_port;
+    gint    update_interval;
+    gint    switch_time;
+    gint    icons_size;
+    gint    icons_layout;
+    gint    text_position;
+    gint    current_settings_page;
+    gint    days_to_show;
+    gint    previos_days_to_show;
+    gint    distance_units;
+    gint    wind_units;
+    gint    clicking_type;
+    gint    temperature_units;
+    gint    pressure_units;
 #if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
-    gint	display_at;
-    gboolean	use_sensor;
-    guint	sensor_update_time;
-    guint 	alpha_comp;
-    guint	corner_radius;
+    gint        display_at;
+    gboolean    use_sensor;
+    guint       sensor_update_time;
+    guint       alpha_comp;
+    guint       corner_radius;
 #endif
-    guint	data_valid_interval;
-    gboolean	transparency;
-    gboolean	separate;
-    gboolean	swap_hi_low_temperature;
-    gboolean	show_station_name;
-    gboolean	show_arrows;
-    gboolean	downloading_after_connecting;
+    guint       data_valid_interval;
+    gboolean    transparency;
+    gboolean    separate;
+    gboolean    swap_hi_low_temperature;
+    gboolean    show_station_name;
+    gboolean    show_arrows;
+    gboolean    downloading_after_connecting;
     gboolean    gps_station;
-    gboolean	show_wind;
-    gboolean	show_wind_gust;
+    gboolean    show_wind;
+    gboolean    show_wind_gust;
     gboolean    show_weather_for_two_hours;
-    GdkColor	font_color;
-    GdkColor	background_color;
+    GdkColor    font_color;
+    GdkColor    background_color;
+    gboolean    is_application_mode;
 }AppletConfig;
 /*******************************************************************************/
 #ifdef CLUTTER

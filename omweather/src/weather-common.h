@@ -91,16 +91,17 @@
 /*******************************************************************************/
 
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
-#define Max_count_weather_day	10
-#define DATABASEPATH		"/usr/share/omweather/db/"
-#define SOURCESPATH		    "/usr/share/omweather/sources/"
+#define Max_count_weather_day   10
+#define DATABASEPATH        "/usr/share/omweather/db/"
+#define SOURCESPATH         "/usr/share/omweather/sources/"
 #define STYLEPATH           "/usr/share/omweather/"
-#define COPYRIGHT_ICONS		"/usr/share/omweather/copyright_icons/"
-#define COUNTRIESFILE		"countries.list"
-#define REGIONSFILE		    "regions.list"
-#define LOCATIONSFILE		"locations.list"
-#define ICONS_PATH	    	"/usr/share/omweather/icons/"
+#define COPYRIGHT_ICONS     "/usr/share/omweather/copyright_icons/"
+#define COUNTRIESFILE       "countries.list"
+#define REGIONSFILE         "regions.list"
+#define LOCATIONSFILE       "locations.list"
+#define ICONS_PATH          "/usr/share/omweather/icons/"
 #define BUTTON_ICONS		"/usr/share/omweather/button_icons/"
+#define IMAGES_PATH         "/usr/share/omweather/images/"
 
 #define START_FUNCTION        fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
@@ -114,12 +115,17 @@ extern void write_log(char *string);
 #define OMWEATHER_SEARCH_STATION        1001
 #define OMWEATHER_CLOSE_STATION_WINDOW  1002
 
-#define PRESET_BIG_FONT_SIZE 48
+#define PRESET_BIG_FONT "Sans Bold 32"
+//define PRESET_BIG_FONT "Bitstream Vera Sans Bold 38"
+#define PRESET_BIG_FONT_COLOR_FRONT "#FFFFFF"
+#define PRESET_BIG_FONT_COLOR_BACK "#000000"
 #define PRESET_BIG_IMAGE_SIZE 128
+#define PRESET_NOW_BACKGROUND       "OMW_widget_background_single_now.png"
+#define PRESET_NOW_BACKGROUND_TOWN  "OMW_widget_button_single_town.png"
+#define PRESET_WIND_NORMAL          "OMW_widget_icon_wind_normal.png"
 /*******************************************************************************/
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
-	CHECK_GPS_POSITION
-};
+       CHECK_GPS_POSITION};
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, PRESET_NOW, APPLICATION_MODE };
 enum { FIRST_BUTTON, OTHER_BUTTON };
 enum { RIGHT, LEFT, TOP, BOTTOM, NOTHING };
@@ -131,15 +137,14 @@ enum { ICON, STATION_NAME };
 enum { MB, INCH, MM };
 enum { WEATHER_COM, RP5_RU, MAX_WEATHER_SOURCE_NUMBER };
 enum { TINY_ICON_SIZE = 32, SMALL_ICON_SIZE = 48, MEDIUM_ICON_SIZE = 64,
-	BIG_ICON_SIZE = 80, LARGE_ICON_SIZE = 96, GIANT_ICON_SIZE = 128,
-	SUPER_GIANT_ICON_SIZE = 256
-};
+       BIG_ICON_SIZE = 80, LARGE_ICON_SIZE = 96, GIANT_ICON_SIZE = 128,
+       SUPER_GIANT_ICON_SIZE = 256};
 enum { SETTINGS_STATIONS_PAGE, SETTINGS_VISUALS_PAGE, SETTINGS_DISPLAY_PAGE,
-	SETTINGS_UNITS_PAGE, SETTINGS_UPDATE_PAGE,
+       SETTINGS_UNITS_PAGE, SETTINGS_UPDATE_PAGE,
 #if defined(OS2008) || defined(OS2009) || defined(NONMAEMO)
-	SETTINGS_SENSOR_PAGE,
+       SETTINGS_SENSOR_PAGE,
 #endif
-	ALERTS_PAGE, MAX_SETTINGS_PAGE_NUMBER, ABOUT_PAGE
+       ALERTS_PAGE, MAX_SETTINGS_PAGE_NUMBER, ABOUT_PAGE
 };
 enum {SHORT_CLICK, LONG_CLICK};
 /* station tab */

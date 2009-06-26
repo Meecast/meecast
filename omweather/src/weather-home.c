@@ -1848,7 +1848,7 @@ free_memory(void){
 void
 fill_weather_day_button_expand(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
-                gboolean draw_day_label, GdkColor *color)
+                gboolean draw_day_label)
 {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -1928,7 +1928,7 @@ fill_weather_day_button_presets(WDB *new_day_button, const char *text, const cha
             gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
             gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_LEFT);
             /* Set font size for label */
-            set_font(new_day_button->label, PRESET_BIG_FONT_SIZE, -1);
+            set_font(new_day_button->label, PRESET_BIG_FONT, -1);
             gtk_widget_set_name(new_day_button->label, "day_label");
     }else
         new_day_button->label = NULL;
@@ -1977,25 +1977,41 @@ fill_weather_day_button_presets(WDB *new_day_button, const char *text, const cha
 void
 fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
-                gboolean draw_day_label, GdkColor *color)
+                gboolean draw_day_label)
 {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
- 
+    gchar	buffer[2048];
     GdkPixbuf   *icon_buffer;
+    GtkWidget   *background;
+    GtkWidget   *background_town;
+    GtkWidget   *wind;
+    GtkWidget   *shadow_label;
+    GtkWidget   *wind_text;
+
     /* create day label */
-    if(draw_day_label){
-            new_day_button->label = gtk_label_new(NULL);
-            gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
-            gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_LEFT);
-            
-            /* Set font size for label */
-            set_font(new_day_button->label, NULL, PRESET_BIG_FONT_SIZE);
-            gtk_widget_set_name(new_day_button->label, "day_label");
-    }else
-        new_day_button->label = NULL;
-   /* create day icon buffer */
+    new_day_button->label = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
+    gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_CENTER);
+    /* Set font size for label */
+    set_font(new_day_button->label, PRESET_BIG_FONT, -1);
+    gtk_widget_set_size_request(new_day_button->label, 140, 52);
+
+//        gtk_widget_set_name(new_day_button->label, "day_label");
+    /* create shadow of day label */
+    /* check for memcpy operation */
+    if (strlen(PRESET_BIG_FONT_COLOR_FRONT) == strlen(PRESET_BIG_FONT_COLOR_BACK)){
+        shadow_label = gtk_label_new(NULL);
+        memcpy(strstr(text,PRESET_BIG_FONT_COLOR_FRONT),PRESET_BIG_FONT_COLOR_BACK,7);
+        gtk_label_set_markup(GTK_LABEL(shadow_label), text);
+        gtk_label_set_justify(GTK_LABEL(shadow_label), GTK_JUSTIFY_CENTER);
+        /* Set font size for label */
+        set_font(shadow_label, PRESET_BIG_FONT, -1);
+        gtk_widget_set_size_request(shadow_label, 140, 52);
+     }else
+        shadow_label = NULL;
+    /* create day icon buffer */
     icon_buffer =
           gdk_pixbuf_new_from_file_at_size(icon,
                         PRESET_BIG_IMAGE_SIZE,
@@ -2006,14 +2022,35 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
         new_day_button->icon_image = create_icon_widget(icon_buffer, icon, icon_size, &app->clutter_objects_in_main_form);
     else
         new_day_button->icon_image = NULL;
+
+    memset(buffer, 0, sizeof(buffer));
+    snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND);
+    background = gtk_image_new_from_file (buffer);
+
+    memset(buffer, 0, sizeof(buffer));
+    snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND_TOWN);
+    background_town = gtk_image_new_from_file (buffer);
+
+    memset(buffer, 0, sizeof(buffer));
+    snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_NORMAL);
+    wind = gtk_image_new_from_file (buffer);
+
     /* Packing all to the box */
     /* create day box to contain icon, label and wind image */
     new_day_button->box  = gtk_fixed_new();
-    if (new_day_button->icon_image){
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 0, 0); 
-    }
-    gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->label, 97, 41); 
-} 
+    if (background)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), background, 12+15, 37+15);
+    if (background_town)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), background_town, 12+15, 37+15+106);
+    if (new_day_button->icon_image)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 0, 0);
+    if (wind)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), wind, (87+14)+12+15, 7+37+15);
+    if (shadow_label)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), shadow_label, 12+15+2, 60+37+15+2);
+    if (new_day_button->label)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->label, 12+15, 60+37+15);
+}
 /*******************************************************************************/
 WDB* 
 create_weather_day_button(const char *text, const char *icon,
@@ -2066,15 +2103,14 @@ create_weather_day_button(const char *text, const char *icon,
 #if defined(NONMAEMO) || defined (APPLICATION)
     icon_size = MEDIUM_ICON_SIZE; 
 #endif
-    fprintf(stderr,"Icon %s\n",icon);
     if (!app->config->is_application_mode && app->config->icons_layout == PRESET_NOW)
         fill_weather_day_button_preset_now(new_day_button, text, icon,
-                icon_size, transparency, draw_day_label, color);
+                icon_size, transparency, draw_day_label);
     else{
         if (type_of_button == FIRST_BUTTON)
             icon_size = icon_size * 2;
         fill_weather_day_button_expand(new_day_button, text, icon, 
-                icon_size, transparency, draw_day_label, color);
+                icon_size, transparency, draw_day_label);
     }
     gtk_container_add(GTK_CONTAINER(new_day_button->button), new_day_button->box);
 
@@ -2113,7 +2149,7 @@ create_user_stations_list(void){
     START_FUNCTION;
 #endif
     return gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING,
-				G_TYPE_BOOLEAN, G_TYPE_STRING);
+                                 G_TYPE_BOOLEAN, G_TYPE_STRING);
 }
 /*******************************************************************************/
 void 
@@ -2208,8 +2244,8 @@ add_wind_text(GSList *day, gchar *buffer, gboolean is_day){
 /*******************************************************************************/
 void 
 create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
-							const gchar *day_name){
-    gint	temp_current = INT_MAX;
+                                const gchar *day_name){
+    gint    temp_current = INT_MAX;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -2235,7 +2271,8 @@ create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
         }
     else
         if (!app->config->is_application_mode && app->config->icons_layout == PRESET_NOW)
-            sprintf(buffer,"<span weight=\"bold\" %i\302\260</span>", temp_current);
+            sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%i\302\260</span>", 
+                            PRESET_BIG_FONT_COLOR_FRONT, temp_current);
         else
             sprintf(buffer,
                 "<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
@@ -2247,7 +2284,6 @@ create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-
 }
 /*******************************************************************************/
 void

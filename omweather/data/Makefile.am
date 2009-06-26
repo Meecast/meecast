@@ -22,8 +22,8 @@ omweatherdir = $(datadir)/omweather
 omweather_DATA = city_in_clock.txt grip.png units.xml style.rc
 icons_crystallargedir = $(datadir)/omweather/icons/Glance
 icons_crystallarge_DATA = icons/Glance/*.png 
-clutter_scripts_crystallargedir = $(datadir)/omweather/icons/Glance
-clutter_scripts_crystallarge_DATA = icons/Glance/*.json
+#clutter_scripts_crystallargedir = $(datadir)/omweather/icons/Glance
+#clutter_scripts_crystallarge_DATA = icons/Glance/*.json
 moon_iconsdir = $(datadir)/omweather/moon_icons
 moon_icons_DATA = moon_icons/*.png
 copyright_iconsdir = $(datadir)/omweather/copyright_icons
@@ -76,10 +76,10 @@ else
     homeapplet_desktop_DATA = os2007/omweather-home.desktop
 endif
 endif
+
 EXTRA_DIST = $(homeapplet_desktop_DATA) \
 	     $(omweather_DATA) \
 	     $(icons_crystallarge_DATA) \
-	     $(clutter_scripts_crystallarge_DATA) \
 	     $(moon_icons_DATA) \
 	     $(copyright_icons_DATA) \
 	     $(button_icons_DATA) \
@@ -88,6 +88,7 @@ EXTRA_DIST = $(homeapplet_desktop_DATA) \
 	     omweather.desktop.in \
 	     omweather.png \
 	     $(image_data)
+#	     $(clutter_scripts_crystallarge_DATA) \
 
 omweather.desktop: omweather.desktop.in
 	sed "s/__VERSION__/$(VERSION)/g" $< >$@.tmp && \

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<source xmlns="https://garage.maemo.org/projects/omweather/">
+<name>wunderground.com</name>
+<logo>wunderground.com.png</logo>
+<base>wunderground.com.db</base>
+<forecast url="http://api.wunderground.com/auto/wui/geo/ForecastXML/index.xml?query=%s" />
+<detail url="" />
+<search url="http://api.wunderground.com/auto/wui/geo/GeoLookupXML/index.xml?query=%s" />
+<library>libomweather-wunderground-com-source.so</library>
+</source>

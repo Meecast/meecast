@@ -1662,33 +1662,30 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     if (layout == COMBINATION || layout == APPLICATION_MODE){
         combination_vbox = gtk_vbox_new(FALSE, 0);
         current_time = time(NULL);
-	
-	    diff_time = calculate_diff_time(atol(item_value(app->wsd.location, "station_time_zone")));
+        diff_time = calculate_diff_time(atol(item_value(app->wsd.location, "station_time_zone")));
         current_time += diff_time;
-	    update_time = last_update_time(app->wsd.current);
+        update_time = last_update_time(app->wsd.current);
         if(!app->wsd.current_data_is_invalid && 
-		update_time > (current_time - app->config->data_valid_interval) &&
-    		update_time < (current_time + app->config->data_valid_interval) ){
-	    if (app->wsd.current)
-	    current_weather_widget
-		    = create_current_weather_simple_widget(app->wsd.current);
-	}	    
-	else{
-	    if(app->wsd.days)
-		current_weather_widget 
-			= create_forecast_weather_simple_widget(((GSList*)(app->wsd.days))->data);
-		    }
+           update_time > (current_time - app->config->data_valid_interval) &&
+           update_time < (current_time + app->config->data_valid_interval) ){
+           if (app->wsd.current)
+                current_weather_widget
+                  = create_current_weather_simple_widget(app->wsd.current);
+        }else{
+            if(app->wsd.days)
+                current_weather_widget 
+                  = create_forecast_weather_simple_widget(((GSList*)(app->wsd.days))->data);
+        }
         gtk_box_pack_start(GTK_BOX(combination_vbox), header_panel, FALSE, FALSE, 0);
-	if(current_weather_widget)
-	    gtk_box_pack_start(GTK_BOX(combination_vbox), current_weather_widget, FALSE, FALSE, 0);
-	gtk_table_attach((GtkTable*)days_panel, combination_vbox,
-			    1, Max_count_weather_day, 0, 1,
-			    (GtkAttachOptions)0,
-			    (GtkAttachOptions)0, 0, 0);
-    }
-    else
-	gtk_table_attach((GtkTable*)panel, header_panel, 0, 1, 0, 1,
-			(GtkAttachOptions)0, (GtkAttachOptions)0, 0, 0);
+        if(current_weather_widget)
+            gtk_box_pack_start(GTK_BOX(combination_vbox), current_weather_widget, FALSE, FALSE, 0);
+        gtk_table_attach((GtkTable*)days_panel, combination_vbox,
+                1, Max_count_weather_day, 0, 1,
+                (GtkAttachOptions)0,
+                (GtkAttachOptions)0, 0, 0);
+    }else
+        gtk_table_attach((GtkTable*)panel, header_panel, 0, 1, 0, 1,
+                (GtkAttachOptions)0, (GtkAttachOptions)0, 0, 0);
 /*
     if(previos_station_name_btn)
 	gtk_box_pack_start((GtkBox*)days_panel_with_buttons, previos_station_name_btn, TRUE, TRUE, 0);
@@ -1701,23 +1698,23 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 			(GtkAttachOptions)0, (GtkAttachOptions)0, 0, 0);
 */
     gtk_table_attach((GtkTable*)panel, days_panel, 0, 1, 1, 2,
-		    (GtkAttachOptions)0, (GtkAttachOptions)0, 0, 0);
+              (GtkAttachOptions)0, (GtkAttachOptions)0, 0, 0);
 /* Connect signal button */
     if(previos_station_name_btn)
-	g_signal_connect(previos_station_name_btn, "button-press-event",
-			    G_CALLBACK(change_station_prev), NULL);
+        g_signal_connect(previos_station_name_btn, "button-press-event",
+                G_CALLBACK(change_station_prev), NULL);
     if(next_station_name_btn)
-	g_signal_connect(next_station_name_btn, "button-press-event",
-			    G_CALLBACK(change_station_next), NULL);
+        g_signal_connect(next_station_name_btn, "button-press-event",
+                G_CALLBACK(change_station_next), NULL);
     if(station_name_btn){
         g_signal_connect(station_name_btn, "button-press-event",
-			    G_CALLBACK(change_station_next), NULL);
+                G_CALLBACK(change_station_next), NULL);
         gtk_container_set_focus_child(GTK_CONTAINER(panel), station_name_btn);
     }
     else
-	gtk_container_set_focus_child(GTK_CONTAINER(panel), panel);
+        gtk_container_set_focus_child(GTK_CONTAINER(panel), panel);
     if(station_name_btn)
-	g_object_unref(station_name_btn);
+        g_object_unref(station_name_btn);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -1854,38 +1851,12 @@ free_memory(void){
 #endif
 
 }
-
 /*******************************************************************************/
-
-WDB* 
-create_weather_day_button(const char *text, const char *icon,
-				const gint icon_size, gboolean transparency,
-				gboolean draw_day_label, GdkColor *color){
-
-    WDB		*new_day_button = NULL;
+fill_weather_day_button_expand(WDB *new_day_button, const char *text, const char *icon,
+                const gint icon_size, gboolean transparency,
+                gboolean draw_day_label, GdkColor *color)
+{
     GdkPixbuf   *icon_buffer;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    new_day_button = g_new0(WDB, 1);
-    if(!new_day_button)
-        return NULL;
-    /* create day button */
-    new_day_button->button = gtk_event_box_new();
-    gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK);
-    #ifdef NONMAEMO
-       g_signal_connect(new_day_button->button, "popup-menu", (GCallback)view_popup_menu, NULL);
-    #else
-       gtk_widget_tap_and_hold_setup(new_day_button->button, GTK_WIDGET(app->contextmenu),
-                                NULL, 0);
-    #endif
-#if defined OS2008 || defined OS2009
-    gtk_event_box_set_visible_window(GTK_EVENT_BOX(new_day_button->button), FALSE);
-#else
-    set_background_color(new_day_button->button, color);
-    if(transparency)
-	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(new_day_button->button), FALSE);
-#endif
     /* create day label */
     if(draw_day_label){
             new_day_button->label = gtk_label_new(NULL);
@@ -1906,10 +1877,9 @@ create_weather_day_button(const char *text, const char *icon,
           gdk_pixbuf_new_from_file_at_size(icon,
 						icon_size,
 						icon_size, NULL);
-    if (icon_buffer){
+    if (icon_buffer)
         /* create day icon image from buffer */
         new_day_button->icon_image = create_icon_widget(icon_buffer, icon, icon_size, &app->clutter_objects_in_main_form);
-    }
     else
         new_day_button->icon_image = NULL;
     /* Packing all to the box */ 
@@ -1942,6 +1912,39 @@ create_weather_day_button(const char *text, const char *icon,
                     new_day_button->icon_image, FALSE, FALSE, 0);
         }
     }
+} 
+/*******************************************************************************/
+WDB* 
+create_weather_day_button(const char *text, const char *icon,
+				const gint icon_size, gboolean transparency,
+				gboolean draw_day_label, GdkColor *color){
+
+    WDB		*new_day_button = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    new_day_button = g_new0(WDB, 1);
+    if(!new_day_button)
+        return NULL;
+    /* create day button */
+    new_day_button->button = gtk_event_box_new();
+    gtk_widget_set_events(new_day_button->button, GDK_BUTTON_RELEASE_MASK);
+    #ifdef NONMAEMO
+       g_signal_connect(new_day_button->button, "popup-menu", (GCallback)view_popup_menu, NULL);
+    #else
+       gtk_widget_tap_and_hold_setup(new_day_button->button, GTK_WIDGET(app->contextmenu),
+                                NULL, 0);
+    #endif
+#if defined OS2008 || defined OS2009
+    gtk_event_box_set_visible_window(GTK_EVENT_BOX(new_day_button->button), FALSE);
+#else
+    set_background_color(new_day_button->button, color);
+    if(transparency)
+	    gtk_event_box_set_visible_window(GTK_EVENT_BOX(new_day_button->button), FALSE);
+#endif
+    fill_weather_day_button_expand(new_day_button, text, icon,
+                icon_size, transparency,
+                draw_day_label, color);
     gtk_container_add(GTK_CONTAINER(new_day_button->button), new_day_button->box);
 
 #ifdef DEBUGFUNCTIONCALL

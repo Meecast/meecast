@@ -1987,8 +1987,10 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     GtkWidget   *background;
     GtkWidget   *background_town;
     GtkWidget   *wind;
+    GtkWidget   *wind_text;
     GtkWidget   *shadow_label;
     gchar       *begin_of_string;
+
     /* create day label */
     new_day_button->label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
@@ -2013,6 +2015,13 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
 
      }else
         shadow_label = NULL;
+    /* create wind text */
+    wind_text = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(wind_text), "44");
+    gtk_label_set_justify(GTK_LABEL(wind_text), GTK_JUSTIFY_CENTER);
+    /* Set font size for label */
+    set_font(wind_text, PRESET_WIND_FONT, -1);
+    gtk_widget_set_size_request(wind_text, 30, 30);
 
     /* create day icon buffer */
     icon_buffer =
@@ -2049,6 +2058,8 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
         gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 0, 0);
     if (wind)
         gtk_fixed_put(GTK_FIXED(new_day_button->box), wind, (87+14)+12+15, 7+37+15);
+    if (wind_text)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), wind_text, (87+14)+12+15+1, 7+37+15+1);
     if (shadow_label)
         gtk_fixed_put(GTK_FIXED(new_day_button->box), shadow_label, 12+15+2, 60+37+15+2);
     if (new_day_button->label)

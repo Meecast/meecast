@@ -2,12 +2,16 @@ omweather (0.23) unstable; urgency=low
 
   * New design
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 21 Jun 2009 20:30:00 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 26 Jun 2009 20:30:00 +0200
 
 omweather (0.22.4) unstable; urgency=low
 
   * Fixed small memory leaks
   * Corrected package icon
+  * Fixed various small bugs
+  * Removed from package not using png and json files
+  * Fixed problem with crashing applet after changing orientation of device (Fremantle)
+  * Enabled GPS check box for Fremantle 
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 21 Jun 2009 20:30:00 +0200
 

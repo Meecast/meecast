@@ -580,6 +580,7 @@ draw_home_window(gint count_day){
             flag_last_day = TRUE;
             }
         }
+        fprintf(stderr,"Buffer %s\n",buffer_icon);
     #if defined(NONMAEMO) || defined (APPLICATION)
         if(i == 0)/* First icon in APPLICATION MODE */
     #else
@@ -1849,6 +1850,10 @@ fill_weather_day_button_expand(WDB *new_day_button, const char *text, const char
                 const gint icon_size, gboolean transparency,
                 gboolean draw_day_label, GdkColor *color)
 {
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+ 
     GdkPixbuf   *icon_buffer;
     /* create day label */
     if(draw_day_label){
@@ -1905,6 +1910,10 @@ fill_weather_day_button_expand(WDB *new_day_button, const char *text, const char
                     new_day_button->icon_image, FALSE, FALSE, 0);
         }
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+ 
 }
 /*******************************************************************************/
 void
@@ -2057,16 +2066,15 @@ create_weather_day_button(const char *text, const char *icon,
 #if defined(NONMAEMO) || defined (APPLICATION)
     icon_size = MEDIUM_ICON_SIZE; 
 #endif
-
+    fprintf(stderr,"Icon %s\n",icon);
     if (!app->config->is_application_mode && app->config->icons_layout == PRESET_NOW)
         fill_weather_day_button_preset_now(new_day_button, text, icon,
                 icon_size, transparency, draw_day_label, color);
     else{
         if (type_of_button == FIRST_BUTTON)
-            icon = icon_size * 2;
+            icon_size = icon_size * 2;
         fill_weather_day_button_expand(new_day_button, text, icon, 
-                icon_size, transparency,
-                draw_day_label, color);
+                icon_size, transparency, draw_day_label, color);
     }
     gtk_container_add(GTK_CONTAINER(new_day_button->button), new_day_button->box);
 
@@ -2203,20 +2211,20 @@ create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 							const gchar *day_name){
     gint	temp_current = INT_MAX;
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
-    
+#endif
+
     if(strcmp(item_value(day, "day_hi_temperature"), "N/A"))
-	    temp_current = atoi(item_value(day, "day_hi_temperature"));
+        temp_current = atoi(item_value(day, "day_hi_temperature"));
 
     if(app->config->temperature_units == FAHRENHEIT)
-	    ( temp_current != INT_MAX ) && ( temp_current = c2f(temp_current) );
-    
+        ( temp_current != INT_MAX ) && ( temp_current = c2f(temp_current) );
+
     if(temp_current == INT_MAX || !valid)
         if (!app->config->is_application_mode && app->config->icons_layout == PRESET_NOW)
             sprintf(buffer,"<span>%s</span>",_("N/A") );
-        else
+        else{
             sprintf(buffer,
                 "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n</span>",
                 app->config->font_color.red >> 8,
@@ -2224,6 +2232,7 @@ create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
                 app->config->font_color.blue >> 8,
                 (app->config->separate) ? (_("Now")) : (day_name),
                 _("N/A") );
+        }
     else
         if (!app->config->is_application_mode && app->config->icons_layout == PRESET_NOW)
             sprintf(buffer,"<span weight=\"bold\" %i\302\260</span>", temp_current);
@@ -2235,6 +2244,10 @@ create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
                 app->config->font_color.blue >> 8,
                 (app->config->separate) ? (_("Now")) : (day_name),
                 temp_current );
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
 }
 /*******************************************************************************/
 void

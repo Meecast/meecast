@@ -110,14 +110,17 @@ extern void write_log(char *string);
 #define DEBUG_FUNCTION(string)  write_log(string)
 #define END_FUNCTION          FILE *fileend; fileend=fopen("/tmp/omw.log","a+"); fprintf(fileend,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);fflush(fileend);fclose(fileend);
 */
-#define OMWEATHER_ADD_STATION		1000
-#define OMWEATHER_SEARCH_STATION	1001
-#define OMWEATHER_CLOSE_STATION_WINDOW	1002
+#define OMWEATHER_ADD_STATION           1000
+#define OMWEATHER_SEARCH_STATION        1001
+#define OMWEATHER_CLOSE_STATION_WINDOW  1002
+
+#define PRESET_BIG_FONT_SIZE 48
 /*******************************************************************************/
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
 	CHECK_GPS_POSITION
 };
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, PRESET_NOW, APPLICATION_MODE };
+enum { FIRST_BUTTON, OTHER_BUTTON };
 enum { RIGHT, LEFT, TOP, BOTTOM, NOTHING };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
 enum { METERS_S, KILOMETERS_H, MILES_H };

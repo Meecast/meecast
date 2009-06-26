@@ -39,11 +39,17 @@ gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
                                 gpointer user_data);
 gboolean change_station_select(GtkWidget *widget, gpointer user_data);
 WDB* create_weather_day_button(const char *text, const char *icon,
-                const gint icon_size, gboolean transparency,
+                const gint type_of_button, gboolean transparency,
                 gboolean draw_day_label, GdkColor *color);
 void fill_weather_day_button_expand(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
-                gboolean draw_day_label, GdkColor *color)
+                gboolean draw_day_label, GdkColor *color);
+void fill_weather_day_button_presets(WDB *new_day_button, const char *text, const char *icon,
+                const gint icon_size, gboolean transparency,
+                gboolean draw_day_label, GdkColor *color);
+void fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const char *icon,
+                const gint icon_size, gboolean transparency,
+                gboolean draw_day_label, GdkColor *color);
 void delete_weather_day_button(WDB **day);
 void draw_home_window(gint count_day);
 void update_weather(gboolean show_update_window);

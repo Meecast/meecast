@@ -34,21 +34,24 @@
 #include <libintl.h>
 /*******************************************************************************/
 gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
-                    		    gpointer user_data);
+                                gpointer user_data);
 gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
-                    		    gpointer user_data);
+                                gpointer user_data);
 gboolean change_station_select(GtkWidget *widget, gpointer user_data);
 WDB* create_weather_day_button(const char *text, const char *icon,
-				const gint icon_size, gboolean transparency,
-				gboolean draw_day_label, GdkColor *color);
+                const gint icon_size, gboolean transparency,
+                gboolean draw_day_label, GdkColor *color);
+void fill_weather_day_button_expand(WDB *new_day_button, const char *text, const char *icon,
+                const gint icon_size, gboolean transparency,
+                gboolean draw_day_label, GdkColor *color)
 void delete_weather_day_button(WDB **day);
 void draw_home_window(gint count_day);
 void update_weather(gboolean show_update_window);
 void redraw_home_window(gboolean first_start);
 void create_panel(GtkWidget* panel, gint layout, gboolean transparency,
-								gchar* st_name);
+                                gchar* st_name);
 void weather_window_popup_show(GtkWidget *widget,GdkEvent *event,
-							    gpointer user_data);
+                                gpointer user_data);
 gboolean download_html(gpointer data);
 void free_memory(void);
 void menu_init(void);
@@ -64,9 +67,9 @@ time_t get_day_part_begin_time(GSList *day, guint year, const gchar *day_part);
 void add_wind_text(GSList *day, gchar *buffer, gboolean is_day);
 void view_popup_menu (GtkWidget *treeview, GdkEventButton *event, gpointer userdata);
 void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
-							const gchar *day_name);
+                                const gchar *day_name);
 void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
-						gboolean for_combination_mode);
+                                gboolean for_combination_mode);
 #if defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO
 void omweather_destroy(GtkObject *widget);
 #endif

@@ -1852,6 +1852,7 @@ free_memory(void){
 
 }
 /*******************************************************************************/
+void
 fill_weather_day_button_expand(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
                 gboolean draw_day_label, GdkColor *color)

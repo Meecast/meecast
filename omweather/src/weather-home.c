@@ -442,21 +442,21 @@ draw_home_window(gint count_day){
 
     offset = calculate_offset_of_day(count_day);
     if(count_day > 0){
-	/* delete old weather data */
-	tmp = app->wsd.days;
-	i = 0;
-	while(tmp && i < offset){
-	    day = (GSList*)tmp->data;
-        tmp = g_slist_remove(tmp,day);
-	    destroy_object(&day);
-	    i++;
-	}
-	app->wsd.days = tmp;
-	tmp = app->wsd.days;
-	if (app->wsd.days){
-	    first = (GSList*)((app->wsd.days)->data);
-	    last = (GSList*)((g_slist_last(tmp))->data);
-	}
+      /* delete old weather data */
+      tmp = app->wsd.days;
+      i = 0;
+      while(tmp && i < offset){
+          day = (GSList*)tmp->data;
+          tmp = g_slist_remove(tmp,day);
+          destroy_object(&day);
+          i++;
+      }
+      app->wsd.days = tmp;
+      tmp = app->wsd.days;
+      if (app->wsd.days){
+          first = (GSList*)((app->wsd.days)->data);
+          last = (GSList*)((g_slist_last(tmp))->data);
+      }
     }
     /* Init popup Context menu */
     menu_init();
@@ -1982,14 +1982,13 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    gchar	buffer[2048];
+    gchar       buffer[2048];
     GdkPixbuf   *icon_buffer;
     GtkWidget   *background;
     GtkWidget   *background_town;
     GtkWidget   *wind;
     GtkWidget   *shadow_label;
-    GtkWidget   *wind_text;
-
+    gchar       *begin_of_string;
     /* create day label */
     new_day_button->label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
@@ -2001,16 +2000,20 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
 //        gtk_widget_set_name(new_day_button->label, "day_label");
     /* create shadow of day label */
     /* check for memcpy operation */
-    if (strlen(PRESET_BIG_FONT_COLOR_FRONT) == strlen(PRESET_BIG_FONT_COLOR_BACK)){
+    if ((strlen(PRESET_BIG_FONT_COLOR_FRONT) == strlen(PRESET_BIG_FONT_COLOR_BACK))&&
+        (begin_of_string = strstr(text,PRESET_BIG_FONT_COLOR_FRONT))){
+
         shadow_label = gtk_label_new(NULL);
-        memcpy(strstr(text,PRESET_BIG_FONT_COLOR_FRONT),PRESET_BIG_FONT_COLOR_BACK,7);
+        memcpy(begin_of_string, PRESET_BIG_FONT_COLOR_BACK,7);
         gtk_label_set_markup(GTK_LABEL(shadow_label), text);
         gtk_label_set_justify(GTK_LABEL(shadow_label), GTK_JUSTIFY_CENTER);
         /* Set font size for label */
         set_font(shadow_label, PRESET_BIG_FONT, -1);
         gtk_widget_set_size_request(shadow_label, 140, 52);
+
      }else
         shadow_label = NULL;
+
     /* create day icon buffer */
     icon_buffer =
           gdk_pixbuf_new_from_file_at_size(icon,
@@ -2052,12 +2055,12 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
         gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->label, 12+15, 60+37+15);
 }
 /*******************************************************************************/
-WDB* 
+WDB*
 create_weather_day_button(const char *text, const char *icon,
-				const gint type_of_button, gboolean transparency,
-				gboolean draw_day_label, GdkColor *color){
+                const gint type_of_button, gboolean transparency,
+                gboolean draw_day_label, GdkColor *color){
 
-    WDB		*new_day_button = NULL;
+    WDB     *new_day_button = NULL;
     int     icon_size;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -2126,8 +2129,8 @@ delete_weather_day_button(WDB **day){
     START_FUNCTION;
 #endif
     if(*day){
-	    g_free(*day);
-	    *day = NULL;
+        g_free(*day);
+        *day = NULL;
     }
 }
 /*******************************************************************************/
@@ -2271,7 +2274,7 @@ create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
         }
     else
         if (!app->config->is_application_mode && app->config->icons_layout == PRESET_NOW)
-            sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%i\302\260</span>", 
+            sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%i\302\260</span>",
                             PRESET_BIG_FONT_COLOR_FRONT, temp_current);
         else
             sprintf(buffer,

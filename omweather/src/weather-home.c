@@ -1988,6 +1988,8 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     GtkWidget   *background_town;
     GtkWidget   *wind;
     GtkWidget   *wind_text;
+    GtkWidget   *station_text;
+    GtkWidget   *shadow_station_text;
     GtkWidget   *shadow_label;
     gchar       *begin_of_string;
 
@@ -2015,6 +2017,7 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
 
      }else
         shadow_label = NULL;
+
     /* create wind text */
     wind_text = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(wind_text), "44");
@@ -2023,6 +2026,32 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     set_font(wind_text, PRESET_WIND_FONT, -1);
     gtk_widget_set_size_request(wind_text, 30, 30);
 
+    /* Create station name */
+    if(app->config->current_station_id){
+        memset(buffer, 0, sizeof(buffer));
+        sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%s</span>",
+                            PRESET_BIG_FONT_COLOR_FRONT, app->config->current_station_name); 
+        station_text = gtk_label_new(NULL);
+        gtk_label_set_markup(GTK_LABEL(station_text), buffer);
+        gtk_label_set_justify(GTK_LABEL(station_text), GTK_JUSTIFY_CENTER);
+        set_font(station_text, PRESET_STATION_FONT, -1);
+        gtk_widget_set_size_request(station_text, 140, 30);
+        /* Create shadow station name */
+        if ((strlen(PRESET_BIG_FONT_COLOR_FRONT) == strlen(PRESET_BIG_FONT_COLOR_BACK))&&
+            (begin_of_string = strstr(buffer,PRESET_BIG_FONT_COLOR_FRONT))){
+
+            shadow_station_text = gtk_label_new(NULL);
+            memcpy(begin_of_string, PRESET_BIG_FONT_COLOR_BACK,7);
+            gtk_label_set_markup(GTK_LABEL(shadow_station_text), buffer);
+            gtk_label_set_justify(GTK_LABEL(shadow_station_text), GTK_JUSTIFY_CENTER);
+            set_font(shadow_station_text, PRESET_STATION_FONT, -1);
+            gtk_widget_set_size_request(shadow_station_text, 140, 30);
+        }else
+            shadow_station_text = NULL;
+    }else{
+        station_text = NULL;
+        shadow_station_text = NULL;
+    }
     /* create day icon buffer */
     icon_buffer =
           gdk_pixbuf_new_from_file_at_size(icon,
@@ -2064,6 +2093,10 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
         gtk_fixed_put(GTK_FIXED(new_day_button->box), shadow_label, 12+15+2, 60+37+15+2);
     if (new_day_button->label)
         gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->label, 12+15, 60+37+15);
+    if (shadow_station_text)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), shadow_station_text, 12+15+1, 60+37+17+60+1);
+    if (station_text)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), station_text, 12+15, 60+37+17+60);
 }
 /*******************************************************************************/
 WDB*

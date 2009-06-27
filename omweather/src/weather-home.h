@@ -70,7 +70,7 @@ GtkWidget* create_forecast_weather_simple_widget(GSList *day);
 int calculate_offset_of_day(int count_day);
 void add_change_day_part_event(GSList *day, guint year, guint month);
 time_t get_day_part_begin_time(GSList *day, guint year, const gchar *day_part);
-void add_wind_text(GSList *day, gchar *buffer, gboolean is_day);
+void create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direction, gint *gust);
 void view_popup_menu (GtkWidget *treeview, GdkEventButton *event, gpointer userdata);
 void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
                                 const gchar *day_name);

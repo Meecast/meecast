@@ -405,6 +405,8 @@ draw_home_window(gint count_day){
         gboolean	flag_last_day = FALSE,
 		is_na_day = FALSE;
         gint	icon_size;
+        gint    wind_direction = UNKNOWN_DIRECTION,
+                wind_gust = -1;
         gchar	*tmp_station_name;
         WDB		*tmp_button = NULL;
         GSList	*tmp = NULL,
@@ -517,19 +519,19 @@ draw_home_window(gint count_day){
                         sprintf(buffer_icon, "%s48.png", app->config->icons_set_base);
                     }
                     else{ /* if first day and not config->separate data */
-                    /* if current time is night show night icon */
+                          /* if current time is night show night icon */
                          if(current_time > night_begin_time || current_time < day_begin_time){
                             create_day_temperature_text(day, buffer, FALSE, FALSE);
                             /* displaying wind if necessary */
                             if(app->config->show_wind)
-                                add_wind_text(day, buffer + strlen(buffer),FALSE);
+                                create_wind_parameters(day, buffer + strlen(buffer),FALSE, &wind_direction, &wind_gust);
                             sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
                                 item_value(day, "night_icon"));
                          }else
                             create_day_temperature_text(day, buffer, FALSE, FALSE);
                          /* displaying wind if necessary */
                          if(app->config->show_wind)
-                                add_wind_text(day, buffer + strlen(buffer),TRUE);
+                                create_wind_parameters(day, buffer + strlen(buffer),TRUE, &wind_direction, &wind_gust);
                          sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
                             item_value(day, "day_icon"));
                     }
@@ -548,12 +550,12 @@ draw_home_window(gint count_day){
                 if((app->config->separate) && (i == 1) &&
                    (current_time > night_begin_time || current_time < day_begin_time)){
                        if(app->config->show_wind)
-                           add_wind_text(tmp_day, buffer + strlen(buffer),FALSE);
+                           create_wind_parameters(tmp_day, buffer + strlen(buffer),FALSE, &wind_direction, &wind_gust);
                        sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
                            item_value(tmp_day, "night_icon"));
                 }else{
                        if(app->config->show_wind)
-                           add_wind_text(tmp_day, buffer + strlen(buffer),TRUE);
+                           create_wind_parameters(tmp_day, buffer + strlen(buffer),TRUE, &wind_direction, &wind_gust);
                        sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
                        item_value(tmp_day, "day_icon"));
                 }
@@ -2248,7 +2250,7 @@ get_day_part_begin_time(GSList *day, guint year, const gchar *day_part){
 }
 /*******************************************************************************/
 void 
-add_wind_text(GSList *day, gchar *buffer, gboolean is_day){
+create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direction, gint *gust){
     gchar	*wind_direction = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -2264,8 +2266,11 @@ add_wind_text(GSList *day, gchar *buffer, gboolean is_day){
     }
     else{
        if((is_day && !strcmp((char*)item_value(day, "day_wind_title"), "N/A"))||
-           !strcmp((char*)item_value(day, "night_wind_title"), "N/A"))
+           !strcmp((char*)item_value(day, "night_wind_title"), "N/A")){
            wind_direction = _("N/A");
+           *direction = UNKNOWN_DIRECTION;
+           *gust = -1;
+       }
        else
            if (is_day){
                wind_direction = (char*)hash_table_find(item_value(day, "day_wind_title"), TRUE);
@@ -2275,6 +2280,9 @@ add_wind_text(GSList *day, gchar *buffer, gboolean is_day){
                    app->config->font_color.green >> 8,
                    app->config->font_color.blue >> 8,
                    wind_direction);
+               /* FIX ME make switch */
+               direction = SOUTH;
+               gust = convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed")));
                if (app->config->show_wind_gust)
                    sprintf(buffer + strlen(buffer),
                        "%.1f</span>",
@@ -2283,6 +2291,9 @@ add_wind_text(GSList *day, gchar *buffer, gboolean is_day){
                     sprintf(buffer + strlen(buffer),"</span>");
            }else{
                wind_direction = (char*)hash_table_find(item_value(day, "night_wind_title"), TRUE);
+               /* FIX ME make switch */
+               direction = SOUTH;
+               gust = convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed")));
                sprintf(buffer + strlen(buffer),
                    "<span foreground='#%02x%02x%02x'>\n%s",
                    app->config->font_color.red >> 8,
@@ -2297,8 +2308,6 @@ add_wind_text(GSList *day, gchar *buffer, gboolean is_day){
                    sprintf(buffer + strlen(buffer),"</span>");
            }
     }
-
-
 }
 /*******************************************************************************/
 void 

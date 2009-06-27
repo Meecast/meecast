@@ -1984,13 +1984,14 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
 #endif
     gchar       buffer[2048];
     GdkPixbuf   *icon_buffer;
-    GtkWidget   *background;
-    GtkWidget   *background_town;
-    GtkWidget   *wind;
-    GtkWidget   *wind_text;
-    GtkWidget   *station_text;
-    GtkWidget   *shadow_station_text;
-    GtkWidget   *shadow_label;
+    GtkWidget   *background = NULL,
+                *background_town = NULL,
+                *wind = NULL,
+                *wind_text = NULL,
+                *station_text = NULL,
+                *shadow_station_text = NULL,
+                *shadow_label = NULL,
+                *station_name_btn = NULL;
     gchar       *begin_of_string;
 
     /* create day label */
@@ -2025,6 +2026,15 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     /* Set font size for label */
     set_font(wind_text, PRESET_WIND_FONT, -1);
     gtk_widget_set_size_request(wind_text, 30, 30);
+    /* Create next station event */
+    station_name_btn = gtk_event_box_new();
+    if(station_name_btn){
+        gtk_widget_set_events(station_name_btn, GDK_BUTTON_PRESS_MASK);
+        gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
+        gtk_widget_set_size_request(station_name_btn, 140, 71-2);
+        g_signal_connect(station_name_btn, "button-press-event",
+                    G_CALLBACK(change_station_next), NULL);
+    }
 
     /* Create station name */
     if(app->config->current_station_id){
@@ -2093,10 +2103,12 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
         gtk_fixed_put(GTK_FIXED(new_day_button->box), shadow_label, 12+15+2, 60+37+15+2);
     if (new_day_button->label)
         gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->label, 12+15, 60+37+15);
+    if (station_name_btn)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), station_name_btn, 12+15+1, 37+15+106);
     if (shadow_station_text)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), shadow_station_text, 12+15+1, 60+37+17+60+1);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), shadow_station_text, 12+15+1+1, 60+37+17+60+1);
     if (station_text)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), station_text, 12+15, 60+37+17+60);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), station_text, 12+15+1, 60+37+17+60);
 }
 /*******************************************************************************/
 WDB*

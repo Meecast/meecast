@@ -117,7 +117,7 @@ extern void write_log(char *string);
 
 #define PRESET_BIG_FONT "Sans Bold 32"
 #define PRESET_WIND_FONT "Sans 13"
-#define PRESET_STATION_FONT "Sans 14"
+#define PRESET_STATION_FONT "Sans 15"
 //define PRESET_BIG_FONT "Bitstream Vera Sans Bold 38"
 #define PRESET_BIG_FONT_COLOR_FRONT "#FFFFFF"
 #define PRESET_BIG_FONT_COLOR_BACK "#000000"

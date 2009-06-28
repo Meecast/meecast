@@ -2025,7 +2025,7 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     /* create wind text */
     wind_text = gtk_label_new(NULL);
     memset(buffer, 0, sizeof(buffer));
-    sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%2.0f</span>",
+    sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%.0f</span>",
                                PRESET_WIND_FONT_COLOR, wind_gust);
     gtk_label_set_markup(GTK_LABEL(wind_text), buffer);
     gtk_label_set_justify(GTK_LABEL(wind_text), GTK_JUSTIFY_CENTER);
@@ -2253,20 +2253,59 @@ get_day_part_begin_time(GSList *day, guint year, const gchar *day_part){
     return  mktime(&tm);
 }
 /*******************************************************************************/
+gint
+choose_wind_direction(gchar *buffer)
+{
+    if (!buffer)
+        return UNKNOWN_DIRECTION;
+    if (buffer[0] == 'N'){
+        if (strlen(buffer) > 1){
+            if (buffer[1] == 'W')
+                return NORTHWEST;
+            else
+               if (buffer[1] == 'E')
+                    return NORTHEAST;
+               else
+                    return NORTH;
+        }else   
+            return NORTH;
+    }else{
+        if (buffer[0] == 'S'){
+            if (strlen(buffer) > 1){
+                if (buffer[1] == 'W')
+                    return SOUTHWEST;
+            else
+               if (buffer[1] == 'E')
+                    return SOUTHEAST;
+               else
+                    return SOUTH;
+            }
+        }else
+            return SOUTH;
+    }
+    if (buffer[0] == 'W')
+        return WEST;
+    if (buffer[0] == 'E')
+        return EAST;
+}
+/*******************************************************************************/
 void 
 create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direction, float *gust){
     gchar	*wind_direction = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-  if(buffer &&  ((is_day && !strcmp((char*)item_value(day, "day_wind_speed"), "N/A"))||
-       !strcmp((char*)item_value(day, "night_wind_speed"), "N/A"))){
-	    sprintf(buffer + strlen(buffer),
-		"<span foreground='#%02x%02x%02x'>\n%s\n%s</span>",
-		app->config->font_color.red >> 8,
-		app->config->font_color.green >> 8,
-		app->config->font_color.blue >> 8,
-		_("N/A"), _("N/A"));
+  if((is_day && !strcmp((char*)item_value(day, "day_wind_speed"), "N/A"))||
+       !strcmp((char*)item_value(day, "night_wind_speed"), "N/A")){
+        if (buffer)
+            sprintf(buffer + strlen(buffer),
+            "<span foreground='#%02x%02x%02x'>\n%s\n%s</span>",
+            app->config->font_color.red >> 8,
+            app->config->font_color.green >> 8,
+            app->config->font_color.blue >> 8,
+            _("N/A"), _("N/A"));
+        *direction = UNKNOWN_DIRECTION;
+        *gust = -1;
     }
     else{
        if((is_day && !strcmp((char*)item_value(day, "day_wind_title"), "N/A"))||
@@ -2287,7 +2326,9 @@ create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direct
                        wind_direction);
                 }
                /* FIX ME make switch */
-               *direction = SOUTH;
+               *direction = choose_wind_direction(wind_direction);
+               fprintf(stderr,"qxx %s %i\n", wind_direction, *direction);
+//             *direction = SOUTH;
                if (buffer){
                    if (app->config->show_wind_gust)
                        sprintf(buffer + strlen(buffer),
@@ -2300,7 +2341,9 @@ create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direct
            }else{
                wind_direction = (char*)hash_table_find(item_value(day, "night_wind_title"), TRUE);
                /* FIX ME make switch */
-               *direction = SOUTH;
+               *direction = choose_wind_direction(wind_direction);
+//               *direction = SOUTH;
+               fprintf(stderr,"qxx %s %i\n", wind_direction, *direction);
                *gust = convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed")));
                if (buffer){
                    sprintf(buffer + strlen(buffer),

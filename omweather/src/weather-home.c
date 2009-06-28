@@ -2025,8 +2025,8 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     /* create wind text */
     wind_text = gtk_label_new(NULL);
     memset(buffer, 0, sizeof(buffer));
-    sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%2f</span>",
-                               PRESET_BIG_FONT_COLOR_FRONT, wind_gust);
+    sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%2.0f</span>",
+                               PRESET_WIND_FONT_COLOR, wind_gust);
     gtk_label_set_markup(GTK_LABEL(wind_text), buffer);
     gtk_label_set_justify(GTK_LABEL(wind_text), GTK_JUSTIFY_CENTER);
     /* Set font size for label */

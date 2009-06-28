@@ -121,6 +121,7 @@ extern void write_log(char *string);
 //define PRESET_BIG_FONT "Bitstream Vera Sans Bold 38"
 #define PRESET_BIG_FONT_COLOR_FRONT "#FFFFFF"
 #define PRESET_BIG_FONT_COLOR_BACK "#000000"
+#define PRESET_WIND_FONT_COLOR "#000000"
 #define PRESET_BIG_IMAGE_SIZE 128
 #define PRESET_NOW_BACKGROUND       "OMW_widget_background_single_now.png"
 #define PRESET_NOW_BACKGROUND_TOWN  "OMW_widget_button_single_town.png"

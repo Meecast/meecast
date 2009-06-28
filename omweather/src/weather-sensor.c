@@ -223,10 +223,33 @@ gboolean read_sensor(gboolean need_redraw) {
 }
 
 /*******************************************************************************/
-WDB *create_sensor_icon_widget(const int icon_size, gboolean transparency,
-                               gboolean draw_day_label, GdkColor * color) {
+WDB *create_sensor_icon_widget(gboolean transparency, gboolean draw_day_label,
+                                GdkColor * color) {
     gchar buffer[256], buffer_icon[256];
+    gint icon_size;
 
+/* select image size */
+    switch(app->config->icons_size){
+        case GIANT:
+            icon_size = GIANT_ICON_SIZE;
+            break;
+        default:
+        case LARGE:
+            icon_size = LARGE_ICON_SIZE;
+            break;
+        case MEDIUM:
+            icon_size = MEDIUM_ICON_SIZE;
+            break;
+        case SMALL:
+            icon_size = SMALL_ICON_SIZE;
+            break;
+        case TINY:
+            icon_size = TINY_ICON_SIZE;
+            break;
+    }
+#if defined(NONMAEMO) || defined (APPLICATION)
+    icon_size = MEDIUM_ICON_SIZE;
+#endif
     /* prepare temperature data */
     buffer[0] = 0;
     snprintf(buffer, sizeof(buffer) - 1,

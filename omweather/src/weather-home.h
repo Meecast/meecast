@@ -40,7 +40,7 @@ gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
 gboolean change_station_select(GtkWidget *widget, gpointer user_data);
 WDB* create_weather_day_button(const char *text, const char *icon,
                 const gint type_of_button, gboolean transparency,
-                gboolean draw_day_label, GdkColor *color);
+                gboolean draw_day_label, GdkColor *color, gint wind_direction, gint  wind_gust);
 void fill_weather_day_button_expand(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
                 gboolean draw_day_label );
@@ -49,7 +49,7 @@ void fill_weather_day_button_presets(WDB *new_day_button, const char *text, cons
                 gboolean draw_day_label, GdkColor *color);
 void fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
-                gboolean draw_day_label);
+                gboolean draw_day_label, gint wind_direction, gfloat wind_gust);
 void delete_weather_day_button(WDB **day);
 void draw_home_window(gint count_day);
 void update_weather(gboolean show_update_window);
@@ -70,7 +70,7 @@ GtkWidget* create_forecast_weather_simple_widget(GSList *day);
 int calculate_offset_of_day(int count_day);
 void add_change_day_part_event(GSList *day, guint year, guint month);
 time_t get_day_part_begin_time(GSList *day, guint year, const gchar *day_part);
-void create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direction, gint *gust);
+void create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direction, gfloat *gust);
 void view_popup_menu (GtkWidget *treeview, GdkEventButton *event, gpointer userdata);
 void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
                                 const gchar *day_name);
@@ -128,7 +128,7 @@ extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer us
 extern float mb2inch(float pressure);
 #if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
 extern void read_sensor(gint need_redraw);
-extern WDB* create_sensor_icon_widget(const int icon_size, gboolean transparency,
+extern WDB* create_sensor_icon_widget(gboolean transparency,
 				gboolean draw_day_label, GdkColor *color);
 #endif
 #if defined (OS2009) || defined(NONMAEMO) || defined (APPLICATION)

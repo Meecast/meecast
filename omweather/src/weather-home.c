@@ -405,8 +405,8 @@ draw_home_window(gint count_day){
         gboolean	flag_last_day = FALSE,
 		is_na_day = FALSE;
         gint	icon_size;
-        gint    wind_direction = UNKNOWN_DIRECTION,
-                wind_gust = -1;
+        gint    wind_direction = UNKNOWN_DIRECTION;
+        gfloat  wind_gust = -1;
         gchar	*tmp_station_name;
         WDB		*tmp_button = NULL;
         GSList	*tmp = NULL,
@@ -508,6 +508,8 @@ draw_home_window(gint count_day){
                     /* add event for terminate valid period */
                     event_add(update_time + app->config->data_valid_interval - diff_time, CHANGE_DAY_PART);
                     buffer[0] = 0;
+                    /* For only &wind_direction, &wind_gust parameters */ 
+                    create_wind_parameters(day, NULL,FALSE, &wind_direction, &wind_gust);
                     create_current_temperature_text(app->wsd.current, buffer, TRUE, item_value(day, "day_name"));
                     sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
                         item_value(app->wsd.current, "icon"));
@@ -591,12 +593,12 @@ draw_home_window(gint count_day){
             tmp_button = create_weather_day_button(buffer, buffer_icon, FIRST_BUTTON,
                                 app->config->transparency,
                                 FALSE,
-                                &(app->config->background_color));
+                                &(app->config->background_color), wind_direction, wind_gust);
         else
             tmp_button = create_weather_day_button(buffer, buffer_icon, OTHER_BUTTON,
                                 app->config->transparency,
                                 TRUE,
-                                &(app->config->background_color));
+                                &(app->config->background_color), wind_direction, wind_gust);
         g_signal_connect(tmp_button->button, "button-release-event",
                     G_CALLBACK(weather_window_popup),
                     (is_na_day ? (GINT_TO_POINTER(-1)) : (GINT_TO_POINTER(i))));
@@ -614,8 +616,7 @@ draw_home_window(gint count_day){
     if(app->config->use_sensor &&
 		    app->config->display_at == ICON)/* draw sensor data at the new icon */
 	add_item2object(&(app->buttons),
-			create_sensor_icon_widget(icon_size,
-						    app->config->transparency,
+			create_sensor_icon_widget(app->config->transparency,
 						    TRUE,
 						    &(app->config->background_color)));
 #endif
@@ -1979,7 +1980,7 @@ fill_weather_day_button_presets(WDB *new_day_button, const char *text, const cha
 void
 fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
-                gboolean draw_day_label)
+                gboolean draw_day_label, gint wind_direction, gfloat  wind_gust)
 {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -2023,7 +2024,10 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
 
     /* create wind text */
     wind_text = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL(wind_text), "44");
+    memset(buffer, 0, sizeof(buffer));
+    sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%2f</span>",
+                               PRESET_BIG_FONT_COLOR_FRONT, wind_gust);
+    gtk_label_set_markup(GTK_LABEL(wind_text), buffer);
     gtk_label_set_justify(GTK_LABEL(wind_text), GTK_JUSTIFY_CENTER);
     /* Set font size for label */
     set_font(wind_text, PRESET_WIND_FONT, -1);
@@ -2116,7 +2120,7 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
 WDB*
 create_weather_day_button(const char *text, const char *icon,
                 const gint type_of_button, gboolean transparency,
-                gboolean draw_day_label, GdkColor *color){
+                gboolean draw_day_label, GdkColor *color,  gint wind_direction, gint  wind_gust){
 
     WDB     *new_day_button = NULL;
     int     icon_size;
@@ -2166,7 +2170,7 @@ create_weather_day_button(const char *text, const char *icon,
 #endif
     if (!app->config->is_application_mode && app->config->icons_layout == PRESET_NOW)
         fill_weather_day_button_preset_now(new_day_button, text, icon,
-                icon_size, transparency, draw_day_label);
+                icon_size, transparency, draw_day_label, wind_direction,  wind_gust);
     else{
         if (type_of_button == FIRST_BUTTON)
             icon_size = icon_size * 2;
@@ -2250,13 +2254,13 @@ get_day_part_begin_time(GSList *day, guint year, const gchar *day_part){
 }
 /*******************************************************************************/
 void 
-create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direction, gint *gust){
+create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direction, float *gust){
     gchar	*wind_direction = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-  if( (is_day && !strcmp((char*)item_value(day, "day_wind_speed"), "N/A"))||
-       !strcmp((char*)item_value(day, "night_wind_speed"), "N/A")){
+  if(buffer &&  ((is_day && !strcmp((char*)item_value(day, "day_wind_speed"), "N/A"))||
+       !strcmp((char*)item_value(day, "night_wind_speed"), "N/A"))){
 	    sprintf(buffer + strlen(buffer),
 		"<span foreground='#%02x%02x%02x'>\n%s\n%s</span>",
 		app->config->font_color.red >> 8,
@@ -2274,38 +2278,44 @@ create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direct
        else
            if (is_day){
                wind_direction = (char*)hash_table_find(item_value(day, "day_wind_title"), TRUE);
-               sprintf(buffer + strlen(buffer),
-                   "<span foreground='#%02x%02x%02x'>\n%s",
-                   app->config->font_color.red >> 8,
-                   app->config->font_color.green >> 8,
-                   app->config->font_color.blue >> 8,
-                   wind_direction);
-               /* FIX ME make switch */
-               direction = SOUTH;
-               gust = convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed")));
-               if (app->config->show_wind_gust)
+               if (buffer){
                    sprintf(buffer + strlen(buffer),
-                       "%.1f</span>",
-                       convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed"))));
-               else
-                    sprintf(buffer + strlen(buffer),"</span>");
+                       "<span foreground='#%02x%02x%02x'>\n%s",
+                       app->config->font_color.red >> 8,
+                       app->config->font_color.green >> 8,
+                       app->config->font_color.blue >> 8,
+                       wind_direction);
+                }
+               /* FIX ME make switch */
+               *direction = SOUTH;
+               if (buffer){
+                   if (app->config->show_wind_gust)
+                       sprintf(buffer + strlen(buffer),
+                           "%.1f</span>",
+                           convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed"))));
+               
+                   else
+                        sprintf(buffer + strlen(buffer),"</span>");
+               }
            }else{
                wind_direction = (char*)hash_table_find(item_value(day, "night_wind_title"), TRUE);
                /* FIX ME make switch */
-               direction = SOUTH;
-               gust = convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed")));
-               sprintf(buffer + strlen(buffer),
-                   "<span foreground='#%02x%02x%02x'>\n%s",
-                   app->config->font_color.red >> 8,
-                   app->config->font_color.green >> 8,
-                   app->config->font_color.blue >> 8,
-                   wind_direction);
-               if (app->config->show_wind_gust)
+               *direction = SOUTH;
+               *gust = convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed")));
+               if (buffer){
                    sprintf(buffer + strlen(buffer),
-                       "%.1f</span>",
-                       convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed"))));
-               else
-                   sprintf(buffer + strlen(buffer),"</span>");
+                       "<span foreground='#%02x%02x%02x'>\n%s",
+                       app->config->font_color.red >> 8,
+                       app->config->font_color.green >> 8,
+                       app->config->font_color.blue >> 8,
+                       wind_direction);
+                   if (app->config->show_wind_gust)
+                       sprintf(buffer + strlen(buffer),
+                           "%.1f</span>",
+                           convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed"))));
+                   else
+                       sprintf(buffer + strlen(buffer),"</span>");
+               } 
            }
     }
 }

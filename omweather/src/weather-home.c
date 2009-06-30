@@ -2258,6 +2258,7 @@ choose_wind_direction(gchar *buffer)
 {
     if (!buffer)
         return UNKNOWN_DIRECTION;
+    fprintf(stderr,"buffer %s\n", buffer);
     if (buffer[0] == 'N'){
         if (strlen(buffer) > 1){
             if (buffer[1] == 'W')
@@ -2271,6 +2272,7 @@ choose_wind_direction(gchar *buffer)
             return NORTH;
     }else{
         if (buffer[0] == 'S'){
+            fprintf(stderr,"S1\n");
             if (strlen(buffer) > 1){
                 if (buffer[1] == 'W')
                     return SOUTHWEST;
@@ -2280,8 +2282,10 @@ choose_wind_direction(gchar *buffer)
                else
                     return SOUTH;
             }
-        }else
+        }else{
+            fprintf(stderr,"S1\n");
             return SOUTH;
+        }
     }
     if (buffer[0] == 'W')
         return WEST;

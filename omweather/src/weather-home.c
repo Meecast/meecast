@@ -1420,135 +1420,136 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /* create header panel */
     header_panel = gtk_table_new(1, 3, FALSE);
 /*    header_panel = gtk_hbox_new(FALSE, 0);*/
-/* check number of elements in user stations list */
-    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
-                                                  &iter);
-    if(valid && gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
-						    &iter))
-	user_stations_list_has_two_or_more_elements = TRUE;
-/* draw arrows */
-    if(app->config->show_arrows && user_stations_list_has_two_or_more_elements){
-	/* create previos station button */
-	sprintf(buffer,
-		"<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>&lt;</span>",
-		app->config->font_color.red >> 8,
-		app->config->font_color.green >> 8,
-		app->config->font_color.blue >> 8);
-	previos_station_box = gtk_hbox_new(FALSE, 0);
-	previos_station_name_btn = gtk_event_box_new();
-	set_background_color(previos_station_name_btn, &(app->config->background_color));
-	
-    gtk_widget_set_events(previos_station_name_btn, GDK_BUTTON_PRESS_MASK);
-	previos_station_name = gtk_label_new(NULL);
-	gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
-	gtk_label_set_justify(GTK_LABEL(previos_station_name), GTK_JUSTIFY_CENTER);
-	set_font(previos_station_name, app->config->font, -1);
-	gtk_box_pack_start((GtkBox*) previos_station_box, previos_station_name, TRUE, TRUE, 15);
-	gtk_container_add(GTK_CONTAINER(previos_station_name_btn), previos_station_box);
+    if (layout !=PRESET_NOW){
+        /* check number of elements in user stations list */
+        valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                                      &iter);
+        if(valid && gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+                                &iter))
+        user_stations_list_has_two_or_more_elements = TRUE;
+        /* draw arrows */
+        if(app->config->show_arrows && user_stations_list_has_two_or_more_elements){
+        /* create previos station button */
+        sprintf(buffer,
+            "<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>&lt;</span>",
+            app->config->font_color.red >> 8,
+            app->config->font_color.green >> 8,
+            app->config->font_color.blue >> 8);
+        previos_station_box = gtk_hbox_new(FALSE, 0);
+        previos_station_name_btn = gtk_event_box_new();
+        set_background_color(previos_station_name_btn, &(app->config->background_color));
+        
+        gtk_widget_set_events(previos_station_name_btn, GDK_BUTTON_PRESS_MASK);
+        previos_station_name = gtk_label_new(NULL);
+        gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
+        gtk_label_set_justify(GTK_LABEL(previos_station_name), GTK_JUSTIFY_CENTER);
+        set_font(previos_station_name, app->config->font, -1);
+        gtk_box_pack_start((GtkBox*) previos_station_box, previos_station_name, TRUE, TRUE, 15);
+        gtk_container_add(GTK_CONTAINER(previos_station_name_btn), previos_station_box);
 
-	buffer[0] = 0;
-	/* create next station button */
-	sprintf(buffer,
-		"<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>&gt;</span>",
-		app->config->font_color.red >> 8,
-		app->config->font_color.green >> 8,
-		app->config->font_color.blue >> 8);
-	next_station_box = gtk_hbox_new(FALSE, 0);
-	next_station_name_btn = gtk_event_box_new();
-	set_background_color(next_station_name_btn, &(app->config->background_color));
-	
-    gtk_widget_set_events(next_station_name_btn, GDK_BUTTON_PRESS_MASK);
-	next_station_name = gtk_label_new(NULL);
-	gtk_label_set_markup(GTK_LABEL(next_station_name), buffer);
-	gtk_label_set_justify(GTK_LABEL(next_station_name), GTK_JUSTIFY_CENTER);
-	set_font(next_station_name, app->config->font, -1);
-        gtk_box_pack_start((GtkBox*) next_station_box, next_station_name, TRUE, TRUE, 15);
-	gtk_container_add (GTK_CONTAINER(next_station_name_btn), next_station_box);
-    }
-    buffer[0] = 0;
-    if(app->config->show_station_name){
-/* create station name button */
-        if(!st_name)
-	    sprintf(buffer,
-		    "<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>%s</span>",
-		    app->config->font_color.red >> 8,
-		    app->config->font_color.green >> 8,
-		    app->config->font_color.blue >> 8,
-		    (char*)hash_table_find("NO STATION", FALSE));
-        else
-#if defined(OS2008) || defined(DEBUGTEMP)
-	    {
-	    if(app->config->use_sensor &&
-		    app->config->display_at == STATION_NAME)/* draw sensor data at the station name */
-	    	sprintf(buffer,
-			"<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>%s (%.2f)</span>",
-        		app->config->font_color.red >> 8,
-			app->config->font_color.green >> 8,
-			app->config->font_color.blue >> 8, st_name, app->sensor_data);
-	    else
-#endif
-	    sprintf(buffer,
-		    "<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>%s</span>",
-        	    app->config->font_color.red >> 8,
-		    app->config->font_color.green >> 8,
-		    app->config->font_color.blue >> 8, st_name);
-#if defined(OS2008) || defined(DEBUGTEMP)
-	    }
-#endif
-	    station_box = gtk_hbox_new(FALSE, 0);
-	    station_name_btn = gtk_event_box_new();
-	    set_background_color(station_name_btn, &(app->config->background_color));
-        gtk_widget_set_events(station_name_btn, GDK_BUTTON_PRESS_MASK);
-	    station_name = gtk_label_new(NULL);
-	    gtk_label_set_markup(GTK_LABEL(station_name), buffer);
-	    gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
-	    gtk_widget_set_name(station_name, "station_name");
+        buffer[0] = 0;
+        /* create next station button */
+        sprintf(buffer,
+            "<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>&gt;</span>",
+            app->config->font_color.red >> 8,
+            app->config->font_color.green >> 8,
+            app->config->font_color.blue >> 8);
+        next_station_box = gtk_hbox_new(FALSE, 0);
+        next_station_name_btn = gtk_event_box_new();
+        set_background_color(next_station_name_btn, &(app->config->background_color));
+        
+        gtk_widget_set_events(next_station_name_btn, GDK_BUTTON_PRESS_MASK);
+        next_station_name = gtk_label_new(NULL);
+        gtk_label_set_markup(GTK_LABEL(next_station_name), buffer);
+        gtk_label_set_justify(GTK_LABEL(next_station_name), GTK_JUSTIFY_CENTER);
+        set_font(next_station_name, app->config->font, -1);
+            gtk_box_pack_start((GtkBox*) next_station_box, next_station_name, TRUE, TRUE, 15);
+        gtk_container_add (GTK_CONTAINER(next_station_name_btn), next_station_box);
+        }
+        buffer[0] = 0;
+        if(app->config->show_station_name){
+        /* create station name button */
+            if(!st_name)
+            sprintf(buffer,
+                "<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>%s</span>",
+                app->config->font_color.red >> 8,
+                app->config->font_color.green >> 8,
+                app->config->font_color.blue >> 8,
+                (char*)hash_table_find("NO STATION", FALSE));
+            else
+    #if defined(OS2008) || defined(DEBUGTEMP)
+            {
+            if(app->config->use_sensor &&
+                app->config->display_at == STATION_NAME)/* draw sensor data at the station name */
+                sprintf(buffer,
+                "<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>%s (%.2f)</span>",
+                    app->config->font_color.red >> 8,
+                app->config->font_color.green >> 8,
+                app->config->font_color.blue >> 8, st_name, app->sensor_data);
+            else
+    #endif
+            sprintf(buffer,
+                "<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>%s</span>",
+                    app->config->font_color.red >> 8,
+                app->config->font_color.green >> 8,
+                app->config->font_color.blue >> 8, st_name);
+    #if defined(OS2008) || defined(DEBUGTEMP)
+            }
+    #endif
+            station_box = gtk_hbox_new(FALSE, 0);
+            station_name_btn = gtk_event_box_new();
+            set_background_color(station_name_btn, &(app->config->background_color));
+            gtk_widget_set_events(station_name_btn, GDK_BUTTON_PRESS_MASK);
+            station_name = gtk_label_new(NULL);
+            gtk_label_set_markup(GTK_LABEL(station_name), buffer);
+            gtk_label_set_justify(GTK_LABEL(station_name), GTK_JUSTIFY_CENTER);
+            gtk_widget_set_name(station_name, "station_name");
 
-	    if(layout == COMBINATION || layout == APPLICATION_MODE)
-	        set_font(station_name, app->config->font, 2);
-	    else
-	        set_font(station_name, app->config->font, -1);
-        gtk_box_pack_start((GtkBox*)station_box, station_name, TRUE, TRUE, 0);
-   	    gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
-    }
+            if(layout == COMBINATION || layout == APPLICATION_MODE)
+                set_font(station_name, app->config->font, 2);
+            else
+                set_font(station_name, app->config->font, -1);
+            gtk_box_pack_start((GtkBox*)station_box, station_name, TRUE, TRUE, 0);
+            gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
+        }
 #if defined OS2008 || defined OS2009
-    if(previos_station_name_btn)
-        gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
-    if(next_station_name_btn)
-        gtk_event_box_set_visible_window(GTK_EVENT_BOX(next_station_name_btn), FALSE);
-    if(station_name_btn)
-        gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
+        if(previos_station_name_btn)
+            gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
+        if(next_station_name_btn)
+            gtk_event_box_set_visible_window(GTK_EVENT_BOX(next_station_name_btn), FALSE);
+        if(station_name_btn)
+            gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
 #else
-/* check config->transparency */
-    if(transparency){
-    	if(previos_station_name_btn)
-	        gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
-	    if(next_station_name_btn)
-	        gtk_event_box_set_visible_window(GTK_EVENT_BOX(next_station_name_btn), FALSE);
-    	if(station_name_btn)
-	        gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
-    }
+        /* check config->transparency */
+        if(transparency){
+            if(previos_station_name_btn)
+                gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
+            if(next_station_name_btn)
+                gtk_event_box_set_visible_window(GTK_EVENT_BOX(next_station_name_btn), FALSE);
+            if(station_name_btn)
+                gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
+        }
 
 #endif
 
-/*    days_panel_with_buttons = gtk_hbox_new(FALSE, 0);*/
-/* attach buttons to header panel */
-    if(previos_station_name_btn)
-	gtk_table_attach( (GtkTable*)header_panel,
-			    previos_station_name_btn,
-			    0, 1, 0, 1 , GTK_EXPAND, GTK_EXPAND, 0, 0);
+        /*    days_panel_with_buttons = gtk_hbox_new(FALSE, 0);*/
+        /* attach buttons to header panel */
+        if(previos_station_name_btn)
+        gtk_table_attach( (GtkTable*)header_panel,
+                    previos_station_name_btn,
+                    0, 1, 0, 1 , GTK_EXPAND, GTK_EXPAND, 0, 0);
 
-    if(station_name_btn)
-/*	gtk_box_pack_start((GtkBox*)header_panel, station_name_btn, TRUE, TRUE, 0); */
-	gtk_table_attach( (GtkTable*)header_panel,
-			station_name_btn,
-			1, 2, 0, 1  , GTK_EXPAND, GTK_EXPAND, 0, 0); 
+        if(station_name_btn)
+        /*	gtk_box_pack_start((GtkBox*)header_panel, station_name_btn, TRUE, TRUE, 0); */
+        gtk_table_attach( (GtkTable*)header_panel,
+                station_name_btn,
+                1, 2, 0, 1  , GTK_EXPAND, GTK_EXPAND, 0, 0); 
 
-    if(next_station_name_btn)
-	gtk_table_attach( (GtkTable*)header_panel,
-			    next_station_name_btn,
-			    2, 3, 0, 1, GTK_EXPAND, GTK_EXPAND, 0, 0);
-
+        if(next_station_name_btn)
+        gtk_table_attach( (GtkTable*)header_panel,
+                    next_station_name_btn,
+                    2, 3, 0, 1, GTK_EXPAND, GTK_EXPAND, 0, 0);
+    }
 /* create days panel */
     switch(layout){
         default:

@@ -76,6 +76,7 @@ void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
                                 const gchar *day_name);
 void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
                                 gboolean for_combination_mode);
+GtkWidget *next_station_preset_now(void);
 #if defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO
 void omweather_destroy(GtkObject *widget);
 #endif
@@ -124,6 +125,7 @@ extern void deinitial_gps_connect(void);
 extern void deinitial_gps_control(void);
 extern gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
 #endif
+
 extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 extern float mb2inch(float pressure);
 #if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)

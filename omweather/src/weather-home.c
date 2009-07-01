@@ -205,9 +205,9 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
                 *station_source = NULL;
     GtkTreePath	*path;
     gint	day_number = 0;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if (!(app->config->current_station_id))
         return FALSE;
 
@@ -2066,6 +2066,9 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
                 *wind_text = NULL,
                 *shadow_label = NULL;
     gchar       *begin_of_string;
+    gint        wind_x_offset = 0;
+    gint        wind_y_offset = 0;
+    gint        wind_x_offset_text = 0;
 
     /* create day label */
     new_day_button->label = gtk_label_new(NULL);
@@ -2095,8 +2098,14 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     /* create wind text */
     wind_text = gtk_label_new(NULL);
     memset(buffer, 0, sizeof(buffer));
-    sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%.0f</span>",
+    if (wind_gust != -1)
+        sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%.0f</span>",
                                PRESET_WIND_FONT_COLOR, wind_gust);
+    else
+        sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>?</span>",
+                               PRESET_WIND_FONT_COLOR);
+
+
     gtk_label_set_markup(GTK_LABEL(wind_text), buffer);
     gtk_label_set_justify(GTK_LABEL(wind_text), GTK_JUSTIFY_CENTER);
     /* Set font size for label */
@@ -2120,8 +2129,44 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     background = gtk_image_new_from_file (buffer);
 
     memset(buffer, 0, sizeof(buffer));
-    snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_NORMAL);
-    wind = gtk_image_new_from_file (buffer);
+    switch (wind_direction){
+       case SOUTH:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_SOUTH);
+            break;
+       case EAST:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_EAST);
+            wind_x_offset = -4;
+            wind_x_offset_text = -3;
+            break;
+       case WEST:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_WEST);
+            wind_x_offset = -8;
+            break;
+       case NORTH:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_NORTH);
+            break;
+       case SOUTH_EAST:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_SOUTH_EAST);
+            wind_x_offset = -3;
+            wind_x_offset_text = -2;
+            break;
+       case SOUTH_WEST:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_SOUTH_WEST);
+            break;
+       case NORTH_EAST:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_NORTH_EAST);
+            break;
+       case NORTH_WEST:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_NORTH_WEST);
+            wind_x_offset = -5;
+            wind_y_offset = -2;
+            wind_x_offset_text = 2;
+            break;
+       default:
+            memset(buffer, 0, sizeof(buffer));
+    }
+    if (buffer[0] != 0)
+        wind = gtk_image_new_from_file (buffer);
 
     /* Packing all to the box */
     /* create day box to contain icon, label and wind image */
@@ -2132,9 +2177,9 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     if (new_day_button->icon_image)
         gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 0, 0);
     if (wind)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), wind, (87+14)+12+15, 7+37+15);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), wind, (87+14)+12+15+wind_x_offset, 7+37+15+wind_y_offset);
     if (wind_text)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), wind_text, (87+14)+12+15+1, 7+37+15+1);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), wind_text, (87+14)+12+15+1+wind_x_offset_text, 7+37+15+1);
     if (shadow_label)
         gtk_fixed_put(GTK_FIXED(new_day_button->box), shadow_label, 12+15+2, 60+37+15+2);
     if (new_day_button->label)
@@ -2282,40 +2327,40 @@ choose_wind_direction(gchar *buffer)
 {
     if (!buffer)
         return UNKNOWN_DIRECTION;
-    fprintf(stderr,"buffer %s\n", buffer);
     if (buffer[0] == 'N'){
         if (strlen(buffer) > 1){
             if (buffer[1] == 'W')
-                return NORTHWEST;
-            else
+                return NORTH_WEST;
+            else{
                if (buffer[1] == 'E')
-                    return NORTHEAST;
+                    return NORTH_EAST;
                else
                     return NORTH;
+            }
         }else   
             return NORTH;
     }else{
         if (buffer[0] == 'S'){
-            fprintf(stderr,"S1\n");
             if (strlen(buffer) > 1){
                 if (buffer[1] == 'W')
-                    return SOUTHWEST;
-            else
-               if (buffer[1] == 'E')
-                    return SOUTHEAST;
-               else
-                    return SOUTH;
+                    return SOUTH_WEST;
+                else{
+                    if (buffer[1] == 'E')
+                        return SOUTH_EAST;
+                    else
+                        return SOUTH;
+                }
             }
-        }else{
-            fprintf(stderr,"S1\n");
-            return SOUTH;
-        }
+            else
+                    return SOUTH;
+        }else
+        if (buffer[0] == 'W')
+            return WEST;
+        if (buffer[0] == 'E')
+            return EAST;
     }
-    if (buffer[0] == 'W')
-        return WEST;
-    if (buffer[0] == 'E')
-        return EAST;
 }
+
 /*******************************************************************************/
 void 
 create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direction, float *gust){

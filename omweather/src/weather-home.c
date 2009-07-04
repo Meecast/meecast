@@ -516,7 +516,8 @@ draw_home_window(gint count_day){
                 }
                 else{ /* if current data is not actual */
                     buffer[0] = 0;
-                    if(app->config->separate){ /* if current data isn't actual and first day */
+                    /* if current data isn't actual and first day */
+                    if(app->config->separate && app->config->icons_layout < PRESET_NOW ){
                         create_current_temperature_text(app->wsd.current, buffer, FALSE, item_value(day, "day_name"));
                         sprintf(buffer_icon, "%s48.png", app->config->icons_set_base);
                     }
@@ -543,7 +544,7 @@ draw_home_window(gint count_day){
                 buffer[0] = 0;
                 if (app->config->separate && i == 1){
                     tmp_day = first;
-                    /* Change day and nitght  begin  time */
+                    /* Change day and night begin time */
                     day_begin_time = get_day_part_begin_time(tmp_day, year, "24h_sunrise");
                     night_begin_time = get_day_part_begin_time(tmp_day, year, "24h_sunset");
                 }else
@@ -1420,7 +1421,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /* create header panel */
     header_panel = gtk_table_new(1, 3, FALSE);
 /*    header_panel = gtk_hbox_new(FALSE, 0);*/
-    if (layout !=PRESET_NOW){
+    if (layout < PRESET_NOW){
         /* check number of elements in user stations list */
         valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                       &iter);
@@ -1582,7 +1583,6 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         switch(layout){
             default:
             case PRESET_NOW:
-                fprintf(stderr,"Preset Now\n");
                 gtk_table_attach((GtkTable*)days_panel,
                                 ((WDB*)tmp->data)->button,
                                 0, 0 + 1, 0, 1, (GtkAttachOptions)0,
@@ -2108,10 +2108,6 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     if (wind_speed != -1)
         sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%.0f</span>",
                                PRESET_WIND_FONT_COLOR, wind_speed);
-    else
-        sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>?</span>",
-                               PRESET_WIND_FONT_COLOR);
-
 
     gtk_label_set_markup(GTK_LABEL(wind_text), buffer);
     gtk_label_set_justify(GTK_LABEL(wind_text), GTK_JUSTIFY_CENTER);
@@ -2388,14 +2384,13 @@ create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direct
     }else{
         wind_direction = (char*)hash_table_find(item_value(day, "wind_direction"), TRUE);
         *direction = choose_wind_direction(wind_direction);
-        fprintf(stderr,"qxx Current %s %i\n", wind_direction, *direction);
     }
  
     return;
   } 
   if((is_day && !strcmp((char*)item_value(day, "day_wind_speed"), "N/A"))||
        !strcmp((char*)item_value(day, "night_wind_speed"), "N/A")){
-        if (buffer)
+        if (buffer && app->config->icons_layout < PRESET_NOW)
             sprintf(buffer + strlen(buffer),
             "<span foreground='#%02x%02x%02x'>\n%s\n%s</span>",
             app->config->font_color.red >> 8,
@@ -2415,7 +2410,7 @@ create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direct
        else
            if (is_day){
                wind_direction = (char*)hash_table_find(item_value(day, "day_wind_title"), TRUE);
-               if (buffer){
+               if (buffer && app->config->icons_layout < PRESET_NOW){
                    sprintf(buffer + strlen(buffer),
                        "<span foreground='#%02x%02x%02x'>\n%s",
                        app->config->font_color.red >> 8,
@@ -2424,8 +2419,7 @@ create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direct
                        wind_direction);
                 }
                *direction = choose_wind_direction(wind_direction);
-               fprintf(stderr,"qxx %s %i\n", wind_direction, *direction);
-               if (buffer){
+               if (buffer && app->config->icons_layout < PRESET_NOW){
                    if (app->config->show_wind_gust)
                        sprintf(buffer + strlen(buffer),
                            "%.1f</span>",
@@ -2437,9 +2431,8 @@ create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direct
            }else{
                wind_direction = (char*)hash_table_find(item_value(day, "night_wind_title"), TRUE);
                *direction = choose_wind_direction(wind_direction);
-               fprintf(stderr,"qxx %s %i\n", wind_direction, *direction);
                *speed = convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed")));
-               if (buffer){
+               if (buffer && app->config->icons_layout < PRESET_NOW){
                    sprintf(buffer + strlen(buffer),
                        "<span foreground='#%02x%02x%02x'>\n%s",
                        app->config->font_color.red >> 8,
@@ -2473,7 +2466,7 @@ create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
         ( temp_current != INT_MAX ) && ( temp_current = c2f(temp_current) );
 
     if(temp_current == INT_MAX || !valid)
-        if (!app->config->is_application_mode && app->config->icons_layout == PRESET_NOW)
+        if (!app->config->is_application_mode && app->config->icons_layout < PRESET_NOW)
             sprintf(buffer,"<span>%s</span>",_("N/A") );
         else{
             sprintf(buffer,
@@ -2485,7 +2478,7 @@ create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
                 _("N/A") );
         }
     else
-        if (!app->config->is_application_mode && app->config->icons_layout == PRESET_NOW)
+        if (!app->config->is_application_mode && app->config->icons_layout < PRESET_NOW)
             sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%i\302\260</span>",
                             PRESET_BIG_FONT_COLOR_FRONT, temp_current);
         else
@@ -2521,15 +2514,16 @@ create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 	    ( temp_low != INT_MAX ) && ( temp_low = c2f(temp_low) );
     }
 
-    if (app->config->text_position == TOP || app->config->text_position == BOTTOM){ 
+    if (app->config->text_position == TOP || app->config->text_position == BOTTOM ||
+        app->config->icons_layout >= PRESET_NOW){
         delemiter[0] = '/';
-    }    
+    }
     else{
         delemiter[0] = '\n';
     }
 
     /* For presets mode */
-    if (!app->config->is_application_mode && app->config->icons_layout == PRESET_NOW){
+    if (!app->config->is_application_mode && app->config->icons_layout >= PRESET_NOW){
         sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>",
                             PRESET_BIG_FONT_COLOR_FRONT);
         if(temp_low != INT_MAX)

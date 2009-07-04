@@ -71,16 +71,16 @@ gboolean expose_parent(GtkWidget * widget, GdkEventExpose * event) {
 
     XFixesSetPictureClipRegion(GDK_DISPLAY(), picture, 0, 0, region);
 
-     
-        color.red = color.blue = color.green = 0;
-        color.alpha = 0;
 
-        XRenderFillRectangle(GDK_DISPLAY(), PictOpSrc, picture, &color,
+    color.red = color.blue = color.green = 0;
+    color.alpha = 0;
+
+    XRenderFillRectangle(GDK_DISPLAY(), PictOpSrc, picture, &color,
                              0, 0,
                              widget->allocation.width,
                              widget->allocation.height);
 
-    if (app->config->icons_layout != PRESET_NOW){
+    if (app->config->icons_layout < PRESET_NOW){
 
         radius = app->config->corner_radius;
         cr = gdk_cairo_create(drawable);

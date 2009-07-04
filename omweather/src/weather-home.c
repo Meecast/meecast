@@ -486,7 +486,7 @@ draw_home_window(gint count_day){
             if(current_time < day_begin_time)
                 event_add(day_begin_time - diff_time, CHANGE_DAY_PART);
             if(current_time < night_begin_time)
-                    event_add(night_begin_time - diff_time, CHANGE_DAY_PART);
+                event_add(night_begin_time - diff_time, CHANGE_DAY_PART);
             
             #ifndef RELEASE
             fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
@@ -2017,7 +2017,7 @@ gchar       buffer[2048];
         gtk_label_set_markup(GTK_LABEL(station_text), buffer);
         gtk_label_set_justify(GTK_LABEL(station_text), GTK_JUSTIFY_CENTER);
         set_font(station_text, PRESET_STATION_FONT, -1);
-        gtk_widget_set_size_request(station_text, 140, 30);
+        gtk_widget_set_size_request(station_text, 140-3, 30);
         /* Create shadow station name */
         if ((strlen(PRESET_BIG_FONT_COLOR_FRONT) == strlen(PRESET_BIG_FONT_COLOR_BACK))&&
             (begin_of_string = strstr(buffer,PRESET_BIG_FONT_COLOR_FRONT))){
@@ -2027,7 +2027,7 @@ gchar       buffer[2048];
             gtk_label_set_markup(GTK_LABEL(shadow_station_text), buffer);
             gtk_label_set_justify(GTK_LABEL(shadow_station_text), GTK_JUSTIFY_CENTER);
             set_font(shadow_station_text, PRESET_STATION_FONT, -1);
-            gtk_widget_set_size_request(shadow_station_text, 140, 30);
+            gtk_widget_set_size_request(shadow_station_text, 140-4, 30);
         }else
             shadow_station_text = NULL;
     }else{
@@ -2076,7 +2076,10 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
     gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_CENTER);
     /* Set font size for label */
-    set_font(new_day_button->label, PRESET_BIG_FONT, -1);
+    if ( strlen(text)>65 )
+        set_font(new_day_button->label, PRESET_MEDIUM_FONT, -1);
+    else
+        set_font(new_day_button->label, PRESET_BIG_FONT, -1);
     gtk_widget_set_size_request(new_day_button->label, 140, 52);
 
 //        gtk_widget_set_name(new_day_button->label, "day_label");
@@ -2090,7 +2093,10 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
         gtk_label_set_markup(GTK_LABEL(shadow_label), text);
         gtk_label_set_justify(GTK_LABEL(shadow_label), GTK_JUSTIFY_CENTER);
         /* Set font size for label */
-        set_font(shadow_label, PRESET_BIG_FONT, -1);
+        if ( strlen(text)>65 )
+            set_font(shadow_label, PRESET_MEDIUM_FONT, -1);
+        else
+            set_font(shadow_label, PRESET_BIG_FONT, -1);
         gtk_widget_set_size_request(shadow_label, 140, 52);
 
      }else
@@ -2514,10 +2520,7 @@ create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 	    ( temp_hi != INT_MAX ) && ( temp_hi = c2f(temp_hi) );
 	    ( temp_low != INT_MAX ) && ( temp_low = c2f(temp_low) );
     }
-    
-    if(app->config->swap_hi_low_temperature)
-	    swap_temperature(&temp_hi, &temp_low);
-    
+
     if (app->config->text_position == TOP || app->config->text_position == BOTTOM){ 
         delemiter[0] = '/';
     }    
@@ -2525,40 +2528,55 @@ create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
         delemiter[0] = '\n';
     }
 
+    /* For presets mode */
+    if (!app->config->is_application_mode && app->config->icons_layout == PRESET_NOW){
+        sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>",
+                            PRESET_BIG_FONT_COLOR_FRONT);
+        if(temp_low != INT_MAX)
+            sprintf(buffer + strlen(buffer), "%i\302\260", temp_low);
+        if(temp_hi != INT_MAX)
+            sprintf(buffer + strlen(buffer), "%s%i\302\260", delemiter, temp_hi );
+        strcat(buffer, "</span>");
+        return;
+    }
+         
+    if(app->config->swap_hi_low_temperature)
+	    swap_temperature(&temp_hi, &temp_low);
+    
     if(!for_combination_mode){
-	sprintf(buffer,
-		"<span %s foreground='#%02x%02x%02x'>%s\n",
-		(valid) ? ("weight=\"bold\"") : (""),
-		app->config->font_color.red >> 8,
-		app->config->font_color.green >> 8,
-		app->config->font_color.blue >> 8,
-		item_value(day, "day_name"));
-	if(temp_low == INT_MAX)
-	    sprintf(buffer + strlen(buffer), "%s\302\260%s", _("N/A"), delemiter );
-	else
-	    sprintf(buffer + strlen(buffer), "%i\302\260%s", temp_low, delemiter );
-	if(temp_hi == INT_MAX)
-	    sprintf(buffer + strlen(buffer), "%s\302\260", _("N/A") );
-	else
-	    sprintf(buffer + strlen(buffer), "%i\302\260", temp_hi );
-	strcat(buffer, "</span>");
+        sprintf(buffer,
+            "<span %s foreground='#%02x%02x%02x'>%s\n",
+            (valid) ? ("weight=\"bold\"") : (""),
+            app->config->font_color.red >> 8,
+            app->config->font_color.green >> 8,
+            app->config->font_color.blue >> 8,
+            item_value(day, "day_name"));
+        if(temp_low == INT_MAX)
+            sprintf(buffer + strlen(buffer), "%s\302\260%s", _("N/A"), delemiter );
+        else
+            sprintf(buffer + strlen(buffer), "%i\302\260%s", temp_low, delemiter );
+        if(temp_hi == INT_MAX)
+            sprintf(buffer + strlen(buffer), "%s\302\260", _("N/A") );
+        else
+            sprintf(buffer + strlen(buffer), "%i\302\260", temp_hi );
+        strcat(buffer, "</span>");
     }
     else{
-	sprintf(buffer,
-		"<span %s foreground='#%02x%02x%02x'>",
-		(valid) ? ("weight=\"bold\"") : (""),
-		app->config->font_color.red >> 8,
-		app->config->font_color.green >> 8,
-		app->config->font_color.blue >> 8);
-	if(temp_low == INT_MAX)
-	    sprintf(buffer + strlen(buffer), "%s\302\260 - ", _("N/A") );
-	else
-	    sprintf(buffer + strlen(buffer), "%i\302\260 - ", temp_low );
-	if(temp_hi == INT_MAX)
-	    sprintf(buffer + strlen(buffer), "%s\302\260", _("N/A") );
-	else
-	    sprintf(buffer + strlen(buffer), "%i\302\260", temp_hi );
-	strcat(buffer, "</span>");
+        sprintf(buffer,
+            "<span %s foreground='#%02x%02x%02x'>",
+            (valid) ? ("weight=\"bold\"") : (""),
+            app->config->font_color.red >> 8,
+            app->config->font_color.green >> 8,
+            app->config->font_color.blue >> 8);
+        if(temp_low == INT_MAX)
+            sprintf(buffer + strlen(buffer), "%s\302\260 - ", _("N/A") );
+        else
+            sprintf(buffer + strlen(buffer), "%i\302\260 - ", temp_low );
+        if(temp_hi == INT_MAX)
+            sprintf(buffer + strlen(buffer), "%s\302\260", _("N/A") );
+        else
+            sprintf(buffer + strlen(buffer), "%i\302\260", temp_hi );
+        strcat(buffer, "</span>");
     }
 }
 /*******************************************************************************/

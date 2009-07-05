@@ -2019,7 +2019,7 @@ gchar       buffer[2048];
         gtk_label_set_markup(GTK_LABEL(station_text), buffer);
         gtk_label_set_justify(GTK_LABEL(station_text), GTK_JUSTIFY_CENTER);
         set_font(station_text, PRESET_STATION_FONT, -1);
-        gtk_widget_set_size_request(station_text, 140-3, 30);
+        gtk_widget_set_size_request(station_text, 140-4, 30);
         /* Create shadow station name */
         if ((strlen(PRESET_BIG_FONT_COLOR_FRONT) == strlen(PRESET_BIG_FONT_COLOR_BACK))&&
             (begin_of_string = strstr(buffer,PRESET_BIG_FONT_COLOR_FRONT))){
@@ -2029,7 +2029,7 @@ gchar       buffer[2048];
             gtk_label_set_markup(GTK_LABEL(shadow_station_text), buffer);
             gtk_label_set_justify(GTK_LABEL(shadow_station_text), GTK_JUSTIFY_CENTER);
             set_font(shadow_station_text, PRESET_STATION_FONT, -1);
-            gtk_widget_set_size_request(shadow_station_text, 140-4, 30);
+            gtk_widget_set_size_request(shadow_station_text, 140-5, 30);
         }else
             shadow_station_text = NULL;
     }else{
@@ -2043,11 +2043,11 @@ gchar       buffer[2048];
         gtk_fixed_put(GTK_FIXED(widget), background_town, 12+15, 0);
  
     if (station_name_btn)
-        gtk_fixed_put(GTK_FIXED(widget), station_name_btn, 12+15+1, 0);
+        gtk_fixed_put(GTK_FIXED(widget), station_name_btn, 12+15, 0);
     if (shadow_station_text)
-        gtk_fixed_put(GTK_FIXED(widget), shadow_station_text, 12+15+1+1, 17+1);
+        gtk_fixed_put(GTK_FIXED(widget), shadow_station_text, 12+15+2+1, 17+1);
     if (station_text)
-        gtk_fixed_put(GTK_FIXED(widget), station_text, 12+15+1,17);
+        gtk_fixed_put(GTK_FIXED(widget), station_text, 12+15+1+1,17);
 
     return widget;
 }
@@ -2167,16 +2167,23 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
             break;
        case NORTH_WEST:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_NORTH_WEST);
-            wind_x_offset = -5;
+            wind_x_offset = 0;
             wind_y_offset = -2;
             wind_x_offset_text = 4;
             break;
        default:
             memset(buffer, 0, sizeof(buffer));
     }
-    if (buffer[0] != 0)
-        wind = gtk_image_new_from_file (buffer);
-
+    if (buffer[0] != 0){
+        if (wind_speed < 5)
+            wind = gtk_image_new_from_file (buffer);
+        else{
+           begin_of_string = strstr(buffer,".png"); 
+           snprintf(begin_of_string, sizeof(buffer) - strlen(buffer) - 1, "%s","_warning.png");
+           fprintf(stderr,"file %s\n",buffer);
+           wind = gtk_image_new_from_file (buffer);
+        }
+    }
     /* Packing all to the box */
     /* create day box to contain icon, label and wind image */
     new_day_button->box  = gtk_fixed_new();
@@ -2484,7 +2491,7 @@ create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
                 _("N/A") );
         }
     else
-        if (!app->config->is_application_mode && app->config->icons_layout < PRESET_NOW)
+        if (!app->config->is_application_mode && app->config->icons_layout >= PRESET_NOW)
             sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%i\302\260</span>",
                             PRESET_BIG_FONT_COLOR_FRONT, temp_current);
         else

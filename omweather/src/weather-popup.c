@@ -424,17 +424,17 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 		        *label_box = NULL,
 		        *copyright_box = NULL,
 		        *no_weather_box = NULL;
-    gint	active_tab = 0,
-		    k = 0,
-		    page = 0,
-		    i = 1;
-    gchar	*day_name = NULL;
-    time_t	current_time = 0,
-		diff_time,
-		current_data_last_update = 0,
-		data_last_update = 0;
-    GSList	*tmp = NULL,
-		*day = NULL;
+    gint	    active_tab = 0,
+		        k = 0,
+		        page = 0,
+		        i = 1;
+    gchar	    *day_name = NULL;
+    time_t	    current_time = 0,
+		        diff_time,
+		        current_data_last_update = 0,
+		        data_last_update = 0;
+    GSList	    *tmp = NULL,
+		        *day = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -537,11 +537,11 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     }
 
 /* if weather is separated than hide one day */
-    (app->config->separate) ? (k = 0) : (k = 1);
-    if(current_tab && !app->config->separate && active_tab != 0 )
+    (app->config->separate && app->config->icons_layout < PRESET_NOW) ? (k = 0) : (k = 1);
+    if(current_tab && (!app->config->separate || app->config->icons_layout >= PRESET_NOW) && active_tab != 0 )
         active_tab = active_tab + k;
 
-    if(!app->config->separate && !current_tab )
+    if((!app->config->separate|| app->config->icons_layout >= PRESET_NOW) && !current_tab )
         active_tab++;
 
 /* Detailed weather tab */
@@ -563,7 +563,6 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
    tmp = app->wsd.days;
    while(tmp && i < Max_count_weather_day){
         day = (GSList*)tmp->data;
-
         /* Acceleration of starting gtk_notebook */
         if (active_tab != i){
             /* Create the empty page */
@@ -606,28 +605,28 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 
     /* check if no data file for this station */
     if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){
-	if(active_tab == -1){
-	    hildon_banner_show_information(app->main_window,
-					    NULL,
-					    _("No weather data for this day."));
-	    destroy_popup_window();
-	    return FALSE;
-	}
-	else{
-	    if(app->config->separate){
-		if(!current_tab){
-		    if(active_tab)
-			active_tab--;
-		    else{
-			hildon_banner_show_information(app->main_window,
-							NULL,
-							_("No current weather data."));
-			destroy_popup_window();
-			return FALSE;
-		    }
-		}
-	    }
-	}
+        if(active_tab == -1){
+            hildon_banner_show_information(app->main_window,
+                            NULL,
+                            _("No weather data for this day."));
+            destroy_popup_window();
+            return FALSE;
+        }
+        else{
+            if(app->config->separate && app->config->icons_layout < PRESET_NOW){
+                if(!current_tab){
+                    if(active_tab)
+                        active_tab--;
+                    else{
+                        hildon_banner_show_information(app->main_window,
+                                    NULL,
+                                    _("No current weather data."));
+                        destroy_popup_window();
+                        return FALSE;
+                    }
+                }
+            }
+        }
     }
     else{
         gtk_widget_destroy(notebook);

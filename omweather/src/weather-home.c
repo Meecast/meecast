@@ -487,7 +487,7 @@ draw_home_window(gint count_day){
                 event_add(day_begin_time - diff_time, CHANGE_DAY_PART);
             if(current_time < night_begin_time)
                 event_add(night_begin_time - diff_time, CHANGE_DAY_PART);
-            
+
             #ifndef RELEASE
             fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
             fprintf(stderr, "\nUTC time %s", ctime(&utc_time));
@@ -527,16 +527,19 @@ draw_home_window(gint count_day){
                             create_day_temperature_text(day, buffer, FALSE, FALSE);
                             /* displaying wind if necessary */
                             if(app->config->show_wind)
-                                create_wind_parameters(day, buffer + strlen(buffer),FALSE, &wind_direction, &wind_speed);
+                                create_wind_parameters(day, buffer + strlen(buffer),FALSE,
+                                                                        &wind_direction, &wind_speed);
                             sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
                                 item_value(day, "night_icon"));
-                         }else
+                         }else{
                             create_day_temperature_text(day, buffer, FALSE, FALSE);
-                         /* displaying wind if necessary */
-                         if(app->config->show_wind)
-                                create_wind_parameters(day, buffer + strlen(buffer),TRUE, &wind_direction, &wind_speed);
-                         sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
-                            item_value(day, "day_icon"));
+                             /* displaying wind if necessary */
+                             if(app->config->show_wind)
+                                    create_wind_parameters(day, buffer + strlen(buffer),TRUE, 
+                                                                        &wind_direction, &wind_speed);
+                             sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
+                                item_value(day, "day_icon"));
+                         }
                     }
                 }
             }
@@ -585,7 +588,6 @@ draw_home_window(gint count_day){
             flag_last_day = TRUE;
             }
         }
-        fprintf(stderr,"Buffer %s\n",buffer_icon);
     #if defined(NONMAEMO) || defined (APPLICATION)
         if(i == 0)/* First icon in APPLICATION MODE */
     #else
@@ -2157,6 +2159,8 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
             break;
        case SOUTH_WEST:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_SOUTH_WEST);
+            wind_y_offset = -2;
+            wind_x_offset_text = 2;            
             break;
        case NORTH_EAST:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_NORTH_EAST);
@@ -2165,7 +2169,7 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_NORTH_WEST);
             wind_x_offset = -5;
             wind_y_offset = -2;
-            wind_x_offset_text = 2;
+            wind_x_offset_text = 4;
             break;
        default:
             memset(buffer, 0, sizeof(buffer));
@@ -2385,9 +2389,10 @@ create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direct
         wind_direction = (char*)hash_table_find(item_value(day, "wind_direction"), TRUE);
         *direction = choose_wind_direction(wind_direction);
     }
- 
     return;
   } 
+ 
+
   if((is_day && !strcmp((char*)item_value(day, "day_wind_speed"), "N/A"))||
        !strcmp((char*)item_value(day, "night_wind_speed"), "N/A")){
         if (buffer && app->config->icons_layout < PRESET_NOW)
@@ -2419,6 +2424,7 @@ create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direct
                        wind_direction);
                 }
                *direction = choose_wind_direction(wind_direction);
+               *speed = convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed")));
                if (buffer && app->config->icons_layout < PRESET_NOW){
                    if (app->config->show_wind_gust)
                        sprintf(buffer + strlen(buffer),

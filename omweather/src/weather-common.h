@@ -150,6 +150,7 @@ extern void write_log(char *string);
 #define PRESET_WIND_NORTH_EAST      "wind_north_east.png"
 #define PRESET_WIND_SOUTH_WEST      "wind_south_west.png"
 #define PRESET_WIND_NORTH_WEST      "wind_north_west.png"
+#define  STRONG_WIND 6
 /*******************************************************************************/
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
        CHECK_GPS_POSITION};

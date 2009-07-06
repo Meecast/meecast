@@ -1187,15 +1187,15 @@ create_forecast_weather_simple_widget(GSList *day){
     temperature_vbox = gtk_vbox_new(FALSE, 0);
     memset(buffer, 0, sizeof(buffer));
     sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>",
-				app->config->font_color.red >> 8,
-				app->config->font_color.green >> 8,
-				app->config->font_color.blue >> 8);
+                app->config->font_color.red >> 8,
+                app->config->font_color.green >> 8,
+                app->config->font_color.blue >> 8);
     sprintf(buffer + strlen(buffer), "%s</span>", _("Forecast: \n"));
     create_day_temperature_text(day, buffer + strlen(buffer), TRUE, TRUE);
     temperature_label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(temperature_label), buffer);
     gtk_label_set_justify(GTK_LABEL(temperature_label), GTK_JUSTIFY_CENTER);
-    
+
     set_font(temperature_label, app->config->font, -1);
     gtk_box_pack_start(GTK_BOX(temperature_vbox), temperature_label, FALSE, FALSE, 0);
 
@@ -1211,44 +1211,43 @@ create_forecast_weather_simple_widget(GSList *day){
     main_data_label = gtk_label_new(NULL);
     memset(buffer, 0, sizeof(buffer));
     sprintf(buffer,"<span weight=\"bold\" foreground='#%02x%02x%02x'>",
-				app->config->font_color.red >> 8,
-				app->config->font_color.green >> 8,
-				app->config->font_color.blue >> 8);
+                app->config->font_color.red >> 8,
+                app->config->font_color.green >> 8,
+                app->config->font_color.blue >> 8);
     if((current_time > day_begin_time) && (current_time < night_begin_time)){
-	strcat(buffer, (gchar*)hash_table_find(item_value(day, "day_title"), FALSE));
-	strcat(buffer, _("\nHumidity: "));
-	if(strcmp(item_value(day, "day_humidity"), "N/A"))
-	    sprintf(buffer + strlen(buffer), "%s%%\n",
-			item_value(day, "day_humidity"));
-	    else
-		sprintf(buffer + strlen(buffer), "%s\n",
-			    (gchar*)hash_table_find("N/A", FALSE));
-	strcat(buffer, _("Wind: "));
-	sprintf(buffer + strlen(buffer), "%s %.2f %s",
-		    (gchar*)hash_table_find(item_value(day, "day_wind_title"), TRUE),
-	convert_wind_units(app->config->wind_units,
-			    atof(item_value(day, "day_wind_speed"))),
-			    (gchar*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
-    }
-    else{
-	strcat(buffer, (gchar*)hash_table_find(item_value(day, "night_title"), FALSE));
-	strcat(buffer, _("\nHumidity: "));
-	if(strcmp(item_value(day, "night_humidity"), "N/A"))
-	    sprintf(buffer + strlen(buffer), "%s%%\n",
-			item_value(day, "night_humidity"));
-	else
-	    sprintf(buffer + strlen(buffer), "%s\n",
-			(gchar*)hash_table_find("N/A", FALSE));
-	strcat(buffer, _("Wind: "));
-	sprintf(buffer + strlen(buffer), "%s %.2f %s", item_value(day, "night_wind_title"),
-	convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed"))),
-				(gchar*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+        strcat(buffer, (gchar*)hash_table_find(item_value(day, "day_title"), FALSE));
+        strcat(buffer, _("\nHumidity: "));
+        if(strcmp(item_value(day, "day_humidity"), "N/A"))
+            sprintf(buffer + strlen(buffer), "%s%%\n",
+                    item_value(day, "day_humidity"));
+        else
+            sprintf(buffer + strlen(buffer), "%s\n",
+                (gchar*)hash_table_find("N/A", FALSE));
+        strcat(buffer, _("Wind: "));
+        sprintf(buffer + strlen(buffer), "%s %.2f %s",
+              (gchar*)hash_table_find(item_value(day, "day_wind_title"), TRUE),
+        convert_wind_units(app->config->wind_units,
+                atof(item_value(day, "day_wind_speed"))),
+                (gchar*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+    }else{
+        strcat(buffer, (gchar*)hash_table_find(item_value(day, "night_title"), FALSE));
+        strcat(buffer, _("\nHumidity: "));
+        if(strcmp(item_value(day, "night_humidity"), "N/A"))
+            sprintf(buffer + strlen(buffer), "%s%%\n",
+            item_value(day, "night_humidity"));
+        else
+            sprintf(buffer + strlen(buffer), "%s\n",
+            (gchar*)hash_table_find("N/A", FALSE));
+        strcat(buffer, _("Wind: "));
+        sprintf(buffer + strlen(buffer), "%s %.2f %s", item_value(day, "night_wind_title"),
+        convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed"))),
+            (gchar*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     }
     strcat(buffer, "</span>");
     gtk_label_set_markup(GTK_LABEL(main_data_label), buffer);
     set_font(main_data_label, app->config->font, -1);
 
-    main_data_vbox = gtk_vbox_new(FALSE, 0);	
+    main_data_vbox = gtk_vbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(main_data_vbox), main_data_label, FALSE, FALSE, 0);
         /* prepare main widget */
     main_widget = gtk_hbox_new(FALSE, 10);
@@ -2192,7 +2191,8 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
             memset(buffer, 0, sizeof(buffer));
     }
     if (buffer[0] != 0){
-        if (wind_speed < 5)
+        
+        if (wind_speed < STRONG_WIND)
             wind = gtk_image_new_from_file (buffer);
         else{
            begin_of_string = strstr(buffer,".png"); 
@@ -2411,7 +2411,6 @@ create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direct
                    sprintf(buffer + strlen(buffer),
                        "%.1f</span>",
                        convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed"))));
-           
                else
                     sprintf(buffer + strlen(buffer),"</span>");
            }

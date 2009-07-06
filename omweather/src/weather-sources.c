@@ -83,6 +83,26 @@ create_sources_list(gchar *sources_path, gint *sources_number, GSList **handles)
     return list;
 }
 /*******************************************************************************/
+gpointer
+get_source_parser(GtkListStore *data, const gchar *source_name){
+    GtkTreeIter iter;
+    GHashTable  *source = NULL;
+    gpointer    value = NULL;
+    gboolean    valid = FALSE;
+
+    if(!data && !source_name)
+        return NULL;
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(data), &iter);
+    while(valid){
+        gtk_tree_model_get(GTK_TREE_MODEL(data), &iter, 1, &source, -1);
+        value = g_hash_table_lookup(source, "name");
+        if(value && !strcmp(source_name, (gchar*)value))
+            return g_hash_table_lookup(source, "parser");
+        valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(data), &iter);
+    }
+    return NULL;
+}
+/*******************************************************************************/
 void
 unload_parsers(GSList *list){
     GSList  *tmp = list;

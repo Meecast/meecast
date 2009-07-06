@@ -34,6 +34,7 @@
 GtkListStore* create_sources_list(gchar *sources_path, gint *sources_number,
 				    GSList **handles);
 GHashTable* parse_source_file(const gchar *filename, const gchar *encoding);
+gpointer get_source_parser(GtkListStore *data, const gchar *source_name);
 void unload_parsers(GSList *list);
 gboolean source_name_valid(GHashTable *data);
 gboolean source_library_valid(GHashTable *data, GSList **handles);
@@ -46,4 +47,3 @@ void free_hashtable_with_source(GHashTable* hashtable);
 void parse_children(xmlNode *node, GHashTable *object);
 /*******************************************************************************/
 #endif
-

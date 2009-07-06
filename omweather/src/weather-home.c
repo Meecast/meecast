@@ -663,10 +663,12 @@ draw_home_window(gint count_day){
 /*******************************************************************************/
 void 
 redraw_home_window(gboolean first_start){
-    gint	count_day;
-    GSList	*tmp = NULL,
-		*tmp_data = NULL;
-    WDB		*tmp_button = NULL;
+    gint    count_day;
+    GSList  *tmp = NULL,
+            *tmp_data = NULL;
+    gint    (*parser)(const gchar*, GHashTable*);
+    WDB     *tmp_button = NULL;
+    gchar   buffer[255];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -727,7 +729,19 @@ redraw_home_window(gboolean first_start){
         gtk_widget_destroy(app->main_window);
 	app->main_window = NULL;
     }
-/*    get_station_weather_data(app->config->current_station_id, 1); */
+/* new parser */
+    parser = get_source_parser(app->sources_list,
+                                app->config->current_station_source);
+    if(parser){
+        /* prepare xml file with full path */
+        *buffer = 0;
+        snprintf(buffer, sizeof(buffer) - 1, "%s/%s.xml",
+                    app->config->cache_dir_name, app->config->current_station_id);
+        /* delete previos station data */
+        if(app->station_data)
+            g_hash_table_remove_all(app->station_data);
+        count_day = parser(buffer, app->station_data);
+    }
 /* Parse data file */
     count_day = parse_weather_file_data(app->config->current_station_id,
 					app->config->current_station_source,

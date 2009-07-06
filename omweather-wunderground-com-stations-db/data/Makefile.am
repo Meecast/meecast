@@ -24,5 +24,5 @@
 omweather_wunderground_com_sourcedir = $(datadir)/omweather/sources
 omweather_wunderground_com_source_DATA = wunderground.com.xml
 
-omweather_wunderground_com_source_dbdir = $(datadir)/omweather/db
-omweather_wunderground_com_source_db_DATA = wunderground.com.db
+#omweather_wunderground_com_source_dbdir = $(datadir)/omweather/db
+#omweather_wunderground_com_source_db_DATA = wunderground.com.db

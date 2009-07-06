@@ -617,3 +617,12 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
 #endif
     return valid;
 }
+/*******************************************************************************/
+gboolean
+get_file(const gchar *full_url, const gchar *full_storing_name){
+    if(!full_url || !full_storing_name)
+        return FALSE;
+
+    return TRUE;
+}
+/*******************************************************************************/

@@ -58,7 +58,7 @@ GtkWidget* create_window_update(void);
 #ifdef USE_CONIC
     void connection_cb(ConIcConnection * connection,ConIcConnectionEvent * event, gpointer user_data);
 #endif
-
+gboolean get_file(const gchar *full_url, const gchar *full_storing_name);
 /*******************************************************************************/
 extern WeatherSource	weather_sources[];
 /*******************************************************************************/

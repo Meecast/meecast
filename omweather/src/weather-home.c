@@ -1582,14 +1582,19 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     tmp = app->buttons;
     if (layout == PRESET_NOW){
         /* attach days buttons for simple(presets) mode */
-        gtk_table_attach((GtkTable*)days_panel,
+        switch(layout){
+            default:
+            case PRESET_NOW:
+                gtk_table_attach((GtkTable*)days_panel,
                                 ((WDB*)tmp->data)->button,
                                 0, 0 + 1, 0, 1, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
-        gtk_table_attach((GtkTable*)days_panel,
+                gtk_table_attach((GtkTable*)days_panel,
                                 (GtkWidget*)next_station_preset_now(),
                                 0, 0 + 1, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
+            break;
+        }
     }else{
         /* attach days buttons for expert mode */
         for(n = 0, x = 0, y = 0; n < total_elements; n++, x++){

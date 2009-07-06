@@ -526,7 +526,7 @@ draw_home_window(gint count_day){
                          if(current_time > night_begin_time || current_time < day_begin_time){
                             create_day_temperature_text(day, buffer, FALSE, FALSE);
                             /* displaying wind if necessary */
-                            if(app->config->show_wind)
+                            if(app->config->show_wind || app->config->icons_layout >= PRESET_NOW)
                                 create_wind_parameters(day, buffer + strlen(buffer),FALSE,
                                                                         &wind_direction, &wind_speed);
                             sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
@@ -534,7 +534,7 @@ draw_home_window(gint count_day){
                          }else{
                             create_day_temperature_text(day, buffer, FALSE, FALSE);
                              /* displaying wind if necessary */
-                             if(app->config->show_wind)
+                             if(app->config->show_wind || app->config->icons_layout >= PRESET_NOW)
                                     create_wind_parameters(day, buffer + strlen(buffer),TRUE, 
                                                                         &wind_direction, &wind_speed);
                              sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
@@ -555,12 +555,12 @@ draw_home_window(gint count_day){
                     create_day_temperature_text(tmp_day, buffer, FALSE, FALSE);
                 if((app->config->separate) && (i == 1) &&
                    (current_time > night_begin_time || current_time < day_begin_time)){
-                       if(app->config->show_wind)
+                       if(app->config->show_wind || app->config->icons_layout >= PRESET_NOW)
                            create_wind_parameters(tmp_day, buffer + strlen(buffer),FALSE, &wind_direction, &wind_speed);
                        sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
                            item_value(tmp_day, "night_icon"));
                 }else{
-                       if(app->config->show_wind)
+                       if(app->config->show_wind || app->config->icons_layout >= PRESET_NOW)
                            create_wind_parameters(tmp_day, buffer + strlen(buffer),TRUE, &wind_direction, &wind_speed);
                        sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
                        item_value(tmp_day, "day_icon"));

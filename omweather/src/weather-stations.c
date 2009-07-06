@@ -375,7 +375,7 @@ GtkListStore* create_regions_list(sqlite3 *database, int country_id, int *region
                                  G_TYPE_DOUBLE, G_TYPE_DOUBLE);
     data.list = list;
     *sql = 0;
-    if (country_id == 0)
+    if (country_id == 0) /* for GPS */
         snprintf(sql, sizeof(sql) - 1,
                  "SELECT id, name, longititudemax, latitudemax, longititudemin, latitudemin \
                   FROM regions");
@@ -491,7 +491,7 @@ int regions_callback(void *user_data, int argc, char **argv, char **azColName){
 #endif
 
 	setlocale(LC_NUMERIC, "POSIX");
-    data->count += (int)argc / 2;
+    data->count += (int)argc / 6;
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
     for(i = 0; i < argc; i++){

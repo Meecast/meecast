@@ -2178,6 +2178,9 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
             break;
        case TO_NORTH_EAST:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_NORTH_EAST);
+            wind_y_offset = -6;
+            wind_x_offset = -2;
+            wind_y_offset_text = 2;
             break;
        case TO_NORTH_WEST:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_NORTH_WEST);
@@ -2359,23 +2362,22 @@ create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direct
     START_FUNCTION;
 #endif
   /* Is it data current day for? */ 
-  if(!buffer){
-    if(!strcmp((char*)item_value(day, "wind_speed"), "N/A")){
-        *speed = -1;
-    }else{
-        *speed = convert_wind_units(app->config->wind_units, atof(item_value(day, "wind_speed")));
-    }
-    if(!strcmp((char*)item_value(day, "wind_direction"), "N/A")){
-        *direction = UNKNOWN_DIRECTION;
-    }else{
-        wind_direction = (char*)hash_table_find(item_value(day, "wind_direction"), TRUE);
-        *direction = choose_wind_direction(wind_direction);
-    }
-    return;
-  } 
+    if(!buffer){
+        if(!strcmp((char*)item_value(day, "wind_speed"), "N/A")){
+            *speed = -1;
+        }else{
+            *speed = convert_wind_units(app->config->wind_units, atof(item_value(day, "wind_speed")));
+        }
+        if(!strcmp((char*)item_value(day, "wind_direction"), "N/A")){
+            *direction = UNKNOWN_DIRECTION;
+        }else{
+            wind_direction = (char*)hash_table_find(item_value(day, "wind_direction"), TRUE);
+            *direction = choose_wind_direction(wind_direction);
+        }
+        return;
+    } 
  
-
-  if((is_day && !strcmp((char*)item_value(day, "day_wind_speed"), "N/A"))||
+    if((is_day && !strcmp((char*)item_value(day, "day_wind_speed"), "N/A")) &&
        !strcmp((char*)item_value(day, "night_wind_speed"), "N/A")){
         if (buffer && app->config->icons_layout < PRESET_NOW)
             sprintf(buffer + strlen(buffer),
@@ -2386,55 +2388,52 @@ create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direct
             _("N/A"), _("N/A"));
         *direction = UNKNOWN_DIRECTION;
         *speed = -1;
-    }
-    else{
-       if((is_day && !strcmp((char*)item_value(day, "day_wind_title"), "N/A"))||
-           !strcmp((char*)item_value(day, "night_wind_title"), "N/A")){
-           wind_direction = _("N/A");
-           *direction = UNKNOWN_DIRECTION;
-           *speed = -1;
-       }
-       else
-           if (is_day){
-               wind_direction = (char*)hash_table_find(item_value(day, "day_wind_title"), TRUE);
-               if (buffer && app->config->icons_layout < PRESET_NOW){
+    }else{
+
+       if((is_day && !strcmp((char*)item_value(day, "day_wind_title"), "N/A")) &&
+                     !strcmp((char*)item_value(day, "day_wind_speed"), "N/A"))
+            is_day = FALSE;
+
+       if (is_day){
+           wind_direction = (char*)hash_table_find(item_value(day, "day_wind_title"), TRUE);
+           if (buffer && app->config->icons_layout < PRESET_NOW){
+               sprintf(buffer + strlen(buffer),
+                   "<span foreground='#%02x%02x%02x'>\n%s",
+                   app->config->font_color.red >> 8,
+                   app->config->font_color.green >> 8,
+                   app->config->font_color.blue >> 8,
+                   wind_direction);
+            }
+           *direction = choose_wind_direction(wind_direction);
+           *speed = convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed")));
+           if (buffer && app->config->icons_layout < PRESET_NOW){
+               if (app->config->show_wind_gust)
                    sprintf(buffer + strlen(buffer),
-                       "<span foreground='#%02x%02x%02x'>\n%s",
-                       app->config->font_color.red >> 8,
-                       app->config->font_color.green >> 8,
-                       app->config->font_color.blue >> 8,
-                       wind_direction);
-                }
-               *direction = choose_wind_direction(wind_direction);
-               *speed = convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed")));
-               if (buffer && app->config->icons_layout < PRESET_NOW){
-                   if (app->config->show_wind_gust)
-                       sprintf(buffer + strlen(buffer),
-                           "%.1f</span>",
-                           convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed"))));
-               
-                   else
-                        sprintf(buffer + strlen(buffer),"</span>");
-               }
-           }else{
-               wind_direction = (char*)hash_table_find(item_value(day, "night_wind_title"), TRUE);
-               *direction = choose_wind_direction(wind_direction);
-               *speed = convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed")));
-               if (buffer && app->config->icons_layout < PRESET_NOW){
-                   sprintf(buffer + strlen(buffer),
-                       "<span foreground='#%02x%02x%02x'>\n%s",
-                       app->config->font_color.red >> 8,
-                       app->config->font_color.green >> 8,
-                       app->config->font_color.blue >> 8,
-                       wind_direction);
-                   if (app->config->show_wind_gust)
-                       sprintf(buffer + strlen(buffer),
-                           "%.1f</span>",
-                           convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed"))));
-                   else
-                       sprintf(buffer + strlen(buffer),"</span>");
-               } 
+                       "%.1f</span>",
+                       convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed"))));
+           
+               else
+                    sprintf(buffer + strlen(buffer),"</span>");
            }
+       }else{
+           wind_direction = (char*)hash_table_find(item_value(day, "night_wind_title"), TRUE);
+           *direction = choose_wind_direction(wind_direction);
+           *speed = convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed")));
+           if (buffer && app->config->icons_layout < PRESET_NOW){
+               sprintf(buffer + strlen(buffer),
+                   "<span foreground='#%02x%02x%02x'>\n%s",
+                   app->config->font_color.red >> 8,
+                   app->config->font_color.green >> 8,
+                   app->config->font_color.blue >> 8,
+                   wind_direction);
+               if (app->config->show_wind_gust)
+                   sprintf(buffer + strlen(buffer),
+                       "%.1f</span>",
+                       convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed"))));
+               else
+                   sprintf(buffer + strlen(buffer),"</span>");
+           } 
+       }
     }
 }
 /*******************************************************************************/

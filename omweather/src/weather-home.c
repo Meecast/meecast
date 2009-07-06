@@ -2135,37 +2135,37 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
 
     memset(buffer, 0, sizeof(buffer));
     switch (wind_direction){
-       case SOUTH:
+       case TO_SOUTH:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_SOUTH);
             break;
-       case EAST:
+       case TO_EAST:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_EAST);
             wind_x_offset = -4;
             wind_x_offset_text = -3;
             break;
-       case WEST:
+       case TO_WEST:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_WEST);
             wind_x_offset = -10;
             break;
-       case NORTH:
+       case TO_NORTH:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_NORTH);
             wind_y_offset = -5;
             wind_y_offset_text = 4;
             break;
-       case SOUTH_EAST:
+       case TO_SOUTH_EAST:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_SOUTH_EAST);
             wind_x_offset = -3;
             wind_x_offset_text = -2;
             break;
-       case SOUTH_WEST:
+       case TO_SOUTH_WEST:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_SOUTH_WEST);
             wind_y_offset = -2;
             wind_x_offset_text = 2;            
             break;
-       case NORTH_EAST:
+       case TO_NORTH_EAST:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_NORTH_EAST);
             break;
-       case NORTH_WEST:
+       case TO_NORTH_WEST:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_NORTH_WEST);
             wind_x_offset = 0;
             wind_y_offset = -2;
@@ -2337,45 +2337,6 @@ get_day_part_begin_time(GSList *day, guint year, const gchar *day_part){
     strptime(buffer, "%b %d %Y %I:%M %p", &tm);
     return  mktime(&tm);
 }
-/*******************************************************************************/
-gint
-choose_wind_direction(gchar *buffer)
-{
-    if (!buffer)
-        return UNKNOWN_DIRECTION;
-    if (buffer[0] == 'N'){
-        if (strlen(buffer) > 1){
-            if (buffer[1] == 'W')
-                return NORTH_WEST;
-            else{
-               if (buffer[1] == 'E')
-                    return NORTH_EAST;
-               else
-                    return NORTH;
-            }
-        }else   
-            return NORTH;
-    }else{
-        if (buffer[0] == 'S'){
-            if (strlen(buffer) > 1){
-                if (buffer[1] == 'W')
-                    return SOUTH_WEST;
-                else{
-                    if (buffer[1] == 'E')
-                        return SOUTH_EAST;
-                    else
-                        return SOUTH;
-                }
-            }else
-                    return SOUTH;
-        }else
-        if (buffer[0] == 'W')
-            return WEST;
-        if (buffer[0] == 'E')
-            return EAST;
-    }
-}
-
 /*******************************************************************************/
 void 
 create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direction, float *speed){

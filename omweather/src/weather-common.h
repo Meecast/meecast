@@ -126,7 +126,22 @@ extern void write_log(char *string);
 #define PRESET_BIG_IMAGE_SIZE 128
 #define PRESET_NOW_BACKGROUND       "OMW_widget_background_single_now.png"
 #define PRESET_NOW_BACKGROUND_TOWN  "OMW_widget_button_single_town.png"
-#define PRESET_WIND_NORMAL          "OMW_widget_icon_wind_normal.png"
+#define PRESET_WIND_SOUTH           "wind_south.png"
+#define PRESET_WIND_SOUTH_EAST      "wind_south_east.png"
+#define PRESET_WIND_SOUTH_WEST      "wind_south_west.png"
+#define PRESET_WIND_NORTH           "wind_north.png"
+#define PRESET_WIND_NORTH_EAST      "wind_north_east.png"
+#define PRESET_WIND_NORTH_WEST      "wind_north_west.png"
+#define PRESET_WIND_WEST            "wind_west.png"
+#define PRESET_WIND_EAST            "wind_east.png"
+#define PRESET_WIND_SOUTH_WARN           "wind_south_warning.png"
+#define PRESET_WIND_SOUTH_EAST_WARN      "wind_south_east_warning.png"
+#define PRESET_WIND_SOUTH_WEST_WARN      "wind_south_west_warning.png"
+#define PRESET_WIND_NORTH_WARN           "wind_north_warning.png"
+#define PRESET_WIND_NORTH_EAST_WARN      "wind_north_east_warning.png"
+#define PRESET_WIND_NORTH_WEST_WARN      "wind_north_west_warning.png"
+#define PRESET_WIND_WEST_WARN            "wind_west_warning.png"
+#define PRESET_WIND_EAST_WARN            "wind_east_warning.png"
 #define PRESET_WIND_SOUTH           "wind_south.png"
 #define PRESET_WIND_NORTH           "wind_north.png"
 #define PRESET_WIND_EAST            "wind_east.png"
@@ -138,7 +153,7 @@ extern void write_log(char *string);
 /*******************************************************************************/
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
        CHECK_GPS_POSITION};
-enum { UNKNOWN_DIRECTION, NORTH, NORTH_EAST, EAST, SOUTH_EAST, SOUTH, SOUTH_WEST, WEST, NORTH_WEST };
+enum { UNKNOWN_DIRECTION, TO_NORTH, TO_NORTH_EAST, TO_EAST, TO_SOUTH_EAST, TO_SOUTH, TO_SOUTH_WEST, TO_WEST, TO_NORTH_WEST };
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, PRESET_NOW, APPLICATION_MODE };
 enum { FIRST_BUTTON, OTHER_BUTTON };
 enum { RIGHT, LEFT, TOP, BOTTOM, NOTHING };

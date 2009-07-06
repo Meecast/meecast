@@ -526,7 +526,47 @@ change_state_window(GtkWidget *window){
     END_FUNCTION;
 #endif
 }
+/*******************************************************************************/
+gint
+choose_wind_direction(gchar *buffer)
+{
+    if (!buffer)
+        return UNKNOWN_DIRECTION;
+    if (buffer[0] == 'N'){
+        if (strlen(buffer) > 1){
+            if (buffer[1] == 'W')
+                return TO_SOUTH_EAST;
+            else{
+               if (buffer[1] == 'E')
+                    return TO_SOUTH_WEST;
+               else
+                    return TO_SOUTH;
+            }
+        }else   
+            return TO_SOUTH;
+    }else{
+        if (buffer[0] == 'S'){
+            if (strlen(buffer) > 1){
+                if (buffer[1] == 'W')
+                    return TO_NORTH_EAST;
+                else{
+                    if (buffer[1] == 'E')
+                        return TO_NORTH_WEST;
+                    else
+                        return TO_NORTH;
+                }
+            }else
+                    return TO_NORTH;
+        }else
+        if (buffer[0] == 'W')
+            return TO_EAST;
+        if (buffer[0] == 'E')
+            return TO_WEST;
+    }
+}
 
+
+/*******************************************************************************/
 /* For debugging   
 void write_log(char *string)
 {

@@ -530,7 +530,9 @@ change_state_window(GtkWidget *window){
 gint
 choose_wind_direction(gchar *buffer)
 {
-    if (!buffer)
+    /* if buffer is null or CALM */
+    if (!buffer || 
+        (buffer[0] == 'C' && buffer[1] == 'A'))
         return UNKNOWN_DIRECTION;
     if (buffer[0] == 'N'){
         if (strlen(buffer) > 1){

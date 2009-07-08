@@ -3,8 +3,8 @@
 <name>weather.com</name>
 <logo>weather.com.png</logo>
 <base>weather.com.db</base>
-<forecast url="http://xoap.weather.com/weather/local/%s?cc=*&amp;unit=m&amp;dayf=10" />
-<detail url="http://xoap.weather.com/weather/local/%s?cc=*&amp;dayf=1&amp;unit=m&amp;hbhf=12" />
+<forecast url="http://xml.weather.com/weather/local/%s?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.8&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.8&amp;unit=m&amp;dayf=10&amp;cc=*" />
+<detail url="http://xml.weather.com/weather/local/%s?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.8&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.8&amp;unit=m&amp;dayf=1&amp;hbhf=12" />
 <search url="http://xoap.weather.com/search/search?where=%s" />
 <library>libomweather-weather-com-source.so</library>
 </source>

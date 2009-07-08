@@ -78,19 +78,19 @@ struct _OmweatherPluginPrivate
 
 
 const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
-    {	"weather.com",
-	"http://xoap.weather.com/weather/local/%s?cc=*&unit=m&dayf=10",
-	"http://xoap.weather.com/weather/local/%s?cc=*&dayf=1&unit=m&hbhf=12",
-	"ISO-8859-1",
-	parse_weather_com_xml,
-	parse_weather_com_xml_hour
+    {   "weather.com",
+        "http://xml.weather.com/weather/local/%s?cm_ven=1CW&site=wx.com-bar&cm_ite=wx-cc&par=1CWFFv1.1.8&cm_pla=wx.com-bar&cm_cat=FFv1.1.8&unit=m&dayf=10&cc=*",
+        "http://xml.weather.com/weather/local/%s?cm_ven=1CW&site=wx.com-bar&cm_ite=wx-cc&par=1CWFFv1.1.8&cm_pla=wx.com-bar&cm_cat=FFv1.1.8&unit=m&dayf=1&hbhf=12",
+        "ISO-8859-1",
+        parse_weather_com_xml,
+        parse_weather_com_xml_hour
     },
-    {	"rp5.ru",
-	"http://rp5.ru/xml.php?id=%s",
+    {   "rp5.ru",
+        "http://rp5.ru/xml.php?id=%s",
         NULL,
-	"windows-1251",
-	parse_rp5_ru_xml,
-	NULL
+        "windows-1251",
+        parse_rp5_ru_xml,
+        NULL
     }
 };
 /* main struct */

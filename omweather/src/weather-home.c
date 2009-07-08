@@ -2183,9 +2183,9 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
             break;
        case TO_NORTH_WEST:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_WIND_NORTH_WEST);
-            wind_x_offset = -2;
-            wind_y_offset = -4;
-            wind_x_offset_text = 2;
+            wind_x_offset = -7;
+            wind_y_offset = -2;
+            wind_x_offset_text = 1;
             break;
        default:
             memset(buffer, 0, sizeof(buffer));

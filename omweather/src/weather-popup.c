@@ -89,7 +89,8 @@ double time_stop()
 }
 */
 
-GtkWidget* create_sun_time_widget(GHashTable *day){
+GtkWidget*
+create_sun_time_widget(GHashTable *day){
     GtkWidget   *main_widget = NULL,
                 *main_label;
     gchar       buffer[1024],
@@ -109,6 +110,7 @@ GtkWidget* create_sun_time_widget(GHashTable *day){
 
     if(g_hash_table_lookup(day, "day_sunrise")){
         snprintf(buffer, sizeof(buffer) - 1, "%s", _("Sunrise: "));
+        strptime(g_hash_table_lookup(day, "day_sunrise"), "%r", &time_show);
         if(strstr(g_hash_table_lookup(day, "day_sunrise"), "PM"))
             time_show.tm_hour += 12;
 
@@ -257,7 +259,7 @@ create_time_updates_widget(GSList *current, gboolean change_color){
 /*******************************************************************************/
 gboolean 
 make_current_tab(GtkWidget *vbox){
-    GtkWidget   *child;
+    GtkWidget   *child = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -268,7 +270,8 @@ make_current_tab(GtkWidget *vbox){
 #ifndef CLUTTER
            gtk_widget_show_all(vbox);
 #endif
-        }else
+        }
+        else
            gtk_widget_destroy(GTK_WIDGET(child));
     }
 #ifdef DEBUGFUNCTIONCALL
@@ -288,7 +291,7 @@ make_tab(GtkWidget *vbox){
         day = (GHashTable*)g_object_get_data(G_OBJECT(vbox), "day");
         child = create_day_tab(app->wsd.current, day, &day_name);
         if(app->popup_window){
-            gtk_container_add(GTK_CONTAINER(vbox),child);
+            gtk_container_add(GTK_CONTAINER(vbox), child);
 #ifndef CLUTTER
             gtk_widget_show_all(vbox);
 #endif
@@ -301,7 +304,8 @@ make_tab(GtkWidget *vbox){
 }
 
 /*******************************************************************************/
-gboolean make_hour_tab(GtkWidget *vbox){
+gboolean
+make_hour_tab(GtkWidget *vbox){
     GtkWidget	*child;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -320,9 +324,8 @@ gboolean make_hour_tab(GtkWidget *vbox){
     return FALSE;
 }
 /*******************************************************************************/
-GtkWidget *
-create_toolbar_box(GtkCallback exit_function, GtkWidget *window, gboolean fullscreen_button)
-{
+GtkWidget*
+create_toolbar_box(GtkCallback exit_function, GtkWidget *window, gboolean fullscreen_button){
     GtkWidget	*buttons_box = NULL,
                 *settings_button = NULL,
                 *refresh_button = NULL,
@@ -380,12 +383,12 @@ create_toolbar_box(GtkCallback exit_function, GtkWidget *window, gboolean fullsc
 }
 /*******************************************************************************/
 void
-destroy_container (GtkWidget *widget, gpointer *data){
+destroy_container(GtkWidget *widget, gpointer *data){
     gtk_widget_destroy(GTK_WIDGET(widget));
 }
 /******************************************************************************/
 void
-popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
+popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data){
     GtkWidget *vbox = NULL;
 
 #ifdef DEBUGFUNCTIONCALL
@@ -411,27 +414,27 @@ popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data) {
 
 }
 /*******************************************************************************/
-gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
-                              gpointer user_data){
-    GtkWidget	*notebook = NULL,
-		        *tab = NULL,
-		        *hour_tab = NULL,
-		        *current_tab = NULL,
-		        *label = NULL,
-		        *vbox = NULL,
-		        *buttons_box = NULL,
-		        *label_box = NULL,
-		        *copyright_box = NULL,
-		        *no_weather_box = NULL;
-    gint	    active_tab = 0,
-		        k = 0,
-		        page = 0,
-		        i = 1;
-    gchar	    *day_name = NULL;
-    time_t	    current_time = 0,
-		        diff_time,
-		        current_data_last_update = 0,
-		        data_last_update = 0;
+gboolean
+weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
+    GtkWidget   *notebook = NULL,
+                *tab = NULL,
+                *hour_tab = NULL,
+                *current_tab = NULL,
+                *label = NULL,
+                *vbox = NULL,
+                *buttons_box = NULL,
+                *label_box = NULL,
+                *copyright_box = NULL,
+               *no_weather_box = NULL;
+    gint        active_tab = 0,
+                k = 0,
+                page = 0,
+                i = 1;
+    gchar       *day_name = NULL;
+    time_t      current_time = 0,
+                diff_time,
+                current_data_last_update = 0,
+                data_last_update = 0;
     GSList      *tmp = NULL;
     GHashTable  *day = NULL;
 #ifdef DEBUGFUNCTIONCALL
@@ -479,8 +482,6 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     gtk_window_fullscreen(GTK_WINDOW(app->popup_window));
 #endif
 
-
-
 /* create frame vbox */
     vbox = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(app->popup_window), vbox);
@@ -512,11 +513,11 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
     current_data_last_update = last_update_time(app->wsd.current);
     /* Check a valid time for current weather */
     if(!app->wsd.current_data_is_invalid &&
-	    (current_data_last_update >
-		( current_time - app->config->data_valid_interval)) &&
-	    (current_data_last_update <
-		( current_time + app->config->data_valid_interval)))
-	current_tab = gtk_vbox_new(FALSE, 0);
+        (current_data_last_update >
+        ( current_time - app->config->data_valid_interval)) &&
+        (current_data_last_update <
+        ( current_time + app->config->data_valid_interval)))
+    current_tab = gtk_vbox_new(FALSE, 0);
 
     if(current_tab){
         if(active_tab == 0){
@@ -563,7 +564,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
    while(tmp && i < Max_count_weather_day){
         day = (GHashTable*)tmp->data;
         /* Acceleration of starting gtk_notebook */
-        if (active_tab != i){
+        if(active_tab != i){
             /* Create the empty page */
             tab = create_pseudo_day_tab(app->wsd.current, day, &day_name);
             if(tab){
@@ -576,7 +577,8 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 #endif
                 add_item2object(&(app->tab_of_window_popup), (void*)tab);
            }
-        }else{
+        }
+        else{
              /* Create the page with data */
             tab = create_day_tab(app->wsd.current, day, &day_name);
             if(tab){
@@ -586,7 +588,7 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
                g_object_set_data(G_OBJECT(tab), "day", (gpointer)tmp->data);
            }
         }
-        if (day_name){
+        if(day_name){
             g_free(day_name);
             day_name = NULL;
         }
@@ -662,7 +664,8 @@ gboolean weather_window_popup(GtkWidget *widget, GdkEvent *event,
 }
 
 /*******************************************************************************/
-void settings_button_handler(GtkWidget *button, GdkEventButton *event,
+void
+settings_button_handler(GtkWidget *button, GdkEventButton *event,
 								gpointer user_data){
     gint day_number
 	= (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");

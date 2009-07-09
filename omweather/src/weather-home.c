@@ -741,6 +741,7 @@ redraw_home_window(gboolean first_start){
         if(app->station_data)
             g_hash_table_remove_all(app->station_data);
         count_day = parser(buffer, app->station_data);
+        fprintf(stderr, "\n>>>>>>>>>>>>>>>>Days count = %d from new parser.", count_day);
     }
 /* Parse data file */
     count_day = parse_weather_file_data(app->config->current_station_id,
@@ -902,6 +903,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #endif
     }
     app->sources_list = create_sources_list(SOURCESPATH, &app->sources_number, &app->handles);
+    app->station_data = g_hash_table_new(g_str_hash, g_str_equal);
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
     app->popup_window = NULL;
@@ -1075,19 +1077,23 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
         if(app->config)
             g_free(app->config);
 
-    if(app->handles){
-        unload_parsers(app->handles);
-        g_slist_free(app->handles);
-        app->handles = NULL;
-    }
-    if(app->time_update_list){
-        gtk_list_store_clear(app->time_update_list);
-        g_object_unref(app->time_update_list);
-    }
-    if(app->user_stations_list){
-        gtk_list_store_clear(app->user_stations_list);
-        g_object_unref(app->user_stations_list);
-    }
+        if(app->handles){
+            unload_parsers(app->handles);
+            g_slist_free(app->handles);
+            app->handles = NULL;
+        }
+        if(app->time_update_list){
+            gtk_list_store_clear(app->time_update_list);
+            g_object_unref(app->time_update_list);
+        }
+        if(app->user_stations_list){
+            gtk_list_store_clear(app->user_stations_list);
+            g_object_unref(app->user_stations_list);
+        }
+        if(app->station_data){
+            g_hash_table_remove_all(app->station_data);
+            g_hash_table_destroy(app->station_data);
+        }
     }
     app && (g_free(app), app = NULL);
     /* Deinitialize libosso */

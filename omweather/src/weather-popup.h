@@ -34,7 +34,7 @@
 /*******************************************************************************/
 extern	WeatherSource	weather_sources[];
 /*******************************************************************************/
-GtkWidget* create_sun_time_widget(GSList *day);
+GtkWidget* create_sun_time_widget(GHashTable *day);
 GtkWidget* create_moon_phase_widget(GSList *current);
 GtkWidget* create_time_updates_widget(GSList *current, gboolean change_color);
 
@@ -51,8 +51,8 @@ void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 void maximize_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
 void destroy_container (GtkWidget *widget, gpointer *data);
 
-GtkWidget* create_day_tab(GSList *current, GSList *day, gchar **day_name);
-GtkWidget* create_pseudo_day_tab(GSList *current, GSList *day, gchar **day_name);
+GtkWidget* create_day_tab(GSList *current, GHashTable *day, gchar **day_name);
+GtkWidget* create_pseudo_day_tab(GSList *current, GHashTable *day, gchar **day_name);
 GtkWidget* create_current_tab(GSList *current);
 GtkWidget* create_hour_tab(void);
 GtkWidget* create_toolbar_box(GtkCallback exit_function, GtkWidget *window, gboolean fullscreen_button);

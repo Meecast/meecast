@@ -2378,7 +2378,7 @@ create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direct
             *direction = UNKNOWN_DIRECTION;
         }else{
             wind_direction = (char*)hash_table_find(item_value(day, "wind_direction"), TRUE);
-            *direction = choose_wind_direction(wind_direction);
+            *direction = choose_wind_direction(item_value(day, "wind_direction"));
         }
         return;
     } 

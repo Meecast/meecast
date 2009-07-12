@@ -102,7 +102,7 @@ weather_initialize_dbus(void) {
         /* Add D-BUS signal handler for 'status_changed' */
         app->dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
 
-#if !defined OS2008 && !defined OS2009
+#if !defined OS2008 && !defined OS2009 && !defined NONMAEMO
         filter_string =
             g_strdup_printf("interface=%s", ICD_DBUS_INTERFACE);
         /* add match */
@@ -152,7 +152,7 @@ weather_deinitialize_dbus(void) {
 #endif
 
     if (app->dbus_conn){
-#if !defined OS2008 && !defined OS2009
+#if !defined OS2008 && !defined OS2009 && !defined NONMAEMO
          dbus_bus_remove_match(app->dbus_conn, ICD_DBUS_INTERFACE, NULL);
          dbus_connection_remove_filter(app->dbus_conn,
              get_connection_status_signal_cb);

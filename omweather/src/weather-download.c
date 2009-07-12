@@ -55,7 +55,7 @@ GtkWidget *create_window_update(void) {
                                         NULL, _("Update weather"));
 }
 /*******************************************************************************/
-#if !defined OS2008 && !defined OS2009
+#if !defined OS2008 && !defined OS2009 && !defined NONMAEMO
 static DBusHandlerResult
 get_connection_status_signal_cb(DBusConnection * connection,
                                 DBusMessage * message, void *user_data) {

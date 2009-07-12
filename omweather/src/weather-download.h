@@ -32,7 +32,7 @@
 #include "weather-common.h"
 #include <curl/multi.h>
 
-#if !defined OS2008 && !defined OS2009
+#if !defined OS2008 && !defined OS2009 && !defined NONMAEMO
 #include <osso-ic.h>
 #include <osso-ic-dbus.h>
 #endif

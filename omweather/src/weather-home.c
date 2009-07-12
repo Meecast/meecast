@@ -570,22 +570,34 @@ draw_home_window(gint count_day){
         else{ /* Show N/A for all others day buttons when it not inside range */
             is_na_day = TRUE;
             if(app->config->show_wind)
-            sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260\n%s\n%s</span>",
-                app->config->font_color.red >> 8,
-                app->config->font_color.green >> 8,
-                app->config->font_color.blue >> 8,
-                _("N/A"), _("N/A"), _("N/A"),
-                _("N/A"), _("N/A"));
-            else
-            sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
-                app->config->font_color.red >> 8,
-                app->config->font_color.green >> 8,
-                app->config->font_color.blue >> 8,
-                _("N/A"), _("N/A"), _("N/A"));
+/*
+                sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260\n%s\n%s</span>",
+                  app->config->font_color.red >> 8,
+                  app->config->font_color.green >> 8,
+                  app->config->font_color.blue >> 8,
+                  _("N/A"), _("N/A"), _("N/A"),
+                  _("N/A"), _("N/A"));
+*/
+                sprintf(buffer, "%s\n%s\302\260\n%s\302\260\n%s\n%s",
+                  _("N/A"), _("N/A"), _("N/A"),
+                  _("N/A"), _("N/A"));
+
+            else{
+/*
+                sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
+                  app->config->font_color.red >> 8,
+                  app->config->font_color.green >> 8,
+                  app->config->font_color.blue >> 8,
+                  _("N/A"), _("N/A"), _("N/A"));
+*/
+                sprintf(buffer, "%s\n%s\302\260\n%s\302\260",
+                  _("N/A"), _("N/A"), _("N/A"));
+
+            }
             sprintf(buffer_icon, "%s48.png", app->config->icons_set_base);
             if(!flag_last_day && last_day){
-            event_add(last_day + 24 * 60 * 60, CHANGE_DAY_PART);
-            flag_last_day = TRUE;
+                event_add(last_day + 24 * 60 * 60, CHANGE_DAY_PART);
+                flag_last_day = TRUE;
             }
         }
     #if defined(NONMAEMO) || defined (APPLICATION)
@@ -1460,7 +1472,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         previos_station_box = gtk_hbox_new(FALSE, 0);
         previos_station_name_btn = gtk_event_box_new();
         set_background_color(previos_station_name_btn, &(app->config->background_color));
-        
+
         gtk_widget_set_events(previos_station_name_btn, GDK_BUTTON_PRESS_MASK);
         previos_station_name = gtk_label_new(NULL);
         gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
@@ -1479,7 +1491,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         next_station_box = gtk_hbox_new(FALSE, 0);
         next_station_name_btn = gtk_event_box_new();
         set_background_color(next_station_name_btn, &(app->config->background_color));
-        
+
         gtk_widget_set_events(next_station_name_btn, GDK_BUTTON_PRESS_MASK);
         next_station_name = gtk_label_new(NULL);
         gtk_label_set_markup(GTK_LABEL(next_station_name), buffer);
@@ -2381,8 +2393,8 @@ create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direct
             *direction = choose_wind_direction(item_value(day, "wind_direction"));
         }
         return;
-    } 
- 
+    }
+
     if((is_day && !strcmp((char*)item_value(day, "day_wind_speed"), "N/A")) &&
        !strcmp((char*)item_value(day, "night_wind_speed"), "N/A")){
         if (buffer && app->config->icons_layout < PRESET_NOW)

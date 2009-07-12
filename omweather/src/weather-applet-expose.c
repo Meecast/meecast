@@ -51,7 +51,7 @@ gboolean expose_parent(GtkWidget * widget, GdkEventExpose * event) {
         return FALSE;
     }
 
-   gtk_widget_set_size_request(GTK_WIDGET(widget), -1, -1);
+    gtk_widget_set_size_request(GTK_WIDGET(widget), -1, -1);
     gdk_window_get_internal_paint_info(widget->window, &drawable,
                                        &x_offset, &y_offset);
 
@@ -105,7 +105,7 @@ gboolean expose_parent(GtkWidget * widget, GdkEventExpose * event) {
                 radius = height / 2 - 2;
             }
         }
-      
+
         cairo_move_to(cr, x + radius, y);
         cairo_line_to(cr, x + width - radius, y);
         cairo_curve_to(cr, x + width - radius, y, x + width, y, x + width,
@@ -189,48 +189,50 @@ omweather_plugin_expose_event(GtkWidget * widget, GdkEventExpose * event) {
     /* Free context */
     cairo_destroy (cr);
 
-    radius = app->config->corner_radius;
-    cr = gdk_cairo_create(GDK_DRAWABLE (widget->window));
-    cairo_set_source_rgba(cr,
-                          (double)app->config->background_color.red /
-                          (MAXSHORT * 2 + 1),
-                          (double)app->config->background_color.green /
-                          (MAXSHORT * 2 + 1),
-                          (double)app->config->background_color.blue /
-                          (MAXSHORT * 2 + 1),
-                          (double)app->config->alpha_comp / 100);
+    if (app->config->icons_layout < PRESET_NOW){
+        radius = app->config->corner_radius;
+        cr = gdk_cairo_create(GDK_DRAWABLE (widget->window));
+        cairo_set_source_rgba(cr,
+                              (double)app->config->background_color.red /
+                              (MAXSHORT * 2 + 1),
+                              (double)app->config->background_color.green /
+                              (MAXSHORT * 2 + 1),
+                              (double)app->config->background_color.blue /
+                              (MAXSHORT * 2 + 1),
+                              (double)app->config->alpha_comp / 100);
 
-    width = event->area.width;
-    height = event->area.height;
-    x = event->area.x;
-    y = event->area.y;
+        width = event->area.width;
+        height = event->area.height;
+        x = event->area.x;
+        y = event->area.y;
 
-    if ((radius > height / 2) || (radius > width / 2)) {
-        if (width < height) {
-            radius = width / 2 - 1;
-        } else {
-            radius = height / 2 - 2;
+        if ((radius > height / 2) || (radius > width / 2)) {
+            if (width < height) {
+                radius = width / 2 - 1;
+            } else {
+                radius = height / 2 - 2;
+            }
         }
+
+        cairo_move_to(cr, x + radius, y);
+        cairo_line_to(cr, x + width - radius, y);
+        cairo_curve_to(cr, x + width - radius, y, x + width, y, x + width,
+                       y + radius);
+        cairo_line_to(cr, x + width, y + height - radius);
+        cairo_curve_to(cr, x + width, y + height - radius, x + width,
+                       y + height, x + width - radius, y + height);
+        cairo_line_to(cr, x + radius, y + height);
+        cairo_curve_to(cr, x + radius, y + height, x, y + height, x,
+                       y + height - radius);
+        cairo_line_to(cr, x, y + radius);
+        cairo_curve_to(cr, x, y + radius, x, y, x + radius, y);
+
+        /* Draw alpha background */
+        cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
+
+        cairo_fill(cr);
+        cairo_destroy(cr);
     }
-
-    cairo_move_to(cr, x + radius, y);
-    cairo_line_to(cr, x + width - radius, y);
-    cairo_curve_to(cr, x + width - radius, y, x + width, y, x + width,
-                   y + radius);
-    cairo_line_to(cr, x + width, y + height - radius);
-    cairo_curve_to(cr, x + width, y + height - radius, x + width,
-                   y + height, x + width - radius, y + height);
-    cairo_line_to(cr, x + radius, y + height);
-    cairo_curve_to(cr, x + radius, y + height, x, y + height, x,
-                   y + height - radius);
-    cairo_line_to(cr, x, y + radius);
-    cairo_curve_to(cr, x, y + radius, x, y, x + radius, y);
-
-    /* Draw alpha background */
-    cairo_set_operator (cr, CAIRO_OPERATOR_SOURCE);
-
-    cairo_fill(cr);
-    cairo_destroy(cr);
     return GTK_WIDGET_CLASS(g_type_class_peek_parent
                          (GTK_FRAME_GET_CLASS(widget)))->expose_event(widget, event);
 

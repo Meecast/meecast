@@ -569,30 +569,32 @@ draw_home_window(gint count_day){
         }
         else{ /* Show N/A for all others day buttons when it not inside range */
             is_na_day = TRUE;
-            if(app->config->show_wind)
-/*
-                sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260\n%s\n%s</span>",
-                  app->config->font_color.red >> 8,
-                  app->config->font_color.green >> 8,
-                  app->config->font_color.blue >> 8,
-                  _("N/A"), _("N/A"), _("N/A"),
-                  _("N/A"), _("N/A"));
-*/
-                sprintf(buffer, "%s\n%s\302\260\n%s\302\260\n%s\n%s",
-                  _("N/A"), _("N/A"), _("N/A"),
-                  _("N/A"), _("N/A"));
-
+            if(app->config->show_wind){
+                if (!app->config->is_application_mode && app->config->icons_layout >= PRESET_NOW){
+                    sprintf(buffer, "<span foreground='%s'>%s\302\260</span>",
+                        PRESET_BIG_FONT_COLOR_FRONT,
+                        _("N/A"));
+                }else{
+                    sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260\n%s\n%s</span>",
+                        app->config->font_color.red >> 8,
+                        app->config->font_color.green >> 8,
+                        app->config->font_color.blue >> 8,
+                        _("N/A"), _("N/A"), _("N/A"),
+                        _("N/A"), _("N/A"));
+                }
+            }
             else{
-/*
-                sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
-                  app->config->font_color.red >> 8,
-                  app->config->font_color.green >> 8,
-                  app->config->font_color.blue >> 8,
-                  _("N/A"), _("N/A"), _("N/A"));
-*/
-                sprintf(buffer, "%s\n%s\302\260\n%s\302\260",
-                  _("N/A"), _("N/A"), _("N/A"));
-
+                if (!app->config->is_application_mode && app->config->icons_layout >= PRESET_NOW){
+                    sprintf(buffer, "<span foreground='%s'>%s\302\260</span>",
+                        PRESET_BIG_FONT_COLOR_FRONT,
+                        _("N/A"));
+                }else{
+                    sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
+                        app->config->font_color.red >> 8,
+                        app->config->font_color.green >> 8,
+                        app->config->font_color.blue >> 8,
+                        _("N/A"), _("N/A"), _("N/A"));
+                }
             }
             sprintf(buffer_icon, "%s48.png", app->config->icons_set_base);
             if(!flag_last_day && last_day){
@@ -2119,7 +2121,7 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     /* create shadow of day label */
     /* check for memcpy operation */
     if ((strlen(PRESET_BIG_FONT_COLOR_FRONT) == strlen(PRESET_BIG_FONT_COLOR_BACK))&&
-        (begin_of_string = strstr(text,PRESET_BIG_FONT_COLOR_FRONT))){
+        (begin_of_string = strstr(text, PRESET_BIG_FONT_COLOR_FRONT))){
 
         shadow_label = gtk_label_new(NULL);
         memcpy(begin_of_string, PRESET_BIG_FONT_COLOR_BACK,7);

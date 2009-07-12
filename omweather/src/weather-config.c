@@ -614,9 +614,11 @@ gint read_config(AppletConfig * config) {
         || config->icons_layout > PRESET_NOW)
         config->icons_layout = PRESET_NOW;
 
-    /*!!!!!!!!!!!!!!!! Tempory hack !!!!!!!!!!!!!!*/
+    /*!!!!!!!!!!!!!!!! Tempory hack !!!!!!!!!!!!!!
     config->icons_layout = PRESET_NOW;
 
+    */
+    
     /* Get Text Position  Default Right */
     config->text_position = RIGHT;
     config->text_position = gconf_client_get_int(gconf_client,

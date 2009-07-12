@@ -124,8 +124,10 @@ extern void write_log(char *string);
 #define PRESET_BIG_FONT_COLOR_BACK "#000000"
 #define PRESET_WIND_FONT_COLOR "#000000"
 #define PRESET_BIG_IMAGE_SIZE 128
-#define PRESET_NOW_BACKGROUND       "OMW_widget_background_single_now.png"
-#define PRESET_NOW_BACKGROUND_TOWN  "OMW_widget_button_single_town.png"
+#define PRESET_NOW_BACKGROUND           "OMW_widget_background_single_now.png"
+#define PRESET_NOW_BACKGROUND_TOWN      "OMW_widget_button_single_town.png"
+#define PRESET_LEFT_VERTICAL_BACKGROUND "OMW_widget_button_forecast_block_left_end.png"
+#define PRESET_RIGHT_VERTICAL_BACKGROUND "OMW_widget_button_forecast_block_right_end.png"
 #define PRESET_WIND_SOUTH           "wind_south.png"
 #define PRESET_WIND_SOUTH_EAST      "wind_south_east.png"
 #define PRESET_WIND_SOUTH_WEST      "wind_south_west.png"
@@ -155,7 +157,7 @@ extern void write_log(char *string);
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
        CHECK_GPS_POSITION};
 enum { UNKNOWN_DIRECTION, TO_NORTH, TO_NORTH_EAST, TO_EAST, TO_SOUTH_EAST, TO_SOUTH, TO_SOUTH_WEST, TO_WEST, TO_NORTH_WEST };
-enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, PRESET_NOW, APPLICATION_MODE };
+enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, PRESET_NOW, PRESET_NOW_PLUS_TWO, APPLICATION_MODE };
 enum { FIRST_BUTTON, OTHER_BUTTON };
 enum { RIGHT, LEFT, TOP, BOTTOM, NOTHING };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
@@ -194,7 +196,8 @@ enum { STATE_ONE_ROW            = 1U,
        STATE_ICONSET            = 1024U,
        STATE_LONG               = 2048U,
        STATE_SHORT              = 4096U,
-       STATE_PRESET_NOW         = 8192U
+       STATE_PRESET_NOW         = 8192U,
+       STATE_PRESET_NOW_PLUS_TWO  = 16384U
 };
 /* display tab */
 enum { STATE_VISIBLE_ITEMS	= 1U,
@@ -265,10 +268,14 @@ typedef struct weather_data_source{
 }WeatherSource;
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{
-    GtkWidget	*button;
-    GtkWidget	*label;
-    GtkWidget	*box;
-    GtkWidget   *icon_image; 
+    GtkWidget   *button;
+    GtkWidget   *label;
+    GtkWidget   *box;
+    GtkWidget   *icon_image;
+    GtkWidget   *wind;
+    GtkWidget   *wind_text;
+    GtkWidget   *wind_label;
+    GtkWidget   *background;
 }WDB;
 /*******************************************************************************/
 struct event_time{

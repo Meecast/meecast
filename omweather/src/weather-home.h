@@ -46,7 +46,9 @@ void fill_weather_day_button_expand(WDB *new_day_button, const char *text, const
                 gboolean draw_day_label );
 void fill_weather_day_button_presets(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
-                gboolean draw_day_label, GdkColor *color);
+                gboolean draw_day_label, gint wind_direction, gfloat wind_speed);
+GtkWidget *composition_left_vertical_day_button(WDB *new_day_button);
+GtkWidget *composition_right_vertical_day_button(WDB *new_day_button);
 void fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
                 gboolean draw_day_label, gint wind_direction, gfloat wind_gust);

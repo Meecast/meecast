@@ -1224,6 +1224,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 			*two_rows = NULL,
 			*two_columns = NULL,
             *preset_now = NULL,
+            *preset_now_plus_two = NULL,
 			*right = NULL,
 			*left = NULL,
 			*top = NULL,
@@ -1262,6 +1263,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     two_rows = lookup_widget(config_window, "two_rows");
     two_columns = lookup_widget(config_window, "two_columns");
     preset_now = lookup_widget(config_window, "preset_now");
+    preset_now_plus_two = lookup_widget(config_window, "preset_now_plus_two");
     if (row && column && two_rows && two_columns && preset_now) {
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(row)))
             app->config->icons_layout = ONE_ROW;
@@ -1281,7 +1283,11 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
                             (GTK_TOGGLE_BUTTON(preset_now)))
                             app->config->icons_layout = PRESET_NOW;
                         else
-                            app->config->icons_layout = COMBINATION;
+                            if (gtk_toggle_button_get_active
+                                (GTK_TOGGLE_BUTTON(preset_now_plus_two)))
+                                app->config->icons_layout = PRESET_NOW_PLUS_TWO;
+                            else
+                                app->config->icons_layout = COMBINATION;
                     }
                 }
             }
@@ -2123,6 +2129,14 @@ check_buttons_changed_handler(GtkToggleButton * button,
             app->visuals_tab_current_state &= ~STATE_PRESET_NOW;
         goto check;
     }
+    if (!strcmp(button_name, "preset_now_plus_two")) {
+        if (gtk_toggle_button_get_active(button))
+            app->visuals_tab_current_state |= STATE_PRESET_NOW_PLUS_TWO;
+        else
+            app->visuals_tab_current_state &= ~STATE_PRESET_NOW_PLUS_TWO;
+        goto check;
+    }
+
 
     if (!strcmp(button_name, "combination")) {
         if (gtk_toggle_button_get_active(button))
@@ -2806,7 +2820,8 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
         *combination_button = NULL,
         *short_clicking = NULL,
         *long_clicking = NULL,
-        *preset_now_button = NULL;
+        *preset_now_button = NULL,
+        *preset_now_plus_two_button = NULL;
 
     GSList *group = NULL, *icon_set = NULL, *tmp = NULL, *clicking_group = NULL;
     gchar buffer[256];
@@ -2901,6 +2916,20 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
     g_signal_connect(preset_now_button, "clicked",
                      G_CALLBACK(check_buttons_changed_handler),
                      (gpointer) window);
+    /* preset Now + Two days */ 
+    preset_now_plus_two_button =
+        create_button_with_image(BUTTON_ICONS, "now_plus_two", 40, TRUE, TRUE);
+    GLADE_HOOKUP_OBJECT(window, preset_now_plus_two_button, "preset_now_plus_two");
+    gtk_widget_set_name(preset_now_plus_two_button, "preset_now_plus_two");
+    gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_two_button, FALSE,
+                       FALSE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_two_button),
+                               gtk_radio_button_get_group
+                               (GTK_RADIO_BUTTON(preset_now_button)));
+    g_signal_connect(preset_now_plus_two_button, "clicked",
+                     G_CALLBACK(check_buttons_changed_handler),
+                     (gpointer) window);
+ 
  
     switch (app->config->icons_layout) {
         default:
@@ -2934,6 +2963,12 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
                                      TRUE);
             app->visuals_tab_start_state |= STATE_PRESET_NOW;
             break;
+        case PRESET_NOW_PLUS_TWO:
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_button),
+                                     TRUE);
+            app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_TWO;
+            break;
+ 
     }
 /* second line */
     second_line = gtk_hbox_new(FALSE, 0);

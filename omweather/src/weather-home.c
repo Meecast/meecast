@@ -1752,7 +1752,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         current_time = time(NULL);
         diff_time = calculate_diff_time(atol(g_hash_table_lookup(g_hash_table_lookup(app->station_data, "location"), "station_time_zone")));
         current_time += diff_time;
-        update_time = last_update_time(app->wsd.current);
+        update_time = last_update_time_new(g_hash_table_lookup(app->station_data, "current"));
         if(!app->wsd.current_data_is_invalid && 
            update_time > (current_time - app->config->data_valid_interval) &&
            update_time < (current_time + app->config->data_valid_interval) ){

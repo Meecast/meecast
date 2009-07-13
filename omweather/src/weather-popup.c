@@ -504,7 +504,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
     current_time = time(NULL); /* get current day */
 
 /* correct time for current location */
-    diff_time = calculate_diff_time(atol(item_value(app->wsd.location, "station_time_zone")));
+    diff_time = calculate_diff_time(atol(g_hash_table_lookup(g_hash_table_lookup(app->station_data, "location"), "station_time_zone")));
 #ifndef RELEASE
     fprintf(stderr, "\n>>>>>>>Diff time=%li<<<<<<\n", diff_time);
 #endif

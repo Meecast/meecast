@@ -620,7 +620,7 @@ gint read_config(AppletConfig * config) {
                                                 GCONF_KEY_ICONS_LAYOUT,
                                                 NULL);
     if (config->icons_layout < ONE_ROW
-        || config->icons_layout > PRESET_NOW)
+        || config->icons_layout > PRESET_NOW_PLUS_TWO)
         config->icons_layout = PRESET_NOW;
 
     /*!!!!!!!!!!!!!!!! Tempory hack !!!!!!!!!!!!!!

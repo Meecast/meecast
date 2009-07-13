@@ -78,7 +78,7 @@ void view_popup_menu (GtkWidget *treeview, GdkEventButton *event, gpointer userd
 void create_current_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
                                 const gchar *day_name);
 void create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
-                                gboolean for_combination_mode);
+                                gboolean for_combination_mode, gint button_number);
 GtkWidget *next_station_preset_now(gint layout);
 #if defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO
 void omweather_destroy(GtkObject *widget);

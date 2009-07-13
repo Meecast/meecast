@@ -117,12 +117,15 @@ extern void write_log(char *string);
 
 #define PRESET_BIG_FONT "Sans Bold 32"
 #define PRESET_MEDIUM_FONT "Sans Bold 21"
+#define PRESET_DAY_FONT "Sans 16"
+#define PRESET_TEMPERATURE_FONT "Sans 20"
 #define PRESET_WIND_FONT "Sans 13"
 #define PRESET_STATION_FONT "Sans 15"
 //define PRESET_BIG_FONT "Bitstream Vera Sans Bold 38"
 #define PRESET_BIG_FONT_COLOR_FRONT "#FFFFFF"
 #define PRESET_BIG_FONT_COLOR_BACK "#000000"
 #define PRESET_WIND_FONT_COLOR "#000000"
+#define PRESET_FONT_COLOR_LOW_TEMP "#7D9CAD"
 #define PRESET_BIG_IMAGE_SIZE 128
 #define PRESET_NORMAL_IMAGE_SIZE 64
 #define PRESET_NORMAL_WIND_IMAGE_SIZE 42

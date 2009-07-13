@@ -519,7 +519,7 @@ draw_home_window(gint count_day){
                     else{ /* if first day and not config->separate data */
                           /* if current time is night show night icon */
                          if(current_time > night_begin_time || current_time < day_begin_time){
-                            create_day_temperature_text(day, buffer, FALSE, FALSE);
+                            create_day_temperature_text(day, buffer, FALSE, FALSE, FIRST_BUTTON);
                             /* displaying wind if necessary */
                             if(app->config->show_wind || app->config->icons_layout >= PRESET_NOW)
                                 create_wind_parameters(day, buffer + strlen(buffer),FALSE,
@@ -528,7 +528,7 @@ draw_home_window(gint count_day){
                                     (char*)g_hash_table_lookup(day, "night_icon"));
                          }
                          else{
-                            create_day_temperature_text(day, buffer, FALSE, FALSE);
+                            create_day_temperature_text(day, buffer, FALSE, FALSE, FIRST_BUTTON);
                             /* displaying wind if necessary */
                             if(app->config->show_wind || app->config->icons_layout >= PRESET_NOW)
                                 create_wind_parameters(day, buffer + strlen(buffer),TRUE, 
@@ -548,7 +548,7 @@ draw_home_window(gint count_day){
                     night_begin_time = get_day_part_begin_time(tmp_day, year, "24h_sunset");
                 }else
                     tmp_day = day;
-                    create_day_temperature_text(tmp_day, buffer, FALSE, FALSE);
+                    create_day_temperature_text(tmp_day, buffer, FALSE, FALSE, OTHER_BUTTON);
                 if((app->config->separate) && (i == 1) &&
                    (current_time > night_begin_time || current_time < day_begin_time)){
                        if(app->config->show_wind || app->config->icons_layout >= PRESET_NOW)
@@ -1209,7 +1209,7 @@ create_forecast_weather_simple_widget(GHashTable *day){
                 app->config->font_color.green >> 8,
                 app->config->font_color.blue >> 8);
     sprintf(buffer + strlen(buffer), "%s</span>", _("Forecast: \n"));
-    create_day_temperature_text(day, buffer + strlen(buffer), TRUE, TRUE);
+    create_day_temperature_text(day, buffer + strlen(buffer), TRUE, TRUE, OTHER_BUTTON);
     temperature_label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(temperature_label), buffer);
     gtk_label_set_justify(GTK_LABEL(temperature_label), GTK_JUSTIFY_CENTER);
@@ -1650,7 +1650,6 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
             break;
             default:
             case PRESET_NOW:
-                fprintf(stderr,"sssssssssssssssss\n");
                 composition_now((WDB*)tmp->data, PRESET_NOW);
                 gtk_table_attach((GtkTable*)days_panel,
                                 ((WDB*)tmp->data)->button,
@@ -2154,9 +2153,7 @@ fill_weather_day_button_presets(WDB *new_day_button, const char *text, const cha
 
         /* create day icon buffer */
         icon_buffer =
-          gdk_pixbuf_new_from_file_at_size(buffer,
-                        PRESET_NORMAL_WIND_IMAGE_SIZE,
-                        PRESET_NORMAL_WIND_IMAGE_SIZE,
+          gdk_pixbuf_new_from_file(buffer,
                         NULL);
         if (icon_buffer){
             /* create day icon image from buffer */
@@ -2175,6 +2172,12 @@ void
 composition_left_vertical_day_button(WDB *new_day_button)
 {
     gchar       buffer[2048];
+    gchar       tmp_buffer[2048];
+    gchar       *day_name;
+    gchar       *begin_of_string;
+    gchar       *begin_of_string2;
+    GtkWidget   *day = NULL;
+    GtkWidget   *temperature = NULL;
 
     /* Packing all to the box */
     /* create day box to contain icon, label and wind image */
@@ -2189,18 +2192,59 @@ composition_left_vertical_day_button(WDB *new_day_button)
     if (new_day_button->icon_image)
         gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 12+15-6+3, 2);
     if (new_day_button->wind)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 12+15-6+14, 66);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 12+15-10+14, 66-4);
     if (new_day_button->wind_text)
         gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 12+15-6+14+6, 66+5);
-    if (new_day_button->label)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->label, 12+15, 60+37+15);
 
+    day_name = gtk_label_get_text(new_day_button->label);
+    
+    begin_of_string = strstr(day_name, "\n");
+    
+    memset(buffer, 0, sizeof(buffer));
+    memset(tmp_buffer, 0, sizeof(tmp_buffer));
+    memcpy(tmp_buffer, day_name , strlen(day_name) - strlen(begin_of_string));
+    snprintf(buffer,sizeof(buffer) - 1,
+                                   "<span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                    PRESET_BIG_FONT_COLOR_BACK, tmp_buffer);
+    day = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(day), buffer);
+    gtk_label_set_justify(GTK_LABEL(day), GTK_JUSTIFY_CENTER);
+    set_font(day, PRESET_DAY_FONT, -1);
+    gtk_widget_set_size_request(day, 60, 25);
+
+    memset(buffer, 0, sizeof(buffer));
+    memset(tmp_buffer, 0, sizeof(tmp_buffer));
+    begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
+    memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
+    temperature = gtk_label_new(NULL);
+    snprintf(buffer,sizeof(buffer) - 1,
+                                   "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                    PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
+                                    begin_of_string2);
+    gtk_label_set_markup(GTK_LABEL(temperature), buffer);
+    gtk_label_set_justify(GTK_LABEL(temperature), GTK_JUSTIFY_CENTER);
+    set_font(temperature, PRESET_TEMPERATURE_FONT, -1);
+    gtk_widget_set_size_request(temperature, 66, 60);
+
+    if (day)
+            gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 12+15, 60+37+16);
+    if (temperature)
+            gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 12+15+2, 60+37+16+30);
+ 
+    gtk_widget_destroy(new_day_button->label);
 }
 /**********************************************************************************************************/
 void
 composition_right_vertical_day_button(WDB *new_day_button)
 {
     gchar       buffer[2048];
+    gchar       tmp_buffer[2048];
+    gchar       *day_name;
+    gchar       *begin_of_string;
+    gchar       *begin_of_string2;
+    GtkWidget   *day = NULL;
+    GtkWidget   *temperature = NULL;
+
 
     /* Packing all to the box */
     /* create day box to contain icon, label and wind image */
@@ -2216,11 +2260,46 @@ composition_right_vertical_day_button(WDB *new_day_button)
     if (new_day_button->icon_image)
         gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 7+3, 2);
     if (new_day_button->wind)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 7+14, 66);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 7-5+14, 66-4);
     if (new_day_button->wind_text)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 7+14+6, 66+5);
-    if (new_day_button->label)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->label, 7, 60+37+15);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 7+14+6, 66+5); 
+    
+    day_name = gtk_label_get_text(new_day_button->label);
+    
+    begin_of_string = strstr(day_name, "\n");
+    
+    memset(buffer, 0, sizeof(buffer));
+    memset(tmp_buffer, 0, sizeof(tmp_buffer));
+    memcpy(tmp_buffer, day_name , strlen(day_name) - strlen(begin_of_string));
+    snprintf(buffer,sizeof(buffer) - 1,
+                                   "<span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                    PRESET_BIG_FONT_COLOR_BACK, tmp_buffer);
+    day = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(day), buffer);
+    gtk_label_set_justify(GTK_LABEL(day), GTK_JUSTIFY_CENTER);
+    set_font(day, PRESET_DAY_FONT, -1);
+    gtk_widget_set_size_request(day, 60, 25);
+
+    memset(buffer, 0, sizeof(buffer));
+    memset(tmp_buffer, 0, sizeof(tmp_buffer));
+    begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
+    memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
+    temperature = gtk_label_new(NULL);
+    snprintf(buffer,sizeof(buffer) - 1,
+                                   "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                    PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
+                                    begin_of_string2);
+    gtk_label_set_markup(GTK_LABEL(temperature), buffer);
+    gtk_label_set_justify(GTK_LABEL(temperature), GTK_JUSTIFY_CENTER);
+    set_font(temperature, PRESET_TEMPERATURE_FONT, -1);
+    gtk_widget_set_size_request(temperature, 66, 60);
+
+    if (day)
+            gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 0+8, 60+37+16);
+    if (temperature)
+            gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 0+8+2, 60+37+16+30);
+ 
+    gtk_widget_destroy(new_day_button->label);
 
 }
 /*******************************************************************************/
@@ -2357,7 +2436,6 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
         else{
            begin_of_string = strstr(buffer,".png"); 
            snprintf(begin_of_string, sizeof(buffer) - strlen(buffer) - 1, "%s","_warning.png");
-           fprintf(stderr,"file %s\n",buffer);
            new_day_button->wind = gtk_image_new_from_file (buffer);
         }
     }
@@ -2632,7 +2710,7 @@ create_current_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
 /*******************************************************************************/
 void
 create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
-                                                gboolean for_combination_mode){
+                                                gboolean for_combination_mode, gint button_number){
     gint        temp_hi = INT_MAX,
                 temp_low = INT_MAX;
     gchar       delemiter[2] ;
@@ -2651,8 +2729,9 @@ create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
             temp_low = c2f(temp_low);
     }
 
-    if (app->config->text_position == TOP || app->config->text_position == BOTTOM ||
-        app->config->icons_layout >= PRESET_NOW){
+    if (((app->config->text_position == TOP || app->config->text_position == BOTTOM ||
+        app->config->icons_layout == PRESET_NOW) && !(app->config->icons_layout > PRESET_NOW)) || 
+        button_number == FIRST_BUTTON){
         delemiter[0] = '/';
     }
     else{
@@ -2660,17 +2739,26 @@ create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
     }
 
     /* For presets mode */
-    if (!app->config->is_application_mode && app->config->icons_layout >= PRESET_NOW){
-        sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>",
-                            PRESET_BIG_FONT_COLOR_FRONT);
-        if(temp_low != INT_MAX)
-            sprintf(buffer + strlen(buffer), "%i\302\260", temp_low);
-        if(temp_hi != INT_MAX)
-            sprintf(buffer + strlen(buffer), "%s%i\302\260", delemiter, temp_hi );
-        strcat(buffer, "</span>");
-        return;
+    if (!app->config->is_application_mode){
+        if (app->config->icons_layout == PRESET_NOW || button_number == FIRST_BUTTON){
+            sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>",
+                                PRESET_BIG_FONT_COLOR_FRONT);
+            if(temp_low != INT_MAX)
+                sprintf(buffer + strlen(buffer), "%i\302\260", temp_low);
+            if(temp_hi != INT_MAX)
+                sprintf(buffer + strlen(buffer), "%s%i\302\260", delemiter, temp_hi );
+            strcat(buffer, "</span>");
+            return;
+        }
+        if (app->config->icons_layout > PRESET_NOW){
+            sprintf(buffer,"%s\n",(char*)g_hash_table_lookup(day, "day_name"));
+            if(temp_low != INT_MAX)
+                sprintf(buffer + strlen(buffer), "%i\302\260", temp_low);
+            if(temp_hi != INT_MAX)
+                sprintf(buffer + strlen(buffer), "\n%i\302\260",  temp_hi );
+            return;
+        }
     }
-
     if(app->config->swap_hi_low_temperature)
         swap_temperature(&temp_hi, &temp_low);
 

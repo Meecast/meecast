@@ -284,7 +284,9 @@ make_tab(GtkWidget *vbox){
     GHashTable  *day = NULL;
     gchar       *day_name = NULL;
     GtkWidget   *child;
-
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
 
     if(app->popup_window){
         day = (GHashTable*)g_object_get_data(G_OBJECT(vbox), "day");
@@ -437,9 +439,9 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
                 data_last_update = 0;
     GSList      *tmp = NULL;
     GHashTable  *day = NULL;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
 
     if (app->popup_window || app->flag_updating != 0)
         return FALSE;
@@ -656,9 +658,9 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
     gtk_box_pack_start(GTK_BOX(vbox),buttons_box,FALSE,FALSE,0);
     gtk_widget_show_all(app->popup_window);
 
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
     /* Debug
      fprintf(stderr,"Time: %lf msec Pi = %lf\n",time_stop(),weather_window_settings);
     */
@@ -756,12 +758,11 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
                 day_invalid_count = 0,
                 night_invalid_count = 0;
     const gchar *wind_units_str[] = { "m/s", "km/h", "mi/h" };
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     if(!day)
         return NULL;
-
     /* prepare temperature */
     if(g_hash_table_lookup(day, "day_hi_temperature") &&
             !strcmp(g_hash_table_lookup(day, "day_hi_temperature"), "N/A")){
@@ -770,6 +771,7 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     }
     else
         hi_temp = atoi(g_hash_table_lookup(day, "day_hi_temperature"));
+
     if(g_hash_table_lookup(day, "day_low_temperature") &&
             !strcmp(g_hash_table_lookup(day, "day_low_temperature"), "N/A")){
         low_temp = INT_MAX;
@@ -983,9 +985,9 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     g_signal_connect_after(main_widget, "expose-event",
          G_CALLBACK(popup_window_expose), NULL);
 #endif
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
     return main_widget;
 }
 /*******************************************************************************/
@@ -1001,9 +1003,9 @@ create_current_tab(GHashTable *current){
     GdkPixbuf   *icon = NULL;
     float       tmp_distance = 0.0f,
                 tmp_pressure = 0.0f;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     if(!current)
         return NULL;
     main_widget = gtk_vbox_new(FALSE, 0);
@@ -1108,9 +1110,9 @@ create_current_tab(GHashTable *current){
          G_CALLBACK(popup_window_expose), NULL);
 #endif
 
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
     return main_widget;
 }
 /*******************************************************************************/

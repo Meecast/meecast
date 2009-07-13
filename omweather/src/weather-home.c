@@ -659,7 +659,7 @@ draw_home_window(gint count_day){
     create_panel(app->main_window, APPLICATION_MODE,
                  app->config->transparency, tmp_station_name); 
     gtk_table_attach(GTK_TABLE(app->main_window),
-            create_time_updates_widget(app->wsd.current, TRUE),
+            create_time_updates_widget(g_hash_table_lookup(app->station_data, "current"), TRUE),
              0, 1, 2, 3, GTK_EXPAND, GTK_EXPAND, 0, 0);
 #else
     create_panel(app->main_window, app->config->icons_layout,
@@ -1745,10 +1745,9 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         diff_time = calculate_diff_time(atol(g_hash_table_lookup(g_hash_table_lookup(app->station_data, "location"), "station_time_zone")));
         current_time += diff_time;
         update_time = last_update_time_new(g_hash_table_lookup(app->station_data, "current"));
-        if(!app->wsd.current_data_is_invalid && 
-           update_time > (current_time - app->config->data_valid_interval) &&
+        if(update_time > (current_time - app->config->data_valid_interval) &&
            update_time < (current_time + app->config->data_valid_interval) ){
-           if (app->wsd.current)
+           if(g_hash_table_lookup(app->station_data, "current"))
                 current_weather_widget
                   = create_current_weather_simple_widget(g_hash_table_lookup(app->station_data, "current"));
         }else{

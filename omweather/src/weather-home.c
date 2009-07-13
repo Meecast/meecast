@@ -2227,7 +2227,7 @@ composition_left_vertical_day_button(WDB *new_day_button)
     gtk_widget_set_size_request(temperature, 66, 60);
 
     if (day)
-            gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 12+15, 60+37+16);
+            gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 12+15, 60+37+17);
     if (temperature)
             gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 12+15+2, 60+37+16+30);
  
@@ -2295,7 +2295,7 @@ composition_right_vertical_day_button(WDB *new_day_button)
     gtk_widget_set_size_request(temperature, 66, 60);
 
     if (day)
-            gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 0+8, 60+37+16);
+            gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 0+8, 60+37+17);
     if (temperature)
             gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 0+8+2, 60+37+16+30);
  

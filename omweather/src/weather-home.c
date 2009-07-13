@@ -691,17 +691,17 @@ redraw_home_window(gboolean first_start){
 #endif
     if(!first_start){
         /* free station location data */
-        g_hash_table_remove(app->station_data, "location");
+//        g_hash_table_remove(app->station_data, "location");
         /* free station current data */
-	    g_hash_table_remove(app->station_data, "current");
+//        g_hash_table_remove(app->station_data, "current");
 	    /* free station days data */
-	    tmp = g_hash_table_lookup(app->station_data, "forecast");
-	    while(tmp){
-	        tmp_data = (GHashTable*)tmp->data;
-	        if(tmp_data)
-                g_hash_table_destroy(tmp_data);
-	        tmp = g_slist_next(tmp);
-	    }
+//        tmp = g_hash_table_lookup(app->station_data, "forecast");
+//        while(tmp){
+//            tmp_data = (GHashTable*)tmp->data;
+//            if(tmp_data)
+//                g_hash_table_destroy(tmp_data);
+//            tmp = g_slist_next(tmp);
+//        }
 	    /* free station hours data */
 	    tmp = app->wsd.hours_weather;
 	    while(tmp){

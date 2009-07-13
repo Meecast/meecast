@@ -47,8 +47,8 @@ void fill_weather_day_button_expand(WDB *new_day_button, const char *text, const
 void fill_weather_day_button_presets(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
                 gboolean draw_day_label, gint wind_direction, gfloat wind_speed);
-GtkWidget *composition_left_vertical_day_button(WDB *new_day_button);
-GtkWidget *composition_right_vertical_day_button(WDB *new_day_button);
+void composition_left_vertical_day_button(WDB *new_day_button);
+void composition_right_vertical_day_button(WDB *new_day_button);
 void fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
                 gboolean draw_day_label, gint wind_direction, gfloat wind_gust);
@@ -78,7 +78,7 @@ void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
                                 const gchar *day_name);
 void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
                                 gboolean for_combination_mode);
-GtkWidget *next_station_preset_now(void);
+GtkWidget *next_station_preset_now(gint layout);
 #if defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO
 void omweather_destroy(GtkObject *widget);
 #endif

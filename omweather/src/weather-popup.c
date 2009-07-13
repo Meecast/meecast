@@ -146,42 +146,42 @@ create_sun_time_widget(GHashTable *day){
     return main_widget;
 }
 /*******************************************************************************/
-GtkWidget* create_moon_phase_widget(GSList *current){
-    GtkWidget	*main_widget = NULL,
-		*main_label = NULL;
-    gchar	buffer[1024],
-		icon[2048],
-		*space_symbol = NULL;
+GtkWidget*
+create_moon_phase_widget(GHashTable *current){
+    GtkWidget   *main_widget = NULL,
+                *main_label = NULL;
+    gchar       buffer[1024],
+                icon[2048],
+                *space_symbol = NULL;
     GdkPixbuf   *icon_buffer;
     GtkWidget   *icon_image;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!current)
-	return NULL;
-
+        return NULL;
 
     memset(buffer, 0, sizeof(buffer));
     snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-			"%s",
-			(char*)hash_table_find(item_value(current, "moon_phase"), FALSE));
+                "%s",
+            (char*)hash_table_find(g_hash_table_lookup(current, "moon_phase"), FALSE));
     main_label = gtk_label_new(buffer);
     set_font(main_label, NULL, 14);
 
     main_widget = gtk_hbox_new(FALSE, 0);
-    
-    /* Moon icon */
 
-    snprintf(icon, (sizeof(icon) - 1), "%s%s.png", MOON_ICONS, item_value(current, "moon_phase"));
+    /* Moon icon */
+    snprintf(icon, (sizeof(icon) - 1), "%s%s.png", MOON_ICONS,
+                (char*)g_hash_table_lookup(current, "moon_phase"));
     space_symbol = strchr(icon, ' ');
     if(space_symbol)
-	*space_symbol = '_';
+        *space_symbol = '_';
     icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, GIANT_ICON_SIZE,
-						    GIANT_ICON_SIZE, NULL);
-    icon_image = create_icon_widget(icon_buffer, icon, GIANT_ICON_SIZE, &app->clutter_objects_in_popup_form); 					    
+                                                    GIANT_ICON_SIZE, NULL);
+    icon_image = create_icon_widget(icon_buffer, icon, GIANT_ICON_SIZE, &app->clutter_objects_in_popup_form);
 
     if(icon_image)
-	gtk_box_pack_start(GTK_BOX(main_widget), icon_image, FALSE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(main_widget), icon_image, FALSE, TRUE, 0);
 
     gtk_box_pack_start(GTK_BOX(main_widget), main_label, FALSE, TRUE, 10);
 #ifdef DEBUGFUNCTIONCALL
@@ -191,23 +191,23 @@ GtkWidget* create_moon_phase_widget(GSList *current){
 }
 /*******************************************************************************/
 GtkWidget*
-create_time_updates_widget(GSList *current, gboolean change_color){
-    GtkWidget	*main_widget = NULL,
-    		*label_update;
+create_time_updates_widget(GHashTable *current, gboolean change_color){
+    GtkWidget   *main_widget = NULL,
+                *label_update = NULL;
     gchar       buffer[1024],
-		full_filename[2048];
-    struct stat	statv;
-    time_t	tmp_time = 0;
+                full_filename[2048];
+    struct stat statv;
+    time_t      tmp_time = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!current)
-	return NULL;
+        return NULL;
 
-    tmp_time = last_update_time(current);
+    tmp_time = last_update_time_new(current);
 
     memset(buffer, 0, sizeof(buffer));
-    if (change_color)
+    if(change_color)
         snprintf(buffer, sizeof(buffer) - 1, "<span foreground='#%02x%02x%02x'>",
                        app->config->font_color.red >> 8,
                        app->config->font_color.green >> 8,
@@ -215,36 +215,35 @@ create_time_updates_widget(GSList *current, gboolean change_color){
 
     snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
                        " %s", _("Last update at server: "));
-    if(tmp_time <= 0)	/* if weather data for station wasn't download */
-	strcat(buffer, _("Unknown"));
+    if(tmp_time <= 0)   /* if weather data for station wasn't download */
+        strcat(buffer, _("Unknown"));
     else{
-	strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-		    "%X %x", localtime(&tmp_time));
-	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-		    " %s", _("station local time"));
+        strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+                    "%X %x", localtime(&tmp_time));
+        snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+                    " %s", _("station local time"));
     }
     strcat(buffer, "\n");
-    
     sprintf(full_filename, "%s/%s.xml", app->config->cache_dir_name,
-		app->config->current_station_id);
+            app->config->current_station_id);
     if(stat(full_filename, &statv)){
-    	sprintf(buffer + strlen(buffer), "%s%s",
-		_("Last update from server: "), _("Unknown"));
-    }	
-    else{ 
-	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-		    "%s", _("Last update from server: "));
-    	strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-		"%X %x", localtime(&statv.st_mtime));
-	snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-		" %s", _("current location local time"));
+        sprintf(buffer + strlen(buffer), "%s%s",
+                _("Last update from server: "), _("Unknown"));
     }
-
-    if (change_color){
+    else{
+        snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+                    "%s", _("Last update from server: "));
+        strftime(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+                    "%X %x", localtime(&statv.st_mtime));
+        snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
+                    " %s", _("current location local time"));
+    }
+    if(change_color){
         strcat(buffer, "</span>");
         label_update = gtk_label_new(NULL);
         gtk_label_set_markup(GTK_LABEL(label_update), buffer);
-    }else
+    }
+    else
         label_update = gtk_label_new(buffer);
 
     set_font(label_update, NULL, 10);
@@ -264,7 +263,7 @@ make_current_tab(GtkWidget *vbox){
     START_FUNCTION;
 #endif
     if(app->popup_window){
-        child = create_current_tab(app->wsd.current);
+        child = create_current_tab(g_hash_table_lookup(app->station_data, "current"));
         if(app->popup_window){
             gtk_container_add(GTK_CONTAINER(vbox),child);
 #ifndef CLUTTER
@@ -289,7 +288,8 @@ make_tab(GtkWidget *vbox){
 
     if(app->popup_window){
         day = (GHashTable*)g_object_get_data(G_OBJECT(vbox), "day");
-        child = create_day_tab(app->wsd.current, day, &day_name);
+        child = create_day_tab(g_hash_table_lookup(app->station_data, "current"),
+                                day, &day_name);
         if(app->popup_window){
             gtk_container_add(GTK_CONTAINER(vbox), child);
 #ifndef CLUTTER
@@ -510,7 +510,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
 #endif
     current_time += diff_time;
 
-    current_data_last_update = last_update_time(app->wsd.current);
+    current_data_last_update = last_update_time_new(g_hash_table_lookup(app->station_data, "current"));
     /* Check a valid time for current weather */
     if(!app->wsd.current_data_is_invalid &&
         (current_data_last_update >
@@ -525,12 +525,13 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
                                         current_tab,
                                         gtk_label_new(_("Now")));
             make_current_tab(current_tab);
-        }else{
+        }
+        else{
             gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                         current_tab,
                                         gtk_label_new(_("Now")));
 #ifndef CLUTTER
-            g_idle_add((GSourceFunc)make_current_tab,current_tab);
+            g_idle_add((GSourceFunc)make_current_tab, current_tab);
 #endif
             add_item2object(&(app->tab_of_window_popup), (void*)current_tab);
        }
@@ -580,7 +581,8 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
         }
         else{
              /* Create the page with data */
-            tab = create_day_tab(app->wsd.current, day, &day_name);
+            tab = create_day_tab(g_hash_table_lookup(app->station_data, "current"),
+                                    day, &day_name);
             if(tab){
                page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                         tab,
@@ -726,7 +728,7 @@ create_pseudo_day_tab(GSList *current, GHashTable *day, gchar **day_name){
 }
 /*******************************************************************************/
 GtkWidget*
-create_day_tab(GSList *current, GHashTable *day, gchar **day_name){
+create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     const gint  font_size = 14;
     GtkWidget   *main_widget = NULL,
                 *day_night_hbox = NULL,
@@ -759,6 +761,7 @@ create_day_tab(GSList *current, GHashTable *day, gchar **day_name){
 #endif
     if(!day)
         return NULL;
+
     /* prepare temperature */
     if(g_hash_table_lookup(day, "day_hi_temperature") &&
             !strcmp(g_hash_table_lookup(day, "day_hi_temperature"), "N/A")){
@@ -771,7 +774,8 @@ create_day_tab(GSList *current, GHashTable *day, gchar **day_name){
             !strcmp(g_hash_table_lookup(day, "day_low_temperature"), "N/A")){
         low_temp = INT_MAX;
         night_invalid_count++;
-    }else
+    }
+    else
         low_temp = atoi(g_hash_table_lookup(day, "day_low_temperature"));
     if(app->config->temperature_units == FAHRENHEIT){
         if(hi_temp != INT_MAX)
@@ -879,8 +883,7 @@ create_day_tab(GSList *current, GHashTable *day, gchar **day_name){
         gtk_box_pack_start(GTK_BOX(day_text_vbox),
                         day_text, TRUE, TRUE, 0);
         gtk_box_pack_start(GTK_BOX(day_night_hbox),
-                        day_vbox,
-                        TRUE, FALSE, 5);
+                        day_vbox, TRUE, FALSE, 5);
     }
     /* night data */
     night_vbox = gtk_vbox_new(FALSE, 0);
@@ -959,8 +962,7 @@ create_day_tab(GSList *current, GHashTable *day, gchar **day_name){
     /* check for N/A fields in night */
     if(night_invalid_count < 5)
         gtk_box_pack_start(GTK_BOX(day_night_hbox),
-                      night_vbox,
-                      TRUE, FALSE, 5);
+                      night_vbox, TRUE, FALSE, 5);
     else
         gtk_widget_destroy(night_vbox);
     /* day name with date */
@@ -969,8 +971,7 @@ create_day_tab(GSList *current, GHashTable *day, gchar **day_name){
     gtk_box_pack_start(GTK_BOX(main_widget), day_night_hbox, FALSE, FALSE, 5);
     /* sunrise and sunset time */
     gtk_box_pack_start(GTK_BOX(main_widget),
-                      create_sun_time_widget(day),
-                      TRUE, FALSE, 0);
+                      create_sun_time_widget(day), TRUE, FALSE, 0);
     /* last update time */
     if(current)
         gtk_box_pack_start(GTK_BOX(main_widget),
@@ -988,62 +989,64 @@ create_day_tab(GSList *current, GHashTable *day, gchar **day_name){
     return main_widget;
 }
 /*******************************************************************************/
-GtkWidget* create_current_tab(GSList *current){
+GtkWidget*
+create_current_tab(GHashTable *current){
     GtkWidget   *main_widget = NULL,
                 *icon_text_hbox = NULL,
                 *text = NULL,
-	*icon_image       = NULL;
+                *icon_image = NULL;
     gchar       buffer[1024],
                 *units;
     const gchar *wind_units_str[] = { "m/s", "km/h", "mi/h" };
     GdkPixbuf   *icon = NULL;
     float       tmp_distance = 0.0f,
-		tmp_pressure = 0.0f;
+                tmp_pressure = 0.0f;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!current)
-	return NULL;
+        return NULL;
     main_widget = gtk_vbox_new(FALSE, 0);
     icon_text_hbox = gtk_hbox_new(FALSE, 0);
 /* icon */
-    sprintf(buffer,"%s%s.png", app->config->icons_set_base, item_value(current, "icon"));
+    sprintf(buffer,"%s%s.png", app->config->icons_set_base,
+                (char*)g_hash_table_lookup(current, "icon"));
     icon = gdk_pixbuf_new_from_file_at_size(buffer, GIANT_ICON_SIZE,
-						    GIANT_ICON_SIZE, NULL);
+                                            GIANT_ICON_SIZE, NULL);
     icon_image = create_icon_widget(icon, buffer, GIANT_ICON_SIZE, &app->clutter_objects_in_popup_form);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), icon_image, TRUE, TRUE, 0);
     /* temperature */
     memset(buffer, 0, sizeof(buffer));
-    sprintf(buffer, "%s\n", (char *)hash_table_find(item_value(current, "title"), FALSE));
+    sprintf(buffer, "%s\n", (char *)hash_table_find(g_hash_table_lookup(current, "title"), FALSE));
     sprintf(buffer + strlen(buffer), "%s",  _("Temperature: "));
     sprintf(buffer + strlen(buffer), "  %d\302\260",
                 ((app->config->temperature_units == CELSIUS) ?
-			( atoi(item_value(current, "day_hi_temperature"))) :
-			( (int)c2f(atoi(item_value(current, "day_hi_temperature"))))));
+                ( atoi(g_hash_table_lookup(current, "day_hi_temperature"))) :
+                ( (int)c2f(atoi(g_hash_table_lookup(current, "day_hi_temperature"))))));
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")) )
                                                 : ( strcat(buffer, _("F\n")) );
     /* feels like */
     sprintf(buffer + strlen(buffer), "%s", _("Feels like:"));
     sprintf(buffer + strlen(buffer), "  %d\302\260",
-	    (app->config->temperature_units == CELSIUS) ?
-		(atoi(item_value(current, "feel_like"))) :
-		((int)c2f(atoi(item_value(current, "feel_like")))));
+                (app->config->temperature_units == CELSIUS) ?
+                (atoi(g_hash_table_lookup(current, "feel_like"))) :
+                ((int)c2f(atoi(g_hash_table_lookup(current, "feel_like")))));
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")) )
                                                 : ( strcat(buffer, _("F\n")) );
 /* humidity */
-    if( strcmp(item_value(current, "humidity"), "N/A") ){
-	sprintf(buffer + strlen(buffer), "%s", _("Humidity:"));
+    if( strcmp(g_hash_table_lookup(current, "humidity"), "N/A") ){
+        sprintf(buffer + strlen(buffer), "%s", _("Humidity:"));
         sprintf(buffer + strlen(buffer), "  %d%%\n",
-                atoi(item_value(current, "humidity")));
+                atoi(g_hash_table_lookup(current, "humidity")));
     }
 /* visible */
-    if( strcmp(item_value(current, "visible"), "N/A") ){
-	sprintf(buffer + strlen(buffer), "%s", _("Visible:"));
-	if( !strcmp(item_value(current, "visible"), "Unlimited") )
-    	    sprintf(buffer + strlen(buffer), "  %s\n",
-            	    (char*)hash_table_find("Unlimited", FALSE));
-	else{
-    	    tmp_distance = atof(item_value(current, "visible"));
+    if( strcmp(g_hash_table_lookup(current, "visible"), "N/A") ){
+        sprintf(buffer + strlen(buffer), "%s", _("Visible:"));
+        if( !strcmp(g_hash_table_lookup(current, "visible"), "Unlimited") )
+            sprintf(buffer + strlen(buffer), "  %s\n",
+                    (char*)hash_table_find("Unlimited", FALSE));
+        else{
+            tmp_distance = atof(g_hash_table_lookup(current, "visible"));
             switch(app->config->distance_units){
                 default:
                 case METERS: units = _("m"); tmp_distance *= 1000.0f; break;
@@ -1055,45 +1058,43 @@ GtkWidget* create_current_tab(GSList *current){
         }
     }
 /* pressure */
-    if( strcmp(item_value(current, "pressure"), "N/A") ){
-	sprintf(buffer + strlen(buffer), "%s", _("Pressure:"));
-
-	tmp_pressure = atof(item_value(current, "pressure"));
-	switch(app->config->pressure_units){
-	    default:
-	    case MB: units = _("mb"); break;
-	    case INCH: units = _("inHg"); tmp_pressure = mb2inch(tmp_pressure); break;
-	    case MM: units = _("mmHg"); tmp_pressure = mb2mm(tmp_pressure); break;
-	}
-
-	sprintf(buffer + strlen(buffer), "  %.2f %s,", tmp_pressure, units);
-	sprintf(buffer + strlen(buffer), "  %s\n",
-		    (char *)hash_table_find(item_value(current, "pressure_direction"), FALSE));
+    if( strcmp(g_hash_table_lookup(current, "pressure"), "N/A") ){
+        sprintf(buffer + strlen(buffer), "%s", _("Pressure:"));
+        tmp_pressure = atof(g_hash_table_lookup(current, "pressure"));
+        switch(app->config->pressure_units){
+            default:
+            case MB: units = _("mb"); break;
+            case INCH: units = _("inHg"); tmp_pressure = mb2inch(tmp_pressure); break;
+            case MM: units = _("mmHg"); tmp_pressure = mb2mm(tmp_pressure); break;
+        }
+        sprintf(buffer + strlen(buffer), "  %.2f %s,", tmp_pressure, units);
+        sprintf(buffer + strlen(buffer), "  %s\n",
+                (char *)hash_table_find(g_hash_table_lookup(current, "pressure_direction"), FALSE));
     }
 /* wind */
-    if( strcmp(item_value(current, "wind_direction"), "N/A") ){
-	sprintf(buffer + strlen(buffer), "%s", _("Wind:"));
-	sprintf(buffer + strlen(buffer), "  %s\n",
-		(char *)hash_table_find(item_value(current, "wind_direction"), FALSE));
-	if( strcmp(item_value(current, "wind_speed"), "N/A") )
-	    sprintf(buffer + strlen(buffer), "%s", _("Speed:"));
-	    sprintf(buffer + strlen(buffer), "  %.2f %s\n",
-		    convert_wind_units(app->config->wind_units, atof(item_value(current, "wind_speed"))),
-		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+    if( strcmp(g_hash_table_lookup(current, "wind_direction"), "N/A") ){
+        sprintf(buffer + strlen(buffer), "%s", _("Wind:"));
+        sprintf(buffer + strlen(buffer), "  %s\n",
+                    (char *)hash_table_find(g_hash_table_lookup(current, "wind_direction"), FALSE));
+    if( strcmp(g_hash_table_lookup(current, "wind_speed"), "N/A") )
+        sprintf(buffer + strlen(buffer), "%s", _("Speed:"));
+        sprintf(buffer + strlen(buffer), "  %.2f %s\n",
+                convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
+                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     }
 /* gust */
-    if( strcmp(item_value(current, "wind_gust"), "N/A") ){
+    if( strcmp(g_hash_table_lookup(current, "wind_gust"), "N/A") ){
         sprintf(buffer + strlen(buffer), "%s", _("Gust:"));
-	sprintf(buffer + strlen(buffer), "  %.2f %s\n",
-		convert_wind_units(app->config->wind_units, atof(item_value(current, "wind_gust"))),
-		(char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+        sprintf(buffer + strlen(buffer), "  %.2f %s\n",
+                convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_gust"))),
+                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     }
 
     text = gtk_label_new(buffer);
     set_font(text, NULL, 14);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), text, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), create_moon_phase_widget(current),
-			TRUE, TRUE, 0);
+                        TRUE, TRUE, 0);
 
     gtk_box_pack_start(GTK_BOX(main_widget), icon_text_hbox, TRUE, TRUE, 0);
     /* last update time */
@@ -1215,10 +1216,10 @@ GtkWidget* create_hour_tab(void){
 
     gtk_box_pack_start(GTK_BOX(main_widget), window_tmp, TRUE, TRUE, 0);
    /* last update time */
-    if(hour_weather)
-        gtk_box_pack_start(GTK_BOX(main_widget),
-                             create_time_updates_widget(hour_weather, FALSE),
-                             TRUE, FALSE, 5);
+//    if(hour_weather)
+//        gtk_box_pack_start(GTK_BOX(main_widget),
+//                             create_time_updates_widget(hour_weather, FALSE),
+//                             TRUE, FALSE, 5);
     gtk_widget_show_all(main_widget);
 
 #if defined CLUTTER

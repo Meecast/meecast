@@ -43,6 +43,7 @@ GSList*	add_item2object(GSList **object, void *item);
 char* item_value(GSList *object, const char *name);
 void destroy_object(GSList **object);
 time_t last_update_time(GSList *object);
+time_t last_update_time_new(GHashTable *object);
 time_t calculate_diff_time(int timezone);
 #ifndef RELEASE
 void display_all_object_items(GSList *object);

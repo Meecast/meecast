@@ -324,31 +324,32 @@ change_station_select(GtkWidget *widget, gpointer user_data){
 /*******************************************************************************/
 int 
 calculate_offset_of_day(int count_day){
-
     long int    diff_time;
-    int		year,
-    		current_month,
-		offset;
-    time_t	current_day,
-		current_time,
-		date_time;
-    struct tm	*tm = NULL;
-    double	pre_offset = 0.0F;
-    gchar	date_in_string[255];
-    GSList	*tmp = NULL,
-		*first_day = NULL,
-		*last_day = NULL;
+    int	        year,
+                current_month,
+                offset;
+    time_t      current_day,
+                current_time,
+                date_time;
+    struct tm   *tm = NULL;
+    double      pre_offset = 0.0F;
+    gchar       date_in_string[255];
+    GSList      *tmp = NULL;
+    GHashTable  *location = NULL,
+                *first_day = NULL,
+                *last_day = NULL;
 
 /* if no xml file is present return Max_count_weather_day */
     if(count_day < 1)
-	return Max_count_weather_day;
+        return Max_count_weather_day;
 
-    tmp = app->wsd.days;
-    first_day = (GSList*)((g_slist_nth(tmp, 0))->data);
-    last_day = (GSList*)((g_slist_last(tmp))->data);
+    tmp = g_hash_table_lookup(app->station_data, "forecast");
+    first_day = (GHashTable*)((g_slist_nth(tmp, 0))->data);
+    last_day = (GHashTable*)((g_slist_last(tmp))->data);
 /* get current day */  
     current_time = time(NULL);
-    diff_time = calculate_diff_time(atol(item_value(app->wsd.location, "station_time_zone")));
+    location = g_hash_table_lookup(app->station_data, "location");
+    diff_time = calculate_diff_time(atol(g_hash_table_lookup(location, "station_time_zone")));
     current_time += diff_time;
     current_day = current_time;
     tm = localtime(&current_day);
@@ -360,14 +361,14 @@ calculate_offset_of_day(int count_day){
 
     memset(date_in_string, 0, sizeof(date_in_string));
     sprintf(date_in_string, "%s %i 00:00:00",
-	    item_value(first_day, "day_date"), year);
+            (char*)g_hash_table_lookup(first_day, "day_date"), year);
 
     strptime(date_in_string, "%b %d %Y %T", tm);
     /* Check New Year */
     if((current_month == 0) && (tm->tm_mon == 11)){
-	sprintf(date_in_string, "%s %i 00:00:00",
-		item_value(first_day, "day_date"), year - 1);
-	strptime(date_in_string, "%b %d %Y %T", tm);
+        sprintf(date_in_string, "%s %i 00:00:00",
+                (char*)g_hash_table_lookup(first_day, "day_date"), year - 1);
+        strptime(date_in_string, "%b %d %Y %T", tm);
     }
     date_time = mktime(tm);
     /* calculate days offset */
@@ -376,47 +377,51 @@ calculate_offset_of_day(int count_day){
     offset = (int)( round(pre_offset) );
 
     if(offset >= Max_count_weather_day)
-	offset = Max_count_weather_day;
-    
+        offset = Max_count_weather_day;
+
     return offset;
 }
 /*******************************************************************************/
 /* Filling data of buttons  */
 void 
 draw_home_window(gint count_day){
-        gint	i,
-		offset = 0,
-		year,
-		current_month = 1;
-        gchar	buffer[2048],
-		buffer_icon[1024],
-		temperature_string[1024],
-		forecast_string[2048];
-        time_t	current_day,
-		current_time,
-		update_time,
-		last_day = 0,
-		count_of_show_button = 0,
-		day_begin_time,
-		night_begin_time;
-        long int    diff_time;
-        struct tm	*tm = NULL,
-		tmp_tm;
-        gboolean	flag_last_day = FALSE,
-		is_na_day = FALSE;
-        gint	icon_size;
-        gint    wind_direction = UNKNOWN_DIRECTION;
-        gfloat  wind_speed = -1;
-        gchar	*tmp_station_name;
-        WDB		*tmp_button = NULL;
-        GSList	*tmp = NULL,
-		*day = NULL,
-		*tmp_day = NULL,
-		*first = NULL,
-		*last = NULL;
+    gint        i,
+                offset = 0,
+                year,
+                current_month = 1;
+    gchar       buffer[2048],
+                buffer_icon[1024],
+                temperature_string[1024],
+                forecast_string[2048];
+    time_t      current_day,
+                current_time,
+                update_time,
+                last_day = 0,
+                count_of_show_button = 0,
+                day_begin_time,
+                night_begin_time;
+    long int    diff_time;
+    struct tm   *tm = NULL,
+                tmp_tm;
+    gboolean    flag_last_day = FALSE,
+                is_na_day = FALSE;
+    gint        wind_direction = UNKNOWN_DIRECTION;
+    gfloat      wind_speed = -1;
+    gchar       *tmp_station_name;
+    WDB         *tmp_button = NULL;
+    GSList      *tmp = NULL;
+//                *day = NULL,
+//                *tmp_day = NULL;
+//                *first = NULL,
+//                *last = NULL;
+    GHashTable  *day = NULL,
+                *first = NULL,
+                *last = NULL,
+                *tmp_day = NULL,
+                *location = NULL;
 #ifndef RELEASE
-    time_t	tmp_time,
-		utc_time;
+    time_t      tmp_time,
+                utc_time;
 #endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -430,9 +435,10 @@ draw_home_window(gint count_day){
 
 /* Clear daytime elments in queue of timer */
     remove_daytime_event();
-/* get current day */  
+/* get current day */
     current_time = time(NULL);
-    diff_time = calculate_diff_time(atol(item_value(app->wsd.location, "station_time_zone")));
+    location = g_hash_table_lookup(app->station_data, "location");
+    diff_time = calculate_diff_time(atol(g_hash_table_lookup(location, "station_time_zone")));
     current_time += diff_time;
     current_day = current_time;
     tm = localtime(&current_day);
@@ -444,21 +450,25 @@ draw_home_window(gint count_day){
 
     offset = calculate_offset_of_day(count_day);
     if(count_day > 0){
-      /* delete old weather data */
-      tmp = app->wsd.days;
-      i = 0;
-      while(tmp && i < offset){
-          day = (GSList*)tmp->data;
-          tmp = g_slist_remove(tmp,day);
-          destroy_object(&day);
-          i++;
-      }
-      app->wsd.days = tmp;
-      tmp = app->wsd.days;
-      if (app->wsd.days){
-          first = (GSList*)((app->wsd.days)->data);
-          last = (GSList*)((g_slist_last(tmp))->data);
-      }
+        /* delete old weather data */
+//        tmp = app->wsd.days;
+        tmp = g_hash_table_lookup(app->station_data, "forecast");
+        i = 0;
+        while(tmp && i < offset){
+//            day = (GSList*)tmp->data;
+            day = (GHashTable*)tmp->data;
+            tmp = g_slist_remove(tmp, day);
+//            destroy_object(&day);
+            g_hash_table_destroy(day);
+            i++;
+        }
+//        app->wsd.days = tmp;
+//        tmp = app->wsd.days;
+//        if (app->wsd.days){
+        if(tmp){
+            first = (GHashTable*)(tmp->data);
+            last = (GHashTable*)((g_slist_last(tmp))->data);
+        }
     }
     /* Init popup Context menu */
     menu_init();
@@ -478,7 +488,7 @@ draw_home_window(gint count_day){
 #endif
     while(i < count_of_show_button){
         if(tmp){
-            day = (GSList*)tmp->data;
+            day = (GHashTable*)tmp->data;
             /* add CHANGE_DAY_PART for all days */
             add_change_day_part_event(day, year, current_month);
             /* day begin */
@@ -492,36 +502,35 @@ draw_home_window(gint count_day){
                 event_add(night_begin_time - diff_time, CHANGE_DAY_PART);
 
             #ifndef RELEASE
-            fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+            fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
             fprintf(stderr, "\nUTC time %s", ctime(&utc_time));
             fprintf(stderr, "Zone time %s", ctime(&current_time));
-            tmp_time = last_update_time(app->wsd.current);
+            tmp_time = last_update_time_new(g_hash_table_lookup(app->station_data, "current"));
             fprintf(stderr, "Last update: %s", ctime(&tmp_time));
-            fprintf(stderr, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
             fprintf(stderr, "Current time: %s", ctime(&current_time));
             fprintf(stderr, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n");
             #endif
 
             if(i == 0){	/* first day */
-                update_time = last_update_time(app->wsd.current);
+                update_time = last_update_time_new(g_hash_table_lookup(app->station_data, "current"));
                 /* check weather data for actuality */
-                if( !app->wsd.current_data_is_invalid &&
-                    (update_time > (current_time - app->config->data_valid_interval)) &&
+                if( (update_time > (current_time - app->config->data_valid_interval)) &&
                             (update_time < (current_time + app->config->data_valid_interval)) ){
                     /* add event for terminate valid period */
                     event_add(update_time + app->config->data_valid_interval - diff_time, CHANGE_DAY_PART);
                     buffer[0] = 0;
                     /* For only &wind_direction, &wind_speed parameters */ 
-                    create_wind_parameters(app->wsd.current, NULL,FALSE, &wind_direction, &wind_speed);
-                    create_current_temperature_text(app->wsd.current, buffer, TRUE, item_value(day, "day_name"));
-                    sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
-                        item_value(app->wsd.current, "icon"));
+                    create_wind_parameters(g_hash_table_lookup(app->station_data, "current"), NULL,FALSE, &wind_direction, &wind_speed);
+                    create_current_temperature_text(g_hash_table_lookup(app->station_data, "current"), buffer, TRUE, g_hash_table_lookup(day, "day_name"));
+                    sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base, (char*)
+                            g_hash_table_lookup(g_hash_table_lookup(app->station_data, "current"), "icon"));
                 }
                 else{ /* if current data is not actual */
                     buffer[0] = 0;
                     /* if current data isn't actual and first day */
                     if(app->config->separate && app->config->icons_layout < PRESET_NOW ){
-                        create_current_temperature_text(app->wsd.current, buffer, FALSE, item_value(day, "day_name"));
+                        create_current_temperature_text(g_hash_table_lookup(app->station_data, "current"),
+                                                        buffer, FALSE, g_hash_table_lookup(day, "day_name"));
                         sprintf(buffer_icon, "%s48.png", app->config->icons_set_base);
                     }
                     else{ /* if first day and not config->separate data */
@@ -533,15 +542,16 @@ draw_home_window(gint count_day){
                                 create_wind_parameters(day, buffer + strlen(buffer),FALSE,
                                                                         &wind_direction, &wind_speed);
                             sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
-                                item_value(day, "night_icon"));
-                         }else{
+                                    (char*)g_hash_table_lookup(day, "night_icon"));
+                         }
+                         else{
                             create_day_temperature_text(day, buffer, FALSE, FALSE);
-                             /* displaying wind if necessary */
-                             if(app->config->show_wind || app->config->icons_layout >= PRESET_NOW)
-                                    create_wind_parameters(day, buffer + strlen(buffer),TRUE, 
+                            /* displaying wind if necessary */
+                            if(app->config->show_wind || app->config->icons_layout >= PRESET_NOW)
+                                create_wind_parameters(day, buffer + strlen(buffer),TRUE, 
                                                                         &wind_direction, &wind_speed);
-                             sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
-                                item_value(day, "day_icon"));
+                            sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
+                                    (char*)g_hash_table_lookup(day, "day_icon"));
                          }
                     }
                 }
@@ -561,12 +571,13 @@ draw_home_window(gint count_day){
                        if(app->config->show_wind || app->config->icons_layout >= PRESET_NOW)
                            create_wind_parameters(tmp_day, buffer + strlen(buffer),FALSE, &wind_direction, &wind_speed);
                        sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
-                           item_value(tmp_day, "night_icon"));
-                }else{
-                       if(app->config->show_wind || app->config->icons_layout >= PRESET_NOW)
-                           create_wind_parameters(tmp_day, buffer + strlen(buffer),TRUE, &wind_direction, &wind_speed);
-                       sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
-                       item_value(tmp_day, "day_icon"));
+                                (char*)g_hash_table_lookup(tmp_day, "night_icon"));
+                }
+                else{
+                    if(app->config->show_wind || app->config->icons_layout >= PRESET_NOW)
+                        create_wind_parameters(tmp_day, buffer + strlen(buffer),TRUE, &wind_direction, &wind_speed);
+                    sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base,
+                            (char*)g_hash_table_lookup(tmp_day, "day_icon"));
                 }
             }
         }
@@ -1192,19 +1203,19 @@ menu_init(void){
 /*******************************************************************************/
 /* For Combination layout */
 GtkWidget* 
-create_forecast_weather_simple_widget(GSList *day){
-    GtkWidget	*temperature_label = NULL,
-		*main_data_vbox = NULL,
-		*main_data_label = NULL,
-		*main_widget = NULL,
-		*temperature_vbox = NULL;
-    gchar	buffer[1024];
-    time_t	day_begin_time,
-		night_begin_time,
-		current_time;
-    gint	year;
-    struct tm	*tm;
-    const gchar	*wind_units_str[] = { "m/s", "km/h", "mi/h" };
+create_forecast_weather_simple_widget(GHashTable *day){
+    GtkWidget       *temperature_label = NULL,
+                    *main_data_vbox = NULL,
+                    *main_data_label = NULL,
+                    *main_widget = NULL,
+                    *temperature_vbox = NULL;
+    gchar           buffer[1024];
+    time_t          day_begin_time,
+                    night_begin_time,
+                    current_time;
+    gint            year;
+    struct tm       *tm;
+    const gchar     *wind_units_str[] = { "m/s", "km/h", "mi/h" };
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1240,32 +1251,32 @@ create_forecast_weather_simple_widget(GSList *day){
                 app->config->font_color.green >> 8,
                 app->config->font_color.blue >> 8);
     if((current_time > day_begin_time) && (current_time < night_begin_time)){
-        strcat(buffer, (gchar*)hash_table_find(item_value(day, "day_title"), FALSE));
+        strcat(buffer, (gchar*)hash_table_find(g_hash_table_lookup(day, "day_title"), FALSE));
         strcat(buffer, _("\nHumidity: "));
-        if(strcmp(item_value(day, "day_humidity"), "N/A"))
+        if(strcmp(g_hash_table_lookup(day, "day_humidity"), "N/A"))
             sprintf(buffer + strlen(buffer), "%s%%\n",
-                    item_value(day, "day_humidity"));
+                    (char*)g_hash_table_lookup(day, "day_humidity"));
         else
             sprintf(buffer + strlen(buffer), "%s\n",
                 (gchar*)hash_table_find("N/A", FALSE));
         strcat(buffer, _("Wind: "));
         sprintf(buffer + strlen(buffer), "%s %.2f %s",
-              (gchar*)hash_table_find(item_value(day, "day_wind_title"), TRUE),
+              (gchar*)hash_table_find(g_hash_table_lookup(day, "day_wind_title"), TRUE),
         convert_wind_units(app->config->wind_units,
-                atof(item_value(day, "day_wind_speed"))),
+                atof(g_hash_table_lookup(day, "day_wind_speed"))),
                 (gchar*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
-    }else{
-        strcat(buffer, (gchar*)hash_table_find(item_value(day, "night_title"), FALSE));
+    }
+    else{
+        strcat(buffer, (gchar*)hash_table_find(g_hash_table_lookup(day, "night_title"), FALSE));
         strcat(buffer, _("\nHumidity: "));
-        if(strcmp(item_value(day, "night_humidity"), "N/A"))
+        if(strcmp(g_hash_table_lookup(day, "night_humidity"), "N/A"))
             sprintf(buffer + strlen(buffer), "%s%%\n",
-            item_value(day, "night_humidity"));
+                    (char*)g_hash_table_lookup(day, "night_humidity"));
         else
-            sprintf(buffer + strlen(buffer), "%s\n",
-            (gchar*)hash_table_find("N/A", FALSE));
+            sprintf(buffer + strlen(buffer), "%s\n", (gchar*)hash_table_find("N/A", FALSE));
         strcat(buffer, _("Wind: "));
-        sprintf(buffer + strlen(buffer), "%s %.2f %s", item_value(day, "night_wind_title"),
-        convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed"))),
+        sprintf(buffer + strlen(buffer), "%s %.2f %s", (char*)g_hash_table_lookup(day, "night_wind_title"),
+        convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))),
             (gchar*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     }
     strcat(buffer, "</span>");
@@ -1283,23 +1294,23 @@ create_forecast_weather_simple_widget(GSList *day){
 }
 /*******************************************************************************/
 GtkWidget* 
-create_current_weather_simple_widget(GSList *current){
-    GtkWidget	*main_widget = NULL,
-		*temperature_vbox,
-		*temperature_label,
-		*main_data_vbox,
-		*main_data_label,
-		*icon_temperature_vbox;
-    gchar	buffer[1024],
-		*units;
-    const gchar	*wind_units_str[] = { "m/s", "km/h", "mi/h" };
-    float	tmp_distance = 0.0f,
-		tmp_pressure = 0.0f;
+create_current_weather_simple_widget(GHashTable *current){
+    GtkWidget       *main_widget = NULL,
+                    *temperature_vbox,
+                    *temperature_label,
+                    *main_data_vbox,
+                    *main_data_label,
+                    *icon_temperature_vbox;
+    gchar           buffer[1024],
+                    *units;
+    const gchar     *wind_units_str[] = { "m/s", "km/h", "mi/h" };
+    float           tmp_distance = 0.0f,
+                    tmp_pressure = 0.0f;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!current)
-	return NULL;
+        return NULL;
 /* prepare current temperature */
     temperature_vbox = gtk_vbox_new(FALSE, 0);
     memset(buffer, 0, sizeof(buffer));
@@ -1310,8 +1321,8 @@ create_current_weather_simple_widget(GSList *current){
     
     sprintf(buffer + strlen(buffer), _("Now: "));
     sprintf(buffer + strlen(buffer), "\n%d\302\260",
-		((app->config->temperature_units == CELSIUS) ? ( atoi(item_value(current, "day_hi_temperature")))
-							: ((int)c2f(atof(item_value(current, "day_hi_temperature"))))));
+		((app->config->temperature_units == CELSIUS) ? ( atoi(g_hash_table_lookup(current, "day_hi_temperature")))
+							: ((int)c2f(atof(g_hash_table_lookup(current, "day_hi_temperature"))))));
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
 						: ( strcat(buffer, _("F")) );
     strcat(buffer,"</span>");
@@ -1330,69 +1341,69 @@ create_current_weather_simple_widget(GSList *current){
 				app->config->font_color.green >> 8,
 				app->config->font_color.blue >> 8);
 
-    strcat(buffer, hash_table_find(item_value(current, "title"), FALSE));
+    strcat(buffer, hash_table_find(g_hash_table_lookup(current, "title"), FALSE));
     strcat(buffer, _("\nFL: "));
     sprintf(buffer + strlen(buffer), "%d\302\260", 
-	    (app->config->temperature_units == CELSIUS) ? (atoi(item_value(current, "feel_like"))) 
-						: ((int)c2f(atof(item_value(current, "feel_like")))));
+	    (app->config->temperature_units == CELSIUS) ? (atoi(g_hash_table_lookup(current, "feel_like"))) 
+						: ((int)c2f(atof(g_hash_table_lookup(current, "feel_like")))));
     (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
 					: ( strcat(buffer, _("F")) );
 /* humidity */
     strcat(buffer, _(" H: "));
-    if( strcmp(item_value(current, "humidity"), "N/A") )
+    if( strcmp(g_hash_table_lookup(current, "humidity"), "N/A") )
 	sprintf(buffer + strlen(buffer), "%d%%",
-		atoi(item_value(current, "humidity")));
+            atoi(g_hash_table_lookup(current, "humidity")));
     else
 	sprintf(buffer + strlen(buffer), "%s",
 		    (char*)hash_table_find("N/A", FALSE));
 /* visible */
     strcat(buffer, _("\nV: "));
-    if( !strcmp(item_value(current, "humidity"), "Unlimited") )
-	sprintf(buffer + strlen(buffer), "%s",
+    if( !strcmp(g_hash_table_lookup(current, "humidity"), "Unlimited") )
+        sprintf(buffer + strlen(buffer), "%s",
                 (char*)hash_table_find("Unlimited", FALSE));
     else
-	if( strcmp(item_value(current, "visible"), "N/A") ){
-	    tmp_distance = atof(item_value(current, "visible"));
-	    switch(app->config->distance_units){
-		default:
-		case METERS: units = _("m"); tmp_distance *= 1000.0f; break;
-		case KILOMETERS: units = _("km"); tmp_distance *= 1.0f; break;
-		case MILES: units = _("mi"); tmp_distance /= 1.609344f; break;
-		case SEA_MILES: units = _("mi"); tmp_distance /= 1.852f; break;
-	    }
-	    sprintf(buffer + strlen(buffer), "%.2f %s", tmp_distance, units);
-	}
-	else
-	    sprintf(buffer + strlen(buffer), "%s",
+        if( strcmp(g_hash_table_lookup(current, "visible"), "N/A") ){
+            tmp_distance = atof(g_hash_table_lookup(current, "visible"));
+            switch(app->config->distance_units){
+                default:
+                case METERS: units = _("m"); tmp_distance *= 1000.0f; break;
+                case KILOMETERS: units = _("km"); tmp_distance *= 1.0f; break;
+                case MILES: units = _("mi"); tmp_distance /= 1.609344f; break;
+                case SEA_MILES: units = _("mi"); tmp_distance /= 1.852f; break;
+            }
+            sprintf(buffer + strlen(buffer), "%.2f %s", tmp_distance, units);
+        }
+        else
+            sprintf(buffer + strlen(buffer), "%s",
                     (char*)hash_table_find("N/A", FALSE));
 /* pressure */
-    tmp_pressure = atof(item_value(current, "pressure"));
+    tmp_pressure = atof(g_hash_table_lookup(current, "pressure"));
     switch(app->config->pressure_units){
-	default:
-	case MB: units = _("mb"); break;
-	case INCH: units = _("inHg"); tmp_pressure = mb2inch(tmp_pressure); break;
-	case MM: units = _("mmHg"); tmp_pressure = mb2mm(tmp_pressure); break;
+        default:
+        case MB: units = _("mb"); break;
+        case INCH: units = _("inHg"); tmp_pressure = mb2inch(tmp_pressure); break;
+        case MM: units = _("mmHg"); tmp_pressure = mb2mm(tmp_pressure); break;
     }
     strcat(buffer, _("\nP: "));
     sprintf(buffer + strlen(buffer), "%.2f %s, ", tmp_pressure, units);
-    strcat(buffer, hash_table_find(item_value(current, "pressure_direction"), FALSE));
+    strcat(buffer, hash_table_find(g_hash_table_lookup(current, "pressure_direction"), FALSE));
 /* wind */
     strcat(buffer, _("\nW: "));
-    sprintf(buffer + strlen(buffer), "%s", (char*)hash_table_find(item_value(current, "wind_direction"), FALSE));
-    if( strcmp(item_value(current, "wind_speed"), "N/A") )
-	sprintf(buffer + strlen(buffer), " %.2f %s", 
-		    convert_wind_units(app->config->wind_units, atof(item_value(current, "wind_speed"))),
-		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+    sprintf(buffer + strlen(buffer), "%s", (char*)hash_table_find(g_hash_table_lookup(current, "wind_direction"), FALSE));
+    if( strcmp(g_hash_table_lookup(current, "wind_speed"), "N/A") )
+        sprintf(buffer + strlen(buffer), " %.2f %s", 
+            convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
+            (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
 /* gust */
-    if( strcmp(item_value(current, "wind_speed"), "N/A") ){
-	strcat(buffer, _(" G: "));
-	sprintf(buffer + strlen(buffer), "%.2f %s",
-		    convert_wind_units(app->config->wind_units, atof(item_value(current, "wind_speed"))),
-		    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+    if( strcmp(g_hash_table_lookup(current, "wind_speed"), "N/A") ){
+        strcat(buffer, _(" G: "));
+    sprintf(buffer + strlen(buffer), "%.2f %s",
+            convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
+            (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     }
     strcat(buffer,"</span>");
 
-    main_data_vbox = gtk_vbox_new(FALSE, 0);	
+    main_data_vbox = gtk_vbox_new(FALSE, 0);
     main_data_label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(main_data_label), buffer);
     set_font(main_data_label, app->config->font, -1);
@@ -1739,7 +1750,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     if (layout == COMBINATION || layout == APPLICATION_MODE){
         combination_vbox = gtk_vbox_new(FALSE, 0);
         current_time = time(NULL);
-        diff_time = calculate_diff_time(atol(item_value(app->wsd.location, "station_time_zone")));
+        diff_time = calculate_diff_time(atol(g_hash_table_lookup(g_hash_table_lookup(app->station_data, "location"), "station_time_zone")));
         current_time += diff_time;
         update_time = last_update_time(app->wsd.current);
         if(!app->wsd.current_data_is_invalid && 
@@ -1747,7 +1758,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
            update_time < (current_time + app->config->data_valid_interval) ){
            if (app->wsd.current)
                 current_weather_widget
-                  = create_current_weather_simple_widget(app->wsd.current);
+                  = create_current_weather_simple_widget(g_hash_table_lookup(app->station_data, "current"));
         }else{
             if(app->wsd.days)
                 current_weather_widget 
@@ -2480,133 +2491,133 @@ create_user_stations_list(void){
 }
 /*******************************************************************************/
 void 
-add_change_day_part_event(GSList *day, guint year, guint month){
-    gchar	buffer[255];
-    struct tm	tm = {0};
-    time_t	time;
+add_change_day_part_event(GHashTable *day, guint year, guint month){
+    gchar       buffer[255];
+    struct tm   tm = {0};
+    time_t      time;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     memset(buffer, 0, sizeof(buffer));
     snprintf(buffer, sizeof(buffer) - 1,
-		"%s %i 00:00:00", item_value(day, "day_date"), year);
+                "%s %i 00:00:00", (char*)g_hash_table_lookup(day, "day_date"), year);
     strptime(buffer, "%b %d %Y %T", &tm);
     /* Check New Year */
     if(month == 11 && tm.tm_mon == 0){
-	snprintf(buffer, sizeof(buffer) - 1,
-		"%s %i 00:00:00", item_value(day, "day_date"), year + 1);
-	strptime(buffer, "%b %d %Y %T", &tm);
+        snprintf(buffer, sizeof(buffer) - 1,
+                    "%s %i 00:00:00", (char*)g_hash_table_lookup(day, "day_date"), year + 1);
+        strptime(buffer, "%b %d %Y %T", &tm);
     }
     time = mktime(&tm);
     event_add(time, CHANGE_DAY_PART);
 }
 /*******************************************************************************/
 time_t 
-get_day_part_begin_time(GSList *day, guint year, const gchar *day_part){
-    gchar	buffer[255];
-    struct tm	tm = {0};
+get_day_part_begin_time(GHashTable *day, guint year, const gchar *day_part){
+    gchar       buffer[255];
+    struct tm   tm = {0};
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     memset(buffer, 0, sizeof(buffer));
     snprintf(buffer, sizeof(buffer) - 1,
-	    "%s %i %s", item_value(day, "day_date"), year, item_value(day, day_part));
+                "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year,
+                (char*)g_hash_table_lookup(day, day_part));
     strptime(buffer, "%b %d %Y %I:%M %p", &tm);
     return  mktime(&tm);
 }
 /*******************************************************************************/
 void 
-create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direction, float *speed){
-    gchar	*wind_direction = NULL;
+create_wind_parameters(GHashTable *day, gchar *buffer, gboolean is_day, gint *direction, float *speed){
+    gchar   *wind_direction = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
   /* Is it data current day for? */ 
     if(!buffer){
-        if(!strcmp((char*)item_value(day, "wind_speed"), "N/A")){
+        if(!strcmp((char*)g_hash_table_lookup(day, "wind_speed"), "N/A"))
             *speed = -1;
-        }else{
-            *speed = convert_wind_units(app->config->wind_units, atof(item_value(day, "wind_speed")));
-        }
-        if(!strcmp((char*)item_value(day, "wind_direction"), "N/A")){
+        else
+            *speed = convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "wind_speed")));
+
+        if(!strcmp((char*)g_hash_table_lookup(day, "wind_direction"), "N/A"))
             *direction = UNKNOWN_DIRECTION;
-        }else{
-            wind_direction = (char*)hash_table_find(item_value(day, "wind_direction"), TRUE);
-            *direction = choose_wind_direction(item_value(day, "wind_direction"));
+        else{
+            wind_direction = (char*)hash_table_find(g_hash_table_lookup(day, "wind_direction"), TRUE);
+            *direction = choose_wind_direction(g_hash_table_lookup(day, "wind_direction"));
         }
         return;
     }
 
-    if((is_day && !strcmp((char*)item_value(day, "day_wind_speed"), "N/A")) &&
-       !strcmp((char*)item_value(day, "night_wind_speed"), "N/A")){
-        if (buffer && app->config->icons_layout < PRESET_NOW)
-            sprintf(buffer + strlen(buffer),
-            "<span foreground='#%02x%02x%02x'>\n%s\n%s</span>",
-            app->config->font_color.red >> 8,
-            app->config->font_color.green >> 8,
-            app->config->font_color.blue >> 8,
-            _("N/A"), _("N/A"));
-        *direction = UNKNOWN_DIRECTION;
-        *speed = -1;
-    }else{
-
-       if((is_day && !strcmp((char*)item_value(day, "day_wind_title"), "N/A")) &&
-                     !strcmp((char*)item_value(day, "day_wind_speed"), "N/A"))
+    if((is_day && !strcmp((char*)g_hash_table_lookup(day, "day_wind_speed"), "N/A")) &&
+           !strcmp((char*)g_hash_table_lookup(day, "night_wind_speed"), "N/A")){
+            if (buffer && app->config->icons_layout < PRESET_NOW)
+                sprintf(buffer + strlen(buffer),
+                        "<span foreground='#%02x%02x%02x'>\n%s\n%s</span>",
+                        app->config->font_color.red >> 8,
+                        app->config->font_color.green >> 8,
+                        app->config->font_color.blue >> 8,
+                        _("N/A"), _("N/A"));
+            *direction = UNKNOWN_DIRECTION;
+            *speed = -1;
+    }
+    else{
+        if((is_day && !strcmp((char*)g_hash_table_lookup(day, "day_wind_title"), "N/A")) &&
+                !strcmp((char*)g_hash_table_lookup(day, "day_wind_speed"), "N/A"))
             is_day = FALSE;
 
-       if (is_day){
-           wind_direction = (char*)hash_table_find(item_value(day, "day_wind_title"), TRUE);
-           if (buffer && app->config->icons_layout < PRESET_NOW){
-               sprintf(buffer + strlen(buffer),
-                   "<span foreground='#%02x%02x%02x'>\n%s",
-                   app->config->font_color.red >> 8,
-                   app->config->font_color.green >> 8,
-                   app->config->font_color.blue >> 8,
-                   wind_direction);
+        if(is_day){
+            wind_direction = (char*)hash_table_find(g_hash_table_lookup(day, "day_wind_title"), TRUE);
+            if(buffer && app->config->icons_layout < PRESET_NOW){
+                sprintf(buffer + strlen(buffer),
+                        "<span foreground='#%02x%02x%02x'>\n%s",
+                        app->config->font_color.red >> 8,
+                        app->config->font_color.green >> 8,
+                        app->config->font_color.blue >> 8,
+                        wind_direction);
             }
-           *direction = choose_wind_direction(wind_direction);
-           *speed = convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed")));
-           if (buffer && app->config->icons_layout < PRESET_NOW){
-               if (app->config->show_wind_gust)
-                   sprintf(buffer + strlen(buffer),
-                       "%.1f</span>",
-                       convert_wind_units(app->config->wind_units, atof(item_value(day, "day_wind_speed"))));
+            *direction = choose_wind_direction(wind_direction);
+            *speed = convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed")));
+            if(buffer && app->config->icons_layout < PRESET_NOW){
+                if(app->config->show_wind_gust)
+                    sprintf(buffer + strlen(buffer), "%.1f</span>",
+                            convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed"))));
                else
                     sprintf(buffer + strlen(buffer),"</span>");
-           }
-       }else{
-           wind_direction = (char*)hash_table_find(item_value(day, "night_wind_title"), TRUE);
-           *direction = choose_wind_direction(wind_direction);
-           *speed = convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed")));
-           if (buffer && app->config->icons_layout < PRESET_NOW){
-               sprintf(buffer + strlen(buffer),
-                   "<span foreground='#%02x%02x%02x'>\n%s",
-                   app->config->font_color.red >> 8,
-                   app->config->font_color.green >> 8,
-                   app->config->font_color.blue >> 8,
-                   wind_direction);
-               if (app->config->show_wind_gust)
-                   sprintf(buffer + strlen(buffer),
-                       "%.1f</span>",
-                       convert_wind_units(app->config->wind_units, atof(item_value(day, "night_wind_speed"))));
-               else
-                   sprintf(buffer + strlen(buffer),"</span>");
-           } 
+            }
+       }
+       else{
+            wind_direction = (char*)hash_table_find(g_hash_table_lookup(day, "night_wind_title"), TRUE);
+            *direction = choose_wind_direction(wind_direction);
+            *speed = convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed")));
+            if(buffer && app->config->icons_layout < PRESET_NOW){
+                sprintf(buffer + strlen(buffer),
+                        "<span foreground='#%02x%02x%02x'>\n%s",
+                        app->config->font_color.red >> 8,
+                        app->config->font_color.green >> 8,
+                        app->config->font_color.blue >> 8,
+                        wind_direction);
+                if(app->config->show_wind_gust)
+                    sprintf(buffer + strlen(buffer), "%.1f</span>",
+                    convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))));
+                else
+                    sprintf(buffer + strlen(buffer),"</span>");
+            }
        }
     }
 }
 /*******************************************************************************/
 void 
-create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
-                                const gchar *day_name){
+create_current_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
+                                                        const gchar *day_name){
     gint    temp_current = INT_MAX;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 
-    if(strcmp(item_value(day, "day_hi_temperature"), "N/A"))
-        temp_current = atoi(item_value(day, "day_hi_temperature"));
+    if(strcmp(g_hash_table_lookup(day, "day_hi_temperature"), "N/A"))
+        temp_current = atoi(g_hash_table_lookup(day, "day_hi_temperature"));
 
     if(app->config->temperature_units == FAHRENHEIT)
         ( temp_current != INT_MAX ) && ( temp_current = c2f(temp_current) );
@@ -2641,23 +2652,22 @@ create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
 }
 /*******************************************************************************/
 void
-create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
-						gboolean for_combination_mode){
-    gint	temp_hi = INT_MAX,
-		temp_low = INT_MAX;
-    
-    char delemiter[2] ;
+create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
+                                                gboolean for_combination_mode){
+    gint        temp_hi = INT_MAX,
+                temp_low = INT_MAX;
+    gchar       delemiter[2] ;
 
     memset(delemiter, 0, sizeof(delemiter));
-    if(strcmp(item_value(day, "day_hi_temperature"), "N/A"))
-	    temp_hi = atoi(item_value(day, "day_hi_temperature"));
+    if(strcmp(g_hash_table_lookup(day, "day_hi_temperature"), "N/A"))
+        temp_hi = atoi(g_hash_table_lookup(day, "day_hi_temperature"));
 
-    if(strcmp(item_value(day, "day_low_temperature"), "N/A"))
-	    temp_low = atoi(item_value(day, "day_low_temperature"));
-    
+    if(strcmp(g_hash_table_lookup(day, "day_low_temperature"), "N/A"))
+        temp_low = atoi(g_hash_table_lookup(day, "day_low_temperature"));
+
     if(app->config->temperature_units == FAHRENHEIT){
-	    ( temp_hi != INT_MAX ) && ( temp_hi = c2f(temp_hi) );
-	    ( temp_low != INT_MAX ) && ( temp_low = c2f(temp_low) );
+        ( temp_hi != INT_MAX ) && ( temp_hi = c2f(temp_hi) );
+        ( temp_low != INT_MAX ) && ( temp_low = c2f(temp_low) );
     }
 
     if (app->config->text_position == TOP || app->config->text_position == BOTTOM ||
@@ -2679,10 +2689,10 @@ create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
         strcat(buffer, "</span>");
         return;
     }
-         
+
     if(app->config->swap_hi_low_temperature)
-	    swap_temperature(&temp_hi, &temp_low);
-    
+        swap_temperature(&temp_hi, &temp_low);
+
     if(!for_combination_mode){
         sprintf(buffer,
             "<span %s foreground='#%02x%02x%02x'>%s\n",
@@ -2690,7 +2700,7 @@ create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
             app->config->font_color.red >> 8,
             app->config->font_color.green >> 8,
             app->config->font_color.blue >> 8,
-            item_value(day, "day_name"));
+            (char*)g_hash_table_lookup(day, "day_name"));
         if(temp_low == INT_MAX)
             sprintf(buffer + strlen(buffer), "%s\302\260%s", _("N/A"), delemiter );
         else

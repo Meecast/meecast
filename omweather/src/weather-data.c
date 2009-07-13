@@ -165,7 +165,27 @@ time_t last_update_time(GSList * object) {
 #endif
     return last_update;
 }
+/*******************************************************************************/
+time_t last_update_time_new(GHashTable *object) {
+    time_t last_update = 0;
+    struct tm tm = { 0 };
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(!object || !g_hash_table_lookup(object, "last_update"))
+        return 0;
+    strptime(g_hash_table_lookup(object, "last_update"), "%D %I:%M", &tm);
+    tm.tm_isdst = 1;
+    last_update = mktime(&tm);
 
+    /* Add 12 hours if  date have PM field */
+    if(strstr(g_hash_table_lookup(object, "last_update"), "PM"))
+        last_update += 12 * 3600;
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+    return last_update;
+}
 /*******************************************************************************/
 #ifndef RELEASE
 void display_all_object_items(GSList * object) {

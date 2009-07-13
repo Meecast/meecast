@@ -67,17 +67,17 @@ void menu_init(void);
 gboolean switch_timer_handler(gpointer data);
 gboolean expose_main_window(GtkWidget *widget, GdkEventExpose *event);
 gboolean remitted_update(void);
-GtkWidget* create_current_weather_simple_widget(GSList *current);
+GtkWidget* create_current_weather_simple_widget(GHashTable *current);
 GtkListStore* create_user_stations_list(void);
-GtkWidget* create_forecast_weather_simple_widget(GSList *day);
+GtkWidget* create_forecast_weather_simple_widget(GHashTable *day);
 int calculate_offset_of_day(int count_day);
-void add_change_day_part_event(GSList *day, guint year, guint month);
-time_t get_day_part_begin_time(GSList *day, guint year, const gchar *day_part);
-void create_wind_parameters(GSList *day, gchar *buffer, gboolean is_day, gint *direction, gfloat *gust);
+void add_change_day_part_event(GHashTable *day, guint year, guint month);
+time_t get_day_part_begin_time(GHashTable *day, guint year, const gchar *day_part);
+void create_wind_parameters(GHashTable *day, gchar *buffer, gboolean is_day, gint *direction, gfloat *gust);
 void view_popup_menu (GtkWidget *treeview, GdkEventButton *event, gpointer userdata);
-void create_current_temperature_text(GSList *day, gchar *buffer, gboolean valid,
+void create_current_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
                                 const gchar *day_name);
-void create_day_temperature_text(GSList *day, gchar *buffer, gboolean valid,
+void create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
                                 gboolean for_combination_mode);
 GtkWidget *next_station_preset_now(gint layout);
 #if defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO

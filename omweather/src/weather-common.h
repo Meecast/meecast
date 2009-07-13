@@ -153,7 +153,7 @@ extern void write_log(char *string);
 #define PRESET_WIND_NORTH_EAST      "wind_north_east.png"
 #define PRESET_WIND_SOUTH_WEST      "wind_south_west.png"
 #define PRESET_WIND_NORTH_WEST      "wind_north_west.png"
-#define  STRONG_WIND 1
+#define  STRONG_WIND 8
 /*******************************************************************************/
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
        CHECK_GPS_POSITION};
@@ -271,6 +271,7 @@ typedef struct weather_data_source{
 typedef struct weather_day_button_with_image{
     GtkWidget   *button;
     GtkWidget   *label;
+    GtkWidget   *shadow_label;
     GtkWidget   *box;
     GtkWidget   *icon_image;
     GtkWidget   *wind;

@@ -440,20 +440,14 @@ draw_home_window(gint count_day){
     offset = calculate_offset_of_day(count_day);
     if(count_day > 0){
         /* delete old weather data */
-//        tmp = app->wsd.days;
         tmp = g_hash_table_lookup(app->station_data, "forecast");
         i = 0;
         while(tmp && i < offset){
-//            day = (GSList*)tmp->data;
             day = (GHashTable*)tmp->data;
             tmp = g_slist_remove(tmp, day);
-//            destroy_object(&day);
             g_hash_table_destroy(day);
             i++;
         }
-//        app->wsd.days = tmp;
-//        tmp = app->wsd.days;
-//        if (app->wsd.days){
         if(tmp){
             first = (GHashTable*)(tmp->data);
             last = (GHashTable*)((g_slist_last(tmp))->data);
@@ -682,12 +676,12 @@ draw_home_window(gint count_day){
 /*******************************************************************************/
 void 
 redraw_home_window(gboolean first_start){
-    gint    count_day;
-    GSList  *tmp = NULL,
-            *tmp_data = NULL;
-    gint    (*parser)(const gchar*, GHashTable*);
-    WDB     *tmp_button = NULL;
-    gchar   buffer[255];
+    gint            count_day;
+    GSList          *tmp = NULL;
+    GHashTable      *tmp_data = NULL;
+    gint            (*parser)(const gchar*, GHashTable*);
+    WDB             *tmp_button = NULL;
+    gchar           buffer[255];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -696,23 +690,18 @@ redraw_home_window(gboolean first_start){
     fprintf(stderr, "\nDays previos %d\n", app->config->previos_days_to_show);
 #endif
     if(!first_start){
-	    /* free station location data */
-/*	    fprintf(stderr,"destroy_object(&(app->wsd.location));\n"); */
-	    destroy_object(&(app->wsd.location));
-	    /* free station current data */
-/*	    fprintf(stderr,"destroy_object(&(app->wsd.current));"); */
-	    destroy_object(&(app->wsd.current));
+        /* free station location data */
+        g_hash_table_remove(app->station_data, "location");
+        /* free station current data */
+	    g_hash_table_remove(app->station_data, "current");
 	    /* free station days data */
-	    tmp = app->wsd.days;
+	    tmp = g_hash_table_lookup(app->station_data, "forecast");
 	    while(tmp){
-	        tmp_data = (GSList*)tmp->data;
-	        if (tmp_data)
-		        destroy_object(&tmp_data);
+	        tmp_data = (GHashTable*)tmp->data;
+	        if(tmp_data)
+                g_hash_table_destroy(tmp_data);
 	        tmp = g_slist_next(tmp);
 	    }
-	    if (app->wsd.days)
-    	    g_slist_free(app->wsd.days);
-	    app->wsd.days = NULL;
 	    /* free station hours data */
 	    tmp = app->wsd.hours_weather;
 	    while(tmp){
@@ -736,8 +725,9 @@ redraw_home_window(gboolean first_start){
 	    }
 	    g_slist_free(app->buttons);
 	    app->buttons = NULL;
-    }else{
-	    app->wsd.days = NULL;
+    }
+    else{
+        app->wsd.days = NULL;
     }
 #ifdef CLUTTER
     free_clutter_objects_list(&app->clutter_objects_in_main_form);
@@ -1802,13 +1792,13 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /* free used memory from OMWeather struct */
 void 
 free_memory(void){
-    GSList	*tmp = NULL,
-            *tmp_data = NULL;
-    WDB     *tmp_button = NULL;
-    gboolean valid = FALSE;
-    GtkTreeIter iter;
-    GHashTable *hashtable = NULL;
-    gchar *source_name;
+    GSList          *tmp = NULL;
+    GHashTable      *tmp_data = NULL;
+    WDB             *tmp_button = NULL;
+    gboolean        valid = FALSE;
+    GtkTreeIter     iter;
+    GHashTable      *hashtable = NULL;
+    gchar           *source_name;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1818,18 +1808,16 @@ free_memory(void){
         app->main_window = NULL;
     }
     /* free station location data */
-    destroy_object(&(app->wsd.location));
+    g_hash_table_remove(app->station_data, "location");
     /* free station current data */
-    destroy_object(&(app->wsd.current));
+    g_hash_table_remove(app->station_data, "current");
     /* free station days data */
-    tmp = app->wsd.days;
+    tmp = g_hash_table_lookup(app->station_data, "forecast");
     while(tmp){
-        tmp_data = (GSList*)tmp->data;
-        destroy_object(&tmp_data);
+        tmp_data = (GHashTable*)tmp->data;
+        g_hash_table_destroy(tmp_data);
         tmp = g_slist_next(tmp);
     }
-    g_slist_free(app->wsd.days);
-    app->wsd.days = NULL;
     /* free station hours data */
     tmp = app->wsd.hours_weather;
     while(tmp){

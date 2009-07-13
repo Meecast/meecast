@@ -207,9 +207,18 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
                 app->config->current_station_source = g_strdup(station_source);
             }
 
-            station_name && (g_free(station_name), station_name = NULL);
-            station_code && (g_free(station_code), station_code = NULL);
-            station_source && (g_free(station_source), station_source = NULL);
+            if(station_name){
+                g_free(station_name);
+                station_name = NULL;
+            }
+            if(station_code){
+                g_free(station_code);
+                station_code = NULL;
+            }
+            if(station_source){
+                g_free(station_source);
+                station_source = NULL;
+            }
         }
         g_free(temp1);
         source_list = g_slist_next(source_list);

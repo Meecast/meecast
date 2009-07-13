@@ -84,13 +84,6 @@ const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
         "ISO-8859-1",
         parse_weather_com_xml,
         parse_weather_com_xml_hour
-    },
-    {   "rp5.ru",
-        "http://rp5.ru/xml.php?id=%s",
-        NULL,
-        "windows-1251",
-        parse_rp5_ru_xml,
-        NULL
     }
 };
 /* main struct */
@@ -410,10 +403,6 @@ draw_home_window(gint count_day){
     gchar       *tmp_station_name;
     WDB         *tmp_button = NULL;
     GSList      *tmp = NULL;
-//                *day = NULL,
-//                *tmp_day = NULL;
-//                *first = NULL,
-//                *last = NULL;
     GHashTable  *day = NULL,
                 *first = NULL,
                 *last = NULL,
@@ -1125,7 +1114,10 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
             g_hash_table_destroy(app->station_data);
         }
     }
-    app && (g_free(app), app = NULL);
+    if(app){
+        g_free(app);
+        app = NULL;
+    }
     /* Deinitialize libosso */
     osso_deinitialize(osso);
 
@@ -2021,7 +2013,6 @@ next_station_preset_now(gint layout)
 GtkWidget *widget = NULL,
           *station_text = NULL,
           *shadow_station_text = NULL,
-          *shadow_label = NULL,
           *background_town = NULL,
           *station_name_btn = NULL;
 gchar     *begin_of_string;
@@ -2247,11 +2238,10 @@ composition_right_vertical_day_button(WDB *new_day_button)
 void
 composition_now(WDB *new_day_button, gint layout)
 {
+    gchar       buffer[2048];
 //#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 //#endif
- 
-    gchar       buffer[2048];
 
     memset(buffer, 0, sizeof(buffer));
     snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND);
@@ -2620,7 +2610,8 @@ create_current_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
         temp_current = atoi(g_hash_table_lookup(day, "day_hi_temperature"));
 
     if(app->config->temperature_units == FAHRENHEIT)
-        ( temp_current != INT_MAX ) && ( temp_current = c2f(temp_current) );
+        if( temp_current != INT_MAX )
+            temp_current = c2f(temp_current);
 
     if(temp_current == INT_MAX || !valid)
         if (!app->config->is_application_mode && app->config->icons_layout < PRESET_NOW)
@@ -2666,8 +2657,10 @@ create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
         temp_low = atoi(g_hash_table_lookup(day, "day_low_temperature"));
 
     if(app->config->temperature_units == FAHRENHEIT){
-        ( temp_hi != INT_MAX ) && ( temp_hi = c2f(temp_hi) );
-        ( temp_low != INT_MAX ) && ( temp_low = c2f(temp_low) );
+        if( temp_hi != INT_MAX )
+            temp_hi = c2f(temp_hi);
+        if( temp_low != INT_MAX )
+            temp_low = c2f(temp_low);
     }
 
     if (app->config->text_position == TOP || app->config->text_position == BOTTOM ||

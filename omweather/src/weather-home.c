@@ -695,7 +695,7 @@ redraw_home_window(gboolean first_start){
         /* free station location data */
 //        g_hash_table_remove(app->station_data, "location");
         /* free station current data */
-        g_hash_table_remove(app->station_data, "current");
+//        g_hash_table_remove(app->station_data, "current");
         /* free station days data */
 //        tmp = g_hash_table_lookup(app->station_data, "forecast");
 //        while(tmp){

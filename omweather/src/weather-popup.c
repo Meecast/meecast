@@ -692,7 +692,7 @@ void refresh_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (app->popup_window)
+    if(app->popup_window)
         destroy_popup_window();
     update_weather(TRUE);
 }

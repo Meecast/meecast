@@ -82,7 +82,7 @@ omweather_CFLAGS =	$(GTK_CFLAGS) \
 			$(CLUTTER_CFLAGS) \
 			-DAPPLICATION \
 			-Wall -pedantic \
-			-Wmissing-prototypes
+			-Wmissing-prototypes -DDEBUGFUNCTIONCALL
 
 omweather_LDADD =	$(GTK_LIBS) \
 			$(OSSO_LIBS) \

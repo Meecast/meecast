@@ -1,6 +1,6 @@
 /* vim: set sw=4 ts=4 et: */
 /*
- * This file is part of omweather-weather-com-source
+ * This file is part of omweather-weather-com-stations-db
  *
  * Copyright (C) 2006-2009 Vlad Vasiliev
  * Copyright (C) 2006-2009 Pavel Fialko

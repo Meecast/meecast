@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (0.8) unstable; urgency=low
+
+  * Preparing for 0.23 version of OMWeather
+
+ --  Vlad Vasiliev <vlad@gas.by>  Sun, 12 Jul 2009 11:04:20 +0200
+
 omweather-weather-com-stations-db (0.7) unstable; urgency=low
 
   * Corrected urls

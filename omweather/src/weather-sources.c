@@ -89,7 +89,9 @@ get_source_parser(GtkListStore *data, const gchar *source_name){
     GHashTable  *source = NULL;
     gpointer    value = NULL;
     gboolean    valid = FALSE;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     if(!data && !source_name)
         return NULL;
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(data), &iter);
@@ -100,6 +102,9 @@ get_source_parser(GtkListStore *data, const gchar *source_name){
             return g_hash_table_lookup(source, "parser");
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(data), &iter);
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return NULL;
 }
 /*******************************************************************************/

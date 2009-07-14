@@ -734,7 +734,7 @@ redraw_home_window(gboolean first_start){
         gtk_widget_show_all(app->main_window);
     if(app->main_window){
         gtk_widget_destroy(app->main_window);
-	app->main_window = NULL;
+        app->main_window = NULL;
     }
 /* new parser */
     parser = get_source_parser(app->sources_list,

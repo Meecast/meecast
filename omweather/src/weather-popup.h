@@ -50,7 +50,7 @@ void maximize_button_handler(GtkWidget *button, GdkEventButton *event, gpointer 
 void destroy_container (GtkWidget *widget, gpointer *data);
 
 GtkWidget* create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name);
-GtkWidget* create_pseudo_day_tab(GSList *current, GHashTable *day, gchar **day_name);
+GtkWidget* create_pseudo_day_tab(GHashTable *current, GHashTable *day, gchar **day_name);
 GtkWidget* create_current_tab(GHashTable *current);
 GtkWidget* create_hour_tab(void);
 GtkWidget* create_toolbar_box(GtkCallback exit_function, GtkWidget *window, gboolean fullscreen_button);

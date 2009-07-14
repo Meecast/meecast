@@ -514,8 +514,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
 
     current_data_last_update = last_update_time_new(g_hash_table_lookup(app->station_data, "current"));
     /* Check a valid time for current weather */
-    if(!app->wsd.current_data_is_invalid &&
-        (current_data_last_update >
+    if( (current_data_last_update >
         ( current_time - app->config->data_valid_interval)) &&
         (current_data_last_update <
         ( current_time + app->config->data_valid_interval)))
@@ -551,7 +550,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
     if (!app->wsd.hours_data_is_invalid &&  app->wsd.hours_weather){
         data_last_update = last_update_time((GSList*)(app->wsd.hours_weather)->data);
         /* Check a valid time for hours forecast */
-        if(app->config->show_weather_for_two_hours && (!app->wsd.current_data_is_invalid) && 
+        if(app->config->show_weather_for_two_hours && 
           (current_time - 24 * 60 * 60) < data_last_update)
             hour_tab = gtk_vbox_new(FALSE, 0);
         if(hour_tab){
@@ -569,7 +568,8 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
         /* Acceleration of starting gtk_notebook */
         if(active_tab != i){
             /* Create the empty page */
-            tab = create_pseudo_day_tab(app->wsd.current, day, &day_name);
+            tab = create_pseudo_day_tab(g_hash_table_lookup(app->station_data, "current"),
+                                        day, &day_name);
             if(tab){
                 page = gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                         tab,
@@ -714,7 +714,7 @@ void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 }
 /*******************************************************************************/
 GtkWidget*
-create_pseudo_day_tab(GSList *current, GHashTable *day, gchar **day_name){
+create_pseudo_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     GtkWidget   *main_widget = NULL;
     gchar       buffer[1024];
     struct tm   tmp_time_date_struct = {0};

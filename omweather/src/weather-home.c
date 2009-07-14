@@ -727,9 +727,6 @@ redraw_home_window(gboolean first_start){
 	    g_slist_free(app->buttons);
 	    app->buttons = NULL;
     }
-    else{
-        app->wsd.days = NULL;
-    }
 #ifdef CLUTTER
     free_clutter_objects_list(&app->clutter_objects_in_main_form);
 #endif
@@ -1198,6 +1195,8 @@ create_forecast_weather_simple_widget(GHashTable *day){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    if(!day)
+        return NULL;
     /* prepare forecast temperature */
     temperature_vbox = gtk_vbox_new(FALSE, 0);
     memset(buffer, 0, sizeof(buffer));
@@ -1736,10 +1735,11 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
            if(g_hash_table_lookup(app->station_data, "current"))
                 current_weather_widget
                   = create_current_weather_simple_widget(g_hash_table_lookup(app->station_data, "current"));
-        }else{
-            if(app->wsd.days)
+        }
+        else{
+            if(g_hash_table_lookup(app->station_data, "forecast"))
                 current_weather_widget 
-                  = create_forecast_weather_simple_widget(((GSList*)(app->wsd.days))->data);
+                  = create_forecast_weather_simple_widget(((GSList*)(g_hash_table_lookup(app->station_data, "forecast")))->data);
         }
         gtk_box_pack_start(GTK_BOX(combination_vbox), header_panel, FALSE, FALSE, 0);
         if(current_weather_widget)

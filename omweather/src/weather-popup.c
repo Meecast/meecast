@@ -502,6 +502,9 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
 
     gtk_notebook_set_show_border(GTK_NOTEBOOK(notebook), FALSE);
 
+/* check for data accesiability */
+    if(!g_hash_table_lookup(app->station_data, "location"))
+        goto skip;
 /* Current weather */
     current_time = time(NULL); /* get current day */
 
@@ -606,8 +609,6 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
         gtk_widget_show(notebook);
     }
 
-    buttons_box = create_toolbar_box((GtkCallback)popup_close_button_handler, app->popup_window, FALSE);
-
     /* check if no data file for this station */
     if(gtk_notebook_get_n_pages(GTK_NOTEBOOK(notebook)) > 0){
         if(active_tab == -1){
@@ -634,6 +635,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
         }
     }
     else{
+skip:
         gtk_widget_destroy(notebook);
         no_weather_box = gtk_event_box_new();
         gtk_container_add(GTK_CONTAINER(no_weather_box),label = gtk_label_new(_("No weather data for this station.")));
@@ -641,6 +643,9 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
         gtk_event_box_set_visible_window(GTK_EVENT_BOX(no_weather_box),FALSE);
         set_font(label, NULL, 24);
     }
+
+    buttons_box = create_toolbar_box((GtkCallback)popup_close_button_handler, app->popup_window, FALSE);
+
 #ifdef CLUTTER
     /* Connect to signal "changing notebook page" */
     g_signal_connect(G_OBJECT(notebook), "switch-page",
@@ -658,15 +663,14 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
     gtk_box_pack_start(GTK_BOX(vbox),buttons_box,FALSE,FALSE,0);
     gtk_widget_show_all(app->popup_window);
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
     /* Debug
      fprintf(stderr,"Time: %lf msec Pi = %lf\n",time_stop(),weather_window_settings);
     */
     return FALSE;
 }
-
 /*******************************************************************************/
 void
 settings_button_handler(GtkWidget *button, GdkEventButton *event,

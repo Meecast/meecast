@@ -649,7 +649,6 @@ draw_home_window(gint count_day){
       G_CALLBACK(top_widget_expose), NULL);
 #endif
 
-
 #if defined(NONMAEMO) || defined (APPLICATION)
     create_panel(app->main_window, APPLICATION_MODE,
                  app->config->transparency, tmp_station_name); 
@@ -1607,6 +1606,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
             days_panel = gtk_table_new(2, 3, FALSE);
             break;
     }
+
 /* add padding around the outside of the container so the text
  * is not right to the very edge */
     gtk_container_set_border_width(GTK_CONTAINER(days_panel),2);
@@ -2174,6 +2174,10 @@ composition_left_vertical_day_button(WDB *new_day_button)
     GtkWidget   *day = NULL;
     GtkWidget   *temperature = NULL;
 
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
     /* Packing all to the box */
     /* create day box to contain icon, label and wind image */
     /* background */
@@ -2191,31 +2195,37 @@ composition_left_vertical_day_button(WDB *new_day_button)
     if (new_day_button->wind_text)
         gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 12+15-6+14+6, 66+5);
 
-    day_name = gtk_label_get_text(new_day_button->label);
-    
-    begin_of_string = strstr(day_name, "\n");
-    
-    memset(buffer, 0, sizeof(buffer));
-    memset(tmp_buffer, 0, sizeof(tmp_buffer));
-    memcpy(tmp_buffer, day_name , strlen(day_name) - strlen(begin_of_string));
-    snprintf(buffer,sizeof(buffer) - 1,
-                                   "<span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                    PRESET_BIG_FONT_COLOR_BACK, tmp_buffer);
-    day = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL(day), buffer);
-    gtk_label_set_justify(GTK_LABEL(day), GTK_JUSTIFY_CENTER);
-    set_font(day, PRESET_DAY_FONT, -1);
-    gtk_widget_set_size_request(day, 60, 25);
 
-    memset(buffer, 0, sizeof(buffer));
-    memset(tmp_buffer, 0, sizeof(tmp_buffer));
-    begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
-    memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
-    temperature = gtk_label_new(NULL);
-    snprintf(buffer,sizeof(buffer) - 1,
-                                   "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                    PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
-                                    begin_of_string2);
+    day_name = gtk_label_get_text(new_day_button->label);
+
+
+    begin_of_string = strstr(day_name, "\n");
+    if (begin_of_string){
+        memset(buffer, 0, sizeof(buffer));
+        memset(tmp_buffer, 0, sizeof(tmp_buffer));
+        memcpy(tmp_buffer, day_name , strlen(day_name) - strlen(begin_of_string));
+        snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_BACK, tmp_buffer);
+        day = gtk_label_new(NULL);
+        gtk_label_set_markup(GTK_LABEL(day), buffer);
+        gtk_label_set_justify(GTK_LABEL(day), GTK_JUSTIFY_CENTER);
+        set_font(day, PRESET_DAY_FONT, -1);
+        gtk_widget_set_size_request(day, 60, 25);
+
+        memset(buffer, 0, sizeof(buffer));
+        memset(tmp_buffer, 0, sizeof(tmp_buffer));
+        begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
+        memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
+        temperature = gtk_label_new(NULL);
+        snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
+                                        begin_of_string2);
+    }else
+        snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_BACK, gtk_label_get_text(new_day_button->label));
     gtk_label_set_markup(GTK_LABEL(temperature), buffer);
     gtk_label_set_justify(GTK_LABEL(temperature), GTK_JUSTIFY_CENTER);
     set_font(temperature, PRESET_TEMPERATURE_FONT, -1);
@@ -2225,8 +2235,11 @@ composition_left_vertical_day_button(WDB *new_day_button)
             gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 12+15, 60+37+17);
     if (temperature)
             gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 12+15+2, 60+37+16+30);
- 
+
     gtk_widget_destroy(new_day_button->label);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 /**********************************************************************************************************/
 void
@@ -2258,32 +2271,36 @@ composition_right_vertical_day_button(WDB *new_day_button)
         gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 7-5+14, 66-4);
     if (new_day_button->wind_text)
         gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 7+14+6, 66+5); 
-    
-    day_name = gtk_label_get_text(new_day_button->label);
-    
-    begin_of_string = strstr(day_name, "\n");
-    
-    memset(buffer, 0, sizeof(buffer));
-    memset(tmp_buffer, 0, sizeof(tmp_buffer));
-    memcpy(tmp_buffer, day_name , strlen(day_name) - strlen(begin_of_string));
-    snprintf(buffer,sizeof(buffer) - 1,
-                                   "<span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                    PRESET_BIG_FONT_COLOR_BACK, tmp_buffer);
-    day = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL(day), buffer);
-    gtk_label_set_justify(GTK_LABEL(day), GTK_JUSTIFY_CENTER);
-    set_font(day, PRESET_DAY_FONT, -1);
-    gtk_widget_set_size_request(day, 60, 25);
 
-    memset(buffer, 0, sizeof(buffer));
-    memset(tmp_buffer, 0, sizeof(tmp_buffer));
-    begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
-    memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
-    temperature = gtk_label_new(NULL);
-    snprintf(buffer,sizeof(buffer) - 1,
-                                   "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                    PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
-                                    begin_of_string2);
+    day_name = gtk_label_get_text(new_day_button->label);
+
+    begin_of_string = strstr(day_name, "\n");
+    if (begin_of_string){ 
+        memset(buffer, 0, sizeof(buffer));
+        memset(tmp_buffer, 0, sizeof(tmp_buffer));
+        memcpy(tmp_buffer, day_name , strlen(day_name) - strlen(begin_of_string));
+        snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_BACK, tmp_buffer);
+        day = gtk_label_new(NULL);
+        gtk_label_set_markup(GTK_LABEL(day), buffer);
+        gtk_label_set_justify(GTK_LABEL(day), GTK_JUSTIFY_CENTER);
+        set_font(day, PRESET_DAY_FONT, -1);
+        gtk_widget_set_size_request(day, 60, 25);
+
+        memset(buffer, 0, sizeof(buffer));
+        memset(tmp_buffer, 0, sizeof(tmp_buffer));
+        begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
+        memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
+        temperature = gtk_label_new(NULL);
+        snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
+                                        begin_of_string2);
+    }else
+        snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_BACK, gtk_label_get_text(new_day_button->label));
     gtk_label_set_markup(GTK_LABEL(temperature), buffer);
     gtk_label_set_justify(GTK_LABEL(temperature), GTK_JUSTIFY_CENTER);
     set_font(temperature, PRESET_TEMPERATURE_FONT, -1);

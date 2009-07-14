@@ -424,21 +424,22 @@ draw_home_window(gint count_day){
 
 /* Clear daytime elments in queue of timer */
     remove_daytime_event();
-/* get current day */
-    current_time = time(NULL);
-    location = g_hash_table_lookup(app->station_data, "location");
-    diff_time = calculate_diff_time(atol(g_hash_table_lookup(location, "station_time_zone")));
-    current_time += diff_time;
-    current_day = current_time;
-    tm = localtime(&current_day);
-    year = 1900 + tm->tm_year;
-    current_month = tm->tm_mon;
-    tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
-    tm->tm_isdst = 1;
-    current_day = mktime(tm);
 
-    offset = calculate_offset_of_day(count_day);
     if(count_day > 0){
+        /* get current day */
+        current_time = time(NULL);
+        location = g_hash_table_lookup(app->station_data, "location");
+        diff_time = calculate_diff_time(atol(g_hash_table_lookup(location, "station_time_zone")));
+        current_time += diff_time;
+        current_day = current_time;
+        tm = localtime(&current_day);
+        year = 1900 + tm->tm_year;
+        current_month = tm->tm_mon;
+        tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+        tm->tm_isdst = 1;
+        current_day = mktime(tm);
+
+        offset = calculate_offset_of_day(count_day);
         /* delete old weather data */
         tmp = g_hash_table_lookup(app->station_data, "forecast");
         i = 0;
@@ -694,7 +695,7 @@ redraw_home_window(gboolean first_start){
         /* free station location data */
 //        g_hash_table_remove(app->station_data, "location");
         /* free station current data */
-//        g_hash_table_remove(app->station_data, "current");
+        g_hash_table_remove(app->station_data, "current");
         /* free station days data */
 //        tmp = g_hash_table_lookup(app->station_data, "forecast");
 //        while(tmp){

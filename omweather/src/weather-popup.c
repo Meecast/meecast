@@ -758,9 +758,9 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
                 day_invalid_count = 0,
                 night_invalid_count = 0;
     const gchar *wind_units_str[] = { "m/s", "km/h", "mi/h" };
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if(!day && !current)
         return NULL;
     /* prepare temperature */
@@ -985,9 +985,9 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     g_signal_connect_after(main_widget, "expose-event",
          G_CALLBACK(popup_window_expose), NULL);
 #endif
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
     return main_widget;
 }
 /*******************************************************************************/
@@ -1278,12 +1278,13 @@ GtkWidget* create_copyright_widget(const gchar *text, const gchar *image){
     return main_widget;
 }
 /*******************************************************************************/
-GtkWidget* create_window_header(const gchar *station_name, GtkWidget *popup_window){
-    GtkWidget	*main_widget = NULL,
-    	*vbox = NULL,
-		*label = NULL,
-		*previos_button = NULL,
-		*next_button = NULL;
+GtkWidget*
+create_window_header(const gchar *station_name, GtkWidget *popup_window){
+    GtkWidget       *main_widget = NULL,
+                    *vbox = NULL,
+                    *label = NULL,
+                    *previos_button = NULL,
+                    *next_button = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1294,27 +1295,26 @@ GtkWidget* create_window_header(const gchar *station_name, GtkWidget *popup_wind
     set_font(label, NULL, 28);
 /* previos button */
     previos_button = create_button_with_image(NULL, "qgn_list_hw_button_left",
-                    				26, FALSE, FALSE);
+                                                26, FALSE, FALSE);
 /* next button */
     next_button = create_button_with_image(NULL, "qgn_list_hw_button_right",
-                    				26, FALSE, FALSE);
+                                                26, FALSE, FALSE);
     if(previos_button){
-	gtk_box_pack_start(GTK_BOX(main_widget), previos_button, FALSE, FALSE, 10);
-	g_signal_connect(G_OBJECT(previos_button), "button_press_event",
-                	G_CALLBACK(change_station_prev), popup_window);
+        gtk_box_pack_start(GTK_BOX(main_widget), previos_button, FALSE, FALSE, 10);
+        g_signal_connect(G_OBJECT(previos_button), "button_press_event",
+                            G_CALLBACK(change_station_prev), popup_window);
     }
     if(label)
-	gtk_box_pack_start(GTK_BOX(main_widget), label, TRUE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(main_widget), label, TRUE, TRUE, 0);
     if(next_button){
-	gtk_box_pack_start(GTK_BOX(main_widget), next_button, FALSE, FALSE, 10);
-	g_signal_connect(G_OBJECT(next_button), "button_press_event",
-                	G_CALLBACK(change_station_next), popup_window);
+        gtk_box_pack_start(GTK_BOX(main_widget), next_button, FALSE, FALSE, 10);
+        g_signal_connect(G_OBJECT(next_button), "button_press_event",
+                            G_CALLBACK(change_station_next), popup_window);
     }
-	gtk_box_pack_start(GTK_BOX(vbox),main_widget,FALSE,FALSE,20);
+    gtk_box_pack_start(GTK_BOX(vbox), main_widget, FALSE, FALSE, 20);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-
     return vbox;
 }
 /*******************************************************************************/

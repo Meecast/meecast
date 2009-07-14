@@ -185,7 +185,7 @@ libweather_home_la_CFLAGS =  $(GTK_CFLAGS) \
 			$(CLUTTER_CFLAGS) \
 			$(HILDONDESKTOP_CFLAGS) \
 			-Wall -pedantic \
-			-Wmissing-prototypes
+			-Wmissing-prototypes -DDEBUGFUNCTIONCALL
 
 libweather_home_la_LDFLAGS =  -module -avoid-version 
 

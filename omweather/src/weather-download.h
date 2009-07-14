@@ -60,8 +60,6 @@ GtkWidget* create_window_update(void);
 #endif
 gboolean get_file(const gchar *full_url, const gchar *full_storing_name);
 /*******************************************************************************/
-extern WeatherSource	weather_sources[];
-/*******************************************************************************/
 extern void config_update_proxy(void);
 extern void add_current_time_event(void);
 extern void popup_window_destroy(void);

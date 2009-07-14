@@ -293,7 +293,6 @@ free_source_field (gpointer key, gpointer val, gpointer user_data)
         val = NULL;
     }
 }
-
 /*******************************************************************************/
 void
 free_hashtable_with_source(GHashTable* hashtable){
@@ -312,51 +311,95 @@ parse_children(xmlNode *node, GHashTable *object){
     START_FUNCTION;
 #endif
     while(node){
-	if(node->type == XML_ELEMENT_NODE){
-	    /* name */
-	    if(!xmlStrcmp(node->name, (const xmlChar*)"name")){
-		value = xmlNodeGetContent(node);
-		g_hash_table_insert(object, "name", g_strdup((gchar*)value));
-		xmlFree(value);
-	    }
-	    /* logo */
-	    if(!xmlStrcmp(node->name, (const xmlChar*)"logo")){
-		value = xmlNodeGetContent(node);
-		g_hash_table_insert(object, "logo", g_strdup((gchar*)value));
-		xmlFree(value);
-	    }
-	    /* forecast_url */
-	    if(!xmlStrcmp(node->name, (const xmlChar*)"forecast")){
-		value = xmlGetProp(node, (const xmlChar*)"url");
-		g_hash_table_insert(object, "forecast_url", g_strdup((gchar*)value));
-		xmlFree(value);
-	    }
-	    /* detail_url */
-	    if(!xmlStrcmp(node->name, (const xmlChar*)"detail")){
-		value = xmlGetProp(node, (const xmlChar*)"url");
-		g_hash_table_insert(object, "detail_url", g_strdup((gchar*)value));
-		xmlFree(value);
-	    }
-	    /* search_url */
-	    if(!xmlStrcmp(node->name, (const xmlChar*)"search")){
-		value = xmlGetProp(node, (const xmlChar*)"url");
-		g_hash_table_insert(object, "search_url", g_strdup((gchar*)value));
-		xmlFree(value);
-	    }
-	    /* stations_db */
-	    if(!xmlStrcmp(node->name, (const xmlChar*)"base")){
-		value = xmlNodeGetContent(node);
-		g_hash_table_insert(object, "base", g_strdup((gchar*)value));
-		xmlFree(value);
-	    }
-	    /* library */
-	    if(!xmlStrcmp(node->name, (const xmlChar*)"library")){
-		value = xmlNodeGetContent(node);
-		g_hash_table_insert(object, "library", g_strdup((gchar*)value));
-		xmlFree(value);
-	    }
-	}
-	node = node->next;
+        if(node->type == XML_ELEMENT_NODE){
+            /* name */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"name")){
+                value = xmlNodeGetContent(node);
+                g_hash_table_insert(object, "name", g_strdup((gchar*)value));
+                xmlFree(value);
+            }
+            /* logo */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"logo")){
+                value = xmlNodeGetContent(node);
+                g_hash_table_insert(object, "logo", g_strdup((gchar*)value));
+                xmlFree(value);
+            }
+            /* forecast_url */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"forecast")){
+                value = xmlGetProp(node, (const xmlChar*)"url");
+                g_hash_table_insert(object, "forecast_url", g_strdup((gchar*)value));
+                xmlFree(value);
+            }
+            /* detail_url */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"detail")){
+                value = xmlGetProp(node, (const xmlChar*)"url");
+                g_hash_table_insert(object, "detail_url", g_strdup((gchar*)value));
+                xmlFree(value);
+            }
+            /* search_url */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"search")){
+                value = xmlGetProp(node, (const xmlChar*)"url");
+                g_hash_table_insert(object, "search_url", g_strdup((gchar*)value));
+                xmlFree(value);
+            }
+            /* stations_db */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"base")){
+                value = xmlNodeGetContent(node);
+                g_hash_table_insert(object, "base", g_strdup((gchar*)value));
+                xmlFree(value);
+            }
+            /* library */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"library")){
+                value = xmlNodeGetContent(node);
+                g_hash_table_insert(object, "library", g_strdup((gchar*)value));
+                xmlFree(value);
+            }
+        }
+        node = node->next;
     }
+}
+/*******************************************************************************/
+gchar*
+get_source_forecast_url(GtkListStore *data, const gchar *source_name){
+    GtkTreeIter iter;
+    GHashTable  *source = NULL;
+    gpointer    value = NULL;
+    gboolean    valid = FALSE;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(!data && !source_name)
+        return NULL;
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(data), &iter);
+    while(valid){
+        gtk_tree_model_get(GTK_TREE_MODEL(data), &iter, 1, &source, -1);
+        value = g_hash_table_lookup(source, "name");
+        if(value && !strcmp(source_name, (gchar*)value))
+            return g_hash_table_lookup(source, "forecast_url");
+        valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(data), &iter);
+    }
+    return NULL;
+}
+/*******************************************************************************/
+gchar*
+get_source_detail_url(GtkListStore *data, const gchar *source_name){
+    GtkTreeIter iter;
+    GHashTable  *source = NULL;
+    gpointer    value = NULL;
+    gboolean    valid = FALSE;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(!data && !source_name)
+        return NULL;
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(data), &iter);
+    while(valid){
+        gtk_tree_model_get(GTK_TREE_MODEL(data), &iter, 1, &source, -1);
+        value = g_hash_table_lookup(source, "name");
+        if(value && !strcmp(source_name, (gchar*)value))
+            return g_hash_table_lookup(source, "detail_url");
+        valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(data), &iter);
+    }
+    return NULL;
 }
 /*******************************************************************************/

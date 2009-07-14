@@ -753,14 +753,15 @@ redraw_home_window(gboolean first_start){
         fprintf(stderr, "\n>>>>>>>>>>>>>>>>Days count = %d from new parser.", count_day);
     }
 /* Parse data file */
+/*
     count_day = parse_weather_file_data(app->config->current_station_id,
 					app->config->current_station_source,
 					&(app->wsd), FALSE);
+*/
     if(app->config->show_weather_for_two_hours)
 	parse_weather_file_data(app->config->current_station_id,
 					app->config->current_station_source,
 					&(app->wsd), TRUE);
-/*    parse_underground_com_data("vitebsk");	*//* TODO next release, maybe */
     if(count_day == -2){
 	fprintf(stderr, _("Error in xml file\n"));
 	    hildon_banner_show_information(app->main_window,

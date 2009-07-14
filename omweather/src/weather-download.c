@@ -567,28 +567,24 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
                            ID0_COLUMN, &station_code,
                            3, &station_source,
                            -1);
-/* !!! TODO: recode this */
-        /* Default weather.com */
-        if (station_source){
-            if(!strcmp(station_source, "weather.com"))
-                source = 0;
-            if(!strcmp(station_source, "rp5.ru"))
-                source = 1;
-        }else
-                source = 0;
-        /* prepare url */
-        if(weather_sources[source].url){
-	    *buffer = 0;
-	    snprintf(buffer, sizeof(buffer) - 1,
-			weather_sources[source].url, station_code);
-	    *url = g_strdup(buffer);
-	}
-        if(weather_sources[source].hour_url){
-	    *buffer = 0;
-	    snprintf(buffer, sizeof(buffer) - 1,
-			weather_sources[source].hour_url, station_code);
-	    *hour_url = g_strdup(buffer);
-	}
+    if(station_source){
+        /* prepare forecast url */
+        if(get_source_forecast_url(app->sources_list, station_source)){
+            *buffer = 0;
+            snprintf(buffer, sizeof(buffer) - 1,
+                        get_source_forecast_url(app->sources_list, station_source),
+                        station_code);
+            *url = g_strdup(buffer);
+        }
+        /* prepare detail url */
+        if(get_source_detail_url(app->sources_list, station_source)){
+            *buffer = 0;
+            snprintf(buffer, sizeof(buffer) - 1,
+                        get_source_detail_url(app->sources_list, station_source),
+                        station_code);
+            *hour_url = g_strdup(buffer);
+        }
+    }
 #ifndef RELEASE
         fprintf(stderr, "\n>>>>>>>>>>URL %s\n", *url);
 #endif

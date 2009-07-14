@@ -54,7 +54,6 @@ struct lists_struct{
 };
 /*******************************************************************************/
 extern gboolean		not_event;
-extern WeatherSource	weather_sources[];
 /*******************************************************************************/
 void weather_window_settings(GtkWidget *widget, gpointer user_data);
 void station_list_view_select_handler(GtkTreeView *tree_view,

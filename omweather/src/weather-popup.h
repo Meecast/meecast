@@ -32,8 +32,6 @@
 /*******************************************************************************/
 #include "weather-common.h"
 /*******************************************************************************/
-extern	WeatherSource	weather_sources[];
-/*******************************************************************************/
 GtkWidget* create_sun_time_widget(GHashTable *day);
 GtkWidget* create_moon_phase_widget(GHashTable *current);
 GtkWidget* create_time_updates_widget(GHashTable *current, gboolean change_color);

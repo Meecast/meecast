@@ -761,7 +761,7 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
 //#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 //#endif
-    if(!day)
+    if(!day && !current)
         return NULL;
     /* prepare temperature */
     if(g_hash_table_lookup(day, "day_hi_temperature") &&

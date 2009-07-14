@@ -42,6 +42,11 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data){
 #endif
     if(!station_id_with_path || !data)
 	return -1;
+/* check for new file, if it exist, than rename it */
+    *buffer = 0;
+    snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);
+    if(!access(buffer, R_OK))
+        rename(buffer, station_id_with_path);
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
 	/* check that the file containe valid data */
@@ -53,7 +58,7 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data){
 		    strstr((char*)root_node->name, "err")){
 	    xmlFreeDoc(doc);
 	    xmlCleanupParser();
-	    return -1;
+	    return -2;
 	}
 	else{
 	    /* prepare station id */

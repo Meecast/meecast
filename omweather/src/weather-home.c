@@ -676,9 +676,10 @@ draw_home_window(gint count_day){
 /*******************************************************************************/
 void 
 redraw_home_window(gboolean first_start){
-    gint            count_day;
+    gint            count_day = -2;
     GSList          *tmp = NULL;
     GHashTable      *tmp_data = NULL;
+    GSList          *tmp_data1 = NULL;
     gint            (*parser)(const gchar*, GHashTable*);
     WDB             *tmp_button = NULL;
     gchar           buffer[255];
@@ -691,23 +692,23 @@ redraw_home_window(gboolean first_start){
 #endif
     if(!first_start){
         /* free station location data */
-//        g_hash_table_remove(app->station_data, "location");
+        g_hash_table_remove(app->station_data, "location");
         /* free station current data */
-//        g_hash_table_remove(app->station_data, "current");
-	    /* free station days data */
-//        tmp = g_hash_table_lookup(app->station_data, "forecast");
-//        while(tmp){
-//            tmp_data = (GHashTable*)tmp->data;
-//            if(tmp_data)
-//                g_hash_table_destroy(tmp_data);
-//            tmp = g_slist_next(tmp);
-//        }
+        g_hash_table_remove(app->station_data, "current");
+        /* free station days data */
+        tmp = g_hash_table_lookup(app->station_data, "forecast");
+        while(tmp){
+            tmp_data = (GHashTable*)tmp->data;
+            if(tmp_data)
+                g_hash_table_destroy(tmp_data);
+            tmp = g_slist_next(tmp);
+        }
 	    /* free station hours data */
 	    tmp = app->wsd.hours_weather;
 	    while(tmp){
-	        tmp_data = (GSList*)tmp->data;
-	        if (tmp_data)
-		        destroy_object(&tmp_data);
+	        tmp_data1 = (GSList*)tmp->data;
+	        if(tmp_data1)
+		        destroy_object(&tmp_data1);
 	        tmp = g_slist_next(tmp);
 	    }
 	    if (app->wsd.hours_weather)
@@ -817,12 +818,7 @@ void*
 hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
 #endif
-
     gchar       tmp_buff[2048];
-#ifdef DEBUGFUNCTIONCALL
-     START_FUNCTION;
-#endif
-
 #if ! defined (OS2009) || ! defined (NONMAEMO) || ! defined (APPLICATION)
     osso_context_t	*osso = NULL;
     osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
@@ -1792,7 +1788,8 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /* free used memory from OMWeather struct */
 void 
 free_memory(void){
-    GSList          *tmp = NULL;
+    GSList          *tmp = NULL,
+                    *tmp_data1 = NULL;
     GHashTable      *tmp_data = NULL;
     WDB             *tmp_button = NULL;
     gboolean        valid = FALSE;
@@ -1821,9 +1818,9 @@ free_memory(void){
     /* free station hours data */
     tmp = app->wsd.hours_weather;
     while(tmp){
-        tmp_data = (GSList*)tmp->data;
-        if (tmp_data)
-            destroy_object(&tmp_data);
+        tmp_data1 = (GSList*)tmp->data;
+        if(tmp_data1)
+            destroy_object(&tmp_data1);
         tmp = g_slist_next(tmp);
     }
     if (app->wsd.hours_weather)
@@ -1924,11 +1921,10 @@ fill_weather_day_button_expand(WDB *new_day_button, const char *text, const char
                 const gint icon_size, gboolean transparency,
                 gboolean draw_day_label)
 {
+    GdkPixbuf   *icon_buffer;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
- 
-    GdkPixbuf   *icon_buffer;
     /* create day label */
     if(draw_day_label){
             new_day_button->label = gtk_label_new(NULL);
@@ -1993,18 +1989,16 @@ fill_weather_day_button_expand(WDB *new_day_button, const char *text, const char
 GtkWidget *
 next_station_preset_now(gint layout)
 {
+    GtkWidget       *widget = NULL,
+                    *station_text = NULL,
+                    *shadow_station_text = NULL,
+                    *background_town = NULL,
+                    *station_name_btn = NULL;
+    gchar           *begin_of_string;
+    gchar           buffer[2048];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
-GtkWidget *widget = NULL,
-          *station_text = NULL,
-          *shadow_station_text = NULL,
-          *background_town = NULL,
-          *station_name_btn = NULL;
-gchar     *begin_of_string;
-gchar       buffer[2048];
-
     widget = gtk_fixed_new();
     /* Create next station event */
     station_name_btn = gtk_event_box_new();
@@ -2072,13 +2066,12 @@ fill_weather_day_button_presets(WDB *new_day_button, const char *text, const cha
                 const gint icon_size, gboolean transparency,
                 gboolean draw_day_label, gint wind_direction, gfloat wind_speed)
 {
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
     gchar       buffer[2048];
     GdkPixbuf   *icon_buffer;
     gchar       *begin_of_string;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     /* create day label */
     new_day_button->label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
@@ -2338,13 +2331,12 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
                 const gint icon_size, gboolean transparency,
                 gboolean draw_day_label, gint wind_direction, gfloat wind_speed)
 {
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
     gchar       buffer[2048];
     GdkPixbuf   *icon_buffer;
     gchar       *begin_of_string;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     /* create day label */
     new_day_button->label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);

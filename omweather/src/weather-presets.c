@@ -330,7 +330,13 @@ composition_now(WDB *new_day_button, gint layout)
             xoffset = 12 + 15;
             gtk_widget_set_size_request(new_day_button->box, xoffset+140+1, 37+15+106);
             break;
-       default:
+        case PRESET_NOW_PLUS_THREE_H:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND_HORIZONTAL);
+            xoffset = 12 + 15;
+            gtk_widget_set_size_request(new_day_button->box, xoffset+138, 37+15+106);
+            break;
+ 
+        default:
         case PRESET_NOW:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND);
             xoffset = 12 + 15;
@@ -375,6 +381,14 @@ next_station_preset_now(gint layout)
     widget = gtk_fixed_new();
     memset(buffer, 0, sizeof(buffer));
     switch (layout){
+        case PRESET_NOW_PLUS_THREE_H:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND_TOWN_HORIZONTAL);
+            background_town = gtk_image_new_from_file (buffer);
+            if (background_town)
+                gtk_fixed_put(GTK_FIXED(widget), background_town, 12+15, 0);
+            x_width = 138;
+            x_offset = 12+15;
+            break; 
         case PRESET_NOW_PLUS_TWO:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND_TOWN_PLUS_TWO);
             background_town = gtk_image_new_from_file (buffer);

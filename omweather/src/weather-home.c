@@ -1697,6 +1697,30 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
                                 (GtkAttachOptions)0, 0, 0 );
 
             break;
+            case PRESET_NOW_PLUS_THREE_H:
+                composition_now((WDB*)tmp->data, PRESET_NOW_PLUS_THREE_H);
+                gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                0, 0 + 1, 0, 1, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+                if(tmp)
+                    tmp = g_slist_next(tmp);
+                if(tmp){
+                        composition_central_vertical_day_button((WDB*)tmp->data);
+                        gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                1, 1 + 1, 0, 2, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+                        tmp = g_slist_next(tmp);
+                }
+
+                gtk_table_attach((GtkTable*)days_panel,
+                                (GtkWidget*)next_station_preset_now(PRESET_NOW_PLUS_THREE_H),
+                                0, 0 + 1, 1, 2, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+
+            break;
+ 
             default:
             case PRESET_NOW:
                 composition_now((WDB*)tmp->data, PRESET_NOW);

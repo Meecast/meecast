@@ -124,28 +124,32 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"dnam") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             g_hash_table_insert(location, "station_name",
-                                                (gpointer)temp_xml_string);
+                                                g_strdup(temp_xml_string));
+                            xmlFree(temp_xml_string);
                             continue;
                         }
                         /* station lattitude */
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"lat") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             g_hash_table_insert(location, "station_latitude",
-                                                (gpointer)temp_xml_string);
+                                                g_strdup(temp_xml_string));
+                            xmlFree(temp_xml_string);
                             continue;
                         }
                         /* station longitude */
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"lon") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             g_hash_table_insert(location, "station_longitude",
-                                                (gpointer)temp_xml_string);
+                                                g_strdup(temp_xml_string));
+                            xmlFree(temp_xml_string);
                             continue;
                         }
                         /* station time zone */
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"zone") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             g_hash_table_insert(location, "station_time_zone",
-                                                (gpointer)temp_xml_string);
+                                                g_strdup(temp_xml_string));
+                            xmlFree(temp_xml_string);
                             continue;
                         }
                     }
@@ -160,7 +164,8 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                     if( child_node->type == XML_ELEMENT_NODE  &&
                             ( !xmlStrcmp(child_node->name, (const xmlChar *)"lsup") ) ){
                         temp_xml_string = xmlNodeGetContent(child_node);
-                        g_hash_table_insert(current, "last_update", (char*)temp_xml_string);
+                        g_hash_table_insert(current, "last_update", g_strdup(temp_xml_string));
+                        xmlFree(temp_xml_string);
                         continue;
                     }
                     /* temperature */
@@ -168,7 +173,8 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                             ( !xmlStrcmp(child_node->name, (const xmlChar *)"tmp") ) ){
                         temp_xml_string = xmlNodeGetContent(child_node);
                         g_hash_table_insert(current, "day_hi_temperature",
-                                            (char*)temp_xml_string);
+                                            g_strdup(temp_xml_string));
+                        xmlFree(temp_xml_string);
                         continue;
                     }
                     /* feel like */
@@ -176,20 +182,23 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                             ( !xmlStrcmp(child_node->name, (const xmlChar *)"flik") ) ){
                         temp_xml_string = xmlNodeGetContent(child_node);
                         g_hash_table_insert(current, "feel_like",
-                                            (char*)temp_xml_string);
+                                            g_strdup(temp_xml_string));
+                        xmlFree(temp_xml_string);
                         continue;
                     }
                     /* title */
                     if(!xmlStrcmp(child_node->name, (const xmlChar *)"t") ){
                         temp_xml_string = xmlNodeGetContent(child_node);
-                        g_hash_table_insert(current, "title", (char*)temp_xml_string);
+                        g_hash_table_insert(current, "title", g_strdup(temp_xml_string));
+                        xmlFree(temp_xml_string);
                         continue;
                     }
                     /* icon */
                     if(!xmlStrcmp(child_node->name, (const xmlChar *)"icon") ){
                         temp_xml_string = xmlNodeGetContent(child_node);
                         g_hash_table_insert(current, "icon",
-                                            (char*)temp_xml_string);
+                                            g_strdup(temp_xml_string));
+                        xmlFree(temp_xml_string);
                         continue;
                     }
                     /* pressure data */
@@ -200,13 +209,15 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"r") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     g_hash_table_insert(current, "pressure",
-                                                        (char*)temp_xml_string);
+                                                        g_strdup(temp_xml_string));
+                                    xmlFree(temp_xml_string);
                                 }
                                 /* direction */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"d") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     g_hash_table_insert(current, "pressure_direction",
-                                                        (char*)temp_xml_string);
+                                                        g_strdup(temp_xml_string));
+                                    xmlFree(temp_xml_string);
                                 }
                             }
                         }
@@ -215,13 +226,15 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                     /* humidity */
                     if(!xmlStrcmp(child_node->name, (const xmlChar *)"hmid") ){
                         temp_xml_string = xmlNodeGetContent(child_node);
-                        g_hash_table_insert(current, "humidity", (char*)temp_xml_string);
+                        g_hash_table_insert(current, "humidity", g_strdup(temp_xml_string));
+                        xmlFree(temp_xml_string);
                         continue;
                     }
                     /* visible */
                     if(!xmlStrcmp(child_node->name, (const xmlChar *)"vis") ){
                         temp_xml_string = xmlNodeGetContent(child_node);
-                        g_hash_table_insert(current, "visible", (char*)temp_xml_string);
+                        g_hash_table_insert(current, "visible", g_strdup(temp_xml_string));
+                        xmlFree(temp_xml_string);
                         continue;
                     }
                     /* wind data */
@@ -231,17 +244,20 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                                 /* speed */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"s") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    g_hash_table_insert(current, "wind_speed", (char*)temp_xml_string);
+                                    g_hash_table_insert(current, "wind_speed", g_strdup(temp_xml_string));
+                                    xmlFree(temp_xml_string);
                                 }
                                 /* gust */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"gust") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    g_hash_table_insert(current, "wind_gust", (char*)temp_xml_string);
+                                    g_hash_table_insert(current, "wind_gust", g_strdup(temp_xml_string));
+                                    xmlFree(temp_xml_string);
                                 }
                                 /* direction */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    g_hash_table_insert(current, "wind_direction", (char*)temp_xml_string);
+                                    g_hash_table_insert(current, "wind_direction", g_strdup(temp_xml_string));
+                                    xmlFree(temp_xml_string);
                                 }
                             }
                         }
@@ -255,13 +271,15 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
 /* not used now
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"icon") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    g_hash_table_insert(current, "moon_icon", (char*)temp_xml_string);
+                                    g_hash_table_insert(current, "moon_icon", g_strdup(temp_xml_string));
+                                    xmlFree(temp_xml_string);
                                 }
 */
                                 /* phase */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"t") ){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    g_hash_table_insert(current, "moon_phase", (char*)temp_xml_string);
+                                    g_hash_table_insert(current, "moon_phase", g_strdup(temp_xml_string));
+                                    xmlFree(temp_xml_string);
                                 }
                             }
                         }
@@ -287,33 +305,39 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
 			memset(buff, 0, sizeof(buff));
 			strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
 			g_hash_table_insert(day, "day_name", g_strdup(buff));
+			xmlFree(temp_xml_string);
 			/* get 24h date */
 			temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"dt");
-			g_hash_table_insert(day, "day_date", (char*)temp_xml_string);
+			g_hash_table_insert(day, "day_date", g_strdup(temp_xml_string));
+			xmlFree(temp_xml_string);
 			for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
 			    if( child_node2->type == XML_ELEMENT_NODE){
 				/* 24h hi temperature */
 				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"hi")){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
-				    g_hash_table_insert(day, "day_hi_temperature", (char*)temp_xml_string);
+				    g_hash_table_insert(day, "day_hi_temperature", g_strdup(temp_xml_string));
+				    xmlFree(temp_xml_string);
 				    continue;
 				}
 				/* 24h low temperature */
 				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"low")){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
-				    g_hash_table_insert(day, "day_low_temperature", (char*)temp_xml_string);
+				    g_hash_table_insert(day, "day_low_temperature", g_strdup(temp_xml_string));
+				    xmlFree(temp_xml_string);
 				    continue;
 				}
 				/* 24h sunrise */
 				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"sunr")){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
-				    g_hash_table_insert(day, "day_sunrise", (char*)temp_xml_string);
+				    g_hash_table_insert(day, "day_sunrise", g_strdup(temp_xml_string));
+				    xmlFree(temp_xml_string);
 				    continue;
 				}
 				/* 24h sunset */
 				if(!xmlStrcmp(child_node2->name, (const xmlChar *)"suns")){
 				    temp_xml_string = xmlNodeGetContent(child_node2);
-				    g_hash_table_insert(day, "day_sunset", (char*)temp_xml_string);
+				    g_hash_table_insert(day, "day_sunset", g_strdup(temp_xml_string));
+				    xmlFree(temp_xml_string);
 				    continue;
 				}
 				/* 24h part */
@@ -330,36 +354,40 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
 					    if(!xmlStrcmp(child_node3->name, (const xmlChar *)"hmid") ){
 						temp_xml_string = xmlNodeGetContent(child_node3);
 						if(!store2day)
-						    g_hash_table_insert(day, "night_humidity", (char*)temp_xml_string);
+						    g_hash_table_insert(day, "night_humidity", g_strdup(temp_xml_string));
 						else
-						    g_hash_table_insert(day, "day_humidity", (char*)temp_xml_string);
+						    g_hash_table_insert(day, "day_humidity", g_strdup(temp_xml_string));
+						xmlFree(temp_xml_string);
 						continue;
 					    }
 					    /* ppcp */
 					    if(!xmlStrcmp(child_node3->name, (const xmlChar *)"ppcp") ){
 						temp_xml_string = xmlNodeGetContent(child_node3);
 						if(!store2day)
-						    g_hash_table_insert(day, "night_ppcp", (char*)temp_xml_string);
+						    g_hash_table_insert(day, "night_ppcp", g_strdup(temp_xml_string));
 						else
-						    g_hash_table_insert(day, "day_ppcp", (char*)temp_xml_string);
+						    g_hash_table_insert(day, "day_ppcp", g_strdup(temp_xml_string));
+						xmlFree(temp_xml_string);
 						continue;
 					    }
 					    /* title */
 					    if(!xmlStrcmp(child_node3->name, (const xmlChar *)"t") ){
 						temp_xml_string = xmlNodeGetContent(child_node3);
 						if(!store2day)
-						    g_hash_table_insert(day, "night_title", (char*)temp_xml_string);
+						    g_hash_table_insert(day, "night_title", g_strdup(temp_xml_string));
 						else
-						    g_hash_table_insert(day, "day_title", (char*)temp_xml_string);
+						    g_hash_table_insert(day, "day_title", g_strdup(temp_xml_string));
+						xmlFree(temp_xml_string);
 						continue;
 					    }
 					    /* icon */
 					    if(!xmlStrcmp(child_node3->name, (const xmlChar *)"icon") ){
 						temp_xml_string = xmlNodeGetContent(child_node3);
 						if(!store2day)
-						    g_hash_table_insert(day, "night_icon", (char*)temp_xml_string);
+						    g_hash_table_insert(day, "night_icon", g_strdup(temp_xml_string));
 						else
-						    g_hash_table_insert(day, "day_icon", (char*)temp_xml_string);
+						    g_hash_table_insert(day, "day_icon", g_strdup(temp_xml_string));
+						xmlFree(temp_xml_string);
 						continue;
 					    }
 					    /* wind data */
@@ -370,9 +398,10 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
 							if(!xmlStrcmp(child_node4->name, (const xmlChar *)"s") ){
 							    temp_xml_string = xmlNodeGetContent(child_node4);
 							    if(!store2day)
-								g_hash_table_insert(day, "night_wind_speed", (char*)temp_xml_string);
+								g_hash_table_insert(day, "night_wind_speed", g_strdup(temp_xml_string));
 							    else
-								g_hash_table_insert(day, "day_wind_speed", (char*)temp_xml_string);
+								g_hash_table_insert(day, "day_wind_speed", g_strdup(temp_xml_string));
+								xmlFree(temp_xml_string);
 							    continue;
 							}
 							/* title */
@@ -380,10 +409,11 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
 							    temp_xml_string = xmlNodeGetContent(child_node4);
 							    if(!store2day)
 								g_hash_table_insert(day, "night_wind_title",
-									    (char*)temp_xml_string);
+									    g_strdup(temp_xml_string));
 							    else
 								g_hash_table_insert(day, "day_wind_title",
-									    (char*)temp_xml_string);
+									    g_strdup(temp_xml_string));
+							    xmlFree(temp_xml_string);
 							    continue;
 							}
 						    }

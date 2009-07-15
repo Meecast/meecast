@@ -256,7 +256,7 @@ data_read(void *buffer, size_t size, size_t nmemb, void *stream){
 /*******************************************************************************/
 gboolean
 download_html(gpointer data){
-    CURLMsg *msg;
+    CURLMsg *msg = NULL;
     CURLMcode mret;
     fd_set rs, ws, es;
     int max;
@@ -533,7 +533,6 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
     static GtkTreeIter  iter;
     gchar               *station_code = NULL,
                         *station_source = NULL;
-    gint                source = 0;
     gchar                buffer[512];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

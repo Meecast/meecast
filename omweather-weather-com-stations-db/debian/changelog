@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (0.9) unstable; urgency=low
+
+  * Fixed problem with new data
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 15 Jul 2009 09:24:20 +0200
+
 omweather-weather-com-stations-db (0.8) unstable; urgency=low
 
   * Preparing for 0.23 version of OMWeather

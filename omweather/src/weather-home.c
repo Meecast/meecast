@@ -2055,6 +2055,8 @@ next_station_preset_now(gint layout)
                     *station_name_btn = NULL;
     gchar           *begin_of_string;
     gchar           buffer[2048];
+    gint            x_width = 0;
+    gint            x_offset = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -2066,12 +2068,16 @@ next_station_preset_now(gint layout)
             background_town = gtk_image_new_from_file (buffer);
             if (background_town)
                 gtk_fixed_put(GTK_FIXED(widget), background_town, 12+15, 0);
+            x_width = 140;
+            x_offset = 12+15;
             break;
         case PRESET_NOW_PLUS_THREE_V:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND_TOWN_PLUS_THREE_V);
             background_town = gtk_image_new_from_file (buffer);
             if (background_town)
                 gtk_fixed_put(GTK_FIXED(widget), background_town, 0, 0);
+            x_width = 210;
+            x_offset = 0;
             break;
         default:
         case PRESET_NOW:
@@ -2079,6 +2085,8 @@ next_station_preset_now(gint layout)
             background_town = gtk_image_new_from_file (buffer);
             if (background_town)
                 gtk_fixed_put(GTK_FIXED(widget), background_town, 12+15, 0);
+            x_width = 140;
+            x_offset = 12+15;
             break;
     }
 
@@ -2087,7 +2095,7 @@ next_station_preset_now(gint layout)
     if(station_name_btn){
         gtk_widget_set_events(station_name_btn, GDK_BUTTON_PRESS_MASK);
         gtk_event_box_set_visible_window(GTK_EVENT_BOX(station_name_btn), FALSE);
-        gtk_widget_set_size_request(station_name_btn, 140, 71-2);
+        gtk_widget_set_size_request(station_name_btn, x_width, 71-2);
         g_signal_connect(station_name_btn, "button-press-event",
                     G_CALLBACK(change_station_next), NULL);
     }
@@ -2100,7 +2108,7 @@ next_station_preset_now(gint layout)
         gtk_label_set_markup(GTK_LABEL(station_text), buffer);
         gtk_label_set_justify(GTK_LABEL(station_text), GTK_JUSTIFY_CENTER);
         set_font(station_text, PRESET_STATION_FONT, -1);
-        gtk_widget_set_size_request(station_text, 140-4, 30);
+        gtk_widget_set_size_request(station_text, x_width-4, 30);
         /* Create shadow station name */
         if ((strlen(PRESET_BIG_FONT_COLOR_FRONT) == strlen(PRESET_BIG_FONT_COLOR_BACK))&&
             (begin_of_string = strstr(buffer,PRESET_BIG_FONT_COLOR_FRONT))){
@@ -2110,7 +2118,7 @@ next_station_preset_now(gint layout)
             gtk_label_set_markup(GTK_LABEL(shadow_station_text), buffer);
             gtk_label_set_justify(GTK_LABEL(shadow_station_text), GTK_JUSTIFY_CENTER);
             set_font(shadow_station_text, PRESET_STATION_FONT, -1);
-            gtk_widget_set_size_request(shadow_station_text, 140-5, 30);
+            gtk_widget_set_size_request(shadow_station_text, x_width-5, 30);
         }else
             shadow_station_text = NULL;
     }else{
@@ -2119,11 +2127,11 @@ next_station_preset_now(gint layout)
     }
 
     if (station_name_btn)
-        gtk_fixed_put(GTK_FIXED(widget), station_name_btn, 12+15, 0);
+        gtk_fixed_put(GTK_FIXED(widget), station_name_btn, x_offset, 0);
     if (shadow_station_text)
-        gtk_fixed_put(GTK_FIXED(widget), shadow_station_text, 12+15+2+1, 17+1);
+        gtk_fixed_put(GTK_FIXED(widget), shadow_station_text, x_offset+2+1, 17+1);
     if (station_text)
-        gtk_fixed_put(GTK_FIXED(widget), station_text, 12+15+1+1,17);
+        gtk_fixed_put(GTK_FIXED(widget), station_text, x_offset+1+1,17);
 
     return widget;
 }

@@ -221,8 +221,7 @@ CURL *weather_curl_init(CURL * my_curl_handle) {
 }
 /*******************************************************************************/
 void
-free_curl(void)
-{
+free_curl(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -235,16 +234,17 @@ free_curl(void)
     app->flag_updating = 0;
 }
 /*******************************************************************************/
-static int data_read(void *buffer, size_t size, size_t nmemb, void *stream) {
+static int 
+data_read(void *buffer, size_t size, size_t nmemb, void *stream){
     int result;
     struct HtmlFile *out = (struct HtmlFile *)stream;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (out && !out->stream) {
+    if(out && !out->stream){
         /* open file for writing */
         out->stream = fopen(out->filename, "wb");
-        if (!out->stream)
+        if(!out->stream)
             return -1;          /* failure, can't open file to write */
     }
 #ifndef RELEASE
@@ -254,7 +254,8 @@ static int data_read(void *buffer, size_t size, size_t nmemb, void *stream) {
     return result;
 }
 /*******************************************************************************/
-gboolean download_html(gpointer data) {
+gboolean
+download_html(gpointer data){
     CURLMsg *msg;
     CURLMcode mret;
     fd_set rs, ws, es;
@@ -263,23 +264,21 @@ gboolean download_html(gpointer data) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (app->popup_window && app->show_update_window) {
+    if(app->popup_window && app->show_update_window){
         destroy_popup_window();
     }
     /* If not connected and it autoupdate do go away */
-    if (!app->show_update_window && !app->iap_connected) {
+    if(!app->show_update_window && !app->iap_connected){
         app->flag_updating = 0;
         return FALSE;
     }
-    if (app->iap_connected)
+    if(app->iap_connected)
         second_attempt = TRUE;
-
 /* Connection wake up */
-    if (app->show_update_window && (!second_attempt)
-        && (!app->iap_connecting)) {
+    if(app->show_update_window && (!second_attempt) && (!app->iap_connecting)){
         app->iap_connecting = TRUE;
 #ifdef USE_CONIC
-        if (app->connection)
+        if(app->connection)
             con_ic_connection_connect(app->connection,
                                       CON_IC_CONNECT_FLAG_NONE);
         else{
@@ -288,8 +287,8 @@ gboolean download_html(gpointer data) {
         }
 #else
     #ifndef NONMAEMO
-        if (osso_iap_connect
-            (OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK) {
+        if(osso_iap_connect
+            (OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){
             fprintf(stderr,
                     "after 1 osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)\n");
         }
@@ -300,11 +299,11 @@ gboolean download_html(gpointer data) {
         second_attempt = TRUE;
         return TRUE;
     }
-    if (app->iap_connecting) {
+    if(app->iap_connecting){
         /* Check timeout */
-        if (app->iap_connecting_timer > 150) {
-            if (app->show_update_window) {
-                if (update_window) {
+        if(app->iap_connecting_timer > 150){
+            if(app->show_update_window){
+                if(update_window){
                     gtk_widget_destroy(update_window);
                     update_window = NULL;
                 }
@@ -317,30 +316,28 @@ gboolean download_html(gpointer data) {
             app->iap_connecting = FALSE;
             app->flag_updating = 0;
             return FALSE;
-        } else {
+        }
+        else{
             app->iap_connecting_timer++;
             return TRUE;
         }
     }
-
     second_attempt = FALSE;
     /* The second stage */
     /* call curl_multi_perform for read weather data from Inet */
-    if (curl_multi && CURLM_CALL_MULTI_PERFORM ==
-        curl_multi_perform(curl_multi, &num_transfers)){
+    if(curl_multi && CURLM_CALL_MULTI_PERFORM ==
+            curl_multi_perform(curl_multi, &num_transfers))
         return TRUE;            /* return to UI */
-        }
     /* The first stage */
-    if (!curl_handle && !curl_handle_hour) {
+    if(!curl_handle && !curl_handle_hour){
 #ifndef RELEASE
         fprintf(stderr, "\n>>>>>>>>>>>First stage\n");
 #endif
-//        DEBUG_FUNCTION("\n>>>>>>>>>>>First stage\n");
-        if (app->show_update_window)
+        if(app->show_update_window)
             update_window = create_window_update();     /* Window with update information */
         /* get first station */
-        if (!get_station_url
-            (&url, &html_file, &hour_url, &html_file_hour, TRUE)) {
+        if(!get_station_url
+                (&url, &html_file, &hour_url, &html_file_hour, TRUE)){
             app->flag_updating = 0;
             return FALSE;       /* The strange error */
         }
@@ -352,7 +349,7 @@ gboolean download_html(gpointer data) {
         curl_handle = weather_curl_init(curl_handle);
         curl_easy_setopt(curl_handle, CURLOPT_URL, url);
         /* Init curl_mult */
-        if (!curl_multi)
+        if(!curl_multi)
             curl_multi = curl_multi_init();
 
         max = 0;
@@ -360,18 +357,15 @@ gboolean download_html(gpointer data) {
         FD_ZERO(&ws);
         FD_ZERO(&es);
         mret = curl_multi_fdset(curl_multi, &rs, &ws, &es, &max);
-        if (mret != CURLM_OK) {
+        if(mret != CURLM_OK)
             fprintf(stderr, "Error CURL\n");
-        }
-
         /* set options for the curl easy handle */
         curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);
         curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);
         /* for debug */
         /*    curl_easy_setopt(curl_handle, CURLOPT_URL, "http://127.0.0.1"); */
         /* add the easy handle to a multi session */
-
-        if (app->config->show_weather_for_two_hours) {
+        if(app->config->show_weather_for_two_hours){
             curl_handle_hour = weather_curl_init(curl_handle_hour);
             curl_easy_setopt(curl_handle_hour, CURLOPT_URL, hour_url);
             curl_easy_setopt(curl_handle_hour, CURLOPT_WRITEDATA,
@@ -381,90 +375,82 @@ gboolean download_html(gpointer data) {
         }
 
         curl_multi_add_handle(curl_multi, curl_handle);
-        if (app->config->show_weather_for_two_hours)
+        if(app->config->show_weather_for_two_hours)
             curl_multi_add_handle(curl_multi, curl_handle_hour);
         return TRUE;            /* return to UI */
-    } else {
+    }
+    else{
 #ifndef RELEASE
         fprintf(stderr, "\n>>>>>>>>>>>Third stage\n");
 #endif
-//        DEBUG_FUNCTION("\n>>>>>>>>>>>Third stage\n");
         /* The third stage */
         num_msgs = 0;
-        while (curl_multi
+        while(curl_multi
                && (msg = curl_multi_info_read(curl_multi, &num_msgs))) {
-            if (msg->msg == CURLMSG_DONE) {
-                if (msg->easy_handle == curl_handle){
+            if(msg->msg == CURLMSG_DONE){
+                if(msg->easy_handle == curl_handle){
                     /* Clean */
                     mret = curl_multi_remove_handle(curl_multi, curl_handle);       /* Delete curl_handle from curl_multi */
-                    if (mret != CURLM_OK)
+                    if(mret != CURLM_OK)
                        fprintf(stderr, " Error remove handle %p\n",
-                            curl_handle);
+                                curl_handle);
                     curl_easy_cleanup(curl_handle);
                     curl_handle = NULL;
-                    if (url) {
+                    if(url){
                        g_free(url);
                        url = NULL;
                     }
-                    if (html_file.stream) {
+                    if(html_file.stream){
                         fclose(html_file.stream);
                         html_file.stream = NULL;
                     }
-
-                    if (html_file.filename) {
+                    if(html_file.filename){
                         g_free(html_file.filename);
                         html_file.filename = NULL;
                     }
                 }
-                if (curl_handle_hour && msg->easy_handle == curl_handle_hour && app->config->show_weather_for_two_hours){
-
+                if(curl_handle_hour && msg->easy_handle == curl_handle_hour && app->config->show_weather_for_two_hours){
                     mret = curl_multi_remove_handle(curl_multi, curl_handle_hour);  /* Delete curl_handle from curl_multi */
-                    if (mret != CURLM_OK)
+                    if(mret != CURLM_OK)
                         fprintf(stderr, " Error remove handle %p\n",curl_handle);
                     curl_easy_cleanup(curl_handle_hour);
                     curl_handle_hour = NULL;
-                    if (hour_url) {
+                    if(hour_url){
                         g_free(hour_url);
                         hour_url = NULL;
                     }
-                    if (html_file_hour.stream) {
+                    if(html_file_hour.stream){
                             fclose(html_file_hour.stream);
                             html_file_hour.stream = NULL;
                     }
-                    if (html_file_hour.filename) {
+                    if(html_file_hour.filename){
                             g_free(html_file_hour.filename);
                             html_file_hour.filename = NULL;
                     }
                 }
-                if (msg->data.result != CURLE_OK) {     /* Not success of the download */
-                    if (app->show_update_window)
+                if(msg->data.result != CURLE_OK){     /* Not success of the download */
+                    if(app->show_update_window)
                         hildon_banner_show_information
-                            (app->main_window, NULL,
-                             _("Did not download weather"));
-                } else {
-
-                    if (curl_handle_hour || curl_handle)
+                            (app->main_window, NULL, _("Did not download weather"));
+                }
+                else{
+                    if(curl_handle_hour || curl_handle)
                         return TRUE; /* Continue downloading */
                     /* get next station url */
-                    if (!get_station_url(&url, &html_file, &hour_url, &html_file_hour, FALSE)) {        /* Success - all is downloaded */
-                        if (app->show_update_window)
-                            hildon_banner_show_information
-                                (app->main_window, NULL,
-                                 _("Weather updated"));
+                    if(!get_station_url(&url, &html_file, &hour_url, &html_file_hour, FALSE)){        /* Success - all is downloaded */
+                        if(app->show_update_window)
+                            hildon_banner_show_information(app->main_window, NULL,
+                                                            _("Weather updated"));
                         redraw_home_window(FALSE);
 #ifndef RELEASE
-                        fprintf(stderr,
-                                "\n>>>>>>>>>>>>>>End of update cycle\n");
-
+                        fprintf(stderr, "\n>>>>>>>>>>>>>>End of update cycle\n");
 #endif
-//                        DEBUG_FUNCTION("End of update cycle");
-                    } else {
+                    }
+                    else{
 #ifndef RELEASE
-                        fprintf(stderr,
-                                "\n>>>>>Url - %s, File - %s\n",
+                        fprintf(stderr, "\n>>>>>Url - %s, File - %s\n",
                                 url, html_file.filename);
 #endif
-//                        DEBUG_FUNCTION(html_file.filename);
                         /* set options for the curl easy handle */
                         curl_handle = weather_curl_init(curl_handle);
                         curl_easy_setopt(curl_handle, CURLOPT_URL, url);
@@ -472,7 +458,7 @@ gboolean download_html(gpointer data) {
                                          CURLOPT_WRITEDATA, &html_file);
                         curl_easy_setopt(curl_handle,
                                          CURLOPT_WRITEFUNCTION, data_read);
-                        if (app->config->show_weather_for_two_hours) {
+                        if(app->config->show_weather_for_two_hours) {
                             curl_handle_hour =
                                 weather_curl_init(curl_handle_hour);
                             curl_easy_setopt(curl_handle_hour,
@@ -486,26 +472,25 @@ gboolean download_html(gpointer data) {
                         }
                         /* add the easy handle to a multi session */
                         curl_multi_add_handle(curl_multi, curl_handle);
-                        if (app->config->show_weather_for_two_hours)
+                        if(app->config->show_weather_for_two_hours)
                             curl_multi_add_handle(curl_multi,
                                                   curl_handle_hour);
                         return TRUE;    /* Download next station */
                     }
                 }
                 /* Clean all */
-                if (update_window) {
+                if(update_window){
                     gtk_widget_destroy(update_window);
                     update_window = NULL;
                 }
                 curl_multi_cleanup(curl_multi);
                 free_curl();
-//                DEBUG_FUNCTION("This is the end");
                 return FALSE;   /* This is the end */
             }
         }
-        if (!curl_multi){
+        if(!curl_multi){
             /* Clean all */
-            if (update_window) {
+            if(update_window){
                 gtk_widget_destroy(update_window);
                 update_window = NULL;
             }
@@ -521,16 +506,17 @@ gboolean download_html(gpointer data) {
     return FALSE;
 }
 /*******************************************************************************/
-void clean_download(void) {
+void
+clean_download(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (curl_multi)
+    if(curl_multi)
         curl_multi_cleanup(curl_multi);
     curl_multi = NULL;
     curl_handle = NULL;
     curl_handle_hour = NULL;
-    if (update_window) {
+    if (update_window){
         gtk_widget_destroy(update_window);
         update_window = NULL;
     }
@@ -543,12 +529,12 @@ gboolean
 get_station_url(gchar ** url, struct HtmlFile *html_file,
                 gchar ** hour_url, struct HtmlFile *html_file_hour,
                 gboolean first) {
-    gboolean valid = FALSE;
-    static GtkTreeIter iter;
-    gchar	*station_code = NULL,
-		*station_source = NULL;
-    gint	source = 0;
-    gchar buffer[512];
+    gboolean            valid = FALSE;
+    static GtkTreeIter  iter;
+    gchar               *station_code = NULL,
+                        *station_source = NULL;
+    gint                source = 0;
+    gchar                buffer[512];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif

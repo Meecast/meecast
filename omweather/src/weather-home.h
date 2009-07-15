@@ -44,14 +44,14 @@ WDB* create_weather_day_button(const char *text, const char *icon,
 void fill_weather_day_button_expand(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
                 gboolean draw_day_label );
-void fill_weather_day_button_presets(WDB *new_day_button, const char *text, const char *icon,
+extern void fill_weather_day_button_presets(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
                 gboolean draw_day_label, gint wind_direction, gfloat wind_speed);
-void composition_now(WDB *new_day_button, gint layout);
-void composition_left_vertical_day_button(WDB *new_day_button, gint layout);
-void composition_central_vertical_day_button(WDB *new_day_button);
-void composition_right_vertical_day_button(WDB *new_day_button, gint layout);
-void fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const char *icon,
+extern void  composition_now(WDB *new_day_button, gint layout);
+extern void composition_left_vertical_day_button(WDB *new_day_button, gint layout);
+extern void composition_central_vertical_day_button(WDB *new_day_button);
+extern void composition_right_vertical_day_button(WDB *new_day_button, gint layout);
+extern void fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
                 gboolean draw_day_label, gint wind_direction, gfloat wind_gust);
 void delete_weather_day_button(WDB **day);
@@ -80,7 +80,7 @@ void create_current_temperature_text(GHashTable *day, gchar *buffer, gboolean va
                                 const gchar *day_name);
 void create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
                                 gboolean for_combination_mode, gint button_number);
-GtkWidget *next_station_preset_now(gint layout);
+extern GtkWidget *next_station_preset_now(gint layout);
 #if defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO
 void omweather_destroy(GtkObject *widget);
 #endif

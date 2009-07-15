@@ -114,7 +114,6 @@ extern void write_log(char *string);
 #define OMWEATHER_ADD_STATION           1000
 #define OMWEATHER_SEARCH_STATION        1001
 #define OMWEATHER_CLOSE_STATION_WINDOW  1002
-
 #define PRESET_BIG_FONT "Sans Bold 32"
 #define PRESET_MEDIUM_FONT "Sans Bold 21"
 #define PRESET_DAY_FONT "Sans 16"
@@ -126,42 +125,7 @@ extern void write_log(char *string);
 #define PRESET_BIG_FONT_COLOR_BACK "#000000"
 #define PRESET_WIND_FONT_COLOR "#000000"
 #define PRESET_FONT_COLOR_LOW_TEMP "#7D9CAD"
-#define PRESET_BIG_IMAGE_SIZE 128
-#define PRESET_NORMAL_IMAGE_SIZE 64
-#define PRESET_NORMAL_WIND_IMAGE_SIZE 42
-#define PRESET_NOW_BACKGROUND                   "OMW_widget_background_single_now.png"
-#define PRESET_NOW_BACKGROUND_PLUS_TWO          "OMW_widget_background_2block_now.png"
-#define PRESET_NOW_BACKGROUND_PLUS_THREE_V      "OMW_widget_background_3block_now.png"
-#define PRESET_NOW_BACKGROUND_TOWN              "OMW_widget_button_single_town.png"
-#define PRESET_NOW_BACKGROUND_TOWN_PLUS_TWO     "OMW_widget_button_2block_town.png"
-#define PRESET_NOW_BACKGROUND_TOWN_PLUS_THREE_V "OMW_widget_button_3block_town.png"
-#define PRESET_LEFT_VERTICAL_BACKGROUND         "OMW_widget_button_forecast_block_left_end.png"
-#define PRESET_RIGHT_VERTICAL_BACKGROUND        "OMW_widget_button_forecast_block_right_end.png"
-#define PRESET_WIND_SOUTH           "wind_south.png"
-#define PRESET_WIND_SOUTH_EAST      "wind_south_east.png"
-#define PRESET_WIND_SOUTH_WEST      "wind_south_west.png"
-#define PRESET_WIND_NORTH           "wind_north.png"
-#define PRESET_WIND_NORTH_EAST      "wind_north_east.png"
-#define PRESET_WIND_NORTH_WEST      "wind_north_west.png"
-#define PRESET_WIND_WEST            "wind_west.png"
-#define PRESET_WIND_EAST            "wind_east.png"
-#define PRESET_WIND_SOUTH_WARN           "wind_south_warning.png"
-#define PRESET_WIND_SOUTH_EAST_WARN      "wind_south_east_warning.png"
-#define PRESET_WIND_SOUTH_WEST_WARN      "wind_south_west_warning.png"
-#define PRESET_WIND_NORTH_WARN           "wind_north_warning.png"
-#define PRESET_WIND_NORTH_EAST_WARN      "wind_north_east_warning.png"
-#define PRESET_WIND_NORTH_WEST_WARN      "wind_north_west_warning.png"
-#define PRESET_WIND_WEST_WARN            "wind_west_warning.png"
-#define PRESET_WIND_EAST_WARN            "wind_east_warning.png"
-#define PRESET_WIND_SOUTH           "wind_south.png"
-#define PRESET_WIND_NORTH           "wind_north.png"
-#define PRESET_WIND_EAST            "wind_east.png"
-#define PRESET_WIND_WEST            "wind_west.png"
-#define PRESET_WIND_SOUTH_EAST      "wind_south_east.png"
-#define PRESET_WIND_NORTH_EAST      "wind_north_east.png"
-#define PRESET_WIND_SOUTH_WEST      "wind_south_west.png"
-#define PRESET_WIND_NORTH_WEST      "wind_north_west.png"
-#define  STRONG_WIND 8
+
 /*******************************************************************************/
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
        CHECK_GPS_POSITION};

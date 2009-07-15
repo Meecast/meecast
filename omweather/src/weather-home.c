@@ -380,7 +380,7 @@ void
 draw_home_window(gint count_day){
     gint        i,
                 offset = 0,
-                year,
+                year = 0,
                 current_month = 1;
     gchar       buffer[2048],
                 buffer_icon[1024],
@@ -393,7 +393,7 @@ draw_home_window(gint count_day){
                 count_of_show_button = 0,
                 day_begin_time,
                 night_begin_time;
-    long int    diff_time;
+    long int    diff_time = 0;
     struct tm   *tm = NULL,
                 tmp_tm;
     gboolean    flag_last_day = FALSE,
@@ -2206,7 +2206,7 @@ composition_left_vertical_day_button(WDB *new_day_button)
         gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 12+15-6+14+6, 66+5);
 
 
-    day_name = gtk_label_get_text(new_day_button->label);
+    day_name = (gchar*)gtk_label_get_text(GTK_LABEL(new_day_button->label));
 
 
     begin_of_string = strstr(day_name, "\n");
@@ -2235,7 +2235,8 @@ composition_left_vertical_day_button(WDB *new_day_button)
     }else
         snprintf(buffer,sizeof(buffer) - 1,
                                        "<span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                        PRESET_BIG_FONT_COLOR_BACK, gtk_label_get_text(new_day_button->label));
+                                        PRESET_BIG_FONT_COLOR_BACK,
+                                        (gchar*)gtk_label_get_text(GTK_LABEL(new_day_button->label)));
     gtk_label_set_markup(GTK_LABEL(temperature), buffer);
     gtk_label_set_justify(GTK_LABEL(temperature), GTK_JUSTIFY_CENTER);
     set_font(temperature, PRESET_TEMPERATURE_FONT, -1);
@@ -2282,7 +2283,7 @@ composition_right_vertical_day_button(WDB *new_day_button)
     if (new_day_button->wind_text)
         gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 7+14+6, 66+5); 
 
-    day_name = gtk_label_get_text(new_day_button->label);
+    day_name = (gchar*)gtk_label_get_text(GTK_LABEL(new_day_button->label));
 
     begin_of_string = strstr(day_name, "\n");
     if (begin_of_string){ 
@@ -2310,7 +2311,8 @@ composition_right_vertical_day_button(WDB *new_day_button)
     }else
         snprintf(buffer,sizeof(buffer) - 1,
                                        "<span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                        PRESET_BIG_FONT_COLOR_BACK, gtk_label_get_text(new_day_button->label));
+                                        PRESET_BIG_FONT_COLOR_BACK,
+                                        (gchar*)gtk_label_get_text(GTK_LABEL(new_day_button->label)));
     gtk_label_set_markup(GTK_LABEL(temperature), buffer);
     gtk_label_set_justify(GTK_LABEL(temperature), GTK_JUSTIFY_CENTER);
     set_font(temperature, PRESET_TEMPERATURE_FONT, -1);

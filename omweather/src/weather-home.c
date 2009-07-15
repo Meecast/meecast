@@ -11,7 +11,7 @@
  *	for default icon set (Glance)
  *
  * This software is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public License
+ /Now* modify it under the terms of the GNU Lesser General Public License
  * as published by the Free Software Foundation; either version 2.1 of
  * the License, or (at your option) any later version.
  *
@@ -1628,9 +1628,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
  * is not right to the very edge */
     gtk_container_set_border_width(GTK_CONTAINER(days_panel),2);
     tmp = app->buttons;
-    fprintf(stderr,"ooooooooo %i\n",layout);
     if (layout >= PRESET_NOW){
-    fprintf(stderr,"yyyyyyyyy\n");
         /* attach days buttons for simple(presets) mode */
         switch(layout){
             case PRESET_NOW_PLUS_TWO:
@@ -1641,9 +1639,8 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
                                 (GtkAttachOptions)0, 0, 0 );
                 if(tmp)
                     tmp = g_slist_next(tmp);
-//                for(n = 0, x = 0, y = 0; n < total_elements; n++, x++){
                 if(tmp){
-                        composition_left_vertical_day_button((WDB*)tmp->data);
+                        composition_left_vertical_day_button((WDB*)tmp->data, layout);
                         gtk_table_attach((GtkTable*)days_panel,
                                 ((WDB*)tmp->data)->button,
                                 0, 0 + 1, 1, 2, (GtkAttachOptions)0,
@@ -1651,14 +1648,12 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
                         tmp = g_slist_next(tmp);
                 }
                 if(tmp){
-                        composition_right_vertical_day_button((WDB*)tmp->data);
+                        composition_right_vertical_day_button((WDB*)tmp->data, layout);
                         gtk_table_attach((GtkTable*)days_panel,
                                 ((WDB*)tmp->data)->button,
                                 1, 1 + 1, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
                 }
-
-//                }
                 gtk_table_attach((GtkTable*)days_panel,
                                 (GtkWidget*)next_station_preset_now(PRESET_NOW_PLUS_TWO),
                                 0, 0 + 2, 2, 3, (GtkAttachOptions)0,
@@ -1668,13 +1663,12 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
                 composition_now((WDB*)tmp->data, PRESET_NOW_PLUS_THREE_V);
                 gtk_table_attach((GtkTable*)days_panel,
                                 ((WDB*)tmp->data)->button,
-                                0, 0 + 2, 0, 1, (GtkAttachOptions)0,
+                                0, 0 + 3, 0, 1, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
                 if(tmp)
                     tmp = g_slist_next(tmp);
-//                for(n = 0, x = 0, y = 0; n < total_elements; n++, x++){
                 if(tmp){
-                        composition_left_vertical_day_button((WDB*)tmp->data);
+                        composition_left_vertical_day_button((WDB*)tmp->data, layout);
                         gtk_table_attach((GtkTable*)days_panel,
                                 ((WDB*)tmp->data)->button,
                                 0, 0 + 1, 1, 2, (GtkAttachOptions)0,
@@ -1682,18 +1676,26 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
                         tmp = g_slist_next(tmp);
                 }
                 if(tmp){
-                        composition_right_vertical_day_button((WDB*)tmp->data);
+                        composition_central_vertical_day_button((WDB*)tmp->data);
                         gtk_table_attach((GtkTable*)days_panel,
                                 ((WDB*)tmp->data)->button,
                                 1, 1 + 1, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
+                        tmp = g_slist_next(tmp);
+                }
+                if(tmp){
+                        composition_right_vertical_day_button((WDB*)tmp->data, layout);
+                        gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                2, 2 + 1, 1, 2, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
                 }
 
-//                }
                 gtk_table_attach((GtkTable*)days_panel,
                                 (GtkWidget*)next_station_preset_now(PRESET_NOW_PLUS_THREE_V),
-                                0, 0 + 2, 2, 3, (GtkAttachOptions)0,
+                                0, 0 + 3, 2, 3, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
+
             break;
             default:
             case PRESET_NOW:
@@ -2057,6 +2059,29 @@ next_station_preset_now(gint layout)
     START_FUNCTION;
 #endif
     widget = gtk_fixed_new();
+    memset(buffer, 0, sizeof(buffer));
+    switch (layout){
+        case PRESET_NOW_PLUS_TWO:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND_TOWN_PLUS_TWO);
+            background_town = gtk_image_new_from_file (buffer);
+            if (background_town)
+                gtk_fixed_put(GTK_FIXED(widget), background_town, 12+15, 0);
+            break;
+        case PRESET_NOW_PLUS_THREE_V:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND_TOWN_PLUS_THREE_V);
+            background_town = gtk_image_new_from_file (buffer);
+            if (background_town)
+                gtk_fixed_put(GTK_FIXED(widget), background_town, 0, 0);
+            break;
+        default:
+        case PRESET_NOW:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND_TOWN);
+            background_town = gtk_image_new_from_file (buffer);
+            if (background_town)
+                gtk_fixed_put(GTK_FIXED(widget), background_town, 12+15, 0);
+            break;
+    }
+
     /* Create next station event */
     station_name_btn = gtk_event_box_new();
     if(station_name_btn){
@@ -2092,22 +2117,7 @@ next_station_preset_now(gint layout)
         station_text = NULL;
         shadow_station_text = NULL;
     }
-    memset(buffer, 0, sizeof(buffer));
-    switch (layout){
-    
-        case PRESET_NOW_PLUS_TWO:
-            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND_TOWN_PLUS_TWO);
-            break;
 
-        default:
-        case PRESET_NOW:
-            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND_TOWN);
-            break;
-    }
-    background_town = gtk_image_new_from_file (buffer);
-    if (background_town)
-        gtk_fixed_put(GTK_FIXED(widget), background_town, 12+15, 0);
- 
     if (station_name_btn)
         gtk_fixed_put(GTK_FIXED(widget), station_name_btn, 12+15, 0);
     if (shadow_station_text)
@@ -2220,7 +2230,7 @@ fill_weather_day_button_presets(WDB *new_day_button, const char *text, const cha
 }
 /*********************************************************************************************************/
 void
-composition_left_vertical_day_button(WDB *new_day_button)
+composition_central_vertical_day_button(WDB *new_day_button)
 {
     gchar       buffer[2048];
     gchar       tmp_buffer[2048];
@@ -2243,13 +2253,13 @@ composition_left_vertical_day_button(WDB *new_day_button)
 
     gtk_widget_set_size_request(new_day_button->box, 70, 213);
     if (new_day_button->background)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->background, 12+15-6, 0);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->background, 0, 0);
     if (new_day_button->icon_image)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 12+15-6+3, 2);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 0+3, 2);
     if (new_day_button->wind)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 12+15-10+14, 66-4);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 0-5+14, 66-4);
     if (new_day_button->wind_text)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 12+15-6+14+6, 66+5);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 0+14+6, 66+5);
 
 
     day_name = (gchar*)gtk_label_get_text(GTK_LABEL(new_day_button->label));
@@ -2289,9 +2299,9 @@ composition_left_vertical_day_button(WDB *new_day_button)
     gtk_widget_set_size_request(temperature, 66, 60);
 
     if (day)
-            gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 12+15, 60+37+17);
+            gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 0, 60+37+17);
     if (temperature)
-            gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 12+15+2, 60+37+16+30);
+            gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 0+2, 60+37+16+30);
 
     gtk_widget_destroy(new_day_button->label);
 #ifdef DEBUGFUNCTIONCALL
@@ -2300,7 +2310,106 @@ composition_left_vertical_day_button(WDB *new_day_button)
 }
 /**********************************************************************************************************/
 void
-composition_right_vertical_day_button(WDB *new_day_button)
+composition_left_vertical_day_button(WDB *new_day_button, gint layout)
+{
+    gchar       buffer[2048];
+    gchar       tmp_buffer[2048];
+    gchar       *day_name;
+    gchar       *begin_of_string;
+    gchar       *begin_of_string2;
+    GtkWidget   *day = NULL;
+    GtkWidget   *temperature = NULL;
+
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    /* Packing all to the box */
+    /* create day box to contain icon, label and wind image */
+    /* background */
+    memset(buffer, 0, sizeof(buffer));
+    snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_LEFT_VERTICAL_BACKGROUND);
+    new_day_button->background = gtk_image_new_from_file (buffer);
+
+    day_name = (gchar*)gtk_label_get_text(GTK_LABEL(new_day_button->label));
+
+    begin_of_string = strstr(day_name, "\n");
+    if (begin_of_string){
+        memset(buffer, 0, sizeof(buffer));
+        memset(tmp_buffer, 0, sizeof(tmp_buffer));
+        memcpy(tmp_buffer, day_name , strlen(day_name) - strlen(begin_of_string));
+        snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_BACK, tmp_buffer);
+        day = gtk_label_new(NULL);
+        gtk_label_set_markup(GTK_LABEL(day), buffer);
+        gtk_label_set_justify(GTK_LABEL(day), GTK_JUSTIFY_CENTER);
+        set_font(day, PRESET_DAY_FONT, -1);
+        gtk_widget_set_size_request(day, 60, 25);
+
+        memset(buffer, 0, sizeof(buffer));
+        memset(tmp_buffer, 0, sizeof(tmp_buffer));
+        begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
+        memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
+        temperature = gtk_label_new(NULL);
+        snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
+                                        begin_of_string2);
+    }else
+        snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_BACK,
+                                        (gchar*)gtk_label_get_text(GTK_LABEL(new_day_button->label)));
+    gtk_label_set_markup(GTK_LABEL(temperature), buffer);
+    gtk_label_set_justify(GTK_LABEL(temperature), GTK_JUSTIFY_CENTER);
+    set_font(temperature, PRESET_TEMPERATURE_FONT, -1);
+    gtk_widget_set_size_request(temperature, 66, 60);
+
+
+    switch (layout){
+        case PRESET_NOW_PLUS_TWO:
+            gtk_widget_set_size_request(new_day_button->box, 70, 213);
+            if (new_day_button->background)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->background, 12+15-6, 0);
+            if (new_day_button->icon_image)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 12+15-6+3, 2);
+            if (new_day_button->wind)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 12+15-10+14, 66-4);
+            if (new_day_button->wind_text)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 12+15-6+14+6, 66+5);
+            if (day)
+                    gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 12+15, 60+37+17);
+            if (temperature)
+                    gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 12+15+2, 60+37+16+30);
+            break;
+        default:
+        case PRESET_NOW_PLUS_THREE_V:
+            gtk_widget_set_size_request(new_day_button->box, 70, 213);
+            if (new_day_button->background)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->background, 0, 0);
+            if (new_day_button->icon_image)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 0+3, 2);
+            if (new_day_button->wind)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 0-5+14, 66-4);
+            if (new_day_button->wind_text)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 0+14+6, 66+5);
+            if (day)
+                    gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 0, 60+37+17);
+            if (temperature)
+                    gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 0+2, 60+37+16+30);
+   
+            break;
+    }
+ 
+    gtk_widget_destroy(new_day_button->label);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+}
+/**********************************************************************************************************/
+void
+composition_right_vertical_day_button(WDB *new_day_button, gint layout)
 {
     gchar       buffer[2048];
     gchar       tmp_buffer[2048];
@@ -2317,17 +2426,6 @@ composition_right_vertical_day_button(WDB *new_day_button)
     memset(buffer, 0, sizeof(buffer));
     snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_RIGHT_VERTICAL_BACKGROUND);
     new_day_button->background = gtk_image_new_from_file (buffer);
-
-
-    gtk_widget_set_size_request(new_day_button->box, 70, 213);
-    if (new_day_button->background)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->background, 7, 0);
-    if (new_day_button->icon_image)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 7+3, 2);
-    if (new_day_button->wind)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 7-5+14, 66-4);
-    if (new_day_button->wind_text)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 7+14+6, 66+5); 
 
     day_name = (gchar*)gtk_label_get_text(GTK_LABEL(new_day_button->label));
 
@@ -2364,11 +2462,40 @@ composition_right_vertical_day_button(WDB *new_day_button)
     set_font(temperature, PRESET_TEMPERATURE_FONT, -1);
     gtk_widget_set_size_request(temperature, 66, 60);
 
-    if (day)
-            gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 0+8, 60+37+17);
-    if (temperature)
-            gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 0+8+2, 60+37+16+30);
  
+    gtk_widget_set_size_request(new_day_button->box, 70, 213);
+    switch (layout){
+        case PRESET_NOW_PLUS_TWO:
+            if (new_day_button->background)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->background, 7, 0);
+            if (new_day_button->icon_image)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 7+3, 2);
+            if (new_day_button->wind)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 7-5+14, 66-4);
+            if (new_day_button->wind_text)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 7+14+6, 66+5); 
+            if (day)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 0+8, 60+37+17);
+            if (temperature)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 0+8+2, 60+37+16+30);
+            break;
+        default:
+        case PRESET_NOW_PLUS_THREE_V:
+            if (new_day_button->background)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->background, 0, 0);
+            if (new_day_button->icon_image)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 0+3, 2);
+            if (new_day_button->wind)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 0-5+14, 66-4);
+            if (new_day_button->wind_text)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 0+14+6, 66+5); 
+            if (day)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 0+1, 60+37+17);
+            if (temperature)
+                gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 0+1+2, 60+37+16+30);
+            break;
+    }
+
     gtk_widget_destroy(new_day_button->label);
 
 }
@@ -2377,29 +2504,55 @@ void
 composition_now(WDB *new_day_button, gint layout)
 {
     gchar       buffer[2048];
+    gint        xoffset = 0;
+    gint        image_xoffset = 0;
+    gint        wind_xoffset = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 
-    memset(buffer, 0, sizeof(buffer));
-    snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND);
-    new_day_button->background = gtk_image_new_from_file (buffer);
-
-/* Packing all to the box */
     /* create day box to contain icon, label and wind image */
-    gtk_widget_set_size_request(new_day_button->box, 12+15+140+1, 37+15+106);
+    memset(buffer, 0, sizeof(buffer));
+    switch (layout){
+        case PRESET_NOW_PLUS_THREE_V:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND_PLUS_THREE_V);
+            gtk_widget_set_size_request(new_day_button->box, 210, 37+15+106);
+            xoffset = 0;
+            image_xoffset = 13;
+            wind_xoffset = 53;
+            gtk_widget_set_size_request(new_day_button->label, 208, 55);
+            gtk_widget_set_size_request(new_day_button->shadow_label, 208, 55);
+            break;
+        case PRESET_NOW_PLUS_TWO:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND_PLUS_TWO);
+            xoffset = 12 + 15;
+            gtk_widget_set_size_request(new_day_button->box, xoffset+140+1, 37+15+106);
+            break;
+       default:
+        case PRESET_NOW:
+            snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND);
+            xoffset = 12 + 15;
+            gtk_widget_set_size_request(new_day_button->box, xoffset+140+1, 37+15+106);
+            break;
+    }
+    new_day_button->background = gtk_image_new_from_file (buffer);
+/* Packing all to the box */
     if (new_day_button->background)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->background, 12+15, 37+15);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->background, xoffset, 37+15);
     if (new_day_button->icon_image)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 0, 0);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 0+image_xoffset, 0);
     if (new_day_button->wind)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, (87+14)+12+15-11, 5+37+10);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, (87+14) + xoffset + wind_xoffset - 11, 5+37+10);
     if (new_day_button->wind_text)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, (87+14)+12+15, 7+37+18+1);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, (87+14) + xoffset + wind_xoffset, 7+37+18+1);
     if (new_day_button->shadow_label)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->shadow_label, 12+15+2, 60+37+15+2);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->shadow_label, xoffset+2, 60+37+15+2);
     if (new_day_button->label)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->label, 12+15, 60+37+15);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->label, xoffset, 60+37+15);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+ 
 }
 /*******************************************************************************/
 void

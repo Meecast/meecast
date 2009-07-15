@@ -2155,10 +2155,12 @@ check_buttons_changed_handler(GtkToggleButton * button,
         goto check;
     }
     if (!strcmp(button_name, "preset_now_plus_three_v")) {
+        fprintf(stderr,"state %i\n",app->visuals_tab_current_state);
         if (gtk_toggle_button_get_active(button))
             app->visuals_tab_current_state |= STATE_PRESET_NOW_PLUS_THREE_V;
         else
             app->visuals_tab_current_state &= ~STATE_PRESET_NOW_PLUS_THREE_V;
+        fprintf(stderr,"state %i\n",app->visuals_tab_current_state);
         goto check;
     }
     if (!strcmp(button_name, "preset_now_plus_three_h")) {
@@ -2973,8 +2975,8 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
     /* preset Now + Three days Vertical */
     preset_now_plus_three_v_button =
         create_button_with_image(BUTTON_ICONS, "now_plus_three_v", 26, TRUE, TRUE);
-    GLADE_HOOKUP_OBJECT(window, preset_now_plus_three_v_button, "now_plus_three_v");
-    gtk_widget_set_name(preset_now_plus_three_v_button, "now_plus_three_v");
+    GLADE_HOOKUP_OBJECT(window, preset_now_plus_three_v_button, "preset_now_plus_three_v");
+    gtk_widget_set_name(preset_now_plus_three_v_button, "preset_now_plus_three_v");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_three_v_button, FALSE,
                        FALSE, 0);
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_three_v_button),
@@ -2986,8 +2988,8 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
     /* preset Now + Three days Horizontal */
     preset_now_plus_three_h_button =
         create_button_with_image(BUTTON_ICONS, "now_plus_three_h", 26, TRUE, TRUE);
-    GLADE_HOOKUP_OBJECT(window, preset_now_plus_three_h_button, "now_plus_three_h");
-    gtk_widget_set_name(preset_now_plus_three_h_button, "now_plus_three_h");
+    GLADE_HOOKUP_OBJECT(window, preset_now_plus_three_h_button, "preset_now_plus_three_h");
+    gtk_widget_set_name(preset_now_plus_three_h_button, "preset_now_plus_three_h");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_three_h_button, FALSE,
                        FALSE, 0);
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_three_h_button),
@@ -2999,8 +3001,8 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
     /* preset Now + Seven days */
     preset_now_plus_seven_button =
         create_button_with_image(BUTTON_ICONS, "now_plus_seven", 26, TRUE, TRUE);
-    GLADE_HOOKUP_OBJECT(window, preset_now_plus_seven_button, "now_plus_seven");
-    gtk_widget_set_name(preset_now_plus_seven_button, "now_plus_seven");
+    GLADE_HOOKUP_OBJECT(window, preset_now_plus_seven_button, "preset_now_plus_seven");
+    gtk_widget_set_name(preset_now_plus_seven_button, "preset_now_plus_seven");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_seven_button, FALSE,
                        FALSE, 0);
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_seven_button),

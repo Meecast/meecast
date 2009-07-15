@@ -2226,6 +2226,7 @@ create_wind_parameters(GHashTable *day, gchar *buffer, gboolean is_day, gint *di
             is_day = FALSE;
 
         if(is_day){
+            *direction = choose_wind_direction(g_hash_table_lookup(day, "day_wind_title"));
             wind_direction = (char*)hash_table_find(g_hash_table_lookup(day, "day_wind_title"), TRUE);
             if(buffer && app->config->icons_layout < PRESET_NOW){
                 sprintf(buffer + strlen(buffer),
@@ -2235,7 +2236,6 @@ create_wind_parameters(GHashTable *day, gchar *buffer, gboolean is_day, gint *di
                         app->config->font_color.blue >> 8,
                         wind_direction);
             }
-            *direction = choose_wind_direction(wind_direction);
             *speed = convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed")));
             if(buffer && app->config->icons_layout < PRESET_NOW){
                 if(app->config->show_wind_gust)
@@ -2246,8 +2246,8 @@ create_wind_parameters(GHashTable *day, gchar *buffer, gboolean is_day, gint *di
             }
        }
        else{
+            *direction = choose_wind_direction(g_hash_table_lookup(day, "night_wind_title"));
             wind_direction = (char*)hash_table_find(g_hash_table_lookup(day, "night_wind_title"), TRUE);
-            *direction = choose_wind_direction(wind_direction);
             *speed = convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed")));
             if(buffer && app->config->icons_layout < PRESET_NOW){
                 sprintf(buffer + strlen(buffer),

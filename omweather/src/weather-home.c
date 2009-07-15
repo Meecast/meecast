@@ -449,6 +449,9 @@ draw_home_window(gint count_day){
             g_hash_table_destroy(day);
             i++;
         }
+        g_hash_table_remove(app->station_data, "forecast");
+        g_hash_table_insert(app->station_data, "forecast", tmp);
+
         if(tmp){
             first = (GHashTable*)(tmp->data);
             last = (GHashTable*)((g_slist_last(tmp))->data);
@@ -692,10 +695,11 @@ redraw_home_window(gboolean first_start){
 #endif
     if(!first_start){
         /* free station location data */
-//        g_hash_table_remove(app->station_data, "location");
+        g_hash_table_remove(app->station_data, "location");
         /* free station current data */
-//        g_hash_table_remove(app->station_data, "current");
+        g_hash_table_remove(app->station_data, "current");
         /* free station days data */
+        g_hash_table_remove(app->station_data, "forecast");
 //        tmp = g_hash_table_lookup(app->station_data, "forecast");
 //        while(tmp){
 //            tmp_data = (GHashTable*)tmp->data;

@@ -538,7 +538,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
             g_idle_add((GSourceFunc)make_current_tab, current_tab);
 #endif
             add_item2object(&(app->tab_of_window_popup), (void*)current_tab);
-       }
+        }
     }
 
 /* if weather is separated than hide one day */
@@ -565,6 +565,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
         }
     }
 /* Day tabs */
+
    tmp = g_hash_table_lookup(app->station_data, "forecast");
    fprintf(stderr,"Length %i\n", g_slist_length(tmp));
    while(tmp && i < Max_count_weather_day){
@@ -796,7 +797,7 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     }
     main_widget = gtk_vbox_new(FALSE, 0);
     /* prepare localized day name */
-    if ((char*)g_hash_table_lookup(day, "day_name")){
+    if(g_hash_table_lookup(day, "day_name")){
         memset(buffer, 0, sizeof(buffer));
         sprintf(buffer,"%s", (char*)g_hash_table_lookup(day, "day_name"));
         strptime(buffer, "%a", &tmp_time_date_struct);

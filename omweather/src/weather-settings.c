@@ -2878,7 +2878,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
     /* make buttons */
    /* one row */
     one_row_button =
-        create_button_with_image(BUTTON_ICONS, "one_row", 24, TRUE, TRUE);
+        create_button_with_image(BUTTON_ICONS, "one_row", 26, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, one_row_button, "one_row");
     gtk_widget_set_name(one_row_button, "one_row");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), one_row_button, FALSE,
@@ -2890,7 +2890,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
 
    /* one column */
     one_column_button =
-        create_button_with_image(BUTTON_ICONS, "one_column", 24, TRUE,
+        create_button_with_image(BUTTON_ICONS, "one_column", 26, TRUE,
                                  TRUE);
     GLADE_HOOKUP_OBJECT(window, one_column_button, "one_column");
     gtk_widget_set_name(one_column_button, "one_column");
@@ -2904,7 +2904,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
                      (gpointer) window);
     /* two rows */
     two_rows_button =
-        create_button_with_image(BUTTON_ICONS, "two_rows", 24, TRUE, TRUE);
+        create_button_with_image(BUTTON_ICONS, "two_rows", 26, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, two_rows_button, "two_rows");
     gtk_widget_set_name(two_rows_button, "two_rows");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), two_rows_button, FALSE,
@@ -2917,7 +2917,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
                      (gpointer) window);
     /* two columns */
     two_columns_button =
-        create_button_with_image(BUTTON_ICONS, "two_columns", 24, TRUE,
+        create_button_with_image(BUTTON_ICONS, "two_columns", 26, TRUE,
                                  TRUE);
     GLADE_HOOKUP_OBJECT(window, two_columns_button, "two_columns");
     gtk_widget_set_name(two_columns_button, "two_columns");
@@ -2931,7 +2931,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
                      (gpointer) window);
     /* combination */
     combination_button =
-        create_button_with_image(BUTTON_ICONS, "combination", 24, TRUE,
+        create_button_with_image(BUTTON_ICONS, "combination", 26, TRUE,
                                  TRUE);
     GLADE_HOOKUP_OBJECT(window, combination_button, "combination");
     gtk_widget_set_name(combination_button, "combination");
@@ -2945,7 +2945,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
                      (gpointer) window);
     /* preset Now */ 
     preset_now_button =
-        create_button_with_image(BUTTON_ICONS, "nothing", 24, TRUE, TRUE);
+        create_button_with_image(BUTTON_ICONS, "nothing", 26, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, preset_now_button, "preset_now");
     gtk_widget_set_name(preset_now_button, "preset_now");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_button, FALSE,
@@ -2958,7 +2958,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
                      (gpointer) window);
     /* preset Now + Two days */
     preset_now_plus_two_button =
-        create_button_with_image(BUTTON_ICONS, "now_plus_two", 24, TRUE, TRUE);
+        create_button_with_image(BUTTON_ICONS, "now_plus_two", 26, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, preset_now_plus_two_button, "preset_now_plus_two");
     gtk_widget_set_name(preset_now_plus_two_button, "preset_now_plus_two");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_two_button, FALSE,
@@ -2972,7 +2972,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
 
     /* preset Now + Three days Vertical */
     preset_now_plus_three_v_button =
-        create_button_with_image(BUTTON_ICONS, "now_plus_three_v", 24, TRUE, TRUE);
+        create_button_with_image(BUTTON_ICONS, "now_plus_three_v", 26, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, preset_now_plus_three_v_button, "now_plus_three_v");
     gtk_widget_set_name(preset_now_plus_three_v_button, "now_plus_three_v");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_three_v_button, FALSE,
@@ -2985,7 +2985,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
                      (gpointer) window);
     /* preset Now + Three days Horizontal */
     preset_now_plus_three_h_button =
-        create_button_with_image(BUTTON_ICONS, "now_plus_three_h", 24, TRUE, TRUE);
+        create_button_with_image(BUTTON_ICONS, "now_plus_three_h", 26, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, preset_now_plus_three_h_button, "now_plus_three_h");
     gtk_widget_set_name(preset_now_plus_three_h_button, "now_plus_three_h");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_three_h_button, FALSE,
@@ -2998,7 +2998,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
                      (gpointer) window);
     /* preset Now + Seven days */
     preset_now_plus_seven_button =
-        create_button_with_image(BUTTON_ICONS, "now_plus_seven", 24, TRUE, TRUE);
+        create_button_with_image(BUTTON_ICONS, "now_plus_seven", 26, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, preset_now_plus_seven_button, "now_plus_seven");
     gtk_widget_set_name(preset_now_plus_seven_button, "now_plus_seven");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_seven_button, FALSE,

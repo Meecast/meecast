@@ -1728,9 +1728,15 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     if (layout == COMBINATION || layout == APPLICATION_MODE){
         combination_vbox = gtk_vbox_new(FALSE, 0);
         current_time = time(NULL);
-        diff_time = calculate_diff_time(atol(g_hash_table_lookup(g_hash_table_lookup(app->station_data, "location"), "station_time_zone")));
+        if (g_hash_table_lookup(app->station_data, "location"))
+            diff_time = calculate_diff_time(atol(g_hash_table_lookup(g_hash_table_lookup(app->station_data, "location"), "station_time_zone")));
+        else
+            diff_time = 0;
         current_time += diff_time;
-        update_time = last_update_time_new(g_hash_table_lookup(app->station_data, "current"));
+        if ((g_hash_table_lookup(app->station_data, "current")))
+            update_time = last_update_time_new(g_hash_table_lookup(app->station_data, "current"));
+        else
+            update_time = 0;
         if(update_time > (current_time - app->config->data_valid_interval) &&
            update_time < (current_time + app->config->data_valid_interval) ){
            if(g_hash_table_lookup(app->station_data, "current"))

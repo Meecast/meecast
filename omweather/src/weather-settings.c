@@ -1639,7 +1639,6 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-
 }
 
 /*******************************************************************************/

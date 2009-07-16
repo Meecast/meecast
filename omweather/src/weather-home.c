@@ -695,7 +695,7 @@ redraw_home_window(gboolean first_start){
     GSList          *tmp = NULL;
     GHashTable      *tmp_data = NULL;
     GSList          *tmp_data1 = NULL;
-    gint            (*parser)(const gchar*, GHashTable*);
+    gint            (*parser)(const gchar*, GHashTable*, gboolean);
     WDB             *tmp_button = NULL;
     gchar           buffer[255];
 #ifdef DEBUGFUNCTIONCALL
@@ -710,6 +710,8 @@ redraw_home_window(gboolean first_start){
         g_hash_table_remove(app->station_data, "location");
         /* free station current data */
         g_hash_table_remove(app->station_data, "current");
+        /* free station details data */
+        g_hash_table_remove(app->station_data, "detail");
         /* free station days data */
         g_hash_table_remove(app->station_data, "forecast");
 //        tmp = g_hash_table_lookup(app->station_data, "forecast");
@@ -763,19 +765,22 @@ redraw_home_window(gboolean first_start){
         /* delete previos station data */
         if(app->station_data)
             g_hash_table_remove_all(app->station_data);
-        count_day = parser(buffer, app->station_data);
+        count_day = parser(buffer, app->station_data, FALSE);
         fprintf(stderr, "\n>>>>>>>>>>>>>>>>Days count = %d from new parser.", count_day);
+        /* detail data */
+        if(app->config->show_weather_for_two_hours)
+            parser(buffer, app->station_data, TRUE);
     }
 /* Parse data file */
 /*
     count_day = parse_weather_file_data(app->config->current_station_id,
 					app->config->current_station_source,
 					&(app->wsd), FALSE);
-*/
     if(app->config->show_weather_for_two_hours)
 	parse_weather_file_data(app->config->current_station_id,
 					app->config->current_station_source,
 					&(app->wsd), TRUE);
+*/
     if(count_day == -2){
 	fprintf(stderr, _("Error in xml file\n"));
 	    hildon_banner_show_information(app->main_window,

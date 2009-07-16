@@ -31,6 +31,7 @@
 #define _weather_popup_h 1
 /*******************************************************************************/
 #include "weather-common.h"
+#include "weather-sources.h"
 /*******************************************************************************/
 GtkWidget* create_sun_time_widget(GHashTable *day);
 GtkWidget* create_moon_phase_widget(GHashTable *current);

@@ -379,7 +379,7 @@ get_source_forecast_url(GtkListStore *data, const gchar *source_name){
     while(valid){
         gtk_tree_model_get(GTK_TREE_MODEL(data), &iter, 1, &source, -1);
         value = g_hash_table_lookup(source, "name");
-        if(value && !strcmp(source_name, (gchar*)value))
+        if(value && !strcmp(source_name, (gchar*)value) && source_forecast_url_valid(source))
             return g_hash_table_lookup(source, "forecast_url");
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(data), &iter);
     }
@@ -401,8 +401,30 @@ get_source_detail_url(GtkListStore *data, const gchar *source_name){
     while(valid){
         gtk_tree_model_get(GTK_TREE_MODEL(data), &iter, 1, &source, -1);
         value = g_hash_table_lookup(source, "name");
-        if(value && !strcmp(source_name, (gchar*)value))
+        if(value && !strcmp(source_name, (gchar*)value) && source_detail_url_valid(source))
             return g_hash_table_lookup(source, "detail_url");
+        valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(data), &iter);
+    }
+    return NULL;
+}
+/*******************************************************************************/
+gchar*
+get_source_logo(GtkListStore *data, const gchar *source_name){
+    GtkTreeIter iter;
+    GHashTable  *source = NULL;
+    gpointer    value = NULL;
+    gboolean    valid = FALSE;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(!data && !source_name)
+        return NULL;
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(data), &iter);
+    while(valid){
+        gtk_tree_model_get(GTK_TREE_MODEL(data), &iter, 1, &source, -1);
+        value = g_hash_table_lookup(source, "name");
+        if(value && !strcmp(source_name, (gchar*)value) && source_logo_file_valid(source))
+            return g_hash_table_lookup(source, "logo");
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(data), &iter);
     }
     return NULL;

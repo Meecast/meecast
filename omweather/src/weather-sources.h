@@ -47,5 +47,6 @@ void free_hashtable_with_source(GHashTable* hashtable);
 void parse_children(xmlNode *node, GHashTable *object);
 gchar* get_source_forecast_url(GtkListStore *data, const gchar *source_name);
 gchar* get_source_detail_url(GtkListStore *data, const gchar *source_name);
+gchar* get_source_logo(GtkListStore *data, const gchar *source_name);
 /*******************************************************************************/
 #endif

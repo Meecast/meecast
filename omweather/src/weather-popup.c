@@ -137,7 +137,7 @@ create_sun_time_widget(GHashTable *day){
         strcat(buffer, temp_buffer);
     }
     main_label = gtk_label_new(buffer);
-    set_font(main_label, NULL, 18);
+    set_font(main_label, NULL, 10);
     main_widget = gtk_hbox_new(FALSE, 10);
 
     /* Packing all to the box */
@@ -658,7 +658,8 @@ skip:
 /* Show copyright widget */
     copyright_box = gtk_event_box_new();
     gtk_container_add(GTK_CONTAINER(copyright_box),
-                  create_copyright_widget(app->config->current_station_source, NULL));
+                  create_copyright_widget(app->config->current_station_source, 
+                                            get_source_logo(app->sources_list, app->config->current_station_source)));
     gtk_box_pack_start(GTK_BOX(vbox),
                   copyright_box,
                   FALSE, TRUE, 0);
@@ -1257,13 +1258,13 @@ GtkWidget* create_hour_tab(void){
 }
 /*******************************************************************************/
 GtkWidget* create_copyright_widget(const gchar *text, const gchar *image){
-    GtkWidget	*main_widget = NULL,
-		*hbox = NULL,
-		*label= NULL,
-		*icon = NULL;
-    GdkPixbuf   *icon_buffer = NULL;
-    gchar	image_buffer[512],
-		text_buffer[512];
+    GtkWidget       *main_widget = NULL,
+                    *hbox = NULL,
+                    *label= NULL,
+                    *icon = NULL;
+    GdkPixbuf       *icon_buffer = NULL;
+    gchar           image_buffer[512],
+                    text_buffer[512];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1272,26 +1273,26 @@ GtkWidget* create_copyright_widget(const gchar *text, const gchar *image){
 /* text */
     text_buffer[0] = 0;
     snprintf(text_buffer, sizeof(text_buffer) - 1, "%s%s",
-		_("Weather data provided by: "), text);
+                _("Weather data provided by: "), text);
     gtk_box_pack_start(GTK_BOX(hbox),
-			label = gtk_label_new(text_buffer),
-			FALSE, FALSE, 10);
+                        label = gtk_label_new(text_buffer),
+                        FALSE, FALSE, 10);
     set_font(label, NULL, 12);
 /* icon */
     if(image){
-	sprintf(image_buffer, "%s%s.png", COPYRIGHT_ICONS, image);
-	icon_buffer = gdk_pixbuf_new_from_file_at_size(image_buffer,
-							MEDIUM_ICON_SIZE,
-							MEDIUM_ICON_SIZE,
-							NULL);
-	if(icon_buffer){
-	    icon = gtk_image_new_from_pixbuf(icon_buffer);
-	    g_object_unref(G_OBJECT(icon_buffer));
-	}
-	else
-    	    icon = NULL;
-	if(icon)
-	    gtk_box_pack_start(GTK_BOX(hbox), icon, FALSE, FALSE, 0);
+        sprintf(image_buffer, "%s%s", COPYRIGHT_ICONS, image);
+        icon_buffer = gdk_pixbuf_new_from_file_at_size(image_buffer,
+                                                        SMALL_ICON_SIZE,
+                                                        SMALL_ICON_SIZE,
+                                                        NULL);
+        if(icon_buffer){
+            icon = gtk_image_new_from_pixbuf(icon_buffer);
+            g_object_unref(G_OBJECT(icon_buffer));
+        }
+        else
+            icon = NULL;
+        if(icon)
+            gtk_box_pack_start(GTK_BOX(hbox), icon, FALSE, FALSE, 0);
     }
     gtk_box_pack_start(GTK_BOX(main_widget), hbox, FALSE, FALSE, 5);
     gtk_box_pack_start(GTK_BOX(main_widget), gtk_hseparator_new(), FALSE, TRUE, 5);

@@ -151,7 +151,8 @@ enum { SETTINGS_STATIONS_PAGE, SETTINGS_VISUALS_PAGE, SETTINGS_DISPLAY_PAGE,
 #endif
        ALERTS_PAGE, MAX_SETTINGS_PAGE_NUMBER, ABOUT_PAGE
 };
-enum {SHORT_CLICK, LONG_CLICK};
+enum { SIMPLE_MODE, EXTENDED_MODE };
+enum { SHORT_CLICK, LONG_CLICK };
 /* station tab */
 enum { STATE_ENABLE_GPS	= 1U,
        STATE_SOURCE	= 2U
@@ -320,6 +321,7 @@ typedef struct applet_config{
     gint    clicking_type;
     gint    temperature_units;
     gint    pressure_units;
+    gint    mode;
 #if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
     gint        display_at;
     gboolean    use_sensor;

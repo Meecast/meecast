@@ -615,6 +615,15 @@ gint read_config(AppletConfig * config) {
         gerror = NULL;
     }
 
+    /* Get MODE  Default SIMPLE */
+    config->mode = SIMPLE_MODE;
+    config->mode = gconf_client_get_int(gconf_client,
+                                                GCONF_KEY_MODE,
+                                                NULL);
+    if (config->mode < SIMPLE_MODE
+        || config->mode > EXTENDED_MODE)
+        config->mode = SIMPLE_MODE;
+
     /* Get Layout Default Preset ONE */
     config->icons_layout = gconf_client_get_int(gconf_client,
                                                 GCONF_KEY_ICONS_LAYOUT,
@@ -627,7 +636,8 @@ gint read_config(AppletConfig * config) {
     config->icons_layout = PRESET_NOW;
 
     */
-    
+
+
     /* Get Text Position  Default Right */
     config->text_position = RIGHT;
     config->text_position = gconf_client_get_int(gconf_client,
@@ -996,7 +1006,11 @@ void config_save(AppletConfig * config) {
     gconf_client_set_int(gconf_client,
                          GCONF_KEY_ICONS_LAYOUT, config->icons_layout,
                          NULL);
-    /* Save Layout type. */
+    /* Save Mode. */
+    gconf_client_set_int(gconf_client,
+                         GCONF_KEY_MODE, config->mode,
+                         NULL);
+    /* Save position of text. */
     gconf_client_set_int(gconf_client,
                          GCONF_KEY_TEXT_POSITION, config->text_position,
                          NULL);

@@ -143,5 +143,6 @@ extern GtkWidget* create_scrolled_window_with_text(const char* text,
 					    GtkJustification justification);
 extern guint get_index_from_time(guint time);
 extern void update_icons_set_base(const char *icon_set_name);
+extern void weather_simple_window_settings(GtkWidget *widget, gpointer user_data);
 /*******************************************************************************/
 #endif

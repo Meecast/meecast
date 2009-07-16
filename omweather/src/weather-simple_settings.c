@@ -28,3 +28,14 @@
 */
 /*******************************************************************************/
 #include "weather-simple_settings.h"
+void
+weather_simple_window_settings(GtkWidget *widget, gpointer user_data){
+  GtkWidget *window = NULL;
+#if defined OS2009
+  window = hildon_stackable_window_new ();
+#else
+  window = hildon_window_new();
+  gtk_widget_show(window);
+#endif
+
+}

@@ -68,6 +68,7 @@ void destroy_popup_window(void);
 /*******************************************************************************/
 extern void weather_window_settings(GtkWidget *widget,
 				    gpointer user_data);
+extern void weather_simple_window_settings(GtkWidget *widget, gpointer user_data);
 /*extern void pre_update_weather(void);*/
 extern void update_weather(gboolean show_update_window);
 extern void set_font(GtkWidget *widget, const gchar *description, const gint size);

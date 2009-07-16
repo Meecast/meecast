@@ -473,6 +473,9 @@ draw_home_window(gint count_day){
         case PRESET_NOW_PLUS_THREE_V:
             count_of_show_button = 4;
             break;
+        case PRESET_NOW_PLUS_SEVEN:
+            count_of_show_button = 8;
+            break;
  
         default:
             count_of_show_button = app->config->days_to_show;
@@ -577,6 +580,8 @@ draw_home_window(gint count_day){
         }
         else{ /* Show N/A for all others day buttons when it not inside range */
             is_na_day = TRUE;
+            wind_speed = -1;
+            wind_direction = UNKNOWN_DIRECTION;
             if(app->config->show_wind){
                 if (!app->config->is_application_mode && app->config->icons_layout >= PRESET_NOW){
                     sprintf(buffer, "<span foreground='%s'>%s\302\260</span>",
@@ -1622,6 +1627,10 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         case PRESET_NOW_PLUS_THREE_V:
             days_panel = gtk_table_new(3, 3, FALSE);
             break; 
+        case PRESET_NOW_PLUS_SEVEN:
+            days_panel = gtk_table_new(8, 2, FALSE);
+            break; 
+
  }
 
 /* add padding around the outside of the container so the text
@@ -1705,8 +1714,8 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
                                 (GtkAttachOptions)0, 0, 0 );
                 if(tmp)
                     tmp = g_slist_next(tmp);
-                if(tmp){
-                        composition_central_vertical_day_button((WDB*)tmp->data);
+                 if(tmp){
+                        composition_central_horizontal_day_button((WDB*)tmp->data);
                         gtk_table_attach((GtkTable*)days_panel,
                                 ((WDB*)tmp->data)->button,
                                 1, 1 + 1, 0, 2, (GtkAttachOptions)0,
@@ -1714,8 +1723,60 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
                         tmp = g_slist_next(tmp);
                 }
 
+                if(tmp){
+                        composition_central_horizontal_day_button((WDB*)tmp->data);
+                        gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                2, 2 + 1, 0, 2, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+                        tmp = g_slist_next(tmp);
+                }
+                if(tmp){
+                        composition_right_horizontal_day_button((WDB*)tmp->data);
+                        gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                3, 3 + 1, 0, 2, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+                        tmp = g_slist_next(tmp);
+                }
+
+
                 gtk_table_attach((GtkTable*)days_panel,
                                 (GtkWidget*)next_station_preset_now(PRESET_NOW_PLUS_THREE_H),
+                                0, 0 + 1, 1, 2, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+
+            break;
+            case PRESET_NOW_PLUS_SEVEN:
+                composition_now((WDB*)tmp->data, PRESET_NOW_PLUS_SEVEN);
+                gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                0, 0 + 1, 0, 1, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+                if(tmp)
+                    tmp = g_slist_next(tmp);
+                for(n = 1; n < 7; n++){
+                     if(tmp){
+                            composition_central_horizontal_day_button((WDB*)tmp->data);
+                            gtk_table_attach((GtkTable*)days_panel,
+                                    ((WDB*)tmp->data)->button,
+                                    n+0, n+1, 0, 2, (GtkAttachOptions)0,
+                                    (GtkAttachOptions)0, 0, 0 );
+                            tmp = g_slist_next(tmp);
+                    }
+                }
+                if(tmp){
+                        composition_right_horizontal_day_button((WDB*)tmp->data);
+                        gtk_table_attach((GtkTable*)days_panel,
+                                ((WDB*)tmp->data)->button,
+                                n+1, n+1 + 1, 0, 2, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+                        tmp = g_slist_next(tmp);
+                }
+
+
+                gtk_table_attach((GtkTable*)days_panel,
+                                (GtkWidget*)next_station_preset_now(PRESET_NOW_PLUS_SEVEN),
                                 0, 0 + 1, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
 

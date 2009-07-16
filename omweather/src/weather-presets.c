@@ -31,6 +31,88 @@
 
 #include "weather-presets.h"
 void
+composition_right_horizontal_day_button(WDB *new_day_button)
+{
+    gchar       buffer[2048];
+    gchar       tmp_buffer[2048];
+    gchar       *day_name;
+    gchar       *begin_of_string;
+    gchar       *begin_of_string2;
+    GtkWidget   *day = NULL;
+    GtkWidget   *temperature = NULL;
+
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    /* Packing all to the box */
+    /* create day box to contain icon, label and wind image */
+    /* background */
+    memset(buffer, 0, sizeof(buffer));
+    snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_RIGHT_HORIZONTAL_BACKGROUND);
+    new_day_button->background = gtk_image_new_from_file (buffer);
+
+    gtk_widget_set_size_request(new_day_button->box, 70, 177);
+    if (new_day_button->background)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->background, 0, 26);
+    if (new_day_button->icon_image)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 0+3, 0);
+    if (new_day_button->wind)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 0-5+14, 66-9);
+    if (new_day_button->wind_text)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 0+14+6, 66+0);
+
+    day_name = (gchar*)gtk_label_get_text(GTK_LABEL(new_day_button->label));
+
+    begin_of_string = strstr(day_name, "\n");
+    temperature = gtk_label_new(NULL);
+    if (begin_of_string){
+        memset(buffer, 0, sizeof(buffer));
+        memset(tmp_buffer, 0, sizeof(tmp_buffer));
+        memcpy(tmp_buffer, day_name , strlen(day_name) - strlen(begin_of_string));
+        snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_BACK, tmp_buffer);
+        day = gtk_label_new(NULL);
+        gtk_label_set_markup(GTK_LABEL(day), buffer);
+        gtk_label_set_justify(GTK_LABEL(day), GTK_JUSTIFY_CENTER);
+        set_font(day, PRESET_DAY_FONT, -1);
+        gtk_widget_set_size_request(day, 60, 25);
+        memset(buffer, 0, sizeof(buffer));
+        memset(tmp_buffer, 0, sizeof(tmp_buffer));
+        begin_of_string2 = strstr(begin_of_string + 1, "\n");
+        if (begin_of_string && begin_of_string2)
+            memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
+
+        snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
+                                        begin_of_string2);
+    }else
+        if(gtk_label_get_text(GTK_LABEL(new_day_button->label)))
+            snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_BACK,
+                                        (gchar*)gtk_label_get_text(GTK_LABEL(new_day_button->label)));
+    if (buffer[0] != 0){
+        gtk_label_set_markup(GTK_LABEL(temperature), buffer);
+        gtk_label_set_justify(GTK_LABEL(temperature), GTK_JUSTIFY_CENTER);
+        set_font(temperature, PRESET_TEMPERATURE_FONT, -1);
+      gtk_widget_set_size_request(temperature, 66, 60);
+    }
+    
+    if (day)
+            gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 0, 60+37+10);
+    if (temperature)
+            gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 0+2, 60+37+9+30);
+
+    gtk_widget_destroy(new_day_button->label);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+}
+/**********************************************************************************************************/
+void
 composition_central_horizontal_day_button(WDB *new_day_button)
 {
     gchar       buffer[2048];
@@ -49,24 +131,23 @@ composition_central_horizontal_day_button(WDB *new_day_button)
     /* create day box to contain icon, label and wind image */
     /* background */
     memset(buffer, 0, sizeof(buffer));
-    snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_LEFT_VERTICAL_BACKGROUND);
+    snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_MIDDLE_HORIZONTAL_BACKGROUND);
     new_day_button->background = gtk_image_new_from_file (buffer);
 
-    gtk_widget_set_size_request(new_day_button->box, 70, 213);
+    gtk_widget_set_size_request(new_day_button->box, 70, 177);
     if (new_day_button->background)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->background, 0, 0);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->background, 0, 26);
     if (new_day_button->icon_image)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 0+3, 2);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 0+3, 0);
     if (new_day_button->wind)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 0-5+14, 66-4);
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 0-5+14, 66-9);
     if (new_day_button->wind_text)
-        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 0+14+6, 66+5);
-
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 0+14+6, 66+0);
 
     day_name = (gchar*)gtk_label_get_text(GTK_LABEL(new_day_button->label));
 
-
     begin_of_string = strstr(day_name, "\n");
+    temperature = gtk_label_new(NULL);
     if (begin_of_string){
         memset(buffer, 0, sizeof(buffer));
         memset(tmp_buffer, 0, sizeof(tmp_buffer));
@@ -83,8 +164,9 @@ composition_central_horizontal_day_button(WDB *new_day_button)
         memset(buffer, 0, sizeof(buffer));
         memset(tmp_buffer, 0, sizeof(tmp_buffer));
         begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
-        memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
-        temperature = gtk_label_new(NULL);
+        if (begin_of_string && begin_of_string2)
+            memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
+    
         snprintf(buffer,sizeof(buffer) - 1,
                                        "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
                                         PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
@@ -100,9 +182,9 @@ composition_central_horizontal_day_button(WDB *new_day_button)
     gtk_widget_set_size_request(temperature, 66, 60);
 
     if (day)
-            gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 0, 60+37+17);
+            gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 0, 60+37+10);
     if (temperature)
-            gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 0+2, 60+37+16+30);
+            gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 0+2, 60+37+9+30);
 
     gtk_widget_destroy(new_day_button->label);
 #ifdef DEBUGFUNCTIONCALL
@@ -162,8 +244,9 @@ composition_central_vertical_day_button(WDB *new_day_button)
 
         memset(buffer, 0, sizeof(buffer));
         memset(tmp_buffer, 0, sizeof(tmp_buffer));
-        begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
-        memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
+        begin_of_string2 = strstr(begin_of_string + 1, "\n");
+        if (begin_of_string && begin_of_string2)
+            memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
         temperature = gtk_label_new(NULL);
         snprintf(buffer,sizeof(buffer) - 1,
                                        "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
@@ -231,7 +314,8 @@ composition_left_vertical_day_button(WDB *new_day_button, gint layout)
         memset(buffer, 0, sizeof(buffer));
         memset(tmp_buffer, 0, sizeof(tmp_buffer));
         begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
-        memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
+        if (begin_of_string && begin_of_string2)
+            memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
         temperature = gtk_label_new(NULL);
         snprintf(buffer,sizeof(buffer) - 1,
                                        "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
@@ -327,7 +411,8 @@ composition_right_vertical_day_button(WDB *new_day_button, gint layout)
         memset(buffer, 0, sizeof(buffer));
         memset(tmp_buffer, 0, sizeof(tmp_buffer));
         begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
-        memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
+        if (begin_of_string && begin_of_string2)
+            memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
         temperature = gtk_label_new(NULL);
         snprintf(buffer,sizeof(buffer) - 1,
                                        "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
@@ -409,6 +494,7 @@ composition_now(WDB *new_day_button, gint layout)
             xoffset = 12 + 15;
             gtk_widget_set_size_request(new_day_button->box, xoffset+140+1, 37+15+106);
             break;
+        case PRESET_NOW_PLUS_SEVEN:
         case PRESET_NOW_PLUS_THREE_H:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND_HORIZONTAL);
             xoffset = 12 + 15;
@@ -461,6 +547,7 @@ next_station_preset_now(gint layout)
     memset(buffer, 0, sizeof(buffer));
     switch (layout){
         case PRESET_NOW_PLUS_THREE_H:
+        case PRESET_NOW_PLUS_SEVEN:
             snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_NOW_BACKGROUND_TOWN_HORIZONTAL);
             background_town = gtk_image_new_from_file (buffer);
             if (background_town)

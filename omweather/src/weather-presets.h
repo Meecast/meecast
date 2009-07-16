@@ -37,6 +37,8 @@
 #define PRESET_NOW_BACKGROUND_TOWN              "OMW_widget_button_single_town.png"
 #define PRESET_NOW_BACKGROUND_TOWN_PLUS_TWO     "OMW_widget_button_2block_town.png"
 #define PRESET_NOW_BACKGROUND_TOWN_PLUS_THREE_V "OMW_widget_button_3block_town.png"
+#define PRESET_MIDDLE_HORIZONTAL_BACKGROUND     "OMW_widget_button_forecast_horizontal_middle.png"
+#define PRESET_RIGHT_HORIZONTAL_BACKGROUND      "OMW_widget_button_forecast_horizontal_right_end.png"
 #define PRESET_NOW_BACKGROUND_TOWN_HORIZONTAL   "OMW_widget_button_horizontal_town.png"
 #define PRESET_LEFT_VERTICAL_BACKGROUND         "OMW_widget_button_forecast_block_left_end.png"
 #define PRESET_RIGHT_VERTICAL_BACKGROUND        "OMW_widget_button_forecast_block_right_end.png"

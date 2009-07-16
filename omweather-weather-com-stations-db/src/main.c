@@ -31,7 +31,8 @@
 #include <time.h>
 /*******************************************************************************/
 gint
-get_station_weather_data(const gchar *station_id_with_path, GHashTable *data){
+get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
+                            gboolean get_detail_data){
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
     gint    days_number = -1;
@@ -74,7 +75,10 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data){
                     return -1;
                 }
                 *delimiter = 0;
-                days_number = parse_xml_data(buffer, root_node, data);
+                if(get_detail_data)
+                    days_number = parse_xml_detail_data(buffer, root_node, data);
+                else
+                    days_number = parse_xml_data(buffer, root_node, data);
             }
             xmlFreeDoc(doc);
             xmlCleanupParser();

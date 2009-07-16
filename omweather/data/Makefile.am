@@ -26,13 +26,11 @@ icons_crystallarge_DATA = icons/Glance/*.png
 #clutter_scripts_crystallarge_DATA = icons/Glance/*.json
 moon_iconsdir = $(datadir)/omweather/moon_icons
 moon_icons_DATA = moon_icons/*.png
-copyright_iconsdir = $(datadir)/omweather/copyright_icons
-copyright_icons_DATA = copyright_icons/*.png
 button_iconsdir = $(datadir)/omweather/button_icons
 button_icons_DATA = button_icons/*.png
 #if NONMAEMO
- imagedir = $(datadir)/omweather/images
- image_DATA = images/*.png
+imagedir = $(datadir)/omweather/images
+image_DATA = images/*.png
 #endif
 
 # The icons
@@ -81,14 +79,12 @@ EXTRA_DIST = $(homeapplet_desktop_DATA) \
 	     $(omweather_DATA) \
 	     $(icons_crystallarge_DATA) \
 	     $(moon_icons_DATA) \
-	     $(copyright_icons_DATA) \
 	     $(button_icons_DATA) \
 	     units.xml \
 	     $(dbus_service_DATA) \
 	     omweather.desktop.in \
 	     omweather.png \
-	     $(image_data)
-#	     $(clutter_scripts_crystallarge_DATA) \
+	     $(image_DATA)
 
 omweather.desktop: omweather.desktop.in
 	sed "s/__VERSION__/$(VERSION)/g" $< >$@.tmp && \

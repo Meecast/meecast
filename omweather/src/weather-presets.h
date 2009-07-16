@@ -70,6 +70,7 @@ void composition_now(WDB *new_day_button, gint layout);
 void composition_left_vertical_day_button(WDB *new_day_button, gint layout);
 void composition_central_vertical_day_button(WDB *new_day_button);
 void composition_right_vertical_day_button(WDB *new_day_button, gint layout);
+void composition_central_horizontal_day_button(WDB *new_day_button);
 void fill_weather_day_button_presets(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
                 gboolean draw_day_label, gint wind_direction, gfloat wind_speed);

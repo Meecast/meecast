@@ -30,7 +30,86 @@
 #define _weather_presets_h 1
 
 #include "weather-presets.h"
+void
+composition_central_horizontal_day_button(WDB *new_day_button)
+{
+    gchar       buffer[2048];
+    gchar       tmp_buffer[2048];
+    gchar       *day_name;
+    gchar       *begin_of_string;
+    gchar       *begin_of_string2;
+    GtkWidget   *day = NULL;
+    GtkWidget   *temperature = NULL;
 
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    /* Packing all to the box */
+    /* create day box to contain icon, label and wind image */
+    /* background */
+    memset(buffer, 0, sizeof(buffer));
+    snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_LEFT_VERTICAL_BACKGROUND);
+    new_day_button->background = gtk_image_new_from_file (buffer);
+
+    gtk_widget_set_size_request(new_day_button->box, 70, 213);
+    if (new_day_button->background)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->background, 0, 0);
+    if (new_day_button->icon_image)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->icon_image, 0+3, 2);
+    if (new_day_button->wind)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind, 0-5+14, 66-4);
+    if (new_day_button->wind_text)
+        gtk_fixed_put(GTK_FIXED(new_day_button->box), new_day_button->wind_text, 0+14+6, 66+5);
+
+
+    day_name = (gchar*)gtk_label_get_text(GTK_LABEL(new_day_button->label));
+
+
+    begin_of_string = strstr(day_name, "\n");
+    if (begin_of_string){
+        memset(buffer, 0, sizeof(buffer));
+        memset(tmp_buffer, 0, sizeof(tmp_buffer));
+        memcpy(tmp_buffer, day_name , strlen(day_name) - strlen(begin_of_string));
+        snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_BACK, tmp_buffer);
+        day = gtk_label_new(NULL);
+        gtk_label_set_markup(GTK_LABEL(day), buffer);
+        gtk_label_set_justify(GTK_LABEL(day), GTK_JUSTIFY_CENTER);
+        set_font(day, PRESET_DAY_FONT, -1);
+        gtk_widget_set_size_request(day, 60, 25);
+
+        memset(buffer, 0, sizeof(buffer));
+        memset(tmp_buffer, 0, sizeof(tmp_buffer));
+        begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
+        memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
+        temperature = gtk_label_new(NULL);
+        snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
+                                        begin_of_string2);
+    }else
+        snprintf(buffer,sizeof(buffer) - 1,
+                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
+                                        PRESET_BIG_FONT_COLOR_BACK,
+                                        (gchar*)gtk_label_get_text(GTK_LABEL(new_day_button->label)));
+    gtk_label_set_markup(GTK_LABEL(temperature), buffer);
+    gtk_label_set_justify(GTK_LABEL(temperature), GTK_JUSTIFY_CENTER);
+    set_font(temperature, PRESET_TEMPERATURE_FONT, -1);
+    gtk_widget_set_size_request(temperature, 66, 60);
+
+    if (day)
+            gtk_fixed_put(GTK_FIXED(new_day_button->box), day, 0, 60+37+17);
+    if (temperature)
+            gtk_fixed_put(GTK_FIXED(new_day_button->box), temperature, 0+2, 60+37+16+30);
+
+    gtk_widget_destroy(new_day_button->label);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+}
+/**********************************************************************************************************/
 void
 composition_central_vertical_day_button(WDB *new_day_button)
 {
@@ -661,7 +740,6 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
             memset(buffer, 0, sizeof(buffer));
     }
     if (buffer[0] != 0){
-        
         if (wind_speed < STRONG_WIND)
             new_day_button->wind = gtk_image_new_from_file (buffer);
         else{

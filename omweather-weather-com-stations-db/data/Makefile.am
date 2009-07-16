@@ -26,3 +26,8 @@ omweather_weather_com_source_DATA = weather.com.xml
 
 omweather_weather_com_source_dbdir = $(datadir)/omweather/db
 omweather_weather_com_source_db_DATA = weather.com.db
+
+copyright_iconsdir = $(datadir)/omweather/copyright_icons
+copyright_icons_DATA = weather.com.png
+
+

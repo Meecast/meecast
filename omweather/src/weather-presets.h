@@ -76,4 +76,7 @@ void fill_weather_day_button_presets(WDB *new_day_button, const char *text, cons
 GtkWidget *next_station_preset_now(gint layout);
 extern gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
                                 gpointer user_data);
-
+extern GtkWidget *create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list);
+extern void fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const char *icon,
+                const gint icon_size, gboolean transparency,
+                gboolean draw_day_label, gint wind_direction, gfloat wind_gust);

@@ -31,5 +31,6 @@
 /*******************************************************************************/
 gint get_station_weather_data(const gchar *station_id_with_path, GHashTable *data);
 gint parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);
+gint parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);
 /*******************************************************************************/
 #endif

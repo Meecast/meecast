@@ -32,7 +32,7 @@
 /*******************************************************************************/
 gint
 get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
-                            gboolean get_detail_data){
+                                                    gboolean get_detail_data){
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
     gint    days_number = -1;
@@ -449,7 +449,8 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
                 *child_node = NULL,
                 *child_node2 = NULL,
                 *child_node3 = NULL;
-    GHashTable  *detail = NULL;
+    GHashTable  *detail = NULL,
+                *hours_data = NULL;
     xmlChar     *temp_xml_string;
     gint        count_hour = 0;
     gchar       buff[256];
@@ -460,14 +461,15 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
 #endif
     for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
         if( cur_node->type == XML_ELEMENT_NODE ){
-            detail = g_hash_table_new(g_str_hash, g_str_equal);
-            if(!xmlStrcmp(cur_node->name, (const xmlChar *) "hbhf" ) ){
+            hours_data = g_hash_table_new(g_str_hash, g_str_equal);
+            if( !xmlStrcmp(cur_node->name, (const xmlChar *) "hbhf") ){
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
+                    detail = g_hash_table_new(g_str_hash, g_str_equal);
                     /* last update */
                     if( child_node->type == XML_ELEMENT_NODE  &&
                             ( !xmlStrcmp(child_node->name, (const xmlChar *)"lsup") ) ){
                         temp_xml_string = xmlNodeGetContent(child_node);
-                        g_hash_table_insert(detail, "last_update", g_strdup((char*)temp_xml_string));
+                        g_hash_table_insert(hours_data, "last_update", g_strdup((char*)temp_xml_string));
                         xmlFree(temp_xml_string);
                         continue;
                     }
@@ -559,7 +561,8 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
             }
         }
     }
-    g_hash_table_insert(data, "detail", (gpointer)hour_weather);
+    g_hash_table_insert(hours_data, "hours_data", (gpointer)hour_weather);
+    g_hash_table_insert(data, "detail", (gpointer)hours_data);
     return count_hour;
 }
 /*******************************************************************************/

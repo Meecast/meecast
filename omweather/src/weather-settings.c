@@ -973,12 +973,11 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-/*
+
     if (app->config->mode == SIMPLE_MODE){
         weather_simple_window_settings(widget, user_data);
         return;
     }
-*/    
 /* kill popup window :-) */
     if(app->popup_window)
         gtk_widget_destroy(app->popup_window);

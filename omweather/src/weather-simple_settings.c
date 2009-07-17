@@ -30,12 +30,30 @@
 #include "weather-simple_settings.h"
 void
 weather_simple_window_settings(GtkWidget *widget, gpointer user_data){
-  GtkWidget *window = NULL;
-#if defined OS2009
-  window = hildon_stackable_window_new ();
-#else
-  window = hildon_window_new();
-  gtk_widget_show(window);
-#endif
+GtkWidget *window = NULL,
+          *main_table = NULL,
+          *collapsed_button = NULL,
+          *expanded_button = NULL,
+          *settings_button = NULL;
 
+#if defined OS2009
+    window = hildon_stackable_window_new ();
+#else
+    window = hildon_window_new();
+#endif
+    gtk_widget_show(window);
+
+    main_table = gtk_table_new(4,3, TRUE);
+
+    collapsed_button = gtk_button_new_with_label (_("Collapsed"));
+    gtk_widget_show (collapsed_button);
+    gtk_table_attach_defaults (GTK_TABLE(main_table), collapsed_button, 0, 1, 1, 2);
+    expanded_button = gtk_button_new_with_label (_("Expanded"));
+    gtk_widget_show (expanded_button);
+    gtk_table_attach_defaults (GTK_TABLE(main_table), expanded_button, 1, 2, 1, 2);
+    settings_button = gtk_button_new_with_label (_("Settings"));
+    gtk_widget_show (settings_button);
+    gtk_table_attach_defaults (GTK_TABLE(main_table), settings_button, 2, 4, 1, 2);
+    gtk_container_add (GTK_CONTAINER (window), main_table);
+    gtk_widget_show(main_table);
 }

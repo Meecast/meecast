@@ -398,6 +398,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
 							TRUE));
 		/* fill states list */
 		changed_country_handler(countries, window);
+0
 		/* fill stations list */
 		changed_state_handler(states, window);
 	    }
@@ -416,7 +417,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
 	gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
 			    label = gtk_label_new(_("Does not to add station, "
 						    "because no one\n"
-						    "of '*-source' packages was installed.")),
+						    "of 'omweather-*-stations-db' packages was installed.")),
 			    TRUE, TRUE, 10);
 	set_font(label, NULL, 18);
     }

@@ -314,7 +314,7 @@ make_hour_tab(GtkWidget *vbox){
 #endif
     if(app->popup_window){
          child = create_hour_tab();
-         gtk_container_add(GTK_CONTAINER(vbox),child);
+         gtk_container_add(GTK_CONTAINER(vbox), child);
 #ifndef CLUTTER
          gtk_widget_show_all(vbox);
 #endif
@@ -401,13 +401,13 @@ popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data){
 #ifdef CLUTTER
     free_clutter_objects_list(&app->clutter_objects_in_popup_form);
 #endif
-    gtk_container_foreach (GTK_CONTAINER (vbox), (GtkCallback)destroy_container, NULL);
+    gtk_container_foreach(GTK_CONTAINER(vbox), (GtkCallback)destroy_container, NULL);
 
     /* Create needed Tab */
-    if (!strcmp(_("Now"),gtk_notebook_get_tab_label_text(nb,vbox)))
+    if (!strcmp(_("Now"), gtk_notebook_get_tab_label_text(nb,vbox)))
         make_current_tab(vbox);
     else
-        if (!strcmp(_("Detailed"),gtk_notebook_get_tab_label_text(nb,vbox)))
+        if (!strcmp(_("Detailed"), gtk_notebook_get_tab_label_text(nb,vbox)))
             make_hour_tab(vbox);
         else
             make_tab(vbox);
@@ -550,8 +550,8 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
         active_tab++;
 
 /* Detailed weather tab */
-    if (!app->wsd.hours_data_is_invalid &&  app->wsd.hours_weather){
-        data_last_update = last_update_time((GSList*)(app->wsd.hours_weather)->data);
+    if(g_hash_table_lookup(app->station_data, "detail")){
+        data_last_update = last_update_time_new(g_hash_table_lookup(app->station_data, "detail"));
         /* Check a valid time for hours forecast */
         if(app->config->show_weather_for_two_hours && 
           (current_time - 24 * 60 * 60) < data_last_update)
@@ -560,12 +560,11 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
             gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                                         hour_tab,
                                         gtk_label_new(_("Detailed")));
-           g_idle_add((GSourceFunc)make_hour_tab,hour_tab);
+           g_idle_add((GSourceFunc)make_hour_tab, hour_tab);
            add_item2object(&(app->tab_of_window_popup), (void*)hour_tab);
         }
     }
 /* Day tabs */
-
    tmp = g_hash_table_lookup(app->station_data, "forecast");
    fprintf(stderr,"Length %i\n", g_slist_length(tmp));
    while(tmp && i < Max_count_weather_day){
@@ -589,7 +588,6 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
         }
         else{
              /* Create the page with data */
-             fprintf(stderr,"tttttttttttt\n");
             tab = create_day_tab(g_hash_table_lookup(app->station_data, "current"),
                                     day, &day_name);
             if(tab){
@@ -1139,36 +1137,37 @@ create_current_tab(GHashTable *current){
 }
 /*******************************************************************************/
 GtkWidget* create_hour_tab(void){
-    GtkWidget	*main_widget = NULL,
-		*window = NULL,
-		*window_tmp = NULL, 
-		*icon_text_hbox = NULL,
-		*text = NULL,
-		*icon_image = NULL;
-    GSList	*hour_weather = NULL,
-		*tmp = NULL; 
-    gchar	buffer[1024];
-    const gchar	*wind_units_str[] = { "m/s", "km/h", "mi/h" };
-    GdkPixbuf	*icon = NULL;
-    gint	i = 0,
-		period = 6;
+    GtkWidget       *main_widget = NULL,
+                    *window = NULL,
+                    *window_tmp = NULL, 
+                    *icon_text_hbox = NULL,
+                    *text = NULL,
+                    *icon_image = NULL;
+    GHashTable      *hour_weather = NULL;
+    GSList          *tmp = NULL;
+    gchar           buffer[1024];
+    const gchar     *wind_units_str[] = { "m/s", "km/h", "mi/h" };
+    GdkPixbuf       *icon = NULL;
+    gint            i = 0,
+                    period = 6;
 
 #ifdef DEBUGFUNCTIONCALL 
     START_FUNCTION;
 #endif
-    if(!app->wsd.hours_weather)
+    if(!g_hash_table_lookup(app->station_data, "detail"))
         return NULL;
 
     main_widget = gtk_vbox_new(FALSE, 0);
     window_tmp = gtk_hbox_new(FALSE, 0);
-    tmp = app->wsd.hours_weather;
+    tmp = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
 
     while(tmp){
-        hour_weather = (GSList*)tmp->data;
+        hour_weather = (GHashTable*)tmp->data;
         window = gtk_vbox_new(FALSE, 0);
         icon_text_hbox = gtk_hbox_new(FALSE, 0);
 /* icon */
-        sprintf(buffer,"%s%s.png", app->config->icons_set_base, item_value(hour_weather, "hour_icon"));
+        sprintf(buffer,"%s%s.png", app->config->icons_set_base,
+                (char*)g_hash_table_lookup(hour_weather, "hour_icon"));
         icon = gdk_pixbuf_new_from_file_at_size(buffer, SMALL_ICON_SIZE,
                                                    SMALL_ICON_SIZE, NULL);
         icon_image = create_icon_widget(icon, buffer, SMALL_ICON_SIZE, &app->clutter_objects_in_popup_form);
@@ -1178,60 +1177,60 @@ GtkWidget* create_hour_tab(void){
         sprintf(buffer + strlen(buffer), "%s", _("Forecast at: "));
 /* TODO fix this item to correct displaing localized time */
         sprintf(buffer + strlen(buffer), "%s:00\n",
-                                item_value(hour_weather, "hours"));
+                                (char*)g_hash_table_lookup(hour_weather, "hours"));
 /* title */
         sprintf(buffer + strlen(buffer), "%s\n",
-                        (char*)hash_table_find(item_value(hour_weather, "hour_title"), FALSE));
+                        (char*)hash_table_find(g_hash_table_lookup(hour_weather, "hour_title"), FALSE));
 /* temperature */
         sprintf(buffer + strlen(buffer), "%s",  _("Temperature: "));
         sprintf(buffer + strlen(buffer), " %d\302\260",
                    ((app->config->temperature_units == CELSIUS) ?
-                   ( atoi(item_value(hour_weather, "hour_temperature"))) :
-                   ( (int)c2f(atoi(item_value(hour_weather, "hour_temperature"))))));
+                   ( atoi(g_hash_table_lookup(hour_weather, "hour_temperature"))) :
+                   ( (int)c2f(atoi(g_hash_table_lookup(hour_weather, "hour_temperature"))))));
         (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")))
                                   : ( strcat(buffer, _("F\n")));
-   /* feels like */
+/* feels like */
         sprintf(buffer + strlen(buffer), "%s", _("Feels like:"));
         sprintf(buffer + strlen(buffer), "  %d\302\260",
                   (app->config->temperature_units == CELSIUS) ?
-                  (atoi(item_value(hour_weather, "hour_feels_like"))) :
-                  ((int)c2f(atoi(item_value(hour_weather, "hour_feels_like")))));
+                  (atoi(g_hash_table_lookup(hour_weather, "hour_feels_like"))) :
+                  ((int)c2f(atoi(g_hash_table_lookup(hour_weather, "hour_feels_like")))));
         (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")))
                                                     : ( strcat(buffer, _("F\n")));
    /* humidity */
         sprintf(buffer + strlen(buffer), "%s", _("Humidity:"));
-        if( strcmp(item_value(hour_weather, "hour_humidity"), "N/A") ){
+        if( strcmp(g_hash_table_lookup(hour_weather, "hour_humidity"), "N/A") ){
             sprintf(buffer + strlen(buffer), "  %d%%\n",
-                           atoi(item_value(hour_weather, "hour_humidity")));
+                           atoi(g_hash_table_lookup(hour_weather, "hour_humidity")));
         }
         else{
             sprintf(buffer + strlen(buffer), "%s\n",
                             (char*)hash_table_find("N/A", FALSE));
         }
    /* wind */
-        if( strcmp(item_value(hour_weather, "hour_wind_direction"), "N/A") ){
+        if( strcmp(g_hash_table_lookup(hour_weather, "hour_wind_direction"), "N/A") ){
             sprintf(buffer + strlen(buffer), "%s", _("Wind:"));
             sprintf(buffer + strlen(buffer), "  %s\n",
-                        (char*)hash_table_find(item_value(hour_weather, "hour_wind_direction"), TRUE));
-            if( strcmp(item_value(hour_weather, "hour_wind_speed"), "N/A") )
+                        (char*)hash_table_find(g_hash_table_lookup(hour_weather, "hour_wind_direction"), TRUE));
+            if( strcmp(g_hash_table_lookup(hour_weather, "hour_wind_speed"), "N/A") )
                 sprintf(buffer + strlen(buffer), "%s", _("Speed:"));
             sprintf(buffer + strlen(buffer), "  %.2f %s\n",
-                convert_wind_units(app->config->wind_units, atof(item_value(hour_weather, "hour_wind_speed"))),
+                convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(hour_weather, "hour_wind_speed"))),
                 (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
         }
    /* gust */
-        if( strcmp(item_value(hour_weather, "hour_wind_gust"), "N/A") ){
+        if( strcmp(g_hash_table_lookup(hour_weather, "hour_wind_gust"), "N/A") ){
             sprintf(buffer + strlen(buffer), "%s", _("Gust:"));
             sprintf(buffer + strlen(buffer), "  %.2f %s\n",
-                 convert_wind_units(app->config->wind_units, atof(item_value(hour_weather, "hour_wind_gust"))),
+                 convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(hour_weather, "hour_wind_gust"))),
                  (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
         }
         text = gtk_label_new(buffer);
-        set_font(text, NULL, 14);
+        set_font(text, NULL, 12);
         gtk_box_pack_start(GTK_BOX(window), icon_text_hbox, TRUE, FALSE, 0);
         gtk_box_pack_start(GTK_BOX(window), text, TRUE, FALSE, 0); 
         gtk_box_pack_start(GTK_BOX(window_tmp), window, TRUE, FALSE, 0);
-        for (i=1;i<period;i++){
+        for (i = 1; i < period; i++){
             tmp = g_slist_next(tmp);
             if(!tmp)
                 break;
@@ -1240,10 +1239,10 @@ GtkWidget* create_hour_tab(void){
 
     gtk_box_pack_start(GTK_BOX(main_widget), window_tmp, TRUE, TRUE, 0);
    /* last update time */
-//    if(hour_weather)
-//        gtk_box_pack_start(GTK_BOX(main_widget),
-//                             create_time_updates_widget(hour_weather, FALSE),
-//                             TRUE, FALSE, 5);
+    if(hour_weather)
+        gtk_box_pack_start(GTK_BOX(main_widget),
+                             create_time_updates_widget(hour_weather, FALSE),
+                             TRUE, FALSE, 5);
     gtk_widget_show_all(main_widget);
 
 #if defined CLUTTER
@@ -1251,7 +1250,7 @@ GtkWidget* create_hour_tab(void){
          G_CALLBACK(popup_window_expose), NULL);
 #endif
 
-#ifdef DEBUGFUNCTIONCALL 
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
     return main_widget;

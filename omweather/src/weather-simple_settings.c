@@ -28,6 +28,7 @@
 */
 /*******************************************************************************/
 #include "weather-simple_settings.h"
+/*******************************************************************************/
 void
 weather_simple_window_settings(GtkWidget *widget, gpointer user_data){
 GtkWidget *window = NULL,
@@ -57,3 +58,4 @@ GtkWidget *window = NULL,
     gtk_container_add (GTK_CONTAINER (window), main_table);
     gtk_widget_show(main_table);
 }
+/*******************************************************************************/

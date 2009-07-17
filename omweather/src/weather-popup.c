@@ -1260,6 +1260,7 @@ GtkWidget* create_copyright_widget(const gchar *text, const gchar *image){
     GtkWidget       *main_widget = NULL,
                     *hbox = NULL,
                     *label= NULL,
+                    *url = NULL,
                     *icon = NULL;
     GdkPixbuf       *icon_buffer = NULL;
     gchar           image_buffer[512],
@@ -1270,13 +1271,18 @@ GtkWidget* create_copyright_widget(const gchar *text, const gchar *image){
     main_widget = gtk_vbox_new(FALSE, 0);
     hbox = gtk_hbox_new(FALSE, 0);
 /* text */
-    text_buffer[0] = 0;
-    snprintf(text_buffer, sizeof(text_buffer) - 1, "%s%s",
-                _("Weather data provided by: "), text);
     gtk_box_pack_start(GTK_BOX(hbox),
-                        label = gtk_label_new(text_buffer),
-                        FALSE, FALSE, 10);
+                        label = gtk_label_new(_("Weather data provided by: ")),
+                        FALSE, FALSE, 5);
     set_font(label, NULL, 12);
+/* url */
+    *text_buffer = 0;
+    snprintf(text_buffer, sizeof(text_buffer) - 1, "http://%s",
+                text);
+    url = gtk_link_button_new_with_label(text_buffer, text);
+    gtk_button_set_focus_on_click(GTK_BUTTON(url), FALSE);
+    gtk_box_pack_start(GTK_BOX(hbox), url, FALSE, FALSE, 5);
+    set_font(url, NULL, 12);
 /* icon */
     if(image){
         sprintf(image_buffer, "%s%s", COPYRIGHT_ICONS, image);

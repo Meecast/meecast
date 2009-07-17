@@ -29,7 +29,7 @@
 #include "weather-sources.h"
 #include "weather-utils.h"
 #include <string.h>
-#define		SOURCES_LIB	"/usr/lib/omweather"
+#define SOURCES_LIB "/usr/lib/omweather"
 /*******************************************************************************/
 GtkListStore*
 create_sources_list(gchar *sources_path, gint *sources_number, GSList **handles){
@@ -124,125 +124,125 @@ source_name_valid(GHashTable *data){
     START_FUNCTION;
 #endif
     if(!data)
-	return FALSE;
+        return FALSE;
     /* check name */
     value = g_hash_table_lookup(data, "name");
     if(!value)
-	return FALSE;
+        return FALSE;
     else
-	return TRUE;
+        return TRUE;
 }
 /*******************************************************************************/
 gboolean
 source_library_valid(GHashTable *data, GSList **handles){
-    gpointer	value = NULL,
-		handle = NULL,
-		parser = NULL;
-    gchar	buffer[256];
+    gpointer        value = NULL,
+                    handle = NULL,
+                    parser = NULL;
+    gchar           buffer[256];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!data)
-	return FALSE;
+        return FALSE;
     /* check libomweather-xxx-source.so file */
     value = g_hash_table_lookup(data, "library");
     if(!value)/* library file does not defined */
-	return FALSE;
+        return FALSE;
     else{
-	*buffer = 0;
-	snprintf(buffer, sizeof(buffer) - 1, "%s/%s",
-		    SOURCES_LIB, (gchar*)value);
-	if(access(buffer, R_OK))/* file does not exist or no permissions */
-	    return FALSE;
-	handle = dlopen(buffer, RTLD_NOW);
-	if(handle){
-	    dlerror();
-	    parser = dlsym(handle, "get_station_weather_data");
-	    if(!dlerror()){
-		g_hash_table_insert(data, "parser", parser);
-		/* store opening library handle */
-		*handles = g_slist_append(*handles, handle);
-	    }
-	}
+        *buffer = 0;
+        snprintf(buffer, sizeof(buffer) - 1, "%s/%s", SOURCES_LIB,
+                    (gchar*)value);
+        if(access(buffer, R_OK))/* file does not exist or no permissions */
+            return FALSE;
+        handle = dlopen(buffer, RTLD_NOW);
+        if(handle){
+            dlerror();
+            parser = dlsym(handle, "get_station_weather_data");
+            if(!dlerror()){
+                g_hash_table_insert(data, "parser", parser);
+                /* store opening library handle */
+                *handles = g_slist_append(*handles, handle);
+            }
+        }
     }
     return TRUE;
 }
 /*******************************************************************************/
 gboolean
 source_forecast_url_valid(GHashTable *data){
-    gpointer	value;
+    gpointer        value;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!data)
-	return FALSE;
+        return FALSE;
     /* check forecast url*/
     value = g_hash_table_lookup(data, "forecast_url");
     if(!(value && strstr(value, "%s")))
-	return FALSE;
+        return FALSE;
     else
-	return TRUE;
+        return TRUE;
 }
 /*******************************************************************************/
 gboolean
 source_detail_url_valid(GHashTable *data){
-    gpointer	value;
+    gpointer        value;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!data)
-	return FALSE;
+        return FALSE;
     /* check detail url*/
     value = g_hash_table_lookup(data, "detail_url");
     if(!(value && strstr(value, "%s")))
-	return FALSE;
+        return FALSE;
     else
-	return TRUE;
+        return TRUE;
 }
 /*******************************************************************************/
 gboolean
 source_search_url_valid(GHashTable *data){
-    gpointer	value;
+    gpointer        value;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!data)
-	return FALSE;
+        return FALSE;
     /* check search url*/
     value = g_hash_table_lookup(data, "search_url");
     if(!(value && strstr(value, "%s")))
-	return FALSE;
+        return FALSE;
     else
-	return TRUE;
+        return TRUE;
 }
 /*******************************************************************************/
 gboolean
 source_stations_database_valid(GHashTable *data){
-    gpointer	value;
-    gchar	buffer[256];
+    gpointer        value;
+    gchar           buffer[256];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!data)
-	return FALSE;
+        return FALSE;
     /* check *.db file */
     value = g_hash_table_lookup(data, "base");
     if(!value)/* database file does not defined */
-	return FALSE;
+        return FALSE;
     else{
-	*buffer = 0;
-	snprintf(buffer, sizeof(buffer) - 1, "%s%s",
-		    DATABASEPATH, (gchar*)value);
-	if(access(buffer, R_OK))/* file does not exist or no permissions */
-	    return FALSE;
+        *buffer = 0;
+        snprintf(buffer, sizeof(buffer) - 1, "%s%s", DATABASEPATH,
+                    (gchar*)value);
+        if(access(buffer, R_OK))/* file does not exist or no permissions */
+            return FALSE;
     }
     return TRUE;
 }
 /*******************************************************************************/
 gboolean
 source_logo_file_valid(GHashTable *data){
-    gpointer	value;
-    gchar	buffer[256];
+    gpointer        value;
+    gchar           buffer[256];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -286,14 +286,13 @@ parse_source_file(const gchar *filename, const gchar *encoding){
     return object;
 }
 /*******************************************************************************/
-static void
-free_source_field (gpointer key, gpointer val, gpointer user_data)
-{
+void
+free_source_field(gpointer key, gpointer val, gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     /* "parser" is not *gchar */
-    if (strcmp ("parser",key)){
+    if(strcmp ("parser",key)){
         g_free(val);
         val = NULL;
     }
@@ -304,14 +303,13 @@ free_hashtable_with_source(GHashTable* hashtable){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    g_hash_table_foreach (hashtable,
-        free_source_field, NULL);
-    g_hash_table_destroy (hashtable);
+    g_hash_table_foreach(hashtable, free_source_field, NULL);
+    g_hash_table_destroy(hashtable);
 }
 /*******************************************************************************/
 void
 parse_children(xmlNode *node, GHashTable *object){
-    xmlChar	*value = NULL;
+    xmlChar     *value = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -379,7 +377,8 @@ get_source_forecast_url(GtkListStore *data, const gchar *source_name){
     while(valid){
         gtk_tree_model_get(GTK_TREE_MODEL(data), &iter, 1, &source, -1);
         value = g_hash_table_lookup(source, "name");
-        if(value && !strcmp(source_name, (gchar*)value) && source_forecast_url_valid(source))
+        if(value && !strcmp(source_name, (gchar*)value) &&
+                source_forecast_url_valid(source))
             return g_hash_table_lookup(source, "forecast_url");
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(data), &iter);
     }
@@ -401,7 +400,8 @@ get_source_detail_url(GtkListStore *data, const gchar *source_name){
     while(valid){
         gtk_tree_model_get(GTK_TREE_MODEL(data), &iter, 1, &source, -1);
         value = g_hash_table_lookup(source, "name");
-        if(value && !strcmp(source_name, (gchar*)value) && source_detail_url_valid(source))
+        if(value && !strcmp(source_name, (gchar*)value) &&
+                source_detail_url_valid(source))
             return g_hash_table_lookup(source, "detail_url");
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(data), &iter);
     }
@@ -423,7 +423,8 @@ get_source_logo(GtkListStore *data, const gchar *source_name){
     while(valid){
         gtk_tree_model_get(GTK_TREE_MODEL(data), &iter, 1, &source, -1);
         value = g_hash_table_lookup(source, "name");
-        if(value && !strcmp(source_name, (gchar*)value) && source_logo_file_valid(source))
+        if(value && !strcmp(source_name, (gchar*)value) &&
+                source_logo_file_valid(source))
             return g_hash_table_lookup(source, "logo");
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(data), &iter);
     }

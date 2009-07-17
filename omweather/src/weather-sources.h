@@ -32,7 +32,7 @@
 #include "weather-common.h"
 /*******************************************************************************/
 GtkListStore* create_sources_list(gchar *sources_path, gint *sources_number,
-				    GSList **handles);
+                                    GSList **handles);
 GHashTable* parse_source_file(const gchar *filename, const gchar *encoding);
 gpointer get_source_parser(GtkListStore *data, const gchar *source_name);
 void unload_parsers(GSList *list);

@@ -65,7 +65,7 @@ struct _OMWeatherPrivate {
 #endif
 
 #if defined OS2009 && !defined (APPLICATION)
-HD_DEFINE_PLUGIN_MODULE (OmweatherPlugin, omweather_plugin, HD_TYPE_HOME_PLUGIN_ITEM);
+HD_DEFINE_PLUGIN_MODULE(OmweatherPlugin, omweather_plugin, HD_TYPE_HOME_PLUGIN_ITEM);
 
 #define OMWEATHER_PLUGIN_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE (obj,\
 							                         OMWEATHER_TYPE_HOME_PLUGIN,\

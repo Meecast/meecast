@@ -398,7 +398,6 @@ new_station_handler(GtkButton *button, gpointer user_data){
 							TRUE));
 		/* fill states list */
 		changed_country_handler(countries, window);
-0
 		/* fill stations list */
 		changed_state_handler(states, window);
 	    }

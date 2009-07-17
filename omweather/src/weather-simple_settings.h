@@ -31,6 +31,7 @@
 #define _weather_simple_settings_h 1
 /*******************************************************************************/
 #include "weather-common.h"
+/*******************************************************************************/
 void weather_simple_window_settings(GtkWidget *widget, gpointer user_data);
 GtkWidget* create_stations_buttons(void);
 #endif

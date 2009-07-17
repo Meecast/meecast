@@ -41,19 +41,19 @@ create_stations_buttons(void)
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    box = gtk_hbox_new(True, 5);
+    box = gtk_hbox_new(TRUE, 5);
     station1 = gtk_button_new_with_label ("Station1");
     gtk_widget_show (station1);
-    gtk_box_pack_start(GTK_BOX(box), station1, True, True, 0);
+    gtk_box_pack_start(GTK_BOX(box), station1, TRUE, TRUE, 0);
     station2 = gtk_button_new_with_label ("Station2");
     gtk_widget_show (station2);
-    gtk_box_pack_start(GTK_BOX(box), station2, True, True, 0);
+    gtk_box_pack_start(GTK_BOX(box), station2, TRUE, TRUE, 0);
     station3 = gtk_button_new_with_label ("Station3");
     gtk_widget_show (station3);
-    gtk_box_pack_start(GTK_BOX(box), station3, True, True, 0);
+    gtk_box_pack_start(GTK_BOX(box), station3, TRUE, TRUE, 0);
     station4 = gtk_button_new_with_label ("Station4");
     gtk_widget_show (station4);
-    gtk_box_pack_start(GTK_BOX(box), station4, True, True, 0);
+    gtk_box_pack_start(GTK_BOX(box), station4, TRUE, TRUE, 0);
     return box;
 }
 /*******************************************************************************/

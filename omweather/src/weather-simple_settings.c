@@ -35,7 +35,8 @@ GtkWidget *window = NULL,
           *main_table = NULL,
           *collapsed_button = NULL,
           *expanded_button = NULL,
-          *settings_button = NULL;
+          *settings_button = NULL,
+          *help_button = NULL;
 
 #if defined OS2009
     window = hildon_stackable_window_new ();
@@ -54,6 +55,9 @@ GtkWidget *window = NULL,
     gtk_table_attach_defaults (GTK_TABLE(main_table), expanded_button, 1, 2, 1, 2);
     settings_button = gtk_button_new_with_label (_("Settings"));
     gtk_widget_show (settings_button);
+    help_button = gtk_button_new_with_label (_("Help"));
+    gtk_table_attach_defaults (GTK_TABLE(main_table), help_button, 2, 4, 2, 3);
+    gtk_widget_show (help_button);
     gtk_table_attach_defaults (GTK_TABLE(main_table), settings_button, 2, 4, 1, 2);
     gtk_container_add (GTK_CONTAINER (window), main_table);
     gtk_widget_show(main_table);

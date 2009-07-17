@@ -29,14 +29,55 @@
 /*******************************************************************************/
 #include "weather-simple_settings.h"
 /*******************************************************************************/
+GtkWidget*
+create_stations_buttons(void)
+{
+  GtkWidget
+          *box = NULL,
+          *station1 = NULL,
+          *station2 = NULL,
+          *station3 = NULL,
+          *station4 = NULL,
+          *alignment_left = NULL,
+          *alignment_right = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    box = gtk_hbox_new(True, 5);
+    alignment_left = gtk_alignment_new(0.5, 0.5, 0.5, 0.5);
+    gtk_box_pack_start(GTK_BOX(box), alignment_left, True, True, 0);
+    station1 = gtk_button_new_with_label ("Station1");
+    gtk_widget_show (station1);
+    gtk_box_pack_start(GTK_BOX(box), station1, True, True, 0);
+    station2 = gtk_button_new_with_label ("Station2");
+    gtk_widget_show (station2);
+    gtk_box_pack_start(GTK_BOX(box), station2, True, True, 0);
+    station3 = gtk_button_new_with_label ("Station3");
+    gtk_widget_show (station3);
+    gtk_box_pack_start(GTK_BOX(box), station3, True, True, 0);
+    station4 = gtk_button_new_with_label ("Station4");
+    gtk_widget_show (station4);
+    gtk_box_pack_start(GTK_BOX(box), station4, True, True, 0);
+    alignment_right = gtk_alignment_new(0.5, 0.5, 0.5, 0.5);
+    gtk_box_pack_start(GTK_BOX(box), alignment_right, True, True, 0);
+    return box;
+}
+/*******************************************************************************/
 void
 weather_simple_window_settings(GtkWidget *widget, gpointer user_data){
-GtkWidget *window = NULL,
-          *main_table = NULL,
+  GtkWidget
+          *window           = NULL,
+          *main_table       = NULL,
           *collapsed_button = NULL,
-          *expanded_button = NULL,
-          *settings_button = NULL,
-          *help_button = NULL;
+          *expanded_button  = NULL,
+          *settings_button  = NULL,
+          *stations_box     = NULL,
+          *help_button      = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
 
 #if defined OS2009
     window = hildon_stackable_window_new ();
@@ -45,20 +86,22 @@ GtkWidget *window = NULL,
 #endif
     gtk_widget_show(window);
 
-    main_table = gtk_table_new(4,3, TRUE);
-
+    main_table = gtk_table_new(4,5, TRUE);
+    stations_box = create_stations_buttons();
+    gtk_widget_show (stations_box);
+    gtk_table_attach_defaults (GTK_TABLE(main_table), stations_box, 0, 4, 0, 1);
     collapsed_button = gtk_button_new_with_label (_("Collapsed"));
     gtk_widget_show (collapsed_button);
-    gtk_table_attach_defaults (GTK_TABLE(main_table), collapsed_button, 0, 1, 1, 2);
+    gtk_table_attach_defaults (GTK_TABLE(main_table), collapsed_button, 0, 1, 2, 3);
     expanded_button = gtk_button_new_with_label (_("Expanded"));
     gtk_widget_show (expanded_button);
-    gtk_table_attach_defaults (GTK_TABLE(main_table), expanded_button, 1, 2, 1, 2);
+    gtk_table_attach_defaults (GTK_TABLE(main_table), expanded_button, 1, 2, 2, 3);
     settings_button = gtk_button_new_with_label (_("Settings"));
     gtk_widget_show (settings_button);
     help_button = gtk_button_new_with_label (_("Help"));
-    gtk_table_attach_defaults (GTK_TABLE(main_table), help_button, 2, 4, 2, 3);
+    gtk_table_attach_defaults (GTK_TABLE(main_table), help_button, 2, 4, 3, 4);
     gtk_widget_show (help_button);
-    gtk_table_attach_defaults (GTK_TABLE(main_table), settings_button, 2, 4, 1, 2);
+    gtk_table_attach_defaults (GTK_TABLE(main_table), settings_button, 2, 4, 2, 3);
     gtk_container_add (GTK_CONTAINER (window), main_table);
     gtk_widget_show(main_table);
 }

@@ -26,13 +26,10 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-#ifndef _weather_presets_h
-#define _weather_presets_h 1
-
 #include "weather-presets.h"
+/*******************************************************************************/
 void
-composition_right_horizontal_day_button(WDB *new_day_button)
-{
+composition_right_horizontal_day_button(WDB *new_day_button){
     gchar       buffer[2048];
     gchar       tmp_buffer[2048];
     gchar       *day_name;
@@ -835,4 +832,3 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     new_day_button->box  = gtk_fixed_new();
 }
 /*******************************************************************************/
-#endif

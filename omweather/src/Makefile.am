@@ -128,8 +128,6 @@ libhh_LTLIBRARIES = libweather-home.la
 
 libweather_home_la_SOURCES  = 	weather-home.c \
 			weather-home.h \
-			weather-parser.h \
-			weather-parser.c \
 			weather-config.h \
 			weather-config.c \
 			weather-settings.h \

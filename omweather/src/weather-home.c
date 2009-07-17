@@ -28,6 +28,7 @@
 /*******************************************************************************/
 #include "weather-home.h"
 #include "weather-sources.h"
+#include "weather-presets.h"
 #include <stdio.h>
 #include <unistd.h>
 #include <glib.h>
@@ -75,17 +76,6 @@ struct _OmweatherPluginPrivate
   gpointer data;
 };
 #endif
-
-
-const WeatherSource	weather_sources[MAX_WEATHER_SOURCE_NUMBER] = {
-    {   "weather.com",
-        "http://xml.weather.com/weather/local/%s?cm_ven=1CW&site=wx.com-bar&cm_ite=wx-cc&par=1CWFFv1.1.8&cm_pla=wx.com-bar&cm_cat=FFv1.1.8&unit=m&dayf=10&cc=*",
-        "http://xml.weather.com/weather/local/%s?cm_ven=1CW&site=wx.com-bar&cm_ite=wx-cc&par=1CWFFv1.1.8&cm_pla=wx.com-bar&cm_cat=FFv1.1.8&unit=m&dayf=1&hbhf=12",
-        "ISO-8859-1",
-        parse_weather_com_xml,
-        parse_weather_com_xml_hour
-    }
-};
 /* main struct */
 OMWeatherApp	*app = NULL;
 /*******************************************************************************/
@@ -694,7 +684,6 @@ redraw_home_window(gboolean first_start){
     gint            count_day = -2;
     GSList          *tmp = NULL;
     GHashTable      *tmp_data = NULL;
-    GSList          *tmp_data1 = NULL;
     gint            (*parser)(const gchar*, GHashTable*, gboolean);
     WDB             *tmp_button = NULL;
     gchar           buffer[255];
@@ -1920,8 +1909,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /* free used memory from OMWeather struct */
 void 
 free_memory(void){
-    GSList          *tmp = NULL,
-                    *tmp_data1 = NULL;
+    GSList          *tmp = NULL;
     GHashTable      *tmp_data = NULL;
     WDB             *tmp_button = NULL;
     gboolean        valid = FALSE;

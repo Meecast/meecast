@@ -44,6 +44,4 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 gint parse_weather_com_xml_hour(const gchar *station_id, weather_com_parser *parser,
 							WeatherStationData *wsd);
 /*******************************************************************************/
-extern WeatherSource	weather_sources[];
-/*******************************************************************************/
 #endif

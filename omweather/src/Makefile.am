@@ -22,8 +22,6 @@ bin_PROGRAMS = omweather
 
 omweather_SOURCES = 	weather-home.c \
 			weather-home.h \
-			weather-parser.h \
-			weather-parser.c \
 			weather-config.h \
 			weather-config.c \
 			weather-settings.h \

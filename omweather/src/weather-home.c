@@ -721,17 +721,6 @@ redraw_home_window(gboolean first_start){
 //                g_hash_table_destroy(tmp_data);
 //            tmp = g_slist_next(tmp);
 //        }
-	    /* free station hours data */
-	    tmp = app->wsd.hours_weather;
-	    while(tmp){
-	        tmp_data1 = (GSList*)tmp->data;
-	        if(tmp_data1)
-		        destroy_object(&tmp_data1);
-	        tmp = g_slist_next(tmp);
-	    }
-	    if (app->wsd.hours_weather)
-	        g_slist_free(app->wsd.hours_weather);
-	    app->wsd.hours_weather = NULL;
 	    /* free days buttons */
 	    tmp = app->buttons;
 	    while(tmp){
@@ -775,16 +764,6 @@ redraw_home_window(gboolean first_start){
             fprintf(stderr, "\n>>>>>>>>Hours %d\n", parser(buffer, app->station_data, TRUE));
         }
     }
-/* Parse data file */
-/*
-    count_day = parse_weather_file_data(app->config->current_station_id,
-					app->config->current_station_source,
-					&(app->wsd), FALSE);
-    if(app->config->show_weather_for_two_hours)
-	parse_weather_file_data(app->config->current_station_id,
-					app->config->current_station_source,
-					&(app->wsd), TRUE);
-*/
     if(count_day == -2){
 	fprintf(stderr, _("Error in xml file\n"));
 	    hildon_banner_show_information(app->main_window,
@@ -1969,17 +1948,7 @@ free_memory(void){
         tmp = g_slist_next(tmp);
     }
     /* free station hours data */
-    tmp = app->wsd.hours_weather;
-    while(tmp){
-        tmp_data1 = (GSList*)tmp->data;
-        if(tmp_data1)
-            destroy_object(&tmp_data1);
-        tmp = g_slist_next(tmp);
-    }
-    if (app->wsd.hours_weather)
-         g_slist_free(app->wsd.hours_weather);
-    app->wsd.hours_weather = NULL;
-
+    g_hash_table_remove(app->station_data, "detail");
     /* free days button */
     tmp = app->buttons;
     while(tmp){

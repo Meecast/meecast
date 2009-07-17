@@ -37,16 +37,11 @@ create_stations_buttons(void)
           *station1 = NULL,
           *station2 = NULL,
           *station3 = NULL,
-          *station4 = NULL,
-          *alignment_left = NULL,
-          *alignment_right = NULL;
+          *station4 = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
     box = gtk_hbox_new(True, 5);
-    alignment_left = gtk_alignment_new(0.5, 0.5, 0.5, 0.5);
-    gtk_box_pack_start(GTK_BOX(box), alignment_left, True, True, 0);
     station1 = gtk_button_new_with_label ("Station1");
     gtk_widget_show (station1);
     gtk_box_pack_start(GTK_BOX(box), station1, True, True, 0);
@@ -59,8 +54,6 @@ create_stations_buttons(void)
     station4 = gtk_button_new_with_label ("Station4");
     gtk_widget_show (station4);
     gtk_box_pack_start(GTK_BOX(box), station4, True, True, 0);
-    alignment_right = gtk_alignment_new(0.5, 0.5, 0.5, 0.5);
-    gtk_box_pack_start(GTK_BOX(box), alignment_right, True, True, 0);
     return box;
 }
 /*******************************************************************************/

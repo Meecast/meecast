@@ -41,18 +41,6 @@
     #include <hildon-widgets/hildon-controlbar.h>
 #endif
 /*******************************************************************************/
-struct lists_struct{
-    GtkWidget		*countries;
-    GtkListStore	*countries_list;
-    GtkWidget		*states;
-    GtkListStore	*regions_list;
-    GtkWidget		*stations;
-    GtkListStore	*stations_list;
-    GtkListStore	*sources_list;
-    sqlite3		*database;
-    gboolean		database_invalid;
-};
-/*******************************************************************************/
 extern gboolean		not_event;
 /*******************************************************************************/
 void weather_window_settings(GtkWidget *widget, gpointer user_data);
@@ -144,5 +132,6 @@ extern GtkWidget* create_scrolled_window_with_text(const char* text,
 extern guint get_index_from_time(guint time);
 extern void update_icons_set_base(const char *icon_set_name);
 extern void weather_simple_window_settings(GtkWidget *widget, gpointer user_data);
+extern gpointer get_source_hash(GtkListStore *data, const gchar *source_name);
 /*******************************************************************************/
 #endif

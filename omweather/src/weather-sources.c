@@ -108,6 +108,31 @@ get_source_parser(GtkListStore *data, const gchar *source_name){
     return NULL;
 }
 /*******************************************************************************/
+gpointer
+get_source_hash(GtkListStore *data, const gchar *source_name){
+    GtkTreeIter iter;
+    GHashTable  *source = NULL;
+    gpointer    value = NULL;
+    gboolean    valid = FALSE;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(!data && !source_name)
+        return NULL;
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(data), &iter);
+    while(valid){
+        gtk_tree_model_get(GTK_TREE_MODEL(data), &iter, 1, &source, -1);
+        value = g_hash_table_lookup(source, "name");
+        if(value && !strcmp(source_name, (gchar*)value))
+            return source;
+        valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(data), &iter);
+    }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+    return NULL;
+}
+/*******************************************************************************/
 void
 unload_parsers(GSList *list){
     GSList  *tmp = list;

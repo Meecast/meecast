@@ -27,12 +27,53 @@
 /*******************************************************************************/
 #include "weather-simple_settings.h"
 /*******************************************************************************/
+void choose_country_button_handler(GtkWidget *button, GdkEventButton *event,
+                                    gpointer user_data){
+    gint result;
+    struct lists_struct        *list = NULL;
+    GtkWidget *window               = NULL,
+              *main_table           = NULL,
+              *country_list_view    = NULL,
+              *scrolled_window      = NULL;
+    GtkWidget       *config = GTK_WIDGET(user_data);
 
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+    
+    list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
+    window = gtk_dialog_new();
+    main_table = gtk_table_new(8, 8, FALSE);
+
+    scrolled_window = gtk_scrolled_window_new(NULL, NULL);
+    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW
+                                        (scrolled_window),
+                                        GTK_SHADOW_ETCHED_IN);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
+                                   GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 620, 280);
+
+    country_list_view = create_tree_view(list->countries_list);
+    gtk_container_add(GTK_CONTAINER(scrolled_window),
+                      GTK_WIDGET(country_list_view));
+    gtk_table_attach_defaults(GTK_TABLE(main_table),
+                              scrolled_window, 1, 2, 1, 2);
+    gtk_widget_show_all(main_table);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
+                       main_table, TRUE, TRUE, 0);
+    gtk_widget_show_all(window);
+    /* start dialog window */
+    result = gtk_dialog_run(GTK_DIALOG(window));
+    gtk_widget_destroy(window);
+
+}
+/*******************************************************************************/
 void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
 //#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 //#endif
+    static struct       lists_struct list;
     gint result;
     GtkWidget *window               = NULL,
               *hbox                 = NULL,
@@ -51,11 +92,19 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
               *left_alignmnet       = NULL,
               *right_alignmnet      = NULL,
               *save_button          = NULL,
+              *sources              = NULL,
               *gps_button           = NULL;
     GSList    *group                = NULL;
 
+
+/* Prepairing */
+
+
     window = gtk_dialog_new();
+    gtk_widget_set_name(window, "simple_settings_window");
     main_table = gtk_table_new(8, 8, FALSE);
+
+    g_object_set_data(G_OBJECT(window), "list", (gpointer)&list);
 
     left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(left_alignmnet, 5, -1);
@@ -80,7 +129,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
     gtk_widget_show (vertical1_alignmnet);
-    
+
     label_set = gtk_label_new(_("Set"));
     set_font(label_set, NULL, 20);
     gtk_widget_set_size_request(label_set, 40, -1);
@@ -136,6 +185,9 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 3, 4, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
+    g_signal_connect(G_OBJECT(country_button), "button-release-event",
+                     G_CALLBACK(choose_country_button_handler),
+                     window);
 
     region_button = gtk_button_new_with_label (_("Region"));
     gtk_widget_set_size_request(region_button, 150, 50);
@@ -171,8 +223,22 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
 
+    memset(&list, 0, sizeof(struct lists_struct));
+    /* create sources list from aviable sources */
+    list.sources_list = app->sources_list;
+    /* Set default value to country  */
+    if(list.sources_list && app->config->current_source){
+        g_object_set_data(G_OBJECT(window), "current_source", (gpointer)app->config->current_source);
+        fprintf(stderr,"ddddddddddddd\n");
+        /* fill countries list */
+        changed_sources_handler(sources, window);
+
+    }
+
+
+
     gtk_widget_show_all(window);
-/* start dialog window */
+    /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(window));
     gtk_widget_destroy(window);
 

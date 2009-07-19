@@ -461,6 +461,19 @@ typedef struct OMWeatherApplet{
 #endif
 }OMWeatherApp;
 /*******************************************************************************/
+struct lists_struct{
+    GtkWidget       *countries;
+    GtkListStore    *countries_list;
+    GtkWidget       *states;
+    GtkListStore    *regions_list;
+    GtkWidget       *stations;
+    GtkListStore    *stations_list;
+    GtkListStore    *sources_list;
+    sqlite3         *database;
+    gboolean        database_invalid;
+};
+
+/*******************************************************************************/
 extern	OMWeatherApp	*app;
 /*******************************************************************************/
 #ifdef OS2008 

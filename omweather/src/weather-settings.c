@@ -95,13 +95,13 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
         return;
     /* clear regions list */
     if(list->regions_list){
-	gtk_list_store_clear(list->regions_list);
-	g_object_unref(list->regions_list);
+        gtk_list_store_clear(list->regions_list);
+        g_object_unref(list->regions_list);
     }
     /* clear stations list */
     if(list->stations_list){
-	gtk_list_store_clear(list->stations_list);
-	g_object_unref(list->stations_list);
+        gtk_list_store_clear(list->stations_list);
+        g_object_unref(list->stations_list);
     }
     /* get active country */
     if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)){
@@ -201,66 +201,77 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
     GtkTreeIter		iter;
     GHashTable		*source = NULL;
     gpointer		value = NULL;
-#ifdef DEBUGFUNCTIONCALL
+    gchar *control_name = NULL;
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
     if(list){
-	/* close database if it open */
-	if(list->database){
-	    close_database(list->database);
-	    list->database = NULL;
-	}
-	/* clear countries list */
-	if(list->countries_list){
-	    gtk_list_store_clear(list->countries_list);
-	    g_object_unref(list->countries_list);
-	}
-	/* clear regions list */
-	if(list->regions_list){
-	    gtk_list_store_clear(list->regions_list);
-	    g_object_unref(list->regions_list);
-	}
-	/* clear stations list */
-	if(list->stations_list){
-	    gtk_list_store_clear(list->stations_list);
-	    g_object_unref(list->stations_list);
-	}
-	/* get source data */
-	if(!gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)){
-	    list->database_invalid = TRUE;
-	    return;
-	}
-	model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
-	gtk_tree_model_get(model, &iter, 1, &source, -1);
-	/* enable/disable search field */
-	search_entry = lookup_widget(config, "station_name_entry");
-	if(search_entry){
-	    if(source_search_url_valid(source))
-		gtk_widget_set_sensitive(search_entry, TRUE);
-	    else
-		gtk_widget_set_sensitive(search_entry, FALSE);
-	}
-	/* prepare database name */
-	if(source_stations_database_valid(source)){
-	    value = g_hash_table_lookup(source, "base");
-	    /* open database */
-	    list->database = open_database(DATABASEPATH, (gchar*)value);
-	    /* Read Coutries list from file */
-	    list->countries_list = create_countries_list(list->database);
-	    /* append list to the combobox */
-	    gtk_combo_box_set_model(GTK_COMBO_BOX(list->countries),
-				(GtkTreeModel*)list->countries_list);
-	    if(app->config->current_source)
-		g_free(app->config->current_source);
-	    app->config->current_source =
-			g_strdup(gtk_combo_box_get_active_text(GTK_COMBO_BOX(widget)));
-	}
-	else
-	    list->database_invalid = TRUE;
-    }
-    else
-	list->database_invalid = TRUE;
+        /* close database if it open */
+        if(list->database){
+            close_database(list->database);
+            list->database = NULL;
+        }
+        /* clear countries list */
+        if(list->countries_list){
+            gtk_list_store_clear(list->countries_list);
+            g_object_unref(list->countries_list);
+        }
+        /* clear regions list */
+        if(list->regions_list){
+            gtk_list_store_clear(list->regions_list);
+            g_object_unref(list->regions_list);
+        }
+        /* clear stations list */
+        if(list->stations_list){
+            gtk_list_store_clear(list->stations_list);
+            g_object_unref(list->stations_list);
+        }
+
+        /* get source data */
+        control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(user_data));
+        if(strcmp("simple_settings_window", control_name) &&
+           !gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)){
+            list->database_invalid = TRUE;
+            return;
+        }
+
+        /* Get Source */
+        if(strcmp("simple_settings_window", control_name)){
+            model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
+            gtk_tree_model_get(model, &iter, 1, &source, -1);
+            /* enable/disable search field */
+            search_entry = lookup_widget(config, "station_name_entry");
+            if(search_entry){
+                if(source_search_url_valid(source))
+                    gtk_widget_set_sensitive(search_entry, TRUE);
+                else
+                    gtk_widget_set_sensitive(search_entry, FALSE);
+            }
+        }else
+            source = get_source_hash(list->sources_list, g_object_get_data(G_OBJECT(config), "current_source"));
+
+
+      /* prepare database name */
+      if(source_stations_database_valid(source)){
+          value = g_hash_table_lookup(source, "base");
+          /* open database */
+          list->database = open_database(DATABASEPATH, (gchar*)value);
+          /* Read Coutries list from file */
+          list->countries_list = create_countries_list(list->database);
+          if(strcmp("simple_settings_window", control_name)){
+              /* append list to the combobox */
+              gtk_combo_box_set_model(GTK_COMBO_BOX(list->countries),
+                  (GtkTreeModel*)list->countries_list);
+              if(app->config->current_source)
+                  g_free(app->config->current_source);
+              app->config->current_source =
+                  g_strdup(gtk_combo_box_get_active_text(GTK_COMBO_BOX(widget)));
+          }
+      }else
+          list->database_invalid = TRUE;
+    } else
+        list->database_invalid = TRUE;
 }
 /*******************************************************************************/
 void

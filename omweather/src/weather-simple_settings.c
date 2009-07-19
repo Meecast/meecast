@@ -43,6 +43,7 @@ create_stations_buttons(void)
 #endif
     box = gtk_hbox_new(TRUE, 5);
     station1 = gtk_button_new_with_label ("Station1");
+    gtk_widget_set_size_request(station1, 120, 60);
     gtk_widget_show (station1);
     gtk_box_pack_start(GTK_BOX(box), station1, TRUE, TRUE, 0);
     station2 = gtk_button_new_with_label ("Station2");
@@ -66,36 +67,116 @@ weather_simple_window_settings(GtkWidget *widget, gpointer user_data){
           *expanded_button  = NULL,
           *settings_button  = NULL,
           *stations_box     = NULL,
-          *help_button      = NULL;
+          *update_button    = NULL,
+          *help_button      = NULL,
+          *left_alignmnet   = NULL,
+          *right_alignmnet   = NULL,
+          *vertical1_alignmnet  = NULL,
+          *vertical2_alignmnet  = NULL,
+          *vertical3_alignmnet  = NULL;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 
 
 #if defined OS2009
-    window = hildon_stackable_window_new ();
+    window = hildon_stackable_window_new();
 #else
     window = hildon_window_new();
 #endif
     gtk_widget_show(window);
 
-    main_table = gtk_table_new(4,5, TRUE);
+    main_table = gtk_table_new(6,7, FALSE);
+
+    left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(left_alignmnet, 20, -1);
+    gtk_table_attach((GtkTable*)main_table, left_alignmnet,
+                                0, 1, 0, 1,
+                                GTK_FILL | GTK_EXPAND | GTK_SHRINK,
+                                (GtkAttachOptions)0, 0, 0 );
+    gtk_widget_show (left_alignmnet);
+
     stations_box = create_stations_buttons();
     gtk_widget_show (stations_box);
-    gtk_table_attach_defaults (GTK_TABLE(main_table), stations_box, 0, 4, 0, 1);
+    gtk_table_attach((GtkTable*)main_table,stations_box,
+                                1, 5, 1, 2, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+
+    right_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(right_alignmnet, 20, -1);
+    gtk_table_attach((GtkTable*)main_table, right_alignmnet,
+                                6, 7, 0, 1,
+                                GTK_FILL | GTK_EXPAND | GTK_SHRINK,
+                                (GtkAttachOptions)0, 0, 0 );
+    gtk_widget_show (right_alignmnet);
+
+    vertical1_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical1_alignmnet,
+                                0, 6, 2, 3,
+                                (GtkAttachOptions)0,
+                                GTK_FILL |  GTK_SHRINK,
+                                0, 0 );
+    gtk_widget_show (vertical1_alignmnet);
+
+
     collapsed_button = gtk_button_new_with_label (_("Collapsed"));
+    gtk_widget_set_size_request(collapsed_button, 130, 60);
     gtk_widget_show (collapsed_button);
-    gtk_table_attach_defaults (GTK_TABLE(main_table), collapsed_button, 0, 1, 2, 3);
+    gtk_table_attach((GtkTable*)main_table, collapsed_button,
+                                1, 2, 3, 4, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+
     expanded_button = gtk_button_new_with_label (_("Expanded"));
+    gtk_widget_set_size_request(expanded_button, 130, 60);
     gtk_widget_show (expanded_button);
-    gtk_table_attach_defaults (GTK_TABLE(main_table), expanded_button, 1, 2, 2, 3);
+    gtk_table_attach((GtkTable*)main_table, expanded_button,
+                                2, 3, 3, 4, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+
     settings_button = gtk_button_new_with_label (_("Settings"));
+    gtk_widget_set_size_request(settings_button, 300, 60);
     gtk_widget_show (settings_button);
+    gtk_table_attach((GtkTable*)main_table, settings_button,
+                                3, 5, 3, 4, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+
+    vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(vertical2_alignmnet, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical2_alignmnet,
+                                0, 6, 4, 5,
+                                (GtkAttachOptions)0,
+                                GTK_FILL | GTK_SHRINK,
+                                0, 0 );
+    gtk_widget_show (vertical2_alignmnet);
+
+
     help_button = gtk_button_new_with_label (_("Help"));
-    gtk_table_attach_defaults (GTK_TABLE(main_table), help_button, 2, 4, 3, 4);
+    gtk_widget_set_size_request(help_button, 300, 60);
     gtk_widget_show (help_button);
-    gtk_table_attach_defaults (GTK_TABLE(main_table), settings_button, 2, 4, 2, 3);
+    gtk_table_attach((GtkTable*)main_table, help_button,
+                                1, 3, 5, 6, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+
+    update_button = gtk_button_new_with_label (_("Update Now"));
+    gtk_widget_set_size_request(update_button, 300, 60);
+    gtk_widget_show (update_button);
+    gtk_table_attach((GtkTable*)main_table, update_button,
+                                3, 5, 5, 6, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+
+    vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(vertical3_alignmnet, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical3_alignmnet,
+                                0, 6, 6, 7,
+                                (GtkAttachOptions)0,
+                                GTK_FILL | GTK_EXPAND | GTK_SHRINK,
+                                0, 0 );
+    gtk_widget_show (vertical3_alignmnet);
+
     gtk_container_add (GTK_CONTAINER (window), main_table);
+
     gtk_widget_show(main_table);
 }
 /*******************************************************************************/

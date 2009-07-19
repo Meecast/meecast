@@ -4,8 +4,6 @@
  *
  * Copyright (C) 2006-2009 Vlad Vasiliev
  * Copyright (C) 2006-2009 Pavel Fialko
- * Copyryght (C) 2008 Andrew Olmsted 
- *  for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
  *		      az@pocketpcrussia.com 
@@ -28,6 +26,29 @@
 */
 /*******************************************************************************/
 #include "weather-simple_settings.h"
+/*******************************************************************************/
+void simple_settings_button_handler(GtkWidget *button, GdkEventButton *event,
+								gpointer user_data){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+/*    if(user_data)
+        gtk_widget_destroy(GTK_WIDGET(user_data));
+*/
+    weather_simple_window_settings(user_data);
+}
+/*******************************************************************************/
+void update_button_handler(GtkWidget *button, GdkEventButton *event,
+								gpointer user_data){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(app->popup_window)
+        destroy_popup_window();
+    if(user_data)
+        gtk_widget_destroy(GTK_WIDGET(user_data));
+    update_weather(TRUE);
+}
 /*******************************************************************************/
 GtkWidget*
 create_stations_buttons(void)
@@ -59,7 +80,7 @@ create_stations_buttons(void)
 }
 /*******************************************************************************/
 void
-weather_simple_window_settings(GtkWidget *widget, gpointer user_data){
+weather_simple_window_status(GtkWidget *widget, gpointer user_data){
   GtkWidget
           *window           = NULL,
           *main_table       = NULL,
@@ -122,14 +143,14 @@ weather_simple_window_settings(GtkWidget *widget, gpointer user_data){
 
 
     collapsed_button = gtk_button_new_with_label (_("Collapsed"));
-    gtk_widget_set_size_request(collapsed_button, 130, 60);
+    gtk_widget_set_size_request(collapsed_button, 140, 60);
     gtk_widget_show (collapsed_button);
     gtk_table_attach((GtkTable*)main_table, collapsed_button,
                                 1, 2, 3, 4, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
 
     expanded_button = gtk_button_new_with_label (_("Expanded"));
-    gtk_widget_set_size_request(expanded_button, 130, 60);
+    gtk_widget_set_size_request(expanded_button, 140, 60);
     gtk_widget_show (expanded_button);
     gtk_table_attach((GtkTable*)main_table, expanded_button,
                                 2, 3, 3, 4, (GtkAttachOptions)0,
@@ -141,6 +162,10 @@ weather_simple_window_settings(GtkWidget *widget, gpointer user_data){
     gtk_table_attach((GtkTable*)main_table, settings_button,
                                 3, 5, 3, 4, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
+    g_signal_connect(G_OBJECT(settings_button), "button-release-event",
+                     G_CALLBACK(simple_settings_button_handler),
+                     (gpointer)window);
+
 
     vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(vertical2_alignmnet, -1, 20);
@@ -152,12 +177,12 @@ weather_simple_window_settings(GtkWidget *widget, gpointer user_data){
     gtk_widget_show (vertical2_alignmnet);
 
 
-    help_button = gtk_button_new_with_label (_("Help"));
+    help_button = gtk_button_new_with_label (_("About"));
     gtk_widget_set_size_request(help_button, 300, 60);
     gtk_widget_show (help_button);
     gtk_table_attach((GtkTable*)main_table, help_button,
                                 1, 3, 5, 6, (GtkAttachOptions)0,
-                                (GtkAttachOptions)0, 0, 0 );
+                                (GtkAttachOptions)0, 5, 0 );
 
     update_button = gtk_button_new_with_label (_("Update Now"));
     gtk_widget_set_size_request(update_button, 300, 60);
@@ -165,6 +190,11 @@ weather_simple_window_settings(GtkWidget *widget, gpointer user_data){
     gtk_table_attach((GtkTable*)main_table, update_button,
                                 3, 5, 5, 6, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
+
+    g_signal_connect(G_OBJECT(update_button), "button-release-event",
+                     G_CALLBACK(update_button_handler),
+                     (gpointer)window);
+
 
     vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(vertical3_alignmnet, -1, 20);

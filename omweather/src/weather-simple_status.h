@@ -4,8 +4,6 @@
  *
  * Copyright (C) 2006-2009 Vlad Vasiliev
  * Copyright (C) 2006-2009 Pavel Fialko
- * Copyright (C) 2008 Andrew Olmsted
- * 	for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
  *		      az@pocketpcrussia.com 
@@ -32,6 +30,7 @@
 /*******************************************************************************/
 #include "weather-common.h"
 /*******************************************************************************/
-void weather_simple_window_settings(GtkWidget *widget, gpointer user_data);
+void weather_simple_window_status(GtkWidget *widget, gpointer user_data);
 GtkWidget* create_stations_buttons(void);
+extern void weather_simple_window_settings(gpointer user_data);
 #endif

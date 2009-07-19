@@ -26,9 +26,10 @@
 */
 /*******************************************************************************/
 #include "weather-simple_settings.h"
+
 /*******************************************************************************/
 void simple_settings_button_handler(GtkWidget *button, GdkEventButton *event,
-								gpointer user_data){
+                                    gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -39,7 +40,7 @@ void simple_settings_button_handler(GtkWidget *button, GdkEventButton *event,
 }
 /*******************************************************************************/
 void update_button_handler(GtkWidget *button, GdkEventButton *event,
-								gpointer user_data){
+                                  gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -49,6 +50,7 @@ void update_button_handler(GtkWidget *button, GdkEventButton *event,
         gtk_widget_destroy(GTK_WIDGET(user_data));
     update_weather(TRUE);
 }
+
 /*******************************************************************************/
 GtkWidget*
 create_stations_buttons(void)

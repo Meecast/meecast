@@ -35,6 +35,8 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 //#endif
     gint result;
     GtkWidget *window               = NULL,
+              *hbox                 = NULL,
+              *radio1               = NULL,
               *main_table           = NULL,
               *main_label           = NULL,
               *label_set            = NULL,
@@ -43,65 +45,127 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
               *country_button       = NULL,
               *station_button       = NULL,
               *region_button        = NULL,
+              *vertical0_alignmnet  = NULL,
+              *vertical1_alignmnet  = NULL,
+              *vertical2_alignmnet  = NULL,
+              *left_alignmnet       = NULL,
+              *right_alignmnet      = NULL,
+              *save_button          = NULL,
               *gps_button           = NULL;
+    GSList    *group                = NULL;
 
     window = gtk_dialog_new();
-    main_table = gtk_table_new(4,8, FALSE);
+    main_table = gtk_table_new(8, 8, FALSE);
+
+    left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(left_alignmnet, 5, -1);
+    gtk_table_attach((GtkTable*)main_table, left_alignmnet,
+                                0, 1, 0, 8,
+                                GTK_FILL | GTK_EXPAND | GTK_SHRINK,
+                                (GtkAttachOptions)0, 0, 0 );
+    gtk_widget_show (left_alignmnet);
+
     main_label = gtk_label_new((gchar*)user_data);
+    set_font(main_label, NULL, 20);
     gtk_widget_show (main_label);
     gtk_table_attach((GtkTable*)main_table,main_label,
-                                1, 8, 1, 2, 
+                                1, 8, 1, 2,
                                 GTK_FILL | GTK_SHRINK | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
+    vertical1_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical1_alignmnet,
+                                0, 3, 2, 3,
+                                (GtkAttachOptions)0,
+                                GTK_FILL |  GTK_SHRINK,
+                                0, 0 );
+    gtk_widget_show (vertical1_alignmnet);
+    
     label_set = gtk_label_new(_("Set"));
+    set_font(label_set, NULL, 20);
     gtk_widget_set_size_request(label_set, 40, -1);
     gtk_table_attach((GtkTable*)main_table,label_set,
-                                1, 2, 2, 3,
+                                1, 2, 3, 4,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
 
-    manual_button = gtk_button_new_with_label (_("Manual"));
-    gtk_widget_set_size_request(manual_button, 100, -1);
-    gtk_table_attach((GtkTable*)main_table,manual_button,
-                                2, 3, 2, 3,
-                                GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 0, 0 );
 
-    gps_button = gtk_button_new_with_label (_("GPS"));
-    gtk_widget_set_size_request(gps_button, 100, -1);
-    gtk_table_attach((GtkTable*)main_table,gps_button,
-                                3, 4, 2, 3,
+
+    hbox = gtk_hbox_new(TRUE, 0);
+
+    group = NULL;
+    manual_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(manual_button), gtk_label_new(_("Manual")));
+    gtk_widget_set_size_request(manual_button, 174, 50);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(manual_button), FALSE);
+    gtk_box_pack_start (GTK_BOX (hbox), manual_button, TRUE, TRUE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(manual_button), group);
+    gps_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(gps_button), gtk_label_new(_("GPS")));
+    gtk_widget_set_size_request(gps_button, 174, 50);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(gps_button), FALSE);
+    group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(manual_button));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(gps_button), group);
+    gtk_box_pack_start (GTK_BOX (hbox), gps_button, TRUE, TRUE, 0);
+    gtk_widget_show (hbox);
+
+
+    gtk_table_attach((GtkTable*)main_table, hbox,
+                                2, 5, 3, 4,
                                 GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 0, 0 );
+                                (GtkAttachOptions)0, 20, 0 );
+
+    vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(vertical2_alignmnet, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical2_alignmnet,
+                                0, 8, 4, 5,
+                                (GtkAttachOptions)0,
+                                GTK_FILL |  GTK_SHRINK,
+                                0, 0 );
 
     source_button = gtk_button_new_with_label (_("Source"));
-    gtk_widget_set_size_request(source_button, 100, -1);
+    gtk_widget_set_size_request(source_button, 150, 50);
     gtk_table_attach((GtkTable*)main_table, source_button,
-                                2, 3, 2, 3,
+                                2, 3, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 0, 0 );
+                                (GtkAttachOptions)0, 20, 0 );
 
     country_button = gtk_button_new_with_label (_("Country"));
-    gtk_widget_set_size_request(country_button, 100, -1);
+    gtk_widget_set_size_request(country_button, 150, 50);
     gtk_table_attach((GtkTable*)main_table, country_button,
-                                3, 4, 3, 4,
+                                3, 4, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
 
     region_button = gtk_button_new_with_label (_("Region"));
-    gtk_widget_set_size_request(region_button, 100, -1);
+    gtk_widget_set_size_request(region_button, 150, 50);
     gtk_table_attach((GtkTable*)main_table, region_button,
-                                4, 5, 2, 3,
+                                2, 3, 6, 7,
                                 GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 0, 0 );
+                                (GtkAttachOptions)0, 20, 0 );
 
     station_button = gtk_button_new_with_label (_("Town"));
-    gtk_widget_set_size_request(station_button, 100, -1);
+    gtk_widget_set_size_request(station_button, 150, 50);
     gtk_table_attach((GtkTable*)main_table, station_button,
-                                4, 5, 3, 4,
+                                3, 4, 6, 7,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
 
+    save_button = gtk_button_new_with_label (_("Save"));
+    gtk_widget_set_size_request(save_button, 150, 60);
+    gtk_widget_show (save_button);
+    gtk_table_attach((GtkTable*)main_table, save_button,
+                                5, 6, 6, 8, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 20, 20 );
+    gtk_widget_show (save_button);
+
+    right_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(right_alignmnet, 5, -1);
+    gtk_table_attach((GtkTable*)main_table, right_alignmnet,
+                                4, 5, 0, 8,
+                                GTK_FILL | GTK_EXPAND | GTK_SHRINK,
+                                (GtkAttachOptions)0, 0, 0 );
+    gtk_widget_show (right_alignmnet);
 
     gtk_widget_show (main_table);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
@@ -168,7 +232,7 @@ weather_simple_window_settings(gpointer user_data){
           *update_button        = NULL,
           *left_alignmnet       = NULL,
           *right_alignmnet      = NULL,
-          *medium_alignmnet      = NULL,
+          *medium_alignmnet     = NULL,
           *vertical0_alignmnet  = NULL,
           *vertical1_alignmnet  = NULL,
           *vertical2_alignmnet  = NULL,

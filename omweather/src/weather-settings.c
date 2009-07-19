@@ -978,6 +978,7 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
         weather_simple_window_status(widget, user_data);
         return;
     }
+
 /* kill popup window :-) */
     if(app->popup_window)
         gtk_widget_destroy(app->popup_window);

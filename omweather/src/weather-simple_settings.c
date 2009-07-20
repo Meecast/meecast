@@ -27,20 +27,30 @@
 /*******************************************************************************/
 #include "weather-simple_settings.h"
 /*******************************************************************************/
-void choose_country_button_handler(GtkWidget *button, GdkEventButton *event,
+void choose_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
     gint result;
+    gchar                       *control_name = NULL;
     struct lists_struct        *list = NULL;
     GtkWidget *window               = NULL,
               *main_table           = NULL,
               *country_list_view    = NULL,
               *scrolled_window      = NULL;
     GtkWidget       *config = GTK_WIDGET(user_data);
+    enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
+    gint type_button = UNKNOWN;
 
 //#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 //#endif
-    
+    control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
+    if(!strcmp("country_button", control_name)){
+      type_button = COUNTRY;
+    }
+    if(!strcmp("source_button", control_name)){
+      type_button = SOURCE;
+    }
+
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
     window = gtk_dialog_new();
     main_table = gtk_table_new(8, 8, FALSE);
@@ -53,7 +63,12 @@ void choose_country_button_handler(GtkWidget *button, GdkEventButton *event,
                                    GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
     gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 620, 280);
 
-    country_list_view = create_tree_view(list->countries_list);
+    if (type_button == COUNTRY)
+        country_list_view = create_tree_view(list->countries_list);
+    if (type_button == SOURCE){
+        fprintf(stderr,"xdsssssssssssss\n");
+        country_list_view = create_tree_view(list->sources_list);
+    }
     gtk_container_add(GTK_CONTAINER(scrolled_window),
                       GTK_WIDGET(country_list_view));
     gtk_table_attach_defaults(GTK_TABLE(main_table),
@@ -173,20 +188,25 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 0, 0 );
 
     source_button = gtk_button_new_with_label (_("Source"));
+    gtk_widget_set_name(country_button, "source_button");
     gtk_widget_set_size_request(source_button, 150, 50);
     gtk_table_attach((GtkTable*)main_table, source_button,
                                 2, 3, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 20, 0 );
+    g_signal_connect(G_OBJECT(source_button), "button-release-event",
+                     G_CALLBACK(choose_button_handler),
+                     window);
 
     country_button = gtk_button_new_with_label (_("Country"));
+    gtk_widget_set_name(country_button, "country_button");
     gtk_widget_set_size_request(country_button, 150, 50);
     gtk_table_attach((GtkTable*)main_table, country_button,
                                 3, 4, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
     g_signal_connect(G_OBJECT(country_button), "button-release-event",
-                     G_CALLBACK(choose_country_button_handler),
+                     G_CALLBACK(choose_button_handler),
                      window);
 
     region_button = gtk_button_new_with_label (_("Region"));
@@ -229,7 +249,6 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     /* Set default value to country  */
     if(list.sources_list && app->config->current_source){
         g_object_set_data(G_OBJECT(window), "current_source", (gpointer)app->config->current_source);
-        fprintf(stderr,"ddddddddddddd\n");
         /* fill countries list */
         changed_sources_handler(sources, window);
 
@@ -257,7 +276,7 @@ create_station_button(gchar* station_name)
     g_signal_connect(G_OBJECT(station), "button-release-event",
                      G_CALLBACK(station_setup_button_handler),
                      (gpointer)station_name);
-    gtk_widget_set_size_request(station, 120, 60);
+    gtk_widget_set_size_request(station, 135, 60);
     gtk_widget_show (station);
     return station;
 }
@@ -354,7 +373,7 @@ weather_simple_window_settings(gpointer user_data){
 
 
     units_button = gtk_button_new_with_label (_("Units"));
-    gtk_widget_set_size_request(units_button, 490, 60);
+    gtk_widget_set_size_request(units_button, 500, 60);
     gtk_widget_show (units_button);
     gtk_table_attach((GtkTable*)main_table, units_button,
                                 1, 2, 3, 4, (GtkAttachOptions)0,
@@ -371,7 +390,7 @@ weather_simple_window_settings(gpointer user_data){
 
 
     widget_style_button = gtk_button_new_with_label (_("Widget_style"));
-    gtk_widget_set_size_request(widget_style_button, 490, 60);
+    gtk_widget_set_size_request(widget_style_button, 500, 60);
     gtk_widget_show (widget_style_button);
     gtk_table_attach((GtkTable*)main_table, widget_style_button,
                                 1, 2, 5, 6, (GtkAttachOptions)0,
@@ -387,7 +406,7 @@ weather_simple_window_settings(gpointer user_data){
     gtk_widget_show (vertical3_alignmnet);
 
     update_button = gtk_button_new_with_label (_("Update"));
-    gtk_widget_set_size_request(update_button, 490, 60);
+    gtk_widget_set_size_request(update_button, 500, 60);
     gtk_widget_show (update_button);
     gtk_table_attach((GtkTable*)main_table, update_button,
                                 1, 2, 6, 7, (GtkAttachOptions)0,

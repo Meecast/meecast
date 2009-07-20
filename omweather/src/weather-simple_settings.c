@@ -95,6 +95,8 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
               *main_table           = NULL,
               *main_label           = NULL,
               *label_set            = NULL,
+              *source_label         = NULL,
+              *source_label_name    = NULL,
               *manual_button        = NULL,
               *source_button        = NULL,
               *country_button       = NULL,
@@ -107,6 +109,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
               *right_alignmnet      = NULL,
               *save_button          = NULL,
               *sources              = NULL,
+              *source_vertical_box  = NULL,
               *gps_button           = NULL;
     GSList    *group                = NULL;
 
@@ -130,9 +133,6 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
 
     main_label = gtk_label_new((gchar*)g_object_get_data(G_OBJECT(button), "station_label"));
-    fprintf(stderr,"Label %s\n",(gchar*)g_object_get_data(G_OBJECT(button), "station_label"));
-    fprintf(stderr,"Name %s\n",(gchar*)g_object_get_data(G_OBJECT(button), "station_name"));
-    fprintf(stderr,"Source %s\n",(gchar*)g_object_get_data(G_OBJECT(button), "station_source"));
     set_font(main_label, NULL, 20);
     gtk_widget_show (main_label);
     gtk_table_attach((GtkTable*)main_table,main_label,
@@ -189,8 +189,21 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 (GtkAttachOptions)0,
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
+    /* Button Source */
+    source_button = gtk_button_new();
+    source_label = gtk_label_new(_("Source"));
+    source_label_name = gtk_label_new((gchar*)g_object_get_data(G_OBJECT(button), "station_source"));
+    set_font(source_label, NULL, 12);
 
-    source_button = gtk_button_new_with_label (_("Source"));
+    source_vertical_box = gtk_vbox_new(TRUE, 2);
+    gtk_widget_show(source_vertical_box);
+
+    gtk_box_pack_start(GTK_BOX(source_vertical_box), source_label, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(source_vertical_box), source_label_name, TRUE, TRUE, 0);
+    gtk_container_add (GTK_CONTAINER (source_button), source_vertical_box);
+    gtk_widget_show (source_button);
+
+
     gtk_widget_set_name(source_button, "source_button");
     gtk_widget_set_size_request(source_button, 150, 50);
     gtk_table_attach((GtkTable*)main_table, source_button,
@@ -293,7 +306,6 @@ create_station_button(gchar* station_label_s, gchar* station_name_s, gchar *stat
     set_font(station_label, NULL, 12);
     gtk_widget_show (station_label);
 
-    fprintf(stderr,"111111sdffffffffff %s\n",(gchar*)g_object_get_data(G_OBJECT(button), "station_label"));
 
     station_name = gtk_label_new (station_name_s);
 //    set_font_color(station_name, 0, 100, 100);

@@ -433,19 +433,81 @@ GtkListStore* create_stations_list(sqlite3 *database, int region_id){
 #endif
     return list;
 }
+
 /*******************************************************************************/
-GtkListStore* search_station_in_database(sqlite3 *database, char *code_name){
+gint
+get_all_information_callback(void *user_data, int argc, char **argv, char **azColName){
+    int			i;
+    GtkTreeIter		iter;
+    GtkListStore	*list = GTK_LIST_STORE(user_data);
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+/* add new item for each first element */
+    gtk_list_store_append(list, &iter);
+    for(i = 0; i < argc; i++){
+        if(!strcmp(azColName[i], "cname"))
+            gtk_list_store_set(list, &iter, 0, argv[i], -1);
+        if(!strcmp(azColName[i], "name"))
+            gtk_list_store_set(list, &iter, 1, argv[i], -1);
+    }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
+    return 0;
+}
+
+/*******************************************************************************/
+GtkListStore*
+get_all_information_about_station(gchar *source, gchar *station_code){
+
+    sqlite3    *database = NULL;
+    gchar buffer[2048];
+    gchar       *errMsg = NULL;
+    gchar       sql[256];
+    gint        rc;
+    GtkListStore    *list = NULL;
+
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    snprintf(buffer, sizeof(buffer) - 1, "%s.db",source);
+    database = open_database(DATABASEPATH, buffer);
+    if (!database)
+        return NULL;
+    list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_STRING);
+    snprintf(sql, sizeof(sql) - 1, "Select countries.name as cname, regions.name from stations,regions,countries \
+                                    where stations.code='%s' and stations.region_id=regions.id and \
+                                    regions.country_id=countries.id", station_code);
+    fprintf(stderr,"aa\n");
+    rc = sqlite3_exec(database, sql, get_all_information_callback, (void*)list, &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+      fprintf(stderr, "\n>>>>%s\n", errMsg);
+#endif
+        sqlite3_free(errMsg);
+        return NULL;
+    }
+    close_database(database);
+    return list;
+}
+/*******************************************************************************/
+GtkListStore* 
+search_station_in_database(sqlite3 *database, char *code_name){
     GtkListStore	*list = NULL;
     gint		rc;
     gchar		*errMsg = NULL;
     gchar		sql[256];
 
     if(!database || !code_name)
-	return NULL;
+        return NULL;
     *sql = 0;
 
     list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,
-				G_TYPE_STRING);
+              G_TYPE_STRING);
     snprintf(sql, sizeof(sql) - 1,
 	    "SELECT stations.name, sources.code, regions.name AS region_name, \
 	    countries.name AS country_name FROM stations JOIN sources,regions, \

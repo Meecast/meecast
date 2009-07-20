@@ -104,13 +104,11 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
         gtk_list_store_clear(list->stations_list);
         g_object_unref(list->stations_list);
     }
-    fprintf(stderr,"pppppppppppp\n");
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(user_data));
 
     /* get active country */
     if(strcmp("simple_settings_window", control_name) &&
         gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)){
-        fprintf(stderr,"gggggggggggg\n");
         model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
         gtk_tree_model_get(model, &iter, 0, &country_name, 1, &country_id, -1);
         list->regions_list = create_regions_list(list->database, country_id,

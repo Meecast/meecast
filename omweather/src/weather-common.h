@@ -285,11 +285,11 @@ typedef	struct{
 }Region_item;
 /*******************************************************************************/
 typedef struct{
-    char	name[50];
-    char	id0[10];
-    char	id1[10];
-    double	latitude;
-    double	longtitude;
+    char    name[50];
+    char    id0[10];
+    char    id1[10];
+    double  latitude;
+    double  longtitude;
 }Station;
 /*******************************************************************************/
 enum{ NAME_COLUMN = 0, ID0_COLUMN, ID1_COLUMN, LATITUDE_COLUMN,

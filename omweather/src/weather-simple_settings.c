@@ -27,6 +27,40 @@
 /*******************************************************************************/
 #include "weather-simple_settings.h"
 /*******************************************************************************/
+void
+highlight_current_item(GtkTreeView *tree_view, GtkListStore *list, gchar *current){
+    GtkTreeIter     iter;
+    gchar           *name = NULL;
+    gboolean        valid;
+    GtkTreePath     *path;
+    GtkTreeModel    *model;
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+    if (!current || !tree_view)
+        return;
+
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list),
+                &iter);
+    while(valid){
+        gtk_tree_model_get(GTK_TREE_MODEL(list),
+                           &iter,
+                           0, &name,
+                            -1);
+        if(!strcmp(current, name)){
+                model = gtk_tree_view_get_model(GTK_TREE_VIEW(tree_view));
+                path = gtk_tree_model_get_path(model, &iter);
+                gtk_tree_view_set_cursor(GTK_TREE_VIEW(tree_view),
+                                         path, NULL, FALSE);
+                gtk_tree_view_scroll_to_cell (GTK_TREE_VIEW (tree_view), path, NULL, TRUE, 0.5, 0);
+                gtk_tree_path_free(path);
+                break;
+        }
+        valid  = gtk_tree_model_iter_next(GTK_TREE_MODEL(list),
+                  &iter);
+    }
+}
+/*******************************************************************************/
 void choose_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
     gint result;
@@ -34,7 +68,7 @@ void choose_button_handler(GtkWidget *button, GdkEventButton *event,
     struct lists_struct        *list = NULL;
     GtkWidget *window               = NULL,
               *main_table           = NULL,
-              *country_list_view    = NULL,
+              *list_view            = NULL,
               *scrolled_window      = NULL;
     GtkWidget       *config = GTK_WIDGET(user_data);
     enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
@@ -45,10 +79,10 @@ void choose_button_handler(GtkWidget *button, GdkEventButton *event,
 //#endif
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
     if(!strcmp("country_button", control_name)){
-      type_button = COUNTRY;
+        type_button = COUNTRY;
     }
     if(!strcmp("source_button", control_name)){
-      type_button = SOURCE;
+        type_button = SOURCE;
     }
 
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
@@ -63,13 +97,15 @@ void choose_button_handler(GtkWidget *button, GdkEventButton *event,
                                    GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
     gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 620, 280);
 
-    if (type_button == COUNTRY)
-        country_list_view = create_tree_view(list->countries_list);
+    if (type_button == COUNTRY){
+        list_view = create_tree_view(list->countries_list);
+        highlight_current_item(list_view, list->countries_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_country"));
+    }
     if (type_button == SOURCE){
-        country_list_view = create_tree_view(list->sources_list);
+        list_view = create_tree_view(list->sources_list);
     }
     gtk_container_add(GTK_CONTAINER(scrolled_window),
-                      GTK_WIDGET(country_list_view));
+                      GTK_WIDGET(list_view));
     gtk_table_attach_defaults(GTK_TABLE(main_table),
                               scrolled_window, 1, 2, 1, 2);
     gtk_widget_show_all(main_table);
@@ -229,6 +265,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     country_label = gtk_label_new(_("Country"));
     set_font(country_label, NULL, 12);
     country_label_name = gtk_label_new((gchar*)g_object_get_data(G_OBJECT(button), "station_country"));
+    g_object_set_data(G_OBJECT(country_button), "station_country", (gchar*)g_object_get_data(G_OBJECT(button), "station_country"));
     gtk_widget_set_name(country_button, "country_button");
     country_vertical_box = gtk_vbox_new(TRUE, 2);
     gtk_widget_show(country_vertical_box);
@@ -290,7 +327,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_widget_show (save_button);
     gtk_table_attach((GtkTable*)main_table, save_button,
                                 5, 6, 6, 8, (GtkAttachOptions)0,
-                                (GtkAttachOptions)0, 20, 20 );
+                                (GtkAttachOptions)0, 10, 10);
     gtk_widget_show (save_button);
 
     right_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );

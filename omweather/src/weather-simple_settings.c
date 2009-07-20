@@ -129,7 +129,9 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 (GtkAttachOptions)0, 0, 0 );
     gtk_widget_show (left_alignmnet);
 
-    main_label = gtk_label_new((gchar*)user_data);
+
+    main_label = gtk_label_new((gchar*)g_object_get_data(G_OBJECT(button), "station_label"));
+    fprintf(stderr,"sdffffffffff %s\n",(gchar*)g_object_get_data(G_OBJECT(button), "station_label"));
     set_font(main_label, NULL, 20);
     gtk_widget_show (main_label);
     gtk_table_attach((GtkTable*)main_table,main_label,
@@ -268,7 +270,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
 /*******************************************************************************/
 GtkWidget*
-create_station_button(gchar* station_label_s, gchar* station_name_s, gchar *station_code, gchar *station_source)
+create_station_button(gchar* station_label_s, gchar* station_name_s, gchar *station_code_s, gchar *station_source_s)
 {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -280,26 +282,31 @@ create_station_button(gchar* station_label_s, gchar* station_name_s, gchar *stat
               *button = NULL;
 
     button = gtk_button_new();
-    station_label = gtk_label_new (station_label_s);
+    g_object_set_data(G_OBJECT(button), "station_label", (gpointer)station_label_s);
+    g_object_set_data(G_OBJECT(button), "station_name", (gpointer)station_name_s);
+    g_object_set_data(G_OBJECT(button), "station_code", (gpointer)station_code_s);
+    g_object_set_data(G_OBJECT(button), "station_source", (gpointer)station_source_s);
+    fprintf(stderr,"111111sdffffffffff %s\n",(gchar*)g_object_get_data(G_OBJECT(button), "station_label"));
+    station_label = gtk_label_new(station_label_s);
     set_font(station_label, NULL, 12);
     gtk_widget_show (station_label);
     station_name = gtk_label_new (station_name_s);
     set_font_color(station_name, 0, 100, 100);
     set_font(station_name, NULL, 18);
-    gtk_widget_show (station_name);
+    gtk_widget_show(station_name);
     vertical_box = gtk_vbox_new(TRUE, 2);
-    gtk_widget_show (vertical_box);
-    
+    gtk_widget_show(vertical_box);
+
     gtk_box_pack_start(GTK_BOX(vertical_box), station_label, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vertical_box), station_name, TRUE, TRUE, 0);
     gtk_container_add (GTK_CONTAINER (button), vertical_box);
-    
+
     g_signal_connect(G_OBJECT(button), "button-release-event",
                      G_CALLBACK(station_setup_button_handler),
                      (gpointer)button);
     gtk_widget_set_size_request(button, 135, 60);
     gtk_widget_show (button);
-    
+
     return button;
 }
 /*******************************************************************************/
@@ -337,7 +344,7 @@ create_and_full_stations_buttons(void)
             gtk_tree_model_iter_next(GTK_TREE_MODEL
                                      (app->user_stations_list), &iter);
         station_number++;
-        /* Only for four station for simple mode */
+        /* Only  *four* station for simple mode */
         if (station_number > 4)
             break;
     }

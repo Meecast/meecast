@@ -188,7 +188,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 0, 0 );
 
     source_button = gtk_button_new_with_label (_("Source"));
-    gtk_widget_set_name(country_button, "source_button");
+    gtk_widget_set_name(source_button, "source_button");
     gtk_widget_set_size_request(source_button, 150, 50);
     gtk_table_attach((GtkTable*)main_table, source_button,
                                 2, 3, 5, 6,
@@ -210,6 +210,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                      window);
 
     region_button = gtk_button_new_with_label (_("Region"));
+    gtk_widget_set_name(region_button, "region_button");
     gtk_widget_set_size_request(region_button, 150, 50);
     gtk_table_attach((GtkTable*)main_table, region_button,
                                 2, 3, 6, 7,
@@ -217,6 +218,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 (GtkAttachOptions)0, 20, 0 );
 
     station_button = gtk_button_new_with_label (_("Town"));
+    gtk_widget_set_name(station_button, "station_button");
     gtk_widget_set_size_request(station_button, 150, 50);
     gtk_table_attach((GtkTable*)main_table, station_button,
                                 3, 4, 6, 7,
@@ -251,6 +253,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
         g_object_set_data(G_OBJECT(window), "current_source", (gpointer)app->config->current_source);
         /* fill countries list */
         changed_sources_handler(sources, window);
+        changed_country_handler(sources, window);
 
     }
 
@@ -265,43 +268,80 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
 /*******************************************************************************/
 GtkWidget*
-create_station_button(gchar* station_name)
+create_station_button(gchar* station_label_s, gchar* station_name_s, gchar *station_code, gchar *station_source)
 {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 
-    GtkWidget *station = NULL;
-    station = gtk_button_new_with_label (station_name);
-    g_signal_connect(G_OBJECT(station), "button-release-event",
+    GtkWidget *station_label = NULL,
+              *station_name  = NULL,
+              *vertical_box  = NULL,
+              *button = NULL;
+
+    button = gtk_button_new();
+    station_label = gtk_label_new (station_label_s);
+    set_font(station_label, NULL, 12);
+    gtk_widget_show (station_label);
+    station_name = gtk_label_new (station_name_s);
+    set_font_color(station_name, 0, 100, 100);
+    set_font(station_name, NULL, 18);
+    gtk_widget_show (station_name);
+    vertical_box = gtk_vbox_new(TRUE, 2);
+    gtk_widget_show (vertical_box);
+    
+    gtk_box_pack_start(GTK_BOX(vertical_box), station_label, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(vertical_box), station_name, TRUE, TRUE, 0);
+    gtk_container_add (GTK_CONTAINER (button), vertical_box);
+    
+    g_signal_connect(G_OBJECT(button), "button-release-event",
                      G_CALLBACK(station_setup_button_handler),
-                     (gpointer)station_name);
-    gtk_widget_set_size_request(station, 135, 60);
-    gtk_widget_show (station);
-    return station;
+                     (gpointer)button);
+    gtk_widget_set_size_request(button, 135, 60);
+    gtk_widget_show (button);
+    
+    return button;
 }
 /*******************************************************************************/
 GtkWidget*
 create_and_full_stations_buttons(void)
 {
   GtkWidget
-          *box = NULL,
-          *station1 = NULL,
-          *station2 = NULL,
-          *station3 = NULL,
-          *station4 = NULL;
+          *box     = NULL,
+          *station = NULL;
+    gboolean valid = FALSE;
+    GtkTreeIter     iter;
+    gchar   *station_selected = NULL,
+            *station_name = NULL,
+            *station_code = NULL,
+            *station_source = NULL;
+    gint  station_number = 1;
+    char buffer[512];
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     box = gtk_hbox_new(TRUE, 5);
-    station1 = create_station_button("Station1");
-    gtk_box_pack_start(GTK_BOX(box), station1, TRUE, TRUE, 0);
-    station2 = create_station_button("Station2");;
-    gtk_box_pack_start(GTK_BOX(box), station2, TRUE, TRUE, 0);
-    station3 = create_station_button("Station3");
-    gtk_box_pack_start(GTK_BOX(box), station3, TRUE, TRUE, 0);
-    station4 = create_station_button("Station4");
-    gtk_box_pack_start(GTK_BOX(box), station4, TRUE, TRUE, 0);
+    valid =
+        gtk_tree_model_get_iter_first(GTK_TREE_MODEL
+                                      (app->user_stations_list), &iter);
+    while (valid) {
+        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                           &iter,
+                           0, &station_name,
+                           1, &station_code, 3, &station_source, -1);
+        snprintf(buffer, sizeof(buffer) - 1, "Station%i", station_number);
+        station = create_station_button(buffer, station_name, station_code, station_source);
+        gtk_box_pack_start(GTK_BOX(box), station, TRUE, TRUE, 0);
+        valid =
+            gtk_tree_model_iter_next(GTK_TREE_MODEL
+                                     (app->user_stations_list), &iter);
+        station_number++;
+        /* Only for four station for simple mode */
+        if (station_number > 4)
+            break;
+    }
+
     return box;
 }
 /*******************************************************************************/
@@ -373,7 +413,7 @@ weather_simple_window_settings(gpointer user_data){
 
 
     units_button = gtk_button_new_with_label (_("Units"));
-    gtk_widget_set_size_request(units_button, 500, 60);
+    gtk_widget_set_size_request(units_button, 490, 60);
     gtk_widget_show (units_button);
     gtk_table_attach((GtkTable*)main_table, units_button,
                                 1, 2, 3, 4, (GtkAttachOptions)0,
@@ -390,7 +430,7 @@ weather_simple_window_settings(gpointer user_data){
 
 
     widget_style_button = gtk_button_new_with_label (_("Widget_style"));
-    gtk_widget_set_size_request(widget_style_button, 500, 60);
+    gtk_widget_set_size_request(widget_style_button, 490, 60);
     gtk_widget_show (widget_style_button);
     gtk_table_attach((GtkTable*)main_table, widget_style_button,
                                 1, 2, 5, 6, (GtkAttachOptions)0,
@@ -406,12 +446,11 @@ weather_simple_window_settings(gpointer user_data){
     gtk_widget_show (vertical3_alignmnet);
 
     update_button = gtk_button_new_with_label (_("Update"));
-    gtk_widget_set_size_request(update_button, 500, 60);
+    gtk_widget_set_size_request(update_button, 490, 60);
     gtk_widget_show (update_button);
     gtk_table_attach((GtkTable*)main_table, update_button,
                                 1, 2, 6, 7, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
-
 
     vertical4_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(vertical4_alignmnet, -1, 20);

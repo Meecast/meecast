@@ -72,17 +72,18 @@ add_station_to_user_list(gchar *weather_station_name, gchar *weather_station_id,
 /*******************************************************************************/
 void
 changed_country_handler(GtkWidget *widget, gpointer user_data){
+    gchar *control_name = NULL;
     struct lists_struct *list = NULL;
-    GtkWidget		*config = GTK_WIDGET(user_data),
-			*add_button = NULL;
-    GtkTreeModel	*model;
-    GtkTreeIter		iter;
-    gchar		*country_name = NULL;
-    gint		country_id = 0,
-			regions_number = 0;
-#ifdef DEBUGFUNCTIONCALL
+    GtkWidget       *config = GTK_WIDGET(user_data),
+                    *add_button = NULL;
+    GtkTreeModel    *model;
+    GtkTreeIter     iter;
+    gchar           *country_name = NULL;
+    gint            country_id = 0,
+                    regions_number = 0;
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     if(!user_data)
         return;
 
@@ -103,30 +104,38 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
         gtk_list_store_clear(list->stations_list);
         g_object_unref(list->stations_list);
     }
+    fprintf(stderr,"pppppppppppp\n");
+    control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(user_data));
+
     /* get active country */
-    if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)){
+    if(strcmp("simple_settings_window", control_name) &&
+        gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)){
+        fprintf(stderr,"gggggggggggg\n");
         model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
         gtk_tree_model_get(model, &iter, 0, &country_name, 1, &country_id, -1);
         list->regions_list = create_regions_list(list->database, country_id,
                                                     &regions_number);
-        if(list->regions_list){
-            gtk_combo_box_set_model(GTK_COMBO_BOX(list->states),
-                                    (GtkTreeModel*)list->regions_list);
-            gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(list->states), 0);
-            /* if region is one then set it active and disable combobox */
-            if(regions_number < 2){
-                gtk_combo_box_set_active(GTK_COMBO_BOX(list->states), 0);
-                gtk_widget_set_sensitive(GTK_WIDGET(list->states), FALSE);
-            }
-            else{
-                gtk_combo_box_set_active(GTK_COMBO_BOX(list->states), -1);
-                gtk_widget_set_sensitive(GTK_WIDGET(list->states), TRUE);
-            }
+    }
+    if(list->regions_list){
+        gtk_combo_box_set_model(GTK_COMBO_BOX(list->states),
+                                (GtkTreeModel*)list->regions_list);
+        gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(list->states), 0);
+        /* if region is one then set it active and disable combobox */
+        if(regions_number < 2){
+            gtk_combo_box_set_active(GTK_COMBO_BOX(list->states), 0);
+            gtk_widget_set_sensitive(GTK_WIDGET(list->states), FALSE);
         }
+        else{
+            gtk_combo_box_set_active(GTK_COMBO_BOX(list->states), -1);
+            gtk_widget_set_sensitive(GTK_WIDGET(list->states), TRUE);
+        }
+    }
+    if(country_name){
         if(app->config->current_country)
             g_free(app->config->current_country);
         app->config->current_country = country_name;
     }
+
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

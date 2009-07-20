@@ -66,7 +66,6 @@ void choose_button_handler(GtkWidget *button, GdkEventButton *event,
     if (type_button == COUNTRY)
         country_list_view = create_tree_view(list->countries_list);
     if (type_button == SOURCE){
-        fprintf(stderr,"xdsssssssssssss\n");
         country_list_view = create_tree_view(list->sources_list);
     }
     gtk_container_add(GTK_CONTAINER(scrolled_window),
@@ -131,7 +130,9 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
 
     main_label = gtk_label_new((gchar*)g_object_get_data(G_OBJECT(button), "station_label"));
-    fprintf(stderr,"sdffffffffff %s\n",(gchar*)g_object_get_data(G_OBJECT(button), "station_label"));
+    fprintf(stderr,"Label %s\n",(gchar*)g_object_get_data(G_OBJECT(button), "station_label"));
+    fprintf(stderr,"Name %s\n",(gchar*)g_object_get_data(G_OBJECT(button), "station_name"));
+    fprintf(stderr,"Source %s\n",(gchar*)g_object_get_data(G_OBJECT(button), "station_source"));
     set_font(main_label, NULL, 20);
     gtk_widget_show (main_label);
     gtk_table_attach((GtkTable*)main_table,main_label,
@@ -282,16 +283,20 @@ create_station_button(gchar* station_label_s, gchar* station_name_s, gchar *stat
               *button = NULL;
 
     button = gtk_button_new();
+
     g_object_set_data(G_OBJECT(button), "station_label", (gpointer)station_label_s);
     g_object_set_data(G_OBJECT(button), "station_name", (gpointer)station_name_s);
     g_object_set_data(G_OBJECT(button), "station_code", (gpointer)station_code_s);
     g_object_set_data(G_OBJECT(button), "station_source", (gpointer)station_source_s);
-    fprintf(stderr,"111111sdffffffffff %s\n",(gchar*)g_object_get_data(G_OBJECT(button), "station_label"));
+
     station_label = gtk_label_new(station_label_s);
     set_font(station_label, NULL, 12);
     gtk_widget_show (station_label);
+
+    fprintf(stderr,"111111sdffffffffff %s\n",(gchar*)g_object_get_data(G_OBJECT(button), "station_label"));
+
     station_name = gtk_label_new (station_name_s);
-    set_font_color(station_name, 0, 100, 100);
+//    set_font_color(station_name, 0, 100, 100);
     set_font(station_name, NULL, 18);
     gtk_widget_show(station_name);
     vertical_box = gtk_vbox_new(TRUE, 2);
@@ -338,7 +343,8 @@ create_and_full_stations_buttons(void)
                            0, &station_name,
                            1, &station_code, 3, &station_source, -1);
         snprintf(buffer, sizeof(buffer) - 1, "Station%i", station_number);
-        station = create_station_button(buffer, station_name, station_code, station_source);
+        /* Attention !!!!!! check memory leak for g_strdup(buffer) */
+        station = create_station_button(g_strdup(buffer), station_name, station_code, station_source);
         gtk_box_pack_start(GTK_BOX(box), station, TRUE, TRUE, 0);
         valid =
             gtk_tree_model_iter_next(GTK_TREE_MODEL

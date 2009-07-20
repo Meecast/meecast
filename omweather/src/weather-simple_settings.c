@@ -205,7 +205,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
 
     gtk_widget_set_name(source_button, "source_button");
-    gtk_widget_set_size_request(source_button, 150, 50);
+    gtk_widget_set_size_request(source_button, 180, 80);
     gtk_table_attach((GtkTable*)main_table, source_button,
                                 2, 3, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
@@ -216,7 +216,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
     country_button = gtk_button_new_with_label (_("Country"));
     gtk_widget_set_name(country_button, "country_button");
-    gtk_widget_set_size_request(country_button, 150, 50);
+    gtk_widget_set_size_request(country_button, 180, 80);
     gtk_table_attach((GtkTable*)main_table, country_button,
                                 3, 4, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
@@ -227,7 +227,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
     region_button = gtk_button_new_with_label (_("Region"));
     gtk_widget_set_name(region_button, "region_button");
-    gtk_widget_set_size_request(region_button, 150, 50);
+    gtk_widget_set_size_request(region_button, 180, 70);
     gtk_table_attach((GtkTable*)main_table, region_button,
                                 2, 3, 6, 7,
                                 GTK_FILL | GTK_EXPAND,
@@ -235,14 +235,14 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
     station_button = gtk_button_new_with_label (_("Town"));
     gtk_widget_set_name(station_button, "station_button");
-    gtk_widget_set_size_request(station_button, 150, 50);
+    gtk_widget_set_size_request(station_button, 180, 80);
     gtk_table_attach((GtkTable*)main_table, station_button,
                                 3, 4, 6, 7,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
 
     save_button = gtk_button_new_with_label (_("Save"));
-    gtk_widget_set_size_request(save_button, 150, 60);
+    gtk_widget_set_size_request(save_button, 180, 80);
     gtk_widget_show (save_button);
     gtk_table_attach((GtkTable*)main_table, save_button,
                                 5, 6, 6, 8, (GtkAttachOptions)0,
@@ -321,7 +321,7 @@ create_station_button(gchar* station_label_s, gchar* station_name_s, gchar *stat
     g_signal_connect(G_OBJECT(button), "button-release-event",
                      G_CALLBACK(station_setup_button_handler),
                      (gpointer)button);
-    gtk_widget_set_size_request(button, 135, 60);
+    gtk_widget_set_size_request(button, 135, 80);
     gtk_widget_show (button);
 
     return button;

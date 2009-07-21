@@ -62,16 +62,34 @@ highlight_current_item(GtkTreeView *tree_view, GtkListStore *list, gchar *curren
 }
 /*******************************************************************************/
 void
-select_item(GtkWidget *widget, GdkEventButton *event,
-                                    gpointer user_data){
-    gchar                       *control_name = NULL;
+list_changed(GtkTreeSelection *sel,  gpointer user_data)
+{
+  GtkTreeIter iter;
+  GtkTreeModel *model;
+  gchar     *name = NULL;
+  GtkWidget *vbox                 = NULL,
+            *label                = NULL,
+            *button               = NULL;
+
 //#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 //#endif
-    control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(widget));
-    fprintf(stderr, "control name %s\n", control_name);
+    button = (GtkWidget*)g_object_get_data(G_OBJECT(user_data), "button");
+    label = (GtkWidget*)g_object_get_data(G_OBJECT(button), "label");
+    vbox = (GtkWidget*)g_object_get_data(G_OBJECT(button), "vbox");
+
+  if (label){
+        gtk_widget_destroy(label);
+        if (gtk_tree_selection_get_selected(sel,&model, &iter)){
+            gtk_tree_model_get(model, &iter, 0, &name, -1);
+            label = gtk_label_new(name);
+            gtk_box_pack_start(GTK_BOX(vbox), label, TRUE, TRUE, 0);
+            gtk_widget_show(button);
+            gtk_widget_show(label);
+        }
+    }
 }
-/*******************************************************************************/
+
 /*******************************************************************************/
 void
 choose_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -86,6 +104,7 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     GtkWidget       *config = GTK_WIDGET(user_data);
     enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
     gint type_button = UNKNOWN;
+    GtkTreeSelection  *sel;
 
 //#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -137,9 +156,9 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
                       GTK_WIDGET(list_view));
     gtk_table_attach_defaults(GTK_TABLE(main_table),
                               scrolled_window, 1, 2, 1, 2);
-    g_signal_connect(G_OBJECT(list_view), "cursor-changed",
-                     G_CALLBACK(select_item),
-                     button);
+    g_object_set_data(G_OBJECT(list_view), "button", (gpointer)button);
+    sel = gtk_tree_view_get_selection (GTK_TREE_VIEW (list_view));
+    g_signal_connect (sel, "changed",G_CALLBACK (list_changed), list_view);
 
     gtk_widget_show_all(main_table);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
@@ -152,7 +171,7 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
 }
 /*******************************************************************************/
 GtkWidget*
-create_button(gchar* name, gchar* value, gchar* button_name,   GtkWidget* widget){
+create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -174,7 +193,11 @@ create_button(gchar* name, gchar* value, gchar* button_name,   GtkWidget* widget
     gtk_container_add (GTK_CONTAINER (button), vertical_box);
     gtk_widget_show (button);
 
-
+    g_object_set_data(G_OBJECT(button), "vbox", (gpointer)vertical_box);
+    g_object_set_data(G_OBJECT(button), "label", (gpointer)label_name);
+    g_object_set_data(G_OBJECT(button), parameter_name, (gpointer)value);
+    
+    
     gtk_widget_set_name(button, button_name);
     gtk_widget_set_size_request(button, 180, 80);
     g_signal_connect(G_OBJECT(button), "button-release-event",
@@ -302,7 +325,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 0, 0 );
     /* Button Source */
      source_button = create_button(_("Source"),(gchar*)g_object_get_data(G_OBJECT(button), "station_source"),
-                                   "source_button", window);
+                                   "source_button", "station_source", window);
      gtk_table_attach((GtkTable*)main_table, source_button,
                                 2, 3, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
@@ -310,7 +333,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
     /* Button Country */
     country_button = create_button(_("Country"),(gchar*)g_object_get_data(G_OBJECT(button), "station_country"),
-                                   "country_button", window);
+                                   "country_button", "station_country", window);
     gtk_table_attach((GtkTable*)main_table, country_button,
                                 3, 4, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
@@ -318,7 +341,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
     /* Button region */
     region_button = create_button(_("Region"),(gchar*)g_object_get_data(G_OBJECT(button), "station_region"),
-                                   "region_button", window);
+                                   "region_button", "station_region", window);
     gtk_table_attach((GtkTable*)main_table, region_button,
                                 2, 3, 6, 7,
                                 GTK_FILL | GTK_EXPAND,
@@ -326,7 +349,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
     /* Button station */
     station_button = create_button(_("Town"),(gchar*)g_object_get_data(G_OBJECT(button), "station_name"),
-                                   "station_button", window);
+                                   "station_button", "station_name", window);
 
     gtk_table_attach((GtkTable*)main_table, station_button,
                                 3, 4, 6, 7,

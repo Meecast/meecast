@@ -81,9 +81,9 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
     gchar           *country_name = NULL;
     gint            country_id = 0,
                     regions_number = 0;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if(!user_data)
         return;
 
@@ -113,8 +113,15 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
         gtk_tree_model_get(model, &iter, 0, &country_name, 1, &country_id, -1);
         list->regions_list = create_regions_list(list->database, country_id,
                                                     &regions_number);
+    }else{
+        country_id = g_object_get_data(G_OBJECT(config), "station_country_id");
+        list->regions_list = create_regions_list(list->database, country_id,
+                                                    &regions_number);
+        fprintf(stderr,"country_id %i %s\n",country_id, country_name);
     }
-    if(list->regions_list){
+
+    if(strcmp("simple_settings_window", control_name) &&
+       list->regions_list){
         gtk_combo_box_set_model(GTK_COMBO_BOX(list->states),
                                 (GtkTreeModel*)list->regions_list);
         gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(list->states), 0);
@@ -209,9 +216,9 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
     GHashTable		*source = NULL;
     gpointer		value = NULL;
     gchar *control_name = NULL;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
     if(list){
         /* close database if it open */

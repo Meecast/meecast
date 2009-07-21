@@ -66,7 +66,7 @@ GtkListStore *create_items_list(const char *path, const char *filename,
     } else {
         if (!strcmp(filename, LOCATIONSFILE))
             list = gtk_list_store_new(5, G_TYPE_STRING, G_TYPE_STRING,
-					G_TYPE_STRING,
+                                      G_TYPE_STRING,
                                       G_TYPE_DOUBLE, G_TYPE_DOUBLE);
         else
             list =
@@ -451,6 +451,11 @@ get_all_information_callback(void *user_data, int argc, char **argv, char **azCo
             gtk_list_store_set(list, &iter, 0, argv[i], -1);
         if(!strcmp(azColName[i], "name"))
             gtk_list_store_set(list, &iter, 1, argv[i], -1);
+        if(!strcmp(azColName[i], "cid"))
+            gtk_list_store_set(list, &iter, 2, atoi(argv[i]), -1);
+        if(!strcmp(azColName[i], "region_id"))
+            gtk_list_store_set(list, &iter, 3, atoi(argv[i]), -1);
+
     }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -466,7 +471,7 @@ get_all_information_about_station(gchar *source, gchar *station_code){
     sqlite3    *database = NULL;
     gchar buffer[2048];
     gchar       *errMsg = NULL;
-    gchar       sql[256];
+    gchar       sql[1024];
     gint        rc;
     GtkListStore    *list = NULL;
 
@@ -478,11 +483,13 @@ get_all_information_about_station(gchar *source, gchar *station_code){
     database = open_database(DATABASEPATH, buffer);
     if (!database)
         return NULL;
-    list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_STRING);
-    snprintf(sql, sizeof(sql) - 1, "Select countries.name as cname, regions.name from stations,regions,countries \
+    list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT);
+    snprintf(sql, sizeof(sql) - 1, "Select countries.name as cname, regions.name, countries.id as cid, \
+                                    stations.region_id from stations,regions,countries \
                                     where stations.code='%s' and stations.region_id=regions.id and \
-                                    regions.country_id=countries.id", station_code);
-    fprintf(stderr,"aa\n");
+                                    regions.country_id=countries.id and countries.id=regions.country_id",
+                                    station_code);
+    fprintf(stderr,"SQL %s\n",sql);
     rc = sqlite3_exec(database, sql, get_all_information_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
 #ifndef RELEASE
@@ -500,7 +507,7 @@ search_station_in_database(sqlite3 *database, char *code_name){
     GtkListStore	*list = NULL;
     gint		rc;
     gchar		*errMsg = NULL;
-    gchar		sql[256];
+    gchar		sql[1024];
 
     if(!database || !code_name)
         return NULL;
@@ -509,12 +516,12 @@ search_station_in_database(sqlite3 *database, char *code_name){
     list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,
               G_TYPE_STRING);
     snprintf(sql, sizeof(sql) - 1,
-	    "SELECT stations.name, sources.code, regions.name AS region_name, \
-	    countries.name AS country_name FROM stations JOIN sources,regions, \
-	    countries ON stations.id = sources.station_id AND stations.region_id \
-	    = regions.id AND regions.country_id = countries.id WHERE stations.name \
-	    LIKE('%s%%') OR sources.code LIKE('%s%%')",
-	    code_name, code_name);
+        "SELECT stations.name, sources.code, regions.name AS region_name, \
+        countries.name AS country_name FROM stations JOIN sources,regions, \
+        countries ON stations.id = sources.station_id AND stations.region_id \
+        = regions.id AND regions.country_id = countries.id WHERE stations.name \
+        LIKE('%s%%') OR sources.code LIKE('%s%%')",
+        code_name, code_name);
     rc = sqlite3_exec(database, sql, search_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
 #ifndef RELEASE

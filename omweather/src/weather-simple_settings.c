@@ -61,7 +61,20 @@ highlight_current_item(GtkTreeView *tree_view, GtkListStore *list, gchar *curren
     }
 }
 /*******************************************************************************/
-void choose_button_handler(GtkWidget *button, GdkEventButton *event,
+void
+select_item(GtkWidget *widget, GdkEventButton *event,
+                                    gpointer user_data){
+    gchar                       *control_name = NULL;
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+    control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(widget));
+    fprintf(stderr, "control name %s\n", control_name);
+}
+/*******************************************************************************/
+/*******************************************************************************/
+void
+choose_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
     gint result;
     gchar                       *control_name = NULL;
@@ -102,24 +115,32 @@ void choose_button_handler(GtkWidget *button, GdkEventButton *event,
     if (type_button == COUNTRY){
         list_view = create_tree_view(list->countries_list);
         highlight_current_item(list_view, list->countries_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_country"));
+        gtk_widget_set_name(list_view, "countries_list");
     }
     if (type_button == SOURCE){
         list_view = create_tree_view(list->sources_list);
         highlight_current_item(list_view, list->sources_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_source"));
+        gtk_widget_set_name(list_view, "sources_list");
     }
     if (type_button == STATE){
         list_view = create_tree_view(list->regions_list);
         highlight_current_item(list_view, list->regions_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_region"));
+        gtk_widget_set_name(list_view, "states_list");
     }
     if (type_button == TOWN){
         list_view = create_tree_view(list->stations_list);
         highlight_current_item(list_view, list->stations_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_name"));
+        gtk_widget_set_name(list_view, "stations_list");
     }
 
     gtk_container_add(GTK_CONTAINER(scrolled_window),
                       GTK_WIDGET(list_view));
     gtk_table_attach_defaults(GTK_TABLE(main_table),
                               scrolled_window, 1, 2, 1, 2);
+    g_signal_connect(G_OBJECT(list_view), "cursor-changed",
+                     G_CALLBACK(select_item),
+                     button);
+
     gtk_widget_show_all(main_table);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
@@ -127,6 +148,39 @@ void choose_button_handler(GtkWidget *button, GdkEventButton *event,
     /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(window));
     gtk_widget_destroy(window);
+
+}
+/*******************************************************************************/
+GtkWidget*
+create_button(gchar* name, gchar* value, gchar* button_name,   GtkWidget* widget){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+  GtkWidget *button = NULL,
+           *label_name,
+           *vertical_box,
+           *label;
+
+    button = gtk_button_new();
+    label = gtk_label_new(name);
+    label_name = gtk_label_new(value);
+    set_font(label, NULL, 12);
+
+    vertical_box = gtk_vbox_new(TRUE, 2);
+    gtk_widget_show(vertical_box);
+
+    gtk_box_pack_start(GTK_BOX(vertical_box), label, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(vertical_box), label_name, TRUE, TRUE, 0);
+    gtk_container_add (GTK_CONTAINER (button), vertical_box);
+    gtk_widget_show (button);
+
+
+    gtk_widget_set_name(button, button_name);
+    gtk_widget_set_size_request(button, 180, 80);
+    g_signal_connect(G_OBJECT(button), "button-release-event",
+                     G_CALLBACK(choose_button_handler),
+                     widget);
+    return button;
 
 }
 /*******************************************************************************/
@@ -247,101 +301,37 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
     /* Button Source */
-    source_button = gtk_button_new();
-    source_label = gtk_label_new(_("Source"));
-    source_label_name = gtk_label_new((gchar*)g_object_get_data(G_OBJECT(button), "station_source"));
-    set_font(source_label, NULL, 12);
-
-    source_vertical_box = gtk_vbox_new(TRUE, 2);
-    gtk_widget_show(source_vertical_box);
-
-    gtk_box_pack_start(GTK_BOX(source_vertical_box), source_label, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(source_vertical_box), source_label_name, TRUE, TRUE, 0);
-    gtk_container_add (GTK_CONTAINER (source_button), source_vertical_box);
-    gtk_widget_show (source_button);
-
-
-    gtk_widget_set_name(source_button, "source_button");
-    gtk_widget_set_size_request(source_button, 180, 80);
-    gtk_table_attach((GtkTable*)main_table, source_button,
+     source_button = create_button(_("Source"),(gchar*)g_object_get_data(G_OBJECT(button), "station_source"),
+                                   "source_button", window);
+     gtk_table_attach((GtkTable*)main_table, source_button,
                                 2, 3, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 20, 0 );
-    g_signal_connect(G_OBJECT(source_button), "button-release-event",
-                     G_CALLBACK(choose_button_handler),
-                     window);
 
     /* Button Country */
-    country_vertical_box = gtk_vbox_new(TRUE, 2);
-    country_button = gtk_button_new();
-    country_label = gtk_label_new(_("Country"));
-    set_font(country_label, NULL, 12);
-    country_label_name = gtk_label_new((gchar*)g_object_get_data(G_OBJECT(button), "station_country"));
-    g_object_set_data(G_OBJECT(country_button), "station_country", (gchar*)g_object_get_data(G_OBJECT(button), "station_country"));
-    gtk_widget_set_name(country_button, "country_button");
-    country_vertical_box = gtk_vbox_new(TRUE, 2);
-    gtk_widget_show(country_vertical_box);
-    gtk_box_pack_start(GTK_BOX(country_vertical_box), country_label, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(country_vertical_box), country_label_name, TRUE, TRUE, 0);
-    gtk_container_add (GTK_CONTAINER (country_button), country_vertical_box);
-    gtk_widget_show (country_button);
-
-    gtk_widget_set_size_request(country_button, 180, 80);
+    country_button = create_button(_("Country"),(gchar*)g_object_get_data(G_OBJECT(button), "station_country"),
+                                   "country_button", window);
     gtk_table_attach((GtkTable*)main_table, country_button,
                                 3, 4, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
-    g_signal_connect(G_OBJECT(country_button), "button-release-event",
-                     G_CALLBACK(choose_button_handler),
-                     window);
 
     /* Button region */
-    region_vertical_box = gtk_vbox_new(TRUE, 2);
-    region_button = gtk_button_new();
-    region_label = gtk_label_new(_("Region"));
-    set_font(region_label, NULL, 12);
-    region_label_name = gtk_label_new((gchar*)g_object_get_data(G_OBJECT(button), "station_region"));
-    g_object_set_data(G_OBJECT(region_button), "station_region", (gpointer)g_object_get_data(G_OBJECT(button), "station_region"));
-    gtk_widget_set_name(region_button, "region_button");
-    gtk_widget_set_size_request(region_button, 180, 80);
-    gtk_widget_show(region_vertical_box);
-    gtk_box_pack_start(GTK_BOX(region_vertical_box), region_label, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(region_vertical_box), region_label_name, TRUE, TRUE, 0);
-    gtk_container_add (GTK_CONTAINER (region_button), region_vertical_box);
-    gtk_widget_show (region_button);
-
+    region_button = create_button(_("Region"),(gchar*)g_object_get_data(G_OBJECT(button), "station_region"),
+                                   "region_button", window);
     gtk_table_attach((GtkTable*)main_table, region_button,
                                 2, 3, 6, 7,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 20, 0 );
 
-    g_signal_connect(G_OBJECT(region_button), "button-release-event",
-                     G_CALLBACK(choose_button_handler),
-                     window);
-
     /* Button station */
-    station_vertical_box = gtk_vbox_new(TRUE, 2);
-    station_button = gtk_button_new();
-    station_label = gtk_label_new(_("Town"));
-    set_font(station_label, NULL, 12);
-    station_label_name = gtk_label_new((gchar*)g_object_get_data(G_OBJECT(button), "station_name"));
-    g_object_set_data(G_OBJECT(station_button), "station_name", (gpointer)g_object_get_data(G_OBJECT(button), "station_name"));
-    gtk_widget_set_name(station_button, "station_button");
-    gtk_widget_set_size_request(station_button, 180, 80);
-    gtk_widget_show(station_vertical_box);
-    gtk_box_pack_start(GTK_BOX(station_vertical_box), station_label, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(station_vertical_box), station_label_name, TRUE, TRUE, 0);
-    gtk_container_add (GTK_CONTAINER (station_button), station_vertical_box);
-    gtk_widget_show (station_button);
+    station_button = create_button(_("Town"),(gchar*)g_object_get_data(G_OBJECT(button), "station_name"),
+                                   "station_button", window);
 
     gtk_table_attach((GtkTable*)main_table, station_button,
                                 3, 4, 6, 7,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
-    g_signal_connect(G_OBJECT(station_button), "button-release-event",
-                     G_CALLBACK(choose_button_handler),
-                     window);
-
 
     save_button = gtk_button_new_with_label (_("Save"));
     gtk_widget_set_size_request(save_button, 180, 80);

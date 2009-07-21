@@ -489,7 +489,6 @@ get_all_information_about_station(gchar *source, gchar *station_code){
                                     where stations.code='%s' and stations.region_id=regions.id and \
                                     regions.country_id=countries.id and countries.id=regions.country_id",
                                     station_code);
-    fprintf(stderr,"SQL %s\n",sql);
     rc = sqlite3_exec(database, sql, get_all_information_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
 #ifndef RELEASE

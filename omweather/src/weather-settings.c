@@ -186,7 +186,6 @@ changed_state_handler(GtkWidget *widget, gpointer user_data){
         }
     }else{
         state_id  = g_object_get_data(G_OBJECT(config), "station_region_id");
-        fprintf(stderr,"region %i\n",state_id);
         list->stations_list = create_stations_list(list->database, state_id);
     }
 }

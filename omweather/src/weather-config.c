@@ -133,6 +133,7 @@ void fill_user_stations_list_from_clock(GtkListStore ** list) {
                 if (!strncmp(buffer, home_city, tmp - buffer)) {
                     app->config->current_station_id = station_code;
                     app->config->current_station_name = station_name;
+                    app->config->current_station_source = g_strdup("weather.com");
                 }
             }
         }

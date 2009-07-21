@@ -98,7 +98,7 @@ get_source_parser(GtkListStore *data, const gchar *source_name){
     while(valid){
         gtk_tree_model_get(GTK_TREE_MODEL(data), &iter, 1, &source, -1);
         value = g_hash_table_lookup(source, "name");
-        if(value && !strcmp(source_name, (gchar*)value))
+        if(source_name && value && !strcmp(source_name, (gchar*)value))
             return g_hash_table_lookup(source, "parser");
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(data), &iter);
     }
@@ -448,7 +448,7 @@ get_source_logo(GtkListStore *data, const gchar *source_name){
     while(valid){
         gtk_tree_model_get(GTK_TREE_MODEL(data), &iter, 1, &source, -1);
         value = g_hash_table_lookup(source, "name");
-        if(value && !strcmp(source_name, (gchar*)value) &&
+        if(source_name && value && !strcmp(source_name, (gchar*)value) &&
                 source_logo_file_valid(source))
             return g_hash_table_lookup(source, "logo");
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(data), &iter);

@@ -78,16 +78,14 @@ void choose_button_handler(GtkWidget *button, GdkEventButton *event,
     START_FUNCTION;
 //#endif
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
-    if(!strcmp("country_button", control_name)){
+    if(!strcmp("country_button", control_name))
         type_button = COUNTRY;
-    }
-    if(!strcmp("source_button", control_name)){
+    if(!strcmp("source_button", control_name))
         type_button = SOURCE;
-    }
-
-    if(!strcmp("region_button", control_name)){
+    if(!strcmp("region_button", control_name))
         type_button = STATE;
-    }
+    if(!strcmp("station_button", control_name))
+        type_button = TOWN;
 
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
     window = gtk_dialog_new();
@@ -112,6 +110,10 @@ void choose_button_handler(GtkWidget *button, GdkEventButton *event,
     if (type_button == STATE){
         list_view = create_tree_view(list->regions_list);
         highlight_current_item(list_view, list->regions_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_region"));
+    }
+    if (type_button == TOWN){
+        list_view = create_tree_view(list->stations_list);
+        highlight_current_item(list_view, list->stations_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_name"));
     }
 
     gtk_container_add(GTK_CONTAINER(scrolled_window),
@@ -323,6 +325,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     station_label = gtk_label_new(_("Town"));
     set_font(station_label, NULL, 12);
     station_label_name = gtk_label_new((gchar*)g_object_get_data(G_OBJECT(button), "station_name"));
+    g_object_set_data(G_OBJECT(station_button), "station_name", (gpointer)g_object_get_data(G_OBJECT(button), "station_name"));
     gtk_widget_set_name(station_button, "station_button");
     gtk_widget_set_size_request(station_button, 180, 80);
     gtk_widget_show(station_vertical_box);
@@ -373,7 +376,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
         /* fill countries list */
         changed_sources_handler(sources, window);
         changed_country_handler(sources, window);
-
+        changed_state_handler(sources, window);
     }
 
 

@@ -117,7 +117,6 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
         country_id = g_object_get_data(G_OBJECT(config), "station_country_id");
         list->regions_list = create_regions_list(list->database, country_id,
                                                     &regions_number);
-        fprintf(stderr,"country_id %i %s\n",country_id, country_name);
     }
 
     if(strcmp("simple_settings_window", control_name) &&
@@ -149,11 +148,14 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
 void
 changed_state_handler(GtkWidget *widget, gpointer user_data){
     struct lists_struct *list = NULL;
-    GtkWidget		*config = GTK_WIDGET(user_data),
-			*add_button = NULL;
-    GtkTreeModel	*model = NULL;
-    GtkTreeIter		iter;
-    gint		state_id = 0;
+    GtkWidget
+          *config     = GTK_WIDGET(user_data),
+          *add_button = NULL;
+    GtkTreeModel
+          *model      = NULL;
+    GtkTreeIter  iter;
+    gint  state_id    = 0;
+    gchar *control_name = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -169,26 +171,35 @@ changed_state_handler(GtkWidget *widget, gpointer user_data){
         gtk_list_store_clear(list->stations_list);
         g_object_unref(list->stations_list);
     }
-    if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)){
+    control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(user_data));
+    if((strcmp("simple_settings_window", control_name) &&
+        gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter))){
         model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
         gtk_tree_model_get(model, &iter, 1, &state_id, -1);
         list->stations_list = create_stations_list(list->database, state_id);
-        if(list->stations_list){
-            gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(list->stations), 0);
-            gtk_combo_box_set_model(GTK_COMBO_BOX(list->stations),
+        {
+          if(list->stations_list){
+              gtk_combo_box_set_row_span_column(GTK_COMBO_BOX(list->stations), 0);
+              gtk_combo_box_set_model(GTK_COMBO_BOX(list->stations),
                                         (GtkTreeModel*)list->stations_list);
+          }
         }
+    }else{
+        state_id  = g_object_get_data(G_OBJECT(config), "station_region_id");
+        fprintf(stderr,"region %i\n",state_id);
+        list->stations_list = create_stations_list(list->database, state_id);
     }
 }
 /*******************************************************************************/
 void
 changed_stations_handler(GtkWidget *widget, gpointer user_data){
     struct lists_struct *list = NULL;
-    GtkWidget		*config = GTK_WIDGET(user_data),
-			*add_button = NULL;
-    GtkTreeModel	*model = NULL;
-    GtkTreeIter		iter;
-    gint		station_id;
+    GtkWidget       *config = GTK_WIDGET(user_data),
+                    *add_button = NULL;
+    GtkTreeModel    *model = NULL;
+    GtkTreeIter     iter;
+    gint            station_id;
+    
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -196,6 +207,7 @@ changed_stations_handler(GtkWidget *widget, gpointer user_data){
     if(!list)
         return;
 /* get sources for selected station and apped it to the sources list */
+
     if(gtk_combo_box_get_active_iter(GTK_COMBO_BOX(list->stations), &iter)){
         model = gtk_combo_box_get_model(GTK_COMBO_BOX(list->stations));
 	gtk_tree_model_get(model, &iter, 1, &station_id, -1);

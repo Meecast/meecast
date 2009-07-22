@@ -104,9 +104,8 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
         gtk_list_store_clear(list->stations_list);
         g_object_unref(list->stations_list);
     }
-    control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(user_data));
-    fprintf(stderr,"Control name %s\n", control_name);
 
+    control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(user_data));
     /* get active country */
     if(strcmp("simple_settings_window", control_name) &&
         gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)){
@@ -116,7 +115,6 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
                                                     &regions_number);
     }else{
         country_id = g_object_get_data(G_OBJECT(config), "station_country_id");
-        fprintf(stderr, "country_id %i\n",country_id);
         list->regions_list = create_regions_list(list->database, country_id,
                                                     &regions_number);
     }

@@ -131,6 +131,7 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data)
         id = get_country_code(g_object_get_data(G_OBJECT(window), "station_source"), name);
         g_object_set_data(G_OBJECT(button), "station_country_id", (gpointer)id);
         g_object_set_data(G_OBJECT(button), "station_country", (gpointer)name);
+        g_object_set_data(G_OBJECT(window), "station_country_id", (gpointer)id);
         changed_country_handler(label, window);
     }
     if (type_button == SOURCE){
@@ -315,7 +316,6 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
 
 /* Prepairing */
-
 
     window = gtk_dialog_new();
     gtk_widget_set_name(window, "simple_settings_window");

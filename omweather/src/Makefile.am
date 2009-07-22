@@ -43,6 +43,8 @@ omweather_SOURCES = 	weather-home.c \
 			weather-data.c \
 			weather-popup.h \
 			weather-popup.c \
+            weather-simple-popup.h \
+            weather-simple-popup.c \
 			weather-gps.h \
 			weather-gps.c \
 			weather-gpsdistance.h \
@@ -128,12 +130,13 @@ endif
 
 libhh_LTLIBRARIES = libweather-home.la
 
-libweather_home_la_SOURCES  = 	weather-home.c \
-			weather-home.h \
-			weather-config.h \
-			weather-config.c \
-			weather-settings.h \
-			weather-settings.c \
+libweather_home_la_SOURCES  = \
+            weather-home.c \
+            weather-home.h \
+            weather-config.h \
+            weather-config.c \
+            weather-settings.h \
+            weather-settings.c \
 			weather-simple_settings.h \
 			weather-simple_settings.c \
 			weather-simple_status.h \
@@ -149,6 +152,8 @@ libweather_home_la_SOURCES  = 	weather-home.c \
 			weather-stations.c \
 			weather-data.h \
 			weather-data.c \
+            weather-simple-popup.h \
+            weather-simple-popup.c \
 			weather-popup.h \
 			weather-popup.c \
 			weather-gps.h \

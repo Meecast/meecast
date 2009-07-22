@@ -30,6 +30,7 @@
 #include "weather-popup.h"
 #include "weather-utils.h"
 #include "weather-data.h"
+#include "weather-simple-popup.h"
 #include <sys/time.h>
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
@@ -442,6 +443,11 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
 //#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 //#endif
+/* show simple window if it enabled */
+    if(app->config->mode == SIMPLE_MODE){
+//        weather_simple_window_popup(widget, user_data);
+//        return FALSE;
+    }
 
     if (app->popup_window || app->flag_updating != 0)
         return FALSE;

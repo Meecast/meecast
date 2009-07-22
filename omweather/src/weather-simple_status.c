@@ -66,16 +66,19 @@ create_stations_buttons(void)
 #endif
     box = gtk_hbox_new(TRUE, 5);
     station1 = gtk_button_new_with_label ("Station1");
-    gtk_widget_set_size_request(station1, 120, 60);
+    gtk_widget_set_size_request(station1, 150, 60);
     gtk_widget_show (station1);
     gtk_box_pack_start(GTK_BOX(box), station1, TRUE, TRUE, 0);
     station2 = gtk_button_new_with_label ("Station2");
+    gtk_widget_set_size_request(station2, 150, 60);
     gtk_widget_show (station2);
     gtk_box_pack_start(GTK_BOX(box), station2, TRUE, TRUE, 0);
     station3 = gtk_button_new_with_label ("Station3");
+    gtk_widget_set_size_request(station3, 150, 60);
     gtk_widget_show (station3);
     gtk_box_pack_start(GTK_BOX(box), station3, TRUE, TRUE, 0);
     station4 = gtk_button_new_with_label ("Station4");
+    gtk_widget_set_size_request(station4, 150, 60);
     gtk_widget_show (station4);
     gtk_box_pack_start(GTK_BOX(box), station4, TRUE, TRUE, 0);
     return box;
@@ -145,21 +148,21 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
 
 
     collapsed_button = gtk_button_new_with_label (_("Collapsed"));
-    gtk_widget_set_size_request(collapsed_button, 140, 60);
+    gtk_widget_set_size_request(collapsed_button, 150, 60);
     gtk_widget_show (collapsed_button);
     gtk_table_attach((GtkTable*)main_table, collapsed_button,
                                 1, 2, 3, 4, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
 
     expanded_button = gtk_button_new_with_label (_("Expanded"));
-    gtk_widget_set_size_request(expanded_button, 140, 60);
+    gtk_widget_set_size_request(expanded_button, 150, 60);
     gtk_widget_show (expanded_button);
     gtk_table_attach((GtkTable*)main_table, expanded_button,
                                 2, 3, 3, 4, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
 
     settings_button = gtk_button_new_with_label (_("Settings"));
-    gtk_widget_set_size_request(settings_button, 300, 60);
+    gtk_widget_set_size_request(settings_button, 320, 60);
     gtk_widget_show (settings_button);
     gtk_table_attach((GtkTable*)main_table, settings_button,
                                 3, 5, 3, 4, (GtkAttachOptions)0,
@@ -180,14 +183,14 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
 
 
     help_button = gtk_button_new_with_label (_("About"));
-    gtk_widget_set_size_request(help_button, 300, 60);
+    gtk_widget_set_size_request(help_button, 320, 60);
     gtk_widget_show (help_button);
     gtk_table_attach((GtkTable*)main_table, help_button,
                                 1, 3, 5, 6, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 5, 0 );
 
     update_button = gtk_button_new_with_label (_("Update Now"));
-    gtk_widget_set_size_request(update_button, 300, 60);
+    gtk_widget_set_size_request(update_button, 320, 60);
     gtk_widget_show (update_button);
     gtk_table_attach((GtkTable*)main_table, update_button,
                                 3, 5, 5, 6, (GtkAttachOptions)0,

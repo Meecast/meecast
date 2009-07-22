@@ -569,6 +569,36 @@ choose_wind_direction(gchar *buffer)
 
 
 /*******************************************************************************/
+GtkWidget*
+create_button_with_2_line_text(const gchar *first_line_text, const gchar *second_line_text,
+                                const gint first_line_text_size, const gint second_line_text_size){
+    GtkWidget *first_line = NULL,
+              *second_line  = NULL,
+              *vertical_box  = NULL,
+              *button = NULL;
+
+    button = gtk_button_new();
+
+    first_line = gtk_label_new(first_line_text);
+    set_font(first_line, NULL, first_line_text_size);
+    gtk_widget_show(first_line);
+
+    second_line = gtk_label_new(second_line_text);
+    set_font(second_line, NULL, second_line_text_size);
+    gtk_widget_show(second_line);
+
+    vertical_box = gtk_vbox_new(FALSE, 2);
+    gtk_widget_show(vertical_box);
+
+    gtk_box_pack_start(GTK_BOX(vertical_box), first_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(vertical_box), second_line, TRUE, TRUE, 0);
+    gtk_container_add(GTK_CONTAINER(button), vertical_box);
+
+    gtk_widget_show(button);
+
+    return button;
+}
+/*******************************************************************************/
 /* For debugging   
 void write_log(char *string)
 {

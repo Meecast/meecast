@@ -35,5 +35,6 @@
 void weather_simple_window_popup(GtkWidget *widget, gpointer user_data);
 gchar* get_next_station_name(const gchar *current_station_name, GtkListStore *user_stations_list);
 GtkWidget* create_top_buttons_box(void);
+GtkWidget* create_collapsed_view(void);
 /*******************************************************************************/
 #endif

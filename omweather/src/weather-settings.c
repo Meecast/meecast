@@ -198,7 +198,7 @@ changed_stations_handler(GtkWidget *widget, gpointer user_data){
     GtkTreeModel    *model = NULL;
     GtkTreeIter     iter;
     gint            station_id;
-    
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif

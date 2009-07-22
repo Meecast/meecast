@@ -77,9 +77,9 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data)
   enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
   gint type_button = UNKNOWN;
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     button = (GtkWidget*)g_object_get_data(G_OBJECT(user_data), "button");
     label = (GtkWidget*)g_object_get_data(G_OBJECT(button), "label");
     vbox = (GtkWidget*)g_object_get_data(G_OBJECT(button), "vbox");
@@ -113,6 +113,11 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data)
             gtk_widget_destroy(label);
             label = NULL;
         }
+        id = get_state_code(g_object_get_data(G_OBJECT(window), "station_source"), name);
+        g_object_set_data(G_OBJECT(button), "station_region_id", (gpointer)id);
+        g_object_set_data(G_OBJECT(button), "station_region", (gpointer)name);
+        g_object_set_data(G_OBJECT(window), "station_region_id", (gpointer)id);
+
         changed_state_handler(NULL, window);
     }
     if (type_button == COUNTRY){
@@ -132,8 +137,9 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data)
         g_object_set_data(G_OBJECT(button), "station_country_id", (gpointer)id);
         g_object_set_data(G_OBJECT(button), "station_country", (gpointer)name);
         g_object_set_data(G_OBJECT(window), "station_country_id", (gpointer)id);
-        changed_country_handler(label, window);
+        changed_country_handler(NULL, window);
     }
+    /* TO DO make all if we will have +1 source */
     if (type_button == SOURCE){
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");

@@ -31,7 +31,7 @@ void
 highlight_current_item(GtkTreeView *tree_view, GtkListStore *list, gchar *current){
     GtkTreeIter     iter;
     gchar           *name = NULL;
-    gboolean        valid;
+  gboolean        valid;
     GtkTreePath     *path;
     GtkTreeModel    *model;
 //#ifdef DEBUGFUNCTIONCALL
@@ -77,9 +77,9 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data)
   enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
   gint type_button = UNKNOWN;
 
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     button = (GtkWidget*)g_object_get_data(G_OBJECT(user_data), "button");
     label = (GtkWidget*)g_object_get_data(G_OBJECT(button), "label");
     vbox = (GtkWidget*)g_object_get_data(G_OBJECT(button), "vbox");
@@ -106,6 +106,12 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data)
         type_button = STATE;
     if(!strcmp("station_button", control_name))
         type_button = TOWN;
+    if (type_button == TOWN){
+        g_object_set_data(G_OBJECT(window), "station_name", (gpointer)name);
+        id = get_station_code(g_object_get_data(G_OBJECT(window), "station_source"),
+                              GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_region_id")), name);
+        g_object_set_data(G_OBJECT(window), "station_code", (gpointer)id);
+    }
     if (type_button == STATE){
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
@@ -166,7 +172,21 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data)
 
     user_data = NULL;
 }
+/*******************************************************************************/
+void
+save_button_handler(GtkWidget *button, GdkEventButton *event,
+                                    gpointer user_data){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
 
+    add_station_to_user_list(g_strdup(g_object_get_data(G_OBJECT(user_data), "station_name")),
+                                      g_strdup(g_object_get_data(G_OBJECT(user_data), "station_code")),
+                                      FALSE,
+                                      g_strdup(g_object_get_data(G_OBJECT(user_data), "station_source")),
+                                             -1);
+ 
+} 
 /*******************************************************************************/
 void
 choose_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -183,9 +203,9 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     gint type_button = UNKNOWN;
     GtkTreeSelection  *sel;
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
     if(!strcmp("country_button", control_name))
         type_button = COUNTRY;
@@ -443,7 +463,10 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 5, 6, 6, 8, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 10, 10);
     gtk_widget_show (save_button);
-
+    g_signal_connect(G_OBJECT(save_button), "button-release-event",
+                     G_CALLBACK(save_button_handler),
+                     window);
+ 
     right_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(right_alignmnet, 5, -1);
     gtk_table_attach((GtkTable*)main_table, right_alignmnet,

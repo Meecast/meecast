@@ -40,13 +40,17 @@
 /*******************************************************************************/
 void
 add_station_to_user_list(gchar *weather_station_name, gchar *weather_station_id,
-						gboolean is_gps, gchar *source){
+                          gboolean is_gps, gchar *source, gint position){
     GtkTreeIter iter;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
+    fprintf(stderr,"weather_station_name %s\n",weather_station_name);
     /* Add station to stations list */
-    gtk_list_store_append(app->user_stations_list, &iter);
+    if (position == -1)
+        gtk_list_store_append(app->user_stations_list, &iter);
+    else
+        gtk_list_store_insert(app->user_stations_list, &iter, position);
     gtk_list_store_set(app->user_stations_list, &iter,
 #if defined(ENABLE_GPS)
                        0, weather_station_name,
@@ -2057,7 +2061,7 @@ add_button_handler(GtkWidget *button, gpointer user_data){
 				1, &station_code,
 				-1);
 	    add_station_to_user_list(station_name, station_code,
-					 FALSE, source_name);
+					 FALSE, source_name, -1);
 	    /* set added station as current */
 	    if(app->config->current_station_name)
 		g_free(app->config->current_station_name);
@@ -2119,7 +2123,8 @@ rename_button_handler(GtkWidget * button, GdkEventButton * event,
                     add_station_to_user_list(g_strdup(new_station_name),
                                              app->config->current_station_id,
                                              FALSE,
-                                             app->config->current_station_source);
+                                             app->config->current_station_source,
+                                             -1);
                     if(app->config->current_station_name)
                         g_free(app->config->current_station_name);
                     app->config->current_station_name =

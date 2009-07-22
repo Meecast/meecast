@@ -143,7 +143,7 @@ timer_handler(gpointer data) {
                                 g_strdup("weather.com");
                         add_station_to_user_list(app->gps_station.name,
                                                  app->gps_station.id0,
-                                                 TRUE, app->config->current_source);
+                                                 TRUE, app->config->current_source, -1);
                         if (!app->config->current_station_name
                             && !app->config->current_station_id) {
                             /* Fix me if source are not weather.com */

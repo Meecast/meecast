@@ -162,8 +162,8 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data)
         changed_sources_handler(NULL, window);
     }
     /* Destroy window */
-    fprintf(stderr,"dddddd %p\n",user_data);
-    gtk_widget_destroy(user_data);
+    g_signal_emit_by_name(G_OBJECT(user_data), "close", NULL);
+
     user_data = NULL;
 }
 
@@ -236,14 +236,13 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     g_object_set_data(G_OBJECT(window), "button", (gpointer)button);
     sel = gtk_tree_view_get_selection (GTK_TREE_VIEW (list_view));
     g_signal_connect (sel, "changed",G_CALLBACK (list_changed), window);
-    fprintf(stderr,"sssssss %p\n", window);
 
     gtk_widget_show_all(main_table);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
     gtk_widget_show_all(window);
     /* start dialog window */
-//    result = gtk_dialog_run(GTK_DIALOG(window));
+    result = gtk_dialog_run(GTK_DIALOG(window));
     if (window)
         gtk_widget_destroy(window);
 

@@ -84,51 +84,72 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data)
     vbox = (GtkWidget*)g_object_get_data(G_OBJECT(button), "vbox");
     window = (GtkWidget*)g_object_get_data(G_OBJECT(button), "window");
 
-  if (label){
+    if (label){
         gtk_widget_destroy(label);
-        if (gtk_tree_selection_get_selected(sel,&model, &iter)){
-            gtk_tree_model_get(model, &iter, 0, &name, -1);
-            label = gtk_label_new(name);
-            gtk_box_pack_start(GTK_BOX(vbox), label, TRUE, TRUE, 0);
-            gtk_widget_show(button);
-            gtk_widget_show(label);
+        label = NULL;
+    }
+    if (gtk_tree_selection_get_selected(sel,&model, &iter)){
+        gtk_tree_model_get(model, &iter, 0, &name, -1);
+        label = gtk_label_new(name);
+        g_object_set_data(G_OBJECT(button), "label", (gpointer)label);
+        gtk_box_pack_start(GTK_BOX(vbox), label, TRUE, TRUE, 0);
+        gtk_widget_show(button);
+        gtk_widget_show(label);
+    }
+    control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
+    if(!strcmp("country_button", control_name))
+        type_button = COUNTRY;
+    if(!strcmp("source_button", control_name))
+        type_button = SOURCE;
+    if(!strcmp("region_button", control_name))
+        type_button = STATE;
+    if(!strcmp("station_button", control_name))
+        type_button = TOWN;
+    if (type_button == STATE){
+        temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
+        label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
+        if (label){
+            gtk_widget_destroy(label);
+            label = NULL;
         }
-        control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
-        if(!strcmp("country_button", control_name))
-            type_button = COUNTRY;
-        if(!strcmp("source_button", control_name))
-            type_button = SOURCE;
-        if(!strcmp("region_button", control_name))
-            type_button = STATE;
-        if(!strcmp("station_button", control_name))
-            type_button = TOWN;
-        if (type_button == STATE){
-            temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
-            label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
+        changed_state_handler(NULL, window);
+    }
+    if (type_button == COUNTRY){
+        temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
+        label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
+        if (label){
             gtk_widget_destroy(label);
-            changed_state_handler(NULL, window);
+            label = NULL;
         }
-        if (type_button == COUNTRY){
-            temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
-            label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
+        temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "region_button");
+        label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
+        if (label){
             gtk_widget_destroy(label);
-            temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "region_button");
-            label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
-            gtk_widget_destroy(label);
-            changed_country_handler(NULL, window);
+            label = NULL;
         }
-        if (type_button == SOURCE){
-            temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
-            label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
+        /* !!!!!!!!!!!!!!!!!!!!!!!1 */
+        changed_country_handler(label, window);
+    }
+    if (type_button == SOURCE){
+        temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
+        label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
+        if (label){
             gtk_widget_destroy(label);
-            temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "region_button");
-            label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
-            gtk_widget_destroy(label);
-            temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "country_button");
-            label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
-            gtk_widget_destroy(label);
-            changed_sources_handler(NULL, window);
+            label = NULL;
         }
+        temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "region_button");
+        label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
+        if (label){
+            gtk_widget_destroy(label);
+            label = NULL;
+        }
+        temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "country_button");
+        label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
+        if (label){
+            gtk_widget_destroy(label);
+            label = NULL;
+        }
+        changed_sources_handler(NULL, window);
     }
 }
 

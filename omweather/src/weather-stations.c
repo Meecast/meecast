@@ -616,7 +616,6 @@ get_station_code(gchar *source, gint region_id, gchar *station_name){
     if (!database)
         return -1;
     list = gtk_list_store_new(1, G_TYPE_STRING);
-    fprintf(stderr,"ttttttt %i\n",region_id);
     /* Correct SQL */
     snprintf(sql, sizeof(sql) - 1, "Select code from stations \
                                     where name='%s' and region_id='%i'", station_name, region_id);
@@ -717,16 +716,15 @@ int get_station_code_callback(void *user_data, int argc, char **argv, char **azC
     int			i;
     GtkTreeIter		iter;
     GtkListStore	*list = GTK_LIST_STORE(user_data);
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
     for(i = 0; i < argc; i++){
         if(!strcmp(azColName[i], "code"))
             gtk_list_store_set(list, &iter, 0, argv[i], -1);
-        fprintf(stderr,"azColName[i] %s %s",azColName[i], argv[i]);
     }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

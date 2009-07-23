@@ -31,7 +31,7 @@
 #include "weather-common.h"
 /*******************************************************************************/
 void weather_simple_window_settings(gpointer user_data);
-GtkWidget* create_and_full_stations_buttons(void);
+GtkWidget* create_and_full_stations_buttons(GtkWidget *main_table);
 extern GtkListStore* get_all_information_about_station(gchar *source, gchar *station_code);
 extern gint get_country_code(gchar *source, gchar *country_name);
 extern gint get_state_code(gchar *source, gchar *country_name);

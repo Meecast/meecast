@@ -178,6 +178,7 @@ save_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
     GtkTreeIter iter;
     gboolean valid;
+    GtkWidget *stations_box;
 //#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 //#endif
@@ -192,6 +193,14 @@ save_button_handler(GtkWidget *button, GdkEventButton *event,
         gtk_list_store_remove(app->user_stations_list, &iter);
     /* Update config file */
     config_save(app->config);
+    stations_box = (gpointer)(g_object_get_data(G_OBJECT(user_data), "station_box"));
+    gtk_widget_destroy(stations_box);
+    stations_box = create_and_full_stations_buttons((GtkTable*)(g_object_get_data(G_OBJECT(user_data), "settings_window_table")));
+    gtk_widget_show (stations_box);
+    gtk_table_attach((GtkTable*)(g_object_get_data(G_OBJECT(user_data), "settings_window_table")),
+                                stations_box, 1, 2, 1, 2, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+
     /* Destroy window */
     g_signal_emit_by_name(G_OBJECT(user_data), "close", NULL);
 }
@@ -491,7 +500,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     /* create sources list from aviable sources */
     list.sources_list = app->sources_list;
 
-    if(list.sources_list && app->config->current_source){
+    if(list.sources_list){
         g_object_set_data(G_OBJECT(window), "current_source", (gpointer)app->config->current_source);
         g_object_set_data(G_OBJECT(window), "station_region_id", (gpointer)g_object_get_data(G_OBJECT(button), "station_region_id"));
         g_object_set_data(G_OBJECT(window), "station_region", (gpointer)g_object_get_data(G_OBJECT(button), "station_region"));
@@ -499,6 +508,8 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
         g_object_set_data(G_OBJECT(window), "station_country", (gpointer)g_object_get_data(G_OBJECT(button), "station_country"));
         g_object_set_data(G_OBJECT(window), "station_source", (gpointer)g_object_get_data(G_OBJECT(button), "station_source"));
         g_object_set_data(G_OBJECT(window), "station_number", (gpointer)g_object_get_data(G_OBJECT(button), "station_number"));
+        g_object_set_data(G_OBJECT(window), "settings_window_table", (gpointer)g_object_get_data(G_OBJECT(button), "settings_window_table"));
+        g_object_set_data(G_OBJECT(window), "station_box", (gpointer)g_object_get_data(G_OBJECT(button), "station_box"));
         /* fill countries list */
         changed_sources_handler(NULL, window);
         changed_country_handler(NULL, window);
@@ -566,7 +577,7 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
 }
 /*******************************************************************************/
 GtkWidget*
-create_and_full_stations_buttons(void)
+create_and_full_stations_buttons(GtkWidget *main_table)
 {
   GtkWidget
           *box     = NULL,
@@ -616,13 +627,15 @@ create_and_full_stations_buttons(void)
 
         station = create_station_button(station_number,  station_name, station_code, station_source, station_country_id,
                                         station_country, station_region_id, station_region );
+        g_object_set_data(G_OBJECT(station), "settings_window_table", (gpointer)main_table);
+        g_object_set_data(G_OBJECT(station), "station_box", (gpointer)box);
         gtk_box_pack_start(GTK_BOX(box), station, TRUE, TRUE, 0);
         valid =
             gtk_tree_model_iter_next(GTK_TREE_MODEL
                                      (app->user_stations_list), &iter);
         station_number++;
 
-        /* Only  *four* station for simple mode */
+        /* Only *four* station for simple mode */
         if (station_number > 3)
             break;
     }
@@ -680,7 +693,7 @@ weather_simple_window_settings(gpointer user_data){
                                 0, 0 );
     gtk_widget_show (vertical0_alignmnet);
 
-    stations_box = create_and_full_stations_buttons();
+    stations_box = create_and_full_stations_buttons(main_table);
     gtk_widget_show (stations_box);
     gtk_table_attach((GtkTable*)main_table,stations_box,
                                 1, 2, 1, 2, (GtkAttachOptions)0,

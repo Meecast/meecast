@@ -664,6 +664,15 @@ create_and_full_stations_buttons(GtkWidget *main_table)
         if (station_number > 3)
             break;
     }
+    /* Added nil station_button */
+    while (station_number < 4){
+        station = create_station_button(station_number,  _("Unknown"), -1, app->config->current_source, -1,
+                                        _("Unknown"), -1, _("Unknown"));
+        g_object_set_data(G_OBJECT(station), "settings_window_table", (gpointer)main_table);
+        g_object_set_data(G_OBJECT(station), "station_box", (gpointer)box);
+        gtk_box_pack_start(GTK_BOX(box), station, TRUE, TRUE, 0);
+        station_number++;
+    }
 
     return box;
 }

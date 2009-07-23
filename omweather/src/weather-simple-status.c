@@ -25,8 +25,7 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-#include "weather-simple_settings.h"
-
+#include "weather-simple-settings.h"
 /*******************************************************************************/
 void simple_settings_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){

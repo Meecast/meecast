@@ -445,8 +445,8 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
 //#endif
 /* show simple window if it enabled */
     if(app->config->mode == SIMPLE_MODE){
-//        weather_simple_window_popup(widget, user_data);
-//        return FALSE;
+        weather_simple_window_popup(widget, user_data);
+        return FALSE;
     }
 
     if (app->popup_window || app->flag_updating != 0)

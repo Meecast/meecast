@@ -26,10 +26,10 @@ omweather_SOURCES = 	weather-home.c \
 			weather-config.c \
 			weather-settings.h \
 			weather-settings.c \
-			weather-simple_settings.h \
-			weather-simple_settings.c \
-			weather-simple_status.h \
-			weather-simple_status.c \
+			weather-simple-settings.h \
+			weather-simple-settings.c \
+			weather-simple-status.h \
+			weather-simple-status.c \
 			weather-common.h \
 			weather-event.c \
 			weather-event.h \
@@ -137,10 +137,10 @@ libweather_home_la_SOURCES  = \
             weather-config.c \
             weather-settings.h \
             weather-settings.c \
-			weather-simple_settings.h \
-			weather-simple_settings.c \
-			weather-simple_status.h \
-			weather-simple_status.c \
+			weather-simple-settings.h \
+			weather-simple-settings.c \
+			weather-simple-status.h \
+			weather-simple-status.c \
 			weather-common.h \
 			weather-event.c \
 			weather-event.h \

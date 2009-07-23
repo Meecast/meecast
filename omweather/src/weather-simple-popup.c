@@ -51,9 +51,9 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(), FALSE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), create_collapsed_view(), TRUE, TRUE, 0);
     gtk_widget_show_all(main_vbox);
-//    if(app->popup_window)
-//        gtk_widget_destroy(app->popup_window);
-//    app->popup_window = window;
+    if(app->popup_window)
+        gtk_widget_destroy(app->popup_window);
+    app->popup_window = window;
 }
 /*******************************************************************************/
 gchar*
@@ -141,6 +141,10 @@ create_top_buttons_box(void){
     /* update button */
     update_button = create_button_with_2_line_text(_("Update"), buffer, 18, 12);
     gtk_widget_set_size_request(update_button, -1, 80);
+    g_signal_connect(G_OBJECT(update_button), "button-release-event",
+                   G_CALLBACK(update_button_handler),
+                   NULL);
+
 
     gtk_box_pack_start(GTK_BOX(buttons_box), station_button, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(buttons_box), update_button, TRUE, TRUE, 0);
@@ -294,5 +298,18 @@ create_collapsed_view(void){
     }
     gtk_widget_show_all(scrolled_window);
     return scrolled_window;
+}
+/*******************************************************************************/
+void
+update_button_handler(GtkWidget *button, GdkEventButton *event,
+                                  gpointer user_data){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(app->popup_window)
+        destroy_popup_window();
+    if(user_data)
+        gtk_widget_destroy(GTK_WIDGET(user_data));
+    update_weather(TRUE);
 }
 /*******************************************************************************/

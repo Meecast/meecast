@@ -32,5 +32,6 @@
 /*******************************************************************************/
 void weather_simple_window_status(GtkWidget *widget, gpointer user_data);
 GtkWidget* create_stations_buttons(void);
+extern void update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
 extern void weather_simple_window_settings(gpointer user_data);
 #endif

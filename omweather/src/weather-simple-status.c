@@ -25,7 +25,7 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-#include "weather-simple-settings.h"
+#include "weather-simple-status.h"
 /*******************************************************************************/
 void simple_settings_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
@@ -36,18 +36,6 @@ void simple_settings_button_handler(GtkWidget *button, GdkEventButton *event,
         gtk_widget_destroy(GTK_WIDGET(user_data));
 */
     weather_simple_window_settings(user_data);
-}
-/*******************************************************************************/
-void update_button_handler(GtkWidget *button, GdkEventButton *event,
-                                  gpointer user_data){
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    if(app->popup_window)
-        destroy_popup_window();
-    if(user_data)
-        gtk_widget_destroy(GTK_WIDGET(user_data));
-    update_weather(TRUE);
 }
 
 /*******************************************************************************/

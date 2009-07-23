@@ -804,7 +804,6 @@ weather_simple_window_settings(gpointer user_data){
             units_string = g_strjoin(", ", units_string,_("mm"), NULL);
     }
 
-    fprintf(stderr, "\nUnits:  %s\n", units_string);
 
     units_button = gtk_button_new ();
     units_label = gtk_label_new(_("Units"));

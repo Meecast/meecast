@@ -601,7 +601,7 @@ gint parse_weather_com_xml_hour(const gchar *station_id,
                                                    (strlen((char*)temp_xml_string)));
                         strptime(buff, "%H", &tmp_tm);
                         memset(buff, 0, sizeof(buff));
-                         strftime(buff, sizeof(buff) - 1, "%H", &tmp_tm);
+                        strftime(buff, sizeof(buff) - 1, "%H", &tmp_tm);
                         itm = create_item("hours", buff);
                         xmlFree(temp_xml_string);
                         add_item2object(&hour_weather, itm);

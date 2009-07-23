@@ -695,7 +695,7 @@ weather_simple_window_settings(gpointer user_data){
           *vertical2_alignmnet  = NULL,
           *vertical3_alignmnet  = NULL,
           *vertical4_alignmnet  = NULL;
-
+  gchar   *units_string = NULL;  
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -743,12 +743,62 @@ weather_simple_window_settings(gpointer user_data){
                                 0, 0 );
     gtk_widget_show (vertical1_alignmnet);
 
+    /* temperature */
+    if(app->config->temperature_units == 0)
+        units_string = "C";
+    else
+        units_string = "F";
+    
+    /* distance units */
+    if(app->config->distance_units == 0)
+        units_string = g_strjoin(", ", units_string,"m", NULL);
+        else{
+            if(app->config->distance_units == 1)
+                 units_string = g_strjoin(", ", units_string,"km", NULL);
+            else{
+               if(app->config->distance_units == 2)
+                 units_string = g_strjoin(", ", units_string,"mi", NULL);
+               else
+                 units_string = g_strjoin(", ", units_string,"seami", NULL);
+            }
+        }
 
-    units_button = gtk_button_new_with_label (_("Units"));
+    /* wind units */
+    if(app->config->wind_units == 0)
+        units_string = g_strjoin(", ", units_string,"m/s", NULL);
+    else{
+        if(app->config->wind_units == 1)
+            units_string = g_strjoin(", ", units_string,"km/h", NULL);
+        else
+            units_string = g_strjoin(", ", units_string,"mi/h", NULL);
+    }
+        
+    /* pressure */
+    if(app->config->pressure_units == 0)
+        units_string = g_strjoin(", ", units_string,"mb", NULL);
+    else{
+        if(app->config->pressure_units == 1)
+            units_string = g_strjoin(", ", units_string,"inch", NULL);
+        else
+            units_string = g_strjoin(", ", units_string,"mm", NULL);
+    }
+
+    fprintf(stderr, "\nUnits:  %s\n", units_string);
+            
+
+   /* units_button = gtk_button_new_with_label (_("Units"));
     gtk_widget_set_size_request(units_button, 490, 60);
     gtk_widget_show (units_button);
     gtk_table_attach((GtkTable*)main_table, units_button,
                                 1, 2, 3, 4, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );*/
+
+    units_button = create_button(_("Units"), units_string, "units_button", "units_string",
+                                    window);
+    g_object_set_data(G_OBJECT(window), "units_button", (gpointer)units_button);
+    gtk_table_attach((GtkTable*)main_table, units_button,
+                                1, 2, 3, 4,
+                                GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
 
     vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );

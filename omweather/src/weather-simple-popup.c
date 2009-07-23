@@ -33,7 +33,15 @@ void
 weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     GtkWidget       *window = NULL,
                     *main_vbox = NULL;
-
+    HildonAppMenu  *menu;
+    GtkWidget *menu_item1;
+    GtkWidget *menu_item2;
+    GtkWidget *menu_item3;
+    GtkWidget *menu_item4;
+    GtkAction *test1;
+    GtkAction *test2;
+    GtkAction *test3;
+    GtkAction *test4;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -51,6 +59,16 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(), FALSE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), create_collapsed_view(), TRUE, TRUE, 0);
     gtk_widget_show_all(main_vbox);
+
+#if defined OS2009
+    menu = hildon_app_menu_new();
+    menu_item1 = gtk_button_new_with_label("9999999");
+    gtk_widget_show_all(GTK_WIDGET(menu_item1));
+    hildon_app_menu_append(menu, menu_item1);
+    gtk_widget_show_all(GTK_WIDGET(menu));
+    hildon_window_set_app_menu(HILDON_WINDOW(window), menu);
+#endif
+
     if(app->popup_window)
         gtk_widget_destroy(app->popup_window);
     app->popup_window = window;

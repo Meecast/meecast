@@ -37,6 +37,7 @@ gchar* get_next_station_name(const gchar *current_station_name, GtkListStore *us
 GtkWidget* create_top_buttons_box(void);
 GtkWidget* create_collapsed_view(void);
 void update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
+extern GtkWidget* create_stations_buttons(void);
 
 /*******************************************************************************/
 #endif

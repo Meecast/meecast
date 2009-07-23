@@ -299,6 +299,7 @@ gint read_config(AppletConfig * config) {
     GdkColor DEFAULT_FONT_COLOR = { 0, 0xFF00, 0xFF00, 0x0000 };
     GdkColor DEFAULT_BACKGROUND_FONT_COLOR = { 0, 0x0000, 0x0000, 0x0000 };
     gchar tmp_buff[1024], *home_dir, *tmp = NULL;
+    gboolean first_start = FALSE;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -308,6 +309,18 @@ gint read_config(AppletConfig * config) {
         fprintf(stderr, _("Failed to initialize GConf. Quitting.\n"));
         return 1;
     }
+    /* Check first start then  */
+    tmp = NULL;
+    tmp = gconf_client_get_string(gconf_client,
+                                  GCONF_KEY_WEATHER_PROGRAM_VERSION, NULL);
+    if (!tmp) {
+        first_start = TRUE;
+    } else {
+        g_free(tmp);
+        tmp = NULL;
+        first_start = FALSE;
+    }
+
     /* Get Weather Cache Directory.  Default is "~/apps/omweather". */
     tmp = gconf_client_get_string(gconf_client,
                                   GCONF_KEY_WEATHER_DIR_NAME, NULL);
@@ -630,7 +643,7 @@ gint read_config(AppletConfig * config) {
                                                 GCONF_KEY_ICONS_LAYOUT,
                                                 NULL);
     if (config->icons_layout < ONE_ROW
-        || config->icons_layout > PRESET_NOW_PLUS_SEVEN)
+        || config->icons_layout > PRESET_NOW_PLUS_SEVEN || first_start)
         config->icons_layout = PRESET_NOW;
 
     /*!!!!!!!!!!!!!!!! Tempory hack !!!!!!!!!!!!!!
@@ -748,18 +761,12 @@ gint read_config(AppletConfig * config) {
         config->data_valid_interval *= 3600;
 
     /* If this first start then fill default station from clock config */
-    tmp = NULL;
-    tmp = gconf_client_get_string(gconf_client,
-                                  GCONF_KEY_WEATHER_PROGRAM_VERSION, NULL);
-    if (!tmp) {
+    if (first_start) {
         if (!app->config->current_station_id) {
             fill_user_stations_list_from_clock(&app->user_stations_list);
             if (app->iap_connected)
                 update_weather(TRUE);
         }
-    } else {
-        g_free(tmp);
-        tmp = NULL;
     }
     gconf_client_clear_cache(gconf_client);
     g_object_unref(gconf_client);

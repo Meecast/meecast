@@ -443,13 +443,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
 //#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 //#endif
-/* show simple window if it enabled */
-    if(app->config->mode == SIMPLE_MODE){
-        weather_simple_window_popup(widget, user_data);
-        return FALSE;
-    }
-
-    if (app->popup_window || app->flag_updating != 0)
+    if(app->popup_window || app->flag_updating != 0)
         return FALSE;
 /* Debug */
 /*  time_start(); */
@@ -460,9 +454,14 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
         weather_window_settings(NULL, (gpointer)active_tab);
         return FALSE;
     }
+/* show simple window if it enabled */
+    if(app->config->mode == SIMPLE_MODE){
+        weather_simple_window_popup(widget, user_data);
+        return FALSE;
+    }
 /* Main window */
 #if defined OS2009
-     app->popup_window = hildon_stackable_window_new ();
+     app->popup_window = hildon_stackable_window_new();
 #else
      app->popup_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 #endif

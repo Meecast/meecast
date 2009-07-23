@@ -144,13 +144,17 @@ create_collapsed_view(void){
                     *line_text = NULL;
     GdkPixbuf       *icon_buffer;
     GtkWidget       *icon_image;
+    const gchar     *wind_units_str[] = { "m/s", "km/h", "mi/h" };
     gchar           buffer[1024],
-                    tmp[255],
+                    tmp[512],
                     icon[2048],
+                    symbol = 'C',
                     *comma = NULL;
     GSList          *days = NULL;
     GHashTable      *day = NULL;
-    gint            i = 0;
+    gint            i = 0,
+                    hi_temp,
+                    low_temp;
     struct tm       tmp_time_date_struct = {0};
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -171,7 +175,7 @@ create_collapsed_view(void){
         while(days){
             day = (GHashTable*)(days->data);
             /* line box */
-            line_hbox = gtk_hbox_new(TRUE, 10);
+            line_hbox = gtk_hbox_new(FALSE, 0);
             /* icon */
             *buffer = 0;
             snprintf(icon, sizeof(icon) - 1, "%s%s.png", app->config->icons_set_base,
@@ -181,7 +185,7 @@ create_collapsed_view(void){
             icon_image = create_icon_widget(icon_buffer, icon, SMALL_ICON_SIZE, &app->clutter_objects_in_popup_form);
             if(icon_image){
                 gtk_box_pack_start(GTK_BOX(line_hbox), icon_image, FALSE, TRUE, 0);
-                gtk_box_pack_start(GTK_BOX(main_vbox), line_hbox, FALSE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(main_vbox), line_hbox, TRUE, TRUE, 0);
             }
             /* day label */
             *buffer = 0;
@@ -201,9 +205,77 @@ create_collapsed_view(void){
                 snprintf(buffer, sizeof(buffer) - 1, "<span weight=\"bold\">%s", tmp);
             snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1, "</span>");
             /* day text */
+            *tmp = 0;
+            snprintf(tmp, sizeof(tmp) - 1, "\n%s ", _("d:"));
+            /* prepare temperature */
+            if(!g_hash_table_lookup(day, "day_hi_temperature") ||
+                   !strcmp(g_hash_table_lookup(day, "day_hi_temperature"), "N/A")){
+                hi_temp = INT_MAX;
+            }
+            else
+                hi_temp = atoi(g_hash_table_lookup(day, "day_hi_temperature"));
+            if(!g_hash_table_lookup(day, "day_low_temperature") ||
+                    !strcmp(g_hash_table_lookup(day, "day_low_temperature"), "N/A")){
+                low_temp = INT_MAX;
+            }
+            else
+                low_temp = atoi(g_hash_table_lookup(day, "day_low_temperature"));
+            if(app->config->temperature_units == FAHRENHEIT){
+                if(hi_temp != INT_MAX)
+                    hi_temp = c2f(hi_temp);
+                if(low_temp != INT_MAX)
+                    low_temp = c2f(low_temp);
+                symbol = 'F';
+            }
+            /* day temperature */
+            if(hi_temp == INT_MAX)
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%s, ",
+                            (char*)hash_table_find("N/A", FALSE));
+            else
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%d\302\260%c, ",
+                            hi_temp, symbol);
+            /* day title */
+            if(g_hash_table_lookup(day, "day_title"))
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%s, ",
+                            (char*)hash_table_find(g_hash_table_lookup(day, "day_title"), FALSE));
+            /* wind speed */
+            if(g_hash_table_lookup(day, "day_wind_speed"))
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"%.2f %s ",
+                            convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed"))),
+                            (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+            /* wind direction */
+            if(g_hash_table_lookup(day, "day_wind_title"))
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "(%s); ",
+                            (char*)hash_table_find(g_hash_table_lookup(day, "day_wind_title"), FALSE));
+            snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%s ", _("n:"));
+            /* night temperature */
+            if(low_temp == INT_MAX)
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%s, ",
+                            (char*)hash_table_find("N/A", FALSE));
+            else
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%d\302\260%c, ",
+                            low_temp, symbol);
+            /* night title */
+            if(g_hash_table_lookup(day, "night_title"))
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%s, ",
+                            (char*)hash_table_find(g_hash_table_lookup(day, "night_title"), FALSE));
+            /* wind speed */
+            if(g_hash_table_lookup(day, "night_wind_speed"))
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"%.2f %s ",
+                            convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))),
+                            (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+            /* wind direction */
+            if(g_hash_table_lookup(day, "night_wind_title"))
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "(%s)",
+                            (char*)hash_table_find(g_hash_table_lookup(day, "night_wind_title"), FALSE));
+
+            snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1, "<i>%s</i>", tmp);
+
             line_text = gtk_label_new(NULL);
+            gtk_label_set_justify(GTK_LABEL(line_text), GTK_JUSTIFY_LEFT);
             gtk_label_set_markup(GTK_LABEL(line_text), buffer);
-            gtk_box_pack_start(GTK_BOX(line_hbox), line_text, FALSE, TRUE, 0);
+            set_font(line_text, NULL, 12);
+            gtk_box_pack_start(GTK_BOX(line_hbox), line_text, TRUE, TRUE, 0);
             /* next day */
             days = g_slist_next(days);
             i++;

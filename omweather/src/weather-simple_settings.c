@@ -27,6 +27,33 @@
 /*******************************************************************************/
 #include "weather-simple_settings.h"
 /*******************************************************************************/
+
+void
+widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
+                                    gpointer user_data){
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+    GtkWidget *vbox                 = NULL,
+            *label                = NULL,
+            *window               = NULL;
+    gint result;
+
+    window = gtk_dialog_new();
+    gtk_widget_set_name(window, "widget_style_window");
+
+    gtk_widget_show_all(window);
+    result = gtk_dialog_run(GTK_DIALOG(window));
+    if (window)
+        gtk_widget_destroy(window);
+
+
+//#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+//#endif
+
+}
+
 void
 highlight_current_item(GtkTreeView *tree_view, GtkListStore *list, gchar *current){
     GtkTreeIter     iter;
@@ -34,9 +61,9 @@ highlight_current_item(GtkTreeView *tree_view, GtkListStore *list, gchar *curren
   gboolean        valid;
     GtkTreePath     *path;
     GtkTreeModel    *model;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if (!current || !tree_view)
         return;
 
@@ -179,10 +206,10 @@ save_button_handler(GtkWidget *button, GdkEventButton *event,
     GtkTreeIter iter;
     gboolean valid;
     GtkWidget *stations_box;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
-    fprintf(stderr,"number %i\n", GPOINTER_TO_INT(g_object_get_data(G_OBJECT(user_data), "station_number")));
+#endif
+
     iter = add_station_to_user_list(g_strdup(g_object_get_data(G_OBJECT(user_data), "station_name")),
                                       g_strdup(g_object_get_data(G_OBJECT(user_data), "station_code")),
                                       FALSE,
@@ -516,8 +543,6 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
         changed_state_handler(NULL, window);
     }
 
-
-
     gtk_widget_show_all(window);
     /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(window));
@@ -733,6 +758,9 @@ weather_simple_window_settings(gpointer user_data){
     gtk_table_attach((GtkTable*)main_table, widget_style_button,
                                 1, 2, 5, 6, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
+    g_signal_connect(G_OBJECT(widget_style_button), "button-release-event",
+                   G_CALLBACK(widget_style_setup_button_handler),
+                   (gpointer)widget_style_button);
 
     vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(vertical3_alignmnet, -1, 20);

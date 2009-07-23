@@ -282,10 +282,11 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
             if(g_object_get_data(G_OBJECT(config), "current_source"))
                 source = get_source_hash(list->sources_list, g_object_get_data(G_OBJECT(config), "current_source"));
             else
-                source = NULL;
+                source = get_first_source(list->sources_list);
         }
       /* prepare database name */
       if(source_stations_database_valid(source)){
+          fprintf(stderr,"hhhhhhh\n");
           value = g_hash_table_lookup(source, "base");
           /* open database */
           list->database = open_database(DATABASEPATH, (gchar*)value);

@@ -125,6 +125,7 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data)
         gtk_widget_show(label);
     }
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
+    fprintf(stderr,"Control name %s\n", control_name);
     if(!strcmp("country_button", control_name))
         type_button = COUNTRY;
     if(!strcmp("source_button", control_name))
@@ -198,6 +199,9 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data)
     g_signal_emit_by_name(G_OBJECT(user_data), "close", NULL);
 
     user_data = NULL;
+//#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+//#endif
 }
 /*******************************************************************************/
 void
@@ -696,7 +700,12 @@ weather_simple_window_settings(gpointer user_data){
           *vertical2_alignmnet  = NULL,
           *vertical3_alignmnet  = NULL,
           *vertical4_alignmnet  = NULL;
-  gchar   *units_string = NULL;  
+  GtkWidget
+          *units_label           = NULL,
+          *units_description      = NULL,
+          *units_box             = NULL;
+
+  gchar   *units_string = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -748,7 +757,7 @@ weather_simple_window_settings(gpointer user_data){
         units_string = "C";
     else
         units_string = "F";
-    
+
     /* distance units */
     if(app->config->distance_units == METERS)
         units_string = g_strjoin(", ", units_string,_("m"), NULL);
@@ -772,7 +781,7 @@ weather_simple_window_settings(gpointer user_data){
         else
             units_string = g_strjoin(", ", units_string,_("mi/h"), NULL);
     }
-        
+
     /* pressure */
     if(app->config->pressure_units == MB)
         units_string = g_strjoin(", ", units_string,_("mb"), NULL);
@@ -784,21 +793,28 @@ weather_simple_window_settings(gpointer user_data){
     }
 
     fprintf(stderr, "\nUnits:  %s\n", units_string);
-            
 
-   /* units_button = gtk_button_new_with_label (_("Units"));
-    gtk_widget_set_size_request(units_button, 490, 60);
+    units_button = gtk_button_new ();
+    units_label = gtk_label_new(_("Units"));
+    /* TO DO !!!!!! check memory leak in units_string */
+    set_font(units_label, NULL, 12);
+    gtk_widget_show (units_label);
+
+    units_description = gtk_label_new (units_string);
+    set_font(units_description, NULL, 18);
+    gtk_widget_show(units_description);
+    units_box = gtk_vbox_new(TRUE, 2);
+    gtk_widget_show(units_box);
+
+    gtk_box_pack_start(GTK_BOX(units_box), units_label, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(units_box), units_description, TRUE, TRUE, 0);
+    gtk_container_add (GTK_CONTAINER (units_button), units_box);
+
+
+    gtk_widget_set_size_request(units_button, 490, 70);
     gtk_widget_show (units_button);
     gtk_table_attach((GtkTable*)main_table, units_button,
                                 1, 2, 3, 4, (GtkAttachOptions)0,
-                                (GtkAttachOptions)0, 0, 0 );*/
-
-    units_button = create_button(_("Units"), units_string, "units_button", "units_string",
-                                    window);
-    g_object_set_data(G_OBJECT(window), "units_button", (gpointer)units_button);
-    gtk_table_attach((GtkTable*)main_table, units_button,
-                                1, 2, 3, 4,
-                                GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
 
     vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
@@ -812,7 +828,7 @@ weather_simple_window_settings(gpointer user_data){
 
 
     widget_style_button = gtk_button_new_with_label (_("Widget_style"));
-    gtk_widget_set_size_request(widget_style_button, 490, 60);
+    gtk_widget_set_size_request(widget_style_button, 490, 70);
     gtk_widget_show (widget_style_button);
     gtk_table_attach((GtkTable*)main_table, widget_style_button,
                                 1, 2, 5, 6, (GtkAttachOptions)0,
@@ -831,7 +847,7 @@ weather_simple_window_settings(gpointer user_data){
     gtk_widget_show (vertical3_alignmnet);
 
     update_button = gtk_button_new_with_label (_("Update"));
-    gtk_widget_set_size_request(update_button, 490, 60);
+    gtk_widget_set_size_request(update_button, 490, 70);
     gtk_widget_show (update_button);
     gtk_table_attach((GtkTable*)main_table, update_button,
                                 1, 2, 6, 7, (GtkAttachOptions)0,

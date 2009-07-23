@@ -876,7 +876,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     #endif
 /* Initialize DBUS */
     weather_initialize_dbus(); /* TODO connect this function with app->dbus_is_initialize */
-
 #ifdef CLUTTER
     /* Init clutter */
     if (gtk_clutter_init (NULL, NULL) != CLUTTER_INIT_SUCCESS)
@@ -900,7 +899,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #elif OS2009
         return;
 #else
-	return NULL;
+    return NULL;
 #endif
     }
     app->sources_list = create_sources_list(SOURCESPATH, &app->sources_number, &app->handles);
@@ -915,7 +914,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     timer(60000);  /* One per minute */
 /* Start main applet */
     app->top_widget = gtk_hbox_new(FALSE, 0);
-    
 #if  defined(NONMAEMO) || defined (APPLICATION)
     /* pack for window in Application mode */
     app->config->is_application_mode = TRUE;

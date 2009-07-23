@@ -611,9 +611,9 @@ get_station_code(gchar *source, gint region_id, gchar *station_name){
     gboolean valid;
     gchar       *code;
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
     snprintf(buffer, sizeof(buffer) - 1, "%s.db",source);
     database = open_database(DATABASEPATH, buffer);
@@ -770,7 +770,7 @@ int regions_callback(void *user_data, int argc, char **argv, char **azColName){
     START_FUNCTION;
 #endif
 
-	setlocale(LC_NUMERIC, "POSIX");
+    setlocale(LC_NUMERIC, "POSIX");
     data->count += (int)argc / 6;
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
@@ -788,7 +788,7 @@ int regions_callback(void *user_data, int argc, char **argv, char **azColName){
         if(!strcmp(azColName[i], "latitudemin"))
             gtk_list_store_set(list, &iter, 5, atof(argv[i]), -1);
     }
-	setlocale(LC_NUMERIC, "");
+    setlocale(LC_NUMERIC, "");
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

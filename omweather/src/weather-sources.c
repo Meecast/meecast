@@ -41,9 +41,9 @@ create_sources_list(gchar *sources_path, gint *sources_number, GSList **handles)
     GHashTable      *source = NULL;
     gint            counter = 0;
     gpointer        value = NULL;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     if(!sources_path)
         return NULL;/* error */
 
@@ -134,7 +134,7 @@ get_source_hash(GtkListStore *data, const gchar *source_name){
 }
 /*******************************************************************************/
 gpointer
-get_first_source(GtkListStore *data){
+get_first_source_hash(GtkListStore *data){
     GtkTreeIter iter;
     GHashTable  *source = NULL;
     gpointer    value = NULL;
@@ -146,10 +146,9 @@ get_first_source(GtkListStore *data){
         return NULL;
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(data), &iter);
     gtk_tree_model_get(GTK_TREE_MODEL(data), &iter, 1, &source, -1);
-    fprintf(stderr, "dddddd %s\n",(gchar* )g_hash_table_lookup(source, "name"));
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
     return source;
 }
 /*******************************************************************************/

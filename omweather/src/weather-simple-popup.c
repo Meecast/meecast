@@ -78,6 +78,7 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
         if(ready)
             return station_name;
         else{
+            fprintf(stderr,"Name %s %s\n",current_station_name, station_name);
             if((current_station_name) && (station_name) &&
                   !strcmp(current_station_name, station_name))
                 ready = TRUE;
@@ -92,6 +93,10 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
         }
     }
     gtk_tree_path_free(path);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
     return NULL;
 }
 /*******************************************************************************/

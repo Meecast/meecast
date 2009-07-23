@@ -202,10 +202,16 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
 #endif
                                    -1);
             }
-            if (!strcmp(station_name, app->config->current_station_name)
+            if (app->config->current_station_name && app->config->current_station_id
+                && (!strcmp(station_name, app->config->current_station_name)
                 && !strcmp(station_code, app->config->current_station_id)
-                && !app->config->current_station_source) {
+                && !app->config->current_station_source)) {
                 app->config->current_station_source = g_strdup(station_source);
+            }
+            if (!app->config->current_station_id) {
+                app->config->current_station_id = g_strdup(station_code);
+                app->config->current_station_name = g_strdup(station_name);
+                app->config->current_station_source = g_strdup("weather.com");
             }
 
             if(station_name){
@@ -412,6 +418,7 @@ gint read_config(AppletConfig * config) {
         g_slist_foreach(stlist, (GFunc)g_free, NULL);
         g_slist_free(stlist);
     }
+
     /* Get user alerts list */
     stlist = gconf_client_get_list(gconf_client,
                                    GCONF_KEY_WEATHER_ALERTS_LIST,
@@ -430,7 +437,6 @@ gint read_config(AppletConfig * config) {
         update_icons_set_base(config->icon_set);
     } else
         close(fd);
-
 
     /* Get Weather Icon Size  */
     config->icons_size = gconf_client_get_int(gconf_client,
@@ -770,7 +776,6 @@ gint read_config(AppletConfig * config) {
     }
     gconf_client_clear_cache(gconf_client);
     g_object_unref(gconf_client);
-
     return 0;
 }
 

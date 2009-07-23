@@ -31,9 +31,9 @@
 void
 widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     GtkWidget *vbox                 = NULL,
             *label                = NULL,
             *window               = NULL;
@@ -48,9 +48,9 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
         gtk_widget_destroy(window);
 
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 
 }
 
@@ -104,9 +104,9 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data)
   enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
   gint type_button = UNKNOWN;
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     button = (GtkWidget*)g_object_get_data(G_OBJECT(user_data), "button");
     label = (GtkWidget*)g_object_get_data(G_OBJECT(button), "label");
     vbox = (GtkWidget*)g_object_get_data(G_OBJECT(button), "vbox");
@@ -180,28 +180,33 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data)
         if (label){
             gtk_widget_destroy(label);
             label = NULL;
+            g_object_set_data(G_OBJECT(temp_button), "label", NULL);
         }
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "region_button");
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
             gtk_widget_destroy(label);
             label = NULL;
+            g_object_set_data(G_OBJECT(temp_button), "label", NULL);
         }
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "country_button");
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
             gtk_widget_destroy(label);
             label = NULL;
+            g_object_set_data(G_OBJECT(temp_button), "label", NULL);
         }
+        g_object_set_data(G_OBJECT(window), "station_source", name);
+        g_object_set_data(G_OBJECT(button), "station_source", name);
         changed_sources_handler(NULL, window);
     }
     /* Destroy window */
     g_signal_emit_by_name(G_OBJECT(user_data), "close", NULL);
 
     user_data = NULL;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 }
 /*******************************************************************************/
 void
@@ -265,6 +270,9 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
         type_button = TOWN;
 
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
+    /* This is very serious error */
+    if (!list)
+        return;
     window = gtk_dialog_new();
     main_table = gtk_table_new(8, 8, FALSE);
 
@@ -398,9 +406,26 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
     window = gtk_dialog_new();
     gtk_widget_set_name(window, "simple_settings_window");
+    g_object_set_data(G_OBJECT(window), "list", (gpointer)&list);
+
+    /* create sources list from aviable sources */
+    list.sources_list = app->sources_list;
+    g_object_set_data(G_OBJECT(window), "current_source", (gpointer)app->config->current_source);
+    g_object_set_data(G_OBJECT(window), "station_region_id", (gpointer)g_object_get_data(G_OBJECT(button), "station_region_id"));
+    g_object_set_data(G_OBJECT(window), "station_region", (gpointer)g_object_get_data(G_OBJECT(button), "station_region"));
+    g_object_set_data(G_OBJECT(window), "station_country_id", (gpointer)g_object_get_data(G_OBJECT(button), "station_country_id"));
+    g_object_set_data(G_OBJECT(window), "station_country", (gpointer)g_object_get_data(G_OBJECT(button), "station_country"));
+    g_object_set_data(G_OBJECT(window), "station_source", (gpointer)g_object_get_data(G_OBJECT(button), "station_source"));
+    g_object_set_data(G_OBJECT(window), "station_number", (gpointer)g_object_get_data(G_OBJECT(button), "station_number"));
+    g_object_set_data(G_OBJECT(window), "settings_window_table", (gpointer)g_object_get_data(G_OBJECT(button), "settings_window_table"));
+    g_object_set_data(G_OBJECT(window), "station_box", (gpointer)g_object_get_data(G_OBJECT(button), "station_box"));
+    changed_sources_handler(NULL, window);
+    changed_country_handler(NULL, window);
+    changed_state_handler(NULL, window);
+
+
     main_table = gtk_table_new(8, 8, FALSE);
 
-    g_object_set_data(G_OBJECT(window), "list", (gpointer)&list);
 
     left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(left_alignmnet, 5, -1);
@@ -530,19 +555,6 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     /* create sources list from aviable sources */
     list.sources_list = app->sources_list;
 
-    g_object_set_data(G_OBJECT(window), "current_source", (gpointer)app->config->current_source);
-    g_object_set_data(G_OBJECT(window), "station_region_id", (gpointer)g_object_get_data(G_OBJECT(button), "station_region_id"));
-    g_object_set_data(G_OBJECT(window), "station_region", (gpointer)g_object_get_data(G_OBJECT(button), "station_region"));
-    g_object_set_data(G_OBJECT(window), "station_country_id", (gpointer)g_object_get_data(G_OBJECT(button), "station_country_id"));
-    g_object_set_data(G_OBJECT(window), "station_country", (gpointer)g_object_get_data(G_OBJECT(button), "station_country"));
-    g_object_set_data(G_OBJECT(window), "station_source", (gpointer)g_object_get_data(G_OBJECT(button), "station_source"));
-    g_object_set_data(G_OBJECT(window), "station_number", (gpointer)g_object_get_data(G_OBJECT(button), "station_number"));
-    g_object_set_data(G_OBJECT(window), "settings_window_table", (gpointer)g_object_get_data(G_OBJECT(button), "settings_window_table"));
-    g_object_set_data(G_OBJECT(window), "station_box", (gpointer)g_object_get_data(G_OBJECT(button), "station_box"));
-    /* fill countries list */
-    changed_sources_handler(NULL, window);
-    changed_country_handler(NULL, window);
-    changed_state_handler(NULL, window);
 
 
     gtk_widget_show_all(window);

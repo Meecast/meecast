@@ -142,6 +142,10 @@ weather_initialize_dbus(void) {
 #endif
         app->dbus_is_initialize = TRUE;
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
 }
 /*******************************************************************************/
 void

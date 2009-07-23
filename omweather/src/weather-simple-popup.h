@@ -38,6 +38,8 @@ GtkWidget* create_top_buttons_box(void);
 GtkWidget* create_collapsed_view(void);
 void update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
 extern GtkWidget* create_stations_buttons(void);
+extern void simple_settings_button_handler(GtkWidget *button, GdkEventButton *event,
+                                    gpointer user_data);
 
 /*******************************************************************************/
 #endif

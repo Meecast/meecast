@@ -42,9 +42,9 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     GtkAction *test2;
     GtkAction *test3;
     GtkAction *test4;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
 
 #if defined OS2009
     window = hildon_stackable_window_new();
@@ -62,16 +62,21 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
 
 #if defined OS2009
     menu = hildon_app_menu_new();
-    menu_item1 = gtk_button_new_with_label("9999999");
+    menu_item1 = gtk_button_new_with_label(_("Settings"));
+    g_signal_connect(G_OBJECT(menu_item1), "button-release-event",
+                     G_CALLBACK(simple_settings_button_handler),
+                     (gpointer)window);
+
     gtk_widget_show_all(GTK_WIDGET(menu_item1));
     hildon_app_menu_append(menu, menu_item1);
     gtk_widget_show_all(GTK_WIDGET(menu));
     hildon_window_set_app_menu(HILDON_WINDOW(window), menu);
 #endif
 
-    if(app->popup_window)
-        gtk_widget_destroy(app->popup_window);
-    app->popup_window = window;
+//    if(app->popup_window)
+//        gtk_widget_destroy(app->popup_window);
+//    app->popup_window = window;
+    gtk_widget_show_all(GTK_WIDGET(window));
 }
 /*******************************************************************************/
 gchar*
@@ -96,7 +101,6 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
         if(ready)
             return station_name;
         else{
-            fprintf(stderr,"Name %s %s\n",current_station_name, station_name);
             if((current_station_name) && (station_name) &&
                   !strcmp(current_station_name, station_name))
                 ready = TRUE;

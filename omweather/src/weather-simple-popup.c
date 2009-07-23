@@ -51,7 +51,9 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(), FALSE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), create_collapsed_view(), TRUE, TRUE, 0);
     gtk_widget_show_all(main_vbox);
-    app->popup_window = window;
+//    if(app->popup_window)
+//        gtk_widget_destroy(app->popup_window);
+//    app->popup_window = window;
 }
 /*******************************************************************************/
 gchar*
@@ -111,8 +113,8 @@ create_top_buttons_box(void){
                                         app->user_stations_list));
     station_button = create_button_with_2_line_text(app->config->current_station_name,
                                                     buffer, 18, 12);
-    g_signal_connect(G_OBJECT(station_button), "button_press_event",
-                            G_CALLBACK(change_station_next), GINT_TO_POINTER(1));
+//    g_signal_connect(G_OBJECT(station_button), "button_press_event",
+//                            G_CALLBACK(change_station_next), GINT_TO_POINTER(1));
     gtk_widget_set_size_request(station_button, -1, 80);
     /* prepare last update time*/
     if(app->station_data){

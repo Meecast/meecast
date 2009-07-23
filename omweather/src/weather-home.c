@@ -243,9 +243,9 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
 /* show popup window if received param */
     if(user_data){
         if(app->config->mode == SIMPLE_MODE){
-            gtk_widget_destroy(app->popup_window);
-            weather_simple_window_popup(NULL, NULL);
-            return FALSE;
+//            gtk_widget_destroy(app->popup_window);
+  //          weather_simple_window_popup(NULL, NULL);
+//            return FALSE;
         }
         day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");
         destroy_popup_window();

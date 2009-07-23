@@ -745,9 +745,9 @@ weather_simple_window_settings(gpointer user_data){
 
     /* temperature */
     if(app->config->temperature_units == CELSIUS)
-        units_string = _("C");
+        units_string = "C";
     else
-        units_string = _("F");
+        units_string = "F";
     
     /* distance units */
     if(app->config->distance_units == METERS)

@@ -272,10 +272,10 @@ create_collapsed_view(void){
             snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1, "<i>%s</i>", tmp);
 
             line_text = gtk_label_new(NULL);
-            gtk_label_set_justify(GTK_LABEL(line_text), GTK_JUSTIFY_LEFT);
+            gtk_label_set_justify(GTK_LABEL(line_text), GTK_JUSTIFY_FILL);
             gtk_label_set_markup(GTK_LABEL(line_text), buffer);
             set_font(line_text, NULL, 12);
-            gtk_box_pack_start(GTK_BOX(line_hbox), line_text, TRUE, TRUE, 0);
+            gtk_box_pack_start(GTK_BOX(line_hbox), line_text, FALSE, TRUE, 10);
             /* next day */
             days = g_slist_next(days);
             i++;

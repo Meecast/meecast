@@ -70,7 +70,7 @@ void up_key_handler(GtkButton *button, gpointer list);
 void down_key_handler(GtkButton *button, gpointer list);
 void new_station_handler(GtkButton *button, gpointer user_data);
 void delete_station_handler(GtkButton *button, gpointer user_data);
-void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
+GtkTreeIter add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
 				gboolean is_gps, gchar *source, gint position);
 void highlight_current_station(GtkTreeView *tree_view);
 int lookup_and_select_station(gchar *db_path, gchar *station_name, Station *result);

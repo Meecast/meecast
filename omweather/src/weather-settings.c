@@ -38,7 +38,7 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-void
+GtkTreeIter
 add_station_to_user_list(gchar *weather_station_name, gchar *weather_station_id,
                           gboolean is_gps, gchar *source, gint position){
     GtkTreeIter iter;
@@ -72,6 +72,7 @@ add_station_to_user_list(gchar *weather_station_name, gchar *weather_station_id,
         app->config->current_station_name = g_strdup(weather_station_name);
     }
 #endif
+    return iter;
 }
 /*******************************************************************************/
 void

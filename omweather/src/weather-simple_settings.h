@@ -35,4 +35,7 @@ GtkWidget* create_and_full_stations_buttons(void);
 extern GtkListStore* get_all_information_about_station(gchar *source, gchar *station_code);
 extern gint get_country_code(gchar *source, gchar *country_name);
 extern gint get_state_code(gchar *source, gchar *country_name);
+GtkTreeIter add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
+          gboolean is_gps, gchar *source, gint position);
+
 #endif

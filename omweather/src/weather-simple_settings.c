@@ -176,17 +176,25 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data)
 void
 save_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
-#ifdef DEBUGFUNCTIONCALL
+    GtkTreeIter iter;
+    gboolean valid;
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
-
-    add_station_to_user_list(g_strdup(g_object_get_data(G_OBJECT(user_data), "station_name")),
+//#endif
+    fprintf(stderr,"number %i\n", GPOINTER_TO_INT(g_object_get_data(G_OBJECT(user_data), "station_number")));
+    iter = add_station_to_user_list(g_strdup(g_object_get_data(G_OBJECT(user_data), "station_name")),
                                       g_strdup(g_object_get_data(G_OBJECT(user_data), "station_code")),
                                       FALSE,
                                       g_strdup(g_object_get_data(G_OBJECT(user_data), "station_source")),
-                                             -1);
- 
-} 
+                                      GPOINTER_TO_INT(g_object_get_data(G_OBJECT(user_data), "station_number")));
+    valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
+    if (valid)
+        gtk_list_store_remove(app->user_stations_list, &iter);
+    /* Update config file */
+    config_save(app->config);
+    /* Destroy window */
+    g_signal_emit_by_name(G_OBJECT(user_data), "close", NULL);
+}
 /*******************************************************************************/
 void
 choose_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -466,7 +474,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     g_signal_connect(G_OBJECT(save_button), "button-release-event",
                      G_CALLBACK(save_button_handler),
                      window);
- 
+
     right_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(right_alignmnet, 5, -1);
     gtk_table_attach((GtkTable*)main_table, right_alignmnet,
@@ -490,6 +498,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
         g_object_set_data(G_OBJECT(window), "station_country_id", (gpointer)g_object_get_data(G_OBJECT(button), "station_country_id"));
         g_object_set_data(G_OBJECT(window), "station_country", (gpointer)g_object_get_data(G_OBJECT(button), "station_country"));
         g_object_set_data(G_OBJECT(window), "station_source", (gpointer)g_object_get_data(G_OBJECT(button), "station_source"));
+        g_object_set_data(G_OBJECT(window), "station_number", (gpointer)g_object_get_data(G_OBJECT(button), "station_number"));
         /* fill countries list */
         changed_sources_handler(NULL, window);
         changed_country_handler(NULL, window);
@@ -507,7 +516,7 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
 /*******************************************************************************/
 GtkWidget*
-create_station_button(gchar* station_label_s, gchar* station_name_s, gchar *station_code_s, gchar *station_source_s,
+create_station_button(gint station_number, gchar* station_name_s, gchar *station_code_s, gchar *station_source_s,
                       gint country_id, gchar *station_country_s, gint region_id, gchar *station_region_s)
 {
 #ifdef DEBUGFUNCTIONCALL
@@ -518,10 +527,10 @@ create_station_button(gchar* station_label_s, gchar* station_name_s, gchar *stat
               *station_name  = NULL,
               *vertical_box  = NULL,
               *button = NULL;
+    char buffer[512];
 
     button = gtk_button_new();
 
-    g_object_set_data(G_OBJECT(button), "station_label", (gpointer)station_label_s);
     g_object_set_data(G_OBJECT(button), "station_name", (gpointer)station_name_s);
     g_object_set_data(G_OBJECT(button), "station_code", (gpointer)station_code_s);
     g_object_set_data(G_OBJECT(button), "station_source", (gpointer)station_source_s);
@@ -529,8 +538,10 @@ create_station_button(gchar* station_label_s, gchar* station_name_s, gchar *stat
     g_object_set_data(G_OBJECT(button), "station_region", (gpointer)station_region_s);
     g_object_set_data(G_OBJECT(button), "station_country_id", (gpointer)country_id);
     g_object_set_data(G_OBJECT(button), "station_region_id", (gpointer)region_id);
+    g_object_set_data(G_OBJECT(button), "station_number", (gpointer)station_number);
 
-    station_label = gtk_label_new(station_label_s);
+    snprintf(buffer, sizeof(buffer) - 1, "Station %i", station_number);
+    station_label = gtk_label_new(buffer);
     set_font(station_label, NULL, 12);
     gtk_widget_show (station_label);
 
@@ -574,7 +585,7 @@ create_and_full_stations_buttons(void)
             station_region_id;
 
     GtkListStore *allinformation_list = NULL;
-    gint  station_number = 1;
+    gint  station_number = 0;
     char buffer[512];
 
 #ifdef DEBUGFUNCTIONCALL
@@ -589,7 +600,7 @@ create_and_full_stations_buttons(void)
                            &iter,
                            0, &station_name,
                            1, &station_code, 3, &station_source, -1);
-        snprintf(buffer, sizeof(buffer) - 1, "Station%i", station_number);
+
         allinformation_list = get_all_information_about_station(station_source, station_code);
         valid2 = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                               (allinformation_list), &iter2);
@@ -601,18 +612,18 @@ create_and_full_stations_buttons(void)
                                    1, &station_region,
                                    2, &station_country_id,
                                    3, &station_region_id,
-                                    -1);
+                                   -1);
 
-        /* Attention !!!!!! check memory leak for g_strdup(buffer) */
-        station = create_station_button(g_strdup(buffer), station_name, station_code, station_source, station_country_id,
+        station = create_station_button(station_number,  station_name, station_code, station_source, station_country_id,
                                         station_country, station_region_id, station_region );
         gtk_box_pack_start(GTK_BOX(box), station, TRUE, TRUE, 0);
         valid =
             gtk_tree_model_iter_next(GTK_TREE_MODEL
                                      (app->user_stations_list), &iter);
         station_number++;
+
         /* Only  *four* station for simple mode */
-        if (station_number > 4)
+        if (station_number > 3)
             break;
     }
 

@@ -145,10 +145,13 @@ create_collapsed_view(void){
     GdkPixbuf       *icon_buffer;
     GtkWidget       *icon_image;
     gchar           buffer[1024],
-                    icon[2048];
+                    tmp[255],
+                    icon[2048],
+                    *comma = NULL;
     GSList          *days = NULL;
     GHashTable      *day = NULL;
     gint            i = 0;
+    struct tm       tmp_time_date_struct = {0};
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -158,10 +161,9 @@ create_collapsed_view(void){
                                             GTK_SHADOW_OUT);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                    GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-//    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 700, 250);
     /* pack childs to the scrolled window */
     main_vbox = gtk_vbox_new(FALSE, 5);
-    gtk_container_add(GTK_CONTAINER(scrolled_window), main_vbox);
+    gtk_scrolled_window_add_with_viewport(scrolled_window, main_vbox);
 
 
     days = (GSList*)g_hash_table_lookup(app->station_data, "forecast");
@@ -176,19 +178,29 @@ create_collapsed_view(void){
                         (char*)g_hash_table_lookup(day, "day_icon"));
             icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, SMALL_ICON_SIZE,
                                                             SMALL_ICON_SIZE, NULL);
-            icon_image = create_icon_widget(icon_buffer, icon, GIANT_ICON_SIZE, &app->clutter_objects_in_popup_form);
+            icon_image = create_icon_widget(icon_buffer, icon, SMALL_ICON_SIZE, &app->clutter_objects_in_popup_form);
             if(icon_image){
                 gtk_box_pack_start(GTK_BOX(line_hbox), icon_image, FALSE, TRUE, 0);
                 gtk_box_pack_start(GTK_BOX(main_vbox), line_hbox, FALSE, TRUE, 0);
             }
             /* day label */
             *buffer = 0;
-            if(i == 0)
-                snprintf(buffer, sizeof(buffer) - 1, "<span weight=\"bold\">%s", _("Today"));
+            sprintf(buffer,"%s %s", (char*)g_hash_table_lookup(day, "day_name"),
+                        (char*)g_hash_table_lookup(day, "day_date"));
+            strptime(buffer, "%A %b %d", &tmp_time_date_struct);
+            *buffer = 0;
+            strftime(tmp, sizeof(tmp) - 1, "%A, %d %B", &tmp_time_date_struct);
+            if(i == 0){
+                comma = strchr(tmp, ',');
+                if(comma)
+                    snprintf(buffer, sizeof(buffer) - 1, "<span weight=\"bold\">%s%s", _("Today"), comma);
+                else
+                    snprintf(buffer, sizeof(buffer) - 1, "<span weight=\"bold\">%s%s", _("Today"), tmp);
+            }
             else
-                snprintf(buffer, sizeof(buffer) - 1, "<span weight=\"bold\">%s",
-                            (char*)g_hash_table_lookup(day, "day_name"));
+                snprintf(buffer, sizeof(buffer) - 1, "<span weight=\"bold\">%s", tmp);
             snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1, "</span>");
+            /* day text */
             line_text = gtk_label_new(NULL);
             gtk_label_set_markup(GTK_LABEL(line_text), buffer);
             gtk_box_pack_start(GTK_BOX(line_hbox), line_text, FALSE, TRUE, 0);

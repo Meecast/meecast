@@ -578,7 +578,7 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
     g_object_set_data(G_OBJECT(button), "station_region_id", (gpointer)region_id);
     g_object_set_data(G_OBJECT(button), "station_number", (gpointer)station_number);
 
-    snprintf(buffer, sizeof(buffer) - 1, "Station %i", station_number);
+    snprintf(buffer, sizeof(buffer) - 1, "Station %i", station_number + 1);
     station_label = gtk_label_new(buffer);
     set_font(station_label, NULL, 12);
     gtk_widget_show (station_label);

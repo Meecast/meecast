@@ -278,10 +278,12 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
                 else
                     gtk_widget_set_sensitive(search_entry, FALSE);
             }
-        }else
-            source = get_source_hash(list->sources_list, g_object_get_data(G_OBJECT(config), "current_source"));
-
-
+        }else{
+            if(g_object_get_data(G_OBJECT(config), "current_source"))
+                source = get_source_hash(list->sources_list, g_object_get_data(G_OBJECT(config), "current_source"));
+            else
+                source = NULL;
+        }
       /* prepare database name */
       if(source_stations_database_valid(source)){
           value = g_hash_table_lookup(source, "base");

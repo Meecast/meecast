@@ -499,7 +499,6 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 3, 4, 6, 7,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
-
     save_button = gtk_button_new_with_label (_("Save"));
     gtk_widget_set_size_request(save_button, 180, 80);
     gtk_widget_show (save_button);
@@ -527,21 +526,20 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     /* create sources list from aviable sources */
     list.sources_list = app->sources_list;
 
-    if(list.sources_list){
-        g_object_set_data(G_OBJECT(window), "current_source", (gpointer)app->config->current_source);
-        g_object_set_data(G_OBJECT(window), "station_region_id", (gpointer)g_object_get_data(G_OBJECT(button), "station_region_id"));
-        g_object_set_data(G_OBJECT(window), "station_region", (gpointer)g_object_get_data(G_OBJECT(button), "station_region"));
-        g_object_set_data(G_OBJECT(window), "station_country_id", (gpointer)g_object_get_data(G_OBJECT(button), "station_country_id"));
-        g_object_set_data(G_OBJECT(window), "station_country", (gpointer)g_object_get_data(G_OBJECT(button), "station_country"));
-        g_object_set_data(G_OBJECT(window), "station_source", (gpointer)g_object_get_data(G_OBJECT(button), "station_source"));
-        g_object_set_data(G_OBJECT(window), "station_number", (gpointer)g_object_get_data(G_OBJECT(button), "station_number"));
-        g_object_set_data(G_OBJECT(window), "settings_window_table", (gpointer)g_object_get_data(G_OBJECT(button), "settings_window_table"));
-        g_object_set_data(G_OBJECT(window), "station_box", (gpointer)g_object_get_data(G_OBJECT(button), "station_box"));
-        /* fill countries list */
-        changed_sources_handler(NULL, window);
-        changed_country_handler(NULL, window);
-        changed_state_handler(NULL, window);
-    }
+    g_object_set_data(G_OBJECT(window), "current_source", (gpointer)app->config->current_source);
+    g_object_set_data(G_OBJECT(window), "station_region_id", (gpointer)g_object_get_data(G_OBJECT(button), "station_region_id"));
+    g_object_set_data(G_OBJECT(window), "station_region", (gpointer)g_object_get_data(G_OBJECT(button), "station_region"));
+    g_object_set_data(G_OBJECT(window), "station_country_id", (gpointer)g_object_get_data(G_OBJECT(button), "station_country_id"));
+    g_object_set_data(G_OBJECT(window), "station_country", (gpointer)g_object_get_data(G_OBJECT(button), "station_country"));
+    g_object_set_data(G_OBJECT(window), "station_source", (gpointer)g_object_get_data(G_OBJECT(button), "station_source"));
+    g_object_set_data(G_OBJECT(window), "station_number", (gpointer)g_object_get_data(G_OBJECT(button), "station_number"));
+    g_object_set_data(G_OBJECT(window), "settings_window_table", (gpointer)g_object_get_data(G_OBJECT(button), "settings_window_table"));
+    g_object_set_data(G_OBJECT(window), "station_box", (gpointer)g_object_get_data(G_OBJECT(button), "station_box"));
+    /* fill countries list */
+    changed_sources_handler(NULL, window);
+    changed_country_handler(NULL, window);
+    changed_state_handler(NULL, window);
+
 
     gtk_widget_show_all(window);
     /* start dialog window */
@@ -598,6 +596,9 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
     gtk_widget_set_size_request(button, 135, 80);
     gtk_widget_show (button);
 
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return button;
 }
 /*******************************************************************************/
@@ -699,7 +700,6 @@ weather_simple_window_settings(gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
 
 #if defined OS2009
     window = hildon_stackable_window_new();
@@ -874,5 +874,10 @@ weather_simple_window_settings(gpointer user_data){
     gtk_container_add (GTK_CONTAINER (window), main_table);
 
     gtk_widget_show(main_table);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
 }
 /*******************************************************************************/

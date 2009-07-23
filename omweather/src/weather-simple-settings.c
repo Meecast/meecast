@@ -744,43 +744,43 @@ weather_simple_window_settings(gpointer user_data){
     gtk_widget_show (vertical1_alignmnet);
 
     /* temperature */
-    if(app->config->temperature_units == 0)
-        units_string = "C";
+    if(app->config->temperature_units == CELSIUS)
+        units_string = _("C");
     else
-        units_string = "F";
+        units_string = _("F");
     
     /* distance units */
-    if(app->config->distance_units == 0)
-        units_string = g_strjoin(", ", units_string,"m", NULL);
+    if(app->config->distance_units == METERS)
+        units_string = g_strjoin(", ", units_string,_("m"), NULL);
         else{
-            if(app->config->distance_units == 1)
-                 units_string = g_strjoin(", ", units_string,"km", NULL);
+            if(app->config->distance_units == KILOMETERS)
+                 units_string = g_strjoin(", ", units_string,_("km"), NULL);
             else{
-               if(app->config->distance_units == 2)
-                 units_string = g_strjoin(", ", units_string,"mi", NULL);
+               if(app->config->distance_units == MILES)
+                 units_string = g_strjoin(", ", units_string,_("mi"), NULL);
                else
-                 units_string = g_strjoin(", ", units_string,"seami", NULL);
+                 units_string = g_strjoin(", ", units_string,_("seami"), NULL);
             }
         }
 
     /* wind units */
-    if(app->config->wind_units == 0)
-        units_string = g_strjoin(", ", units_string,"m/s", NULL);
+    if(app->config->wind_units == METERS_S)
+        units_string = g_strjoin(", ", units_string,_("m/s"), NULL);
     else{
-        if(app->config->wind_units == 1)
-            units_string = g_strjoin(", ", units_string,"km/h", NULL);
+        if(app->config->wind_units == KILOMETERS_H)
+            units_string = g_strjoin(", ", units_string,_("km/h"), NULL);
         else
-            units_string = g_strjoin(", ", units_string,"mi/h", NULL);
+            units_string = g_strjoin(", ", units_string,_("mi/h"), NULL);
     }
         
     /* pressure */
-    if(app->config->pressure_units == 0)
-        units_string = g_strjoin(", ", units_string,"mb", NULL);
+    if(app->config->pressure_units == MB)
+        units_string = g_strjoin(", ", units_string,_("mb"), NULL);
     else{
-        if(app->config->pressure_units == 1)
-            units_string = g_strjoin(", ", units_string,"inch", NULL);
+        if(app->config->pressure_units == INCH)
+            units_string = g_strjoin(", ", units_string,_("inch"), NULL);
         else
-            units_string = g_strjoin(", ", units_string,"mm", NULL);
+            units_string = g_strjoin(", ", units_string,_("mm"), NULL);
     }
 
     fprintf(stderr, "\nUnits:  %s\n", units_string);

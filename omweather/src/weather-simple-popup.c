@@ -185,6 +185,7 @@ create_collapsed_view(void){
                     *main_vbox = NULL,
                     *line_hbox = NULL,
                     *line_text = NULL,
+                    *line = NULL,
                     *vscrollbar = NULL;
     GdkPixbuf       *icon_buffer;
     GtkWidget       *icon_image;
@@ -220,8 +221,13 @@ create_collapsed_view(void){
     if(days){
         while(days){
             day = (GHashTable*)(days->data);
+            line = gtk_event_box_new();
+            g_signal_connect(G_OBJECT(line), "button-release-event",
+                                G_CALLBACK(show_expanded_day_button_handler),
+                                 GINT_TO_POINTER(i));
             /* line box */
             line_hbox = gtk_hbox_new(FALSE, 0);
+            gtk_container_add(GTK_CONTAINER(line), line_hbox);
             /* icon */
             *buffer = 0;
             snprintf(icon, sizeof(icon) - 1, "%s%s.png", app->config->icons_set_base,
@@ -231,7 +237,7 @@ create_collapsed_view(void){
             icon_image = create_icon_widget(icon_buffer, icon, SMALL_ICON_SIZE, &app->clutter_objects_in_popup_form);
             if(icon_image){
                 gtk_box_pack_start(GTK_BOX(line_hbox), icon_image, FALSE, TRUE, 0);
-                gtk_box_pack_start(GTK_BOX(main_vbox), line_hbox, TRUE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
                 gtk_box_pack_start(GTK_BOX(main_vbox), gtk_hseparator_new(), TRUE, TRUE, 0);
             }
             /* day label */
@@ -330,5 +336,15 @@ create_collapsed_view(void){
     }
     gtk_widget_show_all(scrolled_window);
     return scrolled_window;
+}
+/*******************************************************************************/
+void
+show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
+                                                            gpointer user_data){
+    gint        day_number = (gint)user_data;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Day number %d\n", day_number);
 }
 /*******************************************************************************/

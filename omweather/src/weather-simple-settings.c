@@ -417,7 +417,7 @@ void
 
 /* Prepairing */
 
-    window = gtk_dialog_new_with_buttons(_("Correcting station"), NULL,
+    window = gtk_dialog_new_with_buttons(_("Configuring station"), NULL,
                                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                                             NULL);
     gtk_widget_set_name(window, "simple_settings_window");

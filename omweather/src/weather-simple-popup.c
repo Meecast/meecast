@@ -28,6 +28,7 @@
 #include "weather-simple-popup.h"
 #include "weather-utils.h"
 #include "weather-home.h"
+#include "weather-hash.h"
 /*******************************************************************************/
 void
 weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
@@ -77,6 +78,10 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
         gtk_widget_destroy(app->popup_window);
     app->popup_window = window;
     gtk_widget_show_all(GTK_WIDGET(window));
+    g_signal_connect((gpointer)app->popup_window, "destroy_event",
+                        G_CALLBACK(destroy_popup_window), GINT_TO_POINTER(1));
+    g_signal_connect((gpointer)app->popup_window, "delete_event",
+                        G_CALLBACK(destroy_popup_window), GINT_TO_POINTER(1));
 }
 /*******************************************************************************/
 gchar*
@@ -140,8 +145,8 @@ create_top_buttons_box(void){
                                         app->user_stations_list));
     station_button = create_button_with_2_line_text(app->config->current_station_name,
                                                     buffer, 18, 12);
-//    g_signal_connect(G_OBJECT(station_button), "button_press_event",
-//                            G_CALLBACK(change_station_next), GINT_TO_POINTER(1));
+    g_signal_connect(G_OBJECT(station_button), "button-release-event",
+                            G_CALLBACK(change_station_next), GINT_TO_POINTER(1));
     gtk_widget_set_size_request(station_button, -1, 80);
     /* prepare last update time*/
     if(app->station_data){

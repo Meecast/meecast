@@ -39,33 +39,34 @@
 #define MOON_ICONS		"/usr/share/omweather/moon_icons/"
 /*******************************************************************************/
 void
-destroy_popup_window(void){
+destroy_popup_window(gpointer user_data){
     GSList    *tmp = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    /* free Idles */
-    tmp = app->tab_of_window_popup;
-    while(tmp){
-
+    if(!user_data){ /* destroy old popup window */
+        /* free Idles */
+        tmp = app->tab_of_window_popup;
+        while(tmp){
 #ifndef RELEASE
-         if (g_idle_remove_by_data(tmp->data))
+             if(g_idle_remove_by_data(tmp->data))
 #else
-              g_idle_remove_by_data(tmp->data);
+             g_idle_remove_by_data(tmp->data);
 #endif
 #ifndef RELEASE
-              fprintf(stderr,"Succes\n");
-         else
-              fprintf(stderr,"Not Succes\n");
+                fprintf(stderr,"Succes\n");
+             else
+                fprintf(stderr,"Not Succes\n");
 #endif
-         tmp = g_slist_next(tmp);
+            tmp = g_slist_next(tmp);
+        }
+        g_slist_free(app->tab_of_window_popup);
+        app->tab_of_window_popup = NULL;
     }
-    g_slist_free(app->tab_of_window_popup);
 #ifdef CLUTTER
     /* For end of Clutter animation in popup window */
     free_clutter_objects_list(&app->clutter_objects_in_popup_form);
 #endif
-    app->tab_of_window_popup = NULL;
     gtk_widget_destroy(GTK_WIDGET(app->popup_window));
     app->popup_window = NULL;
 }
@@ -457,7 +458,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
 /* show simple window if it enabled */
     if(app->config->mode == SIMPLE_MODE){
         weather_simple_window_popup(widget, user_data);
-        return FALSE;
+        return TRUE;
     }
 /* Main window */
 #if defined OS2009
@@ -465,7 +466,10 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
 #else
      app->popup_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 #endif
-
+    g_signal_connect((gpointer)app->popup_window, "destroy_event",
+                        G_CALLBACK(destroy_popup_window), GINT_TO_POINTER(0));
+    g_signal_connect((gpointer)app->popup_window, "delete_event",
+                        G_CALLBACK(destroy_popup_window), GINT_TO_POINTER(0));
 #if defined NONMAEMO
     gtk_window_set_default_size(GTK_WINDOW(app->popup_window), 640, 480);
 #endif
@@ -622,7 +626,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
             hildon_banner_show_information(app->main_window,
                             NULL,
                             _("No weather data for this day."));
-            destroy_popup_window();
+            destroy_popup_window(NULL);
             return FALSE;
         }
         else{
@@ -634,7 +638,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
                         hildon_banner_show_information(app->main_window,
                                     NULL,
                                     _("No current weather data."));
-                        destroy_popup_window();
+                        destroy_popup_window(NULL);
                         return FALSE;
                     }
                 }
@@ -690,7 +694,7 @@ settings_button_handler(GtkWidget *button, GdkEventButton *event,
 #endif
 /* For debug speed of creating setting window */
 /* time_start();  */
-    destroy_popup_window();
+    destroy_popup_window(NULL);
     weather_window_settings(NULL, (gpointer)day_number);
 /* fprintf(stderr,"Time: %lf msec Pi = %lf\n",time_stop(),weather_window_settings);*/
 }
@@ -701,7 +705,7 @@ void refresh_button_handler(GtkWidget *button, GdkEventButton *event,
     START_FUNCTION;
 #endif
     if(app->popup_window)
-        destroy_popup_window();
+        destroy_popup_window(NULL);
     update_weather(TRUE);
 }
 /*******************************************************************************/
@@ -722,7 +726,7 @@ void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    destroy_popup_window();
+    destroy_popup_window(NULL);
 }
 /*******************************************************************************/
 GtkWidget*

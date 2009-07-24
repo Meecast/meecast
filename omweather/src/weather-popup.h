@@ -64,7 +64,7 @@ void popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer dat
 #ifdef CLUTTER
 void popup_window_expose(GtkWidget *widget, GdkEventExpose *event);
 #endif
-void destroy_popup_window(void);
+void destroy_popup_window(gpointer user_data);
 /*******************************************************************************/
 extern void weather_window_settings(GtkWidget *widget,
 				    gpointer user_data);

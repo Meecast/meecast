@@ -243,9 +243,10 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
 /* show popup window if received param */
     if(user_data){
         if(app->config->mode == SIMPLE_MODE){
-//            gtk_widget_destroy(app->popup_window);
-  //          weather_simple_window_popup(NULL, NULL);
-//            return FALSE;
+            gtk_widget_destroy(app->popup_window);
+            app->popup_window = NULL;
+            weather_simple_window_popup(NULL, GINT_TO_POINTER(0));
+            return FALSE;
         }
         day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");
         destroy_popup_window();
@@ -919,12 +920,12 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->config->is_application_mode = TRUE;
     main_vbox = gtk_vbox_new(FALSE, 0);
     main_hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5, 0.5, 1, 1), TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), main_hbox, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(main_hbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_hbox), gtk_alignment_new(0.5, 0.5, 1, 1), TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_hbox), app->top_widget, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(main_hbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5,0.5,1,1), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_hbox), gtk_alignment_new(0.5, 0.5, 1, 1), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_vbox), gtk_alignment_new(0.5, 0.5, 1, 1), TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), create_toolbar_box(omweather_destroy, applet, TRUE), FALSE, FALSE, 0);
     gtk_container_add(GTK_CONTAINER(applet), main_vbox);
 #else

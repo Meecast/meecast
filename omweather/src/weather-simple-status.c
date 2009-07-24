@@ -29,7 +29,8 @@
 #include "weather-simple-settings.h"
 #include "weather-popup.h"
 /*******************************************************************************/
-void simple_settings_button_handler(GtkWidget *button, GdkEventButton *event,
+void
+simple_settings_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -39,11 +40,9 @@ void simple_settings_button_handler(GtkWidget *button, GdkEventButton *event,
 */
     weather_simple_window_settings(user_data);
 }
-
 /*******************************************************************************/
 GtkWidget*
-create_stations_buttons(void)
-{
+create_stations_buttons(void){
   GtkWidget
           *box = NULL,
           *station1 = NULL,

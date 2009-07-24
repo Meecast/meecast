@@ -184,7 +184,8 @@ create_collapsed_view(void){
     GtkWidget       *scrolled_window = NULL,
                     *main_vbox = NULL,
                     *line_hbox = NULL,
-                    *line_text = NULL;
+                    *line_text = NULL,
+                    *vscrollbar = NULL;
     GdkPixbuf       *icon_buffer;
     GtkWidget       *icon_image;
     const gchar     *wind_units_str[] = { "m/s", "km/h", "mi/h" };
@@ -208,6 +209,8 @@ create_collapsed_view(void){
                                             GTK_SHADOW_NONE);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                    GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+    vscrollbar = gtk_scrolled_window_get_vscrollbar(scrolled_window);
+/*    gtk_widget_set_size_request(vscrollbar, 50, -1);*/
     /* pack childs to the scrolled window */
     main_vbox = gtk_vbox_new(FALSE, 5);
     gtk_scrolled_window_add_with_viewport(scrolled_window, main_vbox);

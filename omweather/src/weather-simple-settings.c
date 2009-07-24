@@ -54,9 +54,8 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-
 }
-
+/*******************************************************************************/
 void
 highlight_current_item(GtkTreeView *tree_view, GtkListStore *list, gchar *current){
     GtkTreeIter     iter;
@@ -92,8 +91,7 @@ highlight_current_item(GtkTreeView *tree_view, GtkListStore *list, gchar *curren
 }
 /*******************************************************************************/
 void
-list_changed(GtkTreeSelection *sel,  gpointer user_data)
-{
+list_changed(GtkTreeSelection *sel,  gpointer user_data){
   GtkTreeIter iter;
   GtkTreeModel *model;
   gchar     *name         = NULL;
@@ -247,36 +245,47 @@ save_button_handler(GtkWidget *button, GdkEventButton *event,
 void
 choose_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
-    gint result;
-    gchar                       *control_name = NULL;
-    struct lists_struct        *list = NULL;
-    GtkWidget *window               = NULL,
-              *main_table           = NULL,
-              *list_view            = NULL,
-              *scrolled_window      = NULL;
-    GtkWidget       *config = GTK_WIDGET(user_data);
+    gint                    result;
+    gchar                   *control_name = NULL,
+                            dialog_name[255];
+    struct lists_struct     *list = NULL;
+    GtkWidget               *window = NULL,
+                            *main_table = NULL,
+                            *list_view = NULL,
+                            *scrolled_window = NULL;
+    GtkWidget               *config = GTK_WIDGET(user_data);
     enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
-    gint type_button = UNKNOWN;
-    GtkTreeSelection  *sel;
-
+    gint                    type_button = UNKNOWN;
+    GtkTreeSelection        *sel;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    *dialog_name = 0;
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
-    if(!strcmp("country_button", control_name))
+    if(!strcmp("country_button", control_name)){
         type_button = COUNTRY;
-    if(!strcmp("source_button", control_name))
+        snprintf(dialog_name, sizeof(dialog_name) - 1, _("Selecting country"));
+    }
+    if(!strcmp("source_button", control_name)){
         type_button = SOURCE;
-    if(!strcmp("region_button", control_name))
+        snprintf(dialog_name, sizeof(dialog_name) - 1, _("Selecting source"));
+    }
+    if(!strcmp("region_button", control_name)){
         type_button = STATE;
-    if(!strcmp("station_button", control_name))
+        snprintf(dialog_name, sizeof(dialog_name) - 1, _("Selecting region"));
+    }
+    if(!strcmp("station_button", control_name)){
         type_button = TOWN;
+        snprintf(dialog_name, sizeof(dialog_name) - 1, _("Selecting station"));
+    }
 
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
     /* This is very serious error */
-    if (!list)
+    if(!list)
         return;
-    window = gtk_dialog_new();
+    window = gtk_dialog_new_with_buttons(dialog_name, NULL,
+                                            GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+                                            NULL);
     main_table = gtk_table_new(8, 8, FALSE);
 
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);
@@ -525,7 +534,7 @@ void
                                 (GtkAttachOptions)0, 20, 0 );
 
     /* Button station */
-    station_button = create_button(_("Town"),(gchar*)g_object_get_data(G_OBJECT(button), "station_name"),
+    station_button = create_button(_("City"),(gchar*)g_object_get_data(G_OBJECT(button), "station_name"),
                                    "station_button", "station_name", window);
     g_object_set_data(G_OBJECT(window), "station_button", (gpointer)station_button);
     gtk_table_attach((GtkTable*)main_table, station_button,
@@ -774,38 +783,37 @@ weather_simple_window_settings(gpointer user_data){
 
     /* distance units */
     if(app->config->distance_units == METERS)
-        units_string = g_strjoin(", ", units_string,_("m"), NULL);
+        units_string = g_strjoin(", ", units_string, _("m"), NULL);
         else{
             if(app->config->distance_units == KILOMETERS)
-                 units_string = g_strjoin(", ", units_string,_("km"), NULL);
+                 units_string = g_strjoin(", ", units_string, _("km"), NULL);
             else{
                if(app->config->distance_units == MILES)
-                 units_string = g_strjoin(", ", units_string,_("mi"), NULL);
+                 units_string = g_strjoin(", ", units_string, _("mi"), NULL);
                else
-                 units_string = g_strjoin(", ", units_string,_("seami"), NULL);
+                 units_string = g_strjoin(", ", units_string, _("sea mi"), NULL);
             }
         }
 
     /* wind units */
     if(app->config->wind_units == METERS_S)
-        units_string = g_strjoin(", ", units_string,_("m/s"), NULL);
+        units_string = g_strjoin(", ", units_string, _("m/s"), NULL);
     else{
         if(app->config->wind_units == KILOMETERS_H)
-            units_string = g_strjoin(", ", units_string,_("km/h"), NULL);
+            units_string = g_strjoin(", ", units_string, _("km/h"), NULL);
         else
-            units_string = g_strjoin(", ", units_string,_("mi/h"), NULL);
+            units_string = g_strjoin(", ", units_string, _("mi/h"), NULL);
     }
 
     /* pressure */
     if(app->config->pressure_units == MB)
-        units_string = g_strjoin(", ", units_string,_("mb"), NULL);
+        units_string = g_strjoin(", ", units_string, _("mb"), NULL);
     else{
         if(app->config->pressure_units == INCH)
-            units_string = g_strjoin(", ", units_string,_("inch"), NULL);
+            units_string = g_strjoin(", ", units_string, _("inch"), NULL);
         else
-            units_string = g_strjoin(", ", units_string,_("mm"), NULL);
+            units_string = g_strjoin(", ", units_string, _("mm"), NULL);
     }
-
 
     units_button = gtk_button_new ();
     units_label = gtk_label_new(_("Units"));
@@ -837,8 +845,7 @@ weather_simple_window_settings(gpointer user_data){
                                 (GtkAttachOptions)0,
                                 GTK_FILL | GTK_SHRINK,
                                 0, 0 );
-    gtk_widget_show (vertical2_alignmnet);
-
+    gtk_widget_show(vertical2_alignmnet);
 
     widget_style_button = gtk_button_new_with_label (_("Widget_style"));
     gtk_widget_set_size_request(widget_style_button, 490, 70);

@@ -204,7 +204,7 @@ create_collapsed_view(void){
     /* scrolled window */
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);
     gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
-                                            GTK_SHADOW_OUT);
+                                            GTK_SHADOW_NONE);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                    GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
     /* pack childs to the scrolled window */
@@ -228,6 +228,7 @@ create_collapsed_view(void){
             if(icon_image){
                 gtk_box_pack_start(GTK_BOX(line_hbox), icon_image, FALSE, TRUE, 0);
                 gtk_box_pack_start(GTK_BOX(main_vbox), line_hbox, TRUE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(main_vbox), gtk_hseparator_new(), TRUE, TRUE, 0);
             }
             /* day label */
             *buffer = 0;

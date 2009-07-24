@@ -62,7 +62,6 @@ int create_icon_set_list(gchar *dir_path, GSList **store, gchar *type); /* scan 
 					     /* and add names to the list */
 void update_icons_set_base(const char *icon_set_name);
 GtkWidget *create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list);
-extern GtkWidget *create_clutter_main_icon(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list);
 gint choose_wind_direction(gchar *buffer);
 void write_log(char *string);
 GtkWidget* create_button_with_2_line_text(const gchar *first_line_text, const gchar *second_line_text,

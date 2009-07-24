@@ -32,10 +32,10 @@
 #include "weather-common.h"
 #include <gdk/gdkx.h>
 #include <X11/Xatom.h>
-
 /*******************************************************************************/
 void init_portrait(GtkWidget *win);
 void init_landscape(GtkWidget *win);
 void check_device_position(DBusConnection *connection);
 DBusHandlerResult get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data);
+/*******************************************************************************/
 #endif

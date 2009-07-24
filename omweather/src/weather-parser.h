@@ -30,7 +30,6 @@
 #define _weather_parser_h 1
 /*******************************************************************************/
 #include "weather-common.h"
-#include <libxml/HTMLparser.h>
 /*******************************************************************************/
 gint parse_weather_file_data(const gchar *station_id, gchar *station_source,
 					WeatherStationData *wsd,

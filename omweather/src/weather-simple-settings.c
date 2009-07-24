@@ -26,8 +26,11 @@
 */
 /*******************************************************************************/
 #include "weather-simple-settings.h"
+#include "weather-stations.h"
+#include "weather-config.h"
+#include "weather-settings.h"
+#include "weather-utils.h"
 /*******************************************************************************/
-
 void
 widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
@@ -361,7 +364,8 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
 
 }
 /*******************************************************************************/
-void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
+void
+ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -569,16 +573,14 @@ GtkWidget*
 create_station_button(gint station_number, gchar* station_name_s, gchar *station_code_s, gchar *station_source_s,
                       gint country_id, gchar *station_country_s, gint region_id, gchar *station_region_s)
 {
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-
     GtkWidget *station_label = NULL,
               *station_name  = NULL,
               *vertical_box  = NULL,
               *button = NULL;
     char buffer[512];
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     button = gtk_button_new();
 
     g_object_set_data(G_OBJECT(button), "station_name", (gpointer)station_name_s);

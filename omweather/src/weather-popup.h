@@ -31,7 +31,6 @@
 #define _weather_popup_h 1
 /*******************************************************************************/
 #include "weather-common.h"
-#include "weather-sources.h"
 /*******************************************************************************/
 GtkWidget* create_sun_time_widget(GHashTable *day);
 GtkWidget* create_moon_phase_widget(GHashTable *current);
@@ -65,24 +64,5 @@ void popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer dat
 void popup_window_expose(GtkWidget *widget, GdkEventExpose *event);
 #endif
 void destroy_popup_window(gpointer user_data);
-/*******************************************************************************/
-extern void weather_window_settings(GtkWidget *widget,
-				    gpointer user_data);
-extern void weather_simple_window_settings(GtkWidget *widget, gpointer user_data);
-/*extern void pre_update_weather(void);*/
-extern void update_weather(gboolean show_update_window);
-extern void set_font(GtkWidget *widget, const gchar *description, const gint size);
-extern void set_font_color (GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
-extern float c2f(float temp);
-extern void swap_temperature(int *hi, int *low);
-extern gpointer hash_table_find(gpointer key, gboolean search_short_name);
-extern float convert_wind_units(int to, float value);
-extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
-			int image_size, gboolean with_border, gboolean toggled);
-extern void create_about_dialog(void);  /* create help dialog */
-extern gboolean change_station_prev(GtkWidget *widget, GdkEvent *event,
-                    		    gpointer user_data);
-extern gboolean change_station_next(GtkWidget *widget, GdkEvent *event,
-                    		    gpointer user_data);
 /*******************************************************************************/
 #endif

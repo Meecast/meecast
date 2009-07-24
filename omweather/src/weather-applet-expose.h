@@ -28,6 +28,9 @@
  * along with this program; if not, see <http://www.gnu.org/licenses>.
  */
 /*******************************************************************************/
+#ifndef _weather_applet_expose_h
+#define _weather_applet_expose_h 1
+/*******************************************************************************/
 #include "weather-common.h"
 #include "weather-home.h"
 /*******************************************************************************/
@@ -38,5 +41,5 @@
     void omweather_plugin_realize (GtkWidget *widget);
     gboolean omweather_plugin_expose_event(GtkWidget * widget, GdkEventExpose * event);
 #endif
-
 /*******************************************************************************/
+#endif

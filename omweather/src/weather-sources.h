@@ -50,5 +50,6 @@ gchar* get_source_detail_url(GtkListStore *data, const gchar *source_name);
 gchar* get_source_logo(GtkListStore *data, const gchar *source_name);
 gpointer get_source_hash(GtkListStore *data, const gchar *source_name);
 gpointer get_first_source(GtkListStore *data);
+gpointer get_first_source_hash(GtkListStore *data);
 /*******************************************************************************/
 #endif

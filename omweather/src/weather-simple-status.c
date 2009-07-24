@@ -26,6 +26,8 @@
 */
 /*******************************************************************************/
 #include "weather-simple-status.h"
+#include "weather-simple-settings.h"
+#include "weather-popup.h"
 /*******************************************************************************/
 void simple_settings_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
@@ -184,7 +186,7 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
                                 (GtkAttachOptions)0, 0, 0 );
 
     g_signal_connect(G_OBJECT(update_button), "button-release-event",
-                     G_CALLBACK(update_button_handler),
+                     G_CALLBACK(refresh_button_handler),
                      (gpointer)window);
 
 

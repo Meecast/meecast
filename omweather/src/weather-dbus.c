@@ -26,17 +26,11 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-
-/*******************************************************************************/
-#ifndef _weather_dbus_h
-#define _weather_dbus 1
-
-/*******************************************************************************/
 #include "weather-common.h"
-#define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
 #ifdef USE_CONIC
     #include <conic/conic.h>
     #define USER_DATA_MAGIC 0xaadcaadc
+    #include "weather-download.h"
 #endif
 
 #include "weather-dbus.h"
@@ -44,11 +38,12 @@
 #if defined OS2009 || defined OS2008
     #include <mce/dbus-names.h>
     #include <mce/mode-names.h>
+    #include "weather-portrait.h"
 #endif
-
+/*******************************************************************************/
+#define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
 #define MCE_MATCH_RULE "type='signal',interface='" MCE_SIGNAL_IF \
                         "',member='" MCE_DEVICE_ORIENTATION_SIG "'"
-
 /*******************************************************************************/
 void
 weather_initialize_dbus(void) {
@@ -169,5 +164,4 @@ weather_deinitialize_dbus(void) {
 #endif
 
 }
-#endif
 /*******************************************************************************/

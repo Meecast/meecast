@@ -99,14 +99,4 @@ void fill_user_stations_list_from_clock(GtkListStore** list);
 void fill_user_stations_list(GSList *source_list, GtkListStore** list);
 GSList* create_stations_string_list(void);
 /*******************************************************************************/
-extern void remove_periodic_event(void);
-extern void add_periodic_event(time_t last_update);
-extern void add_gps_event(guint interval);
-extern gboolean switch_timer_handler(gpointer data);
-extern void update_weather(gboolean show_update_window);
-extern void update_icons_set_base(const char *icon_set_name);
-#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
-extern void read_sensor(gint need_redraw);
-#endif
-/*******************************************************************************/
 #endif

@@ -27,7 +27,17 @@
 */
 /*******************************************************************************/
 #include "weather-home.h"
+#include "weather-popup.h"
+#include "weather-simple-popup.h"
 #include "weather-sources.h"
+#include "weather-presets.h"
+#include "weather-utils.h"
+#include "weather-applet-expose.h"
+#include "weather-config.h"
+#include "weather-dbus.h"
+#include "weather-event.h"
+#include "weather-download.h"
+#include "weather-settings.h"
 #include "weather-presets.h"
 #include <stdio.h>
 #include <unistd.h>
@@ -170,7 +180,7 @@ change_station_prev(GtkWidget *widget, GdkEvent *event,
 /* show popup window if received param */
     if(user_data){
         day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab"); 
-        destroy_popup_window();
+        destroy_popup_window(NULL);
         weather_window_popup(NULL, NULL, (gpointer)day_number);
     }
     return FALSE;
@@ -249,7 +259,7 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
             return FALSE;
         }
         day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");
-        destroy_popup_window();
+        destroy_popup_window(NULL);
         weather_window_popup(NULL, NULL, (gpointer)day_number);
     }
     return FALSE;
@@ -2189,7 +2199,7 @@ switch_timer_handler(gpointer data){
     START_FUNCTION;
 #endif
     if(app->popup_window){
-        destroy_popup_window();
+        destroy_popup_window(NULL);
     }
     change_station_next(NULL, NULL, NULL);
     return TRUE;

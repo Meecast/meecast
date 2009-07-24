@@ -31,6 +31,8 @@
 #endif
 #include "weather-main.h"
 #include "weather-home.h"
+#include "weather-portrait.h"
+#include "weather-utils.h"
 /*******************************************************************************/
 gint
 dbus_callback(const gchar *interface, const gchar *method, GArray *arguments,

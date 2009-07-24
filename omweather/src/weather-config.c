@@ -28,7 +28,13 @@
 */
 /*******************************************************************************/
 #include "weather-config.h"
+#include "weather-utils.h"
+#include "weather-event.h"
 #include "weather-alerts.h"
+#include "weather-home.h"
+#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
+#include "weather-sensor.h"
+#endif
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>

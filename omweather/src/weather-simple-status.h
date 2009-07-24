@@ -25,14 +25,13 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-#ifndef _weather_simple_settings_h
-#define _weather_simple_settings_h 1
+#ifndef _weather_simple_status_h
+#define _weather_simple_status_h 1
 /*******************************************************************************/
 #include "weather-common.h"
 /*******************************************************************************/
 void weather_simple_window_status(GtkWidget *widget, gpointer user_data);
 GtkWidget* create_stations_buttons(void);
 void simple_settings_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
-extern void update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
-extern void weather_simple_window_settings(gpointer user_data);
+/*******************************************************************************/
 #endif

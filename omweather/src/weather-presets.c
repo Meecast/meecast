@@ -27,6 +27,8 @@
 */
 /*******************************************************************************/
 #include "weather-presets.h"
+#include "weather-home.h"
+#include "weather-utils.h"
 /*******************************************************************************/
 void
 composition_right_horizontal_day_button(WDB *new_day_button){

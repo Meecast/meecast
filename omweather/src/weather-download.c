@@ -27,6 +27,11 @@
 */
 /*******************************************************************************/
 #include "weather-download.h"
+#include "weather-event.h"
+#include "weather-config.h"
+#include "weather-home.h"
+#include "weather-sources.h"
+#include "weather-popup.h"
 /*******************************************************************************/
 #ifdef USE_CONIC
 #include <conic/conic.h>
@@ -265,7 +270,10 @@ download_html(gpointer data){
     START_FUNCTION;
 #endif
     if(app->popup_window && app->show_update_window){
-        destroy_popup_window();
+        if(app->config->mode == SIMPLE_MODE)
+            destroy_popup_window(GINT_TO_POINTER(1));
+        else
+            destroy_popup_window(NULL);
     }
     /* If not connected and it autoupdate do go away */
     if(!app->show_update_window && !app->iap_connected){

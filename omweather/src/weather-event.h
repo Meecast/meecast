@@ -47,16 +47,4 @@ void event_add(time_t time_value, short type_event);
 time_t next_update(void);
 void free_list_time_event(void);
 /*******************************************************************************/
-extern void weather_initialize_dbus(void);
-void add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
-                 gboolean is_gps, gchar *source, gint position);
-extern gdouble calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2);
-extern void config_save(AppletConfig*);
-#ifdef ENABLE_GPS
-extern void delete_all_gps_stations(void);
-extern void get_nearest_station( double lat, double lon, Station *result);
-#endif
-extern void update_weather(gboolean show_update_window);
-extern void redraw_home_window(gboolean first_start);
-/*******************************************************************************/
 #endif

@@ -28,6 +28,8 @@
 /*******************************************************************************/
 #include "weather-sensor.h"
 #include "weather-utils.h"
+#include "weather-settings.h"
+#include "weather-home.h"
 #include <string.h>
 #include <stdlib.h>
 #ifdef RELEASE
@@ -263,8 +265,9 @@ WDB *create_sensor_icon_widget(gboolean transparency, gboolean draw_day_label,
     buffer_icon[0] = 0;
     snprintf(buffer_icon, sizeof(buffer_icon) - 1, "%ssensor.png",
              BUTTON_ICONS);
-    return create_weather_day_button(buffer, buffer_icon, icon_size,
-                                     transparency, draw_day_label, color);
+    return create_weather_day_button(buffer, buffer_icon, OTHER_BUTTON,
+                                     transparency, draw_day_label, color,
+                                     UNKNOWN_DIRECTION, -1);
 }
 
 /*******************************************************************************/

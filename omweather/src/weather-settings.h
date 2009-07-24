@@ -102,37 +102,4 @@ GtkWidget* create_update_tab(GtkWidget *window);
 GtkWidget* create_test_tab(GtkWidget *window);
 void font_changed_handler(GtkFontButton *widget, gpointer user_data);
 /*******************************************************************************/
-extern void redraw_home_window(gboolean first_start);
-extern void remove_periodic_event(void);
-extern void weather_initialize_dbus(void);
-extern time_t next_update(void);
-extern void print_list(char *buff, size_t buff_size);
-extern void config_save(AppletConfig *config);
-extern void set_background_color(GtkWidget *widget, GdkColor *bgc);
-extern void add_periodic_event(time_t last_update);
-extern void remove_periodic_event(void);
-extern void popup_window_destroy(void);
-extern void add_gps_event(guint interval);
-extern gboolean change_station_select(GtkWidget *widget, gpointer user_data);
-extern gboolean switch_timer_handler(gpointer data);
-extern void help_activated_handler(GtkWidget *window, gchar *help_id);
-extern void update_weather(gboolean show_update_window);
-extern GtkWidget* lookup_widget(GtkWidget *widget, const gchar *widget_name);
-extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
-extern GtkWidget* create_tree_view(GtkListStore* list);
-#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009) || defined(NONMAEMO)
-extern GtkWidget* create_sensor_page(GtkWidget *config_window);
-extern void read_sensor(gint need_redraw);
-extern guint get_time_from_index(guint index);
-#endif
-extern GtkWidget* create_button_with_image(const char *path, const char *image_name,
-			int image_size, gboolean with_border, gboolean toggled);
-extern GtkWidget* create_scrolled_window_with_text(const char* text,
-					    GtkJustification justification);
-extern guint get_index_from_time(guint time);
-extern void update_icons_set_base(const char *icon_set_name);
-extern void weather_simple_window_settings(GtkWidget *widget, gpointer user_data);
-extern gpointer get_source_hash(GtkListStore *data, const gchar *source_name);
-extern gpointer get_first_source(GtkListStore *data);
-/*******************************************************************************/
 #endif

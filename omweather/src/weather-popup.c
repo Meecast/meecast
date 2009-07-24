@@ -31,6 +31,11 @@
 #include "weather-utils.h"
 #include "weather-data.h"
 #include "weather-simple-popup.h"
+#include "weather-sources.h"
+#include "weather-hash.h"
+#include "weather-help.h"
+#include "weather-home.h"
+#include "weather-settings.h"
 #include <sys/time.h>
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL

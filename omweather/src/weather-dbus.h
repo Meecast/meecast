@@ -25,13 +25,11 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
 */
-
-
+/*******************************************************************************/
+#ifndef _weather_dbus_h
+#define _weather_dbus_h 1
+/*******************************************************************************/
 void weather_initialize_dbus(void);
 void weather_deinitialize_dbus(void);
-#ifdef USE_CONIC
-    extern void connection_cb(ConIcConnection * connection,ConIcConnectionEvent * event, gpointer user_data);
-#endif
-#if defined OS2009 || defined OS2008
-    extern DBusHandlerResult get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data);
+/*******************************************************************************/
 #endif

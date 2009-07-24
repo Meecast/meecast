@@ -32,7 +32,15 @@
 #include "weather-help.h"
 #include "weather-utils.h"
 #include "weather-sources.h"
+#include "weather-home.h"
 #include "weather-alerts.h"
+#include "weather-simple-status.h"
+#include "weather-event.h"
+#include "weather-config.h"
+#include "weather-popup.h"
+#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009) || defined(NONMAEMO)
+#include "weather-sensor.h"
+#endif
 #include <errno.h>
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL

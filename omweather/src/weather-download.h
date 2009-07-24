@@ -61,13 +61,4 @@ GtkWidget* create_window_update(void);
 gboolean get_file(const gchar *full_url, const gchar *full_storing_name);
 void free_curl(void);
 /*******************************************************************************/
-extern void config_update_proxy(void);
-extern void add_current_time_event(void);
-extern void popup_window_destroy(void);
-extern void update_weather(gboolean show_update_window);
-extern void redraw_home_window(gboolean first_start);
-extern void destroy_popup_window(void);
-extern gchar* get_source_forecast_url(GtkListStore *data, const gchar *source_name);
-extern gchar* get_source_detail_url(GtkListStore *data, const gchar *source_name);
-/*******************************************************************************/
 #endif

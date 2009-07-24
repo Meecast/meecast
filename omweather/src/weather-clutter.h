@@ -29,9 +29,8 @@
 #ifndef _weather_clutter_h
 #define _weather_clutter_h 1
 /*******************************************************************************/
-#include "weather-common.h"
 #if defined CLUTTER
-/*******************************************************************************/
+#include "weather-common.h"
 /*******************************************************************************/
 gboolean show_animation(GSList *clutter_objects);
 GtkWidget *create_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list);

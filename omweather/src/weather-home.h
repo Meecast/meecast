@@ -42,18 +42,7 @@ WDB* create_weather_day_button(const char *text, const char *icon,
                 const gint type_of_button, gboolean transparency,
                 gboolean draw_day_label, GdkColor *color, gint wind_direction, gint  wind_gust);
 void fill_weather_day_button_expand(WDB *new_day_button, const char *text, const char *icon,
-                const gint icon_size, gboolean transparency,
-                gboolean draw_day_label );
-extern void fill_weather_day_button_presets(WDB *new_day_button, const char *text, const char *icon,
-                const gint icon_size, gboolean transparency,
-                gboolean draw_day_label, gint wind_direction, gfloat wind_speed);
-extern void  composition_now(WDB *new_day_button, gint layout);
-extern void composition_left_vertical_day_button(WDB *new_day_button, gint layout);
-extern void composition_central_vertical_day_button(WDB *new_day_button);
-extern void composition_right_vertical_day_button(WDB *new_day_button, gint layout);
-extern void fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const char *icon,
-                const gint icon_size, gboolean transparency,
-                gboolean draw_day_label, gint wind_direction, gfloat wind_gust);
+                const gint icon_size, gboolean transparency, gboolean draw_day_label );
 void delete_weather_day_button(WDB **day);
 void draw_home_window(gint count_day);
 void update_weather(gboolean show_update_window);
@@ -80,7 +69,6 @@ void create_current_temperature_text(GHashTable *day, gchar *buffer, gboolean va
                                 const gchar *day_name);
 void create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
                                 gboolean for_combination_mode, gint button_number);
-extern GtkWidget *next_station_preset_now(gint layout);
 #if defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO
 void omweather_destroy(GtkObject *widget);
 #endif
@@ -91,61 +79,12 @@ GtkWidget*
 settings_menu(HildonDesktopHomeItem *home_item, GtkWindow *parent);
 #endif
 /*******************************************************************************/
-extern void swap_temperature(int *hi, int *low);
-extern float c2f(float temp);
-extern void set_font(GtkWidget *widget, const gchar *description, const gint size);
-extern void set_font_color(GtkWidget *widget, guint16 red, guint16 green, guint16 blue);
-extern void set_background_color(GtkWidget *widget, GdkColor *bgc);
-extern void timer(int interval);
-extern void create_timer_with_interval(guint interval);
-extern void weather_initialize_dbus(void);
-extern void add_periodic_event(time_t last_update);
-extern time_t calculate_diff_time(int timezone);
-extern void remove_daytime_event(void);
-extern void clean_download(void);
-extern int read_config(AppletConfig*);
-extern void weather_window_settings(GtkWidget *widget, gpointer user_data);
-extern void config_save(AppletConfig*);
-extern GtkListStore* create_items_list(const char *path, const char *filename,
-				long start, long end, long *items_number);
-extern GtkListStore* create_time_update_list(void);
-extern gboolean show_popup_window_handler(GtkWidget *widget, GdkEvent *event,
-				    gpointer user_data);
-void free_hashtable_with_source(GHashTable* hashtable);
-extern time_t last_update_time(GSList *object);
-extern float convert_wind_units(int to, float value);
-#if defined (ENABLE_GPS)
-extern void initial_gps_control(void);
-extern void initial_gps_connect(void);
-extern void deinitial_gps_connect(void);
-extern void deinitial_gps_control(void);
-extern gboolean expose_parent(GtkWidget *widget, GdkEventExpose *event);
-#endif
-
-extern void weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data);
-extern float mb2inch(float pressure);
-#if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
-extern void read_sensor(gint need_redraw);
-extern WDB* create_sensor_icon_widget(gboolean transparency,
-				gboolean draw_day_label, GdkColor *color);
-#endif
 #if defined (OS2009) || defined(NONMAEMO) || defined (APPLICATION)
 gboolean omweather_init_OS2009(GtkWidget *applet);
 void omweather_destroy(GtkObject *widget);
 #ifdef CLUTTER
 gboolean top_widget_expose(GtkWidget *widget, GdkEventExpose *event);
 #endif
-extern GtkWidget* create_time_updates_widget(GSList *current, gboolean change_color);
-#endif
-extern GtkWidget *create_toolbar_box(gpointer exit_function, GtkWidget *window, gboolean fullscreen_button);
-extern void free_list_time_event(void);
-extern void event_add(time_t time_value, short int type_event);
-extern void destroy_popup_window(void);
-extern float mb2mm(float pressure);
-extern GtkWidget *create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list);
-extern gint choose_wind_direction(gchar *buffer);
-#ifdef USE_DBUS
-extern void weather_deinitialize_dbus(void);
 #endif
 #ifdef CLUTTER
 void free_clutter_objects_list(GSList **clutter_objects);
@@ -153,7 +92,6 @@ void free_clutter_objects_list(GSList **clutter_objects);
 #if defined(OS2009)
 void init_portrait(GtkWidget *main_widget);
 #endif
-extern gboolean show_animation(GSList *clutter_objects);
 /*******************************************************************************/
 typedef struct _HomeAppletHandler HomeAppletHandler;
 /*******************************************************************************/
@@ -175,13 +113,9 @@ struct _HomeAppletHandler {
 GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent);
 /*******************************************************************************/
 #ifdef OS2009
-static void omweather_plugin_class_finalize (OmweatherPluginClass *klass);
-extern void omweather_plugin_realize (GtkWidget *widget);
-extern gboolean omweather_plugin_expose_event (GtkWidget      *widget,
-                                        GdkEventExpose *event);
-static void omweather_plugin_class_init (OmweatherPluginClass *klass);
-static void omweather_plugin_visible_notify (GObject                *object,
-                                          GParamSpec             *spec,
+static void omweather_plugin_class_finalize(OmweatherPluginClass *klass);
+static void omweather_plugin_class_init(OmweatherPluginClass *klass);
+static void omweather_plugin_visible_notify(GObject *object, GParamSpec *spec,
                                           OmweatherPlugin *applet);
 static void omweather_plugin_init (OmweatherPlugin *applet);
 #endif 

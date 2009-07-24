@@ -28,6 +28,7 @@
 */
 /*******************************************************************************/
 #include "weather-event.h"
+#include "weather-home.h"
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif

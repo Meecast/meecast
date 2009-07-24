@@ -53,7 +53,4 @@ void help_activated_handler(GtkWidget *window, gchar *help_id);
 #endif
 void create_about_dialog(void);	/* create help dialog */
 /*******************************************************************************/
-extern GtkWidget*
-create_scrolled_window_with_text(const char* text, GtkJustification justification);
-/*******************************************************************************/
 #endif

@@ -28,15 +28,11 @@
 */
 /*******************************************************************************/
 #include "weather-portrait.h"
-
+#include <error.h>
 #if defined OS2009
     #include <mce/dbus-names.h>
     #include <mce/mode-names.h>
-#endif
-
-
-
-#if defined OS2009
+/*******************************************************************************/
 DBusHandlerResult
 get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 
@@ -60,9 +56,7 @@ get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 }
-#endif
-#if defined OS2009 
-
+/*******************************************************************************/
 void
 set_portrait(GtkWidget *self, char const *prop, guint32 value){
   gdk_property_change(gtk_widget_get_toplevel(self)->window,
@@ -70,9 +64,7 @@ set_portrait(GtkWidget *self, char const *prop, guint32 value){
                       gdk_x11_xatom_to_atom(XA_CARDINAL), 32,
                       GDK_PROP_MODE_REPLACE, (gpointer)&value, 1);
 }
-
-
-
+/*******************************************************************************/
 void
 init_portrait(GtkWidget *win){
 
@@ -81,7 +73,7 @@ init_portrait(GtkWidget *win){
   set_portrait(win, "_HILDON_PORTRAIT_MODE_REQUEST", 1);
   app->portrait_position = TRUE;
 }
-
+/*******************************************************************************/
 void 
 init_landscape(GtkWidget *win){
 
@@ -91,10 +83,9 @@ init_landscape(GtkWidget *win){
   set_portrait(win, "_HILDON_PORTRAIT_MODE_REQUEST", 0);
   app->portrait_position = FALSE;
 }
-
+/*******************************************************************************/
 void
-check_device_position(DBusConnection *connection)
-{
+check_device_position(DBusConnection *connection){
     DBusError derror;
     char *mode;
     DBusMessage *message, *reply;
@@ -123,7 +114,8 @@ check_device_position(DBusConnection *connection)
     if (!dbus_message_get_args(reply, NULL,
                                DBUS_TYPE_STRING, &mode,
                                DBUS_TYPE_INVALID)) {
-        error("Invalid arguments for MCE get_device_orientation reply");
+/* TODO: check this function */
+        error(0, 0, "Invalid arguments for MCE get_device_orientation reply");
         dbus_message_unref(reply);
         app->portrait_position = FALSE;
         return;
@@ -137,5 +129,5 @@ check_device_position(DBusConnection *connection)
     dbus_message_unref(reply);
     return;
 }
-
+/*******************************************************************************/
 #endif

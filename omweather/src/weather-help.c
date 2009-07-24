@@ -28,6 +28,7 @@
 /*******************************************************************************/
 #include "weather-common.h"
 #include "weather-help.h"
+#include "weather-utils.h"
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif

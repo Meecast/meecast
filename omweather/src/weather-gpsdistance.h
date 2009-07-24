@@ -22,6 +22,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Maemo Mapper.  If not, see <http://www.gnu.org/licenses/>.
  */
+/*******************************************************************************/
 #ifndef _weather_gpsdistance_h
 #define _weather_gpsdistance_h 1
 /*******************************************************************************/

@@ -41,13 +41,4 @@ WDB* create_sensor_icon_widget(gboolean transparency,
 guint get_time_from_index(guint index);
 guint get_index_from_time(guint time);
 /*******************************************************************************/
-extern void redraw_home_window(gboolean first_start);
-extern WDB* create_weather_day_button(const char *text, const char *icon,
-				const gint icon_size, gboolean transparency,
-				gboolean draw_day_label, GdkColor *color);
-extern float c2f(float temp);
-extern void check_buttons_changed_handler(GtkToggleButton *button,
-							    gpointer user_data);
-extern void combo_boxs_changed_handler(GtkComboBox *combobox, gpointer user_data);
-/*******************************************************************************/
 #endif

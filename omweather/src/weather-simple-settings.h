@@ -32,10 +32,18 @@
 /*******************************************************************************/
 void weather_simple_window_settings(gpointer user_data);
 GtkWidget* create_and_full_stations_buttons(GtkWidget *main_table);
-extern GtkListStore* get_all_information_about_station(gchar *source, gchar *station_code);
-extern gint get_country_code(gchar *source, gchar *country_name);
-extern gint get_state_code(gchar *source, gchar *country_name);
 GtkTreeIter add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
           gboolean is_gps, gchar *source, gint position);
-
+void highlight_current_item(GtkTreeView *tree_view, GtkListStore *list, gchar *current);
+void list_changed(GtkTreeSelection *sel,  gpointer user_data);
+GtkWidget* create_station_button(gint station_number, gchar* station_name_s, gchar *station_code_s, gchar *station_source_s,
+                      gint country_id, gchar *station_country_s, gint region_id, gchar *station_region_s);
+void choose_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
+void save_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
+void widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
+                                    gpointer user_data);
+GtkWidget* create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget);
+void  station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
+                                    gpointer user_data);
+/*******************************************************************************/
 #endif

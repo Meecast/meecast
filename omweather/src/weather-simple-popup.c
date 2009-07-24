@@ -73,9 +73,9 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     hildon_window_set_app_menu(HILDON_WINDOW(window), menu);
 #endif
 
-//    if(app->popup_window)
-//        gtk_widget_destroy(app->popup_window);
-//    app->popup_window = window;
+    if(app->popup_window)
+        gtk_widget_destroy(app->popup_window);
+    app->popup_window = window;
     gtk_widget_show_all(GTK_WIDGET(window));
 }
 /*******************************************************************************/

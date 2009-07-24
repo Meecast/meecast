@@ -741,6 +741,7 @@ weather_simple_window_settings(gpointer user_data){
     window = hildon_window_new();
 #endif
     gtk_widget_show(window);
+    gtk_window_set_title(GTK_WINDOW(window), _("Settings"));
 
     main_table = gtk_table_new(4,8, FALSE);
 

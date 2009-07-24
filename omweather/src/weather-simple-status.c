@@ -99,6 +99,7 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
 #else
     window = hildon_window_new();
 #endif
+    gtk_window_set_title(GTK_WINDOW(window), "OMWeather");
     gtk_widget_show(window);
 
     main_table = gtk_table_new(6,7, FALSE);

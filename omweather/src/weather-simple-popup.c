@@ -54,7 +54,7 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
 #else
     window = hildon_window_new();
 #endif
-    gtk_window_set_title(GTK_WINDOW(window), "OM Weather");
+    gtk_window_set_title(GTK_WINDOW(window), _("Forecast"));
     main_vbox = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(window), main_vbox);
     gtk_widget_show(window);

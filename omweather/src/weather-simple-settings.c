@@ -38,12 +38,22 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     START_FUNCTION;
 #endif
     GtkWidget *vbox                 = NULL,
-            *label                = NULL,
-            *window               = NULL;
+              *layouts_line         = NULL,
+              *window               = NULL;
+
     gint result;
 
+    vbox = gtk_vbox_new(TRUE, 2);
     window = gtk_dialog_new();
     gtk_widget_set_name(window, "widget_style_window");
+
+    layouts_line = create_layouts_line(window, 40, SIMPLE_MODE);
+    gtk_box_pack_start(vbox,
+                       layouts_line, TRUE, TRUE, 0);
+
+
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
+                       vbox, TRUE, TRUE, 0);
 
     gtk_widget_show_all(window);
     result = gtk_dialog_run(GTK_DIALOG(window));

@@ -2895,7 +2895,7 @@ GtkWidget *create_locations_tab(GtkWidget * window) {
 }
 /*******************************************************************************/
 GtkWidget *
-create_layouts_line(GtkWidget *window)
+create_layouts_line(GtkWidget *window, gint icon_size, gint mode)
 {
     GtkWidget *first_line = NULL,
               *one_row_button = NULL,
@@ -2918,76 +2918,78 @@ create_layouts_line(GtkWidget *window)
     layouts_hbox = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_end(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 20);
     /* make buttons */
-   /* one row */
-    one_row_button =
-        create_button_with_image(BUTTON_ICONS, "one_row", 26, TRUE, TRUE);
-    GLADE_HOOKUP_OBJECT(window, one_row_button, "one_row");
-    gtk_widget_set_name(one_row_button, "one_row");
-    gtk_box_pack_start(GTK_BOX(layouts_hbox), one_row_button, FALSE,
-                       FALSE, 0);
-    group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(one_row_button));
-    g_signal_connect(one_row_button, "clicked",
-                     G_CALLBACK(check_buttons_changed_handler),
-                     (gpointer) window);
+    if ( mode == EXTENDED_MODE){
+        /* one row */
+        one_row_button =
+            create_button_with_image(BUTTON_ICONS, "one_row", icon_size, TRUE, TRUE);
+        GLADE_HOOKUP_OBJECT(window, one_row_button, "one_row");
+        gtk_widget_set_name(one_row_button, "one_row");
+        gtk_box_pack_start(GTK_BOX(layouts_hbox), one_row_button, FALSE,
+                           FALSE, 0);
+        group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(one_row_button));
+        g_signal_connect(one_row_button, "clicked",
+                         G_CALLBACK(check_buttons_changed_handler),
+                         (gpointer) window);
 
-   /* one column */
-    one_column_button =
-        create_button_with_image(BUTTON_ICONS, "one_column", 26, TRUE,
-                                 TRUE);
-    GLADE_HOOKUP_OBJECT(window, one_column_button, "one_column");
-    gtk_widget_set_name(one_column_button, "one_column");
-    g_object_set_data(G_OBJECT(one_column_button), "number",
-                      GINT_TO_POINTER(ONE_COLUMN));
-    gtk_box_pack_start(GTK_BOX(layouts_hbox), one_column_button, FALSE,
-                       FALSE, 0);
-    gtk_radio_button_set_group(GTK_RADIO_BUTTON(one_column_button), group);
-    g_signal_connect(one_column_button, "clicked",
-                     G_CALLBACK(check_buttons_changed_handler),
-                     (gpointer) window);
-    /* two rows */
-    two_rows_button =
-        create_button_with_image(BUTTON_ICONS, "two_rows", 26, TRUE, TRUE);
-    GLADE_HOOKUP_OBJECT(window, two_rows_button, "two_rows");
-    gtk_widget_set_name(two_rows_button, "two_rows");
-    gtk_box_pack_start(GTK_BOX(layouts_hbox), two_rows_button, FALSE,
-                       FALSE, 0);
-    gtk_radio_button_set_group(GTK_RADIO_BUTTON(two_rows_button),
-                               gtk_radio_button_get_group
-                               (GTK_RADIO_BUTTON(one_column_button)));
-    g_signal_connect(two_rows_button, "clicked",
-                     G_CALLBACK(check_buttons_changed_handler),
-                     (gpointer) window);
-    /* two columns */
-    two_columns_button =
-        create_button_with_image(BUTTON_ICONS, "two_columns", 26, TRUE,
-                                 TRUE);
-    GLADE_HOOKUP_OBJECT(window, two_columns_button, "two_columns");
-    gtk_widget_set_name(two_columns_button, "two_columns");
-    gtk_box_pack_start(GTK_BOX(layouts_hbox), two_columns_button, FALSE,
-                       FALSE, 0);
-    gtk_radio_button_set_group(GTK_RADIO_BUTTON(two_columns_button),
-                               gtk_radio_button_get_group
-                               (GTK_RADIO_BUTTON(two_rows_button)));
-    g_signal_connect(two_columns_button, "clicked",
-                     G_CALLBACK(check_buttons_changed_handler),
-                     (gpointer) window);
-    /* combination */
-    combination_button =
-        create_button_with_image(BUTTON_ICONS, "combination", 26, TRUE,
-                                 TRUE);
-    GLADE_HOOKUP_OBJECT(window, combination_button, "combination");
-    gtk_widget_set_name(combination_button, "combination");
-    gtk_box_pack_start(GTK_BOX(layouts_hbox), combination_button, FALSE,
-                       FALSE, 0);
-    gtk_radio_button_set_group(GTK_RADIO_BUTTON(combination_button),
-                               gtk_radio_button_get_group
-                               (GTK_RADIO_BUTTON(two_columns_button)));
-    g_signal_connect(combination_button, "clicked",
-                     G_CALLBACK(check_buttons_changed_handler),
-                     (gpointer) window);
-    /* preset Now */ 
+        /* one column */
+        one_column_button =
+            create_button_with_image(BUTTON_ICONS, "one_column", icon_size, TRUE,
+                                     TRUE);
+        GLADE_HOOKUP_OBJECT(window, one_column_button, "one_column");
+        gtk_widget_set_name(one_column_button, "one_column");
+        g_object_set_data(G_OBJECT(one_column_button), "number",
+                          GINT_TO_POINTER(ONE_COLUMN));
+        gtk_box_pack_start(GTK_BOX(layouts_hbox), one_column_button, FALSE,
+                           FALSE, 0);
+        gtk_radio_button_set_group(GTK_RADIO_BUTTON(one_column_button), group);
+        g_signal_connect(one_column_button, "clicked",
+                         G_CALLBACK(check_buttons_changed_handler),
+                         (gpointer) window);
+        /* two rows */
+        two_rows_button =
+            create_button_with_image(BUTTON_ICONS, "two_rows", icon_size, TRUE, TRUE);
+        GLADE_HOOKUP_OBJECT(window, two_rows_button, "two_rows");
+        gtk_widget_set_name(two_rows_button, "two_rows");
+        gtk_box_pack_start(GTK_BOX(layouts_hbox), two_rows_button, FALSE,
+                           FALSE, 0);
+        gtk_radio_button_set_group(GTK_RADIO_BUTTON(two_rows_button),
+                                   gtk_radio_button_get_group
+                                   (GTK_RADIO_BUTTON(one_column_button)));
+        g_signal_connect(two_rows_button, "clicked",
+                         G_CALLBACK(check_buttons_changed_handler),
+                         (gpointer) window);
+        /* two columns */
+        two_columns_button =
+            create_button_with_image(BUTTON_ICONS, "two_columns", icon_size, TRUE,
+                                     TRUE);
+        GLADE_HOOKUP_OBJECT(window, two_columns_button, "two_columns");
+        gtk_widget_set_name(two_columns_button, "two_columns");
+        gtk_box_pack_start(GTK_BOX(layouts_hbox), two_columns_button, FALSE,
+                           FALSE, 0);
+        gtk_radio_button_set_group(GTK_RADIO_BUTTON(two_columns_button),
+                                   gtk_radio_button_get_group
+                                   (GTK_RADIO_BUTTON(two_rows_button)));
+        g_signal_connect(two_columns_button, "clicked",
+                         G_CALLBACK(check_buttons_changed_handler),
+                         (gpointer) window);
+        /* combination */
+        combination_button =
+            create_button_with_image(BUTTON_ICONS, "combination", icon_size, TRUE,
+                                     TRUE);
+        GLADE_HOOKUP_OBJECT(window, combination_button, "combination");
+        gtk_widget_set_name(combination_button, "combination");
+        gtk_box_pack_start(GTK_BOX(layouts_hbox), combination_button, FALSE,
+                           FALSE, 0);
+        gtk_radio_button_set_group(GTK_RADIO_BUTTON(combination_button),
+                                   gtk_radio_button_get_group
+                                   (GTK_RADIO_BUTTON(two_columns_button)));
+        g_signal_connect(combination_button, "clicked",
+                         G_CALLBACK(check_buttons_changed_handler),
+                         (gpointer) window);
+    }
+    /* preset Now */
     preset_now_button =
-        create_button_with_image(BUTTON_ICONS, "nothing", 26, TRUE, TRUE);
+        create_button_with_image(BUTTON_ICONS, "nothing", icon_size, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, preset_now_button, "preset_now");
     gtk_widget_set_name(preset_now_button, "preset_now");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_button, FALSE,
@@ -3000,7 +3002,7 @@ create_layouts_line(GtkWidget *window)
                      (gpointer) window);
     /* preset Now + Two days */
     preset_now_plus_two_button =
-        create_button_with_image(BUTTON_ICONS, "now_plus_two", 26, TRUE, TRUE);
+        create_button_with_image(BUTTON_ICONS, "now_plus_two", icon_size, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, preset_now_plus_two_button, "preset_now_plus_two");
     gtk_widget_set_name(preset_now_plus_two_button, "preset_now_plus_two");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_two_button, FALSE,
@@ -3014,7 +3016,7 @@ create_layouts_line(GtkWidget *window)
 
     /* preset Now + Three days Vertical */
     preset_now_plus_three_v_button =
-        create_button_with_image(BUTTON_ICONS, "now_plus_three_v", 26, TRUE, TRUE);
+        create_button_with_image(BUTTON_ICONS, "now_plus_three_v", icon_size, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, preset_now_plus_three_v_button, "preset_now_plus_three_v");
     gtk_widget_set_name(preset_now_plus_three_v_button, "preset_now_plus_three_v");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_three_v_button, FALSE,
@@ -3027,7 +3029,7 @@ create_layouts_line(GtkWidget *window)
                      (gpointer) window);
     /* preset Now + Three days Horizontal */
     preset_now_plus_three_h_button =
-        create_button_with_image(BUTTON_ICONS, "now_plus_three_h", 26, TRUE, TRUE);
+        create_button_with_image(BUTTON_ICONS, "now_plus_three_h", icon_size, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, preset_now_plus_three_h_button, "preset_now_plus_three_h");
     gtk_widget_set_name(preset_now_plus_three_h_button, "preset_now_plus_three_h");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_three_h_button, FALSE,
@@ -3040,7 +3042,7 @@ create_layouts_line(GtkWidget *window)
                      (gpointer) window);
     /* preset Now + Seven days */
     preset_now_plus_seven_button =
-        create_button_with_image(BUTTON_ICONS, "now_plus_seven", 26, TRUE, TRUE);
+        create_button_with_image(BUTTON_ICONS, "now_plus_seven", icon_size, TRUE, TRUE);
     GLADE_HOOKUP_OBJECT(window, preset_now_plus_seven_button, "preset_now_plus_seven");
     gtk_widget_set_name(preset_now_plus_seven_button, "preset_now_plus_seven");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_seven_button, FALSE,
@@ -3053,59 +3055,90 @@ create_layouts_line(GtkWidget *window)
                      (gpointer) window);
 
 
-    switch (app->config->icons_layout) {
-        default:
-        case ONE_ROW:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(one_row_button),
-                                     TRUE);
-            app->visuals_tab_start_state |= STATE_ONE_ROW;
+    if (mode == EXTENDED_MODE){
+        switch (app->config->icons_layout) {
+            default:
+            case ONE_ROW:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(one_row_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_ONE_ROW;
+                break;
+            case ONE_COLUMN:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
+                                         (one_column_button), TRUE);
+                app->visuals_tab_start_state |= STATE_ONE_COLUMN;
             break;
-        case ONE_COLUMN:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
-                                     (one_column_button), TRUE);
-            app->visuals_tab_start_state |= STATE_ONE_COLUMN;
-        break;
-        case TWO_ROWS:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(two_rows_button),
-                                     TRUE);
-            app->visuals_tab_start_state |= STATE_TWO_ROWS;
-            break;
-        case TWO_COLUMNS:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
-                                     (two_columns_button), TRUE);
-            app->visuals_tab_start_state |= STATE_TWO_COLUMNS;
-            break;
-        case COMBINATION:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
-                                     (combination_button), TRUE);
-            app->visuals_tab_start_state |= STATE_COMBINATION;
-            break;
-        case PRESET_NOW:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_button),
-                                     TRUE);
-            app->visuals_tab_start_state |= STATE_PRESET_NOW;
-            break;
-        case PRESET_NOW_PLUS_TWO:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_two_button),
-                                     TRUE);
-            app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_TWO;
-            break;
-        case PRESET_NOW_PLUS_THREE_V:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_three_v_button),
-                                     TRUE);
-            app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_THREE_V;
-            break;
-        case PRESET_NOW_PLUS_THREE_H:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_three_h_button),
-                                     TRUE);
-            app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_THREE_H;
-            break;
-        case PRESET_NOW_PLUS_SEVEN:
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_seven_button),
-                                     TRUE);
-            app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_SEVEN;
-            break;
-
+            case TWO_ROWS:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(two_rows_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_TWO_ROWS;
+                break;
+            case TWO_COLUMNS:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
+                                         (two_columns_button), TRUE);
+                app->visuals_tab_start_state |= STATE_TWO_COLUMNS;
+                break;
+            case COMBINATION:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
+                                         (combination_button), TRUE);
+                app->visuals_tab_start_state |= STATE_COMBINATION;
+                break;
+            case PRESET_NOW:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW;
+                break;
+            case PRESET_NOW_PLUS_TWO:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_two_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_TWO;
+                break;
+            case PRESET_NOW_PLUS_THREE_V:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_three_v_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_THREE_V;
+                break;
+            case PRESET_NOW_PLUS_THREE_H:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_three_h_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_THREE_H;
+                break;
+            case PRESET_NOW_PLUS_SEVEN:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_seven_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_SEVEN;
+                break;
+        }
+    }
+    if (mode == SIMPLE_MODE){
+        switch (app->config->icons_layout) {
+           default:
+           case PRESET_NOW:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW;
+                break;
+            case PRESET_NOW_PLUS_TWO:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_two_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_TWO;
+                break;
+            case PRESET_NOW_PLUS_THREE_V:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_three_v_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_THREE_V;
+                break;
+            case PRESET_NOW_PLUS_THREE_H:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_three_h_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_THREE_H;
+                break;
+            case PRESET_NOW_PLUS_SEVEN:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_seven_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_SEVEN;
+                break;
+        }
     }
     return first_line;
 }
@@ -3134,7 +3167,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
     visuals_page = gtk_vbox_new(FALSE, 0);
     apply_button = lookup_widget(window, "apply_button");
 /* first line */
-    first_line = create_layouts_line(window);
+    first_line = create_layouts_line(window, 26, EXTENDED_MODE);
 
 /* second line */
     second_line = gtk_hbox_new(FALSE, 0);

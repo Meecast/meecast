@@ -1025,7 +1025,7 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
     g_signal_connect(G_OBJECT(button), "button-release-event",
                      G_CALLBACK(station_setup_button_handler),
                      (gpointer)button);
-    gtk_widget_set_size_request(button, 135, 80);
+    gtk_widget_set_size_request(button, 150, 80);
     gtk_widget_show (button);
 
 #ifdef DEBUGFUNCTIONCALL
@@ -1060,7 +1060,7 @@ create_and_full_stations_buttons(GtkWidget *main_table)
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    box = gtk_hbox_new(TRUE, 5);
+    box = gtk_hbox_new(TRUE, 10);
     valid =
         gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                       (app->user_stations_list), &iter);
@@ -1117,7 +1117,6 @@ weather_simple_window_settings(gpointer user_data){
           *main_table           = NULL,
           *units_button         = NULL,
           *widget_style_button  = NULL,
-          *save_button          = NULL,
           *stations_box         = NULL,
           *update_button        = NULL,
           *left_alignmnet       = NULL,
@@ -1130,19 +1129,16 @@ weather_simple_window_settings(gpointer user_data){
           *vertical4_alignmnet  = NULL;
   GtkWidget
           *units_label           = NULL,
-          *units_description      = NULL,
+          *units_description     = NULL,
           *units_box             = NULL;
+  gint    result;
 
   gchar   *units_string = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 
-#if defined OS2009
-    window = hildon_stackable_window_new();
-#else
-    window = hildon_window_new();
-#endif
+    window = gtk_dialog_new();
     gtk_widget_show(window);
     gtk_window_set_title(GTK_WINDOW(window), _("Settings"));
 
@@ -1290,23 +1286,6 @@ weather_simple_window_settings(gpointer user_data){
                                 0, 0 );
     gtk_widget_show (vertical4_alignmnet);
 
-    medium_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(medium_alignmnet, 50, -1);
-    gtk_table_attach((GtkTable*)main_table, medium_alignmnet,
-                                2, 3, 0, 8,
-                                GTK_FILL | GTK_EXPAND | GTK_SHRINK,
-                                GTK_FILL | GTK_EXPAND | GTK_SHRINK,
-                                0, 0 );
-    gtk_widget_show (medium_alignmnet);
-
-    save_button = gtk_button_new_with_label (_("Save"));
-    gtk_widget_set_size_request(save_button, 150, 60);
-    gtk_widget_show (save_button);
-    gtk_table_attach((GtkTable*)main_table, save_button,
-                                3, 4, 6, 7, (GtkAttachOptions)0,
-                                (GtkAttachOptions)0, 0, 0 );
-    gtk_widget_show (save_button);
-
     right_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(right_alignmnet, 5, -1);
     gtk_table_attach((GtkTable*)main_table, right_alignmnet,
@@ -1315,10 +1294,16 @@ weather_simple_window_settings(gpointer user_data){
                                 (GtkAttachOptions)0, 0, 0 );
     gtk_widget_show (right_alignmnet);
 
-    gtk_container_add (GTK_CONTAINER (window), main_table);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
+                       main_table, TRUE, TRUE, 0);
+    gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
 
     gtk_widget_show(main_table);
 
+/* start dialog window */
+    result = gtk_dialog_run(GTK_DIALOG(window));
+    if (window)
+        gtk_widget_destroy(window);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

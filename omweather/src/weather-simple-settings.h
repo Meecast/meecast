@@ -46,5 +46,6 @@ GtkWidget* create_button(gchar* name, gchar* value, gchar* button_name, gchar* p
 void  station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data);
 extern GtkWidget* create_layouts_line(GtkWidget *window, gint icon_size, gint mode);
+extern GtkWidget *create_iconsets_line(GtkWidget *window, gint icon_size);
 /*******************************************************************************/
 #endif

@@ -3143,31 +3143,14 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode)
     return first_line;
 }
 /*******************************************************************************/
-GtkWidget *create_visuals_tab(GtkWidget * window) {
-    GtkWidget *visuals_page = NULL,
-        *apply_button = NULL,
-        *button = NULL,
-        *first_line = NULL,
-        *second_line = NULL,
-        *iconsets_hbox = NULL,
-        *fourth_line = NULL,
-        *transparency = NULL,
-        *fifth_line = NULL,
-        *font = NULL,
-        *sixth_line = NULL,
-        *font_color = NULL,
-        *background_color = NULL,
-        *short_clicking = NULL,
-        *long_clicking = NULL;
-
-    GSList *group = NULL, *icon_set = NULL, *tmp = NULL, *clicking_group = NULL;
+GtkWidget *
+create_iconsets_line(GtkWidget *window, gint icon_size)
+{
+    GtkWidget *second_line = NULL,
+              *button = NULL,
+              *iconsets_hbox = NULL;
+    GSList *group = NULL, *icon_set = NULL, *tmp = NULL;
     gchar buffer[256];
-/* Visuals tab */
-    app->visuals_tab_start_state = 0;
-    visuals_page = gtk_vbox_new(FALSE, 0);
-    apply_button = lookup_widget(window, "apply_button");
-/* first line */
-    first_line = create_layouts_line(window, 26, EXTENDED_MODE);
 
 /* second line */
     second_line = gtk_hbox_new(FALSE, 0);
@@ -3201,6 +3184,34 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
         tmp = g_slist_next(tmp);
     }
     g_object_set_data(G_OBJECT(window), "iconsetlist", icon_set);
+    return second_line;
+}
+/*******************************************************************************/
+GtkWidget *create_visuals_tab(GtkWidget * window) {
+    GtkWidget *visuals_page = NULL,
+        *apply_button = NULL,
+        *first_line = NULL,
+        *second_line = NULL,
+        *fourth_line = NULL,
+        *transparency = NULL,
+        *fifth_line = NULL,
+        *font = NULL,
+        *sixth_line = NULL,
+        *font_color = NULL,
+        *background_color = NULL,
+        *short_clicking = NULL,
+        *long_clicking = NULL;
+
+    GSList *clicking_group = NULL;
+
+/* Visuals tab */
+    app->visuals_tab_start_state = 0;
+    visuals_page = gtk_vbox_new(FALSE, 0);
+    apply_button = lookup_widget(window, "apply_button");
+/* first line */
+    first_line = create_layouts_line(window, 26, EXTENDED_MODE);
+/* second line */
+    second_line = create_iconsets_line(window, 40);
 /* thrid line */
 /* fourth line */
     fourth_line = gtk_hbox_new(FALSE, 0);

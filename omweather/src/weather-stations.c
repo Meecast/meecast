@@ -691,7 +691,6 @@ int countries_callback(void *user_data, int argc, char **argv, char **azColName)
           gtk_list_store_set(list, &iter, 1, atoi(argv[i]), -1);
         if(!strcmp(azColName[i], "name"))
           gtk_list_store_set(list, &iter, 0, argv[i], -1);
-          fprintf(stderr, "id %i name %s\n", atoi(argv[i]), argv[i]);
     }
     return 0;
 }

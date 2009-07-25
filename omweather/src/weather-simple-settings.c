@@ -336,6 +336,289 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
 
 }
 /*******************************************************************************/
+void
+units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    GtkWidget *window = NULL,
+              *main_table = NULL,
+              *result = NULL,
+              *left_alignmnet = NULL,
+              *vertical1_alignmnet = NULL,
+              *vertical2_alignmnet = NULL,
+              *vertical3_alignmnet = NULL,
+              *main_label = NULL,
+              *label_set = NULL,
+              *label_set1 = NULL,
+              *hbox_temperature = NULL, 
+              *hbox_distance = NULL,  
+              *hbox_speed = NULL,
+              *hbox_pressure = NULL,
+              *group = NULL,
+              *celsius_button = NULL,
+              *fahrenheit_button = NULL,
+              *meters_button = NULL,
+              *kilometers_button = NULL,
+              *miles_button = NULL,
+              *sea_miles_button = NULL,
+              *meters_s_button = NULL,
+              *kilometers_h_button = NULL,
+              *miles_h_button = NULL,
+              *pressure_mb_button = NULL,
+              *pressure_inHg_button = NULL,
+              *pressure_mmHg_button = NULL,
+              *save_button = NULL,
+              *vbox = NULL;
+    window = gtk_dialog_new_with_buttons(_("Units"), NULL, 
+                                     GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
+    gtk_widget_set_name(window, "simple_settings_window");
+    main_table = gtk_table_new(12, 12, FALSE);
+
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox), main_table, TRUE, TRUE, 0);
+
+    left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(left_alignmnet, 5, -1);
+
+    gtk_table_attach((GtkTable*)main_table, left_alignmnet,
+                                0, 1, 0, 12,
+                                GTK_FILL | GTK_EXPAND | GTK_SHRINK,
+                                (GtkAttachOptions)0, 0, 0 );
+
+    label_set = gtk_label_new(_("Temp."));
+    set_font(label_set, NULL, 20);
+    gtk_widget_set_size_request(label_set, 40, -1);
+    
+    gtk_table_attach((GtkTable*)main_table, label_set,
+                                1, 3, 1, 2,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 0, 0 );
+
+
+    hbox_temperature = gtk_hbox_new(TRUE, 0);
+    
+//    gtk_box_pack_start (GTK_BOX (hbox_temperature), label_set, TRUE, TRUE, 0);
+
+    group = NULL;
+
+    celsius_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(celsius_button), gtk_label_new(_("C")));
+    gtk_widget_set_size_request(celsius_button, 174, 50);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(celsius_button), FALSE);
+    gtk_box_pack_start (GTK_BOX (hbox_temperature), celsius_button, TRUE, TRUE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(celsius_button), group);
+
+    fahrenheit_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(fahrenheit_button), gtk_label_new(_("F")));
+    gtk_widget_set_size_request(fahrenheit_button, 174, 50);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(fahrenheit_button), FALSE);
+    group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(celsius_button));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(fahrenheit_button), group);
+    gtk_box_pack_end (GTK_BOX (hbox_temperature), fahrenheit_button, TRUE, TRUE, 0);
+//    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox), hbox, TRUE, TRUE, 0);
+    
+    if(app->config->temperature_units == CELSIUS)
+        gtk_toggle_button_set_active (celsius_button, TRUE);
+    else
+        gtk_toggle_button_set_active (fahrenheit_button, TRUE);
+
+    gtk_table_attach((GtkTable*)main_table, hbox_temperature,
+                                     4, 5, 1, 2,
+                                     GTK_FILL | GTK_EXPAND,
+                                     (GtkAttachOptions)0, 20, 0 );
+
+    vertical1_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical1_alignmnet,
+                                0, 12, 2, 3,
+                                (GtkAttachOptions)0,
+                                GTK_FILL |  GTK_SHRINK,
+                                0, 0 );
+   
+    label_set1 = gtk_label_new(_("Distance"));
+    set_font(label_set1, NULL, 20);
+    gtk_widget_set_size_request(label_set1, 40, -1);
+
+    gtk_table_attach((GtkTable*)main_table, label_set1,
+                                1, 3, 3, 4,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 20, 0 );
+
+    hbox_distance = gtk_hbox_new(TRUE, 0);
+    group = NULL;
+    gtk_box_pack_start (GTK_BOX (hbox_distance), label_set1, TRUE, TRUE, 0);
+    meters_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(meters_button), gtk_label_new(_("m")));
+    gtk_widget_set_size_request(meters_button, 43, 50);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(meters_button), FALSE);
+    gtk_box_pack_start (GTK_BOX (hbox_distance), meters_button, TRUE, TRUE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(meters_button), group);
+
+    kilometers_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(kilometers_button), gtk_label_new(_("km")));
+    gtk_widget_set_size_request(kilometers_button, 43, 50);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(kilometers_button), FALSE);
+    group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(meters_button));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(kilometers_button), group);
+    gtk_box_pack_start (GTK_BOX (hbox_distance), kilometers_button, TRUE, TRUE, 0);
+
+    miles_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(miles_button), gtk_label_new(_("mi")));
+    gtk_widget_set_size_request(miles_button, 43, 50);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(miles_button), FALSE);
+    group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(kilometers_button));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(miles_button), group);
+    gtk_box_pack_start (GTK_BOX (hbox_distance), miles_button, TRUE, TRUE, 0);
+
+    sea_miles_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(sea_miles_button), gtk_label_new(_("smi")));
+    gtk_widget_set_size_request(sea_miles_button, 43, 50);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(sea_miles_button), FALSE);
+    group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(miles_button));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(sea_miles_button), group);
+    gtk_box_pack_start (GTK_BOX (hbox_distance), sea_miles_button, TRUE, TRUE, 0);
+
+    if(app->config->distance_units == KILOMETERS)
+        gtk_toggle_button_set_active (kilometers_button, TRUE);    
+    else{
+        if(app->config->distance_units == MILES)
+            gtk_toggle_button_set_active (miles_button, TRUE);
+        else
+            gtk_toggle_button_set_active (sea_miles_button, TRUE);
+    }
+    
+    gtk_table_attach((GtkTable*)main_table, hbox_distance,
+                                4, 5, 3, 4,
+                                GTK_FILL | GTK_EXPAND,
+                               (GtkAttachOptions)0, 20, 0 );
+
+    vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_set_size_request(vertical2_alignmnet, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical2_alignmnet,
+                                0, 12, 4, 5,
+                                (GtkAttachOptions)0,
+                                GTK_FILL |  GTK_SHRINK,
+                                0, 0 );
+
+
+    label_set = gtk_label_new(_("Speed"));
+    set_font(label_set, NULL, 20);
+    gtk_widget_set_size_request(label_set, 40, -1);
+    gtk_table_attach((GtkTable*)main_table, label_set,
+                                1, 3, 5, 6,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 20, 0 );
+
+    hbox_speed = gtk_hbox_new(TRUE, 0);
+    group = NULL;
+    meters_s_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(meters_s_button), gtk_label_new(_("m/s")));
+    gtk_widget_set_size_request(meters_s_button, 58, 50);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(meters_s_button), FALSE);
+    gtk_box_pack_start (GTK_BOX (hbox_speed), meters_s_button, TRUE, TRUE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(meters_s_button), group);
+
+    kilometers_h_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(kilometers_h_button), gtk_label_new(_("km/h")));
+    gtk_widget_set_size_request(kilometers_h_button, 58, 50);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(kilometers_h_button), FALSE);
+    group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(meters_s_button));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(kilometers_h_button), group);
+    gtk_box_pack_start (GTK_BOX (hbox_speed), kilometers_h_button, TRUE, TRUE, 0);
+
+    miles_h_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(miles_h_button), gtk_label_new(_("mi/h")));
+    gtk_widget_set_size_request(miles_h_button, 58, 25);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(miles_h_button), FALSE);
+    group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(kilometers_h_button));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(miles_h_button), group);
+    gtk_box_pack_start (GTK_BOX (hbox_speed), miles_h_button, TRUE, TRUE, 0);
+
+    if(app->config->wind_units == KILOMETERS_H)
+        gtk_toggle_button_set_active (kilometers_h_button, TRUE);
+    else
+        gtk_toggle_button_set_active (miles_h_button, TRUE);
+
+    gtk_table_attach((GtkTable*)main_table, hbox_speed,
+                                4, 5, 5, 6,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 20, 0 );
+    
+    vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_set_size_request(vertical3_alignmnet, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical3_alignmnet,
+                                0, 12, 6, 7,
+                               (GtkAttachOptions)0,
+                               GTK_FILL |  GTK_SHRINK,
+                               0, 0 );
+
+    label_set = gtk_label_new(_("Pressure"));
+    set_font(label_set, NULL, 20);
+    gtk_widget_set_size_request(label_set, 40, -1);
+    gtk_table_attach((GtkTable*)main_table, label_set,
+                                1, 3, 7, 8,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 20, 0 );
+
+    hbox_pressure = gtk_hbox_new(TRUE, 0);
+    group = NULL;
+    pressure_mb_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(pressure_mb_button), gtk_label_new(_("mb")));
+    gtk_widget_set_size_request(pressure_mb_button, 58, 50);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(pressure_mb_button), FALSE);
+    gtk_box_pack_start (GTK_BOX (hbox_pressure), pressure_mb_button, TRUE, TRUE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(pressure_mb_button), group);
+
+    pressure_inHg_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(pressure_inHg_button), gtk_label_new(_("inHg")));
+    gtk_widget_set_size_request(pressure_inHg_button, 58, 50);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(pressure_inHg_button), FALSE);
+    group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(pressure_mb_button));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(pressure_inHg_button), group);
+    gtk_box_pack_start (GTK_BOX (hbox_pressure), pressure_inHg_button, TRUE, TRUE, 0);
+    
+    pressure_mmHg_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(pressure_mmHg_button), gtk_label_new(_("mmHg")));
+    gtk_widget_set_size_request(pressure_mmHg_button, 58, 25);
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(pressure_mmHg_button), FALSE);
+    group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(pressure_inHg_button));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(pressure_mmHg_button), group);
+    gtk_box_pack_start (GTK_BOX (hbox_pressure), pressure_mmHg_button, TRUE, TRUE, 0);
+
+    if(app->config->pressure_units == INCH)
+        gtk_toggle_button_set_active (pressure_inHg_button, TRUE);
+    else
+        gtk_toggle_button_set_active (pressure_mmHg_button, TRUE);
+
+    gtk_table_attach((GtkTable*)main_table, hbox_pressure,
+                                4, 5, 7, 8,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 20, 0 );
+
+
+    save_button = gtk_button_new_with_label (_("Save"));
+    gtk_widget_set_size_request(save_button, 180, 80);
+    gtk_widget_show (save_button);
+    gtk_table_attach((GtkTable*)main_table, save_button,
+                                5, 6, 7, 8, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 10, 10);
+    //gtk_widget_show (save_button);
+    g_signal_connect(G_OBJECT(save_button), "button-release-event",
+                          G_CALLBACK(save_button_handler),
+                          window);
+
+    gtk_widget_show_all(window);
+    /* start dialog window */
+    result = gtk_dialog_run(GTK_DIALOG(window));
+  //  if(window)
+    gtk_widget_destroy(window);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+ 
+}
+/*******************************************************************************/
 GtkWidget*
 create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget){
 #ifdef DEBUGFUNCTIONCALL
@@ -834,12 +1117,14 @@ weather_simple_window_settings(gpointer user_data){
     gtk_box_pack_start(GTK_BOX(units_box), units_description, TRUE, TRUE, 0);
     gtk_container_add (GTK_CONTAINER (units_button), units_box);
 
-
     gtk_widget_set_size_request(units_button, 490, 70);
     gtk_widget_show (units_button);
     gtk_table_attach((GtkTable*)main_table, units_button,
                                 1, 2, 3, 4, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
+
+    g_signal_connect(G_OBJECT(units_button), "button-release-event",
+                              G_CALLBACK(units_button_handler), (gpointer)units_button);
 
     vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(vertical2_alignmnet, -1, 20);

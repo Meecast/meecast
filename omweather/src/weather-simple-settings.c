@@ -350,12 +350,11 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
 }
 /*******************************************************************************/
 void
- units_tab_save_button_handler(GtkWidget *button, GdkEventButton *event,
-                                    gpointer user_data){
+ units_save(GtkWidget *window){
  #ifdef DEBUGFUNCTIONCALL
      START_FUNCTION;
  #endif
- GtkWidget *window = GTK_WIDGET(user_data),
+ GtkWidget
            *celsius = NULL,
            *fahrenheit = NULL,
            *meters = NULL,
@@ -429,7 +428,7 @@ void
         }
     }
 
-    g_signal_emit_by_name(G_OBJECT(user_data), "close", NULL);
+//    g_signal_emit_by_name(G_OBJECT(), "close", NULL);
  
 }
 /*******************************************************************************/
@@ -693,7 +692,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     group_pressure = gtk_radio_button_get_group(GTK_RADIO_BUTTON(pressure_mb_button));
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(pressure_inHg_button), group_pressure);
     gtk_box_pack_start (GTK_BOX (hbox_pressure), pressure_inHg_button, TRUE, TRUE, 0);
-    
+
     pressure_mmHg_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(pressure_mmHg_button), gtk_label_new(_("mmHg")));
     gtk_widget_set_size_request(pressure_mmHg_button, 58, 25);
@@ -716,22 +715,14 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 20, 0 );
 
-    save_button = gtk_button_new_with_label (_("Save"));
-    gtk_widget_set_size_request(save_button, 150, 50);
-    gtk_widget_show (save_button);
-    gtk_table_attach((GtkTable*)main_table, save_button,
-                                3, 4, 7, 8, (GtkAttachOptions)0,
-                                (GtkAttachOptions)0, 10, 10);
-
-    g_signal_connect(G_OBJECT(save_button), "button-release-event",
-                         G_CALLBACK(units_tab_save_button_handler),
-                         window);
-
+    gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
     gtk_widget_show_all(window);
     /* start dialog window */
-   // result = gtk_dialog_run(GTK_DIALOG(window));
-  //  if(window)
-   // gtk_widget_destroy(window);
+    result = gtk_dialog_run(GTK_DIALOG(window));
+    if (result == GTK_RESPONSE_YES)
+        units_save(window);
+    if(window)
+        gtk_widget_destroy(window);
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -1141,6 +1132,8 @@ weather_simple_window_settings(gpointer user_data){
     window = gtk_dialog_new();
     gtk_widget_show(window);
     gtk_window_set_title(GTK_WINDOW(window), _("Settings"));
+    gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
+    gtk_window_set_modal(GTK_WINDOW(window), TRUE);
 
     main_table = gtk_table_new(4,8, FALSE);
 
@@ -1302,6 +1295,10 @@ weather_simple_window_settings(gpointer user_data){
 
 /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(window));
+    if (result == GTK_RESPONSE_YES)
+        /* Save config file */
+        config_save(app->config);
+
     if (window)
         gtk_widget_destroy(window);
 #ifdef DEBUGFUNCTIONCALL

@@ -1025,8 +1025,8 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
 #endif
 
     if (app->config->mode == SIMPLE_MODE){
-        weather_simple_window_status(widget, user_data);
-        return;
+//        weather_simple_window_status(widget, user_data);
+//        return;
     }
 
 /* kill popup window :-) */
@@ -2894,41 +2894,24 @@ GtkWidget *create_locations_tab(GtkWidget * window) {
     return left_right_hbox;
 }
 /*******************************************************************************/
-GtkWidget *create_visuals_tab(GtkWidget * window) {
-    GtkWidget *visuals_page = NULL,
-        *apply_button = NULL,
-        *button = NULL,
-        *first_line = NULL,
-        *layouts_hbox = NULL,
-        *second_line = NULL,
-        *iconsets_hbox = NULL,
-        *fourth_line = NULL,
-        *transparency = NULL,
-        *fifth_line = NULL,
-        *font = NULL,
-        *sixth_line = NULL,
-        *font_color = NULL,
-        *background_color = NULL,
-        *one_row_button = NULL,
-        *one_column_button = NULL,
-        *two_rows_button = NULL,
-        *two_columns_button = NULL,
-        *combination_button = NULL,
-        *short_clicking = NULL,
-        *long_clicking = NULL,
-        *preset_now_button = NULL,
-        *preset_now_plus_two_button = NULL,
-        *preset_now_plus_three_v_button = NULL,
-        *preset_now_plus_three_h_button = NULL,
-        *preset_now_plus_seven_button = NULL;
+GtkWidget *
+create_layouts_line(GtkWidget *window)
+{
+    GtkWidget *first_line = NULL,
+              *one_row_button = NULL,
+              *one_column_button = NULL,
+              *two_rows_button = NULL,
+              *two_columns_button = NULL,
+              *combination_button = NULL,
+              *layouts_hbox = NULL,
+              *preset_now_button = NULL,
+              *preset_now_plus_two_button = NULL,
+              *preset_now_plus_three_v_button = NULL,
+              *preset_now_plus_three_h_button = NULL,
+              *preset_now_plus_seven_button = NULL;
 
-    GSList *group = NULL, *icon_set = NULL, *tmp = NULL, *clicking_group = NULL;
-    gchar buffer[256];
-/* Visuals tab */
-    app->visuals_tab_start_state = 0;
-    visuals_page = gtk_vbox_new(FALSE, 0);
-    apply_button = lookup_widget(window, "apply_button");
-/* first line */
+    GSList *group = NULL;
+
     first_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(first_line),
                        gtk_label_new(_("Layout:")), FALSE, FALSE, 20);
@@ -3124,6 +3107,35 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
             break;
 
     }
+    return first_line;
+}
+/*******************************************************************************/
+GtkWidget *create_visuals_tab(GtkWidget * window) {
+    GtkWidget *visuals_page = NULL,
+        *apply_button = NULL,
+        *button = NULL,
+        *first_line = NULL,
+        *second_line = NULL,
+        *iconsets_hbox = NULL,
+        *fourth_line = NULL,
+        *transparency = NULL,
+        *fifth_line = NULL,
+        *font = NULL,
+        *sixth_line = NULL,
+        *font_color = NULL,
+        *background_color = NULL,
+        *short_clicking = NULL,
+        *long_clicking = NULL;
+
+    GSList *group = NULL, *icon_set = NULL, *tmp = NULL, *clicking_group = NULL;
+    gchar buffer[256];
+/* Visuals tab */
+    app->visuals_tab_start_state = 0;
+    visuals_page = gtk_vbox_new(FALSE, 0);
+    apply_button = lookup_widget(window, "apply_button");
+/* first line */
+    first_line = create_layouts_line(window);
+
 /* second line */
     second_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(second_line),

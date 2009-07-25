@@ -88,17 +88,13 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
           *vertical1_alignmnet  = NULL,
           *vertical2_alignmnet  = NULL,
           *vertical3_alignmnet  = NULL;
+  gint result;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 
-
-#if defined OS2009
-    window = hildon_stackable_window_new();
-#else
-    window = hildon_window_new();
-#endif
+    window = gtk_dialog_new();
     gtk_window_set_title(GTK_WINDOW(window), "OMWeather");
     gtk_widget_show(window);
 
@@ -199,8 +195,18 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
                                 0, 0 );
     gtk_widget_show (vertical3_alignmnet);
 
-    gtk_container_add (GTK_CONTAINER (window), main_table);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
+                       main_table, TRUE, TRUE, 0);
 
     gtk_widget_show(main_table);
+
+    /* start dialog window */
+    result = gtk_dialog_run(GTK_DIALOG(window));
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
+                       main_table, TRUE, TRUE, 0);
+
+    if (window)
+        gtk_widget_destroy(window);
+
 }
 /*******************************************************************************/

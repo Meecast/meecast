@@ -36,7 +36,9 @@ void
 weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     GtkWidget       *window = NULL,
                     *main_vbox = NULL;
+#if defined OS2009
     HildonAppMenu  *menu;
+#endif
     GtkWidget *menu_item1;
     GtkWidget *menu_item2;
     GtkWidget *menu_item3;

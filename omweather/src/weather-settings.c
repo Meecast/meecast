@@ -1025,8 +1025,8 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
 #endif
 
     if (app->config->mode == SIMPLE_MODE){
-//        weather_simple_window_status(widget, user_data);
-//        return;
+        weather_simple_window_status(widget, user_data);
+        return;
     }
 
 /* kill popup window :-) */

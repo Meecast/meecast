@@ -736,6 +736,235 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 
 }
 /*******************************************************************************/
+void
+ update_save(GtkWidget *window){
+    GtkWidget   *never_update = NULL,
+                *one_hour_update = NULL,
+                *four_hours_update = NULL,
+                *one_day_update = NULL;
+
+#ifdef DEBUGFUNCTIONCALL
+   START_FUNCTION;
+#endif
+
+    never_update = lookup_widget(window, "never_button");
+    one_hour_update = lookup_widget(window, "one_hour_button");
+    four_hours_update = lookup_widget(window, "four_hours_button");
+    one_day_update = lookup_widget(window, "one_day_button");
+
+    if(never_update && one_hour_update && four_hours_update && one_day_update){
+             if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(never_update))) 
+            app->config->update_interval = 0;
+        else{
+            if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(one_hour_update)))
+                app->config->update_interval = 60;
+            else{
+                if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(four_hours_update)))
+                    app->config->update_interval = 240;
+                else{
+                    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(one_day_update)))
+                        app->config->update_interval = 1440;
+                }
+            }
+        }
+    }
+
+}
+/*******************************************************************************/
+void
+ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    GtkWidget *window = NULL,
+              *main_table = NULL,
+              *result = NULL,
+              *left_alignmnet = NULL,
+              *vertical1_alignmnet = NULL,
+              *vertical2_alignmnet = NULL,
+              *vertical3_alignmnet = NULL,
+              *vbox = NULL,
+              *hbox_period = NULL,
+              *hbox_method = NULL,
+              *label_set = NULL,
+              *group_period = NULL,
+              *group_method = NULL,
+              *never_button = NULL,
+              *one_hour_button = NULL,
+              *four_hours_button = NULL,
+              *one_day_button = NULL,
+              *gsm_button = NULL,
+              *wlan_button = NULL,
+              *update_button = NULL;
+
+
+    window = gtk_dialog_new_with_buttons(_("Update"), NULL,
+                                  GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
+    gtk_widget_set_name(window, "update_simple_settings_window");
+
+    main_table = gtk_table_new(8, 8, FALSE);
+    
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox), main_table, TRUE, TRUE, 0);
+
+    left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(left_alignmnet, 5, -1);
+    gtk_table_attach((GtkTable*)main_table, left_alignmnet,
+                                0, 1, 0, 8,
+                                GTK_FILL | GTK_EXPAND | GTK_SHRINK,
+                                (GtkAttachOptions)0, 0, 0 );
+    
+    label_set = gtk_label_new(_("Period"));
+    set_font(label_set, NULL, 20);
+    gtk_widget_set_size_request(label_set, 120, -1);
+    gtk_table_attach((GtkTable*)main_table, label_set,
+                                1, 2, 1, 2,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 20, 0 );
+
+    hbox_period = gtk_hbox_new(TRUE, 0);
+    group_period = NULL;
+
+    never_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(never_button), gtk_label_new(_("never")));
+    gtk_widget_set_size_request(never_button, 105, 50);
+    GLADE_HOOKUP_OBJECT(window, never_button, "never_button");
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(never_button), FALSE);
+    gtk_box_pack_start (GTK_BOX (hbox_period), never_button, TRUE, TRUE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(never_button), group_period);
+
+    one_hour_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(one_hour_button), gtk_label_new(_("1 hour")));
+    gtk_widget_set_size_request(one_hour_button, 105, 50);
+    GLADE_HOOKUP_OBJECT(window, one_hour_button, "one_hour_button");
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(one_hour_button), FALSE);
+    group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(never_button));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(one_hour_button), group_period);
+    gtk_box_pack_start (GTK_BOX (hbox_period), one_hour_button, TRUE, TRUE, 0);
+
+    four_hours_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(four_hours_button), gtk_label_new(_("4 hours")));
+    gtk_widget_set_size_request(four_hours_button, 105, 50);
+    GLADE_HOOKUP_OBJECT(window, four_hours_button, "four_hours_button");
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(four_hours_button), FALSE);
+    group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(one_hour_button));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(four_hours_button), group_period);
+    gtk_box_pack_start (GTK_BOX (hbox_period), four_hours_button, TRUE, TRUE, 0);
+
+    one_day_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(one_day_button), gtk_label_new(_("1 day")));
+    gtk_widget_set_size_request(one_day_button, 105, 50);
+    GLADE_HOOKUP_OBJECT(window, one_day_button, "one_day_button");
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(one_day_button), FALSE);
+    group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(four_hours_button));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(one_day_button), group_period);
+    gtk_box_pack_end (GTK_BOX (hbox_period), one_day_button, TRUE, TRUE, 0);
+
+    if(app->config->update_interval == 0)
+         gtk_toggle_button_set_active (never_button, TRUE);
+    else{
+        if(app->config->update_interval == 60)
+            gtk_toggle_button_set_active (one_hour_button, TRUE);
+        else{
+            if(app->config->update_interval == 240)
+                gtk_toggle_button_set_active (four_hours_button, TRUE);
+            else{
+                if(app->config->update_interval == 1440)
+                    gtk_toggle_button_set_active (one_day_button, TRUE);             
+            }
+        }
+    }
+
+    gtk_table_attach((GtkTable*)main_table, hbox_period,
+                                2, 3, 1, 2,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 20, 0 );
+
+    vertical1_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical1_alignmnet,
+                                0, 8, 2, 3,
+                                (GtkAttachOptions)0,
+                                GTK_FILL |  GTK_SHRINK,
+                                0, 0 );
+    
+    label_set = gtk_label_new(_("GSM"));
+    set_font(label_set, NULL, 20);
+    gtk_widget_set_size_request(label_set, 120, -1);
+    gtk_table_attach((GtkTable*)main_table, label_set,
+                                1, 2, 3, 4,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 20, 0 );
+
+    gsm_button = gtk_check_button_new();
+    gtk_widget_set_size_request(gsm_button, 50, 50);
+    GLADE_HOOKUP_OBJECT(window, gsm_button, "gsm_button");
+
+    gtk_table_attach((GtkTable*)main_table, gsm_button,
+                                2, 3, 3, 4,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 20, 0 );
+
+    vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical2_alignmnet,
+                                0, 8, 4, 5,
+                                (GtkAttachOptions)0,
+                                GTK_FILL |  GTK_SHRINK,
+                                0, 0 );
+
+    label_set = gtk_label_new(_("WLAN"));
+    set_font(label_set, NULL, 20);
+    gtk_widget_set_size_request(label_set, 120, -1);
+    gtk_table_attach((GtkTable*)main_table, label_set,
+                                1, 2, 5, 6,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 20, 0 );
+
+    wlan_button = gtk_check_button_new();
+    gtk_widget_set_size_request(wlan_button, 50, 50);
+    GLADE_HOOKUP_OBJECT(window, wlan_button, "wlan_button");
+
+    gtk_table_attach((GtkTable*)main_table, wlan_button,
+                                2, 3, 5, 6,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 20, 0 );
+
+    vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical3_alignmnet,
+                                0, 8, 6, 7,
+                                (GtkAttachOptions)0,
+                                GTK_FILL |  GTK_SHRINK,
+                                0, 0 );
+
+    label_set = gtk_label_new(_("Use GSM and/or WLAN for updating \nthe weather information."));
+    set_font(label_set, NULL, 20);
+    gtk_widget_set_size_request(label_set, 120, -1);
+    gtk_table_attach((GtkTable*)main_table, label_set,
+                                1, 3, 7, 8,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 20, 0 );
+
+    gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
+    gtk_widget_show_all(window);  
+
+    /* start dialog window */
+    result = gtk_dialog_run(GTK_DIALOG(window));
+    if (result == GTK_RESPONSE_YES)
+        update_save(window);
+    if(window)
+        gtk_widget_destroy(window);
+
+    update_button = (gpointer)(g_object_get_data(G_OBJECT(button), "update_button"));
+    gtk_widget_destroy(update_button);
+    create_and_fill_update_box((gpointer)user_data);
+
+#ifdef DEBUGFUNCTIONCALL
+   END_FUNCTION;
+#endif
+ }
+/*******************************************************************************/
 GtkWidget*
 create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget){
 #ifdef DEBUGFUNCTIONCALL
@@ -1194,6 +1423,67 @@ create_and_fill_units_box(GtkWidget *main_table){
 }
 /*******************************************************************************/
 void
+create_and_fill_update_box(GtkWidget *main_table){
+    GtkWidget
+                *update_button          = NULL,
+                *update_label           = NULL,
+                *update_description     = NULL,
+                *update_box             = NULL;
+ 
+    gchar   *update_string = NULL;
+
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+
+
+    if(app->config->update_interval == 0)
+        update_string = "never";
+    else{
+        if(app->config->update_interval == 60)
+            update_string = "1 hour";
+        else{
+            if(app->config->update_interval == 240)
+                update_string = "4 hours";
+            else{
+                if(app->config->update_interval == 1440)
+                    update_string = "1 day";
+            }
+                
+        }
+    }
+
+    update_button = gtk_button_new ();
+    update_label = gtk_label_new(_("Update"));
+
+    set_font(update_label, NULL, 12);
+    gtk_widget_show(update_label);
+
+    update_description = gtk_label_new (update_string);
+    set_font(update_description, NULL, 18);
+    gtk_widget_show(update_description);
+    update_box = gtk_vbox_new(TRUE, 2);
+    gtk_widget_show(update_box);
+
+    gtk_box_pack_start(GTK_BOX(update_box), update_label, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(update_box), update_description, TRUE, TRUE, 0);
+    gtk_container_add (GTK_CONTAINER (update_button), update_box);
+    gtk_widget_set_size_request(update_button, 490, 70);
+    gtk_widget_show (update_button);
+    gtk_table_attach((GtkTable*)main_table, update_button,
+                                1, 2, 7, 8, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+
+    gtk_widget_show (update_button);
+    gtk_widget_show (main_table);
+    g_object_set_data(G_OBJECT(update_button), "settings_window_table", (gpointer)main_table);
+    g_object_set_data(G_OBJECT(update_button), "update_button", (gpointer)update_button);
+    g_signal_connect(G_OBJECT(update_button), "button-release-event",
+                                 G_CALLBACK(update_button_handler), (gpointer)main_table);
+ 
+}
+/*******************************************************************************/
+void
 weather_simple_window_settings(gpointer user_data){
   GtkWidget
           *window               = NULL,
@@ -1287,13 +1577,18 @@ weather_simple_window_settings(gpointer user_data){
                                 0, 0 );
     gtk_widget_show (vertical3_alignmnet);
 
-    update_button = gtk_button_new_with_label (_("Update"));
+    create_and_fill_update_box(main_table);
+
+/*    update_button = gtk_button_new_with_label (_("Update"));
     gtk_widget_set_size_request(update_button, 490, 70);
     gtk_widget_show (update_button);
     gtk_table_attach((GtkTable*)main_table, update_button,
                                 1, 2, 7, 8, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
 
+    g_signal_connect(G_OBJECT(update_button), "button-release-event",
+                           G_CALLBACK(update_button_handler), (gpointer)main_table);
+*/
     vertical4_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(vertical4_alignmnet, -1, 20);
     gtk_table_attach((GtkTable*)main_table, vertical4_alignmnet,

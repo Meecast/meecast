@@ -31,7 +31,7 @@
 #include "weather-common.h"
 /*******************************************************************************/
 void weather_simple_window_settings(gpointer user_data);
-GtkWidget* create_and_full_stations_buttons(GtkWidget *main_table);
+GtkWidget* create_and_fill_stations_buttons(GtkWidget *main_table);
 GtkTreeIter add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
           gboolean is_gps, gchar *source, gint position);
 void highlight_current_item(GtkTreeView *tree_view, GtkListStore *list, gchar *current);
@@ -43,7 +43,8 @@ void save_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user
 void widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data);
 GtkWidget* create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget);
-void  station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
+void create_and_fill_units_box(GtkWidget *main_table);
+void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data);
 extern GtkWidget* create_layouts_line(GtkWidget *window, gint icon_size, gint mode);
 extern GtkWidget *create_iconsets_line(GtkWidget *window, gint icon_size);

@@ -245,7 +245,7 @@ save_button_handler(GtkWidget *button, GdkEventButton *event,
     config_save(app->config);
     stations_box = (gpointer)(g_object_get_data(G_OBJECT(user_data), "station_box"));
     gtk_widget_destroy(stations_box);
-    stations_box = create_and_full_stations_buttons((GtkTable*)(g_object_get_data(G_OBJECT(user_data), "settings_window_table")));
+    stations_box = create_and_fill_stations_buttons((GtkTable*)(g_object_get_data(G_OBJECT(user_data), "settings_window_table")));
     gtk_widget_show (stations_box);
     gtk_table_attach((GtkTable*)(g_object_get_data(G_OBJECT(user_data), "settings_window_table")),
                                 stations_box, 1, 2, 1, 2, (GtkAttachOptions)0,
@@ -350,10 +350,8 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
 }
 /*******************************************************************************/
 void
- units_save(GtkWidget *window){
- #ifdef DEBUGFUNCTIONCALL
-     START_FUNCTION;
- #endif
+units_save(GtkWidget *window){
+
  GtkWidget
            *celsius = NULL,
            *fahrenheit = NULL,
@@ -366,7 +364,12 @@ void
            *miles_h = NULL,
            *pressure_mb = NULL,
            *pressure_inHg = NULL,
-           *pressure_mmHg = NULL;
+           *pressure_mmHg = NULL,
+           *units_box = NULL;
+
+#ifdef DEBUGFUNCTIONCALL
+     START_FUNCTION;
+#endif
 
     celsius = lookup_widget(window, "celsius_button");
     fahrenheit = lookup_widget(window, "fahrenheit_button");
@@ -428,8 +431,6 @@ void
         }
     }
 
-//    g_signal_emit_by_name(G_OBJECT(), "close", NULL);
- 
 }
 /*******************************************************************************/
 void
@@ -468,8 +469,9 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
               *pressure_inHg_button = NULL,
               *pressure_mmHg_button = NULL,
               *save_button = NULL,
-              *vbox = NULL;
-    
+              *vbox = NULL,
+              *units_button = NULL;
+
     window = gtk_dialog_new_with_buttons(_("Units"), NULL, 
                                      GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
     gtk_widget_set_name(window, "units_simple_settings_window");
@@ -488,7 +490,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     label_set = gtk_label_new(_("Temp."));
     set_font(label_set, NULL, 20);
     gtk_widget_set_size_request(label_set, 120, -1);
-    
+
     gtk_table_attach((GtkTable*)main_table, label_set,
                                 1, 2, 1, 2,
                                 GTK_FILL | GTK_EXPAND,
@@ -533,7 +535,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
                                 (GtkAttachOptions)0,
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
-   
+
     label_set = gtk_label_new(_("Distance"));
     set_font(label_set, NULL, 20);
     gtk_widget_set_size_request(label_set, 120, -1);
@@ -593,7 +595,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
                 gtk_toggle_button_set_active (sea_miles_button, TRUE);
         }
     }
-    
+
     gtk_table_attach((GtkTable*)main_table, hbox_distance,
                                 2, 3, 3, 4,
                                 GTK_FILL | GTK_EXPAND,
@@ -657,7 +659,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
                                 2, 3, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 20, 0 );
-    
+
     vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_set_size_request(vertical3_alignmnet, -1, 20);
     gtk_table_attach((GtkTable*)main_table, vertical3_alignmnet,
@@ -724,10 +726,14 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     if(window)
         gtk_widget_destroy(window);
 
+    units_button = (gpointer)(g_object_get_data(G_OBJECT(button), "units_button"));
+    gtk_widget_destroy(units_button);
+    create_and_fill_units_box(user_data);
+
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
- 
+
 }
 /*******************************************************************************/
 GtkWidget*
@@ -768,7 +774,7 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
 }
 /*******************************************************************************/
 void
- station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
+station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -1026,7 +1032,7 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
 }
 /*******************************************************************************/
 GtkWidget*
-create_and_full_stations_buttons(GtkWidget *main_table)
+create_and_fill_stations_buttons(GtkWidget *main_table)
 {
   GtkWidget
           *box     = NULL,
@@ -1102,73 +1108,19 @@ create_and_full_stations_buttons(GtkWidget *main_table)
 }
 /*******************************************************************************/
 void
-weather_simple_window_settings(gpointer user_data){
+create_and_fill_units_box(GtkWidget *main_table){
+
   GtkWidget
-          *window               = NULL,
-          *main_table           = NULL,
-          *units_button         = NULL,
-          *widget_style_button  = NULL,
-          *stations_box         = NULL,
-          *update_button        = NULL,
-          *left_alignmnet       = NULL,
-          *right_alignmnet      = NULL,
-          *medium_alignmnet     = NULL,
-          *vertical0_alignmnet  = NULL,
-          *vertical1_alignmnet  = NULL,
-          *vertical2_alignmnet  = NULL,
-          *vertical3_alignmnet  = NULL,
-          *vertical4_alignmnet  = NULL;
-  GtkWidget
+          *units_button          = NULL,
           *units_label           = NULL,
           *units_description     = NULL,
           *units_box             = NULL;
-  gint    result;
 
   gchar   *units_string = NULL;
-#ifdef DEBUGFUNCTIONCALL
+
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
-
-    window = gtk_dialog_new();
-    gtk_widget_show(window);
-    gtk_window_set_title(GTK_WINDOW(window), _("Settings"));
-    gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
-    gtk_window_set_modal(GTK_WINDOW(window), TRUE);
-
-    main_table = gtk_table_new(4,8, FALSE);
-
-    left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(left_alignmnet, 5, -1);
-    gtk_table_attach((GtkTable*)main_table, left_alignmnet,
-                                0, 1, 0, 8,
-                                 GTK_FILL,
-                                (GtkAttachOptions)0, 0, 0 );
-    gtk_widget_show (left_alignmnet);
-
-    vertical0_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(vertical0_alignmnet, -1, 20);
-    gtk_table_attach((GtkTable*)main_table, vertical0_alignmnet,
-                                0, 3, 0, 1,
-                                (GtkAttachOptions)0,
-                                GTK_FILL |  GTK_SHRINK,
-                                0, 0 );
-    gtk_widget_show (vertical0_alignmnet);
-
-    stations_box = create_and_full_stations_buttons(main_table);
-    gtk_widget_show (stations_box);
-    gtk_table_attach((GtkTable*)main_table,stations_box,
-                                1, 2, 1, 2, (GtkAttachOptions)0,
-                                (GtkAttachOptions)0, 0, 0 );
-
-
-    vertical1_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);
-    gtk_table_attach((GtkTable*)main_table, vertical1_alignmnet,
-                                0, 3, 2, 3,
-                                (GtkAttachOptions)0,
-                                GTK_FILL |  GTK_SHRINK,
-                                0, 0 );
-    gtk_widget_show (vertical1_alignmnet);
+//#endif
 
     /* temperature */
     if(app->config->temperature_units == CELSIUS)
@@ -1209,7 +1161,6 @@ weather_simple_window_settings(gpointer user_data){
         else
             units_string = g_strjoin(", ", units_string, _("mm"), NULL);
     }
-
     units_button = gtk_button_new ();
     units_label = gtk_label_new(_("Units"));
     /* TO DO !!!!!! check memory leak in units_string */
@@ -1232,8 +1183,81 @@ weather_simple_window_settings(gpointer user_data){
                                 1, 2, 3, 4, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
 
+    gtk_widget_show (units_button);
+    gtk_widget_show (main_table);
+    g_object_set_data(G_OBJECT(units_button), "settings_window_table", (gpointer)main_table);
+    g_object_set_data(G_OBJECT(units_button), "units_button", (gpointer)units_button);
+
     g_signal_connect(G_OBJECT(units_button), "button-release-event",
-                              G_CALLBACK(units_button_handler), (gpointer)units_button);
+                              G_CALLBACK(units_button_handler), (gpointer)main_table);
+
+}
+/*******************************************************************************/
+void
+weather_simple_window_settings(gpointer user_data){
+  GtkWidget
+          *window               = NULL,
+          *main_table           = NULL,
+          *widget_style_button  = NULL,
+          *stations_box         = NULL,
+          *update_button        = NULL,
+          *left_alignmnet       = NULL,
+          *right_alignmnet      = NULL,
+          *medium_alignmnet     = NULL,
+          *vertical0_alignmnet  = NULL,
+          *vertical1_alignmnet  = NULL,
+          *vertical2_alignmnet  = NULL,
+          *vertical3_alignmnet  = NULL,
+          *vertical4_alignmnet  = NULL;
+  gint    result;
+
+
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    window = gtk_dialog_new();
+    gtk_widget_show(window);
+    gtk_window_set_title(GTK_WINDOW(window), _("Settings"));
+    gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
+    gtk_window_set_modal(GTK_WINDOW(window), TRUE);
+
+    main_table = gtk_table_new(4,9, FALSE);
+
+    left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(left_alignmnet, 5, -1);
+    gtk_table_attach((GtkTable*)main_table, left_alignmnet,
+                                0, 1, 0, 8,
+                                 GTK_FILL,
+                                (GtkAttachOptions)0, 0, 0 );
+    gtk_widget_show (left_alignmnet);
+
+    vertical0_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(vertical0_alignmnet, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical0_alignmnet,
+                                0, 3, 0, 1,
+                                (GtkAttachOptions)0,
+                                GTK_FILL |  GTK_SHRINK,
+                                0, 0 );
+    gtk_widget_show (vertical0_alignmnet);
+
+    stations_box = create_and_fill_stations_buttons(main_table);
+    gtk_widget_show (stations_box);
+    gtk_table_attach((GtkTable*)main_table,stations_box,
+                                1, 2, 1, 2, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+
+
+    vertical1_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical1_alignmnet,
+                                0, 3, 2, 3,
+                                (GtkAttachOptions)0,
+                                GTK_FILL |  GTK_SHRINK,
+                                0, 0 );
+    gtk_widget_show (vertical1_alignmnet);
+
+    create_and_fill_units_box(main_table);
 
     vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(vertical2_alignmnet, -1, 20);
@@ -1244,7 +1268,7 @@ weather_simple_window_settings(gpointer user_data){
                                 0, 0 );
     gtk_widget_show(vertical2_alignmnet);
 
-    widget_style_button = gtk_button_new_with_label (_("Widget_style"));
+    widget_style_button = gtk_button_new_with_label (_("Widget style"));
     gtk_widget_set_size_request(widget_style_button, 490, 70);
     gtk_widget_show (widget_style_button);
     gtk_table_attach((GtkTable*)main_table, widget_style_button,
@@ -1267,13 +1291,13 @@ weather_simple_window_settings(gpointer user_data){
     gtk_widget_set_size_request(update_button, 490, 70);
     gtk_widget_show (update_button);
     gtk_table_attach((GtkTable*)main_table, update_button,
-                                1, 2, 6, 7, (GtkAttachOptions)0,
+                                1, 2, 7, 8, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
 
     vertical4_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(vertical4_alignmnet, -1, 20);
     gtk_table_attach((GtkTable*)main_table, vertical4_alignmnet,
-                                0, 6, 7, 8,
+                                0, 6, 8, 9,
                                 (GtkAttachOptions)0,
                                 GTK_FILL | GTK_EXPAND | GTK_SHRINK,
                                 0, 0 );

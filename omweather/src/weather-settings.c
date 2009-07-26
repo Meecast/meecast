@@ -2912,13 +2912,17 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode)
 
     GSList *group = NULL;
 
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+
     first_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(first_line),
                        gtk_label_new(_("Layout:")), FALSE, FALSE, 20);
     layouts_hbox = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_end(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 20);
     /* make buttons */
-    if ( mode == EXTENDED_MODE){
+    if ( mode == EXTENDED_MODE ){
         /* one row */
         one_row_button =
             create_button_with_image(BUTTON_ICONS, "one_row", icon_size, TRUE, TRUE);
@@ -2994,12 +2998,11 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode)
     gtk_widget_set_name(preset_now_button, "preset_now");
     gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_button, FALSE,
                        FALSE, 0);
-    gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_button),
+    if ( mode == EXTENDED_MODE ){
+        gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_button),
                                gtk_radio_button_get_group
                                (GTK_RADIO_BUTTON(combination_button)));
-    g_signal_connect(preset_now_button, "clicked",
-                     G_CALLBACK(check_buttons_changed_handler),
-                     (gpointer) window);
+    }
     /* preset Now + Two days */
     preset_now_plus_two_button =
         create_button_with_image(BUTTON_ICONS, "now_plus_two", icon_size, TRUE, TRUE);
@@ -3010,9 +3013,6 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode)
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_two_button),
                                gtk_radio_button_get_group
                                (GTK_RADIO_BUTTON(preset_now_button)));
-    g_signal_connect(preset_now_plus_two_button, "clicked",
-                     G_CALLBACK(check_buttons_changed_handler),
-                     (gpointer) window);
 
     /* preset Now + Three days Vertical */
     preset_now_plus_three_v_button =
@@ -3024,9 +3024,6 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode)
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_three_v_button),
                                gtk_radio_button_get_group
                                (GTK_RADIO_BUTTON(preset_now_plus_two_button)));
-    g_signal_connect(preset_now_plus_three_v_button, "clicked",
-                     G_CALLBACK(check_buttons_changed_handler),
-                     (gpointer) window);
     /* preset Now + Three days Horizontal */
     preset_now_plus_three_h_button =
         create_button_with_image(BUTTON_ICONS, "now_plus_three_h", icon_size, TRUE, TRUE);
@@ -3037,9 +3034,6 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode)
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_three_h_button),
                                gtk_radio_button_get_group
                                (GTK_RADIO_BUTTON(preset_now_plus_three_v_button)));
-    g_signal_connect(preset_now_plus_three_h_button, "clicked",
-                     G_CALLBACK(check_buttons_changed_handler),
-                     (gpointer) window);
     /* preset Now + Seven days */
     preset_now_plus_seven_button =
         create_button_with_image(BUTTON_ICONS, "now_plus_seven", icon_size, TRUE, TRUE);
@@ -3050,10 +3044,24 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode)
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_seven_button),
                                gtk_radio_button_get_group
                                (GTK_RADIO_BUTTON(preset_now_plus_three_h_button)));
-    g_signal_connect(preset_now_plus_seven_button, "clicked",
+
+    if (mode == EXTENDED_MODE){
+        g_signal_connect(preset_now_button, "clicked",
                      G_CALLBACK(check_buttons_changed_handler),
                      (gpointer) window);
-
+        g_signal_connect(preset_now_plus_two_button, "clicked",
+                     G_CALLBACK(check_buttons_changed_handler),
+                     (gpointer) window);
+        g_signal_connect(preset_now_plus_three_v_button, "clicked",
+                     G_CALLBACK(check_buttons_changed_handler),
+                     (gpointer) window);
+        g_signal_connect(preset_now_plus_three_h_button, "clicked",
+                     G_CALLBACK(check_buttons_changed_handler),
+                     (gpointer) window);
+        g_signal_connect(preset_now_plus_seven_button, "clicked",
+                     G_CALLBACK(check_buttons_changed_handler),
+                     (gpointer) window);
+    }
 
     if (mode == EXTENDED_MODE){
         switch (app->config->icons_layout) {
@@ -3144,13 +3152,16 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode)
 }
 /*******************************************************************************/
 GtkWidget *
-create_iconsets_line(GtkWidget *window, gint icon_size)
+create_iconsets_line(GtkWidget *window, gint icon_size, gint mode)
 {
     GtkWidget *second_line = NULL,
               *button = NULL,
               *iconsets_hbox = NULL;
     GSList *group = NULL, *icon_set = NULL, *tmp = NULL;
     gchar buffer[256];
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
 
 /* second line */
     second_line = gtk_hbox_new(FALSE, 0);
@@ -3178,7 +3189,8 @@ create_iconsets_line(GtkWidget *window, gint icon_size)
                            0);
         if (!strcmp(tmp->data, app->config->icon_set))
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button), TRUE);
-        g_signal_connect(button, "clicked",
+        if (mode == EXTENDED_MODE)
+            g_signal_connect(button, "clicked",
                          G_CALLBACK(check_buttons_changed_handler),
                          window);
         tmp = g_slist_next(tmp);
@@ -3211,7 +3223,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
 /* first line */
     first_line = create_layouts_line(window, 26, EXTENDED_MODE);
 /* second line */
-    second_line = create_iconsets_line(window, 40);
+    second_line = create_iconsets_line(window, 40, EXTENDED_MODE);
 /* thrid line */
 /* fourth line */
     fourth_line = gtk_hbox_new(FALSE, 0);

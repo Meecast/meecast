@@ -32,24 +32,34 @@
 #include "weather-utils.h"
 /*******************************************************************************/
 void
-widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
-                                    gpointer user_data){
+widget_styles_save(GtkWidget *window){
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+
+
+}
+/*******************************************************************************/
+void
+widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
+                                    gpointer user_data){
     GtkWidget *vbox                 = NULL,
               *layouts_line         = NULL,
               *iconsets_line        = NULL,
               *window               = NULL;
-
     gint result;
+
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
 
     vbox = gtk_vbox_new(TRUE, 2);
     window = gtk_dialog_new();
     gtk_widget_set_name(window, "widget_style_window");
 
     layouts_line = create_layouts_line(window, 40, SIMPLE_MODE);
-    iconsets_line = create_iconsets_line(window, 40);
+    iconsets_line = create_iconsets_line(window, 40, SIMPLE_MODE);
     gtk_box_pack_start(vbox,
                        layouts_line, TRUE, TRUE, 10);
     gtk_box_pack_start(vbox,
@@ -58,8 +68,12 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        vbox, TRUE, TRUE, 0);
 
+    gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
     gtk_widget_show_all(window);
     result = gtk_dialog_run(GTK_DIALOG(window));
+    if (result == GTK_RESPONSE_YES)
+        widget_styles_save(window);
+
     if (window)
         gtk_widget_destroy(window);
 

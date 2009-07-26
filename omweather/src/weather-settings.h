@@ -55,7 +55,7 @@ gboolean process_update_tab(GtkWidget *vbox);
 gboolean process_sensor_tab(GtkWidget *vbox);
 #endif
 GtkWidget *create_layouts_line(GtkWidget *window, gint icon_size, gint mode);
-GtkWidget *create_iconsets_line(GtkWidget *window, gint icon_size);
+GtkWidget *create_iconsets_line(GtkWidget *window, gint icon_size, gint mode);
 gboolean process_alert_tab(GtkWidget *vbox);
 void changed_country_handler(GtkWidget *widget, gpointer user_data);
 void changed_state_handler(GtkWidget *widget, gpointer user_data);

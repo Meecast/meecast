@@ -3156,7 +3156,7 @@ create_iconsets_line(GtkWidget *window, gint icon_size)
     second_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(second_line),
                        gtk_label_new(_("Icon set:")), FALSE, FALSE, 20);
-    iconsets_hbox = gtk_hbox_new(FALSE, 0);
+    iconsets_hbox = gtk_hbox_new(FALSE, 10);
     gtk_box_pack_end(GTK_BOX(second_line), iconsets_hbox, FALSE, FALSE,
                      20);
     /* Icon sets */

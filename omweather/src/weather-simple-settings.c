@@ -1646,7 +1646,7 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
 
     /*Icon image*/
     memset(buffer, 0, sizeof(buffer));
-    snprintf(buffer, sizeof(buffer) - 1, "%s%s/40.png", ICONS_PATH,
+    snprintf(buffer, sizeof(buffer) - 1, "%s%s/44.png", ICONS_PATH,
                       (gchar *) (app->config->icon_set));
     icon_buffer =
                  gdk_pixbuf_new_from_file_at_size(buffer, 60,

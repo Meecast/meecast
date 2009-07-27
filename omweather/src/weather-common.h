@@ -343,6 +343,8 @@ typedef struct applet_config{
     GdkColor    font_color;
     GdkColor    background_color;
     gboolean    is_application_mode;
+    gboolean	update_gsm;
+    gboolean	update_wlan;
 }AppletConfig;
 /*******************************************************************************/
 #ifdef CLUTTER

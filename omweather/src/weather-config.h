@@ -89,6 +89,8 @@
 #define GCONF_KEY_CLICK_FOR_LAUNCH_POPUP	GCONF_KEY_PREFIX"/click-for-launch-popup"
 #define GCONF_KEY_SHOW_WEATHER_FOR_TWO_HOURS    GCONF_KEY_PREFIX"/show-weather-for-two-hours"
 #define GCONF_KEY_MODE                          GCONF_KEY_PREFIX"/mode"
+#define GCONF_KEY_UPDATE_GSM
+#define GCONF_KEY_UPDATE_WLAN
 /*******************************************************************************/
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 void config_update_proxy(void);

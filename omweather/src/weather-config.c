@@ -780,6 +780,22 @@ gint read_config(AppletConfig * config) {
                 update_weather(TRUE);
         }
     }
+    
+    /*GSM and WLAN*/
+/*    value = gconf_client_get(gconf_client, GCONF_KEY_UPDATE_GSM, NULL);
+    if (value) {
+	config->update_gsm = gconf_value_get_bool(value);
+        gconf_value_free(value);
+    } else
+    	config->update_gsm = TRUE;
+    
+    value = gconf_client_get(gconf_client, GCONF_KEY_UPDATE_WLAN, NULL);
+    if (value) {
+        config->update_wlan = gconf_value_get_bool(value);
+	gconf_value_free(value);
+    } else
+	config->update_wlan = FALSE;*/
+    
     gconf_client_clear_cache(gconf_client);
     g_object_unref(gconf_client);
     return 0;
@@ -1062,6 +1078,14 @@ void config_save(AppletConfig * config) {
                                     app->gps_station.id0, NULL);
     }
 #endif
+    /*Save GSM update setting*/
+//    gconf_client_set_bool(gconf_client,
+  //                          GCONF_KEY_UPDATE_GSM,
+    //                        config->update_gsm, NULL);
+    /*Save WLAN update setting*/
+   // gconf_client_set_bool(gconf_client,
+///			    GCONF_KEY_UPDATE_WLAN,
+//			    config->update_wlan, NULL);
     g_object_unref(gconf_client);
 }
 

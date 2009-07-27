@@ -787,7 +787,9 @@ void
     GtkWidget   *never_update = NULL,
                 *one_hour_update = NULL,
                 *four_hours_update = NULL,
-                *one_day_update = NULL;
+                *one_day_update = NULL,
+                *gsm = NULL,
+                *wlan = NULL;
 
 #ifdef DEBUGFUNCTIONCALL
    START_FUNCTION;
@@ -800,7 +802,7 @@ void
 
     if(never_update && one_hour_update && four_hours_update && one_day_update){
              if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(never_update))) 
-            app->config->update_interval = 0;
+                 app->config->update_interval = 0;
         else{
             if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(one_hour_update)))
                 app->config->update_interval = 60;
@@ -814,6 +816,14 @@ void
             }
         }
     }
+    
+//    gsm = lookup_widget(window, "gsm_button");
+  //  wlan = lookup_widget(window, "wlan_button");
+
+    //if(gsm && wlan){
+      //  if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(gsm)))
+        //    app->config->gsm_button = 
+    //}
 
 }
 /*******************************************************************************/

@@ -37,8 +37,40 @@ widget_styles_save(GtkWidget *window){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    GtkWidget
+    *preset_now = NULL,
+    *preset_now_plus_two = NULL,
+    *preset_now_plus_three_h = NULL,
+    *preset_now_plus_three_v = NULL,
+    *preset_now_plus_seven = NULL;
 
+    preset_now = lookup_widget(window, "preset_now");
+    preset_now_plus_two = lookup_widget(window, "preset_now_plus_two");
+    preset_now_plus_three_v = lookup_widget(window, "preset_now_plus_three_v");
+    preset_now_plus_three_h = lookup_widget(window, "preset_now_plus_three_h");
+    preset_now_plus_seven = lookup_widget(window, "preset_now_plus_seven");
 
+    if (preset_now && preset_now_plus_two && preset_now_plus_three_v && preset_now_plus_three_h && preset_now_plus_seven) {
+        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(preset_now)))
+            app->config->icons_layout = PRESET_NOW;
+        else
+            if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(preset_now_plus_two)))
+                app->config->icons_layout = PRESET_NOW_PLUS_TWO;
+            else
+                if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(preset_now_plus_three_v)))
+                    app->config->icons_layout = PRESET_NOW_PLUS_THREE_V;
+                else
+                    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(preset_now_plus_three_h)))
+                        app->config->icons_layout = PRESET_NOW_PLUS_THREE_H;
+                    else
+                        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(preset_now_plus_seven)))
+                            app->config->icons_layout = PRESET_NOW_PLUS_SEVEN;
+                        else
+                            app->config->icons_layout = PRESET_NOW;
+    }
+/* save settings */
+    config_save(app->config);
+    redraw_home_window(FALSE);
 }
 /*******************************************************************************/
 void

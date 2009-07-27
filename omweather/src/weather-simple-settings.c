@@ -42,7 +42,11 @@ widget_styles_save(GtkWidget *window){
     *preset_now_plus_two = NULL,
     *preset_now_plus_three_h = NULL,
     *preset_now_plus_three_v = NULL,
-    *preset_now_plus_seven = NULL;
+    *preset_now_plus_seven = NULL,
+    *selected_icon_set = NULL;
+
+    GSList      *icon_set = NULL;
+
 
     preset_now = lookup_widget(window, "preset_now");
     preset_now_plus_two = lookup_widget(window, "preset_now_plus_two");
@@ -67,6 +71,28 @@ widget_styles_save(GtkWidget *window){
                             app->config->icons_layout = PRESET_NOW_PLUS_SEVEN;
                         else
                             app->config->icons_layout = PRESET_NOW;
+    }
+    /* icon set */
+    icon_set =
+        (GSList *) g_object_get_data(G_OBJECT(window),
+                                     "iconsetlist");
+    if (icon_set) {
+        while (icon_set) {
+            selected_icon_set =
+                lookup_widget(window, (gchar *) icon_set->data);
+            if (selected_icon_set) {
+                if (gtk_toggle_button_get_active
+                    (GTK_TOGGLE_BUTTON(selected_icon_set))) {
+                    if (app->config->icon_set)
+                        g_free(app->config->icon_set);
+                    app->config->icon_set =
+                        g_strdup((gchar *) icon_set->data);
+                    break;
+                }
+            }
+            icon_set = g_slist_next(icon_set);
+        }
+        update_icons_set_base(app->config->icon_set);
     }
 /* save settings */
     config_save(app->config);

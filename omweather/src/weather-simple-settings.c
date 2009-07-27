@@ -338,9 +338,9 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
     gint                    type_button = UNKNOWN;
     GtkTreeSelection        *sel;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     *dialog_name = 0;
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
     if(!strcmp("country_button", control_name)){
@@ -361,7 +361,7 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     }
 
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
-    /* This is very serious error */
+    /* This is a very serious error */
     if(!list)
         return;
     window = gtk_dialog_new_with_buttons(dialog_name, NULL,
@@ -378,6 +378,7 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 620, 280);
 
     if (type_button == COUNTRY){
+        fprintf(stderr,"list->countries_list %p\n",list->countries_list);
         list_view = create_tree_view(list->countries_list);
         highlight_current_item(list_view, list->countries_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_country"));
         gtk_widget_set_name(list_view, "countries_list");
@@ -516,8 +517,8 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
               *main_label = NULL,
               *label_set = NULL,
               *label_set1 = NULL,
-              *hbox_temperature = NULL, 
-              *hbox_distance = NULL,  
+              *hbox_temperature = NULL,
+              *hbox_distance = NULL,
               *hbox_speed = NULL,
               *hbox_pressure = NULL,
               *group_temperature = NULL,
@@ -584,7 +585,6 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     group_temperature = gtk_radio_button_get_group(GTK_RADIO_BUTTON(celsius_button));
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(fahrenheit_button), group_temperature);
     gtk_box_pack_end (GTK_BOX (hbox_temperature), fahrenheit_button, TRUE, TRUE, 0);
- 
 
     if(app->config->temperature_units == CELSIUS)
         gtk_toggle_button_set_active (celsius_button, TRUE);
@@ -856,7 +856,7 @@ update_save(GtkWidget *window){
 }
 /*******************************************************************************/
 void
- update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data){
+update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -888,7 +888,7 @@ void
     gtk_widget_set_name(window, "update_simple_settings_window");
 
     main_table = gtk_table_new(8, 8, FALSE);
-    
+
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox), main_table, TRUE, TRUE, 0);
 
     left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
@@ -897,7 +897,7 @@ void
                                 0, 1, 0, 8,
                                 GTK_FILL | GTK_EXPAND | GTK_SHRINK,
                                 (GtkAttachOptions)0, 0, 0 );
-    
+
     label_set = gtk_label_new(_("Period"));
     set_font(label_set, NULL, 20);
     gtk_widget_set_size_request(label_set, 120, -1);
@@ -971,7 +971,7 @@ void
                                 (GtkAttachOptions)0,
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
-    
+
     label_set = gtk_label_new(_("GSM"));
     set_font(label_set, NULL, 20);
     gtk_widget_set_size_request(label_set, 120, -1);
@@ -1041,7 +1041,7 @@ void
                                 (GtkAttachOptions)0, 20, 0 );
 
     gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
-    gtk_widget_show_all(window);  
+    gtk_widget_show_all(window);
 
     /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(window));
@@ -1061,13 +1061,17 @@ void
 /*******************************************************************************/
 GtkWidget*
 create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget){
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
   GtkWidget *button = NULL,
            *label_name,
            *vertical_box,
            *label;
+
+    struct lists_struct     *list = NULL;
+
+    list = (struct lists_struct*)g_object_get_data(G_OBJECT(widget), "list");
 
     button = gtk_button_new();
     label = gtk_label_new(name);
@@ -1092,6 +1096,8 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
     g_signal_connect(G_OBJECT(button), "button-release-event",
                      G_CALLBACK(choose_button_handler),
                      widget);
+    fprintf(stderr,"list->countries_list1 %p\n",list->countries_list);
+
     return button;
 
 }
@@ -1157,10 +1163,12 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     g_object_set_data(G_OBJECT(window), "station_number", (gpointer)g_object_get_data(G_OBJECT(button), "station_number"));
     g_object_set_data(G_OBJECT(window), "settings_window_table", (gpointer)g_object_get_data(G_OBJECT(button), "settings_window_table"));
     g_object_set_data(G_OBJECT(window), "station_box", (gpointer)g_object_get_data(G_OBJECT(button), "station_box"));
+
     changed_sources_handler(NULL, window);
     changed_country_handler(NULL, window);
     changed_state_handler(NULL, window);
 
+        fprintf(stderr,"list->countries_list2 %p\n",list.countries_list);
 
     main_table = gtk_table_new(8, 8, FALSE);
 
@@ -1197,7 +1205,6 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 1, 2, 3, 4,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
-
 
 
     hbox = gtk_hbox_new(TRUE, 0);
@@ -1549,7 +1556,6 @@ create_and_fill_update_box(GtkWidget *main_table){
                 if(app->config->update_interval == 1440)
                     update_string = "1 day";
             }
-                
         }
     }
 

@@ -296,8 +296,7 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data){
 }
 /*******************************************************************************/
 void
-save_button_handler(GtkWidget *button, GdkEventButton *event,
-                                    gpointer user_data){
+save_station(GtkWidget *window){
     GtkTreeIter iter;
     gboolean valid;
     GtkWidget *stations_box;
@@ -305,26 +304,23 @@ save_button_handler(GtkWidget *button, GdkEventButton *event,
     START_FUNCTION;
 #endif
 
-    iter = add_station_to_user_list(g_strdup(g_object_get_data(G_OBJECT(user_data), "station_name")),
-                                      g_strdup(g_object_get_data(G_OBJECT(user_data), "station_code")),
+    iter = add_station_to_user_list(g_strdup(g_object_get_data(G_OBJECT(window), "station_name")),
+                                      g_strdup(g_object_get_data(G_OBJECT(window), "station_code")),
                                       FALSE,
-                                      g_strdup(g_object_get_data(G_OBJECT(user_data), "station_source")),
-                                      GPOINTER_TO_INT(g_object_get_data(G_OBJECT(user_data), "station_number")));
+                                      g_strdup(g_object_get_data(G_OBJECT(window), "station_source")),
+                                      GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_number")));
     valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
     if (valid)
         gtk_list_store_remove(app->user_stations_list, &iter);
     /* Update config file */
     config_save(app->config);
-    stations_box = (gpointer)(g_object_get_data(G_OBJECT(user_data), "station_box"));
+    stations_box = (gpointer)(g_object_get_data(G_OBJECT(window), "station_box"));
     gtk_widget_destroy(stations_box);
-    stations_box = create_and_fill_stations_buttons((GtkTable*)(g_object_get_data(G_OBJECT(user_data), "settings_window_table")));
+    stations_box = create_and_fill_stations_buttons((GtkTable*)(g_object_get_data(G_OBJECT(window), "settings_window_table")));
     gtk_widget_show (stations_box);
-    gtk_table_attach((GtkTable*)(g_object_get_data(G_OBJECT(user_data), "settings_window_table")),
+    gtk_table_attach((GtkTable*)(g_object_get_data(G_OBJECT(window), "settings_window_table")),
                                 stations_box, 1, 2, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
-
-    /* Destroy window */
-    g_signal_emit_by_name(G_OBJECT(user_data), "close", NULL);
 }
 /*******************************************************************************/
 void
@@ -809,7 +805,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 }
 /*******************************************************************************/
 void
- update_save(GtkWidget *window){
+update_save(GtkWidget *window){
     GtkWidget   *never_update = NULL,
                 *one_hour_update = NULL,
                 *four_hours_update = NULL,
@@ -842,7 +838,7 @@ void
             }
         }
     }
-    
+
     gsm = lookup_widget(window, "gsm_button");
     wlan = lookup_widget(window, "wlan_button");
 
@@ -855,7 +851,6 @@ void
             app->config->update_gsm = FALSE;
         if(!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wlan)))
             app->config->update_wlan = FALSE;
-    
     }
 
 }
@@ -1271,6 +1266,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 3, 4, 6, 7,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
+/*
     save_button = gtk_button_new_with_label (_("Save"));
     gtk_widget_set_size_request(save_button, 180, 80);
     gtk_widget_show (save_button);
@@ -1281,7 +1277,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     g_signal_connect(G_OBJECT(save_button), "button-release-event",
                      G_CALLBACK(save_button_handler),
                      window);
-
+*/
     right_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(right_alignmnet, 5, -1);
     gtk_table_attach((GtkTable*)main_table, right_alignmnet,
@@ -1298,12 +1294,17 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     /* create sources list from aviable sources */
     list.sources_list = app->sources_list;
 
+    gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
 
 
     gtk_widget_show_all(window);
     /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(window));
-    gtk_widget_destroy(window);
+
+    if (result == GTK_RESPONSE_YES)
+        save_station(window);
+    if (window)
+        gtk_widget_destroy(window);
 
 }
 

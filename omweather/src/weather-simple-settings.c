@@ -105,7 +105,8 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     GtkWidget *vbox                 = NULL,
               *layouts_line         = NULL,
               *iconsets_line        = NULL,
-              *window               = NULL;
+              *window               = NULL,
+              *widget_style_button  = NULL;
     gint result;
 
 #ifdef DEBUGFUNCTIONCALL
@@ -135,6 +136,11 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     if (window)
         gtk_widget_destroy(window);
 
+
+    widget_style_button = (gpointer)(g_object_get_data(G_OBJECT(button), 
+                                                        "widget_style_button"));
+    gtk_widget_destroy(widget_style_button);
+    create_and_fill_widget_style_box(user_data);
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -1601,6 +1607,111 @@ create_and_fill_update_box(GtkWidget *main_table){
 }
 /*******************************************************************************/
 void
+create_and_fill_widget_style_box(GtkWidget *main_table){
+    GtkWidget
+               *widget_style_button           = NULL,
+               *widget_style_label            = NULL,
+               *widget_style_description      = NULL,
+               *widget_style_hbox             = NULL,
+               *widget_style_vbox             = NULL,
+               *widget_style_icon             = NULL,
+               *alignmnet                     = NULL;  
+    
+    GdkPixbuf *icon_buffer = NULL;
+    gchar buffer[256];
+    gchar   *widget_style_string = NULL;
+
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+
+    if(app->config->icons_layout == PRESET_NOW_PLUS_SEVEN)
+        widget_style_string = "Now + 7 days vert.";
+    else{
+        if(app->config->icons_layout == PRESET_NOW_PLUS_TWO)
+            widget_style_string = "Now, today and tomorrow";
+        else{
+            if(app->config->icons_layout == PRESET_NOW_PLUS_THREE_V)
+                widget_style_string = "Now + 3 days vert.";
+            else{
+                if(app->config->icons_layout == PRESET_NOW)
+                    widget_style_string = "Now";
+                else{
+                    if(app->config->icons_layout == PRESET_NOW_PLUS_THREE_H)
+                        widget_style_string = "Now + 3 days hor.";
+                }
+            }
+        }
+    }
+
+    /*Icon image*/
+    memset(buffer, 0, sizeof(buffer));
+    snprintf(buffer, sizeof(buffer) - 1, "%s%s/40.png", ICONS_PATH,
+                      (gchar *) (app->config->icon_set));
+    icon_buffer =
+                 gdk_pixbuf_new_from_file_at_size(buffer, 60,
+                                                  60, NULL);
+    if (icon_buffer) {
+     
+               widget_style_icon = gtk_image_new_from_pixbuf(icon_buffer);
+                g_object_unref(G_OBJECT(icon_buffer));
+      }
+
+    widget_style_button = gtk_button_new ();
+    widget_style_label = gtk_label_new(_("Widget style"));
+
+    set_font(widget_style_label, NULL, 12);
+//    gtk_widget_set_size_request(widget_style_label, 380, -1);
+    gtk_widget_show (widget_style_label);
+
+    widget_style_description = gtk_label_new (widget_style_string);
+    set_font(widget_style_description, NULL, 18);
+//    gtk_widget_set_size_request(widget_style_description, 380, -1);
+    gtk_widget_show(widget_style_description);
+
+    widget_style_vbox = gtk_vbox_new(TRUE, 2);
+    gtk_widget_show(widget_style_vbox);
+
+    widget_style_hbox = gtk_hbox_new(FALSE, 0);
+    gtk_widget_show(widget_style_hbox);
+
+    gtk_widget_show (widget_style_icon);
+//    gtk_widget_set_size_request(widget_style_icon, 60, -1);
+
+//    alignmnet = gtk_alignment_new(0, 0, 0, 0);
+  //  gtk_widget_set_size_request(alignmnet, -1, 20);
+  //  gtk_widget_show(alignmnet);
+
+    gtk_box_pack_start(GTK_BOX(widget_style_vbox), alignmnet, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(widget_style_vbox), widget_style_label, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(widget_style_vbox), widget_style_description, TRUE, TRUE, 0);
+   // gtk_widget_set_size_request(widget_style_vbox, 380, -1);
+    //gtk_box_pack_start(GTK_BOX(widget_style_hbox), alignmnet, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(widget_style_hbox), widget_style_vbox, TRUE, TRUE, 0);
+   // gtk_box_pack_start(GTK_BOX(widget_style_hbox), alignmnet, TRUE, TRUE, 0);
+    gtk_box_pack_end(GTK_BOX(widget_style_hbox), widget_style_icon, TRUE, TRUE, 0);
+   // gtk_box_pack_start(GTK_BOX(widget_style_hbox), alignmnet, TRUE, TRUE, 0);
+    gtk_container_add (GTK_CONTAINER (widget_style_button), widget_style_hbox);
+
+    gtk_widget_set_size_request(widget_style_button, 490, 70);
+    gtk_widget_show (widget_style_button);
+    gtk_table_attach((GtkTable*)main_table, widget_style_button,
+                                1, 2, 5, 6, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+
+    gtk_widget_show (widget_style_button);
+    gtk_widget_show (main_table);
+    g_object_set_data(G_OBJECT(widget_style_button), "settings_window_table",
+                                        (gpointer)main_table);
+    g_object_set_data(G_OBJECT(widget_style_button), "widget_style_button", 
+                                        (gpointer)widget_style_button);
+    
+    g_signal_connect(G_OBJECT(widget_style_button), "button-release-event",
+                            G_CALLBACK(widget_style_setup_button_handler),
+                           (gpointer)main_table);
+}
+/*******************************************************************************/
+void
 weather_simple_window_settings(gpointer user_data){
   GtkWidget
           *window               = NULL,
@@ -1675,7 +1786,7 @@ weather_simple_window_settings(gpointer user_data){
                                 0, 0 );
     gtk_widget_show(vertical2_alignmnet);
 
-    widget_style_button = gtk_button_new_with_label (_("Widget style"));
+    /*widget_style_button = gtk_button_new_with_label (_("Widget style"));
     gtk_widget_set_size_request(widget_style_button, 490, 70);
     gtk_widget_show (widget_style_button);
     gtk_table_attach((GtkTable*)main_table, widget_style_button,
@@ -1683,7 +1794,9 @@ weather_simple_window_settings(gpointer user_data){
                                 (GtkAttachOptions)0, 0, 0 );
     g_signal_connect(G_OBJECT(widget_style_button), "button-release-event",
                    G_CALLBACK(widget_style_setup_button_handler),
-                   (gpointer)widget_style_button);
+                   (gpointer)widget_style_button);*/
+
+    create_and_fill_widget_style_box(main_table);
 
     vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(vertical3_alignmnet, -1, 20);

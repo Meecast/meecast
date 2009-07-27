@@ -780,22 +780,22 @@ gint read_config(AppletConfig * config) {
                 update_weather(TRUE);
         }
     }
-    
+
     /*GSM and WLAN*/
-/*    value = gconf_client_get(gconf_client, GCONF_KEY_UPDATE_GSM, NULL);
+    value = gconf_client_get(gconf_client, GCONF_KEY_UPDATE_GSM, NULL);
     if (value) {
-	config->update_gsm = gconf_value_get_bool(value);
+        config->update_gsm = gconf_value_get_bool(value);
         gconf_value_free(value);
     } else
-    	config->update_gsm = TRUE;
-    
+        config->update_gsm = TRUE;
+
     value = gconf_client_get(gconf_client, GCONF_KEY_UPDATE_WLAN, NULL);
     if (value) {
         config->update_wlan = gconf_value_get_bool(value);
-	gconf_value_free(value);
+        gconf_value_free(value);
     } else
-	config->update_wlan = FALSE;*/
-    
+        config->update_wlan = FALSE;
+
     gconf_client_clear_cache(gconf_client);
     g_object_unref(gconf_client);
     return 0;
@@ -891,13 +891,13 @@ void config_save(AppletConfig * config) {
                                 NULL);
     /* Save Weather Data Source  */
     if(config->current_station_source)
-	gconf_client_set_string(gconf_client,
-                        	GCONF_KEY_CURRENT_STATION_SOURCE,
-                    		config->current_station_source, NULL);
+        gconf_client_set_string(gconf_client,
+                            GCONF_KEY_CURRENT_STATION_SOURCE,
+                            config->current_station_source, NULL);
     else
-	gconf_client_set_string(gconf_client,
-                        	GCONF_KEY_CURRENT_STATION_SOURCE, "",
-                    		NULL);
+        gconf_client_set_string(gconf_client,
+                            GCONF_KEY_CURRENT_STATION_SOURCE, "",
+                            NULL);
     /* Save icon set name */
     if (config->icon_set)
         gconf_client_set_string(gconf_client,
@@ -1079,13 +1079,13 @@ void config_save(AppletConfig * config) {
     }
 #endif
     /*Save GSM update setting*/
-//    gconf_client_set_bool(gconf_client,
-  //                          GCONF_KEY_UPDATE_GSM,
-    //                        config->update_gsm, NULL);
+    gconf_client_set_bool(gconf_client,
+                          GCONF_KEY_UPDATE_GSM,
+                          config->update_gsm, NULL);
     /*Save WLAN update setting*/
-   // gconf_client_set_bool(gconf_client,
-///			    GCONF_KEY_UPDATE_WLAN,
-//			    config->update_wlan, NULL);
+    gconf_client_set_bool(gconf_client,
+                          GCONF_KEY_UPDATE_WLAN,
+                          config->update_wlan, NULL);
     g_object_unref(gconf_client);
 }
 

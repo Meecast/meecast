@@ -817,13 +817,20 @@ void
         }
     }
     
-//    gsm = lookup_widget(window, "gsm_button");
-  //  wlan = lookup_widget(window, "wlan_button");
+    gsm = lookup_widget(window, "gsm_button");
+    wlan = lookup_widget(window, "wlan_button");
 
-    //if(gsm && wlan){
-      //  if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(gsm)))
-        //    app->config->gsm_button = 
-    //}
+    if(gsm && wlan){
+        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(gsm)))
+            app->config->update_gsm = TRUE;
+        if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wlan)))
+            app->config->update_wlan = TRUE;
+        if(!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(gsm)))
+            app->config->update_gsm = FALSE;
+        if(!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wlan)))
+            app->config->update_wlan = FALSE;
+    
+    }
 
 }
 /*******************************************************************************/
@@ -956,6 +963,11 @@ void
     gtk_widget_set_size_request(gsm_button, 50, 50);
     GLADE_HOOKUP_OBJECT(window, gsm_button, "gsm_button");
 
+    if(app->config->update_gsm == TRUE)
+        gtk_toggle_button_set_active (gsm_button, TRUE);
+    else
+        gtk_toggle_button_set_active (gsm_button, FALSE);
+
     gtk_table_attach((GtkTable*)main_table, gsm_button,
                                 2, 3, 3, 4,
                                 GTK_FILL | GTK_EXPAND,
@@ -980,6 +992,11 @@ void
     wlan_button = gtk_check_button_new();
     gtk_widget_set_size_request(wlan_button, 50, 50);
     GLADE_HOOKUP_OBJECT(window, wlan_button, "wlan_button");
+
+    if(app->config->update_wlan == TRUE)
+        gtk_toggle_button_set_active (wlan_button, TRUE);
+    else
+        gtk_toggle_button_set_active (wlan_button, FALSE);
 
     gtk_table_attach((GtkTable*)main_table, wlan_button,
                                 2, 3, 5, 6,
@@ -1506,6 +1523,17 @@ create_and_fill_update_box(GtkWidget *main_table){
                     update_string = "1 day";
             }
                 
+        }
+    }
+
+    if(app->config->update_gsm && app->config->update_wlan)
+        update_string = g_strjoin(", ", update_string, _("GSM+WLAN"), NULL);
+    else{
+        if(app->config->update_gsm)
+            update_string = g_strjoin(", ", update_string, _("GSM"), NULL);
+        else{
+            if(app->config->update_wlan)
+                update_string = g_strjoin(", ", update_string, _("WLAN"), NULL);
         }
     }
 

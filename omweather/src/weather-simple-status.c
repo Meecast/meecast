@@ -87,7 +87,9 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
           *right_alignmnet   = NULL,
           *vertical1_alignmnet  = NULL,
           *vertical2_alignmnet  = NULL,
-          *vertical3_alignmnet  = NULL;
+          *vertical3_alignmnet  = NULL,
+          *hbox_view_mode       = NULL,
+          *group_view_mode      = NULL;
   gint result;
 
 #ifdef DEBUGFUNCTIONCALL
@@ -132,19 +134,31 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
     gtk_widget_show (vertical1_alignmnet);
 
 
-    collapsed_button = gtk_button_new_with_label (_("Collapsed"));
-    gtk_widget_set_size_request(collapsed_button, 150, 60);
-    gtk_widget_show (collapsed_button);
-    gtk_table_attach((GtkTable*)main_table, collapsed_button,
-                                1, 2, 3, 4, (GtkAttachOptions)0,
-                                (GtkAttachOptions)0, 0, 0 );
+    hbox_view_mode = gtk_hbox_new(TRUE, 0);
+    group_view_mode = NULL;
+    collapsed_button  = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(collapsed_button), gtk_label_new(_("Collapsed")));
+        gtk_widget_set_size_request(collapsed_button, 150, 60);
+//    GLADE_HOOKUP_OBJECT(window, collapsed_button, "collapsed_button");
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(collapsed_button), FALSE);
+    gtk_box_pack_start (GTK_BOX (hbox_view_mode), collapsed_button, TRUE, TRUE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(collapsed_button), group_view_mode);
 
-    expanded_button = gtk_button_new_with_label (_("Expanded"));
+    expanded_button  = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(expanded_button), gtk_label_new(_("Expanded")));
     gtk_widget_set_size_request(expanded_button, 150, 60);
-    gtk_widget_show (expanded_button);
-    gtk_table_attach((GtkTable*)main_table, expanded_button,
-                                2, 3, 3, 4, (GtkAttachOptions)0,
-                                (GtkAttachOptions)0, 0, 0 );
+  //  GLADE_HOOKUP_OBJECT(window, expanded_button, "expanded_button");
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(expanded_button), FALSE);
+    group_view_mode = gtk_radio_button_get_group(GTK_RADIO_BUTTON(collapsed_button));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(expanded_button), group_view_mode);
+    gtk_box_pack_start (GTK_BOX (hbox_view_mode), expanded_button, TRUE, TRUE, 0);
+
+    gtk_widget_show_all(hbox_view_mode);
+
+    gtk_table_attach((GtkTable*)main_table, hbox_view_mode,
+                                1, 3, 3, 4,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 5, 0 );
 
     settings_button = gtk_button_new_with_label (_("Settings"));
     gtk_widget_set_size_request(settings_button, 320, 60);

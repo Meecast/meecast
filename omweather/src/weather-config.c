@@ -789,7 +789,7 @@ gint read_config(AppletConfig * config) {
         }
     }
 
-    /*GSM and WLAN*/
+    /*Get GSM and WLAN Default only GSM*/
     value = gconf_client_get(gconf_client, GCONF_KEY_UPDATE_GSM, NULL);
     if (value) {
         config->update_gsm = gconf_value_get_bool(value);
@@ -803,6 +803,15 @@ gint read_config(AppletConfig * config) {
         gconf_value_free(value);
     } else
         config->update_wlan = FALSE;
+
+    /*Get VIEW_MODE Default COLLAPSED*/
+    config->view_mode = COLLAPSED_VIEW_MODE;
+    config->view_mode = gconf_client_get_int(gconf_client,
+		                                     GCONF_KEY_VIEW_MODE,
+                                                     NULL);
+    if (config->view_mode < COLLAPSED_VIEW_MODE
+                || config->mode > EXPANDED_VIEW_MODE)
+                        config->view_mode = COLLAPSED_VIEW_MODE;
 
     gconf_client_clear_cache(gconf_client);
     g_object_unref(gconf_client);
@@ -1094,6 +1103,10 @@ void config_save(AppletConfig * config) {
     gconf_client_set_bool(gconf_client,
                           GCONF_KEY_UPDATE_WLAN,
                           config->update_wlan, NULL);
+    /*Save View mode*/
+    gconf_client_set_int(gconf_client,
+                             GCONF_KEY_VIEW_MODE, config->view_mode,
+                                                      NULL);
     g_object_unref(gconf_client);
 }
 

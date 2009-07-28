@@ -154,12 +154,13 @@ void fill_user_stations_list_from_clock(GtkListStore ** list) {
 /*******************************************************************************/
 void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
     GtkTreeIter	iter;
-    gchar	*temp1 = NULL,
-		*temp2 = NULL,
-		*temp3 = NULL,
-		*station_name = NULL,
-		*station_code = NULL,
-		*station_source = NULL;
+    gchar   *temp1 = NULL,
+            *temp2 = NULL,
+            *temp3 = NULL,
+            *temp4 = NULL,
+            *station_name = NULL,
+            *station_code = NULL,
+            *station_source = NULL;
 #ifdef ENABLE_GPS
     gboolean	is_gps = FALSE;
 #endif
@@ -183,11 +184,11 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
             temp3 = strtok(NULL, "@");
             if (temp3)
                 station_source = g_strdup(temp3);
+
 #ifdef ENABLE_GPS
-            if (app->gps_station.id0 && app->gps_station.name &&
-                station_code && station_name &&
-                !strcmp(app->gps_station.id0, station_code) &&
-                !strcmp(app->gps_station.name, station_name))
+            /* gps or manual station */
+            temp4 = strtok(NULL, "@");
+            if (temp4 && !strcmp("G",temp4))
                 is_gps = TRUE;
             else
                 is_gps = FALSE;
@@ -239,13 +240,15 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
 }
 /*******************************************************************************/
 GSList *create_stations_string_list(void) {
-    GSList	*stlist = NULL;
-    GtkTreeIter	iter;
+    GSList      *stlist = NULL;
+    GtkTreeIter iter;
     gboolean	valid;
-    gchar	*station_name = NULL,
-		*station_code = NULL,
-		*station_source = NULL,
-		*str = NULL;
+    gboolean    is_gps;
+    gchar       *station_name = NULL,
+                *station_code = NULL,
+                *station_source = NULL,
+                *str = NULL;
+    gchar       type_of_station = 'M';
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -257,9 +260,14 @@ GSList *create_stations_string_list(void) {
                            &iter,
                            NAME_COLUMN, &station_name,
                            ID0_COLUMN, &station_code,
+                           2, &is_gps,
                            3, &station_source, -1);
-        str = g_strdup_printf("%s@%s@%s", station_code, station_name,
-                              station_source);
+        if (is_gps)
+            type_of_station = 'G';
+        else
+            type_of_station = 'M';
+        str = g_strdup_printf("%s@%s@%s@%c", station_code, station_name,
+                              station_source, type_of_station);
         stlist = g_slist_append(stlist, str);
         g_free(station_name);
         g_free(station_code);

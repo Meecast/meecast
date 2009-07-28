@@ -305,14 +305,20 @@ void
 save_station(GtkWidget *window){
     GtkTreeIter iter;
     gboolean valid;
+    gboolean is_gps;
     GtkWidget *stations_box;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 
+    if (gtk_toggle_button_get_active(g_object_get_data(G_OBJECT(window), "gps")))
+        is_gps = TRUE;
+    else
+        is_gps = FALSE;
+
     iter = add_station_to_user_list(g_strdup(g_object_get_data(G_OBJECT(window), "station_name")),
                                       g_strdup(g_object_get_data(G_OBJECT(window), "station_code")),
-                                      FALSE,
+                                      is_gps,
                                       g_strdup(g_object_get_data(G_OBJECT(window), "station_source")),
                                       GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_number")));
     valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
@@ -1170,6 +1176,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     g_object_set_data(G_OBJECT(window), "station_number", (gpointer)g_object_get_data(G_OBJECT(button), "station_number"));
     g_object_set_data(G_OBJECT(window), "settings_window_table", (gpointer)g_object_get_data(G_OBJECT(button), "settings_window_table"));
     g_object_set_data(G_OBJECT(window), "station_box", (gpointer)g_object_get_data(G_OBJECT(button), "station_box"));
+    g_object_set_data(G_OBJECT(window), "station_is_gps", (gpointer)g_object_get_data(G_OBJECT(button), "station_is_gps"));
 
     changed_sources_handler(NULL, window);
     changed_country_handler(NULL, window);
@@ -1230,6 +1237,13 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(gps_button), group);
     gtk_box_pack_start (GTK_BOX (hbox), gps_button, TRUE, TRUE, 0);
     gtk_widget_show (hbox);
+    g_object_set_data(G_OBJECT(window), "gps", (gpointer)gps_button);
+    if (g_object_get_data(G_OBJECT(button), "station_is_gps"))
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(gps_button),
+                                     TRUE);
+    else
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(manual_button),
+                                     TRUE);
 
 
     gtk_table_attach((GtkTable*)main_table, hbox,
@@ -1292,10 +1306,9 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
 
-
     gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
-
     gtk_widget_show_all(window);
+
     /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(window));
 
@@ -1309,7 +1322,8 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 /*******************************************************************************/
 GtkWidget*
 create_station_button(gint station_number, gchar* station_name_s, gchar *station_code_s, gchar *station_source_s,
-                      gint country_id, gchar *station_country_s, gint region_id, gchar *station_region_s)
+                      gint country_id, gchar *station_country_s, gint region_id, gchar *station_region_s,
+                      gboolean is_gps)
 {
     GtkWidget *station_label = NULL,
               *station_name  = NULL,
@@ -1329,6 +1343,10 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
     g_object_set_data(G_OBJECT(button), "station_country_id", (gpointer)country_id);
     g_object_set_data(G_OBJECT(button), "station_region_id", (gpointer)region_id);
     g_object_set_data(G_OBJECT(button), "station_number", (gpointer)station_number);
+    if (is_gps)
+        g_object_set_data(G_OBJECT(button), "station_is_gps", (gpointer)1);
+    else
+        g_object_set_data(G_OBJECT(button), "station_is_gps", (gpointer)0);
 
     snprintf(buffer, sizeof(buffer) - 1, "Station %i", station_number + 1);
     station_label = gtk_label_new(buffer);
@@ -1376,6 +1394,7 @@ create_and_fill_stations_buttons(GtkWidget *main_table)
             *station_region = NULL;
     gint    station_country_id,
             station_region_id;
+    gboolean is_gps;
 
     GtkListStore *allinformation_list = NULL;
     gint  station_number = 0;
@@ -1392,7 +1411,9 @@ create_and_fill_stations_buttons(GtkWidget *main_table)
         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                            &iter,
                            0, &station_name,
-                           1, &station_code, 3, &station_source, -1);
+                           1, &station_code,
+                           2, &is_gps,
+                           3, &station_source, -1);
 
         allinformation_list = get_all_information_about_station(station_source, station_code);
         valid2 = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
@@ -1408,7 +1429,7 @@ create_and_fill_stations_buttons(GtkWidget *main_table)
                                    -1);
 
         station = create_station_button(station_number,  station_name, station_code, station_source, station_country_id,
-                                        station_country, station_region_id, station_region );
+                                        station_country, station_region_id, station_region, is_gps);
         g_object_set_data(G_OBJECT(station), "settings_window_table", (gpointer)main_table);
         g_object_set_data(G_OBJECT(station), "station_box", (gpointer)box);
         gtk_box_pack_start(GTK_BOX(box), station, TRUE, TRUE, 0);
@@ -1424,7 +1445,7 @@ create_and_fill_stations_buttons(GtkWidget *main_table)
     /* Added nil station_button */
     while (station_number < 4){
         station = create_station_button(station_number,  _("Unknown"), -1, app->config->current_source, -1,
-                                        _("Unknown"), -1, _("Unknown"));
+                                        _("Unknown"), -1, _("Unknown"), FALSE);
         g_object_set_data(G_OBJECT(station), "settings_window_table", (gpointer)main_table);
         g_object_set_data(G_OBJECT(station), "station_box", (gpointer)box);
         gtk_box_pack_start(GTK_BOX(box), station, TRUE, TRUE, 0);

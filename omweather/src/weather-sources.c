@@ -41,9 +41,9 @@ create_sources_list(gchar *sources_path, gint *sources_number, GSList **handles)
     GHashTable      *source = NULL;
     gint            counter = 0;
     gpointer        value = NULL;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if(!sources_path)
         return NULL;/* error */
 
@@ -139,9 +139,9 @@ get_first_source_hash(GtkListStore *data){
     GHashTable  *source = NULL;
     gpointer    value = NULL;
     gboolean    valid = FALSE;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if(!data)
         return NULL;
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(data), &iter);
@@ -271,6 +271,7 @@ source_stations_database_valid(GHashTable *data){
         return FALSE;
     /* check *.db file */
     value = g_hash_table_lookup(data, "base");
+    
     if(!value)/* database file does not defined */
         return FALSE;
     else{

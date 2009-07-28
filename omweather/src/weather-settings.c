@@ -244,6 +244,7 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
     START_FUNCTION;
 #endif
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
+
     if(list){
         /* close database if it open */
         if(list->database){
@@ -299,6 +300,7 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
           list->database = open_database(DATABASEPATH, (gchar*)value);
           /* Read Coutries list from file */
           list->countries_list = create_countries_list(list->database);
+
           if(strcmp("simple_settings_window", control_name)){
               /* append list to the combobox */
               gtk_combo_box_set_model(GTK_COMBO_BOX(list->countries),

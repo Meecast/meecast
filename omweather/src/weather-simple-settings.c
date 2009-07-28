@@ -344,9 +344,9 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
     gint                    type_button = UNKNOWN;
     GtkTreeSelection        *sel;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     *dialog_name = 0;
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
     if(!strcmp("country_button", control_name)){
@@ -384,7 +384,6 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 620, 280);
 
     if (type_button == COUNTRY){
-        fprintf(stderr,"list->countries_list %p\n",list->countries_list);
         list_view = create_tree_view(list->countries_list);
         highlight_current_item(list_view, list->countries_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_country"));
         gtk_widget_set_name(list_view, "countries_list");
@@ -1067,9 +1066,9 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 /*******************************************************************************/
 GtkWidget*
 create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget){
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
   GtkWidget *button = NULL,
            *label_name,
            *vertical_box,
@@ -1102,10 +1101,8 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
     g_signal_connect(G_OBJECT(button), "button-release-event",
                      G_CALLBACK(choose_button_handler),
                      widget);
-    fprintf(stderr,"list->countries_list1 %p\n",list->countries_list);
 
     return button;
-
 }
 /*******************************************************************************/
 void
@@ -1114,7 +1111,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    static struct       lists_struct list;
+    struct lists_struct list;
     gint result;
     GtkWidget *window               = NULL,
               *hbox                 = NULL,
@@ -1156,10 +1153,14 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                                             NULL);
     gtk_widget_set_name(window, "simple_settings_window");
-    g_object_set_data(G_OBJECT(window), "list", (gpointer)&list);
+
+
 
     /* create sources list from aviable sources */
+    memset(&list, 0, sizeof(struct lists_struct));
     list.sources_list = app->sources_list;
+    g_object_set_data(G_OBJECT(window), "list", (gpointer)&list);
+
     g_object_set_data(G_OBJECT(window), "current_source", (gpointer)app->config->current_source);
     g_object_set_data(G_OBJECT(window), "station_region_id", (gpointer)g_object_get_data(G_OBJECT(button), "station_region_id"));
     g_object_set_data(G_OBJECT(window), "station_region", (gpointer)g_object_get_data(G_OBJECT(button), "station_region"));
@@ -1174,7 +1175,6 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     changed_country_handler(NULL, window);
     changed_state_handler(NULL, window);
 
-        fprintf(stderr,"list->countries_list2 %p\n",list.countries_list);
 
     main_table = gtk_table_new(8, 8, FALSE);
 
@@ -1279,18 +1279,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 3, 4, 6, 7,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
-/*
-    save_button = gtk_button_new_with_label (_("Save"));
-    gtk_widget_set_size_request(save_button, 180, 80);
-    gtk_widget_show (save_button);
-    gtk_table_attach((GtkTable*)main_table, save_button,
-                                5, 6, 6, 8, (GtkAttachOptions)0,
-                                (GtkAttachOptions)0, 10, 10);
-    gtk_widget_show (save_button);
-    g_signal_connect(G_OBJECT(save_button), "button-release-event",
-                     G_CALLBACK(save_button_handler),
-                     window);
-*/
+
     right_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(right_alignmnet, 5, -1);
     gtk_table_attach((GtkTable*)main_table, right_alignmnet,
@@ -1303,12 +1292,8 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
 
-    memset(&list, 0, sizeof(struct lists_struct));
-    /* create sources list from aviable sources */
-    list.sources_list = app->sources_list;
 
     gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
-
 
     gtk_widget_show_all(window);
     /* start dialog window */
@@ -1460,9 +1445,9 @@ create_and_fill_units_box(GtkWidget *main_table){
 
   gchar   *units_string = NULL;
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
     /* temperature */
     if(app->config->temperature_units == CELSIUS)
@@ -1542,12 +1527,12 @@ create_and_fill_update_box(GtkWidget *main_table){
                 *update_label           = NULL,
                 *update_description     = NULL,
                 *update_box             = NULL;
- 
+
     gchar   *update_string = NULL;
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
 
     if(app->config->update_interval == 0)
@@ -1603,7 +1588,10 @@ create_and_fill_update_box(GtkWidget *main_table){
     g_object_set_data(G_OBJECT(update_button), "update_button", (gpointer)update_button);
     g_signal_connect(G_OBJECT(update_button), "button-release-event",
                                  G_CALLBACK(update_button_handler), (gpointer)main_table);
- 
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
 }
 /*******************************************************************************/
 void
@@ -1616,14 +1604,14 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
                *widget_style_vbox             = NULL,
                *widget_style_icon             = NULL,
                *alignmnet                     = NULL;  
-    
+
     GdkPixbuf *icon_buffer = NULL;
     gchar buffer[256];
     gchar   *widget_style_string = NULL;
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
     if(app->config->icons_layout == PRESET_NOW_PLUS_SEVEN)
         widget_style_string = "Now + 7 days vert.";
@@ -1652,7 +1640,6 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
                  gdk_pixbuf_new_from_file_at_size(buffer, 60,
                                                   60, NULL);
     if (icon_buffer) {
-     
                widget_style_icon = gtk_image_new_from_pixbuf(icon_buffer);
                 g_object_unref(G_OBJECT(icon_buffer));
       }

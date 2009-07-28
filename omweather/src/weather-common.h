@@ -66,6 +66,7 @@
     #include <libhildondesktop/libhildondesktop.h>
     #include <hildon/hildon-banner.h>
     #include <hildon/hildon-window-stack.h>
+    #include <hildon/hildon.h>
 #else
     #include <hildon-widgets/hildon-banner.h>
 #endif

@@ -1348,27 +1348,18 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
     else
         g_object_set_data(G_OBJECT(button), "station_is_gps", (gpointer)0);
 
+
     snprintf(buffer, sizeof(buffer) - 1, "Station %i", station_number + 1);
-    station_label = gtk_label_new(buffer);
-    set_font(station_label, NULL, 12);
-    gtk_widget_show (station_label);
 
     station_name = gtk_label_new (station_name_s);
-//    set_font_color(station_name, 0, 100, 100);
-    set_font(station_name, NULL, 18);
-    gtk_widget_show(station_name);
-    vertical_box = gtk_vbox_new(TRUE, 2);
-    gtk_widget_show(vertical_box);
 
-    gtk_box_pack_start(GTK_BOX(vertical_box), station_label, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(vertical_box), station_name, TRUE, TRUE, 0);
-    gtk_container_add (GTK_CONTAINER (button), vertical_box);
+    button = create_button_with_2_line_text(buffer, station_name_s, 18, 12);
 
     g_signal_connect(G_OBJECT(button), "button-release-event",
                      G_CALLBACK(station_setup_button_handler),
                      (gpointer)button);
     gtk_widget_set_size_request(button, 150, 80);
-    gtk_widget_show (button);
+//    gtk_widget_show (button);
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -1509,24 +1500,10 @@ create_and_fill_units_box(GtkWidget *main_table){
         else
             units_string = g_strjoin(", ", units_string, _("mm"), NULL);
     }
-    units_button = gtk_button_new ();
-    units_label = gtk_label_new(_("Units"));
     /* TO DO !!!!!! check memory leak in units_string */
-    set_font(units_label, NULL, 12);
-    gtk_widget_show (units_label);
-
-    units_description = gtk_label_new (units_string);
-    set_font(units_description, NULL, 18);
-    gtk_widget_show(units_description);
-    units_box = gtk_vbox_new(TRUE, 2);
-    gtk_widget_show(units_box);
-
-    gtk_box_pack_start(GTK_BOX(units_box), units_label, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(units_box), units_description, TRUE, TRUE, 0);
-    gtk_container_add (GTK_CONTAINER (units_button), units_box);
+    units_button = create_button_with_2_line_text(_("Units"), units_string, 18, 12);
 
     gtk_widget_set_size_request(units_button, 490, 70);
-    gtk_widget_show (units_button);
     gtk_table_attach((GtkTable*)main_table, units_button,
                                 1, 2, 3, 4, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
@@ -1582,21 +1559,8 @@ create_and_fill_update_box(GtkWidget *main_table){
         }
     }
 
-    update_button = gtk_button_new ();
-    update_label = gtk_label_new(_("Update"));
+    update_button = create_button_with_2_line_text(_("Update"), update_string, 18, 12);
 
-    set_font(update_label, NULL, 12);
-    gtk_widget_show(update_label);
-
-    update_description = gtk_label_new (update_string);
-    set_font(update_description, NULL, 18);
-    gtk_widget_show(update_description);
-    update_box = gtk_vbox_new(TRUE, 2);
-    gtk_widget_show(update_box);
-
-    gtk_box_pack_start(GTK_BOX(update_box), update_label, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(update_box), update_description, TRUE, TRUE, 0);
-    gtk_container_add (GTK_CONTAINER (update_button), update_box);
     gtk_widget_set_size_request(update_button, 490, 70);
     gtk_widget_show (update_button);
     gtk_table_attach((GtkTable*)main_table, update_button,
@@ -1662,8 +1626,14 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
                                                   60, NULL);
     if (icon_buffer) {
                widget_style_icon = gtk_image_new_from_pixbuf(icon_buffer);
-                g_object_unref(G_OBJECT(icon_buffer));
+               g_object_unref(G_OBJECT(icon_buffer));
       }
+#if defined OS2009
+    widget_style_button = create_button_with_2_line_text(_("Widget style"), widget_style_string, 18, 12);
+    hildon_button_set_image (HILDON_BUTTON (widget_style_button), widget_style_icon);
+    hildon_button_set_image_position (HILDON_BUTTON (widget_style_button), GTK_POS_RIGHT);
+#else
+    gtk_widget_show(widget_style_description);
 
     widget_style_button = gtk_button_new ();
     widget_style_label = gtk_label_new(_("Widget style"));
@@ -1675,17 +1645,19 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
     widget_style_description = gtk_label_new (widget_style_string);
     set_font(widget_style_description, NULL, 18);
 //    gtk_widget_set_size_request(widget_style_description, 380, -1);
-    gtk_widget_show(widget_style_description);
 
-    widget_style_vbox = gtk_vbox_new(TRUE, 2);
-    gtk_widget_show(widget_style_vbox);
+     gtk_widget_show(widget_style_description);
 
-    widget_style_hbox = gtk_hbox_new(FALSE, 0);
-    gtk_widget_show(widget_style_hbox);
+      widget_style_vbox = gtk_vbox_new(TRUE, 2);
+      gtk_widget_show(widget_style_vbox);
 
-    gtk_widget_show (widget_style_icon);
-//    gtk_widget_set_size_request(widget_style_icon, 60, -1);
+      widget_style_hbox = gtk_hbox_new(FALSE, 0);
+      gtk_widget_show(widget_style_hbox);
 
+      gtk_widget_show (widget_style_icon);
+     //    gtk_widget_set_size_request(widget_style_icon, 60, -1);
+
+      //    alignmnet = gtk_alignment_new(0, 0, 0, 0);
 //    alignmnet = gtk_alignment_new(0, 0, 0, 0);
   //  gtk_widget_set_size_request(alignmnet, -1, 20);
   //  gtk_widget_show(alignmnet);
@@ -1701,6 +1673,7 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
    // gtk_box_pack_start(GTK_BOX(widget_style_hbox), alignmnet, TRUE, TRUE, 0);
     gtk_container_add (GTK_CONTAINER (widget_style_button), widget_style_hbox);
 
+#endif
     gtk_widget_set_size_request(widget_style_button, 490, 70);
     gtk_widget_show (widget_style_button);
     gtk_table_attach((GtkTable*)main_table, widget_style_button,

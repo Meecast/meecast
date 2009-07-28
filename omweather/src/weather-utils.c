@@ -567,7 +567,6 @@ choose_wind_direction(gchar *buffer)
     }
 }
 
-
 /*******************************************************************************/
 GtkWidget*
 create_button_with_2_line_text(const gchar *first_line_text, const gchar *second_line_text,
@@ -576,7 +575,12 @@ create_button_with_2_line_text(const gchar *first_line_text, const gchar *second
               *second_line  = NULL,
               *vertical_box  = NULL,
               *button = NULL;
-
+#if defined OS2009
+  button = hildon_button_new_with_text (HILDON_SIZE_FINGER_HEIGHT | HILDON_SIZE_AUTO_WIDTH,
+                    HILDON_BUTTON_ARRANGEMENT_VERTICAL,
+                     first_line_text,
+                     second_line_text);
+#else
     button = gtk_button_new();
 
     first_line = gtk_label_new(first_line_text);
@@ -594,8 +598,9 @@ create_button_with_2_line_text(const gchar *first_line_text, const gchar *second
     gtk_box_pack_start(GTK_BOX(vertical_box), second_line, TRUE, TRUE, 0);
     gtk_container_add(GTK_CONTAINER(button), vertical_box);
 
-    gtk_widget_show(button);
 
+#endif
+    gtk_widget_show(button);
     return button;
 }
 /*******************************************************************************/

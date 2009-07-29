@@ -62,7 +62,7 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     gtk_widget_show(window);
 
     gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(), FALSE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(main_vbox), create_collapsed_view(), TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(main_vbox), create_collapsed_view(main_vbox), TRUE, TRUE, 0);
 //     gtk_box_pack_start(GTK_BOX(main_vbox), create_weather_for_two_hours_collapsed_view(window,
   //                                         " button-release-event" ,user_data), TRUE, TRUE, 0);
     gtk_widget_show_all(main_vbox);
@@ -184,7 +184,7 @@ create_top_buttons_box(void){
 }
 /*******************************************************************************/
 GtkWidget*
-create_collapsed_view(void){
+create_collapsed_view(GtkWidget *vbox){
     GtkWidget       *scrolled_window = NULL,
                     *main_vbox = NULL,
                     *line_hbox = NULL,
@@ -226,6 +226,8 @@ create_collapsed_view(void){
         while(days){
             day = (GHashTable*)(days->data);
             line = gtk_event_box_new();
+            g_object_set_data(G_OBJECT(line), "scrolled_window", (gpointer)scrolled_window);
+            g_object_set_data(G_OBJECT(line), "vbox", (gpointer)vbox);
             g_signal_connect(G_OBJECT(line), "button-release-event",
                                 G_CALLBACK(show_expanded_day_button_handler),
                                  GINT_TO_POINTER(i));
@@ -349,6 +351,7 @@ void
 show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
                                                             gpointer user_data){
     gint        day_number = (gint)user_data;
+    GtkWidget *view;
    // GtkWidget   *window = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -356,6 +359,9 @@ show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
 //    window = gtk_dialog_new();
   //  gtk_widget_show_all(window);
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Day number %d\n", day_number);
+    view = create_weather_for_two_hours_collapsed_view(button, event, user_data);
+    gtk_widget_destroy(g_object_get_data(G_OBJECT(button), "scrolled_window"));
+    gtk_box_pack_start(GTK_BOX(g_object_get_data(G_OBJECT(button), "vbox")), view, FALSE, TRUE, 0);
 }
 /*******************************************************************************/
 GtkWidget*
@@ -381,10 +387,10 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *button, GdkEventButton *e
                     low_temp;
     struct tm       tmp_time_date_struct = {0};
     
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
-    fprintf(stderr, "\n%s\n", symbol);
+//#endif
+//    fprintf(stderr, "\n%s\n", symbol);
     /* scrolled window */
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);
     gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
@@ -401,10 +407,10 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *button, GdkEventButton *e
     if(days){
         day = (GHashTable*)(days->data);
         line = gtk_event_box_new();
-        /* line box */
         line_hbox = gtk_hbox_new(FALSE, 0);
         gtk_container_add(GTK_CONTAINER(line), line_hbox);
     }
+
  gtk_widget_show_all(scrolled_window);
  return scrolled_window;
 }

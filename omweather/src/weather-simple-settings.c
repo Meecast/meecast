@@ -973,7 +973,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
                 gtk_toggle_button_set_active (four_hours_button, TRUE);
             else{
                 if(app->config->update_interval == 1440)
-                    gtk_toggle_button_set_active (one_day_button, TRUE);             
+                    gtk_toggle_button_set_active (one_day_button, TRUE);
             }
         }
     }

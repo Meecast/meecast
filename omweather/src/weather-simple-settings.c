@@ -181,6 +181,19 @@ highlight_current_item(GtkTreeView *tree_view, GtkListStore *list, gchar *curren
     }
 }
 /*******************************************************************************/
+static void
+row_activated_callback (GtkWidget         *tree_view,
+                        GtkTreePath       *path,
+                        GtkTreeViewColumn *column,
+                        gpointer           user_data)
+{
+    GtkTreeSelection        *sel;
+    sel = gtk_tree_view_get_selection (GTK_TREE_VIEW (tree_view));
+    g_print ("row-activated emitted.\n");
+    list_changed(sel, user_data);
+}
+
+/******************************************************************************/
 void
 list_changed(GtkTreeSelection *sel,  gpointer user_data){
   GtkTreeIter iter;
@@ -421,7 +434,9 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     g_object_set_data(G_OBJECT(window), "button", (gpointer)button);
     sel = gtk_tree_view_get_selection (GTK_TREE_VIEW (list_view));
 #if defined OS2009
-#else 
+    g_signal_connect (list_view, "row-activated",
+                    G_CALLBACK (row_activated_callback), window);
+#else
     g_signal_connect (sel, "changed",G_CALLBACK (list_changed), window);
 #endif
 
@@ -1266,6 +1281,8 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 (GtkAttachOptions)0,
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
+    fprintf(stderr,"uuuuuuuuu %s\n", (gchar*)g_object_get_data(G_OBJECT(button),"station_source"));
+
     /* Button Source */
      source_button = create_button(_("Source"),(gchar*)g_object_get_data(G_OBJECT(button), "station_source"),
                                    "source_button", "station_source", window);
@@ -1343,6 +1360,7 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
 #endif
     button = gtk_button_new();
 
+    fprintf(stderr,"stat %s\n",station_source_s);
     g_object_set_data(G_OBJECT(button), "station_name", (gpointer)station_name_s);
     g_object_set_data(G_OBJECT(button), "station_code", (gpointer)station_code_s);
     g_object_set_data(G_OBJECT(button), "station_source", (gpointer)station_source_s);
@@ -1414,6 +1432,7 @@ create_and_fill_stations_buttons(GtkWidget *main_table)
                            2, &is_gps,
                            3, &station_source, -1);
 
+        fprintf(station, "oooooooo %s\n", station_source);
         allinformation_list = get_all_information_about_station(station_source, station_code);
         valid2 = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                               (allinformation_list), &iter2);

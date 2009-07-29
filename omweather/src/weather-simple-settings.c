@@ -196,9 +196,9 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data){
   enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
   gint type_button = UNKNOWN;
 
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     button = (GtkWidget*)g_object_get_data(G_OBJECT(user_data), "button");
     label = (GtkWidget*)g_object_get_data(G_OBJECT(button), "label");
     vbox = (GtkWidget*)g_object_get_data(G_OBJECT(button), "vbox");
@@ -381,12 +381,16 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
                                             NULL);
     main_table = gtk_table_new(8, 8, FALSE);
 
+#if defined OS2009
+    scrolled_window = hildon_pannable_area_new ();
+#else
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);
     gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW
                                         (scrolled_window),
                                         GTK_SHADOW_ETCHED_IN);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                    GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+#endif
     gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 620, 280);
 
     if (type_button == COUNTRY){
@@ -416,7 +420,11 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
                               scrolled_window, 1, 2, 1, 2);
     g_object_set_data(G_OBJECT(window), "button", (gpointer)button);
     sel = gtk_tree_view_get_selection (GTK_TREE_VIEW (list_view));
+#if defined OS2009
+#else 
     g_signal_connect (sel, "changed",G_CALLBACK (list_changed), window);
+#endif
+
 
     gtk_widget_show_all(main_table);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),

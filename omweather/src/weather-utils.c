@@ -389,10 +389,16 @@ GtkWidget *create_tree_view(GtkListStore * list) {
     START_FUNCTION;
 #endif
 /* create the tree view model LIST */
+#if defined OS2009
+    tree_view = hildon_gtk_tree_view_new_with_model(HILDON_UI_MODE_NORMAL, GTK_TREE_MODEL(list));
+#else
     tree_view = gtk_tree_view_new_with_model(GTK_TREE_MODEL(list));
+#endif
 /* make the list component single selectable */
+#if !defined OS2009 
     list_selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(tree_view));
     gtk_tree_selection_set_mode(list_selection, GTK_SELECTION_SINGLE);
+#endif
 /* add name column to the view */
     renderer = gtk_cell_renderer_text_new();
     column = gtk_tree_view_column_new();

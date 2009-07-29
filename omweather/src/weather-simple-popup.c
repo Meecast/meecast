@@ -63,6 +63,8 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
 
     gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(), FALSE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), create_collapsed_view(), TRUE, TRUE, 0);
+//     gtk_box_pack_start(GTK_BOX(main_vbox), create_weather_for_two_hours_collapsed_view(window,
+  //                                         " button-release-event" ,user_data), TRUE, TRUE, 0);
     gtk_widget_show_all(main_vbox);
 
 #if defined OS2009
@@ -238,6 +240,9 @@ create_collapsed_view(void){
                                                             SMALL_ICON_SIZE, NULL);
             icon_image = create_icon_widget(icon_buffer, icon, SMALL_ICON_SIZE, &app->clutter_objects_in_popup_form);
             if(icon_image){
+                g_signal_connect(G_OBJECT(icon_image), "button-release-event",
+                                    G_CALLBACK(create_weather_for_two_hours_collapsed_view),
+                                    GINT_TO_POINTER(i));
                 gtk_box_pack_start(GTK_BOX(line_hbox), icon_image, FALSE, TRUE, 0);
                 gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
                 gtk_box_pack_start(GTK_BOX(main_vbox), gtk_hseparator_new(), TRUE, TRUE, 0);
@@ -344,9 +349,63 @@ void
 show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
                                                             gpointer user_data){
     gint        day_number = (gint)user_data;
+   // GtkWidget   *window = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+//    window = gtk_dialog_new();
+  //  gtk_widget_show_all(window);
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Day number %d\n", day_number);
+}
+/*******************************************************************************/
+GtkWidget*
+create_weather_for_two_hours_collapsed_view(GtkWidget *button, GdkEventButton *event, gpointer user_data){
+    GtkWidget       *scrolled_window = NULL,
+                    *main_vbox = NULL,
+                    *line_hbox = NULL,
+                    *line_text = NULL,
+                    *line = NULL,
+                    *vscrollbar = NULL;
+    GdkPixbuf       *icon_buffer;
+    GtkWidget       *icon_image;
+    const gchar     *wind_units_str[] = {"m/s", "km/h", "mi/h" };
+    gchar           buffer[1024],
+                    tmp[512],
+                    icon[2048],
+                    symbol = 'C',
+                    *comma = NULL;
+    GSList          *days = NULL;
+    GHashTable      *day = NULL;
+    gint         //   i = 0,
+                    hi_temp,
+                    low_temp;
+    struct tm       tmp_time_date_struct = {0};
+    
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    fprintf(stderr, "\n%s\n", symbol);
+    /* scrolled window */
+    scrolled_window = gtk_scrolled_window_new(NULL, NULL);
+    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
+                                            GTK_SHADOW_NONE);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
+                                       GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+    vscrollbar = gtk_scrolled_window_get_vscrollbar(scrolled_window);
+
+    /* pack childs to the scrolled window */
+    main_vbox = gtk_vbox_new(FALSE, 5);
+    gtk_scrolled_window_add_with_viewport(scrolled_window, main_vbox);
+
+    days = (GSList*)g_hash_table_lookup(app->station_data, "forecast");
+    if(days){
+        day = (GHashTable*)(days->data);
+        line = gtk_event_box_new();
+        /* line box */
+        line_hbox = gtk_hbox_new(FALSE, 0);
+        gtk_container_add(GTK_CONTAINER(line), line_hbox);
+    }
+ gtk_widget_show_all(scrolled_window);
+ return scrolled_window;
 }
 /*******************************************************************************/

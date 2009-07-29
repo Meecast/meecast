@@ -160,6 +160,8 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 5, 0 );
 
+    fprintf(stderr, "\n%d\n", app->config->view_mode);
+
     settings_button = gtk_button_new_with_label (_("Settings"));
     gtk_widget_set_size_request(settings_button, 320, 60);
     gtk_widget_show (settings_button);

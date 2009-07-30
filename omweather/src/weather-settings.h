@@ -74,6 +74,7 @@ void new_station_handler(GtkButton *button, gpointer user_data);
 void delete_station_handler(GtkButton *button, gpointer user_data);
 GtkTreeIter add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
 				gboolean is_gps, gchar *source, gint position);
+void delete_station_from_user_list(gchar *station_selected, gpointer user_data);
 void highlight_current_station(GtkTreeView *tree_view);
 int lookup_and_select_station(gchar *db_path, gchar *station_name, Station *result);
 gboolean switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data);

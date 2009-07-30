@@ -254,11 +254,15 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
     }
     if (type_button == STATE){
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
+#if defined OS2009
+        hildon_button_set_value(temp_button, "");
+#else
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
             gtk_widget_destroy(label);
             label = NULL;
         }
+#endif
         id = get_state_code(g_object_get_data(G_OBJECT(window), "station_source"), name);
         g_object_set_data(G_OBJECT(button), "station_region_id", (gpointer)id);
         g_object_set_data(G_OBJECT(button), "station_region", (gpointer)name);
@@ -268,17 +272,25 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
     }
     if (type_button == COUNTRY){
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
+#if defined OS2009
+        hildon_button_set_value(temp_button, "");
+#else
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
             gtk_widget_destroy(label);
             label = NULL;
         }
+#endif
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "region_button");
+#if defined OS2009
+        hildon_button_set_value(temp_button, "");
+#else
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
             gtk_widget_destroy(label);
             label = NULL;
         }
+#endif
         id = get_country_code(g_object_get_data(G_OBJECT(window), "station_source"), name);
         g_object_set_data(G_OBJECT(button), "station_country_id", (gpointer)id);
         g_object_set_data(G_OBJECT(button), "station_country", (gpointer)name);
@@ -288,26 +300,38 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
     /* TO DO make all if we will have +1 source */
     if (type_button == SOURCE){
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
+#if defined OS2009
+        hildon_button_set_value(temp_button, "");
+#else
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
             gtk_widget_destroy(label);
             label = NULL;
             g_object_set_data(G_OBJECT(temp_button), "label", NULL);
         }
+#endif
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "region_button");
+#if defined OS2009
+        hildon_button_set_value(temp_button, "");
+#else
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
             gtk_widget_destroy(label);
             label = NULL;
             g_object_set_data(G_OBJECT(temp_button), "label", NULL);
         }
+#endif
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "country_button");
+#if defined OS2009
+        hildon_button_set_value(temp_button, "");
+#else
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
             gtk_widget_destroy(label);
             label = NULL;
             g_object_set_data(G_OBJECT(temp_button), "label", NULL);
         }
+#endif
         g_object_set_data(G_OBJECT(window), "station_source", name);
         g_object_set_data(G_OBJECT(button), "station_source", name);
         changed_sources_handler(NULL, window);
@@ -327,6 +351,13 @@ save_station(GtkWidget *window){
     gboolean valid;
     gboolean is_gps;
     GtkWidget *stations_box;
+    gchar
+            *station_name = NULL,
+            *station_code = NULL,
+            *station_source = NULL,
+            *station_country = NULL,
+            *station_region = NULL;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -342,8 +373,17 @@ save_station(GtkWidget *window){
                                       g_strdup(g_object_get_data(G_OBJECT(window), "station_source")),
                                       GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_number")));
     valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
-    if (valid)
-        gtk_list_store_remove(app->user_stations_list, &iter);
+    if (valid){
+          gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                           &iter,
+                           0, &station_name,
+                           1, &station_code,
+                           2, &is_gps,
+                           3, &station_source, -1);
+
+          delete_station_from_user_list(station_name, NULL);
+//        gtk_list_store_remove(app->user_stations_list, &iter);
+    }
     /* Update config file */
     config_save(app->config);
     stations_box = (gpointer)(g_object_get_data(G_OBJECT(window), "station_box"));

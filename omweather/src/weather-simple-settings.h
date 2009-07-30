@@ -50,5 +50,6 @@ void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data);
 extern GtkWidget* create_layouts_line(GtkWidget *window, gint icon_size, gint mode);
 extern GtkWidget *create_iconsets_line(GtkWidget *window, gint icon_size, gint mode);
+extern void delete_station_from_user_list(gchar *station_selected, gpointer user_data);
 /*******************************************************************************/
 #endif

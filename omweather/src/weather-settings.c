@@ -501,53 +501,21 @@ new_station_handler(GtkButton *button, gpointer user_data){
 }
 /*******************************************************************************/
 /* Delete station from list */
-void delete_station_handler(GtkButton * button, gpointer user_data) {
-    GtkWidget	*dialog = NULL,
-		*config = GTK_WIDGET(user_data),
-		*rename_entry = NULL;
-    GtkTreeView *station_list_view = NULL;
-    GtkTreeIter iter;
-    gchar	*station_selected = NULL,
-		*station_name = NULL,
-		*station_code = NULL,
-		*station_source = NULL;
-    GtkTreeModel *model;
-    GtkTreeSelection *selection;
+void
+delete_station_from_user_list(gchar *station_selected, gpointer user_data) {
+    GtkWidget   *config = GTK_WIDGET(user_data),
+                *rename_entry = NULL;
+
     gboolean valid = FALSE;
-    gint result = GTK_RESPONSE_NONE;
+    GtkTreeIter iter;
+    gchar       *station_name = NULL,
+                *station_code = NULL,
+                *station_source = NULL;
     GtkTreePath *path;
 #ifdef ENABLE_GPS
     gboolean is_gps = FALSE;
 #endif
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    station_list_view =
-        (GtkTreeView *) lookup_widget(config, "station_list_view");
     rename_entry = lookup_widget(config, "omweather_rename_entry");
-/* create confirm dialog */
-    dialog = gtk_message_dialog_new(NULL,
-                                    GTK_DIALOG_MODAL |
-                                    GTK_DIALOG_DESTROY_WITH_PARENT,
-                                    GTK_MESSAGE_QUESTION,
-                                    GTK_BUTTONS_NONE,
-                                    _("Are you sure to want delete this station ?"));
-    gtk_dialog_add_button(GTK_DIALOG(dialog), _("Yes"), GTK_RESPONSE_YES);
-    gtk_dialog_add_button(GTK_DIALOG(dialog), _("No"), GTK_RESPONSE_NO);
-    result = gtk_dialog_run(GTK_DIALOG(dialog));
-    gtk_widget_destroy(dialog);
-    if (result != GTK_RESPONSE_YES)
-        return;
-    if (!station_list_view)
-        return;
-/* search station for delete */
-    model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
-    selection =
-        gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
-    if (!gtk_tree_selection_get_selected(selection, NULL, &iter))
-        return;
-
-    gtk_tree_model_get(model, &iter, 0, &station_selected, -1);
     valid =
         gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                       (app->user_stations_list), &iter);
@@ -665,6 +633,60 @@ void delete_station_handler(GtkButton * button, gpointer user_data) {
     redraw_home_window(FALSE);
     /* Update config file */
     config_save(app->config);
+
+}
+/*******************************************************************************/
+/* Preparing for deleting */
+void
+delete_station_handler(GtkButton * button, gpointer user_data) {
+    GtkWidget   *dialog = NULL,
+                *config = GTK_WIDGET(user_data),
+                *rename_entry = NULL;
+    GtkTreeView *station_list_view = NULL;
+    GtkTreeIter iter;
+    gchar       *station_selected = NULL,
+                *station_name = NULL,
+                *station_code = NULL,
+                *station_source = NULL;
+    GtkTreeModel *model;
+    GtkTreeSelection *selection;
+    gboolean valid = FALSE;
+    gint result = GTK_RESPONSE_NONE;
+    GtkTreePath *path;
+#ifdef ENABLE_GPS
+    gboolean is_gps = FALSE;
+#endif
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    station_list_view =
+        (GtkTreeView *) lookup_widget(config, "station_list_view");
+
+/* create confirm dialog */
+    dialog = gtk_message_dialog_new(NULL,
+                                    GTK_DIALOG_MODAL |
+                                    GTK_DIALOG_DESTROY_WITH_PARENT,
+                                    GTK_MESSAGE_QUESTION,
+                                    GTK_BUTTONS_NONE,
+                                    _("Are you sure to want delete this station ?"));
+    gtk_dialog_add_button(GTK_DIALOG(dialog), _("Yes"), GTK_RESPONSE_YES);
+    gtk_dialog_add_button(GTK_DIALOG(dialog), _("No"), GTK_RESPONSE_NO);
+    result = gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_widget_destroy(dialog);
+    if (result != GTK_RESPONSE_YES)
+        return;
+    if (!station_list_view)
+        return;
+/* search station for delete */
+    model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
+    selection =
+        gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
+    if (!gtk_tree_selection_get_selected(selection, NULL, &iter))
+        return;
+
+    gtk_tree_model_get(model, &iter, 0, &station_selected, -1);
+
+    delete_station_from_user_list(station_selected, config);
     highlight_current_station(GTK_TREE_VIEW(station_list_view));
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -673,8 +695,8 @@ void delete_station_handler(GtkButton * button, gpointer user_data) {
 /*******************************************************************************/
 void
 station_list_view_select_handler(GtkTreeView *tree_view, gpointer user_data){
-    GtkTreeIter	iter;
-    gchar	*station_selected = NULL,
+    GtkTreeIter iter;
+    gchar      *station_selected = NULL,
 		*station_name = NULL,
 		*station_code = NULL,
 		*station_source = NULL;

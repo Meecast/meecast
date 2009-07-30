@@ -60,12 +60,8 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     main_vbox = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(window), main_vbox);
     gtk_widget_show(window);
-
     gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(), FALSE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_vbox), create_collapsed_view(main_vbox), TRUE, TRUE, 0);
-//     gtk_box_pack_start(GTK_BOX(main_vbox), create_weather_for_two_hours_collapsed_view(window,
-  //                                         " button-release-event" ,user_data), TRUE, TRUE, 0);
-    gtk_widget_show_all(main_vbox);
 
 #if defined OS2009
     menu = hildon_app_menu_new();
@@ -141,6 +137,10 @@ create_top_buttons_box(void){
     gchar           buffer[255],
                     full_filename[2048];
     struct stat     statv;
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+ 
 /* buttons */
     buttons_box = gtk_hbox_new(TRUE, 0);
     /* station button */
@@ -242,9 +242,6 @@ create_collapsed_view(GtkWidget *vbox){
                                                             SMALL_ICON_SIZE, NULL);
             icon_image = create_icon_widget(icon_buffer, icon, SMALL_ICON_SIZE, &app->clutter_objects_in_popup_form);
             if(icon_image){
-                g_signal_connect(G_OBJECT(icon_image), "button-release-event",
-                                    G_CALLBACK(create_weather_for_two_hours_collapsed_view),
-                                    GINT_TO_POINTER(i));
                 gtk_box_pack_start(GTK_BOX(line_hbox), icon_image, FALSE, TRUE, 0);
                 gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
                 gtk_box_pack_start(GTK_BOX(main_vbox), gtk_hseparator_new(), TRUE, TRUE, 0);
@@ -356,8 +353,8 @@ show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-//    window = gtk_dialog_new();
-  //  gtk_widget_show_all(window);
+    // window = gtk_dialog_new();
+ //   gtk_widget_show_all(window);
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Day number %d\n", day_number);
     view = create_weather_for_two_hours_collapsed_view(button, event, user_data);
     gtk_widget_destroy(g_object_get_data(G_OBJECT(button), "scrolled_window"));
@@ -368,47 +365,127 @@ GtkWidget*
 create_weather_for_two_hours_collapsed_view(GtkWidget *button, GdkEventButton *event, gpointer user_data){
     GtkWidget       *scrolled_window = NULL,
                     *main_vbox = NULL,
+                    *line = NULL,
                     *line_hbox = NULL,
                     *line_text = NULL,
-                    *line = NULL,
-                    *vscrollbar = NULL;
-    GdkPixbuf       *icon_buffer;
+                    *vscrollbar = NULL,
+                    *icon_text_hbox = NULL;
+    GdkPixbuf       *icon;
     GtkWidget       *icon_image;
     const gchar     *wind_units_str[] = {"m/s", "km/h", "mi/h" };
     gchar           buffer[1024],
-                    tmp[512],
-                    icon[2048],
-                    symbol = 'C',
-                    *comma = NULL;
-    GSList          *days = NULL;
-    GHashTable      *day = NULL;
-    gint         //   i = 0,
-                    hi_temp,
-                    low_temp;
-    struct tm       tmp_time_date_struct = {0};
+                    tmp[512];
+    GHashTable      *hour_weather = NULL;
+    GSList          *hours_weather = NULL;
+    gint            i = 0;
     
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
-//    fprintf(stderr, "\n%s\n", symbol);
+#endif
+
     /* scrolled window */
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);
     gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
                                             GTK_SHADOW_NONE);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                        GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+    gtk_widget_set_size_request (scrolled_window, -1, 300);
     vscrollbar = gtk_scrolled_window_get_vscrollbar(scrolled_window);
 
-    /* pack childs to the scrolled window */
     main_vbox = gtk_vbox_new(FALSE, 5);
     gtk_scrolled_window_add_with_viewport(scrolled_window, main_vbox);
 
-    days = (GSList*)g_hash_table_lookup(app->station_data, "forecast");
-    if(days){
-        day = (GHashTable*)(days->data);
-        line = gtk_event_box_new();
-        line_hbox = gtk_hbox_new(FALSE, 0);
-        gtk_container_add(GTK_CONTAINER(line), line_hbox);
+    hours_weather = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
+
+    if(hours_weather){
+        while(hours_weather){
+            line = gtk_event_box_new();
+            hour_weather = (GHashTable*)hours_weather->data;
+            icon_text_hbox = gtk_hbox_new(FALSE, 0);
+            *buffer = 0;
+            g_object_set_data(G_OBJECT(line), "scrolled_window", (gpointer)scrolled_window); 
+            line_hbox = gtk_hbox_new(FALSE, 0);
+            gtk_container_add(GTK_CONTAINER(line), line_hbox);
+            /*icon*/
+            sprintf(buffer,"%s%s.png", app->config->icons_set_base,
+                                     (char*)g_hash_table_lookup(hour_weather, "hour_icon"));
+            icon = gdk_pixbuf_new_from_file_at_size(buffer, SMALL_ICON_SIZE,
+                                                                    SMALL_ICON_SIZE, NULL);
+            icon_image = create_icon_widget(icon, buffer, SMALL_ICON_SIZE, 
+                                                    &app->clutter_objects_in_popup_form);
+            if(icon_image){
+                gtk_box_pack_start(GTK_BOX(line_hbox), icon_image, FALSE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(main_vbox), gtk_hseparator_new(), TRUE, TRUE, 0);
+            }
+
+            *buffer = 0;
+            *tmp = 0;
+            /* hour */
+            sprintf(tmp + strlen(tmp), "%s", _("Forecast at: "));
+            sprintf(tmp + strlen(tmp), "%s:00\n",
+                                        (char*)g_hash_table_lookup(hour_weather, "hours"));
+
+            if(tmp){
+                snprintf(buffer, sizeof(buffer) - 1, "<span weight=\"bold\">%s", tmp);
+                snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1, 
+                                                                                   "</span>");
+            }
+
+            *tmp = 0;
+            /* temperature */
+            sprintf(tmp, " %d\302\260",
+                        ((app->config->temperature_units == CELSIUS) ?
+                       ( atoi(g_hash_table_lookup(hour_weather, "hour_temperature"))) :
+                  ( (int)c2f(atoi(g_hash_table_lookup(hour_weather, "hour_temperature"))))));
+            (app->config->temperature_units == CELSIUS) ? ( strcat(tmp, _("C")))
+                                               : ( strcat(tmp, _("F")));
+
+            /* feels like */
+            sprintf(tmp + strlen(tmp), " (feels like  %d\302\260",
+                             (app->config->temperature_units == CELSIUS) ?
+                             (atoi(g_hash_table_lookup(hour_weather, "hour_feels_like"))) :
+                    ((int)c2f(atoi(g_hash_table_lookup(hour_weather, "hour_feels_like")))));
+            (app->config->temperature_units == CELSIUS) ? ( strcat(tmp, _("C")))
+                                                             : ( strcat(tmp, _("F")));
+            sprintf(tmp + strlen(tmp), ")");
+            
+            /* title */
+            if(g_hash_table_lookup(hour_weather, "hour_title"))
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1," ,%s, ",
+              (char*)hash_table_find(g_hash_table_lookup(hour_weather, "hour_title"), FALSE));
+
+            /* wind speed */
+            if(g_hash_table_lookup(hour_weather, "hour_wind_speed"))
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"%.2f %s ",
+                                   convert_wind_units(app->config->wind_units, 
+                                   atof(g_hash_table_lookup(hour_weather, "hour_wind_speed"))),
+           (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+
+           /* wind direction */
+           if(g_hash_table_lookup(hour_weather, "hour_wind_direction"))
+                        snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "(%s)",
+                                    (char*)hash_table_find(g_hash_table_lookup(hour_weather,
+                                                            "hour_wind_direction"), FALSE));
+
+            /* humidity */
+            if(g_hash_table_lookup(hour_weather, "hour_humidity"))
+                sprintf(tmp + strlen(tmp), ",  %d%%",
+                                  atoi(g_hash_table_lookup(hour_weather, "hour_humidity")));
+            
+            snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1, "<i>%s</i>",
+                tmp);
+
+            line_text = gtk_label_new(NULL);
+            gtk_label_set_justify(GTK_LABEL(line_text), GTK_JUSTIFY_FILL);
+            gtk_label_set_markup(GTK_LABEL(line_text), buffer);
+            set_font(line_text, NULL, 12);
+            gtk_box_pack_start(GTK_BOX(line_hbox), line_text, FALSE, TRUE, 10);
+            
+            hours_weather = g_slist_next(hours_weather);
+            if(!hours_weather)
+               break;
+        }
     }
 
  gtk_widget_show_all(scrolled_window);

@@ -600,6 +600,9 @@ create_button_with_2_line_text(const gchar *first_line_text, const gchar *second
     vertical_box = gtk_vbox_new(FALSE, 2);
     gtk_widget_show(vertical_box);
 
+    g_object_set_data(G_OBJECT(button), "vbox", (gpointer)vertical_box);
+    g_object_set_data(G_OBJECT(button), "label", (gpointer)second_line);
+
     gtk_box_pack_start(GTK_BOX(vertical_box), first_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vertical_box), second_line, TRUE, TRUE, 0);
     gtk_container_add(GTK_CONTAINER(button), vertical_box);

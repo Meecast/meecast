@@ -187,18 +187,20 @@ row_activated_callback (GtkWidget         *tree_view,
                         GtkTreeViewColumn *column,
                         gpointer           user_data)
 {
-    GtkTreeSelection        *sel;
-    sel = gtk_tree_view_get_selection (GTK_TREE_VIEW (tree_view));
-    g_print ("row-activated emitted.\n");
-    list_changed(sel, user_data);
-}
+  GtkTreeIter       iter;
+  gchar *name;
 
+  GtkTreeModel *model = gtk_tree_view_get_model(tree_view);
+
+  gtk_tree_model_get_iter(model, &iter, path);
+  gtk_tree_model_get(model, &iter, 0, &name, -1);
+  list_changed(NULL, user_data, name);
+}
 /******************************************************************************/
 void
-list_changed(GtkTreeSelection *sel,  gpointer user_data){
+list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
   GtkTreeIter iter;
   GtkTreeModel *model;
-  gchar     *name         = NULL;
   gchar     *control_name = NULL;
   GtkWidget *vbox                 = NULL,
             *label                = NULL,
@@ -217,20 +219,25 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data){
     vbox = (GtkWidget*)g_object_get_data(G_OBJECT(button), "vbox");
     window = (GtkWidget*)g_object_get_data(G_OBJECT(button), "window");
 
-    if (label){
-        gtk_widget_destroy(label);
-        label = NULL;
-    }
-    if (gtk_tree_selection_get_selected(sel,&model, &iter)){
+    if (sel && gtk_tree_selection_get_selected(sel,&model, &iter)){
         gtk_tree_model_get(model, &iter, 0, &name, -1);
+    }
+    if (name){
+#if defined OS2009
+        hildon_button_set_value(button, name);
+#else
+        if (label){
+            gtk_widget_destroy(label);
+            label = NULL;
+        }
         label = gtk_label_new(name);
         g_object_set_data(G_OBJECT(button), "label", (gpointer)label);
         gtk_box_pack_start(GTK_BOX(vbox), label, TRUE, TRUE, 0);
-        gtk_widget_show(button);
         gtk_widget_show(label);
+#endif
+        gtk_widget_show(button);
     }
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
-    fprintf(stderr,"Control name %s\n", control_name);
     if(!strcmp("country_button", control_name))
         type_button = COUNTRY;
     if(!strcmp("source_button", control_name))
@@ -1107,18 +1114,8 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
 
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(widget), "list");
 
-    button = gtk_button_new();
-    label = gtk_label_new(name);
-    label_name = gtk_label_new(value);
-    set_font(label, NULL, 12);
+    button = create_button_with_2_line_text(name, value, 18, 12);
 
-    vertical_box = gtk_vbox_new(TRUE, 2);
-    gtk_widget_show(vertical_box);
-
-    gtk_box_pack_start(GTK_BOX(vertical_box), label, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(vertical_box), label_name, TRUE, TRUE, 0);
-    gtk_container_add (GTK_CONTAINER (button), vertical_box);
-    gtk_widget_show (button);
 
     g_object_set_data(G_OBJECT(button), "vbox", (gpointer)vertical_box);
     g_object_set_data(G_OBJECT(button), "label", (gpointer)label_name);
@@ -1281,7 +1278,6 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 (GtkAttachOptions)0,
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
-    fprintf(stderr,"uuuuuuuuu %s\n", (gchar*)g_object_get_data(G_OBJECT(button),"station_source"));
 
     /* Button Source */
      source_button = create_button(_("Source"),(gchar*)g_object_get_data(G_OBJECT(button), "station_source"),
@@ -1358,9 +1354,9 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    button = gtk_button_new();
 
-    fprintf(stderr,"stat %s\n",station_source_s);
+    snprintf(buffer, sizeof(buffer) - 1, "Station %i", station_number + 1);
+    button = create_button_with_2_line_text(buffer, station_name_s, 18, 12);
     g_object_set_data(G_OBJECT(button), "station_name", (gpointer)station_name_s);
     g_object_set_data(G_OBJECT(button), "station_code", (gpointer)station_code_s);
     g_object_set_data(G_OBJECT(button), "station_source", (gpointer)station_source_s);
@@ -1374,12 +1370,6 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
     else
         g_object_set_data(G_OBJECT(button), "station_is_gps", (gpointer)0);
 
-
-    snprintf(buffer, sizeof(buffer) - 1, "Station %i", station_number + 1);
-
-    station_name = gtk_label_new (station_name_s);
-
-    button = create_button_with_2_line_text(buffer, station_name_s, 18, 12);
 
     g_signal_connect(G_OBJECT(button), "button-release-event",
                      G_CALLBACK(station_setup_button_handler),
@@ -1431,8 +1421,6 @@ create_and_fill_stations_buttons(GtkWidget *main_table)
                            1, &station_code,
                            2, &is_gps,
                            3, &station_source, -1);
-
-        fprintf(station, "oooooooo %s\n", station_source);
         allinformation_list = get_all_information_about_station(station_source, station_code);
         valid2 = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                               (allinformation_list), &iter2);

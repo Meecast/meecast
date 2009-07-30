@@ -35,7 +35,7 @@ GtkWidget* create_and_fill_stations_buttons(GtkWidget *main_table);
 GtkTreeIter add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
           gboolean is_gps, gchar *source, gint position);
 void highlight_current_item(GtkTreeView *tree_view, GtkListStore *list, gchar *current);
-void list_changed(GtkTreeSelection *sel,  gpointer user_data);
+void list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name);
 GtkWidget* create_station_button(gint station_number, gchar* station_name_s, gchar *station_code_s, gchar *station_source_s,
                       gint country_id, gchar *station_country_s, gint region_id, gchar *station_region_s, gboolean is_gps);
 void choose_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);

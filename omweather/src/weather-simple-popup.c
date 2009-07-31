@@ -31,6 +31,7 @@
 #include "weather-home.h"
 #include "weather-hash.h"
 #include "weather-popup.h"
+#include "weather-data.h"
 /*******************************************************************************/
 void
 weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
@@ -190,6 +191,7 @@ create_collapsed_view(GtkWidget *vbox){
                     *line_hbox = NULL,
                     *line_text = NULL,
                     *line = NULL,
+                    *label = NULL,
                     *vscrollbar = NULL;
     GdkPixbuf       *icon_buffer;
     GtkWidget       *icon_image;
@@ -340,6 +342,11 @@ create_collapsed_view(GtkWidget *vbox){
             i++;
         }
     }
+    else{ /* no weather data */
+        gtk_box_pack_start(GTK_BOX(main_vbox),
+                            label = gtk_label_new(_("No weather data for this station.")), TRUE, TRUE, 0);
+        set_font(label, NULL, 24);
+    }
     gtk_widget_show_all(scrolled_window);
     return scrolled_window;
 }
@@ -347,18 +354,78 @@ create_collapsed_view(GtkWidget *vbox){
 void
 show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
                                                             gpointer user_data){
-    gint        day_number = (gint)user_data;
+    gint                day_number = (gint)user_data,
+                        i = 0;
+    GHashTable          *current = NULL,
+                        *location = NULL,
+                        *day = NULL;
+    GSList              *days = NULL;
+    GtkWidget           *day_widget = NULL,
+                        *current_widget = NULL,
+                        *main_vbox = NULL,
+                        *window = NULL;
+    gchar               *day_name = NULL;
+    time_t              current_time = 0,
+                        diff_time,
+                        current_data_last_update = 0;
     GtkWidget *view;
    // GtkWidget   *window = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    // window = gtk_dialog_new();
- //   gtk_widget_show_all(window);
+    if(!app->station_data)
+        return;
+    location = (GHashTable*)g_hash_table_lookup(app->station_data, "location");
+    current = (GHashTable*)g_hash_table_lookup(app->station_data, "current");
+    days = (GSList*)g_hash_table_lookup(app->station_data, "forecast");
+    if(!current || !days || !location)
+        return;
+    for(i = 0; days && i != day_number; i++)      /* search needed day */
+        days = g_slist_next(days);
+    if(i != day_number)         /* if needed day was not found */
+        return;
+    day = (GHashTable*)(days->data);
+    day_widget = create_day_tab(current, day, &day_name);
+    if(!day_widget)
+        return;
+#if defined OS2009
+    window = hildon_stackable_window_new();
+#else
+    window = hildon_window_new();
+#endif
+    gtk_window_set_title(GTK_WINDOW(window), _("Expanded forecast"));
+    main_vbox = gtk_vbox_new(FALSE, 5);
+    gtk_container_add(GTK_CONTAINER(window), main_vbox);
+    gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(), FALSE, TRUE, 0);
+
+    if(day_number == 0){ /* if selected Today, than adding Now, if it aviable */
+        /* prepare for Now data */
+        current_time = time(NULL); /* get current day */
+        /* correct time for current location */
+        diff_time = calculate_diff_time(atol(g_hash_table_lookup(location, "station_time_zone")));
+#ifndef RELEASE
+        fprintf(stderr, "\n>>>>>>>Diff time=%li<<<<<<\n", diff_time);
+#endif
+        current_time += diff_time;
+        current_data_last_update = last_update_time_new(current);
+        /* Check a valid time for current weather */
+        if( (current_data_last_update >
+                ( current_time - app->config->data_valid_interval)) &&
+                (current_data_last_update < ( current_time + app->config->data_valid_interval))){
+            current_widget = create_current_tab(current);
+            if(current){
+                gtk_box_pack_start(GTK_BOX(main_vbox), current_widget, FALSE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(main_vbox), gtk_hseparator_new(), FALSE, TRUE, 0);
+            }
+        }
+    }
+    gtk_box_pack_start(GTK_BOX(main_vbox), day_widget, TRUE, TRUE, 0);
+    gtk_widget_show_all(window);
+    g_free(day_name);
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Day number %d\n", day_number);
-    view = create_weather_for_two_hours_collapsed_view(button, event, user_data);
-    gtk_widget_destroy(g_object_get_data(G_OBJECT(button), "scrolled_window"));
-    gtk_box_pack_start(GTK_BOX(g_object_get_data(G_OBJECT(button), "vbox")), view, FALSE, TRUE, 0);
+//    view = create_weather_for_two_hours_collapsed_view(button, event, user_data);
+//    gtk_widget_destroy(g_object_get_data(G_OBJECT(button), "scrolled_window"));
+//    gtk_box_pack_start(GTK_BOX(g_object_get_data(G_OBJECT(button), "vbox")), view, FALSE, TRUE, 0);
 }
 /*******************************************************************************/
 GtkWidget*

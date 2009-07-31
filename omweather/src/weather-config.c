@@ -807,7 +807,7 @@ gint read_config(AppletConfig * config) {
     /*Get VIEW_MODE Default COLLAPSED*/
     config->view_mode = COLLAPSED_VIEW_MODE;
     config->view_mode = gconf_client_get_int(gconf_client,
-		                                     GCONF_KEY_VIEW_MODE,
+                                       GCONF_KEY_VIEW_MODE,
                                                      NULL);
     if (config->view_mode < COLLAPSED_VIEW_MODE
                 || config->mode > EXPANDED_VIEW_MODE)

@@ -577,9 +577,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
     }
 /* Day tabs */
    tmp = g_hash_table_lookup(app->station_data, "forecast");
-   fprintf(stderr,"Length %i\n", g_slist_length(tmp));
    while(tmp && i < Max_count_weather_day){
-        fprintf(stderr,"I %i\n",i);
         day = (GHashTable*)tmp->data;
         /* Acceleration of starting gtk_notebook */
         if(active_tab != i){

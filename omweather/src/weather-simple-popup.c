@@ -351,9 +351,9 @@ create_collapsed_view(GtkWidget *vbox){
     return scrolled_window;
 }
 /*******************************************************************************/
-void
-show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
-                                                            gpointer user_data){
+GtkWidget*
+create_weather_expanded_view(GtkWidget *button, GdkEventButton *event, gpointer user_data){
+
     gint                day_number = (gint)user_data,
                         i = 0;
     GHashTable          *current = NULL,
@@ -368,11 +368,24 @@ show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
     time_t              current_time = 0,
                         diff_time,
                         current_data_last_update = 0;
-    GtkWidget *view;
-   // GtkWidget   *window = NULL;
-#ifdef DEBUGFUNCTIONCALL
+    GtkWidget       *scrolled_window = NULL,
+                    *vscrollbar = NULL,
+                    *view = NULL;
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
+    /* scrolled window */
+    scrolled_window = gtk_scrolled_window_new(NULL, NULL);
+    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
+                                            GTK_SHADOW_NONE);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
+                                       GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+    gtk_widget_set_size_request (scrolled_window, -1, 300);
+    vscrollbar = gtk_scrolled_window_get_vscrollbar(scrolled_window);
+
+    main_vbox = gtk_vbox_new(FALSE, 5);
+    gtk_scrolled_window_add_with_viewport(scrolled_window, main_vbox);
+
     if(!app->station_data)
         return;
     location = (GHashTable*)g_hash_table_lookup(app->station_data, "location");
@@ -388,15 +401,8 @@ show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
     day_widget = create_day_tab(current, day, &day_name);
     if(!day_widget)
         return;
-#if defined OS2009
-    window = hildon_stackable_window_new();
-#else
-    window = hildon_window_new();
-#endif
-    gtk_window_set_title(GTK_WINDOW(window), _("Expanded forecast"));
-    main_vbox = gtk_vbox_new(FALSE, 5);
-    gtk_container_add(GTK_CONTAINER(window), main_vbox);
-    gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(), FALSE, TRUE, 0);
+
+//    gtk_window_set_title(GTK_WINDOW(window), _("Expanded forecast"));
 
     if(day_number == 0){ /* if selected Today, than adding Now, if it aviable */
         /* prepare for Now data */
@@ -420,12 +426,25 @@ show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
         }
     }
     gtk_box_pack_start(GTK_BOX(main_vbox), day_widget, TRUE, TRUE, 0);
-    gtk_widget_show_all(window);
+    gtk_widget_show_all(main_vbox);
+    gtk_widget_show_all(scrolled_window);
     g_free(day_name);
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Day number %d\n", day_number);
+    return scrolled_window;
+
+}
+/*******************************************************************************/
+void
+show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
+                                                            gpointer user_data){
+    GtkWidget *view;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
 //    view = create_weather_for_two_hours_collapsed_view(button, event, user_data);
-//    gtk_widget_destroy(g_object_get_data(G_OBJECT(button), "scrolled_window"));
-//    gtk_box_pack_start(GTK_BOX(g_object_get_data(G_OBJECT(button), "vbox")), view, FALSE, TRUE, 0);
+    view = create_weather_expanded_view(button, event, user_data);
+    gtk_widget_destroy(g_object_get_data(G_OBJECT(button), "scrolled_window"));
+    gtk_box_pack_start(GTK_BOX(g_object_get_data(G_OBJECT(button), "vbox")), view, FALSE, TRUE, 0);
 }
 /*******************************************************************************/
 GtkWidget*
@@ -445,7 +464,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *button, GdkEventButton *e
     GHashTable      *hour_weather = NULL;
     GSList          *hours_weather = NULL;
     gint            i = 0;
-    
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif

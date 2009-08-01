@@ -43,9 +43,9 @@ gdouble
 calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2,
                    gdouble lon2) {
     gdouble dlat, dlon, slat, slon, a;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     /* Convert to radians. */
     lat1 = deg2rad(lat1);
     lon1 = deg2rad(lon1);

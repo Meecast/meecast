@@ -104,14 +104,14 @@
 #define BUTTON_ICONS		"/usr/share/omweather/button_icons/"
 #define IMAGES_PATH         "/usr/share/omweather/images/"
 
-#define START_FUNCTION        fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
-#define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
-/*
+//#define START_FUNCTION        fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
+//#define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
+
 extern void write_log(char *string);
 #define START_FUNCTION          FILE *file; file=fopen("/tmp/omw.log","a+"); fprintf(file,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);fflush(file);fclose(file);
 #define DEBUG_FUNCTION(string)  write_log(string)
 #define END_FUNCTION          FILE *fileend; fileend=fopen("/tmp/omw.log","a+"); fprintf(fileend,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);fflush(fileend);fclose(fileend);
-*/
+
 #define OMWEATHER_ADD_STATION           1000
 #define OMWEATHER_SEARCH_STATION        1001
 #define OMWEATHER_CLOSE_STATION_WINDOW  1002
@@ -447,8 +447,8 @@ typedef struct OMWeatherApplet{
     LocationGPSDevice   *gps_device;
     LocationGPSDControl *gps_control;
     Station		gps_station;
-    gdouble		temporary_station_latitude;
-    gdouble		temporary_station_longtitude;
+    double		temporary_station_latitude;
+    double		temporary_station_longtitude;
 #endif
 #ifdef OS2009
     gboolean    portrait_position;

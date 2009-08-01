@@ -37,9 +37,9 @@
 void
 get_nearest_station(double lat, double lon, Station *result) {
 
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     Region_item region;
     GtkListStore *stations_list = NULL;
     GtkListStore *regions_list = NULL;
@@ -167,16 +167,16 @@ gps_location_stopped (LocationGPSDControl *control, gpointer userdata)
 void
 initial_gps_control(void)
 {
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     app->gps_control = location_gpsd_control_get_default();
     app->gps_run = g_signal_connect (app->gps_control, "gpsd_running", G_CALLBACK (gps_location_started), NULL);
     app->gps_stop = g_signal_connect (app->gps_control, "gpsd_stopped", G_CALLBACK (gps_location_stopped), NULL);
 
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
 }
 /*******************************************************************************/ 
 void
@@ -197,9 +197,9 @@ deinitial_gps_control(void)
 /*******************************************************************************/
 static void
 gps_location_changed(LocationGPSDevice * device, gpointer userdata) {
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
 
     if (!app->config->gps_station)
         return;
@@ -213,14 +213,14 @@ gps_location_changed(LocationGPSDevice * device, gpointer userdata) {
 void
 initial_gps_connect(void)
 {
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
     app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
 }
 
 /*******************************************************************************/

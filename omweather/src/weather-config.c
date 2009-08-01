@@ -495,6 +495,9 @@ gint read_config(AppletConfig * config) {
         add_gps_event(1);
     } else
         config->gps_station = FALSE;
+#ifdef OS2009
+        config->gps_station = TRUE;
+#endif
 #endif
 
     /* Get Weather font color. */

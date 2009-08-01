@@ -109,13 +109,13 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
                                 GTK_FILL | GTK_EXPAND | GTK_SHRINK,
                                 (GtkAttachOptions)0, 0, 0 );
     gtk_widget_show (left_alignmnet);
-
+/*
     stations_box = create_stations_buttons();
     gtk_widget_show (stations_box);
     gtk_table_attach((GtkTable*)main_table,stations_box,
                                 1, 5, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
-
+*/
     right_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(right_alignmnet, 20, -1);
     gtk_table_attach((GtkTable*)main_table, right_alignmnet,

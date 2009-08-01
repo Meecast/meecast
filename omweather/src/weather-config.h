@@ -92,9 +92,14 @@
 #define GCONF_KEY_UPDATE_GSM GCONF_KEY_PREFIX"/update-gsm"
 #define GCONF_KEY_UPDATE_WLAN GCONF_KEY_PREFIX"/update-WLAN"
 #define GCONF_KEY_VIEW_MODE"/view_mode"
+//#define GCONF_KEY_STATION_COUNTRY_BUTTON_PRESSED"/station_country_button_pressed"
+//#define GCONF_KEY_STATION_SOURCE_BUTTON_PRESSED"/station_source_button_pressed"
+//#define GCONF_KEY_STATION_REGION_BUTTON_PRESSED"/station_region_button_pressed"
+//#define GCONF_KEY_STATION_NAME_BUTTON_PRESSED"/station_name_button_pressed;"
 /*******************************************************************************/
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 void config_update_proxy(void);
+void check_current_station_id(void);
 int read_config(AppletConfig*);
 void config_save(AppletConfig*);
 GtkListStore* create_time_update_list(void);

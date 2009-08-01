@@ -155,6 +155,7 @@ enum { SETTINGS_STATIONS_PAGE, SETTINGS_VISUALS_PAGE, SETTINGS_DISPLAY_PAGE,
 enum { SIMPLE_MODE, EXTENDED_MODE };
 enum { SHORT_CLICK, LONG_CLICK };
 enum {COLLAPSED_VIEW_MODE, EXPANDED_VIEW_MODE};
+
 /* station tab */
 enum { STATE_ENABLE_GPS	= 1U,
        STATE_SOURCE	= 2U
@@ -348,6 +349,10 @@ typedef struct applet_config{
     gboolean	update_gsm;
     gboolean	update_wlan;
     gint	view_mode;
+    gboolean	station_country_button_pressed;
+    gboolean	station_source_button_pressed;
+    gboolean	station_region_button_pressed;
+    gboolean	station_name_button_pressed;
 }AppletConfig;
 /*******************************************************************************/
 #ifdef CLUTTER

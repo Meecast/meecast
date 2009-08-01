@@ -817,7 +817,36 @@ gint read_config(AppletConfig * config) {
     if (config->view_mode < COLLAPSED_VIEW_MODE
                 || config->mode > EXPANDED_VIEW_MODE)
                         config->view_mode = COLLAPSED_VIEW_MODE;
-
+/********************************************************************************************/
+   /* value = gconf_client_get(gconf_client, GCONF_KEY_STATION_COUNTRY_BUTTON_PRESSED, NULL);
+    if (value) {
+	config->station_country_button_pressed = gconf_value_get_bool(value);
+        gconf_value_free(value);
+    } else
+        config->station_country_button_pressed = FALSE;
+        
+    value = gconf_client_get(gconf_client, GCONF_KEY_STATION_SOURCE_BUTTON_PRESSED, NULL);
+    if (value) {
+	config->station_source_button_pressed = gconf_value_get_bool(value);
+        gconf_value_free(value);
+    }else
+    config->station_source_button_pressed = FALSE;
+    
+    value = gconf_client_get(gconf_client, GCONF_KEY_STATION_REGION_BUTTON_PRESSED, NULL);
+    if (value) {
+	config->station_region_button_pressed = gconf_value_get_bool(value);
+        gconf_value_free(value);
+    }else
+        config->station_region_button_pressed = FALSE;
+        
+    value = gconf_client_get(gconf_client, GCONF_KEY_STATION_NAME_BUTTON_PRESSED, NULL);
+    if (value) {
+	config->station_name_button_pressed = gconf_value_get_bool(value);
+        gconf_value_free(value);
+    }else
+    config->station_name_button_pressed = FALSE;*/
+/********************************************************************************************/
+   check_current_station_id(); 
     gconf_client_clear_cache(gconf_client);
     g_object_unref(gconf_client);
     return 0;
@@ -852,7 +881,6 @@ void config_update_proxy(void) {
     }
     g_object_unref(gconf_client);
     g_free(proxy_mode);
-    
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -1112,7 +1140,108 @@ void config_save(AppletConfig * config) {
     gconf_client_set_int(gconf_client,
                              GCONF_KEY_VIEW_MODE, config->view_mode,
                                                       NULL);
+                                                      
+/*******************************************************/
+/*gconf_client_set_bool(gconf_client,
+        GCONF_KEY_STATION_COUNTRY_BUTTON_PRESSED, config->station_country_button_pressed, NULL);
+        
+gconf_client_set_bool(gconf_client,
+	GCONF_KEY_STATION_SOURCE_BUTTON_PRESSED, config->station_source_button_pressed, NULL);
+	
+gconf_client_set_bool(gconf_client,
+	GCONF_KEY_STATION_REGION_BUTTON_PRESSED, config->station_region_button_pressed, NULL);
+	
+gconf_client_set_bool(gconf_client,
+	GCONF_KEY_STATION_NAME_BUTTON_PRESSED, config->station_name_button_pressed, NULL);*/
+/*******************************************************/
     g_object_unref(gconf_client);
 }
+/***********************************************************************************/
+void check_current_station_id(void) {
+    GtkListStore    *list = NULL,
+                    *all_information_list = NULL;
+    GtkTreeIter     iter,
+                    iter2;
+    gboolean        valid,
+                    valid_all_information,
+                    equals = FALSE;
+    gchar           *station_name = NULL,
+                    *station_code = NULL,
+                    *station_source = NULL,
+                    *station_country = NULL,
+                    *station_region = NULL,
+                    *is_gps = NULL;
 
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list), 
+                                                                                    &iter);
+    while(valid){
+       gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list), &iter,
+                                        0, &station_name,
+                                        1, &station_code,
+                                        2, &is_gps,
+                                        3, &station_source, -1);
+        if(!strcmp(station_code, app->config->current_station_id)){
+            valid = FALSE;
+            equals = TRUE;
+        }
+        else{
+            valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
+            equals = FALSE;
+        }
+    }
+
+    if(!equals){
+        valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list), &iter);
+        if(valid){
+            gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list), &iter,
+                                                0, &station_name,
+                                                1, &station_code,
+                                                2, &is_gps,
+                                                3, &station_source, -1);
+            app->config->current_station_id = station_code;
+            app->config->current_station_name = station_name;
+            app->config->current_station_source = station_source;
+            all_information_list = get_all_information_about_station(station_source,
+                                                                              station_code);
+            valid_all_information = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
+                                                            (all_information_list), &iter2);
+            if(valid_all_information){
+                gtk_tree_model_get(GTK_TREE_MODEL(all_information_list), &iter2,
+                                                    0, &station_country,
+                                                    1, &station_region, -1);
+                app->config->current_country = station_country;
+            }
+        }
+    }
+        
+
+  /*  while (valid){
+        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list), &iter,
+                                          0, &station_name,
+                                          1, &station_code,
+                                          2, &is_gps,
+                                          3, &station_source, -1);
+        if(strcmp(station_code, app->config->current_station_id)){
+            app->config->current_station_id = station_code;
+            app->config->current_station_name = station_name;
+            app->config->current_station_source = station_source;
+
+            all_information_list = get_all_information_about_station(station_source,
+                                                                         station_code);
+            valid_all_information = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
+                                                          (all_information_list), &iter2);
+            if(valid_all_information){
+                gtk_tree_model_get(GTK_TREE_MODEL(all_information_list), &iter2,
+                                                  0, &station_country,
+                                                  1, &station_region,
+         //                                         2, &station_country_id,
+           //                                       3, &station_region_id,
+                                                  -1);
+                app->config->current_country = station_country;
+            }
+           fprintf(stderr, "\ncurrent_station_id %s\n", app->config->current_station_id); 
+        }
+        valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
+    }*/
+}
 /*******************************************************************************/

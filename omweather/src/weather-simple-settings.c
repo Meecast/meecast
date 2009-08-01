@@ -393,6 +393,11 @@ save_station(GtkWidget *window){
     gtk_table_attach((GtkTable*)(g_object_get_data(G_OBJECT(window), "settings_window_table")),
                                 stations_box, 1, 2, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
+
+//    app->config->station_country_button_pressed = FALSE;
+  //  app->config->station_source_button_pressed = FALSE;
+  //  app->config->station_region_button_pressed = FALSE;
+  //  app->config->station_name_button_pressed = FALSE;
 }
 /*******************************************************************************/
 void
@@ -413,23 +418,37 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+
+fprintf(stderr, "\nchoose_button_handler %d\n", type_button);
     *dialog_name = 0;
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
     if(!strcmp("country_button", control_name)){
         type_button = COUNTRY;
         snprintf(dialog_name, sizeof(dialog_name) - 1, _("Selecting country"));
+        fprintf(stderr, "\ncountry_button %d\n", type_button);
+//        app->config->station_country_button_pressed = TRUE;
     }
     if(!strcmp("source_button", control_name)){
         type_button = SOURCE;
         snprintf(dialog_name, sizeof(dialog_name) - 1, _("Selecting source"));
+        fprintf(stderr, "\nsource_button %d\n", type_button);
+  //      app->config->station_source_button_pressed = TRUE;
     }
     if(!strcmp("region_button", control_name)){
+     // && 
+                           //         (app->config->station_country_button_pressed == TRUE)){
         type_button = STATE;
         snprintf(dialog_name, sizeof(dialog_name) - 1, _("Selecting region"));
+        fprintf(stderr, "\nregion_button %d\n", type_button);
+    //    app->config->station_region_button_pressed = TRUE;
     }
-    if(!strcmp("station_button", control_name)){
+    if(!strcmp("station_button", control_name)){  // && 
+//                                     (app->config->station_country_button_pressed == TRUE) && 
+  //                                  (app->config->station_region_button_pressed == TRUE)){
         type_button = TOWN;
         snprintf(dialog_name, sizeof(dialog_name) - 1, _("Selecting station"));
+        fprintf(stderr, "\nstation_button %d\n", type_button);
+    //    app->config->station_name_button_pressed = TRUE;
     }
 
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
@@ -453,29 +472,35 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
 #endif
     gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 620, 280);
 
-    if (type_button == COUNTRY){
+//if(type_button){
+     if (type_button == COUNTRY){
         list_view = create_tree_view(list->countries_list);
         highlight_current_item(list_view, list->countries_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_country"));
-        gtk_widget_set_name(list_view, "countries_list");
+  //      gtk_widget_set_name(list_view, "countries_list");
+        fprintf(stderr, "\nCOUNTRY %d\n", type_button);
     }
     if (type_button == SOURCE){
         list_view = create_tree_view(list->sources_list);
         highlight_current_item(list_view, list->sources_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_source"));
         gtk_widget_set_name(list_view, "sources_list");
+        fprintf(stderr, "\nSOURCE %d\n", type_button);
     }
-    if (type_button == STATE){
+    if ((type_button == STATE)){
+     // && (app->config->station_country_button_pressed == TRUE)){
         list_view = create_tree_view(list->regions_list);
         highlight_current_item(list_view, list->regions_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_region"));
         gtk_widget_set_name(list_view, "states_list");
+        fprintf(stderr, "\nSTATE %d\n", type_button);
     }
-    if (type_button == TOWN){
+    if ((type_button == TOWN)){
+     //&& (app->config->station_country_button_pressed == TRUE)
+       //                       && (app->config->station_region_button_pressed == TRUE)){
         list_view = create_tree_view(list->stations_list);
         highlight_current_item(list_view, list->stations_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_name"));
         gtk_widget_set_name(list_view, "stations_list");
+        fprintf(stderr, "\nTOWN %d\n", type_button);
     }
-
-    gtk_container_add(GTK_CONTAINER(scrolled_window),
-                      GTK_WIDGET(list_view));
+//}
     gtk_table_attach_defaults(GTK_TABLE(main_table),
                               scrolled_window, 1, 2, 1, 2);
     g_object_set_data(G_OBJECT(window), "button", (gpointer)button);

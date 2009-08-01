@@ -59,6 +59,7 @@ create_sources_list(gchar *sources_path, gint *sources_number, GSList **handles)
         snprintf(buffer, sizeof(buffer) - 1, "%s%s", sources_path,
                                               (gchar*)(tmp->data));
         source = parse_source_file(buffer, "UTF-8");
+
         if(source){
             if(source_name_valid(source)
                && source_library_valid(source, handles)
@@ -67,19 +68,22 @@ create_sources_list(gchar *sources_path, gint *sources_number, GSList **handles)
                 value = g_hash_table_lookup(source, "name");
                 /* add source to list */
                 gtk_list_store_append(list, &iter);
+//                fprintf(stderr, "\nITER %s\n", iter);
                 gtk_list_store_set(list, &iter, 0, value,
                           1, (gpointer)source,
                           -1);
+
                 counter++;
             }
         }
         g_free(tmp->data);
         tmp = g_slist_next(tmp);
+
     }
     g_slist_free(db_set);
 
     if(sources_number)
-        *sources_number = counter;
+     *sources_number = counter-1;
     return list;
 }
 /*******************************************************************************/

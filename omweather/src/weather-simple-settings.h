@@ -48,8 +48,5 @@ void create_and_fill_update_box(GtkWidget *main_table);
 void create_and_fill_widget_style_box(GtkWidget *main_table);
 void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data);
-extern GtkWidget* create_layouts_line(GtkWidget *window, gint icon_size, gint mode);
-extern GtkWidget *create_iconsets_line(GtkWidget *window, gint icon_size, gint mode);
-extern void delete_station_from_user_list(gchar *station_selected, gpointer user_data);
 /*******************************************************************************/
 #endif

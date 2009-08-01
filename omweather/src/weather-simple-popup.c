@@ -38,16 +38,16 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     GtkWidget       *window = NULL,
                     *main_vbox = NULL;
 #if defined OS2009
-    HildonAppMenu  *menu;
+    HildonAppMenu   *menu = NULL;
 #endif
-    GtkWidget *menu_item1;
-    GtkWidget *menu_item2;
-    GtkWidget *menu_item3;
-    GtkWidget *menu_item4;
-    GtkAction *test1;
-    GtkAction *test2;
-    GtkAction *test3;
-    GtkAction *test4;
+    GtkWidget       *menu_item1,
+                    *menu_item2,
+                    *menu_item3,
+                    *menu_item4;
+    GtkAction       *test1,
+                    *test2,
+                    *test3,
+                    *test4;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -69,13 +69,29 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
 
 #if defined OS2009
     menu = hildon_app_menu_new();
+    /* settings */
     menu_item1 = gtk_button_new_with_label(_("Settings"));
     g_signal_connect(G_OBJECT(menu_item1), "button-release-event",
                      G_CALLBACK(simple_settings_button_handler),
                      (gpointer)window);
-
     gtk_widget_show_all(GTK_WIDGET(menu_item1));
     hildon_app_menu_append(menu, menu_item1);
+    /* help */
+    menu_item2 = gtk_button_new_with_label(_("Help"));
+    g_signal_connect(G_OBJECT(menu_item2), "button-release-event",
+                     G_CALLBACK(simple_settings_button_handler),
+                     (gpointer)window);
+    gtk_widget_show_all(GTK_WIDGET(menu_item2));
+    hildon_app_menu_append(menu, menu_item2);
+/* test */
+    menu_item3 = gtk_button_new_with_label(_("Test"));
+    g_signal_connect(G_OBJECT(menu_item3), "button-release-event",
+                     G_CALLBACK(simple_settings_button_handler),
+                     (gpointer)window);
+    gtk_widget_show_all(GTK_WIDGET(menu_item3));
+    hildon_app_menu_append(menu, menu_item3);
+
+
     gtk_widget_show_all(GTK_WIDGET(menu));
     hildon_window_set_app_menu(HILDON_WINDOW(window), menu);
 #endif

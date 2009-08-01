@@ -2918,9 +2918,8 @@ GtkWidget *create_locations_tab(GtkWidget * window) {
     return left_right_hbox;
 }
 /*******************************************************************************/
-GtkWidget *
-create_layouts_line(GtkWidget *window, gint icon_size, gint mode)
-{
+GtkWidget*
+create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
     GtkWidget *first_line = NULL,
               *one_row_button = NULL,
               *one_column_button = NULL,
@@ -2941,12 +2940,17 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode)
 //#endif
 
     first_line = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(first_line),
-                       gtk_label_new(_("Layout:")), FALSE, FALSE, 20);
     layouts_hbox = gtk_hbox_new(FALSE, 10);
-    gtk_box_pack_end(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 20);
+
+    if(app->config->mode != SIMPLE_MODE){
+        gtk_box_pack_start(GTK_BOX(first_line),
+                            gtk_label_new(_("Layout:")), FALSE, FALSE, 20);
+        gtk_box_pack_end(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 20);
+    }
+    else
+        gtk_box_pack_start(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 0);
     /* make buttons */
-    if ( mode == EXTENDED_MODE ){
+    if( mode == EXTENDED_MODE ){
         /* one row */
         one_row_button =
             create_button_with_image(BUTTON_ICONS, "one_row", icon_size, TRUE, TRUE);
@@ -3087,8 +3091,8 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode)
                      (gpointer) window);
     }
 
-    if (mode == EXTENDED_MODE){
-        switch (app->config->icons_layout) {
+    if(mode == EXTENDED_MODE){
+        switch(app->config->icons_layout){
             default:
             case ONE_ROW:
                 gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(one_row_button),
@@ -3142,7 +3146,7 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode)
                 break;
         }
     }
-    if (mode == SIMPLE_MODE){
+    if(mode == SIMPLE_MODE){
         switch (app->config->icons_layout) {
            default:
            case PRESET_NOW:
@@ -3175,9 +3179,8 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode)
     return first_line;
 }
 /*******************************************************************************/
-GtkWidget *
-create_iconsets_line(GtkWidget *window, gint icon_size, gint mode)
-{
+GtkWidget*
+create_iconsets_line(GtkWidget *window, gint icon_size, gint mode){
     GtkWidget *second_line = NULL,
               *button = NULL,
               *iconsets_hbox = NULL;
@@ -3189,11 +3192,14 @@ create_iconsets_line(GtkWidget *window, gint icon_size, gint mode)
 
 /* second line */
     second_line = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(second_line),
-                       gtk_label_new(_("Icon set:")), FALSE, FALSE, 20);
     iconsets_hbox = gtk_hbox_new(FALSE, 10);
-    gtk_box_pack_end(GTK_BOX(second_line), iconsets_hbox, FALSE, FALSE,
-                     20);
+    if(app->config->mode != SIMPLE_MODE){
+        gtk_box_pack_start(GTK_BOX(second_line),
+                       gtk_label_new(_("Icon set:")), FALSE, FALSE, 20);
+        gtk_box_pack_end(GTK_BOX(second_line), iconsets_hbox, FALSE, FALSE, 20);
+    }
+    else
+        gtk_box_pack_start(GTK_BOX(second_line), iconsets_hbox, FALSE, FALSE, 0);
     /* Icon sets */
     group = NULL;
     create_icon_set_list(ICONS_PATH, &icon_set, "dir");

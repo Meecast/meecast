@@ -114,34 +114,32 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 #endif
 
     vbox = gtk_vbox_new(TRUE, 2);
-    window = gtk_dialog_new();
+    window = gtk_dialog_new_with_buttons(_("Widget style and Iconset"), NULL,
+                                            GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+                                            NULL);
     gtk_widget_set_name(window, "widget_style_window");
 
     layouts_line = create_layouts_line(window, 40, SIMPLE_MODE);
     iconsets_line = create_iconsets_line(window, 40, SIMPLE_MODE);
-    gtk_box_pack_start(vbox,
-                       layouts_line, TRUE, TRUE, 10);
-    gtk_box_pack_start(vbox,
-                       iconsets_line, TRUE, TRUE, 10);
+    gtk_box_pack_start(vbox, layouts_line, TRUE, TRUE, 10);
+    gtk_box_pack_start(vbox, iconsets_line, TRUE, TRUE, 10);
 
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        vbox, TRUE, TRUE, 0);
 
-    gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
+    gtk_dialog_add_button (GTK_DIALOG(window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
     gtk_widget_show_all(window);
     result = gtk_dialog_run(GTK_DIALOG(window));
-    if (result == GTK_RESPONSE_YES)
+    if(result == GTK_RESPONSE_YES)
         widget_styles_save(window);
 
-    if (window)
+    if(window)
         gtk_widget_destroy(window);
-
 
     widget_style_button = (gpointer)(g_object_get_data(G_OBJECT(button), 
                                                         "widget_style_button"));
     gtk_widget_destroy(widget_style_button);
     create_and_fill_widget_style_box(user_data);
-
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -740,7 +738,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     gtk_box_pack_start (GTK_BOX (hbox_distance), kilometers_button, TRUE, TRUE, 0);
 
     miles_button = gtk_radio_button_new(NULL);
-    gtk_container_add(GTK_CONTAINER(miles_button), gtk_label_new(_("mph")));
+    gtk_container_add(GTK_CONTAINER(miles_button), gtk_label_new(_("mi")));
     gtk_widget_set_size_request(miles_button, 43, 50);
     GLADE_HOOKUP_OBJECT(window, miles_button, "miles_button");
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(miles_button), FALSE);
@@ -749,7 +747,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     gtk_box_pack_start (GTK_BOX (hbox_distance), miles_button, TRUE, TRUE, 0);
 
     sea_miles_button = gtk_radio_button_new(NULL);
-    gtk_container_add(GTK_CONTAINER(sea_miles_button), gtk_label_new(_("mi")));
+    gtk_container_add(GTK_CONTAINER(sea_miles_button), gtk_label_new(_("s. mi")));
     gtk_widget_set_size_request(sea_miles_button, 43, 50);
     GLADE_HOOKUP_OBJECT(window, sea_miles_button, "sea_miles_button");
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(sea_miles_button), FALSE);
@@ -1555,9 +1553,9 @@ create_and_fill_units_box(GtkWidget *main_table){
                  units_string = g_strjoin(", ", units_string, _("km"), NULL);
             else{
                if(app->config->distance_units == MILES)
-                 units_string = g_strjoin(", ", units_string, _("mph"), NULL);
-               else
                  units_string = g_strjoin(", ", units_string, _("mi"), NULL);
+               else
+                 units_string = g_strjoin(", ", units_string, _("s.mi"), NULL);
             }
         }
 

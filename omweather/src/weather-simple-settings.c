@@ -478,6 +478,9 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
         gtk_widget_set_name(list_view, "stations_list");
     }
 
+    gtk_container_add(GTK_CONTAINER(scrolled_window),
+                      GTK_WIDGET(list_view));
+
     gtk_table_attach_defaults(GTK_TABLE(main_table),
                               scrolled_window, 1, 2, 1, 2);
     g_object_set_data(G_OBJECT(window), "button", (gpointer)button);
@@ -1176,10 +1179,10 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
 void
 station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
-    struct lists_struct *list;
+#endif
+    struct lists_struct list;
     gint result;
     GtkWidget *window               = NULL,
               *hbox                 = NULL,
@@ -1225,10 +1228,10 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
 
     /* create sources list from aviable sources */
-    list = g_new0(lists_struct_obj, 1);
-//    memset(&list, 0, sizeof(struct lists_struct));
-    list->sources_list = app->sources_list;
-    g_object_set_data(G_OBJECT(window), "list", list);
+    memset(&list, 0, sizeof(struct lists_struct));
+    list.sources_list = app->sources_list;
+
+    g_object_set_data(G_OBJECT(window), "list", &list);
 
     g_object_set_data(G_OBJECT(window), "current_source", (gpointer)app->config->current_source);
     g_object_set_data(G_OBJECT(window), "station_region_id", (gpointer)g_object_get_data(G_OBJECT(button), "station_region_id"));

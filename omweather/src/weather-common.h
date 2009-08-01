@@ -349,10 +349,6 @@ typedef struct applet_config{
     gboolean	update_gsm;
     gboolean	update_wlan;
     gint	view_mode;
-    gboolean	station_country_button_pressed;
-    gboolean	station_source_button_pressed;
-    gboolean	station_region_button_pressed;
-    gboolean	station_name_button_pressed;
 }AppletConfig;
 /*******************************************************************************/
 #ifdef CLUTTER
@@ -471,7 +467,7 @@ typedef struct OMWeatherApplet{
 #endif
 }OMWeatherApp;
 /*******************************************************************************/
-struct lists_struct{
+typedef struct lists_struct{
     GtkWidget       *countries;
     GtkListStore    *countries_list;
     GtkWidget       *states;
@@ -481,7 +477,7 @@ struct lists_struct{
     GtkListStore    *sources_list;
     sqlite3         *database;
     gboolean        database_invalid;
-};
+}lists_struct_obj;
 
 /*******************************************************************************/
 extern	OMWeatherApp	*app;

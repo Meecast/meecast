@@ -240,9 +240,9 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
     GHashTable		*source = NULL;
     gpointer		value = NULL;
     gchar *control_name = NULL;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
 
     if(list){
@@ -2935,9 +2935,9 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
 
     GSList *group = NULL;
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
     first_line = gtk_hbox_new(FALSE, 0);
     layouts_hbox = gtk_hbox_new(FALSE, 10);
@@ -3186,9 +3186,9 @@ create_iconsets_line(GtkWidget *window, gint icon_size, gint mode){
               *iconsets_hbox = NULL;
     GSList *group = NULL, *icon_set = NULL, *tmp = NULL;
     gchar buffer[256];
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
 /* second line */
     second_line = gtk_hbox_new(FALSE, 0);

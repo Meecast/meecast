@@ -684,9 +684,9 @@ int countries_callback(void *user_data, int argc, char **argv, char **azColName)
     GtkTreeIter		iter;
     GtkListStore	*list = GTK_LIST_STORE(user_data);
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);

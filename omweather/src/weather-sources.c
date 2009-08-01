@@ -68,7 +68,6 @@ create_sources_list(gchar *sources_path, gint *sources_number, GSList **handles)
                 value = g_hash_table_lookup(source, "name");
                 /* add source to list */
                 gtk_list_store_append(list, &iter);
-//                fprintf(stderr, "\nITER %s\n", iter);
                 gtk_list_store_set(list, &iter, 0, value,
                           1, (gpointer)source,
                           -1);
@@ -83,7 +82,7 @@ create_sources_list(gchar *sources_path, gint *sources_number, GSList **handles)
     g_slist_free(db_set);
 
     if(sources_number)
-     *sources_number = counter-1;
+        *sources_number = counter;
     return list;
 }
 /*******************************************************************************/

@@ -165,7 +165,7 @@ composition_central_horizontal_day_button(WDB *new_day_button)
         begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
         if (begin_of_string && begin_of_string2)
             memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
-    
+
         snprintf(buffer,sizeof(buffer) - 1,
                                        "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
                                         PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
@@ -703,7 +703,19 @@ fill_weather_day_button_presets(WDB *new_day_button, const char *text, const cha
        default:
             memset(buffer, 0, sizeof(buffer));
     }
+
     if (buffer[0] != 0){
+        switch (app->config->wind_units){
+            case 0:
+                    wind_speed = wind_speed * 3.6;
+                    break;
+            case 1:
+                    wind_speed = wind_speed;
+                    break;
+            case 2:
+                    wind_speed = wind_speed * 1.6;
+                    break;
+        }
 
         if (wind_speed > STRONG_WIND){
            begin_of_string = strstr(buffer,".png"); 
@@ -823,6 +835,17 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
             memset(buffer, 0, sizeof(buffer));
     }
     if (buffer[0] != 0){
+        switch (app->config->wind_units){
+            case 0:
+                    wind_speed = wind_speed * 3.6;
+                    break;
+            case 1:
+                    wind_speed = wind_speed;
+                    break;
+            case 2:
+                    wind_speed = wind_speed * 1.6;
+                    break;
+        }
         if (wind_speed < STRONG_WIND)
             new_day_button->wind = gtk_image_new_from_file (buffer);
         else{

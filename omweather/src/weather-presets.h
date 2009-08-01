@@ -70,7 +70,8 @@
 #define PRESET_WIND_NORTH_EAST      "wind_north_east.png"
 #define PRESET_WIND_SOUTH_WEST      "wind_south_west.png"
 #define PRESET_WIND_NORTH_WEST      "wind_north_west.png"
-#define STRONG_WIND 8
+/* Strong wind > 30 km/h */
+#define STRONG_WIND 30 
 /*******************************************************************************/
 void composition_now(WDB *new_day_button, gint layout);
 void composition_left_vertical_day_button(WDB *new_day_button, gint layout);

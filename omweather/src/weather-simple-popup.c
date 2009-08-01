@@ -77,20 +77,21 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     gtk_widget_show_all(GTK_WIDGET(menu_item1));
     hildon_app_menu_append(menu, menu_item1);
     /* help */
-    menu_item2 = gtk_button_new_with_label(_("Help"));
+    menu_item2 = gtk_button_new_with_label(_("About"));
     g_signal_connect(G_OBJECT(menu_item2), "button-release-event",
-                     G_CALLBACK(simple_settings_button_handler),
+                     G_CALLBACK(about_button_handler),
                      (gpointer)window);
     gtk_widget_show_all(GTK_WIDGET(menu_item2));
     hildon_app_menu_append(menu, menu_item2);
 /* test */
+/*
     menu_item3 = gtk_button_new_with_label(_("Test"));
     g_signal_connect(G_OBJECT(menu_item3), "button-release-event",
                      G_CALLBACK(simple_settings_button_handler),
                      (gpointer)window);
     gtk_widget_show_all(GTK_WIDGET(menu_item3));
     hildon_app_menu_append(menu, menu_item3);
-
+*/
 
     gtk_widget_show_all(GTK_WIDGET(menu));
     hildon_window_set_app_menu(HILDON_WINDOW(window), menu);

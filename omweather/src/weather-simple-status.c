@@ -190,18 +190,6 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
                                 1, 3, 5, 6, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 5, 0 );
 
-    update_button = gtk_button_new_with_label (_("Update Now"));
-    gtk_widget_set_size_request(update_button, 320, 60);
-    gtk_widget_show (update_button);
-    gtk_table_attach((GtkTable*)main_table, update_button,
-                                3, 5, 5, 6, (GtkAttachOptions)0,
-                                (GtkAttachOptions)0, 0, 0 );
-
-    g_signal_connect(G_OBJECT(update_button), "button-release-event",
-                     G_CALLBACK(refresh_button_handler),
-                     (gpointer)window);
-
-
     vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(vertical3_alignmnet, -1, 20);
     gtk_table_attach((GtkTable*)main_table, vertical3_alignmnet,

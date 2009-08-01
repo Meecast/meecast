@@ -1457,7 +1457,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /* create header panel */
     header_panel = gtk_table_new(1, 3, FALSE);
 /*    header_panel = gtk_hbox_new(FALSE, 0);*/
-    if (layout < PRESET_NOW){
+    if (layout < PRESET_NOW || layout == APPLICATION_MODE){
         /* check number of elements in user stations list */
         valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                       &iter);

@@ -504,6 +504,8 @@ show_detailes_of_current_day_button_handler(GtkWidget *button, GdkEventButton *e
     START_FUNCTION;
 #endif
     view = create_weather_for_two_hours_collapsed_view(g_object_get_data(G_OBJECT(button), "vbox"), GPOINTER_TO_INT(user_data));
+    if (!view)
+        view = create_weather_collapsed_view(g_object_get_data(G_OBJECT(button), "vbox"), GPOINTER_TO_INT(user_data));
     gtk_widget_destroy(g_object_get_data(G_OBJECT(button), "scrolled_window"));
     gtk_box_pack_start(GTK_BOX(g_object_get_data(G_OBJECT(button), "vbox")), view, TRUE, TRUE, 0);
 }
@@ -549,6 +551,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 
     hours_weather = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
 
+    fprintf(stderr,"sddddddddd\n");
     if(hours_weather){
         while(hours_weather){
             line = gtk_event_box_new();
@@ -640,8 +643,11 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
             if(!hours_weather)
                break;
         }
+    }else{
+    /* Not hours data - return NULL */
+        gtk_widget_destroy(scrolled_window);
+        return NULL;
     }
-
  gtk_widget_show_all(scrolled_window);
  return scrolled_window;
 }

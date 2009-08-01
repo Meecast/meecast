@@ -369,6 +369,16 @@ gint read_config(AppletConfig * config) {
         (gnome_vfs_expand_initial_tilde(tmp_buff)))
         fprintf(stderr, _("Could not create weather cache directory.\n"));
 
+    /* Get MODE  Default SIMPLE */
+    config->mode = SIMPLE_MODE;
+    config->mode = gconf_client_get_int(gconf_client,
+                                                GCONF_KEY_MODE,
+                                                NULL);
+    if (config->mode < SIMPLE_MODE
+        || config->mode > EXTENDED_MODE)
+        config->mode = SIMPLE_MODE;
+
+
     /* Get Weather source name. */
     config->current_source = gconf_client_get_string(gconf_client,
                                                       GCONF_KEY_WEATHER_CURRENT_SOURCE_NAME,
@@ -534,6 +544,10 @@ gint read_config(AppletConfig * config) {
         gconf_value_free(value);
     } else
         config->show_weather_for_two_hours = TRUE;
+    /* Hack This parameter is default for SIMPLE mode */
+    if (config->mode == SIMPLE_MODE)
+        config->show_weather_for_two_hours = TRUE;
+
     /* Get Split Button State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_SEPARATE_DATA, NULL);
     if (value) {
@@ -648,15 +662,6 @@ gint read_config(AppletConfig * config) {
         g_error_free(gerror);
         gerror = NULL;
     }
-
-    /* Get MODE  Default SIMPLE */
-    config->mode = SIMPLE_MODE;
-    config->mode = gconf_client_get_int(gconf_client,
-                                                GCONF_KEY_MODE,
-                                                NULL);
-    if (config->mode < SIMPLE_MODE
-        || config->mode > EXTENDED_MODE)
-        config->mode = SIMPLE_MODE;
 
     /* Get Layout Default Preset ONE */
     config->icons_layout = gconf_client_get_int(gconf_client,

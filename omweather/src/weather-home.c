@@ -1628,7 +1628,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
  * is not right to the very edge */
     gtk_container_set_border_width(GTK_CONTAINER(days_panel),2);
     tmp = app->buttons;
-    if (layout >= PRESET_NOW){
+    if (layout >= PRESET_NOW && layout < APPLICATION_MODE){
         /* attach days buttons for simple(presets) mode */
         switch(layout){
             case PRESET_NOW_PLUS_TWO:

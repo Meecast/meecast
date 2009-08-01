@@ -380,8 +380,23 @@ save_station(GtkWidget *window){
                            3, &station_source, -1);
 
           delete_station_from_user_list(station_name, NULL);
-//        gtk_list_store_remove(app->user_stations_list, &iter);
+    }else{
+        /* update current station code */
+        if (app->config->current_station_id)
+            g_free(app->config->current_station_id);
+        app->config->current_station_id = g_strdup(g_object_get_data(G_OBJECT(window), "station_code"));
+        /* update current station name */
+        if (app->config->current_station_name)
+            g_free(app->config->current_station_name);
+        app->config->current_station_name = g_strdup(g_object_get_data(G_OBJECT(window), "station_name"));
+        /* update current station source */
+        if(app->config->current_station_source)
+            g_free(app->config->current_station_source);
+        app->config->current_station_source = g_strdup(g_object_get_data(G_OBJECT(window), "station_source"));
+
     }
+    /* Redraw applet */
+    redraw_home_window(FALSE);
     /* Update config file */
     config_save(app->config);
     stations_box = (gpointer)(g_object_get_data(G_OBJECT(window), "station_box"));

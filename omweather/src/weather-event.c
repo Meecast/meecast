@@ -378,9 +378,9 @@ void add_periodic_event(time_t last_update) {
 /* Addition the current time in the list of events  for weather forecast updating */
 void add_current_time_event(void) {
     time_t current_time;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
 #ifdef DEBUGEVENTS
     fprintf(stderr, "Add in list\n");
     print_list(NULL, 0);

@@ -1112,7 +1112,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
 
-    label_set = gtk_label_new(_("Use GSM and/or WLAN for updating \nthe weather information."));
+    label_set = gtk_label_new(_("Use GSM and/or WLAN for automatically\n  updating the weather information\n after connection to Internet."));
     set_font(label_set, NULL, 20);
     gtk_widget_set_size_request(label_set, 120, -1);
     gtk_table_attach((GtkTable*)main_table, label_set,

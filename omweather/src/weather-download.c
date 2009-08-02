@@ -142,8 +142,13 @@ connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
             app->iap_connecting_timer = 0;
             write_log("Test");
             write_log(bearer);
-            if(app->config->downloading_after_connecting)
+            if((app->config->downloading_after_connecting) ||
+              (bearer && !strncmp(bearer,"WLAN", 4) && app->config->update_wlan) ||
+              (bearer && !strncmp(bearer,"DUN_GSM", 7) && app->config->update_gsm)){
                 add_current_time_event();
+                write_log("Test passed");
+            }
+
         break;
         case CON_IC_STATUS_DISCONNECTED:
             app->iap_connected = FALSE;

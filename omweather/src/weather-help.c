@@ -91,11 +91,11 @@ gdk_pixbuf_save (pixbuf , "screenie.png", "png", NULL, NULL);
              _("\nCopyright(c) 2006-2009\n"
                "Vlad Vasiliev, Pavel Fialko"),
              _("\nCopyright(c) 2008\n"
-               "for default icon set (Glance) and design of interface\n"
+               "for default icon set (Glance)\nand design of interface\n"
                "Andrew Zhilin"),
              _("\nCopyright(c) 2008\n"
                "Andrew Olmsted\n"
-               "for Semi-transparency and coloured backgrounds\n"));
+               "for Semi-transparency\nand coloured backgrounds\n"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                              create_scrolled_window_with_text(tmp_buff,
                                                               GTK_JUSTIFY_CENTER),

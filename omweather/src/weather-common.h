@@ -108,7 +108,7 @@
 //#define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
 
 extern void write_log(char *string);
-#define START_FUNCTION          FILE *file; file=fopen("/tmp/omw.log","a+"); fprintf(file,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);fflush(file);fclose(file);
+#define START_FUNCTION          FILE *f; f=fopen("/tmp/omw.log","a+"); fprintf(f,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);fflush(f);fclose(f);
 #define DEBUG_FUNCTION(string)  write_log(string)
 #define END_FUNCTION          FILE *fileend; fileend=fopen("/tmp/omw.log","a+"); fprintf(fileend,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);fflush(fileend);fclose(fileend);
 

@@ -1405,8 +1405,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 GtkWidget*
 create_station_button(gint station_number, gchar* station_name_s, gchar *station_code_s, gchar *station_source_s,
                       gint country_id, gchar *station_country_s, gint region_id, gchar *station_region_s,
-                      gboolean is_gps)
-{
+                      gboolean is_gps){
     GtkWidget *station_label = NULL,
               *station_name  = NULL,
               *vertical_box  = NULL,
@@ -1445,8 +1444,7 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
 }
 /*******************************************************************************/
 GtkWidget*
-create_and_fill_stations_buttons(GtkWidget *main_table)
-{
+create_and_fill_stations_buttons(GtkWidget *main_table){
   GtkWidget
           *box     = NULL,
           *station = NULL;
@@ -1475,7 +1473,7 @@ create_and_fill_stations_buttons(GtkWidget *main_table)
     valid =
         gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                       (app->user_stations_list), &iter);
-    while (valid) {
+    while(valid){
         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                            &iter,
                            0, &station_name,
@@ -1506,11 +1504,11 @@ create_and_fill_stations_buttons(GtkWidget *main_table)
         station_number++;
 
         /* Only *four* station for simple mode */
-        if (station_number > 3)
+        if(station_number > 3)
             break;
     }
     /* Added nil station_button */
-    while (station_number < 4){
+    while(station_number < 4){
         station = create_station_button(station_number,  _("Unknown"), -1, app->config->current_source, -1,
                                         _("Unknown"), -1, _("Unknown"), FALSE);
         g_object_set_data(G_OBJECT(station), "settings_window_table", (gpointer)main_table);

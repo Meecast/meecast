@@ -40,14 +40,6 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
 #if defined OS2009
     HildonAppMenu   *menu = NULL;
 #endif
-    GtkWidget       *menu_item1,
-                    *menu_item2,
-                    *menu_item3,
-                    *menu_item4;
-    GtkAction       *test1,
-                    *test2,
-                    *test3,
-                    *test4;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -68,32 +60,7 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
         gtk_box_pack_start(GTK_BOX(main_vbox), create_weather_expanded_view(main_vbox,0), TRUE, TRUE, 0);
 
 #if defined OS2009
-    menu = hildon_app_menu_new();
-    /* settings */
-    menu_item1 = gtk_button_new_with_label(_("Settings"));
-    g_signal_connect(G_OBJECT(menu_item1), "button-release-event",
-                     G_CALLBACK(simple_settings_button_handler),
-                     (gpointer)window);
-    gtk_widget_show_all(GTK_WIDGET(menu_item1));
-    hildon_app_menu_append(menu, menu_item1);
-    /* help */
-    menu_item2 = gtk_button_new_with_label(_("About"));
-    g_signal_connect(G_OBJECT(menu_item2), "button-release-event",
-                     G_CALLBACK(about_button_handler),
-                     (gpointer)window);
-    gtk_widget_show_all(GTK_WIDGET(menu_item2));
-    hildon_app_menu_append(menu, menu_item2);
-/* test */
-/*
-    menu_item3 = gtk_button_new_with_label(_("Test"));
-    g_signal_connect(G_OBJECT(menu_item3), "button-release-event",
-                     G_CALLBACK(simple_settings_button_handler),
-                     (gpointer)window);
-    gtk_widget_show_all(GTK_WIDGET(menu_item3));
-    hildon_app_menu_append(menu, menu_item3);
-*/
-
-    gtk_widget_show_all(GTK_WIDGET(menu));
+    menu = create_view_menu();
     hildon_window_set_app_menu(HILDON_WINDOW(window), menu);
 #endif
 
@@ -568,6 +535,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 
     hours_weather = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
 
+    fprintf(stderr,"sddddddddd\n");
     if(hours_weather){
         while(hours_weather){
             line = gtk_event_box_new();
@@ -668,3 +636,65 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
  return scrolled_window;
 }
 /*******************************************************************************/
+#if defined OS2009
+HildonAppMenu*
+create_view_menu(void){
+    HildonAppMenu       *menu = NULL;
+    GtkWidget           *menu_item;
+    GtkAction           *test1,
+                        *test2,
+                        *test3,
+                        *test4;
+    gboolean            valid = FALSE;
+    GtkTreeIter         iter;
+    gchar               *station_name = NULL,
+                        *station_code = NULL,
+                        *station_source = NULL,
+                        *station_country = NULL,
+                        *station_region = NULL;
+    gint                station_country_id,
+                        station_region_id;
+    gboolean            is_gps;
+    gint                station_number = 0;
+
+    menu = hildon_app_menu_new();
+    /* settings item */
+    menu_item = gtk_button_new_with_label(_("Settings"));
+    g_signal_connect(G_OBJECT(menu_item), "button-release-event",
+                        G_CALLBACK(simple_settings_button_handler), NULL);
+    gtk_widget_show_all(GTK_WIDGET(menu_item));
+    hildon_app_menu_append(menu, menu_item);
+    /* help item */
+    menu_item = gtk_button_new_with_label(_("About"));
+    g_signal_connect(G_OBJECT(menu_item), "button-release-event",
+                        G_CALLBACK(about_button_handler), NULL);
+    gtk_widget_show_all(GTK_WIDGET(menu_item));
+    hildon_app_menu_append(menu, menu_item);
+/*
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list), &iter);
+    while(valid){
+        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                           &iter,
+                           0, &station_name,
+                           1, &station_code,
+                           2, &is_gps,
+                           3, &station_source, -1);
+
+        menu_item = gtk_button_new_with_label(station_name);
+//        g_signal_connect(G_OBJECT(menu_item), "button-release-event",
+//                     G_CALLBACK(simple_settings_button_handler),
+//                     (gpointer)window);
+        gtk_widget_show_all(GTK_WIDGET(menu_item));
+        hildon_app_menu_append(menu, menu_item);
+
+        valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
+        station_number++;
+        if(station_number > 3)
+            break;
+    }
+*/
+    gtk_widget_show_all(GTK_WIDGET(menu));
+    return menu;
+}
+/*******************************************************************************/
+#endif

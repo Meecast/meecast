@@ -53,7 +53,7 @@ int get_station_code_callback(void *user_data, int argc, char **argv, char **azC
 GtkListStore* get_all_information_about_station(gchar *source, gchar *station_code);
 gint get_country_code(gchar *source, gchar *country_name);
 gint get_state_code(gchar *source, gchar *country_name);
-gint get_station_code(gchar *source, gint region_id, gchar *station_name);
+gchar* get_station_code(gchar *source, gint region_id, gchar *station_name);
 gint get_all_information_callback(void *user_data, int argc, char **argv, char **azColName);
 /*******************************************************************************/
 #endif

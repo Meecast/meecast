@@ -46,5 +46,8 @@ void print_list(char *buff, size_t buff_size);
 void event_add(time_t time_value, short type_event);
 time_t next_update(void);
 void free_list_time_event(void);
+GtkTreeIter add_station_to_user_list(gchar *weather_station_name, gchar *weather_station_id,
+          gboolean is_gps, gchar *source, gint position);
+
 /*******************************************************************************/
 #endif

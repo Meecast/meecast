@@ -201,7 +201,7 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
             *window               = NULL,
             *temp_button          = NULL,
             *button               = NULL;
-  gint      id = 0;
+  gchar     *id = NULL;
   enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
   gint type_button = UNKNOWN;
 
@@ -348,9 +348,9 @@ save_station(GtkWidget *window){
     gchar           *station_name = NULL,
                     *station_code = NULL,
                     *station_source = NULL;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
 
     if (gtk_toggle_button_get_active(g_object_get_data(G_OBJECT(window), "gps")))
         is_gps = TRUE;
@@ -416,9 +416,9 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
     gint                    type_button = UNKNOWN;
     GtkTreeSelection        *sel;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
 
     *dialog_name = 0;
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
@@ -506,6 +506,9 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     result = gtk_dialog_run(GTK_DIALOG(window));
     if (window)
         gtk_widget_destroy(window);
+//#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+//#endif
 
 }
 /*******************************************************************************/
@@ -1586,6 +1589,10 @@ create_and_fill_update_box(GtkWidget *main_table){
 void
 create_and_fill_widget_style_box(GtkWidget *main_table){
     GtkWidget       *widget_style_button = NULL,
+                    *widget_style_description = NULL,
+                    *widget_style_label = NULL,
+                    *widget_style_hbox = NULL,
+                    *widget_style_vbox = NULL,
                     *widget_style_icon = NULL;
     GdkPixbuf       *icon_buffer = NULL;
     gchar           buffer[256],
@@ -1628,7 +1635,6 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
     hildon_button_set_image (HILDON_BUTTON (widget_style_button), widget_style_icon);
     hildon_button_set_image_position (HILDON_BUTTON (widget_style_button), GTK_POS_RIGHT);
 #else
-    gtk_widget_show(widget_style_description);
 
     widget_style_button = gtk_button_new ();
     widget_style_label = gtk_label_new(_("Widget style"));
@@ -1657,7 +1663,6 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
   //  gtk_widget_set_size_request(alignmnet, -1, 20);
   //  gtk_widget_show(alignmnet);
 
-    gtk_box_pack_start(GTK_BOX(widget_style_vbox), alignmnet, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(widget_style_vbox), widget_style_label, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(widget_style_vbox), widget_style_description, TRUE, TRUE, 0);
    // gtk_widget_set_size_request(widget_style_vbox, 380, -1);

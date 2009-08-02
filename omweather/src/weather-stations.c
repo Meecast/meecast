@@ -413,9 +413,9 @@ GtkListStore* create_stations_list(sqlite3 *database, int region_id){
     gchar		*errMsg = NULL;
     gchar		sql[256];
 
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
 
     if(!database || !region_id)
 	return NULL;	/* database doesn't open */
@@ -434,9 +434,9 @@ GtkListStore* create_stations_list(sqlite3 *database, int region_id){
     	sqlite3_free(errMsg);
 	    return NULL;
     }
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
     return list;
 }
 
@@ -600,7 +600,7 @@ get_state_code(gchar *source, gchar *region_name){
 
 
 /*******************************************************************************/
-gint
+gchar*
 get_station_code(gchar *source, gint region_id, gchar *station_name){
     sqlite3             *database = NULL;
     gchar               buffer[2048],
@@ -617,7 +617,7 @@ get_station_code(gchar *source, gint region_id, gchar *station_name){
     snprintf(buffer, sizeof(buffer) - 1, "%s.db",source);
     database = open_database(DATABASEPATH, buffer);
     if(!database)
-        return -1;
+        return NULL;
     list = gtk_list_store_new(1, G_TYPE_STRING);
     /* Correct SQL */
     snprintf(sql, sizeof(sql) - 1, "Select code from stations \
@@ -628,7 +628,7 @@ get_station_code(gchar *source, gint region_id, gchar *station_name){
       fprintf(stderr, "\n>>>>%s\n", errMsg);
 #endif
         sqlite3_free(errMsg);
-        return -1;
+        return NULL;
     }
     close_database(database);
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list), &iter);

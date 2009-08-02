@@ -33,7 +33,7 @@
 void widget_styles_save(GtkWidget *window);
 void weather_simple_window_settings(gpointer user_data);
 GtkWidget* create_and_fill_stations_buttons(GtkWidget *main_table);
-GtkTreeIter add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
+GtkTreeIter add_station_to_user_list(gchar *weather_station_name, gchar *weather_station_id,
           gboolean is_gps, gchar *source, gint position);
 void highlight_current_item(GtkTreeView *tree_view, GtkListStore *list, gchar *current);
 void list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name);

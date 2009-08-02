@@ -32,6 +32,8 @@
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
+
+
 /*******************************************************************************/
 gboolean not_event = FALSE;
 /*******************************************************************************/
@@ -46,12 +48,13 @@ timer_handler(gpointer data){
 #ifdef ENABLE_GPS
     gchar               buffer[2048];
 #endif
+    double ddebug;
 #ifdef DEBUGEVENTS
     char                *temp_string;
 #endif
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     if (not_event == TRUE || !event_time_list)
         return TRUE;
 
@@ -123,13 +126,14 @@ timer_handler(gpointer data){
                                                     app->temporary_station_latitude,app->temporary_station_longtitude));
 
 */
+                ddebug = calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
+                                                    app->temporary_station_latitude,app->temporary_station_longtitude);
                 sprintf(buffer,"Event:  Calculate CHECK_GPS_POSITION %f %f %f %f %f\n",
                                     app->gps_station.latitude,app->gps_station.longtitude,
                                     app->temporary_station_latitude,app->temporary_station_longtitude,
-                                    calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
-                                                    app->temporary_station_latitude,app->temporary_station_longtitude));
+                                    ddebug);
                 write_log(buffer);
-                write_log(app->gps_station.name);
+//                write_log(app->gps_station.name);
 
                 if (calculate_distance
                     (app->gps_station.latitude,
@@ -141,6 +145,8 @@ timer_handler(gpointer data){
                         (app->temporary_station_latitude,
                          app->temporary_station_longtitude,
                          &app->gps_station);
+                    write_log("Before dd\n");
+                    write_log(app->gps_station.name);
                     if ((strlen(app->gps_station.id0) > 0)
                         && (strlen(app->gps_station.name) > 0)) {
 
@@ -153,6 +159,9 @@ timer_handler(gpointer data){
                                 g_free(app->config->current_source);
                             app->config->current_source =
                                 g_strdup("weather.com");
+                        write_log("After1 dd\n");
+                        write_log(app->gps_station.name);
+
                         add_station_to_user_list(app->gps_station.name,
                                                  app->gps_station.id0,
                                                  TRUE, app->config->current_source, -1);
@@ -205,9 +214,9 @@ timer_handler(gpointer data){
         }
         list_time_event_temp = g_slist_next(list_time_event_temp);
     }
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
     return TRUE;
 }
 

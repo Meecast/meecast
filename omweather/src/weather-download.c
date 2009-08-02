@@ -128,8 +128,10 @@ connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
     bearer = (gchar*)con_ic_event_get_bearer_type(CON_IC_EVENT(event));
 
     switch(status){
+#if defined OS2009
         case CON_IC_STATUS_NETWORK_UP: /* TODO. Process this status */
         break;
+#endif
         case CON_IC_STATUS_CONNECTED:
 #ifdef DEBUGFUNCTIONCALL
             second_attempt = TRUE;

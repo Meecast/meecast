@@ -127,7 +127,7 @@ get_nearest_station(double lat, double lon, Station *result){
                         result->name[sizeof(result->name) - 2] = 'S';
                         result->name[sizeof(result->name) - 1] = ')';
                     }
-
+                    write_log(result->name);
                     memset(result->id0, 0, sizeof(result->id0));
                     memcpy(result->id0, station_id0,
                            ((sizeof(result->id0) - 1) >
@@ -153,9 +153,9 @@ get_nearest_station(double lat, double lon, Station *result){
                                      (regions_list), &iter_region);
     }
     close_database(database);
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
 }
 /*******************************************************************************/ 
 static void 
@@ -199,9 +199,9 @@ deinitial_gps_control(void){
 static void
 gps_location_changed(LocationGPSDevice * device, gpointer userdata){
     gchar buffer[2048];
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     if(!app->config->gps_station)
         return;
     if(device->fix->fields & LOCATION_GPS_DEVICE_LATLONG_SET){
@@ -297,30 +297,4 @@ delete_all_gps_stations(void){
         }
     }
 }
-/*******************************************************************************/
-gdouble
-calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2){
-    gdouble     dlat,
-                dlon,
-                slat,
-                slon,
-                a;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    /* Convert to radians. */
-    lat1 = deg2rad(lat1);
-    lon1 = deg2rad(lon1);
-    lat2 = deg2rad(lat2);
-    lon2 = deg2rad(lon2);
-
-    dlat = lat2 - lat1;
-    dlon = lon2 - lon1;
-
-    slat = sin(dlat / 2.0F);
-    slon = sin(dlon / 2.0F);
-    a = (slat * slat) + (cos(lat1) * cos(lat2) * slon * slon);
-    return ((2.0F * atan2(sqrt(a), sqrt(1.0F - a))) * EARTH_RADIUS);
-}
-/*******************************************************************************/
 #endif

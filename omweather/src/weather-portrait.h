@@ -37,5 +37,6 @@ void init_portrait(GtkWidget *win);
 void init_landscape(GtkWidget *win);
 void check_device_position(DBusConnection *connection);
 DBusHandlerResult get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data);
+void set_portrait(GtkWidget *self, char const *prop, guint32 value);
 /*******************************************************************************/
 #endif

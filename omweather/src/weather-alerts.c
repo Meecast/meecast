@@ -107,7 +107,10 @@ void fill_user_alerts_list(GSList * source_list, GtkListStore ** list) {
         if (alert_name) {
             gtk_list_store_append(*list, &iter);
             gtk_list_store_set(*list, &iter, 0, alert_name, -1);
-            alert_name && (g_free(alert_name), alert_name = NULL);
+            if(alert_name){
+                g_free(alert_name);
+                alert_name = NULL;
+            }
         }
         source_list = g_slist_next(source_list);
     }

@@ -2039,7 +2039,6 @@ free_memory(void){
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-
 }
 /*******************************************************************************/
 void

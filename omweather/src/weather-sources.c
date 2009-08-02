@@ -140,7 +140,6 @@ gpointer
 get_first_source_hash(GtkListStore *data){
     GtkTreeIter iter;
     GHashTable  *source = NULL;
-    gpointer    value = NULL;
     gboolean    valid = FALSE;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

@@ -761,7 +761,7 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
         set_font(new_day_button->label, PRESET_BIG_FONT, -1);
     gtk_widget_set_size_request(new_day_button->label, 140, 52);
 
-//        gtk_widget_set_name(new_day_button->label, "day_label");
+/*        gtk_widget_set_name(new_day_button->label, "day_label");*/
     /* create shadow of day label */
     /* check for memcpy operation */
     if ((strlen(PRESET_BIG_FONT_COLOR_FRONT) == strlen(PRESET_BIG_FONT_COLOR_BACK))&&

@@ -48,7 +48,6 @@ Item *create_item(const char *name, const char *value) {
         itm->value = g_string_new(value);
     return itm;
 }
-
 /*******************************************************************************/
 void destroy_item(Item ** item) {
 #ifdef DEBUGFUNCTIONCALL
@@ -70,7 +69,6 @@ void destroy_item(Item ** item) {
     END_FUNCTION;
 #endif
 }
-
 /*******************************************************************************/
 GSList *add_item2object(GSList ** object, void *item) {
 #ifdef DEBUGFUNCTIONCALL
@@ -80,7 +78,6 @@ GSList *add_item2object(GSList ** object, void *item) {
         *object = g_slist_append(*object, item);
     return (*object);
 }
-
 /*******************************************************************************/
 char *item_value(GSList * object, const char *name) {
     GString *tmp = NULL;
@@ -103,7 +100,6 @@ char *item_value(GSList * object, const char *name) {
     }
     return result;
 }
-
 /*******************************************************************************/
 time_t calculate_diff_time(int timezone) {
 
@@ -121,7 +117,6 @@ time_t calculate_diff_time(int timezone) {
 
     return diff_time;
 }
-
 /*******************************************************************************/
 void destroy_object(GSList ** object) {
     Item *itm = NULL;

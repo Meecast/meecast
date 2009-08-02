@@ -140,6 +140,8 @@ connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
             app->iap_connecting = FALSE;
             app->iap_connected = TRUE;
             app->iap_connecting_timer = 0;
+            write_log("Test");
+            write_log(bearer);
             if(app->config->downloading_after_connecting)
                 add_current_time_event();
         break;

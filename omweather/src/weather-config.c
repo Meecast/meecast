@@ -501,6 +501,7 @@ gint read_config(AppletConfig * config) {
         config->gps_station = FALSE;
 //#ifdef OS2009
         config->gps_station = TRUE;
+        add_gps_event(1);
 //#endif
 #endif
 

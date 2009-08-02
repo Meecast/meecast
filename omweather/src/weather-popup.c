@@ -291,9 +291,9 @@ make_tab(GtkWidget *vbox){
     GHashTable  *day = NULL;
     gchar       *day_name = NULL;
     GtkWidget   *child;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
     if(app->popup_window){
         day = (GHashTable*)g_object_get_data(G_OBJECT(vbox), "day");
@@ -446,9 +446,9 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
                 data_last_update = 0;
     GSList      *tmp = NULL;
     GHashTable  *day = NULL;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if(app->popup_window || app->flag_updating != 0)
         return FALSE;
 /* Debug */

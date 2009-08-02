@@ -30,13 +30,15 @@
 #define _weather_gps_h 1
 /*******************************************************************************/
 #include "weather-common.h"
-#include <errno.h>
 /*******************************************************************************/
+#ifdef ENABLE_GPS
 void initial_gps_connect(void);
 void deinitial_gps_connect(void);
 void initial_gps_control(void);
 void deinitial_gps_control(void);
 void delete_all_gps_stations(void);
 void get_nearest_station( double lat, double lon, Station *result);
+gdouble calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2);
+#endif
 /*******************************************************************************/
 #endif

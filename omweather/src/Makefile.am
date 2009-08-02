@@ -47,8 +47,6 @@ omweather_SOURCES = 	weather-home.c \
             weather-simple-popup.c \
 			weather-gps.h \
 			weather-gps.c \
-			weather-gpsdistance.h \
-			weather-gpsdistance.c \
 			weather-help.h \
 			weather-help.c \
 			weather-utils.h \
@@ -158,8 +156,6 @@ libweather_home_la_SOURCES  = \
 			weather-popup.c \
 			weather-gps.h \
 			weather-gps.c \
-			weather-gpsdistance.h \
-			weather-gpsdistance.c \
 			weather-help.h \
 			weather-help.c \
 			weather-utils.h \

@@ -59,9 +59,10 @@ GtkListStore *create_items_list(const char *path, const char *filename,
 
     max_bytes = end - start;
     fh = fopen(buff, "rt");
-    if (!fh) {
+    if(!fh){
         fprintf(stderr, "\nCan't read file %s: %s", buff, strerror(errno));
-        items_number && (*items_number = count);
+        if(items_number)
+            *items_number = count;
         list = NULL;
     } else {
         if (!strcmp(filename, LOCATIONSFILE))
@@ -77,7 +78,8 @@ GtkListStore *create_items_list(const char *path, const char *filename,
                 fprintf(stderr,
                         "\nCan't seek to the position %ld on %s file: %s\n",
                         start, buff, strerror(errno));
-                items_number && (*items_number = count);
+                if(items_number)
+                    *items_number = count;
                 return NULL;
             }
         while (!feof(fh)) {
@@ -124,10 +126,10 @@ GtkListStore *create_items_list(const char *path, const char *filename,
         }
         fclose(fh);
     }
-    items_number && (*items_number = count);
+    if(items_number)
+        *items_number = count;
     return list;
 }
-
 /*******************************************************************************/
 int parse_country_string(const char *string, Country_item * result) {
     char *delimiter = NULL, *tmp, buffer[32];

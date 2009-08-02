@@ -23,47 +23,54 @@
  * License along with this software; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
-	
+ *
 */
 /*******************************************************************************/
-#include "weather-common.h"
 #include "weather-gps.h"
+#include <errno.h>
+#include <math.h>
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
 #ifdef ENABLE_GPS
-
+#define PI   (3.14159265358979323846)
+#define EARTH_RADIUS (3443.91847)
+#define deg2rad(deg) ((deg) * (PI / 180.0))
+/*******************************************************************************/
 void
-get_nearest_station(double lat, double lon, Station *result) {
-
-//#ifdef DEBUGFUNCTIONCALL
+get_nearest_station(double lat, double lon, Station *result){
+    Region_item         region;
+    GtkListStore        *stations_list = NULL,
+                        *regions_list = NULL;
+    GtkTreeIter         iter,
+                        iter_region;
+    gboolean            valid = FALSE,
+                        valid_region;
+    gint                regions_number,
+                        region_id;
+    gchar               *station_name = NULL,
+                        *station_id0 = NULL,
+                        *region_name;
+    double              station_latitude,
+                        station_longtitude,
+                        distance,
+                        min_distance = 40000.0;
+    sqlite3             *database = NULL;
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
-    Region_item region;
-    GtkListStore *stations_list = NULL;
-    GtkListStore *regions_list = NULL;
-    GtkTreeIter iter, iter_region;
-    gboolean valid, valid_region;
-    int regions_number;
-    int region_id;
-    gchar *station_name = NULL, *station_id0 = NULL, *region_name;
-    double station_latitude, station_longtitude, distance, min_distance =
-        40000;
-    sqlite3    *database = NULL;
-
+#endif
     /* Check only weather.com datase yet */
     database = open_database(DATABASEPATH, "weather.com.db");
-    if (!database)
+    if(!database)
         return;
     regions_list = create_regions_list(database, 0, &regions_number);
-    if (!regions_list)
+    if(!regions_list)
         return;
     valid_region = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                               (regions_list), &iter_region);
-
     /* Reading region settings */
-    while (valid_region) {
+    while(valid_region){
         gtk_tree_model_get(GTK_TREE_MODEL(regions_list),
                                    &iter_region,
                                    0, &region_name,
@@ -152,36 +159,30 @@ get_nearest_station(double lat, double lon, Station *result) {
 }
 /*******************************************************************************/ 
 static void 
-gps_location_started (LocationGPSDControl *control, gpointer userdata)
-{
+gps_location_started (LocationGPSDControl *control, gpointer userdata){
  initial_gps_connect();
 }
-
+/*******************************************************************************/ 
 static void 
-gps_location_stopped (LocationGPSDControl *control, gpointer userdata)
-{
+gps_location_stopped (LocationGPSDControl *control, gpointer userdata){
  deinitial_gps_connect();
 }
-
 /*******************************************************************************/ 
 void
-initial_gps_control(void)
-{
-//#ifdef DEBUGFUNCTIONCALL
+initial_gps_control(void){
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     app->gps_control = location_gpsd_control_get_default();
-    app->gps_run = g_signal_connect (app->gps_control, "gpsd_running", G_CALLBACK (gps_location_started), NULL);
-    app->gps_stop = g_signal_connect (app->gps_control, "gpsd_stopped", G_CALLBACK (gps_location_stopped), NULL);
-
-//#ifdef DEBUGFUNCTIONCALL
+    app->gps_run = g_signal_connect(app->gps_control, "gpsd_running", G_CALLBACK (gps_location_started), NULL);
+    app->gps_stop = g_signal_connect(app->gps_control, "gpsd_stopped", G_CALLBACK (gps_location_stopped), NULL);
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 }
 /*******************************************************************************/ 
 void
-deinitial_gps_control(void)
-{
+deinitial_gps_control(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -196,43 +197,39 @@ deinitial_gps_control(void)
 }
 /*******************************************************************************/
 static void
-gps_location_changed(LocationGPSDevice * device, gpointer userdata) {
-//#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-//#endif
+gps_location_changed(LocationGPSDevice * device, gpointer userdata){
     gchar buffer[2048];
-    if (!app->config->gps_station)
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(!app->config->gps_station)
         return;
-    if (device->fix->fields & LOCATION_GPS_DEVICE_LATLONG_SET) {
+    if(device->fix->fields & LOCATION_GPS_DEVICE_LATLONG_SET){
         sprintf(buffer,"CHANMGED:  GPS_POSITION  %f %f\n",device->fix->latitude, device->fix->longitude);
         write_log(buffer);
         app->temporary_station_latitude = device->fix->latitude;
         app->temporary_station_longtitude = device->fix->longitude;
     }
 }
-
 /*******************************************************************************/
 void
-initial_gps_connect(void)
-{
-//#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-//#endif
-    app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
-    app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
-//#ifdef DEBUGFUNCTIONCALL
-    END_FUNCTION;
-//#endif
-}
-
-/*******************************************************************************/
-void
-deinitial_gps_connect(void)
-{
+initial_gps_connect(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (app->gps_device){
+    app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
+    app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+}
+/*******************************************************************************/
+void
+deinitial_gps_connect(void){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(app->gps_device){
         g_signal_handler_disconnect (app->gps_device,app->gps_id_connection);
         g_object_unref(app->gps_device);
     }
@@ -241,7 +238,8 @@ deinitial_gps_connect(void)
 #endif
 }
 /*******************************************************************************/
-void delete_all_gps_stations(void) {
+void
+delete_all_gps_stations(void){
     gboolean valid;
     GtkTreeIter iter;
     gchar *station_name = NULL, *station_code = NULL;
@@ -299,6 +297,30 @@ void delete_all_gps_stations(void) {
         }
     }
 }
+/*******************************************************************************/
+gdouble
+calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2){
+    gdouble     dlat,
+                dlon,
+                slat,
+                slon,
+                a;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    /* Convert to radians. */
+    lat1 = deg2rad(lat1);
+    lon1 = deg2rad(lon1);
+    lat2 = deg2rad(lat2);
+    lon2 = deg2rad(lon2);
 
+    dlat = lat2 - lat1;
+    dlon = lon2 - lon1;
+
+    slat = sin(dlat / 2.0F);
+    slon = sin(dlon / 2.0F);
+    a = (slat * slat) + (cos(lat1) * cos(lat2) * slon * slon);
+    return ((2.0F * atan2(sqrt(a), sqrt(1.0F - a))) * EARTH_RADIUS);
+}
 /*******************************************************************************/
 #endif

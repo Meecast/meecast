@@ -600,24 +600,21 @@ get_state_code(gchar *source, gchar *region_name){
 /*******************************************************************************/
 gint
 get_station_code(gchar *source, gint region_id, gchar *station_name){
-
-    sqlite3    *database = NULL;
-    gchar buffer[2048];
-    gchar       *errMsg = NULL;
-    gchar       sql[1024];
-    gint        rc;
-    GtkListStore    *list = NULL;
-    GtkTreeIter     iter;
-    gboolean valid;
-    gchar       *code;
-
+    sqlite3             *database = NULL;
+    gchar               buffer[2048],
+                        *errMsg = NULL,
+                        sql[1024];
+    gint                rc;
+    GtkListStore        *list = NULL;
+    GtkTreeIter         iter;
+    gboolean            valid;
+    gchar               *code;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
     snprintf(buffer, sizeof(buffer) - 1, "%s.db",source);
     database = open_database(DATABASEPATH, buffer);
-    if (!database)
+    if(!database)
         return -1;
     list = gtk_list_store_new(1, G_TYPE_STRING);
     /* Correct SQL */
@@ -632,22 +629,15 @@ get_station_code(gchar *source, gint region_id, gchar *station_name){
         return -1;
     }
     close_database(database);
-    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
-                                      (list), &iter);
-    if (valid)
-      gtk_tree_model_get(GTK_TREE_MODEL(list),
-                           &iter,
-                           0, &code,
-                          -1);
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list), &iter);
+    if(valid)
+        gtk_tree_model_get(GTK_TREE_MODEL(list), &iter, 0, &code, -1);
 //#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 //#endif
     return code;
 }
-
-
 /*******************************************************************************/
-
 GtkListStore* 
 search_station_in_database(sqlite3 *database, char *code_name){
     GtkListStore	*list = NULL;

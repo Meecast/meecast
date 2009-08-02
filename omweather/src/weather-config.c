@@ -28,6 +28,7 @@
 */
 /*******************************************************************************/
 #include "weather-config.h"
+#include "weather-stations.h"
 #include "weather-utils.h"
 #include "weather-event.h"
 #include "weather-alerts.h"
@@ -161,7 +162,9 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
     gchar   *temp1 = NULL,
             *temp2 = NULL,
             *temp3 = NULL,
+#ifdef ENABLE_GPS
             *temp4 = NULL,
+#endif
             *station_name = NULL,
             *station_code = NULL,
             *station_source = NULL;
@@ -1123,8 +1126,7 @@ void config_save(AppletConfig * config) {
 }
 /***********************************************************************************/
 void check_current_station_id(void) {
-    GtkListStore    *list = NULL,
-                    *all_information_list = NULL;
+    GtkListStore    *all_information_list = NULL;
     GtkTreeIter     iter,
                     iter2;
     gboolean        valid,

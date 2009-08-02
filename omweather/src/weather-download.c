@@ -113,41 +113,43 @@ get_connection_status_signal_cb(DBusConnection * connection,
 #ifdef USE_CONIC
 #define OSSO_CON_IC_CONNECTING             0x05
 void
-connection_cb(ConIcConnection * connection,
-              ConIcConnectionEvent * event, gpointer user_data) {
-    const gchar *iap_id, *bearer;
-    ConIcConnectionStatus status;
-    ConIcConnectionError error;
+connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
+                                                            gpointer user_data){
+    gchar                   *iap_id,
+                            *bearer;
+    ConIcConnectionStatus   status;
+    ConIcConnectionError    error;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     status = con_ic_connection_event_get_status(event);
     error = con_ic_connection_event_get_error(event);
-    iap_id = con_ic_event_get_iap_id(CON_IC_EVENT(event));
-    bearer = con_ic_event_get_bearer_type(CON_IC_EVENT(event));
+    iap_id = (gchar*)con_ic_event_get_iap_id(CON_IC_EVENT(event));
+    bearer = (gchar*)con_ic_event_get_bearer_type(CON_IC_EVENT(event));
 
-    switch (status) {
-    case CON_IC_STATUS_CONNECTED:
+    switch(status){
+        case CON_IC_STATUS_NETWORK_UP: /* TODO. Process this status */
+        break;
+        case CON_IC_STATUS_CONNECTED:
 #ifdef DEBUGFUNCTIONCALL
-        second_attempt = TRUE;
-        update_weather(FALSE);
+            second_attempt = TRUE;
+            update_weather(FALSE);
 #endif
-        app->iap_connecting = FALSE;
-        app->iap_connected = TRUE;
-        app->iap_connecting_timer = 0;
-        if (app->config->downloading_after_connecting)
-            add_current_time_event();
+            app->iap_connecting = FALSE;
+            app->iap_connected = TRUE;
+            app->iap_connecting_timer = 0;
+            if(app->config->downloading_after_connecting)
+                add_current_time_event();
         break;
-
-    case CON_IC_STATUS_DISCONNECTED:
-        app->iap_connected = FALSE;
-        app->iap_connecting = FALSE;
-        app->iap_connecting_timer = 0;
+        case CON_IC_STATUS_DISCONNECTED:
+            app->iap_connected = FALSE;
+            app->iap_connecting = FALSE;
+            app->iap_connecting_timer = 0;
         break;
-    case CON_IC_STATUS_DISCONNECTING:
-        app->iap_connected = FALSE;
-        app->iap_connecting = FALSE;
-        app->iap_connecting_timer = 0;
+        case CON_IC_STATUS_DISCONNECTING:
+            app->iap_connected = FALSE;
+            app->iap_connecting = FALSE;
+            app->iap_connecting_timer = 0;
         break;
 /*        default:
     	    app->iap_connected = FALSE;

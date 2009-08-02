@@ -50,9 +50,9 @@ GtkTreeIter
 add_station_to_user_list(gchar *weather_station_name, gchar *weather_station_id,
                           gboolean is_gps, gchar *source, gint position){
     GtkTreeIter iter;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     fprintf(stderr,"weather_station_name %s\n",weather_station_name);
     /* Add station to stations list */
     if (position == -1)
@@ -127,7 +127,7 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
         list->regions_list = create_regions_list(list->database, country_id,
                                                     &regions_number);
     }else{
-        country_id = g_object_get_data(G_OBJECT(config), "station_country_id");
+        country_id = (gint)g_object_get_data(G_OBJECT(config), "station_country_id");
         list->regions_list = create_regions_list(list->database, country_id,
                                                     &regions_number);
     }
@@ -198,7 +198,7 @@ changed_state_handler(GtkWidget *widget, gpointer user_data){
           }
         }
     }else{
-        state_id  = g_object_get_data(G_OBJECT(config), "station_region_id");
+        state_id  = (gint)g_object_get_data(G_OBJECT(config), "station_region_id");
         list->stations_list = create_stations_list(list->database, state_id);
     }
 }
@@ -240,9 +240,9 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
     GHashTable		*source = NULL;
     gpointer		value = NULL;
     gchar *control_name = NULL;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
 
     if(list){
@@ -638,23 +638,17 @@ delete_station_from_user_list(gchar *station_selected, gpointer user_data) {
 /*******************************************************************************/
 /* Preparing for deleting */
 void
-delete_station_handler(GtkButton * button, gpointer user_data) {
-    GtkWidget   *dialog = NULL,
-                *config = GTK_WIDGET(user_data),
-                *rename_entry = NULL;
-    GtkTreeView *station_list_view = NULL;
-    GtkTreeIter iter;
-    gchar       *station_selected = NULL,
-                *station_name = NULL,
-                *station_code = NULL,
-                *station_source = NULL;
-    GtkTreeModel *model;
-    GtkTreeSelection *selection;
-    gboolean valid = FALSE;
-    gint result = GTK_RESPONSE_NONE;
-    GtkTreePath *path;
+delete_station_handler(GtkButton * button, gpointer user_data){
+    GtkWidget           *dialog = NULL,
+                        *config = GTK_WIDGET(user_data);
+    GtkTreeView         *station_list_view = NULL;
+    GtkTreeIter         iter;
+    gchar               *station_selected = NULL;
+    GtkTreeModel        *model;
+    GtkTreeSelection    *selection;
+    gint                result = GTK_RESPONSE_NONE;
 #ifdef ENABLE_GPS
-    gboolean is_gps = FALSE;
+    gboolean            is_gps = FALSE;
 #endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -673,9 +667,9 @@ delete_station_handler(GtkButton * button, gpointer user_data) {
     gtk_dialog_add_button(GTK_DIALOG(dialog), _("No"), GTK_RESPONSE_NO);
     result = gtk_dialog_run(GTK_DIALOG(dialog));
     gtk_widget_destroy(dialog);
-    if (result != GTK_RESPONSE_YES)
+    if(result != GTK_RESPONSE_YES)
         return;
-    if (!station_list_view)
+    if(!station_list_view)
         return;
 /* search station for delete */
     model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));

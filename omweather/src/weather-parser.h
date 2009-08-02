@@ -31,6 +31,32 @@
 /*******************************************************************************/
 #include "weather-common.h"
 /*******************************************************************************/
+typedef struct{
+    gint	error;
+    xmlDoc	*doc;
+    xmlNode	*weather_com_root;
+}weather_com_parser;
+/*******************************************************************************/
+typedef struct{
+    GSList	*location;
+    GSList	*current;
+    GSList	*days;
+    gboolean	current_data_is_invalid;
+    gboolean	hours_data_is_invalid;
+    GSList      *hours_weather;
+}WeatherStationData;
+/*******************************************************************************/
+typedef struct weather_data_source{
+    gchar	*name;
+    gchar	*url;
+    gchar	*hour_url;
+    gchar	*encoding;
+    gint 	(*parser)(const gchar *station_id, weather_com_parser *parser,
+			    WeatherStationData *wsd);
+    gint 	(*parser_hour)(const gchar *station_id, weather_com_parser *parser,
+				WeatherStationData *wsd);
+}WeatherSource;
+/*******************************************************************************/
 gint parse_weather_file_data(const gchar *station_id, gchar *station_source,
 					WeatherStationData *wsd,
 						gboolean selected_detail_weather);

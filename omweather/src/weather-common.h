@@ -59,7 +59,6 @@
     #include <X11/extensions/Xcomposite.h>
     #include <X11/extensions/Xdamage.h>
     #include <X11/extensions/Xrender.h>
-
 #elif  NONMAEMO
     #include <hildon/hildon-banner.h>
 #elif  OS2009
@@ -81,16 +80,14 @@
     #include <clutter-gtk/gtk-clutter-util.h>
 #endif
 
-
 #ifdef USE_CONIC
-#include <conic/conic.h>
+  #include <conic/conic.h>
 #endif
 #include <libxml/parser.h>
 #include <libxml/tree.h>
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 /*******************************************************************************/
-
 #define _(String) dgettext (GETTEXT_PACKAGE, String)
 #define Max_count_weather_day   10
 #define DATABASEPATH        "/usr/share/omweather/db/"
@@ -103,11 +100,10 @@
 #define ICONS_PATH          "/usr/share/omweather/icons/"
 #define BUTTON_ICONS		"/usr/share/omweather/button_icons/"
 #define IMAGES_PATH         "/usr/share/omweather/images/"
-
-//#define START_FUNCTION        fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
-//#define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
-
-extern void write_log(char *string);
+/*
+#define START_FUNCTION        fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
+#define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
+*/
 #define START_FUNCTION          FILE *f; f=fopen("/tmp/omw.log","a+"); fprintf(f,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);fflush(f);fclose(f);
 #define DEBUG_FUNCTION(string)  write_log(string)
 #define END_FUNCTION          FILE *fileend; fileend=fopen("/tmp/omw.log","a+"); fprintf(fileend,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);fflush(fileend);fclose(fileend);
@@ -221,32 +217,6 @@ enum { STATE_USE_SENSOR		= 1U,
        STATE_SHOW_AT_ICON	= 4U,
        STATE_SENSOR_READ_TIME	= 8U
 };
-/*******************************************************************************/
-typedef struct{
-    gint	error;
-    xmlDoc	*doc;
-    xmlNode	*weather_com_root;
-}weather_com_parser;
-/*******************************************************************************/
-typedef struct{
-    GSList	*location;
-    GSList	*current;
-    GSList	*days;
-    gboolean	current_data_is_invalid;
-    gboolean	hours_data_is_invalid;
-    GSList      *hours_weather;
-}WeatherStationData;
-/*******************************************************************************/
-typedef struct weather_data_source{
-    gchar	*name;
-    gchar	*url;
-    gchar	*hour_url;
-    gchar	*encoding;
-    gint 	(*parser)(const gchar *station_id, weather_com_parser *parser,
-			    WeatherStationData *wsd);
-    gint 	(*parser_hour)(const gchar *station_id, weather_com_parser *parser,
-				WeatherStationData *wsd);
-}WeatherSource;
 /*******************************************************************************/
 typedef struct weather_day_button_with_image{
     GtkWidget   *button;
@@ -435,7 +405,6 @@ typedef struct OMWeatherApplet{
     gint		ah;
     GSList		*tab_of_window_popup;
     GSList		*handles;
-    WeatherStationData  wsd;
     GSList              *sources;
     GSList              *clutter_objects_in_main_form;
     GSList              *clutter_objects_in_popup_form;
@@ -478,7 +447,6 @@ typedef struct lists_struct{
     sqlite3         *database;
     gboolean        database_invalid;
 }lists_struct_obj;
-
 /*******************************************************************************/
 extern	OMWeatherApp	*app;
 /*******************************************************************************/

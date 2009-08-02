@@ -30,6 +30,7 @@
 /*******************************************************************************/
 #include "weather-common.h"
 /*******************************************************************************/
+void widget_styles_save(GtkWidget *window);
 void weather_simple_window_settings(gpointer user_data);
 GtkWidget* create_and_fill_stations_buttons(GtkWidget *main_table);
 GtkTreeIter add_station_to_user_list(gchar *weather_station_id,gchar *weather_station_name,
@@ -48,5 +49,9 @@ void create_and_fill_update_box(GtkWidget *main_table);
 void create_and_fill_widget_style_box(GtkWidget *main_table);
 void station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data);
+void update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
+void update_save(GtkWidget *window);
+void units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
+void units_save(GtkWidget *window);
 /*******************************************************************************/
 #endif

@@ -38,18 +38,20 @@ gboolean not_event = FALSE;
 static GSList *event_time_list = NULL;
 /*******************************************************************************/
 gboolean 
-timer_handler(gpointer data) {
-    static GSList *list_time_event_temp = NULL;
-    struct event_time *evt;
-    time_t current_time;
-    int check;
-    gchar buffer[2048];
-#ifdef DEBUGEVENTS
-    char *temp_string;
+timer_handler(gpointer data){
+    static GSList       *list_time_event_temp = NULL;
+    struct event_time   *evt;
+    time_t              current_time;
+    int                 check;
+#ifdef ENABLE_GPS
+    gchar               buffer[2048];
 #endif
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGEVENTS
+    char                *temp_string;
+#endif
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if (not_event == TRUE || !event_time_list)
         return TRUE;
 

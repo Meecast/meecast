@@ -200,10 +200,12 @@ gps_location_changed(LocationGPSDevice * device, gpointer userdata) {
 //#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 //#endif
-
+    gchar buffer[2048];
     if (!app->config->gps_station)
         return;
     if (device->fix->fields & LOCATION_GPS_DEVICE_LATLONG_SET) {
+        sprintf(buffer,"CHANMGED:  GPS_POSITION  %f %f\n",device->fix->latitude, device->fix->longitude);
+        write_log(buffer);
         app->temporary_station_latitude = device->fix->latitude;
         app->temporary_station_longtitude = device->fix->longitude;
     }

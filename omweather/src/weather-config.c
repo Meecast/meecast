@@ -134,6 +134,10 @@ void fill_user_stations_list_from_clock(GtkListStore ** list) {
                 gtk_list_store_set(*list, &iter,
                                    NAME_COLUMN, station_name,
                                    ID0_COLUMN, station_code,
+#if defined(ENABLE_GPS)
+                                   2, FALSE,
+#endif
+                                   3, g_strdup("weather.com"),
                                    -1);
                 /* A current station */
                 if (!strncmp(buffer, home_city, tmp - buffer)) {
@@ -162,7 +166,7 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
             *station_code = NULL,
             *station_source = NULL;
 #ifdef ENABLE_GPS
-    gboolean	is_gps = FALSE;
+    gboolean    is_gps = FALSE;
 #endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -495,9 +499,9 @@ gint read_config(AppletConfig * config) {
         add_gps_event(1);
     } else
         config->gps_station = FALSE;
-#ifdef OS2009
+//#ifdef OS2009
         config->gps_station = TRUE;
-#endif
+//#endif
 #endif
 
     /* Get Weather font color. */

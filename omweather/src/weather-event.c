@@ -48,7 +48,7 @@ timer_handler(gpointer data){
 #ifdef ENABLE_GPS
     gchar               buffer[2048];
 #endif
-    double ddebug;
+    double distance;
 #ifdef DEBUGEVENTS
     char                *temp_string;
 #endif
@@ -126,20 +126,16 @@ timer_handler(gpointer data){
                                                     app->temporary_station_latitude,app->temporary_station_longtitude));
 
 */
-                ddebug = calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
+                distance = calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
                                                     app->temporary_station_latitude,app->temporary_station_longtitude);
                 sprintf(buffer,"Event:  Calculate CHECK_GPS_POSITION %f %f %f %f %f\n",
                                     app->gps_station.latitude,app->gps_station.longtitude,
                                     app->temporary_station_latitude,app->temporary_station_longtitude,
-                                    ddebug);
+                                    distance);
                 write_log(buffer);
 //                write_log(app->gps_station.name);
 
-                if (calculate_distance
-                    (app->gps_station.latitude,
-                     app->gps_station.longtitude,
-                     app->temporary_station_latitude,
-                     app->temporary_station_longtitude) > 10) {
+                if (distance > 10 || distance < 0) {
 
                     get_nearest_station
                         (app->temporary_station_latitude,

@@ -44,12 +44,8 @@ void show_detailes_of_current_day_button_handler(GtkWidget *button, GdkEventButt
                                                             gpointer user_data);
 void show_collapsed_day_button_handler(GtkWidget *button, GdkEventButton *event,
                                                             gpointer user_data);
-<<<<<<< .mine
-//HildonAppMenu* create_view_menu(void);
-=======
 #if defined OS2009
 HildonAppMenu* create_view_menu(void);
->>>>>>> .r3018
 #endif
 /*******************************************************************************/
 #endif

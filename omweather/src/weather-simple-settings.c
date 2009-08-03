@@ -1597,20 +1597,12 @@ create_and_fill_update_box(GtkWidget *main_table){
 void
 create_and_fill_widget_style_box(GtkWidget *main_table){
     GtkWidget       *widget_style_button = NULL,
-<<<<<<< .mine
                     *widget_style_icon = NULL,
                     *widget_style_description = NULL,
                     *widget_style_label = NULL,
                     *widget_style_vbox = NULL,
                     *widget_style_hbox = NULL,
                     *alignmnet = NULL;
-=======
-                    *widget_style_description = NULL,
-                    *widget_style_label = NULL,
-                    *widget_style_hbox = NULL,
-                    *widget_style_vbox = NULL,
-                    *widget_style_icon = NULL;
->>>>>>> .r3018
     GdkPixbuf       *icon_buffer = NULL;
     gchar           buffer[256],
                     *widget_style_string = NULL;

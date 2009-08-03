@@ -30,15 +30,11 @@
 #include "weather-popup.h"
 /*******************************************************************************/
 void
-simple_settings_button_handler(GtkWidget *button, GdkEventButton *event,
-                                    gpointer user_data){
+simple_settings_button_handler(GtkWidget *button, GtkLabel *label){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-/*    if(user_data)
-        gtk_widget_destroy(GTK_WIDGET(user_data));
-*/
-    weather_simple_window_settings(user_data);
+    weather_simple_window_settings(NULL);
 }
 /*******************************************************************************/
 GtkWidget*
@@ -184,7 +180,8 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
     gtk_table_attach((GtkTable*)main_table, help_button,
                                 1, 3, 5, 6, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 5, 0 );
-
+    g_signal_connect_after(help_button, "clicked",
+                        G_CALLBACK(about_button_handler), NULL);
     vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(vertical3_alignmnet, -1, 20);
     gtk_table_attach((GtkTable*)main_table, vertical3_alignmnet,

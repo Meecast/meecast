@@ -178,8 +178,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                     *line_hbox = NULL,
                     *line_text = NULL,
                     *line = NULL,
-                    *label = NULL,
-                    *vscrollbar = NULL;
+                    *label = NULL;
     GdkPixbuf       *icon_buffer;
     GtkWidget       *icon_image;
     const gchar     *wind_units_str[] = { "m/s", "km/h", "mi/h" };
@@ -210,7 +209,6 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                                    GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
     vscrollbar = gtk_scrolled_window_get_vscrollbar(scrolled_window);
     hildon_helper_set_thumb_scrollbar (scrolled_window, TRUE);
-/*    gtk_widget_set_size_request(vscrollbar, 50, -1);*/
     /* pack childs to the scrolled window */
 #endif
     gtk_scrolled_window_add_with_viewport(scrolled_window, main_vbox);
@@ -354,15 +352,12 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
     GtkWidget           *day_widget = NULL,
                         *current_widget = NULL,
                         *main_vbox = NULL,
-                        *line = NULL,
-                        *window = NULL;
+                        *line = NULL;
     gchar               *day_name = NULL;
     time_t              current_time = 0,
                         diff_time,
                         current_data_last_update = 0;
-    GtkWidget           *scrolled_window = NULL,
-                        *vscrollbar = NULL,
-                        *view = NULL;
+    GtkWidget           *scrolled_window = NULL;
     GSList              *tmp = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -384,12 +379,12 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
 #endif
     gtk_widget_set_size_request(scrolled_window, -1, -1);
     if(!app->station_data)
-        return;
+        return NULL;
     location = (GHashTable*)g_hash_table_lookup(app->station_data, "location");
     current = (GHashTable*)g_hash_table_lookup(app->station_data, "current");
     days = (GSList*)g_hash_table_lookup(app->station_data, "forecast");
     if(!current || !days || !location)
-        return;
+        return NULL;
 
     if(day_number == 0){ /* if selected Today, than adding Now, if it aviable */
         /* prepare for Now data */
@@ -702,58 +697,21 @@ HildonAppMenu*
 create_view_menu(void){
     HildonAppMenu       *menu = NULL;
     GtkWidget           *menu_item;
-    GtkAction           *test1,
-                        *test2,
-                        *test3,
-                        *test4;
-    gboolean            valid = FALSE;
-    GtkTreeIter         iter;
-    gchar               *station_name = NULL,
-                        *station_code = NULL,
-                        *station_source = NULL,
-                        *station_country = NULL,
-                        *station_region = NULL;
-    gint                station_country_id,
-                        station_region_id;
-    gboolean            is_gps;
-    gint                station_number = 0;
-
     menu = hildon_app_menu_new();
     /* settings item */
-    menu_item = gtk_button_new_with_label(_("Settings"));
-    g_signal_connect(G_OBJECT(menu_item), "button-release-event",
+    menu_item = hildon_gtk_button_new(HILDON_SIZE_AUTO);
+    gtk_button_set_label(GTK_BUTTON(menu_item), _("Settings"));
+    g_signal_connect_after(menu_item, "clicked",
                         G_CALLBACK(simple_settings_button_handler), NULL);
     gtk_widget_show_all(menu_item);
     hildon_app_menu_append(menu, GTK_BUTTON(menu_item));
     /* help item */
-    menu_item = gtk_button_new_with_label(_("About"));
-    g_signal_connect(G_OBJECT(menu_item), "button-release-event",
+    menu_item = hildon_gtk_button_new(HILDON_SIZE_AUTO);
+    gtk_button_set_label(GTK_BUTTON(menu_item), _("About"));
+    g_signal_connect_after(menu_item, "clicked",
                         G_CALLBACK(about_button_handler), NULL);
     gtk_widget_show_all(menu_item);
     hildon_app_menu_append(menu, GTK_BUTTON(menu_item));
-/*
-    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list), &iter);
-    while(valid){
-        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
-                           &iter,
-                           0, &station_name,
-                           1, &station_code,
-                           2, &is_gps,
-                           3, &station_source, -1);
-
-        menu_item = gtk_button_new_with_label(station_name);
-//        g_signal_connect(G_OBJECT(menu_item), "button-release-event",
-//                     G_CALLBACK(simple_settings_button_handler),
-//                     (gpointer)window);
-        gtk_widget_show_all(GTK_WIDGET(menu_item));
-        hildon_app_menu_append(menu, menu_item);
-
-        valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
-        station_number++;
-        if(station_number > 3)
-            break;
-    }
-*/
     gtk_widget_show_all(GTK_WIDGET(menu));
     return menu;
 }

@@ -32,6 +32,6 @@
 /*******************************************************************************/
 void weather_simple_window_status(GtkWidget *widget, gpointer user_data);
 GtkWidget* create_stations_buttons(void);
-void simple_settings_button_handler(GtkWidget *button, GtkLabel *label);
+void simple_settings_button_handler(GtkWidget *button, gpointer user_data);
 /*******************************************************************************/
 #endif

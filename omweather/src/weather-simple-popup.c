@@ -697,7 +697,7 @@ HildonAppMenu*
 create_view_menu(void){
     HildonAppMenu       *menu = NULL;
     GtkWidget           *menu_item;
-    menu = hildon_app_menu_new();
+    menu = HILDON_APP_MENU(hildon_app_menu_new());
     /* settings item */
     menu_item = hildon_gtk_button_new(HILDON_SIZE_AUTO);
     gtk_button_set_label(GTK_BUTTON(menu_item), _("Settings"));

@@ -30,11 +30,11 @@
 #include "weather-popup.h"
 /*******************************************************************************/
 void
-simple_settings_button_handler(GtkWidget *button, GtkLabel *label){
+simple_settings_button_handler(GtkWidget *button, gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    weather_simple_window_settings(NULL);
+    weather_simple_window_settings(user_data);
 }
 /*******************************************************************************/
 GtkWidget*

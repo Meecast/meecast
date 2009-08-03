@@ -71,7 +71,6 @@ create_sources_list(gchar *sources_path, gint *sources_number, GSList **handles)
                 gtk_list_store_set(list, &iter, 0, value,
                           1, (gpointer)source,
                           -1);
-
                 counter++;
             }
         }

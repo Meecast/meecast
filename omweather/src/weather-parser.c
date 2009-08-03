@@ -203,6 +203,7 @@ gint parse_weather_com_xml(const gchar *station_id, weather_com_parser *parser,
 		snprintf(id_station,
 			    sizeof(id_station) - 1,
 			    "%s", temp_xml_string);
+		fprintf(stderr, "\n<<<<<<<<<<<<<<<<<<ID_STATION %s\n", temp_xml_string);
 		xmlFree(temp_xml_string);
 		/* If station in xml not station in config file exit */ 
 		if( strcmp(id_station, station_id) ){

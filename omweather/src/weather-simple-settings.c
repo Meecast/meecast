@@ -411,7 +411,8 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     GtkWidget               *window = NULL,
                             *main_table = NULL,
                             *list_view = NULL,
-                            *scrolled_window = NULL;
+                            *scrolled_window = NULL,
+                            *vbox = NULL;
     GtkWidget               *config = GTK_WIDGET(user_data);
     enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
     gint                    type_button = UNKNOWN;
@@ -444,7 +445,8 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
     /* This is a very serious error */
     if(!list)
-        return;
+       return;
+
     window = gtk_dialog_new_with_buttons(dialog_name, NULL,
                                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                                             NULL);
@@ -468,7 +470,12 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
         gtk_widget_set_name(list_view, "countries_list");
     }
     if (type_button == SOURCE){
-        list_view = create_tree_view(list->sources_list);
+        if(list->sources_list){
+            list_view = create_tree_view(list->sources_list);
+            fprintf(stderr, "\nSOURCES LIST %p\n", list->sources_list);
+            }
+        else
+            fprintf(stderr, "\nNO SOURCES LIST %p\n", list->sources_list);
         highlight_current_item((GtkTreeView*)list_view, list->sources_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_source"));
         gtk_widget_set_name(list_view, "sources_list");
     }
@@ -483,11 +490,11 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
         gtk_widget_set_name(list_view, "stations_list");
     }
 
-    gtk_container_add(GTK_CONTAINER(scrolled_window),
-                      GTK_WIDGET(list_view));
-
+    gtk_container_add((GtkContainer *)scrolled_window, (GtkWidget *)list_view);
+    
     gtk_table_attach_defaults(GTK_TABLE(main_table),
                               scrolled_window, 1, 2, 1, 2);
+
     g_object_set_data(G_OBJECT(window), "button", (gpointer)button);
     sel = gtk_tree_view_get_selection (GTK_TREE_VIEW (list_view));
 #if defined OS2009
@@ -1159,6 +1166,7 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
 
     gtk_widget_set_name(button, button_name);
     gtk_widget_set_size_request(button, 180, 80);
+    fprintf(stderr, "\nIn create button %s\n", button_name);
     g_signal_connect(G_OBJECT(button), "button-release-event",
                      G_CALLBACK(choose_button_handler), widget);
 
@@ -1589,11 +1597,20 @@ create_and_fill_update_box(GtkWidget *main_table){
 void
 create_and_fill_widget_style_box(GtkWidget *main_table){
     GtkWidget       *widget_style_button = NULL,
+<<<<<<< .mine
+                    *widget_style_icon = NULL,
+                    *widget_style_description = NULL,
+                    *widget_style_label = NULL,
+                    *widget_style_vbox = NULL,
+                    *widget_style_hbox = NULL,
+                    *alignmnet = NULL;
+=======
                     *widget_style_description = NULL,
                     *widget_style_label = NULL,
                     *widget_style_hbox = NULL,
                     *widget_style_vbox = NULL,
                     *widget_style_icon = NULL;
+>>>>>>> .r3018
     GdkPixbuf       *icon_buffer = NULL;
     gchar           buffer[256],
                     *widget_style_string = NULL;

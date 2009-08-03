@@ -593,6 +593,12 @@ gint parse_weather_com_xml_hour(const gchar *station_id,
 		  }
                   if( child_node->type == XML_ELEMENT_NODE  &&
                   (!xmlStrcmp(child_node->name, (const xmlChar *)"hour") )){
+                        /*Get hour's number*/
+                        temp_xml_string = xmlGetProp(child_node, (const xmlChar *)"h");
+                        memset(buff, 0, sizeof(buff));
+                        itm = create_item("hour_number", buff);
+                        xmlFree(temp_xml_string);
+                        add_item2object(&hour_weather, itm);
                         /*Get an hour*/
                         temp_xml_string = xmlGetProp(child_node, (const xmlChar *)"c");
                         /* prepare locale value for hour */

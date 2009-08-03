@@ -1276,6 +1276,8 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(manual_button), FALSE);
     gtk_box_pack_start (GTK_BOX (hbox), manual_button, TRUE, TRUE, 0);
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(manual_button), group);
+//    g_signal_connect(manual_button, "button-press-event",
+  //                      G_CALLBACK(manual_button_handler), NULL);
     gps_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(gps_button), gtk_label_new(_("GPS")));
     gtk_widget_set_size_request(gps_button, 174, 50);
@@ -1285,12 +1287,23 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_box_pack_start (GTK_BOX (hbox), gps_button, TRUE, TRUE, 0);
     gtk_widget_show (hbox);
     g_object_set_data(G_OBJECT(window), "gps", (gpointer)gps_button);
+  //  g_signal_connect(gps_button, "button-press-event",
+    //                    G_CALLBACK(gps_button_handler), NULL);
     if (g_object_get_data(G_OBJECT(button), "station_is_gps"))
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(gps_button),
                                      TRUE);
     else
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(manual_button),
                                      TRUE);
+//        if(gtk_toggle_button_get_active(manual_button)){
+            g_signal_connect(G_OBJECT(manual_button), "button-press-event",
+                                        G_CALLBACK(manual_button_handler), manual_button);
+  //      } 
+    //    else{
+        // if(gtk_toggle_button_get_active(gps_button))
+            g_signal_connect(G_OBJECT(gps_button), "button-press-event",
+                                            G_CALLBACK(gps_button_handler), gps_button);
+      //  }
 
 
     gtk_table_attach((GtkTable*)main_table, hbox,
@@ -1367,6 +1380,25 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
 }
 
+/*******************************************************************************/
+void manual_button_handler(GtkWidget *button, GdkEventButton *event,
+                                                                gpointer user_data){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button), TRUE);
+    fprintf(stderr, "\nMANUAL %p\n", (gpointer)user_data);
+}
+/*******************************************************************************/
+void gps_button_handler(GtkWidget *button, GdkEventButton *event,
+                                                                gpointer user_data){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button),
+                                          TRUE);
+    fprintf(stderr, "\nGPS %p\n", (gpointer)user_data);
+}
 /*******************************************************************************/
 GtkWidget*
 create_station_button(gint station_number, gchar* station_name_s, gchar *station_code_s, gchar *station_source_s,
@@ -1597,12 +1629,13 @@ create_and_fill_update_box(GtkWidget *main_table){
 void
 create_and_fill_widget_style_box(GtkWidget *main_table){
     GtkWidget       *widget_style_button = NULL,
-                    *widget_style_icon = NULL,
                     *widget_style_description = NULL,
                     *widget_style_label = NULL,
-                    *widget_style_vbox = NULL,
                     *widget_style_hbox = NULL,
+                    *widget_style_vbox = NULL,
+                    *widget_style_icon = NULL,
                     *alignmnet = NULL;
+
     GdkPixbuf       *icon_buffer = NULL;
     gchar           buffer[256],
                     *widget_style_string = NULL;

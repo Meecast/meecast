@@ -53,5 +53,7 @@ void update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer us
 void update_save(GtkWidget *window);
 void units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
 void units_save(GtkWidget *window);
+void manual_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
+void gps_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data);
 /*******************************************************************************/
 #endif

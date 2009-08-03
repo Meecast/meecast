@@ -178,7 +178,8 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                     *line_hbox = NULL,
                     *line_text = NULL,
                     *line = NULL,
-                    *label = NULL;
+                    *label = NULL,
+                    *vscrollbar = NULL;
     GdkPixbuf       *icon_buffer;
     GtkWidget       *icon_image;
     const gchar     *wind_units_str[] = { "m/s", "km/h", "mi/h" };
@@ -352,7 +353,8 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
     GtkWidget           *day_widget = NULL,
                         *current_widget = NULL,
                         *main_vbox = NULL,
-                        *line = NULL;
+                        *line = NULL,
+                        *vscrollbar = NULL;
     gchar               *day_name = NULL;
     time_t              current_time = 0,
                         diff_time,
@@ -501,7 +503,8 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
     GSList          *hours_weather = NULL;
     gint            i = 0,
                     hours_to_midnight = 0,
-                    timezone = 0;
+                    timezone = 0,
+                    count = 0;
     time_t          current_time,
                     hours_time,
                     utc_time;
@@ -509,7 +512,8 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                     prev_difference = -1;
     struct tm       tmp_tm = {0};
     size_t          date_size = 0;
-    gboolean        flag = FALSE;
+    gboolean        flag = FALSE,
+                    new_day = FALSE;
     struct tm       *gmt;
 
 #ifdef DEBUGFUNCTIONCALL
@@ -537,7 +541,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 
     fprintf(stderr,"sddddddddd\n");
 
-    current_time = time(NULL);
+/*    current_time = time(NULL);
 
     gmt = gmtime(&current_time);
     gmt->tm_isdst = 1;
@@ -546,13 +550,35 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                                                             "station_time_zone"));
     current_time = utc_time + 60 * 60 *timezone; 
 
+    fprintf(stderr, "\nTIME %d\n", current_time);*/
+
     if(hours_weather){
         while(hours_weather){
             hour_weather = (GHashTable*)hours_weather->data;
-           
+            
+            count++;
+
+          /*Get time in current location*/
+            current_time = time(NULL);
+            gmt = gmtime(&current_time);
+            gmt->tm_isdst = 1;
+            utc_time = mktime(gmt);
+            timezone = atol(g_hash_table_lookup(g_hash_table_lookup(app->station_data, 
+                                    "location"), "station_time_zone"));
+            current_time = utc_time + 60 * 60 *timezone;
+            fprintf(stderr, "\nTIME %d\n", current_time);
+
             *hour_last_update = 0;
             *buff = 0;
+            
+            /*Prepare date from xml file*/
+    
+//            *tmp = 0;
+  //          snprintf(tmp + strlen(tmp), "%c",
+    //                                (char)g_hash_table_lookup(hour_weather, "hour_number"));
 
+            fprintf(stderr, "\ntmp %c", tmp);
+            
             snprintf(hour_last_update + strlen(hour_last_update), "%s",
                     (char*)g_hash_table_lookup(g_hash_table_lookup(app->station_data, 
                                                "detail"), "last_update"));
@@ -567,11 +593,23 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
             strcat(hour_last_update, ":00:00");
 
             strptime(hour_last_update, "%D %T", &tmp_tm);
+            fprintf(stderr, "\nhour_last_update %s\n", hour_last_update);
             hours_time = mktime(&tmp_tm);
+            if((count > 1) && 
+                        (!strcmp((char*)g_hash_table_lookup(hour_weather, "hours"), "00")))
+                new_day = TRUE;
+            if(new_day)
+                hours_time += 24*60*60;
+            fprintf(stderr, "\nhours_time %d\n", hours_time);
             difference = difftime(hours_time, current_time);
+
+//            fprintf(stderr, "\nhours_time %d\n", hours_time);
+  //          fprintf(stderr, "\nDIFF %f\n", difference);
             
             if((difference < 0 && difference > -60*60) || flag|| difference >= 0 ||
                                       (prev_difference > 0 &&  difference<0)) {
+
+//                fprintf(stderr, "\nHOURS %d\n", hours_time);
                 flag = TRUE;                
                 
                 line = gtk_event_box_new();

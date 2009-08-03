@@ -541,17 +541,6 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 
     fprintf(stderr,"sddddddddd\n");
 
-/*    current_time = time(NULL);
-
-    gmt = gmtime(&current_time);
-    gmt->tm_isdst = 1;
-    utc_time = mktime(gmt);
-    timezone = atol(g_hash_table_lookup(g_hash_table_lookup(app->station_data, "location"),
-                                                            "station_time_zone"));
-    current_time = utc_time + 60 * 60 *timezone; 
-
-    fprintf(stderr, "\nTIME %d\n", current_time);*/
-
     if(hours_weather){
         while(hours_weather){
             hour_weather = (GHashTable*)hours_weather->data;
@@ -573,12 +562,6 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
             
             /*Prepare date from xml file*/
     
-//            *tmp = 0;
-  //          snprintf(tmp + strlen(tmp), "%c",
-    //                                (char)g_hash_table_lookup(hour_weather, "hour_number"));
-
-            fprintf(stderr, "\ntmp %c", tmp);
-            
             snprintf(hour_last_update + strlen(hour_last_update), "%s",
                     (char*)g_hash_table_lookup(g_hash_table_lookup(app->station_data, 
                                                "detail"), "last_update"));
@@ -603,14 +586,10 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
             fprintf(stderr, "\nhours_time %d\n", hours_time);
             difference = difftime(hours_time, current_time);
 
-//            fprintf(stderr, "\nhours_time %d\n", hours_time);
-  //          fprintf(stderr, "\nDIFF %f\n", difference);
-            
-            if((difference < 0 && difference > -60*60) || flag|| difference >= 0 ||
+            if((difference < 0 && difference > -60*60) || difference >= 0 ||
                                       (prev_difference > 0 &&  difference<0)) {
 
-//                fprintf(stderr, "\nHOURS %d\n", hours_time);
-                flag = TRUE;                
+               // fprintf(stderr, "\nHOURS %d\n", hours_time);
                 
                 line = gtk_event_box_new();
                 icon_text_hbox = gtk_hbox_new(FALSE, 0);

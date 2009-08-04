@@ -1280,7 +1280,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_box_pack_start (GTK_BOX (hbox), manual_button, TRUE, TRUE, 0);
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(manual_button), group);
     //
-    g_object_set_data(G_OBJECT(window), "manual_button", (gpointer)g_object_get_data(G_OBJECT     (manual_button), "manual_button"));
+    g_object_set_data(G_OBJECT(window), "manual_button", manual_button);
     //
     gps_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(gps_button), gtk_label_new(_("GPS")));
@@ -1403,8 +1403,6 @@ void manual_button_handler(GtkWidget *window, GdkEventButton *event,
 
     station_button = (GtkWidget *)g_object_get_data(G_OBJECT(user_data),"station_button");
     gtk_widget_set_sensitive(station_button, TRUE);
-
-    fprintf(stderr, "\nMANUAL %p\n", (gpointer)user_data);
 }
 /*******************************************************************************/
 void gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_data){
@@ -1417,6 +1415,7 @@ void gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_
     GtkTreeIter     iter;
     gboolean        valid = FALSE,
                     gps = FALSE;
+    gint	    result;
 //#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 //#endif
@@ -1428,7 +1427,6 @@ void gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_
             gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list), &iter, 0,
                                               &gps, -1);
             if(!gps){
-                g_free(gps);
                 valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
                                                                                     &iter);
             }
@@ -1441,19 +1439,18 @@ void gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_
         fprintf(stderr, "\nIS GPS %p\n", (gpointer)user_data);
         dialog_window = gtk_dialog_new_with_buttons(_("Configuring station"), NULL,
                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
-        label = gtk_label_new(_("GPS station is already exist.\nUse Manual button to add new station."));
+        label = gtk_label_new(_("GPS station is already exist.\nOnly one station can be received via GPS"));
         set_font(label, NULL, 20);
         gtk_container_add (GTK_CONTAINER (GTK_DIALOG(dialog_window)->vbox), label);
+        gtk_dialog_add_button (GTK_DIALOG (dialog_window), GTK_STOCK_OK, GTK_RESPONSE_OK);
 
         gtk_widget_show_all(dialog_window);
-        
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(window), FALSE);
+         /* start dialog window */
+        result = gtk_dialog_run(GTK_DIALOG(dialog_window));
+        gtk_widget_destroy(dialog_window);
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(g_object_get_data(G_OBJECT(user_data), "manual_button")), TRUE);
 
-        g_signal_connect(dialog_window, "response",
-                                         G_CALLBACK(manual_button_handler), window);
-    }
-    
-    else{
+    }else{
         source_button = (GtkWidget *)g_object_get_data(G_OBJECT(user_data),"source_button");
         gtk_widget_set_sensitive(source_button, FALSE);
 
@@ -1466,8 +1463,6 @@ void gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_
         station_button = (GtkWidget *)g_object_get_data(G_OBJECT(user_data),"station_button");
         gtk_widget_set_sensitive(station_button, FALSE);
     }
-
-    fprintf(stderr, "\nGPS %p\n", (gpointer)user_data);
 }
 /*******************************************************************************/
 GtkWidget*

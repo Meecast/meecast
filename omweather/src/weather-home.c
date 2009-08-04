@@ -760,13 +760,12 @@ redraw_home_window(gboolean first_start){
         if(app->station_data)
             g_hash_table_remove_all(app->station_data);
         count_day = parser(buffer, app->station_data, FALSE);
-        fprintf(stderr, "\n>>>>>>>>>>>>>>>>Days count = %d from new parser.", count_day);
         /* detail data */
         if(app->config->show_weather_for_two_hours){
             *buffer = 0;
             snprintf(buffer, sizeof(buffer) - 1, "%s/%s_hour.xml",
                         app->config->cache_dir_name, app->config->current_station_id);
-            fprintf(stderr, "\n>>>>>>>>Hours %d\n", parser(buffer, app->station_data, TRUE));
+            parser(buffer, app->station_data, TRUE);
         }
     }
     if(count_day == -2){

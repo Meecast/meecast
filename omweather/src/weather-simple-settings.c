@@ -1224,6 +1224,8 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     g_object_set_data(G_OBJECT(window), "station_country", (gpointer)g_object_get_data(G_OBJECT(button), "station_country"));
     g_object_set_data(G_OBJECT(window), "station_source", (gpointer)g_object_get_data(G_OBJECT(button), "station_source"));
     g_object_set_data(G_OBJECT(window), "station_number", (gpointer)g_object_get_data(G_OBJECT(button), "station_number"));
+    g_object_set_data(G_OBJECT(window), "station_name", (gpointer)g_object_get_data(G_OBJECT(button), "station_name"));
+    g_object_set_data(G_OBJECT(window), "station_code", (gpointer)g_object_get_data(G_OBJECT(button), "station_code"));
     g_object_set_data(G_OBJECT(window), "settings_window_table", (gpointer)g_object_get_data(G_OBJECT(button), "settings_window_table"));
     g_object_set_data(G_OBJECT(window), "station_box", (gpointer)g_object_get_data(G_OBJECT(button), "station_box"));
     g_object_set_data(G_OBJECT(window), "station_is_gps", (gpointer)g_object_get_data(G_OBJECT(button), "station_is_gps"));
@@ -1366,6 +1368,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
     gtk_widget_show_all(window);
 
+
     /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(window));
 
@@ -1424,7 +1427,7 @@ void gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list), &iter);
     if(valid){
         while(valid){
-            gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list), &iter, 0,
+            gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list), &iter, 2,
                                               &gps, -1);
             if(!gps){
                 valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
@@ -1436,7 +1439,6 @@ void gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_
     }
 
     if(gps){
-        fprintf(stderr, "\nIS GPS %p\n", (gpointer)user_data);
         dialog_window = gtk_dialog_new_with_buttons(_("Configuring station"), NULL,
                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
         label = gtk_label_new(_("GPS station is already exist.\nOnly one station can be received via GPS"));

@@ -181,8 +181,9 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
             /* station name */
             temp2 = strtok(temp1, "@"); /* Delimiter - @ */
             if (temp2)          /* Check random error */
-                if (strlen(temp2) > 0)
+                if (strlen(temp2) > 0){
                     station_code = g_strdup(temp2);
+                }
             /* station code */
             temp2 = strtok(NULL, "@");  /* Delimiter - @ */
             if (temp2)
@@ -191,7 +192,14 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
             temp3 = strtok(NULL, "@");
             if (temp3)
                 station_source = g_strdup(temp3);
+            /* weather.com by default */
+            if (!station_source || (!strcmp(station_source,"(null)"))){
+                if (station_source)
+                   g_free(station_source);
+                station_source = g_strdup("weather.com");
+            }
 
+	    fprintf(stderr,"%s : %s : %s \n", station_code, station_name, station_source );
 #ifdef ENABLE_GPS
             /* gps or manual station */
             temp4 = strtok(NULL, "@");
@@ -273,6 +281,23 @@ GSList *create_stations_string_list(void) {
             type_of_station = 'G';
         else
             type_of_station = 'M';
+
+        if (!station_source || (!strcmp(station_source,"(null)"))){
+                if (station_source)
+                   g_free(station_source);
+                station_source = g_strdup("weather.com");
+        }
+        if (!station_name || (!strcmp(station_name,"(null)"))){
+                if (station_name)
+                   g_free(station_name);
+                station_name = g_strdup(" ");
+        }
+        if (!station_code || (!strcmp(station_code,"(null)"))){
+                if (station_code)
+                   g_free(station_code);
+                station_code = g_strdup(" ");
+        }
+
         str = g_strdup_printf("%s@%s@%s@%c", station_code, station_name,
                               station_source, type_of_station);
         stlist = g_slist_append(stlist, str);

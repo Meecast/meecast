@@ -348,9 +348,9 @@ save_station(GtkWidget *window){
     gchar           *station_name = NULL,
                     *station_code = NULL,
                     *station_source = NULL;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
     if (gtk_toggle_button_get_active(g_object_get_data(G_OBJECT(window), "gps")))
         is_gps = TRUE;
@@ -370,7 +370,6 @@ save_station(GtkWidget *window){
                            1, &station_code,
                            2, &is_gps,
                            3, &station_source, -1);
-
           delete_station_from_user_list(station_name, NULL);
     }else{
         /* update current station code */
@@ -398,6 +397,10 @@ save_station(GtkWidget *window){
     gtk_table_attach((GtkTable*)(g_object_get_data(G_OBJECT(window), "settings_window_table")),
                                 stations_box, 1, 2, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 
 }
 /*******************************************************************************/

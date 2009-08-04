@@ -521,6 +521,10 @@ delete_station_from_user_list(gchar *station_selected, gpointer user_data) {
                 *station_code = NULL,
                 *station_source = NULL;
     GtkTreePath *path;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
 #ifdef ENABLE_GPS
     gboolean is_gps = FALSE;
 #endif
@@ -536,7 +540,7 @@ delete_station_from_user_list(gchar *station_selected, gpointer user_data) {
                            0, &station_name, 1, &station_code,
 #endif
                            -1);
-        if (!strcmp(station_name, station_selected)) {
+        if (station_name && station_selected && !strcmp(station_name, station_selected)) {
             path =
                 gtk_tree_model_get_path(GTK_TREE_MODEL
                                         (app->user_stations_list), &iter);
@@ -643,6 +647,9 @@ delete_station_from_user_list(gchar *station_selected, gpointer user_data) {
     /* Update config file */
     config_save(app->config);
 
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 /*******************************************************************************/
 /* Preparing for deleting */

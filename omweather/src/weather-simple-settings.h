@@ -55,5 +55,6 @@ void units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer use
 void units_save(GtkWidget *window);
 void manual_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_data);
 void gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_data);
+void delete_station_from_user_list(gchar *station_selected, gpointer user_data);
 /*******************************************************************************/
 #endif

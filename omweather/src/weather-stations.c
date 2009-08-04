@@ -343,13 +343,11 @@ GtkListStore* create_countries_list(sqlite3 *database){
     gint		rc;
     gchar		*errMsg = NULL;
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
-    fprintf(stderr,"ddddddddddddd\n");
+#endif
     if(!database)
         return NULL;    /* database doesn't open */
-    fprintf(stderr,"dddddddddddddaa\n");
     list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
     rc = sqlite3_exec(database, "SELECT * FROM countries ORDER BY name",
 			countries_callback, (void*)list, &errMsg);
@@ -685,10 +683,8 @@ int countries_callback(void *user_data, int argc, char **argv, char **azColName)
     for(i = 0; i < argc; i++){
         if(!strcmp(azColName[i], "id"))
           gtk_list_store_set(list, &iter, 1, atoi(argv[i]), -1);
-        if(!strcmp(azColName[i], "name")){
+        if(!strcmp(azColName[i], "name"))
           gtk_list_store_set(list, &iter, 0, argv[i], -1);
-          fprintf(stderr,"azColName[i] %s \n", argv[i]);
-        }
     }
     return 0;
 }

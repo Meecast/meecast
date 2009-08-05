@@ -364,13 +364,7 @@ save_station(GtkWidget *window){
                                       GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_number")));
     valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
     if (valid){
-          gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
-                           &iter,
-                           0, &station_name,
-                           1, &station_code,
-                           2, &is_gps,
-                           3, &station_source, -1);
-          delete_station_from_user_list(station_name, NULL);
+          delete_station_from_user_list_using_iter(iter);
     }else{
         /* update current station code */
         if (app->config->current_station_id)
@@ -1122,7 +1116,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
 
-    label_set = gtk_label_new(_("Use GSM and/or WLAN for automatically\n  updating the weather information\n after connection to Internet."));
+    label_set = gtk_label_new(_("Use GSM and/or WLAN for updating\n the weather information.\n"));
     set_font(label_set, NULL, 20);
     gtk_widget_set_size_request(label_set, 120, -1);
     gtk_table_attach((GtkTable*)main_table, label_set,

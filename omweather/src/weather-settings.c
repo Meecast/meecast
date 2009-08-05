@@ -509,9 +509,116 @@ new_station_handler(GtkButton *button, gpointer user_data){
 	close_database(list.database);
 }
 /*******************************************************************************/
-/* Delete station from list */
+/* Delete station from list using iter  */
 void
-delete_station_from_user_list(gchar *station_selected, gpointer user_data) {
+delete_station_from_user_list_using_iter(GtkTreeIter iter)
+{
+    gchar       *station_name = NULL,
+                *station_code = NULL,
+                *station_source = NULL;
+    GtkTreePath *path;
+    gboolean valid = FALSE;
+#ifdef ENABLE_GPS
+    gboolean is_gps = FALSE;
+#endif
+
+//#iffdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+
+    path = gtk_tree_model_get_path(GTK_TREE_MODEL
+                                        (app->user_stations_list), &iter);
+#if defined(ENABLE_GPS)
+            if (is_gps) {
+                /* Reset gps station */
+                app->gps_station.id0[0] = 0;
+                app->gps_station.name[0] = 0;
+                app->gps_station.latitude = 0;
+                app->gps_station.longtitude = 0;
+            }
+#endif
+            /* delete selected station */
+            gtk_list_store_remove(app->user_stations_list, &iter);
+            /* try to get previos station data */
+            if (gtk_tree_path_prev(path)) {
+                valid =
+                    gtk_tree_model_get_iter(GTK_TREE_MODEL
+                                            (app->user_stations_list),
+                                            &iter, path);
+                if (valid) {
+                    /* set current station */
+                    gtk_tree_model_get(GTK_TREE_MODEL
+                                       (app->user_stations_list),
+                                       &iter, 0, &station_name, 1,
+                                       &station_code, 3, &station_source,
+                                       -1);
+                    /* update current station code */
+                    if (app->config->current_station_id)
+                        g_free(app->config->current_station_id);
+                    app->config->current_station_id = station_code;
+                    /* update current station name */
+                    if (app->config->current_station_name)
+                        g_free(app->config->current_station_name);
+                    app->config->current_station_name = station_name;
+                    app->config->previos_days_to_show =
+                        app->config->days_to_show;
+                    if(app->config->current_station_source)
+                        g_free(app->config->current_station_source);
+                    app->config->current_station_source = station_source;
+                } else
+                    gtk_tree_path_free(path);
+            } else {            /* try to get next station */
+                valid =
+                    gtk_tree_model_get_iter(GTK_TREE_MODEL
+                                            (app->user_stations_list),
+                                            &iter, path);
+                if (valid) {
+                    /* set current station */
+                    gtk_tree_model_get(GTK_TREE_MODEL
+                                       (app->user_stations_list),
+                                       &iter, 0, &station_name, 1,
+                                       &station_code, 3, &station_source,
+                                       -1);
+                    /* update current station code */
+                    if (app->config->current_station_id)
+                        g_free(app->config->current_station_id);
+                    app->config->current_station_id = station_code;
+                    /* update current station name */
+                    if (app->config->current_station_name)
+                        g_free(app->config->current_station_name);
+
+                    app->config->current_station_name = station_name;
+                    app->config->previos_days_to_show =
+                        app->config->days_to_show;
+                    if(app->config->current_station_source)
+                        g_free(app->config->current_station_source);
+                    app->config->current_station_source = station_source;
+                } else {        /* if no next station than set current station to NO STATION */
+                    /* update current station code */
+                    gtk_tree_path_free(path);
+                    if (app->config->current_station_id)
+                        g_free(app->config->current_station_id);
+                    app->config->current_station_id = NULL;
+                    /* update current station name */
+                    if (app->config->current_station_name)
+                        g_free(app->config->current_station_name);
+                    app->config->current_station_name = NULL;
+                    app->config->previos_days_to_show =
+                        app->config->days_to_show;
+                    if(app->config->current_station_source)
+                        g_free(app->config->current_station_source);
+                    app->config->current_station_source = NULL;
+                }
+            }
+//#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+//#endif
+
+}
+/*******************************************************************************/
+/* Delete station from list using station_name */
+void
+delete_station_from_user_list_using_station_name(gchar *station_selected, gpointer user_data) {
     GtkWidget   *config = GTK_WIDGET(user_data),
                 *rename_entry = NULL;
 
@@ -541,99 +648,13 @@ delete_station_from_user_list(gchar *station_selected, gpointer user_data) {
 #endif
                            -1);
         if (station_name && station_selected && !strcmp(station_name, station_selected)) {
-            path =
-                gtk_tree_model_get_path(GTK_TREE_MODEL
-                                        (app->user_stations_list), &iter);
-#if defined(ENABLE_GPS)
-            if (is_gps) {
-                /* Reset gps station */
-                app->gps_station.id0[0] = 0;
-                app->gps_station.name[0] = 0;
-                app->gps_station.latitude = 0;
-                app->gps_station.longtitude = 0;
-            }
-#endif
-            /* delete selected station */
-            gtk_list_store_remove(app->user_stations_list, &iter);
+            delete_station_from_user_list_using_iter(iter);
             g_free(station_name);
             g_free(station_code);
-            /* try to get previos station data */
-            if (gtk_tree_path_prev(path)) {
-                valid =
-                    gtk_tree_model_get_iter(GTK_TREE_MODEL
-                                            (app->user_stations_list),
-                                            &iter, path);
-                if (valid) {
-                    /* set current station */
-                    gtk_tree_model_get(GTK_TREE_MODEL
-                                       (app->user_stations_list),
-                                       &iter, 0, &station_name, 1,
-                                       &station_code, 3, &station_source,
-                                       -1);
-                    /* update current station code */
-                    if (app->config->current_station_id)
-                        g_free(app->config->current_station_id);
-                    app->config->current_station_id = station_code;
-                    /* update current station name */
-                    if (app->config->current_station_name)
-                        g_free(app->config->current_station_name);
-                    app->config->current_station_name = station_name;
-                    app->config->previos_days_to_show =
-                        app->config->days_to_show;
-                    if(app->config->current_station_source)
-                        g_free(app->config->current_station_source);
-                    app->config->current_station_source = station_source;
-                    break;
-                } else
-                    gtk_tree_path_free(path);
-            } else {            /* try to get next station */
-                valid =
-                    gtk_tree_model_get_iter(GTK_TREE_MODEL
-                                            (app->user_stations_list),
-                                            &iter, path);
-                if (valid) {
-                    /* set current station */
-                    gtk_tree_model_get(GTK_TREE_MODEL
-                                       (app->user_stations_list),
-                                       &iter, 0, &station_name, 1,
-                                       &station_code, 3, &station_source,
-                                       -1);
-                    /* update current station code */
-                    if (app->config->current_station_id)
-                        g_free(app->config->current_station_id);
-                    app->config->current_station_id = station_code;
-                    /* update current station name */
-                    if (app->config->current_station_name)
-                        g_free(app->config->current_station_name);
-
-                    app->config->current_station_name = station_name;
-                    app->config->previos_days_to_show =
-                        app->config->days_to_show;
-                    if(app->config->current_station_source)
-                        g_free(app->config->current_station_source);
-                    app->config->current_station_source = station_source;
-                    break;
-                } else {        /* if no next station than set current station to NO STATION */
-                    /* update current station code */
-                    gtk_tree_path_free(path);
-                    if (app->config->current_station_id)
-                        g_free(app->config->current_station_id);
-                    app->config->current_station_id = NULL;
-                    /* update current station name */
-                    if (app->config->current_station_name)
-                        g_free(app->config->current_station_name);
-                    app->config->current_station_name = NULL;
-                    app->config->previos_days_to_show =
-                        app->config->days_to_show;
-                    if(app->config->current_station_source)
-                        g_free(app->config->current_station_source);
-                    app->config->current_station_source = NULL;
-                    /* clear rename field */
-                    if(rename_entry)
+            /* clear rename field */
+            if(rename_entry &&  app->config->current_station_id  && !app->config->current_station_name)
                         gtk_entry_set_text((GtkEntry *) rename_entry, "");
-                    break;
-                }
-            }
+            break;
         } else {
             g_free(station_name);
             g_free(station_code);
@@ -695,8 +716,7 @@ delete_station_handler(GtkButton * button, gpointer user_data){
         return;
 
     gtk_tree_model_get(model, &iter, 0, &station_selected, -1);
-
-    delete_station_from_user_list(station_selected, config);
+    delete_station_from_user_list_using_station_name(station_selected, config);
     highlight_current_station(GTK_TREE_VIEW(station_list_view));
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

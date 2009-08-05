@@ -411,30 +411,30 @@ GtkListStore* create_stations_list(sqlite3 *database, int region_id){
     gchar		*errMsg = NULL;
     gchar		sql[256];
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
     if(!database || !region_id)
-	return NULL;	/* database doesn't open */
+        return NULL;/* database doesn't open */
 
     list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_DOUBLE,
-				G_TYPE_DOUBLE);
+        G_TYPE_DOUBLE);
     *sql = 0;
     snprintf(sql, sizeof(sql) - 1,
-		"SELECT name, code, longititude, latitude FROM stations WHERE \
-		region_id = %d ORDER BY name", region_id);
+        "SELECT name, code, longititude, latitude FROM stations WHERE \
+        region_id = %d ORDER BY name", region_id);
     rc = sqlite3_exec(database, sql, stations_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
 #ifndef RELEASE
-	    fprintf(stderr, "\n>>>>%s\n", errMsg);
+        fprintf(stderr, "\n>>>>%s\n", errMsg);
 #endif
-    	sqlite3_free(errMsg);
-	    return NULL;
+        sqlite3_free(errMsg);
+        return NULL;
     }
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
     return list;
 }
 
@@ -632,9 +632,9 @@ get_station_code(gchar *source, gint region_id, gchar *station_name){
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list), &iter);
     if(valid)
         gtk_tree_model_get(GTK_TREE_MODEL(list), &iter, 0, &code, -1);
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
     return code;
 }
 /*******************************************************************************/

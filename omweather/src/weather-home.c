@@ -196,11 +196,12 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
     gchar       *station_name = NULL,
                 *station_code = NULL,
                 *station_source = NULL;
-    GtkTreePath	*path;
+    gboolean    first = FALSE;
+    GtkTreePath *path;
     gint	day_number = 0;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     if (!(app->config->current_station_id))
         return FALSE;
 
@@ -214,6 +215,10 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
                             ID0_COLUMN, &station_code,
                             3, &station_source,
                             -1);
+        fprintf(stderr,"Station %s\n", station_name);
+        /* Skip Empty station */
+        if(ready && !strcmp(station_name, " " && !first))
+            ready = FALSE;
         if(ready){
             /* update current station code */
             if(app->config->current_station_id)
@@ -244,9 +249,11 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
 
             valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
                                         &iter, path);
-            if(!valid)
+            if(!valid){
                 valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                         &iter);
+                first = TRUE;
+            }
         }
     }
     gtk_tree_path_free(path);
@@ -262,6 +269,9 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
         destroy_popup_window(NULL);
         weather_window_popup(NULL, NULL, (gpointer)day_number);
     }
+//#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+//#endif
     return FALSE;
 }
 /*******************************************************************************/

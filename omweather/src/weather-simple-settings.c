@@ -340,7 +340,32 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
 }/*******************************************************************************/
 void
 clear_station(GtkWidget *window){
-    fprintf(stderr,"kkkkkkkkkkk\n");
+    GtkWidget       *dialog_window = NULL,
+                    *label = NULL;
+    gint result;
+
+	dialog_window = gtk_dialog_new_with_buttons(_("Warning"), NULL,
+			    GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
+	label = gtk_label_new(_("Are you sure?"));
+	set_font(label, NULL, 20);
+	gtk_container_add (GTK_CONTAINER (GTK_DIALOG(dialog_window)->vbox), label);
+	gtk_dialog_add_button (GTK_DIALOG (dialog_window), GTK_STOCK_NO, GTK_RESPONSE_NO);
+	gtk_dialog_add_button (GTK_DIALOG (dialog_window), GTK_STOCK_YES, GTK_RESPONSE_YES);
+
+	gtk_widget_show_all(dialog_window);
+
+	result = gtk_dialog_run(GTK_DIALOG(dialog_window));
+	if (result == GTK_RESPONSE_YES){
+		g_object_set_data(G_OBJECT(window), "station_name", " ");
+		g_object_set_data(G_OBJECT(window), "station_code", " ");
+		g_object_set_data(G_OBJECT(window), "station_source", " ");
+		gtk_toggle_button_set_active(g_object_get_data(G_OBJECT(window), "manual"), TRUE);
+		save_station(window);
+	}
+
+	if (dialog_window)
+		gtk_widget_destroy(dialog_window);
+
 }
 /*******************************************************************************/
 void

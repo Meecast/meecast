@@ -49,8 +49,10 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
 #else
     window = hildon_window_new();
 #endif
+
     gtk_window_set_title(GTK_WINDOW(window), _("Forecast"));
     main_vbox = gtk_vbox_new(FALSE, 0);
+    gtk_window_fullscreen (GTK_WINDOW (window));
     gtk_container_add(GTK_CONTAINER(window), main_vbox);
     gtk_widget_show(window);
     gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(), FALSE, TRUE, 0);
@@ -204,6 +206,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
 #else
     /* scrolled window */
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);
+//    gtk_widget_set_size_request(scrolled_window, 800, 400);
     gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
                                             GTK_SHADOW_NONE);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
@@ -213,7 +216,6 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
     /* pack childs to the scrolled window */
 #endif
     gtk_scrolled_window_add_with_viewport(scrolled_window, main_vbox);
-
 
     days = (GSList*)g_hash_table_lookup(app->station_data, "forecast");
     if(days){

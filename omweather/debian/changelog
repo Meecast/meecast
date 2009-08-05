@@ -1,8 +1,15 @@
+omweather (0.23.1) unstable; urgency=low
+
+  * Small fixes
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 05 Jun 2009 10:30:00 +0200
+
 omweather (0.23) unstable; urgency=low
 
   * New design
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 26 Jun 2009 20:30:00 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 05 Jun 2009 10:30:00 +0200
+
 
 omweather (0.22.4) unstable; urgency=low
 

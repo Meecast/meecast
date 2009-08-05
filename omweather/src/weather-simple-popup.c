@@ -52,7 +52,7 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
 
     gtk_window_set_title(GTK_WINDOW(window), _("Forecast"));
     main_vbox = gtk_vbox_new(FALSE, 0);
-    gtk_window_fullscreen (GTK_WINDOW (window));
+//    gtk_window_fullscreen (GTK_WINDOW (window));
     gtk_container_add(GTK_CONTAINER(window), main_vbox);
     gtk_widget_show(window);
     gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(), FALSE, TRUE, 0);

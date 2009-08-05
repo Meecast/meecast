@@ -125,7 +125,7 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
     gtk_widget_show (vertical1_alignmnet);
 
 
-    hbox_view_mode = gtk_hbox_new(TRUE, 0);
+/*    hbox_view_mode = gtk_hbox_new(TRUE, 0);
     group_view_mode = NULL;
     collapsed_button  = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(collapsed_button), gtk_label_new(_("Collapsed")));
@@ -149,7 +149,7 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
     gtk_table_attach((GtkTable*)main_table, hbox_view_mode,
                                 1, 3, 3, 4,
                                 GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 5, 0 );
+                                (GtkAttachOptions)0, 5, 0 );*/
 
     fprintf(stderr, "\n%d\n", app->config->view_mode);
 

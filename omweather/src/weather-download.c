@@ -282,6 +282,7 @@ download_html(gpointer data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+fprintf(stderr, "\nHTML %d\n", max);
     if(app->popup_window && app->show_update_window){
         if(app->config->mode == SIMPLE_MODE)
             destroy_popup_window(GINT_TO_POINTER(1));
@@ -664,4 +665,5 @@ check_current_connection(void)
         g_object_unref(gconf_client);
     }
 }
+/*******************************************************************************/
 /*******************************************************************************/

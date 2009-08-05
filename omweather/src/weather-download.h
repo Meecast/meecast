@@ -60,5 +60,6 @@ GtkWidget* create_window_update(void);
 #endif
 gboolean get_file(const gchar *full_url, const gchar *full_storing_name);
 void free_curl(void);
+void check_current_connection(void);
 /*******************************************************************************/
 #endif

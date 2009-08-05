@@ -31,5 +31,6 @@
 /*******************************************************************************/
 void weather_initialize_dbus(void);
 void weather_deinitialize_dbus(void);
+void check_current_connection(void);
 /*******************************************************************************/
 #endif

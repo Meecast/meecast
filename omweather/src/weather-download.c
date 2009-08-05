@@ -40,6 +40,7 @@
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
+#define GCONF_KEY_CURRENT_CONNECTIVITY  "/system/osso/connectivity/IAP/current"
 /*******************************************************************************/
 static gchar *url = NULL;
 static gchar *hour_url = NULL;
@@ -625,5 +626,42 @@ get_file(const gchar *full_url, const gchar *full_storing_name){
         return FALSE;
 
     return TRUE;
+}
+/*******************************************************************************/
+void
+check_current_connection(void)
+{
+    gchar *tmp = NULL;
+    gchar *tmp2 = NULL;
+    gchar *gconf_path = NULL;
+    gchar *type_of_connection = NULL;
+    GConfClient *gconf_client = NULL;
+
+    /* Check current connection */
+    gconf_client = gconf_client_get_default();
+    if (gconf_client) {
+        tmp = gconf_client_get_string(gconf_client,
+                                      GCONF_KEY_CURRENT_CONNECTIVITY,
+                                      NULL);
+        if (tmp) {
+            gconf_path = g_strdup_printf("/system/osso/connectivity/IAP/%s/type", tmp);
+            type_of_connection = gconf_client_get_string(gconf_client,
+                                      gconf_path,
+                                      NULL);
+            if ((type_of_connection && !strncmp(type_of_connection, "WLAN", 4) && app->config->update_wlan) ||
+                (type_of_connection && !strncmp(type_of_connection, "DUN_GSM", 7) && app->config->update_gsm))
+                app->iap_connected = TRUE;
+            else
+                app->iap_connected = FALSE;
+            if (gconf_path)
+                g_free(gconf_path);
+            if (type_of_connection);
+                g_free(type_of_connection);
+            g_free(tmp);
+        } else
+            app->iap_connected = FALSE;
+        gconf_client_clear_cache(gconf_client);
+        g_object_unref(gconf_client);
+    }
 }
 /*******************************************************************************/

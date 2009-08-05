@@ -482,7 +482,7 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     }
 
     gtk_container_add((GtkContainer *)scrolled_window, (GtkWidget *)list_view);
-    
+
     gtk_table_attach_defaults(GTK_TABLE(main_table),
                               scrolled_window, 1, 2, 1, 2);
 
@@ -1918,10 +1918,12 @@ weather_simple_window_settings(gpointer user_data){
 
 /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(window));
-    if (result == GTK_RESPONSE_YES)
+    if (result == GTK_RESPONSE_YES){
         /* Save config file */
         config_save(app->config);
-
+        /* Update information about connection to Internet */
+        check_current_connection();
+    }
     if (window)
         gtk_widget_destroy(window);
 #ifdef DEBUGFUNCTIONCALL

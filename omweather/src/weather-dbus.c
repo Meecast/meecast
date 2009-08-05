@@ -41,19 +41,17 @@
     #include "weather-portrait.h"
 #endif
 /*******************************************************************************/
-#define GCONF_KEY_CURRENT_CONNECTIVITY	"/system/osso/connectivity/IAP/current"
 #define MCE_MATCH_RULE "type='signal',interface='" MCE_SIGNAL_IF \
                         "',member='" MCE_DEVICE_ORIENTATION_SIG "'"
 /*******************************************************************************/
 void
 weather_initialize_dbus(void) {
 
-    gchar *tmp;
 #if defined USE_DBUS && !defined OS2008
     gchar *filter_string;
     DBusError error;
 #endif
-    GConfClient *gconf_client = NULL;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -62,21 +60,8 @@ weather_initialize_dbus(void) {
         app->iap_connecting = FALSE;
         app->iap_connected = FALSE;
         app->iap_connecting_timer = 0;
+        check_current_connection();
 
-        /* Check connection */
-        gconf_client = gconf_client_get_default();
-        if (gconf_client) {
-            tmp = gconf_client_get_string(gconf_client,
-                                          GCONF_KEY_CURRENT_CONNECTIVITY,
-                                          NULL);
-            if (tmp) {
-                app->iap_connected = TRUE;
-                g_free(tmp);
-            } else
-                app->iap_connected = FALSE;
-            gconf_client_clear_cache(gconf_client);
-            g_object_unref(gconf_client);
-        }
 #ifdef USE_CONIC
         app->connection = con_ic_connection_new();
         if (app->connection != NULL) {

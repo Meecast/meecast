@@ -127,7 +127,6 @@ get_nearest_station(double lat, double lon, Station *result){
                         result->name[sizeof(result->name) - 2] = 'S';
                         result->name[sizeof(result->name) - 1] = ')';
                     }
-                    write_log(result->name);
                     memset(result->id0, 0, sizeof(result->id0));
                     memcpy(result->id0, station_id0,
                            ((sizeof(result->id0) - 1) >
@@ -153,9 +152,9 @@ get_nearest_station(double lat, double lon, Station *result){
                                      (regions_list), &iter_region);
     }
     close_database(database);
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 }
 /*******************************************************************************/ 
 static void 
@@ -198,15 +197,12 @@ deinitial_gps_control(void){
 /*******************************************************************************/
 static void
 gps_location_changed(LocationGPSDevice * device, gpointer userdata){
-    gchar buffer[2048];
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if(!app->config->gps_station)
         return;
     if(device->fix->fields & LOCATION_GPS_DEVICE_LATLONG_SET){
-        sprintf(buffer,"CHANMGED:  GPS_POSITION  %f %f\n",device->fix->latitude, device->fix->longitude);
-        write_log(buffer);
         app->temporary_station_latitude = device->fix->latitude;
         app->temporary_station_longtitude = device->fix->longitude;
     }

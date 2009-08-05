@@ -414,9 +414,9 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
     gint                    type_button = UNKNOWN;
     GtkTreeSelection        *sel;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
     *dialog_name = 0;
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
@@ -431,12 +431,10 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     if(!strcmp("region_button", control_name)){
         type_button = STATE;
         snprintf(dialog_name, sizeof(dialog_name) - 1, _("Selecting region"));
-        fprintf(stderr, "\nregion_button %d\n", type_button);
     }
     if(!strcmp("station_button", control_name)){
         type_button = TOWN;
         snprintf(dialog_name, sizeof(dialog_name) - 1, _("Selecting station"));
-        fprintf(stderr, "\nstation_button %d\n", type_button);
     }
 
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
@@ -467,12 +465,8 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
         gtk_widget_set_name(list_view, "countries_list");
     }
     if (type_button == SOURCE){
-        if(list->sources_list){
+        if(list->sources_list)
             list_view = create_tree_view(list->sources_list);
-            fprintf(stderr, "\nSOURCES LIST %p\n", list->sources_list);
-            }
-        else
-            fprintf(stderr, "\nNO SOURCES LIST %p\n", list->sources_list);
         highlight_current_item((GtkTreeView*)list_view, list->sources_list, (gchar*)g_object_get_data(G_OBJECT(button), "station_source"));
         gtk_widget_set_name(list_view, "sources_list");
     }
@@ -510,9 +504,9 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     result = gtk_dialog_run(GTK_DIALOG(window));
     if (window)
         gtk_widget_destroy(window);
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 
 }
 /*******************************************************************************/
@@ -1163,7 +1157,6 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
 
     gtk_widget_set_name(button, button_name);
     gtk_widget_set_size_request(button, 180, 80);
-    fprintf(stderr, "\nIn create button %s\n", button_name);
     g_signal_connect(G_OBJECT(button), "button-release-event",
                      G_CALLBACK(choose_button_handler), widget);
 
@@ -1413,9 +1406,9 @@ void gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_
     gboolean        valid = FALSE,
                     gps = FALSE;
     gint	    result;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(window), TRUE);
 
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list), &iter);

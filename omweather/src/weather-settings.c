@@ -51,19 +51,14 @@ add_station_to_user_list(gchar *weather_station_name, gchar *weather_station_id,
                           gboolean is_gps, gchar *source, gint position){
 
     GtkTreeIter iter;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     /* Add station to stations list */
     if (position == -1)
         gtk_list_store_append(app->user_stations_list, &iter);
     else
         gtk_list_store_insert(app->user_stations_list, &iter, position);
-    write_log("BEFORE!!!!!!!!");
-    write_log(weather_station_name);
-    write_log(weather_station_id);
-    write_log(source);
-    write_log("first breakpoint in add_station\n");
     gtk_list_store_set(app->user_stations_list, &iter,
 #if defined(ENABLE_GPS)
                        0, weather_station_name,
@@ -75,7 +70,6 @@ add_station_to_user_list(gchar *weather_station_name, gchar *weather_station_id,
 #endif
                        3, source, -1);
 #ifdef ENABLE_GPS
-    write_log("second breakpoint in add_station\n");
     /* Set it station how current (for GPS stations) */
     if (is_gps && app->gps_must_be_current) {
         if (app->config->current_station_id != NULL)
@@ -86,9 +80,9 @@ add_station_to_user_list(gchar *weather_station_name, gchar *weather_station_id,
         app->config->current_station_name = g_strdup(weather_station_name);
     }
 #endif
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
     return iter;
 }
 /*******************************************************************************/
@@ -522,9 +516,9 @@ delete_station_from_user_list_using_iter(GtkTreeIter iter)
     gboolean is_gps = FALSE;
 #endif
 
-//#iffdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
     path = gtk_tree_model_get_path(GTK_TREE_MODEL
                                         (app->user_stations_list), &iter);
@@ -610,9 +604,9 @@ delete_station_from_user_list_using_iter(GtkTreeIter iter)
                     app->config->current_station_source = NULL;
                 }
             }
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 
 }
 /*******************************************************************************/

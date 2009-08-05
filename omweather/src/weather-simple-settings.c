@@ -337,6 +337,10 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
+}/*******************************************************************************/
+void
+clear_station(GtkWidget *window){
+    fprintf(stderr,"kkkkkkkkkkk\n");
 }
 /*******************************************************************************/
 void
@@ -1352,7 +1356,9 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
 
+    gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_CLEAR, GTK_RESPONSE_CANCEL);
     gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
+
     gtk_widget_show_all(window);
 
 
@@ -1361,6 +1367,8 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
     if (result == GTK_RESPONSE_YES)
         save_station(window);
+    if (result == GTK_RESPONSE_CANCEL)
+        clear_station(window);
     if (window)
         gtk_widget_destroy(window);
 

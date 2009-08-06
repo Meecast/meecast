@@ -34,14 +34,15 @@
 #include "weather-data.h"
 /*******************************************************************************/
 
+
 gboolean
 jump_panarea(gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    g_signal_connect((gpointer)user_data, "vertical-movement",
-                        G_CALLBACK(user_function), NULL);
+#if defined OS2009
     hildon_pannable_area_scroll_to_child(HILDON_PANNABLE_AREA (user_data), g_object_get_data(G_OBJECT(user_data), "selected_widget"));
+#endif
     return FALSE;
 }
 
@@ -88,7 +89,6 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
                         G_CALLBACK(destroy_popup_window), GINT_TO_POINTER(1));
     g_signal_connect((gpointer)app->popup_window, "delete_event",
                         G_CALLBACK(destroy_popup_window), GINT_TO_POINTER(1));
-    g_timeout_add(100, (GtkFunction) jump_panarea, view);
 
 }
 /*******************************************************************************/

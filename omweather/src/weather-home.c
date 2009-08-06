@@ -197,6 +197,7 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
                 *station_code = NULL,
                 *station_source = NULL;
     gboolean    first = FALSE;
+    gboolean    skipped = FALSE;
     GtkTreePath *path;
     gint        day_number = 0;
 #ifdef DEBUGFUNCTIONCALL
@@ -217,10 +218,12 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
                             -1);
         /* Skip Empty stations */
         if(ready && !strcmp(station_name, " ")){
+            skipped = TRUE;
             gtk_tree_path_next(path);
             valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
                                         &iter, path);
             if(!valid){
+                path = gtk_tree_path_new_first();
                 valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                         &iter);
                 if (first)
@@ -230,7 +233,6 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
             }
             continue;
         }
-  
         if(ready){
             /* update current station code */
             if(app->config->current_station_id)
@@ -251,7 +253,7 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
             break;
         }
         else{
-            if((app->config->current_station_name) && (station_name) &&
+            if(skipped || (app->config->current_station_name) && (station_name) &&
                   !strcmp(app->config->current_station_name, station_name))
                 ready = TRUE;
             g_free(station_name);
@@ -264,7 +266,6 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
             if(!valid){
                 valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                         &iter);
-                first = TRUE;
             }
         }
     }
@@ -298,10 +299,10 @@ change_station_select(GtkWidget *widget, gpointer user_data){
     START_FUNCTION;
 #endif
     if (!(app->config->current_station_id) || (!(char*)user_data))
-	return FALSE;
+        return FALSE;
 
     if(!strcmp((char*)user_data, app->config->current_station_name))
-	return FALSE;
+        return FALSE;
 
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);

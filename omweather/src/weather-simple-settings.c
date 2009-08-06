@@ -1501,6 +1501,7 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
 
     snprintf(buffer, sizeof(buffer) - 1, "Station %i", station_number + 1);
     button = create_button_with_2_line_text(buffer, station_name_s, 18, 12);
+    g_object_set_data(G_OBJECT(button), "station_number", (gpointer)station_number);
     g_object_set_data(G_OBJECT(button), "station_name", (gpointer)station_name_s);
     g_object_set_data(G_OBJECT(button), "station_code", (gpointer)station_code_s);
     g_object_set_data(G_OBJECT(button), "station_source", (gpointer)station_source_s);
@@ -1508,12 +1509,10 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
     g_object_set_data(G_OBJECT(button), "station_region", (gpointer)station_region_s);
     g_object_set_data(G_OBJECT(button), "station_country_id", (gpointer)country_id);
     g_object_set_data(G_OBJECT(button), "station_region_id", (gpointer)region_id);
-    g_object_set_data(G_OBJECT(button), "station_number", (gpointer)station_number);
     if (is_gps)
         g_object_set_data(G_OBJECT(button), "station_is_gps", (gpointer)1);
     else
         g_object_set_data(G_OBJECT(button), "station_is_gps", (gpointer)0);
-
 
     g_signal_connect(G_OBJECT(button), "button-release-event",
                      G_CALLBACK(station_setup_button_handler),
@@ -1552,6 +1551,11 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
         gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                       (app->user_stations_list), &iter);
     while(valid){
+        station_name = NULL;
+        station_code = NULL;
+        station_source = NULL;
+        station_country = NULL;
+        station_region = NULL;
         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                            &iter,
                            0, &station_name,

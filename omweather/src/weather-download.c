@@ -282,7 +282,6 @@ download_html(gpointer data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-fprintf(stderr, "\nHTML %d\n", max);
     if(app->popup_window && app->show_update_window){
         if(app->config->mode == SIMPLE_MODE)
             destroy_popup_window(GINT_TO_POINTER(1));
@@ -355,14 +354,14 @@ fprintf(stderr, "\nHTML %d\n", max);
 #ifndef RELEASE
         fprintf(stderr, "\n>>>>>>>>>>>First stage\n");
 #endif
-        if(app->show_update_window)
-            update_window = create_window_update();     /* Window with update information */
         /* get first station */
         if(!get_station_url
                 (&url, &html_file, &hour_url, &html_file_hour, TRUE)){
             app->flag_updating = 0;
             return FALSE;       /* The strange error */
         }
+        if(app->show_update_window)
+            update_window = create_window_update();     /* Window with update information */
 #ifndef RELEASE
         fprintf(stderr, "\n>>>>>Url - %s, File - %s\n", url,
                 html_file.filename);
@@ -464,15 +463,15 @@ fprintf(stderr, "\nHTML %d\n", max);
                             hildon_banner_show_information(app->main_window, NULL,
                                                             _("Weather updated"));
                         redraw_home_window(FALSE);
-#ifndef RELEASE
+//#ifndef RELEASE
                         fprintf(stderr, "\n>>>>>>>>>>>>>>End of update cycle\n");
-#endif
+//#endif
                     }
                     else{
-#ifndef RELEASE
+//#ifndef RELEASE
                         fprintf(stderr, "\n>>>>>Url - %s, File - %s\n",
                                 url, html_file.filename);
-#endif
+//#endif
                         /* set options for the curl easy handle */
                         curl_handle = weather_curl_init(curl_handle);
                         curl_easy_setopt(curl_handle, CURLOPT_URL, url);
@@ -556,9 +555,9 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
     gchar               *station_code = NULL,
                         *station_source = NULL;
     gchar                buffer[512];
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     if (first)
         valid =
             gtk_tree_model_get_iter_first(GTK_TREE_MODEL
@@ -569,55 +568,83 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
             gtk_tree_model_iter_next(GTK_TREE_MODEL
                                      (app->user_stations_list), &iter);
     if (valid) {
-        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
-                           &iter,
-                           ID0_COLUMN, &station_code,
-                           3, &station_source,
-                           -1);
-    if(station_source){
-        /* prepare forecast url */
-        if(get_source_forecast_url(app->sources_list, station_source)){
-            *buffer = 0;
-            snprintf(buffer, sizeof(buffer) - 1,
-                        get_source_forecast_url(app->sources_list, station_source),
-                        station_code);
-            *url = g_strdup(buffer);
-        }
-        /* prepare detail url */
-        if(get_source_detail_url(app->sources_list, station_source)){
-            *buffer = 0;
-            snprintf(buffer, sizeof(buffer) - 1,
-                        get_source_detail_url(app->sources_list, station_source),
-                        station_code);
-            *hour_url = g_strdup(buffer);
+         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                               &iter,
+                               ID0_COLUMN, &station_code,
+                               3, &station_source,
+                               -1);
+        /* Skip Empty  station */
+        while (1){
+            fprintf(stderr, "code %s\n",station_code);
+            if (station_code && (!strcmp(station_code," ") || !strcmp(station_code,_("Unknown"))) ){
+                fprintf(stderr,"1\n");
+                valid = gtk_tree_model_iter_next(GTK_TREE_MODEL
+                                         (app->user_stations_list), &iter);
+                fprintf(stderr,"2\n");
+                if (valid) {
+                    fprintf(stderr,"3\n");
+                    gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                               &iter,
+                               ID0_COLUMN, &station_code,
+                               3, &station_source,
+                               -1);
+                }else{
+                    fprintf(stderr,"4\n");
+                    break;
+                    }
+            }else{
+              fprintf(stderr,"5\n");
+                break;
+                }
         }
     }
-#ifndef RELEASE
-        fprintf(stderr, "\n>>>>>>>>>>URL %s\n", *url);
-#endif
-        /* preapare filename */
-        memset(buffer, 0, sizeof(buffer));
-        snprintf(buffer, sizeof(buffer) - 1,
-                 "%s/%s.xml.new", app->config->cache_dir_name,
-                 station_code);
-        html_file->filename = g_strdup(buffer);
-        html_file->stream = NULL;
-        memset(buffer, 0, sizeof(buffer));
-        snprintf(buffer, sizeof(buffer) - 1,
-                 "%s/%s_hour.xml.new",
-                 app->config->cache_dir_name, station_code);
-        html_file_hour->filename = g_strdup(buffer);
-        html_file_hour->stream = NULL;
+    if (valid) {
+        if(station_source){
+            /* prepare forecast url */
+            if(get_source_forecast_url(app->sources_list, station_source)){
+                *buffer = 0;
+                fprintf(stderr,"Station code %s\n",station_code);
+                snprintf(buffer, sizeof(buffer) - 1,
+                            get_source_forecast_url(app->sources_list, station_source),
+                            station_code);
+                *url = g_strdup(buffer);
+                fprintf(stderr,"URL %s\n",buffer);
+            }
+            /* prepare detail url */
+            if(get_source_detail_url(app->sources_list, station_source)){
+                *buffer = 0;
+                snprintf(buffer, sizeof(buffer) - 1,
+                            get_source_detail_url(app->sources_list, station_source),
+                            station_code);
+                *hour_url = g_strdup(buffer);
+            }
+        }
+    #ifndef RELEASE
+            fprintf(stderr, "\n>>>>>>>>>>URL %s\n", *url);
+    #endif
+            /* preapare filename */
+            memset(buffer, 0, sizeof(buffer));
+            snprintf(buffer, sizeof(buffer) - 1,
+                     "%s/%s.xml.new", app->config->cache_dir_name,
+                     station_code);
+            html_file->filename = g_strdup(buffer);
+            html_file->stream = NULL;
+            memset(buffer, 0, sizeof(buffer));
+            snprintf(buffer, sizeof(buffer) - 1,
+                     "%s/%s_hour.xml.new",
+                     app->config->cache_dir_name, station_code);
+            html_file_hour->filename = g_strdup(buffer);
+            html_file_hour->stream = NULL;
 
-#ifndef RELEASE
-        fprintf(stderr, "\n>>>>>>>>>NAME %s\n", html_file->filename);
-#endif
-        g_free(station_code);
-        g_free(station_source);
+    #ifndef RELEASE
+            fprintf(stderr, "\n>>>>>>>>>NAME %s\n", html_file->filename);
+    #endif
+            g_free(station_code);
+            g_free(station_source);
     }
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
     return valid;
 }
 /*******************************************************************************/

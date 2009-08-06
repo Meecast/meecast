@@ -1,8 +1,10 @@
 omweather (0.23.1) unstable; urgency=low
 
-  * Small fixes
+  * Done scroll to child for pannable_area in window popup
+  * Added button 'Clear' for window 'Configuring station'
+  * Removed 'Expanded/Collapsed' togglebuttons in status window
 
- -- Vlad Vasiliev <vlad@gas.by>  Wed, 05 Jun 2009 10:30:00 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 06 Jun 2009 18:30:00 +0200
 
 omweather (0.23) unstable; urgency=low
 

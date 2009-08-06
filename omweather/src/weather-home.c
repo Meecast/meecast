@@ -189,19 +189,19 @@ change_station_prev(GtkWidget *widget, GdkEvent *event,
 /* Change station to next at main display */
 gboolean 
 change_station_next(GtkWidget *widget, GdkEvent *event,
-                    					    gpointer user_data){
+                                    gpointer user_data){
     GtkTreeIter iter;
     gboolean    valid,
-    ready = FALSE;
+                ready         = FALSE;
     gchar       *station_name = NULL,
                 *station_code = NULL,
                 *station_source = NULL;
     gboolean    first = FALSE;
     GtkTreePath *path;
-    gint	day_number = 0;
-//#ifdef DEBUGFUNCTIONCALL
+    gint        day_number = 0;
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if (!(app->config->current_station_id))
         return FALSE;
 
@@ -215,15 +215,27 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
                             ID0_COLUMN, &station_code,
                             3, &station_source,
                             -1);
-        fprintf(stderr,"Station %s\n", station_name);
-        /* Skip Empty station */
-        if(ready && !strcmp(station_name, " " && !first))
-            ready = FALSE;
+        /* Skip Empty stations */
+        if(ready && !strcmp(station_name, " ")){
+            gtk_tree_path_next(path);
+            valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
+                                        &iter, path);
+            if(!valid){
+                valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                        &iter);
+                if (first)
+                    break;
+                else
+                    first = TRUE;
+            }
+            continue;
+        }
+  
         if(ready){
             /* update current station code */
             if(app->config->current_station_id)
                 g_free(app->config->current_station_id);
-            app->config->current_station_id = station_code; 
+            app->config->current_station_id = station_code;
             /* update current station name */
             if(app->config->current_station_name)
                 g_free(app->config->current_station_name);
@@ -269,9 +281,9 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
         destroy_popup_window(NULL);
         weather_window_popup(NULL, NULL, (gpointer)day_number);
     }
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
     return FALSE;
 }
 /*******************************************************************************/

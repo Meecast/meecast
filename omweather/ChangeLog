@@ -1,5 +1,7 @@
 0.23.1
-  * Small fixes
+  * Done scroll to child for pannable_area in window popup
+  * Added button 'Clear' for window 'Configuring station'
+  * Removed 'Expanded/Collapsed' togglebuttons in status window
 
 0.23
   * New design

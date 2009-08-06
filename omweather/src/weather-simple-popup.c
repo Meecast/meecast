@@ -33,10 +33,16 @@
 #include "weather-popup.h"
 #include "weather-data.h"
 /*******************************************************************************/
-    GtkWidget       *test = NULL,
-                    *selected_widget = NULL;
-void jump_panarea(gpointer user_data){
-        hildon_pannable_area_jump_to_child (HILDON_PANNABLE_AREA (user_data), g_object_get_data(G_OBJECT(user_data), "selected_widget"));
+
+gboolean
+jump_panarea(gpointer user_data){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    g_signal_connect((gpointer)user_data, "vertical-movement",
+                        G_CALLBACK(user_function), NULL);
+    hildon_pannable_area_scroll_to_child(HILDON_PANNABLE_AREA (user_data), g_object_get_data(G_OBJECT(user_data), "selected_widget"));
+    return FALSE;
 }
 
 
@@ -93,9 +99,9 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
                     ready = FALSE;
     gchar           *station_name = NULL;
     GtkTreePath     *path;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     if(!current_station_name)
         return NULL;
 

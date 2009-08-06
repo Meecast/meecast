@@ -1381,8 +1381,9 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
 
-    gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_CLEAR, GTK_RESPONSE_CANCEL);
+    gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_CLEAR, GTK_RESPONSE_NO);
     gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
+
 
     gtk_widget_show_all(window);
 
@@ -1392,7 +1393,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
     if (result == GTK_RESPONSE_YES)
         save_station(window);
-    if (result == GTK_RESPONSE_CANCEL)
+    if (result == GTK_RESPONSE_NO)
         clear_station(window);
     if (window)
         gtk_widget_destroy(window);

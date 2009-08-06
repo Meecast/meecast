@@ -33,9 +33,17 @@
 #include "weather-popup.h"
 #include "weather-data.h"
 /*******************************************************************************/
+    GtkWidget       *test = NULL,
+                    *selected_widget = NULL;
+void jump_panarea(gpointer user_data){
+        hildon_pannable_area_jump_to_child (HILDON_PANNABLE_AREA (user_data), g_object_get_data(G_OBJECT(user_data), "selected_widget"));
+}
+
+
 void
 weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     GtkWidget       *window = NULL,
+                    *view = NULL,
                     *main_vbox = NULL;
 #if defined OS2009
     HildonAppMenu   *menu = NULL;
@@ -57,9 +65,9 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     gtk_widget_show(window);
     gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(), FALSE, TRUE, 0);
     if (app->config->view_mode == COLLAPSED_VIEW_MODE)
-        gtk_box_pack_start(GTK_BOX(main_vbox), create_weather_collapsed_view(main_vbox,0), TRUE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(main_vbox), view = create_weather_collapsed_view(main_vbox, (gint)user_data), TRUE, TRUE, 0);
     else
-        gtk_box_pack_start(GTK_BOX(main_vbox), create_weather_expanded_view(main_vbox,0), TRUE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(main_vbox), view = create_weather_expanded_view(main_vbox, (gint)user_data), TRUE, TRUE, 0);
 
 #if defined OS2009
     menu = create_view_menu();
@@ -74,6 +82,8 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
                         G_CALLBACK(destroy_popup_window), GINT_TO_POINTER(1));
     g_signal_connect((gpointer)app->popup_window, "delete_event",
                         G_CALLBACK(destroy_popup_window), GINT_TO_POINTER(1));
+    g_timeout_add(100, (GtkFunction) jump_panarea, view);
+
 }
 /*******************************************************************************/
 gchar*
@@ -181,6 +191,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                     *line_text = NULL,
                     *line = NULL,
                     *label = NULL,
+                    *separator = NULL,
                     *vscrollbar = NULL;
     GdkPixbuf       *icon_buffer;
     GtkWidget       *icon_image;
@@ -203,6 +214,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
 #if defined OS2009
     scrolled_window = hildon_pannable_area_new ();
     hildon_pannable_area_add_with_viewport(HILDON_PANNABLE_AREA (scrolled_window), GTK_WIDGET (main_vbox));
+
 #else
     /* scrolled window */
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);
@@ -240,7 +252,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             if(icon_image){
                 gtk_box_pack_start(GTK_BOX(line_hbox), icon_image, FALSE, TRUE, 0);
                 gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
-                gtk_box_pack_start(GTK_BOX(main_vbox), gtk_hseparator_new(), TRUE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(main_vbox), separator = gtk_hseparator_new(), TRUE, TRUE, 0);
             }
             /* day label */
             *buffer = 0;
@@ -331,6 +343,11 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             gtk_label_set_markup(GTK_LABEL(line_text), buffer);
             set_font(line_text, NULL, 12);
             gtk_box_pack_start(GTK_BOX(line_hbox), line_text, FALSE, TRUE, 10);
+
+            if(day_number == i){
+                fprintf(stderr,"This day must be activity!!! %i\n",i);
+                g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)separator);
+            }
             /* next day */
             days = g_slist_next(days);
             i++;
@@ -356,6 +373,7 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
                         *current_widget = NULL,
                         *main_vbox = NULL,
                         *line = NULL,
+                        *separator = NULL,
                         *vscrollbar = NULL;
     gchar               *day_name = NULL;
     time_t              current_time = 0,
@@ -432,9 +450,11 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
         day_widget = create_day_tab(current, day, &day_name);
         gtk_container_add(GTK_CONTAINER(line), day_widget);
         gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
-        gtk_box_pack_start(GTK_BOX(main_vbox), gtk_hseparator_new(), FALSE, TRUE, 0);
+        gtk_box_pack_start(GTK_BOX(main_vbox), separator = gtk_hseparator_new(), FALSE, TRUE, 0);
+
         if(day_number == i){
-            fprintf(stderr,"This day must be activity\n");
+            fprintf(stderr,"This day must be activity!!! %i\n",i);
+            g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)separator);
         }
         tmp = g_slist_next(tmp);
         i++;
@@ -457,6 +477,7 @@ show_collapsed_day_button_handler(GtkWidget *button, GdkEventButton *event,
     view = create_weather_collapsed_view(g_object_get_data(G_OBJECT(button), "vbox"), GPOINTER_TO_INT(user_data));
     gtk_widget_destroy(g_object_get_data(G_OBJECT(button), "scrolled_window"));
     gtk_box_pack_start(GTK_BOX(g_object_get_data(G_OBJECT(button), "vbox")), view, TRUE, TRUE, 0);
+    g_timeout_add(100, (GtkFunction) jump_panarea, view);
 }
 /*******************************************************************************/
 void
@@ -469,6 +490,7 @@ show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
     view = create_weather_expanded_view(g_object_get_data(G_OBJECT(button), "vbox"), GPOINTER_TO_INT(user_data));
     gtk_widget_destroy(g_object_get_data(G_OBJECT(button), "scrolled_window"));
     gtk_box_pack_start(GTK_BOX(g_object_get_data(G_OBJECT(button), "vbox")), view, TRUE, TRUE, 0);
+    g_timeout_add(100, (GtkFunction) jump_panarea, view);
 }
 /*******************************************************************************/
 void
@@ -483,6 +505,7 @@ show_detailes_of_current_day_button_handler(GtkWidget *button, GdkEventButton *e
         view = create_weather_collapsed_view(g_object_get_data(G_OBJECT(button), "vbox"), GPOINTER_TO_INT(user_data));
     gtk_widget_destroy(g_object_get_data(G_OBJECT(button), "scrolled_window"));
     gtk_box_pack_start(GTK_BOX(g_object_get_data(G_OBJECT(button), "vbox")), view, TRUE, TRUE, 0);
+    g_timeout_add(100, (GtkFunction) jump_panarea, view);
 }
 /*******************************************************************************/
 GtkWidget*
@@ -541,12 +564,11 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 
     hours_weather = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
 
-    fprintf(stderr,"sddddddddd\n");
 
     if(hours_weather){
         while(hours_weather){
             hour_weather = (GHashTable*)hours_weather->data;
-            
+
             count++;
 
           /*Get time in current location*/
@@ -561,16 +583,16 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 
             *hour_last_update = 0;
             *buff = 0;
-            
+
             /*Prepare date from xml file*/
-    
+
             snprintf(hour_last_update + strlen(hour_last_update), "%s",
                     (char*)g_hash_table_lookup(g_hash_table_lookup(app->station_data, 
                                                "detail"), "last_update"));
             date_size = strcspn(hour_last_update, " ");
             strncpy(buff, hour_last_update, date_size);
             strcat(buff, "");
-            
+
             *hour_last_update = 0;
             strcat(hour_last_update, buff);
             strcat(hour_last_update, " ");
@@ -592,7 +614,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                                       (prev_difference > 0 &&  difference<0)) {
 
                // fprintf(stderr, "\nHOURS %d\n", hours_time);
-                
+
                 line = gtk_event_box_new();
                 icon_text_hbox = gtk_hbox_new(FALSE, 0);
                 *buffer = 0;

@@ -1,3 +1,6 @@
+0.23.2
+  * Various fix
+ 
 0.23.1
   * Done scroll to child for pannable_area in window popup
   * Added button 'Clear' for window 'Configuring station'

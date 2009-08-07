@@ -561,7 +561,8 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
         gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
         gtk_box_pack_start(GTK_BOX(main_vbox), separator = gtk_hseparator_new(), FALSE, TRUE, 0);
 
-        if(day_number == i){
+        /* If activited day and not current weather */
+        if(day_number == i && !(i == 0 && current_widget && current)){
             fprintf(stderr,"This day must be activity!!! %i\n",i);
             g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)separator);
         }

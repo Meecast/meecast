@@ -59,6 +59,8 @@ create_mainbox_for_forecast_window(GtkWidget* window, gpointer user_data){
         gtk_box_pack_start(GTK_BOX(main_vbox), view = create_weather_collapsed_view(main_vbox, (gint)user_data), TRUE, TRUE, 0);
     else
         gtk_box_pack_start(GTK_BOX(main_vbox), view = create_weather_expanded_view(main_vbox, (gint)user_data), TRUE, TRUE, 0);
+
+    g_timeout_add(100, (GtkFunction) jump_panarea, view);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -319,7 +321,6 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
 #if defined OS2009
     scrolled_window = hildon_pannable_area_new ();
     hildon_pannable_area_add_with_viewport(HILDON_PANNABLE_AREA (scrolled_window), GTK_WIDGET (main_vbox));
-
 #else
     /* scrolled window */
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);
@@ -338,12 +339,15 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
     if(days){
         while(days){
             day = (GHashTable*)(days->data);
-            line = gtk_event_box_new();
-            g_object_set_data(G_OBJECT(line), "scrolled_window", (gpointer)scrolled_window);
-            g_object_set_data(G_OBJECT(line), "vbox", (gpointer)vbox);
-            g_signal_connect(G_OBJECT(line), "button-release-event",
+            line = gtk_button_new();
+            gtk_button_set_focus_on_click(GTK_BUTTON(line), FALSE);
+            gtk_button_set_relief(GTK_BUTTON(line), GTK_RELIEF_NONE);
+            g_signal_connect(G_OBJECT(line), "clicked",
                                 G_CALLBACK(show_expanded_day_button_handler),
                                  GINT_TO_POINTER(i));
+            g_object_set_data(G_OBJECT(line), "scrolled_window", (gpointer)scrolled_window);
+            g_object_set_data(G_OBJECT(line), "vbox", (gpointer)vbox);
+
             /* line box */
             line_hbox = gtk_hbox_new(FALSE, 0);
             gtk_container_add(GTK_CONTAINER(line), line_hbox);
@@ -531,12 +535,14 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
         if( (current_data_last_update >
                 ( current_time - app->config->data_valid_interval)) &&
                 (current_data_last_update < ( current_time + app->config->data_valid_interval))){
-            line = gtk_event_box_new();
-            g_object_set_data(G_OBJECT(line), "scrolled_window", (gpointer)scrolled_window);
-            g_object_set_data(G_OBJECT(line), "vbox", (gpointer)vbox);
-            g_signal_connect(G_OBJECT(line), "button-release-event",
+            line = gtk_button_new();
+            gtk_button_set_focus_on_click(GTK_BUTTON(line), FALSE);
+            gtk_button_set_relief(GTK_BUTTON(line), GTK_RELIEF_NONE);
+            g_signal_connect(G_OBJECT(line), "clicked",
                                 G_CALLBACK(show_detailes_of_current_day_button_handler),
                                  GINT_TO_POINTER(i));
+            g_object_set_data(G_OBJECT(line), "scrolled_window", (gpointer)scrolled_window);
+            g_object_set_data(G_OBJECT(line), "vbox", (gpointer)vbox);
             current_widget = create_current_tab(current);
             if(current){
                 gtk_container_add(GTK_CONTAINER(line), current_widget);
@@ -550,12 +556,16 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
     tmp = g_hash_table_lookup(app->station_data, "forecast");
     while(tmp && i < Max_count_weather_day){
         day = (GHashTable*)tmp->data;
-        line = gtk_event_box_new();
+            line = gtk_button_new();
+            gtk_button_set_focus_on_click(GTK_BUTTON(line), FALSE);
+            gtk_button_set_relief(GTK_BUTTON(line), GTK_RELIEF_NONE);
+            g_signal_connect(G_OBJECT(line), "clicked",
+                                G_CALLBACK(show_collapsed_day_button_handler),
+                                 GINT_TO_POINTER(i));
+
         g_object_set_data(G_OBJECT(line), "scrolled_window", (gpointer)scrolled_window);
         g_object_set_data(G_OBJECT(line), "vbox", (gpointer)vbox);
-        g_signal_connect(G_OBJECT(line), "button-release-event",
-                                G_CALLBACK(show_collapsed_day_button_handler),
-                               GINT_TO_POINTER(i));
+
         day_widget = create_day_tab(current, day, &day_name);
         gtk_container_add(GTK_CONTAINER(line), day_widget);
         gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
@@ -578,8 +588,7 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
 }
 /*******************************************************************************/
 void
-show_collapsed_day_button_handler(GtkWidget *button, GdkEventButton *event,
-                                                            gpointer user_data){
+show_collapsed_day_button_handler(GtkWidget *button, gpointer user_data){
     GtkWidget *view;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -591,8 +600,7 @@ show_collapsed_day_button_handler(GtkWidget *button, GdkEventButton *event,
 }
 /*******************************************************************************/
 void
-show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
-                                                            gpointer user_data){
+show_expanded_day_button_handler(GtkWidget *button, gpointer user_data){
     GtkWidget *view;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -604,8 +612,7 @@ show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
 }
 /*******************************************************************************/
 void
-show_detailes_of_current_day_button_handler(GtkWidget *button, GdkEventButton *event,
-                                                            gpointer user_data){
+show_detailes_of_current_day_button_handler(GtkWidget *button, gpointer user_data){
     GtkWidget *view;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

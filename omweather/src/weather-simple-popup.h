@@ -39,12 +39,9 @@ GtkWidget* create_top_buttons_box(GtkWidget* window, gpointer user_data);
 GtkWidget* create_weather_collapsed_view(GtkWidget *vbox, gint day_number);
 GtkWidget* create_weather_expanded_view(GtkWidget *vbox, gint day_number);
 GtkWidget* create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number);
-void show_expanded_day_button_handler(GtkWidget *button, GdkEventButton *event,
-                                                            gpointer user_data);
-void show_detailes_of_current_day_button_handler(GtkWidget *button, GdkEventButton *event,
-                                                            gpointer user_data);
-void show_collapsed_day_button_handler(GtkWidget *button, GdkEventButton *event,
-                                                            gpointer user_data);
+void show_expanded_day_button_handler(GtkWidget *button, gpointer user_data);
+void show_detailes_of_current_day_button_handler(GtkWidget *button, gpointer user_data);
+void show_collapsed_day_button_handler(GtkWidget *button, gpointer user_data);
 
 #if defined OS2009
 HildonAppMenu* create_view_menu(void);

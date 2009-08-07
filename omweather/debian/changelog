@@ -2,7 +2,9 @@ omweather (0.23.2) unstable; urgency=low
 
   * Fixed problem with switching between stations if stations list has nil stations 
   * Fixed problem with detailed weather for current day
-
+  * Now next station changing in inside popup window without destroying it
+  * Fixed problem with scrolling in popup window
+  
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 07 Jun 2009 18:30:00 +0200
 
 omweather (0.23.1) unstable; urgency=low

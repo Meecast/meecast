@@ -3,6 +3,7 @@
   * Fixed problem with detailed weather for current day
   * Now next station changing in inside popup window without destroying it
   * Fixed problem with scrolling in popup window
+  * Done feature request from Daniel Wilms "automatically connect to gps service after selecting of gps station"
 
 0.23.1
   * Done scroll to child for pannable_area in window popup

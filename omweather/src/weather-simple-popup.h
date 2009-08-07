@@ -42,7 +42,8 @@ GtkWidget* create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day
 void show_expanded_day_button_handler(GtkWidget *button, gpointer user_data);
 void show_detailes_of_current_day_button_handler(GtkWidget *button, gpointer user_data);
 void show_collapsed_day_button_handler(GtkWidget *button, gpointer user_data);
-
+void weather_simple_window_redraw(GtkWidget *window);
+gboolean jump_panarea(gpointer user_data);
 #if defined OS2009
 HildonAppMenu* create_view_menu(void);
 #endif

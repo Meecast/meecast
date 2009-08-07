@@ -486,7 +486,6 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
                         *current_widget = NULL,
                         *main_vbox = NULL,
                         *line = NULL,
-                        *separator = NULL,
                         *vscrollbar = NULL;
     gchar               *day_name = NULL;
     time_t              current_time = 0,
@@ -508,7 +507,6 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
                                             GTK_SHADOW_NONE);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
                                        GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-    vscrollbar = gtk_scrolled_window_get_vscrollbar(scrolled_window);
     hildon_helper_set_thumb_scrollbar(scrolled_window, TRUE);
     gtk_scrolled_window_add_with_viewport(scrolled_window, main_vbox);
 #endif
@@ -572,10 +570,8 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
         gtk_box_pack_start(GTK_BOX(main_vbox), separator = gtk_hseparator_new(), FALSE, TRUE, 0);
 
         /* If activited day and not current weather */
-        if(day_number == i && !(i == 0 && current_widget && current)){
-            fprintf(stderr,"This day must be activity!!! %i\n",i);
-            g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)separator);
-        }
+        if(day_number == i && !(i == 0 && current_widget && current))
+            g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)line);
         tmp = g_slist_next(tmp);
         i++;
     }
@@ -763,14 +759,10 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                 sprintf(tmp + strlen(tmp), "%s", _("Forecast at: "));
                 sprintf(tmp + strlen(tmp), "%s:00\n",
                                 (char*)g_hash_table_lookup(hour_weather, "hours"));
-
-                if(tmp){
-                    snprintf(buffer, sizeof(buffer) - 1, 
+                snprintf(buffer, sizeof(buffer) - 1, 
                                                 "<span weight=\"bold\">%s", tmp);
-                    snprintf(buffer + strlen(buffer), 
+                snprintf(buffer + strlen(buffer), 
                                     sizeof(buffer) - strlen(buffer) - 1,"</span>");
-                }
-
                 *tmp = 0;
                 /* temperature */
                 sprintf(tmp, " %d\302\260",

@@ -47,6 +47,7 @@ static gchar *hour_url = NULL;
 static gboolean second_attempt = FALSE;
 static CURL *curl_handle = NULL;
 static CURL *curl_handle_hour = NULL;
+static CURL *curl_handle_data = NULL;
 static CURL *curl_multi = NULL;
 static struct curl_slist *headers=NULL;
 static struct HtmlFile html_file, html_file_hour;
@@ -70,6 +71,7 @@ get_connection_status_signal_cb(DBusConnection * connection,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+fprintf(stderr, "\nget_connection_status_signal_cb\n");
     /* check signal */
     if (!dbus_message_is_signal(message,
                                 ICD_DBUS_INTERFACE,
@@ -123,6 +125,7 @@ connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+ fprintf(stderr, "\nconnection_cb\n");
     status = con_ic_connection_event_get_status(event);
     error = con_ic_connection_event_get_error(event);
     iap_id = (gchar*)con_ic_event_get_iap_id(CON_IC_EVENT(event));
@@ -176,6 +179,7 @@ void iap_callback(struct iap_event_t *event, void *arg) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+fprintf(stderr, "\niap_callback\n");
     app->iap_connecting = FALSE;
     switch (event->type) {
     case OSSO_IAP_CONNECTED:
@@ -243,11 +247,12 @@ free_curl(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
+fprintf(stderr, "\nfree curl\n");
     curl_slist_free_all(headers);
     headers = NULL;
     curl_multi = NULL;
     curl_handle_hour = NULL;
+    curl_handle_data = NULL;
     curl_handle = NULL;
     app->flag_updating = 0;
 }
@@ -259,6 +264,7 @@ data_read(void *buffer, size_t size, size_t nmemb, void *stream){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+fprintf(stderr, "\nread data\n");
     if(out && !out->stream){
         /* open file for writing */
         out->stream = fopen(out->filename, "wb");
@@ -299,6 +305,7 @@ download_html(gpointer data){
     if(app->show_update_window && (!second_attempt) && (!app->iap_connecting)){
         app->iap_connecting = TRUE;
 #ifdef USE_CONIC
+        fprintf(stderr, "\nbalaaaa\n");
         if(app->connection)
             con_ic_connection_connect(app->connection,
                                       CON_IC_CONNECT_FLAG_NONE);
@@ -318,6 +325,7 @@ download_html(gpointer data){
 #endif
         app->flag_updating = 0;
         second_attempt = TRUE;
+        fprintf(stderr, "IN IF");
         return TRUE;
     }
     if(app->iap_connecting){
@@ -558,6 +566,7 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+fprintf(stderr, "\nGet URL\n");
     if (first)
         valid =
             gtk_tree_model_get_iter_first(GTK_TREE_MODEL
@@ -683,4 +692,125 @@ check_current_connection(void)
     }
 }
 /*******************************************************************************/
+gboolean
+get_data_from_url(const gchar *data_url, const gchar *path){
+ 
+    CURLMsg *msg = NULL;
+    CURLMcode mret;
+    fd_set rs, ws, es;
+    int max;
+    gint num_transfers = 0, num_msgs = 0;
+    gchar full_filename[2048] ;
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+    *full_filename = 0;
+    snprintf(full_filename, sizeof(full_filename) - 1,"%s/%s.xml",
+                                                          app->config->cache_dir_name, path);
+    if(app->iap_connected){
+         second_attempt = TRUE;
+         fprintf(stderr, "iap_connected");
+    }
+
+    if((!second_attempt) && (!app->iap_connecting)){
+        app->iap_connecting = TRUE;
+#ifdef USE_CONIC
+        if(app->connection)
+            con_ic_connection_connect(app->connection, CON_IC_CONNECT_FLAG_NONE);
+        else
+            return FALSE;
+#else
+    #ifndef NONMAEMO
+        if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){
+             fprintf(stderr, "after 1 osso_iap_connect(OSSO_IAP_ANY,
+                                             OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)\n");
+        }
+     #endif
+#endif
+        fprintf(stderr, "\nbalaaaa\n");
+        second_attempt = TRUE;
+        return TRUE;
+   
+    }
+    fprintf(stderr, "\nbalaaaa\n");
+    
+    if(app->iap_connecting){
+        if(app->iap_connecting_timer > 150){
+           app->iap_connecting = FALSE;
+           fprintf(stderr, "\nCONNECTING %s\n", path);
+           return FALSE;
+        }
+        else{
+            app->iap_connecting_timer++;
+            return TRUE;
+       }
+    }
+
+    second_attempt = FALSE;
+
+    if(app->iap_connected)//{
+        fprintf(stderr, "\nCONNECTED %s\n", path);
+     //   return TRUE;
+  //  }
+//    else
+  //      return FALSE;
+/*
+    if(!curl_handle_data){
+        if(!url)
+           return FALSE;
+        curl_handle_data = weather_curl_init(curl_handle_data);
+        curl_easy_setopt(curl_handle_data, CURLOPT_URL, url);
+        if(!curl_multi)
+           curl_multi = curl_multi_init();
+        max = 0;
+        FD_ZERO(&rs);
+        FD_ZERO(&ws);
+        FD_ZERO(&es);
+        mret = curl_multi_fdset(curl_multi, &rs, &ws, &es, &max);
+        if(mret != CURLM_OK)
+           fprintf(stderr, "Error CURL\n");
+     
+        curl_easy_setopt(curl_handle_data, CURLOPT_WRITEDATA, &full_filename);
+        curl_easy_setopt(curl_handle_data, CURLOPT_WRITEFUNCTION, data_read);
+     
+        curl_multi_add_handle(curl_multi, curl_handle_data);
+        return TRUE;
+    }
+
+    else{
+        num_msgs = 0;
+        while(curl_multi
+                  && (msg = curl_multi_info_read(curl_multi, &num_msgs))) {
+           if(msg->msg == CURLMSG_DONE){
+                if(msg->easy_handle == curl_handle){
+                     mret = curl_multi_remove_handle(curl_multi, curl_handle);
+                     if(mret != CURLM_OK)
+                        fprintf(stderr, " Error remove handle %p\n", curl_handle);
+                      curl_easy_cleanup(curl_handle);
+                      curl_handle = NULL;
+                      if(url){
+                          g_free(url);
+                          url = NULL;
+                       }
+                }
+                if(msg->data.result == CURLE_OK)
+                   if(curl_handle_data)
+                      return TRUE;
+                curl_multi_cleanup(curl_multi);
+                free_curl();
+                return FALSE;
+           }
+        }
+        
+        if(!curl_multi){
+            free_curl();
+            return FALSE;
+        }
+        return TRUE;
+    }
+*/        
+//#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+//#endif
+}
 /*******************************************************************************/

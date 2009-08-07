@@ -33,8 +33,6 @@
 #include "weather-popup.h"
 #include "weather-data.h"
 /*******************************************************************************/
-
-
 gboolean
 jump_panarea(gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
@@ -52,6 +50,7 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     GtkWidget       *window = NULL,
                     *view = NULL,
                     *main_vbox = NULL;
+    gboolean		temp = FALSE;
 #if defined OS2009
     HildonAppMenu   *menu = NULL;
 #endif
@@ -68,6 +67,14 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     gtk_window_set_title(GTK_WINDOW(window), _("Forecast"));
     main_vbox = gtk_vbox_new(FALSE, 0);
 //    gtk_window_fullscreen (GTK_WINDOW (window));
+    while(!temp){
+        temp = get_data_from_url("www.bash.org.ru", "temp");
+        if(temp)
+    	    fprintf(stderr, "\nYES \n");
+    	else
+    	    fprintf(stderr, "\nNO \n");
+    }
+
     gtk_container_add(GTK_CONTAINER(window), main_vbox);
     gtk_widget_show(window);
     gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(), FALSE, TRUE, 0);
@@ -528,7 +535,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
     const gchar     *wind_units_str[] = {"m/s", "km/h", "mi/h" };
     gchar           buffer[1024],
                     tmp[512],
-                    buff[512],
+                    *buff,
                     hour_last_update[1024];
     GHashTable      *hour_weather = NULL;
     GSList          *hours_weather = NULL;
@@ -585,10 +592,10 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
             timezone = atol(g_hash_table_lookup(g_hash_table_lookup(app->station_data, 
                                     "location"), "station_time_zone"));
             current_time = utc_time + 60 * 60 *timezone;
-            fprintf(stderr, "\nTIME %d\n", current_time);
+//            fprintf(stderr, "\nTIME %d\n", current_time);
 
             *hour_last_update = 0;
-            *buff = 0;
+            *buff =0;
 
             /*Prepare date from xml file*/
 
@@ -597,7 +604,8 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                                                "detail"), "last_update"));
             date_size = strcspn(hour_last_update, " ");
             strncpy(buff, hour_last_update, date_size);
-            strcat(buff, "");
+            strcat(buff, "\0");
+            fprintf(stderr, "\nbuff %s\n", buff);
 
             *hour_last_update = 0;
             strcat(hour_last_update, buff);
@@ -613,7 +621,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                 new_day = TRUE;
             if(new_day)
                 hours_time += 24*60*60;
-            fprintf(stderr, "\nhours_time %d\n", hours_time);
+//            fprintf(stderr, "\nhours_time %d\n", hours_time);
             difference = difftime(hours_time, current_time);
 
             if((difference < 0 && difference > -60*60) || difference >= 0 ||

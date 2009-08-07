@@ -120,6 +120,8 @@ gchar*
 get_next_station_name(const gchar *current_station_name, GtkListStore *user_stations_list){
     GtkTreeIter     iter;
     gboolean        valid,
+                    skipped = FALSE,
+                    first = FALSE,
                     ready = FALSE;
     gchar           *station_name = NULL;
     GtkTreePath     *path;
@@ -132,6 +134,47 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
     path = gtk_tree_path_new_first();
     valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
                                     &iter, path);
+    while(valid){
+        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                            &iter,
+                            NAME_COLUMN, &station_name,
+                            -1);
+        /* Skip Empty stations */
+        if(ready && !strcmp(station_name, " ")){
+            skipped = TRUE;
+            gtk_tree_path_next(path);
+            valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
+                                        &iter, path);
+            if(!valid){
+                path = gtk_tree_path_new_first();
+                valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                        &iter);
+                if (first)
+                    break;
+                else
+                    first = TRUE;
+            }
+            continue;
+        }
+        if(ready){
+            break;
+        }
+        else{
+            if(skipped || (app->config->current_station_name) && (station_name) &&
+                  !strcmp(app->config->current_station_name, station_name))
+                ready = TRUE;
+            g_free(station_name);
+            gtk_tree_path_next(path);
+
+            valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
+                                        &iter, path);
+            if(!valid){
+                valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
+                                        &iter);
+            }
+        }
+    }
+/*
     while(valid){
         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
                             &iter, NAME_COLUMN, &station_name, -1);
@@ -151,7 +194,9 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
                                         &iter);
         }
     }
+*/
     gtk_tree_path_free(path);
+    return station_name;
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -164,24 +209,23 @@ weather_simple_window_redraw(GtkWidget *window){
     GtkWidget* main_vbox;
     gpointer user_data;
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
 
     main_vbox = (GtkWidget*)g_object_get_data(G_OBJECT(window), "main_vbox");
     user_data = g_object_get_data(G_OBJECT(window), "user_data");
     if (main_vbox)
         gtk_widget_destroy(main_vbox);
-    fprintf(stderr,"qqqqqqqqqq %p\n", window);
     main_vbox =  create_mainbox_for_forecast_window(window, user_data);
     gtk_container_add(GTK_CONTAINER(window), main_vbox);
     gtk_widget_show(main_vbox);
     gtk_widget_show(window);
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 
 }
 /*******************************************************************************/
@@ -193,9 +237,9 @@ create_top_buttons_box(GtkWidget* window, gpointer user_data){
     gchar           buffer[255],
                     full_filename[2048];
     struct stat     statv;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
 /* buttons */
     buttons_box = gtk_hbox_new(TRUE, 0);
@@ -236,9 +280,10 @@ create_top_buttons_box(GtkWidget* window, gpointer user_data){
 
     gtk_box_pack_start(GTK_BOX(buttons_box), station_button, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(buttons_box), update_button, TRUE, TRUE, 0);
-//#ifdef DEBUGFUNCTIONCALL
+
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
     gtk_widget_show(buttons_box);
     return buttons_box;
 }
@@ -267,9 +312,9 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                     hi_temp,
                     low_temp;
     struct tm       tmp_time_date_struct = {0};
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     main_vbox = gtk_vbox_new(FALSE, 5);
 #if defined OS2009
     scrolled_window = hildon_pannable_area_new ();
@@ -289,8 +334,6 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
     gtk_scrolled_window_add_with_viewport(scrolled_window, main_vbox);
 #endif
 
-
-fprintf(stderr,"ddddddddddddddddd\n");
     days = (GSList*)g_hash_table_lookup(app->station_data, "forecast");
     if(days){
         while(days){
@@ -421,9 +464,9 @@ fprintf(stderr,"ddddddddddddddddd\n");
         set_font(label, NULL, 24);
     }
     gtk_widget_show_all(scrolled_window);
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 
     return scrolled_window;
 }

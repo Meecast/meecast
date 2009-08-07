@@ -106,7 +106,8 @@ gdk_pixbuf_save (pixbuf , "screenie.png", "png", NULL, NULL);
                "\tVlad Vasiliev, vlad@gas.by\n"
                "Maintenance:\n\tPavel Fialko, pavelnf@gmail.com\n"
                "Documentation:\n\tMarko Vertainen\n"
-               "Design of default iconset and design of interface:\n\tAndrew Zhilin"));
+               "Design of default iconset and design of interface:\n\tAndrew Zhilin\n"
+               "Design UI for Fremantle:\n\tKrebber Jan\n\tNiemelä Ulla\n"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                              create_scrolled_window_with_text(tmp_buff,
                                                               GTK_JUSTIFY_LEFT),
@@ -115,6 +116,8 @@ gdk_pixbuf_save (pixbuf , "screenie.png", "png", NULL, NULL);
     snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s",
              _("\nEd Bartosh - for more feature requests,\n"
                "\t\t\t\tsupport and criticism\n"
+               "Daniel Wilms - for feature requests and\n"
+               "testing\n"
                "Eugen Kaluta aka tren - for feature requests\n"
                "\t\t\t\tand support\n"
                "Maxim Kalinkevish aka spark for testing\n"

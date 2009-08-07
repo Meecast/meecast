@@ -486,6 +486,7 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
                         *current_widget = NULL,
                         *main_vbox = NULL,
                         *line = NULL,
+                        *separator = NULL,
                         *vscrollbar = NULL;
     gchar               *day_name = NULL;
     time_t              current_time = 0,

@@ -43,6 +43,28 @@ jump_panarea(gpointer user_data){
 #endif
     return FALSE;
 }
+GtkWidget*
+create_mainbox_for_forecast_window(GtkWidget* window, gpointer user_data){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    GtkWidget       *view = NULL,
+                    *main_vbox = NULL;
+    main_vbox = gtk_vbox_new(FALSE, 0);
+    g_object_set_data(G_OBJECT(window), "main_vbox", (gpointer)main_vbox);
+    g_object_set_data(G_OBJECT(window), "user_data", (gpointer)user_data);
+    gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(window, user_data), FALSE, TRUE, 0);
+    if (app->config->view_mode == COLLAPSED_VIEW_MODE)
+        gtk_box_pack_start(GTK_BOX(main_vbox), view = create_weather_collapsed_view(main_vbox, (gint)user_data), TRUE, TRUE, 0);
+    else
+        gtk_box_pack_start(GTK_BOX(main_vbox), view = create_weather_expanded_view(main_vbox, (gint)user_data), TRUE, TRUE, 0);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
+    return main_vbox;
+}
 
 
 void
@@ -63,9 +85,8 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
 #else
     window = hildon_window_new();
 #endif
-
     gtk_window_set_title(GTK_WINDOW(window), _("Forecast"));
-    main_vbox = gtk_vbox_new(FALSE, 0);
+
 //    gtk_window_fullscreen (GTK_WINDOW (window));
 /*
     while(!temp){
@@ -76,13 +97,8 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     	    fprintf(stderr, "\nNO \n");
     }
 */
-    gtk_container_add(GTK_CONTAINER(window), main_vbox);
+    gtk_container_add(GTK_CONTAINER(window), create_mainbox_for_forecast_window(window, user_data));
     gtk_widget_show(window);
-    gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(), FALSE, TRUE, 0);
-    if (app->config->view_mode == COLLAPSED_VIEW_MODE)
-        gtk_box_pack_start(GTK_BOX(main_vbox), view = create_weather_collapsed_view(main_vbox, (gint)user_data), TRUE, TRUE, 0);
-    else
-        gtk_box_pack_start(GTK_BOX(main_vbox), view = create_weather_expanded_view(main_vbox, (gint)user_data), TRUE, TRUE, 0);
 
 #if defined OS2009
     menu = create_view_menu();
@@ -107,9 +123,9 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
                     ready = FALSE;
     gchar           *station_name = NULL;
     GtkTreePath     *path;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if(!current_station_name)
         return NULL;
 
@@ -143,17 +159,43 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
     return NULL;
 }
 /*******************************************************************************/
+void
+weather_simple_window_redraw(GtkWidget *window){
+    GtkWidget* main_vbox;
+    gpointer user_data;
+
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+
+
+    main_vbox = (GtkWidget*)g_object_get_data(G_OBJECT(window), "main_vbox");
+    user_data = g_object_get_data(G_OBJECT(window), "user_data");
+    if (main_vbox)
+        gtk_widget_destroy(main_vbox);
+    fprintf(stderr,"qqqqqqqqqq %p\n", window);
+    main_vbox =  create_mainbox_for_forecast_window(window, user_data);
+    gtk_container_add(GTK_CONTAINER(window), main_vbox);
+    gtk_widget_show(main_vbox);
+    gtk_widget_show(window);
+
+//#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+//#endif
+
+}
+/*******************************************************************************/
 GtkWidget*
-create_top_buttons_box(void){
+create_top_buttons_box(GtkWidget* window, gpointer user_data){
     GtkWidget       *buttons_box = NULL,
                     *station_button = NULL,
                     *update_button = NULL;
     gchar           buffer[255],
                     full_filename[2048];
     struct stat     statv;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
 
 /* buttons */
     buttons_box = gtk_hbox_new(TRUE, 0);
@@ -166,7 +208,7 @@ create_top_buttons_box(void){
     station_button = create_button_with_2_line_text(app->config->current_station_name,
                                                     buffer, 18, 12);
     g_signal_connect(G_OBJECT(station_button), "button-release-event",
-                            G_CALLBACK(change_station_next), GINT_TO_POINTER(1));
+                            G_CALLBACK(change_station_next), window);
     gtk_widget_set_size_request(station_button, -1, 80);
     /* prepare last update time*/
     if(app->station_data){
@@ -194,6 +236,10 @@ create_top_buttons_box(void){
 
     gtk_box_pack_start(GTK_BOX(buttons_box), station_button, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(buttons_box), update_button, TRUE, TRUE, 0);
+//#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+//#endif
+    gtk_widget_show(buttons_box);
     return buttons_box;
 }
 /*******************************************************************************/
@@ -221,9 +267,9 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                     hi_temp,
                     low_temp;
     struct tm       tmp_time_date_struct = {0};
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     main_vbox = gtk_vbox_new(FALSE, 5);
 #if defined OS2009
     scrolled_window = hildon_pannable_area_new ();
@@ -240,9 +286,11 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
     vscrollbar = gtk_scrolled_window_get_vscrollbar(scrolled_window);
     hildon_helper_set_thumb_scrollbar (scrolled_window, TRUE);
     /* pack childs to the scrolled window */
-#endif
     gtk_scrolled_window_add_with_viewport(scrolled_window, main_vbox);
+#endif
 
+
+fprintf(stderr,"ddddddddddddddddd\n");
     days = (GSList*)g_hash_table_lookup(app->station_data, "forecast");
     if(days){
         while(days){
@@ -373,6 +421,10 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
         set_font(label, NULL, 24);
     }
     gtk_widget_show_all(scrolled_window);
+//#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+//#endif
+
     return scrolled_window;
 }
 /*******************************************************************************/

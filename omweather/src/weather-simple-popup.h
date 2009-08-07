@@ -34,7 +34,8 @@
 /*******************************************************************************/
 void weather_simple_window_popup(GtkWidget *widget, gpointer user_data);
 gchar* get_next_station_name(const gchar *current_station_name, GtkListStore *user_stations_list);
-GtkWidget* create_top_buttons_box(void);
+GtkWidget* create_mainbox_for_forecast_window(GtkWidget* window, gpointer user_data);
+GtkWidget* create_top_buttons_box(GtkWidget* window, gpointer user_data);
 GtkWidget* create_weather_collapsed_view(GtkWidget *vbox, gint day_number);
 GtkWidget* create_weather_expanded_view(GtkWidget *vbox, gint day_number);
 GtkWidget* create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number);

@@ -71,7 +71,6 @@ get_connection_status_signal_cb(DBusConnection * connection,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-fprintf(stderr, "\nget_connection_status_signal_cb\n");
     /* check signal */
     if (!dbus_message_is_signal(message,
                                 ICD_DBUS_INTERFACE,
@@ -125,7 +124,6 @@ connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
- fprintf(stderr, "\nconnection_cb\n");
     status = con_ic_connection_event_get_status(event);
     error = con_ic_connection_event_get_error(event);
     iap_id = (gchar*)con_ic_event_get_iap_id(CON_IC_EVENT(event));
@@ -179,7 +177,6 @@ void iap_callback(struct iap_event_t *event, void *arg) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-fprintf(stderr, "\niap_callback\n");
     app->iap_connecting = FALSE;
     switch (event->type) {
     case OSSO_IAP_CONNECTED:
@@ -247,7 +244,6 @@ free_curl(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-fprintf(stderr, "\nfree curl\n");
     curl_slist_free_all(headers);
     headers = NULL;
     curl_multi = NULL;
@@ -264,7 +260,6 @@ data_read(void *buffer, size_t size, size_t nmemb, void *stream){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-fprintf(stderr, "\nread data\n");
     if(out && !out->stream){
         /* open file for writing */
         out->stream = fopen(out->filename, "wb");
@@ -305,7 +300,6 @@ download_html(gpointer data){
     if(app->show_update_window && (!second_attempt) && (!app->iap_connecting)){
         app->iap_connecting = TRUE;
 #ifdef USE_CONIC
-        fprintf(stderr, "\nbalaaaa\n");
         if(app->connection)
             con_ic_connection_connect(app->connection,
                                       CON_IC_CONNECT_FLAG_NONE);
@@ -325,7 +319,6 @@ download_html(gpointer data){
 #endif
         app->flag_updating = 0;
         second_attempt = TRUE;
-        fprintf(stderr, "IN IF");
         return TRUE;
     }
     if(app->iap_connecting){
@@ -566,7 +559,6 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-fprintf(stderr, "\nGet URL\n");
     if (first)
         valid =
             gtk_tree_model_get_iter_first(GTK_TREE_MODEL

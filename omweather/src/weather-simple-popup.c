@@ -50,7 +50,7 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     GtkWidget       *window = NULL,
                     *view = NULL,
                     *main_vbox = NULL;
-    gboolean		temp = FALSE;
+//    gboolean        temp = FALSE;
 #if defined OS2009
     HildonAppMenu   *menu = NULL;
 #endif
@@ -67,6 +67,7 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     gtk_window_set_title(GTK_WINDOW(window), _("Forecast"));
     main_vbox = gtk_vbox_new(FALSE, 0);
 //    gtk_window_fullscreen (GTK_WINDOW (window));
+/*
     while(!temp){
         temp = get_data_from_url("www.bash.org.ru", "temp");
         if(temp)
@@ -74,7 +75,7 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     	else
     	    fprintf(stderr, "\nNO \n");
     }
-
+*/
     gtk_container_add(GTK_CONTAINER(window), main_vbox);
     gtk_widget_show(window);
     gtk_box_pack_start(GTK_BOX(main_vbox), create_top_buttons_box(), FALSE, TRUE, 0);
@@ -535,7 +536,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
     const gchar     *wind_units_str[] = {"m/s", "km/h", "mi/h" };
     gchar           buffer[1024],
                     tmp[512],
-                    *buff,
+                    buff[1024],
                     hour_last_update[1024];
     GHashTable      *hour_weather = NULL;
     GSList          *hours_weather = NULL;
@@ -595,7 +596,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 //            fprintf(stderr, "\nTIME %d\n", current_time);
 
             *hour_last_update = 0;
-            *buff =0;
+            memset(buff, 0, sizeof(buff));
 
             /*Prepare date from xml file*/
 
@@ -604,8 +605,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                                                "detail"), "last_update"));
             date_size = strcspn(hour_last_update, " ");
             strncpy(buff, hour_last_update, date_size);
-            strcat(buff, "\0");
-            fprintf(stderr, "\nbuff %s\n", buff);
+//            fprintf(stderr, "\nbuff %s\n", buff);
 
             *hour_last_update = 0;
             strcat(hour_last_update, buff);
@@ -614,7 +614,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
             strcat(hour_last_update, ":00:00");
 
             strptime(hour_last_update, "%D %T", &tmp_tm);
-            fprintf(stderr, "\nhour_last_update %s\n", hour_last_update);
+//            fprintf(stderr, "\nhour_last_update %s\n", hour_last_update);
             hours_time = mktime(&tmp_tm);
             if((count > 1) && 
                         (!strcmp((char*)g_hash_table_lookup(hour_weather, "hours"), "00")))

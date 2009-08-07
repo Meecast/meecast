@@ -1,6 +1,7 @@
 omweather (0.23.2) unstable; urgency=low
 
-  * fixed problem with switching between stations if stations list has nil stations 
+  * Fixed problem with switching between stations if stations list has nil stations 
+  * Fixed problem with detailed weather for current day
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 07 Jun 2009 18:30:00 +0200
 

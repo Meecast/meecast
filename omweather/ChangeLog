@@ -1,6 +1,7 @@
 0.23.2
-  * Various fix
- 
+  * Fixed problem with switching between stations if stations list has nil stations 
+  * Fixed problem with detailed weather for current day
+
 0.23.1
   * Done scroll to child for pannable_area in window popup
   * Added button 'Clear' for window 'Configuring station'

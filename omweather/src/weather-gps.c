@@ -172,6 +172,7 @@ initial_gps_control(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    app->gps_was_started = FALSE;
     app->gps_control = location_gpsd_control_get_default();
     app->gps_run = g_signal_connect(app->gps_control, "gpsd_running", G_CALLBACK (gps_location_started), NULL);
     app->gps_stop = g_signal_connect(app->gps_control, "gpsd_stopped", G_CALLBACK (gps_location_stopped), NULL);

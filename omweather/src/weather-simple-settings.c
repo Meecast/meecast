@@ -415,13 +415,23 @@ save_station(GtkWidget *window){
     /* Update config file */
     config_save(app->config);
     stations_box = (gpointer)(g_object_get_data(G_OBJECT(window), "station_box"));
-    gtk_widget_destroy(stations_box);
+    if (stations_box)
+        gtk_widget_destroy(stations_box);
     stations_box = create_and_fill_stations_buttons((GtkWidget*)(g_object_get_data(G_OBJECT(window), "settings_window_table")));
     gtk_widget_show (stations_box);
     gtk_table_attach((GtkTable*)(g_object_get_data(G_OBJECT(window), "settings_window_table")),
                                 stations_box, 1, 2, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
 
+    /* Run gps daemon */
+    if (is_gps && g_strdup(g_object_get_data(G_OBJECT(window), "station_code")) &&
+       !strcmp(g_strdup(g_object_get_data(G_OBJECT(window), "station_code"))," ")){
+       fprintf(stderr, "GPS!!!!!!!!!!!!!!1\n");
+       if (app->gps_control){
+          location_gpsd_control_start(app->gps_control);
+          app->gps_was_started = TRUE;
+       }
+    }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

@@ -409,15 +409,16 @@ typedef struct OMWeatherApplet{
     GSList              *clutter_objects_in_main_form;
     GSList              *clutter_objects_in_popup_form;
 #ifdef ENABLE_GPS
-    guint		gps_id_connection;
-    guint		gps_id_gpsdevice;
-    guint		gps_run;
-    guint		gps_stop;
+    guint       gps_id_connection;
+    guint       gps_id_gpsdevice;
+    guint       gps_run;
+    guint       gps_stop;
     LocationGPSDevice   *gps_device;
     LocationGPSDControl *gps_control;
-    Station		gps_station;
-    double		temporary_station_latitude;
-    double		temporary_station_longtitude;
+    gboolean    gps_was_started;
+    Station     gps_station;
+    double      temporary_station_latitude;
+    double      temporary_station_longtitude;
 #endif
 #ifdef OS2009
     gboolean    portrait_position;

@@ -137,7 +137,11 @@ timer_handler(gpointer data){
 */
 
                 if (distance > 10 || distance < 0) {
-
+                    /* Stop location service */
+                    if (app->gps_was_started){
+                          location_gpsd_control_stop(app->gps_control);
+                          app->gps_was_started = FALSE;
+                    }
                     get_nearest_station
                         (app->temporary_station_latitude,
                          app->temporary_station_longtitude,

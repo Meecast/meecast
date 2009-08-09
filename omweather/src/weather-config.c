@@ -513,7 +513,7 @@ gint read_config(AppletConfig * config) {
                                                    GCONF_KEY_WEATHER_UPDATE_INTERVAL,
                                                    NULL);
     if (config->update_interval < 0 || config->update_interval > 24 * 60)       /* No more than 24 hours */
-        config->update_interval = 0;
+        config->update_interval = 60;
     remove_periodic_event();    /* delete event from list */
     add_periodic_event(time(NULL));     /* add new event */
 

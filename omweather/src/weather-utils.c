@@ -433,7 +433,7 @@ GtkWidget *create_scrolled_window_with_text(const char *text,
                                     justification);
     gtk_text_view_set_overwrite(GTK_TEXT_VIEW(text_view), FALSE);
     gtk_text_view_set_accepts_tab(GTK_TEXT_VIEW(text_view), FALSE);
-    gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(text_view), GTK_WRAP_NONE);
+    gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(text_view), GTK_WRAP_WORD);
     /* scrolled window */
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);
     gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW

@@ -58,15 +58,6 @@ void create_about_dialog(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
-/* Test 
-GdkPixbuf *pixbuf;
-pixbuf = gdk_pixbuf_get_from_drawable (NULL, app->top_widget->window, NULL,
-app->top_widget->allocation.x, app->top_widget->allocation.y, 0, 0,
-app->top_widget->allocation.width, app->top_widget->allocation.height);
-gdk_pixbuf_save (pixbuf , "screenie.png", "png", NULL, NULL);
-*/
-
     help_dialog =
         gtk_dialog_new_with_buttons(_("Other Maemo Weather Info"), NULL,
                                     GTK_DIALOG_MODAL |
@@ -102,42 +93,36 @@ gdk_pixbuf_save (pixbuf , "screenie.png", "png", NULL, NULL);
                              gtk_label_new(_("About")));
 /* Authors tab */
     snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s",
-             _("\nAuthor and maintenance:\n"
-               "\tVlad Vasiliev, vlad@gas.by\n"
-               "Maintenance:\n\tPavel Fialko, pavelnf@gmail.com\n"
-               "Documentation:\n\tMarko Vertainen\n"
-               "Design of default iconset and design of interface:\n\tAndrew Zhilin\n"
-               "Design UI for Fremantle:\n\tKrebber Jan\n\tNiemelä Ulla\n"));
+             _("Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n"
+               "Maintenance: Pavel Fialko, <pavelnf@gmail.com>\n"
+               "Documentation: Marko Vertainen\n"
+               "Design UI and default iconset: Andrew Zhilin\n"
+               "Design UI for Fremantle: Krebber Jan Niemelä Ulla\n"));
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                              create_scrolled_window_with_text(tmp_buff,
                                                               GTK_JUSTIFY_LEFT),
                              gtk_label_new(_("Authors")));
 /* Thanks tab */
     snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s",
-             _("\nEd Bartosh - for more feature requests,\n"
-               "\t\t\t\tsupport and criticism\n"
-               "Daniel Wilms - for feature requests and\n"
-               "testing\n"
-               "Eugen Kaluta aka tren - for feature requests\n"
-               "\t\t\t\tand support\n"
+             _("Ed Bartosh - for more feature requests, support and criticism\n"
+               "Daniel Wilms - for feature requests and testing\n"
+               "Eugen Kaluta aka tren - for feature requests and support\n"
                "Maxim Kalinkevish aka spark for testing\n"
                "Yuri Komyakov - for Nokia 770 device \n"
                "Greg Thompson for support stations.txt file\n"
                "Frank Persian - for idea of new layout\n"
-               "Brian Knight - for idea of iconset, criticism \n"
-               "\t\t\t\tand donation ;-)\n"));
-    strcat(tmp_buff,
-           _("Andrew aka Tabster - for testing and ideas\n"
-             "Brad Jones aka kazrak - for testing\n"
-             "Alexis Iglauer - for testing\n"
-             "Eugene Roytenberg - for testing\n"
-             "Jarek Szczepanski aka Imrahil - for testing\n"
-             "Vladimir Shakhov aka Mendoza - for testing \n"
-             "Marc Dilon - for spell/stylecheck text of English\n"));
-    strcat(tmp_buff,
-           _("Arkady Glazov aka Globster - for testing\n"
-             "Alexander Savchenko aka dizel - for testing\n"));
-    strcat(tmp_buff, _("Eric Link - for feature request and donation\n"));
+               "Brian Knight - for idea of iconset, criticism and donation ;-)\n"
+               "Andrew aka Tabster - for testing and ideas\n"
+               "Brad Jones aka kazrak - for testing\n"));
+    snprintf(tmp_buff + strlen(tmp_buff), sizeof(tmp_buff) - strlen(tmp_buff) - 1, "%s",
+              _("Alexis Iglauer - for testing\n"
+               "Eugene Roytenberg - for testing\n"
+               "Jarek Szczepanski aka Imrahil - for testing\n"
+               "Vladimir Shakhov aka Mendoza - for testing \n"
+               "Marc Dilon - for spell/stylecheck text of English\n"
+               "Arkady Glazov aka Globster - for testing\n"
+               "Alexander Savchenko aka dizel - for testing\n"
+               "Eric Link - for feature request and donation\n"));
 
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                              create_scrolled_window_with_text(tmp_buff,

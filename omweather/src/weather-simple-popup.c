@@ -453,10 +453,8 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             set_font(line_text, NULL, 12);
             gtk_box_pack_start(GTK_BOX(line_hbox), line_text, FALSE, TRUE, 10);
 
-            if(day_number == i){
-                fprintf(stderr,"This day must be activity!!! %i\n",i);
+            if(day_number == i)
                 g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)separator);
-            }
             /* next day */
             days = g_slist_next(days);
             i++;
@@ -487,6 +485,7 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
                         *main_vbox = NULL,
                         *line = NULL,
                         *separator = NULL,
+                        *previos_separator = NULL,
                         *vscrollbar = NULL;
     gchar               *day_name = NULL;
     time_t              current_time = 0,
@@ -569,9 +568,12 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
         gtk_container_add(GTK_CONTAINER(line), day_widget);
         gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
         gtk_box_pack_start(GTK_BOX(main_vbox), separator = gtk_hseparator_new(), FALSE, TRUE, 0);
-
+        if(day_number == i)
+            previos_separator = separator;
         /* If activited day and not current weather */
-        if(day_number == i && !(i == 0 && current_widget && current))
+        if(day_number + 1 == i && !(i == 0 && current_widget && current))
+            g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)previos_separator);
+        if(day_number == Max_count_weather_day - 1 && i == Max_count_weather_day - 1)
             g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)line);
         tmp = g_slist_next(tmp);
         i++;
@@ -700,7 +702,9 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 
             /*Prepare date from xml file*/
 
-            snprintf(hour_last_update + strlen(hour_last_update), "%s",
+            snprintf(hour_last_update + strlen(hour_last_update),
+                    sizeof(hour_last_update) - strlen(hour_last_update) - 1,
+                    "%s",
                     (char*)g_hash_table_lookup(g_hash_table_lookup(app->station_data, 
                                                "detail"), "last_update"));
             date_size = strcspn(hour_last_update, " ");

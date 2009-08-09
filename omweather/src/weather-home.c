@@ -1170,16 +1170,21 @@ menu_init(void){
     START_FUNCTION;
 #endif
     app->contextmenu = gtk_menu_new();
-
-
-    gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu),
-    menu_item = gtk_menu_item_new_with_label(_("Full forecast")));
+    /* About item */
+    menu_item = gtk_menu_item_new_with_label(_("About"));
     g_signal_connect(G_OBJECT(menu_item), "activate",
-        G_CALLBACK(weather_window_popup), (GINT_TO_POINTER(-1)));
-    gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu),
-    menu_item = gtk_menu_item_new_with_label(_("Settings")));
+                        G_CALLBACK(about_button_handler), NULL);
+    gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu), menu_item);
+    /* Setting item */
+    menu_item = gtk_menu_item_new_with_label(_("Settings"));
     g_signal_connect(G_OBJECT(menu_item), "activate",
-        G_CALLBACK(weather_window_settings), NULL);
+                        G_CALLBACK(weather_window_settings), NULL);
+    gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu), menu_item);
+    /* Full forecast item*/
+    menu_item = gtk_menu_item_new_with_label(_("Full forecast"));
+    g_signal_connect(G_OBJECT(menu_item), "activate",
+                        G_CALLBACK(weather_window_popup), (GINT_TO_POINTER(-1)));
+    gtk_menu_shell_append(GTK_MENU_SHELL(app->contextmenu), menu_item);
 
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                                   &iter);

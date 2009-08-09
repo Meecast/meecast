@@ -1860,7 +1860,7 @@ weather_simple_window_settings(gpointer user_data){
 
     window = gtk_dialog_new();
     gtk_widget_show(window);
-    gtk_window_set_title(GTK_WINDOW(window), _("Settings"));
+    gtk_window_set_title(GTK_WINDOW(window), _("OMWeather Settings"));
     gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
     gtk_window_set_modal(GTK_WINDOW(window), TRUE);
 

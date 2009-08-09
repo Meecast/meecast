@@ -9,4 +9,7 @@ src/weather-download.c
 src/weather-sensor.c
 src/weather-help.c
 src/weather-alerts.c
+src/weather-simple-popup.c
+src/weather-simple-status.c
+src/weather-simple-settings.c
 

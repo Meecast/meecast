@@ -178,7 +178,6 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
     gtk_widget_set_size_request(help_button, 320, 60);
     gtk_widget_show (help_button);
     gtk_table_attach((GtkTable*)main_table, help_button,
-//                                1, 3, 5, 6, (GtkAttachOptions)0,
                                 1, 3, 3, 4, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 5, 0 );
     g_signal_connect_after(help_button, "clicked",

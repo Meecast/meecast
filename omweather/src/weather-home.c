@@ -905,8 +905,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     #ifdef USE_CONIC
        app->connection = NULL;
     #endif
-/* Initialize DBUS */
-    weather_initialize_dbus(); /* TODO connect this function with app->dbus_is_initialize */
 #ifdef CLUTTER
     /* Init clutter */
     if (gtk_clutter_init (NULL, NULL) != CLUTTER_INIT_SUCCESS)
@@ -933,6 +931,9 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     return NULL;
 #endif
     }
+    /* Initialize DBUS */
+    weather_initialize_dbus(); /* TODO connect this function with app->dbus_is_initialize */
+
     app->sources_list = create_sources_list(SOURCESPATH, &app->sources_number, &app->handles);
     app->station_data = g_hash_table_new(g_str_hash, g_str_equal);
     app->time_update_list = create_time_update_list();

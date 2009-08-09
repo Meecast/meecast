@@ -977,7 +977,12 @@ update_save(GtkWidget *window){
         if(!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wlan)))
             app->config->update_wlan = FALSE;
     }
-
+    if(app->config->update_interval == 0)
+        remove_periodic_event();
+    else{
+        remove_periodic_event();
+        add_periodic_event(time(NULL));
+    }
 }
 /*******************************************************************************/
 void

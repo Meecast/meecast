@@ -61,6 +61,6 @@ GtkWidget* create_window_update(void);
 gboolean get_file(const gchar *full_url, const gchar *full_storing_name);
 void free_curl(void);
 void check_current_connection(void);
-gboolean get_data_from_url(const gchar *data_url, const gchar *path);
+gint get_data_from_url(const gchar *data_url, const gchar *name);
 /*******************************************************************************/
 #endif

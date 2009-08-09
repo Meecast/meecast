@@ -74,7 +74,6 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     GtkWidget       *window = NULL,
                     *view = NULL,
                     *main_vbox = NULL;
-//    gboolean        temp = FALSE;
 #if defined OS2009
     HildonAppMenu   *menu = NULL;
 #endif
@@ -90,15 +89,7 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     gtk_window_set_title(GTK_WINDOW(window), _("Forecast"));
 
 //    gtk_window_fullscreen (GTK_WINDOW (window));
-/*
-    while(!temp){
-        temp = get_data_from_url("www.bash.org.ru", "temp");
-        if(temp)
-    	    fprintf(stderr, "\nYES \n");
-    	else
-    	    fprintf(stderr, "\nNO \n");
-    }
-*/
+
     gtk_container_add(GTK_CONTAINER(window), create_mainbox_for_forecast_window(window, user_data));
     gtk_widget_show(window);
 
@@ -115,7 +106,6 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
                         G_CALLBACK(destroy_popup_window), GINT_TO_POINTER(1));
     g_signal_connect((gpointer)app->popup_window, "delete_event",
                         G_CALLBACK(destroy_popup_window), GINT_TO_POINTER(1));
-
 }
 /*******************************************************************************/
 gchar*
@@ -660,7 +650,6 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
     main_vbox = gtk_vbox_new(FALSE, 5);
     /* scrolled window */
 #if defined OS2009

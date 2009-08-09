@@ -1069,7 +1069,8 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
     if(app->connection)
         g_object_unref(app->connection);
 #endif
-
+    /* destroy popup */
+    destroy_popup_window(NULL);
 #if defined OS2008 && ! defined APPLICATION
     g_signal_handler_disconnect(app->parent,app->signal_size_request);
     g_signal_handler_disconnect(app->parent_parent,app->signal_press);

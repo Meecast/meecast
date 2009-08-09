@@ -671,6 +671,8 @@ check_current_connection(void)
             type_of_connection = gconf_client_get_string(gconf_client,
                                       gconf_path,
                                       NULL);
+            write_log(gconf_path);
+            write_log(type_of_connection);
             if ((type_of_connection && !strncmp(type_of_connection, "WLAN", 4) && app->config->update_wlan) ||
                 (type_of_connection && !strncmp(type_of_connection, "DUN_GSM", 7) && app->config->update_gsm)){
                 app->iap_connected = TRUE;

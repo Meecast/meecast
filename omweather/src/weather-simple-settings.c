@@ -422,7 +422,7 @@ save_station(GtkWidget *window){
     gtk_table_attach((GtkTable*)(g_object_get_data(G_OBJECT(window), "settings_window_table")),
                                 stations_box, 1, 2, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
-
+#ifdef ENABLE_GPS
     /* Run gps daemon */
     if (is_gps && g_strdup(g_object_get_data(G_OBJECT(window), "station_code")) &&
        !strcmp(g_strdup(g_object_get_data(G_OBJECT(window), "station_code"))," ")){
@@ -432,6 +432,7 @@ save_station(GtkWidget *window){
           app->gps_was_started = TRUE;
        }
     }
+#endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

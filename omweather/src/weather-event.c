@@ -52,9 +52,9 @@ timer_handler(gpointer data){
 #ifdef DEBUGEVENTS
     char                *temp_string;
 #endif
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if (not_event == TRUE || !event_time_list)
         return TRUE;
 

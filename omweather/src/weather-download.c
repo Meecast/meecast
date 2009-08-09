@@ -656,9 +656,9 @@ check_current_connection(void)
     gchar *type_of_connection = NULL;
     GConfClient *gconf_client = NULL;
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
  
     /* Check current connection */
     gconf_client = gconf_client_get_default();
@@ -671,23 +671,11 @@ check_current_connection(void)
             type_of_connection = gconf_client_get_string(gconf_client,
                                       gconf_path,
                                       NULL);
-            write_log(gconf_path);
-            write_log(type_of_connection);
-            if (type_of_connection)
-                    write_log("test1");
-            if (!strncmp(type_of_connection, "WLAN", 4))
-                    write_log("test2");
-            if (app->config->update_wlan)
-                    write_log("test3");
             if ((type_of_connection && !strncmp(type_of_connection, "WLAN", 4) && app->config->update_wlan) ||
-                (type_of_connection && !strncmp(type_of_connection, "DUN_GSM", 7) && app->config->update_gsm)){
+                (type_of_connection && !strncmp(type_of_connection, "DUN_GSM", 7) && app->config->update_gsm))
                 app->iap_connected = TRUE;
-                write_log("app->iap_connected = TRUE");
-            }
-            else{
+            else
                 app->iap_connected = FALSE;
-                write_log("app->iap_connected = FALSE");
-            }
             if (gconf_path)
                 g_free(gconf_path);
             if (type_of_connection);
@@ -709,9 +697,9 @@ get_data_from_url(const gchar *data_url, const gchar *path){
     int max;
     gint num_transfers = 0, num_msgs = 0;
     gchar full_filename[2048] ;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     *full_filename = 0;
     snprintf(full_filename, sizeof(full_filename) - 1,"%s/%s.xml",
                                                           app->config->cache_dir_name, path);
@@ -817,8 +805,8 @@ get_data_from_url(const gchar *data_url, const gchar *path){
         return TRUE;
     }
 */        
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 }
 /*******************************************************************************/

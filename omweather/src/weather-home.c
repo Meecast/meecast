@@ -1037,9 +1037,9 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 #endif
     osso_context_t *osso = NULL;
     GSList         *tmp = NULL;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 #if defined OS2008 || !defined (APPLICATION)
     if(!app)
         return;
@@ -1142,9 +1142,9 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
     gtk_main_quit();
 #endif
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 }
 /*******************************************************************************/
 GtkWidget* 

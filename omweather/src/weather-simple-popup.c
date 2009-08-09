@@ -568,7 +568,7 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
         gtk_container_add(GTK_CONTAINER(line), day_widget);
         gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
         gtk_box_pack_start(GTK_BOX(main_vbox), separator = gtk_hseparator_new(), FALSE, TRUE, 0);
-        if(day_number == i)
+        if(day_number == i && !(i == 0 && current_widget && current))
             previos_separator = separator;
         /* If activited day and not current weather */
         if(day_number + 1 == i && !(i == 0 && current_widget && current))

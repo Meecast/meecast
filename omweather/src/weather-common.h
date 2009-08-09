@@ -344,6 +344,7 @@ typedef struct OMWeatherApplet{
     GHashTable		*hash,
                     *sources_units;
     GHashTable      *station_data;
+    GHashTable      *detail_station_data;
     GtkWidget		*top_widget;
     GtkWidget		*main_window;
     GtkWidget		*popup_window;

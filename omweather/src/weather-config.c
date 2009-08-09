@@ -1168,10 +1168,8 @@ void check_current_station_id(void) {
                                                                                     &iter);
     while(valid){
        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list), &iter,
-                                        0, &station_name,
                                         1, &station_code,
-                                        2, &is_gps,
-                                        3, &station_source, -1);
+                                        -1);
         if(!strcmp(station_code, app->config->current_station_id)){
             valid = FALSE;
             equals = TRUE;
@@ -1180,6 +1178,8 @@ void check_current_station_id(void) {
             valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
             equals = FALSE;
         }
+        if(station_code)
+            g_free(station_code);
     }
 
     if(!equals){

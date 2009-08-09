@@ -724,6 +724,7 @@ redraw_home_window(gboolean first_start){
     gint            (*parser)(const gchar*, GHashTable*, gboolean);
     WDB             *tmp_button = NULL;
     gchar           buffer[255];
+    GHashTable      *hour_weather = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -778,14 +779,23 @@ redraw_home_window(gboolean first_start){
         snprintf(buffer, sizeof(buffer) - 1, "%s/%s.xml",
                     app->config->cache_dir_name, app->config->current_station_id);
         /* delete previos station data */
-        if(app->station_data)
+        if(app->station_data){
+            tmp = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
+            fprintf(stderr, "dddddddddd %p\n", tmp);
+            if (tmp){
+                hour_weather = (GHashTable*)tmp->data;
+                if (hour_weather)
+                    g_hash_table_remove_all(hour_weather);
+            }
             g_hash_table_remove_all(app->station_data);
+        }
         count_day = parser(buffer, app->station_data, FALSE);
         /* detail data */
         if(app->config->show_weather_for_two_hours){
             *buffer = 0;
             snprintf(buffer, sizeof(buffer) - 1, "%s/%s_hour.xml",
                         app->config->cache_dir_name, app->config->current_station_id);
+            fprintf(stderr,"iiiiiiiiiiiii\n");
             parser(buffer, app->station_data, TRUE);
         }
     }
@@ -1037,6 +1047,7 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 #endif
     osso_context_t *osso = NULL;
     GSList         *tmp = NULL;
+    GHashTable      *hour_weather = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1100,7 +1111,19 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 #ifdef USE_DBUS
     weather_deinitialize_dbus();
 #endif
-
+/* delete hash station data */
+    if(app->station_data){
+        tmp = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
+        fprintf(stderr,"uuuuuuuu %p\n", tmp);
+        if (tmp){
+            hour_weather = (GHashTable*)tmp->data;
+            fprintf(stderr,"uuuuuuuu11111 %p\n", hour_weather);
+            if (hour_weather){
+                g_hash_table_remove_all(hour_weather);
+            }
+        }
+        g_hash_table_remove_all(app->station_data);
+    }
 #if !(defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO)
     osso = (osso_context_t*)applet_data;
 #endif

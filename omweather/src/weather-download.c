@@ -656,6 +656,10 @@ check_current_connection(void)
     gchar *type_of_connection = NULL;
     GConfClient *gconf_client = NULL;
 
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+ 
     /* Check current connection */
     gconf_client = gconf_client_get_default();
     if (gconf_client) {
@@ -668,10 +672,14 @@ check_current_connection(void)
                                       gconf_path,
                                       NULL);
             if ((type_of_connection && !strncmp(type_of_connection, "WLAN", 4) && app->config->update_wlan) ||
-                (type_of_connection && !strncmp(type_of_connection, "DUN_GSM", 7) && app->config->update_gsm))
+                (type_of_connection && !strncmp(type_of_connection, "DUN_GSM", 7) && app->config->update_gsm)){
                 app->iap_connected = TRUE;
-            else
+                write_log("app->iap_connected = TRUE");
+            }
+            else{
                 app->iap_connected = FALSE;
+                write_log("app->iap_connected = FALSE");
+            }
             if (gconf_path)
                 g_free(gconf_path);
             if (type_of_connection);

@@ -100,14 +100,15 @@
 #define ICONS_PATH          "/usr/share/omweather/icons/"
 #define BUTTON_ICONS		"/usr/share/omweather/button_icons/"
 #define IMAGES_PATH         "/usr/share/omweather/images/"
-
+/*
 #define START_FUNCTION        fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
-/*
+*/
+
 #define START_FUNCTION          FILE *f; f=fopen("/tmp/omw.log","a+"); fprintf(f,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);fflush(f);fclose(f);
 #define DEBUG_FUNCTION(string)  write_log(string)
 #define END_FUNCTION          FILE *fileend; fileend=fopen("/tmp/omw.log","a+"); fprintf(fileend,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);fflush(fileend);fclose(fileend);
-*/
+
 #define OMWEATHER_ADD_STATION           1000
 #define OMWEATHER_SEARCH_STATION        1001
 #define OMWEATHER_CLOSE_STATION_WINDOW  1002

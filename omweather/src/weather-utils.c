@@ -614,10 +614,10 @@ create_button_with_2_line_text(const gchar *first_line_text, const gchar *second
 }
 /*******************************************************************************/
 /* For debugging   */
-/*
+
 void write_log(char *string)
 {
 FILE *filelog; filelog=fopen("/tmp/omw.log","a+"); fprintf(filelog,"\n%s\n", string);fflush(filelog);fclose(filelog);
 }
 
-*/
+

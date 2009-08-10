@@ -70,10 +70,11 @@ void create_current_temperature_text(GHashTable *day, gchar *buffer, gboolean va
 void create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
                                 gboolean for_combination_mode, gint button_number);
 void free_main_hash_table(GHashTable *table);
+void free_detaild_hash_table(GHashTable *table);
 #if defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO
 void omweather_destroy(GtkObject *widget);
 #endif
-
+void free_fields(gpointer key, gpointer val, gpointer user_data);
 gboolean expose_main_window1(GtkWidget *widget, GdkEventExpose *event);
 #ifdef OS2008
 GtkWidget*

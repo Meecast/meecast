@@ -473,6 +473,7 @@ draw_home_window(gint count_day){
         while(tmp && i < offset){
             day = (GHashTable*)tmp->data;
             tmp = g_slist_remove(tmp, day);
+            g_hash_table_foreach(day, free_fields, NULL);
             g_hash_table_destroy(day);
             i++;
         }
@@ -734,21 +735,13 @@ redraw_home_window(gboolean first_start){
     fprintf(stderr, "\nDays previos %d\n", app->config->previos_days_to_show);
 #endif
     if(!first_start){
-        /* free station location data */
-        g_hash_table_remove(app->station_data, "location");
-        /* free station current data */
-        g_hash_table_remove(app->station_data, "current");
-        /* free station details data */
-        g_hash_table_remove(app->station_data, "detail");
-        /* free station days data */
-        g_hash_table_remove(app->station_data, "forecast");
-//        tmp = g_hash_table_lookup(app->station_data, "forecast");
-//        while(tmp){
-//            tmp_data = (GHashTable*)tmp->data;
-//            if(tmp_data)
-//                g_hash_table_destroy(tmp_data);
-//            tmp = g_slist_next(tmp);
-//        }
+        /* delete previos station data */
+        if(app->station_data){
+            free_main_hash_table(app->station_data);
+            /* free station details data */
+            free_detaild_hash_table(app->station_data);
+            g_hash_table_remove_all(app->station_data);
+        }
 	    /* free days buttons */
 	    tmp = app->buttons;
 	    while(tmp){
@@ -779,36 +772,13 @@ redraw_home_window(gboolean first_start){
         *buffer = 0;
         snprintf(buffer, sizeof(buffer) - 1, "%s/%s.xml",
                     app->config->cache_dir_name, app->config->current_station_id);
-        /* delete previos station data */
-        if(app->station_data){
-            tmp = g_hash_table_lookup(app->station_data, "detail");
-            if (tmp){
-                tmp1 = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
-                while(tmp1){
-                    hour_weather = (GHashTable*)tmp1->data;
-                    g_hash_table_remove_all(hour_weather);
-                    tmp1 = g_slist_next(tmp1);
-                }
-                g_hash_table_remove_all(tmp);
-           }
-           g_hash_table_remove_all(app->station_data);
-        }
         count_day = parser(buffer, app->station_data, FALSE);
         /* detail data */
         if(app->config->show_weather_for_two_hours){
             *buffer = 0;
             snprintf(buffer, sizeof(buffer) - 1, "%s/%s_hour.xml",
                         app->config->cache_dir_name, app->config->current_station_id);
-            fprintf(stderr,"iiiiiiiiiiiii\n");
-            tmp = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
-            fprintf(stderr, "dddddddddd aaaaaa %p\n", tmp);
-
             parser(buffer, app->station_data, TRUE);
-            tmp = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
-            fprintf(stderr, "dddddddddd 1111 %p\n", tmp);
-            tmp = g_hash_table_lookup(app->station_data, "detail");
-            fprintf(stderr, "dddddddddd 2222 %p\n", tmp);
-
         }
     }
     if(count_day == -2){
@@ -1134,7 +1104,7 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
             g_free(app->config);
 
         if(app->handles){
-//            unload_parsers(app->handles);
+            unload_parsers(app->handles);
             g_slist_free(app->handles);
             app->handles = NULL;
         }
@@ -1907,7 +1877,10 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     if (layout == COMBINATION || layout == APPLICATION_MODE){
         combination_vbox = gtk_vbox_new(FALSE, 0);
         current_time = time(NULL);
-        if (g_hash_table_lookup(app->station_data, "location"))
+      
+        if (g_hash_table_lookup(app->station_data, "location") && 
+        g_hash_table_lookup(g_hash_table_lookup(app->station_data, "location"),
+                                                            "station_time_zone"))
             diff_time = calculate_diff_time(atol(g_hash_table_lookup(g_hash_table_lookup(app->station_data, "location"), "station_time_zone")));
         else
             diff_time = 0;
@@ -1977,7 +1950,7 @@ free_fields(gpointer key, gpointer val, gpointer user_data){
     START_FUNCTION;
 #endif
     if(val){
-//        fprintf(stderr,"Value %s\n",val);
+/*        fprintf(stderr,"Key %s Value %s %p\n",key, val, val); */
         g_free(val);
         val = NULL;
     }
@@ -1989,33 +1962,68 @@ free_main_hash_table(GHashTable *table)
     GSList          *tmp = NULL;
     GSList          *tmp1 = NULL;
     GHashTable      *hashtable = NULL;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+ 
     /* free station location data */
     hashtable = g_hash_table_lookup(table, "location");
-    fprintf(stderr,"Location %p\n", hashtable);
-    g_hash_table_foreach(hashtable, free_fields, NULL);
-//    hashtable = (GHashTable*)tmp->data;
-    g_hash_table_remove_all(hashtable);
-    g_hash_table_unref (hashtable);
-//    g_hash_table_remove(table, "location");
+    if (hashtable){
+        g_hash_table_foreach(hashtable, free_fields, NULL);
+        g_hash_table_remove_all(hashtable);
+        g_hash_table_unref (hashtable);
+    }
     /* free station current data */
-    hashtable = g_hash_table_lookup(table, "current");
-    g_hash_table_remove_all(hashtable);
-    g_hash_table_unref (hashtable);
+    if (hashtable){
+        hashtable = g_hash_table_lookup(table, "current");
+        g_hash_table_foreach(hashtable, free_fields, NULL);
+        g_hash_table_remove_all(hashtable);
+        g_hash_table_unref (hashtable);
+    }
     /* free station days data */
     tmp = g_hash_table_lookup(table, "forecast");
     while(tmp){
         hashtable = (GHashTable*)tmp->data;
         g_hash_table_foreach(hashtable, free_fields, NULL);
-        fprintf(stderr,"forecast %p\n", hashtable);
         g_hash_table_remove_all(hashtable);
         g_hash_table_unref (hashtable);
-    //    g_hash_table_destroy(tmp_data);
         tmp = g_slist_next(tmp);
     }
     tmp = g_hash_table_lookup(table, "forecast");
-    g_slist_free (tmp);
+    if (tmp)
+        g_slist_free (tmp);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+ 
+}
+/*******************************************************************************/
+void
+free_detaild_hash_table(GHashTable *table){
+    GSList          *tmp = NULL;
+    GSList          *tmp1 = NULL;
+    GHashTable      *hour_weather = NULL;
+    gpointer        pointer_result;
 
+    tmp = g_hash_table_lookup(table, "detail");
+    if (tmp){
+          tmp1 = g_hash_table_lookup(g_hash_table_lookup(table, "detail"), "hours_data");
+          pointer_result = g_hash_table_lookup(tmp,"last_update");
+          if (pointer_result)
+                g_free(pointer_result);
+          while(tmp1){
+              hour_weather = (GHashTable*)tmp1->data;
+              g_hash_table_foreach(hour_weather, free_fields, NULL);
+              g_hash_table_remove_all(hour_weather);
+              g_hash_table_unref (hour_weather);
+              tmp1 = g_slist_next(tmp1);
+          }
+
+          tmp1 = g_hash_table_lookup(g_hash_table_lookup(table, "detail"), "hours_data");
+          g_slist_free (tmp1);
+          g_hash_table_remove_all(tmp);
+          g_hash_table_unref (tmp);
+    }
 }
 
 /*******************************************************************************/
@@ -2031,37 +2039,20 @@ free_memory(void){
     GHashTable      *hashtable = NULL;
     gchar           *source_name;
     GHashTable      *hour_weather = NULL;
-//#ifdef DEBUGFUNCTIONCALL
+    gpointer        pointer_result;
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     /* delete main window */
     if(app->main_window){
         gtk_widget_destroy(app->main_window);
         app->main_window = NULL;
     }
     free_main_hash_table(app->station_data);
+    free_detaild_hash_table(app->station_data);
     /* delete hash station data */
     if(app->station_data){
-        tmp = g_hash_table_lookup(app->station_data, "detail");
-        fprintf(stderr,"uuuuuuuu %p\n", tmp);
-        if (tmp){
-              tmp1 = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
-              while(tmp1){
-                  hour_weather = (GHashTable*)tmp1->data;
-                  fprintf(stderr,"aaaaaaa %p\n", hour_weather);
-                  g_hash_table_foreach(hour_weather, free_fields, NULL);
-                  g_hash_table_remove_all(hour_weather);
-                  g_hash_table_unref (hour_weather);
-                  tmp1 = g_slist_next(tmp1);
-              }
-              tmp1 = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
-              g_slist_free (tmp1);
-              /* free station hours data */
-              g_hash_table_foreach(tmp, free_fields, NULL);
-              g_hash_table_remove_all(tmp);
-              g_hash_table_unref (tmp);
-        }
-        g_hash_table_remove_all(app->station_data);
+       g_hash_table_remove_all(app->station_data);
     }
 
     /* free days button */

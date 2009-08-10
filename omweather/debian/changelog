@@ -1,8 +1,10 @@
 omweather (0.23.3) unstable; urgency=low
 
   * Modified acknowledgment and copyright lists  
+  * Various small fixes
+  * Fixed memory leaks
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 09 Jun 2009 18:30:00 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 11 Aug 2009 18:30:00 +0200
 
 omweather (0.23.2) unstable; urgency=low
 

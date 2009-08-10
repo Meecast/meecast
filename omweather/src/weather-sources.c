@@ -272,7 +272,7 @@ source_stations_database_valid(GHashTable *data){
         return FALSE;
     /* check *.db file */
     value = g_hash_table_lookup(data, "base");
-    
+
     if(!value)/* database file does not defined */
         return FALSE;
     else{

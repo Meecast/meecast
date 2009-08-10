@@ -69,6 +69,7 @@ void create_current_temperature_text(GHashTable *day, gchar *buffer, gboolean va
                                 const gchar *day_name);
 void create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
                                 gboolean for_combination_mode, gint button_number);
+void free_main_hash_table(GHashTable *table);
 #if defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO
 void omweather_destroy(GtkObject *widget);
 #endif

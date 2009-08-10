@@ -94,10 +94,10 @@ main(int argc, char *argv[]){
           gtk_main();
     }
     osso_deinitialize(osso_context);
+
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-
     return 0;
 }
 /*******************************************************************************/

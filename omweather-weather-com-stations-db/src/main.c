@@ -122,7 +122,6 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                 if( strcmp(id_station, station_id) )
                     return -1;
                 location = g_hash_table_new(g_str_hash, g_str_equal);
-                fprintf(stderr,"Location begin %p\n", location);
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
                     if( child_node->type == XML_ELEMENT_NODE ){
                         /* station name */
@@ -164,7 +163,6 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
             /* Fill current day */
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "cc" ) ){
                 current = g_hash_table_new(g_str_hash, g_str_equal);
-                fprintf(stderr,"Current %p\n",current);
                 for(child_node = cur_node->children; child_node != NULL; child_node = child_node->next){
                     /* last update */
                     if( child_node->type == XML_ELEMENT_NODE  &&
@@ -300,7 +298,6 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                     if(child_node->type == XML_ELEMENT_NODE  &&
                             ( !xmlStrcmp(child_node->name, (const xmlChar *)"day") ) ){
                         day = g_hash_table_new(g_str_hash, g_str_equal);
-                        fprintf(stderr,"Day %p\n", day);
                         /* get 24h name */
                         temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"t");
                         /* prepare locale value for day name */
@@ -462,12 +459,10 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    fprintf(stderr,"Begin parse_xml_detail_data\n");
     for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
         if( cur_node->type == XML_ELEMENT_NODE ){
             if( !xmlStrcmp(cur_node->name, (const xmlChar *) "hbhf") ){
                 hours_data = g_hash_table_new(g_str_hash, g_str_equal);
-                fprintf(stderr,"HOURS DATA %p\n",hours_data);
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
                     /* last update */
                     if( child_node->type == XML_ELEMENT_NODE  &&
@@ -480,7 +475,6 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
                     if( child_node->type == XML_ELEMENT_NODE  &&
                             (!xmlStrcmp(child_node->name, (const xmlChar *)"hour") )){
                         detail = g_hash_table_new(g_str_hash, g_str_equal);
-                        fprintf(stderr,"DETAIL DATA %p\n", detail);
                         /* Get an hour */
                         temp_xml_string = xmlGetProp(child_node, (const xmlChar *)"c");
                         /* prepare locale value for hour */

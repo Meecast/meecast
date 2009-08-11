@@ -1397,29 +1397,31 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_widget_show (main_table);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
-
-    gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_CLEAR, GTK_RESPONSE_NO);
-    gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
-
+    gtk_dialog_add_button(GTK_DIALOG(window), GTK_STOCK_FIND, GTK_RESPONSE_OK);
+    gtk_dialog_add_button(GTK_DIALOG(window), GTK_STOCK_CLEAR, GTK_RESPONSE_NO);
+    gtk_dialog_add_button(GTK_DIALOG(window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
 
     gtk_widget_show_all(window);
-
-
     /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(window));
 
-    if (result == GTK_RESPONSE_YES)
-        save_station(window);
-    if (result == GTK_RESPONSE_NO)
-        clear_station(window);
-    if (window)
+    switch(result){
+        case GTK_RESPONSE_YES:
+            save_station(window);
+        break;
+        case GTK_RESPONSE_OK:
+        break;
+        default:
+        case GTK_RESPONSE_NO:
+            clear_station(window);
+        break;
+    }
+    if(window)
         gtk_widget_destroy(window);
-
 }
-
 /*******************************************************************************/
-void manual_button_handler(GtkWidget *window, GdkEventButton *event,
-                                                                gpointer user_data){
+void
+manual_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_data){
     GtkWidget   *source_button = NULL,
                 *country_button = NULL,
                 *region_button = NULL,
@@ -1446,7 +1448,8 @@ void manual_button_handler(GtkWidget *window, GdkEventButton *event,
     gtk_widget_set_sensitive(station_button, TRUE);
 }
 /*******************************************************************************/
-void gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_data){
+void
+gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_data){
     GtkWidget       *source_button = NULL,
                     *country_button = NULL,
                     *region_button = NULL,
@@ -1456,7 +1459,7 @@ void gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_
     GtkTreeIter     iter;
     gboolean        valid = FALSE,
                     gps = FALSE;
-    gint	    result;
+    gint            result;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif

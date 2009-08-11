@@ -38,6 +38,7 @@ typedef struct{
     GString	*value;
 }Item;
 /*******************************************************************************/
+gboolean is_current_weather_valid(void);
 Item* create_item(const char *name, const char *value);
 void destroy_item(Item **item);
 GSList*	add_item2object(GSList **object, void *item);

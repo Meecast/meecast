@@ -34,6 +34,36 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
+gboolean
+is_current_weather_valid(void){
+    time_t      current_time = 0,
+                diff_time = 0,
+                current_data_last_update = 0;
+    GHashTable  *location = NULL,
+                *current = NULL;
+
+    if(!app->station_data)
+        return FALSE;
+    location = g_hash_table_lookup(app->station_data, "location");
+    current = g_hash_table_lookup(app->station_data, "current");
+    if(location && current){
+        current_time = time(NULL); /* get current day */
+        /* correct time for current location */
+        diff_time = calculate_diff_time(atol(g_hash_table_lookup(location, "station_time_zone")));
+#ifndef RELEASE
+        fprintf(stderr, "\n>>>>>>>Diff time=%li<<<<<<\n", diff_time);
+#endif
+        current_time += diff_time;
+        current_data_last_update = last_update_time_new(current);
+        /* Check a valid time for current weather */
+        if( (current_data_last_update >
+                ( current_time - app->config->data_valid_interval)) &&
+                (current_data_last_update < ( current_time + app->config->data_valid_interval)))
+        return TRUE;
+    }
+    return FALSE;
+}
+/*******************************************************************************/
 Item *create_item(const char *name, const char *value) {
     Item *itm = NULL;
 #ifdef DEBUGFUNCTIONCALL

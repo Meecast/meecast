@@ -639,17 +639,8 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
     return valid;
 }
 /*******************************************************************************/
-gboolean
-get_file(const gchar *full_url, const gchar *full_storing_name){
-    if(!full_url || !full_storing_name)
-        return FALSE;
-
-    return TRUE;
-}
-/*******************************************************************************/
 void
-check_current_connection(void)
-{
+check_current_connection(void){
     gchar *tmp = NULL;
     gchar *tmp2 = NULL;
     gchar *gconf_path = NULL;

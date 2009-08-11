@@ -779,6 +779,14 @@ redraw_home_window(gboolean first_start){
             snprintf(buffer, sizeof(buffer) - 1, "%s/%s_hour.xml",
                         app->config->cache_dir_name, app->config->current_station_id);
             parser(buffer, app->station_data, TRUE);
+            /* check current weather */
+            app->current_is_valid = is_current_weather_valid();
+            #ifndef RELEASE
+            if(app->current_is_valid)
+                fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Current is valid\n");
+            else
+                fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Current is non valid\n");
+            #endif
         }
     }
     if(count_day == -2){
@@ -934,6 +942,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->contextmenu = NULL;
     app->tab_of_window_popup = NULL;
     app->dbus_conn = NULL;
+    app->current_is_valid = FALSE;
 /* Start timer */
     timer(60000);  /* One per minute */
 /* Start main applet */

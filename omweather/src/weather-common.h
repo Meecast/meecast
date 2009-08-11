@@ -354,6 +354,7 @@ typedef struct OMWeatherApplet{
     gboolean		show_update_window;
     gboolean		iap_connected;
     gboolean		iap_connecting;
+    gboolean            current_is_valid;
     glong		iap_connecting_timer;
     guint		timer;
     guint		timer_for_os2008;

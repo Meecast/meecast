@@ -47,8 +47,8 @@ timer_handler(gpointer data){
     int                 check;
 #ifdef ENABLE_GPS
     gchar               buffer[2048];
+    double              distance;
 #endif
-    double distance;
 #ifdef DEBUGEVENTS
     char                *temp_string;
 #endif

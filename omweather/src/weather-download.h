@@ -58,9 +58,8 @@ GtkWidget* create_window_update(void);
 #ifdef USE_CONIC
     void connection_cb(ConIcConnection * connection,ConIcConnectionEvent * event, gpointer user_data);
 #endif
-gboolean get_file(const gchar *full_url, const gchar *full_storing_name);
 void free_curl(void);
 void check_current_connection(void);
-gint get_data_from_url(const gchar *data_url, const gchar *name);
+gboolean get_data_from_url(const gchar *data_url, const gchar *name);
 /*******************************************************************************/
 #endif

@@ -1,3 +1,9 @@
+0.23.3
+  * Modified acknowledgment and copyright lists
+  * Various small fixes
+  * Fixed memory leaks
+  * Corrected behaviour of details weather forecasts for a current day
+
 0.23.2
   * Fixed problem with switching between stations if stations list has nil stations 
   * Fixed problem with detailed weather for current day

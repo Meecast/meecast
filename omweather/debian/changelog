@@ -1,8 +1,9 @@
 omweather (0.23.3) unstable; urgency=low
 
-  * Modified acknowledgment and copyright lists  
+  * Modified acknowledgment and copyright lists
   * Various small fixes
   * Fixed memory leaks
+  * Corrected behaviour of details weather forecasts for a current day
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 11 Aug 2009 18:30:00 +0200
 

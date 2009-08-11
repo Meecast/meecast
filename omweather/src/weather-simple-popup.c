@@ -166,28 +166,7 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
             }
         }
     }
-/*
-    while(valid){
-        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
-                            &iter, NAME_COLUMN, &station_name, -1);
-        if(ready)
-            return station_name;
-        else{
-            if((current_station_name) && (station_name) &&
-                  !strcmp(current_station_name, station_name))
-                ready = TRUE;
-            g_free(station_name);
-            gtk_tree_path_next(path);
-
-            valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
-                                        &iter, path);
-            if(!valid)
-                valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
-                                        &iter);
-        }
-    }
-*/
-    gtk_tree_path_free(path);
+   gtk_tree_path_free(path);
     return station_name;
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -547,7 +526,12 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
             line = gtk_button_new();
             gtk_button_set_focus_on_click(GTK_BUTTON(line), FALSE);
             gtk_button_set_relief(GTK_BUTTON(line), GTK_RELIEF_NONE);
-            g_signal_connect(G_OBJECT(line), "clicked",
+            if (i == 0)
+                g_signal_connect(G_OBJECT(line), "clicked",
+                                            G_CALLBACK(show_detailes_of_current_day_button_handler),
+                                                                             GINT_TO_POINTER(i));
+            else
+                g_signal_connect(G_OBJECT(line), "clicked",
                                 G_CALLBACK(show_collapsed_day_button_handler),
                                  GINT_TO_POINTER(i));
 
@@ -720,8 +704,8 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
             if((difference < 0 && difference > -60*60) || difference >= 0 ||
                                       (prev_difference > 0 &&  difference<0)) {
 
-               // fprintf(stderr, "\nHOURS %d\n", hours_time);
-
+//                fprintf(stderr, "\nHOURS %d\n", hours_time);
+                flag = TRUE; 
                 line = gtk_event_box_new();
                 icon_text_hbox = gtk_hbox_new(FALSE, 0);
                 *buffer = 0;
@@ -832,8 +816,14 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
         gtk_widget_destroy(scrolled_window);
         return NULL;
     }
- gtk_widget_show_all(scrolled_window);
- return scrolled_window;
+ if (flag){
+    gtk_widget_show_all(scrolled_window);
+    return scrolled_window;
+ }else{
+    gtk_widget_destroy(scrolled_window);
+    return NULL;
+ }
+
 }
 /*******************************************************************************/
 #if defined OS2009

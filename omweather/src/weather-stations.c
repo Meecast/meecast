@@ -36,289 +36,14 @@
 #endif
 /*******************************************************************************/
 struct request_data{
-    GtkListStore	*list;
-    gint		count;
+    GtkListStore        *list;
+    gint                count;
 };
 /*******************************************************************************/
-GtkListStore *create_items_list(const char *path, const char *filename,
-                                long start, long end, long *items_number) {
-    FILE *fh;
-    GtkListStore *list = NULL;
-    GtkTreeIter iter;
-    gchar buffer[512], buff[512];
-    Region_item r_item;
-    Country_item c_item;
-    Station station;
-    long max_bytes = 0, readed_bytes = 0, count = 0;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-/* prepare full file name with path */
-    buff[0] = 0;
-    snprintf(buff, sizeof(buff) - 1, "%s%s", path, filename);
-
-    max_bytes = end - start;
-    fh = fopen(buff, "rt");
-    if(!fh){
-        fprintf(stderr, "\nCan't read file %s: %s", buff, strerror(errno));
-        if(items_number)
-            *items_number = count;
-        list = NULL;
-    } else {
-        if (!strcmp(filename, LOCATIONSFILE))
-            list = gtk_list_store_new(5, G_TYPE_STRING, G_TYPE_STRING,
-                                      G_TYPE_STRING,
-                                      G_TYPE_DOUBLE, G_TYPE_DOUBLE);
-        else
-            list =
-                gtk_list_store_new(3, G_TYPE_STRING, G_TYPE_INT,
-                                   G_TYPE_INT);
-        if (start > -1)
-            if (fseek(fh, start, SEEK_SET)) {
-                fprintf(stderr,
-                        "\nCan't seek to the position %ld on %s file: %s\n",
-                        start, buff, strerror(errno));
-                if(items_number)
-                    *items_number = count;
-                return NULL;
-            }
-        while (!feof(fh)) {
-            memset(buffer, 0, sizeof(buffer));
-            fgets(buffer, sizeof(buffer) - 1, fh);
-            readed_bytes += strlen(buffer);
-
-            if (!strcmp(filename, LOCATIONSFILE)) {
-                if (!parse_station_string(buffer, &station)) {
-                    gtk_list_store_append(list, &iter);
-                    gtk_list_store_set(list, &iter,
-                                       NAME_COLUMN, station.name,
-                                       ID0_COLUMN, station.id0,
-                                       ID1_COLUMN, station.id1,
-                                       LATITUDE_COLUMN, station.latitude,
-                                       LONGTITUDE_COLUMN, station.longtitude,
-                                       -1);
-                    count++;
-                }
-            } else {
-                if (!strcmp(filename, REGIONSFILE)) {
-                    if (!parse_region_string(buffer, &r_item)) {
-                        gtk_list_store_append(list, &iter);
-                        gtk_list_store_set(list, &iter,
-                                           0, r_item.name,
-                                           1, r_item.start, 2, r_item.end,
-                                           -1);
-                        count++;
-                    }
-                } else {
-                    if (!parse_country_string(buffer, &c_item)) {
-                        gtk_list_store_append(list, &iter);
-                        gtk_list_store_set(list, &iter,
-                                           0, c_item.name,
-                                           1, c_item.start, 2, c_item.end,
-                                           -1);
-                        count++;
-                    }
-                }
-            }
-
-            if (start > -1 && end > -1 && readed_bytes >= max_bytes)
-                break;
-        }
-        fclose(fh);
-    }
-    if(items_number)
-        *items_number = count;
-    return list;
-}
-/*******************************************************************************/
-int parse_country_string(const char *string, Country_item * result) {
-    char *delimiter = NULL, *tmp, buffer[32];
-    int res = 0;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    tmp = (char *)string;
-    delimiter = strchr(tmp, ';');
-    if (!delimiter)
-        res = 1;
-    else {
-        memset(result->name, 0, sizeof(result->name));
-        memcpy(result->name, tmp,
-               ((sizeof(result->name) - 1 >
-                 (int)(delimiter - tmp)) ? ((int)(delimiter - tmp))
-                : (sizeof(result->name) - 1)));
-        tmp = delimiter + 1;
-        delimiter = strchr(tmp, ';');
-        if (!delimiter) {
-            result->start = -1;
-            res = 1;
-        } else {
-            memset(buffer, 0, sizeof(buffer));
-            memcpy(buffer, tmp,
-                   ((sizeof(buffer) - 1 >
-                     (int)(delimiter - tmp)) ? ((int)(delimiter - tmp))
-                    : (sizeof(buffer) - 1)));
-            result->start = atol(buffer);
-            tmp = delimiter + 1;
-            delimiter = strchr(tmp, ';');
-            if (!delimiter) {
-                result->end = -1;
-                res = 1;
-            } else {
-                memset(buffer, 0, sizeof(buffer));
-                memcpy(buffer, tmp,
-                       ((sizeof(buffer) - 1 >
-                         (int)(delimiter - tmp)) ? ((int)(delimiter - tmp))
-                        : (sizeof(buffer) - 1)));
-                result->end = atol(buffer);
-            }
-        }
-    }
-    return res;
-}
-
-/*******************************************************************************/
-int parse_region_string(const char *string, Region_item * result) {
-    char *delimiter = NULL, *tmp;
-    int res = 0;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    tmp = (char *)string;
-    delimiter = strchr(tmp, ';');
-    setlocale(LC_NUMERIC, "POSIX");
-    if (!delimiter)
-        res = 1;
-    else {
-        memset(result->name, 0, sizeof(result->name));
-        memcpy(result->name, tmp,
-               ((sizeof(result->name) - 1 >
-                 (int)(delimiter - tmp)) ? ((int)(delimiter - tmp))
-                : (sizeof(result->name) - 1)));
-        tmp = delimiter + 1;
-        delimiter = strchr(tmp, ';');
-        if (!delimiter) {
-            result->start = -1;
-            res = 1;
-        } else {
-            *delimiter = 0;
-            result->start = atol(tmp);
-            tmp = delimiter + 1;
-            delimiter = strchr(tmp, ';');
-            if (!delimiter) {
-                result->end = -1;
-                res = 1;
-            } else {
-                *delimiter = 0;
-                result->end = atol(tmp);
-                tmp = delimiter + 1;
-                delimiter = strchr(tmp, ';');
-                if (!delimiter) {
-                    result->minlat = 0;
-                    res = 1;
-                } else {
-                    *delimiter = 0;
-                    result->minlat = atof(tmp);
-                    tmp = delimiter + 1;
-                    delimiter = strchr(tmp, ';');
-                    if (!delimiter) {
-                        result->minlon = 0;
-                        res = 1;
-                    } else {
-                        *delimiter = 0;
-                        result->minlon = atof(tmp);
-                        tmp = delimiter + 1;
-                        delimiter = strchr(tmp, ';');
-                        if (!delimiter) {
-                            result->maxlat = 0;
-                            res = 1;
-                        } else {
-                            *delimiter = 0;
-                            result->maxlat = atof(tmp);
-                            tmp = delimiter + 1;
-                            delimiter = strchr(tmp, ';');
-                            if (!delimiter) {
-                                result->maxlon = 0;
-                                res = 1;
-                            } else {
-                                *delimiter = 0;
-                                result->maxlon = atof(tmp);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    setlocale(LC_NUMERIC, "");
-    return res;
-}
-
-/*******************************************************************************/
-int parse_station_string(const char *string, Station * result) {
-    char *delimiter = NULL, *tmp;
-    int res = 0;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    tmp = (char *)string;
-    delimiter = strchr(tmp, ';');
-    setlocale(LC_NUMERIC, "POSIX");
-    if (!delimiter)
-        res = 1;
-    else {
-        memset(result->name, 0, sizeof(result->name));
-        memcpy(result->name, tmp,
-               ((sizeof(result->name) - 1 >
-                 (int)(delimiter - tmp)) ? ((int)(delimiter - tmp))
-                : (sizeof(result->name) - 1)));
-        tmp = delimiter + 1;
-        delimiter = strchr(tmp, ';');
-        if (!delimiter)
-            res = 1;
-        else {
-            memset(result->id0, 0, sizeof(result->id0));
-            memcpy(result->id0, tmp,
-                   ((sizeof(result->id0) - 1 >
-                     (int)(delimiter - tmp)) ? ((int)(delimiter - tmp))
-                    : (sizeof(result->id0) - 1)));
-
-            tmp = delimiter + 1;
-            delimiter = strchr(tmp, ';');
-            if (!delimiter)
-                res = 1;
-            else{
-		memset(result->id1, 0, sizeof(result->id1));
-		memcpy(result->id1, tmp,
-			((sizeof(result->id1) - 1 >
-			(int)(delimiter - tmp)) ? ((int)(delimiter - tmp))
-						: (sizeof(result->id1) - 1)));
-		tmp = delimiter + 1;
-		delimiter = strchr(tmp, ';');
-		if (!delimiter)
-		    res = 1;
-		else {
-		    *delimiter = 0;
-		    result->latitude = atof(tmp);
-		    tmp = delimiter + 1;
-		    delimiter = strchr(tmp, ';');
-		    if (!delimiter)
-			res = 1;
-            	    else {
-                	*delimiter = 0;
-                	result->longtitude = atof(tmp);
-            	    }
-        	}
-    	    }
-        }
-    }
-    setlocale(LC_NUMERIC, "");
-    return res;
-}
-/*******************************************************************************/
-sqlite3* open_database(const char *path, const char *filename){
-    sqlite3	*db = NULL;
-    gchar	name[256];
+sqlite3*
+open_database(const char *path, const char *filename){
+    sqlite3     *db = NULL;
+    gchar       name[256];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -333,16 +58,17 @@ sqlite3* open_database(const char *path, const char *filename){
     return db;
 }
 /*******************************************************************************/
-void close_database(sqlite3 *database){
+void
+close_database(sqlite3 *database){
     if(database)
         sqlite3_close(database);
 }
 /*******************************************************************************/
-GtkListStore* create_countries_list(sqlite3 *database){
-    GtkListStore	*list = NULL;
-    gint		rc;
-    gchar		*errMsg = NULL;
-
+GtkListStore*
+create_countries_list(sqlite3 *database){
+    GtkListStore        *list = NULL;
+    gint                rc;
+    gchar               *errMsg = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -350,36 +76,34 @@ GtkListStore* create_countries_list(sqlite3 *database){
         return NULL;    /* database doesn't open */
     list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
     rc = sqlite3_exec(database, "SELECT * FROM countries ORDER BY name",
-			countries_callback, (void*)list, &errMsg);
+                        countries_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
 #ifndef RELEASE
-	fprintf(stderr, "\n>>>>%s\n", errMsg);
+        fprintf(stderr, "\n>>>>%s\n", errMsg);
 #endif
-	sqlite3_free(errMsg);
-	return NULL;
+        sqlite3_free(errMsg);
+        return NULL;
     }
     return list;
 }
 /*******************************************************************************/
-GtkListStore* create_regions_list(sqlite3 *database, int country_id, int *region_count){
-    GtkListStore	*list = NULL;
-    gint		rc;
-    gchar		*errMsg = NULL;
-    gchar		sql[256];
-    struct request_data	data = { 0, 0 };
-
+GtkListStore*
+create_regions_list(sqlite3 *database, int country_id, int *region_count){
+    GtkListStore        *list = NULL;
+    gint                rc;
+    gchar               *errMsg = NULL;
+    gchar               sql[256];
+    struct request_data data = { 0, 0 };
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
     if(!database)
         return NULL;    /* database doesn't open */
-
     list = gtk_list_store_new(6, G_TYPE_STRING, G_TYPE_INT, G_TYPE_DOUBLE, G_TYPE_DOUBLE, 
                                  G_TYPE_DOUBLE, G_TYPE_DOUBLE);
     data.list = list;
     *sql = 0;
-    if (country_id == 0) /* for GPS */
+    if(country_id == 0) /* for GPS */
         snprintf(sql, sizeof(sql) - 1,
                  "SELECT id, name, longititudemax, latitudemax, longititudemin, latitudemin \
                   FROM regions");
@@ -397,29 +121,25 @@ GtkListStore* create_regions_list(sqlite3 *database, int country_id, int *region
         return NULL;
     }
     *region_count = data.count;
-
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-
     return list;
 }
 /*******************************************************************************/
-GtkListStore* create_stations_list(sqlite3 *database, int region_id){
-    GtkListStore	*list = NULL;
-    gint		rc;
-    gchar		*errMsg = NULL;
-    gchar		sql[256];
-
+GtkListStore*
+create_stations_list(sqlite3 *database, int region_id){
+    GtkListStore        *list = NULL;
+    gint                rc;
+    gchar               *errMsg = NULL,
+                        sql[256];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
     if(!database || !region_id)
         return NULL;/* database doesn't open */
-
     list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_DOUBLE,
-        G_TYPE_DOUBLE);
+                                G_TYPE_DOUBLE);
     *sql = 0;
     snprintf(sql, sizeof(sql) - 1,
         "SELECT name, code, longititude, latitude FROM stations WHERE \
@@ -437,17 +157,15 @@ GtkListStore* create_stations_list(sqlite3 *database, int region_id){
 #endif
     return list;
 }
-
 /*******************************************************************************/
 gint
 get_all_information_callback(void *user_data, int argc, char **argv, char **azColName){
-    int			i;
-    GtkTreeIter		iter;
-    GtkListStore	*list = GTK_LIST_STORE(user_data);
+    int                 i;
+    GtkTreeIter         iter;
+    GtkListStore        *list = GTK_LIST_STORE(user_data);
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
     for(i = 0; i < argc; i++){
@@ -459,30 +177,24 @@ get_all_information_callback(void *user_data, int argc, char **argv, char **azCo
             gtk_list_store_set(list, &iter, 2, atoi(argv[i]), -1);
         if(!strcmp(azColName[i], "region_id"))
             gtk_list_store_set(list, &iter, 3, atoi(argv[i]), -1);
-
     }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
-
     return 0;
 }
-
 /*******************************************************************************/
 GtkListStore*
 get_all_information_about_station(gchar *source, gchar *station_code){
-
     sqlite3    *database = NULL;
     gchar buffer[2048];
     gchar       *errMsg = NULL;
     gchar       sql[1024];
     gint        rc;
     GtkListStore    *list = NULL;
-
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
     snprintf(buffer, sizeof(buffer) - 1, "%s.db",source);
     database = open_database(DATABASEPATH, buffer);
     if (!database)
@@ -507,7 +219,6 @@ get_all_information_about_station(gchar *source, gchar *station_code){
 /*******************************************************************************/
 gint
 get_country_code(gchar *source, gchar *country_name){
-
     sqlite3    *database = NULL;
     gchar buffer[2048];
     gchar       *errMsg = NULL;
@@ -516,11 +227,9 @@ get_country_code(gchar *source, gchar *country_name){
     GtkListStore    *list = NULL;
     GtkTreeIter     iter;
     gboolean valid;
-
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
     snprintf(buffer, sizeof(buffer) - 1, "%s.db",source);
     database = open_database(DATABASEPATH, buffer);
     if (!database)
@@ -539,21 +248,16 @@ get_country_code(gchar *source, gchar *country_name){
     close_database(database);
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                       (list), &iter);
-    if (valid)
-      gtk_tree_model_get(GTK_TREE_MODEL(list),
-                           &iter,
-                           0, &rc,
-                          -1);
+    if(valid)
+      gtk_tree_model_get(GTK_TREE_MODEL(list), &iter, 0, &rc, -1);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
     return rc;
 }
-
 /*******************************************************************************/
 gint
 get_state_code(gchar *source, gchar *region_name){
-
     sqlite3    *database = NULL;
     gchar buffer[2048];
     gchar       *errMsg = NULL;
@@ -562,11 +266,9 @@ get_state_code(gchar *source, gchar *region_name){
     GtkListStore    *list = NULL;
     GtkTreeIter     iter;
     gboolean valid;
-
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
     snprintf(buffer, sizeof(buffer) - 1, "%s.db",source);
     database = open_database(DATABASEPATH, buffer);
     if (!database)
@@ -585,18 +287,13 @@ get_state_code(gchar *source, gchar *region_name){
     close_database(database);
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                       (list), &iter);
-    if (valid)
-      gtk_tree_model_get(GTK_TREE_MODEL(list),
-                           &iter,
-                           0, &rc,
-                          -1);
+    if(valid)
+        gtk_tree_model_get(GTK_TREE_MODEL(list), &iter, 0, &rc, -1);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
     return rc;
 }
-
-
 /*******************************************************************************/
 gchar*
 get_station_code(gchar *source, gint region_id, gchar *station_name){
@@ -661,23 +358,22 @@ search_station_in_database(sqlite3 *database, char *code_name){
     rc = sqlite3_exec(database, sql, search_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
 #ifndef RELEASE
-	fprintf(stderr, "\n>>>>%s\n", errMsg);
+        fprintf(stderr, "\n>>>>%s\n", errMsg);
 #endif
-	sqlite3_free(errMsg);
-	return NULL;
+        sqlite3_free(errMsg);
+        return NULL;
     }
     return list;
 }
 /*******************************************************************************/
-int countries_callback(void *user_data, int argc, char **argv, char **azColName){
-    int			i;
-    GtkTreeIter		iter;
-    GtkListStore	*list = GTK_LIST_STORE(user_data);
-
+int
+countries_callback(void *user_data, int argc, char **argv, char **azColName){
+    int                 i;
+    GtkTreeIter         iter;
+    GtkListStore        *list = GTK_LIST_STORE(user_data);
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
     for(i = 0; i < argc; i++){
@@ -689,14 +385,14 @@ int countries_callback(void *user_data, int argc, char **argv, char **azColName)
     return 0;
 }
 /*******************************************************************************/
-int get_country_code_callback(void *user_data, int argc, char **argv, char **azColName){
-    int			i;
-    GtkTreeIter		iter;
-    GtkListStore	*list = GTK_LIST_STORE(user_data);
+int
+get_country_code_callback(void *user_data, int argc, char **argv, char **azColName){
+    int                 i;
+    GtkTreeIter         iter;
+    GtkListStore        *list = GTK_LIST_STORE(user_data);
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
     for(i = 0; i < argc; i++){
@@ -710,14 +406,14 @@ int get_country_code_callback(void *user_data, int argc, char **argv, char **azC
     return 0;
 }
 /*******************************************************************************/
-int get_station_code_callback(void *user_data, int argc, char **argv, char **azColName){
-    int			i;
-    GtkTreeIter		iter;
-    GtkListStore	*list = GTK_LIST_STORE(user_data);
+int
+get_station_code_callback(void *user_data, int argc, char **argv, char **azColName){
+    int                 i;
+    GtkTreeIter         iter;
+    GtkListStore        *list = GTK_LIST_STORE(user_data);
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
     for(i = 0; i < argc; i++){
@@ -729,16 +425,15 @@ int get_station_code_callback(void *user_data, int argc, char **argv, char **azC
 #endif
     return 0;
 }
-
 /*******************************************************************************/
-int get_state_code_callback(void *user_data, int argc, char **argv, char **azColName){
-    int			i;
-    GtkTreeIter		iter;
-    GtkListStore	*list = GTK_LIST_STORE(user_data);
+int
+get_state_code_callback(void *user_data, int argc, char **argv, char **azColName){
+    int                 i;
+    GtkTreeIter         iter;
+    GtkListStore        *list = GTK_LIST_STORE(user_data);
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
     for(i = 0; i < argc; i++){
@@ -751,18 +446,16 @@ int get_state_code_callback(void *user_data, int argc, char **argv, char **azCol
 #endif
     return 0;
 }
-
 /*******************************************************************************/
-int regions_callback(void *user_data, int argc, char **argv, char **azColName){
-    int			i;
-    GtkTreeIter		iter;
-    struct request_data	*data = (struct request_data*)user_data;
-    GtkListStore	*list = GTK_LIST_STORE(data->list);
-
+int
+regions_callback(void *user_data, int argc, char **argv, char **azColName){
+    int                 i;
+    GtkTreeIter         iter;
+    struct request_data *data = (struct request_data*)user_data;
+    GtkListStore        *list = GTK_LIST_STORE(data->list);
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
     setlocale(LC_NUMERIC, "POSIX");
     data->count += (int)argc / 6;
 /* add new item for each first element */
@@ -788,45 +481,44 @@ int regions_callback(void *user_data, int argc, char **argv, char **azColName){
     return 0;
 }
 /*******************************************************************************/
-int stations_callback(void *user_data, int argc, char **argv, char **azColName){
-    int			i;
-    GtkTreeIter		iter;
-    GtkListStore	*list = GTK_LIST_STORE(user_data);
-
+int
+stations_callback(void *user_data, int argc, char **argv, char **azColName){
+    int                 i;
+    GtkTreeIter         iter;
+    GtkListStore        *list = GTK_LIST_STORE(user_data);
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
-	setlocale(LC_NUMERIC, "POSIX");
+    setlocale(LC_NUMERIC, "POSIX");
     for(i = 0; i < argc; i++){
-	if(!strcmp(azColName[i], "name"))
-	    gtk_list_store_set(list, &iter, 0, argv[i], -1);
-	if(!strcmp(azColName[i], "code"))
-	    gtk_list_store_set(list, &iter, 1, argv[i], -1);
-	if(!strcmp(azColName[i], "longititude"))
-	    gtk_list_store_set(list, &iter, 2, atof(argv[i]), -1);
-	if(!strcmp(azColName[i], "latitude"))
-	    gtk_list_store_set(list, &iter, 3, atof(argv[i]), -1);
+        if(!strcmp(azColName[i], "name"))
+            gtk_list_store_set(list, &iter, 0, argv[i], -1);
+        if(!strcmp(azColName[i], "code"))
+            gtk_list_store_set(list, &iter, 1, argv[i], -1);
+        if(!strcmp(azColName[i], "longititude"))
+            gtk_list_store_set(list, &iter, 2, atof(argv[i]), -1);
+        if(!strcmp(azColName[i], "latitude"))
+            gtk_list_store_set(list, &iter, 3, atof(argv[i]), -1);
     }
-	setlocale(LC_NUMERIC, "");
+    setlocale(LC_NUMERIC, "");
     return 0;
 }
 /*******************************************************************************/
-int search_callback(void *user_data, int argc, char **argv, char **azColName){
-    int			i;
-    GtkTreeIter		iter;
-    GtkListStore	*list = GTK_LIST_STORE(user_data);
-
+int
+search_callback(void *user_data, int argc, char **argv, char **azColName){
+    int                 i;
+    GtkTreeIter         iter;
+    GtkListStore        *list = GTK_LIST_STORE(user_data);
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
-
     for(i = 0; i < argc; i++){
-	if(!strcmp(azColName[i], "code"))
-	    gtk_list_store_set(list, &iter, 0, argv[i], -1);
-	if(!strcmp(azColName[i], "name"))
-	    gtk_list_store_set(list, &iter, 1, argv[i], -1);
-	if(!strcmp(azColName[i], "region_name"))
-	    gtk_list_store_set(list, &iter, 2, argv[i], -1);
-	if(!strcmp(azColName[i], "country_name"))
-	    gtk_list_store_set(list, &iter, 3, argv[i], -1);
+        if(!strcmp(azColName[i], "code"))
+            gtk_list_store_set(list, &iter, 0, argv[i], -1);
+        if(!strcmp(azColName[i], "name"))
+            gtk_list_store_set(list, &iter, 1, argv[i], -1);
+        if(!strcmp(azColName[i], "region_name"))
+            gtk_list_store_set(list, &iter, 2, argv[i], -1);
+        if(!strcmp(azColName[i], "country_name"))
+            gtk_list_store_set(list, &iter, 3, argv[i], -1);
     }
     return 0;
 }

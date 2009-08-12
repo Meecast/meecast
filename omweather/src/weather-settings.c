@@ -35,6 +35,7 @@
 #include "weather-home.h"
 #include "weather-alerts.h"
 #include "weather-simple-status.h"
+#include "weather-simple-settings.h"
 #include "weather-event.h"
 #include "weather-config.h"
 #include "weather-popup.h"
@@ -505,8 +506,7 @@ new_station_handler(GtkButton *button, gpointer user_data){
 /*******************************************************************************/
 /* Delete station from list using iter  */
 void
-delete_station_from_user_list_using_iter(GtkTreeIter iter)
-{
+delete_station_from_user_list_using_iter(GtkTreeIter iter){
     gchar       *station_name = NULL,
                 *station_code = NULL,
                 *station_source = NULL;
@@ -1913,186 +1913,6 @@ entry_changed_handler(GtkWidget *entry, gpointer user_data){
             }
     }
 }
-/*******************************************************************************/
-int
-lookup_and_select_station(gchar * db_path, gchar * station_name,
-                          Station * result) {
-
-    FILE *fh_region, *fh_station;
-    Region_item region;
-    GtkListStore *list = NULL;
-    GtkTreeIter iter;
-    char buffer[512];
-    char buffer_full_name[2048];
-    gchar buff[512];
-    Station station;
-    GtkWidget *window_select_station = NULL,
-        *station_list_view = NULL,
-        *scrolled_window = NULL, *label = NULL, *table = NULL;
-    gchar *selected_station_name = NULL;
-    long max_bytes = 0, readed_bytes = 0;
-    gboolean valid;
-    GtkTreeModel *model;
-    GtkTreeSelection *selection;
-    gchar *station_full_name = NULL,
-        *station_name_temp = NULL, *station_id0 = NULL;
-    double station_latitude, station_longtitude;
-    int return_code = 0;
-
-    /* Prepare */
-    memset(result->name, 0, sizeof(result->name));
-    memset(result->id0, 0, sizeof(result->id0));
-/* prepare file name with path */
-    buff[0] = 0;
-    snprintf(buff, sizeof(buff) - 1, "%s%s", db_path, REGIONSFILE);
-    fh_region = fopen(buff, "rt");
-    if (!fh_region) {
-        fprintf(stderr, "\nCan't read file %s: %s", buff, strerror(errno));
-        return -1;
-    }
-    list = gtk_list_store_new(5, G_TYPE_STRING, G_TYPE_STRING,
-                              G_TYPE_DOUBLE, G_TYPE_DOUBLE, G_TYPE_STRING);
-/* prepare file name and path */
-    buff[0] = 0;
-    snprintf(buff, sizeof(buff) - 1, "%s%s", db_path, LOCATIONSFILE);
-    /* Reading region settings */
-    while (!feof(fh_region)) {
-        memset(buffer, 0, sizeof(buffer));
-        fgets(buffer, sizeof(buffer) - 1, fh_region);
-        parse_region_string(buffer, &region);
-        fh_station = fopen(buff, "rt");
-        if (!fh_station) {
-            fprintf(stderr, "\nCan't read file %s: %s", buff,
-                    strerror(errno));
-            return -1;
-        }
-        max_bytes = region.end - region.start;
-        readed_bytes = 0;
-        if (region.start > -1)
-            if (fseek(fh_station, region.start, SEEK_SET)) {
-                fprintf(stderr,
-                        "\nCan't seek to the position %ld on LOCATIONSFILE file: %s\n",
-                        region.start, strerror(errno));
-                return -1;
-            }
-
-        while (!feof(fh_station)) {
-            memset(buffer, 0, sizeof(buffer));
-            fgets(buffer, sizeof(buffer) - 1, fh_station);
-            readed_bytes += strlen(buffer);
-            if (!parse_station_string(buffer, &station)) {
-                if (strcasestr(station.name, station_name)) {
-                    gtk_list_store_append(list, &iter);
-                    snprintf(buffer_full_name,
-                             sizeof(buffer_full_name) - 1, "%s,%s",
-                             region.name, station.name);
-                    gtk_list_store_set(list, &iter, 0,
-                                       buffer_full_name, 1,
-                                       station.id0, 2,
-                                       station.latitude, 3,
-                                       station.longtitude, 4,
-                                       station.name, -1);
-                }
-            }
-            if (region.start > -1 && region.end > -1
-                && readed_bytes >= max_bytes)
-                break;
-        }
-        fclose(fh_station);
-    }
-    fclose(fh_region);
-    /* Create dialog window */
-    window_select_station =
-        gtk_dialog_new_with_buttons(_("Select Station"), NULL,
-                                    GTK_DIALOG_MODAL, NULL);
-    /* Add buttons */
-    gtk_dialog_add_button(GTK_DIALOG(window_select_station),
-                          _("OK"), GTK_RESPONSE_ACCEPT);
-    gtk_dialog_add_button(GTK_DIALOG(window_select_station),
-                          _("Cancel"), GTK_RESPONSE_REJECT);
-
-    gtk_box_pack_start(GTK_BOX
-                       (GTK_DIALOG(window_select_station)->vbox),
-                       table = gtk_table_new(2, 2, FALSE), TRUE, TRUE, 0);
-
-    /* Add Label and Edit field for station name */
-    gtk_table_attach_defaults(GTK_TABLE(table),
-                              label =
-                              gtk_label_new(_
-                                            ("List of the found station(s):")),
-                              0, 1, 0, 1);
-    gtk_table_attach_defaults(GTK_TABLE(table), label =
-                              gtk_alignment_new(0.f, 0.f, 0.f, 0.f), 0,
-                              1, 1, 2);
-    /* Stations list */
-    scrolled_window = gtk_scrolled_window_new(NULL, NULL);
-    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW
-                                        (scrolled_window),
-                                        GTK_SHADOW_ETCHED_IN);
-    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
-                                   GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-    gtk_widget_set_size_request(GTK_WIDGET(scrolled_window), 500, 280);
-
-    station_list_view = create_tree_view(list);
-    gtk_container_add(GTK_CONTAINER(scrolled_window),
-                      GTK_WIDGET(station_list_view));
-
-    gtk_container_add(GTK_CONTAINER(label), scrolled_window);
-    /* set size for dialog */
-    gtk_widget_set_size_request(GTK_WIDGET(window_select_station), 550,
-                                -1);
-    gtk_widget_show_all(window_select_station);
-
-    /* start dialog */
-    switch (gtk_dialog_run(GTK_DIALOG(window_select_station))) {
-    case GTK_RESPONSE_ACCEPT:  /* Press Button Ok */
-        /* Lookup selected item */
-        model = gtk_tree_view_get_model(GTK_TREE_VIEW(station_list_view));
-        selection =
-            gtk_tree_view_get_selection(GTK_TREE_VIEW(station_list_view));
-        if( !gtk_tree_selection_get_selected(selection, NULL, &iter) ){
-               return_code = -1;
-        }else{
-               gtk_tree_model_get(model, &iter, 0, &selected_station_name, -1);
-
-        valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list), &iter);
-        while (valid) {
-            gtk_tree_model_get(GTK_TREE_MODEL(list),
-                               &iter,
-                               0, &station_full_name,
-                               1, &station_id0,
-                               2, &station_latitude,
-                               3, &station_longtitude,
-                               4, &station_name_temp, -1);
-            if (!strcmp(selected_station_name, station_full_name)) {
-                /* copy selected station to result */
-                memcpy(result->name, station_name_temp,
-                       ((sizeof(result->name) - 1) >
-                        ((int)strlen(station_name_temp))
-                        ? ((int)strlen(station_name_temp))
-                        : (sizeof(result->name) - 1)));
-                memcpy(result->id0, station_id0,
-                       ((sizeof(result->id0) - 1) >
-                        ((int)strlen(station_id0)) ? ((int)
-                                                      strlen(station_id0))
-                        : (sizeof(result->id0) - 1)));
-            }
-            valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list), &iter);
-        }
-        return_code = 0;
-        break;
-       }
-    default:
-        return_code = -1;
-        break;
-    }
-    if (selected_station_name)
-        g_free(selected_station_name);
-    gtk_widget_destroy(window_select_station);
-
-    return return_code;
-}
-
 /*******************************************************************************/
 void
 add_button_handler(GtkWidget *button, gpointer user_data){

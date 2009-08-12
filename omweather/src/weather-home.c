@@ -721,12 +721,9 @@ void
 redraw_home_window(gboolean first_start){
     gint            count_day = -2;
     GSList          *tmp = NULL;
-    GSList          *tmp1 = NULL;
-    GHashTable      *tmp_data = NULL;
     gint            (*parser)(const gchar*, GHashTable*, gboolean);
     WDB             *tmp_button = NULL;
     gchar           buffer[255];
-    GHashTable      *hour_weather = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1966,24 +1963,21 @@ free_fields(gpointer key, gpointer val, gpointer user_data){
 }
 /*******************************************************************************/
 void
-free_main_hash_table(GHashTable *table)
-{
+free_main_hash_table(GHashTable *table){
     GSList          *tmp = NULL;
-    GSList          *tmp1 = NULL;
     GHashTable      *hashtable = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
- 
     /* free station location data */
     hashtable = g_hash_table_lookup(table, "location");
-    if (hashtable){
+    if(hashtable){
         g_hash_table_foreach(hashtable, free_fields, NULL);
         g_hash_table_remove_all(hashtable);
-        g_hash_table_unref (hashtable);
+        g_hash_table_unref(hashtable);
     }
     /* free station current data */
-    if (hashtable){
+    if(hashtable){
         hashtable = g_hash_table_lookup(table, "current");
         g_hash_table_foreach(hashtable, free_fields, NULL);
         g_hash_table_remove_all(hashtable);
@@ -1999,56 +1993,49 @@ free_main_hash_table(GHashTable *table)
         tmp = g_slist_next(tmp);
     }
     tmp = g_hash_table_lookup(table, "forecast");
-    if (tmp)
+    if(tmp)
         g_slist_free (tmp);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
- 
 }
 /*******************************************************************************/
 void
 free_detaild_hash_table(GHashTable *table){
-    GSList          *tmp = NULL;
-    GSList          *tmp1 = NULL;
-    GHashTable      *hour_weather = NULL;
-    gpointer        pointer_result;
+    GSList              *tmp1 = NULL;
+    GHashTable          *tmp = NULL,
+                        *hour_weather = NULL;
+    gpointer            pointer_result;
 
     tmp = g_hash_table_lookup(table, "detail");
-    if (tmp){
-          tmp1 = g_hash_table_lookup(g_hash_table_lookup(table, "detail"), "hours_data");
-          pointer_result = g_hash_table_lookup(tmp,"last_update");
-          if (pointer_result)
-                g_free(pointer_result);
-          while(tmp1){
-              hour_weather = (GHashTable*)tmp1->data;
-              g_hash_table_foreach(hour_weather, free_fields, NULL);
-              g_hash_table_remove_all(hour_weather);
-              g_hash_table_unref (hour_weather);
-              tmp1 = g_slist_next(tmp1);
-          }
-
-          tmp1 = g_hash_table_lookup(g_hash_table_lookup(table, "detail"), "hours_data");
-          g_slist_free (tmp1);
-          g_hash_table_remove_all(tmp);
-          g_hash_table_unref (tmp);
+    if(tmp){
+        tmp1 = g_hash_table_lookup(tmp, "hours_data");
+        pointer_result = g_hash_table_lookup(tmp, "last_update");
+        if(pointer_result)
+            g_free(pointer_result);
+        while(tmp1){
+            hour_weather = (GHashTable*)tmp1->data;
+            g_hash_table_foreach(hour_weather, free_fields, NULL);
+            g_hash_table_remove_all(hour_weather);
+            g_hash_table_unref(hour_weather);
+            tmp1 = g_slist_next(tmp1);
+        }
+        tmp1 = g_hash_table_lookup(tmp, "hours_data");
+        g_slist_free(tmp1);
+        g_hash_table_remove_all(tmp);
+        g_hash_table_unref (tmp);
     }
 }
-
 /*******************************************************************************/
 /* free used memory from OMWeather struct */
-void 
+void
 free_memory(void){
     GSList          *tmp = NULL;
-    GSList          *tmp1 = NULL;
-    GHashTable      *tmp_data = NULL;
     WDB             *tmp_button = NULL;
     gboolean        valid = FALSE;
     GtkTreeIter     iter;
     GHashTable      *hashtable = NULL;
     gchar           *source_name;
-    GHashTable      *hour_weather = NULL;
-    gpointer        pointer_result;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif

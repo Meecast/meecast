@@ -31,6 +31,7 @@
 #include "weather-settings.h"
 #include "weather-utils.h"
 #include "weather-home.h"
+#include "weather-event.h"
 /*******************************************************************************/
 void
 widget_styles_save(GtkWidget *window){

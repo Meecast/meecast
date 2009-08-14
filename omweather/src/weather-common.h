@@ -529,6 +529,7 @@ struct _OmweatherPluginClass
 
 GType omweather_plugin_get_type (void);
 
+
 G_END_DECLS
 
 

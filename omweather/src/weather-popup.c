@@ -75,6 +75,10 @@ destroy_popup_window(gpointer user_data){
     if (app->popup_window)
         gtk_widget_destroy(GTK_WIDGET(app->popup_window));
     app->popup_window = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+ 
 }
 /*******************************************************************************/
 /* For debug */

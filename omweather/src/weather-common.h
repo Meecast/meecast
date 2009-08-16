@@ -503,6 +503,9 @@ G_END_DECLS
 
 G_BEGIN_DECLS
 
+
+
+
 #define OMWEATHER_TYPE_HOME_PLUGIN            (omweather_plugin_get_type ())
 #define OMWEATHER_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), OMWEATHER_TYPE_HOME_PLUGIN, OmweatherPlugin))
 #define OMWEATHER_PLUGIN_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), OMWEATHER_TYPE_HOME_PLUGIN, OmweatherPluginClass))
@@ -524,10 +527,11 @@ struct _OmweatherPlugin
 
 struct _OmweatherPluginClass
 {
-  HDHomePluginItemClass  parent;
+  HDHomePluginItemClass  parent_class;
 };
 
 GType omweather_plugin_get_type (void);
+OmweatherPlugin* omweather_plugin_widget_new (void);
 
 
 G_END_DECLS

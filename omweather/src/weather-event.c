@@ -294,6 +294,10 @@ void free_list_time_event(void) {
     fprintf(stderr, "list clean\n");
     print_list(NULL, 0);
 #endif
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
 }
 
 /*******************************************************************************/

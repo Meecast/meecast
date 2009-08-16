@@ -4,6 +4,12 @@ omweather (0.24) unstable; urgency=low
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 11 Aug 2009 18:30:00 +0200
 
+ omweather (0.23.4) unstable; urgency=low
+
+ * Fixed the crashing after update deb package
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 11 Aug 2009 18:30:00 +0200
+
 omweather (0.23.3) unstable; urgency=low
 
   * Modified acknowledgment and copyright lists

@@ -1063,10 +1063,7 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
         g_source_remove(app->timer_for_os2008);
     config_save(app->config); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
 			On n800 this work */
-#ifdef USE_CONIC
-    if(app->connection)
-        g_object_unref(app->connection);
-#endif
+
     /* destroy popup */
     destroy_popup_window(NULL);
 #if defined OS2008 && ! defined APPLICATION
@@ -2587,14 +2584,16 @@ omweather_class_init(OMWeatherClass *klass){
 
 #if defined OS2009  && !defined APPLICATION
 
+
 static void
-omweather_plugin_class_finalize (OmweatherPluginClass *klass)
+omweather_plugin_widget_finalize (GObject *object)
 {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
  
-    omweather_destroy(NULL);
+   omweather_destroy(NULL);
+   G_OBJECT_CLASS (omweather_plugin_parent_class)->finalize (object);
 }
 
 
@@ -2620,6 +2619,16 @@ omweather_plugin_visible_notify (GObject                *object,
   g_object_get (object, "is-on-current-desktop", &visible, NULL);
 
   g_debug ("is-on-current-desktop changed. visible: %u", visible);
+}
+
+OmweatherPlugin*
+omweather_plugin_widget_new (void)
+{
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+  return g_object_new (OMWEATHER_TYPE_HOME_PLUGIN, NULL);
 }
 /*
 static void

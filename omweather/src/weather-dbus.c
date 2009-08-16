@@ -67,6 +67,7 @@ weather_initialize_dbus(void) {
 
 #ifdef USE_CONIC
         app->connection = con_ic_connection_new();
+
         if (app->connection != NULL) {
             g_object_set(app->connection, "automatic-connection-events",
                          TRUE, NULL);
@@ -75,6 +76,7 @@ weather_initialize_dbus(void) {
                              G_CALLBACK(connection_cb),
                              GINT_TO_POINTER(USER_DATA_MAGIC));
         }
+
 #else
     #ifndef NONMAEMO
         osso_iap_cb(iap_callback);
@@ -136,6 +138,12 @@ weather_deinitialize_dbus(void) {
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
+#endif
+
+#ifdef USE_CONIC
+  if (app->connection){
+      g_object_unref(app->connection);
+  }
 #endif
 
     if (app->dbus_conn){

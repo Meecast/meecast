@@ -45,24 +45,26 @@ show_animation(GSList *clutter_objects){
     while(list_temp != NULL){
         oh = list_temp->data;
         /* Add the group to the stage */
-//        clutter_container_add_actor (CLUTTER_CONTAINER (oh->stage),
-//                               CLUTTER_ACTOR (oh->icon));
-//        gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
-//        gtk_widget_show(oh->icon_widget);
-//        clutter_actor_show(oh->stage);
-//     gtk_widget_show_all(oh->icon_widget);
-//
+/*        
+        clutter_container_add_actor (CLUTTER_CONTAINER (oh->stage),
+                               CLUTTER_ACTOR (oh->icon));
+        gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
+        gtk_widget_show(oh->icon_widget);
+        clutter_actor_show(oh->stage);
+     gtk_widget_show_all(oh->icon_widget);
 
+*/
        /* Make background texture */
        gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
        pixbuf = gdk_pixbuf_get_from_drawable (NULL, oh->icon_widget->window, gtk_widget_get_colormap(oh->icon_widget),
                    oh->icon_widget->allocation.x, oh->icon_widget->allocation.y, 0, 0,
                    oh->icon_widget->allocation.width, oh->icon_widget->allocation.height);
+/*
+       gdk_pixbuf_save (pixbuf , "screenie.png", "png", NULL, NULL);
+       pixbuf = gdk_pixbuf_new_from_file("./redhand.png", NULL);
 
-       //gdk_pixbuf_save (pixbuf , "screenie.png", "png", NULL, NULL);
-       //pixbuf = gdk_pixbuf_new_from_file("./redhand.png", NULL);
-
-       //texture =gtk_clutter_texture_new_from_pixbuf(pixbuf);
+       texture =gtk_clutter_texture_new_from_pixbuf(pixbuf);
+*/       
        texture = clutter_texture_new();
        clutter_texture_set_from_rgb_data(texture,gdk_pixbuf_get_pixels(pixbuf),FALSE,
              oh->icon_widget->allocation.width,oh->icon_widget->allocation.height,
@@ -170,7 +172,7 @@ create_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_path, int
 
     /* Download script */
     oh->script = clutter_script_new();
-//    g_object_unref(oh->script);
+/*    g_object_unref(oh->script); */
     memset(buffer, 0, sizeof(buffer));
     sprintf(buffer, "%s%s.json", app->config->icons_set_base, icon_name);
     clutter_script_load_from_file(oh->script,buffer, &error);
@@ -187,10 +189,8 @@ create_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_path, int
     gtk_widget_set_size_request (oh->clutter, icon_size, icon_size);
     gtk_widget_set_size_request (oh->icon_widget, icon_size, icon_size);
 
-//    gtk_container_add (GTK_CONTAINER (oh->icon_widget), oh->clutter);
 
 
-////    gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
     oh->stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (oh->clutter));
     /* and its background color */
 
@@ -242,8 +242,10 @@ void free_clutter_objects_list(GSList **clutter_objects) {
         oh = list_temp->data;
         if (oh->timeline)
             clutter_timeline_stop(oh->timeline);
-//        clutter_actor_destroy(oh->stage);
-//        g_object_unref(oh->script);
+/*
+        clutter_actor_destroy(oh->stage);
+        g_object_unref(oh->script);
+*/
         gtk_widget_destroy(oh->icon_widget);
         g_object_unref(oh->script);
         g_free(oh);

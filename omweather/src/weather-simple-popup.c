@@ -39,10 +39,12 @@ jump_panarea(gpointer user_data){
     START_FUNCTION;
 #endif
 #if defined OS2009
-    hildon_pannable_area_scroll_to_child(HILDON_PANNABLE_AREA (user_data), g_object_get_data(G_OBJECT(user_data), "selected_widget"));
+    if ((GtkWidget*) g_object_get_data(G_OBJECT(user_data), "selected_widget"))
+        hildon_pannable_area_scroll_to_child(HILDON_PANNABLE_AREA (user_data),((GtkWidget*) g_object_get_data(G_OBJECT(user_data), "selected_widget")));
 #endif
     return FALSE;
 }
+/*******************************************************************************/
 GtkWidget*
 create_mainbox_for_forecast_window(GtkWidget* window, gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
@@ -421,7 +423,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             gtk_label_set_markup(GTK_LABEL(line_text), buffer);
             set_font(line_text, NULL, 12);
             gtk_box_pack_start(GTK_BOX(line_hbox), line_text, FALSE, TRUE, 10);
-
+            
             if(day_number == i)
                 g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)separator);
             /* next day */
@@ -458,7 +460,6 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
                         *vscrollbar = NULL;
     gchar               *day_name = NULL;
     time_t              current_time = 0,
-                        diff_time,
                         current_data_last_update = 0;
     GtkWidget           *scrolled_window = NULL;
     GSList              *tmp = NULL;
@@ -490,18 +491,7 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
 
     if(day_number == 0){ /* if selected Today, than adding Now, if it aviable */
         /* prepare for Now data */
-        current_time = time(NULL); /* get current day */
-        /* correct time for current location */
-        diff_time = calculate_diff_time(atol(g_hash_table_lookup(location, "station_time_zone")));
-#ifndef RELEASE
-        fprintf(stderr, "\n>>>>>>>Diff time=%li<<<<<<\n", diff_time);
-#endif
-        current_time += diff_time;
-        current_data_last_update = last_update_time_new(current);
-        /* Check a valid time for current weather */
-        if( (current_data_last_update >
-                ( current_time - app->config->data_valid_interval)) &&
-                (current_data_last_update < ( current_time + app->config->data_valid_interval))){
+        if(app->current_is_valid){
             line = gtk_button_new();
             gtk_button_set_focus_on_click(GTK_BUTTON(line), FALSE);
             gtk_button_set_relief(GTK_BUTTON(line), GTK_RELIEF_NONE);
@@ -552,11 +542,13 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
         tmp = g_slist_next(tmp);
         i++;
     }
-
-    gtk_box_pack_start(GTK_BOX(main_vbox), day_widget, TRUE, TRUE, 0);
+    
     gtk_widget_show_all(main_vbox);
     gtk_widget_show_all(scrolled_window);
     g_free(day_name);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return scrolled_window;
 }
 /*******************************************************************************/
@@ -706,15 +698,17 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 
 //                fprintf(stderr, "\nHOURS %d\n", hours_time);
                 flag = TRUE; 
-                line = gtk_event_box_new();
+                line =  gtk_button_new();
+                gtk_button_set_focus_on_click(GTK_BUTTON(line), FALSE);
+                            gtk_button_set_relief(GTK_BUTTON(line), GTK_RELIEF_NONE);
                 icon_text_hbox = gtk_hbox_new(FALSE, 0);
                 *buffer = 0;
                 g_object_set_data(G_OBJECT(line), "scrolled_window", 
                                                        (gpointer)scrolled_window);
                 g_object_set_data(G_OBJECT(line), "vbox", (gpointer)vbox);
-                g_signal_connect(G_OBJECT(line), "button-release-event",
+                g_signal_connect(G_OBJECT(line), "clicked",
                                 G_CALLBACK(show_collapsed_day_button_handler),
-                               GINT_TO_POINTER(i));
+                                GINT_TO_POINTER(day_number));
                 line_hbox = gtk_hbox_new(FALSE, 0);
                 gtk_container_add(GTK_CONTAINER(line), line_hbox);
 

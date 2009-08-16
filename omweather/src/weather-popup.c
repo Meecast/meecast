@@ -72,7 +72,8 @@ destroy_popup_window(gpointer user_data){
     /* For end of Clutter animation in popup window */
     free_clutter_objects_list(&app->clutter_objects_in_popup_form);
 #endif
-    gtk_widget_destroy(GTK_WIDGET(app->popup_window));
+    if (app->popup_window)
+        gtk_widget_destroy(GTK_WIDGET(app->popup_window));
     app->popup_window = NULL;
 }
 /*******************************************************************************/
@@ -441,7 +442,6 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
                 i = 1;
     gchar       *day_name = NULL;
     time_t      current_time = 0,
-                diff_time,
                 current_data_last_update = 0,
                 data_last_update = 0;
     GSList      *tmp = NULL;
@@ -516,23 +516,9 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
 /* check for data accesiability */
     if(!g_hash_table_lookup(app->station_data, "location"))
         goto skip;
-/* Current weather */
-    current_time = time(NULL); /* get current day */
-
-/* correct time for current location */
-    diff_time = calculate_diff_time(atol(g_hash_table_lookup(g_hash_table_lookup(app->station_data, "location"), "station_time_zone")));
-#ifndef RELEASE
-    fprintf(stderr, "\n>>>>>>>Diff time=%li<<<<<<\n", diff_time);
-#endif
-    current_time += diff_time;
-
-    current_data_last_update = last_update_time_new(g_hash_table_lookup(app->station_data, "current"));
     /* Check a valid time for current weather */
-    if( (current_data_last_update >
-        ( current_time - app->config->data_valid_interval)) &&
-        (current_data_last_update <
-        ( current_time + app->config->data_valid_interval)))
-    current_tab = gtk_vbox_new(FALSE, 0);
+    if(app->current_is_valid)
+        current_tab = gtk_vbox_new(FALSE, 0);
 
     if(current_tab){
         if(active_tab == 0){

@@ -253,8 +253,8 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
             break;
         }
         else{
-            if(skipped || (app->config->current_station_name) && (station_name) &&
-                  !strcmp(app->config->current_station_name, station_name))
+            if(skipped || ((app->config->current_station_name) && (station_name) &&
+                  !strcmp(app->config->current_station_name, station_name)))
                 ready = TRUE;
             g_free(station_name);
             g_free(station_code);
@@ -415,7 +415,6 @@ draw_home_window(gint count_day){
                 forecast_string[2048];
     time_t      current_day,
                 current_time,
-                update_time,
                 last_day = 0,
                 count_of_show_button = 0,
                 day_begin_time,
@@ -434,6 +433,7 @@ draw_home_window(gint count_day){
                 *first = NULL,
                 *last = NULL,
                 *tmp_day = NULL,
+                *day_hash = NULL,
                 *location = NULL;
 #ifndef RELEASE
     time_t      tmp_time,
@@ -537,18 +537,19 @@ draw_home_window(gint count_day){
             #endif
 
             if(i == 0){	/* first day */
-                update_time = last_update_time_new(g_hash_table_lookup(app->station_data, "current"));
                 /* check weather data for actuality */
-                if( (update_time > (current_time - app->config->data_valid_interval)) &&
-                            (update_time < (current_time + app->config->data_valid_interval)) ){
+                if(app->current_is_valid){
                     /* add event for terminate valid period */
-                    event_add(update_time + app->config->data_valid_interval - diff_time, CHANGE_DAY_PART);
-                    buffer[0] = 0;
-                    /* For only &wind_direction, &wind_speed parameters */ 
-                    create_wind_parameters(g_hash_table_lookup(app->station_data, "current"), NULL,FALSE, &wind_direction, &wind_speed);
-                    create_current_temperature_text(g_hash_table_lookup(app->station_data, "current"), buffer, TRUE, g_hash_table_lookup(day, "day_name"));
-                    sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base, (char*)
-                            g_hash_table_lookup(g_hash_table_lookup(app->station_data, "current"), "icon"));
+                    if ((g_hash_table_lookup(app->station_data, "current"))){
+                        day_hash = g_hash_table_lookup(app->station_data, "current");
+                        event_add(last_update_time_new(day_hash) + app->config->data_valid_interval - diff_time, CHANGE_DAY_PART);
+                        buffer[0] = 0;
+                        /* For only &wind_direction, &wind_speed parameters */ 
+                        create_wind_parameters(day_hash, NULL,FALSE, &wind_direction, &wind_speed);
+                        create_current_temperature_text(day_hash, buffer, TRUE, g_hash_table_lookup(day, "day_name"));
+                        sprintf(buffer_icon, "%s%s.png", app->config->icons_set_base, (char*)
+                            g_hash_table_lookup(day_hash, "icon"));
+                    }
                 }
                 else{ /* if current data is not actual */
                     buffer[0] = 0;
@@ -770,21 +771,21 @@ redraw_home_window(gboolean first_start){
         snprintf(buffer, sizeof(buffer) - 1, "%s/%s.xml",
                     app->config->cache_dir_name, app->config->current_station_id);
         count_day = parser(buffer, app->station_data, FALSE);
+        /* check current weather */
+        app->current_is_valid = is_current_weather_valid();
+        #ifndef RELEASE
+            if(app->current_is_valid)
+                fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Current is valid\n");
+            else
+                fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Current is non valid\n");
+        #endif
         /* detail data */
         if(app->config->show_weather_for_two_hours){
             *buffer = 0;
             snprintf(buffer, sizeof(buffer) - 1, "%s/%s_hour.xml",
                         app->config->cache_dir_name, app->config->current_station_id);
             parser(buffer, app->station_data, TRUE);
-            /* check current weather */
-            app->current_is_valid = is_current_weather_valid();
-            #ifndef RELEASE
-            if(app->current_is_valid)
-                fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Current is valid\n");
-            else
-                fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Current is non valid\n");
-            #endif
-        }
+       }
     }
     if(count_day == -2){
 	fprintf(stderr, _("Error in xml file\n"));
@@ -842,7 +843,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
 #endif
     gchar       tmp_buff[2048];
-#if ! defined (OS2009) || ! defined (NONMAEMO) || ! defined (APPLICATION)
+#if ! (defined (OS2009) ||  defined (NONMAEMO) ||  defined (APPLICATION))
     osso_context_t	*osso = NULL;
     osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
     if(!osso){
@@ -873,7 +874,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         exit(1);
     }
     memset(app, 0, sizeof(OMWeatherApp));
-#if  ! defined (NONMAEMO) || ! defined (APPLICATION)
+#if ! (defined (OS2009) ||  defined (NONMAEMO) ||  defined (APPLICATION))
     app->osso = osso;
 #endif
     app->flag_updating = 0;
@@ -990,7 +991,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     if(cm)
       gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
 #endif
-
 #if defined OS2009 && !defined(APPLICATION)
   applet->priv = OMWEATHER_PLUGIN_GET_PRIVATE (applet);
 #endif 
@@ -1034,7 +1034,6 @@ void
 hildon_home_applet_lib_deinitialize(void *applet_data){
 #endif
     osso_context_t *osso = NULL;
-    GSList         *tmp = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1098,7 +1097,6 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 #ifdef USE_DBUS
     weather_deinitialize_dbus();
 #endif
-
 #if !(defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO)
     osso = (osso_context_t*)applet_data;
 #endif
@@ -1127,13 +1125,13 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
             g_hash_table_destroy(app->station_data);
         }
     }
+    /* Deinitialize libosso */
+    osso_deinitialize(osso);
+
     if(app){
         g_free(app);
         app = NULL;
     }
-    /* Deinitialize libosso */
-    osso_deinitialize(osso);
-
 #if defined OS2008 && ! defined APPLICATION
     gtk_object_destroy(widget);
 #elif defined APPLICATION  || defined NONMAEMO
@@ -1452,9 +1450,6 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 		*station_name_btn = NULL,
 		*station_name = NULL,
 		*station_box = NULL;
-    time_t	current_time,
-		update_time,
-                diff_time;
 
     int		n,
 		elements,
@@ -1882,21 +1877,8 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     /* attach to main panel header and days panels */
     if (layout == COMBINATION || layout == APPLICATION_MODE){
         combination_vbox = gtk_vbox_new(FALSE, 0);
-        current_time = time(NULL);
       
-        if (g_hash_table_lookup(app->station_data, "location") && 
-        g_hash_table_lookup(g_hash_table_lookup(app->station_data, "location"),
-                                                            "station_time_zone"))
-            diff_time = calculate_diff_time(atol(g_hash_table_lookup(g_hash_table_lookup(app->station_data, "location"), "station_time_zone")));
-        else
-            diff_time = 0;
-        current_time += diff_time;
-        if ((g_hash_table_lookup(app->station_data, "current")))
-            update_time = last_update_time_new(g_hash_table_lookup(app->station_data, "current"));
-        else
-            update_time = 0;
-        if(update_time > (current_time - app->config->data_valid_interval) &&
-           update_time < (current_time + app->config->data_valid_interval) ){
+        if(app->current_is_valid){    
            if(g_hash_table_lookup(app->station_data, "current"))
                 current_weather_widget
                   = create_current_weather_simple_widget(g_hash_table_lookup(app->station_data, "current"));
@@ -2608,14 +2590,20 @@ omweather_class_init(OMWeatherClass *klass){
 static void
 omweather_plugin_class_finalize (OmweatherPluginClass *klass)
 {
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+ 
+    omweather_destroy(NULL);
 }
 
 
 static void
 omweather_plugin_class_init (OmweatherPluginClass *klass)
 {
+  GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
-
+  object_class->finalize = omweather_plugin_class_finalize;
   widget_class->realize = omweather_plugin_realize;
   widget_class->expose_event = omweather_plugin_expose_event;
 

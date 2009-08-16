@@ -41,7 +41,10 @@ is_current_weather_valid(void){
                 current_data_last_update = 0;
     GHashTable  *location = NULL,
                 *current = NULL;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+ 
     if(!app->station_data)
         return FALSE;
     location = g_hash_table_lookup(app->station_data, "location");

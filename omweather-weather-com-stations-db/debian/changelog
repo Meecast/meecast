@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (0.9.2) unstable; urgency=low
+
+  * Changed URLs 
+
+ --  Vlad Vasiliev <vlad@gas.by>  Mon, 17 Aug 2009 05:04:20 +0200
+
 omweather-weather-com-stations-db (0.9.1) unstable; urgency=low
 
   * Fixed memory leaks 

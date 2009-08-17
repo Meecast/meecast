@@ -596,7 +596,13 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
             /* prepare forecast url */
             if(get_source_forecast_url(app->sources_list, station_source)){
                 *buffer = 0;
-                snprintf(buffer, sizeof(buffer) - 1,
+                /* TO DO this part of code will move to sources code */
+                if (station_source && (!strcmp(station_source,"gismeteo.ru")))
+                    snprintf(buffer, sizeof(buffer) - 1,
+                            get_source_forecast_url(app->sources_list, station_source),
+                            station_code, station_code);
+                else
+                    snprintf(buffer, sizeof(buffer) - 1,
                             get_source_forecast_url(app->sources_list, station_source),
                             station_code);
                 *url = g_strdup(buffer);

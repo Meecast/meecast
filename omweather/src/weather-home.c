@@ -2584,6 +2584,10 @@ omweather_class_init(OMWeatherClass *klass){
 
 #if defined OS2009  && !defined APPLICATION
 
+omweather_plugin_class_finalize (OmweatherPluginClass *klass)
+{
+}
+
 
 static void
 omweather_plugin_widget_finalize (GObject *object)
@@ -2591,7 +2595,7 @@ omweather_plugin_widget_finalize (GObject *object)
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
- 
+
    omweather_destroy(NULL);
    G_OBJECT_CLASS (omweather_plugin_parent_class)->finalize (object);
 }
@@ -2602,10 +2606,9 @@ omweather_plugin_class_init (OmweatherPluginClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
-  object_class->finalize = omweather_plugin_class_finalize;
+  object_class->finalize = omweather_plugin_widget_finalize;
   widget_class->realize = omweather_plugin_realize;
   widget_class->expose_event = omweather_plugin_expose_event;
-
   g_type_class_add_private (klass, sizeof (OmweatherPluginPrivate));
 }
 

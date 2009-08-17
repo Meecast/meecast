@@ -21,7 +21,7 @@ omweather (0.23.3) unstable; urgency=low
 
 omweather (0.23.2) unstable; urgency=low
 
-  * Fixed problem with switching between stations if stations list has nil stations 
+  * Fixed problem with switching between stations if stations list has nil stations
   * Fixed problem with detailed weather for current day
   * Now next station changing in inside popup window without destroying it
   * Fixed problem with scrolling in popup window
@@ -31,6 +31,7 @@ omweather (0.23.2) unstable; urgency=low
 
 omweather (0.23.1) unstable; urgency=low
 
+  * Fixed problem with on/off GSM or WLAN downloading for current connection
   * Done scroll to child for pannable_area in window popup
   * Added button 'Clear' for window 'Configuring station'
   * Removed 'Expanded/Collapsed' togglebuttons in status window

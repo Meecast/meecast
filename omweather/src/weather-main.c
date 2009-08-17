@@ -124,6 +124,8 @@ main_window_button_key_press_cb(GtkWidget *widget, GdkEventKey *event,
 #endif
     return FALSE;
 }
+
+
 /*******************************************************************************/
 GtkWidget*
 create_omweather(void){

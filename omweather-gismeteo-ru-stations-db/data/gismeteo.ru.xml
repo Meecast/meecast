@@ -3,7 +3,7 @@
 <name>gismeteo.ru</name>
 <logo>gismeteo.ru.png</logo>
 <base>gismeteo.ru.db</base>
-<forecast url="http://wap.gismeteo.ru/gm/normal/node/prognoz_week/3/?field_wmo=%s&amp;field_index=%s" />
+<forecast url="http://wap.gismeteo.ru/gm/normal/node/prognoz_type/6/?field_wmo=%s&amp;field_index=%s" />
 <detail url="http://xml.weather.com/weather/local/%s?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.8&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.8&amp;unit=m&amp;dayf=1&amp;hbhf=12" />
 <search url="http://xoap.weather.com/search/search?where=%s" />
 <library>libomweather-gismeteo-ru-source.so</library>

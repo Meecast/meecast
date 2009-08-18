@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.21\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-17 11:41+0300\n"
+"POT-Creation-Date: 2009-08-18 21:09+0300\n"
 "PO-Revision-Date: 2009-02-15 19:13+0100\n"
 "Last-Translator: Philippe <filip@disque-monde.org>\n"
 "Language-Team: French\n"
@@ -691,7 +691,7 @@ msgstr ""
 
 #: src/weather-simple-settings.c:1486
 msgid ""
-"GPS station is already exist.\n"
+"GPS station already exist.\n"
 "Only one station can be received via GPS"
 msgstr ""
 

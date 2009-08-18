@@ -27,6 +27,7 @@
 /*******************************************************************************/
 #include <gtk/gtk.h>
 #include <libxml/parser.h>
+#include <libxml/HTMLparser.h>
 #include <stdlib.h>
 /*******************************************************************************/
 gint get_station_weather_data(const gchar *station_id_with_path, GHashTable *data, gboolean get_detail_data);

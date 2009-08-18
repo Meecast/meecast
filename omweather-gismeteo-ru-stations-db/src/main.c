@@ -30,10 +30,43 @@
 #include <string.h>
 #include <time.h>
 /*******************************************************************************/
+#if 0
 gint
 get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
                                                     gboolean get_detail_data){
-    xmlDoc  *doc = NULL;
+    gint    days_number = -1;
+    gchar   buffer[1024];
+    FILE *  file;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(!station_id_with_path || !data)
+        return -1;
+/* check for new file, if it exist, than rename it */
+    *buffer = 0;
+    snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);
+    if(!access(buffer, R_OK))
+        rename(buffer, station_id_with_path);
+    /* check file accessability */
+    if(!access(station_id_with_path, R_OK)){
+        fprintf(stderr,"ddddddddddddddddddddddddddddddddddddddddddd\n");
+        file = fopen(station_id_with_path, "wb");
+        if(!file)
+            return -1;          /* failure, can't open file to read */
+        find_date_string(file);
+        fclose(file);
+        days_number = -1;
+    }
+    else
+        return -1;/* file isn't accessability */
+    return days_number;
+}
+#endif
+/*******************************************************************************/
+gint
+get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
+                                                    gboolean get_detail_data){
+    htmlDocPtr  *doc = NULL;
     xmlNode *root_node = NULL;
     gint    days_number = -1;
     gchar   buffer[1024],
@@ -50,11 +83,15 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
         rename(buffer, station_id_with_path);
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
+        fprintf(stderr,"sscsc %s\n",station_id_with_path);
         /* check that the file containe valid data */
-        doc = xmlReadFile(station_id_with_path, NULL, 0);
+        doc =  htmlReadFile(station_id_with_path, "UTF-8", 0);
         if(!doc)
             return -1;
         root_node = xmlDocGetRootElement(doc);
+        if (!root_node)
+            return -1;
+        htmlDocDump(stdout, doc);
         if(root_node->type == XML_ELEMENT_NODE &&
                 strstr((char*)root_node->name, "err")){
             xmlFreeDoc(doc);

@@ -2590,7 +2590,7 @@ omweather_plugin_class_finalize (OmweatherPluginClass *klass)
 
 
 static void
-omweather_plugin_widget_finalize (GObject *object)
+omweather_plugin_class_finalize (OmweatherPluginClass *object)
 {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

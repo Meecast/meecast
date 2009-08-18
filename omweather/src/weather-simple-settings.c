@@ -1483,7 +1483,7 @@ gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_data)
     if(gps){
         dialog_window = gtk_dialog_new_with_buttons(_("Configuring station"), NULL,
                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
-        label = gtk_label_new(_("GPS station is already exist.\nOnly one station can be received via GPS"));
+        label = gtk_label_new(_("GPS station already exist.\nOnly one station can be received via GPS"));
         set_font(label, NULL, 20);
         gtk_container_add (GTK_CONTAINER (GTK_DIALOG(dialog_window)->vbox), label);
         gtk_dialog_add_button (GTK_DIALOG (dialog_window), GTK_STOCK_OK, GTK_RESPONSE_OK);

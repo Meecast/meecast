@@ -830,20 +830,20 @@ gint read_config(AppletConfig * config) {
         }
     }
 
-    /*Get GSM and WLAN Default only GSM*/
+    /*Get GSM and WLAN Default only WLAN*/
     value = gconf_client_get(gconf_client, GCONF_KEY_UPDATE_GSM, NULL);
     if (value) {
         config->update_gsm = gconf_value_get_bool(value);
         gconf_value_free(value);
     } else
-        config->update_gsm = TRUE;
+        config->update_gsm = FALSE;
 
     value = gconf_client_get(gconf_client, GCONF_KEY_UPDATE_WLAN, NULL);
     if (value) {
         config->update_wlan = gconf_value_get_bool(value);
         gconf_value_free(value);
     } else
-        config->update_wlan = FALSE;
+        config->update_wlan = TRUE;
 
     /*Get VIEW_MODE Default COLLAPSED*/
     config->view_mode = COLLAPSED_VIEW_MODE;

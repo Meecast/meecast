@@ -671,8 +671,7 @@ msgid "GPS"
 msgstr "GPS"
 
 #: src/weather-simple-settings.c:1486
-#, fuzzy
-msgid ""
+-msgid ""
 "GPS station already exist.\n"
 "Only one station can be received via GPS"
 msgstr ""

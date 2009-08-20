@@ -75,16 +75,16 @@ struct _OMWeatherPrivate {
 #endif
 
 #if defined OS2009 && !defined (APPLICATION)
-HD_DEFINE_PLUGIN_MODULE(OmweatherPlugin, omweather_plugin, HD_TYPE_HOME_PLUGIN_ITEM);
-
+HD_DEFINE_PLUGIN_MODULE(OmweatherDesktopWidget, omweather_plugin, HD_TYPE_HOME_PLUGIN_ITEM)
+/*
 #define OMWEATHER_PLUGIN_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE (obj,\
 							                         OMWEATHER_TYPE_HOME_PLUGIN,\
 							                         OmweatherPluginPrivate))
-
 struct _OmweatherPluginPrivate
 {
   gpointer data;
 };
+*/
 #endif
 /* main struct */
 OMWeatherApp	*app = NULL;
@@ -835,7 +835,7 @@ omweather_init(OMWeather *applet){
     GdkColormap *cm;
 #elif OS2009
 static void
-omweather_plugin_init (OmweatherPlugin *applet){
+omweather_plugin_init (OmweatherDesktopWidget *applet){
     HDHomePluginItem *myparent;
 #else
 void*
@@ -937,6 +937,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->time_update_list = create_time_update_list();
     app->show_update_window = FALSE;
     app->popup_window = NULL;
+    app->settings_window = NULL;
     app->contextmenu = NULL;
     app->tab_of_window_popup = NULL;
     app->dbus_conn = NULL;
@@ -975,7 +976,9 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 /* Hack for OS2009 */
     initial_gps_connect();
 #endif
-
+    hd_home_plugin_item_set_settings (HD_HOME_PLUGIN_ITEM (applet), TRUE);
+    g_signal_connect (applet, "show-settings",
+        G_CALLBACK (weather_window_settings), NULL);
     app->widget_first_start = TRUE;
 
 #if defined OS2008  || ! defined (APPLICATION)
@@ -992,7 +995,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
       gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
 #endif
 #if defined OS2009 && !defined(APPLICATION)
-  applet->priv = OMWEATHER_PLUGIN_GET_PRIVATE (applet);
+//  applet->priv = OMWEATHER_PLUGIN_GET_PRIVATE (applet);
 #endif 
 
 #if  defined(NONMAEMO) || defined (APPLICATION)
@@ -1066,6 +1069,11 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 
     /* destroy popup */
     destroy_popup_window(NULL);
+    /* destroy settings window */
+    if (app->settings_window){
+        gtk_widget_destroy(app->settings_window);
+        app->settings_window = NULL;
+    }
 #if defined OS2008 && ! defined APPLICATION
     g_signal_handler_disconnect(app->parent,app->signal_size_request);
     g_signal_handler_disconnect(app->parent_parent,app->signal_press);
@@ -1134,10 +1142,9 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 #elif defined APPLICATION  || defined NONMAEMO
     gtk_main_quit();
 #endif
-
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
 }
 /*******************************************************************************/
 GtkWidget* 
@@ -2484,6 +2491,9 @@ create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
         delemiter[0] = '\n';
     }
 
+    if(app->config->swap_hi_low_temperature)
+        swap_temperature(&temp_hi, &temp_low);
+
     /* For presets mode */
     if (!app->config->is_application_mode){
         if (app->config->icons_layout == PRESET_NOW || button_number == FIRST_BUTTON){
@@ -2505,9 +2515,6 @@ create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
             return;
         }
     }
-    if(app->config->swap_hi_low_temperature)
-        swap_temperature(&temp_hi, &temp_low);
-
     if(!for_combination_mode){
         sprintf(buffer,
             "<span %s foreground='#%02x%02x%02x'>%s\n",
@@ -2584,38 +2591,41 @@ omweather_class_init(OMWeatherClass *klass){
 
 #if defined OS2009  && !defined APPLICATION
 
-omweather_plugin_class_finalize (OmweatherPluginClass *klass)
+omweather_plugin_widget_finalize (GObject *object)
 {
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    G_OBJECT_CLASS (omweather_plugin_parent_class)->finalize (object);
 }
 
 
 static void
-omweather_plugin_class_finalize (OmweatherPluginClass *object)
+omweather_plugin_class_finalize (OmweatherDesktopWidgetClass *object)
 {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 
    omweather_destroy(NULL);
-   G_OBJECT_CLASS (omweather_plugin_parent_class)->finalize (object);
 }
 
 
 static void
-omweather_plugin_class_init (OmweatherPluginClass *klass)
+omweather_plugin_class_init (OmweatherDesktopWidgetClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
   object_class->finalize = omweather_plugin_widget_finalize;
   widget_class->realize = omweather_plugin_realize;
   widget_class->expose_event = omweather_plugin_expose_event;
-  g_type_class_add_private (klass, sizeof (OmweatherPluginPrivate));
 }
 
 static void
 omweather_plugin_visible_notify (GObject                *object,
                                           GParamSpec             *spec,
-                                          OmweatherPlugin *applet)
+                                          OmweatherDesktopWidget *applet)
 {
   gboolean visible;
 
@@ -2624,22 +2634,21 @@ omweather_plugin_visible_notify (GObject                *object,
   g_debug ("is-on-current-desktop changed. visible: %u", visible);
 }
 
-OmweatherPlugin*
+OmweatherDesktopWidget*
 omweather_plugin_widget_new (void)
 {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 
-  return g_object_new (OMWEATHER_TYPE_HOME_PLUGIN, NULL);
+  return g_object_new (OMWEATHER_TYPE_DESKTOP_WIDGET, NULL);
 }
 /*
 static void
-omweather_plugin_init (OmweatherPlugin *applet)
+omweather_plugin_init (OmweatherDesktopWidget *applet)
 {
   GtkWidget *label;
 
-  applet->priv = OMWEATHER_PLUGIN_GET_PRIVATE (applet);
 
   label = gtk_label_new ("An example applet");
   gtk_widget_show (label);

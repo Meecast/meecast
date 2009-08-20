@@ -344,7 +344,10 @@ clear_station(GtkWidget *window){
     GtkWidget       *dialog_window = NULL,
                     *label = NULL;
     gint result;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+ 
     dialog_window = gtk_dialog_new_with_buttons(_("Warning"), NULL,
             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
     label = gtk_label_new(_("Are you sure?"));
@@ -411,6 +414,8 @@ save_station(GtkWidget *window){
         app->config->current_station_source = g_strdup(g_object_get_data(G_OBJECT(window), "station_source"));
 
     }
+    if (!is_gps) 
+        update_weather(TRUE);
     /* Redraw applet */
     redraw_home_window(FALSE);
     /* Update config file */
@@ -427,7 +432,6 @@ save_station(GtkWidget *window){
     /* Run gps daemon */
     if (is_gps && g_strdup(g_object_get_data(G_OBJECT(window), "station_code")) &&
        !strcmp(g_strdup(g_object_get_data(G_OBJECT(window), "station_code"))," ")){
-       fprintf(stderr, "GPS!!!!!!!!!!!!!!1\n");
        if (app->gps_control){
           location_gpsd_control_start(app->gps_control);
           app->gps_was_started = TRUE;
@@ -1326,13 +1330,6 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(gps_button), group);
     gtk_box_pack_start (GTK_BOX (hbox), gps_button, TRUE, TRUE, 0);
     gtk_widget_show (hbox);
-    g_object_set_data(G_OBJECT(window), "gps_button", (gpointer)gps_button);
-    if (g_object_get_data(G_OBJECT(button), "station_is_gps"))
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(gps_button),
-                                     TRUE);
-    else
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(manual_button),
-                                     TRUE);
     g_signal_connect(G_OBJECT(manual_button), "button-press-event",
                                         G_CALLBACK(manual_button_handler), window);
     g_signal_connect(G_OBJECT(gps_button), "button-press-event",
@@ -1394,11 +1391,26 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 GTK_FILL | GTK_EXPAND | GTK_SHRINK,
                                 (GtkAttachOptions)0, 0, 0 );
     gtk_widget_show (right_alignmnet);
+    /* Preapring for GPS station */
+    g_object_set_data(G_OBJECT(window), "gps_button", (gpointer)gps_button);
+    if (g_object_get_data(G_OBJECT(button), "station_is_gps")){
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(gps_button),
+                                     TRUE);
 
+        gtk_widget_set_sensitive(source_button, FALSE);
+        gtk_widget_set_sensitive(country_button, FALSE);
+        gtk_widget_set_sensitive(region_button, FALSE);
+        gtk_widget_set_sensitive(station_button, FALSE);
+        g_object_set_data(G_OBJECT(gps_button), "gps", (gpointer)gps_button);
+    }
+    else
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(manual_button),
+                                     TRUE);
+ 
     gtk_widget_show (main_table);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
-    gtk_dialog_add_button(GTK_DIALOG(window), GTK_STOCK_FIND, GTK_RESPONSE_OK);
+//    gtk_dialog_add_button(GTK_DIALOG(window), GTK_STOCK_FIND, GTK_RESPONSE_OK);
     gtk_dialog_add_button(GTK_DIALOG(window), GTK_STOCK_CLEAR, GTK_RESPONSE_NO);
     gtk_dialog_add_button(GTK_DIALOG(window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
 
@@ -1410,9 +1422,9 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
         case GTK_RESPONSE_YES:
             save_station(window);
         break;
+        default:
         case GTK_RESPONSE_OK:
         break;
-        default:
         case GTK_RESPONSE_NO:
             clear_station(window);
         break;
@@ -1465,21 +1477,23 @@ gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_data)
     START_FUNCTION;
 #endif
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(window), TRUE);
-
-    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list), &iter);
-    if(valid){
-        while(valid){
-            gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list), &iter, 2,
-                                              &gps, -1);
-            if(!gps){
-                valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
-                                                                                    &iter);
+    /* Check this gps_button was activity early */
+    if (!(g_object_get_data(G_OBJECT(window),"gps"))){
+        /* Look up gps station */
+        valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list), &iter);
+        if(valid){
+            while(valid){
+                gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list), &iter, 2,
+                                                  &gps, -1);
+                if(!gps){
+                    valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list),
+                                                                                        &iter);
+                }
+                else
+                    valid = FALSE;
             }
-            else
-                valid = FALSE;
         }
     }
-
     if(gps){
         dialog_window = gtk_dialog_new_with_buttons(_("Configuring station"), NULL,
                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
@@ -1868,6 +1882,7 @@ weather_simple_window_settings(gpointer user_data){
 #endif
 
     window = gtk_dialog_new();
+    app->settings_window = window;
     gtk_widget_show(window);
     gtk_window_set_title(GTK_WINDOW(window), _("OMWeather Settings"));
     gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
@@ -1985,6 +2000,7 @@ weather_simple_window_settings(gpointer user_data){
     }
     if (window)
         gtk_widget_destroy(window);
+    app->settings_window = NULL;
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

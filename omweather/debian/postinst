@@ -7,8 +7,13 @@ if [ -z "$2" ]; then
     exit 0
 fi
 
+if test -f /usr/share/applications/hildon-home/omweather-home.desktop ; then
+    	rm  -f /usr/share/applications/hildon-home/omweather-home.desktop
+	sleep 2
+fi
+ 
 if test ! -f  /usr/share/applications/hildon-home/omweather-home.desktop ; then
-    cp /usr/share/omweather/omweather-home.desktop /usr/share/applications/hildon-home/omweather-home.desktop
+   cp /usr/share/omweather/omweather-home.desktop /usr/share/applications/hildon-home/omweather-home.desktop
 fi
 
 #For OS2008

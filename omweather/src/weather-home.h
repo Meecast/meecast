@@ -115,11 +115,11 @@ struct _HomeAppletHandler {
 GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent);
 /*******************************************************************************/
 #ifdef OS2009
-static void omweather_plugin_class_finalize (OmweatherPluginClass *object);
-static void omweather_plugin_class_init(OmweatherPluginClass *klass);
+static void omweather_plugin_class_finalize (OmweatherDesktopWidgetClass *object);
+static void omweather_plugin_class_init(OmweatherDesktopWidgetClass *klass);
 static void omweather_plugin_visible_notify(GObject *object, GParamSpec *spec,
-                                          OmweatherPlugin *applet);
-static void omweather_plugin_init (OmweatherPlugin *applet);
+                                          OmweatherDesktopWidget *applet);
+static void omweather_plugin_init (OmweatherDesktopWidget *applet);
 #endif 
 /*******************************************************************************/
 #endif

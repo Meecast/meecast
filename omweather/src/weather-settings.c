@@ -1087,6 +1087,7 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
 #else
     window_config = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 #endif
+    app->settings_window = window_config;
 /* set window title and icon */
     gtk_window_set_title(GTK_WINDOW(window_config),
 			    _("OMWeather Settings"));
@@ -1803,6 +1804,7 @@ close_button_handler(GtkWidget * button, GdkEventButton * event,
         need_correct_layout_for_OS2007 = TRUE;
 #endif
     gtk_widget_destroy(config_window);
+    app->settings_window = NULL;
 /* check if update is needed */
     if (need_update_weather) {
         update_weather(TRUE);

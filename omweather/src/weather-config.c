@@ -655,14 +655,14 @@ gint read_config(AppletConfig * config) {
     } else
         config->downloading_after_connecting = FALSE;
 
-    /* Get Swap Temperature Button State. Default is FALSE */
+    /* Get Swap Temperature Button State. Default is TRUE */
     value =
         gconf_client_get(gconf_client, GCONF_KEY_SWAP_TEMPERATURE, NULL);
     if (value) {
         config->swap_hi_low_temperature = gconf_value_get_bool(value);
         gconf_value_free(value);
     } else
-        config->swap_hi_low_temperature = FALSE;
+        config->swap_hi_low_temperature = TRUE;
 
     /* Get Show wind Button State. Default is FALSE */
     value = gconf_client_get(gconf_client, GCONF_KEY_SHOW_WIND, NULL);

@@ -7,7 +7,7 @@
 #export DH_VERBOSE=1
 
 
-CFLAGS = -Wall -pedantic -DRELEASE
+CFLAGS = -Wall -pedantic -DRELEASE 
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
 	CFLAGS += -O0

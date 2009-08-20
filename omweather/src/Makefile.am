@@ -97,6 +97,7 @@ omweather_LDADD =	$(GTK_LIBS) \
 			$(GNOME_VFS_LIBS) \
 			$(GCONF_LIBS) \
 			$(LIBXML2_LIBS) \
+			$(HILDONDESKTOP_LIBS) \
 			$(HILDON_LIBS) \
 			$(CONIC_LIBS) \
 			$(SQLITE_LIBS) \

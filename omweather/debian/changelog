@@ -1,12 +1,19 @@
 omweather (0.24) unstable; urgency=low
 
-  * Various small fixes
+  * Done automatically download the weather forecast after adding of a station, if device is connected to Internet
+  * Fixed a problem with gps station choosing
+  * Small fixes in popup windows
+  * Changed in postinstall script
+  * Changed parameter 'type of connection for automatically downloading' by default is WLAN only
+  * Changed parameter 'Swap temperature' by default is TRUE
+  * Added 'hd_home_plugin_item_set_settings' to widget
+  * Various minor fixes
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 11 Aug 2009 18:30:00 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 20 Aug 2009 19:40:10 +0200
 
- omweather (0.23.4) unstable; urgency=low
+omweather (0.23.4) unstable; urgency=low
 
- * Fixed the crashing after update deb package
+  * Fixed the crashing after update deb package
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 11 Aug 2009 18:30:00 +0200
 

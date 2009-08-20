@@ -621,7 +621,9 @@ next_station_preset_now(gint layout)
         gtk_fixed_put(GTK_FIXED(widget), shadow_station_text, x_offset+2+1, 17+1);
     if (station_text)
         gtk_fixed_put(GTK_FIXED(widget), station_text, x_offset+1+1,17);
-
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return widget;
 }
 

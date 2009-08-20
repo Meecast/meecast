@@ -1,5 +1,6 @@
 omweather (0.24) unstable; urgency=low
 
+  * Updated German, Finish, Spanish, Russian translations
   * Done automatically download the weather forecast after adding of a station, if device is connected to Internet
   * Fixed a problem with gps station choosing
   * Small fixes in popup windows

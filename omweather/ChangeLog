@@ -1,3 +1,14 @@
+0.24
+  * Updated German, Finish, Spanish, Russian translations
+  * Done automatically download the weather forecast after adding of a station, if device is connected to Internet
+  * Fixed a problem with gps station choosing
+  * Small fixes in popup windows
+  * Changed in postinstall script
+  * Changed parameter 'type of connection for automatically downloading' by default is WLAN only
+  * Changed parameter 'Swap temperature' by default is TRUE
+  * Added 'hd_home_plugin_item_set_settings' to widget
+  * Various minor fixes
+
 0.23.3
   * Modified acknowledgment and copyright lists
   * Various small fixes

@@ -207,6 +207,7 @@ libweather_home_la_LDFLAGS =  -module -avoid-version
 
 libweather_home_la_LIBADD = $(GTK_LIBS) \
 			    $(LIBXML2_LIBS) \
+  			    $(HILDON_LIBS) \
 			    $(GNOME_VFS_LIBS) \
 			    $(GCONF_LIBS) \
 			    $(DBUS_LIBS) \

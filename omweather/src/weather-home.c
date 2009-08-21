@@ -976,9 +976,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 /* Hack for OS2009 */
     initial_gps_connect();
 #endif
-    hd_home_plugin_item_set_settings (HD_HOME_PLUGIN_ITEM (applet), TRUE);
-    g_signal_connect (applet, "show-settings",
-        G_CALLBACK (weather_window_settings), NULL);
+
     app->widget_first_start = TRUE;
 
 #if defined OS2008  || ! defined (APPLICATION)
@@ -996,6 +994,9 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #endif
 #if defined OS2009 && !defined(APPLICATION)
 //  applet->priv = OMWEATHER_PLUGIN_GET_PRIVATE (applet);
+    hd_home_plugin_item_set_settings (HD_HOME_PLUGIN_ITEM (applet), TRUE);
+    g_signal_connect (applet, "show-settings",
+        G_CALLBACK (weather_window_settings), NULL);
 #endif 
 
 #if  defined(NONMAEMO) || defined (APPLICATION)

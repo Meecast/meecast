@@ -29,6 +29,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
+#include <wchar.h>
 /*******************************************************************************/
 #if 0
 gint
@@ -36,7 +37,8 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
                                                     gboolean get_detail_data){
     gint    days_number = -1;
     gchar   buffer[1024];
-    FILE *  file;
+    FILE *  source_file, destination_file;
+    wint_t wc = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -44,17 +46,29 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
         return -1;
 /* check for new file, if it exist, than rename it */
     *buffer = 0;
+    fprintf(stderr,"dddddddddddddddddddddddddddddddddddddddddddaaaaaaaaa\n");
     snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);
-    if(!access(buffer, R_OK))
-        rename(buffer, station_id_with_path);
+    if(!access(buffer, R_OK)){
+  //      rename(buffer, station_id_with_path);
+      source_file = fopen(buffer,"r");
+      destination_file = fopen(station_id_with_path, "w");
+      if (source_file && destination_file){
+          while((wc = fgetwc(source_file))!=WEOF){
+              fputwc(wc, destination_file);
+          }
+          fclose(source_file);
+          fclose(destination_file);
+      }else
+        return -1;
+    }
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
         fprintf(stderr,"ddddddddddddddddddddddddddddddddddddddddddd\n");
-        file = fopen(station_id_with_path, "wb");
-        if(!file)
+//        file = fopen(station_id_with_path, "wb");
+//        if(!file)
             return -1;          /* failure, can't open file to read */
-        find_date_string(file);
-        fclose(file);
+//        find_date_string(file);
+//        fclose(file);
         days_number = -1;
     }
     else
@@ -71,6 +85,8 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
     gint    days_number = -1;
     gchar   buffer[1024],
             *delimiter = NULL;
+    FILE *source_file = NULL, *destination_file = NULL;
+    wint_t wc = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -79,8 +95,27 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
 /* check for new file, if it exist, than rename it */
     *buffer = 0;
     snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);
-    if(!access(buffer, R_OK))
-        rename(buffer, station_id_with_path);
+    if(!access(buffer, R_OK)){
+      source_file = fopen(buffer,"r");
+      destination_file = fopen(station_id_with_path, "w");
+      /* Correct problem with symbol '&' in html file */
+      if (source_file && destination_file){
+          while((wc = fgetwc(source_file))!=WEOF){
+              if (wc == '&'){
+                fputwc('&',destination_file);
+                fputwc('a',destination_file);
+                fputwc('m',destination_file);
+                fputwc('p',destination_file);
+                fputwc(';',destination_file);
+              }else
+                fputwc(wc, destination_file);
+          }
+          fclose(source_file);
+          fclose(destination_file);
+          unlink(buffer);
+      }else
+        return -1;
+    }
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
         fprintf(stderr,"sscsc %s\n",station_id_with_path);

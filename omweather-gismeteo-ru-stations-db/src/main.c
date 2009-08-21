@@ -46,7 +46,6 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
         return -1;
 /* check for new file, if it exist, than rename it */
     *buffer = 0;
-    fprintf(stderr,"dddddddddddddddddddddddddddddddddddddddddddaaaaaaaaa\n");
     snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);
     if(!access(buffer, R_OK)){
   //      rename(buffer, station_id_with_path);
@@ -126,7 +125,7 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
         root_node = xmlDocGetRootElement(doc);
         if (!root_node)
             return -1;
-        htmlDocDump(stdout, doc);
+//        htmlDocDump(stdout, doc);
         if(root_node->type == XML_ELEMENT_NODE &&
                 strstr((char*)root_node->name, "err")){
             xmlFreeDoc(doc);
@@ -147,6 +146,7 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
                     return -1;
                 }
                 *delimiter = 0;
+                fprintf(stderr,"llllllllllllllllllllllllllll\n");
                 if(get_detail_data)
                     days_number = parse_xml_detail_data(buffer, root_node, data);
                 else
@@ -161,6 +161,53 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
     return days_number;
 }
 /*******************************************************************************/
+struct tm
+get_data_from_russia_data(gchar *temp_string){
+    gchar buffer[256];
+    gchar temp_buffer[256];
+    struct tm   tmp_tm = {0};
+    gchar *temp_point;
+    fprintf(stderr,"sdddddddddddddd\n");
+    memset(buffer, 0, sizeof(buffer));
+    memset(temp_buffer, 0, sizeof(temp_buffer));
+    /* Find first separate - Space */
+    temp_point = strchr(temp_string,' ');
+    snprintf(buffer, strlen(temp_point) - strlen(strchr(temp_point + 1,' ')),"%s", temp_point + 1);
+    /* Add Mounth */
+    temp_point = strchr(temp_point + 1,' ');
+    snprintf(temp_buffer, strlen(temp_point) - strlen(strchr(temp_point + 1,' ')),"%s", temp_point + 1);
+    if (!strcoll(temp_buffer, "Января"))
+        strcat(buffer," Jun");
+    if (!strcoll(temp_buffer, "Февраля"))
+        strcat(buffer," Feb");
+    if (!strcoll(temp_buffer, "Марта"))
+        strcat(buffer," Mar");
+    if (!strcoll(temp_buffer, "Апреля"))
+        strcat(buffer," Apr");
+    if (!strcoll(temp_buffer, "Мая"))
+        strcat(buffer," May");
+    if (!strcoll(temp_buffer, "Июня"))
+        strcat(buffer," Jun");
+    if (!strcoll(temp_buffer, "Июля"))
+        strcat(buffer," Jul");
+    if (!strcoll(temp_buffer, "Августа"))
+        strcat(buffer," Aug");
+    if (!strcoll(temp_buffer, "Сентября"))
+        strcat(buffer," Sep");
+    if (!strcoll(temp_buffer, "Октября"))
+        strcat(buffer," Oct");
+    if (!strcoll(temp_buffer, "Ноября"))
+        strcat(buffer," Nov");
+    if (!strcoll(temp_buffer, "Декабря"))
+        strcat(buffer," Dec");
+    /* Addd Year */
+    temp_point = strchr(temp_point + 1,' ');
+    snprintf(temp_buffer, 6, "%s", temp_point);
+    strcat(buffer, temp_buffer);
+    strptime(buffer, "%d %b %Y", &tmp_tm);
+    return tmp_tm;
+}
+/*******************************************************************************/
 gint
 parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
     xmlNode     *cur_node = NULL,
@@ -171,10 +218,13 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
     xmlChar     *temp_xml_string = NULL;
     xmlChar     *part_of_day = NULL;
     gint        store2day = 0,
-                count_day = 0;
+                count_day = 0,
+                count_of_div = 0,
+                count_of_table = 0;
     gchar       id_station[10],
                 buff[256];
     struct tm   tmp_tm = {0};
+    time_t      first_day, day_in_list;
     GSList      *forecast = NULL;
     GHashTable  *location = NULL,
                 *current = NULL,
@@ -184,18 +234,22 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
 #endif
     for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
         if( cur_node->type == XML_ELEMENT_NODE ){
+            fprintf(stderr,"cur_node %s\n",cur_node->name);
             /* get weather station data */
-            if(!xmlStrcmp(cur_node->name, (const xmlChar *) "loc" ) ){
-                temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"id");
-                snprintf(id_station, sizeof(id_station) - 1,
-                            "%s", temp_xml_string);
-                xmlFree(temp_xml_string);
-                /* If station in xml not station in config file exit */
-                if( strcmp(id_station, station_id) )
-                    return -1;
-                location = g_hash_table_new(g_str_hash, g_str_equal);
+            if(!xmlStrcmp(cur_node->name, (const xmlChar *) "body" ) ){
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
                     if( child_node->type == XML_ELEMENT_NODE ){
+//                        fprintf(stderr,"child_node->name %s\n",child_node->name);
+                        if (!xmlStrcmp(child_node->name, (const xmlChar *)"div") )
+                            count_of_div ++;
+                        if (!xmlStrcmp(child_node->name, (const xmlChar *)"div") )
+                            count_of_table ++;
+                        if (count_of_div == 2){
+                          temp_xml_string = xmlNodeGetContent(child_node);
+                          fprintf(stderr,"Date %s\n", temp_xml_string);
+                          tmp_tm = get_data_from_russia_data(temp_xml_string);
+                          first_day = mktime(&tmp_tm);
+                        }
                         /* station name */
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"dnam") ){
                             temp_xml_string = xmlNodeGetContent(child_node);

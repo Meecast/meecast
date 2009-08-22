@@ -208,6 +208,27 @@ get_data_from_russia_data(gchar *temp_string){
     return tmp_tm;
 }
 /*******************************************************************************/
+void
+fill_day (xmlNode *root_node){
+    xmlNode     *cur_node = NULL;
+    xmlChar     *temp_xml_string = NULL;
+    gboolean flag = FALSE;
+    for(cur_node = root_node; cur_node; cur_node = cur_node->next){
+        if( cur_node->type == XML_ELEMENT_NODE ){
+           fprintf(stderr,"aa %s\n", xmlNodeGetContent(cur_node));
+           temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"style");
+           if (!xmlStrcmp(temp_xml_string, (const xmlChar*)"background: url(/media/pic/big/2/sep01.gif) repeat-x 0 0")){
+                fprintf(stderr,"ddddddddddddd\n");
+                if (flag)
+                    break;
+                else
+                    flag = TRUE;
+           }
+ 
+        }
+    }
+}
+/*******************************************************************************/
 gint
 parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
     xmlNode     *cur_node = NULL,
@@ -220,6 +241,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
     gint        store2day = 0,
                 count_day = 0,
                 count_of_div = 0,
+                count_of_div_temp = 0,
                 count_of_table = 0;
     gchar       id_station[10],
                 buff[256];
@@ -239,16 +261,28 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "body" ) ){
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
                     if( child_node->type == XML_ELEMENT_NODE ){
-//                        fprintf(stderr,"child_node->name %s\n",child_node->name);
-                        if (!xmlStrcmp(child_node->name, (const xmlChar *)"div") )
+                        fprintf(stderr,"child_node->name %s\n",child_node->name);
+                        if (!xmlStrcmp(child_node->name, (const xmlChar *)"div") ){
                             count_of_div ++;
-                        if (!xmlStrcmp(child_node->name, (const xmlChar *)"div") )
+                            count_of_div_temp ++;
+                        }
+                        if (!xmlStrcmp(child_node->name, (const xmlChar *)"table") )
                             count_of_table ++;
-                        if (count_of_div == 2){
-                          temp_xml_string = xmlNodeGetContent(child_node);
-                          fprintf(stderr,"Date %s\n", temp_xml_string);
-                          tmp_tm = get_data_from_russia_data(temp_xml_string);
-                          first_day = mktime(&tmp_tm);
+                        if (count_of_div == 2 && count_of_table == 0){
+                            temp_xml_string = xmlNodeGetContent(child_node);
+                            fprintf(stderr,"Date %s\n", temp_xml_string);
+                            tmp_tm = get_data_from_russia_data(temp_xml_string);
+                            first_day = mktime(&tmp_tm);
+                        }
+                        if (count_of_div > 2 && 
+                            !xmlStrcmp(child_node->name, (const xmlChar *)"div")){
+                            temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"style");
+                            if (!xmlStrcmp(temp_xml_string, (const xmlChar*)"background: url(/media/pic/big/2/sep01.gif) repeat-x 0 0"))
+                            {
+                                fprintf(stderr,"Div content %s\n", temp_xml_string);
+                                fill_day(child_node);
+                            }
+
                         }
                         /* station name */
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"dnam") ){

@@ -64,6 +64,10 @@ is_current_weather_valid(void){
                 (current_data_last_update < ( current_time + app->config->data_valid_interval)))
         return TRUE;
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+ 
     return FALSE;
 }
 /*******************************************************************************/
@@ -138,7 +142,10 @@ time_t calculate_diff_time(int timezone) {
 
     time_t current_time, diff_time = 0, utc_time;
     struct tm *gmt;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+ 
     current_time = time(NULL);  /* get current day */
     /* set Daylight */
     gmt = gmtime(&current_time);

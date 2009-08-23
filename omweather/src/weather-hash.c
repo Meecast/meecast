@@ -66,6 +66,9 @@ gpointer hash_table_find(gpointer key, gboolean search_short_name) {
         result = value;
     else
         result = key;
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return result;
 }
 

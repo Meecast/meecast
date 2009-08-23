@@ -1,3 +1,9 @@
+omweather (0.24.2) unstable; urgency=low
+
+  * Various minor fixes
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 28 Aug 2009 19:40:10 +0200
+
 omweather (0.24) unstable; urgency=low
 
   * Updated German, Finish, Spanish, Russian translations

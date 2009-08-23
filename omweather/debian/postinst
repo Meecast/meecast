@@ -1,12 +1,5 @@
 #! /bin/sh
 
-gtk-update-icon-cache -f /usr/share/icons/hicolor
-
-#if first installation then exit
-if [ -z "$2" ]; then
-    exit 0
-fi
-
 if test -f /usr/share/applications/hildon-home/omweather-home.desktop ; then
     	rm  -f /usr/share/applications/hildon-home/omweather-home.desktop
 	sleep 2
@@ -16,6 +9,13 @@ if test ! -f  /usr/share/applications/hildon-home/omweather-home.desktop ; then
    cp /usr/share/omweather/omweather-home.desktop /usr/share/applications/hildon-home/omweather-home.desktop
 fi
 
+
+gtk-update-icon-cache -f /usr/share/icons/hicolor
+
+#if first installation then exit
+if [ -z "$2" ]; then
+    exit 0
+fi
 #For OS2008
 test -x /usr/bin/maemo-confirm-text || exit 0
 

@@ -358,47 +358,55 @@ calculate_offset_of_day(int count_day){
     GHashTable  *location = NULL,
                 *first_day = NULL,
                 *last_day = NULL;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+ 
 /* if no xml file is present return Max_count_weather_day */
     if(count_day < 1)
         return Max_count_weather_day;
 
     tmp = g_hash_table_lookup(app->station_data, "forecast");
-    first_day = (GHashTable*)((g_slist_nth(tmp, 0))->data);
-    last_day = (GHashTable*)((g_slist_last(tmp))->data);
-/* get current day */  
-    current_time = time(NULL);
-    location = g_hash_table_lookup(app->station_data, "location");
-    diff_time = calculate_diff_time(atol(g_hash_table_lookup(location, "station_time_zone")));
-    current_time += diff_time;
-    current_day = current_time;
-    tm = localtime(&current_day);
-    year = 1900 + tm->tm_year;
-    current_month = tm->tm_mon;
-    tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
-    tm->tm_isdst = 1;
-    current_day = mktime(tm);
+    if (tmp){
+        first_day = (GHashTable*)((g_slist_nth(tmp, 0))->data);
+        last_day = (GHashTable*)((g_slist_last(tmp))->data);
+        /* get current day */  
+        current_time = time(NULL);
+        location = g_hash_table_lookup(app->station_data, "location");
+        if (location && g_hash_table_lookup(location, "station_time_zone"))
+            diff_time = calculate_diff_time(atol(g_hash_table_lookup(location, "station_time_zone")));
+        else
+            diff_time = 0;
+        current_time += diff_time;
+        current_day = current_time;
+        tm = localtime(&current_day);
+        year = 1900 + tm->tm_year;
+        current_month = tm->tm_mon;
+        tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+        tm->tm_isdst = 1;
+        current_day = mktime(tm);
 
-    memset(date_in_string, 0, sizeof(date_in_string));
-    sprintf(date_in_string, "%s %i 00:00:00",
-            (char*)g_hash_table_lookup(first_day, "day_date"), year);
-
-    strptime(date_in_string, "%b %d %Y %T", tm);
-    /* Check New Year */
-    if((current_month == 0) && (tm->tm_mon == 11)){
+        memset(date_in_string, 0, sizeof(date_in_string));
         sprintf(date_in_string, "%s %i 00:00:00",
-                (char*)g_hash_table_lookup(first_day, "day_date"), year - 1);
+                (char*)g_hash_table_lookup(first_day, "day_date"), year);
+
         strptime(date_in_string, "%b %d %Y %T", tm);
-    }
-    date_time = mktime(tm);
-    /* calculate days offset */
-    pre_offset = (double)(abs(current_day - date_time));
-    pre_offset /= 24.0F * 60.0F * 60.0F;
-    offset = (int)( round(pre_offset) );
+        /* Check New Year */
+        if((current_month == 0) && (tm->tm_mon == 11)){
+            sprintf(date_in_string, "%s %i 00:00:00",
+                    (char*)g_hash_table_lookup(first_day, "day_date"), year - 1);
+            strptime(date_in_string, "%b %d %Y %T", tm);
+        }
+        date_time = mktime(tm);
+        /* calculate days offset */
+        pre_offset = (double)(abs(current_day - date_time));
+        pre_offset /= 24.0F * 60.0F * 60.0F;
+        offset = (int)( round(pre_offset) );
 
-    if(offset >= Max_count_weather_day)
+        if(offset >= Max_count_weather_day)
+            offset = Max_count_weather_day;
+    } else
         offset = Max_count_weather_day;
-
     return offset;
 }
 /*******************************************************************************/
@@ -456,7 +464,10 @@ draw_home_window(gint count_day){
         /* get current day */
         current_time = time(NULL);
         location = g_hash_table_lookup(app->station_data, "location");
-        diff_time = calculate_diff_time(atol(g_hash_table_lookup(location, "station_time_zone")));
+        if (location && g_hash_table_lookup(location, "station_time_zone"))
+            diff_time = calculate_diff_time(atol(g_hash_table_lookup(location, "station_time_zone")));
+        else
+            diff_time = 0;
         current_time += diff_time;
         current_day = current_time;
         tm = localtime(&current_day);
@@ -1143,9 +1154,9 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 #elif defined APPLICATION  || defined NONMAEMO
     gtk_main_quit();
 #endif
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 }
 /*******************************************************************************/
 GtkWidget* 
@@ -2329,11 +2340,17 @@ get_day_part_begin_time(GHashTable *day, guint year, const gchar *day_part){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    memset(buffer, 0, sizeof(buffer));
-    snprintf(buffer, sizeof(buffer) - 1,
-                "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year,
-                (char*)g_hash_table_lookup(day, day_part));
-    strptime(buffer, "%b %d %Y %I:%M %p", &tm);
+    if (g_hash_table_lookup(day, "day_date") && g_hash_table_lookup(day, day_part)){
+        memset(buffer, 0, sizeof(buffer));
+        snprintf(buffer, sizeof(buffer) - 1,
+                    "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year,
+                    (char*)g_hash_table_lookup(day, day_part));
+        strptime(buffer, "%b %d %Y %I:%M %p", &tm);
+    }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+ 
     return  mktime(&tm);
 }
 /*******************************************************************************/
@@ -2345,12 +2362,14 @@ create_wind_parameters(GHashTable *day, gchar *buffer, gboolean is_day, gint *di
 #endif
   /* Is it data current day for? */ 
     if(!buffer){
-        if(!strcmp((char*)g_hash_table_lookup(day, "wind_speed"), "N/A"))
+        if(!g_hash_table_lookup(day, "wind_speed") ||
+            !strcmp((char*)g_hash_table_lookup(day, "wind_speed"), "N/A"))
             *speed = -1;
         else
             *speed = convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "wind_speed")));
 
-        if(!strcmp((char*)g_hash_table_lookup(day, "wind_direction"), "N/A"))
+        if(!g_hash_table_lookup(day, "wind_direction") ||
+            !strcmp((char*)g_hash_table_lookup(day, "wind_direction"), "N/A"))
             *direction = UNKNOWN_DIRECTION;
         else{
             wind_direction = (char*)hash_table_find(g_hash_table_lookup(day, "wind_direction"), TRUE);
@@ -2358,9 +2377,11 @@ create_wind_parameters(GHashTable *day, gchar *buffer, gboolean is_day, gint *di
         }
         return;
     }
-
-    if((is_day && !strcmp((char*)g_hash_table_lookup(day, "day_wind_speed"), "N/A")) &&
-           !strcmp((char*)g_hash_table_lookup(day, "night_wind_speed"), "N/A")){
+    
+    if((is_day && ((!g_hash_table_lookup(day, "day_wind_speed")|| 
+                   (!g_hash_table_lookup(day, "night_wind_speed")))||
+           (!strcmp((char*)g_hash_table_lookup(day, "day_wind_speed"), "N/A")) &&
+           !strcmp((char*)g_hash_table_lookup(day, "night_wind_speed"), "N/A")))){
             if (buffer && app->config->icons_layout < PRESET_NOW)
                 sprintf(buffer + strlen(buffer),
                         "<span foreground='#%02x%02x%02x'>\n%s\n%s</span>",
@@ -2387,34 +2408,41 @@ create_wind_parameters(GHashTable *day, gchar *buffer, gboolean is_day, gint *di
                         app->config->font_color.blue >> 8,
                         wind_direction);
             }
-            *speed = convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed")));
-            if(buffer && app->config->icons_layout < PRESET_NOW){
-                if(app->config->show_wind_gust)
-                    sprintf(buffer + strlen(buffer), "%.1f</span>",
-                            convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed"))));
-               else
-                    sprintf(buffer + strlen(buffer),"</span>");
+            if (g_hash_table_lookup(day, "day_wind_speed")){
+                *speed = convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed")));
+                if(buffer && app->config->icons_layout < PRESET_NOW){
+                    if(app->config->show_wind_gust)
+                        sprintf(buffer + strlen(buffer), "%.1f</span>",
+                                convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed"))));
+                   else
+                        sprintf(buffer + strlen(buffer),"</span>");
+                }
             }
        }
        else{
             *direction = choose_wind_direction(g_hash_table_lookup(day, "night_wind_title"));
             wind_direction = (char*)hash_table_find(g_hash_table_lookup(day, "night_wind_title"), TRUE);
-            *speed = convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed")));
-            if(buffer && app->config->icons_layout < PRESET_NOW){
-                sprintf(buffer + strlen(buffer),
-                        "<span foreground='#%02x%02x%02x'>\n%s",
-                        app->config->font_color.red >> 8,
-                        app->config->font_color.green >> 8,
-                        app->config->font_color.blue >> 8,
-                        wind_direction);
-                if(app->config->show_wind_gust)
-                    sprintf(buffer + strlen(buffer), "%.1f</span>",
-                    convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))));
-                else
-                    sprintf(buffer + strlen(buffer),"</span>");
+            if (g_hash_table_lookup(day, "night_wind_speed")){
+                *speed = convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed")));
+                if(buffer && app->config->icons_layout < PRESET_NOW){
+                    sprintf(buffer + strlen(buffer),
+                            "<span foreground='#%02x%02x%02x'>\n%s",
+                            app->config->font_color.red >> 8,
+                            app->config->font_color.green >> 8,
+                            app->config->font_color.blue >> 8,
+                            wind_direction);
+                    if(app->config->show_wind_gust)
+                        sprintf(buffer + strlen(buffer), "%.1f</span>",
+                        convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))));
+                    else
+                        sprintf(buffer + strlen(buffer),"</span>");
+                }
             }
        }
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 /*******************************************************************************/
 void 
@@ -2468,13 +2496,16 @@ create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
     gint        temp_hi = INT_MAX,
                 temp_low = INT_MAX;
     gchar       delemiter[2] ;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
     memset(delemiter, 0, sizeof(delemiter));
-    if(strcmp(g_hash_table_lookup(day, "day_hi_temperature"), "N/A"))
-        temp_hi = atoi(g_hash_table_lookup(day, "day_hi_temperature"));
-
-    if(strcmp(g_hash_table_lookup(day, "day_low_temperature"), "N/A"))
-        temp_low = atoi(g_hash_table_lookup(day, "day_low_temperature"));
+    if (g_hash_table_lookup(day, "day_hi_temperature"))
+        if(strcmp(g_hash_table_lookup(day, "day_hi_temperature"), "N/A"))
+            temp_hi = atoi(g_hash_table_lookup(day, "day_hi_temperature"));
+    if (g_hash_table_lookup(day, "day_low_temperature"))
+        if(strcmp(g_hash_table_lookup(day, "day_low_temperature"), "N/A"))
+            temp_low = atoi(g_hash_table_lookup(day, "day_low_temperature"));
 
     if(app->config->temperature_units == FAHRENHEIT){
         if( temp_hi != INT_MAX )

@@ -100,6 +100,10 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
       /* Correct problem with symbol '&' in html file */
       if (source_file && destination_file){
           while((wc = fgetwc(source_file))!=WEOF){
+              if (wc == '\n'|| wc == '\r'){
+                fputwc(' ',destination_file);
+                continue;
+              }
               if (wc == '&'){
                 fputwc('&',destination_file);
                 fputwc('a',destination_file);
@@ -167,7 +171,6 @@ get_data_from_russia_data(gchar *temp_string){
     gchar temp_buffer[256];
     struct tm   tmp_tm = {0};
     gchar *temp_point;
-    fprintf(stderr,"sdddddddddddddd\n");
     memset(buffer, 0, sizeof(buffer));
     memset(temp_buffer, 0, sizeof(temp_buffer));
     /* Find first separate - Space */
@@ -210,17 +213,50 @@ get_data_from_russia_data(gchar *temp_string){
 /*******************************************************************************/
 void
 fill_day (xmlNode *root_node, GHashTable *day){
+#define buff_size 2048
     xmlNode     *cur_node = NULL;
+    xmlNode     *child_node = NULL;
     xmlChar     *temp_xml_string = NULL;
+    xmlChar     *temp_xml_char = NULL;
+    gint i,j;
+    gchar   buffer[buff_size];
+
+    temp_xml_char = xmlCharStrdup("\r");
     for(cur_node = root_node; cur_node; cur_node = cur_node->next){
         if( cur_node->type == XML_ELEMENT_NODE ){
-           fprintf(stderr,"aa %s\n", xmlNodeGetContent(cur_node));
-           temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"style");
-           if (!xmlStrcmp(temp_xml_string, (const xmlChar*)"background: url(/media/pic/big/2/sep01.gif) repeat-x 0 0")){
+            fprintf(stderr,"node %s\n",cur_node->name);
+            if (cur_node->children){
+                for(child_node = cur_node->children; child_node; child_node = child_node->next)
+                {
+                   if (!xmlStrcmp(child_node->name, (const xmlChar *)"img") ){
+                        temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"src");
+                        fprintf(stderr, "hhhhhhhhhhhhhhh %s\n", temp_xml_string); 
+                   }
+                }
+            }
+            temp_xml_string = xmlNodeGetContent(cur_node);
+            memset(buffer, 0, sizeof(buffer));
+            /* remove leading space */
+            for (j = 0; (i<(xmlStrlen(temp_xml_string)) && j < buff_size); j++ ){
+                if (temp_xml_string[j] != ' ')
+                    break;
+            }
+            /* remove many spaces between words */
+            for (i = j ; (i<(xmlStrlen(temp_xml_string)) && i < buff_size); i++ ){
+                if (temp_xml_string[i] == ' ' && temp_xml_string[i+1] == ' ')
+                    continue;
+                else
+                   sprintf(buffer,"%s%c",buffer, temp_xml_string[i]);
+            }
+            fprintf(stderr,"%s\n", buffer);
+//            if (xmlStrcmp(xmlNodeGetContent(cur_node),"\r")){
+//                fprintf(stderr," aa %s\n", xmlNodeGetContent(cur_node));
+//            }
+            temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"style");
+            if (!xmlStrcmp(temp_xml_string, (const xmlChar*)"background: url(/media/pic/big/2/sep01.gif) repeat-x 0 0")){
                 fprintf(stderr,"ddddddddddddd\n");
                 break;
-           }
- 
+            }
         }
     }
 }
@@ -262,7 +298,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "body" ) ){
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
                     if( child_node->type == XML_ELEMENT_NODE ){
-                        fprintf(stderr,"child_node->name %s\n",child_node->name);
+//                        fprintf(stderr,"child_node->name %s\n",child_node->name);
                         if (!xmlStrcmp(child_node->name, (const xmlChar *)"div") ){
                             count_of_div ++;
                             count_of_div_temp ++;

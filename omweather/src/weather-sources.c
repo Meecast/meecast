@@ -82,6 +82,9 @@ create_sources_list(gchar *sources_path, gint *sources_number, GSList **handles)
 
     if(sources_number)
         *sources_number = counter;
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return list;
 }
 /*******************************************************************************/

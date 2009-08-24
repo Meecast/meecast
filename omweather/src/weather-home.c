@@ -774,9 +774,9 @@ redraw_home_window(gboolean first_start){
         app->main_window = NULL;
     }
     /* Check nill station_id */
-    if (!!app->config->current_station_id 
-        || (!strcmp(app->config->current_station_id," "))
-        || (!strcmp(app->config->current_station_id,"")))
+    if (!app->config->current_station_id ||
+        (!strcmp(app->config->current_station_id," ")) ||
+        (!strcmp(app->config->current_station_id,"")))
         count_day = -1;
     else{
         /* new parser */

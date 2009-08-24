@@ -216,24 +216,36 @@ fill_day (xmlNode *root_node, GHashTable *day){
 #define buff_size 2048
     xmlNode     *cur_node = NULL;
     xmlNode     *child_node = NULL;
+    xmlNode     *child_node2 = NULL;
+    xmlNode     *child_node3 = NULL;
     xmlChar     *temp_xml_string = NULL;
     xmlChar     *temp_xml_char = NULL;
     gint i,j;
     gchar   buffer[buff_size];
 
-    temp_xml_char = xmlCharStrdup("\r");
     for(cur_node = root_node; cur_node; cur_node = cur_node->next){
         if( cur_node->type == XML_ELEMENT_NODE ){
             fprintf(stderr,"node %s\n",cur_node->name);
-            if (cur_node->children){
+            if (cur_node->children)
                 for(child_node = cur_node->children; child_node; child_node = child_node->next)
                 {
+                   fprintf(stderr,"child_node %s\n",child_node->name);
                    if (!xmlStrcmp(child_node->name, (const xmlChar *)"img") ){
                         temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"src");
-                        fprintf(stderr, "hhhhhhhhhhhhhhh %s\n", temp_xml_string); 
+                        fprintf(stderr, "hhhhhhhhhhhhhhh %s\n", temp_xml_string);
                    }
-                }
-            }
+                   if (( child_node->type == XML_ELEMENT_NODE )&&  child_node->children){
+                      fprintf(stderr,"ddddddddddddd\n");
+                   for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next)
+                   {
+                          fprintf(stderr,"child_node2 %s\n",child_node2->name);
+                          if (!xmlStrcmp(child_node2->name, (const xmlChar *)"img") ){
+                            temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"src");
+                            fprintf(stderr, "aaaaaaaaaaaaaa %s\n", temp_xml_string);
+                          }
+                   }
+                   }
+                 }
             temp_xml_string = xmlNodeGetContent(cur_node);
             memset(buffer, 0, sizeof(buffer));
             /* remove leading space */
@@ -249,9 +261,6 @@ fill_day (xmlNode *root_node, GHashTable *day){
                    sprintf(buffer,"%s%c",buffer, temp_xml_string[i]);
             }
             fprintf(stderr,"%s\n", buffer);
-//            if (xmlStrcmp(xmlNodeGetContent(cur_node),"\r")){
-//                fprintf(stderr," aa %s\n", xmlNodeGetContent(cur_node));
-//            }
             temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"style");
             if (!xmlStrcmp(temp_xml_string, (const xmlChar*)"background: url(/media/pic/big/2/sep01.gif) repeat-x 0 0")){
                 fprintf(stderr,"ddddddddddddd\n");

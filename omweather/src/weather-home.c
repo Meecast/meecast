@@ -751,18 +751,18 @@ redraw_home_window(gboolean first_start){
             free_detaild_hash_table(app->station_data);
             g_hash_table_remove_all(app->station_data);
         }
-	    /* free days buttons */
-	    tmp = app->buttons;
-	    while(tmp){
-	        tmp_button = (WDB*)tmp->data;
+        /* free days buttons */
+        tmp = app->buttons;
+        while(tmp){
+            tmp_button = (WDB*)tmp->data;
             if (tmp_button){
                delete_weather_day_button(&tmp_button);
                tmp_button = NULL;
             }
-	    tmp = g_slist_next(tmp);
-	    }
-	    g_slist_free(app->buttons);
-	    app->buttons = NULL;
+            tmp = g_slist_next(tmp);
+        }
+        g_slist_free(app->buttons);
+        app->buttons = NULL;
     }
 #ifdef CLUTTER
     free_clutter_objects_list(&app->clutter_objects_in_main_form);
@@ -773,37 +773,44 @@ redraw_home_window(gboolean first_start){
         gtk_widget_destroy(app->main_window);
         app->main_window = NULL;
     }
-/* new parser */
-    parser = get_source_parser(app->sources_list,
-                                app->config->current_station_source);
-    if(parser){
-        /* prepare xml file with full path */
-        *buffer = 0;
-        snprintf(buffer, sizeof(buffer) - 1, "%s/%s.xml",
-                    app->config->cache_dir_name, app->config->current_station_id);
-        count_day = parser(buffer, app->station_data, FALSE);
-        /* check current weather */
-        app->current_is_valid = is_current_weather_valid();
-        #ifndef RELEASE
-            if(app->current_is_valid)
-                fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Current is valid\n");
-            else
-                fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Current is non valid\n");
-        #endif
-        /* detail data */
-        if(app->config->show_weather_for_two_hours){
+    /* Check nill station_id */
+    if (!!app->config->current_station_id 
+        || (!strcmp(app->config->current_station_id," "))
+        || (!strcmp(app->config->current_station_id,"")))
+        count_day = -1;
+    else{
+        /* new parser */
+        parser = get_source_parser(app->sources_list,
+                                    app->config->current_station_source);
+        if(parser){
+            /* prepare xml file with full path */
             *buffer = 0;
-            snprintf(buffer, sizeof(buffer) - 1, "%s/%s_hour.xml",
+            snprintf(buffer, sizeof(buffer) - 1, "%s/%s.xml",
                         app->config->cache_dir_name, app->config->current_station_id);
-            parser(buffer, app->station_data, TRUE);
-       }
+            count_day = parser(buffer, app->station_data, FALSE);
+            /* check current weather */
+            app->current_is_valid = is_current_weather_valid();
+            #ifndef RELEASE
+                if(app->current_is_valid)
+                    fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Current is valid\n");
+                else
+                    fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Current is non valid\n");
+            #endif
+            /* detail data */
+            if(app->config->show_weather_for_two_hours){
+                *buffer = 0;
+                snprintf(buffer, sizeof(buffer) - 1, "%s/%s_hour.xml",
+                            app->config->cache_dir_name, app->config->current_station_id);
+                parser(buffer, app->station_data, TRUE);
+           }
+        }
+        if(count_day == -2){
+            fprintf(stderr, _("Error in xml file\n"));
+            hildon_banner_show_information(app->main_window,
+                              NULL,
+                              _("Wrong station code \nor ZIP code!!!"));
+        } /* Error in xml file */
     }
-    if(count_day == -2){
-	fprintf(stderr, _("Error in xml file\n"));
-	    hildon_banner_show_information(app->main_window,
-					    NULL,
-					    _("Wrong station code \nor ZIP code!!!"));
-    } /* Error in xml file */
     app->count_day = count_day;	/* store days number from xml file */
     draw_home_window(count_day);
 #ifdef DEBUGFUNCTIONCALL

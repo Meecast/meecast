@@ -602,7 +602,7 @@ draw_home_window(gint count_day){
                     night_begin_time = get_day_part_begin_time(tmp_day, year, "24h_sunset");
                 }else
                     tmp_day = day;
-                    create_day_temperature_text(tmp_day, buffer, FALSE, FALSE, OTHER_BUTTON);
+                create_day_temperature_text(tmp_day, buffer, FALSE, FALSE, OTHER_BUTTON);
                 if((app->config->separate) && (i == 1) &&
                    (current_time > night_begin_time || current_time < day_begin_time)){
                        if(app->config->show_wind || app->config->icons_layout >= PRESET_NOW)
@@ -2461,6 +2461,9 @@ create_current_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
     START_FUNCTION;
 #endif
 
+    if (!g_hash_table_lookup(day, "day_hi_temperature"))
+        return;
+
     if(strcmp(g_hash_table_lookup(day, "day_hi_temperature"), "N/A"))
         temp_current = atoi(g_hash_table_lookup(day, "day_hi_temperature"));
 
@@ -2551,6 +2554,8 @@ create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
                 sprintf(buffer + strlen(buffer), "%i\302\260", temp_low);
             if(temp_hi != INT_MAX)
                 sprintf(buffer + strlen(buffer), "\n%i\302\260",  temp_hi );
+            else
+                sprintf(buffer + strlen(buffer), "\n");
             return;
         }
     }

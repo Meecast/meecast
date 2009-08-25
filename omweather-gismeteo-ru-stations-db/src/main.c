@@ -32,60 +32,16 @@
 #include <wchar.h>
 /*******************************************************************************/
 GHashTable *hash_for_translate;
-#if 0
-gint
-get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
-                                                    gboolean get_detail_data){
-    gint    days_number = -1;
-    gchar   buffer[1024];
-    FILE *  source_file, destination_file;
-    wint_t wc = 0;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    if(!station_id_with_path || !data)
-        return -1;
-/* check for new file, if it exist, than rename it */
-    *buffer = 0;
-    snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);
-    if(!access(buffer, R_OK)){
-  //      rename(buffer, station_id_with_path);
-      source_file = fopen(buffer,"r");
-      destination_file = fopen(station_id_with_path, "w");
-      if (source_file && destination_file){
-          while((wc = fgetwc(source_file))!=WEOF){
-              fputwc(wc, destination_file);
-          }
-          fclose(source_file);
-          fclose(destination_file);
-      }else
-        return -1;
-    }
-    /* check file accessability */
-    if(!access(station_id_with_path, R_OK)){
-        fprintf(stderr,"ddddddddddddddddddddddddddddddddddddddddddd\n");
-//        file = fopen(station_id_with_path, "wb");
-//        if(!file)
-            return -1;          /* failure, can't open file to read */
-//        find_date_string(file);
-//        fclose(file);
-        days_number = -1;
-    }
-    else
-        return -1;/* file isn't accessability */
-    return days_number;
-}
-#endif
 /*******************************************************************************/
 gint
 get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
                                                     gboolean get_detail_data){
-    htmlDocPtr  *doc = NULL;
-    xmlNode *root_node = NULL;
-    gint    days_number = -1;
-    gchar   buffer[1024],
-            *delimiter = NULL;
-    FILE *source_file = NULL, *destination_file = NULL;
+    htmlDocPtr doc = NULL;
+    xmlNode    *root_node = NULL;
+    gint       days_number = -1;
+    gchar      buffer[1024],
+               *delimiter = NULL;
+    FILE       *source_file = NULL, *destination_file = NULL;
     wint_t wc = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -216,7 +172,7 @@ choose_icon(gchar *image1, gchar *image2)
 {
 
     if (!image1 || !image2)
-        return;
+        return g_strdup("49");
     if (!strcmp(image1,"den.gif") && !strcmp(image2,"clean.gif"))
         return g_strdup("32");
     if (!strcmp(image1,"den_malooblochno.gif") && !strcmp(image2,"clean.gif"))
@@ -242,7 +198,7 @@ fill_day (xmlNode *root_node, GHashTable *day){
     xmlNode     *child_node4 = NULL;
     xmlChar     *temp_xml_string = NULL;
     xmlChar     *temp_xml_char = NULL;
-    gint i,j;
+    gint        i = 0 , j = 0;
     gint        count_of_string = 0;
     gchar   buffer[buff_size];
     gchar   temp_buffer[buff_size];
@@ -264,7 +220,7 @@ fill_day (xmlNode *root_node, GHashTable *day){
                for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                   if (!xmlStrcmp(child_node2->name, (const xmlChar *)"img") ){
                       temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"src");
-                      temp_xml_string = strrchr((char*)temp_xml_string, '/');
+                      temp_xml_string = (const xmlChar*)strrchr((char*)temp_xml_string, '/');
                       temp_xml_string ++;
                       image1 = g_strdup(temp_xml_string);
                   }

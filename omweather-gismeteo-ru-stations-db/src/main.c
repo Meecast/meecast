@@ -31,6 +31,7 @@
 #include <time.h>
 #include <wchar.h>
 /*******************************************************************************/
+GHashTable *hash_for_translate;
 #if 0
 gint
 get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
@@ -446,6 +447,8 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+/* Fix me free memory */
+hash_for_translate = hash_gismeteo_table_create();
 /* calculate count of day */
     for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
         if( cur_node->type == XML_ELEMENT_NODE ){

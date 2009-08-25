@@ -2357,11 +2357,11 @@ get_day_part_begin_time(GHashTable *day, guint year, const gchar *day_part){
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
- 
+
     return  mktime(&tm);
 }
 /*******************************************************************************/
-void 
+void
 create_wind_parameters(GHashTable *day, gchar *buffer, gboolean is_day, gint *direction, float *speed){
     gchar   *wind_direction = NULL;
 #ifdef DEBUGFUNCTIONCALL
@@ -2384,11 +2384,10 @@ create_wind_parameters(GHashTable *day, gchar *buffer, gboolean is_day, gint *di
         }
         return;
     }
-    
-    if((is_day && ((!g_hash_table_lookup(day, "day_wind_speed")|| 
-                   (!g_hash_table_lookup(day, "night_wind_speed")))||
-           (!strcmp((char*)g_hash_table_lookup(day, "day_wind_speed"), "N/A")) &&
-           !strcmp((char*)g_hash_table_lookup(day, "night_wind_speed"), "N/A")))){
+
+    if((is_day &&
+           ((g_hash_table_lookup(day, "day_wind_speed")) && !strcmp((char*)g_hash_table_lookup(day, "day_wind_speed"), "N/A")) &&
+            ((!g_hash_table_lookup(day, "night_wind_speed")) && !strcmp((char*)g_hash_table_lookup(day, "night_wind_speed"), "N/A")))){
             if (buffer && app->config->icons_layout < PRESET_NOW)
                 sprintf(buffer + strlen(buffer),
                         "<span foreground='#%02x%02x%02x'>\n%s\n%s</span>",
@@ -2400,20 +2399,22 @@ create_wind_parameters(GHashTable *day, gchar *buffer, gboolean is_day, gint *di
             *speed = -1;
     }
     else{
-        if((is_day && !strcmp((char*)g_hash_table_lookup(day, "day_wind_title"), "N/A")) &&
-                !strcmp((char*)g_hash_table_lookup(day, "day_wind_speed"), "N/A"))
+        if((is_day && (g_hash_table_lookup(day, "day_wind_title") && !strcmp((char*)g_hash_table_lookup(day, "day_wind_title"), "N/A"))) &&
+                (g_hash_table_lookup(day, "day_wind_speed") && !strcmp((char*)g_hash_table_lookup(day, "day_wind_speed"), "N/A")))
             is_day = FALSE;
 
         if(is_day){
-            *direction = choose_wind_direction(g_hash_table_lookup(day, "day_wind_title"));
-            wind_direction = (char*)hash_table_find(g_hash_table_lookup(day, "day_wind_title"), TRUE);
-            if(buffer && app->config->icons_layout < PRESET_NOW){
-                sprintf(buffer + strlen(buffer),
+            if (g_hash_table_lookup(day, "day_wind_title")){
+                *direction = choose_wind_direction(g_hash_table_lookup(day, "day_wind_title"));
+                wind_direction = (char*)hash_table_find(g_hash_table_lookup(day, "day_wind_title"), TRUE);
+                if(buffer && app->config->icons_layout < PRESET_NOW){
+                    sprintf(buffer + strlen(buffer),
                         "<span foreground='#%02x%02x%02x'>\n%s",
                         app->config->font_color.red >> 8,
                         app->config->font_color.green >> 8,
                         app->config->font_color.blue >> 8,
                         wind_direction);
+                }
             }
             if (g_hash_table_lookup(day, "day_wind_speed")){
                 *speed = convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed")));
@@ -2427,17 +2428,21 @@ create_wind_parameters(GHashTable *day, gchar *buffer, gboolean is_day, gint *di
             }
        }
        else{
-            *direction = choose_wind_direction(g_hash_table_lookup(day, "night_wind_title"));
-            wind_direction = (char*)hash_table_find(g_hash_table_lookup(day, "night_wind_title"), TRUE);
-            if (g_hash_table_lookup(day, "night_wind_speed")){
-                *speed = convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed")));
-                if(buffer && app->config->icons_layout < PRESET_NOW){
+            if (g_hash_table_lookup(day, "night_wind_title")){
+              *direction = choose_wind_direction(g_hash_table_lookup(day, "night_wind_title"));
+              wind_direction = (char*)hash_table_find(g_hash_table_lookup(day, "night_wind_title"), TRUE);
+              if(buffer && app->config->icons_layout < PRESET_NOW){
                     sprintf(buffer + strlen(buffer),
                             "<span foreground='#%02x%02x%02x'>\n%s",
                             app->config->font_color.red >> 8,
                             app->config->font_color.green >> 8,
                             app->config->font_color.blue >> 8,
                             wind_direction);
+              }
+            }
+            if (g_hash_table_lookup(day, "night_wind_speed")){
+                *speed = convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed")));
+                if(buffer && app->config->icons_layout < PRESET_NOW){
                     if(app->config->show_wind_gust)
                         sprintf(buffer + strlen(buffer), "%.1f</span>",
                         convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))));

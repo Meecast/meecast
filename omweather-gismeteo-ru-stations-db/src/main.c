@@ -297,6 +297,8 @@ fill_day (xmlNode *root_node, GHashTable *day){
             if (strlen(buffer)>1){
                 /* check description */
                 if (count_of_string == 0){
+                  g_hash_table_insert(day, "day_title", g_strdup(buffer));
+                  fprintf(stderr, "fffff %s\n",buffer);
                 }
                 /* check temperature string */
                 if (count_of_string == 1){
@@ -522,9 +524,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                             if (!xmlStrcmp(temp_xml_string, 
                                            (const xmlChar*)"float: left; padding: 0 0 0 4px;"))
                             {
-                                fprintf(stderr,"Div content %s\n", temp_xml_string);
-                                for(child_node3 = child_node->children; child_node3 != NULL; child_node3 = child_node3->next)
-                                {
+                                for(child_node3 = child_node->children; child_node3 != NULL; child_node3 = child_node3->next){
                                     if (!xmlStrcmp(child_node3->name, (const xmlChar *)"img")){
                                        temp_xml_string = xmlGetProp(child_node3, (const xmlChar*)"src");
                                        delimiter = strrchr(temp_xml_string, '/');

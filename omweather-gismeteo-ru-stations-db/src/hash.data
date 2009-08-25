@@ -1,0 +1,2 @@
+
+    g_hash_table_insert(hash, "ясно без осадков", "clean");

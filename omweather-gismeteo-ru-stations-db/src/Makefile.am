@@ -23,7 +23,7 @@
 
 libhhdir = /usr/lib/omweather
 libhh_LTLIBRARIES = libomweather-gismeteo-ru-source.la
-libomweather_gismeteo_ru_source_la_SOURCES = main.c main.h
+libomweather_gismeteo_ru_source_la_SOURCES = hash.c hash.h hash.data main.c main.h 
 libomweather_gismeteo_ru_source_la_CFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS) \
 					    -Wall -pedantic
 libomweather_gismeteo_ru_source_la_LDFLAGS = -module -avoid-version 

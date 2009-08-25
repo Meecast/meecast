@@ -2358,10 +2358,10 @@ get_day_part_begin_time(GHashTable *day, guint year, const gchar *day_part){
         }else{
             if(day_part && (!strcmp(day_part, "day_sunrise")))
                 snprintf(buffer, sizeof(buffer) - 1,
-                        "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year, "11:00 AM");
+                        "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year, "08:00 AM");
             else
                 snprintf(buffer, sizeof(buffer) - 1,
-                        "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year, "11:00 PM");
+                        "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year, "08:00 PM");
 
             strptime(buffer, "%b %d %Y %I:%M %p", &tm);
         }

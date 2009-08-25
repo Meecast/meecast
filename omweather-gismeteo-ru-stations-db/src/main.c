@@ -295,11 +295,13 @@ fill_day (xmlNode *root_node, GHashTable *day){
                 else
                    sprintf(buffer,"%s%c",buffer, temp_xml_string[i]);
             }
+            /* remove last space */
+            if (buffer[strlen(buffer)-1] == ' ')
+                buffer[strlen(buffer)-1] = 0;
             if (strlen(buffer)>1){
                 /* check description */
                 if (count_of_string == 0){
-                  g_hash_table_insert(day, "day_title", g_strdup(buffer));
-                  fprintf(stderr, "fffff %s\n",buffer);
+                    g_hash_table_insert(day, "day_title", g_strdup(hash_gismeteo_table_find(hash_for_translate, buffer, FALSE)));
                 }
                 /* check temperature string */
                 if (count_of_string == 1){
@@ -329,7 +331,6 @@ fill_day (xmlNode *root_node, GHashTable *day){
                     /* find begin of humidity */
                     for (i = i ; (i<(xmlStrlen(buffer)) && i < buff_size); i++ ){
                         if (buffer[i] == ':'){
-                            fprintf(stderr, "break\n");
                             break;
                         }
                     }

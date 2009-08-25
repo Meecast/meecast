@@ -26,13 +26,14 @@
  *
 */
 #include <glib.h>
+#include <stdio.h>
 #include "hash.h"
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-GHashTable *hash_gismteo_table_create(void) {
-    GHashTable *hash;
+GHashTable *hash_gismeteo_table_create(void) {
+    GHashTable *hash = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -57,8 +58,10 @@ gpointer hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean searc
     if (g_hash_table_lookup_extended(hash,
                                      search_text, &orig_key, &value))
         result = value;
-    else
+    else{
         result = key;
+        fprintf(stderr,"Not found %s\n", key);
+        }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

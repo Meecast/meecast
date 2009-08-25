@@ -1,2 +1,7 @@
 
-    g_hash_table_insert(hash, "ясно без осадков", "clean");
+    g_hash_table_insert(hash, "ясно без осадков", "Clear");
+    g_hash_table_insert(hash, "облачно без осадков", "Cloudy");
+    g_hash_table_insert(hash, "пасмурно без осадков", "Mostly Cloudy");
+    g_hash_table_insert(hash, "малооблачно без осадков", "Partly Cloudy");
+    g_hash_table_insert(hash, "облачно небольшой дождь", "Cloudy Light Rain");
+    g_hash_table_insert(hash, "пасмурно гроза", "Mostly Cloudy T-Storm");

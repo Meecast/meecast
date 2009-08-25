@@ -2347,12 +2347,24 @@ get_day_part_begin_time(GHashTable *day, guint year, const gchar *day_part){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (g_hash_table_lookup(day, "day_date") && g_hash_table_lookup(day, day_part)){
+    if (g_hash_table_lookup(day, "day_date")) {
         memset(buffer, 0, sizeof(buffer));
-        snprintf(buffer, sizeof(buffer) - 1,
-                    "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year,
-                    (char*)g_hash_table_lookup(day, day_part));
-        strptime(buffer, "%b %d %Y %I:%M %p", &tm);
+        /* check existing of day_part in hash else take standart time */
+        if (g_hash_table_lookup(day, day_part)){
+            snprintf(buffer, sizeof(buffer) - 1,
+                        "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year,
+                        (char*)g_hash_table_lookup(day, day_part));
+            strptime(buffer, "%b %d %Y %I:%M %p", &tm);
+        }else{
+            if(day_part && (!strcmp(day_part, "day_sunrise")))
+                snprintf(buffer, sizeof(buffer) - 1,
+                        "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year, "11:00 AM");
+            else
+                snprintf(buffer, sizeof(buffer) - 1,
+                        "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year, "11:00 PM");
+
+            strptime(buffer, "%b %d %Y %I:%M %p", &tm);
+        }
     }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

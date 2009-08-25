@@ -121,7 +121,6 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
     }
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
-        fprintf(stderr,"sscsc %s\n",station_id_with_path);
         /* check that the file containe valid data */
         doc =  htmlReadFile(station_id_with_path, "UTF-8", 0);
         if(!doc)
@@ -211,6 +210,27 @@ get_data_from_russia_data(gchar *temp_string){
     return tmp_tm;
 }
 /*******************************************************************************/
+gchar*
+choose_icon(gchar *image1, gchar *image2)
+{
+
+    if (!image1 || !image2)
+        return;
+    if (!strcmp(image1,"den.gif") && !strcmp(image2,"clean.gif"))
+        return g_strdup("32");
+    if (!strcmp(image1,"den_malooblochno.gif") && !strcmp(image2,"clean.gif"))
+        return g_strdup("30");
+    if (!strcmp(image1,"den_pasmurno.gif") && !strcmp(image2,"groza.gif"))
+        return g_strdup("38"); /* or 37 */
+    if (!strcmp(image1,"den_oblachno.gif") && !strcmp(image2,"dozhd_nebol.gif"))
+        return g_strdup("11"); /* or 37 */
+    if (!strcmp(image1,"den_oblachno.gif") && !strcmp(image2,"clean.gif"))
+        return g_strdup("26"); /* or 28 */
+
+    fprintf(stderr,"11111 %s %s",image1, image2);
+    return g_strdup("49");
+}
+/*******************************************************************************/
 void
 fill_day (xmlNode *root_node, GHashTable *day){
 #define buff_size 2048
@@ -218,17 +238,20 @@ fill_day (xmlNode *root_node, GHashTable *day){
     xmlNode     *child_node = NULL;
     xmlNode     *child_node2 = NULL;
     xmlNode     *child_node3 = NULL;
+    xmlNode     *child_node4 = NULL;
     xmlChar     *temp_xml_string = NULL;
     xmlChar     *temp_xml_char = NULL;
     gint i,j;
     gint        count_of_string = 0;
     gchar   buffer[buff_size];
     gchar   temp_buffer[buff_size];
+    gchar   *image1 = NULL;
+    gchar   *image2 = NULL;
     gchar   temp_char;
     gint speed;
 
     if (root_node->next)
-        cur_node = root_node->next; 
+        cur_node = root_node->next;
     for(cur_node = cur_node; cur_node; cur_node = cur_node->next){
         if( cur_node->type == XML_ELEMENT_NODE ){
             /* Check the end of day */
@@ -237,15 +260,24 @@ fill_day (xmlNode *root_node, GHashTable *day){
                 break;/* Exit from function */
 
             for(child_node = cur_node->children; child_node; child_node = child_node->next){
-               if (!xmlStrcmp(child_node->name, (const xmlChar *)"img") ){
-                    temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"src");
-                    fprintf(stderr, "Image1 %s\n", temp_xml_string);
-               }
                for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
-                      if (!xmlStrcmp(child_node2->name, (const xmlChar *)"img") ){
-                        temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"src");
-                        fprintf(stderr, "Image2 %s\n", temp_xml_string);
-                      }
+                  if (!xmlStrcmp(child_node2->name, (const xmlChar *)"img") ){
+                      temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"src");
+                      temp_xml_string = strrchr((char*)temp_xml_string, '/');
+                      temp_xml_string ++;
+                      image1 = g_strdup(temp_xml_string);
+                  }
+                  for(child_node3 = child_node2->children; child_node3; child_node3 = child_node3->next){
+                     for(child_node4 = child_node3->children; child_node4; child_node4 = child_node4->next){
+                          if (!xmlStrcmp(child_node4->name, (const xmlChar *)"img") ){
+                            temp_xml_string = xmlGetProp(child_node4, (const xmlChar*)"src");
+                            temp_xml_string = strrchr((char*)temp_xml_string, '/');
+                            temp_xml_string ++;
+                            image2 = g_strdup(temp_xml_string);
+                        }
+
+                     }
+                  }
                }
             }
             temp_xml_string = xmlNodeGetContent(cur_node);
@@ -274,7 +306,6 @@ fill_day (xmlNode *root_node, GHashTable *day){
                             sprintf(temp_buffer,"%s%c",temp_buffer, buffer[i]);
                     }
                     g_hash_table_insert(day, "day_hi_temperature", g_strdup(temp_buffer));
-                    fprintf(stderr,"%s %i\n", temp_buffer, count_of_string);
                 }
                 /* check pressure, humidity, wind */
                 if (count_of_string == 2){
@@ -310,7 +341,6 @@ fill_day (xmlNode *root_node, GHashTable *day){
                             break;
                     }
                     g_hash_table_insert(day, "day_humidity", g_strdup(temp_buffer));
-                    fprintf(stderr,"HUM %s\n",temp_buffer);
                     /* find begin of wind title*/
                     for (i = i ; (i<(xmlStrlen(buffer)) && i < buff_size); i++ ){
                         if (buffer[i] == ':')
@@ -329,7 +359,6 @@ fill_day (xmlNode *root_node, GHashTable *day){
                            sprintf(temp_buffer,"%s%c",temp_buffer, buffer[i]);
                         }
                     }
-                    fprintf(stderr, "Wind1      %s\n", temp_buffer);
                     if (!strcoll(temp_buffer, "З"))
                         sprintf(temp_buffer,"%s","W");
                     if (!strcoll(temp_buffer, "Ю"))
@@ -346,7 +375,6 @@ fill_day (xmlNode *root_node, GHashTable *day){
                         sprintf(temp_buffer,"%s","NW");
                     if (!strcoll(temp_buffer, "СВ"))
                         sprintf(temp_buffer,"%s","NE");
-                    fprintf(stderr, "Wind      %s\n", temp_buffer);
                     g_hash_table_insert(day, "day_wind_title",g_strdup(temp_buffer));
 
                     /* find begin of wind speed */
@@ -375,6 +403,14 @@ fill_day (xmlNode *root_node, GHashTable *day){
             }
        }
     }
+    if (image1 && image2) {
+          g_hash_table_insert(day, "day_icon", choose_icon(image1, image2));
+    }
+    if (image1)
+        g_free(image1);
+    if (image2)
+        g_free(image2);
+
 }
 /*******************************************************************************/
 gint
@@ -408,6 +444,57 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+/* calculate count of day */
+    for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
+        if( cur_node->type == XML_ELEMENT_NODE ){
+            /* get weather station data */
+            if(!xmlStrcmp(cur_node->name, (const xmlChar *) "body" ) ){
+                for(child_node = cur_node->children; child_node; child_node = child_node->next){
+                    if( child_node->type == XML_ELEMENT_NODE ){
+                        if (!xmlStrcmp(child_node->name, (const xmlChar *)"div") ){
+                            count_of_div ++;
+                            count_of_div_temp ++;
+                        }
+                        if (!xmlStrcmp(child_node->name, (const xmlChar *)"table") )
+                            count_of_table ++;
+                        if (count_of_div == 2 && count_of_table == 0){
+                            temp_xml_string = xmlNodeGetContent(child_node);
+                            fprintf(stderr,"Date %s\n", temp_xml_string);
+                            tmp_tm = get_data_from_russia_data(temp_xml_string);
+                            first_day = mktime(&tmp_tm) - 3600*24;
+                            day_in_list = first_day;
+                        }
+                        if (count_of_div > 2 && 
+                            !xmlStrcmp(child_node->name, (const xmlChar *)"div")){
+                            temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"style");
+                            if (!xmlStrcmp(temp_xml_string, 
+                                           (const xmlChar*)"float: left; padding: 0 0 0 4px;"))
+                            {
+                                for(child_node3 = child_node->children; child_node3 != NULL; child_node3 = child_node3->next)
+                                {
+                                    if (!xmlStrcmp(child_node3->name, (const xmlChar *)"img")){
+                                       temp_xml_string = xmlGetProp(child_node3, (const xmlChar*)"src");
+                                       delimiter = strrchr(temp_xml_string, '/');
+                                       if(delimiter){
+                                            delimiter++; /* delete '/' */
+                                            if (delimiter && !strcmp(delimiter,"day.gif"))
+                                                count_day++;
+                                       }
+                                    }
+
+                                }
+                            }
+                        }
+                   }
+                }
+            }
+        }
+    }
+    fprintf(stderr, "count_of_day %i\n", count_day);
+    /* Filling data */
+    count_of_div = 0;
+    count_of_div_temp = 0;
+    count_of_table = 0;
     for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
         if( cur_node->type == XML_ELEMENT_NODE ){
 //            fprintf(stderr,"cur_node %s\n",cur_node->name);
@@ -426,8 +513,8 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             fprintf(stderr,"Date %s\n", temp_xml_string);
                             tmp_tm = get_data_from_russia_data(temp_xml_string);
-                            first_day = mktime(&tmp_tm);
-                            day_in_list = first_day;
+                            first_day = mktime(&tmp_tm) -3600*24;
+                            day_in_list = first_day+(count_day*3600*24);
                         }
                         if (count_of_div > 2 && 
                             !xmlStrcmp(child_node->name, (const xmlChar *)"div")){
@@ -438,14 +525,12 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                                 fprintf(stderr,"Div content %s\n", temp_xml_string);
                                 for(child_node3 = child_node->children; child_node3 != NULL; child_node3 = child_node3->next)
                                 {
-                                    fprintf(stderr, "jjjjjjjjj %s\n", child_node3->name);
                                     if (!xmlStrcmp(child_node3->name, (const xmlChar *)"img")){
                                        temp_xml_string = xmlGetProp(child_node3, (const xmlChar*)"src");
                                        delimiter = strrchr(temp_xml_string, '/');
                                        if(delimiter){
                                             delimiter++; /* delete '/' */
                                             if (delimiter && !strcmp(delimiter,"day.gif")){
-                                                fprintf(stderr, "Test %s\n", delimiter);
                                                 /* To do Check existing of day */ 
                                                 day = g_hash_table_new(g_str_hash, g_str_equal);
                                                 if (day){
@@ -457,10 +542,9 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                                                     strftime(buff, sizeof(buff) - 1, "%b %d", gmt);
                                                     g_hash_table_insert(day, "day_date", g_strdup(buff));
                                                     fprintf(stderr,"!!!!!!!!! day name %s\n",buff);
-                                                    forecast = g_slist_append(forecast,(gpointer)day);
+                                                    forecast = g_slist_prepend(forecast,(gpointer)day);
                                                     fill_day(child_node, day);
-                                                    count_day++;
-                                                    day_in_list = day_in_list + 3600*24;
+                                                    day_in_list = day_in_list - 3600*24;
                                                 }
                                             }
                                        }
@@ -475,6 +559,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
             }
         }
     }
+
     return count_day;
 }
 /*******************************************************************************/

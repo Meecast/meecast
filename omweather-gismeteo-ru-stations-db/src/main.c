@@ -176,16 +176,15 @@ choose_icon(gchar *image1, gchar *image2)
 
     if (!image1 || !image2)
         return g_strdup("49");
-    fprintf(stderr,"11111 %s %s",image1, image2);
-    source = g_strdup_printf("%s %s", image1, image2)
-//    g_strcat(source, " ");
-//    strcat(source, image2);
+    source = g_strdup_printf("%s %s", image1, image2);
     result = hash_gismeteo_table_find(hash_for_icons, source, FALSE);
     g_free (source);
     if (strlen(result) == 2)
-       return (result);
-    else
+       return g_strdup(result);
+    else{
+       fprintf(stderr,"Unknown strings %s %s",image1, image2);
        return g_strdup("49");
+    }
 }
 /*******************************************************************************/
 void

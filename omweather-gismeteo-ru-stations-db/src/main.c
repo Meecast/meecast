@@ -30,6 +30,10 @@
 #include <string.h>
 #include <time.h>
 #include <wchar.h>
+#define DAY 1
+#define NIGHT 2
+#define MORNING 3
+#define EVENING 4
 /*******************************************************************************/
 GHashTable *hash_for_translate;
 GHashTable *hash_for_icons;
@@ -188,7 +192,7 @@ choose_icon(gchar *image1, gchar *image2)
 }
 /*******************************************************************************/
 void
-fill_day (xmlNode *root_node, GHashTable *day){
+fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day){
 #define buff_size 2048
     xmlNode     *cur_node = NULL;
     xmlNode     *child_node = NULL;
@@ -255,7 +259,13 @@ fill_day (xmlNode *root_node, GHashTable *day){
             if (strlen(buffer)>1){
                 /* check description */
                 if (count_of_string == 0){
-                    g_hash_table_insert(day, "day_title", g_strdup(hash_gismeteo_table_find(hash_for_translate, buffer, FALSE)));
+                    switch (part_of_day){
+                        case DAY:    g_hash_table_insert(day, "day_title", g_strdup(hash_gismeteo_table_find(hash_for_translate, buffer, FALSE)));
+                            break;
+                        case NIGHT:    g_hash_table_insert(day, "night_title", g_strdup(hash_gismeteo_table_find(hash_for_translate, buffer, FALSE)));
+                            break;
+ 
+                    }
                 }
                 /* check temperature string */
                 if (count_of_string == 1){
@@ -264,8 +274,14 @@ fill_day (xmlNode *root_node, GHashTable *day){
                         if (buffer[i] == '-' || (buffer[i]>='0' && buffer[i]<='9'))
                             sprintf(temp_buffer,"%s%c",temp_buffer, buffer[i]);
                     }
-                    g_hash_table_insert(day, "day_hi_temperature", g_strdup(temp_buffer));
-                    g_hash_table_insert(day, "day_temperature", g_strdup(temp_buffer));
+                    switch (part_of_day){
+                        case DAY: g_hash_table_insert(day, "day_hi_temperature", g_strdup(temp_buffer));
+                              g_hash_table_insert(day, "day_temperature", g_strdup(temp_buffer));
+                              break;
+                        case NIGHT: g_hash_table_insert(day, "day_low_temperature", g_strdup(temp_buffer));
+                              g_hash_table_insert(day, "night_temperature", g_strdup(temp_buffer));
+                              break;
+                    }
                 }
                 /* check pressure, humidity, wind */
                 if (count_of_string == 2){
@@ -282,7 +298,14 @@ fill_day (xmlNode *root_node, GHashTable *day){
                             break;
                     }
                     /*TODO need normalization from mm.rt.stolba to bar */
-                    g_hash_table_insert(day, "day_pressure", g_strdup(temp_buffer));
+                    switch (part_of_day){
+                        case DAY:
+                              g_hash_table_insert(day, "day_pressure", g_strdup(temp_buffer));
+                              break;
+                        case NIGHT: 
+                              g_hash_table_insert(day, "night_pressure", g_strdup(temp_buffer));
+                              break;
+                    }
                     /* find begin of humidity */
                     for (i = i ; (i<(strlen(buffer)) && i < buff_size); i++ ){
                         if (buffer[i] == ':'){
@@ -299,7 +322,15 @@ fill_day (xmlNode *root_node, GHashTable *day){
                         else
                             break;
                     }
-                    g_hash_table_insert(day, "day_humidity", g_strdup(temp_buffer));
+                    switch (part_of_day){
+                        case DAY:
+                              g_hash_table_insert(day, "day_humidity", g_strdup(temp_buffer));
+                              break;
+                        case NIGHT: 
+                              g_hash_table_insert(day, "night_humidity", g_strdup(temp_buffer));
+                              break;
+                    }
+ 
                     /* find begin of wind title*/
                     for (i = i ; (i<(strlen(buffer)) && i < buff_size); i++ ){
                         if (buffer[i] == ':')
@@ -334,7 +365,15 @@ fill_day (xmlNode *root_node, GHashTable *day){
                         sprintf(temp_buffer,"%s","NW");
                     if (!strcoll(temp_buffer, "СВ"))
                         sprintf(temp_buffer,"%s","NE");
-                    g_hash_table_insert(day, "day_wind_title",g_strdup(temp_buffer));
+                    switch (part_of_day){
+                        case DAY:
+                              g_hash_table_insert(day, "day_wind_title",g_strdup(temp_buffer));
+                              break;
+                        case NIGHT: 
+                              g_hash_table_insert(day, "night_wind_title",g_strdup(temp_buffer));
+                              break;
+                    }
+ 
 
                     /* find begin of wind speed */
                     for (i = i ; (i<(strlen(buffer)) && i < buff_size); i++ ){
@@ -356,14 +395,28 @@ fill_day (xmlNode *root_node, GHashTable *day){
                     speed = atoi (temp_buffer);
                     speed = speed * 3600/1000;
                     sprintf(temp_buffer, "%i", speed);
-                    g_hash_table_insert(day, "day_wind_speed",g_strdup(temp_buffer));
+                    switch (part_of_day){
+                        case DAY:
+                              g_hash_table_insert(day, "day_wind_speed",g_strdup(temp_buffer));
+                              break;
+                        case NIGHT: 
+                              g_hash_table_insert(day, "night_wind_speed",g_strdup(temp_buffer));
+                              break;
+                    }
                 }
                 count_of_string ++;
             }
        }
     }
     if (image1 && image2) {
-          g_hash_table_insert(day, "day_icon", choose_icon(image1, image2));
+        switch (part_of_day){
+            case DAY:
+                    g_hash_table_insert(day, "day_icon", choose_icon(image1, image2));
+                    break;
+            case NIGHT: 
+                    g_hash_table_insert(day, "night_icon", choose_icon(image1, image2));
+                              break;
+        }
     }
     if (image1)
         g_free(image1);
@@ -383,6 +436,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
     xmlChar     *part_of_day = NULL;
     gint        store2day = 0,
                 count_day = 0,
+                count_night = 0,
                 count_of_div = 0,
                 count_of_div_temp = 0,
                 count_of_table = 0,
@@ -395,16 +449,17 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                 *delimiter = NULL;
     struct tm   tmp_tm = {0};
     struct tm   *gmt;
-    time_t      first_day, day_in_list;
+    time_t      first_day, day_in_list, night_in_list;
     GSList      *forecast = NULL;
+    GSList      *tmp = NULL;
     GHashTable  *location = NULL,
                 *current = NULL,
                 *day = NULL;
+    gboolean    flag;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 /* Fix me free memory */
-fprintf(stderr, "sdddddddddddddd\n");
 hash_for_translate = hash_description_gismeteo_table_create();
 hash_for_icons = hash_icons_gismeteo_table_create();
 /* calculate count of day */
@@ -425,7 +480,7 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                             fprintf(stderr,"Date %s\n", temp_xml_string);
                             tmp_tm = get_data_from_russia_data((char*)temp_xml_string);
                             first_day = mktime(&tmp_tm) - 3600*24;
-                            day_in_list = first_day;
+                            day_in_list = night_in_list = first_day;
                         }
                         if (count_of_div > 2 && 
                             !xmlStrcmp(child_node->name, (const xmlChar *)"div")){
@@ -442,6 +497,8 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                                             delimiter++; /* delete '/' */
                                             if (delimiter && !strcmp(delimiter,"day.gif"))
                                                 count_day++;
+                                            if (delimiter && !strcmp(delimiter,"night.gif"))
+                                                count_night++;
                                        }
                                     }
 
@@ -454,6 +511,7 @@ hash_for_icons = hash_icons_gismeteo_table_create();
         }
     }
     fprintf(stderr, "count_of_day %i\n", count_day);
+    fprintf(stderr, "count_of_night %i\n", count_day);
     /* Filling data */
     count_of_div = 0;
     count_of_div_temp = 0;
@@ -478,6 +536,7 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                             tmp_tm = get_data_from_russia_data((char*)temp_xml_string);
                             first_day = mktime(&tmp_tm) -3600*24;
                             day_in_list = first_day+(count_day*3600*24);
+                            night_in_list = first_day+(count_night*3600*24);
                         }
                         if (count_of_div > 2 && 
                             !xmlStrcmp(child_node->name, (const xmlChar *)"div")){
@@ -491,23 +550,52 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                                        delimiter = strrchr((char*)temp_xml_string, '/');
                                        if(delimiter){
                                             delimiter++; /* delete '/' */
-                                            if (delimiter && !strcmp(delimiter,"day.gif")){
-                                                /* To do Check existing of day */ 
-                                                day = g_hash_table_new(g_str_hash, g_str_equal);
-                                                if (day){
-                                                    memset(buff, 0, sizeof(buff));
-                                                    setlocale(LC_TIME, "POSIX");
+                                            if (delimiter && 
+                                                (!strcmp(delimiter,"day.gif")||
+                                                (!strcmp(delimiter,"night.gif"))
+                                                )){
+                                                memset(buff, 0, sizeof(buff));
+                                                setlocale(LC_TIME, "POSIX");
+
+                                                if (!strcmp(delimiter,"day.gif"))
                                                     gmt = gmtime(&day_in_list);
+                                                if (!strcmp(delimiter,"night.gif"))
+                                                    gmt = gmtime(&night_in_list);
+
+                                               memset(buff, 0, sizeof(buff));
+                                                strftime(buff, sizeof(buff) - 1, "%b %d", gmt);
+                                                setlocale(LC_TIME, "");
+                                                /* searching of a day */
+                                                tmp = forecast;
+                                                flag = FALSE;
+                                                while(tmp){
+                                                    day = (GHashTable*)tmp->data;
+                                                    if (g_hash_table_lookup(day, "day_date") &&
+                                                        !strcmp(g_hash_table_lookup(day,"day_date"), buff)){
+                                                            flag = TRUE;
+                                                            break;
+                                                    }
+                                                    tmp = g_slist_next(tmp);
+                                                }
+                                                if (!flag){
+                                                    day = g_hash_table_new(g_str_hash, g_str_equal);
+                                                    g_hash_table_insert(day, "day_date", g_strdup(buff));
                                                     strftime(buff, sizeof(buff) - 1, "%a", gmt);
                                                     g_hash_table_insert(day, "day_name", g_strdup(buff));
-                                                    memset(buff, 0, sizeof(buff));
-                                                    strftime(buff, sizeof(buff) - 1, "%b %d", gmt);
-                                                    g_hash_table_insert(day, "day_date", g_strdup(buff));
-                                                    setlocale(LC_TIME, "");
+ 
                                                     fprintf(stderr,"!!!!!!!!! day name %s\n",buff);
                                                     forecast = g_slist_prepend(forecast,(gpointer)day);
-                                                    fill_day(child_node, day);
-                                                    day_in_list = day_in_list - 3600*24;
+                                                }
+                                                if (day){
+                                                    if (!strcmp(delimiter,"day.gif")){
+                                                        fill_day(child_node, day, DAY);
+                                                        day_in_list = day_in_list - 3600*24;
+                                                    }
+                                                    if (!strcmp(delimiter,"night.gif")){
+                                                        fill_day(child_node, day, NIGHT);
+                                                        night_in_list = night_in_list - 3600*24;
+                                                    }
+
                                                 }
                                             }
                                        }

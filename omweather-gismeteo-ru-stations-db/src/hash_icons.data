@@ -7,3 +7,4 @@
     g_hash_table_insert(hash, "den_pasmurno.gif dozhd_nebol.gif", "11");
     g_hash_table_insert(hash, "den_malooblochno.gif dozhd_nebol.gif", "39");
     g_hash_table_insert(hash, "den_pasmurno.gif clean.gif", "26");
+    g_hash_table_insert(hash, "noch_yasno.gif clean.gif", "31");

@@ -496,12 +496,14 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                                                 day = g_hash_table_new(g_str_hash, g_str_equal);
                                                 if (day){
                                                     memset(buff, 0, sizeof(buff));
+                                                    setlocale(LC_TIME, "POSIX");
                                                     gmt = gmtime(&day_in_list);
                                                     strftime(buff, sizeof(buff) - 1, "%a", gmt);
                                                     g_hash_table_insert(day, "day_name", g_strdup(buff));
                                                     memset(buff, 0, sizeof(buff));
                                                     strftime(buff, sizeof(buff) - 1, "%b %d", gmt);
                                                     g_hash_table_insert(day, "day_date", g_strdup(buff));
+                                                    setlocale(LC_TIME, "");
                                                     fprintf(stderr,"!!!!!!!!! day name %s\n",buff);
                                                     forecast = g_slist_prepend(forecast,(gpointer)day);
                                                     fill_day(child_node, day);

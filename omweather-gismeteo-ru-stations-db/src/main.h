@@ -30,6 +30,7 @@
 #include <libxml/HTMLparser.h>
 #include <stdlib.h>
 #include <glib.h>
+#include <locale.h>
 /*******************************************************************************/
 gint get_station_weather_data(const gchar *station_id_with_path, GHashTable *data, gboolean get_detail_data);
 gint parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);

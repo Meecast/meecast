@@ -2348,7 +2348,7 @@ get_day_part_begin_time(GHashTable *day, guint year, const gchar *day_part){
     START_FUNCTION;
 #endif
     if (g_hash_table_lookup(day, "day_date")) {
-        setlocale(LC_TIME, "POSIX");
+        setlocale(LC_TIME, "C");
         memset(buffer, 0, sizeof(buffer));
         /* check existing of day_part in hash else take standart time */
         if (g_hash_table_lookup(day, day_part)){

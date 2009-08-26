@@ -11,27 +11,25 @@ msgstr ""
 "Project-Id-Version: omweather 0.21\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-20 15:59+0300\n"
-"PO-Revision-Date: 2009-02-15 19:13+0100\n"
+"PO-Revision-Date: 2009-08-26 21:12+0200\n"
 "Last-Translator: Philippe <filip@disque-monde.org>\n"
-"Language-Team: French\n"
+"Language-Team: French <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/weather-help.c:82
-#, fuzzy
 msgid ""
 "\n"
 "Copyright(c) 2006-2009\n"
 "Vlad Vasiliev, Pavel Fialko"
 msgstr ""
 "\n"
-"Copyright(c) 2006-2008\n"
+"Copyright(c) 2006-2009\n"
 "Vlad Vasiliev, Pavel Fialko"
 
 #: src/weather-help.c:87
-#, fuzzy
 msgid ""
 "\n"
 "Copyright(c) 2008\n"
@@ -42,10 +40,10 @@ msgstr ""
 "\n"
 "Copyright(c) 2008\n"
 "Andrew Olmsted\n"
-"pour les fonds semi transparent et coloré\n"
+"pour les fonds semi transparent\n"
+" et coloré\n"
 
 #: src/weather-help.c:84
-#, fuzzy
 msgid ""
 "\n"
 "Copyright(c) 2008\n"
@@ -55,7 +53,8 @@ msgid ""
 msgstr ""
 "\n"
 "Copyright(c) 2008\n"
-"pour les icones par defaut (Glance) et le design de l'interface\n"
+"pour les icones par defaut (Glance)\n"
+"et le design de l'interface\n"
 "Andrew Zhilin"
 
 #: src/weather-home.c:1359
@@ -135,7 +134,7 @@ msgstr " H: "
 
 #: src/weather-simple-settings.c:1068
 msgid "1 day"
-msgstr ""
+msgstr "1 Jour"
 
 #: src/weather-settings.c:3914 src/weather-simple-settings.c:1050
 msgid "1 hour"
@@ -292,7 +291,6 @@ msgid "Alerts"
 msgstr "Alertes"
 
 #: src/weather-help.c:118
-#, fuzzy
 msgid ""
 "Alexis Iglauer - for testing\n"
 "Eugene Roytenberg - for testing\n"
@@ -303,13 +301,14 @@ msgid ""
 "Alexander Savchenko aka dizel - for testing\n"
 "Eric Link - for feature request and donation\n"
 msgstr ""
-"Andrew dit Tabster - pour les tests et idées\n"
-"Brad Jones dit kazrak - pour les tests\n"
 "Alexis Iglauer - pour les tests\n"
 "Eugene Roytenberg - pour les tests\n"
 "Jarek Szczepanski dit Imrahil - pour les tests\n"
-"Vladimir·Shakhov·dit·Mendoza·-·pour les tests·\n"
+"Vladimir·Shakhov·dit·Mendoza·-·pour les tests\n"
 "Marc·Dilon·-·pour l'ortographe et le style en anglais\n"
+"Arkady Glazov dit Globster -·pour les tests\n"
+"Alexander Savchenko dit dizel -·pour les tests\n"
+"Eric Link - pour les demandes et les dons\n"
 
 #: src/weather-settings.c:696
 msgid "Are you sure to want delete this station ?"
@@ -317,10 +316,9 @@ msgstr "Êtes-vous sur de vouloir effacer cette station ?"
 
 #: src/weather-simple-settings.c:353
 msgid "Are you sure?"
-msgstr ""
+msgstr "Etes vous sur ?"
 
 #: src/weather-help.c:96
-#, fuzzy
 msgid ""
 "Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n"
 "Maintenance: Pavel Fialko, <pavelnf@gmail.com>\n"
@@ -328,15 +326,11 @@ msgid ""
 "Design UI and default iconset: Andrew Zhilin\n"
 "Design UI for Fremantle: Krebber Jan Niemelä Ulla\n"
 msgstr ""
-"\n"
-"Auteur et maintenance:\n"
-"\tVlad Vasiliev, vlad@gas.by\n"
-"Maintenance:\n"
-"\tPavel Fialko, pavelnf@gmail.com\n"
-"Documentation:\n"
-"\tMarko Vertainen\n"
-"Design des icons par defaut:\n"
-"\tAndrew Zhilin"
+"Auteur et maintenance: Vlad Vasiliev, <vlad@gas.by>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>\n"
+"Documentation: Marko Vertainen\n"
+"Design des icons par defaut: Andrew Zhilin\n"
+"Design pour Fremantle : Krebber Jan Niemelä Ulla\n"
 
 #: src/weather-help.c:104
 msgid "Authors"
@@ -379,9 +373,8 @@ msgid "Celcius"
 msgstr "Celsius"
 
 #: src/weather-simple-settings.c:1379
-#, fuzzy
 msgid "City"
-msgstr "Ville :"
+msgstr "Ville"
 
 #: src/weather-settings.c:411
 msgid "City:"
@@ -416,9 +409,8 @@ msgid "Cloudy and Windy"
 msgstr "Nuageux et venteux"
 
 #: src/weather-simple-settings.c:1245 src/weather-simple-settings.c:1498
-#, fuzzy
 msgid "Configuring station"
-msgstr "Chargement de la liste des stations"
+msgstr "Configuration des stations"
 
 #: src/weather-config.c:402
 #, c-format
@@ -426,9 +418,8 @@ msgid "Could not create weather cache directory.\n"
 msgstr "Impossible de créer le répertoire de cache.\n"
 
 #: src/weather-simple-settings.c:1361
-#, fuzzy
 msgid "Country"
-msgstr "Pays :"
+msgstr "Pays"
 
 #: src/weather-settings.c:388
 msgid "Country:"
@@ -452,22 +443,20 @@ msgid "Display"
 msgstr "Affichage"
 
 #: src/weather-simple-settings.c:737
-#, fuzzy
 msgid "Distance"
-msgstr "Unité de distance :"
+msgstr "Distance"
 
 #: src/weather-settings.c:3583
 msgid "Distance units:"
 msgstr "Unité de distance :"
 
 #: src/weather-settings.c:473
-#, fuzzy
 msgid ""
 "Does not to add station, because no one\n"
 "of 'omweather-*-stations-db' packages was installed."
 msgstr ""
 "Ne peut ajouter de station, car aucun\n"
-"des paquets  '*-source' n'a été installé."
+"des paquets 'omweather-*-station-db' n'a été installé."
 
 #: src/weather-settings.c:3838
 msgid "Download and show detailed weather"
@@ -514,7 +503,6 @@ msgid "E_short"
 msgstr "E"
 
 #: src/weather-help.c:107
-#, fuzzy
 msgid ""
 "Ed Bartosh - for more feature requests, support and criticism\n"
 "Daniel Wilms - for feature requests and testing\n"
@@ -527,17 +515,16 @@ msgid ""
 "Andrew aka Tabster - for testing and ideas\n"
 "Brad Jones aka kazrak - for testing\n"
 msgstr ""
-"\n"
-"Ed Bartosh - pour les demandes d'évolution,\n"
-"\t\t\t\tle support et les critques\n"
-"Eugen Kaluta aka tren - pour les demandes \n"
-"\t\t\t\td'évolution et le support\n"
-"Maxim Kalinkevish aka spark pour les tests\n"
-"Yuri Komyakov - pour le Nokia 770 \n"
+"Ed Bartosh - pour les demandes d'évolution, le support et les critiques\n"
+"Daniel Wilms - pour les demandes d'évolution et les tests\n"
+"Eugen Kaluta dit tren - pour les demandes d'évolution et le support\n"
+"Maxim Kalinkevish dit spark pour les tests\n"
+"Yuri Komyakov - pour le Nokia 770\n"
 "Greg Thompson pour le support pour le fichier stations.txt\n"
 "Frank Persian - pour l'idée sur le nouveau format\n"
-"Brian Knight - pour les idée d'icones, les critiques \n"
-"\t\t\t\tet les donations ;-)\n"
+"Brian Knight - pour les idée d'icones, les critiques et les donations ;-)\n"
+"Andrew dit Tabster - pour les tests et les idées\n"
+"Brad Jones dit kazrak - pour les tests\n"
 
 #: src/weather-settings.c:2736
 msgid "Enable GPS"
@@ -644,9 +631,8 @@ msgid "Font:"
 msgstr "Police :"
 
 #: src/weather-simple-popup.c:91
-#, fuzzy
 msgid "Forecast"
-msgstr "Prévision : \n"
+msgstr "Prévision"
 
 #: src/weather-popup.c:1202 src/weather-simple-popup.c:731
 msgid "Forecast at: "
@@ -687,21 +673,23 @@ msgstr "Prévision complète"
 
 #: src/weather-simple-settings.c:1326
 msgid "GPS"
-msgstr ""
+msgstr "GPS"
 
 #: src/weather-simple-settings.c:1500
 msgid ""
 "GPS station already exist.\n"
 "Only one station can be received via GPS"
 msgstr ""
+"la station GPS existe déjà.\n"
+"Seulement une station peut être reçu par GPS"
 
 #: src/weather-simple-settings.c:1104 src/weather-simple-settings.c:1729
 msgid "GSM"
-msgstr ""
+msgstr "GSM"
 
 #: src/weather-simple-settings.c:1726
 msgid "GSM+WLAN"
-msgstr ""
+msgstr "GSM+WLAN"
 
 #: src/weather-popup.c:1133 src/weather-popup.c:1248
 msgid "Gust:"
@@ -765,9 +753,9 @@ msgstr "Dernière mise à jour depuis le serveur : "
 
 #: src/weather-simple-popup.c:236 src/weather-simple-popup.c:238
 #: src/weather-simple-popup.c:245
-#, fuzzy, c-format
+#, c-format
 msgid "Last update: "
-msgstr "Dernière mise à jour du serveur : "
+msgstr "Dernière mise à jour : "
 
 #: src/hash.data:61
 msgid "Lawn and Garden Weather"
@@ -871,7 +859,7 @@ msgstr "Bas"
 
 #: src/weather-simple-settings.c:1317
 msgid "Manual"
-msgstr ""
+msgstr "Manuel"
 
 #: src/weather-settings.c:3590
 msgid "Meters"
@@ -1102,16 +1090,15 @@ msgstr "Partiellement nuageux et venteux"
 
 #: src/weather-simple-settings.c:1030
 msgid "Period"
-msgstr ""
+msgstr "Période"
 
 #: src/weather-settings.c:3341
 msgid "Position:"
 msgstr "Position :"
 
 #: src/weather-simple-settings.c:869
-#, fuzzy
 msgid "Pressure"
-msgstr "Pression :"
+msgstr "Pression"
 
 #: src/weather-settings.c:3723
 msgid "Pressure units:"
@@ -1202,9 +1189,8 @@ msgid "Read sensor every:"
 msgstr "Lire le capteur toutes les : "
 
 #: src/weather-simple-settings.c:1370
-#, fuzzy
 msgid "Region"
-msgstr "Pluie"
+msgstr "Région"
 
 #: src/hash.data:137
 msgid "Rush Hour Traffic"
@@ -1277,20 +1263,20 @@ msgstr "Recherche"
 #: src/weather-simple-settings.c:471
 #, c-format
 msgid "Selecting country"
-msgstr ""
+msgstr "Choisir le pays"
 
 #: src/weather-simple-settings.c:479
-#, fuzzy, c-format
+#, c-format
 msgid "Selecting region"
-msgstr "Choisir la station"
+msgstr "Choisir la région"
 
 #: src/weather-simple-settings.c:475
 #, c-format
 msgid "Selecting source"
-msgstr ""
+msgstr "Choisir la source"
 
 #: src/weather-simple-settings.c:483
-#, fuzzy, c-format
+#, c-format
 msgid "Selecting station"
 msgstr "Choisir la station"
 
@@ -1405,9 +1391,8 @@ msgid "Snow to Wintry Mix / Wind"
 msgstr "Neige puis précipitations hivernales / vent"
 
 #: src/weather-simple-settings.c:1352
-#, fuzzy
 msgid "Source"
-msgstr "Source :"
+msgstr "Source"
 
 #: src/weather-settings.c:376
 msgid "Source:"
@@ -1415,9 +1400,8 @@ msgstr "Source :"
 
 #: src/weather-popup.c:897 src/weather-popup.c:987
 #: src/weather-simple-settings.c:811
-#, fuzzy
 msgid "Speed"
-msgstr "Vitesse :"
+msgstr "Vitesse"
 
 #: src/weather-popup.c:1126 src/weather-popup.c:1241
 msgid "Speed:"
@@ -1474,13 +1458,12 @@ msgstr "Orages en matinée"
 
 #: src/weather-simple-settings.c:689
 msgid "Temp."
-msgstr ""
+msgstr "Temp."
 
 #: src/weather-popup.c:875 src/weather-popup.c:878 src/weather-popup.c:965
 #: src/weather-popup.c:968
-#, fuzzy
 msgid "Temperature"
-msgstr "Température :"
+msgstr "Température"
 
 #: src/weather-settings.c:3547
 msgid "Temperature units:"
@@ -1500,7 +1483,7 @@ msgstr "Orage"
 
 #: src/weather-simple-popup.c:347 src/weather-simple-popup.c:349
 msgid "Today"
-msgstr ""
+msgstr "Aujourd'hui"
 
 #: src/weather-help.c:143
 msgid "Translators"
@@ -1557,6 +1540,8 @@ msgid ""
 "Use GSM and/or WLAN for updating\n"
 " the weather information.\n"
 msgstr ""
+"Utiliser le GSM et/ou le WLAN pour \n"
+"la mise à jour des information météo.\n"
 
 #: src/weather-sensor.c:65
 msgid "Use device temperature sensor"
@@ -1595,7 +1580,7 @@ msgstr "O"
 
 #: src/weather-simple-settings.c:1134 src/weather-simple-settings.c:1732
 msgid "WLAN"
-msgstr ""
+msgstr "WLAN"
 
 #: src/hash.data:181
 msgid "WNW"
@@ -1626,9 +1611,8 @@ msgid "Waning Gibbous"
 msgstr "Premier quartier"
 
 #: src/weather-simple-settings.c:351
-#, fuzzy
 msgid "Warning"
-msgstr "montant"
+msgstr "Alerte"
 
 #: src/hash.data:188
 msgid "Waxing Crescent"
@@ -1648,11 +1632,11 @@ msgstr "Météo mise à jour "
 
 #: src/weather-simple-settings.c:1803 src/weather-simple-settings.c:1809
 msgid "Widget style"
-msgstr ""
+msgstr "Style du gadget"
 
 #: src/weather-simple-settings.c:118
 msgid "Widget style and Iconset"
-msgstr ""
+msgstr "Style du gadget et des icones"
 
 #: src/hash.data:190
 msgid "Wind"
@@ -1750,7 +1734,7 @@ msgstr "inHg"
 
 #: src/weather-simple-settings.c:1681
 msgid "inch"
-msgstr ""
+msgstr "pouce"
 
 #: src/weather-home.c:1384 src/weather-popup.c:1099
 #: src/weather-simple-settings.c:758 src/weather-simple-settings.c:1657
@@ -1802,9 +1786,8 @@ msgid "mi/s"
 msgstr "mi/s"
 
 #: src/weather-simple-settings.c:1683
-#, fuzzy
 msgid "mm"
-msgstr "mmHg"
+msgstr "mm"
 
 #: src/weather-home.c:1399 src/weather-settings.c:3752
 #: src/weather-popup.c:1114 src/weather-simple-settings.c:897
@@ -1816,9 +1799,8 @@ msgid "n:"
 msgstr ""
 
 #: src/weather-simple-settings.c:1042
-#, fuzzy
 msgid "never"
-msgstr "Jamais"
+msgstr "jamais"
 
 #: src/weather-sensor.c:108
 msgid "new icon"
@@ -1826,7 +1808,7 @@ msgstr "nouvel icône"
 
 #: src/weather-simple-popup.c:222
 msgid "next"
-msgstr ""
+msgstr "suivant"
 
 #: src/hash.data:202
 msgid "rising"
@@ -1837,9 +1819,8 @@ msgid "s. mi"
 msgstr ""
 
 #: src/weather-simple-settings.c:1662
-#, fuzzy
 msgid "s.mi"
-msgstr "mi"
+msgstr ""
 
 #: src/weather-popup.c:236
 msgid "station local time"

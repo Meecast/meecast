@@ -180,9 +180,16 @@ choose_icon(gchar *image1, gchar *image2)
     if (!strcmp(image1,"den_pasmurno.gif") && !strcmp(image2,"groza.gif"))
         return g_strdup("38"); /* or 37 */
     if (!strcmp(image1,"den_oblachno.gif") && !strcmp(image2,"dozhd_nebol.gif"))
-        return g_strdup("11"); /* or 37 */
+        return g_strdup("11"); 
     if (!strcmp(image1,"den_oblachno.gif") && !strcmp(image2,"clean.gif"))
-        return g_strdup("26"); /* or 28 */
+        return g_strdup("28"); /* or 26 */
+    if (!strcmp(image1,"den_pasmurno.gif") && !strcmp(image2,"dozhd_nebol.gif"))
+        return g_strdup("11"); 
+    if (!strcmp(image1,"den_malooblochno.gif") && !strcmp(image2,"dozhd_nebol.gif"))
+        return g_strdup("39"); 
+    if (!strcmp(image1,"den_pasmurno.gif") && !strcmp(image2,"clean.gif"))
+        return g_strdup("26"); 
+
 
     fprintf(stderr,"11111 %s %s",image1, image2);
     return g_strdup("49");

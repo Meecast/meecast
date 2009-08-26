@@ -32,6 +32,7 @@
 #include <wchar.h>
 /*******************************************************************************/
 GHashTable *hash_for_translate;
+GHashTable *hash_for_icons;
 /*******************************************************************************/
 gint
 get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
@@ -170,29 +171,21 @@ get_data_from_russia_data(gchar *temp_string){
 gchar*
 choose_icon(gchar *image1, gchar *image2)
 {
+    gchar *result;
+    gchar *source;
 
     if (!image1 || !image2)
         return g_strdup("49");
-    if (!strcmp(image1,"den.gif") && !strcmp(image2,"clean.gif"))
-        return g_strdup("32");
-    if (!strcmp(image1,"den_malooblochno.gif") && !strcmp(image2,"clean.gif"))
-        return g_strdup("30");
-    if (!strcmp(image1,"den_pasmurno.gif") && !strcmp(image2,"groza.gif"))
-        return g_strdup("38"); /* or 37 */
-    if (!strcmp(image1,"den_oblachno.gif") && !strcmp(image2,"dozhd_nebol.gif"))
-        return g_strdup("11"); 
-    if (!strcmp(image1,"den_oblachno.gif") && !strcmp(image2,"clean.gif"))
-        return g_strdup("28"); /* or 26 */
-    if (!strcmp(image1,"den_pasmurno.gif") && !strcmp(image2,"dozhd_nebol.gif"))
-        return g_strdup("11"); 
-    if (!strcmp(image1,"den_malooblochno.gif") && !strcmp(image2,"dozhd_nebol.gif"))
-        return g_strdup("39"); 
-    if (!strcmp(image1,"den_pasmurno.gif") && !strcmp(image2,"clean.gif"))
-        return g_strdup("26"); 
-
-
     fprintf(stderr,"11111 %s %s",image1, image2);
-    return g_strdup("49");
+    source = g_strdup_printf("%s %s", image1, image2)
+//    g_strcat(source, " ");
+//    strcat(source, image2);
+    result = hash_gismeteo_table_find(hash_for_icons, source, FALSE);
+    g_free (source);
+    if (strlen(result) == 2)
+       return (result);
+    else
+       return g_strdup("49");
 }
 /*******************************************************************************/
 void
@@ -412,7 +405,9 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
     START_FUNCTION;
 #endif
 /* Fix me free memory */
-hash_for_translate = hash_gismeteo_table_create();
+fprintf(stderr, "sdddddddddddddd\n");
+hash_for_translate = hash_description_gismeteo_table_create();
+hash_for_icons = hash_icons_gismeteo_table_create();
 /* calculate count of day */
     for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
         if( cur_node->type == XML_ELEMENT_NODE ){

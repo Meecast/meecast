@@ -32,13 +32,23 @@
 #undef DEBUGFUNCTIONCALL
 #endif
 /*******************************************************************************/
-GHashTable *hash_gismeteo_table_create(void) {
+GHashTable *hash_description_gismeteo_table_create(void) {
     GHashTable *hash = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     hash = g_hash_table_new(g_str_hash, g_str_equal);
-#include "hash.data"
+#include "hash_description.data"
+    return hash;
+}
+/*******************************************************************************/
+GHashTable *hash_icons_gismeteo_table_create(void) {
+    GHashTable *hash = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    hash = g_hash_table_new(g_str_hash, g_str_equal);
+#include "hash_icons.data"
     return hash;
 }
 

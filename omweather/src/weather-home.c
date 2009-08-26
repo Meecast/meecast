@@ -1284,33 +1284,44 @@ create_forecast_weather_simple_widget(GHashTable *day){
                 app->config->font_color.green >> 8,
                 app->config->font_color.blue >> 8);
     if((current_time > day_begin_time) && (current_time < night_begin_time)){
-        strcat(buffer, (gchar*)hash_table_find(g_hash_table_lookup(day, "day_title"), FALSE));
+        if (g_hash_table_lookup(day, "day_title"), FALSE)
+            strcat(buffer, (gchar*)hash_table_find(g_hash_table_lookup(day, "day_title"), FALSE));
         strcat(buffer, _("\nHumidity: "));
-        if(strcmp(g_hash_table_lookup(day, "day_humidity"), "N/A"))
+        if(g_hash_table_lookup(day, "day_humidity") &&
+           strcmp(g_hash_table_lookup(day, "day_humidity"), "N/A"))
             sprintf(buffer + strlen(buffer), "%s%%\n",
                     (char*)g_hash_table_lookup(day, "day_humidity"));
         else
             sprintf(buffer + strlen(buffer), "%s\n",
                 (gchar*)hash_table_find("N/A", FALSE));
         strcat(buffer, _("Wind: "));
-        sprintf(buffer + strlen(buffer), "%s %.2f %s",
+        if ((g_hash_table_lookup(day, "day_wind_title"), TRUE) && 
+            (g_hash_table_lookup(day, "day_wind_speed")))
+
+            sprintf(buffer + strlen(buffer), "%s %.2f %s",
               (gchar*)hash_table_find(g_hash_table_lookup(day, "day_wind_title"), TRUE),
-        convert_wind_units(app->config->wind_units,
-                atof(g_hash_table_lookup(day, "day_wind_speed"))),
-                (gchar*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+               convert_wind_units(app->config->wind_units,
+               atof(g_hash_table_lookup(day, "day_wind_speed"))),
+               (gchar*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     }
     else{
-        strcat(buffer, (gchar*)hash_table_find(g_hash_table_lookup(day, "night_title"), FALSE));
+        if (g_hash_table_lookup(day, "night_title"))
+            strcat(buffer, (gchar*)hash_table_find(g_hash_table_lookup(day, "night_title"), FALSE));
         strcat(buffer, _("\nHumidity: "));
-        if(strcmp(g_hash_table_lookup(day, "night_humidity"), "N/A"))
+        if(g_hash_table_lookup(day, "night_humidity") &&
+           strcmp(g_hash_table_lookup(day, "night_humidity"), "N/A"))
             sprintf(buffer + strlen(buffer), "%s%%\n",
                     (char*)g_hash_table_lookup(day, "night_humidity"));
         else
             sprintf(buffer + strlen(buffer), "%s\n", (gchar*)hash_table_find("N/A", FALSE));
         strcat(buffer, _("Wind: "));
-        sprintf(buffer + strlen(buffer), "%s %.2f %s", (char*)g_hash_table_lookup(day, "night_wind_title"),
-        convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))),
-            (gchar*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+        if (g_hash_table_lookup(day, "night_wind_title") &&
+            g_hash_table_lookup(day, "night_wind_speed"))
+            sprintf(buffer + strlen(buffer), "%s %.2f %s", 
+                (char*)g_hash_table_lookup(day, "night_wind_title"),
+                convert_wind_units(app->config->wind_units, 
+                atof(g_hash_table_lookup(day, "night_wind_speed"))),
+                (gchar*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     }
     strcat(buffer, "</span>");
     gtk_label_set_markup(GTK_LABEL(main_data_label), buffer);

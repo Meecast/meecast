@@ -196,14 +196,13 @@ fill_day (xmlNode *root_node, GHashTable *day){
     xmlNode     *child_node3 = NULL;
     xmlNode     *child_node4 = NULL;
     xmlChar     *temp_xml_string = NULL;
-    xmlChar     *temp_xml_char = NULL;
     gint        i = 0 , j = 0;
     gint        count_of_string = 0;
     gchar   buffer[buff_size];
     gchar   temp_buffer[buff_size];
     gchar   *image1 = NULL;
     gchar   *image2 = NULL;
-    gchar   temp_char;
+    gchar   *temp_char;
     gint speed;
 
     if (root_node->next)
@@ -219,17 +218,17 @@ fill_day (xmlNode *root_node, GHashTable *day){
                for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                   if (!xmlStrcmp(child_node2->name, (const xmlChar *)"img") ){
                       temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"src");
-                      temp_xml_string = (const xmlChar*)strrchr((char*)temp_xml_string, '/');
-                      temp_xml_string ++;
-                      image1 = g_strdup(temp_xml_string);
+                      temp_char = strrchr((char*)temp_xml_string, '/');
+                      temp_char ++;
+                      image1 = g_strdup(temp_char);
                   }
                   for(child_node3 = child_node2->children; child_node3; child_node3 = child_node3->next){
                      for(child_node4 = child_node3->children; child_node4; child_node4 = child_node4->next){
                           if (!xmlStrcmp(child_node4->name, (const xmlChar *)"img") ){
                             temp_xml_string = xmlGetProp(child_node4, (const xmlChar*)"src");
-                            temp_xml_string = strrchr((char*)temp_xml_string, '/');
-                            temp_xml_string ++;
-                            image2 = g_strdup(temp_xml_string);
+                            temp_char = strrchr((char*)temp_xml_string, '/');
+                            temp_char ++;
+                            image2 = g_strdup(temp_char);
                         }
 
                      }
@@ -261,21 +260,22 @@ fill_day (xmlNode *root_node, GHashTable *day){
                 /* check temperature string */
                 if (count_of_string == 1){
                     memset(temp_buffer, 0, sizeof(temp_buffer));
-                    for (i = 0 ; (i<(xmlStrlen(buffer)) && i < buff_size); i++ ){
+                    for (i = 0 ; (i<(strlen(buffer)) && i < buff_size); i++ ){
                         if (buffer[i] == '-' || (buffer[i]>='0' && buffer[i]<='9'))
                             sprintf(temp_buffer,"%s%c",temp_buffer, buffer[i]);
                     }
                     g_hash_table_insert(day, "day_hi_temperature", g_strdup(temp_buffer));
+                    g_hash_table_insert(day, "day_temperature", g_strdup(temp_buffer));
                 }
                 /* check pressure, humidity, wind */
                 if (count_of_string == 2){
                     memset(temp_buffer, 0, sizeof(temp_buffer));
-                    for (i = 0 ; (i<(xmlStrlen(buffer)) && i < buff_size); i++ ){
+                    for (i = 0 ; (i<(strlen(buffer)) && i < buff_size); i++ ){
                         if (buffer[i] == ' ')
                             break;
                     }
                     i++;
-                    for (i = i ; (i<(xmlStrlen(buffer)) && i < buff_size); i++ ){
+                    for (i = i ; (i<(strlen(buffer)) && i < buff_size); i++ ){
                         if ( (buffer[i]>='0' && buffer[i]<='9'))
                             sprintf(temp_buffer,"%s%c",temp_buffer, buffer[i]);
                         else
@@ -284,7 +284,7 @@ fill_day (xmlNode *root_node, GHashTable *day){
                     /*TODO need normalization from mm.rt.stolba to bar */
                     g_hash_table_insert(day, "day_pressure", g_strdup(temp_buffer));
                     /* find begin of humidity */
-                    for (i = i ; (i<(xmlStrlen(buffer)) && i < buff_size); i++ ){
+                    for (i = i ; (i<(strlen(buffer)) && i < buff_size); i++ ){
                         if (buffer[i] == ':'){
                             break;
                         }
@@ -293,7 +293,7 @@ fill_day (xmlNode *root_node, GHashTable *day){
                     i++;
                     memset(temp_buffer, 0, sizeof(temp_buffer));
                     /* fill humidity */
-                    for (i = i ; (i<(xmlStrlen(buffer)) && i < buff_size); i++ ){
+                    for (i = i ; (i<(strlen(buffer)) && i < buff_size); i++ ){
                         if ( (buffer[i]>='0' && buffer[i]<='9'))
                             sprintf(temp_buffer,"%s%c",temp_buffer, buffer[i]);
                         else
@@ -301,7 +301,7 @@ fill_day (xmlNode *root_node, GHashTable *day){
                     }
                     g_hash_table_insert(day, "day_humidity", g_strdup(temp_buffer));
                     /* find begin of wind title*/
-                    for (i = i ; (i<(xmlStrlen(buffer)) && i < buff_size); i++ ){
+                    for (i = i ; (i<(strlen(buffer)) && i < buff_size); i++ ){
                         if (buffer[i] == ':')
                             break;
                     }
@@ -309,7 +309,7 @@ fill_day (xmlNode *root_node, GHashTable *day){
                     i++;
                     memset(temp_buffer, 0, sizeof(temp_buffer));
                     /* fill wind title */
-                    for (i = i ; (i<(xmlStrlen(buffer)) && i < buff_size); i++ ){
+                    for (i = i ; (i<(strlen(buffer)) && i < buff_size); i++ ){
                         if (buffer[i] == ' ')
                             break;
                         else{
@@ -337,7 +337,7 @@ fill_day (xmlNode *root_node, GHashTable *day){
                     g_hash_table_insert(day, "day_wind_title",g_strdup(temp_buffer));
 
                     /* find begin of wind speed */
-                    for (i = i ; (i<(xmlStrlen(buffer)) && i < buff_size); i++ ){
+                    for (i = i ; (i<(strlen(buffer)) && i < buff_size); i++ ){
                         if (buffer[i] == ',')
                             break;
                     }
@@ -345,7 +345,7 @@ fill_day (xmlNode *root_node, GHashTable *day){
                     i++;
                     memset(temp_buffer, 0, sizeof(temp_buffer));
                     /* fill wind speed */
-                    for (i = i ; (i<(xmlStrlen(buffer)) && i < buff_size); i++ ){
+                    for (i = i ; (i<(strlen(buffer)) && i < buff_size); i++ ){
                         if ( (buffer[i]>='0' && buffer[i]<='9'))
                             sprintf(temp_buffer,"%s%c",temp_buffer, buffer[i]);
                         else
@@ -423,7 +423,7 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                         if (count_of_div == 2 && count_of_table == 0){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             fprintf(stderr,"Date %s\n", temp_xml_string);
-                            tmp_tm = get_data_from_russia_data(temp_xml_string);
+                            tmp_tm = get_data_from_russia_data((char*)temp_xml_string);
                             first_day = mktime(&tmp_tm) - 3600*24;
                             day_in_list = first_day;
                         }
@@ -437,7 +437,7 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                                 {
                                     if (!xmlStrcmp(child_node3->name, (const xmlChar *)"img")){
                                        temp_xml_string = xmlGetProp(child_node3, (const xmlChar*)"src");
-                                       delimiter = strrchr(temp_xml_string, '/');
+                                       delimiter = strrchr((char*)temp_xml_string, '/');
                                        if(delimiter){
                                             delimiter++; /* delete '/' */
                                             if (delimiter && !strcmp(delimiter,"day.gif"))
@@ -475,7 +475,7 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                         if (count_of_div == 2 && count_of_table == 0){
                             temp_xml_string = xmlNodeGetContent(child_node);
                             fprintf(stderr,"Date %s\n", temp_xml_string);
-                            tmp_tm = get_data_from_russia_data(temp_xml_string);
+                            tmp_tm = get_data_from_russia_data((char*)temp_xml_string);
                             first_day = mktime(&tmp_tm) -3600*24;
                             day_in_list = first_day+(count_day*3600*24);
                         }
@@ -488,7 +488,7 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                                 for(child_node3 = child_node->children; child_node3 != NULL; child_node3 = child_node3->next){
                                     if (!xmlStrcmp(child_node3->name, (const xmlChar *)"img")){
                                        temp_xml_string = xmlGetProp(child_node3, (const xmlChar*)"src");
-                                       delimiter = strrchr(temp_xml_string, '/');
+                                       delimiter = strrchr((char*)temp_xml_string, '/');
                                        if(delimiter){
                                             delimiter++; /* delete '/' */
                                             if (delimiter && !strcmp(delimiter,"day.gif")){

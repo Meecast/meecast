@@ -35,8 +35,6 @@
 #define MORNING 3
 #define EVENING 4
 /*******************************************************************************/
-GHashTable *hash_for_translate;
-GHashTable *hash_for_icons;
 /*******************************************************************************/
 gint
 get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
@@ -173,7 +171,7 @@ get_data_from_russia_data(gchar *temp_string){
 }
 /*******************************************************************************/
 gchar*
-choose_icon(gchar *image1, gchar *image2)
+choose_icon(GHashTable *hash_for_icons, gchar *image1, gchar *image2)
 {
     gchar *result;
     gchar *source;
@@ -192,7 +190,7 @@ choose_icon(gchar *image1, gchar *image2)
 }
 /*******************************************************************************/
 void
-fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day){
+fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day, GHashTable *hash_for_translate, GHashTable *hash_for_icons){
 #define buff_size 2048
     xmlNode     *cur_node = NULL;
     xmlNode     *child_node = NULL;
@@ -215,24 +213,33 @@ fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day){
         if( cur_node->type == XML_ELEMENT_NODE ){
             /* Check the end of day */
             temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"style");
-            if (!xmlStrcmp(temp_xml_string, (const xmlChar*)"background: url(/media/pic/big/2/sep01.gif) repeat-x 0 0"))
+            if (!xmlStrcmp(temp_xml_string, (const xmlChar*)"background: url(/media/pic/big/2/sep01.gif) repeat-x 0 0")){
+                xmlFree(temp_xml_string);
                 break;/* Exit from function */
-
+            }
+            if (temp_xml_string)
+                xmlFree(temp_xml_string);
             for(child_node = cur_node->children; child_node; child_node = child_node->next){
                for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                   if (!xmlStrcmp(child_node2->name, (const xmlChar *)"img") ){
                       temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"src");
-                      temp_char = strrchr((char*)temp_xml_string, '/');
-                      temp_char ++;
-                      image1 = g_strdup(temp_char);
+                      if (temp_xml_string){
+                          temp_char = strrchr((char*)temp_xml_string, '/');
+                          temp_char ++;
+                          image1 = g_strdup(temp_char);
+                          xmlFree(temp_xml_string);
+                      }
                   }
                   for(child_node3 = child_node2->children; child_node3; child_node3 = child_node3->next){
                      for(child_node4 = child_node3->children; child_node4; child_node4 = child_node4->next){
                           if (!xmlStrcmp(child_node4->name, (const xmlChar *)"img") ){
                             temp_xml_string = xmlGetProp(child_node4, (const xmlChar*)"src");
-                            temp_char = strrchr((char*)temp_xml_string, '/');
-                            temp_char ++;
-                            image2 = g_strdup(temp_char);
+                            if (temp_xml_string){
+                                temp_char = strrchr((char*)temp_xml_string, '/');
+                                temp_char ++;
+                                image2 = g_strdup(temp_char);
+                                xmlFree(temp_xml_string);
+                            }
                         }
 
                      }
@@ -251,10 +258,11 @@ fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day){
                 if (temp_xml_string[i] == ' ' && temp_xml_string[i+1] == ' ')
                     continue;
                 else
-                   sprintf(buffer,"%s%c",buffer, temp_xml_string[i]);
+                   buffer[strlen(buffer)] = temp_xml_string[i];
+//                   sprintf(buffer,"%s%c",buffer, temp_xml_string[i]);
             }
             /* remove last space */
-            if (buffer[strlen(buffer)-1] == ' ')
+            if ((strlen(buffer) > 0) && (buffer[strlen(buffer)-1] == ' '))
                 buffer[strlen(buffer)-1] = 0;
             if (strlen(buffer)>1){
                 /* check description */
@@ -406,16 +414,18 @@ fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day){
                 }
                 count_of_string ++;
             }
+            if (temp_xml_string)
+                    xmlFree(temp_xml_string);
        }
     }
     if (image1 && image2) {
         switch (part_of_day){
             case DAY:
-                    g_hash_table_insert(day, "day_icon", choose_icon(image1, image2));
+                    g_hash_table_insert(day, "day_icon", choose_icon(hash_for_icons, image1, image2));
                     break;
-            case NIGHT: 
-                    g_hash_table_insert(day, "night_icon", choose_icon(image1, image2));
-                              break;
+            case NIGHT:
+                    g_hash_table_insert(day, "night_icon", choose_icon(hash_for_icons, image1, image2));
+                    break;
         }
     }
     if (image1)
@@ -456,6 +466,9 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                 *current = NULL,
                 *day = NULL;
     gboolean    flag;
+    GHashTable *hash_for_translate;
+    GHashTable *hash_for_icons;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -477,19 +490,21 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                             count_of_table ++;
                         if (count_of_div == 2 && count_of_table == 0){
                             temp_xml_string = xmlNodeGetContent(child_node);
-                            fprintf(stderr,"Date %s\n", temp_xml_string);
-                            tmp_tm = get_data_from_russia_data((char*)temp_xml_string);
-                            first_day = mktime(&tmp_tm) - 3600*24;
-                            day_in_list = night_in_list = first_day;
+                            if (temp_xml_string){
+                                fprintf(stderr,"Date %s\n", temp_xml_string);
+                                tmp_tm = get_data_from_russia_data((char*)temp_xml_string);
+                                first_day = mktime(&tmp_tm) - 3600*24;
+                                day_in_list = night_in_list = first_day;
+                                xmlFree(temp_xml_string);
+                            }
                         }
                         if (count_of_div > 2 && 
                             !xmlStrcmp(child_node->name, (const xmlChar *)"div")){
                             temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"style");
-                            if (!xmlStrcmp(temp_xml_string, 
-                                           (const xmlChar*)"float: left; padding: 0 0 0 4px;"))
-                            {
-                                for(child_node3 = child_node->children; child_node3 != NULL; child_node3 = child_node3->next)
-                                {
+                            if (!xmlStrcmp(temp_xml_string,
+                                           (const xmlChar*)"float: left; padding: 0 0 0 4px;")){
+                                xmlFree(temp_xml_string);
+                                for(child_node3 = child_node->children; child_node3 != NULL; child_node3 = child_node3->next){
                                     if (!xmlStrcmp(child_node3->name, (const xmlChar *)"img")){
                                        temp_xml_string = xmlGetProp(child_node3, (const xmlChar*)"src");
                                        delimiter = strrchr((char*)temp_xml_string, '/');
@@ -500,10 +515,14 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                                             if (delimiter && !strcmp(delimiter,"night.gif"))
                                                 count_night++;
                                        }
+                                       if (temp_xml_string)
+                                            xmlFree(temp_xml_string);
                                     }
 
                                 }
-                            }
+                            }else
+                                if (temp_xml_string)
+                                    xmlFree(temp_xml_string);
                         }
                    }
                 }
@@ -532,11 +551,14 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                             count_of_table ++;
                         if (count_of_div == 2 && count_of_table == 0){
                             temp_xml_string = xmlNodeGetContent(child_node);
-                            fprintf(stderr,"Date %s\n", temp_xml_string);
-                            tmp_tm = get_data_from_russia_data((char*)temp_xml_string);
-                            first_day = mktime(&tmp_tm) -3600*24;
-                            day_in_list = first_day+(count_day*3600*24);
-                            night_in_list = first_day+(count_night*3600*24);
+                            if (temp_xml_string){
+                                fprintf(stderr,"Date %s\n", temp_xml_string);
+                                tmp_tm = get_data_from_russia_data((char*)temp_xml_string);
+                                first_day = mktime(&tmp_tm) -3600*24;
+                                day_in_list = first_day+(count_day*3600*24);
+                                night_in_list = first_day+(count_night*3600*24);
+                                xmlFree(temp_xml_string);
+                            }
                         }
                         if (count_of_div > 2 && 
                             !xmlStrcmp(child_node->name, (const xmlChar *)"div")){
@@ -544,6 +566,7 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                             if (!xmlStrcmp(temp_xml_string, 
                                            (const xmlChar*)"float: left; padding: 0 0 0 4px;"))
                             {
+                                xmlFree(temp_xml_string);
                                 for(child_node3 = child_node->children; child_node3 != NULL; child_node3 = child_node3->next){
                                     if (!xmlStrcmp(child_node3->name, (const xmlChar *)"img")){
                                        temp_xml_string = xmlGetProp(child_node3, (const xmlChar*)"src");
@@ -588,21 +611,24 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                                                 }
                                                 if (day){
                                                     if (!strcmp(delimiter,"day.gif")){
-                                                        fill_day(child_node, day, DAY);
+                                                        fill_day(child_node, day, DAY, hash_for_translate, hash_for_icons);
                                                         day_in_list = day_in_list - 3600*24;
                                                     }
                                                     if (!strcmp(delimiter,"night.gif")){
-                                                        fill_day(child_node, day, NIGHT);
+                                                        fill_day(child_node, day, NIGHT, hash_for_translate, hash_for_icons);
                                                         night_in_list = night_in_list - 3600*24;
                                                     }
 
                                                 }
                                             }
                                        }
+                                       if (temp_xml_string)
+                                            xmlFree(temp_xml_string);
                                     }
-
                                 }
-                            }
+                            }else
+                                if (temp_xml_string)
+                                        xmlFree(temp_xml_string);
                         }
                    }
                 }
@@ -610,6 +636,8 @@ hash_for_icons = hash_icons_gismeteo_table_create();
             }
         }
     }
+    g_hash_table_destroy(hash_for_translate);
+    g_hash_table_destroy(hash_for_icons);
 
     return count_day;
 }

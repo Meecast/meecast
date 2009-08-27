@@ -448,7 +448,6 @@ GtkWidget*
 create_weather_expanded_view(GtkWidget *vbox, gint day_number){
     gint                i = 0;
     GHashTable          *current = NULL,
-                        *location = NULL,
                         *day = NULL;
     GSList              *days = NULL;
     GtkWidget           *day_widget = NULL,
@@ -483,10 +482,9 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
     gtk_widget_set_size_request(scrolled_window, -1, -1);
     if(!app->station_data)
         return NULL;
-    location = (GHashTable*)g_hash_table_lookup(app->station_data, "location");
     current = (GHashTable*)g_hash_table_lookup(app->station_data, "current");
     days = (GSList*)g_hash_table_lookup(app->station_data, "forecast");
-    if(!current || !days || !location)
+    if(!days)
         return NULL;
 
     if(day_number == 0){ /* if selected Today, than adding Now, if it aviable */

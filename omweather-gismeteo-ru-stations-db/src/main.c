@@ -181,7 +181,7 @@ choose_icon(GHashTable *hash_for_icons, gchar *image1, gchar *image2)
     source = g_strdup_printf("%s %s", image1, image2);
     result = hash_gismeteo_table_find(hash_for_icons, source, FALSE);
     g_free (source);
-    if (strlen(result) == 2)
+    if (strlen(result) == 2 || strlen(result) == 1)
        return g_strdup(result);
     else{
        fprintf(stderr,"Unknown strings %s %s",image1, image2);

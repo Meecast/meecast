@@ -8,3 +8,8 @@
     g_hash_table_insert(hash, "den_malooblochno.gif dozhd_nebol.gif", "39");
     g_hash_table_insert(hash, "den_pasmurno.gif clean.gif", "26");
     g_hash_table_insert(hash, "noch_yasno.gif clean.gif", "31");
+    g_hash_table_insert(hash, "noch_obl.gif clean.gif", "27");
+    g_hash_table_insert(hash, "noch_pasmurno.gif clean.gif", "26");
+    g_hash_table_insert(hash, "noch_pasmurno.gif dozhd_nebol.gif", "40");
+    g_hash_table_insert(hash, "noch_obl.gif groza.gif", "47");
+    g_hash_table_insert(hash, "noch_malo.gif clean.gif", "29");

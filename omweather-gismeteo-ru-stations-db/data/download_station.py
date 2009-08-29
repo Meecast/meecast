@@ -22,7 +22,6 @@ myrow = []
 for row in cur:
     myrow += [row[0]]
 c.commit()
-
 # Main cicle
 for row in myrow:
 
@@ -50,7 +49,7 @@ for row in myrow:
     anchors = ctxt.xpathEval("//body/div/a")
     for anchor in anchors:
         href = anchor.prop("href")
-        if '/gm/normal/node/prognoz_type/6/?field_wmo' in href:
+        if href and '/gm/normal/node/prognoz_type/6/?field_wmo' in href:
             sql_string = 'insert into stations (region_id, russian_name, name, id_gismeteo_old, code) values ((select distinct regions.id from regions,countries where regions.country_id=countries.id and countries.id_gismeteo_old = %s), "%s", "%s", %s, %s)'  % (country_id , anchor.content , anchor.content, a.search(href).group(), a.search(href).group())
             print sql_string
             cu.execute(sql_string)

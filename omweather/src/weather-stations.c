@@ -75,7 +75,7 @@ create_countries_list(sqlite3 *database){
     if(!database)
         return NULL;    /* database doesn't open */
     list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
-    rc = sqlite3_exec(database, "SELECT * FROM countries ORDER BY name",
+    rc = sqlite3_exec(database, "SELECT name, id FROM countries ORDER BY name",
                         countries_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
 #ifndef RELEASE
@@ -84,6 +84,9 @@ create_countries_list(sqlite3 *database){
         sqlite3_free(errMsg);
         return NULL;
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return list;
 }
 /*******************************************************************************/
@@ -97,6 +100,10 @@ create_regions_list(sqlite3 *database, int country_id, int *region_count){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    if (country_id == -1){
+        region_count = 0;
+        return NULL;
+    }
     if(!database)
         return NULL;    /* database doesn't open */
     list = gtk_list_store_new(6, G_TYPE_STRING, G_TYPE_INT, G_TYPE_DOUBLE, G_TYPE_DOUBLE, 
@@ -136,7 +143,7 @@ create_stations_list(sqlite3 *database, int region_id){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(!database || !region_id)
+    if(!database || region_id == 0 || region_id == -1)
         return NULL;/* database doesn't open */
     list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_DOUBLE,
                                 G_TYPE_DOUBLE);
@@ -466,13 +473,25 @@ regions_callback(void *user_data, int argc, char **argv, char **azColName){
         if(!strcmp(azColName[i], "name"))
             gtk_list_store_set(list, &iter, 0, argv[i], -1);
         if(!strcmp(azColName[i], "longititudemax"))
-            gtk_list_store_set(list, &iter, 2, atof(argv[i]), -1);
+            if (argv[i])
+                gtk_list_store_set(list, &iter, 2, atof(argv[i]), -1);
+            else
+                gtk_list_store_set(list, &iter, 2, 0, -1);
         if(!strcmp(azColName[i], "latitudemax"))
-            gtk_list_store_set(list, &iter, 3, atof(argv[i]), -1);
+            if (argv[i])
+                gtk_list_store_set(list, &iter, 3, atof(argv[i]), -1);
+            else
+                gtk_list_store_set(list, &iter, 3, 0, -1);
         if(!strcmp(azColName[i], "longititudemin"))
-            gtk_list_store_set(list, &iter, 4, atof(argv[i]), -1);
+            if (argv[i])
+                gtk_list_store_set(list, &iter, 4, atof(argv[i]), -1);
+            else
+                gtk_list_store_set(list, &iter, 4, 0, -1);
         if(!strcmp(azColName[i], "latitudemin"))
-            gtk_list_store_set(list, &iter, 5, atof(argv[i]), -1);
+            if (argv[i])
+                gtk_list_store_set(list, &iter, 5, atof(argv[i]), -1);
+            else
+                gtk_list_store_set(list, &iter, 5, 0, -1);
     }
     setlocale(LC_NUMERIC, "");
 #ifdef DEBUGFUNCTIONCALL
@@ -486,6 +505,9 @@ stations_callback(void *user_data, int argc, char **argv, char **azColName){
     int                 i;
     GtkTreeIter         iter;
     GtkListStore        *list = GTK_LIST_STORE(user_data);
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
 /* add new item for each first element */
     gtk_list_store_append(list, &iter);
     setlocale(LC_NUMERIC, "POSIX");
@@ -495,11 +517,21 @@ stations_callback(void *user_data, int argc, char **argv, char **azColName){
         if(!strcmp(azColName[i], "code"))
             gtk_list_store_set(list, &iter, 1, argv[i], -1);
         if(!strcmp(azColName[i], "longititude"))
-            gtk_list_store_set(list, &iter, 2, atof(argv[i]), -1);
-        if(!strcmp(azColName[i], "latitude"))
-            gtk_list_store_set(list, &iter, 3, atof(argv[i]), -1);
+            if (argv[i])
+                gtk_list_store_set(list, &iter, 2, atof(argv[i]), -1);
+            else 
+                gtk_list_store_set(list, &iter, 2, 0, -1);
+        if(!strcmp(azColName[i], "latitude")){
+            if (argv[i])
+                gtk_list_store_set(list, &iter, 3, atof(argv[i]), -1);
+            else
+                gtk_list_store_set(list, &iter, 3, 0, -1);
+        }
     }
     setlocale(LC_NUMERIC, "");
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return 0;
 }
 /*******************************************************************************/

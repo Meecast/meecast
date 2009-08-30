@@ -116,6 +116,7 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
         gtk_list_store_clear(list->regions_list);
         g_object_unref(list->regions_list);
     }
+
     /* clear stations list */
     if(list->stations_list){
         gtk_list_store_clear(list->stations_list);
@@ -183,6 +184,7 @@ changed_state_handler(GtkWidget *widget, gpointer user_data){
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
     if(!list)
         return;
+
     /* clear stations list */
     if(list->stations_list){
         gtk_list_store_clear(list->stations_list);
@@ -193,6 +195,7 @@ changed_state_handler(GtkWidget *widget, gpointer user_data){
         gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter))){
         model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
         gtk_tree_model_get(model, &iter, 1, &state_id, -1);
+
         list->stations_list = create_stations_list(list->database, state_id);
         {
           if(list->stations_list){
@@ -205,6 +208,9 @@ changed_state_handler(GtkWidget *widget, gpointer user_data){
         state_id  = (gint)g_object_get_data(G_OBJECT(config), "station_region_id");
         list->stations_list = create_stations_list(list->database, state_id);
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 /*******************************************************************************/
 void
@@ -302,7 +308,7 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
           value = g_hash_table_lookup(source, "base");
           /* open database */
           list->database = open_database(DATABASEPATH, (gchar*)value);
-          /* Read Coutries list from file */
+          /* Read Countries list from file */
           list->countries_list = create_countries_list(list->database);
 
           if(strcmp("simple_settings_window", control_name)){

@@ -262,7 +262,6 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
         g_object_set_data(G_OBJECT(button), "station_region_id", (gpointer)id);
         g_object_set_data(G_OBJECT(button), "station_region", (gpointer)name);
         g_object_set_data(G_OBJECT(window), "station_region_id", (gpointer)id);
-
         changed_state_handler(NULL, window);
     }
     if (type_button == COUNTRY){
@@ -1252,6 +1251,9 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     /* create sources list from aviable sources */
     memset(&list, 0, sizeof(struct lists_struct));
     list.sources_list = app->sources_list;
+    list.stations_list = NULL;
+    list.countries_list = NULL;
+    list.regions_list = NULL;
 
     g_object_set_data(G_OBJECT(window), "list", &list);
 

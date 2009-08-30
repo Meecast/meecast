@@ -256,6 +256,7 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
         if (label){
             gtk_widget_destroy(label);
             label = NULL;
+            g_object_set_data(G_OBJECT(temp_button), "label", NULL);
         }
 #endif
         id = get_state_code(g_object_get_data(G_OBJECT(window), "station_source"), name);
@@ -273,6 +274,7 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
         if (label){
             gtk_widget_destroy(label);
             label = NULL;
+            g_object_set_data(G_OBJECT(temp_button), "label", NULL);
         }
 #endif
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "region_button");
@@ -1274,9 +1276,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     changed_country_handler(NULL, window);
     changed_state_handler(NULL, window);
 
-
     main_table = gtk_table_new(8, 8, FALSE);
-
 
     left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(left_alignmnet, 5, -1);
@@ -1543,8 +1543,8 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
     g_object_set_data(G_OBJECT(button), "station_source", (gpointer)station_source_s);
     g_object_set_data(G_OBJECT(button), "station_country", (gpointer)station_country_s);
     g_object_set_data(G_OBJECT(button), "station_region", (gpointer)station_region_s);
-    g_object_set_data(G_OBJECT(button), "station_country_id", (gpointer)country_id);
-    g_object_set_data(G_OBJECT(button), "station_region_id", (gpointer)region_id);
+    g_object_set_data(G_OBJECT(button), "station_country_id", GINT_TO_POINTER(country_id));
+    g_object_set_data(G_OBJECT(button), "station_region_id", GINT_TO_POINTER(region_id));
     if (is_gps)
         g_object_set_data(G_OBJECT(button), "station_is_gps", (gpointer)1);
     else
@@ -1575,8 +1575,8 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
                     *station_source = NULL,
                     *station_country = NULL,
                     *station_region = NULL;
-    gint            station_country_id,
-                    station_region_id;
+    gint            station_country_id = 0,
+                    station_region_id = 0;
     GtkListStore    *allinformation_list = NULL;
     gint            station_number = 0;
 #ifdef DEBUGFUNCTIONCALL

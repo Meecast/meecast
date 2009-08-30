@@ -104,6 +104,7 @@ create_regions_list(sqlite3 *database, int country_id, int *region_count){
         region_count = 0;
         return NULL;
     }
+
     if(!database)
         return NULL;    /* database doesn't open */
     list = gtk_list_store_new(6, G_TYPE_STRING, G_TYPE_INT, G_TYPE_DOUBLE, G_TYPE_DOUBLE, 
@@ -472,26 +473,30 @@ regions_callback(void *user_data, int argc, char **argv, char **azColName){
             gtk_list_store_set(list, &iter, 1, atoi(argv[i]), -1);
         if(!strcmp(azColName[i], "name"))
             gtk_list_store_set(list, &iter, 0, argv[i], -1);
-        if(!strcmp(azColName[i], "longititudemax"))
+        if(!strcmp(azColName[i], "longititudemax")){
             if (argv[i])
                 gtk_list_store_set(list, &iter, 2, atof(argv[i]), -1);
             else
                 gtk_list_store_set(list, &iter, 2, 0, -1);
-        if(!strcmp(azColName[i], "latitudemax"))
+        }
+        if(!strcmp(azColName[i], "latitudemax")){
             if (argv[i])
                 gtk_list_store_set(list, &iter, 3, atof(argv[i]), -1);
             else
                 gtk_list_store_set(list, &iter, 3, 0, -1);
-        if(!strcmp(azColName[i], "longititudemin"))
+        }
+        if(!strcmp(azColName[i], "longititudemin")){
             if (argv[i])
                 gtk_list_store_set(list, &iter, 4, atof(argv[i]), -1);
             else
                 gtk_list_store_set(list, &iter, 4, 0, -1);
-        if(!strcmp(azColName[i], "latitudemin"))
+        }
+        if(!strcmp(azColName[i], "latitudemin")){
             if (argv[i])
                 gtk_list_store_set(list, &iter, 5, atof(argv[i]), -1);
             else
                 gtk_list_store_set(list, &iter, 5, 0, -1);
+        }
     }
     setlocale(LC_NUMERIC, "");
 #ifdef DEBUGFUNCTIONCALL
@@ -516,11 +521,12 @@ stations_callback(void *user_data, int argc, char **argv, char **azColName){
             gtk_list_store_set(list, &iter, 0, argv[i], -1);
         if(!strcmp(azColName[i], "code"))
             gtk_list_store_set(list, &iter, 1, argv[i], -1);
-        if(!strcmp(azColName[i], "longititude"))
+        if(!strcmp(azColName[i], "longititude")){
             if (argv[i])
                 gtk_list_store_set(list, &iter, 2, atof(argv[i]), -1);
             else 
                 gtk_list_store_set(list, &iter, 2, 0, -1);
+        }
         if(!strcmp(azColName[i], "latitude")){
             if (argv[i])
                 gtk_list_store_set(list, &iter, 3, atof(argv[i]), -1);

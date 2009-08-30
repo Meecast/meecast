@@ -192,6 +192,7 @@ source_library_valid(GHashTable *data, GSList **handles){
 #endif
     if(!data)
         return FALSE;
+    memset(buffer, 0, sizeof(buffer));
     /* check libomweather-xxx-source.so file */
     value = g_hash_table_lookup(data, "library");
     if(!value)/* library file does not defined */

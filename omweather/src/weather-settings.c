@@ -111,10 +111,12 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
     if(!list)
         return;
+
     /* clear regions list */
     if(list->regions_list){
         gtk_list_store_clear(list->regions_list);
         g_object_unref(list->regions_list);
+        list->regions_list = NULL;
     }
 
     /* clear stations list */
@@ -270,6 +272,7 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
         if(list->regions_list){
             gtk_list_store_clear(list->regions_list);
             g_object_unref(list->regions_list);
+            list->regions_list = NULL;
         }
         /* clear stations list */
         if(list->stations_list){

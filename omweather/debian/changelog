@@ -1,13 +1,15 @@
 omweather (0.24.3) unstable; urgency=low
 
   * Various minor fixes
+  * Fixed bug #4748 "omweather asks me to reboot my device on every update" for Fremantle
+  * Updated German translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 25 Aug 2009 09:40:10 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 02 Sep 2009 11:20:10 +0200
 
 omweather (0.24.2) unstable; urgency=low
 
   * Various minor fixes
-  * Fixed bug #4971 ""Wrong station code or ZIP code!!" warning when  installing"
+  * Fixed bug #4971 ""Wrong station code or ZIP code!!" warning when installing"
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 24 Aug 2009 19:40:10 +0200
 

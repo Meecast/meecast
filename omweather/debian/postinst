@@ -1,10 +1,10 @@
 #! /bin/sh
 
 if test -f /usr/share/applications/hildon-home/omweather-home.desktop ; then
-    	rm  -f /usr/share/applications/hildon-home/omweather-home.desktop
-	sleep 2
+    rm  -f /usr/share/applications/hildon-home/omweather-home.desktop
+    sleep 2
 fi
- 
+
 if test ! -f  /usr/share/applications/hildon-home/omweather-home.desktop ; then
    cp /usr/share/omweather/omweather-home.desktop /usr/share/applications/hildon-home/omweather-home.desktop
 fi
@@ -15,32 +15,6 @@ gtk-update-icon-cache -f /usr/share/icons/hicolor
 #if first installation then exit
 if [ -z "$2" ]; then
     exit 0
-fi
-#For OS2008
-test -x /usr/bin/maemo-confirm-text || exit 0
-
-if  test -f "/etc/osso_software_version" && grep \\. "/etc/osso_software_version" > /dev/null ; then 
-    if   [ `awk -F . '{print $2}'  "/etc/osso_software_version"` = "2007" ] && test -x /sbin/mcetool ; then
-        # Reboot
-	cat <<EOF > /tmp/request-reboot.txt
-In order to complete plugin upgrade the device must be rebooted.
-Do you want to reboot now?
-EOF
-	
-	maemo-confirm-text "Reboot is needed" /tmp/request-reboot.txt
-	
-	if [ $? == 0 ]; then
-	    ( sleep 6 ; mcetool --reboot ) &
-	fi
-    else
-	#Not reboot
-	cat <<EOF > /tmp/request-reboot.txt
-In order to complete plugin upgrade the device must be rebooted.
-Do not forget to reboot the device after update OMWeather.
-EOF
-
-         maemo-confirm-text "Reboot is needed" /tmp/request-reboot.txt
-    fi
 fi
 
 

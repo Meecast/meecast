@@ -1,5 +1,5 @@
 Source: omweather-icons-contour
-Section: user/accessories
+Section: user/desktop
 Priority: optional
 Maintainer: Vlad Vasiliev <vlad@gas.by>
 Build-Depends: 

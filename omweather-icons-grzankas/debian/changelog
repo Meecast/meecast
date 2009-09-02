@@ -1,3 +1,9 @@
+omweather-icons-grzankas (0.3) unstable; urgency=low
+
+  * Changed Section in deb package
+  
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 16 May 2007 13:11:23 +0200
+
 omweather-icons-grzankas (0.2) unstable; urgency=low
 
   * Rename 09.png to 9.png

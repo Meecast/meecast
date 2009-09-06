@@ -16,7 +16,7 @@ url = 'http://foreca.com/Europe/%s/browse?bl=%s'
 c = db.connect(database=r"./gismeteo.ru.db")
 cu = c.cursor()
 
-country_name = "Andorra"
+country_name = "Armenia"
 #Search  bad stations
 cur = cu.execute("select distinct substr(name,1,1) from stations where region_id = (select id from countries where name= '%s') and name == russian_name order by name" % country_name)
 
@@ -47,7 +47,7 @@ for row in myrow:
         name_href = href.split('/')
         name = name_href[2].replace("'","")
         russian_name = anchor.content.replace("'","")
-#        print name ,"-", russian_name
+        print name ,"-", russian_name
         cur = cu.execute('update  stations set name="%s" where russian_name="%s" and name = "%s" and region_id = (select id from countries where name= "%s")' % (name, russian_name, russian_name, country_name))
         c.commit()
 

@@ -29,7 +29,7 @@ for country_name in countries:
     print country_name
 
     #Search  bad stations
-    cur = cu.execute("select distinct substr(name,1,1) from stations where region_id = (select id from regions where name= '%s') and name == russian_name order by name" % country_name)
+    cur = cu.execute("select distinct substr(name,1,1) from stations where region_id = (select id from regions where name= \"%s\") and name == russian_name order by name" % country_name)
 
     myrow = []
     for row in cur:

@@ -16,7 +16,7 @@ url = 'http://foreca.com/Europe/%s/browse?bl=%s'
 c = db.connect(database=r"./gismeteo.ru.db")
 cu = c.cursor()
 
-country_name = "Finland"
+country_name = "Afghanistan"
 #Search  bad stations
 cur = cu.execute("select distinct substr(name,1,1) from stations where region_id = (select id from countries where name= '%s') and name == russian_name order by name" % country_name)
 

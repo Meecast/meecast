@@ -19,5 +19,6 @@
     g_hash_table_insert(hash, "noch_malo.gif clean.gif", "29");
     g_hash_table_insert(hash, "noch_pasmurno.gif groza.gif", "0");
     g_hash_table_insert(hash, "noch_obl.gif dozhd_nebol.gif", "45");
+    g_hash_table_insert(hash, "noch_pasmurno.gif sneg_nebol.gif", "13");
 
 

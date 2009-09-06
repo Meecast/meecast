@@ -16,47 +16,59 @@ url = 'http://foreca.com/Europe/%s/browse?bl=%s'
 c = db.connect(database=r"./gismeteo.ru.db")
 cu = c.cursor()
 
-country_name = "Belgium"
-#Search  bad stations
-cur = cu.execute("select distinct substr(name,1,1) from stations where region_id = (select id from regions where name= '%s') and name == russian_name order by name" % country_name)
+cur = cu.execute("select name from regions")
 
-myrow = []
+countries = []
 for row in cur:
-    myrow += [row[0]]
+    countries += [row[0]]
 c.commit()
 
-letter = ""
-# Main cicle
-for row in myrow:
-    letter = row.encode('utf8')[0]
-    letter = letter + row.encode('utf8')[1]
-    req = urllib2.Request(url % (country_name, letter), None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
-    page = urllib2.urlopen(req)
+for country_name in countries:
 
-    fileToSave = page.read()
-    oFile = open(r"./%s%s.html"%(country_name, letter),'wb')
-    oFile.write(fileToSave)
-    oFile.close
+    country_name =country_name.encode('utf8')
+    print country_name
 
-    #parse xml file
-    doc = libxml2.htmlReadFile(r"./%s%s.html" % (country_name,letter), "UTF-8", libxml2.HTML_PARSE_RECOVER)
-    ctxt = doc.xpathNewContext()
-    anchors = ctxt.xpathEval("//div/dl/dd/a")
-    for anchor in anchors:
-        href = anchor.prop("href")
-        name_href = href.split('/')
-        name = name_href[2].replace("'","")
-        russian_name = anchor.content.replace("'","")
-        print name ,"-", russian_name
-        cur = cu.execute('update  stations set name="%s" where russian_name="%s" and name = "%s" and region_id = (select id from regions where name= "%s")' % (name, russian_name, russian_name, country_name))
-        c.commit()
+    #Search  bad stations
+    cur = cu.execute("select distinct substr(name,1,1) from stations where region_id = (select id from regions where name= '%s') and name == russian_name order by name" % country_name)
 
-
-
-    doc.freeDoc()
-    os.remove(r"./%s%s.html" % (country_name, letter))
+    myrow = []
+    for row in cur:
+        myrow += [row[0]]
+    c.commit()
 
     letter = ""
+    # Main cicle
+    for row in myrow:
+        letter = row.encode('utf8')[0]
+        letter = letter + row.encode('utf8')[1]
+        print letter
+        req = urllib2.Request(url % (country_name, letter), None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
+        page = urllib2.urlopen(req)
+
+        fileToSave = page.read()
+        oFile = open(r"./%s%s.html"%(country_name, letter),'wb')
+        oFile.write(fileToSave)
+        oFile.close
+
+        #parse xml file
+        doc = libxml2.htmlReadFile(r"./%s%s.html" % (country_name,letter), "UTF-8", libxml2.HTML_PARSE_RECOVER)
+        ctxt = doc.xpathNewContext()
+        anchors = ctxt.xpathEval("//div/dl/dd/a")
+        for anchor in anchors:
+            href = anchor.prop("href")
+            name_href = href.split('/')
+            name = name_href[2].replace("'","")
+            russian_name = anchor.content.replace("'","")
+            print name ,"-", russian_name
+            cur = cu.execute('update  stations set name="%s" where russian_name="%s" and name = "%s" and region_id = (select id from regions where name= "%s")' % (name, russian_name, russian_name, country_name))
+            c.commit()
+
+
+
+        doc.freeDoc()
+        os.remove(r"./%s%s.html" % (country_name, letter))
+
+        letter = ""
 
 
 c.close()

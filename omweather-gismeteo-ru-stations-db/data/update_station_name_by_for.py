@@ -23,7 +23,6 @@ cur = cu.execute("select name from stations where region_id = (select id from co
 myrow = []
 for row in cur:
     myrow += [row[0]]
-    print row[0]
 c.commit()
 
 letter = ""
@@ -35,11 +34,23 @@ for row in myrow:
     page = urllib2.urlopen(req)
 
     fileToSave = page.read()
-    oFile = open(r"./finland%s.html"%letter,'wb')
+    oFile = open(r"./%s%s.html"%(country_name, letter),'wb')
     oFile.write(fileToSave)
     oFile.close
-    letter = ""
 
+    #parse xml file
+    doc = libxml2.htmlReadFile(r"./%s%s.html" % (country_name,letter), "UTF-8", libxml2.HTML_PARSE_RECOVER)
+    ctxt = doc.xpathNewContext()
+    anchors = ctxt.xpathEval("//div/dl/dd/a")
+    for anchor in anchors:
+        href = anchor.prop("href")
+        print href
+        print anchor.content
+
+    doc.freeDoc()
+    os.remove(r"./%s%s.html" % (country_name, letter))
+
+    letter = ""
 
 
 c.close()

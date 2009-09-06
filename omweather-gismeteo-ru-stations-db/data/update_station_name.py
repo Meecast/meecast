@@ -20,6 +20,11 @@ fileToSave = page.read()
 oFile = open(r"./finland.html",'wb')
 oFile.write(fileToSave)
 oFile.close
+
+#connect to database
+c = db.connect(database=r"./gismeteo.ru.db")
+cu = c.cursor()
+
 #parse xml file
 doc = libxml2.htmlReadFile(r"./finland.html" , "UTF-8", libxml2.HTML_PARSE_RECOVER)
 ctxt = doc.xpathNewContext()
@@ -50,6 +55,9 @@ for stroka in string.split(text, "\n"):
   if (count_of_row >4):
       count_of_row = 1
       print russian_name,"-", name
+      sql_string = 'update  stations set name="%s" where russian_name="%s"'  % (name, russian_name)
+      cu.execute(sql_string)
+      c.commit()
 
-#            print a.search(href).group()
 
+c.close()

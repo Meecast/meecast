@@ -199,7 +199,7 @@ void fill_user_stations_list(GSList * source_list, GtkListStore ** list) {
                 station_source = g_strdup("weather.com");
             }
 
-	    fprintf(stderr,"%s : %s : %s \n", station_code, station_name, station_source );
+           fprintf(stderr,"%s : %s : %s \n", station_code, station_name, station_source );
 #ifdef ENABLE_GPS
             /* gps or manual station */
             temp4 = strtok(NULL, "@");

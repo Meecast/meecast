@@ -244,16 +244,16 @@ changed_stations_handler(GtkWidget *widget, gpointer user_data){
 /*******************************************************************************/
 void
 changed_sources_handler(GtkWidget *widget, gpointer user_data){
-    struct lists_struct	*list = NULL;
-    GtkWidget		*config = GTK_WIDGET(user_data),
-			*search_entry = NULL;
-    GtkTreeModel	*model = NULL;
-    GtkTreeIter		iter;
-    GHashTable		*source = NULL;
-    gpointer		value = NULL;
+    struct lists_struct *list = NULL;
+    GtkWidget           *config = GTK_WIDGET(user_data),
+                        *search_entry = NULL;
+    GtkTreeModel        *model = NULL;
+    GtkTreeIter         iter;
+    GHashTable          *source = NULL;
+    gpointer            value = NULL;
     gchar *control_name = NULL;
 #ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
+    START_FUNCTION; 
 #endif
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
 
@@ -301,8 +301,8 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
                     gtk_widget_set_sensitive(search_entry, FALSE);
             }
         }else{
-            if(g_object_get_data(G_OBJECT(config), "current_source"))
-                source = get_source_hash(list->sources_list, g_object_get_data(G_OBJECT(config), "current_source"));
+            if(g_object_get_data(G_OBJECT(config), "station_source"))
+                source = get_source_hash(list->sources_list, g_object_get_data(G_OBJECT(config), "station_source"));
             else
                 source = get_first_source_hash(list->sources_list);
         }

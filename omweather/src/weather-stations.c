@@ -141,9 +141,16 @@ create_stations_list(sqlite3 *database, int region_id){
     gint                rc;
     gchar               *errMsg = NULL,
                         sql[256];
+    char *lang;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    if(!(lang = getenv("LC_ALL")))
+          if(!(lang = getenv("LC_MESSAGES")))
+                  lang = getenv("LANG");
+
+    fprintf(stderr,"Locale %s\n",lang);
     if(!database || region_id == 0 || region_id == -1)
         return NULL;/* database doesn't open */
     list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_DOUBLE,

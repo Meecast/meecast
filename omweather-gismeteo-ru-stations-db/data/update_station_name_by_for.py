@@ -42,16 +42,18 @@ for country_name in countries:
         letter = row.encode('utf8')[0]
         letter = letter + row.encode('utf8')[1]
         print letter
-        req = urllib2.Request(url % (country_name, letter), None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
+        country_name_url = country_name.replace(" ","_")
+        print         country_name
+        req = urllib2.Request(url % (country_name_url, letter), None, {'User-agent': 'Mozilla/5.0', 'Accept-Language':'ru'})
         page = urllib2.urlopen(req)
 
         fileToSave = page.read()
-        oFile = open(r"./%s%s.html"%(country_name, letter),'wb')
+        oFile = open(r"./%s%s.html"%(country_name_url, letter),'wb')
         oFile.write(fileToSave)
         oFile.close
 
         #parse xml file
-        doc = libxml2.htmlReadFile(r"./%s%s.html" % (country_name,letter), "UTF-8", libxml2.HTML_PARSE_RECOVER)
+        doc = libxml2.htmlReadFile(r"./%s%s.html" % (country_name_url,letter), "UTF-8", libxml2.HTML_PARSE_RECOVER)
         ctxt = doc.xpathNewContext()
         anchors = ctxt.xpathEval("//div/dl/dd/a")
         for anchor in anchors:
@@ -66,7 +68,7 @@ for country_name in countries:
 
 
         doc.freeDoc()
-        os.remove(r"./%s%s.html" % (country_name, letter))
+        os.remove(r"./%s%s.html" % (country_name_url, letter))
 
         letter = ""
 

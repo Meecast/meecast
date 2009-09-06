@@ -16,7 +16,7 @@ url = 'http://foreca.com/Europe/%s/browse?bl=%s'
 c = db.connect(database=r"./gismeteo.ru.db")
 cu = c.cursor()
 
-country_name = "Afghanistan"
+country_name = "Andorra"
 #Search  bad stations
 cur = cu.execute("select distinct substr(name,1,1) from stations where region_id = (select id from countries where name= '%s') and name == russian_name order by name" % country_name)
 
@@ -44,9 +44,11 @@ for row in myrow:
     anchors = ctxt.xpathEval("//div/dl/dd/a")
     for anchor in anchors:
         href = anchor.prop("href")
-        name = href.split('/')
-#        print name[2] ,"-", anchor.content
-        cur = cu.execute('update  stations set name="%s" where russian_name="%s" and name = "%s" and region_id = (select id from countries where name= "%s")' % (name, anchor.content, anchor.content, country_name))
+        name_href = href.split('/')
+        name = name_href[2].replace("'","")
+        russian_name = anchor.content.replace("'","")
+#        print name ,"-", russian_name
+        cur = cu.execute('update  stations set name="%s" where russian_name="%s" and name = "%s" and region_id = (select id from countries where name= "%s")' % (name, russian_name, russian_name, country_name))
         c.commit()
 
 

@@ -348,7 +348,7 @@ clear_station(GtkWidget *window){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
- 
+
     dialog_window = gtk_dialog_new_with_buttons(_("Warning"), NULL,
             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
     label = gtk_label_new(_("Are you sure?"));

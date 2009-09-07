@@ -1,3 +1,9 @@
+omweather (0.24.4) unstable; urgency=low
+
+  * Various minor fixes
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 17 Sep 2009 11:20:10 +0200
+
 omweather (0.24.3) unstable; urgency=low
 
   * Various minor fixes

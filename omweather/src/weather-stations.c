@@ -44,6 +44,9 @@ sqlite3*
 open_database(const char *path, const char *filename){
     sqlite3     *db = NULL;
     gchar       name[256];
+    gint        rc;
+    gchar       *errMsg = NULL;
+    gchar       *lang = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -51,15 +54,42 @@ open_database(const char *path, const char *filename){
         return NULL;
     *name = 0;
     snprintf(name, sizeof(name) - 1, "%s%s", path, filename);
-    if(sqlite3_open(name, &db)){
+    if(sqlite3_open_v2(name, &db, SQLITE_OPEN_READONLY, NULL)){
         fprintf(stderr,"Error in connection to database %s\n",sqlite3_errmsg(db));
         return NULL;   /* error */
+    }else{
+          /* Choose russian_name field for gismeteo.ru */
+          if (!strcmp(filename,"gismeteo.ru.db")){
+              if(!(lang = getenv("LC_ALL")))
+                  if(!(lang = getenv("LC_MESSAGES")))
+                      lang = getenv("LANG");
+
+              if (lang && !strcmp(lang, "ru_RU"))
+                  rc = sqlite3_exec(db, "CREATE TEMP VIEW nstations AS SELECT russian_name as name, id, region_id, longititude, latitude, code  FROM stations",
+                        NULL, NULL, &errMsg);
+              else
+                  rc = sqlite3_exec(db, "CREATE TEMP VIEW nstations AS SELECT * FROM stations where russian_name != name",
+                        NULL, NULL, &errMsg);
+          }else{
+
+              rc = sqlite3_exec(db, "CREATE TEMP VIEW nstations AS SELECT * FROM stations",
+                        NULL, NULL, &errMsg);
+          }
+          if(rc != SQLITE_OK){
+              fprintf(stderr, "Problem %s\n", errMsg);
+              sqlite3_free(errMsg);
+          }
+
     }
     return db;
 }
 /*******************************************************************************/
 void
 close_database(sqlite3 *database){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
     if(database)
         sqlite3_close(database);
 }
@@ -141,23 +171,18 @@ create_stations_list(sqlite3 *database, int region_id){
     gint                rc;
     gchar               *errMsg = NULL,
                         sql[256];
-    char *lang;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(!(lang = getenv("LC_ALL")))
-          if(!(lang = getenv("LC_MESSAGES")))
-                  lang = getenv("LANG");
 
-    fprintf(stderr,"Locale %s\n",lang);
     if(!database || region_id == 0 || region_id == -1)
         return NULL;/* database doesn't open */
     list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_DOUBLE,
                                 G_TYPE_DOUBLE);
     *sql = 0;
     snprintf(sql, sizeof(sql) - 1,
-        "SELECT name, code, longititude, latitude FROM stations WHERE \
+        "SELECT name, code, longititude, latitude FROM nstations WHERE \
         region_id = %d ORDER BY name", region_id);
     rc = sqlite3_exec(database, sql, stations_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
@@ -186,11 +211,11 @@ get_all_information_callback(void *user_data, int argc, char **argv, char **azCo
     for(i = 0; i < argc; i++){
         if(!strcmp(azColName[i], "cname"))
             gtk_list_store_set(list, &iter, 0, argv[i], -1);
-        if(!strcmp(azColName[i], "name"))
+        if(!strcmp(azColName[i], "rname"))
             gtk_list_store_set(list, &iter, 1, argv[i], -1);
         if(!strcmp(azColName[i], "cid"))
             gtk_list_store_set(list, &iter, 2, atoi(argv[i]), -1);
-        if(!strcmp(azColName[i], "region_id"))
+        if(!strcmp(azColName[i], "rid"))
             gtk_list_store_set(list, &iter, 3, atoi(argv[i]), -1);
     }
 #ifdef DEBUGFUNCTIONCALL
@@ -215,9 +240,9 @@ get_all_information_about_station(gchar *source, gchar *station_code){
     if (!database)
         return NULL;
     list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT);
-    snprintf(sql, sizeof(sql) - 1, "Select countries.name as cname, regions.name, countries.id as cid, \
-                                    stations.region_id from stations,regions,countries \
-                                    where stations.code='%s' and stations.region_id=regions.id and \
+    snprintf(sql, sizeof(sql) - 1, "Select countries.name as cname, regions.name as rname, countries.id as cid, \
+                                    nstations.region_id as rid from nstations,regions,countries \
+                                    where nstations.code='%s' and nstations.region_id=regions.id and \
                                     regions.country_id=countries.id and countries.id=regions.country_id",
                                     station_code);
     rc = sqlite3_exec(database, sql, get_all_information_callback, (void*)list, &errMsg);
@@ -330,7 +355,7 @@ get_station_code(gchar *source, gint region_id, gchar *station_name){
         return NULL;
     list = gtk_list_store_new(1, G_TYPE_STRING);
     /* Correct SQL */
-    snprintf(sql, sizeof(sql) - 1, "Select code from stations \
+    snprintf(sql, sizeof(sql) - 1, "Select code from nstations \
                                     where name='%s' and region_id='%i'", station_name, region_id);
     rc = sqlite3_exec(database, sql, get_station_code_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
@@ -364,10 +389,10 @@ search_station_in_database(sqlite3 *database, char *code_name){
     list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_STRING,
               G_TYPE_STRING);
     snprintf(sql, sizeof(sql) - 1,
-        "SELECT stations.name, sources.code, regions.name AS region_name, \
-        countries.name AS country_name FROM stations JOIN sources,regions, \
-        countries ON stations.id = sources.station_id AND stations.region_id \
-        = regions.id AND regions.country_id = countries.id WHERE stations.name \
+        "SELECT nstations.name, sources.code, regions.name AS region_name, \
+        countries.name AS country_name FROM nstations JOIN sources,regions, \
+        countries ON nstations.id = sources.station_id AND nstations.region_id \
+        = regions.id AND regions.country_id = countries.id WHERE nstations.name \
         LIKE('%s%%') OR sources.code LIKE('%s%%')",
         code_name, code_name);
     rc = sqlite3_exec(database, sql, search_callback, (void*)list, &errMsg);

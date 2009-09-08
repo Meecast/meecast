@@ -43,7 +43,7 @@ struct request_data{
 sqlite3*
 open_database(const char *path, const char *filename){
     sqlite3     *db = NULL;
-    gchar       name[256];
+    gchar       name[4096];
     gint        rc;
     gchar       *errMsg = NULL;
     gchar       *lang = NULL;
@@ -54,7 +54,15 @@ open_database(const char *path, const char *filename){
         return NULL;
     *name = 0;
     snprintf(name, sizeof(name) - 1, "%s%s", path, filename);
+#ifdef OS2009
     if(sqlite3_open_v2(name, &db, SQLITE_OPEN_READONLY, NULL)){
+#else
+    if(access(name, R_OK)){  /* Not Access to db file */
+        fprintf(stderr, "Error in path %s\n", name);
+        return NULL;
+    }
+    if(sqlite3_open(name, &db)){
+#endif
         fprintf(stderr,"Error in connection to database %s\n",sqlite3_errmsg(db));
         return NULL;   /* error */
     }else{

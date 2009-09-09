@@ -128,7 +128,7 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        vbox, TRUE, TRUE, 0);
 
-    gtk_dialog_add_button (GTK_DIALOG(window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
+    gtk_dialog_add_button (GTK_DIALOG(window), _("Save"), GTK_RESPONSE_YES);
     gtk_widget_show_all(window);
     result = gtk_dialog_run(GTK_DIALOG(window));
     if(result == GTK_RESPONSE_YES)
@@ -916,7 +916,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 20, 0 );
 
-    gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
+    gtk_dialog_add_button (GTK_DIALOG (window), _("Save"), GTK_RESPONSE_YES);
     gtk_widget_show_all(window);
     /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(window));
@@ -1170,7 +1170,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 20, 0 );
 
-    gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
+    gtk_dialog_add_button (GTK_DIALOG (window), _("Save"), GTK_RESPONSE_YES);
     gtk_widget_show_all(window);
 
     /* start dialog window */
@@ -1413,8 +1413,8 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
 //    gtk_dialog_add_button(GTK_DIALOG(window), GTK_STOCK_FIND, GTK_RESPONSE_OK);
-    gtk_dialog_add_button(GTK_DIALOG(window), GTK_STOCK_CLEAR, GTK_RESPONSE_NO);
-    gtk_dialog_add_button(GTK_DIALOG(window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
+    gtk_dialog_add_button(GTK_DIALOG(window), _("Clear"), GTK_RESPONSE_NO);
+    gtk_dialog_add_button(GTK_DIALOG(window), _("Save"), GTK_RESPONSE_YES);
 
     gtk_widget_show_all(window);
     /* start dialog window */
@@ -1988,7 +1988,7 @@ weather_simple_window_settings(gpointer user_data){
 
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
-    gtk_dialog_add_button (GTK_DIALOG (window), GTK_STOCK_SAVE, GTK_RESPONSE_YES);
+    gtk_dialog_add_button (GTK_DIALOG (window), _("Save"), GTK_RESPONSE_YES);
 
     gtk_widget_show(main_table);
 

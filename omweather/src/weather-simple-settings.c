@@ -1239,6 +1239,10 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
               *right_alignmnet      = NULL,
               *gps_button           = NULL;
     GSList    *group                = NULL;
+    gchar     *source               = NULL;
+    GtkTreeIter                     iter;
+    gboolean                        valid;
+
 
 
 /* Prepairing */
@@ -1272,9 +1276,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     g_object_set_data(G_OBJECT(window), "station_box", (gpointer)g_object_get_data(G_OBJECT(button), "station_box"));
     g_object_set_data(G_OBJECT(window), "station_is_gps", (gpointer)g_object_get_data(G_OBJECT(button), "station_is_gps"));
 
-    changed_sources_handler(NULL, window);
-    changed_country_handler(NULL, window);
-    changed_state_handler(NULL, window);
+
 
     main_table = gtk_table_new(8, 8, FALSE);
 
@@ -1351,7 +1353,20 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 0, 0 );
 
     /* Button Source */
-     source_button = create_button(_("Source"),(gchar*)g_object_get_data(G_OBJECT(button), "station_source"),
+    /* Preparing the sources data */
+    source = (gchar*)g_object_get_data(G_OBJECT(button), "station_source");
+
+    if (!source || (source && (!( strcmp(source," ") || strcmp(source,_("Unknown")))))) {
+          valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list.sources_list), &iter);
+          if(valid){
+              gtk_tree_model_get(GTK_TREE_MODEL(list.sources_list), &iter,
+                                                0, &source,
+                                                 -1);
+              g_object_set_data(G_OBJECT(window), "station_source", (gpointer)source);
+        }
+     }
+
+     source_button = create_button(_("Source"),source,
                                    "source_button", "station_source", window);
      g_object_set_data(G_OBJECT(window), "source_button", (gpointer)source_button);
      gtk_table_attach((GtkTable*)main_table, source_button,
@@ -1415,6 +1430,12 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 //    gtk_dialog_add_button(GTK_DIALOG(window), GTK_STOCK_FIND, GTK_RESPONSE_OK);
     gtk_dialog_add_button(GTK_DIALOG(window), _("Clear"), GTK_RESPONSE_NO);
     gtk_dialog_add_button(GTK_DIALOG(window), _("Save"), GTK_RESPONSE_YES);
+
+
+    changed_sources_handler(NULL, window);
+    changed_country_handler(NULL, window);
+    changed_state_handler(NULL, window);
+
 
     gtk_widget_show_all(window);
     /* start dialog window */

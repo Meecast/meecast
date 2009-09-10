@@ -43,7 +43,7 @@ void choose_button_handler(GtkWidget *button, GdkEventButton *event, gpointer us
 void save_station(GtkWidget *window);
 void widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data);
-GtkWidget* create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget);
+GtkWidget* create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget, GtkListStore *list);
 void create_and_fill_units_box(GtkWidget *main_table);
 void create_and_fill_update_box(GtkWidget *main_table);
 void create_and_fill_widget_style_box(GtkWidget *main_table);

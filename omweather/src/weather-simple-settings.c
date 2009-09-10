@@ -259,7 +259,7 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
             g_object_set_data(G_OBJECT(temp_button), "label", NULL);
         }
 #endif
-        id = get_state_code(g_object_get_data(G_OBJECT(window), "station_source"), name);
+        id = get_state_code(g_object_get_data(G_OBJECT(window), "station_source"), (gpointer)name);
         g_object_set_data(G_OBJECT(button), "station_region_id", (gpointer)id);
         g_object_set_data(G_OBJECT(button), "station_region", (gpointer)name);
         g_object_set_data(G_OBJECT(window), "station_region_id", (gpointer)id);
@@ -287,7 +287,7 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
             label = NULL;
         }
 #endif
-        id = get_country_code(g_object_get_data(G_OBJECT(window), "station_source"), name);
+        id = get_country_code(g_object_get_data(G_OBJECT(window), "station_source"), (gpointer)name);
         g_object_set_data(G_OBJECT(button), "station_country_id", (gpointer)id);
         g_object_set_data(G_OBJECT(button), "station_country", (gpointer)name);
         g_object_set_data(G_OBJECT(window), "station_country_id", (gpointer)id);
@@ -1189,29 +1189,96 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 #endif
  }
 /*******************************************************************************/
+#if defined OS2009
+/* This code from Modest */
+gchar *
+picker_print_func (HildonTouchSelector *selector, gpointer userdata)
+{
+    GtkTreeModel *model;
+    GtkTreeIter iter;
+    gchar *text = NULL;
+
+    /* Always pick the selected country from the tree view and
+       never from the entry */
+    model = hildon_touch_selector_get_model (selector, 0);
+    if (hildon_touch_selector_get_selected (selector, 0, &iter)) {
+        gint column;
+        GtkWidget *entry;
+        const gchar *entry_text;
+
+        column = hildon_touch_selector_entry_get_text_column (HILDON_TOUCH_SELECTOR_ENTRY (selector));
+        gtk_tree_model_get (model, &iter, column, &text, -1);
+
+        entry = GTK_WIDGET (hildon_touch_selector_entry_get_entry (HILDON_TOUCH_SELECTOR_ENTRY (selector)));
+        entry_text = hildon_entry_get_text (HILDON_ENTRY (entry));
+        if (entry_text != NULL && text != NULL && strcmp (entry_text, text)) {
+            hildon_entry_set_text (HILDON_ENTRY (entry), text);
+        }
+    }
+    return text;
+}
+
+#endif
+/*******************************************************************************/
 GtkWidget*
-create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget){
+create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget, GtkListStore *list ){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    GtkWidget       *button = NULL;
+    GtkWidget *button = NULL;
+    GtkWidget *selector = NULL;
+    HildonTouchSelectorColumn *column = NULL;
+    GtkTreeIter iter;
+    gchar *element;
+    gboolean    valid;
+    gint position, i;
 /*
                     *label_name,
                     *vertical_box;
 */
+#if defined OS2009
+    button = hildon_picker_button_new (HILDON_SIZE_FINGER_HEIGHT | HILDON_SIZE_AUTO_WIDTH,
+                    HILDON_BUTTON_ARRANGEMENT_VERTICAL);
+    hildon_button_set_title (HILDON_BUTTON (button), name);
+    selector = hildon_touch_selector_entry_new_text();
+    
+    i = 0; 
+    position = 0;
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL (list), &iter);
+    while (valid) {
+        gtk_tree_model_get(GTK_TREE_MODEL(list),
+                                            &iter, 0, &element, -1);
+        hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (selector), element);
+        if (element && value &&  !(strcmp(element,value)))
+             position = i;
+        i++;
+        valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list), &iter);
+    }
+    hildon_touch_selector_set_active(selector, 0, position); 
+                
+    column = hildon_touch_selector_get_column(selector, 0);
+    
+    g_object_set (G_OBJECT (column), "text-column", 0, NULL);
+    hildon_touch_selector_column_set_text_column (column, 0);
+    hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (button),
+                                          HILDON_TOUCH_SELECTOR (selector));
+    hildon_touch_selector_set_print_func (HILDON_TOUCH_SELECTOR (selector), 
+                 (HildonTouchSelectorPrintFunc) picker_print_func);
+#else
     button = create_button_with_2_line_text(name, value, 18, 12);
+    g_signal_connect(G_OBJECT(button), "button-release-event",
+                     G_CALLBACK(choose_button_handler), widget);
+
+#endif
 /*
     g_object_set_data(G_OBJECT(button), "vbox", (gpointer)vertical_box);
     g_object_set_data(G_OBJECT(button), "label", (gpointer)label_name);
 */
     g_object_set_data(G_OBJECT(button), "window", (gpointer)widget);
     g_object_set_data(G_OBJECT(button), parameter_name, (gpointer)value);
-
     gtk_widget_set_name(button, button_name);
     gtk_widget_set_size_request(button, 180, 80);
-    g_signal_connect(G_OBJECT(button), "button-release-event",
-                     G_CALLBACK(choose_button_handler), widget);
-
+ 
     return button;
 }
 /*******************************************************************************/
@@ -1240,7 +1307,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
               *gps_button           = NULL;
     GSList    *group                = NULL;
     gchar     *source               = NULL;
-    GtkTreeIter                     iter;
+    GtkTreeIter                     *iter;
     gboolean                        valid;
 
 
@@ -1359,24 +1426,32 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     if (!source || (source && (!( strcmp(source," ") || strcmp(source,_("Unknown")))))) {
           valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list.sources_list), &iter);
           if(valid){
-              gtk_tree_model_get(GTK_TREE_MODEL(list.sources_list), &iter,
+              gtk_tree_model_get(GTK_TREE_MODEL(list.sources_list), iter,
                                                 0, &source,
                                                  -1);
               g_object_set_data(G_OBJECT(window), "station_source", (gpointer)source);
         }
      }
-
+    
      source_button = create_button(_("Source"),source,
-                                   "source_button", "station_source", window);
+                                   "source_button", "station_source", window, 
+                                   list.sources_list);
      g_object_set_data(G_OBJECT(window), "source_button", (gpointer)source_button);
      gtk_table_attach((GtkTable*)main_table, source_button,
                                 2, 3, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 20, 0 );
 
+    changed_sources_handler(NULL, window);
+    changed_country_handler(NULL, window);
+    changed_state_handler(NULL, window);
+
+
     /* Button Country */
-    country_button = create_button(_("Country"),(gchar*)g_object_get_data(G_OBJECT(button), "station_country"),
-                                   "country_button", "station_country", window);
+    country_button = create_button(_("Country"),
+                                   (gchar*)g_object_get_data(G_OBJECT(button), "station_country"),
+                                   "country_button", "station_country", 
+                                   window, list.countries_list);
     g_object_set_data(G_OBJECT(window), "country_button", (gpointer)country_button);
     gtk_table_attach((GtkTable*)main_table, country_button,
                                 3, 4, 5, 6,
@@ -1384,8 +1459,10 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 (GtkAttachOptions)0, 0, 0 );
 
     /* Button region */
-    region_button = create_button(_("Region"),(gchar*)g_object_get_data(G_OBJECT(button), "station_region"),
-                                   "region_button", "station_region", window);
+    region_button = create_button(_("Region"),
+                                  (gchar*)g_object_get_data(G_OBJECT(button), "station_region"),
+                                  "region_button", "station_region", window, 
+                                  list.regions_list);
     g_object_set_data(G_OBJECT(window), "region_button", (gpointer)region_button);
     gtk_table_attach((GtkTable*)main_table, region_button,
                                 2, 3, 6, 7,
@@ -1393,8 +1470,10 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 (GtkAttachOptions)0, 20, 0 );
 
     /* Button station */
-    station_button = create_button(_("City"),(gchar*)g_object_get_data(G_OBJECT(button), "station_name"),
-                                   "station_button", "station_name", window);
+    station_button = create_button(_("City"),
+                                   (gchar*)g_object_get_data(G_OBJECT(button), "station_name"),
+                                   "station_button", "station_name", window,
+                                   list.stations_list);
     g_object_set_data(G_OBJECT(window), "station_button", (gpointer)station_button);
     gtk_table_attach((GtkTable*)main_table, station_button,
                                 3, 4, 6, 7,
@@ -1431,10 +1510,6 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_dialog_add_button(GTK_DIALOG(window), _("Clear"), GTK_RESPONSE_NO);
     gtk_dialog_add_button(GTK_DIALOG(window), _("Save"), GTK_RESPONSE_YES);
 
-
-    changed_sources_handler(NULL, window);
-    changed_country_handler(NULL, window);
-    changed_state_handler(NULL, window);
 
 
     gtk_widget_show_all(window);

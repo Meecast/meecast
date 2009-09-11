@@ -92,7 +92,13 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
     gchar *control_name = NULL;
     struct lists_struct *list = NULL;
     GtkWidget       *config = GTK_WIDGET(user_data),
-                    *add_button = NULL;
+                    *add_button = NULL,
+                    *temp_button = NULL;
+
+    gpointer            value = NULL;
+    gchar               *element = NULL;
+    gboolean            valid;
+
     GtkTreeModel    *model;
     GtkTreeIter     iter;
     gchar           *country_name = NULL;
@@ -154,6 +160,21 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
             gtk_widget_set_sensitive(GTK_WIDGET(list->states), TRUE);
         }
     }
+#if defined OS2009
+          else{
+              temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(config), "region_button");
+
+              valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL (list->regions_list), &iter);
+              while (valid) {
+                  gtk_tree_model_get(GTK_TREE_MODEL(list->regions_list),
+                                            &iter, 0, &element, -1);
+                  fprintf(stderr, "New element %s\n",element);
+                  hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (hildon_picker_button_get_selector(temp_button)), element);
+                  valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list->regions_list), &iter);
+              }
+          }
+#endif
+
     if(country_name){
         if(app->config->current_country)
             g_free(app->config->current_country);
@@ -170,7 +191,13 @@ changed_state_handler(GtkWidget *widget, gpointer user_data){
     struct lists_struct *list = NULL;
     GtkWidget
           *config     = GTK_WIDGET(user_data),
-          *add_button = NULL;
+          *add_button = NULL,
+          *temp_button = NULL;
+
+    gpointer            value = NULL;
+    gchar               *element = NULL;
+    gboolean            valid;
+
     GtkTreeModel
           *model      = NULL;
     GtkTreeIter  iter;
@@ -209,6 +236,19 @@ changed_state_handler(GtkWidget *widget, gpointer user_data){
     }else{
         state_id  = (gint)g_object_get_data(G_OBJECT(config), "station_region_id");
         list->stations_list = create_stations_list(list->database, state_id);
+#if defined OS2009
+          temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(config), "station_button");
+
+          valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL (list->stations_list), &iter);
+          while (valid) {
+                  gtk_tree_model_get(GTK_TREE_MODEL(list->stations_list),
+                                            &iter, 0, &element, -1);
+                  fprintf(stderr, "New element %s\n",element);
+                  hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (hildon_picker_button_get_selector(temp_button)), element);
+                  valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list->stations_list), &iter);
+          }
+#endif
+
     }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -246,15 +286,18 @@ void
 changed_sources_handler(GtkWidget *widget, gpointer user_data){
     struct lists_struct *list = NULL;
     GtkWidget           *config = GTK_WIDGET(user_data),
+                        *temp_button,
                         *search_entry = NULL;
     GtkTreeModel        *model = NULL;
     GtkTreeIter         iter;
     GHashTable          *source = NULL;
     gpointer            value = NULL;
-    gchar *control_name = NULL;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION; 
-#endif
+    gchar               *element = NULL;
+    gchar               *control_name = NULL;
+    gboolean            valid;
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
 
     if(list){
@@ -282,12 +325,12 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
 
         /* get source data */
         control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(user_data));
+
         if(strcmp("simple_settings_window", control_name) &&
            !gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)){
             list->database_invalid = TRUE;
             return;
         }
-
         /* Get Source */
         if(strcmp("simple_settings_window", control_name)){
             model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
@@ -306,6 +349,7 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
             else
                 source = get_first_source_hash(list->sources_list);
         }
+      fprintf(stderr,",Source %s\n", source);
       /* prepare database name */
       if(source_stations_database_valid(source)){
           value = g_hash_table_lookup(source, "base");
@@ -323,9 +367,27 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
               app->config->current_source =
                   g_strdup(gtk_combo_box_get_active_text(GTK_COMBO_BOX(widget)));
           }
+#if defined OS2009
+          else{
+              temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(config), "country_button");
+
+              valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL (list->countries_list), &iter);
+              while (valid) {
+                  gtk_tree_model_get(GTK_TREE_MODEL(list->countries_list),
+                                            &iter, 0, &element, -1);
+                  fprintf(stderr, "New element %s\n",element);
+                  hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (hildon_picker_button_get_selector(temp_button)), element);
+                  valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list->countries_list), &iter);
+              }
+          }
+#endif
       }else
           list->database_invalid = TRUE;
     }
+//#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+//#endif
+
 }
 /*******************************************************************************/
 void

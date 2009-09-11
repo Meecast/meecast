@@ -191,6 +191,46 @@ row_activated_callback(GtkWidget *tree_view, GtkTreePath *path,
   gtk_tree_model_get(model, &iter, 0, &name, -1);
   list_changed(NULL, user_data, name);
 }
+/*******************************************************************************/
+#if defined OS2009
+/* This code from Modest */
+gchar *
+picker_print_func (HildonTouchSelector *selector, gpointer userdata)
+{
+    GtkTreeModel *model;
+    GtkTreeIter iter;
+    gchar *text = NULL;
+
+    /* Always pick the selected country from the tree view and
+       never from the entry */
+    model = hildon_touch_selector_get_model (selector, 0);
+    if (hildon_touch_selector_get_selected (selector, 0, &iter)) {
+        gint column;
+        GtkWidget *entry;
+        const gchar *entry_text;
+
+        column = hildon_touch_selector_entry_get_text_column (HILDON_TOUCH_SELECTOR_ENTRY (selector));
+        gtk_tree_model_get (model, &iter, column, &text, -1);
+
+        entry = GTK_WIDGET (hildon_touch_selector_entry_get_entry (HILDON_TOUCH_SELECTOR_ENTRY (selector)));
+        entry_text = hildon_entry_get_text (HILDON_ENTRY (entry));
+        if (entry_text != NULL && text != NULL && strcmp (entry_text, text)) {
+            hildon_entry_set_text (HILDON_ENTRY (entry), text);
+        }
+    }
+    return text;
+}
+
+static void
+on_picker_value_changed (HildonPickerButton * button, gpointer user_data)
+{
+  g_print ("Newly selected value: %s\n",
+             hildon_button_get_value (HILDON_BUTTON (button)));
+  list_changed(NULL,  user_data, hildon_button_get_value (HILDON_BUTTON (button)));
+
+}
+#endif
+/*******************************************************************************/
 /******************************************************************************/
 void
 list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
@@ -205,22 +245,28 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
   gchar     *id = NULL;
   enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
   gint type_button = UNKNOWN;
+  GtkWidget *selector = NULL;
+  HildonTouchSelectorColumn *column = NULL;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+  fprintf(stderr, "111111aaaaaaaaaaaaaaaa %s\n",gtk_widget_get_name(GTK_WIDGET(user_data)));
+#if defined OS2009
+    button = user_data;
+#else
     button = (GtkWidget*)g_object_get_data(G_OBJECT(user_data), "button");
+#endif
     label = (GtkWidget*)g_object_get_data(G_OBJECT(button), "label");
     vbox = (GtkWidget*)g_object_get_data(G_OBJECT(button), "vbox");
     window = (GtkWidget*)g_object_get_data(G_OBJECT(button), "window");
-
     if (sel && gtk_tree_selection_get_selected(sel,&model, &iter)){
         gtk_tree_model_get(model, &iter, 0, &name, -1);
     }
+  fprintf(stderr, "111111aaaaaaaaaaaaaaaa %s\n",gtk_widget_get_name(GTK_WIDGET(user_data)));
+  fprintf(stderr, "111111aaaaaaaaaaaaaaaa %s\n",gtk_widget_get_name(GTK_WIDGET(button)));
     if (name){
-#if defined OS2009
-        hildon_button_set_value(HILDON_BUTTON(button), name);
-#else
+#if ! defined OS2009
         if (label){
             gtk_widget_destroy(label);
             label = NULL;
@@ -232,7 +278,9 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
 #endif
         gtk_widget_show(button);
     }
+
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
+    fprintf(stderr, "control name %s\n", control_name);
     if(!strcmp("country_button", control_name))
         type_button = COUNTRY;
     if(!strcmp("source_button", control_name))
@@ -250,7 +298,16 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
     if (type_button == STATE){
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
 #if defined OS2009
-        hildon_button_set_value(HILDON_BUTTON(temp_button), "");
+//        hildon_button_set_value(HILDON_BUTTON(temp_button), "");
+        hildon_picker_button_set_active(temp_button, -1);
+        gtk_widget_destroy(hildon_picker_button_get_selector(temp_button));
+        selector = hildon_touch_selector_entry_new_text();
+        hildon_touch_selector_column_set_text_column (column, 0);
+        hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (temp_button),
+                                          HILDON_TOUCH_SELECTOR (selector));
+        hildon_touch_selector_set_print_func (HILDON_TOUCH_SELECTOR (selector),
+                           (HildonTouchSelectorPrintFunc) picker_print_func);
+
 #else
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
@@ -268,7 +325,16 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
     if (type_button == COUNTRY){
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
 #if defined OS2009
-        hildon_button_set_value(HILDON_BUTTON(temp_button), "");
+//        hildon_button_set_value(HILDON_BUTTON(temp_button), "");
+        hildon_picker_button_set_active(temp_button, -1);
+        gtk_widget_destroy(hildon_picker_button_get_selector(temp_button));
+        selector = hildon_touch_selector_entry_new_text();
+        hildon_touch_selector_column_set_text_column (column, 0);
+        hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (temp_button),
+                                          HILDON_TOUCH_SELECTOR (selector));
+        hildon_touch_selector_set_print_func (HILDON_TOUCH_SELECTOR (selector),
+                           (HildonTouchSelectorPrintFunc) picker_print_func);
+
 #else
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
@@ -279,7 +345,16 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
 #endif
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "region_button");
 #if defined OS2009
-        hildon_button_set_value(HILDON_BUTTON(temp_button), "");
+//        hildon_button_set_value(HILDON_BUTTON(temp_button), "");
+        hildon_picker_button_set_active(temp_button, -1);
+        gtk_widget_destroy(hildon_picker_button_get_selector(temp_button));
+        selector = hildon_touch_selector_entry_new_text();
+        hildon_touch_selector_column_set_text_column (column, 0);
+        hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (temp_button),
+                                          HILDON_TOUCH_SELECTOR (selector));
+        hildon_touch_selector_set_print_func (HILDON_TOUCH_SELECTOR (selector),
+                           (HildonTouchSelectorPrintFunc) picker_print_func);
+
 #else
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
@@ -295,9 +370,19 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
     }
     /* TO DO make all if we will have +1 source */
     if (type_button == SOURCE){
+        fprintf(stderr,"ddddddddddddddd");
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
 #if defined OS2009
-        hildon_button_set_value(HILDON_BUTTON(temp_button), "");
+//        hildon_button_set_value(HILDON_BUTTON(temp_button), "");
+        hildon_picker_button_set_active(temp_button, -1);
+        gtk_widget_destroy(hildon_picker_button_get_selector(temp_button));
+        selector = hildon_touch_selector_entry_new_text();
+        hildon_touch_selector_column_set_text_column (column, 0);
+        hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (temp_button),
+                                          HILDON_TOUCH_SELECTOR (selector));
+        hildon_touch_selector_set_print_func (HILDON_TOUCH_SELECTOR (selector),
+                           (HildonTouchSelectorPrintFunc) picker_print_func);
+
 #else
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
@@ -308,7 +393,16 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
 #endif
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "region_button");
 #if defined OS2009
-        hildon_button_set_value(HILDON_BUTTON(temp_button), "");
+//        hildon_button_set_value(HILDON_BUTTON(temp_button), "");
+        hildon_picker_button_set_active(temp_button, -1);
+        gtk_widget_destroy(hildon_picker_button_get_selector(temp_button));
+        selector = hildon_touch_selector_entry_new_text();
+        hildon_touch_selector_column_set_text_column (column, 0);
+        hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (temp_button),
+                                          HILDON_TOUCH_SELECTOR (selector));
+        hildon_touch_selector_set_print_func (HILDON_TOUCH_SELECTOR (selector),
+                           (HildonTouchSelectorPrintFunc) picker_print_func);
+
 #else
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
@@ -319,7 +413,16 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
 #endif
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "country_button");
 #if defined OS2009
-        hildon_button_set_value(HILDON_BUTTON(temp_button), "");
+//        hildon_button_set_value(HILDON_BUTTON(temp_button), "");
+        hildon_picker_button_set_active(temp_button, -1);
+        gtk_widget_destroy(hildon_picker_button_get_selector(temp_button));
+        selector = hildon_touch_selector_entry_new_text();
+        hildon_touch_selector_column_set_text_column (column, 0);
+        hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (temp_button),
+                                          HILDON_TOUCH_SELECTOR (selector));
+        hildon_touch_selector_set_print_func (HILDON_TOUCH_SELECTOR (selector),
+                           (HildonTouchSelectorPrintFunc) picker_print_func);
+
 #else
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
@@ -332,10 +435,14 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
         g_object_set_data(G_OBJECT(button), "station_source", name);
         changed_sources_handler(NULL, window);
     }
+#if !defined OS2009
     /* Destroy window */
     g_signal_emit_by_name(G_OBJECT(user_data), "close", NULL);
+#endif
 
     user_data = NULL;
+    
+    fprintf(stderr,"11111 %s\n", g_object_get_data(G_OBJECT(window), "station_name"));
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -392,6 +499,7 @@ save_station(GtkWidget *window){
     else
         is_gps = FALSE;
 
+    fprintf(stderr,"sssssssssssss %s\n", g_object_get_data(G_OBJECT(window), "station_name"));
     iter = add_station_to_user_list(g_strdup(g_object_get_data(G_OBJECT(window), "station_name")),
                                       g_strdup(g_object_get_data(G_OBJECT(window), "station_code")),
                                       is_gps,
@@ -445,9 +553,7 @@ save_station(GtkWidget *window){
 
 }
 /*******************************************************************************/
-void
-choose_button_handler(GtkWidget *button, GdkEventButton *event,
-                                    gpointer user_data){
+changing_of_location (GtkWidget *button, gpointer user_data){
     gint                    result;
     gchar                   *control_name = NULL,
                             dialog_name[255];
@@ -464,6 +570,8 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+   g_print ("Newly selected value: %s\n",
+             hildon_button_get_value (HILDON_BUTTON (button)));
 
     *dialog_name = 0;
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
@@ -555,6 +663,12 @@ choose_button_handler(GtkWidget *button, GdkEventButton *event,
     END_FUNCTION;
 #endif
 
+}
+/*******************************************************************************/
+void
+choose_button_handler(GtkWidget *button, GdkEventButton *event,
+                                    gpointer user_data){
+  changing_of_location (button, user_data);
 }
 /*******************************************************************************/
 void
@@ -1188,38 +1302,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
    END_FUNCTION;
 #endif
  }
-/*******************************************************************************/
-#if defined OS2009
-/* This code from Modest */
-gchar *
-picker_print_func (HildonTouchSelector *selector, gpointer userdata)
-{
-    GtkTreeModel *model;
-    GtkTreeIter iter;
-    gchar *text = NULL;
 
-    /* Always pick the selected country from the tree view and
-       never from the entry */
-    model = hildon_touch_selector_get_model (selector, 0);
-    if (hildon_touch_selector_get_selected (selector, 0, &iter)) {
-        gint column;
-        GtkWidget *entry;
-        const gchar *entry_text;
-
-        column = hildon_touch_selector_entry_get_text_column (HILDON_TOUCH_SELECTOR_ENTRY (selector));
-        gtk_tree_model_get (model, &iter, column, &text, -1);
-
-        entry = GTK_WIDGET (hildon_touch_selector_entry_get_entry (HILDON_TOUCH_SELECTOR_ENTRY (selector)));
-        entry_text = hildon_entry_get_text (HILDON_ENTRY (entry));
-        if (entry_text != NULL && text != NULL && strcmp (entry_text, text)) {
-            hildon_entry_set_text (HILDON_ENTRY (entry), text);
-        }
-    }
-    return text;
-}
-
-#endif
-/*******************************************************************************/
 GtkWidget*
 create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget, GtkListStore *list ){
 #ifdef DEBUGFUNCTIONCALL
@@ -1241,13 +1324,14 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
                     HILDON_BUTTON_ARRANGEMENT_VERTICAL);
     hildon_button_set_title (HILDON_BUTTON (button), name);
     selector = hildon_touch_selector_entry_new_text();
-    
+
     i = 0; 
-    position = 0;
+    position = -1;
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL (list), &iter);
     while (valid) {
         gtk_tree_model_get(GTK_TREE_MODEL(list),
                                             &iter, 0, &element, -1);
+        fprintf(stderr, "Element %s\n", element);
         hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (selector), element);
         if (element && value &&  !(strcmp(element,value)))
              position = i;
@@ -1255,15 +1339,18 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list), &iter);
     }
     hildon_touch_selector_set_active(selector, 0, position); 
-                
+
     column = hildon_touch_selector_get_column(selector, 0);
-    
+
     g_object_set (G_OBJECT (column), "text-column", 0, NULL);
     hildon_touch_selector_column_set_text_column (column, 0);
     hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (button),
                                           HILDON_TOUCH_SELECTOR (selector));
     hildon_touch_selector_set_print_func (HILDON_TOUCH_SELECTOR (selector), 
                  (HildonTouchSelectorPrintFunc) picker_print_func);
+    g_signal_connect (G_OBJECT (button), "value-changed",
+                    G_CALLBACK (on_picker_value_changed), button);
+
 #else
     button = create_button_with_2_line_text(name, value, 18, 12);
     g_signal_connect(G_OBJECT(button), "button-release-event",
@@ -1276,6 +1363,7 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
 */
     g_object_set_data(G_OBJECT(button), "window", (gpointer)widget);
     g_object_set_data(G_OBJECT(button), parameter_name, (gpointer)value);
+
     gtk_widget_set_name(button, button_name);
     gtk_widget_set_size_request(button, 180, 80);
  
@@ -1422,17 +1510,20 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     /* Button Source */
     /* Preparing the sources data */
     source = (gchar*)g_object_get_data(G_OBJECT(button), "station_source");
-
-    if (!source || (source && (!( strcmp(source," ") || strcmp(source,_("Unknown")))))) {
+    fprintf(stderr,"uuuuuuuuuuuuuu source 1%s1\n",source);
+    if (!source || ((source && !strcmp(source," ")) || (source && !strcmp(source,_("Unknown"))))) {
+          fprintf(stderr,"ddddddddddddddddddddddd11111111111\n");
           valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list.sources_list), &iter);
+          fprintf(stderr,"qqqqqqqqqqqqqqqqqqqq\n");
           if(valid){
-              gtk_tree_model_get(GTK_TREE_MODEL(list.sources_list), iter,
+              gtk_tree_model_get(GTK_TREE_MODEL(list.sources_list), &iter,
                                                 0, &source,
                                                  -1);
               g_object_set_data(G_OBJECT(window), "station_source", (gpointer)source);
+              fprintf(stderr,"vvvvvvvvvvvvvvv\n");
         }
      }
-    
+
      source_button = create_button(_("Source"),source,
                                    "source_button", "station_source", window, 
                                    list.sources_list);
@@ -1442,6 +1533,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 20, 0 );
 
+    fprintf(stderr,"ddddddddddddddddddddddddddddddddddddddd");
     changed_sources_handler(NULL, window);
     changed_country_handler(NULL, window);
     changed_state_handler(NULL, window);
@@ -1450,7 +1542,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     /* Button Country */
     country_button = create_button(_("Country"),
                                    (gchar*)g_object_get_data(G_OBJECT(button), "station_country"),
-                                   "country_button", "station_country", 
+                                   "country_button", "station_country",
                                    window, list.countries_list);
     g_object_set_data(G_OBJECT(window), "country_button", (gpointer)country_button);
     gtk_table_attach((GtkTable*)main_table, country_button,

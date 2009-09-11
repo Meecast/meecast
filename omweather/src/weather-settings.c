@@ -163,14 +163,15 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
 #if defined OS2009
           else{
               temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(config), "region_button");
-
-              valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL (list->regions_list), &iter);
-              while (valid) {
-                  gtk_tree_model_get(GTK_TREE_MODEL(list->regions_list),
-                                            &iter, 0, &element, -1);
-                  fprintf(stderr, "New element %s\n",element);
-                  hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (hildon_picker_button_get_selector(temp_button)), element);
-                  valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list->regions_list), &iter);
+              if (temp_button){
+                  valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL (list->regions_list), &iter);
+                  while (valid) {
+                      gtk_tree_model_get(GTK_TREE_MODEL(list->regions_list),
+                                                &iter, 0, &element, -1);
+                      fprintf(stderr, "New element0 %s\n",element);
+                      hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (hildon_picker_button_get_selector(HILDON_PICKER_BUTTON (temp_button))), element);
+                      valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list->regions_list), &iter);
+                  }
               }
           }
 #endif
@@ -235,17 +236,19 @@ changed_state_handler(GtkWidget *widget, gpointer user_data){
         }
     }else{
         state_id  = (gint)g_object_get_data(G_OBJECT(config), "station_region_id");
+        fprintf(stderr, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %i\n", state_id);
         list->stations_list = create_stations_list(list->database, state_id);
 #if defined OS2009
           temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(config), "station_button");
-
-          valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL (list->stations_list), &iter);
-          while (valid) {
-                  gtk_tree_model_get(GTK_TREE_MODEL(list->stations_list),
-                                            &iter, 0, &element, -1);
-                  fprintf(stderr, "New element %s\n",element);
-                  hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (hildon_picker_button_get_selector(temp_button)), element);
-                  valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list->stations_list), &iter);
+          if (temp_button){
+              valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL (list->stations_list), &iter);
+              while (valid) {
+                      gtk_tree_model_get(GTK_TREE_MODEL(list->stations_list),
+                                                &iter, 0, &element, -1);
+                      fprintf(stderr, "New element2 %s\n",element);
+                      hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (hildon_picker_button_get_selector(HILDON_PICKER_BUTTON (temp_button))), element);
+                      valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list->stations_list), &iter);
+              }
           }
 #endif
 
@@ -352,6 +355,7 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
       fprintf(stderr,",Source %s\n", source);
       /* prepare database name */
       if(source_stations_database_valid(source)){
+          fprintf (stderr, "kkkkkkkkkkkkkkk\n");
           value = g_hash_table_lookup(source, "base");
           /* open database */
           list->database = open_database(DATABASEPATH, (gchar*)value);
@@ -370,14 +374,15 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
 #if defined OS2009
           else{
               temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(config), "country_button");
-
-              valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL (list->countries_list), &iter);
-              while (valid) {
-                  gtk_tree_model_get(GTK_TREE_MODEL(list->countries_list),
-                                            &iter, 0, &element, -1);
-                  fprintf(stderr, "New element %s\n",element);
-                  hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (hildon_picker_button_get_selector(temp_button)), element);
-                  valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list->countries_list), &iter);
+              if (temp_button){
+                  valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL (list->countries_list), &iter);
+                  while (valid) {
+                      gtk_tree_model_get(GTK_TREE_MODEL(list->countries_list),
+                                                &iter, 0, &element, -1);
+                      fprintf(stderr, "New element1 %s\n",element);
+                      hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (hildon_picker_button_get_selector(HILDON_PICKER_BUTTON (temp_button))), element);
+                      valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list->countries_list), &iter);
+                  }
               }
           }
 #endif

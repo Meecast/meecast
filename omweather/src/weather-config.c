@@ -425,24 +425,30 @@ gint read_config(AppletConfig * config) {
                                                          GCONF_KEY_WEATHER_CURRENT_STATION_ID,
                                                          NULL);
     if (config->current_station_id
-        && strlen(config->current_station_id) == 0)
+        && strlen(config->current_station_id) == 0){
+        g_free(config->current_station_id);
         config->current_station_id = NULL;
+    }
     /* Get Weather current station name. */
     config->current_station_name = NULL;
     config->current_station_name = gconf_client_get_string(gconf_client,
                                                            GCONF_KEY_WEATHER_CURRENT_STATION_NAME,
                                                            NULL);
     if (config->current_station_name
-        && strlen(config->current_station_name) == 0)
+        && strlen(config->current_station_name) == 0){
+        g_free(config->current_station_name);
         config->current_station_name = NULL;
+    }
     /* Get weather current station source */
     config->current_station_source = NULL;
     config->current_station_source = gconf_client_get_string(gconf_client,
                                                   GCONF_KEY_CURRENT_STATION_SOURCE,
                                                   NULL);
     if (config->current_station_source
-        && strlen(config->current_station_source) == 0)
+        && strlen(config->current_station_source) == 0){
+        g_free(config->current_station_source);
         config->current_station_source = NULL;
+    }
     /* Get GPS station name and id */
 #ifdef ENABLE_GPS
     app->gps_station.name[0] = 0;

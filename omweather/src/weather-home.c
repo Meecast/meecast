@@ -2052,9 +2052,9 @@ free_memory(void){
     GtkTreeIter     iter;
     GHashTable      *hashtable = NULL;
     gchar           *source_name;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     /* delete main window */
     if(app->main_window){
         gtk_widget_destroy(app->main_window);

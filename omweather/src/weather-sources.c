@@ -283,6 +283,7 @@ source_stations_database_valid(GHashTable *data){
         *buffer = 0;
         snprintf(buffer, sizeof(buffer) - 1, "%s%s", DATABASEPATH,
                     (gchar*)value);
+        fprintf(stderr, "buffer %s\n", buffer);
         if(access(buffer, R_OK))/* file does not exist or no permissions */
             return FALSE;
     }

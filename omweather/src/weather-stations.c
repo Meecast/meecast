@@ -240,28 +240,35 @@ get_all_information_about_station(gchar *source, gchar *station_code){
     gchar       sql[1024];
     gint        rc;
     GtkListStore    *list = NULL;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     snprintf(buffer, sizeof(buffer) - 1, "%s.db",source);
     database = open_database(DATABASEPATH, buffer);
     if (!database)
         return NULL;
     list = gtk_list_store_new(4, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_INT, G_TYPE_INT);
-    snprintf(sql, sizeof(sql) - 1, "Select countries.name as cname, regions.name as rname, countries.id as cid, \
-                                    nstations.region_id as rid from nstations,regions,countries \
-                                    where nstations.code='%s' and nstations.region_id=regions.id and \
-                                    regions.country_id=countries.id and countries.id=regions.country_id",
+    snprintf(sql, sizeof(sql) - 1, "Select countries.name as cname, regions.name as rname, \
+                                    countries.id as cid, nstations.region_id as rid \
+                                    from nstations,regions,countries \
+                                    where nstations.code='%s' and nstations.region_id=regions.id \
+                                    and regions.country_id=countries.id \
+                                    and countries.id=regions.country_id",
                                     station_code);
     rc = sqlite3_exec(database, sql, get_all_information_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
-#ifndef RELEASE
+//#ifndef RELEASE
       fprintf(stderr, "\n>>>>%s\n", errMsg);
-#endif
+//#endif
         sqlite3_free(errMsg);
+        close_database(database);
         return NULL;
     }
     close_database(database);
+//#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+//#endif
+ 
     return list;
 }
 /*******************************************************************************/

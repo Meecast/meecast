@@ -220,7 +220,7 @@ picker_print_func (HildonTouchSelector *selector, gpointer userdata)
     }
     return text;
 }
-
+/*******************************************************************************/
 static void
 on_picker_value_changed (HildonPickerButton * button, gpointer user_data)
 {
@@ -230,7 +230,6 @@ on_picker_value_changed (HildonPickerButton * button, gpointer user_data)
 
 }
 #endif
-/*******************************************************************************/
 /******************************************************************************/
 void
 list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
@@ -1366,6 +1365,9 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
 
     gtk_widget_set_name(button, button_name);
     gtk_widget_set_size_request(button, 180, 80);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
  
     return button;
 }
@@ -1607,7 +1609,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_widget_show_all(window);
     /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(window));
-
+fprintf(stderr,"ddddddddddddddddddddd\n");
     switch(result){
         case GTK_RESPONSE_YES:
             save_station(window);
@@ -1621,6 +1623,10 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     }
     if(window)
         gtk_widget_destroy(window);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+ 
 }
 /*******************************************************************************/
 void
@@ -1874,6 +1880,7 @@ create_and_fill_units_box(GtkWidget *main_table){
     }
     /* TO DO !!!!!! check memory leak in units_string */
     units_button = create_button_with_2_line_text(_("Units"), units_string, 18, 12);
+    g_free(units_string);
 
     gtk_widget_set_size_request(units_button, 490, 70);
     gtk_table_attach((GtkTable*)main_table, units_button,

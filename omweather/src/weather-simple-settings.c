@@ -1332,6 +1332,10 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
                                             &iter, 0, &element, -1);
         fprintf(stderr, "Element %s\n", element);
         hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (selector), element);
+        if (element){
+            g_free(element);
+            element = NULL;
+        }
         if (element && value &&  !(strcmp(element,value)))
              position = i;
         i++;
@@ -1399,7 +1403,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gchar     *source               = NULL;
     GtkTreeIter                     *iter;
     gboolean                        valid;
-
+    gboolean  free_flag             = FALSE;
 
 
 /* Prepairing */
@@ -1520,8 +1524,9 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
           if(valid){
               gtk_tree_model_get(GTK_TREE_MODEL(list.sources_list), &iter,
                                                 0, &source,
-                                                 -1);
+                                                -1);
               g_object_set_data(G_OBJECT(window), "station_source", (gpointer)source);
+              free_flag = TRUE;
               fprintf(stderr,"vvvvvvvvvvvvvvv\n");
         }
      }
@@ -1609,18 +1614,21 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_widget_show_all(window);
     /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(window));
-fprintf(stderr,"ddddddddddddddddddddd\n");
     switch(result){
         case GTK_RESPONSE_YES:
             save_station(window);
         break;
         default:
         case GTK_RESPONSE_OK:
+            if (source)
+                g_free(source);
+            fprintf(stderr,"dddddddddddddddd\n");
         break;
         case GTK_RESPONSE_NO:
             clear_station(window);
         break;
     }
+    
     if(window)
         gtk_widget_destroy(window);
 #ifdef DEBUGFUNCTIONCALL
@@ -1836,47 +1844,77 @@ void
 create_and_fill_units_box(GtkWidget *main_table){
   GtkWidget         *units_button = NULL;
   gchar             *units_string = NULL;
+  gchar             *temp_string = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     /* temperature */
     if(app->config->temperature_units == CELSIUS)
-        units_string = "C";
+        units_string = g_strdup("C");
     else
-        units_string = "F";
-
+        units_string = g_strdup("F");
     /* distance units */
-    if(app->config->distance_units == METERS)
-        units_string = g_strjoin(", ", units_string, _("m"), NULL);
-        else{
-            if(app->config->distance_units == KILOMETERS)
-                 units_string = g_strjoin(", ", units_string, _("km"), NULL);
+    if(app->config->distance_units == METERS){
+        temp_string = units_string;
+        units_string = g_strjoin(", ", temp_string, _("m"), NULL);
+        g_free(temp_string);
+    }
+    else{
+            if(app->config->distance_units == KILOMETERS){
+                temp_string = units_string;
+                units_string = g_strjoin(", ", temp_string, _("km"), NULL);
+                g_free(temp_string);
+            }
             else{
-               if(app->config->distance_units == MILES)
-                 units_string = g_strjoin(", ", units_string, _("mi"), NULL);
-               else
-                 units_string = g_strjoin(", ", units_string, _("s.mi"), NULL);
+                if(app->config->distance_units == MILES){
+                    temp_string = units_string;
+                    units_string = g_strjoin(", ", temp_string, _("mi"), NULL);
+                    g_free(temp_string);
+                }
+                else{
+                    temp_string = units_string;
+                    units_string = g_strjoin(", ", temp_string, _("s.mi"), NULL);
+                    g_free(temp_string);
+                }
             }
         }
 
     /* wind units */
-    if(app->config->wind_units == METERS_S)
-        units_string = g_strjoin(", ", units_string, _("m/s"), NULL);
+    if(app->config->wind_units == METERS_S){
+        temp_string = units_string;
+        units_string = g_strjoin(", ", temp_string, _("m/s"), NULL);
+        g_free(temp_string);
+    }
     else{
-        if(app->config->wind_units == KILOMETERS_H)
-            units_string = g_strjoin(", ", units_string, _("km/h"), NULL);
-        else
-            units_string = g_strjoin(", ", units_string, _("mi/h"), NULL);
+        if(app->config->wind_units == KILOMETERS_H){
+            temp_string = units_string;
+            units_string = g_strjoin(", ", temp_string, _("km/h"), NULL);
+            g_free(temp_string);
+        }
+        else{
+            temp_string = units_string;
+            units_string = g_strjoin(", ", temp_string, _("mi/h"), NULL);
+            g_free(temp_string);
+        }
     }
 
     /* pressure */
-    if(app->config->pressure_units == MB)
-        units_string = g_strjoin(", ", units_string, _("mb"), NULL);
+    if(app->config->pressure_units == MB){
+        temp_string = units_string;
+        units_string = g_strjoin(", ", temp_string, _("mb"), NULL);
+        g_free(temp_string);
+    }
     else{
-        if(app->config->pressure_units == INCH)
-            units_string = g_strjoin(", ", units_string, _("inch"), NULL);
-        else
-            units_string = g_strjoin(", ", units_string, _("mm"), NULL);
+        if(app->config->pressure_units == INCH){
+            temp_string = units_string;
+            units_string = g_strjoin(", ", temp_string, _("inch"), NULL);
+            g_free(temp_string);
+        }
+        else{
+            temp_string = units_string;
+            units_string = g_strjoin(", ", temp_string, _("mm"), NULL);
+            g_free(temp_string);
+        }
     }
     /* TO DO !!!!!! check memory leak in units_string */
     units_button = create_button_with_2_line_text(_("Units"), units_string, 18, 12);
@@ -1901,36 +1939,47 @@ void
 create_and_fill_update_box(GtkWidget *main_table){
     GtkWidget       *update_button = NULL;
     gchar           *update_string = NULL;
+    gchar           *temp_string = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(app->config->update_interval == 0)
-        update_string = "never";
+        update_string = g_strdup(_("Never"));
     else{
         if(app->config->update_interval == 60)
-            update_string = "1 hour";
+            update_string = g_strdup(_("1 hour"));
         else{
             if(app->config->update_interval == 240)
-                update_string = "4 hours";
+                update_string = g_strdup(_("4 hours"));
             else{
                 if(app->config->update_interval == 1440)
-                    update_string = "1 day";
+                    update_string = g_strdup(_("1 day"));
             }
         }
     }
 
-    if(app->config->update_gsm && app->config->update_wlan)
-        update_string = g_strjoin(", ", update_string, _("GSM+WLAN"), NULL);
+    if(app->config->update_gsm && app->config->update_wlan){
+        temp_string = update_string;
+        update_string = g_strjoin(", ", temp_string, _("GSM+WLAN"), NULL);
+        g_free(temp_string);
+    }
     else{
-        if(app->config->update_gsm)
-            update_string = g_strjoin(", ", update_string, _("GSM"), NULL);
+        if(app->config->update_gsm){
+            temp_string = update_string;
+            update_string = g_strjoin(", ", temp_string, _("GSM"), NULL);
+            g_free(temp_string);
+        }
         else{
-            if(app->config->update_wlan)
+            if(app->config->update_wlan){
+                temp_string = update_string;
                 update_string = g_strjoin(", ", update_string, _("WLAN"), NULL);
+                g_free(temp_string);
+            }
         }
     }
 
     update_button = create_button_with_2_line_text(_("Update"), update_string, 18, 12);
+    g_free(update_string);
 
     gtk_widget_set_size_request(update_button, 490, 70);
     gtk_widget_show (update_button);

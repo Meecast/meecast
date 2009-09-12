@@ -344,6 +344,11 @@ get_state_code(gchar *source, gchar *region_name){
                                       (list), &iter);
     if(valid)
         gtk_tree_model_get(GTK_TREE_MODEL(list), &iter, 0, &rc, -1);
+    if (list){
+        gtk_list_store_clear(list);
+        g_object_unref(list);
+    }
+        
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -378,12 +383,24 @@ get_station_code(gchar *source, gint region_id, gchar *station_name){
       fprintf(stderr, "\n>>>>%s\n", errMsg);
 #endif
         sqlite3_free(errMsg);
+        close_database(database);
+
+        if (list){
+            gtk_list_store_clear(list);
+            g_object_unref(list);
+        }
+ 
         return NULL;
     }
     close_database(database);
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list), &iter);
     if(valid)
         gtk_tree_model_get(GTK_TREE_MODEL(list), &iter, 0, &code, -1);
+    if (list){
+            gtk_list_store_clear(list);
+            g_object_unref(list);
+    }
+ 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

@@ -313,6 +313,7 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
         if(list->countries_list){
             gtk_list_store_clear(list->countries_list);
             g_object_unref(list->countries_list);
+            list->countries_list = NULL;
         }
         /* clear regions list */
         if(list->regions_list){
@@ -324,6 +325,7 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
         if(list->stations_list){
             gtk_list_store_clear(list->stations_list);
             g_object_unref(list->stations_list);
+            list->stations_list = NULL;
         }
 
         /* get source data */

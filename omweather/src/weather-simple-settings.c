@@ -1467,6 +1467,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     g_object_set_data(G_OBJECT(window), "station_is_gps", (gpointer)g_object_get_data(G_OBJECT(button), "station_is_gps"));
 
 
+fprintf(stderr,"uuuuuuuuuuuuuu4444444 source 1%s1\n",(gpointer)g_object_get_data(G_OBJECT(button), "station_source"));
 
     main_table = gtk_table_new(8, 8, FALSE);
 
@@ -1546,7 +1547,8 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     /* Preparing the sources data */
     source = (gchar*)g_object_get_data(G_OBJECT(button), "station_source");
     fprintf(stderr,"uuuuuuuuuuuuuu source 1%s1\n",source);
-    if (!source || ((source && !strcmp(source," ")) || (source && !strcmp(source,_("Unknown"))))) {
+    if (!source || ((source && !strcmp(source," ")) || 
+        (source && !strcmp(source,_("Unknown"))))){
           fprintf(stderr,"ddddddddddddddddddddddd11111111111\n");
           valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list.sources_list), &iter);
           fprintf(stderr,"qqqqqqqqqqqqqqqqqqqq\n");
@@ -1868,6 +1870,7 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
             gtk_tree_model_iter_next(GTK_TREE_MODEL
                                      (app->user_stations_list), &iter);
         station_number++;
+/*        
         if (station_name){
             g_free(station_name);
             station_name = NULL;
@@ -1888,7 +1891,7 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
             g_free(station_region);
             station_region = NULL;
         }
- 
+*/ 
         /* Only *four* station for simple mode */
         if(station_number > 3)
             break;

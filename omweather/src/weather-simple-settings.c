@@ -34,6 +34,15 @@
 #include "weather-event.h"
 /*******************************************************************************/
 void
+free_list(GSList *list){
+
+    if (list) {
+        g_slist_foreach(list, (GFunc)g_free, NULL);
+        g_slist_free(list);
+    }
+}
+/*******************************************************************************/
+void
 widget_styles_save(GtkWidget *window){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -556,8 +565,10 @@ save_station(GtkWidget *window){
     /* Update config file */
     config_save(app->config);
     stations_box = (gpointer)(g_object_get_data(G_OBJECT(window), "station_box"));
-    if (stations_box)
+    if (stations_box){
+        free_list((GSList*)(g_object_get_data(G_OBJECT(stations_box), "list_for_free")));
         gtk_widget_destroy(stations_box);
+    }
     stations_box = create_and_fill_stations_buttons((GtkWidget*)(g_object_get_data(G_OBJECT(window), "settings_window_table")));
     gtk_widget_show (stations_box);
     gtk_table_attach((GtkTable*)(g_object_get_data(G_OBJECT(window), "settings_window_table")),
@@ -1834,6 +1845,7 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
                     station_region_id = 0;
     GtkListStore    *allinformation_list = NULL;
     gint            station_number = 0;
+    GSList          *tmp_list = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1852,15 +1864,22 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
         valid2 = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                               (allinformation_list), &iter2);
 
-        if(valid2)
-          gtk_tree_model_get(GTK_TREE_MODEL(allinformation_list),
+        tmp_list = g_slist_append(tmp_list, station_name);
+        tmp_list = g_slist_append(tmp_list, station_code);
+        tmp_list = g_slist_append(tmp_list, station_source);
+
+        if(valid2){
+            gtk_tree_model_get(GTK_TREE_MODEL(allinformation_list),
                                    &iter2,
                                    0, &station_country,
                                    1, &station_region,
                                    2, &station_country_id,
                                    3, &station_region_id,
                                    -1);
-
+            
+            tmp_list = g_slist_append(tmp_list, station_country);
+            tmp_list = g_slist_append(tmp_list, station_region);
+        }
         station = create_station_button(station_number,  station_name, station_code, station_source, station_country_id,
                                         station_country, station_region_id, station_region, is_gps);
         g_object_set_data(G_OBJECT(station), "settings_window_table", (gpointer)main_table);
@@ -1870,29 +1889,7 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
             gtk_tree_model_iter_next(GTK_TREE_MODEL
                                      (app->user_stations_list), &iter);
         station_number++;
-/*        
-        if (station_name){
-            g_free(station_name);
-            station_name = NULL;
-        }
-        if (station_code){
-            g_free(station_code);
-            station_code = NULL;
-        }
-        if (station_source){
-            g_free(station_source);
-            station_source = NULL;
-        }
-        if (station_country){
-            g_free(station_country);
-            station_country = NULL;
-        }
-        if (station_region){
-            g_free(station_region);
-            station_region = NULL;
-        }
-*/ 
-        /* Only *four* station for simple mode */
+       /* Only *four* station for simple mode */
         if(station_number > 3)
             break;
     }
@@ -1910,6 +1907,7 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
         g_object_unref(allinformation_list);
     }   
  
+    g_object_set_data(G_OBJECT(box), "list_for_free", (gpointer)tmp_list);
     return box;
 }
 /*******************************************************************************/
@@ -2195,7 +2193,6 @@ weather_simple_window_settings(gpointer user_data){
           *vertical4_alignmnet  = NULL;
   gint    result;
 
-
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -2319,6 +2316,8 @@ weather_simple_window_settings(gpointer user_data){
     }
     if (window)
         gtk_widget_destroy(window);
+    /* free memory for stations data */
+    free_list((GSList*)(g_object_get_data(G_OBJECT(stations_box), "list_for_free")));
     app->settings_window = NULL;
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

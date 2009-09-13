@@ -298,6 +298,11 @@ get_country_code(gchar *source, gchar *country_name){
       fprintf(stderr, "\n>>>>%s\n", errMsg);
 #endif
         sqlite3_free(errMsg);
+        if (list){
+            gtk_list_store_clear(list);
+            g_object_unref(list);
+        }
+
         return -1;
     }
     close_database(database);
@@ -305,6 +310,12 @@ get_country_code(gchar *source, gchar *country_name){
                                       (list), &iter);
     if(valid)
       gtk_tree_model_get(GTK_TREE_MODEL(list), &iter, 0, &rc, -1);
+
+    if (list){
+        gtk_list_store_clear(list);
+        g_object_unref(list);
+    }
+
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

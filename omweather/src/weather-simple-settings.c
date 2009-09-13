@@ -284,8 +284,6 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
        return;
 
 
-  fprintf(stderr, "111111aaaaaaaaaaaaaaaa %s\n",gtk_widget_get_name(GTK_WIDGET(user_data)));
-  fprintf(stderr, "111111aaaaaaaaaaaaaaaa %s\n",gtk_widget_get_name(GTK_WIDGET(button)));
     if (name){
 #if ! defined OS2009
         if (label){
@@ -315,6 +313,7 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
         id = get_station_code(g_object_get_data(G_OBJECT(window), "station_source"),
                               GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_region_id")), name);
         g_object_set_data(G_OBJECT(window), "station_code", (gpointer)id);
+        gtk_widget_set_sensitive(g_object_get_data(G_OBJECT(window), "save_button"), TRUE);
     }
     if (type_button == STATE){
         id = get_state_code(g_object_get_data(G_OBJECT(window), "station_source"), (gpointer)name);
@@ -534,7 +533,6 @@ save_station(GtkWidget *window){
     else
         is_gps = FALSE;
 
-    fprintf(stderr,"sssssssssssss %s\n", g_object_get_data(G_OBJECT(window), "station_name"));
     iter = add_station_to_user_list(g_strdup(g_object_get_data(G_OBJECT(window), "station_name")),
                                       g_strdup(g_object_get_data(G_OBJECT(window), "station_code")),
                                       is_gps,
@@ -1438,7 +1436,8 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
               *vertical2_alignmnet  = NULL,
               *left_alignmnet       = NULL,
               *right_alignmnet      = NULL,
-              *gps_button           = NULL;
+              *gps_button           = NULL,
+              *save_button          = NULL;
     GSList    *group                = NULL;
     gchar     *source               = NULL;
     GtkTreeIter                     *iter;
@@ -1557,19 +1556,15 @@ fprintf(stderr,"uuuuuuuuuuuuuu4444444 source 1%s1\n",(gpointer)g_object_get_data
     /* Button Source */
     /* Preparing the sources data */
     source = (gchar*)g_object_get_data(G_OBJECT(button), "station_source");
-    fprintf(stderr,"uuuuuuuuuuuuuu source 1%s1\n",source);
     if (!source || ((source && !strcmp(source," ")) || 
         (source && !strcmp(source,_("Unknown"))))){
-          fprintf(stderr,"ddddddddddddddddddddddd11111111111\n");
           valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list.sources_list), &iter);
-          fprintf(stderr,"qqqqqqqqqqqqqqqqqqqq\n");
           if(valid){
               gtk_tree_model_get(GTK_TREE_MODEL(list.sources_list), &iter,
                                                 0, &source,
                                                 -1);
               g_object_set_data(G_OBJECT(window), "station_source", (gpointer)source);
               free_flag = TRUE;
-              fprintf(stderr,"vvvvvvvvvvvvvvv %s\n", source);
         }
      }
 
@@ -1585,7 +1580,6 @@ fprintf(stderr,"uuuuuuuuuuuuuu4444444 source 1%s1\n",(gpointer)g_object_get_data
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 20, 0 );
 
-    fprintf(stderr,"ddddddddddddddddddddddddddddddddddddddd");
     changed_sources_handler(NULL, window);
     changed_country_handler(NULL, window);
     changed_state_handler(NULL, window);
@@ -1663,9 +1657,9 @@ fprintf(stderr,"uuuuuuuuuuuuuu4444444 source 1%s1\n",(gpointer)g_object_get_data
                        main_table, TRUE, TRUE, 0);
 //    gtk_dialog_add_button(GTK_DIALOG(window), GTK_STOCK_FIND, GTK_RESPONSE_OK);
     gtk_dialog_add_button(GTK_DIALOG(window), _("Clear"), GTK_RESPONSE_NO);
-    gtk_dialog_add_button(GTK_DIALOG(window), _("Save"), GTK_RESPONSE_YES);
-
-
+    save_button = gtk_dialog_add_button(GTK_DIALOG(window), _("Save"), GTK_RESPONSE_YES);
+    g_object_set_data(G_OBJECT(window), "save_button", (gpointer)save_button);
+    gtk_widget_set_sensitive(save_button, FALSE);
 
     gtk_widget_show_all(window);
     /* start dialog window */

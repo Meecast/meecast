@@ -35,9 +35,9 @@
 /*******************************************************************************/
 void
 free_list(GSList *list){
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
  
     if (list) {
         g_slist_foreach(list, (GFunc)g_free, NULL);
@@ -236,10 +236,7 @@ picker_print_func (HildonTouchSelector *selector, gpointer userdata)
 static void
 on_picker_value_changed (HildonPickerButton * button, gpointer user_data)
 {
-  g_print ("Newly selected value: %s\n",
-             hildon_button_get_value (HILDON_BUTTON (button)));
   list_changed(NULL,  user_data, hildon_button_get_value (HILDON_BUTTON (button)));
-
 }
 #endif
 /******************************************************************************/
@@ -267,7 +264,7 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-  fprintf(stderr, "111111aaaaaaaaaaaaaaaa %s\n",gtk_widget_get_name(GTK_WIDGET(user_data)));
+
 #if defined OS2009
     button = user_data;
 #else
@@ -302,7 +299,6 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
     }
 
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
-    fprintf(stderr, "control name %s\n", control_name);
     if(!strcmp("country_button", control_name))
         type_button = COUNTRY;
     if(!strcmp("source_button", control_name))
@@ -479,7 +475,6 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
 
     user_data = NULL;
     
-    fprintf(stderr,"11111 %s\n", g_object_get_data(G_OBJECT(window), "station_name"));
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -691,7 +686,6 @@ changing_of_location (GtkWidget *button, gpointer user_data){
 #else
     g_signal_connect (sel, "changed",G_CALLBACK (list_changed), window);
 #endif
-
 
     gtk_widget_show_all(main_table);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
@@ -1343,13 +1337,14 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 #ifdef DEBUGFUNCTIONCALL
    END_FUNCTION;
 #endif
- }
+}
 
+/*******************************************************************************/
 GtkWidget*
 create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget, GtkListStore *list ){
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     GtkWidget *button = NULL;
     GtkWidget *selector = NULL;
     HildonTouchSelectorColumn *column = NULL;
@@ -1373,7 +1368,6 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
     while (valid) {
         gtk_tree_model_get(GTK_TREE_MODEL(list),
                                             &iter, 0, &element, -1);
-        fprintf(stderr, "Element %s %s\n", element, value);
         hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (selector), element);
        if (element && value &&  !(strcmp(element,value))){
              position = i;
@@ -1413,10 +1407,9 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
 
     gtk_widget_set_name(button, button_name);
     gtk_widget_set_size_request(button, 180, 80);
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
- 
+#endif
     return button;
 }
 /*******************************************************************************/
@@ -1483,8 +1476,6 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     g_object_set_data(G_OBJECT(window), "station_box", (gpointer)g_object_get_data(G_OBJECT(button), "station_box"));
     g_object_set_data(G_OBJECT(window), "station_is_gps", (gpointer)g_object_get_data(G_OBJECT(button), "station_is_gps"));
 
-
-fprintf(stderr,"uuuuuuuuuuuuuu4444444 source 1%s1\n",(gpointer)g_object_get_data(G_OBJECT(button), "station_source"));
 
     main_table = gtk_table_new(8, 8, FALSE);
 
@@ -1679,7 +1670,6 @@ fprintf(stderr,"uuuuuuuuuuuuuu4444444 source 1%s1\n",(gpointer)g_object_get_data
         case GTK_RESPONSE_OK:
             if (source)
                 g_free(source);
-            fprintf(stderr,"dddddddddddddddd\n");
         break;
         case GTK_RESPONSE_NO:
             clear_station(window);

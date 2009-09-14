@@ -236,7 +236,6 @@ changed_state_handler(GtkWidget *widget, gpointer user_data){
         }
     }else{
         state_id  = (gint)g_object_get_data(G_OBJECT(config), "station_region_id");
-        fprintf(stderr, "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! %i\n", state_id);
         list->stations_list = create_stations_list(list->database, state_id);
 #if defined OS2009
           temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(config), "station_button");
@@ -357,7 +356,6 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
       fprintf(stderr,",Source %s\n", source);
       /* prepare database name */
       if(source_stations_database_valid(source)){
-          fprintf (stderr, "kkkkkkkkkkkkkkk\n");
           value = g_hash_table_lookup(source, "base");
           /* open database */
           list->database = open_database(DATABASEPATH, (gchar*)value);

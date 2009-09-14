@@ -54,13 +54,12 @@ open_database(const char *path, const char *filename){
         return NULL;
     *name = 0;
     snprintf(name, sizeof(name) - 1, "%s%s", path, filename);
+    if(access(name, R_OK)){  /* Not Access to db file */
+        return NULL;
+    }
 #ifdef OS2009
     if(sqlite3_open_v2(name, &db, SQLITE_OPEN_READONLY, NULL)){
 #else
-    if(access(name, R_OK)){  /* Not Access to db file */
-        fprintf(stderr, "Error in path %s\n", name);
-        return NULL;
-    }
     if(sqlite3_open(name, &db)){
 #endif
         fprintf(stderr,"Error in connection to database %s\n",sqlite3_errmsg(db));
@@ -244,6 +243,7 @@ get_all_information_about_station(gchar *source, gchar *station_code){
     START_FUNCTION;
 //#endif
     snprintf(buffer, sizeof(buffer) - 1, "%s.db",source);
+    fprintf(stderr,"Buffer %s\n",buffer);
     database = open_database(DATABASEPATH, buffer);
     if (!database)
         return NULL;

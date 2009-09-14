@@ -35,7 +35,10 @@
 /*******************************************************************************/
 void
 free_list(GSList *list){
-
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+ 
     if (list) {
         g_slist_foreach(list, (GFunc)g_free, NULL);
         g_slist_free(list);
@@ -521,6 +524,7 @@ save_station(GtkWidget *window){
     gboolean        valid;
     gboolean        is_gps;
     GtkWidget       *stations_box;
+    GtkWidget       *main_window = NULL;
     gchar           *station_name = NULL,
                     *station_code = NULL,
                     *station_source = NULL;
@@ -562,12 +566,15 @@ save_station(GtkWidget *window){
     redraw_home_window(FALSE);
     /* Update config file */
     config_save(app->config);
-    stations_box = (gpointer)(g_object_get_data(G_OBJECT(window), "station_box"));
+    main_window = g_object_get_data(G_OBJECT(window), "settings_window_table");
+    stations_box = (gpointer)(g_object_get_data(G_OBJECT(main_window), "stations_box"));
     if (stations_box){
         free_list((GSList*)(g_object_get_data(G_OBJECT(stations_box), "list_for_free")));
         gtk_widget_destroy(stations_box);
+        stations_box = NULL;
     }
     stations_box = create_and_fill_stations_buttons((GtkWidget*)(g_object_get_data(G_OBJECT(window), "settings_window_table")));
+    g_object_set_data(G_OBJECT((g_object_get_data(G_OBJECT(window), "settings_window_table"))), "stations_box", (gpointer)stations_box);
     gtk_widget_show (stations_box);
     gtk_table_attach((GtkTable*)(g_object_get_data(G_OBJECT(window), "settings_window_table")),
                                 stations_box, 1, 2, 1, 2, (GtkAttachOptions)0,
@@ -2218,6 +2225,7 @@ weather_simple_window_settings(gpointer user_data){
     gtk_widget_show (vertical0_alignmnet);
 
     stations_box = create_and_fill_stations_buttons(main_table);
+    g_object_set_data(G_OBJECT(main_table), "stations_box", (gpointer)stations_box);
     gtk_widget_show (stations_box);
     gtk_table_attach((GtkTable*)main_table,stations_box,
                                 1, 2, 1, 2, (GtkAttachOptions)0,
@@ -2308,10 +2316,13 @@ weather_simple_window_settings(gpointer user_data){
         /* Update information about connection to Internet */
         check_current_connection();
     }
+
+    /* free memory for stations data */
+    if (g_object_get_data(G_OBJECT(main_table), "stations_box"))
+        free_list((GSList*)(g_object_get_data(g_object_get_data(G_OBJECT(main_table), "stations_box"), "list_for_free")));
+
     if (window)
         gtk_widget_destroy(window);
-    /* free memory for stations data */
-    free_list((GSList*)(g_object_get_data(G_OBJECT(stations_box), "list_for_free")));
     app->settings_window = NULL;
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

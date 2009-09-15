@@ -248,12 +248,14 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
   GtkWidget *vbox                 = NULL,
             *label                = NULL,
             *window               = NULL,
+            *main_table           = NULL,
             *temp_button          = NULL,
             *country_button       = NULL,
             *region_button        = NULL,
             *station_button       = NULL,
             *button               = NULL;
   gchar     *id = NULL;
+  GSList    *tmp_list = NULL;
   struct lists_struct     *list = NULL;
   enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
   gint type_button = UNKNOWN;
@@ -283,7 +285,6 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
     if(!list)
        return;
 
-
     if (name){
 #if ! defined OS2009
         if (label){
@@ -312,6 +313,12 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
         id = get_station_code(g_object_get_data(G_OBJECT(window), "station_source"),
                               GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_region_id")), name);
         g_object_set_data(G_OBJECT(window), "station_code", (gpointer)id);
+        /* add to list for free memory */
+        main_table = g_object_get_data(G_OBJECT(window), "settings_window_table");
+        tmp_list = g_object_get_data(g_object_get_data(G_OBJECT(main_table), "stations_box"), "list_for_free");
+        if (tmp_list){
+            tmp_list = g_slist_append(tmp_list, id);
+        }
         gtk_widget_set_sensitive(g_object_get_data(G_OBJECT(window), "save_button"), TRUE);
     }
     if (type_button == STATE){
@@ -484,6 +491,7 @@ clear_station(GtkWidget *window){
     GtkWidget       *dialog_window = NULL,
                     *label = NULL;
     gint result;
+    struct lists_struct     *list = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -500,6 +508,28 @@ clear_station(GtkWidget *window){
 
     result = gtk_dialog_run(GTK_DIALOG(dialog_window));
     if (result == GTK_RESPONSE_YES){
+        list = (struct lists_struct*)g_object_get_data(G_OBJECT(window), "list");
+        /* Is not then this is a very serious error */
+        if(list){
+            /* clear regions list */
+            if(list->regions_list){
+                gtk_list_store_clear(list->regions_list);
+                g_object_unref(list->regions_list);
+                list->regions_list = NULL;
+            }
+            /* clear countries list */
+            if(list->countries_list){
+                gtk_list_store_clear(list->countries_list);
+                g_object_unref(list->countries_list);
+                list->countries_list = NULL;
+            }
+              /* clear stations list */
+            if(list->stations_list){
+                gtk_list_store_clear(list->stations_list);
+                g_object_unref(list->stations_list);
+                list->stations_list = NULL;
+            }
+        }
         g_object_set_data(G_OBJECT(window), "station_name", " ");
         g_object_set_data(G_OBJECT(window), "station_code", " ");
         g_object_set_data(G_OBJECT(window), "station_source", " ");
@@ -520,6 +550,7 @@ save_station(GtkWidget *window){
     gboolean        is_gps;
     GtkWidget       *stations_box;
     GtkWidget       *main_window = NULL;
+    GtkWidget       *main_table = NULL;
     gchar           *station_name = NULL,
                     *station_code = NULL,
                     *station_source = NULL;
@@ -531,12 +562,19 @@ save_station(GtkWidget *window){
         is_gps = TRUE;
     else
         is_gps = FALSE;
-
+/*
     iter = add_station_to_user_list(g_strdup(g_object_get_data(G_OBJECT(window), "station_name")),
                                       g_strdup(g_object_get_data(G_OBJECT(window), "station_code")),
                                       is_gps,
                                       g_strdup(g_object_get_data(G_OBJECT(window), "station_source")),
                                       GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_number")));
+*/
+    iter = add_station_to_user_list(g_object_get_data(G_OBJECT(window), "station_name"),
+                                    g_object_get_data(G_OBJECT(window), "station_code"),
+                                    is_gps,
+                                    g_object_get_data(G_OBJECT(window), "station_source"),
+                                    GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_number")));
+
     valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
     if (valid){
           delete_station_from_user_list_using_iter(iter);
@@ -1558,6 +1596,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
         (source && !strcmp(source,_("Unknown"))))){
           valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list.sources_list), &iter);
           if(valid){
+              /* TO DO Warning memory leak */
               gtk_tree_model_get(GTK_TREE_MODEL(list.sources_list), &iter,
                                                 0, &source,
                                                 -1);
@@ -1880,6 +1919,12 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
             gtk_tree_model_iter_next(GTK_TREE_MODEL
                                      (app->user_stations_list), &iter);
         station_number++;
+        if (allinformation_list){
+            gtk_list_store_clear(allinformation_list);
+            g_object_unref(allinformation_list);
+            allinformation_list = NULL;
+        }   
+ 
        /* Only *four* station for simple mode */
         if(station_number > 3)
             break;

@@ -577,6 +577,15 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
         /* Skip Empty  station */
         while (1){
             if (station_code && (!strcmp(station_code," ") || !strcmp(station_code,_("Unknown"))) ){
+                if (station_code){
+                    g_free(station_code);
+                    station_code = NULL;
+                }
+                if (station_source){
+                    g_free(station_source);
+                    station_source = NULL;
+                }
+ 
                 valid = gtk_tree_model_iter_next(GTK_TREE_MODEL
                                          (app->user_stations_list), &iter);
                 if (valid) {

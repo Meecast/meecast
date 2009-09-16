@@ -29,8 +29,11 @@
 #ifndef _weather_clutter_h
 #define _weather_clutter_h 1
 /*******************************************************************************/
-#if defined CLUTTER
 #include "weather-common.h"
+#if defined HILDONANIMATION 
+GtkWidget *create_hildon_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list);
+#endif
+#if defined CLUTTER
 /*******************************************************************************/
 gboolean show_animation(GSList *clutter_objects);
 GtkWidget *create_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list);

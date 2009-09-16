@@ -87,6 +87,7 @@ omweather_CFLAGS =	$(GTK_CFLAGS) \
 			$(HILDONDESKTOP_CFLAGS) \
 			$(LOCATION_CFLAGS) \
 			$(CLUTTER_CFLAGS) \
+			$(HILDONANIMATION_CFLAGS) \
 			-DAPPLICATION \
 			-Wall -pedantic \
 			-Wmissing-prototypes -DDEBUGFUNCTIONCALL
@@ -104,6 +105,7 @@ omweather_LDADD =	$(GTK_LIBS) \
 			$(LIBOSSOHELP_LIBS) \
 			$(CLUTTER_LIBS) \
 			$(LOCATION_LIBS) \
+	  	        $(HILDONANIMATION_LIBS) \
 			$(LIBCURL_LIBS)
 
 weather-hash.c:		hash.data
@@ -198,6 +200,7 @@ libweather_home_la_CFLAGS =  $(GTK_CFLAGS) \
 			$(LOCATION_CFLAGS) \
 			$(SQLITE_CFLAGS) \
 			$(CLUTTER_CFLAGS) \
+			$(HILDONANIMATION_CFLAGS) \
 			$(HILDONDESKTOP_CFLAGS) \
 			-Wall -pedantic \
 			-Wmissing-prototypes
@@ -218,6 +221,7 @@ libweather_home_la_LIBADD = $(GTK_LIBS) \
 			    $(OSSOIC_LIBS) \
 			    $(LOCATION_LIBS) \
 			    $(LIBOSSOHELP_LIBS) \
+			    $(HILDONANIMATION_LIBS) \
 			    $(CLUTTER_LIBS)
 endif
 

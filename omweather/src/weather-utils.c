@@ -495,9 +495,19 @@ create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size,
         g_object_unref(G_OBJECT(icon_buffer));
     }
 #else
+
+#ifdef HILDONANIMATION 
+    icon_widget = create_hildon_clutter_icon_animation(icon_buffer, icon_path, icon_size, objects_list);
+    if (!icon_widget){
+        fprintf(stderr,"dsdddddddddddd\n");
+        icon_widget = gtk_image_new_from_pixbuf(icon_buffer);
+        g_object_unref(G_OBJECT(icon_buffer));
+    }
+#else
     icon_widget = gtk_image_new_from_pixbuf(icon_buffer);
     if (icon_buffer)
         g_object_unref(G_OBJECT(icon_buffer));
+#endif
 #endif
     return icon_widget;
 }

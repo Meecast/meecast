@@ -1,6 +1,6 @@
 AC_PREREQ(2.59)
-AC_INIT(omweather, 0.24.4)
-AM_INIT_AUTOMAKE(omweather, 0.24.4)
+AC_INIT(omweather, 0.25)
+AM_INIT_AUTOMAKE(omweather, 0.25)
 AC_CONFIG_HEADER([src/config.h:src/config.h.in])
 AC_CONFIG_SRCDIR([src/weather-main.c])
 AC_CANONICAL_HOST
@@ -240,6 +240,22 @@ if test "$clutter" == "true"; then
     AC_SUBST(CLUTTER_CFLAGS)
     AC_SUBST(CLUTTER_LIBS)
 fi
+AC_ARG_ENABLE(hildonanimation,
+      [  --enable-hildonanimation   Enable Hildon Animation],
+      [case "${enableval}" in
+            yes) hildonanimation=true ;;
+            no)  hildonanimation=false ;;
+            *) AC_MSG_ERROR(bad value ${enableval} for --enable-hildonanimation) ;;
+      esac],[hildonanimation=false])
+
+
+if test "$hildonanimation" == "true"; then
+    PKG_CHECK_MODULES(HILDONANIMATION, [clutter-0.8])
+    AC_DEFINE(HILDONANIMATION, 1, [Enable Hildon Animation])
+    AC_SUBST(HILDONANIMATION_CFLAGS)
+    AC_SUBST(HILDONANIMATION_LIBS)
+fi
+
 
 
 

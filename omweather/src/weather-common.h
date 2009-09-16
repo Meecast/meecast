@@ -74,6 +74,10 @@
     #include <location/location-gpsd-control.h>
 #endif
 
+#ifdef HILDONANIMATION
+    #include <clutter/clutter.h>
+#endif
+
 #ifdef CLUTTER
     #include <clutter/clutter.h>
     #include <clutter-gtk/gtk-clutter-embed.h>
@@ -323,7 +327,7 @@ typedef struct applet_config{
     gint	view_mode;
 }AppletConfig;
 /*******************************************************************************/
-#ifdef CLUTTER
+#if defined CLUTTER || defined OS2009
 typedef struct SuperOH{
   ClutterActor          *icon;
   ClutterGroup          *group;

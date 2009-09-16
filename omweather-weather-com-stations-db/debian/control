@@ -12,6 +12,7 @@ Provides: omweather-stations-db
 Description: Stations database and source lib for weather.com
  for Other Maemo Weather
  © 2006-2008 by Vlad Vasiliev and Pavel Fialko
+XB-Maemo-Display-Name: OMWeather database for weather.com
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
  /wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9gLHgk7K2pwCKgAAAAZdEVYdENv

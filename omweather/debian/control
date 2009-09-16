@@ -18,7 +18,8 @@ Architecture: any
 Depends: ${shlibs:Depends}, mawk | awk, osso-application-installer | hildon-application-manager, omweather-stations-db | omweather-weather-com-stations-db (>= 0.9.1)
 #For Non Maemo
 #Depends: ${shlibs:Depends}, mawk | awk,
-Description: World Weather on Nokia 770/N800/N810. This applet uses weather.com
+Description: Weather Forecast on Nokia N800/N810/N900.
+XB-Maemo-Display-Name: OMWeather
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
  WXMAAC4hAAAuIQEHW/z/AAAAB3RJTUUH1wQHDAoX256MZwAABZ1JREFUSMftVl1sFFUU/mamM7uz

@@ -11,6 +11,7 @@ omweather (0.24.4) unstable; urgency=low
   * Fixed bug #5083 "Remove/hide mnemonics for buttons"
   * Fixed bug #5804 '"Source" should default to "weather.com" if  no other providers available'
   * Fixed bug #5122 "XB-Maemo-Display-Name not used in debian/control"
+  * Fixed bug #5086 "Settings > Update > Period: Cropped "4 hours" setting"
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 17 Sep 2009 11:20:10 +0200
 

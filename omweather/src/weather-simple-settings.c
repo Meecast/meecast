@@ -1229,7 +1229,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 
     never_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(never_button), gtk_label_new(_("never")));
-    gtk_widget_set_size_request(never_button, 105, 50);
+    gtk_widget_set_size_request(never_button, 145, 50);
     GLADE_HOOKUP_OBJECT(window, never_button, "never_button");
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(never_button), FALSE);
     gtk_box_pack_start (GTK_BOX (hbox_period), never_button, TRUE, TRUE, 0);
@@ -1237,7 +1237,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 
     one_hour_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(one_hour_button), gtk_label_new(_("1 hour")));
-    gtk_widget_set_size_request(one_hour_button, 105, 50);
+    gtk_widget_set_size_request(one_hour_button, 145, 50);
     GLADE_HOOKUP_OBJECT(window, one_hour_button, "one_hour_button");
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(one_hour_button), FALSE);
     group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(never_button));
@@ -1246,7 +1246,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 
     four_hours_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(four_hours_button), gtk_label_new(_("4 hours")));
-    gtk_widget_set_size_request(four_hours_button, 105, 50);
+    gtk_widget_set_size_request(four_hours_button, 145, 50);
     GLADE_HOOKUP_OBJECT(window, four_hours_button, "four_hours_button");
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(four_hours_button), FALSE);
     group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(one_hour_button));
@@ -1255,7 +1255,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 
     one_day_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(one_day_button), gtk_label_new(_("1 day")));
-    gtk_widget_set_size_request(one_day_button, 105, 50);
+    gtk_widget_set_size_request(one_day_button, 145, 50);
     GLADE_HOOKUP_OBJECT(window, one_day_button, "one_day_button");
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(one_day_button), FALSE);
     group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(four_hours_button));

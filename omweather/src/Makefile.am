@@ -17,61 +17,60 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
+SOURCE_FILES =  weather-home.c \
+                weather-home.h \
+                weather-config.h \
+                weather-config.c \
+                weather-settings.h \
+                weather-settings.c \
+                weather-simple-settings.h \
+                weather-simple-settings.c \
+                weather-simple-status.h \
+                weather-simple-status.c \
+                weather-common.h \
+                weather-event.c \
+                weather-event.h \
+                weather-hash.h \
+                weather-hash.c \
+                weather-download.h \
+                weather-download.c \
+                weather-stations.h \
+                weather-stations.c \
+                weather-data.h \
+                weather-data.c \
+                weather-popup.h \
+                weather-popup.c \
+                weather-simple-popup.h \
+                weather-simple-popup.c \
+                weather-gps.h \
+                weather-gps.c \
+                weather-gpsdistance.h \
+                weather-gpsdistance.c \
+                weather-help.h \
+                weather-help.c \
+                weather-utils.h \
+                weather-utils.c \
+                weather-sensor.h \
+                weather-sensor.c \
+                weather-applet-expose.c \
+                weather-applet-expose.h \
+                weather-alerts.h \
+                weather-alerts.c \
+                weather-sources.h \
+                weather-sources.c \
+                weather-main.h \
+                weather-main.c \
+                weather-clutter.h \
+                weather-clutter.c \
+                weather-portrait.h \
+                weather-portrait.c \
+                weather-dbus.h \
+                weather-dbus.c \
+                weather-presets.c \
+                weather-presets.h
 
 bin_PROGRAMS = omweather
-
-omweather_SOURCES = 	weather-home.c \
-			weather-home.h \
-			weather-config.h \
-			weather-config.c \
-			weather-settings.h \
-			weather-settings.c \
-			weather-simple-settings.h \
-			weather-simple-settings.c \
-			weather-simple-status.h \
-			weather-simple-status.c \
-			weather-common.h \
-			weather-event.c \
-			weather-event.h \
-			weather-hash.h \
-			weather-hash.c \
-			weather-download.h \
-			weather-download.c \
-			weather-stations.h \
-			weather-stations.c \
-			weather-data.h \
-			weather-data.c \
-			weather-popup.h \
-			weather-popup.c \
-            weather-simple-popup.h \
-            weather-simple-popup.c \
-			weather-gps.h \
-			weather-gps.c \
-			weather-gpsdistance.h \
-			weather-gpsdistance.c \
-			weather-help.h \
-			weather-help.c \
-			weather-utils.h \
-			weather-utils.c \
-			weather-sensor.h \
-			weather-sensor.c \
-			weather-applet-expose.c \
-			weather-applet-expose.h \
-			weather-alerts.h \
-			weather-alerts.c \
-			weather-sources.h \
-			weather-sources.c \
-			weather-main.h \
-			weather-main.c \
-			weather-clutter.h \
-			weather-clutter.c \
-			weather-portrait.h \
-			weather-portrait.c \
-			weather-dbus.h \
-			weather-dbus.c \
-			weather-presets.c \
-			weather-presets.h
-
+omweather_SOURCES = $(SOURCE_FILES)
 
 omweather_CFLAGS =	$(GTK_CFLAGS) \
 			$(OSSO_CFLAGS) \
@@ -133,59 +132,7 @@ endif
 
 libhh_LTLIBRARIES = libweather-home.la
 
-libweather_home_la_SOURCES  = \
-            weather-home.c \
-            weather-home.h \
-            weather-config.h \
-            weather-config.c \
-            weather-settings.h \
-            weather-settings.c \
-			weather-simple-settings.h \
-			weather-simple-settings.c \
-			weather-simple-status.h \
-			weather-simple-status.c \
-			weather-common.h \
-			weather-event.c \
-			weather-event.h \
-			weather-hash.h \
-			weather-hash.c \
-			weather-download.h \
-			weather-download.c \
-			weather-stations.h \
-			weather-stations.c \
-			weather-data.h \
-			weather-data.c \
-            weather-simple-popup.h \
-            weather-simple-popup.c \
-			weather-popup.h \
-			weather-popup.c \
-			weather-gps.h \
-			weather-gps.c \
-			weather-gpsdistance.h \
-			weather-gpsdistance.c \
-			weather-help.h \
-			weather-help.c \
-			weather-utils.h \
-			weather-utils.c \
-			weather-sensor.h \
-			weather-sensor.c \
-			weather-applet-expose.c \
-			weather-applet-expose.h \
-			weather-alerts.h \
-			weather-alerts.c \
-			weather-sources.h \
-			weather-sources.c \
-			weather-main.h \
-			weather-main.c \
-			weather-clutter.h \
-			weather-clutter.c \
-			weather-portrait.h \
-			weather-portrait.c \
-			weather-dbus.h \
-			weather-dbus.c \
-			weather-presets.c \
-			weather-presets.h
-
+libweather_home_la_SOURCES  = $(SOURCE_FILES)
 
 libweather_home_la_CFLAGS =  $(GTK_CFLAGS) \
 			$(OSSO_CFLAGS) \
@@ -224,7 +171,6 @@ libweather_home_la_LIBADD = $(GTK_LIBS) \
 			    $(HILDONANIMATION_LIBS) \
 			    $(CLUTTER_LIBS)
 endif
-
 
 clean-local:
 	$(RM) *.core core core.* stamp-*.h *~

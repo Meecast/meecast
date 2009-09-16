@@ -1,6 +1,7 @@
 omweather-weather-com-stations-db (0.9.4) unstable; urgency=low
 
   * Corrected stations for Italy
+  * Added XB-Maemo-Display-Name to debian/control file
 
  --  Vlad Vasiliev <vlad@gas.by>  Wed, 16 Sep 2009 05:04:20 +0200
 

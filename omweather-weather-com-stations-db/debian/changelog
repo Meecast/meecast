@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (0.9.4) unstable; urgency=low
+
+  * Corrected stations for Italy
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 16 Sep 2009 05:04:20 +0200
+
 omweather-weather-com-stations-db (0.9.3) unstable; urgency=low
 
   * Changed Section in deb package

@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (0.9.5) unstable; urgency=low
+
+  * Added indexes to database
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 17 Sep 2009 12:14:30 +0200
+
 omweather-weather-com-stations-db (0.9.4) unstable; urgency=low
 
   * Corrected stations for Italy

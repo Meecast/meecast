@@ -637,8 +637,6 @@ changing_of_location (GtkWidget *button, gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-   g_print ("Newly selected value: %s\n",
-             hildon_button_get_value (HILDON_BUTTON (button)));
 
     *dialog_name = 0;
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
@@ -1376,11 +1374,13 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
  
     GtkWidget *button = NULL;
     GtkWidget *selector = NULL;
-    HildonTouchSelectorColumn *column = NULL;
     GtkTreeIter iter;
     gchar *element;
     gboolean    valid;
     gint position, i;
+#if defined OS2009
+    HildonTouchSelectorColumn *column = NULL;
+#endif
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

@@ -373,6 +373,8 @@ fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day, GHashTable *has
                         sprintf(temp_buffer,"%s","NW");
                     if (!strcoll(temp_buffer, "СВ"))
                         sprintf(temp_buffer,"%s","NE");
+                    if (!strcoll(temp_buffer, "безветрие"))
+                        sprintf(temp_buffer,"%s","CALM");
                     switch (part_of_day){
                         case DAY:
                               g_hash_table_insert(day, "day_wind_title",g_strdup(temp_buffer));

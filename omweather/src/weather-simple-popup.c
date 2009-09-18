@@ -210,6 +210,7 @@ create_top_buttons_box(GtkWidget* window, gpointer user_data){
     gchar           buffer[255],
                     full_filename[2048];
     struct stat     statv;
+    gchar           *next_station = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -220,8 +221,10 @@ create_top_buttons_box(GtkWidget* window, gpointer user_data){
     *buffer = 0;
     snprintf(buffer, sizeof(buffer) - 1, "%s: %s",
                 _("next"),
-                get_next_station_name(app->config->current_station_name,
+                next_station = get_next_station_name(app->config->current_station_name,
                                         app->user_stations_list));
+    if (next_station)
+        g_free(next_station);
     station_button = create_button_with_2_line_text(app->config->current_station_name,
                                                     buffer, 18, 12);
     g_signal_connect(G_OBJECT(station_button), "button-release-event",
@@ -423,7 +426,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             gtk_label_set_markup(GTK_LABEL(line_text), buffer);
             set_font(line_text, NULL, 12);
             gtk_box_pack_start(GTK_BOX(line_hbox), line_text, FALSE, TRUE, 10);
-            
+
             if(day_number == i)
                 g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)separator);
             /* next day */

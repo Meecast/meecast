@@ -47,10 +47,7 @@ free_list(GSList *list){
 /*******************************************************************************/
 void
 widget_styles_save(GtkWidget *window){
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    GtkWidget
+   GtkWidget
     *preset_now = NULL,
     *preset_now_plus_two = NULL,
     *preset_now_plus_three_h = NULL,
@@ -59,7 +56,9 @@ widget_styles_save(GtkWidget *window){
     *selected_icon_set = NULL;
 
     GSList      *icon_set = NULL;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
 
     preset_now = lookup_widget(window, "preset_now");
     preset_now_plus_two = lookup_widget(window, "preset_now_plus_two");
@@ -162,7 +161,7 @@ void
 highlight_current_item(GtkTreeView *tree_view, GtkListStore *list, gchar *current){
     GtkTreeIter     iter;
     gchar           *name = NULL;
-  gboolean        valid;
+    gboolean        valid;
     GtkTreePath     *path;
     GtkTreeModel    *model;
 #ifdef DEBUGFUNCTIONCALL
@@ -236,7 +235,7 @@ picker_print_func (HildonTouchSelector *selector, gpointer userdata)
 static void
 on_picker_value_changed (HildonPickerButton * button, gpointer user_data)
 {
-  list_changed(NULL,  user_data, hildon_button_get_value (HILDON_BUTTON (button)));
+  list_changed(NULL,  user_data, (gchar*)hildon_button_get_value (HILDON_BUTTON (button)));
 }
 #endif
 /******************************************************************************/
@@ -254,14 +253,13 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
             *region_button        = NULL,
             *station_button       = NULL,
             *button               = NULL;
-  gchar     *id = NULL;
+  gint      id_country;
+  gint      id_state;
+  gchar     *id_code = NULL;
   GSList    *tmp_list = NULL;
   struct lists_struct     *list = NULL;
   enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
   gint type_button = UNKNOWN;
-  GtkWidget *selector = NULL;
-  GtkWidget *temp_selector = NULL;
-  HildonTouchSelectorColumn *column = NULL;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -310,22 +308,21 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
         type_button = TOWN;
     if (type_button == TOWN){
         g_object_set_data(G_OBJECT(window), "station_name", (gpointer)name);
-        id = get_station_code(g_object_get_data(G_OBJECT(window), "station_source"),
+        id_code = get_station_code(g_object_get_data(G_OBJECT(window), "station_source"),
                               GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_region_id")), name);
-        g_object_set_data(G_OBJECT(window), "station_code", (gpointer)id);
+        g_object_set_data(G_OBJECT(window), "station_code", (gpointer)id_code);
         /* add to list for free memory */
         main_table = g_object_get_data(G_OBJECT(window), "settings_window_table");
         tmp_list = g_object_get_data(g_object_get_data(G_OBJECT(main_table), "stations_box"), "list_for_free");
-        if (tmp_list){
-            tmp_list = g_slist_append(tmp_list, id);
-        }
+        tmp_list = g_slist_append(tmp_list, id_code);
+        g_object_set_data(G_OBJECT(g_object_get_data(G_OBJECT(main_table), "stations_box")), "list_for_free", (gpointer)tmp_list);
         gtk_widget_set_sensitive(g_object_get_data(G_OBJECT(window), "save_button"), TRUE);
     }
     if (type_button == STATE){
-        id = get_state_code(g_object_get_data(G_OBJECT(window), "station_source"), (gpointer)name);
-        g_object_set_data(G_OBJECT(button), "station_region_id", (gpointer)id);
+        id_state = get_state_code(g_object_get_data(G_OBJECT(window), "station_source"), (gpointer)name);
+        g_object_set_data(G_OBJECT(button), "station_region_id", GINT_TO_POINTER(id_state));
         g_object_set_data(G_OBJECT(button), "station_region", (gpointer)name);
-        g_object_set_data(G_OBJECT(window), "station_region_id", (gpointer)id);
+        g_object_set_data(G_OBJECT(window), "station_region_id", GINT_TO_POINTER(id_state));
         changed_state_handler(NULL, window);
  
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
@@ -341,7 +338,7 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
         g_object_set_data(G_OBJECT(station_button), "vbox", (gpointer)vbox);
         gtk_widget_destroy(temp_button);
         gtk_widget_show(station_button);
-#
+
 #else
         label = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "label");
         if (label){
@@ -353,10 +350,10 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
    }
     if (type_button == COUNTRY){
 
-        id = get_country_code(g_object_get_data(G_OBJECT(window), "station_source"), (gpointer)name);
-        g_object_set_data(G_OBJECT(button), "station_country_id", (gpointer)id);
+        id_country = get_country_code(g_object_get_data(G_OBJECT(window), "station_source"), (gpointer)name);
+        g_object_set_data(G_OBJECT(button), "station_country_id", GINT_TO_POINTER(id_country));
         g_object_set_data(G_OBJECT(button), "station_country", (gpointer)name);
-        g_object_set_data(G_OBJECT(window), "station_country_id", (gpointer)id);
+        g_object_set_data(G_OBJECT(window), "station_country_id", GINT_TO_POINTER(id_country));
         changed_country_handler(NULL, window);
  
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
@@ -550,10 +547,6 @@ save_station(GtkWidget *window){
     gboolean        is_gps;
     GtkWidget       *stations_box;
     GtkWidget       *main_window = NULL;
-    GtkWidget       *main_table = NULL;
-    gchar           *station_name = NULL,
-                    *station_code = NULL,
-                    *station_source = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -591,7 +584,6 @@ save_station(GtkWidget *window){
         if(app->config->current_station_source)
             g_free(app->config->current_station_source);
         app->config->current_station_source = g_strdup(g_object_get_data(G_OBJECT(window), "station_source"));
-
     }
     if (!is_gps) 
         update_weather(TRUE);
@@ -628,6 +620,7 @@ save_station(GtkWidget *window){
 
 }
 /*******************************************************************************/
+void
 changing_of_location (GtkWidget *button, gpointer user_data){
     gint                    result;
     gchar                   *control_name = NULL,
@@ -636,8 +629,7 @@ changing_of_location (GtkWidget *button, gpointer user_data){
     GtkWidget               *window = NULL,
                             *main_table = NULL,
                             *list_view = NULL,
-                            *scrolled_window = NULL,
-                            *vbox = NULL;
+                            *scrolled_window = NULL;
     GtkWidget               *config = GTK_WIDGET(user_data);
     enum { UNKNOWN, SOURCE, COUNTRY, STATE, TOWN };
     gint                    type_button = UNKNOWN;
@@ -828,10 +820,7 @@ units_save(GtkWidget *window){
 /*******************************************************************************/
 void
 units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data){
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    gint        result;
+   gint        result;
     GtkWidget   *window = NULL,
                 *main_table = NULL,
                 *left_alignmnet = NULL,
@@ -860,6 +849,10 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
                 *group_temperature = NULL,
                 *group_distance = NULL,
                 *group_speed = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+ 
     window = gtk_dialog_new_with_buttons(_("Units"), NULL, 
                                      GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
     gtk_widget_set_name(window, "units_simple_settings_window");
@@ -1380,9 +1373,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 /*******************************************************************************/
 GtkWidget*
 create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget, GtkListStore *list ){
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
+ 
     GtkWidget *button = NULL;
     GtkWidget *selector = NULL;
     HildonTouchSelectorColumn *column = NULL;
@@ -1390,10 +1381,11 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
     gchar *element;
     gboolean    valid;
     gint position, i;
-/*
-                    *label_name,
-                    *vertical_box;
-*/
+
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+ 
 #if defined OS2009
     button = hildon_picker_button_new (HILDON_SIZE_FINGER_HEIGHT | HILDON_SIZE_AUTO_WIDTH,
                     HILDON_BUTTON_ARRANGEMENT_VERTICAL);
@@ -1417,9 +1409,9 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
         i++;
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list), &iter);
     }
-    hildon_touch_selector_set_active(selector, 0, position); 
+    hildon_touch_selector_set_active(HILDON_TOUCH_SELECTOR(selector), 0, position); 
 
-    column = hildon_touch_selector_get_column(selector, 0);
+    column = hildon_touch_selector_get_column(HILDON_TOUCH_SELECTOR(selector), 0);
 
     g_object_set (G_OBJECT (column), "text-column", 0, NULL);
     hildon_touch_selector_column_set_text_column (column, 0);
@@ -1454,15 +1446,13 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
 void
 station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    struct lists_struct list;
+   struct lists_struct *list = NULL;
     gint result;
     GtkWidget *window               = NULL,
               *hbox                 = NULL,
               *vbox_temp            = NULL,
               *main_table           = NULL,
+              *main_table_parent    = NULL,
               *main_label           = NULL,
               *label_set            = NULL,
               *manual_button        = NULL,
@@ -1478,10 +1468,13 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
               *save_button          = NULL;
     GSList    *group                = NULL;
     gchar     *source               = NULL;
-    GtkTreeIter                     *iter;
+    GSList    *tmp_list             = NULL;
+    GtkTreeIter                     iter;
     gboolean                        valid;
-    gboolean  free_flag             = FALSE;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+ 
 
 /* Prepairing */
 
@@ -1493,13 +1486,13 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
 
     /* create sources list from aviable sources */
-    memset(&list, 0, sizeof(struct lists_struct));
-    list.sources_list = app->sources_list;
-    list.stations_list = NULL;
-    list.countries_list = NULL;
-    list.regions_list = NULL;
+    list = g_new0(struct lists_struct, 1);
+    list->sources_list = app->sources_list;
+    list->stations_list = NULL;
+    list->countries_list = NULL;
+    list->regions_list = NULL;
 
-    g_object_set_data(G_OBJECT(window), "list", &list);
+    g_object_set_data(G_OBJECT(window), "list", list);
 
     g_object_set_data(G_OBJECT(window), "current_source", (gpointer)app->config->current_source);
     g_object_set_data(G_OBJECT(window), "station_region_id", (gpointer)g_object_get_data(G_OBJECT(button), "station_region_id"));
@@ -1594,20 +1587,25 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     source = (gchar*)g_object_get_data(G_OBJECT(button), "station_source");
     if (!source || ((source && !strcmp(source," ")) || 
         (source && !strcmp(source,_("Unknown"))))){
-          valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list.sources_list), &iter);
+          valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list->sources_list), &iter);
           if(valid){
               /* TO DO Warning memory leak */
-              gtk_tree_model_get(GTK_TREE_MODEL(list.sources_list), &iter,
+              
+              gtk_tree_model_get(GTK_TREE_MODEL(list->sources_list), &iter,
                                                 0, &source,
                                                 -1);
+
               g_object_set_data(G_OBJECT(window), "station_source", (gpointer)source);
-              free_flag = TRUE;
+              main_table_parent = g_object_get_data(G_OBJECT(window), "settings_window_table");
+              tmp_list = g_object_get_data(g_object_get_data(G_OBJECT(main_table_parent), "stations_box"), "list_for_free");
+              tmp_list = g_slist_append(tmp_list, source);
+              g_object_set_data(g_object_get_data(G_OBJECT(main_table_parent), "stations_box"), "list_for_free", (gpointer)tmp_list);
         }
      }
 
      source_button = create_button(_("Source"), source,
                                    "source_button", "station_source", window, 
-                                   list.sources_list);
+                                   list->sources_list);
      g_object_set_data(G_OBJECT(window), "source_button", (gpointer)source_button);
      vbox_temp = gtk_vbox_new(TRUE, 0);
      gtk_box_pack_start(GTK_BOX(vbox_temp), source_button, TRUE, TRUE, 0);
@@ -1626,7 +1624,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     country_button = create_button(_("Country"),
                                    (gchar*)g_object_get_data(G_OBJECT(button), "station_country"),
                                    "country_button", "station_country",
-                                   window, list.countries_list);
+                                   window, list->countries_list);
     g_object_set_data(G_OBJECT(window), "country_button", (gpointer)country_button);
     vbox_temp = gtk_vbox_new(TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vbox_temp), country_button, TRUE, TRUE, 0);
@@ -1640,7 +1638,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     region_button = create_button(_("Region"),
                                   (gchar*)g_object_get_data(G_OBJECT(button), "station_region"),
                                   "region_button", "station_region", window, 
-                                  list.regions_list);
+                                  list->regions_list);
     g_object_set_data(G_OBJECT(window), "region_button", (gpointer)region_button);
     vbox_temp = gtk_vbox_new(TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vbox_temp), region_button, TRUE, TRUE, 0);
@@ -1655,7 +1653,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     station_button = create_button(_("City"),
                                    (gchar*)g_object_get_data(G_OBJECT(button), "station_name"),
                                    "station_button", "station_name", window,
-                                   list.stations_list);
+                                   list->stations_list);
     g_object_set_data(G_OBJECT(window), "station_button", (gpointer)station_button);
     vbox_temp = gtk_vbox_new(TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vbox_temp), station_button, TRUE, TRUE, 0);
@@ -1707,22 +1705,31 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
         break;
         default:
         case GTK_RESPONSE_OK:
-            if (source)
-                g_free(source);
         break;
         case GTK_RESPONSE_NO:
             clear_station(window);
         break;
     }
 
-    if (list.countries_list){
-        gtk_list_store_clear(list.countries_list);
-        g_object_unref(list.countries_list);
+    if (list->countries_list){
+        gtk_list_store_clear(list->countries_list);
+        g_object_unref(list->countries_list);
     }   
+    if (list->stations_list){
+        gtk_list_store_clear(list->stations_list);
+        g_object_unref(list->stations_list);
+    }   
+    if (list->regions_list){
+        gtk_list_store_clear(list->regions_list);
+        g_object_unref(list->regions_list);
+    }   
+ 
     /* close database if it open */
-    if(list.database)
-         close_database(list.database);
+    if (list->database)
+         close_database(list->database);
 
+    if (list)
+        g_free(list);
     if(window)
         gtk_widget_destroy(window);
 #ifdef DEBUGFUNCTIONCALL
@@ -1736,8 +1743,7 @@ manual_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_da
     GtkWidget   *source_button = NULL,
                 *country_button = NULL,
                 *region_button = NULL,
-                *station_button = NULL,
-                *button = NULL;
+                *station_button = NULL;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -2353,8 +2359,9 @@ weather_simple_window_settings(gpointer user_data){
     }
 
     /* free memory for stations data */
-    if (g_object_get_data(G_OBJECT(main_table), "stations_box"))
+    if (g_object_get_data(G_OBJECT(main_table), "stations_box")){
         free_list((GSList*)(g_object_get_data(g_object_get_data(G_OBJECT(main_table), "stations_box"), "list_for_free")));
+    }
 
     if (window)
         gtk_widget_destroy(window);

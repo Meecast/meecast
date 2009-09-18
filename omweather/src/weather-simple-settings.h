@@ -30,6 +30,9 @@
 /*******************************************************************************/
 #include "weather-common.h"
 /*******************************************************************************/
+#ifdef OS2009
+gchar *picker_print_func (HildonTouchSelector *selector, gpointer userdata);
+#endif
 void widget_styles_save(GtkWidget *window);
 void weather_simple_window_settings(gpointer user_data);
 GtkWidget* create_and_fill_stations_buttons(GtkWidget *main_table);

@@ -95,7 +95,6 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
                     *add_button = NULL,
                     *temp_button = NULL;
 
-    gpointer            value = NULL;
     gchar               *element = NULL;
     gboolean            valid;
 
@@ -142,7 +141,6 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
                                                         &regions_number);
         }else{
             country_id = (gint)g_object_get_data(G_OBJECT(config), "station_country_id");
-            fprintf(stderr, "Country ID %i\n", country_id);
             list->regions_list = create_regions_list(list->database, country_id,
                                                         &regions_number);
         }
@@ -172,6 +170,7 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
                       gtk_tree_model_get(GTK_TREE_MODEL(list->regions_list),
                                                 &iter, 0, &element, -1);
                       hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (hildon_picker_button_get_selector(HILDON_PICKER_BUTTON (temp_button))), element);
+                      g_free(element);
                       valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list->regions_list), &iter);
                   }
               }
@@ -196,8 +195,6 @@ changed_state_handler(GtkWidget *widget, gpointer user_data){
           *config     = GTK_WIDGET(user_data),
           *add_button = NULL,
           *temp_button = NULL;
-
-    gpointer            value = NULL;
     gchar               *element = NULL;
     gboolean            valid;
 
@@ -246,8 +243,8 @@ changed_state_handler(GtkWidget *widget, gpointer user_data){
               while (valid) {
                       gtk_tree_model_get(GTK_TREE_MODEL(list->stations_list),
                                                 &iter, 0, &element, -1);
-                      fprintf(stderr, "New element2 %s\n",element);
                       hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (hildon_picker_button_get_selector(HILDON_PICKER_BUTTON (temp_button))), element);
+                      g_free(element);
                       valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list->stations_list), &iter);
               }
           }
@@ -355,7 +352,6 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
             else
                 source = get_first_source_hash(list->sources_list);
         }
-      fprintf(stderr,",Source %s\n", source);
       /* prepare database name */
       if(source_stations_database_valid(source)){
           value = g_hash_table_lookup(source, "base");
@@ -381,8 +377,8 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
                   while (valid) {
                       gtk_tree_model_get(GTK_TREE_MODEL(list->countries_list),
                                                 &iter, 0, &element, -1);
-                      fprintf(stderr, "New element1 %s\n",element);
                       hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (hildon_picker_button_get_selector(HILDON_PICKER_BUTTON (temp_button))), element);
+                      g_free(element);
                       valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list->countries_list), &iter);
                   }
               }

@@ -28,7 +28,7 @@ configure-stamp:
 	#For OS2008
 #	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes	
 	#For OS2009
-	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes	--enable-hildonanimation
+	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes --enable-hildonanimation
 
 	#For NONMAEMO PLATFORM
 #	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --enable-static --enable-nonmaemo --enable-clutter
@@ -88,7 +88,7 @@ binary-arch: build install
 #	dh_installinfo
 #	dh_installman
 	dh_link
-	dh_strip
+   dh_strip
 	dh_compress
 	dh_fixperms
 #	dh_perl

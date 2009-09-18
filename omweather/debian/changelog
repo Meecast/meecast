@@ -12,8 +12,9 @@ omweather (0.24.4) unstable; urgency=low
   * Fixed bug #5804 '"Source" should default to "weather.com" if  no other providers available'
   * Fixed bug #5122 "XB-Maemo-Display-Name not used in debian/control"
   * Fixed bug #5086 "Settings > Update > Period: Cropped "4 hours" setting"
+  * Fixed bug #5087 '"Not available for this country" instead of empty "Selecting station" list'
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 17 Sep 2009 11:20:10 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 19 Sep 2009 11:20:10 +0200
 
 omweather (0.24.3) unstable; urgency=low
 

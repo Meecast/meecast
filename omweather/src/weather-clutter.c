@@ -73,7 +73,7 @@ create_hildon_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_pa
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
+    return NULL;
     stage_color.red = app->config->background_color.red;
     stage_color.blue = app->config->background_color.blue;
     stage_color.green = app->config->background_color.green;

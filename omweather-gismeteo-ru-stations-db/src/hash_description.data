@@ -4,6 +4,7 @@
     g_hash_table_insert(hash, "пасмурно без осадков", "Mostly Cloudy");
     g_hash_table_insert(hash, "малооблачно без осадков", "Partly Cloudy");
     g_hash_table_insert(hash, "облачно небольшой дождь", "Cloudy Light Rain");
+    g_hash_table_insert(hash, "облачно небольшой снег", "Cloudy Few Snow");
     g_hash_table_insert(hash, "пасмурно гроза", "Mostly Cloudy T-Storm");
     g_hash_table_insert(hash, "пасмурно небольшой дождь", "Mostly Cloudy Light Rain");
     g_hash_table_insert(hash, "малооблачно небольшой дождь", "Partly Cloudy Light Rain");

@@ -4,6 +4,7 @@
     g_hash_table_insert(hash, "den_pasmurno.gif groza.gif", "38"); /* or 37 */
     g_hash_table_insert(hash, "den_pasmurno.gif sneg_nebol.gif", "13");
     g_hash_table_insert(hash, "den_oblachno.gif dozhd_nebol.gif", "11");
+    g_hash_table_insert(hash, "den_oblachno.gif sneg_nebol.gif", "13");
     g_hash_table_insert(hash, "den_oblachno.gif clean.gif", "28");  /* or 26 */
     g_hash_table_insert(hash, "den_malooblochno.gif groza.gif", "37");
     g_hash_table_insert(hash, "den_oblachno.gif groza.gif", "17"); 

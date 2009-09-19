@@ -112,7 +112,7 @@ create_countries_list(sqlite3 *database){
     if(!database)
         return NULL;    /* database doesn't open */
     list = gtk_list_store_new(2, G_TYPE_STRING, G_TYPE_INT);
-    rc = sqlite3_exec(database, "SELECT name, id FROM countries where (select count(name) from nstations where nstations.region_id = (select distinct regions.id from regions where regions.country_id=countries.id )) >1 ORDER BY name",
+    rc = sqlite3_exec(database, "SELECT name, id FROM countries where (select count(name) from nstations where nstations.region_id = (select distinct regions.id from regions where regions.country_id=countries.id )) >0 ORDER BY name",
                         countries_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
 #ifndef RELEASE

@@ -901,14 +901,12 @@ msgid "Mostly Cloudy / Wind"
 msgstr "В основном облачно / Ветер"
 
 #: src/hash.data:220
-#, fuzzy
 msgid "Mostly Cloudy Few Snow"
-msgstr "В основном облачно / Ветер"
+msgstr "Пасмурно Небольшой Снег"
 
 #: src/hash.data:215
-#, fuzzy
 msgid "Mostly Cloudy Light Rain"
-msgstr "В основном облачно / Ветер"
+msgstr "Пасмурно Небольшой дождь"
 
 #: src/hash.data:219
 #, fuzzy
@@ -1121,14 +1119,12 @@ msgid "Partly Cloudy / Wind"
 msgstr "Небольшая облачность / Ветер"
 
 #: src/hash.data:216
-#, fuzzy
 msgid "Partly Cloudy Light Rain"
-msgstr "Небольшая облачность / Ветер"
+msgstr "Малообачно Небольшой Дождь"
 
 #: src/hash.data:217
-#, fuzzy
 msgid "Partly Cloudy T-Storm"
-msgstr "Небольшая облачность"
+msgstr "Малооблочно Гроза"
 
 #: src/hash.data:116
 msgid "Partly Cloudy and Windy"
@@ -1286,9 +1282,8 @@ msgstr "Ю"
 #: src/weather-simple-settings.c:142 src/weather-simple-settings.c:1098
 #: src/weather-simple-settings.c:1352 src/weather-simple-settings.c:1695
 #: src/weather-simple-settings.c:2348
-#, fuzzy
 msgid "Save"
-msgstr "Область:"
+msgstr "Сохранить"
 
 #: src/hash.data:148
 msgid "Scattered Showers"

@@ -74,7 +74,7 @@ void create_about_dialog(void){
              "%s%s%s%s%s",
 #endif
              _("\nHildon desktop applet\n"
-               "for Nokia 770/N800/N810\n"
+               "for Nokia N800/N810/N900\n"
                "to show weather forecasts.\n" "Version "), VERSION,
 #ifdef DISPLAY_BUILD
              _(" Build: "), BUILD,

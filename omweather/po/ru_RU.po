@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-19 23:50+0300\n"
+"POT-Creation-Date: 2009-09-20 09:59+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -68,13 +68,13 @@ msgstr ""
 msgid ""
 "\n"
 "Hildon desktop applet\n"
-"for Nokia 770/N800/N810\n"
+"for Nokia N800/N810/N900\n"
 "to show weather forecasts.\n"
 "Version "
 msgstr ""
 "\n"
 "Апплет рабочего стола Hildon\n"
-"для Nokia 770/N800/N810\n"
+"для Nokia N800/N810/N900\n"
 "для отображения погоды.\n"
 "Версия "
 
@@ -409,19 +409,16 @@ msgid "Cloudy / Wind"
 msgstr "Облачно / Ветер"
 
 #: src/hash.data:213
-#, fuzzy
 msgid "Cloudy Few Snow"
-msgstr "Небольшой снег"
+msgstr "Облачно Небольшой снег"
 
 #: src/hash.data:212
-#, fuzzy
 msgid "Cloudy Light Rain"
-msgstr "Небольшой дождь"
+msgstr "Облачно Небольшой дождь"
 
 #: src/hash.data:218
-#, fuzzy
 msgid "Cloudy T-Storm"
-msgstr "Местами грозы"
+msgstr "Облачно Гроза"
 
 #: src/hash.data:26
 msgid "Cloudy and Windy"
@@ -909,14 +906,12 @@ msgid "Mostly Cloudy Light Rain"
 msgstr "Пасмурно Небольшой дождь"
 
 #: src/hash.data:219
-#, fuzzy
 msgid "Mostly Cloudy Rain"
-msgstr "В основном облачно / Ветер"
+msgstr "В основном облачно Дождь"
 
 #: src/hash.data:214
-#, fuzzy
 msgid "Mostly Cloudy T-Storm"
-msgstr "В основном облачно"
+msgstr "В основном облачно Гроза"
 
 #: src/hash.data:85
 msgid "Mostly Cloudy and Windy"

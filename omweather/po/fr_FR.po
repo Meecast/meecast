@@ -6,13 +6,14 @@
 # Vlad Vasiliev <vlad@gas.by>, 2007.
 #
 #
+# Nicolas Graziano <nicolas.graziano@gmail.com>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.21\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-20 09:59+0300\n"
-"PO-Revision-Date: 2009-08-26 21:12+0200\n"
-"Last-Translator: Philippe <filip@disque-monde.org>\n"
+"PO-Revision-Date: 2009-09-20 18:56+0200\n"
+"Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -66,7 +67,6 @@ msgstr ""
 "FL : "
 
 #: src/weather-help.c:76
-#, fuzzy
 msgid ""
 "\n"
 "Hildon desktop applet\n"
@@ -76,7 +76,7 @@ msgid ""
 msgstr ""
 "\n"
 "Applet du bureau Hildon\n"
-"pour Nokia 770/N800/N810\n"
+"pour Nokia N800/N810/N900\n"
 "pour afficher les prevision météo.\n"
 "Version "
 
@@ -409,19 +409,16 @@ msgid "Cloudy / Wind"
 msgstr "Nuageux / vent"
 
 #: src/hash.data:213
-#, fuzzy
 msgid "Cloudy Few Snow"
-msgstr "Quelque neige"
+msgstr "Nuageux neigeux"
 
 #: src/hash.data:212
-#, fuzzy
 msgid "Cloudy Light Rain"
-msgstr "Pluie légère"
+msgstr "Nuageux pluie légère"
 
 #: src/hash.data:218
-#, fuzzy
 msgid "Cloudy T-Storm"
-msgstr "Orages isolés"
+msgstr "Nuageux orages"
 
 #: src/hash.data:26
 msgid "Cloudy and Windy"
@@ -905,24 +902,20 @@ msgid "Mostly Cloudy / Wind"
 msgstr "Plutôt nuageux / vent"
 
 #: src/hash.data:220
-#, fuzzy
 msgid "Mostly Cloudy Few Snow"
-msgstr "Plutôt nuageux / vent"
+msgstr "Plutôt nuageux neigeux"
 
 #: src/hash.data:215
-#, fuzzy
 msgid "Mostly Cloudy Light Rain"
-msgstr "Plutôt nuageux / vent"
+msgstr "Plutôt nuageux pluie légère"
 
 #: src/hash.data:219
-#, fuzzy
 msgid "Mostly Cloudy Rain"
-msgstr "Plutôt nuageux / vent"
+msgstr "Plutôt nuageux pluie"
 
 #: src/hash.data:214
-#, fuzzy
 msgid "Mostly Cloudy T-Storm"
-msgstr "Plutôt nuageux"
+msgstr "Plutôt nuageux orages"
 
 #: src/hash.data:85
 msgid "Mostly Cloudy and Windy"
@@ -1125,14 +1118,12 @@ msgid "Partly Cloudy / Wind"
 msgstr "Partiellement nuageux / vent"
 
 #: src/hash.data:216
-#, fuzzy
 msgid "Partly Cloudy Light Rain"
-msgstr "Partiellement nuageux / vent"
+msgstr "Partiellement nuageux pluie légère"
 
 #: src/hash.data:217
-#, fuzzy
 msgid "Partly Cloudy T-Storm"
-msgstr "Partiellement nuageux"
+msgstr "Partiellement nuageux orage"
 
 #: src/hash.data:116
 msgid "Partly Cloudy and Windy"
@@ -1290,9 +1281,8 @@ msgstr "S"
 #: src/weather-simple-settings.c:142 src/weather-simple-settings.c:1098
 #: src/weather-simple-settings.c:1352 src/weather-simple-settings.c:1695
 #: src/weather-simple-settings.c:2348
-#, fuzzy
 msgid "Save"
-msgstr "Etat :"
+msgstr "Sauvegarder"
 
 #: src/hash.data:148
 msgid "Scattered Showers"
@@ -1345,7 +1335,7 @@ msgstr "Capteur"
 
 #: src/weather-simple-settings.c:1538
 msgid "Set"
-msgstr ""
+msgstr "Définir"
 
 #: src/weather-home.c:1200 src/weather-simple-popup.c:832
 #: src/weather-simple-status.c:156
@@ -1748,7 +1738,7 @@ msgstr "heure locale de la position courante"
 
 #: src/weather-simple-popup.c:359
 msgid "d:"
-msgstr ""
+msgstr "j:"
 
 #: src/weather-config.c:332
 msgid "every 2 hours"
@@ -1855,7 +1845,7 @@ msgstr "mmHg"
 
 #: src/weather-simple-popup.c:400
 msgid "n:"
-msgstr ""
+msgstr "n:"
 
 #: src/weather-simple-settings.c:1222
 msgid "never"
@@ -1875,11 +1865,11 @@ msgstr "montant"
 
 #: src/weather-simple-settings.c:956
 msgid "s. mi"
-msgstr ""
+msgstr "mi m."
 
 #: src/weather-simple-settings.c:1989
 msgid "s.mi"
-msgstr ""
+msgstr "mi m."
 
 #: src/weather-popup.c:236
 msgid "station local time"

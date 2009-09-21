@@ -44,6 +44,7 @@ int search_callback(void *user_data, int argc, char **argv, char **azColName);
 int get_country_code_callback(void *user_data, int argc, char **argv, char **azColName);
 int get_state_code_callback(void *user_data, int argc, char **argv, char **azColName);
 int get_station_code_callback(void *user_data, int argc, char **argv, char **azColName);
+int get_station_new_code_callback(void *user_data, int argc, char **argv, char **azColName);
 GtkListStore* get_all_information_about_station(gchar *source, gchar *station_code);
 gint get_country_code(gchar *source, gchar *country_name);
 gint get_state_code(gchar *source, gchar *country_name);

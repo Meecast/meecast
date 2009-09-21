@@ -619,7 +619,13 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
             /* prepare detail url */
             if(get_source_detail_url(app->sources_list, station_source)){
                 *buffer = 0;
-                snprintf(buffer, sizeof(buffer) - 1,
+                /* TO DO move this code to sources libs */
+                if (!strcmp(station_source,"gismeteo.ru")){
+                    snprintf(buffer, sizeof(buffer) - 1,
+                            get_source_detail_url(app->sources_list, station_source),
+                            get_new_gismeteo_code(station_code, station_source));
+                }else
+                    snprintf(buffer, sizeof(buffer) - 1,
                             get_source_detail_url(app->sources_list, station_source),
                             station_code);
                 *hour_url = g_strdup(buffer);

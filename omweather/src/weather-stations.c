@@ -400,7 +400,6 @@ get_station_code(gchar *source, gint region_id, gchar *station_name){
             gtk_list_store_clear(list);
             g_object_unref(list);
         }
- 
         return NULL;
     }
     close_database(database);
@@ -411,7 +410,58 @@ get_station_code(gchar *source, gint region_id, gchar *station_name){
             gtk_list_store_clear(list);
             g_object_unref(list);
     }
- 
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+    return code;
+}
+/*******************************************************************************/
+gchar*
+get_new_gismeteo_code(gchar *old_code, gchar *source){
+    sqlite3             *database = NULL;
+    gchar               buffer[2048],
+                        *errMsg = NULL,
+                        sql[1024];
+    gint                rc;
+    GtkListStore        *list = NULL;
+    GtkTreeIter         iter;
+    gboolean            valid;
+    gchar               *code;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    snprintf(buffer, sizeof(buffer) - 1, "%s.db",source);
+    database = open_database(DATABASEPATH, buffer);
+    if(!database)
+        return NULL;
+    list = gtk_list_store_new(1, G_TYPE_STRING);
+    /* Correct SQL */
+    snprintf(sql, sizeof(sql) - 1, "Select id_gismeteo_new from nstations \
+                                    where id_gismeteo_old='%s'", old_code);
+    rc = sqlite3_exec(database, sql, get_station_new_code_callback, (void*)list, &errMsg);
+    if(rc != SQLITE_OK){
+#ifndef RELEASE
+      fprintf(stderr, "\n>>>>%s\n", errMsg);
+#endif
+        sqlite3_free(errMsg);
+        close_database(database);
+
+        if (list){
+            gtk_list_store_clear(list);
+            g_object_unref(list);
+        }
+        return NULL;
+    }
+    close_database(database);
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list), &iter);
+    if(valid)
+        gtk_tree_model_get(GTK_TREE_MODEL(list), &iter, 0, &code, -1);
+    if (list){
+            gtk_list_store_clear(list);
+            g_object_unref(list);
+    }
+
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -501,6 +551,26 @@ get_station_code_callback(void *user_data, int argc, char **argv, char **azColNa
     gtk_list_store_append(list, &iter);
     for(i = 0; i < argc; i++){
         if(!strcmp(azColName[i], "code"))
+            gtk_list_store_set(list, &iter, 0, argv[i], -1);
+    }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+    return 0;
+}
+/*******************************************************************************/
+int
+get_station_new_code_callback(void *user_data, int argc, char **argv, char **azColName){
+    int                 i;
+    GtkTreeIter         iter;
+    GtkListStore        *list = GTK_LIST_STORE(user_data);
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+/* add new item for each first element */
+    gtk_list_store_append(list, &iter);
+    for(i = 0; i < argc; i++){
+        if(!strcmp(azColName[i], "id_gismeteo_new"))
             gtk_list_store_set(list, &iter, 0, argv[i], -1);
     }
 #ifdef DEBUGFUNCTIONCALL

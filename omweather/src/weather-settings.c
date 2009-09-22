@@ -50,11 +50,53 @@
 GtkTreeIter
 add_station_to_user_list(gchar *weather_station_name, gchar *weather_station_id,
                           gboolean is_gps, gchar *source, gint position){
-
     GtkTreeIter iter;
+    gboolean valid;
+    gchar *station_name_in_list = NULL;
+    gchar *temp_station_name = NULL;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+
+    /* Check duplicate stations */
+    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
+                                         (app->user_stations_list),
+                                         &iter);
+    if (valid) {
+       /* Skip Empty  station */
+        while (1){
+            if (valid)
+                gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                               &iter,
+                               NAME_COLUMN, &station_name_in_list,
+                               -1);
+            else
+                break;
+            if (station_name_in_list && (!strcmp(station_name_in_list," ") || !strcmp(station_name_in_list,_("Unknown"))) ){
+                if (station_name_in_list){
+                    g_free(station_name_in_list);
+                    station_name_in_list = NULL;
+                }
+ 
+           }else{
+                if (station_name_in_list && weather_station_name &&
+                    (!strcmp(station_name_in_list, weather_station_name))){
+                    temp_station_name = g_strdup_printf("%s ",station_name_in_list);
+                    g_free(station_name_in_list);
+                    /* g_free(weather_station_name); */ /* Warning Memory leak but if to use this string problem with current station */
+                    weather_station_name = temp_station_name;
+                    valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
+                                         (app->user_stations_list),
+                                         &iter);
+                    continue;            
+                }
+           }
+           valid = gtk_tree_model_iter_next(GTK_TREE_MODEL
+                                         (app->user_stations_list), &iter);
+        }
+    }
+
     /* Add station to stations list */
     if (position == -1)
         gtk_list_store_append(app->user_stations_list, &iter);

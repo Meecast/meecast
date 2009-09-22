@@ -567,7 +567,6 @@ save_station(GtkWidget *window){
                                     is_gps,
                                     g_object_get_data(G_OBJECT(window), "station_source"),
                                     GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_number")));
-
     valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
     if (valid){
           delete_station_from_user_list_using_iter(iter);
@@ -1378,6 +1377,7 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
     gchar *element;
     gboolean    valid;
     gint position, i;
+    gchar *new_value = NULL;
 #if defined OS2009
     HildonTouchSelectorColumn *column = NULL;
 #endif
@@ -1394,12 +1394,16 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
 
     i = 0; 
     position = -1;
+    if (value){
+        new_value = g_strdup(value);
+        new_value = g_strchomp(new_value);
+    }
     valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL (list), &iter);
     while (valid) {
         gtk_tree_model_get(GTK_TREE_MODEL(list),
                                             &iter, 0, &element, -1);
         hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (selector), element);
-       if (element && value &&  !(strcmp(element,value))){
+       if (element && new_value &&  !(strcmp(element, new_value))){
              position = i;
         }
         if (element){
@@ -1409,6 +1413,9 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
         i++;
         valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(list), &iter);
     }
+    if (new_value)
+        g_free(new_value);
+
     hildon_touch_selector_set_active(HILDON_TOUCH_SELECTOR(selector), 0, position); 
 
     column = hildon_touch_selector_get_column(HILDON_TOUCH_SELECTOR(selector), 0);

@@ -30,9 +30,24 @@
 #define _omweather_sources_hpp 1
 /*******************************************************************************/
 #include <string>
+#include <vector>
+#if defined (BSD) && !_POSIX_SOURCE
+#include <sys/dir.h>
+typedef struct dirent Dirent;
+#else
+#include <dirent.h>
+#include <linux/fs.h>
+typedef struct dirent Dirent;
+#endif
 /*******************************************************************************/
+#define SOURCESPATH "/usr/share/omweather/sources/"
 #define SOURCES_LIB "/usr/lib/omweather/"
 #define DATABASEPATH "/usr/share/omweather/db/"
+/*******************************************************************************/
+/* Hack for Maemo SDK 2.0 */
+#ifndef DT_DIR
+#define DT_DIR 4
+#endif
 /*******************************************************************************/
 class Source{
     std::string         source_name;
@@ -52,6 +67,13 @@ class Source{
         Source(const std::string);
         ~Source();
         bool is_valid();
+};
+/*******************************************************************************/
+class SourcesList{
+    std::vector<Source> list;
+    public:
+        SourcesList();
+        int size();
 };
 /*******************************************************************************/
 #endif

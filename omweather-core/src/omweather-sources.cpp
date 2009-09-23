@@ -142,3 +142,25 @@ bool Source::is_valid(){
     return source_is_invalid;
 }
 /*******************************************************************************/
+SourcesList::SourcesList(){
+    list.clear();
+    std::string name = SOURCESPATH;
+    DIR dir_fd = opendir(name.c_str());
+    if(dir_fd){
+        Dirent *dp;
+        while((dp = readdir(dir_fd))){
+            if(!strcmp(dp->d_name, ".") || !strcmp(dp->d_name, ".."))
+                continue;
+            if(dp->d_type == DT_REG){
+                std::string source_file_description = name + dp->d_name;
+                list.push_back(Source(source_file_description));
+            }
+        }
+        closedir(dir_fd);
+    }
+}
+/*******************************************************************************/
+int SourcesList::size(){
+    return list.size();
+}
+/*******************************************************************************/

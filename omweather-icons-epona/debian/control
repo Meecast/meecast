@@ -1,5 +1,5 @@
 Source: omweather-icons-epona
-Section: user/accessories
+Section: user/desktop
 Priority: optional
 Maintainer: Vlad Vasiliev <vlad@gas.by>
 Build-Depends: 
@@ -14,6 +14,7 @@ Description: Epona iconset
  http://crystalxp.net
  The icons are licensed under a Creative Commons Attribution-No Derivative Works 3.0 License
  http://creativecommons.org/licenses/by-nd/3.0/
+XB-Maemo-Display-Name: Iconset Epona for OMWeather
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAABoAAAAaEAYAAAD52pCNAAAABGdBTUEAAK/INwWK6QAAAAZiS0dE
  ////////CVj33AAAAAlwSFlzAAAASAAAAEgARslrPgAAAAl2cEFnAAAAGgAAABoAB7JmLwAAC4JJ

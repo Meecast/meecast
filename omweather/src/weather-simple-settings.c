@@ -270,14 +270,14 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
 #else
     button = (GtkWidget*)g_object_get_data(G_OBJECT(user_data), "button");
 #endif
-    
+
     label = (GtkWidget*)g_object_get_data(G_OBJECT(button), "label");
     vbox = (GtkWidget*)g_object_get_data(G_OBJECT(button), "vbox");
     window = (GtkWidget*)g_object_get_data(G_OBJECT(button), "window");
     if (sel && gtk_tree_selection_get_selected(sel,&model, &iter)){
         gtk_tree_model_get(model, &iter, 0, &name, -1);
     }
-    
+
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(window), "list");
     /* This is a very serious error */
     if(!list)
@@ -324,7 +324,7 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
         g_object_set_data(G_OBJECT(button), "station_region", (gpointer)name);
         g_object_set_data(G_OBJECT(window), "station_region_id", GINT_TO_POINTER(id_state));
         changed_state_handler(NULL, window);
- 
+
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
 #if defined OS2009
         vbox = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "vbox");
@@ -849,7 +849,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
- 
+
     window = gtk_dialog_new_with_buttons(_("Units"), NULL, 
                                      GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
     gtk_widget_set_name(window, "units_simple_settings_window");
@@ -1370,7 +1370,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 /*******************************************************************************/
 GtkWidget*
 create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_name, GtkWidget* widget, GtkListStore *list ){
- 
+
     GtkWidget *button = NULL;
     GtkWidget *selector = NULL;
     GtkTreeIter iter;
@@ -1385,14 +1385,14 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
- 
+
 #if defined OS2009
     button = hildon_picker_button_new (HILDON_SIZE_FINGER_HEIGHT | HILDON_SIZE_AUTO_WIDTH,
                     HILDON_BUTTON_ARRANGEMENT_VERTICAL);
     hildon_button_set_title (HILDON_BUTTON (button), name);
     selector = hildon_touch_selector_entry_new_text();
 
-    i = 0; 
+    i = 0;
     position = -1;
     if (value){
         new_value = g_strdup(value);
@@ -1416,7 +1416,10 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
     if (new_value)
         g_free(new_value);
 
-    hildon_touch_selector_set_active(HILDON_TOUCH_SELECTOR(selector), 0, position); 
+    if (position == -1 && i == 1)
+        hildon_touch_selector_set_active(HILDON_TOUCH_SELECTOR(selector), 0, 0);
+    else
+        hildon_touch_selector_set_active(HILDON_TOUCH_SELECTOR(selector), 0, position);
 
     column = hildon_touch_selector_get_column(HILDON_TOUCH_SELECTOR(selector), 0);
 
@@ -1481,7 +1484,6 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
- 
 
 /* Prepairing */
 
@@ -1489,7 +1491,6 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                                             NULL);
     gtk_widget_set_name(window, "simple_settings_window");
-
 
 
     /* create sources list from aviable sources */
@@ -1597,7 +1598,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
           valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(list->sources_list), &iter);
           if(valid){
               /* TO DO Warning memory leak */
-              
+
               gtk_tree_model_get(GTK_TREE_MODEL(list->sources_list), &iter,
                                                 0, &source,
                                                 -1);
@@ -1720,16 +1721,16 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     if (list->countries_list){
         gtk_list_store_clear(list->countries_list);
         g_object_unref(list->countries_list);
-    }   
+    }
     if (list->stations_list){
         gtk_list_store_clear(list->stations_list);
         g_object_unref(list->stations_list);
-    }   
+    }
     if (list->regions_list){
         gtk_list_store_clear(list->regions_list);
         g_object_unref(list->regions_list);
-    }   
- 
+    }
+
     /* close database if it open */
     if (list->database)
          close_database(list->database);
@@ -1767,6 +1768,8 @@ manual_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_da
 
     station_button = (GtkWidget *)g_object_get_data(G_OBJECT(user_data),"station_button");
     gtk_widget_set_sensitive(station_button, TRUE);
+
+    gtk_widget_set_sensitive(g_object_get_data(G_OBJECT(user_data), "save_button"), FALSE);
 }
 /*******************************************************************************/
 void
@@ -1828,6 +1831,8 @@ gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_data)
 
         station_button = (GtkWidget *)g_object_get_data(G_OBJECT(user_data),"station_button");
         gtk_widget_set_sensitive(station_button, FALSE);
+
+        gtk_widget_set_sensitive(g_object_get_data(G_OBJECT(user_data), "save_button"), TRUE);
     }
 }
 /*******************************************************************************/

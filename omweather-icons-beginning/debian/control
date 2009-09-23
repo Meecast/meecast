@@ -8,11 +8,12 @@ Standards-Version: 3.6.0
 Package: omweather-icons-beginning
 Architecture: all
 Depends: omweather (>=0.16)
-Description: Beginning iconset 
+Description: Beginning iconset
  for Other Maemo Weather
  Author B. Gint  http://beginning.deviantart.com/
- GPL 
-XB-Maemo-Icon-26:   
+ GPL
+XB-Maemo-Display-Name: Iconset Beginning for OMWeather
+XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAAK/INwWK6QAAAAZiS0dE
  AP8A/wD/oL2nkwAAAAlwSFlzAAAASAAAAEgARslrPgAABYtJREFUSMfdlVtsnEcVx39n5vv25t31
  rr2+YieBGGzHihKK1AspAvEUqWopqlDLU555AyoQEo88IQHiiUeoxCORqkqtRNWUVKSpRCTKLU0r

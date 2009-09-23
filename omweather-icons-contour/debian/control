@@ -8,13 +8,14 @@ Standards-Version: 3.6.0
 Package: omweather-icons-contour
 Architecture: all
 Depends: omweather (>=0.16)
-Description: Contour iconset 
+Description: Contour iconset
  for Other Maemo Weather
  Andrew Zhilin 2008
  http://tabletui.wordpress.com
  Contact: az@pocketpcrussia.com
  Other Maemo Weather "Contour" icons set is licensed under the terms of the GNU GPL.
-XB-Maemo-Icon-26: 
+XB-Maemo-Display-Name: Iconset Contour for OMWeather
+XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
  /wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9gDAQgQNd/Hrp0AAAAZdEVYdENv
  bW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAF1ElEQVRIx92WbXBU1RnHf+fezd0NhmSTkIRN

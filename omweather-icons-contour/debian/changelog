@@ -1,3 +1,9 @@
+omweather-icons-contour (0.3.1) unstable; urgency=low
+
+  * Added Section XB-Maemo-Display-Name in debian/control
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 23 Sep 2010 19:53:20 +0200
+
 omweather-icons-contour (0.3) unstable; urgency=low
 
   * Changed Section in deb package

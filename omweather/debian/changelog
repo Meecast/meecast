@@ -14,7 +14,7 @@ omweather (0.24.4) unstable; urgency=low
   * Fixed bug #5086 "Settings > Update > Period: Cropped "4 hours" setting"
   * Fixed bug #5087 '"Not available for this country" instead of empty "Selecting station" list'
 
- -- Vlad Vasiliev <vlad@gas.by>  Sun, 19 Sep 2009 11:20:10 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 23 Sep 2009 17:20:10 +0200
 
 omweather (0.24.3) unstable; urgency=low
 

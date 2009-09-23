@@ -1416,11 +1416,6 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
     if (new_value)
         g_free(new_value);
 
-    if (position == -1 && i == 1)
-        hildon_touch_selector_set_active(HILDON_TOUCH_SELECTOR(selector), 0, 0);
-    else
-        hildon_touch_selector_set_active(HILDON_TOUCH_SELECTOR(selector), 0, position);
-
     column = hildon_touch_selector_get_column(HILDON_TOUCH_SELECTOR(selector), 0);
 
     g_object_set (G_OBJECT (column), "text-column", 0, NULL);
@@ -1431,6 +1426,15 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
                  (HildonTouchSelectorPrintFunc) picker_print_func);
     g_signal_connect (G_OBJECT (button), "value-changed",
                     G_CALLBACK (on_picker_value_changed), button);
+    if (position == -1 && i == 1){
+        if (value)
+            g_free(value);
+        hildon_touch_selector_set_active(HILDON_TOUCH_SELECTOR(selector), 0, 0);
+        value = hildon_button_get_value (HILDON_BUTTON (button));
+    }
+    else
+        hildon_touch_selector_set_active(HILDON_TOUCH_SELECTOR(selector), 0, position);
+
 
 #else
     button = create_button_with_2_line_text(name, value, 18, 12);
@@ -1446,6 +1450,9 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
     g_object_set_data(G_OBJECT(button), parameter_name, (gpointer)value);
 
     gtk_widget_set_name(button, button_name);
+    if (position == -1 && i == 1){
+        hildon_touch_selector_set_active(HILDON_TOUCH_SELECTOR(selector), 0, 0);
+    }
     gtk_widget_set_size_request(button, 180, 80);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

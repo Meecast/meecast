@@ -446,7 +446,6 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
                 i = 1;
     gchar       *day_name = NULL;
     time_t      current_time = 0,
-                current_data_last_update = 0,
                 data_last_update = 0;
     GSList      *tmp = NULL;
     GHashTable  *day = NULL;

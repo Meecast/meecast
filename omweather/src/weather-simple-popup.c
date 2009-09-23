@@ -47,12 +47,13 @@ jump_panarea(gpointer user_data){
 /*******************************************************************************/
 GtkWidget*
 create_mainbox_for_forecast_window(GtkWidget* window, gpointer user_data){
+
+    GtkWidget       *view = NULL,
+                    *main_vbox = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 
-    GtkWidget       *view = NULL,
-                    *main_vbox = NULL;
     main_vbox = gtk_vbox_new(FALSE, 0);
     g_object_set_data(G_OBJECT(window), "main_vbox", (gpointer)main_vbox);
     g_object_set_data(G_OBJECT(window), "user_data", (gpointer)user_data);
@@ -73,9 +74,7 @@ create_mainbox_for_forecast_window(GtkWidget* window, gpointer user_data){
 
 void
 weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
-    GtkWidget       *window = NULL,
-                    *view = NULL,
-                    *main_vbox = NULL;
+    GtkWidget       *window = NULL;
 #if defined OS2009
     HildonAppMenu   *menu = NULL;
 #endif
@@ -89,8 +88,6 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
     window = hildon_window_new();
 #endif
     gtk_window_set_title(GTK_WINDOW(window), _("Forecast"));
-
-//    gtk_window_fullscreen (GTK_WINDOW (window));
 
     gtk_container_add(GTK_CONTAINER(window), create_mainbox_for_forecast_window(window, user_data));
     gtk_widget_show(window);
@@ -154,8 +151,8 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
             break;
         }
         else{
-            if(skipped || (app->config->current_station_name) && (station_name) &&
-                  !strcmp(app->config->current_station_name, station_name))
+            if(skipped || ((app->config->current_station_name) && (station_name) &&
+                  !strcmp(app->config->current_station_name, station_name)))
                 ready = TRUE;
             g_free(station_name);
             gtk_tree_path_next(path);
@@ -272,8 +269,10 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                     *line_text = NULL,
                     *line = NULL,
                     *label = NULL,
-                    *separator = NULL,
-                    *vscrollbar = NULL;
+#if !defined OS2009
+                    *vscrollbar = NULL,
+#endif
+                    *separator = NULL;
     GdkPixbuf       *icon_buffer;
     GtkWidget       *icon_image;
     const gchar     *wind_units_str[] = { "m/s", "km/h", "mi/h" };
@@ -298,7 +297,6 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
 #else
     /* scrolled window */
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);
-//    gtk_widget_set_size_request(scrolled_window, 800, 400);
     gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolled_window),
                                             GTK_SHADOW_NONE);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled_window),
@@ -458,11 +456,11 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
                         *main_vbox = NULL,
                         *line = NULL,
                         *separator = NULL,
-                        *previos_separator = NULL,
-                        *vscrollbar = NULL;
+#if !defined OS2009
+                        *vscrollbar = NULL,
+#endif
+                        *previos_separator = NULL;
     gchar               *day_name = NULL;
-    time_t              current_time = 0,
-                        current_data_last_update = 0;
     GtkWidget           *scrolled_window = NULL;
     GSList              *tmp = NULL;
 #ifdef DEBUGFUNCTIONCALL
@@ -598,7 +596,9 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                     *line = NULL,
                     *line_hbox = NULL,
                     *line_text = NULL,
+#if !defined OS2009
                     *vscrollbar = NULL,
+#endif
                     *icon_text_hbox = NULL;
     GdkPixbuf       *icon;
     GtkWidget       *icon_image;
@@ -609,9 +609,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                     hour_last_update[1024];
     GHashTable      *hour_weather = NULL;
     GSList          *hours_weather = NULL;
-    gint            i = 0,
-                    hours_to_midnight = 0,
-                    timezone = 0,
+    gint            timezone = 0,
                     count = 0;
     time_t          current_time,
                     hours_time,
@@ -661,7 +659,6 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
             timezone = atol(g_hash_table_lookup(g_hash_table_lookup(app->station_data, 
                                     "location"), "station_time_zone"));
             current_time = utc_time + 60 * 60 *timezone;
-//            fprintf(stderr, "\nTIME %d\n", current_time);
 
             *hour_last_update = 0;
             memset(buff, 0, sizeof(buff));
@@ -675,7 +672,6 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                                                "detail"), "last_update"));
             date_size = strcspn(hour_last_update, " ");
             strncpy(buff, hour_last_update, date_size);
-//            fprintf(stderr, "\nbuff %s\n", buff);
 
             *hour_last_update = 0;
             strcat(hour_last_update, buff);
@@ -684,20 +680,17 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
             strcat(hour_last_update, ":00:00");
 
             strptime(hour_last_update, "%D %T", &tmp_tm);
-//            fprintf(stderr, "\nhour_last_update %s\n", hour_last_update);
             hours_time = mktime(&tmp_tm);
             if((count > 1) && 
                         (!strcmp((char*)g_hash_table_lookup(hour_weather, "hours"), "00")))
                 new_day = TRUE;
             if(new_day)
                 hours_time += 24*60*60;
-//            fprintf(stderr, "\nhours_time %d\n", hours_time);
             difference = difftime(hours_time, current_time);
 
             if((difference < 0 && difference > -60*60) || difference >= 0 ||
                                       (prev_difference > 0 &&  difference<0)) {
 
-//                fprintf(stderr, "\nHOURS %d\n", hours_time);
                 flag = TRUE; 
                 line =  gtk_button_new();
                 gtk_button_set_focus_on_click(GTK_BUTTON(line), FALSE);
@@ -792,8 +785,6 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                 hours_weather = g_slist_next(hours_weather);
 
                 prev_difference = difference;
-            //    if(!hours_weather)
-              //   break;
         }
         else{
             prev_difference = difference;
@@ -805,7 +796,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
         if(!hours_weather)
              break;
      }
-        
+
     }else{
     /* Not hours data - return NULL */
         gtk_widget_destroy(scrolled_window);

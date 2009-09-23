@@ -147,8 +147,8 @@ connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
                 app->iap_connected = FALSE;
             app->iap_connecting_timer = 0;
             if((app->config->downloading_after_connecting) &&
-              (bearer && !strncmp(bearer,"WLAN", 4) && app->config->update_wlan) ||
-              (bearer && !strncmp(bearer,"DUN_GSM", 7) && app->config->update_gsm)){
+              ((bearer && !strncmp(bearer,"WLAN", 4) && app->config->update_wlan) ||
+              (bearer && !strncmp(bearer,"DUN_GSM", 7) && app->config->update_gsm))){
                 add_current_time_event();
             }
 
@@ -663,7 +663,6 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
 void
 check_current_connection(void){
     gchar *tmp = NULL;
-    gchar *tmp2 = NULL;
     gchar *gconf_path = NULL;
     gchar *type_of_connection = NULL;
     GConfClient *gconf_client = NULL;
@@ -726,7 +725,6 @@ get_data_from_url(const gchar *data_url, const gchar *name){
         curl_easy_setopt(data_curl, CURLOPT_FOLLOWLOCATION, 1);
         curl_easy_setopt(data_curl, CURLOPT_TIMEOUT, 30);
         curl_easy_setopt(data_curl, CURLOPT_CONNECTTIMEOUT, 10);
-//        curl_easy_setopt(data_curl, CURLOPT_HEADER, headers);
 
         result = curl_easy_perform(data_curl);
 
@@ -737,7 +735,7 @@ get_data_from_url(const gchar *data_url, const gchar *name){
             data.stream = NULL;
         }
         if(data.filename){
-        //     g_free(data.filename);
+             /* g_free(data.filename); */
              data.filename = NULL;
         }
         if(result == CURLE_OK)

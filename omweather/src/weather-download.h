@@ -61,5 +61,6 @@ GtkWidget* create_window_update(void);
 void free_curl(void);
 void check_current_connection(void);
 gboolean get_data_from_url(const gchar *data_url, const gchar *name);
+gchar* get_new_gismeteo_code(gchar *old_code, gchar *source);
 /*******************************************************************************/
 #endif

@@ -39,6 +39,10 @@ void deinitial_gps_control(void);
 void delete_all_gps_stations(void);
 void get_nearest_station( double lat, double lon, Station *result);
 gdouble calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2);
+sqlite3* open_database(const char *path, const char *filename);
+void close_database(sqlite3 *database);
+GtkListStore* create_regions_list(sqlite3 *database, int country_id, int *region_count);
+GtkListStore* create_stations_list(sqlite3 *database, gint region_id);
 #endif
 /*******************************************************************************/
 #endif

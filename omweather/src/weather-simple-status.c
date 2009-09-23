@@ -72,17 +72,19 @@ void
 weather_simple_window_status(GtkWidget *widget, gpointer user_data){
   GtkWidget     *window = NULL,
                 *main_table = NULL,
-                *collapsed_button = NULL,
-                *expanded_button = NULL,
                 *settings_button = NULL,
                 *help_button = NULL,
                 *left_alignmnet = NULL,
                 *right_alignmnet = NULL,
                 *vertical1_alignmnet = NULL,
                 *vertical2_alignmnet = NULL,
-                *vertical3_alignmnet = NULL,
+                *vertical3_alignmnet = NULL;
+/*
+                *collapsed_button = NULL,
+                *expanded_button = NULL,
                 *hbox_view_mode = NULL;
-  GSList        *group_view_mode = NULL;
+  GSList        *group_view_mode = NULL; 
+*/
   gint          result;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

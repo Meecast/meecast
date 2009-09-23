@@ -382,7 +382,9 @@ GtkWidget *create_button_with_image(const char *path,
 /*******************************************************************************/
 GtkWidget *create_tree_view(GtkListStore * list) {
     GtkWidget *tree_view = NULL;
+#if !defined OS2009
     GtkTreeSelection *list_selection = NULL;
+#endif
     GtkCellRenderer *renderer = NULL;
     GtkTreeViewColumn *column = NULL;
 #ifdef DEBUGFUNCTIONCALL
@@ -580,15 +582,19 @@ choose_wind_direction(gchar *buffer)
         if (buffer[0] == 'E')
             return TO_WEST;
     }
+    return UNKNOWN_DIRECTION;
 }
 
 /*******************************************************************************/
 GtkWidget*
 create_button_with_2_line_text(const gchar *first_line_text, const gchar *second_line_text,
                                 const gint first_line_text_size, const gint second_line_text_size){
-    GtkWidget *first_line = NULL,
+    GtkWidget
+#if !defined OS2009
+              *first_line = NULL,
               *second_line  = NULL,
               *vertical_box  = NULL,
+#endif
               *button = NULL;
 #if defined OS2009
   button = hildon_button_new_with_text (HILDON_SIZE_FINGER_HEIGHT | HILDON_SIZE_AUTO_WIDTH,

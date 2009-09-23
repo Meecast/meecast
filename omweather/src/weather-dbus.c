@@ -50,7 +50,7 @@ weather_initialize_dbus(void) {
 #if defined USE_DBUS && !defined OS2008 && !defined OS2009 
     gchar *filter_string;
 #endif
-#if defined USE_DBUS && !defined OS2008  
+#if defined USE_DBUS && !defined OS2008
     DBusError error;
 #endif
 

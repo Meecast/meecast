@@ -50,5 +50,6 @@ gint get_country_code(gchar *source, gchar *country_name);
 gint get_state_code(gchar *source, gchar *country_name);
 gchar* get_station_code(gchar *source, gint region_id, gchar *station_name);
 gint get_all_information_callback(void *user_data, int argc, char **argv, char **azColName);
+gchar* get_new_gismeteo_code(gchar *old_code, gchar *source);
 /*******************************************************************************/
 #endif

@@ -338,9 +338,9 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
     gchar               *element = NULL;
     gchar               *control_name = NULL;
     gboolean            valid;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(config), "list");
 
     if(list){
@@ -429,9 +429,9 @@ changed_sources_handler(GtkWidget *widget, gpointer user_data){
       }else
           list->database_invalid = TRUE;
     }
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 
 }
 /*******************************************************************************/
@@ -439,14 +439,15 @@ void
 new_station_handler(GtkButton *button, gpointer user_data){
     static struct lists_struct list;
     GtkWidget   *window = NULL,
-                *station_name = NULL,
                 *right_table = NULL,
                 *countries = NULL,
                 *states = NULL,
                 *stations = NULL,
                 *sources = NULL,
                 *add_button = NULL,
-                *search_button = NULL,
+/*
+                *station_name = NULL,
+                *search_button = NULL, */
                 *banner = NULL,
                 *label = NULL;
     gint        result;
@@ -742,9 +743,7 @@ delete_station_from_user_list_using_station_name(gchar *station_selected, gpoint
     gboolean valid = FALSE;
     GtkTreeIter iter;
     gchar       *station_name = NULL,
-                *station_code = NULL,
-                *station_source = NULL;
-    GtkTreePath *path;
+                *station_code = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif

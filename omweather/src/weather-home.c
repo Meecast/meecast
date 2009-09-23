@@ -431,7 +431,7 @@ draw_home_window(gint count_day){
                 temperature_string[1024],
                 forecast_string[2048];
     time_t      current_day,
-                current_time,
+                current_time = 0,
                 last_day = 0,
                 count_of_show_button = 0,
                 day_begin_time,
@@ -863,7 +863,6 @@ omweather_init(OMWeather *applet){
 #elif OS2009
 static void
 omweather_plugin_init (OmweatherDesktopWidget *applet){
-    HDHomePluginItem *myparent;
 #else
 void*
 hildon_home_applet_lib_initialize(void *state_data, int *state_size,
@@ -1020,7 +1019,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
       gtk_widget_set_colormap(GTK_WIDGET(applet), cm);
 #endif
 #if defined OS2009 && !defined(APPLICATION)
-//  applet->priv = OMWEATHER_PLUGIN_GET_PRIVATE (applet);
     hd_home_plugin_item_set_settings (HD_HOME_PLUGIN_ITEM (applet), TRUE);
     g_signal_connect (applet, "show-settings",
         G_CALLBACK (weather_window_settings), NULL);
@@ -2061,9 +2059,9 @@ free_memory(void){
     GtkTreeIter     iter;
     GHashTable      *hashtable = NULL;
     gchar           *source_name;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     /* delete main window */
     if(app->main_window){
         gtk_widget_destroy(app->main_window);
@@ -2673,7 +2671,7 @@ omweather_class_init(OMWeatherClass *klass){
 /*******************************************************************************/
 
 #if defined OS2009  && !defined APPLICATION
-
+static void
 omweather_plugin_widget_finalize (GObject *object)
 {
 #ifdef DEBUGFUNCTIONCALL

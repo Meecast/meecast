@@ -60,5 +60,8 @@ void manual_button_handler(GtkWidget *window, GdkEventButton *event, gpointer us
 void gps_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_data);
 void delete_station_from_user_list(gchar *station_selected, gpointer user_data);
 void check_current_connection(void);
+void free_list(GSList *list);
+void clear_station(GtkWidget *window);
+void changing_of_location (GtkWidget *button, gpointer user_data);
 /*******************************************************************************/
 #endif

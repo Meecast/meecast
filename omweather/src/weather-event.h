@@ -48,6 +48,9 @@ time_t next_update(void);
 void free_list_time_event(void);
 GtkTreeIter add_station_to_user_list(gchar *weather_station_name, gchar *weather_station_id,
           gboolean is_gps, gchar *source, gint position);
-
+gdouble calculate_distance(gdouble lat1, gdouble lon1, gdouble lat2, gdouble lon2);
+void get_nearest_station( double lat, double lon, Station *result);
+void delete_all_gps_stations(void);
+void config_save(AppletConfig*);
 /*******************************************************************************/
 #endif

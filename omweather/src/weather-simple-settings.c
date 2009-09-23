@@ -1560,9 +1560,9 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(manual_button), FALSE);
     gtk_box_pack_start (GTK_BOX (hbox), manual_button, TRUE, TRUE, 0);
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(manual_button), group);
-    //
+
     g_object_set_data(G_OBJECT(window), "manual_button", manual_button);
-    //
+
     gps_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(gps_button), gtk_label_new(_("GPS")));
     gtk_widget_set_size_request(gps_button, 174, 50);
@@ -1693,11 +1693,10 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     else
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(manual_button),
                                      TRUE);
- 
+
     gtk_widget_show (main_table);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
-//    gtk_dialog_add_button(GTK_DIALOG(window), GTK_STOCK_FIND, GTK_RESPONSE_OK);
     gtk_dialog_add_button(GTK_DIALOG(window), _("Clear"), GTK_RESPONSE_NO);
     save_button = gtk_dialog_add_button(GTK_DIALOG(window), _("Save"), GTK_RESPONSE_YES);
     g_object_set_data(G_OBJECT(window), "save_button", (gpointer)save_button);
@@ -1756,8 +1755,6 @@ manual_button_handler(GtkWidget *window, GdkEventButton *event, gpointer user_da
     START_FUNCTION;
 #endif
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(window), TRUE);
-   // button = (GtkWidget *)g_object_get_data(G_OBJECT(window),"manual_button");
-  ///  gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button), TRUE);
 
     source_button = (GtkWidget *)g_object_get_data(G_OBJECT(user_data),"source_button");
     gtk_widget_set_sensitive(source_button, TRUE);
@@ -2121,13 +2118,15 @@ create_and_fill_update_box(GtkWidget *main_table){
 /*******************************************************************************/
 void
 create_and_fill_widget_style_box(GtkWidget *main_table){
-    GtkWidget       *widget_style_button = NULL,
+    GtkWidget
+#if !defined OS2009
                     *widget_style_description = NULL,
                     *widget_style_label = NULL,
                     *widget_style_hbox = NULL,
                     *widget_style_vbox = NULL,
+#endif
                     *widget_style_icon = NULL,
-                    *alignmnet = NULL;
+                    *widget_style_button = NULL;
 
     GdkPixbuf       *icon_buffer = NULL;
     gchar           buffer[256],
@@ -2191,21 +2190,11 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
       gtk_widget_show(widget_style_hbox);
 
       gtk_widget_show (widget_style_icon);
-     //    gtk_widget_set_size_request(widget_style_icon, 60, -1);
-
-      //    alignmnet = gtk_alignment_new(0, 0, 0, 0);
-//    alignmnet = gtk_alignment_new(0, 0, 0, 0);
-  //  gtk_widget_set_size_request(alignmnet, -1, 20);
-  //  gtk_widget_show(alignmnet);
 
     gtk_box_pack_start(GTK_BOX(widget_style_vbox), widget_style_label, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(widget_style_vbox), widget_style_description, TRUE, TRUE, 0);
-   // gtk_widget_set_size_request(widget_style_vbox, 380, -1);
-    //gtk_box_pack_start(GTK_BOX(widget_style_hbox), alignmnet, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(widget_style_hbox), widget_style_vbox, TRUE, TRUE, 0);
-   // gtk_box_pack_start(GTK_BOX(widget_style_hbox), alignmnet, TRUE, TRUE, 0);
     gtk_box_pack_end(GTK_BOX(widget_style_hbox), widget_style_icon, TRUE, TRUE, 0);
-   // gtk_box_pack_start(GTK_BOX(widget_style_hbox), alignmnet, TRUE, TRUE, 0);
     gtk_container_add (GTK_CONTAINER (widget_style_button), widget_style_hbox);
 
 #endif

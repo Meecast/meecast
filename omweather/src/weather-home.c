@@ -107,6 +107,15 @@ top_widget_expose(GtkWidget *widget, GdkEventExpose *event){
     g_signal_handlers_disconnect_by_func(G_OBJECT(widget),G_CALLBACK(top_widget_expose),NULL);
 }
 #endif
+#ifdef HILDONANIMATION
+/* For start of Clutter animation in main form */
+top_widget_expose(GtkWidget *widget, GdkEventExpose *event){
+    show_hildon_animation(app->clutter_objects_in_main_form, app->main_view);
+    gtk_widget_show_all(widget);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(widget),G_CALLBACK(top_widget_expose),NULL);
+}
+#endif
+
 /*******************************************************************************/
 /* Change station to previos at main display */
 gboolean 
@@ -699,7 +708,7 @@ draw_home_window(gint count_day){
 /* creating main panel */
     app->main_window = gtk_table_new(2, 3, FALSE);
 
-#if defined CLUTTER
+#if defined CLUTTER || defined HILDONANIMATION
    g_signal_connect_after(app->main_window, "expose-event",
       G_CALLBACK(top_widget_expose), NULL);
 #endif
@@ -764,7 +773,7 @@ redraw_home_window(gboolean first_start){
         g_slist_free(app->buttons);
         app->buttons = NULL;
     }
-#ifdef CLUTTER
+#if defined CLUTTER || defined HILDONANIMATION
     free_clutter_objects_list(&app->clutter_objects_in_main_form);
 #endif
     if (app->main_window)

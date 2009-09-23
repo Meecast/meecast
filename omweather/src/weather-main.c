@@ -67,6 +67,8 @@ main(int argc, char *argv[]){
     }
     gtk_init(&argc, &argv);
 
+    clutter_init(NULL, NULL);
+
     window = create_omweather();
     if(window){
           app->main_view =  window;

@@ -1380,3 +1380,14 @@ popup_window_expose(GtkWidget *widget, GdkEventExpose *event){
 }
 #endif
 /*******************************************************************************/
+#ifdef HILDONANIMATION
+/* For start of Clutter animation in popup window */
+void
+popup_window_expose(GtkWidget *widget, GdkEventExpose *event){
+    show_hildon_animation(app->clutter_objects_in_popup_form, app->popup_window);
+    gtk_widget_show_all(widget);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(widget),G_CALLBACK(popup_window_expose),NULL);
+}
+#endif
+
+/*******************************************************************************/

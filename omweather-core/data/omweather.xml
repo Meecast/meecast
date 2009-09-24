@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<omweather xmlns="https://garage.maemo.org/projects/omweather/">
+<stations-list>
+<station name="Amherst" code="USCO0008" source="weather.com" type="manual" />
+<station name="Verhnedvinsk" code="BOXX0011" source="weather.com" type="manual" />
+<station name="Vitebsk" code="BOXX0014" source="weather.com" type="manual" />
+<station name="Brno" code="EZXX0002" source="weather.com" type="manual" />
+<station name="Lida" code="BOXX0017" source="weather.com" type="manual" />
+<station name="Sluck" code="BOXX0021" source="weather.com" type="manual" />
+</stations-list>
+<alerts-list />
+<current-station-source>weather.com</current-station-source>
+<current-station-name>Vitebsk</current-station-name>
+<current-station-code>BOXX0014</current-station-code>
+<current-icons-set>Samurize</current-icons-set>
+<last-source>weather.com</last-source>
+<last-country>Belarus</last-country>
+<cache-directory>/home/pavel/apps/omweather</cache-directory>
+<icons-preset>NOW</icons-preset>
+<icons-size>LARGE</icons-size>
+<view-mode>COLLAPSED</view-mode>
+<settings-mode>SIMPLE</settings-mode>
+<show-arrows>true</show-arrows>
+<show-station-name>true</show-station-name>
+<show-wind>false</show-wind>
+<show-detail-weather>true</show-detail-weather>
+<text-position>RIGHT</text-position>
+<swap-temperature>true</swap-temperature>
+<font-color>#ffff00</font-color>
+<background-color>#000000</background-color>
+<separate-data>false</separate-data>
+<transparency>true</transparency>
+	<entry name="update-WLAN" mtime="1253636927" type="bool" value="false"/>
+	<entry name="update-gsm" mtime="1253636927" type="bool" value="true"/>
+	<entry name="valid-time" mtime="1253636927" type="int" value="1"/>
+	<entry name="switch-time" mtime="1253636927" type="int" value="0"/>
+	<entry name="wind-units" mtime="1253636927" type="int" value="0"/>
+	<entry name="pressure-units" mtime="1253636927" type="int" value="2"/>
+	<entry name="distance-units" mtime="1253636927" type="int" value="1"/>
+	<entry name="days" mtime="1253636927" type="int" value="10"/>
+	<entry name="temperature-unit" mtime="1253636927" type="int" value="0"/>
+	<entry name="click-for-launch-popup" mtime="1253636927" type="int" value="0"/>
+	<entry name="show-wind-gust" mtime="1253636927" type="bool" value="false"/>
+	<entry name="corner-radius" mtime="1253636927" type="int" value="10"/>
+	<entry name="alpha-component" mtime="1253636927" type="int" value="0"/>
+	<entry name="downloading-after-connecting" mtime="1253636927" type="bool" value="false"/>
+	<entry name="update-interval" mtime="1253636927" type="int" value="30"/>
+	<entry name="font" mtime="1253636927" type="string">
+		<stringvalue>Sans 12</stringvalue>
+	</entry>
+	<entry name="settings-tab-number" mtime="1253636927" type="int" value="1"/>
+	<entry name="version" mtime="1253636927" type="string">
+		<stringvalue>0.25</stringvalue>
+	</entry>
+</omweather>

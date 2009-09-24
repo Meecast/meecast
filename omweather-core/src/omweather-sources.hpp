@@ -66,14 +66,14 @@ class Source{
     public:
         Source(const std::string);
         ~Source();
-        bool is_valid();
+        bool is_valid() const;
 };
 /*******************************************************************************/
 class SourcesList{
     std::vector<Source> list;
     public:
         SourcesList();
-        int size();
+        int size() const;
 };
 /*******************************************************************************/
 #endif

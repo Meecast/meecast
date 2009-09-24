@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="omweather">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="version" type="xs:string" maxOccurs="1" />
+      <xs:element name="stations-list" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="station" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="name" type="xs:string" use="required"/>
+                <xs:attribute name="code" type="xs:string" use="required"/>
+                <xs:attribute name="source" type="xs:string" use="required"/>
+                <xs:attribute name="type" use="required">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:enumeration value="manual" />
+                      <xs:enumeration value="gps" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="current-station-source" type="xs:string" maxOccurs="1" />
+      <xs:element name="current-station-name" type="xs:string" maxOccurs="1" />
+      <xs:element name="current-station-code" type="xs:string" maxOccurs="1" />
+      <xs:element name="current-icons-set" type="xs:string" maxOccurs="1" />
+      <xs:element name="last-source" type="xs:string" maxOccurs="1" />
+      <xs:element name="last-country" type="xs:string" maxOccurs="1" />
+      <xs:element name="cache-directory" type="xs:string" maxOccurs="1" />
+      <xs:element name="icons-preset" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="ONE_ROW" />
+            <xs:enumeration value="ONE_COLUMN" />
+            <xs:enumeration value="TWO_ROWS" />
+            <xs:enumeration value="TWO_COLUMNS" />
+            <xs:enumeration value="COMBINATION" />
+            <xs:enumeration value="PRESET_NOW" />
+            <xs:enumeration value="PRESET_NOW_PLUS_TWO" />
+            <xs:enumeration value="PRESET_NOW_PLUS_THREE_V" />
+            <xs:enumeration value="PRESET_NOW_PLUS_THREE_H" />
+            <xs:enumeration value="PRESET_NOW_PLUS_SEVEN" />
+            <xs:enumeration value=" APPLICATION_MODE" />
+            <xs:enumeration value="PRESET_NOW_PLUS_SEVEN" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="icons-size" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="TINY" />
+            <xs:enumeration value="SMALL" />
+            <xs:enumeration value="MEDIUM" />
+            <xs:enumeration value="BIG" />
+            <xs:enumeration value="LARGE" />
+            <xs:enumeration value="GIANT" />
+            <xs:enumeration value="SUPER_GIANT" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="view-mode" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="SIMPLE" />
+            <xs:enumeration value="EXTENDED" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="settings-mode" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="SIMPLE" />
+            <xs:enumeration value="EXTENDED" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="show-arrows" type="xs:boolean" maxOccurs="1" />
+      <xs:element name="show-station-name" type="xs:boolean" maxOccurs="1" />
+      <xs:element name="show-wind" type="xs:boolean" maxOccurs="1" />
+      <xs:element name="show-wind-gust" type="xs:boolean" maxOccurs="1" />
+      <xs:element name="show-detail-weather" type="xs:boolean" maxOccurs="1" />
+      <xs:element name="text-position" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="LEFT" />
+            <xs:enumeration value="RIGHT" />
+            <xs:enumeration value="TOP" />
+            <xs:enumeration value="BOTTOM" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="swap-temperature" type="xs:boolean" maxOccurs="1" />
+      <xs:element name="font-color" type="xs:string" maxOccurs="1" />
+      <xs:element name="background-color" type="xs:string" maxOccurs="1" />
+      <xs:element name="separate-data" type="xs:boolean" maxOccurs="1" />
+      <xs:element name="transparency" type="xs:boolean" maxOccurs="1" />
+      <xs:element name="wind-units" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="MPS" />
+            <xs:enumeration value="KMPH" />
+            <xs:enumeration value="MIPH" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="pressure-units" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="MB" />
+            <xs:enumeration value="INCH" />
+            <xs:enumeration value="MM" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="distance-units" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="M" />
+            <xs:enumeration value="KM" />
+            <xs:enumeration value="MI" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element ref="temperature-units" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="CELCIUS" />
+            <xs:enumeration value="FAHRENHEIT" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="valid-time" type="xs:unsignedInt" maxOccurs="1" />
+      <xs:element name="switch-time" type="xs:unsignedInt" maxOccurs="1" />
+      <xs:element name="update-time" type="xs:unsignedInt" maxOccurs="1" />
+      <xs:element name="update-wlan" type="xs:boolean" maxOccurs="1" />
+      <xs:element name="update-gsm" type="xs:boolean" maxOccurs="1" />
+      <xs:element name="auto-download" type="xs:boolean" maxOccurs="1" />
+      <xs:element name="settings-tab" type="xs:unsignedInt" maxOccurs="1" />
+      <xs:element name="font" type="xs:string" maxOccurs="1" />
+      <xs:element name="click-type" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="SHORT" />
+            <xs:enumeration value="LONG" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="days-number" type="xs:unsignedInt" maxOccurs="1" />
+      <xs:element name="corner-radius" type="xs:unsignedInt" maxOccurs="1" />
+      <xs:element name="alpha-component" type="xs:unsignedInt" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+</xs:schema>

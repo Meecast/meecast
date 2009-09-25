@@ -93,15 +93,16 @@
 #define GCONF_KEY_VIEW_MODE                         GCONF_KEY_PREFIX"/view_mode"
 /*******************************************************************************/
 Config::Config(){
-    gconf_client = gconf_client_get_default();
+    home_dir.clear();
+    version.clear();
     cache_directory.clear();
     icons_set_base.clear();
-    icon_set.clear();
+    current_icons_set.clear();
     font.clear();
-    current_source.clear();
-    current_country.clear();
+    last_source.clear();
+    last_country.clear();
     current_station_name.clear();
-    current_station_id.clear();
+    current_station_code.clear();
     current_station_source.clear();
     iap_http_proxy_host.clear();
     iap_http_proxy_port = 0;
@@ -141,11 +142,97 @@ Config::Config(){
 }
 /*******************************************************************************/
 Config::~Config(){
-    gconf_client_clear_cache(gconf_client);
-    g_object_unref(gconf_client);
 }
 /*******************************************************************************/
 bool Config::read(){
+    std::string filename;
+    home_dir = getenv("HOME");
+    if(!home_dir){
+        filename = "/tmp/omweather.xml";
+    else
+        filename = home_dir + "/" + "omweather.xml";
+
+    ifstream file(filename);
+    if(file.is_open()){
+        file.close();
+        xmlDoc document = xmlReadFile(filename, NULL, 0);
+        if(document){
+            xmlNode root_node = xmlDocGetRootElement(document);
+            xmlNode current_node = root_node->children;
+            parse_children(current_node);
+            xmlFreeDoc(document);
+        }
+    }
+}
+/*******************************************************************************/
+void Config::parse_children(xmlNode *node){
+    xmlChar     *value = NULL;
+
+    while(node){
+        if(node->type == XML_ELEMENT_NODE){
+            /* version */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"version")){
+                value = xmlNodeGetContent(node);
+                version = (char*)value;
+                xmlFree(value);
+            }
+            /* current-station-source */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"current-station-source")){
+                value = xmlNodeGetContent(node);
+                current_station_source = (char*)value;
+                xmlFree(value);
+            }
+            /* current-station-name */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"current-station-name")){
+                value = xmlNodeGetContent(node);
+                current_station_name = (char*)value;
+                xmlFree(value);
+            }
+            /* current-station-code */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"current-station-code")){
+                value = xmlNodeGetContent(node);
+                current_station_code = (char*)value;
+                xmlFree(value);
+            }
+            /* current-icons-set */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"current-icons-set")){
+                value = xmlNodeGetContent(node);
+                current_icons_set = (char*)value;
+                xmlFree(value);
+            }
+            /* last-source */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"last-source")){
+                value = xmlNodeGetContent(node);
+                last_source = (char*)value;
+                xmlFree(value);
+            }
+            /* last-country */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"last-country")){
+                value = xmlNodeGetContent(node);
+                last_country = (char*)value;
+                xmlFree(value);
+            }
+            /* cache-directory */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"cache-directory")){
+                value = xmlNodeGetContent(node);
+                cache_directory = (char*)value;
+                xmlFree(value);
+                if(cache_directory.is_empty())
+                    cache_directory = home_dir + "/apps/omweather";
+            }
+            /* icons-preset */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"icons-preset")){
+                value = xmlNodeGetContent(node);
+                icons_preset = (char*)value;
+                xmlFree(value);
+                if(icons_preset.is_empty() || icons_preset != 
+            }
+        }
+        node = node->next;
+    }
+}
+/*******************************************************************************/
+bool Config::read1(){
     char        *tmp = NULL,
                 *home_dir = NULL;
     int         t, fd;

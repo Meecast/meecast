@@ -27,7 +27,6 @@
 */
 /*******************************************************************************/
 #include "omweather-sources.hpp"
-#include <libxml/parser.h>
 #include <fstream>
 /*******************************************************************************/
 Source::Source(const std::string filename){

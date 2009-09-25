@@ -38,15 +38,8 @@
 #ifdef ENABLE_NLS
 #include <libintl.h>
 #endif
+#include <libxml/parser.h>
 /*******************************************************************************/
-/*
-union Param{
-    bool        as_bool;
-    int         as_int;
-    char        *as_string;
-    GdkColor    as_color;
-};
-*/
 class Param{
     public:
         union{

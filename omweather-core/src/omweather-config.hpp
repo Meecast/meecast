@@ -34,19 +34,21 @@
 #include <gconf/gconf-client.h>
 /*******************************************************************************/
 class Config{
+    std::string         home_dir;
     protected:
-    GConfClient         *gconf_client;
+    void parse_children(xmlNode *node);
     StationsList        user_stations_list;
     std::string         icons_set_base;
-    std::string         icon_set;
+    std::string         current_icons_set;
     std::string         font;
-    std::string         current_source;
-    std::string         current_country;
+    std::string         last_source;
+    std::string         last_country;
     std::string         current_station_name;
-    std::string         current_station_id;
+    std::string         current_station_code;
     std::string         current_station_source;
     std::string         iap_http_proxy_host;
     std::string         cache_directory;
+    std::string         version;
     int                 iap_http_proxy_port;
     int                 update_interval;
     int                 switch_time;

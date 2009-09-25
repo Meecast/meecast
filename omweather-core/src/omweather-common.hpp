@@ -34,25 +34,12 @@
 #endif
 #include <string>
 #include <vector>
+#include <map>
 #include <gtk/gtk.h>
 #ifdef ENABLE_NLS
 #include <libintl.h>
 #endif
 #include <libxml/parser.h>
-/*******************************************************************************/
-class Param{
-    public:
-        union{
-            bool        bool_param;
-            int         int_param;
-            char*       string_param;
-            GdkColor    color_param;
-        };
-        inline int toInt(){ return int_param; }
-        inline bool toBool(){ return bool_param; }
-        inline char* toString(){ return string_param; }
-        inline GdkColor toColor(){ return color_param; }
-};
 /*******************************************************************************/
 enum { INVALID_VALUE = 0, TINY, SMALL, MEDIUM, LARGE, GIANT };
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, PRESET_NOW,
@@ -78,5 +65,32 @@ enum { ICON, STATION_NAME };
 #define _(String) dgettext(GETTEXT_PACKAGE, String)
 #define Max_count_weather_day   10
 #define ICONS_PATH              "/usr/share/omweather/icons/"
+/*******************************************************************************/
+class Param{
+    public:
+        union{
+            bool        bool_param;
+            int         int_param;
+            char*       string_param;
+            GdkColor    color_param;
+        };
+        inline int toInt(){ return int_param; }
+        inline bool toBool(){ return bool_param; }
+        inline char* toString(){ return string_param; }
+        inline GdkColor toColor(){ return color_param; }
+};
+/*******************************************************************************/
+class Set{
+    std::map<std::string,std::string>::iterator it;
+    std::string name;
+    int number;
+    protected:
+        std::map<std::string,std::string> list;
+        Set(std::string);
+        Set(int);
+    public:
+        int toInt();
+        std::string toString();
+};
 /*******************************************************************************/
 #endif

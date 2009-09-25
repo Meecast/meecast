@@ -38,7 +38,7 @@ Text::Text(){
 /*******************************************************************************/
 std::string Text::search(const std::string key){
     it = list.find(key);
-    if(it == std::map::end)
+    if(it == list.end())
         return key;
     else
         return it->second;

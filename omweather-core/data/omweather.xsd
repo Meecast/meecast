@@ -45,7 +45,7 @@
             <xs:enumeration value="PRESET_NOW_PLUS_THREE_V" />
             <xs:enumeration value="PRESET_NOW_PLUS_THREE_H" />
             <xs:enumeration value="PRESET_NOW_PLUS_SEVEN" />
-            <xs:enumeration value=" APPLICATION_MODE" />
+            <xs:enumeration value="APPLICATION_MODE" />
             <xs:enumeration value="PRESET_NOW_PLUS_SEVEN" />
           </xs:restriction>
         </xs:simpleType>
@@ -126,7 +126,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element ref="temperature-units" maxOccurs="1">
+      <xs:element name="temperature-units" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="CELCIUS" />

@@ -89,8 +89,8 @@ class Set{
         Set(std::string);
         Set(int);
     public:
-        int toInt();
-        std::string toString();
+        inline int toInt(){ return number; }
+        inline std::string toString(){ return name; }
 };
 /*******************************************************************************/
 #endif

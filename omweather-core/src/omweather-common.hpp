@@ -35,16 +35,17 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <gtk/gtk.h>
 #ifdef ENABLE_NLS
 #include <libintl.h>
 #endif
 #include <libxml/parser.h>
+#include <stdlib.h>
 /*******************************************************************************/
-enum { INVALID_VALUE = 0, TINY, SMALL, MEDIUM, LARGE, GIANT };
-enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, PRESET_NOW,
-        PRESET_NOW_PLUS_TWO, PRESET_NOW_PLUS_THREE_V, PRESET_NOW_PLUS_THREE_H,
-        PRESET_NOW_PLUS_SEVEN, APPLICATION_MODE };
+enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, NOW,
+        NOW_PLUS_TWO, NOW_PLUS_THREE_V, NOW_PLUS_THREE_H, NOW_PLUS_SEVEN,
+        APPLICATION_MODE };
+enum { TINY = 32, SMALL = 48, MEDIUM = 64 , BIG = 80, LARGE = 96, GIANT = 128,
+        SUPER_GIANT = 256 };
 enum { RIGHT, LEFT, TOP, BOTTOM, NOTHING };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
 enum { METERS_S, KILOMETERS_H, MILES_H };
@@ -52,7 +53,7 @@ enum { CELSIUS, FAHRENHEIT };
 enum { MB, INCH, MM };
 enum { SIMPLE_MODE, EXTENDED_MODE };
 enum { SHORT_CLICK, LONG_CLICK };
-enum { COLLAPSED_VIEW_MODE, EXPANDED_VIEW_MODE };
+enum { COLLAPSED, EXPANDED };
 enum { SETTINGS_STATIONS_PAGE, SETTINGS_VISUALS_PAGE, SETTINGS_DISPLAY_PAGE,
        SETTINGS_UNITS_PAGE, SETTINGS_UPDATE_PAGE,
 #if defined(OS2008) || defined(OS2009) || defined(NONMAEMO)
@@ -66,31 +67,55 @@ enum { ICON, STATION_NAME };
 #define Max_count_weather_day   10
 #define ICONS_PATH              "/usr/share/omweather/icons/"
 /*******************************************************************************/
+typedef struct{
+    int r;
+    int g;
+    int b;
+    void set(const char* color);
+}Color;
+/*******************************************************************************/
 class Param{
     public:
         union{
             bool        bool_param;
             int         int_param;
             char*       string_param;
-            GdkColor    color_param;
+            Color       color_param;
         };
         inline int toInt(){ return int_param; }
         inline bool toBool(){ return bool_param; }
         inline char* toString(){ return string_param; }
-        inline GdkColor toColor(){ return color_param; }
+        inline Color toColor(){ return color_param; }
 };
 /*******************************************************************************/
 class Set{
-    std::map<std::string,std::string>::iterator it;
-    std::string name;
-    int number;
     protected:
-        std::map<std::string,std::string> list;
-        Set(std::string);
-        Set(int);
+        std::map<std::string,int> string_list;
+        std::map<int,std::string> int_list;
+        std::string current_name;
+        int current_number;
+        Set();
     public:
-        inline int toInt(){ return number; }
-        inline std::string toString(){ return name; }
+        void current(int);
+        void current(const std::string);
+        void current(const char*);
+        int toInt();
+        std::string toString();
+};
+/*******************************************************************************/
+class IconsPreset : public Set{
+    public:
+        IconsPreset();
+};
+/*******************************************************************************/
+class IconsSize : public Set{
+    public:
+        IconsSize();
+};
+/*******************************************************************************/
+class ViewMode : public Set{
+    public:
+        ViewMode();
 };
 /*******************************************************************************/
 #endif

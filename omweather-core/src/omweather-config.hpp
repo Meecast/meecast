@@ -31,7 +31,6 @@
 /*******************************************************************************/
 #include "omweather-common.hpp"
 #include "omweather-stations.hpp"
-#include <gconf/gconf-client.h>
 /*******************************************************************************/
 class Config{
     std::string         home_dir;
@@ -52,8 +51,8 @@ class Config{
     int                 iap_http_proxy_port;
     int                 update_interval;
     int                 switch_time;
-    int                 icons_size;
-    int                 icons_layout;
+    IconsSize           icons_size;
+    IconsPreset         icons_layout;
     int                 text_position;
     int                 current_settings_page;
     int                 days_to_show;
@@ -64,7 +63,7 @@ class Config{
     int                 temperature_units;
     int                 pressure_units;
     int                 mode;
-    int                 view_mode;
+    ViewMode            view_mode;
     int                 data_valid_interval;
     bool                transparency;
     bool                separate;

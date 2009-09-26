@@ -108,8 +108,6 @@ Config::Config(){
     iap_http_proxy_port = 0;
     update_interval = 60;
     switch_time = 0;
-    icons_size = LARGE;
-    icons_layout = PRESET_NOW;
     text_position = RIGHT;
     current_settings_page = 0;
     days_to_show = 5;
@@ -223,9 +221,20 @@ void Config::parse_children(xmlNode *node){
             /* icons-preset */
             if(!xmlStrcmp(node->name, (const xmlChar*)"icons-preset")){
                 value = xmlNodeGetContent(node);
-                icons_preset = (char*)value;
+                icons_preset.current((char*)value);
                 xmlFree(value);
-                if(icons_preset.is_empty() || icons_preset != 
+            }
+            /* icons-size */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"icons-size")){
+                value = xmlNodeGetContent(node);
+                icons_size.current((char*)value);
+                xmlFree(value);
+            }
+            /* view-mode */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"view-mode")){
+                value = xmlNodeGetContent(node);
+                view-mode.current((char*)value);
+                xmlFree(value);
             }
         }
         node = node->next;

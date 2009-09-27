@@ -4,6 +4,12 @@ omweather (0.25) unstable; urgency=low
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 27 Sep 2009 11:20:10 +0200
 
+omweather (0.24.6) unstable; urgency=low
+
+  * Fixed problem with GPS for Fremantle
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 27 Sep 2009 19:15:10 +0200
+
 omweather (0.24.5) unstable; urgency=low
 
   * Fixed problem with button GPS

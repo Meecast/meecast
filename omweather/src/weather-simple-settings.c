@@ -1450,9 +1450,11 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
     g_object_set_data(G_OBJECT(button), parameter_name, (gpointer)value);
 
     gtk_widget_set_name(button, button_name);
+#if defined OS2009
     if (position == -1 && i == 1){
         hildon_touch_selector_set_active(HILDON_TOUCH_SELECTOR(selector), 0, 0);
     }
+#endif
     gtk_widget_set_size_request(button, 180, 80);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

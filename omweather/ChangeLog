@@ -1,3 +1,21 @@
+0.24.6
+
+  * Fixed problem with GPS for Fremantle
+
+0.24.5
+
+  * Fixed problem with button GPS
+
+0.24.4
+
+  * Various minor fixes
+  * Fixed small memory leaks in configurations window
+  * Fixed bug #5083 "Remove/hide mnemonics for buttons"
+  * Fixed bug #5804 '"Source" should default to "weather.com" if  no other providers available'
+  * Fixed bug #5122 "XB-Maemo-Display-Name not used in debian/control"
+  * Fixed bug #5086 "Settings > Update > Period: Cropped "4 hours" setting"
+  * Fixed bug #5087 '"Not available for this country" instead of empty "Selecting station" list'
+
 0.24.3
   * Various minor fixes
   * Fixed bug #4748 "omweather asks me to reboot my device on every update" for Fremantle

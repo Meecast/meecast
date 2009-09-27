@@ -386,7 +386,7 @@ msgstr "Город:"
 
 #: src/hash.data:23 src/weather-simple-settings.c:1694
 msgid "Clear"
-msgstr "Ясно"
+msgstr "Очистить"
 
 #: src/hash.data:22
 msgid "Clear / Wind"

@@ -35,6 +35,14 @@ void Color::set(const char *str){
     b = atoi(c.substr(5, 2).c_str());
 }
 /*******************************************************************************/
+const char* Color::get(){
+    char buffer[128];
+    *buffer = 0;
+    snprintf(buffer, sizeof(buffer) - 1, "#%02X%02X%02X\0", r, g, b);
+    std::string c = buffer;
+    return c.c_str();
+}
+/*******************************************************************************/
 Set::Set(){
     string_list.clear();
     int_list.clear();
@@ -133,4 +141,85 @@ ViewMode::ViewMode(){
     current_name = int_list[COLLAPSED];
 }
 /*******************************************************************************/
+SettingsMode::SettingsMode(){
+    string_list.insert( std::pair<std::string,int>("SIMPLE", SIMPLE) );
+    string_list.insert( std::pair<std::string,int>("EXTENDED", EXTENDED) );
+    int_list.insert( std::pair<int,std::string>(SIMPLE, "SIMPLE") );
+    int_list.insert( std::pair<int,std::string>(EXTENDED, "EXTENDED") );
+    /* default value */
+    current_number = string_list["SIMPLE"];
+    current_name = int_list[SIMPLE];
+}
+/*******************************************************************************/
+TextPosition::TextPosition(){
+    string_list.insert( std::pair<std::string,int>("LEFT", LEFT) );
+    string_list.insert( std::pair<std::string,int>("RIGHT", RIGHT) );
+    string_list.insert( std::pair<std::string,int>("TOP", TOP) );
+    string_list.insert( std::pair<std::string,int>("BOTTOM", BOTTOM) );
+    int_list.insert( std::pair<int,std::string>(LEFT, "LEFT") );
+    int_list.insert( std::pair<int,std::string>(RIGHT, "RIGHT") );
+    int_list.insert( std::pair<int,std::string>(TOP, "TOP") );
+    int_list.insert( std::pair<int,std::string>(BOTTOM, "BOTTOM") );
+    /* default value */
+    current_number = string_list["RIGHT"];
+    current_name = int_list[RIGHT];
+}
+/*******************************************************************************/
+WindUnits::WindUnits(){
+    string_list.insert( std::pair<std::string,int>("MpS", MpS) );
+    string_list.insert( std::pair<std::string,int>("KMpH", KMpH) );
+    string_list.insert( std::pair<std::string,int>("MIpH", MIpH) );
+    int_list.insert( std::pair<int,std::string>(MpS, "MpS") );
+    int_list.insert( std::pair<int,std::string>(KMpH, "KMpH") );
+    int_list.insert( std::pair<int,std::string>(MIpH, "MIpH") );
+    /* default value */
+    current_number = string_list["MpS"];
+    current_name = int_list[MpS];
+}
+/*******************************************************************************/
+PressureUnits::PressureUnits(){
+    string_list.insert( std::pair<std::string,int>("MB", MB) );
+    string_list.insert( std::pair<std::string,int>("INCH", INCH) );
+    string_list.insert( std::pair<std::string,int>("MM", MM) );
+    int_list.insert( std::pair<int,std::string>(MB, "MB") );
+    int_list.insert( std::pair<int,std::string>(INCH, "INCH") );
+    int_list.insert( std::pair<int,std::string>(MM, "MM") );
+    /* default value */
+    current_number = string_list["MM"];
+    current_name = int_list[MM];
+}
+/*******************************************************************************/
+DistanceUnits::DistanceUnits(){
+    string_list.insert( std::pair<std::string,int>("M", M) );
+    string_list.insert( std::pair<std::string,int>("KM", KM) );
+    string_list.insert( std::pair<std::string,int>("MI", MI) );
+    string_list.insert( std::pair<std::string,int>("sMI", sMI) );
+    int_list.insert( std::pair<int,std::string>(M, "M") );
+    int_list.insert( std::pair<int,std::string>(KM, "KM") );
+    int_list.insert( std::pair<int,std::string>(MI, "MI") );
+    int_list.insert( std::pair<int,std::string>(sMI, "sMI") );
+    /* default value */
+    current_number = string_list["KM"];
+    current_name = int_list[KM];
+}
+/*******************************************************************************/
+TemperatureUnits::TemperatureUnits(){
+    string_list.insert( std::pair<std::string,int>("CELCIUS", CELCIUS) );
+    string_list.insert( std::pair<std::string,int>("F", FAHRENHEIT) );
+    int_list.insert( std::pair<int,std::string>(CELCIUS, "CELCIUS") );
+    int_list.insert( std::pair<int,std::string>(FAHRENHEIT, "FAHRENHEIT") );
+    /* default value */
+    current_number = string_list["CELCIUS"];
+    current_name = int_list[CELCIUS];
+}
+/*******************************************************************************/
+ClickType::ClickType(){
+    string_list.insert( std::pair<std::string,int>("SHORT", SHORT) );
+    string_list.insert( std::pair<std::string,int>("LONG", LONG) );
+    int_list.insert( std::pair<int,std::string>(SHORT, "SHORT") );
+    int_list.insert( std::pair<int,std::string>(LONG, "LONG") );
+    /* default value */
+    current_number = string_list["SHORT"];
+    current_name = int_list[SHORT];
+}
 /*******************************************************************************/

@@ -106,29 +106,21 @@ Config::Config(){
     current_station_source.clear();
     iap_http_proxy_host.clear();
     iap_http_proxy_port = 0;
-    update_interval = 60;
+    update_time = 60;
     switch_time = 0;
-    text_position = RIGHT;
     current_settings_page = 0;
-    days_to_show = 5;
+    days_number = 5;
     previos_days_to_show = days_to_show;
-    distance_units = METERS;
-    wind_units = METERS_S;
-    temperature_units = CELSIUS;
-    pressure_units = MM;
-    clicking_type = SHORT_CLICK;
-    mode = SIMPLE_MODE;
-    view_mode = COLLAPSED_VIEW_MODE;
-    data_valid_interval = 2 * 3600;
+    valid_time = 2 * 3600;
     transparency = true;
     separate = false;
     swap_hi_low_temperature = true;
     show_station_name = true;
     show_arrows = true;
-    downloading_after_connecting = false;
+    auto_download = true;
     show_wind = false;
-/*  show_wind_gust = false;*/
-    show_weather_for_two_hours = true;
+    show_wind_gust = false;
+    show_detail_weather = true;
     font_color.pixel = 0;
     font_color.red = 0xFF00U;
     font_color.green = 0xFF00U;
@@ -144,6 +136,7 @@ Config::~Config(){
 /*******************************************************************************/
 bool Config::read(){
     std::string filename;
+
     home_dir = getenv("HOME");
     if(!home_dir){
         filename = "/tmp/omweather.xml";
@@ -165,6 +158,7 @@ bool Config::read(){
 /*******************************************************************************/
 void Config::parse_children(xmlNode *node){
     xmlChar     *value = NULL;
+    int         t;
 
     while(node){
         if(node->type == XML_ELEMENT_NODE){
@@ -233,7 +227,175 @@ void Config::parse_children(xmlNode *node){
             /* view-mode */
             if(!xmlStrcmp(node->name, (const xmlChar*)"view-mode")){
                 value = xmlNodeGetContent(node);
-                view-mode.current((char*)value);
+                view_mode.current((char*)value);
+                xmlFree(value);
+            }
+            /* settings-mode */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"settings-mode")){
+                value = xmlNodeGetContent(node);
+                settings_mode.current((char*)value);
+                xmlFree(value);
+            }
+            /* show-arrows */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"show-arrows")){
+                value = xmlNodeGetContent(node);
+                if(!strcmp(value, "false"))
+                    show_arrows = false;
+                else
+                    show_arrows = true; /* default value */
+                xmlFree(value);
+            }
+            /* show-station-name */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"show-station-name")){
+                value = xmlNodeGetContent(node);
+                if(!strcmp(value, "false"))
+                    show_station_name = false;
+                else
+                    show_station_name = true; /* default value */
+                xmlFree(value);
+            }
+            /* show-wind */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"show-wind")){
+                value = xmlNodeGetContent(node);
+                if(!strcmp(value, "true"))
+                    show_wind = true;
+                else
+                    show_wind = false; /* default value */
+                xmlFree(value);
+            }
+            /* show-wind-gust */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"show-wind-gust")){
+                value = xmlNodeGetContent(node);
+                if(!strcmp(value, "true"))
+                    show_wind_gust = true;
+                else
+                    show_wind_gust = false; /* default value */
+                xmlFree(value);
+            }
+            /* show-detail-weather */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"show-detail-weather")){
+                value = xmlNodeGetContent(node);
+                if(!strcmp(value, "false"))
+                    show_detail_weather = false;
+                else
+                    show_detail_weather = true; /* default value */
+                xmlFree(value);
+            }
+            /* text-position */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"text-position")){
+                value = xmlNodeGetContent(node);
+                text_position.current((char*)value);
+                xmlFree(value);
+            }
+            /* swap-temperature */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"swap-temperature")){
+                value = xmlNodeGetContent(node);
+                if(!strcmp(value, "false"))
+                    swap_temperature = false;
+                else
+                    swap_temperature = true; /* default value */
+                xmlFree(value);
+            }
+            /* font-color */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"font-color")){
+                value = xmlNodeGetContent(node);
+                font_color.set(value);
+                xmlFree(value);
+            }
+            /* background-color */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"background-color")){
+                value = xmlNodeGetContent(node);
+                background_color.set(value);
+                xmlFree(value);
+            }
+            /* separate-data */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"separate-data")){
+                value = xmlNodeGetContent(node);
+                if(!strcmp(value, "true"))
+                    separate_data = true;
+                else
+                    separate_data = false; /* default value */
+                xmlFree(value);
+            }
+            /* transparency */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"transparency")){
+                value = xmlNodeGetContent(node);
+                if(!strcmp(value, "false"))
+                    transparency = false;
+                else
+                    transparency = true; /* default value */
+                xmlFree(value);
+            }
+            /* wind-units */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"wind-units")){
+                value = xmlNodeGetContent(node);
+                wind_units.current((char*)value);
+                xmlFree(value);
+            }
+            /* pressure-units */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"pressure-units")){
+                value = xmlNodeGetContent(node);
+                pressure_units.current((char*)value);
+                xmlFree(value);
+            }
+            /* distance-units */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"distance-units")){
+                value = xmlNodeGetContent(node);
+                distance_units.current((char*)value);
+                xmlFree(value);
+            }
+            /* valid-time */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"valid-time")){
+                value = xmlNodeGetContent(node);
+                t = atoi((char*)value);
+                if(t == 1 || t == 2 || t == 4 || t == 8)
+                    valid_time = t * 3600;
+                xmlFree(value);
+            }
+            /* switch-time */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"switch-time")){
+                value = xmlNodeGetContent(node);
+                t = atoi((char*)value);
+                if(t == 0 || t == 10 || t == 20 ||
+                        t == 30 || t == 40 || t == 50 || t == 60)
+                    switch_time = t;
+                xmlFree(value);
+            }
+            /* update-time */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"update-time")){
+                value = xmlNodeGetContent(node);
+                t = atoi((char*)value);
+                if(t >= 0 && t <= 24 * 60)       /* No more than 24 hours */
+                    update_time = t;
+                xmlFree(value);
+            }
+            /* auto-download */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"auto-download")){
+                value = xmlNodeGetContent(node);
+                if(!strcmp(value, "false"))
+                    auto_download = false;
+                else
+                    auto_download = true; /* default value */
+                xmlFree(value);
+            }
+            /* font */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"font")){
+                value = xmlNodeGetContent(node);
+                font = (char*)value;
+                xmlFree(value);
+            }
+            /* click-type */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"click-type")){
+                value = xmlNodeGetContent(node);
+                click_type.current((char*)value);
+                xmlFree(value);
+            }
+            /* days-number */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"days-number")){
+                value = xmlNodeGetContent(node);
+                t = atoi((char*)value);
+                if(t > 0 && t <= Max_count_weather_day)
+                    days_number = t;
                 xmlFree(value);
             }
         }

@@ -47,12 +47,12 @@ enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, NOW,
 enum { TINY = 32, SMALL = 48, MEDIUM = 64 , BIG = 80, LARGE = 96, GIANT = 128,
         SUPER_GIANT = 256 };
 enum { RIGHT, LEFT, TOP, BOTTOM, NOTHING };
-enum { METERS, KILOMETERS, MILES, SEA_MILES };
-enum { METERS_S, KILOMETERS_H, MILES_H };
-enum { CELSIUS, FAHRENHEIT };
+enum { M, KM, MI, sMI };
+enum { MpS, KMpH, MIpH };
+enum { CELCIUS, FAHRENHEIT };
 enum { MB, INCH, MM };
-enum { SIMPLE_MODE, EXTENDED_MODE };
-enum { SHORT_CLICK, LONG_CLICK };
+enum { SIMPLE, EXTENDED };
+enum { SHORT, LONG };
 enum { COLLAPSED, EXPANDED };
 enum { SETTINGS_STATIONS_PAGE, SETTINGS_VISUALS_PAGE, SETTINGS_DISPLAY_PAGE,
        SETTINGS_UNITS_PAGE, SETTINGS_UPDATE_PAGE,
@@ -68,10 +68,11 @@ enum { ICON, STATION_NAME };
 #define ICONS_PATH              "/usr/share/omweather/icons/"
 /*******************************************************************************/
 typedef struct{
-    int r;
-    int g;
-    int b;
+    unsigned r;
+    unsigned g;
+    unsigned b;
     void set(const char* color);
+    const char* get();
 }Color;
 /*******************************************************************************/
 class Param{
@@ -116,6 +117,41 @@ class IconsSize : public Set{
 class ViewMode : public Set{
     public:
         ViewMode();
+};
+/*******************************************************************************/
+class SettingsMode : public Set{
+    public:
+        SettingsMode();
+};
+/*******************************************************************************/
+class TextPosition : public Set{
+    public:
+        TextPosition();
+};
+/*******************************************************************************/
+class WindUnits : public Set{
+    public:
+        WindUnits();
+};
+/*******************************************************************************/
+class PressureUnits : public Set{
+    public:
+        PressureUnits();
+};
+/*******************************************************************************/
+class DistanceUnits : public Set{
+    public:
+        DistanceUnits();
+};
+/*******************************************************************************/
+class TemperatureUnits : public Set{
+    public:
+        TemperatureUnits();
+};
+/*******************************************************************************/
+class ClickType : public Set{
+    public:
+        ClickType();
 };
 /*******************************************************************************/
 #endif

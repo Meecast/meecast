@@ -605,8 +605,7 @@ save_station(GtkWidget *window){
                                 (GtkAttachOptions)0, 0, 0 );
 #ifdef ENABLE_GPS
     /* Run gps daemon */
-    if (is_gps && g_strdup(g_object_get_data(G_OBJECT(window), "station_code")) &&
-       !strcmp(g_strdup(g_object_get_data(G_OBJECT(window), "station_code"))," ")){
+    if (is_gps){
        if (app->gps_control){
           location_gpsd_control_start(app->gps_control);
           app->gps_was_started = TRUE;

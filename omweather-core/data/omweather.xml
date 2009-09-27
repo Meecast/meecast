@@ -31,7 +31,7 @@
 <background-color>#000000</background-color>
 <separate-data>false</separate-data>
 <transparency>true</transparency>
-<wind-units>MPS</wind-units>
+<wind-units>MpS</wind-units>
 <pressure-units>MBR</pressure-units>
 <distance-units>M</distance-units>
 <temperature-units>C</temperature-units>

@@ -40,13 +40,12 @@
             <xs:enumeration value="TWO_ROWS" />
             <xs:enumeration value="TWO_COLUMNS" />
             <xs:enumeration value="COMBINATION" />
-            <xs:enumeration value="PRESET_NOW" />
-            <xs:enumeration value="PRESET_NOW_PLUS_TWO" />
-            <xs:enumeration value="PRESET_NOW_PLUS_THREE_V" />
-            <xs:enumeration value="PRESET_NOW_PLUS_THREE_H" />
-            <xs:enumeration value="PRESET_NOW_PLUS_SEVEN" />
+            <xs:enumeration value="NOW" />
+            <xs:enumeration value="NOW_PLUS_TWO" />
+            <xs:enumeration value="NOW_PLUS_THREE_V" />
+            <xs:enumeration value="NOW_PLUS_THREE_H" />
+            <xs:enumeration value="NOW_PLUS_SEVEN" />
             <xs:enumeration value="APPLICATION_MODE" />
-            <xs:enumeration value="PRESET_NOW_PLUS_SEVEN" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -66,8 +65,8 @@
       <xs:element name="view-mode" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="SIMPLE" />
-            <xs:enumeration value="EXTENDED" />
+            <xs:enumeration value="COLLAPSED" />
+            <xs:enumeration value="EXPANDED" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -102,9 +101,9 @@
       <xs:element name="wind-units" maxOccurs="1">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="MPS" />
-            <xs:enumeration value="KMPH" />
-            <xs:enumeration value="MIPH" />
+            <xs:enumeration value="MpS" />
+            <xs:enumeration value="KMpH" />
+            <xs:enumeration value="MIpH" />
           </xs:restriction>
         </xs:simpleType>
       </xs:element>

@@ -100,7 +100,7 @@ class Set{
         void current(int);
         void current(const std::string);
         void current(const char*);
-        int toInt();
+        int toInt() const;
         std::string toString();
 };
 /*******************************************************************************/

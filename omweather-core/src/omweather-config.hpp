@@ -37,6 +37,7 @@ class Config{
     protected:
     void parse_children(xmlNode *node);
     StationsList        user_stations_list;
+    std::string         cache_directory;
     std::string         icons_set_base;
     std::string         current_icons_set;
     std::string         font;
@@ -46,18 +47,17 @@ class Config{
     std::string         current_station_code;
     std::string         current_station_source;
     std::string         iap_http_proxy_host;
-    std::string         cache_directory;
     std::string         version;
     int                 iap_http_proxy_port;
     int                 update_time;
     int                 switch_time;
     IconsSize           icons_size;
-    IconsPreset         icons_layout;
+    IconsPreset         icons_preset;
     TextPosition        text_position;
     int                 current_settings_page;
     int                 days_number;
-    int                 previos_days_to_show;
-    int                 distance_units;
+    int                 previos_days_number;
+    DistanceUnits       distance_units;
     WindUnits           wind_units;
     ClickType           click_type;
     TemperatureUnits    temperature_units;
@@ -66,8 +66,8 @@ class Config{
     ViewMode            view_mode;
     int                 valid_time;
     bool                transparency;
-    bool                separate;
-    bool                swap_hi_low_temperature;
+    bool                separate_data;
+    bool                swap_temperature;
     bool                show_station_name;
     bool                show_arrows;
     bool                auto_download;

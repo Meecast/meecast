@@ -34,14 +34,14 @@ Source::Source(const std::string filename){
     ifstream    file(filename);
     if(file.is_open()){
         file.close();
-        xmlDoc document = xmlReadFile(filename, NULL, 0);
+        xmlDoc *document = xmlReadFile(filename, NULL, 0);
         if(document){
             xmlNode root_node = xmlDocGetRootElement(document);
             xmlNode current_node = root_node->children;
             parse_children(current_node);
             xmlFreeDoc(document);
-            if(!source_name.is_empty() && !source_forecast_url.is_empty() &&
-                    !source_detail_url.is_empty() && load_library())
+            if(!source_name.empty() && !source_forecast_url.empty() &&
+                    !source_detail_url.empty() && load_library())
                 source_is_invalid = false;
         }
     }

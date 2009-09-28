@@ -70,70 +70,12 @@ StationsList::StationsList(){
     list.clear();
 }
 /*******************************************************************************/
-StationsList::StationsList(GSList *list){
-    char        *temp1,
-                *temp2,
-                *temp3,
-                *temp4;
-    bool        is_gps;
-    std::string station_name,
-                station_code,
-                station_source;
-
-    while(list){
-        temp1 = strdup((char*)list->data);
-        /* Delimit Id and name */
-        if(strlen(temp1) > 0){
-            /* station name */
-            temp2 = strtok(temp1, "@"); /* Delimiter - @ */
-            if(temp2)          /* Check random error */
-                if(strlen(temp2) > 0)
-                    station_code = temp2;
-            /* station code */
-            temp2 = strtok(NULL, "@");  /* Delimiter - @ */
-            if(temp2)
-                station_name = temp2;
-            /* station source */
-            temp3 = strtok(NULL, "@");
-            if(temp3)
-                station_source = temp3;
-            /* gps or manual station */
-            temp4 = strtok(NULL, "@");
-            if(temp4 && !strcmp("G", temp4))
-                is_gps = true;
-            else
-                is_gps = false;
-            if(!station_name.empty() && !station_code.empty() &&
-                    !station_source.empty())
-                this->list.push_back(Station(station_name, station_code,
-                                                station_source, is_gps));
-        }
-        g_free(temp1);
-        station_name.clear();
-        station_code.clear();
-        station_source.clear();
-        list = g_slist_next(list);
-    }
-}
-/*******************************************************************************/
 StationsList::StationsList(const StationsList& src){
     for(int i = 0; i < src.list.size(); i++)
         this->list.push_back(src.list[i]);
 }
 /*******************************************************************************/
-GSList* StationsList::toGSList(){
-    GSList      *stlist = NULL;
-
-    for(int i = 0; i < list.size(); i++){
-        std::string str = list.at(i).code() + "@";
-        str += list.at(i).name() + "@";
-        str += list.at(i).source() + "@";
-        if(list.at(i).is_gps())
-            str += "G";
-        else
-            str += "M";
-        stlist = g_slist_append(stlist, strdup(str.c_str()));
-    }
-    return stlist;
+void StationsList::add(const Station s){
+    list.push_back(s);
 }
 /*******************************************************************************/

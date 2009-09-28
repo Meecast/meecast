@@ -51,9 +51,8 @@ class StationsList{
     std::vector<Station> list;
     public:
         StationsList();
-        StationsList(GSList*);
         StationsList(const StationsList&);
-        GSList* toGSList();
+        void add(const Station);
 };
 /*******************************************************************************/
 #endif

@@ -1,6 +1,8 @@
 0.24.6
 
   * Fixed problem with GPS for Fremantle
+  * Fixed bug with null icons on display if iconset was deinstalled from system
+  * Done optified
 
 0.24.5
 

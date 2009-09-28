@@ -19,7 +19,7 @@
 #
  
 omweatherdir = $(datadir)/omweather
-omweather_DATA = city_in_clock.txt grip.png units.xml style.rc
+omweather_DATA = city_in_clock.txt style.rc
 icons_crystallargedir = $(datadir)/omweather/icons/Glance
 icons_crystallarge_DATA = icons/Glance/*.png 
 clutter_scripts_crystallargedir = $(datadir)/omweather/icons/Glance

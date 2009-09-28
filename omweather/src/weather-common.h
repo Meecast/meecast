@@ -338,6 +338,8 @@ typedef struct SuperOH{
   GtkWidget             *icon_widget;
   GdkPixbuf             *bgpixb;
   ClutterActor          *bgtex;
+  guint                 runtime;
+  guint                 duration;
 }SuperOH;
 #endif
 /*******************************************************************************/

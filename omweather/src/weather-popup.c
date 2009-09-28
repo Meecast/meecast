@@ -855,6 +855,7 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
         gtk_box_pack_start(GTK_BOX(day_vbox),
                             day_icon_text_hbox, TRUE, TRUE, 0);
         /* day icon */
+        update_icons_set_base(NULL);
         memset(buffer, 0, sizeof(buffer));
         sprintf(buffer, "%s%s.png", app->config->icons_set_base,
                     (char*)g_hash_table_lookup(day, "day_icon"));
@@ -945,6 +946,7 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     gtk_box_pack_start(GTK_BOX(night_vbox),
                         night_icon_text_hbox, TRUE, TRUE, 0);
     /* night icon */
+    update_icons_set_base(NULL);
     memset(buffer, 0, sizeof(buffer));
     sprintf(buffer, "%s%s.png", app->config->icons_set_base,
                 (char*)g_hash_table_lookup(day, "night_icon"));

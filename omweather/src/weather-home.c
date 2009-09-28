@@ -468,6 +468,8 @@ draw_home_window(gint count_day){
 
 /* Clear daytime elments in queue of timer */
     remove_daytime_event();
+/* Check current iconset directory */
+    update_icons_set_base(NULL);
 
     if(count_day > 0){
         /* get current day */

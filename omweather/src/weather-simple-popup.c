@@ -324,6 +324,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             line_hbox = gtk_hbox_new(FALSE, 0);
             gtk_container_add(GTK_CONTAINER(line), line_hbox);
             /* icon */
+            update_icons_set_base(NULL);
             *buffer = 0;
             snprintf(icon, sizeof(icon) - 1, "%s%s.png", app->config->icons_set_base,
                         (char*)g_hash_table_lookup(day, "day_icon"));
@@ -707,6 +708,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                 gtk_container_add(GTK_CONTAINER(line), line_hbox);
 
                 /*icon*/
+                update_icons_set_base(NULL);
                 sprintf(buffer,"%s%s.png", app->config->icons_set_base,
                            (char*)g_hash_table_lookup(hour_weather, "hour_icon"));
                 icon = gdk_pixbuf_new_from_file_at_size(buffer, SMALL_ICON_SIZE,

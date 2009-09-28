@@ -494,11 +494,6 @@ gint read_config(AppletConfig * config) {
                                                GCONF_KEY_WEATHER_ICON_SET,
                                                NULL);
     update_icons_set_base(config->icon_set);
-    if ((fd = open(app->config->icons_set_base, O_RDONLY)) == -1) {
-        config->icon_set = g_strdup("Glance");
-        update_icons_set_base(config->icon_set);
-    } else
-        close(fd);
 
     /* Get Weather Icon Size  */
     config->icons_size = gconf_client_get_int(gconf_client,

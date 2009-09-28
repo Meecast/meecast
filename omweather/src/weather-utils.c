@@ -30,6 +30,8 @@
 #include "weather-utils.h"
 #include "weather-common.h"
 #include <string.h>
+#include <fcntl.h>
+#include <errno.h>
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
@@ -518,13 +520,35 @@ update_icons_set_base(const char *icon_set_name){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    gchar  buffer[1024];
+    gchar buffer[1024];
+    int fd = -1;
 
-    if(app->config->icons_set_base)
+    /* check current iconset directory */
+    if (!icon_set_name && (fd = open(app->config->icons_set_base, O_RDONLY)) != -1) {
+        close(fd);
+        return;
+    }
+
+    if(app->config->icons_set_base){
          g_free(app->config->icons_set_base);
+         app->config->icons_set_base = NULL;
+    }
     *buffer = 0;
     snprintf(buffer, sizeof(buffer) - 1, "%s%s/", ICONS_PATH, icon_set_name);
+    if (!icon_set_name || (fd = open(buffer, O_RDONLY)) == -1) {
+        snprintf(buffer, sizeof(buffer) - 1, "%s%s/", ICONS_PATH, "Glance");
+        if (app->config->icon_set){
+            g_free(app->config->icon_set);
+            app->config->icon_set = g_strdup("Glance");
+        }
+    }else
+        close(fd);
+    
     app->config->icons_set_base = g_strdup(buffer);
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 /******************************************************************************/
 /* Fullscreen/Unfullscreen window */

@@ -94,6 +94,7 @@
 #define GCONF_KEY_VIEW_MODE                         GCONF_KEY_PREFIX"/view_mode"
 /*******************************************************************************/
 Config::Config(){
+    document = NULL;
     home_dir.clear();
     version.clear();
     cache_directory.clear();
@@ -130,6 +131,8 @@ Config::Config(){
 }
 /*******************************************************************************/
 Config::~Config(){
+    if(document)
+        xmlFreeDoc(document);
 }
 /*******************************************************************************/
 bool Config::read(){
@@ -144,12 +147,11 @@ bool Config::read(){
     std::ifstream file(filename.c_str());
     if(file.is_open()){
         file.close();
-        xmlDoc *document = xmlReadFile(filename.c_str(), NULL, 0);
+        document = xmlReadFile(filename.c_str(), NULL, 0);
         if(document){
             xmlNode *root_node = xmlDocGetRootElement(document);
             xmlNode *current_node = root_node->children;
             parse_children(current_node);
-            xmlFreeDoc(document);
         }
     }
 }
@@ -649,14 +651,63 @@ Param Config::param(const std::string param_name) const{
 /*******************************************************************************/
 OS2008Config::OS2008Config() : Config(){
     gps_station = false;
-    display_at = STATION_NAME;
+    position.current(STATION);
     sensor_update_time = 0;
-    alpha_comp = 0;
+    alpha_component = 0;
     corner_radius = 10;
 }
 /*******************************************************************************/
 bool OS2008Config::read(){
+    Config::read();
+    if(!document)
+        return false;
+    xmlNode *root_node = xmlDocGetRootElement(document);
+    xmlNode *current_node = root_node->children;
+    parse_children(current_node);
     return true;
+}
+/*******************************************************************************/
+void OS2008Config::parse_children(xmlNode *node){
+    xmlNode     *child_node = NULL;
+    xmlChar     *val = NULL;
+    int         t;
+
+    while(node){
+        if(node->type == XML_ELEMENT_NODE){
+            /*  */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"use-sensor")){
+                val = xmlNodeGetContent(node);
+                if(!strcmp((const char*)val, "true")){
+                    use_sensor = true;
+                    xmlFree(val);
+                    val = xmlGetProp(node, (const xmlChar*)"position");
+                    position.current((char*)val);
+                    xmlFree(val);
+                    val = xmlGetProp(node, (const xmlChar*)"time");
+                    sensor_update_time = atoi((char*)val);
+                    xmlFree(val);
+                }
+                else{
+                    use_sensor = false;
+                    position.current(STATION);
+                    sensor_update_time = 0;
+                }
+            }
+            /* alpha-component */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"alpha-component")){
+                val = xmlNodeGetContent(node);
+                alpha_component = atoi((char*)val);
+                xmlFree(val);
+            }
+            /* corner-radius */
+            if(!xmlStrcmp(node->name, (const xmlChar*)"corner-radius")){
+                val = xmlNodeGetContent(node);
+                corner_radius = atoi((char*)val);
+                xmlFree(val);
+            }
+        }
+        node = node->next;
+    }
 }
 /*******************************************************************************/
 void OS2008Config::save(){
@@ -674,9 +725,9 @@ Param OS2008Config::param(const std::string param_name) const{
         p.bool_param = use_sensor;
         goto exit;
     }
-    /* display_at */
-    if(param_name == "display_at"){
-        p.int_param = display_at;
+    /* position */
+    if(param_name == "position"){
+        p.int_param = position.toInt();
         goto exit;
     }
     /* sensor_update_time */
@@ -684,9 +735,9 @@ Param OS2008Config::param(const std::string param_name) const{
         p.int_param = sensor_update_time;
         goto exit;
     }
-    /* alpha_comp */
-    if(param_name == "alpha_comp"){
-        p.int_param = alpha_comp;
+    /* alpha_component */
+    if(param_name == "alpha_component"){
+        p.int_param = alpha_component;
         goto exit;
     }
     /* corner_radius */

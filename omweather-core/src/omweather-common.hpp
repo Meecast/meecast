@@ -61,7 +61,7 @@ enum { SETTINGS_STATIONS_PAGE, SETTINGS_VISUALS_PAGE, SETTINGS_DISPLAY_PAGE,
 #endif
        ALERTS_PAGE, MAX_SETTINGS_PAGE_NUMBER, ABOUT_PAGE
 };
-enum { ICON, STATION_NAME };
+enum { ICON, STATION };
 /*******************************************************************************/
 #define _(String) dgettext(GETTEXT_PACKAGE, String)
 #define Max_count_weather_day   10
@@ -152,6 +152,11 @@ class TemperatureUnits : public Set{
 class ClickType : public Set{
     public:
         ClickType();
+};
+/*******************************************************************************/
+class SensorPosition : public Set{
+    public:
+        SensorPosition();
 };
 /*******************************************************************************/
 #endif

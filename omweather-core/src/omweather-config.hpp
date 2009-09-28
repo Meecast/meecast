@@ -35,6 +35,7 @@
 class Config{
     std::string         home_dir;
     protected:
+    xmlDoc              *document;
     void parse_children(xmlNode *node);
     StationsList        user_stations_list;
     std::string         cache_directory;
@@ -86,13 +87,14 @@ class Config{
 };
 /*******************************************************************************/
 class OS2008Config : public Config{
+    void parse_children(xmlNode *node);
     protected:
-    bool        gps_station;
-    bool        use_sensor;
-    int         display_at;
-    int         sensor_update_time;
-    int         alpha_comp;
-    int         corner_radius;
+    bool            gps_station;
+    bool            use_sensor;
+    SensorPosition  position;
+    int             sensor_update_time;
+    int             alpha_component;
+    int             corner_radius;
     public:
             OS2008Config();
             bool read();
@@ -101,6 +103,7 @@ class OS2008Config : public Config{
 };
 /*******************************************************************************/
 class OS2009Config : public OS2008Config{
+    void parse_children(xmlNode *node);
     bool        update_gsm;
     bool        update_wlan;
     public:

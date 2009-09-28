@@ -223,3 +223,13 @@ ClickType::ClickType(){
     current_name = int_list[SHORT];
 }
 /*******************************************************************************/
+SensorPosition::SensorPosition(){
+    string_list.insert( std::pair<std::string,int>("ICON", ICON) );
+    string_list.insert( std::pair<std::string,int>("STATION", STATION) );
+    int_list.insert( std::pair<int,std::string>(ICON, "ICON") );
+    int_list.insert( std::pair<int,std::string>(STATION, "STATION") );
+    /* default value */
+    current_number = string_list["ICON"];
+    current_name = int_list[ICON];
+}
+/*******************************************************************************/

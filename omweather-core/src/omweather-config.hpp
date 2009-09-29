@@ -89,7 +89,6 @@ class Config{
 class OS2008Config : public Config{
     void parse_children(xmlNode *node);
     protected:
-    bool            gps_station;
     bool            use_sensor;
     SensorPosition  position;
     int             sensor_update_time;

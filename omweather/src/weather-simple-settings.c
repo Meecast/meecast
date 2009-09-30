@@ -1174,6 +1174,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
     GtkWidget   *window = NULL,
                 *main_table = NULL,
                 *left_alignmnet = NULL,
+                *right_local_alignmnet = NULL,
                 *vertical1_alignmnet = NULL,
                 *vertical2_alignmnet = NULL,
                 *vertical3_alignmnet = NULL,
@@ -1267,7 +1268,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
     }
 
     gtk_table_attach((GtkTable*)main_table, hbox_period,
-                                2, 3, 1, 2,
+                                2, 5, 1, 2,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 20, 0 );
 
@@ -1302,7 +1303,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
                                 (GtkAttachOptions)0, 20, 0 );
 
     vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);
+    gtk_widget_set_size_request(vertical2_alignmnet, -1, 20);
     gtk_table_attach((GtkTable*)main_table, vertical2_alignmnet,
                                 0, 8, 4, 5,
                                 (GtkAttachOptions)0,
@@ -1332,20 +1333,28 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
                                 (GtkAttachOptions)0, 20, 0 );
 
     vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
-    gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);
+    gtk_widget_set_size_request(vertical3_alignmnet, -1, 20);
     gtk_table_attach((GtkTable*)main_table, vertical3_alignmnet,
                                 0, 8, 6, 7,
                                 (GtkAttachOptions)0,
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
 
+    right_local_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1 );
+    gtk_widget_set_size_request(right_local_alignmnet, 350, -1);
+    gtk_table_attach((GtkTable*)main_table, right_local_alignmnet,
+                                3, 8, 7, 8,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 0, 0 );
+
+
     label_set = gtk_label_new(_("Use GSM and/or WLAN for updating\n the weather information.\n"));
     set_font(label_set, NULL, 20);
     gtk_widget_set_size_request(label_set, 120, -1);
     gtk_table_attach((GtkTable*)main_table, label_set,
                                 1, 3, 7, 8,
-                                GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 20, 0 );
+                                GTK_FILL |  GTK_SHRINK,
+                                (GtkAttachOptions)0, 0, 0 );
 
     gtk_dialog_add_button (GTK_DIALOG (window), _("Save"), GTK_RESPONSE_YES);
     gtk_widget_show_all(window);

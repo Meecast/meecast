@@ -39,6 +39,7 @@
 #include <libintl.h>
 #endif
 #include <libxml/parser.h>
+#include <libxml/tree.h>
 #include <stdlib.h>
 /*******************************************************************************/
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, NOW,

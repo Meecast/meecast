@@ -47,9 +47,7 @@ class Config{
     std::string         current_station_name;
     std::string         current_station_code;
     std::string         current_station_source;
-    std::string         iap_http_proxy_host;
     std::string         version;
-    int                 iap_http_proxy_port;
     int                 update_time;
     int                 switch_time;
     IconsSize           icons_size;
@@ -82,7 +80,6 @@ class Config{
             virtual ~Config();
             virtual bool read();
             virtual void save();
-            bool read_proxy_settings();
             virtual Param param(const std::string) const;
 };
 /*******************************************************************************/

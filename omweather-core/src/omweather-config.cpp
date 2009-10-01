@@ -49,8 +49,6 @@ Config::Config(){
     current_station_name.clear();
     current_station_code.clear();
     current_station_source.clear();
-    iap_http_proxy_host.clear();
-    iap_http_proxy_port = 0;
     update_time = 60;
     switch_time = 0;
     current_settings_page = 0;
@@ -381,35 +379,61 @@ void Config::parse_children(xmlNode *node){
 }
 /*******************************************************************************/
 void Config::save(){
-}
-/*******************************************************************************/
-bool Config::read_proxy_settings(){
-/*
-    char        *proxy_mode = NULL;
-    if(!gconf_client){
-//        fprintf(stderr, _("Failed to initialize GConf. Quitting.\n"));
-        return false;
-    }
-    proxy_mode = gconf_client_get_string(gconf_client,
-                                            GCONF_KEY_PROXY_MODE, NULL);
-    if(proxy_mode){
-        if(strcmp(proxy_mode, "none")){
-            if(gconf_client_get_bool(gconf_client,
-                                        GCONF_KEY_HTTP_PROXY_ON, NULL)){
-                iap_http_proxy_host
-                    = gconf_client_get_string(gconf_client,
-                                                GCONF_KEY_HTTP_PROXY_HOST,
-                                                NULL);
-                iap_http_proxy_port
-                    = gconf_client_get_int(gconf_client,
-                                            GCONF_KEY_HTTP_PROXY_PORT,
-                                            NULL);
-            }
-        }
-    }
-    g_free(proxy_mode);
-*/
-    return true;
+    if(document)
+        xmlFreeDoc(document);
+    
+    document = xmlNewDoc(BAD_CAST "1.0");
+    xmlNs *ns = xmlNewGlobalNs(document, BAD_CAST "https://garage.maemo.org/projects/omweather/", BAD_CAST "");
+    xmlNode *root_node = xmlNewNode(NULL, BAD_CAST "omweather");
+    xmlNewChild(root_node, NULL, BAD_CAST "version", BAD_CAST version.c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "current-station-source", BAD_CAST current_station_source.c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "current-station-name", BAD_CAST current_station_name.c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "current-station-code", BAD_CAST current_station_code.c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "current-icons-set", BAD_CAST current_icons_set.c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "last-source", BAD_CAST last_source.c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "last-country", BAD_CAST last_country.c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "cache-directory", BAD_CAST cache_directory.c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "icons-preset", BAD_CAST icons_preset.toString().c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "icons-size", BAD_CAST icons_size.toString().c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "view-mode", BAD_CAST view_mode.toString().c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "settings-mode", BAD_CAST settings_mode.toString().c_str());
+    if(show_arrows)
+        xmlNewChild(root_node, NULL, BAD_CAST "show-arrows", BAD_CAST "true");
+    else
+        xmlNewChild(root_node, NULL, BAD_CAST "show-arrows", BAD_CAST "false");
+    if(show_station_name)
+        xmlNewChild(root_node, NULL, BAD_CAST "show-station-name", BAD_CAST "true");
+    else
+        xmlNewChild(root_node, NULL, BAD_CAST "show-station-name", BAD_CAST "false");
+    if(show_wind)
+        xmlNewChild(root_node, NULL, BAD_CAST "show-wind", BAD_CAST "true");
+    else
+        xmlNewChild(root_node, NULL, BAD_CAST "show-wind", BAD_CAST "false");
+    if(show_wind_gust)
+        xmlNewChild(root_node, NULL, BAD_CAST "show-wind-gust", BAD_CAST "true");
+    else
+        xmlNewChild(root_node, NULL, BAD_CAST "show-wind-gust", BAD_CAST "false");
+    if(show_detail_weather)
+        xmlNewChild(root_node, NULL, BAD_CAST "show-detail-weather", BAD_CAST "true");
+    else
+        xmlNewChild(root_node, NULL, BAD_CAST "show-detail-weather", BAD_CAST "false");
+    xmlNewChild(root_node, NULL, BAD_CAST "text-position", BAD_CAST text_position.toString().c_str());
+    if(swap_temperature)
+        xmlNewChild(root_node, NULL, BAD_CAST "swap-temperature", BAD_CAST "true");
+    else
+        xmlNewChild(root_node, NULL, BAD_CAST "swap-temperature", BAD_CAST "false");
+    xmlNewChild(root_node, NULL, BAD_CAST "font-color", BAD_CAST font_color.get());
+    xmlNewChild(root_node, NULL, BAD_CAST "background-color", BAD_CAST background_color.get());
+    if(separate_data)
+        xmlNewChild(root_node, NULL, BAD_CAST "separate-_data", BAD_CAST "true");
+    else
+        xmlNewChild(root_node, NULL, BAD_CAST "separate-data", BAD_CAST "false");
+    if(transparency)
+        xmlNewChild(root_node, NULL, BAD_CAST "transparency", BAD_CAST "true");
+    else
+        xmlNewChild(root_node, NULL, BAD_CAST "transparency", BAD_CAST "false");
+    xmlNewChild(root_node, NULL, BAD_CAST "wind-units", BAD_CAST wind_units.toString().c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "pressure-units", BAD_CAST pressure_units.toString().c_str());
 }
 /*******************************************************************************/
 Param Config::param(const std::string param_name) const{
@@ -452,16 +476,6 @@ Param Config::param(const std::string param_name) const{
     /* current_station_source */
     if(param_name == "current_station_source"){
         p.string_param = const_cast<char*>(current_station_source.c_str());
-        goto exit;
-    }
-    /* iap_http_proxy_host */
-    if(param_name == "proxy_host"){
-        p.string_param = const_cast<char*>(iap_http_proxy_host.c_str());
-        goto exit;
-    }
-    /* iap_http_proxy_port */
-    if(param_name == "proxy_port"){
-        p.int_param = iap_http_proxy_port;
         goto exit;
     }
     /* update_interval */

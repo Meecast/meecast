@@ -63,6 +63,31 @@ animation_cb (SuperOH *oh)
                                          0, 0, 0);
     return TRUE;
 }
+gboolean
+expose_event (GtkWidget *widget,GdkEventExpose *event,
+			     gpointer data)
+{
+    cairo_t *cr;
+   
+    GdkPixbuf *pixbuf = (GdkPixbuf *) data;
+
+   
+    cr = gdk_cairo_create(widget->window);
+    gdk_cairo_region(cr, event->region);    
+    cairo_set_operator(cr, CAIRO_OPERATOR_SOURCE);
+    gdk_cairo_set_source_pixbuf(cr, pixbuf, 0.0, 0.0);
+    cairo_paint(cr);
+    cairo_destroy(cr);
+    return TRUE;
+}
+
+realize (GtkWidget *widget)
+{
+    GdkScreen *screen;
+    fprintf(stderr, "REALIZE!!!!\n");
+    screen = gtk_widget_get_screen (widget);
+    gtk_widget_set_colormap (widget, gdk_screen_get_rgba_colormap (screen));
+}
 
 GtkWidget *
 create_hildon_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list)
@@ -87,7 +112,8 @@ create_hildon_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_pa
     gint  bpp, width, height;
     GdkPixbuf        *pixbuf;
     guchar           *gpixels;
-
+    size_t shm_size;
+    int shmid;
     GdkPixmap *background;
 
 #ifdef DEBUGFUNCTIONCALL
@@ -107,8 +133,6 @@ create_hildon_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_pa
 
 
     oh->clutter = hildon_animation_actor_new();
-    oh->clutter = HILDON_REMOTE_TEXTURE
-        (hildon_remote_texture_new ());
     /* Temp */
     image = gtk_image_new_from_file ("/usr/share/omweather/icons/Glance/0.png");
     gtk_container_add (GTK_CONTAINER (oh->clutter), image);
@@ -170,8 +194,14 @@ create_hildon_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_pa
            for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
                 change_actor_size_and_position(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i),icon_size);
                 fprintf(stderr,"ddddddddddddd %s\n", clutter_actor_get_name(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i)));
-//                ha = hildon_animation_actor_new();
-//                image = gtk_image_new_from_file (clutter_actor_get_name(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i)));
+                ha = hildon_animation_actor_new();
+                /*      strange code for touple call */
+                image = gtk_image_new_from_file (clutter_actor_get_name(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i)));
+                pixbuf = gdk_pixbuf_new_from_file (clutter_actor_get_name(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i)), NULL);
+                g_signal_connect(G_OBJECT(image), "expose_event",
+                                         G_CALLBACK(expose_event), pixbuf);
+
+#if 0
                   ha = HILDON_REMOTE_TEXTURE(hildon_remote_texture_new ());
 
     g_debug("Loading Image %s...", clutter_actor_get_name(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i)));
@@ -181,8 +211,7 @@ create_hildon_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_pa
     bpp             = gdk_pixbuf_get_n_channels (pixbuf); /* assume 8 bit */
     gpixels         = gdk_pixbuf_get_pixels (pixbuf);
     g_debug("Creating Shared Memory");
-    size_t shm_size = width*height*bpp;
-    int shmid;
+    shm_size = width*height*bpp;
     /*
      * Create the segment, attach it to our data space, and copy in the
      * texture we loaded
@@ -202,11 +231,7 @@ create_hildon_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_pa
 
     hildon_remote_texture_set_image(ha, shm_key, width, height, bpp);
     fprintf(stderr,"sdssssssssss");
-    /* Set the actual position on the screen */
-    hildon_remote_texture_set_position (ha, 0, 20, 800, 480);
-    hildon_remote_texture_set_show (ha, 1);
-
-
+#endif
                 gtk_container_add (GTK_CONTAINER (ha), image);
                 g_object_set_data(G_OBJECT(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i)), "hildon_animation_actor", ha);
 
@@ -264,37 +289,39 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
 
 */
     /* Show actors */
+    fprintf(stderr,"ggggggggg\n");
     if (oh->icon){
+        fprintf(stderr,"ggggggggg\n");
         if CLUTTER_IS_GROUP(oh->icon)
            for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
                fprintf(stderr,"ddddddddddddd %s\n", clutter_actor_get_name(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i)));
                ha = g_object_get_data(G_OBJECT(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i)), "hildon_animation_actor");
-//               hildon_animation_actor_set_parent (HILDON_ANIMATION_ACTOR (ha), window);
-               hildon_remote_texture_set_parent(ha, GTK_WINDOW(window));
+               hildon_animation_actor_set_parent (HILDON_ANIMATION_ACTOR (ha), window);
 //               gdk_flush ();
-//               if (gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN) 
-  //                  hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), oh->icon_widget->allocation.x, oh->icon_widget->allocation.y , 0);
-//               else
-//                     hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), oh->icon_widget->allocation.x, oh->icon_widget->allocation.y + SIZE_OF_WINDOWS_HEAD, 0);
+               if (gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN) 
+                    hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), oh->icon_widget->allocation.x, oh->icon_widget->allocation.y , 0);
+               else
+                     hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), oh->icon_widget->allocation.x, oh->icon_widget->allocation.y + SIZE_OF_WINDOWS_HEAD, 0);
+#if 0
+               hildon_remote_texture_set_parent(ha, GTK_WINDOW(window));
                hildon_remote_texture_set_position (ha, 0, 0, 800, 480);
                if (gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN) 
                      hildon_remote_texture_set_offset(ha, oh->icon_widget->allocation.x, oh->icon_widget->allocation.y);
                else
                      hildon_remote_texture_set_offset(ha, oh->icon_widget->allocation.x, oh->icon_widget->allocation.y + SIZE_OF_WINDOWS_HEAD);
+                /* Set the actual position on the screen */
+                hildon_remote_texture_set_show (ha, 1);
+#endif
+               realize(ha);
               fprintf(stderr, "Position %i %i\n", oh->icon_widget->allocation.x, oh->icon_widget->allocation.y + SIZE_OF_WINDOWS_HEAD);
- 
+               hildon_animation_actor_set_show (ha,1);
                gtk_widget_show_all(ha);
            }
         else{
-               fprintf(stderr,"Attention ddddddddddddd %s\n", clutter_actor_get_name(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i)));
+               fprintf(stderr,"Attention ddddddddddddd %s\n", clutter_actor_get_name(oh->icon));
            }
     }
  
-//  g_timeout_add (100, (GSourceFunc)animation_cb, oh->clutter);
-        list_temp = g_slist_next(list_temp);
-//    }
-//    return;
-//#if 0
        fprintf(stderr,"ddddddddd\n");
        /* Make background texture */
        gtk_box_pack_start (GTK_BOX (oh->icon_widget), oh->clutter, TRUE, TRUE, 0);
@@ -335,12 +362,13 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
             fprintf(stderr,"Duration %i\n",clutter_timeline_get_duration(oh->timeline) );
             oh->duration = clutter_timeline_get_duration(oh->timeline) / 10;
         }
+        fprintf(stderr,"aaaaaaaaaaaaa\n");
         list_temp = g_slist_next(list_temp);
+        fprintf(stderr,"aaaaaaaaaaaaa\n");
     }
-//#endif
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
 
 }
 /*******************************************************************************/

@@ -36,6 +36,9 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
 {
     gdouble scale_x, scale_y, angle;
     gfloat rx, ry, rz;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
 
     /* set position */
     if (fullwindow) 
@@ -65,6 +68,9 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
     angle = clutter_actor_get_rotation(clactor, CLUTTER_Z_AXIS, &rx, &ry, &rz);
     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Z_AXIS,
                                         angle,(int)rx, (int)ry, (int)rz);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 /*******************************************************************************/
 gboolean
@@ -75,7 +81,8 @@ animation_cb (SuperOH *oh)
     GtkWidget *window;
     gint i;
     gboolean fullwindow = FALSE;
-    
+    if (!oh)
+        return FALSE;
     if (oh->icon){
 
         window = g_object_get_data(G_OBJECT(oh->icon), "window");
@@ -95,7 +102,9 @@ animation_cb (SuperOH *oh)
             ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
             do_animation(oh, clactor, ha, fullwindow);
         }
-    }
+    }else
+        return FALSE;
+
     oh->duration--;
     if (oh->duration == 0)
         return FALSE;
@@ -372,23 +381,24 @@ void free_clutter_objects_list(GSList **clutter_objects) {
         clutter_actor_destroy(oh->stage);
         g_object_unref(oh->script);
 */      if (oh->icon){
-
-        if CLUTTER_IS_GROUP(oh->icon){
-            for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
-                clactor = clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i);
+            if CLUTTER_IS_GROUP(oh->icon){
+                for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
+                    clactor = clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i);
+                    ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
+                    gtk_widget_destroy(ha);
+                }
+            }else{
+                clactor = oh->icon;
                 ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
                 gtk_widget_destroy(ha);
             }
-        }else{
-            clactor = oh->icon;
-            ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
-            gtk_widget_destroy(ha);
+            oh->icon = NULL;
         }
-    }
         gtk_widget_destroy(oh->icon_widget);
         gtk_widget_destroy(oh->clutter);
         g_object_unref(oh->script);
         g_free(oh);
+        oh = NULL;
         list_temp = g_slist_next(list_temp);
     }
     g_slist_free(*clutter_objects);

@@ -1122,8 +1122,10 @@ void config_save(AppletConfig * config) {
                           GCONF_KEY_WEATHER_ALERTS_LIST,
                           GCONF_VALUE_STRING, stlist, NULL);
     /* Free stlist */
-    g_slist_foreach(stlist, (GFunc) g_free, NULL);
-    g_slist_free(stlist);
+    if (stlist){
+        g_slist_foreach(stlist, (GFunc) g_free, NULL);
+        g_slist_free(stlist);
+    }
 #ifdef ENABLE_GPS
     /* Save current GPS station */
     if (config->gps_station) {
@@ -1150,6 +1152,9 @@ void config_save(AppletConfig * config) {
                              GCONF_KEY_VIEW_MODE, config->view_mode,
                                                       NULL);
     g_object_unref(gconf_client);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 /***********************************************************************************/
 void check_current_station_id(void) {

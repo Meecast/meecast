@@ -137,7 +137,7 @@ realize (GtkWidget *widget)
 }
 /*******************************************************************************/
 GtkWidget *
-create_hildon_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list)
+create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSList **objects_list)
 {
     SuperOH *oh;
     GError *error = NULL;
@@ -147,8 +147,8 @@ create_hildon_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_pa
     gchar  buffer[1024];
     gchar  icon_name[3];
     gint   i;
-    GList  *list ,*l;
-    GSList *knots;
+    GList  *list ,*l; 
+    GSList *knots, *path_list;
     GObject *object;
     GtkWidget *image;
     GtkWidget *ha;
@@ -186,7 +186,7 @@ create_hildon_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_pa
     memset(buffer, 0, sizeof(buffer));
     sprintf(buffer, "%s%s.json", app->config->icons_set_base, icon_name);
 //    clutter_init(NULL, NULL);
-    clutter_script_load_from_file(oh->script,buffer, &error);
+    oh->merge_id = clutter_script_load_from_file(oh->script,buffer, &error);
 
 
     /* Fix Me Need free memory */
@@ -254,9 +254,14 @@ create_hildon_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_pa
     list = clutter_script_list_objects(oh->script);
     for (l = list; l != NULL; l = l->next){
         object = l->data;
-        if CLUTTER_IS_BEHAVIOUR_PATH(object)
-            change_knots_path(clutter_behaviour_path_get_knots((object)),icon_size);
+        if CLUTTER_IS_BEHAVIOUR_PATH(object){
+            change_knots_path(path_list = clutter_behaviour_path_get_knots((object)),icon_size);
+            if (path_list)
+                g_slist_free(path_list);
+        }
     }
+    g_list_free (list);
+
     /* Create a timeline to manage animation */
     oh->timeline = CLUTTER_TIMELINE (clutter_script_get_object (oh->script, "main-timeline"));
     *objects_list = g_slist_append(*objects_list, oh);
@@ -294,6 +299,7 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
                             G_OBJECT(oh->icon), "window", window);
      
                     hildon_animation_actor_set_parent (HILDON_ANIMATION_ACTOR (ha), window);
+                    oh->duration = 1; 
                     animation_cb(oh);
     //               gdk_flush ();
                     realize(ha);
@@ -307,6 +313,7 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
                             G_OBJECT(oh->icon), "window", window);
      
                     hildon_animation_actor_set_parent (HILDON_ANIMATION_ACTOR (ha), window);
+                    oh->duration = 1; 
                     animation_cb(oh);
     //               gdk_flush ();
                     realize(ha);
@@ -319,7 +326,7 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
         if (oh->timeline){
             clutter_timeline_start (oh->timeline);
             oh->duration = clutter_timeline_get_duration(oh->timeline) / 10;
-            g_timeout_add (10, (GSourceFunc)animation_cb, oh);
+            oh->runtime = g_timeout_add (10, (GSourceFunc)animation_cb, oh);
 //            fprintf(stderr,"Duration %i\n",clutter_timeline_get_duration(oh->timeline));
         }
         list_temp = g_slist_next(list_temp);
@@ -396,6 +403,7 @@ void free_clutter_objects_list(GSList **clutter_objects) {
         }
         gtk_widget_destroy(oh->icon_widget);
         gtk_widget_destroy(oh->clutter);
+        clutter_script_unmerge_objects(oh->script, oh->merge_id);
         g_object_unref(oh->script);
         g_free(oh);
         oh = NULL;
@@ -628,6 +636,7 @@ void free_clutter_objects_list(GSList **clutter_objects) {
         oh = list_temp->data;
         if (oh->timeline)
             clutter_timeline_stop(oh->timeline);
+        g_source_remove(oh->runtime);
 /*
         clutter_actor_destroy(oh->stage);
         g_object_unref(oh->script);

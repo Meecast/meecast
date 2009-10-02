@@ -501,11 +501,10 @@ create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size,
 #else
 
 #ifdef HILDONANIMATION 
-    icon_widget = create_hildon_clutter_icon_animation(icon_buffer, icon_path, icon_size, objects_list);
-    if (!icon_widget){
+    icon_widget = create_hildon_clutter_icon_animation(icon_path, icon_size, objects_list);
+    if (!icon_widget)
         icon_widget = gtk_image_new_from_pixbuf(icon_buffer);
-        g_object_unref(G_OBJECT(icon_buffer));
-    }
+    g_object_unref(G_OBJECT(icon_buffer));
 #else
     icon_widget = gtk_image_new_from_pixbuf(icon_buffer);
     if (icon_buffer)

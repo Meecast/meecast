@@ -339,6 +339,7 @@ typedef struct SuperOH{
   GdkPixbuf             *bgpixb;
   ClutterActor          *bgtex;
   guint                 runtime;
+  guint                 merge_id;
   guint                 duration;
 }SuperOH;
 #endif

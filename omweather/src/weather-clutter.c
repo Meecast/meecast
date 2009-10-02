@@ -261,7 +261,6 @@ create_hildon_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_pa
 show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
     static GSList   *list_temp = NULL;
     SuperOH         *oh;
-    ClutterActor    *texture;
     ClutterActor  *clactor = NULL;
     GdkPixbuf *pixbuf;
     GError *error;
@@ -356,9 +355,12 @@ change_knots_path(GSList *knots, gint need_size)
 void free_clutter_objects_list(GSList **clutter_objects) {
     static GSList *list_temp = NULL;
     SuperOH *oh;
-#ifdef DEBUGFUNCTIONCALL
+    ClutterActor  *clactor = NULL;
+    GtkWidget *ha;
+    gint i;
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     if (!*clutter_objects)
         return;
     list_temp = *clutter_objects;
@@ -369,7 +371,20 @@ void free_clutter_objects_list(GSList **clutter_objects) {
 /*
         clutter_actor_destroy(oh->stage);
         g_object_unref(oh->script);
-*/
+*/      if (oh->icon){
+
+        if CLUTTER_IS_GROUP(oh->icon){
+            for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
+                clactor = clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i);
+                ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
+                gtk_widget_destroy(ha);
+            }
+        }else{
+            clactor = oh->icon;
+            ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
+            gtk_widget_destroy(ha);
+        }
+    }
         gtk_widget_destroy(oh->icon_widget);
         gtk_widget_destroy(oh->clutter);
         g_object_unref(oh->script);
@@ -378,9 +393,9 @@ void free_clutter_objects_list(GSList **clutter_objects) {
     }
     g_slist_free(*clutter_objects);
     *clutter_objects = NULL;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
 }
 
 

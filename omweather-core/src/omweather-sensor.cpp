@@ -34,6 +34,7 @@ Sensor::Sensor(){
 /*******************************************************************************/
 float Sensor::read(){
     char buffer[128];
+    float value = 0.0f;
     std::ifstream file(SENSOR);
     if(file.is_open()){
         *buffer = 0;
@@ -41,5 +42,6 @@ float Sensor::read(){
         file.close();
         value = atof(buffer) / 1000.0f;
     }
+    return value;
 }
 /*******************************************************************************/

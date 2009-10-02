@@ -41,6 +41,7 @@
 #include <libxml/parser.h>
 #include <libxml/tree.h>
 #include <stdlib.h>
+#include <string.h>
 /*******************************************************************************/
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, NOW,
         NOW_PLUS_TWO, NOW_PLUS_THREE_V, NOW_PLUS_THREE_H, NOW_PLUS_SEVEN,

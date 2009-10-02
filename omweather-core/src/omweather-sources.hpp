@@ -39,6 +39,7 @@ typedef struct dirent Dirent;
 #include <linux/fs.h>
 typedef struct dirent Dirent;
 #endif
+#include "omweather-common.hpp"
 /*******************************************************************************/
 #define SOURCESPATH "/usr/share/omweather/sources/"
 #define SOURCES_LIB "/usr/lib/omweather/"

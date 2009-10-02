@@ -33,7 +33,7 @@ Text::Text(){
  * WARNING!
  * Do not insert new lines to this file, use file omweather-text.data
 */
-#include "omweather-text.data";
+#include "omweather-text.data"
 }
 /*******************************************************************************/
 std::string Text::search(const std::string key){

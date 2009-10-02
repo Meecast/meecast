@@ -34,9 +34,13 @@
 /*******************************************************************************/
 class Config{
     std::string         home_dir;
+    void                prepare_save();
+    void                prepare_read();
     protected:
     xmlDoc              *document;
-    void parse_children(xmlNode *node);
+    xmlNode             *root_node;
+    void                parse_children(xmlNode *node);
+    void                save_to_file();
     StationsList        user_stations_list;
     std::string         cache_directory;
     std::string         icons_set_base;
@@ -94,7 +98,7 @@ class OS2008Config : public Config{
     public:
             OS2008Config();
             bool read();
-            void save();
+            virtual void save();
             Param param(const std::string) const;
 };
 /*******************************************************************************/

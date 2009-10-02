@@ -39,6 +39,7 @@
 /*******************************************************************************/
 Config::Config(){
     document = NULL;
+    root_node = NULL;
     home_dir.clear();
     version.clear();
     cache_directory.clear();
@@ -77,7 +78,7 @@ Config::~Config(){
         xmlFreeDoc(document);
 }
 /*******************************************************************************/
-bool Config::read(){
+void Config::prepare_read(){
     std::string filename;
 
     home_dir = getenv("HOME");
@@ -87,15 +88,20 @@ bool Config::read(){
         filename = home_dir + "/" + "omweather.xml";
 
     std::ifstream file(filename.c_str());
-    if(file.is_open()){
+    if(file.is_open())
         file.close();
-        document = xmlReadFile(filename.c_str(), NULL, 0);
-        if(document){
-            xmlNode *root_node = xmlDocGetRootElement(document);
-            xmlNode *current_node = root_node->children;
-            parse_children(current_node);
-        }
-    }
+    document = xmlReadFile(filename.c_str(), NULL, 0);
+    if(document)
+        root_node = xmlDocGetRootElement(document);
+}
+/*******************************************************************************/
+bool Config::read(){
+    if(!document)
+        prepare_read();
+    if(!root_node)
+        return false;
+    parse_children(root_node->children);
+    return true;
 }
 /*******************************************************************************/
 void Config::parse_children(xmlNode *node){
@@ -378,13 +384,27 @@ void Config::parse_children(xmlNode *node){
     }
 }
 /*******************************************************************************/
-void Config::save(){
+void Config::prepare_save(){
     if(document)
         xmlFreeDoc(document);
-    
     document = xmlNewDoc(BAD_CAST "1.0");
     xmlNs *ns = xmlNewGlobalNs(document, BAD_CAST "https://garage.maemo.org/projects/omweather/", BAD_CAST "");
-    xmlNode *root_node = xmlNewNode(NULL, BAD_CAST "omweather");
+    root_node = xmlNewNode(NULL, BAD_CAST "omweather");
+}
+/*******************************************************************************/
+void Config::save_to_file(){
+    if(!document)
+        return;
+    std::string filename = home_dir + "/" + "omweather.xml";
+    xmlSaveFormatFileEnc(filename.c_str(), document, "UTF-8", 1);
+}
+/*******************************************************************************/
+void Config::save(){
+    if(!document)
+        prepare_save();
+    if(!root_node)
+        return;
+    char buffer[128];
     xmlNewChild(root_node, NULL, BAD_CAST "version", BAD_CAST version.c_str());
     xmlNewChild(root_node, NULL, BAD_CAST "current-station-source", BAD_CAST current_station_source.c_str());
     xmlNewChild(root_node, NULL, BAD_CAST "current-station-name", BAD_CAST current_station_name.c_str());
@@ -434,6 +454,30 @@ void Config::save(){
         xmlNewChild(root_node, NULL, BAD_CAST "transparency", BAD_CAST "false");
     xmlNewChild(root_node, NULL, BAD_CAST "wind-units", BAD_CAST wind_units.toString().c_str());
     xmlNewChild(root_node, NULL, BAD_CAST "pressure-units", BAD_CAST pressure_units.toString().c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "distance-units", BAD_CAST distance_units.toString().c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "temperature-units", BAD_CAST temperature_units.toString().c_str());
+    *buffer = 0;
+    snprintf(buffer, sizeof(buffer) - 1, "%d", valid_time);
+    xmlNewChild(root_node, NULL, BAD_CAST "valid-time", BAD_CAST buffer);
+    *buffer = 0;
+    snprintf(buffer, sizeof(buffer) - 1, "%d", switch_time);
+    xmlNewChild(root_node, NULL, BAD_CAST "switch-time", BAD_CAST buffer);
+    *buffer = 0;
+    snprintf(buffer, sizeof(buffer) - 1, "%d", update_time);
+    xmlNewChild(root_node, NULL, BAD_CAST "update-time", BAD_CAST buffer);
+    if(auto_download)
+        xmlNewChild(root_node, NULL, BAD_CAST "auto-download", BAD_CAST "true");
+    else
+        xmlNewChild(root_node, NULL, BAD_CAST "auto-download", BAD_CAST "false");
+    *buffer = 0;
+    snprintf(buffer, sizeof(buffer) - 1, "%d", current_settings_page);
+    xmlNewChild(root_node, NULL, BAD_CAST "settings-tab", BAD_CAST buffer);
+    xmlNewChild(root_node, NULL, BAD_CAST "font", BAD_CAST font.c_str());
+    xmlNewChild(root_node, NULL, BAD_CAST "click-type", BAD_CAST click_type.toString().c_str());
+    *buffer = 0;
+    snprintf(buffer, sizeof(buffer) - 1, "%d", days_number);
+    xmlNewChild(root_node, NULL, BAD_CAST "days-number", BAD_CAST buffer);
+    save_to_file();
 }
 /*******************************************************************************/
 Param Config::param(const std::string param_name) const{
@@ -616,11 +660,9 @@ OS2008Config::OS2008Config() : Config(){
 /*******************************************************************************/
 bool OS2008Config::read(){
     Config::read();
-    if(!document)
+    if(!root_node)
         return false;
-    xmlNode *root_node = xmlDocGetRootElement(document);
-    xmlNode *current_node = root_node->children;
-    parse_children(current_node);
+    parse_children(root_node->children);
     return true;
 }
 /*******************************************************************************/
@@ -668,6 +710,19 @@ void OS2008Config::parse_children(xmlNode *node){
 }
 /*******************************************************************************/
 void OS2008Config::save(){
+    Config::save();
+    if(!root_node)
+        return;
+    char buffer[128];
+    if(use_sensor)
+        xmlNewChild(root_node, NULL, BAD_CAST "use-sensor", BAD_CAST "true");
+    else
+        xmlNewChild(root_node, NULL, BAD_CAST "use-sensor", BAD_CAST "false");
+    xmlNewProp(root_node, BAD_CAST "position", BAD_CAST position.toString().c_str());
+    *buffer = 0;
+    snprintf(buffer, sizeof(buffer) - 1, "%d", sensor_update_time);
+    xmlNewProp(root_node, BAD_CAST "time", BAD_CAST buffer);
+    save_to_file();
 }
 /*******************************************************************************/
 Param OS2008Config::param(const std::string param_name) const{
@@ -709,11 +764,9 @@ OS2009Config::OS2009Config() : OS2008Config(){
 /*******************************************************************************/
 bool OS2009Config::read(){
     OS2008Config::read();
-    if(!document)
+    if(!root_node)
         return false;
-    xmlNode *root_node = xmlDocGetRootElement(document);
-    xmlNode *current_node = root_node->children;
-    parse_children(current_node);
+    parse_children(root_node->children);
     return true;
 }
 /*******************************************************************************/
@@ -746,6 +799,19 @@ void OS2009Config::parse_children(xmlNode *node){
 }
 /*******************************************************************************/
 void OS2009Config::save(){
+    OS2008Config::save();
+    if(!root_node)
+        return;
+    char buffer[128];
+    if(update_wlan)
+        xmlNewChild(root_node, NULL, BAD_CAST "update-wlan", BAD_CAST "true");
+    else
+        xmlNewChild(root_node, NULL, BAD_CAST "update-wlan", BAD_CAST "false");
+    if(update_gsm)
+        xmlNewChild(root_node, NULL, BAD_CAST "update-gsm", BAD_CAST "true");
+    else
+        xmlNewChild(root_node, NULL, BAD_CAST "update-gsm", BAD_CAST "false");
+    save_to_file();
 }
 /*******************************************************************************/
 Param OS2009Config::param(const std::string param_name) const{

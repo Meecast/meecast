@@ -31,13 +31,13 @@
 /*******************************************************************************/
 Source::Source(const std::string filename){
     source_is_invalid = true;
-    ifstream    file(filename);
+    std::ifstream    file(filename);
     if(file.is_open()){
         file.close();
         xmlDoc *document = xmlReadFile(filename, NULL, 0);
         if(document){
-            xmlNode root_node = xmlDocGetRootElement(document);
-            xmlNode current_node = root_node->children;
+            xmlNode *root_node = xmlDocGetRootElement(document);
+            xmlNode *current_node = root_node->children;
             parse_children(current_node);
             xmlFreeDoc(document);
             if(!source_name.empty() && !source_forecast_url.empty() &&
@@ -103,7 +103,7 @@ bool Source::load_library(){
     std::string name = SOURCES_LIB;
     name += source_library_name;
 
-    fstream file(name);
+    std::fstream file(name.c_str());
     if(file.is_open()){
         file.close();
         void* handle = dlopen(name.c_str(), RTLD_NOW);
@@ -129,7 +129,7 @@ bool Source::check_database(){
     std::string name = DATABASEPATH;
     name += source_database_name;
 
-    fstream file(name);
+    std::fstream file(name);
     if(file.is_open()){
         file.close();
         return true;

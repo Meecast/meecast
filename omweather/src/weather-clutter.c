@@ -33,35 +33,25 @@
 gboolean
 animation_cb (SuperOH *oh)
 {
-    HildonAnimationActor *actor = HILDON_ANIMATION_ACTOR (oh->clutter);
+    ClutterActor  *clactor = NULL;
+    GtkWidget *ha;
+    gint i;
 
-    static int x_inc = 1;
-    static int y_inc = 1;
-    static int x = 0;
-    static int y = 0;
-    static int r = 0;
-
-    if (((x_inc > 0) && (x > 800)) ||
-        ((x_inc < 0) && (x < 1)))
-        x_inc = -x_inc;
-    if (((y_inc > 0) && (y > 480)) ||
-        ((y_inc < 0) && (y < 1)))
-        y_inc = -y_inc;
-
-    x += x_inc;
-    y += y_inc;
-    r ++;
-
+    if (oh->icon){
+        if CLUTTER_IS_GROUP(oh->icon){
+            for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
+                clactor = clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i);
+                ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
+                fprintf(stderr,"ddddddddddddd %s\n", clutter_actor_get_name(clactor));
+            }
+        }
+    }
+fprintf(stderr,"ddddddddddddddddd\n");
     oh->duration--;
     if (oh->duration == 0)
         return FALSE;
-    // Set animation actor position and rotation
-//    hildon_animation_actor_set_position (actor, x, y);
-    hildon_animation_actor_set_rotation (actor,
-                                         HILDON_AA_Z_AXIS,
-                                         r,
-                                         0, 0, 0);
-    return TRUE;
+    else
+        return TRUE;
 }
 gboolean
 expose_event (GtkWidget *widget,GdkEventExpose *event,
@@ -174,16 +164,7 @@ create_hildon_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *icon_pa
     fprintf(stderr,"hhhhhhhhhhhhhhhh %s\n", (gchar*)gtk_widget_get_name(GTK_WIDGET(app->top_widget->parent)));
 
 
-//    hildon_animation_actor_set_anchor_from_gravity (HILDON_ANIMATION_ACTOR (oh->clutter),
-//                                                           HILDON_AA_CENTER_GRAVITY);
-//    hildon_animation_actor_set_anchor (HILDON_ANIMATION_ACTOR (oh->clutter), 0, 0);
     fprintf(stderr,"hhhhhhhhhhhhhhhh %s\n", icon_name);
-//    oh->stage = gtk_clutter_embed_get_stage (GTK_CLUTTER_EMBED (oh->clutter));
-    /* and its background color */
-
-/*    clutter_stage_set_color (CLUTTER_STAGE (oh->stage),
-                  &stage_color);
-*/
 
     sprintf(buffer, "icon_name_%s", icon_name);
     if (oh->script)
@@ -295,38 +276,16 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
        pixbuf = gdk_pixbuf_get_from_drawable (NULL, oh->icon_widget->window, gtk_widget_get_colormap(oh->icon_widget),
                    oh->icon_widget->allocation.x, oh->icon_widget->allocation.y, 0, 0,
                    oh->icon_widget->allocation.width, oh->icon_widget->allocation.height);
-/*
-       gdk_pixbuf_save (pixbuf , "screenie.png", "png", NULL, NULL);
-       pixbuf = gdk_pixbuf_new_from_file("./redhand.png", NULL);
-
-       texture =gtk_clutter_texture_new_from_pixbuf(pixbuf);
-*/       
         
-       fprintf(stderr,"hhhhhhhhhh\n");
-       texture = clutter_texture_new();
-       clutter_texture_set_from_rgb_data(texture,gdk_pixbuf_get_pixels(pixbuf),FALSE,
-             oh->icon_widget->allocation.width,oh->icon_widget->allocation.height,
-             gdk_pixbuf_get_rowstride (pixbuf),3,0,&error);
-       if (pixbuf)
-           g_object_unref(pixbuf);
-       if (error){
-            g_warning ("Unable to set the pixbuf: %s", error->message);
-                  g_error_free (error);
-       }
 
        fprintf(stderr,"111111111hhhhhhhhhh\n");
-       /*
-       clutter_container_add_actor (CLUTTER_CONTAINER (oh->stage),
-                               CLUTTER_ACTOR (texture));
-       clutter_container_lower_child(CLUTTER_CONTAINER (oh->stage),CLUTTER_ACTOR (texture),NULL);
-        */
        fprintf(stderr,"22222222222hhhhhhhh\n");
         /* Start animation */
         if (oh->timeline){
             fprintf(stderr,"33333333222hhhhhhhh\n");
             clutter_timeline_start (oh->timeline);
-//            g_timeout_add (10, (GSourceFunc)animation_cb, oh);
-            fprintf(stderr,"Duration %i\n",clutter_timeline_get_duration(oh->timeline) );
+            g_timeout_add (10, (GSourceFunc)animation_cb, oh);
+            fprintf(stderr,"Duration %i\n",clutter_timeline_get_duration(oh->timeline));
             oh->duration = clutter_timeline_get_duration(oh->timeline) / 10;
         }
         fprintf(stderr,"aaaaaaaaaaaaa\n");

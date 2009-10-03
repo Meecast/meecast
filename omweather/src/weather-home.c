@@ -1080,7 +1080,7 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
         g_source_remove(app->timer);
     /* Clean the queue of event */ 
     free_list_time_event();
-#ifdef CLUTTER
+#if defined CLUTTER || defined HILDONANIMATION
     /* Clean clutter objects list */
     free_clutter_objects_list(&app->clutter_objects_in_main_form);
     free_clutter_objects_list(&app->clutter_objects_in_popup_form);

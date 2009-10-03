@@ -99,7 +99,6 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
         gtk_widget_destroy(app->popup_window);
     app->popup_window = window;
     gtk_widget_show_all(GTK_WIDGET(window));
-    g_signal_connect_after(window, "expose-event", G_CALLBACK(popup_simple_window_expose), NULL);
     g_signal_connect((gpointer)app->popup_window, "destroy_event",
                         G_CALLBACK(destroy_popup_window), GINT_TO_POINTER(1));
     g_signal_connect((gpointer)app->popup_window, "delete_event",
@@ -182,9 +181,11 @@ weather_simple_window_redraw(GtkWidget *window){
     START_FUNCTION;
 #endif
 
-
     main_vbox = (GtkWidget*)g_object_get_data(G_OBJECT(window), "main_vbox");
     user_data = g_object_get_data(G_OBJECT(window), "user_data");
+    #if defined CLUTTER || defined HILDONANIMATION
+        free_clutter_objects_list(&app->clutter_objects_in_popup_form);
+    #endif
     if (main_vbox)
         gtk_widget_destroy(main_vbox);
     main_vbox =  create_mainbox_for_forecast_window(window, user_data);
@@ -305,7 +306,10 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
     /* pack childs to the scrolled window */
     gtk_scrolled_window_add_with_viewport(scrolled_window, main_vbox);
 #endif
-
+#if defined CLUTTER || HILDONANIMATION
+    /* For end of Clutter animation in popup window */
+        free_clutter_objects_list(&app->clutter_objects_in_popup_form);
+#endif
     days = (GSList*)g_hash_table_lookup(app->station_data, "forecast");
     if(days){
         while(days){
@@ -438,6 +442,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
         set_font(label, NULL, 24);
     }
     gtk_widget_show_all(scrolled_window);
+    g_signal_connect_after(scrolled_window, "expose-event", G_CALLBACK(popup_simple_window_expose), NULL);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -480,6 +485,11 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
     hildon_helper_set_thumb_scrollbar(scrolled_window, TRUE);
     gtk_scrolled_window_add_with_viewport(scrolled_window, main_vbox);
 #endif
+#if defined CLUTTER || HILDONANIMATION
+    /* For end of Clutter animation in popup window */
+        free_clutter_objects_list(&app->clutter_objects_in_popup_form);
+#endif
+ 
     gtk_widget_set_size_request(scrolled_window, -1, -1);
     if(!app->station_data)
         return NULL;
@@ -544,6 +554,7 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
     
     gtk_widget_show_all(main_vbox);
     gtk_widget_show_all(scrolled_window);
+    g_signal_connect_after(scrolled_window, "expose-event", G_CALLBACK(popup_simple_window_expose), NULL);
     g_free(day_name);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

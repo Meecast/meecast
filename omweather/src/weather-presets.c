@@ -672,7 +672,7 @@ fill_weather_day_button_presets(WDB *new_day_button, const char *text, const cha
                         NULL);
     if (icon_buffer)
         /* create day icon image from buffer */
-        new_day_button->icon_image = create_icon_widget(icon_buffer, icon, icon_size, &app->clutter_objects_in_main_form);
+        new_day_button->icon_image = create_icon_widget(icon_buffer, icon, icon_size, NULL);
     else
         new_day_button->icon_image = NULL;
 
@@ -730,7 +730,7 @@ fill_weather_day_button_presets(WDB *new_day_button, const char *text, const cha
                         NULL);
         if (icon_buffer){
             /* create day icon image from buffer */
-            new_day_button->wind = create_icon_widget(icon_buffer, icon, icon_size, &app->clutter_objects_in_main_form);
+            new_day_button->wind = create_icon_widget(icon_buffer, icon, icon_size, NULL);
         }
         else
             new_day_button->wind = NULL;
@@ -803,7 +803,7 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
                         NULL);
     if (icon_buffer)
         /* create day icon image from buffer */
-        new_day_button->icon_image = create_icon_widget(icon_buffer, icon, icon_size, &app->clutter_objects_in_main_form);
+        new_day_button->icon_image = create_icon_widget(icon_buffer, icon, icon_size, NULL);
     else
         new_day_button->icon_image = NULL;
 

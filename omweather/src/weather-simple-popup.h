@@ -47,5 +47,7 @@ gboolean jump_panarea(gpointer user_data);
 #if defined OS2009
 HildonAppMenu* create_view_menu(void);
 #endif
+void popup_simple_window_expose(GtkWidget *widget, GdkEventExpose *event);
+
 /*******************************************************************************/
 #endif

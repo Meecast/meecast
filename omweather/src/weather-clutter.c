@@ -160,7 +160,8 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-//    return NULL;
+    if (!objects_list)
+        return NULL;
     stage_color.red = app->config->background_color.red;
     stage_color.blue = app->config->background_color.blue;
     stage_color.green = app->config->background_color.green;

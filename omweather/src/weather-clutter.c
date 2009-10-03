@@ -36,20 +36,32 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
 {
     gdouble scale_x, scale_y, angle;
     gfloat rx, ry, rz;
+    gint allocationx = 0, allocationy = 0;
+    GtkWidget *parent = NULL;
 #ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
+//    START_FUNCTION;
 #endif
     if (!ha || !oh || !clactor)
         return;
     /* set position */
+    /* Add offset for some parents widgets */
+    parent = oh->icon_widget;
+    while (!GTK_IS_WINDOW(parent = parent->parent))
+    {
+        //fprintf(stderr, "Name %s %i \n",gtk_widget_get_name(GTK_WIDGET(parent)), parent->allocation.y);     
+        if (HILDON_IS_PANNABLE_AREA(parent)){
+            allocationy =  allocationy + parent->allocation.y;
+            allocationx =  allocationx + parent->allocation.x;
+         }
+    }
     if (fullwindow) 
         hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha),
-                    oh->icon_widget->allocation.x + clutter_actor_get_x(clactor),
-                    oh->icon_widget->allocation.y + clutter_actor_get_y(clactor), 0);
+                    oh->icon_widget->allocation.x + clutter_actor_get_x(clactor) + allocationx,
+                    oh->icon_widget->allocation.y + clutter_actor_get_y(clactor) + allocationy, 0);
     else
         hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha),
-                    oh->icon_widget->allocation.x + clutter_actor_get_x(clactor),
-                    oh->icon_widget->allocation.y + clutter_actor_get_y(clactor) + 
+                    oh->icon_widget->allocation.x + clutter_actor_get_x(clactor) + allocationx,
+                    oh->icon_widget->allocation.y + clutter_actor_get_y(clactor) + allocationy +
                     SIZE_OF_WINDOWS_HEAD, 0);
  //                fprintf(stderr,"111ddddddddddddd %s %i %i\n", clutter_actor_get_name(clactor),
 //                          clutter_actor_get_x(clactor), clutter_actor_get_y(clactor));
@@ -70,7 +82,7 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Z_AXIS,
                                         angle,(int)rx, (int)ry, (int)rz);
 #ifdef DEBUGFUNCTIONCALL
-    END_FUNCTION;
+//    END_FUNCTION;
 #endif
 }
 /*******************************************************************************/

@@ -68,7 +68,7 @@ destroy_popup_window(gpointer user_data){
         g_slist_free(app->tab_of_window_popup);
         app->tab_of_window_popup = NULL;
     }
-#ifdef CLUTTER
+#if defined CLUTTER || HILDONANIMATION 
     /* For end of Clutter animation in popup window */
     free_clutter_objects_list(&app->clutter_objects_in_popup_form);
 #endif

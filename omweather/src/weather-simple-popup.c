@@ -87,12 +87,9 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
 #else
     window = hildon_window_new();
 #endif
-    g_signal_connect_after(window, "expose-event", G_CALLBACK(popup_simple_window_expose), NULL);
     gtk_window_set_title(GTK_WINDOW(window), _("Forecast"));
 
     gtk_container_add(GTK_CONTAINER(window), create_mainbox_for_forecast_window(window, user_data));
-    gtk_widget_show(window);
-
 #if defined OS2009
     menu = create_view_menu();
     hildon_window_set_app_menu(HILDON_WINDOW(window), menu);
@@ -102,6 +99,7 @@ weather_simple_window_popup(GtkWidget *widget, gpointer user_data){
         gtk_widget_destroy(app->popup_window);
     app->popup_window = window;
     gtk_widget_show_all(GTK_WIDGET(window));
+    g_signal_connect_after(window, "expose-event", G_CALLBACK(popup_simple_window_expose), NULL);
     g_signal_connect((gpointer)app->popup_window, "destroy_event",
                         G_CALLBACK(destroy_popup_window), GINT_TO_POINTER(1));
     g_signal_connect((gpointer)app->popup_window, "delete_event",
@@ -844,7 +842,7 @@ create_view_menu(void){
 void
 popup_simple_window_expose(GtkWidget *widget, GdkEventExpose *event){
     show_hildon_animation(app->clutter_objects_in_popup_form, app->popup_window);
-    gtk_widget_show_all(widget);
+//    gtk_widget_show_all(widget);
     g_signal_handlers_disconnect_by_func(G_OBJECT(widget),G_CALLBACK(popup_simple_window_expose),NULL);
 }
 #endif

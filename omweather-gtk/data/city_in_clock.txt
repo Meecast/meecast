@@ -1,0 +1,172 @@
+Abu Dhabi;AEXX0001
+Algiers;AGXX0001
+Amman;JOXX0002
+Amsterdam;NLXX0002
+Anchorage, AK;USAK0012
+Andorra la Vella;ANXX0001
+Ankara;TUXX0002
+Athens;GRXX0004
+Atlanta, GA;USGA0028
+Auckland;NZXX0003
+Baghdad;IZXX0008
+Bali;IDXX0019
+Bangkok;THXX0002
+Barcelona;SPXX0015
+Beijing;CHXX0008
+Beirut;LEXX0003
+Belgrade;YIXX0005
+Podgorica;YIXX0001
+Bergen;NOXX0004
+Berlin;GMXX0007
+Bern;SZXX0006
+Bogota;COXX0004
+Brasilia;BRXX0043
+Bratislava;LOXX0001
+Brussels;BEXX0005
+Bucharest;ROXX0003
+Budapest;HUXX0002
+Buenos Aires;ARBA0009
+Cairo;EGXX0004
+Calcutta;INXX0028
+Calgary;CAXX0054
+Canberra;ASXX0023
+Cape Town;SFXX0010
+Caracas;VEXX0008
+Cardiff;UKXX0030
+Casablanca;MOXX0001
+Changchun;CHXX0010
+Changsha;CHXX0013
+Chengdu;CHXX0016
+Chicago, IL;USIL0225
+Chisinau;MDXX0003
+Chongqing;CHXX0017
+Ciudad Juarez;MXCA0026
+Copenhagen;DAXX0009
+Dallas, TX;USTX0327
+Damascus;SYXX0004
+Dar es Salaam;TZXX0001
+Denver, CO;USCO0065
+Dodoma;TZXX0002
+Doha;QAXX0003
+Dublin;EIXX0014
+Edinburgh;UKXX0052
+Fuzhou;CHXX0031
+Gothenburg;SWXX0007
+Guadalajara;SPXX0041
+Guadalajara;MXJO0043
+Guangzhou;CHXX0037
+Guiyang;CHXX0039
+Haikou;CHXX0502
+Halifax;CAXX0183
+Hangzhou;CHXX0015
+Hanoi;VMXX0006
+Harbin;CHXX0046
+Hefei;CHXX0448
+Helsinki;FIXX0002
+Hong Kong;CHXX0049
+Honolulu, HI;USHI0026
+Islamabad;PKXX0006
+Istanbul;TUXX0014
+Jakarta;IDXX0022
+Jerusalem;ISXX0010
+Jinan;CHXX0064
+Johannesburg;SFXX0023
+Kabul;AFXX0003
+Kiev;UPXX0016
+Krasnoyarsk;RSXX0267
+Kuala Lumpur;MYXX0008
+Kunming;CHXX0076
+Kuwait;KUXX0003
+Lanzhou;CHXX0079
+Las Palmas;SPXX0047
+Las Vegas, NV;USNV0049
+Lhasa;CHXX0080
+Lima;PEXX0011
+Lisbon;POXX0016
+Liverpool;UKXX0083
+Ljubljana;SIXX0002
+London;UKXX0085
+Los Angeles, CA;USCA0638
+Luxembourg;LUXX0003
+Madrid;SPXX0050
+Manama;BAXX0001
+Manila;RPXX0017
+Marseilles;FRXX0059
+Mecca;SAXX0013
+Melbourne;ASXX0075
+Mexico;MXDF0132
+Miami, FL;USFL0316
+Milan;ITXX0042
+Minsk;BOXX0005
+Montevideo;UYXX0006
+Moscow;RSXX0063
+Munich;GMXX0087
+Muscat;MUXX0003
+Nairobi;KEXX0009
+Nanchang;CHXX0097
+Nanjing;CHXX0099
+Nanning;CHXX0100
+New Delhi;INXX0096
+New York, NY;USNY0998
+Nicosia;CYXX0005
+Arhus;DAXX0003
+Oslo;NOXX0029
+Ottawa;CAXX0343
+Paris;FRXX0076
+Porto;POXX0022
+Prague;EZXX0012
+Pretoria;SFXX0044
+Puebla;MXPA0070
+Quebec;CAXX0385
+Rabat;MOXX0007
+Reykjavik;ICXX0002
+Riga;LGXX0004
+Rio de Janeiro;BRXX0201
+Riyadh;SAXX0017
+Rome;ITXX0067
+Rotterdam;NLXX0015
+San Marino;SMXX0001
+Sanaa;YMXX0005
+Santiago;CIXX0020
+Sarajevo;BKXX0004
+Seattle, WA;USWA0395
+Seoul;KSXX0037
+Shanghai;CHXX0116
+Shenyang;CHXX0119
+Shijiazhuang;CHXX0122
+Singapore;SNXX0006
+Skopje;MKXX0001
+Sofia;BUXX0005
+St Petersburg;RSXX0091
+Stockholm;SWXX0031
+Sydney;ASXX0112
+Taipei;TWXX0021
+Taiyuan;CHXX0129
+Tallinn;ENXX0004
+Tampere;FIXX0031
+Tehran;IRXX0018
+Tel Aviv-Jaffa;ISXX0026
+The Hague;NLXX0016
+Thessaloniki;GRXX0019
+Tianjin;CHXX0133
+Tijuana;MXBC0005
+Tirana;ALXX0002
+Tokyo;JAXX0085
+Tunis;TSXX0010
+Urumqi;CHXX0135
+Vaduz;LSXX0002
+Valletta;MTXX0001
+Vancouver;CAXX0518
+Vatican City;ITXX0083
+Vienna;AUXX0025
+Vilnius;LHXX0005
+Vladivostok;RSXX0116
+Warsaw;PLXX0028
+Washington, DC;USDC0001
+Wellington;NZXX0049
+Wuhan;CHXX0138
+Xi'an;CHXX0141
+Xining;CHXX0236
+Yinchuan;CHXX0259
+Zagreb;HRXX0005
+Zhengzhou;CHXX0165

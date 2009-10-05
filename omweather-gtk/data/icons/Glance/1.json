@@ -1,0 +1,160 @@
+
+[
+  {
+    "id" : "main-timeline",
+    "type" : "ClutterTimeline",
+    "num-frames" : 200,
+    "fps" : 60,
+    "loop" : false
+  },
+  {
+    "id"            : "fade-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 0,
+    "opacity-end"   : 255,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
+    "id"            : "back-fade-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 0,
+    "opacity-end"   : 255,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "exp-dec"
+    }
+  },
+
+
+  {
+     "id" : "icon_name_1_original",
+     "type" : "ClutterTexture",
+     "width" : 128,
+     "height" : 128,
+     "filename" : "1.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+   {
+    "id" : "icon_name_1",
+    "type" : "ClutterGroup",
+    "x": 0,
+    "y": 0,
+    "children" : [
+        {
+         "id" : "two_light_clouds",
+          "type" : "ClutterTexture",
+          "filename" : "two_light_clouds.png",
+          "visible" : true
+        },
+        {
+         "id" : "drop1",
+         "type" : "ClutterTexture",
+         "filename" : "drop.png",
+         "x": 52,
+         "y": 65,
+         "visible" : true,
+         "behaviours" : [ 
+            "fade-behaviour",
+         ]
+       },
+        {
+         "id" : "drop2",
+         "type" : "ClutterTexture",
+         "filename" : "drop.png",
+         "x": 64,
+         "y": 85,
+         "visible" : true,
+         "behaviours" : [ 
+            "fade-behaviour",
+         ]
+       },
+        {
+         "id" : "drop3",
+         "type" : "ClutterTexture",
+         "filename" : "drop.png",
+         "x": 75,
+         "y": 65,
+         "visible" : true,
+         "behaviours" : [ 
+            "fade-behaviour",
+         ]
+       },
+        {
+         "id" : "drop4",
+         "type" : "ClutterTexture",
+         "filename" : "drop.png",
+         "x": 85,
+         "y": 85,
+         "visible" : true,
+         "behaviours" : [ 
+            "fade-behaviour",
+         ]
+       },
+        {
+         "id" : "drop5",
+         "type" : "ClutterTexture",
+         "filename" : "drop.png",
+         "x": 97,
+         "y": 65,
+         "visible" : true,
+         "behaviours" : [ 
+            "fade-behaviour",
+         ]
+       },
+
+        {
+         "id" : "drop6",
+         "type" : "ClutterTexture",
+         "filename" : "drop.png",
+         "x": 30,
+         "y": 30,
+         "visible" : true,
+         "behaviours" : [ 
+            "back-fade-behaviour",
+         ]
+       },
+        {
+         "id" : "drop7",
+         "type" : "ClutterTexture",
+         "filename" : "drop.png",
+         "x": 30,
+         "y": 70,
+         "visible" : true,
+         "behaviours" : [ 
+            "back-fade-behaviour",
+         ]
+       },
+        {
+         "id" : "drop8",
+         "type" : "ClutterTexture",
+         "filename" : "drop.png",
+         "x": 60,
+         "y": 70,
+         "visible" : true,
+         "behaviours" : [ 
+            "back-fade-behaviour",
+         ]
+       },
+        {
+         "id" : "drop9",
+         "type" : "ClutterTexture",
+         "filename" : "drop.png",
+         "x": 80,
+         "y": 70,
+         "visible" : true,
+         "behaviours" : [ 
+            "back-fade-behaviour",
+         ]
+       },
+
+
+    ]
+    }
+
+]
+

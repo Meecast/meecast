@@ -1,0 +1,80 @@
+[
+  {
+    "id" : "main-timeline",
+    "type" : "ClutterTimeline",
+    "num-frames" : 100,
+    "fps" : 60,
+    "loop" : false
+  },
+
+  {
+    "id"          : "rotate-behaviour",
+    "type"        : "ClutterBehaviourRotate",
+    "angle-start" : 0.0,
+    "angle-end"   : 360.0,
+    "axis"        : "y-axis",
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+          } 
+  },
+
+  {
+    "id"          : "sun-behaviour",
+    "type"        : "ClutterBehaviourPath",
+     "knots" : [[15, 128], [15, 15]],
+     "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+  {
+    "id"          : "medium_gray_cloud-behaviour",
+    "type"        : "ClutterBehaviourPath",
+     "knots" : [[-128, 30], [-100, 30], [60, 30], [54, 30], [53, 30], [52, 30]],
+     "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+
+
+
+  {
+     "id" : "icon_name_30_original",
+     "type" : "ClutterTexture",
+     "filename" : "30.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+   {
+    "id" : "icon_name_30",
+    "type" : "ClutterGroup",
+    "x": 0,
+    "y": 0,
+    "children" : [
+
+      {
+        "id" : "sun",
+        "type" : "ClutterTexture",
+        "filename" : "sun.png",
+        "visible" : true,
+        "behaviours" : [
+            "sun-behaviour"
+        ]
+      },
+      {
+        "id" : "medium_gray_cloud",
+        "type" : "ClutterTexture",
+        "filename" : "medium_gray_cloud.png",
+        "visible" : true,
+        "behaviours" : [
+            "medium_gray_cloud-behaviour"
+        ]
+      },
+    ]
+    }
+]
+

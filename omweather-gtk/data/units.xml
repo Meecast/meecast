@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<sources>
+    <source name="weather.com">
+	<temperature>C</temperature>
+	<pressure>mb</pressure>
+	<wind>km/h</wind>
+	<humidity>%</humidity>
+    </source>
+    <source name="rp5.ru">
+	<temperature>C</temperature>
+	<pressure>mmHg</pressure>
+	<wind>m/s</wind>
+	<humidity>%</humidity>
+    </source>
+</sources>

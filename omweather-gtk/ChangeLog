@@ -1,0 +1,384 @@
+0.24.6
+
+  * Fixed problem with GPS for Fremantle
+  * Fixed bug with null icons on display if iconset was deinstalled from system
+  * Done optified
+
+0.24.5
+
+  * Fixed problem with button GPS
+
+0.24.4
+
+  * Various minor fixes
+  * Fixed small memory leaks in configurations window
+  * Fixed bug #5083 "Remove/hide mnemonics for buttons"
+  * Fixed bug #5804 '"Source" should default to "weather.com" if  no other providers available'
+  * Fixed bug #5122 "XB-Maemo-Display-Name not used in debian/control"
+  * Fixed bug #5086 "Settings > Update > Period: Cropped "4 hours" setting"
+  * Fixed bug #5087 '"Not available for this country" instead of empty "Selecting station" list'
+
+0.24.3
+  * Various minor fixes
+  * Fixed bug #4748 "omweather asks me to reboot my device on every update" for Fremantle
+  * Updated German translations
+
+0.24.2
+  * Various minor fixes
+  * Fixed bug #4971 ""Wrong station code or ZIP code!!" warning when installing"
+
+0.24
+  * Updated German, Finish, Spanish, Russian translations
+  * Done automatically download the weather forecast after adding of a station, if device is connected to Internet
+  * Fixed a problem with gps station choosing
+  * Small fixes in popup windows
+  * Changed in postinstall script
+  * Changed parameter 'type of connection for automatically downloading' by default is WLAN only
+  * Changed parameter 'Swap temperature' by default is TRUE
+  * Added 'hd_home_plugin_item_set_settings' to widget
+  * Various minor fixes
+
+0.23.3
+  * Modified acknowledgment and copyright lists
+  * Various small fixes
+  * Fixed memory leaks
+  * Corrected behaviour of details weather forecasts for a current day
+
+0.23.2
+  * Fixed problem with switching between stations if stations list has nil stations 
+  * Fixed problem with detailed weather for current day
+  * Now next station changing in inside popup window without destroying it
+  * Fixed problem with scrolling in popup window
+  * Done feature request from Daniel Wilms "automatically connect to gps service after selecting of gps station"
+
+0.23.1
+  * Done scroll to child for pannable_area in window popup
+  * Added button 'Clear' for window 'Configuring station'
+  * Removed 'Expanded/Collapsed' togglebuttons in status window
+
+0.23
+  * New design
+
+0.22.4
+  * Fixed small memory leaks
+  * Corrected package icon
+
+0.22.3
+  * Added dependence on the omweather-source
+  * Fixed small memory leaks
+  * Option 'hours  weather forecast' is enabled by default now
+
+0.22.2
+  * Added possibility, automatically to change orientation (a portrait or a landscape) for OS2009
+  * Added fullscreen button for application mode 
+  * Fixed problem with downloading weather forecast
+  * Increased some labels in settings window
+  * Fixed problem with proxy config parameter
+  * Various small fixes
+
+0.22.1
+  * Changed default background to black colour
+  * Added omweather-home.desktop for OS2009
+  * Removed libhildon-help for OS2009
+  * Done transparency for OS2009 
+
+0.22
+  * Added precipitation
+  * Added possibility to change position of text near of icon on main display
+  * Added option 'non-cache' for downloading of weather forecast data
+  * Fixed bug #3760 'Missing or erroneous weather status translation'
+  * Added clutter animations
+  * Added new mode - "Application"
+
+0.21.10
+  * Updated French tranlation
+  * Fixed the bug #3550 "Problem with data from xoap.weather.com"
+  * Added possibility launch popup window with long press instead of simple click FR #2967
+  * Fixed problem with red button (delete) on Settings window in OS2006
+
+0.21.9
+  * Fixed the bug #3398 "Omweather doesn't show mmHg in main form (Combo mode)"
+  * Fixed the bug #3397 "Destroying the hildon desktop after pressing of any button 
+    the keyboard (input any of a symbol) in the field ' renaming' in the settings window"
+  
+0.21.8
+  * Fixed the bug #3277 'Omweather causes Desktop to do constant polling for 127.0.0.1 address'. Thanks Eero Tamminen for feedback
+  * Fixed problem with switching between stations bug #3278
+  * Added possibility to switching off wind speed in main view (use only gconfedit for it parametr 'show-wind-gust')
+  
+0.21.7
+  * Fixed the bug #1929 "Problem with New Year period"
+  * Fixed the bug [#3120] Selection dialog stuck if pressing okay on station search
+  * Reverted broken popup menu
+  * Improvement in responses to clicking in main form
+  
+0.21.6
+  * Fixed the bug #3102 "Only moon in second icon"
+  * Fixed various memory leaks and uninitialized values. Thanks Eero Tamminen for feedback
+  
+0.21.5 
+  * Fixed the bug - background color is not saving and loading properly #3006
+  * Increased  events area of buttons in popup and settings windows
+  * Fixed problem with multi starting of popup window
+  * Fixed problem with accelerated starting of window popup with current weather
+  * Corrected showing of icon, title wind and wind direction in night time on main display
+  
+0.21.4
+  * Fixed problem starting of applet under OS2008, if the checkbox of internal
+    temperature is switched on and  time of updating the temperature is set to never
+    
+0.21.3
+  * Fixed the problem of start applet under OS2006-2007
+  * Fixed bug: Trying to connect to internet after finding GPS station #2953
+
+
+0.21.2
+  * Added mmHg units for pressure
+
+0.21
+  * Created new design for popup and settings windows
+  * Added possibility to change pressure units
+  * Added possibility to displaying wind speed and direction on desktop
+  * Files countries.list, regions.list and stations.list has moved into new package (omweather-stations-db)
+  * Added copyright info for weather data
+  * Start added possibility to change weather data source
+  * Added possibility to change font family, style and size for desktop icons
+  * Changed algorithm in transparent and background colour
+  * Added semi-transparency
+  * Updated help file
+  * Updated Finish,Franch,German,Russian,Spanish translation
+  
+0.20.6 
+  * Updated Italian translation of help
+  * Added Spanish translation
+  * Fixed not translated line in combination mode (night title)
+
+  
+0.20.5
+  * Fixed error out of range
+  * Fixed small memory leak
+  * Fixed not translated line in combination mode
+  * Changed algorithm of calculating current time 
+  * Compatibility with Maemo 4.1 (codename Diablo)
+
+0.20.4
+  * Updated Italian translation
+  * Fixed error while delete station from list
+
+0.20.3
+  * The critical bug leading restart of a desktop is corrected.
+  * Restored image on button 'Update', 'Down', 'Up' for OS2006
+  * Added opportunity to switch off the plugin launch at startup by creating a file nomweather.txt on memory card
+  
+0.20.2
+  * Updated France translation
+  * Maximum count day is 5 now
+  * Fixed bug with updating weather forecast ( Bug #2528)
+    
+0.20.1
+  * Modified algorithm for calculating the icon of the second day
+  * Displaced to the left popup window for the icon with current weather
+  * Fixed error while change the station in popup menu
+  * Made more information of weather forecast  in Combination mode.
+  * Corrected the work in Combination mode
+  * The first loading of weather forecast of stations by default after installation of the program is corrected
+
+0.20.0
+  * English help file has been added
+  * Added translation for Italian
+  * The field "Swap hi/low temperature" is moved to the "Units" tab
+  * Added auto-switch to the next station on selected time
+  * The arrows that switch to the next/previous station is made bigger, to press it with a finger
+  * Fixed error: while station data xml file is absence, displaying weather data is garbage
+  * New layout - "Combination" has been added
+  * Added possibility to change stations order in the stations list
+  * Added confirm dialog while delete station
+  * Added icons to display Moon phases
+  * Moon phase now displayed only in first icon
+  * Now option hide station name with 'previos' and 'next' stations buttons is separated
+  * Updating of weather forecast  after station removal is deleted
+  * Changed default icon set from "Crystal" to "Glance"
+  * Fixed error while calculate days offset
+  * Fixed error with last icon displaying, when visible items less then 10
+  * Fixed error with displaying 'Feel like' parameter
+
+0.19.6
+  * Default size of icons is Large
+  * Germany translation has been added
+  * Corrected size for countries, states and stations list in 'add station' dialog
+  * Font on window popup now uses default color of Theme
+  * Small bug with date of second window popup has been fixed 
+  
+0.19.5
+  * New sizes of icons: Big and Giant has been added 
+  * Icons and font size in popup window  has been increased
+
+0.19.4
+  * Autoconnecting and  downloading after connecting for OS2008  has been made
+  * Changing in postinstall script
+  
+0.19.3
+  * Size of locations window on configuration dialog has been raised 
+  * For OS2008 - accelerating of showing popup window
+
+0.19.2
+  * OS2008 compatibility
+  
+0.19.1
+  * Time of "Last update at server:" has been corrected
+  * Finish, France and Russian translation has been updated 
+  * Compatibility with OS2008 has been begun 
+ 
+0.19
+  * Hide buttons 'next station', 'previos station' when one station is used
+  * Correct creating the cache directory
+  * Now the selected tab in settings dialog is saved
+  * Added possibility to hide station name with 'previos' and 'next' stations buttons
+  * Added displaying sunrise and sunset time
+  * Added full staions list for all available countrys on weather.com
+  * Added menuitem in Home menu for call applet settings
+  * The calculating of wind speed is corrected
+  * Wind speed units: km/s, mi/s, m/h has been removed
+  * Postinstall script in deb packet: It provide warning message for rebooting the device after installing applet
+  * The code that forming list of countrys, regions and locations is fully  rewritten
+  * Now if country have one region, it selected automatically
+  * Fixed error: while read config, if upate interval is greater than 8 hours, then update interval always set to 'never'
+  * Fixed error: after applet first start or after reboot the field 'Next update' is always never
+  * The use libconic instead ooss-ic for version of OS2007
+  * Long pressing on the applet have to call pop up menus with the list of cities for change of current city
+  * Opportunity to change background color has been made
+  * Now on change update interval, the field 'Next update' is changed immediately
+  * The automatically updates of weather forecast after connection to internet has been made
+  * Now if only one iconset is available it selected automaticly
+  * Added Moon phase displaying
+  * Added check for empty station code while adding custom station
+  * Finish translation has been added
+  * France and Russian translation has been updated
+
+
+0.18.5
+  * The problem not correct saving of intervals of updating has been solved
+
+0.18.4
+  * The problem of exit out of range of the array in window popup has been fixed. This problem rebooted desktop after clicked on the icon
+  
+0.18.3
+  * Mistake in DBUS  ([#1026] OM Weather applet eating D-Bus signals) has been corrected
+  * Update translation for France  
+
+0.18.2
+  * Wind speed (mi/s) has been correted
+  * Algorithm of calculating current time for timezone in popup window has been corrected
+  * Algorithm of downloading forecast has been corrected
+  * More long format of date in popup window
+  * The algorithm of calculation of time of display of current weather has been corrected
+  * Imperials miles unit has been removed
+  
+0.18.1
+  * Correct error in stations.txt
+  * Correct translation for Russian
+  * Update translation for France  
+  * Added full station list of Germany, Antarctica and France
+  * Corrected pressure units  
+  * The buttons is translated
+  * Localized date in popup window
+  * Correct range outcome error
+  * Fix problem with nil data from clock applet
+  * Algorithm of calculating current time for timezone has been corrected
+
+0.18
+  * Autoupdate is corrected
+  * The error while creating cache directory is corrected
+  * Added all aviable stations for USA, Poland, Finland
+  * The error at displaying temperature while data not aviable is corrected
+  * The possibility to change temperature order is supplemented
+  * The possibility to separate current weather is supplemented
+  * The possibility to select weather data valid time is supplemented
+  * After the first installing the program the default stations are selected from data of clock applet
+  * Translate to France
+  * Localized date in the "Last updated"
+
+0.17.2
+  * The problem of exit out of range of the array has been fixed. This problem rebooted desktop.
+  * The problem with blocking connectivity icon is solved
+  * The error with station adding/removal, leading to destruction of a desktop, is corrected
+  * The algorithm of processing of events is corrected
+  * Small leak of memory is corrected
+  
+0.17.1
+  * New periods to the select of automatic update has been added
+  * The work of automatic update has been corrected
+  * Fix bug - The applet crashes Desktop after switching off the plugin
+  * Fix memory leaks  
+  * Fix problem with station list creation
+  * Fix problem with destroy window preference after pressed about button
+
+0.17
+  * Added version number to the About dialog
+  * Added possible to rename station name
+  * Add more stations
+  * Correct display order for temperature
+  * Added data for atmospheric pressure
+  * Added choice of units for wind speed
+  * Added support i18n system
+  * Added icon in deb packet
+  * Fix memory leaks
+  * Fix bug with station selection
+  * Fix bug with empty locations list
+  * The curl library for update forecast is used
+  * Proxy settings on Maemo is used
+  * After adding the new station, forecast is downloaded automaticly
+  * Translate to Russian
+  * Fix problem with stations in New York, New Mexico, New Jersey, New Hampshire, Nebraska states of USA
+
+0.16
+  * OS 2007 compatibility: focus from the first button for OS2007 is removed
+  * OS 2007 compatibility: the opportunity of change of the size of an applet is made
+  * Added choice of units for distance
+  * Added choice icon set
+  * Added About dialog
+  * Deleting config file after removing omweather packets of debian
+  * Fix bug with change font color
+  * Fix bug: The opportunity of addition of zero station is removed
+  * Fix bug: Reboot after delete nil station
+  * Fix bug: Reboot N800 after select the current of day with temperature by fahrenheit
+
+0.15
+  * Added new layouts: Vertical layout, Vertical layout 2 rows, Horizontal layout 2 rows
+  * Added choice of quantity of days for display
+  * Opportunity of addition of station using a specialized code or the postal index of the USA (ZIP code)
+  * Sorting of station list
+  * Fixed problem: Current temperature on main form always zero    
+  * Updated station.txt file
+
+0.14
+  * View current weather on popup window
+  * Fix bug - reboot after delete station
+  * Save selected station after reboot device
+  * Automatic redraw of the first icon in case time showing current weather is expired
+  * To not show temperature N/A on popup window
+  * Fix bug crossing between Year (New Year)
+  * Small acceleration of opening the window "Add station"
+  * Fix bug: not begin autoupdate after change autoupdate time
+
+0.13
+  * Add multistations
+  * On/Off transparency mode on main icon
+  * Medium mode for view main icon
+  * First icon show current weather and temperature
+  * Imperial units (Fahrenheit) of temperature
+  
+0.12 
+  * Simple decor window popup
+  * Automatical try connect to Internet
+  * Hilldon information about connection refused refused or download success
+  * Automatic redraw icon in display plugin since day per day
+  * Automatic redraw first icon
+  * Automatic update weather information from Internet
+  * Fix error not updated when weather.com.xml.new exist
+  
+0.11
+  * Add font color choice
+  * Move temperature to top on information window
+  * Fix problem click after preference dialog and update weather
+  * Add Hilldon information window for update weather

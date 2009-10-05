@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ossohelpsource>
+  <folder>
+    <_title>Other Maemo Weather</_title>
+    <topic>
+      <_topictitle>Introduction</_topictitle>
+      <context contextUID="help_omweather_intro"/>
+      <_para>Welcome to Other Maemo Weather.</_para>
+      <_para>
+        Other Maemo Weather (OMWeather) is a weather applet for Nokia Internet
+	Tablets. It can be used to:
+      </_para>
+      <list>
+        <_listitem>
+          Check the detailed weather forecast for up to 10 days
+        </_listitem>
+        <_listitem>
+          Update weather information automatically from the Internet (Data
+	  provided by weather.com)
+        </_listitem>
+        <_listitem>
+          Configure the nearest weather station automatically using GPS
+        </_listitem>
+        <_listitem>
+          Easily select a custom weather station from the sorted drop down menu
+        </_listitem>
+        <_listitem>
+          See the sunrise and sunset times for selected weather stations
+        </_listitem>
+        <_listitem>
+          See the current phase of the moon
+        </_listitem>
+        <_listitem>
+          Select between different icon sizes, icon sets, colors and view modes
+        </_listitem>
+        <_listitem>
+          Marvel at the eye candy with the new transparency option
+        </_listitem>
+       </list>
+      <_para>
+        Use the <ref refid="help_omweather_" refdoc="index"/> to access the
+        various sections of this help document.
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Getting Started</_topictitle>
+      <context contextUID="help_omweather_getstarted"/>
+      <_para>
+        To activate OMWeather select <display_text>Home</display_text> 
+        <display_text>Select applets...</display_text>
+        <display_text>OMWeather</display_text>.
+      </_para>
+      <_para>
+        First, select the position of a OMWeather applet in home view.
+	You can change applet's position simply touching it and dragging
+	it where you want it. The applet's appearance can be changed from the
+	<display_text>Tool</display_text> icon in OMWeather's weather window or
+	by selecting <display_text>Home</display_text>
+	<display_text>Applet settings</display_text>
+        <display_text>OMWeather settings</display_text>.
+      </_para>
+      <_para>
+        OMWeather will use the tablet's home city selection as a default location
+        for weather data. The location can be changed from the
+	<display_text>Stations</display_text> tab in OMWeather's settings window.
+      </_para>
+      <_para>
+	More information on changing the applet's appearance and adding, renaming and
+	deleting locations can be found on the 
+	<ref refid="help_omweather_settings" refdoc="Settings"/> page.
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Settings</_topictitle>
+      <context contextUID="help_omweather_settings"/>
+      <_para>
+        The <display_text>Settings</display_text> dialog (accessible from
+        the desktop applet or home view's applet settings menu) provides
+        access to the configurable options that control how OMWeather
+        looks and operates.  In addition to the tabs to switch between screens, 
+        there are also four buttons: the left arrow will take you to the weather 
+        view, the [OK] button saves any changes you made to the settings, the
+        question mark [?] opens the help window, and the [x] button closes the 
+        settings window.
+      </_para>
+      <_para>
+        The <display_text>Stations</display_text> tab lists all of the locations 
+        for which OMWeather will retrieve weather data when an update is manually
+        or automatically triggered.
+      </_para>
+      <_para>
+        The <display_text>Visuals</display_text> tab is used to configure 
+        settings that control the visual appearance of OMWeather.
+      </_para>
+      <_para>
+        The <display_text>Display</display_text> tab is used to configure 
+        settings that control the number of visible items on-screen, the icon 
+        size, and other OMWeather parameters.
+      </_para>
+      <_para>
+        The <display_text>Units</display_text> tab is used to select the display
+        units used for display of temperature, distance, wind speed and barometric
+        pressure.
+      </_para>
+      <_para>
+        The <display_text>Update</display_text> tab is used to configure 
+        the interval between weather data updates.  This tab will also indicate
+        the time until the next update. 
+      </_para>
+      <_para>
+	The <display_text>Sensor</display_text> tab is used control the
+	usage of the Nokia's internal temperature sensor.
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Settings. Stations tab</_topictitle>
+      <context contextUID="help_omweather_settings_stations"/>
+	<_para>
+        The left pane allows you to rename or remove
+	stations from the list. The <display_text>up</display_text> and
+	<display_text>down</display_text> arrows allow you to change
+	the display order of the locations.
+      </_para>
+      <_para>
+        The <display_text>add</display_text> pane allows you to add new
+        weather stations, which will then appear in the left view.
+      </_para>
+      <_para>
+        The <display_text>Enable GPS</display_text> check box is used to
+	enable automatic weather station selection when GPS is enabled. 
+	This option is only functional under OS2008.
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Settings. Visuals tab</_topictitle>
+      <context contextUID="help_omweather_settings_visuals"/>
+      <_para>
+        <display_text>Layout:</display_text> defines how icons are arranged
+        on the home screen.
+      </_para>
+      <_para>
+        <display_text>Icon set:</display_text> defines which icon set is used.
+	More icon sets may be installed via the Application Manager (if you have the
+    Maemo Extras repository configured) or by downloading icon sets directly from
+    OMWeather's Maemo garage page (http://omweather.garage.maemo.org/).
+      </_para>
+      <_para>
+        The <display_text>UI Theme Override</display_text> selection allows you to 
+        override the theme settings on your tablet and use settings specified within 
+        OMWeather, instead.
+      </_para>
+      <_para>
+	The <display_text>Transparency:</display_text> selection operates differently according
+    to which Operating System is installed on your tablet: Under OS2006-OS2007, it will show a
+	background image behind the weather icons. Under OS2008, this option allows you to select
+    the percentage of transparency.
+      </_para>
+      <_para>
+	<display_text>Font:</display_text> defines the font and font size used
+	by the applet.
+      </_para>
+      <_para>
+	<display_text>Font color:</display_text> defines applet's font color.
+	Selecting the color button will open the <display_text>Pick a Color</display_text> 
+    dialog where you may choose a font color.
+      </_para>
+      <_para>
+	<display_text>Background color:</display_text> setting defines the background
+	color used for icons.  Under OS2006-OS2007, the background color can not be
+	selected if the transparency option is selected.
+      </_para>
+      <_para>
+	<display_text>Type of click:</display_text> setting defines how full forecast and
+	settings windows can be activated from home applet. 
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Settings. Display tab</_topictitle>
+      <context contextUID="help_omweather_settings_display"/>
+      <_para>
+        <display_text>Visible items:</display_text> defines how many icons
+        will be shown on the tablet's home screen.
+      </_para>
+      <_para>
+	<display_text>Icon size:</display_text> defines icon size.
+      </_para>
+      <_para>
+	The <display_text>Show only current weather on first icon</display_text>
+	selection will show current weather on first icon and forecast for the
+	rest of the day is shown on the next icon.
+      </_para>
+      <_para>
+	The <display_text>Swap hi/low temperature</display_text> selection will
+	change the manner in which the forecast low and high temperatures are displayed.
+	If selected, applet will show high temperature first.	
+      </_para>
+      <_para>
+	The <display_text>Show wind</display_text> selection will display wind
+	speed and direction on the applet.
+      </_para>
+      <_para>
+	<display_text>Show station name:</display_text> this selection will
+	control whether station names are shown on the applet.
+      </_para>
+      <_para>
+	<display_text>Show arrows:</display_text> this selection controls
+	whether the arrows (used to change the displayed weather station) are 
+    shown on the applet.
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Settings. Units tab</_topictitle>
+      <context contextUID="help_omweather_settings_units"/>
+      <_para>
+        The <display_text>Units</display_text> tab is used to select units
+	for temperature, distance, wind speed and barometric pressure.  Necessary
+	units can be selected by clicking on the corresponding button.
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Settings. Update tab</_topictitle>
+      <context contextUID="help_omweather_settings_update"/>
+      <_para>
+	<display_text>Automatically update data when connecting to the Internet:
+	</display_text> this selection controls the automatic weather data update when
+	an Internet connection is established.
+      </_para>
+      <_para>
+	<display_text>Switch to the next station after:</display_text> this drop down
+	menu controls the amount of time a specific weather station's data is displayed
+    before changing to the next weather station.
+      </_para>
+      <_para>
+	Valid time for current weather and update interval may be also selected from
+	the corresponding drop down menu. 
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Settings. Sensor tab</_topictitle>
+      <context contextUID="help_omweather_settings_sensor"/>
+      <_para>
+	When the <display_text>Use device temperature sensor</display_text> check
+	box is enabled, the applet will display the temperature indicated by the 
+    built-in temperature sensor on the Nokia tablet.  Temperature can be shown 
+    after station name, or on a new icon.
+	The sensor read interval may be set from 1 to 30 minutes.
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>Using Desktop Applet</_topictitle>
+      <context contextUID="help_omweather_usingdesktopapplet"/>
+      <_para>
+        Touching the icon for a specific day brings up a window 
+    displaying the current weather or detailed forecast for that day.
+	On the <display_text>Now</display_text> tab you can see current
+	weather at that station, and phase of the moon.  <display_text>Day</display_text>
+	tabs will show weather forecast	and sunrise/sunset times for 
+	selected days. 
+      </_para>
+      <_para>
+	The <display_text>Tool</display_text> button will open the OMWeather
+	settings dialog:  The <display_text>Refresh</display_text> button will
+	update weather data, the <display_text>Question mark</display_text>
+	will open OMWeather help text, and the <display_text>X</display_text> button
+	closes weather dialog and returns to the applet's main display.
+      </_para>
+    </topic>
+    <topic>
+      <_topictitle>About OMWeather</_topictitle>
+      <context contextUID="help_omweather_about"/>
+      <_para>
+        Current Version: __VERSION__
+      </_para>
+      <_para>
+        OMWeather was developed by Vlad Vasiliev (vlad@gas.by).
+      </_para>
+      <_para>
+        Copyright © 2006-2008 Vlad Vasiliev, Pavel Fialko.
+      </_para>
+      <_para>
+	Weather data provided by: weather.com
+      </_para>
+      <_para>
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
+      </_para>
+      <_para>
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+      </_para>
+      <_para>
+	You should have received a copy of the GNU General Public License
+        along with this program.  If not, see: http://www.gnu.org/licenses
+      </_para>
+    </topic>
+  </folder>
+</ossohelpsource>

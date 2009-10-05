@@ -35,6 +35,10 @@ Database::Database(){
     db = NULL;
 }
 /*******************************************************************************/
+Database::~Database(){
+    close();
+}
+/*******************************************************************************/
 bool Database::open(const std::string name){
     if(name.empty())
         return false;
@@ -42,5 +46,12 @@ bool Database::open(const std::string name){
     std::fstream file(full_name.c_str());
     if(!file.is_open())
         return false;
+    if(sqlite3_open_v2(full_name.c_str(), &db, SQLITE_OPEN_READONLY, NULL))
+        return false;
+}
+/*******************************************************************************/
+void Database::close(){
+    if(db)
+        sqlite3_close(db);
 }
 /*******************************************************************************/

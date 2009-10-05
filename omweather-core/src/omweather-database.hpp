@@ -36,7 +36,9 @@ class Database{
     sqlite3 *db;
     public:
         Database();
+        ~Database();
         bool open(const std::string);
+        void close();
 };
 /*******************************************************************************/
 #endif

@@ -852,6 +852,10 @@ create_view_menu(void){
 /* For start of Clutter animation in popup window */
 void
 popup_simple_window_expose(GtkWidget *widget, GdkEventExpose *event){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+ 
     show_hildon_animation(app->clutter_objects_in_popup_form, app->popup_window);
 //    gtk_widget_show_all(widget);
     g_signal_handlers_disconnect_by_func(G_OBJECT(widget),G_CALLBACK(popup_simple_window_expose),NULL);

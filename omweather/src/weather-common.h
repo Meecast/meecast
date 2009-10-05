@@ -333,14 +333,24 @@ typedef struct SuperOH{
   ClutterGroup          *group;
   ClutterActor          *stage;
   ClutterScript         *script;
+#if defined CLUTTER 
   ClutterTimeline       *timeline;
+#else
+  gint                  timeline;
+#endif
+  GtkWidget             *image; /* Temp */
+  gpointer              *function;
   GtkWidget             *clutter;
   GtkWidget             *icon_widget;
+  GtkWidget             *window;
   GdkPixbuf             *bgpixb;
   ClutterActor          *bgtex;
+  GSList                *list_images;
   guint                 runtime;
   guint                 merge_id;
   guint                 duration;
+  gint                  icon_size;
+  gchar                 *icon_name;
 }SuperOH;
 #endif
 /*******************************************************************************/
@@ -434,6 +444,7 @@ typedef struct OMWeatherApplet{
 #endif
 #ifdef OS2009
     gboolean    portrait_position;
+    HDHomePluginItem *home_window;
 #endif
 #if defined(OS2008) || defined(DEBUGTEMP) || defined(OS2009)
     gfloat		sensor_data;

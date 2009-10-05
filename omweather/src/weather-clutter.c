@@ -32,99 +32,6 @@
 #define SIZE_OF_WINDOWS_HEAD 52
 
 /*******************************************************************************/
-do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwindow)
-{
-    gdouble scale_x, scale_y, angle;
-    gfloat rx, ry, rz;
-    gint allocationx = 0, allocationy = 0;
-    GtkWidget *parent = NULL;
-#ifdef DEBUGFUNCTIONCALL
-//    START_FUNCTION;
-#endif
-    if (!ha || !oh || !clactor)
-        return;
-    /* set position */
-    /* Add offset for some parents widgets */
-    parent = oh->icon_widget;
-    while (!GTK_IS_WINDOW(parent = parent->parent))
-    {
-        //fprintf(stderr, "Name %s %i \n",gtk_widget_get_name(GTK_WIDGET(parent)), parent->allocation.y);     
-        if (HILDON_IS_PANNABLE_AREA(parent)){
-            allocationy =  allocationy + parent->allocation.y;
-            allocationx =  allocationx + parent->allocation.x;
-         }
-    }
-    if (fullwindow) 
-        hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha),
-                    oh->icon_widget->allocation.x + clutter_actor_get_x(clactor) + allocationx,
-                    oh->icon_widget->allocation.y + clutter_actor_get_y(clactor) + allocationy, 0);
-    else
-        hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha),
-                    oh->icon_widget->allocation.x + clutter_actor_get_x(clactor) + allocationx,
-                    oh->icon_widget->allocation.y + clutter_actor_get_y(clactor) + allocationy +
-                    SIZE_OF_WINDOWS_HEAD, 0);
- //                fprintf(stderr,"111ddddddddddddd %s %i %i\n", clutter_actor_get_name(clactor),
-//                          clutter_actor_get_x(clactor), clutter_actor_get_y(clactor));
-    /* set opacity */ 
-    hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha),
-                                       clutter_actor_get_opacity(clactor));
-    /* set scale */
-    clutter_actor_get_scale(clactor, &scale_x, &scale_y);
-    hildon_animation_actor_set_scale(HILDON_ANIMATION_ACTOR (ha), scale_x, scale_y);
-    /* set rotation */
-    angle = clutter_actor_get_rotation(clactor, CLUTTER_X_AXIS, &rx, &ry, &rz);
-    hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_X_AXIS,
-                                        angle,(int)rx, (int)ry, (int)rz);
-    angle = clutter_actor_get_rotation(clactor, CLUTTER_Y_AXIS, &rx, &ry, &rz);
-    hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Y_AXIS,
-                                        angle,(int)rx, (int)ry, (int)rz);
-    angle = clutter_actor_get_rotation(clactor, CLUTTER_Z_AXIS, &rx, &ry, &rz);
-    hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Z_AXIS,
-                                        angle,(int)rx, (int)ry, (int)rz);
-#ifdef DEBUGFUNCTIONCALL
-//    END_FUNCTION;
-#endif
-}
-/*******************************************************************************/
-gboolean
-animation_cb (SuperOH *oh)
-{
-    ClutterActor  *clactor = NULL;
-    GtkWidget *ha;
-    GtkWidget *window;
-    gint i;
-    gboolean fullwindow = FALSE;
-    if (!oh)
-        return FALSE;
-    if (oh->icon){
-
-        window = g_object_get_data(G_OBJECT(oh->icon), "window");
-        if (window && gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN) 
-            fullwindow = TRUE;
-        else
-            fullwindow = FALSE;
-
-        if CLUTTER_IS_GROUP(oh->icon){ 
-            for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
-                clactor = clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i);
-                ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
-                do_animation(oh, clactor, ha, fullwindow);
-            }
-        }else{
-            clactor = oh->icon;
-            ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
-            do_animation(oh, clactor, ha, fullwindow);
-        }
-    }else
-        return FALSE;
-
-    oh->duration--;
-    if (oh->duration == 0)
-        return FALSE;
-    else
-        return TRUE;
-}
-/*******************************************************************************/
 gboolean
 expose_event (GtkWidget *widget,GdkEventExpose *event,
 			     gpointer data)
@@ -149,6 +56,69 @@ realize (GtkWidget *widget)
     gtk_widget_set_colormap (widget, gdk_screen_get_rgba_colormap (screen));
 }
 /*******************************************************************************/
+
+gboolean
+icon1_timeline (SuperOH *oh)
+{
+    static int r = 0;
+    GdkPixbuf        *pixbuf;
+    gchar  buffer[1024];
+    GtkWidget *ha = NULL;
+    GSList   *list_temp = NULL;
+
+    r ++;
+    if (!oh) 
+        return FALSE;
+    switch (oh->timeline){
+    case 0:
+            memset(buffer, 0, sizeof(buffer));
+            sprintf(buffer, "%s%s.png", app->config->icons_set_base, oh->icon_name); 
+            pixbuf = gdk_pixbuf_new_from_file_at_size (buffer, 
+                                                   oh->icon_size, 
+                                                   oh->icon_size, 
+                                                   NULL);
+            if (pixbuf){
+                oh->image = gtk_image_new_from_pixbuf (pixbuf);
+                g_object_unref(G_OBJECT(pixbuf));
+                oh->list_images = g_slist_append(oh->list_images, oh->image);
+            }
+            g_signal_connect(G_OBJECT(oh->image), "expose_event",
+                                             G_CALLBACK(expose_event), pixbuf);
+            ha = hildon_animation_actor_new();
+            gtk_container_add (GTK_CONTAINER (ha), oh->image);
+            g_object_set_data(
+                           G_OBJECT(oh->image), "hildon_animation_actor", ha);
+            break;
+    case 1:    
+            list_temp = oh->list_images;
+            while(list_temp != NULL){
+                ha = g_object_get_data(G_OBJECT(oh->image), "hildon_animation_actor");
+                hildon_animation_actor_set_parent (HILDON_ANIMATION_ACTOR (ha), oh->window);
+                hildon_animation_actor_set_position (ha, oh->icon_widget->allocation.x, oh->icon_widget->allocation.y);
+                 // Set anchor point to the actor center
+                hildon_animation_actor_set_anchor_from_gravity (HILDON_ANIMATION_ACTOR (ha),
+                                                                               HILDON_AA_CENTER_GRAVITY);
+                realize(ha);
+                gtk_widget_show_all (ha);
+                list_temp = g_slist_next(list_temp);
+            }
+            break;
+    default:
+            if (oh->image){
+             ha = g_object_get_data(G_OBJECT(oh->image), "hildon_animation_actor");
+             if (ha){
+                hildon_animation_actor_set_rotation (ha,
+                                             HILDON_AA_Z_AXIS,
+                                             r,
+                                             0, 0, 0);
+             }
+             break;
+     }
+     }
+     oh->timeline++; 
+     return TRUE;
+}
+/************************************************************************************************/
 GtkWidget *
 create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSList **objects_list)
 {
@@ -174,16 +144,14 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
 #endif
     if (!objects_list)
         return NULL;
-    stage_color.red = app->config->background_color.red;
-    stage_color.blue = app->config->background_color.blue;
-    stage_color.green = app->config->background_color.green;
-    stage_color.alpha = 0xff;
-
 
     oh = g_new(SuperOH, 1);
-    oh->timeline = NULL;
+    oh->timeline = 0;
     oh->icon = NULL;
-
+    oh->image = NULL;
+    oh->script = NULL;
+    oh->list_images = NULL;
+    oh->icon_size = icon_size;
 
     memset(buffer, 0, sizeof(buffer));
     memset(icon_name, 0, sizeof(icon_name));
@@ -193,88 +161,16 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
     else
         icon_name[0] = icon_path[strlen(icon_path) - 5];
 
-    /* Download script */
-    oh->script = clutter_script_new();
-/*    g_object_unref(oh->script); */
-    memset(buffer, 0, sizeof(buffer));
-    sprintf(buffer, "%s%s.json", app->config->icons_set_base, icon_name);
-//    clutter_init(NULL, NULL);
-    oh->merge_id = clutter_script_load_from_file(oh->script,buffer, &error);
-
-
-    /* Fix Me Need free memory */
-    if (error){
-        g_free (oh);
-        fprintf(stderr,"ERROR in loading clutter script\n");
-        g_clear_error (&error);
-        return NULL;
-    }
-
+    oh->icon_name = g_strdup(icon_name);
+    
     oh->icon_widget = gtk_vbox_new(FALSE, 0);
 
     gtk_widget_set_size_request (oh->icon_widget, icon_size, icon_size);
 
     sprintf(buffer, "icon_name_%s", icon_name);
-    if (oh->script)
-        oh->icon = CLUTTER_ACTOR (clutter_script_get_object (oh->script, buffer));
+    oh->icon = NULL;
 
-    if (oh->icon){
-        if CLUTTER_IS_GROUP(oh->icon){ 
-           for (i = 0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
-                ha = hildon_animation_actor_new();
-                clactor = clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i);
-                change_actor_size_and_position(clactor,icon_size);
-//                fprintf(stderr,"ddddddddddddd %s\n", clutter_actor_get_name(clactor));
-                pixbuf = gdk_pixbuf_new_from_file_at_size (clutter_actor_get_name(clactor), 
-                                                           clutter_actor_get_width(clactor), 
-                                                           clutter_actor_get_height(clactor), 
-                                                           NULL);
-                if (pixbuf){
-                    image = gtk_image_new_from_pixbuf (pixbuf);
-                    g_object_unref(G_OBJECT(pixbuf));
-                }
-                g_signal_connect(G_OBJECT(image), "expose_event",
-                                         G_CALLBACK(expose_event), pixbuf);
-
-                gtk_container_add (GTK_CONTAINER (ha), image);
-                g_object_set_data(
-                        G_OBJECT(clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i)), 
-                                                            "hildon_animation_actor", ha);
-           }
-        }else{
-                ha = hildon_animation_actor_new();
-                clactor = oh->icon;
-                change_actor_size_and_position(clactor,icon_size);
-//                fprintf(stderr,"ddddddddddddd %s\n", clutter_actor_get_name(clactor));
-                pixbuf = gdk_pixbuf_new_from_file_at_size (clutter_actor_get_name(clactor), 
-                                                           clutter_actor_get_width(clactor), 
-                                                           clutter_actor_get_height(clactor), 
-                                                           NULL);
-                if (pixbuf){
-                    image = gtk_image_new_from_pixbuf (pixbuf);
-                    g_object_unref(G_OBJECT(pixbuf));
-                }
-                g_signal_connect(G_OBJECT(image), "expose_event",
-                                         G_CALLBACK(expose_event), pixbuf);
-
-                gtk_container_add (GTK_CONTAINER (ha), image);
-                g_object_set_data(
-                        G_OBJECT(oh->icon), "hildon_animation_actor", ha);
-           }
-    }
-    list = clutter_script_list_objects(oh->script);
-    for (l = list; l != NULL; l = l->next){
-        object = l->data;
-        if CLUTTER_IS_BEHAVIOUR_PATH(object){
-            change_knots_path(path_list = clutter_behaviour_path_get_knots((object)),icon_size);
-            if (path_list)
-                g_slist_free(path_list);
-        }
-    }
-    g_list_free (list);
-
-    /* Create a timeline to manage animation */
-    oh->timeline = CLUTTER_TIMELINE (clutter_script_get_object (oh->script, "main-timeline"));
+    icon1_timeline (oh);
     *objects_list = g_slist_append(*objects_list, oh);
     gtk_widget_show_all(oh->icon_widget);
 #ifdef DEBUGFUNCTIONCALL
@@ -284,7 +180,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
 }
 /************************************************************************************************/
 show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
-    static GSList   *list_temp = NULL;
+    GSList   *list_temp = NULL;
     SuperOH         *oh;
     ClutterActor  *clactor = NULL;
     GdkPixbuf *pixbuf;
@@ -300,45 +196,12 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
     list_temp = clutter_objects;
     while(list_temp != NULL){
         oh = list_temp->data;
-        /* Show actors */
-        if (oh->icon){
-            if CLUTTER_IS_GROUP(oh->icon){
-                for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
-                    clactor = clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i);
-                    ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
-                    g_object_set_data(
-                            G_OBJECT(oh->icon), "window", window);
-     
-                    hildon_animation_actor_set_parent (HILDON_ANIMATION_ACTOR (ha), window);
-                    oh->duration = 1; 
-                    animation_cb(oh);
-    //               gdk_flush ();
-                    realize(ha);
-                    hildon_animation_actor_set_show (ha, 1);
-                    gtk_widget_show_all(ha);
-                }
-            }else{
-                    clactor = oh->icon;
-                    ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
-                    g_object_set_data(
-                            G_OBJECT(oh->icon), "window", window);
-     
-                    hildon_animation_actor_set_parent (HILDON_ANIMATION_ACTOR (ha), window);
-                    oh->duration = 1; 
-                    animation_cb(oh);
-    //               gdk_flush ();
-                    realize(ha);
-                    hildon_animation_actor_set_show (ha, 1);
-                    gtk_widget_show_all(ha);
-            }
-        }
- 
-        /* Start animation */
-        if (oh->timeline){
-            clutter_timeline_start (oh->timeline);
-            oh->duration = clutter_timeline_get_duration(oh->timeline) / 10;
-            oh->runtime = g_timeout_add (10, (GSourceFunc)animation_cb, oh);
-//            fprintf(stderr,"Duration %i\n",clutter_timeline_get_duration(oh->timeline));
+        if (oh->timeline <2){
+            oh->window = window;
+            icon1_timeline(oh); 
+            /* Start animation */
+            oh->duration = 40;
+            oh->runtime = g_timeout_add (50, icon1_timeline, oh);
         }
         list_temp = g_slist_next(list_temp);
     }
@@ -384,16 +247,14 @@ void free_clutter_objects_list(GSList **clutter_objects) {
     ClutterActor  *clactor = NULL;
     GtkWidget *ha;
     gint i;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     if (!*clutter_objects)
         return;
     list_temp = *clutter_objects;
     while (list_temp != NULL) {
         oh = list_temp->data;
-        if (oh->timeline)
-            clutter_timeline_stop(oh->timeline);
         g_source_remove(oh->runtime);
         if (oh->icon){
             if CLUTTER_IS_GROUP(oh->icon){
@@ -408,23 +269,26 @@ void free_clutter_objects_list(GSList **clutter_objects) {
                 gtk_widget_destroy(ha);
             }
             oh->icon = NULL;
+        }else{
+            if (oh->image){
+                ha = g_object_get_data(G_OBJECT(oh->image), "hildon_animation_actor");
+                gtk_widget_destroy(ha);
+           }
+
         }
-        fprintf(stderr,"aaaaaaaaaa\n");
         if (oh->icon_widget){
             gtk_widget_destroy(oh->icon_widget);
             oh->icon_widget = NULL;
         }
-        //clutter_script_unmerge_objects(oh->script, oh->merge_id);
-        g_object_unref(oh->script);
         g_free(oh);
         oh = NULL;
         list_temp = g_slist_next(list_temp);
     }
     g_slist_free(*clutter_objects);
     *clutter_objects = NULL;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-#endif
+//#endif
 }
 
 #endif
@@ -662,4 +526,136 @@ void free_clutter_objects_list(GSList **clutter_objects) {
 #endif
 }
 
+#endif
+#if 0
+/*******************************************************************************/
+do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwindow)
+{
+    gdouble scale_x, scale_y, angle;
+    gfloat rx, ry, rz;
+    gint allocationx = 0, allocationy = 0;
+    GtkWidget *parent = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if (!ha || !oh || !clactor)
+        return;
+    /* set position */
+    /* Add offset for some parents widgets */
+    parent = oh->icon_widget;
+    while (!GTK_IS_WINDOW(parent = parent->parent))
+    {
+        //fprintf(stderr, "Name %s %i \n",gtk_widget_get_name(GTK_WIDGET(parent)), parent->allocation.y);     
+        if (HILDON_IS_PANNABLE_AREA(parent)){
+            allocationy =  allocationy + parent->allocation.y;
+            allocationx =  allocationx + parent->allocation.x;
+         }
+    }
+    if (fullwindow) 
+        hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha),
+                    oh->icon_widget->allocation.x + clutter_actor_get_x(clactor) + allocationx,
+                    oh->icon_widget->allocation.y + clutter_actor_get_y(clactor) + allocationy + oh->duration , 0);
+    else
+        hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha),
+                    oh->icon_widget->allocation.x + clutter_actor_get_x(clactor) + allocationx,
+                    oh->icon_widget->allocation.y + clutter_actor_get_y(clactor) + allocationy +
+                    SIZE_OF_WINDOWS_HEAD + oh->duration, 0);
+ //                fprintf(stderr,"111ddddddddddddd %s %i %i\n", clutter_actor_get_name(clactor),
+//                          clutter_actor_get_x(clactor), clutter_actor_get_y(clactor));
+    /* set opacity */ 
+    hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha),
+                                       clutter_actor_get_opacity(clactor));
+    /* set scale */
+    clutter_actor_get_scale(clactor, &scale_x, &scale_y);
+    hildon_animation_actor_set_scale(HILDON_ANIMATION_ACTOR (ha), scale_x, scale_y);
+    /* set rotation */
+    angle = clutter_actor_get_rotation(clactor, CLUTTER_X_AXIS, &rx, &ry, &rz);
+    hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_X_AXIS,
+                                        angle,(int)rx, (int)ry, (int)rz);
+    angle = clutter_actor_get_rotation(clactor, CLUTTER_Y_AXIS, &rx, &ry, &rz);
+    hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Y_AXIS,
+                                        angle,(int)rx, (int)ry, (int)rz);
+    angle = clutter_actor_get_rotation(clactor, CLUTTER_Z_AXIS, &rx, &ry, &rz);
+    hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Z_AXIS,
+                                        angle,(int)rx, (int)ry, (int)rz);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+}
+do_animation1(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwindow)
+{
+    gdouble scale_x, scale_y, angle;
+    gfloat rx, ry, rz;
+    gint allocationx = 0, allocationy = 0;
+    GtkWidget *parent = NULL;
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+    if (!ha || !oh || !clactor)
+        return;
+    /* set position */
+    /* Add offset for some parents widgets */
+    parent = oh->icon_widget;
+    while (!GTK_IS_WINDOW(parent = parent->parent))
+    {
+        fprintf(stderr, "Name %s %i \n",gtk_widget_get_name(GTK_WIDGET(parent)), parent->allocation.y);     
+        if (HILDON_IS_PANNABLE_AREA(parent)){
+            allocationy =  allocationy + parent->allocation.y;
+            allocationx =  allocationx + parent->allocation.x;
+         }
+    }
+    if (fullwindow) 
+        hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha),
+                    oh->icon_widget->allocation.x + clutter_actor_get_x(clactor) + allocationx,
+                    oh->icon_widget->allocation.y + clutter_actor_get_y(clactor) + allocationy + oh->duration*2, 0);
+    else
+        hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha),
+                    oh->icon_widget->allocation.x + clutter_actor_get_x(clactor) + allocationx,
+                    oh->icon_widget->allocation.y + clutter_actor_get_y(clactor) + allocationy +
+                    SIZE_OF_WINDOWS_HEAD + oh->duration*2, 0);
+} 
+/*******************************************************************************/
+gboolean
+animation_cb (SuperOH *oh)
+{
+    ClutterActor  *clactor = NULL;
+    GtkWidget *ha;
+    GtkWidget *window;
+    gint i;
+    gboolean fullwindow = FALSE;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+ 
+    if (!oh)
+        return FALSE;
+    if (oh->icon){
+        window = g_object_get_data(G_OBJECT(oh->icon), "window");
+        if (window && gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN) 
+            fullwindow = TRUE;
+        else
+            fullwindow = FALSE;
+
+        if CLUTTER_IS_GROUP(oh->icon){ 
+            for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
+                clactor = clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i);
+                ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
+                do_animation1(oh, clactor, ha, fullwindow);
+                fprintf(stderr,"ggggggggggggggg\n");
+            }
+        }else{
+            clactor = oh->icon;
+            ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
+            do_animation1(oh, clactor, ha, fullwindow);
+        }
+    }else
+        return FALSE;
+
+    oh->duration--;
+    if (oh->duration == 0)
+        return FALSE;
+    else
+        return TRUE;
+}
+/
 #endif

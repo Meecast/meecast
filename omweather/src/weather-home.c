@@ -109,8 +109,17 @@ top_widget_expose(GtkWidget *widget, GdkEventExpose *event){
 #endif
 #ifdef HILDONANIMATION
 /* For start of Clutter animation in main form */
-top_widget_expose(GtkWidget *widget, GdkEventExpose *event){
+top_widget_expose(GtkWidget *widget, GdkEventExpose *event, GtkWidget *window){
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+ 
+#ifdef APPLICATION
     show_hildon_animation(app->clutter_objects_in_main_form, app->main_view);
+#else
+    show_hildon_animation(app->clutter_objects_in_main_form, app->home_window);
+    fprintf(stderr,"111First string %s\n",hd_home_plugin_item_get_applet_id (app->home_window));
+#endif
     gtk_widget_show_all(widget);
     g_signal_handlers_disconnect_by_func(G_OBJECT(widget),G_CALLBACK(top_widget_expose),NULL);
 }
@@ -452,6 +461,9 @@ draw_home_window(gint count_day){
                 *tmp_day = NULL,
                 *day_hash = NULL,
                 *location = NULL;
+
+
+    OmweatherDesktopWidget *applet;
 #ifndef RELEASE
     time_t      tmp_time,
                 utc_time;
@@ -712,7 +724,7 @@ draw_home_window(gint count_day){
 
 #if defined CLUTTER || defined HILDONANIMATION
    g_signal_connect_after(app->main_window, "expose-event",
-      G_CALLBACK(top_widget_expose), NULL);
+      G_CALLBACK(top_widget_expose), applet);
 #endif
 
 #if defined(NONMAEMO) || defined (APPLICATION)
@@ -865,6 +877,7 @@ omweather_init(OMWeather *applet){
 #elif OS2009
 static void
 omweather_plugin_init (OmweatherDesktopWidget *applet){
+    HDHomePluginItem hitem;
 #else
 void*
 hildon_home_applet_lib_initialize(void *state_data, int *state_size,
@@ -937,6 +950,10 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         fprintf (stderr,"Unable to initialize GtkClutter");
     /* Fix ME added config value */
     app->clutter_script = NULL;
+#endif
+#ifdef HILDONANIMATION
+    fprintf(stderr,"Clutter INIT !!!!!!!!!!!!!!!!!!!\n");
+    clutter_init(NULL, NULL);
 #endif
     app->clutter_objects_in_main_form = NULL;
     app->clutter_objects_in_popup_form = NULL;
@@ -1022,6 +1039,16 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #endif
 #if defined OS2009 && !defined(APPLICATION)
     hd_home_plugin_item_set_settings (HD_HOME_PLUGIN_ITEM (applet), TRUE);
+    hitem = applet->parent;
+    app->home_window = &hitem;
+    fprintf(stderr,"First ddddddddddddd2222222 %p\n",(gpointer)app->home_window);
+    fprintf(stderr,"First ddddddddddddd1111111 %p\n",(gpointer)applet);
+    fprintf(stderr,"First string %s\n",hd_home_plugin_item_get_dl_filename (applet));
+    if (GTK_IS_WINDOW(app->home_window))
+        fprintf(stderr, "Name21111111 %s  \n",gtk_widget_get_name(GTK_WIDGET(app->home_window)));    
+    if (GTK_IS_WINDOW(applet))
+        fprintf(stderr, "Name2111222 %s  \n",gtk_widget_get_name(GTK_WIDGET(applet)));    
+    app->home_window = applet;
     g_signal_connect (applet, "show-settings",
         G_CALLBACK (weather_window_settings), NULL);
 #endif 

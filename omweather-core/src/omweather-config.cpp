@@ -34,8 +34,10 @@
 #include <string.h>
 #include <fstream>
 /*******************************************************************************/
-#define GCONF_KEY_HTTP_PROXY_PREFIX                 "/system/http_proxy"
-#define GCONF_KEY_PROXY_PREFIX                      "/system/proxy"
+#define XMLNS                           "https://garage.maemo.org/projects/omweather/"
+#define XMLNAME                         "omweather.xml"
+#define GCONF_KEY_HTTP_PROXY_PREFIX     "/system/http_proxy"
+#define GCONF_KEY_PROXY_PREFIX          "/system/proxy"
 /*******************************************************************************/
 Config::Config(){
     document = NULL;
@@ -83,9 +85,9 @@ void Config::prepare_read(){
 
     home_dir = getenv("HOME");
     if(home_dir.empty())
-        filename = "/tmp/omweather.xml";
+        filename = "/tmp/" + XMLNAME;
     else
-        filename = home_dir + "/" + "omweather.xml";
+        filename = home_dir + "/" + XMLNAME;
 
     std::ifstream file(filename.c_str());
     if(file.is_open())
@@ -99,6 +101,8 @@ bool Config::read(){
     if(!document)
         prepare_read();
     if(!root_node)
+        return false;
+    if(strcmp(root_node->name, "omweather") && strcmp(root_node->ns->href, XMLNS))
         return false;
     parse_children(root_node->children);
     return true;
@@ -388,8 +392,8 @@ void Config::prepare_save(){
     if(document)
         xmlFreeDoc(document);
     document = xmlNewDoc(BAD_CAST "1.0");
-    xmlNewGlobalNs(document, BAD_CAST "https://garage.maemo.org/projects/omweather/", BAD_CAST "");
-    root_node = xmlNewNode(NULL, BAD_CAST "omweather");
+    xmlNs *ns = xmlNewGlobalNs(document, BAD_CAST "https://garage.maemo.org/projects/omweather/", BAD_CAST "");
+    root_node = xmlNewNode(ns, BAD_CAST "omweather");
 }
 /*******************************************************************************/
 void Config::save_to_file(){

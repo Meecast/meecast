@@ -388,7 +388,7 @@ void Config::prepare_save(){
     if(document)
         xmlFreeDoc(document);
     document = xmlNewDoc(BAD_CAST "1.0");
-    xmlNs *ns = xmlNewGlobalNs(document, BAD_CAST "https://garage.maemo.org/projects/omweather/", BAD_CAST "");
+    xmlNewGlobalNs(document, BAD_CAST "https://garage.maemo.org/projects/omweather/", BAD_CAST "");
     root_node = xmlNewNode(NULL, BAD_CAST "omweather");
 }
 /*******************************************************************************/

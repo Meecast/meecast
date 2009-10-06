@@ -31,28 +31,43 @@
 /*******************************************************************************/
 #include "omweather-common.hpp"
 /*******************************************************************************/
-class Station{
-    std::string station_name;
+class Country{
+        int country_id;
+        std::string country_name;
+    public:
+        Country(int, const std::string);
+        Country(int, const char*);
+        Country(const Country&);
+        std::string name() const;
+        int id() const;
+};
+/*******************************************************************************/
+class Region : public Country{
+        float longitude_max, latitude_max, longitude_min, latitude_min;
+    public:
+        Region(int, const std::string, float, float, float, float);
+        Region(int, const char*, float, float, float, float);
+        float longitudemax() const;
+        float latitudemax() const;
+        float longitudemin() const;
+        float latitudemin() const;
+};
+/*******************************************************************************/
+class Station : public Country{
     std::string station_code;
     std::string station_source;
     bool        is_gps_station;
     public:
-        Station();
         Station(const std::string name, const std::string code,
                 const std::string source, bool is_gps = false);
         Station(const Station&);
-        std::string name() const;
         std::string code() const;
         std::string source() const;
         bool is_gps() const;
 };
 /*******************************************************************************/
-class StationsList{
-    std::vector<Station> list;
-    public:
-        StationsList();
-        StationsList(const StationsList&);
-        void add(const Station);
-};
+typedef std::vector<Country> CountriesList;
+typedef std::vector<Region> RegionsList;
+typedef std::vector<Station> StationsList;
 /*******************************************************************************/
 #endif

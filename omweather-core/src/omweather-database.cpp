@@ -33,10 +33,13 @@
 /*******************************************************************************/
 Database::Database(){
     db = NULL;
+    result = NULL;
 }
 /*******************************************************************************/
 Database::~Database(){
     close();
+    if(result)
+        delete result;
 }
 /*******************************************************************************/
 bool Database::open(const std::string name){
@@ -53,5 +56,33 @@ bool Database::open(const std::string name){
 void Database::close(){
     if(db)
         sqlite3_close(db);
+}
+/*******************************************************************************/
+int Database::callback(void *user_data, int argc, char **argv, char **azColName){
+    Result *r = (Result*)user_data;
+    int i;
+    for(i = 0; i < argc; i++){
+        std::string name = azColName[i];
+        std::string value = argv[i];
+        r->insert(std::pair<std::string,std::string>(name, value));
+    }
+    return i;
+}
+/*******************************************************************************/
+CountriesList& Database::countries(){
+    char *errMsg = NULL;
+    Result *r = new Result;
+    r->clear();
+    int rc = sqlite3_exec(db, "SELECT name, id FROM countries where \
+                                (select count(name) from nstations where \
+                                nstations.region_id = \
+                                (select distinct regions.id from regions where \
+                                regions.country_id=countries.id )) > 0 \
+                                ORDER BY name", callback, (void*)list, &errMsg);
+    if(rc != SQLITE_OK){
+        sqlite3_free(errMsg);
+
+    }
+
 }
 /*******************************************************************************/

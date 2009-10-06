@@ -84,8 +84,10 @@ void Config::prepare_read(){
     std::string filename;
 
     home_dir = getenv("HOME");
-    if(home_dir.empty())
-        filename = "/tmp/" + XMLNAME;
+    if(home_dir.empty()){
+        filename = "/tmp/";
+        filename += XMLNAME;
+    }
     else
         filename = home_dir + "/" + XMLNAME;
 
@@ -102,7 +104,8 @@ bool Config::read(){
         prepare_read();
     if(!root_node)
         return false;
-    if(strcmp(root_node->name, "omweather") && strcmp(root_node->ns->href, XMLNS))
+    if(strcmp((char*)root_node->name, "omweather")
+            && strcmp((char*)root_node->ns->href, XMLNS))
         return false;
     parse_children(root_node->children);
     return true;
@@ -379,7 +382,7 @@ void Config::parse_children(xmlNode *node){
                             else
                                 is_gps = false;
                             xmlFree(val);
-                            user_stations_list.add(Station(name, code, source, is_gps));
+                            user_stations_list.push_back(Station(name, code, source, is_gps));
                         }
                     }
             }

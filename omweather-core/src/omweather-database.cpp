@@ -28,6 +28,7 @@
 /*******************************************************************************/
 #include "omweather-database.hpp"
 #include <fstream>
+#include <iostream>
 /*******************************************************************************/
 #define DATABASEPATH        "/usr/share/omweather/db/"
 /*******************************************************************************/
@@ -46,11 +47,13 @@ bool Database::open(const std::string name){
     if(name.empty())
         return false;
     std::string full_name = DATABASEPATH + name;
-    std::fstream file(full_name.c_str());
+    std::ifstream file(full_name.c_str());
+    std::cerr << full_name << std::endl;
     if(!file.is_open())
         return false;
     if(sqlite3_open_v2(full_name.c_str(), &db, SQLITE_OPEN_READONLY, NULL))
         return false;
+    return true;
 }
 /*******************************************************************************/
 void Database::close(){
@@ -58,7 +61,7 @@ void Database::close(){
         sqlite3_close(db);
 }
 /*******************************************************************************/
-int Database::callback(void *user_data, int argc, char **argv, char **azColName){
+int callback(void *user_data, int argc, char **argv, char **azColName){
     Result *r = (Result*)user_data;
     int i;
     for(i = 0; i < argc; i++){
@@ -69,20 +72,17 @@ int Database::callback(void *user_data, int argc, char **argv, char **azColName)
     return i;
 }
 /*******************************************************************************/
-CountriesList& Database::countries(){
+bool Database::countries(CountriesList& list){
     char *errMsg = NULL;
     Result *r = new Result;
     r->clear();
-    int rc = sqlite3_exec(db, "SELECT name, id FROM countries where \
-                                (select count(name) from nstations where \
-                                nstations.region_id = \
-                                (select distinct regions.id from regions where \
-                                regions.country_id=countries.id )) > 0 \
-                                ORDER BY name", callback, (void*)list, &errMsg);
+    list.clear();
+    int rc = sqlite3_exec(db, "SELECT name, id FROM countries \
+                                ORDER BY name", callback, (void*)r, &errMsg);
     if(rc != SQLITE_OK){
         sqlite3_free(errMsg);
-
+        return false;
     }
-
+    for(unsigned i = 0; i < r->size(); i++);
 }
 /*******************************************************************************/

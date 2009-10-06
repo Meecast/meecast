@@ -29,18 +29,12 @@
 #ifndef _omweather_sensor_hpp
 #define _omweather_sensor_hpp 1
 /*******************************************************************************/
-#if defined(MAEMO4) || defined(MAEMO5) /* sensor path at Nokia N810 */
-#define SENSOR "/sys/devices/platform/i2c_omap.1/i2c-1/1-0048/temp1_input"
-#endif
-#if defined(APPLICATION) || defined(NONMAEMO) /* sensor path at the PC */
-#define SENSOR "/sys/devices/platform/w83627hf.656/temp2_input"
-#endif
-/*******************************************************************************/
 #include <fstream>
 /*******************************************************************************/
 class Sensor{
+    std::string path;
     public:
-        Sensor();
+        Sensor(const std::string);
         float read();
 };
 /*******************************************************************************/

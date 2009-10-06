@@ -91,11 +91,11 @@ hildon_home_applet_lib_save_state(void *raw_data, void **state_data,
     return 1;
 }
 /*******************************************************************************/
-void 
+void
 hildon_home_applet_lib_background(void *raw_data){
 }
 /*******************************************************************************/
-void 
+void
 hildon_home_applet_lib_foreground(void *raw_data){
 }
 /*******************************************************************************/

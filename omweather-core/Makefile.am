@@ -17,16 +17,15 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
+SUBDIRS = src
 
+EXTRA_DIST = autogen.sh \
+            make-package \
+            debian/changelog \
+            debian/compat \
+            debian/copyright \
+            debian/control \
+            debian/rules
 
-SUBDIRS = src data po
-
-EXTRA_DIST =    autogen.sh \
-                make-package \
-                debian/changelog \
-                debian/compat \
-                debian/copyright \
-                debian/control \
-                debian/rules
 deb:
-    ./make-package $(PACKAGE) $(VERSION)
+	./make-package $(PACKAGE) $(VERSION)

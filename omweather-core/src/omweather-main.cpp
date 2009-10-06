@@ -4,11 +4,11 @@
  *
  * Copyright (C) 2006-2009 Vlad Vasiliev
  * Copyright (C) 2006-2009 Pavel Fialko
- * 	for the code
- *        
+ * for the code
+ *
  * Copyright (C) 2008 Andrew Zhilin
- *		      az@pocketpcrussia.com 
- *	for default icon set (Glance)
+ *      az@pocketpcrussia.com
+ * for default icon set (Glance)
  *
  * This software is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License
@@ -28,13 +28,9 @@
 /*******************************************************************************/
 #include "omweather-main.hpp"
 /*******************************************************************************/
-#if defined(NONMAEMO) || defined(APPLICATION) /* application mode */
 bool
-omweather_init_applicaion(GtkWidget *applet){
-    GtkWidget   *main_vbox,
-                *main_hbox;
+omweather_init(){
 
-    return true
+    return true;
 }
-#endif
 /*******************************************************************************/

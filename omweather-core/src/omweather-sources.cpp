@@ -28,13 +28,14 @@
 /*******************************************************************************/
 #include "omweather-sources.hpp"
 #include <fstream>
+#include <dlfcn.h>
 /*******************************************************************************/
 Source::Source(const std::string filename){
     source_is_invalid = true;
-    std::ifstream    file(filename);
+    std::ifstream    file(filename.c_str());
     if(file.is_open()){
         file.close();
-        xmlDoc *document = xmlReadFile(filename, NULL, 0);
+        xmlDoc *document = xmlReadFile(filename.c_str(), NULL, 0);
         if(document){
             xmlNode *root_node = xmlDocGetRootElement(document);
             xmlNode *current_node = root_node->children;
@@ -121,15 +122,15 @@ bool Source::load_library(){
 }
 /*******************************************************************************/
 Source::~Source(){
-    if(handle)
-        dlclose(handle);
+    if(source_handle)
+        dlclose(source_handle);
 }
 /*******************************************************************************/
 bool Source::check_database(){
     std::string name = DATABASEPATH;
     name += source_database_name;
 
-    std::fstream file(name);
+    std::fstream file(name.c_str());
     if(file.is_open()){
         file.close();
         return true;
@@ -144,7 +145,7 @@ bool Source::is_valid() const{
 SourcesList::SourcesList(){
     list.clear();
     std::string name = SOURCESPATH;
-    DIR dir_fd = opendir(name.c_str());
+    DIR *dir_fd = opendir(name.c_str());
     if(dir_fd){
         Dirent *dp;
         while((dp = readdir(dir_fd))){

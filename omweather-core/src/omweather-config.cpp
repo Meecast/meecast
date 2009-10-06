@@ -674,9 +674,7 @@ bool OS2008Config::read(){
 }
 /*******************************************************************************/
 void OS2008Config::parse_children(xmlNode *node){
-    xmlNode     *child_node = NULL;
     xmlChar     *val = NULL;
-    int         t;
 
     while(node){
         if(node->type == XML_ELEMENT_NODE){
@@ -778,9 +776,7 @@ bool OS2009Config::read(){
 }
 /*******************************************************************************/
 void OS2009Config::parse_children(xmlNode *node){
-    xmlNode     *child_node = NULL;
     xmlChar     *val = NULL;
-    int         t;
 
     while(node){
             /* update-wlan */
@@ -809,7 +805,6 @@ void OS2009Config::save(){
     OS2008Config::save();
     if(!root_node)
         return;
-    char buffer[128];
     if(update_wlan)
         xmlNewChild(root_node, NULL, BAD_CAST "update-wlan", BAD_CAST "true");
     else

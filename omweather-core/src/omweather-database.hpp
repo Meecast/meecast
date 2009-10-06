@@ -35,17 +35,17 @@
 #include "omweather-stations.hpp"
 /*******************************************************************************/
 typedef std::map<std::string,std::string> Result;
+int callback(void*, int, char**, char**);
 /*******************************************************************************/
 class Database{
     sqlite3 *db;
-    int callback(void*, int, char**, char**);
     Result *result;
     public:
         Database();
         ~Database();
         bool open(const std::string);
         void close();
-        CountriesList& countries();
+        bool countries(CountriesList&);
 };
 /*******************************************************************************/
 #endif

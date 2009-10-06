@@ -29,13 +29,14 @@
 #include "omweather-sensor.hpp"
 #include <stdlib.h>
 /*******************************************************************************/
-Sensor::Sensor(){
+Sensor::Sensor(const std::string sensor_path){
+    path = sensor_path;
 }
 /*******************************************************************************/
 float Sensor::read(){
     char buffer[128];
     float value = 0.0f;
-    std::ifstream file(SENSOR);
+    std::ifstream file(path.c_str());
     if(file.is_open()){
         *buffer = 0;
         file.getline(buffer, sizeof(buffer) - 1);

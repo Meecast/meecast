@@ -38,7 +38,7 @@ void Color::set(const char *str){
 const char* Color::get(){
     char buffer[128];
     *buffer = 0;
-    snprintf(buffer, sizeof(buffer) - 1, "#%02X%02X%02X\0", r, g, b);
+    snprintf(buffer, sizeof(buffer) - 1, "#%02X%02X%02X", r, g, b);
     std::string c = buffer;
     return c.c_str();
 }

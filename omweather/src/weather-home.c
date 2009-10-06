@@ -463,7 +463,6 @@ draw_home_window(gint count_day){
                 *location = NULL;
 
 
-    OmweatherDesktopWidget *applet;
 #ifndef RELEASE
     time_t      tmp_time,
                 utc_time;
@@ -724,7 +723,7 @@ draw_home_window(gint count_day){
 
 #if defined CLUTTER || defined HILDONANIMATION
    g_signal_connect_after(app->main_window, "expose-event",
-      G_CALLBACK(top_widget_expose), applet);
+      G_CALLBACK(top_widget_expose), NULL);
 #endif
 
 #if defined(NONMAEMO) || defined (APPLICATION)

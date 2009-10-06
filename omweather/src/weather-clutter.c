@@ -65,7 +65,10 @@ icon1_timeline (SuperOH *oh)
     gchar  buffer[1024];
     GtkWidget *ha = NULL;
     GSList   *list_temp = NULL;
-
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+ 
     r ++;
     if (!oh) 
         return FALSE;
@@ -81,9 +84,10 @@ icon1_timeline (SuperOH *oh)
                 oh->image = gtk_image_new_from_pixbuf (pixbuf);
                 g_object_unref(G_OBJECT(pixbuf));
                 oh->list_images = g_slist_append(oh->list_images, oh->image);
-            }
-            g_signal_connect(G_OBJECT(oh->image), "expose_event",
+                g_signal_connect(G_OBJECT(oh->image), "expose_event",
                                              G_CALLBACK(expose_event), pixbuf);
+ 
+            }
             ha = hildon_animation_actor_new();
             gtk_container_add (GTK_CONTAINER (ha), oh->image);
             g_object_set_data(
@@ -105,17 +109,21 @@ icon1_timeline (SuperOH *oh)
             break;
     default:
             if (oh->image){
-             ha = g_object_get_data(G_OBJECT(oh->image), "hildon_animation_actor");
-             if (ha){
-                hildon_animation_actor_set_rotation (ha,
+                ha = g_object_get_data(G_OBJECT(oh->image), "hildon_animation_actor");
+                if (ha){
+                    hildon_animation_actor_set_rotation (ha,
                                              HILDON_AA_Z_AXIS,
                                              r,
                                              0, 0, 0);
+                }
+                break;
              }
-             break;
-     }
-     }
+     }      
      oh->timeline++; 
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+ 
      return TRUE;
 }
 /************************************************************************************************/

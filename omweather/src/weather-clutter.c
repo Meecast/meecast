@@ -178,7 +178,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
     sprintf(buffer, "icon_name_%s", icon_name);
     oh->icon = NULL;
 
-    icon1_timeline (oh);
+    icon0_timeline (oh);
     *objects_list = g_slist_append(*objects_list, oh);
     gtk_widget_show_all(oh->icon_widget);
 #ifdef DEBUGFUNCTIONCALL

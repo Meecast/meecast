@@ -118,15 +118,18 @@ animation_cb (SuperOH *oh)
         sprintf(bufferout,"       case %i:\n",counter);
         pout(bufferout);
         sprintf(bufferout," \ 
-            if (oh->image){ \n \
-                ha = g_object_get_data(G_OBJECT(oh->image), \"hildon_animation_actor\");\n \
+            list_temp = oh->list_images;\n \
+            while(list_temp != NULL){\n \
+                clactor = list_temp->data; \n \
+                ha = g_object_get_data(G_OBJECT(clactor), \"hildon_animation_actor\");\n \
                 if (ha){\n \
                     hildon_animation_actor_set_rotation (ha,\n \
                                              HILDON_AA_Z_AXIS,\n \
                                              r,\n \
                                              0, 0, 0);\n \
                 }\n \
-             }\n \
+                list_temp = g_slist_next(list_temp);\n \
+            }\n \
           break;\n \
         "); 
         pout(bufferout);
@@ -263,6 +266,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
        gchar  buffer[1024]; \n \
        GtkWidget *ha = NULL; \n \
        GSList   *list_temp = NULL;\n \
+       ClutterActor  *clactor = NULL; \n \
 \n \
        r ++;\n \
        if (!oh)\n \
@@ -421,7 +425,7 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
      case 1:  \n \
             list_temp = oh->list_images;\n \
             while(list_temp != NULL){\n \
-                ha = g_object_get_data(G_OBJECT(oh->image), \"hildon_animation_actor\");\n \
+                ha = g_object_get_data(G_OBJECT(list_temp->data), \"hildon_animation_actor\");\n \
                 hildon_animation_actor_set_parent (HILDON_ANIMATION_ACTOR (ha), oh->window);\n \
                 hildon_animation_actor_set_position (ha, oh->icon_widget->allocation.x, oh->icon_widget->allocation.y);\n \
                  // Set anchor point to the actor center\n \

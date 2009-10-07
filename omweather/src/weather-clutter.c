@@ -56,7 +56,7 @@ realize (GtkWidget *widget)
     gtk_widget_set_colormap (widget, gdk_screen_get_rgba_colormap (screen));
 }
 /*******************************************************************************/
-
+#include "icon0.c"
 gboolean
 icon1_timeline (SuperOH *oh)
 {
@@ -206,10 +206,10 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
         oh = list_temp->data;
         if (oh->timeline <2){
             oh->window = window;
-            icon1_timeline(oh); 
+            icon0_timeline(oh); 
             /* Start animation */
             oh->duration = 40;
-            oh->runtime = g_timeout_add (50, icon1_timeline, oh);
+            oh->runtime = g_timeout_add (50, icon0_timeline, oh);
         }
         list_temp = g_slist_next(list_temp);
     }

@@ -110,9 +110,9 @@ top_widget_expose(GtkWidget *widget, GdkEventExpose *event){
 #ifdef HILDONANIMATION
 /* For start of Clutter animation in main form */
 top_widget_expose(GtkWidget *widget, GdkEventExpose *event, GtkWidget *window){
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
  
 #ifdef APPLICATION
     show_hildon_animation(app->clutter_objects_in_main_form, app->main_view);

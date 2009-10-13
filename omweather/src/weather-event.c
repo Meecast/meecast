@@ -162,8 +162,9 @@ timer_handler(gpointer data){
                         add_station_to_user_list(app->gps_station.name,
                                                  app->gps_station.id0,
                                                  TRUE, app->config->current_source, -1);
-                        if (!app->config->current_station_name
-                            && !app->config->current_station_id) {
+                        if (!app->config->current_station_id ||
+                           (!strcmp(app->config->current_station_id," ")) ||
+                           (!strcmp(app->config->current_station_id,""))){
                             /* Fix me if source are not weather.com */
                             if (app->config->current_station_name)
                                 g_free(app->config->current_station_name);
@@ -176,6 +177,7 @@ timer_handler(gpointer data){
                                 g_strdup(app->gps_station.id0);
                         }
                         config_save(app->config);
+                        redraw_home_window(FALSE);
                         update_weather(FALSE);
                         redraw_home_window(FALSE);
                     }

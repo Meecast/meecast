@@ -190,7 +190,8 @@ create_moon_phase_widget(GHashTable *current){
         *space_symbol = '_';
     icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, GIANT_ICON_SIZE,
                                                     GIANT_ICON_SIZE, NULL);
-    icon_image = create_icon_widget(icon_buffer, icon, GIANT_ICON_SIZE, &app->clutter_objects_in_popup_form);
+   // icon_image = create_icon_widget(icon_buffer, icon, GIANT_ICON_SIZE, &app->clutter_objects_in_popup_form);
+    icon_image = create_icon_widget(icon_buffer, icon, GIANT_ICON_SIZE, NULL);
 
     if(icon_image)
         gtk_box_pack_start(GTK_BOX(main_widget), icon_image, FALSE, TRUE, 0);
@@ -862,7 +863,8 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
         icon = gdk_pixbuf_new_from_file_at_size(buffer,
                             BIG_ICON_SIZE,
                             BIG_ICON_SIZE, NULL);
-        day_icon = create_icon_widget(icon, buffer, BIG_ICON_SIZE, &app->clutter_objects_in_popup_form);
+//        day_icon = create_icon_widget(icon, buffer, BIG_ICON_SIZE, &app->clutter_objects_in_popup_form);
+        day_icon = create_icon_widget(icon, buffer, BIG_ICON_SIZE, NULL);
         gtk_box_pack_start(GTK_BOX(day_icon_text_hbox),
                             day_icon, TRUE, TRUE, 5);
         /* prepare day text */
@@ -953,7 +955,8 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     icon = gdk_pixbuf_new_from_file_at_size(buffer,
                         BIG_ICON_SIZE,
                         BIG_ICON_SIZE, NULL);
-    night_icon = create_icon_widget(icon, buffer, BIG_ICON_SIZE, &app->clutter_objects_in_popup_form);
+//    night_icon = create_icon_widget(icon, buffer, BIG_ICON_SIZE, &app->clutter_objects_in_popup_form);
+    night_icon = create_icon_widget(icon, buffer, BIG_ICON_SIZE, NULL);
     gtk_box_pack_start(GTK_BOX(night_icon_text_hbox),
                             night_icon, TRUE, TRUE, 5);
     /* prepare night text */
@@ -1060,7 +1063,8 @@ create_current_tab(GHashTable *current){
                 (char*)g_hash_table_lookup(current, "icon"));
     icon = gdk_pixbuf_new_from_file_at_size(buffer, GIANT_ICON_SIZE,
                                             GIANT_ICON_SIZE, NULL);
-    icon_image = create_icon_widget(icon, buffer, GIANT_ICON_SIZE, &app->clutter_objects_in_popup_form);
+//    icon_image = create_icon_widget(icon, buffer, GIANT_ICON_SIZE, &app->clutter_objects_in_popup_form);
+    icon_image = create_icon_widget(icon, buffer, GIANT_ICON_SIZE, NULL);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), icon_image, TRUE, TRUE, 0);
     /* temperature */
     memset(buffer, 0, sizeof(buffer));
@@ -1196,7 +1200,8 @@ GtkWidget* create_hour_tab(void){
                 (char*)g_hash_table_lookup(hour_weather, "hour_icon"));
         icon = gdk_pixbuf_new_from_file_at_size(buffer, SMALL_ICON_SIZE,
                                                    SMALL_ICON_SIZE, NULL);
-        icon_image = create_icon_widget(icon, buffer, SMALL_ICON_SIZE, &app->clutter_objects_in_popup_form);
+//        icon_image = create_icon_widget(icon, buffer, SMALL_ICON_SIZE, &app->clutter_objects_in_popup_form);
+        icon_image = create_icon_widget(icon, buffer, SMALL_ICON_SIZE, NULL);
         gtk_box_pack_start(GTK_BOX(icon_text_hbox), icon_image, TRUE, FALSE, 0);
         memset(buffer, 0, sizeof(buffer));
 /* hour */

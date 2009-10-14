@@ -349,6 +349,7 @@ typedef struct SuperOH{
   guint                 runtime;
   guint                 merge_id;
   guint                 duration;
+  guint                 delay;
   gint                  icon_size;
   gchar                 *icon_name;
 }SuperOH;

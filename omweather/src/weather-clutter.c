@@ -196,20 +196,25 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
     error = NULL;
     GtkWidget *ha;
     gint i;
+    gint one_delay = 1500;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!clutter_objects)
         return;
+
+    i = 0;
     list_temp = clutter_objects;
     while(list_temp != NULL){
         oh = list_temp->data;
         if (oh->timeline <2){
             oh->window = window;
+            oh->duration = 40;
+            oh->delay = i * one_delay;
             icon0_timeline(oh); 
             /* Start animation */
-            oh->duration = 40;
-            oh->runtime = g_timeout_add (50, icon0_timeline, oh);
+//            oh->runtime = g_timeout_add (50, icon0_timeline, oh);
+            i++;
         }
         list_temp = g_slist_next(list_temp);
     }

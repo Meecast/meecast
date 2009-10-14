@@ -117,7 +117,7 @@ animation_cb (SuperOH *oh)
 
         sprintf(bufferout,"       case %i:\n",counter);
         pout(bufferout);
-        sprintf(bufferout," \ 
+        sprintf(bufferout," \
             list_temp = oh->list_images;\n \
             while(list_temp != NULL){\n \
                 clactor = list_temp->data; \n \
@@ -293,7 +293,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
                 pout(bufferout);
                 sprintf(bufferout,"                   NULL);\n");
                 pout(bufferout);
-                sprintf(bufferout,"\n \                 
+                sprintf(bufferout,"\n \
                 if (pixbuf){ \n \
                 oh->image = gtk_image_new_from_pixbuf (pixbuf);\n \
                 g_object_unref(G_OBJECT(pixbuf));\n \
@@ -421,7 +421,7 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
         //            gtk_widget_show_all(ha);
             }
         }
-       sprintf(bufferout,"\n \ 
+       sprintf(bufferout,"\n \
      case 1:  \n \
             list_temp = oh->list_images;\n \
             while(list_temp != NULL){\n \
@@ -435,12 +435,19 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
                 gtk_widget_show_all (ha);\n \
                 list_temp = g_slist_next(list_temp);\n \
             }\n \
-            break;\n");
+            g_source_remove(oh->runtime); \n \
+            oh->runtime = g_timeout_add (oh->delay, icon0_timeline, oh); \n \
+            break;\n \
+     case 2:\n \
+            g_source_remove(oh->runtime);\n \
+            oh->runtime = g_timeout_add (50, icon0_timeline, oh); \n \
+            break;\n \
+            ");
             pout(bufferout);
  
         /* Start animation */
         if (oh->timeline){
-            counter = 2;
+            counter = 3;
             clutter_timeline_start (oh->timeline);
             oh->duration = clutter_timeline_get_duration(oh->timeline)/50 ;
             fprintf(stderr,"Duration %i\n",clutter_timeline_get_duration(oh->timeline));

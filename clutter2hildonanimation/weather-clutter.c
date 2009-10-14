@@ -100,6 +100,19 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
     angle = clutter_actor_get_rotation(clactor, CLUTTER_Z_AXIS, &rx, &ry, &rz);
     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Z_AXIS,
                                         angle,(int)rx, (int)ry, (int)rz);
+   sprintf(bufferout," \
+                clactor = list_temp->data; \n \
+                ha = g_object_get_data(G_OBJECT(clactor), \"hildon_animation_actor\");\n \
+                if (ha){\n \
+                    hildon_animation_actor_set_rotation (ha,\n \
+                                             HILDON_AA_Z_AXIS,\n \
+                                             r,\n \
+                                             0, 0, 0);\n \
+                }\n \
+                list_temp = g_slist_next(list_temp);\n \
+        "); 
+        pout(bufferout);
+ 
 }
 /*******************************************************************************/
 gboolean
@@ -115,22 +128,10 @@ animation_cb (SuperOH *oh)
         return FALSE;
     if (oh->icon){
 
-        sprintf(bufferout,"       case %i:\n",counter);
+        sprintf(bufferout,"  case %i:\n",counter);
         pout(bufferout);
         sprintf(bufferout," \
             list_temp = oh->list_images;\n \
-            while(list_temp != NULL){\n \
-                clactor = list_temp->data; \n \
-                ha = g_object_get_data(G_OBJECT(clactor), \"hildon_animation_actor\");\n \
-                if (ha){\n \
-                    hildon_animation_actor_set_rotation (ha,\n \
-                                             HILDON_AA_Z_AXIS,\n \
-                                             r,\n \
-                                             0, 0, 0);\n \
-                }\n \
-                list_temp = g_slist_next(list_temp);\n \
-            }\n \
-          break;\n \
         "); 
         pout(bufferout);
         window = g_object_get_data(G_OBJECT(oh->icon), "window");
@@ -150,6 +151,11 @@ animation_cb (SuperOH *oh)
             ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
             do_animation(oh, clactor, ha, fullwindow);
         }
+        sprintf(bufferout," \
+          break;\n \
+        "); 
+        pout(bufferout);
+ 
     }else
         return FALSE;
     counter ++;

@@ -319,9 +319,9 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
                 change_actor_size_and_position(clactor,icon_size);
                 sprintf(bufferout,"pixbuf = gdk_pixbuf_new_from_file_at_size (\"%s\",\n",clutter_actor_get_name(clactor));
                 pout(bufferout);
-                sprintf(bufferout,"                   oh->icon_size,\n");
+                sprintf(bufferout,"                   %i, \n", clutter_actor_get_width(clactor));
                 pout(bufferout);
-                sprintf(bufferout,"                   oh->icon_size,\n");
+                sprintf(bufferout,"                   %i, \n", clutter_actor_get_height(clactor));
                 pout(bufferout);
                 sprintf(bufferout,"                   NULL);\n");
                 pout(bufferout);

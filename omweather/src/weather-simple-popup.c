@@ -226,7 +226,6 @@ create_top_buttons_box(GtkWidget* window, gpointer user_data){
                                                     buffer, 18, 12);
     g_signal_connect(G_OBJECT(station_button), "button-release-event",
                             G_CALLBACK(change_station_next), window);
-    gtk_widget_set_size_request(station_button, -1, 80);
     /* prepare last update time*/
     if(app->station_data){
         *full_filename = 0;
@@ -246,7 +245,6 @@ create_top_buttons_box(GtkWidget* window, gpointer user_data){
     }
     /* update button */
     update_button = create_button_with_2_line_text(_("Update"), buffer, 18, 12);
-    gtk_widget_set_size_request(update_button, -1, 80);
     g_signal_connect(G_OBJECT(update_button), "button-release-event",
                         G_CALLBACK(refresh_button_handler), NULL);
 
@@ -382,10 +380,10 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             }
             /* day temperature */
             if(hi_temp == INT_MAX)
-                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%s, ",
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "<span weight=\"bold\">%s</span>, ",
                             (char*)hash_table_find("N/A", FALSE));
             else
-                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%d\302\260%c, ",
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "<span weight=\"bold\">%d\302\260%c</span>, ",
                             hi_temp, symbol);
             /* day title */
             if(g_hash_table_lookup(day, "day_title"))
@@ -398,15 +396,15 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                             (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
             /* wind direction */
             if(g_hash_table_lookup(day, "day_wind_title"))
-                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "(%s); ",
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "(%s)\n",
                             (char*)hash_table_find(g_hash_table_lookup(day, "day_wind_title"), FALSE));
             snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%s ", _("n:"));
             /* night temperature */
             if(low_temp == INT_MAX)
-                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%s, ",
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "<span weight=\"bold\">%s</span>, ",
                             (char*)hash_table_find("N/A", FALSE));
             else
-                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%d\302\260%c, ",
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "<span weight=\"bold\">%d\302\260%c</span>, ",
                             low_temp, symbol);
             /* night title */
             if(g_hash_table_lookup(day, "night_title"))
@@ -753,7 +751,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                                                : ( strcat(tmp, _("F")));
 
                 /* feels like */
-                sprintf(tmp + strlen(tmp), " (feels like  %d\302\260",
+                sprintf(tmp + strlen(tmp), " (%s  %d\302\260", _("feels like"),
                              (app->config->temperature_units == CELSIUS) ?
                              (atoi(g_hash_table_lookup(hour_weather, "hour_feels_like"))) :
                     ((int)c2f(atoi(g_hash_table_lookup(hour_weather, "hour_feels_like")))));

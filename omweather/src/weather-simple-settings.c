@@ -1881,7 +1881,6 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
     g_signal_connect(G_OBJECT(button), "button-release-event",
                      G_CALLBACK(station_setup_button_handler),
                      (gpointer)button);
-    gtk_widget_set_size_request(button, 150, 80);
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

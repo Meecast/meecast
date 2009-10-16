@@ -9,8 +9,13 @@ omweather (0.24.6) unstable; urgency=low
   * Fixed problem with GPS for Fremantle
   * Fixed bug with null icons on display if iconset was deinstalled from system
   * Done optified
+  * Fixed problem with the text/button layout in the Update settings
+  * Fixed problem with long strings in popup window for non Engligh Languages
+  * Fixed some untranslated strings
+  * Fixed bug #5363 "Theming bugs on buttons in settings and Forecast"
+  * Fixed bug #5473 for omweather package "Small icon for all OMweather packages in application manager"
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 27 Sep 2009 19:15:10 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 20 Oct 2009 19:15:10 +0200
 
 omweather (0.24.5) unstable; urgency=low
 

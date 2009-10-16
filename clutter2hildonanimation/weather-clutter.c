@@ -100,11 +100,10 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
     angle = clutter_actor_get_rotation(clactor, CLUTTER_Z_AXIS, &rx, &ry, &rz);
     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Z_AXIS,
                                         angle,(int)rx, (int)ry, (int)rz);
-   sprintf(bufferout," \
-                clactor = list_temp->data; \n \
+   sprintf(bufferout,"clactor = list_temp->data; \n \
                 ha = g_object_get_data(G_OBJECT(clactor), \"hildon_animation_actor\");\n \
                 if (ha){\n \
-                ");
+                    /* Name %s */\n",clutter_actor_get_name(clactor));
    pout(bufferout);
 //                    hildon_animation_actor_set_rotation (ha,\n \
 //                                             HILDON_AA_Z_AXIS,\n \
@@ -113,27 +112,24 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
    
     if (GPOINTER_TO_INT(g_object_get_data(G_OBJECT(clactor),"x") != clutter_actor_get_x(clactor)) ||
         GPOINTER_TO_INT(g_object_get_data(G_OBJECT(clactor),"x") != clutter_actor_get_x(clactor))){
-        sprintf(bufferout," \
-                    hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), \n \
-                         oh->icon_widget->allocation.x + (%i) + allocationx, \n \
-                         oh->icon_widget->allocation.y + (%i) + allocationy,\n \
-                         0); \n \
-                    ", clutter_actor_get_x(clactor), clutter_actor_get_y(clactor)); 
+        sprintf(bufferout,"                     hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), \n \
+                         oh->icon_widget->allocation.x + \n \
+                         (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationx, \n \
+                         oh->icon_widget->allocation.y + \n \
+                         (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationy,\n \
+                         0);\n", clutter_actor_get_x(clactor), clutter_actor_get_y(clactor)); 
         g_object_set_data(G_OBJECT(clactor), "x", GINT_TO_POINTER(clutter_actor_get_x(clactor)));
         g_object_set_data(G_OBJECT(clactor), "y", GINT_TO_POINTER(clutter_actor_get_y(clactor)));
         pout(bufferout);
     }
     if (GPOINTER_TO_INT(g_object_get_data(G_OBJECT(clactor),"o") != 
                                                                 clutter_actor_get_opacity(clactor))){
-        sprintf(bufferout," \
-                    hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), %i); \n \
-                    ", clutter_actor_get_opacity(clactor)); 
+        sprintf(bufferout,"                     hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), %i); \n", clutter_actor_get_opacity(clactor)); 
         g_object_set_data(G_OBJECT(clactor), "o", GINT_TO_POINTER(clutter_actor_get_opacity(clactor)));
         pout(bufferout);
     }
  
-    sprintf(bufferout," \
-                }\n \
+    sprintf(bufferout,"                 }\n \
                 list_temp = g_slist_next(list_temp);\n \
                 ");
         pout(bufferout);
@@ -155,9 +151,8 @@ animation_cb (SuperOH *oh)
 
         sprintf(bufferout,"  case %i:\n",counter);
         pout(bufferout);
-        sprintf(bufferout," \
-            list_temp = oh->list_images;\n \
-        "); 
+        sprintf(bufferout,"                 list_temp = oh->list_images;\n \
+                "); 
         pout(bufferout);
         window = g_object_get_data(G_OBJECT(oh->icon), "window");
         if (window && gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN) 
@@ -176,8 +171,7 @@ animation_cb (SuperOH *oh)
             ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
             do_animation(oh, clactor, ha, fullwindow);
         }
-        sprintf(bufferout," \
-          break;\n \
+        sprintf(bufferout,"break;\n \
         "); 
         pout(bufferout);
  
@@ -319,9 +313,9 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
                 change_actor_size_and_position(clactor,icon_size);
                 sprintf(bufferout,"pixbuf = gdk_pixbuf_new_from_file_at_size (\"%s\",\n",clutter_actor_get_name(clactor));
                 pout(bufferout);
-                sprintf(bufferout,"                   %i, \n", clutter_actor_get_width(clactor));
+                sprintf(bufferout,"           (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100), \n", clutter_actor_get_width(clactor));
                 pout(bufferout);
-                sprintf(bufferout,"                   %i, \n", clutter_actor_get_height(clactor));
+                sprintf(bufferout,"            (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100), \n", clutter_actor_get_height(clactor));
                 pout(bufferout);
                 sprintf(bufferout,"                   NULL);\n");
                 pout(bufferout);
@@ -462,7 +456,7 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
                 hildon_animation_actor_set_position (ha, oh->icon_widget->allocation.x, oh->icon_widget->allocation.y);\n \
                  // Set anchor point to the actor center\n \
                 hildon_animation_actor_set_anchor_from_gravity (HILDON_ANIMATION_ACTOR (ha),\n \
-                                                                               HILDON_AA_CENTER_GRAVITY);\n \
+                                                                               HILDON_AA_NW_GRAVITY);\n \
                 realize(ha);\n \
                 gtk_widget_show_all (ha);\n \
                 list_temp = g_slist_next(list_temp);\n \

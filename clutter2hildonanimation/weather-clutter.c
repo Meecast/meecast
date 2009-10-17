@@ -111,7 +111,9 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
     angle = clutter_actor_get_rotation(clactor, CLUTTER_Z_AXIS, &rx, &ry, &rz);
     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Z_AXIS,
                                         angle,(int)rx, (int)ry, (int)rz);
-    sprintf(bufferout,"clactor = list_temp->data; \n \
+    sprintf(bufferout,"if (!list_temp) \n \
+                        return FALSE; \n \
+                clactor = list_temp->data; \n \
                 ha = g_object_get_data(G_OBJECT(clactor), \"hildon_animation_actor\");\n \
                 if (ha){\n \
                     /* Name %s */\n",clutter_actor_get_name(clactor));
@@ -156,7 +158,7 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
         pout(bufferout);
     }
     clutter_actor_get_scale(clactor, &scale_x, &scale_y);
-    if (property->scale_x != scale_x || property->scale_y != scale_y ){
+    if (property->scale_x != scale_x || property->scale_y != scale_y){
         sprintf(bufferout,"                     hildon_animation_actor_set_scale(HILDON_ANIMATION_ACTOR (ha), %f, %f); \n", scale_x, scale_y); 
         property->scale_x = scale_x;
         property->scale_y = scale_y;

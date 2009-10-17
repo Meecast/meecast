@@ -108,7 +108,7 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
     angle = clutter_actor_get_rotation(clactor, CLUTTER_Z_AXIS, &rx, &ry, &rz);
     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Z_AXIS,
                                         angle,(int)rx, (int)ry, (int)rz);
-   sprintf(bufferout,"clactor = list_temp->data; \n \
+    sprintf(bufferout,"clactor = list_temp->data; \n \
                 ha = g_object_get_data(G_OBJECT(clactor), \"hildon_animation_actor\");\n \
                 if (ha){\n \
                     /* Name %s */\n",clutter_actor_get_name(clactor));
@@ -118,7 +118,7 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
 //                                             r,\n \
 //                                             0, 0, 0);\n \
    
-    if (!g_object_get_data(G_OBJECT(clactor),"property")){
+    if (g_object_get_data(G_OBJECT(clactor),"property")){
         property = g_object_get_data(G_OBJECT(clactor),"property");
     }else{
         fprintf(stderr,"New property\n");
@@ -147,12 +147,18 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
         property->y = clutter_actor_get_y(clactor);
         pout(bufferout);
     }
-    if ( property->opacity!= clutter_actor_get_opacity(clactor))){
+    if (property->opacity!= clutter_actor_get_opacity(clactor)){
         sprintf(bufferout,"                     hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), %i); \n", clutter_actor_get_opacity(clactor)); 
         property->opacity = clutter_actor_get_opacity(clactor);
         pout(bufferout);
     }
- 
+    clutter_actor_get_scale(clactor, &scale_x, &scale_y);
+    if (property->scale_x != scale_x || property->scale_y != scale_y ){
+        sprintf(bufferout,"                     hildon_animation_actor_set_scale(HILDON_ANIMATION_ACTOR (ha), %f, %f); \n", scale_x, scale_y); 
+        property->scale_x = scale_x;
+        property->scale_y = scale_y;
+        pout(bufferout);
+    }
     sprintf(bufferout,"                 }\n \
                 list_temp = g_slist_next(list_temp);\n \
                 ");

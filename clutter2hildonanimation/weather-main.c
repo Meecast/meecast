@@ -44,7 +44,7 @@ main(int argc, char *argv[]){
     gtk_init(&argc, &argv);
 
     clutter_init(NULL, NULL);
-    create_hildon_clutter_icon_animation("/usr/share/omweather/icons/Glance/0.png", 128, &clutter_objects_in_main_form);
+    create_hildon_clutter_icon_animation("/usr/share/omweather/icons/Glance/48.png", 128, &clutter_objects_in_main_form);
     show_hildon_animation(clutter_objects_in_main_form, NULL);
     gtk_main();
 #ifdef DEBUGFUNCTIONCALL

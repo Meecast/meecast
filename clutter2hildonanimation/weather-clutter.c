@@ -119,6 +119,8 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
 //                                             0, 0, 0);\n \
    
     if (!g_object_get_data(G_OBJECT(clactor),"property")){
+        property = g_object_get_data(G_OBJECT(clactor),"property");
+    }else{
         fprintf(stderr,"New property\n");
         property = g_new(actor_property, 1);
         property->x = 0;
@@ -132,22 +134,22 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
         property->angle = 0;
         g_object_set_data(G_OBJECT(clactor), "property", property);
     }
-    if (GPOINTER_TO_INT(g_object_get_data(G_OBJECT(clactor),"x") != clutter_actor_get_x(clactor)) ||
-        GPOINTER_TO_INT(g_object_get_data(G_OBJECT(clactor),"x") != clutter_actor_get_x(clactor))){
+
+    if (property->x != clutter_actor_get_x(clactor) ||
+        property->y != clutter_actor_get_x(clactor)){
         sprintf(bufferout,"                     hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), \n \
                          oh->icon_widget->allocation.x + \n \
                          (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationx, \n \
                          oh->icon_widget->allocation.y + \n \
                          (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationy,\n \
                          0);\n", clutter_actor_get_x(clactor), clutter_actor_get_y(clactor)); 
-        g_object_set_data(G_OBJECT(clactor), "x", GINT_TO_POINTER(clutter_actor_get_x(clactor)));
-        g_object_set_data(G_OBJECT(clactor), "y", GINT_TO_POINTER(clutter_actor_get_y(clactor)));
+        property->x = clutter_actor_get_x(clactor);
+        property->y = clutter_actor_get_y(clactor);
         pout(bufferout);
     }
-    if (GPOINTER_TO_INT(g_object_get_data(G_OBJECT(clactor),"o") != 
-                                                                clutter_actor_get_opacity(clactor))){
+    if ( property->opacity!= clutter_actor_get_opacity(clactor))){
         sprintf(bufferout,"                     hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), %i); \n", clutter_actor_get_opacity(clactor)); 
-        g_object_set_data(G_OBJECT(clactor), "o", GINT_TO_POINTER(clutter_actor_get_opacity(clactor)));
+        property->opacity = clutter_actor_get_opacity(clactor);
         pout(bufferout);
     }
  

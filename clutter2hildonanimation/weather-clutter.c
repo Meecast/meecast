@@ -42,8 +42,15 @@ typedef struct SuperOH{
   guint                 runtime;
   guint                 merge_id;
   guint                 duration;
-}SuperOH;
-gint counter =0;
+}SuperOH; 
+typedef struct actor_property{
+    gdouble scale_x, scale_y, angle;
+    gfloat rx, ry, rz;
+    gint x,y,opacity;
+}actor_property; 
+
+gint counter = 0;
+
 pout(gchar *buffer){
     fprintf(stdout,"%s",buffer);
     fflush (stdout);
@@ -57,6 +64,7 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
     gint allocationx = 0, allocationy = 0;
     GtkWidget *parent = NULL;
     gchar  bufferout[2048];
+    actor_property *property;
 
     if (!ha || !oh || !clactor)
         return;
@@ -85,8 +93,8 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
  //                fprintf(stderr,"111ddddddddddddd %s %i %i\n", clutter_actor_get_name(clactor),
 //                          clutter_actor_get_x(clactor), clutter_actor_get_y(clactor));
     /* set opacity */ 
-    hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha),
-                                       clutter_actor_get_opacity(clactor));
+//    hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha),
+//                                       clutter_actor_get_opacity(clactor));
     /* set scale */
     clutter_actor_get_scale(clactor, &scale_x, &scale_y);
     hildon_animation_actor_set_scale(HILDON_ANIMATION_ACTOR (ha), scale_x, scale_y);
@@ -110,6 +118,20 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
 //                                             r,\n \
 //                                             0, 0, 0);\n \
    
+    if (!g_object_get_data(G_OBJECT(clactor),"property")){
+        fprintf(stderr,"New property\n");
+        property = g_new(actor_property, 1);
+        property->x = 0;
+        property->y = 0;
+        property->opacity = 0;
+        property->rx = 0;
+        property->ry = 0;
+        property->rz = 0;
+        property->scale_x = 0;
+        property->scale_y = 0;
+        property->angle = 0;
+        g_object_set_data(G_OBJECT(clactor), "property", property);
+    }
     if (GPOINTER_TO_INT(g_object_get_data(G_OBJECT(clactor),"x") != clutter_actor_get_x(clactor)) ||
         GPOINTER_TO_INT(g_object_get_data(G_OBJECT(clactor),"x") != clutter_actor_get_x(clactor))){
         sprintf(bufferout,"                     hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), \n \

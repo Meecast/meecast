@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-09-20 09:59+0300\n"
-"PO-Revision-Date: 2009-09-20 12:18+0200\n"
+"PO-Revision-Date: 2009-10-17 10:05+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
@@ -340,7 +340,7 @@ msgstr ""
 "Ylläpito: Pavel Fialko, pavelnf@gmail.com\n"
 "Ohje: Marko Vertainen\n"
 "Käyttöliittymä ja oletuskuvakkeet: Andrew Zhilin\n"
-"Fremantle käyttöliittymä: Krebber Jan Niemelä Ulla\n"
+"Fremantle käyttöliittymä: Krebber Jan ja Niemelä Ulla\n"
 
 #: src/weather-help.c:104
 msgid "Authors"
@@ -400,7 +400,7 @@ msgstr "Kaupunki:"
 #: src/hash.data:23
 #: src/weather-simple-settings.c:1694
 msgid "Clear"
-msgstr "Selkeää"
+msgstr "Tyhjennä"
 
 #: src/hash.data:22
 msgid "Clear / Wind"
@@ -1658,8 +1658,8 @@ msgid ""
 "Use GSM and/or WLAN for updating\n"
 " the weather information.\n"
 msgstr ""
-"Käytä GSM- ja/tai WLAN-verkkoa\n"
-"säätietojen päivitykseen.\n"
+"Valitse säätietojen päivityksessä\n"
+" käytettävät yhteydet.\n"
 
 #: src/weather-sensor.c:65
 msgid "Use device temperature sensor"

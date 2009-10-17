@@ -29,6 +29,8 @@ configure-stamp:
 #	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes	
 	#For OS2009
 	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes --enable-hildonanimation
+#	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes --enable-clutter 
+
 
 	#For NONMAEMO PLATFORM
 #	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --enable-static --enable-nonmaemo --enable-clutter

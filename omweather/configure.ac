@@ -235,7 +235,8 @@ AC_ARG_ENABLE(clutter,
       esac],[clutter=false])
 
 if test "$clutter" == "true"; then
-    PKG_CHECK_MODULES(CLUTTER, [clutter-gtk-0.8 >= 0.8 clutter-x11-0.8 >= 0.8])
+#    PKG_CHECK_MODULES(CLUTTER, [clutter-gtk-0.8 >= 0.8 clutter-x11-0.8 >= 0.8])
+    PKG_CHECK_MODULES(CLUTTER, [clutter-gtk-0.8 >= 0.8 ])
     AC_DEFINE(CLUTTER, 1, [Enable GTK-clutter])
     AC_SUBST(CLUTTER_CFLAGS)
     AC_SUBST(CLUTTER_LIBS)

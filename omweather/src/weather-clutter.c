@@ -57,75 +57,63 @@ realize (GtkWidget *widget)
 }
 /*******************************************************************************/
 #include "icon0.c"
-gboolean
-icon1_timeline (SuperOH *oh)
+void
+choose_icon_timeline(SuperOH *oh)
 {
-    static int r = 0;
-    GdkPixbuf        *pixbuf;
-    gchar  buffer[1024];
-    GtkWidget *ha = NULL;
-    GSList   *list_temp = NULL;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
- 
-    r ++;
-    if (!oh) 
-        return FALSE;
-    switch (oh->timeline){
-    case 0:
-            memset(buffer, 0, sizeof(buffer));
-            sprintf(buffer, "%s%s.png", app->config->icons_set_base, oh->icon_name); 
-            pixbuf = gdk_pixbuf_new_from_file_at_size (buffer, 
-                                                   oh->icon_size, 
-                                                   oh->icon_size, 
-                                                   NULL);
-            if (pixbuf){
-                oh->image = gtk_image_new_from_pixbuf (pixbuf);
-                g_object_unref(G_OBJECT(pixbuf));
-                oh->list_images = g_slist_append(oh->list_images, oh->image);
-                g_signal_connect(G_OBJECT(oh->image), "expose_event",
-                                             G_CALLBACK(expose_event), pixbuf);
- 
-            }
-            ha = hildon_animation_actor_new();
-            gtk_container_add (GTK_CONTAINER (ha), oh->image);
-            g_object_set_data(
-                           G_OBJECT(oh->image), "hildon_animation_actor", ha);
-            break;
-    case 1:    
-            list_temp = oh->list_images;
-            while(list_temp != NULL){
-                ha = g_object_get_data(G_OBJECT(oh->image), "hildon_animation_actor");
-                hildon_animation_actor_set_parent (HILDON_ANIMATION_ACTOR (ha), oh->window);
-                hildon_animation_actor_set_position (ha, oh->icon_widget->allocation.x, oh->icon_widget->allocation.y);
-                 // Set anchor point to the actor center
-                hildon_animation_actor_set_anchor_from_gravity (HILDON_ANIMATION_ACTOR (ha),
-                                                                               HILDON_AA_CENTER_GRAVITY);
-                realize(ha);
-                gtk_widget_show_all (ha);
-                list_temp = g_slist_next(list_temp);
-            }
-            break;
-    default:
-            if (oh->image){
-                ha = g_object_get_data(G_OBJECT(oh->image), "hildon_animation_actor");
-                if (ha){
-                    hildon_animation_actor_set_rotation (ha,
-                                             HILDON_AA_Z_AXIS,
-                                             r,
-                                             0, 0, 0);
-                }
-                break;
-             }
-     }      
-     oh->timeline++; 
-#ifdef DEBUGFUNCTIONCALL
-    END_FUNCTION;
-#endif
- 
-     return TRUE;
+    if (!oh->icon_name)
+        return;
+    if (!strcmp(oh->icon_name,"0")){ icon0_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"1")){ icon1_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"2")){ icon2_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"3")){ icon3_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"4")){ icon4_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"5")){ icon5_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"6")){ icon6_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"7")){ icon7_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"8")){ icon8_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"9")){ icon9_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"10")){ icon10_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"11")){ icon11_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"12")){ icon12_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"13")){ icon13_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"14")){ icon14_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"15")){ icon15_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"16")){ icon16_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"17")){ icon17_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"18")){ icon18_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"19")){ icon19_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"20")){ icon20_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"21")){ icon21_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"22")){ icon22_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"23")){ icon23_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"24")){ icon24_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"25")){ icon25_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"26")){ icon26_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"27")){ icon27_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"28")){ icon28_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"29")){ icon29_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"30")){ icon30_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"31")){ icon31_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"32")){ icon32_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"33")){ icon33_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"34")){ icon34_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"35")){ icon35_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"36")){ icon36_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"37")){ icon37_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"38")){ icon38_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"39")){ icon39_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"40")){ icon40_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"41")){ icon41_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"42")){ icon42_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"43")){ icon43_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"44")){ icon44_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"45")){ icon45_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"46")){ icon46_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"47")){ icon47_timeline (oh); return; }
+    if (!strcmp(oh->icon_name,"48")){ icon48_timeline (oh); return; }
+
 }
+
 /************************************************************************************************/
 GtkWidget *
 create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSList **objects_list)
@@ -177,8 +165,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
 
     sprintf(buffer, "icon_name_%s", icon_name);
     oh->icon = NULL;
-
-    icon0_timeline (oh);
+    choose_icon_timeline(oh);
     *objects_list = g_slist_append(*objects_list, oh);
     gtk_widget_show_all(oh->icon_widget);
 #ifdef DEBUGFUNCTIONCALL

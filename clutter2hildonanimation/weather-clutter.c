@@ -29,6 +29,8 @@
 #include <sys/shm.h>
 #define SIZE_OF_WINDOWS_HEAD 52
 #define GIANT_ICON_SIZE  128
+
+extern gboolean key;
 typedef struct SuperOH{
   ClutterActor          *icon;
   ClutterGroup          *group;
@@ -42,6 +44,7 @@ typedef struct SuperOH{
   guint                 runtime;
   guint                 merge_id;
   guint                 duration;
+  gchar                 *icon_name;
 }SuperOH; 
 typedef struct actor_property{
     gdouble scale_x, scale_y, angle;
@@ -175,6 +178,7 @@ animation_cb (SuperOH *oh)
     gint i;
     gboolean fullwindow = FALSE;
     gchar  bufferout[2048];
+
     if (!oh)
         return FALSE;
     if (oh->icon){
@@ -210,7 +214,7 @@ animation_cb (SuperOH *oh)
     counter ++;
     oh->duration--;
     if (oh->duration == 0){;
-   fprintf(stderr,"Finished\n"); 
+        fprintf(stderr,"Finished\n"); 
         sprintf(bufferout," default: return FALSE;  \
     } \n \
      oh->timeline++;  \n \
@@ -219,6 +223,7 @@ animation_cb (SuperOH *oh)
 #endif \n \
      return TRUE;  \n}\n");
     pout(bufferout);
+        key = FALSE;
         return FALSE;
     }
     else
@@ -276,11 +281,10 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
     if (!objects_list)
         return NULL;
 
-
+    counter = 0;
     oh = g_new(SuperOH, 1);
     oh->timeline = NULL;
     oh->icon = NULL;
-
 
     memset(buffer, 0, sizeof(buffer));
     memset(icon_name, 0, sizeof(icon_name));
@@ -289,7 +293,8 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
         icon_name[1] = icon_path[strlen(icon_path) - 5];
     else
         icon_name[0] = icon_path[strlen(icon_path) - 5];
-
+    
+    oh->icon_name =g_strdup (icon_name);
     /* Download script */
     oh->script = clutter_script_new();
 /*    g_object_unref(oh->script); */
@@ -441,6 +446,7 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
 #endif
     if(!clutter_objects)
         return;
+
     list_temp = clutter_objects;
     while(list_temp != NULL){
         oh = list_temp->data;
@@ -492,13 +498,13 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
                 list_temp = g_slist_next(list_temp);\n \
             }\n \
             g_source_remove(oh->runtime); \n \
-            oh->runtime = g_timeout_add (oh->delay, icon0_timeline, oh); \n \
+            oh->runtime = g_timeout_add (oh->delay, icon%s_timeline, oh); \n \
             break;\n \
      case 2:\n \
             g_source_remove(oh->runtime);\n \
-            oh->runtime = g_timeout_add (50, icon0_timeline, oh); \n \
+            oh->runtime = g_timeout_add (50, icon%s_timeline, oh); \n \
             break;\n \
-            ");
+            ", oh->icon_name, oh->icon_name);
             pout(bufferout);
  
         /* Start animation */

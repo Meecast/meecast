@@ -26,8 +26,6 @@
  * 02110-1301 USA
 */
 #include "weather-clutter.h"
-#include <hildon/hildon-remote-texture.h>
-#include <sys/shm.h>
 #ifdef HILDONANIMATION 
 #define SIZE_OF_WINDOWS_HEAD 52
 
@@ -62,7 +60,8 @@ choose_icon_timeline(SuperOH *oh)
 {
     if (!oh->icon_name)
         return;
-    fprintf(stderr,"!!!!!!!!name %s\n",oh->icon_name);
+//    fprintf(stderr,"!!!!!!!!name %s\n",oh->icon_name);
+//    icon1_timeline (oh); return; 
     if (!strcmp(oh->icon_name,"0")){ icon0_timeline (oh); return; }
     if (!strcmp(oh->icon_name,"1")){ icon1_timeline (oh); return; }
     if (!strcmp(oh->icon_name,"2")){ icon2_timeline (oh); return; }
@@ -198,7 +197,7 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
             oh->window = window;
             oh->duration = 40;
             oh->delay = i * one_delay;
-            icon0_timeline(oh); 
+            choose_icon_timeline(oh);
             /* Start animation */
 //            oh->runtime = g_timeout_add (50, icon0_timeline, oh);
             i++;

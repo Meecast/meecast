@@ -95,7 +95,6 @@ run_creating_of_animations(void){
         clutter_objects_in_main_form = NULL;
         create_hildon_clutter_icon_animation(path, 128, &clutter_objects_in_main_form);
         show_hildon_animation(clutter_objects_in_main_form, NULL);
- //       gtk_main();
         while (key){
             gtk_main_iteration();
         }
@@ -118,7 +117,6 @@ main(int argc, char *argv[]){
     clutter_init(NULL, NULL);
     g_timeout_add(100, run_creating_of_animations, NULL );
     fprintf(stderr,"Begin");
-//    run_creating_of_animations();
     gtk_main();
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

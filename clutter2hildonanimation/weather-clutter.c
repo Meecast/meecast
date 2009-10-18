@@ -128,7 +128,6 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
     if (g_object_get_data(G_OBJECT(clactor),"property")){
         property = g_object_get_data(G_OBJECT(clactor),"property");
     }else{
-        fprintf(stderr,"New property\n");
         property = g_new(actor_property, 1);
         property->x = 0;
         property->y = 0;
@@ -403,6 +402,9 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
                            G_OBJECT(oh->image), \"hildon_animation_actor\", ha);\n"); 
             
                 pout(bufferout);
+                sprintf(bufferout,"            hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), 0); \n" ); 
+                pout(bufferout);
+
  
 //                fprintf(stderr,"ddddddddddddd %s\n", clutter_actor_get_name(clactor));
                 pixbuf = gdk_pixbuf_new_from_file_at_size (clutter_actor_get_name(clactor), 

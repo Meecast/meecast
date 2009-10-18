@@ -144,7 +144,7 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
     }
 
     if (property->x != clutter_actor_get_x(clactor) ||
-        property->y != clutter_actor_get_y(clactor)){
+        property->y != clutter_actor_get_y(clactor)|| counter == 3){
         sprintf(bufferout,"                     if (!fullwindow) { \n \
                           hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), \n \
                           oh->icon_widget->allocation.x + \n \
@@ -367,7 +367,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
        GSList   *list_temp = NULL;\n \
        ClutterActor  *clactor = NULL; \n \
        gint allocationx = 0, allocationy = 0; \n \
-       gboolean fullwindow ; \n \ 
+       gboolean fullwindow ; \n \
 \n \
        if (oh->timeline >=2){ \n \
             window = oh->window; \n \
@@ -538,8 +538,7 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
             while(list_temp != NULL){\n \
                 ha = g_object_get_data(G_OBJECT(list_temp->data), \"hildon_animation_actor\");\n \
                 hildon_animation_actor_set_parent (HILDON_ANIMATION_ACTOR (ha), oh->window);\n \
-                hildon_animation_actor_set_position (ha, oh->icon_widget->allocation.x, oh->icon_widget->allocation.y);\n \
-                 // Set anchor point to the actor center\n \
+                // Set anchor point to the actor center\n \
                 hildon_animation_actor_set_anchor_from_gravity (HILDON_ANIMATION_ACTOR (ha),\n \
                                                                                HILDON_AA_NW_GRAVITY);\n \
                 realize(ha);\n \

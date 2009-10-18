@@ -47,8 +47,10 @@ typedef struct SuperOH{
   gchar                 *icon_name;
 }SuperOH; 
 typedef struct actor_property{
-    gdouble scale_x, scale_y, angle;
-    gfloat rx, ry, rz;
+    gdouble scale_x, scale_y, angle_x, angle_y, angle_z;
+    gfloat rxx, ryx, rzx;
+    gfloat rxy, ryy, rzy;
+    gfloat rxz, ryz, rzz;
     gint x,y,opacity;
 }actor_property; 
 
@@ -99,8 +101,8 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
 //    hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha),
 //                                       clutter_actor_get_opacity(clactor));
     /* set scale */
-    clutter_actor_get_scale(clactor, &scale_x, &scale_y);
-    hildon_animation_actor_set_scale(HILDON_ANIMATION_ACTOR (ha), scale_x, scale_y);
+//    clutter_actor_get_scale(clactor, &scale_x, &scale_y);
+//    hildon_animation_actor_set_scale(HILDON_ANIMATION_ACTOR (ha), scale_x, scale_y);
     /* set rotation */
     angle = clutter_actor_get_rotation(clactor, CLUTTER_X_AXIS, &rx, &ry, &rz);
     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_X_AXIS,
@@ -131,12 +133,14 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
         property->x = 0;
         property->y = 0;
         property->opacity = 0;
-        property->rx = 0;
-        property->ry = 0;
-        property->rz = 0;
-        property->scale_x = 0;
-        property->scale_y = 0;
-        property->angle = 0;
+        property->rxx = 0; property->ryx = 0; property->rzx = 0;
+        property->rxy = 0; property->ryy = 0; property->rzy = 0;
+        property->rxz = 0; property->ryz = 0; property->rzz = 0;
+        property->scale_x = 1;
+        property->scale_y = 1;
+        property->angle_x = 0;
+        property->angle_y = 0;
+        property->angle_z = 0;
         g_object_set_data(G_OBJECT(clactor), "property", property);
     }
 
@@ -162,6 +166,33 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
         sprintf(bufferout,"                     hildon_animation_actor_set_scale(HILDON_ANIMATION_ACTOR (ha), %f, %f); \n", scale_x, scale_y); 
         property->scale_x = scale_x;
         property->scale_y = scale_y;
+        pout(bufferout);
+    }
+    angle = clutter_actor_get_rotation(clactor, CLUTTER_X_AXIS, &rx, &ry, &rz);
+    if (angle != property->angle_x || rx != property->rxx || ry != property->ryx || rz != property->rzx){
+        sprintf(bufferout,"                     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_X_AXIS, %f, %i, %i, %i);\n",angle, rx, ry, rz); 
+        property->angle_x = angle;
+        property->rxx = rx;
+        property->ryx = ry;
+        property->rzx = rz;
+        pout(bufferout);
+    }
+    angle = clutter_actor_get_rotation(clactor, CLUTTER_Y_AXIS, &rx, &ry, &rz);
+    if (angle != property->angle_y || rx != property->rxy || ry != property->ryy || rz != property->rzy){
+        sprintf(bufferout,"                     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Y_AXIS, %f, %i, %i, %i);\n",angle, rx, ry, rz); 
+        property->angle_y = angle;
+        property->rxy = rx;
+        property->ryy = ry;
+        property->rzy = rz;
+        pout(bufferout);
+    }
+    angle = clutter_actor_get_rotation(clactor, CLUTTER_Y_AXIS, &rx, &ry, &rz);
+    if (angle != property->angle_z || rx != property->rxz || ry != property->ryz || rz != property->rzz){
+        sprintf(bufferout,"                     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Z_AXIS, %f, %i, %i, %i);\n",angle, rx, ry, rz); 
+        property->angle_z = angle;
+        property->rxz = rx;
+        property->ryz = ry;
+        property->rzz = rz;
         pout(bufferout);
     }
     sprintf(bufferout,"                 }\n \

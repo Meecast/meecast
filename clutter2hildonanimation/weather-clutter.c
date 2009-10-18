@@ -145,7 +145,7 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
 
     if (property->x != clutter_actor_get_x(clactor) ||
         property->y != clutter_actor_get_y(clactor)){
-        sprintf(bufferout,"                     if (fullwindow) { \n \
+        sprintf(bufferout,"                     if (!fullwindow) { \n \
                           hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), \n \
                           oh->icon_widget->allocation.x + \n \
                           (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationx, \n \
@@ -371,11 +371,10 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
 \n \
        if (oh->timeline >=2){ \n \
             window = oh->window; \n \
-            fprintf(stderr, \"point %%p name %%s\",window, gtk_widget_get_name(GTK_WIDGET(window)));\n \
             if (window && gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN)\n \
-                    fullwindow = TRUE;\n \
+                fullwindow = TRUE;\n \
             else\n\
-                    fullwindow = FALSE;\n \
+                fullwindow = FALSE;\n \
        } \n \ 
        r ++;\n \
        if (!oh)\n \

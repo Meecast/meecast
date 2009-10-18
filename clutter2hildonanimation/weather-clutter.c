@@ -131,7 +131,7 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
         property = g_new(actor_property, 1);
         property->x = 0;
         property->y = 0;
-        property->opacity = 255;
+        property->opacity = 0;
         property->rxx = 0; property->ryx = 0; property->rzx = 0;
         property->rxy = 0; property->ryy = 0; property->rzy = 0;
         property->rxz = 0; property->ryz = 0; property->rzz = 0;
@@ -145,12 +145,20 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
 
     if (property->x != clutter_actor_get_x(clactor) ||
         property->y != clutter_actor_get_y(clactor)){
-        sprintf(bufferout,"                     hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), \n \
-                         oh->icon_widget->allocation.x + \n \
-                         (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationx, \n \
-                         oh->icon_widget->allocation.y + \n \
-                         (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationy,\n \
-                         0);\n", clutter_actor_get_x(clactor), clutter_actor_get_y(clactor)); 
+        sprintf(bufferout,"                     if (fullwindow) { \n \
+                          hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), \n \
+                          oh->icon_widget->allocation.x + \n \
+                          (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationx, \n \
+                          oh->icon_widget->allocation.y + \n \
+                          (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationy + SIZE_OF_WINDOWS_HEAD,\n \
+                          0);\n}\nelse{\n \
+                          hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), \n \
+                          oh->icon_widget->allocation.x + \n \
+                          (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationx, \n \
+                          oh->icon_widget->allocation.y + \n \
+                          (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationy,\n \
+                          0);\n}\n \
+                         ", clutter_actor_get_x(clactor), clutter_actor_get_y(clactor), clutter_actor_get_x(clactor), clutter_actor_get_y(clactor)); 
         property->x = clutter_actor_get_x(clactor);
         property->y = clutter_actor_get_y(clactor);
         pout(bufferout);
@@ -222,11 +230,6 @@ animation_cb (SuperOH *oh)
         sprintf(bufferout,"                 list_temp = oh->list_images;\n \
                 "); 
         pout(bufferout);
-        window = g_object_get_data(G_OBJECT(oh->icon), "window");
-        if (window && gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN) 
-            fullwindow = TRUE;
-        else
-            fullwindow = FALSE;
 
         if CLUTTER_IS_GROUP(oh->icon){ 
             for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
@@ -360,10 +363,17 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
        GdkPixbuf        *pixbuf; \n \
        gchar  buffer[1024]; \n \
        GtkWidget *ha = NULL; \n \
+       GtkWidget *window = NULL; \n \
        GSList   *list_temp = NULL;\n \
        ClutterActor  *clactor = NULL; \n \
        gint allocationx = 0, allocationy = 0; \n \
+       gboolean fullwindow ; \n \ 
 \n \
+       window = oh->window; \n \
+       if (window && gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN)\n \
+            fullwindow = TRUE;\n \
+       else\n\
+            fullwindow = FALSE;\n \
        r ++;\n \
        if (!oh)\n \
            return FALSE;\n \

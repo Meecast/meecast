@@ -369,11 +369,13 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
        gint allocationx = 0, allocationy = 0; \n \
        gboolean fullwindow ; \n \ 
 \n \
-       window = oh->window; \n \
-       if (window && gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN)\n \
-            fullwindow = TRUE;\n \
-       else\n\
-            fullwindow = FALSE;\n \
+       if (oh->timeline >=2){ \n \
+            window = oh->window; \n \
+            if (window && gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN)\n \
+                    fullwindow = TRUE;\n \
+            else\n\
+                    fullwindow = FALSE;\n \
+       } \n \ 
        r ++;\n \
        if (!oh)\n \
            return FALSE;\n \

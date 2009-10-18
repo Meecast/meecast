@@ -371,6 +371,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
 \n \
        if (oh->timeline >=2){ \n \
             window = oh->window; \n \
+            fprintf(stderr, \"point %%p name %%s\",window, gtk_widget_get_name(GTK_WIDGET(window)));\n \
             if (window && gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN)\n \
                     fullwindow = TRUE;\n \
             else\n\

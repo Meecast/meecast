@@ -132,7 +132,7 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
         property = g_new(actor_property, 1);
         property->x = 0;
         property->y = 0;
-        property->opacity = 0;
+        property->opacity = 255;
         property->rxx = 0; property->ryx = 0; property->rzx = 0;
         property->rxy = 0; property->ryy = 0; property->rzy = 0;
         property->rxz = 0; property->ryz = 0; property->rzz = 0;

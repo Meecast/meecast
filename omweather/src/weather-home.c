@@ -1040,13 +1040,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     hd_home_plugin_item_set_settings (HD_HOME_PLUGIN_ITEM (applet), TRUE);
     hitem = applet->parent;
     app->home_window = &hitem;
-    fprintf(stderr,"First ddddddddddddd2222222 %p\n",(gpointer)app->home_window);
-    fprintf(stderr,"First ddddddddddddd1111111 %p\n",(gpointer)applet);
-    fprintf(stderr,"First string %s\n",hd_home_plugin_item_get_dl_filename (applet));
-    if (GTK_IS_WINDOW(app->home_window))
-        fprintf(stderr, "Name21111111 %s  \n",gtk_widget_get_name(GTK_WIDGET(app->home_window)));    
-    if (GTK_IS_WINDOW(applet))
-        fprintf(stderr, "Name2111222 %s  \n",gtk_widget_get_name(GTK_WIDGET(applet)));    
     app->home_window = applet;
     g_signal_connect (applet, "show-settings",
         G_CALLBACK (weather_window_settings), NULL);

@@ -242,6 +242,7 @@ change_knots_path(GSList *knots, gint need_size)
 /*******************************************************************************/
 void free_clutter_objects_list(GSList **clutter_objects) {
     static GSList *list_temp = NULL;
+    static GSList *list_temp_images = NULL;
     SuperOH *oh;
     ClutterActor  *clactor = NULL;
     GtkWidget *ha;
@@ -255,26 +256,13 @@ void free_clutter_objects_list(GSList **clutter_objects) {
     while (list_temp != NULL) {
         oh = list_temp->data;
         g_source_remove(oh->runtime);
-        if (oh->icon){
-            if CLUTTER_IS_GROUP(oh->icon){
-                for (i = 0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
-                    clactor = clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i);
-                    ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
-                    gtk_widget_destroy(ha);
-                }
-            }else{
-                clactor = oh->icon;
-                ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
-                gtk_widget_destroy(ha);
-            }
-            oh->icon = NULL;
-        }else{
-            if (oh->image){
-                ha = g_object_get_data(G_OBJECT(oh->image), "hildon_animation_actor");
-                gtk_widget_destroy(ha);
-           }
+        list_temp_images = oh->list_images;
+        while(list_temp_images != NULL){
+            ha = g_object_get_data(G_OBJECT(list_temp_images->data), "hildon_animation_actor");
+            gtk_widget_destroy(ha);
+            list_temp_images = g_slist_next(list_temp_images);
+        } 
 
-        }
         if (oh->icon_widget){
             gtk_widget_destroy(oh->icon_widget);
             oh->icon_widget = NULL;

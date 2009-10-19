@@ -371,7 +371,8 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
 \n \
        if (oh->timeline >=2){ \n \
             window = oh->window; \n \
-            if (window && gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN)\n \
+            if (window && (gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN || \n \
+                           !strcmp(gtk_widget_get_name(window), \"OmweatherDesktopWidget\")))\n \
                 fullwindow = TRUE;\n \
             else\n\
                 fullwindow = FALSE;\n \

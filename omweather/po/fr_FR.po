@@ -4,15 +4,12 @@
 # Pavel Fialko <pavelnf@gmail.com>, 2007.
 # vlad <vlad@gas.by>, 2007.
 # Vlad Vasiliev <vlad@gas.by>, 2007.
-#
-#
-# Nicolas Graziano <nicolas.graziano@gmail.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: omweather 0.21\n"
+"Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-17 10:53+0300\n"
-"PO-Revision-Date: 2009-09-20 18:56+0200\n"
+"PO-Revision-Date: 2009-10-19 22:43+0200\n"
 "Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
 "MIME-Version: 1.0\n"
@@ -1777,9 +1774,8 @@ msgid "falling"
 msgstr "tombant"
 
 #: src/weather-simple-popup.c:754
-#, fuzzy
 msgid "feels like"
-msgstr "Température ressentie"
+msgstr "ressentie"
 
 #: src/weather-home.c:1463 src/weather-settings.c:3864
 #: src/weather-popup.c:1118 src/weather-simple-settings.c:1066

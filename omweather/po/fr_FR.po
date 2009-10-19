@@ -1337,7 +1337,7 @@ msgstr "Définir"
 #: src/weather-home.c:1235 src/weather-simple-popup.c:835
 #: src/weather-simple-status.c:158
 msgid "Settings"
-msgstr "ParamÃÂ¨tres"
+msgstr "Paramètres"
 
 #: src/weather-settings.c:3301
 msgid "Short"

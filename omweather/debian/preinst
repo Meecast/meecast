@@ -1,0 +1,58 @@
+#!/bin/sh -e
+# This script can be called in the following ways:
+#
+# Before the package is installed:
+#   <new-preinst> install
+#
+# Before removed package is upgraded:
+#   <new-preinst> install <old-version>
+#
+# Before the package is upgraded:
+#   <new-preinst> upgrade <old-version>
+#
+#
+# If postrm fails during upgrade or fails on failed upgrade:
+#
+case "$1" in
+    install)
+    ;;
+
+    upgrade)
+    case "$2" in
+        # Upgrade from 0.24.x
+        0.24.[012345] )
+            [ -d /usr/share/omweather/icons/Glance ] && rm -rf /usr/share/omweather/icons/Glance
+            [ -d /usr/share/omweather/images ] && rm -rf /usr/share/omweather/images
+            [ -d /usr/share/omweather/button_icons ] && rm -rf /usr/share/omweather/button_icons
+            [ -d /usr/share/omweather/moon_icons ] && rm -rf /usr/share/omweather/moon_icons
+        ;;
+        # Upgrade from 0.23.x
+        0.23.[0-9] )
+            [ -d /usr/share/omweather/icons/Glance ] && rm -rf /usr/share/omweather/icons/Glance
+            [ -d /usr/share/omweather/images ] && rm -rf /usr/share/omweather/images
+            [ -d /usr/share/omweather/button_icons ] && rm -rf /usr/share/omweather/button_icons
+            [ -d /usr/share/omweather/moon_icons ] && rm -rf /usr/share/omweather/moon_icons
+        ;;
+        # Upgrade from 0.22.x
+        0.22.[0-9] )
+            [ -d /usr/share/omweather/icons/Glance ] && rm -rf /usr/share/omweather/icons/Glance
+            [ -d /usr/share/omweather/images ] && rm -rf /usr/share/omweather/images
+            [ -d /usr/share/omweather/button_icons ] && rm -rf /usr/share/omweather/button_icons
+            [ -d /usr/share/omweather/moon_icons ] && rm -rf /usr/share/omweather/moon_icons
+        ;;
+
+    esac
+    ;;
+
+    abort-upgrade)
+    ;;
+
+
+    *)
+    echo "$0 called with unknown argument \`$1'" 1>&2
+    exit 1
+    ;;
+esac
+
+#DEBHELPER#
+exit 0

@@ -14,6 +14,7 @@ omweather (0.24.6) unstable; urgency=low
   * Fixed some untranslated strings
   * Fixed bug #5363 "Theming bugs on buttons in settings and Forecast"
   * Fixed bug #5473 for omweather package "Small icon for all OMweather packages in application manager"
+  * Updated Finish, Russin, French translations
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 20 Oct 2009 19:15:10 +0200
 

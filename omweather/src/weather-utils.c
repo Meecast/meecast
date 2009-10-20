@@ -454,17 +454,17 @@ GtkWidget *create_scrolled_window_with_text(const char *text,
 /*******************************************************************************/
 /* get icon set names */
 int create_icon_set_list(gchar *dir_path, GSList ** store, gchar *type){
-    Dirent	*dp;
-    DIR		*dir_fd;
-    gint	sets_number = 0,
-		t = DT_DIR;
-#ifdef DEBUGFUNCTIONCALL
+    Dirent  *dp;
+    DIR     *dir_fd;
+    gint    sets_number = 0,
+            t = DT_DIR;
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
     if(!strcmp(type, "dir"))
-	t = DT_DIR;
+        t = DT_DIR;
     if(!strcmp(type, "file"))
-	t = DT_REG;
+        t = DT_REG;
     dir_fd = opendir(dir_path);
     if(dir_fd){
         while((dp = readdir(dir_fd))){
@@ -488,9 +488,9 @@ GtkWidget *
 create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list)
 {
     GtkWidget *icon_widget;
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
 
 #ifdef CLUTTER
     icon_widget = create_clutter_icon_animation(icon_buffer, icon_path, icon_size, objects_list);

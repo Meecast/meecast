@@ -331,8 +331,8 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                         (char*)g_hash_table_lookup(day, "day_icon"));
             icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, SMALL_ICON_SIZE,
                                                             SMALL_ICON_SIZE, NULL);
-            icon_image = create_icon_widget(icon_buffer, icon, SMALL_ICON_SIZE, &app->clutter_objects_in_popup_form);
-//            icon_image = create_icon_widget(icon_buffer, icon, SMALL_ICON_SIZE, NULL);
+/*            icon_image = create_icon_widget(icon_buffer, icon, SMALL_ICON_SIZE, &app->clutter_objects_in_popup_form); */
+            icon_image = create_icon_widget(icon_buffer, icon, SMALL_ICON_SIZE, NULL);
             if(icon_image){
                 gtk_box_pack_start(GTK_BOX(line_hbox), icon_image, FALSE, TRUE, 0);
                 gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
@@ -722,10 +722,11 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                            (char*)g_hash_table_lookup(hour_weather, "hour_icon"));
                 icon = gdk_pixbuf_new_from_file_at_size(buffer, SMALL_ICON_SIZE,
                                                       SMALL_ICON_SIZE, NULL);
-                icon_image = create_icon_widget(icon, buffer, SMALL_ICON_SIZE,
+/*                icon_image = create_icon_widget(icon, buffer, SMALL_ICON_SIZE,
                             &app->clutter_objects_in_popup_form);
-//                icon_image = create_icon_widget(icon, buffer, SMALL_ICON_SIZE,
-//                                             NULL);
+*/
+                icon_image = create_icon_widget(icon, buffer, SMALL_ICON_SIZE,
+                                             NULL);
                 if(icon_image){
                     gtk_box_pack_start(GTK_BOX(line_hbox), icon_image, FALSE, 
                                                                           TRUE, 0);

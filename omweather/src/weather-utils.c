@@ -488,9 +488,9 @@ GtkWidget *
 create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list)
 {
     GtkWidget *icon_widget;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
 #ifdef CLUTTER
     icon_widget = create_clutter_icon_animation(icon_buffer, icon_path, icon_size, objects_list);

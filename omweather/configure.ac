@@ -251,7 +251,7 @@ AC_ARG_ENABLE(hildonanimation,
 
 
 if test "$hildonanimation" == "true"; then
-    PKG_CHECK_MODULES(HILDONANIMATION, [clutter-0.8])
+#    PKG_CHECK_MODULES(HILDONANIMATION, [clutter-0.8])
     AC_DEFINE(HILDONANIMATION, 1, [Enable Hildon Animation])
     AC_SUBST(HILDONANIMATION_CFLAGS)
     AC_SUBST(HILDONANIMATION_LIBS)

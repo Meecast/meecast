@@ -74,10 +74,6 @@
     #include <location/location-gpsd-control.h>
 #endif
 
-#ifdef HILDONANIMATION
-    #include <clutter/clutter.h>
-#endif
-
 #ifdef CLUTTER
     #include <clutter/clutter.h>
     #include <clutter-gtk/gtk-clutter-embed.h>
@@ -329,12 +325,13 @@ typedef struct applet_config{
 /*******************************************************************************/
 #if defined CLUTTER || defined OS2009
 typedef struct SuperOH{
+#if defined CLUTTER 
+  ClutterTimeline       *timeline;
   ClutterActor          *icon;
   ClutterGroup          *group;
   ClutterActor          *stage;
   ClutterScript         *script;
-#if defined CLUTTER 
-  ClutterTimeline       *timeline;
+  ClutterActor          *bgtex;
 #else
   gint                  timeline;
 #endif
@@ -344,7 +341,6 @@ typedef struct SuperOH{
   GtkWidget             *icon_widget;
   GtkWidget             *window;
   GdkPixbuf             *bgpixb;
-  ClutterActor          *bgtex;
   GSList                *list_images;
   guint                 runtime;
   guint                 merge_id;

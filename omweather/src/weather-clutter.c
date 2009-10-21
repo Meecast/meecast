@@ -119,9 +119,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
 {
     SuperOH *oh;
     GError *error = NULL;
-    ClutterActor  *clactor = NULL;
-    ClutterColor stage_color;
-    ClutterColor   text_color = {0, 0, 0, 255};
+    GtkWidget  *clactor = NULL;
     gchar  buffer[1024];
     gchar  icon_name[3];
     gint   i;
@@ -142,9 +140,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
 
     oh = g_new(SuperOH, 1);
     oh->timeline = 0;
-    oh->icon = NULL;
     oh->image = NULL;
-    oh->script = NULL;
     oh->list_images = NULL;
     oh->icon_size = icon_size;
 
@@ -163,7 +159,6 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
     gtk_widget_set_size_request (oh->icon_widget, icon_size, icon_size);
 
     sprintf(buffer, "icon_name_%s", icon_name);
-    oh->icon = NULL;
     choose_icon_timeline(oh);
     *objects_list = g_slist_append(*objects_list, oh);
     gtk_widget_show_all(oh->icon_widget);
@@ -176,7 +171,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
 show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
     GSList   *list_temp = NULL;
     SuperOH         *oh;
-    ClutterActor  *clactor = NULL;
+    GtkWidget  *clactor = NULL;
     GdkPixbuf *pixbuf;
     GError *error;
     error = NULL;
@@ -209,42 +204,11 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
 #endif
 }
 /*******************************************************************************/
-void
-change_actor_size_and_position(ClutterActor *actor, gint need_size)
-{
-    guint h,w;
-    gint x,y;
-    if (!actor)
-        return;
-    w = clutter_actor_get_width(actor);
-    h = clutter_actor_get_height(actor);
-    x = clutter_actor_get_x(actor);
-    y = clutter_actor_get_y(actor);
-    clutter_actor_set_width(actor,(((need_size*100)/GIANT_ICON_SIZE) * w/100)); /* GIANT_ICON_SIZE must be 128 */ 
-    clutter_actor_set_height(actor,(((need_size*100)/GIANT_ICON_SIZE) * h/100)); /* GIANT_ICON_SIZE must be 128 */ 
-    clutter_actor_set_x(actor,(((need_size*100)/GIANT_ICON_SIZE) * x/100)); /* GIANT_ICON_SIZE must be 128 */ 
-    clutter_actor_set_y(actor,(((need_size*100)/GIANT_ICON_SIZE) * y/100)); /* GIANT_ICON_SIZE must be 128 */ 
-    
-}
-/*******************************************************************************/
-void
-change_knots_path(GSList *knots, gint need_size)
-{
-    GList  *ks;
-    ClutterKnot *knot;
-    for (ks = knots; ks != NULL; ks = ks->next){
-        knot = ks->data;
-        knot->x = (((need_size*100)/GIANT_ICON_SIZE) * knot->x/100);
-        knot->y = (((need_size*100)/GIANT_ICON_SIZE) * knot->y/100);
-    }
-}
-
-/*******************************************************************************/
 void free_clutter_objects_list(GSList **clutter_objects) {
     static GSList *list_temp = NULL;
     static GSList *list_temp_images = NULL;
     SuperOH *oh;
-    ClutterActor  *clactor = NULL;
+    GtkWidget  *clactor = NULL;
     GtkWidget *ha;
     gint i;
 //#ifdef DEBUGFUNCTIONCALL

@@ -950,10 +950,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     /* Fix ME added config value */
     app->clutter_script = NULL;
 #endif
-#ifdef HILDONANIMATION
-    fprintf(stderr,"Clutter INIT !!!!!!!!!!!!!!!!!!!\n");
-    clutter_init(NULL, NULL);
-#endif
     app->clutter_objects_in_main_form = NULL;
     app->clutter_objects_in_popup_form = NULL;
 

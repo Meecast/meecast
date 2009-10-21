@@ -31,10 +31,13 @@
 /*******************************************************************************/
 #include <sqlite3.h>
 #include <string>
+#include <set>
 #include <map>
+#include <vector>
 #include "omweather-stations.hpp"
 /*******************************************************************************/
-typedef std::map<std::string,std::string> Result;
+typedef std::map<std::string,std::string> Item;
+typedef std::vector<Item> Result;
 int callback(void*, int, char**, char**);
 /*******************************************************************************/
 class Database{
@@ -46,6 +49,7 @@ class Database{
         bool open(const std::string);
         void close();
         bool countries(CountriesList&);
+        bool regions(int, RegionsList&);
 };
 /*******************************************************************************/
 #endif

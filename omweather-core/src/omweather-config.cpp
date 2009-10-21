@@ -85,11 +85,11 @@ void Config::prepare_read(){
 
     home_dir = getenv("HOME");
     if(home_dir.empty()){
-        filename = "/tmp/";
+        filename = "/tmp/" + "omweather/";
         filename += XMLNAME;
     }
     else
-        filename = home_dir + "/" + XMLNAME;
+        filename = home_dir + "/" + "omweather/" + XMLNAME;
 
     std::ifstream file(filename.c_str());
     if(file.is_open())
@@ -166,7 +166,7 @@ void Config::parse_children(xmlNode *node){
                 cache_directory = (char*)val;
                 xmlFree(val);
                 if(cache_directory.empty())
-                    cache_directory = home_dir + "/apps/omweather";
+                    cache_directory = home_dir + "/omweather/";
             }
             /* icons-preset */
             if(!xmlStrcmp(node->name, (const xmlChar*)"icons-preset")){

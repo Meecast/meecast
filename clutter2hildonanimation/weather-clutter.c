@@ -150,35 +150,35 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
                           oh->icon_widget->allocation.x + \n \
                           (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationx, \n \
                           oh->icon_widget->allocation.y + \n \
-                          (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationy + SIZE_OF_WINDOWS_HEAD,\n \
-                          0);\n}\nelse{\n \
+                          (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationy + SIZE_OF_WINDOWS_HEAD, 0);\n \
+                    }else{\n \
                           hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), \n \
                           oh->icon_widget->allocation.x + \n \
                           (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationx, \n \
                           oh->icon_widget->allocation.y + \n \
                           (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100) + allocationy,\n \
-                          0);\n}\n \
-                         ", clutter_actor_get_x(clactor), clutter_actor_get_y(clactor), clutter_actor_get_x(clactor), clutter_actor_get_y(clactor)); 
+                          0);\n \
+                    }\n", clutter_actor_get_x(clactor), clutter_actor_get_y(clactor), clutter_actor_get_x(clactor), clutter_actor_get_y(clactor)); 
         property->x = clutter_actor_get_x(clactor);
         property->y = clutter_actor_get_y(clactor);
         pout(bufferout);
     }
     if (property->opacity!= clutter_actor_get_opacity(clactor)){
-        sprintf(bufferout,"                     hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), %i); \n", clutter_actor_get_opacity(clactor)); 
+        sprintf(bufferout,"                      hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), %i); \n", clutter_actor_get_opacity(clactor)); 
         property->opacity = clutter_actor_get_opacity(clactor);
         pout(bufferout);
     }
     clutter_actor_get_scale(clactor, &scale_x, &scale_y);
     if (property->scale_x != scale_x || property->scale_y != scale_y){
-        sprintf(bufferout,"                     hildon_animation_actor_set_scale(HILDON_ANIMATION_ACTOR (ha), %f, %f); \n", scale_x, scale_y); 
+        sprintf(bufferout,"                      hildon_animation_actor_set_scale(HILDON_ANIMATION_ACTOR (ha), %f, %f); \n", scale_x, scale_y); 
         property->scale_x = scale_x;
         property->scale_y = scale_y;
         pout(bufferout);
     }
     angle = clutter_actor_get_rotation(clactor, CLUTTER_X_AXIS, &rx, &ry, &rz);
     if (angle != property->angle_x || rx != property->rxx || ry != property->ryx || rz != property->rzx){
-        if (rx < 1024){
-            sprintf(bufferout,"                     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_X_AXIS, %f, %i, %i, %i);\n",angle, rx, ry, rz); 
+        if (rx < 1024 || rx >= 0 ){
+            sprintf(bufferout,"                      hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_X_AXIS, %f, %i, %i, %i);\n",angle, rx, ry, rz); 
             pout(bufferout);
         }
         property->angle_x = angle;
@@ -188,21 +188,25 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
     }
     angle = clutter_actor_get_rotation(clactor, CLUTTER_Y_AXIS, &rx, &ry, &rz);
     if (angle != property->angle_y || rx != property->rxy || ry != property->ryy || rz != property->rzy){
-        sprintf(bufferout,"                     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Y_AXIS, %f, %i, %i, %i);\n",angle, rx, ry, rz); 
+        if (rx < 1024 || rx >= 0){
+            sprintf(bufferout,"                     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Y_AXIS, %f, %i, %i, %i);\n",angle, rx, ry, rz); 
+            pout(bufferout);
+        }
         property->angle_y = angle;
         property->rxy = rx;
         property->ryy = ry;
         property->rzy = rz;
-        pout(bufferout);
     }
     angle = clutter_actor_get_rotation(clactor, CLUTTER_Z_AXIS, &rx, &ry, &rz);
     if (angle != property->angle_z || rx != property->rxz || ry != property->ryz || rz != property->rzz){
-        sprintf(bufferout,"                     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Z_AXIS, %f, %i, %i, %i);\n",angle, rx, ry, rz); 
+        if (rx < 1024 || rx >= 0){
+            sprintf(bufferout,"                     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Z_AXIS, %f, %i, %i, %i);\n",angle, rx, ry, rz); 
+            pout(bufferout);
+        }
         property->angle_z = angle;
         property->rxz = rx;
         property->ryz = ry;
         property->rzz = rz;
-        pout(bufferout);
     }
     sprintf(bufferout,"                 }\n \
                 list_temp = g_slist_next(list_temp);\n \
@@ -359,7 +363,6 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
     sprintf(bufferout,"icon%s_timeline (SuperOH *oh)\n", icon_name);
     pout(bufferout);
     sprintf(bufferout,"{ \n \
-       static int r = 0; \n \
        GdkPixbuf  *pixbuf; \n \
        gchar      buffer[1024]; \n \
        GtkWidget  *ha = NULL; \n \
@@ -376,7 +379,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
                 fullwindow = TRUE;\n \
             else\n\
                 fullwindow = FALSE;\n \
-       } \n \ 
+       } \n \
        r ++;\n \
        if (!oh)\n \
            return FALSE;\n \
@@ -393,16 +396,16 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
            for (i = 0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
                 ha = hildon_animation_actor_new();
                 clactor = clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i);
-                sprintf(bufferout,"pixbuf = gdk_pixbuf_new_from_file_at_size (\"%s\",\n",clutter_actor_get_name(clactor));
+                sprintf(bufferout,"             pixbuf = gdk_pixbuf_new_from_file_at_size (\"%s\",\n",clutter_actor_get_name(clactor));
                 pout(bufferout);
-                sprintf(bufferout,"           (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100), \n", clutter_actor_get_width(clactor));
+                sprintf(bufferout,"              (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100), \n", clutter_actor_get_width(clactor));
                 pout(bufferout);
-                sprintf(bufferout,"            (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100), \n", clutter_actor_get_height(clactor));
+                sprintf(bufferout,"              (((oh->icon_size*100)/GIANT_ICON_SIZE) * %i/100), \n", clutter_actor_get_height(clactor));
                 pout(bufferout);
                 sprintf(bufferout,"                   NULL);\n");
                 pout(bufferout);
                 sprintf(bufferout,"\n \
-                if (pixbuf){ \n \
+            if (pixbuf){ \n \
                 oh->image = gtk_image_new_from_pixbuf (pixbuf);\n \
                 g_object_unref(G_OBJECT(pixbuf));\n \
                 oh->list_images = g_slist_append(oh->list_images, oh->image);\n \
@@ -415,11 +418,9 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
                            G_OBJECT(oh->image), \"hildon_animation_actor\", ha);\n"); 
             
                 pout(bufferout);
-                sprintf(bufferout,"            hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), 0); \n" ); 
+                sprintf(bufferout,"             hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), 0); \n" ); 
                 pout(bufferout);
 
- 
-//                fprintf(stderr,"ddddddddddddd %s\n", clutter_actor_get_name(clactor));
                 pixbuf = gdk_pixbuf_new_from_file_at_size (clutter_actor_get_name(clactor), 
                                                            clutter_actor_get_width(clactor), 
                                                            clutter_actor_get_height(clactor), 

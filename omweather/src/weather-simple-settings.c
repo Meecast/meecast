@@ -2157,19 +2157,19 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
     START_FUNCTION;
 #endif
     if(app->config->icons_layout == PRESET_NOW_PLUS_SEVEN)
-        widget_style_string = "Now + 7 days vert.";
+        widget_style_string = _("Now + 7 days vert.");
     else{
         if(app->config->icons_layout == PRESET_NOW_PLUS_TWO)
-            widget_style_string = "Now, today and tomorrow";
+            widget_style_string = _("Now, today and tomorrow");
         else{
             if(app->config->icons_layout == PRESET_NOW_PLUS_THREE_V)
-                widget_style_string = "Now + 3 days vert.";
+                widget_style_string = _("Now + 3 days vert.");
             else{
                 if(app->config->icons_layout == PRESET_NOW)
-                    widget_style_string = "Now";
+                    widget_style_string = _("Now");
                 else{
                     if(app->config->icons_layout == PRESET_NOW_PLUS_THREE_H)
-                        widget_style_string = "Now + 3 days hor.";
+                        widget_style_string = _("Now + 3 days hor.");
                 }
             }
         }

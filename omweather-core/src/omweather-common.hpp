@@ -42,6 +42,19 @@
 #include <libxml/tree.h>
 #include <stdlib.h>
 #include <string.h>
+#if defined (BSD) && !_POSIX_SOURCE
+#include <sys/dir.h>
+typedef struct dirent Dirent;
+#else
+#include <dirent.h>
+#include <linux/fs.h>
+typedef struct dirent Dirent;
+#endif
+/*******************************************************************************/
+/* Hack for Maemo SDK 2.0 */
+#ifndef DT_DIR
+#define DT_DIR 4
+#endif
 /*******************************************************************************/
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, NOW,
         NOW_PLUS_TWO, NOW_PLUS_THREE_V, NOW_PLUS_THREE_H, NOW_PLUS_SEVEN,

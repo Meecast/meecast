@@ -31,24 +31,12 @@
 /*******************************************************************************/
 #include <string>
 #include <vector>
-#if defined (BSD) && !_POSIX_SOURCE
-#include <sys/dir.h>
-typedef struct dirent Dirent;
-#else
-#include <dirent.h>
-#include <linux/fs.h>
-typedef struct dirent Dirent;
-#endif
+
 #include "omweather-common.hpp"
 /*******************************************************************************/
 #define SOURCESPATH "/usr/share/omweather/sources/"
 #define SOURCES_LIB "/usr/lib/omweather/"
 #define DATABASEPATH "/usr/share/omweather/db/"
-/*******************************************************************************/
-/* Hack for Maemo SDK 2.0 */
-#ifndef DT_DIR
-#define DT_DIR 4
-#endif
 /*******************************************************************************/
 class Source{
     std::string         source_name;

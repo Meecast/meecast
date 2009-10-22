@@ -87,11 +87,19 @@ void Config::prepare_read(){
     if(home_dir.empty()){
         filename = "/tmp/";
         filename += "omweather/";
-        filename += XMLNAME;
     }
     else
-        filename = home_dir + "/" + "omweather/" + XMLNAME;
+        filename = home_dir + "/" + "omweather/";
+    
+    DIR *dir = opendir(filename.c_str());
+    if(!dir){
+        if(mkdir(filename.c_str(), 0755) == -1) /* error */
+            return;
+    }
+    else
+        closedir(dir);
 
+    filename += XMLNAME;    
     std::ifstream file(filename.c_str());
     if(file.is_open())
         file.close();

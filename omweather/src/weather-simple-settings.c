@@ -1863,7 +1863,7 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
     START_FUNCTION;
 #endif
 
-    snprintf(buffer, sizeof(buffer) - 1, "Station %i", station_number + 1);
+    snprintf(buffer, sizeof(buffer) - 1, "%s %i", _("Station"), station_number + 1);
     button = create_button_with_2_line_text(buffer, station_name_s, 18, 12);
     g_object_set_data(G_OBJECT(button), "station_number", (gpointer)station_number);
     g_object_set_data(G_OBJECT(button), "station_name", (gpointer)station_name_s);
@@ -1911,6 +1911,7 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
     START_FUNCTION;
 #endif
     box = gtk_hbox_new(TRUE, 10);
+    gtk_widget_set_size_request(box, 650, -1);
     valid =
         gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                       (app->user_stations_list), &iter);

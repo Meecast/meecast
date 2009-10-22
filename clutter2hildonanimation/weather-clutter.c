@@ -360,12 +360,12 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
     pout(bufferout);
     sprintf(bufferout,"{ \n \
        static int r = 0; \n \
-       GdkPixbuf        *pixbuf; \n \
-       gchar  buffer[1024]; \n \
-       GtkWidget *ha = NULL; \n \
-       GtkWidget *window = NULL; \n \
-       GSList   *list_temp = NULL;\n \
-       ClutterActor  *clactor = NULL; \n \
+       GdkPixbuf  *pixbuf; \n \
+       gchar      buffer[1024]; \n \
+       GtkWidget  *ha = NULL; \n \
+       GtkWidget  *window = NULL; \n \
+       GSList     *list_temp = NULL;\n \
+       GtkWidget  *clactor = NULL; \n \
        gint allocationx = 0, allocationy = 0; \n \
        gboolean fullwindow ; \n \
 \n \

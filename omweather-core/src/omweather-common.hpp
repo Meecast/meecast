@@ -67,13 +67,14 @@ enum { ICON, STATION };
 #define Max_count_weather_day   10
 #define ICONS_PATH              "/usr/share/omweather/icons/"
 /*******************************************************************************/
-typedef struct{
-    unsigned r;
-    unsigned g;
-    unsigned b;
-    void set(const char* color);
-    const char* get();
-}Color;
+class Color{
+    public:
+        unsigned r;
+        unsigned g;
+        unsigned b;
+        void set(const char* color);
+        const char* get();
+};
 /*******************************************************************************/
 class Param{
     public:

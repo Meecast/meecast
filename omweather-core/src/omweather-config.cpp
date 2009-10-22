@@ -85,7 +85,8 @@ void Config::prepare_read(){
 
     home_dir = getenv("HOME");
     if(home_dir.empty()){
-        filename = "/tmp/" + "omweather/";
+        filename = "/tmp/";
+        filename += "omweather/";
         filename += XMLNAME;
     }
     else

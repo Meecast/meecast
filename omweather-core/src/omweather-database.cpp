@@ -114,7 +114,7 @@ bool Database::regions(int country_id, RegionsList& list){
     Result *r = new Result;
     r->clear();
     list.clear();
-    std::string sql = "SELECT id, name, longititudemax, latitudemax, longititudemin,                    latitudemin FROM regions WHERE country_id = ";
+    std::string sql = "SELECT id, name, longititudemax, latitudemax, longititudemin, latitudemin FROM regions WHERE country_id = ";
     sql += country_id + " ORDER BY name";
     int rc = sqlite3_exec(db, sql.c_str(), callback, (void*)r, &errMsg);
     if(rc != SQLITE_OK){

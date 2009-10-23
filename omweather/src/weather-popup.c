@@ -129,7 +129,7 @@ create_sun_time_widget(GHashTable *day){
         strftime(temp_buffer, sizeof(temp_buffer) - 1,
                     "%X", &time_show);
         /* Remove chars of seconds */
-        memmove(temp_buffer + 4,temp_buffer + 7, 6);
+        memmove(temp_buffer + 5, temp_buffer + 8, 5);
         strcat(buffer, temp_buffer);
     }
 
@@ -145,7 +145,7 @@ create_sun_time_widget(GHashTable *day){
         strftime(temp_buffer, sizeof(temp_buffer) - 1,
                     "%X ", &time_show);
         /* Remove chars of seconds */
-        memmove(temp_buffer + 4,temp_buffer + 7, 6);
+        memmove(temp_buffer + 5, temp_buffer + 8, 5);
         strcat(buffer, temp_buffer);
     }
     main_label = gtk_label_new(buffer);
@@ -910,7 +910,7 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
 
             strftime(temp_buffer, sizeof(temp_buffer) - 1, "%X", &time_show);
             /* Remove chars of seconds */
-            memmove(temp_buffer + 4, temp_buffer + 7, 6);
+            memmove(temp_buffer + 5, temp_buffer + 8, 5);
             strcat(buffer, temp_buffer);
         }
         day_text = gtk_label_new(buffer);
@@ -1002,7 +1002,7 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
 
         strftime(temp_buffer, sizeof(temp_buffer) - 1, "%X", &time_show);
         /* Remove chars of seconds */
-        memmove(temp_buffer + 4, temp_buffer + 7, 6);
+        memmove(temp_buffer + 5, temp_buffer + 8, 5);
         strcat(buffer, temp_buffer);
     }
     night_text = gtk_label_new(buffer);

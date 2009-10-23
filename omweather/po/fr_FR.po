@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-10-23 17:12+0300\n"
-"PO-Revision-Date: 2009-10-19 22:43+0200\n"
+"PO-Revision-Date: 2009-10-23 21:52+0200\n"
 "Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
 "MIME-Version: 1.0\n"
@@ -1032,19 +1032,19 @@ msgstr "Maintenant"
 
 #: src/weather-simple-settings.c:2172
 msgid "Now + 3 days hor."
-msgstr ""
+msgstr "Maintenant + 3 j hor."
 
 #: src/weather-simple-settings.c:2166
 msgid "Now + 3 days vert."
-msgstr ""
+msgstr "Maintenant + 3 j vert."
 
 #: src/weather-simple-settings.c:2160
 msgid "Now + 7 days vert."
-msgstr ""
+msgstr "Maintenant + 7 j vert."
 
 #: src/weather-simple-settings.c:2163
 msgid "Now, today and tomorrow"
-msgstr ""
+msgstr "Maintenant, aujourd'hui et demain"
 
 #: src/weather-home.c:1390
 #, c-format
@@ -1474,9 +1474,8 @@ msgid "State:"
 msgstr "Etat :"
 
 #: src/weather-simple-settings.c:1866
-#, fuzzy
 msgid "Station"
-msgstr "Stations"
+msgstr "Station"
 
 #: src/weather-settings.c:1115 src/weather-settings.c:1293
 #: src/weather-settings.c:1298

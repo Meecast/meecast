@@ -386,7 +386,7 @@ get_station_code(gchar *source, gint region_id, gchar *station_name){
     list = gtk_list_store_new(1, G_TYPE_STRING);
     /* Correct SQL */
     snprintf(sql, sizeof(sql) - 1, "Select code from nstations \
-                                    where name='%s' and region_id='%i'", station_name, region_id);
+                                    where name=\"%s\" and region_id=\"%i\"", station_name, region_id);
     rc = sqlite3_exec(database, sql, get_station_code_callback, (void*)list, &errMsg);
     if(rc != SQLITE_OK){
 #ifndef RELEASE

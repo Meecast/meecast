@@ -10,6 +10,8 @@ omweather (0.24.7) unstable; urgency=low
   * Fixed bug in UI "If city with long names are set in Station 1 and
     Station 2, the settings dialog moves the Station 4 box to the right and almost off the screen.(http://www.tinypic.com/r/2h5uvcj/4)"
   * Fixed bug #5627 "Missing strings for localization"
+  * Fixed problem with stations which include symbol "'" in the name
+  * Fixed small memory leak in settings window
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 20 Oct 2009 19:15:10 +0200
 

@@ -431,7 +431,9 @@ download_html(gpointer data){
                         html_file.filename = NULL;
                     }
                 }
-                if(curl_handle_hour && msg->easy_handle == curl_handle_hour && app->config->show_weather_for_two_hours){
+                if(curl_handle_hour &&
+                   msg->easy_handle == curl_handle_hour &&
+                   app->config->show_weather_for_two_hours){
                     mret = curl_multi_remove_handle(curl_multi, curl_handle_hour);  /* Delete curl_handle from curl_multi */
                     if(mret != CURLM_OK)
                         fprintf(stderr, " Error remove handle %p\n",curl_handle);
@@ -450,7 +452,7 @@ download_html(gpointer data){
                             html_file_hour.filename = NULL;
                     }
                 }
-                if(msg->data.result != CURLE_OK){     /* Not success of the download */
+                if(msg->data.result && msg->data.result != CURLE_OK){     /* Not success of the download */
                     if(app->show_update_window)
                         hildon_banner_show_information
                             (app->main_window, NULL, _("Did not download weather"));

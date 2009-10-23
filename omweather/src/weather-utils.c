@@ -523,7 +523,7 @@ update_icons_set_base(const char *icon_set_name){
     int fd = -1;
 
     /* check current iconset directory */
-    if (!icon_set_name && (fd = open(app->config->icons_set_base, O_RDONLY)) != -1) {
+    if (!icon_set_name && app && app->config->icons_set_base && (fd = open(app->config->icons_set_base, O_RDONLY)) != -1) {
         close(fd);
         return;
     }

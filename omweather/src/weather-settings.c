@@ -3192,7 +3192,7 @@ create_iconsets_line(GtkWidget *window, gint icon_size, gint mode){
         GLADE_HOOKUP_OBJECT(window, button, (gchar *) (tmp->data));
         gtk_box_pack_start(GTK_BOX(iconsets_hbox), button, FALSE, FALSE,
                            0);
-        if (!strcmp(tmp->data, app->config->icon_set))
+        if (tmp->data && app->config->icon_set && !strcmp(tmp->data, app->config->icon_set))
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button), TRUE);
         if (mode == EXTENDED_MODE)
             g_signal_connect(button, "clicked",

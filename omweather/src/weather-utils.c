@@ -458,9 +458,9 @@ int create_icon_set_list(gchar *dir_path, GSList ** store, gchar *type){
     DIR     *dir_fd;
     gint    sets_number = 0,
             t = DT_DIR;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if(!strcmp(type, "dir"))
         t = DT_DIR;
     if(!strcmp(type, "file"))
@@ -470,7 +470,7 @@ int create_icon_set_list(gchar *dir_path, GSList ** store, gchar *type){
         while((dp = readdir(dir_fd))){
             if(!strcmp(dp->d_name, ".") || !strcmp(dp->d_name, ".."))
                 continue;
-            if(dp->d_type == t){
+            if(dp->d_type == t || dp->d_type == DT_LNK){
                 *store = g_slist_append(*store, g_strdup(dp->d_name));
                 sets_number++;
             }

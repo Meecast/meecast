@@ -14,8 +14,9 @@ omweather (0.24.7) unstable; urgency=low
   * Fixed small memory leak in settings window
   * Fixed bug #5591 "Sunrise and sunset is not correct on detailed view"
   * Fixed layouts "Now, today and tommorow"  and "Now + e days vert."
+  * Fixed critical bug #5747 "OMWeather applet crashes when "Widget style" button is used"
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 20 Oct 2009 19:15:10 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 25 Oct 2009 12:17:20 +0200
 
 omweather (0.24.6) unstable; urgency=low
 

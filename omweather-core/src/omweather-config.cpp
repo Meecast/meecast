@@ -44,9 +44,12 @@ Config::Config(){
     root_node = NULL;
     home_dir.clear();
     version.clear();
+//    version = __VERSION__;
+    version = "0.25";
     cache_directory.clear();
     current_icons_set.clear();
     font.clear();
+    font = "Sans 12";
     last_source.clear();
     last_country.clear();
     current_station_name.clear();
@@ -132,42 +135,56 @@ void Config::parse_children(xmlNode *node){
                 val = xmlNodeGetContent(node);
                 version = (char*)val;
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* current-station-source */
             if(!xmlStrcmp(node->name, (const xmlChar*)"current-station-source")){
                 val = xmlNodeGetContent(node);
                 current_station_source = (char*)val;
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* current-station-name */
             if(!xmlStrcmp(node->name, (const xmlChar*)"current-station-name")){
                 val = xmlNodeGetContent(node);
                 current_station_name = (char*)val;
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* current-station-code */
             if(!xmlStrcmp(node->name, (const xmlChar*)"current-station-code")){
                 val = xmlNodeGetContent(node);
                 current_station_code = (char*)val;
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* current-icons-set */
             if(!xmlStrcmp(node->name, (const xmlChar*)"current-icons-set")){
                 val = xmlNodeGetContent(node);
                 current_icons_set = (char*)val;
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* last-source */
             if(!xmlStrcmp(node->name, (const xmlChar*)"last-source")){
                 val = xmlNodeGetContent(node);
                 last_source = (char*)val;
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* last-country */
             if(!xmlStrcmp(node->name, (const xmlChar*)"last-country")){
                 val = xmlNodeGetContent(node);
                 last_country = (char*)val;
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* cache-directory */
             if(!xmlStrcmp(node->name, (const xmlChar*)"cache-directory")){
@@ -176,30 +193,40 @@ void Config::parse_children(xmlNode *node){
                 xmlFree(val);
                 if(cache_directory.empty())
                     cache_directory = home_dir + "/omweather/";
+                node = node->next;
+                continue;
             }
             /* icons-preset */
             if(!xmlStrcmp(node->name, (const xmlChar*)"icons-preset")){
                 val = xmlNodeGetContent(node);
                 icons_preset.current((char*)val);
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* icons-size */
             if(!xmlStrcmp(node->name, (const xmlChar*)"icons-size")){
                 val = xmlNodeGetContent(node);
                 icons_size.current((char*)val);
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* view-mode */
             if(!xmlStrcmp(node->name, (const xmlChar*)"view-mode")){
                 val = xmlNodeGetContent(node);
                 view_mode.current((char*)val);
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* settings-mode */
             if(!xmlStrcmp(node->name, (const xmlChar*)"settings-mode")){
                 val = xmlNodeGetContent(node);
                 settings_mode.current((char*)val);
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* show-arrows */
             if(!xmlStrcmp(node->name, (const xmlChar*)"show-arrows")){
@@ -209,6 +236,8 @@ void Config::parse_children(xmlNode *node){
                 else
                     show_arrows = true; /* default value */
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* show-station-name */
             if(!xmlStrcmp(node->name, (const xmlChar*)"show-station-name")){
@@ -218,6 +247,8 @@ void Config::parse_children(xmlNode *node){
                 else
                     show_station_name = true; /* default value */
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* show-wind */
             if(!xmlStrcmp(node->name, (const xmlChar*)"show-wind")){
@@ -227,6 +258,8 @@ void Config::parse_children(xmlNode *node){
                 else
                     show_wind = false; /* default value */
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* show-wind-gust */
             if(!xmlStrcmp(node->name, (const xmlChar*)"show-wind-gust")){
@@ -236,6 +269,8 @@ void Config::parse_children(xmlNode *node){
                 else
                     show_wind_gust = false; /* default value */
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* show-detail-weather */
             if(!xmlStrcmp(node->name, (const xmlChar*)"show-detail-weather")){
@@ -245,12 +280,16 @@ void Config::parse_children(xmlNode *node){
                 else
                     show_detail_weather = true; /* default value */
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* text-position */
             if(!xmlStrcmp(node->name, (const xmlChar*)"text-position")){
                 val = xmlNodeGetContent(node);
                 text_position.current((char*)val);
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* swap-temperature */
             if(!xmlStrcmp(node->name, (const xmlChar*)"swap-temperature")){
@@ -260,18 +299,24 @@ void Config::parse_children(xmlNode *node){
                 else
                     swap_temperature = true; /* default value */
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* font-color */
             if(!xmlStrcmp(node->name, (const xmlChar*)"font-color")){
                 val = xmlNodeGetContent(node);
                 font_color.set((const char*)val);
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* background-color */
             if(!xmlStrcmp(node->name, (const xmlChar*)"background-color")){
                 val = xmlNodeGetContent(node);
                 background_color.set((const char*)val);
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* separate-data */
             if(!xmlStrcmp(node->name, (const xmlChar*)"separate-data")){
@@ -281,6 +326,8 @@ void Config::parse_children(xmlNode *node){
                 else
                     separate_data = false; /* default value */
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* transparency */
             if(!xmlStrcmp(node->name, (const xmlChar*)"transparency")){
@@ -290,24 +337,32 @@ void Config::parse_children(xmlNode *node){
                 else
                     transparency = true; /* default value */
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* wind-units */
             if(!xmlStrcmp(node->name, (const xmlChar*)"wind-units")){
                 val = xmlNodeGetContent(node);
                 wind_units.current((char*)val);
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* pressure-units */
             if(!xmlStrcmp(node->name, (const xmlChar*)"pressure-units")){
                 val = xmlNodeGetContent(node);
                 pressure_units.current((char*)val);
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* distance-units */
             if(!xmlStrcmp(node->name, (const xmlChar*)"distance-units")){
                 val = xmlNodeGetContent(node);
                 distance_units.current((char*)val);
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* valid-time */
             if(!xmlStrcmp(node->name, (const xmlChar*)"valid-time")){
@@ -316,6 +371,8 @@ void Config::parse_children(xmlNode *node){
                 if(t == 1 || t == 2 || t == 4 || t == 8)
                     valid_time = t * 3600;
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* switch-time */
             if(!xmlStrcmp(node->name, (const xmlChar*)"switch-time")){
@@ -325,6 +382,8 @@ void Config::parse_children(xmlNode *node){
                         t == 30 || t == 40 || t == 50 || t == 60)
                     switch_time = t;
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* update-time */
             if(!xmlStrcmp(node->name, (const xmlChar*)"update-time")){
@@ -333,6 +392,8 @@ void Config::parse_children(xmlNode *node){
                 if(t >= 0 && t <= 24 * 60)       /* No more than 24 hours */
                     update_time = t;
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* auto-download */
             if(!xmlStrcmp(node->name, (const xmlChar*)"auto-download")){
@@ -342,18 +403,24 @@ void Config::parse_children(xmlNode *node){
                 else
                     auto_download = true; /* default value */
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* font */
             if(!xmlStrcmp(node->name, (const xmlChar*)"font")){
                 val = xmlNodeGetContent(node);
                 font = (char*)val;
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* click-type */
             if(!xmlStrcmp(node->name, (const xmlChar*)"click-type")){
                 val = xmlNodeGetContent(node);
                 click_type.current((char*)val);
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* days-number */
             if(!xmlStrcmp(node->name, (const xmlChar*)"days-number")){
@@ -363,6 +430,8 @@ void Config::parse_children(xmlNode *node){
                     days_number = t;
                 xmlFree(val);
                 previos_days_number = days_number;
+                node = node->next;
+                continue;
             }
             /* stations-list */
             if(!xmlStrcmp(node->name, (const xmlChar*)"stations-list")){
@@ -373,19 +442,19 @@ void Config::parse_children(xmlNode *node){
                             std::string name, code, source;
                             bool is_gps;
                             /* name */
-                            val = xmlGetProp(node, (const xmlChar*)"name");
+                            val = xmlGetProp(child_node, (const xmlChar*)"name");
                             name = (char*)val;
                             xmlFree(val);
                             /* code */
-                            val = xmlGetProp(node, (const xmlChar*)"code");
+                            val = xmlGetProp(child_node, (const xmlChar*)"code");
                             code = (char*)val;
                             xmlFree(val);
                             /* source */
-                            val = xmlGetProp(node, (const xmlChar*)"source");
+                            val = xmlGetProp(child_node, (const xmlChar*)"source");
                             source = (char*)val;
                             xmlFree(val);
                             /* type */
-                            val = xmlGetProp(node, (const xmlChar*)"type");
+                            val = xmlGetProp(child_node, (const xmlChar*)"type");
                             if(!strcmp((const char*)val, "gps"))
                                 is_gps = true;
                             else
@@ -404,14 +473,15 @@ void Config::prepare_save(){
     if(document)
         xmlFreeDoc(document);
     document = xmlNewDoc(BAD_CAST "1.0");
-    xmlNs *ns = xmlNewGlobalNs(document, BAD_CAST XMLNS, BAD_CAST "");
-    root_node = xmlNewNode(ns, BAD_CAST "omweather");
+    root_node = xmlNewNode(NULL, BAD_CAST "omweather");
+    xmlNewNs(root_node, BAD_CAST XMLNS, BAD_CAST "");
+    xmlDocSetRootElement(document, root_node);
 }
 /*******************************************************************************/
 void Config::save_to_file(){
     if(!document)
         return;
-    std::string filename = home_dir + "/" + "omweather.xml";
+    std::string filename = home_dir + "/omweather/" + XMLNAME;
     xmlSaveFormatFileEnc(filename.c_str(), document, "UTF-8", 1);
 }
 /*******************************************************************************/
@@ -461,7 +531,7 @@ void Config::save(){
     xmlNewChild(root_node, NULL, BAD_CAST "font-color", BAD_CAST font_color.get());
     xmlNewChild(root_node, NULL, BAD_CAST "background-color", BAD_CAST background_color.get());
     if(separate_data)
-        xmlNewChild(root_node, NULL, BAD_CAST "separate-_data", BAD_CAST "true");
+        xmlNewChild(root_node, NULL, BAD_CAST "separate-data", BAD_CAST "true");
     else
         xmlNewChild(root_node, NULL, BAD_CAST "separate-data", BAD_CAST "false");
     if(transparency)
@@ -705,18 +775,24 @@ void OS2008Config::parse_children(xmlNode *node){
                     position.current(STATION);
                     sensor_update_time = 0;
                 }
+                node = node->next;
+                continue;
             }
             /* alpha-component */
             if(!xmlStrcmp(node->name, (const xmlChar*)"alpha-component")){
                 val = xmlNodeGetContent(node);
                 alpha_component = atoi((char*)val);
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* corner-radius */
             if(!xmlStrcmp(node->name, (const xmlChar*)"corner-radius")){
                 val = xmlNodeGetContent(node);
                 corner_radius = atoi((char*)val);
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
         }
         node = node->next;
@@ -796,6 +872,8 @@ void OS2009Config::parse_children(xmlNode *node){
                 else
                     update_wlan = false;
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
             /* update-gsm */
             if(!xmlStrcmp(node->name, (const xmlChar*)"update-gsm")){
@@ -805,6 +883,8 @@ void OS2009Config::parse_children(xmlNode *node){
                 else
                     update_gsm = false;
                 xmlFree(val);
+                node = node->next;
+                continue;
             }
         node = node->next;
     }

@@ -15,7 +15,7 @@
 <current-icons-set>Samurize</current-icons-set>
 <last-source>weather.com</last-source>
 <last-country>Belarus</last-country>
-<cache-directory>/home/pavel/apps/omweather</cache-directory>
+<cache-directory>/home/pavel/omweather</cache-directory>
 <icons-preset>NOW</icons-preset>
 <icons-size>LARGE</icons-size>
 <view-mode>COLLAPSED</view-mode>
@@ -47,4 +47,5 @@
 <days-number>10</days-number>
 <corner-radius>10</corner-radius>
 <alpha-component>0</alpha-component>
+<use-sensor position="ICON" time="10">true</use-sensor>
 </omweather>

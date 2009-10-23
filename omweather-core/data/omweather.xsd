@@ -152,6 +152,21 @@
       <xs:element name="days-number" type="xs:unsignedInt" maxOccurs="1" />
       <xs:element name="corner-radius" type="xs:unsignedInt" maxOccurs="1" />
       <xs:element name="alpha-component" type="xs:unsignedInt" maxOccurs="1" />
+      <xs:element name="use-sensor">
+        <xs:simpleType>
+            <xs:sequence>
+                <xs:attribute name="position">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="ICON" />
+                            <xs:enumeration value="NAME" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="time" type="xs:unsignedInt" use="required" />
+            </xs:sequence>
+        </xs:simpleType>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 </xs:element>

@@ -13,6 +13,7 @@ omweather (0.24.7) unstable; urgency=low
   * Fixed problem with stations which include symbol "'" in the name
   * Fixed small memory leak in settings window
   * Fixed bug #5591 "Sunrise and sunset is not correct on detailed view"
+  * Fixed layouts "Now, today and tommorow"  and "Now + e days vert."
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 20 Oct 2009 19:15:10 +0200
 

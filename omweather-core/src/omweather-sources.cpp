@@ -58,42 +58,56 @@ void Source::parse_children(xmlNode *node){
                 value = xmlNodeGetContent(node);
                 source_name = (char*)value;
                 xmlFree(value);
+                node = node->next;
+                continue;
             }
             /* logo */
             if(!xmlStrcmp(node->name, (const xmlChar*)"logo")){
                 value = xmlNodeGetContent(node);
                 source_logo = (char*)value;
                 xmlFree(value);
+                node = node->next;
+                continue;
             }
             /* forecast_url */
             if(!xmlStrcmp(node->name, (const xmlChar*)"forecast")){
                 value = xmlGetProp(node, (const xmlChar*)"url");
                 source_forecast_url = (char*)value;
                 xmlFree(value);
+                node = node->next;
+                continue;
             }
             /* detail_url */
             if(!xmlStrcmp(node->name, (const xmlChar*)"detail")){
                 value = xmlGetProp(node, (const xmlChar*)"url");
                 source_detail_url = (char*)value;
                 xmlFree(value);
+                node = node->next;
+                continue;
             }
             /* search_url */
             if(!xmlStrcmp(node->name, (const xmlChar*)"search")){
                 value = xmlGetProp(node, (const xmlChar*)"url");
                 source_search_url = (char*)value;
                 xmlFree(value);
+                node = node->next;
+                continue;
             }
             /* stations_db */
             if(!xmlStrcmp(node->name, (const xmlChar*)"base")){
                 value = xmlNodeGetContent(node);
                 source_database_name = (char*)value;
                 xmlFree(value);
+                node = node->next;
+                continue;
             }
             /* library */
             if(!xmlStrcmp(node->name, (const xmlChar*)"library")){
                 value = xmlNodeGetContent(node);
                 source_library_name = (char*)value;
                 xmlFree(value);
+                node = node->next;
+                continue;
             }
         }
         node = node->next;

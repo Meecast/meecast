@@ -76,6 +76,12 @@ Config::Config(){
     background_color.r = 0x0000U;
     background_color.g = 0x0000U;
     background_color.b = 0x0000U;
+    home_dir = getenv("HOME");
+    if(home_dir.empty())
+        home_dir = "/tmp/omweather/";
+    else
+        home_dir += "/omweather/";
+    cache_directory = home_dir;
 }
 /*******************************************************************************/
 Config::~Config(){
@@ -86,14 +92,8 @@ Config::~Config(){
 void Config::prepare_read(){
     std::string filename;
 
-    home_dir = getenv("HOME");
-    if(home_dir.empty()){
-        filename = "/tmp/";
-        filename += "omweather/";
-    }
-    else
-        filename = home_dir + "/" + "omweather/";
-    
+    filename = home_dir;
+
     DIR *dir = opendir(filename.c_str());
     if(!dir){
         if(mkdir(filename.c_str(), 0755) == -1) /* error */
@@ -102,18 +102,19 @@ void Config::prepare_read(){
     else
         closedir(dir);
 
-    filename += XMLNAME;    
+    filename += XMLNAME;
     std::ifstream file(filename.c_str());
     if(file.is_open())
         file.close();
+    if(document)
+        xmlFreeDoc(document);
     document = xmlReadFile(filename.c_str(), NULL, 0);
     if(document)
         root_node = xmlDocGetRootElement(document);
 }
 /*******************************************************************************/
 bool Config::read(){
-    if(!document)
-        prepare_read();
+    prepare_read();
     if(!root_node)
         return false;
     if(strcmp((char*)root_node->name, "omweather")
@@ -192,7 +193,7 @@ void Config::parse_children(xmlNode *node){
                 cache_directory = (char*)val;
                 xmlFree(val);
                 if(cache_directory.empty())
-                    cache_directory = home_dir + "/omweather/";
+                    cache_directory = home_dir;
                 node = node->next;
                 continue;
             }
@@ -474,20 +475,19 @@ void Config::prepare_save(){
         xmlFreeDoc(document);
     document = xmlNewDoc(BAD_CAST "1.0");
     root_node = xmlNewNode(NULL, BAD_CAST "omweather");
-    xmlNewNs(root_node, BAD_CAST XMLNS, BAD_CAST "");
+    xmlNewNs(root_node, BAD_CAST XMLNS, NULL);
     xmlDocSetRootElement(document, root_node);
 }
 /*******************************************************************************/
 void Config::save_to_file(){
     if(!document)
         return;
-    std::string filename = home_dir + "/omweather/" + XMLNAME;
+    std::string filename = home_dir + XMLNAME;
     xmlSaveFormatFileEnc(filename.c_str(), document, "UTF-8", 1);
 }
 /*******************************************************************************/
 void Config::save(){
-    if(!document)
-        prepare_save();
+    prepare_save();
     if(!root_node)
         return;
     char buffer[128];
@@ -528,8 +528,10 @@ void Config::save(){
         xmlNewChild(root_node, NULL, BAD_CAST "swap-temperature", BAD_CAST "true");
     else
         xmlNewChild(root_node, NULL, BAD_CAST "swap-temperature", BAD_CAST "false");
-    xmlNewChild(root_node, NULL, BAD_CAST "font-color", BAD_CAST font_color.get());
-    xmlNewChild(root_node, NULL, BAD_CAST "background-color", BAD_CAST background_color.get());
+    std::string t = font_color.get();
+    xmlNewChild(root_node, NULL, BAD_CAST "font-color", BAD_CAST t.c_str());
+    t = background_color.get();
+    xmlNewChild(root_node, NULL, BAD_CAST "background-color", BAD_CAST t.c_str());
     if(separate_data)
         xmlNewChild(root_node, NULL, BAD_CAST "separate-data", BAD_CAST "true");
     else
@@ -804,14 +806,15 @@ void OS2008Config::save(){
     if(!root_node)
         return;
     char buffer[128];
+    xmlNode *node = NULL;
     if(use_sensor)
-        xmlNewChild(root_node, NULL, BAD_CAST "use-sensor", BAD_CAST "true");
+        node = xmlNewChild(root_node, NULL, BAD_CAST "use-sensor", BAD_CAST "true");
     else
-        xmlNewChild(root_node, NULL, BAD_CAST "use-sensor", BAD_CAST "false");
-    xmlNewProp(root_node, BAD_CAST "position", BAD_CAST position.toString().c_str());
+        node = xmlNewChild(root_node, NULL, BAD_CAST "use-sensor", BAD_CAST "false");
+    xmlNewProp(node, BAD_CAST "position", BAD_CAST position.toString().c_str());
     *buffer = 0;
     snprintf(buffer, sizeof(buffer) - 1, "%d", sensor_update_time);
-    xmlNewProp(root_node, BAD_CAST "time", BAD_CAST buffer);
+    xmlNewProp(node, BAD_CAST "time", BAD_CAST buffer);
     save_to_file();
 }
 /*******************************************************************************/

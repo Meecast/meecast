@@ -30,16 +30,18 @@
 /*******************************************************************************/
 void Color::set(const char *str){
     std::string c = str;
-    r = atoi(c.substr(1, 2).c_str());
-    g = atoi(c.substr(3, 2).c_str());
-    b = atoi(c.substr(5, 2).c_str());
+    r = (unsigned)(strtol(c.substr(1, 2).c_str(), NULL, 16) << 8);
+    g = (unsigned)(strtol(c.substr(3, 2).c_str(), NULL, 16) << 8);
+    b = (unsigned)(strtol(c.substr(5, 2).c_str(), NULL, 16) << 8);
 }
 /*******************************************************************************/
 const char* Color::get(){
+    std::string c;
     char buffer[128];
     *buffer = 0;
+    c.clear();
     snprintf(buffer, sizeof(buffer) - 1, "#%02X%02X%02X", r >> 8, g >> 8, b >> 8);
-    std::string c = buffer;
+    c = buffer;
     return c.c_str();
 }
 /*******************************************************************************/

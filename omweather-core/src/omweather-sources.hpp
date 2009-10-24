@@ -31,7 +31,6 @@
 /*******************************************************************************/
 #include <string>
 #include <vector>
-
 #include "omweather-common.hpp"
 /*******************************************************************************/
 #define SOURCESPATH "/usr/share/omweather/sources/"

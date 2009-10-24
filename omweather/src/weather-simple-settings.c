@@ -111,6 +111,20 @@ widget_styles_save(GtkWidget *window){
     redraw_home_window(FALSE);
 }
 /*******************************************************************************/
+#if OS2009
+void
+animation_button_toggled (HildonCheckButton *button, gpointer user_data)
+{
+    gboolean active;
+
+    active = hildon_check_button_get_active (button);
+    if (active)
+        app->config->animation = TRUE;
+    else
+        app->config->animation = FALSE;
+}
+#endif
+/*******************************************************************************/
 void
 widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                     gpointer user_data){
@@ -118,6 +132,7 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
               *layouts_line         = NULL,
               *iconsets_line        = NULL,
               *window               = NULL,
+              *check_button         = NULL,
               *widget_style_button  = NULL;
     gint result;
 
@@ -136,6 +151,17 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_box_pack_start(GTK_BOX(vbox), layouts_line, TRUE, TRUE, 10);
     gtk_box_pack_start(GTK_BOX(vbox), iconsets_line, TRUE, TRUE, 10);
 
+#if OS2009
+    check_button = hildon_check_button_new (HILDON_SIZE_AUTO);
+    gtk_button_set_label (GTK_BUTTON (check_button), "Animation");
+    if (app->config->animation)
+        hildon_check_button_set_active(check_button, TRUE);
+    else
+        hildon_check_button_set_active(check_button, FALSE);
+    g_signal_connect (check_button, "toggled", G_CALLBACK (animation_button_toggled), NULL);
+    gtk_box_pack_start(GTK_BOX(vbox), check_button, TRUE, TRUE, 10);
+#endif
+ 
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        vbox, TRUE, TRUE, 0);
 

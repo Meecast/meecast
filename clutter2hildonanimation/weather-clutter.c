@@ -380,7 +380,6 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
             else\n\
                 fullwindow = FALSE;\n \
        } \n \
-       r ++;\n \
        if (!oh)\n \
            return FALSE;\n \
        switch (oh->timeline){\n \

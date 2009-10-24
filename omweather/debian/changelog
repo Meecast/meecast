@@ -5,6 +5,14 @@ omweather (0.25) unstable; urgency=low
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 27 Sep 2009 11:20:10 +0200
 
+omweather (0.24.8) unstable; urgency=low
+
+  * Removed mawk,awk depending
+  * Removed button 'OK' in dialog "About" for Femantle
+  * Changed description in debian/control file
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 25 Oct 2009 14:19:20 +0200
+
 omweather (0.24.7) unstable; urgency=low
 
   * Fixed bug in UI "If city with long names are set in Station 1 and

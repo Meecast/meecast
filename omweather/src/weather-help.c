@@ -51,18 +51,27 @@ void help_activated_handler(GtkWidget * window, gchar * help_id){
 #endif
 /*******************************************************************************/
 void create_about_dialog(void){
-    GtkWidget	*help_dialog,
-		*notebook;
-    char	tmp_buff[2048];
-    gint	result;
+    GtkWidget   *help_dialog,
+                *notebook;
+    char    tmp_buff[2048];
+    gint    result;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+
+#if !OS2009
     help_dialog =
         gtk_dialog_new_with_buttons(_("Other Maemo Weather Info"), NULL,
                                     GTK_DIALOG_MODAL |
                                     GTK_DIALOG_DESTROY_WITH_PARENT,
                                     _("OK"), GTK_RESPONSE_ACCEPT, NULL);
+#else
+    help_dialog =
+        gtk_dialog_new_with_buttons(_("Other Maemo Weather Info"), NULL,
+                                    GTK_DIALOG_MODAL |
+                                    GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
+
+#endif
 /* Create Notebook widget */
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(help_dialog)->vbox),
                        notebook = gtk_notebook_new(), TRUE, TRUE, 0);

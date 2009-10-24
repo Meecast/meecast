@@ -59,7 +59,7 @@ void create_about_dialog(void){
     START_FUNCTION;
 #endif
 
-#if !OS2009
+#ifndef OS2009
     help_dialog =
         gtk_dialog_new_with_buttons(_("Other Maemo Weather Info"), NULL,
                                     GTK_DIALOG_MODAL |

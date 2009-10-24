@@ -92,6 +92,7 @@
 #define GCONF_KEY_UPDATE_GSM                        GCONF_KEY_PREFIX"/update-gsm"
 #define GCONF_KEY_UPDATE_WLAN                       GCONF_KEY_PREFIX"/update-WLAN"
 #define GCONF_KEY_VIEW_MODE                         GCONF_KEY_PREFIX"/view_mode"
+#define GCONF_KEY_ENABLE_ANIMATION                  GCONF_KEY_PREFIX"/animation"
 /*******************************************************************************/
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 void config_update_proxy(void);

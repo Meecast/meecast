@@ -582,6 +582,17 @@ gint read_config(AppletConfig * config) {
         gconf_value_free(value);
     } else
         config->show_weather_for_two_hours = TRUE;
+
+    /* Get Enable Animation flag. Default is TRUE. */
+    value =
+        gconf_client_get(gconf_client, GCONF_KEY_ENABLE_ANIMATION,
+                         NULL);
+    if (value) {
+        config->animation = gconf_value_get_bool(value);
+        gconf_value_free(value);
+    } else
+        config->animation = TRUE;
+
     /* Hack This parameter is default for SIMPLE mode */
     if (config->mode == SIMPLE_MODE)
         config->show_weather_for_two_hours = TRUE;
@@ -1006,10 +1017,14 @@ void config_save(AppletConfig * config) {
     gconf_client_set_int(gconf_client,
                          GCONF_KEY_WEATHER_UPDATE_INTERVAL,
                          config->update_interval, NULL);
-    /* Save Enable Enable Transparency flag. */
+    /* Save Enable Transparency flag. */
     gconf_client_set_bool(gconf_client,
                           GCONF_KEY_ENABLE_TRANSPARENCY,
                           config->transparency, NULL);
+    /* Save Enable Animation flag. */
+    gconf_client_set_bool(gconf_client,
+                          GCONF_KEY_ENABLE_ANIMATION,
+                          config->animation, NULL);
     /*Save Enable Weather For Two Hours */
     gconf_client_set_bool(gconf_client,
                           GCONF_KEY_SHOW_WEATHER_FOR_TWO_HOURS,

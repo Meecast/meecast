@@ -320,6 +320,7 @@ typedef struct applet_config{
     gboolean    is_application_mode;
     gboolean	update_gsm;
     gboolean	update_wlan;
+    gboolean	animation;
     gint	view_mode;
 }AppletConfig;
 /*******************************************************************************/

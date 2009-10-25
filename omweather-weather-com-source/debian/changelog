@@ -1,0 +1,88 @@
+omweather-weather-com-stations-db (0.9.5) unstable; urgency=low
+
+  * Added indexes to database
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 17 Sep 2009 12:14:30 +0200
+
+omweather-weather-com-stations-db (0.9.4) unstable; urgency=low
+
+  * Corrected stations for Italy
+  * Added XB-Maemo-Display-Name to debian/control file
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 16 Sep 2009 05:04:20 +0200
+
+omweather-weather-com-stations-db (0.9.3) unstable; urgency=low
+
+  * Changed Section in deb package
+
+ --  Vlad Vasiliev <vlad@gas.by>  Mon, 17 Aug 2009 05:04:20 +0200
+
+omweather-weather-com-stations-db (0.9.2) unstable; urgency=low
+
+  * Changed URLs 
+
+ --  Vlad Vasiliev <vlad@gas.by>  Mon, 17 Aug 2009 05:04:20 +0200
+
+omweather-weather-com-stations-db (0.9.1) unstable; urgency=low
+
+  * Fixed memory leaks 
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 10 Aug 2009 21:44:20 +0200
+
+omweather-weather-com-stations-db (0.9) unstable; urgency=low
+
+  * Fixed problem with new data
+  * Added icons to package
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 16 Jul 2009 15:44:20 +0200
+
+omweather-weather-com-stations-db (0.8) unstable; urgency=low
+
+  * Preparing for 0.23 version of OMWeather
+
+ --  Vlad Vasiliev <vlad@gas.by>  Sun, 12 Jul 2009 11:04:20 +0200
+
+omweather-weather-com-stations-db (0.7) unstable; urgency=low
+
+  * Corrected urls
+  * Corrected records for Japan
+  * Added stations for New Mexico, US
+
+ --  Vlad Vasiliev <vlad@gas.by>  Sun, 12 Jul 2009 11:04:20 +0200
+
+omweather-weather-com-stations-db (0.6) unstable; urgency=low
+
+  * Removed dependency on omweather
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 19 Fri 2009 21:34:20 +0200
+
+omweather-weather-com-stations-db (0.5) unstable; urgency=low
+
+  * Fixed bug #4708 https://bugs.maemo.org/show_bug.cgi?id=4708
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 19 Fri 2009 15:21:20 +0200
+
+omweather-weather-com-stations-db (0.4) unstable; urgency=low
+
+  * Added Provides to deb package
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 17 Jun 2009 15:21:20 +0200
+
+omweather-weather-com-stations-db (0.3) unstable; urgency=low
+
+  * Moved data to sqlite database
+
+ --  Vlad Vasiliev <vlad@gas.by>  Mon, 10 Jun 2009 10:53:20 +0200
+
+omweather-weather-com-stations-db (0.2) unstable; urgency=low
+
+  * Added stations for Republic Of Serbia
+  * Added icon to deb package
+
+ --  Vlad Vasiliev <vlad@gas.by>  Mon, 24 Nov 2008 13:53:20 +0200
+
+omweather-weather-com-stations-db (0.1) unstable; urgency=low
+
+  * Initial release.
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 28 May 2008 13:53:20 +0200

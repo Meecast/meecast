@@ -349,11 +349,9 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
     memset(buffer, 0, sizeof(buffer));
     sprintf(buffer, "%s%s.json", "/usr/share/omweather/icons/Glance/", icon_name);
     fprintf(stderr,"JSON SCRIPT: %s\n",buffer);
-//    clutter_init(NULL, NULL);
     oh->merge_id = clutter_script_load_from_file(oh->script,buffer, &error);
 
 
-    /* Fix Me Need free memory */
     if (error){
         g_free (oh);
         fprintf(stderr,"ERROR in loading clutter script\n");
@@ -364,7 +362,11 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
     oh->icon_widget = gtk_vbox_new(FALSE, 0);
 
     gtk_widget_set_size_request (oh->icon_widget, icon_size, icon_size);
-    
+   
+    sprintf(bufferout, "     icon_animation_hash = g_hash_table_new(g_int_hash, g_int_equal); \n \
+    g_hash_table_insert(icons,\"%s\",icon_animation_hash);\n", icon_name);
+    pout2(bufferout);
+
     sprintf(bufferout,"gboolean\n");
     pout(bufferout);
     sprintf(bufferout,"icon%s_timeline (SuperOH *oh)\n", icon_name);

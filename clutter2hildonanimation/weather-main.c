@@ -101,7 +101,8 @@ run_creating_of_animations(void){
         }
         list_temp = g_slist_next(list_temp);
     }
-
+    fprintf(file_out,"}");
+    fflush(file_out);
 return FALSE;
 }
 /*******************************************************************************/
@@ -115,6 +116,14 @@ main(int argc, char *argv[]){
     textdomain(GETTEXT_PACKAGE);
 #endif
     file_out = fopen("./1.h","w");
+    fprintf(file_out, "\n\
+GHashTable* \n\
+create_icons_animations_hash(void){\n \
+    GHashTable  *icons = NULL; \n \
+    GHashTable  *icon_animation_hash = NULL; \n \
+\n \
+    icons = g_hash_table_new(g_str_hash, g_str_equal);\n \
+    ");
     gtk_init(&argc, &argv);
     clutter_init(NULL, NULL);
     g_timeout_add(100, run_creating_of_animations, NULL );

@@ -31,6 +31,7 @@
 #define GIANT_ICON_SIZE  128
 
 extern gboolean key;
+extern FILE *file_out;
 typedef struct SuperOH{
   ClutterActor          *icon;
   ClutterGroup          *group;
@@ -55,11 +56,17 @@ typedef struct actor_property{
 }actor_property; 
 
 gint counter = 0;
-
+/*******************************************************************************/
 pout(gchar *buffer){
     fprintf(stdout,"%s",buffer);
     fflush (stdout);
 }
+/*******************************************************************************/
+pout2(gchar *buffer){
+    fprintf(file_out,"%s",buffer);
+    fflush (file_out);
+}
+
 /*******************************************************************************/
 void
 do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwindow)

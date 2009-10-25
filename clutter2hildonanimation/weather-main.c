@@ -31,6 +31,7 @@
 #endif
 #include "weather-main.h"
 gboolean key = FALSE;
+FILE *file_out = NULL;
 /*******************************************************************************/
 run_creating_of_animations(void){
     GSList              *list_temp = NULL, *list_of_icons = NULL;
@@ -113,6 +114,7 @@ main(int argc, char *argv[]){
     bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
     textdomain(GETTEXT_PACKAGE);
 #endif
+    file_out = fopen("./1.h","w");
     gtk_init(&argc, &argv);
     clutter_init(NULL, NULL);
     g_timeout_add(100, run_creating_of_animations, NULL );

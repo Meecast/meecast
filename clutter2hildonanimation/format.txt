@@ -1,0 +1,8 @@
+Separator for string; 
+separator1 /
+separator2 \
+1. Icon name
+2. Separator1
+3. Number of timeline
+4. Separator2
+5. 

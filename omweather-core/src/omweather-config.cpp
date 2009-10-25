@@ -491,7 +491,20 @@ void Config::save(){
     if(!root_node)
         return;
     char buffer[128];
+    xmlNode *station = NULL,
+            *stations = NULL;
     xmlNewChild(root_node, NULL, BAD_CAST "version", BAD_CAST version.c_str());
+    stations = xmlNewChild(root_node, NULL, BAD_CAST "stations-list", NULL);
+    for(int i = 0; i < user_stations_list.size(); i++){
+        station = xmlNewChild(stations, NULL, BAD_CAST "station", NULL);
+        xmlNewProp(station, BAD_CAST "name", BAD_CAST user_stations_list.at(i).name().c_str());
+        xmlNewProp(station, BAD_CAST "code", BAD_CAST user_stations_list.at(i).code().c_str());
+        xmlNewProp(station, BAD_CAST "source", BAD_CAST user_stations_list.at(i).source().c_str());
+        if(user_stations_list.at(i).is_gps())
+            xmlNewProp(station, BAD_CAST "type", BAD_CAST "gps");
+        else
+            xmlNewProp(station, BAD_CAST "type", BAD_CAST "manual");
+    }
     xmlNewChild(root_node, NULL, BAD_CAST "current-station-source", BAD_CAST current_station_source.c_str());
     xmlNewChild(root_node, NULL, BAD_CAST "current-station-name", BAD_CAST current_station_name.c_str());
     xmlNewChild(root_node, NULL, BAD_CAST "current-station-code", BAD_CAST current_station_code.c_str());

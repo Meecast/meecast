@@ -30,9 +30,66 @@
 #include <string.h>
 #include <time.h>
 /*******************************************************************************/
+static GHashTable *data = NULL;
+/*******************************************************************************/
+gboolean
+source_init(void){
+    data = g_hash_table_new(g_str_hash, g_str_equal);
+    if(!data)
+        return FALSE;
+    return TRUE;
+}
+/*******************************************************************************/
+void
+source_destroy(void){
+    GHashTable  *hashtable = NULL;
+    GSList  *tmp = NULL;
+    /* free station location data */
+    hashtable = g_hash_table_lookup(data, "location");
+    if(hashtable){
+        g_hash_table_foreach(hashtable, free_fields, NULL);
+        g_hash_table_remove_all(hashtable);
+        g_hash_table_unref(hashtable);
+    }
+    /* free station current data */
+    hashtable = g_hash_table_lookup(data, "current");
+    if(hashtable){
+        g_hash_table_foreach(hashtable, free_fields, NULL);
+        g_hash_table_remove_all(hashtable);
+        g_hash_table_unref(hashtable);
+    }
+    /* free station days data */
+    tmp = g_hash_table_lookup(data, "forecast");
+    while(tmp){
+        hashtable = (GHashTable*)tmp->data;
+        g_hash_table_foreach(hashtable, free_fields, NULL);
+        g_hash_table_remove_all(hashtable);
+        g_hash_table_unref(hashtable);
+        tmp = g_slist_next(tmp);
+    }
+    tmp = g_hash_table_lookup(data, "forecast");
+    if(tmp)
+        g_slist_free(tmp);
+    if(data){
+        g_hash_table_remove_all(data);
+        g_hash_table_destroy(data);
+    }
+}
+/*******************************************************************************/
+void
+free_fields(gpointer key, gpointer val, gpointer user_data){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    if(val){
+        g_free(val);
+        val = NULL;
+    }
+}
+/*******************************************************************************/
 gint
 get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
-                                                    gboolean get_detail_data){
+                                                       gboolean get_detail_data){
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
     gint    days_number = -1;

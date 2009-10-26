@@ -33,7 +33,11 @@
 #include <vector>
 #include <string>
 /*******************************************************************************/
-typedef std::map<std::string,std::string> Location, Current, Day, Detail;
+extern "C" {
+typedef std::map<std::string,std::string> Location;
+typedef std::map<std::string,std::string> Current;
+typedef std::map<std::string,std::string> Day;
+typedef std::map<std::string,std::string> Detail;
 typedef std::vector<Day> Days;
 typedef std::vector<Detail> Details;
 /*******************************************************************************/
@@ -44,5 +48,6 @@ class OMWeatherStationData{
         Days days;
         Details details;
 };
+}
 /*******************************************************************************/
 #endif

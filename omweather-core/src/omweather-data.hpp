@@ -34,7 +34,8 @@
 #include <string>
 /*******************************************************************************/
 typedef std::map<std::string,std::string> Location, Current, Day, Detail;
-typedef std::vector<Day> Days, Details;
+typedef std::vector<Day> Days;
+typedef std::vector<Detail> Details;
 /*******************************************************************************/
 class OMWeatherData{
     public:

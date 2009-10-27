@@ -83,6 +83,11 @@
 #ifdef USE_CONIC
   #include <conic/conic.h>
 #endif
+
+#ifdef ENABLE_BROWSER_INTERFACE
+  #include <tablet-browser-interface.h>
+#endif
+
 #include <libxml/parser.h>
 #include <libxml/tree.h>
 #include <libxml/xpath.h>

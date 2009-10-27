@@ -651,6 +651,29 @@ create_button_with_2_line_text(const gchar *first_line_text, const gchar *second
     return button;
 }
 /*******************************************************************************/
+#ifdef ENABLE_BROWSER_INTERFACE
+gboolean
+browser_url(gchar *url) {
+
+  osso_return_t ret;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+  ret = osso_rpc_run_with_defaults(app->osso, "osso_browser",
+          OSSO_BROWSER_OPEN_NEW_WINDOW_REQ, NULL,
+          DBUS_TYPE_STRING, url,
+          DBUS_TYPE_BOOLEAN, FALSE, DBUS_TYPE_INVALID);
+
+  if(ret != OSSO_OK){
+    fprintf(stderr,"Unable to display URL in browser!");
+    return FALSE;
+  }
+
+  return TRUE;
+}
+#endif
+/*******************************************************************************/
 /* For debugging   */
 /*
 void write_log(char *string)

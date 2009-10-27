@@ -1287,6 +1287,14 @@ GtkWidget* create_hour_tab(void){
     return main_widget;
 }
 /*******************************************************************************/
+#ifdef ENABLE_BROWSER_INTERFACE
+void
+click_url(GtkButton *button) {
+  browser_url(gtk_button_get_label(button));
+}
+#endif
+
+/*******************************************************************************/
 GtkWidget* create_copyright_widget(const gchar *text, const gchar *image){
     GtkWidget       *main_widget = NULL,
                     *hbox = NULL,
@@ -1310,7 +1318,10 @@ GtkWidget* create_copyright_widget(const gchar *text, const gchar *image){
     *text_buffer = 0;
     snprintf(text_buffer, sizeof(text_buffer) - 1, "http://%s",
                 text);
-    url = gtk_link_button_new_with_label(text_buffer, text);
+    url = gtk_button_new_with_label(text_buffer);
+    gtk_button_set_relief(GTK_BUTTON(url), GTK_RELIEF_NONE);
+    g_signal_connect(url, "clicked",
+          G_CALLBACK(click_url), text_buffer);
     gtk_button_set_focus_on_click(GTK_BUTTON(url), FALSE);
     gtk_box_pack_start(GTK_BOX(hbox), url, FALSE, FALSE, 5);
     set_font(url, NULL, 12);

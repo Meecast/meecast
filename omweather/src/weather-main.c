@@ -72,6 +72,7 @@ main(int argc, char *argv[]){
     window = create_omweather();
     if(window){
           app->main_view =  window;
+          app->osso = osso_context;
           /* Create the hildon application and setup the title */
           app->app = HILDON_PROGRAM ( hildon_program_get_instance () );
           g_set_application_name (PACKAGE);

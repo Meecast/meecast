@@ -185,6 +185,11 @@ fi
 AC_SUBST(OSSOIC_LIBS)
 AC_SUBST(OSSOIC_CFLAGS)
 
+PKG_CHECK_EXISTS(tablet-browser-interface, [
+    AC_DEFINE(ENABLE_BROWSER_INTERFACE, 1,"tablet-browser-interface was found")
+  ], [AC_MSG_NOTICE([WARNING: No tablet-browser-interface found, disabling microb interface!])])
+
+
 dnl GPS
 AC_ARG_ENABLE(gps, [ --enable-gps=[yes|no] ], [use_gps=$enableval ])
 if test "$use_gps" == "yes"; then

@@ -883,7 +883,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 					GtkWidget **widget){
 #endif
     gchar       tmp_buff[2048];
-#if ! (defined (OS2009) ||  defined (NONMAEMO) ||  defined (APPLICATION))
+#if ! ( defined (NONMAEMO) ||  defined (APPLICATION))
     osso_context_t	*osso = NULL;
     osso = osso_initialize(PACKAGE, VERSION, TRUE, NULL);
     if(!osso){
@@ -914,7 +914,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         exit(1);
     }
     memset(app, 0, sizeof(OMWeatherApp));
-#if ! (defined (OS2009) ||  defined (NONMAEMO) ||  defined (APPLICATION))
+#if ! ( defined (NONMAEMO) ||  defined (APPLICATION))
     app->osso = osso;
 #endif
     app->flag_updating = 0;

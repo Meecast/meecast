@@ -426,6 +426,30 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
                            G_OBJECT(oh->image), \"hildon_animation_actor\", ha);\n"); 
             
                 pout(bufferout);
+
+                sprintf(bufferout, "         event_s = g_new0(Event_s, 1);\n");
+                pout2(bufferout);
+                
+                sprintf(bufferout, "         event_s->name = g_strdup(\"%s\");\n", clutter_actor_get_name(clactor));
+                pout2(bufferout);
+                sprintf(bufferout, "         event_s->height = %i;\n", clutter_actor_get_height(clactor));
+                pout2(bufferout);
+                sprintf(bufferout, "         event_s->width = %i;\n", clutter_actor_get_width(clactor));
+                pout2(bufferout);
+
+
+                sprintf(bufferout, "         event = g_new0(Event, 1);\n");
+                pout2(bufferout);
+                sprintf(bufferout, "         event->event_type = \"s\";\n");
+                pout2(bufferout);
+                sprintf(bufferout, "         event->event = event_s\n");
+                pout2(bufferout);
+
+
+                sprintf(bufferout, "         list_of_event= g_slist_append(list_of_event, event)\n");
+                pout2(bufferout);
+                sprintf(bufferout, "         g_hash_table_insert(icon_animation_hash,0,list_of_event);\n");
+                pout2(bufferout);
                 sprintf(bufferout,"             hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), 0); \n" ); 
                 pout(bufferout);
 

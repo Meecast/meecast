@@ -121,6 +121,9 @@ GHashTable* \n\
 create_icons_animations_hash(void){\n \
     GHashTable  *icons = NULL; \n \
     GHashTable  *icon_animation_hash = NULL; \n \
+    Event       *event = NULL;\n \
+    Event_s     *event_s = NULL;\n \
+    GSList      *list_of_event = NULL;\n \
 \n \
     icons = g_hash_table_new(g_str_hash, g_str_equal);\n \
     ");

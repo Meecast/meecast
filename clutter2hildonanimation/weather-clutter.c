@@ -356,6 +356,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
         g_free (oh);
         fprintf(stderr,"ERROR in loading clutter script\n");
         g_clear_error (&error);
+        key = FALSE;
         return NULL;
     }
 
@@ -440,13 +441,13 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
 
                 sprintf(bufferout, "         event = g_new0(Event, 1);\n");
                 pout2(bufferout);
-                sprintf(bufferout, "         event->event_type = \"s\";\n");
+                sprintf(bufferout, "         event->event_type = LOAD_ACTOR;\n");
                 pout2(bufferout);
-                sprintf(bufferout, "         event->event = event_s\n");
+                sprintf(bufferout, "         event->event = event_s;\n");
                 pout2(bufferout);
 
 
-                sprintf(bufferout, "         list_of_event= g_slist_append(list_of_event, event)\n");
+                sprintf(bufferout, "         list_of_event = g_slist_append(list_of_event, event);\n");
                 pout2(bufferout);
                 sprintf(bufferout, "         g_hash_table_insert(icon_animation_hash,0,list_of_event);\n");
                 pout2(bufferout);

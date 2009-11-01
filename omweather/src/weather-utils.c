@@ -544,6 +544,9 @@ update_icons_set_base(const char *icon_set_name){
         close(fd);
     
     app->config->icons_set_base = g_strdup(buffer);
+    /* Create icon hash */
+    /* Fix me free memory for previous hash */
+    app->animation_hash = create_icons_animations_hash();
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

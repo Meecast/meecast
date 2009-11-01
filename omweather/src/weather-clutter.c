@@ -55,6 +55,7 @@ realize (GtkWidget *widget)
 }
 /*******************************************************************************/
 #include "icon0.c"
+#include "1.h"
 void
 choose_icon_timeline(SuperOH *oh)
 {

@@ -59,7 +59,7 @@ GtkWidget *create_window_update(void) {
     START_FUNCTION;
 #endif
     return hildon_banner_show_animation(app->main_window,
-                                        NULL, _("Update weather"));
+                                        NULL, _("Updating weather"));
 }
 /*******************************************************************************/
 #if !defined OS2008 && !defined OS2009 && !defined NONMAEMO

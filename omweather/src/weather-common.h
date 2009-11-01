@@ -356,6 +356,20 @@ typedef struct SuperOH{
   gchar                 *icon_name;
 }SuperOH;
 #endif
+#ifdef HILDONANIMATION
+#define LOAD_ACTOR 1
+typedef struct Event{
+    gchar       *event_type;
+    gpointer    event;
+}Event;
+/* Event for load actor */            
+typedef struct Event_s{
+  gchar                 *name;
+  gint                  height;
+  gint                  width;
+}Event_s;
+
+#endif
 /*******************************************************************************/
 typedef struct OMWeatherApplet{
     HildonProgram       *app;       /* handle to application */
@@ -460,6 +474,9 @@ typedef struct OMWeatherApplet{
 #endif
 #ifdef CLUTTER
     ClutterScript       *clutter_script; /* Maybe it need be deleting */
+#endif
+#ifdef HILDONANIMATION
+    GHashTable          *animation_hash; 
 #endif
 }OMWeatherApp;
 /*******************************************************************************/

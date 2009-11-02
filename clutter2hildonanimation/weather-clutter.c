@@ -365,6 +365,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
     gtk_widget_set_size_request (oh->icon_widget, icon_size, icon_size);
    
     sprintf(bufferout, "     icon_animation_hash = g_hash_table_new(g_str_hash, g_str_equal); \n \
+    list_of_event = NULL;\n \
     g_hash_table_insert(icons,\"%s\",icon_animation_hash);\n", icon_name);
     pout2(bufferout);
 
@@ -449,8 +450,6 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
 
                 sprintf(bufferout, "         list_of_event = g_slist_append(list_of_event, event);\n");
                 pout2(bufferout);
-                sprintf(bufferout, "         g_hash_table_insert(icon_animation_hash, \"0\", list_of_event);\n");
-                pout2(bufferout);
                 sprintf(bufferout,"             hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), 0); \n" ); 
                 pout(bufferout);
 
@@ -489,8 +488,29 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
                 gtk_container_add (GTK_CONTAINER (ha), image);
                 g_object_set_data(
                         G_OBJECT(oh->icon), "hildon_animation_actor", ha);
+                sprintf(bufferout, "         event_s = g_new0(Event_s, 1);\n");
+                pout2(bufferout);
+                
+                sprintf(bufferout, "         event_s->name = g_strdup(\"%s\");\n", clutter_actor_get_name(clactor));
+                pout2(bufferout);
+                sprintf(bufferout, "         event_s->height = %i;\n", clutter_actor_get_height(clactor));
+                pout2(bufferout);
+                sprintf(bufferout, "         event_s->width = %i;\n", clutter_actor_get_width(clactor));
+                pout2(bufferout);
+
+
+                sprintf(bufferout, "         event = g_new0(Event, 1);\n");
+                pout2(bufferout);
+                sprintf(bufferout, "         event->event_type = LOAD_ACTOR;\n");
+                pout2(bufferout);
+                sprintf(bufferout, "         event->event = event_s;\n");
+                pout2(bufferout);
+
            }
     }
+    sprintf(bufferout, "         g_hash_table_insert(icon_animation_hash, \"0\", list_of_event);\n");
+    pout2(bufferout);
+ 
     sprintf(bufferout,"     break;\n");
     pout(bufferout);
 /* 

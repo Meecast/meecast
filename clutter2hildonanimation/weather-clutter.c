@@ -365,7 +365,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
     gtk_widget_set_size_request (oh->icon_widget, icon_size, icon_size);
    
     sprintf(bufferout, "     icon_animation_hash = g_hash_table_new(g_str_hash, g_str_equal); \n \
-    list_of_event = NULL;\n \
+    list_of_event = g_new0(GSList, 1); \n \
     g_hash_table_insert(icons,\"%s\",icon_animation_hash);\n", icon_name);
     pout2(bufferout);
 

@@ -101,7 +101,7 @@ run_creating_of_animations(void){
         }
         list_temp = g_slist_next(list_temp);
     }
-    fprintf(file_out,"}");
+    fprintf(file_out,"      return icons;\n}\n");
     fflush(file_out);
 return FALSE;
 }

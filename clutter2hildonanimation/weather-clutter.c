@@ -169,11 +169,17 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
         property->x = clutter_actor_get_x(clactor);
         property->y = clutter_actor_get_y(clactor);
         pout(bufferout);
+        sprintf(bufferout, "           <p x=\"%i\" y=\"%i\"></p>\n", clutter_actor_get_x(clactor), clutter_actor_get_y(clactor));
+        pout2(bufferout);
+ 
     }
     if (property->opacity!= clutter_actor_get_opacity(clactor)){
         sprintf(bufferout,"                      hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), %i); \n", clutter_actor_get_opacity(clactor)); 
         property->opacity = clutter_actor_get_opacity(clactor);
         pout(bufferout);
+        sprintf(bufferout, "           <o o=\"%i\"></o>\n", clutter_actor_get_opacity(clactor));
+        pout2(bufferout);
+ 
     }
     clutter_actor_get_scale(clactor, &scale_x, &scale_y);
     if (property->scale_x != scale_x || property->scale_y != scale_y){
@@ -181,12 +187,17 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
         property->scale_x = scale_x;
         property->scale_y = scale_y;
         pout(bufferout);
+        sprintf(bufferout, "           <s x=\"%f\" y=\"%f\" ></s>\n", scale_x, scale_y);
+        pout2(bufferout);
+ 
     }
     angle = clutter_actor_get_rotation(clactor, CLUTTER_X_AXIS, &rx, &ry, &rz);
     if (angle != property->angle_x || rx != property->rxx || ry != property->ryx || rz != property->rzx){
         if (rx < 1024 || rx >= 0 ){
             sprintf(bufferout,"                      hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_X_AXIS, %f, %i, %i, %i);\n",angle, rx, ry, rz); 
             pout(bufferout);
+            sprintf(bufferout, "           <rx a=\"%f\" x=\"%i\" y=\"%i\" z=\"%i\" ></rx>\n", angle, rx, ry, rz);
+            pout2(bufferout);
         }
         property->angle_x = angle;
         property->rxx = rx;
@@ -198,6 +209,9 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
         if (rx < 1024 || rx >= 0){
             sprintf(bufferout,"                     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Y_AXIS, %f, %i, %i, %i);\n",angle, rx, ry, rz); 
             pout(bufferout);
+            sprintf(bufferout, "           <ry a=\"%f\" x=\"%i\" y=\"%i\" z=\"%i\" ></ry>\n", angle, rx, ry, rz);
+            pout2(bufferout);
+ 
         }
         property->angle_y = angle;
         property->rxy = rx;
@@ -209,6 +223,9 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
         if (rx < 1024 || rx >= 0){
             sprintf(bufferout,"                     hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), HILDON_AA_Z_AXIS, %f, %i, %i, %i);\n",angle, rx, ry, rz); 
             pout(bufferout);
+            sprintf(bufferout, "           <rz a=\"%f\" x=\"%i\" y=\"%i\" z=\"%i\" ></rz>\n", angle, rx, ry, rz);
+            pout2(bufferout);
+ 
         }
         property->angle_z = angle;
         property->rxz = rx;
@@ -219,6 +236,7 @@ do_animation(SuperOH *oh, ClutterActor  *clactor, GtkWidget *ha, gboolean fullwi
                 list_temp = g_slist_next(list_temp);\n \
                 ");
         pout(bufferout);
+
  
 }
 /*******************************************************************************/
@@ -242,20 +260,36 @@ animation_cb (SuperOH *oh)
                 "); 
         pout(bufferout);
 
+        sprintf(bufferout, "         <s n=\"%i\">\n", counter);
+        pout2(bufferout);
+ 
         if CLUTTER_IS_GROUP(oh->icon){ 
             for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
                 clactor = clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i);
                 ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
+                sprintf(bufferout, "         <a>\n", counter);
+                pout2(bufferout);
                 do_animation(oh, clactor, ha, fullwindow);
+                sprintf(bufferout, "         </a>\n", counter);
+                pout2(bufferout);
+ 
             }
         }else{
             clactor = oh->icon;
             ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
+            sprintf(bufferout, "         <a>\n", counter);
+            pout2(bufferout);
             do_animation(oh, clactor, ha, fullwindow);
+            sprintf(bufferout, "         </a>\n", counter);
+            pout2(bufferout);
+ 
         }
         sprintf(bufferout,"break;\n \
         "); 
         pout(bufferout);
+
+        sprintf(bufferout, "         </s>\n");
+        pout2(bufferout);
  
     }else
         return FALSE;
@@ -364,9 +398,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
 
     gtk_widget_set_size_request (oh->icon_widget, icon_size, icon_size);
    
-    sprintf(bufferout, "     icon_animation_hash = g_hash_table_new(g_str_hash, g_str_equal); \n \
-    list_of_event = g_new0(GSList, 1); \n \
-    g_hash_table_insert(icons,\"%s\",icon_animation_hash);\n", icon_name);
+    sprintf(bufferout, "<icon name= \"%s\"> \n", icon_name);
     pout2(bufferout);
 
     sprintf(bufferout,"gboolean\n");
@@ -401,6 +433,9 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
     if (oh->script)
         oh->icon = CLUTTER_ACTOR (clutter_script_get_object (oh->script, buffer));
 
+    sprintf(bufferout, "         <s n=\"0\">\n");
+    pout2(bufferout);
+ 
     if (oh->icon){
         if CLUTTER_IS_GROUP(oh->icon){ 
            for (i = 0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
@@ -429,28 +464,12 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
             
                 pout(bufferout);
 
-                sprintf(bufferout, "         event_s = g_new0(Event_s, 1);\n");
-                pout2(bufferout);
-                
-                sprintf(bufferout, "         event_s->name = g_strdup(\"%s\");\n", clutter_actor_get_name(clactor));
-                pout2(bufferout);
-                sprintf(bufferout, "         event_s->height = %i;\n", clutter_actor_get_height(clactor));
-                pout2(bufferout);
-                sprintf(bufferout, "         event_s->width = %i;\n", clutter_actor_get_width(clactor));
-                pout2(bufferout);
+               
+                sprintf(bufferout, "         <a><l n=\"%s\" h=\"%i\" w=\"%i\"></l></a>\n", clutter_actor_get_name(clactor), clutter_actor_get_height(clactor), clutter_actor_get_width(clactor));
 
+                 pout2(bufferout);
 
-                sprintf(bufferout, "         event = g_new0(Event, 1);\n");
-                pout2(bufferout);
-                sprintf(bufferout, "         event->event_type = LOAD_ACTOR;\n");
-                pout2(bufferout);
-                sprintf(bufferout, "         event->event = event_s;\n");
-                pout2(bufferout);
-
-
-                sprintf(bufferout, "         list_of_event = g_slist_append(list_of_event, event);\n");
-                pout2(bufferout);
-                sprintf(bufferout,"             hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), 0); \n" ); 
+               sprintf(bufferout,"             hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), 0); \n" ); 
                 pout(bufferout);
 
                 pixbuf = gdk_pixbuf_new_from_file_at_size (clutter_actor_get_name(clactor), 
@@ -488,29 +507,14 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
                 gtk_container_add (GTK_CONTAINER (ha), image);
                 g_object_set_data(
                         G_OBJECT(oh->icon), "hildon_animation_actor", ha);
-                sprintf(bufferout, "         event_s = g_new0(Event_s, 1);\n");
+                sprintf(bufferout, "         <lactor n=\"%s\" h=\"%i\" w=\"%i\"></lactor>\n", clutter_actor_get_name(clactor), clutter_actor_get_height(clactor), clutter_actor_get_width(clactor));
                 pout2(bufferout);
-                
-                sprintf(bufferout, "         event_s->name = g_strdup(\"%s\");\n", clutter_actor_get_name(clactor));
-                pout2(bufferout);
-                sprintf(bufferout, "         event_s->height = %i;\n", clutter_actor_get_height(clactor));
-                pout2(bufferout);
-                sprintf(bufferout, "         event_s->width = %i;\n", clutter_actor_get_width(clactor));
-                pout2(bufferout);
-
-
-                sprintf(bufferout, "         event = g_new0(Event, 1);\n");
-                pout2(bufferout);
-                sprintf(bufferout, "         event->event_type = LOAD_ACTOR;\n");
-                pout2(bufferout);
-                sprintf(bufferout, "         event->event = event_s;\n");
-                pout2(bufferout);
-
-           }
+                }
     }
-    sprintf(bufferout, "         g_hash_table_insert(icon_animation_hash, \"0\", list_of_event);\n");
+    sprintf(bufferout, "         </s>\n");
     pout2(bufferout);
  
+
     sprintf(bufferout,"     break;\n");
     pout(bufferout);
 /* 

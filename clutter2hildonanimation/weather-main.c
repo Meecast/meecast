@@ -99,10 +99,13 @@ run_creating_of_animations(void){
         while (key){
             gtk_main_iteration();
         }
+        fprintf(file_out, "</icon>\n");
+        fflush(file_out);
+ 
         list_temp = g_slist_next(list_temp);
     }
-    fprintf(file_out,"      return icons;\n}\n");
-    fflush(file_out);
+//    fprintf(file_out,"      return icons;\n}\n");
+//    fflush(file_out);
 return FALSE;
 }
 /*******************************************************************************/
@@ -115,18 +118,8 @@ main(int argc, char *argv[]){
     bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
     textdomain(GETTEXT_PACKAGE);
 #endif
-    file_out = fopen("./1.h","w");
-    fprintf(file_out, "\n\
-GHashTable* \n\
-create_icons_animations_hash(void){\n \
-    GHashTable  *icons = NULL; \n \
-    GHashTable  *icon_animation_hash = NULL; \n \
-    Event       *event = NULL;\n \
-    Event_s     *event_s = NULL;\n \
-    GSList      *list_of_event = NULL;\n \
-\n \
-    icons = g_hash_table_new(g_str_hash, g_str_equal);\n \
-    ");
+    file_out = fopen("./1.xml","w");
+    fprintf(file_out, "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
     gtk_init(&argc, &argv);
     clutter_init(NULL, NULL);
     g_timeout_add(100, run_creating_of_animations, NULL );

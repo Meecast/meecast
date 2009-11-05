@@ -141,14 +141,17 @@ connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
 #endif
             app->iap_connecting = FALSE;
             if ((bearer && !strncmp(bearer,"WLAN", 4) && app->config->update_wlan) ||
-                (bearer && !strncmp(bearer,"DUN_GSM", 7) && app->config->update_gsm))
+                (bearer && !strncmp(bearer,"DUN_GSM", 7) && app->config->update_gsm)||
+                (bearer && !strncmp(bearer,"GPRS", 4) && app->config->update_gsm))
                 app->iap_connected = TRUE;
             else
                 app->iap_connected = FALSE;
             app->iap_connecting_timer = 0;
             if((app->config->downloading_after_connecting) &&
               ((bearer && !strncmp(bearer,"WLAN", 4) && app->config->update_wlan) ||
-              (bearer && !strncmp(bearer,"DUN_GSM", 7) && app->config->update_gsm))){
+              (bearer && !strncmp(bearer,"DUN_GSM", 7) && app->config->update_gsm) ||
+              (bearer && !strncmp(bearer,"GPRS", 4) && app->config->update_gsm))
+              ){
                 add_current_time_event();
             }
 

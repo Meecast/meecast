@@ -10,6 +10,7 @@ omweather (0.24.9) unstable; urgency=low
   * Fixed problem with start by a browser after click in wearther source url
   * Weather.com stations db is default now
   * Fixed bug #5975 "Update weather" <information banner> should be "Updating weather"
+  * Fixed bug #5986 "No auto-updates via gsm network"
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 08 Nov 2009 08:17:20 +0200
 

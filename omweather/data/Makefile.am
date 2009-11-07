@@ -24,6 +24,8 @@ icons_crystallargedir = $(datadir)/omweather/icons/Glance
 icons_crystallarge_DATA = icons/Glance/*.png 
 clutter_scripts_crystallargedir = $(datadir)/omweather/icons/Glance
 clutter_scripts_crystallarge_DATA = icons/Glance/*.json
+animation_crystallargedir = $(datadir)/omweather/icons/Glance
+animation_crystallarge_DATA = icons/Glance/animation.xml
 moon_iconsdir = $(datadir)/omweather/moon_icons
 moon_icons_DATA = moon_icons/*.png
 button_iconsdir = $(datadir)/omweather/button_icons
@@ -82,6 +84,7 @@ EXTRA_DIST = $(homeapplet_desktop_DATA) \
 	     $(icons_crystallarge_DATA) \
 	     $(moon_icons_DATA) \
 	     $(clutter_scripts_crystallarge_DATA) \
+	     $(animation_crystallarge_DATA) \
 	     $(button_icons_DATA) \
 	     units.xml \
 	     $(dbus_service_DATA) \

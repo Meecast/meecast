@@ -28,6 +28,70 @@
 #include "weather-clutter.h"
 #ifdef HILDONANIMATION 
 #define SIZE_OF_WINDOWS_HEAD 52
+/*******************************************************************************/
+void
+parse_animation_of_icon(xmlNode *node, GHashTable *icons){
+    xmlNode     *child_node, *child_node2, *child_node3; 
+    xmlChar     *value = NULL;
+    xmlChar     *number_of_step = NULL;
+    GHashTable  *icon_animation_hash = NULL; 
+    Event       *event = NULL;
+    GSList      *list_of_event = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    while(node){
+        if(node->type == XML_ELEMENT_NODE){
+            /* name */
+            fprintf(stderr,"111 %s\n", node->name);
+            if(!xmlStrcmp(node->name, (const xmlChar*)"icon")){
+                value = xmlGetProp(node, (const xmlChar*)"name");
+                fprintf(stderr, "Icon %s\n", value);
+                icon_animation_hash = g_hash_table_new(g_str_hash, g_str_equal); 
+                g_hash_table_insert(icons,"0",icon_animation_hash);
+                for(child_node = node->children; child_node; child_node = child_node->next){
+                    if( child_node->type == XML_ELEMENT_NODE ){
+                        if(!xmlStrcmp(node->name, (const xmlChar*)"s")){
+                            list_of_event = g_new0(GSList, 1); 
+                            number_of_step = xmlGetProp(node, (const xmlChar*)"n");
+
+                            g_hash_table_insert(icon_animation_hash, number_of_step, list_of_event);
+                        }
+                    }
+                }
+                xmlFree(value);
+            }
+        }
+        node = node->next;
+    }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+}
+/*******************************************************************************/
+GHashTable*
+parse_animation_file(const gchar *filename, const gchar *encoding){
+    xmlDoc     *document = NULL;
+    xmlNode    *root_node = NULL,
+               *current_node = NULL;
+    GHashTable *icons = NULL;
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+    /* check file accessibility */
+    if(!access(filename, R_OK | F_OK)){
+        document = xmlReadFile(filename, encoding, 0);
+      if(document){
+          root_node = xmlDocGetRootElement(document);
+          current_node = root_node->children;
+          icons = g_hash_table_new(g_str_hash, g_str_equal);
+          parse_animation_of_icon(current_node, icons);
+          xmlFreeDoc(document);
+          return icons;
+      } /* if(document) */
+    } /* if(!access()) */
+    return icons;
+}
 
 /*******************************************************************************/
 gboolean
@@ -101,7 +165,7 @@ choose_icon_timeline(SuperOH *oh)
 //    icon1_timeline (oh); return; 
 //    icon_animation_hash = g_hash_table_lookup(app->animation_hash, oh->icon_name);
     icon_animation_hash = g_hash_table_lookup(app->animation_hash, "1");
-    fprintf(stderr,"1!!!!!!!!name %s %i %p\n",oh->icon_name, oh->timeline, icon_animation_hash);
+//    fprintf(stderr,"1!!!!!!!!name %s %i %p\n",oh->icon_name, oh->timeline, icon_animation_hash);
     if (icon_animation_hash){
         switch (oh->timeline){
             case 0: 

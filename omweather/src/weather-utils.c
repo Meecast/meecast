@@ -545,8 +545,10 @@ update_icons_set_base(const char *icon_set_name){
     
     app->config->icons_set_base = g_strdup(buffer);
     /* Create icon hash */
-    /* Fix me free memory for previous hash */
-    app->animation_hash = create_icons_animations_hash();
+    /* Fix me Free memory for previous hash */
+//    app->animation_hash = create_icons_animations_hash();
+    snprintf(buffer,sizeof(buffer) - 1, "%sanimation.xml", app->config->icons_set_base);
+    parse_animation_file(buffer,"UTF-8");
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

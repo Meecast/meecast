@@ -88,7 +88,6 @@ run_creating_of_animations(void){
     list_of_icons = g_list_append(list_of_icons,"46"); 
     list_of_icons = g_list_append(list_of_icons,"47"); 
     list_of_icons = g_list_append(list_of_icons,"48"); 
-    list_of_icons = g_list_append(list_of_icons,"49"); 
     list_temp = list_of_icons;
     while(list_temp != NULL){
         key = TRUE;
@@ -104,8 +103,9 @@ run_creating_of_animations(void){
  
         list_temp = g_slist_next(list_temp);
     }
-//    fprintf(file_out,"      return icons;\n}\n");
-//    fflush(file_out);
+    fprintf(file_out,"</animation>\n");
+    fflush(file_out);
+    gtk_main_quit();
 return FALSE;
 }
 /*******************************************************************************/
@@ -120,6 +120,7 @@ main(int argc, char *argv[]){
 #endif
     file_out = fopen("./1.xml","w");
     fprintf(file_out, "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n");
+    fprintf(file_out, "<animation>\n");
     gtk_init(&argc, &argv);
     clutter_init(NULL, NULL);
     g_timeout_add(100, run_creating_of_animations, NULL );

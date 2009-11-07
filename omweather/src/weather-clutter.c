@@ -36,6 +36,7 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
     xmlChar     *number_of_step = NULL;
     xmlChar     *icon_name = NULL;
     GHashTable  *icon_animation_hash = NULL; 
+    GHashTable  *icon_animation_hash_temp = NULL; 
     Event       *event = NULL;
     Event_l     *event_l = NULL;
     GSList      *list_of_event = NULL;
@@ -51,13 +52,13 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                 value = xmlGetProp(node, (const xmlChar*)"name");
                 fprintf(stderr, "Icon %s\n", value);
                 icon_animation_hash = g_hash_table_new(g_str_hash, g_str_equal); 
-                g_hash_table_insert(icons, value, icon_animation_hash);
+                g_hash_table_insert(icons, g_strdup(value), icon_animation_hash);
                 for(child_node = node->children; child_node; child_node = child_node->next){
                     if( child_node->type == XML_ELEMENT_NODE ){
                         if(!xmlStrcmp(child_node->name, (const xmlChar*)"s")){
-                            number_of_step = xmlGetProp(node, (const xmlChar*)"n");
+                            number_of_step = xmlGetProp(child_node, (const xmlChar*)"n");
                             /* Check for first step */
-                            if (number_of_step && !xmlStrcmp(child_node2->name, (const xmlChar*)"0")){
+                            if (number_of_step && !xmlStrcmp(child_node->name, (const xmlChar*)"0")){
                                 list_of_event = g_new0(GSList, 1);
                             }else{
                                 if (number_of_step)
@@ -100,7 +101,7 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                     }
                                 }
                             }
-                            if (number_of_step && !xmlStrcmp(child_node2->name, (const xmlChar*)"0")){
+                            if (number_of_step && !xmlStrcmp(number_of_step, (const xmlChar*)"0")){
                                 g_hash_table_insert(icon_animation_hash, number_of_step, list_of_event);
                             }
                         }

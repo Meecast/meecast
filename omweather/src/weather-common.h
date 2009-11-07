@@ -363,11 +363,11 @@ typedef struct Event{
     gpointer    event;
 }Event;
 /* Event for load actor */            
-typedef struct Event_s{
+typedef struct Event_l{
   gchar                 *name;
   gint                  height;
   gint                  width;
-}Event_s;
+}Event_l;
 
 #endif
 /*******************************************************************************/

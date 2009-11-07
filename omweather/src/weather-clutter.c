@@ -34,9 +34,12 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
     xmlNode     *child_node, *child_node2, *child_node3; 
     xmlChar     *value = NULL;
     xmlChar     *number_of_step = NULL;
+    xmlChar     *icon_name = NULL;
     GHashTable  *icon_animation_hash = NULL; 
     Event       *event = NULL;
+    Event_l     *event_l = NULL;
     GSList      *list_of_event = NULL;
+    GSList      *temp_list_of_event = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -48,14 +51,58 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                 value = xmlGetProp(node, (const xmlChar*)"name");
                 fprintf(stderr, "Icon %s\n", value);
                 icon_animation_hash = g_hash_table_new(g_str_hash, g_str_equal); 
-                g_hash_table_insert(icons,"0",icon_animation_hash);
+                g_hash_table_insert(icons, value, icon_animation_hash);
                 for(child_node = node->children; child_node; child_node = child_node->next){
                     if( child_node->type == XML_ELEMENT_NODE ){
-                        if(!xmlStrcmp(node->name, (const xmlChar*)"s")){
-                            list_of_event = g_new0(GSList, 1); 
+                        if(!xmlStrcmp(child_node->name, (const xmlChar*)"s")){
                             number_of_step = xmlGetProp(node, (const xmlChar*)"n");
-
-                            g_hash_table_insert(icon_animation_hash, number_of_step, list_of_event);
+                            /* Check for first step */
+                            if (number_of_step && !xmlStrcmp(child_node2->name, (const xmlChar*)"0")){
+                                list_of_event = g_new0(GSList, 1);
+                            }else{
+                                if (number_of_step)
+                                    list_of_event = g_hash_table_lookup(icon_animation_hash, number_of_step);
+                            }
+                            temp_list_of_event = list_of_event;
+                            for(child_node2 = child_node->children;
+                               child_node2; child_node2 = child_node2->next){
+                                if( child_node2->type == XML_ELEMENT_NODE ){
+                                    if(!xmlStrcmp(child_node2->name, (const xmlChar*)"a")){
+                                        for(child_node3 = child_node2->children; 
+                                           child_node3; child_node3 = child_node3->next){
+                                            /* load actor */
+                                            if(!xmlStrcmp(child_node3->name, (const xmlChar*)"l")){
+                                                event_l = g_new0(Event_l, 1);
+                                                icon_name = xmlGetProp(child_node3, (const xmlChar*)"n");
+                                                if(icon_name)
+                                                    event_l->name = g_strdup(icon_name);
+                                                if (xmlGetProp(node, (const xmlChar*)"h")){
+                                                    event_l->height = atoi(xmlGetProp(child_node3, (const xmlChar*)"h")); 
+                                                }
+                                                if (xmlGetProp(node, (const xmlChar*)"w")){
+                                                    event_l->width = atoi(xmlGetProp(child_node3, (const xmlChar*)"w")); 
+                                                }
+                                                event = g_new0(Event, 1);
+                                                event->event_type = LOAD_ACTOR;
+                                                event->event = event_l;
+                                                list_of_event = g_slist_append(list_of_event, event);
+                                            }
+                                        }
+                                        /*
+                                        if (number_of_step && 
+                                           !xmlStrcmp(child_node2->name, (const xmlChar*)"0")){
+                                            list_of_event = g_slist_append(list_of_event, event);
+                                            temp_list_of_event = list_of_event;
+                                        }else{
+                                            temp_list_of_event = g_slist_next(temp_list_of_event);
+                                        }
+                                        */
+                                    }
+                                }
+                            }
+                            if (number_of_step && !xmlStrcmp(child_node2->name, (const xmlChar*)"0")){
+                                g_hash_table_insert(icon_animation_hash, number_of_step, list_of_event);
+                            }
                         }
                     }
                 }
@@ -75,9 +122,9 @@ parse_animation_file(const gchar *filename, const gchar *encoding){
     xmlNode    *root_node = NULL,
                *current_node = NULL;
     GHashTable *icons = NULL;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     /* check file accessibility */
     if(!access(filename, R_OK | F_OK)){
         document = xmlReadFile(filename, encoding, 0);
@@ -119,7 +166,7 @@ realize (GtkWidget *widget)
 }
 /*******************************************************************************/
 //#include "icon0.c"
-#include "1.h"
+//#include "1.h"
 /*******************************************************************************/
 void
 load_actor(SuperOH *oh, gchar *icon_name, gint width, gint height){
@@ -154,7 +201,7 @@ choose_icon_timeline(SuperOH *oh)
     GSList      *list_of_event = NULL;
     GSList      *list_temp = NULL;
     Event       *event = NULL;
-    Event_s     *event_s = NULL;
+    Event_l     *event_l = NULL;
     GtkWidget   *ha = NULL; 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -174,9 +221,9 @@ choose_icon_timeline(SuperOH *oh)
                     while(list_temp != NULL){
                         event = list_temp->data;
                         if (event && event->event_type == LOAD_ACTOR){
-                            event_s = event->event;
-                            if (event_s)
-                                load_actor(oh, event_s->name, event_s->width, event_s->height);
+                            event_l = event->event;
+                            if (event_l)
+                                load_actor(oh, event_l->name, event_l->width, event_l->height);
                         }
                         list_temp = g_slist_next(list_temp);
                     }  

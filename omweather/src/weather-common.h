@@ -361,6 +361,7 @@ typedef struct SuperOH{
 #define POSITION_ACTOR 2
 #define OPACITY_ACTOR 3
 #define SCALE_ACTOR 4
+#define ROTATE_ACTOR 5
 typedef struct Event{
     gchar       *event_type;
     gpointer    event;
@@ -387,6 +388,15 @@ typedef struct Event_s{
   gdouble               x;
   gdouble               y;
 }Event_s;
+/* Event for changed Rotate of actor */            
+typedef struct Event_r{
+  gdouble               a;
+  gint                  x;
+  gint                  y;
+  gint                  z;
+  gint                  d;
+}Event_r;
+
 
 
 

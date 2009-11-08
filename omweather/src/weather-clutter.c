@@ -42,6 +42,7 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
     Event_p     *event_p = NULL;
     Event_o     *event_o = NULL;
     Event_s     *event_s = NULL;
+    Event_r     *event_r = NULL;
     GSList      *list_of_event = NULL;
     GSList      *temp_list_of_event = NULL;
     gint        number_actor_in_queue = 1;
@@ -127,6 +128,38 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                                 event->number = number_actor_in_queue;
                                                 list_of_event = g_slist_append(list_of_event, event);
                                             }
+                                            /* changed Rotation of actor */
+                                            if(!xmlStrcmp(child_node3->name, (const xmlChar*)"rx")||
+                                               !xmlStrcmp(child_node3->name, (const xmlChar*)"ry")||
+                                               !xmlStrcmp(child_node3->name, (const xmlChar*)"rz")) {
+                                                event_r = g_new0(Event_r, 1);
+                                                if (xmlGetProp(child_node3, (const xmlChar*)"x"))
+                                                    event_r->x = atoi(xmlGetProp(child_node3,
+                                                                        (const xmlChar*)"x"));
+                                                if (xmlGetProp(child_node3, (const xmlChar*)"y"))
+                                                    event_r->y = atoi(xmlGetProp(child_node3, 
+                                                                        (const xmlChar*)"y"));
+                                                if (xmlGetProp(child_node3, (const xmlChar*)"z"))
+                                                    event_r->x = atoi(xmlGetProp(child_node3,
+                                                                        (const xmlChar*)"z"));
+                                                if (xmlGetProp(child_node3, (const xmlChar*)"a"))
+                                                    event_r->a = atof(xmlGetProp(child_node3,
+                                                                        (const xmlChar*)"a"));
+    
+                                                if(!xmlStrcmp(child_node3->name, (const xmlChar*)"rx"))
+                                                    event_r->d = HILDON_AA_X_AXIS;
+                                                if(!xmlStrcmp(child_node3->name, (const xmlChar*)"ry"))
+                                                    event_r->d = HILDON_AA_Y_AXIS;
+                                                if(!xmlStrcmp(child_node3->name, (const xmlChar*)"rz"))
+                                                    event_r->d = HILDON_AA_Z_AXIS;
+ 
+                                                event = g_new0(Event, 1);
+                                                event->event_type = ROTATE_ACTOR;
+                                                event->event = event_r;
+                                                event->number = number_actor_in_queue;
+                                                list_of_event = g_slist_append(list_of_event, event);
+                                            }
+ 
                                         }
                                         /*
                                         if (number_of_step && 
@@ -205,9 +238,6 @@ realize (GtkWidget *widget)
     gtk_widget_set_colormap (widget, gdk_screen_get_rgba_colormap (screen));
 }
 /*******************************************************************************/
-//#include "icon0.c"
-//#include "1.h"
-/*******************************************************************************/
 void
 load_actor(SuperOH *oh, gchar *icon_name, gint width, gint height){
 
@@ -230,8 +260,7 @@ load_actor(SuperOH *oh, gchar *icon_name, gint width, gint height){
     gtk_container_add (GTK_CONTAINER (ha), oh->image);
     g_object_set_data(
                     G_OBJECT(oh->image), "hildon_animation_actor", ha);
-//    hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), 0); 
-
+    hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), 0); 
 }
 /*******************************************************************************/
 void
@@ -305,9 +334,9 @@ scale_actor(SuperOH *oh, gint number, gdouble x, gdouble y){
     GtkWidget   *image = NULL; 
     gint        i = 1;
     GSList      *list_temp = NULL;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
  
     list_temp = oh->list_images;
     while(list_temp != NULL){ 
@@ -321,10 +350,35 @@ scale_actor(SuperOH *oh, gint number, gdouble x, gdouble y){
     else
         return;
     ha = g_object_get_data(G_OBJECT(image), "hildon_animation_actor");
-    if (ha){
-        fprintf(stderr,"ddddddddddddddddddddd %f %f\n", x, y);
+    if (ha)
         hildon_animation_actor_set_scale(HILDON_ANIMATION_ACTOR (ha), x, y);
+}
+/*******************************************************************************/
+void
+rotation_actor(SuperOH *oh, gint number, gint direction, gdouble angle, gint x, gint y, gint z){
+
+    GtkWidget   *ha = NULL; 
+    GtkWidget   *image = NULL; 
+    gint        i = 1;
+    GSList      *list_temp = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+ 
+    list_temp = oh->list_images;
+    while(list_temp != NULL){ 
+        if (i == number)
+            break;
+        i++;
+        list_temp = g_slist_next(list_temp);
     }
+    if (list_temp)
+        image = list_temp->data;
+    else
+        return;
+    ha = g_object_get_data(G_OBJECT(image), "hildon_animation_actor");
+    if (ha)
+        hildon_animation_actor_set_rotation(HILDON_ANIMATION_ACTOR (ha), direction, angle, x, y, z);
 }
 /*******************************************************************************/
 
@@ -339,6 +393,7 @@ choose_icon_timeline(SuperOH *oh)
     Event_p     *event_p = NULL;
     Event_o     *event_o = NULL;
     Event_s     *event_s = NULL;
+    Event_r     *event_r = NULL;
     GtkWidget   *ha = NULL; 
     gchar       count_buffer[10];
     gboolean    fullwindow; 
@@ -418,6 +473,13 @@ choose_icon_timeline(SuperOH *oh)
                                 if (event_s)
                                     scale_actor(oh, event->number, event_s->x, event_s->y);
                             }
+                            if (event && event->event_type == ROTATE_ACTOR){
+                                event_r = event->event;
+                                if (event_r)
+                                    rotation_actor(oh, event->number, event_r->d, event_r->a, 
+                                                       event_r->x, event_r->y, event_r->z);
+                            }
+
 
 
                             list_temp = g_slist_next(list_temp);
@@ -580,9 +642,9 @@ void free_clutter_objects_list(GSList **clutter_objects) {
     GtkWidget  *clactor = NULL;
     GtkWidget *ha;
     gint i;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     if (!*clutter_objects)
         return;
     list_temp = *clutter_objects;
@@ -606,9 +668,9 @@ void free_clutter_objects_list(GSList **clutter_objects) {
     }
     g_slist_free(*clutter_objects);
     *clutter_objects = NULL;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
-//#endif
+#endif
 }
 
 #endif

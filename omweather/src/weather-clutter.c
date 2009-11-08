@@ -40,6 +40,7 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
     Event       *event = NULL;
     Event_l     *event_l = NULL;
     Event_p     *event_p = NULL;
+    Event_o     *event_o = NULL;
     GSList      *list_of_event = NULL;
     GSList      *temp_list_of_event = NULL;
     gint        number_actor_in_queue = 1;
@@ -61,11 +62,6 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                             number_of_step = xmlGetProp(child_node, (const xmlChar*)"n");
                             list_of_event = g_new0(GSList, 1);
                             number_actor_in_queue = 1;
-                            /* Check for first step */
-                            if (number_of_step && xmlStrcmp(child_node->name, (const xmlChar*)"0")){
-                                if (number_of_step)
-                                    temp_list_of_event = g_hash_table_lookup(icon_animation_hash, number_of_step);
-                            }
                             for(child_node2 = child_node->children;
                                child_node2; child_node2 = child_node2->next){
                                 if( child_node2->type == XML_ELEMENT_NODE ){
@@ -101,6 +97,18 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                                 event->number = number_actor_in_queue;
                                                 list_of_event = g_slist_append(list_of_event, event);
                                             }
+                                            /* changed Opacity of actor */
+                                            if(!xmlStrcmp(child_node3->name, (const xmlChar*)"o")){
+                                                event_o = g_new0(Event_o, 1);
+                                                if (xmlGetProp(child_node3, (const xmlChar*)"o"))
+                                                    event_o->o = atoi(xmlGetProp(child_node3, (const xmlChar*)"o")); 
+                                                event = g_new0(Event, 1);
+                                                event->event_type = OPACITY_ACTOR;
+                                                event->event = event_o;
+                                                event->number = number_actor_in_queue;
+                                                list_of_event = g_slist_append(list_of_event, event);
+                                            }
+
 
                                         }
                                         /*
@@ -224,6 +232,7 @@ position_actor(SuperOH *oh, gint number, gint x, gint y, gboolean fullwindow){
     while(list_temp != NULL){ 
         if (i == number)
             break;
+        i++;
         list_temp = g_slist_next(list_temp);
     }
     if (list_temp)
@@ -232,7 +241,6 @@ position_actor(SuperOH *oh, gint number, gint x, gint y, gboolean fullwindow){
         return;
     ha = g_object_get_data(G_OBJECT(image), "hildon_animation_actor");
     if (ha){
-        /* Name /usr/share/omweather/icons/Glance/dark_cloud.png */
         if (!fullwindow) { 
               hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), 
               oh->icon_widget->allocation.x + 
@@ -250,6 +258,32 @@ position_actor(SuperOH *oh, gint number, gint x, gint y, gboolean fullwindow){
     }
 }
 /*******************************************************************************/
+void
+opacity_actor(SuperOH *oh, gint number, gint opacity){
+
+    GdkPixbuf  *pixbuf; 
+    GtkWidget  *ha = NULL; 
+    GtkWidget  *image = NULL; 
+    gint i = 1;
+    GSList      *list_temp = NULL;
+
+    list_temp = oh->list_images;
+    while(list_temp != NULL){ 
+        if (i == number)
+            break;
+        i++;
+        list_temp = g_slist_next(list_temp);
+    }
+    if (list_temp)
+        image = list_temp->data;
+    else
+        return;
+    ha = g_object_get_data(G_OBJECT(image), "hildon_animation_actor");
+    if (ha){
+        hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), opacity);
+    }
+}
+/*******************************************************************************/
 
 gboolean
 choose_icon_timeline(SuperOH *oh)
@@ -260,6 +294,7 @@ choose_icon_timeline(SuperOH *oh)
     Event       *event = NULL;
     Event_l     *event_l = NULL;
     Event_p     *event_p = NULL;
+    Event_o     *event_o = NULL;
     GtkWidget   *ha = NULL; 
     gchar       count_buffer[10];
     gboolean    fullwindow; 
@@ -332,6 +367,12 @@ choose_icon_timeline(SuperOH *oh)
                                 if (event_p)
                                     position_actor(oh, event->number, event_p->x, event_p->y, fullwindow);
                             }
+                            if (event && event->event_type == OPACITY_ACTOR){
+                                event_o = event->event;
+                                if (event_o)
+                                    opacity_actor(oh, event->number, event_o->o);
+                            }
+
                             list_temp = g_slist_next(list_temp);
                         }  
                     }else

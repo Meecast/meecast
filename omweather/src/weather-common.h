@@ -359,6 +359,7 @@ typedef struct SuperOH{
 #ifdef HILDONANIMATION
 #define LOAD_ACTOR 1
 #define POSITION_ACTOR 2
+#define OPACITY_ACTOR 3
 typedef struct Event{
     gchar       *event_type;
     gpointer    event;
@@ -376,6 +377,11 @@ typedef struct Event_p{
   gint                  x;
   gint                  y;
 }Event_p;
+/* Event for changed Opacity of actor */            
+typedef struct Event_o{
+  gint                  o;
+}Event_o;
+
 
 
 #endif

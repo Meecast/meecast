@@ -39,15 +39,17 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
     GHashTable  *icon_animation_hash_temp = NULL; 
     Event       *event = NULL;
     Event_l     *event_l = NULL;
+    Event_p     *event_p = NULL;
     GSList      *list_of_event = NULL;
     GSList      *temp_list_of_event = NULL;
+    gint        number_actor_in_queue = 1;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     while(node){
         if(node->type == XML_ELEMENT_NODE){
             /* name */
-            fprintf(stderr,"111 %s\n", node->name);
             if(!xmlStrcmp(node->name, (const xmlChar*)"icon")){
                 value = xmlGetProp(node, (const xmlChar*)"name");
                 fprintf(stderr, "Icon %s\n", value);
@@ -57,14 +59,13 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                     if( child_node->type == XML_ELEMENT_NODE ){
                         if(!xmlStrcmp(child_node->name, (const xmlChar*)"s")){
                             number_of_step = xmlGetProp(child_node, (const xmlChar*)"n");
+                            list_of_event = g_new0(GSList, 1);
+                            number_actor_in_queue = 1;
                             /* Check for first step */
-                            if (number_of_step && !xmlStrcmp(child_node->name, (const xmlChar*)"0")){
-                                list_of_event = g_new0(GSList, 1);
-                            }else{
+                            if (number_of_step && xmlStrcmp(child_node->name, (const xmlChar*)"0")){
                                 if (number_of_step)
-                                    list_of_event = g_hash_table_lookup(icon_animation_hash, number_of_step);
+                                    temp_list_of_event = g_hash_table_lookup(icon_animation_hash, number_of_step);
                             }
-                            temp_list_of_event = list_of_event;
                             for(child_node2 = child_node->children;
                                child_node2; child_node2 = child_node2->next){
                                 if( child_node2->type == XML_ELEMENT_NODE ){
@@ -84,8 +85,23 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                                 event = g_new0(Event, 1);
                                                 event->event_type = LOAD_ACTOR;
                                                 event->event = event_l;
+                                                event->number = number_actor_in_queue;
                                                 list_of_event = g_slist_append(list_of_event, event);
                                             }
+                                            /* changed Position of actor */
+                                            if(!xmlStrcmp(child_node3->name, (const xmlChar*)"p")){
+                                                event_p = g_new0(Event_p, 1);
+                                                if (xmlGetProp(child_node3, (const xmlChar*)"x"))
+                                                    event_p->x = atoi(xmlGetProp(child_node3, (const xmlChar*)"x")); 
+                                                if (xmlGetProp(child_node3, (const xmlChar*)"y"))
+                                                    event_p->y = atoi(xmlGetProp(child_node3, (const xmlChar*)"y")); 
+                                                event = g_new0(Event, 1);
+                                                event->event_type = POSITION_ACTOR;
+                                                event->event = event_p;
+                                                event->number = number_actor_in_queue;
+                                                list_of_event = g_slist_append(list_of_event, event);
+                                            }
+
                                         }
                                         /*
                                         if (number_of_step && 
@@ -97,11 +113,12 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                         }
                                         */
                                     }
+                                    number_actor_in_queue ++;
                                 }
                             }
-                            if (number_of_step && !xmlStrcmp(number_of_step, (const xmlChar*)"0")){
+//                            if (number_of_step && !xmlStrcmp(number_of_step, (const xmlChar*)"0")){
                                 g_hash_table_insert(icon_animation_hash, number_of_step, list_of_event);
-                            }
+//                            }
                         }
                     }
                 }
@@ -193,6 +210,47 @@ load_actor(SuperOH *oh, gchar *icon_name, gint width, gint height){
 
 }
 /*******************************************************************************/
+void
+position_actor(SuperOH *oh, gint number, gint x, gint y, gboolean fullwindow){
+
+    GdkPixbuf  *pixbuf; 
+    GtkWidget  *ha = NULL; 
+    GtkWidget  *image = NULL; 
+    gint allocationx = 0, allocationy = 0;
+    gint i = 1;
+    GSList      *list_temp = NULL;
+
+    list_temp = oh->list_images;
+    while(list_temp != NULL){ 
+        if (i == number)
+            break;
+        list_temp = g_slist_next(list_temp);
+    }
+    if (list_temp)
+        image = list_temp->data;
+    else
+        return;
+    ha = g_object_get_data(G_OBJECT(image), "hildon_animation_actor");
+    if (ha){
+        /* Name /usr/share/omweather/icons/Glance/dark_cloud.png */
+        if (!fullwindow) { 
+              hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), 
+              oh->icon_widget->allocation.x + 
+              (((oh->icon_size*100)/GIANT_ICON_SIZE) * x/100) + allocationx, 
+              oh->icon_widget->allocation.y + 
+              (((oh->icon_size*100)/GIANT_ICON_SIZE) * y/100) + allocationy + SIZE_OF_WINDOWS_HEAD, 0);
+        }else{
+              hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), 
+              oh->icon_widget->allocation.x + 
+              (((oh->icon_size*100)/GIANT_ICON_SIZE) * x/100) + allocationx, 
+              oh->icon_widget->allocation.y + 
+              (((oh->icon_size*100)/GIANT_ICON_SIZE) * y/100) + allocationy,
+              0);
+        }
+    }
+}
+/*******************************************************************************/
+
 gboolean
 choose_icon_timeline(SuperOH *oh)
 {
@@ -201,7 +259,11 @@ choose_icon_timeline(SuperOH *oh)
     GSList      *list_temp = NULL;
     Event       *event = NULL;
     Event_l     *event_l = NULL;
+    Event_p     *event_p = NULL;
     GtkWidget   *ha = NULL; 
+    gchar       count_buffer[10];
+    gboolean    fullwindow; 
+    GtkWidget   *window;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -226,30 +288,54 @@ choose_icon_timeline(SuperOH *oh)
                         }
                         list_temp = g_slist_next(list_temp);
                     }  
-                     break;
+                    break;
             case 1:  
-                    fprintf(stderr,"ddddddddddddddd\n");
                     list_temp = oh->list_images;
-                     while(list_temp != NULL){
+                    while(list_temp != NULL){
                          ha = g_object_get_data(G_OBJECT(list_temp->data), "hildon_animation_actor");
                          hildon_animation_actor_set_parent (HILDON_ANIMATION_ACTOR (ha), oh->window);
                          // Set anchor point to the actor center
                          hildon_animation_actor_set_anchor_from_gravity (HILDON_ANIMATION_ACTOR (ha),
                                                                                         HILDON_AA_NW_GRAVITY);
                          realize(ha);
-                          hildon_animation_actor_set_position_full(HILDON_ANIMATION_ACTOR (ha), 100,100,0);
                          gtk_widget_show_all (ha);
                          list_temp = g_slist_next(list_temp);
-                     }
-                     g_source_remove(oh->runtime); 
-                     oh->runtime = g_timeout_add (oh->delay, choose_icon_timeline, oh); 
-                     break;
+                    }
+                    g_source_remove(oh->runtime); 
+                    oh->runtime = g_timeout_add (oh->delay, choose_icon_timeline, oh); 
+                    break;
             case 2:
-                     g_source_remove(oh->runtime);
-                     oh->runtime = g_timeout_add (50, choose_icon_timeline, oh);
-                     break;
+                    g_source_remove(oh->runtime);
+                    oh->runtime = g_timeout_add (50, choose_icon_timeline, oh);
+                    break;
             default:
-                     return FALSE; 
+                    snprintf(count_buffer, sizeof(count_buffer) - 1, "%i", oh->timeline);
+                    list_of_event = g_hash_table_lookup(icon_animation_hash, count_buffer);
+                    if (list_of_event){
+                        window = oh->window; 
+                        if (window && (gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN 
+                           || !strcmp(gtk_widget_get_name(window), "OmweatherDesktopWidget")))
+                            fullwindow = TRUE;
+                        else
+                            fullwindow = FALSE;
+ 
+                        list_temp = list_of_event;
+                        while(list_temp != NULL){
+                            event = list_temp->data;
+                            if (event && event->event_type == LOAD_ACTOR){
+                                event_l = event->event;
+                                if (event_l)
+                                     load_actor(oh, event_l->name, event_l->width, event_l->height);
+                            }
+                            if (event && event->event_type == POSITION_ACTOR){
+                                event_p = event->event;
+                                if (event_p)
+                                    position_actor(oh, event->number, event_p->x, event_p->y, fullwindow);
+                            }
+                            list_temp = g_slist_next(list_temp);
+                        }  
+                    }else
+                        return FALSE; 
          
         }
         oh->timeline ++;

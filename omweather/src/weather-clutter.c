@@ -77,12 +77,10 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                                 icon_name = xmlGetProp(child_node3, (const xmlChar*)"n");
                                                 if(icon_name)
                                                     event_l->name = g_strdup(icon_name);
-                                                if (xmlGetProp(node, (const xmlChar*)"h")){
+                                                if (xmlGetProp(child_node3, (const xmlChar*)"h"))
                                                     event_l->height = atoi(xmlGetProp(child_node3, (const xmlChar*)"h")); 
-                                                }
-                                                if (xmlGetProp(node, (const xmlChar*)"w")){
+                                                if (xmlGetProp(child_node3, (const xmlChar*)"w"))
                                                     event_l->width = atoi(xmlGetProp(child_node3, (const xmlChar*)"w")); 
-                                                }
                                                 event = g_new0(Event, 1);
                                                 event->event_type = LOAD_ACTOR;
                                                 event->event = event_l;
@@ -195,7 +193,7 @@ load_actor(SuperOH *oh, gchar *icon_name, gint width, gint height){
 
 }
 /*******************************************************************************/
-void
+gboolean
 choose_icon_timeline(SuperOH *oh)
 {
     GHashTable  *icon_animation_hash = NULL;
@@ -209,10 +207,10 @@ choose_icon_timeline(SuperOH *oh)
 #endif
  
     if (!oh->icon_name)
-        return;
+        return FALSE;
 //    icon1_timeline (oh); return; 
-//    icon_animation_hash = g_hash_table_lookup(app->animation_hash, oh->icon_name);
-    icon_animation_hash = g_hash_table_lookup(app->animation_hash, "1");
+      icon_animation_hash = g_hash_table_lookup(app->animation_hash, oh->icon_name);
+//    icon_animation_hash = g_hash_table_lookup(app->animation_hash, "1");
 //    fprintf(stderr,"1!!!!!!!!name %s %i %p\n",oh->icon_name, oh->timeline, icon_animation_hash);
     if (icon_animation_hash){
         switch (oh->timeline){
@@ -244,12 +242,19 @@ choose_icon_timeline(SuperOH *oh)
                          list_temp = g_slist_next(list_temp);
                      }
                      g_source_remove(oh->runtime); 
-//                     oh->runtime = g_timeout_add (oh->delay, icon0_timeline, oh); 
+                     oh->runtime = g_timeout_add (oh->delay, choose_icon_timeline, oh); 
                      break;
+            case 2:
+                     g_source_remove(oh->runtime);
+                     oh->runtime = g_timeout_add (50, choose_icon_timeline, oh);
+                     break;
+            default:
+                     return FALSE; 
          
         }
         oh->timeline ++;
     }
+    return TRUE;
 #if 0
     if (!strcmp(oh->icon_name,"0")){ icon0_timeline (oh); return; }
     if (!strcmp(oh->icon_name,"1")){ icon1_timeline (oh); return; }

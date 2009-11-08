@@ -41,6 +41,7 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
     Event_l     *event_l = NULL;
     Event_p     *event_p = NULL;
     Event_o     *event_o = NULL;
+    Event_s     *event_s = NULL;
     GSList      *list_of_event = NULL;
     GSList      *temp_list_of_event = NULL;
     gint        number_actor_in_queue = 1;
@@ -48,12 +49,12 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    setlocale(LC_NUMERIC, "POSIX");
     while(node){
         if(node->type == XML_ELEMENT_NODE){
             /* name */
             if(!xmlStrcmp(node->name, (const xmlChar*)"icon")){
                 value = xmlGetProp(node, (const xmlChar*)"name");
-                fprintf(stderr, "Icon %s\n", value);
                 icon_animation_hash = g_hash_table_new(g_str_hash, g_str_equal); 
                 g_hash_table_insert(icons, g_strdup(value), icon_animation_hash);
                 for(child_node = node->children; child_node; child_node = child_node->next){
@@ -88,9 +89,11 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar*)"p")){
                                                 event_p = g_new0(Event_p, 1);
                                                 if (xmlGetProp(child_node3, (const xmlChar*)"x"))
-                                                    event_p->x = atoi(xmlGetProp(child_node3, (const xmlChar*)"x")); 
+                                                    event_p->x = atoi(xmlGetProp(child_node3, 
+                                                                            (const xmlChar*)"x")); 
                                                 if (xmlGetProp(child_node3, (const xmlChar*)"y"))
-                                                    event_p->y = atoi(xmlGetProp(child_node3, (const xmlChar*)"y")); 
+                                                    event_p->y = atoi(xmlGetProp(child_node3, 
+                                                                            (const xmlChar*)"y")); 
                                                 event = g_new0(Event, 1);
                                                 event->event_type = POSITION_ACTOR;
                                                 event->event = event_p;
@@ -101,15 +104,29 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar*)"o")){
                                                 event_o = g_new0(Event_o, 1);
                                                 if (xmlGetProp(child_node3, (const xmlChar*)"o"))
-                                                    event_o->o = atoi(xmlGetProp(child_node3, (const xmlChar*)"o")); 
+                                                    event_o->o = atoi(xmlGetProp(child_node3, 
+                                                                        (const xmlChar*)"o")); 
                                                 event = g_new0(Event, 1);
                                                 event->event_type = OPACITY_ACTOR;
                                                 event->event = event_o;
                                                 event->number = number_actor_in_queue;
                                                 list_of_event = g_slist_append(list_of_event, event);
                                             }
-
-
+                                            /* changed Scale of actor */
+                                            if(!xmlStrcmp(child_node3->name, (const xmlChar*)"s")){
+                                                event_s = g_new0(Event_s, 1);
+                                                if (xmlGetProp(child_node3, (const xmlChar*)"x"))
+                                                    event_s->x = atof(xmlGetProp(child_node3,
+                                                                        (const xmlChar*)"x"));
+                                                if (xmlGetProp(child_node3, (const xmlChar*)"y"))
+                                                    event_s->y = atof(xmlGetProp(child_node3, 
+                                                                        (const xmlChar*)"y")); 
+                                                event = g_new0(Event, 1);
+                                                event->event_type = SCALE_ACTOR;
+                                                event->event = event_s;
+                                                event->number = number_actor_in_queue;
+                                                list_of_event = g_slist_append(list_of_event, event);
+                                            }
                                         }
                                         /*
                                         if (number_of_step && 
@@ -124,9 +141,7 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                     number_actor_in_queue ++;
                                 }
                             }
-//                            if (number_of_step && !xmlStrcmp(number_of_step, (const xmlChar*)"0")){
-                                g_hash_table_insert(icon_animation_hash, number_of_step, list_of_event);
-//                            }
+                            g_hash_table_insert(icon_animation_hash, number_of_step, list_of_event);
                         }
                     }
                 }
@@ -135,6 +150,7 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
         }
         node = node->next;
     }
+    setlocale(LC_NUMERIC, "");
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -221,7 +237,6 @@ load_actor(SuperOH *oh, gchar *icon_name, gint width, gint height){
 void
 position_actor(SuperOH *oh, gint number, gint x, gint y, gboolean fullwindow){
 
-    GdkPixbuf  *pixbuf; 
     GtkWidget  *ha = NULL; 
     GtkWidget  *image = NULL; 
     gint allocationx = 0, allocationy = 0;
@@ -261,10 +276,9 @@ position_actor(SuperOH *oh, gint number, gint x, gint y, gboolean fullwindow){
 void
 opacity_actor(SuperOH *oh, gint number, gint opacity){
 
-    GdkPixbuf  *pixbuf; 
-    GtkWidget  *ha = NULL; 
-    GtkWidget  *image = NULL; 
-    gint i = 1;
+    GtkWidget   *ha = NULL; 
+    GtkWidget   *image = NULL; 
+    gint        i = 1;
     GSList      *list_temp = NULL;
 
     list_temp = oh->list_images;
@@ -284,6 +298,35 @@ opacity_actor(SuperOH *oh, gint number, gint opacity){
     }
 }
 /*******************************************************************************/
+void
+scale_actor(SuperOH *oh, gint number, gdouble x, gdouble y){
+
+    GtkWidget   *ha = NULL; 
+    GtkWidget   *image = NULL; 
+    gint        i = 1;
+    GSList      *list_temp = NULL;
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+ 
+    list_temp = oh->list_images;
+    while(list_temp != NULL){ 
+        if (i == number)
+            break;
+        i++;
+        list_temp = g_slist_next(list_temp);
+    }
+    if (list_temp)
+        image = list_temp->data;
+    else
+        return;
+    ha = g_object_get_data(G_OBJECT(image), "hildon_animation_actor");
+    if (ha){
+        fprintf(stderr,"ddddddddddddddddddddd %f %f\n", x, y);
+        hildon_animation_actor_set_scale(HILDON_ANIMATION_ACTOR (ha), x, y);
+    }
+}
+/*******************************************************************************/
 
 gboolean
 choose_icon_timeline(SuperOH *oh)
@@ -295,6 +338,7 @@ choose_icon_timeline(SuperOH *oh)
     Event_l     *event_l = NULL;
     Event_p     *event_p = NULL;
     Event_o     *event_o = NULL;
+    Event_s     *event_s = NULL;
     GtkWidget   *ha = NULL; 
     gchar       count_buffer[10];
     gboolean    fullwindow; 
@@ -305,10 +349,7 @@ choose_icon_timeline(SuperOH *oh)
  
     if (!oh->icon_name)
         return FALSE;
-//    icon1_timeline (oh); return; 
-      icon_animation_hash = g_hash_table_lookup(app->animation_hash, oh->icon_name);
-//    icon_animation_hash = g_hash_table_lookup(app->animation_hash, "1");
-//    fprintf(stderr,"1!!!!!!!!name %s %i %p\n",oh->icon_name, oh->timeline, icon_animation_hash);
+    icon_animation_hash = g_hash_table_lookup(app->animation_hash, oh->icon_name);
     if (icon_animation_hash){
         switch (oh->timeline){
             case 0: 
@@ -372,6 +413,12 @@ choose_icon_timeline(SuperOH *oh)
                                 if (event_o)
                                     opacity_actor(oh, event->number, event_o->o);
                             }
+                            if (event && event->event_type == SCALE_ACTOR){
+                                event_s = event->event;
+                                if (event_s)
+                                    scale_actor(oh, event->number, event_s->x, event_s->y);
+                            }
+
 
                             list_temp = g_slist_next(list_temp);
                         }  

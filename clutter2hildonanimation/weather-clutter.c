@@ -507,7 +507,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
                 gtk_container_add (GTK_CONTAINER (ha), image);
                 g_object_set_data(
                         G_OBJECT(oh->icon), "hildon_animation_actor", ha);
-                sprintf(bufferout, "         <lactor n=\"%s\" h=\"%i\" w=\"%i\"></lactor>\n", clutter_actor_get_name(clactor), clutter_actor_get_height(clactor), clutter_actor_get_width(clactor));
+                sprintf(bufferout, "         <l n=\"%s\" h=\"%i\" w=\"%i\"></l>\n", clutter_actor_get_name(clactor), clutter_actor_get_height(clactor), clutter_actor_get_width(clactor));
                 pout2(bufferout);
                 }
     }

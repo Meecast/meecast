@@ -87,6 +87,13 @@ binary-arch: build install
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol
+	maemo-optify
+	rm -f debian/omweather/usr/share/omweather
+	mkdir -p debian/omweather/usr/share/omweather/copyright_icons
+	mkdir -p debian/omweather/usr/share/omweather/db
+	mkdir -p debian/omweather/usr/share/omweather/sources
+	ln -s /opt/maemo/usr/share/omweather/copyright_icons/weather.com.png debian/omweather/usr/share/omweather/copyright_icons/weather.com.png
+	ln -s /opt/maemo/usr/share/omweather/db/weather.com.db debian/omweather/usr/share/omweather/db/weather.com.db
 	dh_md5sums
 	dh_builddeb
 

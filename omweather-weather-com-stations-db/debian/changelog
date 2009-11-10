@@ -3,6 +3,7 @@ omweather-weather-com-stations-db (0.9.6) unstable; urgency=low
   * Fixed bug #5473 "Small icon for all OMweather packages in application manager"
   * Fixed bug #5773 "Consider using /opt to store the icon and database files"
   * Fixed bug #5995 "United States should be United States of America"
+
  --  Vlad Vasiliev <vlad@gas.by>  Fri, 13 Nov 2009 14:14:30 +0200
 
 omweather-weather-com-stations-db (0.9.5) unstable; urgency=low

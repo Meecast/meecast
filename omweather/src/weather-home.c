@@ -121,7 +121,7 @@ top_widget_expose(GtkWidget *widget, GdkEventExpose *event, GtkWidget *window){
     show_hildon_animation(app->clutter_objects_in_main_form, app->home_window);
     fprintf(stderr,"111First string %s\n",hd_home_plugin_item_get_applet_id (app->home_window));
 #endif
-#enfif
+#endif
     gtk_widget_show_all(widget);
     g_signal_handlers_disconnect_by_func(G_OBJECT(widget),G_CALLBACK(top_widget_expose),NULL);
 }

@@ -114,7 +114,7 @@ top_widget_expose(GtkWidget *widget, GdkEventExpose *event, GtkWidget *window){
     START_FUNCTION;
 #endif
  
-#if def OS2009
+#ifdef OS2009
 #ifdef APPLICATION
     show_hildon_animation(app->clutter_objects_in_main_form, app->main_view);
 #else

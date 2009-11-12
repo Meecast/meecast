@@ -60,6 +60,7 @@ gboolean make_hour_tab(GtkWidget *vbox);
 GtkWidget* create_copyright_widget(const gchar *text, const gchar *image);
 GtkWidget* create_window_header(const gchar *station_name, GtkWidget *popup_window);
 void popup_switch_cb(GtkNotebook * nb, gpointer nb_page, gint page, gpointer data);
+void click_url(GtkButton *button);
 #ifdef CLUTTER
 void popup_window_expose(GtkWidget *widget, GdkEventExpose *event);
 #endif

@@ -44,6 +44,8 @@ void show_detailes_of_current_day_button_handler(GtkWidget *button, gpointer use
 void show_collapsed_day_button_handler(GtkWidget *button, gpointer user_data);
 void weather_simple_window_redraw(GtkWidget *window);
 gboolean jump_panarea(gpointer user_data);
+void donation_button_handler (void);
+void click_url(GtkButton *button);
 #if defined OS2009
 HildonAppMenu* create_view_menu(void);
 #endif

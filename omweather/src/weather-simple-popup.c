@@ -846,6 +846,14 @@ create_view_menu(void){
                         G_CALLBACK(about_button_handler), NULL);
     gtk_widget_show_all(menu_item);
     hildon_app_menu_append(menu, GTK_BUTTON(menu_item));
+    /* donation item */
+    menu_item = hildon_gtk_button_new(HILDON_SIZE_AUTO);
+    gtk_button_set_label(GTK_BUTTON(menu_item), _("Donation"));
+    g_signal_connect_after(menu_item, "clicked",
+                        G_CALLBACK(donation_button_handler), NULL);
+    gtk_widget_show_all(menu_item);
+    hildon_app_menu_append(menu, GTK_BUTTON(menu_item));
+ 
     gtk_widget_show_all(GTK_WIDGET(menu));
     return menu;
 }
@@ -862,6 +870,62 @@ popup_simple_window_expose(GtkWidget *widget, GdkEventExpose *event){
 //    gtk_widget_show_all(widget);
     g_signal_handlers_disconnect_by_func(G_OBJECT(widget),G_CALLBACK(popup_simple_window_expose),NULL);
 #endif
+}
+/*******************************************************************************/
+void
+click_url_and_destroy_window(GtkWidget* button, gpointer window)
+{
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    click_url(button);
+    gtk_widget_destroy(GTK_WIDGET(window));
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
+}
+/*******************************************************************************/
+void donation_button_handler(void){
+    GtkWidget   *dialog, *url, *label;
+    char    tmp_buff[2048];
+    gint    result;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+#if !OS2009
+    dialog =
+        gtk_dialog_new_with_buttons(_("Donation"), NULL,
+                                    GTK_DIALOG_MODAL |
+                                    GTK_DIALOG_DESTROY_WITH_PARENT,
+                                    _("OK"), GTK_RESPONSE_ACCEPT, NULL);
+#else
+    dialog =
+        gtk_dialog_new_with_buttons(_("Donation"), NULL,
+                                    GTK_DIALOG_MODAL |
+                                    GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
+
+#endif
+/* text */
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox),
+                        label = gtk_label_new(_("You can make donation here: ")),
+                        FALSE, FALSE, 5);
+    set_font(label, NULL, 20);
+/* url */
+    url = gtk_button_new_with_label("http://omweather.garage.maemo.org/");
+    gtk_button_set_relief(GTK_BUTTON(url), GTK_RELIEF_NONE);
+    g_signal_connect(url, "clicked",
+          G_CALLBACK(click_url_and_destroy_window), dialog);
+    gtk_button_set_focus_on_click(GTK_BUTTON(url), FALSE);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), url, FALSE, FALSE, 5);
+    set_font(url, NULL, 12);
+    gtk_widget_show_all(dialog);
+/* start dialog window */
+    result = gtk_dialog_run(GTK_DIALOG(dialog));
+    gtk_widget_destroy(dialog);
 }
 #endif
 

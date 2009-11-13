@@ -26,6 +26,7 @@ binary-indep:
 	dh_compress
 	dh_installdeb
 	dh_gencontrol
+	maemo-optify
 	dh_md5sums
 	dh_builddeb
 	dh_installchangelogs

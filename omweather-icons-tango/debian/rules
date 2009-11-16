@@ -15,7 +15,7 @@ clean:
 	dh_clean 
 
 # Build architecture-independent files here.
-binary-indep: 
+binary-indep:
 	dh_clean
 	dh_testdir
 	dh_testroot
@@ -26,6 +26,7 @@ binary-indep:
 	dh_compress
 	dh_installdeb
 	dh_gencontrol
+	maemo-optify
 	dh_md5sums
 	dh_builddeb
 	dh_installchangelogs

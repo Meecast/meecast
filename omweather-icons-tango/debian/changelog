@@ -1,3 +1,10 @@
+omweather-icons-tango (0.3.2) unstable; urgency=low
+
+  * Fixed bug #5473 "Small icon for all OMweather packages in application manager"
+  * Fixed bug #5773 "Consider using /opt to store the icon and database files"
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 16 Nov 2009 10:58:10 +0200
+
 omweather-icons-tango (0.3.1) unstable; urgency=low
 
   * Added Section XB-Maemo-Display-Name in debian/control

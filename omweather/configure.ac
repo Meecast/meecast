@@ -289,6 +289,8 @@ helpfile_esesdir=$datadir/osso-help/es_ES
 AC_SUBST(helpfile_esesdir)
 helpfile_esmxdir=$datadir/osso-help/es_MX
 AC_SUBST(helpfile_esmxdir)
+helpfile_plplxdir=$datadir/osso-help/pl_PL
+AC_SUBST(helpfile_plpldir)
 
 
 dnl Config files

@@ -28,9 +28,10 @@ helpfile_frfr_DATA = fr_FR/omweather.xml
 helpfile_itit_DATA = it_IT/omweather.xml
 helpfile_eses_DATA = es_ES/omweather.xml
 helpfile_esmx_DATA = es_MX/omweather.xml
+helpfile_plpl_DATA = pl_PL/omweather.xml
 
 EXTRA_DIST = $(helpfile_engb_DATA) $(helpfile_enus_DATA)
-ALL_LINGUAS=ru_RU fr_FR fi_FI en_GB en_US it_IT de_DE es_ES es_MX
+ALL_LINGUAS=ru_RU fr_FR fi_FI en_GB en_US it_IT de_DE es_ES es_MX pl_PL
 
 
 #  # Replace version in help files

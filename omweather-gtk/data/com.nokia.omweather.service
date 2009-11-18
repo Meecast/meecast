@@ -1,3 +1,0 @@
-[D-BUS Service]
-Name=com.nokia.omweather_app
-Exec=/usr/bin/omweather

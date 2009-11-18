@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-18 14:02+0100\n"
-"PO-Revision-Date: 2009-11-18 13:57+0100\n"
+"POT-Creation-Date: 2009-11-18 14:34+0100\n"
+"PO-Revision-Date: 2009-11-18 14:34+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -17,12 +17,19 @@ msgstr ""
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: Poland\n"
 
-#: ../src/weather-home.c:653 ../src/weather-home.c:659
-#: ../src/weather-home.c:660 ../src/weather-home.c:667
-#: ../src/weather-home.c:673 ../src/weather-home.c:2448
-#: ../src/weather-home.c:2532 ../src/weather-home.c:2540
-#: ../src/weather-home.c:2627 ../src/weather-home.c:2631
-#: ../src/weather-home.c:2644 ../src/weather-home.c:2648 ../src/hash.data:97
+#: ../src/weather-home.c:653
+#: ../src/weather-home.c:659
+#: ../src/weather-home.c:660
+#: ../src/weather-home.c:667
+#: ../src/weather-home.c:673
+#: ../src/weather-home.c:2448
+#: ../src/weather-home.c:2532
+#: ../src/weather-home.c:2540
+#: ../src/weather-home.c:2627
+#: ../src/weather-home.c:2631
+#: ../src/weather-home.c:2644
+#: ../src/weather-home.c:2648
+#: ../src/hash.data:97
 msgid "N/A"
 msgstr "Niedost."
 
@@ -43,18 +50,22 @@ msgstr ""
 msgid "Error initializing the OMWeather applet"
 msgstr "Błąd podczas inicjowania apletu OMWeather"
 
-#: ../src/weather-home.c:1203 ../src/weather-home.c:2665
+#: ../src/weather-home.c:1203
+#: ../src/weather-home.c:2665
 msgid "OMWeather settings"
 msgstr "Ustawienia OMWeather"
 
 #. About item
-#: ../src/weather-home.c:1221 ../src/weather-help.c:102
-#: ../src/weather-simple-popup.c:844 ../src/weather-simple-status.c:179
+#: ../src/weather-home.c:1221
+#: ../src/weather-help.c:102
+#: ../src/weather-simple-popup.c:844
+#: ../src/weather-simple-status.c:179
 msgid "About"
 msgstr "O programie"
 
 #. Setting item
-#: ../src/weather-home.c:1226 ../src/weather-simple-popup.c:837
+#: ../src/weather-home.c:1226
+#: ../src/weather-simple-popup.c:837
 #: ../src/weather-simple-status.c:158
 msgid "Settings"
 msgstr "Ustawienia"
@@ -68,8 +79,10 @@ msgstr "Pełna prognoza"
 msgid "Forecast: \n"
 msgstr "Prognoza: \n"
 
-#: ../src/weather-home.c:1315 ../src/weather-home.c:1336
-#: ../src/weather-popup.c:887 ../src/weather-popup.c:979
+#: ../src/weather-home.c:1315
+#: ../src/weather-home.c:1336
+#: ../src/weather-popup.c:887
+#: ../src/weather-popup.c:979
 msgid ""
 "\n"
 "Humidity: "
@@ -77,8 +90,10 @@ msgstr ""
 "\n"
 "Wilgotność: "
 
-#: ../src/weather-home.c:1323 ../src/weather-home.c:1343
-#: ../src/weather-popup.c:895 ../src/weather-popup.c:987
+#: ../src/weather-home.c:1323
+#: ../src/weather-home.c:1343
+#: ../src/weather-popup.c:895
+#: ../src/weather-popup.c:987
 msgid "Wind: "
 msgstr "Wiatr: "
 
@@ -87,14 +102,18 @@ msgstr "Wiatr: "
 msgid "Now: "
 msgstr "Teraz: "
 
-#: ../src/weather-home.c:1396 ../src/weather-home.c:1419
-#: ../src/weather-simple-popup.c:752 ../src/weather-simple-popup.c:760
+#: ../src/weather-home.c:1396
+#: ../src/weather-home.c:1419
+#: ../src/weather-simple-popup.c:752
+#: ../src/weather-simple-popup.c:760
 #: ../src/weather-simple-settings.c:907
 msgid "C"
 msgstr "C"
 
-#: ../src/weather-home.c:1397 ../src/weather-home.c:1420
-#: ../src/weather-simple-popup.c:753 ../src/weather-simple-popup.c:761
+#: ../src/weather-home.c:1397
+#: ../src/weather-home.c:1420
+#: ../src/weather-simple-popup.c:753
+#: ../src/weather-simple-popup.c:761
 #: ../src/weather-simple-settings.c:915
 msgid "F"
 msgstr "F"
@@ -121,35 +140,48 @@ msgstr ""
 "\n"
 "Wid.: "
 
-#: ../src/weather-home.c:1439 ../src/weather-popup.c:1103
-#: ../src/weather-simple-settings.c:954 ../src/weather-simple-settings.c:2024
+#: ../src/weather-home.c:1439
+#: ../src/weather-popup.c:1103
+#: ../src/weather-simple-settings.c:954
+#: ../src/weather-simple-settings.c:2031
 msgid "m"
 msgstr "m"
 
-#: ../src/weather-home.c:1440 ../src/weather-popup.c:1104
-#: ../src/weather-simple-settings.c:962 ../src/weather-simple-settings.c:2030
+#: ../src/weather-home.c:1440
+#: ../src/weather-popup.c:1104
+#: ../src/weather-simple-settings.c:962
+#: ../src/weather-simple-settings.c:2037
 msgid "km"
 msgstr "km"
 
-#: ../src/weather-home.c:1441 ../src/weather-home.c:1442
-#: ../src/weather-popup.c:1105 ../src/weather-popup.c:1106
-#: ../src/weather-simple-settings.c:971 ../src/weather-simple-settings.c:2036
+#: ../src/weather-home.c:1441
+#: ../src/weather-home.c:1442
+#: ../src/weather-popup.c:1105
+#: ../src/weather-popup.c:1106
+#: ../src/weather-simple-settings.c:971
+#: ../src/weather-simple-settings.c:2043
 msgid "mi"
 msgstr "mi"
 
-#: ../src/weather-home.c:1453 ../src/weather-settings.c:3857
-#: ../src/weather-popup.c:1117 ../src/weather-simple-settings.c:1084
-#: ../src/weather-simple-settings.c:2069
+#: ../src/weather-home.c:1453
+#: ../src/weather-settings.c:3857
+#: ../src/weather-popup.c:1117
+#: ../src/weather-simple-settings.c:1084
+#: ../src/weather-simple-settings.c:2076
 msgid "mb"
 msgstr "mb"
 
-#: ../src/weather-home.c:1454 ../src/weather-settings.c:3870
-#: ../src/weather-popup.c:1118 ../src/weather-simple-settings.c:1092
+#: ../src/weather-home.c:1454
+#: ../src/weather-settings.c:3870
+#: ../src/weather-popup.c:1118
+#: ../src/weather-simple-settings.c:1092
 msgid "inHg"
 msgstr "inHg"
 
-#: ../src/weather-home.c:1455 ../src/weather-settings.c:3880
-#: ../src/weather-popup.c:1119 ../src/weather-simple-settings.c:1101
+#: ../src/weather-home.c:1455
+#: ../src/weather-settings.c:3880
+#: ../src/weather-popup.c:1119
+#: ../src/weather-simple-settings.c:1101
 msgid "mmHg"
 msgstr "mmHg"
 
@@ -175,18 +207,25 @@ msgid " G: "
 msgstr " Por.: "
 
 #. Create needed Tab
-#: ../src/weather-home.c:2539 ../src/weather-home.c:2552
-#: ../src/weather-popup.c:420 ../src/weather-popup.c:531
-#: ../src/weather-popup.c:537 ../src/weather-simple-settings.c:2195
+#: ../src/weather-home.c:2539
+#: ../src/weather-home.c:2552
+#: ../src/weather-popup.c:420
+#: ../src/weather-popup.c:531
+#: ../src/weather-popup.c:537
+#: ../src/weather-simple-settings.c:2202
 msgid "Now"
 msgstr "Teraz"
 
 #. if weather data for station wasn't download
-#: ../src/weather-settings.c:78 ../src/weather-popup.c:232
-#: ../src/weather-popup.c:244 ../src/weather-download.c:584
-#: ../src/weather-simple-popup.c:235 ../src/weather-simple-popup.c:244
-#: ../src/weather-simple-settings.c:1640 ../src/weather-simple-settings.c:1992
-#: ../src/weather-simple-settings.c:1993
+#: ../src/weather-settings.c:78
+#: ../src/weather-popup.c:232
+#: ../src/weather-popup.c:244
+#: ../src/weather-download.c:584
+#: ../src/weather-simple-popup.c:235
+#: ../src/weather-simple-popup.c:244
+#: ../src/weather-simple-settings.c:1647
+#: ../src/weather-simple-settings.c:1999
+#: ../src/weather-simple-settings.c:2000
 msgid "Unknown"
 msgstr "Nieznane"
 
@@ -250,52 +289,66 @@ msgstr "Tak"
 msgid "No"
 msgstr "Nie"
 
-#: ../src/weather-settings.c:921 ../src/weather-settings.c:3992
-#: ../src/weather-config.c:324 ../src/weather-sensor.c:141
-#: ../src/weather-simple-settings.c:2112
+#: ../src/weather-settings.c:921
+#: ../src/weather-settings.c:3992
+#: ../src/weather-config.c:324
+#: ../src/weather-sensor.c:141
+#: ../src/weather-simple-settings.c:2119
 msgid "Never"
 msgstr "Nigdy"
 
-#: ../src/weather-settings.c:1115 ../src/weather-settings.c:1293
+#: ../src/weather-settings.c:1115
+#: ../src/weather-settings.c:1293
 #: ../src/weather-settings.c:1298
 msgid "Stations"
 msgstr "Stacje"
 
-#: ../src/weather-settings.c:1122 ../src/weather-settings.c:1308
+#: ../src/weather-settings.c:1122
+#: ../src/weather-settings.c:1308
 #: ../src/weather-settings.c:1313
 msgid "Visuals"
 msgstr "Wizualne"
 
-#: ../src/weather-settings.c:1129 ../src/weather-settings.c:1322
+#: ../src/weather-settings.c:1129
+#: ../src/weather-settings.c:1322
 #: ../src/weather-settings.c:1326
 msgid "Display"
 msgstr "Wyświetlanie"
 
 #. TO DO !!!!!! check memory leak in units_string
-#: ../src/weather-settings.c:1136 ../src/weather-settings.c:1335
-#: ../src/weather-settings.c:1339 ../src/weather-simple-settings.c:878
-#: ../src/weather-simple-settings.c:2085
+#: ../src/weather-settings.c:1136
+#: ../src/weather-settings.c:1335
+#: ../src/weather-settings.c:1339
+#: ../src/weather-simple-settings.c:878
+#: ../src/weather-simple-settings.c:2092
 msgid "Units"
 msgstr "Jednostki"
 
 #. update button
-#: ../src/weather-settings.c:1143 ../src/weather-settings.c:1349
-#: ../src/weather-settings.c:1353 ../src/weather-simple-popup.c:247
-#: ../src/weather-simple-settings.c:1220 ../src/weather-simple-settings.c:2146
+#: ../src/weather-settings.c:1143
+#: ../src/weather-settings.c:1349
+#: ../src/weather-settings.c:1353
+#: ../src/weather-simple-popup.c:247
+#: ../src/weather-simple-settings.c:1220
+#: ../src/weather-simple-settings.c:2153
 msgid "Update"
 msgstr "Zaktualizuj"
 
-#: ../src/weather-settings.c:1151 ../src/weather-settings.c:1363
-#: ../src/weather-settings.c:1367 ../src/weather-sensor.c:263
+#: ../src/weather-settings.c:1151
+#: ../src/weather-settings.c:1363
+#: ../src/weather-settings.c:1367
+#: ../src/weather-sensor.c:263
 msgid "Sensor"
 msgstr "Czujnik"
 
-#: ../src/weather-settings.c:1159 ../src/weather-settings.c:1378
+#: ../src/weather-settings.c:1159
+#: ../src/weather-settings.c:1378
 #: ../src/weather-settings.c:1382
 msgid "Alerts"
 msgstr "Ostrzeżenia"
 
-#: ../src/weather-settings.c:1221 ../src/weather-simple-settings.c:2289
+#: ../src/weather-settings.c:1221
+#: ../src/weather-simple-settings.c:2296
 msgid "OMWeather Settings"
 msgstr "Ustawienia OMWeather"
 
@@ -319,7 +372,8 @@ msgstr "Układ:"
 msgid "Icon set:"
 msgstr "Zestaw ikon:"
 
-#: ../src/weather-settings.c:3236 ../src/weather-settings.c:3253
+#: ../src/weather-settings.c:3236
+#: ../src/weather-settings.c:3253
 msgid "Transparency:"
 msgstr "Przezroczystość:"
 
@@ -415,18 +469,24 @@ msgstr "Mile morskie"
 msgid "Wind speed units:"
 msgstr "Jednostki prędkości wiatru:"
 
-#: ../src/weather-settings.c:3798 ../src/hash.data:208
-#: ../src/weather-simple-settings.c:1026 ../src/weather-simple-settings.c:2050
+#: ../src/weather-settings.c:3798
+#: ../src/hash.data:208
+#: ../src/weather-simple-settings.c:1026
+#: ../src/weather-simple-settings.c:2057
 msgid "m/s"
 msgstr "m/s"
 
-#: ../src/weather-settings.c:3812 ../src/hash.data:205
-#: ../src/weather-simple-settings.c:1034 ../src/weather-simple-settings.c:2056
+#: ../src/weather-settings.c:3812
+#: ../src/hash.data:205
+#: ../src/weather-simple-settings.c:1034
+#: ../src/weather-simple-settings.c:2063
 msgid "km/h"
 msgstr "km/h"
 
-#: ../src/weather-settings.c:3826 ../src/hash.data:209
-#: ../src/weather-simple-settings.c:1043 ../src/weather-simple-settings.c:2061
+#: ../src/weather-settings.c:3826
+#: ../src/hash.data:209
+#: ../src/weather-simple-settings.c:1043
+#: ../src/weather-simple-settings.c:2068
 msgid "mi/h"
 msgstr "mi/h"
 
@@ -474,8 +534,9 @@ msgstr "60 sekundach"
 msgid "Valid time for current weather:"
 msgstr "Czas poprawności dla bieżącej pogody:"
 
-#: ../src/weather-settings.c:4042 ../src/weather-simple-settings.c:1255
-#: ../src/weather-simple-settings.c:2115
+#: ../src/weather-settings.c:4042
+#: ../src/weather-simple-settings.c:1255
+#: ../src/weather-simple-settings.c:2122
 msgid "1 hour"
 msgstr "1 godzina"
 
@@ -483,8 +544,9 @@ msgstr "1 godzina"
 msgid "2 hours"
 msgstr "2 godziny"
 
-#: ../src/weather-settings.c:4046 ../src/weather-simple-settings.c:1264
-#: ../src/weather-simple-settings.c:2118
+#: ../src/weather-settings.c:4046
+#: ../src/weather-simple-settings.c:1264
+#: ../src/weather-simple-settings.c:2125
 msgid "4 hours"
 msgstr "4 godziny"
 
@@ -552,11 +614,13 @@ msgstr "Nie można utworzyć katalogu bufora prognoz.\n"
 msgid "Failed to initialize GConf. Settings were not saved.\n"
 msgstr "Inicjacja GConf nie powiodła się. Ustawienia nie zostały zapisane.\n"
 
-#: ../src/weather-popup.c:124 ../src/weather-popup.c:906
+#: ../src/weather-popup.c:124
+#: ../src/weather-popup.c:906
 msgid "Sunrise: "
 msgstr "Wschód: "
 
-#: ../src/weather-popup.c:138 ../src/weather-popup.c:998
+#: ../src/weather-popup.c:138
+#: ../src/weather-popup.c:998
 msgid "Sunset: "
 msgstr "Zachód: "
 
@@ -568,7 +632,8 @@ msgstr "Ostatnia aktualizacja na serwerze: "
 msgid "station local time"
 msgstr "czas lokalny stacji"
 
-#: ../src/weather-popup.c:244 ../src/weather-popup.c:248
+#: ../src/weather-popup.c:244
+#: ../src/weather-popup.c:248
 msgid "Last update from server: "
 msgstr "Ostatnia aktualizacja z serwera: "
 
@@ -576,7 +641,8 @@ msgstr "Ostatnia aktualizacja z serwera: "
 msgid "current location local time"
 msgstr "bieżący czas lokalny położenia"
 
-#: ../src/weather-popup.c:423 ../src/weather-popup.c:563
+#: ../src/weather-popup.c:423
+#: ../src/weather-popup.c:563
 msgid "Detailed"
 msgstr "Szczegółowo"
 
@@ -592,7 +658,8 @@ msgstr "Brak danych pogodowych na ten dzień."
 msgid "No current weather data."
 msgstr "Brak bieżących danych pogodowych."
 
-#: ../src/weather-popup.c:642 ../src/weather-simple-popup.c:440
+#: ../src/weather-popup.c:642
+#: ../src/weather-simple-popup.c:440
 msgid "No weather data for this station."
 msgstr "Brak danych pogodowych dla tej stacji."
 
@@ -601,12 +668,15 @@ msgstr "Brak danych pogodowych dla tej stacji."
 msgid "Day:"
 msgstr "Dzień:"
 
-#: ../src/weather-popup.c:877 ../src/weather-popup.c:880
-#: ../src/weather-popup.c:969 ../src/weather-popup.c:972
+#: ../src/weather-popup.c:877
+#: ../src/weather-popup.c:880
+#: ../src/weather-popup.c:969
+#: ../src/weather-popup.c:972
 msgid "Temperature"
 msgstr "Temperatura"
 
-#: ../src/weather-popup.c:883 ../src/weather-popup.c:975
+#: ../src/weather-popup.c:883
+#: ../src/weather-popup.c:975
 msgid ""
 "\n"
 "Precipitation: "
@@ -614,7 +684,8 @@ msgstr ""
 "\n"
 "Opady: "
 
-#: ../src/weather-popup.c:899 ../src/weather-popup.c:991
+#: ../src/weather-popup.c:899
+#: ../src/weather-popup.c:991
 #: ../src/weather-simple-settings.c:1015
 msgid "Speed"
 msgstr "Prędkość"
@@ -625,27 +696,34 @@ msgid "Night:"
 msgstr "Noc:"
 
 #. temperature
-#: ../src/weather-popup.c:1072 ../src/weather-popup.c:1216
+#: ../src/weather-popup.c:1072
+#: ../src/weather-popup.c:1216
 msgid "Temperature: "
 msgstr "Temperatura: "
 
-#: ../src/weather-popup.c:1077 ../src/weather-popup.c:1085
-#: ../src/weather-popup.c:1221 ../src/weather-popup.c:1229
+#: ../src/weather-popup.c:1077
+#: ../src/weather-popup.c:1085
+#: ../src/weather-popup.c:1221
+#: ../src/weather-popup.c:1229
 msgid "C\n"
 msgstr "C\n"
 
-#: ../src/weather-popup.c:1078 ../src/weather-popup.c:1086
-#: ../src/weather-popup.c:1222 ../src/weather-popup.c:1230
+#: ../src/weather-popup.c:1078
+#: ../src/weather-popup.c:1086
+#: ../src/weather-popup.c:1222
+#: ../src/weather-popup.c:1230
 msgid "F\n"
 msgstr "F\n"
 
 #. feels like
-#: ../src/weather-popup.c:1080 ../src/weather-popup.c:1224
+#: ../src/weather-popup.c:1080
+#: ../src/weather-popup.c:1224
 msgid "Feels like:"
 msgstr "Odczuwalna:"
 
 #. humidity
-#: ../src/weather-popup.c:1089 ../src/weather-popup.c:1232
+#: ../src/weather-popup.c:1089
+#: ../src/weather-popup.c:1232
 msgid "Humidity:"
 msgstr "Wilgotność:"
 
@@ -657,20 +735,24 @@ msgstr "Widoczność:"
 msgid "Pressure:"
 msgstr "Ciśnienie:"
 
-#: ../src/weather-popup.c:1127 ../src/weather-popup.c:1243
+#: ../src/weather-popup.c:1127
+#: ../src/weather-popup.c:1243
 msgid "Wind:"
 msgstr "Wiatr:"
 
-#: ../src/weather-popup.c:1131 ../src/weather-popup.c:1247
+#: ../src/weather-popup.c:1131
+#: ../src/weather-popup.c:1247
 msgid "Speed:"
 msgstr "Prędkość:"
 
-#: ../src/weather-popup.c:1138 ../src/weather-popup.c:1254
+#: ../src/weather-popup.c:1138
+#: ../src/weather-popup.c:1254
 msgid "Gust:"
 msgstr "Poryw:"
 
 #. hour
-#: ../src/weather-popup.c:1208 ../src/weather-simple-popup.c:739
+#: ../src/weather-popup.c:1208
+#: ../src/weather-simple-popup.c:739
 msgid "Forecast at: "
 msgstr "Prognoza o: "
 
@@ -763,7 +845,8 @@ msgstr "SPOKOJNIE"
 msgid "Clear / Wind"
 msgstr "Bezchmurnie / wiatr"
 
-#: ../src/hash.data:23 ../src/weather-simple-settings.c:1744
+#: ../src/hash.data:23
+#: ../src/weather-simple-settings.c:1751
 msgid "Clear"
 msgstr "Bezchmurnie"
 
@@ -1383,7 +1466,8 @@ msgstr "Śnieg do deszczu ze śniegiem"
 msgid "Snow"
 msgstr "Śnieg"
 
-#: ../src/hash.data:179 ../src/weather-alerts.c:154
+#: ../src/hash.data:179
+#: ../src/weather-alerts.c:154
 msgid "Storm"
 msgstr "Burza"
 
@@ -1607,11 +1691,13 @@ msgstr "15 minut"
 msgid "30 minutes"
 msgstr "30 minut"
 
-#: ../src/weather-help.c:64 ../src/weather-help.c:70
+#: ../src/weather-help.c:64
+#: ../src/weather-help.c:70
 msgid "Other Maemo Weather Info"
 msgstr "Inne informacje o Maemo Weather"
 
-#: ../src/weather-help.c:67 ../src/weather-simple-popup.c:904
+#: ../src/weather-help.c:67
+#: ../src/weather-simple-popup.c:904
 msgid "OK"
 msgstr "OK"
 
@@ -1767,13 +1853,15 @@ msgstr "Prognoza"
 msgid "next"
 msgstr "następna"
 
-#: ../src/weather-simple-popup.c:235 ../src/weather-simple-popup.c:237
+#: ../src/weather-simple-popup.c:235
+#: ../src/weather-simple-popup.c:237
 #: ../src/weather-simple-popup.c:244
 #, c-format
 msgid "Last update: "
 msgstr "Ostatnia aktualizacja: "
 
-#: ../src/weather-simple-popup.c:351 ../src/weather-simple-popup.c:353
+#: ../src/weather-simple-popup.c:351
+#: ../src/weather-simple-popup.c:353
 msgid "Today"
 msgstr "Dzisiaj"
 
@@ -1790,7 +1878,8 @@ msgstr "n:"
 msgid "feels like"
 msgstr "odczuwalna"
 
-#: ../src/weather-simple-popup.c:851 ../src/weather-simple-popup.c:901
+#: ../src/weather-simple-popup.c:851
+#: ../src/weather-simple-popup.c:901
 #: ../src/weather-simple-popup.c:907
 msgid "Donation"
 msgstr "Dotacje"
@@ -1803,27 +1892,33 @@ msgstr "Tutaj można składać dotacje:"
 msgid "Widget style and Iconset"
 msgstr "Styl widżetu i zestaw ikon"
 
-#: ../src/weather-simple-settings.c:168 ../src/weather-simple-settings.c:1122
-#: ../src/weather-simple-settings.c:1385 ../src/weather-simple-settings.c:1745
-#: ../src/weather-simple-settings.c:2392
+#: ../src/weather-simple-settings.c:168
+#: ../src/weather-simple-settings.c:1122
+#: ../src/weather-simple-settings.c:1392
+#: ../src/weather-simple-settings.c:1752
+#: ../src/weather-simple-settings.c:2399
 msgid "Save"
 msgstr "Zapisz"
 
 #. Button station
-#: ../src/weather-simple-settings.c:358 ../src/weather-simple-settings.c:389
-#: ../src/weather-simple-settings.c:483 ../src/weather-simple-settings.c:1704
+#: ../src/weather-simple-settings.c:358
+#: ../src/weather-simple-settings.c:389
+#: ../src/weather-simple-settings.c:483
+#: ../src/weather-simple-settings.c:1711
 msgid "City"
 msgstr "Miasto"
 
 #. Button Region
 #. Button region
-#: ../src/weather-simple-settings.c:411 ../src/weather-simple-settings.c:462
-#: ../src/weather-simple-settings.c:1689
+#: ../src/weather-simple-settings.c:411
+#: ../src/weather-simple-settings.c:462
+#: ../src/weather-simple-settings.c:1696
 msgid "Region"
 msgstr "Region"
 
 #. Button Country
-#: ../src/weather-simple-settings.c:440 ../src/weather-simple-settings.c:1675
+#: ../src/weather-simple-settings.c:440
+#: ../src/weather-simple-settings.c:1682
 msgid "Country"
 msgstr "Kraj"
 
@@ -1855,9 +1950,18 @@ msgstr "Wybór regionu"
 msgid "Selecting station"
 msgstr "Wybór stacji"
 
+#.
+#. left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+#. gtk_widget_set_size_request(left_alignmnet, 5, -1);
+#.
+#. gtk_table_attach((GtkTable*)main_table, left_alignmnet,
+#. 0, 1, 0, 8,
+#. GTK_FILL | GTK_EXPAND | GTK_SHRINK,
+#. (GtkAttachOptions)0, 0, 0 );
+#.
 #: ../src/weather-simple-settings.c:893
-msgid "Temp."
-msgstr "Temp."
+msgid "Temperatura"
+msgstr "Temperatura"
 
 #: ../src/weather-simple-settings.c:941
 msgid "Distance"
@@ -1879,15 +1983,18 @@ msgstr "Okres"
 msgid "never"
 msgstr "nigdy"
 
-#: ../src/weather-simple-settings.c:1273 ../src/weather-simple-settings.c:2121
+#: ../src/weather-simple-settings.c:1273
+#: ../src/weather-simple-settings.c:2128
 msgid "1 day"
 msgstr "1 dzień"
 
-#: ../src/weather-simple-settings.c:1309 ../src/weather-simple-settings.c:2134
+#: ../src/weather-simple-settings.c:1309
+#: ../src/weather-simple-settings.c:2141
 msgid "GSM"
 msgstr "GSM"
 
-#: ../src/weather-simple-settings.c:1339 ../src/weather-simple-settings.c:2140
+#: ../src/weather-simple-settings.c:1339
+#: ../src/weather-simple-settings.c:2147
 msgid "WLAN"
 msgstr "WLAN"
 
@@ -1900,27 +2007,28 @@ msgstr ""
 "aktualizowania informacji pogodowych.\n"
 
 #. Prepairing
-#: ../src/weather-simple-settings.c:1533 ../src/weather-simple-settings.c:1852
+#: ../src/weather-simple-settings.c:1540
+#: ../src/weather-simple-settings.c:1859
 msgid "Configuring station"
 msgstr "Konfigurowanie stacji"
 
-#: ../src/weather-simple-settings.c:1589
+#: ../src/weather-simple-settings.c:1596
 msgid "Set"
 msgstr "Ustaw"
 
-#: ../src/weather-simple-settings.c:1602
+#: ../src/weather-simple-settings.c:1609
 msgid "Manual"
 msgstr "Ręcznie"
 
-#: ../src/weather-simple-settings.c:1611
+#: ../src/weather-simple-settings.c:1618
 msgid "GPS"
 msgstr "GPS"
 
-#: ../src/weather-simple-settings.c:1657
+#: ../src/weather-simple-settings.c:1664
 msgid "Source"
 msgstr "Źródło"
 
-#: ../src/weather-simple-settings.c:1854
+#: ../src/weather-simple-settings.c:1861
 msgid ""
 "GPS station already exist.\n"
 "Only one station can be received via GPS"
@@ -1928,42 +2036,47 @@ msgstr ""
 "Stacja GPS już istnieje.\n"
 "Tylko jedna stacja może być pobierana przez GPS"
 
-#: ../src/weather-simple-settings.c:1892
+#: ../src/weather-simple-settings.c:1899
 msgid "Station"
 msgstr "Stacja"
 
-#: ../src/weather-simple-settings.c:2041
+#: ../src/weather-simple-settings.c:2048
 msgid "s.mi"
 msgstr "m.mo"
 
-#: ../src/weather-simple-settings.c:2075
+#: ../src/weather-simple-settings.c:2082
 msgid "inch"
 msgstr "cale"
 
-#: ../src/weather-simple-settings.c:2080
+#: ../src/weather-simple-settings.c:2087
 msgid "mm"
 msgstr "mm"
 
-#: ../src/weather-simple-settings.c:2128
+#: ../src/weather-simple-settings.c:2135
 msgid "GSM+WLAN"
 msgstr "GSM+WLAN"
 
-#: ../src/weather-simple-settings.c:2186
+#: ../src/weather-simple-settings.c:2193
 msgid "Now + 7 days vert."
 msgstr "Teraz + 7 dni pion."
 
-#: ../src/weather-simple-settings.c:2189
+#: ../src/weather-simple-settings.c:2196
 msgid "Now, today and tomorrow"
 msgstr "Teraz, dzisiaj i jutro"
 
-#: ../src/weather-simple-settings.c:2192
+#: ../src/weather-simple-settings.c:2199
 msgid "Now + 3 days vert."
 msgstr "Teraz + 3 dni pion."
 
-#: ../src/weather-simple-settings.c:2198
+#: ../src/weather-simple-settings.c:2205
 msgid "Now + 3 days hor."
 msgstr "Teraz +3 dni poz."
 
-#: ../src/weather-simple-settings.c:2216 ../src/weather-simple-settings.c:2222
+#: ../src/weather-simple-settings.c:2223
+#: ../src/weather-simple-settings.c:2229
 msgid "Widget style"
 msgstr "Styl widżetu"
+
+#~ msgid "Temp."
+#~ msgstr "Temp."
+

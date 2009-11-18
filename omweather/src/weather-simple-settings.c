@@ -1175,8 +1175,17 @@ update_save(GtkWidget *window){
 
     gsm = lookup_widget(window, "gsm_button");
     wlan = lookup_widget(window, "wlan_button");
-
     if(gsm && wlan){
+#ifdef OS2009
+        if(hildon_check_button_get_active(gsm))
+            app->config->update_gsm = TRUE;
+        if(hildon_check_button_get_active(wlan))
+            app->config->update_wlan = TRUE;
+        if(!hildon_check_button_get_active(gsm))
+            app->config->update_gsm = FALSE;
+        if(!hildon_check_button_get_active(wlan))
+            app->config->update_wlan = FALSE;
+#else
         if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(gsm)))
             app->config->update_gsm = TRUE;
         if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wlan)))
@@ -1185,7 +1194,9 @@ update_save(GtkWidget *window){
             app->config->update_gsm = FALSE;
         if(!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wlan)))
             app->config->update_wlan = FALSE;
+#endif
     }
+
     if(app->config->update_interval == 0)
         remove_periodic_event();
     else{
@@ -1305,7 +1316,14 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
                                 (GtkAttachOptions)0,
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
-
+#ifdef OS2009
+    gsm_button = hildon_check_button_new (HILDON_SIZE_AUTO);
+    gtk_button_set_label (GTK_BUTTON (gsm_button), _("GSM"));
+    if(app->config->update_gsm == TRUE)
+        hildon_check_button_set_active(gsm_button, TRUE);
+    else
+        hildon_check_button_set_active(gsm_button, FALSE);
+#else
     label_set = gtk_label_new(_("GSM"));
     set_font(label_set, NULL, 20);
     gtk_widget_set_size_request(label_set, 140, -1);
@@ -1313,15 +1331,14 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
                                 1, 2, 3, 4,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 20, 0 );
-
     gsm_button = gtk_check_button_new();
     gtk_widget_set_size_request(gsm_button, 50, 50);
-    GLADE_HOOKUP_OBJECT(window, gsm_button, "gsm_button");
-
     if(app->config->update_gsm == TRUE)
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(gsm_button), TRUE);
     else
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(gsm_button), FALSE);
+#endif
+    GLADE_HOOKUP_OBJECT(window, gsm_button, "gsm_button");
 
     gtk_table_attach((GtkTable*)main_table, gsm_button,
                                 2, 3, 3, 4,
@@ -1336,6 +1353,15 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
 
+#ifdef OS2009
+    wlan_button = hildon_check_button_new (HILDON_SIZE_AUTO);
+    gtk_button_set_label (GTK_BUTTON (wlan_button), _("WLAN"));
+    if(app->config->update_wlan == TRUE)
+        hildon_check_button_set_active(wlan_button, TRUE);
+    else
+        hildon_check_button_set_active(wlan_button, FALSE);
+
+#else
     label_set = gtk_label_new(_("WLAN"));
     set_font(label_set, NULL, 20);
     gtk_widget_set_size_request(label_set, 140, -1);
@@ -1346,12 +1372,13 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 
     wlan_button = gtk_check_button_new();
     gtk_widget_set_size_request(wlan_button, 50, 50);
-    GLADE_HOOKUP_OBJECT(window, wlan_button, "wlan_button");
 
     if(app->config->update_wlan == TRUE)
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wlan_button), TRUE);
     else
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wlan_button), FALSE);
+#endif
+    GLADE_HOOKUP_OBJECT(window, wlan_button, "wlan_button");
 
     gtk_table_attach((GtkTable*)main_table, wlan_button,
                                 2, 3, 5, 6,

@@ -14,6 +14,7 @@ omweather (0.24.9) unstable; urgency=low
   * Fixed bug #6226 "Add Polish translation"
   * Fixed bug #5977 "Settings buttons should have left aligned text"
   * Fixed bug #5878 "problem with widgets layout"
+  * Hildonized some elements in settings window
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 28 Nov 2009 18:18:11 +0200
 

@@ -626,9 +626,11 @@ create_button_with_2_line_text(const gchar *first_line_text, const gchar *second
               *button = NULL;
 #if defined OS2009
   button = hildon_button_new_with_text (HILDON_SIZE_FINGER_HEIGHT | HILDON_SIZE_AUTO_WIDTH,
-                    HILDON_BUTTON_ARRANGEMENT_VERTICAL,
+                     HILDON_BUTTON_ARRANGEMENT_VERTICAL,
                      first_line_text,
                      second_line_text);
+  hildon_button_set_alignment(button,0,0.5,0,1);
+  hildon_button_set_style(button, HILDON_BUTTON_STYLE_PICKER);
 #else
     button = gtk_button_new();
 

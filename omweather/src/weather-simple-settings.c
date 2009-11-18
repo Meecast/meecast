@@ -1221,7 +1221,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
                                   GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
     gtk_widget_set_name(window, "update_simple_settings_window");
 
-    main_table = gtk_table_new(8, 8, FALSE);
+    main_table = gtk_table_new(8, 9, FALSE);
 
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox), main_table, TRUE, TRUE, 0);
 
@@ -1381,6 +1381,13 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
                                 1, 3, 7, 8,
                                 GTK_FILL |  GTK_SHRINK,
                                 (GtkAttachOptions)0, 0, 0 );
+
+    gtk_table_attach((GtkTable*)main_table, gtk_alignment_new (0.5, 0.5, 1, 1),
+                                0, 8, 8, 9,
+                                (GtkAttachOptions)0,
+                                GTK_FILL |  GTK_SHRINK,
+                                0, 20 );
+
 
     gtk_dialog_add_button (GTK_DIALOG (window), _("Save"), GTK_RESPONSE_YES);
     gtk_widget_show_all(window);
@@ -1588,7 +1595,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
     label_set = gtk_label_new(_("Set"));
     set_font(label_set, NULL, 20);
-    gtk_widget_set_size_request(label_set, 40, -1);
+    gtk_widget_set_size_request(label_set, 60, -1);
     gtk_table_attach((GtkTable*)main_table,label_set,
                                 1, 2, 3, 4,
                                 GTK_FILL | GTK_EXPAND,

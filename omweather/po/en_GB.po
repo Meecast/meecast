@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en_GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-18 08:32+0200\n"
+"POT-Creation-Date: 2009-11-18 14:45+0200\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -1461,7 +1461,7 @@ msgid "T-Storms Early"
 msgstr ""
 
 #: src/weather-simple-settings.c:893
-msgid "Temp."
+msgid "Temperatura"
 msgstr ""
 
 #: src/weather-popup.c:877 src/weather-popup.c:880 src/weather-popup.c:969

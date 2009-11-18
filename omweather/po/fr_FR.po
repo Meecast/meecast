@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-18 08:32+0200\n"
+"POT-Creation-Date: 2009-11-18 14:45+0200\n"
 "PO-Revision-Date: 2009-10-25 13:42+0100\n"
 "Last-Translator: Philippe <filip@disque-monde.org>\n"
 "Language-Team: French <>\n"
@@ -1531,8 +1531,9 @@ msgid "T-Storms Early"
 msgstr "Orages en matinée"
 
 #: src/weather-simple-settings.c:893
-msgid "Temp."
-msgstr "Temp."
+#, fuzzy
+msgid "Temperatura"
+msgstr "Température"
 
 #: src/weather-popup.c:877 src/weather-popup.c:880 src/weather-popup.c:969
 #: src/weather-popup.c:972
@@ -1949,6 +1950,9 @@ msgstr "Ю-В"
 #: src/hash.data:220
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#~ msgid "Temp."
+#~ msgstr "Temp."
 
 #~ msgid "Cancel"
 #~ msgstr "Annuler"

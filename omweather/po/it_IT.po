@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-18 08:32+0200\n"
+"POT-Creation-Date: 2009-11-18 14:45+0200\n"
 "PO-Revision-Date: 2008-03-21 13:39+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Italiano\n"
@@ -1565,8 +1565,9 @@ msgid "T-Storms Early"
 msgstr "Temporali presto"
 
 #: src/weather-simple-settings.c:893
-msgid "Temp."
-msgstr ""
+#, fuzzy
+msgid "Temperatura"
+msgstr "Temperatura: "
 
 #: src/weather-popup.c:877 src/weather-popup.c:880 src/weather-popup.c:969
 #: src/weather-popup.c:972

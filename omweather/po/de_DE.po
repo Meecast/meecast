@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-18 08:32+0200\n"
+"POT-Creation-Date: 2009-11-18 14:45+0200\n"
 "PO-Revision-Date: 2009-10-24 15:56+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
@@ -1525,8 +1525,9 @@ msgid "T-Storms Early"
 msgstr "baldige Gewitter"
 
 #: src/weather-simple-settings.c:893
-msgid "Temp."
-msgstr "Temp."
+#, fuzzy
+msgid "Temperatura"
+msgstr "Temperatur"
 
 #: src/weather-popup.c:877 src/weather-popup.c:880 src/weather-popup.c:969
 #: src/weather-popup.c:972
@@ -1941,6 +1942,9 @@ msgstr ""
 #: src/hash.data:220
 msgid "Ю-З"
 msgstr ""
+
+#~ msgid "Temp."
+#~ msgstr "Temp."
 
 #~ msgid "Cancel"
 #~ msgstr "Abbrechen"

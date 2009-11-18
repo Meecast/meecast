@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-18 08:32+0200\n"
+"POT-Creation-Date: 2009-11-18 14:45+0200\n"
 "PO-Revision-Date: 2009-10-23 23:03+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -1529,8 +1529,9 @@ msgid "T-Storms Early"
 msgstr "Aikaisin ukkoskuuroja"
 
 #: src/weather-simple-settings.c:893
-msgid "Temp."
-msgstr "Lämpöt."
+#, fuzzy
+msgid "Temperatura"
+msgstr "Lämpötila"
 
 #: src/weather-popup.c:877 src/weather-popup.c:880 src/weather-popup.c:969
 #: src/weather-popup.c:972
@@ -1946,6 +1947,9 @@ msgstr ""
 #: src/hash.data:220
 msgid "Ю-З"
 msgstr ""
+
+#~ msgid "Temp."
+#~ msgstr "Lämpöt."
 
 #~ msgid "Cancel"
 #~ msgstr "Peruuta"

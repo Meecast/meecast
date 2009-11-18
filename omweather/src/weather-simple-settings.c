@@ -881,7 +881,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     main_table = gtk_table_new(8, 8, FALSE);
 
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox), main_table, TRUE, TRUE, 0);
-
+/*
     left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(left_alignmnet, 5, -1);
 
@@ -889,15 +889,15 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
                                 0, 1, 0, 8,
                                 GTK_FILL | GTK_EXPAND | GTK_SHRINK,
                                 (GtkAttachOptions)0, 0, 0 );
-
-    label_set = gtk_label_new(_("Temp."));
+*/
+    label_set = gtk_label_new(_("Temperatura"));
     set_font(label_set, NULL, 20);
-    gtk_widget_set_size_request(label_set, 120, -1);
+    gtk_widget_set_size_request(label_set, 150, -1);
 
     gtk_table_attach((GtkTable*)main_table, label_set,
                                 1, 2, 1, 2,
                                 GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 20, 0 );
+                                (GtkAttachOptions)0, 10, 0 );
 
 
     hbox_temperature = gtk_hbox_new(TRUE, 0);
@@ -928,7 +928,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     gtk_table_attach((GtkTable*)main_table, hbox_temperature,
                                      2, 3, 1, 2,
                                      GTK_FILL | GTK_EXPAND,
-                                     (GtkAttachOptions)0, 20, 0 );
+                                     (GtkAttachOptions)0, 10, 0 );
 
     vertical1_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);
@@ -940,12 +940,12 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 
     label_set = gtk_label_new(_("Distance"));
     set_font(label_set, NULL, 20);
-    gtk_widget_set_size_request(label_set, 120, -1);
+    gtk_widget_set_size_request(label_set, 150, -1);
 
     gtk_table_attach((GtkTable*)main_table, label_set,
                                 1, 2, 3, 4,
                                 GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 20, 0 );
+                                (GtkAttachOptions)0, 10, 0 );
 
     hbox_distance = gtk_hbox_new(TRUE, 0);
     group_distance = NULL;
@@ -1001,7 +1001,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     gtk_table_attach((GtkTable*)main_table, hbox_distance,
                                 2, 3, 3, 4,
                                 GTK_FILL | GTK_EXPAND,
-                               (GtkAttachOptions)0, 20, 0 );
+                               (GtkAttachOptions)0, 10, 0 );
 
     vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_set_size_request(vertical2_alignmnet, -1, 20);
@@ -1014,11 +1014,11 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 
     label_set = gtk_label_new(_("Speed"));
     set_font(label_set, NULL, 20);
-    gtk_widget_set_size_request(label_set, 120, -1);
+    gtk_widget_set_size_request(label_set, 150, -1);
     gtk_table_attach((GtkTable*)main_table, label_set,
                                 1, 2, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 20, 0 );
+                                (GtkAttachOptions)0, 10, 0 );
 
     hbox_speed = gtk_hbox_new(TRUE, 0);
     group_speed = NULL;
@@ -1060,7 +1060,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     gtk_table_attach((GtkTable*)main_table, hbox_speed,
                                 2, 3, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 20, 0 );
+                                (GtkAttachOptions)0, 10, 0 );
 
     vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_set_size_request(vertical3_alignmnet, -1, 20);
@@ -1072,17 +1072,17 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 
     label_set = gtk_label_new(_("Pressure"));
     set_font(label_set, NULL, 20);
-    gtk_widget_set_size_request(label_set, 120, -1);
+    gtk_widget_set_size_request(label_set, 150, -1);
     gtk_table_attach((GtkTable*)main_table, label_set,
                                 1, 2, 7, 8,
                                 GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 20, 0 );
+                                (GtkAttachOptions)0, 10, 0 );
 
     hbox_pressure = gtk_hbox_new(TRUE, 0);
     group_pressure = NULL;
     pressure_mb_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(pressure_mb_button), gtk_label_new(_("mb")));
-    gtk_widget_set_size_request(pressure_mb_button, 58, 50);
+    gtk_widget_set_size_request(pressure_mb_button, 70, 50);
     GLADE_HOOKUP_OBJECT(window, pressure_mb_button, "pressure_mb_button");
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(pressure_mb_button), FALSE);
     gtk_box_pack_start (GTK_BOX (hbox_pressure), pressure_mb_button, TRUE, TRUE, 0);
@@ -1090,7 +1090,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 
     pressure_inHg_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(pressure_inHg_button), gtk_label_new(_("inHg")));
-    gtk_widget_set_size_request(pressure_inHg_button, 58, 50);
+    gtk_widget_set_size_request(pressure_inHg_button, 70, 50);
     GLADE_HOOKUP_OBJECT(window, pressure_inHg_button, "pressure_inHg_button");
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(pressure_inHg_button), FALSE);
     group_pressure = gtk_radio_button_get_group(GTK_RADIO_BUTTON(pressure_mb_button));
@@ -1099,7 +1099,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 
     pressure_mmHg_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(pressure_mmHg_button), gtk_label_new(_("mmHg")));
-    gtk_widget_set_size_request(pressure_mmHg_button, 58, 25);
+    gtk_widget_set_size_request(pressure_mmHg_button, 70, 25);
     GLADE_HOOKUP_OBJECT(window, pressure_mmHg_button, "pressure_mmHg_button");
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(pressure_mmHg_button), FALSE);
     group_pressure = gtk_radio_button_get_group(GTK_RADIO_BUTTON(pressure_inHg_button));
@@ -1117,7 +1117,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     gtk_table_attach((GtkTable*)main_table, hbox_pressure,
                                 2, 3, 7, 8,
                                 GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 20, 0 );
+                                (GtkAttachOptions)0, 10, 0 );
 
     gtk_dialog_add_button (GTK_DIALOG (window), _("Save"), GTK_RESPONSE_YES);
     gtk_widget_show_all(window);
@@ -1234,7 +1234,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 
     label_set = gtk_label_new(_("Period"));
     set_font(label_set, NULL, 20);
-    gtk_widget_set_size_request(label_set, 120, -1);
+    gtk_widget_set_size_request(label_set, 140, -1);
     gtk_table_attach((GtkTable*)main_table, label_set,
                                 1, 2, 1, 2,
                                 GTK_FILL | GTK_EXPAND,
@@ -1308,7 +1308,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 
     label_set = gtk_label_new(_("GSM"));
     set_font(label_set, NULL, 20);
-    gtk_widget_set_size_request(label_set, 120, -1);
+    gtk_widget_set_size_request(label_set, 140, -1);
     gtk_table_attach((GtkTable*)main_table, label_set,
                                 1, 2, 3, 4,
                                 GTK_FILL | GTK_EXPAND,
@@ -1338,7 +1338,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 
     label_set = gtk_label_new(_("WLAN"));
     set_font(label_set, NULL, 20);
-    gtk_widget_set_size_request(label_set, 120, -1);
+    gtk_widget_set_size_request(label_set, 140, -1);
     gtk_table_attach((GtkTable*)main_table, label_set,
                                 1, 2, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
@@ -1376,7 +1376,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 
     label_set = gtk_label_new(_("Use GSM and/or WLAN for updating\n the weather information.\n"));
     set_font(label_set, NULL, 20);
-    gtk_widget_set_size_request(label_set, 120, -1);
+    gtk_widget_set_size_request(label_set, 140, -1);
     gtk_table_attach((GtkTable*)main_table, label_set,
                                 1, 3, 7, 8,
                                 GTK_FILL |  GTK_SHRINK,

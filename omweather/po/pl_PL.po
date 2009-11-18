@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-18 08:32+0200\n"
+"POT-Creation-Date: 2009-11-18 14:45+0200\n"
 "PO-Revision-Date: 2009-11-17 16:22+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -1530,8 +1530,9 @@ msgid "T-Storms Early"
 msgstr "Wcześnie burze"
 
 #: src/weather-simple-settings.c:893
-msgid "Temp."
-msgstr "Temp."
+#, fuzzy
+msgid "Temperatura"
+msgstr "Temperatura"
 
 #: src/weather-popup.c:877 src/weather-popup.c:880 src/weather-popup.c:969
 #: src/weather-popup.c:972
@@ -1947,3 +1948,6 @@ msgstr "Ю-В"
 #: src/hash.data:220
 msgid "Ю-З"
 msgstr "Ю-З"
+
+#~ msgid "Temp."
+#~ msgstr "Temp."

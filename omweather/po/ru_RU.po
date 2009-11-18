@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-18 08:32+0200\n"
+"POT-Creation-Date: 2009-11-18 14:45+0200\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -1531,8 +1531,8 @@ msgid "T-Storms Early"
 msgstr "С утра грозы"
 
 #: src/weather-simple-settings.c:893
-msgid "Temp."
-msgstr "Темп."
+msgid "Temperatura"
+msgstr "Температура"
 
 #: src/weather-popup.c:877 src/weather-popup.c:880 src/weather-popup.c:969
 #: src/weather-popup.c:972
@@ -1813,7 +1813,7 @@ msgstr "по ощущениям"
 #: src/weather-home.c:1454 src/weather-settings.c:3870
 #: src/weather-popup.c:1118 src/weather-simple-settings.c:1092
 msgid "inHg"
-msgstr "дюймы рт. ст."
+msgstr "дм рт.ст."
 
 #: src/weather-simple-settings.c:2075
 msgid "inch"
@@ -1948,6 +1948,9 @@ msgstr ""
 #: src/hash.data:220
 msgid "Ю-З"
 msgstr ""
+
+#~ msgid "Temp."
+#~ msgstr "Температура"
 
 #~ msgid "Cancel"
 #~ msgstr "Отменить"

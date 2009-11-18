@@ -144,7 +144,8 @@ void create_about_dialog(void){
                "Finnish - Marko Vertainen\n"
                "German - Claudius Henrichs\n"
                "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo\n"
-               "Spanish - Alejandro Lopez\n"));
+               "Spanish - Alejandro Lopez\n"
+               "Polish - Tomasz Dominikowski\n"));
 
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                              create_scrolled_window_with_text(tmp_buff,

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ALL_LANGUAGES="ru_RU fi_FI fr_FR en_GB en_US it_IT de_DE es_ES es_MX"
+ALL_LANGUAGES="ru_RU fi_FI fr_FR en_GB en_US it_IT de_DE es_ES es_MX pl_PL"
 
 xgettext --from-code=UTF-8 --keyword=_ -f po/POTFILES.in -s -C -o po/omweather.pot
 cd po

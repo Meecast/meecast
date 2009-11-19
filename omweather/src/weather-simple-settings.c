@@ -890,7 +890,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
                                 GTK_FILL | GTK_EXPAND | GTK_SHRINK,
                                 (GtkAttachOptions)0, 0, 0 );
 */
-    label_set = gtk_label_new(_("Temperatura"));
+    label_set = gtk_label_new(_("Temperature"));
     set_font(label_set, NULL, 20);
     gtk_widget_set_size_request(label_set, 150, -1);
 

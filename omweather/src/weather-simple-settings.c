@@ -881,15 +881,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     main_table = gtk_table_new(8, 8, FALSE);
 
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox), main_table, TRUE, TRUE, 0);
-/*
-    left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(left_alignmnet, 5, -1);
 
-    gtk_table_attach((GtkTable*)main_table, left_alignmnet,
-                                0, 1, 0, 8,
-                                GTK_FILL | GTK_EXPAND | GTK_SHRINK,
-                                (GtkAttachOptions)0, 0, 0 );
-*/
     label_set = gtk_label_new(_("Temperature"));
     set_font(label_set, NULL, 20);
     gtk_widget_set_size_request(label_set, 150, -1);
@@ -1249,14 +1241,14 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
     gtk_table_attach((GtkTable*)main_table, label_set,
                                 1, 2, 1, 2,
                                 GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 20, 0 );
+                                (GtkAttachOptions)0, 0, 0 );
 
     hbox_period = gtk_hbox_new(TRUE, 0);
     group_period = NULL;
 
     never_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(never_button), gtk_label_new(_("never")));
-    gtk_widget_set_size_request(never_button, 145, 50);
+    gtk_widget_set_size_request(never_button, 145, 60);
     GLADE_HOOKUP_OBJECT(window, never_button, "never_button");
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(never_button), FALSE);
     gtk_box_pack_start (GTK_BOX (hbox_period), never_button, TRUE, TRUE, 0);
@@ -1264,7 +1256,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 
     one_hour_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(one_hour_button), gtk_label_new(_("1 hour")));
-    gtk_widget_set_size_request(one_hour_button, 145, 50);
+    gtk_widget_set_size_request(one_hour_button, 145, 60);
     GLADE_HOOKUP_OBJECT(window, one_hour_button, "one_hour_button");
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(one_hour_button), FALSE);
     group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(never_button));
@@ -1273,7 +1265,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 
     four_hours_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(four_hours_button), gtk_label_new(_("4 hours")));
-    gtk_widget_set_size_request(four_hours_button, 145, 50);
+    gtk_widget_set_size_request(four_hours_button, 145, 60);
     GLADE_HOOKUP_OBJECT(window, four_hours_button, "four_hours_button");
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(four_hours_button), FALSE);
     group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(one_hour_button));
@@ -1282,7 +1274,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 
     one_day_button = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(one_day_button), gtk_label_new(_("1 day")));
-    gtk_widget_set_size_request(one_day_button, 145, 50);
+    gtk_widget_set_size_request(one_day_button, 145, 60);
     GLADE_HOOKUP_OBJECT(window, one_day_button, "one_day_button");
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(one_day_button), FALSE);
     group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(four_hours_button));
@@ -1317,7 +1309,8 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
 #ifdef OS2009
-    gsm_button = hildon_check_button_new (HILDON_SIZE_AUTO);
+//    gsm_button = hildon_check_button_new (HILDON_SIZE_AUTO);
+    gsm_button = hildon_check_button_new (HILDON_SIZE_HALFSCREEN_WIDTH | HILDON_SIZE_FINGER_HEIGHT);
     gtk_button_set_label (GTK_BUTTON (gsm_button), _("GSM"));
     if(app->config->update_gsm == TRUE)
         hildon_check_button_set_active(gsm_button, TRUE);
@@ -1343,7 +1336,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
     gtk_table_attach((GtkTable*)main_table, gsm_button,
                                 2, 3, 3, 4,
                                 GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 20, 0 );
+                                (GtkAttachOptions)0, 0, 0 );
 
     vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_set_size_request(vertical2_alignmnet, -1, 20);
@@ -1354,7 +1347,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
                                 0, 0 );
 
 #ifdef OS2009
-    wlan_button = hildon_check_button_new (HILDON_SIZE_AUTO);
+    wlan_button = hildon_check_button_new (HILDON_SIZE_HALFSCREEN_WIDTH | HILDON_SIZE_FINGER_HEIGHT);
     gtk_button_set_label (GTK_BUTTON (wlan_button), _("WLAN"));
     if(app->config->update_wlan == TRUE)
         hildon_check_button_set_active(wlan_button, TRUE);
@@ -1383,7 +1376,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
     gtk_table_attach((GtkTable*)main_table, wlan_button,
                                 2, 3, 5, 6,
                                 GTK_FILL | GTK_EXPAND,
-                                (GtkAttachOptions)0, 20, 0 );
+                                (GtkAttachOptions)0, 0, 0 );
 
     vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
     gtk_widget_set_size_request(vertical3_alignmnet, -1, 20);

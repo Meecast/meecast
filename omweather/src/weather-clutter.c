@@ -29,12 +29,41 @@
 #ifdef HILDONANIMATION 
 #define SIZE_OF_WINDOWS_HEAD 52
 /*******************************************************************************/
+void 
+free_animation_list(gpointer key, gpointer value_arg,
+    gpointer user_data)
+{
+    GSList *list_of_event = (GSList *)value_arg;
+    GSList      *list_temp = NULL;
+    Event       *event = NULL;
+
+    /* Free user data */
+    list_temp = list_of_event;
+    while(list_temp != NULL){
+        event = list_temp->data;
+        g_free(event);
+        list_temp = g_slist_next(list_temp);
+    } 
+}
+/*******************************************************************************/
+void 
+clear_animation_hash(GHashTable *hash)
+{
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    g_hash_table_foreach(hash, free_animation_list, NULL);
+    g_hash_table_destroy(hash);
+    hash = NULL;
+}
+/*******************************************************************************/
 void
 parse_animation_of_icon(xmlNode *node, GHashTable *icons){
     xmlNode     *child_node, *child_node2, *child_node3; 
     xmlChar     *value = NULL;
     xmlChar     *number_of_step = NULL;
     xmlChar     *icon_name = NULL;
+    xmlChar     *temp_char = NULL;
     GHashTable  *icon_animation_hash = NULL; 
     GHashTable  *icon_animation_hash_temp = NULL; 
     Event       *event = NULL;
@@ -74,12 +103,20 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar*)"l")){
                                                 event_l = g_new0(Event_l, 1);
                                                 icon_name = xmlGetProp(child_node3, (const xmlChar*)"n");
-                                                if(icon_name)
+                                                if(icon_name){
                                                     event_l->name = g_strdup(icon_name);
-                                                if (xmlGetProp(child_node3, (const xmlChar*)"h"))
-                                                    event_l->height = atoi(xmlGetProp(child_node3, (const xmlChar*)"h")); 
-                                                if (xmlGetProp(child_node3, (const xmlChar*)"w"))
-                                                    event_l->width = atoi(xmlGetProp(child_node3, (const xmlChar*)"w")); 
+                                                    xmlFree(icon_name);
+                                                }
+                                                if (temp_char = xmlGetProp(child_node3, 
+                                                                           (const xmlChar*)"h")){
+                                                    event_l->height = atoi(temp_char); 
+                                                    xmlFree(temp_char);
+                                                }
+                                                if (temp_char = xmlGetProp(child_node3, 
+                                                                           (const xmlChar*)"w")){
+                                                    event_l->width = atoi(temp_char); 
+                                                    xmlFree(temp_char);
+                                                }
                                                 event = g_new0(Event, 1);
                                                 event->event_type = LOAD_ACTOR;
                                                 event->event = event_l;
@@ -89,12 +126,16 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                             /* changed Position of actor */
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar*)"p")){
                                                 event_p = g_new0(Event_p, 1);
-                                                if (xmlGetProp(child_node3, (const xmlChar*)"x"))
-                                                    event_p->x = atoi(xmlGetProp(child_node3, 
-                                                                            (const xmlChar*)"x")); 
-                                                if (xmlGetProp(child_node3, (const xmlChar*)"y"))
-                                                    event_p->y = atoi(xmlGetProp(child_node3, 
-                                                                            (const xmlChar*)"y")); 
+                                                if (temp_char = xmlGetProp(child_node3, 
+                                                                           (const xmlChar*)"x")){
+                                                    event_p->x = atoi(temp_char);
+                                                    xmlFree(temp_char);
+                                                }
+                                                if (temp_char = xmlGetProp(child_node3, 
+                                                                           (const xmlChar*)"y")){
+                                                    event_p->y = atoi(temp_char);
+                                                    xmlFree(temp_char);
+                                                }
                                                 event = g_new0(Event, 1);
                                                 event->event_type = POSITION_ACTOR;
                                                 event->event = event_p;
@@ -104,9 +145,11 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                             /* changed Opacity of actor */
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar*)"o")){
                                                 event_o = g_new0(Event_o, 1);
-                                                if (xmlGetProp(child_node3, (const xmlChar*)"o"))
-                                                    event_o->o = atoi(xmlGetProp(child_node3, 
-                                                                        (const xmlChar*)"o")); 
+                                                if (temp_char = xmlGetProp(child_node3, 
+                                                                           (const xmlChar*)"o")){
+                                                    event_o->o = atoi(temp_char);
+                                                    xmlFree(temp_char);
+                                                }
                                                 event = g_new0(Event, 1);
                                                 event->event_type = OPACITY_ACTOR;
                                                 event->event = event_o;
@@ -116,12 +159,16 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                             /* changed Scale of actor */
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar*)"s")){
                                                 event_s = g_new0(Event_s, 1);
-                                                if (xmlGetProp(child_node3, (const xmlChar*)"x"))
-                                                    event_s->x = atof(xmlGetProp(child_node3,
-                                                                        (const xmlChar*)"x"));
-                                                if (xmlGetProp(child_node3, (const xmlChar*)"y"))
-                                                    event_s->y = atof(xmlGetProp(child_node3, 
-                                                                        (const xmlChar*)"y")); 
+                                                if (temp_char = xmlGetProp(child_node3,
+                                                                           (const xmlChar*)"x")){
+                                                    event_s->x = atof(temp_char);
+                                                    xmlFree(temp_char);
+                                                }
+                                                if (temp_char = xmlGetProp(child_node3,
+                                                                           (const xmlChar*)"y")){
+                                                    event_s->y = atof(temp_char);
+                                                    xmlFree(temp_char);
+                                                }
                                                 event = g_new0(Event, 1);
                                                 event->event_type = SCALE_ACTOR;
                                                 event->event = event_s;
@@ -133,18 +180,25 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                                !xmlStrcmp(child_node3->name, (const xmlChar*)"ry")||
                                                !xmlStrcmp(child_node3->name, (const xmlChar*)"rz")) {
                                                 event_r = g_new0(Event_r, 1);
-                                                if (xmlGetProp(child_node3, (const xmlChar*)"x"))
-                                                    event_r->x = atoi(xmlGetProp(child_node3,
-                                                                        (const xmlChar*)"x"));
-                                                if (xmlGetProp(child_node3, (const xmlChar*)"y"))
-                                                    event_r->y = atoi(xmlGetProp(child_node3, 
-                                                                        (const xmlChar*)"y"));
-                                                if (xmlGetProp(child_node3, (const xmlChar*)"z"))
-                                                    event_r->x = atoi(xmlGetProp(child_node3,
-                                                                        (const xmlChar*)"z"));
-                                                if (xmlGetProp(child_node3, (const xmlChar*)"a"))
-                                                    event_r->a = atof(xmlGetProp(child_node3,
-                                                                        (const xmlChar*)"a"));
+                                                if (temp_char = xmlGetProp(child_node3,
+                                                                           (const xmlChar*)"x")){
+                                                    event_r->x = atoi(temp_char);
+                                                    xmlFree(temp_char);
+                                                }
+                                                if (temp_char = xmlGetProp(child_node3,
+                                                                           (const xmlChar*)"y")){
+                                                    event_r->y = atoi(temp_char);
+                                                    xmlFree(temp_char);
+                                                }
+                                                if (temp_char = xmlGetProp(child_node3, (const xmlChar*)"z")){
+                                                    event_r->x = atoi(temp_char);
+                                                    xmlFree(temp_char);
+                                                }
+                                                if (temp_char = xmlGetProp(child_node3, 
+                                                                           (const xmlChar*)"a")){
+                                                    event_r->a = atof(temp_char);
+                                                    xmlFree(temp_char);
+                                                }
     
                                                 if(!xmlStrcmp(child_node3->name, (const xmlChar*)"rx"))
                                                     event_r->d = HILDON_AA_X_AXIS;
@@ -432,7 +486,6 @@ choose_icon_timeline(SuperOH *oh)
                          gtk_widget_show_all (ha);
                          list_temp = g_slist_next(list_temp);
                     }
-                    g_source_remove(oh->runtime); 
                     oh->runtime = g_timeout_add (oh->delay, choose_icon_timeline, oh); 
                     break;
             case 2:
@@ -568,7 +621,8 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
 #endif
     if (!objects_list)
         return NULL;
-
+    if (!app->animation_hash)
+        return NULL;
     oh = g_new(SuperOH, 1);
     oh->timeline = 0;
     oh->image = NULL;

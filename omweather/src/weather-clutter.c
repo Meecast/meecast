@@ -38,10 +38,13 @@ free_animation_list(gpointer key, gpointer value_arg,
     Event       *event = NULL;
 
     /* Free user data */
+    fprintf(stderr, "KEY %s %p\n", key, list_of_event);
     list_temp = list_of_event;
     while(list_temp != NULL){
-        event = list_temp->data;
-        g_free(event);
+        if (list_temp->data){
+            event = list_temp->data;
+//            g_free(event);
+        }
         list_temp = g_slist_next(list_temp);
     } 
 }
@@ -52,9 +55,11 @@ clear_animation_hash(GHashTable *hash)
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    g_hash_table_foreach(hash, free_animation_list, NULL);
-    g_hash_table_destroy(hash);
-    hash = NULL;
+    if (hash){
+        g_hash_table_foreach(hash, free_animation_list, NULL);
+        g_hash_table_destroy(hash);
+        hash = NULL;
+    }
 }
 /*******************************************************************************/
 void
@@ -229,6 +234,7 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                 }
                             }
                             g_hash_table_insert(icon_animation_hash, number_of_step, list_of_event);
+                            fprintf(stderr, "Step %s %p\n", number_of_step, list_of_event);
                         }
                     }
                 }
@@ -238,6 +244,9 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
         node = node->next;
     }
     setlocale(LC_NUMERIC, "");
+
+    g_hash_table_foreach(hash, free_animation_list, NULL);
+
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

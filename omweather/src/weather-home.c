@@ -1098,6 +1098,9 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
     /* Clean the queue of event */ 
     free_list_time_event();
 #if defined CLUTTER || defined HILDONANIMATION
+    /* Clean animation hash */
+    if (app->animation_hash)
+        clear_animation_hash(app->animation_hash);
     /* Clean clutter objects list */
     free_clutter_objects_list(&app->clutter_objects_in_main_form);
     free_clutter_objects_list(&app->clutter_objects_in_popup_form);

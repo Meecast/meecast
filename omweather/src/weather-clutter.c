@@ -36,17 +36,68 @@ free_animation_list(gpointer key, gpointer value_arg,
     GSList *list_of_event = (GSList *)value_arg;
     GSList      *list_temp = NULL;
     Event       *event = NULL;
-
+    Event_l     *event_l = NULL;
+    Event_p     *event_p = NULL;
+    Event_o     *event_o = NULL;
+    Event_s     *event_s = NULL;
+    Event_r     *event_r = NULL;
+ 
     /* Free user data */
     fprintf(stderr, "KEY %s %p\n", key, list_of_event);
     list_temp = list_of_event;
     while(list_temp != NULL){
         if (list_temp->data){
             event = list_temp->data;
-//            g_free(event);
+            switch ((gint)event->event_type){
+                case POSITION_ACTOR:
+                     event_p = event->event;
+                     if (event_p)
+                        g_free(event_p);
+                     break;
+                case OPACITY_ACTOR:
+                     event_o = event->event;
+                     if (event_o)
+                        g_free(event_o);
+                     break;
+                case SCALE_ACTOR:
+                     event_s = event->event;
+                     if (event_s)
+                        g_free(event_s);
+                case ROTATE_ACTOR:
+                     event_r = event->event;
+                     if (event_r)
+                        g_free(event_r);
+                     break;
+                case LOAD_ACTOR:
+                     event_l = event->event;
+                     if (event_l->name)
+                        g_free(event_l->name);
+                     if (event_l)
+                        g_free(event_l);
+                     break;
+            }
+            g_free(event);
         }
         list_temp = g_slist_next(list_temp);
     } 
+    if (list_of_event)
+        g_slist_free(list_of_event);   
+}
+/*******************************************************************************/
+void 
+free_icons_list(gpointer key, gpointer value_arg,
+    gpointer user_data)
+{
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    GHashTable *hash = (GHashTable *)value_arg;
+    xmlChar    *icon_name = (xmlChar *)key;
+    g_hash_table_foreach(hash, free_animation_list, NULL);
+    g_hash_table_destroy(hash);
+    g_free(icon_name);
+
 }
 /*******************************************************************************/
 void 
@@ -56,7 +107,7 @@ clear_animation_hash(GHashTable *hash)
     START_FUNCTION;
 #endif
     if (hash){
-        g_hash_table_foreach(hash, free_animation_list, NULL);
+        g_hash_table_foreach(hash, free_icons_list, NULL);
         g_hash_table_destroy(hash);
         hash = NULL;
     }
@@ -235,6 +286,7 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                             }
                             g_hash_table_insert(icon_animation_hash, number_of_step, list_of_event);
                             fprintf(stderr, "Step %s %p\n", number_of_step, list_of_event);
+                            xmlFree(number_of_step);
                         }
                     }
                 }
@@ -245,7 +297,7 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
     }
     setlocale(LC_NUMERIC, "");
 
-    g_hash_table_foreach(hash, free_animation_list, NULL);
+//    g_hash_table_foreach(hash, free_animation_list, NULL);
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -719,7 +771,12 @@ void free_clutter_objects_list(GSList **clutter_objects) {
             ha = g_object_get_data(G_OBJECT(list_temp_images->data), "hildon_animation_actor");
             gtk_widget_destroy(ha);
             list_temp_images = g_slist_next(list_temp_images);
-        } 
+        }
+        if (oh->list_images)
+            g_slist_free(oh->list_images);
+
+        if (oh->icon_name)
+            g_free(oh->icon_name);
 
         if (oh->icon_widget){
             gtk_widget_destroy(oh->icon_widget);

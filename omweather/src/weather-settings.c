@@ -1910,14 +1910,7 @@ close_button_handler(GtkWidget * button, GdkEventButton * event,
 #endif
 /* free memory used by iconset list */
     iconset = g_object_get_data(G_OBJECT(config_window), "iconsetlist");
-    if (iconset) {
-        tmp = (GSList *) iconset;
-        while (tmp) {
-            if (tmp->data)
-                g_free((gchar *) (tmp->data));
-            tmp = g_slist_next(tmp);
-        }
-    }
+    free_icon_set_list(iconset);
 /* get settings tab number */
     notebook = lookup_widget(config_window, "notebook");
     if (notebook)

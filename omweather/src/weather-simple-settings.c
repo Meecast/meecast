@@ -105,6 +105,8 @@ widget_styles_save(GtkWidget *window){
             icon_set = g_slist_next(icon_set);
         }
         update_icons_set_base(app->config->icon_set);
+        free_icon_set_list(icon_set);
+
     }
 /* save settings */
     config_save(app->config);

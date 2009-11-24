@@ -61,6 +61,7 @@ GtkWidget* create_scrolled_window_with_text(const char* text,
 int create_icon_set_list(gchar *dir_path, GSList **store, gchar *type); /* scan dir */
 					     /* and add names to the list */
 void update_icons_set_base(const char *icon_set_name);
+void free_icon_set_list(GSList *iconset);
 GtkWidget *create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list);
 gint choose_wind_direction(gchar *buffer);
 void write_log(char *string);

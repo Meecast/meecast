@@ -1758,7 +1758,7 @@ msgstr "Да"
 
 #: src/weather-simple-popup.c:914
 msgid "You can make donation here: "
-msgstr ""
+msgstr "Вы можете сделать пожертвования здесь: "
 
 #: src/weather-popup.c:252
 msgid "current location local time"

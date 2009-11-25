@@ -255,21 +255,21 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                                     event_r->a = atof(temp_char);
                                                     xmlFree(temp_char);
                                                 }
-    
+
                                                 if(!xmlStrcmp(child_node3->name, (const xmlChar*)"rx"))
                                                     event_r->d = HILDON_AA_X_AXIS;
                                                 if(!xmlStrcmp(child_node3->name, (const xmlChar*)"ry"))
                                                     event_r->d = HILDON_AA_Y_AXIS;
                                                 if(!xmlStrcmp(child_node3->name, (const xmlChar*)"rz"))
                                                     event_r->d = HILDON_AA_Z_AXIS;
- 
+
                                                 event = g_new0(Event, 1);
                                                 event->event_type = ROTATE_ACTOR;
                                                 event->event = event_r;
                                                 event->number = number_actor_in_queue;
                                                 list_of_event = g_slist_append(list_of_event, event);
                                             }
- 
+
                                         }
                                         /*
                                         if (number_of_step && 
@@ -297,7 +297,6 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
     }
     setlocale(LC_NUMERIC, "");
 
-//    g_hash_table_foreach(hash, free_animation_list, NULL);
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -331,13 +330,13 @@ parse_animation_file(const gchar *filename, const gchar *encoding){
 /*******************************************************************************/
 gboolean
 expose_event (GtkWidget *widget,GdkEventExpose *event,
-			     gpointer data)
+               gpointer data)
 {
     cairo_t *cr;
     GdkPixbuf *pixbuf = (GdkPixbuf *) data;
-   
+
     cr = gdk_cairo_create(widget->window);
-    gdk_cairo_region(cr, event->region);    
+    gdk_cairo_region(cr, event->region);
     cairo_set_operator(cr, CAIRO_OPERATOR_SOURCE);
     gdk_cairo_set_source_pixbuf(cr, pixbuf, 0.0, 0.0);
     cairo_paint(cr);
@@ -533,9 +532,9 @@ choose_icon_timeline(SuperOH *oh)
                                 load_actor(oh, event_l->name, event_l->width, event_l->height);
                         }
                         list_temp = g_slist_next(list_temp);
-                    }  
+                    }
                     break;
-            case 1:  
+            case 1:
                     list_temp = oh->list_images;
                     while(list_temp != NULL){
                          ha = g_object_get_data(G_OBJECT(list_temp->data), "hildon_animation_actor");
@@ -593,14 +592,10 @@ choose_icon_timeline(SuperOH *oh)
                                     rotation_actor(oh, event->number, event_r->d, event_r->a, 
                                                        event_r->x, event_r->y, event_r->z);
                             }
-
-
-
                             list_temp = g_slist_next(list_temp);
-                        }  
+                        }
                     }else
-                        return FALSE; 
-         
+                        return FALSE;
         }
         oh->timeline ++;
     }

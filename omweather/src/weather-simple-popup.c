@@ -890,7 +890,6 @@ click_url_and_destroy_window(GtkWidget* button, gpointer window)
 /*******************************************************************************/
 void donation_button_handler(void){
     GtkWidget   *dialog, *url, *label;
-    char    tmp_buff[2048];
     gint    result;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

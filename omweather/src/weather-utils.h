@@ -68,5 +68,8 @@ void write_log(char *string);
 GtkWidget* create_button_with_2_line_text(const gchar *first_line_text, const gchar *second_line_text,
                                 const gint first_line_text_size, const gint second_line_text_size);
 gboolean browser_url(gchar *url);
+#if defined HILDONANIMATION 
+void clear_animation_hash(GHashTable *hash);
+#endif
 /*******************************************************************************/
 #endif

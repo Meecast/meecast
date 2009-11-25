@@ -454,15 +454,14 @@ GtkWidget *create_scrolled_window_with_text(const char *text,
 /* Free icon set list */
 void
 free_icon_set_list(GSList *iconset)
-{    
-//#ifdef DEBUGFUNCTIONCALL
+{
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     GSList *tmp = NULL;
     if (iconset) {
         tmp = (GSList *) iconset;
         while (tmp) {
-            fprintf(stderr,"deleted %p\n",tmp);
             if (tmp->data)
                 g_free((gchar *) (tmp->data));
             tmp = g_slist_next(tmp);
@@ -492,7 +491,6 @@ create_icon_set_list(gchar *dir_path, GSList ** store, gchar *type){
                 continue;
             if(dp->d_type == t || dp->d_type == DT_LNK){
                 *store = g_slist_append(*store, g_strdup(dp->d_name));
-                fprintf(stderr,"store %p\n", *store);
                 sets_number++;
             }
         }

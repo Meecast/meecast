@@ -1901,7 +1901,7 @@ close_button_handler(GtkWidget * button, GdkEventButton * event,
     GtkWidget *config_window = GTK_WIDGET(user_data), *notebook = NULL;
     guint current_page = 0;
     gboolean need_update_weather = FALSE;
-    GSList *iconset = NULL, *tmp = NULL;
+    GSList *iconset = NULL;
 #ifndef OS2008
     gboolean need_correct_layout_for_OS2007 = FALSE;
 #endif

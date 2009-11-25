@@ -55,7 +55,7 @@ widget_styles_save(GtkWidget *window){
     *preset_now_plus_seven = NULL,
     *selected_icon_set = NULL;
 
-    GSList      *icon_set = NULL;
+    GSList      *icon_set = NULL, *tmp_set ;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -89,20 +89,21 @@ widget_styles_save(GtkWidget *window){
         (GSList *) g_object_get_data(G_OBJECT(window),
                                      "iconsetlist");
     if (icon_set) {
-        while (icon_set) {
+        tmp_set = icon_set;
+        while (tmp_set) {
             selected_icon_set =
-                lookup_widget(window, (gchar *) icon_set->data);
+                lookup_widget(window, (gchar *) tmp_set->data);
             if (selected_icon_set) {
                 if (gtk_toggle_button_get_active
                     (GTK_TOGGLE_BUTTON(selected_icon_set))) {
                     if (app->config->icon_set)
                         g_free(app->config->icon_set);
                     app->config->icon_set =
-                        g_strdup((gchar *) icon_set->data);
+                        g_strdup((gchar *) tmp_set->data);
                     break;
                 }
             }
-            icon_set = g_slist_next(icon_set);
+            tmp_set = g_slist_next(tmp_set);
         }
         update_icons_set_base(app->config->icon_set);
         free_icon_set_list(icon_set);

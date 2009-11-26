@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-11-26 11:18+0200\n"
-"PO-Revision-Date: 2009-11-19 23:23+0100\n"
+"PO-Revision-Date: 2009-11-26 21:25+0100\n"
 "Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
 "MIME-Version: 1.0\n"
@@ -132,7 +132,7 @@ msgstr " H: "
 
 #: src/weather-simple-settings.c:1279 src/weather-simple-settings.c:2151
 msgid "1 day"
-msgstr "1 Jour"
+msgstr "1 jour"
 
 #: src/weather-settings.c:4035 src/weather-simple-settings.c:1261
 #: src/weather-simple-settings.c:2145
@@ -278,9 +278,8 @@ msgid "About"
 msgstr "À propos"
 
 #: src/weather-simple-popup.c:247
-#, fuzzy
 msgid "Action|Update"
-msgstr "Mise à jour "
+msgstr "Mettre à jour"
 
 #: src/weather-settings.c:481
 msgid "Add"
@@ -387,7 +386,6 @@ msgid "City:"
 msgstr "Ville :"
 
 #: src/hash.data:23
-#, fuzzy
 msgid "Clear"
 msgstr "Ciel clair"
 
@@ -718,9 +716,8 @@ msgid "GSM+WLAN"
 msgstr "GSM+WLAN"
 
 #: src/weather-simple-settings.c:1774
-#, fuzzy
 msgid "GUI|Clear"
-msgstr "Ciel clair"
+msgstr "Effacer"
 
 #: src/weather-popup.c:1138 src/weather-popup.c:1254
 msgid "Gust:"
@@ -1050,15 +1047,15 @@ msgstr "Maintenant"
 
 #: src/weather-simple-settings.c:2228
 msgid "Now + 3 days hor."
-msgstr "Maintenant + 3 j hor."
+msgstr "Maintenant + 3 jours horizontal"
 
 #: src/weather-simple-settings.c:2222
 msgid "Now + 3 days vert."
-msgstr "Maintenant + 3 j vert."
+msgstr "Maintenant + 3 jours vertical"
 
 #: src/weather-simple-settings.c:2216
 msgid "Now + 7 days vert."
-msgstr "Maintenant + 7 j vert."
+msgstr "Maintenant + 7 jours vertical"
 
 #: src/weather-simple-settings.c:2219
 msgid "Now, today and tomorrow"
@@ -1171,7 +1168,7 @@ msgstr "Position :"
 
 #: src/weather-simple-settings.c:1226 src/weather-simple-settings.c:2176
 msgid "Preference|Update"
-msgstr ""
+msgstr "Mise à Jour"
 
 #: src/weather-simple-settings.c:1068
 msgid "Pressure"
@@ -1496,9 +1493,9 @@ msgid "State:"
 msgstr "Etat :"
 
 #: src/weather-simple-settings.c:1922
-#, fuzzy, c-format
+#, c-format
 msgid "Station %i"
-msgstr "Station"
+msgstr "Station %i"
 
 #: src/weather-settings.c:1115 src/weather-settings.c:1293
 #: src/weather-settings.c:1298
@@ -1601,9 +1598,8 @@ msgstr "Infini"
 
 #: src/weather-settings.c:1143 src/weather-settings.c:1349
 #: src/weather-settings.c:1353
-#, fuzzy
 msgid "Update"
-msgstr "Mise à jour "
+msgstr "Mise à jour"
 
 #: src/weather-settings.c:4059
 msgid "Updating of weather data:"

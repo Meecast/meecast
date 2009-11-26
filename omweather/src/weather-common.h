@@ -93,7 +93,10 @@
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 /*******************************************************************************/
-#define _(String) dgettext (GETTEXT_PACKAGE, String)
+//#define _(String) dgettext (GETTEXT_PACKAGE, String)
+#define GETTEXT_PACKAGE "omweather"
+#include <glib/gi18n-lib.h>
+
 #define Max_count_weather_day   10
 #define DATABASEPATH        "/usr/share/omweather/db/"
 #define SOURCESPATH         "/usr/share/omweather/sources/"

@@ -244,7 +244,7 @@ create_top_buttons_box(GtkWidget* window, gpointer user_data){
         snprintf(buffer, sizeof(buffer) - 1, "%s%s", _("Last update: "), _("Unknown"));
     }
     /* update button */
-    update_button = create_button_with_2_line_text(_("Update"), buffer, 18, 12);
+    update_button = create_button_with_2_line_text(Q_("Action|Update"), buffer, 18, 12);
     g_signal_connect(G_OBJECT(update_button), "button-release-event",
                         G_CALLBACK(refresh_button_handler), NULL);
 

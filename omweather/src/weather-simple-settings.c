@@ -1223,7 +1223,7 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    window = gtk_dialog_new_with_buttons(_("Update"), NULL,
+    window = gtk_dialog_new_with_buttons(Q_("Preference|Update"), NULL,
                                   GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
     gtk_widget_set_name(window, "update_simple_settings_window");
 
@@ -1771,7 +1771,7 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     gtk_widget_show (main_table);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
-    gtk_dialog_add_button(GTK_DIALOG(window), _("Clear"), GTK_RESPONSE_NO);
+    gtk_dialog_add_button(GTK_DIALOG(window), Q_("GUI|Clear"), GTK_RESPONSE_NO);
     save_button = gtk_dialog_add_button(GTK_DIALOG(window), _("Save"), GTK_RESPONSE_YES);
     g_object_set_data(G_OBJECT(window), "save_button", (gpointer)save_button);
     gtk_widget_set_sensitive(save_button, FALSE);
@@ -1919,7 +1919,7 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
     START_FUNCTION;
 #endif
 
-    snprintf(buffer, sizeof(buffer) - 1, "%s %i", _("Station"), station_number + 1);
+    snprintf(buffer, sizeof(buffer) - 1, _("Station %i"), station_number + 1);
     button = create_button_with_2_line_text(buffer, station_name_s, 18, 12);
     g_object_set_data(G_OBJECT(button), "station_number", (gpointer)station_number);
     g_object_set_data(G_OBJECT(button), "station_name", (gpointer)station_name_s);
@@ -2173,7 +2173,7 @@ create_and_fill_update_box(GtkWidget *main_table){
         }
     }
 
-    update_button = create_button_with_2_line_text(_("Update"), update_string, 18, 12);
+    update_button = create_button_with_2_line_text(Q_("Preference|Update"), update_string, 18, 12);
     g_free(update_string);
 
     gtk_widget_set_size_request(update_button, 490, 70);

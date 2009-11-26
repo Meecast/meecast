@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-19 07:57+0200\n"
+"POT-Creation-Date: 2009-11-26 11:18+0200\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -56,7 +56,7 @@ msgstr ""
 "и дизайн интерфейса\n"
 "Андрей Жилин"
 
-#: src/weather-home.c:1415
+#: src/weather-home.c:1418
 msgid ""
 "\n"
 "FL: "
@@ -78,7 +78,7 @@ msgstr ""
 "для отображения погоды.\n"
 "Версия "
 
-#: src/weather-home.c:1315 src/weather-home.c:1336 src/weather-popup.c:887
+#: src/weather-home.c:1318 src/weather-home.c:1339 src/weather-popup.c:887
 #: src/weather-popup.c:979
 msgid ""
 "\n"
@@ -87,7 +87,7 @@ msgstr ""
 "\n"
 "Влажность: "
 
-#: src/weather-home.c:1457
+#: src/weather-home.c:1460
 msgid ""
 "\n"
 "P: "
@@ -103,7 +103,7 @@ msgstr ""
 "\n"
 "Атмосферные осадки: "
 
-#: src/weather-home.c:1430
+#: src/weather-home.c:1433
 msgid ""
 "\n"
 "V: "
@@ -111,7 +111,7 @@ msgstr ""
 "\n"
 "В: "
 
-#: src/weather-home.c:1461
+#: src/weather-home.c:1464
 msgid ""
 "\n"
 "W: "
@@ -123,20 +123,20 @@ msgstr ""
 msgid " Build: "
 msgstr " Сборка: "
 
-#: src/weather-home.c:1469
+#: src/weather-home.c:1472
 msgid " G: "
 msgstr " Пор.: "
 
-#: src/weather-home.c:1422
+#: src/weather-home.c:1425
 msgid " H: "
 msgstr " В: "
 
-#: src/weather-simple-settings.c:1284 src/weather-simple-settings.c:2155
+#: src/weather-simple-settings.c:1279 src/weather-simple-settings.c:2151
 msgid "1 day"
 msgstr "1 день"
 
-#: src/weather-settings.c:4042 src/weather-simple-settings.c:1266
-#: src/weather-simple-settings.c:2149
+#: src/weather-settings.c:4035 src/weather-simple-settings.c:1261
+#: src/weather-simple-settings.c:2145
 msgid "1 hour"
 msgstr "1 час"
 
@@ -148,7 +148,7 @@ msgstr "минуту"
 msgid "10 minutes"
 msgstr "10 минут"
 
-#: src/weather-settings.c:3994
+#: src/weather-settings.c:3987
 msgid "10 seconds"
 msgstr "10 секунд"
 
@@ -156,11 +156,11 @@ msgstr "10 секунд"
 msgid "15 minutes"
 msgstr "15 минут"
 
-#: src/weather-settings.c:4044
+#: src/weather-settings.c:4037
 msgid "2 hours"
 msgstr "2 часа"
 
-#: src/weather-settings.c:3996
+#: src/weather-settings.c:3989
 msgid "20 seconds"
 msgstr "20 секунд"
 
@@ -172,16 +172,16 @@ msgstr "3 минуты"
 msgid "30 minutes"
 msgstr "30 минут"
 
-#: src/weather-settings.c:3998
+#: src/weather-settings.c:3991
 msgid "30 seconds"
 msgstr "30 секунд"
 
-#: src/weather-settings.c:4046 src/weather-simple-settings.c:1275
-#: src/weather-simple-settings.c:2152
+#: src/weather-settings.c:4039 src/weather-simple-settings.c:1270
+#: src/weather-simple-settings.c:2148
 msgid "4 hours"
 msgstr "4 часа"
 
-#: src/weather-settings.c:4000
+#: src/weather-settings.c:3993
 msgid "40 seconds"
 msgstr "40 секунд"
 
@@ -189,15 +189,15 @@ msgstr "40 секунд"
 msgid "5 minutes"
 msgstr "5 минут"
 
-#: src/weather-settings.c:4002
+#: src/weather-settings.c:3995
 msgid "50 seconds"
 msgstr "50 секунд"
 
-#: src/weather-settings.c:4004
+#: src/weather-settings.c:3997
 msgid "60 seconds"
 msgstr "60 секунд"
 
-#: src/weather-settings.c:4048
+#: src/weather-settings.c:4041
 msgid "8 hours"
 msgstr "8 часов"
 
@@ -273,10 +273,14 @@ msgstr "С утра снег"
 msgid "AM Snow Showers"
 msgstr "До полудня мокрый снег"
 
-#: src/weather-home.c:1221 src/weather-help.c:102
+#: src/weather-home.c:1224 src/weather-help.c:102
 #: src/weather-simple-popup.c:844 src/weather-simple-status.c:179
 msgid "About"
 msgstr "О программе"
+
+#: src/weather-simple-popup.c:247
+msgid "Action|Update"
+msgstr "Обновить"
 
 #: src/weather-settings.c:481
 msgid "Add"
@@ -317,7 +321,7 @@ msgstr ""
 msgid "Are you sure to want delete this station ?"
 msgstr "Вы уверены, что хотите удалить выбранную станцию ?"
 
-#: src/weather-simple-settings.c:524
+#: src/weather-simple-settings.c:527
 msgid "Are you sure?"
 msgstr "Вы уверены?"
 
@@ -339,11 +343,11 @@ msgstr ""
 msgid "Authors"
 msgstr "Авторы"
 
-#: src/weather-settings.c:3958
+#: src/weather-settings.c:3951
 msgid "Automatically update data when connecting to the Internet"
 msgstr "Автоматически обновлять данные после соединения с Интернетом"
 
-#: src/weather-settings.c:3357
+#: src/weather-settings.c:3350
 msgid "Background color:"
 msgstr "Цвет фона:"
 
@@ -351,9 +355,9 @@ msgstr "Цвет фона:"
 msgid "Blowing Snow"
 msgstr "Снежная буря"
 
-#: src/weather-home.c:1396 src/weather-home.c:1419
+#: src/weather-home.c:1399 src/weather-home.c:1422
 #: src/weather-simple-popup.c:752 src/weather-simple-popup.c:760
-#: src/weather-simple-settings.c:907
+#: src/weather-simple-settings.c:902
 msgid "C"
 msgstr "С"
 
@@ -371,12 +375,12 @@ msgstr "Штиль"
 msgid "Can not get path to the HOME directory. Quitting.\n"
 msgstr "Невозможно получить путь к домашней директории. Выходим.\n"
 
-#: src/weather-settings.c:3681
+#: src/weather-settings.c:3674
 msgid "Celcius"
 msgstr "Цельсий"
 
-#: src/weather-simple-settings.c:358 src/weather-simple-settings.c:389
-#: src/weather-simple-settings.c:483 src/weather-simple-settings.c:1738
+#: src/weather-simple-settings.c:361 src/weather-simple-settings.c:392
+#: src/weather-simple-settings.c:486 src/weather-simple-settings.c:1734
 msgid "City"
 msgstr "Город"
 
@@ -384,9 +388,9 @@ msgstr "Город"
 msgid "City:"
 msgstr "Город:"
 
-#: src/hash.data:23 src/weather-simple-settings.c:1778
+#: src/hash.data:23
 msgid "Clear"
-msgstr "Очистить"
+msgstr "Ясно"
 
 #: src/hash.data:22
 msgid "Clear / Wind"
@@ -424,7 +428,7 @@ msgstr "Облачно Гроза"
 msgid "Cloudy and Windy"
 msgstr "Облачно и ветер"
 
-#: src/weather-simple-settings.c:1567 src/weather-simple-settings.c:1886
+#: src/weather-simple-settings.c:1563 src/weather-simple-settings.c:1882
 msgid "Configuring station"
 msgstr "Конфигурация станции"
 
@@ -433,7 +437,7 @@ msgstr "Конфигурация станции"
 msgid "Could not create weather cache directory.\n"
 msgstr "Невозможно создать директорию кэша.\n"
 
-#: src/weather-simple-settings.c:440 src/weather-simple-settings.c:1709
+#: src/weather-simple-settings.c:443 src/weather-simple-settings.c:1705
 msgid "Country"
 msgstr "Страна"
 
@@ -458,11 +462,11 @@ msgstr "Невозможно загрузить данные о погоде."
 msgid "Display"
 msgstr "Отображение"
 
-#: src/weather-simple-settings.c:941
+#: src/weather-simple-settings.c:936
 msgid "Distance"
 msgstr "Расстояние"
 
-#: src/weather-settings.c:3711
+#: src/weather-settings.c:3704
 msgid "Distance units:"
 msgstr "Единицы расстояния:"
 
@@ -474,13 +478,12 @@ msgstr ""
 "Не возможно добавить станцию, потому что ни один\n"
 "из 'omweather-*-stations-db пакетоа не установлен."
 
-#: src/weather-simple-popup.c:851 src/weather-simple-popup.c:901
-#: src/weather-simple-popup.c:907
-#, fuzzy
+#: src/weather-simple-popup.c:851 src/weather-simple-popup.c:900
+#: src/weather-simple-popup.c:906
 msgid "Donation"
-msgstr "Местоположения"
+msgstr "Пожертвование"
 
-#: src/weather-settings.c:3966
+#: src/weather-settings.c:3959
 msgid "Download and show detailed weather"
 msgstr "Загружать и отображать прогноз по часам"
 
@@ -547,7 +550,7 @@ msgstr ""
 "Andrew aka Tabster - за идеи и тестирование\n"
 "Brad Jones aka kazrak - за тестирование\n"
 
-#: src/weather-settings.c:2864
+#: src/weather-settings.c:2857
 msgid "Enable GPS"
 msgstr "Включить GPS"
 
@@ -564,9 +567,9 @@ msgstr "Ошибка при инициализации апплета."
 msgid "Extreme"
 msgstr ""
 
-#: src/weather-home.c:1397 src/weather-home.c:1420
+#: src/weather-home.c:1400 src/weather-home.c:1423
 #: src/weather-simple-popup.c:753 src/weather-simple-popup.c:761
-#: src/weather-simple-settings.c:915
+#: src/weather-simple-settings.c:910
 msgid "F"
 msgstr "F"
 
@@ -575,7 +578,7 @@ msgstr "F"
 msgid "F\n"
 msgstr "F\n"
 
-#: src/weather-settings.c:3693
+#: src/weather-settings.c:3686
 msgid "Fahrenheit"
 msgstr "Фаренгейт"
 
@@ -641,11 +644,11 @@ msgstr "В начале дня туман, позже ясно"
 msgid "Foggy"
 msgstr "Туманно"
 
-#: src/weather-settings.c:3289
+#: src/weather-settings.c:3282
 msgid "Font color:"
 msgstr "Цвет шрифта:"
 
-#: src/weather-settings.c:3268
+#: src/weather-settings.c:3261
 msgid "Font:"
 msgstr "Шрифт:"
 
@@ -657,7 +660,7 @@ msgstr "Прогноз"
 msgid "Forecast at: "
 msgstr "Прогноз на: "
 
-#: src/weather-home.c:1288
+#: src/weather-home.c:1291
 msgid "Forecast: \n"
 msgstr "Прогноз: \n"
 
@@ -666,7 +669,6 @@ msgid "Freezing Drizzle"
 msgstr "Изморось с градом"
 
 #: src/weather-help.c:142
-#, fuzzy
 msgid ""
 "French - Nicolas Granziano, Philippe \n"
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
@@ -682,20 +684,21 @@ msgstr ""
 "Немецкий - Claudius Henrichs\n"
 "Итальянский - Павел Фиалко, Alessandro Pasotti, Salvatore Fiorenzo\n"
 "Испанский - Alejandro Lopez\n"
+"Польский - Tomasz Dominikowski\n"
 
 #: src/hash.data:55
 msgid "Full"
 msgstr "Полнолуние"
 
-#: src/weather-home.c:1231
+#: src/weather-home.c:1234
 msgid "Full forecast"
 msgstr "Полный прогноз"
 
-#: src/weather-simple-settings.c:1645
+#: src/weather-simple-settings.c:1641
 msgid "GPS"
 msgstr "GPS"
 
-#: src/weather-simple-settings.c:1888
+#: src/weather-simple-settings.c:1884
 msgid ""
 "GPS station already exist.\n"
 "Only one station can be received via GPS"
@@ -703,14 +706,18 @@ msgstr ""
 "GPS станция уже выбрана.\n"
 "Только одна станция может быть получена через GPS"
 
-#: src/weather-simple-settings.c:1321 src/weather-simple-settings.c:1327
-#: src/weather-simple-settings.c:2168
+#: src/weather-simple-settings.c:1317 src/weather-simple-settings.c:1323
+#: src/weather-simple-settings.c:2164
 msgid "GSM"
 msgstr "GSM"
 
-#: src/weather-simple-settings.c:2162
+#: src/weather-simple-settings.c:2158
 msgid "GSM+WLAN"
 msgstr "GSM+WLAN"
+
+#: src/weather-simple-settings.c:1774
+msgid "GUI|Clear"
+msgstr "Очистить"
 
 #: src/weather-popup.c:1138 src/weather-popup.c:1254
 msgid "Gust:"
@@ -740,11 +747,11 @@ msgstr "Высокий"
 msgid "Humidity:"
 msgstr "Влажность:"
 
-#: src/weather-settings.c:3173
+#: src/weather-settings.c:3166
 msgid "Icon set:"
 msgstr "Набор иконок:"
 
-#: src/weather-settings.c:3430
+#: src/weather-settings.c:3423
 msgid "Icon size:"
 msgstr "Размер иконок:"
 
@@ -756,7 +763,7 @@ msgstr "Местами грозы"
 msgid "Isolated T-Storms / Wind"
 msgstr "Местами грозы / Ветер"
 
-#: src/weather-settings.c:3732
+#: src/weather-settings.c:3725
 msgid "Kilometers"
 msgstr "Километры"
 
@@ -782,7 +789,7 @@ msgstr "Последнее обновление: "
 msgid "Lawn and Garden Weather"
 msgstr ""
 
-#: src/weather-settings.c:2922
+#: src/weather-settings.c:2915
 msgid "Layout:"
 msgstr "Расположение:"
 
@@ -870,7 +877,7 @@ msgstr "Загрузка списка станций"
 msgid "Local Pollen Reports"
 msgstr ""
 
-#: src/weather-settings.c:3296
+#: src/weather-settings.c:3289
 msgid "Long"
 msgstr "Длительный"
 
@@ -878,15 +885,15 @@ msgstr "Длительный"
 msgid "Low"
 msgstr "Низкий"
 
-#: src/weather-simple-settings.c:1636
+#: src/weather-simple-settings.c:1632
 msgid "Manual"
 msgstr "Ручной"
 
-#: src/weather-settings.c:3718
+#: src/weather-settings.c:3711
 msgid "Meters"
 msgstr "Метры"
 
-#: src/weather-settings.c:3747
+#: src/weather-settings.c:3740
 msgid "Miles"
 msgstr "Мили"
 
@@ -935,9 +942,9 @@ msgid "N"
 msgstr "северный"
 
 #: src/weather-home.c:653 src/weather-home.c:659 src/weather-home.c:660
-#: src/weather-home.c:667 src/weather-home.c:673 src/weather-home.c:2448
-#: src/weather-home.c:2532 src/weather-home.c:2540 src/weather-home.c:2627
-#: src/weather-home.c:2631 src/weather-home.c:2644 src/weather-home.c:2648
+#: src/weather-home.c:667 src/weather-home.c:673 src/weather-home.c:2451
+#: src/weather-home.c:2535 src/weather-home.c:2543 src/weather-home.c:2630
+#: src/weather-home.c:2634 src/weather-home.c:2647 src/weather-home.c:2651
 #: src/hash.data:97
 msgid "N/A"
 msgstr "Н/Д"
@@ -986,9 +993,9 @@ msgstr "С"
 msgid "Name:"
 msgstr "Название:"
 
-#: src/weather-settings.c:921 src/weather-settings.c:3992
+#: src/weather-settings.c:921 src/weather-settings.c:3985
 #: src/weather-config.c:324 src/weather-sensor.c:141
-#: src/weather-simple-settings.c:2146
+#: src/weather-simple-settings.c:2142
 msgid "Never"
 msgstr "Никогда"
 
@@ -996,7 +1003,7 @@ msgstr "Никогда"
 msgid "New"
 msgstr "Новолуние"
 
-#: src/weather-settings.c:4077
+#: src/weather-settings.c:4070
 msgid "Next update:"
 msgstr "Следующие обновление:"
 
@@ -1032,34 +1039,34 @@ msgstr ""
 "Нет соединения с Интернет\n"
 "Время соединения истекло"
 
-#: src/weather-home.c:2539 src/weather-home.c:2552 src/weather-popup.c:420
+#: src/weather-home.c:2542 src/weather-home.c:2555 src/weather-popup.c:420
 #: src/weather-popup.c:531 src/weather-popup.c:537
-#: src/weather-simple-settings.c:2229
+#: src/weather-simple-settings.c:2225
 msgid "Now"
 msgstr "Сейчас"
 
-#: src/weather-simple-settings.c:2232
+#: src/weather-simple-settings.c:2228
 msgid "Now + 3 days hor."
 msgstr ""
 
-#: src/weather-simple-settings.c:2226
+#: src/weather-simple-settings.c:2222
 msgid "Now + 3 days vert."
 msgstr ""
 
-#: src/weather-simple-settings.c:2220
+#: src/weather-simple-settings.c:2216
 msgid "Now + 7 days vert."
 msgstr ""
 
-#: src/weather-simple-settings.c:2223
+#: src/weather-simple-settings.c:2219
 msgid "Now, today and tomorrow"
 msgstr ""
 
-#: src/weather-home.c:1392
+#: src/weather-home.c:1395
 #, c-format
 msgid "Now: "
 msgstr "Сейчас: "
 
-#: src/weather-help.c:67 src/weather-simple-popup.c:904
+#: src/weather-help.c:67 src/weather-simple-popup.c:903
 msgid "OK"
 msgstr "ОК"
 
@@ -1067,11 +1074,11 @@ msgstr "ОК"
 msgid "OMWeather Forecast"
 msgstr "OMWeather прогноз погоды"
 
-#: src/weather-settings.c:1221 src/weather-simple-settings.c:2323
+#: src/weather-settings.c:1221 src/weather-simple-settings.c:2319
 msgid "OMWeather Settings"
 msgstr "Настройки OMWeather"
 
-#: src/weather-home.c:1203 src/weather-home.c:2665
+#: src/weather-home.c:1206 src/weather-home.c:2668
 msgid "OMWeather settings"
 msgstr "Настройки OMWeather"
 
@@ -1151,19 +1158,23 @@ msgstr "Малооблочно Гроза"
 msgid "Partly Cloudy and Windy"
 msgstr "Небольшая облачность и ветер"
 
-#: src/weather-simple-settings.c:1246
+#: src/weather-simple-settings.c:1241
 msgid "Period"
 msgstr "Период"
 
-#: src/weather-settings.c:3469
+#: src/weather-settings.c:3462
 msgid "Position:"
 msgstr "Позиция:"
 
-#: src/weather-simple-settings.c:1073
+#: src/weather-simple-settings.c:1226 src/weather-simple-settings.c:2176
+msgid "Preference|Update"
+msgstr "Обновление"
+
+#: src/weather-simple-settings.c:1068
 msgid "Pressure"
 msgstr "Давление"
 
-#: src/weather-settings.c:3851
+#: src/weather-settings.c:3844
 msgid "Pressure units:"
 msgstr "Единицы давления:"
 
@@ -1251,8 +1262,8 @@ msgstr "Дождь переходящий в поземку / Ветер"
 msgid "Read sensor every:"
 msgstr "Опрашивать датчик каждые:"
 
-#: src/weather-simple-settings.c:411 src/weather-simple-settings.c:462
-#: src/weather-simple-settings.c:1723
+#: src/weather-simple-settings.c:414 src/weather-simple-settings.c:465
+#: src/weather-simple-settings.c:1719
 msgid "Region"
 msgstr "Район"
 
@@ -1300,9 +1311,9 @@ msgstr "ЮЗ"
 msgid "S_short"
 msgstr "Ю"
 
-#: src/weather-simple-settings.c:168 src/weather-simple-settings.c:1122
-#: src/weather-simple-settings.c:1419 src/weather-simple-settings.c:1779
-#: src/weather-simple-settings.c:2426
+#: src/weather-simple-settings.c:171 src/weather-simple-settings.c:1117
+#: src/weather-simple-settings.c:1415 src/weather-simple-settings.c:1775
+#: src/weather-simple-settings.c:2422
 msgid "Save"
 msgstr "Сохранить"
 
@@ -1322,7 +1333,7 @@ msgstr "Местами мокрый снег"
 msgid "Scattered T-Storms"
 msgstr "Местами грозы"
 
-#: src/weather-settings.c:3760
+#: src/weather-settings.c:3753
 msgid "Sea miles"
 msgstr "Морские мили"
 
@@ -1330,22 +1341,22 @@ msgstr "Морские мили"
 msgid "Search"
 msgstr "Поиск"
 
-#: src/weather-simple-settings.c:669
+#: src/weather-simple-settings.c:672
 #, c-format
 msgid "Selecting country"
 msgstr "Выбор страны"
 
-#: src/weather-simple-settings.c:677
+#: src/weather-simple-settings.c:680
 #, c-format
 msgid "Selecting region"
 msgstr "Выбор района"
 
-#: src/weather-simple-settings.c:673
+#: src/weather-simple-settings.c:676
 #, c-format
 msgid "Selecting source"
 msgstr "Выбор источника"
 
-#: src/weather-simple-settings.c:681
+#: src/weather-simple-settings.c:684
 #, c-format
 msgid "Selecting station"
 msgstr "Выбор станции"
@@ -1355,28 +1366,28 @@ msgstr "Выбор станции"
 msgid "Sensor"
 msgstr "Датчик"
 
-#: src/weather-simple-settings.c:1623
+#: src/weather-simple-settings.c:1619
 msgid "Set"
 msgstr "Набор"
 
-#: src/weather-home.c:1226 src/weather-simple-popup.c:837
+#: src/weather-home.c:1229 src/weather-simple-popup.c:837
 #: src/weather-simple-status.c:158
 msgid "Settings"
 msgstr "Настройки"
 
-#: src/weather-settings.c:3307
+#: src/weather-settings.c:3300
 msgid "Short"
 msgstr "Короткий"
 
-#: src/weather-settings.c:3644
+#: src/weather-settings.c:3637
 msgid "Show arrows"
 msgstr "Показать стрелки"
 
-#: src/weather-settings.c:3574
+#: src/weather-settings.c:3567
 msgid "Show only current weather on first icon"
 msgstr "Только текущая погода в первой иконке"
 
-#: src/weather-settings.c:3621
+#: src/weather-settings.c:3614
 msgid "Show station name"
 msgstr "Показать название станции"
 
@@ -1384,7 +1395,7 @@ msgstr "Показать название станции"
 msgid "Show temperature at:"
 msgstr "Показать температуру:"
 
-#: src/weather-settings.c:3615
+#: src/weather-settings.c:3608
 msgid "Show wind"
 msgstr "Показать ветер"
 
@@ -1460,7 +1471,7 @@ msgstr "Снег переходящий в поземку"
 msgid "Snow to Wintry Mix / Wind"
 msgstr "Снег переходящий в поземку / Ветер"
 
-#: src/weather-simple-settings.c:1691
+#: src/weather-simple-settings.c:1687
 msgid "Source"
 msgstr "Источник"
 
@@ -1469,7 +1480,7 @@ msgid "Source:"
 msgstr "Источник:"
 
 #: src/weather-popup.c:899 src/weather-popup.c:991
-#: src/weather-simple-settings.c:1015
+#: src/weather-simple-settings.c:1010
 msgid "Speed"
 msgstr "Скорость"
 
@@ -1481,10 +1492,10 @@ msgstr "Скорость:"
 msgid "State:"
 msgstr "Область:"
 
-#: src/weather-simple-settings.c:1926
-#, fuzzy
-msgid "Station"
-msgstr "Станции"
+#: src/weather-simple-settings.c:1922
+#, c-format
+msgid "Station %i"
+msgstr "Станция %i"
 
 #: src/weather-settings.c:1115 src/weather-settings.c:1293
 #: src/weather-settings.c:1298
@@ -1511,11 +1522,11 @@ msgstr "Восход: "
 msgid "Sunset: "
 msgstr "Закат: "
 
-#: src/weather-settings.c:3593
+#: src/weather-settings.c:3586
 msgid "Swap hi/low temperature"
 msgstr "Поменять местами температуры"
 
-#: src/weather-settings.c:3982
+#: src/weather-settings.c:3975
 msgid "Switch to the next station after:"
 msgstr "Переключится на следующую станцию через:"
 
@@ -1532,11 +1543,11 @@ msgid "T-Storms Early"
 msgstr "С утра грозы"
 
 #: src/weather-popup.c:877 src/weather-popup.c:880 src/weather-popup.c:969
-#: src/weather-popup.c:972 src/weather-simple-settings.c:893
+#: src/weather-popup.c:972 src/weather-simple-settings.c:888
 msgid "Temperature"
 msgstr "Температура"
 
-#: src/weather-settings.c:3675
+#: src/weather-settings.c:3668
 msgid "Temperature units:"
 msgstr "Единицы температуры:"
 
@@ -1560,24 +1571,24 @@ msgstr "Сегодня"
 msgid "Translators"
 msgstr "Переводчики"
 
-#: src/weather-settings.c:3236 src/weather-settings.c:3253
+#: src/weather-settings.c:3229 src/weather-settings.c:3246
 msgid "Transparency:"
 msgstr "Прозрачность:"
 
-#: src/weather-settings.c:3294
+#: src/weather-settings.c:3287
 msgid "Type of click:"
 msgstr "Тип нажатия"
 
 #: src/weather-settings.c:1136 src/weather-settings.c:1335
-#: src/weather-settings.c:1339 src/weather-simple-settings.c:878
-#: src/weather-simple-settings.c:2119
+#: src/weather-settings.c:1339 src/weather-simple-settings.c:881
+#: src/weather-simple-settings.c:2115
 msgid "Units"
 msgstr "Единицы"
 
 #: src/weather-settings.c:78 src/weather-popup.c:232 src/weather-popup.c:244
 #: src/weather-download.c:584 src/weather-simple-popup.c:235
-#: src/weather-simple-popup.c:244 src/weather-simple-settings.c:1674
-#: src/weather-simple-settings.c:2026 src/weather-simple-settings.c:2027
+#: src/weather-simple-popup.c:244 src/weather-simple-settings.c:1670
+#: src/weather-simple-settings.c:2022 src/weather-simple-settings.c:2023
 msgid "Unknown"
 msgstr "Неизвестно"
 
@@ -1586,21 +1597,19 @@ msgid "Unlimited"
 msgstr "Без ограничений"
 
 #: src/weather-settings.c:1143 src/weather-settings.c:1349
-#: src/weather-settings.c:1353 src/weather-simple-popup.c:247
-#: src/weather-simple-settings.c:1231 src/weather-simple-settings.c:2180
+#: src/weather-settings.c:1353
 msgid "Update"
 msgstr "Обновление"
 
-#: src/weather-settings.c:4066
+#: src/weather-settings.c:4059
 msgid "Updating of weather data:"
 msgstr "Обновление данных о погоде:"
 
 #: src/weather-download.c:62
-#, fuzzy
 msgid "Updating weather"
 msgstr "Идет обновление данных о погоде."
 
-#: src/weather-settings.c:1947
+#: src/weather-settings.c:1940
 msgid ""
 "Use Edit layout \n"
 "for tuning images of applet"
@@ -1609,7 +1618,7 @@ msgstr ""
 "'Редактировать компоновку' \n"
 "для настройки изображения апплета."
 
-#: src/weather-simple-settings.c:1404
+#: src/weather-simple-settings.c:1400
 msgid ""
 "Use GSM and/or WLAN for updating\n"
 " the weather information.\n"
@@ -1625,7 +1634,7 @@ msgstr "Использовать встроенный датчик темпер�
 msgid "VAR"
 msgstr "Переменный"
 
-#: src/weather-settings.c:4033
+#: src/weather-settings.c:4026
 msgid "Valid time for current weather:"
 msgstr "Актуальность текущей погоды:"
 
@@ -1633,7 +1642,7 @@ msgstr "Актуальность текущей погоды:"
 msgid "Very High"
 msgstr "Очень высокое"
 
-#: src/weather-settings.c:3406
+#: src/weather-settings.c:3399
 msgid "Visible items:"
 msgstr "Количество элементов:"
 
@@ -1650,8 +1659,8 @@ msgstr "Оформление"
 msgid "W"
 msgstr "западный"
 
-#: src/weather-simple-settings.c:1358 src/weather-simple-settings.c:1365
-#: src/weather-simple-settings.c:2174
+#: src/weather-simple-settings.c:1354 src/weather-simple-settings.c:1361
+#: src/weather-simple-settings.c:2170
 msgid "WLAN"
 msgstr "WLAN"
 
@@ -1683,7 +1692,7 @@ msgstr "Убывающая старая луна"
 msgid "Waning Gibbous"
 msgstr "Убывающая Луна"
 
-#: src/weather-simple-settings.c:522
+#: src/weather-simple-settings.c:525
 msgid "Warning"
 msgstr "Предупреждение"
 
@@ -1703,11 +1712,11 @@ msgstr "Данные о погоде предоставлены:"
 msgid "Weather updated"
 msgstr "Данные о погоде обновлены."
 
-#: src/weather-simple-settings.c:2250 src/weather-simple-settings.c:2256
+#: src/weather-simple-settings.c:2246 src/weather-simple-settings.c:2252
 msgid "Widget style"
 msgstr "Стиль виджета"
 
-#: src/weather-simple-settings.c:144
+#: src/weather-simple-settings.c:147
 msgid "Widget style and Iconset"
 msgstr "Стиль виджета и набор иконок"
 
@@ -1715,7 +1724,7 @@ msgstr "Стиль виджета и набор иконок"
 msgid "Wind"
 msgstr "Ветер"
 
-#: src/weather-settings.c:3791
+#: src/weather-settings.c:3784
 msgid "Wind speed units:"
 msgstr "Единицы скорости ветра:"
 
@@ -1723,7 +1732,7 @@ msgstr "Единицы скорости ветра:"
 msgid "Wind:"
 msgstr "Ветер:"
 
-#: src/weather-home.c:1323 src/weather-home.c:1343 src/weather-popup.c:895
+#: src/weather-home.c:1326 src/weather-home.c:1346 src/weather-popup.c:895
 #: src/weather-popup.c:987
 msgid "Wind: "
 msgstr "Ветер: "
@@ -1756,7 +1765,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Да"
 
-#: src/weather-simple-popup.c:914
+#: src/weather-simple-popup.c:913
 msgid "You can make donation here: "
 msgstr "Вы можете сделать пожертвования здесь: "
 
@@ -1808,22 +1817,22 @@ msgstr "падает"
 msgid "feels like"
 msgstr "по ощущениям"
 
-#: src/weather-home.c:1454 src/weather-settings.c:3870
-#: src/weather-popup.c:1118 src/weather-simple-settings.c:1092
+#: src/weather-home.c:1457 src/weather-settings.c:3863
+#: src/weather-popup.c:1118 src/weather-simple-settings.c:1087
 msgid "inHg"
 msgstr "дм рт.ст."
 
-#: src/weather-simple-settings.c:2109
+#: src/weather-simple-settings.c:2105
 msgid "inch"
 msgstr "дюймы"
 
-#: src/weather-home.c:1440 src/weather-popup.c:1104
-#: src/weather-simple-settings.c:962 src/weather-simple-settings.c:2064
+#: src/weather-home.c:1443 src/weather-popup.c:1104
+#: src/weather-simple-settings.c:957 src/weather-simple-settings.c:2060
 msgid "km"
 msgstr "км"
 
-#: src/weather-settings.c:3812 src/hash.data:205
-#: src/weather-simple-settings.c:1034 src/weather-simple-settings.c:2090
+#: src/weather-settings.c:3805 src/hash.data:205
+#: src/weather-simple-settings.c:1029 src/weather-simple-settings.c:2086
 msgid "km/h"
 msgstr "км/ч"
 
@@ -1831,8 +1840,8 @@ msgstr "км/ч"
 msgid "km/s"
 msgstr "км/с"
 
-#: src/weather-home.c:1439 src/weather-popup.c:1103
-#: src/weather-simple-settings.c:954 src/weather-simple-settings.c:2058
+#: src/weather-home.c:1442 src/weather-popup.c:1103
+#: src/weather-simple-settings.c:949 src/weather-simple-settings.c:2054
 msgid "m"
 msgstr "м"
 
@@ -1840,25 +1849,25 @@ msgstr "м"
 msgid "m/h"
 msgstr "м/ч"
 
-#: src/weather-settings.c:3798 src/hash.data:208
-#: src/weather-simple-settings.c:1026 src/weather-simple-settings.c:2084
+#: src/weather-settings.c:3791 src/hash.data:208
+#: src/weather-simple-settings.c:1021 src/weather-simple-settings.c:2080
 msgid "m/s"
 msgstr "м/с"
 
-#: src/weather-home.c:1453 src/weather-settings.c:3857
-#: src/weather-popup.c:1117 src/weather-simple-settings.c:1084
-#: src/weather-simple-settings.c:2103
+#: src/weather-home.c:1456 src/weather-settings.c:3850
+#: src/weather-popup.c:1117 src/weather-simple-settings.c:1079
+#: src/weather-simple-settings.c:2099
 msgid "mb"
 msgstr "мбар"
 
-#: src/weather-home.c:1441 src/weather-home.c:1442 src/weather-popup.c:1105
-#: src/weather-popup.c:1106 src/weather-simple-settings.c:971
-#: src/weather-simple-settings.c:2070
+#: src/weather-home.c:1444 src/weather-home.c:1445 src/weather-popup.c:1105
+#: src/weather-popup.c:1106 src/weather-simple-settings.c:966
+#: src/weather-simple-settings.c:2066
 msgid "mi"
 msgstr "ми"
 
-#: src/weather-settings.c:3826 src/hash.data:209
-#: src/weather-simple-settings.c:1043 src/weather-simple-settings.c:2095
+#: src/weather-settings.c:3819 src/hash.data:209
+#: src/weather-simple-settings.c:1038 src/weather-simple-settings.c:2091
 msgid "mi/h"
 msgstr "ми/ч"
 
@@ -1866,12 +1875,12 @@ msgstr "ми/ч"
 msgid "mi/s"
 msgstr "ми/с"
 
-#: src/weather-simple-settings.c:2114
+#: src/weather-simple-settings.c:2110
 msgid "mm"
 msgstr "мм"
 
-#: src/weather-home.c:1455 src/weather-settings.c:3880
-#: src/weather-popup.c:1119 src/weather-simple-settings.c:1101
+#: src/weather-home.c:1458 src/weather-settings.c:3873
+#: src/weather-popup.c:1119 src/weather-simple-settings.c:1096
 msgid "mmHg"
 msgstr "мм рт.ст."
 
@@ -1879,7 +1888,7 @@ msgstr "мм рт.ст."
 msgid "n:"
 msgstr "н:"
 
-#: src/weather-simple-settings.c:1258
+#: src/weather-simple-settings.c:1253
 msgid "never"
 msgstr "никогда"
 
@@ -1895,11 +1904,11 @@ msgstr "следующая"
 msgid "rising"
 msgstr "возрастает"
 
-#: src/weather-simple-settings.c:980
+#: src/weather-simple-settings.c:975
 msgid "s. mi"
 msgstr "м. ми"
 
-#: src/weather-simple-settings.c:2075
+#: src/weather-simple-settings.c:2071
 msgid "s.mi"
 msgstr "м.ми"
 

@@ -34,6 +34,7 @@ free_animation_list(gpointer key, gpointer value_arg,
     gpointer user_data)
 {
     GSList *list_of_event = (GSList *)value_arg;
+    gchar       *step = (gchar *)key;
     GSList      *list_temp = NULL;
     Event       *event = NULL;
     Event_l     *event_l = NULL;
@@ -44,6 +45,7 @@ free_animation_list(gpointer key, gpointer value_arg,
  
     /* Free user data */
     fprintf(stderr, "KEY %s %p\n", key, list_of_event);
+    
     list_temp = list_of_event;
     while(list_temp != NULL){
         if (list_temp->data){
@@ -79,9 +81,13 @@ free_animation_list(gpointer key, gpointer value_arg,
             g_free(event);
         }
         list_temp = g_slist_next(list_temp);
-    } 
+    }
+
+    if(step)
+      g_free(step);
+
     if (list_of_event)
-        g_slist_free(list_of_event);   
+        g_slist_free(list_of_event);
 }
 /*******************************************************************************/
 void 
@@ -284,7 +290,7 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                     number_actor_in_queue ++;
                                 }
                             }
-                            g_hash_table_insert(icon_animation_hash, number_of_step, list_of_event);
+                            g_hash_table_insert(icon_animation_hash, g_strdup(number_of_step), list_of_event);
                             fprintf(stderr, "Step %s %p\n", number_of_step, list_of_event);
                             xmlFree(number_of_step);
                         }

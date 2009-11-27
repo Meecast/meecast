@@ -35,6 +35,8 @@
 gint get_station_weather_data(const gchar *station_id_with_path, GHashTable *data, gboolean get_detail_data);
 gint parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);
 gint parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);
+//void fill_detail_data(xmlNode *root_node, GHashTable *day, gint part_of_day, GHashTable *hash_for_translate, GHashTable *hash_for_icons)
+//void  fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day, GHashTable *hash_for_translate, GHashTable *hash_for_icons)
 GHashTable* hash_description_gismeteo_table_create(void);
 GHashTable* hash_icons_gismeteo_table_create(void);
 gpointer hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);

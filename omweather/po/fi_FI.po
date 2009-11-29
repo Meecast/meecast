@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-11-26 11:18+0200\n"
-"PO-Revision-Date: 2009-11-28 21:41+0200\n"
+"PO-Revision-Date: 2009-11-29 18:45+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
 "MIME-Version: 1.0\n"
@@ -288,7 +288,7 @@ msgstr "Tietoja"
 
 #: src/weather-simple-popup.c:247
 msgid "Action|Update"
-msgstr "Action|Päivitä"
+msgstr "Päivitä"
 
 #: src/weather-settings.c:481
 msgid "Add"
@@ -743,7 +743,7 @@ msgstr "GSM+WLAN"
 
 #: src/weather-simple-settings.c:1774
 msgid "GUI|Clear"
-msgstr "GUI|Tyhjennä"
+msgstr "Tyhjennä"
 
 #: src/weather-popup.c:1138
 #: src/weather-popup.c:1254
@@ -1217,7 +1217,7 @@ msgstr "Sijainti:"
 #: src/weather-simple-settings.c:1226
 #: src/weather-simple-settings.c:2176
 msgid "Preference|Update"
-msgstr "Preference|Päivitys"
+msgstr "Päivitys"
 
 #: src/weather-simple-settings.c:1068
 msgid "Pressure"

@@ -1,7 +1,7 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Polish translation of omweather.
+# Copyright (C) 2009 Tomasz Dominikowski
+# This file is distributed under the same license as the omweather package.
+# Tomasz Dominikowski <dominikowski@gmail.com>, 2009.
 #
 msgid ""
 msgstr ""

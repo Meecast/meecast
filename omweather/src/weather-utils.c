@@ -564,11 +564,14 @@ update_icons_set_base(const char *icon_set_name){
     
     app->config->icons_set_base = g_strdup(buffer);
     /* Create icon hash */
+
+#ifdef HILDONANIMATION 
     /* Fix me Free memory for previous hash */
     if (app->animation_hash)
         clear_animation_hash(app->animation_hash);
     snprintf(buffer,sizeof(buffer) - 1, "%sanimation.xml", app->config->icons_set_base);
     app->animation_hash = parse_animation_file(buffer,"UTF-8");
+#endif
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

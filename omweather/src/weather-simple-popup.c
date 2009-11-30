@@ -441,7 +441,11 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
         set_font(label, NULL, 24);
     }
     gtk_widget_show_all(scrolled_window);
+
+#ifdef HILDONANIMATION 
     g_signal_connect_after(scrolled_window, "expose-event", G_CALLBACK(popup_simple_window_expose), NULL);
+#endif
+
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -553,7 +557,9 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
     
     gtk_widget_show_all(main_vbox);
     gtk_widget_show_all(scrolled_window);
+#ifdef HILDONANIMATION 
     g_signal_connect_after(scrolled_window, "expose-event", G_CALLBACK(popup_simple_window_expose), NULL);
+#endif
     g_free(day_name);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

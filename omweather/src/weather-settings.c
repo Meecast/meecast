@@ -180,18 +180,17 @@ changed_country_handler(GtkWidget *widget, gpointer user_data){
 
     control_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(user_data));
     /* get active country */
-    if ((gint)g_object_get_data(G_OBJECT(config), "station_country_id") > 0){
-        if(strcmp("simple_settings_window", control_name) &&
-            gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)){
-            model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
-            gtk_tree_model_get(model, &iter, 0, &country_name, 1, &country_id, -1);
+    if(strcmp("simple_settings_window", control_name) &&
+        gtk_combo_box_get_active_iter(GTK_COMBO_BOX(widget), &iter)){
+        model = gtk_combo_box_get_model(GTK_COMBO_BOX(widget));
+        gtk_tree_model_get(model, &iter, 0, &country_name, 1, &country_id, -1);
+        list->regions_list = create_regions_list(list->database, country_id,
+                                                    &regions_number);
+    }else{
+        country_id = (gint)g_object_get_data(G_OBJECT(config), "station_country_id");
+        if (country_id >0)
             list->regions_list = create_regions_list(list->database, country_id,
-                                                        &regions_number);
-        }else{
-            country_id = (gint)g_object_get_data(G_OBJECT(config), "station_country_id");
-            list->regions_list = create_regions_list(list->database, country_id,
-                                                        &regions_number);
-        }
+                                                    &regions_number);
     }
 
     if(strcmp("simple_settings_window", control_name) &&
@@ -1199,13 +1198,11 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
-    if (app->config->mode == SIMPLE_MODE){
+#if defined OS2009
         weather_simple_window_settings(user_data);
 /*        weather_simple_window_status(widget, user_data); */
         return;
-    }
-
+#endif
 /* kill popup window :-) */
     if(app->popup_window)
         gtk_widget_destroy(app->popup_window);

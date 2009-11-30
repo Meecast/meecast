@@ -1994,7 +1994,7 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
                                    2, &station_country_id,
                                    3, &station_region_id,
                                    -1);
-            
+
             tmp_list = g_slist_append(tmp_list, station_country);
             tmp_list = g_slist_append(tmp_list, station_region);
         }
@@ -2029,8 +2029,8 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
     if (allinformation_list){
         gtk_list_store_clear(allinformation_list);
         g_object_unref(allinformation_list);
-    }   
- 
+    }
+
     g_object_set_data(G_OBJECT(box), "list_for_free", (gpointer)tmp_list);
     return box;
 }

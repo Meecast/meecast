@@ -660,10 +660,11 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 
     hours_weather = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
 
-
+    fprintf(stderr,"hours_data %p", hours_weather);
     if(hours_weather){
         while(hours_weather){
             hour_weather = (GHashTable*)hours_weather->data;
+            fprintf(stderr,"test %p\n");
 
             count++;
 
@@ -692,18 +693,21 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
             *hour_last_update = 0;
             strcat(hour_last_update, buff);
             strcat(hour_last_update, " ");
-            strcat(hour_last_update, (char*)g_hash_table_lookup(hour_weather, "hours"));
-            strcat(hour_last_update, ":00:00");
+            if (g_hash_table_lookup(hour_weather, "hours")){
+                strcat(hour_last_update, (char*)g_hash_table_lookup(hour_weather, "hours"));
+                strcat(hour_last_update, ":00:00");
+            }
 
             strptime(hour_last_update, "%D %T", &tmp_tm);
             hours_time = mktime(&tmp_tm);
-            if((count > 1) && 
-                        (!strcmp((char*)g_hash_table_lookup(hour_weather, "hours"), "00")))
-                new_day = TRUE;
-            if(new_day)
-                hours_time += 24*60*60;
-            difference = difftime(hours_time, current_time);
-
+            if (g_hash_table_lookup(hour_weather, "hours")){
+                if((count > 1) && 
+                            (!strcmp((char*)g_hash_table_lookup(hour_weather, "hours"), "00")))
+                    new_day = TRUE;
+                if(new_day)
+                    hours_time += 24*60*60;
+                difference = difftime(hours_time, current_time);
+            }    
             if((difference < 0 && difference > -60*60) || difference >= 0 ||
                                       (prev_difference > 0 &&  difference<0)) {
 

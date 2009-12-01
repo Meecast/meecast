@@ -306,7 +306,7 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
     return FALSE;
 }
 /*******************************************************************************/
-gboolean 
+gboolean
 change_station_select(GtkWidget *widget, gpointer user_data){
     GtkTreeIter iter;
     gboolean    valid;
@@ -1434,8 +1434,8 @@ create_current_weather_simple_widget(GHashTable *current){
                 (char*)hash_table_find("N/A", FALSE));
     }
 /* visible */
-    strcat(buffer, _("\nV: "));
     if (g_hash_table_lookup(current, "humidity")){
+        strcat(buffer, _("\nV: "));
         if( !strcmp(g_hash_table_lookup(current, "humidity"), "Unlimited") )
             sprintf(buffer + strlen(buffer), "%s",
                     (char*)hash_table_find("Unlimited", FALSE));

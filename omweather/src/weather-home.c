@@ -1413,8 +1413,10 @@ create_current_weather_simple_widget(GHashTable *current){
 				app->config->font_color.red >> 8,
 				app->config->font_color.green >> 8,
 				app->config->font_color.blue >> 8);
-    if (g_hash_table_lookup(current, "title"))
+    if (g_hash_table_lookup(current, "title")){
         strcat(buffer, hash_table_find(g_hash_table_lookup(current, "title"), FALSE));
+        strcat(buffer, "\n");
+    }
     if (g_hash_table_lookup(current, "feel_like")){
         strcat(buffer, _("\nFL: "));
         sprintf(buffer + strlen(buffer), "%d\302\260", 
@@ -1425,7 +1427,7 @@ create_current_weather_simple_widget(GHashTable *current){
      }
 /* humidity */
     if (g_hash_table_lookup(current, "humidity")){
-        strcat(buffer, _(" H: "));
+        strcat(buffer, _("H: "));
         if( strcmp(g_hash_table_lookup(current, "humidity"), "N/A") )
         sprintf(buffer + strlen(buffer), "%d%%",
                 atoi(g_hash_table_lookup(current, "humidity")));
@@ -1434,26 +1436,28 @@ create_current_weather_simple_widget(GHashTable *current){
                 (char*)hash_table_find("N/A", FALSE));
     }
 /* visible */
-    if (g_hash_table_lookup(current, "humidity")){
+    if (g_hash_table_lookup(current, "visible")){
         strcat(buffer, _("\nV: "));
-        if( !strcmp(g_hash_table_lookup(current, "humidity"), "Unlimited") )
+        if( !strcmp(g_hash_table_lookup(current, "visible"), "Unlimited") )
             sprintf(buffer + strlen(buffer), "%s",
                     (char*)hash_table_find("Unlimited", FALSE));
         else
-            if( strcmp(g_hash_table_lookup(current, "visible"), "N/A") ){
-                tmp_distance = atof(g_hash_table_lookup(current, "visible"));
-                switch(app->config->distance_units){
-                    default:
-                    case METERS: units = _("m"); tmp_distance *= 1000.0f; break;
-                    case KILOMETERS: units = _("km"); tmp_distance *= 1.0f; break;
-                    case MILES: units = _("mi"); tmp_distance /= 1.609344f; break;
-                    case SEA_MILES: units = _("mi"); tmp_distance /= 1.852f; break;
+            if (g_hash_table_lookup(current, "visible")){
+                if( strcmp(g_hash_table_lookup(current, "visible"), "N/A") ){
+                    tmp_distance = atof(g_hash_table_lookup(current, "visible"));
+                    switch(app->config->distance_units){
+                        default:
+                        case METERS: units = _("m"); tmp_distance *= 1000.0f; break;
+                        case KILOMETERS: units = _("km"); tmp_distance *= 1.0f; break;
+                        case MILES: units = _("mi"); tmp_distance /= 1.609344f; break;
+                        case SEA_MILES: units = _("mi"); tmp_distance /= 1.852f; break;
+                    }
+                    sprintf(buffer + strlen(buffer), "%.2f %s", tmp_distance, units);
                 }
-                sprintf(buffer + strlen(buffer), "%.2f %s", tmp_distance, units);
+                else
+                    sprintf(buffer + strlen(buffer), "%s",
+                            (char*)hash_table_find("N/A", FALSE));
             }
-            else
-                sprintf(buffer + strlen(buffer), "%s",
-                        (char*)hash_table_find("N/A", FALSE));
     }
 /* pressure */
     if (g_hash_table_lookup(current, "pressure")){
@@ -1482,7 +1486,7 @@ create_current_weather_simple_widget(GHashTable *current){
 /* gust */
     if (g_hash_table_lookup(current, "wind_gust")){
         if( strcmp(g_hash_table_lookup(current, "wind_gust"), "N/A") ){
-            strcat(buffer, _(" G: "));
+            strcat(buffer, _("G: "));
             sprintf(buffer + strlen(buffer), "%.2f %s",
                 convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_gust"))),
                 (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));

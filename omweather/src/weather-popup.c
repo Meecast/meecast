@@ -173,6 +173,8 @@ create_moon_phase_widget(GHashTable *current){
     if(!current)
         return NULL;
 
+    if (!g_hash_table_lookup(current, "moon_phase"))
+        return NULL;
     memset(buffer, 0, sizeof(buffer));
     snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
                 "%s",
@@ -1063,83 +1065,99 @@ create_current_tab(GHashTable *current){
                 (char*)g_hash_table_lookup(current, "icon"));
     icon = gdk_pixbuf_new_from_file_at_size(buffer, GIANT_ICON_SIZE,
                                             GIANT_ICON_SIZE, NULL);
-//    icon_image = create_icon_widget(icon, buffer, GIANT_ICON_SIZE, &app->clutter_objects_in_popup_form);
+/* This code for animation */
+/*    icon_image = create_icon_widget(icon, buffer, GIANT_ICON_SIZE, &app->clutter_objects_in_popup_form); */
     icon_image = create_icon_widget(icon, buffer, GIANT_ICON_SIZE, NULL);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), icon_image, TRUE, TRUE, 0);
     /* temperature */
     memset(buffer, 0, sizeof(buffer));
-    sprintf(buffer, "%s\n", (char *)hash_table_find(g_hash_table_lookup(current, "title"), FALSE));
+    if (g_hash_table_lookup(current, "title"))
+        sprintf(buffer, "%s\n", (char *)hash_table_find(g_hash_table_lookup(current, "title"), FALSE));
     sprintf(buffer + strlen(buffer), "%s",  _("Temperature: "));
-    sprintf(buffer + strlen(buffer), "  %d\302\260",
-                ((app->config->temperature_units == CELSIUS) ?
-                ( atoi(g_hash_table_lookup(current, "day_hi_temperature"))) :
-                ( (int)c2f(atoi(g_hash_table_lookup(current, "day_hi_temperature"))))));
-    (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")) )
-                                                : ( strcat(buffer, _("F\n")) );
+    if (g_hash_table_lookup(current, "day_hi_temperature")){
+        sprintf(buffer + strlen(buffer), "  %d\302\260",
+                    ((app->config->temperature_units == CELSIUS) ?
+                    ( atoi(g_hash_table_lookup(current, "day_hi_temperature"))) :
+                    ( (int)c2f(atoi(g_hash_table_lookup(current, "day_hi_temperature"))))));
+        (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")) )
+                                                    : ( strcat(buffer, _("F\n")) );
+    }
     /* feels like */
     sprintf(buffer + strlen(buffer), "%s", _("Feels like:"));
-    sprintf(buffer + strlen(buffer), "  %d\302\260",
-                (app->config->temperature_units == CELSIUS) ?
-                (atoi(g_hash_table_lookup(current, "feel_like"))) :
-                ((int)c2f(atoi(g_hash_table_lookup(current, "feel_like")))));
-    (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")) )
-                                                : ( strcat(buffer, _("F\n")) );
-/* humidity */
-    if( strcmp(g_hash_table_lookup(current, "humidity"), "N/A") ){
-        sprintf(buffer + strlen(buffer), "%s", _("Humidity:"));
-        sprintf(buffer + strlen(buffer), "  %d%%\n",
-                atoi(g_hash_table_lookup(current, "humidity")));
+    if (g_hash_table_lookup(current, "feel_like")){
+        sprintf(buffer + strlen(buffer), "  %d\302\260",
+                    (app->config->temperature_units == CELSIUS) ?
+                    (atoi(g_hash_table_lookup(current, "feel_like"))) :
+                    ((int)c2f(atoi(g_hash_table_lookup(current, "feel_like")))));
+        (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C\n")) )
+                                                    : ( strcat(buffer, _("F\n")) );
     }
+/* humidity */
+    if (g_hash_table_lookup(current, "humidity"))
+        if( strcmp(g_hash_table_lookup(current, "humidity"), "N/A") ){
+            sprintf(buffer + strlen(buffer), "%s", _("Humidity:"));
+            sprintf(buffer + strlen(buffer), "  %d%%\n",
+                    atoi(g_hash_table_lookup(current, "humidity")));
+        }
 /* visible */
-    if( strcmp(g_hash_table_lookup(current, "visible"), "N/A") ){
-        sprintf(buffer + strlen(buffer), "%s", _("Visible:"));
-        if( !strcmp(g_hash_table_lookup(current, "visible"), "Unlimited") )
-            sprintf(buffer + strlen(buffer), "  %s\n",
-                    (char*)hash_table_find("Unlimited", FALSE));
-        else{
-            tmp_distance = atof(g_hash_table_lookup(current, "visible"));
-            switch(app->config->distance_units){
-                default:
-                case METERS: units = _("m"); tmp_distance *= 1000.0f; break;
-                case KILOMETERS: units = _("km"); tmp_distance *= 1.0f; break;
-                case MILES: units = _("mi"); tmp_distance /= 1.609344f; break;
-                case SEA_MILES: units = _("mi"); tmp_distance /= 1.852f; break;
+    if (g_hash_table_lookup(current, "visible")){
+        if( strcmp(g_hash_table_lookup(current, "visible"), "N/A") ){
+            sprintf(buffer + strlen(buffer), "%s", _("Visible:"));
+            if( !strcmp(g_hash_table_lookup(current, "visible"), "Unlimited") )
+                sprintf(buffer + strlen(buffer), "  %s\n",
+                        (char*)hash_table_find("Unlimited", FALSE));
+            else{
+                tmp_distance = atof(g_hash_table_lookup(current, "visible"));
+                switch(app->config->distance_units){
+                    default:
+                    case METERS: units = _("m"); tmp_distance *= 1000.0f; break;
+                    case KILOMETERS: units = _("km"); tmp_distance *= 1.0f; break;
+                    case MILES: units = _("mi"); tmp_distance /= 1.609344f; break;
+                    case SEA_MILES: units = _("mi"); tmp_distance /= 1.852f; break;
+                }
+                sprintf(buffer + strlen(buffer), "  %.2f %s\n", tmp_distance, units);
             }
-            sprintf(buffer + strlen(buffer), "  %.2f %s\n", tmp_distance, units);
         }
     }
 /* pressure */
-    if( strcmp(g_hash_table_lookup(current, "pressure"), "N/A") ){
-        sprintf(buffer + strlen(buffer), "%s", _("Pressure:"));
-        tmp_pressure = atof(g_hash_table_lookup(current, "pressure"));
-        switch(app->config->pressure_units){
-            default:
-            case MB: units = _("mb"); break;
-            case INCH: units = _("inHg"); tmp_pressure = mb2inch(tmp_pressure); break;
-            case MM: units = _("mmHg"); tmp_pressure = mb2mm(tmp_pressure); break;
+    if (g_hash_table_lookup(current, "pressure")){
+        if( strcmp(g_hash_table_lookup(current, "pressure"), "N/A") ){
+            sprintf(buffer + strlen(buffer), "%s", _("Pressure:"));
+            tmp_pressure = atof(g_hash_table_lookup(current, "pressure"));
+            switch(app->config->pressure_units){
+                default:
+                case MB: units = _("mb"); break;
+                case INCH: units = _("inHg"); tmp_pressure = mb2inch(tmp_pressure); break;
+                case MM: units = _("mmHg"); tmp_pressure = mb2mm(tmp_pressure); break;
+            }
+            sprintf(buffer + strlen(buffer), "  %.2f %s,", tmp_pressure, units);
+            if (g_hash_table_lookup(current, "pressure_direction"))
+                sprintf(buffer + strlen(buffer), "  %s\n",
+                    (char *)hash_table_find(g_hash_table_lookup(current, "pressure_direction"), FALSE));
         }
-        sprintf(buffer + strlen(buffer), "  %.2f %s,", tmp_pressure, units);
-        sprintf(buffer + strlen(buffer), "  %s\n",
-                (char *)hash_table_find(g_hash_table_lookup(current, "pressure_direction"), FALSE));
     }
 /* wind */
+    if (g_hash_table_lookup(current, "wind_direction"))
     if( strcmp(g_hash_table_lookup(current, "wind_direction"), "N/A") ){
         sprintf(buffer + strlen(buffer), "%s", _("Wind:"));
         sprintf(buffer + strlen(buffer), "  %s\n",
                     (char *)hash_table_find(g_hash_table_lookup(current, "wind_direction"), FALSE));
-    if( strcmp(g_hash_table_lookup(current, "wind_speed"), "N/A") )
-        sprintf(buffer + strlen(buffer), "%s", _("Speed:"));
-        sprintf(buffer + strlen(buffer), "  %.2f %s\n",
-                convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
-                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+        if (g_hash_table_lookup(current, "wind_speed")){
+            if( strcmp(g_hash_table_lookup(current, "wind_speed"), "N/A") )
+                sprintf(buffer + strlen(buffer), "%s", _("Speed:"));
+             sprintf(buffer + strlen(buffer), "  %.2f %s\n",
+                    convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
+                    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+        }
     }
 /* gust */
-    if( strcmp(g_hash_table_lookup(current, "wind_gust"), "N/A") ){
-        sprintf(buffer + strlen(buffer), "%s", _("Gust:"));
-        sprintf(buffer + strlen(buffer), "  %.2f %s\n",
-                convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_gust"))),
-                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
-    }
+    if (g_hash_table_lookup(current, "wind_gust"))
+        if( strcmp(g_hash_table_lookup(current, "wind_gust"), "N/A") ){
+            sprintf(buffer + strlen(buffer), "%s", _("Gust:"));
+            sprintf(buffer + strlen(buffer), "  %.2f %s\n",
+                    convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_gust"))),
+                    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+        }
 
     text = gtk_label_new(buffer);
     set_font(text, NULL, 14);

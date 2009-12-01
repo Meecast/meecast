@@ -44,7 +44,7 @@ is_current_weather_valid(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
- 
+
     if(!app->station_data)
         return FALSE;
     location = g_hash_table_lookup(app->station_data, "location");
@@ -67,7 +67,7 @@ is_current_weather_valid(void){
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
- 
+
     return FALSE;
 }
 /*******************************************************************************/

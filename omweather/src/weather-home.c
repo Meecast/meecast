@@ -812,6 +812,13 @@ redraw_home_window(gboolean first_start){
             snprintf(buffer, sizeof(buffer) - 1, "%s/%s.xml",
                         app->config->cache_dir_name, app->config->current_station_id);
             count_day = parser(buffer, app->station_data, FALSE);
+            /* detail data */
+            if(app->config->show_weather_for_two_hours){
+                *buffer = 0;
+                snprintf(buffer, sizeof(buffer) - 1, "%s/%s_hour.xml",
+                            app->config->cache_dir_name, app->config->current_station_id);
+                parser(buffer, app->station_data, TRUE);
+           }
             /* check current weather */
             app->current_is_valid = is_current_weather_valid();
             #ifndef RELEASE
@@ -820,13 +827,6 @@ redraw_home_window(gboolean first_start){
                 else
                     fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>Current is non valid\n");
             #endif
-            /* detail data */
-            if(app->config->show_weather_for_two_hours){
-                *buffer = 0;
-                snprintf(buffer, sizeof(buffer) - 1, "%s/%s_hour.xml",
-                            app->config->cache_dir_name, app->config->current_station_id);
-                parser(buffer, app->station_data, TRUE);
-           }
         }
         if(count_day == -2){
             fprintf(stderr, _("Error in xml file\n"));
@@ -1391,13 +1391,14 @@ create_current_weather_simple_widget(GHashTable *current){
 				app->config->font_color.red >> 8,
 				app->config->font_color.green >> 8,
 				app->config->font_color.blue >> 8);
-    
     sprintf(buffer + strlen(buffer), _("Now: "));
-    sprintf(buffer + strlen(buffer), "\n%d\302\260",
-		((app->config->temperature_units == CELSIUS) ? ( atoi(g_hash_table_lookup(current, "day_hi_temperature")))
-							: ((int)c2f(atof(g_hash_table_lookup(current, "day_hi_temperature"))))));
-    (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
-						: ( strcat(buffer, _("F")) );
+    if (g_hash_table_lookup(current, "day_hi_temperature")){
+        sprintf(buffer + strlen(buffer), "\n%d\302\260",
+            ((app->config->temperature_units == CELSIUS) ? ( atoi(g_hash_table_lookup(current, "day_hi_temperature")))
+                                : ((int)c2f(atof(g_hash_table_lookup(current, "day_hi_temperature"))))));
+        (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
+                            : ( strcat(buffer, _("F")) );
+    }
     strcat(buffer,"</span>");
     temperature_label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(temperature_label), buffer);
@@ -1405,7 +1406,6 @@ create_current_weather_simple_widget(GHashTable *current){
     set_font(temperature_label, app->config->font, 2);
 
     gtk_box_pack_start(GTK_BOX(temperature_vbox), temperature_label, FALSE, FALSE, 0);
-    
 /* prepare "feels like", "visible", "pressure", "humidity", "wind", "gust" */
 /* feels like */
     memset(buffer, 0, sizeof(buffer));
@@ -1413,66 +1413,80 @@ create_current_weather_simple_widget(GHashTable *current){
 				app->config->font_color.red >> 8,
 				app->config->font_color.green >> 8,
 				app->config->font_color.blue >> 8);
-
-    strcat(buffer, hash_table_find(g_hash_table_lookup(current, "title"), FALSE));
-    strcat(buffer, _("\nFL: "));
-    sprintf(buffer + strlen(buffer), "%d\302\260", 
-	    (app->config->temperature_units == CELSIUS) ? (atoi(g_hash_table_lookup(current, "feel_like"))) 
-						: ((int)c2f(atof(g_hash_table_lookup(current, "feel_like")))));
-    (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
-					: ( strcat(buffer, _("F")) );
+    if (g_hash_table_lookup(current, "title"))
+        strcat(buffer, hash_table_find(g_hash_table_lookup(current, "title"), FALSE));
+    if (g_hash_table_lookup(current, "feel_like")){
+        strcat(buffer, _("\nFL: "));
+        sprintf(buffer + strlen(buffer), "%d\302\260", 
+            (app->config->temperature_units == CELSIUS) ? (atoi(g_hash_table_lookup(current, "feel_like"))) 
+                            : ((int)c2f(atof(g_hash_table_lookup(current, "feel_like")))));
+        (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )
+                        : ( strcat(buffer, _("F")) );
+     }
 /* humidity */
-    strcat(buffer, _(" H: "));
-    if( strcmp(g_hash_table_lookup(current, "humidity"), "N/A") )
-	sprintf(buffer + strlen(buffer), "%d%%",
-            atoi(g_hash_table_lookup(current, "humidity")));
-    else
-	sprintf(buffer + strlen(buffer), "%s",
-		    (char*)hash_table_find("N/A", FALSE));
+    if (g_hash_table_lookup(current, "humidity")){
+        strcat(buffer, _(" H: "));
+        if( strcmp(g_hash_table_lookup(current, "humidity"), "N/A") )
+        sprintf(buffer + strlen(buffer), "%d%%",
+                atoi(g_hash_table_lookup(current, "humidity")));
+        else
+        sprintf(buffer + strlen(buffer), "%s",
+                (char*)hash_table_find("N/A", FALSE));
+    }
 /* visible */
     strcat(buffer, _("\nV: "));
-    if( !strcmp(g_hash_table_lookup(current, "humidity"), "Unlimited") )
-        sprintf(buffer + strlen(buffer), "%s",
-                (char*)hash_table_find("Unlimited", FALSE));
-    else
-        if( strcmp(g_hash_table_lookup(current, "visible"), "N/A") ){
-            tmp_distance = atof(g_hash_table_lookup(current, "visible"));
-            switch(app->config->distance_units){
-                default:
-                case METERS: units = _("m"); tmp_distance *= 1000.0f; break;
-                case KILOMETERS: units = _("km"); tmp_distance *= 1.0f; break;
-                case MILES: units = _("mi"); tmp_distance /= 1.609344f; break;
-                case SEA_MILES: units = _("mi"); tmp_distance /= 1.852f; break;
-            }
-            sprintf(buffer + strlen(buffer), "%.2f %s", tmp_distance, units);
-        }
-        else
+    if (g_hash_table_lookup(current, "humidity")){
+        if( !strcmp(g_hash_table_lookup(current, "humidity"), "Unlimited") )
             sprintf(buffer + strlen(buffer), "%s",
-                    (char*)hash_table_find("N/A", FALSE));
-/* pressure */
-    tmp_pressure = atof(g_hash_table_lookup(current, "pressure"));
-    switch(app->config->pressure_units){
-        default:
-        case MB: units = _("mb"); break;
-        case INCH: units = _("inHg"); tmp_pressure = mb2inch(tmp_pressure); break;
-        case MM: units = _("mmHg"); tmp_pressure = mb2mm(tmp_pressure); break;
+                    (char*)hash_table_find("Unlimited", FALSE));
+        else
+            if( strcmp(g_hash_table_lookup(current, "visible"), "N/A") ){
+                tmp_distance = atof(g_hash_table_lookup(current, "visible"));
+                switch(app->config->distance_units){
+                    default:
+                    case METERS: units = _("m"); tmp_distance *= 1000.0f; break;
+                    case KILOMETERS: units = _("km"); tmp_distance *= 1.0f; break;
+                    case MILES: units = _("mi"); tmp_distance /= 1.609344f; break;
+                    case SEA_MILES: units = _("mi"); tmp_distance /= 1.852f; break;
+                }
+                sprintf(buffer + strlen(buffer), "%.2f %s", tmp_distance, units);
+            }
+            else
+                sprintf(buffer + strlen(buffer), "%s",
+                        (char*)hash_table_find("N/A", FALSE));
     }
-    strcat(buffer, _("\nP: "));
-    sprintf(buffer + strlen(buffer), "%.2f %s, ", tmp_pressure, units);
-    strcat(buffer, hash_table_find(g_hash_table_lookup(current, "pressure_direction"), FALSE));
+/* pressure */
+    if (g_hash_table_lookup(current, "pressure")){
+        tmp_pressure = atof(g_hash_table_lookup(current, "pressure"));
+        switch(app->config->pressure_units){
+            default:
+            case MB: units = _("mb"); break;
+            case INCH: units = _("inHg"); tmp_pressure = mb2inch(tmp_pressure); break;
+            case MM: units = _("mmHg"); tmp_pressure = mb2mm(tmp_pressure); break;
+        }
+        strcat(buffer, _("\nP: "));
+        sprintf(buffer + strlen(buffer), "%.2f %s, ", tmp_pressure, units);
+    }
+    if (g_hash_table_lookup(current, "pressure_direction"))
+        strcat(buffer, hash_table_find(g_hash_table_lookup(current, "pressure_direction"), FALSE));
 /* wind */
     strcat(buffer, _("\nW: "));
-    sprintf(buffer + strlen(buffer), "%s", (char*)hash_table_find(g_hash_table_lookup(current, "wind_direction"), FALSE));
-    if( strcmp(g_hash_table_lookup(current, "wind_speed"), "N/A") )
-        sprintf(buffer + strlen(buffer), " %.2f %s", 
-            convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
-            (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+    if (g_hash_table_lookup(current, "wind_direction"))
+        sprintf(buffer + strlen(buffer), "%s", (char*)hash_table_find(g_hash_table_lookup(current, "wind_direction"), FALSE));
+    if (g_hash_table_lookup(current, "wind_speed")){
+        if( strcmp(g_hash_table_lookup(current, "wind_speed"), "N/A") )
+            sprintf(buffer + strlen(buffer), " %.2f %s", 
+                convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
+                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+    }
 /* gust */
-    if( strcmp(g_hash_table_lookup(current, "wind_speed"), "N/A") ){
-        strcat(buffer, _(" G: "));
-    sprintf(buffer + strlen(buffer), "%.2f %s",
-            convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
-            (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+    if (g_hash_table_lookup(current, "wind_speed")){
+        if( strcmp(g_hash_table_lookup(current, "wind_speed"), "N/A") ){
+            strcat(buffer, _(" G: "));
+            sprintf(buffer + strlen(buffer), "%.2f %s",
+                convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
+                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+        }
     }
     strcat(buffer,"</span>");
 
@@ -1653,7 +1667,6 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         }
 
 #endif
-
         /*    days_panel_with_buttons = gtk_hbox_new(FALSE, 0);*/
         /* attach buttons to header panel */
         if(previos_station_name_btn)
@@ -1945,6 +1958,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
            if(g_hash_table_lookup(app->station_data, "current"))
                 current_weather_widget
                   = create_current_weather_simple_widget(g_hash_table_lookup(app->station_data, "current"));
+
         }
         else{
             if(g_hash_table_lookup(app->station_data, "forecast"))

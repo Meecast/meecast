@@ -1480,11 +1480,11 @@ create_current_weather_simple_widget(GHashTable *current){
                 (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
     }
 /* gust */
-    if (g_hash_table_lookup(current, "wind_speed")){
-        if( strcmp(g_hash_table_lookup(current, "wind_speed"), "N/A") ){
+    if (g_hash_table_lookup(current, "wind_gust")){
+        if( strcmp(g_hash_table_lookup(current, "wind_gust"), "N/A") ){
             strcat(buffer, _(" G: "));
             sprintf(buffer + strlen(buffer), "%.2f %s",
-                convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
+                convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_gust"))),
                 (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
         }
     }

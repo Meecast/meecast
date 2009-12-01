@@ -29,5 +29,6 @@
     g_hash_table_insert(hash, "d_002.png", "12");
     g_hash_table_insert(hash, "d_003.png", "26");
     g_hash_table_insert(hash, "6.gif", "32");
+    g_hash_table_insert(hash, "d.sun.c4.png", "26");
 
 

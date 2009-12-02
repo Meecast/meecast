@@ -1059,7 +1059,9 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *dat
                                                                                 fprintf(stderr, "\nTime 1 %s 2 %s\n", buffer, temp_xml_string); 
                                                                                 tmp_tm = get_date_for_hour_weather(strdup(buffer));
                                                                                 memset(buffer, 0, sizeof(buffer));
-                                                                                strftime(buffer, sizeof(buffer) - 1, "%d %b %Y %X", &tmp_tm);
+                                                                                setlocale(LC_TIME, "POSIX");
+                                                                                strftime(buffer, sizeof(buffer) - 1, "%D %I:%M %p", &tmp_tm);
+                                                                                setlocale(LC_TIME, "");
                                                                                 g_hash_table_insert(detail, "hours", g_strdup(buffer));
 
                                                                             }

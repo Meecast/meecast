@@ -1051,7 +1051,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *has
                                                                            if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"c2")){
                                                                                xmlFree(temp_xml_string);
                                                                                temp_xml_string = xmlNodeGetContent(child_node11);
-                                                                               g_hash_table_insert(detail, "hour_title", hash_gismeteo_table_find(hash_for_translate, (char*)temp_xml_string, FALSE));
+                                                                               g_hash_table_insert(detail, "hour_title", g_strdup(hash_gismeteo_table_find(hash_for_translate, (char*)temp_xml_string, FALSE)));
                                                                                /* fprintf(stderr, "\nSumma %s\n", temp_xml_string); */
                                                                            }
                                                                            if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"c3")){

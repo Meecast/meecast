@@ -947,10 +947,12 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *has
     gchar       temp_buffer[buff_size];
     gchar       *temp_char;
     gint        speed;
+    gint        count_of_hours = 0;
     GHashTable  *detail = NULL; 
     GSList      *hour_weather = NULL;
     GHashTable  *hours_data = NULL;
     struct tm   tmp_tm = {0};
+    gboolean break_flag = FALSE; 
 
     if (root_node->children)
          cur_node = root_node->children;
@@ -994,6 +996,8 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *has
                                                                     child_node10 = child_node10->next;
                                                                     child_node10 = child_node10->next;
                                                                     for(child_node10;child_node10;child_node10=child_node10->next){
+                                                                        if (break_flag >1)
+                                                                            break;
                                                                         detail = g_hash_table_new(g_str_hash, g_str_equal);
                                                                         for(child_node11=child_node10->children;child_node11;
                                                                             child_node11 = child_node11->next){
@@ -1022,6 +1026,9 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *has
                                                                                strftime(buffer, sizeof(buffer) - 1, "%H", &tmp_tm);
                                                                                setlocale(LC_TIME, "");
                                                                                g_hash_table_insert(detail, "hours", g_strdup(buffer));
+                                                                               if (buffer && (!strcmp(buffer,"00")))
+                                                                                    break_flag++;
+                                                                               /* fprintf(stderr,"HOUR %s\n",buffer); */
  
 
                                                                            }
@@ -1111,9 +1118,13 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *has
                                                                                /*  fprintf(stderr, "\nComfort %s \n", temp_xml_string); */
                                                                            } 
                                                                         }
-                                                                        if(detail)
+                                                                        if(detail){
                                                                            if (g_hash_table_lookup(detail, "hours"))
                                                                                hour_weather = g_slist_append(hour_weather,(gpointer)detail);
+                                                                               count_of_hours++;
+                                                                               if ((count_of_hours) >9)
+                                                                                    break_flag++;
+                                                                        }
                                                                    }
                                                                 }
                                                             }

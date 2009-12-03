@@ -31,6 +31,7 @@
     g_hash_table_insert(hash, "6.gif", "32");
     g_hash_table_insert(hash, "d.sun.c4.png", "26");
     g_hash_table_insert(hash, "d.sun.c4.r1.png", "11");
+    g_hash_table_insert(hash, "n.moon.c4.r1.png", "11");
     g_hash_table_insert(hash, "n.moon.c4.png", "26");
 
 

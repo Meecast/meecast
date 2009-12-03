@@ -925,7 +925,7 @@ hash_for_icons = hash_icons_gismeteo_table_create();
 }
 /*******************************************************************************/
 void
-fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *data){
+fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *hash_for_translate, GHashTable *data){
     #define buff_size 2048
     xmlNode     *cur_node = NULL;
     xmlNode     *child_node = NULL;
@@ -1044,7 +1044,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *dat
                                                                            if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"c2")){
                                                                                xmlFree(temp_xml_string);
                                                                                temp_xml_string = xmlNodeGetContent(child_node11);
-                                                                               g_hash_table_insert(detail, "hour_title", g_strdup((char*)temp_xml_string));
+                                                                               g_hash_table_insert(detail, "hour_title", hash_gismeteo_table_find(hash_for_translate, (char*)temp_xml_string, FALSE));
                                                                                /* fprintf(stderr, "\nSumma %s\n", temp_xml_string); */
                                                                            }
                                                                            if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"c3")){
@@ -1156,7 +1156,7 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
     fill_current_data(root_node, current_weather, location, hash_for_translate, hash_for_icons);
     g_hash_table_insert(data, "location", (gpointer)location);
     g_hash_table_insert(data, "current", (gpointer)current_weather);
-    fill_detail_data(root_node, hash_for_icons, data);
+    fill_detail_data(root_node, hash_for_icons, hash_for_translate, data);
     return -1;
 }
 /**************************************************************************/

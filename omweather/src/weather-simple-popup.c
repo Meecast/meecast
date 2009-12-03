@@ -660,11 +660,9 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 
     hours_weather = g_hash_table_lookup(g_hash_table_lookup(app->station_data, "detail"), "hours_data");
 
-    fprintf(stderr,"hours_data %p", hours_weather);
     if(hours_weather){
         while(hours_weather){
             hour_weather = (GHashTable*)hours_weather->data;
-            fprintf(stderr,"test %p\n");
 
             count++;
 
@@ -681,7 +679,6 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
             memset(buff, 0, sizeof(buff));
 
             /*Prepare date from xml file*/
-
             snprintf(hour_last_update + strlen(hour_last_update),
                     sizeof(hour_last_update) - strlen(hour_last_update) - 1,
                     "%s",
@@ -717,7 +714,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                             gtk_button_set_relief(GTK_BUTTON(line), GTK_RELIEF_NONE);
                 icon_text_hbox = gtk_hbox_new(FALSE, 0);
                 *buffer = 0;
-                g_object_set_data(G_OBJECT(line), "scrolled_window", 
+                g_object_set_data(G_OBJECT(line), "scrolled_window",
                                                        (gpointer)scrolled_window);
                 g_object_set_data(G_OBJECT(line), "vbox", (gpointer)vbox);
                 g_signal_connect(G_OBJECT(line), "clicked",
@@ -738,8 +735,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                 icon_image = create_icon_widget(icon, buffer, SMALL_ICON_SIZE,
                                              NULL);
                 if(icon_image){
-                    gtk_box_pack_start(GTK_BOX(line_hbox), icon_image, FALSE, 
-                                                                          TRUE, 0);
+                    gtk_box_pack_start(GTK_BOX(line_hbox), icon_image, FALSE, TRUE, 0);
                     gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
                 }
 
@@ -755,21 +751,25 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                                     sizeof(buffer) - strlen(buffer) - 1,"</span>");
                 *tmp = 0;
                 /* temperature */
-                sprintf(tmp, " %d\302\260",
-                        ((app->config->temperature_units == CELSIUS) ?
-                       ( atoi(g_hash_table_lookup(hour_weather, "hour_temperature"))) :
-                  ( (int)c2f(atoi(g_hash_table_lookup(hour_weather, "hour_temperature"))))));
-                (app->config->temperature_units == CELSIUS) ? ( strcat(tmp, _("C")))
-                                               : ( strcat(tmp, _("F")));
+                if (g_hash_table_lookup(hour_weather, "hour_temperature")){
+                    sprintf(tmp, " %d\302\260",
+                            ((app->config->temperature_units == CELSIUS) ?
+                           ( atoi(g_hash_table_lookup(hour_weather, "hour_temperature"))) :
+                      ( (int)c2f(atoi(g_hash_table_lookup(hour_weather, "hour_temperature"))))));
+                    (app->config->temperature_units == CELSIUS) ? ( strcat(tmp, _("C")))
+                                                   : ( strcat(tmp, _("F")));
+                 }
 
                 /* feels like */
-                sprintf(tmp + strlen(tmp), " (%s  %d\302\260", _("feels like"),
-                             (app->config->temperature_units == CELSIUS) ?
-                             (atoi(g_hash_table_lookup(hour_weather, "hour_feels_like"))) :
-                    ((int)c2f(atoi(g_hash_table_lookup(hour_weather, "hour_feels_like")))));
-                (app->config->temperature_units == CELSIUS) ? ( strcat(tmp, _("C")))
-                                                             : ( strcat(tmp, _("F")));
-                sprintf(tmp + strlen(tmp), ")");
+                if (g_hash_table_lookup(hour_weather, "hour_feels_like")){
+                    sprintf(tmp + strlen(tmp), " (%s  %d\302\260", _("feels like"),
+                                 (app->config->temperature_units == CELSIUS) ?
+                                 (atoi(g_hash_table_lookup(hour_weather, "hour_feels_like"))) :
+                        ((int)c2f(atoi(g_hash_table_lookup(hour_weather, "hour_feels_like")))));
+                    (app->config->temperature_units == CELSIUS) ? ( strcat(tmp, _("C")))
+                                                                 : ( strcat(tmp, _("F")));
+                    sprintf(tmp + strlen(tmp), ")");
+                }
 
                 /* title */
                 if(g_hash_table_lookup(hour_weather, "hour_title"))

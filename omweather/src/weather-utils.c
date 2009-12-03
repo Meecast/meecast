@@ -506,7 +506,7 @@ create_icon_set_list(gchar *dir_path, GSList ** store, gchar *type){
 GtkWidget *
 create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size, GSList **objects_list)
 {
-    GtkWidget *icon_widget;
+    GtkWidget *icon_widget = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -519,8 +519,9 @@ create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size,
     }
 #else
 
-#ifdef HILDONANIMATION 
-    icon_widget = create_hildon_clutter_icon_animation(icon_path, icon_size, objects_list);
+#ifdef HILDONANIMATION
+    if (app->config->animation)
+        icon_widget = create_hildon_clutter_icon_animation(icon_path, icon_size, objects_list);
     if (!icon_widget)
         icon_widget = gtk_image_new_from_pixbuf(icon_buffer);
     g_object_unref(G_OBJECT(icon_buffer));
@@ -568,9 +569,11 @@ update_icons_set_base(const char *icon_set_name){
 #ifdef HILDONANIMATION 
     /* Fix me Free memory for previous hash */
     if (app->animation_hash)
-        clear_animation_hash(app->animation_hash);
-    snprintf(buffer,sizeof(buffer) - 1, "%sanimation.xml", app->config->icons_set_base);
-    app->animation_hash = parse_animation_file(buffer,"UTF-8");
+      app->animation_hash = clear_animation_hash(app->animation_hash);
+    if (app->config->animation){
+        snprintf(buffer,sizeof(buffer) - 1, "%sanimation.xml", app->config->icons_set_base);
+        app->animation_hash = parse_animation_file(buffer,"UTF-8");
+    }
 #endif
 
 #ifdef DEBUGFUNCTIONCALL

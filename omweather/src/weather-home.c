@@ -1007,6 +1007,11 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #if !defined OS2008 ||  defined (APPLICATION)
     redraw_home_window(TRUE);
 #endif
+#ifdef HILDONANIMATION
+    app->animation_hash = NULL;
+    app->clutter_objects_in_main_form = NULL;
+    app->clutter_objects_in_popup_form = NULL;
+#endif
 #if defined(OS2008) || defined(OS2009) || defined(NONMAEMO)
 #if defined OS2008 && !defined (APPLICATION)
     applet->queueRefresh = TRUE;
@@ -1100,7 +1105,7 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 #if defined CLUTTER || defined HILDONANIMATION
     /* Clean animation hash */
     if (app->animation_hash)
-        clear_animation_hash(app->animation_hash);
+        app->animation_hash = clear_animation_hash(app->animation_hash);
     /* Clean clutter objects list */
     free_clutter_objects_list(&app->clutter_objects_in_main_form);
     free_clutter_objects_list(&app->clutter_objects_in_popup_form);
@@ -1369,11 +1374,11 @@ create_forecast_weather_simple_widget(GHashTable *day){
 GtkWidget* 
 create_current_weather_simple_widget(GHashTable *current){
     GtkWidget       *main_widget = NULL,
-                    *temperature_vbox,
-                    *temperature_label,
-                    *main_data_vbox,
-                    *main_data_label,
-                    *icon_temperature_vbox;
+                    *temperature_vbox = NULL,
+                    *temperature_label = NULL,
+                    *main_data_vbox = NULL,
+                    *main_data_label = NULL,
+                    *icon_temperature_vbox = NULL;
     gchar           buffer[1024],
                     *units;
     const gchar     *wind_units_str[] = { "m/s", "km/h", "mi/h" };
@@ -1493,7 +1498,6 @@ create_current_weather_simple_widget(GHashTable *current){
         }
     }
     strcat(buffer,"</span>");
-
     main_data_vbox = gtk_vbox_new(FALSE, 0);
     main_data_label = gtk_label_new(NULL);
     gtk_label_set_markup(GTK_LABEL(main_data_label), buffer);

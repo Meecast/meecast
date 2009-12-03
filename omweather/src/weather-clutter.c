@@ -106,7 +106,7 @@ free_icons_list(gpointer key, gpointer value_arg,
 
 }
 /*******************************************************************************/
-void 
+GHashTable *
 clear_animation_hash(GHashTable *hash)
 {
 #ifdef DEBUGFUNCTIONCALL
@@ -116,6 +116,7 @@ clear_animation_hash(GHashTable *hash)
         g_hash_table_foreach(hash, free_icons_list, NULL);
         g_hash_table_destroy(hash);
         hash = NULL;
+        return NULL;
     }
 }
 /*******************************************************************************/

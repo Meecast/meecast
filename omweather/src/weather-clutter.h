@@ -32,7 +32,7 @@
 #include "weather-common.h"
 #if defined HILDONANIMATION 
 GtkWidget *create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSList **objects_list);
-void clear_animation_hash(GHashTable *hash);
+GHashTable *clear_animation_hash(GHashTable *hash);
 #endif
 #if defined CLUTTER
 /*******************************************************************************/

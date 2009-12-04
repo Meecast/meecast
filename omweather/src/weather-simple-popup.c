@@ -707,7 +707,6 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
             }    
             if((difference < 0 && difference > -60*60) || difference >= 0 ||
                                       (prev_difference > 0 &&  difference<0)) {
-
                 flag = TRUE; 
                 line =  gtk_button_new();
                 gtk_button_set_focus_on_click(GTK_BUTTON(line), FALSE);
@@ -773,7 +772,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 
                 /* title */
                 if(g_hash_table_lookup(hour_weather, "hour_title"))
-                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1," ,%s, ",
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1," , %s, ",
                        (char*)hash_table_find(g_hash_table_lookup(hour_weather, "hour_title"), 
                         FALSE));
 
@@ -800,6 +799,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                                         sizeof(buffer) - strlen(buffer) - 1, 
                                         "<i>%s</i>", tmp);
 
+
                 line_text = gtk_label_new(NULL);
                 gtk_label_set_justify(GTK_LABEL(line_text), GTK_JUSTIFY_FILL);
                 gtk_label_set_markup(GTK_LABEL(line_text), buffer);
@@ -814,7 +814,6 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
             prev_difference = difference;
             hours_weather = g_slist_next(hours_weather);
             difference = 0;
-            flag = FALSE;
         }
 
         if(!hours_weather)

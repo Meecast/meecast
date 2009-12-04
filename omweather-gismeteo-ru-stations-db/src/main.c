@@ -1113,7 +1113,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *has
                                                                            if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"c7")){
                                                                                xmlFree(temp_xml_string);
                                                                                temp_xml_string = xmlNodeGetContent(child_node11);
-                                                                               g_hash_table_insert(detail, "hour_comfort_temp", 
+                                                                               g_hash_table_insert(detail, "hour_feels_like",
                                                                                                            g_strdup((char*)temp_xml_string));
                                                                                /*  fprintf(stderr, "\nComfort %s \n", temp_xml_string); */
                                                                            } 

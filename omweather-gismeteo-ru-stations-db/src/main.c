@@ -1116,7 +1116,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *has
                                                                                g_hash_table_insert(detail, "hour_feels_like",
                                                                                                            g_strdup((char*)temp_xml_string));
                                                                                /*  fprintf(stderr, "\nComfort %s \n", temp_xml_string); */
-                                                                           } 
+                                                                           }
                                                                         }
                                                                         if(detail){
                                                                            if (g_hash_table_lookup(detail, "hours"))

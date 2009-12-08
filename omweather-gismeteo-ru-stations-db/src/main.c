@@ -109,10 +109,10 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
                     return -1;
                 }
                 *delimiter = 0;
-                if(get_detail_data)
+               // if(get_detail_data)
                     days_number = parse_xml_detail_data(buffer, root_node, data);
-                else
-                    days_number = parse_xml_data(buffer, root_node, data);
+               // else
+                 //   days_number = parse_xml_data(buffer, root_node, data);
             }
             xmlFreeDoc(doc);
             xmlCleanupParser();
@@ -924,7 +924,7 @@ hash_for_icons = hash_icons_gismeteo_table_create();
     return count_day;
 }
 /*******************************************************************************/
-void
+gint
 fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *hash_for_translate, GHashTable *data){
     #define buff_size 2048
     xmlNode     *cur_node = NULL;
@@ -942,17 +942,24 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *has
     xmlNode     *child_node12 = NULL;
     xmlChar     *temp_xml_string = NULL;
     xmlChar     *temp_xml_string_2 = NULL;
-    gint        i = 0, j = 0;
+    gint        i = 0, j = 0, k = 0;
     gchar       buffer[buff_size];
     gchar       temp_buffer[buff_size];
+    gchar       tmp[buff_size];
     gchar       *temp_char;
     gint        speed;
     gint        count_of_hours = 0;
+    gint        location_timezone = 0;
     GHashTable  *detail = NULL; 
     GSList      *hour_weather = NULL;
     GHashTable  *hours_data = NULL;
     struct tm   tmp_tm = {0};
+    struct tm   tmp_tm_utc = {0};
+    double      time_diff = 0;
+    time_t      loc_time;
+    time_t      utc_time;
     gboolean break_flag = FALSE; 
+    gboolean timezone_flag = FALSE;
 
     if (root_node->children)
          cur_node = root_node->children;
@@ -1011,6 +1018,11 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *has
                                                                                for(i = 0;i<strlen((char*)temp_xml_string);i++){
                                                                                    if(temp_xml_string[i] == 'L')
                                                                                        j=i;
+                                                                                   if(!timezone_flag){
+                                                                                    
+                                                                                        if(temp_xml_string[i] == 'U')
+                                                                                            k=i;
+                                                                                   }
                                                                                }
                                                                                j += 7;
                                                                                for(j=j;j < strlen((char*)temp_xml_string);j++)
@@ -1018,6 +1030,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *has
 
                                                                                if (strlen(buffer)==0)
                                                                                    break;
+                                                                               sprintf(tmp, "%s", buffer);
 
                                                                                /* fprintf(stderr, "Time 1 %s 2 %s\n", buffer, temp_xml_string); */
                                                                                tmp_tm = get_date_for_hour_weather(strdup(buffer));
@@ -1029,7 +1042,25 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *has
                                                                                if (buffer && (!strcmp(buffer,"00")))
                                                                                     break_flag++;
                                                                                /* fprintf(stderr,"HOUR %s\n",buffer); */
- 
+                                                                               if(!timezone_flag){
+                                                                                    k += 5;
+                                                                                    memset(temp_buffer,0, sizeof(temp_buffer));
+                                                                                    for(k=k;k < strlen((char*)temp_xml_string)-strlen(tmp)-9;k++)
+                                                                                        sprintf(temp_buffer,"%s%c",temp_buffer, temp_xml_string[k]);
+                                                                                    fprintf(stderr, "\n temp_buffer %s\n", temp_buffer);
+                                                                                    tmp_tm_utc = get_date_for_hour_weather(strdup(temp_buffer));
+                                                                                    tmp_tm = get_date_for_hour_weather(strdup(tmp));
+                                                                                    loc_time = mktime(&tmp_tm);
+                                                                                    utc_time = mktime(&tmp_tm_utc);
+                                                                                    time_diff = difftime(loc_time, utc_time);
+                                                                                    if(time_diff)
+                                                                                        timezone_flag = TRUE;
+                                                                                    location_timezone = (gint)time_diff/3600;
+                                                                                    //fprintf(stderr, "\nTimezone %d\n", location_timezone);
+
+                                                                               //     g_hash_table_insert(location, "station_time_zone", g_strdup(itoa(location_timezone)));
+                                                                               }
+                                                                                
 
                                                                            }
                                                                            /* Icon */
@@ -1150,6 +1181,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *has
    g_hash_table_insert(hours_data, "hours_data", (gpointer)hour_weather);
    detail = hour_weather->data;
    g_hash_table_insert(data, "detail", (gpointer)hours_data);
+   return location_timezone;
 }
 /*******************************************************************************/
 gint
@@ -1159,15 +1191,17 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
     GHashTable  *hash_for_icons;
     GHashTable  *hash_for_translate;
     GHashTable  *location = NULL;
+    gint location_timezone = 0;
 
     hash_for_translate = hash_description_gismeteo_table_create();
     hash_for_icons = hash_icons_gismeteo_table_create();
     current_weather = g_hash_table_new(g_str_hash, g_str_equal);
     location = g_hash_table_new(g_str_hash, g_str_equal);
     fill_current_data(root_node, current_weather, location, hash_for_translate, hash_for_icons);
-    g_hash_table_insert(data, "location", (gpointer)location);
+ //   g_hash_table_insert(data, "location", (gpointer)location);
     g_hash_table_insert(data, "current", (gpointer)current_weather);
-    fill_detail_data(root_node, hash_for_icons, hash_for_translate, data);
+    location_timezone = fill_detail_data(root_node, hash_for_icons, hash_for_translate, data);
+    g_hash_table_insert(data, "location", location_timezone);
     return -1;
 }
 /**************************************************************************/

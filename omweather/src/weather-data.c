@@ -52,7 +52,8 @@ is_current_weather_valid(void){
     if(location && current){
         current_time = time(NULL); /* get current day */
         /* correct time for current location */
-        diff_time = calculate_diff_time(atol(g_hash_table_lookup(location, "station_time_zone")));
+        if (g_hash_table_lookup(location, "station_time_zone"))
+            diff_time = calculate_diff_time(atol(g_hash_table_lookup(location, "station_time_zone")));
 #ifndef RELEASE
         fprintf(stderr, "\n>>>>>>>Diff time=%li<<<<<<\n", diff_time);
 #endif

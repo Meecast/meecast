@@ -109,10 +109,10 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
                     return -1;
                 }
                 *delimiter = 0;
-               // if(get_detail_data)
+                if(get_detail_data)
                     days_number = parse_xml_detail_data(buffer, root_node, data);
-               // else
-                 //   days_number = parse_xml_data(buffer, root_node, data);
+                else
+                    days_number = parse_xml_data(buffer, root_node, data);
             }
             xmlFreeDoc(doc);
             xmlCleanupParser();
@@ -556,7 +556,7 @@ get_date_for_hour_weather(gchar *temp_string){
 }
 /*******************************************************************************/
 void
-fill_current_data(xmlNode *root_node, GHashTable *current_weather,  GHashTable *location, GHashTable *hash_for_translate, GHashTable *hash_for_icons)
+fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *hash_for_translate, GHashTable *hash_for_icons)
 {
 #define buff_size 2048
      xmlNode     *cur_node = NULL;
@@ -731,8 +731,6 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather,  GHashTable *
             }
         }
     }
-    /* Fix Me */
-    g_hash_table_insert(location, "station_time_zone", g_strdup("2"));
 }
 /*******************************************************************************/
 gint
@@ -925,7 +923,7 @@ hash_for_icons = hash_icons_gismeteo_table_create();
 }
 /*******************************************************************************/
 gint
-fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *hash_for_translate, GHashTable *data){
+fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_icons, GHashTable *hash_for_translate, GHashTable *data){
     #define buff_size 2048
     xmlNode     *cur_node = NULL;
     xmlNode     *child_node = NULL;
@@ -1056,9 +1054,9 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *has
                                                                                     if(time_diff)
                                                                                         timezone_flag = TRUE;
                                                                                     location_timezone = (gint)time_diff/3600;
-                                                                                    //fprintf(stderr, "\nTimezone %d\n", location_timezone);
+                                                                                    fprintf(stderr, "\nTimezone %d\n", location_timezone);
 
-                                                                               //     g_hash_table_insert(location, "station_time_zone", g_strdup(itoa(location_timezone)));
+                                                                                    g_hash_table_insert(location, "station_time_zone", g_strdup(itoa(location_timezone)));
                                                                                }
                                                                                 
 
@@ -1181,7 +1179,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *hash_for_icons, GHashTable *has
    g_hash_table_insert(hours_data, "hours_data", (gpointer)hour_weather);
    detail = hour_weather->data;
    g_hash_table_insert(data, "detail", (gpointer)hours_data);
-   return location_timezone;
+   return -1;
 }
 /*******************************************************************************/
 gint
@@ -1197,11 +1195,10 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
     hash_for_icons = hash_icons_gismeteo_table_create();
     current_weather = g_hash_table_new(g_str_hash, g_str_equal);
     location = g_hash_table_new(g_str_hash, g_str_equal);
-    fill_current_data(root_node, current_weather, location, hash_for_translate, hash_for_icons);
- //   g_hash_table_insert(data, "location", (gpointer)location);
+    fill_current_data(root_node, current_weather, hash_for_translate, hash_for_icons);
+    g_hash_table_insert(data, "location", (gpointer)location);
     g_hash_table_insert(data, "current", (gpointer)current_weather);
-    location_timezone = fill_detail_data(root_node, hash_for_icons, hash_for_translate, data);
-    g_hash_table_insert(data, "location", location_timezone);
+    fill_detail_data(root_node, location, hash_for_icons, hash_for_translate, data);
     return -1;
 }
 /**************************************************************************/

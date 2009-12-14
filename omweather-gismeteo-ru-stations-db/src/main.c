@@ -922,7 +922,7 @@ hash_for_icons = hash_icons_gismeteo_table_create();
     return count_day;
 }
 /*******************************************************************************/
-gint
+void
 fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_icons, GHashTable *hash_for_translate, GHashTable *data){
     #define buff_size 2048
     xmlNode     *cur_node = NULL;
@@ -1045,7 +1045,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                                     memset(temp_buffer,0, sizeof(temp_buffer));
                                                                                     for(k=k;k < strlen((char*)temp_xml_string)-strlen(tmp)-9;k++)
                                                                                         sprintf(temp_buffer,"%s%c",temp_buffer, temp_xml_string[k]);
-                                                                                    fprintf(stderr, "\n temp_buffer %s\n", temp_buffer);
+                                                                                    /* fprintf(stderr, "\n temp_buffer %s\n", temp_buffer); */
                                                                                     tmp_tm_utc = get_date_for_hour_weather(strdup(temp_buffer));
                                                                                     tmp_tm = get_date_for_hour_weather(strdup(tmp));
                                                                                     loc_time = mktime(&tmp_tm);
@@ -1054,9 +1054,10 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                                     if(time_diff)
                                                                                         timezone_flag = TRUE;
                                                                                     location_timezone = (gint)time_diff/3600;
-                                                                                    fprintf(stderr, "\nTimezone %d\n", location_timezone);
+                                                                                    /* fprintf(stderr, "\nTimezone %i\n", location_timezone); */
+                                                                                    snprintf(temp_buffer, sizeof(temp_buffer)-1,"%i",location_timezone);
 
-                                                                                    g_hash_table_insert(location, "station_time_zone", g_strdup(itoa(location_timezone)));
+                                                                                    g_hash_table_insert(location, "station_time_zone", g_strdup(temp_buffer));
                                                                                }
                                                                                 
 
@@ -1179,7 +1180,6 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
    g_hash_table_insert(hours_data, "hours_data", (gpointer)hour_weather);
    detail = hour_weather->data;
    g_hash_table_insert(data, "detail", (gpointer)hours_data);
-   return -1;
 }
 /*******************************************************************************/
 gint

@@ -1146,7 +1146,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                                temp_xml_string = xmlNodeGetContent(child_node11);
                                                                                g_hash_table_insert(detail, "hour_humidity", 
                                                                                                            g_strdup((char*)temp_xml_string));
-                                                                               fprintf(stderr, "\nHummidity %s \n", temp_xml_string); 
+                                                                               /* fprintf(stderr, "\nHummidity %s \n", temp_xml_string); */
                                                                            }
                                                                            if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"c7")){
                                                                                xmlFree(temp_xml_string);
@@ -1156,6 +1156,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                                if (feels_like_flag){ 
                                                                                 fprintf(stderr, "\nComfort %s \n", temp_xml_string); 
                                                                                     feels_like_flag = FALSE;
+                                                                                    g_hash_table_insert(g_hash_table_lookup(data, "current"),"feel_like",g_strdup((char*)temp_xml_string));
                                                                                }
                                                                            }
                                                                         }

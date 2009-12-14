@@ -958,6 +958,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
     time_t      utc_time;
     gboolean break_flag = FALSE; 
     gboolean timezone_flag = FALSE;
+    gboolean feels_like_flag = FALSE;
 
     if (root_node->children)
          cur_node = root_node->children;
@@ -1035,8 +1036,15 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                                memset(buffer, 0, sizeof(buffer));
                                                                                setlocale(LC_TIME, "POSIX");
                                                                                strftime(buffer, sizeof(buffer) - 1, "%H", &tmp_tm);
-                                                                               setlocale(LC_TIME, "");
                                                                                g_hash_table_insert(detail, "hours", g_strdup(buffer));
+                                                                               strftime(buffer, sizeof(buffer) - 1, "%D %I:%M %p", &tmp_tm);
+                                                                               setlocale(LC_TIME, "");
+
+                                                                               if (buffer && 
+                                                                                 g_hash_table_lookup(hours_data,"last_update")&&
+                                                                                 !strcmp(buffer,g_hash_table_lookup(hours_data,"last_update"))){
+                                                                                   feels_like_flag = TRUE;
+                                                                               }
                                                                                if (buffer && (!strcmp(buffer,"00")))
                                                                                     break_flag++;
                                                                                /* fprintf(stderr,"HOUR %s\n",buffer); */
@@ -1145,7 +1153,10 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                                temp_xml_string = xmlNodeGetContent(child_node11);
                                                                                g_hash_table_insert(detail, "hour_feels_like",
                                                                                                            g_strdup((char*)temp_xml_string));
-                                                                               /* fprintf(stderr, "\nComfort %s \n", temp_xml_string); */
+                                                                               if (feels_like_flag){ 
+                                                                                fprintf(stderr, "\nComfort %s \n", temp_xml_string); 
+                                                                                    feels_like_flag = FALSE;
+                                                                               }
                                                                            }
                                                                         }
                                                                         if(detail){

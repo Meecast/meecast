@@ -611,6 +611,7 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *h
                                         }
 
                                         xmlFree(temp_xml_string);
+                                        temp_xml_string=NULL;
                                         child_node5 = child_node4->children;
 
                                         for(child_node5 = child_node5->children; child_node5;child_node5 = child_node5->next){
@@ -618,6 +619,7 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *h
                                             /* Icon */
                                             if(!xmlStrcmp(temp_xml_string, (const xmlChar*)"png ico_bigWeather5 fll")){
                                              xmlFree(temp_xml_string);
+                                             temp_xml_string = NULL;
                                              temp_xml_string = xmlGetProp(child_node5, (const xmlChar*)"style");
                                              if (temp_xml_string){
                                               temp_char = strrchr((char*)temp_xml_string, '/');
@@ -629,20 +631,26 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *h
                                                 sprintf(temp_buffer,"%s%c",temp_buffer, image[i]);
                                                 i++;
                                               }
+                                              if (image)
+                                                  g_free(image);
                                               /* fprintf(stderr, "\nImage %s\n", temp_buffer); */
                                               g_hash_table_insert(current_weather, "icon", choose_hour_weather_icon(hash_for_icons, temp_buffer));
                                              }
+                                             if (temp_xml_string)
+                                                xmlFree(temp_xml_string);
+                                                temp_xml_string = NULL;
                                             }
                                             /* Temperature */
-                                            if(!xmlStrcmp(temp_xml_string, (const xmlChar*)"deg")){
+                                            if(temp_xml_string && !xmlStrcmp(temp_xml_string, (const xmlChar*)"deg")){
                                              xmlFree(temp_xml_string);
                                              temp_xml_string = xmlNodeGetContent(child_node5);
                                              g_hash_table_insert(current_weather, "day_hi_temperature", g_strdup((char*)temp_xml_string));
                                              /* fprintf(stderr, "\n Deg %s\n", temp_xml_string); */
                                              xmlFree(temp_xml_string);
+                                             temp_xml_string = NULL;
                                             }
                                             /* Summa */
-                                            if(!xmlStrcmp(temp_xml_string, (const xmlChar*)"summa")){
+                                            if(temp_xml_string && !xmlStrcmp(temp_xml_string, (const xmlChar*)"summa")){
                                                 xmlFree(temp_xml_string);
                                                 temp_xml_string = xmlNodeGetContent(child_node5);
                                                 g_hash_table_insert(current_weather, "title", g_strdup(hash_gismeteo_table_find(hash_for_translate, temp_xml_string, FALSE)));
@@ -722,7 +730,8 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *h
                                         setlocale(LC_TIME, "");
                                         g_hash_table_insert(current_weather, "last_update", g_strdup(buffer));
                                         xmlFree(temp_xml_string);
-                                    }
+                                    }else
+                                        xmlFree(temp_xml_string);
                                 }
                             }
                         }
@@ -918,7 +927,6 @@ hash_for_icons = hash_icons_gismeteo_table_create();
     }
     g_hash_table_destroy(hash_for_translate);
     g_hash_table_destroy(hash_for_icons);
-
     return count_day;
 }
 /*******************************************************************************/
@@ -1007,7 +1015,10 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                         detail = g_hash_table_new(g_str_hash, g_str_equal);
                                                                         for(child_node11=child_node10->children;child_node11;
                                                                             child_node11 = child_node11->next){
-                                                                           xmlFree(temp_xml_string);
+                                                                           if (temp_xml_string){
+                                                                               xmlFree(temp_xml_string);
+                                                                               temp_xml_string = NULL;
+                                                                           }
                                                                            temp_xml_string = xmlGetProp(child_node11, (const xmlChar*)"class");
                                                                            /* Time */
                                                                            if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"c0")){
@@ -1032,7 +1043,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                                sprintf(tmp, "%s", buffer);
 
                                                                                /* fprintf(stderr, "Time 1 %s 2 %s\n", buffer, temp_xml_string); */
-                                                                               tmp_tm = get_date_for_hour_weather(strdup(buffer));
+                                                                               tmp_tm = get_date_for_hour_weather(buffer);
                                                                                memset(buffer, 0, sizeof(buffer));
                                                                                setlocale(LC_TIME, "POSIX");
                                                                                strftime(buffer, sizeof(buffer) - 1, "%H", &tmp_tm);
@@ -1054,8 +1065,8 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                                     for(k=k;k < strlen((char*)temp_xml_string)-strlen(tmp)-9;k++)
                                                                                         sprintf(temp_buffer,"%s%c",temp_buffer, temp_xml_string[k]);
                                                                                     /* fprintf(stderr, "\n temp_buffer %s\n", temp_buffer); */
-                                                                                    tmp_tm_utc = get_date_for_hour_weather(strdup(temp_buffer));
-                                                                                    tmp_tm = get_date_for_hour_weather(strdup(tmp));
+                                                                                    tmp_tm_utc = get_date_for_hour_weather(temp_buffer);
+                                                                                    tmp_tm = get_date_for_hour_weather(tmp);
                                                                                     loc_time = mktime(&tmp_tm);
                                                                                     utc_time = mktime(&tmp_tm_utc);
                                                                                     time_diff = difftime(loc_time, utc_time);
@@ -1067,15 +1078,12 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
 
                                                                                     g_hash_table_insert(location, "station_time_zone", g_strdup(temp_buffer));
                                                                                }
-                                                                                
-
                                                                            }
                                                                            /* Icon */
                                                                            if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"c1")){
                                                                                child_node12 = child_node11->children;
                                                                                child_node12 = child_node12->children;
                                                                                xmlFree(temp_xml_string);
-                                                                               temp_xml_string = NULL;
                                                                                temp_xml_string = xmlGetProp(child_node12, (const xmlChar*)"src");
                                                                                if (temp_xml_string){
                                                                                    temp_char = strrchr((char*)temp_xml_string, '/');
@@ -1106,8 +1114,8 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                            }
                                                                            if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"c5")){
                                                                                xmlFree(temp_xml_string);
-                                                                                memset(temp_buffer, 0, sizeof(temp_buffer));
-                                                                                memset(buffer, 0, sizeof(buffer));
+                                                                               memset(temp_buffer, 0, sizeof(temp_buffer));
+                                                                               memset(buffer, 0, sizeof(buffer));
                                                                                temp_xml_string = xmlNodeGetContent(child_node11);
                                                                                /* Wind speed. m/s in km/h */
                                                                                speed = atoi ((char*)temp_xml_string);
@@ -1118,6 +1126,8 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                                child_node12 = child_node12->children;
                                                                                temp_xml_string_2 = xmlGetProp(child_node12, (const xmlChar*)"title");
                                                                                sprintf(buffer,"%s%s",buffer,temp_xml_string_2);
+                                                                               xmlFree(temp_xml_string_2);
+                                                                               temp_xml_string_2 = NULL;
                                                                                /* fprintf(stderr, "Wind %s\n", buffer); */
                                                                                /* Wind direction*/
                                                                                if (!strcoll(buffer, "З"))
@@ -1154,7 +1164,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                                g_hash_table_insert(detail, "hour_feels_like",
                                                                                                            g_strdup((char*)temp_xml_string));
                                                                                if (feels_like_flag){ 
-                                                                                fprintf(stderr, "\nComfort %s \n", temp_xml_string); 
+                                                                                    /* fprintf(stderr, "\nComfort %s \n", temp_xml_string); */
                                                                                     feels_like_flag = FALSE;
                                                                                     g_hash_table_insert(g_hash_table_lookup(data, "current"),"feel_like",g_strdup((char*)temp_xml_string));
                                                                                }
@@ -1180,7 +1190,11 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                 }
                               }
                            }
+                        }else{
+                            xmlFree(temp_xml_string); 
+                            temp_xml_string = NULL;
                         }
+                            
                      }
                     }
                  }
@@ -1211,6 +1225,9 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
     g_hash_table_insert(data, "location", (gpointer)location);
     g_hash_table_insert(data, "current", (gpointer)current_weather);
     fill_detail_data(root_node, location, hash_for_icons, hash_for_translate, data);
+    g_hash_table_destroy(hash_for_translate);
+    g_hash_table_destroy(hash_for_icons);
+
     return -1;
 }
 /**************************************************************************/

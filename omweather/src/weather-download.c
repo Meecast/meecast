@@ -559,6 +559,7 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
     gboolean            valid = FALSE;
     static GtkTreeIter  iter;
     gchar               *station_code = NULL,
+                        *new_station_code = NULL,
                         *station_source = NULL;
     gchar                buffer[512];
 #ifdef DEBUGFUNCTIONCALL
@@ -626,9 +627,11 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
                 *buffer = 0;
                 /* TO DO move this code to sources libs */
                 if (!strcmp(station_source,"gismeteo.ru")){
+                    new_station_code = get_new_gismeteo_code(station_code, station_source);
                     snprintf(buffer, sizeof(buffer) - 1,
                             get_source_detail_url(app->sources_list, station_source),
-                            get_new_gismeteo_code(station_code, station_source));
+                            new_station_code);
+                    g_free(new_station_code);
                 }else
                     snprintf(buffer, sizeof(buffer) - 1,
                             get_source_detail_url(app->sources_list, station_source),

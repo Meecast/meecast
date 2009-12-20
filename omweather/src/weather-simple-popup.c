@@ -131,6 +131,7 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
         /* Skip Empty stations */
         if(ready && !strcmp(station_name, " ")){
             skipped = TRUE;
+            g_free(station_name);
             gtk_tree_path_next(path);
             valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
                                         &iter, path);
@@ -554,6 +555,7 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
             g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)line);
         tmp = g_slist_next(tmp);
         i++;
+        g_free(day_name);
     }
     
     gtk_widget_show_all(main_vbox);
@@ -561,7 +563,6 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
 #ifdef HILDONANIMATION 
     g_signal_connect_after(scrolled_window, "expose-event", G_CALLBACK(popup_simple_window_expose), NULL);
 #endif
-    g_free(day_name);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

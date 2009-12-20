@@ -1012,8 +1012,9 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                     for(child_node10;child_node10;child_node10=child_node10->next){
                                                                         if (break_flag >1)
                                                                             break;
+
                                                                         detail = g_hash_table_new(g_str_hash, g_str_equal);
-                                                                        fprintf(stderr," New detail %p\n", detail );
+
                                                                         for(child_node11=child_node10->children;child_node11;
                                                                             child_node11 = child_node11->next){
                                                                            if (temp_xml_string){
@@ -1171,12 +1172,16 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                            }
                                                                         }
                                                                         if(detail){
-                                                                           if (g_hash_table_lookup(detail, "hours"))
+                                                                           if (g_hash_table_lookup(detail, "hours")){
                                                                                hour_weather = g_slist_append(hour_weather,(gpointer)detail);
-                                                                               fprintf(stderr," New detail confirmaed  %p\n", detail );
                                                                                count_of_hours++;
                                                                                if ((count_of_hours) >9)
                                                                                     break_flag++;
+                                                                           }else{
+                                                                                g_hash_table_remove_all(detail);
+                                                                                g_hash_table_unref(detail);
+                                                                           }
+
                                                                         }
                                                                    }
                                                                 }
@@ -1203,9 +1208,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
             }
         }
    }
-
    g_hash_table_insert(hours_data, "hours_data", (gpointer)hour_weather);
-   detail = hour_weather->data;
    g_hash_table_insert(data, "detail", (gpointer)hours_data);
 }
 /*******************************************************************************/

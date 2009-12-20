@@ -135,6 +135,7 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
             valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
                                         &iter, path);
             if(!valid){
+                gtk_tree_path_free(path);
                 path = gtk_tree_path_new_first();
                 valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                         &iter);
@@ -163,7 +164,7 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
             }
         }
     }
-   gtk_tree_path_free(path);
+    gtk_tree_path_free(path);
     return station_name;
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -610,12 +611,11 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
     GtkWidget       *scrolled_window = NULL,
                     *main_vbox = NULL,
                     *line = NULL,
-                    *line_hbox = NULL,
                     *line_text = NULL,
 #if !defined OS2009
                     *vscrollbar = NULL,
 #endif
-                    *icon_text_hbox = NULL;
+                    *line_hbox = NULL;
     GdkPixbuf       *icon;
     GtkWidget       *icon_image;
     const gchar     *wind_units_str[] = {"m/s", "km/h", "mi/h" };
@@ -711,7 +711,6 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                 line =  gtk_button_new();
                 gtk_button_set_focus_on_click(GTK_BUTTON(line), FALSE);
                             gtk_button_set_relief(GTK_BUTTON(line), GTK_RELIEF_NONE);
-                icon_text_hbox = gtk_hbox_new(FALSE, 0);
                 *buffer = 0;
                 g_object_set_data(G_OBJECT(line), "scrolled_window",
                                                        (gpointer)scrolled_window);

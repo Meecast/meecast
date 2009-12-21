@@ -109,10 +109,10 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
                     return -1;
                 }
                 *delimiter = 0;
-                if(get_detail_data)
+                //if(get_detail_data)
                     days_number = parse_xml_detail_data(buffer, root_node, data);
-                else
-                    days_number = parse_xml_data(buffer, root_node, data);
+                //else
+                  //  days_number = parse_xml_data(buffer, root_node, data);
             }
             xmlFreeDoc(doc);
             xmlCleanupParser();
@@ -567,6 +567,11 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *h
      xmlNode     *child_node5 = NULL;
      xmlNode     *child_node6 = NULL;
      xmlNode     *child_node7 = NULL;
+     xmlNode     *child_node8 = NULL;
+     xmlNode     *child_node9 = NULL;
+     xmlNode     *child_node10 = NULL;
+     xmlNode     *child_node11 = NULL;
+     xmlNode     *child_node12 = NULL;
      xmlChar     *temp_xml_string = NULL;
      gint        i = 0; 
      gchar       buffer[buff_size];
@@ -594,6 +599,58 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *h
                                     if(!xmlStrcmp(temp_xml_string, (const xmlChar *)"M123 clearfix")){
                                         child_node4 = child_node3->children;
                                         child_node4 = child_node4->next;
+                                        child_node8 = child_node4->children;
+                                        child_node9 = child_node8->next;
+                                        while(xmlStrcmp(xmlGetProp(child_node9, (const xmlChar*)"class"), (const xmlChar *)"containerWrap WLast")){
+                                            child_node9 = child_node9->next;
+                                            child_node9 = child_node9->next;
+                                        }
+                                        child_node9 = child_node9->children;
+                                        child_node9 = child_node9->next;
+                                        child_node9 = child_node9->children;
+                                        child_node9 = child_node9->next;
+                                        while(xmlStrcmp(child_node9->name, (const xmlChar *)"ul")){
+                                            child_node9 = child_node9->next;
+                                            child_node9 = child_node9->next;
+                                        }
+                                        child_node9 = child_node9->children;
+                                        child_node10 = child_node9->children;
+                                        child_node10 = child_node10->next;
+                                        while(xmlStrcmp(child_node10->name, (const xmlChar *)"li"))
+                                            child_node10 = child_node10->children;
+                                        
+                                        if(!xmlStrcmp(child_node10->name, (const xmlChar *)"li")){
+                                            child_node11 = child_node10->children;
+                                            child_node11 = child_node11->next;
+                                            child_node11 = child_node11->next;
+                                            xmlFree(temp_xml_string);
+                                            temp_xml_string = xmlNodeGetContent(child_node11);
+                                            fprintf(stderr, "\n Восход %s\n", temp_xml_string);
+                                            child_node11 = child_node10->next;
+                                            child_node11 = child_node11->next;
+                                            child_node11 = child_node11->children;
+                                            child_node11 = child_node11->next;
+                                            child_node11 = child_node11->next;
+                                            xmlFree(temp_xml_string);
+                                            temp_xml_string = xmlNodeGetContent(child_node11);
+                                            fprintf(stderr, "\n Заход %s\n", temp_xml_string);
+                                        }
+                                        child_node11 = child_node9->next;
+                                        child_node11 = child_node11->next;
+                                        if(!xmlStrcmp(child_node11->name, (const xmlChar *)"li")){
+                                            child_node11 = child_node11->children;
+                                            child_node11 = child_node11->next;
+                                            child_node11 = child_node11->children;
+                                            child_node11 = child_node11->next;
+                                            child_node11 = child_node11->next;
+                                            child_node11 = child_node11->children;
+                                            child_node11 = child_node11->next;
+                                            child_node11 = child_node11->next;
+                                            xmlFree(temp_xml_string);
+                                            temp_xml_string = xmlNodeGetContent(child_node11);
+                                            fprintf(stderr, "\n Фаза %s\n", temp_xml_string);
+
+                                        }
                                         child_node4 = child_node4->children;
                                         child_node4 = child_node4->next;
                                         child_node4 = child_node4->children;

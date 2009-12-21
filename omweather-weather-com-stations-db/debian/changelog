@@ -1,3 +1,11 @@
+omweather-weather-com-stations-db (0.9.7) unstable; urgency=low
+
+  * Fixed bug #7176 "US GA picks country of Georgia and not state when picking cites"
+  * Fixed bug #6127 "Change "Virgin Islands, U.S" "
+  * Fixed bug #6126 "case corrections for the country list"
+
+ --  Vlad Vasiliev <vlad@gas.by>  Mon, 21 Dec 2009 19:14:30 +0200
+
 omweather-weather-com-stations-db (0.9.6) unstable; urgency=low
 
   * Fixed bug #5473 "Small icon for all OMweather packages in application manager"

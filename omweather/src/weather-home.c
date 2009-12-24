@@ -2420,10 +2420,20 @@ get_day_part_begin_time(GHashTable *day, guint year, const gchar *day_part){
             strptime(buffer, "%b %d %Y %I:%M %p", &tm);
         }else{
             if(day_part && (!strcmp(day_part, "day_sunrise")))
-                snprintf(buffer, sizeof(buffer) - 1,
+                if (g_hash_table_lookup(day, "day_sunrise_not_realistically"))
+                    snprintf(buffer, sizeof(buffer) - 1,
+                        "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year,
+                        (char*)g_hash_table_lookup(day, "day_sunrise_not_realistically"));
+                else
+                    snprintf(buffer, sizeof(buffer) - 1,
                         "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year, "08:00 AM");
             else
-                snprintf(buffer, sizeof(buffer) - 1,
+                if (g_hash_table_lookup(day, "day_sunset_not_realistically"))
+                    snprintf(buffer, sizeof(buffer) - 1,
+                        "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year,
+                        (char*)g_hash_table_lookup(day, "day_sunset_not_realistically"));
+                else
+                    snprintf(buffer, sizeof(buffer) - 1,
                         "%s %i %s", (char*)g_hash_table_lookup(day, "day_date"), year, "08:00 PM");
 
             strptime(buffer, "%b %d %Y %I:%M %p", &tm);

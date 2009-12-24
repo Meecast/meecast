@@ -61,7 +61,7 @@ gpointer hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean searc
 #endif
     if (search_short_name) {
         buffer[0] = 0;
-        snprintf(buffer, sizeof(buffer) - 1, "%s_short", (gchar *) key);
+        snprintf(buffer, sizeof(buffer) - 1, "%s_short", (gchar *)key);
         search_text = buffer;
     } else
         search_text = key;
@@ -70,7 +70,7 @@ gpointer hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean searc
         result = value;
     else{
         result = key;
-        fprintf(stderr,"Not found %s\n", key);
+        fprintf(stderr,"Not found %s\n",(gchar *)key);
         }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

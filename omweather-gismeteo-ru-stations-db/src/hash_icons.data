@@ -37,6 +37,9 @@
     g_hash_table_insert(hash, "d.sun.c3.r1.png", "39");
     g_hash_table_insert(hash, "d.sun.c4.png", "26");
     g_hash_table_insert(hash, "d.sun.c4.r1.png", "11");
+    g_hash_table_insert(hash, "d.sun.c4.r2.png", "11");
+    g_hash_table_insert(hash, "d.sun.c4.r3.png", "12");
+    g_hash_table_insert(hash, "d.sun.c4.r4.png", "12");
     g_hash_table_insert(hash, "d.sun.c4.s1.png", "13");
     g_hash_table_insert(hash, "d.sun.c4.s2.png", "14");
     g_hash_table_insert(hash, "n.moon.png", "31");

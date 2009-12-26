@@ -653,8 +653,11 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                     g_hash_table_insert(current_weather, "moon_phase", 
                                                                                             g_strdup("First Quarter"));
                                                 }
+                                                if (atof((char *)temp_xml_string)>=62.5 && atof((char *)temp_xml_string)<75){
+                                                    g_hash_table_insert(current_weather, "moon_phase", 
+                                                                                            g_strdup("Waxing Gibbous"));
+                                                }
 
- 
                                             }
 
                                         }

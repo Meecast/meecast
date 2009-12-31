@@ -399,7 +399,6 @@ fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day, GHashTable *has
                               break;
                     }
  
-
                     /* find begin of wind speed */
                     for (i = i ; (i<(strlen(buffer)) && i < buff_size); i++ ){
                         if (buffer[i] == ',')
@@ -657,6 +656,12 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                     g_hash_table_insert(current_weather, "moon_phase", 
                                                                                             g_strdup("Waxing Gibbous"));
                                                 }
+                                                if (atof((char *)temp_xml_string)>=87.5 && atof((char *)temp_xml_string)<=100){
+                                                    g_hash_table_insert(current_weather, "moon_phase", 
+                                                                                            g_strdup("Full"));
+                                                }
+
+
 
                                             }
 

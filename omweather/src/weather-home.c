@@ -119,7 +119,6 @@ top_widget_expose(GtkWidget *widget, GdkEventExpose *event, GtkWidget *window){
     show_hildon_animation(app->clutter_objects_in_main_form, app->main_view);
 #else
     show_hildon_animation(app->clutter_objects_in_main_form, app->home_window);
-    fprintf(stderr,"111First string %s\n",hd_home_plugin_item_get_applet_id (app->home_window));
 #endif
 #endif
     gtk_widget_show_all(widget);

@@ -292,7 +292,7 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                 }
                             }
                             g_hash_table_insert(icon_animation_hash, g_strdup(number_of_step), list_of_event);
-                            fprintf(stderr, "Step %s %p\n", number_of_step, list_of_event);
+                            /* fprintf(stderr, "Step %s %p\n", number_of_step, list_of_event); */
                             xmlFree(number_of_step);
                         }
                     }

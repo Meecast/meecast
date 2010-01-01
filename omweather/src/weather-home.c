@@ -944,6 +944,13 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     #ifdef USE_CONIC
        app->connection = NULL;
     #endif
+#ifdef HILDONANIMATION
+    app->animation_hash = NULL;
+    app->clutter_objects_in_main_form = NULL;
+    app->clutter_objects_in_popup_form = NULL;
+#endif
+
+
 #ifdef CLUTTER
     /* Init clutter */
     if (gtk_clutter_init (NULL, NULL) != CLUTTER_INIT_SUCCESS)
@@ -1006,11 +1013,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #if !defined OS2008 ||  defined (APPLICATION)
     redraw_home_window(TRUE);
 #endif
-#ifdef HILDONANIMATION
-    app->animation_hash = NULL;
-    app->clutter_objects_in_main_form = NULL;
-    app->clutter_objects_in_popup_form = NULL;
-#endif
+ 
 #if defined(OS2008) || defined(OS2009) || defined(NONMAEMO)
 #if defined OS2008 && !defined (APPLICATION)
     applet->queueRefresh = TRUE;

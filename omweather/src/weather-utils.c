@@ -570,7 +570,8 @@ update_icons_set_base(const char *icon_set_name){
 #ifdef HILDONANIMATION 
     /* Fix me Free memory for previous hash */
     if (app->animation_hash)
-      app->animation_hash = clear_animation_hash(app->animation_hash);
+        app->animation_hash = clear_animation_hash(app->animation_hash);
+
     if (app->config->animation){
         snprintf(buffer,sizeof(buffer) - 1, "%sanimation.xml", app->config->icons_set_base);
         app->animation_hash = parse_animation_file(buffer,"UTF-8");

@@ -489,6 +489,16 @@ gint read_config(AppletConfig * config) {
         fill_user_alerts_list(stlist, &app->user_alerts_list);
         g_slist_free(stlist);
     }
+    /* Get Enable Animation flag. Default is TRUE. */
+    value =
+        gconf_client_get(gconf_client, GCONF_KEY_ENABLE_ANIMATION,
+                         NULL);
+    if (value) {
+        config->animation = gconf_value_get_bool(value);
+        gconf_value_free(value);
+    } else
+        config->animation = TRUE;
+
     /* Get icon set name */
     config->icon_set = gconf_client_get_string(gconf_client,
                                                GCONF_KEY_WEATHER_ICON_SET,
@@ -583,15 +593,6 @@ gint read_config(AppletConfig * config) {
     } else
         config->show_weather_for_two_hours = TRUE;
 
-    /* Get Enable Animation flag. Default is TRUE. */
-    value =
-        gconf_client_get(gconf_client, GCONF_KEY_ENABLE_ANIMATION,
-                         NULL);
-    if (value) {
-        config->animation = gconf_value_get_bool(value);
-        gconf_value_free(value);
-    } else
-        config->animation = TRUE;
 
     /* Hack This parameter is default for SIMPLE mode */
     if (config->mode == SIMPLE_MODE)

@@ -20,6 +20,17 @@
   },
 
   {
+    "id"            : "fade-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 0,
+    "opacity-end"   : 255,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
     "id"          : "darkcloud-behaviour",
     "type"        : "ClutterBehaviourPath",
      "knots" : [[-128, 0], [-100, 0], [8, 0], [4, 0], [1, 0], [2, 0]],
@@ -147,6 +158,7 @@
         "filename" : "dark_cloud.png",
         "visible" : true,
         "behaviours" : [
+	    "fade-behaviour",
             "darkcloud-behaviour"
         ]
       },

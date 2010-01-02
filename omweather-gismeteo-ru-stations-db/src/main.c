@@ -35,7 +35,6 @@
 #define MORNING 3
 #define EVENING 4
 /*******************************************************************************/
-/*******************************************************************************/
 gint
 get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
                                                     gboolean get_detail_data){
@@ -138,7 +137,7 @@ get_data_from_russia_data(gchar *temp_string){
     temp_point = strchr(temp_point + 1,' ');
     snprintf(temp_buffer, strlen(temp_point) - strlen(strchr(temp_point + 1,' ')),"%s", temp_point + 1);
     if (!strcoll(temp_buffer, "Января"))
-        strcat(buffer," Jun");
+        strcat(buffer," Jan");
     if (!strcoll(temp_buffer, "Февраля"))
         strcat(buffer," Feb");
     if (!strcoll(temp_buffer, "Марта"))
@@ -465,7 +464,7 @@ get_date_for_current_weather(gchar *temp_string){
     snprintf(buffer, strlen(temp_string) - strlen(temp_point+1),"%s", temp_string);
     snprintf(temp_buffer, strlen(temp_point) - strlen(strchr(temp_point + 1,' ')),"%s", temp_point+1);
     if (!strcoll(temp_buffer, "Янв"))
-        strcat(buffer," Jun");
+        strcat(buffer," Jan");
     if (!strcoll(temp_buffer, "Фев"))
         strcat(buffer," Feb");
     if (!strcoll(temp_buffer, "Мар"))
@@ -521,7 +520,7 @@ get_date_for_hour_weather(gchar *temp_string){
     temp_point = strrchr(temp_string,'-');
     snprintf(buff, strlen(temp_point) - strlen(strchr(temp_point + 1,' ')),"%s", temp_point+1);
     if (!strcoll(temp_buffer, "01"))
-        strcat(buff," Jun");
+        strcat(buff," Jan");
     if (!strcoll(temp_buffer, "02"))
         strcat(buff," Feb");
     if (!strcoll(temp_buffer, "03")) 

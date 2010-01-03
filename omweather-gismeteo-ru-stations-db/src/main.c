@@ -48,6 +48,7 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    
     if(!station_id_with_path || !data)
         return -1;
 /* check for new file, if it exist, than rename it */
@@ -174,6 +175,7 @@ choose_icon(GHashTable *hash_for_icons, gchar *image1, gchar *image2)
     gchar *result = NULL;
     gchar *tmp_result = NULL;
     gchar *source = NULL;
+
     if (!image1 || !image2)
         return g_strdup("49");
     source = g_strdup_printf("%s %s", image1, image2);
@@ -621,19 +623,35 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                         child_node9 = child_node9->next;
                                         child_node9 = child_node9->children;
                                         child_node9 = child_node9->next;
-                                        while(xmlStrcmp(child_node9->name, (const xmlChar *)"ul")){
-                                            child_node9 = child_node9->next;
-                                            child_node9 = child_node9->next;
-                                        }
-                                        child_node9 = child_node9->children;
-                                        child_node10 = child_node9->children;
-                                        child_node10 = child_node10->next;
-                                        while(xmlStrcmp(child_node10->name, (const xmlChar *)"li"))
-                                            child_node10 = child_node10->children;
                                         
-                                       child_node11 = child_node9->next;
-                                        child_node11 = child_node11->next;
-                                        if(!xmlStrcmp(child_node11->name, (const xmlChar *)"li")){
+                                        while(child_node9 && child_node9->name &&
+                                              xmlStrcmp(child_node9->name, (const xmlChar *)"ul")){
+                                            if (child_node9)
+                                                child_node9 = child_node9->next;
+                                            else
+                                                break;
+                                            if (child_node9)
+                                                child_node9 = child_node9->next;
+                                            else
+                                                break;
+                                        }
+                                        if (child_node9)
+                                            child_node9 = child_node9->children;
+                                        if (child_node9)
+                                            child_node9 = child_node9->children;
+                                        if (child_node9)
+                                            child_node10 = child_node9->children;
+                                        if (child_node10)
+                                            child_node10 = child_node10->next;
+                                        while(child_node10 && child_node10->name && 
+                                              xmlStrcmp(child_node10->name, (const xmlChar *)"li"))
+                                            child_node10 = child_node10->children;
+                                        if (child_node9)
+                                            child_node11 = child_node9->next;
+                                        if (child_node11)
+                                            child_node11 = child_node11->next;
+                                        if(child_node11 && child_node11->name &&
+                                           !xmlStrcmp(child_node11->name, (const xmlChar *)"li")){
                                             child_node11 = child_node11->children;
                                             child_node11 = child_node11->next;
                                             child_node11 = child_node11->children;
@@ -750,7 +768,7 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                 xmlFree(temp_xml_string); 
                                                 temp_xml_string = xmlNodeGetContent(child_node6);
                                                 g_hash_table_insert(current_weather, "pressure", g_strdup((char*)temp_xml_string));
-                                                /* fprintf(stderr, "\n Pressure %s\n", temp_xml_string); */
+                                                 /* fprintf(stderr, "\n Pressure %s\n", temp_xml_string); */
                                              }
                                              /* Wind */
                                              if(!xmlStrcmp(temp_xml_string, (const xmlChar*)"c2")){
@@ -810,11 +828,15 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                         /* fprintf(stderr, "\n Current day %s\n", current_day); */
                                         setlocale(LC_TIME, "");
                                         g_hash_table_insert(current_weather, "last_update", g_strdup(buffer));
-
-                                        if(!xmlStrcmp(child_node10->name, (const xmlChar *)"li")){
-                                            child_node11 = child_node10->children;
-                                            child_node11 = child_node11->next;
-                                            child_node11 = child_node11->next;
+                                        if(child_node10 && child_node10->name &&
+                                           !xmlStrcmp(child_node10->name, (const xmlChar *)"li")){
+                                            if (child_node10){
+                                                child_node11 = child_node10->children;
+                                                if (child_node11)
+                                                    child_node11 = child_node11->next;
+                                                if (child_node11)
+                                                    child_node11 = child_node11->next;
+                                            }
                                             xmlFree(temp_xml_string);
                                             temp_xml_string = xmlNodeGetContent(child_node11);
                                             strptime((char*)temp_xml_string,"%H:%M", &tmp_tm);
@@ -822,11 +844,16 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                             strftime(temp_buffer, sizeof(temp_buffer) - 1, "%I:%M %p", &tmp_tm);
                                             setlocale(LC_TIME, "");
 
-                                            child_node11 = child_node10->next;
-                                            child_node11 = child_node11->next;
-                                            child_node11 = child_node11->children;
-                                            child_node11 = child_node11->next;
-                                            child_node11 = child_node11->next;
+                                            if(child_node10)
+                                                child_node11 = child_node10->next;
+                                            if(child_node11)
+                                                child_node11 = child_node11->next;
+                                            if(child_node11)
+                                                child_node11 = child_node11->children;
+                                            if(child_node11)
+                                                child_node11 = child_node11->next;
+                                            if(child_node11)
+                                                child_node11 = child_node11->next;
                                             xmlFree(temp_xml_string);
                                             temp_xml_string = xmlNodeGetContent(child_node11);
                                             strptime((char*)temp_xml_string,"%H:%M", &tmp_tm);
@@ -1216,7 +1243,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                                xmlFree(temp_xml_string);
                                                                                temp_xml_string = xmlNodeGetContent(child_node11);
                                                                                g_hash_table_insert(detail, "hour_title", g_strdup(hash_gismeteo_table_find(hash_for_translate, (char*)temp_xml_string, FALSE)));
-                                                                               /* fprintf(stderr, "\nSumma %s\n", temp_xml_string); */
+                                                                               /*  fprintf(stderr, "\nSumma %s\n", temp_xml_string); */
                                                                            }
                                                                            if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"c3")){
                                                                                xmlFree(temp_xml_string);

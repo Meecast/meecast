@@ -171,17 +171,20 @@ get_data_from_russia_data(gchar *temp_string){
 gchar*
 choose_icon(GHashTable *hash_for_icons, gchar *image1, gchar *image2)
 {
-    gchar *result;
-    gchar *source;
+    gchar *result = NULL;
+    gchar *tmp_result = NULL;
+    gchar *source = NULL;
     if (!image1 || !image2)
         return g_strdup("49");
     source = g_strdup_printf("%s %s", image1, image2);
-    result = hash_gismeteo_table_find(hash_for_icons, source, FALSE);
-    g_free (source);
-    if (strlen(result) == 2 || strlen(result) == 1)
-       return g_strdup(result);
-    else{
-       fprintf(stderr,"Unknown strings %s %s",image1, image2);
+    tmp_result = hash_gismeteo_table_find(hash_for_icons, source, FALSE);
+    if (tmp_result && (strlen(tmp_result) == 2 || strlen(tmp_result) == 1)){
+       result = g_strdup(tmp_result);
+       g_free(source);
+       return result;
+    }else{
+       fprintf(stderr,"Unknown strings %s %s\n", image1, image2);
+       g_free(source);
        return g_strdup("49");
     }
 }
@@ -191,16 +194,20 @@ choose_hour_weather_icon(GHashTable *hash_for_icons, gchar *image)
 {
     gchar *result;
     gchar *source;
+    gchar *tmp_result = NULL;
+
     if(!image)
         return g_strdup("49");
     source = g_strdup_printf("%s", image);
-    result = hash_gismeteo_table_find(hash_for_icons, source, FALSE);
-    g_free (source);
-    if (strlen(result) == 2 || strlen(result) == 1)
-        return g_strdup(result);
-    else{
-        fprintf(stderr,"Unknown string %s",image);
-        return g_strdup("49");
+    tmp_result = hash_gismeteo_table_find(hash_for_icons, source, FALSE);
+    if (tmp_result && (strlen(tmp_result) == 2 || strlen(tmp_result) == 1)){
+       result = g_strdup(tmp_result);
+       g_free(source);
+       return result;
+    }else{
+       fprintf(stderr,"Unknown strings %s\n", image);
+       g_free(source);
+       return g_strdup("49");
     }
 }
 /*******************************************************************************/

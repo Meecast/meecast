@@ -53,8 +53,11 @@ GHashTable *hash_icons_gismeteo_table_create(void) {
 }
 
 /*******************************************************************************/
-gpointer hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean search_short_name) {
-    gpointer orig_key, search_text, value, result;
+gpointer 
+hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean search_short_name) {
+    gpointer orig_key, search_text, 
+             value = NULL, 
+             result = NULL;
     gchar buffer[512];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -71,7 +74,7 @@ gpointer hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean searc
     else{
         result = key;
         fprintf(stderr,"Not found %s\n",(gchar *)key);
-        }
+    }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

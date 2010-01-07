@@ -895,13 +895,29 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
                     (char*)hash_table_find("N/A", FALSE));
         }
         strcat(buffer, _("Wind: "));
-        if(g_hash_table_lookup(day, "day_wind_title") && g_hash_table_lookup(day, "day_wind_speed")){
-            sprintf(buffer + strlen(buffer), "%s\n%s: %.2f %s",
-                    (char*)hash_table_find(g_hash_table_lookup(day, "day_wind_title"), FALSE),
-                    _("Speed"),
-                    convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed"))),
-                    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
-        }
+        if(g_hash_table_lookup(day, "day_wind_title") && g_hash_table_lookup(day, "day_wind_speed"))
+            switch(app->config->wind_units){
+                case BEAUFORT_SCALE:
+                    sprintf(buffer + strlen(buffer), "%s\n%s: %i",
+                        (char*)hash_table_find(g_hash_table_lookup(day, "day_wind_title"), FALSE),
+                        _("Speed"),
+                        (int)convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed"))));
+                break;
+                case KILOMETERS_H:
+                    sprintf(buffer + strlen(buffer), "%s\n%s: %i %s",
+                            (char*)hash_table_find(g_hash_table_lookup(day, "day_wind_title"), FALSE),
+                            _("Speed"),
+                            (int)convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed"))),
+                            (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                break;
+                default:
+                    sprintf(buffer + strlen(buffer), "%s\n%s: %.2f %s",
+                            (char*)hash_table_find(g_hash_table_lookup(day, "day_wind_title"), FALSE),
+                            _("Speed"),
+                            convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed"))),
+                            (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                break;
+            }
         /* sunrise */
         if(g_hash_table_lookup(day, "day_sunrise")){
             *temp_buffer = 0;
@@ -987,13 +1003,29 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
                 (char*)hash_table_find("N/A", FALSE));
     }
     strcat(buffer, _("Wind: "));
-    if(g_hash_table_lookup(day, "night_wind_title") && g_hash_table_lookup(day, "night_wind_speed")){
-        sprintf(buffer + strlen(buffer), "%s\n%s: %.2f %s",
-                (char*)hash_table_find(g_hash_table_lookup(day, "night_wind_title"), FALSE),
-                _("Speed"),
-                convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))),
-                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
-    }
+    if(g_hash_table_lookup(day, "night_wind_title") && g_hash_table_lookup(day, "night_wind_speed"))
+        switch(app->config->wind_units){
+            case BEAUFORT_SCALE:
+                sprintf(buffer + strlen(buffer), "%s\n%s: %i",
+                        (char*)hash_table_find(g_hash_table_lookup(day, "night_wind_title"), FALSE),
+                        _("Speed"),
+                        (int)convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))));
+            break;
+            case KILOMETERS_H:
+                sprintf(buffer + strlen(buffer), "%s\n%s: %i %s",
+                        (char*)hash_table_find(g_hash_table_lookup(day, "night_wind_title"), FALSE),
+                        _("Speed"),
+                        (int)convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))),
+                        (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+            break;
+            default:
+                sprintf(buffer + strlen(buffer), "%s\n%s: %.2f %s",
+                        (char*)hash_table_find(g_hash_table_lookup(day, "night_wind_title"), FALSE),
+                        _("Speed"),
+                        convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))),
+                        (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+            break;
+       }
     /* sunset */
     if(g_hash_table_lookup(day, "day_sunset")){
         *temp_buffer = 0;
@@ -1145,9 +1177,22 @@ create_current_tab(GHashTable *current){
         if (g_hash_table_lookup(current, "wind_speed")){
             if( strcmp(g_hash_table_lookup(current, "wind_speed"), "N/A") )
                 sprintf(buffer + strlen(buffer), "%s", _("Speed:"));
-             sprintf(buffer + strlen(buffer), "  %.2f %s\n",
-                    convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
-                    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                switch(app->config->wind_units){
+                    case BEAUFORT_SCALE:
+                        sprintf(buffer + strlen(buffer), "  %i\n",
+                                (int)convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))));
+                    break;
+                    case KILOMETERS_H:
+                        sprintf(buffer + strlen(buffer), "  %i %s\n",
+                                (int)convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
+                                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                    break;
+                    default:
+                        sprintf(buffer + strlen(buffer), "  %.2f %s\n",
+                                convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
+                                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                    break;
+                }
         }
     }
 /* gust */
@@ -1263,12 +1308,26 @@ GtkWidget* create_hour_tab(void){
                         (char*)hash_table_find(g_hash_table_lookup(hour_weather, "hour_wind_direction"), TRUE));
             if( strcmp(g_hash_table_lookup(hour_weather, "hour_wind_speed"), "N/A") )
                 sprintf(buffer + strlen(buffer), "%s", _("Speed:"));
-            sprintf(buffer + strlen(buffer), "  %.2f %s\n",
-                convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(hour_weather, "hour_wind_speed"))),
-                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                switch(app->config->wind_units){
+                    case BEAUFORT_SCALE:
+                        sprintf(buffer + strlen(buffer), "  %i\n",
+                                (int)convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(hour_weather, "hour_wind_speed"))));
+                    break;
+                    case KILOMETERS_H:
+                        sprintf(buffer + strlen(buffer), "  %i %s\n",
+                                (int)convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(hour_weather, "hour_wind_speed"))),
+                                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                    break;
+                    default:
+                        sprintf(buffer + strlen(buffer), "  %.2f %s\n",
+                                convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(hour_weather, "hour_wind_speed"))),
+                                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                    break;
+                }
         }
    /* gust */
-        if( strcmp(g_hash_table_lookup(hour_weather, "hour_wind_gust"), "N/A") ){
+        if( g_hash_table_lookup(hour_weather, "hour_wind_gust")&&
+            strcmp(g_hash_table_lookup(hour_weather, "hour_wind_gust"), "N/A") ){
             sprintf(buffer + strlen(buffer), "%s", _("Gust:"));
             sprintf(buffer + strlen(buffer), "  %.2f %s\n",
                  convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(hour_weather, "hour_wind_gust"))),
@@ -1381,10 +1440,10 @@ create_window_header(const gchar *station_name, GtkWidget *popup_window){
     label = gtk_label_new(station_name);
     set_font(label, NULL, 28);
 /* previos button */
-    previos_button = create_button_with_image(NULL, "qgn_list_hw_button_left",
+    previos_button = create_button_with_image(BUTTON_ICONS, "left_arrow",
                                                 26, FALSE, FALSE);
 /* next button */
-    next_button = create_button_with_image(NULL, "qgn_list_hw_button_right",
+    next_button = create_button_with_image(BUTTON_ICONS, "right_arrow",
                                                 26, FALSE, FALSE);
     if(previos_button){
         gtk_box_pack_start(GTK_BOX(main_widget), previos_button, FALSE, FALSE, 10);

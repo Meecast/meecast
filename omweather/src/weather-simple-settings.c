@@ -775,6 +775,7 @@ units_save(GtkWidget *window){
            *meters_s = NULL,
            *kilometers_h = NULL,
            *miles_h = NULL,
+           *beaufort = NULL,
            *pressure_mb = NULL,
            *pressure_inHg = NULL,
            *pressure_mmHg = NULL;
@@ -814,15 +815,20 @@ units_save(GtkWidget *window){
     meters_s = lookup_widget(window, "meters_s_button");
     kilometers_h = lookup_widget(window, "kilometers_h_button");
     miles_h = lookup_widget(window, "miles_h_button");
+    beaufort = lookup_widget(window, "beaufort_scale_button");
 
-    if(meters_s && kilometers_h && miles_h){
+    if(meters_s && kilometers_h && miles_h && beaufort){
         if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(meters_s)))
             app->config->wind_units = METERS_S;
         else{
             if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(kilometers_h)))
                 app->config->wind_units = KILOMETERS_H;
-            else
-                app->config->wind_units = MILES_H;
+            else{
+                if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(miles_h)))
+                    app->config->wind_units = MILES_H;
+                else
+                    app->config->wind_units = BEAUFORT_SCALE;
+            }
         }
     }
 
@@ -866,6 +872,7 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
                 *meters_s_button = NULL,
                 *kilometers_h_button = NULL,
                 *miles_h_button = NULL,
+                *beaufort_scale_button = NULL,
                 *pressure_mb_button = NULL,
                 *pressure_inHg_button = NULL,
                 *pressure_mmHg_button = NULL,
@@ -1043,13 +1050,26 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(miles_h_button), group_speed);
     gtk_box_pack_start (GTK_BOX (hbox_speed), miles_h_button, TRUE, TRUE, 0);
 
+    beaufort_scale_button = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(beaufort_scale_button), gtk_label_new(_("Beauf.")));
+    gtk_widget_set_size_request(beaufort_scale_button, 58, 25);
+    GLADE_HOOKUP_OBJECT(window, beaufort_scale_button, "beaufort_scale_button");
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(beaufort_scale_button), FALSE);
+    group_speed = gtk_radio_button_get_group(GTK_RADIO_BUTTON(miles_h_button));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(beaufort_scale_button), group_speed);
+    gtk_box_pack_start(GTK_BOX (hbox_speed), beaufort_scale_button, TRUE, TRUE, 0);
+
     if(app->config->wind_units == METERS_S)
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(meters_s_button), TRUE);
     else{
         if(app->config->wind_units == KILOMETERS_H)
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(kilometers_h_button), TRUE);
-        else
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(miles_h_button), TRUE);
+        else{
+            if(app->config->wind_units == MILES_H)
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(miles_h_button), TRUE);
+            else
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(beaufort_scale_button), TRUE);
+        }
     }
 
     gtk_table_attach((GtkTable*)main_table, hbox_speed,
@@ -2087,9 +2107,16 @@ create_and_fill_units_box(GtkWidget *main_table){
             g_free(temp_string);
         }
         else{
-            temp_string = units_string;
-            units_string = g_strjoin(", ", temp_string, _("mi/h"), NULL);
-            g_free(temp_string);
+            if(app->config->wind_units == MILES_H){
+                temp_string = units_string;
+                units_string = g_strjoin(", ", temp_string, _("mi/h"), NULL);
+                g_free(temp_string);
+            }
+            else{
+                temp_string = units_string;
+                units_string = g_strjoin(", ", temp_string, _("Beaufort scale"), NULL);
+                g_free(temp_string);
+            }
         }
     }
 

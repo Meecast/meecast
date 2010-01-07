@@ -16,7 +16,7 @@ AC_PROG_RANLIB
 AC_PROG_CC
 AC_PROG_LIBTOOL
 #Problem in Fremantle
-#AC_PROG_INTLTOOL([0.23])
+AC_PROG_INTLTOOL([0.23])
 dnl Checks for libraries.
 AC_CHECK_LIB([sqlite3], [sqlite3Init], [LIBS="-lsqlite3 $LIBS"])
 AC_CHECK_LIB([dl], [dlopen], [LIBS="-ldl $LIBS"])
@@ -231,6 +231,7 @@ if test "$hildondesktop1" != "yes"; then
         AC_SUBST(LIBOSSOHELP_CFLAGS)
 fi
 
+
 AC_ARG_ENABLE(clutter,
       [  --enable-clutter   Enable GTK-clutter],
       [case "${enableval}" in
@@ -270,35 +271,40 @@ AM_CONDITIONAL(NONMAEMO, test "x$nonmaemo" == "xtrue")
 AM_CONDITIONAL(CLUTTER, test "x$clutter" == "xtrue")
 AM_CONDITIONAL(OS2009, test "$hildondesktop1" == "yes")
 
-dnl Help file install directory
-helpfile_enusdir=$datadir/osso-help/en_US
-AC_SUBST(helpfile_enusdir)
-helpfile_engbdir=$datadir/osso-help/en_GB
-AC_SUBST(helpfile_engbdir)
-helpfile_rurudir=$datadir/osso-help/ru_RU
-AC_SUBST(helpfile_rurudir)
-helpfile_fifidir=$datadir/osso-help/fi_FI
-AC_SUBST(helpfile_fifidir)
-helpfile_frfrdir=$datadir/osso-help/fr_FR
-AC_SUBST(helpfile_frfrdir)
-helpfile_ititdir=$datadir/osso-help/it_IT
-AC_SUBST(helpfile_ititdir)
-helpfile_dededir=$datadir/osso-help/de_DE
-AC_SUBST(helpfile_dededir)
-helpfile_esesdir=$datadir/osso-help/es_ES
-AC_SUBST(helpfile_esesdir)
-helpfile_esmxdir=$datadir/osso-help/es_MX
-AC_SUBST(helpfile_esmxdir)
-helpfile_plplxdir=$datadir/osso-help/pl_PL
-AC_SUBST(helpfile_plpldir)
-
+if test "$hildondesktop1" != "yes"; then
+	dnl Help file install directory
+	helpfile_enusdir=$datadir/osso-help/en_US
+	AC_SUBST(helpfile_enusdir)
+	helpfile_engbdir=$datadir/osso-help/en_GB
+	AC_SUBST(helpfile_engbdir)
+	helpfile_rurudir=$datadir/osso-help/ru_RU
+	AC_SUBST(helpfile_rurudir)
+	helpfile_fifidir=$datadir/osso-help/fi_FI
+	AC_SUBST(helpfile_fifidir)
+	helpfile_frfrdir=$datadir/osso-help/fr_FR
+	AC_SUBST(helpfile_frfrdir)
+	helpfile_ititdir=$datadir/osso-help/it_IT
+	AC_SUBST(helpfile_ititdir)
+	helpfile_dededir=$datadir/osso-help/de_DE
+	AC_SUBST(helpfile_dededir)
+	helpfile_esesdir=$datadir/osso-help/es_ES
+	AC_SUBST(helpfile_esesdir)
+	helpfile_esmxdir=$datadir/osso-help/es_MX
+	AC_SUBST(helpfile_esmxdir)
+	helpfile_plplxdir=$datadir/osso-help/pl_PL
+	AC_SUBST(helpfile_plpldir)
+fi
 
 dnl Config files
-AC_CONFIG_FILES([Makefile
+if test "$hildondesktop1" == "yes"; then
+	AC_CONFIG_FILES([Makefile
 		src/Makefile
 		po/Makefile.in
-		data/help/Makefile
 		data/Makefile])
+else
+	AC_CONFIG_FILES([data/help/Makefile
+		])
+fi
 dnl Produce output files
 AC_OUTPUT
 

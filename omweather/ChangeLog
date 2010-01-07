@@ -1,3 +1,8 @@
+0.24.11
+
+  * Fixed bug #5592 "Add Beaufort scale for wind speed"
+  * Fixed bug #6339 "Decimal points in wind speed values are always "00" for kilometers per hour"
+
 0.24.6
 
   * Fixed problem with GPS for Fremantle
@@ -65,6 +70,17 @@
 
 0.23
   * New design
+
+0.22.7
+  * Fixed problem with updating data for more than 5 stations
+  * Fixed problem with buttons in popup window
+
+0.22.6
+  * Fixed problem with hours data from weather.com
+  * Fixed problem with autofill field of region
+
+0.22.5
+  * Fixed problem with weather.com
 
 0.22.4
   * Fixed small memory leaks

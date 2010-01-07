@@ -58,13 +58,41 @@ float convert_wind_units(int to, float value) {
     default:
     case METERS_S:
         result *= 10.0f / 36.0f;
-        break;
+    break;
     case KILOMETERS_H:
         result *= 1.0f;
-        break;
+    break;
     case MILES_H:
         result /= 1.609344f;
-        break;
+    break;
+    case BEAUFORT_SCALE:
+        if(value < 1)
+            return 0.0f;
+        if(value >= 1.1f && value <= 5.5f)
+            return 1.0f; 
+        if(value >= 5.6f && value <= 11.0f)
+            return 2.0f;
+        if(value >= 12.0f && value <= 19.0f)
+            return 3.0f;
+        if(value >= 20.0f && value <= 28.0f)
+            return 4.0f;
+        if(value >= 29.0f && value <= 38.0f)
+            return 5.0f;
+        if(value >= 39.0f && value <= 49.0f)
+            return 6.0f;
+        if(value >= 50.0f && value <= 61.0f)
+            return 7.0f;
+        if(value >= 62.0f && value <= 74.0f)
+            return 8.0f;
+        if(value >= 75.0f && value <= 88.0f)
+            return 9.0f;
+        if(value >= 89.0f && value <= 102.0f)
+            return 10.0f;
+        if(value >= 103.0f && value <= 117.0f)
+            return 11.0f;
+        if(value >= 118.0f)
+            return 12.0f;
+    break;
     }
     return result;
 }

@@ -47,13 +47,11 @@ jump_panarea(gpointer user_data){
 /*******************************************************************************/
 GtkWidget*
 create_mainbox_for_forecast_window(GtkWidget* window, gpointer user_data){
-
     GtkWidget       *view = NULL,
                     *main_vbox = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
     main_vbox = gtk_vbox_new(FALSE, 0);
     g_object_set_data(G_OBJECT(window), "main_vbox", (gpointer)main_vbox);
     g_object_set_data(G_OBJECT(window), "user_data", (gpointer)user_data);
@@ -393,9 +391,22 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                             (char*)hash_table_find(g_hash_table_lookup(day, "day_title"), FALSE));
             /* wind speed */
             if(g_hash_table_lookup(day, "day_wind_speed"))
-                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"%.2f %s ",
-                            convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed"))),
-                            (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                switch(app->config->wind_units){
+                    case BEAUFORT_SCALE:
+                        snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"%i ",
+                                    (int)convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed"))));
+                    break;
+                    case KILOMETERS_H:
+                        snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"%i %s ",
+                                    (int)convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed"))),
+                                    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                    break;
+                    default:
+                        snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"%.2f %s ",
+                                    convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "day_wind_speed"))),
+                                    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                    break;
+                }
             /* wind direction */
             if(g_hash_table_lookup(day, "day_wind_title"))
                 snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "(%s)\n",
@@ -414,9 +425,23 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                             (char*)hash_table_find(g_hash_table_lookup(day, "night_title"), FALSE));
             /* wind speed */
             if(g_hash_table_lookup(day, "night_wind_speed"))
-                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"%.2f %s ",
-                            convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))),
-                            (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                switch(app->config->wind_units){
+                    case BEAUFORT_SCALE:
+                        snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"%i ",
+                                    (int)convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))));
+                    break;
+                    case KILOMETERS_H:
+                    break;
+                        snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"%i %s ",
+                                    (int)convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))),
+                                    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+
+                    default:
+                        snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"%.2f %s ",
+                                    convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(day, "night_wind_speed"))),
+                                    (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                    break;
+                }
             /* wind direction */
             if(g_hash_table_lookup(day, "night_wind_title"))
                 snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "(%s)",
@@ -778,12 +803,25 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
 
                 /* wind speed */
                 if(g_hash_table_lookup(hour_weather, "hour_wind_speed"))
-                    snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,
-                        "%.2f %s ", convert_wind_units(app->config->wind_units, 
-                       atof(g_hash_table_lookup(hour_weather, "hour_wind_speed"))),
-                (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], 
-                                                                                    FALSE));
-
+                    switch(app->config->wind_units){
+                        case BEAUFORT_SCALE:
+                            snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,
+                                        "%i ", (int)convert_wind_units(app->config->wind_units, 
+                                                                   atof(g_hash_table_lookup(hour_weather, "hour_wind_speed"))));
+                        break;
+                        case KILOMETERS_H:
+                            snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,
+                                        "%i %s ", (int)convert_wind_units(app->config->wind_units, 
+                                       atof(g_hash_table_lookup(hour_weather, "hour_wind_speed"))),
+                                        (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                        break;
+                        default:
+                            snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,
+                                        "%.2f %s ", convert_wind_units(app->config->wind_units, 
+                                       atof(g_hash_table_lookup(hour_weather, "hour_wind_speed"))),
+                                        (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
+                        break;
+                    }
                 /* wind direction */
                 if(g_hash_table_lookup(hour_weather, "hour_wind_direction"))
                   snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"(%s)",

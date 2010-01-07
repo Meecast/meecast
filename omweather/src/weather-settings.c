@@ -1450,6 +1450,7 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 			*wind_meters = NULL,
 			*wind_kilometers = NULL,
 			*wind_miles = NULL,
+			*wind_beaufort = NULL,
 			*row = NULL,
 			*column = NULL,
 			*two_rows = NULL,
@@ -1638,15 +1639,19 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     wind_meters = lookup_widget(config_window, "wind_meters");
     wind_kilometers = lookup_widget(config_window, "wind_kilometers");
     wind_miles = lookup_widget(config_window, "wind_miles");
+    wind_beaufort = lookup_widget(config_window, "wind_beaufort");
     if (wind_meters && wind_kilometers && wind_miles) {
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wind_meters)))
             app->config->wind_units = METERS_S;
         else {
-            if (gtk_toggle_button_get_active
-                (GTK_TOGGLE_BUTTON(wind_kilometers)))
+            if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wind_kilometers)))
                 app->config->wind_units = KILOMETERS_H;
-            else
-                app->config->wind_units = MILES_H;
+            else{
+                if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(wind_miles)))
+                    app->config->wind_units = MILES_H;
+                else
+                    app->config->wind_units = BEAUFORT_SCALE;
+            }
         }
     }
 /* pressure */
@@ -2146,17 +2151,18 @@ rename_button_handler(GtkWidget * button, GdkEventButton * event,
 
 /*******************************************************************************/
 void
-check_buttons_changed_handler(GtkToggleButton * button,
-                              gpointer user_data) {
-    gchar *button_name = NULL, *iconset_name = NULL;
-    GtkWidget *config_window = NULL, *apply_button = NULL;
+check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
+    gchar   *button_name = NULL,
+            *iconset_name = NULL;
+    GtkWidget   *config_window = NULL,
+                *apply_button = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 
     config_window = GTK_WIDGET(user_data);
     apply_button = lookup_widget(config_window, "apply_button");
-    button_name = (gchar *) gtk_widget_get_name(GTK_WIDGET(button));
+    button_name = (gchar*)gtk_widget_get_name(GTK_WIDGET(button));
 /* layout */
     if (!strcmp(button_name, "one_row")) {
         if (gtk_toggle_button_get_active(button))
@@ -2201,12 +2207,10 @@ check_buttons_changed_handler(GtkToggleButton * button,
         goto check;
     }
     if (!strcmp(button_name, "preset_now_plus_three_v")) {
-        fprintf(stderr,"state %i\n",app->visuals_tab_current_state);
         if (gtk_toggle_button_get_active(button))
             app->visuals_tab_current_state |= STATE_PRESET_NOW_PLUS_THREE_V;
         else
             app->visuals_tab_current_state &= ~STATE_PRESET_NOW_PLUS_THREE_V;
-        fprintf(stderr,"state %i\n",app->visuals_tab_current_state);
         goto check;
     }
     if (!strcmp(button_name, "preset_now_plus_three_h")) {
@@ -2375,6 +2379,13 @@ check_buttons_changed_handler(GtkToggleButton * button,
             app->units_tab_current_state |= STATE_MILES_H;
         else
             app->units_tab_current_state &= ~STATE_MILES_H;
+        goto check;
+    }
+    if (!strcmp(button_name, "wind_beaufort")) {
+        if (gtk_toggle_button_get_active(button))
+            app->units_tab_current_state |= STATE_BEAUFORT_SCALE;
+        else
+            app->units_tab_current_state &= ~STATE_BEAUFORT_SCALE;
         goto check;
     }
 /* pressure */
@@ -3653,7 +3664,10 @@ GtkWidget *create_units_tab(GtkWidget * window) {
         *wind_meters = NULL,
         *wind_kilometers = NULL,
         *wind_miles = NULL,
-        *mb_pressure = NULL, *inch_pressure = NULL, *mm_pressure = NULL;
+        *wind_beaufort = NULL,
+        *mb_pressure = NULL,
+        *inch_pressure = NULL,
+        *mm_pressure = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -3784,8 +3798,7 @@ GtkWidget *create_units_tab(GtkWidget * window) {
                               wind_meters
                               =
                               gtk_radio_button_new_with_label(NULL,
-                                                              _
-                                                              ("m/s")),
+                                                              _("m/s")),
                               1, 2, 4, 5);
     wind_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(wind_meters));
     GLADE_HOOKUP_OBJECT(window, wind_meters, "wind_meters");
@@ -3818,8 +3831,21 @@ GtkWidget *create_units_tab(GtkWidget * window) {
     gtk_widget_set_name(wind_miles, "wind_miles");
     g_signal_connect(wind_miles, "toggled",
                      G_CALLBACK(check_buttons_changed_handler), window);
-
     gtk_button_set_focus_on_click(GTK_BUTTON(wind_miles), FALSE);
+
+    gtk_table_attach_defaults(GTK_TABLE(units_page),
+                              wind_beaufort
+                              =
+                              gtk_radio_button_new_with_label
+                              (gtk_radio_button_get_group
+                               (GTK_RADIO_BUTTON(wind_miles)),
+                               _("Beaufort scale")), 2, 3, 5, 6);
+    GLADE_HOOKUP_OBJECT(window, wind_beaufort, "wind_beaufort");
+    gtk_widget_set_name(wind_beaufort, "wind_beaufort");
+    g_signal_connect(wind_beaufort, "toggled",
+                     G_CALLBACK(check_buttons_changed_handler), window);
+    gtk_button_set_focus_on_click(GTK_BUTTON(wind_beaufort), FALSE);
+
     switch (app->config->wind_units) {
     default:
     case METERS_S:
@@ -3827,14 +3853,17 @@ GtkWidget *create_units_tab(GtkWidget * window) {
         app->units_tab_start_state |= STATE_METERS_S;
         break;
     case KILOMETERS_H:
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_kilometers),
-                                     TRUE);
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_kilometers), TRUE);
         app->units_tab_start_state |= STATE_KILOMETERS_H;
         break;
     case MILES_H:
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_miles), TRUE);
         app->units_tab_start_state |= STATE_MILES_H;
         break;
+    case BEAUFORT_SCALE:
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(wind_beaufort), TRUE);
+        app->units_tab_start_state |= STATE_BEAUFORT_SCALE;
+    break;
     }
     /* pressure */
     gtk_table_attach_defaults(GTK_TABLE(units_page),

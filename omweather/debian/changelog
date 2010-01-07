@@ -5,6 +5,25 @@ omweather (0.25) unstable; urgency=low
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 27 Sep 2009 11:20:10 +0200
 
+omweather (0.24.11) unstable; urgency=low
+
+  * Fixed bug #5592 "Add Beaufort scale for wind speed"
+  * Fixed bug #6339 "Decimal points in wind speed values are always "00" for kilometers per hour"
+  * Fixed problem with updating weather forecast for more than for 5 stations
+  * Fixed problem with killing omweather in application mode
+  * Fixed problem with help files for OS2008 (Diablo, Chinook)
+  * Removed file omweather.xml from root directory
+  * Fixed a small memeory leak
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 30 Nov 2009 19:29:11 +0200
+
+omweather (0.24.10) unstable; urgency=low
+
+  * Fixed problem with i18n
+  * Updated German, Finish, Spanish, Russian translations
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 28 Nov 2009 19:29:11 +0200
+ 
 omweather (0.24.9) unstable; urgency=low
 
   * Fixed problem with start by a browser after click in wearther source url
@@ -143,6 +162,25 @@ omweather (0.23) unstable; urgency=low
 
  -- Vlad Vasiliev <vlad@gas.by>  Wed, 05 Jun 2009 10:30:00 +0200
 
+omweather (0.22.7) unstable; urgency=low
+
+  * Fixed problem with updating data for more than 5 stations
+  * Fixed problem with buttons in popup window
+
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 11 Dec 2009 14:30:00 +0200
+
+omweather (0.22.6) unstable; urgency=low
+
+  * Fixed problem with hours data from weather.com
+  * Fixed problem with autofill field of region
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 09 Jul 2009 21:30:00 +0200
+
+omweather (0.22.5) unstable; urgency=low
+
+  * Fixed problem with weather.com
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 07 Jul 2009 21:30:00 +0200
 
 omweather (0.22.4) unstable; urgency=low
 

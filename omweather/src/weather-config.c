@@ -345,7 +345,6 @@ GtkListStore *create_time_update_list(void) {
 gint read_config(AppletConfig * config) {
     GConfValue *value = NULL;
     GConfClient *gconf_client = NULL;
-    int fd = -1;
     GSList *stlist = NULL;
     GError *gerror = NULL;
     GdkColor DEFAULT_FONT_COLOR = { 0, 0xFF00, 0xFF00, 0x0000 };
@@ -778,7 +777,7 @@ gint read_config(AppletConfig * config) {
     config->wind_units = gconf_client_get_int(gconf_client,
                                               GCONF_KEY_WEATHER_WIND_UNITS,
                                               &gerror);
-    if (gerror || config->wind_units > MILES_H) {
+    if (gerror || config->wind_units > BEAUFORT_SCALE) {
         config->wind_units = METERS_S;
         if(gerror){
             g_error_free(gerror);

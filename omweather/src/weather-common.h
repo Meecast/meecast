@@ -93,7 +93,7 @@
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 /*******************************************************************************/
-//#define _(String) dgettext (GETTEXT_PACKAGE, String)
+/*#define _(String) dgettext (GETTEXT_PACKAGE, String)*/
 #define GETTEXT_PACKAGE "omweather"
 #include <glib/gi18n-lib.h>
 
@@ -111,13 +111,13 @@
 
 #define START_FUNCTION        fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
-
 /*
+
 #define START_FUNCTION          FILE *f; f=fopen("/tmp/omw.log","a+"); fprintf(f,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);fflush(f);fclose(f);
 #define DEBUG_FUNCTION(string)  write_log(string)
 #define END_FUNCTION          FILE *fileend; fileend=fopen("/tmp/omw.log","a+"); fprintf(fileend,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);fflush(fileend);fclose(fileend);
-
 */
+
 #define OMWEATHER_ADD_STATION           1000
 #define OMWEATHER_SEARCH_STATION        1001
 #define OMWEATHER_CLOSE_STATION_WINDOW  1002
@@ -142,7 +142,7 @@ enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, PRESET_NOW, PRES
 enum { FIRST_BUTTON, OTHER_BUTTON };
 enum { RIGHT, LEFT, TOP, BOTTOM, NOTHING };
 enum { METERS, KILOMETERS, MILES, SEA_MILES };
-enum { METERS_S, KILOMETERS_H, MILES_H };
+enum { METERS_S, KILOMETERS_H, MILES_H, BEAUFORT_SCALE };
 enum { CELSIUS, FAHRENHEIT };
 enum { INVALID_VALUE = 0, TINY, SMALL, MEDIUM, LARGE, GIANT };
 enum { ICON, STATION_NAME };
@@ -212,7 +212,8 @@ enum { STATE_CELCIUS		= 1U,
        STATE_MILES_H		= 256U,
        STATE_PRESSURE_MB	= 512U,
        STATE_PRESSURE_IN	= 1024U,
-       STATE_PRESSURE_MM	= 2048U
+       STATE_PRESSURE_MM	= 2048U,
+       STATE_BEAUFORT_SCALE = 4096U
 };
 /* update tab */
 enum { STATE_AUTO_CONNECT		= 1U,

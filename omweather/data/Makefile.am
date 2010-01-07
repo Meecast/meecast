@@ -97,5 +97,7 @@ omweather.desktop: omweather.desktop.in
 	sed "s/__PACKAGE__/$(PACKAGE)/g" $@.tmp >$@ && \
 	$(RM) *.tmp
 
-
-SUBDIRS = help
+if OS2009
+else
+    SUBDIRS = help
+endif

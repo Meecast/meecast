@@ -223,9 +223,11 @@ CURL *weather_curl_init(CURL * my_curl_handle) {
        curl_easy_setopt(my_curl_handle, CURLOPT_TIMEOUT, 30);
     curl_easy_setopt(my_curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
     /* For disabled cache */
-    headers = curl_slist_append(headers, "Cache-Control: no-cache");
-    headers = curl_slist_append(headers, "Pragma: no-cache");
-    curl_easy_setopt(my_curl_handle, CURLOPT_HTTPHEADER, headers);
+    if (!headers){
+      headers = curl_slist_append(headers, "Cache-Control: no-cache");
+      headers = curl_slist_append(headers, "Pragma: no-cache");
+      curl_easy_setopt(my_curl_handle, CURLOPT_HTTPHEADER, headers);
+    }
 
     config_update_proxy();
     /* Set Proxy option */
@@ -366,10 +368,12 @@ download_html(gpointer data){
         }
         if(app->show_update_window)
             update_window = create_window_update();     /* Window with update information */
+/*
 #ifndef RELEASE
         fprintf(stderr, "\n>>>>>Url - %s, File - %s\n", url,
                 html_file.filename);
 #endif
+*/
         /* Init easy_curl */
         curl_handle = weather_curl_init(curl_handle);
         curl_easy_setopt(curl_handle, CURLOPT_URL, url);

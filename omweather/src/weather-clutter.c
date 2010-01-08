@@ -381,7 +381,7 @@ load_actor(SuperOH *oh, gchar *icon_name, gint width, gint height){
     gtk_container_add (GTK_CONTAINER (ha), oh->image);
     g_object_set_data(
                     G_OBJECT(oh->image), "hildon_animation_actor", ha);
-    hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), 0); 
+//    hildon_animation_actor_set_opacity(HILDON_ANIMATION_ACTOR (ha), 255); 
 }
 /*******************************************************************************/
 void
@@ -580,13 +580,26 @@ choose_icon_timeline(SuperOH *oh)
                             }
                             if (event && event->event_type == POSITION_ACTOR){
                                 event_p = event->event;
-                                if (event_p)
-                                    position_actor(oh, event->number, event_p->x, event_p->y, fullwindow);
+                                if (event_p){
+                                    /* HACK !!!! Fixed bug for Fremantle */
+                                    if (oh->first_icon_in_list){
+                                        if (oh->timeline < 12){
+                                            opacity_actor(oh, event->number, oh->timeline);
+                                        }else 
+                                            position_actor(oh, event->number, event_p->x, event_p->y, fullwindow);
+                                    }else
+                                        position_actor(oh, event->number, event_p->x, event_p->y, fullwindow);
+                                }
                             }
-                            if (event && event->event_type == OPACITY_ACTOR){
+                           if (event && event->event_type == OPACITY_ACTOR){
                                 event_o = event->event;
-                                if (event_o)
-                                    opacity_actor(oh, event->number, event_o->o);
+                                if (event_o){
+                                    /* HACK !!!! Fixed bug for Fremantle */
+                                    if (oh->first_icon_in_list && oh->timeline < 12){
+                                        opacity_actor(oh, event->number, oh->timeline);
+                                    }else
+                                        opacity_actor(oh, event->number, event_o->o);
+                                }
                             }
                             if (event && event->event_type == SCALE_ACTOR){
                                 event_s = event->event;
@@ -595,9 +608,14 @@ choose_icon_timeline(SuperOH *oh)
                             }
                             if (event && event->event_type == ROTATE_ACTOR){
                                 event_r = event->event;
-                                if (event_r)
-                                    rotation_actor(oh, event->number, event_r->d, event_r->a, 
+                                if (event_r){
+                                    /* HACK !!!! Fixed bug for Fremantle */
+                                    if (oh->first_icon_in_list && oh->timeline < 12){
+                                        opacity_actor(oh, event->number,oh->timeline);
+                                    }else
+                                        rotation_actor(oh, event->number, event_r->d, event_r->a, 
                                                        event_r->x, event_r->y, event_r->z);
+                                }
                             }
                             list_temp = g_slist_next(list_temp);
                         }
@@ -726,6 +744,8 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
     GtkWidget *ha;
     gint i;
     gint one_delay = 1500;
+    gboolean first_icon = TRUE;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -740,10 +760,12 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
             oh->window = window;
             oh->duration = 40;
             oh->delay = i * one_delay;
+            oh->first_icon_in_list = first_icon;
             choose_icon_timeline(oh);
             /* Start animation */
 //            oh->runtime = g_timeout_add (50, icon0_timeline, oh);
             i++;
+            first_icon = FALSE;
         }
         list_temp = g_slist_next(list_temp);
     }

@@ -358,6 +358,7 @@ typedef struct SuperOH{
   guint                 delay;
   gint                  icon_size;
   gchar                 *icon_name;
+  gboolean              first_icon_in_list;
 }SuperOH;
 #endif
 #ifdef HILDONANIMATION

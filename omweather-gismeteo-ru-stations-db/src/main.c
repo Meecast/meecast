@@ -593,9 +593,15 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
 
  if (root_node->children)
     cur_node = root_node->children;
- 
- cur_node = cur_node->next;
- cur_node = cur_node->children;
+
+ if (cur_node) 
+    cur_node = cur_node->next;
+ else
+    return;
+ if (cur_node) 
+    cur_node = cur_node->children;
+ else
+   return; 
 
  for(cur_node = cur_node; cur_node; cur_node = cur_node->next){
     if(!xmlStrcmp(cur_node->name, (const xmlChar *)"div")){
@@ -1117,9 +1123,14 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
 
     if (root_node->children)
          cur_node = root_node->children;
-
-    cur_node = cur_node->next;
-    cur_node = cur_node->children;
+    if (cur_node)
+        cur_node = cur_node->next;
+    else
+        return;
+    if (cur_node)
+        cur_node = cur_node->children;
+    else
+        return;    
     hours_data = g_hash_table_new(g_str_hash, g_str_equal);
     g_hash_table_insert(hours_data, "last_update", g_strdup(g_hash_table_lookup(g_hash_table_lookup(data, "current"),"last_update")));
     for(cur_node = cur_node; cur_node; cur_node = cur_node->next){

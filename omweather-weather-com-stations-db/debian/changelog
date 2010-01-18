@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (0.9.8) unstable; urgency=low
+
+  * Updated weather stations for Greece
+
+ --  Vlad Vasiliev <vlad@gas.by>  Mon, 18 Jan 2010 09:40:30 +0200
+
 omweather-weather-com-stations-db (0.9.7) unstable; urgency=low
 
   * Fixed bug #7176 "US GA picks country of Georgia and not state when picking cites"

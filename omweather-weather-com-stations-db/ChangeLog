@@ -1,3 +1,19 @@
+0.9.8
+  * Updated weather stations for Greece
+
+0.9.7
+  * Fixed bug #7176 "US GA picks country of Georgia and not state when picking cites"
+  * Fixed bug #6127 "Change "Virgin Islands, U.S" "
+  * Fixed bug #6126 "case corrections for the country list"
+
+0.9.6
+  * Fixed bug #5473 "Small icon for all OMweather packages in application manager"
+  * Fixed bug #5773 "Consider using /opt to store the icon and database files"
+  * Fixed bug #5995 "United States should be United States of America"
+
+0.9.5
+  * Added indexes to database
+
 0.9.4
   * Corrected stations for Italy
 

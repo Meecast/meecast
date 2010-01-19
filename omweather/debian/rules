@@ -32,7 +32,7 @@ configure-stamp:
 #	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes --enable-clutter 
 
 
-	#For NONMAEMO PLATFORM
+#For NONMAEMO PLATFORM
 #	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --enable-static --enable-nonmaemo --enable-clutter
 	touch configure-stamp
 

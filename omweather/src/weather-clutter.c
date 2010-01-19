@@ -42,13 +42,19 @@ free_animation_list(gpointer key, gpointer value_arg,
     Event_o     *event_o = NULL;
     Event_s     *event_s = NULL;
     Event_r     *event_r = NULL;
- 
+
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
     /* Free user data */
-    fprintf(stderr, "KEY %s %p\n", key, list_of_event);
+    /* fprintf(stderr, "KEY %s %p\n", key, list_of_event); */
     
     list_temp = list_of_event;
+    /* fprintf(stderr, "Count of list event in free %i\n", g_slist_length(list_of_event)); */
     while(list_temp != NULL){
         if (list_temp->data){
+            /* fprintf(stderr, "data %p\n", list_temp->data); */
             event = list_temp->data;
             switch ((gint)event->event_type){
                 case POSITION_ACTOR:
@@ -62,10 +68,13 @@ free_animation_list(gpointer key, gpointer value_arg,
                         g_free(event_o);
                      break;
                 case SCALE_ACTOR:
+                     /* fprintf(stderr, "clear scale event %p\n",event->event); */
                      event_s = event->event;
                      if (event_s)
                         g_free(event_s);
+                     break;
                 case ROTATE_ACTOR:
+                     /* fprintf(stderr, "clear rotate event %p\n",event->event); */
                      event_r = event->event;
                      if (event_r)
                         g_free(event_r);
@@ -82,12 +91,14 @@ free_animation_list(gpointer key, gpointer value_arg,
         }
         list_temp = g_slist_next(list_temp);
     }
-
     if(step)
       g_free(step);
 
     if (list_of_event)
         g_slist_free(list_of_event);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 /*******************************************************************************/
 void 
@@ -104,6 +115,10 @@ free_icons_list(gpointer key, gpointer value_arg,
     g_hash_table_destroy(hash);
     g_free(icon_name);
 
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
 }
 /*******************************************************************************/
 GHashTable *
@@ -118,6 +133,9 @@ clear_animation_hash(GHashTable *hash)
         hash = NULL;
         return NULL;
     }
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
 }
 /*******************************************************************************/
 void
@@ -148,13 +166,15 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
             /* name */
             if(!xmlStrcmp(node->name, (const xmlChar*)"icon")){
                 value = xmlGetProp(node, (const xmlChar*)"name");
+                /* fprintf(stderr, "Name %s \n", value); */
                 icon_animation_hash = g_hash_table_new(g_str_hash, g_str_equal); 
                 g_hash_table_insert(icons, g_strdup(value), icon_animation_hash);
                 for(child_node = node->children; child_node; child_node = child_node->next){
                     if( child_node->type == XML_ELEMENT_NODE ){
                         if(!xmlStrcmp(child_node->name, (const xmlChar*)"s")){
                             number_of_step = xmlGetProp(child_node, (const xmlChar*)"n");
-                            list_of_event = g_new0(GSList, 1);
+                            list_of_event = NULL;
+                            /* fprintf(stderr, "Count of list event %i\n", g_slist_length(list_of_event)); */
                             number_actor_in_queue = 1;
                             for(child_node2 = child_node->children;
                                child_node2; child_node2 = child_node2->next){
@@ -165,6 +185,7 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                             /* load actor */
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar*)"l")){
                                                 event_l = g_new0(Event_l, 1);
+                                                /* fprintf(stderr,"added event Load %p\n",event_l); */
                                                 icon_name = xmlGetProp(child_node3, (const xmlChar*)"n");
                                                 if(icon_name){
                                                     event_l->name = g_strdup(icon_name);
@@ -185,10 +206,13 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                                 event->event = event_l;
                                                 event->number = number_actor_in_queue;
                                                 list_of_event = g_slist_append(list_of_event, event);
+                                                /* fprintf(stderr,"added event Load %p\n",event); */
+                                                /* fprintf(stderr, "Count of list event %i\n", g_slist_length(list_of_event)); */
                                             }
                                             /* changed Position of actor */
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar*)"p")){
                                                 event_p = g_new0(Event_p, 1);
+                                                /* fprintf(stderr,"added event Position %p\n",event_p); */
                                                 if (temp_char = xmlGetProp(child_node3, 
                                                                            (const xmlChar*)"x")){
                                                     event_p->x = atoi(temp_char);
@@ -204,10 +228,13 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                                 event->event = event_p;
                                                 event->number = number_actor_in_queue;
                                                 list_of_event = g_slist_append(list_of_event, event);
+                                                /* fprintf(stderr,"added Event Position %p\n",event); */
+                                                /* fprintf(stderr, "Count of list event %i\n", g_slist_length(list_of_event)); */
                                             }
                                             /* changed Opacity of actor */
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar*)"o")){
                                                 event_o = g_new0(Event_o, 1);
+                                                /* fprintf(stderr,"added event Opacity %p\n",event_o); */
                                                 if (temp_char = xmlGetProp(child_node3, 
                                                                            (const xmlChar*)"o")){
                                                     event_o->o = atoi(temp_char);
@@ -218,10 +245,13 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                                 event->event = event_o;
                                                 event->number = number_actor_in_queue;
                                                 list_of_event = g_slist_append(list_of_event, event);
+                                                /* fprintf(stderr,"added Event Opacity %p\n",event); */
+                                                /* fprintf(stderr, "Count of list event %i\n", g_slist_length(list_of_event)); */
                                             }
                                             /* changed Scale of actor */
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar*)"s")){
                                                 event_s = g_new0(Event_s, 1);
+                                                /* fprintf(stderr,"added event Scale %p\n",event_s); */
                                                 if (temp_char = xmlGetProp(child_node3,
                                                                            (const xmlChar*)"x")){
                                                     event_s->x = atof(temp_char);
@@ -237,12 +267,15 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                                 event->event = event_s;
                                                 event->number = number_actor_in_queue;
                                                 list_of_event = g_slist_append(list_of_event, event);
+                                                /* fprintf(stderr,"added Event Scale %p\n",event); */
+                                                /* fprintf(stderr, "Count of list event %i\n", g_slist_length(list_of_event)); */
                                             }
                                             /* changed Rotation of actor */
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar*)"rx")||
                                                !xmlStrcmp(child_node3->name, (const xmlChar*)"ry")||
                                                !xmlStrcmp(child_node3->name, (const xmlChar*)"rz")) {
                                                 event_r = g_new0(Event_r, 1);
+                                                /* fprintf(stderr,"added event Rotate %p\n",event_r); */
                                                 if (temp_char = xmlGetProp(child_node3,
                                                                            (const xmlChar*)"x")){
                                                     event_r->x = atoi(temp_char);
@@ -253,8 +286,9 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                                     event_r->y = atoi(temp_char);
                                                     xmlFree(temp_char);
                                                 }
-                                                if (temp_char = xmlGetProp(child_node3, (const xmlChar*)"z")){
-                                                    event_r->x = atoi(temp_char);
+                                                if (temp_char = xmlGetProp(child_node3, 
+                                                                           (const xmlChar*)"z")){
+                                                    event_r->z = atoi(temp_char);
                                                     xmlFree(temp_char);
                                                 }
                                                 if (temp_char = xmlGetProp(child_node3, 
@@ -275,6 +309,8 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                                 event->event = event_r;
                                                 event->number = number_actor_in_queue;
                                                 list_of_event = g_slist_append(list_of_event, event);
+                                                /* fprintf(stderr,"added event Rotate %p\n",event); */
+                                                /* fprintf(stderr, "Count of list event %i\n", g_slist_length(list_of_event)); */
                                             }
 
                                         }
@@ -292,6 +328,7 @@ parse_animation_of_icon(xmlNode *node, GHashTable *icons){
                                 }
                             }
                             g_hash_table_insert(icon_animation_hash, g_strdup(number_of_step), list_of_event);
+                            /* fprintf(stderr, "Count of list event %i\n", g_slist_length(list_of_event)); */
                             /* fprintf(stderr, "Step %s %p\n", number_of_step, list_of_event); */
                             xmlFree(number_of_step);
                         }
@@ -1167,7 +1204,6 @@ animation_cb (SuperOH *oh)
                 clactor = clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i);
                 ha = g_object_get_data(G_OBJECT(clactor), "hildon_animation_actor");
                 do_animation1(oh, clactor, ha, fullwindow);
-                fprintf(stderr,"ggggggggggggggg\n");
             }
         }else{
             clactor = oh->icon;

@@ -796,6 +796,9 @@ show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
         if (oh->timeline <2){
             oh->window = window;
             oh->duration = 40;
+            /* Increase speed for non one icon */
+            if (i >1)
+                one_delay = 1000;
             oh->delay = i * one_delay;
             oh->first_icon_in_list = first_icon;
             choose_icon_timeline(oh);

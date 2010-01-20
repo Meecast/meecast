@@ -89,7 +89,7 @@ omweather_CFLAGS =	$(GTK_CFLAGS) \
 			$(HILDONANIMATION_CFLAGS) \
 			-DAPPLICATION \
 			-Wall -pedantic \
-			-Wmissing-prototypes -DDEBUGFUNCTIONCALL
+			-Wmissing-prototypes
 
 omweather_LDADD =	$(GTK_LIBS) \
 			$(OSSO_LIBS) \

@@ -828,7 +828,7 @@ gint read_config(AppletConfig * config) {
                    config->data_valid_interval != 2 &&
                    config->data_valid_interval != 4 &&
                    config->data_valid_interval != 8)) {
-        config->data_valid_interval = 2 * 3600; /* Default value - 2 hours */
+        config->data_valid_interval = 4 * 3600; /* Default value - 4 hours */
         if (gerror)
             g_error_free(gerror);
     } else

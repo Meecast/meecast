@@ -2,6 +2,7 @@ omweather (0.25) unstable; urgency=low
 
   * Various minor fixes
   * Created animations for icons using HildonAnimation functions
+  * Changed default vaild time for current weather to 4 hours
 
  -- Vlad Vasiliev <vlad@gas.by>  Thu, 27 Sep 2009 11:20:10 +0200
 

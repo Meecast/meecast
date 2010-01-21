@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (0.9.9) unstable; urgency=low
+
+  * Updated weather stations for Finland
+
+ --  Vlad Vasiliev <vlad@gas.by>  Thu, 21 Jan 2010 15:15:30 +0200
+
 omweather-weather-com-stations-db (0.9.8) unstable; urgency=low
 
   * Updated weather stations for Greece

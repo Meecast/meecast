@@ -641,14 +641,17 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                             else
                                                 break;
                                         }
+
                                         if (child_node9)
                                             child_node9 = child_node9->children;
                                         if (child_node9)
-                                            child_node9 = child_node9->children;
-                                        if (child_node9)
-                                            child_node10 = child_node9->children;
+                                            child_node10 = child_node9->next;
                                         if (child_node10)
                                             child_node10 = child_node10->next;
+
+                                        if (child_node10)
+                                            child_node10 = child_node10->next;
+
                                         while(child_node10 && child_node10->name && 
                                               xmlStrcmp(child_node10->name, (const xmlChar *)"li"))
                                             child_node10 = child_node10->children;
@@ -658,14 +661,22 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                             child_node11 = child_node11->next;
                                         if(child_node11 && child_node11->name &&
                                            !xmlStrcmp(child_node11->name, (const xmlChar *)"li")){
-                                            child_node11 = child_node11->children;
-                                            child_node11 = child_node11->next;
-                                            child_node11 = child_node11->children;
-                                            child_node11 = child_node11->next;
-                                            child_node11 = child_node11->next;
-                                            child_node11 = child_node11->children;
-                                            child_node11 = child_node11->next;
-                                            child_node11 = child_node11->next;
+                                            if (child_node11)
+                                                child_node11 = child_node11->children;
+                                            if (child_node11)
+                                                child_node11 = child_node11->next;
+                                            if (child_node11)
+                                                child_node11 = child_node11->children;
+                                            if (child_node11)
+                                                child_node11 = child_node11->next;
+                                            if (child_node11)
+                                                child_node11 = child_node11->next;
+                                            if (child_node11)
+                                                child_node11 = child_node11->children;
+                                            if (child_node11)
+                                                child_node11 = child_node11->next;
+                                            if (child_node11)
+                                                child_node11 = child_node11->next;
                                             xmlFree(temp_xml_string);
                                             temp_xml_string = xmlNodeGetContent(child_node11);
                                             fprintf(stderr, "\n Фаза %s\n", temp_xml_string);

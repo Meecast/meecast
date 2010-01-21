@@ -21,6 +21,7 @@
     g_hash_table_insert(hash, "CALM", _("CALM"));
     g_hash_table_insert(hash, "Clear / Wind", _("Clear / Wind"));
     g_hash_table_insert(hash, "Clear", _("Clear"));
+    g_hash_table_insert(hash, "Clear, Smoke", _("Clear, Smoke"));
     g_hash_table_insert(hash, "Clouds Early / Clearing Late", _("Clouds Early / Clearing Late"));
     g_hash_table_insert(hash, "Cloudy / Wind", _("Cloudy / Wind"));
     g_hash_table_insert(hash, "Cloudy Few Snow", _("Cloudy Few Snow"));
@@ -29,6 +30,7 @@
     g_hash_table_insert(hash, "Cloudy and Windy", _("Cloudy and Windy"));
     g_hash_table_insert(hash, "Cloudy", _("Cloudy"));
     g_hash_table_insert(hash, "Cloudy, Light Rain", _("Cloudy, Light Rain"));
+    g_hash_table_insert(hash, "Cloudy, Light Rain, T-Storm", _("Cloudy, Light Rain, T-Storm"));
     g_hash_table_insert(hash, "Drifting Snow", _("Drifting Snow"));
     g_hash_table_insert(hash, "Drizzle / Fog", _("Drizzle / Fog"));
     g_hash_table_insert(hash, "Drizzle Late", _("Drizzle Late"));    
@@ -95,6 +97,7 @@
     g_hash_table_insert(hash, "Mostly Cloudy T-Storm", _("Mostly Cloudy T-Storm"));
     g_hash_table_insert(hash, "Mostly Cloudy", _("Mostly Cloudy"));
     g_hash_table_insert(hash, "Mostly Cloudy, Few Snow", _("Mostly Cloudy, Few Snow"));
+    g_hash_table_insert(hash, "Mostly Cloudy, Fog, Drizzle", _("Mostly Cloudy, Fog, Drizzle"));
     g_hash_table_insert(hash, "Mostly Cloudy, Heavy Snow, Freezing Rain", _("Mostly Cloudy, Heavy Snow, Freezing Rain"));
     g_hash_table_insert(hash, "Mostly Cloudy, Light Rain", _("Mostly Cloudy, Light Rain"));
     g_hash_table_insert(hash, "Mostly Cloudy, Light Rain, Drizzle", _("Mostly Cloudy, Light Rain, Drizzle"));
@@ -230,6 +233,3 @@
     g_hash_table_insert(hash, "Ю", _("Ю"));
     g_hash_table_insert(hash, "Ю-В", _("Ю-В"));
     g_hash_table_insert(hash, "Ю-З", _("Ю-З"));
-    g_hash_table_insert(hash, "Mostly Cloudy, Fog, Drizzle", _("Mostly Cloudy, Fog, Drizzle"));
-    g_hash_table_insert(hash, "Cloudy, Light Rain, T-Storm", _("Cloudy, Light Rain, T-Storm"));
-    g_hash_table_insert(hash, "Clear, Smoke", _("Clear, Smoke"));

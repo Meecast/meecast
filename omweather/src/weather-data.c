@@ -56,7 +56,13 @@ is_current_weather_valid(void){
             diff_time = calculate_diff_time(atol(g_hash_table_lookup(location, "station_time_zone")));
 #ifndef RELEASE
         fprintf(stderr, "\n>>>>>>>Diff time=%li<<<<<<\n", diff_time);
-#endif
+#endif 
+        /* Check Important data for current weather */
+        if (!g_hash_table_lookup(current, "day_hi_temperature")&&
+            !g_hash_table_lookup(current, "title")&&
+            !g_hash_table_lookup(current, "wind_direction"))
+            return FALSE;
+
         current_time += diff_time;
         current_data_last_update = last_update_time_new(current);
         /* Check a valid time for current weather */

@@ -30,6 +30,8 @@ moon_iconsdir = $(datadir)/omweather/moon_icons
 moon_icons_DATA = moon_icons/*.png
 button_iconsdir = $(datadir)/omweather/button_icons
 button_icons_DATA = button_icons/*.png
+backupdir = /etc/osso-backup/applications
+backup_DATA = omweather.conf
 #if NONMAEMO
 imagedir = $(datadir)/omweather/images
 image_DATA = images/*.png
@@ -90,7 +92,8 @@ EXTRA_DIST = $(homeapplet_desktop_DATA) \
 	     $(dbus_service_DATA) \
 	     omweather.desktop.in \
 	     omweather.png \
-	     $(image_DATA)
+	     $(image_DATA) \
+	     $(backup_DATA)
 
 omweather.desktop: omweather.desktop.in
 	sed "s/__VERSION__/$(VERSION)/g" $< >$@.tmp && \

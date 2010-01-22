@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (0.9.10) unstable; urgency=low
+
+  * Updated weather stations for Norway
+
+ --  Vlad Vasiliev <vlad@gas.by>  Fri, 22 Jan 2010 12:50:30 +0200
+ 
 omweather-weather-com-stations-db (0.9.9) unstable; urgency=low
 
   * Updated weather stations for Finland

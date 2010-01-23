@@ -1166,6 +1166,8 @@ create_current_tab(GHashTable *current){
             if (g_hash_table_lookup(current, "pressure_direction"))
                 sprintf(buffer + strlen(buffer), "  %s\n",
                     (char *)hash_table_find(g_hash_table_lookup(current, "pressure_direction"), FALSE));
+            else
+                sprintf(buffer + strlen(buffer), "\n");
         }
     }
 /* wind */

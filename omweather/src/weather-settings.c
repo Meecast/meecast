@@ -3161,7 +3161,8 @@ create_iconsets_line(GtkWidget *window, gint icon_size, gint mode){
               *button = NULL,
               *iconsets_hbox = NULL;
     GSList *group = NULL, *icon_set = NULL, *tmp = NULL;
-    gchar buffer[256];
+    gchar buffer[1024];
+    gchar buffer2[1024];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -3184,7 +3185,13 @@ create_iconsets_line(GtkWidget *window, gint icon_size, gint mode){
         memset(buffer, 0, sizeof(buffer));
         snprintf(buffer, sizeof(buffer) - 1, "%s%s", ICONS_PATH,
                  (gchar *) (tmp->data));
-        button = create_button_with_image(buffer, "44", 40, TRUE, TRUE);
+        memset(buffer2, 0, sizeof(buffer2));
+        snprintf(buffer2, sizeof(buffer2) - 1, "%s%s/44a.png", ICONS_PATH,
+                          (gchar *) (tmp->data));
+        if (access(buffer2, R_OK) == 0 )
+            button = create_button_with_image(buffer, "44a", 40, TRUE, TRUE);
+        else
+            button = create_button_with_image(buffer, "44", 40, TRUE, TRUE);
         gtk_radio_button_set_group(GTK_RADIO_BUTTON(button), group);
         group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(button));
         /* store button name */

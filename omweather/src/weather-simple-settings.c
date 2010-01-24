@@ -2260,15 +2260,17 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
 
     /*Icon image*/
     memset(buffer, 0, sizeof(buffer));
-    snprintf(buffer, sizeof(buffer) - 1, "%s%s/44.png", ICONS_PATH,
+    snprintf(buffer, sizeof(buffer) - 1, "%s%s/44a.png", ICONS_PATH,
                       (gchar *) (app->config->icon_set));
-    icon_buffer =
-                 gdk_pixbuf_new_from_file_at_size(buffer, 60,
+    if (access(buffer, R_OK) != 0 || !app->config->animation)
+        snprintf(buffer, sizeof(buffer) - 1, "%s%s/44.png", ICONS_PATH,
+                          (gchar *) (app->config->icon_set));
+    icon_buffer = gdk_pixbuf_new_from_file_at_size(buffer, 60,
                                                   60, NULL);
     if (icon_buffer) {
-               widget_style_icon = gtk_image_new_from_pixbuf(icon_buffer);
-               g_object_unref(G_OBJECT(icon_buffer));
-      }
+        widget_style_icon = gtk_image_new_from_pixbuf(icon_buffer);
+        g_object_unref(G_OBJECT(icon_buffer));
+    }
 #if defined OS2009
     widget_style_button = create_button_with_2_line_text(_("Widget style"), widget_style_string, 18, 12);
     hildon_button_set_image (HILDON_BUTTON (widget_style_button), widget_style_icon);

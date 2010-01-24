@@ -72,7 +72,7 @@ open_database(const char *path, const char *filename){
                       lang = getenv("LANG");
 
               if (lang && !strcmp(lang, "ru_RU"))
-                  rc = sqlite3_exec(db, "CREATE TEMP VIEW nstations AS SELECT russian_name as name, id, region_id, longititude, latitude, code  FROM stations",
+                  rc = sqlite3_exec(db, "CREATE TEMP VIEW nstations AS SELECT russian_name as name, id, region_id, longititude, latitude, code, id_gismeteo_new, id_gismeteo_old  FROM stations",
                         NULL, NULL, &errMsg);
               else
                   rc = sqlite3_exec(db, "CREATE TEMP VIEW nstations AS SELECT * FROM stations where russian_name != name",

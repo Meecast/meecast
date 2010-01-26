@@ -199,7 +199,7 @@ change_station_prev(GtkWidget *widget, GdkEvent *event,
 /* show popup window if received param */
     if(user_data){
         day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab"); 
-        destroy_popup_window(NULL);
+        destroy_popup_window();
         weather_window_popup(NULL, NULL, (gpointer)day_number);
     }
     return FALSE;
@@ -296,7 +296,7 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
             return FALSE;
         }
         day_number = (gint)g_object_get_data(G_OBJECT(user_data), "active_tab");
-        destroy_popup_window(NULL);
+        destroy_popup_window();
         weather_window_popup(NULL, NULL, (gpointer)day_number);
     }
 #ifdef DEBUGFUNCTIONCALL
@@ -857,11 +857,14 @@ update_weather(gboolean show_update_window){
     START_FUNCTION;
 #endif
     if(show_update_window)
-	app->show_update_window = TRUE;
+        app->show_update_window = TRUE;
     else
         app->show_update_window = FALSE;
-    if(!app->flag_updating)
-	app->flag_updating = g_timeout_add(100, (GSourceFunc)download_html, NULL);
+    if(app->phase == ZERO_PHASE){
+        DEBUG_FUNCTION("Start update");
+        app->phase = FIRST_PHASE;
+        g_timeout_add(100, (GSourceFunc)download_html, NULL);
+    }
 }
 /*******************************************************************************/
 
@@ -915,6 +918,10 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
         exit(1);
     }
     memset(app, 0, sizeof(OMWeatherApp));
+    app->update_thread_id = -1;
+    app->phase = ZERO_PHASE;
+    app->iap_connected = FALSE;
+    app->iap_connecting = FALSE;
 #if ! ( defined (NONMAEMO) ||  defined (APPLICATION))
     app->osso = osso;
 #endif
@@ -1112,18 +1119,16 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
     free_clutter_objects_list(&app->clutter_objects_in_main_form);
     free_clutter_objects_list(&app->clutter_objects_in_popup_form);
 #endif
-    /* If downloading then switch off it */
-    if(app->flag_updating != 0){
-        g_source_remove(app->flag_updating);
-        clean_download();
-    }
+    if(app->phase != ZERO_PHASE && app->update_thread_id > 0)
+        pthread_cancel(app->update_thread_id);
+
     if(app->timer_for_os2008 != 0)
         g_source_remove(app->timer_for_os2008);
     config_save(app->config); /* Not work!!!! Only 770. Why? I am not understand why this place not run when close applet 
 			On n800 this work */
 
     /* destroy popup */
-    destroy_popup_window(NULL);
+    destroy_popup_window();
     /* destroy settings window */
     if (app->settings_window){
         gtk_widget_destroy(app->settings_window);
@@ -2416,7 +2421,7 @@ switch_timer_handler(gpointer data){
     START_FUNCTION;
 #endif
     if(app->popup_window){
-        destroy_popup_window(NULL);
+        destroy_popup_window();
     }
     change_station_next(NULL, NULL, NULL);
     return TRUE;

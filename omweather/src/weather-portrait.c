@@ -28,7 +28,6 @@
 */
 /*******************************************************************************/
 #include "weather-portrait.h"
-#include <error.h>
 #if defined OS2009
     #include <mce/dbus-names.h>
     #include <mce/mode-names.h>

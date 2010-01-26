@@ -33,6 +33,8 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#include <errno.h>
+#include <pthread.h>
 #include <dlfcn.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -111,10 +113,9 @@
 
 #define START_FUNCTION        fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
-/*
-
-#define START_FUNCTION          FILE *f; f=fopen("/tmp/omw.log","a+"); fprintf(f,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);fflush(f);fclose(f);
 #define DEBUG_FUNCTION(string)  write_log(string)
+/*
+#define START_FUNCTION          FILE *f; f=fopen("/tmp/omw.log","a+"); fprintf(f,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);fflush(f);fclose(f);
 #define END_FUNCTION          FILE *fileend; fileend=fopen("/tmp/omw.log","a+"); fprintf(fileend,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);fflush(fileend);fclose(fileend);
 */
 
@@ -136,6 +137,12 @@
 /*******************************************************************************/
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
        CHECK_GPS_POSITION};
+enum { DOWNLOAD_UNCKNOWN_ERROR = -1, DOWNLOAD_OK = 0, DOWNLOAD_PROXY_ERROR = 5,
+        DOWNLOAD_RESOLVE_ERROR = 6, DOWNLOAD_CONNECT_ERROR = 7,
+        DOWNLOAD_ACCESS_DENIED = 9, DOWNLOAD_HTTP_ERROR = 22,
+        DOWNLOAD_NOW_WORKING = 50, DOWNLOAD_FINISHED = 51,
+        DOWNLOAD_TIMEOUT = 28, DOWNLOAD_WAKEUP_CONNECTION_FAILED = 52 };
+
 enum { UNKNOWN_DIRECTION, TO_NORTH, TO_NORTH_EAST, TO_EAST, TO_SOUTH_EAST, TO_SOUTH, TO_SOUTH_WEST, TO_WEST, TO_NORTH_WEST };
 enum { ONE_ROW, ONE_COLUMN, TWO_ROWS, TWO_COLUMNS, COMBINATION, PRESET_NOW, PRESET_NOW_PLUS_TWO, PRESET_NOW_PLUS_THREE_V,
        PRESET_NOW_PLUS_THREE_H, PRESET_NOW_PLUS_SEVEN, APPLICATION_MODE };
@@ -151,6 +158,7 @@ enum { WEATHER_COM, RP5_RU, MAX_WEATHER_SOURCE_NUMBER };
 enum { TINY_ICON_SIZE = 32, SMALL_ICON_SIZE = 48, MEDIUM_ICON_SIZE = 64,
        BIG_ICON_SIZE = 80, LARGE_ICON_SIZE = 96, GIANT_ICON_SIZE = 128,
        SUPER_GIANT_ICON_SIZE = 256};
+enum { ZERO_PHASE = -1, FIRST_PHASE = 0, SECOND_PHASE, THIRD_PHASE, FOURTH_PHASE, FIFTH_PHASE, SIXTH_PHASE };
 enum { SETTINGS_STATIONS_PAGE, SETTINGS_VISUALS_PAGE, SETTINGS_DISPLAY_PAGE,
        SETTINGS_UNITS_PAGE, SETTINGS_UPDATE_PAGE,
 #if defined(OS2008) || defined(OS2009) || defined(NONMAEMO)
@@ -458,6 +466,7 @@ typedef struct OMWeatherApplet{
     gint		sources_number;
     GtkWidget 		*contextmenu;
     gboolean 		widget_first_start;
+    gint                phase;
     gint 		widget_showing;
     gboolean 		home_item_flag_expose;
     gboolean 		area_button_pressed;
@@ -515,6 +524,7 @@ typedef struct OMWeatherApplet{
 #ifdef HILDONANIMATION
     GHashTable          *animation_hash; 
 #endif
+    pthread_t           update_thread_id;
 }OMWeatherApp;
 /*******************************************************************************/
 typedef struct lists_struct{

@@ -29,38 +29,26 @@
 #ifndef _weather_download_h
 #define _weather_download_h 1
 /*******************************************************************************/
-#include "weather-common.h"
-#include <curl/multi.h>
-
-#if !defined OS2008 && !defined OS2009 && !defined NONMAEMO
-#include <osso-ic.h>
-#include <osso-ic-dbus.h>
-#endif
-#include <dbus/dbus.h>
-#include <dbus/dbus-glib.h>
-/*******************************************************************************/
-struct HtmlFile {
-  char *filename;
-  FILE *stream;
+#include "weather-event.h"
+struct download_params{
+    char        *proxy_host;
+    int         proxy_port;
+    char        *url;
+    char        *filename;
+    int         status;
+    gboolean    hour_data;
 };
 /*******************************************************************************/
-CURL* weather_curl_init(CURL *curl_handle);
-gboolean download_html(gpointer data);
-gboolean check_connected(void);
-void clean_download(void);
-#ifndef USE_CONIC
-#ifndef NONMAEMO
-void iap_callback(struct iap_event_t *event, void *arg);
-#endif
-#endif
-gboolean get_station_url(gchar **url, struct HtmlFile *html_file, gchar **hour_url, struct HtmlFile *html_file_hour,gboolean first);
-GtkWidget* create_window_update(void);
-#ifdef USE_CONIC
-    void connection_cb(ConIcConnection * connection,ConIcConnectionEvent * event, gpointer user_data);
-#endif
-void free_curl(void);
-void check_current_connection(void);
-gboolean get_data_from_url(const gchar *data_url, const gchar *name);
+struct download_data{
+    struct download_params  params;
+    pthread_t               tid;
+};
+/*******************************************************************************/
 gchar* get_new_gismeteo_code(gchar *old_code, gchar *source);
+gboolean download_html(void *user_data);
+void* download_url(void *user_data);
+int data_read(void *buffer, size_t size, size_t nmemb, void *stream);
+gboolean get_station_url(gchar **url, gchar **filename, gchar **hour_url, gchar **filename_hour, gboolean first);
+gboolean wakeup_connection(void);
 /*******************************************************************************/
 #endif

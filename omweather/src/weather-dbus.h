@@ -29,8 +29,31 @@
 #ifndef _weather_dbus_h
 #define _weather_dbus_h 1
 /*******************************************************************************/
+#include "weather-common.h"
+#include "weather-event.h"
+#if !defined OS2008 && !defined OS2009
+#include <osso-ic.h>
+#include <osso-ic-dbus.h>
+#endif
+#include <dbus/dbus.h>
+#include <dbus/dbus-glib.h>
+/*******************************************************************************/
+void check_current_connection(void);
 void weather_initialize_dbus(void);
 void weather_deinitialize_dbus(void);
-void check_current_connection(void);
+#ifdef USE_CONIC
+    void connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event, gpointer user_data);
+#endif
+#if defined OS2009 || defined OS2008
+    DBusHandlerResult get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data);
+#endif
+#ifndef USE_CONIC
+#ifndef NONMAEMO
+void iap_callback(struct iap_event_t *event, void *arg);
+#endif
+#endif
+#ifdef USE_CONIC
+    void connection_cb(ConIcConnection * connection,ConIcConnectionEvent * event, gpointer user_data);
+#endif
 /*******************************************************************************/
 #endif

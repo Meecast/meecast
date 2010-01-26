@@ -64,6 +64,6 @@ void click_url(GtkButton *button);
 #ifdef CLUTTER
 void popup_window_expose(GtkWidget *widget, GdkEventExpose *event);
 #endif
-void destroy_popup_window(gpointer user_data);
+void destroy_popup_window(void);
 /*******************************************************************************/
 #endif

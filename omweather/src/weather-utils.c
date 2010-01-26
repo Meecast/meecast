@@ -738,10 +738,16 @@ browser_url(gchar *url) {
 #endif
 /*******************************************************************************/
 /* For debugging   */
-/*
-void write_log(char *string)
-{
-FILE *filelog; filelog=fopen("/tmp/omw.log","a+"); fprintf(filelog,"\n%s\n", string);fflush(filelog);fclose(filelog);
+void
+write_log(char *string){
+#ifndef RELEASE
+    FILE    *filelog;
+    filelog = fopen("/tmp/omw.log","a+");
+    if(!filelog)
+        return;
+    fprintf(filelog,"\n%s\n", string);
+    fflush(filelog);
+    fclose(filelog);
+#endif
 }
-
-*/
+/*******************************************************************************/

@@ -58,7 +58,7 @@ uninstall-local:
 
 
 dbus_servicedir = $(datadir)/dbus-1/services
-dbus_service_DATA = com.nokia.omweather.service
+dbus_service_DATA = org.maemo.omweather.service
 
 desktopdir    = $(datadir)/applications/hildon
 desktop_files = omweather.desktop

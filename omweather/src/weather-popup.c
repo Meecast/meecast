@@ -44,12 +44,12 @@
 #define MOON_ICONS		"/usr/share/omweather/moon_icons/"
 /*******************************************************************************/
 void
-destroy_popup_window(gpointer user_data){
+destroy_popup_window(void){
     GSList    *tmp = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(!user_data){ /* destroy old popup window */
+    if(app->tab_of_window_popup){ /* destroy old popup window */
         /* free Idles */
         tmp = app->tab_of_window_popup;
         while(tmp){
@@ -618,7 +618,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
             hildon_banner_show_information(app->main_window,
                             NULL,
                             _("No weather data for this day."));
-            destroy_popup_window(NULL);
+            destroy_popup_window();
             return FALSE;
         }
         else{
@@ -630,7 +630,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
                         hildon_banner_show_information(app->main_window,
                                     NULL,
                                     _("No current weather data."));
-                        destroy_popup_window(NULL);
+                        destroy_popup_window();
                         return FALSE;
                     }
                 }
@@ -686,7 +686,7 @@ settings_button_handler(GtkWidget *button, GdkEventButton *event,
 #endif
 /* For debug speed of creating setting window */
 /* time_start();  */
-    destroy_popup_window(NULL);
+    destroy_popup_window();
     weather_window_settings(NULL, (gpointer)day_number);
 /* fprintf(stderr,"Time: %lf msec Pi = %lf\n",time_stop(),weather_window_settings);*/
 }
@@ -697,7 +697,7 @@ void refresh_button_handler(GtkWidget *button, GdkEventButton *event,
     START_FUNCTION;
 #endif
     if(app->popup_window)
-        destroy_popup_window(NULL);
+        destroy_popup_window();
     update_weather(TRUE);
 }
 /*******************************************************************************/
@@ -718,7 +718,7 @@ void popup_close_button_handler(GtkWidget *button, GdkEventButton *event,
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    destroy_popup_window(NULL);
+    destroy_popup_window();
 }
 /*******************************************************************************/
 GtkWidget*

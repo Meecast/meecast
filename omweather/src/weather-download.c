@@ -26,645 +26,487 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
+#include "weather-common.h"
 #include "weather-download.h"
-#include "weather-event.h"
 #include "weather-config.h"
 #include "weather-home.h"
 #include "weather-sources.h"
 #include "weather-popup.h"
+#include <curl/multi.h>
 /*******************************************************************************/
-#ifdef USE_CONIC
-#include <conic/conic.h>
-#define USER_DATA_MAGIC 0xaadcaadc
-#endif
 #ifdef RELEASE
 #undef DEBUGFUNCTIONCALL
 #endif
-#define GCONF_KEY_CURRENT_CONNECTIVITY  "/system/osso/connectivity/IAP/current"
 /*******************************************************************************/
-static gchar *url = NULL;
-static gchar *hour_url = NULL;
-static gboolean second_attempt = FALSE;
-static CURL *curl_handle = NULL;
-static CURL *curl_handle_hour = NULL;
-static CURL *curl_handle_data = NULL;
-static CURL *curl_multi = NULL;
-static struct curl_slist *headers=NULL;
-static struct HtmlFile html_file, html_file_hour;
-static GtkWidget *update_window = NULL;
-/*******************************************************************************/
-/* Create standard Hildon animation small window */
-GtkWidget *create_window_update(void) {
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    return hildon_banner_show_animation(app->main_window,
-                                        NULL, _("Updating weather"));
-}
-/*******************************************************************************/
-#if !defined OS2008 && !defined OS2009 && !defined NONMAEMO
-static DBusHandlerResult
-get_connection_status_signal_cb(DBusConnection * connection,
-                                DBusMessage * message, void *user_data) {
-
-    gchar *iap_name = NULL, *iap_nw_type = NULL, *iap_state = NULL;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    /* check signal */
-    if (!dbus_message_is_signal(message,
-                                ICD_DBUS_INTERFACE,
-                                ICD_STATUS_CHANGED_SIG)) {
-        return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
-    }
-
-    if (!dbus_message_get_args(message, NULL,
-                               DBUS_TYPE_STRING, &iap_name,
-                               DBUS_TYPE_STRING, &iap_nw_type,
-                               DBUS_TYPE_STRING, &iap_state,
-                               DBUS_TYPE_INVALID)) {
-        return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
-    }
-
-/*    fprintf(stderr,"OMWeather  - iap_state = %s\n", iap_state);*/
-    if (!strcmp(iap_state, "CONNECTED")) {
-        if (!app->iap_connected) {
-            app->iap_connected = TRUE;
-            app->iap_connecting = FALSE;
-            app->iap_connecting_timer = 0;
-            if (app->config->downloading_after_connecting)
-                add_current_time_event();
-        }
-    } else if (!strcmp(iap_state, "CONNECTING")) {
-        app->iap_connected = FALSE;
-        app->iap_connecting = TRUE;
-        app->iap_connecting_timer = 0;
-    } else if (app->iap_connected) {
-        app->iap_connected = FALSE;     /* !!!!!!!!! Need Remove download */
-        app->iap_connecting = FALSE;
-        app->iap_connecting_timer = 0;
-    } else {
-        app->iap_connecting = FALSE;
-    }
-
-    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
-}
-#endif
-/*******************************************************************************/
-/* Callback function for request  connection to Internet */
-#ifdef USE_CONIC
-#define OSSO_CON_IC_CONNECTING             0x05
-void
-connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
-                                                            gpointer user_data){
-    gchar                   *iap_id,
-                            *bearer;
-    ConIcConnectionStatus   status;
-    ConIcConnectionError    error;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    status = con_ic_connection_event_get_status(event);
-    error = con_ic_connection_event_get_error(event);
-    iap_id = (gchar*)con_ic_event_get_iap_id(CON_IC_EVENT(event));
-    bearer = (gchar*)con_ic_event_get_bearer_type(CON_IC_EVENT(event));
-
-    switch(status){
-#if defined OS2009
-        case CON_IC_STATUS_NETWORK_UP: /* TODO. Process this status */
-        break;
-#endif
-        case CON_IC_STATUS_CONNECTED:
-#ifdef DEBUGFUNCTIONCALL
-            second_attempt = TRUE;
-            update_weather(FALSE);
-#endif
-            app->iap_connecting = FALSE;
-            if ((bearer && !strncmp(bearer,"WLAN", 4) && app->config->update_wlan) ||
-                (bearer && !strncmp(bearer,"DUN_GSM", 7) && app->config->update_gsm)||
-                (bearer && !strncmp(bearer,"GPRS", 4) && app->config->update_gsm))
-                app->iap_connected = TRUE;
-            else
-                app->iap_connected = FALSE;
-            app->iap_connecting_timer = 0;
-            if((app->config->downloading_after_connecting) &&
-              ((bearer && !strncmp(bearer,"WLAN", 4) && app->config->update_wlan) ||
-              (bearer && !strncmp(bearer,"DUN_GSM", 7) && app->config->update_gsm) ||
-              (bearer && !strncmp(bearer,"GPRS", 4) && app->config->update_gsm))
-              ){
-                add_current_time_event();
-            }
-
-        break;
-        case CON_IC_STATUS_DISCONNECTED:
-            app->iap_connected = FALSE;
-            app->iap_connecting = FALSE;
-            app->iap_connecting_timer = 0;
-        break;
-        case CON_IC_STATUS_DISCONNECTING:
-            app->iap_connected = FALSE;
-            app->iap_connecting = FALSE;
-            app->iap_connecting_timer = 0;
-        break;
-/*        default:
-    	    app->iap_connected = FALSE;
-	    app->iap_connecting = FALSE;
-            break;
-*/
-    }
-}
-#else
-/*******************************************************************************/
-#ifndef NONMAEMO
-void iap_callback(struct iap_event_t *event, void *arg) {
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    app->iap_connecting = FALSE;
-    switch (event->type) {
-    case OSSO_IAP_CONNECTED:
-#if defined (DEBUGFUNCTIONCALL) || defined (NONMAEMO)
-        second_attempt = TRUE;
-        update_weather(FALSE);
-#endif
-        app->iap_connected = TRUE;
-        break;
-    case OSSO_IAP_DISCONNECTED:
-        app->iap_connected = FALSE;
-        break;
-    case OSSO_IAP_ERROR:
-        app->iap_connected = FALSE;
-        hildon_banner_show_information(app->main_window,
-                                       NULL,
-                                       _("Not connected to Internet"));
-
-        break;
-    }
-}
-#endif
-#endif
-/* Init easy curl */
-CURL *weather_curl_init(CURL * my_curl_handle) {
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-
-    my_curl_handle = curl_easy_init();
-    
-    curl_easy_setopt(my_curl_handle, CURLOPT_NOPROGRESS, 1);
-    curl_easy_setopt(my_curl_handle, CURLOPT_FOLLOWLOCATION, 1);
-    curl_easy_setopt(my_curl_handle, CURLOPT_FAILONERROR, 1);
-    curl_easy_setopt(my_curl_handle, CURLOPT_USERAGENT,
-                     "Mozilla/5.0 (X11; U; Linux i686; en-US; "
-                     "rv:1.8.1.1) Gecko/20061205 Iceweasel/2.0.0.1");
-    if (app->config->show_weather_for_two_hours)
-       curl_easy_setopt(my_curl_handle, CURLOPT_TIMEOUT, 60);
-    else
-       curl_easy_setopt(my_curl_handle, CURLOPT_TIMEOUT, 30);
-    curl_easy_setopt(my_curl_handle, CURLOPT_CONNECTTIMEOUT, 10);
-    /* For disabled cache */
-    if (!headers){
-      headers = curl_slist_append(headers, "Cache-Control: no-cache");
-      headers = curl_slist_append(headers, "Pragma: no-cache");
-      curl_easy_setopt(my_curl_handle, CURLOPT_HTTPHEADER, headers);
-    }
-
-    config_update_proxy();
-    /* Set Proxy option */
-    if (app->config->iap_http_proxy_host) {
-        curl_easy_setopt(my_curl_handle, CURLOPT_PROXY,
-                         app->config->iap_http_proxy_host);
-        if (app->config->iap_http_proxy_port)
-            curl_easy_setopt(my_curl_handle, CURLOPT_PROXYPORT,
-                             app->config->iap_http_proxy_port);
-    }
-#ifdef DEBUGFUNCTIONCALL
-    END_FUNCTION;
-#endif
-    return my_curl_handle;
-}
-/*******************************************************************************/
-void
-free_curl(void){
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    curl_slist_free_all(headers);
-    headers = NULL;
-    curl_multi = NULL;
-    curl_handle_hour = NULL;
-    curl_handle_data = NULL;
-    curl_handle = NULL;
-    app->flag_updating = 0;
-}
-/*******************************************************************************/
-static int 
+int
 data_read(void *buffer, size_t size, size_t nmemb, void *stream){
-    int result;
-    struct HtmlFile *out = (struct HtmlFile *)stream;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(out && !out->stream){
-        /* open file for writing */
-        out->stream = fopen(out->filename, "wb");
-        if(!out->stream)
-            return -1;          /* failure, can't open file to write */
-    }
 #ifndef RELEASE
+    fprintf(stderr, "\nFILE %p\n", stream);
     fprintf(stderr, "SIZE %i %i\n", size, nmemb);
 #endif
-    result = fwrite(buffer, size, nmemb, out->stream);
-    return result;
+    return fwrite(buffer, size, nmemb, (FILE*)stream);
+}
+/*******************************************************************************/
+void*
+download_url(void *user_data){
+    CURL                *handle = NULL;
+    struct curl_slist   *headers = NULL;
+    struct download_params *params = (struct download_params*)user_data;
+    FILE                *file = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    handle = curl_easy_init();
+    if(handle){
+        file = fopen(params->filename, "wb");
+        if(!file){
+            curl_easy_cleanup(handle);
+            return NULL;
+        }
+        curl_easy_setopt(handle, CURLOPT_NOPROGRESS, 1);
+        curl_easy_setopt(handle, CURLOPT_FOLLOWLOCATION, 1);
+        curl_easy_setopt(handle, CURLOPT_FAILONERROR, 1);
+        curl_easy_setopt(handle, CURLOPT_USERAGENT,
+                            "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.1) "
+                            "Gecko/20061205 Iceweasel/2.0.0.1");
+        curl_easy_setopt(handle, CURLOPT_URL, params->url);
+        curl_easy_setopt(handle, CURLOPT_TIMEOUT, 60);
+        curl_easy_setopt(handle, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_easy_setopt(handle, CURLOPT_NOSIGNAL, 1);
+        headers = curl_slist_append(headers, "Cache-Control: no-cache");
+        headers = curl_slist_append(headers, "Pragma: no-cache");
+        curl_easy_setopt(handle, CURLOPT_HTTPHEADER, headers);
+        if(params->proxy_host){
+            curl_easy_setopt(handle, CURLOPT_PROXY, params->proxy_host);
+            if(params->proxy_port > -1)
+                curl_easy_setopt(handle, CURLOPT_PROXYPORT, params->proxy_port);
+        }
+        curl_easy_setopt(handle, CURLOPT_WRITEDATA, file);
+        curl_easy_setopt(handle, CURLOPT_WRITEFUNCTION, data_read);
+        params->status = curl_easy_perform(handle);
+        fclose(file);
+        curl_slist_free_all(headers);
+        /* always cleanup */
+        curl_easy_cleanup(handle);
+    }
+    return NULL;
 }
 /*******************************************************************************/
 gboolean
-download_html(gpointer data){
-    CURLMsg *msg = NULL;
-    CURLMcode mret;
-    fd_set rs, ws, es;
-    int max;
-    gint num_transfers = 0, num_msgs = 0;
+download_html(void *user_data){
+    char        *url = NULL,
+                *hour_url = NULL,
+                *filename = NULL,
+                *filename_hour = NULL,
+                buffer[256],
+                buffer1[256];
+    static GSList      *list = NULL;
+    static GtkWidget    *update_window = NULL;
+    static int download_total = 0,
+               download_ok = 0,
+               download_status = 0,
+               i = 0;
+    pthread_t               tid;
+    struct download_params  params;
+    struct download_data    *data = NULL;
+    int         error = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(app->popup_window && app->show_update_window){
-        if(app->config->mode == SIMPLE_MODE)
-            destroy_popup_window(GINT_TO_POINTER(1));
-        else
-            destroy_popup_window(NULL);
-    }
-    /* If not connected and it autoupdate do go away */
-    if(!app->show_update_window && !app->iap_connected){
-        app->flag_updating = 0;
-        return FALSE;
-    }
-    if(app->iap_connected)
-        second_attempt = TRUE;
-/* Connection wake up */
-    if(app->show_update_window && (!second_attempt) && (!app->iap_connecting)){
-        app->iap_connecting = TRUE;
-#ifdef USE_CONIC
-        if(app->connection)
-            con_ic_connection_connect(app->connection,
-                                      CON_IC_CONNECT_FLAG_NONE);
-        else{
-            app->flag_updating = 0;
-            return FALSE;
-        }
-#else
-    #ifndef NONMAEMO
-        if(osso_iap_connect
-            (OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK){
-            fprintf(stderr,
-                    "after 1 osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)\n");
-        }
-     #endif
-
+#ifndef RELEASE
+    fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>Current phase: %d\n", app->phase);
 #endif
-        app->flag_updating = 0;
-        second_attempt = TRUE;
-        return TRUE;
-    }
-    if(app->iap_connecting){
-        /* Check timeout */
-        if(app->iap_connecting_timer > 150){
-            if(app->show_update_window){
-                if(update_window){
-                    gtk_widget_destroy(update_window);
-                    update_window = NULL;
-                }
-                hildon_banner_show_information(app->main_window,
-                                               NULL,
-                                               _
-                                               ("Not connected to Internet\nConnection time is expired"));
-                app->iap_connecting_timer = 0;
-            }
-            app->iap_connecting = FALSE;
-            app->flag_updating = 0;
+    switch(app->phase){
+        default:
+        case ZERO_PHASE:
+            DEBUG_FUNCTION("Zero phase");
+            app->phase = ZERO_PHASE;
+            if(update_window)
+                gtk_widget_destroy(update_window);
             return FALSE;
-        }
-        else{
-            app->iap_connecting_timer++;
+        break;
+        case FIRST_PHASE:
+            DEBUG_FUNCTION("First phase");
+            update_window = NULL;
+            list = NULL;
+            data = NULL;
+            download_total = download_ok = download_status = 0;
+            /* destroy popup window */
+            if(app->popup_window)
+                destroy_popup_window();
+            /* show info for user */
+            if(!update_window && app->show_update_window)
+                update_window = hildon_banner_show_animation(app->main_window, NULL, _("Updating weather"));
+            app->phase = SECOND_PHASE;
             return TRUE;
-        }
-    }
-    second_attempt = FALSE;
-    /* The second stage */
-    /* call curl_multi_perform for read weather data from Inet */
-    if(curl_multi && CURLM_CALL_MULTI_PERFORM ==
-            curl_multi_perform(curl_multi, &num_transfers))
-        return TRUE;            /* return to UI */
-    /* The first stage */
-    if(!curl_handle && !curl_handle_hour){
+        break;
+        case SECOND_PHASE:
+            DEBUG_FUNCTION("Second phase");
+            /* check connection status */
+            if(app->iap_connected){
+                app->phase = FOURTH_PHASE;
+                return TRUE;
+            }
+            if(!app->iap_connecting){
+                DEBUG_FUNCTION("Wakeup connection");
 #ifndef RELEASE
-        fprintf(stderr, "\n>>>>>>>>>>>First stage\n");
+                fprintf(stderr, "\n>>>>>>>>>>>Wakeup connection...\n");
 #endif
-        /* get first station */
-        if(!get_station_url
-                (&url, &html_file, &hour_url, &html_file_hour, TRUE)){
-            app->flag_updating = 0;
-            return FALSE;       /* The strange error */
-        }
-        if(app->show_update_window)
-            update_window = create_window_update();     /* Window with update information */
-/*
-#ifndef RELEASE
-        fprintf(stderr, "\n>>>>>Url - %s, File - %s\n", url,
-                html_file.filename);
+                if(!wakeup_connection()){
+#ifndef RELESASE
+                    fprintf(stderr, "\n>>>>>>>>>>>Connection wakeup failed.\n");
 #endif
-*/
-        /* Init easy_curl */
-        curl_handle = weather_curl_init(curl_handle);
-        curl_easy_setopt(curl_handle, CURLOPT_URL, url);
-        /* Init curl_mult */
-        if(!curl_multi)
-            curl_multi = curl_multi_init();
-
-        max = 0;
-        FD_ZERO(&rs);
-        FD_ZERO(&ws);
-        FD_ZERO(&es);
-        mret = curl_multi_fdset(curl_multi, &rs, &ws, &es, &max);
-        if(mret != CURLM_OK)
-            fprintf(stderr, "Error CURL\n");
-        /* set options for the curl easy handle */
-        curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, &html_file);
-        curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, data_read);
-        /* for debug */
-        /*    curl_easy_setopt(curl_handle, CURLOPT_URL, "http://127.0.0.1"); */
-        /* add the easy handle to a multi session */
-        if(app->config->show_weather_for_two_hours){
-            curl_handle_hour = weather_curl_init(curl_handle_hour);
-            curl_easy_setopt(curl_handle_hour, CURLOPT_URL, hour_url);
-            curl_easy_setopt(curl_handle_hour, CURLOPT_WRITEDATA,
-                             &html_file_hour);
-            curl_easy_setopt(curl_handle_hour, CURLOPT_WRITEFUNCTION,
-                             data_read);
-        }
-
-        curl_multi_add_handle(curl_multi, curl_handle);
-        if(app->config->show_weather_for_two_hours)
-            curl_multi_add_handle(curl_multi, curl_handle_hour);
-        return TRUE;            /* return to UI */
-    }
-    else{
-#ifndef RELEASE
-        fprintf(stderr, "\n>>>>>>>>>>>Third stage\n");
-#endif
-        /* The third stage */
-        num_msgs = 0;
-        while(curl_multi
-               && (msg = curl_multi_info_read(curl_multi, &num_msgs))) {
-            if(msg->msg == CURLMSG_DONE){
-                if(msg->easy_handle == curl_handle){
-                    /* Clean */
-                    mret = curl_multi_remove_handle(curl_multi, curl_handle);       /* Delete curl_handle from curl_multi */
-                    if(mret != CURLM_OK)
-                       fprintf(stderr, " Error remove handle %p\n",
-                                curl_handle);
-                    curl_easy_cleanup(curl_handle);
-                    curl_handle = NULL;
-                    if(url){
-                       g_free(url);
-                       url = NULL;
-                    }
-                    if(html_file.stream){
-                        fclose(html_file.stream);
-                        html_file.stream = NULL;
-                    }
-                    if(html_file.filename){
-                        g_free(html_file.filename);
-                        html_file.filename = NULL;
-                    }
+                    DEBUG_FUNCTION("Wakeup connection failed");
+                    app->phase = ZERO_PHASE;
+                    if(update_window)
+                        gtk_widget_destroy(update_window);
+                    return FALSE;   /* connection wakeup error, terminate update process */
                 }
-                if(curl_handle_hour &&
-                   msg->easy_handle == curl_handle_hour &&
-                   app->config->show_weather_for_two_hours){
-                    mret = curl_multi_remove_handle(curl_multi, curl_handle_hour);  /* Delete curl_handle from curl_multi */
-                    if(mret != CURLM_OK)
-                        fprintf(stderr, " Error remove handle %p\n",curl_handle);
-                    curl_easy_cleanup(curl_handle_hour);
-                    curl_handle_hour = NULL;
-                    if(hour_url){
-                        g_free(hour_url);
-                        hour_url = NULL;
+            }
+            else
+                app->iap_connecting_timer = 0;
+            app->phase = THIRD_PHASE;
+            return TRUE;
+        break;
+        case THIRD_PHASE:
+            DEBUG_FUNCTION("Third phase");
+            /* if allready connected go next */
+            if(app->iap_connected && !app->iap_connecting){
+                app->phase = FOURTH_PHASE;
+                return TRUE;
+            }
+            /* else wait timeout */
+            if(app->iap_connecting_timer > 150){
+                if(app->show_update_window){
+                    if(update_window){
+                        gtk_widget_destroy(update_window);
+                        update_window = NULL;
                     }
-                    if(html_file_hour.stream){
-                            fclose(html_file_hour.stream);
-                            html_file_hour.stream = NULL;
-                    }
-                    if(html_file_hour.filename){
-                            g_free(html_file_hour.filename);
-                            html_file_hour.filename = NULL;
-                    }
+                    hildon_banner_show_information(app->main_window, NULL,
+                                               _("Could not connecting to Internet.\nConnection timeout is expired."));
+                    app->iap_connecting_timer = 0;
                 }
-                if(msg->data.result && msg->data.result != CURLE_OK){     /* Not success of the download */
-                    if(app->show_update_window)
-                        hildon_banner_show_information
-                            (app->main_window, NULL, _("Did not download weather"));
+                app->phase = ZERO_PHASE;
+                return FALSE;
+            }
+            else{
+                app->iap_connecting_timer++;
+                DEBUG_FUNCTION("Wait connection up");
+                return TRUE;
+            }
+        break;
+        case FOURTH_PHASE:
+            DEBUG_FUNCTION("Fourth phase");
+            curl_global_init(CURL_GLOBAL_ALL);
+            /* if connection is established start download data */
+            memset(&params, 0, sizeof(struct download_params));
+            /* preapre proxy data */
+            if(app->config->iap_http_proxy_host)
+                params.proxy_host = app->config->iap_http_proxy_host;
+            else
+                params.proxy_host = NULL;
+            if(app->config->iap_http_proxy_port)
+                params.proxy_port = app->config->iap_http_proxy_port;
+            else
+                params.proxy_port = -1;
+            /* get first url and filename */
+            if(!get_station_url(&url, &filename, &hour_url, &filename_hour, TRUE)){
+                download_ok = 0;
+                download_total = 0;
+                download_status = DOWNLOAD_UNCKNOWN_ERROR; /* The strange error */
+                app->phase = SIXTH_PHASE;
+                return TRUE;
+            }
+            else{
+                params.url = url;
+                params.filename = filename;
+                params.hour_data = FALSE;
+                data = g_new0(struct download_data, 1);
+                data->params = params;
+                error = pthread_create(&tid, NULL, download_url, (void*)&data->params);
+                if(0 != error){
+#ifndef RELEASE
+                    fprintf(stderr, "\n>>>>>>>>>>>>>>>>>Couldn't run thread, errno %d\n", error);
+#endif
+                    g_free(data);
                 }
                 else{
-                    if(curl_handle_hour || curl_handle)
-                        return TRUE; /* Continue downloading */
-                    /* get next station url */
-                    if(!get_station_url(&url, &html_file, &hour_url, &html_file_hour, FALSE)){        /* Success - all is downloaded */
-                        if(app->show_update_window)
-                            hildon_banner_show_information(app->main_window, NULL,
-                                                            _("Weather updated"));
-                        redraw_home_window(FALSE);
+                    data->tid = tid;
+                    list = g_slist_append(list, (void*)data);
+                    i++;
+                    download_total++;
+                }
+                /* hour data */
+                if(app->config->show_weather_for_two_hours){
+                    params.url = hour_url;
+                    params.filename = filename_hour;
+                    params.hour_data = TRUE;
+                    data = g_new0(struct download_data, 1);
+                    data->params = params;
+                    error = pthread_create(&tid, NULL, download_url, (void*)&data->params);
+                    if(0 != error){
 #ifndef RELEASE
-                        fprintf(stderr, "\n>>>>>>>>>>>>>>End of update cycle\n");
+                        fprintf(stderr, "\n>>>>>>>>>>>>>>>>>Couldn't run thread, errno %d\n", error);
 #endif
+                        g_free(data);
                     }
                     else{
-#ifndef RELEASE
-                        fprintf(stderr, "\n>>>>>Url - %s, File - %s\n",
-                                url, html_file.filename);
-#endif
-                        /* set options for the curl easy handle */
-                        curl_handle = weather_curl_init(curl_handle);
-                        curl_easy_setopt(curl_handle, CURLOPT_URL, url);
-                        curl_easy_setopt(curl_handle,
-                                         CURLOPT_WRITEDATA, &html_file);
-                        curl_easy_setopt(curl_handle,
-                                         CURLOPT_WRITEFUNCTION, data_read);
-                        if(app->config->show_weather_for_two_hours) {
-                            curl_handle_hour =
-                                weather_curl_init(curl_handle_hour);
-                            curl_easy_setopt(curl_handle_hour,
-                                             CURLOPT_URL, hour_url);
-                            curl_easy_setopt(curl_handle_hour,
-                                             CURLOPT_WRITEDATA,
-                                             &html_file_hour);
-                            curl_easy_setopt(curl_handle_hour,
-                                             CURLOPT_WRITEFUNCTION,
-                                             data_read);
-                        }
-                        /* add the easy handle to a multi session */
-                        curl_multi_add_handle(curl_multi, curl_handle);
-                        if(app->config->show_weather_for_two_hours)
-                            curl_multi_add_handle(curl_multi,
-                                                  curl_handle_hour);
-                        return TRUE;    /* Download next station */
+                        DEBUG_FUNCTION("Thread created");
+                        data->tid = tid;
+                        list = g_slist_append(list, (void*)data);
+                    i++;
                     }
                 }
-                /* Clean all */
-                if(update_window){
-                    gtk_widget_destroy(update_window);
-                    update_window = NULL;
+            }
+            /* get others urls and file names */
+            while(get_station_url(&url, &filename, &hour_url, &filename_hour, FALSE)){
+                data = g_new0(struct download_data, 1);
+                params.url = url;
+                params.filename = filename;
+                params.hour_data = FALSE;
+                data->params = params;
+                error = pthread_create(&tid, NULL, download_url, (void*)&data->params);
+                if(0 != error){
+#ifndef RELEASE
+                    fprintf(stderr, "\n>>>>>>>>>>>>>>>>>Couldn't run thread number %d, errno %d\n", i, error);
+#endif
+                    g_free(data);
                 }
-                curl_multi_cleanup(curl_multi);
-                free_curl();
-                return FALSE;   /* This is the end */
+                else{
+                    DEBUG_FUNCTION("Thread created");
+                    data->tid = tid;
+                    list = g_slist_append(list, (void*)data);
+                    i++;
+                    download_total++;
+                }
+                /* hour data */
+                if(app->config->show_weather_for_two_hours){
+                    params.url = hour_url;
+                    params.filename = filename_hour;
+                    params.hour_data = TRUE;
+                    data = g_new0(struct download_data, 1);
+                    data->params = params;
+                    error = pthread_create(&tid, NULL, download_url, (void*)&data->params);
+                    if(0 != error){
+#ifndef RELEASE
+                        fprintf(stderr, "\n>>>>>>>>>>>>>>>>>Couldn't run thread number %d, errno %d\n", i, error);
+#endif
+                        g_free(data);
+                    }
+                    else{
+                        data->tid = tid;
+                        list = g_slist_append(list, (void*)data);
+                        i++;
+                    }
+                }
             }
-        }
-        if(!curl_multi){
-            /* Clean all */
-            if(update_window){
+            app->phase = FIFTH_PHASE;
+            i = 0;
+            return TRUE;
+        break;
+        case FIFTH_PHASE:
+            DEBUG_FUNCTION("Fifth phase");
+            /* now wait for all threads to terminate */
+            if(list){
+                data = (struct download_data*)list->data;
+                tid = data->tid;
+                error = pthread_tryjoin_np(tid, NULL);
+                if(error == EBUSY){/* thread does not finished */
+#ifndef RELEASE
+                    fprintf(stderr, ">>>>>>>>>>>>>>>>>>>>>>Thread does not finished\n");
+#endif
+                    return TRUE;
+                }
+                if(!error){
+#ifndef RELEASE
+                    fprintf(stderr, ">>>>>>>>>>>>>>>>>>>>>>Thread %d finished with status %d\n", i, data->params.status);
+#endif
+                    DEBUG_FUNCTION("Thread finished");
+                    if(!data->params.status && !data->params.hour_data)
+                        download_ok++;
+                    /* store thread status */
+                    download_status = data->params.status;
+                }
+                g_free(data->params.url);
+                g_free(data->params.filename);
+                g_free(data);
+                list = g_slist_next(list);
+                i++;
+                return TRUE;
+            }
+            if(list)
+                g_slist_free(list);
+            /* prepare returning result */
+            download_ok = download_ok;
+            download_total = download_total;
+            app->phase = SIXTH_PHASE;
+            return TRUE;
+        break;
+        case SIXTH_PHASE:
+            DEBUG_FUNCTION("Sixth phase");
+            if(update_window)
                 gtk_widget_destroy(update_window);
-                update_window = NULL;
+            *buffer = 0;
+            *buffer1 = 0;
+            snprintf(buffer1, sizeof(buffer1) - 1, "%s: %d/%d",
+                        _("Successfully loaded"), download_ok, download_total);
+            switch(download_status){
+                default:
+                case DOWNLOAD_UNCKNOWN_ERROR:
+                    snprintf(buffer, sizeof(buffer) - 1, "%s\n%s",
+                                _("An unknown error has occurred."), buffer1);
+                break;
+                case DOWNLOAD_OK:
+                    snprintf(buffer, sizeof(buffer) - 1, "%s\n%s",
+                                _("The weather has been updated."), buffer1);
+                break;
+                case DOWNLOAD_PROXY_ERROR:
+                    snprintf(buffer, sizeof(buffer) - 1, "%s\n%s",
+                                _("Couldn't resolve proxy."), buffer1);
+                break;
+                case DOWNLOAD_RESOLVE_ERROR:
+                    snprintf(buffer, sizeof(buffer) - 1, "%s\n%s",
+                                _("Couldn't resolve host."), buffer1);
+                break;
+                case DOWNLOAD_CONNECT_ERROR:
+                    snprintf(buffer, sizeof(buffer) - 1, "%s\n%s",
+                                _("Failed to connect to host or proxy."), buffer1);
+                break;
+                case DOWNLOAD_ACCESS_DENIED:
+                    snprintf(buffer, sizeof(buffer) - 1, "%s\n%s",
+                                _("Access denied to the given URL."), buffer1);
+                break;
+                case DOWNLOAD_HTTP_ERROR:
+                    snprintf(buffer, sizeof(buffer) - 1, "%s\n%s",
+                                _("HTTP error."), buffer1);
+                break;
+                case DOWNLOAD_NOW_WORKING:
+                    snprintf(buffer, sizeof(buffer) - 1, "%s\n%s",
+                            _("The downloading now is working."), buffer1);
+                break;
+                case DOWNLOAD_TIMEOUT:
+                    snprintf(buffer, sizeof(buffer) - 1, "%s\n%s",
+                                _("Download timeout."), buffer1);
+                break;
             }
-            free_curl();
-            return FALSE;
-        }
-        return TRUE;
+            if(app->show_update_window)
+                hildon_banner_show_information(app->main_window, NULL, buffer);
+            app->phase = ZERO_PHASE;
+            DEBUG_FUNCTION("End update");
+            redraw_home_window(FALSE);
+            return FALSE;/* termainate process */
+        break;
     }
-    app->flag_updating = 0;
-#ifdef DEBUGFUNCTIONCALL
-    END_FUNCTION;
-#endif
-    return FALSE;
+    return TRUE;
 }
 /*******************************************************************************/
-void
-clean_download(void){
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    if(curl_multi)
-        curl_multi_cleanup(curl_multi);
-    curl_multi = NULL;
-    curl_handle = NULL;
-    curl_handle_hour = NULL;
-    if (update_window){
-        gtk_widget_destroy(update_window);
-        update_window = NULL;
-    }
-}
-/*******************************************************************************/
-/* Create URL and filename for xml file. 
+/* Create URL and filename for xml file.
  * Returns TRUE if all right otherwise return FLASE.
 */
 gboolean
-get_station_url(gchar ** url, struct HtmlFile *html_file,
-                gchar ** hour_url, struct HtmlFile *html_file_hour,
-                gboolean first) {
+get_station_url(gchar **url, gchar **filename, gchar **hour_url,
+                                        gchar **filename_hour, gboolean first){
     gboolean            valid = FALSE;
     static GtkTreeIter  iter;
     gchar               *station_code = NULL,
                         *new_station_code = NULL,
-                        *station_source = NULL;
-    gchar                buffer[512];
+                        *station_source = NULL,
+                        buffer[512];
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if (first)
-        valid =
-            gtk_tree_model_get_iter_first(GTK_TREE_MODEL
-                                          (app->user_stations_list),
-                                          &iter);
+    if(first)
+        valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list), &iter);
     else
-        valid =
-            gtk_tree_model_iter_next(GTK_TREE_MODEL
-                                     (app->user_stations_list), &iter);
-    if (valid) {
-         gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
-                               &iter,
-                               ID0_COLUMN, &station_code,
-                               3, &station_source,
-                               -1);
-        /* Skip Empty  station */
-        while (1){
-            if (station_code && (!strcmp(station_code," ") || !strcmp(station_code,_("Unknown"))) ){
-                if (station_code){
+        valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
+    if(valid){
+        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list), &iter,
+                                ID0_COLUMN, &station_code,3, &station_source, -1);
+        /* Skip Empty station */
+        while(1){
+            if(station_code && (!strcmp(station_code," ") || !strcmp(station_code,_("Unknown"))) ){
+                if(station_code){
                     g_free(station_code);
                     station_code = NULL;
                 }
-                if (station_source){
+                if(station_source){
                     g_free(station_source);
                     station_source = NULL;
                 }
- 
-                valid = gtk_tree_model_iter_next(GTK_TREE_MODEL
-                                         (app->user_stations_list), &iter);
-                if (valid) {
+                valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
+                if(valid){
                     gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
-                               &iter,
-                               ID0_COLUMN, &station_code,
-                               3, &station_source,
-                               -1);
-                }else
+                                        &iter,
+                                        ID0_COLUMN, &station_code,
+                                        3, &station_source, -1);
+                }
+                else
                     break;
-            }else
+            }
+            else
                 break;
         }
     }
-    if (valid) {
+    if(valid){
         if(station_source){
-            /* prepare forecast url */
+/* prepare forecast url */
             if(get_source_forecast_url(app->sources_list, station_source)){
                 *buffer = 0;
-                /* TO DO this part of code will move to sources code */
-                if (station_source && (!strcmp(station_source,"gismeteo.ru")))
+/* TO DO this part of code will move to sources code */
+                if(station_source && (!strcmp(station_source, "gismeteo.ru")))
                     snprintf(buffer, sizeof(buffer) - 1,
-                            get_source_forecast_url(app->sources_list, station_source),
-                            station_code, station_code);
+                                get_source_forecast_url(app->sources_list, station_source),
+                                                        station_code, station_code);
                 else
                     snprintf(buffer, sizeof(buffer) - 1,
-                            get_source_forecast_url(app->sources_list, station_source),
-                            station_code);
+                                get_source_forecast_url(app->sources_list, station_source),
+                                                        station_code);
                 *url = g_strdup(buffer);
             }
-            /* prepare detail url */
+/* prepare detail url */
             if(get_source_detail_url(app->sources_list, station_source)){
                 *buffer = 0;
-                /* TO DO move this code to sources libs */
-                if (!strcmp(station_source,"gismeteo.ru")){
+/* TO DO move this code to sources libs */
+                if(!strcmp(station_source, "gismeteo.ru")){
                     new_station_code = get_new_gismeteo_code(station_code, station_source);
                     snprintf(buffer, sizeof(buffer) - 1,
-                            get_source_detail_url(app->sources_list, station_source),
-                            new_station_code);
+                                get_source_detail_url(app->sources_list, station_source),
+                                                        new_station_code);
                     g_free(new_station_code);
-                }else
+                }
+                else
                     snprintf(buffer, sizeof(buffer) - 1,
-                            get_source_detail_url(app->sources_list, station_source),
-                            station_code);
+                                get_source_detail_url(app->sources_list, station_source),
+                                                        station_code);
                 *hour_url = g_strdup(buffer);
             }
         }
-    #ifndef RELEASE
-            fprintf(stderr, "\n>>>>>>>>>>URL %s\n", *url);
-    #endif
-            /* preapare filename */
-            memset(buffer, 0, sizeof(buffer));
-            snprintf(buffer, sizeof(buffer) - 1,
-                     "%s/%s.xml.new", app->config->cache_dir_name,
-                     station_code);
-            html_file->filename = g_strdup(buffer);
-            html_file->stream = NULL;
-            memset(buffer, 0, sizeof(buffer));
-            snprintf(buffer, sizeof(buffer) - 1,
-                     "%s/%s_hour.xml.new",
-                     app->config->cache_dir_name, station_code);
-            html_file_hour->filename = g_strdup(buffer);
-            html_file_hour->stream = NULL;
-
-    #ifndef RELEASE
-            fprintf(stderr, "\n>>>>>>>>>NAME %s\n", html_file->filename);
-    #endif
-            g_free(station_code);
-            g_free(station_source);
+#ifndef RELEASE
+/*
+        fprintf(stderr, "\n>>>>>>>>>>URL %s", *url);
+        fprintf(stderr, "\n>>>>>>>>>>Hour URL %s\n", *hour_url);
+*/
+#endif
+/* preapare filename */
+        memset(buffer, 0, sizeof(buffer));
+        snprintf(buffer, sizeof(buffer) - 1, "%s/%s.xml.new",
+                    app->config->cache_dir_name, station_code);
+        *filename = g_strdup(buffer);
+        memset(buffer, 0, sizeof(buffer));
+        snprintf(buffer, sizeof(buffer) - 1, "%s/%s_hour.xml.new",
+                    app->config->cache_dir_name, station_code);
+        *filename_hour = g_strdup(buffer);
+#ifndef RELEASE
+/*
+        fprintf(stderr, "\n>>>>>>>>>NAME %s", *filename);
+        fprintf(stderr, "\n>>>>>>>>>Hour NAME %s\n", *filename_hour);
+*/
+#endif
+        g_free(station_code);
+        g_free(station_source);
     }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -672,89 +514,23 @@ get_station_url(gchar ** url, struct HtmlFile *html_file,
     return valid;
 }
 /*******************************************************************************/
-void
-check_current_connection(void){
-    gchar *tmp = NULL;
-    gchar *gconf_path = NULL;
-    gchar *type_of_connection = NULL;
-    GConfClient *gconf_client = NULL;
-
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
- 
-    /* Check current connection */
-    gconf_client = gconf_client_get_default();
-    if (gconf_client) {
-        tmp = gconf_client_get_string(gconf_client,
-                                      GCONF_KEY_CURRENT_CONNECTIVITY,
-                                      NULL);
-        if (tmp) {
-            gconf_path = g_strdup_printf("/system/osso/connectivity/IAP/%s/type", tmp);
-            type_of_connection = gconf_client_get_string(gconf_client,
-                                      gconf_path,
-                                      NULL);
-            if ((type_of_connection && !strncmp(type_of_connection, "WLAN", 4) && app->config->update_wlan) ||
-                (type_of_connection && !strncmp(type_of_connection, "DUN_GSM", 7) && app->config->update_gsm))
-                app->iap_connected = TRUE;
-            else
-                app->iap_connected = FALSE;
-            if (gconf_path)
-                g_free(gconf_path);
-            if (type_of_connection);
-                g_free(type_of_connection);
-            g_free(tmp);
-        } else
-            app->iap_connected = FALSE;
-        gconf_client_clear_cache(gconf_client);
-        g_object_unref(gconf_client);
+gboolean
+wakeup_connection(void){
+#ifdef USE_CONIC
+    if(app->connection){
+        if(!con_ic_connection_connect(app->connection, CON_IC_CONNECT_FLAG_NONE))
+            return FALSE;
+        else
+            return TRUE;
     }
+    else
+        return FALSE;
+#else
+#ifndef NONMAEMO
+    if(osso_iap_connect(OSSO_IAP_ANY, OSSO_IAP_REQUESTED_CONNECT, NULL) != OSSO_OK)
+        return FALSE;
+#endif
+#endif
+    return TRUE;
 }
 /*******************************************************************************/
-gboolean
-get_data_from_url(const gchar *data_url, const gchar *name){
-
-    gchar                   full_filename[2048]; 
-    CURL                    *data_curl;
-    CURLcode                result;
-    static struct HtmlFile  data;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    if((!data_url) || (!name))
-        return FALSE;
-    *full_filename = 0;
-    snprintf(full_filename, sizeof(full_filename) - 1,"%s/%s",
-                                                app->config->cache_dir_name, name);
-    data.filename = full_filename;
-
-    data_curl = curl_easy_init();
-
-    if (data_curl){
-        curl_easy_setopt(data_curl, CURLOPT_WRITEFUNCTION, data_read);
-        curl_easy_setopt(data_curl, CURLOPT_WRITEDATA, &data);
-        curl_easy_setopt(data_curl, CURLOPT_URL, data_url);
-        curl_easy_setopt(data_curl, CURLOPT_FOLLOWLOCATION, 1);
-        curl_easy_setopt(data_curl, CURLOPT_TIMEOUT, 30);
-        curl_easy_setopt(data_curl, CURLOPT_CONNECTTIMEOUT, 10);
-
-        result = curl_easy_perform(data_curl);
-
-        curl_easy_cleanup(data_curl);
-        data_curl = NULL;
-        if(data.stream){
-            fclose(data.stream);
-            data.stream = NULL;
-        }
-        if(data.filename){
-             /* g_free(data.filename); */
-             data.filename = NULL;
-        }
-        if(result == CURLE_OK)
-            return TRUE;
-        else
-            return FALSE;
-    }
-
-    return FALSE;
-}

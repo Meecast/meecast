@@ -2814,15 +2814,13 @@ GtkWidget *create_locations_tab(GtkWidget * window) {
                               GTK_EXPAND, GTK_EXPAND | GTK_FILL, 0, 0);
 /* prepare up_station_button */
     up_station_button =
-        create_button_with_image(NULL, "qgn_indi_arrow_up", 16, TRUE,
-                                 FALSE);
+        create_button_with_image(BUTTON_ICONS, "up_arrow", 16, TRUE, FALSE);
     g_signal_connect(up_station_button, "clicked",
                      G_CALLBACK(up_key_handler),
                      (gpointer) station_list_view);
 /* prepare down_station_button */
     down_station_button =
-        create_button_with_image(NULL, "qgn_indi_arrow_down", 16, TRUE,
-                                 FALSE);
+        create_button_with_image(BUTTON_ICONS, "down_arrow", 16, TRUE, FALSE);
 
     g_signal_connect(down_station_button, "clicked",
                      G_CALLBACK(down_key_handler),

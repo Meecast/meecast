@@ -87,6 +87,8 @@ omweather_CFLAGS =	$(GTK_CFLAGS) \
 			$(LOCATION_CFLAGS) \
 			$(CLUTTER_CFLAGS) \
 			$(HILDONANIMATION_CFLAGS) \
+			-DDISPLAY_BUILD \
+            -DDEBUGCONNECT \
 			-DAPPLICATION \
 			-Wall -pedantic \
 			-Wmissing-prototypes
@@ -149,6 +151,8 @@ libweather_home_la_CFLAGS =  $(GTK_CFLAGS) \
 			$(CLUTTER_CFLAGS) \
 			$(HILDONANIMATION_CFLAGS) \
 			$(HILDONDESKTOP_CFLAGS) \
+			-DDISPLAY_BUILD \
+            -DDEBUGCONNECT \
 			-Wall -pedantic \
 			-Wmissing-prototypes
 

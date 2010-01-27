@@ -35,6 +35,7 @@
     g_hash_table_insert(hash, "Облачно, небольшой дождь", "Cloudy, Light Rain");
     g_hash_table_insert(hash, "Облачно, небольшой дождь, гроза", "Cloudy, Light Rain, T-Storm");
     g_hash_table_insert(hash, "Облачно, небольшой снег", "Cloudy, Few Snow");
+    g_hash_table_insert(hash, "Облачно,  снег", "Cloudy, Snow");
     g_hash_table_insert(hash, "Ясно", "Clear");
     g_hash_table_insert(hash, "Ясно, дымка", "Clear, Smoke");
 

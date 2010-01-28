@@ -441,7 +441,6 @@ msgid "Cloudy and Windy"
 msgstr "Облачно и ветер"
 
 #: src/hash.data:240
-#, fuzzy
 msgid "Cloudy, Few Snow"
 msgstr "Облачно Небольшой снег"
 
@@ -450,14 +449,12 @@ msgid "Cloudy, Light Rain"
 msgstr "Облачно, Небольшой дождь"
 
 #: src/hash.data:33
-#, fuzzy
 msgid "Cloudy, Light Rain, T-Storm"
-msgstr "Облачно Небольшой дождь"
+msgstr "Облачно, Небольшой дождь, Гроза"
 
 #: src/hash.data:241
-#, fuzzy
 msgid "Cloudy, Snow"
-msgstr "Облачно Небольшой снег"
+msgstr "Облачно, Cнег"
 
 #: src/weather-simple-settings.c:1583 src/weather-simple-settings.c:1902
 msgid "Configuring station"
@@ -779,9 +776,8 @@ msgid "Gust:"
 msgstr "Порывы:"
 
 #: src/weather-home.c:1477
-#, fuzzy
 msgid "H: "
-msgstr " В: "
+msgstr "В: "
 
 #: src/weather-download.c:384
 msgid "HTTP error."
@@ -990,7 +986,6 @@ msgid "Mostly Cloudy Rain"
 msgstr "В основном облачно Дождь"
 
 #: src/hash.data:96
-#, fuzzy
 msgid "Mostly Cloudy Snow"
 msgstr "Пасмурно Небольшой Снег"
 
@@ -1007,49 +1002,40 @@ msgid "Mostly Cloudy, Few Snow"
 msgstr "Пасмурно, Небольшой Снег"
 
 #: src/hash.data:100
-#, fuzzy
 msgid "Mostly Cloudy, Fog, Drizzle"
-msgstr "В основном облачно / Ветер"
+msgstr "Пасмурно, Туман, Изморось"
 
 #: src/hash.data:101
-#, fuzzy
 msgid "Mostly Cloudy, Heavy Snow, Freezing Rain"
-msgstr "Пасмурно Небольшой дождь"
+msgstr "Пасмурно, Сильный снег, Гололёд"
 
 #: src/hash.data:102
-#, fuzzy
 msgid "Mostly Cloudy, Light Rain"
-msgstr "Пасмурно Небольшой дождь"
+msgstr "Пасмурно, Небольшой дождь"
 
 #: src/hash.data:103
-#, fuzzy
 msgid "Mostly Cloudy, Light Rain, Drizzle"
 msgstr "Пасмурно Небольшой дождь"
 
 #: src/hash.data:104
-#, fuzzy
 msgid "Mostly Cloudy, Light Rain, T-Storm"
-msgstr "Пасмурно Небольшой дождь"
+msgstr "Пасмурно, Небольшой дождь, Гроза"
 
 #: src/hash.data:105
-#, fuzzy
 msgid "Mostly Cloudy, Rain"
-msgstr "В основном облачно Дождь"
+msgstr "Пасмурно, Дождь"
 
 #: src/hash.data:106
-#, fuzzy
 msgid "Mostly Cloudy, Rain, T-Storm"
-msgstr "В основном облачно Гроза"
+msgstr "Пасмурно, Дождь, Гроза"
 
 #: src/hash.data:107
-#, fuzzy
 msgid "Mostly Cloudy, Smoke"
-msgstr "В основном облачно"
+msgstr "Пасмурно, Дымка"
 
 #: src/hash.data:108
-#, fuzzy
 msgid "Mostly Cloudy, Snow"
-msgstr "Пасмурно Небольшой Снег"
+msgstr "Пасмурно, Снег"
 
 #: src/hash.data:109
 msgid "Mostly Sunny"
@@ -1253,9 +1239,8 @@ msgid "Partly Cloudy / Wind"
 msgstr "Небольшая облачность / Ветер"
 
 #: src/hash.data:236
-#, fuzzy
 msgid "Partly Cloudy Few Snow"
-msgstr "Пасмурно Небольшой Снег"
+msgstr "Малооблачно Небольшой Снег"
 
 #: src/hash.data:137
 msgid "Partly Cloudy Light Rain"
@@ -1270,24 +1255,20 @@ msgid "Partly Cloudy and Windy"
 msgstr "Небольшая облачность и ветер"
 
 #: src/hash.data:141
-#, fuzzy
 msgid "Partly Cloudy, Haze"
-msgstr "Небольшая облачность"
+msgstr "Небольшая облачность, мгла"
 
 #: src/hash.data:239
-#, fuzzy
 msgid "Partly Cloudy, Light Rain"
-msgstr "Малообачно Небольшой Дождь"
+msgstr "Малообачно, Небольшой Дождь"
 
 #: src/hash.data:237
-#, fuzzy
 msgid "Partly Cloudy, Smoke"
-msgstr "В основном облачно"
+msgstr "Малообачно, Дымка"
 
 #: src/hash.data:238
-#, fuzzy
 msgid "Partly Cloudy, Snow"
-msgstr "Пасмурно Небольшой Снег"
+msgstr "Малооблачно, Снег"
 
 #: src/weather-simple-settings.c:1261
 msgid "Period"

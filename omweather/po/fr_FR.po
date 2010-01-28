@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-28 15:52+0200\n"
-"PO-Revision-Date: 2009-11-26 21:25+0100\n"
+"PO-Revision-Date: 2010-01-28 22:56+0100\n"
 "Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
 "MIME-Version: 1.0\n"
@@ -271,7 +271,7 @@ msgstr "À propos"
 
 #: src/weather-download.c:380
 msgid "Access denied to the given URL."
-msgstr ""
+msgstr "Accès interdit à l'URL donné."
 
 #: src/weather-simple-popup.c:247
 msgid "Action|Update"
@@ -312,7 +312,7 @@ msgstr ""
 
 #: src/weather-download.c:360
 msgid "An unknown error has occurred."
-msgstr ""
+msgstr "Une erreur inconnue s'est produite."
 
 #: src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -350,11 +350,11 @@ msgstr "Couleur du fond :"
 
 #: src/weather-simple-settings.c:1054
 msgid "Beauf."
-msgstr ""
+msgstr "Beauf."
 
 #: src/weather-settings.c:3847 src/weather-simple-settings.c:2117
 msgid "Beaufort scale"
-msgstr ""
+msgstr "Échelle Beaufort."
 
 #: src/hash.data:20
 msgid "Blowing Snow"
@@ -402,13 +402,12 @@ msgid "Clear / Wind"
 msgstr "Ciel clair / vent"
 
 #: src/hash.data:24
-#, fuzzy
 msgid "Clear, Drifting Snow"
-msgstr "Neige poudreuse"
+msgstr "Ciel clair, Neige poudreuse"
 
 #: src/hash.data:25
 msgid "Clear, Smoke"
-msgstr ""
+msgstr "Ciel Clair, Fumée"
 
 #: src/weather-settings.c:485
 msgid "Close"
@@ -443,37 +442,32 @@ msgid "Cloudy and Windy"
 msgstr "Nuageux et venteux"
 
 #: src/hash.data:33
-#, fuzzy
 msgid "Cloudy, Few Snow"
-msgstr "Nuageux neigeux"
+msgstr "Nuageux, quelques chutes de neige"
 
 #: src/hash.data:34
-#, fuzzy
 msgid "Cloudy, Light Rain"
-msgstr "Nuageux pluie légère"
+msgstr "Nuageux, pluie légère"
 
 #: src/hash.data:35
-#, fuzzy
 msgid "Cloudy, Light Rain, T-Storm"
-msgstr "Nuageux pluie légère"
+msgstr "Nuageux, pluie légère, orage"
 
 #: src/hash.data:36
-#, fuzzy
 msgid "Cloudy, Snow"
-msgstr "Nuageux neigeux"
+msgstr "Nuageux, neige"
 
 #: src/weather-simple-settings.c:1583 src/weather-simple-settings.c:1902
 msgid "Configuring station"
 msgstr "Configuration des stations"
 
 #: src/weather-download.c:189
-#, fuzzy
 msgid ""
 "Could not connecting to Internet.\n"
 "Connection timeout is expired."
 msgstr ""
 "Non connecté à internet\n"
-"Temps de connexion expiré"
+"Temps de connexion expiré."
 
 #: src/weather-config.c:401
 #, c-format
@@ -482,11 +476,11 @@ msgstr "Impossible de créer le répertoire de cache.\n"
 
 #: src/weather-download.c:372
 msgid "Couldn't resolve host."
-msgstr ""
+msgstr "Ne peux pas résoudre le nom d'hôte."
 
 #: src/weather-download.c:368
 msgid "Couldn't resolve proxy."
-msgstr ""
+msgstr "Ne peux pas résoudre le nom du proxy."
 
 #: src/weather-simple-settings.c:443 src/weather-simple-settings.c:1725
 msgid "Country"
@@ -536,7 +530,7 @@ msgstr "Télécharger et affiche la météo détaillée"
 
 #: src/weather-download.c:392
 msgid "Download timed out."
-msgstr ""
+msgstr "Délai dépassé lors du téléchargement."
 
 #: src/hash.data:37
 msgid "Drifting Snow"
@@ -636,7 +630,7 @@ msgstr "Fahrenheit"
 
 #: src/weather-download.c:376
 msgid "Failed to connect to host or proxy."
-msgstr ""
+msgstr "Echec de connexion vers l'hôte ou le proxy."
 
 #: src/weather-config.c:360
 #, c-format
@@ -753,9 +747,8 @@ msgid "Full forecast"
 msgstr "Prévision complète"
 
 #: src/weather-home.c:1550
-#, fuzzy
 msgid "G: "
-msgstr " G :"
+msgstr "G : "
 
 #: src/weather-simple-settings.c:1661
 msgid "GPS"
@@ -787,13 +780,12 @@ msgid "Gust:"
 msgstr "Rafale :"
 
 #: src/weather-home.c:1477
-#, fuzzy
 msgid "H: "
-msgstr " H: "
+msgstr "H: "
 
 #: src/weather-download.c:384
 msgid "HTTP error."
-msgstr ""
+msgstr "erreur HTTP."
 
 #: src/hash.data:62
 msgid "Haze"
@@ -998,7 +990,6 @@ msgid "Mostly Cloudy Rain"
 msgstr "Plutôt nuageux, pluie"
 
 #: src/hash.data:99
-#, fuzzy
 msgid "Mostly Cloudy Snow"
 msgstr "Plutôt nuageux, neigeux"
 
@@ -1011,57 +1002,46 @@ msgid "Mostly Cloudy and Windy"
 msgstr "Plutôt nuageux et venteux"
 
 #: src/hash.data:102
-#, fuzzy
 msgid "Mostly Cloudy, Few Snow"
 msgstr "Plutôt nuageux, neigeux"
 
 #: src/hash.data:103
-#, fuzzy
 msgid "Mostly Cloudy, Fog, Drizzle"
-msgstr "Plutôt nuageux / vent"
+msgstr "Plutôt nuageux, brouillard, bruine"
 
 #: src/hash.data:104
-#, fuzzy
 msgid "Mostly Cloudy, Heavy Snow, Freezing Rain"
-msgstr "Plutôt nuageux, pluie légère"
+msgstr "Plutôt nuageux, forte neige, pluie verglaçante"
 
 #: src/hash.data:105
-#, fuzzy
 msgid "Mostly Cloudy, Light Rain"
 msgstr "Plutôt nuageux, pluie légère"
 
 #: src/hash.data:106
-#, fuzzy
 msgid "Mostly Cloudy, Light Rain, Drizzle"
-msgstr "Plutôt nuageux, pluie légère"
+msgstr "Plutôt nuageux, pluie légère, bruine"
 
 #: src/hash.data:107
-#, fuzzy
 msgid "Mostly Cloudy, Light Rain, T-Storm"
-msgstr "Plutôt nuageux, pluie légère"
+msgstr "Plutôt nuageux, pluie légère, orage"
 
 #: src/hash.data:108
-#, fuzzy
 msgid "Mostly Cloudy, Rain"
 msgstr "Plutôt nuageux, pluie"
 
 #: src/hash.data:109
-#, fuzzy
 msgid "Mostly Cloudy, Rain, T-Storm"
-msgstr "Plutôt nuageux, orages"
+msgstr "Plutôt nuageux, pluie, orages"
 
 #: src/hash.data:110
-#, fuzzy
 msgid "Mostly Cloudy, Smoke"
-msgstr "Plutôt nuageux"
+msgstr "Plutôt nuageux, fumé"
 
 #: src/hash.data:111
-#, fuzzy
 msgid "Mostly Cloudy, Snow"
-msgstr "Plutôt nuageux, neigeux"
+msgstr "Plutôt nuageux, neige"
 
 #: src/hash.data:243
-#, fuzzy
 msgid "Mostly Cloudy, T-Storm"
 msgstr "Plutôt nuageux, orages"
 
@@ -1267,7 +1247,6 @@ msgid "Partly Cloudy / Wind"
 msgstr "Partiellement nuageux / vent"
 
 #: src/hash.data:140
-#, fuzzy
 msgid "Partly Cloudy Few Snow"
 msgstr "Plutôt nuageux, neigeux"
 
@@ -1284,32 +1263,26 @@ msgid "Partly Cloudy and Windy"
 msgstr "Partiellement nuageux et venteux"
 
 #: src/hash.data:244
-#, fuzzy
 msgid "Partly Cloudy, Few Snow"
 msgstr "Plutôt nuageux, neigeux"
 
 #: src/hash.data:145
-#, fuzzy
 msgid "Partly Cloudy, Haze"
-msgstr "Partiellement nuageux"
+msgstr "Partiellement nuageux, brume"
 
 #: src/hash.data:146
-#, fuzzy
 msgid "Partly Cloudy, Light Rain"
 msgstr "Partiellement nuageux, pluie légère"
 
 #: src/hash.data:147
-#, fuzzy
 msgid "Partly Cloudy, Smoke"
-msgstr "Plutôt nuageux"
+msgstr "Plutôt nuageux, fumé"
 
 #: src/hash.data:148
-#, fuzzy
 msgid "Partly Cloudy, Snow"
-msgstr "Plutôt nuageux, neigeux"
+msgstr "Plutôt nuageux, neige"
 
 #: src/hash.data:245
-#, fuzzy
 msgid "Partly Cloudy, T-Storm"
 msgstr "Partiellement nuageux, orage"
 
@@ -1664,7 +1637,7 @@ msgstr "Orage"
 
 #: src/weather-download.c:355
 msgid "Successfully loaded"
-msgstr ""
+msgstr "Chargement réussi."
 
 #: src/hash.data:203
 msgid "Sunny"
@@ -1720,9 +1693,8 @@ msgid "Thanks"
 msgstr "Remerciement"
 
 #: src/weather-download.c:364
-#, fuzzy
 msgid "The weather has been updated."
-msgstr "Météo mise à jour "
+msgstr "La météo a été mise à jour."
 
 #: src/hash.data:207
 msgid "Thunder"
@@ -1768,7 +1740,7 @@ msgstr "Mise à jour"
 
 #: src/weather-download.c:388
 msgid "Update already running."
-msgstr ""
+msgstr "Mise à jour déjà en cours."
 
 #: src/weather-settings.c:4090
 msgid "Updating of weather data:"

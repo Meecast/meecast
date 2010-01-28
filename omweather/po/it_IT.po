@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-26 15:39+0200\n"
+"POT-Creation-Date: 2010-01-28 08:52+0200\n"
 "PO-Revision-Date: 2008-03-21 13:39+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Italiano\n"
@@ -442,6 +442,11 @@ msgstr "Temporali isolati"
 msgid "Cloudy and Windy"
 msgstr "Nuvoloso e Vento"
 
+#: src/hash.data:240
+#, fuzzy
+msgid "Cloudy, Few Snow"
+msgstr "Pochi Neve"
+
 #: src/hash.data:32
 #, fuzzy
 msgid "Cloudy, Light Rain"
@@ -451,6 +456,11 @@ msgstr "Deboli piogge"
 #, fuzzy
 msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Deboli piogge"
+
+#: src/hash.data:241
+#, fuzzy
+msgid "Cloudy, Snow"
+msgstr "Pochi Neve"
 
 #: src/weather-simple-settings.c:1583 src/weather-simple-settings.c:1902
 #, fuzzy
@@ -1271,6 +1281,11 @@ msgstr "Parzialmente nuvoloso"
 msgid "Partly Cloudy / Wind"
 msgstr "Parzialmente nuvoloso / Vento"
 
+#: src/hash.data:236
+#, fuzzy
+msgid "Partly Cloudy Few Snow"
+msgstr "Nuvole / Vento"
+
 #: src/hash.data:137
 #, fuzzy
 msgid "Partly Cloudy Light Rain"
@@ -1289,6 +1304,21 @@ msgstr "Parzialmente nuvoloso e ventoso"
 #, fuzzy
 msgid "Partly Cloudy, Haze"
 msgstr "Parzialmente nuvoloso"
+
+#: src/hash.data:239
+#, fuzzy
+msgid "Partly Cloudy, Light Rain"
+msgstr "Parzialmente nuvoloso / Vento"
+
+#: src/hash.data:237
+#, fuzzy
+msgid "Partly Cloudy, Smoke"
+msgstr "Nuvole"
+
+#: src/hash.data:238
+#, fuzzy
+msgid "Partly Cloudy, Snow"
+msgstr "Nuvole / Vento"
 
 #: src/weather-simple-settings.c:1261
 msgid "Period"

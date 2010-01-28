@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en_GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-26 15:39+0200\n"
+"POT-Creation-Date: 2010-01-28 08:52+0200\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -393,12 +393,20 @@ msgstr ""
 msgid "Cloudy and Windy"
 msgstr ""
 
+#: src/hash.data:240
+msgid "Cloudy, Few Snow"
+msgstr ""
+
 #: src/hash.data:32
 msgid "Cloudy, Light Rain"
 msgstr ""
 
 #: src/hash.data:33
 msgid "Cloudy, Light Rain, T-Storm"
+msgstr ""
+
+#: src/hash.data:241
+msgid "Cloudy, Snow"
 msgstr ""
 
 #: src/weather-simple-settings.c:1583 src/weather-simple-settings.c:1902
@@ -1161,6 +1169,10 @@ msgstr ""
 msgid "Partly Cloudy / Wind"
 msgstr ""
 
+#: src/hash.data:236
+msgid "Partly Cloudy Few Snow"
+msgstr ""
+
 #: src/hash.data:137
 msgid "Partly Cloudy Light Rain"
 msgstr ""
@@ -1175,6 +1187,18 @@ msgstr ""
 
 #: src/hash.data:141
 msgid "Partly Cloudy, Haze"
+msgstr ""
+
+#: src/hash.data:239
+msgid "Partly Cloudy, Light Rain"
+msgstr ""
+
+#: src/hash.data:237
+msgid "Partly Cloudy, Smoke"
+msgstr ""
+
+#: src/hash.data:238
+msgid "Partly Cloudy, Snow"
 msgstr ""
 
 #: src/weather-simple-settings.c:1261

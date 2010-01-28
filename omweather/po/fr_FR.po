@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-26 15:39+0200\n"
+"POT-Creation-Date: 2010-01-28 08:52+0200\n"
 "PO-Revision-Date: 2009-11-26 21:25+0100\n"
 "Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
@@ -437,6 +437,11 @@ msgstr "Nuageux orages"
 msgid "Cloudy and Windy"
 msgstr "Nuageux et venteux"
 
+#: src/hash.data:240
+#, fuzzy
+msgid "Cloudy, Few Snow"
+msgstr "Nuageux neigeux"
+
 #: src/hash.data:32
 #, fuzzy
 msgid "Cloudy, Light Rain"
@@ -446,6 +451,11 @@ msgstr "Nuageux pluie légère"
 #, fuzzy
 msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Nuageux pluie légère"
+
+#: src/hash.data:241
+#, fuzzy
+msgid "Cloudy, Snow"
+msgstr "Nuageux neigeux"
 
 #: src/weather-simple-settings.c:1583 src/weather-simple-settings.c:1902
 msgid "Configuring station"
@@ -1246,6 +1256,11 @@ msgstr "Partiellement nuageux"
 msgid "Partly Cloudy / Wind"
 msgstr "Partiellement nuageux / vent"
 
+#: src/hash.data:236
+#, fuzzy
+msgid "Partly Cloudy Few Snow"
+msgstr "Plutôt nuageux, neigeux"
+
 #: src/hash.data:137
 msgid "Partly Cloudy Light Rain"
 msgstr "Partiellement nuageux, pluie légère"
@@ -1262,6 +1277,21 @@ msgstr "Partiellement nuageux et venteux"
 #, fuzzy
 msgid "Partly Cloudy, Haze"
 msgstr "Partiellement nuageux"
+
+#: src/hash.data:239
+#, fuzzy
+msgid "Partly Cloudy, Light Rain"
+msgstr "Partiellement nuageux, pluie légère"
+
+#: src/hash.data:237
+#, fuzzy
+msgid "Partly Cloudy, Smoke"
+msgstr "Plutôt nuageux"
+
+#: src/hash.data:238
+#, fuzzy
+msgid "Partly Cloudy, Snow"
+msgstr "Plutôt nuageux, neigeux"
 
 #: src/weather-simple-settings.c:1261
 msgid "Period"

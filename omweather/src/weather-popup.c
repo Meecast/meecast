@@ -349,6 +349,11 @@ create_toolbar_box(GtkCallback exit_function, GtkWidget *window, gboolean fullsc
                 *about_button = NULL,
                 *maximize_button = NULL,
                 *close_button = NULL;
+#ifdef OS2009
+    #define BUTTON_ICON_SIZE 64
+#else
+    #define BUTTON_ICON_SIZE 40
+#endif
     /* Bottom buttons box */
     /*buttons_box = gtk_toolbar_new();
     hildon_window_add_toolbar(HILDON_WINDOW(window_popup),GTK_TOOLBAR(buttons_box));*/
@@ -357,31 +362,31 @@ create_toolbar_box(GtkCallback exit_function, GtkWidget *window, gboolean fullsc
 
     /* Settings button */
     /*settings_button = create_tool_item(BUTTON_ICONS, "settings", 40);*/
-    settings_button = create_button_with_image(BUTTON_ICONS, "settings", 40, FALSE, FALSE);
+    settings_button = create_button_with_image(BUTTON_ICONS, "settings", BUTTON_ICON_SIZE, FALSE, FALSE);
     g_signal_connect(G_OBJECT(settings_button), "button-release-event",
                      G_CALLBACK(settings_button_handler),
                      (gpointer)app->popup_window);
     /* Refresh buton */
     /*refresh_button = create_tool_item(BUTTON_ICONS, "refresh", 40);*/
-    refresh_button = create_button_with_image(BUTTON_ICONS, "refresh", 40, FALSE, FALSE);
+    refresh_button = create_button_with_image(BUTTON_ICONS, "refresh", BUTTON_ICON_SIZE, FALSE, FALSE);
         g_signal_connect(G_OBJECT(refresh_button), "button-release-event",
                      G_CALLBACK(refresh_button_handler),
                      (gpointer)app->popup_window);
     /* About buton */
     /*about_button = create_tool_item(BUTTON_ICONS, "about", 40);*/
-    about_button = create_button_with_image(BUTTON_ICONS, "about", 40, FALSE, FALSE);
+    about_button = create_button_with_image(BUTTON_ICONS, "about", BUTTON_ICON_SIZE, FALSE, FALSE);
     g_signal_connect(G_OBJECT(about_button), "button-release-event",
                         G_CALLBACK(about_button_handler),
                         NULL);
     /* Close button */
     /*close_button = create_tool_item(BUTTON_ICONS, "close", 40);*/
-    close_button = create_button_with_image(BUTTON_ICONS, "close", 40, FALSE, FALSE);
+    close_button = create_button_with_image(BUTTON_ICONS, "close", BUTTON_ICON_SIZE, FALSE, FALSE);
     g_signal_connect(G_OBJECT(close_button), "button-release-event",
                         G_CALLBACK(exit_function),
                         (gpointer)window);
     /* Fullscreen button */
     /*maximize_button = create_tool_item(BUTTON_ICONS, "maximize", 40);*/
-    maximize_button = create_button_with_image(BUTTON_ICONS, "maximize", 40, FALSE, FALSE);
+    maximize_button = create_button_with_image(BUTTON_ICONS, "maximize", BUTTON_ICON_SIZE, FALSE, FALSE);
     g_signal_connect(G_OBJECT(maximize_button), "button-release-event",
                         G_CALLBACK(maximize_button_handler),
                         (gpointer)window);

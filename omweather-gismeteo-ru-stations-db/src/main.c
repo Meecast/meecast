@@ -681,11 +681,19 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                             temp_xml_string = xmlNodeGetContent(child_node11);
                                             fprintf(stderr, "\n Фаза %s\n", temp_xml_string);
                                             if (temp_xml_string){
+                                                if (atof((char *)temp_xml_string)>=0 && atof((char *)temp_xml_string)<12.5){
+                                                    g_hash_table_insert(current_weather, "moon_phase", 
+                                                                                            g_strdup("Waning Gibbous"));
+                                                }
                                                 if (atof((char *)temp_xml_string)>=12.5 && atof((char *)temp_xml_string)<25){
                                                     g_hash_table_insert(current_weather, "moon_phase", 
-                                                                                            g_strdup("First_Quarter"));
+                                                                                            g_strdup("Last Quarter"));
                                                 }
-                                                if (atof((char *)temp_xml_string)>=25 && atof((char *)temp_xml_string)<50){
+                                                if (atof((char *)temp_xml_string)>=25 && atof((char *)temp_xml_string)<37.5){
+                                                    g_hash_table_insert(current_weather, "moon_phase", 
+                                                                                            g_strdup("New Moon"));
+                                                }
+                                                if (atof((char *)temp_xml_string)>=37.5 && atof((char *)temp_xml_string)<50){
                                                     g_hash_table_insert(current_weather, "moon_phase", 
                                                                                             g_strdup("Waxing Crescent"));
                                                 }

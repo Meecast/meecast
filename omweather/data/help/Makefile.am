@@ -19,6 +19,7 @@
 # #
 #  
 
+helpfile_bgbg_DATA = bg_BG/omweather.xml
 helpfile_dede_DATA = de_DE/omweather.xml
 helpfile_enus_DATA = en_US/omweather.xml
 helpfile_engb_DATA = en_GB/omweather.xml
@@ -31,7 +32,7 @@ helpfile_esmx_DATA = es_MX/omweather.xml
 helpfile_plpl_DATA = pl_PL/omweather.xml
 
 EXTRA_DIST = $(helpfile_engb_DATA) $(helpfile_enus_DATA)
-ALL_LINGUAS=ru_RU fr_FR fi_FI en_GB en_US it_IT de_DE es_ES es_MX pl_PL
+ALL_LINGUAS=ru_RU fr_FR fi_FI en_GB en_US it_IT de_DE es_ES es_MX pl_PL bg_BG
 
 
 #  # Replace version in help files

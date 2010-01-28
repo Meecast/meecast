@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-28 11:47+0200\n"
+"POT-Creation-Date: 2010-01-28 15:48+0200\n"
 "PO-Revision-Date: 2009-11-26 18:14+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
@@ -531,7 +531,7 @@ msgid "Download and show detailed weather"
 msgstr "Wetterdetails herunterladen und anzeigen"
 
 #: src/weather-download.c:392
-msgid "Download timeout."
+msgid "Download timed out."
 msgstr ""
 
 #: src/hash.data:36
@@ -1699,10 +1699,6 @@ msgstr "Temperatur:"
 msgid "Thanks"
 msgstr "Dank"
 
-#: src/weather-download.c:388
-msgid "The downloading now is working."
-msgstr ""
-
 #: src/weather-download.c:364
 #, fuzzy
 msgid "The weather has been updated."
@@ -1749,6 +1745,10 @@ msgstr "Unbegrenzt"
 #: src/weather-settings.c:1350
 msgid "Update"
 msgstr "Aktualisierung"
+
+#: src/weather-download.c:388
+msgid "Update already running."
+msgstr ""
 
 #: src/weather-settings.c:4090
 msgid "Updating of weather data:"

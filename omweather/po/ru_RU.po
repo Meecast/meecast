@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-28 11:47+0200\n"
+"POT-Creation-Date: 2010-01-28 15:48+0200\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -532,7 +532,7 @@ msgid "Download and show detailed weather"
 msgstr "Загружать и отображать прогноз по часам"
 
 #: src/weather-download.c:392
-msgid "Download timeout."
+msgid "Download timed out."
 msgstr "Время ожидания истекло."
 
 #: src/hash.data:36
@@ -1680,10 +1680,6 @@ msgstr "Температура:"
 msgid "Thanks"
 msgstr "Благодарности"
 
-#: src/weather-download.c:388
-msgid "The downloading now is working."
-msgstr "Загрузка уже запущена."
-
 #: src/weather-download.c:364
 msgid "The weather has been updated."
 msgstr "Данные о погоде обновлены."
@@ -1729,6 +1725,10 @@ msgstr "Без ограничений"
 #: src/weather-settings.c:1350
 msgid "Update"
 msgstr "Обновление"
+
+#: src/weather-download.c:388
+msgid "Update already running."
+msgstr "Обновление уже работает."
 
 #: src/weather-settings.c:4090
 msgid "Updating of weather data:"
@@ -2080,6 +2080,9 @@ msgstr ""
 #: src/hash.data:241
 msgid "Ю-З"
 msgstr ""
+
+#~ msgid "The downloading now is working."
+#~ msgstr "Загрузка уже запущена."
 
 #~ msgid "Did not download weather"
 #~ msgstr "Невозможно загрузить данные о погоде."

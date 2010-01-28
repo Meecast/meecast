@@ -385,11 +385,11 @@ download_html(void *user_data){
                 break;
                 case DOWNLOAD_NOW_WORKING:
                     snprintf(buffer, sizeof(buffer) - 1, "%s\n%s",
-                            _("The downloading now is working."), buffer1);
+                            _("Update already running."), buffer1);
                 break;
                 case DOWNLOAD_TIMEOUT:
                     snprintf(buffer, sizeof(buffer) - 1, "%s\n%s",
-                                _("Download timeout."), buffer1);
+                                _("Download timed out."), buffer1);
                 break;
             }
             if(app->show_update_window)

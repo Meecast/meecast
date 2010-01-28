@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: en_US\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-28 11:47+0200\n"
+"POT-Creation-Date: 2010-01-28 15:48+0200\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -481,7 +481,7 @@ msgid "Download and show detailed weather"
 msgstr ""
 
 #: src/weather-download.c:392
-msgid "Download timeout."
+msgid "Download timed out."
 msgstr ""
 
 #: src/hash.data:36
@@ -1615,10 +1615,6 @@ msgstr ""
 msgid "Thanks"
 msgstr ""
 
-#: src/weather-download.c:388
-msgid "The downloading now is working."
-msgstr ""
-
 #: src/weather-download.c:364
 msgid "The weather has been updated."
 msgstr ""
@@ -1663,6 +1659,10 @@ msgstr ""
 #: src/weather-settings.c:1142 src/weather-settings.c:1346
 #: src/weather-settings.c:1350
 msgid "Update"
+msgstr ""
+
+#: src/weather-download.c:388
+msgid "Update already running."
 msgstr ""
 
 #: src/weather-settings.c:4090

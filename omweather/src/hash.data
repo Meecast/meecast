@@ -233,3 +233,9 @@
     g_hash_table_insert(hash, "Ю", _("Ю"));
     g_hash_table_insert(hash, "Ю-В", _("Ю-В"));
     g_hash_table_insert(hash, "Ю-З", _("Ю-З"));
+    g_hash_table_insert(hash, "Partly Cloudy Few Snow", _("Partly Cloudy Few Snow"));
+    g_hash_table_insert(hash, "Partly Cloudy, Smoke", _("Partly Cloudy, Smoke"));
+    g_hash_table_insert(hash, "Partly Cloudy, Snow", _("Partly Cloudy, Snow"));
+    g_hash_table_insert(hash, "Partly Cloudy, Light Rain", _("Partly Cloudy, Light Rain"));
+    g_hash_table_insert(hash, "Cloudy, Few Snow", _("Cloudy, Few Snow"));
+    g_hash_table_insert(hash, "Cloudy, Snow", _("Cloudy, Snow"));

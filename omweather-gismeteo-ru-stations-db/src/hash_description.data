@@ -38,4 +38,5 @@
     g_hash_table_insert(hash, "Облачно,  снег", "Cloudy, Snow");
     g_hash_table_insert(hash, "Ясно", "Clear");
     g_hash_table_insert(hash, "Ясно, дымка", "Clear, Smoke");
+    g_hash_table_insert(hash, "Ясно, поземок", "Clear, Drifting Snow");
 

@@ -216,7 +216,7 @@ connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
     bearer = (gchar*)con_ic_event_get_bearer_type(CON_IC_EVENT(event));
     switch(status){
 #ifdef OS2009
-        case CON_IC_STATUS_NETWORK_UP: /* TODO. Process this status */
+        case CON_IC_STATUS_NETWORK_UP:
             app->iap_connected = FALSE;
             app->iap_connecting = TRUE;
             app->iap_connecting_timer = 0;

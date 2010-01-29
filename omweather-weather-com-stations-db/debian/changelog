@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (0.9.11) unstable; urgency=low
+
+  * Added weather stations for Azerbaijan
+
+ --  Vlad Vasiliev <vlad@gas.by>  Fri, 29 Jan 2010 08:10:30 +0200
+
 omweather-weather-com-stations-db (0.9.10) unstable; urgency=low
 
   * Updated weather stations for Norway

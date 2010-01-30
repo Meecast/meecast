@@ -580,6 +580,7 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
      xmlNode     *child_node11 = NULL;
      xmlChar     *temp_xml_string = NULL;
      xmlChar     *temp_xml_string2 = NULL;
+     xmlChar     *temp_xml_string3 = NULL;
      gint        i = 0; 
      gchar       buffer[buff_size];
      gchar       temp_buffer[buff_size];
@@ -604,14 +605,14 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
    return; 
  for(cur_node = cur_node; cur_node; cur_node = cur_node->next){
     if(!xmlStrcmp(cur_node->name, (const xmlChar *)"div")){
-        temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"class");
-        if(!xmlStrcmp(temp_xml_string, (const xmlChar *)"M123")){
+        temp_xml_string3 = xmlGetProp(cur_node, (const xmlChar*)"class");
+        if(!xmlStrcmp(temp_xml_string3, (const xmlChar *)"M123")){
             for(child_node = cur_node->children; child_node; child_node = child_node->next){
                 if(!xmlStrcmp(child_node->name, (const xmlChar *)"div")){
                     for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                         if(!xmlStrcmp(child_node2->name, (const xmlChar *)"div")){
-                            temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"class");
-                            if(!xmlStrcmp(temp_xml_string, (const xmlChar *)"container astro inner_floated")){
+                            temp_xml_string2 = xmlGetProp(child_node2, (const xmlChar*)"class");
+                            if(!xmlStrcmp(temp_xml_string2, (const xmlChar *)"container astro inner_floated")){
                                 for(child_node3 = child_node2->children; child_node3; child_node3 = child_node3->next){
                                     if (!xmlStrcmp(child_node3->name, (const xmlChar *)"div")) {
                                         temp_xml_string = xmlGetProp(child_node3, (const xmlChar*)"class");
@@ -666,7 +667,6 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                 if (child_node11)
                                                      child_node11 = child_node11->next;
 
-                                                temp_xml_string = xmlGetProp(child_node11, (const xmlChar*)"class");
                                                 xmlFree(temp_xml_string);
                                                 temp_xml_string = xmlNodeGetContent(child_node11);
                                                 strptime((char*)temp_xml_string,"%H:%M", &tmp_tm);
@@ -741,14 +741,14 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                             g_hash_table_insert(current_weather, "moon_phase", 
                                                                                                     g_strdup("Full"));
                                                         }
-
+                                                        xmlFree(temp_xml_string);
                                                     }
                                                 }
                                            }
                                        }
                                   }
                               }
-                              if(!xmlStrcmp(temp_xml_string, (const xmlChar *)"container current_weather4a inner_floated")){
+                              if(!xmlStrcmp(temp_xml_string2, (const xmlChar *)"container current_weather4a inner_floated")){
                                                 child_node4 = child_node2->children;
                                                 child_node4 = child_node4->children;
 
@@ -887,19 +887,16 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                 /* fprintf(stderr, "\n Current day %s\n", current_day); */
                                                 setlocale(LC_TIME, "");
                                                 g_hash_table_insert(current_weather, "last_update", g_strdup(buffer));
-                                                }
                                                 xmlFree(temp_xml_string);
- 
+                              }
+                              xmlFree(temp_xml_string2);
                           }
-#if 0                          
-                                       
-#endif                                    
-                                
-                            
                         }
                     }
                 }
-            }
+               xmlFree(temp_xml_string3);
+            }else
+               xmlFree(temp_xml_string3);
         }
     }
 }

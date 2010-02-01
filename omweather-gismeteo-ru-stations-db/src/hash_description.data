@@ -1,4 +1,6 @@
 
+    g_hash_table_insert(hash, "Стареющая", "Waning Gibbous");
+    g_hash_table_insert(hash, "Полная", "Full");
     g_hash_table_insert(hash, "ясно без осадков", "Clear");
     g_hash_table_insert(hash, "облачно без осадков", "Cloudy");
     g_hash_table_insert(hash, "пасмурно без осадков", "Mostly Cloudy");

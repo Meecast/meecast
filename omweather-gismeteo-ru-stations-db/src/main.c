@@ -470,6 +470,8 @@ get_date_for_current_weather(gchar *temp_string){
     memset(buffer, 0, sizeof(buffer));
     memset(temp_buffer, 0, sizeof(temp_buffer));
     temp_point = strchr(temp_string,' ');
+    if (!temp_point)
+        return tmp_tm;
     snprintf(buffer, strlen(temp_string) - strlen(temp_point+1),"%s", temp_string);
     snprintf(temp_buffer, strlen(temp_point) - strlen(strchr(temp_point + 1,' ')),"%s", temp_point+1);
     if (!strcoll(temp_buffer, "Янв"))
@@ -697,50 +699,18 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                     child_node11 = child_node9->next;
                                                 if (child_node11)
                                                     child_node11 = child_node11->next;
-                                            
+                                                if (child_node11)
+                                                    child_node11 = child_node11->next;
+                                                if (child_node11)
+                                                    child_node11 = child_node11->next;
                                                 if(child_node11 && child_node11->name &&
                                                    !xmlStrcmp(child_node11->name, (const xmlChar *)"li")){
-                                                    if (child_node11)
-                                                        child_node11 = child_node11->children;
-                                                    if (child_node11)
-                                                        child_node11 = child_node11->next;
-                                                    if (child_node11)
-                                                        child_node11 = child_node11->children;
-                                                    if (child_node11)
-                                                        child_node11 = child_node11->next;
-                                                    if (child_node11)
-                                                        child_node11 = child_node11->next;
-                                                    if (child_node11)
-                                                        child_node11 = child_node11->children;
-                                                    if (child_node11)
-                                                        child_node11 = child_node11->next;
-                                                    if (child_node11)
-                                                        child_node11 = child_node11->next;
-                                                    xmlFree(temp_xml_string);
+                                                   xmlFree(temp_xml_string);
                                                     temp_xml_string = xmlNodeGetContent(child_node11);
                                                     fprintf(stderr, "\n Фаза %s\n", temp_xml_string);
                                                     if (temp_xml_string){
-                                                        if (atof((char *)temp_xml_string)>=12.5 && atof((char *)temp_xml_string)<25){
-                                                            g_hash_table_insert(current_weather, "moon_phase", 
-                                                                                                    g_strdup("First_Quarter"));
-                                                        }
-                                                        if (atof((char *)temp_xml_string)>=25 && atof((char *)temp_xml_string)<50){
-                                                            g_hash_table_insert(current_weather, "moon_phase", 
-                                                                                                    g_strdup("Waxing Crescent"));
-                                                        }
-                                                        if (atof((char *)temp_xml_string)>=50 && atof((char *)temp_xml_string)<62.5){
-                                                            g_hash_table_insert(current_weather, "moon_phase", 
-                                                                                                    g_strdup("First Quarter"));
-                                                        }
-                                                        if (atof((char *)temp_xml_string)>=62.5 && atof((char *)temp_xml_string)<75){
-                                                            g_hash_table_insert(current_weather, "moon_phase", 
-                                                                                                    g_strdup("Waxing Gibbous"));
-                                                        }
-                                                        if (atof((char *)temp_xml_string)>=87.5 && atof((char *)temp_xml_string)<=100){
-                                                            g_hash_table_insert(current_weather, "moon_phase", 
-                                                                                                    g_strdup("Full"));
-                                                        }
-                                                        xmlFree(temp_xml_string);
+                                                        g_hash_table_insert(current_weather, "moon_phase", g_strdup(hash_gismeteo_table_find(hash_for_translate, temp_xml_string, FALSE)));
+                                                       xmlFree(temp_xml_string);
                                                     }
                                                 }
                                            }
@@ -811,68 +781,74 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                         xmlFree(temp_xml_string);
                                                     }
                                                 }
+                                                if (child_node4)
+                                                    child_node6 = child_node4->children;
 
-                                                child_node6 = child_node4->children;
-                                                child_node6 = child_node6->next;
-                                                child_node6 = child_node6->next;
-                                                child_node6 = child_node6->children;
-                                                child_node6 = child_node6->next;
+                                                if (child_node6)
+                                                    child_node6 = child_node6->next;
+                                                if (child_node6)
+                                                    child_node6 = child_node6->next;
+                                                if (child_node6)
+                                                    child_node6 = child_node6->children;
+                                                if (child_node6)
+                                                    child_node6 = child_node6->next;
                                                 /* Pressure */
-                                                for(child_node6 = child_node6->children;child_node6;child_node6 = child_node6->next){
-                                                     xmlFree(temp_xml_string);
-                                                     temp_xml_string = xmlGetProp(child_node6,(const xmlChar*)"class");
-                                                     if(!xmlStrcmp(temp_xml_string, (const xmlChar*)"c1")){
-                                                        xmlFree(temp_xml_string); 
-                                                        temp_xml_string = xmlNodeGetContent(child_node6);
-                                                        g_hash_table_insert(current_weather, "pressure", g_strdup((char*)temp_xml_string));
-                                                         /* fprintf(stderr, "\n Pressure %s\n", temp_xml_string); */
-                                                     }
-                                                     /* Wind */
-                                                     if(!xmlStrcmp(temp_xml_string, (const xmlChar*)"c2")){
-                                                        xmlFree(temp_xml_string);
-                                                        temp_xml_string = xmlNodeGetContent(child_node6);
-                                                        memset(temp_buffer, 0, sizeof(temp_buffer));
-                                                        memset(buffer, 0, sizeof(buffer));
-                                                        for(i=0;i<strlen((char*)temp_xml_string);i++){
-                                                            if((temp_xml_string[i] >= '0') && (temp_xml_string[i] <= '9'))
-                                                                sprintf(temp_buffer,"%s%c",temp_buffer, temp_xml_string[i]);
-                                                           else
-                                                                sprintf(buffer,"%s%c",buffer,temp_xml_string[i]);
-                                                      }
-                                                        /* Wind direction */
-                                                        if (!strcoll(buffer, "З"))
-                                                             sprintf(buffer,"%s","W");
-                                                        if (!strcoll(buffer, "Ю"))
-                                                             sprintf(buffer,"%s","S");
-                                                        if (!strcoll(buffer, "В"))
-                                                             sprintf(buffer,"%s","E");
-                                                        if (!strcoll(buffer, "С"))
-                                                             sprintf(buffer,"%s","N");
-                                                        if (!strcoll(buffer, "ЮЗ"))
-                                                             sprintf(buffer,"%s","SW");
-                                                        if (!strcoll(buffer, "ЮВ"))
-                                                             sprintf(buffer,"%s","SE");
-                                                        if (!strcoll(buffer, "СЗ"))
-                                                             sprintf(buffer,"%s","NW");
-                                                        if (!strcoll(buffer, "СВ"))
-                                                             sprintf(buffer,"%s","NE");
-                                                        if (!strcoll(buffer, "безветрие"))
-                                                             sprintf(buffer,"%s","CALM");
-                                                        g_hash_table_insert(current_weather, "wind_direction", g_strdup(buffer));
-                                                        /*Wind speed. m/s in km/h*/
-                                                        speed = atoi (temp_buffer);
-                                                        speed = speed * 3600/1000;
-                                                        sprintf(temp_buffer, "%i", speed);
-                                                        g_hash_table_insert(current_weather, "wind_speed", g_strdup(temp_buffer));
-                                                     }
-                                                     if(!xmlStrcmp(temp_xml_string, (const xmlChar*)"c3")){
+                                                if (child_node6 && child_node6->children)
+                                                    for(child_node6 = child_node6->children;child_node6;child_node6 = child_node6->next){
                                                          xmlFree(temp_xml_string);
-                                                         temp_xml_string = xmlNodeGetContent(child_node6);
-                                                         g_hash_table_insert(current_weather, "humidity", g_strdup((char*)temp_xml_string));
-                                                         /* fprintf(stderr, "\n Humidity %s\n", temp_xml_string); */
+                                                         temp_xml_string = xmlGetProp(child_node6,(const xmlChar*)"class");
+                                                         if(!xmlStrcmp(temp_xml_string, (const xmlChar*)"c1")){
+                                                            xmlFree(temp_xml_string); 
+                                                            temp_xml_string = xmlNodeGetContent(child_node6);
+                                                            g_hash_table_insert(current_weather, "pressure", g_strdup((char*)temp_xml_string));
+                                                             /* fprintf(stderr, "\n Pressure %s\n", temp_xml_string); */
+                                                         }
+                                                         /* Wind */
+                                                         if(!xmlStrcmp(temp_xml_string, (const xmlChar*)"c2")){
+                                                            xmlFree(temp_xml_string);
+                                                            temp_xml_string = xmlNodeGetContent(child_node6);
+                                                            memset(temp_buffer, 0, sizeof(temp_buffer));
+                                                            memset(buffer, 0, sizeof(buffer));
+                                                            for(i=0;i<strlen((char*)temp_xml_string);i++){
+                                                                if((temp_xml_string[i] >= '0') && (temp_xml_string[i] <= '9'))
+                                                                    sprintf(temp_buffer,"%s%c",temp_buffer, temp_xml_string[i]);
+                                                               else
+                                                                    sprintf(buffer,"%s%c",buffer,temp_xml_string[i]);
+                                                          }
+                                                            /* Wind direction */
+                                                            if (!strcoll(buffer, "З"))
+                                                                 sprintf(buffer,"%s","W");
+                                                            if (!strcoll(buffer, "Ю"))
+                                                                 sprintf(buffer,"%s","S");
+                                                            if (!strcoll(buffer, "В"))
+                                                                 sprintf(buffer,"%s","E");
+                                                            if (!strcoll(buffer, "С"))
+                                                                 sprintf(buffer,"%s","N");
+                                                            if (!strcoll(buffer, "ЮЗ"))
+                                                                 sprintf(buffer,"%s","SW");
+                                                            if (!strcoll(buffer, "ЮВ"))
+                                                                 sprintf(buffer,"%s","SE");
+                                                            if (!strcoll(buffer, "СЗ"))
+                                                                 sprintf(buffer,"%s","NW");
+                                                            if (!strcoll(buffer, "СВ"))
+                                                                 sprintf(buffer,"%s","NE");
+                                                            if (!strcoll(buffer, "безветрие"))
+                                                                 sprintf(buffer,"%s","CALM");
+                                                            g_hash_table_insert(current_weather, "wind_direction", g_strdup(buffer));
+                                                            /*Wind speed. m/s in km/h*/
+                                                            speed = atoi (temp_buffer);
+                                                            speed = speed * 3600/1000;
+                                                            sprintf(temp_buffer, "%i", speed);
+                                                            g_hash_table_insert(current_weather, "wind_speed", g_strdup(temp_buffer));
+                                                         }
+                                                         if(!xmlStrcmp(temp_xml_string, (const xmlChar*)"c3")){
+                                                             xmlFree(temp_xml_string);
+                                                             temp_xml_string = xmlNodeGetContent(child_node6);
+                                                             g_hash_table_insert(current_weather, "humidity", g_strdup((char*)temp_xml_string));
+                                                             /* fprintf(stderr, "\n Humidity %s\n", temp_xml_string); */
 
-                                                     }
-                                                }
+                                                         }
+                                                    }
      
                                                 xmlFree(temp_xml_string);
                                                 temp_xml_string = xmlNodeGetContent(child_node7->children);

@@ -1,3 +1,9 @@
+omweather-gismeteo-ru-stations-db (0.3) unstable; urgency=low
+
+  * Minor fixes 
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 10 Feb 2010 08:33:20 +0200
+
 omweather-gismeteo-ru-stations-db (0.2) unstable; urgency=low
 
   * Fixed bug #5995 "United States should be United States of America"

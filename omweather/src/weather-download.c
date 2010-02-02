@@ -118,7 +118,6 @@ download_html(void *user_data){
 #endif
     /* If not connected and it autoupdate do go away */
     if(!app->show_update_window && !app->iap_connected){
-        app->flag_updating = 0;
         app->phase = ZERO_PHASE;
         return FALSE;
     }

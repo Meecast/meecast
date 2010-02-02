@@ -460,7 +460,7 @@ weather_window_popup(GtkWidget *widget, GdkEvent *event, gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(app->popup_window || app->flag_updating != 0)
+    if(app->popup_window || app->phase != ZERO_PHASE)
         return FALSE;
 /* Debug */
 /*  time_start(); */

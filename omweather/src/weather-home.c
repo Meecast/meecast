@@ -925,7 +925,6 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #if ! ( defined (NONMAEMO) ||  defined (APPLICATION))
     app->osso = osso;
 #endif
-    app->flag_updating = 0;
 /* create i18n hash for values coming from xml file */
     app->hash = hash_table_create();
     app->dbus_is_initialize = FALSE;

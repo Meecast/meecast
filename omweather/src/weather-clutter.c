@@ -820,7 +820,6 @@ void free_clutter_objects_list(GSList **clutter_objects) {
     SuperOH *oh;
     GtkWidget  *clactor = NULL;
     GtkWidget *ha;
-    gint i;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif

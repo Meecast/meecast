@@ -9,7 +9,7 @@
 
 #CFLAGS = -Wall -pedantic -DRELEASE -DDEBUGFUNCTIONCALL -g 
 CFLAGS = -Wall -pedantic -DRELEASE -UDEBUGCALL
-#CFLAGS = -Wall -pedantic 
+#CFLAGS = -Wall -pedantic   
 
 ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
 	CFLAGS += -O0

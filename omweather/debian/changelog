@@ -1,8 +1,8 @@
 omweather (0.25.1) unstable; urgency=low
 
-  * Some fixes 
+  * Fixed problem with autoupdating and with updating in first start 
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 05 Feb 2010 18:20:10 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 02 Feb 2010 13:10:10 +0200
 
 
 omweather (0.25) unstable; urgency=low

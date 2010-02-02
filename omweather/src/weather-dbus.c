@@ -320,7 +320,9 @@ check_current_connection(void){
         tmp = gconf_client_get_string(gconf_client,
                                       GCONF_KEY_CURRENT_CONNECTIVITY,
                                       NULL);
+        DEBUG_FUNCTION("Check current connection");
         if (tmp) {
+            DEBUG_FUNCTION("Current connection is up");
             gconf_path = g_strdup_printf("/system/osso/connectivity/IAP/%s/type", tmp);
             type_of_connection = gconf_client_get_string(gconf_client,
                                       gconf_path,

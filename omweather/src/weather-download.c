@@ -116,6 +116,12 @@ download_html(void *user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    /* If not connected and it autoupdate do go away */
+    if(!app->show_update_window && !app->iap_connected){
+        app->flag_updating = 0;
+        return FALSE;
+    }
+
 #ifndef RELEASE
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>Current phase: %d\n", app->phase);
 #endif

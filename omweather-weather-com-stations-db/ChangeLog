@@ -1,3 +1,10 @@
+0.9.12
+  * Fixed errors for Greece weather stations
+  * Fixed errors for Finland weather stations
+  * Fixed errors for Norway weather stations
+  * Fixed errors for Azerbaijan weather stations
+  * Updated weather stations for Germany
+
 0.9.11
   * Added weather stations for Azerbaijan
 

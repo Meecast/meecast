@@ -1,3 +1,13 @@
+omweather-weather-com-stations-db (0.9.12) unstable; urgency=low
+
+  * Fixed errors for Greece weather stations
+  * Fixed errors for Finland weather stations
+  * Fixed errors for Norway weather stations
+  * Fixed errors for Azerbaijan weather stations
+  * Updated weather stations for Germany
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 03 Feb 2010 11:45:30 +0200
+
 omweather-weather-com-stations-db (0.9.11) unstable; urgency=low
 
   * Added weather stations for Azerbaijan

@@ -54,7 +54,6 @@ weather_initialize_dbus(void){
 #if defined USE_DBUS && !defined OS2008
     DBusError error;
 #endif
-    GConfClient *gconf_client = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -229,26 +228,31 @@ connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
             app->iap_connecting = FALSE;
             app->iap_connecting_timer = 0;
             DEBUG_FUNCTION("\n>>>>>>>>>>>>>>>>>Connected\n");
-            if((bearer && !strncmp(bearer,"WLAN", 4) && app->config->update_wlan) ||
-                (bearer && !strncmp(bearer,"DUN_GSM", 7) && app->config->update_gsm)||
-                (bearer && !strncmp(bearer,"GPRS", 4) && app->config->update_gsm)){
+            if((bearer && !strncmp(bearer,"WLAN", 4)) ||
+                (bearer && !strncmp(bearer,"DUN_GSM", 7))||
+                (bearer && !strncmp(bearer,"GPRS", 4))){
                 app->iap_connected = TRUE;
-                if (!strncmp(bearer,"WLAN", 4))
+                if (!strncmp(bearer,"WLAN", 4)){
                     app->iap_connected_wlan = TRUE;
-                if (!strncmp(bearer,"DUN_GSM", 7))
+                    app->iap_connected_gsm = FALSE;
+                }
+                if (!strncmp(bearer,"DUN_GSM", 7)){
                     app->iap_connected_gsm = TRUE;
-                if (!strncmp(bearer,"GPRS", 4))
+                    app->iap_connected_wlan = FALSE;
+                }
+                if (!strncmp(bearer,"GPRS", 4)){
                     app->iap_connected_gsm = TRUE;
-            }
-            else{
-                app->iap_connected = FALSE;
+                    app->iap_connected_wlan = FALSE;
+                }
+            }else{
+                app->iap_connected = TRUE;
                 app->iap_connected_gsm = FALSE;
                 app->iap_connected_wlan = FALSE;
             }
             if((app->config->downloading_after_connecting) &&
-              ((bearer && !strncmp(bearer,"WLAN", 4) && app->config->update_wlan) ||
-              (bearer && !strncmp(bearer,"DUN_GSM", 7) && app->config->update_gsm) ||
-              (bearer && !strncmp(bearer,"GPRS", 4) && app->config->update_gsm)))
+              ((bearer && !strncmp(bearer,"WLAN", 4)) ||
+              (bearer && !strncmp(bearer,"DUN_GSM", 7)) ||
+              (bearer && !strncmp(bearer,"GPRS", 4))))
                 add_current_time_event();
         break;
         case CON_IC_STATUS_DISCONNECTED:

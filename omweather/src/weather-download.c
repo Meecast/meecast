@@ -122,14 +122,16 @@ download_html(void *user_data){
         return FALSE;
     }
     /* If not connected and it not autoupdate and it not have needing connetction */
-    if(app->show_update_window && !app->iap_connected){
-        if (app->iap_connected_wlan){
-            fprintf(stderr, "You didn't select WLAN for updating weather forecast\n");
+    if(app->show_update_window && app->iap_connected){
+        if (!app->config->update_wlan && app->iap_connected_wlan){
+            hildon_banner_show_information(app->main_window, NULL,
+            _("You didn't select WLAN for updating weather forecast!"));
             app->phase = ZERO_PHASE;
             return FALSE;
         }
-        if (app->iap_connected_gsm){
-            fprintf(stderr, "You didn't select GSM/GPRS for updating weather forecast\n");
+        if (!app->config->update_gsm && app->iap_connected_gsm){
+            hildon_banner_show_information(app->main_window, NULL,
+            _("You didn't select GSM/GPRS for updating weather forecast!"));
             app->phase = ZERO_PHASE;
             return FALSE;
         }

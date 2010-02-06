@@ -1,9 +1,14 @@
+omweather (0.25.2) unstable; urgency=low
+
+  * Fixed problem with updating if GSM and WLAN checkboxes is disabled
+
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 04 Thu 2010 19:11:10 +0200
+
 omweather (0.25.1) unstable; urgency=low
 
   * Fixed problem with autoupdating and with updating in first start 
 
  -- Vlad Vasiliev <vlad@gas.by>  Tue, 02 Feb 2010 13:10:10 +0200
-
 
 omweather (0.25) unstable; urgency=low
 

@@ -121,7 +121,19 @@ download_html(void *user_data){
         app->phase = ZERO_PHASE;
         return FALSE;
     }
-
+    /* If not connected and it not autoupdate and it not have needing connetction */
+    if(app->show_update_window && !app->iap_connected){
+        if (app->iap_connected_wlan){
+            fprintf(stderr, "You didn't select WLAN for updating weather forecast\n");
+            app->phase = ZERO_PHASE;
+            return FALSE;
+        }
+        if (app->iap_connected_gsm){
+            fprintf(stderr, "You didn't select GSM/GPRS for updating weather forecast\n");
+            app->phase = ZERO_PHASE;
+            return FALSE;
+        }
+    }
 #ifndef RELEASE
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>Current phase: %d\n", app->phase);
 #endif

@@ -433,6 +433,8 @@ typedef struct OMWeatherApplet{
     AppletConfig	*config;
     gboolean		show_update_window;
     gboolean		iap_connected;
+    gboolean		iap_connected_gsm;
+    gboolean		iap_connected_wlan;
     gboolean		iap_connecting;
     gboolean            current_is_valid;
     glong		iap_connecting_timer;

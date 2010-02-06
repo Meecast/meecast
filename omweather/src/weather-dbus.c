@@ -118,6 +118,8 @@ weather_initialize_dbus(void){
 /* For Debug on i386 */
 #ifdef DEBUGCONNECT
         app->iap_connected = TRUE;
+        app->iap_connected_gsm = TRUE;
+        app->iap_connected_wlan = TRUE;
 #endif
 #if defined(NONMAEMO)
         app->iap_connected = TRUE;
@@ -229,10 +231,20 @@ connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
             DEBUG_FUNCTION("\n>>>>>>>>>>>>>>>>>Connected\n");
             if((bearer && !strncmp(bearer,"WLAN", 4) && app->config->update_wlan) ||
                 (bearer && !strncmp(bearer,"DUN_GSM", 7) && app->config->update_gsm)||
-                (bearer && !strncmp(bearer,"GPRS", 4) && app->config->update_gsm))
+                (bearer && !strncmp(bearer,"GPRS", 4) && app->config->update_gsm)){
                 app->iap_connected = TRUE;
-            else
+                if (!strncmp(bearer,"WLAN", 4))
+                    app->iap_connected_wlan = TRUE;
+                if (!strncmp(bearer,"DUN_GSM", 7))
+                    app->iap_connected_gsm = TRUE;
+                if (!strncmp(bearer,"GPRS", 4))
+                    app->iap_connected_gsm = TRUE;
+            }
+            else{
                 app->iap_connected = FALSE;
+                app->iap_connected_gsm = FALSE;
+                app->iap_connected_wlan = FALSE;
+            }
             if((app->config->downloading_after_connecting) &&
               ((bearer && !strncmp(bearer,"WLAN", 4) && app->config->update_wlan) ||
               (bearer && !strncmp(bearer,"DUN_GSM", 7) && app->config->update_gsm) ||

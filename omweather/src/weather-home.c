@@ -921,6 +921,8 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->update_thread_id = -1;
     app->phase = ZERO_PHASE;
     app->iap_connected = FALSE;
+    app->iap_connected_gsm = FALSE;
+    app->iap_connected_wlan = FALSE;
     app->iap_connecting = FALSE;
 #if ! ( defined (NONMAEMO) ||  defined (APPLICATION))
     app->osso = osso;

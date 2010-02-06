@@ -683,11 +683,13 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                         g_hash_table_insert(tmp_hash, "day_sunset_not_realistically", g_strdup(buffer));
                                                         g_hash_table_insert(tmp_hash, "day_sunrise_not_realistically", g_strdup(temp_buffer));
                                                     }else{
-                                                        g_hash_table_insert(tmp_hash, "day_sunset", g_strdup(buffer));
-                                                        g_hash_table_insert(tmp_hash, "day_sunrise", g_strdup(temp_buffer));
-                                                        /* fprintf(stderr, "Real Sunrise %s\n", temp_buffer); 
-                                                         fprintf(stderr, "Real Sunset %s\n", buffer); 
+                                                        g_hash_table_insert(tmp_hash, "day_sunset", g_strdup(temp_buffer));
+                                                        g_hash_table_insert(tmp_hash, "day_sunrise", g_strdup(buffer));
+                                                        /*
+                                                         fprintf(stderr, "Real Sunrise %s\n", buffer); 
+                                                         fprintf(stderr, "Real Sunset %s\n", temp_buffer); 
                                                         */
+                                                        
                                                     }
 
                                                     tmp_list = g_slist_next(tmp_list);

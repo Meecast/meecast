@@ -836,6 +836,9 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                                  sprintf(buffer,"%s","NE");
                                                             if (!strcoll(buffer, "безветрие"))
                                                                  sprintf(buffer,"%s","CALM");
+                                                            if (!strcoll(buffer, "Ш"))
+                                                                 sprintf(buffer,"%s","CALM");
+ 
                                                             g_hash_table_insert(current_weather, "wind_direction", g_strdup(buffer));
                                                             /*Wind speed. m/s in km/h*/
                                                             speed = atoi (temp_buffer);

@@ -136,6 +136,16 @@ download_html(void *user_data){
             return FALSE;
         }
     }
+    /* If not connected and it not autoupdate and both types of connection not selected */
+    if(app->show_update_window && !app->iap_connected){
+        if (!app->config->update_wlan && !app->config->update_gsm){
+            hildon_banner_show_information(app->main_window, NULL,
+            _("You didn't select WLAN or GSM/GPRS for updating weather forecast!"));
+            app->phase = ZERO_PHASE;
+            return FALSE;
+        }
+    }
+
 #ifndef RELEASE
     fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>Current phase: %d\n", app->phase);
 #endif

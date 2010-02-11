@@ -62,7 +62,6 @@ weather_initialize_dbus(void){
         app->iap_connecting = FALSE;
         app->iap_connected = FALSE;
         app->iap_connecting_timer = 0;
-        check_current_connection();
 #ifdef USE_CONIC
         app->connection = con_ic_connection_new();
         if(app->connection != NULL){
@@ -99,6 +98,8 @@ weather_initialize_dbus(void){
                                    NULL, NULL);
 
 #endif
+
+        check_current_connection();
 
 #if defined OS2009 && defined APPLICATION
         dbus_error_init (&error);
@@ -327,9 +328,18 @@ check_current_connection(void){
     gchar *gconf_path = NULL;
     gchar *type_of_connection = NULL;
     GConfClient *gconf_client = NULL;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+
+#ifdef OS2009 
+    if (app->connection &&
+         con_ic_connection_connect(app->connection, CON_IC_CONNECT_FLAG_AUTOMATICALLY_TRIGGERED)) 
+        app->iap_connected = TRUE;
+    else
+        app->iap_connected = FALSE;
+#else 
     /* Check current connection */
     gconf_client = gconf_client_get_default();
     if (gconf_client) {
@@ -343,12 +353,23 @@ check_current_connection(void){
             type_of_connection = gconf_client_get_string(gconf_client,
                                       gconf_path,
                                       NULL);
-            if ((type_of_connection && !strncmp(type_of_connection, "WLAN", 4) && app->config->update_wlan) ||
-                (type_of_connection && !strncmp(type_of_connection, "DUN_GSM", 7) && app->config->update_gsm))
+            if (type_of_connection && !strncmp(type_of_connection, "WLAN", 4)){
+                app->iap_connected_wlan = TRUE;
+                app->iap_connected_gsm = FALSE;
                 app->iap_connected = TRUE;
-            else
-                app->iap_connected = FALSE;
-            if (gconf_path)
+            }
+            if (type_of_connection && !strncmp(type_of_connection, "DUN_GSM", 7)){
+                app->iap_connected_gsm = TRUE;
+                app->iap_connected_wlan = FALSE;
+                app->iap_connected = TRUE;
+            }
+            if (type_of_connection && !strncmp(type_of_connection, "GPRS", 4)){
+                app->iap_connected_gsm = TRUE;
+                app->iap_connected_wlan = FALSE;
+                app->iap_connected = TRUE;
+            }
+
+           if (gconf_path)
                 g_free(gconf_path);
             if (type_of_connection);
                 g_free(type_of_connection);
@@ -358,5 +379,6 @@ check_current_connection(void){
         gconf_client_clear_cache(gconf_client);
         g_object_unref(gconf_client);
     }
+#endif
 }
 /*******************************************************************************/

@@ -2341,8 +2341,14 @@ weather_simple_window_settings(gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
     window = gtk_dialog_new();
+#ifdef OS2009
+    #ifdef APPLICATION
+        gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->main_view));
+    #else
+        gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->popup_window));
+    #endif
+#endif
     app->settings_window = window;
     gtk_widget_show(window);
     gtk_window_set_title(GTK_WINDOW(window), _("OMWeather Settings"));

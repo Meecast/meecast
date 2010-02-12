@@ -1,6 +1,7 @@
 omweather (0.25.2) unstable; urgency=low
 
   * Fixed problem with updating if GSM and WLAN checkboxes is disabled
+  * Fixed bug #6488 "Cannot use desktop when omweather details open"
 
  -- Vlad Vasiliev <vlad@gas.by>  Tue, 04 Thu 2010 19:11:10 +0200
 

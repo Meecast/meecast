@@ -175,6 +175,11 @@ download_html(void *user_data){
         break;
         case SECOND_PHASE:
             DEBUG_FUNCTION("Second phase");
+            #ifdef DEBUGCONNECT
+                app->phase = FOURTH_PHASE;
+                return TRUE;
+            #endif
+
             /* check connection status */
             if(app->iap_connected){
                 app->phase = FOURTH_PHASE;

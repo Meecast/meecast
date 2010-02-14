@@ -2357,7 +2357,6 @@ weather_simple_window_settings(gpointer user_data){
 #endif
 
     app->settings_window = window;
-    gtk_widget_show(window);
     gtk_window_set_title(GTK_WINDOW(window), _("OMWeather Settings"));
     gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
     gtk_window_set_modal(GTK_WINDOW(window), TRUE);
@@ -2367,15 +2366,16 @@ weather_simple_window_settings(gpointer user_data){
     g_object_set_data(G_OBJECT(main_table), "stations_box", (gpointer)stations_box);
 
 #ifdef OS2009
+    
     stations_area = hildon_pannable_area_new();
     g_object_set (stations_area, "mov_mode", HILDON_MOVEMENT_MODE_HORIZ,
                   "vscrollbar_policy", GTK_POLICY_NEVER, NULL);
     g_object_set_data(G_OBJECT(main_table), "stations_box", (gpointer)stations_box);
     hildon_pannable_area_add_with_viewport (HILDON_PANNABLE_AREA (stations_area), stations_box);
-    gtk_widget_set_size_request(stations_area, -1, 80);
     gtk_widget_show (stations_area);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
-                       stations_area, TRUE, TRUE, 0);
+                       stations_area, TRUE, TRUE, 10);
+    gtk_widget_show (stations_box);
 #else
     left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(left_alignmnet, 5, -1);
@@ -2397,7 +2397,6 @@ weather_simple_window_settings(gpointer user_data){
     gtk_table_attach((GtkTable*)main_table,stations_box,
                                 1, 2, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
-#endif
     gtk_widget_show (stations_box);
 
     vertical1_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
@@ -2408,6 +2407,8 @@ weather_simple_window_settings(gpointer user_data){
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
     gtk_widget_show (vertical1_alignmnet);
+
+#endif
 
     create_and_fill_units_box(main_table);
 
@@ -2472,10 +2473,12 @@ weather_simple_window_settings(gpointer user_data){
 
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
+
     gtk_dialog_add_button (GTK_DIALOG (window), _("Save"), GTK_RESPONSE_YES);
 
     gtk_widget_show(main_table);
 
+    gtk_widget_show(window);
 /* start dialog window */
     result = gtk_dialog_run(GTK_DIALOG(window));
     if (result == GTK_RESPONSE_YES){

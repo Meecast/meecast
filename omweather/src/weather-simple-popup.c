@@ -130,6 +130,7 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
         if(ready && !strcmp(station_name, " ")){
             skipped = TRUE;
             g_free(station_name);
+            station_name = NULL;
             gtk_tree_path_next(path);
             valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
                                         &iter, path);
@@ -153,6 +154,7 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
                   !strcmp(app->config->current_station_name, station_name)))
                 ready = TRUE;
             g_free(station_name);
+            station_name = NULL;
             gtk_tree_path_next(path);
 
             valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
@@ -216,12 +218,13 @@ create_top_buttons_box(GtkWidget* window, gpointer user_data){
     buttons_box = gtk_hbox_new(TRUE, 0);
     /* station button */
     *buffer = 0;
-    snprintf(buffer, sizeof(buffer) - 1, "%s: %s",
-                _("next"),
-                next_station = get_next_station_name(app->config->current_station_name,
-                                        app->user_stations_list));
-    if (next_station)
+    next_station = get_next_station_name(app->config->current_station_name,
+                                        app->user_stations_list);
+    if (next_station){
+        snprintf(buffer, sizeof(buffer) - 1, "%s: %s", _("next"), next_station);
         g_free(next_station);
+    }else
+        snprintf(buffer, sizeof(buffer) - 1, "%s: ", _("next"));
     station_button = create_button_with_2_line_text(app->config->current_station_name,
                                                     buffer, 18, 12);
     g_signal_connect(G_OBJECT(station_button), "button-release-event",

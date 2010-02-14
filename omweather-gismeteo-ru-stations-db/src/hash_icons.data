@@ -50,6 +50,7 @@
     g_hash_table_insert(hash, "d.sun.c4.r4.png", "12");
     g_hash_table_insert(hash, "d.sun.c4.s1.png", "13");
     g_hash_table_insert(hash, "d.sun.c4.s2.png", "14");
+    g_hash_table_insert(hash, "d.sun.c4.s3.png", "16");
     g_hash_table_insert(hash, "n.moon.png", "31");
     g_hash_table_insert(hash, "n.moon.c4.png", "26");
     g_hash_table_insert(hash, "n.moon.c3.r1.png", "45");

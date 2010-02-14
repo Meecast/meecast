@@ -1983,11 +1983,12 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
     GtkListStore    *allinformation_list = NULL;
     gint            station_number = 0;
     GSList          *tmp_list = NULL;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     box = gtk_hbox_new(TRUE, 10);
-    gtk_widget_set_size_request(box, 650, -1);
+//    gtk_widget_set_size_request(box, 650, -1);
     valid =
         gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                       (app->user_stations_list), &iter);
@@ -2034,8 +2035,10 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
         }   
  
        /* Only *four* station for simple mode */
+       /*
         if(station_number > 3)
             break;
+       */
     }
     /* Added nil station_button */
     while(station_number < 4){
@@ -2335,7 +2338,8 @@ weather_simple_window_settings(gpointer user_data){
           *vertical1_alignmnet  = NULL,
           *vertical2_alignmnet  = NULL,
           *vertical3_alignmnet  = NULL,
-          *vertical4_alignmnet  = NULL;
+          *vertical4_alignmnet  = NULL,
+          *stations_area        = NULL;
   gint    result;
 
 #ifdef DEBUGFUNCTIONCALL
@@ -2349,6 +2353,7 @@ weather_simple_window_settings(gpointer user_data){
         gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->popup_window));
     #endif
 #endif
+
     app->settings_window = window;
     gtk_widget_show(window);
     gtk_window_set_title(GTK_WINDOW(window), _("OMWeather Settings"));
@@ -2356,7 +2361,20 @@ weather_simple_window_settings(gpointer user_data){
     gtk_window_set_modal(GTK_WINDOW(window), TRUE);
 
     main_table = gtk_table_new(4,9, FALSE);
+    stations_box = create_and_fill_stations_buttons(main_table);
+    g_object_set_data(G_OBJECT(main_table), "stations_box", (gpointer)stations_box);
 
+#ifdef OS2009
+    stations_area = hildon_pannable_area_new();
+    g_object_set (stations_area, "mov_mode", HILDON_MOVEMENT_MODE_HORIZ,
+                  "vscrollbar_policy", GTK_POLICY_NEVER, NULL);
+    g_object_set_data(G_OBJECT(main_table), "stations_box", (gpointer)stations_box);
+    hildon_pannable_area_add_with_viewport (HILDON_PANNABLE_AREA (stations_area), stations_box);
+    gtk_widget_set_size_request(stations_area, -1, 80);
+    gtk_widget_show (stations_area);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
+                       stations_area, TRUE, TRUE, 0);
+#else
     left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(left_alignmnet, 5, -1);
     gtk_table_attach((GtkTable*)main_table, left_alignmnet,
@@ -2374,13 +2392,11 @@ weather_simple_window_settings(gpointer user_data){
                                 0, 0 );
     gtk_widget_show (vertical0_alignmnet);
 
-    stations_box = create_and_fill_stations_buttons(main_table);
-    g_object_set_data(G_OBJECT(main_table), "stations_box", (gpointer)stations_box);
-    gtk_widget_show (stations_box);
     gtk_table_attach((GtkTable*)main_table,stations_box,
                                 1, 2, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
-
+#endif
+    gtk_widget_show (stations_box);
 
     vertical1_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);

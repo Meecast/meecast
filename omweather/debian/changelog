@@ -2,6 +2,7 @@ omweather (0.25.2) unstable; urgency=low
 
   * Fixed problem with updating if GSM and WLAN checkboxes is disabled
   * Fixed bug #6488 "Cannot use desktop when omweather details open"
+  * Added Hildon Pannable Area for stations
 
  -- Vlad Vasiliev <vlad@gas.by>  Tue, 04 Thu 2010 19:11:10 +0200
 
@@ -17,9 +18,10 @@ omweather (0.25) unstable; urgency=low
   * Created animations for icons using HildonAnimation functions
   * Changed default vaild time for current weather to 4 hours
   * Done backup mechanism for Fremantle
-  * Increased iccons on toolbar in application mode
+  * Increased icons on toolbar in application mode
+  * Updated German, Finish, Spanish, Russian, French translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 27 Sep 2009 11:20:10 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 31 Jan 2010 21:20:10 +0200
 
 omweather (0.24.11) unstable; urgency=low
 

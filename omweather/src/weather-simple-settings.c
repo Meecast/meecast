@@ -1941,6 +1941,8 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
 
     snprintf(buffer, sizeof(buffer) - 1, _("Station %i"), station_number + 1);
     button = create_button_with_2_line_text(buffer, station_name_s, 18, 12);
+    /* Set widht of button */
+    gtk_widget_set_size_request(button, 130, -1);
     g_object_set_data(G_OBJECT(button), "station_number", (gpointer)station_number);
     g_object_set_data(G_OBJECT(button), "station_name", (gpointer)station_name_s);
     g_object_set_data(G_OBJECT(button), "station_code", (gpointer)station_code_s);
@@ -1954,7 +1956,7 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
     else
         g_object_set_data(G_OBJECT(button), "station_is_gps", (gpointer)0);
 
-    g_signal_connect(G_OBJECT(button), "button-release-event",
+    g_signal_connect(G_OBJECT(button), "clicked",
                      G_CALLBACK(station_setup_button_handler),
                      (gpointer)button);
 
@@ -1988,7 +1990,6 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
     START_FUNCTION;
 #endif
     box = gtk_hbox_new(TRUE, 10);
-//    gtk_widget_set_size_request(box, 650, -1);
     valid =
         gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                       (app->user_stations_list), &iter);
@@ -2019,8 +2020,9 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
             tmp_list = g_slist_append(tmp_list, station_country);
             tmp_list = g_slist_append(tmp_list, station_region);
         }
-        station = create_station_button(station_number,  station_name, station_code, station_source, station_country_id,
-                                        station_country, station_region_id, station_region, is_gps);
+        station = create_station_button(station_number,  station_name, station_code, station_source, 
+                                        station_country_id, station_country, station_region_id, 
+                                        station_region, is_gps);
         g_object_set_data(G_OBJECT(station), "settings_window_table", (gpointer)main_table);
         g_object_set_data(G_OBJECT(station), "station_box", (gpointer)box);
         gtk_box_pack_start(GTK_BOX(box), station, TRUE, TRUE, 0);

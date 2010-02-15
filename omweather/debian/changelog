@@ -1,10 +1,17 @@
+omweather (0.25.3) unstable; urgency=low
+
+  * Fixed problem with widgets layout in Settins window 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 14 Feb 2010 22:11:10 +0200
+
 omweather (0.25.2) unstable; urgency=low
 
   * Fixed problem with updating if GSM and WLAN checkboxes is disabled
   * Fixed bug #6488 "Cannot use desktop when omweather details open"
   * Added Hildon Pannable Area for stations
+  * Fixed segmentation fault if omweather doesn't have stations
 
- -- Vlad Vasiliev <vlad@gas.by>  Tue, 04 Thu 2010 19:11:10 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 14 Feb 2010 22:11:10 +0200
 
 omweather (0.25.1) unstable; urgency=low
 

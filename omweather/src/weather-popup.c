@@ -765,7 +765,8 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
                 *day_text_vbox = NULL,
                 *night_text_vbox = NULL,
                 *day_text = NULL,
-                *night_text = NULL;
+                *night_text = NULL,
+                *day_length = NULL;
     gchar       buffer[1024],
                 temp_buffer[255],
                 symbol = 'C';
@@ -776,7 +777,9 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
                 day_invalid_count = 0,
                 night_invalid_count = 0;
     const gchar *wind_units_str[] = { "m/s", "km/h", "mi/h" };
-    struct tm   time_show = {0};
+    struct tm   time_sunrise = {0};
+    struct tm   time_sunset = {0};
+    int         int_day_length = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -927,11 +930,11 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
         if(g_hash_table_lookup(day, "day_sunrise")){
             *temp_buffer = 0;
             snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1, "\n%s", _("Sunrise: "));
-            strptime(g_hash_table_lookup(day, "day_sunrise"), "%r", &time_show);
+            strptime(g_hash_table_lookup(day, "day_sunrise"), "%r", &time_sunrise);
             if(strstr(g_hash_table_lookup(day, "day_sunrise"), "PM"))
-                time_show.tm_hour += 12;
+                time_sunrise.tm_hour += 12;
 
-            strftime(temp_buffer, sizeof(temp_buffer) - 1, "%X", &time_show);
+            strftime(temp_buffer, sizeof(temp_buffer) - 1, "%X", &time_sunrise);
             /* Remove chars of seconds */
             memmove(temp_buffer + 5, temp_buffer + 8, 5);
             strcat(buffer, temp_buffer);
@@ -1035,11 +1038,11 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     if(g_hash_table_lookup(day, "day_sunset")){
         *temp_buffer = 0;
         snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1, "\n%s", _("Sunset: "));
-        strptime(g_hash_table_lookup(day, "day_sunset"), "%r", &time_show);
+        strptime(g_hash_table_lookup(day, "day_sunset"), "%r", &time_sunset);
         if(strstr(g_hash_table_lookup(day, "day_sunset"), "PM"))
-            time_show.tm_hour += 12;
+            time_sunset.tm_hour += 12;
 
-        strftime(temp_buffer, sizeof(temp_buffer) - 1, "%X", &time_show);
+        strftime(temp_buffer, sizeof(temp_buffer) - 1, "%X", &time_sunset);
         /* Remove chars of seconds */
         memmove(temp_buffer + 5, temp_buffer + 8, 5);
         strcat(buffer, temp_buffer);
@@ -1061,6 +1064,18 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     gtk_box_pack_start(GTK_BOX(main_widget), title, FALSE, FALSE, 5);
     /* day and/or night data */
     gtk_box_pack_start(GTK_BOX(main_widget), day_night_hbox, FALSE, FALSE, 5);
+    /* day length */
+    int_day_length = (((time_sunset.tm_hour*60) + time_sunset.tm_min) -
+                 ((time_sunrise.tm_hour*60) + time_sunrise.tm_min));
+    memset(buffer, 0, sizeof(buffer));
+    snprintf(buffer, sizeof(buffer) -1, _("Day length: %i:%i"), (int)int_day_length/60, 
+                    int_day_length%60);
+                 
+    day_length = gtk_label_new(buffer);
+    set_font(day_length, NULL, font_size + 1);
+    if (!day_invalid_count)
+        gtk_box_pack_start(GTK_BOX(main_widget), day_length, FALSE, FALSE, 5);
+
     /* last update time */
     if(current && app->config->mode != SIMPLE_MODE)
         gtk_box_pack_start(GTK_BOX(main_widget),

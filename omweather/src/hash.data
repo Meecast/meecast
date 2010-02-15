@@ -99,8 +99,10 @@
     g_hash_table_insert(hash, "Mostly Cloudy Snow", _("Mostly Cloudy Snow"));
     g_hash_table_insert(hash, "Mostly Cloudy T-Storm", _("Mostly Cloudy T-Storm"));
     g_hash_table_insert(hash, "Mostly Cloudy", _("Mostly Cloudy"));
+    g_hash_table_insert(hash, "Mostly Cloudy, Drifting Snow", _("Mostly Cloudy, Drifting Snow"));
     g_hash_table_insert(hash, "Mostly Cloudy, Few Snow", _("Mostly Cloudy, Few Snow"));
     g_hash_table_insert(hash, "Mostly Cloudy, Fog, Drizzle", _("Mostly Cloudy, Fog, Drizzle"));
+    g_hash_table_insert(hash, "Mostly Cloudy, Heavy Snow", _("Mostly Cloudy, Heavy Snow"));
     g_hash_table_insert(hash, "Mostly Cloudy, Heavy Snow, Freezing Rain", _("Mostly Cloudy, Heavy Snow, Freezing Rain"));
     g_hash_table_insert(hash, "Mostly Cloudy, Light Rain", _("Mostly Cloudy, Light Rain"));
     g_hash_table_insert(hash, "Mostly Cloudy, Light Rain, Drizzle", _("Mostly Cloudy, Light Rain, Drizzle"));
@@ -243,5 +245,3 @@
     g_hash_table_insert(hash, "Ю", _("Ю"));
     g_hash_table_insert(hash, "Ю-В", _("Ю-В"));
     g_hash_table_insert(hash, "Ю-З", _("Ю-З"));
-    g_hash_table_insert(hash, "Mostly Cloudy, Drifting Snow", _("Mostly Cloudy, Drifting Snow"));
-    g_hash_table_insert(hash, "Mostly Cloudy, Heavy Snow", _("Mostly Cloudy, Heavy Snow"));

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-16 11:19+0200\n"
+"POT-Creation-Date: 2010-02-16 11:45+0200\n"
 "PO-Revision-Date: 2008-03-21 13:39+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Italiano\n"
@@ -505,8 +505,7 @@ msgid "Country:"
 msgstr "Paese:"
 
 #: src/weather-popup.c:1071
-#, c-format
-msgid "Day length: %i:%i"
+msgid "Day length"
 msgstr ""
 
 #: src/weather-popup.c:851

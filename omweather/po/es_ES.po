@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-16 11:19+0200\n"
+"POT-Creation-Date: 2010-02-16 11:45+0200\n"
 "PO-Revision-Date: 2010-01-28 21:44+0100\n"
 "Last-Translator: Alejandro López <alejandro.lopez@free.fr>\n"
 "Language-Team: \n"
@@ -492,8 +492,7 @@ msgid "Country:"
 msgstr "País: "
 
 #: src/weather-popup.c:1071
-#, c-format
-msgid "Day length: %i:%i"
+msgid "Day length"
 msgstr ""
 
 #: src/weather-popup.c:851

@@ -101,6 +101,7 @@
     g_hash_table_insert(hash, "Mostly Cloudy", _("Mostly Cloudy"));
     g_hash_table_insert(hash, "Mostly Cloudy, Drifting Snow", _("Mostly Cloudy, Drifting Snow"));
     g_hash_table_insert(hash, "Mostly Cloudy, Few Snow", _("Mostly Cloudy, Few Snow"));
+    g_hash_table_insert(hash, "Mostly Cloudy, Fog", _("Mostly Cloudy, Fog"));
     g_hash_table_insert(hash, "Mostly Cloudy, Fog, Drizzle", _("Mostly Cloudy, Fog, Drizzle"));
     g_hash_table_insert(hash, "Mostly Cloudy, Heavy Snow", _("Mostly Cloudy, Heavy Snow"));
     g_hash_table_insert(hash, "Mostly Cloudy, Heavy Snow, Freezing Rain", _("Mostly Cloudy, Heavy Snow, Freezing Rain"));

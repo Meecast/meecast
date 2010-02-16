@@ -19,14 +19,13 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 
 #: src/weather-help.c:91
-#, fuzzy
 msgid ""
 "\n"
 "Copyright(c) 2006-2010\n"
 "Vlad Vasiliev, Pavel Fialko"
 msgstr ""
 "\n"
-"Copyright(c) 2006-2009\n"
+"Copyright(c) 2006-2010\n"
 "Владислав Васильев, Павел Фиалко"
 
 #: src/weather-help.c:96
@@ -1008,27 +1007,24 @@ msgid "Mostly Cloudy and Windy"
 msgstr "В основном облачно и ветер"
 
 #: src/hash.data:102
-#, fuzzy
 msgid "Mostly Cloudy, Drifting Snow"
-msgstr "Пасмурно, Снег"
+msgstr "Пасмурно, Поземок"
 
 #: src/hash.data:103
 msgid "Mostly Cloudy, Few Snow"
 msgstr "Пасмурно, Небольшой Снег"
 
 #: src/hash.data:104
-#, fuzzy
 msgid "Mostly Cloudy, Fog"
-msgstr "Пасмурно, Снег"
+msgstr "Пасмурно, Туман"
 
 #: src/hash.data:105
 msgid "Mostly Cloudy, Fog, Drizzle"
 msgstr "Пасмурно, Туман, Изморось"
 
 #: src/hash.data:106
-#, fuzzy
 msgid "Mostly Cloudy, Heavy Snow"
-msgstr "Пасмурно, Небольшой Снег"
+msgstr "Пасмурно, Сильный Снег"
 
 #: src/hash.data:107
 msgid "Mostly Cloudy, Heavy Snow, Freezing Rain"
@@ -1929,18 +1925,15 @@ msgstr "Вы можете сделать пожертвования здесь: 
 
 #: src/weather-download.c:134
 msgid "You didn't select GSM/GPRS for updating weather forecast!"
-msgstr ""
+msgstr "Вы не выбрали GSM/GPRS для обновления прогноза погоды!"
 
 #: src/weather-download.c:128
-#, fuzzy
 msgid "You didn't select WLAN for updating weather forecast!"
-msgstr ""
-"Использовать GSM и/или WLAN для обновления \n"
-"информации о погоде.\n"
+msgstr "Вы не выбрали WLAN для обновления прогноза погоды!"
 
 #: src/weather-download.c:143
 msgid "You didn't select WLAN or GSM/GPRS for updating weather forecast!"
-msgstr ""
+msgstr "Вы не выбрали WLAN или GSM/GPRS для обновления прогноза погоды!"
 
 #: src/weather-popup.c:254
 msgid "current location local time"

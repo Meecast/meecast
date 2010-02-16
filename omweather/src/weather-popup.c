@@ -1067,14 +1067,14 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     /* day length */
     int_day_length = (((time_sunset.tm_hour*60) + time_sunset.tm_min) -
                  ((time_sunrise.tm_hour*60) + time_sunrise.tm_min));
-    memset(buffer, 0, sizeof(buffer));
-    snprintf(buffer, sizeof(buffer) -1,"%s: %i:%i", _("Day length"), (int)int_day_length/60, 
-                    int_day_length%60);
-                 
-    day_length = gtk_label_new(buffer);
-    set_font(day_length, NULL, font_size + 1);
-    if (!day_invalid_count)
+    if (int_day_length > 1 && !day_invalid_count ){
+        memset(buffer, 0, sizeof(buffer));
+        snprintf(buffer, sizeof(buffer) -1,"%s: %i:%i", _("Day length"), (int)int_day_length/60, 
+                        int_day_length%60);
+        day_length = gtk_label_new(buffer);
+        set_font(day_length, NULL, font_size + 1);
         gtk_box_pack_start(GTK_BOX(main_widget), day_length, FALSE, FALSE, 5);
+    }
 
     /* last update time */
     if(current && app->config->mode != SIMPLE_MODE)

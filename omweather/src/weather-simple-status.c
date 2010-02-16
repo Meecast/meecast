@@ -2,8 +2,8 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2009 Vlad Vasiliev
- * Copyright (C) 2006-2009 Pavel Fialko
+ * Copyright (C) 2006-2010 Vlad Vasiliev
+ * Copyright (C) 2006-2010 Pavel Fialko
  *        
  * Copyright (C) 2008 Andrew Zhilin
  *		      az@pocketpcrussia.com 

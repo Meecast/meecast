@@ -2,8 +2,8 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2009 Vlad Vasiliev
- * Copyright (C) 2006-2009 Pavel Fialko
+ * Copyright (C) 2006-2010 Vlad Vasiliev
+ * Copyright (C) 2006-2010 Pavel Fialko
  * 	for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
@@ -88,7 +88,7 @@ void create_about_dialog(void){
 #ifdef DISPLAY_BUILD
              _(" Build: "), BUILD,
 #endif
-             _("\nCopyright(c) 2006-2009\n"
+             _("\nCopyright(c) 2006-2010\n"
                "Vlad Vasiliev, Pavel Fialko"),
              _("\nCopyright(c) 2008\n"
                "for default icon set (Glance)\nand design of interface\n"

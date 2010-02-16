@@ -16,6 +16,12 @@ gtk-update-icon-cache -f /usr/share/icons/hicolor
 if [ -z "$2" ]; then
     exit 0
 fi
+	cat <<EOF > /tmp/request-reboot.txt
+In order to complete plugin upgrade the device must be rebooted.
+Do not forget to reboot the device after update OMWeather.
+EOF
+
+         maemo-confirm-text "Reboot is needed" /tmp/request-reboot.txt
 
 
 exit 0

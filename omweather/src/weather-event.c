@@ -124,8 +124,8 @@ timer_handler(gpointer data){
                                     app->temporary_station_latitude,app->temporary_station_longtitude,
                                     calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
                                                     app->temporary_station_latitude,app->temporary_station_longtitude));
-
 */
+
                 distance = calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
                                                     app->temporary_station_latitude,app->temporary_station_longtitude);
 /*
@@ -136,7 +136,8 @@ timer_handler(gpointer data){
                 write_log(buffer);
 */
 
-                if (distance > 10 || distance < 0) {
+                if ((app->temporary_station_latitude != 0 && app->temporary_station_longtitude != 0) &&
+                    distance > 10 || distance < 0) {
                     /* Stop location service */
                     if (app->gps_was_started){
                           location_gpsd_control_stop(app->gps_control);

@@ -2333,6 +2333,7 @@ weather_simple_window_settings(gpointer user_data){
   GtkWidget
           *window               = NULL,
           *main_table           = NULL,
+          *additional_table     = NULL, 
           *stations_box         = NULL,
           *left_alignmnet       = NULL,
           *right_alignmnet      = NULL,
@@ -2364,18 +2365,26 @@ weather_simple_window_settings(gpointer user_data){
     main_table = gtk_table_new(4,9, FALSE);
     stations_box = create_and_fill_stations_buttons(main_table);
     g_object_set_data(G_OBJECT(main_table), "stations_box", (gpointer)stations_box);
+    additional_table = gtk_table_new(1,3, FALSE);
 
 #ifdef OS2009
     
     stations_area = hildon_pannable_area_new();
     g_object_set (stations_area, "mov_mode", HILDON_MOVEMENT_MODE_HORIZ,
                   "vscrollbar_policy", GTK_POLICY_NEVER, NULL);
+    gtk_table_attach((GtkTable*)additional_table, stations_box,
+                                0, 1, 1, 2,
+                                 GTK_FILL,
+                                (GtkAttachOptions)0, 0, 0 );
+
     g_object_set_data(G_OBJECT(main_table), "stations_box", (gpointer)stations_box);
-    hildon_pannable_area_add_with_viewport (HILDON_PANNABLE_AREA (stations_area), stations_box);
+    hildon_pannable_area_add_with_viewport (HILDON_PANNABLE_AREA (stations_area), additional_table);
     gtk_widget_show (stations_area);
+    gtk_widget_show (additional_table);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        stations_area, TRUE, TRUE, 10);
     gtk_widget_show (stations_box);
+    gtk_widget_set_size_request(stations_area, -1, 90);
 #else
     left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(left_alignmnet, 5, -1);
@@ -2409,7 +2418,6 @@ weather_simple_window_settings(gpointer user_data){
     gtk_widget_show (vertical1_alignmnet);
 
 #endif
-
     create_and_fill_units_box(main_table);
 
     vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
@@ -2473,7 +2481,6 @@ weather_simple_window_settings(gpointer user_data){
 
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);
-
     gtk_dialog_add_button (GTK_DIALOG (window), _("Save"), GTK_RESPONSE_YES);
 
     gtk_widget_show(main_table);

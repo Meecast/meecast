@@ -1,6 +1,7 @@
 omweather (0.25.3) unstable; urgency=low
 
-  * Fixed problem with widgets layout in Settins window
+  * Fixed problem with widgets layout in Settings window 
+  * Added field Xsbc-Bugtracker in control file
   * Added day length
   * Fixed some problems in GPS code
 

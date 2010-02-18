@@ -1,3 +1,11 @@
+omweather-weather-com-stations-db (0.9.13) unstable; urgency=low
+
+  * Added field Xsbc-Bugtracker in control file
+  * Fixed bug #6127 "Change "Virgin Islands, U.S"
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 18 Feb 2010 20:31:30 +0200
+
+
 omweather-weather-com-stations-db (0.9.12) unstable; urgency=low
 
   * Fixed errors for Greece weather stations

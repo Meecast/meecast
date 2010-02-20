@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-17 11:45+0200\n"
-"PO-Revision-Date: 2010-01-28 22:56+0100\n"
+"PO-Revision-Date: 2010-02-20 18:41+0100\n"
 "Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
 "MIME-Version: 1.0\n"
@@ -18,14 +18,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/weather-help.c:91
-#, fuzzy
 msgid ""
 "\n"
 "Copyright(c) 2006-2010\n"
 "Vlad Vasiliev, Pavel Fialko"
 msgstr ""
 "\n"
-"Copyright(c) 2006-2009\n"
+"Copyright(c) 2006-2010\n"
 "Vlad Vasiliev, Pavel Fialko"
 
 #: src/weather-help.c:96
@@ -493,7 +492,7 @@ msgstr "Pays :"
 
 #: src/weather-popup.c:1072
 msgid "Day length"
-msgstr ""
+msgstr "Durée de la journée"
 
 #: src/weather-popup.c:851
 msgid "Day:"
@@ -1007,27 +1006,24 @@ msgid "Mostly Cloudy and Windy"
 msgstr "Plutôt nuageux et venteux"
 
 #: src/hash.data:102
-#, fuzzy
 msgid "Mostly Cloudy, Drifting Snow"
-msgstr "Plutôt nuageux, neige"
+msgstr "Plutôt nuageux, neige poudreuse"
 
 #: src/hash.data:103
 msgid "Mostly Cloudy, Few Snow"
 msgstr "Plutôt nuageux, neigeux"
 
 #: src/hash.data:104
-#, fuzzy
 msgid "Mostly Cloudy, Fog"
-msgstr "Plutôt nuageux, neige"
+msgstr "Plutôt nuageux, brouillard"
 
 #: src/hash.data:105
 msgid "Mostly Cloudy, Fog, Drizzle"
 msgstr "Plutôt nuageux, brouillard, bruine"
 
 #: src/hash.data:106
-#, fuzzy
 msgid "Mostly Cloudy, Heavy Snow"
-msgstr "Plutôt nuageux, neigeux"
+msgstr "Plutôt nuageux, forte neige"
 
 #: src/hash.data:107
 msgid "Mostly Cloudy, Heavy Snow, Freezing Rain"
@@ -1930,17 +1926,20 @@ msgstr "Vous pouvez faire un don ici : "
 #: src/weather-download.c:134
 msgid "You didn't select GSM/GPRS for updating weather forecast!"
 msgstr ""
+"Vous n'avait pas sélectionné GSM/GPRS pour la mise à jour des informations "
+"météo !"
 
 #: src/weather-download.c:128
-#, fuzzy
 msgid "You didn't select WLAN for updating weather forecast!"
 msgstr ""
-"Utiliser le GSM et/ou le WLAN pour \n"
-"la mise à jour des information météo.\n"
+"Vous n'avait pas sélectionné WLAN pour la mise à jour des informations "
+"météo !"
 
 #: src/weather-download.c:143
 msgid "You didn't select WLAN or GSM/GPRS for updating weather forecast!"
 msgstr ""
+"Vous n'avait pas sélectionné WLAN ou GSM/GPRS pour la mise à jour des "
+"informations météo !"
 
 #: src/weather-popup.c:254
 msgid "current location local time"

@@ -1,3 +1,15 @@
+omweather (0.25.5) unstable; urgency=low
+
+  * Fixed bug #9167 "Automatic update doesn't always work"
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 22 Feb 2010 03:11:10 +0200
+
+omweather (0.25.4) unstable; urgency=low
+
+  * Updated German, Finish, Spanish, French, Poland translations
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 21 Feb 2010 23:11:10 +0200
+
 omweather (0.25.3) unstable; urgency=low
 
   * Fixed problem with widgets layout in Settings window 

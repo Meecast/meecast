@@ -205,9 +205,17 @@ timer_handler(gpointer data){
 #ifndef RELEASE
                 fprintf(stderr, "UPDATE by event\n");
 #endif
-                update_weather(FALSE);
-                /* add periodic update */
-                add_periodic_event(current_time);
+                if (app->iap_connected && 
+                    ((app->config->update_wlan && app->iap_connected_wlan)||
+                     (app->config->update_gsm && app->iap_connected_gsm))){
+
+                    update_weather(FALSE);
+                    /* add periodic update */
+                    add_periodic_event(current_time);
+
+                }else
+                    /* add autoupdate in 1 minute */
+                    add_updating_event();
                 break;
             }
             break;
@@ -392,6 +400,27 @@ void add_current_time_event(void) {
     /* get current time */
     current_time = time(NULL);
     event_add(current_time + 4, UPDATE_AFTER_CONNECTED);        /* The current time plus 4 seconds */
+
+#ifdef DEBUGEVENTS
+    fprintf(stderr, "Item added to list\n");
+    print_list(NULL, 0);
+#endif
+}
+
+/*******************************************************************************/
+/* Add autoupdating  event  for weather forecast updating */
+void add_updating_event(void) {
+    time_t current_time;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+#ifdef DEBUGEVENTS
+    fprintf(stderr, "Add in list\n");
+    print_list(NULL, 0);
+#endif
+    /* get current time */
+    current_time = time(NULL);
+    event_add(current_time + 60, AUTOUPDATE);        /* The current time plus 60 seconds */
 
 #ifdef DEBUGEVENTS
     fprintf(stderr, "Item added to list\n");

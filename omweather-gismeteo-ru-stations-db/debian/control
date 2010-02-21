@@ -13,6 +13,10 @@ Description: Stations database and source lib for gismeteo.ru
  for Other Maemo Weather
  © 2009 by Vlad Vasiliev and Pavel Fialko
 XB-Maemo-Display-Name: OMWeather database for gismeteo.ru
+XB-Maemo-Display-Name-pl_PL: Baza danych gismeteo.ru dla OMWeather
+XB-Description-pl_PL: Baza danych stacji i biblioteka źródłowa gismeteo.ru
+ dla OMWeather
+ © 2009 Autorzy Vlad Vasiliev i Pavel Fialko
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
  /wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9gLHgk7K2pwCKgAAAAZdEVYdENv

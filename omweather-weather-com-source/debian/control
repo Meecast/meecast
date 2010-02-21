@@ -13,6 +13,10 @@ Description: Stations database and source lib for weather.com
  for Other Maemo Weather
  © 2006-2008 by Vlad Vasiliev and Pavel Fialko
 XB-Maemo-Display-Name: OMWeather database for weather.com
+XB-Maemo-Display-Name-pl_PL: Baza danych weather.com dla OMWeather
+XB-Description-pl_PL: Baza danych stacji i biblioteka źródłowa weather.com
+ dla OMWeather
+ © 2006-2008 Autorzy Vlad Vasiliev i Pavel Fialko
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
  /wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9gLHgk7K2pwCKgAAAAZdEVYdENv

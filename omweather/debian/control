@@ -19,6 +19,7 @@ Depends: ${shlibs:Depends}, osso-application-installer | hildon-application-mana
 #For Non Maemo
 #Depends: ${shlibs:Depends}, mawk | awk,
 Description: Weather Forecast on Nokia N900. Ultra-customisable weather widget for showing forecast the way you want.
+XB-Description-pl_PL: Prognoza pogody dla Nokii N900. Konfigurowalny widżet pogodowy.
 XB-Maemo-Display-Name: OMWeather
 Xsbc-Bugtracker: https://bugs.maemo.org/enter_bug.cgi?product=OmWeather
 #XB-Maemo-Icon-26:

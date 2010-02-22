@@ -1,3 +1,40 @@
+0.25.5
+
+  * Fixed bug #9167 "Automatic update doesn't always work"
+
+0.25.4
+
+  * Updated German, Finish, Spanish, French, Poland translations
+
+0.25.3
+
+  * Fixed problem with widgets layout in Settings window 
+  * Added field Xsbc-Bugtracker in control file
+  * Added day length
+  * Fixed some problems in GPS code
+
+0.25.2
+
+  * Fixed problem with updating if GSM and WLAN checkboxes is disabled
+  * Fixed bug #6488 "Cannot use desktop when omweather details open"
+  * Fixed bug #8424 "Updating via 3G/GPRS unsuccessful"
+  * Added Hildon Pannable Area for stations
+  * Fixed segmentation fault if omweather doesn't have stations
+
+0.25.1
+
+  * Fixed problem with autoupdating and with updating in first start 
+
+0.25
+
+  * Various minor fixes
+  * Created animations for icons using HildonAnimation functions
+  * Changed default vaild time for current weather to 4 hours
+  * Done backup mechanism for Fremantle
+  * Increased icons on toolbar in application mode
+  * Updated German, Finish, Spanish, Russian, French translations
+
+
 0.24.11
 
   * Fixed bug #5592 "Add Beaufort scale for wind speed"

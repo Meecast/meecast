@@ -87,6 +87,7 @@ binary-arch: build install
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol
+	maemo-optify
 	dh_md5sums
 	dh_builddeb
 

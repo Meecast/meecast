@@ -1,3 +1,12 @@
+omweather-gismeteo-ru-stations-db (0.4) unstable; urgency=low
+
+  * Optified 
+  * Changed section in control file
+  * Changed in moon phase
+  * Added Xsbc-Bugtracker in control file
+
+ --  Vlad Vasiliev <vlad@gas.by>  Mon, 22 Feb 2010 16:53:20 +0200
+
 omweather-gismeteo-ru-stations-db (0.3) unstable; urgency=low
 
   * Minor fixes 

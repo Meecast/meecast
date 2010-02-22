@@ -1,5 +1,5 @@
 Source: omweather-gismeteo-ru-stations-db
-Section: user/accessories
+Section: user/desktop
 Priority: optional
 Maintainer: Vlad Vasiliev <vlad@gas.by>
 Build-Depends: debhelper (>= 4.0.0), libxml2-dev, libgtk2.0-dev
@@ -11,12 +11,13 @@ Depends: ${shlibs:Depends}
 Provides: omweather-stations-db
 Description: Stations database and source lib for gismeteo.ru
  for Other Maemo Weather
- © 2009 by Vlad Vasiliev and Pavel Fialko
+ © 2009-2010 by Vlad Vasiliev, Pavel Fialko and Olga Sidorova
 XB-Maemo-Display-Name: OMWeather database for gismeteo.ru
 XB-Maemo-Display-Name-pl_PL: Baza danych gismeteo.ru dla OMWeather
 XB-Description-pl_PL: Baza danych stacji i biblioteka źródłowa gismeteo.ru
  dla OMWeather
- © 2009 Autorzy Vlad Vasiliev i Pavel Fialko
+ © 2009-2010 Autorzy Vlad Vasiliev, Pavel Fialko i Olga Sidorova
+Xsbc-Bugtracker: https://bugs.maemo.org/enter_bug.cgi?product=OmWeather
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
  /wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9gLHgk7K2pwCKgAAAAZdEVYdENv

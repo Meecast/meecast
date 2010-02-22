@@ -702,9 +702,24 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                 if (child_node11)
                                                     child_node11 = child_node11->next;
                                                 if (child_node11)
-                                                    child_node11 = child_node11->next;
+                                                    child_node11 = child_node11->children;
                                                 if (child_node11)
                                                     child_node11 = child_node11->next;
+
+                                                xmlFree(temp_xml_string);
+                                                temp_xml_string = NULL;
+                                                temp_xml_string = xmlGetProp(child_node11,(const xmlChar*)"class"); 
+                                                fprintf(stderr, "\n Фаза %s\n", temp_xml_string);
+                                                if (temp_xml_string){
+                                                    if (!strncmp(temp_xml_string,"moon4",5))
+                                                        g_hash_table_insert(current_weather, "moon_phase", 
+                                                                                            g_strdup("First Quarter"));
+                                                    if (!strncmp(temp_xml_string,"moon5",5))
+                                                        g_hash_table_insert(current_weather, "moon_phase", 
+                                                                                            g_strdup("Waxing Gibbous"));
+                                                    xmlFree(temp_xml_string);
+                                                }
+/*
                                                 if(child_node11 && child_node11->name &&
                                                    !xmlStrcmp(child_node11->name, (const xmlChar *)"li")){
                                                    xmlFree(temp_xml_string);
@@ -715,6 +730,7 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                        xmlFree(temp_xml_string);
                                                     }
                                                 }
+*/
                                            }
                                        }
                                   }

@@ -222,6 +222,10 @@ connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
             app->iap_connected = FALSE;
             app->iap_connecting = TRUE;
             app->iap_connecting_timer = 0;
+            #ifdef DEBUGCONNECT 
+                app->iap_connected = TRUE;
+                app->iap_connecting = TRUE;
+            #endif
             DEBUG_FUNCTION("\n>>>>>>>>>>>>>>>>>Connecting\n");
         break;
 #endif

@@ -23,6 +23,7 @@ omweather (0.25.2) unstable; urgency=low
 
   * Fixed problem with updating if GSM and WLAN checkboxes is disabled
   * Fixed bug #6488 "Cannot use desktop when omweather details open"
+  * Fixed bug #8424 "Updating via 3G/GPRS unsuccessful"
   * Added Hildon Pannable Area for stations
   * Fixed segmentation fault if omweather doesn't have stations
 

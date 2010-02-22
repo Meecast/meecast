@@ -241,7 +241,13 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
             gtk_tree_path_next(path);
             valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),
                                         &iter, path);
+            if (station_name) { g_free(station_name); station_name = NULL;}
+            if (station_code) { g_free(station_code); station_code = NULL;}
+            if (station_source) { g_free(station_source); station_source = NULL;}
+ 
             if(!valid){
+                if (path)
+                    gtk_tree_path_free(path);
                 path = gtk_tree_path_new_first();
                 valid = gtk_tree_model_get_iter_first(GTK_TREE_MODEL(app->user_stations_list),
                                         &iter);

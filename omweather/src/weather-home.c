@@ -236,7 +236,7 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
                             3, &station_source,
                             -1);
         /* Skip Empty stations */
-        if(ready && !strcmp(station_name, " ")){
+        if(ready && (!strcmp(station_name, " ")||!strcmp(station_name, _("Unknown")))){
             skipped = TRUE;
             gtk_tree_path_next(path);
             valid = gtk_tree_model_get_iter(GTK_TREE_MODEL(app->user_stations_list),

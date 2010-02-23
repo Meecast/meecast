@@ -556,7 +556,7 @@ clear_station(GtkWidget *window){
                 list->stations_list = NULL;
             }
         }
-        g_object_set_data(G_OBJECT(window), "station_name", " ");
+        g_object_set_data(G_OBJECT(window), "station_name", _("Unknown"));
         g_object_set_data(G_OBJECT(window), "station_code", " ");
         g_object_set_data(G_OBJECT(window), "station_source", " ");
         gtk_toggle_button_set_active(g_object_get_data(G_OBJECT(window), "manual_button"), TRUE);

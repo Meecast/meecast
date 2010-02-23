@@ -86,8 +86,10 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
         if(!doc)
             return -1;
         root_node = xmlDocGetRootElement(doc);
-        if (!root_node)
+        if (!root_node){
+            xmlFreeDoc(doc);
             return -1;
+        }
         /*  htmlDocDump(stdout, doc); */
         if(root_node->type == XML_ELEMENT_NODE &&
                 strstr((char*)root_node->name, "err")){

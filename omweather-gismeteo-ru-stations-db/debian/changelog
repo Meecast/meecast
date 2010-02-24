@@ -2,8 +2,9 @@ omweather-gismeteo-ru-stations-db (0.5) unstable; urgency=low
 
   * Fixed small memory leak
   * Fixed possibility of segmentation fault
+  * Added moon phase "Waxing Gibbous"
 
- --  Vlad Vasiliev <vlad@gas.by>  Mon, 22 Feb 2010 16:53:20 +0200
+ --  Vlad Vasiliev <vlad@gas.by>  Mon, 24 Feb 2010 16:53:20 +0200
 
 omweather-gismeteo-ru-stations-db (0.4) unstable; urgency=low
 

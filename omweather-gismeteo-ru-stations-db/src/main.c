@@ -718,9 +718,13 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                     if (!strncmp(temp_xml_string,"moon4",5))
                                                         g_hash_table_insert(current_weather, "moon_phase", 
                                                                                             g_strdup("First Quarter"));
-                                                    if (!strncmp(temp_xml_string,"moon5",5))
+                                                    if (!strncmp(temp_xml_string,"moon6",5))
                                                         g_hash_table_insert(current_weather, "moon_phase", 
                                                                                             g_strdup("Waxing Gibbous"));
+                                                    if (!strncmp(temp_xml_string,"moon8",5))
+                                                        g_hash_table_insert(current_weather, "moon_phase", 
+                                                                                            g_strdup("Full"));
+ 
                                                     xmlFree(temp_xml_string);
                                                 }
 /*

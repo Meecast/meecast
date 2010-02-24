@@ -672,29 +672,31 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
 
                                                 xmlFree(temp_xml_string);
                                                 temp_xml_string = xmlNodeGetContent(child_node11);
-                                                strptime((char*)temp_xml_string,"%H:%M", &tmp_tm);
-                                                setlocale(LC_TIME, "POSIX");
-                                                strftime(temp_buffer, sizeof(temp_buffer) - 1, "%I:%M %p", &tmp_tm);
-                                                setlocale(LC_TIME, "");
+                                                if (temp_xml_string){
+                                                    strptime((char*)temp_xml_string,"%H:%M", &tmp_tm);
+                                                    setlocale(LC_TIME, "POSIX");
+                                                    strftime(temp_buffer, sizeof(temp_buffer) - 1, "%I:%M %p", &tmp_tm);
+                                                    setlocale(LC_TIME, "");
 
-                                                tmp_list = g_hash_table_lookup(data, "forecast");
-                                                while(tmp_list ){
-                                                    tmp_hash = (GHashTable*)tmp_list->data;
-                                                    if (g_hash_table_lookup(tmp_hash,"day_date")&&
-                                                        strcmp(current_day,g_hash_table_lookup(tmp_hash,"day_date"))){
-                                                        g_hash_table_insert(tmp_hash, "day_sunset_not_realistically", g_strdup(buffer));
-                                                        g_hash_table_insert(tmp_hash, "day_sunrise_not_realistically", g_strdup(temp_buffer));
-                                                    }else{
-                                                        g_hash_table_insert(tmp_hash, "day_sunset", g_strdup(temp_buffer));
-                                                        g_hash_table_insert(tmp_hash, "day_sunrise", g_strdup(buffer));
-                                                        /*
-                                                         fprintf(stderr, "Real Sunrise %s\n", buffer); 
-                                                         fprintf(stderr, "Real Sunset %s\n", temp_buffer); 
-                                                        */
-                                                        
+                                                    tmp_list = g_hash_table_lookup(data, "forecast");
+                                                    while(tmp_list ){
+                                                        tmp_hash = (GHashTable*)tmp_list->data;
+                                                        if (g_hash_table_lookup(tmp_hash,"day_date")&&
+                                                            strcmp(current_day,g_hash_table_lookup(tmp_hash,"day_date"))){
+                                                            g_hash_table_insert(tmp_hash, "day_sunset_not_realistically", g_strdup(buffer));
+                                                            g_hash_table_insert(tmp_hash, "day_sunrise_not_realistically", g_strdup(temp_buffer));
+                                                        }else{
+                                                            g_hash_table_insert(tmp_hash, "day_sunset", g_strdup(temp_buffer));
+                                                            g_hash_table_insert(tmp_hash, "day_sunrise", g_strdup(buffer));
+                                                            /*
+                                                             fprintf(stderr, "Real Sunrise %s\n", buffer); 
+                                                             fprintf(stderr, "Real Sunset %s\n", temp_buffer); 
+                                                            */
+                                                            
+                                                        }
+
+                                                        tmp_list = g_slist_next(tmp_list);
                                                     }
-
-                                                    tmp_list = g_slist_next(tmp_list);
                                                 }
 
                                                 if (child_node9)

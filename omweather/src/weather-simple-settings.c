@@ -149,6 +149,14 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                             NULL);
     gtk_widget_set_name(window, "widget_style_window");
 
+#ifdef OS2009
+    #ifdef APPLICATION
+            gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->main_view));
+    #else
+            gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->popup_window));
+    #endif
+#endif
+
     layouts_line = create_layouts_line(window, 40, SIMPLE_MODE);
     iconsets_line = create_iconsets_line(window, 40, SIMPLE_MODE);
     gtk_box_pack_start(GTK_BOX(vbox), layouts_line, TRUE, TRUE, 10);
@@ -888,6 +896,15 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
     window = gtk_dialog_new_with_buttons(_("Units"), NULL, 
                                      GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
     gtk_widget_set_name(window, "units_simple_settings_window");
+
+#ifdef OS2009
+    #ifdef APPLICATION
+            gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->main_view));
+    #else
+            gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->popup_window));
+    #endif
+#endif
+
     main_table = gtk_table_new(8, 8, FALSE);
 
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox), main_table, TRUE, TRUE, 0);
@@ -1247,6 +1264,14 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
                                   GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
     gtk_widget_set_name(window, "update_simple_settings_window");
 
+#ifdef OS2009
+    #ifdef APPLICATION
+            gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->main_view));
+    #else
+            gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->popup_window));
+    #endif
+#endif
+
     main_table = gtk_table_new(8, 9, FALSE);
 
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox), main_table, TRUE, TRUE, 0);
@@ -1584,7 +1609,13 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                                             NULL);
     gtk_widget_set_name(window, "simple_settings_window");
-
+#ifdef OS2009
+    #ifdef APPLICATION
+            gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->main_view));
+    #else
+            gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->popup_window));
+    #endif
+#endif
 
     /* create sources list from aviable sources */
     list = g_new0(struct lists_struct, 1);

@@ -715,16 +715,23 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                 temp_xml_string = xmlGetProp(child_node11,(const xmlChar*)"class"); 
                                                 fprintf(stderr, "\n Фаза %s\n", temp_xml_string);
                                                 if (temp_xml_string){
-                                                    if (!strncmp(temp_xml_string,"moon4",5))
-                                                        g_hash_table_insert(current_weather, "moon_phase", 
-                                                                                            g_strdup("First Quarter"));
-                                                    if (!strncmp(temp_xml_string,"moon6",5))
-                                                        g_hash_table_insert(current_weather, "moon_phase", 
-                                                                                            g_strdup("Waxing Gibbous"));
-                                                    if (!strncmp(temp_xml_string,"moon8",5))
-                                                        g_hash_table_insert(current_weather, "moon_phase", 
-                                                                                            g_strdup("Full"));
- 
+                                                    if (strstr("vax0",temp_xml_string)){
+                                                        if (!strncmp(temp_xml_string,"moon1",5)||!strncmp(temp_xml_string,"moon2",5))
+                                                            g_hash_table_insert(current_weather, "moon_phase", 
+                                                                                                g_strdup("New"));
+                                                        if (!strncmp(temp_xml_string,"moon2",5)||!strncmp(temp_xml_string,"moon3",5))
+                                                            g_hash_table_insert(current_weather, "moon_phase", 
+                                                                                                g_strdup("Waxing Crescent"));
+                                                        if (!strncmp(temp_xml_string,"moon4",5)||!strncmp(temp_xml_string,"moon5",5))
+                                                            g_hash_table_insert(current_weather, "moon_phase", 
+                                                                                                g_strdup("First Quarter"));
+                                                        if (!strncmp(temp_xml_string,"moon6",5)||!strncmp(temp_xml_string,"moon7",5))
+                                                            g_hash_table_insert(current_weather, "moon_phase", 
+                                                                                                g_strdup("Waxing Gibbous"));
+                                                        if (!strncmp(temp_xml_string,"moon8",5))
+                                                            g_hash_table_insert(current_weather, "moon_phase", 
+                                                                                                g_strdup("Full"));
+                                                    }
                                                     xmlFree(temp_xml_string);
                                                 }
 /*

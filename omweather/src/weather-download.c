@@ -56,6 +56,8 @@ download_url(void *user_data){
     struct curl_slist   *headers = NULL;
     struct download_params *params = (struct download_params*)user_data;
     FILE                *file = NULL;
+    int                 max_repeats = 3,
+                        repeats = 0;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -86,8 +88,28 @@ download_url(void *user_data){
         }
         curl_easy_setopt(handle, CURLOPT_WRITEDATA, file);
         curl_easy_setopt(handle, CURLOPT_WRITEFUNCTION, data_read);
-        params->status = curl_easy_perform(handle);
-        fclose(file);
+        /* process downloading */
+        while(repeats < max_repeats){
+            params->status = curl_easy_perform(handle);
+            /* don't repeat in next cases */
+            if(params->status == CURLE_OK || params->status == CURLE_REMOTE_ACCESS_DENIED ||
+                    params->status == CURLE_HTTP_RETURNED_ERROR)
+                break;
+            /* reopen and truncate file */
+            fclose(file);
+            file = fopen(params->filename, "wb");
+            if(!file)
+                break;
+            /* update file handler */
+            curl_easy_setopt(handle, CURLOPT_WRITEDATA, file);
+            repeats++;
+#ifndef RELEASE
+            fprintf(stderr, "\n>>>>>>>>>>>>>>>>>>>>>>>>Repeat N%d download station %s\n", repeats, params->filename);
+#endif
+            DEBUG_FUNCTION("Repeat download.");
+        }
+        if(file)
+            fclose(file);
         curl_slist_free_all(headers);
         /* always cleanup */
         curl_easy_cleanup(handle);

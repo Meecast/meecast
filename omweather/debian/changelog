@@ -1,3 +1,9 @@
+omweather (0.25.7) unstable; urgency=low
+
+  * Fixed  
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 26 Feb 2010 13:11:10 +0200
+
 omweather (0.25.6) unstable; urgency=low
 
   * Fixed bug #5976 "Clearing a station doesn't result in the same state as the initial state"

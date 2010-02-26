@@ -1,6 +1,6 @@
 AC_PREREQ(2.59)
-AC_INIT(omweather, 0.25.6)
-AM_INIT_AUTOMAKE(omweather, 0.25.6)
+AC_INIT(omweather, 0.25.7)
+AM_INIT_AUTOMAKE(omweather, 0.25.7)
 AC_CONFIG_HEADER([src/config.h:src/config.h.in])
 AC_CONFIG_SRCDIR([src/weather-main.c])
 AC_CANONICAL_HOST

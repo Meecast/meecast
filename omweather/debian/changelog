@@ -1,8 +1,8 @@
 omweather (0.25.7) unstable; urgency=low
 
-  * Fixed  
+  * Fixed bug #9293 "update problem"
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 26 Feb 2010 13:11:10 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 26 Feb 2010 16:11:10 +0200
 
 omweather (0.25.6) unstable; urgency=low
 

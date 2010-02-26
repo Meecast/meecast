@@ -1,6 +1,9 @@
 0.25.6
 
+  * Fixed bug #5976 "Clearing a station doesn't result in the same state as the initial state"
+  * Fixed bug #6125 "please don't use system modal dialogs"
   * Improved algorithm for updating data
+  * Fixed small memory leak 
 
 0.25.5
 

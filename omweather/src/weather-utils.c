@@ -751,3 +751,18 @@ write_log(char *string){
 #endif
 }
 /*******************************************************************************/
+/* Reload omweather's plugin */
+void
+reload_omw_plugin(void)
+{
+    if (!fork()) {
+        rename("/home/user/.config/hildon-desktop/home.plugins", "/home/user/.config/hildon-desktop/home.plugins.1");
+//            char *cmdline=g_strdup_printf(this->cmdline, text);
+//            int argcmax=10;
+//            char *argv[argcmax];
+//            int argc=0;
+//            argv[argc++]=NULL;
+//            execvp(argv[0], argv);
+//            exit(1);
+      }
+}

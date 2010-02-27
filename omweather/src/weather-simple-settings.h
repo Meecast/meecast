@@ -63,5 +63,7 @@ void check_current_connection(void);
 void free_list(GSList *list);
 void clear_station(GtkWidget *window);
 void changing_of_location (GtkWidget *button, gpointer user_data);
+void reload_omw_plugin(void);
+
 /*******************************************************************************/
 #endif

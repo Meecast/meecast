@@ -755,14 +755,50 @@ write_log(char *string){
 void
 reload_omw_plugin(void)
 {
+    FILE    *file_in;
+    FILE    *file_out;
+    gchar buffer[2048];
+    int status;
     if (!fork()) {
-        rename("/home/user/.config/hildon-desktop/home.plugins", "/home/user/.config/hildon-desktop/home.plugins.1");
-//            char *cmdline=g_strdup_printf(this->cmdline, text);
-//            int argcmax=10;
-//            char *argv[argcmax];
-//            int argc=0;
-//            argv[argc++]=NULL;
-//            execvp(argv[0], argv);
-//            exit(1);
+        file_in = fopen("/home/user/.config/hildon-desktop/home.plugins","r");
+        file_out = fopen("/tmp/home.plugins","w");
+        if (!file_in || !file_out)
+            exit(1);
+        while (!feof(file_in)) {
+            memset(buffer, 0, sizeof(buffer));
+            fgets(buffer, sizeof(buffer) - 1, file_in);
+            if (buffer && strcmp(buffer, "[omweather-home.desktop-0]\n") &&
+                strcmp(buffer, "X-Desktop-File=/usr/share/applications/hildon-home/omweather-home.desktop\n"))
+                fputs(buffer, file_out);
+        }
+        fclose(file_out);
+        fclose(file_in);
+        file_in = fopen("/tmp/home.plugins","r");
+        file_out = fopen("/home/user/.config/hildon-desktop/home.plugins","w");
+        if (!file_in || !file_out)
+            exit(1);
+        while (!feof(file_in)) {
+            memset(buffer, 0, sizeof(buffer));
+            fgets(buffer, sizeof(buffer) - 1, file_in);
+            fputs(buffer, file_out);
+        }
+        fclose(file_out);
+        fclose(file_in);
+        sleep (3);
+        file_in = fopen("/tmp/home.plugins","r");
+        file_out = fopen("/home/user/.config/hildon-desktop/home.plugins","w");
+        if (!file_in || !file_out)
+            exit(1);
+        while (!feof(file_in)) {
+            memset(buffer, 0, sizeof(buffer));
+            fgets(buffer, sizeof(buffer) - 1, file_in);
+            fputs(buffer, file_out);
+        }
+        fputs("\n", file_out);
+        fputs("[omweather-home.desktop-0]\n",file_out);
+        fputs("X-Desktop-File=/usr/share/applications/hildon-home/omweather-home.desktop\n",file_out);
+        fclose(file_out);
+        fclose(file_in);
+        exit(1);
       }
 }

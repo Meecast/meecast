@@ -56,6 +56,7 @@ widget_styles_save(GtkWidget *window){
     *selected_icon_set = NULL;
 
     GSList      *icon_set = NULL, *tmp_set ;
+    gint previous_value;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -65,8 +66,9 @@ widget_styles_save(GtkWidget *window){
     preset_now_plus_three_v = lookup_widget(window, "preset_now_plus_three_v");
     preset_now_plus_three_h = lookup_widget(window, "preset_now_plus_three_h");
     preset_now_plus_seven = lookup_widget(window, "preset_now_plus_seven");
-
+    
     if (preset_now && preset_now_plus_two && preset_now_plus_three_v && preset_now_plus_three_h && preset_now_plus_seven) {
+        previous_value = app->config->icons_layout;
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(preset_now)))
             app->config->icons_layout = PRESET_NOW;
         else
@@ -111,6 +113,8 @@ widget_styles_save(GtkWidget *window){
     }
 /* save settings */
     config_save(app->config);
+    if (previous_value != app->config->icons_layout)
+        reload_omw_plugin();
     redraw_home_window(FALSE);
 }
 /*******************************************************************************/

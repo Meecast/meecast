@@ -1,14 +1,15 @@
 omweather (0.25.8) unstable; urgency=low
 
-  * Fixed 
+  * Bug in promotion phase in builder for package 0.25.7 (armel)
+  http://maemo.org/packages/package_instance/view/fremantle_extras-devel_free_armel/omweather/0.25.7/
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 26 Feb 2010 16:11:10 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 27 Feb 2010 16:11:10 +0200
 
 omweather (0.25.7) unstable; urgency=low
 
   * Fixed bug #9293 "update problem"
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 26 Feb 2010 16:11:10 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 26 Feb 2010 16:11:10 +0200
 
 omweather (0.25.6) unstable; urgency=low
 
@@ -17,7 +18,7 @@ omweather (0.25.6) unstable; urgency=low
   * Improved algorithm for updating data
   * Fixed small memory leak 
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 26 Feb 2010 13:11:10 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 26 Feb 2010 13:11:10 +0200
 
 omweather (0.25.5) unstable; urgency=low
 

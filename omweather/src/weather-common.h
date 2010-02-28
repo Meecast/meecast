@@ -460,6 +460,7 @@ typedef struct OMWeatherApplet{
     GSList		*buttons;
     gboolean		dbus_is_initialize;
     gboolean		gps_must_be_current;
+    gboolean		reload;
     GtkListStore	*user_stations_list;
     GtkListStore	*time_update_list;
     GtkListStore	*user_alerts_list;

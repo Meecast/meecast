@@ -114,7 +114,7 @@ widget_styles_save(GtkWidget *window){
 /* save settings */
     config_save(app->config);
     if (previous_value != app->config->icons_layout)
-        reload_omw_plugin();
+       app->reload = TRUE; 
     redraw_home_window(FALSE);
 }
 /*******************************************************************************/
@@ -2538,6 +2538,10 @@ weather_simple_window_settings(gpointer user_data){
     if (window)
         gtk_widget_destroy(window);
     app->settings_window = NULL;
+#ifndef APPLICATION   
+    if (app->reload)
+        reload_omw_plugin();
+#endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

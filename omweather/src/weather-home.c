@@ -1006,6 +1006,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->current_is_valid = FALSE;
     app->temporary_station_longtitude = 0.0;
     app->temporary_station_latitude = 0.0;
+    app->reload = FALSE;
 /* Start timer */
     timer(60000);  /* One per minute */
 /* Start main applet */

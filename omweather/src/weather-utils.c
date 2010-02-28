@@ -767,7 +767,7 @@ reload_omw_plugin(void)
        gtk_widget_destroy(app->popup_window);
        app->popup_window = NULL;
     }
-    hildon_banner_show_information(app->main_window, NULL,
+    hildon_banner_show_information(NULL, NULL,
                             _("OMWeather is reloading"));
     if (!fork()) {
         file_in = fopen("/home/user/.config/hildon-desktop/home.plugins","r");
@@ -794,7 +794,7 @@ reload_omw_plugin(void)
         }
         fclose(file_out);
         fclose(file_in);
-        sleep (3);
+        sleep (2);
         file_in = fopen("/tmp/home.plugins","r");
         file_out = fopen("/home/user/.config/hildon-desktop/home.plugins","w");
         if (!file_in || !file_out)

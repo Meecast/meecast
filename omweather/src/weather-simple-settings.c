@@ -32,7 +32,6 @@
 #include "weather-utils.h"
 #include "weather-home.h"
 #include "weather-event.h"
-/*******************************************************************************/
 void
 free_list(GSList *list){
 #ifdef DEBUGFUNCTIONCALL
@@ -568,13 +567,20 @@ clear_station(GtkWidget *window){
                 list->stations_list = NULL;
             }
         }
-        g_object_set_data(G_OBJECT(window), "station_name", _("Unknown"));
-        g_object_set_data(G_OBJECT(window), "station_code", " ");
-        g_object_set_data(G_OBJECT(window), "station_source", " ");
+        g_object_set_data(G_OBJECT(window), "station_name", g_strdup(_("Unknown")));
+        g_object_set_data(G_OBJECT(window), "station_code", g_strdup(" "));
+        g_object_set_data(G_OBJECT(window), "station_source", g_strdup(" "));
         gtk_toggle_button_set_active(g_object_get_data(G_OBJECT(window), "manual_button"), TRUE);
         gtk_toggle_button_set_active(g_object_get_data(G_OBJECT(window), "gps_button"), FALSE);
         save_station(window);
     }
+
+#ifdef ENABLE_GPS
+    if (check_needing_of_gps_station())
+        app->gps_need = TRUE;
+    else
+        app->gps_need = FALSE;
+#endif
 
     if (dialog_window)
         gtk_widget_destroy(dialog_window);
@@ -603,11 +609,19 @@ save_station(GtkWidget *window){
                                       g_strdup(g_object_get_data(G_OBJECT(window), "station_source")),
                                       GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_number")));
 */
-    iter = add_station_to_user_list(g_object_get_data(G_OBJECT(window), "station_name"),
+    if (is_gps)
+        iter = add_station_to_user_list( NULL,
+                                    NULL,
+                                    is_gps,
+                                    g_object_get_data(G_OBJECT(window), "station_source"),
+                                    GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_number")));
+    else
+        iter = add_station_to_user_list(g_object_get_data(G_OBJECT(window), "station_name"),
                                     g_object_get_data(G_OBJECT(window), "station_code"),
                                     is_gps,
                                     g_object_get_data(G_OBJECT(window), "station_source"),
                                     GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_number")));
+
     valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
     if (valid){
           delete_station_from_user_list_using_iter(iter);
@@ -645,6 +659,11 @@ save_station(GtkWidget *window){
                                 stations_box, 1, 2, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
 #ifdef ENABLE_GPS
+    if (check_needing_of_gps_station()){
+        app->gps_need = TRUE;
+        add_gps_event(1);
+    }else
+        app->gps_need = FALSE;
     /* Run gps daemon */
     if (is_gps){
        if (app->gps_control){
@@ -1498,7 +1517,7 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
+    
 #if defined OS2009
     button = hildon_picker_button_new (HILDON_SIZE_FINGER_HEIGHT | HILDON_SIZE_AUTO_WIDTH,
                     HILDON_BUTTON_ARRANGEMENT_VERTICAL);
@@ -1528,7 +1547,6 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
     }
     if (new_value)
         g_free(new_value);
-
     column = hildon_touch_selector_get_column(HILDON_TOUCH_SELECTOR(selector), 0);
 
     g_object_set (G_OBJECT (column), "text-column", 0, NULL);
@@ -1540,14 +1558,11 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
     g_signal_connect (G_OBJECT (button), "value-changed",
                     G_CALLBACK (on_picker_value_changed), button);
     if (position == -1 && i == 1){
-        if (value)
-            g_free(value);
         hildon_touch_selector_set_active(HILDON_TOUCH_SELECTOR(selector), 0, 0);
         value = hildon_button_get_value (HILDON_BUTTON (button));
-    }
-    else
+    }else{
         hildon_touch_selector_set_active(HILDON_TOUCH_SELECTOR(selector), 0, position);
-
+    }
 
 #else
     button = create_button_with_2_line_text(name, value, 18, 12);
@@ -1643,7 +1658,6 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     g_object_set_data(G_OBJECT(window), "station_box", (gpointer)g_object_get_data(G_OBJECT(button), "station_box"));
     g_object_set_data(G_OBJECT(window), "station_is_gps", (gpointer)g_object_get_data(G_OBJECT(button), "station_is_gps"));
 
-
     main_table = gtk_table_new(8, 8, FALSE);
 
     left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
@@ -1653,7 +1667,6 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 GTK_FILL | GTK_EXPAND | GTK_SHRINK,
                                 (GtkAttachOptions)0, 0, 0 );
     gtk_widget_show (left_alignmnet);
-
 
     main_label = gtk_label_new((gchar*)g_object_get_data(G_OBJECT(button), "station_label"));
     set_font(main_label, NULL, 20);
@@ -1678,7 +1691,6 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 1, 2, 3, 4,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 0, 0 );
-
 
     hbox = gtk_hbox_new(TRUE, 0);
 
@@ -1973,7 +1985,6 @@ create_station_button(gint station_number, gchar* station_name_s, gchar *station
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
     snprintf(buffer, sizeof(buffer) - 1, _("Station %i"), station_number + 1);
     button = create_button_with_2_line_text(buffer, station_name_s, 18, 12);
     /* Set widht of button */
@@ -2036,12 +2047,18 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
                            2, &is_gps,
                            3, &station_source, -1);
         allinformation_list = get_all_information_about_station(station_source, station_code);
-        valid2 = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
+        if (allinformation_list)
+            valid2 = gtk_tree_model_get_iter_first(GTK_TREE_MODEL
                                               (allinformation_list), &iter2);
+        else
+            valid2 = FALSE;
 
-        tmp_list = g_slist_append(tmp_list, station_name);
-        tmp_list = g_slist_append(tmp_list, station_code);
-        tmp_list = g_slist_append(tmp_list, station_source);
+        if (station_name)
+            tmp_list = g_slist_append(tmp_list, station_name);
+        if (station_code)
+            tmp_list = g_slist_append(tmp_list, station_code);
+        if (station_source)
+            tmp_list = g_slist_append(tmp_list, station_source);
 
         if(valid2){
             gtk_tree_model_get(GTK_TREE_MODEL(allinformation_list),
@@ -2051,9 +2068,18 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
                                    2, &station_country_id,
                                    3, &station_region_id,
                                    -1);
-
-            tmp_list = g_slist_append(tmp_list, station_country);
-            tmp_list = g_slist_append(tmp_list, station_region);
+            if (station_country)
+                tmp_list = g_slist_append(tmp_list, station_country);
+            if (station_region)
+                tmp_list = g_slist_append(tmp_list, station_region);
+        }
+        if (!station_country){
+                station_country = g_strdup(_("Unknown"));
+                tmp_list = g_slist_append(tmp_list, station_country);
+        }
+        if (!station_region){
+                station_region = g_strdup(_("Unknown"));
+                tmp_list = g_slist_append(tmp_list, station_region);
         }
         station = create_station_button(station_number,  station_name, station_code, station_source, 
                                         station_country_id, station_country, station_region_id, 
@@ -2070,7 +2096,9 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
             g_object_unref(allinformation_list);
             allinformation_list = NULL;
         }   
- 
+        station_name = NULL; station_code = NULL;
+        station_source = NULL; station_country = NULL;
+        station_region = NULL;
        /* Only *four* station for simple mode */
        /*
         if(station_number > 3)
@@ -2079,7 +2107,8 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
     }
     /* Added nil station_button */
     while(station_number < 4){
-        station = create_station_button(station_number, _("Unknown"), NULL, app->config->current_source, -1,
+        station = create_station_button(station_number, _("Unknown"), 
+                                        NULL, app->config->current_source, -1,
                                         _("Unknown"), -1, _("Unknown"), FALSE);
         g_object_set_data(G_OBJECT(station), "settings_window_table", (gpointer)main_table);
         g_object_set_data(G_OBJECT(station), "station_box", (gpointer)box);

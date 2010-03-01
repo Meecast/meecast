@@ -64,6 +64,6 @@ void free_list(GSList *list);
 void clear_station(GtkWidget *window);
 void changing_of_location (GtkWidget *button, gpointer user_data);
 void reload_omw_plugin(void);
-
+void true_free(gpointer p);
 /*******************************************************************************/
 #endif

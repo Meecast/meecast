@@ -117,7 +117,7 @@ timer_handler(gpointer data){
 #ifndef RELEASE
                 fprintf(stderr, "UPDATE by event\n");
 #endif
-
+                if (app->gps_need){
 /* This is code for debug GPS 
                     fprintf(stderr,"Event:  Calculate CHECK_GPS_POSITION %f %f %f %f %f\n",
                                     app->gps_station.latitude,app->gps_station.longtitude,
@@ -126,71 +126,72 @@ timer_handler(gpointer data){
                                                     app->temporary_station_latitude,app->temporary_station_longtitude));
 */
 
-                distance = calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
-                                                    app->temporary_station_latitude,app->temporary_station_longtitude);
-/*
-                sprintf(buffer,"Event:  Calculate CHECK_GPS_POSITION %f %f %f %f %f\n",
-                                    app->gps_station.latitude,app->gps_station.longtitude,
-                                    app->temporary_station_latitude,app->temporary_station_longtitude,
-                                    distance);
-                write_log(buffer);
-*/
+                    distance = calculate_distance(app->gps_station.latitude,app->gps_station.longtitude,
+                                                        app->temporary_station_latitude,app->temporary_station_longtitude);
+    /*
+                    sprintf(buffer,"Event:  Calculate CHECK_GPS_POSITION %f %f %f %f %f\n",
+                                        app->gps_station.latitude,app->gps_station.longtitude,
+                                        app->temporary_station_latitude,app->temporary_station_longtitude,
+                                        distance);
+                    write_log(buffer);
+    */
 
-                if ((app->temporary_station_latitude != 0 && app->temporary_station_longtitude != 0) &&
-                    distance > 10 || distance < 0) {
-                    /* Stop location service */
-                    if (app->gps_was_started){
-                          location_gpsd_control_stop(app->gps_control);
-                          app->gps_was_started = FALSE;
-                    }
-                    get_nearest_station
-                        (app->temporary_station_latitude,
-                         app->temporary_station_longtitude,
-                         &app->gps_station);
-                    if ((strlen(app->gps_station.id0) > 0)
-                        && (strlen(app->gps_station.name) > 0)) {
-
-                        app->gps_station.latitude =
-                            app->temporary_station_latitude;
-                        app->gps_station.longtitude =
-                            app->temporary_station_longtitude;
-                        delete_all_gps_stations();
-                        if (app->config->current_source)
-                                g_free(app->config->current_source);
-                            app->config->current_source =
-                                g_strdup("weather.com");
-
-                        add_station_to_user_list(app->gps_station.name,
-                                                 app->gps_station.id0,
-                                                 TRUE, app->config->current_source, -1);
-                        if (!app->config->current_station_id ||
-                           (!strcmp(app->config->current_station_id," ")) ||
-                           (!strcmp(app->config->current_station_id,""))){
-                            /* Fix me if source are not weather.com */
-                            if (app->config->current_station_name)
-                                g_free(app->config->current_station_name);
-                            app->config->current_station_name =
-                                g_strdup(app->gps_station.name);
-
-                            if (app->config->current_station_id)
-                                g_free(app->config->current_station_id);
-                            app->config->current_station_id =
-                                g_strdup(app->gps_station.id0);
+                    if ((app->temporary_station_latitude != 0 && app->temporary_station_longtitude != 0) &&
+                        distance > 10 || distance < 0) {
+                        /* Stop location service */
+                        if (app->gps_was_started){
+                              location_gpsd_control_stop(app->gps_control);
+                              app->gps_was_started = FALSE;
                         }
-                        config_save(app->config);
-                        redraw_home_window(FALSE);
-                        update_weather(FALSE);
-                        redraw_home_window(FALSE);
+                        get_nearest_station
+                            (app->temporary_station_latitude,
+                             app->temporary_station_longtitude,
+                             &app->gps_station);
+                        if ((strlen(app->gps_station.id0) > 0)
+                            && (strlen(app->gps_station.name) > 0)) {
+
+                            app->gps_station.latitude =
+                                app->temporary_station_latitude;
+                            app->gps_station.longtitude =
+                                app->temporary_station_longtitude;
+                            delete_all_gps_stations();
+                            if (app->config->current_source)
+                                    g_free(app->config->current_source);
+                                app->config->current_source =
+                                    g_strdup("weather.com");
+
+                            add_station_to_user_list(app->gps_station.name,
+                                                     app->gps_station.id0,
+                                                     TRUE, app->config->current_source, -1);
+                            if (!app->config->current_station_id ||
+                               (!strcmp(app->config->current_station_id," ")) ||
+                               (!strcmp(app->config->current_station_id,""))){
+                                /* Fix me if source are not weather.com */
+                                if (app->config->current_station_name)
+                                    g_free(app->config->current_station_name);
+                                app->config->current_station_name =
+                                    g_strdup(app->gps_station.name);
+
+                                if (app->config->current_station_id)
+                                    g_free(app->config->current_station_id);
+                                app->config->current_station_id =
+                                    g_strdup(app->gps_station.id0);
+                            }
+                            config_save(app->config);
+                            redraw_home_window(FALSE);
+                            update_weather(FALSE);
+                            redraw_home_window(FALSE);
+                        }
                     }
-                }
 #ifdef ENABLE_GPS
-                /* add periodic gps check */
-                if (app->gps_station.latitude == 0
-                    && app->gps_station.longtitude == 0)
-                    add_gps_event(1);
-                else
-                    add_gps_event(1);
+                    /* add periodic gps check */
+                    if (app->gps_station.latitude == 0
+                        && app->gps_station.longtitude == 0)
+                        add_gps_event(1);
+                    else
+                        add_gps_event(1);
 #endif
+                }
                 break;
 #endif
             default:

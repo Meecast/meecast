@@ -235,6 +235,36 @@ deinitial_gps_connect(void){
 #endif
 }
 /*******************************************************************************/
+gboolean
+check_needing_of_gps_station(void){
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    gboolean valid;
+    GtkTreeIter iter;
+    gboolean is_gps = FALSE;
+
+    valid =
+        gtk_tree_model_get_iter_first(GTK_TREE_MODEL
+                                      (app->user_stations_list), &iter);
+    while (valid) {
+        gtk_tree_model_get(GTK_TREE_MODEL(app->user_stations_list),
+                           &iter,
+                           2, &is_gps,
+                           -1);
+        if (is_gps) {
+            return TRUE;
+        } else
+            valid =
+                gtk_tree_model_iter_next(GTK_TREE_MODEL
+                                         (app->user_stations_list), &iter);
+    }
+    return FALSE;
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+}
+/*******************************************************************************/
 void
 delete_all_gps_stations(void){
     gboolean valid;

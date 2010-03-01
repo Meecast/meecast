@@ -8,7 +8,7 @@
 
 
 #CFLAGS = -Wall -pedantic -DRELEASE -DDEBUGFUNCTIONCALL -g 
-CFLAGS = -Wall -pedantic -DRELEASE -UDEBUGCALL -UDEBUGCONNECT 
+CFLAGS = -Wall -pedantic -DRELEASE -UDEBUGCONNECT
 #CFLAGS = -Wall -pedantic 
 
 

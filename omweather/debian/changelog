@@ -1,6 +1,7 @@
 omweather (0.26) unstable; urgency=low
 
   * Fixed bug #5362 "Home's layout for the widget doesn't match the visible layout"
+  * Fixed problem with adding new station in configuration window
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 28 Feb 2010 16:11:10 +0200
 

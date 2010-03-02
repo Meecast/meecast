@@ -251,6 +251,9 @@ picker_print_func (HildonTouchSelector *selector, gpointer userdata)
     GtkTreeModel *model;
     GtkTreeIter iter;
     gchar *text = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
 
     /* Always pick the selected country from the tree view and
        never from the entry */
@@ -269,13 +272,24 @@ picker_print_func (HildonTouchSelector *selector, gpointer userdata)
             hildon_entry_set_text (HILDON_ENTRY (entry), text);
         }
     }
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
     return text;
 }
 /*******************************************************************************/
 static void
 on_picker_value_changed (HildonPickerButton * button, gpointer user_data)
 {
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
   list_changed(NULL,  user_data, (gchar*)hildon_button_get_value (HILDON_BUTTON (button)));
+
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
 }
 #endif
 /******************************************************************************/
@@ -317,7 +331,6 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
     if (sel && gtk_tree_selection_get_selected(sel,&model, &iter)){
         gtk_tree_model_get(model, &iter, 0, &name, -1);
     }
-
     list = (struct lists_struct*)g_object_get_data(G_OBJECT(window), "list");
     /* This is a very serious error */
     if(!list)
@@ -395,11 +408,13 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
         g_object_set_data(G_OBJECT(button), "station_country", (gpointer)name);
         g_object_set_data(G_OBJECT(window), "station_country_id", GINT_TO_POINTER(id_country));
         changed_country_handler(NULL, window);
- 
+
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "station_button");
+#if 0        
 #if defined OS2009
         vbox = (GtkWidget*)g_object_get_data(G_OBJECT(temp_button), "vbox");
         /* Button station */
+        fprintf(stderr,"list->stations_list %p\n", list->stations_list);
         station_button = create_button(_("City"),
                                    NULL,
                                    "station_button", "station_name", window,
@@ -416,6 +431,7 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
             label = NULL;
             g_object_set_data(G_OBJECT(temp_button), "label", NULL);
         }
+#endif
 #endif
         temp_button = (GtkWidget*)g_object_get_data(G_OBJECT(window), "region_button");
 #if defined OS2009
@@ -438,6 +454,8 @@ list_changed(GtkTreeSelection *sel,  gpointer user_data, gchar *name){
             label = NULL;
         }
 #endif
+
+ 
    }
     /* TO DO make all if we will have +1 source */
     if (type_button == SOURCE){
@@ -1581,6 +1599,8 @@ create_button(gchar* name, gchar* value, gchar* button_name, gchar* parameter_na
 #if defined OS2009
     if (position == -1 && i == 1){
         hildon_touch_selector_set_active(HILDON_TOUCH_SELECTOR(selector), 0, 0);
+        g_object_set_data(G_OBJECT(button), parameter_name, hildon_touch_selector_get_current_text(HILDON_TOUCH_SELECTOR(selector)));
+        g_object_set_data(G_OBJECT(widget), parameter_name, hildon_touch_selector_get_current_text(HILDON_TOUCH_SELECTOR(selector)));
     }
 #endif
     gtk_widget_set_size_request(button, 180, 80);
@@ -1796,7 +1816,6 @@ station_setup_button_handler(GtkWidget *button, GdkEventButton *event,
                                 2, 3, 6, 7,
                                 GTK_FILL | GTK_EXPAND,
                                 (GtkAttachOptions)0, 20, 0 );
-
     /* Button station */
     station_button = create_button(_("City"),
                                    (gchar*)g_object_get_data(G_OBJECT(button), "station_name"),

@@ -1,3 +1,10 @@
+omweather-weather-com-stations-db (0.9.14) unstable; urgency=low
+
+  * Updated weather stations for India
+  * Fixed bug #9340 "Not cities in Indiana, USA"
+
+ --  Vlad Vasiliev <vlad@gas.by>  Tue, 02 Mar 2010 15:00:30 +0200
+
 omweather-weather-com-stations-db (0.9.13) unstable; urgency=low
 
   * Added field Xsbc-Bugtracker in control file

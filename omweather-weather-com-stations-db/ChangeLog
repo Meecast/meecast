@@ -1,3 +1,11 @@
+0.9.14
+  * Updated weather stations for India
+  * Fixed bug #9340 "Not cities in Indiana, USA"
+
+0.9.13
+  * Added field Xsbc-Bugtracker in control file
+  * Fixed bug #6127 "Change "Virgin Islands, U.S"
+
 0.9.12
   * Fixed errors for Greece weather stations
   * Fixed errors for Finland weather stations

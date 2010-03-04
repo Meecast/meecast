@@ -29,6 +29,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
+#include <sys/stat.h>
 /*******************************************************************************/
 gint
 get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
@@ -38,6 +39,7 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
     gint    days_number = -1;
     gchar   buffer[1024],
             *delimiter = NULL;
+    struct stat file_info;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -46,8 +48,10 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
 /* check for new file, if it exist, than rename it */
     *buffer = 0;
     snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);
-    if(!access(buffer, R_OK))
-        rename(buffer, station_id_with_path);
+    if(!access(buffer, R_OK)){
+        if ((lstat(buffer, &file_info) == 0) && (file_info.st_size > 0)) 
+            rename(buffer, station_id_with_path);
+    }
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
         /* check that the file containe valid data */

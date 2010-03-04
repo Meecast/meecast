@@ -2,15 +2,16 @@ omweather-weather-com-stations-db (0.9.14) unstable; urgency=low
 
   * Updated weather stations for India
   * Fixed bug #9340 "Not cities in Indiana, USA"
+  * Added checking zero size of data file
 
- --  Vlad Vasiliev <vlad@gas.by>  Tue, 02 Mar 2010 15:00:30 +0200
+ --  Vlad Vasiliev <vlad@gas.by>  Tue, 04 Mar 2010 14:10:31 +0200
 
 omweather-weather-com-stations-db (0.9.13) unstable; urgency=low
 
   * Added field Xsbc-Bugtracker in control file
   * Fixed bug #6127 "Change "Virgin Islands, U.S"
 
- --  Vlad Vasiliev <vlad@gas.by>  Wed, 18 Feb 2010 20:31:30 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Wed, 18 Feb 2010 20:31:30 +0200
 
 omweather-weather-com-stations-db (0.9.12) unstable; urgency=low
 

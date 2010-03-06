@@ -736,7 +736,8 @@ draw_home_window(gint count_day){
 #if defined(NONMAEMO) || defined (APPLICATION)
     create_panel(app->main_window, APPLICATION_MODE,
                  app->config->transparency, tmp_station_name); 
-    gtk_table_attach(GTK_TABLE(app->main_window),
+    if (g_hash_table_lookup(app->station_data, "current"))
+        gtk_table_attach(GTK_TABLE(app->main_window),
             create_time_updates_widget(g_hash_table_lookup(app->station_data, "current"), TRUE),
              0, 1, 2, 3, GTK_EXPAND, GTK_EXPAND, 0, 0);
 #else

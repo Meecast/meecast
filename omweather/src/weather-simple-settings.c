@@ -610,8 +610,10 @@ save_station(GtkWidget *window){
     GtkTreeIter     iter;
     gboolean        valid;
     gboolean        is_gps;
-    GtkWidget       *stations_box;
-    GtkWidget       *main_window = NULL;
+    GtkWidget       *stations_box = NULL,
+                    *main_window = NULL,
+                    *additional_table = NULL;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -639,7 +641,6 @@ save_station(GtkWidget *window){
                                     is_gps,
                                     g_object_get_data(G_OBJECT(window), "station_source"),
                                     GPOINTER_TO_INT(g_object_get_data(G_OBJECT(window), "station_number")));
-
     valid = gtk_tree_model_iter_next(GTK_TREE_MODEL(app->user_stations_list), &iter);
     if (valid){
           delete_station_from_user_list_using_iter(iter);
@@ -665,6 +666,7 @@ save_station(GtkWidget *window){
     config_save(app->config);
     main_window = g_object_get_data(G_OBJECT(window), "settings_window_table");
     stations_box = (gpointer)(g_object_get_data(G_OBJECT(main_window), "stations_box"));
+    additional_table = gtk_widget_get_parent(stations_box); 
     if (stations_box){
         free_list((GSList*)(g_object_get_data(G_OBJECT(stations_box), "list_for_free")));
         gtk_widget_destroy(stations_box);
@@ -673,9 +675,19 @@ save_station(GtkWidget *window){
     stations_box = create_and_fill_stations_buttons((GtkWidget*)(g_object_get_data(G_OBJECT(window), "settings_window_table")));
     g_object_set_data(G_OBJECT((g_object_get_data(G_OBJECT(window), "settings_window_table"))), "stations_box", (gpointer)stations_box);
     gtk_widget_show (stations_box);
-    gtk_table_attach((GtkTable*)(g_object_get_data(G_OBJECT(window), "settings_window_table")),
+ 
+#ifdef OS2009
+    
+    gtk_table_attach((GtkTable*)additional_table, stations_box,
+                                0, 1, 1, 2,
+                                 GTK_FILL,
+                                (GtkAttachOptions)0, 0, 0 );
+    gtk_widget_show (additional_table);
+#else
+   gtk_table_attach((GtkTable*)(g_object_get_data(G_OBJECT(window), "settings_window_table")),
                                 stations_box, 1, 2, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
+#endif
 #ifdef ENABLE_GPS
     if (check_needing_of_gps_station()){
         app->gps_need = TRUE;

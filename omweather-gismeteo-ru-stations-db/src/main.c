@@ -13,7 +13,7 @@
  *
  * This software is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
@@ -231,7 +231,8 @@ fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day, GHashTable *has
     gchar   *image1 = NULL;
     gchar   *image2 = NULL;
     gchar   *temp_char;
-    gint speed;
+    gint    speed;
+    gint    pressure;
 
     if (root_node->next)
         cur_node = root_node->next;
@@ -331,6 +332,12 @@ fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day, GHashTable *has
                             break;
                     }
                     /*TODO need normalization from mm.rt.stolba to bar */
+                    /* Normalizing from mm.rt.stolba to milibar bar */
+                    if (strlen(temp_buffer) > 0){
+                        pressure = atoi(temp_buffer);
+                        pressure = pressure * 1.333224;
+                        snprintf(temp_buffer, sizeof(temp_buffer)-1,"%i", pressure);
+                    }
                     switch (part_of_day){
                         case DAY:
                               g_hash_table_insert(day, "day_pressure", g_strdup(temp_buffer));
@@ -593,6 +600,7 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
      gchar       *image = NULL;
      gchar       *temp_char;
      gint        speed;
+     gint        pressure; 
      struct tm   tmp_tm = {0};
      GHashTable  *tmp_hash = NULL;
      GSList      *tmp_list = NULL;
@@ -852,8 +860,15 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                                          temp_xml_string = xmlGetProp(child_node6,(const xmlChar*)"class");
                                                          if(!xmlStrcmp(temp_xml_string, (const xmlChar*)"c1")){
                                                             xmlFree(temp_xml_string); 
+                                                            temp_xml_string = NULL;
                                                             temp_xml_string = xmlNodeGetContent(child_node6);
-                                                            g_hash_table_insert(current_weather, "pressure", g_strdup((char*)temp_xml_string));
+                                                            if (temp_xml_string){
+                                                                pressure = atoi(temp_xml_string);
+                                                                pressure = pressure * 1.333224;
+                                                                snprintf(temp_buffer, sizeof(temp_buffer)-1, "%i", pressure);
+                                                             }
+ 
+                                                            g_hash_table_insert(current_weather, "pressure", g_strdup((char*)temp_buffer));
                                                              /* fprintf(stderr, "\n Pressure %s\n", temp_xml_string); */
                                                          }
                                                          /* Wind */
@@ -1145,6 +1160,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
     gchar       tmp[buff_size];
     gchar       *temp_char;
     gint        speed;
+    gint        pressure; 
     gint        count_of_hours = 0;
     gint        location_timezone = 0;
     GHashTable  *detail = NULL; 
@@ -1265,7 +1281,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                                     timezone_flag = TRUE;
                                                                                 location_timezone = (gint)time_diff/3600;
                                                                                 /* fprintf(stderr, "\nTimezone %i\n", location_timezone); */
-                                                                                snprintf(temp_buffer, sizeof(temp_buffer)-1,"%i",location_timezone);
+                                                                                snprintf(temp_buffer, sizeof(temp_buffer)-1, "%i",location_timezone);
 
                                                                                 g_hash_table_insert(location, "station_time_zone", g_strdup(temp_buffer));
                                                                            }
@@ -1299,8 +1315,16 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
                                                                        }
                                                                        if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"c4")){
                                                                            xmlFree(temp_xml_string);
-                                                                           temp_xml_string = xmlNodeGetContent(child_node11);
-                                                                           g_hash_table_insert(detail, "hour_pressure", g_strdup((char*)temp_xml_string));
+                                                                           temp_xml_string = NULL;
+                                                                           temp_xml_string = xmlNodeGetContent(child_node11);  
+                                                                           /* Normalizing from mm.rt.stolba to milibar bar */
+                                                                       if (temp_xml_string){
+                                                                           pressure = atoi((char*)temp_xml_string);
+                                                                           pressure = pressure * 1.333224;
+                                                                           snprintf(temp_buffer, sizeof(temp_buffer)-1, "%i", pressure);
+                                                                       }
+                                                    
+                                                                           g_hash_table_insert(detail, "hour_pressure", g_strdup((char*)temp_buffer));
                                                                            /* fprintf(stderr, "Pressure %s\n", temp_xml_string); */
                                                                        }
                                                                        if(!xmlStrcmp(temp_xml_string,(const xmlChar*)"c5")){

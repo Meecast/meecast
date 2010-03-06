@@ -1,6 +1,7 @@
 omweather-gismeteo-ru-stations-db (0.6) unstable; urgency=low
 
   * Added all moon phases
+  * Fixed pressure unit
 
  --  Vlad Vasiliev <vlad@gas.by>  Fri, 05 Mar 2010 16:53:20 +0200
 

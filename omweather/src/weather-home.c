@@ -1520,8 +1520,8 @@ create_current_weather_simple_widget(GHashTable *current){
         strcat(buffer, "\n");
     }
     if (g_hash_table_lookup(current, "feel_like")){
-        strcat(buffer, _("\nFL: "));
-        sprintf(buffer + strlen(buffer), "%d\302\260", 
+        strcat(buffer, _("FL: "));
+        sprintf(buffer + strlen(buffer), "%d\302\260\n", 
             (app->config->temperature_units == CELSIUS) ? (atoi(g_hash_table_lookup(current, "feel_like"))) 
                             : ((int)c2f(atof(g_hash_table_lookup(current, "feel_like")))));
         (app->config->temperature_units == CELSIUS) ? ( strcat(buffer, _("C")) )

@@ -769,6 +769,7 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
                 *day_length = NULL;
     gchar       buffer[1024],
                 temp_buffer[255],
+                *units,
                 symbol = 'C';
     struct tm   tmp_time_date_struct = {0};
     GdkPixbuf   *icon = NULL;
@@ -780,6 +781,8 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     struct tm   time_sunrise = {0};
     struct tm   time_sunset = {0};
     int         int_day_length = 0;
+    float       tmp_pressure = 0.0f;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -902,6 +905,22 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
             sprintf(buffer + strlen(buffer), "%s\n",
                     (char*)hash_table_find("N/A", FALSE));
         }
+        if(g_hash_table_lookup(day, "day_pressure") && strcmp(g_hash_table_lookup(day, "day_pressure"), "N/A")){
+            strcat(buffer, _("Pressure: "));
+            tmp_pressure = atof((char*)g_hash_table_lookup(day, "day_pressure"));
+            switch(app->config->pressure_units){
+                default:
+                case MB:   units = _("mb"); 
+                           sprintf(buffer + strlen(buffer), "%.0f %s\n", tmp_pressure, units);
+                           break;
+                case INCH: units = _("inHg"); tmp_pressure = mb2inch(tmp_pressure); 
+                           sprintf(buffer + strlen(buffer), "%.2f %s\n", tmp_pressure, units);
+                           break;
+                case MM: units = _("mmHg"); tmp_pressure = mb2mm(tmp_pressure); 
+                         sprintf(buffer + strlen(buffer), "%.0f %s\n", tmp_pressure, units);
+                         break;
+            }
+        }
         strcat(buffer, _("Wind: "));
         if(g_hash_table_lookup(day, "day_wind_title") && g_hash_table_lookup(day, "day_wind_speed"))
             switch(app->config->wind_units){
@@ -1009,6 +1028,22 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     else{
         sprintf(buffer + strlen(buffer), "%s\n",
                 (char*)hash_table_find("N/A", FALSE));
+    }
+    if(g_hash_table_lookup(day, "night_pressure") && strcmp(g_hash_table_lookup(day, "night_pressure"), "N/A")){
+        strcat(buffer, _("Pressure: "));
+        tmp_pressure = atof((char*)g_hash_table_lookup(day, "night_pressure"));
+            switch(app->config->pressure_units){
+                default:
+                case MB:   units = _("mb"); 
+                           sprintf(buffer + strlen(buffer), "%.0f %s\n", tmp_pressure, units);
+                           break;
+                case INCH: units = _("inHg"); tmp_pressure = mb2inch(tmp_pressure); 
+                           sprintf(buffer + strlen(buffer), "%.2f %s\n", tmp_pressure, units);
+                           break;
+                case MM: units = _("mmHg"); tmp_pressure = mb2mm(tmp_pressure); 
+                         sprintf(buffer + strlen(buffer), "%.0f %s\n", tmp_pressure, units);
+                         break;
+            }
     }
     strcat(buffer, _("Wind: "));
     if(g_hash_table_lookup(day, "night_wind_title") && g_hash_table_lookup(day, "night_wind_speed"))

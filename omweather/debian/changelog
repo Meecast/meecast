@@ -3,6 +3,8 @@ omweather (0.26) unstable; urgency=low
   * Fixed bug #5362 "Home's layout for the widget doesn't match the visible layout"
   * Fixed bug #8960 "GPS station does not update"
   * Fixed problem with adding or modifying a new station in configuration window
+  * Added pressure to expanded view for all days (it presents only in
+    gismeteo.ru source)
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 28 Feb 2010 16:11:10 +0200
 

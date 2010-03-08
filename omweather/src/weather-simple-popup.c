@@ -127,7 +127,7 @@ get_next_station_name(const gchar *current_station_name, GtkListStore *user_stat
                             NAME_COLUMN, &station_name,
                             -1);
         /* Skip Empty stations */
-        if(ready && !strcmp(station_name, " ")){
+        if(ready && (!strcmp(station_name, " ") || !strcmp(station_name, _("Unknown")))){
             skipped = TRUE;
             g_free(station_name);
             station_name = NULL;

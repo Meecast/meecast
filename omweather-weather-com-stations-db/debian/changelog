@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (0.9.15) unstable; urgency=low
+
+  * Fixed errors in stations coordinates
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 10 Mar 2010 14:10:31 +0200
+
 omweather-weather-com-stations-db (0.9.14) unstable; urgency=low
 
   * Updated weather stations for India

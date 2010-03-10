@@ -164,7 +164,8 @@ create_moon_phase_widget(GHashTable *current){
                 *main_label = NULL;
     gchar       buffer[1024],
                 icon[2048],
-                *space_symbol = NULL;
+                *space_symbol = NULL,
+                *phase_description = NULL;
     GdkPixbuf   *icon_buffer;
     GtkWidget   *icon_image;
 #ifdef DEBUGFUNCTIONCALL
@@ -176,9 +177,17 @@ create_moon_phase_widget(GHashTable *current){
     if (!g_hash_table_lookup(current, "moon_phase"))
         return NULL;
     memset(buffer, 0, sizeof(buffer));
+    phase_description = g_strdup((char*)hash_table_find(g_hash_table_lookup(current, "moon_phase"), FALSE));
+    
+    /* replace space to \n */
+    while (phase_description && (space_symbol = strchr(phase_description, ' ')))
+         space_symbol[0] = '\n';
+
     snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1,
-                "%s",
-            (char*)hash_table_find(g_hash_table_lookup(current, "moon_phase"), FALSE));
+                "%s", phase_description);
+    if(phase_description)
+        g_free(phase_description);
+
     main_label = gtk_label_new(buffer);
     set_font(main_label, NULL, 14);
 

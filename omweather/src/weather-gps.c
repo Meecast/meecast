@@ -93,8 +93,8 @@ get_nearest_station(double lat, double lon, Station *result){
                                    &iter,
                                    NAME_COLUMN, &station_name,
                                    ID0_COLUMN, &station_id0,
-                                   2, &station_latitude,
-                                   3, &station_longtitude, -1);
+                                   2, &station_longtitude,
+                                   3, &station_latitude, -1);
                 /* Calculating distance */
                 distance =
                     calculate_distance(lat, lon, station_latitude,

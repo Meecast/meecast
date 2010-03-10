@@ -1,6 +1,7 @@
 omweather (0.26.1) unstable; urgency=low
 
-  * Changed in external view for moon widget 
+  * Changed in external view for moon widget
+  * Fixed problem with GPS stations
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 28 Feb 2010 16:11:10 +0200
 

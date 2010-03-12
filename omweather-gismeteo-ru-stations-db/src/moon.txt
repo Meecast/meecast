@@ -1,4 +1,5 @@
 "moon5 vax1"  Waning Gibbous
 "moon3 vax1" Waning Crescent
 "moon1 vax1" Waning Crescent 16%
+"moon1 vax1" Waning Crescent 10%
 

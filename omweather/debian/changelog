@@ -1,3 +1,9 @@
+omweather (0.26.2) unstable; urgency=low
+
+  * Small changes 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 28 Feb 2010 16:11:10 +0200
+
 omweather (0.26.1) unstable; urgency=low
 
   * Changed in external view for moon widget

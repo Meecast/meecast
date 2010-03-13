@@ -133,6 +133,8 @@
 #define PRESET_BIG_FONT_COLOR_BACK "#000000"
 #define PRESET_WIND_FONT_COLOR "#000000"
 #define PRESET_FONT_COLOR_LOW_TEMP "#7D9CAD"
+#define OMWEATHER_SIGNAL_INTERFACE "org.maemo.omweather"
+#define OMWEATHER_RELOAD_CONFIG "reload_config"
 
 /*******************************************************************************/
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,
@@ -520,6 +522,7 @@ typedef struct OMWeatherApplet{
 #endif
 #ifdef USE_DBUS
     DBusConnection      *dbus_conn;
+    DBusConnection      *dbus_conn_session;
 #endif
 #ifdef CLUTTER
     ClutterScript       *clutter_script; /* Maybe it need be deleting */

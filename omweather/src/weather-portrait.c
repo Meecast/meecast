@@ -37,8 +37,7 @@ get_mce_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 
     DBusMessageIter iter;
     const char *mode_name = NULL;
-
-
+    
     if (dbus_message_is_signal(msg, MCE_SIGNAL_IF, MCE_DEVICE_ORIENTATION_SIG)){
         if (dbus_message_iter_init(msg, &iter)){
             dbus_message_iter_get_basic(&iter, &mode_name);

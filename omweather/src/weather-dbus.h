@@ -55,5 +55,8 @@ void iap_callback(struct iap_event_t *event, void *arg);
 #ifdef USE_CONIC
     void connection_cb(ConIcConnection * connection,ConIcConnectionEvent * event, gpointer user_data);
 #endif
+DBusHandlerResult
+get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data);
+   
 /*******************************************************************************/
 #endif

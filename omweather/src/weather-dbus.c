@@ -47,13 +47,9 @@
 void
 weather_initialize_dbus(void){
     gchar   *tmp;
-#if defined USE_DBUS && !defined OS2008 && !defined OS2009 
     gchar       *filter_string;
     DBusError   error;
-#endif
-#if defined USE_DBUS && !defined OS2008
-    DBusError error;
-#endif
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -78,8 +74,10 @@ weather_initialize_dbus(void){
 #endif
 
 #ifdef USE_DBUS
+        dbus_error_init (&error);
         /* Add D-BUS signal handler for 'status_changed' */
         app->dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
+        app->dbus_conn_session = dbus_bus_get(DBUS_BUS_SESSION, NULL);
 
 #if !defined OS2008 && !defined OS2009 && !defined NONMAEMO
         filter_string =
@@ -100,6 +98,21 @@ weather_initialize_dbus(void){
 #endif
 
         check_current_connection();
+        
+        if (app->dbus_conn_session){
+            filter_string =
+                g_strdup_printf("type='signal', interface='%s'", OMWEATHER_SIGNAL_INTERFACE);
+            dbus_bus_add_match(app->dbus_conn_session, filter_string, &error);
+            if (dbus_error_is_set(&error)){
+                 fprintf(stderr,"dbus_bus_add_match failed: %s", error.message);
+                 dbus_error_free(&error);
+            }
+            g_free(filter_string);
+            /* add the callback */
+            dbus_connection_add_filter(app->dbus_conn_session,
+                                       get_omweather_signal_cb,
+                                       NULL, NULL);
+        }
 
 #if defined OS2009 && defined APPLICATION
         dbus_error_init (&error);
@@ -155,6 +168,15 @@ weather_deinitialize_dbus(void){
     END_FUNCTION;
 #endif
 
+}
+/*******************************************************************************/
+DBusHandlerResult
+get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
+
+    fprintf(stderr,"test1\n");
+    if (dbus_message_is_signal(msg, OMWEATHER_SIGNAL_INTERFACE, OMWEATHER_RELOAD_CONFIG)){
+        fprintf(stderr,"sssssssssssss\n");
+    }
 }
 /*******************************************************************************/
 #if !defined OS2008 && !defined OS2009 && !defined NONMAEMO

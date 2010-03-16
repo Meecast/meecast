@@ -173,9 +173,12 @@ weather_deinitialize_dbus(void){
 DBusHandlerResult
 get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 
-    fprintf(stderr,"test1\n");
     if (dbus_message_is_signal(msg, OMWEATHER_SIGNAL_INTERFACE, OMWEATHER_RELOAD_CONFIG)){
         fprintf(stderr,"sssssssssssss\n");
+        if(read_config(app->config)){
+                fprintf(stderr, "\nCan not read config file.\n");
+        }else
+            redraw_home_window(FALSE);
     }
 }
 /*******************************************************************************/

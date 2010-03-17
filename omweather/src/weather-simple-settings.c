@@ -115,8 +115,8 @@ widget_styles_save(GtkWidget *window){
     if (previous_value != app->config->icons_layout)
        app->reload = TRUE; 
     /* Send signal for redraw */
-    send_dbus_signal (OMWEATHER_SIGNAL_RELOAD_CONFIG_INTERFACE,
-                      OMWEATHER_SIGNAL_RELOAD_CONFIG_PATH,
+    send_dbus_signal (OMWEATHER_SIGNAL_INTERFACE,
+                      OMWEATHER_SIGNAL_PATH,
                       OMWEATHER_RELOAD_CONFIG);
 
 //    redraw_home_window(FALSE);
@@ -671,8 +671,8 @@ save_station(GtkWidget *window){
     config_save(app->config);
 
 //    redraw_home_window(FALSE);
-    send_dbus_signal (OMWEATHER_SIGNAL_RELOAD_CONFIG_INTERFACE,
-                      OMWEATHER_SIGNAL_RELOAD_CONFIG_PATH,
+    send_dbus_signal (OMWEATHER_SIGNAL_INTERFACE,
+                      OMWEATHER_SIGNAL_PATH,
                       OMWEATHER_RELOAD_CONFIG);
 
     main_window = g_object_get_data(G_OBJECT(window), "settings_window_table");

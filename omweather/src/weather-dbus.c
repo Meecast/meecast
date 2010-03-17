@@ -181,24 +181,23 @@ send_dbus_signal (const gchar *interface,
   dbus_message_set_interface (message, interface);
   dbus_message_set_path (message, path);
   dbus_message_set_member (message, member);
-  fprintf(stderr,"DBUS CONN %p\n",app->dbus_conn);
-  success = dbus_connection_send (app->dbus_conn, message, NULL);
+  success = dbus_connection_send (app->dbus_conn_session, message, NULL);
   dbus_message_unref (message);
-  
+/*  
   fprintf (stderr, "%s '%s' message.\n",
                                  success ? "Sent" : "Failed to send",
                                  member);
+*/
 }
 
 /*******************************************************************************/
 DBusHandlerResult
 get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
-   fprintf(stderr,"sssssssssssss\n");
     if (dbus_message_is_signal(msg, OMWEATHER_SIGNAL_INTERFACE, OMWEATHER_RELOAD_CONFIG)){
         if(read_config(app->config)){
                 fprintf(stderr, "\nCan not read config file.\n");

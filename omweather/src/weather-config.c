@@ -475,6 +475,7 @@ gint read_config(AppletConfig * config) {
                                    GCONF_KEY_WEATHER_STATIONS_LIST,
                                    GCONF_VALUE_STRING, NULL);
     if (stlist) {
+        gtk_list_store_clear(app->user_stations_list);
         fill_user_stations_list(stlist, &app->user_stations_list);
         g_slist_foreach(stlist, (GFunc)g_free, NULL);
         g_slist_free(stlist);

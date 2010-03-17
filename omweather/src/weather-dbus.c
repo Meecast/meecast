@@ -181,6 +181,7 @@ send_dbus_signal (const gchar *interface,
   dbus_message_set_interface (message, interface);
   dbus_message_set_path (message, path);
   dbus_message_set_member (message, member);
+  fprintf(stderr,"DBUS CONN %p\n",app->dbus_conn);
   success = dbus_connection_send (app->dbus_conn, message, NULL);
   dbus_message_unref (message);
   
@@ -197,8 +198,8 @@ get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
     START_FUNCTION;
 //#endif
 
+   fprintf(stderr,"sssssssssssss\n");
     if (dbus_message_is_signal(msg, OMWEATHER_SIGNAL_INTERFACE, OMWEATHER_RELOAD_CONFIG)){
-        fprintf(stderr,"sssssssssssss\n");
         if(read_config(app->config)){
                 fprintf(stderr, "\nCan not read config file.\n");
         }else{

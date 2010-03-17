@@ -2,4 +2,4 @@
 "moon3 vax1" Waning Crescent
 "moon1 vax1" Waning Crescent 16%
 "moon1 vax1" Waning Crescent 10%
-
+"moon0 vax1" Waxing Crescent 3%

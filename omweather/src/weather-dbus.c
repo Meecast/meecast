@@ -170,15 +170,40 @@ weather_deinitialize_dbus(void){
 
 }
 /*******************************************************************************/
+void
+send_dbus_signal (const gchar *interface,
+                  const gchar *path,
+                  const gchar *member)
+{
+  gboolean       success;
+  
+  DBusMessage *message = dbus_message_new (DBUS_MESSAGE_TYPE_SIGNAL);
+  dbus_message_set_interface (message, interface);
+  dbus_message_set_path (message, path);
+  dbus_message_set_member (message, member);
+  success = dbus_connection_send (app->dbus_conn, message, NULL);
+  dbus_message_unref (message);
+  
+  fprintf (stderr, "%s '%s' message.\n",
+                                 success ? "Sent" : "Failed to send",
+                                 member);
+}
+
+/*******************************************************************************/
 DBusHandlerResult
 get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
+
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
 
     if (dbus_message_is_signal(msg, OMWEATHER_SIGNAL_INTERFACE, OMWEATHER_RELOAD_CONFIG)){
         fprintf(stderr,"sssssssssssss\n");
         if(read_config(app->config)){
                 fprintf(stderr, "\nCan not read config file.\n");
-        }else
+        }else{
             redraw_home_window(FALSE);
+        }
     }
 }
 /*******************************************************************************/

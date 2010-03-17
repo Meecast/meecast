@@ -134,6 +134,9 @@
 #define PRESET_WIND_FONT_COLOR "#000000"
 #define PRESET_FONT_COLOR_LOW_TEMP "#7D9CAD"
 #define OMWEATHER_SIGNAL_INTERFACE "org.maemo.omweather"
+#define OMWEATHER_SIGNAL_PATH "/org/maemo/omweather"
+#define OMWEATHER_SIGNAL_RELOAD_CONFIG_INTERFACE "org.maemo.omweather.reload_config"
+#define OMWEATHER_SIGNAL_RELOAD_CONFIG_PATH "/org/maemo/omweather/reload_config"
 #define OMWEATHER_RELOAD_CONFIG "reload_config"
 
 /*******************************************************************************/

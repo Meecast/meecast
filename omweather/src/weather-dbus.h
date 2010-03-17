@@ -57,6 +57,6 @@ void iap_callback(struct iap_event_t *event, void *arg);
 #endif
 DBusHandlerResult
 get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data);
-   
+void send_dbus_signal (const gchar *interface, const gchar *path, const gchar *member);
 /*******************************************************************************/
 #endif

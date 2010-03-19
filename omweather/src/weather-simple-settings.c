@@ -665,11 +665,10 @@ save_station(GtkWidget *window){
     }
     if (!is_gps) 
         update_weather(TRUE);
-    /* Redraw applet */
-    app->reload = TRUE; 
     /* Update config file */
     config_save(app->config);
 
+    /* Redraw applet */
 //    redraw_home_window(FALSE);
     send_dbus_signal (OMWEATHER_SIGNAL_INTERFACE,
                       OMWEATHER_SIGNAL_PATH,

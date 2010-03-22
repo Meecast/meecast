@@ -2137,9 +2137,6 @@ create_and_fill_stations_buttons(GtkWidget *main_table){
             g_object_unref(allinformation_list);
             allinformation_list = NULL;
         }   
-        station_name = NULL; station_code = NULL;
-        station_source = NULL; station_country = NULL;
-        station_region = NULL;
        /* Only *four* station for simple mode */
        /*
         if(station_number > 3)

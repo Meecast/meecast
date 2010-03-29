@@ -98,7 +98,7 @@ weather_initialize_dbus(void){
 #endif
 
         check_current_connection();
-        
+#if 0        
         if (app->dbus_conn_session){
             filter_string =
                 g_strdup_printf("type='signal', interface='%s'", OMWEATHER_SIGNAL_INTERFACE);
@@ -113,7 +113,7 @@ weather_initialize_dbus(void){
                                        get_omweather_signal_cb,
                                        NULL, NULL);
         }
-
+#endif
 #if defined OS2009 && defined APPLICATION
         dbus_error_init (&error);
         dbus_bus_add_match(app->dbus_conn, MCE_MATCH_RULE, &error);

@@ -1,8 +1,9 @@
 omweather-weather-com-stations-db (0.9.16) unstable; urgency=low
 
   * Added weather stations for Syria
+  * Changed in parsing algorithm 
 
- --  Vlad Vasiliev <vlad@gas.by>  Mon, 29 Mar 2010 14:10:31 +0200
+ --  Vlad Vasiliev <vlad@gas.by>  Tue, 30 Mar 2010 14:10:31 +0200
 
 omweather-weather-com-stations-db (0.9.15) unstable; urgency=low
 

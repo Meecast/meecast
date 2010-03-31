@@ -38,6 +38,7 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
     xmlNode *root_node = NULL;
     gint    days_number = -1;
     gchar   buffer[1024],
+            buffer2[1024],
             *delimiter = NULL;
     struct stat file_info;
 #ifdef DEBUGFUNCTIONCALL
@@ -45,13 +46,49 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
 #endif
     if(!station_id_with_path || !data)
         return -1;
-/* check for new file, if it exist, than rename it */
     *buffer = 0;
     snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);
-    if(!access(buffer, R_OK)){
-        if ((lstat(buffer, &file_info) == 0) && (file_info.st_size > 0)) 
-            rename(buffer, station_id_with_path);
-    }
+    /* check file accessability */
+    if(!access(buffer, R_OK))
+        if ((lstat(buffer, &file_info) == 0) && (file_info.st_size > 0)){ 
+            /* check that the file containe valid data */
+            doc = xmlReadFile(buffer, NULL, 0);
+            if(doc){
+                root_node = xmlDocGetRootElement(doc);
+                if(root_node->type == XML_ELEMENT_NODE &&
+                        strstr((char*)root_node->name, "err")){
+                    xmlFreeDoc(doc);
+                    xmlCleanupParser();
+                }else{
+                    /* prepare station id */
+                    *buffer2 = 0;
+                    delimiter = strrchr(buffer, '/');
+                    if(delimiter){
+                        delimiter++; /* delete '/' */
+                        snprintf(buffer2, sizeof(buffer2) - 1, "%s", delimiter);
+                        delimiter = strrchr(buffer2, '.');
+                        if (delimiter)
+                            *delimiter = 0;
+                        delimiter = strrchr(buffer2, '.');
+                        if(!delimiter){
+                            xmlFreeDoc(doc);
+                            xmlCleanupParser();
+                        }else{
+                            *delimiter = 0;
+                            if(get_detail_data)
+                                days_number = parse_xml_detail_data(buffer2, root_node, data);
+                            else
+                                days_number = parse_xml_data(buffer2, root_node, data);
+                            rename(buffer, station_id_with_path);
+                            xmlFreeDoc(doc);
+                            xmlCleanupParser();
+                            return days_number;
+                        }
+                    }
+               }
+            }else
+                doc = NULL;
+        }
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
         /* check that the file containe valid data */
@@ -86,11 +123,11 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
             }
             xmlFreeDoc(doc);
             xmlCleanupParser();
+            return days_number;
         }
     }
     else
         return -1;/* file isn't accessability */
-    return days_number;
 }
 /*******************************************************************************/
 gint

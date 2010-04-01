@@ -39,7 +39,7 @@
 #include <dbus/dbus-glib.h>
 /*******************************************************************************/
 void check_current_connection(void);
-void weather_initialize_dbus(void);
+void weather_initialize_dbus(gpointer applet);
 void weather_deinitialize_dbus(void);
 #ifdef USE_CONIC
     void connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event, gpointer user_data);

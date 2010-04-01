@@ -45,7 +45,7 @@
 #endif
 /*******************************************************************************/
 void
-weather_initialize_dbus(void){
+weather_initialize_dbus(gpointer applet){
     gchar   *tmp;
     gchar       *filter_string;
     DBusError   error;
@@ -76,8 +76,25 @@ weather_initialize_dbus(void){
 #ifdef USE_DBUS
         dbus_error_init (&error);
         /* Add D-BUS signal handler for 'status_changed' */
+#ifdef OS2009
+        app->dbus_conn = hd_home_plugin_item_get_dbus_connection(
+                                    HD_HOME_PLUGIN_ITEM(applet),
+                                    DBUS_BUS_SYSTEM, &error);
+        if (dbus_error_is_set(&error)) {
+             fprintf(stderr,"DBus System Connection error %s: %s", error.name, error.message);
+             dbus_error_free(&error);
+        }
+        app->dbus_conn_session = hd_home_plugin_item_get_dbus_connection(
+                                    HD_HOME_PLUGIN_ITEM(applet),
+                                    DBUS_BUS_SESSION, &error);
+        if (dbus_error_is_set(&error)) {
+             fprintf(stderr,"DBus System Connection error %s: %s", error.name, error.message);
+             dbus_error_free(&error);
+        }
+#else
         app->dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
         app->dbus_conn_session = dbus_bus_get(DBUS_BUS_SESSION, NULL);
+#endif
 
 #if !defined OS2008 && !defined OS2009 && !defined NONMAEMO
         filter_string =

@@ -993,8 +993,9 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #endif
     }
     app->dbus_conn = NULL;
+    app->dbus_conn_session = NULL;
     /* Initialize DBUS */
-    weather_initialize_dbus(); /* TODO connect this function with app->dbus_is_initialize */
+    weather_initialize_dbus(applet); /* TODO connect this function with app->dbus_is_initialize */
 
     app->sources_list = create_sources_list(SOURCESPATH, &app->sources_number, &app->handles);
     app->station_data = g_hash_table_new(g_str_hash, g_str_equal);

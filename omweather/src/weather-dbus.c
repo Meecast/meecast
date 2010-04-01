@@ -76,7 +76,7 @@ weather_initialize_dbus(gpointer applet){
 #ifdef USE_DBUS
         dbus_error_init (&error);
         /* Add D-BUS signal handler for 'status_changed' */
-#ifdef OS2009
+#if defined OS2009 && !defined APPLICATION
         app->dbus_conn = hd_home_plugin_item_get_dbus_connection(
                                     HD_HOME_PLUGIN_ITEM(applet),
                                     DBUS_BUS_SYSTEM, &error);

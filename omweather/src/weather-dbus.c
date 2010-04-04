@@ -77,20 +77,8 @@ weather_initialize_dbus(gpointer applet){
         dbus_error_init (&error);
         /* Add D-BUS signal handler for 'status_changed' */
 #if defined OS2009 && !defined APPLICATION
-        app->dbus_conn = hd_home_plugin_item_get_dbus_connection(
-                                    HD_HOME_PLUGIN_ITEM(applet),
-                                    DBUS_BUS_SYSTEM, &error);
-        if (dbus_error_is_set(&error)) {
-             fprintf(stderr,"DBus System Connection error %s: %s", error.name, error.message);
-             dbus_error_free(&error);
-        }
-        app->dbus_conn_session = hd_home_plugin_item_get_dbus_connection(
-                                    HD_HOME_PLUGIN_ITEM(applet),
-                                    DBUS_BUS_SESSION, &error);
-        if (dbus_error_is_set(&error)) {
-             fprintf(stderr,"DBus System Connection error %s: %s", error.name, error.message);
-             dbus_error_free(&error);
-        }
+        app->dbus_conn = (DBusConnection *) osso_get_sys_dbus_connection(app->osso);
+        app->dbus_conn_session = (DBusConnection *) osso_get_dbus_connection(app->osso);
 #else
         app->dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
         app->dbus_conn_session = dbus_bus_get(DBUS_BUS_SESSION, NULL);
@@ -115,7 +103,6 @@ weather_initialize_dbus(gpointer applet){
 #endif
 
         check_current_connection();
-#if 0        
         if (app->dbus_conn_session){
             filter_string =
                 g_strdup_printf("type='signal', interface='%s'", OMWEATHER_SIGNAL_INTERFACE);
@@ -130,7 +117,6 @@ weather_initialize_dbus(gpointer applet){
                                        get_omweather_signal_cb,
                                        NULL, NULL);
         }
-#endif
 #if defined OS2009 && defined APPLICATION
         dbus_error_init (&error);
         dbus_bus_add_match(app->dbus_conn, MCE_MATCH_RULE, &error);
@@ -200,11 +186,11 @@ send_dbus_signal (const gchar *interface,
   dbus_message_set_member (message, member);
   success = dbus_connection_send (app->dbus_conn_session, message, NULL);
   dbus_message_unref (message);
-/*  
+  
   fprintf (stderr, "%s '%s' message.\n",
                                  success ? "Sent" : "Failed to send",
                                  member);
-*/
+
 }
 
 /*******************************************************************************/
@@ -215,6 +201,11 @@ get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
     START_FUNCTION;
 #endif
 
+#if defined OS2009 && defined APPLICATION
+    fprintf(stderr,"Application\n");
+#else 
+    fprintf(stderr,"Plugin\n");
+#endif
     if (dbus_message_is_signal(msg, OMWEATHER_SIGNAL_INTERFACE, OMWEATHER_RELOAD_CONFIG)){
         if(read_config(app->config)){
                 fprintf(stderr, "\nCan not read config file.\n");
@@ -222,6 +213,7 @@ get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
             redraw_home_window(FALSE);
         }
     }
+    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 }
 /*******************************************************************************/
 #if !defined OS2008 && !defined OS2009 && !defined NONMAEMO

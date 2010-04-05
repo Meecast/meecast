@@ -153,6 +153,8 @@ weather_deinitialize_dbus(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    gchar       *filter_string;
+    DBusError   error;
 #ifdef USE_CONIC
   if(app->connection){
       g_object_unref(app->connection);
@@ -166,6 +168,24 @@ weather_deinitialize_dbus(void){
 #endif
          dbus_connection_close(app->dbus_conn);
          dbus_connection_unref(app->dbus_conn);
+    }
+    if (app->dbus_conn_session){
+        filter_string =
+                g_strdup_printf("type='signal', interface='%s'", OMWEATHER_SIGNAL_INTERFACE);
+
+        dbus_error_init (&error);
+        dbus_bus_remove_match(app->dbus_conn_session, filter_string, &error);
+        if (!dbus_error_is_set(&error)){
+            dbus_connection_remove_filter(app->dbus_conn_session,
+                                          (DBusHandleMessageFunction)get_omweather_signal_cb, 
+                                          NULL);
+        }else{
+      
+            fprintf(stderr,"dbus_bus_add_match failed: %s", error.message);
+            dbus_error_free(&error);
+        }
+
+         g_free(filter_string);
     }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

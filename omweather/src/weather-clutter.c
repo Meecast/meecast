@@ -442,7 +442,7 @@ position_actor(SuperOH *oh, gint number, gint x, gint y, gboolean fullwindow){
     else
         return;
     ha = g_object_get_data(G_OBJECT(image), "hildon_animation_actor");
-    if (ha){
+    if (ha && oh->icon_widget){
         if (!fullwindow) { 
               hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), 
               oh->icon_widget->allocation.x + 
@@ -450,6 +450,9 @@ position_actor(SuperOH *oh, gint number, gint x, gint y, gboolean fullwindow){
               oh->icon_widget->allocation.y + 
               (((oh->icon_size*100)/GIANT_ICON_SIZE) * y/100) + allocationy + SIZE_OF_WINDOWS_HEAD, 0);
         }else{
+              fprintf(stderr,"test1 %p %p\n", oh, oh->icon_widget);
+              allocationx = oh->icon_widget->allocation.x;
+              fprintf(stderr,"test2 %p %p\n", oh, oh->icon_widget);
               hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), 
               oh->icon_widget->allocation.x + 
               (((oh->icon_size*100)/GIANT_ICON_SIZE) * x/100) + allocationx, 
@@ -600,13 +603,16 @@ choose_icon_timeline(SuperOH *oh)
                     snprintf(count_buffer, sizeof(count_buffer) - 1, "%i", oh->timeline);
                     list_of_event = g_hash_table_lookup(icon_animation_hash, count_buffer);
                     if (list_of_event){
+#ifdef APPLICATION                 
                         window = oh->window; 
                         if (window && (gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN 
                            || !strcmp(gtk_widget_get_name(window), "OmweatherDesktopWidget")))
                             fullwindow = TRUE;
                         else
                             fullwindow = FALSE;
- 
+#else
+                        fullwindow = TRUE;
+#endif
                         list_temp = list_of_event;
                         while(list_temp != NULL){
                             event = list_temp->data;
@@ -1187,7 +1193,7 @@ animation_cb (SuperOH *oh)
     GtkWidget *ha;
     GtkWidget *window;
     gint i;
-    gboolean fullwindow = FALSE;
+    gboolean fullwindow = TRUE;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1195,12 +1201,13 @@ animation_cb (SuperOH *oh)
     if (!oh)
         return FALSE;
     if (oh->icon){
+#ifdef APPLICATION
         window = g_object_get_data(G_OBJECT(oh->icon), "window");
         if (window && gdk_window_get_state(window->window) &  GDK_WINDOW_STATE_FULLSCREEN) 
             fullwindow = TRUE;
         else
             fullwindow = FALSE;
-
+#endif
         if CLUTTER_IS_GROUP(oh->icon){ 
             for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(oh->icon)); i++){
                 clactor = clutter_group_get_nth_child(CLUTTER_GROUP(oh->icon),i);

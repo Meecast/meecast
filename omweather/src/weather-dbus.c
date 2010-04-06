@@ -166,7 +166,7 @@ weather_deinitialize_dbus(void){
          dbus_connection_remove_filter(app->dbus_conn,
              get_connection_status_signal_cb);
 #endif
-#if !defined APPLICATION
+#if defined APPLICATION
          dbus_connection_close(app->dbus_conn);
          dbus_connection_unref(app->dbus_conn);
 #endif

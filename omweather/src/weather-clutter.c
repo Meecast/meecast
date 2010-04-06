@@ -450,9 +450,6 @@ position_actor(SuperOH *oh, gint number, gint x, gint y, gboolean fullwindow){
               oh->icon_widget->allocation.y + 
               (((oh->icon_size*100)/GIANT_ICON_SIZE) * y/100) + allocationy + SIZE_OF_WINDOWS_HEAD, 0);
         }else{
-              fprintf(stderr,"test1 %p %p\n", oh, oh->icon_widget);
-              allocationx = oh->icon_widget->allocation.x;
-              fprintf(stderr,"test2 %p %p\n", oh, oh->icon_widget);
               hildon_animation_actor_set_position_full (HILDON_ANIMATION_ACTOR (ha), 
               oh->icon_widget->allocation.x + 
               (((oh->icon_size*100)/GIANT_ICON_SIZE) * x/100) + allocationx, 

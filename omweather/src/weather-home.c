@@ -2215,9 +2215,9 @@ free_memory(void){
     GtkTreeIter     iter;
     GHashTable      *hashtable = NULL;
     gchar           *source_name;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
     /* delete main window */
     if(app->main_window){
         gtk_widget_destroy(app->main_window);
@@ -2840,9 +2840,9 @@ omweather_class_init(OMWeatherClass *klass){
 static void
 omweather_plugin_widget_finalize (GObject *object)
 {
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
     omweather_destroy(NULL);
     G_OBJECT_CLASS (omweather_plugin_parent_class)->finalize (object);
@@ -2852,9 +2852,9 @@ omweather_plugin_widget_finalize (GObject *object)
 static void
 omweather_plugin_class_finalize (OmweatherDesktopWidgetClass *object)
 {
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
    omweather_destroy(NULL);
 }
@@ -2863,9 +2863,11 @@ omweather_plugin_class_finalize (OmweatherDesktopWidgetClass *object)
 static void
 omweather_plugin_class_init (OmweatherDesktopWidgetClass *klass)
 {
-  GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
+  GtkObjectClass *gtk_object_class = GTK_OBJECT_CLASS(klass);
+  GObjectClass *object_class = G_OBJECT_CLASS (klass);
   object_class->finalize = omweather_plugin_class_finalize;
+  gtk_object_class->destroy = omweather_plugin_class_finalize;
   widget_class->realize = omweather_plugin_realize;
   widget_class->expose_event = omweather_plugin_expose_event;
 }

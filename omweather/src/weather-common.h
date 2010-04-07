@@ -598,13 +598,13 @@ G_END_DECLS
 
 G_BEGIN_DECLS
 
-#define OMWEATHER_TYPE_DESKTOP_WIDGET omweather_desktop_widget_get_type()
+#define OMWEATHER_TYPE_DESKTOP_WIDGET omweather_plugin_get_type()
 
 #define OMWEATHER_DESKTOP_WIDGET(obj) \
     (G_TYPE_CHECK_INSTANCE_CAST ((obj), OMWEATHER_TYPE_DESKTOP_WIDGET, OmweatherPlugin))
 
 #define OMWEATHER_DESKTOP_WIDGET_CLASS(klass) \
-    (G_TYPE_CHECK_CLASS_CAST ((klass), OMWEATHER_TYPE_DESKTOP_WIDGET, OmweatherDesktopWidgetClass))
+    (G_TYPE_CHECK_CLASS_CAST ((klass), OMWEATHER_TYPE_DESKTOP_WIDGET, OmweatherPlugintClass))
 
 #define OMWEATHER_IS_DESKTOP_WIDGET(obj) \
     (G_TYPE_CHECK_INSTANCE_TYPE ((obj), OMWEATHER_TYPE_DESKTOP_WIDGET))
@@ -613,21 +613,21 @@ G_BEGIN_DECLS
     (G_TYPE_CHECK_CLASS_TYPE ((klass), OMWEATHER_TYPE_DESKTOP_WIDGET))
 
 #define OMWEATHER_DESKTOP_WIDGET_GET_CLASS(obj) \
-          (G_TYPE_INSTANCE_GET_CLASS ((obj), OMWEATHER_TYPE_DESKTOP_WIDGET, OmweatherDesktopWidgetClass))
+          (G_TYPE_INSTANCE_GET_CLASS ((obj), OMWEATHER_TYPE_DESKTOP_WIDGET, OmweatherPluginClass))
 
 
 
 typedef struct {
   HDHomePluginItem       parent;
-} OmweatherDesktopWidget;
+} OmweatherPlugin;
 
 
 typedef struct {
   HDHomePluginItemClass  parent_class;
-} OmweatherDesktopWidgetClass;
+} OmweatherPluginClass;
 
 GType omweather_plugin_get_type (void);
-OmweatherDesktopWidget* omweather_plugin_widget_new (void);
+OmweatherPlugin* omweather_plugin_widget_new (void);
 
 
 G_END_DECLS

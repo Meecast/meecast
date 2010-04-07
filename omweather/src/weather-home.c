@@ -75,7 +75,7 @@ struct _OMWeatherPrivate {
 #endif
 
 #if defined OS2009 && !defined (APPLICATION)
-HD_DEFINE_PLUGIN_MODULE(OmweatherDesktopWidget, omweather_plugin, HD_TYPE_HOME_PLUGIN_ITEM)
+HD_DEFINE_PLUGIN_MODULE(OmweatherPlugin, omweather_plugin, HD_TYPE_HOME_PLUGIN_ITEM)
 /*
 #define OMWEATHER_PLUGIN_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE (obj,\
 							                         OMWEATHER_TYPE_HOME_PLUGIN,\
@@ -874,7 +874,15 @@ update_weather(gboolean show_update_window){
     }
 }
 /*******************************************************************************/
-
+#ifdef OS2009
+omweather_plugin_finalize (OmweatherPlugin *applet){
+//#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+//#endif
+fprintf(stderr,"dddddddddddddddddddddddddddddddddddddddddddd\n");
+}
+#endif
+/*******************************************************************************/
 #if defined(NONMAEMO) || defined (APPLICATION)
 gboolean
 omweather_init_OS2009(GtkWidget *applet){
@@ -886,7 +894,7 @@ omweather_init(OMWeather *applet){
     GdkColormap *cm;
 #elif OS2009
 static void
-omweather_plugin_init (OmweatherDesktopWidget *applet){
+omweather_plugin_init (OmweatherPlugin *applet){
     HDHomePluginItem hitem;
 #else
 void*
@@ -2848,26 +2856,27 @@ omweather_plugin_widget_finalize (GObject *object)
     G_OBJECT_CLASS (omweather_plugin_parent_class)->finalize (object);
 }
 
-
 static void
-omweather_plugin_class_finalize (OmweatherDesktopWidgetClass *object)
+omweather_plugin_class_finalize (OmweatherPluginClass *object)
 {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
+   fprintf(stderr,"ppppppppppppppppppppppppppppppp\n");
    omweather_destroy(NULL);
 }
 
 
 static void
-omweather_plugin_class_init (OmweatherDesktopWidgetClass *klass)
+omweather_plugin_class_init (OmweatherPluginClass *klass)
 {
+  GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
   GtkObjectClass *gtk_object_class = GTK_OBJECT_CLASS(klass);
-  GObjectClass *object_class = G_OBJECT_CLASS (klass);
-  object_class->finalize = omweather_plugin_class_finalize;
-  gtk_object_class->destroy = omweather_plugin_class_finalize;
+   fprintf(stderr,"111111111111111111111\n");
+ // object_class->finalize = omweather_plugin_class_finalize;
+  object_class->finalize = omweather_plugin_widget_finalize;
+//  gtk_object_class->destroy = omweather_plugin_class_finalize;
   widget_class->realize = omweather_plugin_realize;
   widget_class->expose_event = omweather_plugin_expose_event;
 }
@@ -2875,7 +2884,7 @@ omweather_plugin_class_init (OmweatherDesktopWidgetClass *klass)
 static void
 omweather_plugin_visible_notify (GObject                *object,
                                           GParamSpec             *spec,
-                                          OmweatherDesktopWidget *applet)
+                                          OmweatherPlugin *applet)
 {
   gboolean visible;
 
@@ -2884,7 +2893,7 @@ omweather_plugin_visible_notify (GObject                *object,
   g_debug ("is-on-current-desktop changed. visible: %u", visible);
 }
 
-OmweatherDesktopWidget*
+OmweatherPlugin*
 omweather_plugin_widget_new (void)
 {
 #ifdef DEBUGFUNCTIONCALL

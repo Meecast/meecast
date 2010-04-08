@@ -1,6 +1,7 @@
 omweather-weather-com-stations-db (0.9.17) unstable; urgency=low
 
   * Updated weather stations for Slovakia
+  * Updated weather stations for Belarus
 
  --  Vlad Vasiliev <vlad@gas.by>  Tue, 06 Apr 2010 08:10:31 +0200
 

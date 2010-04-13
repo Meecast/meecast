@@ -222,12 +222,13 @@ get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-
+/*
 #if defined OS2009 && defined APPLICATION
     fprintf(stderr,"Application\n");
 #else 
     fprintf(stderr,"Plugin\n");
 #endif
+*/
     if (dbus_message_is_signal(msg, OMWEATHER_SIGNAL_INTERFACE, OMWEATHER_RELOAD_CONFIG)){
         if(read_config(app->config)){
                 fprintf(stderr, "\nCan not read config file.\n");
@@ -235,6 +236,10 @@ get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
             redraw_home_window(FALSE);
         }
     }
+#ifndef APPLICATION
+    if (dbus_message_is_signal(msg, OMWEATHER_SIGNAL_INTERFACE, OMWEATHER_RELOAD_PLUGIN))
+        reload_omw_plugin();
+#endif
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 }
 /*******************************************************************************/

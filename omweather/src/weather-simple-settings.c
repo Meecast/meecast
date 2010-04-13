@@ -2608,6 +2608,11 @@ weather_simple_window_settings(gpointer user_data){
 #ifndef APPLICATION   
     if (app->reload)
         reload_omw_plugin();
+#else
+/* Send signal for reload omweather plugin */
+        send_dbus_signal (OMWEATHER_SIGNAL_INTERFACE,
+                          OMWEATHER_SIGNAL_PATH,
+                          OMWEATHER_RELOAD_PLUGIN);
 #endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

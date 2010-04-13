@@ -138,6 +138,7 @@
 #define OMWEATHER_SIGNAL_RELOAD_CONFIG_INTERFACE "org.maemo.omweather.reload_config"
 #define OMWEATHER_SIGNAL_RELOAD_CONFIG_PATH "/org/maemo/omweather/reload_config"
 #define OMWEATHER_RELOAD_CONFIG "reload_config"
+#define OMWEATHER_RELOAD_PLUGIN "reload_plugin"
 
 /*******************************************************************************/
 enum { AUTOUPDATE, CHANGE_DAY_PART, DBUSINITEVENT, UPDATE_AFTER_CONNECTED,

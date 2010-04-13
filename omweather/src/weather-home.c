@@ -2852,19 +2852,16 @@ omweather_plugin_widget_finalize (GObject *object)
     START_FUNCTION;
 #endif
 
-    omweather_destroy(NULL);
+
+/*    omweather_destroy(NULL); */
     G_OBJECT_CLASS (omweather_plugin_parent_class)->finalize (object);
 }
-
 static void
-omweather_plugin_class_finalize (OmweatherPluginClass *object)
+omweather_plugin_class_finalize (OmweatherPluginClass *klass G_GNUC_UNUSED)
 {
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-   fprintf(stderr,"ppppppppppppppppppppppppppppppp\n");
-   omweather_destroy(NULL);
+    omweather_destroy(NULL);
 }
+
 
 
 static void
@@ -2873,7 +2870,6 @@ omweather_plugin_class_init (OmweatherPluginClass *klass)
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
   GtkObjectClass *gtk_object_class = GTK_OBJECT_CLASS(klass);
-   fprintf(stderr,"111111111111111111111\n");
  // object_class->finalize = omweather_plugin_class_finalize;
   object_class->finalize = omweather_plugin_widget_finalize;
 //  gtk_object_class->destroy = omweather_plugin_class_finalize;

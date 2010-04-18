@@ -39,6 +39,10 @@ jump_panarea(gpointer user_data){
     START_FUNCTION;
 #endif
 #if defined OS2009
+    if ((gpointer) g_object_get_data(G_OBJECT(user_data), "length_of_jump")){
+         hildon_pannable_area_jump_to(HILDON_PANNABLE_AREA (user_data),-1, GPOINTER_TO_INT (g_object_get_data(G_OBJECT(user_data), "length_of_jump")));
+    }
+    else
     if ((GtkWidget*) g_object_get_data(G_OBJECT(user_data), "selected_widget"))
         hildon_pannable_area_scroll_to_child(HILDON_PANNABLE_AREA (user_data),((GtkWidget*) g_object_get_data(G_OBJECT(user_data), "selected_widget")));
 #endif
@@ -501,6 +505,11 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
     gchar               *day_name = NULL;
     GtkWidget           *scrolled_window = NULL;
     GSList              *tmp = NULL;
+    GtkRequisition      requisition;
+    gint                length_to_selected = 1;
+    gint                pre_length_to_selected = 1;
+    gint                offset = 1;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -545,8 +554,12 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
             current_widget = create_current_tab(current);
             if(current){
                 gtk_container_add(GTK_CONTAINER(line), current_widget);
+                gtk_widget_size_request (current_widget, &requisition);
+                length_to_selected = requisition.height;
                 gtk_box_pack_start(GTK_BOX(main_vbox), line, FALSE, TRUE, 0);
-                gtk_box_pack_start(GTK_BOX(main_vbox), gtk_hseparator_new(), FALSE, TRUE, 0);
+                gtk_box_pack_start(GTK_BOX(main_vbox), separator = gtk_hseparator_new(), FALSE, TRUE, 0);
+                gtk_widget_size_request (separator, &requisition);
+                length_to_selected = length_to_selected + requisition.height;
             }
         }
     }
@@ -574,13 +587,32 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
         gtk_container_add(GTK_CONTAINER(line), day_widget);
         gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
         gtk_box_pack_start(GTK_BOX(main_vbox), separator = gtk_hseparator_new(), FALSE, TRUE, 0);
+        /* Calculate ofset for jump */
+        gtk_widget_size_request (day_widget, &requisition);
+        pre_length_to_selected = length_to_selected;
+        length_to_selected = length_to_selected + requisition.height;
+        gtk_widget_size_request (separator, &requisition);
+        length_to_selected = length_to_selected + requisition.height;
+
         if(day_number == i && !(i == 0 && current_widget && current))
             previos_separator = separator;
         /* If activited day and not current weather */
-        if(day_number + 1 == i && !(i == 0 && current_widget && current))
+        if(day_number + 1 == i && !(i == 0 && current_widget && current)){
             g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)previos_separator);
-        if(day_number == Max_count_weather_day - 1 && i == Max_count_weather_day - 1)
+            switch (i){
+                case 0: break;
+                case 1: break;
+                case 2: offset = 45;break;
+                case 3: offset = i*50;break;
+                case 4: offset = i*50;break;
+                case 5: offset = i*50;break;
+                default: offset = i*60;break;
+            }
+            g_object_set_data(G_OBJECT(scrolled_window), "length_of_jump", GINT_TO_POINTER(pre_length_to_selected+offset));
+        }
+        if(day_number == Max_count_weather_day - 1 && i == Max_count_weather_day - 1){
             g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)line);
+        }
         tmp = g_slist_next(tmp);
         i++;
         g_free(day_name);

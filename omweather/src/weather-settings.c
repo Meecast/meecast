@@ -1198,6 +1198,8 @@ weather_window_settings(GtkWidget *widget, gpointer user_data){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    if (app->settings_window)
+        return;
 #if defined OS2009
         weather_simple_window_settings(user_data);
 /*        weather_simple_window_status(widget, user_data); */

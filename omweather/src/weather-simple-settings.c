@@ -2455,7 +2455,8 @@ weather_simple_window_settings(gpointer user_data){
     #ifdef APPLICATION
         gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->main_view));
     #else
-        gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->popup_window));
+        if (app->popup_window)
+            gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->popup_window));
     #endif
 #endif
 

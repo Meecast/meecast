@@ -3,6 +3,7 @@ omweather (0.26.2) unstable; urgency=low
   * Fixed problem with DBUS  
   * Fixed bug #5910 "Widget settings overwrite app settings when app is first
     started and confiugred from Applications"
+  * Fixed problem with double start of settings window
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 28 Feb 2010 16:11:10 +0200
 

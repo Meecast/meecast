@@ -2859,7 +2859,10 @@ omweather_plugin_widget_finalize (GObject *object)
 static void
 omweather_plugin_class_finalize (OmweatherPluginClass *klass G_GNUC_UNUSED)
 {
-    omweather_destroy(NULL);
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+   omweather_destroy(NULL);
 }
 
 
@@ -2870,9 +2873,8 @@ omweather_plugin_class_init (OmweatherPluginClass *klass)
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
   GtkObjectClass *gtk_object_class = GTK_OBJECT_CLASS(klass);
- // object_class->finalize = omweather_plugin_class_finalize;
+/*  object_class->finalize = omweather_plugin_widget_finalize; */
   object_class->finalize = omweather_plugin_widget_finalize;
-//  gtk_object_class->destroy = omweather_plugin_class_finalize;
   widget_class->realize = omweather_plugin_realize;
   widget_class->expose_event = omweather_plugin_expose_event;
 }

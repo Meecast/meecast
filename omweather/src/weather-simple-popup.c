@@ -40,7 +40,7 @@ jump_panarea(gpointer user_data){
 #endif
 #if defined OS2009
     if ((gpointer) g_object_get_data(G_OBJECT(user_data), "length_of_jump")){
-         hildon_pannable_area_jump_to(HILDON_PANNABLE_AREA (user_data),-1, GPOINTER_TO_INT (g_object_get_data(G_OBJECT(user_data), "length_of_jump")));
+         hildon_pannable_area_scroll_to(HILDON_PANNABLE_AREA (user_data),-1, GPOINTER_TO_INT (g_object_get_data(G_OBJECT(user_data), "length_of_jump")));
     }
     else
     if ((GtkWidget*) g_object_get_data(G_OBJECT(user_data), "selected_widget"))
@@ -508,7 +508,7 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
     GtkRequisition      requisition;
     gint                length_to_selected = 1;
     gint                pre_length_to_selected = 1;
-    gint                offset = 1;
+    gint                offset = 0;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -601,12 +601,14 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
             g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)previos_separator);
             switch (i){
                 case 0: break;
-                case 1: break;
+                case 1: if (current_widget && current) 
+                            pre_length_to_selected = 0; 
+                        break;
                 case 2: offset = 45;break;
-                case 3: offset = i*50;break;
-                case 4: offset = i*50;break;
-                case 5: offset = i*50;break;
-                default: offset = i*60;break;
+                case 3: offset = i*44;break;
+                case 4: offset = i*45;break;
+                case 5: offset = i*45;break;
+                default: offset = i*51;break;
             }
             g_object_set_data(G_OBJECT(scrolled_window), "length_of_jump", GINT_TO_POINTER(pre_length_to_selected+offset));
         }

@@ -628,7 +628,7 @@ typedef struct {
 } OmweatherPluginClass;
 
 GType omweather_plugin_get_type (void);
-OmweatherPlugin* omweather_plugin_widget_new (void);
+//OmweatherPlugin* omweather_plugin_widget_new (void);
 
 
 G_END_DECLS

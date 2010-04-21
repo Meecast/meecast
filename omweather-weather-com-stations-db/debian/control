@@ -5,7 +5,7 @@ Maintainer: Vlad Vasiliev <vlad@gas.by>
 Build-Depends: debhelper (>= 4.0.0), libxml2-dev, libgtk2.0-dev
 Standards-Version: 3.6.0
 
-Package:  omweather-weather-com-stations-db
+Package: omweather-weather-com-stations-db
 Architecture: any
 Depends: ${shlibs:Depends}
 Provides: omweather-stations-db
@@ -22,41 +22,6 @@ XB-Description-ru_RU: База данных станций и библиотек
  weather.com для программы OMWeather
  © 2006-2010 авторы Влад Васильев и Павел Фиалко
 Xsbc-Bugtracker: https://bugs.maemo.org/enter_bug.cgi?product=OmWeather
-#XB-Maemo-Icon-26:
-# iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
-# /wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9gLHgk7K2pwCKgAAAAZdEVYdENv
-# bW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAGyElEQVRIx5WWa3BVVx3Ff3ufc+47lya5gcgj
-# CQ0gQkptI0KRoQyOwxQr08o4OGpbP2mtFscM06E4A4wdWlBRaVGqFsZS2wFE4gcehRQJyBsSLMgj
-# 0CRgEkJubm4eN4/7OOf8/XAvJJR21DWz5uwP55y19tr/vfcfhmEA3srKyorq6urq2trahkOHDl3e
-# vHnzz/1+fwGgAJ2j4v+EAlBKhdasWbO4oqLiEREpAaaKiGvbttLaCaeHmmu/+IWpg15voBi0zmSG
-# Orpi7RcO1Jw4vPqVdxsBZ4QBN0f5uFBg3rxXn33mmXkrBgeHkpaFU1CQsi0j5p1SHhwzaVJJ2OcL
-# apS6z2M6NTjU0HD17xt+/dbWw0ebbodCIaOhoSHmOE4U6AXsu29v3779laqqih8mEjrk94vjOI52
-# HIwnFqbVr36hdXFxJufnHoO4jhDv7qOxqRPLNzYNgTjKGEgmUx179+796/r166sdx2kFMgCqrq7u
-# 6pIl3pKnnsrcfvrpnnjY11waDE6NVL3koyNqcuRQFz5fVsRxHAYGUwwOJkkm07S09BAIT6enu5tM
-# xiaZTPWm0rp97NixgSNHjry7atWqTcBtwNUej8fWWmMY2sgPXBz38ENjIpPLY7z91i1u3FQcrHGB
-# fjKZHlpab3L5Shtd3UESA378wRL6euOAg2Up8vL8owJ+KYpGo32VlZVLZ86c+SjgAdA1NTUeQJly
-# Me9zk/UYRQ+QID+/l8dmDXD6jMZ1+4h23qKlzSEYnkFPr8tQ0o/taLQG09Q5KsJ5/kKvZeeJiD1t
-# 2rT5QABAL1++vKq5ORZ/cPzNfNM0FZJAJAEkKMgfItaVpq29lY+aWjCtcST6omht4zgpRDJYlh6m
-# mX2OCvMZrbBjsVgBUABY2nXdfSKRqGkFgMQwJUG0U5HOxEn0lzDxwYX4/CYer8bjydKyDDweA4+V
-# oydLv9/j8fvS4ZUrV47buHHjIsMwxpnZkspYgsrNJIv2qJeTp/JZtz6IMEC8ewitBcMwshUoChGG
-# 9+7IohSDoD+Vn3LcMQsWLPjB2rVrg+aC2Yy6eK1zDNIHkiCZMvjXlQKWv/wYkUiMykoLpdJ4PDkB
-# BQrJaqFARuyvO2KiMbX43bS2kslkury8/Ovml2dT1hnvi/x4xWJeWi0YhhAOJ1n4lQbmzt1BOv0j
-# QiHfiENHRgw/QQTAFUQr7XFdnzatxOXLlwvNyRMoObj9e7hKg28Ohjef8KgUDmne29HF6dNnWbx4
-# /t3Z3B/TvWOFgOsiYuFxlaVMS+/fvz9mWgaBSH4XhlcQ8wh4ZyHawBZhzpwAr67bTmlpMQ9//rMk
-# Eha2nV0XrYRQyMEy3eFDSQBJgc5Gmk6nzD++ucl35syZbWZ/gpSdEQwvIN1gnwdrCobWTBjvsGxZ
-# kJ27XmN3tZ8DB35Jom8ClpVBKUUwaDN71htMLLuEEhAngSKJVop0Ujh8bOjmhSvxrcAB80Yr7ekk
-# eEO5GNwOcIZQqpSA38P0aVBV9QD9gy4ffggvvPA231haQzppsemNb3H82HdY97MqsG+D3Y0SMASS
-# CbB72HLhCruAfvNoPY3PxujPixBSkC1Ztw+xL6HMB/B5RuEt9FIUAa9HiERcyifaKNdm8ZP17N0z
-# m7Lx11GOjXJBOdlLInqDtAEngB4A83A98bYW6iZM4fG7h7SAEhdx4kActIFSHhRpmj7K4+SxIgb6
-# TTZsWMTSJfswsHNlT/Y2URBt5/rv/0bznfUzbYfM9UZ2VDzK46HC3IK6uWJSoFxAHFBDIC67d8/n
-# H0dnkLFNerrDvPj9bVlj7rDJZD9cv8auVIbkPXfLk1+i6MIumt1WxG1HnA7E6UTsLsSOI5keJNOL
-# zKzcKb/9zVLJ9CLpbiVXz5VIpOCEnK+dIk5H9lu3DWnYQ+y7iygdqaEB9hwndq6etV23cHFz7kbk
-# rZzcOOdcOaBdYVLZvykZ3865+ofuzqivE87VseFP+2i5TwiQ1Vv4c91J/jLYO/zDO6LKzXUFdzao
-# A25GU39+OtcayygvbQGBVD+cP8UHq/7A67m+4ZPxtblEat/kg/5L2QjcW7kob2fjnPnITikqPC7l
-# ZQdkYmmNjI4ckxUv/kTsFi2DV5ETWzn73BOM/9QuaCQWzqJw2VJer5zFN4tK0MoYfrPp5gSGkt5s
-# FMqluKiL/HAvXW24/zzLvm17eP6d92n7n3uwoA/v75bz7dPbuNxxAjfdiLitiLRl6bYimWYkegq3
-# /j2atrzM82Mj+P9rX/dpKBxF6KfPMb+smK8WjWaGP8BoQKWSxKJRLrVFef+1dzjY1knffW3Sx/Af
-# M6NDn51cofQAAAAASUVORK5CYII=
 XB-Maemo-Icon-26:
  iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
  /wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9kLCRIhFHraL1wAAAAZdEVYdENv

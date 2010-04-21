@@ -3,12 +3,12 @@ omweather-weather-com-stations-db (0.9.17) unstable; urgency=low
   * Updated weather stations for Slovakia
   * Updated weather stations for Belarus
 
- --  Vlad Vasiliev <vlad@gas.by>  Tue, 06 Apr 2010 08:10:31 +0200
+ --  Vlad Vasiliev <vlad@gas.by>  Tue, 20 Apr 2010 18:10:31 +0200
 
 omweather-weather-com-stations-db (0.9.16) unstable; urgency=low
 
   * Added weather stations for Syria
-  * Changes in parsing algorithm 
+  * Changes in parsing algorithm
 
  --  Vlad Vasiliev <vlad@gas.by>  Tue, 30 Mar 2010 14:10:31 +0200
 

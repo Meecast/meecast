@@ -1,6 +1,7 @@
 omweather (0.26.3) unstable; urgency=low
 
-  * Nothing  
+  * Improvement in downloading algorithm
+  * Fixed bug #10016 "Widget style option "Now, today and tomorrow" actually "Now + 2 days"
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 26 Apr 2010 19:22:10 +0200
 

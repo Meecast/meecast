@@ -2350,7 +2350,7 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
         widget_style_string = _("Now + 7 days vert.");
     else{
         if(app->config->icons_layout == PRESET_NOW_PLUS_TWO)
-            widget_style_string = _("Now, today and tomorrow");
+            widget_style_string = _("Now, + 2 days vert.");
         else{
             if(app->config->icons_layout == PRESET_NOW_PLUS_THREE_V)
                 widget_style_string = _("Now + 3 days vert.");

@@ -5,3 +5,4 @@
 "moon0 vax1" Waxing Crescent 3%
 "moon2 vax1" Waxing Crescent 20%
 "moon2 vax1" Waxing Crescent 29%
+"moon8 vax0" Full Moon 99%

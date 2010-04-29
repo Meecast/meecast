@@ -939,6 +939,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->iap_connected_gsm = FALSE;
     app->iap_connected_wlan = FALSE;
     app->iap_connecting = FALSE;
+    app->applet_visibe = TRUE;
 #if ! ( defined (NONMAEMO) ||  defined (APPLICATION))
     app->osso = osso;
 #endif
@@ -1080,6 +1081,9 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->home_window = applet;
     g_signal_connect (applet, "show-settings",
         G_CALLBACK (weather_window_settings), NULL);
+    g_signal_connect (applet, "notify::is-on-current-desktop",
+                    G_CALLBACK (omweather_plugin_visible_notify), app);
+
 #endif 
 
 #if  defined(NONMAEMO) || defined (APPLICATION)
@@ -2882,13 +2886,13 @@ omweather_plugin_class_init (OmweatherPluginClass *klass)
 static void
 omweather_plugin_visible_notify (GObject                *object,
                                           GParamSpec             *spec,
-                                          OmweatherPlugin *applet)
+                                          OmweatherApp *app)
 {
-  gboolean visible;
+    gboolean visible;
 
-  g_object_get (object, "is-on-current-desktop", &visible, NULL);
-
-  g_debug ("is-on-current-desktop changed. visible: %u", visible);
+    g_object_get (object, "is-on-current-desktop", &visible, NULL);
+    app->applet_visibe = visible;
+    fprintf(stderr, "is-on-current-desktop changed. visible: %u", visible);
 }
 
 OmweatherPlugin*

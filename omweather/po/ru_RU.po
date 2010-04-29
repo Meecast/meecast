@@ -1167,19 +1167,19 @@ msgstr "Сейчас"
 
 #: src/weather-simple-settings.c:2362
 msgid "Now + 3 days hor."
-msgstr ""
+msgstr "Сейчас + 3 дня гориз."
 
 #: src/weather-simple-settings.c:2356
 msgid "Now + 3 days vert."
-msgstr ""
+msgstr "Сейчас + дня верт."
 
 #: src/weather-simple-settings.c:2350
 msgid "Now + 7 days vert."
-msgstr ""
+msgstr "Сейчас + 7 днй верт."
 
 #: src/weather-simple-settings.c:2353
 msgid "Now, + 2 days vert."
-msgstr ""
+msgstr "Сейчас + 2 дня верт."
 
 #: src/weather-home.c:1505
 #, c-format

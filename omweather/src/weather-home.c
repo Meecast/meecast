@@ -939,7 +939,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->iap_connected_gsm = FALSE;
     app->iap_connected_wlan = FALSE;
     app->iap_connecting = FALSE;
-    app->applet_visibe = TRUE;
+    app->applet_visible = TRUE;
 #if ! ( defined (NONMAEMO) ||  defined (APPLICATION))
     app->osso = osso;
 #endif
@@ -2884,14 +2884,15 @@ omweather_plugin_class_init (OmweatherPluginClass *klass)
 }
 
 static void
-omweather_plugin_visible_notify (GObject                *object,
-                                          GParamSpec             *spec,
-                                          OmweatherApp *app)
+omweather_plugin_visible_notify (GObject *object,
+                                 GParamSpec             *spec,
+                                 gpointer data)
 {
     gboolean visible;
-
+    OMWeatherApp *app = data;
+    
     g_object_get (object, "is-on-current-desktop", &visible, NULL);
-    app->applet_visibe = visible;
+    app->applet_visible = visible;
     fprintf(stderr, "is-on-current-desktop changed. visible: %u", visible);
 }
 

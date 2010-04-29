@@ -75,6 +75,7 @@ void initial_gps_connect(void);
 void deinitial_gps_connect(void);
 void initial_gps_control(void);
 void deinitial_gps_control(void);
+static void omweather_plugin_visible_notify (GObject *object, GParamSpec  *spec, gpointer data);
 #if defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO
 void omweather_destroy(GtkObject *widget);
 #endif

@@ -1792,8 +1792,8 @@ msgid ""
 "Use GSM and/or WLAN for periodic updating\n"
 " the weather information.\n"
 msgstr ""
-"Использовать GSM и/или WLAN для переодического
-обновления информации о погоде.\n"
+"Использовать GSM и/или WLAN для переодического\n"
+"обновления информации о погоде.\n"
 
 #: src/weather-sensor.c:65
 msgid "Use device temperature sensor"

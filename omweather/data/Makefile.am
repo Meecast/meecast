@@ -76,7 +76,6 @@ else
     homeapplet_desktop_DATA = os2008/omweather-home.desktop
 
 endif
-endif
 
 EXTRA_DIST = $(homeapplet_desktop_DATA) \
 	     $(omweather_DATA) \

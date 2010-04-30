@@ -111,7 +111,7 @@ binary-arch: build install
 	ln -s /opt/maemo/usr/share/omweather/moon_icons debian/omweather/usr/share/omweather/moon_icons
 	ln -s /opt/maemo/usr/share/omweather/city_in_clock.txt debian/omweather/usr/share/omweather/city_in_clock.txt
 	ln -s /opt/maemo/usr/share/omweather/style.rc debian/omweather/usr/share/omweather/style.rc
-	cp debian/omweather/opt/maemo/usr/share/omweather/omweather-home.desktop debian/omweather/usr/share/omweather/omweather-home.desktop
+#	cp debian/omweather/opt/maemo/usr/share/omweather/omweather-home.desktop debian/omweather/usr/share/omweather/omweather-home.desktop
 	dh_md5sums
 	dh_builddeb
 

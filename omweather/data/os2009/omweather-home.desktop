@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=OMWeather
+Comment=World Weather
+Type=default
+X-Path=libweather-home.so
+X-home-applet-minwidth=64
+X-home-applet-minheight=64
+X-home-applet-maxheight=410
+X-Text-Domain=OMWeather
+X-Multiple-Instances=false

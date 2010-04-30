@@ -68,16 +68,13 @@ desktop_DATA  = $(desktop_files)
 
 #homeapplet_desktopdir = $(DESKTOPDIR)
 #homeapplet_desktopdir = /usr/share/applications/hildon-home
-if OS2008
-    homeapplet_desktopdir = /usr/share/omweather
-    homeapplet_desktop_DATA = os2008/omweather-home.desktop
-else
 if OS2009
-    homeapplet_desktopdir = /usr/share/omweather
+    homeapplet_desktopdir = /usr/share/applications/hildon-home
     homeapplet_desktop_DATA = os2009/omweather-home.desktop
 else
-    homeapplet_desktopdir = /usr/share/applications/hildon-home
-    homeapplet_desktop_DATA = os2007/omweather-home.desktop
+    homeapplet_desktopdir = /usr/share/omweather
+    homeapplet_desktop_DATA = os2008/omweather-home.desktop
+
 endif
 endif
 

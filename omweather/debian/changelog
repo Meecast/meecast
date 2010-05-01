@@ -4,9 +4,9 @@ omweather (0.26.3) unstable; urgency=low
   * Fixed bug #10016 "Widget style option "Now, today and tomorrow" actually "Now + 2 days"
   * Disabled an animation if applet isn't visible
   * Fixed bug #7753 "updating omweather causes desktop applet to reappear"
-  * Updated Russian translation
+  * Updated Finish, Germany and Russian translation
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 26 Apr 2010 19:22:10 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 01 May 2010 20:39:20 +0200
 
 omweather (0.26.2) unstable; urgency=low
 

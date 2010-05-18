@@ -1053,10 +1053,12 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #endif
 
 #ifdef ENABLE_GPS
+    /* Hack for OS2009 */
+    app->gps_control = NULL;
+    initial_gps_connect();
+
     app->gps_device = NULL;
     initial_gps_control();
-/* Hack for OS2009 */
-    initial_gps_connect();
 #endif
 
     app->widget_first_start = TRUE;

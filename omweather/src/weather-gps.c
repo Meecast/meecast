@@ -172,10 +172,13 @@ initial_gps_control(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    app->gps_was_started = FALSE;
-    app->gps_control = location_gpsd_control_get_default();
-    app->gps_run = g_signal_connect(app->gps_control, "gpsd_running", G_CALLBACK (gps_location_started), NULL);
-    app->gps_stop = g_signal_connect(app->gps_control, "gpsd_stopped", G_CALLBACK (gps_location_stopped), NULL);
+    /* This "if" is hack for liblocation for Fremantle*/
+    if (g_type_from_name("LocationGPSDControl") == 0){
+        app->gps_was_started = FALSE;
+        app->gps_control = location_gpsd_control_get_default();
+        app->gps_run = g_signal_connect(app->gps_control, "gpsd_running", G_CALLBACK (gps_location_started), NULL);
+        app->gps_stop = g_signal_connect(app->gps_control, "gpsd_stopped", G_CALLBACK (gps_location_stopped), NULL);
+    }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -187,9 +190,11 @@ deinitial_gps_control(void){
     START_FUNCTION;
 #endif
     deinitial_gps_connect();
-    g_signal_handler_disconnect (app->gps_control,app->gps_run);
-    g_signal_handler_disconnect (app->gps_control,app->gps_stop);
-    g_object_unref(app->gps_control);
+    if (app->gps_control){
+        g_signal_handler_disconnect (app->gps_control,app->gps_run);
+        g_signal_handler_disconnect (app->gps_control,app->gps_stop);
+        g_object_unref(app->gps_control);
+    }
 
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
@@ -214,8 +219,11 @@ initial_gps_connect(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
-    app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
+    /* This "if" is hack for liblocation for Fremantle*/
+    if (g_type_from_name("LocationGPSDevice") == 0){
+        app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
+        app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
+    }
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

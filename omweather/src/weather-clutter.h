@@ -41,6 +41,7 @@ GtkWidget *create_clutter_icon_animation(GdkPixbuf *icon_buffer, const char *ico
 void change_actor_size_and_position(ClutterActor *actor, gint need_size);
 void change_knots_path(GSList *knots, gint need_size);
 void free_clutter_objects_list(GSList **clutter_objects);
+GHashTable* parse_animation_file(const gchar *filename, const gchar *encoding);
 #endif
 /*******************************************************************************/
 #endif

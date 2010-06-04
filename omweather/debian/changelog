@@ -3,6 +3,7 @@ omweather (0.26.4) unstable; urgency=low
   * Updated Spanish translation 
   * Fixed problem with applet's reloading after changing settings of external
     view
+  * Fixed various gcc warnings   
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 01 May 2010 20:39:20 +0200
 

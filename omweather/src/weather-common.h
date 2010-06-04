@@ -113,7 +113,8 @@
 
 #define START_FUNCTION        fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
-#define DEBUG_FUNCTION(string)  write_log(string)
+/* #define DEBUG_FUNCTION(string)  write_log(string) */
+#define DEBUG_FUNCTION(string)  
 /*
 #define START_FUNCTION          FILE *f; f=fopen("/tmp/omw.log","a+"); fprintf(f,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);fflush(f);fclose(f);
 #define END_FUNCTION          FILE *fileend; fileend=fopen("/tmp/omw.log","a+"); fprintf(fileend,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);fflush(fileend);fclose(fileend);
@@ -629,7 +630,7 @@ typedef struct {
 } OmweatherPluginClass;
 
 GType omweather_plugin_get_type (void);
-//OmweatherPlugin* omweather_plugin_widget_new (void);
+/* OmweatherPlugin* omweather_plugin_widget_new (void); */
 
 
 G_END_DECLS

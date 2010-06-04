@@ -69,7 +69,8 @@ GtkWidget* create_button_with_2_line_text(const gchar *first_line_text, const gc
                                 const gint first_line_text_size, const gint second_line_text_size);
 gboolean browser_url(gchar *url);
 void reload_omw_plugin(void);
-
+GtkWidget *create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSList **objects_list);
+GHashTable* parse_animation_file(const gchar *filename, const gchar *encoding);
 #if defined HILDONANIMATION
 GHashTable *clear_animation_hash(GHashTable *hash);
 #endif

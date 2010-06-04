@@ -58,5 +58,8 @@ void iap_callback(struct iap_event_t *event, void *arg);
 DBusHandlerResult
 get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data);
 void send_dbus_signal (const gchar *interface, const gchar *path, const gchar *member);
+int read_config(AppletConfig*);
+void redraw_home_window(gboolean first_start);
+void reload_omw_plugin(void);
 /*******************************************************************************/
 #endif

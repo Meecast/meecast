@@ -75,7 +75,9 @@ void initial_gps_connect(void);
 void deinitial_gps_connect(void);
 void initial_gps_control(void);
 void deinitial_gps_control(void);
+#if defined OS2009 && !defined(APPLICATION)
 static void omweather_plugin_visible_notify (GObject *object, GParamSpec  *spec, gpointer data);
+#endif
 #if defined OS2008 || defined OS2009 || defined APPLICATION || defined NONMAEMO
 void omweather_destroy(GtkObject *widget);
 #endif
@@ -98,7 +100,9 @@ void free_clutter_objects_list(GSList **clutter_objects);
 #endif
 #if defined(OS2009)
 void init_portrait(GtkWidget *main_widget);
+void top_widget_expose(GtkWidget *widget, GdkEventExpose *event, GtkWidget *window);
 #endif
+void show_hildon_animation(GSList *clutter_objects, GtkWidget *window);
 /*******************************************************************************/
 typedef struct _HomeAppletHandler HomeAppletHandler;
 /*******************************************************************************/
@@ -120,11 +124,13 @@ struct _HomeAppletHandler {
 GtkWidget* hildon_home_applet_lib_settings(void *applet_data, GtkWindow *parent);
 /*******************************************************************************/
 #ifdef OS2009
-//static void omweather_plugin_class_finalize (OmweatherPluginClass *object);
-//static void omweather_plugin_class_init(OmweatherPluginClass *klass);
-//static void omweather_plugin_visible_notify(GObject *object, GParamSpec *spec,
-//                                          OmweatherPlugin *applet);
-//static void omweather_plugin_init (OmweatherPlugin *applet);
+/*
+static void omweather_plugin_class_finalize (OmweatherPluginClass *object);
+static void omweather_plugin_class_init(OmweatherPluginClass *klass);
+static void omweather_plugin_visible_notify(GObject *object, GParamSpec *spec,
+                                          OmweatherPlugin *applet);
+static void omweather_plugin_init (OmweatherPlugin *applet);
+*/
 #endif 
 /*******************************************************************************/
 #endif

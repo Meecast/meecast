@@ -46,7 +46,6 @@
 /*******************************************************************************/
 void
 weather_initialize_dbus(gpointer applet){
-    gchar   *tmp;
     gchar       *filter_string;
     DBusError   error;
 
@@ -293,8 +292,7 @@ get_connection_status_signal_cb(DBusConnection *connection, DBusMessage *message
 void
 connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
                                                             gpointer user_data){
-    gchar                   *iap_id,
-                            *bearer;
+    gchar                   *bearer;
     ConIcConnectionStatus   status;
     ConIcConnectionError    error;
 #ifdef DEBUGFUNCTIONCALL
@@ -414,11 +412,12 @@ iap_callback(struct iap_event_t *event, void *arg){
 /*******************************************************************************/
 void
 check_current_connection(void){
+#ifndef OS2009
     gchar *tmp = NULL;
     gchar *gconf_path = NULL;
     gchar *type_of_connection = NULL;
     GConfClient *gconf_client = NULL;
-
+#endif
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif

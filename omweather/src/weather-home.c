@@ -109,6 +109,7 @@ top_widget_expose(GtkWidget *widget, GdkEventExpose *event){
 #endif
 #ifdef HILDONANIMATION
 /* For start of Clutter animation in main form */
+void
 top_widget_expose(GtkWidget *widget, GdkEventExpose *event, GtkWidget *window){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -875,11 +876,12 @@ update_weather(gboolean show_update_window){
 }
 /*******************************************************************************/
 #ifdef OS2009
+void
 omweather_plugin_finalize (OmweatherPlugin *applet){
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
-fprintf(stderr,"dddddddddddddddddddddddddddddddddddddddddddd\n");
+#endif
+fprintf(stderr,"plugin finalize\n");
 }
 #endif
 /*******************************************************************************/
@@ -1127,9 +1129,9 @@ void
 hildon_home_applet_lib_deinitialize(void *applet_data){
 #endif
     osso_context_t *osso = NULL;
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 #if defined OS2008 || !defined (APPLICATION)
     if(!app)
         return;

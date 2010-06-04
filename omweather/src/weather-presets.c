@@ -673,7 +673,6 @@ fill_weather_day_button_presets(WDB *new_day_button, const char *text, const cha
     if (icon_buffer)
         /* create day icon image from buffer */
         new_day_button->icon_image = create_icon_widget(icon_buffer, icon, PRESET_NORMAL_IMAGE_SIZE, &app->clutter_objects_in_main_form);
-//        new_day_button->icon_image = create_icon_widget(icon_buffer, icon, icon_size, NULL);
     else
         new_day_button->icon_image = NULL;
 

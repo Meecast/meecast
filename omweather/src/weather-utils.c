@@ -689,8 +689,8 @@ create_button_with_2_line_text(const gchar *first_line_text, const gchar *second
                      HILDON_BUTTON_ARRANGEMENT_VERTICAL,
                      first_line_text,
                      second_line_text);
-  hildon_button_set_alignment(button,0,0.5,0,1);
-  hildon_button_set_style(button, HILDON_BUTTON_STYLE_PICKER);
+  hildon_button_set_alignment(HILDON_BUTTON(button),0,0.5,0,1);
+  hildon_button_set_style(HILDON_BUTTON(button), HILDON_BUTTON_STYLE_PICKER);
 #else
     button = gtk_button_new();
 

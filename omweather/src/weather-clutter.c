@@ -774,6 +774,7 @@ create_hildon_clutter_icon_animation(const char *icon_path, int icon_size, GSLis
     return oh->icon_widget;
 }
 /************************************************************************************************/
+void
 show_hildon_animation(GSList *clutter_objects, GtkWidget *window){
     GSList   *list_temp = NULL;
     SuperOH         *oh;

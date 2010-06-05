@@ -1,3 +1,9 @@
+omweather (0.27) unstable; urgency=low
+
+  * Added new external view 'Custom' 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 01 May 2010 20:39:20 +0200
+
 omweather (0.26.4) unstable; urgency=low
 
   * Updated Spanish translation 

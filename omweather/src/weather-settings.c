@@ -2907,18 +2907,19 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
               *preset_now_plus_two_button = NULL,
               *preset_now_plus_three_v_button = NULL,
               *preset_now_plus_three_h_button = NULL,
-              *preset_now_plus_seven_button = NULL;
-
+              *preset_now_plus_seven_button = NULL,
+              *preset_custom_button = NULL;
     GSList *group = NULL;
 
-#ifdef DEBUGFUNCTIONCALL
+//#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-#endif
+//#endif
 
     first_line = gtk_hbox_new(FALSE, 0);
     layouts_hbox = gtk_hbox_new(FALSE, 10);
 
-    if(app->config->mode != SIMPLE_MODE){
+    if(mode != SIMPLE_MODE){
+        fprintf(stderr,"sssssssssssss\n");
         gtk_box_pack_start(GTK_BOX(first_line),
                             gtk_label_new(_("Layout:")), FALSE, FALSE, 20);
         gtk_box_pack_end(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 20);
@@ -2926,7 +2927,7 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
     else
         gtk_box_pack_start(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 0);
     /* make buttons */
-    if( mode == EXTENDED_MODE ){
+    if( mode == EXTENDED_MODE || mode == MEDIUM_MODE){
         /* one row */
         one_row_button =
             create_button_with_image(BUTTON_ICONS, "one_row", icon_size, TRUE, TRUE);
@@ -2935,10 +2936,7 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
         gtk_box_pack_start(GTK_BOX(layouts_hbox), one_row_button, FALSE,
                            FALSE, 0);
         group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(one_row_button));
-        g_signal_connect(one_row_button, "clicked",
-                         G_CALLBACK(check_buttons_changed_handler),
-                         (gpointer) window);
-
+        
         /* one column */
         one_column_button =
             create_button_with_image(BUTTON_ICONS, "one_column", icon_size, TRUE,
@@ -2950,10 +2948,7 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
         gtk_box_pack_start(GTK_BOX(layouts_hbox), one_column_button, FALSE,
                            FALSE, 0);
         gtk_radio_button_set_group(GTK_RADIO_BUTTON(one_column_button), group);
-        g_signal_connect(one_column_button, "clicked",
-                         G_CALLBACK(check_buttons_changed_handler),
-                         (gpointer) window);
-        /* two rows */
+       /* two rows */
         two_rows_button =
             create_button_with_image(BUTTON_ICONS, "two_rows", icon_size, TRUE, TRUE);
         GLADE_HOOKUP_OBJECT(window, two_rows_button, "two_rows");
@@ -2963,10 +2958,7 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
         gtk_radio_button_set_group(GTK_RADIO_BUTTON(two_rows_button),
                                    gtk_radio_button_get_group
                                    (GTK_RADIO_BUTTON(one_column_button)));
-        g_signal_connect(two_rows_button, "clicked",
-                         G_CALLBACK(check_buttons_changed_handler),
-                         (gpointer) window);
-        /* two columns */
+       /* two columns */
         two_columns_button =
             create_button_with_image(BUTTON_ICONS, "two_columns", icon_size, TRUE,
                                      TRUE);
@@ -2977,9 +2969,6 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
         gtk_radio_button_set_group(GTK_RADIO_BUTTON(two_columns_button),
                                    gtk_radio_button_get_group
                                    (GTK_RADIO_BUTTON(two_rows_button)));
-        g_signal_connect(two_columns_button, "clicked",
-                         G_CALLBACK(check_buttons_changed_handler),
-                         (gpointer) window);
         /* combination */
         combination_button =
             create_button_with_image(BUTTON_ICONS, "combination", icon_size, TRUE,
@@ -2991,65 +2980,94 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
         gtk_radio_button_set_group(GTK_RADIO_BUTTON(combination_button),
                                    gtk_radio_button_get_group
                                    (GTK_RADIO_BUTTON(two_columns_button)));
+    }
+    if( mode != MEDIUM_MODE ){
+        /* preset Now */
+        preset_now_button =
+            create_button_with_image(BUTTON_ICONS, "nothing", icon_size, TRUE, TRUE);
+        GLADE_HOOKUP_OBJECT(window, preset_now_button, "preset_now");
+        gtk_widget_set_name(preset_now_button, "preset_now");
+        gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_button, FALSE,
+                           FALSE, 0);
+        if ( mode == EXTENDED_MODE ){
+            gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_button),
+                                   gtk_radio_button_get_group
+                                   (GTK_RADIO_BUTTON(combination_button)));
+        }
+        /* preset Now + Two days */
+        preset_now_plus_two_button =
+            create_button_with_image(BUTTON_ICONS, "now_plus_two", icon_size, TRUE, TRUE);
+        GLADE_HOOKUP_OBJECT(window, preset_now_plus_two_button, "preset_now_plus_two");
+        gtk_widget_set_name(preset_now_plus_two_button, "preset_now_plus_two");
+        gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_two_button, FALSE,
+                           FALSE, 0);
+        gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_two_button),
+                                   gtk_radio_button_get_group
+                                   (GTK_RADIO_BUTTON(preset_now_button)));
+
+        /* preset Now + Three days Vertical */
+        preset_now_plus_three_v_button =
+            create_button_with_image(BUTTON_ICONS, "now_plus_three_v", icon_size, TRUE, TRUE);
+        GLADE_HOOKUP_OBJECT(window, preset_now_plus_three_v_button, "preset_now_plus_three_v");
+        gtk_widget_set_name(preset_now_plus_three_v_button, "preset_now_plus_three_v");
+        gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_three_v_button, FALSE,
+                           FALSE, 0);
+        gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_three_v_button),
+                                   gtk_radio_button_get_group
+                                   (GTK_RADIO_BUTTON(preset_now_plus_two_button)));
+        /* preset Now + Three days Horizontal */
+        preset_now_plus_three_h_button =
+            create_button_with_image(BUTTON_ICONS, "now_plus_three_h", icon_size, TRUE, TRUE);
+        GLADE_HOOKUP_OBJECT(window, preset_now_plus_three_h_button, "preset_now_plus_three_h");
+        gtk_widget_set_name(preset_now_plus_three_h_button, "preset_now_plus_three_h");
+        gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_three_h_button, FALSE,
+                           FALSE, 0);
+        gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_three_h_button),
+                                   gtk_radio_button_get_group
+                                   (GTK_RADIO_BUTTON(preset_now_plus_three_v_button)));
+        /* preset Now + Seven days */
+        preset_now_plus_seven_button =
+            create_button_with_image(BUTTON_ICONS, "now_plus_seven", icon_size, TRUE, TRUE);
+        GLADE_HOOKUP_OBJECT(window, preset_now_plus_seven_button, "preset_now_plus_seven");
+        gtk_widget_set_name(preset_now_plus_seven_button, "preset_now_plus_seven");
+        gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_seven_button, FALSE,
+                           FALSE, 0);
+        gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_seven_button),
+                                   gtk_radio_button_get_group
+                                   (GTK_RADIO_BUTTON(preset_now_plus_three_h_button)));
+        if (mode == SIMPLE_MODE){
+            /* preset Custom */
+            preset_custom_button =
+                create_button_with_image(BUTTON_ICONS, "custom", icon_size, TRUE, TRUE);
+            GLADE_HOOKUP_OBJECT(window, preset_custom_button, "preset_custom");
+            gtk_widget_set_name(preset_custom_button, "preset_custom");
+            gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_custom_button, FALSE,
+                               FALSE, 0);
+            gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_custom_button),
+                                       gtk_radio_button_get_group
+                                       (GTK_RADIO_BUTTON(preset_now_plus_seven_button)));
+            g_signal_connect(preset_custom_button, "toggled",
+                         G_CALLBACK(check_custom_changed_handler),
+                         (gpointer) window);
+
+        }
+    }
+    if (mode == EXTENDED_MODE){
+        g_signal_connect(one_row_button, "clicked",
+                         G_CALLBACK(check_buttons_changed_handler),
+                         (gpointer) window);
+        g_signal_connect(one_column_button, "clicked",
+                         G_CALLBACK(check_buttons_changed_handler),
+                         (gpointer) window);
+        g_signal_connect(two_rows_button, "clicked",
+                         G_CALLBACK(check_buttons_changed_handler),
+                         (gpointer) window);
+        g_signal_connect(two_columns_button, "clicked",
+                         G_CALLBACK(check_buttons_changed_handler),
+                         (gpointer) window);
         g_signal_connect(combination_button, "clicked",
                          G_CALLBACK(check_buttons_changed_handler),
                          (gpointer) window);
-    }
-    /* preset Now */
-    preset_now_button =
-        create_button_with_image(BUTTON_ICONS, "nothing", icon_size, TRUE, TRUE);
-    GLADE_HOOKUP_OBJECT(window, preset_now_button, "preset_now");
-    gtk_widget_set_name(preset_now_button, "preset_now");
-    gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_button, FALSE,
-                       FALSE, 0);
-    if ( mode == EXTENDED_MODE ){
-        gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_button),
-                               gtk_radio_button_get_group
-                               (GTK_RADIO_BUTTON(combination_button)));
-    }
-    /* preset Now + Two days */
-    preset_now_plus_two_button =
-        create_button_with_image(BUTTON_ICONS, "now_plus_two", icon_size, TRUE, TRUE);
-    GLADE_HOOKUP_OBJECT(window, preset_now_plus_two_button, "preset_now_plus_two");
-    gtk_widget_set_name(preset_now_plus_two_button, "preset_now_plus_two");
-    gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_two_button, FALSE,
-                       FALSE, 0);
-    gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_two_button),
-                               gtk_radio_button_get_group
-                               (GTK_RADIO_BUTTON(preset_now_button)));
-
-    /* preset Now + Three days Vertical */
-    preset_now_plus_three_v_button =
-        create_button_with_image(BUTTON_ICONS, "now_plus_three_v", icon_size, TRUE, TRUE);
-    GLADE_HOOKUP_OBJECT(window, preset_now_plus_three_v_button, "preset_now_plus_three_v");
-    gtk_widget_set_name(preset_now_plus_three_v_button, "preset_now_plus_three_v");
-    gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_three_v_button, FALSE,
-                       FALSE, 0);
-    gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_three_v_button),
-                               gtk_radio_button_get_group
-                               (GTK_RADIO_BUTTON(preset_now_plus_two_button)));
-    /* preset Now + Three days Horizontal */
-    preset_now_plus_three_h_button =
-        create_button_with_image(BUTTON_ICONS, "now_plus_three_h", icon_size, TRUE, TRUE);
-    GLADE_HOOKUP_OBJECT(window, preset_now_plus_three_h_button, "preset_now_plus_three_h");
-    gtk_widget_set_name(preset_now_plus_three_h_button, "preset_now_plus_three_h");
-    gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_three_h_button, FALSE,
-                       FALSE, 0);
-    gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_three_h_button),
-                               gtk_radio_button_get_group
-                               (GTK_RADIO_BUTTON(preset_now_plus_three_v_button)));
-    /* preset Now + Seven days */
-    preset_now_plus_seven_button =
-        create_button_with_image(BUTTON_ICONS, "now_plus_seven", icon_size, TRUE, TRUE);
-    GLADE_HOOKUP_OBJECT(window, preset_now_plus_seven_button, "preset_now_plus_seven");
-    gtk_widget_set_name(preset_now_plus_seven_button, "preset_now_plus_seven");
-    gtk_box_pack_start(GTK_BOX(layouts_hbox), preset_now_plus_seven_button, FALSE,
-                       FALSE, 0);
-    gtk_radio_button_set_group(GTK_RADIO_BUTTON(preset_now_plus_seven_button),
-                               gtk_radio_button_get_group
-                               (GTK_RADIO_BUTTON(preset_now_plus_three_h_button)));
-
-    if (mode == EXTENDED_MODE){
         g_signal_connect(preset_now_button, "clicked",
                      G_CALLBACK(check_buttons_changed_handler),
                      (gpointer) window);
@@ -3067,7 +3085,7 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
                      (gpointer) window);
     }
 
-    if(mode == EXTENDED_MODE){
+    if(mode == EXTENDED_MODE || mode == MEDIUM_MODE){
         switch(app->config->icons_layout){
             default:
             case ONE_ROW:
@@ -3095,34 +3113,9 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
                                          (combination_button), TRUE);
                 app->visuals_tab_start_state |= STATE_COMBINATION;
                 break;
-            case PRESET_NOW:
-                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_button),
-                                         TRUE);
-                app->visuals_tab_start_state |= STATE_PRESET_NOW;
-                break;
-            case PRESET_NOW_PLUS_TWO:
-                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_two_button),
-                                         TRUE);
-                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_TWO;
-                break;
-            case PRESET_NOW_PLUS_THREE_V:
-                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_three_v_button),
-                                         TRUE);
-                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_THREE_V;
-                break;
-            case PRESET_NOW_PLUS_THREE_H:
-                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_three_h_button),
-                                         TRUE);
-                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_THREE_H;
-                break;
-            case PRESET_NOW_PLUS_SEVEN:
-                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_seven_button),
-                                         TRUE);
-                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_SEVEN;
-                break;
         }
     }
-    if(mode == SIMPLE_MODE){
+    if(mode == SIMPLE_MODE|| mode == EXTENDED_MODE){
         switch (app->config->icons_layout) {
            default:
            case PRESET_NOW:

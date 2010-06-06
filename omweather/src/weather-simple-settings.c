@@ -45,6 +45,53 @@ free_list(GSList *list){
 }
 /*******************************************************************************/
 void
+widget_custom_styles_save(GtkWidget *window){
+   GtkWidget
+       *one_row = NULL,
+       *one_column = NULL,
+       *two_rows = NULL,
+       *two_columns = NULL,
+       *combination = NULL;
+
+   gint previous_value;
+
+   one_row = lookup_widget(window, "one_row");
+   one_column = lookup_widget(window, "one_column");
+   two_rows = lookup_widget(window, "two_rows");
+   two_columns = lookup_widget(window, "two_columns");
+   combination = lookup_widget(window, "combination");
+   if (one_row && one_column && two_rows &&  two_columns && combination){
+       previous_value = app->config->icons_layout;
+       if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(one_row)))
+            app->config->icons_layout = ONE_ROW;
+        else
+            if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(one_column)))
+                app->config->icons_layout = ONE_COLUMN;
+            else
+                if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(two_rows)))
+                    app->config->icons_layout = TWO_ROWS;
+                else
+                    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(two_columns)))
+                        app->config->icons_layout = TWO_COLUMNS;
+                    else
+                        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(combination)))
+                            app->config->icons_layout = COMBINATION;
+                        else
+                            app->config->icons_layout = ONE_ROW;
+/* save settings */
+    config_save(app->config);
+    if (previous_value != app->config->icons_layout)
+       app->reload = TRUE; 
+    /* Send signal for redraw */
+    send_dbus_signal (OMWEATHER_SIGNAL_INTERFACE,
+                      OMWEATHER_SIGNAL_PATH,
+                      OMWEATHER_RELOAD_CONFIG);
+
+
+   }
+}
+/*******************************************************************************/
+void
 widget_styles_save(GtkWidget *window){
    GtkWidget
     *preset_now = NULL,
@@ -52,6 +99,7 @@ widget_styles_save(GtkWidget *window){
     *preset_now_plus_three_h = NULL,
     *preset_now_plus_three_v = NULL,
     *preset_now_plus_seven = NULL,
+    *preset_custom = NULL,
     *selected_icon_set = NULL;
 
     GSList      *icon_set = NULL, *tmp_set ;
@@ -65,8 +113,10 @@ widget_styles_save(GtkWidget *window){
     preset_now_plus_three_v = lookup_widget(window, "preset_now_plus_three_v");
     preset_now_plus_three_h = lookup_widget(window, "preset_now_plus_three_h");
     preset_now_plus_seven = lookup_widget(window, "preset_now_plus_seven");
-    
-    if (preset_now && preset_now_plus_two && preset_now_plus_three_v && preset_now_plus_three_h && preset_now_plus_seven) {
+    preset_custom = lookup_widget(window, "preset_custom");
+
+    if (preset_now && preset_now_plus_two && preset_now_plus_three_v && 
+        preset_now_plus_three_h && preset_now_plus_seven && preset_custom){
         previous_value = app->config->icons_layout;
         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(preset_now)))
             app->config->icons_layout = PRESET_NOW;
@@ -83,7 +133,15 @@ widget_styles_save(GtkWidget *window){
                         if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(preset_now_plus_seven)))
                             app->config->icons_layout = PRESET_NOW_PLUS_SEVEN;
                         else
-                            app->config->icons_layout = PRESET_NOW;
+                            if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(preset_custom))){
+                                if (app->config->icons_layout == PRESET_NOW ||
+                                    app->config->icons_layout == PRESET_NOW_PLUS_TWO ||
+                                    app->config->icons_layout == PRESET_NOW_PLUS_THREE_V ||
+                                    app->config->icons_layout == PRESET_NOW_PLUS_THREE_H ||
+                                    app->config->icons_layout == PRESET_NOW_PLUS_SEVEN)
+                                        app->config->icons_layout = ONE_ROW;    
+                            }else
+                                app->config->icons_layout = PRESET_NOW;
     }
     /* icon set */
     icon_set =
@@ -122,6 +180,18 @@ widget_styles_save(GtkWidget *window){
 //    redraw_home_window(FALSE);
 }
 /*******************************************************************************/
+check_custom_changed_handler(GtkToggleButton *button, gpointer user_data){
+    GtkWidget
+    *button_edit_custom = NULL;
+
+    button_edit_custom = lookup_widget(user_data, "button_edit_custom");
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)))
+        gtk_widget_show(button_edit_custom);
+    else
+        gtk_widget_hide(button_edit_custom);
+}
+/*******************************************************************************/
+
 #if OS2009
 void
 animation_button_toggled (HildonCheckButton *button, gpointer user_data)
@@ -135,6 +205,35 @@ animation_button_toggled (HildonCheckButton *button, gpointer user_data)
         app->config->animation = FALSE;
 }
 #endif
+void
+changed_custom_layout(GtkButton *button, gpointer user_data){
+
+    GtkWidget *vbox                 = NULL,
+              *layouts_line         = NULL,
+              *window               = NULL;
+    gint result;
+ 
+    vbox = gtk_vbox_new(TRUE, 2);
+    window = gtk_dialog_new_with_buttons(_("Edit custom layout"), NULL,
+                                            GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+                                            NULL);
+    gtk_widget_set_name(window, "widget_edit_custom_layout_window");
+    layouts_line = create_layouts_line(window, 40, MEDIUM_MODE);
+    gtk_box_pack_start(GTK_BOX(vbox), layouts_line, TRUE, TRUE, 10);
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
+                       vbox, TRUE, TRUE, 0);
+
+    gtk_dialog_add_button (GTK_DIALOG(window), _("Save"), GTK_RESPONSE_YES);
+    gtk_widget_show_all(window);
+    result = gtk_dialog_run(GTK_DIALOG(window));
+    if(result == GTK_RESPONSE_YES)
+        widget_custom_styles_save(window);
+    if(window)
+        gtk_widget_destroy(window);
+
+
+
+}
 /*******************************************************************************/
 void
 widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
@@ -143,7 +242,9 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
               *layouts_line         = NULL,
               *iconsets_line        = NULL,
               *window               = NULL,
+              *custom_edit_layout_button = NULL,
               *check_button         = NULL,
+              *preset_custom        = NULL,
               *widget_style_button  = NULL;
     gint result;
 
@@ -179,6 +280,16 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
         hildon_check_button_set_active(check_button, FALSE);
     g_signal_connect (check_button, "toggled", G_CALLBACK (animation_button_toggled), NULL);
     gtk_box_pack_start(GTK_BOX(vbox), check_button, TRUE, TRUE, 10);
+
+    custom_edit_layout_button = gtk_button_new_with_label(_("Edit custom layout")); 
+    GLADE_HOOKUP_OBJECT(window, custom_edit_layout_button, "button_edit_custom");
+    gtk_widget_set_name(custom_edit_layout_button, "button_edit_custom");
+    g_signal_connect(custom_edit_layout_button, "clicked",
+                     G_CALLBACK(changed_custom_layout),
+                     NULL);
+
+    gtk_box_pack_start(GTK_BOX(layouts_line), custom_edit_layout_button, FALSE,
+                       FALSE, 20);
 #endif
  
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
@@ -186,6 +297,21 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
     gtk_dialog_add_button (GTK_DIALOG(window), _("Save"), GTK_RESPONSE_YES);
     gtk_widget_show_all(window);
+
+    switch(app->config->icons_layout){
+        case PRESET_NOW:
+        case PRESET_NOW_PLUS_TWO:
+        case PRESET_NOW_PLUS_THREE_V:
+        case PRESET_NOW_PLUS_THREE_H:
+        case PRESET_NOW_PLUS_SEVEN:
+            gtk_widget_hide (custom_edit_layout_button);
+            break;
+        default: 
+            preset_custom = lookup_widget(window, "preset_custom");
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_custom),
+                                     TRUE);
+            break;
+    }
     result = gtk_dialog_run(GTK_DIALOG(window));
     if(result == GTK_RESPONSE_YES)
         widget_styles_save(window);
@@ -2346,23 +2472,29 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(app->config->icons_layout == PRESET_NOW_PLUS_SEVEN)
-        widget_style_string = _("Now + 7 days vert.");
-    else{
-        if(app->config->icons_layout == PRESET_NOW_PLUS_TWO)
-            widget_style_string = _("Now, + 2 days vert.");
-        else{
-            if(app->config->icons_layout == PRESET_NOW_PLUS_THREE_V)
-                widget_style_string = _("Now + 3 days vert.");
-            else{
-                if(app->config->icons_layout == PRESET_NOW)
-                    widget_style_string = _("Now");
-                else{
-                    if(app->config->icons_layout == PRESET_NOW_PLUS_THREE_H)
-                        widget_style_string = _("Now + 3 days hor.");
-                }
-            }
-        }
+    switch(app->config->icons_layout){
+        case PRESET_NOW_PLUS_SEVEN: 
+                                widget_style_string = _("Now + 7 days vert.");
+                                break;
+        case PRESET_NOW_PLUS_TWO: 
+                                widget_style_string = _("Now, + 2 days vert.");
+                                break;
+        case PRESET_NOW_PLUS_THREE_V: 
+                                widget_style_string = _("Now + 3 days vert.");
+                                break;  
+        case PRESET_NOW:
+                                widget_style_string = _("Now");
+                                break;
+        case PRESET_NOW_PLUS_THREE_H: 
+                                widget_style_string = _("Now + 3 days hor.");
+                                break;
+        case ONE_ROW: 
+        case ONE_COLUMN: 
+        case TWO_ROWS:
+        case TWO_COLUMNS:
+        case COMBINATION: 
+                                widget_style_string = _("Custom");
+                                break;
     }
 
     /*Icon image*/

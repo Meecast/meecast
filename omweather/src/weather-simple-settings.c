@@ -51,8 +51,8 @@ widget_custom_styles_save(GtkWidget *window){
        *one_column = NULL,
        *two_rows = NULL,
        *two_columns = NULL,
-       *combination = NULL;
-
+       *combination = NULL,
+       *visible_items = NULL;
    gint previous_value;
 
    one_row = lookup_widget(window, "one_row");
@@ -60,6 +60,8 @@ widget_custom_styles_save(GtkWidget *window){
    two_rows = lookup_widget(window, "two_rows");
    two_columns = lookup_widget(window, "two_columns");
    combination = lookup_widget(window, "combination");
+   visible_items = lookup_widget(window, "visible_items_number");
+
    if (one_row && one_column && two_rows &&  two_columns && combination){
        previous_value = app->config->icons_layout;
        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(one_row)))
@@ -78,6 +80,9 @@ widget_custom_styles_save(GtkWidget *window){
                             app->config->icons_layout = COMBINATION;
                         else
                             app->config->icons_layout = ONE_ROW;
+    if (visible_items){
+        app->config->days_to_show = hildon_controlbar_get_value(visible_items) - 1; 
+    }
 /* save settings */
     config_save(app->config);
     if (previous_value != app->config->icons_layout)
@@ -205,11 +210,13 @@ animation_button_toggled (HildonCheckButton *button, gpointer user_data)
         app->config->animation = FALSE;
 }
 #endif
+/*******************************************************************************/
 void
 changed_custom_layout(GtkButton *button, gpointer user_data){
 
     GtkWidget *vbox                 = NULL,
               *layouts_line         = NULL,
+              *items_line           = NULL,
               *window               = NULL;
     gint result;
  
@@ -219,7 +226,9 @@ changed_custom_layout(GtkButton *button, gpointer user_data){
                                             NULL);
     gtk_widget_set_name(window, "widget_edit_custom_layout_window");
     layouts_line = create_layouts_line(window, 40, MEDIUM_MODE);
+    items_line = create_visible_items_line(window, SIMPLE_MODE);
     gtk_box_pack_start(GTK_BOX(vbox), layouts_line, TRUE, TRUE, 10);
+    gtk_box_pack_start(GTK_BOX(vbox), items_line, TRUE, TRUE, 10);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        vbox, TRUE, TRUE, 0);
 

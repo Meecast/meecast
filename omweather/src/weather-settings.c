@@ -2911,15 +2911,14 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
               *preset_custom_button = NULL;
     GSList *group = NULL;
 
-//#ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
-//#endif
+#endif
 
     first_line = gtk_hbox_new(FALSE, 0);
     layouts_hbox = gtk_hbox_new(FALSE, 10);
 
     if(mode != SIMPLE_MODE){
-        fprintf(stderr,"sssssssssssss\n");
         gtk_box_pack_start(GTK_BOX(first_line),
                             gtk_label_new(_("Layout:")), FALSE, FALSE, 20);
         gtk_box_pack_end(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 20);
@@ -3370,6 +3369,39 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
 }
 
 /*******************************************************************************/
+GtkWidget*
+create_visible_items_line(GtkWidget *window, gint mode){
+    GtkWidget *first_line = NULL,
+              *apply_button = NULL, 
+              *visible_items_number = NULL;
+
+    apply_button = lookup_widget(window, "apply_button");
+    first_line = gtk_hbox_new(FALSE, 0);
+    /* Visible items */
+    gtk_box_pack_start(GTK_BOX(first_line),
+                       gtk_label_new(_("Visible items:")), FALSE,
+                       FALSE, 20);
+    /* Visible items number */
+    visible_items_number = hildon_controlbar_new();
+    GLADE_HOOKUP_OBJECT(window, visible_items_number,
+                        "visible_items_number");
+    gtk_widget_set_name(visible_items_number, "visible_items_number");
+    if(mode == EXTENDED_MODE)
+        g_signal_connect(visible_items_number, "value-changed",
+                     G_CALLBACK(control_bars_changed_handler),
+                     apply_button);
+    hildon_controlbar_set_min(HILDON_CONTROLBAR(visible_items_number), 0);
+    hildon_controlbar_set_max(HILDON_CONTROLBAR(visible_items_number),
+                              Max_count_weather_day - 1);
+    hildon_controlbar_set_value(HILDON_CONTROLBAR(visible_items_number),
+                                app->config->days_to_show - 1);
+    gtk_box_pack_end(GTK_BOX(first_line), visible_items_number, FALSE,
+                     FALSE, 20);
+    gtk_widget_set_size_request(visible_items_number, 350, -1);
+    return first_line;
+}
+
+/*******************************************************************************/
 GtkWidget *create_display_tab(GtkWidget * window) {
     GtkWidget *interface_page = NULL,
         *first_line = NULL,
@@ -3384,7 +3416,6 @@ GtkWidget *create_display_tab(GtkWidget * window) {
         *top = NULL,
         *bottom = NULL,
         *nothing = NULL,
-        *visible_items_number = NULL,
         *icon_size = NULL,
         *show_station_name = NULL,
         *show_arrows = NULL,
@@ -3400,28 +3431,8 @@ GtkWidget *create_display_tab(GtkWidget * window) {
 /* Interface tab */
     interface_page = gtk_vbox_new(FALSE, 0);
 /* first line */
-    first_line = gtk_hbox_new(FALSE, 0);
+    first_line = create_visible_items_line(window, EXTENDED_MODE);
     gtk_box_pack_start(GTK_BOX(interface_page), first_line, TRUE, TRUE, 0);
-    /* Visible items */
-    gtk_box_pack_start(GTK_BOX(first_line),
-                       gtk_label_new(_("Visible items:")), FALSE,
-                       FALSE, 20);
-    /* Visible items number */
-    visible_items_number = hildon_controlbar_new();
-    GLADE_HOOKUP_OBJECT(window, visible_items_number,
-                        "visible_items_number");
-    gtk_widget_set_name(visible_items_number, "visible_items_number");
-    g_signal_connect(visible_items_number, "value-changed",
-                     G_CALLBACK(control_bars_changed_handler),
-                     apply_button);
-    hildon_controlbar_set_min(HILDON_CONTROLBAR(visible_items_number), 0);
-    hildon_controlbar_set_max(HILDON_CONTROLBAR(visible_items_number),
-                              Max_count_weather_day - 1);
-    hildon_controlbar_set_value(HILDON_CONTROLBAR(visible_items_number),
-                                app->config->days_to_show - 1);
-    gtk_box_pack_end(GTK_BOX(first_line), visible_items_number, FALSE,
-                     FALSE, 20);
-    gtk_widget_set_size_request(visible_items_number, 350, -1);
 /* second line */
     second_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(interface_page), second_line, TRUE, TRUE,

@@ -2915,16 +2915,24 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
     START_FUNCTION;
 #endif
 
-    first_line = gtk_hbox_new(FALSE, 0);
-    layouts_hbox = gtk_hbox_new(FALSE, 10);
 
-    if(mode != SIMPLE_MODE){
+
+    layouts_hbox = gtk_hbox_new(FALSE, 10);
+    if(mode == EXTENDED_MODE){
+        first_line = gtk_hbox_new(FALSE, 0);
         gtk_box_pack_start(GTK_BOX(first_line),
                             gtk_label_new(_("Layout:")), FALSE, FALSE, 20);
         gtk_box_pack_end(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 20);
     }
-    else
+    else{
+        if (mode == MEDIUM_MODE){
+            first_line = gtk_vbox_new(FALSE, 0);
+            gtk_box_pack_start(GTK_BOX(first_line),
+                            gtk_label_new(_("Layout:")), FALSE, FALSE, 20);
+        }else
+            first_line = gtk_hbox_new(FALSE, 0);
         gtk_box_pack_start(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 0);
+    }
     /* make buttons */
     if( mode == EXTENDED_MODE || mode == MEDIUM_MODE){
         /* one row */
@@ -3376,7 +3384,10 @@ create_visible_items_line(GtkWidget *window, gint mode){
               *visible_items_number = NULL;
 
     apply_button = lookup_widget(window, "apply_button");
-    first_line = gtk_hbox_new(FALSE, 0);
+    if (mode == EXTENDED_MODE)
+        first_line = gtk_hbox_new(FALSE, 0);
+    else
+        first_line = gtk_vbox_new(FALSE, 0);
     /* Visible items */
     gtk_box_pack_start(GTK_BOX(first_line),
                        gtk_label_new(_("Visible items:")), FALSE,

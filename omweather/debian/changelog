@@ -1,6 +1,7 @@
 omweather (0.27) unstable; urgency=low
 
-  * Added new external view 'Custom' 
+  * Added new external view 'Custom' for Fremantle
+  * Adapting to Diablo 
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 01 May 2010 20:39:20 +0200
 

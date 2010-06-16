@@ -72,7 +72,8 @@ if OS2009
     homeapplet_desktopdir = /usr/share/applications/hildon-home
     homeapplet_desktop_DATA = os2009/omweather-home.desktop
 else
-    homeapplet_desktopdir = /usr/share/omweather
+#    homeapplet_desktopdir = /usr/share/omweather
+    homeapplet_desktopdir = /usr/share/applications/hildon-home
     homeapplet_desktop_DATA = os2008/omweather-home.desktop
 
 endif

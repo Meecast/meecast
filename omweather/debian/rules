@@ -28,9 +28,9 @@ configure-stamp:
 #	#For OS2006 OS2007
 #	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-dbus=yes --enable-gps=yes
 	#For OS2008
-#	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes
+	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes
 	#For OS2009
-	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes --enable-hildonanimation
+#	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes --enable-hildonanimation
 #	CFLAGS="$(CFLAGS)" ./configure --prefix=/usr --disable-static  --enable-gps=yes --enable-clutter 
 
 
@@ -101,16 +101,16 @@ binary-arch: build install
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol
-	maemo-optify
+#	maemo-optify
 # This is the HACK for optified
-	rm -f debian/omweather/usr/share/omweather
-	mkdir -p debian/omweather/usr/share/omweather/icons
-	ln -s /opt/maemo/usr/share/omweather/button_icons debian/omweather/usr/share/omweather/button_icons
-	ln -s /opt/maemo/usr/share/omweather/icons/Glance debian/omweather/usr/share/omweather/icons/Glance
-	ln -s /opt/maemo/usr/share/omweather/images debian/omweather/usr/share/omweather/images
-	ln -s /opt/maemo/usr/share/omweather/moon_icons debian/omweather/usr/share/omweather/moon_icons
-	ln -s /opt/maemo/usr/share/omweather/city_in_clock.txt debian/omweather/usr/share/omweather/city_in_clock.txt
-	ln -s /opt/maemo/usr/share/omweather/style.rc debian/omweather/usr/share/omweather/style.rc
+#	rm -f debian/omweather/usr/share/omweather
+#	mkdir -p debian/omweather/usr/share/omweather/icons
+#	ln -s /opt/maemo/usr/share/omweather/button_icons debian/omweather/usr/share/omweather/button_icons
+#	ln -s /opt/maemo/usr/share/omweather/icons/Glance debian/omweather/usr/share/omweather/icons/Glance
+#	ln -s /opt/maemo/usr/share/omweather/images debian/omweather/usr/share/omweather/images
+#	ln -s /opt/maemo/usr/share/omweather/moon_icons debian/omweather/usr/share/omweather/moon_icons
+#	ln -s /opt/maemo/usr/share/omweather/city_in_clock.txt debian/omweather/usr/share/omweather/city_in_clock.txt
+#	ln -s /opt/maemo/usr/share/omweather/style.rc debian/omweather/usr/share/omweather/style.rc
 #	cp debian/omweather/opt/maemo/usr/share/omweather/omweather-home.desktop debian/omweather/usr/share/omweather/omweather-home.desktop
 	dh_md5sums
 	dh_builddeb

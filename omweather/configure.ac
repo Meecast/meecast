@@ -302,13 +302,18 @@ fi
 
 dnl Config files
 if test "$hildondesktop1" == "yes"; then
+	echo 'Fix me for OS2009'
+#	AC_CONFIG_FILES([Makefile
+#		src/Makefile
+#		po/Makefile.in
+#		data/Makefile])
+else
 	AC_CONFIG_FILES([Makefile
 		src/Makefile
 		po/Makefile.in
+		data/help/Makefile
 		data/Makefile])
-else
-	AC_CONFIG_FILES([data/help/Makefile
-		])
+
 fi
 dnl Produce output files
 AC_OUTPUT

@@ -92,7 +92,11 @@ download_url(void *user_data){
         while(repeats < max_repeats){
             params->status = curl_easy_perform(handle);
             /* don't repeat in next cases */
+#ifdef OS2008
+            if(params->status == CURLE_OK || 
+#else
             if(params->status == CURLE_OK || params->status == CURLE_REMOTE_ACCESS_DENIED ||
+#endif
                     params->status == CURLE_HTTP_RETURNED_ERROR)
                 break;
             /* reopen and truncate file */

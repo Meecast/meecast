@@ -400,15 +400,18 @@ gint read_config(AppletConfig * config) {
         (gnome_vfs_expand_initial_tilde(tmp_buff)))
         fprintf(stderr, _("Could not create weather cache directory.\n"));
 
-    /* Get MODE  Default SIMPLE */
-    config->mode = SIMPLE_MODE;
     config->mode = gconf_client_get_int(gconf_client,
                                                 GCONF_KEY_MODE,
                                                 NULL);
+
     if (config->mode < SIMPLE_MODE
         || config->mode > EXTENDED_MODE)
-        config->mode = SIMPLE_MODE;
-
+	/* Get MODE  Default SIMPLE FOR OS2009  EXTENDED FOR OS2008 */
+	#ifdef OS2008
+	    config->mode = EXTENDED_MODE;
+	#else
+	    config->mode = SIMPLE_MODE;
+	#endif
 
     /* Get Weather source name. */
     config->current_source = gconf_client_get_string(gconf_client,

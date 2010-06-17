@@ -137,7 +137,7 @@ timer_handler(gpointer data){
     */
 
                     if ((app->temporary_station_latitude != 0 && app->temporary_station_longtitude != 0) &&
-                        distance > 10 || distance < 0) {
+                        (distance > 10 || distance < 0)) {
                         /* Stop location service */
                         if (app->gps_was_started){
                               location_gpsd_control_stop(app->gps_control);
@@ -410,7 +410,8 @@ void add_current_time_event(void) {
 
 /*******************************************************************************/
 /* Add autoupdating  event  for weather forecast updating */
-void add_updating_event(void) {
+void 
+add_updating_event(void) {
     time_t current_time;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;

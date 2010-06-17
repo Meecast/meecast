@@ -3092,7 +3092,7 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
                      (gpointer) window);
     }
 
-    if(mode == EXTENDED_MODE || mode == MEDIUM_MODE){
+    if(mode == MEDIUM_MODE){
         switch(app->config->icons_layout){
             default:
             case ONE_ROW:
@@ -3122,7 +3122,7 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
                 break;
         }
     }
-    if(mode == SIMPLE_MODE|| mode == EXTENDED_MODE){
+    if(mode == SIMPLE_MODE){
         switch (app->config->icons_layout) {
            default:
            case PRESET_NOW:
@@ -3152,6 +3152,62 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
                 break;
         }
     }
+    if(mode == EXTENDED_MODE){
+        switch(app->config->icons_layout){
+            default:
+            case ONE_ROW:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(one_row_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_ONE_ROW;
+                break;
+            case ONE_COLUMN:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
+                                         (one_column_button), TRUE);
+                app->visuals_tab_start_state |= STATE_ONE_COLUMN;
+            break;
+            case TWO_ROWS:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(two_rows_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_TWO_ROWS;
+                break;
+            case TWO_COLUMNS:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
+                                         (two_columns_button), TRUE);
+                app->visuals_tab_start_state |= STATE_TWO_COLUMNS;
+                break;
+            case COMBINATION:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON
+                                         (combination_button), TRUE);
+                app->visuals_tab_start_state |= STATE_COMBINATION;
+                break;
+           case PRESET_NOW:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW;
+                break;
+            case PRESET_NOW_PLUS_TWO:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_two_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_TWO;
+                break;
+            case PRESET_NOW_PLUS_THREE_V:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_three_v_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_THREE_V;
+                break;
+            case PRESET_NOW_PLUS_THREE_H:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_three_h_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_THREE_H;
+                break;
+            case PRESET_NOW_PLUS_SEVEN:
+                gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_now_plus_seven_button),
+                                         TRUE);
+                app->visuals_tab_start_state |= STATE_PRESET_NOW_PLUS_SEVEN;
+                break;
+        }
+    }
+
     return first_line;
 }
 /*******************************************************************************/

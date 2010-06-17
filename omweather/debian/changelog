@@ -1,7 +1,14 @@
+omweather (0.27.1) unstable; urgency=low
+
+  * Tested memory leak 
+  * Fixed problem with default choice in layouts selecting
+
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 17 June 2010 07:39:20 +0200
+
 omweather (0.27) unstable; urgency=low
 
   * Added new external view 'Custom' for Fremantle
-  * Adapting to Diablo 
+  * Adapted to Diablo 
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 01 May 2010 20:39:20 +0200
 

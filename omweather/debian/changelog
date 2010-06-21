@@ -1,3 +1,16 @@
+omweather (0.27.11) unstable; urgency=low
+
+  * Corrected number of version in window 'About' 
+  * Updated French translation
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 21 June 2010 19:56:20 +0200
+
+omweather (0.27.10) unstable; urgency=low
+
+  * Fixed memory leaks for Diablo 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 21 June 2010 17:56:20 +0200
+
 omweather (0.27.1) unstable; urgency=low
 
   * Tested memory leak 

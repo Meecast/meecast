@@ -646,7 +646,7 @@ msgstr "Fahrenheit"
 
 #: src/weather-download.c:409
 msgid "Failed to connect to host or proxy."
-msgstr "Echec de connexion vers l'hôte ou le proxy."
+msgstr "Échec de connexion vers l'hôte ou le proxy."
 
 #: src/weather-config.c:360
 #, c-format
@@ -1580,7 +1580,7 @@ msgstr "Averses en matinée"
 
 #: src/hash.data:194
 msgid "Showers Late"
-msgstr "Averses en soiré"
+msgstr "Averses en soirée"
 
 #: src/hash.data:195
 msgid "Showers in the Vicinity"
@@ -1821,7 +1821,7 @@ msgstr ""
 
 #: src/hash.data:218
 msgid "Very High"
-msgstr "Trés haut"
+msgstr "Très haut"
 
 #: src/weather-settings.c:3393
 msgid "Visible items:"

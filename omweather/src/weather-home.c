@@ -1821,6 +1821,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
                     next_station_name_btn,
                     2, 3, 0, 1, GTK_EXPAND, GTK_EXPAND, 0, 0);
     }
+
 /* create days panel */
     switch(layout){
         default:
@@ -2014,6 +2015,7 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
                                 ((WDB*)tmp->data)->button,
                                 0, 0 + 1, 0, 1, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
+
                 gtk_table_attach((GtkTable*)days_panel,
                                 (GtkWidget*)next_station_preset_now(PRESET_NOW),
                                 0, 0 + 1, 1, 2, (GtkAttachOptions)0,

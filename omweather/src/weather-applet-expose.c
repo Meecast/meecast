@@ -81,7 +81,6 @@ gboolean expose_parent(GtkWidget * widget, GdkEventExpose * event) {
                              widget->allocation.height);
 
     if (app->config->icons_layout < PRESET_NOW){
-
         radius = app->config->corner_radius;
         cr = gdk_cairo_create(drawable);
         cairo_set_source_rgba(cr,
@@ -120,12 +119,12 @@ gboolean expose_parent(GtkWidget * widget, GdkEventExpose * event) {
         cairo_curve_to(cr, x, y + radius, x, y, x + radius, y);
 
         cairo_fill(cr);
-
-        XFixesDestroyRegion(GDK_DISPLAY(), region);
-        XRenderFreePicture(GDK_DISPLAY(), picture);
-
         cairo_destroy(cr);
     }
+    
+    XFixesDestroyRegion(GDK_DISPLAY(), region);
+    XRenderFreePicture(GDK_DISPLAY(), picture);
+
     if (plugin->queueRefresh) {
         redraw_home_window(TRUE);
         plugin->queueRefresh = FALSE;

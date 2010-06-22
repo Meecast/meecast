@@ -1,6 +1,6 @@
 AC_PREREQ(2.59)
-AC_INIT(omweather, 0.27.11)
-AM_INIT_AUTOMAKE(omweather, 0.27.11)
+AC_INIT(omweather, 0.27.12)
+AM_INIT_AUTOMAKE(omweather, 0.27.12)
 AC_CONFIG_HEADER([src/config.h:src/config.h.in])
 AC_CONFIG_SRCDIR([src/weather-main.c])
 AC_CANONICAL_HOST
@@ -302,18 +302,13 @@ fi
 
 dnl Config files
 if test "$hildondesktop1" == "yes"; then
-	echo 'Fix me for OS2009'
-#	AC_CONFIG_FILES([Makefile
-#		src/Makefile
-#		po/Makefile.in
-#		data/Makefile])
-else
 	AC_CONFIG_FILES([Makefile
 		src/Makefile
 		po/Makefile.in
-		data/help/Makefile
 		data/Makefile])
-
+else
+	AC_CONFIG_FILES([data/help/Makefile
+		])
 fi
 dnl Produce output files
 AC_OUTPUT

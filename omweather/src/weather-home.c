@@ -2174,8 +2174,8 @@ free_main_hash_table(GHashTable *table){
         g_hash_table_unref(hashtable);
     }
     /* free station current data */
+    hashtable = g_hash_table_lookup(table, "current");
     if(hashtable){
-        hashtable = g_hash_table_lookup(table, "current");
         g_hash_table_foreach(hashtable, free_fields, NULL);
         g_hash_table_remove_all(hashtable);
         g_hash_table_unref (hashtable);

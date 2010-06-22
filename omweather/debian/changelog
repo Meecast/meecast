@@ -1,3 +1,9 @@
+omweather (0.27.12) unstable; urgency=low
+
+  * Fixed warnings 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 22 June 2010 19:56:20 +0200
+
 omweather (0.27.11) unstable; urgency=low
 
   * Corrected number of version in window 'About' 

@@ -1017,8 +1017,10 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->contextmenu = NULL;
     app->tab_of_window_popup = NULL;
     app->current_is_valid = FALSE;
+#ifdef ENABLE_GPS
     app->temporary_station_longtitude = 0.0;
     app->temporary_station_latitude = 0.0;
+#endif
     app->reload = FALSE;
     if (check_needing_of_gps_station()){
         app->gps_need = TRUE;

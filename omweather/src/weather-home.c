@@ -795,6 +795,10 @@ redraw_home_window(gboolean first_start){
         g_slist_free(app->buttons);
         app->buttons = NULL;
     }
+#if ! ( defined (NONMAEMO) ||  defined (APPLICATION))
+    else
+	app->notanimation = TRUE;
+#endif
 #if defined CLUTTER || defined HILDONANIMATION
     free_clutter_objects_list(&app->clutter_objects_in_main_form);
 #endif
@@ -844,6 +848,7 @@ redraw_home_window(gboolean first_start){
     }
     app->count_day = count_day;	/* store days number from xml file */
     draw_home_window(count_day);
+    app->notanimation = FALSE;
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -943,7 +948,10 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->iap_connecting = FALSE;
     app->applet_visible = TRUE;
 #if ! ( defined (NONMAEMO) ||  defined (APPLICATION))
+    app->notanimation = FALSE;
     app->osso = osso;
+#else 
+    app->notanimation = TRUE;
 #endif
 /* create i18n hash for values coming from xml file */
     app->hash = hash_table_create();

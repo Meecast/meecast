@@ -550,7 +550,7 @@ create_icon_widget(GdkPixbuf *icon_buffer, const char *icon_path, int icon_size,
 #ifdef HILDONANIMATION
     if (app->config->animation){
 #ifndef APPLICATION
-        if (app->applet_visible)
+        if (app->applet_visible && !app->notanimation)
 #endif
             icon_widget = create_hildon_clutter_icon_animation(icon_path, icon_size, objects_list);
             

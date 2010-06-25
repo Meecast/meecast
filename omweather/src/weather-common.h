@@ -536,7 +536,8 @@ typedef struct OMWeatherApplet{
     GHashTable          *animation_hash; 
 #endif
     pthread_t           update_thread_id;
-    gboolean        applet_visible;
+    gboolean            applet_visible;
+    gboolean            notanimation;
 }OMWeatherApp;
 /*******************************************************************************/
 typedef struct lists_struct{

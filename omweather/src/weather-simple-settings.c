@@ -58,7 +58,8 @@ widget_custom_styles_save(GtkWidget *window){
        *transparency = NULL,
        *background_color = NULL, 
        *font = NULL;
-   gint previous_value;
+   gint layout_previous_value,
+	icon_size_previous_value;
 
    one_row = lookup_widget(window, "one_row");
    one_column = lookup_widget(window, "one_column");
@@ -72,7 +73,7 @@ widget_custom_styles_save(GtkWidget *window){
    transparency = lookup_widget(window, "transparency");
    background_color = lookup_widget(window, "background_color");
    if (one_row && one_column && two_rows &&  two_columns && combination){
-       previous_value = app->config->icons_layout;
+       layout_previous_value = app->config->icons_layout;
        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(one_row)))
             app->config->icons_layout = ONE_ROW;
         else
@@ -102,6 +103,8 @@ widget_custom_styles_save(GtkWidget *window){
                                      gtk_font_button_get_font_name
                                      (GTK_FONT_BUTTON(font)));
     }
+
+    icon_size_previous_value = app->config->icons_size;
     if (icon_size) {
         if (app->config->icons_size - 1
             != hildon_controlbar_get_value(HILDON_CONTROLBAR(icon_size))) {
@@ -120,14 +123,13 @@ widget_custom_styles_save(GtkWidget *window){
 
 /* save settings */
     config_save(app->config);
-    if (previous_value != app->config->icons_layout)
+    if ((layout_previous_value != app->config->icons_layout)||
+	(icon_size_previous_value != app->config->icons_size))	    
        app->reload = TRUE; 
     /* Send signal for redraw */
     send_dbus_signal (OMWEATHER_SIGNAL_INTERFACE,
                       OMWEATHER_SIGNAL_PATH,
                       OMWEATHER_RELOAD_CONFIG);
-
-
    }
 }
 /*******************************************************************************/

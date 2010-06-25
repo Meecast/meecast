@@ -2931,7 +2931,7 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
                             gtk_label_new(_("Layout:")), FALSE, FALSE, 5);
         }else
             first_line = gtk_hbox_new(FALSE, 0);
-        gtk_box_pack_start(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 20);
     }
     /* make buttons */
     if( mode == EXTENDED_MODE || mode == MEDIUM_MODE){
@@ -3213,16 +3213,23 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
 /*******************************************************************************/
 GtkWidget*
 create_fontsets_line(GtkWidget *window, gint mode){
-    GtkWidget *fifth_line = NULL, 
+    GtkWidget  *fifth_line = NULL, 
                *font_color = NULL,
 	       *apply_button = NULL,
+	       *box = NULL,
 	       *font = NULL;
 
     apply_button = lookup_widget(window, "apply_button");
-    fifth_line = gtk_hbox_new(FALSE, 0);
 /* Font family */
-    gtk_box_pack_start(GTK_BOX(fifth_line),
+    if(mode == EXTENDED_MODE){
+    	fifth_line = gtk_hbox_new(FALSE, 0);
+    	gtk_box_pack_start(GTK_BOX(fifth_line),
                        gtk_label_new(_("Font:")), FALSE, FALSE, 20);
+    }else{
+    	fifth_line = gtk_vbox_new(FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(fifth_line),
+                       gtk_label_new(_("Font:")), FALSE, FALSE, 5);
+    }
     font = gtk_font_button_new_with_font(app->config->font);
     GLADE_HOOKUP_OBJECT(window, font, "font");
 /* disable displaying font style at button */
@@ -3245,11 +3252,58 @@ create_fontsets_line(GtkWidget *window, gint mode){
 #endif
     GLADE_HOOKUP_OBJECT(window, font_color, "font_color");
     gtk_widget_set_name(font_color, "font_color");
- 
-    gtk_box_pack_end(GTK_BOX(fifth_line), font_color, FALSE, FALSE, 20);
-    gtk_box_pack_end(GTK_BOX(fifth_line),
+    box = gtk_hbox_new(FALSE, 0); 
+    gtk_box_pack_start(GTK_BOX(box),
                      gtk_label_new(_("Font color:")), FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(box), font_color, TRUE, TRUE, 20);
+    gtk_box_pack_start(GTK_BOX(fifth_line), box, FALSE, FALSE, 20);
+    
     return fifth_line;
+}
+/*******************************************************************************/
+GtkWidget*
+create_transparency_line(GtkWidget *window, gint mode){
+    GtkWidget *fourth_line = NULL,
+	      *transparency = NULL;
+
+    if(mode == EXTENDED_MODE){
+        fourth_line = gtk_hbox_new(FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(fourth_line),
+	       gtk_label_new(_("Transparency:")), FALSE,
+	       FALSE, 20);
+    }else{
+        fourth_line = gtk_vbox_new(FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(fourth_line),
+	       gtk_label_new(_("Transparency:")), FALSE,
+	       FALSE, 5);
+    }
+#if defined OS2008 || defined OS2009
+    transparency = hildon_controlbar_new();
+    hildon_controlbar_set_min(HILDON_CONTROLBAR(transparency), 0);
+    hildon_controlbar_set_max(HILDON_CONTROLBAR(transparency), 100);
+    hildon_controlbar_set_value(HILDON_CONTROLBAR(transparency),
+                                app->config->alpha_comp);
+    gtk_scale_set_value_pos(GTK_SCALE(transparency), GTK_POS_LEFT);
+#ifndef RELEASE
+    fprintf(stderr, "test %i %i %i\n",
+            app->config->alpha_comp,
+            (int)app->config->alpha_comp,
+            hildon_controlbar_get_value(HILDON_CONTROLBAR(transparency)));
+#endif
+    gtk_widget_set_size_request(transparency, 350, -1);
+#else
+    transparency = gtk_check_button_new_with_label(_("Transparency:"));
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),
+                                 app->config->transparency);
+    if (app->config->transparency)
+        app->visuals_tab_start_state |= STATE_TRANSPARENCY;
+    g_signal_connect(transparency, "toggled",
+                     G_CALLBACK(check_buttons_changed_handler), window);
+#endif
+    GLADE_HOOKUP_OBJECT(window, transparency, "transparency");
+    gtk_widget_set_name(transparency, "transparency");
+    gtk_box_pack_end(GTK_BOX(fourth_line), transparency, FALSE, FALSE, 20);
+    return fourth_line; 
 }
 /*******************************************************************************/
 GtkWidget*
@@ -3309,6 +3363,61 @@ create_iconsets_line(GtkWidget *window, gint icon_size, gint mode){
     return second_line;
 }
 /*******************************************************************************/
+GtkWidget*
+create_background_color_button(GtkWidget *window, gint mode){
+
+    GtkWidget *background_color = NULL,
+	      *line = NULL,
+	      *apply_button = NULL;
+
+    apply_button = lookup_widget(window, "apply_button");
+    /* Background color */
+    if(mode == EXTENDED_MODE){
+	line = gtk_hbox_new(FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(line),
+                            gtk_label_new(_("Background color:")), FALSE, FALSE, 20);
+    }else{
+        line = gtk_hbox_new(FALSE, 0);
+        gtk_box_pack_start(GTK_BOX(line),
+                            gtk_label_new(_("Background color:")), FALSE, FALSE, 20);
+    }
+
+#ifdef OS2009
+    background_color = hildon_color_button_new_with_color (&(app->config->background_color)); 
+#else
+
+    background_color = gtk_color_button_new();
+    g_signal_connect(background_color, "color-set",
+                     G_CALLBACK(color_buttons_changed_handler),
+                     apply_button);
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(background_color),
+                               &(app->config->background_color));
+    gtk_button_set_relief(GTK_BUTTON(background_color), GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(background_color), FALSE);
+
+#endif
+    GLADE_HOOKUP_OBJECT(window, background_color, "background_color");
+    gtk_widget_set_name(background_color, "background_color");
+ 
+#if defined OS2008 || defined OS2009
+    gtk_widget_set_sensitive(background_color, TRUE);
+#else
+    if (background_color && app->config->transparency)
+        gtk_widget_set_sensitive(background_color, FALSE);
+    else
+        gtk_widget_set_sensitive(background_color, TRUE);
+#endif
+
+    if(mode == EXTENDED_MODE)
+    	gtk_box_pack_end(GTK_BOX(line), background_color, FALSE,
+                     FALSE, 20);
+    else
+        gtk_box_pack_end(GTK_BOX(line), background_color, TRUE,
+                     TRUE, 20);
+
+    return line;
+}
+/*******************************************************************************/
 GtkWidget *create_visuals_tab(GtkWidget * window) {
     GtkWidget *visuals_page = NULL,
         *apply_button = NULL,
@@ -3318,7 +3427,6 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
         *transparency = NULL,
         *fifth_line = NULL,
         *sixth_line = NULL,
-        *background_color = NULL,
         *short_clicking = NULL,
         *long_clicking = NULL;
 
@@ -3334,36 +3442,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
     second_line = create_iconsets_line(window, 40, EXTENDED_MODE);
 /* thrid line */
 /* fourth line */
-    fourth_line = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(fourth_line),
-                       gtk_label_new(_("Transparency:")), FALSE,
-                       FALSE, 20);
-#if defined OS2008 || defined OS2009
-    transparency = hildon_controlbar_new();
-    hildon_controlbar_set_min(HILDON_CONTROLBAR(transparency), 0);
-    hildon_controlbar_set_max(HILDON_CONTROLBAR(transparency), 100);
-    hildon_controlbar_set_value(HILDON_CONTROLBAR(transparency),
-                                app->config->alpha_comp);
-    gtk_scale_set_value_pos(GTK_SCALE(transparency), GTK_POS_LEFT);
-#ifndef RELEASE
-    fprintf(stderr, "test %i %i %i\n",
-            app->config->alpha_comp,
-            (int)app->config->alpha_comp,
-            hildon_controlbar_get_value(HILDON_CONTROLBAR(transparency)));
-#endif
-    gtk_widget_set_size_request(transparency, 350, -1);
-#else
-    transparency = gtk_check_button_new_with_label(_("Transparency:"));
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(transparency),
-                                 app->config->transparency);
-    if (app->config->transparency)
-        app->visuals_tab_start_state |= STATE_TRANSPARENCY;
-    g_signal_connect(transparency, "toggled",
-                     G_CALLBACK(check_buttons_changed_handler), window);
-#endif
-    GLADE_HOOKUP_OBJECT(window, transparency, "transparency");
-    gtk_widget_set_name(transparency, "transparency");
-    gtk_box_pack_end(GTK_BOX(fourth_line), transparency, FALSE, FALSE, 20);
+    fourth_line = create_transparency_line(window, EXTENDED_MODE);
 /* fifth line */
     fifth_line = create_fontsets_line(window, EXTENDED_MODE);
 /* sixth line */
@@ -3400,14 +3479,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(short_clicking), TRUE);
         app->visuals_tab_start_state |= STATE_SHORT;
      }
-
-    /* Background color */
-    background_color = gtk_color_button_new();
-    GLADE_HOOKUP_OBJECT(window, background_color, "background_color");
-    gtk_widget_set_name(background_color, "background_color");
-    g_signal_connect(background_color, "color-set",
-                     G_CALLBACK(color_buttons_changed_handler),
-                     apply_button);
+   sixth_line = create_background_color_button(window, EXTENDED_MODE); 
 #if defined OS2008 || defined OS2009
     g_signal_connect(transparency, "value-changed",
                      G_CALLBACK(control_bars_changed_handler),
@@ -3417,24 +3489,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
                      G_CALLBACK(transparency_button_toggled_handler),
                      background_color);
 #endif
-    gtk_color_button_set_color(GTK_COLOR_BUTTON(background_color),
-                               &(app->config->background_color));
-#if defined OS2008 || defined OS2009
-    gtk_widget_set_sensitive(background_color, TRUE);
-#else
-    if (background_color && app->config->transparency)
-        gtk_widget_set_sensitive(background_color, FALSE);
-    else
-        gtk_widget_set_sensitive(background_color, TRUE);
-#endif
-    gtk_button_set_relief(GTK_BUTTON(background_color), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(background_color), FALSE);
-    gtk_box_pack_end(GTK_BOX(sixth_line), background_color, FALSE,
-                     FALSE, 20);
 
-    gtk_box_pack_end(GTK_BOX(sixth_line),
-                     gtk_label_new(_("Background color:")), FALSE,
-                     FALSE, 0);
 /* pack lines */
     gtk_box_pack_start(GTK_BOX(visuals_page), first_line, TRUE, TRUE, 5);
     gtk_box_pack_start(GTK_BOX(visuals_page), second_line, TRUE, TRUE, 5);
@@ -3559,7 +3614,6 @@ GtkWidget *create_display_tab(GtkWidget * window) {
         *top = NULL,
         *bottom = NULL,
         *nothing = NULL,
-        *icon_size = NULL,
         *show_station_name = NULL,
         *show_arrows = NULL,
         *separate = NULL,

@@ -55,6 +55,8 @@ widget_custom_styles_save(GtkWidget *window){
        *visible_items = NULL,
        *font_color = NULL,
        *icon_size = NULL,
+       *transparency = NULL,
+       *background_color = NULL, 
        *font = NULL;
    gint previous_value;
 
@@ -67,6 +69,8 @@ widget_custom_styles_save(GtkWidget *window){
    font_color = lookup_widget(window, "font_color");
    font = lookup_widget(window, "font");
    icon_size = lookup_widget(window, "icon_size");
+   transparency = lookup_widget(window, "transparency");
+   background_color = lookup_widget(window, "background_color");
    if (one_row && one_column && two_rows &&  two_columns && combination){
        previous_value = app->config->icons_layout;
        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(one_row)))
@@ -106,6 +110,14 @@ widget_custom_styles_save(GtkWidget *window){
                                             (icon_size)) + 1;
 	}
     }	
+    if (transparency) {
+        app->config->alpha_comp =
+            hildon_controlbar_get_value(HILDON_CONTROLBAR(transparency));
+    }
+/* background color */
+    if (background_color)
+        hildon_color_button_get_color(background_color, &(app->config->background_color));
+
 /* save settings */
     config_save(app->config);
     if (previous_value != app->config->icons_layout)
@@ -208,6 +220,7 @@ widget_styles_save(GtkWidget *window){
 //    redraw_home_window(FALSE);
 }
 /*******************************************************************************/
+void
 check_custom_changed_handler(GtkToggleButton *button, gpointer user_data){
     GtkWidget
     *button_edit_custom = NULL;
@@ -242,12 +255,14 @@ changed_custom_layout(GtkButton *button, gpointer user_data){
               *items_line           = NULL,
               *font_line            = NULL,
               *icon_size            = NULL,
+	      *transparency         = NULL,
+	      *background_color     = NULL,
               *window               = NULL,
               *scrolled_window      = NULL;
 
     gint result;
  
-    vbox = gtk_vbox_new(TRUE, 2);
+    vbox = gtk_vbox_new(FALSE, 2);
     window = gtk_dialog_new_with_buttons(_("Edit custom layout"), NULL,
                                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                                             NULL);
@@ -261,10 +276,14 @@ changed_custom_layout(GtkButton *button, gpointer user_data){
     items_line = create_visible_items_line(window, SIMPLE_MODE);
     font_line = create_fontsets_line(window, SIMPLE_MODE);
     icon_size = create_icon_size_line(window, SIMPLE_MODE);
+    transparency = create_transparency_line(window, SIMPLE_MODE);
+    background_color = create_background_color_button(window, SIMPLE_MODE);
     gtk_box_pack_start(GTK_BOX(vbox), layouts_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vbox), items_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vbox), font_line, TRUE, TRUE, 10);
     gtk_box_pack_start(GTK_BOX(vbox), icon_size, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(vbox), transparency, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(vbox), background_color, TRUE, TRUE, 0);
     
 #if defined OS2009
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),

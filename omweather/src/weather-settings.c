@@ -2928,7 +2928,7 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
         if (mode == MEDIUM_MODE){
             first_line = gtk_vbox_new(FALSE, 0);
             gtk_box_pack_start(GTK_BOX(first_line),
-                            gtk_label_new(_("Layout:")), FALSE, FALSE, 20);
+                            gtk_label_new(_("Layout:")), FALSE, FALSE, 5);
         }else
             first_line = gtk_hbox_new(FALSE, 0);
         gtk_box_pack_start(GTK_BOX(first_line), layouts_hbox, FALSE, FALSE, 0);
@@ -3212,6 +3212,47 @@ create_layouts_line(GtkWidget *window, gint icon_size, gint mode){
 }
 /*******************************************************************************/
 GtkWidget*
+create_fontsets_line(GtkWidget *window, gint mode){
+    GtkWidget *fifth_line = NULL, 
+               *font_color = NULL,
+	       *apply_button = NULL,
+	       *font = NULL;
+
+    apply_button = lookup_widget(window, "apply_button");
+    fifth_line = gtk_hbox_new(FALSE, 0);
+/* Font family */
+    gtk_box_pack_start(GTK_BOX(fifth_line),
+                       gtk_label_new(_("Font:")), FALSE, FALSE, 20);
+    font = gtk_font_button_new_with_font(app->config->font);
+    GLADE_HOOKUP_OBJECT(window, font, "font");
+/* disable displaying font style at button */
+    gtk_font_button_set_show_style(GTK_FONT_BUTTON(font), FALSE);
+    gtk_box_pack_start(GTK_BOX(fifth_line), font, FALSE, FALSE, 20);
+    g_signal_connect(font, "font-set", G_CALLBACK(font_changed_handler),
+                     apply_button);
+    /* Font color button */
+#ifdef OS2009
+    font_color = hildon_color_button_new_with_color (&(app->config->font_color)); 
+#else
+    font_color = gtk_color_button_new();
+    g_signal_connect(font_color, "color-set",
+                     G_CALLBACK(color_buttons_changed_handler),
+                     apply_button);
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color),
+                               &(app->config->font_color));
+    gtk_button_set_relief(GTK_BUTTON(font_color), GTK_RELIEF_NONE);
+    gtk_button_set_focus_on_click(GTK_BUTTON(font_color), FALSE);
+#endif
+    GLADE_HOOKUP_OBJECT(window, font_color, "font_color");
+    gtk_widget_set_name(font_color, "font_color");
+ 
+    gtk_box_pack_end(GTK_BOX(fifth_line), font_color, FALSE, FALSE, 20);
+    gtk_box_pack_end(GTK_BOX(fifth_line),
+                     gtk_label_new(_("Font color:")), FALSE, FALSE, 0);
+    return fifth_line;
+}
+/*******************************************************************************/
+GtkWidget*
 create_iconsets_line(GtkWidget *window, gint icon_size, gint mode){
     GtkWidget *second_line = NULL,
               *button = NULL,
@@ -3276,9 +3317,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
         *fourth_line = NULL,
         *transparency = NULL,
         *fifth_line = NULL,
-        *font = NULL,
         *sixth_line = NULL,
-        *font_color = NULL,
         *background_color = NULL,
         *short_clicking = NULL,
         *long_clicking = NULL;
@@ -3326,31 +3365,7 @@ GtkWidget *create_visuals_tab(GtkWidget * window) {
     gtk_widget_set_name(transparency, "transparency");
     gtk_box_pack_end(GTK_BOX(fourth_line), transparency, FALSE, FALSE, 20);
 /* fifth line */
-    fifth_line = gtk_hbox_new(FALSE, 0);
-/* Font family */
-    gtk_box_pack_start(GTK_BOX(fifth_line),
-                       gtk_label_new(_("Font:")), FALSE, FALSE, 20);
-    font = gtk_font_button_new_with_font(app->config->font);
-    GLADE_HOOKUP_OBJECT(window, font, "font");
-/* disable displaying font style at button */
-    gtk_font_button_set_show_style(GTK_FONT_BUTTON(font), FALSE);
-    gtk_box_pack_start(GTK_BOX(fifth_line), font, FALSE, FALSE, 20);
-    g_signal_connect(font, "font-set", G_CALLBACK(font_changed_handler),
-                     apply_button);
-    /* Font color button */
-    font_color = gtk_color_button_new();
-    GLADE_HOOKUP_OBJECT(window, font_color, "font_color");
-    gtk_widget_set_name(font_color, "font_color");
-    g_signal_connect(font_color, "color-set",
-                     G_CALLBACK(color_buttons_changed_handler),
-                     apply_button);
-    gtk_color_button_set_color(GTK_COLOR_BUTTON(font_color),
-                               &(app->config->font_color));
-    gtk_button_set_relief(GTK_BUTTON(font_color), GTK_RELIEF_NONE);
-    gtk_button_set_focus_on_click(GTK_BUTTON(font_color), FALSE);
-    gtk_box_pack_end(GTK_BOX(fifth_line), font_color, FALSE, FALSE, 20);
-    gtk_box_pack_end(GTK_BOX(fifth_line),
-                     gtk_label_new(_("Font color:")), FALSE, FALSE, 0);
+    fifth_line = create_fontsets_line(window, EXTENDED_MODE);
 /* sixth line */
     sixth_line = gtk_hbox_new(FALSE, 0);
     /* Type of click */
@@ -3440,15 +3455,19 @@ create_visible_items_line(GtkWidget *window, gint mode){
               *visible_items_number = NULL;
 
     apply_button = lookup_widget(window, "apply_button");
-    if (mode == EXTENDED_MODE)
-        first_line = gtk_hbox_new(FALSE, 0);
-    else
-        first_line = gtk_vbox_new(FALSE, 0);
     /* Visible items */
-    gtk_box_pack_start(GTK_BOX(first_line),
+    if (mode == EXTENDED_MODE){
+        first_line = gtk_hbox_new(FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(first_line),
                        gtk_label_new(_("Visible items:")), FALSE,
                        FALSE, 20);
-    /* Visible items number */
+    }else{
+        first_line = gtk_vbox_new(FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(first_line),
+                       gtk_label_new(_("Visible items:")), FALSE,
+                       FALSE, 2);
+    }
+        /* Visible items number */
     visible_items_number = hildon_controlbar_new();
     GLADE_HOOKUP_OBJECT(window, visible_items_number,
                         "visible_items_number");
@@ -3462,8 +3481,10 @@ create_visible_items_line(GtkWidget *window, gint mode){
                               Max_count_weather_day - 1);
     hildon_controlbar_set_value(HILDON_CONTROLBAR(visible_items_number),
                                 app->config->days_to_show - 1);
+
     gtk_box_pack_end(GTK_BOX(first_line), visible_items_number, FALSE,
                      FALSE, 20);
+
     gtk_widget_set_size_request(visible_items_number, 350, -1);
     return first_line;
 }

@@ -102,6 +102,7 @@ GtkWidget* create_display_tab(GtkWidget *window);
 GtkWidget* create_units_tab(GtkWidget *window);
 GtkWidget* create_update_tab(GtkWidget *window);
 GtkWidget* create_test_tab(GtkWidget *window);
+GtkWidget* create_fontsets_line(GtkWidget *window, gint mode);
 void font_changed_handler(GtkFontButton *widget, gpointer user_data);
 void delete_station_from_user_list_using_iter(GtkTreeIter iter);
 void delete_station_from_user_list_using_station_name(gchar *station_selected, gpointer user_data); 

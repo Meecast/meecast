@@ -52,7 +52,9 @@ widget_custom_styles_save(GtkWidget *window){
        *two_rows = NULL,
        *two_columns = NULL,
        *combination = NULL,
-       *visible_items = NULL;
+       *visible_items = NULL,
+       *font_color = NULL,
+       *font = NULL;
    gint previous_value;
 
    one_row = lookup_widget(window, "one_row");
@@ -61,7 +63,8 @@ widget_custom_styles_save(GtkWidget *window){
    two_columns = lookup_widget(window, "two_columns");
    combination = lookup_widget(window, "combination");
    visible_items = lookup_widget(window, "visible_items_number");
-
+   font_color = lookup_widget(window, "font_color");
+   font = lookup_widget(window, "font");
    if (one_row && one_column && two_rows &&  two_columns && combination){
        previous_value = app->config->icons_layout;
        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(one_row)))
@@ -80,9 +83,20 @@ widget_custom_styles_save(GtkWidget *window){
                             app->config->icons_layout = COMBINATION;
                         else
                             app->config->icons_layout = ONE_ROW;
-    if (visible_items){
-        app->config->days_to_show = hildon_controlbar_get_value(visible_items) - 1; 
+    if (visible_items)
+        app->config->days_to_show = hildon_controlbar_get_value(visible_items) + 1; 
+
+    if (font_color)
+        hildon_color_button_get_color(font_color, &(app->config->font_color));
+
+    if (font) {
+        if (app->config->font)
+            g_free(app->config->font);
+        app->config->font = g_strdup((gchar *)
+                                     gtk_font_button_get_font_name
+                                     (GTK_FONT_BUTTON(font)));
     }
+
 /* save settings */
     config_save(app->config);
     if (previous_value != app->config->icons_layout)
@@ -217,6 +231,7 @@ changed_custom_layout(GtkButton *button, gpointer user_data){
     GtkWidget *vbox                 = NULL,
               *layouts_line         = NULL,
               *items_line           = NULL,
+              *font_line            = NULL,
               *window               = NULL;
     gint result;
  
@@ -227,8 +242,10 @@ changed_custom_layout(GtkButton *button, gpointer user_data){
     gtk_widget_set_name(window, "widget_edit_custom_layout_window");
     layouts_line = create_layouts_line(window, 40, MEDIUM_MODE);
     items_line = create_visible_items_line(window, SIMPLE_MODE);
-    gtk_box_pack_start(GTK_BOX(vbox), layouts_line, TRUE, TRUE, 10);
-    gtk_box_pack_start(GTK_BOX(vbox), items_line, TRUE, TRUE, 10);
+    font_line = create_fontsets_line(window, SIMPLE_MODE);
+    gtk_box_pack_start(GTK_BOX(vbox), layouts_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(vbox), items_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(vbox), font_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        vbox, TRUE, TRUE, 0);
 

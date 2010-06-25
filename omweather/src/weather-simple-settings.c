@@ -54,6 +54,7 @@ widget_custom_styles_save(GtkWidget *window){
        *combination = NULL,
        *visible_items = NULL,
        *font_color = NULL,
+       *icon_size = NULL,
        *font = NULL;
    gint previous_value;
 
@@ -65,6 +66,7 @@ widget_custom_styles_save(GtkWidget *window){
    visible_items = lookup_widget(window, "visible_items_number");
    font_color = lookup_widget(window, "font_color");
    font = lookup_widget(window, "font");
+   icon_size = lookup_widget(window, "icon_size");
    if (one_row && one_column && two_rows &&  two_columns && combination){
        previous_value = app->config->icons_layout;
        if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(one_row)))
@@ -96,7 +98,14 @@ widget_custom_styles_save(GtkWidget *window){
                                      gtk_font_button_get_font_name
                                      (GTK_FONT_BUTTON(font)));
     }
-
+    if (icon_size) {
+        if (app->config->icons_size - 1
+            != hildon_controlbar_get_value(HILDON_CONTROLBAR(icon_size))) {
+            app->config->icons_size =
+                hildon_controlbar_get_value(HILDON_CONTROLBAR
+                                            (icon_size)) + 1;
+	}
+    }	
 /* save settings */
     config_save(app->config);
     if (previous_value != app->config->icons_layout)
@@ -232,7 +241,10 @@ changed_custom_layout(GtkButton *button, gpointer user_data){
               *layouts_line         = NULL,
               *items_line           = NULL,
               *font_line            = NULL,
-              *window               = NULL;
+              *icon_size            = NULL,
+              *window               = NULL,
+              *scrolled_window      = NULL;
+
     gint result;
  
     vbox = gtk_vbox_new(TRUE, 2);
@@ -240,15 +252,27 @@ changed_custom_layout(GtkButton *button, gpointer user_data){
                                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                                             NULL);
     gtk_widget_set_name(window, "widget_edit_custom_layout_window");
+#if defined OS2009
+    scrolled_window = hildon_pannable_area_new ();
+    hildon_pannable_area_add_with_viewport(HILDON_PANNABLE_AREA (scrolled_window), GTK_WIDGET (vbox));
+    gtk_widget_set_size_request(scrolled_window, -1, 350);
+#endif
     layouts_line = create_layouts_line(window, 40, MEDIUM_MODE);
     items_line = create_visible_items_line(window, SIMPLE_MODE);
     font_line = create_fontsets_line(window, SIMPLE_MODE);
+    icon_size = create_icon_size_line(window, SIMPLE_MODE);
     gtk_box_pack_start(GTK_BOX(vbox), layouts_line, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(vbox), items_line, TRUE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(vbox), font_line, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(vbox), font_line, TRUE, TRUE, 10);
+    gtk_box_pack_start(GTK_BOX(vbox), icon_size, TRUE, TRUE, 0);
+    
+#if defined OS2009
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
+                       scrolled_window, TRUE, TRUE, 0);
+#else
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        vbox, TRUE, TRUE, 0);
-
+#endif
     gtk_dialog_add_button (GTK_DIALOG(window), _("Save"), GTK_RESPONSE_YES);
     gtk_widget_show_all(window);
     result = gtk_dialog_run(GTK_DIALOG(window));

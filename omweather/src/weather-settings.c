@@ -3485,10 +3485,65 @@ create_visible_items_line(GtkWidget *window, gint mode){
     gtk_box_pack_end(GTK_BOX(first_line), visible_items_number, FALSE,
                      FALSE, 20);
 
-    gtk_widget_set_size_request(visible_items_number, 350, -1);
+    gtk_widget_set_size_request(visible_items_number, 360, -1);
     return first_line;
 }
+/*******************************************************************************/
+GtkWidget*
+create_icon_size_line(GtkWidget *window, gint mode){
+    GtkWidget  *second_line = NULL,
+	       *apply_button = NULL,
+	       *icon_size = NULL;
 
+    apply_button = lookup_widget(window, "apply_button");
+
+    if (mode == EXTENDED_MODE){
+    	second_line = gtk_hbox_new(FALSE, 0);
+       	gtk_box_pack_start(GTK_BOX(second_line),
+                       gtk_label_new(_("Icon size:")), FALSE, FALSE, 20);
+
+    }else{
+    	second_line = gtk_vbox_new(FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(second_line),
+                       gtk_label_new(_("Icon size:")), FALSE, FALSE, 5);
+    }
+    /* Icon size */
+    icon_size = hildon_controlbar_new();
+    GLADE_HOOKUP_OBJECT(window, icon_size, "icon_size");
+    gtk_widget_set_name(icon_size, "icon_size");
+    if (mode == EXTENDED_MODE)
+    	g_signal_connect(icon_size, "value-changed",
+                     G_CALLBACK(control_bars_changed_handler),
+                     apply_button);
+    hildon_controlbar_set_min(HILDON_CONTROLBAR(icon_size), TINY - 1);
+    hildon_controlbar_set_max(HILDON_CONTROLBAR(icon_size), GIANT - 1);
+    switch (app->config->icons_size) {
+    case TINY:
+        hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
+                                    TINY - 1);
+        break;
+    case SMALL:
+        hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
+                                    SMALL - 1);
+        break;
+    case MEDIUM:
+        hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
+                                    MEDIUM - 1);
+        break;
+    default:
+    case LARGE:
+        hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
+                                    LARGE - 1);
+        break;
+    case GIANT:
+        hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
+                                    GIANT - 1);
+        break;
+    }
+    gtk_box_pack_end(GTK_BOX(second_line), icon_size, FALSE, FALSE, 20);
+    gtk_widget_set_size_request(icon_size, 350, -1);
+    return second_line;
+}
 /*******************************************************************************/
 GtkWidget *create_display_tab(GtkWidget * window) {
     GtkWidget *interface_page = NULL,
@@ -3522,46 +3577,8 @@ GtkWidget *create_display_tab(GtkWidget * window) {
     first_line = create_visible_items_line(window, EXTENDED_MODE);
     gtk_box_pack_start(GTK_BOX(interface_page), first_line, TRUE, TRUE, 0);
 /* second line */
-    second_line = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(interface_page), second_line, TRUE, TRUE,
-                       0);
-    /* Icon size */
-    gtk_box_pack_start(GTK_BOX(second_line),
-                       gtk_label_new(_("Icon size:")), FALSE, FALSE, 20);
-    icon_size = hildon_controlbar_new();
-    GLADE_HOOKUP_OBJECT(window, icon_size, "icon_size");
-    gtk_widget_set_name(icon_size, "icon_size");
-    g_signal_connect(icon_size, "value-changed",
-                     G_CALLBACK(control_bars_changed_handler),
-                     apply_button);
-    hildon_controlbar_set_min(HILDON_CONTROLBAR(icon_size), TINY - 1);
-    hildon_controlbar_set_max(HILDON_CONTROLBAR(icon_size), GIANT - 1);
-    switch (app->config->icons_size) {
-    case TINY:
-        hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
-                                    TINY - 1);
-        break;
-    case SMALL:
-        hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
-                                    SMALL - 1);
-        break;
-    case MEDIUM:
-        hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
-                                    MEDIUM - 1);
-        break;
-    default:
-    case LARGE:
-        hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
-                                    LARGE - 1);
-        break;
-    case GIANT:
-        hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
-                                    GIANT - 1);
-        break;
-    }
-    gtk_box_pack_end(GTK_BOX(second_line), icon_size, FALSE, FALSE, 20);
-    gtk_widget_set_size_request(icon_size, 350, -1);
-
+    second_line = create_icon_size_line(window, EXTENDED_MODE);
+    gtk_box_pack_start(GTK_BOX(interface_page), second_line, TRUE, TRUE, 0);
 /* third line */
     third_line = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX(interface_page), third_line, TRUE, TRUE, 0);

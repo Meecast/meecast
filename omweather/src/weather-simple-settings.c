@@ -58,7 +58,10 @@ widget_custom_styles_save(GtkWidget *window){
        *transparency = NULL,
        *background_color = NULL, 
        *font = NULL;
-   gint layout_previous_value,
+   PangoFontDescription *pfd = NULL; 
+   gint 
+        layout_previous_value,
+        visbile_items_previous_value,
 	icon_size_previous_value;
 
    one_row = lookup_widget(window, "one_row");
@@ -90,6 +93,7 @@ widget_custom_styles_save(GtkWidget *window){
                             app->config->icons_layout = COMBINATION;
                         else
                             app->config->icons_layout = ONE_ROW;
+    visbile_items_previous_value = app->config->days_to_show;
     if (visible_items)
         app->config->days_to_show = hildon_controlbar_get_value(visible_items) + 1; 
 
@@ -120,11 +124,52 @@ widget_custom_styles_save(GtkWidget *window){
 /* background color */
     if (background_color)
         hildon_color_button_get_color(background_color, &(app->config->background_color));
+/* correct days_to show */
+    pfd = pango_font_description_from_string(gtk_font_button_get_font_name
+		                                         (GTK_FONT_BUTTON(font)));
+    if (app->config->icons_layout == ONE_COLUMN){
+        if (app->config->icons_size == SMALL  && app->config->days_to_show > 8)
+		app->config->days_to_show = 8;
+	if (app->config->icons_size == MEDIUM  && app->config->days_to_show > 6)
+		app->config->days_to_show = 6;
+	if (app->config->icons_size == LARGE  && app->config->days_to_show > 4)
+		app->config->days_to_show = 4;
+	if (app->config->icons_size == GIANT  && app->config->days_to_show > 3)
+		app->config->days_to_show = 3;
+	if (app->config->icons_size <= MEDIUM   && app->config->days_to_show > 9 && pango_font_description_get_size(pfd)>8200)
+		app->config->days_to_show = 9;
+	if (app->config->icons_size <= MEDIUM  && app->config->days_to_show > 8 && pango_font_description_get_size(pfd)>10200)
+		app->config->days_to_show = 8;
+	if (app->config->icons_size <= MEDIUM  && app->config->days_to_show > 7 && pango_font_description_get_size(pfd)>11200)
+		app->config->days_to_show = 7;
+	if (app->config->icons_size <= MEDIUM  && app->config->days_to_show > 6 && pango_font_description_get_size(pfd)>12200)
+		app->config->days_to_show = 6;
+	if (app->config->icons_size <= MEDIUM  && app->config->days_to_show > 5 && pango_font_description_get_size(pfd)>13200)
+		app->config->days_to_show = 5;
+
+    }
+
+    if (app->config->icons_layout == TWO_COLUMNS){
+        if (app->config->icons_size == LARGE  && app->config->days_to_show > 8)
+		app->config->days_to_show = 8;
+        if (app->config->icons_size == GIANT && app->config->days_to_show > 6)
+		app->config->days_to_show = 6;
+    }
+
+    if (app->config->icons_layout == ONE_ROW){
+        if (app->config->icons_size == GIANT  && app->config->days_to_show > 5)
+        	    app->config->days_to_show = 5;
+        if (app->config->icons_size == LARGE  && app->config->days_to_show > 6)
+        	    app->config->days_to_show = 6;
+	if (app->config->icons_size == MEDIUM && app->config->days_to_show > 8)
+        	    app->config->days_to_show = 8;
+    } 
 
 /* save settings */
     config_save(app->config);
     if ((layout_previous_value != app->config->icons_layout)||
-	(icon_size_previous_value != app->config->icons_size))	    
+	(icon_size_previous_value != app->config->icons_size) ||
+        (visbile_items_previous_value = app->config->days_to_show))	    
        app->reload = TRUE; 
     /* Send signal for redraw */
     send_dbus_signal (OMWEATHER_SIGNAL_INTERFACE,

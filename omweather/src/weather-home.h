@@ -103,6 +103,7 @@ void init_portrait(GtkWidget *main_widget);
 void top_widget_expose(GtkWidget *widget, GdkEventExpose *event, GtkWidget *window);
 #endif
 void show_hildon_animation(GSList *clutter_objects, GtkWidget *window);
+void gps_location_changed(LocationGPSDevice * device, gpointer userdata);
 /*******************************************************************************/
 typedef struct _HomeAppletHandler HomeAppletHandler;
 /*******************************************************************************/

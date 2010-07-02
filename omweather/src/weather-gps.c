@@ -240,7 +240,7 @@ deinitial_gps_control(void){
 #endif
 }
 /*******************************************************************************/
-static void
+void
 gps_location_changed(LocationGPSDevice * device, gpointer userdata){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -249,6 +249,10 @@ gps_location_changed(LocationGPSDevice * device, gpointer userdata){
         return;
 
 #ifdef OS2009
+    if ((gconf_client_get_float (app->gconf_client, "/system/nokia/location/lastknown/longitude", NULL) == 0.0) &&
+	(gconf_client_get_float (app->gconf_client, "/system/nokia/location/lastknown/latitude", NULL) == 0.0))
+        return;
+
     app->temporary_station_longtitude =
 	    gconf_client_get_float (app->gconf_client, "/system/nokia/location/lastknown/longitude", NULL);
     app->temporary_station_latitude =

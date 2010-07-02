@@ -943,9 +943,13 @@ save_station(GtkWidget *window){
 #ifdef ENABLE_GPS
     if (check_needing_of_gps_station()){
         app->gps_need = TRUE;
+#ifdef OS2009 
+	gps_location_changed(NULL, NULL);
+#endif
         add_gps_event(1);
     }else
         app->gps_need = FALSE;
+#ifdef OS2009
     /* Run gps daemon */
     if (is_gps){
        if (app->gps_control){
@@ -953,6 +957,7 @@ save_station(GtkWidget *window){
           app->gps_was_started = TRUE;
        }
     }
+#endif
 #endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

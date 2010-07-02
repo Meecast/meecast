@@ -1034,6 +1034,9 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
 #endif
     app->reload = FALSE;
     if (check_needing_of_gps_station()){
+#ifdef OS2009 
+	gps_location_changed(NULL, NULL);
+#endif
         app->gps_need = TRUE;
         add_gps_event(1);
     }else

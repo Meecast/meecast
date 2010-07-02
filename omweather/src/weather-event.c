@@ -189,7 +189,7 @@ timer_handler(gpointer data){
                         && app->gps_station.longtitude == 0)
                         add_gps_event(1);
                     else
-                        add_gps_event(1);
+                        add_gps_event(15);
 #endif
                 }
                 break;

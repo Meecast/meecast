@@ -947,6 +947,9 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     app->iap_connected_wlan = FALSE;
     app->iap_connecting = FALSE;
     app->applet_visible = TRUE;
+    app->gconf_client = gconf_client_get_default();
+    app->gps_notify_id1 = 0;
+    app->gps_notify_id2 = 0;
 #if ! ( defined (NONMAEMO) ||  defined (APPLICATION))
     app->notanimation = FALSE;
     app->osso = osso;
@@ -1202,6 +1205,8 @@ hildon_home_applet_lib_deinitialize(void *applet_data){
 #ifdef ENABLE_GPS
     deinitial_gps_control();
 #endif
+    g_object_unref(app->gconf_client);
+    app->gconf_client = NULL;
 #ifdef USE_DBUS
     weather_deinitialize_dbus();
 #endif

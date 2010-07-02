@@ -168,10 +168,41 @@ gps_location_stopped (LocationGPSDControl *control, gpointer userdata){
 }
 /*******************************************************************************/ 
 void
+key_changed_callback(GConfClient* client,
+		     guint cnxn_id,
+		     const gchar* key,
+		     GConfValue* value,
+		     gboolean is_default,
+		     gpointer user_data)
+{
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+	gps_location_changed(NULL, NULL);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+}
+/*******************************************************************************/ 
+void
 initial_gps_control(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+#ifdef OS2009
+    gconf_client_add_dir(app->gconf_client,
+                              "/system/nokia/location/lastknown",
+                              GCONF_CLIENT_PRELOAD_NONE,
+    			      NULL);
+    app->gps_notify_id1 = gconf_client_notify_add(app->gconf_client, "/system/nokia/location/lastknown/longitude",
+	                                key_changed_callback,
+     	                                NULL,
+		                        NULL, NULL);
+    app->gps_notify_id2 = gconf_client_notify_add(app->gconf_client, "/system/nokia/location/lastknown/latitude",
+	                                key_changed_callback,
+     	                                NULL,
+		                        NULL, NULL);
+#else
     /* This "if" is hack for liblocation for Fremantle*/
     if (g_type_from_name("LocationGPSDControl") == 0){
         app->gps_was_started = FALSE;
@@ -180,6 +211,7 @@ initial_gps_control(void){
         app->gps_stop = g_signal_connect(app->gps_control, "gpsd_stopped", G_CALLBACK (gps_location_stopped), NULL);
     }else
         fprintf(stderr, "Problem with gpsd\n");
+#endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -190,13 +222,19 @@ deinitial_gps_control(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+#ifdef OS2009
+    if (app->gps_notify_id1 != 0)
+    	gconf_client_notify_remove (app->gconf_client, app->gps_notify_id1);
+    if (app->gps_notify_id2 != 0)
+    	gconf_client_notify_remove (app->gconf_client, app->gps_notify_id2);
+#else
     deinitial_gps_connect();
     if (app->gps_control){
         g_signal_handler_disconnect (app->gps_control,app->gps_run);
         g_signal_handler_disconnect (app->gps_control,app->gps_stop);
         g_object_unref(app->gps_control);
     }
-
+#endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif
@@ -209,10 +247,18 @@ gps_location_changed(LocationGPSDevice * device, gpointer userdata){
 #endif
     if(!app->config->gps_station)
         return;
+
+#ifdef OS2009
+    app->temporary_station_longtitude =
+	    gconf_client_get_float (app->gconf_client, "/system/nokia/location/lastknown/longitude", NULL);
+    app->temporary_station_latitude =
+	    gconf_client_get_float (app->gconf_client, "/system/nokia/location/lastknown/latitude", NULL);
+#else
     if(device->fix->fields & LOCATION_GPS_DEVICE_LATLONG_SET){
         app->temporary_station_latitude = device->fix->latitude;
         app->temporary_station_longtitude = device->fix->longitude;
     }
+#endif
 }
 /*******************************************************************************/
 void
@@ -220,11 +266,16 @@ initial_gps_connect(void){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+
+#ifdef OS2009
+    return;
+#else
     /* This "if" is hack for liblocation for Fremantle*/
     if (g_type_from_name("LocationGPSDevice") == 0){
         app->gps_device = g_object_new (LOCATION_TYPE_GPS_DEVICE, NULL);
         app->gps_id_connection = g_signal_connect (app->gps_device, "changed", G_CALLBACK (gps_location_changed), NULL);
     }
+#endif
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

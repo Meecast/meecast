@@ -68,6 +68,7 @@
     #include <hildon/hildon-banner.h>
     #include <hildon/hildon-window-stack.h>
     #include <hildon/hildon.h>
+    #include <gconf/gconf-client.h>
 #else
     #include <hildon-widgets/hildon-banner.h>
 #endif
@@ -111,15 +112,14 @@
 #define BUTTON_ICONS		"/usr/share/omweather/button_icons/"
 #define IMAGES_PATH         "/usr/share/omweather/images/"
 
-#define START_FUNCTION        fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
+ #define START_FUNCTION        fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
 #define END_FUNCTION		fprintf(stderr,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);
-/* #define DEBUG_FUNCTION(string)  write_log(string) */
 #define DEBUG_FUNCTION(string)  
 /*
+#define DEBUG_FUNCTION(string)  write_log(string)
 #define START_FUNCTION          FILE *f; f=fopen("/tmp/omw.log","a+"); fprintf(f,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);fflush(f);fclose(f);
 #define END_FUNCTION          FILE *fileend; fileend=fopen("/tmp/omw.log","a+"); fprintf(fileend,"\n>>>>>>>>>End %s()\n", __PRETTY_FUNCTION__);fflush(fileend);fclose(fileend);
 */
-
 #define OMWEATHER_ADD_STATION           1000
 #define OMWEATHER_SEARCH_STATION        1001
 #define OMWEATHER_CLOSE_STATION_WINDOW  1002
@@ -538,6 +538,9 @@ typedef struct OMWeatherApplet{
     pthread_t           update_thread_id;
     gboolean            applet_visible;
     gboolean            notanimation;
+    GConfClient         *gconf_client;
+    guint 		gps_notify_id1;
+    guint 		gps_notify_id2;
 }OMWeatherApp;
 /*******************************************************************************/
 typedef struct lists_struct{

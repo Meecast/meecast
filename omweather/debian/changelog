@@ -1,5 +1,7 @@
 omweather (0.27.13) unstable; urgency=low
+
   * Updated Russian translations
+  * Rewrote GPS function
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 22 June 2010 19:56:20 +0200
 

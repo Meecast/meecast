@@ -44,6 +44,7 @@ void close_database(sqlite3 *database);
 GtkListStore* create_regions_list(sqlite3 *database, int country_id, int *region_count);
 GtkListStore* create_stations_list(sqlite3 *database, gint region_id);
 gboolean check_needing_of_gps_station(void);
+static void gps_location_changed(LocationGPSDevice * device, gpointer userdata);
 #endif
 /*******************************************************************************/
 #endif

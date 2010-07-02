@@ -134,7 +134,7 @@ clear_animation_hash(GHashTable *hash)
         return NULL;
     }
 #ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
+    END_FUNCTION;
 #endif
 }
 /*******************************************************************************/

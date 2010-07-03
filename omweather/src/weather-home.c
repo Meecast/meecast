@@ -703,11 +703,11 @@ draw_home_window(gint count_day){
                                 &(app->config->background_color), wind_direction, wind_speed);
         g_signal_connect(tmp_button->button, "button-release-event",
                     G_CALLBACK(weather_window_popup),
-                    (is_na_day ? (GINT_TO_POINTER(-1)) : (GINT_TO_POINTER(i))));
+                    (is_na_day ? (GINT_TO_POINTER(-1)) : (GINT_TO_POINTER(i+1-app->config->separate))));
         if (app->config->clicking_type == SHORT_CLICK)
             g_signal_connect(tmp_button->button, "button-release-event",
                                 G_CALLBACK(weather_window_popup),
-                                (is_na_day ? (GINT_TO_POINTER(-1)) : (GINT_TO_POINTER(i))));
+                                (is_na_day ? (GINT_TO_POINTER(-1)) : (GINT_TO_POINTER(i+1-app->config->separate))));
         add_item2object(&(app->buttons), (void*)tmp_button);
 
         if(!(app->config->separate && i == 1))

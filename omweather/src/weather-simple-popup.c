@@ -468,6 +468,8 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             days = g_slist_next(days);
             i++;
         }
+	if(day_number == i)
+                g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)separator);
     }
     else{ /* no weather data */
         gtk_box_pack_start(GTK_BOX(main_vbox),
@@ -548,7 +550,7 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
             gtk_button_set_relief(GTK_BUTTON(line), GTK_RELIEF_NONE);
             g_signal_connect(G_OBJECT(line), "clicked",
                                 G_CALLBACK(show_detailes_of_current_day_button_handler),
-                                 GINT_TO_POINTER(i));
+                                 GINT_TO_POINTER(i+1-app->config->separate));
             g_object_set_data(G_OBJECT(line), "scrolled_window", (gpointer)scrolled_window);
             g_object_set_data(G_OBJECT(line), "vbox", (gpointer)vbox);
             current_widget = create_current_tab(current);
@@ -574,11 +576,11 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
             if (i == 0)
                 g_signal_connect(G_OBJECT(line), "clicked",
                                             G_CALLBACK(show_detailes_of_current_day_button_handler),
-                                                                             GINT_TO_POINTER(i));
+                                                                             GINT_TO_POINTER(i+1));
             else
                 g_signal_connect(G_OBJECT(line), "clicked",
                                 G_CALLBACK(show_collapsed_day_button_handler),
-                                 GINT_TO_POINTER(i));
+                                 GINT_TO_POINTER(i+1));
 
         g_object_set_data(G_OBJECT(line), "scrolled_window", (gpointer)scrolled_window);
         g_object_set_data(G_OBJECT(line), "vbox", (gpointer)vbox);

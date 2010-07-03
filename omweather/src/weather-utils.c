@@ -772,7 +772,7 @@ reload_omw_plugin(void)
        app->popup_window = NULL;
     }
     hildon_banner_show_information(NULL, NULL,
-                            _("OMWeather is reloading"));
+                            _("Widget OMWeather is reloading"));
     if (!fork()) {
         file_in = fopen("/home/user/.config/hildon-desktop/home.plugins","r");
         file_out = fopen("/tmp/home.plugins","w");

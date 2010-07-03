@@ -12,4 +12,5 @@ src/weather-alerts.c
 src/weather-simple-popup.c
 src/weather-simple-status.c
 src/weather-simple-settings.c
+src/weather-utils.c
 

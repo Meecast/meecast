@@ -346,6 +346,7 @@ typedef struct applet_config{
     gboolean	update_wlan;
     gboolean	animation;
     gint	view_mode;
+    gint        scale_in_popup;
 }AppletConfig;
 /*******************************************************************************/
 #if defined CLUTTER || defined OS2009

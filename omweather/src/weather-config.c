@@ -862,6 +862,12 @@ gint read_config(AppletConfig * config) {
     } else
         config->update_wlan = TRUE;
 
+    /* Get scaling in popup window default 1 */
+    config->scale_in_popup = gconf_client_get_int(gconf_client,
+                                      GCONF_KEY_SCALE_IN_POPUP,
+                                                     NULL);
+    if (config->scale_in_popup < 1 || config->scale_in_popup >6)
+        config->scale_in_popup = 1;
     /*Get VIEW_MODE Default COLLAPSED*/
     config->view_mode = COLLAPSED_VIEW_MODE;
     config->view_mode = gconf_client_get_int(gconf_client,
@@ -999,6 +1005,10 @@ void config_save(AppletConfig * config) {
                          GCONF_KEY_SENSOR_UPDATE_TIME,
                          config->sensor_update_time, NULL);
 #endif
+    /* Save scaling in popup window */
+    gconf_client_set_int(gconf_client,
+                         GCONF_KEY_SCALE_IN_POPUP,
+                         config->scale_in_popup, NULL);
     /* Save Weather Font Color */
     sprintf(temp_buffer, "#%02x%02x%02x",
             config->font_color.red >> 8,

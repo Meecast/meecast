@@ -1481,6 +1481,41 @@ units_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
 }
 /*******************************************************************************/
 void
+extended_save(GtkWidget *window){
+    GtkWidget   *zoom1 = NULL,
+                *zoom2 = NULL,
+                *zoom3 = NULL,
+                *zoom4 = NULL,
+                *zoom5 = NULL,
+                *zoom6 = NULL;
+
+#ifdef DEBUGFUNCTIONCALL
+   START_FUNCTION;
+#endif
+
+    zoom1 = lookup_widget(window, "zoom1");
+    zoom2 = lookup_widget(window, "zoom2");
+    zoom3 = lookup_widget(window, "zoom3");
+    zoom4 = lookup_widget(window, "zoom4");
+    zoom5 = lookup_widget(window, "zoom5");
+    zoom6 = lookup_widget(window, "zoom6");
+
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(zoom1))) 
+        app->config->scale_in_popup = 1;
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(zoom2))) 
+        app->config->scale_in_popup = 2;
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(zoom3))) 
+        app->config->scale_in_popup = 3;
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(zoom4))) 
+        app->config->scale_in_popup = 4;
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(zoom5))) 
+        app->config->scale_in_popup = 5;
+    if(gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(zoom6))) 
+        app->config->scale_in_popup = 6;
+}
+
+/*******************************************************************************/
+void
 update_save(GtkWidget *window){
     GtkWidget   *never_update = NULL,
                 *one_hour_update = NULL,
@@ -1785,6 +1820,177 @@ update_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_da
    END_FUNCTION;
 #endif
 }
+/*******************************************************************************/
+void
+extended_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_data){
+    gint        result;
+    GtkWidget   *window = NULL,
+                *main_table = NULL,
+                *left_alignmnet = NULL,
+                *right_local_alignmnet = NULL,
+                *vertical1_alignmnet = NULL,
+                *vertical2_alignmnet = NULL,
+                *vertical3_alignmnet = NULL,
+                *hbox_zooming = NULL,
+                *label_set = NULL,
+                *zoom1 = NULL,
+                *zoom2 = NULL,
+                *zoom3 = NULL,
+                *zoom4 = NULL,
+                *zoom5 = NULL,
+                *zoom6 = NULL,
+                *extended_button = NULL;
+    GSList      *group_period = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    window = gtk_dialog_new_with_buttons(_("Extended Settings"), NULL,
+                                  GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, NULL);
+    gtk_widget_set_name(window, "extended_simple_settings_window");
+
+#ifdef OS2009
+    #ifdef APPLICATION
+            gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->main_view));
+    #else
+            gtk_window_set_transient_for(GTK_WINDOW(window), GTK_WINDOW(app->popup_window));
+    #endif
+#endif
+
+    main_table = gtk_table_new(8, 9, FALSE);
+
+    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox), main_table, TRUE, TRUE, 0);
+
+    left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(left_alignmnet, 5, -1);
+    gtk_table_attach((GtkTable*)main_table, left_alignmnet,
+                                0, 1, 0, 8,
+                                GTK_FILL | GTK_EXPAND | GTK_SHRINK,
+                                (GtkAttachOptions)0, 0, 0 );
+
+    label_set = gtk_label_new(_("Zooming in popup window"));
+    set_font(label_set, NULL, 20);
+    //gtk_widget_set_size_request(label_set, 240, -1);
+    gtk_table_attach((GtkTable*)main_table, label_set,
+                                1, 2, 0, 1,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 0, 0 );
+
+    hbox_zooming = gtk_hbox_new(TRUE, 0);
+    group_period = NULL;
+
+    zoom1 = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(zoom1), gtk_label_new(("100%")));
+    gtk_widget_set_size_request(zoom1, 90, 60);
+    GLADE_HOOKUP_OBJECT(window, zoom1, "zoom1");
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(zoom1), FALSE);
+    gtk_box_pack_start (GTK_BOX (hbox_zooming), zoom1, TRUE, TRUE, 0);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(zoom1), group_period);
+
+    zoom2 = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(zoom2), gtk_label_new(("110%")));
+    gtk_widget_set_size_request(zoom2, 90, 70);
+    GLADE_HOOKUP_OBJECT(window, zoom2, "zoom2");
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(zoom2), FALSE);
+    group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(zoom1));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(zoom2), group_period);
+    gtk_box_pack_start (GTK_BOX (hbox_zooming), zoom2, TRUE, TRUE, 0);
+
+    zoom3 = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(zoom3), gtk_label_new(("130%")));
+    gtk_widget_set_size_request(zoom3, 90, 70);
+    GLADE_HOOKUP_OBJECT(window, zoom3, "zoom3");
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(zoom3), FALSE);
+    group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(zoom2));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(zoom3), group_period);
+    gtk_box_pack_start (GTK_BOX (hbox_zooming), zoom3, TRUE, TRUE, 0);
+
+    zoom4 = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(zoom4), gtk_label_new(("150%")));
+    gtk_widget_set_size_request(zoom4, 90, 70);
+    GLADE_HOOKUP_OBJECT(window, zoom4, "zoom4");
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(zoom4), FALSE);
+    group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(zoom3));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(zoom4), group_period);
+    gtk_box_pack_start (GTK_BOX (hbox_zooming), zoom4, TRUE, TRUE, 0);
+ 
+    zoom5 = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(zoom5), gtk_label_new(("180%")));
+    gtk_widget_set_size_request(zoom5, 90, 70);
+    GLADE_HOOKUP_OBJECT(window, zoom5, "zoom5");
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(zoom5), FALSE);
+    group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(zoom4));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(zoom5), group_period);
+    gtk_box_pack_start (GTK_BOX (hbox_zooming), zoom5, TRUE, TRUE, 0);
+  
+    zoom6 = gtk_radio_button_new(NULL);
+    gtk_container_add(GTK_CONTAINER(zoom6), gtk_label_new(("200%")));
+    gtk_widget_set_size_request(zoom6, 90, 70);
+    GLADE_HOOKUP_OBJECT(window, zoom5, "zoom6");
+    gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(zoom6), FALSE);
+    group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(zoom5));
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(zoom6), group_period);
+    gtk_box_pack_start (GTK_BOX (hbox_zooming), zoom6, TRUE, TRUE, 0);
+
+    switch (app->config->scale_in_popup){
+        case 
+              1:
+        default: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(zoom1), TRUE); break;
+        case  2: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(zoom2), TRUE); break;
+        case  3: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(zoom3), TRUE); break;
+        case  4: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(zoom4), TRUE); break;
+        case  5: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(zoom5), TRUE); break;
+        case  6: gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(zoom6), TRUE); break;
+    }
+
+
+    gtk_table_attach((GtkTable*)main_table, hbox_zooming,
+                                1, 5, 3, 4,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 20, 0 );
+
+    vertical1_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical1_alignmnet,
+                                0, 8, 2, 3,
+                                (GtkAttachOptions)0,
+                                GTK_FILL |  GTK_SHRINK,
+                                0, 0 );
+    vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1);
+    gtk_widget_set_size_request(vertical3_alignmnet, -1, 80);
+    gtk_table_attach((GtkTable*)main_table, vertical3_alignmnet,
+                                0, 8, 6, 7,
+                                (GtkAttachOptions)0,
+                                GTK_FILL |  GTK_SHRINK,
+                                0, 0 );
+
+    right_local_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1 );
+    gtk_widget_set_size_request(right_local_alignmnet, 350, -1);
+    gtk_table_attach((GtkTable*)main_table, right_local_alignmnet,
+                                3, 8, 7, 8,
+                                GTK_FILL | GTK_EXPAND,
+                                (GtkAttachOptions)0, 0, 0 );
+
+
+    gtk_dialog_add_button (GTK_DIALOG (window), _("Save"), GTK_RESPONSE_YES);
+    gtk_widget_show_all(window);
+
+    /* start dialog window */
+    result = gtk_dialog_run(GTK_DIALOG(window));
+    if(result == GTK_RESPONSE_YES)
+        extended_save(window);
+    if(window)
+        gtk_widget_destroy(window);
+
+    extended_button = (gpointer)(g_object_get_data(G_OBJECT(button), "extended_button"));
+    gtk_widget_destroy(extended_button);
+    create_and_fill_extended_box((gpointer)user_data);
+
+#ifdef DEBUGFUNCTIONCALL
+   END_FUNCTION;
+#endif
+}
+
+/*******************************************************************************/
 
 /*******************************************************************************/
 GtkWidget*
@@ -2496,7 +2702,7 @@ create_and_fill_units_box(GtkWidget *main_table){
     units_button = create_button_with_2_line_text(_("Units"), units_string, 18, 12);
     g_free(units_string);
 
-    gtk_widget_set_size_request(units_button, 490, 70);
+    gtk_widget_set_size_request(units_button, 490, 65);
     gtk_table_attach((GtkTable*)main_table, units_button,
                                 1, 2, 3, 4, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
@@ -2511,6 +2717,49 @@ create_and_fill_units_box(GtkWidget *main_table){
 
 }
 /*******************************************************************************/
+void
+create_and_fill_extended_box(GtkWidget *main_table){
+    GtkWidget       *update_button = NULL;
+    gchar           *output_string = NULL;
+    gchar           *temp_string = NULL;
+#ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+    temp_string = g_strdup(_("Zoom in popup window ")); 
+    switch (app->config->scale_in_popup){
+        case 
+              1:
+        default: output_string = g_strjoin(temp_string, "100%", NULL); break;
+        case  2: output_string = g_strjoin(temp_string, "110%", NULL); break;
+        case  3: output_string = g_strjoin(temp_string, "130%", NULL); break;
+        case  4: output_string = g_strjoin(temp_string, "150%", NULL); break;
+        case  5: output_string = g_strjoin(temp_string, "170%", NULL); break;
+        case  6: output_string = g_strjoin("   ", temp_string, "200%", NULL); break;
+    }
+
+    g_free(temp_string);
+    update_button = create_button_with_2_line_text(_("Extended settings"), output_string, 18, 12);
+    g_free(output_string);
+
+    gtk_widget_set_size_request(update_button, 490, 65);
+    gtk_widget_show (update_button);
+    gtk_table_attach((GtkTable*)main_table, update_button,
+                                1, 2, 9, 10, (GtkAttachOptions)0,
+                                (GtkAttachOptions)0, 0, 0 );
+
+    gtk_widget_show (update_button);
+    gtk_widget_show (main_table);
+    g_object_set_data(G_OBJECT(update_button), "settings_window_table", (gpointer)main_table);
+    g_object_set_data(G_OBJECT(update_button), "extended_button", (gpointer)update_button);
+    g_signal_connect(G_OBJECT(update_button), "button-release-event",
+                                 G_CALLBACK(extended_button_handler), (gpointer)main_table);
+#ifdef DEBUGFUNCTIONCALL
+    END_FUNCTION;
+#endif
+
+}
+/*******************************************************************************/
+
 void
 create_and_fill_update_box(GtkWidget *main_table){
     GtkWidget       *update_button = NULL;
@@ -2557,7 +2806,7 @@ create_and_fill_update_box(GtkWidget *main_table){
     update_button = create_button_with_2_line_text(Q_("Preference|Update"), update_string, 18, 12);
     g_free(update_string);
 
-    gtk_widget_set_size_request(update_button, 490, 70);
+    gtk_widget_set_size_request(update_button, 490, 65);
     gtk_widget_show (update_button);
     gtk_table_attach((GtkTable*)main_table, update_button,
                                 1, 2, 7, 8, (GtkAttachOptions)0,
@@ -2665,7 +2914,7 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
     gtk_container_add (GTK_CONTAINER (widget_style_button), widget_style_hbox);
 
 #endif
-    gtk_widget_set_size_request(widget_style_button, 490, 70);
+    gtk_widget_set_size_request(widget_style_button, 490, 65);
     gtk_widget_show (widget_style_button);
     gtk_table_attach((GtkTable*)main_table, widget_style_button,
                                 1, 2, 5, 6, (GtkAttachOptions)0,
@@ -2718,7 +2967,7 @@ weather_simple_window_settings(gpointer user_data){
     gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
     gtk_window_set_modal(GTK_WINDOW(window), TRUE);
 
-    main_table = gtk_table_new(4,9, FALSE);
+    main_table = gtk_table_new(4,11, FALSE);
     stations_box = create_and_fill_stations_buttons(main_table);
     g_object_set_data(G_OBJECT(main_table), "stations_box", (gpointer)stations_box);
     additional_table = gtk_table_new(1,3, FALSE);
@@ -2738,7 +2987,7 @@ weather_simple_window_settings(gpointer user_data){
     gtk_widget_show (stations_area);
     gtk_widget_show (additional_table);
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
-                       stations_area, TRUE, TRUE, 10);
+                       stations_area, TRUE, TRUE, 0);
     gtk_widget_show (stations_box);
     gtk_widget_set_size_request(stations_area, -1, 90);
 #else
@@ -2751,7 +3000,7 @@ weather_simple_window_settings(gpointer user_data){
     gtk_widget_show (left_alignmnet);
 
     vertical0_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(vertical0_alignmnet, -1, 20);
+    gtk_widget_set_size_request(vertical0_alignmnet, -1, 15);
     gtk_table_attach((GtkTable*)main_table, vertical0_alignmnet,
                                 0, 3, 0, 1,
                                 (GtkAttachOptions)0,
@@ -2765,7 +3014,7 @@ weather_simple_window_settings(gpointer user_data){
     gtk_widget_show (stations_box);
 
     vertical1_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);
+    gtk_widget_set_size_request(vertical1_alignmnet, -1, 15);
     gtk_table_attach((GtkTable*)main_table, vertical1_alignmnet,
                                 0, 3, 2, 3,
                                 (GtkAttachOptions)0,
@@ -2777,7 +3026,7 @@ weather_simple_window_settings(gpointer user_data){
     create_and_fill_units_box(main_table);
 
     vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(vertical2_alignmnet, -1, 20);
+    gtk_widget_set_size_request(vertical2_alignmnet, -1, 15);
     gtk_table_attach((GtkTable*)main_table, vertical2_alignmnet,
                                 0, 3, 4, 5,
                                 (GtkAttachOptions)0,
@@ -2798,7 +3047,7 @@ weather_simple_window_settings(gpointer user_data){
     create_and_fill_widget_style_box(main_table);
 
     vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(vertical3_alignmnet, -1, 20);
+    gtk_widget_set_size_request(vertical3_alignmnet, -1, 15);
     gtk_table_attach((GtkTable*)main_table, vertical3_alignmnet,
                                 0, 6, 6, 7,
                                 (GtkAttachOptions)0,
@@ -2807,6 +3056,7 @@ weather_simple_window_settings(gpointer user_data){
     gtk_widget_show (vertical3_alignmnet);
 
     create_and_fill_update_box(main_table);
+
 
 /*    update_button = gtk_button_new_with_label (_("Update"));
     gtk_widget_set_size_request(update_button, 490, 70);
@@ -2819,13 +3069,15 @@ weather_simple_window_settings(gpointer user_data){
                            G_CALLBACK(update_button_handler), (gpointer)main_table);
 */
     vertical4_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(vertical4_alignmnet, -1, 20);
+    gtk_widget_set_size_request(vertical4_alignmnet, -1, 15);
     gtk_table_attach((GtkTable*)main_table, vertical4_alignmnet,
                                 0, 6, 8, 9,
                                 (GtkAttachOptions)0,
                                 GTK_FILL | GTK_EXPAND | GTK_SHRINK,
                                 0, 0 );
     gtk_widget_show (vertical4_alignmnet);
+
+    create_and_fill_extended_box(main_table);
 
     right_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
     gtk_widget_set_size_request(right_alignmnet, 5, -1);

@@ -292,6 +292,8 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                     hi_temp,
                     low_temp;
     struct tm       tmp_time_date_struct = {0};
+    gint            font_size = 12;
+    gint            icon_size = 12;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -336,10 +338,20 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             *buffer = 0;
             snprintf(icon, sizeof(icon) - 1, "%s%s.png", app->config->icons_set_base,
                         (char*)g_hash_table_lookup(day, "day_icon"));
-            icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, SMALL_ICON_SIZE,
-                                                            SMALL_ICON_SIZE, NULL);
+            switch (app->config->scale_in_popup){
+                default:
+                case 1: icon_size = SMALL_ICON_SIZE; break;
+                case 2: icon_size = MEDIUM_ICON_SIZE; break;
+                case 3: icon_size = BIG_ICON_SIZE; break;
+                case 4: icon_size = LARGE_ICON_SIZE; break;
+                case 5: icon_size = GIANT_ICON_SIZE; break;
+                case 6: icon_size = SUPER_GIANT_ICON_SIZE; break;
+            }
+            icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, icon_size,
+                                                           icon_size, NULL);
+
 /*            icon_image = create_icon_widget(icon_buffer, icon, SMALL_ICON_SIZE, &app->clutter_objects_in_popup_form); */
-            icon_image = create_icon_widget(icon_buffer, icon, SMALL_ICON_SIZE, NULL);
+            icon_image = create_icon_widget(icon_buffer, icon, icon_size, NULL);
             if(icon_image){
                 gtk_box_pack_start(GTK_BOX(line_hbox), icon_image, FALSE, TRUE, 0);
                 gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
@@ -459,7 +471,17 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             line_text = gtk_label_new(NULL);
             gtk_label_set_justify(GTK_LABEL(line_text), GTK_JUSTIFY_FILL);
             gtk_label_set_markup(GTK_LABEL(line_text), buffer);
-            set_font(line_text, NULL, 12);
+	        switch (app->config->scale_in_popup){
+                case 2: font_size = 14; break;     
+                case 3: font_size = 16; break;
+                case 4: font_size = 18; break;
+                case 5: font_size = 20; break;
+	            case 6: font_size = 24; break;
+                case 1:  	      
+                default: font_size = 12; break;
+            }
+            set_font(line_text, NULL, font_size);
+
             gtk_box_pack_start(GTK_BOX(line_hbox), line_text, FALSE, TRUE, 10);
 
             if(day_number == i)

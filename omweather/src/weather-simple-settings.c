@@ -1925,7 +1925,7 @@ extended_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_
     zoom6 = gtk_radio_button_new(NULL);
     gtk_container_add(GTK_CONTAINER(zoom6), gtk_label_new(("200%")));
     gtk_widget_set_size_request(zoom6, 90, 70);
-    GLADE_HOOKUP_OBJECT(window, zoom5, "zoom6");
+    GLADE_HOOKUP_OBJECT(window, zoom6, "zoom6");
     gtk_toggle_button_set_mode(GTK_TOGGLE_BUTTON(zoom6), FALSE);
     group_period = gtk_radio_button_get_group(GTK_RADIO_BUTTON(zoom5));
     gtk_radio_button_set_group(GTK_RADIO_BUTTON(zoom6), group_period);
@@ -2733,7 +2733,7 @@ create_and_fill_extended_box(GtkWidget *main_table){
         case  2: output_string = g_strjoin(temp_string, "110%", NULL); break;
         case  3: output_string = g_strjoin(temp_string, "130%", NULL); break;
         case  4: output_string = g_strjoin(temp_string, "150%", NULL); break;
-        case  5: output_string = g_strjoin(temp_string, "170%", NULL); break;
+        case  5: output_string = g_strjoin(temp_string, "180%", NULL); break;
         case  6: output_string = g_strjoin("   ", temp_string, "200%", NULL); break;
     }
 

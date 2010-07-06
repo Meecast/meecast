@@ -39,9 +39,8 @@ jump_panarea(gpointer user_data){
     START_FUNCTION;
 #endif
 #if defined OS2009
-    if ((gpointer) g_object_get_data(G_OBJECT(user_data), "length_of_jump")){
+    if ((gpointer) g_object_get_data(G_OBJECT(user_data), "length_of_jump"))
          hildon_pannable_area_scroll_to(HILDON_PANNABLE_AREA (user_data),-1, GPOINTER_TO_INT (g_object_get_data(G_OBJECT(user_data), "length_of_jump")));
-    }
     else
     if ((GtkWidget*) g_object_get_data(G_OBJECT(user_data), "selected_widget"))
         hildon_pannable_area_scroll_to_child(HILDON_PANNABLE_AREA (user_data),((GtkWidget*) g_object_get_data(G_OBJECT(user_data), "selected_widget")));
@@ -274,6 +273,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                     *line_text = NULL,
                     *line = NULL,
                     *label = NULL,
+                    *previos_separator = NULL,
 #if !defined OS2009
                     *vscrollbar = NULL,
 #endif
@@ -294,6 +294,19 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
     struct tm       tmp_time_date_struct = {0};
     gint            font_size = 12;
     gint            icon_size = 12;
+    gint                length_to_selected = 1;
+    gint                pre_length_to_selected = 1;
+    gint                offset = 0,
+                        offset1 = 0,
+                        offset2 = 0,
+                        offset3 = 0,
+                        offset4 = 0,
+                        offset5 = 0,
+                        offset6 = 0,
+                        whole_offset = 180,
+                        offset_default = 0;
+    GtkRequisition      requisition;
+
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -471,27 +484,96 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             line_text = gtk_label_new(NULL);
             gtk_label_set_justify(GTK_LABEL(line_text), GTK_JUSTIFY_FILL);
             gtk_label_set_markup(GTK_LABEL(line_text), buffer);
+
 	        switch (app->config->scale_in_popup){
                 case 2: font_size = 14; break;     
                 case 3: font_size = 16; break;
                 case 4: font_size = 18; break;
-                case 5: font_size = 20; break;
+                case 5: font_size = 21; break;
 	            case 6: font_size = 24; break;
                 case 1:  	      
                 default: font_size = 12; break;
             }
+ 
             set_font(line_text, NULL, font_size);
 
             gtk_box_pack_start(GTK_BOX(line_hbox), line_text, FALSE, TRUE, 10);
 
-            if(day_number == i)
-                g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)separator);
+            /* Calculate ofset for jump */
+        gtk_widget_size_request (line_text, &requisition);
+        pre_length_to_selected = length_to_selected;
+        length_to_selected = length_to_selected + requisition.height;
+        gtk_widget_size_request (separator, &requisition);
+        length_to_selected = length_to_selected + requisition.height;
+        fprintf(stderr,"length_to_selected %i\n",length_to_selected);
+
+        if(day_number == i + 1){
+	        switch (app->config->scale_in_popup){
+                case 2:  
+                        offset2 = 70; 
+                        offset3 = 45; 
+                        offset4 = 45; 
+                        offset5 = 45; 
+                        offset_default = 45; 
+                        break;     
+                case 3:  
+                        offset2 = 90; 
+                        offset3 = 55; 
+                        offset4 = 55; 
+                        offset5 = 55; 
+                        offset_default = 55; 
+                        break;
+                case 4:  
+                        offset2 = 95; 
+                        offset3 = 70; 
+                        offset4 = 70; 
+                        offset5 = 70; 
+                        offset_default = 70; 
+                        break;
+                case 5:  
+                        offset2 = 190; 
+                        offset3 = 100; 
+                        offset4 = 100; 
+                        offset5 = 100; 
+                        offset_default = 100; 
+                        break;
+	            case 6: font_size = 24; break;
+                case 1:  	      
+                default:
+                         
+                        offset2 = 60; 
+                        offset3 = 35; 
+                        offset4 = 35; 
+                        offset5 = 35; 
+                        offset_default = 35; 
+                         break;
+
+            }
+            previos_separator = separator;
+            switch (i){
+                case 0: break;
+//                case 1: if (current_widget && current) 
+//                            pre_length_to_selected = 0; 
+//                        break;
+                case 2: offset = offset2;break;
+                case 3: offset = i*offset3;break;
+                case 4: offset = i*offset4;break;
+                case 5: offset = i*offset5;break;
+                default: offset = i*offset_default;break;
+            }
+ 
+           g_object_set_data(G_OBJECT(scrolled_window), "length_of_jump", 
+                   GINT_TO_POINTER(pre_length_to_selected+offset + whole_offset));
+        }
+        
+        //    if(day_number == i)
+        //        g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)separator);
             /* next day */
             days = g_slist_next(days);
             i++;
         }
-	if(day_number == i)
-                g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)separator);
+//	if(day_number == i)
+//                g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)separator);
     }
     else{ /* no weather data */
         gtk_box_pack_start(GTK_BOX(main_vbox),

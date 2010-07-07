@@ -306,6 +306,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                         whole_offset = 180,
                         offset_default = 0;
     GtkRequisition      requisition;
+    gboolean         hyphenation;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -333,6 +334,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
     days = (GSList*)g_hash_table_lookup(app->station_data, "forecast");
     if(days){
         while(days){
+            hyphenation = FALSE;
             day = (GHashTable*)(days->data);
             line = gtk_button_new();
             gtk_button_set_focus_on_click(GTK_BUTTON(line), FALSE);
@@ -421,6 +423,12 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             if(g_hash_table_lookup(day, "day_title"))
                 snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%s, ",
                             (char*)hash_table_find(g_hash_table_lookup(day, "day_title"), FALSE));
+            
+            if ((app->config->scale_in_popup > 3 && strlen(tmp) > 65)|| app->config->scale_in_popup == 6)
+                hyphenation = TRUE;
+            if (hyphenation)
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"\n    ");
+            
             /* wind speed */
             if(g_hash_table_lookup(day, "day_wind_speed"))
                 switch(app->config->wind_units){
@@ -455,6 +463,10 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             if(g_hash_table_lookup(day, "night_title"))
                 snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%s, ",
                             (char*)hash_table_find(g_hash_table_lookup(day, "night_title"), FALSE));
+
+            if (hyphenation)
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"\n    ");
+ 
             /* wind speed */
             if(g_hash_table_lookup(day, "night_wind_speed"))
                 switch(app->config->wind_units){
@@ -505,10 +517,8 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
         length_to_selected = length_to_selected + requisition.height;
         gtk_widget_size_request (separator, &requisition);
         length_to_selected = length_to_selected + requisition.height;
-        fprintf(stderr,"length_to_selected %i\n",length_to_selected);
 
         if(day_number == i + 1){
-            fprintf(stderr, "day number %i\n", day_number);
 	        switch (app->config->scale_in_popup){
                 case 2:  
                         offset2 = 70; 

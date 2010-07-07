@@ -1,4 +1,4 @@
-omweather (0.27.14) unstable; urgency=low
+omweather (0.28) unstable; urgency=low
 
   * Updated Finish, Spain, Russian translations
   * Fixed problem with correct jump to selected day in popup window 

@@ -508,43 +508,30 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
         fprintf(stderr,"length_to_selected %i\n",length_to_selected);
 
         if(day_number == i + 1){
+            fprintf(stderr, "day number %i\n", day_number);
 	        switch (app->config->scale_in_popup){
                 case 2:  
                         offset2 = 70; 
-                        offset3 = 45; 
-                        offset4 = 45; 
-                        offset5 = 45; 
                         offset_default = 45; 
                         break;     
                 case 3:  
                         offset2 = 90; 
-                        offset3 = 55; 
-                        offset4 = 55; 
-                        offset5 = 55; 
                         offset_default = 55; 
                         break;
                 case 4:  
                         offset2 = 95; 
-                        offset3 = 70; 
-                        offset4 = 70; 
-                        offset5 = 70; 
                         offset_default = 70; 
                         break;
                 case 5:  
                         offset2 = 190; 
-                        offset3 = 100; 
-                        offset4 = 100; 
-                        offset5 = 100; 
                         offset_default = 100; 
                         break;
-	            case 6: font_size = 24; break;
+	            case 6: offset2 = 420; 
+                        offset_default = 230;
+                        break;
                 case 1:  	      
                 default:
-                         
                         offset2 = 60; 
-                        offset3 = 35; 
-                        offset4 = 35; 
-                        offset5 = 35; 
                         offset_default = 35; 
                          break;
 
@@ -556,9 +543,6 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
 //                            pre_length_to_selected = 0; 
 //                        break;
                 case 2: offset = offset2;break;
-                case 3: offset = i*offset3;break;
-                case 4: offset = i*offset4;break;
-                case 5: offset = i*offset5;break;
                 default: offset = i*offset_default;break;
             }
  

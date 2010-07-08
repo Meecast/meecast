@@ -530,14 +530,14 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                         break;
                 case 4:  
                         offset2 = 95; 
-                        offset_default = 70; 
+                        offset_default = 73; 
                         break;
                 case 5:  
                         offset2 = 190; 
-                        offset_default = 100; 
+                        offset_default = 105; 
                         break;
 	            case 6: offset2 = 420; 
-                        offset_default = 220;
+                        offset_default = 210;
                         break;
                 case 1:  	      
                 default:

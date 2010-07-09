@@ -755,7 +755,8 @@ create_pseudo_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
 /*******************************************************************************/
 GtkWidget*
 create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
-    const gint  font_size = 13;
+    gint        font_size = 13,
+                icon_size = BIG_ICON_SIZE; 
     GtkWidget   *main_widget = NULL,
                 *day_condition = NULL,
                 *night_condition = NULL,
@@ -797,6 +798,27 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
 #endif
     if(!day && !current)
         return NULL;
+    /* prepare font size for Fremantle */
+#ifdef OS2009
+    switch (app->config->scale_in_popup){
+        case 2: font_size = 14; break;     
+        case 3: font_size = 16; break;
+        case 4: font_size = 18; break;
+        case 5: font_size = 21; break;
+        case 6: font_size = 24; break;
+        case 1:  	      
+        default: font_size = 13; break;
+    }
+    switch (app->config->scale_in_popup){
+        default:
+        case 1: icon_size = SMALL_ICON_SIZE; break;
+        case 2: icon_size = MEDIUM_ICON_SIZE; break;
+        case 3: icon_size = BIG_ICON_SIZE; break;
+        case 4: icon_size = LARGE_ICON_SIZE; break;
+        case 5: icon_size = GIANT_ICON_SIZE; break;
+        case 6: icon_size = SUPER_GIANT_ICON_SIZE; break;
+    }
+#endif
     /* prepare temperature */
     if(!g_hash_table_lookup(day, "day_hi_temperature") ||
             !strcmp(g_hash_table_lookup(day, "day_hi_temperature"), "N/A")){
@@ -837,7 +859,12 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
         set_font(title, NULL, font_size + 2);
     }
     /* create 24 hours data widget */
-    day_night_hbox = gtk_hbox_new(FALSE, 10);
+#ifdef OS2009
+    if (icon_size == SUPER_GIANT_ICON_SIZE)
+        day_night_hbox = gtk_vbox_new(FALSE, 5);
+    else
+#endif
+        day_night_hbox = gtk_hbox_new(FALSE, 1);
     /* add day  items to main widget */
     /* check for N/A fields in day */
     if(g_hash_table_lookup(day, "day_title") &&
@@ -876,17 +903,15 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
         /* hbox for icon and text */
         day_icon_text_hbox = gtk_hbox_new(FALSE, 0);
         gtk_box_pack_start(GTK_BOX(day_vbox),
-                            day_icon_text_hbox, TRUE, TRUE, 0);
+                            day_icon_text_hbox, FALSE, TRUE, 0);
         /* day icon */
         update_icons_set_base(NULL);
         memset(buffer, 0, sizeof(buffer));
         sprintf(buffer, "%s%s.png", app->config->icons_set_base,
                     (char*)g_hash_table_lookup(day, "day_icon"));
-        icon = gdk_pixbuf_new_from_file_at_size(buffer,
-                            BIG_ICON_SIZE,
-                            BIG_ICON_SIZE, NULL);
+        icon = gdk_pixbuf_new_from_file_at_size(buffer, icon_size, icon_size, NULL);
 //        day_icon = create_icon_widget(icon, buffer, BIG_ICON_SIZE, &app->clutter_objects_in_popup_form);
-        day_icon = create_icon_widget(icon, buffer, BIG_ICON_SIZE, NULL);
+        day_icon = create_icon_widget(icon, buffer, icon_size, NULL);
         gtk_box_pack_start(GTK_BOX(day_icon_text_hbox),
                             day_icon, TRUE, TRUE, 5);
         /* prepare day text */
@@ -974,7 +999,7 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
         gtk_box_pack_start(GTK_BOX(day_text_vbox),
                         day_text, TRUE, TRUE, 0);
         gtk_box_pack_start(GTK_BOX(day_night_hbox),
-                        day_vbox, TRUE, FALSE, 5);
+                        day_vbox, TRUE, FALSE, 1);
     }
     /* night data */
     night_vbox = gtk_vbox_new(FALSE, 0);
@@ -1006,11 +1031,9 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     memset(buffer, 0, sizeof(buffer));
     sprintf(buffer, "%s%s.png", app->config->icons_set_base,
                 (char*)g_hash_table_lookup(day, "night_icon"));
-    icon = gdk_pixbuf_new_from_file_at_size(buffer,
-                        BIG_ICON_SIZE,
-                        BIG_ICON_SIZE, NULL);
+    icon = gdk_pixbuf_new_from_file_at_size(buffer, icon_size, icon_size, NULL);
 //    night_icon = create_icon_widget(icon, buffer, BIG_ICON_SIZE, &app->clutter_objects_in_popup_form);
-    night_icon = create_icon_widget(icon, buffer, BIG_ICON_SIZE, NULL);
+    night_icon = create_icon_widget(icon, buffer, icon_size, NULL);
     gtk_box_pack_start(GTK_BOX(night_icon_text_hbox),
                             night_icon, TRUE, TRUE, 5);
     /* prepare night text */

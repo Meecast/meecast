@@ -746,7 +746,6 @@ msgid "Freezing Drizzle"
 msgstr "Jäätävää tihkusadetta"
 
 #: src/weather-help.c:142
-#, fuzzy
 msgid ""
 "French - Nicolas Granziano, Philippe, Benot Knecht\n"
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
@@ -756,7 +755,7 @@ msgid ""
 "Spanish - Alejandro Lopez\n"
 "Polish - Tomasz Dominikowski\n"
 msgstr ""
-"Ranska - Nicolas Granziano, Philippe \n"
+"Ranska - Nicolas Granziano, Philippe, Benot Knech\n"
 "Venäjä - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
 "Suomi - Marko Vertainen\n"
 "Saksa - Claudius Henrichs\n"

@@ -708,7 +708,6 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
         /* If activited day and not current weather */
         if(day_number  == i && !(i == 0 && current_widget && current)){
             g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)previos_separator);
-            fprintf(stderr,"oooooooooo %i\n", app->config->scale_in_popup);
             switch (app->config->scale_in_popup){
                 case 2:  
                         offset1 = 110; 
@@ -873,6 +872,8 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
     gboolean        flag = FALSE,
                     new_day = FALSE;
     struct tm       *gmt;
+    gint            font_size = 12;
+    gint            icon_size = SMALL_ICON_SIZE;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -881,6 +882,7 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
     /* scrolled window */
 #if defined OS2009
     scrolled_window = hildon_pannable_area_new ();
+    g_object_set(G_OBJECT(scrolled_window), "mov-mode", HILDON_MOVEMENT_MODE_BOTH, NULL);
     hildon_pannable_area_add_with_viewport(HILDON_PANNABLE_AREA (scrolled_window), GTK_WIDGET (main_vbox));
 #else
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);
@@ -961,13 +963,21 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                 update_icons_set_base(NULL);
                 sprintf(buffer,"%s%s.png", app->config->icons_set_base,
                            (char*)g_hash_table_lookup(hour_weather, "hour_icon"));
-                icon = gdk_pixbuf_new_from_file_at_size(buffer, SMALL_ICON_SIZE,
-                                                      SMALL_ICON_SIZE, NULL);
-/*                icon_image = create_icon_widget(icon, buffer, SMALL_ICON_SIZE,
-                            &app->clutter_objects_in_popup_form);
-*/
-                icon_image = create_icon_widget(icon, buffer, SMALL_ICON_SIZE,
-                                             NULL);
+                switch (app->config->scale_in_popup){
+                    default:
+                    case 1: icon_size = SMALL_ICON_SIZE; break;
+                    case 2: icon_size = MEDIUM_ICON_SIZE; break;
+                    case 3: icon_size = BIG_ICON_SIZE; break;
+                    case 4: icon_size = LARGE_ICON_SIZE; break;
+                    case 5: icon_size = GIANT_ICON_SIZE; break;
+                    case 6: icon_size = SUPER_GIANT_ICON_SIZE; break;
+                }
+                icon = gdk_pixbuf_new_from_file_at_size(buffer, icon_size,
+                                                           icon_size, NULL);
+
+/*            icon_image = create_icon_widget(icon_buffer, icon, SMALL_ICON_SIZE, &app->clutter_objects_in_popup_form); */
+                icon_image = create_icon_widget(icon, buffer, icon_size, NULL);
+
                 if(icon_image){
                     gtk_box_pack_start(GTK_BOX(line_hbox), icon_image, FALSE, TRUE, 0);
                     gtk_box_pack_start(GTK_BOX(main_vbox), line, TRUE, TRUE, 0);
@@ -1051,7 +1061,18 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                 line_text = gtk_label_new(NULL);
                 gtk_label_set_justify(GTK_LABEL(line_text), GTK_JUSTIFY_FILL);
                 gtk_label_set_markup(GTK_LABEL(line_text), buffer);
-                set_font(line_text, NULL, 12);
+
+                switch (app->config->scale_in_popup){
+                    case 2: font_size = 14; break;     
+                    case 3: font_size = 16; break;
+                    case 4: font_size = 18; break;
+                    case 5: font_size = 21; break;
+                    case 6: font_size = 24; break;
+                    case 1:  	      
+                    default: font_size = 12; break;
+                }
+                set_font(line_text, NULL, font_size);
+
                 gtk_box_pack_start(GTK_BOX(line_hbox), line_text, FALSE, TRUE, 10);
                 gtk_box_pack_start(GTK_BOX(main_vbox), gtk_hseparator_new(), FALSE, TRUE, 0);
                 hours_weather = g_slist_next(hours_weather);

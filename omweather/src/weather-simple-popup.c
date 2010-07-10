@@ -314,6 +314,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
     main_vbox = gtk_vbox_new(FALSE, 5);
 #if defined OS2009
     scrolled_window = hildon_pannable_area_new ();
+    g_object_set(G_OBJECT(scrolled_window), "mov-mode", HILDON_MOVEMENT_MODE_BOTH, NULL);
     hildon_pannable_area_add_with_viewport(HILDON_PANNABLE_AREA (scrolled_window), GTK_WIDGET (main_vbox));
 #else
     /* scrolled window */
@@ -617,6 +618,7 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
     /* scrolled window */
 #if defined OS2009
     scrolled_window = hildon_pannable_area_new();
+    g_object_set(G_OBJECT(scrolled_window), "mov-mode", HILDON_MOVEMENT_MODE_BOTH, NULL);
     hildon_pannable_area_add_with_viewport(HILDON_PANNABLE_AREA(scrolled_window), GTK_WIDGET(main_vbox));
 #else
     scrolled_window = gtk_scrolled_window_new(NULL, NULL);

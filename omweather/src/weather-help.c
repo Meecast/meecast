@@ -139,7 +139,7 @@ void create_about_dialog(void){
                              gtk_label_new(_("Thanks")));
 /* Translators tab */
     snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s",
-             _("French - Nicolas Granziano, Philippe \n"
+             _("French - Nicolas Granziano, Philippe, Benot Knecht\n"
                "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
                "Finnish - Marko Vertainen\n"
                "German - Claudius Henrichs\n"

@@ -2738,7 +2738,7 @@ create_and_fill_extended_box(GtkWidget *main_table){
     }
 
     g_free(temp_string);
-    update_button = create_button_with_2_line_text(_("Extended settings"), output_string, 18, 12);
+    update_button = create_button_with_2_line_text(_("Extended Settings"), output_string, 18, 12);
     g_free(output_string);
 
     gtk_widget_set_size_request(update_button, 490, 65);

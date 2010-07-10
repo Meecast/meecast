@@ -513,52 +513,52 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             gtk_box_pack_start(GTK_BOX(line_hbox), line_text, FALSE, TRUE, 10);
 
             /* Calculate ofset for jump */
-        gtk_widget_size_request (line_text, &requisition);
-        pre_length_to_selected = length_to_selected;
-        length_to_selected = length_to_selected + requisition.height;
-        gtk_widget_size_request (separator, &requisition);
-        length_to_selected = length_to_selected + requisition.height;
+            gtk_widget_size_request (line_text, &requisition);
+            pre_length_to_selected = length_to_selected;
+            length_to_selected = length_to_selected + requisition.height;
+            gtk_widget_size_request (separator, &requisition);
+            length_to_selected = length_to_selected + requisition.height;
 
-        if(day_number == i + 1){
-	        switch (app->config->scale_in_popup){
-                case 2:  
-                        offset2 = 70; 
-                        offset_default = 45; 
-                        break;     
-                case 3:  
-                        offset2 = 90; 
-                        offset_default = 55; 
-                        break;
-                case 4:  
-                        offset2 = 95; 
-                        offset_default = 73; 
-                        break;
-                case 5:  
-                        offset2 = 190; 
-                        offset_default = 105; 
-                        break;
-	            case 6: offset2 = 420; 
-                        offset_default = 210;
-                        break;
-                case 1:  	      
-                default:
-                        offset2 = 60; 
-                        offset_default = 35; 
-                         break;
+            if(day_number == i + 1){
+                switch (app->config->scale_in_popup){
+                    case 2:  
+                            offset2 = 70; 
+                            offset_default = 45; 
+                            break;     
+                    case 3:  
+                            offset2 = 90; 
+                            offset_default = 55; 
+                            break;
+                    case 4:  
+                            offset2 = 95; 
+                            offset_default = 73; 
+                            break;
+                    case 5:  
+                            offset2 = 190; 
+                            offset_default = 105; 
+                            break;
+                    case 6: offset2 = 420; 
+                            offset_default = 210;
+                            break;
+                    case 1:  	      
+                    default:
+                            offset2 = 60; 
+                            offset_default = 35; 
+                             break;
 
-            }
-            previos_separator = separator;
-            switch (i){
-                case 0: break;
-//                case 1: if (current_widget && current) 
-//                            pre_length_to_selected = 0; 
-//                        break;
-                case 2: offset = offset2;break;
-                default: offset = i*offset_default;break;
-            }
- 
-           g_object_set_data(G_OBJECT(scrolled_window), "length_of_jump", 
-                   GINT_TO_POINTER(pre_length_to_selected+offset + whole_offset));
+                }
+                previos_separator = separator;
+                switch (i){
+                    case 0: break;
+    //                case 1: if (current_widget && current) 
+    //                            pre_length_to_selected = 0; 
+    //                        break;
+                    case 2: offset = offset2;break;
+                    default: offset = i*offset_default;break;
+                }
+     
+               g_object_set_data(G_OBJECT(scrolled_window), "length_of_jump", 
+                       GINT_TO_POINTER(pre_length_to_selected+offset + whole_offset));
         }
         
         //    if(day_number == i)
@@ -610,6 +610,13 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
     gint                length_to_selected = 1;
     gint                pre_length_to_selected = 1;
     gint                offset = 0;
+    gint                offset1 = 0;
+    gint                offset2 = 0;
+    gint                offset3 = 0;
+    gint                offset4 = 0;
+    gint                offset5 = 0;
+    gint                offset_default = 0;
+    gint                whole_offset = 0;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -699,29 +706,93 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
         if(day_number == i && !(i == 0 && current_widget && current))
             previos_separator = separator;
         /* If activited day and not current weather */
-        if(day_number + 1 == i && !(i == 0 && current_widget && current)){
+        if(day_number  == i && !(i == 0 && current_widget && current)){
             g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)previos_separator);
+            fprintf(stderr,"oooooooooo %i\n", app->config->scale_in_popup);
+            switch (app->config->scale_in_popup){
+                case 2:  
+                        offset1 = 110; 
+                        offset2 = 190; 
+                        offset3 = 95; 
+                        offset4 = 95; 
+                        offset5 = 90; 
+                        offset_default = 88;   
+                        whole_offset = 140;
+                        break;     
+                case 3:  
+                        offset1 = 140; 
+                        offset2 = 240; 
+                        offset3 = 130; 
+                        offset4 = 125; 
+                        offset5 = 120; 
+                        offset_default = 120; 
+                        whole_offset = 140;
+                        break;
+                case 4:  
+                        offset1 = 175; 
+                        offset2 = 310; 
+                        offset3 = 160; 
+                        offset4 = 150; 
+                        offset5 = 150; 
+                        offset_default = 150; 
+                        whole_offset = 140;
+                        break;
+                case 5:  
+                        offset1 = 195; 
+                        offset2 = 360; 
+                        offset3 = 170; 
+                        offset4 = 170; 
+                        offset5 = 170; 
+                        offset_default = 165; 
+                        whole_offset = 140;
+                        break;
+                case 6: 
+                        offset1 = 155;
+                        offset2 = 300;
+                        offset3 = 130; 
+                        offset4 = 130; 
+                        offset5 = 130; 
+                        offset_default = 130;
+                        whole_offset = 140;
+                        break;
+                case 1:  	      
+                default:
+                        offset1 = 251; 
+                        offset2 = 310; 
+                        offset3 = 130; 
+                        offset4 = 115; 
+                        offset5 = 105; 
+                        offset_default = 95; 
+                        break;
+
+            }
+
             switch (i){
-                case 0: break;
+                case 0: whole_offset = 0;break;
                 case 1: if (current_widget && current) 
                             pre_length_to_selected = 0; 
+                            offset = offset1;
                         break;
-                case 2: offset = 45;break;
-                case 3: offset = i*44;break;
-                case 4: offset = i*45;break;
-                case 5: offset = i*45;break;
-                default: offset = i*51;break;
+                case 2: offset = offset2;break;
+                case 3: offset = i*offset3;break;
+                case 4: offset = i*offset4;break;
+                case 5: offset = i*offset5;break;
+                default: offset = i*offset_default;break;
             }
-            g_object_set_data(G_OBJECT(scrolled_window), "length_of_jump", GINT_TO_POINTER(pre_length_to_selected+offset));
+            g_object_set_data(G_OBJECT(scrolled_window), "length_of_jump", GINT_TO_POINTER(pre_length_to_selected+offset + whole_offset));
         }
-        if(day_number == Max_count_weather_day - 1 && i == Max_count_weather_day - 1){
+        if (day_number == Max_count_weather_day - 1 && i == Max_count_weather_day - 1){
             g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)line);
         }
         tmp = g_slist_next(tmp);
         i++;
         g_free(day_name);
     }
-    
+    if(day_number + 1 == i){
+        g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)separator);
+    }
+
+   
     gtk_widget_show_all(main_vbox);
     gtk_widget_show_all(scrolled_window);
 #ifdef HILDONANIMATION 

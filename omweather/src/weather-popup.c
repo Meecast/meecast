@@ -1339,10 +1339,15 @@ create_current_tab(GHashTable *current){
     text = gtk_label_new(buffer);
     set_font(text, NULL, font_size);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), text, TRUE, TRUE, 0);
+#ifndef OS2009
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), create_moon_phase_widget(current),
                         TRUE, TRUE, 0);
-
+#endif
     gtk_box_pack_start(GTK_BOX(main_widget), icon_text_hbox, TRUE, TRUE, 0);
+#ifdef OS2009
+    gtk_box_pack_start(GTK_BOX(main_widget), create_moon_phase_widget(current),
+                        TRUE, TRUE, 0);
+#endif
     if(app->config->mode != SIMPLE_MODE)
         /* last update time */
         gtk_box_pack_start(GTK_BOX(main_widget),

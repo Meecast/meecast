@@ -310,9 +310,8 @@ msgid "An unknown error has occurred."
 msgstr "Произошла неизвестная ошибка."
 
 #: src/weather-simple-settings.c:392
-#, fuzzy
 msgid "Animation"
-msgstr "Пожертвование"
+msgstr "Анимация"
 
 #: src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -629,9 +628,8 @@ msgid "Error initializing the OMWeather applet"
 msgstr "Ошибка при инициализации апплета."
 
 #: src/weather-simple-settings.c:1847 src/weather-simple-settings.c:2741
-#, fuzzy
 msgid "Extended Settings"
-msgstr "Настройки"
+msgstr "Расширенные Настройки"
 
 #: src/hash.data:49
 msgid "Extreme"
@@ -747,7 +745,6 @@ msgid "Freezing Drizzle"
 msgstr "Изморось с градом"
 
 #: src/weather-help.c:142
-#, fuzzy
 msgid ""
 "French - Nicolas Granziano, Philippe, Benot Knecht\n"
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
@@ -757,7 +754,7 @@ msgid ""
 "Spanish - Alejandro Lopez\n"
 "Polish - Tomasz Dominikowski\n"
 msgstr ""
-"Французский - Nicolas Granziano, Philippe \n"
+"Французский - Nicolas Granziano, Philippe, Benot Knecht\n"
 "Русский - Павел Фиалко, Владислав Васильев, Эдуард Бартош\n"
 "Финнский - Marko Vertainen\n"
 "Немецкий - Claudius Henrichs\n"
@@ -1961,11 +1958,11 @@ msgstr "Вы можете сделать пожертвования здесь: 
 
 #: src/weather-simple-settings.c:2728
 msgid "Zoom in popup window "
-msgstr ""
+msgstr "Увеличение в popup окне"
 
 #: src/weather-simple-settings.c:1870
 msgid "Zooming in popup window"
-msgstr ""
+msgstr "Увеличение в popup окне"
 
 #: src/weather-popup.c:285
 msgid "current location local time"

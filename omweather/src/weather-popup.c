@@ -1172,21 +1172,42 @@ create_current_tab(GHashTable *current){
     GdkPixbuf   *icon = NULL;
     float       tmp_distance = 0.0f,
                 tmp_pressure = 0.0f;
+    gint        font_size, icon_size;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
     if(!current)
         return NULL;
+#ifdef OS2009
+    switch (app->config->scale_in_popup){
+        case 2: font_size = 14; break;     
+        case 3: font_size = 16; break;
+        case 4: font_size = 18; break;
+        case 5: font_size = 21; break;
+        case 6: font_size = 24; break;
+        case 1:  	      
+        default: font_size = 13; break;
+    }
+    switch (app->config->scale_in_popup){
+        default:
+        case 1: icon_size = SMALL_ICON_SIZE; break;
+        case 2: icon_size = MEDIUM_ICON_SIZE; break;
+        case 3: icon_size = BIG_ICON_SIZE; break;
+        case 4: icon_size = LARGE_ICON_SIZE; break;
+        case 5: icon_size = GIANT_ICON_SIZE; break;
+        case 6: icon_size = SUPER_GIANT_ICON_SIZE; break;
+    }
+#endif
+
     main_widget = gtk_vbox_new(FALSE, 0);
     icon_text_hbox = gtk_hbox_new(FALSE, 0);
 /* icon */
     sprintf(buffer,"%s%s.png", app->config->icons_set_base,
                 (char*)g_hash_table_lookup(current, "icon"));
-    icon = gdk_pixbuf_new_from_file_at_size(buffer, GIANT_ICON_SIZE,
-                                            GIANT_ICON_SIZE, NULL);
+    icon = gdk_pixbuf_new_from_file_at_size(buffer, icon_size, icon_size, NULL);
 /* This code for animation */
-/*    icon_image = create_icon_widget(icon, buffer, GIANT_ICON_SIZE, &app->clutter_objects_in_popup_form); */
-    icon_image = create_icon_widget(icon, buffer, GIANT_ICON_SIZE, NULL);
+/*        day_icon = create_icon_widget(icon, buffer, BIG_ICON_SIZE, &app->clutter_objects_in_popup_form); */
+    icon_image = create_icon_widget(icon, buffer, icon_size, NULL);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), icon_image, TRUE, TRUE, 0);
     /* temperature */
     memset(buffer, 0, sizeof(buffer));
@@ -1294,7 +1315,7 @@ create_current_tab(GHashTable *current){
         }
 
     text = gtk_label_new(buffer);
-    set_font(text, NULL, 14);
+    set_font(text, NULL, font_size);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), text, TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(icon_text_hbox), create_moon_phase_widget(current),
                         TRUE, TRUE, 0);

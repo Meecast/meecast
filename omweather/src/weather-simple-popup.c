@@ -733,16 +733,16 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
                         offset3 = 140; 
                         offset4 = 130; 
                         offset5 = 134; 
-                        offset_default = 137; 
+                        offset_default = 130; 
                         whole_offset = 140;
                         break;
                 case 5:  
-                        offset1 = 195; 
-                        offset2 = 360; 
-                        offset3 = 170; 
-                        offset4 = 170; 
-                        offset5 = 170; 
-                        offset_default = 165; 
+                        offset1 = 185; 
+                        offset2 = 340; 
+                        offset3 = 140; 
+                        offset4 = 140; 
+                        offset5 = 140; 
+                        offset_default = 145; 
                         whole_offset = 140;
                         break;
                 case 6: 

@@ -737,21 +737,21 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
                         whole_offset = 140;
                         break;
                 case 5:  
-                        offset1 = 185; 
-                        offset2 = 340; 
+                        offset1 = 170; 
+                        offset2 = 320; 
                         offset3 = 140; 
                         offset4 = 140; 
                         offset5 = 140; 
-                        offset_default = 145; 
+                        offset_default = 135; 
                         whole_offset = 140;
                         break;
                 case 6: 
-                        offset1 = 155;
-                        offset2 = 300;
-                        offset3 = 130; 
-                        offset4 = 130; 
-                        offset5 = 130; 
-                        offset_default = 130;
+                        offset1 = 125;
+                        offset2 = 250;
+                        offset3 = 110; 
+                        offset4 = 110; 
+                        offset5 = 120; 
+                        offset_default = 120;
                         whole_offset = 140;
                         break;
                 case 1:  	      
@@ -1019,6 +1019,9 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                 snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1," , %s, ",
                        (char*)hash_table_find(g_hash_table_lookup(hour_weather, "hour_title"), 
                         FALSE));
+
+                if (app->config->scale_in_popup > 4)
+                        sprintf(tmp + strlen(tmp), "\n");
 
                 /* wind speed */
                 if(g_hash_table_lookup(hour_weather, "hour_wind_speed"))

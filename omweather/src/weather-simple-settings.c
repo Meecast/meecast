@@ -389,7 +389,7 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
 
 #if OS2009
     check_button = hildon_check_button_new (HILDON_SIZE_AUTO);
-    gtk_button_set_label (GTK_BUTTON (check_button), "Animation");
+    gtk_button_set_label (GTK_BUTTON (check_button), _("Animation"));
     if (app->config->animation)
         hildon_check_button_set_active(check_button, TRUE);
     else

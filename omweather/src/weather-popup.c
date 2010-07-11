@@ -168,6 +168,8 @@ create_moon_phase_widget(GHashTable *current){
                 *phase_description = NULL;
     GdkPixbuf   *icon_buffer;
     GtkWidget   *icon_image;
+    gint        icon_size = GIANT_ICON_SIZE;
+    gint        font_size = 14;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -176,6 +178,27 @@ create_moon_phase_widget(GHashTable *current){
 
     if (!g_hash_table_lookup(current, "moon_phase"))
         return NULL;
+#ifdef OS2009
+    switch (app->config->scale_in_popup){
+        case 2: font_size = 14; break;     
+        case 3: font_size = 16; break;
+        case 4: font_size = 18; break;
+        case 5: font_size = 21; break;
+        case 6: font_size = 24; break;
+        case 1:  	      
+        default: font_size = 13; break;
+    }
+    switch (app->config->scale_in_popup){
+        default:
+        case 1: icon_size = SMALL_ICON_SIZE; break;
+        case 2: icon_size = MEDIUM_ICON_SIZE; break;
+        case 3: icon_size = BIG_ICON_SIZE; break;
+        case 4: icon_size = LARGE_ICON_SIZE; break;
+        case 5: icon_size = GIANT_ICON_SIZE; break;
+        case 6: icon_size = SUPER_GIANT_ICON_SIZE; break;
+    }
+#endif
+
     memset(buffer, 0, sizeof(buffer));
     phase_description = g_strdup((char*)hash_table_find(g_hash_table_lookup(current, "moon_phase"), FALSE));
     
@@ -189,7 +212,7 @@ create_moon_phase_widget(GHashTable *current){
         g_free(phase_description);
 
     main_label = gtk_label_new(buffer);
-    set_font(main_label, NULL, 14);
+    set_font(main_label, NULL, font_size);
 
     main_widget = gtk_hbox_new(FALSE, 0);
 
@@ -199,10 +222,9 @@ create_moon_phase_widget(GHashTable *current){
     space_symbol = strchr(icon, ' ');
     if(space_symbol)
         *space_symbol = '_';
-    icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, GIANT_ICON_SIZE,
-                                                    GIANT_ICON_SIZE, NULL);
+    icon_buffer = gdk_pixbuf_new_from_file_at_size(icon, icon_size, icon_size, NULL);
    // icon_image = create_icon_widget(icon_buffer, icon, GIANT_ICON_SIZE, &app->clutter_objects_in_popup_form);
-    icon_image = create_icon_widget(icon_buffer, icon, GIANT_ICON_SIZE, NULL);
+    icon_image = create_icon_widget(icon_buffer, icon, icon_size, NULL);
 
     if(icon_image)
         gtk_box_pack_start(GTK_BOX(main_widget), icon_image, FALSE, TRUE, 0);

@@ -19,6 +19,7 @@ Depends: ${shlibs:Depends}, osso-application-installer | hildon-application-mana
 Description: Weather Forecast on Nokia N900. Ultra-customisable weather widget for showing forecast the way you want.
 XB-Description-pl_PL: Prognoza pogody dla Nokii N900. Konfigurowalny widżet pogodowy.
 XB-Description-ru_RU: Прогноз погоды для Nokia N900. Гибко настраиваемый погодный виджет.
+XB-Description-fi_FI: "Sääennusteet Nokia N900:lle. Vapaasti muokattavissa oleva sovelma sääennusteen näyttämiseen haluamallasi tavalla."
 XB-Maemo-Display-Name: OMWeather
 Xsbc-Bugtracker: https://bugs.maemo.org/enter_bug.cgi?product=OmWeather
 XB-Maemo-Icon-26:

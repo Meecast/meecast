@@ -308,9 +308,8 @@ msgid "An unknown error has occurred."
 msgstr "Tapahtui tuntematon virhe."
 
 #: src/weather-simple-settings.c:392
-#, fuzzy
 msgid "Animation"
-msgstr "Lahjoitus"
+msgstr "Animaatio" 
 
 #: src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -628,9 +627,8 @@ msgid "Error initializing the OMWeather applet"
 msgstr "Virhe alustettaessa OMWeather sovelmaa"
 
 #: src/weather-simple-settings.c:1847 src/weather-simple-settings.c:2741
-#, fuzzy
 msgid "Extended Settings"
-msgstr "Asetukset"
+msgstr "Laajat Asetukset" 
 
 #: src/hash.data:49
 msgid "Extreme"
@@ -1897,9 +1895,8 @@ msgid "Weather data provided by: "
 msgstr "Säätiedot tuottanut: "
 
 #: src/weather-utils.c:775
-#, fuzzy
 msgid "Widget OMWeather is reloading"
-msgstr "OMWeather asetukset"
+msgstr "Uudelleen ladataan OMWeather sovelma"
 
 #: src/weather-simple-settings.c:2884 src/weather-simple-settings.c:2890
 msgid "Widget style"
@@ -1960,11 +1957,11 @@ msgstr "Voit tehdä lahjoituksen täällä:"
 
 #: src/weather-simple-settings.c:2728
 msgid "Zoom in popup window "
-msgstr ""
+msgstr "Zoom ponnahdusikkunassa " 
 
 #: src/weather-simple-settings.c:1870
 msgid "Zooming in popup window"
-msgstr ""
+msgstr "Zoomaus ponnahdusikkunassa"
 
 #: src/weather-popup.c:285
 msgid "current location local time"

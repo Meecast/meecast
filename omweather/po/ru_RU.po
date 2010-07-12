@@ -565,11 +565,11 @@ msgstr "Позже Изморось"
 
 #: src/hash.data:43
 msgid "E"
-msgstr "восточный"
+msgstr "В"
 
 #: src/hash.data:44
 msgid "ENE"
-msgstr "восточно-северо-восточный"
+msgstr "ВСВ"
 
 #: src/hash.data:45
 msgid "ENE_short"
@@ -577,7 +577,7 @@ msgstr "ВСВ"
 
 #: src/hash.data:46
 msgid "ESE"
-msgstr "восточно-юго-восточный"
+msgstr "ВЮВ"
 
 #: src/hash.data:47
 msgid "ESE_short"
@@ -1087,7 +1087,7 @@ msgstr "В основном солнечно"
 
 #: src/hash.data:119
 msgid "N"
-msgstr "северный"
+msgstr "С"
 
 #: src/weather-home.c:659 src/weather-home.c:665 src/weather-home.c:666
 #: src/weather-home.c:673 src/weather-home.c:679 src/weather-home.c:2631
@@ -1099,7 +1099,7 @@ msgstr "Н/Д"
 
 #: src/hash.data:121
 msgid "NE"
-msgstr "северо-восточный"
+msgstr "СВ"
 
 #: src/hash.data:122
 msgid "NE_short"
@@ -1107,7 +1107,7 @@ msgstr "СВ"
 
 #: src/hash.data:123
 msgid "NNE"
-msgstr "северо-северо-восточный"
+msgstr "ССВ"
 
 #: src/hash.data:124
 msgid "NNE_short"
@@ -1115,7 +1115,7 @@ msgstr "ССВ"
 
 #: src/hash.data:125
 msgid "NNW"
-msgstr "северо-северо-западный"
+msgstr "ССЗ"
 
 #: src/hash.data:126
 msgid "NNW_short"
@@ -1127,7 +1127,7 @@ msgstr "Нет станции"
 
 #: src/hash.data:128
 msgid "NW"
-msgstr "северо-западный"
+msgstr "СЗ"
 
 #: src/hash.data:129
 msgid "NW_short"
@@ -1442,11 +1442,11 @@ msgstr ""
 
 #: src/hash.data:177
 msgid "S"
-msgstr "южный"
+msgstr "Ю"
 
 #: src/hash.data:178
 msgid "SE"
-msgstr "юго-восточый"
+msgstr "ЮВ"
 
 #: src/hash.data:179
 msgid "SE_short"
@@ -1454,7 +1454,7 @@ msgstr "ЮВ"
 
 #: src/hash.data:180
 msgid "SSE"
-msgstr "юго-юго-восточный"
+msgstr "ЮЮВ"
 
 #: src/hash.data:181
 msgid "SSE_short"
@@ -1462,7 +1462,7 @@ msgstr "ЮЮВ"
 
 #: src/hash.data:182
 msgid "SSW"
-msgstr "юго-юго-западный"
+msgstr "ЮЮЗ"
 
 #: src/hash.data:183
 msgid "SSW_short"
@@ -1470,7 +1470,7 @@ msgstr "ЮЮЗ"
 
 #: src/hash.data:184
 msgid "SW"
-msgstr "юго-западный"
+msgstr "ЮЗ"
 
 #: src/hash.data:185
 msgid "SW_short"
@@ -1844,7 +1844,7 @@ msgstr "Оформление"
 
 #: src/hash.data:219
 msgid "W"
-msgstr "западный"
+msgstr "ЗЗ"
 
 #: src/weather-simple-settings.c:1744 src/weather-simple-settings.c:1751
 #: src/weather-simple-settings.c:2800
@@ -1853,7 +1853,7 @@ msgstr "WLAN"
 
 #: src/hash.data:220
 msgid "WNW"
-msgstr "западно-северо-западный"
+msgstr "ЗСЗ"
 
 #: src/hash.data:221
 msgid "WNW_short"
@@ -1861,7 +1861,7 @@ msgstr "ЗСЗ"
 
 #: src/hash.data:222
 msgid "WSW"
-msgstr "западно-юго-западный"
+msgstr "ЗЮЗ"
 
 #: src/hash.data:223
 msgid "WSW_short"
@@ -2170,7 +2170,7 @@ msgstr ""
 #~ msgstr "Вы не выбрали WLAN или GSM/GPRS для обновления прогноза погоды!"
 
 #~ msgid "The downloading now is working."
-#~ msgstr "Загрузка уже запущена."
+#~ msgstr "Загрузка уже Ззапущена."
 
 #~ msgid "Did not download weather"
 #~ msgstr "Невозможно загрузить данные о погоде."

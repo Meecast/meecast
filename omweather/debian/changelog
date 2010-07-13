@@ -1,6 +1,7 @@
 omweather (0.28.1) unstable; urgency=low
 
   * Fixed bug in layout for current weather and moon in popup window 
+  * Fixed problem with first button on applet 
 
  -- Vlad Vasiliev <vlad@gas.by>  Tue, 13 July 2010 17:04:20 +0200
 

@@ -2765,11 +2765,7 @@ create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
 
     if (((app->config->text_position == TOP || app->config->text_position == BOTTOM ||
         app->config->icons_layout == PRESET_NOW) && !(app->config->icons_layout > PRESET_NOW))
-#ifdef APPLICATION
-        || button_number == FIRST_BUTTON){
-#else
-        ){
-#endif
+        || (button_number == FIRST_BUTTON && app->config->icons_layout > PRESET_NOW)){
         delemiter[0] = '/';
     }
     else{
@@ -2781,7 +2777,7 @@ create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
 
     /* For presets mode */
     if (!app->config->is_application_mode){
-        if (app->config->icons_layout == PRESET_NOW){
+        if (app->config->icons_layout == PRESET_NOW || (button_number == FIRST_BUTTON && app->config->icons_layout > PRESET_NOW)){
             sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>",
                                 PRESET_BIG_FONT_COLOR_FRONT);
             if(temp_low != INT_MAX)

@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (1.0) unstable; urgency=low
+
+  * First step for adapting to meego
+
+ --  Vlad Vasiliev <vlad@gas.by>  Thu, 14 Wen 2010 22:10:31 +0200
+
 omweather-weather-com-stations-db (0.9.18) unstable; urgency=low
 
   * Updated weather stations for China

@@ -24,10 +24,10 @@
 libhhdir = /usr/lib/omweather
 libhh_LTLIBRARIES = libomweather-weather-com-source.la
 libomweather_weather_com_source_la_SOURCES = main.c main.h
-libomweather_weather_com_source_la_CFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS) \
+libomweather_weather_com_source_la_CFLAGS = $(GLIB_CFLAGS) $(LIBXML2_CFLAGS) \
 					    -Wall -pedantic
 libomweather_weather_com_source_la_LDFLAGS = -module -avoid-version 
-libomweather_weather_com_source_la_LIBADD = $(GTK_LIBS) $(LIBXML2_LIBS)
+libomweather_weather_com_source_la_LIBADD = $(GLIB_LIBS) $(LIBXML2_LIBS)
 
 clean-local:
 	$(RM) *.core core core.* stamp-*.h *~

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-11 18:03+0300\n"
+"POT-Creation-Date: 2010-07-14 21:11+0300\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -363,8 +363,8 @@ msgstr "Zamieć śnieżna"
 msgid "C"
 msgstr "C"
 
-#: src/weather-popup.c:1244 src/weather-popup.c:1254 src/weather-popup.c:1416
-#: src/weather-popup.c:1424
+#: src/weather-popup.c:1244 src/weather-popup.c:1254 src/weather-popup.c:1425
+#: src/weather-popup.c:1433
 msgid "C\n"
 msgstr "C\n"
 
@@ -641,8 +641,8 @@ msgstr "Ekstremalna"
 msgid "F"
 msgstr "F"
 
-#: src/weather-popup.c:1245 src/weather-popup.c:1255 src/weather-popup.c:1417
-#: src/weather-popup.c:1425
+#: src/weather-popup.c:1245 src/weather-popup.c:1255 src/weather-popup.c:1426
+#: src/weather-popup.c:1434
 msgid "F\n"
 msgstr "F\n"
 
@@ -672,7 +672,7 @@ msgstr "Inicjacja GConf nie powiodła się. Ustawienia nie zostały zapisane.\n"
 msgid "Fair"
 msgstr "Dobra"
 
-#: src/weather-popup.c:1248 src/weather-popup.c:1419
+#: src/weather-popup.c:1248 src/weather-popup.c:1428
 msgid "Feels like:"
 msgstr "Odczuwalna:"
 
@@ -732,7 +732,7 @@ msgstr "Czcionka:"
 msgid "Forecast"
 msgstr "Prognoza"
 
-#: src/weather-popup.c:1403 src/weather-simple-popup.c:988
+#: src/weather-popup.c:1412 src/weather-simple-popup.c:988
 msgid "Forecast at: "
 msgstr "Prognoza o: "
 
@@ -800,7 +800,7 @@ msgstr "GSM+WLAN"
 msgid "GUI|Clear"
 msgstr "Wyczyść"
 
-#: src/weather-popup.c:1333 src/weather-popup.c:1463
+#: src/weather-popup.c:1333 src/weather-popup.c:1472
 msgid "Gust:"
 msgstr "Poryw:"
 
@@ -832,7 +832,7 @@ msgstr "Silny śnieg"
 msgid "High"
 msgstr "Wysokie"
 
-#: src/weather-popup.c:1260 src/weather-popup.c:1427
+#: src/weather-popup.c:1260 src/weather-popup.c:1436
 msgid "Humidity:"
 msgstr "Wilgotność:"
 
@@ -1657,7 +1657,7 @@ msgstr "Źródło"
 msgid "Speed"
 msgstr "Prędkość"
 
-#: src/weather-popup.c:1311 src/weather-popup.c:1442
+#: src/weather-popup.c:1311 src/weather-popup.c:1451
 msgid "Speed:"
 msgstr "Prędkość:"
 
@@ -1712,6 +1712,11 @@ msgid "T-Showers"
 msgstr "Burza i deszcze"
 
 #: src/hash.data:214
+#, fuzzy
+msgid "T-Showers Early"
+msgstr "Wcześnie przelotne deszcze"
+
+#: src/hash.data:215
 msgid "T-Storms"
 msgstr "Burze"
 
@@ -1728,7 +1733,7 @@ msgstr "Temperatura"
 msgid "Temperature units:"
 msgstr "Jednostki temperatury:"
 
-#: src/weather-popup.c:1238 src/weather-popup.c:1411
+#: src/weather-popup.c:1238 src/weather-popup.c:1420
 msgid "Temperature: "
 msgstr "Temperatura: "
 
@@ -1740,7 +1745,7 @@ msgstr "Podziękowania"
 msgid "The weather has been updated."
 msgstr "Prognoza została zaktualizowana."
 
-#: src/hash.data:215
+#: src/hash.data:216
 msgid "Thunder"
 msgstr "Burza"
 
@@ -1777,7 +1782,7 @@ msgstr "Jednostki"
 msgid "Unknown"
 msgstr "Nieznane"
 
-#: src/hash.data:216
+#: src/hash.data:217
 msgid "Unlimited"
 msgstr "Bez ograniczeń"
 
@@ -1819,7 +1824,7 @@ msgstr ""
 msgid "Use device temperature sensor"
 msgstr "Użycie czujnika temperatury urządzenia"
 
-#: src/hash.data:217
+#: src/hash.data:218
 msgid "VAR"
 msgstr ""
 
@@ -1827,7 +1832,7 @@ msgstr ""
 msgid "Valid time for current weather:"
 msgstr "Czas poprawności dla bieżącej pogody:"
 
-#: src/hash.data:218
+#: src/hash.data:219
 msgid "Very High"
 msgstr "Bardzo wysokie"
 
@@ -1844,7 +1849,7 @@ msgstr "Widoczność:"
 msgid "Visuals"
 msgstr "Wizualne"
 
-#: src/hash.data:219
+#: src/hash.data:220
 msgid "W"
 msgstr ""
 
@@ -1853,31 +1858,31 @@ msgstr ""
 msgid "WLAN"
 msgstr "WLAN"
 
-#: src/hash.data:220
+#: src/hash.data:221
 msgid "WNW"
 msgstr ""
 
-#: src/hash.data:221
+#: src/hash.data:222
 msgid "WNW_short"
 msgstr ""
 
-#: src/hash.data:222
+#: src/hash.data:223
 msgid "WSW"
 msgstr ""
 
-#: src/hash.data:223
+#: src/hash.data:224
 msgid "WSW_short"
 msgstr ""
 
-#: src/hash.data:224
+#: src/hash.data:225
 msgid "W_short"
 msgstr ""
 
-#: src/hash.data:225
+#: src/hash.data:226
 msgid "Waning Crescent"
 msgstr ""
 
-#: src/hash.data:226
+#: src/hash.data:227
 msgid "Waning Gibbous"
 msgstr ""
 
@@ -1885,15 +1890,15 @@ msgstr ""
 msgid "Warning"
 msgstr "Ostrzeżenie"
 
-#: src/hash.data:227
+#: src/hash.data:228
 msgid "Waxing Crescent"
 msgstr ""
 
-#: src/hash.data:228
+#: src/hash.data:229
 msgid "Waxing Gibbous"
 msgstr ""
 
-#: src/weather-popup.c:1523
+#: src/weather-popup.c:1532
 msgid "Weather data provided by: "
 msgstr "Dane pogodowe dostarczane przez: "
 
@@ -1910,7 +1915,7 @@ msgstr "Styl widżetu"
 msgid "Widget style and Iconset"
 msgstr "Styl widżetu i zestaw ikon"
 
-#: src/hash.data:229
+#: src/hash.data:230
 msgid "Wind"
 msgstr "Wiatr"
 
@@ -1918,7 +1923,7 @@ msgstr "Wiatr"
 msgid "Wind speed units:"
 msgstr "Jednostki prędkości wiatru:"
 
-#: src/weather-popup.c:1306 src/weather-popup.c:1438
+#: src/weather-popup.c:1306 src/weather-popup.c:1447
 msgid "Wind:"
 msgstr "Wiatr:"
 
@@ -1927,19 +1932,19 @@ msgstr "Wiatr:"
 msgid "Wind: "
 msgstr "Wiatr: "
 
-#: src/hash.data:233
+#: src/hash.data:234
 msgid "Wintry Mix"
 msgstr "Deszcz ze śniegiem"
 
-#: src/hash.data:231
+#: src/hash.data:232
 msgid "Wintry Mix / Wind"
 msgstr "Deszcz ze śniegiem / wiatr"
 
-#: src/hash.data:230
+#: src/hash.data:231
 msgid "Wintry Mix / Wind Early"
 msgstr "Deszcz ze śniegiem / wcześnie wiatr"
 
-#: src/hash.data:232
+#: src/hash.data:233
 msgid "Wintry Mix to Snow"
 msgstr "Deszcz ze śniegiem do deszczu"
 
@@ -2007,7 +2012,7 @@ msgstr "co godzinę"
 msgid "every minute (Debug)"
 msgstr "co minutę (debugowanie)"
 
-#: src/hash.data:234
+#: src/hash.data:235
 msgid "falling"
 msgstr "spada"
 
@@ -2031,12 +2036,12 @@ msgstr "cale"
 msgid "km"
 msgstr "km"
 
-#: src/weather-settings.c:3985 src/hash.data:235
+#: src/weather-settings.c:3985 src/hash.data:236
 #: src/weather-simple-settings.c:1363 src/weather-simple-settings.c:2666
 msgid "km/h"
 msgstr "km/h"
 
-#: src/hash.data:236
+#: src/hash.data:237
 msgid "km/s"
 msgstr "km/s"
 
@@ -2045,11 +2050,11 @@ msgstr "km/s"
 msgid "m"
 msgstr "m"
 
-#: src/hash.data:237
+#: src/hash.data:238
 msgid "m/h"
 msgstr "m/h"
 
-#: src/weather-settings.c:3971 src/hash.data:238
+#: src/weather-settings.c:3971 src/hash.data:239
 #: src/weather-simple-settings.c:1355 src/weather-simple-settings.c:2660
 msgid "m/s"
 msgstr "m/s"
@@ -2067,12 +2072,12 @@ msgstr "mb"
 msgid "mi"
 msgstr "mi"
 
-#: src/weather-settings.c:3999 src/hash.data:239
+#: src/weather-settings.c:3999 src/hash.data:240
 #: src/weather-simple-settings.c:1372 src/weather-simple-settings.c:2672
 msgid "mi/h"
 msgstr "mi/h"
 
-#: src/hash.data:240
+#: src/hash.data:241
 msgid "mi/s"
 msgstr "mi/s"
 
@@ -2103,7 +2108,7 @@ msgstr "nowa ikona"
 msgid "next"
 msgstr "następna"
 
-#: src/hash.data:241
+#: src/hash.data:242
 msgid "rising"
 msgstr "rośnie"
 
@@ -2123,39 +2128,39 @@ msgstr "czas lokalny stacji"
 msgid "station name"
 msgstr "nazwa stacji"
 
-#: src/hash.data:242
+#: src/hash.data:243
 msgid "steady"
 msgstr "stałe"
 
-#: src/hash.data:243
+#: src/hash.data:244
 msgid "В"
 msgstr "В"
 
-#: src/hash.data:244
+#: src/hash.data:245
 msgid "З"
 msgstr "З"
 
-#: src/hash.data:245
+#: src/hash.data:246
 msgid "С"
 msgstr "С"
 
-#: src/hash.data:246
+#: src/hash.data:247
 msgid "С-В"
 msgstr "c"
 
-#: src/hash.data:247
+#: src/hash.data:248
 msgid "С-З"
 msgstr "С-З"
 
-#: src/hash.data:248
+#: src/hash.data:249
 msgid "Ю"
 msgstr "Ю"
 
-#: src/hash.data:249
+#: src/hash.data:250
 msgid "Ю-В"
 msgstr "Ю-В"
 
-#: src/hash.data:250
+#: src/hash.data:251
 msgid "Ю-З"
 msgstr "Ю-З"
 

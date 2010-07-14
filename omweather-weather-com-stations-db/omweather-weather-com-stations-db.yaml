@@ -10,8 +10,8 @@ Sources:
 Description: Stations database and source lib for weather.com for Other Maemo Weather 
 
 PkgConfigBR:
-    - libxml2-dev
-    - glib2
+    - libxml-2.0
+    - glib-2.0 
 Configure: none
 Builder: none
 Files: none

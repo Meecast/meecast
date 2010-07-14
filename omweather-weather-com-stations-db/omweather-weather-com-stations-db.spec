@@ -14,8 +14,8 @@ License:    GPLv2.1
 URL:        https://garage.maemo.org/projects/omweather/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  omweather-weather-com-stations-db.yaml
-BuildRequires:  pkgconfig(libxml2-dev)
-BuildRequires:  pkgconfig(glib2)
+BuildRequires:  pkgconfig(libxml2)
+BuildRequires:  pkgconfig(glib-2.0)
 
 %description
 Stations database and source lib for weather.com for Other Maemo Weather

@@ -1,3 +1,9 @@
+omweather (0.28.2) unstable; urgency=low
+
+  * Corrected number version in window 'About' 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 14 July 2010 08:24:20 +0200
+
 omweather (0.28.1) unstable; urgency=low
 
   * Fixed bug in layout for current weather and moon in popup window 
@@ -7,7 +13,7 @@ omweather (0.28.1) unstable; urgency=low
 
 omweather (0.28) unstable; urgency=low
 
-  * Updated Finish, Spain, Russian translations
+  * Updated Finish, Spain, Russian, Germany translations
   * Fixed problem with correct jump to selected day in popup window 
   * Added possibilty to change scaling in popup window
 

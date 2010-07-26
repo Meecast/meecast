@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-14 21:11+0300\n"
+"POT-Creation-Date: 2010-07-26 15:58+0300\n"
 "PO-Revision-Date: 2010-07-02 16:23+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -744,12 +744,14 @@ msgid "Freezing Drizzle"
 msgstr "Jäätävää tihkusadetta"
 
 #: src/weather-help.c:142
+#, fuzzy
 msgid ""
 "French - Nicolas Granziano, Philippe, Benot Knecht\n"
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
 "Finnish - Marko Vertainen\n"
 "German - Claudius Henrichs\n"
-"Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo\n"
+"Italian - Pavel Fialko, Alessandro Pasotti,\n"
+"\tSalvatore Fiorenzo, Luca Onnis\n"
 "Spanish - Alejandro Lopez\n"
 "Polish - Tomasz Dominikowski\n"
 msgstr ""
@@ -1704,11 +1706,11 @@ msgstr "Käänteinen korkea/matala lämpötila"
 msgid "Switch to the next station after:"
 msgstr "Aika seuraavan aseman vaihtoon:"
 
-#: src/hash.data:212
+#: src/hash.data:213
 msgid "T-Showers"
 msgstr "Ukkoskuuroja"
 
-#: src/hash.data:214
+#: src/hash.data:212
 #, fuzzy
 msgid "T-Showers Early"
 msgstr "Aikaisin sadekuuroja"
@@ -1717,7 +1719,7 @@ msgstr "Aikaisin sadekuuroja"
 msgid "T-Storms"
 msgstr "Ukkosta"
 
-#: src/hash.data:213
+#: src/hash.data:214
 msgid "T-Storms Early"
 msgstr "Aikaisin ukkoskuuroja"
 
@@ -1750,7 +1752,7 @@ msgstr "Ukkosta"
 msgid "Today"
 msgstr "Tänään"
 
-#: src/weather-help.c:153
+#: src/weather-help.c:154
 msgid "Translators"
 msgstr "Kääntäjät"
 

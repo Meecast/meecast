@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-14 21:11+0300\n"
+"POT-Creation-Date: 2010-07-26 15:58+0300\n"
 "PO-Revision-Date: 2010-03-28 17:58+0100\n"
 "Last-Translator: Vincent Datrier <vincent.datrier@gmail.com>\n"
 "Language-Team: French <>\n"
@@ -755,7 +755,8 @@ msgid ""
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
 "Finnish - Marko Vertainen\n"
 "German - Claudius Henrichs\n"
-"Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo\n"
+"Italian - Pavel Fialko, Alessandro Pasotti,\n"
+"\tSalvatore Fiorenzo, Luca Onnis\n"
 "Spanish - Alejandro Lopez\n"
 "Polish - Tomasz Dominikowski\n"
 msgstr ""
@@ -1711,11 +1712,11 @@ msgstr "Inverser température maximale/minimale"
 msgid "Switch to the next station after:"
 msgstr "Passer a la station suivante après :"
 
-#: src/hash.data:212
+#: src/hash.data:213
 msgid "T-Showers"
 msgstr "Averses orageuses"
 
-#: src/hash.data:214
+#: src/hash.data:212
 #, fuzzy
 msgid "T-Showers Early"
 msgstr "Averses en matinée"
@@ -1724,7 +1725,7 @@ msgstr "Averses en matinée"
 msgid "T-Storms"
 msgstr "Orages"
 
-#: src/hash.data:213
+#: src/hash.data:214
 msgid "T-Storms Early"
 msgstr "Orages en matinée"
 
@@ -1757,7 +1758,7 @@ msgstr "Orage"
 msgid "Today"
 msgstr "Aujourd'hui"
 
-#: src/weather-help.c:153
+#: src/weather-help.c:154
 msgid "Translators"
 msgstr "Traducteurs"
 

@@ -143,7 +143,8 @@ void create_about_dialog(void){
                "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
                "Finnish - Marko Vertainen\n"
                "German - Claudius Henrichs\n"
-               "Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo\n"
+               "Italian - Pavel Fialko, Alessandro Pasotti,\n"
+               "\tSalvatore Fiorenzo, Luca Onnis\n"
                "Spanish - Alejandro Lopez\n"
                "Polish - Tomasz Dominikowski\n"));
 

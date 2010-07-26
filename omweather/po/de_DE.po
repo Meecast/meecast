@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-14 21:11+0300\n"
+"POT-Creation-Date: 2010-07-26 15:58+0300\n"
 "PO-Revision-Date: 2010-07-10 19:38+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
@@ -741,12 +741,14 @@ msgid "Freezing Drizzle"
 msgstr "Überfrierender Nieselregen"
 
 #: src/weather-help.c:142
+#, fuzzy
 msgid ""
 "French - Nicolas Granziano, Philippe, Benot Knecht\n"
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
 "Finnish - Marko Vertainen\n"
 "German - Claudius Henrichs\n"
-"Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo\n"
+"Italian - Pavel Fialko, Alessandro Pasotti,\n"
+"\tSalvatore Fiorenzo, Luca Onnis\n"
 "Spanish - Alejandro Lopez\n"
 "Polish - Tomasz Dominikowski\n"
 msgstr ""
@@ -1701,11 +1703,11 @@ msgstr "Max/Min Temperatur tauschen"
 msgid "Switch to the next station after:"
 msgstr "Zur nächsten Station wechseln nach:"
 
-#: src/hash.data:212
+#: src/hash.data:213
 msgid "T-Showers"
 msgstr "Gewitterschauer"
 
-#: src/hash.data:214
+#: src/hash.data:212
 #, fuzzy
 msgid "T-Showers Early"
 msgstr "Schauer früh"
@@ -1714,7 +1716,7 @@ msgstr "Schauer früh"
 msgid "T-Storms"
 msgstr "Gewitter"
 
-#: src/hash.data:213
+#: src/hash.data:214
 msgid "T-Storms Early"
 msgstr "baldige Gewitter"
 
@@ -1747,7 +1749,7 @@ msgstr "Donner"
 msgid "Today"
 msgstr "Heute"
 
-#: src/weather-help.c:153
+#: src/weather-help.c:154
 msgid "Translators"
 msgstr "Übersetzer"
 

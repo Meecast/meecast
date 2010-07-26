@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lv_LV\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-14 21:11+0300\n"
+"POT-Creation-Date: 2010-07-26 15:58+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -692,7 +692,8 @@ msgid ""
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
 "Finnish - Marko Vertainen\n"
 "German - Claudius Henrichs\n"
-"Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo\n"
+"Italian - Pavel Fialko, Alessandro Pasotti,\n"
+"\tSalvatore Fiorenzo, Luca Onnis\n"
 "Spanish - Alejandro Lopez\n"
 "Polish - Tomasz Dominikowski\n"
 msgstr ""
@@ -1642,11 +1643,11 @@ msgstr ""
 msgid "Switch to the next station after:"
 msgstr ""
 
-#: src/hash.data:212
+#: src/hash.data:213
 msgid "T-Showers"
 msgstr ""
 
-#: src/hash.data:214
+#: src/hash.data:212
 #, fuzzy
 msgid "T-Showers Early"
 msgstr "S"
@@ -1655,7 +1656,7 @@ msgstr "S"
 msgid "T-Storms"
 msgstr ""
 
-#: src/hash.data:213
+#: src/hash.data:214
 msgid "T-Storms Early"
 msgstr ""
 
@@ -1688,7 +1689,7 @@ msgstr ""
 msgid "Today"
 msgstr ""
 
-#: src/weather-help.c:153
+#: src/weather-help.c:154
 msgid "Translators"
 msgstr ""
 

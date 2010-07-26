@@ -1,9 +1,9 @@
 omweather (0.28.3) unstable; urgency=low
 
   * Added string for translation
-  * Updated Spain translations 
+  * Updated Spain, Italian translations 
 
- -- Vlad Vasiliev <vlad@gas.by>  Tue, 14 July 2010 08:24:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 26 July 2010 08:24:20 +0200
 
 omweather (0.28.2) unstable; urgency=low
 

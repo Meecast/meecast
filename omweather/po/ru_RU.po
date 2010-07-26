@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-14 21:11+0300\n"
+"POT-Creation-Date: 2010-07-26 15:58+0300\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -745,12 +745,14 @@ msgid "Freezing Drizzle"
 msgstr "Изморось с градом"
 
 #: src/weather-help.c:142
+#, fuzzy
 msgid ""
 "French - Nicolas Granziano, Philippe, Benot Knecht\n"
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
 "Finnish - Marko Vertainen\n"
 "German - Claudius Henrichs\n"
-"Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo\n"
+"Italian - Pavel Fialko, Alessandro Pasotti,\n"
+"\tSalvatore Fiorenzo, Luca Onnis\n"
 "Spanish - Alejandro Lopez\n"
 "Polish - Tomasz Dominikowski\n"
 msgstr ""
@@ -1705,11 +1707,11 @@ msgstr "Поменять местами температуры"
 msgid "Switch to the next station after:"
 msgstr "Переключится на следующую станцию через:"
 
-#: src/hash.data:212
+#: src/hash.data:213
 msgid "T-Showers"
 msgstr "Грозовые ливни"
 
-#: src/hash.data:214
+#: src/hash.data:212
 #, fuzzy
 msgid "T-Showers Early"
 msgstr "С утра ливни"
@@ -1718,7 +1720,7 @@ msgstr "С утра ливни"
 msgid "T-Storms"
 msgstr "Грозы"
 
-#: src/hash.data:213
+#: src/hash.data:214
 msgid "T-Storms Early"
 msgstr "С утра грозы"
 
@@ -1751,7 +1753,7 @@ msgstr "Гром"
 msgid "Today"
 msgstr "Сегодня"
 
-#: src/weather-help.c:153
+#: src/weather-help.c:154
 msgid "Translators"
 msgstr "Переводчики"
 

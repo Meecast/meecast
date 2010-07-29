@@ -4,12 +4,14 @@
 # Pavel Fialko <pavelnf@gmail.com>, 2007.
 # vlad <vlad@gas.by>, 2007.
 # Vlad Vasiliev <vlad@gas.by>, 2007.
+# Vincent Datrier <vincent.datrier@gmail.com>, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-26 15:58+0300\n"
-"PO-Revision-Date: 2010-03-28 17:58+0100\n"
+"PO-Revision-Date: 2010-07-29 22:18+0200\n"
 "Last-Translator: Vincent Datrier <vincent.datrier@gmail.com>\n"
 "Language-Team: French <>\n"
 "MIME-Version: 1.0\n"
@@ -307,9 +309,8 @@ msgid "An unknown error has occurred."
 msgstr "Une erreur inconnue s'est produite."
 
 #: src/weather-simple-settings.c:392
-#, fuzzy
 msgid "Animation"
-msgstr "Donation"
+msgstr "Animation"
 
 #: src/weather-settings.c:823
 msgid "Are you sure to want delete this station ?"
@@ -498,11 +499,11 @@ msgstr "Pays :"
 
 #: src/weather-simple-settings.c:2866
 msgid "Custom"
-msgstr ""
+msgstr "Personnalisé"
 
 #: src/weather-popup.c:1161
 msgid "Day length"
-msgstr "Durée de la journée"
+msgstr "Durée de la journée "
 
 #: src/weather-popup.c:912
 msgid "Day:"
@@ -629,9 +630,8 @@ msgid "Error initializing the OMWeather applet"
 msgstr "Erreur d'initialisation de l'applet OMWeather"
 
 #: src/weather-simple-settings.c:1847 src/weather-simple-settings.c:2741
-#, fuzzy
 msgid "Extended Settings"
-msgstr "Paramètres"
+msgstr "Paramètres avancés"
 
 #: src/hash.data:49
 msgid "Extreme"
@@ -749,7 +749,6 @@ msgid "Freezing Drizzle"
 msgstr "Bruine verglaçante"
 
 #: src/weather-help.c:142
-#, fuzzy
 msgid ""
 "French - Nicolas Granziano, Philippe, Benot Knecht\n"
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
@@ -760,11 +759,12 @@ msgid ""
 "Spanish - Alejandro Lopez\n"
 "Polish - Tomasz Dominikowski\n"
 msgstr ""
-"Français - Nicolas Graziano, Philippe, Vincent Datrier\n"
+"Français - Nicolas Graziano, Philippe, Benot Knecht\n"
 "Russe - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
 "Finlandais - Marko Vertainen\n"
 "Allemand - Claudius Henrichs\n"
-"Italien - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo\n"
+"Italien - Pavel Fialko, Alessandro Pasotti, \n"
+"\tSalvatore Fiorenzo, Luca Onnis\n"
 "Espagnol - Alejandro Lopez\n"
 "Polonais - Tomasz Dominikowski\n"
 
@@ -881,7 +881,7 @@ msgstr "Dernière mise à jour : "
 
 #: src/hash.data:72
 msgid "Lawn and Garden Weather"
-msgstr ""
+msgstr "Météo du jardin"
 
 #: src/weather-settings.c:2924 src/weather-settings.c:2931
 msgid "Layout:"
@@ -1339,7 +1339,7 @@ msgstr "Position :"
 
 #: src/weather-simple-settings.c:1608 src/weather-simple-settings.c:2806
 msgid "Preference|Update"
-msgstr "Préférence|Mise à Jour"
+msgstr "Mise à Jour"
 
 #: src/weather-simple-settings.c:1415
 msgid "Pressure"
@@ -1698,7 +1698,7 @@ msgstr "Ensoleillé / vent"
 
 #: src/weather-popup.c:124 src/weather-popup.c:1007
 msgid "Sunrise: "
-msgstr "Lever du soleil :"
+msgstr "Lever du soleil : "
 
 #: src/weather-popup.c:138 src/weather-popup.c:1129
 msgid "Sunset: "
@@ -1717,9 +1717,8 @@ msgid "T-Showers"
 msgstr "Averses orageuses"
 
 #: src/hash.data:212
-#, fuzzy
 msgid "T-Showers Early"
-msgstr "Averses en matinée"
+msgstr "Averses orageuses en matinée"
 
 #: src/hash.data:215
 msgid "T-Storms"
@@ -1909,9 +1908,8 @@ msgid "Weather data provided by: "
 msgstr "Données météo fournies par :"
 
 #: src/weather-utils.c:775
-#, fuzzy
 msgid "Widget OMWeather is reloading"
-msgstr "Paramètres de OMWeather"
+msgstr "Rechargement du gadget OMWeather"
 
 #: src/weather-simple-settings.c:2884 src/weather-simple-settings.c:2890
 msgid "Widget style"
@@ -1972,11 +1970,11 @@ msgstr "Vous pouvez faire un don ici : "
 
 #: src/weather-simple-settings.c:2728
 msgid "Zoom in popup window "
-msgstr ""
+msgstr "Zoom de la fenêtre popup"
 
 #: src/weather-simple-settings.c:1870
 msgid "Zooming in popup window"
-msgstr ""
+msgstr "Zoom de la fenêtre popup"
 
 #: src/weather-popup.c:285
 msgid "current location local time"

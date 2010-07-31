@@ -1,7 +1,7 @@
 omweather (0.28.3) unstable; urgency=low
 
   * Added string for translation
-  * Updated Spain, Italian, Franch translations 
+  * Updated Spain, Italian, French translations 
   * Added new icon size
   * Fixed problem in theme Okuda bug #11036 "Forecast text not displayed when Okuda theme is installed"
   * Fixed Day Length format

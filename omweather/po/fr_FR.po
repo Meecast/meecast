@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-26 15:58+0300\n"
+"POT-Creation-Date: 2010-07-31 16:58+0300\n"
 "PO-Revision-Date: 2010-07-29 22:18+0200\n"
 "Last-Translator: Vincent Datrier <vincent.datrier@gmail.com>\n"
 "Language-Team: French <>\n"
@@ -120,7 +120,7 @@ msgstr " Compilation : "
 msgid "1 day"
 msgstr "1 jour"
 
-#: src/weather-settings.c:4231 src/weather-simple-settings.c:1651
+#: src/weather-settings.c:4240 src/weather-simple-settings.c:1651
 #: src/weather-simple-settings.c:2775
 msgid "1 hour"
 msgstr "1 heure"
@@ -133,7 +133,7 @@ msgstr "1 minute"
 msgid "10 minutes"
 msgstr "10 minutes"
 
-#: src/weather-settings.c:4183
+#: src/weather-settings.c:4192
 msgid "10 seconds"
 msgstr "10 secondes"
 
@@ -141,11 +141,11 @@ msgstr "10 secondes"
 msgid "15 minutes"
 msgstr "15 minutes"
 
-#: src/weather-settings.c:4233
+#: src/weather-settings.c:4242
 msgid "2 hours"
 msgstr "2 heures"
 
-#: src/weather-settings.c:4185
+#: src/weather-settings.c:4194
 msgid "20 seconds"
 msgstr "20 secondes"
 
@@ -157,16 +157,16 @@ msgstr "3 minutes"
 msgid "30 minutes"
 msgstr "30 minutes"
 
-#: src/weather-settings.c:4187
+#: src/weather-settings.c:4196
 msgid "30 seconds"
 msgstr "30 secondes"
 
-#: src/weather-settings.c:4235 src/weather-simple-settings.c:1660
+#: src/weather-settings.c:4244 src/weather-simple-settings.c:1660
 #: src/weather-simple-settings.c:2778
 msgid "4 hours"
 msgstr "4 heures"
 
-#: src/weather-settings.c:4189
+#: src/weather-settings.c:4198
 msgid "40 seconds"
 msgstr "40 secondes"
 
@@ -174,15 +174,15 @@ msgstr "40 secondes"
 msgid "5 minutes"
 msgstr "5 minutes"
 
-#: src/weather-settings.c:4191
+#: src/weather-settings.c:4200
 msgid "50 seconds"
 msgstr "50 secondes"
 
-#: src/weather-settings.c:4193
+#: src/weather-settings.c:4202
 msgid "60 seconds"
 msgstr "60 secondes"
 
-#: src/weather-settings.c:4237
+#: src/weather-settings.c:4246
 msgid "8 hours"
 msgstr "8 heures"
 
@@ -338,7 +338,7 @@ msgstr ""
 msgid "Authors"
 msgstr "Auteurs"
 
-#: src/weather-settings.c:4147
+#: src/weather-settings.c:4156
 msgid "Automatically update data when connecting to the Internet"
 msgstr ""
 "Automatiquement mettre les données à jour lors de la connexion à Internet"
@@ -351,7 +351,7 @@ msgstr "Couleur du fond :"
 msgid "Beauf."
 msgstr "Beauf."
 
-#: src/weather-settings.c:4012 src/weather-simple-settings.c:2677
+#: src/weather-settings.c:4021 src/weather-simple-settings.c:2677
 msgid "Beaufort scale"
 msgstr "Échelle de Beaufort"
 
@@ -379,7 +379,7 @@ msgstr "Calme"
 msgid "Can not get path to the HOME directory. Quitting.\n"
 msgstr "Impossible de trouver le répertoire HOME. Fermeture.\n"
 
-#: src/weather-settings.c:3855
+#: src/weather-settings.c:3864
 msgid "Celcius"
 msgstr "Celsius"
 
@@ -522,7 +522,7 @@ msgstr "Affichage"
 msgid "Distance"
 msgstr "Distance"
 
-#: src/weather-settings.c:3885
+#: src/weather-settings.c:3894
 msgid "Distance units:"
 msgstr "Unité de distance :"
 
@@ -539,7 +539,7 @@ msgstr ""
 msgid "Donation"
 msgstr "Donation"
 
-#: src/weather-settings.c:4155
+#: src/weather-settings.c:4164
 msgid "Download and show detailed weather"
 msgstr "Télécharger et afficher la météo détaillée"
 
@@ -652,7 +652,7 @@ msgstr "F\n"
 msgid "FL: "
 msgstr "Ress. : "
 
-#: src/weather-settings.c:3867
+#: src/weather-settings.c:3876
 msgid "Fahrenheit"
 msgstr "Fahrenheit"
 
@@ -857,7 +857,7 @@ msgstr "Orages localisés"
 msgid "Isolated T-Storms / Wind"
 msgstr "Orages localisés / vent"
 
-#: src/weather-settings.c:3906
+#: src/weather-settings.c:3915
 msgid "Kilometers"
 msgstr "Kilomètres"
 
@@ -983,11 +983,11 @@ msgstr "Bas"
 msgid "Manual"
 msgstr "Manuel"
 
-#: src/weather-settings.c:3892
+#: src/weather-settings.c:3901
 msgid "Meters"
 msgstr "Mètres"
 
-#: src/weather-settings.c:3921
+#: src/weather-settings.c:3930
 msgid "Miles"
 msgstr "Milles"
 
@@ -1097,9 +1097,9 @@ msgid "N"
 msgstr "N"
 
 #: src/weather-home.c:659 src/weather-home.c:665 src/weather-home.c:666
-#: src/weather-home.c:673 src/weather-home.c:679 src/weather-home.c:2631
-#: src/weather-home.c:2715 src/weather-home.c:2723 src/weather-home.c:2810
-#: src/weather-home.c:2814 src/weather-home.c:2827 src/weather-home.c:2831
+#: src/weather-home.c:673 src/weather-home.c:679 src/weather-home.c:2637
+#: src/weather-home.c:2721 src/weather-home.c:2729 src/weather-home.c:2816
+#: src/weather-home.c:2820 src/weather-home.c:2833 src/weather-home.c:2837
 #: src/hash.data:120
 msgid "N/A"
 msgstr "N/A"
@@ -1148,7 +1148,7 @@ msgstr "N"
 msgid "Name:"
 msgstr "Nom :"
 
-#: src/weather-settings.c:920 src/weather-settings.c:4181
+#: src/weather-settings.c:920 src/weather-settings.c:4190
 #: src/weather-config.c:324 src/weather-sensor.c:141
 #: src/weather-simple-settings.c:2772
 msgid "Never"
@@ -1158,7 +1158,7 @@ msgstr "Jamais"
 msgid "New"
 msgstr "Nouveau"
 
-#: src/weather-settings.c:4266
+#: src/weather-settings.c:4275
 msgid "Next update:"
 msgstr "Prochaine mise à jour :"
 
@@ -1182,7 +1182,7 @@ msgstr "Pas de données météo pour ce jour."
 msgid "No weather data for this station."
 msgstr "Pas de données météo pour cette station."
 
-#: src/weather-home.c:2722 src/weather-home.c:2735 src/weather-popup.c:458
+#: src/weather-home.c:2728 src/weather-home.c:2741 src/weather-popup.c:458
 #: src/weather-popup.c:569 src/weather-popup.c:575
 #: src/weather-simple-settings.c:2856
 msgid "Now"
@@ -1221,7 +1221,7 @@ msgstr "Prévisions d'OMWeather"
 msgid "OMWeather Settings"
 msgstr "Paramètres de OMWeather"
 
-#: src/weather-home.c:1269 src/weather-home.c:2848
+#: src/weather-home.c:1269 src/weather-home.c:2854
 msgid "OMWeather settings"
 msgstr "Paramètres de OMWeather"
 
@@ -1333,7 +1333,7 @@ msgstr "Partiellement nuageux, orage"
 msgid "Period"
 msgstr "Période"
 
-#: src/weather-settings.c:3640
+#: src/weather-settings.c:3649
 msgid "Position:"
 msgstr "Position :"
 
@@ -1345,7 +1345,7 @@ msgstr "Mise à Jour"
 msgid "Pressure"
 msgstr "Pression"
 
-#: src/weather-settings.c:4040
+#: src/weather-settings.c:4049
 msgid "Pressure units:"
 msgstr "Unités de pression :"
 
@@ -1510,7 +1510,7 @@ msgstr "Averses de neige éparses"
 msgid "Scattered T-Storms"
 msgstr "Orages épars"
 
-#: src/weather-settings.c:3934
+#: src/weather-settings.c:3943
 msgid "Sea miles"
 msgstr "Milles marins"
 
@@ -1556,15 +1556,15 @@ msgstr "Paramètres"
 msgid "Short"
 msgstr "Courte"
 
-#: src/weather-settings.c:3815
+#: src/weather-settings.c:3824
 msgid "Show arrows"
 msgstr "Afficher les flèches"
 
-#: src/weather-settings.c:3745
+#: src/weather-settings.c:3754
 msgid "Show only current weather on first icon"
 msgstr "Afficher uniquement la météo actuelle sur le premier icône"
 
-#: src/weather-settings.c:3792
+#: src/weather-settings.c:3801
 msgid "Show station name"
 msgstr "Afficher le nom de la station"
 
@@ -1572,7 +1572,7 @@ msgstr "Afficher le nom de la station"
 msgid "Show temperature at:"
 msgstr "Afficher la température à :"
 
-#: src/weather-settings.c:3786
+#: src/weather-settings.c:3795
 msgid "Show wind"
 msgstr "Afficher le vent"
 
@@ -1704,11 +1704,11 @@ msgstr "Lever du soleil : "
 msgid "Sunset: "
 msgstr "Coucher du soleil : "
 
-#: src/weather-settings.c:3764
+#: src/weather-settings.c:3773
 msgid "Swap hi/low temperature"
 msgstr "Inverser température maximale/minimale"
 
-#: src/weather-settings.c:4171
+#: src/weather-settings.c:4180
 msgid "Switch to the next station after:"
 msgstr "Passer a la station suivante après :"
 
@@ -1733,7 +1733,7 @@ msgstr "Orages en matinée"
 msgid "Temperature"
 msgstr "Température"
 
-#: src/weather-settings.c:3849
+#: src/weather-settings.c:3858
 msgid "Temperature units:"
 msgstr "Unités de température :"
 
@@ -1753,7 +1753,7 @@ msgstr "La météo a été mise à jour."
 msgid "Thunder"
 msgstr "Orage"
 
-#: src/weather-simple-popup.c:386 src/weather-simple-popup.c:388
+#: src/weather-simple-popup.c:390 src/weather-simple-popup.c:392
 msgid "Today"
 msgstr "Aujourd'hui"
 
@@ -1799,7 +1799,7 @@ msgstr "Mise à jour"
 msgid "Update already running."
 msgstr "Mise à jour déjà en cours."
 
-#: src/weather-settings.c:4255
+#: src/weather-settings.c:4264
 msgid "Updating of weather data:"
 msgstr "Mise à jour des données météo : "
 
@@ -1831,7 +1831,7 @@ msgstr "Utiliser le capteur de température de l'appareil"
 msgid "VAR"
 msgstr "VAR"
 
-#: src/weather-settings.c:4222
+#: src/weather-settings.c:4231
 msgid "Valid time for current weather:"
 msgstr ""
 "Durée de validité \n"
@@ -1923,7 +1923,7 @@ msgstr "Style du gadget et des icônes"
 msgid "Wind"
 msgstr "Vent"
 
-#: src/weather-settings.c:3965
+#: src/weather-settings.c:3974
 msgid "Wind speed units:"
 msgstr "Unités de vitesse :"
 
@@ -1980,7 +1980,7 @@ msgstr "Zoom de la fenêtre popup"
 msgid "current location local time"
 msgstr "heure locale de la position actuelle"
 
-#: src/weather-simple-popup.c:395
+#: src/weather-simple-popup.c:399
 msgid "d:"
 msgstr "j:"
 
@@ -2025,7 +2025,7 @@ msgid "feels like"
 msgstr "ressentie"
 
 #: src/weather-home.c:1401 src/weather-home.c:1456 src/weather-home.c:1605
-#: src/weather-settings.c:4059 src/weather-popup.c:972
+#: src/weather-settings.c:4068 src/weather-popup.c:972
 #: src/weather-popup.c:1094 src/weather-popup.c:1292
 #: src/weather-simple-settings.c:1434
 msgid "inHg"
@@ -2040,7 +2040,7 @@ msgstr "pouce"
 msgid "km"
 msgstr "km"
 
-#: src/weather-settings.c:3985 src/hash.data:236
+#: src/weather-settings.c:3994 src/hash.data:236
 #: src/weather-simple-settings.c:1363 src/weather-simple-settings.c:2666
 msgid "km/h"
 msgstr "km/h"
@@ -2058,13 +2058,13 @@ msgstr "m"
 msgid "m/h"
 msgstr "m/h"
 
-#: src/weather-settings.c:3971 src/hash.data:239
+#: src/weather-settings.c:3980 src/hash.data:239
 #: src/weather-simple-settings.c:1355 src/weather-simple-settings.c:2660
 msgid "m/s"
 msgstr "m/s"
 
 #: src/weather-home.c:1398 src/weather-home.c:1453 src/weather-home.c:1604
-#: src/weather-settings.c:4046 src/weather-popup.c:969
+#: src/weather-settings.c:4055 src/weather-popup.c:969
 #: src/weather-popup.c:1091 src/weather-popup.c:1291
 #: src/weather-simple-settings.c:1426 src/weather-simple-settings.c:2686
 msgid "mb"
@@ -2076,7 +2076,7 @@ msgstr "mbar"
 msgid "mi"
 msgstr "mi"
 
-#: src/weather-settings.c:3999 src/hash.data:240
+#: src/weather-settings.c:4008 src/hash.data:240
 #: src/weather-simple-settings.c:1372 src/weather-simple-settings.c:2672
 msgid "mi/h"
 msgstr "mi/h"
@@ -2090,13 +2090,13 @@ msgid "mm"
 msgstr "mm"
 
 #: src/weather-home.c:1404 src/weather-home.c:1459 src/weather-home.c:1606
-#: src/weather-settings.c:4069 src/weather-popup.c:975
+#: src/weather-settings.c:4078 src/weather-popup.c:975
 #: src/weather-popup.c:1097 src/weather-popup.c:1293
 #: src/weather-simple-settings.c:1443
 msgid "mmHg"
 msgstr "mmHg"
 
-#: src/weather-simple-popup.c:455
+#: src/weather-simple-popup.c:456
 msgid "n:"
 msgstr "n :"
 

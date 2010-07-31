@@ -3,8 +3,9 @@ omweather (0.28.3) unstable; urgency=low
   * Added string for translation
   * Updated Spain, Italian, Franch translations 
   * Added new icon size
-  * Fixed problem in theme Okuda
-  * FIxed Day Length format
+  * Fixed problem in theme Okuda bug #11036 "Forecast text not displayed when Okuda theme is installed"
+  * Fixed Day Length format
+  * Fixed bug #10076 "updating omweather without desktop applet shouldn't suggest a reboot" 
 
  -- Vlad Vasiliev <vlad@gas.by>  Sat, 31 July 2010 18:24:20 +0200
 

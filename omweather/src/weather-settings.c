@@ -3571,7 +3571,7 @@ create_icon_size_line(GtkWidget *window, gint mode){
                      G_CALLBACK(control_bars_changed_handler),
                      apply_button);
     hildon_controlbar_set_min(HILDON_CONTROLBAR(icon_size), TINY - 1);
-    hildon_controlbar_set_max(HILDON_CONTROLBAR(icon_size), GIANT - 1);
+    hildon_controlbar_set_max(HILDON_CONTROLBAR(icon_size), SUPER_GIANT - 1);
     switch (app->config->icons_size) {
     case TINY:
         hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
@@ -3586,6 +3586,10 @@ create_icon_size_line(GtkWidget *window, gint mode){
                                     MEDIUM - 1);
         break;
     default:
+    case BIG:
+        hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
+                                    BIG - 1);
+        break;
     case LARGE:
         hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
                                     LARGE - 1);
@@ -3594,6 +3598,11 @@ create_icon_size_line(GtkWidget *window, gint mode){
         hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
                                     GIANT - 1);
         break;
+    case SUPER_GIANT:
+        hildon_controlbar_set_value(HILDON_CONTROLBAR(icon_size),
+                                    SUPER_GIANT - 1);
+        break;
+
     }
     gtk_box_pack_end(GTK_BOX(second_line), icon_size, FALSE, FALSE, 20);
     gtk_widget_set_size_request(icon_size, 350, -1);

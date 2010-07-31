@@ -512,7 +512,7 @@ gint read_config(AppletConfig * config) {
     config->icons_size = gconf_client_get_int(gconf_client,
                                               GCONF_KEY_WEATHER_ICONS_SIZE,
                                               NULL);
-    if (config->icons_size < TINY || config->icons_size > GIANT)
+    if (config->icons_size < TINY || config->icons_size > SUPER_GIANT)
         config->icons_size = LARGE;
     /* Get setting tab number  */
     config->current_settings_page = gconf_client_get_int(gconf_client,

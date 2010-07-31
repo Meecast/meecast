@@ -2455,6 +2455,9 @@ create_weather_day_button(const char *text, const char *icon,
 #endif
 /* select image size */
     switch(app->config->icons_size){
+        case SUPER_GIANT:
+            icon_size = SUPER_GIANT_ICON_SIZE;
+            break;
         case GIANT:
             icon_size = GIANT_ICON_SIZE;
             break;
@@ -2464,6 +2467,9 @@ create_weather_day_button(const char *text, const char *icon,
             break;
         case MEDIUM:
             icon_size = MEDIUM_ICON_SIZE;
+            break;
+        case BIG:
+            icon_size = BIG_ICON_SIZE;
             break;
         case SMALL:
             icon_size = SMALL_ICON_SIZE;

@@ -281,6 +281,8 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
     GdkPixbuf       *icon_buffer;
     GtkWidget       *icon_image;
     const gchar     *wind_units_str[] = { "m/s", "km/h", "mi/h" };
+    GtkStyle        *style = NULL;
+    GdkColor        colortext;
     gchar           buffer[1024],
                     tmp[512],
                     icon[2048],
@@ -338,6 +340,8 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             hyphenation = FALSE;
             day = (GHashTable*)(days->data);
             line = gtk_button_new();
+            style = gtk_rc_get_style (line);
+            colortext = style->text[GTK_STATE_NORMAL];
             gtk_button_set_focus_on_click(GTK_BUTTON(line), FALSE);
             gtk_button_set_relief(GTK_BUTTON(line), GTK_RELIEF_NONE);
             g_signal_connect(G_OBJECT(line), "clicked",
@@ -415,21 +419,18 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             }
             /* day temperature */
             if(hi_temp == INT_MAX)
-                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "<span weight=\"bold\">%s</span>, ",
-                            (char*)hash_table_find("N/A", FALSE));
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "<span weight=\"bold\">%s</span>, ", (char*)hash_table_find("N/A", FALSE));
             else
-                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "<span weight=\"bold\">%d\302\260%c</span>, ",
-                            hi_temp, symbol);
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "<span weight=\"bold\">%d\302\260%c</span>, ", hi_temp, symbol);
             /* day title */
             if(g_hash_table_lookup(day, "day_title"))
                 snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%s, ",
-                            (char*)hash_table_find(g_hash_table_lookup(day, "day_title"), FALSE));
-            
+                                (char*)hash_table_find(g_hash_table_lookup(day, "day_title"), FALSE));
+                
             if ((app->config->scale_in_popup > 3 && strlen(tmp) > 65)|| app->config->scale_in_popup == 6)
-                hyphenation = TRUE;
+                    hyphenation = TRUE;
             if (hyphenation)
-                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"\n    ");
-            
+                    snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1,"\n    ");
             /* wind speed */
             if(g_hash_table_lookup(day, "day_wind_speed"))
                 switch(app->config->wind_units){
@@ -455,11 +456,9 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%s ", _("n:"));
             /* night temperature */
             if(low_temp == INT_MAX)
-                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "<span weight=\"bold\">%s</span>, ",
-                            (char*)hash_table_find("N/A", FALSE));
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "<span weight=\"bold\">%s</span>, ", (char*)hash_table_find("N/A", FALSE));
             else
-                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "<span weight=\"bold\">%d\302\260%c</span>, ",
-                            low_temp, symbol);
+                snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "<span weight=\"bold\">%d\302\260%c</span>, ", low_temp, symbol);
             /* night title */
             if(g_hash_table_lookup(day, "night_title"))
                 snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "%s, ",
@@ -492,7 +491,8 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                 snprintf(tmp + strlen(tmp), sizeof(tmp) - strlen(tmp) - 1, "(%s)",
                             (char*)hash_table_find(g_hash_table_lookup(day, "night_wind_title"), FALSE));
 
-            snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1, "<i>%s</i>", tmp);
+            snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1, "<span foreground=\"#%02x%02x%02x\"><i>%s</i></span>",  
+                                        colortext.red>>8, colortext.green>>8, colortext.blue>>8, tmp);
 
             line_text = gtk_label_new(NULL);
             gtk_label_set_justify(GTK_LABEL(line_text), GTK_JUSTIFY_FILL);

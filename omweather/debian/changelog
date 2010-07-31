@@ -1,9 +1,12 @@
 omweather (0.28.3) unstable; urgency=low
 
   * Added string for translation
-  * Updated Spain, Italian translations 
+  * Updated Spain, Italian, Franch translations 
+  * Added new icon size
+  * Fixed problem in theme Okuda
+  * FIxed Day Length format
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 26 July 2010 08:24:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 31 July 2010 18:24:20 +0200
 
 omweather (0.28.2) unstable; urgency=low
 

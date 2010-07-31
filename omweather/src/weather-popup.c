@@ -1158,7 +1158,7 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
                  ((time_sunrise.tm_hour*60) + time_sunrise.tm_min));
     if (int_day_length > 1 && !day_invalid_count ){
         memset(buffer, 0, sizeof(buffer));
-        snprintf(buffer, sizeof(buffer) -1,"%s: %i:%i", _("Day length"), (int)int_day_length/60, 
+        snprintf(buffer, sizeof(buffer) -1,"%s: %i:%02i", _("Day length"), (int)int_day_length/60, 
                         int_day_length%60);
         day_length = gtk_label_new(buffer);
         set_font(day_length, NULL, font_size + 1);

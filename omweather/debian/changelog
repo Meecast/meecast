@@ -1,3 +1,10 @@
+omweather (0.28.4) unstable; urgency=low
+
+  * Fixed problem in theme Okuda bug #11036 "Forecast text not displayed when
+    Okuda theme is installed" for hour forecasts
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 2 Aug 2010 09:24:20 +0200
+
 omweather (0.28.3) unstable; urgency=low
 
   * Added string for translation
@@ -7,20 +14,20 @@ omweather (0.28.3) unstable; urgency=low
   * Fixed Day Length format
   * Fixed bug #10076 "updating omweather without desktop applet shouldn't suggest a reboot" 
 
- -- Vlad Vasiliev <vlad@gas.by>  Sat, 31 July 2010 18:24:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Sat, 31 Jul 2010 18:24:20 +0200
 
 omweather (0.28.2) unstable; urgency=low
 
   * Corrected number version in window 'About' 
 
- -- Vlad Vasiliev <vlad@gas.by>  Tue, 14 July 2010 08:24:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 14 Jul 2010 08:24:20 +0200
 
 omweather (0.28.1) unstable; urgency=low
 
   * Fixed bug in layout for current weather and moon in popup window 
   * Fixed problem with first button on applet 
 
- -- Vlad Vasiliev <vlad@gas.by>  Tue, 13 July 2010 17:04:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Tue, 13 Jul 2010 17:04:20 +0200
 
 omweather (0.28) unstable; urgency=low
 
@@ -28,7 +35,7 @@ omweather (0.28) unstable; urgency=low
   * Fixed problem with correct jump to selected day in popup window 
   * Added possibilty to change scaling in popup window
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 2 July 2010 21:04:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 2 Jul 2010 21:04:20 +0200
 
 omweather (0.27.13) unstable; urgency=low
 
@@ -36,7 +43,7 @@ omweather (0.27.13) unstable; urgency=low
   * Rewrote GPS function
   * Fixed crashing of hildon-home
 
- -- Vlad Vasiliev <vlad@gas.by>  Fri, 2 July 2010 21:04:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Fri, 2 Jul 2010 21:04:20 +0200
 
 omweather (0.27.12) unstable; urgency=low
 
@@ -44,27 +51,27 @@ omweather (0.27.12) unstable; urgency=low
   * Fixed problem first start with animation (Button 'Done')
   * Updated Germany, Finland, Poland translations
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 22 June 2010 19:56:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 22 Jun 2010 19:56:20 +0200
 
 omweather (0.27.11) unstable; urgency=low
 
   * Corrected number of version in window 'About' 
   * Updated French translation
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 21 June 2010 19:56:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 21 Jun 2010 19:56:20 +0200
 
 omweather (0.27.10) unstable; urgency=low
 
   * Fixed memory leaks for Diablo 
 
- -- Vlad Vasiliev <vlad@gas.by>  Mon, 21 June 2010 17:56:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 21 Jun 2010 17:56:20 +0200
 
 omweather (0.27.1) unstable; urgency=low
 
   * Tested memory leak 
   * Fixed problem with default choice in layouts selecting
 
- -- Vlad Vasiliev <vlad@gas.by>  Thu, 17 June 2010 07:39:20 +0200
+ -- Vlad Vasiliev <vlad@gas.by>  Thu, 17 Jun 2010 07:39:20 +0200
 
 omweather (0.27) unstable; urgency=low
 

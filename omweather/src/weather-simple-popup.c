@@ -387,12 +387,15 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
             if(i == 0){
                 comma = strchr(tmp, ',');
                 if(comma)
-                    snprintf(buffer, sizeof(buffer) - 1, "<span weight=\"bold\">%s%s", _("Today"), comma);
+                    snprintf(buffer, sizeof(buffer) - 1, "<span foreground=\"#%02x%02x%02x\" weight=\"bold\">%s%s",                                                                 
+                                                  colortext.red>>8, colortext.green>>8, colortext.blue>>8, _("Today"), comma);
                 else
-                    snprintf(buffer, sizeof(buffer) - 1, "<span weight=\"bold\">%s%s", _("Today"), tmp);
+                    snprintf(buffer, sizeof(buffer) - 1, "<span foreground=\"#%02x%02x%02x\" weight=\"bold\">%s%s", 
+                                                                colortext.red>>8, colortext.green>>8, colortext.blue>>8, _("Today"), tmp);
             }
             else
-                snprintf(buffer, sizeof(buffer) - 1, "<span weight=\"bold\">%s", tmp);
+                snprintf(buffer, sizeof(buffer) - 1, "<span foreground=\"#%02x%02x%02x\" weight=\"bold\">%s", 
+                                                            colortext.red>>8, colortext.green>>8, colortext.blue>>8, tmp);
             snprintf(buffer + strlen(buffer), sizeof(buffer) - strlen(buffer) - 1, "</span>");
             /* day text */
             *tmp = 0;
@@ -873,6 +876,9 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
     struct tm       *gmt;
     gint            font_size = 12;
     gint            icon_size = SMALL_ICON_SIZE;
+    GtkStyle        *style = NULL;
+    GdkColor        colortext;
+
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -946,8 +952,11 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                                       (prev_difference > 0 &&  difference<0)) {
                 flag = TRUE; 
                 line =  gtk_button_new();
+                style = gtk_rc_get_style (line);
+                colortext = style->text[GTK_STATE_NORMAL];
                 gtk_button_set_focus_on_click(GTK_BUTTON(line), FALSE);
                             gtk_button_set_relief(GTK_BUTTON(line), GTK_RELIEF_NONE);
+
                 *buffer = 0;
                 g_object_set_data(G_OBJECT(line), "scrolled_window",
                                                        (gpointer)scrolled_window);
@@ -1057,8 +1066,8 @@ create_weather_for_two_hours_collapsed_view(GtkWidget *vbox, gint day_number){
                          atoi(g_hash_table_lookup(hour_weather, "hour_humidity")));
                 snprintf(buffer + strlen(buffer), 
                                         sizeof(buffer) - strlen(buffer) - 1, 
-                                        "<i>%s</i>", tmp);
-
+                                        "<span foreground=\"#%02x%02x%02x\"><i>%s</i></span>", 
+                                        colortext.red>>8, colortext.green>>8, colortext.blue>>8, tmp);
 
                 line_text = gtk_label_new(NULL);
                 gtk_label_set_justify(GTK_LABEL(line_text), GTK_JUSTIFY_FILL);

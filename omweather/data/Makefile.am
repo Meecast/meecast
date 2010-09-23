@@ -32,10 +32,10 @@ button_iconsdir = $(datadir)/omweather/button_icons
 button_icons_DATA = button_icons/*.png
 backupdir = /etc/osso-backup/applications
 backup_DATA = omweather.conf
-imagedigiadir = $(datadir)/omweather/images/digia
-imagedigia_DATA = images/digia/*.png
-imageextracoffedir = $(datadir)/omweather/images/extra_coffe
-imageextracoffe_DATA = images/extra_coffe/*.png
+imagedigiadir = $(datadir)/omweather/images/Digia
+imagedigia_DATA = images/Digia/*.png
+imageextracoffedir = $(datadir)/omweather/images/Extra_coffe
+imageextracoffe_DATA = images/Extra_coffe/*.png
 
 
 # The icons

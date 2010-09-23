@@ -134,9 +134,9 @@ create_presets_image_path(gchar* image){
     gchar *result;
 
     result = g_strdup_printf("%s%s/%s", IMAGES_PATH, app->config->mod, image);
+
     if (access(result, F_OK) != 0)
-        result = g_strdup_printf("%s%s/%s", IMAGES_PATH, "digia", image);
-    
+        result = g_strdup_printf("%s%s/%s", IMAGES_PATH, "Digia", image);
     return result;
 }
 /*******************************************************************************/

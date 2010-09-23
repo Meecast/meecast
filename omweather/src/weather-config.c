@@ -879,11 +879,11 @@ gint read_config(AppletConfig * config) {
 
     /* Get mod Drfault Digia*/
     tmp = NULL;
-    tmp = gconf_client_get_int(gconf_client,
+    tmp = gconf_client_get_string(gconf_client,
                                               GCONF_KEY_MOD,
                                               &gerror);
     if (!tmp ||gerror) {
-        config->mod = g_strdup("digia");
+        config->mod = g_strdup("Digia");
         if(gerror){
             g_error_free(gerror);
             gerror = NULL;

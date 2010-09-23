@@ -128,7 +128,17 @@ set_font(GtkWidget * widget, const gchar * description, const gint size) {
     END_FUNCTION;
 #endif
 }
+/*******************************************************************************/
+gchar *
+create_presets_image_path(gchar* image){
+    gchar *result;
 
+    result = g_strdup_printf("%s%s/%s", IMAGES_PATH, app->config->mod, image);
+    if (access(result, F_OK) != 0)
+        result = g_strdup_printf("%s%s/%s", IMAGES_PATH, "digia", image);
+    
+    return result;
+}
 /*******************************************************************************/
 void
 set_font_color(GtkWidget * widget, guint16 red, guint16 green,

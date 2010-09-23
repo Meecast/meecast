@@ -109,7 +109,7 @@
 #define REGIONSFILE         "regions.list"
 #define LOCATIONSFILE       "locations.list"
 #define ICONS_PATH          "/usr/share/omweather/icons/"
-#define BUTTON_ICONS		"/usr/share/omweather/button_icons/"
+#define BUTTON_ICONS        "/usr/share/omweather/button_icons/"
 #define IMAGES_PATH         "/usr/share/omweather/images/"
 
  #define START_FUNCTION        fprintf(stderr,"\n>>>>>>>>>Start %s()\n", __PRETTY_FUNCTION__);
@@ -345,8 +345,9 @@ typedef struct applet_config{
     gboolean	update_gsm;
     gboolean	update_wlan;
     gboolean	animation;
-    gint	view_mode;
+    gint        view_mode;
     gint        scale_in_popup;
+    gchar       *mod;
 }AppletConfig;
 /*******************************************************************************/
 #if defined CLUTTER || defined OS2009

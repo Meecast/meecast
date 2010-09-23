@@ -35,6 +35,7 @@ composition_right_horizontal_day_button(WDB *new_day_button){
     gchar       buffer[2048];
     gchar       tmp_buffer[2048];
     gchar       *day_name;
+    gchar       *image_file = NULL;
     gchar       *begin_of_string;
     gchar       *begin_of_string2;
     GtkWidget   *day = NULL;
@@ -48,8 +49,12 @@ composition_right_horizontal_day_button(WDB *new_day_button){
     /* create day box to contain icon, label and wind image */
     /* background */
     memset(buffer, 0, sizeof(buffer));
-    snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_RIGHT_HORIZONTAL_BACKGROUND);
-    new_day_button->background = gtk_image_new_from_file (buffer);
+    image_file = create_presets_image_path(PRESET_RIGHT_HORIZONTAL_BACKGROUND);
+//    snprintf(buffer, sizeof(buffer) - 1, "%s%s", IMAGES_PATH, PRESET_RIGHT_HORIZONTAL_BACKGROUND);
+    if (image_file){
+        new_day_button->background = gtk_image_new_from_file (image_file);
+        g_free(image_file);
+    }
 
     gtk_widget_set_size_request(new_day_button->box, 70, 177);
     if (new_day_button->background)

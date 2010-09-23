@@ -876,6 +876,23 @@ gint read_config(AppletConfig * config) {
     if (config->view_mode < COLLAPSED_VIEW_MODE
                 || config->mode > EXPANDED_VIEW_MODE)
                         config->view_mode = COLLAPSED_VIEW_MODE;
+
+    /* Get mod Drfault Digia*/
+    tmp = NULL;
+    tmp = gconf_client_get_int(gconf_client,
+                                              GCONF_KEY_MOD,
+                                              &gerror);
+    if (!tmp ||gerror) {
+        config->mod = g_strdup("digia");
+        if(gerror){
+            g_error_free(gerror);
+            gerror = NULL;
+        }
+    }else
+        config->mod = g_strdup(tmp);
+    if (tmp)
+        g_free(tmp);
+
     check_current_station_id();
     gconf_client_clear_cache(gconf_client);
     g_object_unref(gconf_client);
@@ -1180,6 +1197,12 @@ void config_save(AppletConfig * config) {
     gconf_client_set_int(gconf_client,
                              GCONF_KEY_VIEW_MODE, config->view_mode,
                                                       NULL);
+    /* Save mod */
+    if (config->mod)
+        gconf_client_set_string(gconf_client,
+                                GCONF_KEY_MOD,
+                                config->mod, NULL);
+
     g_object_unref(gconf_client);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;

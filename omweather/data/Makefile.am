@@ -32,10 +32,11 @@ button_iconsdir = $(datadir)/omweather/button_icons
 button_icons_DATA = button_icons/*.png
 backupdir = /etc/osso-backup/applications
 backup_DATA = omweather.conf
-#if NONMAEMO
-imagedir = $(datadir)/omweather/images
-image_DATA = images/*.png
-#endif
+imagedigiadir = $(datadir)/omweather/images/digia
+imagedigia_DATA = images/digia/*.png
+imageextracoffedir = $(datadir)/omweather/images/extra_coffe
+imageextracoffe_DATA = images/extra_coffe/*.png
+
 
 # The icons
 
@@ -89,7 +90,8 @@ EXTRA_DIST = $(homeapplet_desktop_DATA) \
 	     $(dbus_service_DATA) \
 	     omweather.desktop.in \
 	     omweather.png \
-	     $(image_DATA) \
+	     $(imagedigia_DATA) \
+	     $(imageextracoffe_DATA) \
 	     $(backup_DATA)
 
 omweather.desktop: omweather.desktop.in

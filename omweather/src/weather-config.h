@@ -94,6 +94,7 @@
 #define GCONF_KEY_VIEW_MODE                         GCONF_KEY_PREFIX"/view_mode"
 #define GCONF_KEY_ENABLE_ANIMATION                  GCONF_KEY_PREFIX"/animation"
 #define GCONF_KEY_SCALE_IN_POPUP                    GCONF_KEY_PREFIX"/scale_in_popup"
+#define GCONF_KEY_MOD                               GCONF_KEY_PREFIX"/mod"
 /*******************************************************************************/
 gboolean config_set_weather_dir_name(gchar *new_weather_dir_name);
 void config_update_proxy(void);

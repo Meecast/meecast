@@ -86,5 +86,6 @@ GtkWidget *next_station_preset_now(gint layout);
 void fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const char *icon,
                 const gint icon_size, gboolean transparency,
                 gboolean draw_day_label, gint wind_direction, gfloat wind_speed);
+gchar* create_presets_image_path(gchar* image);
 /*******************************************************************************/
 #endif

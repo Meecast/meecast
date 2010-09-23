@@ -187,7 +187,8 @@ widget_styles_save(GtkWidget *window){
     *preset_now_plus_three_v = NULL,
     *preset_now_plus_seven = NULL,
     *preset_custom = NULL,
-    *selected_icon_set = NULL;
+    *selected_icon_set = NULL,
+    *mod_button = NULL;
 
     GSList      *icon_set = NULL, *tmp_set ;
     gint previous_value;
@@ -201,6 +202,7 @@ widget_styles_save(GtkWidget *window){
     preset_now_plus_three_h = lookup_widget(window, "preset_now_plus_three_h");
     preset_now_plus_seven = lookup_widget(window, "preset_now_plus_seven");
     preset_custom = lookup_widget(window, "preset_custom");
+    mod_button = lookup_widget(window, "mod_button");
 
     if (preset_now && preset_now_plus_two && preset_now_plus_three_v && 
         preset_now_plus_three_h && preset_now_plus_seven && preset_custom){
@@ -255,6 +257,8 @@ widget_styles_save(GtkWidget *window){
         free_icon_set_list(icon_set);
 
     }
+    if (hildon_button_get_value(mod_button))
+        app->config->mod = g_strdup(hildon_button_get_value(mod_button));
 /* save settings */
     config_save(app->config);
     if (previous_value != app->config->icons_layout)
@@ -367,8 +371,10 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
               *check_button         = NULL,
               *mod_button           = NULL,
               *preset_custom        = NULL,
-              *widget_style_button  = NULL;
-    GSList    *mod_set = NULL;
+              *widget_style_button  = NULL,
+              *selector             = NULL;
+    gint i = 0;
+    GSList    *mod_set = NULL, *tmp = NULL;
     gint result;
 
 #ifdef DEBUGFUNCTIONCALL
@@ -410,10 +416,24 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     g_signal_connect(custom_edit_layout_button, "clicked",
                      G_CALLBACK(changed_custom_layout),
                      NULL);
+    create_icon_set_list(IMAGES_PATH, &mod_set, "dir"); 
+    selector = hildon_touch_selector_new_text ();
+
     mod_button = hildon_picker_button_new (HILDON_SIZE_AUTO, HILDON_BUTTON_ARRANGEMENT_VERTICAL);
-    hildon_button_set_title (HILDON_BUTTON (mod_button), _("Mod"));
+    hildon_button_set_title (HILDON_BUTTON (mod_button), _("Modification"));
     GLADE_HOOKUP_OBJECT(window, mod_button, "mod_button");
     gtk_widget_set_name(mod_button, "mod_button");
+    tmp = mod_set;
+    while (tmp) { 
+        hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (selector), tmp->data);
+        if (tmp->data && app->config->mod && !strcmp(tmp->data, app->config->mod))
+                hildon_picker_button_set_active(mod_button,i);
+        i++;
+        tmp = g_slist_next(tmp);
+    }
+    hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (mod_button),
+                                      HILDON_TOUCH_SELECTOR (selector));
+
 
     gtk_box_pack_start(GTK_BOX(layouts_line), mod_button, FALSE,
                        FALSE, 20);

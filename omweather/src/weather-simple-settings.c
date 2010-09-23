@@ -270,13 +270,18 @@ widget_styles_save(GtkWidget *window){
 void
 check_custom_changed_handler(GtkToggleButton *button, gpointer user_data){
     GtkWidget
-    *button_edit_custom = NULL;
+    *button_edit_custom = NULL,
+    *mod_button = NULL;
 
     button_edit_custom = lookup_widget(user_data, "button_edit_custom");
-    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button)))
+    mod_button = lookup_widget(user_data, "mod_button");
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button))){
+        gtk_widget_hide(mod_button);
         gtk_widget_show(button_edit_custom);
-    else
+    }else{
         gtk_widget_hide(button_edit_custom);
+        gtk_widget_show(mod_button);
+    }
 }
 /*******************************************************************************/
 
@@ -360,8 +365,10 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
               *window               = NULL,
               *custom_edit_layout_button = NULL,
               *check_button         = NULL,
+              *mod_button           = NULL,
               *preset_custom        = NULL,
               *widget_style_button  = NULL;
+    GSList    *mod_set = NULL;
     gint result;
 
 #ifdef DEBUGFUNCTIONCALL
@@ -403,6 +410,13 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     g_signal_connect(custom_edit_layout_button, "clicked",
                      G_CALLBACK(changed_custom_layout),
                      NULL);
+    mod_button = hildon_picker_button_new (HILDON_SIZE_AUTO, HILDON_BUTTON_ARRANGEMENT_VERTICAL);
+    hildon_button_set_title (HILDON_BUTTON (mod_button), _("Mod"));
+    GLADE_HOOKUP_OBJECT(window, mod_button, "mod_button");
+    gtk_widget_set_name(mod_button, "mod_button");
+
+    gtk_box_pack_start(GTK_BOX(layouts_line), mod_button, FALSE,
+                       FALSE, 20);
 
     gtk_box_pack_start(GTK_BOX(layouts_line), custom_edit_layout_button, FALSE,
                        FALSE, 20);
@@ -421,11 +435,13 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
         case PRESET_NOW_PLUS_THREE_H:
         case PRESET_NOW_PLUS_SEVEN:
             gtk_widget_hide (custom_edit_layout_button);
+            gtk_widget_show (mod_button);
             break;
         default: 
             preset_custom = lookup_widget(window, "preset_custom");
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preset_custom),
                                      TRUE);
+            gtk_widget_hide (mod_button);
             break;
     }
     result = gtk_dialog_run(GTK_DIALOG(window));

@@ -416,14 +416,18 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
     g_signal_connect(custom_edit_layout_button, "clicked",
                      G_CALLBACK(changed_custom_layout),
                      NULL);
+
     create_icon_set_list(IMAGES_PATH, &mod_set, "dir"); 
     selector = hildon_touch_selector_new_text ();
 
     mod_button = hildon_picker_button_new (HILDON_SIZE_AUTO, HILDON_BUTTON_ARRANGEMENT_VERTICAL);
+    hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (mod_button),
+                                      HILDON_TOUCH_SELECTOR (selector));
     hildon_button_set_title (HILDON_BUTTON (mod_button), _("Modification"));
     GLADE_HOOKUP_OBJECT(window, mod_button, "mod_button");
     gtk_widget_set_name(mod_button, "mod_button");
     tmp = mod_set;
+
     while (tmp) { 
         hildon_touch_selector_append_text (HILDON_TOUCH_SELECTOR (selector), tmp->data);
         if (tmp->data && app->config->mod && !strcmp(tmp->data, app->config->mod))
@@ -431,9 +435,6 @@ widget_style_setup_button_handler(GtkWidget *button, GdkEventButton *event,
         i++;
         tmp = g_slist_next(tmp);
     }
-    hildon_picker_button_set_selector (HILDON_PICKER_BUTTON (mod_button),
-                                      HILDON_TOUCH_SELECTOR (selector));
-
 
     gtk_box_pack_start(GTK_BOX(layouts_line), mod_button, FALSE,
                        FALSE, 20);
@@ -2880,19 +2881,19 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
 #endif
     switch(app->config->icons_layout){
         case PRESET_NOW_PLUS_SEVEN: 
-                                widget_style_string = _("Now + 7 days vert.");
+                                widget_style_string = g_strdup_printf("%s(%s)",_("Now + 7 days vert."),app->config->mod);
                                 break;
         case PRESET_NOW_PLUS_TWO: 
-                                widget_style_string = _("Now, + 2 days vert.");
+                                widget_style_string = g_strdup_printf("%s(%s)",_("Now + 2 days vert."),app->config->mod);
                                 break;
         case PRESET_NOW_PLUS_THREE_V: 
-                                widget_style_string = _("Now + 3 days vert.");
+                                widget_style_string = g_strdup_printf("%s(%s)",_("Now + 3 days vert."),app->config->mod);
                                 break;  
         case PRESET_NOW:
-                                widget_style_string = _("Now");
+                                widget_style_string = g_strdup_printf("%s(%s)",_("Now"),app->config->mod);
                                 break;
         case PRESET_NOW_PLUS_THREE_H: 
-                                widget_style_string = _("Now + 3 days hor.");
+                                widget_style_string = g_strdup_printf("%s(%s)",_("Now + 3 days hor."),app->config->mod);
                                 break;
         case ONE_ROW: 
         case ONE_COLUMN: 

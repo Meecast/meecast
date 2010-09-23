@@ -1,6 +1,7 @@
 omweather-weather-com-stations-db (1.0) unstable; urgency=low
 
   * First step for adapting to meego
+  * Updated weather stations for Russia
 
  --  Vlad Vasiliev <vlad@gas.by>  Thu, 14 Wen 2010 22:10:31 +0200
 

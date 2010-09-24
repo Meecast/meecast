@@ -765,6 +765,18 @@ write_log(char *string){
 #endif
 }
 /*******************************************************************************/
+void
+load_style(void){
+ifdef DEBUGFUNCTIONCALL
+    START_FUNCTION;
+#endif
+
+    gchar tmp_buff[2048];
+    snprintf(tmp_buff, sizeof(tmp_buff) - 1, "%s%s/%s", IMAGES_PATH, app->config->mod, "style.rc");
+    gtk_rc_parse(tmp_buff);
+   
+}
+/*******************************************************************************/
 /* Reload omweather's plugin */
 void
 reload_omw_plugin(void)

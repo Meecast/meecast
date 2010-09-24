@@ -77,8 +77,9 @@ composition_right_horizontal_day_button(WDB *new_day_button){
         memset(tmp_buffer, 0, sizeof(tmp_buffer));
         memcpy(tmp_buffer, day_name , strlen(day_name) - strlen(begin_of_string));
         snprintf(buffer,sizeof(buffer) - 1,
-                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                        PRESET_BIG_FONT_COLOR_BACK, tmp_buffer);
+                                     "<span stretch='ultracondensed'>%s</span>", tmp_buffer);
+        gtk_widget_set_name(day, "omweather_preset_day_label");
+
         gtk_label_set_markup(GTK_LABEL(day), buffer);
         gtk_label_set_justify(GTK_LABEL(day), GTK_JUSTIFY_CENTER);
         set_font(day, PRESET_DAY_FONT, -1);
@@ -166,8 +167,8 @@ composition_central_horizontal_day_button(WDB *new_day_button)
         memset(tmp_buffer, 0, sizeof(tmp_buffer));
         memcpy(tmp_buffer, day_name , strlen(day_name) - strlen(begin_of_string));
         snprintf(buffer,sizeof(buffer) - 1,
-                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                        PRESET_BIG_FONT_COLOR_BACK, tmp_buffer);
+                                       "<span stretch='ultracondensed'>%s</span>", tmp_buffer);
+        gtk_widget_set_name(day, "omweather_preset_day_label");
         gtk_label_set_markup(GTK_LABEL(day), buffer);
         gtk_label_set_justify(GTK_LABEL(day), GTK_JUSTIFY_CENTER);
         set_font(day, PRESET_DAY_FONT, -1);
@@ -253,8 +254,8 @@ composition_central_vertical_day_button(WDB *new_day_button)
         memset(tmp_buffer, 0, sizeof(tmp_buffer));
         memcpy(tmp_buffer, day_name , strlen(day_name) - strlen(begin_of_string));
         snprintf(buffer,sizeof(buffer) - 1,
-                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                        PRESET_BIG_FONT_COLOR_BACK, tmp_buffer);
+                                       "<span stretch='ultracondensed' >%s</span>", tmp_buffer);
+        gtk_widget_set_name(day, "omweather_preset_day_label");
         gtk_label_set_markup(GTK_LABEL(day), buffer);
         gtk_label_set_justify(GTK_LABEL(day), GTK_JUSTIFY_CENTER);
         set_font(day, PRESET_DAY_FONT, -1);
@@ -328,8 +329,8 @@ composition_left_vertical_day_button(WDB *new_day_button, gint layout)
         memset(tmp_buffer, 0, sizeof(tmp_buffer));
         memcpy(tmp_buffer, day_name , strlen(day_name) - strlen(begin_of_string));
         snprintf(buffer,sizeof(buffer) - 1,
-                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                        PRESET_BIG_FONT_COLOR_BACK, tmp_buffer);
+                                       "<span stretch='ultracondensed'>%s</span>", tmp_buffer);
+        gtk_widget_set_name(day, "omweather_preset_day_label");
         gtk_label_set_markup(GTK_LABEL(day), buffer);
         gtk_label_set_justify(GTK_LABEL(day), GTK_JUSTIFY_CENTER);
         set_font(day, PRESET_DAY_FONT, -1);
@@ -431,9 +432,9 @@ composition_right_vertical_day_button(WDB *new_day_button, gint layout)
         memset(tmp_buffer, 0, sizeof(tmp_buffer));
         memcpy(tmp_buffer, day_name , strlen(day_name) - strlen(begin_of_string));
         snprintf(buffer,sizeof(buffer) - 1,
-                                       "<span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                        PRESET_BIG_FONT_COLOR_BACK, tmp_buffer);
+                                       "<span stretch='ultracondensed'>%s</span>", tmp_buffer);
         gtk_label_set_markup(GTK_LABEL(day), buffer);
+        gtk_widget_set_name(day, "omweather_preset_day_label");
         gtk_label_set_justify(GTK_LABEL(day), GTK_JUSTIFY_CENTER);
         set_font(day, PRESET_DAY_FONT, -1);
         gtk_widget_set_size_request(day, 60, 25);
@@ -706,9 +707,9 @@ fill_weather_day_button_presets(WDB *new_day_button, const char *text, const cha
     new_day_button->wind_text = gtk_label_new(NULL);
     memset(buffer, 0, sizeof(buffer));
     if (wind_speed != -1)
-        sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%.0f</span>",
-                               PRESET_WIND_FONT_COLOR, wind_speed);
-
+        sprintf(buffer,"<span stretch='ultracondensed'>%.0f</span>", wind_speed);
+ 
+    gtk_widget_set_name(new_day_button->wind_text, "omweather_preset_wind_label");
     gtk_label_set_markup(GTK_LABEL(new_day_button->wind_text), buffer);
     gtk_label_set_justify(GTK_LABEL(new_day_button->wind_text), GTK_JUSTIFY_CENTER);
     /* Set font size for label */
@@ -842,9 +843,8 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     new_day_button->wind_text = gtk_label_new(NULL);
     memset(buffer, 0, sizeof(buffer));
     if (wind_speed != -1)
-        sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%.0f</span>",
-                               PRESET_WIND_FONT_COLOR, wind_speed);
-
+        sprintf(buffer,"<span stretch='ultracondensed'>%.0f</span>", wind_speed);
+    gtk_widget_set_name(new_day_button->wind_text, "omweather_preset_wind_label");
     gtk_label_set_markup(GTK_LABEL(new_day_button->wind_text), buffer);
     gtk_label_set_justify(GTK_LABEL(new_day_button->wind_text), GTK_JUSTIFY_CENTER);
     /* Set font size for label */
@@ -905,9 +905,10 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
                     wind_speed = wind_speed * 1.6;
                     break;
         }
-        if (wind_speed < STRONG_WIND)
+        if (wind_speed < STRONG_WIND){
             new_day_button->wind = gtk_image_new_from_file (image_file);
-        else{
+            g_free(image_file);
+        }else{
            begin_of_string = strstr(image_file,".png"); 
            snprintf(begin_of_string, sizeof(buffer) - strlen(image_file) - 1, "%s","_warning.png");
            new_day_button->wind = gtk_image_new_from_file (begin_of_string);

@@ -257,8 +257,11 @@ widget_styles_save(GtkWidget *window){
         free_icon_set_list(icon_set);
 
     }
-    if (hildon_button_get_value(mod_button))
+    if (hildon_button_get_value(mod_button)){
+        if (app->config->mod)
+            g_free(app->config->mod);
         app->config->mod = g_strdup(hildon_button_get_value(mod_button));
+    }
 /* save settings */
     config_save(app->config);
     if (previous_value != app->config->icons_layout)
@@ -2919,6 +2922,8 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
     }
 #if defined OS2009
     widget_style_button = create_button_with_2_line_text(_("Widget style"), widget_style_string, 18, 12);
+    if (widget_style_string)
+        g_free(widget_style_string);
     hildon_button_set_image (HILDON_BUTTON (widget_style_button), widget_style_icon);
     hildon_button_set_image_position (HILDON_BUTTON (widget_style_button), GTK_POS_RIGHT);
 #else

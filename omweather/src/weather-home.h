@@ -75,6 +75,7 @@ void initial_gps_connect(void);
 void deinitial_gps_connect(void);
 void initial_gps_control(void);
 void deinitial_gps_control(void);
+void load_style(void);
 #if defined OS2009 && !defined(APPLICATION)
 static void omweather_plugin_visible_notify (GObject *object, GParamSpec  *spec, gpointer data);
 #endif

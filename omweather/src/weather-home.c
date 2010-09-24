@@ -1014,6 +1014,7 @@ hildon_home_applet_lib_initialize(void *state_data, int *state_size,
     return NULL;
 #endif
     }
+    load_style();
     app->dbus_conn = NULL;
     app->dbus_conn_session = NULL;
     /* Initialize DBUS */
@@ -2289,6 +2290,11 @@ free_memory(void){
         g_free(app->config->cache_dir_name);
         app->config->cache_dir_name = NULL;
     }
+    if(app->config->mod){
+        g_free(app->config->mod);
+        app->config->mod = NULL;
+    }
+
     if(app->config->icon_set){
         g_free(app->config->icon_set);
         app->config->icon_set = NULL;

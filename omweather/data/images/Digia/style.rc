@@ -1,10 +1,18 @@
-style "day_font" {
+style "high_temp_font" {
 	 fg[NORMAL] =  "#ff0000"
 }
-style "wind_font" {
+style "low_temp_font" {
 	 fg[NORMAL] =  "#ff0000"
+}
+style "day_font" {
+	 fg[NORMAL] =  "#000000"
+}
+style "wind_font" {
+	 fg[NORMAL] =  "#000000"
 }
 
 widget "*.omweather_preset_day_label" style "day_font"
+widget "*.omweather_preset_high_temp_label" style "high_temp_font"
+widget "*.omweather_preset_low_temp_label" style "low_temp_font"
 widget "*.omweather_preset_wind_label" style "wind_font"
 

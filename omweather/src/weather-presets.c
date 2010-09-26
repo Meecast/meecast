@@ -40,6 +40,8 @@ composition_right_horizontal_day_button(WDB *new_day_button){
     gchar       *begin_of_string2;
     GtkWidget   *day = NULL;
     GtkWidget   *temperature = NULL;
+    GtkStyle    *high_style = NULL;
+    GtkStyle    *low_style = NULL;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -90,9 +92,20 @@ composition_right_horizontal_day_button(WDB *new_day_button){
         if (begin_of_string && begin_of_string2)
             memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
 
+        high_style =  gtk_rc_get_style_by_paths (gtk_widget_get_settings(temperature),
+                                                                       "*.omweather_preset_high_temp_label",
+                                                                       "*.omweather_preset_high_temp_label",
+                                                                       G_OBJECT_TYPE(temperature));
+        low_style =  gtk_rc_get_style_by_paths (gtk_widget_get_settings(temperature),
+                                                                       "*.omweather_preset_low_temp_label",
+                                                                       "*.omweather_preset_low_temp_label",
+                                                                       G_OBJECT_TYPE(temperature));
+
         snprintf(buffer,sizeof(buffer) - 1,
-                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                        PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
+                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='#%02x%02x%02x'>%s</span><span stretch='ultracondensed' foreground='#%02x%02x%02x'>%s</span>",
+                                        high_style->fg[0].red >>8, high_style->fg[0].green >>8, high_style->fg[0].blue >>8,
+                                        tmp_buffer, 
+                                        low_style->fg[0].red >>8, low_style->fg[0].green >>8, low_style->fg[0].blue >>8,
                                         begin_of_string2);
     }else
         if(gtk_label_get_text(GTK_LABEL(new_day_button->label)))

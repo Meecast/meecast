@@ -767,7 +767,7 @@ write_log(char *string){
 /*******************************************************************************/
 void
 load_style(void){
-ifdef DEBUGFUNCTIONCALL
+#ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
 

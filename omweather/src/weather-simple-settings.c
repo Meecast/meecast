@@ -261,6 +261,7 @@ widget_styles_save(GtkWidget *window){
         if (app->config->mod)
             g_free(app->config->mod);
         app->config->mod = g_strdup(hildon_button_get_value(mod_button));
+        load_style();
     }
 /* save settings */
     config_save(app->config);

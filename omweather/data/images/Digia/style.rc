@@ -1,8 +1,14 @@
 style "high_temp_font" {
-	 fg[NORMAL] =  "#ff0000"
+	 fg[NORMAL] =  "#ffffff"
+}
+style "station_label_shadow_font" {
+	 fg[NORMAL] =  "#000000"
+}
+style "station_label_font" {
+	 fg[NORMAL] =  "#ffffff"
 }
 style "low_temp_font" {
-	 fg[NORMAL] =  "#ff0000"
+	 fg[NORMAL] =  "#7D9CAD"
 }
 style "day_font" {
 	 fg[NORMAL] =  "#000000"
@@ -15,4 +21,6 @@ widget "*.omweather_preset_day_label" style "day_font"
 widget "*.omweather_preset_high_temp_label" style "high_temp_font"
 widget "*.omweather_preset_low_temp_label" style "low_temp_font"
 widget "*.omweather_preset_wind_label" style "wind_font"
+widget "*.omweather_preset_station_shadow_label" style "station_label_shadow_font"
+widget "*.omweather_preset_station_label" style "station_label_font"
 

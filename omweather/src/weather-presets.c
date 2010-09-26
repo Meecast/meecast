@@ -142,6 +142,8 @@ composition_central_horizontal_day_button(WDB *new_day_button)
     gchar       *begin_of_string2;
     GtkWidget   *day = NULL;
     GtkWidget   *temperature = NULL;
+    GtkStyle    *high_style = NULL;
+    GtkStyle    *low_style = NULL;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -193,10 +195,22 @@ composition_central_horizontal_day_button(WDB *new_day_button)
         if (begin_of_string && begin_of_string2)
             memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
 
+        high_style =  gtk_rc_get_style_by_paths (gtk_widget_get_settings(temperature),
+                                                                       "*.omweather_preset_high_temp_label",
+                                                                       "*.omweather_preset_high_temp_label",
+                                                                       G_OBJECT_TYPE(temperature));
+        low_style =  gtk_rc_get_style_by_paths (gtk_widget_get_settings(temperature),
+                                                                       "*.omweather_preset_low_temp_label",
+                                                                       "*.omweather_preset_low_temp_label",
+                                                                       G_OBJECT_TYPE(temperature));
+
         snprintf(buffer,sizeof(buffer) - 1,
-                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                        PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
+                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='#%02x%02x%02x'>%s</span><span stretch='ultracondensed' foreground='#%02x%02x%02x'>%s</span>",
+                                        high_style->fg[0].red >>8, high_style->fg[0].green >>8, high_style->fg[0].blue >>8,
+                                        tmp_buffer, 
+                                        low_style->fg[0].red >>8, low_style->fg[0].green >>8, low_style->fg[0].blue >>8,
                                         begin_of_string2);
+
     }else
         snprintf(buffer,sizeof(buffer) - 1,
                                        "<span stretch='ultracondensed' foreground='%s'>%s</span>",
@@ -229,6 +243,8 @@ composition_central_vertical_day_button(WDB *new_day_button)
     gchar       *begin_of_string2;
     GtkWidget   *day = NULL;
     GtkWidget   *temperature = NULL;
+    GtkStyle    *high_style = NULL;
+    GtkStyle    *low_style = NULL;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -280,9 +296,20 @@ composition_central_vertical_day_button(WDB *new_day_button)
         if (begin_of_string && begin_of_string2)
             memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
         temperature = gtk_label_new(NULL);
+        high_style =  gtk_rc_get_style_by_paths (gtk_widget_get_settings(temperature),
+                                                                       "*.omweather_preset_high_temp_label",
+                                                                       "*.omweather_preset_high_temp_label",
+                                                                       G_OBJECT_TYPE(temperature));
+        low_style =  gtk_rc_get_style_by_paths (gtk_widget_get_settings(temperature),
+                                                                       "*.omweather_preset_low_temp_label",
+                                                                       "*.omweather_preset_low_temp_label",
+                                                                       G_OBJECT_TYPE(temperature));
+
         snprintf(buffer,sizeof(buffer) - 1,
-                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                        PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
+                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='#%02x%02x%02x'>%s</span><span stretch='ultracondensed' foreground='#%02x%02x%02x'>%s</span>",
+                                        high_style->fg[0].red >>8, high_style->fg[0].green >>8, high_style->fg[0].blue >>8,
+                                        tmp_buffer, 
+                                        low_style->fg[0].red >>8, low_style->fg[0].green >>8, low_style->fg[0].blue >>8,
                                         begin_of_string2);
     }else
         snprintf(buffer,sizeof(buffer) - 1,
@@ -316,6 +343,8 @@ composition_left_vertical_day_button(WDB *new_day_button, gint layout)
     gchar       *begin_of_string2;
     GtkWidget   *day = NULL;
     GtkWidget   *temperature = NULL;
+    GtkStyle    *high_style = NULL;
+    GtkStyle    *low_style = NULL;
 
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -354,9 +383,20 @@ composition_left_vertical_day_button(WDB *new_day_button, gint layout)
         begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
         if (begin_of_string && begin_of_string2)
             memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
+        high_style =  gtk_rc_get_style_by_paths (gtk_widget_get_settings(temperature),
+                                                                       "*.omweather_preset_high_temp_label",
+                                                                       "*.omweather_preset_high_temp_label",
+                                                                       G_OBJECT_TYPE(temperature));
+        low_style =  gtk_rc_get_style_by_paths (gtk_widget_get_settings(temperature),
+                                                                       "*.omweather_preset_low_temp_label",
+                                                                       "*.omweather_preset_low_temp_label",
+                                                                       G_OBJECT_TYPE(temperature));
+
         snprintf(buffer,sizeof(buffer) - 1,
-                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                        PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
+                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='#%02x%02x%02x'>%s</span><span stretch='ultracondensed' foreground='#%02x%02x%02x'>%s</span>",
+                                        high_style->fg[0].red >>8, high_style->fg[0].green >>8, high_style->fg[0].blue >>8,
+                                        tmp_buffer, 
+                                        low_style->fg[0].red >>8, low_style->fg[0].green >>8, low_style->fg[0].blue >>8,
                                         begin_of_string2);
     }else
         snprintf(buffer,sizeof(buffer) - 1,
@@ -420,6 +460,8 @@ composition_right_vertical_day_button(WDB *new_day_button, gint layout)
     gchar       *begin_of_string2;
     GtkWidget   *day = NULL;
     GtkWidget   *temperature = NULL;
+    GtkStyle    *high_style = NULL;
+    GtkStyle    *low_style = NULL;
 
 
     /* Packing all to the box */
@@ -457,9 +499,20 @@ composition_right_vertical_day_button(WDB *new_day_button, gint layout)
         begin_of_string2 = strstr(begin_of_string + 1, "\n"); 
         if (begin_of_string && begin_of_string2)
             memcpy(tmp_buffer, begin_of_string + 1 , strlen(begin_of_string + 1) - strlen(begin_of_string2));
+        high_style =  gtk_rc_get_style_by_paths (gtk_widget_get_settings(temperature),
+                                                                       "*.omweather_preset_high_temp_label",
+                                                                       "*.omweather_preset_high_temp_label",
+                                                                       G_OBJECT_TYPE(temperature));
+        low_style =  gtk_rc_get_style_by_paths (gtk_widget_get_settings(temperature),
+                                                                       "*.omweather_preset_low_temp_label",
+                                                                       "*.omweather_preset_low_temp_label",
+                                                                       G_OBJECT_TYPE(temperature));
+
         snprintf(buffer,sizeof(buffer) - 1,
-                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='%s'>%s</span><span stretch='ultracondensed' foreground='%s'>%s</span>",
-                                        PRESET_BIG_FONT_COLOR_FRONT, tmp_buffer, PRESET_FONT_COLOR_LOW_TEMP, 
+                                       "<span stretch='ultracondensed' weight=\"bold\" foreground='#%02x%02x%02x'>%s</span><span stretch='ultracondensed' foreground='#%02x%02x%02x'>%s</span>",
+                                        high_style->fg[0].red >>8, high_style->fg[0].green >>8, high_style->fg[0].blue >>8,
+                                        tmp_buffer, 
+                                        low_style->fg[0].red >>8, low_style->fg[0].green >>8, low_style->fg[0].blue >>8,
                                         begin_of_string2);
     }else
         snprintf(buffer,sizeof(buffer) - 1,
@@ -587,6 +640,7 @@ next_station_preset_now(gint layout)
     gchar           *begin_of_string;
     gchar           *image_file = NULL;
     gchar           buffer[2048];
+    gchar           buffer2[2048];
     gint            x_width = 0;
     gint            x_offset = 0;
 #ifdef DEBUGFUNCTIONCALL
@@ -594,6 +648,7 @@ next_station_preset_now(gint layout)
 #endif
     widget = gtk_fixed_new();
     memset(buffer, 0, sizeof(buffer));
+    memset(buffer2, 0, sizeof(buffer2));
     switch (layout){
         case PRESET_NOW_PLUS_THREE_H:
         case PRESET_NOW_PLUS_SEVEN:
@@ -656,24 +711,21 @@ next_station_preset_now(gint layout)
     station_text = gtk_label_new(NULL);
     if(app->config->current_station_id){
         memset(buffer, 0, sizeof(buffer));
-        sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%s</span>",
-                            PRESET_BIG_FONT_COLOR_FRONT, app->config->current_station_name); 
+        sprintf(buffer,"<span stretch='ultracondensed'>%s</span>", app->config->current_station_name); 
 
+        gtk_widget_set_name(station_text, "omweather_preset_station_label");
         gtk_label_set_markup(GTK_LABEL(station_text), buffer);
         gtk_label_set_justify(GTK_LABEL(station_text), GTK_JUSTIFY_CENTER);
         set_font(station_text, PRESET_STATION_FONT, -1);
         gtk_widget_set_size_request(station_text, x_width-4, 30);
         /* Create shadow station name */
-        if ((strlen(PRESET_BIG_FONT_COLOR_FRONT) == strlen(PRESET_BIG_FONT_COLOR_BACK))&&
-            (begin_of_string = strstr(buffer,PRESET_BIG_FONT_COLOR_FRONT))){
-            shadow_station_text = gtk_label_new(NULL);
-            memcpy(begin_of_string, PRESET_BIG_FONT_COLOR_BACK,7);
-            gtk_label_set_markup(GTK_LABEL(shadow_station_text), buffer);
-            gtk_label_set_justify(GTK_LABEL(shadow_station_text), GTK_JUSTIFY_CENTER);
-            set_font(shadow_station_text, PRESET_STATION_FONT, -1);
-            gtk_widget_set_size_request(shadow_station_text, x_width-5, 30);
-        }else
-            shadow_station_text = NULL;
+        shadow_station_text = gtk_label_new(NULL);
+        sprintf(buffer2,"<span stretch='ultracondensed'>%s</span>", app->config->current_station_name); 
+        gtk_widget_set_name(shadow_station_text, "omweather_preset_station_shadow_label");
+        gtk_label_set_markup(GTK_LABEL(shadow_station_text), buffer2);
+        gtk_label_set_justify(GTK_LABEL(shadow_station_text), GTK_JUSTIFY_CENTER);
+        set_font(shadow_station_text, PRESET_STATION_FONT, -1);
+        gtk_widget_set_size_request(shadow_station_text, x_width-5, 30);
     }else{
         station_text = NULL;
         shadow_station_text = NULL;

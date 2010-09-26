@@ -637,7 +637,6 @@ next_station_preset_now(gint layout)
                     *shadow_station_text = NULL,
                     *background_town = NULL,
                     *station_name_btn = NULL;
-    gchar           *begin_of_string;
     gchar           *image_file = NULL;
     gchar           buffer[2048];
     gchar           buffer2[2048];
@@ -875,9 +874,12 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     START_FUNCTION;
 #endif
     /* create day label */
+    memset(buffer, 0, sizeof(buffer));
     new_day_button->label = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL(new_day_button->label), text);
+    sprintf(buffer,"<span stretch='ultracondensed'>%s</span>", text);
+    gtk_label_set_markup(GTK_LABEL(new_day_button->label), buffer);
     gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_CENTER);
+    gtk_widget_set_name(new_day_button->label, "omweather_preset_first_temp");
     /* Set font size for label */
     if ( strlen(text)>65 )
         set_font(new_day_button->label, PRESET_MEDIUM_FONT, -1);
@@ -885,24 +887,17 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
         set_font(new_day_button->label, PRESET_BIG_FONT, -1);
     gtk_widget_set_size_request(new_day_button->label, 140, 52);
 
-/*        gtk_widget_set_name(new_day_button->label, "day_label");*/
     /* create shadow of day label */
-    /* check for memcpy operation */
-    if ((strlen(PRESET_BIG_FONT_COLOR_FRONT) == strlen(PRESET_BIG_FONT_COLOR_BACK))&&
-        (begin_of_string = strstr(text, PRESET_BIG_FONT_COLOR_FRONT))){
-        new_day_button->shadow_label = gtk_label_new(NULL);
-        memcpy(begin_of_string, PRESET_BIG_FONT_COLOR_BACK,7);
-        gtk_label_set_markup(GTK_LABEL(new_day_button->shadow_label), text);
-        gtk_label_set_justify(GTK_LABEL(new_day_button->shadow_label), GTK_JUSTIFY_CENTER);
-        /* Set font size for label */
-        if ( strlen(text)>65 )
-            set_font(new_day_button->shadow_label, PRESET_MEDIUM_FONT, -1);
-        else
-            set_font(new_day_button->shadow_label, PRESET_BIG_FONT, -1);
-        gtk_widget_set_size_request(new_day_button->shadow_label, 140, 52);
-
-     }else
-        new_day_button->shadow_label = NULL;
+    new_day_button->shadow_label = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL(new_day_button->shadow_label), buffer);
+    gtk_label_set_justify(GTK_LABEL(new_day_button->shadow_label), GTK_JUSTIFY_CENTER);
+    gtk_widget_set_name(new_day_button->shadow_label, "omweather_preset_first_shadow_temp");
+    /* Set font size for label */
+    if ( strlen(text)>65 )
+        set_font(new_day_button->shadow_label, PRESET_MEDIUM_FONT, -1);
+    else
+        set_font(new_day_button->shadow_label, PRESET_BIG_FONT, -1);
+    gtk_widget_set_size_request(new_day_button->shadow_label, 140, 52);
 
     /* create wind text */
     new_day_button->wind_text = gtk_label_new(NULL);

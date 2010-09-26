@@ -654,9 +654,7 @@ draw_home_window(gint count_day){
             wind_direction = UNKNOWN_DIRECTION;
             if(app->config->show_wind){
                 if (!app->config->is_application_mode && app->config->icons_layout >= PRESET_NOW){
-                    sprintf(buffer, "<span foreground='%s'>%s\302\260</span>",
-                        PRESET_BIG_FONT_COLOR_FRONT,
-                        _("N/A"));
+                    sprintf(buffer, "<span>%s\302\260</span>", _("N/A"));
                 }else{
                     sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260\n%s\n%s</span>",
                         app->config->font_color.red >> 8,
@@ -668,9 +666,7 @@ draw_home_window(gint count_day){
             }
             else{
                 if (!app->config->is_application_mode && app->config->icons_layout >= PRESET_NOW){
-                    sprintf(buffer, "<span foreground='%s'>%s\302\260</span>",
-                        PRESET_BIG_FONT_COLOR_FRONT,
-                        _("N/A"));
+                    sprintf(buffer, "<span>%s\302\260</span>", _("N/A"));
                 }else{
                     sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
                         app->config->font_color.red >> 8,
@@ -2736,8 +2732,7 @@ create_current_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
         }
     else
         if (!app->config->is_application_mode && app->config->icons_layout >= PRESET_NOW)
-            sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>%i\302\260</span>",
-                            PRESET_BIG_FONT_COLOR_FRONT, temp_current);
+            sprintf(buffer,"%i\302\260", temp_current);
         else
             sprintf(buffer,
                 "<span weight=\"bold\" foreground='#%02x%02x%02x'>%s\n%i\302\260\n</span>",
@@ -2790,13 +2785,10 @@ create_day_temperature_text(GHashTable *day, gchar *buffer, gboolean valid,
     /* For presets mode */
     if (!app->config->is_application_mode){
         if (app->config->icons_layout == PRESET_NOW || (button_number == FIRST_BUTTON && app->config->icons_layout > PRESET_NOW)){
-            sprintf(buffer,"<span stretch='ultracondensed' foreground='%s'>",
-                                PRESET_BIG_FONT_COLOR_FRONT);
             if(temp_low != INT_MAX)
                 sprintf(buffer + strlen(buffer), "%i\302\260", temp_low);
             if(temp_hi != INT_MAX)
                 sprintf(buffer + strlen(buffer), "%s%i\302\260", delemiter, temp_hi );
-            strcat(buffer, "</span>");
             return;
         }
         if (app->config->icons_layout > PRESET_NOW){

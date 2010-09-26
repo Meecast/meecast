@@ -1,0 +1,10 @@
+style "day_font" {
+	 fg[NORMAL] =  "#ff0000"
+}
+style "wind_font" {
+	 fg[NORMAL] =  "#ff0000"
+}
+
+widget "*.omweather_preset_day_label" style "day_font"
+widget "*.omweather_preset_wind_label" style "wind_font"
+

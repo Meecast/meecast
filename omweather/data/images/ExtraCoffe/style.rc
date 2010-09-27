@@ -1,0 +1,34 @@
+style "station_label_font" {
+	     fg[NORMAL] =  "#ffffff"
+}
+style "station_label_shadow_font" {
+	     fg[NORMAL] =  "#bdbdbd"
+}
+style "first_temp_font" {
+	     fg[NORMAL] =  "#ffda9f"
+}
+style "first_temp_shadow_font" {
+	     fg[NORMAL] =  "#000000"
+}
+style "high_temp_font" {
+	     fg[NORMAL] =  "#ffda9f"
+}
+style "low_temp_font" {
+	     fg[NORMAL] =  "#ffffff"
+}
+style "day_font" {
+	     fg[NORMAL] =  "#564a3b"
+}
+style "wind_font" {
+	     fg[NORMAL] =  "#564a3b"
+}
+
+widget "*.omweather_preset_day_label" style "day_font"
+widget "*.omweather_preset_high_temp_label" style "high_temp_font"
+widget "*.omweather_preset_low_temp_label" style "low_temp_font"
+widget "*.omweather_preset_wind_label" style "wind_font"
+widget "*.omweather_preset_station_shadow_label" style "station_label_shadow_font"
+widget "*.omweather_preset_station_label" style "station_label_font"
+widget "*.omweather_preset_first_temp" style "first_temp_font"
+widget "*.omweather_preset_first_shadow_temp" style "first_temp_shadow_font"
+

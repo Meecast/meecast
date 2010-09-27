@@ -34,8 +34,8 @@ backupdir = /etc/osso-backup/applications
 backup_DATA = omweather.conf
 imagedigiadir = $(datadir)/omweather/images/Digia
 imagedigia_DATA = images/Digia/*
-imageextracoffedir = $(datadir)/omweather/images/Extra_coffe
-imageextracoffe_DATA = images/Extra_coffe/*
+imageextracoffedir = $(datadir)/omweather/images/ExtraCoffe
+imageextracoffe_DATA = images/ExtraCoffe/*
 
 
 # The icons

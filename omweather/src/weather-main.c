@@ -155,7 +155,7 @@ create_omweather(void){
 
 /* Set background image */
 
-    pixbuf = gdk_pixbuf_new_from_file ("/usr/share/omweather/images/background.png",&error);
+    pixbuf = gdk_pixbuf_new_from_file ("/usr/share/omweather/images/Digia/background.png",&error);
     if (error != NULL) {
         if (error->domain == GDK_PIXBUF_ERROR) {
             g_print ("Pixbuf Related Error:\n");

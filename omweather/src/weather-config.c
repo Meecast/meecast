@@ -868,7 +868,7 @@ gint read_config(AppletConfig * config) {
                                                      NULL);
     if (config->scale_in_popup < 1 || config->scale_in_popup >6)
         config->scale_in_popup = 1;
-    /*Get VIEW_MODE Default COLLAPSED*/
+    /* Get VIEW_MODE Default COLLAPSED */
     config->view_mode = COLLAPSED_VIEW_MODE;
     config->view_mode = gconf_client_get_int(gconf_client,
                                        GCONF_KEY_VIEW_MODE,
@@ -877,7 +877,7 @@ gint read_config(AppletConfig * config) {
                 || config->mode > EXPANDED_VIEW_MODE)
                         config->view_mode = COLLAPSED_VIEW_MODE;
 
-    /* Get mod Drfault Digia*/
+    /* Get mod Default Digia */
     tmp = NULL;
     tmp = gconf_client_get_string(gconf_client,
                                               GCONF_KEY_MOD,

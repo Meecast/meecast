@@ -1,3 +1,10 @@
+omweather (0.28.6) unstable; urgency=low
+
+  * Fixed segmentation fault in settings
+  * Fixed path for background image  
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 26 Sep 2010 19:44:20 +0200
+
 omweather (0.28.5) unstable; urgency=low
 
   * Added mod extra coffe 

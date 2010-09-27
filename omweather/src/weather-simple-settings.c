@@ -2904,7 +2904,7 @@ create_and_fill_widget_style_box(GtkWidget *main_table){
         case TWO_ROWS:
         case TWO_COLUMNS:
         case COMBINATION: 
-                                widget_style_string = _("Custom");
+                                widget_style_string = g_strdup(_("Custom"));
                                 break;
     }
 

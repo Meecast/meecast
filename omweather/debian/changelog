@@ -1,3 +1,12 @@
+omweather (0.28.7) unstable; urgency=low
+
+  * Fixed segmentation fault in applet mode
+  * Rename mod Extra_coffe to ExtraCoffe
+  * Redesign font color for ExtraCoffe mod (Thanks GaRy delaMEr)
+  * Update Finish, Spain, Russian translation
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 27 Sep 2010 23:44:20 +0200
+
 omweather (0.28.6) unstable; urgency=low
 
   * Fixed segmentation fault in settings

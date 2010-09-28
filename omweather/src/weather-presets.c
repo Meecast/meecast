@@ -836,10 +836,11 @@ fill_weather_day_button_presets(WDB *new_day_button, const char *text, const cha
         }
 
         if (wind_speed > STRONG_WIND){
-           begin_of_string = strstr(image_file,".png"); 
-           snprintf(begin_of_string, sizeof(buffer) - strlen(image_file) - 1, "%s","_warning.png");
+           snprintf(buffer,sizeof(buffer) - 1, "%s", image_file);
+           begin_of_string = strstr(buffer,".png"); 
+           snprintf(begin_of_string, sizeof(buffer) - strlen(buffer) - 1, "%s","_warning.png");
            g_free(image_file);
-           image_file = g_strdup(begin_of_string);
+           image_file = g_strdup(buffer);
         }
 
         /* create day icon buffer */
@@ -969,9 +970,11 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
             new_day_button->wind = gtk_image_new_from_file (image_file);
             g_free(image_file);
         }else{
-           begin_of_string = strstr(image_file,".png"); 
-           snprintf(begin_of_string, sizeof(buffer) - strlen(image_file) - 1, "%s","_warning.png");
-           new_day_button->wind = gtk_image_new_from_file (begin_of_string);
+           snprintf(buffer,sizeof(buffer) - 1, "%s", image_file);
+           begin_of_string = strstr(buffer,".png"); 
+           snprintf(begin_of_string, sizeof(buffer) - strlen(buffer) - 1, "%s","_warning.png");
+           new_day_button->wind = gtk_image_new_from_file (buffer);
+           g_free(image_file);
         }
     }
     new_day_button->box  = gtk_fixed_new();

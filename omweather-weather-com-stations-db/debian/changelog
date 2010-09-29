@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (1.0.1) unstable; urgency=low
+
+  * Updated weather stations for United Kingdom
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wed, 29 Wen 2010 22:10:31 +0200
+
 omweather-weather-com-stations-db (1.0) unstable; urgency=low
 
   * First step for adapting to meego

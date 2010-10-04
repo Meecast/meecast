@@ -46,7 +46,7 @@
     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Отладка</value>
     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration" type="int">2</value>
-    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">/home/scratchboxes/scratchbox.5/users/vlad/home/vlad/omweather.svn/trunk/qtomweather-build-desktop</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">/scratchbox/users/vlad/home/vlad/omweather/trunk/qtomweather-build-desktop</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.QtVersionId" type="int">2</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.ToolChain" type="int">0</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild" type="bool">true</value>
@@ -80,7 +80,7 @@
     <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">Релиз</value>
     <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration" type="int">0</value>
-    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">/home/scratchboxes/scratchbox.5/users/vlad/home/vlad/omweather.svn/trunk/qtomweather-build-desktop</value>
+    <value key="Qt4ProjectManager.Qt4BuildConfiguration.BuildDirectory" type="QString">/scratchbox/users/vlad/home/vlad/omweather/trunk/qtomweather-build-desktop</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.QtVersionId" type="int">2</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.ToolChain" type="int">0</value>
     <value key="Qt4ProjectManager.Qt4BuildConfiguration.UseShadowBuild" type="bool">true</value>

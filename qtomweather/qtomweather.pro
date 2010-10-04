@@ -9,11 +9,14 @@ QT       += core gui
 TARGET = qtomweather
 TEMPLATE = app
 
+CONFIG += link_pkgconfig
+PKGCONFIG += glib-2.0
+
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    sources.cpp \
-    source.cpp
+    source.cpp \
+    sources.cpp
 
 HEADERS  += mainwindow.h \
     source.h

@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-26 15:54+0300\n"
-"PO-Revision-Date: 2010-07-29 22:18+0200\n"
-"Last-Translator: Vincent Datrier <vincent.datrier@gmail.com>\n"
+"PO-Revision-Date: 2010-10-26 15:41+0200\n"
+"Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -831,9 +831,8 @@ msgid "Heavy Rain / Wind"
 msgstr "Grosse pluie / vent"
 
 #: src/hash.data:67
-#, fuzzy
 msgid "Heavy Rain Shower"
-msgstr "Averse"
+msgstr "Fortes averses de pluie"
 
 #: src/hash.data:68
 msgid "Heavy Snow"
@@ -1002,9 +1001,8 @@ msgid "Mist"
 msgstr "Brume"
 
 #: src/weather-simple-settings.c:430
-#, fuzzy
 msgid "Modification"
-msgstr "Donation"
+msgstr "Modification"
 
 #: src/hash.data:96
 msgid "Mostly Clear"
@@ -1200,7 +1198,6 @@ msgid "Now"
 msgstr "Maintenant"
 
 #: src/weather-simple-settings.c:2891
-#, fuzzy
 msgid "Now + 2 days vert."
 msgstr "Maintenant + 2 jours vertical"
 
@@ -1290,9 +1287,8 @@ msgid "PM Snow Showers"
 msgstr "Averses de neige l'après-midi"
 
 #: src/hash.data:145
-#, fuzzy
 msgid "PM T-Showers"
-msgstr "Averses l'après-midi"
+msgstr "Averses orageuses l'après-midi"
 
 #: src/hash.data:146
 msgid "PM T-Storms"
@@ -1738,9 +1734,8 @@ msgid "T-Showers Early"
 msgstr "Averses orageuses en matinée"
 
 #: src/hash.data:217
-#, fuzzy
 msgid "T-Storm"
-msgstr "Orages"
+msgstr "Orage"
 
 #: src/hash.data:218
 msgid "T-Storms"

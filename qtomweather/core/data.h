@@ -4,7 +4,10 @@
 #include "parser.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
-    class Data {
+    /* Weather data for interval from _start_time to _end_time */
+    class WeatherIntervalData {
+        time_t _start_time;
+        time_t _end_time;
         float _temperature;
         float _flike;
         float _windSpeed;
@@ -14,12 +17,24 @@ namespace Core{
         int _pressure;
         std::string _text;
         int _icon;
+
+        public:
+            WeatherIntervalData();
+            WeatherIntervalData(const WeatherIntervalData& data);
+            WeatherIntervalData& operator=(const WeatherIntervalData& data);
+            virtual ~WeatherIntervalData();
+    };
+
+    /* All WeatherIntervalData */
+    class Data {
+
+        std::vector <WeatherIntervalData> data_array;
+
         public:
             Data();
-            Data(const Data& data);
-            Data& operator=(const Data& data);
             virtual ~Data();
     };
+
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////
 #endif // DATA_H

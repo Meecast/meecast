@@ -4,15 +4,21 @@
 #include "parser.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
-    class Data : public Parser{
-            void parse(const std::string& filename);
-            void wallkTree(const xmlpp::Node* node);
+    class Data {
+        float _temperature;
+        float _flike;
+        float _windSpeed;
+        std::string _windDirection;
+        float _windGust;
+        int _humidity;
+        int _pressure;
+        std::string _text;
+        int _icon;
         public:
             Data();
             Data(const Data& data);
             Data& operator=(const Data& data);
             virtual ~Data();
-            void clear();
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,10 @@
+TEMPLATE = app
+TARGET = omweather
+DESTDIR = .
+VPATH = ../core
+INCLUDEPATH += ../core
+SOURCES += test.cpp
+HEADERS +=
+CONFIG += link_pkgconfig
+PKGCONFIG += libxml++-2.6 libcurl
+LIBS += -L ../core -lomweather-core

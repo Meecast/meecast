@@ -1,6 +1,6 @@
 VERSION = 1.0
 TARGET = omweather-core
-TEMPLATE = app 
+TEMPLATE = lib
 CONFIG = link_pkgconfig \
     -qt
 PKGCONFIG += libxml++-2.6 \
@@ -12,7 +12,8 @@ SOURCES = config.cpp \
     source.cpp \
     downloader.cpp \
     connection.cpp \
-    test.cpp
+    datalist.cpp
+
 HEADERS = config.h \
     station.h \
     data.h \
@@ -20,6 +21,7 @@ HEADERS = config.h \
     source.h \
     downloader.h \
     connection.h \
+    datalist.h \
     core.h
 target.path = /usr/lib/omweather
 INSTALLS += target

@@ -1,11 +1,13 @@
 #ifndef DATA_H
 #define DATA_H
 ////////////////////////////////////////////////////////////////////////////////
-#include "parser.h"
+#include <time.h>
+#include <vector>
+#include <string>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     /* Weather data for interval from _start_time to _end_time */
-    class WeatherIntervalData {
+    class Data {
         time_t _start_time;
         time_t _end_time;
         float _temperature;
@@ -17,23 +19,12 @@ namespace Core{
         int _pressure;
         std::string _text;
         int _icon;
-
-        public:
-            WeatherIntervalData();
-            WeatherIntervalData(const WeatherIntervalData& data);
-            WeatherIntervalData& operator=(const WeatherIntervalData& data);
-            virtual ~WeatherIntervalData(){};
-    };
-
-    /* All WeatherIntervalData */
-    class Data {
-        std::vector <WeatherIntervalData> data_array;
-
         public:
             Data();
-            virtual ~Data(){};
+            Data(const Data& data);
+            Data& operator=(const Data& data);
+            virtual ~Data();
     };
-
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////
 #endif // DATA_H

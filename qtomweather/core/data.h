@@ -22,17 +22,16 @@ namespace Core{
             WeatherIntervalData();
             WeatherIntervalData(const WeatherIntervalData& data);
             WeatherIntervalData& operator=(const WeatherIntervalData& data);
-            virtual ~WeatherIntervalData();
+            virtual ~WeatherIntervalData(){};
     };
 
     /* All WeatherIntervalData */
     class Data {
-
         std::vector <WeatherIntervalData> data_array;
 
         public:
             Data();
-            virtual ~Data();
+            virtual ~Data(){};
     };
 
 } // namespace Core

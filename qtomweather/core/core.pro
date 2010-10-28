@@ -1,6 +1,6 @@
 VERSION = 1.0
 TARGET = omweather-core
-TEMPLATE = lib
+TEMPLATE = app 
 CONFIG = link_pkgconfig \
     -qt
 PKGCONFIG += libxml++-2.6 \
@@ -11,7 +11,8 @@ SOURCES = config.cpp \
     parser.cpp \
     source.cpp \
     downloader.cpp \
-    connection.cpp
+    connection.cpp \
+    test.cpp
 HEADERS = config.h \
     station.h \
     data.h \

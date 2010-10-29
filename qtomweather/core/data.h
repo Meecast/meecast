@@ -25,6 +25,8 @@ namespace Core{
             Data& operator=(const Data& data);
             void SetStartTime(time_t start_time);
             void SetEndTime(time_t end_time);
+            void SetTemperature(float temperat);
+            float GetTemperature();
             virtual ~Data();
     };
 } // namespace Core

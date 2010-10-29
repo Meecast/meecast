@@ -27,6 +27,7 @@ namespace Core{
             void SetEndTime(time_t end_time);
             void SetTemperature(float temperat);
             float GetTemperature();
+            time_t GetTimeDistance(time_t need_time);
             virtual ~Data();
     };
 } // namespace Core

@@ -10,6 +10,7 @@ namespace Core{
         public:
             DataList();
             void AddData(Data *data);
+            Data* GetDataForTime(time_t _time);
             int Size();
             virtual ~DataList();
     };

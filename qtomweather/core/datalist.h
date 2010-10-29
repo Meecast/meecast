@@ -6,10 +6,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     class DataList {
-        std::vector <Data> *data_array;
+        std::vector <Data*> data_array;
         public:
             DataList();
-            void AddData(Data data);
+            void AddData(Data *data);
+            int Size();
             virtual ~DataList();
     };
 } // namespace Core

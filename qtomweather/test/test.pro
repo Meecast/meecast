@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = omweather
+TARGET = test_omweather
 DESTDIR = .
 VPATH = ../core
 INCLUDEPATH += ../core

@@ -5,6 +5,8 @@ Core::Data *
 create_and_fill_class_data()
 {
     Core::Data *wdata = new Core::Data;
+    wdata->SetStartTime(time(NULL) - 3600);
+    wdata->SetEndTime(time(NULL) + 3600);
     return wdata;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -22,6 +24,7 @@ test_class_datalist()
     Core::DataList *wdata_list = new Core::DataList;
     Core::Data *wdata =  create_and_fill_class_data();
     wdata_list->AddData(wdata);
+    /* Check size of array */
     if (wdata_list->Size() != 1)
         return -1;
     delete wdata_list;

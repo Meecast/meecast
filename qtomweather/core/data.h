@@ -23,6 +23,8 @@ namespace Core{
             Data();
             Data(const Data& data);
             Data& operator=(const Data& data);
+            void SetStartTime(time_t start_time);
+            void SetEndTime(time_t end_time);
             virtual ~Data();
     };
 } // namespace Core

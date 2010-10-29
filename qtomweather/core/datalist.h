@@ -9,6 +9,7 @@ namespace Core{
         std::vector <Data> *data_array;
         public:
             DataList();
+            void AddData(Data data);
             virtual ~DataList();
     };
 } // namespace Core

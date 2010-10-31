@@ -23,18 +23,20 @@ namespace Core{
             Data();
             Data(const Data& data);
             Data& operator=(const Data& data);
-            void StartTime(time_t start_time);
-            void EndTime(time_t end_time);
-            void Temperature(float temperat);
+            void  StartTime(time_t start_time);
+            void  EndTime(time_t end_time);
+            void  Temperature(float temperat);
             float Temperature(void);
-            void Flike(float flike);
+            void  Flike(float flike);
             float Flike(void);
-            void WindSpeed(float windspeed);
+            void  WindSpeed(float windspeed);
             float WindSpeed(void);
-            void WindDirection(std::string *text);
+            void  WindDirection(std::string *text);
             std::string& WindDirection(void);
-            void WindGust(float windgust);
+            void  WindGust(float windgust);
             float WindGust(void);
+            void  Humidity(int humidity);
+            int   Humidity(void);
             time_t GetTimeDistance(time_t need_time); /* Checking   for  occurrence of this time (need_time) to Data interval and return the interval if  this time are include */
             virtual ~Data();
     };

@@ -15,6 +15,7 @@ create_and_fill_class_data_for_hours_forecast()
     wdata->WindSpeed(3.0);
     wdata->WindGust(4.0);
     wdata->WindDirection(new std::string("NNW"));
+    wdata->Humidity(835);
     return wdata;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -43,6 +44,7 @@ create_and_fill_class_data_for_day_forecast()
     wdata->Flike(17.0);
     wdata->WindGust(2.8);
     wdata->WindSpeed(2.4);
+    wdata->Humidity(845);
     return wdata;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -73,7 +75,8 @@ test_class_datalist(){
           (wdata->Flike() == 18.0)&&
           (wdata->WindSpeed() == 3.0)&&
           (wdata->WindDirection().compare("NNW") == 0)&&
-          (wdata->WindGust() == 4.0)))
+          (wdata->WindGust() == 4.0)&&
+          (wdata->Humidity() == 835)))
         return -2;
     delete wdata_list;
     return 0;

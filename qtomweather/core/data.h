@@ -37,7 +37,11 @@ namespace Core{
             float WindGust(void);
             void  Humidity(int humidity);
             int   Humidity(void);
-            time_t GetTimeDistance(time_t need_time); /* Checking   for  occurrence of this time (need_time) to Data interval and return the interval if  this time are include */
+            void  Icon(int icon_number);
+            int   Icon(void);
+            void  Text(std::string *text);
+            std::string& Text(void);
+            time_t GetTimeDistance(time_t need_time); /* Checking for  occurrence of this time (need_time) to Data interval and return the interval if  this time are include */
             virtual ~Data();
     };
 } // namespace Core

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "core.h"
 #include <stdlib.h>
-
+#include <limits.h>
 
 //////////////////////////////////////////////////////////////////////////////
 Core::Data *
@@ -15,7 +15,8 @@ create_and_fill_class_data_for_hours_forecast()
     wdata->WindSpeed(3.0);
     wdata->WindGust(4.0);
     wdata->WindDirection(new std::string("NNW"));
-    wdata->Humidity(835);
+    wdata->Icon(3);
+    wdata->Text(new std::string("Clear"));
     return wdata;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -45,6 +46,8 @@ create_and_fill_class_data_for_day_forecast()
     wdata->WindGust(2.8);
     wdata->WindSpeed(2.4);
     wdata->Humidity(845);
+    wdata->Icon(4);
+    wdata->Text(new std::string("Cloudy"));
     return wdata;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -76,12 +79,14 @@ test_class_datalist(){
           (wdata->WindSpeed() == 3.0)&&
           (wdata->WindDirection().compare("NNW") == 0)&&
           (wdata->WindGust() == 4.0)&&
-          (wdata->Humidity() == 835)))
+          (wdata->Humidity() == INT_MAX)&&
+          (wdata->Icon() == 3)&&
+          (wdata->Text().compare("Clear") == 0)
+          ))
         return -2;
     delete wdata_list;
     return 0;
 }
-
 //////////////////////////////////////////////////////////////////////////////
 int
 test_class_source()

@@ -1,9 +1,18 @@
 #include "data.h"
+#include <limits.h>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Data::Data(){
-        _windDirection = new std::string;
+        _temperature = INT_MAX;
+        _flike = INT_MAX;
+        _windSpeed = INT_MAX;
+        _windGust = INT_MAX;
+	_humidity = INT_MAX;
+        _pressure = INT_MAX;
+        _icon = INT_MAX;
+        _windDirection = new std::string("N/A");
+        _text = new std::string("N/A");
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
@@ -82,7 +91,29 @@ namespace Core {
          /* need to check type ( ) */
          return Data::_humidity;
      }
-
+////////////////////////////////////////////////////////////////////////////////
+     void
+     Data::Icon(int icon_number){
+         Data::_icon = icon_number;
+     }
+////////////////////////////////////////////////////////////////////////////////
+     int
+     Data::Icon(){
+         /* need to check range (0 - 49) */
+         return Data::_icon;
+     }
+////////////////////////////////////////////////////////////////////////////////
+     void
+     Data::Text(std::string *text){
+         delete Data::_text;
+         /* Check possible direction (N,NW,NNW,NE,NEE,S,SW,SWW,SE,SEE, E, W) */
+         Data::_text = text;
+     }
+////////////////////////////////////////////////////////////////////////////////
+     std::string&
+     Data::Text(){
+         return *_text;
+     }
 ////////////////////////////////////////////////////////////////////////////////
     time_t
     Data::GetTimeDistance(time_t need_time){

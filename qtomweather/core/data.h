@@ -13,11 +13,11 @@ namespace Core{
         float _temperature;
         float _flike;
         float _windSpeed;
-        std::string _windDirection;
+        std::string *_windDirection;
         float _windGust;
         int _humidity;
         int _pressure;
-        std::string _text;
+        std::string *_text;
         int _icon;
         public:
             Data();
@@ -31,6 +31,8 @@ namespace Core{
             float Flike(void);
             void WindSpeed(float windspeed);
             float WindSpeed(void);
+            void WindDirection(std::string *text);
+            std::string& WindDirection(void);
             time_t GetTimeDistance(time_t need_time); /* Checking   for  occurrence of this time (need_time) to Data interval and return the interval if  this time are include */
             virtual ~Data();
     };

@@ -13,6 +13,7 @@ create_and_fill_class_data_for_hours_forecast()
     wdata->Temperature(23.0);
     wdata->Flike(18.0);
     wdata->WindSpeed(3.0);
+    wdata->WindDirection(new std::string("NNW"));
     return wdata;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -68,7 +69,8 @@ test_class_datalist(){
     if (!((wdata) &&
           (wdata->Temperature() == 23.0)&&
           (wdata->Flike() == 18.0)&&
-          (wdata->WindSpeed() == 3.0)))
+          (wdata->WindSpeed() == 3.0)&&
+          (wdata->WindDirection().compare("NNW") == 0)))
         return -2;
     delete wdata_list;
     return 0;

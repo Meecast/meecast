@@ -45,20 +45,31 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
      float
      Data::WindSpeed(){
-         /* need to check type (Celsius Farenheit ) */
+         /* need to check type ( ) */
          return Data::_windSpeed;
      }
 ////////////////////////////////////////////////////////////////////////////////
      void
      Data::WindDirection(std::string *text){
          delete Data::_windDirection;
+         /* Check possible direction (N,NW,NNW,NE,NEE,S,SW,SWW,SE,SEE, E, W) */
          Data::_windDirection = text;
      }
 ////////////////////////////////////////////////////////////////////////////////
      std::string&
      Data::WindDirection(){
-         /* need to check type (Celsius Farenheit ) */
          return *_windDirection;
+     }
+////////////////////////////////////////////////////////////////////////////////
+     void
+     Data::WindGust(float windgust){
+         Data::_windGust = windgust;
+     }
+     ////////////////////////////////////////////////////////////////////////////////
+     float
+     Data::WindGust(){
+         /* need to check type ( ) */
+         return Data::_windGust;
      }
 ////////////////////////////////////////////////////////////////////////////////
     time_t

@@ -13,6 +13,7 @@ create_and_fill_class_data_for_hours_forecast()
     wdata->Temperature(23.0);
     wdata->Flike(18.0);
     wdata->WindSpeed(3.0);
+    wdata->WindGust(4.0);
     wdata->WindDirection(new std::string("NNW"));
     return wdata;
 }
@@ -40,6 +41,7 @@ create_and_fill_class_data_for_day_forecast()
     wdata->EndTime(end_current_day);
     wdata->Temperature(20.0);
     wdata->Flike(17.0);
+    wdata->WindGust(2.8);
     wdata->WindSpeed(2.4);
     return wdata;
 }
@@ -70,7 +72,8 @@ test_class_datalist(){
           (wdata->Temperature() == 23.0)&&
           (wdata->Flike() == 18.0)&&
           (wdata->WindSpeed() == 3.0)&&
-          (wdata->WindDirection().compare("NNW") == 0)))
+          (wdata->WindDirection().compare("NNW") == 0)&&
+          (wdata->WindGust() == 4.0)))
         return -2;
     delete wdata_list;
     return 0;

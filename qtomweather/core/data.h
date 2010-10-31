@@ -33,6 +33,8 @@ namespace Core{
             float WindSpeed(void);
             void WindDirection(std::string *text);
             std::string& WindDirection(void);
+            void WindGust(float windgust);
+            float WindGust(void);
             time_t GetTimeDistance(time_t need_time); /* Checking   for  occurrence of this time (need_time) to Data interval and return the interval if  this time are include */
             virtual ~Data();
     };

@@ -23,11 +23,11 @@ namespace Core{
             Data();
             Data(const Data& data);
             Data& operator=(const Data& data);
-            void SetStartTime(time_t start_time);
-            void SetEndTime(time_t end_time);
-            void SetTemperature(float temperat);
-            float GetTemperature();
-            time_t GetTimeDistance(time_t need_time);
+            void StartTime(time_t start_time);
+            void EndTime(time_t end_time);
+            void Temperature(float temperat);
+            float Temperature(void);
+            time_t GetTimeDistance(time_t need_time); /* Checking   for  occurrence of this time (need_time) to Data interval and return the interval if  this time are include */
             virtual ~Data();
     };
 } // namespace Core

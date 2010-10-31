@@ -6,22 +6,23 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
-    Data::SetStartTime(time_t start_time){
+    Data::StartTime(time_t start_time){
         Data::_start_time = start_time;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
-    Data::SetEndTime(time_t end_time){
+    Data::EndTime(time_t end_time){
         Data::_end_time = end_time;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
-    Data::SetTemperature(float temperat){
+    Data::Temperature(float temperat){
         Data::_temperature = temperat;
     }
 ////////////////////////////////////////////////////////////////////////////////
     float
-    Data::GetTemperature(){
+    Data::Temperature(){
+        /* need to check type (Celsius Farenheit ) */
         return Data::_temperature;
     }
 ////////////////////////////////////////////////////////////////////////////////

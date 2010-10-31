@@ -8,9 +8,9 @@ Core::Data *
 create_and_fill_class_data_for_hours_forecast()
 {
     Core::Data *wdata = new Core::Data;
-    wdata->SetStartTime(time(NULL) - 3600);
-    wdata->SetEndTime(time(NULL) + 3600);
-    wdata->SetTemperature(23.0);
+    wdata->StartTime(time(NULL) - 3600);
+    wdata->EndTime(time(NULL) + 3600);
+    wdata->Temperature(23.0);
     return wdata;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -33,9 +33,9 @@ create_and_fill_class_data_for_day_forecast()
     begin_current_day = mktime(tm);
     tm->tm_sec = 0; tm->tm_min = 59; tm->tm_hour = 23;
     end_current_day = mktime(tm);
-    wdata->SetStartTime(begin_current_day);
-    wdata->SetEndTime(end_current_day);
-    wdata->SetTemperature(20.0);
+    wdata->StartTime(begin_current_day);
+    wdata->EndTime(end_current_day);
+    wdata->Temperature(20.0);
     return wdata;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -61,7 +61,7 @@ test_class_datalist(){
         return -1;
     /* Check correct working of method GetDataForTime */
     wdata = wdata_list->GetDataForTime(time(NULL));
-    if ((!wdata) ||(wdata && wdata->GetTemperature() != 23.0))
+    if ((!wdata) ||(wdata && wdata->Temperature() != 23.0))
         return -2;
     delete wdata_list;
     return 0;

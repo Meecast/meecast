@@ -37,6 +37,17 @@ namespace Core {
          return Data::_flike;
      }
 ////////////////////////////////////////////////////////////////////////////////
+     void
+     Data::WindSpeed(float windspeed){
+         Data::_windSpeed = windspeed;
+     }
+////////////////////////////////////////////////////////////////////////////////
+     float
+     Data::WindSpeed(){
+         /* need to check type (Celsius Farenheit ) */
+         return Data::_windSpeed;
+     }
+////////////////////////////////////////////////////////////////////////////////
     time_t
     Data::GetTimeDistance(time_t need_time){
         if (Data::_end_time > need_time && Data::_start_time < need_time)

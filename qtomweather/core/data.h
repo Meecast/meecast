@@ -27,6 +27,8 @@ namespace Core{
             void EndTime(time_t end_time);
             void Temperature(float temperat);
             float Temperature(void);
+            void Flike(float flike);
+            float Flike(void);
             time_t GetTimeDistance(time_t need_time); /* Checking   for  occurrence of this time (need_time) to Data interval and return the interval if  this time are include */
             virtual ~Data();
     };

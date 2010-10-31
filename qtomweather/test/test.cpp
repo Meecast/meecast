@@ -11,6 +11,7 @@ create_and_fill_class_data_for_hours_forecast()
     wdata->StartTime(time(NULL) - 3600);
     wdata->EndTime(time(NULL) + 3600);
     wdata->Temperature(23.0);
+    wdata->Flike(18.0);
     return wdata;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -36,6 +37,7 @@ create_and_fill_class_data_for_day_forecast()
     wdata->StartTime(begin_current_day);
     wdata->EndTime(end_current_day);
     wdata->Temperature(20.0);
+    wdata->Flike(17.0);
     return wdata;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -61,7 +63,9 @@ test_class_datalist(){
         return -1;
     /* Check correct working of method GetDataForTime */
     wdata = wdata_list->GetDataForTime(time(NULL));
-    if ((!wdata) ||(wdata && wdata->Temperature() != 23.0))
+    if (!((wdata) &&
+          (wdata->Temperature() == 23.0)&&
+          (wdata->Flike() == 18.0)))
         return -2;
     delete wdata_list;
     return 0;

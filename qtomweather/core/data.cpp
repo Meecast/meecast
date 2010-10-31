@@ -26,6 +26,17 @@ namespace Core {
         return Data::_temperature;
     }
 ////////////////////////////////////////////////////////////////////////////////
+     void
+     Data::Flike(float flike){
+          Data::_flike = flike;
+     }
+////////////////////////////////////////////////////////////////////////////////
+     float
+     Data::Flike(){
+         /* need to check type (Celsius Farenheit ) */
+         return Data::_flike;
+     }
+////////////////////////////////////////////////////////////////////////////////
     time_t
     Data::GetTimeDistance(time_t need_time){
         if (Data::_end_time > need_time && Data::_start_time < need_time)

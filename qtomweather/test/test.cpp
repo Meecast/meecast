@@ -2,6 +2,7 @@
 #include "core.h"
 #include <stdlib.h>
 
+
 //////////////////////////////////////////////////////////////////////////////
 Core::Data *
 create_and_fill_class_data_for_hours_forecast()
@@ -65,6 +66,15 @@ test_class_datalist(){
     delete wdata_list;
     return 0;
 }
+
+//////////////////////////////////////////////////////////////////////////////
+int
+test_class_source()
+{
+    Core::Source *wsource = new Core::Source() ;
+    delete wsource;
+    return 0;
+}
 //////////////////////////////////////////////////////////////////////////////
 void
 goto_from_program(int result){
@@ -88,6 +98,15 @@ int main(int argc, char *argv[]){
 
   std::cout<<"Test "<< i << " Class DataList   ";
   result = test_class_datalist();
+  if ( result == 0)
+      std::cout<<"Success"<<std::endl;
+  else
+      goto_from_program(result);
+
+  i++;
+
+  std::cout<<"Test "<< i << " Class Source   ";
+  result = test_class_source();
   if ( result == 0)
       std::cout<<"Success"<<std::endl;
   else

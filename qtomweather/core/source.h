@@ -5,7 +5,7 @@
 #include "parser.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
-    class Source : public Parser{
+    class    Source : public Parser{
         void parse(const std::string& filename);
         std::string *_name;
         std::string *_logo;

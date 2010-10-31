@@ -4,7 +4,7 @@
 
 //////////////////////////////////////////////////////////////////////////////
 Core::Data *
-create_and_fill_class_data()
+create_and_fill_class_data_for_hours_forecast()
 {
     Core::Data *wdata = new Core::Data;
     wdata->SetStartTime(time(NULL) - 3600);
@@ -13,23 +13,54 @@ create_and_fill_class_data()
     return wdata;
 }
 //////////////////////////////////////////////////////////////////////////////
+Core::Data *
+create_and_fill_class_data_for_day_forecast()
+{
+    time_t      current_time, begin_current_day, end_current_day;
+    struct tm   *tm = NULL;
+    int         year, current_month;
+
+    Core::Data *wdata = new Core::Data;
+    /* Create current day */
+    current_time = time(NULL);
+    begin_current_day = current_time;
+    tm = localtime(&begin_current_day);
+    year = 1900 + tm->tm_year;
+    current_month = tm->tm_mon;
+    tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+    tm->tm_isdst = 1;
+    begin_current_day = mktime(tm);
+    tm->tm_sec = 0; tm->tm_min = 59; tm->tm_hour = 23;
+    end_current_day = mktime(tm);
+    wdata->SetStartTime(begin_current_day);
+    wdata->SetEndTime(end_current_day);
+    wdata->SetTemperature(20.0);
+    return wdata;
+}
+//////////////////////////////////////////////////////////////////////////////
 int
 test_class_data()
 {
-    Core::Data *wdata = create_and_fill_class_data();
+    Core::Data *wdata = create_and_fill_class_data_for_day_forecast();
     delete wdata;
     return 0;
 }
 //////////////////////////////////////////////////////////////////////////////
 int
 test_class_datalist(){
+
     Core::DataList *wdata_list = new Core::DataList;
-    Core::Data *wdata =  create_and_fill_class_data();
+
+    Core::Data *wdata = create_and_fill_class_data_for_hours_forecast();
+    wdata_list->AddData(wdata);
+    wdata =  create_and_fill_class_data_for_day_forecast();
     wdata_list->AddData(wdata);
     /* Check size of array */
-    if (wdata_list->Size() != 1)
+    if (wdata_list->Size() != 2)
         return -1;
-    if ( wdata_list->GetDataForTime(time(NULL))->GetTemperature() != 23.0)
+    /* Check correct working of method GetDataForTime */
+    wdata = wdata_list->GetDataForTime(time(NULL));
+    if ((!wdata) ||(wdata && wdata->GetTemperature() != 23.0))
         return -2;
     delete wdata_list;
     return 0;

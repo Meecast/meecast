@@ -26,8 +26,11 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     time_t
-    GetTimeDistance(time_t need_time){
-
+    Data::GetTimeDistance(time_t need_time){
+        if (Data::_end_time > need_time && Data::_start_time < need_time)
+            return (Data::_end_time  - Data::_start_time);
+        else
+            return -1;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Data::~Data(){

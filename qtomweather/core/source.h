@@ -6,7 +6,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
     class    Source : public Parser{
-        void parse(const std::string& filename);
+        bool parse(const std::string& filename);
         std::string *_name;
         std::string *_logo;
         std::string *_forecastUrl;

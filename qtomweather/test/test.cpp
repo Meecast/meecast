@@ -97,6 +97,23 @@ test_class_source()
     return 0;
 }
 //////////////////////////////////////////////////////////////////////////////
+int
+test_class_dataparser()
+{
+    Core::DataParser *p = new Core::DataParser("core/data/data.xsd");
+    if (!p->parse("core/data/data.xml")){
+        delete p;
+        Core::DataParser *p = new Core::DataParser("../core/data/data.xsd");
+        if (!p->parse("../core/data/data.xml")){
+            delete p;
+            return -1;
+        }
+    }
+
+    delete p;
+    return 0;
+}
+//////////////////////////////////////////////////////////////////////////////
 void
 goto_from_program(int result){
     std::cout<<"Not Success Code: "<< result << std::endl;
@@ -132,6 +149,13 @@ int main(int argc, char *argv[]){
       std::cout<<"Success"<<std::endl;
   else
       goto_from_program(result);
-  Core::DataParser *p = new Core::DataParser;
-  p->parse("data.xml");
+  i++;
+
+  std::cout<<"Test "<< i << " Class DataParser   ";
+  result = test_class_dataparser();
+  if ( result == 0)
+      std::cout<<"Success"<<std::endl;
+  else
+      goto_from_program(result);
+
 }

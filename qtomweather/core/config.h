@@ -6,7 +6,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     class Config : public Parser{
-            void parse(const std::string& filename);
+            bool parse(const std::string& filename);
         public:
             Config();
             Config(const Config& config);

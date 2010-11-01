@@ -1,15 +1,42 @@
 #include "dataparser.h"
+#include <iostream>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
+    DataParser::DataParser(const std::string& filename) : Parser() {
+#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+        try{
+#endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+            validator->parse_file(filename);
+#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+        }
+        catch(const std::exception& ex){
+            std::cout << "Exception caught: " << ex.what() << std::endl;
+        }
+#endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+
+    }
+////////////////////////////////////////////////////////////////////////////////
     DataParser::DataParser() : Parser() {
+#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+        try{
+#endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+
         validator->parse_file("/usr/share/omweather/schemas/data.xsd");
+#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+        }
+        catch(const std::exception& ex){
+            std::cout << "Exception caught: " << ex.what() << std::endl;
+        }
+#endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+
     }
 ////////////////////////////////////////////////////////////////////////////////
     DataParser::~DataParser(){
     }
 ////////////////////////////////////////////////////////////////////////////////
-    void DataParser::parse(const std::string& filename){
+    bool
+    DataParser::parse(const std::string& filename){
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -25,8 +52,10 @@ namespace Core {
         }
         catch(const std::exception& ex){
             std::cout << "Exception caught: " << ex.what() << std::endl;
+            return FALSE;
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+        return TRUE;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void DataParser::processNode(const xmlpp::Node* node){

@@ -9,7 +9,8 @@ namespace Core{
     Config::~Config(){
     }
 ////////////////////////////////////////////////////////////////////////////////
-    void Config::parse(const std::string& filename){
+    bool
+    Config::parse(const std::string& filename){
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED

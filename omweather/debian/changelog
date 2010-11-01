@@ -1,3 +1,10 @@
+omweather (0.28.8) unstable; urgency=low
+
+  * Added Slovak localization
+  * Updated French translation
+
+ -- Vlad Vasiliev <vlad@gas.by>  Mon, 1 Nov 2010 13:44:20 +0200
+
 omweather (0.28.7) unstable; urgency=low
 
   * Fixed segmentation fault in applet mode
@@ -16,7 +23,7 @@ omweather (0.28.6) unstable; urgency=low
 
 omweather (0.28.5) unstable; urgency=low
 
-  * Added mod extra coffe 
+  * Added modification "Extra coffe" 
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 26 Sep 2010 19:24:20 +0200
 

@@ -60,7 +60,7 @@ GETTEXT_PACKAGE=$PACKAGE
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE], "${GETTEXT_PACKAGE}", [Name of gettext package])
 AC_DEFINE_UNQUOTED([LOCALEDIR], "${localedir}", [Path to store localization files])
-ALL_LINGUAS="ru_RU fr_FR fi_FI en_GB en_US it_IT de_DE es_ES es_MX pl_PL bg_BG lv_LV"
+ALL_LINGUAS="ru_RU fr_FR fi_FI en_GB en_US it_IT de_DE es_ES es_MX pl_PL bg_BG lv_LV sk_SK"
 AM_GLIB_GNU_GETTEXT
 
 dnl Path for .desktop files
@@ -297,6 +297,8 @@ if test "$hildondesktop1" != "yes"; then
 	AC_SUBST(helpfile_bgbgdir)
 	helpfile_lvlvdir=$datadir/osso-help/lv_LV
 	AC_SUBST(helpfile_lvlvdir)
+	helpfile_skskdir=$datadir/osso-help/sk_SK
+	AC_SUBST(helpfile_skskdir)
 
 fi
 

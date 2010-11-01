@@ -9,6 +9,7 @@
 #include "source.h"
 #include "downloader.h"
 #include "datalist.h"
+#include "dataparser.h"
 namespace Core{
     class Connection;
     class Config;
@@ -17,7 +18,7 @@ namespace Core{
     class Downloader;
     class Source;
     class Station;
-
+    class DataParser;
 };
 ////////////////////////////////////////////////////////////////////////////////
 #endif // CORE_H

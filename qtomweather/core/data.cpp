@@ -8,7 +8,7 @@ namespace Core {
         _flike = INT_MAX;
         _windSpeed = INT_MAX;
         _windGust = INT_MAX;
-	_humidity = INT_MAX;
+        _humidity = INT_MAX;
         _pressure = INT_MAX;
         _icon = INT_MAX;
         _windDirection = new std::string("N/A");
@@ -17,52 +17,51 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     void
     Data::StartTime(time_t start_time){
-        Data::_start_time = start_time;
+        _start_time = start_time;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
     Data::EndTime(time_t end_time){
-        Data::_end_time = end_time;
+        _end_time = end_time;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
-    Data::Temperature(float temperat){
-        Data::_temperature = temperat;
+    Data::Temperature(float temperature){
+        _temperature = temperature;
     }
 ////////////////////////////////////////////////////////////////////////////////
     float
-    Data::Temperature(){
+    Data::Temperature() const{
         /* need to check type (Celsius Farenheit ) */
-        return Data::_temperature;
+        return _temperature;
     }
 ////////////////////////////////////////////////////////////////////////////////
      void
      Data::Flike(float flike){
-          Data::_flike = flike;
+          _flike = flike;
      }
 ////////////////////////////////////////////////////////////////////////////////
      float
-     Data::Flike(){
+     Data::Flike() const{
          /* need to check type (Celsius Farenheit ) */
-         return Data::_flike;
+         return _flike;
      }
 ////////////////////////////////////////////////////////////////////////////////
      void
      Data::WindSpeed(float windspeed){
-         Data::_windSpeed = windspeed;
+         _windSpeed = windspeed;
      }
 ////////////////////////////////////////////////////////////////////////////////
      float
-     Data::WindSpeed(){
+     Data::WindSpeed() const{
          /* need to check type ( ) */
-         return Data::_windSpeed;
+         return _windSpeed;
      }
 ////////////////////////////////////////////////////////////////////////////////
      void
-     Data::WindDirection(std::string *text){
-         delete Data::_windDirection;
+     Data::WindDirection(const std::string& text){
          /* Check possible direction (N,NW,NNW,NE,NEE,S,SW,SWW,SE,SEE, E, W) */
-         Data::_windDirection = text;
+         _windDirection->assign(text);
      }
 ////////////////////////////////////////////////////////////////////////////////
      std::string&
@@ -72,42 +71,41 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
      void
      Data::WindGust(float windgust){
-         Data::_windGust = windgust;
+         _windGust = windgust;
      }
 ////////////////////////////////////////////////////////////////////////////////
      float
-     Data::WindGust(){
+     Data::WindGust() const{
          /* need to check type ( ) */
-         return Data::_windGust;
+         return _windGust;
      }
 ////////////////////////////////////////////////////////////////////////////////
      void
      Data::Humidity(int humidity){
-         Data::_humidity = humidity;
+         _humidity = humidity;
      }
 ////////////////////////////////////////////////////////////////////////////////
      int
-     Data::Humidity(){
+     Data::Humidity() const{
          /* need to check type ( ) */
-         return Data::_humidity;
+         return _humidity;
      }
 ////////////////////////////////////////////////////////////////////////////////
      void
-     Data::Icon(int icon_number){
-         Data::_icon = icon_number;
+     Data::Icon(int icon){
+         _icon = icon;
      }
 ////////////////////////////////////////////////////////////////////////////////
      int
-     Data::Icon(){
+     Data::Icon() const{
          /* need to check range (0 - 49) */
-         return Data::_icon;
+         return _icon;
      }
 ////////////////////////////////////////////////////////////////////////////////
      void
-     Data::Text(std::string *text){
-         delete Data::_text;
+     Data::Text(const std::string& text){
          /* Check possible direction (N,NW,NNW,NE,NEE,S,SW,SWW,SE,SEE, E, W) */
-         Data::_text = text;
+         _text->assign(text);
      }
 ////////////////////////////////////////////////////////////////////////////////
      std::string&
@@ -117,14 +115,15 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     time_t
     Data::GetTimeDistance(time_t need_time){
-        if (Data::_end_time > need_time && Data::_start_time < need_time)
-            return (Data::_end_time  - Data::_start_time);
+        if(_end_time > need_time && _start_time < need_time)
+            return (_end_time - _start_time);
         else
             return -1;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Data::~Data(){
        delete _windDirection;
+       delete _text;
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

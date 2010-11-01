@@ -8,6 +8,7 @@
             </xs:sequence>
             <xs:attribute name="id" use="required" type="xs:string"/>
             <xs:attribute name="name" use="required" type="xs:string"/>
+            <xs:attribute ref="xsi:noNamespaceSchemaLocation" use="required"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="timezone" type="xs:integer" maxOccurs="1"/>

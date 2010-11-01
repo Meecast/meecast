@@ -7,6 +7,7 @@ namespace Core {
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
             parser = new xmlpp::DomParser;
+            validator = new xmlpp::SchemaValidator;
             parser->set_substitute_entities(); //We just want the text to be resolved/unescaped automatically.
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         }
@@ -18,6 +19,7 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Parser::~Parser(){
         delete parser;
+        delete validator;
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

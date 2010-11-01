@@ -2,6 +2,7 @@
 #define PARSER_H
 ////////////////////////////////////////////////////////////////////////////////
 #include <libxml++/libxml++.h>
+#include <libxml++/validators/schemavalidator.h>
 #include <string>
 #include <iostream>
 ////////////////////////////////////////////////////////////////////////////////
@@ -9,6 +10,7 @@ namespace Core {
     class Parser{
         protected:
             xmlpp::DomParser *parser;
+            xmlpp::SchemaValidator *validator;
             Parser();
         public:
             virtual ~Parser();

@@ -131,4 +131,6 @@ int main(int argc, char *argv[]){
       std::cout<<"Success"<<std::endl;
   else
       goto_from_program(result);
+  Core::DataParser *p = new Core::DataParser;
+  p->parse("data.xml");
 }

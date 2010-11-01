@@ -1,47 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-    <xs:element name="station">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="timezone"/>
-                <xs:element ref="period"/>
-            </xs:sequence>
-            <xs:attribute name="id" use="required" type="xs:string"/>
-            <xs:attribute name="name" use="required" type="xs:string"/>
-            <xs:attribute ref="xsi:noNamespaceSchemaLocation" use="required"/>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="timezone" type="xs:integer" maxOccurs="1"/>
-    <xs:element name="period" minOccurs="1" maxOccurs="unbounded">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element ref="sunrise"/>
-                <xs:element ref="sunset"/>
-                <xs:element ref="moon"/>
-                <xs:element ref="temperature"/>
-                <xs:element ref="wind_speed"/>
-                <xs:element ref="wind_direction"/>
-                <xs:element ref="wind_gust"/>
-                <xs:element ref="humidity"/>
-                <xs:element ref="pressure"/>
-                <xs:element ref="text"/>
-                <xs:element ref="flike"/>
-                <xs:element ref="icon"/>
-            </xs:sequence>
-            <xs:attribute name="end" use="required" type="xs:integer"/>
-            <xs:attribute name="start" use="required" type="xs:integer"/>
-        </xs:complexType>
-    </xs:element>
-    <xs:element name="sunrise" type="xs:time" minOccurs="0" maxOccurs="1"/>
-    <xs:element name="sunset" type="xs:time" minOccurs="0" maxOccurs="1"/>
-    <xs:element name="moon" type="xs:string" minOccurs="0" maxOccurs="1"/>
-    <xs:element name="temperature" type="xs:integer" minOccurs="1"/>
-    <xs:element name="wind_speed" type="xs:float" minOccurs="0" maxOccurs="1"/>
-    <xs:element name="wind_direction" type="xs:string" minOccurs="0" maxOccurs="1"/>
-    <xs:element name="wind_gust" type="xs:float" minOccurs="0" maxOccurs="1"/>
-    <xs:element name="humidity" type="xs:integer" minOccurs="0" maxOccurs="1"/>
-    <xs:element name="pressure" type="xs:integer" minOccurs="0" maxOccurs="1"/>
-    <xs:element name="text" type="xs:string" minOccurs="0" maxOccurs="1"/>
-    <xs:element name="flike" type="xs:integer" minOccurs="0" maxOccurs="1"/>
-    <xs:element name="icon" type="xs:string" minOccurs="0" maxOccurs="1"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://omweather.garage.maemo.org/schemas" xmlns:schemas="http://omweather.garage.maemo.org/schemas">
+  <xs:element name="station">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="schemas:timezone"/>
+        <xs:element maxOccurs="unbounded" ref="schemas:period"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:string"/>
+      <xs:attribute name="name" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="timezone" type="xs:integer"/>
+  <xs:element name="period">
+    <xs:complexType>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element ref="schemas:temperature"/>
+          <xs:element ref="schemas:wind_speed"/>
+          <xs:element ref="schemas:wind_direction"/>
+          <xs:element ref="schemas:wind_gust"/>
+          <xs:element ref="schemas:humidity"/>
+          <xs:element ref="schemas:pressure"/>
+          <xs:element ref="schemas:text"/>
+          <xs:element ref="schemas:flike"/>
+          <xs:element ref="schemas:icon"/>
+        </xs:sequence>
+        <xs:sequence>
+          <xs:element ref="schemas:sunrise"/>
+          <xs:element ref="schemas:sunset"/>
+          <xs:element ref="schemas:moon"/>
+        </xs:sequence>
+      </xs:choice>
+      <xs:attribute name="end" use="required" type="xs:integer"/>
+      <xs:attribute name="start" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="temperature" type="xs:integer"/>
+  <xs:element name="wind_speed" type="xs:decimal"/>
+  <xs:element name="wind_direction" type="xs:NCName"/>
+  <xs:element name="wind_gust" type="xs:decimal"/>
+  <xs:element name="humidity" type="xs:integer"/>
+  <xs:element name="pressure" type="xs:integer"/>
+  <xs:element name="text" type="xs:string"/>
+  <xs:element name="flike">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="icon">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="sunrise">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="sunset">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="moon">
+    <xs:complexType/>
+  </xs:element>
 </xs:schema>

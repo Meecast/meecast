@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<station name="dgdfgd" id="35364sds" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://omweather.garage.maemo.org/schemas/data.xsd">
+<station name="dgdfgd" id="35364sds" xmlns="http://omweather.garage.maemo.org/schemas">
     <timezone>2</timezone>
     <period start="34235434" end="3453466">
         <temperature>10</temperature>

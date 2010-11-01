@@ -14,9 +14,9 @@ create_and_fill_class_data_for_hours_forecast()
     wdata->Flike(18.0);
     wdata->WindSpeed(3.0);
     wdata->WindGust(4.0);
-    wdata->WindDirection(new std::string("NNW"));
+    wdata->WindDirection(std::string("NNW"));
     wdata->Icon(3);
-    wdata->Text(new std::string("Clear"));
+    wdata->Text(std::string("Clear"));
     return wdata;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -47,7 +47,7 @@ create_and_fill_class_data_for_day_forecast()
     wdata->WindSpeed(2.4);
     wdata->Humidity(845);
     wdata->Icon(4);
-    wdata->Text(new std::string("Cloudy"));
+    wdata->Text(std::string("Cloudy"));
     return wdata;
 }
 //////////////////////////////////////////////////////////////////////////////

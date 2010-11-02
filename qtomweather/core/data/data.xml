@@ -1,33 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <station name="dgdfgd" id="35364sds" xmlns="http://omweather.garage.maemo.org/schemas">
+    <units>
+        <t>C</t>
+        <ws>ms/s</ws>
+        <wg>ms/s</wg>
+        <d>km</d>
+        <h>%</h>
+        <p>mmHg</p>
+    </units>
     <timezone>2</timezone>
     <period start="34235434" end="3453466">
-        <temperature>
-            <units>C</units>
-            <value>10</value>
-        </temperature>
-        <wind_speed>
-            <units>m/s</units>
-            <value>3.5</value>
-        </wind_speed>
+        <temperature>10</temperature>
+        <wind_speed>3.5</wind_speed>
         <wind_direction>NNE</wind_direction>
-        <wind_gust>
-            <units>m/s</units>
-            <value>1.2</value>
-        </wind_gust>
-        <humidity>
-            <units>percent</units>
-            <value>60</value>
-        </humidity>
-        <pressure>
-            <units>mmHg</units>
-            <value>754</value>
-        </pressure>
+        <wind_gust>1.2</wind_gust>
+        <humidity>60</humidity>
+        <pressure>754</pressure>
         <text>Mostly Clear</text>
-        <flike>
-            <units>C</units>
-            <value>0</value>
-        </flike>
+        <flike>0</flike>
         <icon>0</icon>
     </period>
     <period start="34235434" end="345346456">

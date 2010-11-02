@@ -3,12 +3,76 @@
   <xs:element name="station">
     <xs:complexType>
       <xs:sequence>
+        <xs:element ref="schemas:units"/>
         <xs:element ref="schemas:timezone"/>
         <xs:element maxOccurs="unbounded" ref="schemas:period"/>
       </xs:sequence>
       <xs:attribute name="id" use="required" type="xs:string"/>
       <xs:attribute name="name" use="required" type="xs:string"/>
     </xs:complexType>
+  </xs:element>
+  <xs:element name="units">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="schemas:t"/>
+        <xs:element ref="schemas:ws"/>
+        <xs:element ref="schemas:wg"/>
+        <xs:element ref="schemas:d"/>
+        <xs:element ref="schemas:h"/>
+        <xs:element ref="schemas:p"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="t">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="C"/>
+            <xs:enumeration value="F"/>
+        </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="ws">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="m/s"/>
+            <xs:enumeration value="km/h"/>
+            <xs:enumeration value="mi/h"/>
+        </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="wg">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="m/s"/>
+            <xs:enumeration value="km/h"/>
+            <xs:enumeration value="mi/h"/>
+        </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="d">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="m"/>
+            <xs:enumeration value="km"/>
+            <xs:enumeration value="mi"/>
+            <xs:enumeration value="sea mi"/>
+        </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="h">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="%"/>
+        </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="p">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="mmHg"/>
+            <xs:enumeration value="psi"/>
+        </xs:restriction>
+    </xs:simpleType>
   </xs:element>
   <xs:element name="timezone" type="xs:integer"/>
   <xs:element name="period">
@@ -35,73 +99,16 @@
       <xs:attribute name="start" use="required" type="xs:integer"/>
     </xs:complexType>
   </xs:element>
-  <xs:element name="temperature">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="schemas:units"/>
-        <xs:element ref="schemas:value"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="wind_speed">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="schemas:units"/>
-        <xs:element ref="schemas:value"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="temperature" type="xs:decimal"/>
+  <xs:element name="wind_speed" type="xs:decimal"/>
   <xs:element name="wind_direction" type="xs:string"/>
-  <xs:element name="wind_gust">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="schemas:units"/>
-        <xs:element ref="schemas:value"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="humidity">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="schemas:units"/>
-        <xs:element ref="schemas:value"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="pressure">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="schemas:units"/>
-        <xs:element ref="schemas:value"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="wind_gust" type="xs:decimal"/>
+  <xs:element name="humidity" type="xs:decimal"/>
+  <xs:element name="pressure" type="xs:decimal"/>
   <xs:element name="text" type="xs:string"/>
-  <xs:element name="flike">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element ref="schemas:units"/>
-        <xs:element ref="schemas:value"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="flike" type="xs:decimal"/>
   <xs:element name="icon" type="xs:integer"/>
   <xs:element name="sunrise" type="xs:integer"/>
   <xs:element name="sunset" type="xs:integer"/>
   <xs:element name="moon" type="xs:integer"/>
-  <xs:element name="units">
-    <xs:simpleType>
-      <xs:restriction base="xs:string">
-        <xs:enumeration value="C"/>
-        <xs:enumeration value="F"/>
-        <xs:enumeration value="mmHg"/>
-        <xs:enumeration value="km"/>
-        <xs:enumeration value="m"/>
-        <xs:enumeration value="mil"/>
-        <xs:enumeration value="m/s"/>
-        <xs:enumeration value="percent"/>
-      </xs:restriction>
-    </xs:simpleType>
-  </xs:element>
-  <xs:element name="value" type="xs:decimal"/>
 </xs:schema>

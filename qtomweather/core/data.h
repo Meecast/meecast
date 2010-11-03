@@ -4,13 +4,13 @@
 #include <time.h>
 #include <vector>
 #include <string>
+#include "temperature.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     /* Weather data for interval from _start_time to _end_time */
     class Data {
         time_t _start_time;
         time_t _end_time;
-        float _temperature;
         float _flike;
         float _windSpeed;
         std::string *_windDirection;
@@ -19,14 +19,13 @@ namespace Core{
         int _pressure;
         std::string *_text;
         int _icon;
+        Temperature *_temperature;
         public:
             Data();
             Data(const Data& data);
             Data& operator=(const Data& data);
             void  StartTime(time_t start_time);
             void  EndTime(time_t end_time);
-            void  Temperature(float temperature);
-            float Temperature(void) const;
             void  Flike(float flike);
             float Flike(void) const;
             void  WindSpeed(float windspeed);
@@ -43,6 +42,7 @@ namespace Core{
             std::string& Text(void);
             time_t GetTimeDistance(time_t need_time); /* Checking for  occurrence of this time (need_time) to Data interval and return the interval if  this time are include */
             virtual ~Data();
+            Temperature& temperature();
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

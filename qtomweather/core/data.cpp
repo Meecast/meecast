@@ -4,7 +4,6 @@
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Data::Data(){
-        _temperature = INT_MAX;
         _flike = INT_MAX;
         _windSpeed = INT_MAX;
         _windGust = INT_MAX;
@@ -13,6 +12,7 @@ namespace Core {
         _icon = INT_MAX;
         _windDirection = new std::string("N/A");
         _text = new std::string("N/A");
+        _temperature = new Temperature;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
@@ -23,17 +23,6 @@ namespace Core {
     void
     Data::EndTime(time_t end_time){
         _end_time = end_time;
-    }
-////////////////////////////////////////////////////////////////////////////////
-    void
-    Data::Temperature(float temperature){
-        _temperature = temperature;
-    }
-////////////////////////////////////////////////////////////////////////////////
-    float
-    Data::Temperature() const{
-        /* need to check type (Celsius Farenheit ) */
-        return _temperature;
     }
 ////////////////////////////////////////////////////////////////////////////////
      void
@@ -124,6 +113,11 @@ namespace Core {
     Data::~Data(){
        delete _windDirection;
        delete _text;
+       delete _temperature;
+    }
+////////////////////////////////////////////////////////////////////////////////
+    Temperature& Data::temperature(){
+        return *_temperature;
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

@@ -10,6 +10,7 @@
 #include "downloader.h"
 #include "datalist.h"
 #include "dataparser.h"
+#include "temperature.h"
 namespace Core{
     class Connection;
     class Config;
@@ -19,6 +20,7 @@ namespace Core{
     class Source;
     class Station;
     class DataParser;
+    class Temperature;
 };
 ////////////////////////////////////////////////////////////////////////////////
 #endif // CORE_H

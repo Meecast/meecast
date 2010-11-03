@@ -82,7 +82,7 @@ namespace Core {
     bool Station::updateData(bool force){
         if(!force || dataValid())
             return true;
-
+        return true;
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

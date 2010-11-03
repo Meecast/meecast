@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-01 08:09+0200\n"
+"POT-Creation-Date: 2010-11-03 13:27+0200\n"
 "PO-Revision-Date: 2010-09-26 22:47+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -745,6 +745,7 @@ msgid "Freezing Drizzle"
 msgstr "Jäätävää tihkusadetta"
 
 #: src/weather-help.c:142
+#, fuzzy
 msgid ""
 "French - Nicolas Granziano, Philippe, Benot Knecht\n"
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
@@ -754,6 +755,7 @@ msgid ""
 "\tSalvatore Fiorenzo, Luca Onnis\n"
 "Spanish - Alejandro Lopez\n"
 "Polish - Tomasz Dominikowski\n"
+"Slovak - Roman Moravčík"
 msgstr ""
 "Ranska - Nicolas Granziano, Philippe, Benot Knech\n"
 "Venäjä - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
@@ -1768,7 +1770,7 @@ msgstr "Ukkosta"
 msgid "Today"
 msgstr "Tänään"
 
-#: src/weather-help.c:154
+#: src/weather-help.c:155
 msgid "Translators"
 msgstr "Kääntäjät"
 

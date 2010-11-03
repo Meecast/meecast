@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-01 08:09+0200\n"
+"POT-Creation-Date: 2010-11-03 13:27+0200\n"
 "PO-Revision-Date: 2010-07-27 17:04+0100\n"
 "Last-Translator: Luca <luca>\n"
 "Language-Team: Italiano\n"
@@ -747,6 +747,7 @@ msgid "Freezing Drizzle"
 msgstr "Pioggerella gelata"
 
 #: src/weather-help.c:142
+#, fuzzy
 msgid ""
 "French - Nicolas Granziano, Philippe, Benot Knecht\n"
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
@@ -756,6 +757,7 @@ msgid ""
 "\tSalvatore Fiorenzo, Luca Onnis\n"
 "Spanish - Alejandro Lopez\n"
 "Polish - Tomasz Dominikowski\n"
+"Slovak - Roman Moravčík"
 msgstr ""
 "Francese - Nicolas Granziano, Philippe, Benot Knecht\n"
 "Russo - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
@@ -1778,7 +1780,7 @@ msgstr "Tuono"
 msgid "Today"
 msgstr "Oggi"
 
-#: src/weather-help.c:154
+#: src/weather-help.c:155
 msgid "Translators"
 msgstr "Traduttori"
 

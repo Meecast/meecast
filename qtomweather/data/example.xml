@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <station name="dgdfgd" id="35364sds">
+   <timezone>2</timezone>
+   <period start="34235434" end="3453466">
+      <temperature>10</temperature>
+      <wind_speed>3.5</wind_speed>
+      <wind_direction>NNE</wind_direction>
+      <wind_gust>1.2</wind_gust>
+      <humidity>60</humidity>
+      <pressure>754</pressure>
+      <text>Mostly Clear</text>
+      <flike></flike>
+      <icon></icon>
+    </period>
+    <period start="34235434" end="345346456">
+      <sunrise></sunrise>
+      <sunset></sunset>
+      <moon></moon>
+     </period>
+</station> 

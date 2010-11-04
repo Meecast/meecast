@@ -12,7 +12,6 @@ LayoutItem {    //Sized by the layout
              id: logo
              source: "0.png"
              anchors.centerIn: parent
-             x: canvas.height / 5
          }
 
     }

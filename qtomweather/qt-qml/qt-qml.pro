@@ -19,3 +19,9 @@ RESOURCES += layoutitem.qrc
 
 OTHER_FILES += \
     layoutitem.qml
+
+
+INCLUDEPATH += ../core
+LIBS += -L ../core -lomweather-core
+CONFIG += link_pkgconfig
+PKGCONFIG += libxml++-2.6 libcurl

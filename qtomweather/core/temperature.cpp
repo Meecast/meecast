@@ -1,12 +1,6 @@
 #include "temperature.h"
-#include <limits.h>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
-////////////////////////////////////////////////////////////////////////////////
-    Temperature::Temperature(){
-        _units = new std::string;
-        _value = INT_MAX;
-    }
 ////////////////////////////////////////////////////////////////////////////////
     Temperature::~Temperature(){
         delete _units;
@@ -15,7 +9,10 @@ namespace Core {
     Temperature::Temperature(const float value, const std::string& units){
         _units = new std::string;
         _units->assign(units);
-        _value = value;
+        if(*_units == "F")
+             _value = (value - 32.0f ) / 1.8f;
+        else
+            _value = value;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Temperature::Temperature(const Temperature& temperature){
@@ -47,19 +44,8 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     float Temperature::value() const{
-        return _value;
-    }
-////////////////////////////////////////////////////////////////////////////////
-    float Temperature::celciusValue() const{
         if(*_units == "F")
             return ((_value - 32.0f ) / 1.8f);
-
-        return _value;
-    }
-////////////////////////////////////////////////////////////////////////////////
-    float Temperature::fahrenheitValue() const{
-        if(*_units == "C")
-            return (_value * 1.8f + 32.0f);
         return _value;
     }
 ////////////////////////////////////////////////////////////////////////////////

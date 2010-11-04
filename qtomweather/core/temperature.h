@@ -2,14 +2,14 @@
 #define TEMPERATURE_H
 ////////////////////////////////////////////////////////////////////////////////
 #include <string>
+#include <limits.h>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     class Temperature{
         std::string *_units;
         float _value;
         public:
-            Temperature();
-            Temperature(const float value, const std::string& units);
+            Temperature(const float value = INT_MAX, const std::string& units = "C");
             Temperature(const Temperature& temperature);
             Temperature& operator=(const Temperature& temperature);
             virtual ~Temperature();
@@ -17,8 +17,6 @@ namespace Core{
             std::string& units() const;
             void value(const float value);
             float value() const;
-            float celciusValue() const;
-            float fahrenheitValue() const;
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

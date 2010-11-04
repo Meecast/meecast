@@ -10,9 +10,11 @@ TARGET = qt-qml
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    dataqml.cpp
 
-HEADERS  +=
+HEADERS  += \
+    dataqml.h
 
 FORMS    +=
 RESOURCES += layoutitem.qrc

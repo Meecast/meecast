@@ -13,6 +13,24 @@ LayoutItem {    //Sized by the layout
              source: "0.png"
              anchors.centerIn: parent
          }
+    Text {		
+	id: body
+	text: MyObject.temperature
+//	text: "ddddd" 
+//	font.pointSize: 12
+//	wrap: true
+//	color: "white"
+	
+	//ancors
+//	anchors.top: title.bottom
+//	anchors.topMargin: 5
+//	anchors.right: rect.right
+//	anchors.rightMargin: 5
+//	anchors.left: avatar.right
+//	anchors.leftMargin : 5
+
+//	onTextChanged: rect.height = calculateMyHeight();
+    }
 
     }
 
@@ -21,4 +39,5 @@ LayoutItem {    //Sized by the layout
         anchors.top: parent.top; anchors.right: parent.right
         color: "green"
     }
+
 }

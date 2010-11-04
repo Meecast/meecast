@@ -4,20 +4,23 @@
 #include <QGraphicsWidget>
 #include <QGraphicsLinearLayout>
 #include <QDeclarativeComponent>
+#include <QDeclarativeContext>
 #include <QDeclarativeEngine>
 
 
 
 #include "core.h"
+#include "dataqml.h"
 
 //////////////////////////////////////////////////////////////////////////////
-Core::Data *
+
+DataQml *
 create_and_fill_class_data_for_hours_forecast()
 {
-    Core::Data *wdata = new Core::Data;
+    DataQml *wdata = new DataQml;
     wdata->StartTime(time(NULL) - 3600);
     wdata->EndTime(time(NULL) + 3600);
-    wdata->temperature().value(23.0);
+    wdata->Data::temperature().value(23.0);
     wdata->Flike(18.0);
     wdata->WindSpeed(3.0);
     wdata->WindGust(4.0);
@@ -32,6 +35,7 @@ int main(int argc, char* argv[])
     QApplication::setGraphicsSystem("native");
     QApplication app(argc, argv);
 
+    DataQml *wdata = create_and_fill_class_data_for_hours_forecast();
     //Set up a graphics scene with a QGraphicsWidget and Layout
     QGraphicsView view;
     QGraphicsScene scene;
@@ -43,13 +47,23 @@ int main(int argc, char* argv[])
 
 
     //Add the QML snippet into the layout
-    QDeclarativeEngine engine;
-    QDeclarativeComponent c(&engine, QUrl(":layoutitem.qml"));
+//    QDeclarativeEngine engine;
+    QDeclarativeEngine *engine = new QDeclarativeEngine;
+
+
+
+
+    QDeclarativeComponent c(engine, QUrl(":layoutitem.qml"));
+
     QGraphicsLayoutItem* obj = qobject_cast<QGraphicsLayoutItem*>(c.create());
     layout->addItem(obj);
 
     widget->setGeometry(QRectF(0,0, 400,400));
+
+    engine->rootContext()->setContextProperty("MyObject", wdata);
+
     view.show();
-    Core::Data *wdata = create_and_fill_class_data_for_hours_forecast();
+
+
     return app.exec();
 }

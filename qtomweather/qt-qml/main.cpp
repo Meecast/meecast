@@ -11,8 +11,7 @@
 
 #include "core.h"
 #include "dataqml.h"
-#include <iostream>
-//////////////////////////////////////////////////////////////////////////////
+
 
 DataQml *
 create_and_fill_class_data_for_hours_forecast()
@@ -36,7 +35,7 @@ int main(int argc, char* argv[])
     QApplication app(argc, argv);
 
     DataQml *wdata = create_and_fill_class_data_for_hours_forecast();
-    std::cout<<std::endl<<wdata->Flike()<<std::endl;
+
     //Set up a graphics scene with a QGraphicsWidget and Layout
     QGraphicsView view;
     QGraphicsScene scene;
@@ -48,7 +47,6 @@ int main(int argc, char* argv[])
 
 
     //Add the QML snippet into the layout
-//    QDeclarativeEngine engine;
     QDeclarativeEngine *engine = new QDeclarativeEngine;
 
 

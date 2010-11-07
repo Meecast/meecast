@@ -3,18 +3,18 @@ import Qt 4.7
 LayoutItem {    //Sized by the layout
     id: weatherlayoutitem
 
-    minimumSize: "100x100"
+    minimumSize: "32x32"
     maximumSize: "300x300"
     preferredSize: "100x100"
 
     Rectangle { color: "yellow"; anchors.fill: parent
         Image {
-             id: logo
+             id: forecast_icon
              source: "0.png"
              anchors.centerIn: parent
          }
     Text {		
-	id: body
+        id: temperature
         text: Forecast.temperature
 //	text: "ddddd" 
 //	font.pointSize: 12

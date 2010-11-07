@@ -27,4 +27,16 @@ namespace Core{
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
     }
+////////////////////////////////////////////////////////////////////////////////
+     void
+     Config::Base_Image_Path(const std::string& text){
+         /* ToDo Check access to path */
+         _base_image_path->assign(text);
+     }
+////////////////////////////////////////////////////////////////////////////////
+     std::string&
+     Config::Base_Image_Path(){
+         return *_base_image_path;
+     }
+////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

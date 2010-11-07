@@ -114,6 +114,15 @@ test_class_dataparser()
     return 0;
 }
 //////////////////////////////////////////////////////////////////////////////
+int
+test_class_config()
+{
+    Core::Config *p = new Core::Config();
+
+    delete p;
+    return 0;
+}
+//////////////////////////////////////////////////////////////////////////////
 void
 goto_from_program(int result){
     std::cout<<"Not Success Code: "<< result << std::endl;
@@ -124,7 +133,17 @@ goto_from_program(int result){
 int main(int argc, char *argv[]){
   int i = 1; /* Number of test */
   int result = 0;
+
   std::cout<<"Testing..."<<std::endl;
+
+  std::cout<<"Test "<< i << " Class Config   ";
+  result = test_class_config();
+  if ( result == 0)
+      std::cout<<"Success"<<std::endl;
+  else
+      goto_from_program(result);
+  i++;
+
   std::cout<<"Test " << i << " Class Data   ";
   result = test_class_data();
   if (result == 0)
@@ -157,5 +176,6 @@ int main(int argc, char *argv[]){
       std::cout<<"Success"<<std::endl;
   else
       goto_from_program(result);
+
 
 }

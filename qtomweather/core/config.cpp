@@ -3,6 +3,7 @@
 namespace Core{
 ////////////////////////////////////////////////////////////////////////////////
     Config::Config() : Parser(){
+        _base_icons_path = new std::string("/usr/share/omweather/icons");
         parser->set_validate(true);
     }
 ////////////////////////////////////////////////////////////////////////////////
@@ -29,14 +30,14 @@ namespace Core{
     }
 ////////////////////////////////////////////////////////////////////////////////
      void
-     Config::Base_Image_Path(const std::string& text){
+     Config::Base_Icons_Path(const std::string& text){
          /* ToDo Check access to path */
-         _base_image_path->assign(text);
+         _base_icons_path->assign(text);
      }
 ////////////////////////////////////////////////////////////////////////////////
      std::string&
-     Config::Base_Image_Path(){
-         return *_base_image_path;
+     Config::Base_Icons_Path(){
+         return *_base_icons_path;
      }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

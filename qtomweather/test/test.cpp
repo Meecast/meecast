@@ -114,12 +114,19 @@ test_class_dataparser()
     return 0;
 }
 //////////////////////////////////////////////////////////////////////////////
-int
-test_class_config()
-{
-    Core::Config *p = new Core::Config();
+Core::Config *
+create_and_fill_config(){
+    Core::Config *c = new Core::Config();
 
-    delete p;
+    return c;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+int
+test_class_config(){
+    Core::Config *c = create_and_fill_config();
+    c->Base_Icons_Path(std::string("../omweather/data/icons"));
+    delete c;
     return 0;
 }
 //////////////////////////////////////////////////////////////////////////////

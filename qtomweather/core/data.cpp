@@ -12,7 +12,8 @@ namespace Core {
         _icon = INT_MAX;
         _windDirection = new std::string("N/A");
         _text = new std::string("N/A");
-        _temperature = new Temperature;
+        _temperature_hi = new Temperature;
+        _temperature_low = new Temperature;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
@@ -113,11 +114,16 @@ namespace Core {
     Data::~Data(){
        delete _windDirection;
        delete _text;
-       delete _temperature;
+       delete _temperature_hi;
+       delete _temperature_low;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    Temperature& Data::temperature(){
-        return *_temperature;
+    Temperature& Data::temperature_hi(){
+        return *_temperature_hi;
+    }
+////////////////////////////////////////////////////////////////////////////////
+    Temperature& Data::temperature_low(){
+        return *_temperature_low;
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

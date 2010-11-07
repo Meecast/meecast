@@ -19,7 +19,8 @@ namespace Core{
         int _pressure;
         std::string *_text;
         int _icon;
-        Temperature *_temperature;
+        Temperature *_temperature_hi;
+        Temperature *_temperature_low;
         public:
             Data();
             Data(const Data& data);
@@ -42,7 +43,8 @@ namespace Core{
             std::string& Text(void);
             time_t GetTimeDistance(time_t need_time); /* Checking for  occurrence of this time (need_time) to Data interval and return the interval if  this time are include */
             virtual ~Data();
-            Temperature& temperature();
+            Temperature& temperature_hi();
+            Temperature& temperature_low();
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

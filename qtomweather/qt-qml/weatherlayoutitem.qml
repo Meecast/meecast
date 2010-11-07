@@ -14,9 +14,8 @@ LayoutItem {    //Sized by the layout
              anchors.centerIn: parent
          }
     Text {		
-        id: temperature
-    //    text: Forecast.temperature
-        text: Forecast.temperature
+        id: temperature_low
+        text: Forecast.temperature_low
 //	text: "ddddd" 
 //	font.pointSize: 12
 //	wrap: true

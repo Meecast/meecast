@@ -7,16 +7,19 @@ class DataQml : public QObject, public Core::Data
 
 {
     Q_OBJECT
-    Q_PROPERTY(QString temperature READ temperature NOTIFY temperatureChanged)
+    Q_PROPERTY(QString temperature_low READ temperature_low NOTIFY temperature_lowChanged)
+    Q_PROPERTY(QString temperature_high READ temperature_high NOTIFY temperature_highChanged)
     Q_PROPERTY(int icon READ icon NOTIFY iconChanged)
     public:
     DataQml();
-    QString temperature();
+    QString temperature_high();
+    QString temperature_low();
     int icon();
     void refreshview();
     virtual ~DataQml(){};
     signals:
-    void temperatureChanged();
+    void temperature_highChanged();
+    void temperature_lowChanged();
     void iconChanged();
 };
 

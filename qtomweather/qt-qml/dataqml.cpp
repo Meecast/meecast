@@ -4,9 +4,23 @@ DataQml::DataQml():QObject(),Core::Data(){
 }
 
 QString
-DataQml::temperature(){
+DataQml::temperature_high(){
     QString c;
-    return c.number((DataQml::Data::temperature().value()  ),'f',0);
+    if (DataQml::Data::temperature_hi().value() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    return c.number((DataQml::Data::temperature_hi().value()),'f',0);
+}
+
+QString
+DataQml::temperature_low(){
+    QString c;
+    if (DataQml::Data::temperature_low().value() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    return c.number((DataQml::Data::temperature_low().value()),'f',0);
 }
 
 int
@@ -17,6 +31,7 @@ DataQml::icon(){
 
 void
 DataQml::refreshview(){
-    emit DataQml::temperatureChanged();
+    emit DataQml::temperature_highChanged();
+    emit DataQml::temperature_lowChanged();
     emit DataQml::iconChanged();
 }

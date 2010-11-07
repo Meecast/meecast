@@ -10,11 +10,12 @@ LayoutItem {    //Sized by the layout
     Rectangle { color: "yellow"; anchors.fill: parent
         Image {
              id: forecast_icon
-             source: "0.png"
+             source: Config.iconspath + "/" + Config.iconset+"/"+"0.png"
              anchors.centerIn: parent
          }
     Text {		
         id: temperature
+    //    text: Forecast.temperature
         text: Forecast.temperature
 //	text: "ddddd" 
 //	font.pointSize: 12

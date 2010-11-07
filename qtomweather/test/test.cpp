@@ -126,6 +126,15 @@ int
 test_class_config(){
     Core::Config *c = create_and_fill_config();
     c->Base_Icons_Path(std::string("../omweather/data/icons"));
+    c->Iconset(std::string("Glance"));
+    if (!(
+         ((c->Base_Icons_Path().compare("../omweather/data/icons") == 0)&&
+         (c->Iconset().compare("Glance")) == 0)
+        )){
+        delete c;
+        return -1;
+    }
+
     delete c;
     return 0;
 }

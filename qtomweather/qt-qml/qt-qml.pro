@@ -17,10 +17,11 @@ HEADERS  += \
     dataqml.h
 
 FORMS    +=
-RESOURCES += layoutitem.qrc
+RESOURCES += weatherlayoutitem.qrc
 
 OTHER_FILES += \
-    layoutitem.qml
+    layoutitem.qml \
+    weatherlayoutitem.qml
 
 
 INCLUDEPATH += ../core

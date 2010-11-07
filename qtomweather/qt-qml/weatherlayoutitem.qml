@@ -1,7 +1,7 @@
 import Qt 4.7
 
 LayoutItem {    //Sized by the layout
-    id: resizable
+    id: weatherlayoutitem
 
     minimumSize: "100x100"
     maximumSize: "300x300"
@@ -15,7 +15,7 @@ LayoutItem {    //Sized by the layout
          }
     Text {		
 	id: body
-	text: MyObject.temperature
+        text: Forecast.temperature
 //	text: "ddddd" 
 //	font.pointSize: 12
 //	wrap: true
@@ -34,10 +34,10 @@ LayoutItem {    //Sized by the layout
 
     }
 
-    Rectangle {
-        width: 100; height: 100
-        anchors.top: parent.top; anchors.right: parent.right
-        color: "green"
-    }
+    //Rectangle {
+    //   width: 100; height: 100
+    //   anchors.top: parent.top; anchors.right: parent.right
+    //   color: "green"
+    //}
 
 }

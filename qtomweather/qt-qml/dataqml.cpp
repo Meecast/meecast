@@ -9,3 +9,7 @@ DataQml::temperature(){
     return c.number((DataQml::Data::temperature().value()  ),'f',0);
 }
 
+void
+DataQml::refreshview(){
+    emit DataQml::temperatureChanged();
+}

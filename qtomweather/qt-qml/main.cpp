@@ -80,21 +80,25 @@ int main(int argc, char* argv[])
 
 
     //Add the QML snippet into the layout
-    QDeclarativeEngine *engine = new QDeclarativeEngine;
+    QDeclarativeEngine *engine;
     QDeclarativeComponent *c;
     QGraphicsLayoutItem* obj;
 
     DataQml *first = create_and_fill_class_data_for_hours_forecast();
+    engine = new QDeclarativeEngine;
     c = new QDeclarativeComponent(engine, QUrl(":weatherlayoutitem.qml"));
+    engine->rootContext()->setContextProperty("Forecast", first);
     obj = qobject_cast<QGraphicsLayoutItem*>(c->create());
     layout->addItem(obj);
-    engine->rootContext()->setContextProperty("Forecast", first);
 
+
+    engine = new QDeclarativeEngine;
     DataQml *second =  create_and_fill_class_data_for_day_forecast();
     c = new QDeclarativeComponent(engine, QUrl(":weatherlayoutitem.qml"));
+    engine->rootContext()->setContextProperty("Forecast", second);
     obj = qobject_cast<QGraphicsLayoutItem*>(c->create());
     layout->addItem(obj);
-    engine->rootContext()->setContextProperty("Forecast", second);
+
 
 
     widget->setGeometry(QRectF(0,0, 800,400));

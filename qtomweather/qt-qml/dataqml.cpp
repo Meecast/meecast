@@ -9,7 +9,14 @@ DataQml::temperature(){
     return c.number((DataQml::Data::temperature().value()  ),'f',0);
 }
 
+int
+DataQml::icon(){
+    QString c;
+    return DataQml::Data::Icon();
+}
+
 void
 DataQml::refreshview(){
     emit DataQml::temperatureChanged();
+    emit DataQml::iconChanged();
 }

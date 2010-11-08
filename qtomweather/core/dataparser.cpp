@@ -3,26 +3,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    DataParser::DataParser(const std::string& filename) : Parser() {
-#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
-        try{
-#endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-            validator->parse_file(filename);
-#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
-        }
-        catch(const std::exception& ex){
-            std::cout << "Exception caught: " << ex.what() << std::endl;
-        }
-#endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-
-    }
-////////////////////////////////////////////////////////////////////////////////
     DataParser::DataParser() : Parser() {
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-
-        validator->parse_file("/usr/share/omweather/schemas/data.xsd");
+            validator->parse_file("/usr/share/omweather/schemas/data.xsd");
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         }
         catch(const std::exception& ex){

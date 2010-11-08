@@ -9,7 +9,6 @@ namespace Core {
         void processNode(const xmlpp::Node* node);
         public:
             DataParser();
-            DataParser(const std::string& filename);
             virtual ~DataParser();
             bool parse(const std::string& filename);
     };

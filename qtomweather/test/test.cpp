@@ -103,11 +103,11 @@ test_class_source()
 int
 test_class_dataparser()
 {
-    Core::DataParser *p = new Core::DataParser("core/data/data.xsd");
-    if (!p->parse("core/data/data.xml")){
+    Core::DataParser *p = new Core::DataParser();
+    if (!p->parse("data.xml")){
         delete p;
-        Core::DataParser *p = new Core::DataParser("../core/data/data.xsd");
-        if (!p->parse("../core/data/data.xml")){
+        Core::DataParser *p = new Core::DataParser();
+        if (!p->parse("data.xml")){
             delete p;
             return -1;
         }

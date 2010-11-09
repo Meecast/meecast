@@ -68,26 +68,12 @@ test_class_datalist(){
     Core::DataList *wdata_list = new Core::DataList;
 
     Core::Data *wdata = create_and_fill_class_data_for_hours_forecast();
-    wdata_list->AddData(wdata);
+    wdata_list->push_back(wdata);
     wdata =  create_and_fill_class_data_for_day_forecast();
-    wdata_list->AddData(wdata);
+    wdata_list->push_back(wdata);
     /* Check size of array */
-    if (wdata_list->Size() != 2)
+    if (wdata_list->size() != 2)
         return -1;
-    /* Check correct working of method GetDataForTime */
-    wdata = wdata_list->GetDataForTime(time(NULL));
-    if (!((wdata) &&
-          (wdata->temperature_hi().value() == 23.0)&&
-          (wdata->temperature_low().value() == 15.0)&&
-          (wdata->Flike() == 18.0)&&
-          (wdata->WindSpeed() == 3.0)&&
-          (wdata->WindDirection().compare("NNW") == 0)&&
-          (wdata->WindGust() == 4.0)&&
-          (wdata->Humidity() == INT_MAX)&&
-          (wdata->Icon() == 3)&&
-          (wdata->Text().compare("Clear") == 0)
-          ))
-        return -2;
     delete wdata_list;
     return 0;
 }

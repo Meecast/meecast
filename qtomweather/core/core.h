@@ -15,7 +15,6 @@ namespace Core{
     class Connection;
     class Config;
     class Data;
-    class DataList;
     class Downloader;
     class Source;
     class Station;

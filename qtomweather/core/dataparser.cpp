@@ -8,16 +8,19 @@ namespace Core {
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
             validator->parse_file("/usr/share/omweather/schemas/data.xsd");
+            _data = new Data;
+            _list = new DataList;
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         }
         catch(const std::exception& ex){
             std::cout << "Exception caught: " << ex.what() << std::endl;
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-
     }
 ////////////////////////////////////////////////////////////////////////////////
     DataParser::~DataParser(){
+        delete _data;
+        delete _list;
     }
 ////////////////////////////////////////////////////////////////////////////////
     bool
@@ -50,6 +53,9 @@ namespace Core {
         if(const xmlpp::Element* nodeElement = dynamic_cast<const xmlpp::Element*>(node)){
 
         }
+    }
+////////////////////////////////////////////////////////////////////////////////
+    DataList& DataParser::data(){
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

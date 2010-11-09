@@ -12,7 +12,6 @@ SOURCES = config.cpp \
     source.cpp \
     downloader.cpp \
     connection.cpp \
-    datalist.cpp \
     dataparser.cpp \
     temperature.cpp
 HEADERS = config.h \

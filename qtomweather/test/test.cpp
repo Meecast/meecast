@@ -108,6 +108,7 @@ create_and_fill_config(){
     Core::Config *c = new Core::Config();
     c->Base_Icons_Path(std::string("../omweather/data/icons"));
     c->Iconset(std::string("Glance"));
+    c->TemperatureUnit("F");
     return c;
 }
 
@@ -117,7 +118,8 @@ test_class_config(){
     Core::Config *c = create_and_fill_config();
     if (!(
          ((c->Base_Icons_Path().compare("../omweather/data/icons") == 0)&&
-         (c->Iconset().compare("Glance")) == 0)
+         (c->Iconset().compare("Glance")) == 0)&&
+         (c->TemperatureUnit().compare("F")== 0)
         )){
         delete c;
         return -1;

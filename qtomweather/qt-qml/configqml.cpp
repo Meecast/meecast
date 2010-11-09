@@ -14,13 +14,20 @@ ConfigQml::iconset(){
 QString
 ConfigQml::iconspath(){
     QString c;
-    c = ConfigQml::Config:: Base_Icons_Path().c_str();
+    c = ConfigQml::Config::Base_Icons_Path().c_str();
     return c;
 }
 
+QString
+ConfigQml::temperatureunit(){
+    QString c;
+    c = ConfigQml::Config::TemperatureUnit().c_str();
+    return c;
+}
 void
 ConfigQml::refreshconfig(){
     emit ConfigQml::iconsetChanged();
     emit ConfigQml::iconspathChanged();
+    emit ConfigQml::temperatureunitChanged();
 }
 

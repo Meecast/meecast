@@ -5,10 +5,14 @@ namespace Core{
     Config::Config() : Parser(){
         _base_icons_path = new std::string("/usr/share/omweather/icons");
         _iconset = new std::string("Glance");
+        _temperature_unit = new std::string("C");
         parser->set_validate(true);
     }
 ////////////////////////////////////////////////////////////////////////////////
     Config::~Config(){
+        delete _base_icons_path;
+        delete _iconset;
+        delete _temperature_unit;
     }
 ////////////////////////////////////////////////////////////////////////////////
     bool
@@ -51,5 +55,16 @@ namespace Core{
      Config::Iconset(){
          return *_iconset;
      }
+ ////////////////////////////////////////////////////////////////////////////////
+         void
+         Config::TemperatureUnit(const std::string& text){
+             /* ToDo Check access to path */
+             _iconset->assign(text);
+         }
+ ////////////////////////////////////////////////////////////////////////////////
+         std::string&
+         Config::TemperatureUnit(){
+             return *_temperature_unit;
+         }
  ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

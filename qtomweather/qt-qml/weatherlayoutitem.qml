@@ -10,13 +10,13 @@ LayoutItem {    //Sized by the layout
     Rectangle { color: "yellow"; anchors.fill: parent
         Image {
              id: forecast_icon
-             source: Config.iconspath + "/" + Config.iconset+"/" + Forecast.icon + ".png"
+             source: Config.iconspath + "/" + Config.iconset + "/" + Forecast.icon + ".png"
              anchors.centerIn: parent
              anchors.left: parent.left
          }
         Text {
             id: temperature_high
-            text: Forecast.temperature_high
+            text: Forecast.temperature_high + '°' +Config.temperatureunit
             font.pointSize: 20
             //	color: "white"
             anchors.right: parent.right
@@ -26,7 +26,7 @@ LayoutItem {    //Sized by the layout
         }
         Text {
             id: temperature_low
-            text: Forecast.temperature_low
+            text: Forecast.temperature_low + '°' +Config.temperatureunit
             font.pointSize: 20
             //	color: "white"
             anchors.right: parent.right

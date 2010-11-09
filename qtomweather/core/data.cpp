@@ -4,7 +4,7 @@
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Data::Data(){
-        _flike = INT_MAX;
+        _flike = new Temperature;
         _windSpeed = INT_MAX;
         _windGust = INT_MAX;
         _humidity = INT_MAX;
@@ -26,15 +26,10 @@ namespace Core {
         _end_time = end_time;
     }
 ////////////////////////////////////////////////////////////////////////////////
-     void
-     Data::Flike(float flike){
-          _flike = flike;
-     }
-////////////////////////////////////////////////////////////////////////////////
-     float
+     Temperature&
      Data::Flike() const{
          /* need to check type (Celsius Farenheit ) */
-         return _flike;
+         return *_flike;
      }
 ////////////////////////////////////////////////////////////////////////////////
      void
@@ -116,6 +111,7 @@ namespace Core {
        delete _text;
        delete _temperature_hi;
        delete _temperature_low;
+       delete _flike;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Temperature& Data::temperature_hi(){

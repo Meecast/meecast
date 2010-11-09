@@ -37,7 +37,7 @@ create_and_fill_class_data_for_day_forecast()
     wdata->EndTime(end_current_day);
     wdata->Data::temperature_low().value(20.0);
     wdata->Data::temperature_hi().value(30.0);
-    wdata->Flike(17.0);
+    wdata->Flike().value(17.0);
     wdata->WindGust(2.8);
     wdata->WindSpeed(2.4);
     wdata->Humidity(845);
@@ -54,7 +54,7 @@ create_and_fill_class_data_for_hours_forecast()
     wdata->StartTime(time(NULL) - 3600);
     wdata->EndTime(time(NULL) + 3600);
     wdata->Data::temperature_hi().value(23.0);
-    wdata->Flike(18.0);
+    wdata->Flike().value(18.0);
     wdata->WindSpeed(3.0);
     wdata->WindGust(4.0);
     wdata->WindDirection(std::string("NNW"));

@@ -11,7 +11,7 @@ namespace Core{
     class Data {
         time_t _start_time;
         time_t _end_time;
-        float _flike;
+        Temperature *_flike;
         float _windSpeed;
         std::string *_windDirection;
         float _windGust;
@@ -27,8 +27,6 @@ namespace Core{
             Data& operator=(const Data& data);
             void  StartTime(time_t start_time);
             void  EndTime(time_t end_time);
-            void  Flike(float flike);
-            float Flike(void) const;
             void  WindSpeed(float windspeed);
             float WindSpeed(void) const;
             void  WindDirection(const std::string& text);
@@ -45,6 +43,7 @@ namespace Core{
             virtual ~Data();
             Temperature& temperature_hi();
             Temperature& temperature_low();
+            Temperature& Flike(void) const;
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

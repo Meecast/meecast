@@ -12,6 +12,7 @@
 #include "core.h"
 #include "dataqml.h"
 #include "configqml.h"
+#include "qmllayoutitem.h"
 
 //////////////////////////////////////////////////////////////////////////////
 DataQml *
@@ -90,29 +91,21 @@ int main(int argc, char* argv[])
 
 
     //Add the QML snippet into the layout
-    QDeclarativeEngine *engine;
-    QDeclarativeComponent *c;
-    QGraphicsLayoutItem* obj;
+
 
 
     ConfigQml *config = create_and_fill_config();
 
 
     DataQml *first = create_and_fill_class_data_for_hours_forecast();
-    engine = new QDeclarativeEngine;
-    c = new QDeclarativeComponent(engine, QUrl(":weatherlayoutitem.qml"));
-    engine->rootContext()->setContextProperty("Forecast", first);
-    engine->rootContext()->setContextProperty("Config", config);
-    obj = qobject_cast<QGraphicsLayoutItem*>(c->create());
-    layout->addItem(obj);
+
+    QmlLayoutItem* qml_layout_item;
+    qml_layout_item = new QmlLayoutItem(config, first);
+    layout->addItem(&qml_layout_item->obj());
 
     DataQml *second =  create_and_fill_class_data_for_day_forecast();
-    engine = new QDeclarativeEngine;
-    c = new QDeclarativeComponent(engine, QUrl(":weatherlayoutitem.qml"));
-    engine->rootContext()->setContextProperty("Forecast", second);
-    engine->rootContext()->setContextProperty("Config", config);
-    obj = qobject_cast<QGraphicsLayoutItem*>(c->create());
-    layout->addItem(obj);
+    qml_layout_item = new QmlLayoutItem(config, second);
+    layout->addItem(&qml_layout_item->obj());
 
 
 

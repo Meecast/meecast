@@ -10,7 +10,7 @@ LayoutItem {    //Sized by the layout
     Rectangle { color: "yellow"; anchors.fill: parent
         Image {
              id: forecast_icon
-             source: Config.iconspath + "/" + Config.iconset + "/" + Forecast.icon + ".png"
+            source: Config.iconspath + "/" + Config.iconset + "/" + Forecast.icon + ".png"
              anchors.centerIn: parent
              anchors.left: parent.left
          }

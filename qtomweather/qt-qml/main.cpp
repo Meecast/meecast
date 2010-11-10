@@ -6,7 +6,7 @@
 #include <QDeclarativeComponent>
 #include <QDeclarativeContext>
 #include <QDeclarativeEngine>
-
+#include <QGraphicsGridLayout>
 
 
 #include "core.h"
@@ -84,7 +84,8 @@ int main(int argc, char* argv[])
     QGraphicsView view;
     QGraphicsScene scene;
     QGraphicsWidget *widget = new QGraphicsWidget();
-    QGraphicsLinearLayout *layout = new QGraphicsLinearLayout();
+    QGraphicsGridLayout *layout = new QGraphicsGridLayout;
+    layout->setSpacing(0);
     widget->setLayout(layout);
     scene.addItem(widget);
     view.setScene(&scene);
@@ -93,19 +94,19 @@ int main(int argc, char* argv[])
     //Add the QML snippet into the layout
 
 
-
-    ConfigQml *config = create_and_fill_config();
-
-
-    DataQml *first = create_and_fill_class_data_for_hours_forecast();
-
+    ConfigQml *config;
+    DataQml *forecast_data;
     QmlLayoutItem* qml_layout_item;
-    qml_layout_item = new QmlLayoutItem(config, first);
-    layout->addItem(&qml_layout_item->obj());
 
-    DataQml *second =  create_and_fill_class_data_for_day_forecast();
-    qml_layout_item = new QmlLayoutItem(config, second);
-    layout->addItem(&qml_layout_item->obj());
+    config = create_and_fill_config();
+
+    forecast_data = create_and_fill_class_data_for_hours_forecast();
+    qml_layout_item = new QmlLayoutItem(config, forecast_data);
+    layout->addItem(&qml_layout_item->obj(),0,0);
+
+    forecast_data=  create_and_fill_class_data_for_day_forecast();
+    qml_layout_item = new QmlLayoutItem(config, forecast_data);
+    layout->addItem(&qml_layout_item->obj(),1,0);
 
 
 

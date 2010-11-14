@@ -10,6 +10,7 @@ namespace Core{
             std::string *_base_icons_path;
             std::string *_iconset;
             std::string *_temperature_unit;
+            std::string *_font_color;
         public:
             Config();
             Config(const Config& config);
@@ -21,6 +22,8 @@ namespace Core{
             std::string& Iconset(void);
             void TemperatureUnit(const std::string& text);
             std::string& TemperatureUnit(void);
+            void FontColor(const std::string& text);
+            std::string& FontColor(void);
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

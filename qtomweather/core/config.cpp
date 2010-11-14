@@ -6,6 +6,7 @@ namespace Core{
         _base_icons_path = new std::string("/usr/share/omweather/icons");
         _iconset = new std::string("Glance");
         _temperature_unit = new std::string("C");
+        _font_color = new std::string("#00ff00");
         parser->set_validate(true);
     }
 ////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +60,7 @@ namespace Core{
          void
          Config::TemperatureUnit(const std::string& text){
              /* ToDo Check access to path */
-             _iconset->assign(text);
+             _temperature_unit->assign(text);
          }
  ////////////////////////////////////////////////////////////////////////////////
          std::string&
@@ -67,4 +68,16 @@ namespace Core{
              return *_temperature_unit;
          }
  ////////////////////////////////////////////////////////////////////////////////
+         void
+         Config::FontColor(const std::string& text){
+             /* ToDo Check access to path */
+             _font_color->assign(text);
+         }
+ ////////////////////////////////////////////////////////////////////////////////
+         std::string&
+         Config::FontColor(){
+             return *_font_color;
+         }
+ ////////////////////////////////////////////////////////////////////////////////
+
 } // namespace Core

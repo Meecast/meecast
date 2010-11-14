@@ -18,7 +18,7 @@ LayoutItem {    //Sized by the layout
             id: temperature_high
             text: Forecast.temperature_high + '°' +Config.temperatureunit
             font.pointSize: 20
-            //	color: "white"
+            color: Config.font_color
             anchors.right: parent.right
             anchors.left: forecast_icon.right
             anchors.top: forecast_icon.top
@@ -28,6 +28,7 @@ LayoutItem {    //Sized by the layout
             id: temperature_low
             text: Forecast.temperature_low + '°' +Config.temperatureunit
             font.pointSize: 20
+            color: Config.font_color
             //	color: "white"
             anchors.right: parent.right
             anchors.left: forecast_icon.right

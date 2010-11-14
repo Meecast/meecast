@@ -119,7 +119,8 @@ test_class_config(){
     if (!(
          ((c->Base_Icons_Path().compare("../omweather/data/icons") == 0)&&
          (c->Iconset().compare("Glance")) == 0)&&
-         (c->TemperatureUnit().compare("F")== 0)
+         (c->TemperatureUnit().compare("F")== 0)&&
+         (c->FontColor().compare("#00ff00")== 0)
         )){
         delete c;
         return -1;

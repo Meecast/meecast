@@ -24,10 +24,19 @@ ConfigQml::temperatureunit(){
     c = ConfigQml::Config::TemperatureUnit().c_str();
     return c;
 }
+QColor
+ConfigQml::fontcolor(){
+    QColor c;
+    QString t = ConfigQml::Config::FontColor().c_str();
+    //c = QColor("#00ffff");
+    c.setNamedColor(t);
+    return c;
+}
 void
 ConfigQml::refreshconfig(){
     emit ConfigQml::iconsetChanged();
     emit ConfigQml::iconspathChanged();
     emit ConfigQml::temperatureunitChanged();
+    emit ConfigQml::fontcolorChanged();
 }
 

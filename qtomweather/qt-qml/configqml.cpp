@@ -27,9 +27,7 @@ ConfigQml::temperatureunit(){
 QColor
 ConfigQml::fontcolor(){
     QColor c;
-    QString t = ConfigQml::Config::FontColor().c_str();
-    //c = QColor("#00ffff");
-    c.setNamedColor(t);
+    c.setNamedColor(ConfigQml::Config::FontColor().c_str());
     return c;
 }
 void

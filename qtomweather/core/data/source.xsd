@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://omweather.garage.maemo.org/schemas" xmlns:schemas="http://omweather.garage.maemo.org/schemas">
+  <xs:element name="source">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="schemas:name"/>
+        <xs:element ref="schemas:logo"/>
+        <xs:element ref="schemas:base"/>
+        <xs:element ref="schemas:forecast"/>
+        <xs:element ref="schemas:detail"/>
+        <xs:element ref="schemas:search"/>
+        <xs:element ref="schemas:library"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="logo" type="xs:string"/>
+  <xs:element name="base" type="xs:string"/>
+  <xs:element name="forecast">
+    <xs:complexType>
+      <xs:attribute name="url" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="detail">
+    <xs:complexType>
+      <xs:attribute name="url" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="search">
+    <xs:complexType>
+      <xs:attribute name="url" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="library" type="xs:string"/>
+</xs:schema>

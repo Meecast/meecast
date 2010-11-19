@@ -2,4 +2,4 @@ VERSION = 1.0
 TEMPLATE = subdirs
 CONFIG += debug ordered
 
-SUBDIRS += core test qt-qml
+SUBDIRS += core qt-qml

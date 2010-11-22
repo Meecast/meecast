@@ -40,10 +40,10 @@ namespace Core {
         }
         catch(const std::exception& ex){
             std::cout << "Exception caught: " << ex.what() << std::endl;
-            return FALSE;
+            return false;
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-        return TRUE;
+        return true;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void DataParser::processNode(const xmlpp::Node* node){
@@ -51,7 +51,6 @@ namespace Core {
             return;
         std::cout << "Node name: " << node->get_name() << std::endl;
         if(const xmlpp::Element* nodeElement = dynamic_cast<const xmlpp::Element*>(node)){
-
         }
     }
 ////////////////////////////////////////////////////////////////////////////////

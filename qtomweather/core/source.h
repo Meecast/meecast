@@ -5,8 +5,10 @@
 #include "parser.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
-    class    Source : public Parser{
+    class Source : public Parser{
         bool parse(const std::string& filename);
+        void processNode(const xmlpp::Node* node);
+        std::string *_filename;
         std::string *_name;
         std::string *_logo;
         std::string *_forecastUrl;
@@ -15,7 +17,7 @@ namespace Core {
         std::string *_databaseName;
         std::string *_binaryName;
         public:
-            Source();
+            Source(const std::string& filename);
             Source(const Source& source);
             Source& operator=(const Source& source);
             virtual ~Source();

@@ -2,7 +2,6 @@
 #define STATION_H
 ////////////////////////////////////////////////////////////////////////////////
 #include <string>
-#include "source.h"
 #include "data.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
@@ -11,7 +10,6 @@ namespace Core{
         std::string *_id;
         std::string *_fileName;
         int _timezone;
-        Source *_source;
         Data *_data;
         bool dataValid();
         bool prepareFile();
@@ -26,8 +24,6 @@ namespace Core{
             std::string& id() const;
             void timezone(const int timezone = 0);
             int timezone() const;
-            void source(const Source& source);
-            Source& source() const;
             bool updateData(bool force = false);
     };
 } // namespace Core

@@ -6,7 +6,6 @@ namespace Core {
         _name = new std::string;
         _id = new std::string;
         _timezone = 0;
-        _source = new Source;
         _data = new Data;
         _fileName = NULL;
     }
@@ -14,7 +13,6 @@ namespace Core {
     Station::~Station(){
         delete _name;
         delete _id;
-        delete _source;
         delete _data;
         if(_fileName)
             delete _fileName;
@@ -61,14 +59,6 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     int Station::timezone() const{
         return _timezone;
-    }
-////////////////////////////////////////////////////////////////////////////////
-    void Station::source(const Source& source){
-        *_source = source;
-    }
-////////////////////////////////////////////////////////////////////////////////
-    Source& Station::source() const{
-        return *_source;
     }
 ////////////////////////////////////////////////////////////////////////////////
     bool Station::dataValid(){

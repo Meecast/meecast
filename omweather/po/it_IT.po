@@ -811,8 +811,12 @@ msgid "Gust:"
 msgstr "Raffica:"
 
 #: src/weather-home.c:1564
-msgid "H: "
-msgstr "U: "
+msgid ""
+"\n"
+"H: "
+msgstr ""
+"\n"
+"U: "
 
 #: src/weather-download.c:421
 msgid "HTTP error."

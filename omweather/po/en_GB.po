@@ -740,7 +740,9 @@ msgid "Gust:"
 msgstr ""
 
 #: src/weather-home.c:1564
-msgid "H: "
+msgid ""
+"\n"
+"H: "
 msgstr ""
 
 #: src/weather-download.c:421

@@ -2,6 +2,8 @@ omweather (0.28.8) unstable; urgency=low
 
   * Added Slovak localization
   * Updated French translation
+  * Fixed  a mentioned problem with unit of 'feel like' temperature. Thanks
+    Roman Moravčík for patch
 
  -- Vlad Vasiliev <vlad@gas.by>  Mon, 1 Nov 2010 13:44:20 +0200
 

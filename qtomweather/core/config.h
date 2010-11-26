@@ -6,7 +6,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     class Config : public Parser{
-            bool parse(const std::string& filename);
+            void parse(const std::string& filename);
             std::string *_base_icons_path;
             std::string *_iconset;
             std::string *_temperature_unit;

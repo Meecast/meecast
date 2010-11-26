@@ -6,7 +6,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
     class Source : public Parser{
-        bool parse(const std::string& filename);
+        void parse(const std::string& filename);
         void processNode(const xmlpp::Node* node);
         std::string *_filename;
         std::string *_name;

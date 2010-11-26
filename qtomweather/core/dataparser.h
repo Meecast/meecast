@@ -13,7 +13,7 @@ namespace Core {
         public:
             DataParser();
             virtual ~DataParser();
-            bool parse(const std::string& filename);
+            void parse(const std::string& filename);
             DataList& data();
     };
 } // namespace Core

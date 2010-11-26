@@ -26,7 +26,7 @@ namespace Core {
         delete _binaryName;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    bool
+    void
     Source::parse(const std::string& filename){
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
@@ -42,11 +42,9 @@ namespace Core {
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         }
         catch(const std::exception& ex){
-            std::cout << "Exception caught: " << ex.what() << std::endl;
-            return false;
+            throw(ex.what());
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-        return true;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Source::Source(const Source& source){

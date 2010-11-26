@@ -14,7 +14,7 @@ namespace Core {
             Parser();
         public:
             virtual ~Parser();
-            virtual bool parse(const std::string& filename) = 0;
+            virtual void parse(const std::string& filename) = 0;
     };
 
 } // namespace Core

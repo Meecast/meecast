@@ -16,7 +16,7 @@ namespace Core{
         delete _temperature_unit;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    bool
+    void
     Config::parse(const std::string& filename){
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
@@ -30,7 +30,7 @@ namespace Core{
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         }
         catch(const std::exception& ex){
-            std::cout << "Exception caught: " << ex.what() << std::endl;
+            throw(ex.what());
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
     }

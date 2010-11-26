@@ -20,6 +20,8 @@ namespace Core {
             Source(const std::string& filename, const std::string& schema_filename = "/usr/share/omweather/schemas/source.xsd");
             Source(const Source& source);
             Source& operator=(const Source& source);
+            std::string& name() const;
+            std::string& logo() const;
             virtual ~Source();
     };
 } // namespace Core

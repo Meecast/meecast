@@ -2,7 +2,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    Source::Source(const std::string& filename, const std::string& validator_filename) : Parser(){
+    Source::Source(const std::string& filename, const std::string& schema_filename) : Parser(){
             _name = new std::string;
             _logo = new std::string;
             _forecastUrl = new std::string;
@@ -12,7 +12,7 @@ namespace Core {
             _binaryName = new std::string;
             if(filename.empty())
                 throw("Invalid source file.");
-            validator->parse_file(validator_filename);
+            validator->parse_file(schema_filename);
             parse(filename);
     }
 ////////////////////////////////////////////////////////////////////////////////

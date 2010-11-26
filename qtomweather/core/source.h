@@ -17,8 +17,7 @@ namespace Core {
         std::string *_databaseName;
         std::string *_binaryName;
         public:
-            Source(const std::string& filename);
-            Source(const std::string& filename, const std::string& validator_filename);
+            Source(const std::string& filename, const std::string& schema_filename = "/usr/share/omweather/schemas/source.xsd");
             Source(const Source& source);
             Source& operator=(const Source& source);
             virtual ~Source();

@@ -2,10 +2,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    Source::Source(const std::string& filename) : Parser(){
-        Source::Source(filename, "/usr/share/omweather/schemas/source.xsd");
-    }
- ////////////////////////////////////////////////////////////////////////////////
     Source::Source(const std::string& filename, const std::string& validator_filename) : Parser(){
             _name = new std::string;
             _logo = new std::string;

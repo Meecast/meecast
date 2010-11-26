@@ -3,17 +3,21 @@
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Source::Source(const std::string& filename) : Parser(){
-        _name = new std::string;
-        _logo = new std::string;
-        _forecastUrl = new std::string;
-        _detailUrl = new std::string;
-        _searchUrl = new std::string;
-        _databaseName = new std::string;
-        _binaryName = new std::string;
-        if(filename.empty())
-            throw("Invalid source file.");
-        validator->parse_file("/usr/share/omweather/schemas/source.xsd");
-        parse(filename);
+        Source::Source(filename, "/usr/share/omweather/schemas/source.xsd");
+    }
+ ////////////////////////////////////////////////////////////////////////////////
+    Source::Source(const std::string& filename, const std::string& validator_filename) : Parser(){
+            _name = new std::string;
+            _logo = new std::string;
+            _forecastUrl = new std::string;
+            _detailUrl = new std::string;
+            _searchUrl = new std::string;
+            _databaseName = new std::string;
+            _binaryName = new std::string;
+            if(filename.empty())
+                throw("Invalid source file.");
+            validator->parse_file(validator_filename);
+            parse(filename);
     }
 ////////////////////////////////////////////////////////////////////////////////
     Source::~Source(){

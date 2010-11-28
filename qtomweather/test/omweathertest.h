@@ -30,14 +30,18 @@ class OmweatherTest : public CxxTest::TestSuite{
         }
         void testDataListClass(void){
             Core::DataList *dl = NULL;
-            TS_ASSERT_THROWS_NOTHING(dl = new Core::DataList);
+            TS_ASSERT_THROWS_NOTHING(dl = new Core::DataList());
             Core::Data *d1 = create_and_fill_class_data_for_hours_forecast();
             Core::Data *d2 = create_and_fill_class_data_for_day_forecast();
             dl->push_back(d1);
             dl->push_back(d2);
             TS_ASSERT_EQUALS( dl->size(), 2);
         }
-
+        void testDataParser(void){
+            Core::DataParser *p = NULL;
+            TS_ASSERT_THROWS_NOTHING(p = new Core::DataParser());
+            TS_ASSERT_THROWS_NOTHING(p->parse("data.xml"));
+        }
     private:
         //////////////////////////////////////////////////////////////////////////////
         Core::Data *

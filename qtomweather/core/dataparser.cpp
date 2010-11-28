@@ -3,11 +3,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    DataParser::DataParser() : Parser() {
+    DataParser::DataParser(const std::string& schema_filename) : Parser() {
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-            validator->parse_file("/usr/share/omweather/schemas/data.xsd");
+            validator->parse_file(schema_filename);
             _data = new Data;
             _list = new DataList;
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED

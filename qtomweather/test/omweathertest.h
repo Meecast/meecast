@@ -39,7 +39,8 @@ class OmweatherTest : public CxxTest::TestSuite{
         }
         void testDataParser(void){
             Core::DataParser *p = NULL;
-            TS_ASSERT_THROWS_NOTHING(p = new Core::DataParser());
+            TS_ASSERT_THROWS_ANYTHING(p = new Core::DataParser("../core/data/null_data.xsd"));
+            TS_ASSERT_THROWS_NOTHING(p = new Core::DataParser("../core/data/data.xsd"));
             TS_ASSERT_THROWS_NOTHING(p->parse("data.xml"));
         }
     private:

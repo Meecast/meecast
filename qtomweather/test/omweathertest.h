@@ -15,6 +15,8 @@ class OmweatherTest : public CxxTest::TestSuite{
         void testConfigClass(void){
             Core::Config *c = NULL;
             TS_ASSERT_THROWS_NOTHING(c = new Core::Config("config.xml", "../core/data/config.xsd"));
+            if(!c)
+                return;
             c->Base_Icons_Path(std::string("../omweather/data/icons"));
             c->Iconset(std::string("Glance"));
             c->TemperatureUnit("F");

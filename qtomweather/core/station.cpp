@@ -2,13 +2,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    Station::Station(){
-        _name = new std::string;
-        _id = new std::string;
-        _country = new std::string;
-        _region = new std::string;
+    Station::Station(const std::string& id, const std::string& name,
+                    const std::string& country, const std::string& region){
+        _id = new std::string(id);
+        _name = new std::string(name);
+        _country = new std::string(country);
+        _region = new std::string(region);
         _timezone = 0;
-        _data = new Data;
         _fileName = NULL;
     }
 ////////////////////////////////////////////////////////////////////////////////
@@ -17,36 +17,29 @@ namespace Core {
         delete _id;
         delete _country;
         delete _region;
-        delete _data;
+        if(_data)
+            delete _data;
         if(_fileName)
             delete _fileName;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const Station& station){
-        _name = new std::string;
-        _name->assign(*(station._name));
-        _id = new std::string;
-        _id->assign(*(station._id));
-        _country = new std::string;
-        _country->assign(*(station._country));
-        _region = new std::string;
-        _region->assign(*(station._region));
+        _id = new std::string(*(station._id));
+        _name = new std::string(*(station._name));
+        _country = new std::string(*(station._country));
+        _region = new std::string(*(station._region));
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station& Station::operator=(const Station& station){
         if(this != &station){
             delete _name;
-            _name = new std::string;
-            _name->assign(*(station._name));
+            _name = new std::string(*(station._name));
             delete _id;
-            _id = new std::string;
-            _id->assign(*(station._id));
+            _id = new std::string(*(station._id));
             delete _country;
-            _country = new std::string;
-            _country->assign(*(station._country));
+            _country = new std::string(*(station._country));
             delete _region;
-            _region = new std::string;
-            _region->assign(*(station._region));
+            _region = new std::string(*(station._region));
         }
         return *this;
     }

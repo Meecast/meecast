@@ -2,6 +2,7 @@
 #define STATION_H
 ////////////////////////////////////////////////////////////////////////////////
 #include <string>
+#include <vector>
 #include "data.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
@@ -16,7 +17,8 @@ namespace Core{
         bool dataValid();
         bool prepareFile();
         public:
-            Station();
+            Station(const std::string& id, const std::string& name = 0,
+                    const std::string& country = 0, const std::string& region = 0);
             Station(const Station& station);
             Station& operator=(const Station& station);
             virtual ~Station();
@@ -28,6 +30,9 @@ namespace Core{
             int timezone() const;
             bool updateData(bool force = false);
     };
+////////////////////////////////////////////////////////////////////////////////
+typedef std::vector<Station*> StatList;
+////////////////////////////////////////////////////////////////////////////////
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////
 #endif // STATION_H

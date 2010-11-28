@@ -6,7 +6,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
     class Source : public Parser{
-        void parse(const std::string& filename);
         void processNode(const xmlpp::Node* node);
         std::string *_filename;
         std::string *_name;
@@ -18,7 +17,6 @@ namespace Core {
         std::string *_binaryName;
         public:
             Source(const std::string& filename, const std::string& schema_filename = "/usr/share/omweather/schemas/source.xsd");
-            Source(const Source& source);
             Source& operator=(const Source& source);
             std::string& name() const;
             std::string& logo() const;

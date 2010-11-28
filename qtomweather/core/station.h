@@ -8,6 +8,8 @@ namespace Core{
     class Station{
         std::string *_name;
         std::string *_id;
+        std::string *_country;
+        std::string *_region;
         std::string *_fileName;
         int _timezone;
         Data *_data;

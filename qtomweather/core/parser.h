@@ -11,10 +11,10 @@ namespace Core {
         protected:
             xmlpp::DomParser *parser;
             xmlpp::SchemaValidator *validator;
-            Parser();
+            Parser(const std::string& filename, const std::string& schema_filename);
         public:
             virtual ~Parser();
-            virtual void parse(const std::string& filename) = 0;
+            virtual void processNode(const xmlpp::Node* node) = 0;
     };
 
 } // namespace Core

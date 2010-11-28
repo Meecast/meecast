@@ -3,34 +3,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    DataParser::DataParser(const std::string& schema_filename) : Parser() {
+    DataParser::DataParser(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename) {
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-            validator->parse_file(schema_filename);
             _data = new Data;
             _list = new DataList;
-#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
-        }
-        catch(const std::exception& ex){
-            std::cout << "Exception caught: " << ex.what() << std::endl;
-        }
-#endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-    }
-////////////////////////////////////////////////////////////////////////////////
-    DataParser::~DataParser(){
-        delete _data;
-        delete _list;
-    }
-////////////////////////////////////////////////////////////////////////////////
-    void
-    DataParser::parse(const std::string& filename){
-#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
-        try{
-#endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-            if(validator->validate(filename))
-                std::cout << "Document is not valid." << std::endl;
-            parser->parse_file(filename);
             if(parser){
                 //Walk the tree:
                 const xmlpp::Node* pNode = parser->get_document()->get_root_node(); //deleted by DomParser.
@@ -44,12 +22,14 @@ namespace Core {
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
     }
 ////////////////////////////////////////////////////////////////////////////////
+    DataParser::~DataParser(){
+        delete _data;
+        delete _list;
+    }
+////////////////////////////////////////////////////////////////////////////////
     void DataParser::processNode(const xmlpp::Node* node){
         if(!node)
             return;
-        std::cout << "Node name: " << node->get_name() << std::endl;
-        if(const xmlpp::Element* nodeElement = dynamic_cast<const xmlpp::Element*>(node)){
-        }
     }
 ////////////////////////////////////////////////////////////////////////////////
     DataList& DataParser::data(){

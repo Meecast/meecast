@@ -2,18 +2,28 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    Source::Source(const std::string& filename, const std::string& schema_filename) : Parser(){
-            _name = new std::string;
-            _logo = new std::string;
-            _forecastUrl = new std::string;
-            _detailUrl = new std::string;
-            _searchUrl = new std::string;
-            _databaseName = new std::string;
-            _binaryName = new std::string;
-            if(filename.empty())
-                throw("Invalid source file.");
-            validator->parse_file(schema_filename);
-            parse(filename);
+    Source::Source(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename){
+        _name = new std::string;
+        _logo = new std::string;
+        _forecastUrl = new std::string;
+        _detailUrl = new std::string;
+        _searchUrl = new std::string;
+        _databaseName = new std::string;
+        _binaryName = new std::string;
+#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+        try{
+#endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+            if(parser){
+                //Walk the tree:
+                const xmlpp::Node* pNode = parser->get_document()->get_root_node(); //deleted by DomParser.
+                processNode(pNode);
+            }
+        }
+#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+        catch(const std::exception& ex){
+            throw(ex.what());
+        }
+#endif //LIBXMLCPP_EXCEPTIONS_ENABLED
     }
 ////////////////////////////////////////////////////////////////////////////////
     Source::~Source(){
@@ -24,44 +34,6 @@ namespace Core {
         delete _searchUrl;
         delete _databaseName;
         delete _binaryName;
-    }
-////////////////////////////////////////////////////////////////////////////////
-    void
-    Source::parse(const std::string& filename){
-#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
-        try{
-#endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-            if(validator->validate(filename))
-                std::cout << "Document is not valid." << std::endl;
-            parser->parse_file(filename);
-            if(parser){
-                //Walk the tree:
-                const xmlpp::Node* pNode = parser->get_document()->get_root_node(); //deleted by DomParser.
-                processNode(pNode);
-            }
-#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
-        }
-        catch(const std::exception& ex){
-            throw(ex.what());
-        }
-#endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-    }
-////////////////////////////////////////////////////////////////////////////////
-    Source::Source(const Source& source){
-        _name = new std::string;
-        _name->assign(*(source._name));
-        _logo = new std::string;
-        _logo->assign(*(source._logo));
-        _forecastUrl = new std::string;
-        _forecastUrl->assign(*(source._forecastUrl));
-        _detailUrl = new std::string;
-        _detailUrl->assign(*(source._detailUrl));
-        _searchUrl = new std::string;
-        _searchUrl->assign(*(source._searchUrl));
-        _databaseName = new std::string;
-        _databaseName->assign(*(source._databaseName));
-        _binaryName = new std::string;
-        _binaryName->assign(*(source._binaryName));
     }
 ////////////////////////////////////////////////////////////////////////////////
     Source& Source::operator=(const Source& source){

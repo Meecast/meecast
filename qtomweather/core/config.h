@@ -6,13 +6,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     class Config : public Parser{
-            void parse(const std::string& filename);
+            void processNode(const xmlpp::Node* node);
             std::string *_base_icons_path;
             std::string *_iconset;
             std::string *_temperature_unit;
             std::string *_font_color;
         public:
-            Config();
+            Config(const std::string& filename, const std::string& schema_filename = "/usr/share/omweather/schemas/config.xsd");
             Config(const Config& config);
             Config& operator=(const Config& config);
             virtual ~Config();

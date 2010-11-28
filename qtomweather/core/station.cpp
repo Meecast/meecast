@@ -5,6 +5,8 @@ namespace Core {
     Station::Station(){
         _name = new std::string;
         _id = new std::string;
+        _country = new std::string;
+        _region = new std::string;
         _timezone = 0;
         _data = new Data;
         _fileName = NULL;
@@ -13,6 +15,8 @@ namespace Core {
     Station::~Station(){
         delete _name;
         delete _id;
+        delete _country;
+        delete _region;
         delete _data;
         if(_fileName)
             delete _fileName;
@@ -23,6 +27,10 @@ namespace Core {
         _name->assign(*(station._name));
         _id = new std::string;
         _id->assign(*(station._id));
+        _country = new std::string;
+        _country->assign(*(station._country));
+        _region = new std::string;
+        _region->assign(*(station._region));
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station& Station::operator=(const Station& station){
@@ -33,6 +41,12 @@ namespace Core {
             delete _id;
             _id = new std::string;
             _id->assign(*(station._id));
+            delete _country;
+            _country = new std::string;
+            _country->assign(*(station._country));
+            delete _region;
+            _region = new std::string;
+            _region->assign(*(station._region));
         }
         return *this;
     }

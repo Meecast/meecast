@@ -11,9 +11,8 @@ namespace Core {
         DataList *_list;
         void processNode(const xmlpp::Node* node);
         public:
-            DataParser(const std::string& schema_filename = "/usr/share/omweather/schemas/data.xsd");
+            DataParser(const std::string& filename, const std::string& schema_filename = "/usr/share/omweather/schemas/data.xsd");
             virtual ~DataParser();
-            void parse(const std::string& filename);
             DataList& data();
     };
 } // namespace Core

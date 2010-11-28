@@ -5,7 +5,10 @@
 #include "data.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
-    typedef std::vector<Data*> DataList;
+    class DataList: public std::vector<Data*>  {
+        public:
+            Data* GetDataForTime(time_t _time);
+    };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////
 #endif // DATALIST_H

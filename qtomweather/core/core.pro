@@ -13,7 +13,8 @@ SOURCES = config.cpp \
     downloader.cpp \
     connection.cpp \
     dataparser.cpp \
-    temperature.cpp
+    temperature.cpp \
+    datalist.cpp
 HEADERS = config.h \
     station.h \
     data.h \

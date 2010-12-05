@@ -9,6 +9,10 @@ class OmweatherTest : public CxxTest::TestSuite{
 //            TS_ASSERT_THROWS_ANYTHING(s = new Core::Source("null_source.xml", "../core/data/source.xsd") );
 //            TS_ASSERT_THROWS_ANYTHING(s = new Core::Source("source.xml", "../core/data/null_source.xsd") );
             TS_ASSERT_THROWS_NOTHING(s = new Core::Source("source.xml", "../core/data/source.xsd") );
+            if(!s){
+                TS_TRACE("Invalid source.");
+                return;
+            }
             TS_ASSERT(s->name().compare("weather.com") == 0);
             TS_ASSERT(s->logo().compare("weather.com.png") == 0);
         }
@@ -17,11 +21,9 @@ class OmweatherTest : public CxxTest::TestSuite{
             TS_ASSERT_THROWS_NOTHING(c = new Core::Config("config.xml", "../core/data/config.xsd"));
             if(!c)
                 return;
-            c->Base_Icons_Path(std::string("../omweather/data/icons"));
-            c->Iconset(std::string("Glance"));
+            TS_TRACE(c->prefix());
             c->TemperatureUnit("F");
-            TS_ASSERT(c->Base_Icons_Path().compare("../omweather/data/icons") == 0);
-            TS_ASSERT(c->Iconset().compare("Glance") == 0);
+            TS_ASSERT(c->iconSet().compare("Funny") == 0);
             TS_ASSERT(c->TemperatureUnit().compare("F")== 0);
             TS_ASSERT(c->FontColor().compare("#00ff00")== 0);
         }

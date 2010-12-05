@@ -654,7 +654,8 @@ draw_home_window(gint count_day){
             wind_direction = UNKNOWN_DIRECTION;
             if(app->config->show_wind){
                 if (!app->config->is_application_mode && app->config->icons_layout >= PRESET_NOW){
-                    sprintf(buffer, "<span>%s\302\260</span>", _("N/A"));
+//                    sprintf(buffer, "<span>%s\302\260</span>", _("N/A"));
+                    sprintf(buffer, "%s\302\260", _("N/A"));
                 }else{
                     sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260\n%s\n%s</span>",
                         app->config->font_color.red >> 8,
@@ -666,7 +667,8 @@ draw_home_window(gint count_day){
             }
             else{
                 if (!app->config->is_application_mode && app->config->icons_layout >= PRESET_NOW){
-                    sprintf(buffer, "<span>%s\302\260</span>", _("N/A"));
+//                    sprintf(buffer, "<span>%s\302\260</span>", _("N/A"));
+                    sprintf(buffer, "%s\302\260", _("N/A"));
                 }else{
                     sprintf(buffer, "<span foreground='#%02x%02x%02x'>%s\n%s\302\260\n%s\302\260</span>",
                         app->config->font_color.red >> 8,

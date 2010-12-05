@@ -882,8 +882,8 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     gtk_label_set_justify(GTK_LABEL(new_day_button->label), GTK_JUSTIFY_CENTER);
     gtk_widget_set_name(new_day_button->label, "omweather_preset_first_temp");
     /* Set font size for label */
-    if ( strlen(text)>65 )
-        set_font(new_day_button->label, PRESET_MEDIUM_FONT, -1);
+    if ( strlen(text) > 8 )
+        set_font(new_day_button->label, PRESET_BIGMEDIUM_FONT, -1);
     else
         set_font(new_day_button->label, PRESET_BIG_FONT, -1);
     gtk_widget_set_size_request(new_day_button->label, 140, 52);
@@ -894,8 +894,8 @@ fill_weather_day_button_preset_now(WDB *new_day_button, const char *text, const 
     gtk_label_set_justify(GTK_LABEL(new_day_button->shadow_label), GTK_JUSTIFY_CENTER);
     gtk_widget_set_name(new_day_button->shadow_label, "omweather_preset_first_shadow_temp");
     /* Set font size for label */
-    if ( strlen(text)>65 )
-        set_font(new_day_button->shadow_label, PRESET_MEDIUM_FONT, -1);
+    if ( strlen(text) > 8 )
+        set_font(new_day_button->shadow_label, PRESET_BIGMEDIUM_FONT, -1);
     else
         set_font(new_day_button->shadow_label, PRESET_BIG_FONT, -1);
     gtk_widget_set_size_request(new_day_button->shadow_label, 140, 52);

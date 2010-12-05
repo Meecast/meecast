@@ -1,3 +1,11 @@
+omweather (0.28.9) unstable; urgency=low
+
+  * Updated Spain translation
+  * Fixed problem with the big font size in a current weather widget for
+  negative temperatures
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 5 Dec 2010 13:44:20 +0200
+
 omweather (0.28.8) unstable; urgency=low
 
   * Added Slovak localization

@@ -7,6 +7,8 @@ class OmweatherTest : public CxxTest::TestSuite{
         void testSourceClass(void){
             return;
             Core::Source *s = NULL;
+            TS_ASSERT_THROWS_ANYTHING(s = new Core::Source("null_source.xml", "../core/data/source.xsd") );  
+            TS_ASSERT_THROWS_ANYTHING(s = new Core::Source("source.xml", "../core/data/null_source.xsd") );
             TS_ASSERT_THROWS_NOTHING(s = new Core::Source("source.xml", "../core/data/source.xsd") );
             if(!s){
                 TS_TRACE("Invalid source.");

@@ -338,6 +338,8 @@ connection_cb(ConIcConnection *connection, ConIcConnectionEvent *event,
                 app->iap_connected_gsm = FALSE;
                 app->iap_connected_wlan = FALSE;
             }
+            /* Set Proxy option */
+            config_update_proxy();                                                                                                                           
             if((app->config->downloading_after_connecting) &&
               ((bearer && !strncmp(bearer,"WLAN", 4)) ||
               (bearer && !strncmp(bearer,"DUN_GSM", 7)) ||

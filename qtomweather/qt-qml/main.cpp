@@ -68,8 +68,6 @@ create_and_fill_class_data_for_hours_forecast()
 ConfigQml *
 create_and_fill_config(){
     ConfigQml *config = new ConfigQml();
-    config->Base_Icons_Path(std::string("../../omweather/data/icons"));
-    config->Iconset(std::string("Glance"));
     return config;
 }
 

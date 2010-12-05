@@ -1,20 +1,20 @@
 #include "configqml.h"
 
-ConfigQml::ConfigQml():QObject(),Core::Config(){
+ConfigQml::ConfigQml():QObject(),Core::Config("config.xml", "../core/data/config.xsd"){
 
 }
 
 QString
 ConfigQml::iconset(){
     QString c;
-    c = ConfigQml::Config::Iconset().c_str();
+    c = ConfigQml::Config::iconSet().c_str();
     return c;
 }
 
 QString
 ConfigQml::iconspath(){
     QString c;
-    c = ConfigQml::Config::Base_Icons_Path().c_str();
+    c = ConfigQml::Config::prefix().c_str();
     return c;
 }
 

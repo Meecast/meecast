@@ -2,8 +2,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
 ////////////////////////////////////////////////////////////////////////////////
+    const std::string Config::schemaPath = "share/omweather/schemas/";
+    const std::string Config::iconsPath = "share/omweather/iconsets/";
+    const std::string Config::libPath = "lib/omweather/";
+////////////////////////////////////////////////////////////////////////////////
     Config::Config(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename){
-        _base_icons_path = new std::string("/usr/share/omweather/icons");
+        _pathPrefix = new std::string;
         _iconset = new std::string("Glance");
         _temperature_unit = new std::string("C");
         _font_color = new std::string("#00ff00");
@@ -23,31 +27,24 @@ namespace Core{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
     }
 ////////////////////////////////////////////////////////////////////////////////
+std::string& Config::prefix() const{
+    return *_pathPrefix;
+}
+////////////////////////////////////////////////////////////////////////////////
     Config::~Config(){
-        delete _base_icons_path;
+        delete _pathPrefix;
         delete _iconset;
         delete _temperature_unit;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
-    Config::Base_Icons_Path(const std::string& text){
-        /* ToDo Check access to path */
-         _base_icons_path->assign(text);
-    }
-////////////////////////////////////////////////////////////////////////////////
-    std::string&
-    Config::Base_Icons_Path(){
-        return *_base_icons_path;
-    }
-////////////////////////////////////////////////////////////////////////////////
-    void
-    Config::Iconset(const std::string& text){
+    Config::iconSet(const std::string& text){
         /* ToDo Check access to path */
         _iconset->assign(text);
     }
 ////////////////////////////////////////////////////////////////////////////////
     std::string&
-    Config::Iconset(){
+    Config::iconSet(){
         return *_iconset;
     }
 ////////////////////////////////////////////////////////////////////////////////
@@ -77,29 +74,31 @@ namespace Core{
         if(!node)
             return;
         std::string nodeName = node->get_name();
-/*
-        // source tag
-        if(nodeName == "source"){
+
+        // config tag
+        if(nodeName == "config"){
             xmlpp::Node::NodeList list = node->get_children();
             for(xmlpp::Node::NodeList::iterator iter = list.begin(); iter != list.end(); ++iter)
                 processNode(*iter);
         }
-        // name tag
-        if(nodeName == "name"){
+
+        // base tag
+        if(nodeName == "base"){
             xmlpp::Node::NodeList list = node->get_children();
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
-            _name->assign(nodeText->get_content());
+            _pathPrefix->assign(nodeText->get_content());
             return;
         }
-        // logo tag
-        if(nodeName == "logo"){
+        // iconset tag
+        if(nodeName == "iconset"){
             xmlpp::Node::NodeList list = node->get_children();
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
-            _logo->assign(nodeText->get_content());
+            _iconset->assign(nodeText->get_content());
             return;
         }
+/*
         // base tag
         if(nodeName == "base"){
             xmlpp::Node::NodeList list = node->get_children();

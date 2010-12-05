@@ -7,19 +7,21 @@
 namespace Core{
     class Config : public Parser{
             void processNode(const xmlpp::Node* node);
-            std::string *_base_icons_path;
+            std::string *_pathPrefix;
             std::string *_iconset;
             std::string *_temperature_unit;
             std::string *_font_color;
         public:
-            Config(const std::string& filename, const std::string& schema_filename = "/usr/share/omweather/schemas/config.xsd");
+            const static std::string schemaPath;
+            const static std::string iconsPath;
+            const static std::string libPath;
+            std::string& prefix() const;
+            Config(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
             Config(const Config& config);
             Config& operator=(const Config& config);
             virtual ~Config();
-            void Base_Icons_Path(const std::string& text);
-            std::string& Base_Icons_Path(void);
-            void Iconset(const std::string& text);
-            std::string& Iconset(void);
+            void iconSet(const std::string& text);
+            std::string& iconSet(void);
             void TemperatureUnit(const std::string& text);
             std::string& TemperatureUnit(void);
             void FontColor(const std::string& text);

@@ -1,3 +1,9 @@
+omweather (0.28.10) unstable; urgency=low
+
+  * Changed downloading code for gismeteo.ru 
+
+ -- Vlad Vasiliev <vlad@gas.by>  Sun, 5 Dec 2010 13:44:20 +0200
+
 omweather (0.28.9) unstable; urgency=low
 
   * Updated Spain translation

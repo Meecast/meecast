@@ -493,11 +493,12 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
             if(get_source_forecast_url(app->sources_list, station_source)){
                 *buffer = 0;
 /* TO DO this part of code will move to sources code */
-                if(station_source && (!strcmp(station_source, "gismeteo.ru")))
+                if(station_source && (!strcmp(station_source, "gismeteo.ru"))){
+                    new_station_code = get_new_gismeteo_code(station_code, station_source);
                     snprintf(buffer, sizeof(buffer) - 1,
                                 get_source_forecast_url(app->sources_list, station_source),
-                                                        station_code, station_code);
-                else
+                                                        new_station_code);
+                }else
                     snprintf(buffer, sizeof(buffer) - 1,
                                 get_source_forecast_url(app->sources_list, station_source),
                                                         station_code);

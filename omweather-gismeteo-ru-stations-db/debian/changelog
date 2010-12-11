@@ -1,3 +1,9 @@
+omweather-gismeteo-ru-stations-db (0.8) unstable; urgency=low
+
+  * Adapted for ne html pages 
+
+ --  Vlad Vasiliev <vlad@gas.by>  Fri, 05 Mar 2010 16:53:20 +0200
+
 omweather-gismeteo-ru-stations-db (0.7) unstable; urgency=low
 
   * Added new strings

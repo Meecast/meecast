@@ -28,12 +28,15 @@
 #include <gtk/gtk.h>
 #include <libxml/parser.h>
 #include <libxml/HTMLparser.h>
+#include <libxml/xpath.h>
+#include <libxml/xpathInternals.h>
 #include <stdlib.h>
 #include <glib.h>
 #include <locale.h>
 /*******************************************************************************/
 gint get_station_weather_data(const gchar *station_id_with_path, GHashTable *data, gboolean get_detail_data);
-gint parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);
+//gint parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);
+gint parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data);
 gint parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *data);
 //void fill_detail_data(xmlNode *root_node, GHashTable *day, gint part_of_day, GHashTable *hash_for_translate, GHashTable *hash_for_icons)
 //void  fill_day (xmlNode *root_node, GHashTable *day, gint part_of_day, GHashTable *hash_for_translate, GHashTable *hash_for_icons)

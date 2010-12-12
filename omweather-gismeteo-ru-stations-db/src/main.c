@@ -114,7 +114,7 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
                 if(get_detail_data)
                     days_number = parse_xml_detail_data(buffer, root_node, data);
                 else
-                    days_number = parse_xml_data(buffer, root_node, data);
+                    days_number = parse_xml_data(buffer, doc, data);
             }
             xmlFreeDoc(doc);
             xmlCleanupParser();
@@ -924,6 +924,7 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
      
                                                 xmlFree(temp_xml_string);
                                                 temp_xml_string = xmlNodeGetContent(child_node7->children);
+                                                fprintf(stderr, "ssssssssssssssssssssssssss %s\n", temp_xml_string);
                                                 tmp_tm = get_date_for_current_weather((char*)temp_xml_string);
                                                 memset(buffer, 0, sizeof(buffer));
                                                 setlocale(LC_TIME, "POSIX");
@@ -949,9 +950,50 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
         }
     }
 }
+
+/*******************************************************************************/
+
+void
+print_xpath_nodes(xmlNodeSetPtr nodes, FILE* output) {
+    xmlNodePtr cur;
+    int size;
+    int i;
+    size = (nodes) ? nodes->nodeNr : 0;
+    
+    fprintf(output, "Result (%d nodes):\n", size);
+    for(i = 0; i < size; ++i) {
+	
+	if(nodes->nodeTab[i]->type == XML_NAMESPACE_DECL) {
+	    xmlNsPtr ns;
+	    
+	    ns = (xmlNsPtr)nodes->nodeTab[i];
+	    cur = (xmlNodePtr)ns->next;
+	    if(cur->ns) { 
+	        fprintf(output, "= namespace \"%s\"=\"%s\" for node %s:%s\n", 
+		    ns->prefix, ns->href, cur->ns->href, cur->name);
+	    } else {
+	        fprintf(output, "= namespace \"%s\"=\"%s\" for node %s\n", 
+		    ns->prefix, ns->href, cur->name);
+	    }
+	} else if(nodes->nodeTab[i]->type == XML_ELEMENT_NODE) {
+	    cur = nodes->nodeTab[i];   	    
+	    if(cur->ns) { 
+    	        fprintf(output, "= element node \"%s:%s\"\n", 
+		    cur->ns->href, cur->name);
+	    } else {
+    	        fprintf(output, "= element node \"%s\"\n", 
+		    cur->name);
+	    }
+	} else {
+	    cur = nodes->nodeTab[i];    
+	    fprintf(output, "= node \"%s\": type %d\n", cur->name, cur->type);
+	}
+    }
+}
+
 /*******************************************************************************/
 gint
-parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
+parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
     xmlNode     *cur_node = NULL,
                 *child_node = NULL,
                 *child_node3 = NULL;
@@ -970,12 +1012,65 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
     GSList      *tmp = NULL;
     GHashTable  *day = NULL;
     gboolean    flag;
+    gint        size;
+    gint        i;
     GHashTable *hash_for_translate;
     GHashTable *hash_for_icons;
+    xmlXPathContextPtr xpathCtx; 
+    xmlXPathObjectPtr xpathObj; 
+    xmlNodePtr        child, parent;
+    xmlNodeSetPtr nodes;
+    xmlNodePtr node; 
 
 /* Fix me free memory */
 hash_for_translate = hash_description_gismeteo_table_create();
 hash_for_icons = hash_icons_gismeteo_table_create();
+   /* Create xpath evaluation context */
+   xpathCtx = xmlXPathNewContext(doc);
+   if(xpathCtx == NULL) {
+        fprintf(stderr,"Error: unable to create new XPath context\n");
+         return(-1);
+   }
+   /* Register namespaces from list (if any) */
+   xmlXPathRegisterNs(xpathCtx, (const xmlChar*)"html",
+                                (const xmlChar*)"http://www.w3.org/1999/xhtml");
+
+  /* Evaluate xpath expression */
+//  xpathObj = xmlXPathEvalExpression((const xmlChar*)"//*[@class='c0 day']/div/text()", xpathCtx);
+  xpathObj = xmlXPathEvalExpression((const xmlChar*)"//*[@class='c0']/@title", xpathCtx);
+
+  if(xpathObj == NULL) {
+        fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", "//*[@class='c0 day']/div/text()");
+        xmlXPathFreeContext(xpathCtx); 
+        return(-1);
+  }
+
+//  parent   = xpathObj->nodesetval->nodeTab[0];
+  nodes   = xpathObj->nodesetval;
+  size = (nodes) ? nodes->nodeNr : 0;
+    
+  fprintf(stderr, "Result (%d nodes):\n", size);
+  for(i = 0; i < size; ++i) {
+
+      printf("%s\n", nodes->nodeTab[i]->children->content);   	    
+//      printf("%s\n", xmlGetProp(node, "TEXT"));   	    
+      /*
+      day = g_hash_table_new(g_str_hash, g_str_equal);
+      g_hash_table_insert(day, "day_date", g_strdup(buff));
+      strftime(buff, sizeof(buff) - 1, "%a", gmt);
+      g_hash_table_insert(day, "day_name", g_strdup(buff));
+
+      forecast = g_slist_prepend(forecast,(gpointer)day);
+ */
+  }	
+  fprintf(stderr,"11111111dddddddddddddddddddd\n");
+  /* Cleanup */
+  xmlXPathFreeObject(xpathObj);
+  xmlXPathFreeContext(xpathCtx); 
+
+  g_hash_table_insert(data, "forecast", (gpointer)forecast);
+  return 10;
+#if 0
 /* calculate count of day */
     for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
         if( cur_node->type == XML_ELEMENT_NODE ){
@@ -1132,6 +1227,7 @@ hash_for_icons = hash_icons_gismeteo_table_create();
             }
         }
     }
+#endif
     g_hash_table_destroy(hash_for_translate);
     g_hash_table_destroy(hash_for_icons);
     return count_day;

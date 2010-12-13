@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (1.0.3) unstable; urgency=low
+
+  * Updated weather stations for Russia
+
+ --  Vlad Vasiliev <vlad@gas.by>  Mon, 13 Dec 2010 15:10:31 +0200
+ 
 omweather-weather-com-stations-db (1.0.2) unstable; urgency=low
 
   * Updated weather stations for United Kingdom

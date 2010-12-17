@@ -67,7 +67,8 @@ create_and_fill_class_data_for_hours_forecast()
 
 ConfigQml *
 create_and_fill_config(){
-    ConfigQml *config = new ConfigQml();
+    //ConfigQml *config = new ConfigQml();
+    ConfigQml *config = new ConfigQml("config.xml", "../core/data/config.xsd");
     return config;
 }
 

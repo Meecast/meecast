@@ -1004,6 +1004,7 @@ parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
                 count_of_div_temp = 0,
                 count_of_table = 0;
     gchar       buff[256],
+                buffer[2048],
                 *delimiter = NULL;
     struct tm   tmp_tm = {0};
     struct tm   *gmt = NULL ;
@@ -1012,15 +1013,22 @@ parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
     GSList      *tmp = NULL;
     GHashTable  *day = NULL;
     gboolean    flag;
+    gboolean    night_flag;
     gint        size;
+    gint        size1;
     gint        i;
     GHashTable *hash_for_translate;
     GHashTable *hash_for_icons;
     xmlXPathContextPtr xpathCtx; 
     xmlXPathObjectPtr xpathObj; 
+    xmlXPathObjectPtr xpathObj1; 
     xmlNodePtr        child, parent;
     xmlNodeSetPtr nodes;
+    xmlNodeSetPtr nodes1;
     xmlNodePtr node; 
+    gchar       *temp_char;
+    gint        pressure; 
+    gint        speed;
 
 /* Fix me free memory */
 hash_for_translate = hash_description_gismeteo_table_create();
@@ -1036,8 +1044,9 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                                 (const xmlChar*)"http://www.w3.org/1999/xhtml");
 
   /* Evaluate xpath expression */
-//  xpathObj = xmlXPathEvalExpression((const xmlChar*)"//*[@class='c0 day']/div/text()", xpathCtx);
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"//*[@class='c0']/@title", xpathCtx);
+//  xpathObj = xmlXPathEvalExpression((const xmlChar*)"//*[@class='c0']/@title", xpathCtx);
+  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/@title", xpathCtx);
+  
 
   if(xpathObj == NULL) {
         fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", "//*[@class='c0 day']/div/text()");
@@ -1045,192 +1054,188 @@ hash_for_icons = hash_icons_gismeteo_table_create();
         return(-1);
   }
 
-//  parent   = xpathObj->nodesetval->nodeTab[0];
   nodes   = xpathObj->nodesetval;
   size = (nodes) ? nodes->nodeNr : 0;
     
-  fprintf(stderr, "Result (%d nodes):\n", size);
+  /* fprintf(stderr, "Result (%d nodes):\n", size); */
   for(i = 0; i < size; ++i) {
+      day = NULL;
+      /* Take UTC time: */
+      temp_char = strstr(nodes->nodeTab[i]->children->content, "UTC: ");
+      if (temp_char && strlen(temp_char) >6)
+              temp_char = temp_char +5;
 
-      printf("%s\n", nodes->nodeTab[i]->children->content);   	    
-//      printf("%s\n", xmlGetProp(node, "TEXT"));   	    
-      /*
-      day = g_hash_table_new(g_str_hash, g_str_equal);
-      g_hash_table_insert(day, "day_date", g_strdup(buff));
-      strftime(buff, sizeof(buff) - 1, "%a", gmt);
-      g_hash_table_insert(day, "day_name", g_strdup(buff));
+      tmp_tm = get_date_for_hour_weather(temp_char);
+      memset(buff, 0, sizeof(buff));
+      setlocale(LC_TIME, "POSIX");
+      strftime(buff, sizeof(buff) - 1, "%b %d", &tmp_tm);
+      setlocale(LC_TIME, "");
+      tmp = forecast;
+      flag = FALSE;
+      night_flag = FALSE;
+      snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0' and @title]/text())[%i]", i+1);
+      xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+      /* Check Day and Night */
+      if (xpathObj1->nodesetval->nodeTab[0]->content && (
+           !strcmp(xpathObj1->nodesetval->nodeTab[0]->content, "Ночь")||
+           !strcmp(xpathObj1->nodesetval->nodeTab[0]->content, "День"))
+          ){
+            if (!strcmp(xpathObj1->nodesetval->nodeTab[0]->content, "Ночь"))
+                night_flag = TRUE;
+            /* fprintf(stderr,"Day : %s\n", xpathObj1->nodesetval->nodeTab[0]->content); */
+            xmlXPathFreeObject(xpathObj1);
+      }else{
+          xmlXPathFreeObject(xpathObj1);
+          continue;
+      }
+      /* Look up this day in hash */
+      while(tmp){
+          day = (GHashTable*)tmp->data;
+          if (g_hash_table_lookup(day, "day_date") &&
+              !strcmp(g_hash_table_lookup(day,"day_date"), buff)){
+                  flag = TRUE;
+                  break;
+          }
+          tmp = g_slist_next(tmp);
+      }
+      /* added new day to hash */
+      if (!flag){
+          day = g_hash_table_new(g_str_hash, g_str_equal);
+          g_hash_table_insert(day, "day_date", g_strdup(buff));
+          strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
+          g_hash_table_insert(day, "day_name", g_strdup(buff));
+          forecast = g_slist_append(forecast,(gpointer)day);
+      }
+     
+      if (day){
+          /* added temperature */
+          snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0']/following-sibling::*[@class='c3']/text())[%i]", i+1);
+          xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+          if (xpathObj1){
+            /* fprintf (stderr, "temperature %s\n", xpathObj1->nodesetval->nodeTab[0]->content); */
+            if (night_flag){
+                g_hash_table_insert(day, "day_low_temperature", g_strdup(xpathObj1->nodesetval->nodeTab[0]->content));
+                g_hash_table_insert(day, "night_temperature", g_strdup(xpathObj1->nodesetval->nodeTab[0]->content));
+            }else{
+                g_hash_table_insert(day, "day_hi_temperature", g_strdup(xpathObj1->nodesetval->nodeTab[0]->content));
+                g_hash_table_insert(day, "day_temperature", g_strdup(xpathObj1->nodesetval->nodeTab[0]->content));
+            }
+            xmlXPathFreeObject(xpathObj1);
+          }
+          /* added icon */
+          snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0']/following-sibling::*[@class='c1']/div/img/@src)[%i]", i+1);
+          xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+          if (xpathObj1){
+            /* fprintf (stderr, "sdfff %s\n", xpathObj1->nodesetval->nodeTab[0]->children->content); */
+            temp_char = strrchr((char*)xpathObj1->nodesetval->nodeTab[0]->children->content, '/');
+            temp_char ++;
+            if (night_flag)
+                g_hash_table_insert(day, "night_icon", choose_hour_weather_icon(hash_for_icons, temp_char));
+            else
+                g_hash_table_insert(day, "day_icon", choose_hour_weather_icon(hash_for_icons, temp_char));
+            xmlXPathFreeObject(xpathObj1);
+          }
+          /* added text */
+          snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0']/following-sibling::*[@class='c2']/span/text())[%i]", i+1);
+          xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+          if (xpathObj1){
+            /* fprintf (stderr, "sdfff %s\n", xpathObj1->nodesetval->nodeTab[0]->content); */
+            if (night_flag)
+                g_hash_table_insert(day, "night_title", 
+                                 g_strdup(hash_gismeteo_table_find(hash_for_translate, xpathObj1->nodesetval->nodeTab[0]->content, FALSE)));
+            else
+            g_hash_table_insert(day, "day_title", 
+                                 g_strdup(hash_gismeteo_table_find(hash_for_translate, xpathObj1->nodesetval->nodeTab[0]->content, FALSE)));
+            xmlXPathFreeObject(xpathObj1);
+          }
+          /* added pressure */
+          snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0']/following-sibling::*[@class='c4']/text())[%i]", i+1);
+          xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+          if (xpathObj1->nodesetval->nodeTab[0]->content){
+            pressure = atoi((char*)xpathObj1->nodesetval->nodeTab[0]->content);
+            pressure = pressure * 1.333224;
+            snprintf(buffer, sizeof(buffer)-1,"%i", pressure);
+            /* fprintf (stderr, "temperature %s\n", xpathObj1->nodesetval->nodeTab[0]->content); */
+            if (night_flag)
+               g_hash_table_insert(day, "night_pressure", g_strdup(buffer));
+            else
+                g_hash_table_insert(day, "day_pressure", g_strdup(buffer));
+            xmlXPathFreeObject(xpathObj1);
+          }
+          /* added wind speed */
+          snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0']/following-sibling::*[@class='c5']/div/text())[%i]", i+1);
+          xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+          if (xpathObj1->nodesetval->nodeTab[0]->content){
+            /* Normalize speed to km/h from m/s */
+            /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
+            speed = atoi (xpathObj1->nodesetval->nodeTab[0]->content);
+            speed = speed * 3600/1000;
+            sprintf(buffer, "%i", speed);
+            if (night_flag)
+                g_hash_table_insert(day, "night_wind_speed", g_strdup(buffer));
+            else
+                g_hash_table_insert(day, "day_wind_speed", g_strdup(buffer));
+            xmlXPathFreeObject(xpathObj1);
+          }
+          /* added wind direction */
+          //xpath (//*[@class='c0']/following-sibling::*[@class='c5']/div/img/@title)[1]
+          snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0']/following-sibling::*[@class='c5']/div/img/@title)[%i]", i+1);
+          xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+          if (xpathObj1->nodesetval->nodeTab[0]->children->content){
+             /* fprintf (stderr, "Wind direction: %s\n", xpathObj1->nodesetval->nodeTab[0]->children->content); */
+             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj1->nodesetval->nodeTab[0]->children->content);
+             /* Wind direction */
+             if (!strcoll(buffer, "З"))
+                  sprintf(buffer,"%s","W");
+             if (!strcoll(buffer, "Ю"))
+                  sprintf(buffer,"%s","S");
+             if (!strcoll(buffer, "В"))
+                  sprintf(buffer,"%s","E");
+             if (!strcoll(buffer, "С"))
+                  sprintf(buffer,"%s","N");
+             if (!strcoll(buffer, "ЮЗ"))
+                  sprintf(buffer,"%s","SW");
+             if (!strcoll(buffer, "ЮВ"))
+                  sprintf(buffer,"%s","SE");
+             if (!strcoll(buffer, "СЗ"))
+                  sprintf(buffer,"%s","NW");
+             if (!strcoll(buffer, "СВ"))
+                  sprintf(buffer,"%s","NE");
+             if (!strcoll(buffer, "безветрие"))
+                  sprintf(buffer,"%s","CALM");
+             if (!strcoll(buffer, "Ш"))
+                  sprintf(buffer,"%s","CALM");
 
-      forecast = g_slist_prepend(forecast,(gpointer)day);
- */
+             if (night_flag)
+                g_hash_table_insert(day, "night_wind_title", g_strdup(buffer));
+             else
+                g_hash_table_insert(day, "day_wind_title", g_strdup(buffer));
+             xmlXPathFreeObject(xpathObj1);
+          }
+         /* added humidity */
+          snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0']/following-sibling::*[@class='c6']/text())[%i]", i+1);
+          xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
+          if (xpathObj1){
+            /* fprintf (stderr, "temperature %s\n", xpathObj1->nodesetval->nodeTab[0]->content); */
+            if (night_flag){
+                g_hash_table_insert(day, "night_humidity", g_strdup(xpathObj1->nodesetval->nodeTab[0]->content));
+            }else{
+                g_hash_table_insert(day, "day_humidity", g_strdup(xpathObj1->nodesetval->nodeTab[0]->content));
+            }
+            xmlXPathFreeObject(xpathObj1);
+          }
+
+      }
   }	
-  fprintf(stderr,"11111111dddddddddddddddddddd\n");
   /* Cleanup */
   xmlXPathFreeObject(xpathObj);
   xmlXPathFreeContext(xpathCtx); 
 
   g_hash_table_insert(data, "forecast", (gpointer)forecast);
-  return 10;
-#if 0
-/* calculate count of day */
-    for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
-        if( cur_node->type == XML_ELEMENT_NODE ){
-            /* get weather station data */
-            if(!xmlStrcmp(cur_node->name, (const xmlChar *) "body" ) ){
-                for(child_node = cur_node->children; child_node; child_node = child_node->next){
-                    if( child_node->type == XML_ELEMENT_NODE ){
-                        if (!xmlStrcmp(child_node->name, (const xmlChar *)"div") ){
-                            count_of_div ++;
-                            count_of_div_temp ++;
-                        }
-                        if (!xmlStrcmp(child_node->name, (const xmlChar *)"table") )
-                            count_of_table ++;
-                        if (count_of_div == 2 && count_of_table == 0){
-                            temp_xml_string = xmlNodeGetContent(child_node);
-                            if (temp_xml_string){
-                                tmp_tm = get_data_from_russia_data((char*)temp_xml_string);
-                                first_day = mktime(&tmp_tm) - 3600*24;
-                                day_in_list = night_in_list = first_day;
-                                xmlFree(temp_xml_string);
-                            }
-                        }
-                        if (count_of_div > 2 && 
-                            !xmlStrcmp(child_node->name, (const xmlChar *)"div")){
-                            temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"style");
-                            if (!xmlStrcmp(temp_xml_string,
-                                           (const xmlChar*)"float: left; padding: 0 0 0 4px;")){
-                                xmlFree(temp_xml_string);
-                                for(child_node3 = child_node->children; child_node3 != NULL; child_node3 = child_node3->next){
-                                    if (!xmlStrcmp(child_node3->name, (const xmlChar *)"img")){
-                                       temp_xml_string = xmlGetProp(child_node3, (const xmlChar*)"src");
-                                       delimiter = strrchr((char*)temp_xml_string, '/');
-                                       if(delimiter){
-                                            delimiter++; /* delete '/' */
-                                            if (delimiter && !strcmp(delimiter,"day.gif"))
-                                                count_day++;
-                                            if (delimiter && !strcmp(delimiter,"night.gif"))
-                                                count_night++;
-                                       }
-                                       if (temp_xml_string)
-                                            xmlFree(temp_xml_string);
-                                    }
+  g_hash_table_destroy(hash_for_translate);
+  g_hash_table_destroy(hash_for_icons);
 
-                                }
-                            }else
-                                if (temp_xml_string)
-                                    xmlFree(temp_xml_string);
-                        }
-                   }
-                }
-            }
-        }
-    }
-    /* Filling data */
-    count_of_div = 0;
-    count_of_div_temp = 0;
-    count_of_table = 0;
-    for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
-        if( cur_node->type == XML_ELEMENT_NODE ){
-             /*  fprintf(stderr,"cur_node %s\n",cur_node->name); */
-            /* get weather station data */
-            if(!xmlStrcmp(cur_node->name, (const xmlChar *) "body" ) ){
-                for(child_node = cur_node->children; child_node; child_node = child_node->next){
-                    if( child_node->type == XML_ELEMENT_NODE ){
-                        if (!xmlStrcmp(child_node->name, (const xmlChar *)"div") ){
-                            count_of_div ++;
-                            count_of_div_temp ++;
-                        }
-                        if (!xmlStrcmp(child_node->name, (const xmlChar *)"table") )
-                            count_of_table ++;
-                        if (count_of_div == 2 && count_of_table == 0){
-                            temp_xml_string = xmlNodeGetContent(child_node);
-                            if (temp_xml_string){
-                                /* fprintf(stderr,"Date %s\n", temp_xml_string); */
-                                tmp_tm = get_data_from_russia_data((char*)temp_xml_string);
-                                first_day = mktime(&tmp_tm) -3600*24;
-                                day_in_list = first_day+(count_day*3600*24);
-                                night_in_list = first_day+(count_night*3600*24);
-                                xmlFree(temp_xml_string);
-                            }
-                        }
-                        if (count_of_div > 2 && 
-                            !xmlStrcmp(child_node->name, (const xmlChar *)"div")){
-                            temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"style");
-                            if (!xmlStrcmp(temp_xml_string, 
-                                           (const xmlChar*)"float: left; padding: 0 0 0 4px;"))
-                            {
-                                xmlFree(temp_xml_string);
-                                for(child_node3 = child_node->children; child_node3 != NULL; child_node3 = child_node3->next){
-                                    if (!xmlStrcmp(child_node3->name, (const xmlChar *)"img")){
-                                       temp_xml_string = xmlGetProp(child_node3, (const xmlChar*)"src");
-                                       delimiter = strrchr((char*)temp_xml_string, '/');
-                                       if(delimiter){
-                                            delimiter++; /* delete '/' */
-                                            if (delimiter && 
-                                                (!strcmp(delimiter,"day.gif")||
-                                                (!strcmp(delimiter,"night.gif"))
-                                                )){
-                                                memset(buff, 0, sizeof(buff));
-                                                setlocale(LC_TIME, "POSIX");
-
-                                                if (!strcmp(delimiter,"day.gif"))
-                                                    gmt = gmtime(&day_in_list);
-                                                if (!strcmp(delimiter,"night.gif"))
-                                                    gmt = gmtime(&night_in_list);
-
-                                                memset(buff, 0, sizeof(buff));
-                                                strftime(buff, sizeof(buff) - 1, "%b %d", gmt);
-                                                setlocale(LC_TIME, "");
-                                                /* searching of a day */
-                                                tmp = forecast;
-                                                flag = FALSE;
-                                                while(tmp){
-                                                    day = (GHashTable*)tmp->data;
-                                                    if (g_hash_table_lookup(day, "day_date") &&
-                                                        !strcmp(g_hash_table_lookup(day,"day_date"), buff)){
-                                                            flag = TRUE;
-                                                            break;
-                                                    }
-                                                    tmp = g_slist_next(tmp);
-                                                }
-                                                if (!flag){
-                                                    day = g_hash_table_new(g_str_hash, g_str_equal);
-                                                    g_hash_table_insert(day, "day_date", g_strdup(buff));
-                                                    strftime(buff, sizeof(buff) - 1, "%a", gmt);
-                                                    g_hash_table_insert(day, "day_name", g_strdup(buff));
- 
-                                                    forecast = g_slist_prepend(forecast,(gpointer)day);
-                                                }
-                                                if (day){
-                                                    if (!strcmp(delimiter,"day.gif")){
-                                                        fill_day(child_node, day, DAY, hash_for_translate, hash_for_icons);
-                                                        day_in_list = day_in_list - 3600*24;
-                                                    }
-                                                    if (!strcmp(delimiter,"night.gif")){
-                                                        fill_day(child_node, day, NIGHT, hash_for_translate, hash_for_icons);
-                                                        night_in_list = night_in_list - 3600*24;
-                                                    }
-
-                                                }
-                                            }
-                                       }
-                                       if (temp_xml_string)
-                                            xmlFree(temp_xml_string);
-                                    }
-                                }
-                            }else
-                                if (temp_xml_string)
-                                        xmlFree(temp_xml_string);
-                        }
-                   }
-                }
-                g_hash_table_insert(data, "forecast", (gpointer)forecast);
-            }
-        }
-    }
-#endif
-    g_hash_table_destroy(hash_for_translate);
-    g_hash_table_destroy(hash_for_icons);
-    return count_day;
+  return size;
 }
 /*******************************************************************************/
 void

@@ -950,82 +950,32 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
         }
     }
 }
-
-/*******************************************************************************/
-
-void
-print_xpath_nodes(xmlNodeSetPtr nodes, FILE* output) {
-    xmlNodePtr cur;
-    int size;
-    int i;
-    size = (nodes) ? nodes->nodeNr : 0;
-    
-    fprintf(output, "Result (%d nodes):\n", size);
-    for(i = 0; i < size; ++i) {
-	
-	if(nodes->nodeTab[i]->type == XML_NAMESPACE_DECL) {
-	    xmlNsPtr ns;
-	    
-	    ns = (xmlNsPtr)nodes->nodeTab[i];
-	    cur = (xmlNodePtr)ns->next;
-	    if(cur->ns) { 
-	        fprintf(output, "= namespace \"%s\"=\"%s\" for node %s:%s\n", 
-		    ns->prefix, ns->href, cur->ns->href, cur->name);
-	    } else {
-	        fprintf(output, "= namespace \"%s\"=\"%s\" for node %s\n", 
-		    ns->prefix, ns->href, cur->name);
-	    }
-	} else if(nodes->nodeTab[i]->type == XML_ELEMENT_NODE) {
-	    cur = nodes->nodeTab[i];   	    
-	    if(cur->ns) { 
-    	        fprintf(output, "= element node \"%s:%s\"\n", 
-		    cur->ns->href, cur->name);
-	    } else {
-    	        fprintf(output, "= element node \"%s\"\n", 
-		    cur->name);
-	    }
-	} else {
-	    cur = nodes->nodeTab[i];    
-	    fprintf(output, "= node \"%s\": type %d\n", cur->name, cur->type);
-	}
-    }
-}
-
 /*******************************************************************************/
 gint
 parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
-    xmlNode     *cur_node = NULL,
-                *child_node = NULL,
-                *child_node3 = NULL;
-    xmlChar     *temp_xml_string = NULL;
-    gint        count_day = 0,
-                count_night = 0,
-                count_of_div = 0,
-                count_of_div_temp = 0,
-                count_of_table = 0;
     gchar       buff[256],
-                buffer[2048],
-                *delimiter = NULL;
+                buffer[2048];
     struct tm   tmp_tm = {0};
-    struct tm   *gmt = NULL ;
-    time_t      first_day, day_in_list, night_in_list;
     GSList      *forecast = NULL;
     GSList      *tmp = NULL;
     GHashTable  *day = NULL;
     gboolean    flag;
     gboolean    night_flag;
     gint        size;
-    gint        size1;
     gint        i;
     GHashTable *hash_for_translate;
     GHashTable *hash_for_icons;
     xmlXPathContextPtr xpathCtx; 
     xmlXPathObjectPtr xpathObj; 
-    xmlXPathObjectPtr xpathObj1; 
-    xmlNodePtr        child, parent;
+    xmlXPathObjectPtr xpathObj2; 
+    xmlXPathObjectPtr xpathObj3; 
+    xmlXPathObjectPtr xpathObj4; 
+    xmlXPathObjectPtr xpathObj5; 
+    xmlXPathObjectPtr xpathObj6; 
+    xmlXPathObjectPtr xpathObj7; 
+    xmlXPathObjectPtr xpathObj8; 
+    xmlXPathObjectPtr xpathObj9; 
     xmlNodeSetPtr nodes;
-    xmlNodeSetPtr nodes1;
-    xmlNodePtr node; 
     gchar       *temp_char;
     gint        pressure; 
     gint        speed;
@@ -1044,7 +994,6 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                                 (const xmlChar*)"http://www.w3.org/1999/xhtml");
 
   /* Evaluate xpath expression */
-//  xpathObj = xmlXPathEvalExpression((const xmlChar*)"//*[@class='c0']/@title", xpathCtx);
   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/@title", xpathCtx);
   
 
@@ -1057,10 +1006,21 @@ hash_for_icons = hash_icons_gismeteo_table_create();
   nodes   = xpathObj->nodesetval;
   size = (nodes) ? nodes->nodeNr : 0;
     
+  xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0' and @title]/text()", xpathCtx);
+  xpathObj3 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c3']/text()", xpathCtx);
+  xpathObj4 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c1']/div/img/@src", xpathCtx);
+  xpathObj5 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c2']/span/text()", xpathCtx);
+  xpathObj6 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c4']/text()", xpathCtx);
+  xpathObj7 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c5']/div/text()", xpathCtx);
+  xpathObj8 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c5']/div/img/@title", xpathCtx);
+  xpathObj9 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/following-sibling::*[@class='c6']/text()", xpathCtx);
+
   /* fprintf(stderr, "Result (%d nodes):\n", size); */
   for(i = 0; i < size; ++i) {
       day = NULL;
       /* Take UTC time: */
+      if (!nodes->nodeTab[i]->children->content)
+          continue;
       temp_char = strstr(nodes->nodeTab[i]->children->content, "UTC: ");
       if (temp_char && strlen(temp_char) >6)
               temp_char = temp_char +5;
@@ -1073,19 +1033,15 @@ hash_for_icons = hash_icons_gismeteo_table_create();
       tmp = forecast;
       flag = FALSE;
       night_flag = FALSE;
-      snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0' and @title]/text())[%i]", i+1);
-      xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
       /* Check Day and Night */
-      if (xpathObj1->nodesetval->nodeTab[0]->content && (
-           !strcmp(xpathObj1->nodesetval->nodeTab[0]->content, "Ночь")||
-           !strcmp(xpathObj1->nodesetval->nodeTab[0]->content, "День"))
+      if (xpathObj2->nodesetval->nodeTab[i]->content && (
+           !strcmp(xpathObj2->nodesetval->nodeTab[i]->content, "Ночь")||
+           !strcmp(xpathObj2->nodesetval->nodeTab[i]->content, "День"))
           ){
-            if (!strcmp(xpathObj1->nodesetval->nodeTab[0]->content, "Ночь"))
+            if (!strcmp(xpathObj2->nodesetval->nodeTab[i]->content, "Ночь"))
                 night_flag = TRUE;
-            /* fprintf(stderr,"Day : %s\n", xpathObj1->nodesetval->nodeTab[0]->content); */
-            xmlXPathFreeObject(xpathObj1);
+            /* fprintf(stderr,"Day : %s\n", xpathObj2->nodesetval->nodeTab[i]->content); */
       }else{
-          xmlXPathFreeObject(xpathObj1);
           continue;
       }
       /* Look up this day in hash */
@@ -1108,82 +1064,64 @@ hash_for_icons = hash_icons_gismeteo_table_create();
       }
      
       if (day){
-          /* added temperature */
-          snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0']/following-sibling::*[@class='c3']/text())[%i]", i+1);
-          xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
-          if (xpathObj1){
-            /* fprintf (stderr, "temperature %s\n", xpathObj1->nodesetval->nodeTab[0]->content); */
+         /* added temperature */
+         if (xpathObj3->nodesetval->nodeTab[i]->content){
+            /* fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
             if (night_flag){
-                g_hash_table_insert(day, "day_low_temperature", g_strdup(xpathObj1->nodesetval->nodeTab[0]->content));
-                g_hash_table_insert(day, "night_temperature", g_strdup(xpathObj1->nodesetval->nodeTab[0]->content));
+                g_hash_table_insert(day, "day_low_temperature", g_strdup(xpathObj3->nodesetval->nodeTab[i]->content));
+                g_hash_table_insert(day, "night_temperature", g_strdup(xpathObj3->nodesetval->nodeTab[i]->content));
             }else{
-                g_hash_table_insert(day, "day_hi_temperature", g_strdup(xpathObj1->nodesetval->nodeTab[0]->content));
-                g_hash_table_insert(day, "day_temperature", g_strdup(xpathObj1->nodesetval->nodeTab[0]->content));
+                g_hash_table_insert(day, "day_hi_temperature", g_strdup(xpathObj3->nodesetval->nodeTab[i]->content));
+                g_hash_table_insert(day, "day_temperature", g_strdup(xpathObj3->nodesetval->nodeTab[i]->content));
             }
-            xmlXPathFreeObject(xpathObj1);
-          }
-          /* added icon */
-          snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0']/following-sibling::*[@class='c1']/div/img/@src)[%i]", i+1);
-          xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
-          if (xpathObj1){
-            /* fprintf (stderr, "sdfff %s\n", xpathObj1->nodesetval->nodeTab[0]->children->content); */
-            temp_char = strrchr((char*)xpathObj1->nodesetval->nodeTab[0]->children->content, '/');
+         }
+         /* added icon */
+         if (xpathObj4->nodesetval->nodeTab[i]->children->content){
+            /* fprintf (stderr, "sdfff %s\n", xpathObj4->nodesetval->nodeTab[i]->children->content); */
+            temp_char = strrchr((char*)xpathObj4->nodesetval->nodeTab[i]->children->content, '/');
             temp_char ++;
             if (night_flag)
                 g_hash_table_insert(day, "night_icon", choose_hour_weather_icon(hash_for_icons, temp_char));
             else
                 g_hash_table_insert(day, "day_icon", choose_hour_weather_icon(hash_for_icons, temp_char));
-            xmlXPathFreeObject(xpathObj1);
-          }
-          /* added text */
-          snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0']/following-sibling::*[@class='c2']/span/text())[%i]", i+1);
-          xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
-          if (xpathObj1){
-            /* fprintf (stderr, "sdfff %s\n", xpathObj1->nodesetval->nodeTab[0]->content); */
+         }
+         /* added text */
+         if (xpathObj5->nodesetval->nodeTab[i]->content){
+            /* fprintf (stderr, "sdfff %s\n", xpathObj5->nodesetval->nodeTab[i]->content); */
             if (night_flag)
                 g_hash_table_insert(day, "night_title", 
-                                 g_strdup(hash_gismeteo_table_find(hash_for_translate, xpathObj1->nodesetval->nodeTab[0]->content, FALSE)));
+                                 g_strdup(hash_gismeteo_table_find(hash_for_translate, xpathObj5->nodesetval->nodeTab[i]->content, FALSE)));
             else
             g_hash_table_insert(day, "day_title", 
-                                 g_strdup(hash_gismeteo_table_find(hash_for_translate, xpathObj1->nodesetval->nodeTab[0]->content, FALSE)));
-            xmlXPathFreeObject(xpathObj1);
-          }
-          /* added pressure */
-          snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0']/following-sibling::*[@class='c4']/text())[%i]", i+1);
-          xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
-          if (xpathObj1->nodesetval->nodeTab[0]->content){
-            pressure = atoi((char*)xpathObj1->nodesetval->nodeTab[0]->content);
+                                 g_strdup(hash_gismeteo_table_find(hash_for_translate, xpathObj5->nodesetval->nodeTab[i]->content, FALSE)));
+         }
+         /* added pressure */
+         if (xpathObj6->nodesetval->nodeTab[i]->content){
+            pressure = atoi((char*)xpathObj6->nodesetval->nodeTab[i]->content);
             pressure = pressure * 1.333224;
             snprintf(buffer, sizeof(buffer)-1,"%i", pressure);
-            /* fprintf (stderr, "temperature %s\n", xpathObj1->nodesetval->nodeTab[0]->content); */
+            /* fprintf (stderr, "temperature %s\n", xpathObj6->nodesetval->nodeTab[i]->content); */
             if (night_flag)
                g_hash_table_insert(day, "night_pressure", g_strdup(buffer));
             else
                 g_hash_table_insert(day, "day_pressure", g_strdup(buffer));
-            xmlXPathFreeObject(xpathObj1);
-          }
-          /* added wind speed */
-          snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0']/following-sibling::*[@class='c5']/div/text())[%i]", i+1);
-          xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
-          if (xpathObj1->nodesetval->nodeTab[0]->content){
+         }
+         /* added wind speed */
+         if (xpathObj7->nodesetval->nodeTab[i]->content){
             /* Normalize speed to km/h from m/s */
             /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
-            speed = atoi (xpathObj1->nodesetval->nodeTab[0]->content);
+            speed = atoi (xpathObj7->nodesetval->nodeTab[i]->content);
             speed = speed * 3600/1000;
             sprintf(buffer, "%i", speed);
             if (night_flag)
                 g_hash_table_insert(day, "night_wind_speed", g_strdup(buffer));
             else
                 g_hash_table_insert(day, "day_wind_speed", g_strdup(buffer));
-            xmlXPathFreeObject(xpathObj1);
-          }
-          /* added wind direction */
-          //xpath (//*[@class='c0']/following-sibling::*[@class='c5']/div/img/@title)[1]
-          snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0']/following-sibling::*[@class='c5']/div/img/@title)[%i]", i+1);
-          xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
-          if (xpathObj1->nodesetval->nodeTab[0]->children->content){
-             /* fprintf (stderr, "Wind direction: %s\n", xpathObj1->nodesetval->nodeTab[0]->children->content); */
-             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj1->nodesetval->nodeTab[0]->children->content);
+         }
+         /* added wind direction */
+         if (xpathObj8->nodesetval->nodeTab[i]->children->content){
+             /* fprintf (stderr, "Wind direction: %s\n", xpathObj8->nodesetval->nodeTab[i]->children->content); */
+             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj8->nodesetval->nodeTab[i]->children->content);
              /* Wind direction */
              if (!strcoll(buffer, "З"))
                   sprintf(buffer,"%s","W");
@@ -1210,32 +1148,46 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                 g_hash_table_insert(day, "night_wind_title", g_strdup(buffer));
              else
                 g_hash_table_insert(day, "day_wind_title", g_strdup(buffer));
-             xmlXPathFreeObject(xpathObj1);
-          }
+         }
          /* added humidity */
-          snprintf(buffer, sizeof(buffer)-1, "(//*[@class='c0']/following-sibling::*[@class='c6']/text())[%i]", i+1);
-          xpathObj1 = xmlXPathEvalExpression((const xmlChar*)buffer, xpathCtx);
-          if (xpathObj1){
+         if (xpathObj9->nodesetval->nodeTab[i]->content){
             /* fprintf (stderr, "temperature %s\n", xpathObj1->nodesetval->nodeTab[0]->content); */
             if (night_flag){
-                g_hash_table_insert(day, "night_humidity", g_strdup(xpathObj1->nodesetval->nodeTab[0]->content));
+                g_hash_table_insert(day, "night_humidity", g_strdup(xpathObj9->nodesetval->nodeTab[i]->content));
             }else{
-                g_hash_table_insert(day, "day_humidity", g_strdup(xpathObj1->nodesetval->nodeTab[0]->content));
+                g_hash_table_insert(day, "day_humidity", g_strdup(xpathObj9->nodesetval->nodeTab[i]->content));
             }
-            xmlXPathFreeObject(xpathObj1);
-          }
+         }
 
       }
   }	
   /* Cleanup */
-  xmlXPathFreeObject(xpathObj);
-  xmlXPathFreeContext(xpathCtx); 
+  if (xpathObj)
+    xmlXPathFreeObject(xpathObj);
+  if (xpathObj2)
+    xmlXPathFreeObject(xpathObj2);
+  if (xpathObj3)
+    xmlXPathFreeObject(xpathObj3);
+  if (xpathObj4)
+    xmlXPathFreeObject(xpathObj4);
+  if (xpathObj5)
+    xmlXPathFreeObject(xpathObj5);
+  if (xpathObj6)
+    xmlXPathFreeObject(xpathObj6);
+  if (xpathObj7)
+    xmlXPathFreeObject(xpathObj7);
+  if (xpathObj8)
+    xmlXPathFreeObject(xpathObj8);
+  if (xpathObj9)
+    xmlXPathFreeObject(xpathObj9);
+  if (xpathCtx)
+    xmlXPathFreeContext(xpathCtx); 
 
   g_hash_table_insert(data, "forecast", (gpointer)forecast);
   g_hash_table_destroy(hash_for_translate);
   g_hash_table_destroy(hash_for_icons);
 
-  return size;
+  return size/4;
 }
 /*******************************************************************************/
 void

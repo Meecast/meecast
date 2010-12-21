@@ -57,10 +57,12 @@
     g_hash_table_insert(hash, "n.moon.c4.png", "26");
     g_hash_table_insert(hash, "n.moon.c3.r1.png", "45");
     g_hash_table_insert(hash, "n.moon.c2.png", "29");
+    g_hash_table_insert(hash, "n.moon.c2.s1.png", "46");
     g_hash_table_insert(hash, "n.moon.c3.png", "27");
     g_hash_table_insert(hash, "n.moon.c3.s1.png", "46");
     g_hash_table_insert(hash, "n.moon.c4.r1.png", "11");
     g_hash_table_insert(hash, "n.moon.c4.r2.png", "11");
+    g_hash_table_insert(hash, "n.moon.c4.r3.png", "12");
     g_hash_table_insert(hash, "n.moon.c4.r1.st.png", "0");
     g_hash_table_insert(hash, "n.moon.c4.r2.st.png", "0");
     g_hash_table_insert(hash, "n.moon.c4.png", "26");

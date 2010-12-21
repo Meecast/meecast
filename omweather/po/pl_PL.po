@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-03 13:27+0200\n"
+"POT-Creation-Date: 2010-12-21 21:32+0200\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: Poland\n"
 
@@ -56,6 +56,14 @@ msgstr ""
 "i układ interfejsu\n"
 "Andrew Zhilin"
 
+#: src/weather-home.c:1566
+msgid ""
+"\n"
+"H: "
+msgstr ""
+"\n"
+"Wilg.: "
+
 #: src/weather-help.c:85
 msgid ""
 "\n"
@@ -70,7 +78,7 @@ msgstr ""
 "wyświetlający prognozę pogody.\n"
 "Wersja"
 
-#: src/weather-home.c:1381 src/weather-home.c:1437 src/weather-popup.c:956
+#: src/weather-home.c:1383 src/weather-home.c:1439 src/weather-popup.c:956
 #: src/weather-popup.c:1078
 msgid ""
 "\n"
@@ -79,7 +87,7 @@ msgstr ""
 "\n"
 "Wilgotność: "
 
-#: src/weather-home.c:1605
+#: src/weather-home.c:1607
 msgid ""
 "\n"
 "P: "
@@ -95,7 +103,7 @@ msgstr ""
 "\n"
 "Opady: "
 
-#: src/weather-home.c:1574
+#: src/weather-home.c:1576
 msgid ""
 "\n"
 "V: "
@@ -103,7 +111,7 @@ msgstr ""
 "\n"
 "Wid.: "
 
-#: src/weather-home.c:1611
+#: src/weather-home.c:1613
 msgid ""
 "\n"
 "W: "
@@ -257,7 +265,7 @@ msgstr "Rano śnieg"
 msgid "AM Snow Showers"
 msgstr "Rano przelotny śnieg"
 
-#: src/weather-home.c:1284 src/weather-help.c:102
+#: src/weather-home.c:1286 src/weather-help.c:102
 #: src/weather-simple-popup.c:1133 src/weather-simple-status.c:179
 msgid "About"
 msgstr "O programie"
@@ -358,7 +366,7 @@ msgstr "Skala Beuforta"
 msgid "Blowing Snow"
 msgstr "Zamieć śnieżna"
 
-#: src/weather-home.c:1533 src/weather-home.c:1559
+#: src/weather-home.c:1535 src/weather-home.c:1561
 #: src/weather-simple-popup.c:1011 src/weather-simple-popup.c:1021
 #: src/weather-simple-settings.c:1277
 msgid "C"
@@ -402,6 +410,11 @@ msgstr "Bezchmurnie / wiatr"
 #: src/hash.data:24
 msgid "Clear, Drifting Snow"
 msgstr "Bezchmurnie, zamieć śnieżna"
+
+#: src/hash.data:256
+#, fuzzy
+msgid "Clear, Fog, Drizzle"
+msgstr "Głównie pochmurnie, mgła, mżawka"
 
 #: src/hash.data:25
 msgid "Clear, Smoke"
@@ -618,12 +631,12 @@ msgstr ""
 msgid "Enable GPS"
 msgstr "Włączenie GPS"
 
-#: src/weather-home.c:839
+#: src/weather-home.c:841
 #, c-format
 msgid "Error in xml file\n"
 msgstr "Błąd w pliku xml\n"
 
-#: src/weather-home.c:912
+#: src/weather-home.c:914
 msgid "Error initializing the OMWeather applet"
 msgstr "Błąd podczas inicjowania apletu OMWeather"
 
@@ -636,7 +649,7 @@ msgstr "Ustawienia"
 msgid "Extreme"
 msgstr "Ekstremalna"
 
-#: src/weather-home.c:1534 src/weather-home.c:1560
+#: src/weather-home.c:1536 src/weather-home.c:1562
 #: src/weather-simple-popup.c:1012 src/weather-simple-popup.c:1022
 #: src/weather-simple-settings.c:1285
 msgid "F"
@@ -647,7 +660,7 @@ msgstr "F"
 msgid "F\n"
 msgstr "F\n"
 
-#: src/weather-home.c:1555
+#: src/weather-home.c:1557
 msgid "FL: "
 msgstr "Odcz.:"
 
@@ -737,7 +750,7 @@ msgstr "Prognoza"
 msgid "Forecast at: "
 msgstr "Prognoza o: "
 
-#: src/weather-home.c:1353
+#: src/weather-home.c:1355
 msgid "Forecast: \n"
 msgstr "Prognoza: \n"
 
@@ -770,11 +783,11 @@ msgstr ""
 msgid "Full"
 msgstr "Pełnia"
 
-#: src/weather-home.c:1294
+#: src/weather-home.c:1296
 msgid "Full forecast"
 msgstr "Pełna prognoza"
 
-#: src/weather-home.c:1637
+#: src/weather-home.c:1639
 msgid "G: "
 msgstr "Por.: "
 
@@ -806,14 +819,6 @@ msgstr "Wyczyść"
 #: src/weather-popup.c:1333 src/weather-popup.c:1472
 msgid "Gust:"
 msgstr "Poryw:"
-
-#: src/weather-home.c:1564
-msgid ""
-"\n"
-"H: "
-msgstr ""
-"\n"
-"Wilg.: "
 
 #: src/weather-download.c:421
 msgid "HTTP error."
@@ -1059,6 +1064,11 @@ msgstr "Głównie pochmurnie, mgła"
 msgid "Mostly Cloudy, Fog, Drizzle"
 msgstr "Głównie pochmurnie, mgła, mżawka"
 
+#: src/hash.data:255
+#, fuzzy
+msgid "Mostly Cloudy, Heavy Rain"
+msgstr "Głównie pochmurnie, silny śnieg"
+
 #: src/hash.data:109
 msgid "Mostly Cloudy, Heavy Snow"
 msgstr "Głównie pochmurnie, silny śnieg"
@@ -1107,10 +1117,10 @@ msgstr "Głównie słonecznie"
 msgid "N"
 msgstr ""
 
-#: src/weather-home.c:657 src/weather-home.c:663 src/weather-home.c:664
-#: src/weather-home.c:669 src/weather-home.c:675 src/weather-home.c:2639
-#: src/weather-home.c:2723 src/weather-home.c:2731 src/weather-home.c:2814
-#: src/weather-home.c:2818 src/weather-home.c:2831 src/weather-home.c:2835
+#: src/weather-home.c:658 src/weather-home.c:664 src/weather-home.c:665
+#: src/weather-home.c:671 src/weather-home.c:677 src/weather-home.c:2641
+#: src/weather-home.c:2725 src/weather-home.c:2733 src/weather-home.c:2816
+#: src/weather-home.c:2820 src/weather-home.c:2833 src/weather-home.c:2837
 #: src/hash.data:121
 msgid "N/A"
 msgstr "Niedost."
@@ -1193,7 +1203,7 @@ msgstr "Brak danych pogodowych na ten dzień."
 msgid "No weather data for this station."
 msgstr "Brak danych pogodowych dla tej stacji."
 
-#: src/weather-home.c:2730 src/weather-home.c:2742 src/weather-popup.c:458
+#: src/weather-home.c:2732 src/weather-home.c:2744 src/weather-popup.c:458
 #: src/weather-popup.c:569 src/weather-popup.c:575
 #: src/weather-simple-settings.c:2897
 msgid "Now"
@@ -1216,7 +1226,7 @@ msgstr "Teraz + 3 dni pion."
 msgid "Now + 7 days vert."
 msgstr "Teraz + 7 dni pion."
 
-#: src/weather-home.c:1528
+#: src/weather-home.c:1530
 #, c-format
 msgid "Now: "
 msgstr "Teraz: "
@@ -1233,7 +1243,7 @@ msgstr "Prognoza OMWeather"
 msgid "OMWeather Settings"
 msgstr "Ustawienia OMWeather"
 
-#: src/weather-home.c:1266 src/weather-home.c:2852
+#: src/weather-home.c:1268 src/weather-home.c:2854
 msgid "OMWeather settings"
 msgstr "Ustawienia OMWeather"
 
@@ -1370,7 +1380,7 @@ msgstr "Jednostki ciśnienia:"
 msgid "Pressure:"
 msgstr "Ciśnienie:"
 
-#: src/weather-home.c:1391 src/weather-home.c:1446 src/weather-popup.c:965
+#: src/weather-home.c:1393 src/weather-home.c:1448 src/weather-popup.c:965
 #: src/weather-popup.c:1087
 msgid "Pressure: "
 msgstr "Ciśnienie:"
@@ -1564,7 +1574,7 @@ msgstr "Czujnik"
 msgid "Set"
 msgstr "Ustaw"
 
-#: src/weather-home.c:1289 src/weather-simple-popup.c:1126
+#: src/weather-home.c:1291 src/weather-simple-popup.c:1126
 #: src/weather-simple-status.c:158
 msgid "Settings"
 msgstr "Ustawienia"
@@ -1954,7 +1964,7 @@ msgstr "Jednostki prędkości wiatru:"
 msgid "Wind:"
 msgstr "Wiatr:"
 
-#: src/weather-home.c:1407 src/weather-home.c:1462 src/weather-popup.c:980
+#: src/weather-home.c:1409 src/weather-home.c:1464 src/weather-popup.c:980
 #: src/weather-popup.c:1102
 msgid "Wind: "
 msgstr "Wiatr: "
@@ -1975,7 +1985,7 @@ msgstr "Deszcz ze śniegiem / wcześnie wiatr"
 msgid "Wintry Mix to Snow"
 msgstr "Deszcz ze śniegiem do deszczu"
 
-#: src/weather-home.c:842
+#: src/weather-home.c:844
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
@@ -2047,7 +2057,7 @@ msgstr "spada"
 msgid "feels like"
 msgstr "odczuwalna"
 
-#: src/weather-home.c:1398 src/weather-home.c:1453 src/weather-home.c:1602
+#: src/weather-home.c:1400 src/weather-home.c:1455 src/weather-home.c:1604
 #: src/weather-settings.c:4068 src/weather-popup.c:972
 #: src/weather-popup.c:1094 src/weather-popup.c:1292
 #: src/weather-simple-settings.c:1475
@@ -2058,7 +2068,7 @@ msgstr "inHg"
 msgid "inch"
 msgstr "cale"
 
-#: src/weather-home.c:1585 src/weather-popup.c:1276
+#: src/weather-home.c:1587 src/weather-popup.c:1276
 #: src/weather-simple-settings.c:1332 src/weather-simple-settings.c:2681
 msgid "km"
 msgstr "km"
@@ -2072,7 +2082,7 @@ msgstr "km/h"
 msgid "km/s"
 msgstr "km/s"
 
-#: src/weather-home.c:1584 src/weather-popup.c:1275
+#: src/weather-home.c:1586 src/weather-popup.c:1275
 #: src/weather-simple-settings.c:1324 src/weather-simple-settings.c:2675
 msgid "m"
 msgstr "m"
@@ -2086,14 +2096,14 @@ msgstr "m/h"
 msgid "m/s"
 msgstr "m/s"
 
-#: src/weather-home.c:1395 src/weather-home.c:1450 src/weather-home.c:1601
+#: src/weather-home.c:1397 src/weather-home.c:1452 src/weather-home.c:1603
 #: src/weather-settings.c:4055 src/weather-popup.c:969
 #: src/weather-popup.c:1091 src/weather-popup.c:1291
 #: src/weather-simple-settings.c:1467 src/weather-simple-settings.c:2727
 msgid "mb"
 msgstr "mb"
 
-#: src/weather-home.c:1586 src/weather-home.c:1587 src/weather-popup.c:1277
+#: src/weather-home.c:1588 src/weather-home.c:1589 src/weather-popup.c:1277
 #: src/weather-popup.c:1278 src/weather-simple-settings.c:1341
 #: src/weather-simple-settings.c:2687
 msgid "mi"
@@ -2112,7 +2122,7 @@ msgstr "mi/s"
 msgid "mm"
 msgstr "mm"
 
-#: src/weather-home.c:1401 src/weather-home.c:1456 src/weather-home.c:1603
+#: src/weather-home.c:1403 src/weather-home.c:1458 src/weather-home.c:1605
 #: src/weather-settings.c:4078 src/weather-popup.c:975
 #: src/weather-popup.c:1097 src/weather-popup.c:1293
 #: src/weather-simple-settings.c:1484

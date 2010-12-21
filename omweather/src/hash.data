@@ -252,3 +252,5 @@
     g_hash_table_insert(hash, "Ю", _("Ю"));
     g_hash_table_insert(hash, "Ю-В", _("Ю-В"));
     g_hash_table_insert(hash, "Ю-З", _("Ю-З"));
+    g_hash_table_insert(hash, "Mostly Cloudy, Heavy Rain", _("Mostly Cloudy, Heavy Rain"));
+    g_hash_table_insert(hash, "Clear, Fog, Drizzle", _("Clear, Fog, Drizzle"));

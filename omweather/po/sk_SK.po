@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-03 13:27+0200\n"
+"POT-Creation-Date: 2010-12-21 21:32+0200\n"
 "PO-Revision-Date: 2010-11-23 10:15+0100\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -55,6 +55,14 @@ msgstr ""
 "a dizajn rozhrania\n"
 "Andrew Zhilin"
 
+#: src/weather-home.c:1566
+msgid ""
+"\n"
+"H: "
+msgstr ""
+"\n"
+"Vlhkosť: "
+
 #: src/weather-help.c:85
 msgid ""
 "\n"
@@ -69,7 +77,7 @@ msgstr ""
 "zobrazujúci predpoveď počasia.\n"
 "Verzia "
 
-#: src/weather-home.c:1381 src/weather-home.c:1437 src/weather-popup.c:956
+#: src/weather-home.c:1383 src/weather-home.c:1439 src/weather-popup.c:956
 #: src/weather-popup.c:1078
 msgid ""
 "\n"
@@ -78,7 +86,7 @@ msgstr ""
 "\n"
 "Vlhkosť: "
 
-#: src/weather-home.c:1605
+#: src/weather-home.c:1607
 msgid ""
 "\n"
 "P: "
@@ -94,7 +102,7 @@ msgstr ""
 "\n"
 "Zrážky: "
 
-#: src/weather-home.c:1574
+#: src/weather-home.c:1576
 msgid ""
 "\n"
 "V: "
@@ -102,7 +110,7 @@ msgstr ""
 "\n"
 "Viditeľnosť: "
 
-#: src/weather-home.c:1611
+#: src/weather-home.c:1613
 msgid ""
 "\n"
 "W: "
@@ -256,7 +264,7 @@ msgstr "Dopoludnia sneženie"
 msgid "AM Snow Showers"
 msgstr "Dopoludnia snehové prehánky"
 
-#: src/weather-home.c:1284 src/weather-help.c:102
+#: src/weather-home.c:1286 src/weather-help.c:102
 #: src/weather-simple-popup.c:1133 src/weather-simple-status.c:179
 msgid "About"
 msgstr "O aplikácií"
@@ -356,7 +364,7 @@ msgstr "Beaufortova mierka"
 msgid "Blowing Snow"
 msgstr "Zvírený sneh"
 
-#: src/weather-home.c:1533 src/weather-home.c:1559
+#: src/weather-home.c:1535 src/weather-home.c:1561
 #: src/weather-simple-popup.c:1011 src/weather-simple-popup.c:1021
 #: src/weather-simple-settings.c:1277
 msgid "C"
@@ -400,6 +408,11 @@ msgstr "Jasno / Vietor"
 #: src/hash.data:24
 msgid "Clear, Drifting Snow"
 msgstr "Jasno, padajúci sneh"
+
+#: src/hash.data:256
+#, fuzzy
+msgid "Clear, Fog, Drizzle"
+msgstr "Prevažne zamračené, hmla, mrholenie"
 
 #: src/hash.data:25
 msgid "Clear, Smoke"
@@ -616,12 +629,12 @@ msgstr "Upraviť vlastné rozloženie"
 msgid "Enable GPS"
 msgstr "Povoliť GPS"
 
-#: src/weather-home.c:839
+#: src/weather-home.c:841
 #, c-format
 msgid "Error in xml file\n"
 msgstr "Chyba v súbore XML\n"
 
-#: src/weather-home.c:912
+#: src/weather-home.c:914
 msgid "Error initializing the OMWeather applet"
 msgstr "Nemôžem inicializovať applet OMWeather"
 
@@ -633,7 +646,7 @@ msgstr "Rozšírené nastavenia"
 msgid "Extreme"
 msgstr "Extrémne"
 
-#: src/weather-home.c:1534 src/weather-home.c:1560
+#: src/weather-home.c:1536 src/weather-home.c:1562
 #: src/weather-simple-popup.c:1012 src/weather-simple-popup.c:1022
 #: src/weather-simple-settings.c:1285
 msgid "F"
@@ -644,7 +657,7 @@ msgstr "F"
 msgid "F\n"
 msgstr "F\n"
 
-#: src/weather-home.c:1555
+#: src/weather-home.c:1557
 msgid "FL: "
 msgstr "Na pocit: "
 
@@ -734,7 +747,7 @@ msgstr "Predpoveď"
 msgid "Forecast at: "
 msgstr "Predpoveď na: "
 
-#: src/weather-home.c:1353
+#: src/weather-home.c:1355
 msgid "Forecast: \n"
 msgstr "Predpoveď: \n"
 
@@ -768,11 +781,11 @@ msgstr ""
 msgid "Full"
 msgstr "Spln"
 
-#: src/weather-home.c:1294
+#: src/weather-home.c:1296
 msgid "Full forecast"
 msgstr "Úplná predpoveď"
 
-#: src/weather-home.c:1637
+#: src/weather-home.c:1639
 msgid "G: "
 msgstr "Nar.: "
 
@@ -804,14 +817,6 @@ msgstr "Vymazať"
 #: src/weather-popup.c:1333 src/weather-popup.c:1472
 msgid "Gust:"
 msgstr "Nárazovo:"
-
-#: src/weather-home.c:1564
-msgid ""
-"\n"
-"H: "
-msgstr ""
-"\n"
-"Vlhkosť: "
 
 #: src/weather-download.c:421
 msgid "HTTP error."
@@ -1055,6 +1060,11 @@ msgstr "Prevažne zamračené, hmla"
 msgid "Mostly Cloudy, Fog, Drizzle"
 msgstr "Prevažne zamračené, hmla, mrholenie"
 
+#: src/hash.data:255
+#, fuzzy
+msgid "Mostly Cloudy, Heavy Rain"
+msgstr "Prevažne zamračené, silné sneženie"
+
 #: src/hash.data:109
 msgid "Mostly Cloudy, Heavy Snow"
 msgstr "Prevažne zamračené, silné sneženie"
@@ -1103,10 +1113,10 @@ msgstr "Prevažne slnečno"
 msgid "N"
 msgstr "S"
 
-#: src/weather-home.c:657 src/weather-home.c:663 src/weather-home.c:664
-#: src/weather-home.c:669 src/weather-home.c:675 src/weather-home.c:2639
-#: src/weather-home.c:2723 src/weather-home.c:2731 src/weather-home.c:2814
-#: src/weather-home.c:2818 src/weather-home.c:2831 src/weather-home.c:2835
+#: src/weather-home.c:658 src/weather-home.c:664 src/weather-home.c:665
+#: src/weather-home.c:671 src/weather-home.c:677 src/weather-home.c:2641
+#: src/weather-home.c:2725 src/weather-home.c:2733 src/weather-home.c:2816
+#: src/weather-home.c:2820 src/weather-home.c:2833 src/weather-home.c:2837
 #: src/hash.data:121
 msgid "N/A"
 msgstr "N/A"
@@ -1189,7 +1199,7 @@ msgstr "Žiadne údaje o počasí pre tento deň."
 msgid "No weather data for this station."
 msgstr "Žiadne údaje o počasí pre túto stanicu."
 
-#: src/weather-home.c:2730 src/weather-home.c:2742 src/weather-popup.c:458
+#: src/weather-home.c:2732 src/weather-home.c:2744 src/weather-popup.c:458
 #: src/weather-popup.c:569 src/weather-popup.c:575
 #: src/weather-simple-settings.c:2897
 msgid "Now"
@@ -1211,7 +1221,7 @@ msgstr "Teraz + 3 dni vert."
 msgid "Now + 7 days vert."
 msgstr "Teraz + 7 dní vert."
 
-#: src/weather-home.c:1528
+#: src/weather-home.c:1530
 #, c-format
 msgid "Now: "
 msgstr "Teraz: "
@@ -1228,7 +1238,7 @@ msgstr "Predpoveď OMWeather"
 msgid "OMWeather Settings"
 msgstr "Nastavenie OMWeather"
 
-#: src/weather-home.c:1266 src/weather-home.c:2852
+#: src/weather-home.c:1268 src/weather-home.c:2854
 msgid "OMWeather settings"
 msgstr "Nastavenie OMWeather"
 
@@ -1364,7 +1374,7 @@ msgstr "Jednotky tlaku:"
 msgid "Pressure:"
 msgstr "Tlak:"
 
-#: src/weather-home.c:1391 src/weather-home.c:1446 src/weather-popup.c:965
+#: src/weather-home.c:1393 src/weather-home.c:1448 src/weather-popup.c:965
 #: src/weather-popup.c:1087
 msgid "Pressure: "
 msgstr "Tlak:"
@@ -1558,7 +1568,7 @@ msgstr "Senzor"
 msgid "Set"
 msgstr "Nast."
 
-#: src/weather-home.c:1289 src/weather-simple-popup.c:1126
+#: src/weather-home.c:1291 src/weather-simple-popup.c:1126
 #: src/weather-simple-status.c:158
 msgid "Settings"
 msgstr "Nastavenie"
@@ -1944,7 +1954,7 @@ msgstr "Jednotky rýchlosti vetra:"
 msgid "Wind:"
 msgstr "Vietor:"
 
-#: src/weather-home.c:1407 src/weather-home.c:1462 src/weather-popup.c:980
+#: src/weather-home.c:1409 src/weather-home.c:1464 src/weather-popup.c:980
 #: src/weather-popup.c:1102
 msgid "Wind: "
 msgstr "Vietor: "
@@ -1965,7 +1975,7 @@ msgstr "Chladno a sychravo / Spočiatku vietor"
 msgid "Wintry Mix to Snow"
 msgstr "Chladno a sychravo so snežením"
 
-#: src/weather-home.c:842
+#: src/weather-home.c:844
 msgid ""
 "Wrong station code \n"
 "or ZIP code!!!"
@@ -2037,7 +2047,7 @@ msgstr "klesá"
 msgid "feels like"
 msgstr "na pocit"
 
-#: src/weather-home.c:1398 src/weather-home.c:1453 src/weather-home.c:1602
+#: src/weather-home.c:1400 src/weather-home.c:1455 src/weather-home.c:1604
 #: src/weather-settings.c:4068 src/weather-popup.c:972
 #: src/weather-popup.c:1094 src/weather-popup.c:1292
 #: src/weather-simple-settings.c:1475
@@ -2048,7 +2058,7 @@ msgstr "inHg"
 msgid "inch"
 msgstr "palec"
 
-#: src/weather-home.c:1585 src/weather-popup.c:1276
+#: src/weather-home.c:1587 src/weather-popup.c:1276
 #: src/weather-simple-settings.c:1332 src/weather-simple-settings.c:2681
 msgid "km"
 msgstr "km"
@@ -2062,7 +2072,7 @@ msgstr "km/h"
 msgid "km/s"
 msgstr "km/s"
 
-#: src/weather-home.c:1584 src/weather-popup.c:1275
+#: src/weather-home.c:1586 src/weather-popup.c:1275
 #: src/weather-simple-settings.c:1324 src/weather-simple-settings.c:2675
 msgid "m"
 msgstr "m"
@@ -2076,14 +2086,14 @@ msgstr "m/h"
 msgid "m/s"
 msgstr "m/s"
 
-#: src/weather-home.c:1395 src/weather-home.c:1450 src/weather-home.c:1601
+#: src/weather-home.c:1397 src/weather-home.c:1452 src/weather-home.c:1603
 #: src/weather-settings.c:4055 src/weather-popup.c:969
 #: src/weather-popup.c:1091 src/weather-popup.c:1291
 #: src/weather-simple-settings.c:1467 src/weather-simple-settings.c:2727
 msgid "mb"
 msgstr "mb"
 
-#: src/weather-home.c:1586 src/weather-home.c:1587 src/weather-popup.c:1277
+#: src/weather-home.c:1588 src/weather-home.c:1589 src/weather-popup.c:1277
 #: src/weather-popup.c:1278 src/weather-simple-settings.c:1341
 #: src/weather-simple-settings.c:2687
 msgid "mi"
@@ -2102,7 +2112,7 @@ msgstr "mi/s"
 msgid "mm"
 msgstr "mm"
 
-#: src/weather-home.c:1401 src/weather-home.c:1456 src/weather-home.c:1603
+#: src/weather-home.c:1403 src/weather-home.c:1458 src/weather-home.c:1605
 #: src/weather-settings.c:4078 src/weather-popup.c:975
 #: src/weather-popup.c:1097 src/weather-popup.c:1293
 #: src/weather-simple-settings.c:1484

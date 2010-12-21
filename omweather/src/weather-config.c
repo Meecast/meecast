@@ -908,8 +908,7 @@ void config_update_proxy(void) {
 #endif
     proxy_mode = gconf_client_get_string(gconf_client,
                                     GCONF_KEY_PROXY_MODE, NULL);
-
-    if (strcmp(proxy_mode, "none") != 0){
+    if (proxy_mode && strcmp(proxy_mode, "none") != 0){
         if (app->config->iap_http_proxy_host)
             g_free(app->config->iap_http_proxy_host);
         /* Get proxy data */
@@ -927,7 +926,8 @@ void config_update_proxy(void) {
         }
     }
     g_object_unref(gconf_client);
-    g_free(proxy_mode);
+    if (proxy_mode)
+        g_free(proxy_mode);
 #ifdef DEBUGFUNCTIONCALL
     END_FUNCTION;
 #endif

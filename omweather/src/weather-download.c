@@ -524,8 +524,8 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
         }
 #ifndef RELEASE
 /*
-        fprintf(stderr, "\n>>>>>>>>>>URL %s", *url);
-        fprintf(stderr, "\n>>>>>>>>>>Hour URL %s\n", *hour_url);
+      fprintf(stderr, "\n>>>>>>>>>>URL %s", *url);
+      fprintf(stderr, "\n>>>>>>>>>>Hour URL %s\n", *hour_url);
 */
 #endif
 /* preapare filename */

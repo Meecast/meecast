@@ -1,6 +1,7 @@
 omweather-gismeteo-ru-stations-db (0.9) unstable; urgency=low
 
   * Added new strings
+  * Fixed small icon for package
 
  --  Vlad Vasiliev <vlad@gas.by>  Tue, 21 Dec 2010 23:53:20 +0200
 

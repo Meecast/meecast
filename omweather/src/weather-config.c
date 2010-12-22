@@ -902,7 +902,7 @@ gint read_config(AppletConfig * config) {
 /*******************************************************************************/
 void config_update_proxy(void) {
     GConfClient *gconf_client = gconf_client_get_default();
-    gchar *proxy_mode;
+    gchar *proxy_mode = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif

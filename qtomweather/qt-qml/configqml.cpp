@@ -15,6 +15,7 @@ QString
 ConfigQml::iconspath(){
     QString c;
     c = ConfigQml::Config::prefix().c_str();
+    c.append("/icons");
     return c;
 }
 

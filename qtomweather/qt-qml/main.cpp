@@ -7,7 +7,8 @@
 #include <QDeclarativeContext>
 #include <QDeclarativeEngine>
 #include <QGraphicsGridLayout>
-
+#include <exception>
+#include <iostream>
 
 #include "core.h"
 #include "dataqml.h"
@@ -67,8 +68,14 @@ create_and_fill_class_data_for_hours_forecast()
 
 ConfigQml *
 create_and_fill_config(){
-    //ConfigQml *config = new ConfigQml();
-    ConfigQml *config = new ConfigQml("config.xml", "../core/data/config.xsd");
+    ConfigQml *config;
+    try{
+        config = new ConfigQml("config.xml", "../core/data/config.xsd");
+    }
+    catch(const std::string &str){
+        std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
+    }
+
     return config;
 }
 

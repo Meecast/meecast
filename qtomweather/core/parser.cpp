@@ -10,12 +10,12 @@ namespace Core {
             throw("Invalid source file.");
         int r = access(filename.c_str(), R_OK);
         if(r)
-            throw(std::string(strerror(errno)));
+            throw("File: " + filename + " - " + std::string(strerror(errno)));
         if(schema_filename.empty())
             throw("Invalid source schema file.");
         r = access(schema_filename.c_str(), R_OK);
         if(r)
-            throw(std::string(strerror(errno)));
+            throw("File: " + filename + " - " + std::string(strerror(errno)));
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -30,7 +30,9 @@ namespace Core {
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         }
         catch(const std::exception& ex){
-            throw(ex.what());
+          //  throw(ex.what());
+            std::cout<<"dddddddddddddvggggggggggggg"<<std::endl;
+            std::cout<<ex.what()<<std::endl;
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
     }

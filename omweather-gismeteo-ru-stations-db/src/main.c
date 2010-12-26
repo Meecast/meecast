@@ -112,7 +112,7 @@ get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
                 }
                 *delimiter = 0;
                 if(get_detail_data)
-                    days_number = parse_xml_detail_data(buffer, root_node, data);
+                    days_number = parse_xml_detail_data(buffer, doc, data);
                 else
                     days_number = parse_xml_data(buffer, doc, data);
             }
@@ -631,7 +631,6 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
                                         temp_xml_string = xmlGetProp(child_node3, (const xmlChar*)"class");
                                             if(!xmlStrcmp(temp_xml_string, (const xmlChar *)"container_content")){
                                                 child_node9 = child_node3->children;
-                                              
                                                 while(child_node9 && child_node9->name &&
                                                       xmlStrcmp(child_node9->name, (const xmlChar *)"ul")){
                                                     if (child_node9)
@@ -1198,7 +1197,7 @@ hash_for_icons = hash_icons_gismeteo_table_create();
 }
 /*******************************************************************************/
 void
-fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_icons, GHashTable *hash_for_translate, GHashTable *data){
+fill_detail_data(htmlDocPtr doc, GHashTable *location, GHashTable *hash_for_icons, GHashTable *hash_for_translate, GHashTable *data){
     #define buff_size 2048
     xmlNode     *cur_node = NULL;
     xmlNode     *child_node = NULL;
@@ -1217,6 +1216,7 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
     xmlChar     *temp_xml_string3 = NULL;
     gint        i = 0, j = 0, k = 0;
     gchar       buffer[buff_size];
+    gchar       buff[buff_size];
     gchar       temp_buffer[buff_size];
     gchar       tmp[buff_size];
     gchar       *temp_char;
@@ -1234,8 +1234,51 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
     time_t      utc_time;
     gboolean break_flag = FALSE; 
     gboolean timezone_flag = FALSE;
-    gboolean feels_like_flag = FALSE;
+    gboolean feels_like_flag = FALSE;\
 
+    xmlXPathContextPtr xpathCtx; 
+    xmlXPathObjectPtr xpathObj = NULL; 
+    xmlXPathObjectPtr xpathObj2 = NULL; 
+    xmlXPathObjectPtr xpathObj3 = NULL; 
+    xmlXPathObjectPtr xpathObj4 = NULL; 
+    xmlXPathObjectPtr xpathObj5 = NULL; 
+    xmlXPathObjectPtr xpathObj6 = NULL; 
+    xmlXPathObjectPtr xpathObj7 = NULL; 
+    xmlXPathObjectPtr xpathObj8 = NULL; 
+    xmlXPathObjectPtr xpathObj9 = NULL; 
+    xmlNodeSetPtr nodes;
+
+   /* Create xpath evaluation context */
+   xpathCtx = xmlXPathNewContext(doc);
+   if(xpathCtx == NULL) {
+        fprintf(stderr,"Error: unable to create new XPath context\n");
+         return(-1);
+   }
+   /* Register namespaces from list (if any) */
+   xmlXPathRegisterNs(xpathCtx, (const xmlChar*)"html",
+                                (const xmlChar*)"http://www.w3.org/1999/xhtml");
+
+  /* Evaluate xpath expression */
+ // xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/@title", xpathCtx);
+  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/span[@class='icon date']/text()", xpathCtx);
+
+  hours_data = g_hash_table_new(g_str_hash, g_str_equal);
+
+  if (xpathObj && !xmlXPathNodeSetIsEmpty(xpathObj->nodesetval) && xpathObj->nodesetval->nodeTab[0]->content){
+      strptime(xpathObj->nodesetval->nodeTab[0]->content, "%d.%m.%Y %H:%M:%S", &tmp_tm);
+      memset(buff, 0, sizeof(buff));
+      setlocale(LC_TIME, "POSIX");
+      strftime(buff, sizeof(buff) - 1, "%D %I:%M %p", &tmp_tm);
+      setlocale(LC_TIME, "");
+      g_hash_table_insert(hours_data, "last_update", g_strdup(buff));
+      g_hash_table_insert(g_hash_table_lookup(data, "current"), "last_update", g_strdup(buff));
+  }
+
+//  g_hash_table_insert(hours_data, "hours_data", (gpointer)hour_weather);
+  g_hash_table_insert(data, "detail", (gpointer)hours_data);
+
+return;
+#if 0
     if (root_node->children)
          cur_node = root_node->children;
     if (cur_node)
@@ -1484,10 +1527,11 @@ fill_detail_data(xmlNode *root_node, GHashTable *location, GHashTable *hash_for_
    }
    g_hash_table_insert(hours_data, "hours_data", (gpointer)hour_weather);
    g_hash_table_insert(data, "detail", (gpointer)hours_data);
+ #endif
 }
 /*******************************************************************************/
 gint
-parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
+parse_xml_detail_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
 
     GHashTable  *current_weather = NULL;
     GHashTable  *hash_for_icons;
@@ -1497,10 +1541,10 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
     hash_for_icons = hash_icons_gismeteo_table_create();
     current_weather = g_hash_table_new(g_str_hash, g_str_equal);
     location = g_hash_table_new(g_str_hash, g_str_equal);
-    fill_current_data(root_node, current_weather, data, hash_for_translate, hash_for_icons);
+//    fill_current_data(root_node, current_weather, data, hash_for_translate, hash_for_icons);
     g_hash_table_insert(data, "location", (gpointer)location);
     g_hash_table_insert(data, "current", (gpointer)current_weather);
-    fill_detail_data(root_node, location, hash_for_icons, hash_for_translate, data);
+    fill_detail_data(doc, location, hash_for_icons, hash_for_translate, data);
     g_hash_table_destroy(hash_for_translate);
     g_hash_table_destroy(hash_for_icons);
 

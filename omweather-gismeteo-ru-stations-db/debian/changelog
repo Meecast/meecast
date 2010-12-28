@@ -1,9 +1,16 @@
+omweather-gismeteo-ru-stations-db (0.9.1) unstable; urgency=low
+
+  * Fixed problem with current weather forecast 
+
+ --  Vlad Vasiliev <vlad@gas.by>  Sun, 26 Dec 2010 15:56:20 +0200
+
 omweather-gismeteo-ru-stations-db (0.9) unstable; urgency=low
 
   * Added new strings
   * Fixed small icon for package
+  * Adapted for new html pages of gismeteo.ru
 
- --  Vlad Vasiliev <vlad@gas.by>  Tue, 21 Dec 2010 23:53:20 +0200
+ --  Vlad Vasiliev <vlad@gas.by>  Sun, 26 Dec 2010 15:56:20 +0200
 
 omweather-gismeteo-ru-stations-db (0.8) unstable; urgency=low
 

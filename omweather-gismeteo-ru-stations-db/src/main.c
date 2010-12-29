@@ -1375,7 +1375,7 @@ fill_detail_data(htmlDocPtr doc, GHashTable *location, GHashTable *hash_for_icon
 
 //  g_hash_table_insert(hours_data, "hours_data", (gpointer)hour_weather);
   g_hash_table_insert(data, "detail", (gpointer)hours_data);
-// *//tr[@class='wrow']
+// *//tr[@class='wrow']/th[@title]
 return;
 #if 0
     if (root_node->children)

@@ -1229,6 +1229,7 @@ fill_detail_data(htmlDocPtr doc, GHashTable *location, GHashTable *hash_for_icon
     GHashTable  *hours_data = NULL;
     struct tm   tmp_tm = {0};
     struct tm   tmp_tm_utc = {0};
+    struct tm   tmp_tm_loc = {0};
     double      time_diff = 0;
     time_t      loc_time;
     time_t      utc_time;
@@ -1249,6 +1250,7 @@ fill_detail_data(htmlDocPtr doc, GHashTable *location, GHashTable *hash_for_icon
     xmlXPathObjectPtr xpathObj9 = NULL; 
     xmlNodeSetPtr nodes;
     GHashTable *current_weather = NULL;
+    gint size;
 
    /* Create xpath evaluation context */
    xpathCtx = xmlXPathNewContext(doc);
@@ -1372,8 +1374,57 @@ fill_detail_data(htmlDocPtr doc, GHashTable *location, GHashTable *hash_for_icon
   }
   if (xpathObj)
     xmlXPathFreeObject(xpathObj);
+  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/table/tbody/tr[@class='wrow forecast']/th/@title", xpathCtx);
+  xpathObj2 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*[@class='clicon']/img/@src", xpathCtx);
+  nodes   = xpathObj->nodesetval;
+  size = (nodes) ? nodes->nodeNr : 0;
+  for(i = 0; i < size; ++i) {
+      /* Take UTC time: */
+      if (!nodes->nodeTab[i]->children->content)
+          continue;
+      temp_char = strstr(nodes->nodeTab[i]->children->content, "UTC: ");
+      if (temp_char && strlen(temp_char) > 6)
+              temp_char = temp_char + 5;
 
-//  g_hash_table_insert(hours_data, "hours_data", (gpointer)hour_weather);
+      detail = g_hash_table_new(g_str_hash, g_str_equal);
+      tmp_tm = get_date_for_hour_weather(temp_char);
+      memset(buff, 0, sizeof(buff));
+      setlocale(LC_TIME, "POSIX");
+
+      strftime(buff, sizeof(buff) - 1, "%H", &tmp_tm);
+      g_hash_table_insert(detail, "hours", g_strdup(buff));
+      strftime(buffer, sizeof(buff) - 1, "%D %I:%M %p", &tmp_tm);
+
+      setlocale(LC_TIME, "");
+
+      if(!timezone_flag){
+          utc_time = mktime(&tmp_tm);
+          temp_char = strstr(nodes->nodeTab[i]->children->content, "Local: ");
+          if (temp_char && strlen(temp_char) > 8)
+              temp_char = temp_char + 7;
+           tmp_tm_loc = get_date_for_hour_weather(temp_char);
+           loc_time = mktime(&tmp_tm_loc);
+           time_diff = difftime(loc_time, utc_time);
+           if(time_diff)
+               timezone_flag = TRUE;
+           location_timezone = (gint)time_diff/3600;
+           /* fprintf(stderr, "\nTimezone %i\n", location_timezone); */
+           snprintf(temp_buffer, sizeof(temp_buffer)-1, "%i",location_timezone);
+           g_hash_table_insert(location, "station_time_zone", g_strdup(temp_buffer));
+      }
+ 
+   /* added icon */
+   if (xpathObj2 && !xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval) && xpathObj2->nodesetval->nodeTab[i]->children->content){
+      /* fprintf (stderr, "sdfff %s\n", xpathObj4->nodesetval->nodeTab[i]->children->content); */
+      temp_char = strrchr((char*)xpathObj2->nodesetval->nodeTab[i]->children->content, '/');
+      temp_char ++;
+      g_hash_table_insert(detail, "hour_icon", choose_hour_weather_icon(hash_for_icons, temp_char));
+   }
+
+   hour_weather = g_slist_append(hour_weather,(gpointer)detail);
+
+  }
+  g_hash_table_insert(hours_data, "hours_data", (gpointer)hour_weather);
   g_hash_table_insert(data, "detail", (gpointer)hours_data);
 // *//tr[@class='wrow']/th[@title]
 return;

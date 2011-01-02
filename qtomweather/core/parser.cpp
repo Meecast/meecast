@@ -30,9 +30,7 @@ namespace Core {
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         }
         catch(const std::exception& ex){
-          //  throw(ex.what());
-            std::cout<<"dddddddddddddvggggggggggggg"<<std::endl;
-            std::cout<<ex.what()<<std::endl;
+            throw(ex.what());
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
     }

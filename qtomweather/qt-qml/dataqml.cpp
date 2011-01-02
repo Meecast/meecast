@@ -3,6 +3,9 @@ DataQml::DataQml():QObject(),Core::Data(){
 
 }
 
+DataQml::DataQml(const Core::Data* data):QObject(),Core::Data(data){
+   // DataQml::Data(data);
+}
 QString
 DataQml::temperature_high(){
     QString c;

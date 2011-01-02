@@ -79,6 +79,18 @@
     <xs:complexType>
       <xs:choice>
         <xs:sequence>
+          <xs:element ref="schemas:temperature_hi"/>
+          <xs:element ref="schemas:temperature_low"/>
+          <xs:element ref="schemas:wind_speed"/>
+          <xs:element ref="schemas:wind_direction"/>
+          <xs:element ref="schemas:wind_gust"/>
+          <xs:element ref="schemas:humidity"/>
+          <xs:element ref="schemas:pressure"/>
+          <xs:element ref="schemas:text"/>
+          <xs:element ref="schemas:flike"/>
+          <xs:element ref="schemas:icon"/>
+        </xs:sequence>
+        <xs:sequence>
           <xs:element ref="schemas:temperature"/>
           <xs:element ref="schemas:wind_speed"/>
           <xs:element ref="schemas:wind_direction"/>
@@ -100,6 +112,8 @@
     </xs:complexType>
   </xs:element>
   <xs:element name="temperature" type="xs:decimal"/>
+  <xs:element name="temperature_hi" type="xs:decimal"/>
+  <xs:element name="temperature_low" type="xs:decimal"/>
   <xs:element name="wind_speed" type="xs:decimal"/>
   <xs:element name="wind_direction" type="xs:string"/>
   <xs:element name="wind_gust" type="xs:decimal"/>

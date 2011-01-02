@@ -24,6 +24,7 @@ namespace Core{
         public:
             Data();
             Data(const Data& data);
+            Data(const Data *data);
             Data& operator=(const Data& data);
             void  StartTime(time_t start_time);
             void  EndTime(time_t end_time);

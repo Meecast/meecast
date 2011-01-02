@@ -102,15 +102,30 @@ int main(int argc, char* argv[])
 
     ConfigQml *config;
     DataQml *forecast_data;
+    Core::DataList data_list;
     QmlLayoutItem* qml_layout_item;
+    Core::DataParser* dp;
 
     config = create_and_fill_config();
 
-    forecast_data = create_and_fill_class_data_for_hours_forecast();
+    try{
+        dp = new Core::DataParser("data.xml", "../core/data/data.xsd");
+    }
+    catch(const std::string &str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+    }
+    catch(const char *str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+    }
+
+   // forecast_data = create_and_fill_class_data_for_hours_forecast();
+    forecast_data = new DataQml(dp->data().GetDataForTime(1293979987));
+
+
     qml_layout_item = new QmlLayoutItem(config, forecast_data);
     layout->addItem(&qml_layout_item->obj(),0,0);
 
-    forecast_data=  create_and_fill_class_data_for_day_forecast();
+    forecast_data =  create_and_fill_class_data_for_day_forecast();
     qml_layout_item = new QmlLayoutItem(config, forecast_data);
     layout->addItem(&qml_layout_item->obj(),1,0);
 

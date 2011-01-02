@@ -12,6 +12,7 @@ class DataQml : public QObject, public Core::Data
     Q_PROPERTY(int icon READ icon NOTIFY iconChanged)
     public:
     DataQml();
+    DataQml(const Core::Data *data);
     QString temperature_high();
     QString temperature_low();
     int icon();

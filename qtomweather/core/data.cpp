@@ -15,6 +15,24 @@ namespace Core {
         _temperature_hi = new Temperature;
         _temperature_low = new Temperature;
     }
+    ////////////////////////////////////////////////////////////////////////////////
+    Data::Data(const Data& data){
+
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    Data::Data(const Data *data){
+        _flike = new Temperature;
+        _windSpeed = INT_MAX;
+        _windGust = INT_MAX;
+        _humidity = INT_MAX;
+        _pressure = INT_MAX;
+        _icon = data->_icon;
+        _windDirection = new std::string("N/A");
+        _text = new std::string("N/A");
+        _temperature_hi = data->_temperature_hi;
+        _temperature_low = data->_temperature_low;
+
+    }
 ////////////////////////////////////////////////////////////////////////////////
     void
     Data::StartTime(time_t start_time){

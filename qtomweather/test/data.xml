@@ -16,7 +16,7 @@
         <wind_gust>1.2</wind_gust>
         <humidity>60</humidity>
         <pressure>754</pressure>
-        <text>Mostly Clear</text>
+        <description>Mostly Clear</description>
         <flike>0</flike>
         <icon>0</icon>
     </period>

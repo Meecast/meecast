@@ -26,14 +26,14 @@ DataQml::temperature_low(){
     return c.number((DataQml::Data::temperature_low().value()),'f',0);
 }
 
-/*
+
 QString
 DataQml::text(){
-    QString c = "dddd";
-    //c = DataQml::Data::Text().c_str();
+    QString c;
+    c = DataQml::Data::Text().c_str();
     return c;
 }
-*/
+
 int
 DataQml::icon(){
     return DataQml::Data::Icon();
@@ -44,4 +44,5 @@ DataQml::refreshview(){
     emit DataQml::temperature_highChanged();
     emit DataQml::temperature_lowChanged();
     emit DataQml::iconChanged();
+    emit DataQml::textChanged();
 }

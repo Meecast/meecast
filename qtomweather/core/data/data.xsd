@@ -86,7 +86,7 @@
           <xs:element ref="schemas:wind_gust"/>
           <xs:element ref="schemas:humidity"/>
           <xs:element ref="schemas:pressure"/>
-          <xs:element ref="schemas:text"/>
+          <xs:element ref="schemas:description"/>
           <xs:element ref="schemas:flike"/>
           <xs:element ref="schemas:icon"/>
         </xs:sequence>
@@ -97,7 +97,7 @@
           <xs:element ref="schemas:wind_gust"/>
           <xs:element ref="schemas:humidity"/>
           <xs:element ref="schemas:pressure"/>
-          <xs:element ref="schemas:text"/>
+          <xs:element ref="schemas:description"/>
           <xs:element ref="schemas:flike"/>
           <xs:element ref="schemas:icon"/>
         </xs:sequence>
@@ -119,7 +119,7 @@
   <xs:element name="wind_gust" type="xs:decimal"/>
   <xs:element name="humidity" type="xs:decimal"/>
   <xs:element name="pressure" type="xs:decimal"/>
-  <xs:element name="text" type="xs:string"/>
+  <xs:element name="description" type="xs:string"/>
   <xs:element name="flike" type="xs:decimal"/>
   <xs:element name="icon" type="xs:integer"/>
   <xs:element name="sunrise" type="xs:integer"/>

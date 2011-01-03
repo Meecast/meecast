@@ -79,34 +79,25 @@
     <xs:complexType>
       <xs:choice>
         <xs:sequence>
-          <xs:element ref="schemas:temperature_hi"/>
-          <xs:element ref="schemas:temperature_low"/>
-          <xs:element ref="schemas:wind_speed"/>
-          <xs:element ref="schemas:wind_direction"/>
-          <xs:element ref="schemas:wind_gust"/>
-          <xs:element ref="schemas:humidity"/>
-          <xs:element ref="schemas:pressure"/>
-          <xs:element ref="schemas:description"/>
-          <xs:element ref="schemas:flike"/>
-          <xs:element ref="schemas:icon"/>
-        </xs:sequence>
-        <xs:sequence>
-          <xs:element ref="schemas:temperature"/>
-          <xs:element ref="schemas:wind_speed"/>
-          <xs:element ref="schemas:wind_direction"/>
-          <xs:element ref="schemas:wind_gust"/>
-          <xs:element ref="schemas:humidity"/>
-          <xs:element ref="schemas:pressure"/>
-          <xs:element ref="schemas:description"/>
-          <xs:element ref="schemas:flike"/>
-          <xs:element ref="schemas:icon"/>
+          <xs:choice>
+            <xs:group ref="schemas:temperature_int"/> 
+            <xs:element ref="schemas:temperature"/>
+          </xs:choice>
+          <xs:element ref="schemas:wind_speed" minOccurs="0"/>
+          <xs:element ref="schemas:wind_direction" minOccurs="0"/>
+          <xs:element ref="schemas:wind_gust" minOccurs="0"/>
+          <xs:element ref="schemas:humidity" minOccurs="0"/>
+          <xs:element ref="schemas:pressure" minOccurs="0"/>
+          <xs:element ref="schemas:description" minOccurs="0"/>
+          <xs:element ref="schemas:flike" minOccurs="0"/>
+          <xs:element ref="schemas:icon" minOccurs="0"/>
         </xs:sequence>
         <xs:sequence>
           <xs:element ref="schemas:sunrise"/>
           <xs:element ref="schemas:sunset"/>
           <xs:element ref="schemas:moon"/>
         </xs:sequence>
-      </xs:choice>
+      </xs:choice>  
       <xs:attribute name="end" use="required" type="xs:integer"/>
       <xs:attribute name="start" use="required" type="xs:integer"/>
     </xs:complexType>
@@ -125,4 +116,10 @@
   <xs:element name="sunrise" type="xs:integer"/>
   <xs:element name="sunset" type="xs:integer"/>
   <xs:element name="moon" type="xs:integer"/>
+  <xs:group name="temperature_int">
+    <xs:sequence>
+      <xs:element ref="schemas:temperature_hi"/>
+      <xs:element ref="schemas:temperature_low"/>
+    </xs:sequence>
+  </xs:group>
 </xs:schema>

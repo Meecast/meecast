@@ -26,9 +26,16 @@ DataQml::temperature_low(){
     return c.number((DataQml::Data::temperature_low().value()),'f',0);
 }
 
+/*
+QString
+DataQml::text(){
+    QString c = "dddd";
+    //c = DataQml::Data::Text().c_str();
+    return c;
+}
+*/
 int
 DataQml::icon(){
-    QString c;
     return DataQml::Data::Icon();
 }
 

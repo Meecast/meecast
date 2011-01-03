@@ -32,7 +32,7 @@ namespace Core {
         if(!node)
             return;
         std::string nodeName = node->get_name();
-        //std::cout<<"ffffffff  "<<nodeName<<std::endl;
+        std::cout<<"ffffffff  "<<nodeName<<std::endl;
         // source tag
         if(nodeName == "station"){
             xmlpp::Node::NodeList list = node->get_children();
@@ -95,6 +95,15 @@ namespace Core {
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
             std::cout<<"icon "<< nodeText->get_content() <<std::endl;
             forecast_data->Icon(atoi(nodeText->get_content().c_str()));
+            return;
+        }
+        // text tag
+        if(nodeName == "text"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+//            std::cout<<"Text "<< nodeText->get_content() <<std::endl;
+//            forecast_data->Text(nodeText->get_content().c_str());
             return;
         }
 

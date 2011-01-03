@@ -28,7 +28,7 @@ namespace Core {
         _pressure = INT_MAX;
         _icon = data->_icon;
         _windDirection = new std::string("N/A");
-        _text = new std::string("N/A");
+        _text = data->_text;
         _temperature_hi = data->_temperature_hi;
         _temperature_low = data->_temperature_low;
 

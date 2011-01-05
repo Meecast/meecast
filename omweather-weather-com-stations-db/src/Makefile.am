@@ -29,5 +29,16 @@ libomweather_weather_com_source_la_CFLAGS = $(GLIB_CFLAGS) $(LIBXML2_CFLAGS) \
 libomweather_weather_com_source_la_LDFLAGS = -module -avoid-version 
 libomweather_weather_com_source_la_LIBADD = $(GLIB_LIBS) $(LIBXML2_LIBS)
 
+bin_PROGRAMS = weathercom
+
+weathercom_SOURCES = main.c main.h
+
+weathercom_LDADD = $(GLIB_LIBS) \
+                    $(LIBXML2_LIBS)
+
+weathercom_CFLAGS =  $(GLIB_CFLAGS) $(LIBXML2_CFLAGS) \
+                        -Wall -pedantic
+
+
 clean-local:
 	$(RM) *.core core core.* stamp-*.h *~

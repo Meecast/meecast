@@ -856,25 +856,25 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
 
                         fprintf(file_out,"    <period start=\"%s\" end=\"%s\">\n", buff, buff2);
                         /* get 24h date */
-#if 0
-                        g_hash_table_insert(day, "day_date", g_strdup((char*)temp_xml_string));
-                        xmlFree(temp_xml_string);
                         for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                             if( child_node2->type == XML_ELEMENT_NODE){
                                 /* 24h hi temperature */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"hi")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    g_hash_table_insert(day, "day_hi_temperature", g_strdup((char*)temp_xml_string));
-                                    xmlFree(temp_xml_string);
+                                    fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", 
+							(char*)temp_xml_string);
+				     xmlFree(temp_xml_string);
                                     continue;
                                 }
                                 /* 24h low temperature */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"low")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    g_hash_table_insert(day, "day_low_temperature", g_strdup((char*)temp_xml_string));
+                                    fprintf(file_out,"     <temperature_low>%s</temperature_low>\n",
+						        (char*)temp_xml_string);
                                     xmlFree(temp_xml_string);
                                     continue;
                                 }
+#if 0
                                 /* 24h sunrise */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"sunr")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
@@ -971,15 +971,12 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                                         }
                                     }
                                 }
+
+#endif
                             }
                         }
-                        /* add day to the days list */
-                        if(day){
-                            forecast = g_slist_append(forecast, (gpointer)day);
-                            day = NULL;
-                            count_day++;
-                        }
-                    #endif
+                        /* end of day */
+                        count_day++;
 
                         fprintf(file_out,"    </period>\n");
                     }

@@ -11,11 +11,13 @@ class DataQml : public QObject, public Core::Data
     Q_PROPERTY(QString temperature_high READ temperature_high NOTIFY temperature_highChanged)
     Q_PROPERTY(QString text READ text NOTIFY textChanged)
     Q_PROPERTY(int icon READ icon NOTIFY iconChanged)
+
     public:
     DataQml();
     DataQml(const Core::Data *data);
     QString temperature_high();
     QString temperature_low();
+    Q_INVOKABLE QString inc_temperature_high();
     QString text();
     int icon();
     void refreshview();

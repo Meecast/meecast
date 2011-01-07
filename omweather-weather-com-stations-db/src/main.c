@@ -881,14 +881,16 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                                 /* 24h hi temperature */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"hi")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    snprintf(temp_hi, sizeof(temp_hi) - 1, "%s", (char*)temp_xml_string);
+				    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
+                                    	snprintf(temp_hi, sizeof(temp_hi) - 1, "%s", (char*)temp_xml_string);
 				    xmlFree(temp_xml_string);
                                     continue;
                                 }
                                 /* 24h low temperature */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"low")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    snprintf(temp_low, sizeof(temp_hi) - 1, "%s", (char*)temp_xml_string);
+				    if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A"))
+                                    	snprintf(temp_low, sizeof(temp_hi) - 1, "%s", (char*)temp_xml_string);
                                     xmlFree(temp_xml_string);
                                     continue;
                                 }
@@ -931,10 +933,12 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                                             /* humidity */
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar *)"hmid") ){
                                                 temp_xml_string = xmlNodeGetContent(child_node3);
-                                                if(!store2day)
-                                                    snprintf(humidity_night, sizeof(humidity_night) - 1, "%s", (char*)temp_xml_string);
-                                                else
-                                                    snprintf(humidity_day, sizeof(humidity_day) - 1, "%s", (char*)temp_xml_string);
+				                if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A")){
+                                                    if(!store2day)
+                                                        snprintf(humidity_night, sizeof(humidity_night) - 1, "%s", (char*)temp_xml_string);
+                                                    else
+                                                        snprintf(humidity_day, sizeof(humidity_day) - 1, "%s", (char*)temp_xml_string);
+                                                }
                                                 xmlFree(temp_xml_string);
                                                 continue;
                                             }
@@ -976,20 +980,33 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                                                         /* speed */
                                                         if(!xmlStrcmp(child_node4->name, (const xmlChar *)"s") ){
                                                             temp_xml_string = xmlNodeGetContent(child_node4);
-                                                            if(!store2day)
-                                                                snprintf(wind_speed_night, sizeof(wind_speed_night) - 1, "%s", (char*)temp_xml_string);
-                                                            else
-                                                                snprintf(wind_speed_day, sizeof(wind_speed_day) - 1, "%s", (char*)temp_xml_string);
+
+				                            if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A")){
+                                                                if(!store2day)
+                                                                    snprintf(wind_speed_night, 
+                                                                             sizeof(wind_speed_night) - 1, 
+                                                                             "%s", (char*)temp_xml_string);
+                                                                else
+                                                                    snprintf(wind_speed_day, 
+                                                                             sizeof(wind_speed_day) - 1, 
+                                                                             "%s", (char*)temp_xml_string);
+                                                            }
                                                             xmlFree(temp_xml_string);
                                                             continue;
                                                         }
                                                         /* title */
                                                         if(!xmlStrcmp(child_node4->name, (const xmlChar *)"t") ){
                                                             temp_xml_string = xmlNodeGetContent(child_node4);
-                                                            if(!store2day)
-                                                                snprintf(wind_direction_night, sizeof(wind_direction_night) - 1, "%s", (char*)temp_xml_string);
-                                                            else
-                                                                snprintf(wind_direction_day, sizeof(wind_direction_day) - 1, "%s", (char*)temp_xml_string);
+				                            if (temp_xml_string && strcmp((const char*)temp_xml_string,"N/A")){
+                                                                if(!store2day)
+                                                                    snprintf(wind_direction_night,
+                                                                             sizeof(wind_direction_night) - 1,
+                                                                             "%s", (char*)temp_xml_string);
+                                                                else
+                                                                    snprintf(wind_direction_day, 
+                                                                             sizeof(wind_direction_day) - 1, 
+                                                                             "%s", (char*)temp_xml_string);
+                                                            }
                                                             xmlFree(temp_xml_string);
                                                             continue;
                                                         }
@@ -1009,48 +1026,82 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
 
                         /* Period before sunrise */  
                         /* set sunrise  in localtime */
-                        fprintf(file_out,"    <period start=\"%li\"", t_start);
-
-                        fprintf(file_out," end=\"%li\">\n", t_sunrise);
-                        fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
-                        fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
-                        fprintf(file_out,"     <humidity>%s</humididty>\n", humidity_night);
-                        fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_night);
-                        fprintf(file_out,"     <description>%s</description>\n", description_night);
-                        fprintf(file_out,"     <icon>%s</icon>\n", icon_night);
-                        fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_night);
-                        fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_night);
-                        fprintf(file_out,"    </period>\n");
-                        
+                        if (temp_hi[0] != 0 || temp_low[0] !=0){
+	                        fprintf(file_out,"    <period start=\"%li\"", t_start);
+	                        fprintf(file_out," end=\"%li\">\n", t_sunrise);
+                                if (temp_hi[0] != 0 && temp_low[0] != 0){ 
+	                            fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
+				    fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
+                                }else{
+                                    if (temp_hi[0] != 0)
+	                                fprintf(file_out,"     <temperature>%s</temperature>\n", temp_hi); 
+                                    else
+	                                fprintf(file_out,"     <temperature>%s</temperature>\n", temp_low); 
+                                }
+                                if (wind_speed_night[0] != 0)
+	                            fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_night);
+                                if (wind_direction_night[0] != 0)
+	                            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_night);
+                                if (humidity_night[0] != 0)
+	                            fprintf(file_out,"     <humidity>%s</humidity>\n", humidity_night);
+	                        fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_night);
+	                        fprintf(file_out,"     <description>%s</description>\n", description_night);
+	                        fprintf(file_out,"     <icon>%s</icon>\n", icon_night);
+	                        fprintf(file_out,"    </period>\n");
+                        }
                         /* Period after sunrise and before sunset */  
                         /* set sunrise  in localtime */
-                        fprintf(file_out,"    <period start=\"%li\"", (t_sunrise + 1));
-                        fprintf(file_out," end=\"%li\">\n", t_sunset);
-                        fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
-                        fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
-                        fprintf(file_out,"     <humidity>%s</humididty>\n", humidity_day);
-                        fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_day);
-                        fprintf(file_out,"     <description>%s</description>\n", description_day);
-                        fprintf(file_out,"     <icon>%s</icon>\n", icon_day);
-                        fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_day);
-                        fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_day);
-                        fprintf(file_out,"    </period>\n");
 
+                        if (temp_hi[0] != 0 || temp_low[0] !=0){
+                            fprintf(file_out,"    <period start=\"%li\"", (t_sunrise + 1));
+                            fprintf(file_out," end=\"%li\">\n", t_sunset);
+                            if (temp_hi[0] != 0 && temp_low[0] != 0){ 
+	                        fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
+                                fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
+                            }else{
+                                if (temp_hi[0] != 0)
+                                    fprintf(file_out,"     <temperature>%s</temperature>\n", temp_hi); 
+                                else
+                                    fprintf(file_out,"     <temperature>%s</temperature>\n", temp_low); 
+                            }
+                            if (wind_speed_day[0] != 0)
+                                fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_day);
+                            if (wind_direction_day[0] != 0)
+                                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_day);
+
+                            if (humidity_day[0] != 0)
+                                fprintf(file_out,"     <humidity>%s</humidity>\n", humidity_day);
+                            fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_day);
+                            fprintf(file_out,"     <description>%s</description>\n", description_day);
+                            fprintf(file_out,"     <icon>%s</icon>\n", icon_day);
+                            fprintf(file_out,"    </period>\n");
+                        }
                         /* Period after sunset */  
-                        fprintf(file_out,"    <period start=\"%li\"", (t_sunset +1));
-                        /* set end of day in localtime */
-                        t_end = t_start + 3600*24 - 1;
-                        fprintf(file_out," end=\"%li\">\n", t_end);
-                        fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
-                        fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
-                        fprintf(file_out,"     <humidity>%s</humididty>\n", humidity_night);
-                        fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_night);
-                        fprintf(file_out,"     <description>%s</description>\n", description_night);
-                        fprintf(file_out,"     <icon>%s</icon>\n", icon_night);
-                        fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_night);
-                        fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_night);
-                        fprintf(file_out,"    </period>\n");
-
+                        if (temp_hi[0] != 0 || temp_low[0] !=0){
+                            fprintf(file_out,"    <period start=\"%li\"", (t_sunset +1));
+                            /* set end of day in localtime */
+                            t_end = t_start + 3600*24 - 1;
+                            fprintf(file_out," end=\"%li\">\n", t_end);
+                            if (temp_hi[0] != 0 && temp_low[0] != 0){ 
+	                        fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
+                                fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
+                            }else{
+                                if (temp_hi[0] != 0)
+                                    fprintf(file_out,"     <temperature>%s</temperature>\n", temp_hi); 
+                                else
+                                    fprintf(file_out,"     <temperature>%s</temperature>\n", temp_low); 
+                            }
+                            if (wind_speed_night[0] != 0)
+                                fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_night);
+                            if (wind_direction_night[0] != 0)
+                                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_night);
+                            if (humidity_night[0] != 0)
+                                fprintf(file_out,"     <humidity>%s</humidity>\n", humidity_night);
+                            fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_night);
+                            fprintf(file_out,"     <description>%s</description>\n", description_night);
+                            fprintf(file_out,"     <icon>%s</icon>\n", icon_night);
+                            fprintf(file_out,"    </period>\n");
+                        }
 			/* write sunset and sunrise data */
                         fprintf(file_out,"    <period start=\"%li\"", t_start);
                         t_end = t_start + 3600*24 - 1;
@@ -1064,7 +1115,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
            }
         }
     }
-   fprintf(file_out,"/station");
+   fprintf(file_out,"</station>");
    fclose(file_out);
    return count_day;
 }

@@ -633,8 +633,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                 wind_speed_day[256],
                 wind_speed_night[256],
                 wind_direction_day[256],
-                wind_direction_night[256];
-
+                wind_direction_night[256],
+		timezone[128];
 
 
     struct tm   tmp_tm = {0};
@@ -651,11 +651,14 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
     if (!file_out)
         return -1;
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
+    fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
+    fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
+
     for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
         if( cur_node->type == XML_ELEMENT_NODE ){
-          #if 0
             /* get weather station data */
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "loc" ) ){
+#if 0
                 temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"id");
                 snprintf(id_station, sizeof(id_station) - 1,
                             "%s", temp_xml_string);
@@ -663,9 +666,10 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                 /* If station in xml not station in config file exit */
                 if( strcmp(id_station, station_id) )
                     return -1;
-                location = g_hash_table_new(g_str_hash, g_str_equal);
+#endif
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
                     if( child_node->type == XML_ELEMENT_NODE ){
+#if 0
                         /* station name */
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"dnam") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
@@ -690,18 +694,20 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                             xmlFree(temp_xml_string);
                             continue;
                         }
+#endif
                         /* station time zone */
                         if( !xmlStrcmp(child_node->name, (const xmlChar *)"zone") ){
                             temp_xml_string = xmlNodeGetContent(child_node);
-                            g_hash_table_insert(location, "station_time_zone",
-                                                g_strdup((char*)temp_xml_string));
+                            snprintf(timezone, sizeof(timezone) - 1, "%s", (char*)temp_xml_string);
+                            fprintf(file_out,"  <timezone>%s</timezone>\n", timezone);
                             xmlFree(temp_xml_string);
                             continue;
                         }
                     }
                 }
-                g_hash_table_insert(data, "location", (gpointer)location);
             }
+
+#if 0
             /* Fill current day */
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "cc" ) ){
                 current = g_hash_table_new(g_str_hash, g_str_equal);

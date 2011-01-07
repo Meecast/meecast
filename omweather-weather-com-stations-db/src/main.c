@@ -619,12 +619,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
     xmlChar     *temp_xml_string = NULL;
     xmlChar     *part_of_day = NULL;
     gint        store2day = 0,
-                year = 0,
                 count_day = 0;
-    gchar       id_station[10],
-                buff[256],
-                buff2[256],
-                temp_hi[256],
+    gchar       temp_hi[256],
 		temp_low[256],
                 humidity_day[256],
 		humidity_night[256],
@@ -633,22 +629,21 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                 description_day[1024],
 		description_night[1024],
                 icon_day[256],
-		icon_night[256];
+		icon_night[256],
+                wind_speed_day[256],
+                wind_speed_night[256],
+                wind_direction_day[256],
+                wind_direction_night[256];
+
+
 
     struct tm   tmp_tm = {0};
     struct tm   tmp_tm2 = {0};
-    struct tm   *ptm_start;
-    struct tm   *ptm;
     struct tm   *tm;
-    time_t      t_start, t_end,
-                t_sunrise, t_sunset,
-                current_time;
-    GSList      *forecast = NULL;
-    GHashTable  *location = NULL,
-                *current = NULL,
-                *day = NULL;
+    time_t      t_start = 0, t_end = 0,
+                t_sunrise = 0, t_sunset = 0,
+                current_time = 0;
     FILE        *file_out;
-    struct tm   *ptm_end;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -851,7 +846,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                         tm = localtime(&current_time);
 
                         setlocale(LC_TIME, "POSIX");
-                        strptime(temp_xml_string, "%b %d", &tmp_tm);
+                        strptime((const char*)temp_xml_string, "%b %d", &tmp_tm);
                         setlocale(LC_TIME, "");
                         /* set begin of day in localtime */
                         tmp_tm.tm_year = tm->tm_year;
@@ -871,7 +866,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                         memset(description_night, 0, sizeof(description_night));
                         memset(icon_day, 0, sizeof(icon_day));
                         memset(icon_night, 0, sizeof(icon_night));
-
+                        memset(wind_speed_day, 0, sizeof(wind_speed_day));
+                        memset(wind_speed_night, 0, sizeof(wind_speed_night));
 
                         /* get 24h date */
                         for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
@@ -894,7 +890,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"sunr")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     setlocale(LC_TIME, "POSIX");
-                                    strptime(temp_xml_string, "%I:%M %p", &tmp_tm2);
+                                    strptime((const char*)temp_xml_string, "%I:%M %p", &tmp_tm2);
                                     setlocale(LC_TIME, "");
                                     /* set begin of day in localtime */
                                     tmp_tm2.tm_year = tm->tm_year;
@@ -907,7 +903,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"suns")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
                                     setlocale(LC_TIME, "POSIX");
-                                    strptime(temp_xml_string, "%I:%M %p", &tmp_tm2);
+                                    strptime((const char*)temp_xml_string, "%I:%M %p", &tmp_tm2);
                                     setlocale(LC_TIME, "");
                                     /* set begin of day in localtime */
                                     tmp_tm2.tm_year = tm->tm_year;
@@ -967,7 +963,6 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                                                 xmlFree(temp_xml_string);
                                                 continue;
                                             }
-#if 0
                                             /* wind data */
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar *)"wind") ){
                                                 for(child_node4 = child_node3->children; child_node4; child_node4 = child_node4->next){
@@ -976,9 +971,9 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                                                         if(!xmlStrcmp(child_node4->name, (const xmlChar *)"s") ){
                                                             temp_xml_string = xmlNodeGetContent(child_node4);
                                                             if(!store2day)
-                                                                g_hash_table_insert(day, "night_wind_speed", g_strdup((char*)temp_xml_string));
+                                                                snprintf(wind_speed_night, sizeof(wind_speed_night) - 1, "%s", (char*)temp_xml_string);
                                                             else
-                                                                g_hash_table_insert(day, "day_wind_speed", g_strdup((char*)temp_xml_string));
+                                                                snprintf(wind_speed_day, sizeof(wind_speed_day) - 1, "%s", (char*)temp_xml_string);
                                                             xmlFree(temp_xml_string);
                                                             continue;
                                                         }
@@ -986,18 +981,15 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                                                         if(!xmlStrcmp(child_node4->name, (const xmlChar *)"t") ){
                                                             temp_xml_string = xmlNodeGetContent(child_node4);
                                                             if(!store2day)
-                                                                g_hash_table_insert(day, "night_wind_title",
-                                                                                    g_strdup((char*)temp_xml_string));
+                                                                snprintf(wind_direction_night, sizeof(wind_direction_night) - 1, "%s", (char*)temp_xml_string);
                                                             else
-                                                                g_hash_table_insert(day, "day_wind_title",
-                                                                                    g_strdup((char*)temp_xml_string));
+                                                                snprintf(wind_direction_day, sizeof(wind_direction_day) - 1, "%s", (char*)temp_xml_string);
                                                             xmlFree(temp_xml_string);
                                                             continue;
                                                         }
                                                     }
                                                 }
                                             }
-#endif
                                         }
 
                                     }
@@ -1011,59 +1003,52 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
 
                         /* Period before sunrise */  
                         /* set sunrise  in localtime */
-                        ptm_start = localtime(&t_start);                        
-                        strftime(buff, sizeof(buff) - 1, "%s", ptm_start);
-                        fprintf(file_out,"    <period start=\"%s\"", buff);
-                        ptm_end = localtime(&t_sunrise);
-                        strftime(buff2, sizeof(buff2) - 1, "%s", ptm_end);
-                        fprintf(file_out," end=\"%s\">\n", buff2);
+                        fprintf(file_out,"    <period start=\"%li\"", t_start);
+
+                        fprintf(file_out," end=\"%li\">\n", t_sunrise);
                         fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
                         fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
                         fprintf(file_out,"     <humidity>%s</humididty>\n", humidity_night);
                         fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_night);
                         fprintf(file_out,"     <description>%s</description>\n", description_night);
                         fprintf(file_out,"     <icon>%s</icon>\n", icon_night);
+                        fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_night);
+                        fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_night);
                         fprintf(file_out,"    </period>\n");
                         
                         /* Period after sunrise and before sunset */  
                         /* set sunrise  in localtime */
-                        t_sunrise = t_sunrise + 1;
-                        ptm_start = localtime(&t_sunrise);                        
-                        strftime(buff, sizeof(buff) - 1, "%s", ptm_start);
-                        fprintf(file_out,"    <period start=\"%s\"", buff);
-                        ptm_end = localtime(&t_sunset);
-                        strftime(buff2, sizeof(buff2) - 1, "%s", ptm_end);
-                        fprintf(file_out," end=\"%s\">\n", buff2);
+                        fprintf(file_out,"    <period start=\"%li\"", (t_sunrise + 1));
+                        fprintf(file_out," end=\"%li\">\n", t_sunset);
                         fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
                         fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
                         fprintf(file_out,"     <humidity>%s</humididty>\n", humidity_day);
                         fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_day);
                         fprintf(file_out,"     <description>%s</description>\n", description_day);
                         fprintf(file_out,"     <icon>%s</icon>\n", icon_day);
+                        fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_day);
+                        fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_day);
 
                         fprintf(file_out,"    </period>\n");
 
                         /* Period after sunset */  
-                        t_sunset = t_sunset + 1;
-                        ptm_start = localtime(&t_sunset);
-                        strftime(buff, sizeof(buff) - 1, "%s", ptm_start);
-                        fprintf(file_out,"    <period start=\"%s\"", buff);
+                        fprintf(file_out,"    <period start=\"%li\"", (t_sunset +1));
                         /* set end of day in localtime */
                         t_end = t_start + 3600*24 - 1;
-                        ptm_end = localtime(&t_end);
-                        strftime(buff2, sizeof(buff2) - 1, "%s", ptm_end);
-                        fprintf(file_out," end=\"%s\">\n", buff2);
+                        fprintf(file_out," end=\"%li\">\n", t_end);
                         fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
                         fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
                         fprintf(file_out,"     <humidity>%s</humididty>\n", humidity_night);
                         fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_night);
                         fprintf(file_out,"     <description>%s</description>\n", description_night);
                         fprintf(file_out,"     <icon>%s</icon>\n", icon_night);
+                        fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_night);
+                        fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_night);
+
                         fprintf(file_out,"    </period>\n");
 
                     }
                 }
-//                g_hash_table_insert(data, "forecast", (gpointer)forecast);
             }
         }
     }
@@ -1173,6 +1158,7 @@ convert_station_weather_data(const gchar *station_id_with_path, gboolean get_det
 
 int
 main(void){
-
-    convert_station_weather_data("./BOXX0014.xml", FALSE);
+    int result; 
+    result = convert_station_weather_data("./BOXX0014.xml", FALSE);
+    return result;
 }

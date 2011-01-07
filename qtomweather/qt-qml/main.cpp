@@ -6,6 +6,7 @@
 #include <QDeclarativeComponent>
 #include <QDeclarativeContext>
 #include <QDeclarativeEngine>
+#include <QDeclarativeView>
 #include <QGraphicsGridLayout>
 #include <exception>
 #include <iostream>
@@ -86,6 +87,7 @@ int main(int argc, char* argv[])
 
 
 
+/*
     //Set up a graphics scene with a QGraphicsWidget and Layout
     QGraphicsView view;
     QGraphicsScene scene;
@@ -95,7 +97,7 @@ int main(int argc, char* argv[])
     widget->setLayout(layout);
     scene.addItem(widget);
     view.setScene(&scene);
-
+*/
 
     //Add the QML snippet into the layout
 
@@ -121,7 +123,14 @@ int main(int argc, char* argv[])
    // forecast_data = create_and_fill_class_data_for_hours_forecast();
     forecast_data = new DataQml(dp->data().GetDataForTime(1293979987));
 
+    QDeclarativeView qview;
+    qview.rootContext()->setContextProperty("Forecast", forecast_data);
+    qview.rootContext()->setContextProperty("Config", config);
+    qview.setSource(QUrl(":weatherlayoutitem.qml"));
+    //qview.setSource(QUrl(":test.qml"));
+    qview.show();
 
+/*
     qml_layout_item = new QmlLayoutItem(config, forecast_data);
     layout->addItem(&qml_layout_item->obj(),0,0);
 
@@ -136,7 +145,7 @@ int main(int argc, char* argv[])
 
 
     view.show();
-
+*/
 
     return app.exec();
 }

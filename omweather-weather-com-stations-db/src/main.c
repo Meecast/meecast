@@ -1028,7 +1028,6 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                         fprintf(file_out,"     <icon>%s</icon>\n", icon_day);
                         fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_day);
                         fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_day);
-
                         fprintf(file_out,"    </period>\n");
 
                         /* Period after sunset */  
@@ -1044,12 +1043,19 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                         fprintf(file_out,"     <icon>%s</icon>\n", icon_night);
                         fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_night);
                         fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_night);
+                        fprintf(file_out,"    </period>\n");
 
+			/* write sunset and sunrise data */
+                        fprintf(file_out,"    <period start=\"%li\"", t_start);
+                        t_end = t_start + 3600*24 - 1;
+                        fprintf(file_out," end=\"%li\">\n", t_end);
+                        fprintf(file_out,"     <sunrise>%li</sunrise>\n", t_sunrise);
+                        fprintf(file_out,"     <sunset>%li</sunset>\n", t_sunset);
                         fprintf(file_out,"    </period>\n");
 
                     }
-                }
-            }
+               }
+           }
         }
     }
    fprintf(file_out,"/station");

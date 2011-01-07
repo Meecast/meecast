@@ -625,7 +625,12 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                 buff[256],
                 buff2[256],
                 temp_hi[256],
-		temp_low[256];
+		temp_low[256],
+                humidity_day[256],
+		humidity_night[256],
+                ppcp_day[256],
+		ppcp_night[256];
+
     struct tm   tmp_tm = {0};
     struct tm   tmp_tm2 = {0};
     struct tm   *ptm_start;
@@ -852,6 +857,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                         
                         xmlFree(temp_xml_string);
 
+                        memset(temp_hi, 0, sizeof(temp_hi));
+                        memset(temp_low, 0, sizeof(temp_low));
                         /* get 24h date */
                         for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                             if( child_node2->type == XML_ELEMENT_NODE){
@@ -895,7 +902,6 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                                     xmlFree(temp_xml_string);
                                     continue;
                                 }
-#if 0
                                 /* 24h part */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"part")){
                                     part_of_day = xmlGetProp(child_node2, (const xmlChar*)"p");
@@ -910,9 +916,9 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar *)"hmid") ){
                                                 temp_xml_string = xmlNodeGetContent(child_node3);
                                                 if(!store2day)
-                                                    g_hash_table_insert(day, "night_humidity", g_strdup((char*)temp_xml_string));
+                                                    snprintf(humidity_night, sizeof(humidity_night) - 1, "%s", (char*)temp_xml_string);
                                                 else
-                                                    g_hash_table_insert(day, "day_humidity", g_strdup((char*)temp_xml_string));
+                                                    snprintf(humidity_day, sizeof(humidity_day) - 1, "%s", (char*)temp_xml_string);
                                                 xmlFree(temp_xml_string);
                                                 continue;
                                             }
@@ -920,12 +926,13 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar *)"ppcp") ){
                                                 temp_xml_string = xmlNodeGetContent(child_node3);
                                                 if(!store2day)
-                                                    g_hash_table_insert(day, "night_ppcp", g_strdup((char*)temp_xml_string));
+                                                    snprintf(ppcp_night, sizeof(ppcp_night) - 1, "%s", (char*)temp_xml_string);
                                                 else
-                                                    g_hash_table_insert(day, "day_ppcp", g_strdup((char*)temp_xml_string));
+                                                    snprintf(ppcp_day, sizeof(ppcp_day) - 1, "%s", (char*)temp_xml_string);
                                                 xmlFree(temp_xml_string);
                                                 continue;
                                             }
+#if 0
                                             /* title */
                                             if(!xmlStrcmp(child_node3->name, (const xmlChar *)"t") ){
                                                 temp_xml_string = xmlNodeGetContent(child_node3);
@@ -975,11 +982,13 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                                                     }
                                                 }
                                             }
+#endif
                                         }
+
                                     }
+
                                 }
 
-#endif
                             }
                         }
                         /* end of day */
@@ -995,6 +1004,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                         fprintf(file_out," end=\"%s\">\n", buff2);
                         fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
                         fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
+                        fprintf(file_out,"     <humidity>%s</humididty>\n", humidity_night);
+                        fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_night);
                         fprintf(file_out,"    </period>\n");
                         
                         /* Period after sunrise and before sunset */  
@@ -1008,6 +1019,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                         fprintf(file_out," end=\"%s\">\n", buff2);
                         fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
                         fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
+                        fprintf(file_out,"     <humidity>%s</humididty>\n", humidity_day);
+                        fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_day);
                         fprintf(file_out,"    </period>\n");
 
                         /* Period after sunset */  
@@ -1022,6 +1035,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                         fprintf(file_out," end=\"%s\">\n", buff2);
                         fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
                         fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
+                        fprintf(file_out,"     <humidity>%s</humididty>\n", humidity_night);
+                        fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_night);
                         fprintf(file_out,"    </period>\n");
 
                     }

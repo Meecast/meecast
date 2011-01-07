@@ -91,6 +91,7 @@
           <xs:element ref="schemas:description" minOccurs="0"/>
           <xs:element ref="schemas:flike" minOccurs="0"/>
           <xs:element ref="schemas:icon" minOccurs="0"/>
+          <xs:element ref="schemas:ppcp" minOccurs="0"/>
         </xs:sequence>
         <xs:sequence>
           <xs:element ref="schemas:sunrise"/>
@@ -110,6 +111,7 @@
   <xs:element name="wind_gust" type="xs:decimal"/>
   <xs:element name="humidity" type="xs:decimal"/>
   <xs:element name="pressure" type="xs:decimal"/>
+  <xs:element name="ppcp" type="xs:decimal"/>
   <xs:element name="description" type="xs:string"/>
   <xs:element name="flike" type="xs:decimal"/>
   <xs:element name="icon" type="xs:integer"/>

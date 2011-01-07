@@ -623,17 +623,23 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                 count_day = 0;
     gchar       id_station[10],
                 buff[256],
-                buff2[256];
+                buff2[256],
+                temp_hi[256],
+		temp_low[256];
     struct tm   tmp_tm = {0};
-    struct tm   *ptm = NULL;
-    struct tm   *tm = NULL;
-    time_t      t,
+    struct tm   tmp_tm2 = {0};
+    struct tm   *ptm_start;
+    struct tm   *ptm;
+    struct tm   *tm;
+    time_t      t_start, t_end,
+                t_sunrise, t_sunset,
                 current_time;
     GSList      *forecast = NULL;
     GHashTable  *location = NULL,
                 *current = NULL,
                 *day = NULL;
     FILE        *file_out;
+    struct tm   *ptm_end;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -832,7 +838,6 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                             ( !xmlStrcmp(child_node->name, (const xmlChar *)"day") ) ){
 
                         temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"dt");
-                        memset(buff, 0, sizeof(buff));
                         current_time = time(NULL);
                         tm = localtime(&current_time);
 
@@ -843,52 +848,54 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                         tmp_tm.tm_year = tm->tm_year;
                         tmp_tm.tm_hour = 0; tmp_tm.tm_min = 0; tmp_tm.tm_sec = 0;
 
-                        t = mktime(&tmp_tm);
-                        ptm = localtime(&t);                        
-                        strftime(buff, sizeof(buff) - 1, "%s", ptm);
+                        t_start = mktime(&tmp_tm);
                         
-                        /* set end of day in localtime */
-                        t = t + 3600*24;
-                        ptm = localtime(&t);
-                        
-                        strftime(buff2, sizeof(buff2) - 1, "%s", ptm);
                         xmlFree(temp_xml_string);
 
-                        fprintf(file_out,"    <period start=\"%s\" end=\"%s\">\n", buff, buff2);
                         /* get 24h date */
                         for(child_node2 = child_node->children; child_node2; child_node2 = child_node2->next){
                             if( child_node2->type == XML_ELEMENT_NODE){
                                 /* 24h hi temperature */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"hi")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", 
-							(char*)temp_xml_string);
-				     xmlFree(temp_xml_string);
+                                    snprintf(temp_hi, sizeof(temp_hi) - 1, "%s", (char*)temp_xml_string);
+				    xmlFree(temp_xml_string);
                                     continue;
                                 }
                                 /* 24h low temperature */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"low")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    fprintf(file_out,"     <temperature_low>%s</temperature_low>\n",
-						        (char*)temp_xml_string);
+                                    snprintf(temp_low, sizeof(temp_hi) - 1, "%s", (char*)temp_xml_string);
                                     xmlFree(temp_xml_string);
                                     continue;
                                 }
-#if 0
                                 /* 24h sunrise */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"sunr")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    g_hash_table_insert(day, "day_sunrise", g_strdup((char*)temp_xml_string));
+                                    setlocale(LC_TIME, "POSIX");
+                                    strptime(temp_xml_string, "%I:%M %p", &tmp_tm2);
+                                    setlocale(LC_TIME, "");
+                                    /* set begin of day in localtime */
+                                    tmp_tm2.tm_year = tm->tm_year;
+                                    tmp_tm2.tm_mday = tmp_tm.tm_mday; tmp_tm2.tm_mon = tmp_tm.tm_mon;  
+                                    t_sunrise = mktime(&tmp_tm2);
                                     xmlFree(temp_xml_string);
                                     continue;
                                 }
                                 /* 24h sunset */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"suns")){
                                     temp_xml_string = xmlNodeGetContent(child_node2);
-                                    g_hash_table_insert(day, "day_sunset", g_strdup((char*)temp_xml_string));
+                                    setlocale(LC_TIME, "POSIX");
+                                    strptime(temp_xml_string, "%I:%M %p", &tmp_tm2);
+                                    setlocale(LC_TIME, "");
+                                    /* set begin of day in localtime */
+                                    tmp_tm2.tm_year = tm->tm_year;
+                                    tmp_tm2.tm_mday = tmp_tm.tm_mday; tmp_tm2.tm_mon = tmp_tm.tm_mon;  
+                                    t_sunset = mktime(&tmp_tm2);
                                     xmlFree(temp_xml_string);
                                     continue;
                                 }
+#if 0
                                 /* 24h part */
                                 if(!xmlStrcmp(child_node2->name, (const xmlChar *)"part")){
                                     part_of_day = xmlGetProp(child_node2, (const xmlChar*)"p");
@@ -978,7 +985,45 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
                         /* end of day */
                         count_day++;
 
+                        /* Period before sunrise */  
+                        /* set sunrise  in localtime */
+                        ptm_start = localtime(&t_start);                        
+                        strftime(buff, sizeof(buff) - 1, "%s", ptm_start);
+                        fprintf(file_out,"    <period start=\"%s\"", buff);
+                        ptm_end = localtime(&t_sunrise);
+                        strftime(buff2, sizeof(buff2) - 1, "%s", ptm_end);
+                        fprintf(file_out," end=\"%s\">\n", buff2);
+                        fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
+                        fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
                         fprintf(file_out,"    </period>\n");
+                        
+                        /* Period after sunrise and before sunset */  
+                        /* set sunrise  in localtime */
+                        t_sunrise = t_sunrise + 1;
+                        ptm_start = localtime(&t_sunrise);                        
+                        strftime(buff, sizeof(buff) - 1, "%s", ptm_start);
+                        fprintf(file_out,"    <period start=\"%s\"", buff);
+                        ptm_end = localtime(&t_sunset);
+                        strftime(buff2, sizeof(buff2) - 1, "%s", ptm_end);
+                        fprintf(file_out," end=\"%s\">\n", buff2);
+                        fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
+                        fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
+                        fprintf(file_out,"    </period>\n");
+
+                        /* Period after sunset */  
+                        t_sunset = t_sunset + 1;
+                        ptm_start = localtime(&t_sunset);
+                        strftime(buff, sizeof(buff) - 1, "%s", ptm_start);
+                        fprintf(file_out,"    <period start=\"%s\"", buff);
+                        /* set end of day in localtime */
+                        t_end = t_start + 3600*24 - 1;
+                        ptm_end = localtime(&t_end);
+                        strftime(buff2, sizeof(buff2) - 1, "%s", ptm_end);
+                        fprintf(file_out," end=\"%s\">\n", buff2);
+                        fprintf(file_out,"     <temperature_hi>%s</temperature_hi>\n", temp_hi); 
+                        fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
+                        fprintf(file_out,"    </period>\n");
+
                     }
                 }
 //                g_hash_table_insert(data, "forecast", (gpointer)forecast);

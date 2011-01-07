@@ -103,10 +103,11 @@ int main(int argc, char* argv[])
 
 
     ConfigQml *config;
-    DataQml *forecast_data;
+    DataQml *forecast_data = NULL;
     Core::DataList data_list;
     QmlLayoutItem* qml_layout_item;
     Core::DataParser* dp;
+    Core::Data* temp_data = NULL;
 
     config = create_and_fill_config();
 
@@ -115,16 +116,22 @@ int main(int argc, char* argv[])
     }
     catch(const std::string &str){
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return -1;
     }
     catch(const char *str){
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return -1;
     }
 
    // forecast_data = create_and_fill_class_data_for_hours_forecast();
-    forecast_data = new DataQml(dp->data().GetDataForTime(1293979987));
+    temp_data = dp->data().GetDataForTime(time(NULL));
+    if (temp_data)
+        forecast_data = new DataQml(temp_data);
 
     QDeclarativeView qview;
-    qview.rootContext()->setContextProperty("Forecast", forecast_data);
+    if (forecast_data){
+        qview.rootContext()->setContextProperty("Forecast", forecast_data);
+    }
     qview.rootContext()->setContextProperty("Config", config);
     qview.setSource(QUrl(":weatherlayoutitem.qml"));
     //qview.setSource(QUrl(":test.qml"));

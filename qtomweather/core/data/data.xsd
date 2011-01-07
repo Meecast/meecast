@@ -87,16 +87,16 @@
           <xs:element ref="schemas:wind_direction" minOccurs="0"/>
           <xs:element ref="schemas:wind_gust" minOccurs="0"/>
           <xs:element ref="schemas:humidity" minOccurs="0"/>
+          <xs:element ref="schemas:ppcp" minOccurs="0"/>
           <xs:element ref="schemas:pressure" minOccurs="0"/>
           <xs:element ref="schemas:description" minOccurs="0"/>
           <xs:element ref="schemas:flike" minOccurs="0"/>
           <xs:element ref="schemas:icon" minOccurs="0"/>
-          <xs:element ref="schemas:ppcp" minOccurs="0"/>
         </xs:sequence>
         <xs:sequence>
-          <xs:element ref="schemas:sunrise"/>
-          <xs:element ref="schemas:sunset"/>
-          <xs:element ref="schemas:moon"/>
+          <xs:element ref="schemas:sunrise" minOccurs="0"/>
+          <xs:element ref="schemas:sunset" minOccurs="0"/>
+          <xs:element ref="schemas:moon" minOccurs="0"/>
         </xs:sequence>
       </xs:choice>  
       <xs:attribute name="end" use="required" type="xs:integer"/>

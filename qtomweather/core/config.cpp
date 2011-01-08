@@ -71,6 +71,9 @@ std::string& Config::prefix() const{
     }
 ////////////////////////////////////////////////////////////////////////////////
     void Config::processNode(const xmlpp::Node* node){
+        Station* station;
+        std::string station_name;
+        std::string id;
         if(!node)
             return;
         std::string nodeName = node->get_name();
@@ -96,6 +99,11 @@ std::string& Config::prefix() const{
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
             _iconset->assign(nodeText->get_content());
+            return;
+        }
+        // station
+        if(nodeName == "station"){
+            _stations.push_back(new Station("BOXX0014", "Vitebsk"));
             return;
         }
 /*

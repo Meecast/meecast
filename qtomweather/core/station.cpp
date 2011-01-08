@@ -1,15 +1,19 @@
 #include "station.h"
+#include <iostream>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    Station::Station(const std::string& id, const std::string& name,
-                    const std::string& country, const std::string& region){
+    Station::Station(const std::string& id, const std::string& name, const std::string& country,
+                     const std::string& region){
+        std::cerr<<"dddddd"<<std::endl;
         _id = new std::string(id);
         _name = new std::string(name);
         _country = new std::string(country);
         _region = new std::string(region);
         _timezone = 0;
         _fileName = NULL;
+        _source = NULL;
+        std::cout<<"dddddd"<<std::endl;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::~Station(){
@@ -28,6 +32,7 @@ namespace Core {
         _name = new std::string(*(station._name));
         _country = new std::string(*(station._country));
         _region = new std::string(*(station._region));
+        _source = station._source;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station& Station::operator=(const Station& station){
@@ -80,6 +85,14 @@ namespace Core {
         if(!force || dataValid())
             return true;
         return true;
+    }
+////////////////////////////////////////////////////////////////////////////////
+    void Station::source(Source *source){
+           _source = source;
+    }
+////////////////////////////////////////////////////////////////////////////////
+    std::string& Station::forecastURL() const{
+        return _source->forecastURL();
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

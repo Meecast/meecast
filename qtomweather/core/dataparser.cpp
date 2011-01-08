@@ -32,7 +32,7 @@ namespace Core {
         if(!node)
             return;
         std::string nodeName = node->get_name();
-        std::cout<<"ffffffff  "<<nodeName<<std::endl;
+
         // source tag
         if(nodeName == "station"){
             xmlpp::Node::NodeList list = node->get_children();
@@ -45,7 +45,7 @@ namespace Core {
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
             _timezone = atoi(nodeText->get_content().c_str());
-            std::cout<<"timezone "<<_timezone<<std::endl;
+            /* std::cout<<"timezone "<<_timezone<<std::endl; */
             return;
         }
         // period tag
@@ -66,7 +66,7 @@ namespace Core {
             xmlpp::Node::NodeList list = node->get_children();
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
-            std::cout<<"temperature "<< nodeText->get_content() <<std::endl;
+            /* std::cout<<"temperature "<< nodeText->get_content() <<std::endl; */
             forecast_data->temperature_hi().value(atof(nodeText->get_content().c_str()));
             return;
         }
@@ -75,7 +75,7 @@ namespace Core {
             xmlpp::Node::NodeList list = node->get_children();
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
-            std::cout<<"temperature "<< nodeText->get_content() <<std::endl;
+            /* std::cout<<"temperature "<< nodeText->get_content() <<std::endl; */
             forecast_data->temperature_low().value(atof(nodeText->get_content().c_str()));
             return;
         }
@@ -84,7 +84,7 @@ namespace Core {
             xmlpp::Node::NodeList list = node->get_children();
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
-            std::cout<<"temperature "<< nodeText->get_content() <<std::endl;
+            /* std::cout<<"temperature "<< nodeText->get_content() <<std::endl; */
             forecast_data->temperature_hi().value(atof(nodeText->get_content().c_str()));
             return;
         }
@@ -94,7 +94,7 @@ namespace Core {
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
             std::cout<<"icon "<< nodeText->get_content() <<std::endl;
-            forecast_data->Icon(atoi(nodeText->get_content().c_str()));
+            /* forecast_data->Icon(atoi(nodeText->get_content().c_str())); */
             return;
         }
         // Text tag
@@ -102,7 +102,7 @@ namespace Core {
             xmlpp::Node::NodeList list = node->get_children();
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
-            std::cout<<"Description "<< nodeText->get_content() <<std::endl;
+            /* std::cout<<"Description "<< nodeText->get_content() <<std::endl; */
             forecast_data->Text(nodeText->get_content().c_str());
             return;
         }

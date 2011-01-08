@@ -20,6 +20,7 @@ namespace Core {
             Source& operator=(const Source& source);
             std::string& name() const;
             std::string& logo() const;
+            std::string& forecastURL() const;
             virtual ~Source();
     };
 } // namespace Core

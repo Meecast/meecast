@@ -29,7 +29,8 @@ RESOURCES += weatherlayoutitem.qrc
 
 OTHER_FILES += \
     layoutitem.qml \
-    weatherlayoutitem.qml
+    weatherlayoutitem.qml \
+    Details.qml
 
 
 INCLUDEPATH += ../core

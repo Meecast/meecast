@@ -8,25 +8,33 @@
 class DataItem : public QObject, public Core::Data
 {
     Q_OBJECT
-    ConfigQml* _config;
     public:
     enum Roles {
         NameRole = Qt::UserRole+1,
+        IdRole,
         Temp_hiRole,
         Temp_loRole,
-        IconRole
+        IconRole,
+        Wind_directionRole,
+        Wind_speedRole
     };
 public:
     DataItem();
     DataItem(const Core::Data *data);
     virtual ~DataItem(){};
     QVariant data(int role);
+    QVariant getData(QString name);
     QHash<int, QByteArray> roleNames() const;
     inline QString temperature_high();
     inline QString temperature_low();
+    inline QString wind_direction();
+    inline QString wind_speed();
     inline QString icon();
-    void setConfig(ConfigQml * config);
+    void setId(int id);
+    int getId();
 
+private:
+    int _id;
 };
 
 #endif // DATAITEM_H

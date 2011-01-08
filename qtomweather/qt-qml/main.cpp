@@ -111,7 +111,7 @@ int main(int argc, char* argv[])
     QmlLayoutItem* qml_layout_item;
     Core::DataParser* dp;
     Core::Data *temp_data = NULL;
-    int i;
+    int i, id;
 
     config = create_and_fill_config();
 
@@ -133,7 +133,9 @@ int main(int argc, char* argv[])
     while  (temp_data = dp->data().GetDataForTime(time(NULL) + i)) {
         i = i + 3600*24;
         forecast_data = new DataItem(temp_data);
-        model->appendRow(forecast_data);
+        id = model->appendRow(forecast_data);
+        forecast_data->setId(id);
+
     }
 
 
@@ -142,6 +144,7 @@ int main(int argc, char* argv[])
     if (forecast_data){
         qview.rootContext()->setContextProperty("Forecast", forecast_data);
     }*/
+    //std::cout << "temp = " << model->getRow(2) << std::endl;
     qview.rootContext()->setContextProperty("Forecast_model", model);
     qview.rootContext()->setContextProperty("Config", config);
     qview.setSource(QUrl(":weatherlayoutitem.qml"));

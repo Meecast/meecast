@@ -5,16 +5,19 @@ DataItem::DataItem()
 }
 
 DataItem::DataItem(const Core::Data* data):QObject(),Core::Data(data){
-
+    _id = -1;
 }
 
 QHash<int, QByteArray> DataItem::roleNames() const
 {
     QHash<int,QByteArray> names;
+    names[IdRole] = "id";
     names[NameRole] = "name";
     names[Temp_hiRole] = "temp_high";
     names[Temp_loRole] = "temp_low";
     names[IconRole] = "pict";
+    names[Wind_directionRole] = "wind_direction";
+    names[Wind_speedRole] = "wind_speed";
     return names;
 }
 
@@ -23,15 +26,38 @@ QVariant DataItem::data(int role)
     switch (role){
     case NameRole:
         return "item";
+    case IdRole:
+        return getId();
     case Temp_hiRole:
         return temperature_high();
     case Temp_loRole:
         return temperature_low();
     case IconRole:
         return icon();
+    case Wind_directionRole:
+        return wind_direction();
+    case Wind_speedRole:
+        return wind_speed();
     default:
         return QVariant();
     }
+}
+
+QVariant DataItem::getData(QString name)
+{
+    if (name == "temp_high")
+        return temperature_high();
+    if (name == "temp_low")
+        return temperature_low();
+    if (name == "pict")
+        return icon();
+    if (name == "wind_direction")
+        return wind_direction();
+    if (name == "wind_speed")
+        return wind_speed();
+
+    return QVariant();
+
 }
 
 QString
@@ -59,8 +85,31 @@ DataItem::icon() {
     QString c;
     return c.number((DataItem::Data::Icon()), 'i', 0) + ".png";
 }
+
+QString
+DataItem::wind_direction() {
+    //return DataItem::Data::WindDirection();
+    return "";
+}
+
+QString
+DataItem::wind_speed() {
+    QString c;
+    if (DataItem::Data::WindSpeed() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    return c.number((DataItem::Data::WindSpeed()), 'f', 0);
+}
+
 void
-DataItem::setConfig(ConfigQml *config)
+DataItem::setId(int id)
 {
-    _config = config;
+    _id = id;
+}
+
+int
+DataItem::getId()
+{
+    return _id;
 }

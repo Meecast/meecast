@@ -33,8 +33,16 @@ DataModel::clear()
     _list.clear();
 }
 
-void
+int
 DataModel::appendRow(DataItem *item)
 {
     _list.append(item);
+    return (_list.size() - 1);
+}
+QVariant
+DataModel::getRow(int id, QString role)
+{
+    if (id < 0 || id >= _list.size())
+        return QVariant();
+    return _list.at(id)->getData(role);
 }

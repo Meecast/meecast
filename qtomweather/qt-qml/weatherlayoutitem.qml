@@ -8,7 +8,7 @@ LayoutItem {    //Sized by the layout
     preferredSize: "256x256"
 */
 Rectangle {
-    width: 800
+    width: 600
     height: 600
 
 
@@ -67,9 +67,10 @@ Rectangle {
             temp_low: "2°C"
         }
     }
-    ListView {
+    GridView {
         id: list
         anchors.fill: parent
+        cellWidth: 256; cellHeight: 256
         //model: itemModel
         model: Forecast_model
         delegate: itemDelegate

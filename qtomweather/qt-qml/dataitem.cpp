@@ -4,6 +4,10 @@ DataItem::DataItem()
 {
 }
 
+DataItem::DataItem(const Core::Data* data):QObject(),Core::Data(data){
+
+}
+
 QHash<int, QByteArray> DataItem::roleNames() const
 {
     QHash<int,QByteArray> names;

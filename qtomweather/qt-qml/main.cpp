@@ -110,7 +110,8 @@ int main(int argc, char* argv[])
     Core::DataList data_list;
     QmlLayoutItem* qml_layout_item;
     Core::DataParser* dp;
-    Core::Data* temp_data = NULL;
+    Core::Data *temp_data = NULL;
+    int i;
 
     config = create_and_fill_config();
 
@@ -128,8 +129,15 @@ int main(int argc, char* argv[])
 
     forecast_data = create_and_fill_class_data_for_hours_forecast();
     DataModel *model = new DataModel(new DataItem, qApp);
-    model->appendRow(create_and_fill_class_data_for_hours_forecast());
-    model->appendRow(create_and_fill_class_data_for_hours_forecast());
+    i = 0;
+    while  (temp_data = dp->data().GetDataForTime(time(NULL) + i)) {
+        i = i + 3600*24;
+        forecast_data = new DataItem(temp_data);
+        model->appendRow(forecast_data);
+    }
+
+   // model->appendRow(create_and_fill_class_data_for_hours_forecast());
+   // model->appendRow(create_and_fill_class_data_for_hours_forecast());
 
     /*
     temp_data = dp->data().GetDataForTime(time(NULL));

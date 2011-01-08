@@ -46,10 +46,4 @@ DataQml::refreshview(){
     emit DataQml::iconChanged();
     emit DataQml::textChanged();
 }
-QString
-DataQml::inc_temperature_high()
-{
-    QString c;
-    DataQml::Data::temperature_hi().value(DataQml::Data::temperature_hi().value()+1);
-    return c.number((DataQml::Data::temperature_hi().value()),'f',0);
-}
+

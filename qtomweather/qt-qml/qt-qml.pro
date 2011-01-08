@@ -13,12 +13,16 @@ TEMPLATE = app
 SOURCES += main.cpp \
     dataqml.cpp \
     configqml.cpp \
-    qmllayoutitem.cpp
+    qmllayoutitem.cpp \
+    dataitem.cpp \
+    datamodel.cpp
 
 HEADERS  += \
     dataqml.h \
     configqml.h \
-    qmllayoutitem.h
+    qmllayoutitem.h \
+    dataitem.h \
+    datamodel.h
 
 FORMS    +=
 RESOURCES += weatherlayoutitem.qrc

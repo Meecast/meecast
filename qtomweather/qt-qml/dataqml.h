@@ -17,7 +17,6 @@ class DataQml : public QObject, public Core::Data
     DataQml(const Core::Data *data);
     QString temperature_high();
     QString temperature_low();
-    Q_INVOKABLE QString inc_temperature_high();
     QString text();
     int icon();
     void refreshview();

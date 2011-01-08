@@ -33,7 +33,7 @@ Rectangle {
                 //text: Forecast.temperature_high + '°' +Config.temperatureunit
                 text: temp_high
                 font.pointSize: 20
-                color: Config.fontcolor
+                //color: Config.fontcolor
                 anchors.right: parent.right
                 anchors.left: forecast_icon.right
                 anchors.top: forecast_icon.top
@@ -44,7 +44,7 @@ Rectangle {
                 //text: Forecast.temperature_low + '°' +Config.temperatureunit
                 text: temp_low
                 font.pointSize: 20
-                color: Config.fontcolor
+                //color: Config.fontcolor
                 //	color: "white"
                 anchors.right: parent.right
                 anchors.left: forecast_icon.right
@@ -70,7 +70,8 @@ Rectangle {
     ListView {
         id: list
         anchors.fill: parent
-        model: itemModel
+        //model: itemModel
+        model: Forecast_model
         delegate: itemDelegate
     }
 

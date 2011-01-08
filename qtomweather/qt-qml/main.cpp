@@ -15,6 +15,8 @@
 #include "dataqml.h"
 #include "configqml.h"
 #include "qmllayoutitem.h"
+#include "dataitem.h"
+#include "datamodel.h"
 
 //////////////////////////////////////////////////////////////////////////////
 DataQml *
@@ -50,10 +52,10 @@ create_and_fill_class_data_for_day_forecast()
 }
 //////////////////////////////////////////////////////////////////////////////
 
-DataQml *
+DataItem *
 create_and_fill_class_data_for_hours_forecast()
 {
-    DataQml *wdata = new DataQml;
+    DataItem *wdata = new DataItem;
     wdata->StartTime(time(NULL) - 3600);
     wdata->EndTime(time(NULL) + 3600);
     wdata->Data::temperature_hi().value(23.0);
@@ -61,7 +63,7 @@ create_and_fill_class_data_for_hours_forecast()
     wdata->WindSpeed(3.0);
     wdata->WindGust(4.0);
     wdata->WindDirection(std::string("NNW"));
-    wdata->Icon(3);
+    wdata->Icon(0);
     wdata->Text(std::string("Clear"));
     return wdata;
 }
@@ -103,7 +105,8 @@ int main(int argc, char* argv[])
 
 
     ConfigQml *config;
-    DataQml *forecast_data = NULL;
+    DataItem *forecast_data = NULL;
+
     Core::DataList data_list;
     QmlLayoutItem* qml_layout_item;
     Core::DataParser* dp;
@@ -123,18 +126,23 @@ int main(int argc, char* argv[])
         return -1;
     }
 
-   // forecast_data = create_and_fill_class_data_for_hours_forecast();
+    forecast_data = create_and_fill_class_data_for_hours_forecast();
+    DataModel *model = new DataModel(new DataItem, qApp);
+    model->appendRow(create_and_fill_class_data_for_hours_forecast());
+    model->appendRow(create_and_fill_class_data_for_hours_forecast());
+
+    /*
     temp_data = dp->data().GetDataForTime(time(NULL));
     if (temp_data)
         forecast_data = new DataQml(temp_data);
-
+*/
     QDeclarativeView qview;
+    /*
     if (forecast_data){
         qview.rootContext()->setContextProperty("Forecast", forecast_data);
-    }
-    qview.rootContext()->setContextProperty("Config", config);
+    }*/
+    qview.rootContext()->setContextProperty("Forecast_model", model);
     qview.setSource(QUrl(":weatherlayoutitem.qml"));
-    //qview.setSource(QUrl(":test.qml"));
     qview.show();
 
 /*

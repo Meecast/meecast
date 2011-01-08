@@ -150,6 +150,7 @@ int main(int argc, char* argv[])
         qview.rootContext()->setContextProperty("Forecast", forecast_data);
     }*/
     qview.rootContext()->setContextProperty("Forecast_model", model);
+    qview.rootContext()->setContextProperty("Config", config);
     qview.setSource(QUrl(":weatherlayoutitem.qml"));
     qview.show();
 

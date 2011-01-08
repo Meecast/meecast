@@ -7,4 +7,9 @@
   <station_name>Vitebsk</station_name>
   <station_id>BOXX0014</station_id>
 </station>
+<station>
+  <source_name>weather.com</source_name>
+  <station_name>Vitebsk2</station_name>
+  <station_id>BOXX0014</station_id>
+</station>
 </config>

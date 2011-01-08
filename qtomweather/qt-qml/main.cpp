@@ -136,14 +136,7 @@ int main(int argc, char* argv[])
         model->appendRow(forecast_data);
     }
 
-   // model->appendRow(create_and_fill_class_data_for_hours_forecast());
-   // model->appendRow(create_and_fill_class_data_for_hours_forecast());
 
-    /*
-    temp_data = dp->data().GetDataForTime(time(NULL));
-    if (temp_data)
-        forecast_data = new DataQml(temp_data);
-*/
     QDeclarativeView qview;
     /*
     if (forecast_data){

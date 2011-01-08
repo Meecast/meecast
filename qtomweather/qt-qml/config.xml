@@ -2,4 +2,9 @@
 <config xmlns="http://omweather.garage.maemo.org/schemas">
 <base>../../omweather/data</base>
 <iconset>Glance</iconset>
+<station>
+  <source_name>weather.com</source_name>
+  <station_name>Vitebsk</station_name>
+  <station_id>BOXX0014</station_id>
+</station>
 </config>

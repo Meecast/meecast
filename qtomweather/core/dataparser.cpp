@@ -106,6 +106,15 @@ namespace Core {
             forecast_data->Text(nodeText->get_content().c_str());
             return;
         }
+        // Humidity tag
+        if(nodeName == "humidity"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            /* std::cout<<"Humidity "<< nodeText->get_content() <<std::endl; */
+            forecast_data->Humidity(atoi(nodeText->get_content().c_str()));
+            return;
+        }
 
     }
 ////////////////////////////////////////////////////////////////////////////////

@@ -1,5 +1,6 @@
 #include "data.h"
 #include <limits.h>
+#include <iostream>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
@@ -24,7 +25,7 @@ namespace Core {
         _flike = new Temperature;
         _windSpeed = INT_MAX;
         _windGust = INT_MAX;
-        _humidity = INT_MAX;
+        _humidity = data->_humidity;
         _pressure = INT_MAX;
         _icon = data->_icon;
         _windDirection = new std::string("N/A");

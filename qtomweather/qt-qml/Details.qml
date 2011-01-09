@@ -37,7 +37,7 @@ Rectangle {
         anchors.top: icon.top
         anchors.topMargin: 10
         Text {text: "Температура: " + Forecast_model.getRow(details.item_id, "temp_high")}
-        Text {text: "Влажность: "/* + Data.humidity*/ }
+        Text {text: "Влажность: " + Forecast_model.getRow(details.item_id, "humidity") }
         Text {text: "Ветер: "/* + Data.windDirection*/ }
         Text {text: "Скорость: " + Forecast_model.getRow(details.item_id, "wind_speed")}
     }

@@ -18,6 +18,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[IconRole] = "pict";
     names[Wind_directionRole] = "wind_direction";
     names[Wind_speedRole] = "wind_speed";
+    names[HumidityRole] = "humidity";
     return names;
 }
 
@@ -38,6 +39,8 @@ QVariant DataItem::data(int role)
         return wind_direction();
     case Wind_speedRole:
         return wind_speed();
+    case HumidityRole:
+        return humidity();
     default:
         return QVariant();
     }
@@ -55,7 +58,8 @@ QVariant DataItem::getData(QString name)
         return wind_direction();
     if (name == "wind_speed")
         return wind_speed();
-
+    if (name == "humidity")
+        return humidity();
     return QVariant();
 
 }
@@ -80,6 +84,15 @@ DataItem::temperature_low() {
     return c.number((DataItem::Data::temperature_low().value()),'f',0);
 }
 
+QString
+DataItem::humidity() {
+    QString c;
+    if (DataItem::Data::Humidity() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    return c.number((DataItem::Data::Humidity()),'i',0);
+}
 QString
 DataItem::icon() {
     QString c;

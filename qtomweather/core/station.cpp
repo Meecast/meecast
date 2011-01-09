@@ -1,11 +1,9 @@
 #include "station.h"
-#include <iostream>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const std::string& id, const std::string& name, const std::string& country,
                      const std::string& region){
-        std::cerr<<"dddddd"<<std::endl;
         _id = new std::string(id);
         _name = new std::string(name);
         _country = new std::string(country);
@@ -13,7 +11,6 @@ namespace Core {
         _timezone = 0;
         _fileName = NULL;
         _source = NULL;
-        std::cout<<"dddddd"<<std::endl;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::~Station(){

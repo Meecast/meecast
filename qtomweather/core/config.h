@@ -28,6 +28,7 @@ namespace Core{
             std::string& TemperatureUnit(void);
             void FontColor(const std::string& text);
             std::string& FontColor(void);
+            std::vector<Station*>& StationsList();
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

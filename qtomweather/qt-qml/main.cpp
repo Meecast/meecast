@@ -113,7 +113,11 @@ int main(int argc, char* argv[])
     Core::Data *temp_data = NULL;
     int i, id;
 
+    std::vector<Core::Station*> StationsList;
+
     config = create_and_fill_config();
+    StationsList = config->StationsList();
+    std::cerr<<"size "<<StationsList.size()<<std::endl;
 
     try{
         dp = new Core::DataParser("data.xml", "../core/data/data.xsd");

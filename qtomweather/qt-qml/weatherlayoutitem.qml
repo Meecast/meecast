@@ -58,7 +58,9 @@ Rectangle {
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked: details.show(parent.item_id)
+                onClicked: {
+                    details.show(parent.item_id)
+                }
                 hoverEnabled: true
                 onEntered: parent.opacity = 1
                 onExited: parent.opacity = 0.7
@@ -67,24 +69,11 @@ Rectangle {
 
 
     }
-    ListModel {
-        id: itemModel
-        ListElement {
-            pict: "0.png"
-            temp_high: "-4°C"
-            temp_low: "N/A"
-        }
-        ListElement {
-            pict: "0.png"
-            temp_high: "0°C"
-            temp_low: "2°C"
-        }
-    }
+
     GridView {
         id: list
         anchors.fill: parent
         cellWidth: 220; cellHeight: 200
-        //model: itemModel
         model: Forecast_model
         delegate: itemDelegate
     }

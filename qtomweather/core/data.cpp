@@ -23,7 +23,7 @@ namespace Core {
     ////////////////////////////////////////////////////////////////////////////////
     Data::Data(const Data *data){
         _flike = new Temperature;
-        _windSpeed = INT_MAX;
+        _windSpeed = data->_windSpeed;
         _windGust = INT_MAX;
         _humidity = data->_humidity;
         _pressure = INT_MAX;

@@ -15,6 +15,7 @@ namespace Core {
         _text = new std::string("N/A");
         _temperature_hi = new Temperature;
         _temperature_low = new Temperature;
+        _current = 0;
     }
     ////////////////////////////////////////////////////////////////////////////////
     Data::Data(const Data& data){
@@ -32,7 +33,7 @@ namespace Core {
         _text = data->_text;
         _temperature_hi = data->_temperature_hi;
         _temperature_low = data->_temperature_low;
-
+        _current = data->_current;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
@@ -94,6 +95,16 @@ namespace Core {
          /* need to check type ( ) */
          return _humidity;
      }
+////////////////////////////////////////////////////////////////////////////////
+     void
+     Data::Current(bool current){
+              _icon = current;
+     }
+////////////////////////////////////////////////////////////////////////////////
+      bool
+      Data::Current() const{
+         return _current;
+      }
 ////////////////////////////////////////////////////////////////////////////////
      void
      Data::Icon(int icon){

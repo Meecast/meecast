@@ -56,6 +56,11 @@ namespace Core {
             forecast_data->StartTime(atoi(attribute->get_value().c_str()));
             attribute = nodeElement->get_attribute("end");
             forecast_data->EndTime(atoi(attribute->get_value().c_str()));
+            attribute = nodeElement->get_attribute("current");
+
+            if (attribute && attribute->get_value() == "true"){
+                forecast_data->Current(1);
+            }
             xmlpp::Node::NodeList list = node->get_children();
             for(xmlpp::Node::NodeList::iterator iter = list.begin(); iter != list.end(); ++iter)
                 processNode(*iter);

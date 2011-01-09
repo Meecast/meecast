@@ -21,6 +21,7 @@ namespace Core{
         int _icon;
         Temperature *_temperature_hi;
         Temperature *_temperature_low;
+        bool _current;
         public:
             Data();
             Data(const Data& data);
@@ -38,6 +39,8 @@ namespace Core{
             int   Humidity(void) const;
             void  Icon(int icon);
             int   Icon(void) const;
+            void  Current(bool current);
+            bool  Current(void) const;
             void  Text(const std::string& text);
             std::string& Text(void);
             time_t GetTimeDistance(time_t need_time); /* Checking for  occurrence of this time (need_time) to Data interval and return the interval if  this time are include */

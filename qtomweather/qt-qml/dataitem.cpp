@@ -101,8 +101,9 @@ DataItem::icon() {
 
 QString
 DataItem::wind_direction() {
-    //return DataItem::Data::WindDirection();
-    return "";
+    QString c;
+    c = DataItem::Data::WindDirection().c_str();
+    return c;
 }
 
 QString

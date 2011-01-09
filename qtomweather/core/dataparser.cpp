@@ -121,9 +121,19 @@ namespace Core {
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
             /* std::cout<<"Wind speed "<< nodeText->get_content() <<std::endl; */
-            forecast_data->WindSpeed(atoi(nodeText->get_content().c_str()));
+            forecast_data->WindSpeed    (atoi(nodeText->get_content().c_str()));
             return;
         }
+        // Wind direction tag
+        if(nodeName == "wind_direction"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            /* std::cout<<"Wind direction "<< nodeText->get_content() <<std::endl; */
+            forecast_data->WindDirection(nodeText->get_content().c_str());
+            return;
+        }
+
     }
 ////////////////////////////////////////////////////////////////////////////////
     DataList& DataParser::data(){

@@ -93,8 +93,8 @@ namespace Core {
             xmlpp::Node::NodeList list = node->get_children();
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
-            std::cout<<"icon "<< nodeText->get_content() <<std::endl;
-            /* forecast_data->Icon(atoi(nodeText->get_content().c_str())); */
+            /* std::cout<<"icon "<< nodeText->get_content() <<std::endl; */
+            forecast_data->Icon(atoi(nodeText->get_content().c_str()));
             return;
         }
         // Text tag

@@ -2,7 +2,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    Station::Station(const std::string& id, const std::string& name, const std::string& country,
+    Station::Station(const std::string& source_name, const std::string& id,
+                     const std::string& name, const std::string& country,
                      const std::string& region){
         _id = new std::string(id);
         _name = new std::string(name);
@@ -89,6 +90,7 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     std::string& Station::forecastURL() const{
+        std::cout<<"uuuuuuuuu"<<std::endl;
         return _source->forecastURL();
     }
 ////////////////////////////////////////////////////////////////////////////////

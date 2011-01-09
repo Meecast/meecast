@@ -32,6 +32,16 @@ create_and_fill_config(){
 
     return config;
 }
+//////////////////////////////////////////////////////////////////////////////
+bool
+update_weather_forecast(std::vector<Core::Station*> StationsList){
+    int i;
+    Core::Station* station;
+    for (i=0; i<StationsList.size();i++){
+        station = StationsList.at(i);
+     //   std::cerr<<"yyyyyy    "<< station->forecastURL()<<std::endl;
+    }
+}
 
 int main(int argc, char* argv[])
 {
@@ -69,6 +79,7 @@ int main(int argc, char* argv[])
     config = create_and_fill_config();
     StationsList = config->StationsList();
     std::cerr<<"size "<<StationsList.size()<<std::endl;
+    update_weather_forecast(StationsList);
 
     try{
         dp = new Core::DataParser("data.xml", "../core/data/data.xsd");
@@ -81,7 +92,6 @@ int main(int argc, char* argv[])
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;
         return -1;
     }
-
 
     DataModel *model = new DataModel(new DataItem, qApp);
     i = 0;

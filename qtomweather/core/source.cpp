@@ -67,6 +67,7 @@ namespace Core {
         if(!node)
             return;
         std::string nodeName = node->get_name();
+        std::cerr<<"NodeName  "<<node->get_name();
         // source tag
         if(nodeName == "source"){
             xmlpp::Node::NodeList list = node->get_children();
@@ -101,8 +102,10 @@ namespace Core {
         if(nodeName == "forecast"){
             const xmlpp::Element* nodeElement = dynamic_cast<const xmlpp::Element*>(node);
             const xmlpp::Attribute* attribute = nodeElement->get_attribute("url");
-            if(attribute)
+            if(attribute){
+                std::cout<<"fffff  "<<attribute->get_value()<<std::endl;
                 _forecastUrl->assign(attribute->get_value());
+            }
             return;
         }
         // detail tag
@@ -140,6 +143,8 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     std::string& Source::forecastURL() const{
+        std::cout<<"oooooo"<<std::endl;
+        std::cout<<"oooooo  "<<_forecastUrl<<std::endl;
             return *_forecastUrl;
     }
 ////////////////////////////////////////////////////////////////////////////////

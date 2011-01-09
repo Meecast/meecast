@@ -4,6 +4,7 @@
 #include <string>
 #include "parser.h"
 #include "station.h"
+#include "source.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     class Config : public Parser{
@@ -12,6 +13,7 @@ namespace Core{
             std::string *_iconset;
             std::string *_temperature_unit;
             std::string *_font_color;
+            std::vector<Source*> _sourcess;
             std::vector<Station*> _stations;
         public:
             const static std::string schemaPath;

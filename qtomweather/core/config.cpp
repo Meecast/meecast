@@ -103,7 +103,7 @@ std::string& Config::prefix() const{
         }
         // station
         if(nodeName == "station"){
-            _stations.push_back(new Station("BOXX0014", "Vitebsk"));
+            _stations.push_back(new Station("weather.com", "BOXX0014", "Vitebsk"));
             return;
         }
 /*

@@ -19,7 +19,7 @@ namespace Core{
         bool dataValid();
         bool prepareFile();
         public:
-            Station(const std::string& id, const std::string& name = "",
+        Station(const std::string& source_name, const std::string& id, const std::string& name = "",
                     const std::string& country = "", const std::string& region = "");
             Station(const Station& station);
             Station& operator=(const Station& station);

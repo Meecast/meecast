@@ -610,7 +610,7 @@ parse_xml_detail_data(const gchar *station_id, xmlNode *root_node, GHashTable *d
 
 /*******************************************************************************/
 gint
-parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
+parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gchar *result_file){
     xmlNode     *cur_node = NULL,
                 *child_node = NULL,
                 *child_node2 = NULL,
@@ -653,7 +653,8 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    file_out = fopen ("myfile.txt","w"); 
+    //file_out = fopen ("myfile.txt","w"); 
+    file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
     fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
@@ -1180,7 +1181,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node){
 
 /*******************************************************************************/
 gint
-convert_station_weather_data(const gchar *station_id_with_path, gboolean get_detail_data){
+convert_station_weather_data(const gchar *station_id_with_path, const gchar *result_file,  gboolean get_detail_data){
     xmlDoc  *doc = NULL;
     xmlNode *root_node = NULL;
     gint    days_number = -1;
@@ -1225,7 +1226,7 @@ convert_station_weather_data(const gchar *station_id_with_path, gboolean get_det
                             //if(get_detail_data)
                             //    days_number = parse_xml_detail_data(buffer2, root_node, data);
                             //else
-                                days_number = parse_and_write_xml_data(buffer2, root_node);
+                                days_number = parse_and_write_xml_data(buffer2, root_node, result_file);
                             rename(buffer, station_id_with_path);
                             xmlFreeDoc(doc);
                             xmlCleanupParser();
@@ -1266,7 +1267,7 @@ convert_station_weather_data(const gchar *station_id_with_path, gboolean get_det
 //                if(get_detail_data)
 //                    days_number = parse_xml_detail_data(buffer, root_node, data);
 //                else
-                    days_number = parse_and_write_xml_data(buffer, root_node);
+                    days_number = parse_and_write_xml_data(buffer, root_node, result_file);
             }
             xmlFreeDoc(doc);
             xmlCleanupParser();
@@ -1278,8 +1279,13 @@ convert_station_weather_data(const gchar *station_id_with_path, gboolean get_det
 }
 
 int
-main(void){
+main(int argc, char *argv[]){
     int result; 
-    result = convert_station_weather_data("./BOXX0014.xml", FALSE);
+    if (argc != 3) {
+        fprintf(stderr, "weathercom <input_file> <output_file>\n");
+        return -1;
+    }
+    result = convert_station_weather_data(argv[1], argv[2], FALSE);
+    fprintf(stderr, "\nresult = %d\n", result);
     return result;
 }

@@ -23,7 +23,7 @@ Rectangle {
             //id: area
             id: weatherlayoutitem
             property int item_id: id
-            Text {text: current}
+            Text {text: qsTr("Current") + current}
             Image {
                 id: forecast_icon
                 //source: Config.iconspath + "/" + Config.iconset + "/" + Forecast.icon + ".png"

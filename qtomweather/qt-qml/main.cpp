@@ -7,6 +7,7 @@
 #include <QDeclarativeContext>
 #include <QDeclarativeEngine>
 #include <QDeclarativeView>
+#include <QTranslator>
 #include <QGraphicsGridLayout>
 #include <exception>
 #include <iostream>
@@ -103,6 +104,9 @@ int main(int argc, char* argv[])
 
     }
 
+    QTranslator translator;
+    translator.load("ru.qml", "i18n");
+    app.installTranslator(&translator);
 
     QDeclarativeView qview;
     /*

@@ -36,10 +36,10 @@ Rectangle {
         anchors.left: icon.right
         anchors.top: icon.top
         anchors.topMargin: 10
-        Text {text: "Температура: " + Forecast_model.getRow(details.item_id, "temp_high")}
-        Text {text: "Влажность: " + Forecast_model.getRow(details.item_id, "humidity") }
-        Text {text: "Ветер: " + Forecast_model.getRow(details.item_id, "wind_direction")}
-        Text {text: "Скорость: " + Forecast_model.getRow(details.item_id, "wind_speed")}
+        Text {text: qsTr("Temperature") + ": " + Forecast_model.getRow(details.item_id, "temp_high")}
+        Text {text: qsTr("Humidity") + ": " + Forecast_model.getRow(details.item_id, "humidity") }
+        Text {text: qsTr("Wind direction") + ": " + Forecast_model.getRow(details.item_id, "wind_direction")}
+        Text {text: qsTr("Wind speed") + ": " + Forecast_model.getRow(details.item_id, "wind_speed")}
     }
 
     MouseArea

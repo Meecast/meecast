@@ -17,7 +17,8 @@ class DataItem : public QObject, public Core::Data
         IconRole,
         Wind_directionRole,
         Wind_speedRole,
-        HumidityRole
+        HumidityRole,
+        CurrentRole
     };
 public:
     DataItem();
@@ -32,6 +33,7 @@ public:
     inline QString wind_speed();
     inline QString humidity();
     inline QString icon();
+    inline QString current();
     void setId(int id);
     int getId();
 

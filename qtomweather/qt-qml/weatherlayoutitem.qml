@@ -17,12 +17,13 @@ Rectangle {
         Rectangle {
             width: 220
             height: 200
-            color: "yellow"
+            color: current == '0' ? "yellow" : "green"
             opacity: 0.7
             //anchors.fill: parent
             //id: area
             id: weatherlayoutitem
             property int item_id: id
+            Text {text: current}
             Image {
                 id: forecast_icon
                 //source: Config.iconspath + "/" + Config.iconset + "/" + Forecast.icon + ".png"

@@ -19,6 +19,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[Wind_directionRole] = "wind_direction";
     names[Wind_speedRole] = "wind_speed";
     names[HumidityRole] = "humidity";
+    names[CurrentRole] = "current";
     return names;
 }
 
@@ -41,6 +42,8 @@ QVariant DataItem::data(int role)
         return wind_speed();
     case HumidityRole:
         return humidity();
+    case CurrentRole:
+        return current();
     default:
         return QVariant();
     }
@@ -60,6 +63,8 @@ QVariant DataItem::getData(QString name)
         return wind_speed();
     if (name == "humidity")
         return humidity();
+    if (name == "current")
+        return current();
     return QVariant();
 
 }
@@ -114,6 +119,12 @@ DataItem::wind_speed() {
         return c;
     }
     return c.number((DataItem::Data::WindSpeed()), 'f', 0);
+}
+QString
+DataItem::current()
+{
+    if (DataItem::Data::Current()) return "1";
+    else return "0";
 }
 
 void

@@ -120,11 +120,12 @@ DataItem::wind_speed() {
     }
     return c.number((DataItem::Data::WindSpeed()), 'f', 0);
 }
-QString
+bool
 DataItem::current()
 {
-    if (DataItem::Data::Current()) return "1";
-    else return "0";
+    //if (DataItem::Data::Current()) return "1";
+    //else return "0";
+    return DataItem::Data::Current();
 }
 
 void

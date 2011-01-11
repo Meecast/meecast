@@ -33,7 +33,7 @@ public:
     inline QString wind_speed();
     inline QString humidity();
     inline QString icon();
-    inline QString current();
+    inline bool current();
     void setId(int id);
     int getId();
 

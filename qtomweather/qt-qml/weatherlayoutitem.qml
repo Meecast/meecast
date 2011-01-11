@@ -17,7 +17,7 @@ Rectangle {
         Rectangle {
             width: 220
             height: 200
-            color: current == '0' ? "yellow" : "green"
+            color: !current ? "yellow" : "green"
             opacity: 0.7
             //anchors.fill: parent
             //id: area

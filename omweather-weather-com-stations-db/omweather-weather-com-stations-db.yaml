@@ -9,9 +9,20 @@ Sources:
     - "%{name}-%{version}.tar.bz2"
 Description: Stations database and source lib for weather.com for Other Maemo Weather 
 
+PkgBR:
+    - gcc
+    - make
 PkgConfigBR:
     - libxml-2.0
     - glib-2.0 
-Configure: none
-Builder: none
-Files: none
+Configure: configure
+ConfigOptions: 
+    - --datadir="/usr/share"
+
+Builder: make 
+Files:
+    - "/usr/lib/omweather/weathercom" 
+    - "/usr/lib/omweather/libomweather-weather-com-source.so" 
+    - "/usr/share/omweather/copyright_icons/weather.com.png" 
+    - "/usr/share/omweather/db/weather.com.db" 
+    - "/usr/share/omweather/sources/weather.com.xml" 

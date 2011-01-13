@@ -11,7 +11,6 @@ class DataItem : public QObject, public Core::Data
     public:
     enum Roles {
         NameRole = Qt::UserRole+1,
-        IdRole,
         Temp_hiRole,
         Temp_loRole,
         IconRole,
@@ -25,7 +24,7 @@ public:
     DataItem(const Core::Data *data);
     virtual ~DataItem(){};
     QVariant data(int role);
-    QVariant getData(QString name);
+    QVariant getData(QByteArray name);
     QHash<int, QByteArray> roleNames() const;
     inline QString temperature_high();
     inline QString temperature_low();
@@ -34,11 +33,7 @@ public:
     inline QString humidity();
     inline QString icon();
     inline bool current();
-    void setId(int id);
-    int getId();
 
-private:
-    int _id;
 };
 
 #endif // DATAITEM_H

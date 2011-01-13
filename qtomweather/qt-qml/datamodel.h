@@ -15,8 +15,8 @@ public:
     ~DataModel();
     int rowCount(const QModelIndex &parent = QModelIndex()) const;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-    int appendRow(DataItem* item);
-    Q_INVOKABLE QVariant getRow(int id, QString role);
+    void appendRow(DataItem* item);
+    Q_INVOKABLE QVariant getRow(int id, QByteArray role);
     void clear();
 private:
     DataItem* _prototype;

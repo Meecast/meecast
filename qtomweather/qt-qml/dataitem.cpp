@@ -5,13 +5,12 @@ DataItem::DataItem()
 }
 
 DataItem::DataItem(const Core::Data* data):QObject(),Core::Data(data){
-    _id = -1;
+
 }
 
 QHash<int, QByteArray> DataItem::roleNames() const
 {
     QHash<int,QByteArray> names;
-    names[IdRole] = "id";
     names[NameRole] = "name";
     names[Temp_hiRole] = "temp_high";
     names[Temp_loRole] = "temp_low";
@@ -28,8 +27,6 @@ QVariant DataItem::data(int role)
     switch (role){
     case NameRole:
         return "item";
-    case IdRole:
-        return getId();
     case Temp_hiRole:
         return temperature_high();
     case Temp_loRole:
@@ -49,23 +46,9 @@ QVariant DataItem::data(int role)
     }
 }
 
-QVariant DataItem::getData(QString name)
+QVariant DataItem::getData(QByteArray name)
 {
-    if (name == "temp_high")
-        return temperature_high();
-    if (name == "temp_low")
-        return temperature_low();
-    if (name == "pict")
-        return icon();
-    if (name == "wind_direction")
-        return wind_direction();
-    if (name == "wind_speed")
-        return wind_speed();
-    if (name == "humidity")
-        return humidity();
-    if (name == "current")
-        return current();
-    return QVariant();
+    return data(roleNames().key(name));
 
 }
 
@@ -123,19 +106,6 @@ DataItem::wind_speed() {
 bool
 DataItem::current()
 {
-    //if (DataItem::Data::Current()) return "1";
-    //else return "0";
     return DataItem::Data::Current();
 }
 
-void
-DataItem::setId(int id)
-{
-    _id = id;
-}
-
-int
-DataItem::getId()
-{
-    return _id;
-}

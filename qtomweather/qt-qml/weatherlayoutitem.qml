@@ -22,7 +22,6 @@ Rectangle {
             //anchors.fill: parent
             //id: area
             id: weatherlayoutitem
-            property int item_id: id
             Text {text: qsTr("Current") + current}
             Image {
                 id: forecast_icon
@@ -60,7 +59,7 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    details.show(parent.item_id)
+                    details.show(index)
                 }
                 hoverEnabled: true
                 onEntered: parent.opacity = 1

@@ -99,8 +99,7 @@ int main(int argc, char* argv[])
     while  (temp_data = dp->data().GetDataForTime(time(NULL) + i)) {
         i = i + 3600*24;
         forecast_data = new DataItem(temp_data);
-        id = model->appendRow(forecast_data);
-        forecast_data->setId(id);
+        model->appendRow(forecast_data);
 
     }
 
@@ -125,7 +124,7 @@ int main(int argc, char* argv[])
 
     forecast_data =  create_and_fill_class_data_for_day_forecast();
     qml_layout_item = new QmlLayoutItem(config, forecast_data);
-    layout->addItem(&qml_layout_item->obj(),1,0);
+    layout->addItem(&qml_layout_item->obj(),0,1);
 
 
 

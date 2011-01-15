@@ -1071,7 +1071,8 @@ hash_for_icons = hash_icons_gismeteo_table_create();
      
       if (day){
          /* added temperature */
-         if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) && xpathObj3->nodesetval->nodeTab[i]->content){
+         if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
+             xpathObj3->nodesetval->nodeTab[i] && xpathObj3->nodesetval->nodeTab[i]->content){
             /* fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
             if (night_flag){
                 g_hash_table_insert(day, "day_low_temperature", g_strdup(xpathObj3->nodesetval->nodeTab[i]->content));
@@ -1082,7 +1083,8 @@ hash_for_icons = hash_icons_gismeteo_table_create();
             }
          }
          /* added icon */
-         if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) && xpathObj4->nodesetval->nodeTab[i]->children->content){
+         if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) &&
+             xpathObj4->nodesetval->nodeTab[i] && xpathObj4->nodesetval->nodeTab[i]->children->content){
             /* fprintf (stderr, "sdfff %s\n", xpathObj4->nodesetval->nodeTab[i]->children->content); */
             temp_char = strrchr((char*)xpathObj4->nodesetval->nodeTab[i]->children->content, '/');
             temp_char ++;
@@ -1092,7 +1094,8 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                 g_hash_table_insert(day, "day_icon", choose_hour_weather_icon(hash_for_icons, temp_char));
          }
          /* added text */
-         if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) && xpathObj5->nodesetval->nodeTab[i]->content){
+         if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) &&
+             xpathObj5->nodesetval->nodeTab[i] && xpathObj5->nodesetval->nodeTab[i]->content){
             /* fprintf (stderr, "sdfff %s\n", xpathObj5->nodesetval->nodeTab[i]->content); */
             if (night_flag)
                 g_hash_table_insert(day, "night_title", 
@@ -1102,20 +1105,23 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                                  g_strdup(hash_gismeteo_table_find(hash_for_translate, xpathObj5->nodesetval->nodeTab[i]->content, FALSE)));
          }
          /* added pressure */
-         if (xpathObj6 && !xmlXPathNodeSetIsEmpty(xpathObj6->nodesetval) && xpathObj6->nodesetval->nodeTab[i*5+2]->content){
+         if (xpathObj6 && !xmlXPathNodeSetIsEmpty(xpathObj6->nodesetval) &&
+             xpathObj6->nodesetval->nodeNr >= (i*5+2) &&
+             xpathObj6->nodesetval->nodeTab[i*5+2] && xpathObj6->nodesetval->nodeTab[i*5+2]->content){
             pressure = atoi((char*)xpathObj6->nodesetval->nodeTab[i*5+2]->content);
             pressure = pressure * 1.333224;
             snprintf(buffer, sizeof(buffer)-1,"%i", pressure);
-            /* fprintf (stderr, "pressure %s\n", xpathObj6->nodesetval->nodeTab[i*5+2]->content); */
+            /* fprintf (stderr, "pressure %s\n", xpathObj6->nodesetval->nodeTab[i*5+2]->content); */ 
             if (night_flag)
                g_hash_table_insert(day, "night_pressure", g_strdup(buffer));
             else
                 g_hash_table_insert(day, "day_pressure", g_strdup(buffer));
          }
          /* added wind speed */
-         if (xpathObj7 && !xmlXPathNodeSetIsEmpty(xpathObj7->nodesetval) && xpathObj7->nodesetval->nodeTab[i]->content){
+         if (xpathObj7 && !xmlXPathNodeSetIsEmpty(xpathObj7->nodesetval) &&
+             xpathObj7->nodesetval->nodeTab[i] && xpathObj7->nodesetval->nodeTab[i]->content){
             /* Normalize speed to km/h from m/s */
-            /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
+            /* fprintf(stderr, "Wind  speed    \n"); */ 
             speed = atoi (xpathObj7->nodesetval->nodeTab[i]->content);
             speed = speed * 3600/1000;
             sprintf(buffer, "%i", speed);
@@ -1125,8 +1131,9 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                 g_hash_table_insert(day, "day_wind_speed", g_strdup(buffer));
          }
          /* added wind direction */
-         if (xpathObj8 && !xmlXPathNodeSetIsEmpty(xpathObj8->nodesetval) && xpathObj8->nodesetval->nodeTab[i]->content){
-             /* fprintf (stderr, "Wind direction: %s\n", xpathObj8->nodesetval->nodeTab[i]->content); */
+         if (xpathObj8 && !xmlXPathNodeSetIsEmpty(xpathObj8->nodesetval) &&
+             xpathObj8->nodesetval->nodeTab[i] && xpathObj8->nodesetval->nodeTab[i]->content){
+             /* fprintf (stderr, "Wind direction: %s\n", xpathObj8->nodesetval->nodeTab[i]->content); */ 
              snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj8->nodesetval->nodeTab[i]->content);
              /* Wind direction */
              if (!strcoll(buffer, "З"))
@@ -1156,7 +1163,9 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                 g_hash_table_insert(day, "day_wind_title", g_strdup(buffer));
          }
          /* added humidity */
-         if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) && xpathObj9->nodesetval->nodeTab[i*5+3]->content){
+         if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) &&
+             xpathObj9->nodesetval->nodeNr >= (i*5+3) &&
+             xpathObj9->nodesetval->nodeTab[i*5+3] && xpathObj9->nodesetval->nodeTab[i*5+3]->content){
             /* fprintf (stderr, "temperature %s\n", xpathObj9->nodesetval->nodeTab[i*5+3]->content); */
             if (night_flag){
                 g_hash_table_insert(day, "night_humidity", g_strdup(xpathObj9->nodesetval->nodeTab[i*5+3]->content));
@@ -1164,7 +1173,6 @@ hash_for_icons = hash_icons_gismeteo_table_create();
                 g_hash_table_insert(day, "day_humidity", g_strdup(xpathObj9->nodesetval->nodeTab[i*5+3]->content));
             }
          }
-
       }
   }	
   /* Cleanup */

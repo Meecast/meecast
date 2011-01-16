@@ -315,7 +315,7 @@ typedef struct applet_config{
     gint    text_position;
     gint    current_settings_page;
     gint    days_to_show;
-    gint    previos_days_to_show;
+    gint    previous_days_to_show;
     gint    distance_units;
     gint    wind_units;
     gint    clicking_type;

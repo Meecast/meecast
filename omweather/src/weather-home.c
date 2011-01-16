@@ -128,7 +128,7 @@ top_widget_expose(GtkWidget *widget, GdkEventExpose *event, GtkWidget *window){
 #endif
 
 /*******************************************************************************/
-/* Change station to previos at main display */
+/* Change station to previous at main display */
 gboolean 
 change_station_prev(GtkWidget *widget, GdkEvent *event,
                                    gpointer user_data){
@@ -169,7 +169,7 @@ change_station_prev(GtkWidget *widget, GdkEvent *event,
             if(app->config->current_station_source)
                 g_free(app->config->current_station_source);
             app->config->current_station_source = station_source;
-            app->config->previos_days_to_show = app->config->days_to_show;
+            app->config->previous_days_to_show = app->config->days_to_show;
             redraw_home_window(FALSE);
             config_save(app->config);
             break;
@@ -273,7 +273,7 @@ change_station_next(GtkWidget *widget, GdkEvent *event,
                 g_free(app->config->current_station_source);
             app->config->current_station_source = station_source;
 
-            app->config->previos_days_to_show = app->config->days_to_show;
+            app->config->previous_days_to_show = app->config->days_to_show;
             redraw_home_window(FALSE);
             config_save(app->config);
             break;
@@ -350,7 +350,7 @@ change_station_select(GtkWidget *widget, gpointer user_data){
             if(app->config->current_station_source)
                 g_free(app->config->current_station_source);
             app->config->current_station_source = station_source;
-            app->config->previos_days_to_show = app->config->days_to_show;
+            app->config->previous_days_to_show = app->config->days_to_show;
             redraw_home_window(FALSE);
             config_save(app->config);
             break;
@@ -770,10 +770,10 @@ redraw_home_window(gboolean first_start){
 #endif
 #ifndef RELEASE
     fprintf(stderr, "\nDays current %d\n", app->config->days_to_show);
-    fprintf(stderr, "\nDays previos %d\n", app->config->previos_days_to_show);
+    fprintf(stderr, "\nDays previous %d\n", app->config->previous_days_to_show);
 #endif
     if(!first_start){
-        /* delete previos station data */
+        /* delete previous station data */
         if(app->station_data){
             free_main_hash_table(app->station_data);
             /* free station details data */
@@ -1626,8 +1626,8 @@ create_current_weather_simple_widget(GHashTable *current){
                                                 (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
                 break;
                 default:
-                    sprintf(buffer + strlen(buffer), " %.2f %s", 
-                            convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
+                    sprintf(buffer + strlen(buffer), " %i %s", 
+                            convert_wind_units(app->config->wind_units, (int)atof(g_hash_table_lookup(current, "wind_speed"))),
                                                 (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
                 break;
             }
@@ -1671,9 +1671,9 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 /*		*days_panel_with_buttons = NULL,*/
 		*combination_vbox = NULL,
 		*current_weather_widget = NULL,
-		*previos_station_name_btn = NULL,
-		*previos_station_name = NULL,
-		*previos_station_box = NULL,
+		*previous_station_name_btn = NULL,
+		*previous_station_name = NULL,
+		*previous_station_box = NULL,
 		*next_station_name_btn = NULL,
 		*next_station_name = NULL,
 		*next_station_box = NULL,
@@ -1718,23 +1718,23 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         user_stations_list_has_two_or_more_elements = TRUE;
         /* draw arrows */
         if(app->config->show_arrows && user_stations_list_has_two_or_more_elements){
-        /* create previos station button */
+        /* create previous station button */
         sprintf(buffer,
             "<span weight=\"bold\" size=\"large\" foreground='#%02x%02x%02x'>&lt;</span>",
             app->config->font_color.red >> 8,
             app->config->font_color.green >> 8,
             app->config->font_color.blue >> 8);
-        previos_station_box = gtk_hbox_new(FALSE, 0);
-        previos_station_name_btn = gtk_event_box_new();
-        set_background_color(previos_station_name_btn, &(app->config->background_color));
+        previous_station_box = gtk_hbox_new(FALSE, 0);
+        previous_station_name_btn = gtk_event_box_new();
+        set_background_color(previous_station_name_btn, &(app->config->background_color));
 
-        gtk_widget_set_events(previos_station_name_btn, GDK_BUTTON_PRESS_MASK);
-        previos_station_name = gtk_label_new(NULL);
-        gtk_label_set_markup(GTK_LABEL(previos_station_name), buffer);
-        gtk_label_set_justify(GTK_LABEL(previos_station_name), GTK_JUSTIFY_CENTER);
-        set_font(previos_station_name, app->config->font, -1);
-        gtk_box_pack_start((GtkBox*) previos_station_box, previos_station_name, TRUE, TRUE, 15);
-        gtk_container_add(GTK_CONTAINER(previos_station_name_btn), previos_station_box);
+        gtk_widget_set_events(previous_station_name_btn, GDK_BUTTON_PRESS_MASK);
+        previous_station_name = gtk_label_new(NULL);
+        gtk_label_set_markup(GTK_LABEL(previous_station_name), buffer);
+        gtk_label_set_justify(GTK_LABEL(previous_station_name), GTK_JUSTIFY_CENTER);
+        set_font(previous_station_name, app->config->font, -1);
+        gtk_box_pack_start((GtkBox*) previous_station_box, previous_station_name, TRUE, TRUE, 15);
+        gtk_container_add(GTK_CONTAINER(previous_station_name_btn), previous_station_box);
 
         buffer[0] = 0;
         /* create next station button */
@@ -1802,8 +1802,8 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
             gtk_container_add(GTK_CONTAINER(station_name_btn), station_box);
         }
 #if defined OS2008 || defined OS2009
-        if(previos_station_name_btn)
-            gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
+        if(previous_station_name_btn)
+            gtk_event_box_set_visible_window(GTK_EVENT_BOX(previous_station_name_btn), FALSE);
         if(next_station_name_btn)
             gtk_event_box_set_visible_window(GTK_EVENT_BOX(next_station_name_btn), FALSE);
         if(station_name_btn)
@@ -1811,8 +1811,8 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 #else
         /* check config->transparency */
         if(transparency){
-            if(previos_station_name_btn)
-                gtk_event_box_set_visible_window(GTK_EVENT_BOX(previos_station_name_btn), FALSE);
+            if(previous_station_name_btn)
+                gtk_event_box_set_visible_window(GTK_EVENT_BOX(previous_station_name_btn), FALSE);
             if(next_station_name_btn)
                 gtk_event_box_set_visible_window(GTK_EVENT_BOX(next_station_name_btn), FALSE);
             if(station_name_btn)
@@ -1822,9 +1822,9 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
 #endif
         /*    days_panel_with_buttons = gtk_hbox_new(FALSE, 0);*/
         /* attach buttons to header panel */
-        if(previos_station_name_btn)
+        if(previous_station_name_btn)
         gtk_table_attach( (GtkTable*)header_panel,
-                    previos_station_name_btn,
+                    previous_station_name_btn,
                     0, 1, 0, 1 , GTK_EXPAND, GTK_EXPAND, 0, 0);
 
         if(station_name_btn)
@@ -2131,8 +2131,8 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
         gtk_table_attach((GtkTable*)panel, header_panel, 0, 1, 0, 1,
                 (GtkAttachOptions)0, (GtkAttachOptions)0, 0, 0);
 /*
-    if(previos_station_name_btn)
-	gtk_box_pack_start((GtkBox*)days_panel_with_buttons, previos_station_name_btn, TRUE, TRUE, 0);
+    if(previous_station_name_btn)
+	gtk_box_pack_start((GtkBox*)days_panel_with_buttons, previous_station_name_btn, TRUE, TRUE, 0);
     if(days_panel)
 	gtk_box_pack_start((GtkBox*)days_panel_with_buttons, days_panel, TRUE, TRUE, 0);
     if(next_station_name_btn)
@@ -2144,8 +2144,8 @@ create_panel(GtkWidget* panel, gint layout, gboolean transparency,
     gtk_table_attach((GtkTable*)panel, days_panel, 0, 1, 1, 2,
               (GtkAttachOptions)0, (GtkAttachOptions)0, 0, 0);
 /* Connect signal button */
-    if(previos_station_name_btn)
-        g_signal_connect(previos_station_name_btn, "button-press-event",
+    if(previous_station_name_btn)
+        g_signal_connect(previous_station_name_btn, "button-press-event",
                 G_CALLBACK(change_station_prev), NULL);
     if(next_station_name_btn)
         g_signal_connect(next_station_name_btn, "button-press-event",

@@ -380,7 +380,7 @@ gint read_config(AppletConfig * config) {
         if (!home_dir) {
             fprintf(stderr,
                     _
-                    ("Can not get path to the HOME directory. Quitting.\n"));
+                    ("Cannot get path to the HOME directory. Quitting.\n"));
             return 1;
         }
         memset(tmp_buff, 0, sizeof(tmp_buff));
@@ -751,7 +751,7 @@ gint read_config(AppletConfig * config) {
             gerror = NULL;
         }
     }
-    config->previos_days_to_show = config->days_to_show;
+    config->previous_days_to_show = config->days_to_show;
 
     /* Get distance units */
     config->distance_units = gconf_client_get_int(gconf_client,

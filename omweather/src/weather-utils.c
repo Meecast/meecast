@@ -310,7 +310,7 @@ void set_background_color(GtkWidget * widget, GdkColor * bgc) {
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-/* undo previos changes */
+/* undo previous changes */
     gtk_widget_modify_bg(widget, GTK_STATE_NORMAL, NULL);
 /* set one color for all states of widget */
     gtk_widget_modify_bg(widget, GTK_STATE_NORMAL, bgc);

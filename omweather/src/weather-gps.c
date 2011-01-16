@@ -360,7 +360,7 @@ delete_all_gps_stations(void){
                 g_free(app->config->current_station_name);
                 app->config->current_station_id = NULL;
                 app->config->current_station_name = NULL;
-                app->config->previos_days_to_show =
+                app->config->previous_days_to_show =
                     app->config->days_to_show;
             } else
                 app->gps_must_be_current = FALSE;

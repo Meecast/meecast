@@ -1570,7 +1570,7 @@ create_window_header(const gchar *station_name, GtkWidget *popup_window){
     GtkWidget       *main_widget = NULL,
                     *vbox = NULL,
                     *label = NULL,
-                    *previos_button = NULL,
+                    *previous_button = NULL,
                     *next_button = NULL;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
@@ -1580,15 +1580,15 @@ create_window_header(const gchar *station_name, GtkWidget *popup_window){
 /* station name */
     label = gtk_label_new(station_name);
     set_font(label, NULL, 28);
-/* previos button */
-    previos_button = create_button_with_image(BUTTON_ICONS, "left_arrow",
+/* previous button */
+    previous_button = create_button_with_image(BUTTON_ICONS, "left_arrow",
                                                 26, FALSE, FALSE);
 /* next button */
     next_button = create_button_with_image(BUTTON_ICONS, "right_arrow",
                                                 26, FALSE, FALSE);
-    if(previos_button){
-        gtk_box_pack_start(GTK_BOX(main_widget), previos_button, FALSE, FALSE, 10);
-        g_signal_connect(G_OBJECT(previos_button), "button_press_event",
+    if(previous_button){
+        gtk_box_pack_start(GTK_BOX(main_widget), previous_button, FALSE, FALSE, 10);
+        g_signal_connect(G_OBJECT(previous_button), "button_press_event",
                             G_CALLBACK(change_station_prev), popup_window);
     }
     if(label)

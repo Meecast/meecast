@@ -77,25 +77,23 @@ void create_about_dialog(void){
                        notebook = gtk_notebook_new(), TRUE, TRUE, 0);
 /* About tab */
     snprintf(tmp_buff, sizeof(tmp_buff) - 1,
-#ifdef DISPLAY_BUILD
-             "%s%s%s%s%s%s%s",
-#else
-             "%s%s%s%s%s",
-#endif
              _("\nHildon desktop applet\n"
-               "for Nokia N800/N810/N900\n"
-               "to show weather forecasts.\n" "Version "), VERSION,
+               "for the Nokia N800/N810/N900\n"
+               "to show weather forecasts.\n" "Version %s"
 #ifdef DISPLAY_BUILD
-             _(" Build: "), BUILD,
+               " Build: %s"
 #endif
-             _("\nCopyright(c) 2006-2010\n"
-               "Vlad Vasiliev, Pavel Fialko"),
-             _("\nCopyright(c) 2008\n"
+               "\nCopyright(c) 2006-2010\n"
+               "Vlad Vasiliev, Pavel Fialko"
+               "\nCopyright(c) 2008\n"
                "for default icon set (Glance)\nand design of interface\n"
-               "Andrew Zhilin"),
-             _("\nCopyright(c) 2008\n"
+               "Andrew Zhilin"
+               "\nCopyright(c) 2008\n"
                "Andrew Olmsted\n"
-               "for Semi-transparency\nand coloured backgrounds\n"));
+               "for Semi-transparency\nand coloured backgrounds\n"),
+               VERSION,
+               BUILD
+             );
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),
                              create_scrolled_window_with_text(tmp_buff,
                                                               GTK_JUSTIFY_CENTER),
@@ -128,7 +126,7 @@ void create_about_dialog(void){
                "Eugene Roytenberg - for testing\n"
                "Jarek Szczepanski aka Imrahil - for testing\n"
                "Vladimir Shakhov aka Mendoza - for testing \n"
-               "Marc Dilon - for spell/stylecheck text of English\n"
+               "Marc Dillon - for spell/stylecheck text of English\n"
                "Arkady Glazov aka Globster - for testing\n"
                "Alexander Savchenko aka dizel - for testing\n"
                "Eric Link - for feature request and donation\n"));

@@ -74,11 +74,11 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
                 *main_table = NULL,
                 *settings_button = NULL,
                 *help_button = NULL,
-                *left_alignmnet = NULL,
-                *right_alignmnet = NULL,
-                *vertical1_alignmnet = NULL,
-                *vertical2_alignmnet = NULL,
-                *vertical3_alignmnet = NULL;
+                *left_alignment = NULL,
+                *right_alignment = NULL,
+                *vertical1_alignment = NULL,
+                *vertical2_alignment = NULL,
+                *vertical3_alignment = NULL;
 /*
                 *collapsed_button = NULL,
                 *expanded_button = NULL,
@@ -95,13 +95,13 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
 
     main_table = gtk_table_new(6,7, FALSE);
 
-    left_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(left_alignmnet, 20, -1);
-    gtk_table_attach((GtkTable*)main_table, left_alignmnet,
+    left_alignment = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(left_alignment, 20, -1);
+    gtk_table_attach((GtkTable*)main_table, left_alignment,
                                 0, 1, 0, 1,
                                 GTK_FILL | GTK_EXPAND | GTK_SHRINK,
                                 (GtkAttachOptions)0, 0, 0 );
-    gtk_widget_show (left_alignmnet);
+    gtk_widget_show (left_alignment);
 /*
     stations_box = create_stations_buttons();
     gtk_widget_show (stations_box);
@@ -109,22 +109,22 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
                                 1, 5, 1, 2, (GtkAttachOptions)0,
                                 (GtkAttachOptions)0, 0, 0 );
 */
-    right_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(right_alignmnet, 20, -1);
-    gtk_table_attach((GtkTable*)main_table, right_alignmnet,
+    right_alignment = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(right_alignment, 20, -1);
+    gtk_table_attach((GtkTable*)main_table, right_alignment,
                                 6, 7, 0, 1,
                                 GTK_FILL | GTK_EXPAND | GTK_SHRINK,
                                 (GtkAttachOptions)0, 0, 0 );
-    gtk_widget_show (right_alignmnet);
+    gtk_widget_show (right_alignment);
 
-    vertical1_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(vertical1_alignmnet, -1, 20);
-    gtk_table_attach((GtkTable*)main_table, vertical1_alignmnet,
+    vertical1_alignment = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(vertical1_alignment, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical1_alignment,
                                 0, 6, 2, 3,
                                 (GtkAttachOptions)0,
                                 GTK_FILL |  GTK_SHRINK,
                                 0, 0 );
-    gtk_widget_show (vertical1_alignmnet);
+    gtk_widget_show (vertical1_alignment);
 
 
 /*    hbox_view_mode = gtk_hbox_new(TRUE, 0);
@@ -166,14 +166,14 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
                      (gpointer)window);
 
 
-    vertical2_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(vertical2_alignmnet, -1, 20);
-    gtk_table_attach((GtkTable*)main_table, vertical2_alignmnet,
+    vertical2_alignment = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(vertical2_alignment, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical2_alignment,
                                 0, 6, 4, 5,
                                 (GtkAttachOptions)0,
                                 GTK_FILL | GTK_SHRINK,
                                 0, 0 );
-    gtk_widget_show (vertical2_alignmnet);
+    gtk_widget_show (vertical2_alignment);
 
 
     help_button = gtk_button_new_with_label (_("About"));
@@ -184,14 +184,14 @@ weather_simple_window_status(GtkWidget *widget, gpointer user_data){
                                 (GtkAttachOptions)0, 5, 0 );
     g_signal_connect_after(help_button, "clicked",
                         G_CALLBACK(about_button_handler), NULL);
-    vertical3_alignmnet = gtk_alignment_new (0.5, 0.5, 1, 1  );
-    gtk_widget_set_size_request(vertical3_alignmnet, -1, 20);
-    gtk_table_attach((GtkTable*)main_table, vertical3_alignmnet,
+    vertical3_alignment = gtk_alignment_new (0.5, 0.5, 1, 1  );
+    gtk_widget_set_size_request(vertical3_alignment, -1, 20);
+    gtk_table_attach((GtkTable*)main_table, vertical3_alignment,
                                 0, 6, 6, 7,
                                 (GtkAttachOptions)0,
                                 GTK_FILL | GTK_EXPAND | GTK_SHRINK,
                                 0, 0 );
-    gtk_widget_show (vertical3_alignmnet);
+    gtk_widget_show (vertical3_alignment);
 
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(window)->vbox),
                        main_table, TRUE, TRUE, 0);

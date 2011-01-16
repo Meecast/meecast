@@ -655,7 +655,7 @@ delete_station_from_user_list_using_iter(GtkTreeIter iter){
 #endif
         /* delete selected station */
         gtk_list_store_remove(app->user_stations_list, &iter);
-        /* try to get previos station data */
+        /* try to get previous station data */
         if (gtk_tree_path_prev(path)) {
             valid =
                 gtk_tree_model_get_iter(GTK_TREE_MODEL
@@ -676,7 +676,7 @@ delete_station_from_user_list_using_iter(GtkTreeIter iter){
                 if (app->config->current_station_name)
                     g_free(app->config->current_station_name);
                 app->config->current_station_name = station_name;
-                app->config->previos_days_to_show =
+                app->config->previous_days_to_show =
                     app->config->days_to_show;
                 if(app->config->current_station_source)
                     g_free(app->config->current_station_source);
@@ -704,7 +704,7 @@ delete_station_from_user_list_using_iter(GtkTreeIter iter){
                     g_free(app->config->current_station_name);
 
                 app->config->current_station_name = station_name;
-                app->config->previos_days_to_show =
+                app->config->previous_days_to_show =
                     app->config->days_to_show;
                 if(app->config->current_station_source)
                     g_free(app->config->current_station_source);
@@ -722,7 +722,7 @@ delete_station_from_user_list_using_iter(GtkTreeIter iter){
                 if (app->config->current_station_name)
                     g_free(app->config->current_station_name);
                 app->config->current_station_name = NULL;
-                app->config->previos_days_to_show =
+                app->config->previous_days_to_show =
                     app->config->days_to_show;
                 if(app->config->current_station_source)
                     g_free(app->config->current_station_source);
@@ -1483,8 +1483,8 @@ apply_button_handler(GtkWidget *button, GdkEventButton *event, gpointer user_dat
             !=
             hildon_controlbar_get_value(HILDON_CONTROLBAR
                                         (visible_items_number))) {
-            /* store previos number of icons */
-            app->config->previos_days_to_show = app->config->days_to_show;
+            /* store previous number of icons */
+            app->config->previous_days_to_show = app->config->days_to_show;
             app->config->days_to_show
                 =
                 hildon_controlbar_get_value(HILDON_CONTROLBAR
@@ -2500,7 +2500,7 @@ check_buttons_changed_handler(GtkToggleButton *button, gpointer user_data){
     }
 #endif
     return;
-/* if previos state not equal current state than enable apply button */
+/* if previous state not equal current state than enable apply button */
   check:
     if ((app->stations_tab_current_state != app->stations_tab_start_state)
         || (app->visuals_tab_current_state != app->visuals_tab_start_state)
@@ -2618,7 +2618,7 @@ void combo_boxs_changed_handler(GtkComboBox * combobox, gpointer user_data) {
 #endif
     return;
   check:
-/* if previos state not equal current state than enable apply button */
+/* if previous state not equal current state than enable apply button */
     if ((app->stations_tab_current_state != app->stations_tab_start_state)
         || (app->visuals_tab_current_state != app->visuals_tab_start_state)
         || (app->display_tab_current_state != app->display_tab_start_state)
@@ -2671,7 +2671,7 @@ control_bars_changed_handler(HildonControlbar * control,
 #endif
     return;
   check:
-/* if previos state not equal current state than enable apply button */
+/* if previous state not equal current state than enable apply button */
     if ((app->stations_tab_current_state != app->stations_tab_start_state)
         || (app->visuals_tab_current_state != app->visuals_tab_start_state)
         || (app->display_tab_current_state != app->display_tab_start_state)

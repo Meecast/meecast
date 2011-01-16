@@ -262,7 +262,7 @@
   * Added confirm dialog while delete station
   * Added icons to display Moon phases
   * Moon phase now displayed only in first icon
-  * Now option hide station name with 'previos' and 'next' stations buttons is separated
+  * Now option hide station name with 'previous' and 'next' stations buttons is separated
   * Updating of weather forecast  after station removal is deleted
   * Changed default icon set from "Crystal" to "Glance"
   * Fixed error while calculate days offset
@@ -297,10 +297,10 @@
   * Compatibility with OS2008 has been begun 
  
 0.19
-  * Hide buttons 'next station', 'previos station' when one station is used
+  * Hide buttons 'next station', 'previous station' when one station is used
   * Correct creating the cache directory
   * Now the selected tab in settings dialog is saved
-  * Added possibility to hide station name with 'previos' and 'next' stations buttons
+  * Added possibility to hide station name with 'previous' and 'next' stations buttons
   * Added displaying sunrise and sunset time
   * Added full staions list for all available countrys on weather.com
   * Added menuitem in Home menu for call applet settings

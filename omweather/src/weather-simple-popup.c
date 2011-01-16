@@ -273,7 +273,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                     *line_text = NULL,
                     *line = NULL,
                     *label = NULL,
-                    *previos_separator = NULL,
+                    *previous_separator = NULL,
 #if !defined OS2009
                     *vscrollbar = NULL,
 #endif
@@ -550,7 +550,7 @@ create_weather_collapsed_view(GtkWidget *vbox, gint day_number){
                              break;
 
                 }
-                previos_separator = separator;
+                previous_separator = separator;
                 switch (i){
                     case 0: break;
     //                case 1: if (current_widget && current) 
@@ -605,7 +605,7 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
 #if !defined OS2009
                         *vscrollbar = NULL,
 #endif
-                        *previos_separator = NULL;
+                        *previous_separator = NULL;
     gchar               *day_name = NULL;
     GtkWidget           *scrolled_window = NULL;
     GSList              *tmp = NULL;
@@ -707,10 +707,10 @@ create_weather_expanded_view(GtkWidget *vbox, gint day_number){
         length_to_selected = length_to_selected + requisition.height;
 
         if(day_number == i && !(i == 0 && current_widget && current))
-            previos_separator = separator;
+            previous_separator = separator;
         /* If activited day and not current weather */
         if(day_number  == i && !(i == 0 && current_widget && current)){
-            g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)previos_separator);
+            g_object_set_data(G_OBJECT(scrolled_window), "selected_widget", (gpointer)previous_separator);
             switch (app->config->scale_in_popup){
                 case 2:  
                         offset1 = 110; 

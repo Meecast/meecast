@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-21 21:32+0200\n"
+"POT-Creation-Date: 2011-01-16 19:17+0200\n"
 "PO-Revision-Date: 2010-10-01 08:44+0100\n"
 "Last-Translator: Claudius Henrichs <claudius.h@gmx.de>\n"
 "Language-Team: Claudius Henrichs <claudius.h@gmx.de>\n"
@@ -455,6 +455,11 @@ msgstr "Bewölkt, Schneetreiben"
 msgid "Cloudy, Few Snow"
 msgstr "Bewölkt, Leichter Schneefall"
 
+#: src/hash.data:257
+#, fuzzy
+msgid "Cloudy, Heavy Snow"
+msgstr "Überwiegend bewölkt, Schwerer Schneefall"
+
 #: src/hash.data:35
 msgid "Cloudy, Light Rain"
 msgstr "Bewölkt, Leichter Regen"
@@ -462,6 +467,11 @@ msgstr "Bewölkt, Leichter Regen"
 #: src/hash.data:36
 msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Bewölkt, Leichter Regen, Gewitter"
+
+#: src/hash.data:258 src/hash.data:259
+#, fuzzy
+msgid "Cloudy, Rain"
+msgstr "Bewölkt, Leichter Regen"
 
 #: src/hash.data:37
 msgid "Cloudy, Smoke"
@@ -1332,8 +1342,18 @@ msgstr "Teilweise bewölkt, Leichter Schneefall"
 msgid "Partly Cloudy, Haze"
 msgstr "Teilweise bewölkt, Dunst"
 
+#: src/hash.data:262
+#, fuzzy
+msgid "Partly Cloudy, Heavy Rain"
+msgstr "Überwiegend bewölkt, Schwerer Schneefall"
+
 #: src/hash.data:155
 msgid "Partly Cloudy, Light Rain"
+msgstr "Teilweise bewölkt, Leichter Regen"
+
+#: src/hash.data:260 src/hash.data:261
+#, fuzzy
+msgid "Partly Cloudy, Rain"
 msgstr "Teilweise bewölkt, Leichter Regen"
 
 #: src/hash.data:156

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-21 21:32+0200\n"
+"POT-Creation-Date: 2011-01-16 19:17+0200\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -460,6 +460,11 @@ msgstr "Pochmurnie, zamieć śnieżna"
 msgid "Cloudy, Few Snow"
 msgstr "Pochmurnie, słaby śnieg"
 
+#: src/hash.data:257
+#, fuzzy
+msgid "Cloudy, Heavy Snow"
+msgstr "Głównie pochmurnie, silny śnieg"
+
 #: src/hash.data:35
 msgid "Cloudy, Light Rain"
 msgstr "Pochmurnie, lekki deszcz"
@@ -467,6 +472,11 @@ msgstr "Pochmurnie, lekki deszcz"
 #: src/hash.data:36
 msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Pochmurnie, lekki deszcz, burza"
+
+#: src/hash.data:258 src/hash.data:259
+#, fuzzy
+msgid "Cloudy, Rain"
+msgstr "Pochmurnie, lekki deszcz"
 
 #: src/hash.data:37
 msgid "Cloudy, Smoke"
@@ -1340,8 +1350,18 @@ msgstr "Częściowe zachmurzenie, lekki śnieg"
 msgid "Partly Cloudy, Haze"
 msgstr "Częściowe zachmurzenie, lekka mgła"
 
+#: src/hash.data:262
+#, fuzzy
+msgid "Partly Cloudy, Heavy Rain"
+msgstr "Głównie pochmurnie, silny śnieg"
+
 #: src/hash.data:155
 msgid "Partly Cloudy, Light Rain"
+msgstr "Częściowe zachmurzenie, lekki deszcz"
+
+#: src/hash.data:260 src/hash.data:261
+#, fuzzy
+msgid "Partly Cloudy, Rain"
 msgstr "Częściowe zachmurzenie, lekki deszcz"
 
 #: src/hash.data:156

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-21 21:32+0200\n"
+"POT-Creation-Date: 2011-01-16 19:17+0200\n"
 "PO-Revision-Date: 2010-07-27 17:04+0100\n"
 "Last-Translator: Luca <luca>\n"
 "Language-Team: Italiano\n"
@@ -457,6 +457,11 @@ msgstr "Nuvoloso, ventate di neve"
 msgid "Cloudy, Few Snow"
 msgstr "Nuvoloso, poca neve"
 
+#: src/hash.data:257
+#, fuzzy
+msgid "Cloudy, Heavy Snow"
+msgstr "Prevalentemente nuvoloso, forte nevicata"
+
 #: src/hash.data:35
 msgid "Cloudy, Light Rain"
 msgstr "Nuvoloso, Deboli piogge"
@@ -464,6 +469,11 @@ msgstr "Nuvoloso, Deboli piogge"
 #: src/hash.data:36
 msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Nuvoloso, Deboli piogge, Temporale"
+
+#: src/hash.data:258 src/hash.data:259
+#, fuzzy
+msgid "Cloudy, Rain"
+msgstr "Nuvoloso, Deboli piogge"
 
 #: src/hash.data:37
 msgid "Cloudy, Smoke"
@@ -1343,8 +1353,18 @@ msgstr "Parzialmente nuvoloso, poca neve"
 msgid "Partly Cloudy, Haze"
 msgstr "Parzialmente nuvoloso, Foschia"
 
+#: src/hash.data:262
+#, fuzzy
+msgid "Partly Cloudy, Heavy Rain"
+msgstr "Prevalentemente nuvoloso, forte nevicata"
+
 #: src/hash.data:155
 msgid "Partly Cloudy, Light Rain"
+msgstr "Parzialmente nuvoloso / Deboli piogge"
+
+#: src/hash.data:260 src/hash.data:261
+#, fuzzy
+msgid "Partly Cloudy, Rain"
 msgstr "Parzialmente nuvoloso / Deboli piogge"
 
 #: src/hash.data:156

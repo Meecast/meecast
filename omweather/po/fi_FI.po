@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-21 21:32+0200\n"
+"POT-Creation-Date: 2011-01-16 19:17+0200\n"
 "PO-Revision-Date: 2010-09-26 22:47+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -460,6 +460,11 @@ msgstr "Pilvistä, lumituiskuja"
 msgid "Cloudy, Few Snow"
 msgstr "Pilvistä, kevyttä lumisadetta"
 
+#: src/hash.data:257
+#, fuzzy
+msgid "Cloudy, Heavy Snow"
+msgstr "Melko pilvistä, kova lumisade"
+
 #: src/hash.data:35
 msgid "Cloudy, Light Rain"
 msgstr "Pilvistä, kevyttä vesisadetta"
@@ -467,6 +472,11 @@ msgstr "Pilvistä, kevyttä vesisadetta"
 #: src/hash.data:36
 msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Pilvistä, kevyttä vesisadetta, ukkosta"
+
+#: src/hash.data:258 src/hash.data:259
+#, fuzzy
+msgid "Cloudy, Rain"
+msgstr "Pilvistä, kevyttä vesisadetta"
 
 #: src/hash.data:37
 msgid "Cloudy, Smoke"
@@ -1336,8 +1346,18 @@ msgstr "Puolipilvistä, kevyttä lumisadetta"
 msgid "Partly Cloudy, Haze"
 msgstr "Puolipilvistä, utua"
 
+#: src/hash.data:262
+#, fuzzy
+msgid "Partly Cloudy, Heavy Rain"
+msgstr "Melko pilvistä, kova lumisade"
+
 #: src/hash.data:155
 msgid "Partly Cloudy, Light Rain"
+msgstr "Puolipilvistä, kevyttä sadetta"
+
+#: src/hash.data:260 src/hash.data:261
+#, fuzzy
+msgid "Partly Cloudy, Rain"
 msgstr "Puolipilvistä, kevyttä sadetta"
 
 #: src/hash.data:156

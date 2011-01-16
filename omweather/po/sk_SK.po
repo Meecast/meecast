@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-21 21:32+0200\n"
+"POT-Creation-Date: 2011-01-16 19:17+0200\n"
 "PO-Revision-Date: 2010-11-23 10:15+0100\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -458,6 +458,11 @@ msgstr "Zamračené, padajúci sneh"
 msgid "Cloudy, Few Snow"
 msgstr "Zamračené, ojedinelé sneženie"
 
+#: src/hash.data:257
+#, fuzzy
+msgid "Cloudy, Heavy Snow"
+msgstr "Prevažne zamračené, silné sneženie"
+
 #: src/hash.data:35
 msgid "Cloudy, Light Rain"
 msgstr "Zamračené, slabý dážď"
@@ -465,6 +470,11 @@ msgstr "Zamračené, slabý dážď"
 #: src/hash.data:36
 msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Zamračené, slabý dážď, búrka"
+
+#: src/hash.data:258 src/hash.data:259
+#, fuzzy
+msgid "Cloudy, Rain"
+msgstr "Zamračené, slabý dážď"
 
 #: src/hash.data:37
 msgid "Cloudy, Smoke"
@@ -1334,8 +1344,18 @@ msgstr "Oblačno, ojedinelé sneženie"
 msgid "Partly Cloudy, Haze"
 msgstr "Oblačno, opar"
 
+#: src/hash.data:262
+#, fuzzy
+msgid "Partly Cloudy, Heavy Rain"
+msgstr "Prevažne zamračené, silné sneženie"
+
 #: src/hash.data:155
 msgid "Partly Cloudy, Light Rain"
+msgstr "Oblačno, slabý dážď"
+
+#: src/hash.data:260 src/hash.data:261
+#, fuzzy
+msgid "Partly Cloudy, Rain"
 msgstr "Oblačno, slabý dážď"
 
 #: src/hash.data:156

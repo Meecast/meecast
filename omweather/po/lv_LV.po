@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lv_LV\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-21 21:32+0200\n"
+"POT-Creation-Date: 2011-01-16 19:17+0200\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -414,12 +414,20 @@ msgstr ""
 msgid "Cloudy, Few Snow"
 msgstr ""
 
+#: src/hash.data:257
+msgid "Cloudy, Heavy Snow"
+msgstr ""
+
 #: src/hash.data:35
 msgid "Cloudy, Light Rain"
 msgstr ""
 
 #: src/hash.data:36
 msgid "Cloudy, Light Rain, T-Storm"
+msgstr ""
+
+#: src/hash.data:258 src/hash.data:259
+msgid "Cloudy, Rain"
 msgstr ""
 
 #: src/hash.data:37
@@ -1265,8 +1273,16 @@ msgstr ""
 msgid "Partly Cloudy, Haze"
 msgstr ""
 
+#: src/hash.data:262
+msgid "Partly Cloudy, Heavy Rain"
+msgstr ""
+
 #: src/hash.data:155
 msgid "Partly Cloudy, Light Rain"
+msgstr ""
+
+#: src/hash.data:260 src/hash.data:261
+msgid "Partly Cloudy, Rain"
 msgstr ""
 
 #: src/hash.data:156

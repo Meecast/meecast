@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-21 21:32+0200\n"
+"POT-Creation-Date: 2011-01-16 19:17+0200\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -461,6 +461,11 @@ msgstr "Облачно, Поземок"
 msgid "Cloudy, Few Snow"
 msgstr "Облачно Небольшой снег"
 
+#: src/hash.data:257
+#, fuzzy
+msgid "Cloudy, Heavy Snow"
+msgstr "Пасмурно, Сильный Снег"
+
 #: src/hash.data:35
 msgid "Cloudy, Light Rain"
 msgstr "Облачно, Небольшой дождь"
@@ -468,6 +473,11 @@ msgstr "Облачно, Небольшой дождь"
 #: src/hash.data:36
 msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Облачно, Небольшой дождь, Гроза"
+
+#: src/hash.data:258 src/hash.data:259
+#, fuzzy
+msgid "Cloudy, Rain"
+msgstr "Облачно, Небольшой дождь"
 
 #: src/hash.data:37
 msgid "Cloudy, Smoke"
@@ -1335,8 +1345,18 @@ msgstr "Малооблачно, Небольшой Снег"
 msgid "Partly Cloudy, Haze"
 msgstr "Небольшая облачность, мгла"
 
+#: src/hash.data:262
+#, fuzzy
+msgid "Partly Cloudy, Heavy Rain"
+msgstr "Пасмурно, Сильный Дождь"
+
 #: src/hash.data:155
 msgid "Partly Cloudy, Light Rain"
+msgstr "Малообачно, Небольшой Дождь"
+
+#: src/hash.data:260 src/hash.data:261
+#, fuzzy
+msgid "Partly Cloudy, Rain"
 msgstr "Малообачно, Небольшой Дождь"
 
 #: src/hash.data:156

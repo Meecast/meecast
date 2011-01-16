@@ -978,9 +978,8 @@ parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
     gint        pressure; 
     gint        speed;
 
-/* Fix me free memory */
-hash_for_translate = hash_description_gismeteo_table_create();
-hash_for_icons = hash_icons_gismeteo_table_create();
+   hash_for_translate = hash_description_gismeteo_table_create();
+   hash_for_icons = hash_icons_gismeteo_table_create();
    /* Create xpath evaluation context */
    xpathCtx = xmlXPathNewContext(doc);
    if(xpathCtx == NULL) {
@@ -991,16 +990,16 @@ hash_for_icons = hash_icons_gismeteo_table_create();
    xmlXPathRegisterNs(xpathCtx, (const xmlChar*)"html",
                                 (const xmlChar*)"http://www.w3.org/1999/xhtml");
 
-  /* Evaluate xpath expression */
- // xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/@title", xpathCtx);
-  xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/@title", xpathCtx);
+   /* Evaluate xpath expression */
+   // xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[@class='c0']/@title", xpathCtx);
+   xpathObj = xmlXPathEvalExpression((const xmlChar*)"/html/body/div/div/div/div/div/div/div/table/tbody/tr/th/@title", xpathCtx);
   
 
-  if(xpathObj == NULL) {
+   if(xpathObj == NULL) {
         fprintf(stderr,"Error: unable to evaluate xpath expression \"%s\"\n", "//*[@class='c0 day']/div/text()");
         xmlXPathFreeContext(xpathCtx); 
         return(-1);
-  }
+   }
 
   nodes   = xpathObj->nodesetval;
   size = (nodes) ? nodes->nodeNr : 0;
@@ -1393,6 +1392,8 @@ fill_detail_data(htmlDocPtr doc, GHashTable *location, GHashTable *hash_for_icon
   xpathObj9 = xmlXPathEvalExpression("/html/body/div/div/div/div/div/div/table/tbody/tr[@class='wrow forecast']/th/following-sibling::*/text()", xpathCtx);
   nodes   = xpathObj->nodesetval;
   size = (nodes) ? nodes->nodeNr : 0;
+  if (size > 8)
+      size = 8;
   for(i = 0; i < size; ++i) {
       /* Take UTC time: */
       if (!nodes->nodeTab[i]->children->content)

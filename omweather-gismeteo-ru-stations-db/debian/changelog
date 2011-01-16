@@ -2,6 +2,7 @@ omweather-gismeteo-ru-stations-db (0.9.2) unstable; urgency=low
 
   * Added new strings 
   * Fixed segmenation fault than data is corrupted
+  * Limited hours data 
 
  --  Vlad Vasiliev <vlad@gas.by>  Sat, 1 Jan 2011 13:56:20 +0200
 

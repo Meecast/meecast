@@ -14,6 +14,7 @@ namespace Core {
             result_time = temp_data->GetTimeDistance(_time);
             if (temp_time == -1)
                 temp_time = result_time;
+            /* select min period including _time */
             if ((result_time >0) && result_time <= temp_time){
                 temp_time = result_time;
                 temp_data_result = temp_data;

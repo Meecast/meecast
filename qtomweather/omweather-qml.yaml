@@ -1,0 +1,18 @@
+Name: omweather-qml
+Summary: OMWeather in qml 
+Version: 0.1
+Release: 1
+Group: Applications/Internet 
+License: GPLv2.1
+URL: https://garage.maemo.org/projects/omweather/ 
+Sources:
+    - "%{name}-%{version}.tar.bz2"
+Description:  Weather Forecast on Nokia N900. Ultra-customisable weather widget for showing forecast the way you want.
+
+PkgBR:
+PkgConfigBR:
+ - QtCore >= 4.7.0
+Configure: 
+ConfigOptions: 
+Builder:  
+Files:

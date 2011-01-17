@@ -9,17 +9,17 @@
   <p>mmHg</p>
  </units>
   <timezone>2</timezone>
-    <period start="1295287200" end="1295298000" current="true">
-     <temperature>-4</temperature>
-     <wind_speed>11</wind_speed>
+    <period start="1295298000" end="1295308800" current="true">
+     <temperature>-3</temperature>
+     <wind_speed>6</wind_speed>
      <wind_direction>SSE</wind_direction>
-     <humidity>95</humidity>
-     <pressure>994.6</pressure>
+     <humidity>94</humidity>
+     <pressure>994.2</pressure>
      <pressure_direction>N/A</pressure_direction>
      <description>Freezing Drizzle</description>
-     <flike>-4</flike>
+     <flike>-3</flike>
      <icon>8</icon>
-     <visible>1.3</visible>
+     <visible>1.9</visible>
     </period>
     <period start="1295215200" end="1295244840">
      <temperature>-1</temperature>

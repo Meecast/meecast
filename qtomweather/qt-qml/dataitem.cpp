@@ -20,6 +20,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[HumidityRole] = "humidity";
     names[DescriptionRole] = "description";
     names[CurrentRole] = "current";
+    names[DateRole] = "date";
     return names;
 }
 
@@ -44,6 +45,8 @@ QVariant DataItem::data(int role)
         return current();
     case DescriptionRole:
         return description();
+    case DateRole:
+        return date();
     default:
         return QVariant();
     }
@@ -116,4 +119,11 @@ DataItem::description()
 {
     return DataItem::Data::Text().c_str();
 }
-
+QString
+DataItem::date()
+{
+    QDateTime t;
+    t.setTime_t(DataItem::Data::StartTime());
+    return t.toString("dddd");
+    //return t.toString(Qt::SystemLocaleLongDate);
+}

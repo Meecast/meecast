@@ -28,6 +28,7 @@ namespace Core{
             Data(const Data *data);
             Data& operator=(const Data& data);
             void  StartTime(time_t start_time);
+            time_t StartTime(void) const;
             void  EndTime(time_t end_time);
             void  WindSpeed(float windspeed);
             float WindSpeed(void) const;

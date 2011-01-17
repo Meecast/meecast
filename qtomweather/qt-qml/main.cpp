@@ -19,6 +19,8 @@
 #include "dataitem.h"
 #include "datamodel.h"
 
+#include <QtDebug>
+
 //////////////////////////////////////////////////////////////////////////////
 
 ConfigQml *
@@ -64,7 +66,6 @@ int main(int argc, char* argv[])
 */
 
     //Add the QML snippet into the layout
-
 
     ConfigQml *config;
     DataItem *forecast_data = NULL;

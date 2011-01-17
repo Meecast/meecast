@@ -16,6 +16,7 @@ namespace Core {
         _temperature_hi = new Temperature;
         _temperature_low = new Temperature;
         _current = 0;
+        _start_time = 0;
     }
     ////////////////////////////////////////////////////////////////////////////////
     Data::Data(const Data& data){
@@ -34,11 +35,16 @@ namespace Core {
         _temperature_hi = data->_temperature_hi;
         _temperature_low = data->_temperature_low;
         _current = data->_current;
+        _start_time = data->_start_time;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
     Data::StartTime(time_t start_time){
         _start_time = start_time;
+    }
+    time_t
+    Data::StartTime() const{
+        return _start_time;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void

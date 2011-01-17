@@ -22,7 +22,7 @@ Rectangle {
             //anchors.fill: parent
             //id: area
             id: weatherlayoutitem
-            Text {text: qsTr("Current") + " = " + current}
+            Text {text: qsTr("Current") + " = " + date}
             Image {
                 id: forecast_icon
                 source: Config.iconspath + "/" + Config.iconset + "/" + pict

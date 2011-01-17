@@ -22,7 +22,7 @@ Rectangle {
             //anchors.fill: parent
             //id: area
             id: weatherlayoutitem
-            Text {text: qsTr("Current") + current}
+            Text {text: qsTr("Current") + " = " + current}
             Image {
                 id: forecast_icon
                 //source: Config.iconspath + "/" + Config.iconset + "/" + Forecast.icon + ".png"
@@ -55,6 +55,13 @@ Rectangle {
                 anchors.left: forecast_icon.right
                 anchors.top: temperature_high.bottom
                 anchors.topMargin: 10
+            }
+            Text {
+                id: desc
+                text: description
+                font.pointSize: 16
+                color: Config.fontcolor
+                anchors.top: forecast_icon.bottom
             }
             MouseArea {
                 anchors.fill: parent

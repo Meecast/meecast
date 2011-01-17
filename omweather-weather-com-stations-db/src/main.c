@@ -653,7 +653,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    //file_out = fopen ("myfile.txt","w"); 
+//    file_out = fopen ("myfile.txt","w"); 
     file_out = fopen(result_file, "w");
     if (!file_out)
         return -1;
@@ -877,10 +877,10 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 			    fprintf(file_out,"     <temperature>%s</temperature>\n", temp_hi); 
 			if (wind_speed_day[0] != 0)
 			    fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_day);
-			if (wind_gust[0] != 0)
-			    fprintf(file_out,"     <wind_gust>%s</wind_gust>\n", wind_gust);
 			if (wind_direction_day[0] != 0)
 			    fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_day);
+            if (wind_gust[0] != 0)
+			    fprintf(file_out,"     <wind_gust>%s</wind_gust>\n", wind_gust);
 			if (humidity_day[0] != 0)
 			    fprintf(file_out,"     <humidity>%s</humidity>\n", humidity_day);
 			if (pressure[0] != 0)

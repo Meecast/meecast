@@ -17,6 +17,7 @@ class DataItem : public QObject, public Core::Data
         Wind_directionRole,
         Wind_speedRole,
         HumidityRole,
+        DescriptionRole,
         CurrentRole
     };
 public:
@@ -33,6 +34,7 @@ public:
     inline QString humidity();
     inline QString icon();
     inline bool current();
+    inline QString description();
 
 };
 

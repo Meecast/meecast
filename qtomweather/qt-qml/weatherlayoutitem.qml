@@ -25,9 +25,7 @@ Rectangle {
             Text {text: qsTr("Current") + " = " + current}
             Image {
                 id: forecast_icon
-                //source: Config.iconspath + "/" + Config.iconset + "/" + Forecast.icon + ".png"
                 source: Config.iconspath + "/" + Config.iconset + "/" + pict
-                //anchors.centerIn: parent
                 anchors.top: parent.top
                 anchors.topMargin: 20
                 anchors.leftMargin: 20
@@ -35,8 +33,7 @@ Rectangle {
             }
             Text {
                 id: temperature_high
-                //text: Forecast.temperature_high + '°' +Config.temperatureunit
-                text: temp_high + '°' +Config.temperatureunit
+                text: (temp_high != "N/A") ? (temp_high + '°' +Config.temperatureunit) : ""
                 font.pointSize: 20
                 color: Config.fontcolor
                 anchors.right: parent.right
@@ -46,11 +43,9 @@ Rectangle {
             }
             Text {
                 id: temperature_low
-                //text: Forecast.temperature_low + '°' +Config.temperatureunit
-                text: temp_low + '°' +Config.temperatureunit
+                text: (temp_low != "N/A") ? (temp_low + '°' +Config.temperatureunit) : ""
                 font.pointSize: 20
                 color: Config.fontcolor
-                //	color: "white"
                 anchors.right: parent.right
                 anchors.left: forecast_icon.right
                 anchors.top: temperature_high.bottom

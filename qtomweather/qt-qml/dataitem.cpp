@@ -17,10 +17,16 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[IconRole] = "pict";
     names[Wind_directionRole] = "wind_direction";
     names[Wind_speedRole] = "wind_speed";
+    names[Wind_gustRole] = "wind_gust";
     names[HumidityRole] = "humidity";
     names[DescriptionRole] = "description";
     names[CurrentRole] = "current";
     names[DateRole] = "date";
+    names[StartRole] = "start";
+    names[EndRole] = "end";
+    names[PressureRole] = "pressure";
+    names[FlikeRole] = "flike";
+    names[PpcpRole] = "ppcp";
     return names;
 }
 
@@ -39,6 +45,8 @@ QVariant DataItem::data(int role)
         return wind_direction();
     case Wind_speedRole:
         return wind_speed();
+    case Wind_gustRole:
+        return wind_gust();
     case HumidityRole:
         return humidity();
     case CurrentRole:
@@ -47,6 +55,16 @@ QVariant DataItem::data(int role)
         return description();
     case DateRole:
         return date();
+    case StartRole:
+        return start();
+    case EndRole:
+        return end();
+    case PressureRole:
+        return pressure();
+    case FlikeRole:
+        return flike();
+    case PpcpRole:
+        return ppcp();
     default:
         return QVariant();
     }
@@ -76,6 +94,16 @@ DataItem::temperature_low() {
         return c;
     }
     return c.number((DataItem::Data::temperature_low().value()),'f',0);
+}
+
+QString
+DataItem::flike() {
+    QString c;
+    if (DataItem::Data::Flike().value() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    return c.number((DataItem::Data::Flike().value()),'f',0);
 }
 
 QString
@@ -109,6 +137,15 @@ DataItem::wind_speed() {
     }
     return c.number((DataItem::Data::WindSpeed()), 'f', 0);
 }
+QString
+DataItem::wind_gust() {
+    QString c;
+    if (DataItem::Data::WindGust() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    return c.number((DataItem::Data::WindGust()), 'f', 0);
+}
 bool
 DataItem::current()
 {
@@ -126,4 +163,38 @@ DataItem::date()
     t.setTime_t(DataItem::Data::StartTime());
     return t.toString("dddd");
     //return t.toString(Qt::SystemLocaleLongDate);
+}
+QString
+DataItem::start()
+{
+    QDateTime t;
+    t.setTime_t(DataItem::Data::StartTime());
+    //return t.toString("dddd");
+    return t.toString(Qt::SystemLocaleLongDate);
+}
+QString
+DataItem::end()
+{
+    QDateTime t;
+    t.setTime_t(DataItem::Data::EndTime());
+    //return t.toString("dddd");
+    return t.toString(Qt::SystemLocaleLongDate);
+}
+QString
+DataItem::pressure() {
+    QString c;
+    if (DataItem::Data::Pressure() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    return c.number((DataItem::Data::Pressure()), 'i', 0);
+}
+QString
+DataItem::ppcp() {
+    QString c;
+    if (DataItem::Data::Ppcp() == INT_MAX){
+        c = "N/A";
+        return c;
+    }
+    return c.number((DataItem::Data::Ppcp()), 'f', 0);
 }

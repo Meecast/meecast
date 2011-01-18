@@ -22,6 +22,7 @@ namespace Core{
         Temperature *_temperature_hi;
         Temperature *_temperature_low;
         bool _current;
+        float _ppcp;
         public:
             Data();
             Data(const Data& data);
@@ -30,6 +31,7 @@ namespace Core{
             void  StartTime(time_t start_time);
             time_t StartTime(void) const;
             void  EndTime(time_t end_time);
+            time_t EndTime(void) const;
             void  WindSpeed(float windspeed);
             float WindSpeed(void) const;
             void  WindDirection(const std::string& text);
@@ -48,7 +50,11 @@ namespace Core{
             virtual ~Data();
             Temperature& temperature_hi();
             Temperature& temperature_low();
-            Temperature& Flike(void) const;
+            Temperature& Flike();
+            void  Pressure(int pressure);
+            int Pressure(void) const;
+            void  Ppcp(float ppcp);
+            float Ppcp(void) const;
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

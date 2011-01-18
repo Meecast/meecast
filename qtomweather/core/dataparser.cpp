@@ -138,6 +138,33 @@ namespace Core {
             forecast_data->WindDirection(nodeText->get_content().c_str());
             return;
         }
+        // Flike tag
+        if(nodeName == "flike"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            /* std::cout<<"flike "<< nodeText->get_content() <<std::endl;*/
+            forecast_data->Flike().value(atof(nodeText->get_content().c_str()));
+            return;
+        }
+        // Pressure tag
+        if(nodeName == "pressure"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            /* std::cout<<"pressure "<< nodeText->get_content() <<std::endl;*/
+            forecast_data->Pressure(atoi(nodeText->get_content().c_str()));
+            return;
+        }
+        // Ppcp tag
+        if(nodeName == "ppcp"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            /* std::cout<<"ppcp "<< nodeText->get_content() <<std::endl;*/
+            forecast_data->Ppcp(atof(nodeText->get_content().c_str()));
+            return;
+        }
 
     }
 ////////////////////////////////////////////////////////////////////////////////

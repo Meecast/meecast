@@ -17,6 +17,8 @@ namespace Core {
         _temperature_low = new Temperature;
         _current = 0;
         _start_time = 0;
+        _end_time = 0;
+        _ppcp = INT_MAX;
     }
     ////////////////////////////////////////////////////////////////////////////////
     Data::Data(const Data& data){
@@ -24,7 +26,7 @@ namespace Core {
     }
     ////////////////////////////////////////////////////////////////////////////////
     Data::Data(const Data *data){
-        _flike = new Temperature;
+        _flike = data->_flike;
         _windSpeed = data->_windSpeed;
         _windGust = INT_MAX;
         _humidity = data->_humidity;
@@ -36,6 +38,10 @@ namespace Core {
         _temperature_low = data->_temperature_low;
         _current = data->_current;
         _start_time = data->_start_time;
+        _end_time = data->_end_time;
+        _pressure = data->_pressure;
+        _flike = data->_flike;
+        _ppcp = data->_ppcp;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
@@ -51,9 +57,13 @@ namespace Core {
     Data::EndTime(time_t end_time){
         _end_time = end_time;
     }
+    time_t
+    Data::EndTime() const{
+        return _end_time;
+    }
 ////////////////////////////////////////////////////////////////////////////////
      Temperature&
-     Data::Flike() const{
+     Data::Flike(){
          /* need to check type (Celsius Farenheit ) */
          return *_flike;
      }
@@ -156,6 +166,28 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Temperature& Data::temperature_low(){
         return *_temperature_low;
+    }
+////////////////////////////////////////////////////////////////////////////////
+    void
+    Data::Pressure(int pressure){
+        _pressure = pressure;
+    }
+
+    int
+    Data::Pressure() const{
+        /* need to check type ( ) */
+        return _pressure;
+    }
+////////////////////////////////////////////////////////////////////////////////
+    void
+    Data::Ppcp(float ppcp){
+        _ppcp = ppcp;
+    }
+
+    float
+    Data::Ppcp() const{
+        /* need to check type ( ) */
+        return _ppcp;
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

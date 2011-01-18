@@ -17,10 +17,16 @@ class DataItem : public QObject, public Core::Data
         IconRole,
         Wind_directionRole,
         Wind_speedRole,
+        Wind_gustRole,
         HumidityRole,
         DescriptionRole,
         CurrentRole,
-        DateRole
+        DateRole,
+        StartRole,
+        EndRole,
+        PressureRole,
+        FlikeRole,
+        PpcpRole
     };
 public:
     DataItem();
@@ -33,11 +39,17 @@ public:
     inline QString temperature_low();
     inline QString wind_direction();
     inline QString wind_speed();
+    inline QString wind_gust();
     inline QString humidity();
     inline QString icon();
     inline bool current();
     inline QString description();
-    QString date();
+    inline QString date();
+    inline QString start();
+    inline QString end();
+    inline QString flike();
+    inline QString pressure();
+    inline QString ppcp();
 
 };
 

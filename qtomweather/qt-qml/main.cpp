@@ -18,6 +18,7 @@
 #include "qmllayoutitem.h"
 #include "dataitem.h"
 #include "datamodel.h"
+#include "qparser.h"
 
 #include <QtDebug>
 
@@ -82,7 +83,10 @@ int main(int argc, char* argv[])
     StationsList = config->StationsList();
     std::cerr<<"size "<<StationsList.size()<<std::endl;
     update_weather_forecast(StationsList);
-
+    /*
+    QParser parser;
+    parser.valid("data.xml", QUrl(":../core/data/data.xsd"));
+    return 0;*/
     try{
         dp = new Core::DataParser("data.xml", "../core/data/data.xsd");
     }

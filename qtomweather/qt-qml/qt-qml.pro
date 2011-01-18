@@ -15,14 +15,16 @@ SOURCES += main.cpp \
     configqml.cpp \
     qmllayoutitem.cpp \
     dataitem.cpp \
-    datamodel.cpp
+    datamodel.cpp \
+    qparser.cpp
 
 HEADERS  += \
     dataqml.h \
     configqml.h \
     qmllayoutitem.h \
     dataitem.h \
-    datamodel.h
+    datamodel.h \
+    qparser.h
 
 FORMS    +=
 RESOURCES += weatherlayoutitem.qrc

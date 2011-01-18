@@ -14,8 +14,8 @@ License:    GPLv2.1
 URL:        https://garage.maemo.org/projects/omweather/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  omweather-qml.yaml
-BuildRequires:  pkgconfig(QtCore) >= 4.7.0
-
+BuildRequires:  pkgconfig(libxml-2.0)
+BuildRequires:  pkgconfig(libcurl)
 
 %description
 Weather Forecast on Nokia N900. Ultra-customisable weather widget for showing forecast the way you want.
@@ -30,10 +30,13 @@ Weather Forecast on Nokia N900. Ultra-customisable weather widget for showing fo
 
 %build
 # >> build pre
+export PATH=/usr/lib/qt4/bin:$PATH
+qmake PREFIX=%{_prefix}
+make
 # << build pre
 
-%configure --disable-static
-make %{?jobs:-j%jobs}
+#%configure --disable-static
+#make %{?jobs:-j%jobs}
 
 # >> build post
 # << build post
@@ -44,6 +47,7 @@ rm -rf %{buildroot}
 %make_install
 
 # >> install post
+make INSTALL_ROOT=%{buildroot}/usr install
 # << install post
 
 

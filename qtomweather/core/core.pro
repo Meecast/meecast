@@ -1,10 +1,18 @@
 VERSION = 1.0
 TARGET = omweather-core
 TEMPLATE = lib
-CONFIG = link_pkgconfig \
-    -qt
-PKGCONFIG += libxml++-2.6 \
-    libcurl
+PKGCONFIG += libcurl
+CONFIG += link_pkgconfig 
+
+
+
+system(pkg-config --exists libxml++-2.6) {
+    CONFIG += -qt
+    PKGCONFIG += libxml++-2.6 
+} else {
+    message("Not libxml++-2.6")
+}
+ 
 SOURCES = config.cpp \
     station.cpp \
     data.cpp \

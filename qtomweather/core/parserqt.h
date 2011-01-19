@@ -1,5 +1,5 @@
-#ifndef QPARSER_H
-#define QPARSER_H
+#ifndef PARSERQT_H
+#define PARSERQT_H
 ////////////////////////////////////////////////////////////////////////////////
 #include <QtXmlPatterns/QXmlSchema>
 #include <QtXmlPatterns/QXmlSchemaValidator>
@@ -9,12 +9,12 @@
 #include <iostream>
 ////////////////////////////////////////////////////////////////////////////////
 
-    class QParser{
+    class ParserQt{
         public:
-            QParser();
+            ParserQt();
             void valid(QString filename, QUrl schema_filename);
 
     };
 
 
-#endif // QPARSER_H
+#endif // PARSERQT_H

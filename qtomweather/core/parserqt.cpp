@@ -1,11 +1,11 @@
-#include "qparser.h"
+#include "parserqt.h"
 ////////////////////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////
-    QParser::QParser(){}
+    ParserQt::ParserQt(){}
 
     void
-    QParser::valid(QString filename, QUrl schema_filename)
+    ParserQt::valid(QString filename, QUrl schema_filename)
     {
         /*
         if(filename.empty())

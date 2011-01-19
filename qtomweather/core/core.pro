@@ -17,16 +17,18 @@ SOURCES = config.cpp \
     station.cpp \
     data.cpp \
     parser.cpp \
+    parserqt.cpp \
     source.cpp \
     downloader.cpp \
     connection.cpp \
     dataparser.cpp \
     temperature.cpp \
-    datalist.cpp
+    datalist.cpp 
 HEADERS = config.h \
     station.h \
     data.h \
     parser.h \
+    parserqt.h \
     source.h \
     downloader.h \
     connection.h \

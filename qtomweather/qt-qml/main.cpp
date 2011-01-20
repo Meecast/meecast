@@ -84,13 +84,15 @@ int main(int argc, char* argv[])
     StationsList = config->StationsList();
     std::cerr<<"size "<<StationsList.size()<<std::endl;
     update_weather_forecast(StationsList);
-    /*
-    QParser parser;
-    parser.valid("data.xml", QUrl(":../core/data/data.xsd"));
-    return 0;*/
+
+    Core::ParserQt parser;
+    if (!parser.valid("data.xml", QUrl(":../core/data/data.xsd"))){
+        return 0;
+    }
+
     Core::DataParserQt* dpq;
     dpq = new Core::DataParserQt("data.xml");
-    return 0;
+
     try{
         dp = new Core::DataParser("data.xml", "../core/data/data.xsd");
     }
@@ -105,7 +107,7 @@ int main(int argc, char* argv[])
 
     DataModel *model = new DataModel(new DataItem, qApp);
     i = 0;
-    while  (temp_data = dp->data().GetDataForTime(time(NULL) + i)) {
+    while  (temp_data = dpq->data().GetDataForTime(time(NULL) + i)) {
         i = i + 3600*24;
         forecast_data = new DataItem(temp_data);
         model->appendRow(forecast_data);

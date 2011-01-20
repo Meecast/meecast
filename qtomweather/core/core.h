@@ -6,6 +6,7 @@
 #include "station.h"
 #include "data.h"
 #include "parser.h"
+#include "parserqt.h"
 #include "source.h"
 #include "downloader.h"
 #include "datalist.h"

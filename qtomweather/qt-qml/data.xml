@@ -9,26 +9,39 @@
   <p>mmHg</p>
  </units>
   <timezone>2</timezone>
+    <period start="1295557200" end="1295568000" current="true">
+     <temperature>-3</temperature>
+     <wind_speed>6</wind_speed>
+     <wind_direction>SE</wind_direction>
+     <humidity>86</humidity>
+     <pressure>1001.4</pressure>
+     <pressure_direction>N/A</pressure_direction>
+     <description>Mostly Cloudy</description>
+     <flike>-3</flike>
+     <icon>27</icon>
+     <visible>10.0</visible>
+    </period>
     <period start="1295474400" end="1295503800">
-     <temperature>-4</temperature>
+     <temperature>-7</temperature>
      <wind_speed>3</wind_speed>
-     <wind_direction>E</wind_direction>
-     <humidity>89</humidity>
+     <wind_direction>ESE</wind_direction>
+     <humidity>88</humidity>
      <ppcp>20</ppcp>
      <description>Cloudy</description>
      <icon>26</icon>
     </period>
     <period start="1295503801" end="1295532600">
-     <temperature>-4</temperature>
+     <temperature>-7</temperature>
+     <wind_direction>SE</wind_direction>
      <ppcp>20</ppcp>
      <description>N/A</description>
      <icon>44</icon>
     </period>
     <period start="1295532601" end="1295560799">
-     <temperature>-4</temperature>
+     <temperature>-7</temperature>
      <wind_speed>3</wind_speed>
-     <wind_direction>E</wind_direction>
-     <humidity>89</humidity>
+     <wind_direction>ESE</wind_direction>
+     <humidity>88</humidity>
      <ppcp>20</ppcp>
      <description>Cloudy</description>
      <icon>26</icon>
@@ -38,19 +51,19 @@
      <sunset>1295532600</sunset>
     </period>
     <period start="1295560800" end="1295590140">
-     <temperature_hi>-3</temperature_hi>
+     <temperature_hi>-6</temperature_hi>
      <temperature_low>-9</temperature_low>
-     <wind_speed>5</wind_speed>
-     <wind_direction>NNE</wind_direction>
-     <humidity>86</humidity>
+     <wind_speed>2</wind_speed>
+     <wind_direction>N</wind_direction>
+     <humidity>84</humidity>
      <ppcp>50</ppcp>
      <description>Light Snow</description>
      <icon>14</icon>
     </period>
     <period start="1295590141" end="1295619120">
-     <temperature_hi>-3</temperature_hi>
+     <temperature_hi>-6</temperature_hi>
      <temperature_low>-9</temperature_low>
-     <wind_speed>10</wind_speed>
+     <wind_speed>8</wind_speed>
      <wind_direction>E</wind_direction>
      <humidity>82</humidity>
      <ppcp>50</ppcp>
@@ -58,11 +71,11 @@
      <icon>14</icon>
     </period>
     <period start="1295619121" end="1295647199">
-     <temperature_hi>-3</temperature_hi>
+     <temperature_hi>-6</temperature_hi>
      <temperature_low>-9</temperature_low>
-     <wind_speed>5</wind_speed>
-     <wind_direction>NNE</wind_direction>
-     <humidity>86</humidity>
+     <wind_speed>2</wind_speed>
+     <wind_direction>N</wind_direction>
+     <humidity>84</humidity>
      <ppcp>50</ppcp>
      <description>Light Snow</description>
      <icon>14</icon>
@@ -86,7 +99,7 @@
      <temperature_low>-13</temperature_low>
      <wind_speed>5</wind_speed>
      <wind_direction>NW</wind_direction>
-     <humidity>82</humidity>
+     <humidity>81</humidity>
      <ppcp>40</ppcp>
      <description>AM Light Snow</description>
      <icon>14</icon>

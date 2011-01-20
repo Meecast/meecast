@@ -9,12 +9,13 @@
 #include <iostream>
 ////////////////////////////////////////////////////////////////////////////////
 
+namespace Core {
     class ParserQt{
         public:
             ParserQt();
-            void valid(QString filename, QUrl schema_filename);
+            bool valid(QString filename, QUrl schema_filename);
 
     };
 
-
+} // namespace Core
 #endif // PARSERQT_H

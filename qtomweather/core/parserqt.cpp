@@ -1,10 +1,10 @@
 #include "parserqt.h"
 ////////////////////////////////////////////////////////////////////////////////
-
+namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     ParserQt::ParserQt(){}
 
-    void
+    bool
     ParserQt::valid(QString filename, QUrl schema_filename)
     {
         /*
@@ -33,12 +33,15 @@
                 QXmlSchemaValidator validator(schema);
                 if (validator.validate(&file, QUrl::fromLocalFile(file.fileName()))){
                     qDebug() << "file " << filename << "  is valid";
+                    return true;
                 }else {
                     qDebug() << "file " << filename << " is invalid";
                     throw("Document is not valid.");
+                    return false;
                 }
             } else {
                 qDebug() << "schema is invalid";
+                return false;
             }
 
 
@@ -49,4 +52,5 @@
         }
     #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
     }
-
+////////////////////////////////////////////////////////////////////////////////
+} // namespace Core

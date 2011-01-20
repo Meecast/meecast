@@ -2,8 +2,6 @@
 #define DATAPARSERQT_H
 ////////////////////////////////////////////////////////////////////////////////
 #include <QtXml/QDomDocument>
-#include <QtXml/QDomNode>
-#include <QtXml/QDomElement>
 
 #include <QFile>
 #include <QDebug>

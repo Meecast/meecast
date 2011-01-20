@@ -75,5 +75,9 @@ namespace Core {
     {
         return *_list;
     }
+    DataParserQt::~DataParserQt()
+    {
+        delete _list;
+    }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

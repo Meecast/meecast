@@ -18,6 +18,7 @@ namespace Core {
     public:
         DataParserQt(const QString filename);
         DataList& data();
+        virtual ~DataParserQt();
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

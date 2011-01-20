@@ -72,11 +72,11 @@ int main(int argc, char* argv[])
     ConfigQml *config;
     DataItem *forecast_data = NULL;
 
-    Core::DataList data_list;
-    QmlLayoutItem* qml_layout_item;
-    Core::DataParser* dp;
+    //Core::DataList data_list;
+    //QmlLayoutItem* qml_layout_item;
+    //Core::DataParser* dp;
     Core::Data *temp_data = NULL;
-    int i, id;
+    int i;
 
     std::vector<Core::Station*> StationsList;
 
@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
 
     Core::DataParserQt* dpq;
     dpq = new Core::DataParserQt("data.xml");
-
+/*
     try{
         dp = new Core::DataParser("data.xml", "../core/data/data.xsd");
     }
@@ -104,7 +104,7 @@ int main(int argc, char* argv[])
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;
         return -1;
     }
-
+*/
     DataModel *model = new DataModel(new DataItem, qApp);
     i = 0;
     while  (temp_data = dpq->data().GetDataForTime(time(NULL) + i)) {

@@ -9,8 +9,10 @@ CONFIG += link_pkgconfig
 system(pkg-config --exists libxml++-2.6) {
     CONFIG += -qt
     PKGCONFIG += libxml++-2.6 
+    QT += xml
 } else {
     message("Not libxml++-2.6")
+    QT += xml
 }
  
 SOURCES = config.cpp \

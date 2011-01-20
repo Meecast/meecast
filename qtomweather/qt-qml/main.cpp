@@ -18,7 +18,8 @@
 #include "qmllayoutitem.h"
 #include "dataitem.h"
 #include "datamodel.h"
-#include "qparser.h"
+#include "parserqt.h"
+
 
 #include <QtDebug>
 
@@ -87,6 +88,9 @@ int main(int argc, char* argv[])
     QParser parser;
     parser.valid("data.xml", QUrl(":../core/data/data.xsd"));
     return 0;*/
+    Core::DataParserQt* dpq;
+    dpq = new Core::DataParserQt("data.xml");
+    return 0;
     try{
         dp = new Core::DataParser("data.xml", "../core/data/data.xsd");
     }

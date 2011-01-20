@@ -10,6 +10,7 @@
 #include "downloader.h"
 #include "datalist.h"
 #include "dataparser.h"
+#include "dataparserqt.h"
 #include "temperature.h"
 namespace Core{
     class Connection;

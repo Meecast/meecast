@@ -2,21 +2,20 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    Station::Station(const std::string& source_name, const std::string& id,
-                     const std::string& name, const std::string& country,
-                     const std::string& region){
-        _id = new std::string(id);
+    Station::Station(const std::string& source_name, const std::string& name,
+                     const std::string& country, const std::string& region){
+        _sourceName = new std::string(source_name);
         _name = new std::string(name);
         _country = new std::string(country);
         _region = new std::string(region);
         _timezone = 0;
-        _fileName = NULL;
-        _source = NULL;
+        _fileName = 0;
+        _source = 0;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::~Station(){
+        delete _sourceName;
         delete _name;
-        delete _id;
         delete _country;
         delete _region;
         if(_data)
@@ -26,19 +25,18 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const Station& station){
-        _id = new std::string(*(station._id));
+        _sourceName = new std::string(*(station._sourceName));
         _name = new std::string(*(station._name));
         _country = new std::string(*(station._country));
         _region = new std::string(*(station._region));
-        _source = station._source;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station& Station::operator=(const Station& station){
         if(this != &station){
+            delete _sourceName;
+            _sourceName = new std::string(*(station._sourceName));
             delete _name;
             _name = new std::string(*(station._name));
-            delete _id;
-            _id = new std::string(*(station._id));
             delete _country;
             _country = new std::string(*(station._country));
             delete _region;
@@ -53,14 +51,6 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     std::string& Station::name() const{
         return *_name;
-    }
-////////////////////////////////////////////////////////////////////////////////
-    void Station::id(const std::string& id){
-        _id->assign(id);
-    }
-////////////////////////////////////////////////////////////////////////////////
-    std::string& Station::id() const{
-        return *_id;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void Station::timezone(const int timezone){
@@ -85,13 +75,8 @@ namespace Core {
         return true;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    void Station::source(Source *source){
-           _source = source;
-    }
-////////////////////////////////////////////////////////////////////////////////
-    std::string& Station::forecastURL() const{
-        std::cout<<"uuuuuuuuu"<<std::endl;
-        return _source->forecastURL();
+    void Station::updateSource(const Source* source){
+        _source = const_cast<Source*>(source);
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

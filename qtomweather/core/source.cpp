@@ -5,11 +5,16 @@ namespace Core {
     Source::Source(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename){
         _name = new std::string;
         _logo = new std::string;
-        _forecastUrl = new std::string;
-        _detailUrl = new std::string;
-        _searchUrl = new std::string;
-        _databaseName = new std::string;
-        _binaryName = new std::string;
+        _library = new std::string;
+        _hasForecast = false;
+        _hasDetail = false;
+
+        _libraryHandler = 0;
+        _sourceInit = 0;
+        _sourceDestroy = 0;
+        _sourceSearch = 0;
+        _sourceGetForecast = 0;
+        _sourceGetDetail = 0;
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -17,11 +22,55 @@ namespace Core {
                 //Walk the tree:
                 const xmlpp::Node* pNode = parser->get_document()->get_root_node(); //deleted by DomParser.
                 processNode(pNode);
+                // TODO check binaryName for empty
+                std::string binaryWithPath = prefix + libPath;
+                binaryWithPath += *_library;
+                _libraryHandler = dlopen(binaryWithPath.c_str(), RTLD_NOW);
+                if(!_libraryHandler)
+                    throw(std::string("Failed, while loading source library."));
+                void *_handler = 0;
+                char *possibleError = 0;
+                // init function from source
+                dlerror();
+                _handler = dlsym(_libraryHandler, "init");
+                possibleError = dlerror();
+                if(possibleError)
+                    throw(std::string(possibleError));
+                _sourceInit = (void(*)())_handler;
+                // search function from source
+                _handler = possibleError = 0;
+                dlerror();
+                _handler = dlsym(_libraryHandler, "search");
+                possibleError = dlerror();
+                if(!possibleError){
+                    _sourceSearch = (StationList& (*)(const std::string&))_handler;
+                }
+                // forecast function from source
+                _handler = possibleError = 0;
+                dlerror();
+                _handler = dlsym(_libraryHandler, "forecast");
+                possibleError = dlerror();
+                if(!possibleError){
+                    _sourceGetForecast = (bool (*)(const std::string&, const std::string&))_handler;
+                    _hasForecast = true;
+                }
+                // detail function from source
+                _handler = possibleError = 0;
+                dlerror();
+                _handler = dlsym(_libraryHandler, "detail");
+                possibleError = dlerror();
+                if(!possibleError){
+                    _sourceGetDetail = (bool (*)(const std::string&, const std::string&))_handler;
+                    _hasDetail = true;
+                }
             }
         }
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         catch(const std::exception& ex){
             throw(ex.what());
+        }
+        catch(std::string& er){
+            throw(er);
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
     }
@@ -29,36 +78,19 @@ namespace Core {
     Source::~Source(){
         delete _name;
         delete _logo;
-        delete _forecastUrl;
-        delete _detailUrl;
-        delete _searchUrl;
-        delete _databaseName;
-        delete _binaryName;
+        delete _library;
+        if(_libraryHandler)
+            dlclose(_libraryHandler);
     }
 ////////////////////////////////////////////////////////////////////////////////
     Source& Source::operator=(const Source& source){
         if(this != &source){
             delete _name;
-            _name = new std::string;
-            _name->assign(*(source._name));
+            _name = new std::string(*(source._name));
             delete _logo;
-            _logo = new std::string;
-            _logo->assign(*(source._logo));
-            delete _forecastUrl;
-            _forecastUrl = new std::string;
-            _forecastUrl->assign(*(source._forecastUrl));
-            delete _detailUrl;
-            _detailUrl = new std::string;
-            _detailUrl->assign(*(source._detailUrl));
-            delete _searchUrl;
-            _searchUrl = new std::string;
-            _searchUrl->assign(*(source._searchUrl));
-            delete _databaseName;
-            _databaseName = new std::string;
-            _databaseName->assign(*(source._databaseName));
-            delete _binaryName;
-            _binaryName = new std::string;
-            _binaryName->assign(*(source._binaryName));
+            _logo = new std::string(*(source._logo));
+            delete _library;
+            _library = new std::string(*(source._library));
         }
         return *this;
     }
@@ -67,7 +99,6 @@ namespace Core {
         if(!node)
             return;
         std::string nodeName = node->get_name();
-        std::cerr<<"NodeName  "<<node->get_name();
         // source tag
         if(nodeName == "source"){
             xmlpp::Node::NodeList list = node->get_children();
@@ -90,38 +121,22 @@ namespace Core {
             _logo->assign(nodeText->get_content());
             return;
         }
-        // base tag
-        if(nodeName == "base"){
+        // forecast tag
+        if(nodeName == "forecast"){
             xmlpp::Node::NodeList list = node->get_children();
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
-            _databaseName->assign(nodeText->get_content());
-            return;
-        }
-        // forecast tag
-        if(nodeName == "forecast"){
-            const xmlpp::Element* nodeElement = dynamic_cast<const xmlpp::Element*>(node);
-            const xmlpp::Attribute* attribute = nodeElement->get_attribute("url");
-            if(attribute){
-                std::cout<<"fffff  "<<attribute->get_value()<<std::endl;
-                _forecastUrl->assign(attribute->get_value());
-            }
+            std::string str = nodeText->get_content();
+            (str.compare("true")) ? (_hasForecast = false) : (_hasForecast = true);
             return;
         }
         // detail tag
         if(nodeName == "detail"){
-            const xmlpp::Element* nodeElement = dynamic_cast<const xmlpp::Element*>(node);
-            const xmlpp::Attribute* attribute = nodeElement->get_attribute("url");
-            if(attribute)
-                _detailUrl->assign(attribute->get_value());
-            return;
-        }
-        // search tag
-        if(nodeName == "search"){
-            const xmlpp::Element* nodeElement = dynamic_cast<const xmlpp::Element*>(node);
-            const xmlpp::Attribute* attribute = nodeElement->get_attribute("url");
-            if(attribute)
-                _searchUrl->assign(attribute->get_value());
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            std::string str = nodeText->get_content();
+            (str.compare("true")) ? (_hasDetail = false) : (_hasDetail = true);
             return;
         }
         // library tag
@@ -129,7 +144,7 @@ namespace Core {
             xmlpp::Node::NodeList list = node->get_children();
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
-            _binaryName->assign(nodeText->get_content());
+            _library->assign(nodeText->get_content());
             return;
         }
     }
@@ -142,10 +157,8 @@ namespace Core {
         return *_logo;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    std::string& Source::forecastURL() const{
-        std::cout<<"oooooo"<<std::endl;
-        std::cout<<"oooooo  "<<_forecastUrl<<std::endl;
-            return *_forecastUrl;
+    StationList& Source::search(const std::string& station){
+        return _sourceSearch(station);
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

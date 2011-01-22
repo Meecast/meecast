@@ -5,7 +5,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    Parser::Parser(const std::string& filename, const std::string& schema_filename){
+    Parser::Parser(const std::string& filename, const std::string& schema_filename)
+                        : AbstractConfig(){
         if(filename.empty())
             throw("Invalid source file.");
         int r = access(filename.c_str(), R_OK);

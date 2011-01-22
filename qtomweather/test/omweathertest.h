@@ -7,7 +7,7 @@ class OmweatherTest : public CxxTest::TestSuite{
         void testSourceClass(void){
             return;
             Core::Source *s = NULL;
-            TS_ASSERT_THROWS_ANYTHING(s = new Core::Source("null_source.xml", "../core/data/source.xsd") );  
+            TS_ASSERT_THROWS_ANYTHING(s = new Core::Source("null_source.xml", "../core/data/source.xsd") );
             TS_ASSERT_THROWS_ANYTHING(s = new Core::Source("source.xml", "../core/data/null_source.xsd") );
             TS_ASSERT_THROWS_NOTHING(s = new Core::Source("source.xml", "../core/data/source.xsd") );
             if(!s){
@@ -22,7 +22,11 @@ class OmweatherTest : public CxxTest::TestSuite{
             TS_ASSERT_THROWS_NOTHING(c = new Core::Config("config.xml", "../core/data/config.xsd"));
             if(!c)
                 return;
-            TS_TRACE(c->prefix());
+            TS_TRACE(c->prefix);
+            TS_TRACE(c->schemaPath);
+            TS_TRACE(c->iconsPath);
+            TS_TRACE(c->libPath);
+            TS_TRACE(c->sourcesPath);
             c->TemperatureUnit("F");
             TS_ASSERT(c->iconSet().compare("Funny") == 0);
             TS_ASSERT(c->TemperatureUnit().compare("F")== 0);

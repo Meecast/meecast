@@ -13,3 +13,4 @@ alltests.depends = $$TEST_HEADERS
 QMAKE_EXTRA_TARGETS += alltests
 SOURCES += omweathertest.cpp 
 HEADERS += omweathertest.h
+QMAKE_CLEAN += $$TARGET omweathertest.cpp

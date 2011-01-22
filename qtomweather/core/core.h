@@ -8,18 +8,25 @@
 #include "parser.h"
 #include "parserqt.h"
 #include "source.h"
+#include "sourcelist.h"
 #include "downloader.h"
 #include "datalist.h"
 #include "dataparser.h"
 #include "dataparserqt.h"
 #include "temperature.h"
+#include "stationlist.h"
+#include "abstractconfig.h"
+
 namespace Core{
     class Connection;
+    class AbstractConfig;
     class Config;
     class Data;
     class Downloader;
     class Source;
+    class SourceList;
     class Station;
+    class StationList;
     class DataParser;
     class Temperature;
 };

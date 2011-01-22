@@ -1,12 +1,10 @@
 #include "config.h"
+#include "station.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
 ////////////////////////////////////////////////////////////////////////////////
-    const std::string Config::schemaPath = "share/omweather/schemas/";
-    const std::string Config::iconsPath = "share/omweather/iconsets/";
-    const std::string Config::libPath = "lib/omweather/";
-////////////////////////////////////////////////////////////////////////////////
-    Config::Config(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename){
+    Config::Config(const std::string& filename, const std::string& schema_filename)
+                        : Parser(filename, schema_filename){
         _pathPrefix = new std::string;
         _iconset = new std::string("Glance");
         _temperature_unit = new std::string("C");
@@ -26,10 +24,6 @@ namespace Core{
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
     }
-////////////////////////////////////////////////////////////////////////////////
-std::string& Config::prefix() const{
-    return *_pathPrefix;
-}
 ////////////////////////////////////////////////////////////////////////////////
     Config::~Config(){
         delete _pathPrefix;
@@ -103,7 +97,7 @@ std::string& Config::prefix() const{
         }
         // station
         if(nodeName == "station"){
-            _stations.push_back(new Station("weather.com", "BOXX0014", "Vitebsk"));
+            _stations->push_back(new Station("weather.com", "BOXX0014", "Vitebsk"));
             return;
         }
 /*
@@ -150,9 +144,9 @@ std::string& Config::prefix() const{
 */
     }
 ////////////////////////////////////////////////////////////////////////////////
-    std::vector<Station*>&
-    Config::StationsList(){
-        return _stations;
+    StationList&
+    Config::stationList(){
+        return *_stations;
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

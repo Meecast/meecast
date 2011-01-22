@@ -5,7 +5,6 @@
       <xs:sequence>
         <xs:element ref="schemas:name"/>
         <xs:element ref="schemas:logo"/>
-        <xs:element ref="schemas:base"/>
         <xs:element ref="schemas:forecast"/>
         <xs:element ref="schemas:detail"/>
         <xs:element ref="schemas:search"/>
@@ -15,22 +14,9 @@
   </xs:element>
   <xs:element name="name" type="xs:string"/>
   <xs:element name="logo" type="xs:string"/>
-  <xs:element name="base" type="xs:string"/>
-  <xs:element name="forecast">
-    <xs:complexType>
-      <xs:attribute name="url" use="required"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="detail">
-    <xs:complexType>
-      <xs:attribute name="url" use="required"/>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="search">
-    <xs:complexType>
-      <xs:attribute name="url" use="required"/>
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="forecast" type="xs:boolean"/>
+  <xs:element name="detail" type="xs:boolean"/>
+  <xs:element name="search" type="xs:boolean"/>
   <xs:choice>
     <xs:element name="library" type="xs:string"/>
     <xs:element name="binary" type="xs:string"/>

@@ -5,9 +5,10 @@
 #include <libxml++/validators/schemavalidator.h>
 #include <string>
 #include <iostream>
+#include "abstractconfig.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
-    class Parser{
+    class Parser : public AbstractConfig{
         protected:
             xmlpp::DomParser *parser;
             xmlpp::SchemaValidator *validator;

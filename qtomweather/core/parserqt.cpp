@@ -2,55 +2,40 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    ParserQt::ParserQt(){}
-
-    bool
-    ParserQt::valid(QString filename, QUrl schema_filename)
+    ParserQt::ParserQt(const QString filename, const QUrl schema_filename)
     {
-        /*
-        if(filename.empty())
-            throw("Invalid source file.");
-        int r = access(filename.c_str(), R_OK);
-        if(r)
-            throw("File: " + filename + " - ");
-        if(schema_filename.empty())
-            throw("Invalid source schema file.");
-        r = access(schema_filename.c_str(), R_OK);
-        if(r)
-            throw("File: " + filename + " - ");
-            */
-    #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
-        try{
-    #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-
-            QXmlSchema schema;
-            schema.load(schema_filename);
-
-            if (schema.isValid()){
-                QFile file(filename);
-                file.open(QIODevice::ReadOnly);
-
-                QXmlSchemaValidator validator(schema);
-                if (validator.validate(&file, QUrl::fromLocalFile(file.fileName()))){
-                    qDebug() << "file " << filename << "  is valid";
-                    return true;
-                }else {
-                    qDebug() << "file " << filename << " is invalid";
-                    throw("Document is not valid.");
-                    return false;
-                }
-            } else {
-                qDebug() << "schema is invalid";
-                return false;
-            }
-
-
-    #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+        QXmlSchema schema;
+        if (!schema.load(schema_filename)){
+            throw("Invalid schema file");
+            return;
         }
-        catch(const std::exception& ex){
-            throw(ex.what());
+        if (!schema.isValid()){
+            throw("Schema is invalid");
+            return;
         }
-    #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+        QFile file(filename);
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
+            throw("Invalid source file");
+            return;
+        }
+        QXmlSchemaValidator validator(schema);
+        if (validator.validate(&file, QUrl::fromLocalFile(file.fileName()))){
+            qDebug() << "File " << filename << "  is valid";
+        }else {
+            qDebug() << "File " << filename << " is invalid";
+            file.close();
+            throw("Xml file is invalid");
+            return;
+        }
+        file.close();
+        file.open(QIODevice::ReadOnly | QIODevice::Text);
+        if (!_doc.setContent((&file))){
+            file.close();
+            throw("Error set content");
+            return;
+        }
+        file.close();
+
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

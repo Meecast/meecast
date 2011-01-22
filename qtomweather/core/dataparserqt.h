@@ -8,15 +8,15 @@
 
 #include "data.h"
 #include "datalist.h"
+#include "parserqt.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
-    class DataParserQt
+    class DataParserQt: public ParserQt
     {
         DataList *_list;
         int _timezone;
-        //void processNode(const QDomNode node);
     public:
-        DataParserQt(const QString filename);
+        DataParserQt(const QString filename, const QUrl schema_filename);
         DataList& data();
         virtual ~DataParserQt();
     };

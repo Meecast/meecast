@@ -85,13 +85,14 @@ int main(int argc, char* argv[])
     std::cerr<<"size "<<StationsList.size()<<std::endl;
     update_weather_forecast(StationsList);
 
-    Core::ParserQt parser;
-    if (!parser.valid("data.xml", QUrl(":../core/data/data.xsd"))){
-        return 0;
-    }
 
     Core::DataParserQt* dpq;
-    dpq = new Core::DataParserQt("data.xml");
+    try {
+        dpq = new Core::DataParserQt("data.xml", QUrl(":../core/data/data.xsd"));
+    }catch(const char *str){
+        qDebug() << "Error in DataParserQt class: " << str;
+        return -1;
+    }
 /*
     try{
         dp = new Core::DataParser("data.xml", "../core/data/data.xsd");

@@ -2,31 +2,18 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    DataParserQt::DataParserQt(const QString filename)
+    DataParserQt::DataParserQt(const QString filename, const QUrl schema_filename) : ParserQt(filename, schema_filename)
     {
         _timezone = 0;
         _list = new DataList;
-        QDomDocument doc("data");
-        QFile file(filename);
-        if (!file.open(QIODevice::ReadOnly)){
-            qDebug() << "error open file";
-            return;
-        }
-        if (!doc.setContent((&file))){
-            qDebug() << "error set content";
-            file.close();
-            return;
-        }
-        file.close();
 
-        QDomElement root = doc.documentElement();
+        QDomElement root = _doc.documentElement();
         Data* forecast_data;
-
 
         QDomNodeList nodelist = root.elementsByTagName("timezone");
         if (nodelist.count() == 1) {
             _timezone = nodelist.at(0).toElement().text().toInt();
-            qDebug() << _timezone;
+            qDebug() << "timezone = " << _timezone;
         }
         nodelist = root.elementsByTagName("period");
         for (int i=0; i<nodelist.count(); i++){

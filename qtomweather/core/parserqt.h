@@ -3,6 +3,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include <QtXmlPatterns/QXmlSchema>
 #include <QtXmlPatterns/QXmlSchemaValidator>
+#include <QtXml/QDomDocument>
 #include <QFile>
 #include <QDebug>
 #include <string>
@@ -11,9 +12,10 @@
 
 namespace Core {
     class ParserQt{
+        protected:
+            QDomDocument _doc;
         public:
-            ParserQt();
-            bool valid(QString filename, QUrl schema_filename);
+            ParserQt(const QString filename, const QUrl schema_filename);
 
     };
 

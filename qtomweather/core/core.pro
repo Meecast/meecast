@@ -17,7 +17,9 @@ system(pkg-config --exists libxml++-2.6) {
     QT += xml
 }
  
-SOURCES = config.cpp \
+SOURCES = \
+    abstractconfig.cpp \ 
+    config.cpp \
     station.cpp \
     data.cpp \
     parser.cpp \
@@ -29,7 +31,9 @@ SOURCES = config.cpp \
     temperature.cpp \
     datalist.cpp \ 
     dataparserqt.cpp
-HEADERS = config.h \
+HEADERS = \ 
+    abstractconfig.h \ 
+    config.h \
     station.h \
     data.h \
     parser.h \

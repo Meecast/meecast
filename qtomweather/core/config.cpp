@@ -44,6 +44,11 @@ namespace Core{
         return *_iconset;
     }
 ////////////////////////////////////////////////////////////////////////////////
+    std::string&
+    Config::prefix_path(){
+            return prefix;
+        }
+////////////////////////////////////////////////////////////////////////////////
     void
     Config::TemperatureUnit(const std::string& text){
         /* ToDo Check access to path */

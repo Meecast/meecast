@@ -20,6 +20,7 @@ namespace Core{
             Config(const Config& config);
             Config& operator=(const Config& config);
             virtual ~Config();
+            std::string& prefix_path(void);
             void iconSet(const std::string& text);
             std::string& iconSet(void);
             void TemperatureUnit(const std::string& text);

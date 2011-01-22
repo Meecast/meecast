@@ -1,0 +1,18 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Exec=/usr/libexec/meego-panel-omweather
+TryExec=/usr/libexec/meego-panel-omweather
+Name=Omweather
+Icon=bluetooth
+Comment=Weather for All
+Terminal=false
+Categories=
+OnlyShowIn=X-MEEGO-NB;
+X-Meego-Priority=Low
+X-Meego-Service=com.meego.UX.Shell.Panels.omweather
+X-Meego-Panel-Optional=true
+X-GNOME-Autostart-enable=true
+X-Meego-Panel-Stylesheet=/usr/share/gnome-bluetooth/theme/bluetooth-panel.css
+X-Meego-Panel-Button-Style=state-idle

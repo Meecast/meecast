@@ -15,6 +15,7 @@ namespace Core {
         _sourceSearch = 0;
         _sourceGetForecast = 0;
         _sourceGetDetail = 0;
+#ifdef LIBXML
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -72,6 +73,7 @@ namespace Core {
         catch(std::string& er){
             throw(er);
         }
+#endif
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
     }
 ////////////////////////////////////////////////////////////////////////////////
@@ -95,6 +97,7 @@ namespace Core {
         return *this;
     }
 ////////////////////////////////////////////////////////////////////////////////
+#ifdef LIBXML
     void Source::processNode(const xmlpp::Node* node){
         if(!node)
             return;
@@ -148,6 +151,7 @@ namespace Core {
             return;
         }
     }
+#endif
 ////////////////////////////////////////////////////////////////////////////////
     std::string& Source::name() const{
         return *_name;

@@ -7,7 +7,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     class Config : public Parser{
+            #ifdef LIBXML
             void processNode(const xmlpp::Node* node);
+            #endif
             std::string *_pathPrefix;
             std::string *_iconset;
             std::string *_temperature_unit;

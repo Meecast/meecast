@@ -2,11 +2,13 @@
 #include <unistd.h>
 #include <errno.h>
 #include <string.h>
+
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Parser::Parser(const std::string& filename, const std::string& schema_filename)
                         : AbstractConfig(){
+    #ifdef LIBXML
         if(filename.empty())
             throw("Invalid source file.");
         int r = access(filename.c_str(), R_OK);
@@ -34,11 +36,15 @@ namespace Core {
             throw(ex.what());
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+    #endif
     }
 ////////////////////////////////////////////////////////////////////////////////
     Parser::~Parser(){
+    #ifdef LIBXML
         delete parser;
         delete validator;
+    #endif
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core
+

@@ -6,6 +6,7 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     DataParser::DataParser(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename) {
         _timezone = 0;
+#ifdef LIBXML
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -21,12 +22,14 @@ namespace Core {
             throw(ex.what());
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+#endif
     }
 ////////////////////////////////////////////////////////////////////////////////
     DataParser::~DataParser(){
         delete _list;
     }
 ////////////////////////////////////////////////////////////////////////////////
+#ifdef LIBXML
     void DataParser::processNode(const xmlpp::Node* node){
         static Data* forecast_data;
         if(!node)
@@ -167,6 +170,7 @@ namespace Core {
         }
 
     }
+#endif
 ////////////////////////////////////////////////////////////////////////////////
     DataList& DataParser::data(){
         return *_list;

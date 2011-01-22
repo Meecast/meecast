@@ -12,11 +12,13 @@ namespace Core{
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+        #ifdef LIBXML
             if(parser){
                 //Walk the tree:
                 const xmlpp::Node* pNode = parser->get_document()->get_root_node(); //deleted by DomParser.
                 processNode(pNode);
             }
+        #endif
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         }
         catch(const std::exception& ex){
@@ -64,6 +66,7 @@ namespace Core{
         return *_font_color;
     }
 ////////////////////////////////////////////////////////////////////////////////
+#ifdef LIBXML
     void Config::processNode(const xmlpp::Node* node){
         Station* station;
         std::string station_name;
@@ -143,6 +146,7 @@ namespace Core{
         }
 */
     }
+#endif
 ////////////////////////////////////////////////////////////////////////////////
     StationList&
     Config::stationList(){

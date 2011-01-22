@@ -10,7 +10,9 @@ class StationList;
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
     class Source : public Parser {
+        #ifdef LIBXML
         void processNode(const xmlpp::Node* node);
+        #endif
         std::string *_name;
         std::string *_logo;
         std::string *_library;

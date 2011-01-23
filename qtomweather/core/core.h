@@ -9,7 +9,6 @@
 #include "parserqt.h"
 #include "source.h"
 #include "sourcelist.h"
-#include "downloader.h"
 #include "datalist.h"
 #include "dataparser.h"
 #include "dataparserqt.h"
@@ -22,7 +21,6 @@ namespace Core{
     class AbstractConfig;
     class Config;
     class Data;
-    class Downloader;
     class Source;
     class SourceList;
     class Station;

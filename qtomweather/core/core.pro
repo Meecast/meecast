@@ -26,7 +26,6 @@ SOURCES = \
     parser.cpp \
     parserqt.cpp \
     source.cpp \
-    downloader.cpp \
     connection.cpp \
     dataparser.cpp \
     temperature.cpp \
@@ -42,7 +41,6 @@ HEADERS = \
     parser.h \
     parserqt.h \
     source.h \
-    downloader.h \
     connection.h \
     datalist.h \
     core.h \

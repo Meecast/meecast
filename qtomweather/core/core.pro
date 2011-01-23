@@ -9,7 +9,7 @@ CONFIG += link_pkgconfig
 system(pkg-config --exists libxml++-2.6) {
     CONFIG += -qt
     PKGCONFIG += libxml++-2.6
-    DEFINES += LIBXML
+    DEFINES += LIBXML1
     QT += xml
     
 } else {

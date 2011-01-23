@@ -9,21 +9,21 @@
   <p>mmHg</p>
  </units>
   <timezone>2</timezone>
-    <period start="1295776800" end="1295787600" current="true">
-     <temperature>-4</temperature>
-     <wind_speed>calm</wind_speed>
-     <wind_direction>CALM</wind_direction>
+    <period start="1295791200" end="1295802000" current="true">
+     <temperature>-5</temperature>
+     <wind_speed>11</wind_speed>
+     <wind_direction>NNE</wind_direction>
+     <wind_gust>21</wind_gust>
      <humidity>91</humidity>
      <pressure>1010.2</pressure>
      <pressure_direction>steady</pressure_direction>
      <description>Light Snow</description>
-     <flike>-4</flike>
+     <flike>-5</flike>
      <icon>14</icon>
-     <visible>4.2</visible>
+     <visible>2.4</visible>
     </period>
     <period start="1295733600" end="1295762760">
-     <temperature_hi>-4</temperature_hi>
-     <temperature_low>-13</temperature_low>
+     <temperature>-13</temperature>
      <wind_speed>6</wind_speed>
      <wind_direction>N</wind_direction>
      <humidity>88</humidity>
@@ -32,18 +32,14 @@
      <icon>26</icon>
     </period>
     <period start="1295762761" end="1295792160">
-     <temperature_hi>-4</temperature_hi>
-     <temperature_low>-13</temperature_low>
-     <wind_speed>8</wind_speed>
-     <wind_direction>NE</wind_direction>
-     <humidity>80</humidity>
-     <ppcp>50</ppcp>
-     <description>Light Snow</description>
-     <icon>14</icon>
+     <temperature>-13</temperature>
+     <wind_direction>NNE</wind_direction>
+     <ppcp>20</ppcp>
+     <description>N/A</description>
+     <icon>44</icon>
     </period>
     <period start="1295792161" end="1295819999">
-     <temperature_hi>-4</temperature_hi>
-     <temperature_low>-13</temperature_low>
+     <temperature>-13</temperature>
      <wind_speed>6</wind_speed>
      <wind_direction>N</wind_direction>
      <humidity>88</humidity>

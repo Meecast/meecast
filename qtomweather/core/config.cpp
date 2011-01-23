@@ -48,9 +48,11 @@ namespace Core{
 
                     n = n.nextSibling();
                 }
-//                _stations->push_back(new Station(source_name.toStdString(), station_id.toStdString(), station_name.toStdString()));
-                 _stations->push_back(new Station("weather.com", "BOXX0014", "Vitebsk", "Belarus", "Belarus"));
+                _stations->push_back(new Station(source_name.toStdString(), station_id.toStdString(), station_name.toStdString(), "Belarus", "Belarus"));
+                //_stations->push_back(new Station("weather.com", "BOXX0014", "Vitebsk", "Belarus", "Belarus"));
+
             }
+
         #endif //LIBXML
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         }

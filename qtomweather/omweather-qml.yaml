@@ -9,10 +9,13 @@ Sources:
     - "%{name}-%{version}.tar.bz2"
 Description:  Weather Forecast on Nokia N900. Ultra-customisable weather widget for showing forecast the way you want.
 
-PkgBR:
 PkgConfigBR:
  - QtCore >= 4.7.0
-Configure: 
-ConfigOptions: 
-Builder:  
+Configure: none
+Builder: none
 Files:
+  - "/usr/bin/omweather-qml"
+  - "%{_libdir}"
+  - "%{_libexecdir}/meego-panel-omweather"
+  - "/usr/share/mutter-meego/panels/meego-panel-omweather.desktop"
+  - "/etc/xdg"

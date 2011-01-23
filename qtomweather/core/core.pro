@@ -49,7 +49,7 @@ HEADERS = \
     dataparser.h \
     temperature.h
 
-target.path = /usr/lib/omweather
+target.path = /usr/lib
 INSTALLS += target
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user

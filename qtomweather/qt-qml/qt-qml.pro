@@ -6,7 +6,7 @@
 
 QT       += declarative
 
-TARGET = qt-qml
+TARGET = omweather-qml
 TEMPLATE = app
 
 
@@ -36,4 +36,6 @@ OTHER_FILES += \
 INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core
 CONFIG += link_pkgconfig
-PKGCONFIG += 
+PKGCONFIG +=
+target.path = /usr/bin
+INSTALLS += target

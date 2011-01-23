@@ -28,9 +28,9 @@ PKGCONFIG += dbus-glib-1 \
              gio-unix-2.0
 
 #install
-target.path = $$[install_prefix]/libexec
+target.path = /usr/libexec
 desktop.files = data/meego-panel-omweather.desktop
-desktop.path = $$[install_prefix]/share/mutter-meego/panels
+desktop.path = /usr/share/mutter-meego/panels
 autostart.files = data/meego-panel-omweather.desktop
 autostart.path = /etc/xdg
 

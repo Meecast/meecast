@@ -32,6 +32,10 @@ create_and_fill_config(){
     try{
         config = new ConfigQml("config.xml", "../core/data/config.xsd");
     }
+    catch(const std::string &str){
+        std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
+        config = new ConfigQml();
+    }
     catch(const char *str){
         std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
         config = new ConfigQml();

@@ -6,4 +6,4 @@ make
 cd -
 
 export LD_LIBRARY_PATH=$PWD/../core:$LD_LIBRARY_PATH
-gdb ./qt-qml
+./qt-qml

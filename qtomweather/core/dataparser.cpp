@@ -6,11 +6,11 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     DataParser::DataParser(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename) {
         _timezone = 0;
+        _list = new DataList;
 #ifdef LIBXML
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-            _list = new DataList;
             if(parser){
                 //Walk the tree:
                 const xmlpp::Node* pNode = parser->get_document()->get_root_node(); //deleted by DomParser.

@@ -110,7 +110,7 @@
   <xs:element name="temperature_hi" type="xs:decimal"/>
   <xs:element name="temperature_low" type="xs:decimal"/>
   <xs:element name="temperature_flike" type="xs:decimal"/>
-  <xs:element name="wind_speed" type="xs:decimal"/>
+  <xs:element name="wind_speed" type="xs:string"/>
   <xs:element name="wind_direction" type="xs:string"/>
   <xs:element name="wind_gust" type="xs:decimal"/>
   <xs:element name="humidity" type="xs:decimal"/>

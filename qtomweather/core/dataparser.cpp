@@ -54,7 +54,10 @@ namespace Core {
                 }else if (tag == "humidity"){
                     forecast_data->Humidity(el.text().toInt());
                 }else if (tag == "wind_speed"){
-                    forecast_data->WindSpeed(el.text().toFloat());
+                    if (el.text() == "calm")
+                        forecast_data->WindSpeed(0);
+                    else
+                        forecast_data->WindSpeed(el.text().toFloat());
                 }else if (tag == "wind_direction"){
                     forecast_data->WindDirection(el.text().toStdString());
                 }else if (tag == "flike"){

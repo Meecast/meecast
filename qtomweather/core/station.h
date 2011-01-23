@@ -9,6 +9,7 @@ class Source;
 namespace Core{
     class Station{
         std::string *_sourceName;
+        std::string *_id;
         std::string *_name;
         std::string *_country;
         std::string *_region;
@@ -19,7 +20,7 @@ namespace Core{
         bool dataValid();
         bool prepareFile();
         public:
-        Station(const std::string& source_name, const std::string& name,
+        Station(const std::string& source_name, const std::string& id, const std::string& name,
                     const std::string& country = 0, const std::string& region = 0);
             Station(const Station& station);
             Station& operator=(const Station& station);

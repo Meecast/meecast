@@ -9,6 +9,7 @@ namespace Core{
         _iconset = new std::string("Glance");
         _temperature_unit = new std::string("C");
         _font_color = new std::string("#00ff00");
+        _stations = new StationList;
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -111,7 +112,6 @@ namespace Core{
         if(!node)
             return;
         std::string nodeName = node->get_name();
-
         // config tag
         if(nodeName == "config"){
             xmlpp::Node::NodeList list = node->get_children();
@@ -137,7 +137,7 @@ namespace Core{
         }
         // station
         if(nodeName == "station"){
-            _stations->push_back(new Station("weather.com", "BOXX0014", "Vitebsk"));
+            _stations->push_back(new Station("weather.com", "BOXX0014", "Vitebsk", "Belarus", "Belarus"));
             return;
         }
 /*

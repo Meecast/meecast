@@ -21,6 +21,7 @@ SOURCES = \
     abstractconfig.cpp \ 
     config.cpp \
     station.cpp \
+    stationlist.cpp \
     data.cpp \
     parser.cpp \
     parserqt.cpp \
@@ -36,6 +37,7 @@ HEADERS = \
     abstractconfig.h \ 
     config.h \
     station.h \
+    stationlist.h \
     data.h \
     parser.h \
     parserqt.h \

@@ -2,9 +2,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    Station::Station(const std::string& source_name, const std::string& name,
+    Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
                      const std::string& country, const std::string& region){
         _sourceName = new std::string(source_name);
+        _id = new std::string(id);
         _name = new std::string(name);
         _country = new std::string(country);
         _region = new std::string(region);
@@ -15,6 +16,7 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Station::~Station(){
         delete _sourceName;
+        delete _id;
         delete _name;
         delete _country;
         delete _region;
@@ -26,6 +28,7 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const Station& station){
         _sourceName = new std::string(*(station._sourceName));
+        _id = new std::string(*(station._id));
         _name = new std::string(*(station._name));
         _country = new std::string(*(station._country));
         _region = new std::string(*(station._region));
@@ -35,6 +38,8 @@ namespace Core {
         if(this != &station){
             delete _sourceName;
             _sourceName = new std::string(*(station._sourceName));
+            delete _id;
+            _id = new std::string(*(station._id));
             delete _name;
             _name = new std::string(*(station._name));
             delete _country;

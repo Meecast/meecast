@@ -9,7 +9,8 @@ class Station;
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    class StationList : public std::vector<Station*>, AbstractConfig {
+    //class StationList : public std::vector<Station*>, AbstractConfig {
+    class StationList : public std::vector<Station*> {
         public:
             StationList();
     };

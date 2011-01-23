@@ -81,6 +81,7 @@ int main(int argc, char* argv[])
     std::vector<Core::Station*> StationsList;
 
     config = create_and_fill_config();
+    std::cerr<<"iconpath = "<<config->prefix_path()<<std::endl;
     StationsList = config->stationList();
     std::cerr<<"size "<<StationsList.size()<<std::endl;
     update_weather_forecast(StationsList);

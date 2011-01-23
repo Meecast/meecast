@@ -8,6 +8,7 @@ namespace Core {
         _library = new std::string;
         _hasForecast = false;
         _hasDetail = false;
+        _hasSearch = false;
 
         _libraryHandler = 0;
         _sourceInit = 0;
@@ -15,14 +16,40 @@ namespace Core {
         _sourceSearch = 0;
         _sourceGetForecast = 0;
         _sourceGetDetail = 0;
-#ifdef LIBXML
+
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
-            if(parser){
+
+            if(1){
+                #ifdef LIBXML
                 //Walk the tree:
                 const xmlpp::Node* pNode = parser->get_document()->get_root_node(); //deleted by DomParser.
                 processNode(pNode);
+                #else //LIBXML
+
+                QDomElement root = _doc.documentElement();
+                QDomNode n = root.firstChild();
+                while (!n.isNull()){
+                    QDomElement el = n.toElement();
+                    QString tag = el.tagName();
+
+                    if (tag == "name"){
+                        _name->assign(el.text().toStdString());
+                    }else if (tag == "logo"){
+                        _logo->assign(el.text().toStdString());
+                    }else if (tag == "forecast"){
+                        _hasForecast = (el.text() == "true") ? true : false;
+                    }else if (tag == "detail"){
+                        _hasDetail = (el.text() == "true") ? true : false;
+                    }else if (tag == "search"){
+                        _hasSearch = (el.text() == "true") ? true : false;
+                    }else if (tag == "library"){
+                        _library->assign(el.text().toStdString());
+                    }
+                    n = n.nextSibling();
+                }
+                #endif //LIBXML
                 // TODO check binaryName for empty
                 std::string binaryWithPath = prefix + libPath;
                 binaryWithPath += *_library;
@@ -65,16 +92,16 @@ namespace Core {
                     _hasDetail = true;
                 }
             }
-        }
+
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
-        catch(const std::exception& ex){
+        }catch(const std::exception& ex){
             throw(ex.what());
         }
         catch(std::string& er){
             throw(er);
         }
-#endif
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+
     }
 ////////////////////////////////////////////////////////////////////////////////
     Source::~Source(){

@@ -2,10 +2,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    ParserQt::ParserQt(const QString filename, const QUrl schema_filename)
+    ParserQt::ParserQt(const std::string& filename, const std::string& schema_filename)
     {
         QXmlSchema schema;
-        if (!schema.load(schema_filename)){
+        if (!schema.load(QUrl(":" + QString::fromStdString(schema_filename)))){
             throw("Invalid schema file");
             return;
         }
@@ -13,16 +13,14 @@ namespace Core {
             throw("Schema is invalid");
             return;
         }
-        QFile file(filename);
+        QFile file(QString::fromStdString(filename));
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
             throw("Invalid source file");
             return;
         }
         QXmlSchemaValidator validator(schema);
-        if (validator.validate(&file, QUrl::fromLocalFile(file.fileName()))){
-            qDebug() << "File " << filename << "  is valid";
-        }else {
-            qDebug() << "File " << filename << " is invalid";
+        if (!validator.validate(&file, QUrl::fromLocalFile(file.fileName()))){
+            //qDebug() << "File " << filename << " is invalid";
             file.close();
             throw("Xml file is invalid");
             return;

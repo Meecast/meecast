@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
 
     //Core::DataList data_list;
     //QmlLayoutItem* qml_layout_item;
-    //Core::DataParser* dp;
+    Core::DataParser* dp;
     Core::Data *temp_data = NULL;
     int i;
 
@@ -85,7 +85,7 @@ int main(int argc, char* argv[])
     std::cerr<<"size "<<StationsList.size()<<std::endl;
     update_weather_forecast(StationsList);
 
-
+/*
     Core::DataParserQt* dpq;
     try {
         dpq = new Core::DataParserQt("data.xml", QUrl(":../core/data/data.xsd"));
@@ -93,7 +93,8 @@ int main(int argc, char* argv[])
         qDebug() << "Error in DataParserQt class: " << str;
         return -1;
     }
-/*
+*/
+
     try{
         dp = new Core::DataParser("data.xml", "../core/data/data.xsd");
     }
@@ -105,10 +106,10 @@ int main(int argc, char* argv[])
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;
         return -1;
     }
-*/
+
     DataModel *model = new DataModel(new DataItem, qApp);
     i = 0;
-    while  (temp_data = dpq->data().GetDataForTime(time(NULL) + i)) {
+    while  (temp_data = dp->data().GetDataForTime(time(NULL) + i)) {
         i = i + 3600*24;
         forecast_data = new DataItem(temp_data);
         model->appendRow(forecast_data);

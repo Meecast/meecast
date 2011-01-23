@@ -19,6 +19,7 @@ namespace Core {
         void *_libraryHandler;
         bool _hasForecast;
         bool _hasDetail;
+        bool _hasSearch;
         // source init function
         void (*_sourceInit)();
         // source destroy function

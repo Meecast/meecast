@@ -15,7 +15,7 @@ namespace Core {
         protected:
             QDomDocument _doc;
         public:
-            ParserQt(const QString filename, const QUrl schema_filename);
+            ParserQt(const std::string& filename, const std::string& schema_filename);
 
     };
 

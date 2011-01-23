@@ -29,8 +29,9 @@ SOURCES = \
     connection.cpp \
     dataparser.cpp \
     temperature.cpp \
-    datalist.cpp \ 
-    dataparserqt.cpp
+    datalist.cpp
+
+
 HEADERS = \ 
     abstractconfig.h \ 
     config.h \
@@ -44,8 +45,8 @@ HEADERS = \
     datalist.h \
     core.h \
     dataparser.h \
-    temperature.h \
-    dataparserqt.h
+    temperature.h
+
 target.path = /usr/lib/omweather
 INSTALLS += target
 QMAKE_CLEAN += lib$$TARGET* \

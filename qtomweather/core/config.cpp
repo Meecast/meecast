@@ -18,7 +18,39 @@ namespace Core{
                 const xmlpp::Node* pNode = parser->get_document()->get_root_node(); //deleted by DomParser.
                 processNode(pNode);
             }
-        #endif
+        #else //LIBXML
+            QDomElement root = _doc.documentElement();
+
+            QDomNodeList nodelist = root.elementsByTagName("base");
+            if (nodelist.count() == 1) {
+                _pathPrefix->assign(nodelist.at(0).toElement().text().toStdString());
+            }
+            nodelist = root.elementsByTagName("iconset");
+            if (nodelist.count() == 1) {
+                _iconset->assign(nodelist.at(0).toElement().text().toStdString());
+            }
+            nodelist = root.elementsByTagName("station");
+            for (int i=0; i<nodelist.count(); i++){
+                QString source_name, station_name, station_id;
+                QDomElement e = nodelist.at(i).toElement();
+                QDomNode n = e.firstChild();
+                while (!n.isNull()){
+                    QDomElement el = n.toElement();
+                    QString tag = el.tagName();
+
+                    if (tag == "source_name")
+                        source_name = el.text();
+                    else if (tag == "station_name")
+                        station_name = el.text();
+                    else if (tag == "station_id")
+                        station_id = el.text();
+
+                    n = n.nextSibling();
+                }
+                _stations->push_back(new Station(source_name.toStdString(), station_id.toStdString(), station_name.toStdString()));
+
+            }
+        #endif //LIBXML
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         }
         catch(const std::exception& ex){

@@ -1,0 +1,53 @@
+[
+  {
+    "id" : "main-timeline",
+    "type" : "ClutterTimeline",
+    "num-frames" : 100,
+    "fps" : 60,
+    "loop" : false
+  },
+
+
+  {
+    "id"            : "fade-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 0,
+    "opacity-end"   : 255,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+
+  {
+     "id" : "icon_name_21_original",
+     "type" : "ClutterTexture",
+     "filename" : "21.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+   {
+    "id" : "icon_name_21",
+    "type" : "ClutterGroup",
+    "x": 0,
+    "y": 0,
+    "width" : 128,
+    "height" : 128,
+    "children" : [
+      {
+        "id" : "haze",
+        "type" : "ClutterTexture",
+        "filename" : "haze.png",
+        "visible" : true,
+        "x": 0,
+        "y": 0,
+        "behaviours" : [
+            "fade-behaviour"
+        ]
+      },
+
+    ]
+    }
+]
+

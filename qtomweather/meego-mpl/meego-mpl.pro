@@ -5,11 +5,11 @@
 #-------------------------------------------------
 
 
-TARGET = meego-mpl
+TARGET = meego-panel-omweather
 TEMPLATE = app
 
 
-SOURCES += panel.c
+SOURCES += meego-panel-omweather.c
 
 
 FORMS    +=
@@ -26,3 +26,12 @@ PKGCONFIG += dbus-glib-1 \
              mutter-plugins \
              meego-panel \
              gio-unix-2.0
+
+#install
+target.path = $$[install_prefix]/libexec
+desktop.files = data/meego-panel-omweather.desktop
+desktop.path = $$[install_prefix]/share/mutter-meego/panels
+autostart.files = data/meego-panel-omweather.desktop
+autostart.path = /etc/xdg
+
+INSTALLS += target desktop autostart

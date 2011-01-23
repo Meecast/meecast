@@ -36,4 +36,4 @@ OTHER_FILES += \
 INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core
 CONFIG += link_pkgconfig
-PKGCONFIG += libxml++-2.6 libcurl
+PKGCONFIG += 

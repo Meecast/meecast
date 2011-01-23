@@ -1,0 +1,162 @@
+[
+  {
+    "id" : "main-timeline",
+    "type" : "ClutterTimeline",
+    "num-frames" : 100,
+    "fps" : 60,
+    "loop" : false
+  },
+
+  {
+    "id"          : "rotate-behaviour",
+    "type"        : "ClutterBehaviourRotate",
+    "angle-start" : 0.0,
+    "angle-end"   : 360.0,
+    "axis"        : "y-axis",
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+          } 
+  },
+
+  {
+    "id"          : "rotate2-behaviour",
+    "type"        : "ClutterBehaviourRotate",
+    "angle-start" : 0.0,
+    "angle-end"   : 360.0,
+    "axis"        : "z-axis",
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+          } 
+  },
+
+  {
+    "id"            : "fade-behaviour",
+    "type"          : "ClutterBehaviourOpacity",
+    "opacity-start" : 0,
+    "opacity-end"   : 180,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+  {
+    "id"            : "size1-behaviour",
+    "type"          : "ClutterBehaviourScale",
+    "x-scale-start"   : 1.0,
+    "x-scale-end"     : 0.6,
+    "y-scale-start"   : 1.0,
+    "y-scale-end"     : 0.6,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+  {
+    "id"            : "size2-behaviour",
+    "type"          : "ClutterBehaviourScale",
+    "x-scale-start"   : 1.0,
+    "x-scale-end"     : 0.3,
+    "y-scale-start"   : 1.0,
+    "y-scale-end"     : 0.3,
+    "alpha"         : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+  {
+    "id"          : "snow1-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[25,30], [40,80]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+  {
+    "id"          : "snow2-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[75,40], [85,80]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+  {
+    "id"          : "snow3-behaviour",
+    "type"        : "ClutterBehaviourPath",
+    "knots" : [[60,30], [65,80]]
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+    }
+  },
+
+
+  {
+     "id" : "icon_name_13_original",
+     "type" : "ClutterTexture",
+     "filename" : "13.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+   {
+    "id" : "icon_name_13",
+    "type" : "ClutterGroup",
+    "x": 0,
+    "y": 0,
+    "width" : 128,
+    "height" : 128,
+    "children" : [
+      {
+        "id" : "gray_cloud",
+        "type" : "ClutterTexture",
+        "filename" : "gray_cloud.png",
+        "visible" : true,
+        "x": 10,
+        "y": 10,
+        "behaviours" : [
+            "fade-behaviour"
+        ]
+      },
+      {
+        "id" : "snowflake1",
+        "type" : "ClutterTexture",
+        "filename" : "snowflake.png",
+        "visible" : true,
+        "behaviours" : [
+            "snow1-behaviour",
+            "rotate-behaviour",
+        ]
+      },
+      {
+        "id" : "snowflake2",
+        "type" : "ClutterTexture",
+        "filename" : "snowflake.png",
+        "visible" : true,
+        "behaviours" : [
+            "snow2-behaviour",
+            "size2-behaviour",
+            "rotate-behaviour"
+        ]
+      },
+      {
+        "id" : "snowflake3",
+        "type" : "ClutterTexture",
+        "filename" : "snowflake.png",
+        "visible" : true,
+        "behaviours" : [
+            "snow3-behaviour",
+            "size1-behaviour",
+            "rotate-behaviour"
+        ]
+      }
+
+    ]
+    }
+]
+

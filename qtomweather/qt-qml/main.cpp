@@ -28,13 +28,14 @@
 ConfigQml *
 create_and_fill_config(){
     ConfigQml *config;
+    std::cerr<<"Create ConfigQML class: " <<std::endl;
     try{
         config = new ConfigQml("config.xml", "../core/data/config.xsd");
     }
     catch(const std::string &str){
         std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
     }
-
+    std::cerr<<"End of creating ConfigQML class: " <<std::endl;
     return config;
 }
 //////////////////////////////////////////////////////////////////////////////

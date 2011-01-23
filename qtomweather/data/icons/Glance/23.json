@@ -1,0 +1,63 @@
+[
+  {
+    "id" : "main-timeline",
+    "type" : "ClutterTimeline",
+    "num-frames" : 100,
+    "fps" : 60,
+    "loop" : false
+  },
+
+  {
+    "id"          : "rotate-behaviour",
+    "type"        : "ClutterBehaviourRotate",
+    "angle-start" : 0.0,
+    "angle-end"   : 360.0,
+    "axis"        : "y-axis",
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "ramp-inc"
+          } 
+  },
+
+  {
+    "id"          : "transparencycloud-behaviour",
+    "type"        : "ClutterBehaviourPath",
+     "knots" : [[-128, 0], [-100, 0], [8, 0], [4, 0], [1, 0], [2, 0]],
+     "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+
+  
+  {
+     "id" : "icon_name_23_original",
+     "type" : "ClutterTexture",
+     "filename" : "23.png",
+     "behaviours" : [ "rotate-behaviour" ],
+     "visible" : true
+   },
+   {
+    "id" : "icon_name_23",
+    "type" : "ClutterGroup",
+    "x": 0,
+    "y": 0,
+    "children" : [
+    
+    
+      {
+        "id" : "transparency_cloud",
+        "type" : "ClutterTexture",
+        "filename" : "transparency_cloud.png",
+        "visible" : true,
+        "behaviours" : [
+            "transparencycloud-behaviour"
+        ]
+      },
+
+
+    ]
+    }
+]
+

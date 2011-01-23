@@ -1,0 +1,36 @@
+
+[
+  {
+    "id" : "main-timeline",
+    "type" : "ClutterTimeline",
+    "num-frames" : 100,
+    "fps" : 60,
+    "loop" : false
+  },
+  {
+    "id"          : "scale-behaviour",
+    "type"        : "ClutterBehaviourScale",
+    "x-scale-start"   : 0.1,
+    "x-scale-end"     : 1.0,
+    "y-scale-start"   : 0.1,
+    "y-scale-end"     : 1.0,
+    "alpha"       : {
+      "timeline" : "main-timeline",
+      "function" : "sine-inc"
+    }
+  },
+
+
+  {
+     "id" : "icon_name_na",
+     "type" : "ClutterTexture",
+     "width" : 128,
+     "height" : 128,
+     "x": 10,
+     "y": 10,
+     "filename" : "na.png",
+     "behaviours" : [ "scale-behaviour" ],
+     "visible" : true
+   }
+]
+

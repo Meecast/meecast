@@ -17,6 +17,7 @@ namespace Core{
             StationList *_stations;
         public:
             Config(const std::string& filename, const std::string& schema_filename = prefix + schemaPath + "config.xsd");
+            Config();
             Config(const Config& config);
             Config& operator=(const Config& config);
             virtual ~Config();

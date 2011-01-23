@@ -3,6 +3,14 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
 ////////////////////////////////////////////////////////////////////////////////
+    Config::Config()
+    {
+        _pathPrefix = new std::string;
+        _iconset = new std::string("Glance");
+        _temperature_unit = new std::string("C");
+        _font_color = new std::string("#00ff00");
+        _stations = new StationList;
+    }
     Config::Config(const std::string& filename, const std::string& schema_filename)
                         : Parser(filename, schema_filename){
         _pathPrefix = new std::string;

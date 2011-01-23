@@ -6,6 +6,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
+    Parser::Parser(){}
     Parser::Parser(const std::string& filename, const std::string& schema_filename)
                         : AbstractConfig(){
     #ifdef LIBXML
@@ -48,6 +49,7 @@ namespace Core {
         }
         QFile file(QString::fromStdString(filename));
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
+            std::cerr<<"error file open"<<std::endl;
             throw("Invalid source file");
             return;
         }

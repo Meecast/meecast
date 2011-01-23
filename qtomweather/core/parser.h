@@ -24,6 +24,7 @@ namespace Core {
             QDomDocument _doc;
             #endif
             Parser(const std::string& filename, const std::string& schema_filename);
+            Parser();
         public:
             virtual ~Parser();
             #ifdef LIBXML

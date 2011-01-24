@@ -14,7 +14,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString temperatureunit READ temperatureunit NOTIFY temperatureunitChanged)
     Q_PROPERTY(QColor fontcolor READ fontcolor NOTIFY fontcolorChanged)
     public:
-    ConfigQml();
+//    ConfigQml();
     ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
     QString iconset();
     QString iconspath();

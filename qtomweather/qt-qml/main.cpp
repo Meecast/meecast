@@ -34,11 +34,11 @@ create_and_fill_config(){
     }
     catch(const std::string &str){
         std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
-        config = new ConfigQml();
+       // config = new ConfigQml();
     }
     catch(const char *str){
         std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
-        config = new ConfigQml();
+       // config = new ConfigQml();
     }
     std::cerr<<"End of creating ConfigQML class: " <<std::endl;
     return config;

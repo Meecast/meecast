@@ -46,8 +46,15 @@ rm -rf %{buildroot}
 
 # >> install post
 make INSTALL_ROOT=%{buildroot} install
+ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/theme/icons
 # << install post
 
+
+# >> post
+# << post
+
+# >> postun
+# << postun
 
 
 
@@ -58,9 +65,11 @@ make INSTALL_ROOT=%{buildroot} install
 /usr/bin/omweather-qml
 %{_libdir}
 %{_libexecdir}/meego-panel-omweather
+/usr/share/omweather
+/usr/share/meego-panel-omweather/theme/icons
 /usr/share/mutter-meego/panels/meego-panel-omweather.desktop
+/usr/share/meego-panel-omweather/theme/omweather-panel.css
 /etc/xdg
 # >> files
 # << files
-
 

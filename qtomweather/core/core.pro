@@ -47,7 +47,11 @@ HEADERS = \
     dataparser.h \
     temperature.h
 
+#installs
 target.path = /usr/lib
-INSTALLS += target
+data.files = data/icons
+data.path = /usr/share/omweather
+
+INSTALLS += target data
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user

@@ -44,7 +44,8 @@ make_window_content (MplPanelClutter *panel)
 
   clutter_stage_set_key_focus (CLUTTER_STAGE (stage), label);
 #else
-  label = clutter_rectangle_new_with_color (&black);
+//  label = clutter_rectangle_new_with_color (&black);
+  label = clutter_rectangle_new_with_color (&red);
   clutter_actor_set_size (label, 50.0,50.0);
   clutter_actor_show (label);     
   g_message (G_STRLOC ": Previously failed panel  appeared");
@@ -64,6 +65,9 @@ main (int argc, char *argv[])
   file = fopen("/tmp/1.log","wb");
   fclose(file);
 
+  mx_style_load_from_file (mx_style_get_default (),
+                          "/usr/share/meego-panel-omweather/theme/test-panel.css", NULL);
+
   /*
    * NB: the toolbar service indicates whether this panel requires access
    *     to the API provided by org.meego.Mpl.Toolbar -- if you need to do
@@ -72,10 +76,10 @@ main (int argc, char *argv[])
   panel = mpl_panel_clutter_new ("omweather",           /* the panel slot */
 //  panel = mpl_panel_clutter_new ("datetime",           /* the panel slot */
                                  "omweather",                   /* tooltip */
-                                 "/usr/share/meego-panel-omweather/test-panel.css", /*stylesheet */
+                                 "/usr/share/meego-panel-omweather/theme/test-panel.css", /*stylesheet */
 //                                 NULL, /*stylesheet */
-//                                "state1",                 /* button style */
-                                 "applications-button",
+                                "icon",                 /* button style */
+//                                 "applications-button1",
                                  TRUE);
                     /* no toolbar service*/
   g_message (G_STRLOC ": Previously failed panel  appeared11111111111111");

@@ -33,5 +33,6 @@ desktop.files = data/meego-panel-omweather.desktop
 desktop.path = /usr/share/mutter-meego/panels
 autostart.files = data/meego-panel-omweather.desktop
 autostart.path = /etc/xdg
-
-INSTALLS += target desktop autostart
+css.files = data/omweather-panel.css
+css.path = /usr/share/meego-panel-omweather/theme
+INSTALLS += target desktop autostart css

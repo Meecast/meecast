@@ -66,7 +66,7 @@ main (int argc, char *argv[])
   fclose(file);
 
   mx_style_load_from_file (mx_style_get_default (),
-                          "/usr/share/meego-panel-omweather/theme/test-panel.css", NULL);
+                          "/usr/share/meego-panel-omweather/theme/omweather-panel.css", NULL);
 
   /*
    * NB: the toolbar service indicates whether this panel requires access
@@ -76,9 +76,9 @@ main (int argc, char *argv[])
   panel = mpl_panel_clutter_new ("omweather",           /* the panel slot */
 //  panel = mpl_panel_clutter_new ("datetime",           /* the panel slot */
                                  "omweather",                   /* tooltip */
-                                 "/usr/share/meego-panel-omweather/theme/test-panel.css", /*stylesheet */
+                                 "/usr/share/meego-panel-omweather/theme/omweather-panel.css", /*stylesheet */
 //                                 NULL, /*stylesheet */
-                                "icon",                 /* button style */
+                                "icon1",                 /* button style */
 //                                 "applications-button1",
                                  TRUE);
                     /* no toolbar service*/

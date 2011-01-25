@@ -32,6 +32,7 @@ OTHER_FILES += \
     weatherlayoutitem.qml \
     Details.qml
 
+CONFIG(localdebug):DEFINES += LOCALDEBUG
 
 INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core

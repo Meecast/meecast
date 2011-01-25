@@ -1,6 +1,6 @@
 VERSION = 1.0
 TEMPLATE = subdirs
-CONFIG += debug ordered
+CONFIG += ordered
 
 #SUBDIRS += core qt-qml meego-mpl
 SUBDIRS += core qt-qml

@@ -22,10 +22,13 @@
 
 
 #include <QtDebug>
-
-#define CONFIG_PATH "~/.config/omweather/config.xml"
-#define CONFIG_XSD_PATH "/usr/share/omweather/xsd/config.xsd"
-
+#ifdef LOCALDEBUG
+    #define CONFIG_PATH "config.xml"
+    #define CONFIG_XSD_PATH "../core/data/config.xsd"
+#else
+    #define CONFIG_PATH "~/.config/omweather/config.xml"
+    #define CONFIG_XSD_PATH "/usr/share/omweather/xsd/config.xsd"
+#endif
 //////////////////////////////////////////////////////////////////////////////
 
 ConfigQml *
@@ -33,7 +36,7 @@ create_and_fill_config(){
     ConfigQml *config;
     std::cerr<<"Create ConfigQML class: " <<std::endl;
     try{
-        config = new ConfigQml("config.xml", "../core/data/config.xsd");
+        config = new ConfigQml(CONFIG_PATH, CONFIG_XSD_PATH);
     }
     catch(const std::string &str){
         std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;

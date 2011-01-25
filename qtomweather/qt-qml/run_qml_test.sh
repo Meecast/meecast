@@ -1,4 +1,6 @@
 #!/bin/sh
+
+qmake CONFIG+=localdebug
 make
 cd ../../omweather-weather-com-stations-db/src
 make 

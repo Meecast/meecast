@@ -5,3 +5,6 @@ CONFIG += debug ordered
 #SUBDIRS += core qt-qml meego-mpl
 SUBDIRS += core qt-qml
 
+system(pkg-config --exists meego-panel) {
+ SUBDIRS += meego-mpl
+} 

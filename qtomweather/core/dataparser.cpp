@@ -4,6 +4,14 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
+    DataParser::DataParser()
+    {
+        _timezone = 0;
+        _list = new DataList;
+        Data *forecast_data;
+        forecast_data = new Data();
+        _list->push_back(forecast_data);
+    }
     DataParser::DataParser(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename) {
         _timezone = 0;
         _list = new DataList;

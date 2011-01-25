@@ -110,11 +110,13 @@ int main(int argc, char* argv[])
     }
     catch(const std::string &str){
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;
-        return -1;
+        dp = new Core::DataParser();
+        //return -1;
     }
     catch(const char *str){
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;
-        return -1;
+        dp = new Core::DataParser();
+        //return -1;
     }
 
     DataModel *model = new DataModel(new DataItem, qApp);

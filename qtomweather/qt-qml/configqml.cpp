@@ -3,7 +3,7 @@
 //ConfigQml::ConfigQml():QObject(),Core::Config("config.xml", "../core/data/config.xsd"){}
 ConfigQml::ConfigQml(const std::string& filename, const std::string& schema_filename):QObject(),Core::Config(filename, schema_filename){}
 
-//ConfigQml::ConfigQml():QObject(),Core::Config(){}
+ConfigQml::ConfigQml():QObject(),Core::Config(){}
 
 QString
 ConfigQml::iconset(){

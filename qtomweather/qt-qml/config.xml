@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://omweather.garage.maemo.org/schemas">
-<base>../data</base>
+<base>../core/data</base>
 <sources_directory>../../omweather-weather-com-stations-db/data</sources_directory>
 <iconset>Glance</iconset>
 <station>

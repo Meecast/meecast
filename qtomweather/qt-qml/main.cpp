@@ -23,6 +23,9 @@
 
 #include <QtDebug>
 
+#define CONFIG_PATH "~/.config/omweather/config.xml"
+#define CONFIG_XSD_PATH "/usr/share/omweather/xsd/config.xsd"
+
 //////////////////////////////////////////////////////////////////////////////
 
 ConfigQml *

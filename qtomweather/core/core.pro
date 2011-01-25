@@ -51,7 +51,11 @@ HEADERS = \
 target.path = /usr/lib
 data.files = data/icons
 data.path = /usr/share/omweather
+xsd.files += data/config.xsd
+xsd.files += data/data.xsd
+xsd.files += data/source.xsd
+xsd.path = /usr/share/omweather/xsd
 
-INSTALLS += target data
+INSTALLS += target data xsd
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user

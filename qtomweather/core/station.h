@@ -29,6 +29,12 @@ namespace Core{
             std::string& name() const;
             void id(const std::string& id);
             std::string& id() const;
+            void sourceName(const std::string& sourceName);
+            std::string& sourceName() const;
+            void country(const std::string& country);
+            std::string& country() const;
+            void region(const std::string& region);
+            std::string& region() const;
             void timezone(const int timezone = 0);
             int timezone() const;
             bool updateData(bool force = false);

@@ -11,6 +11,72 @@ namespace Core{
         _font_color = new std::string("#00ff00");
         _stations = new StationList;
     }
+    void
+    Config::saveConfig(const std::string& filename)
+    {
+        #ifndef LIBXML
+        QDomDocument doc("config");
+
+        QDomElement root = doc.createElement("config");
+        root.setAttribute("xmlns", "http://omweather.garage.maemo.org/schemas");
+        doc.appendChild(root);
+
+        QDomElement el = doc.createElement("base");
+        QDomText t = doc.createTextNode(QString::fromStdString(*_pathPrefix));
+        el.appendChild(t);
+        root.appendChild(el);
+
+        el = doc.createElement("iconset");
+        t = doc.createTextNode(QString::fromStdString(*_iconset));
+        el.appendChild(t);
+        root.appendChild(el);
+
+        std::vector<Station*>::iterator i = _stations->begin();
+        while (i != _stations->end()){
+            QDomElement st = doc.createElement("station");
+            el = doc.createElement("source_name");
+            t = doc.createTextNode(QString::fromStdString((*i)->sourceName()));
+            el.appendChild(t);
+            st.appendChild(el);
+
+            el = doc.createElement("station_name");
+            t = doc.createTextNode(QString::fromStdString((*i)->name()));
+            el.appendChild(t);
+            st.appendChild(el);
+
+            el = doc.createElement("station_id");
+            t = doc.createTextNode(QString::fromStdString((*i)->id()));
+            el.appendChild(t);
+            st.appendChild(el);
+
+            el = doc.createElement("country");
+            t = doc.createTextNode(QString::fromStdString((*i)->country()));
+            el.appendChild(t);
+            st.appendChild(el);
+
+            el = doc.createElement("region");
+            t = doc.createTextNode(QString::fromStdString((*i)->region()));
+            el.appendChild(t);
+            st.appendChild(el);
+
+            root.appendChild(st);
+            ++i;
+        }
+
+        QFile file(QString::fromStdString(filename));
+        if (!file.open(QIODevice::WriteOnly)){
+            std::cerr<<"error file open"<<std::endl;
+            throw("Invalid destination file");
+            return;
+        }
+
+        QTextStream ts(&file);
+        ts << doc.toString();
+        //file.write(doc.toString());
+        //std::cerr << doc.toString().toStdString() << std::endl;
+        file.close();
+        #endif
+    }
     Config::Config(const std::string& filename, const std::string& schema_filename)
                         : Parser(filename, schema_filename){
         _pathPrefix = new std::string;

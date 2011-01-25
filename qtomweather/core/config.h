@@ -2,6 +2,7 @@
 #define CONFIG_H
 ////////////////////////////////////////////////////////////////////////////////
 #include <string>
+#include <QTextStream>
 #include "parser.h"
 #include "stationlist.h"
 ////////////////////////////////////////////////////////////////////////////////
@@ -29,6 +30,7 @@ namespace Core{
             void FontColor(const std::string& text);
             std::string& FontColor(void);
             StationList& stationList();
+            void saveConfig(const std::string& filename);
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

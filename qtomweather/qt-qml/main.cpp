@@ -47,6 +47,7 @@ create_and_fill_config(){
         config = new ConfigQml();
     }
     std::cerr<<"End of creating ConfigQML class: " <<std::endl;
+    config->saveConfig("newconfig.xml");
     return config;
 }
 //////////////////////////////////////////////////////////////////////////////

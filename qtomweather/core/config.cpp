@@ -98,9 +98,11 @@ namespace Core{
 
             QDomNodeList nodelist;
             QDomElement el = root.firstChildElement("base");
-            _pathPrefix->assign(el.text().toStdString());
+            if (!el.isNull())
+                _pathPrefix->assign(el.text().toStdString());
             el = root.firstChildElement("iconset");
-            _iconset->assign(el.text().toStdString());
+            if (!el.isNull())
+                _iconset->assign(el.text().toStdString());
 
             nodelist = root.elementsByTagName("station");
             for (int i=0; i<nodelist.count(); i++){

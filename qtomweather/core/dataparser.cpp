@@ -35,7 +35,8 @@ namespace Core {
         Data* forecast_data;
 
         QDomElement e = root.firstChildElement("timezone");
-        _timezone = e.text().toInt();
+        if (!e.isNull())
+            _timezone = e.text().toInt();
 
         QDomNodeList nodelist = root.elementsByTagName("period");
         for (int i=0; i<nodelist.count(); i++){

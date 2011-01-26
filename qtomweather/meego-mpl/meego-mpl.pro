@@ -9,7 +9,7 @@ TARGET = meego-panel-omweather
 TEMPLATE = app
 
 
-SOURCES += meego-panel-omweather.c
+SOURCES += meego-panel-omweather.cpp
 
 
 FORMS    +=

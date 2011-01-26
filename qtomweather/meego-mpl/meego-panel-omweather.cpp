@@ -30,6 +30,7 @@
 
 #include <meego-panel/mpl-panel-clutter.h>
 #include <meego-panel/mpl-panel-common.h>
+#include <mx/mx.h>
 
 static void
 make_window_content (MplPanelClutter *panel)
@@ -42,7 +43,7 @@ make_window_content (MplPanelClutter *panel)
   ClutterActor     *box;
   ClutterColor      black = {0, 0, 0, 0xff};
   ClutterColor      red =   {0xff, 0, 0, 0xff};
-  char             *buffer[4096];
+  char             buffer[4096];
   int i;
 
   layout = clutter_box_layout_new (); 
@@ -55,13 +56,13 @@ make_window_content (MplPanelClutter *panel)
       clutter_actor_set_size (icon, 80.0, 80.0);
       clutter_actor_show (icon);
       label = clutter_text_new();
-      snprintf(buffer, (4096 -1), "Th\n%i°C\n%i°C", i+10, i+7);
-      clutter_text_set_text(label, buffer);
+      snprintf(buffer, (4096 -1), "Th\n%i°C\n%i°C", i-5, i+7);
+      clutter_text_set_text((ClutterText*)label, buffer);
       layout = clutter_box_layout_new ();
       box =  clutter_box_new(layout);
-      clutter_box_pack(box, icon, NULL);
-      clutter_box_pack(box, label, NULL);
-      clutter_box_pack(container, box, NULL);
+      clutter_box_pack((ClutterBox*)box, icon, NULL);
+      clutter_box_pack((ClutterBox*)box, label, NULL);
+      clutter_box_pack((ClutterBox*)container, box, NULL);
   }
 
   clutter_actor_show (container);

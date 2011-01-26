@@ -22,10 +22,8 @@ OTHER_FILES += \
 CONFIG = link_pkgconfig -qt
 PKGCONFIG += dbus-glib-1 \
              mx-1.0 \
-             gtk+-2.0 \
              mutter-plugins \
              meego-panel \
-             gio-unix-2.0
 
 #install
 target.path = /usr/libexec

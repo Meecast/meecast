@@ -35,24 +35,37 @@ static void
 make_window_content (MplPanelClutter *panel)
 {
   ClutterActor     *stage = mpl_panel_clutter_get_stage (panel);
+  ClutterLayoutManager *layout;
   ClutterActor     *label;
+  ClutterActor     *icon;
+  ClutterActor     *container;
+  ClutterActor     *box;
   ClutterColor      black = {0, 0, 0, 0xff};
   ClutterColor      red =   {0xff, 0, 0, 0xff};
+  char             *buffer[4096];
+  int i;
 
-#if 1
-  label = clutter_text_new_with_text ("Sans 16pt", "This is a clutter panel");
-  clutter_text_set_color  (CLUTTER_TEXT (label), &black);
-  clutter_text_set_editable (CLUTTER_TEXT (label), TRUE);
+  layout = clutter_box_layout_new (); 
+  container =  clutter_box_new(layout);
+  clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (layout), 12);
+  i = 1;
+  for (i = 0; i<10; i++){
+      snprintf(buffer, (4096 -1), "%s/%i.png","/usr/share/meego-panel-omweather/theme/icons/Glance",i);
+      icon = clutter_texture_new_from_file(buffer, NULL);
+      clutter_actor_set_size (icon, 80.0, 80.0);
+      clutter_actor_show (icon);
+      label = clutter_text_new();
+      snprintf(buffer, (4096 -1), "Th\n%i°C\n%i°C", i+10, i+7);
+      clutter_text_set_text(label, buffer);
+      layout = clutter_box_layout_new ();
+      box =  clutter_box_new(layout);
+      clutter_box_pack(box, icon, NULL);
+      clutter_box_pack(box, label, NULL);
+      clutter_box_pack(container, box, NULL);
+  }
 
-  clutter_stage_set_key_focus (CLUTTER_STAGE (stage), label);
-#else
-//  label = clutter_rectangle_new_with_color (&black);
-  label = clutter_rectangle_new_with_color (&red);
-  clutter_actor_set_size (label, 50.0,50.0);
-  clutter_actor_show (label);
-#endif
-
-  mpl_panel_clutter_set_child (panel, label);
+  clutter_actor_show (container);
+  mpl_panel_clutter_set_child (panel, container);
   clutter_stage_set_color (CLUTTER_STAGE (stage), &red);
 }
 
@@ -72,6 +85,7 @@ main (int argc, char *argv[])
                                  "/usr/share/meego-panel-omweather/theme/omweather-panel.css", /*stylesheet */
                                 "icon1",                 /* button style */
                                  TRUE);
+  mpl_panel_client_set_height_request (panel, 100);
   make_window_content (MPL_PANEL_CLUTTER (panel));
   file = fopen("/tmp/1.log","wb");
   fclose(file);

@@ -1,30 +1,32 @@
-/* -*- mode: C; c-file-style: "gnu"; indent-tabs-mode: nil; -*- */
-
+/* vim: set sw=4 ts=4 et: */
 /*
- * Copyright (c) 2009 Intel Corp.
+ * This file is part of Other Maemo Weather(omweather)
  *
- * Author: Tomas Frydrych <tf@linux.intel.com>
+ * Copyright (C) 2006-2011 Vlad Vasiliev
+ * Copyright (C) 2006-2011 Pavel Fialko
+ * Copyright (C) 2010-2011 Tanya Makova
+ * 	for the code
+ *        
+ * Copyright (C) 2008 Andrew Zhilin
+ *		      az@pocketpcrussia.com 
+ *	for default icon set (Glance)
  *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License as
- * published by the Free Software Foundation; either version 2 of the
- * License, or (at your option) any later version.
+ * This software is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful, but
+ * This software is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
- * 02111-1307, USA.
- */
-
-/*
- * Simple test for out of process panels.
- *
- */
+ * You should have received a copy of the GNU weather-config.h General Public
+ * License along with this software; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA
+*/
+/*******************************************************************************/
 
 #include <meego-panel/mpl-panel-clutter.h>
 #include <meego-panel/mpl-panel-common.h>
@@ -37,7 +39,7 @@ make_window_content (MplPanelClutter *panel)
   ClutterColor      black = {0, 0, 0, 0xff};
   ClutterColor      red =   {0xff, 0, 0, 0xff};
 
-#if 0
+#if 1
   label = clutter_text_new_with_text ("Sans 16pt", "This is a clutter panel");
   clutter_text_set_color  (CLUTTER_TEXT (label), &black);
   clutter_text_set_editable (CLUTTER_TEXT (label), TRUE);
@@ -47,8 +49,7 @@ make_window_content (MplPanelClutter *panel)
 //  label = clutter_rectangle_new_with_color (&black);
   label = clutter_rectangle_new_with_color (&red);
   clutter_actor_set_size (label, 50.0,50.0);
-  clutter_actor_show (label);     
-  g_message (G_STRLOC ": Previously failed panel  appeared");
+  clutter_actor_show (label);
 #endif
 
   mpl_panel_clutter_set_child (panel, label);
@@ -62,38 +63,18 @@ main (int argc, char *argv[])
   FILE *file;
 
   clutter_init (&argc, &argv);
-  file = fopen("/tmp/1.log","wb");
-  fclose(file);
 
   mx_style_load_from_file (mx_style_get_default (),
                           "/usr/share/meego-panel-omweather/theme/omweather-panel.css", NULL);
 
-  /*
-   * NB: the toolbar service indicates whether this panel requires access
-   *     to the API provided by org.meego.Mpl.Toolbar -- if you need to do
-   *     any application launching, etc., then pass TRUE.
-   */
   panel = mpl_panel_clutter_new ("omweather",           /* the panel slot */
-//  panel = mpl_panel_clutter_new ("datetime",           /* the panel slot */
                                  "omweather",                   /* tooltip */
                                  "/usr/share/meego-panel-omweather/theme/omweather-panel.css", /*stylesheet */
-//                                 NULL, /*stylesheet */
                                 "icon1",                 /* button style */
-//                                 "applications-button1",
                                  TRUE);
-                    /* no toolbar service*/
-  g_message (G_STRLOC ": Previously failed panel  appeared11111111111111");
-  /*
-   * Strictly speaking, it is not necessary to construct the window contents
-   * at this point, the panel can instead hook to MplPanelClient::set-size
-   * signal. However, once the set-size signal has been emitted, the panel
-   * window must remain in a state suitable to it being shown.
-   *
-   * The panel can also hook into the MplPanelClient::show-begin signal, to be
-   * when it is being shown, but this signal is assynchronous, so that the
-   * panel might finish showing *before* the Panel handles this signal.
-   */
   make_window_content (MPL_PANEL_CLUTTER (panel));
+  file = fopen("/tmp/1.log","wb");
+  fclose(file);
 
   clutter_main ();
 

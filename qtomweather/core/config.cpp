@@ -96,21 +96,19 @@ namespace Core{
         #else //LIBXML
             QDomElement root = _doc.documentElement();
 
-            QDomNodeList nodelist = root.elementsByTagName("base");
-            if (nodelist.count() == 1) {
-                _pathPrefix->assign(nodelist.at(0).toElement().text().toStdString());
-            }
-            nodelist = root.elementsByTagName("iconset");
-            if (nodelist.count() == 1) {
-                _iconset->assign(nodelist.at(0).toElement().text().toStdString());
-            }
+            QDomNodeList nodelist;
+            QDomElement el = root.firstChildElement("base");
+            _pathPrefix->assign(el.text().toStdString());
+            el = root.firstChildElement("iconset");
+            _iconset->assign(el.text().toStdString());
+
             nodelist = root.elementsByTagName("station");
             for (int i=0; i<nodelist.count(); i++){
                 QString source_name, station_name, station_id, country, region;
                 QDomElement e = nodelist.at(i).toElement();
                 QDomNode n = e.firstChild();
                 while (!n.isNull()){
-                    QDomElement el = n.toElement();
+                    el = n.toElement();
                     QString tag = el.tagName();
 
                     if (tag == "source_name")

@@ -34,14 +34,13 @@ namespace Core {
         QDomElement root = _doc.documentElement();
         Data* forecast_data;
 
-        QDomNodeList nodelist = root.elementsByTagName("timezone");
-        if (nodelist.count() == 1) {
-            _timezone = nodelist.at(0).toElement().text().toInt();
-        }
-        nodelist = root.elementsByTagName("period");
+        QDomElement e = root.firstChildElement("timezone");
+        _timezone = e.text().toInt();
+
+        QDomNodeList nodelist = root.elementsByTagName("period");
         for (int i=0; i<nodelist.count(); i++){
             forecast_data = new Data();
-            QDomElement e = nodelist.at(i).toElement();
+            e = nodelist.at(i).toElement();
             forecast_data->StartTime(e.attribute("start").toInt());
             forecast_data->EndTime(e.attribute("end").toInt());
             if (e.hasAttribute("current") && e.attribute("current") == "true")

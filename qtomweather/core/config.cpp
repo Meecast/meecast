@@ -15,7 +15,8 @@ namespace Core{
     Config::saveConfig(const std::string& filename)
     {
         #ifndef LIBXML
-        QDomDocument doc("config");
+        QDomDocument doc;
+        doc.appendChild(doc.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-8\""));
 
         QDomElement root = doc.createElement("config");
         root.setAttribute("xmlns", "http://omweather.garage.maemo.org/schemas");

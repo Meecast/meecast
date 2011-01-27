@@ -22,8 +22,8 @@ public slots:
 
 private:
     Ui::Setting *ui;
-    bool connect(const QString filename);
-    QStringList getCountry();
+    bool open_database(const QString filename);
+    void getCountry();
 };
 
 #endif // SETTING_H

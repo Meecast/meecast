@@ -24,9 +24,10 @@ Setting::~Setting()
 }
 
 bool
-Setting::connect(const QString filename)
+Setting::open_database(const QString filename)
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlQueryModel *model = new QSqlQueryModel;
     if (db.isValid()){
         qDebug() << "db is valid";
         db.setDatabaseName(filename);
@@ -35,15 +36,22 @@ Setting::connect(const QString filename)
         qDebug() << "error open";
         return false;
     }
+    if (filename == "gismeteo.ru.db"){
+        //model->setQuery("CREATE TEMP VIEW nstations AS SELECT russian_name as name, id, region_id, longititude, latitude, code, id_gismeteo_new, id_gesmeteo_old FROM stations");
+        model->setQuery("CREATE TEMP VIEW nstations AS SELECT * FROM stations where russian_name != name");
+    }else {
+        model->setQuery("CREATE TEMP VIEW nstations AS SELECT * FROM stations");
+    }
     return true;
 }
 
-QStringList
+void
 Setting::getCountry()
 {
-    if (connect("weather.com.db"))
+    if (open_database("weather.com.db"))
         qDebug() << "ok";
     QSqlQueryModel *model = new QSqlQueryModel;
-    model->setQuery("select id, name from countries");
+    model->setQuery("select name from countries");
     qDebug() << model->rowCount();
+    this->ui->countryCombo->setModel(model);
 }

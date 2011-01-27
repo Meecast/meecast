@@ -19,6 +19,7 @@ public:
     ~Setting();
 public slots:
     void sourceChanged(int val);
+    void countryChanged(int val);
 
 private:
     Ui::Setting *ui;

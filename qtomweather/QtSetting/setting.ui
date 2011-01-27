@@ -28,18 +28,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="sourceCombo">
-        <item>
-         <property name="text">
-          <string>gismeteo.ru</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>weather.com</string>
-         </property>
-        </item>
-       </widget>
+       <widget class="QComboBox" name="sourceCombo"/>
       </item>
       <item row="0" column="2">
        <spacer name="horizontalSpacer">
@@ -179,8 +168,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>countryCombo</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>Setting</receiver>
+   <slot>countryChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>191</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>261</x>
+     <y>119</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>sourceChanged(int)</slot>
+  <slot>countryChanged(int)</slot>
  </slots>
 </ui>

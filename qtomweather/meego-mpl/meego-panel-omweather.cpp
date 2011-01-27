@@ -28,9 +28,39 @@
 */
 /*******************************************************************************/
 
+#include "core.h"
 #include <meego-panel/mpl-panel-clutter.h>
 #include <meego-panel/mpl-panel-common.h>
 #include <mx/mx.h>
+
+#ifdef LOCALDEBUG
+    #define CONFIG_PATH "config.xml"
+    #define CONFIG_XSD_PATH "../core/data/config.xsd"
+#else
+    #define CONFIG_PATH "~/.config/omweather/config.xml"
+    #define CONFIG_XSD_PATH "/usr/share/omweather/xsd/config.xsd"
+#endif
+Core::Config *
+create_and_fill_config(){
+    Core::Config *config;
+    std::cerr<<"Create ConfigQML class: " <<std::endl;
+    try{
+        config = new Core::Config(CONFIG_PATH, CONFIG_XSD_PATH);
+    }
+    catch(const std::string &str){
+        std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
+        config = new Core::Config();
+    }
+    catch(const char *str){
+        std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
+        config = new Core::Config();
+    }
+    std::cerr<<"End of creating ConfigQML class: " <<std::endl;
+    config->saveConfig("newconfig.xml");
+    return config;
+}
+//////////////////////////////////////////////////////////////////////////////
+
 
 static void
 make_window_content (MplPanelClutter *panel)
@@ -46,6 +76,7 @@ make_window_content (MplPanelClutter *panel)
   char             buffer[4096];
   int i;
 
+  create_and_fill_config();
   layout = clutter_box_layout_new (); 
   container =  clutter_box_new(layout);
   clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (layout), 12);

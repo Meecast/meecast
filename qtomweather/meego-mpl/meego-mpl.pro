@@ -17,13 +17,14 @@ FORMS    +=
 OTHER_FILES += \
 
 
-#INCLUDEPATH += ../core
-#LIBS += -L ../core -lomweather-core
-CONFIG = link_pkgconfig -qt
+INCLUDEPATH += ../core
+LIBS += -L ../core -lomweather-core
+CONFIG = link_pkgconfig 
 PKGCONFIG += dbus-glib-1 \
              mx-1.0 \
              mutter-plugins \
              meego-panel \
+             QtCore
 
 #install
 target.path = /usr/libexec

@@ -16,6 +16,10 @@ system(pkg-config --exists libxml++-2.6) {
     message("Not libxml++-2.6")
     QT += xml
 }
+
+system(pkg-config --exists meego-panel) {
+ DEFINES += MEEGO_MPL
+} 
  
 SOURCES = \
     abstractconfig.cpp \ 
@@ -24,7 +28,6 @@ SOURCES = \
     stationlist.cpp \
     data.cpp \
     parser.cpp \
-    parserqt.cpp \
     source.cpp \
     connection.cpp \
     dataparser.cpp \
@@ -39,7 +42,6 @@ HEADERS = \
     stationlist.h \
     data.h \
     parser.h \
-    parserqt.h \
     source.h \
     connection.h \
     datalist.h \

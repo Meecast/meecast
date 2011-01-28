@@ -34,7 +34,7 @@
 #include <mx/mx.h>
 
 
-Core::Config *create_and_fill_config();
+void init_omweather_core(void);
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -54,7 +54,6 @@ make_window_content (MplPanelClutter *panel)
   char             buffer[4096];
   int i;
 
-  create_and_fill_config();
   layout = clutter_box_layout_new (); 
   container =  clutter_box_new(layout);
   clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (layout), 12);
@@ -96,6 +95,7 @@ main (int argc, char *argv[])
                                 "icon1",                 /* button style */
                                  TRUE);
   mpl_panel_client_set_height_request (panel, 100);
+  init_omweather_core();
   make_window_content (MPL_PANEL_CLUTTER (panel));
   file = fopen("/tmp/1.log","wb");
   fclose(file);

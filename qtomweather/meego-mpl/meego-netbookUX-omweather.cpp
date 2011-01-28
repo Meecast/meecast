@@ -55,3 +55,8 @@ create_and_fill_config(){
     config->saveConfig("newconfig.xml");
     return config;
 }
+
+void
+init_omweather_core(void){
+    create_and_fill_config();
+}

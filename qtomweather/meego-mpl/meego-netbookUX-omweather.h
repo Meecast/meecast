@@ -28,4 +28,4 @@
 */
 
 #include "core.h"
-Core::Config *create_and_fill_config();
+void init_omweather_core(void);

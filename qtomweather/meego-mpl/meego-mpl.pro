@@ -9,7 +9,10 @@ TARGET = meego-panel-omweather
 TEMPLATE = app
 
 
-SOURCES += meego-panel-omweather.cpp
+HEADERS += meego-netbookUX-omweather.h
+
+SOURCES += meego-panel-omweather.cpp \
+           meego-netbookUX-omweather.cpp
 
 
 FORMS    +=
@@ -19,7 +22,7 @@ OTHER_FILES += \
 
 INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core
-CONFIG = link_pkgconfig 
+CONFIG = link_pkgconfig -qt 
 PKGCONFIG += dbus-glib-1 \
              mx-1.0 \
              mutter-plugins \

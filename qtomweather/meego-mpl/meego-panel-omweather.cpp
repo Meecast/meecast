@@ -33,32 +33,10 @@
 #include <meego-panel/mpl-panel-common.h>
 #include <mx/mx.h>
 
-#ifdef LOCALDEBUG
-    #define CONFIG_PATH "config.xml"
-    #define CONFIG_XSD_PATH "../core/data/config.xsd"
-#else
-    #define CONFIG_PATH "~/.config/omweather/config.xml"
-    #define CONFIG_XSD_PATH "/usr/share/omweather/xsd/config.xsd"
-#endif
-Core::Config *
-create_and_fill_config(){
-    Core::Config *config;
-    std::cerr<<"Create ConfigQML class: " <<std::endl;
-    try{
-        config = new Core::Config(CONFIG_PATH, CONFIG_XSD_PATH);
-    }
-    catch(const std::string &str){
-        std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
-        config = new Core::Config();
-    }
-    catch(const char *str){
-        std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
-        config = new Core::Config();
-    }
-    std::cerr<<"End of creating ConfigQML class: " <<std::endl;
-    config->saveConfig("newconfig.xml");
-    return config;
-}
+
+Core::Config *create_and_fill_config();
+
+
 //////////////////////////////////////////////////////////////////////////////
 
 

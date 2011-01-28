@@ -66,7 +66,7 @@ namespace Core{
 
         QFile file(QString::fromStdString(filename));
         if (!file.open(QIODevice::WriteOnly)){
-            std::cerr<<"error file open"<<std::endl;
+            std::cerr<<"error file open "<<filename<<std::endl;
             throw("Invalid destination file");
             return;
         }

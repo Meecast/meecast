@@ -28,4 +28,6 @@
 */
 
 #include "core.h"
+Core::Config *config;
+std::vector<Core::Station*> StationsList;
 void init_omweather_core(void);

@@ -16,7 +16,7 @@ Setting::sourceChanged(int val)
     qDebug() << "source = " << val << " - " << ui->sourceCombo->itemData(val);
     this->ui->countryCombo->clear();
 
-    getCountry();
+    getCountry(ui->sourceCombo->itemData(val).toString());
 }
 void
 Setting::countryChanged(int val)
@@ -56,12 +56,12 @@ Setting::open_database(const QString filename)
 }
 
 void
-Setting::getCountry()
+Setting::getCountry(QString filename)
 {
-    if (open_database("weather.com.db"))
+    if (open_database(filename))
         qDebug() << "ok";
     QSqlQueryModel *model = new QSqlQueryModel;
-    model->setQuery("select id, name from countries");
+    model->setQuery("select id, name from countries where (select count(name) from nstations where nstations.region_id = (select distinct regions.id from regions where regions.country_id=countries.id)) >0 order by name");
     qDebug() << model->rowCount();
     this->ui->countryCombo->setModel(model);
     this->ui->countryCombo->setModelColumn(1);

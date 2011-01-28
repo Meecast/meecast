@@ -2,6 +2,7 @@ VERSION = 1.0
 TARGET = omweather-core
 TEMPLATE = lib
 PKGCONFIG += libcurl
+PKGCONFIG += sqlite3
 CONFIG += link_pkgconfig 
 
 
@@ -32,7 +33,8 @@ SOURCES = \
     connection.cpp \
     dataparser.cpp \
     temperature.cpp \
-    datalist.cpp
+    datalist.cpp \
+    databasesqlite.cpp
 
 
 HEADERS = \ 
@@ -47,7 +49,8 @@ HEADERS = \
     datalist.h \
     core.h \
     dataparser.h \
-    temperature.h
+    temperature.h \
+    databasesqlite.h
 
 #installs
 target.path = /usr/lib

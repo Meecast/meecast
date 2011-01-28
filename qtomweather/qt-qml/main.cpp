@@ -19,6 +19,7 @@
 #include "dataitem.h"
 #include "datamodel.h"
 #include "parserqt.h"
+#include "databasesqlite.h"
 
 
 #include <QtDebug>
@@ -81,6 +82,11 @@ int main(int argc, char* argv[])
 */
 
     //Add the QML snippet into the layout
+
+    Core::DatabaseSqlite *db = new Core::DatabaseSqlite("../../omweather-gismeteo-ru-stations-db/data/weather.com.db");
+
+    db->open_database();
+    return 0;
 
     ConfigQml *config;
     DataItem *forecast_data = NULL;

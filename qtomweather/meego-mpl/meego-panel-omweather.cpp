@@ -75,10 +75,13 @@ make_window_content (MplPanelClutter *panel)
       clutter_actor_set_size (icon, 80.0, 80.0);
       clutter_actor_show (icon);
       label = clutter_text_new();
-      if (temp_data->temperature_low().value() != INT_MAX)
-          snprintf(buffer, (4096 -1), "Th\n%0.f°C\n%0.f°C", temp_data->temperature_low().value(), temp_data->temperature_hi().value());
-      else
-          snprintf(buffer, (4096 -1), "Th\n%0.f°C", temp_data->temperature_hi().value());
+      if (temp_data){
+//      strptime(buffer, "%a", &tmp_time_date_struct);
+          if (temp_data->temperature_low().value() != INT_MAX)
+              snprintf(buffer, (4096 -1), "Th\n%0.f°C\n%0.f°C", temp_data->temperature_low().value(), temp_data->temperature_hi().value());
+          else
+              snprintf(buffer, (4096 -1), "Th\n%0.f°C", temp_data->temperature_hi().value());
+      }
       clutter_text_set_text((ClutterText*)label, buffer);
       layout = clutter_box_layout_new ();
       box =  clutter_box_new(layout);

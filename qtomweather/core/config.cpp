@@ -9,6 +9,7 @@ namespace Core{
         _iconset = new std::string("Glance");
         _temperature_unit = new std::string("C");
         _font_color = new std::string("#00ff00");
+        _current_station_id = new std::string();
         _stations = new StationList;
     }
     void
@@ -29,6 +30,11 @@ namespace Core{
 
         el = doc.createElement("iconset");
         t = doc.createTextNode(QString::fromStdString(*_iconset));
+        el.appendChild(t);
+        root.appendChild(el);
+
+        el = doc.createElement("current_station_id");
+        t = doc.createTextNode(QString::fromStdString(*_current_station_id));
         el.appendChild(t);
         root.appendChild(el);
 
@@ -85,6 +91,7 @@ namespace Core{
         _temperature_unit = new std::string("C");
         _font_color = new std::string("#00ff00");
         _stations = new StationList;
+        _current_station_id = new std::string;
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -104,6 +111,9 @@ namespace Core{
             el = root.firstChildElement("iconset");
             if (!el.isNull())
                 _iconset->assign(el.text().toStdString());
+            el = root.firstChildElement("current_station_id");
+            if (!el.isNull())
+                _current_station_id->assign(el.text().toStdString());
 
             nodelist = root.elementsByTagName("station");
             for (int i=0; i<nodelist.count(); i++){
@@ -155,10 +165,18 @@ namespace Core{
         /* ToDo Check access to path */
         _iconset->assign(text);
     }
-////////////////////////////////////////////////////////////////////////////////
     std::string&
     Config::iconSet(){
         return *_iconset;
+    }
+////////////////////////////////////////////////////////////////////////////////
+    void
+    Config::current_station_id(const std::string& text){
+        _current_station_id->assign(text);
+    }
+    std::string&
+    Config::current_station_id(){
+        return *_current_station_id;
     }
 ////////////////////////////////////////////////////////////////////////////////
     std::string&
@@ -218,6 +236,14 @@ namespace Core{
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
             _iconset->assign(nodeText->get_content());
+            return;
+        }
+        // current station id
+        if(nodeName == "current_station_id"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            _current_station_id->assign(nodeText->get_content());
             return;
         }
         // station

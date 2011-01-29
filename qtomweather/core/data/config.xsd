@@ -6,6 +6,7 @@
                 <xs:element ref="schemas:base"/>
                 <xs:element ref="schemas:sources_directory" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element ref="schemas:iconset"/>
+                <xs:element ref="schemas:current_station_id"/>
                 <xs:element name="station" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
@@ -23,6 +24,7 @@
     <xs:element name="base" type="xs:string"/>
     <xs:element name="sources_directory" type="xs:string"/>
     <xs:element name="iconset" type="xs:string"/>
+    <xs:element name="current_station_id" type="xs:string"/>
     <xs:element name="source_name" type="xs:string"/>
     <xs:element name="station_name" type="xs:string"/>
     <xs:element name="station_id" type="xs:string"/>

@@ -68,14 +68,17 @@ make_window_content (MplPanelClutter *panel)
       temp_data = dp->data().GetDataForTime(time(NULL) + period);
       period = period + 3600*24;
       if (temp_data)
-          snprintf(buffer, (4096 -1), "%s/%i.png","/usr/share/meego-panel-omweather/theme/icons/Glance", temp_data->Icon());
+          snprintf(buffer, (4096 -1), "%s/icons/%s/%i.png",config->prefix_path().c_str(), config->iconSet().c_str(), temp_data->Icon());
       else
-         snprintf(buffer, (4096 -1), "%s/%i.png","/usr/share/meego-panel-omweather/theme/icons/Glance", 49);
+          snprintf(buffer, (4096 -1), "%s/icons/%s/na.png",config->prefix_path().c_str(), config->iconSet().c_str());
       icon = clutter_texture_new_from_file(buffer, NULL);
       clutter_actor_set_size (icon, 80.0, 80.0);
       clutter_actor_show (icon);
       label = clutter_text_new();
-      snprintf(buffer, (4096 -1), "Th\n%i°C\n%i°C", i-5, i+7);
+      if (temp_data->temperature_low().value() != INT_MAX)
+          snprintf(buffer, (4096 -1), "Th\n%0.f°C\n%0.f°C", temp_data->temperature_low().value(), temp_data->temperature_hi().value());
+      else
+          snprintf(buffer, (4096 -1), "Th\n%0.f°C", temp_data->temperature_hi().value());
       clutter_text_set_text((ClutterText*)label, buffer);
       layout = clutter_box_layout_new ();
       box =  clutter_box_new(layout);

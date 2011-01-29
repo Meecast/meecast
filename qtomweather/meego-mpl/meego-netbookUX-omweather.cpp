@@ -74,6 +74,7 @@ create_and_fill_config(){
 
     return config;
 }
+
 Core::DataParser*
 current_data(void){
   Core::DataParser* dp;
@@ -90,9 +91,9 @@ current_data(void){
     }
     return dp;
 }
+
 void
 init_omweather_core(void){
     config = create_and_fill_config();
     StationsList = config->stationList();
-    std::cerr<<"size "<<StationsList.size()<<std::endl;
 }

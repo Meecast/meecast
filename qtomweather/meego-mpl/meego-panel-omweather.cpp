@@ -28,14 +28,17 @@
 */
 /*******************************************************************************/
 
-#include "core.h"
+#include "meego-netbookUX-common.h"
 #include <meego-panel/mpl-panel-clutter.h>
 #include <meego-panel/mpl-panel-common.h>
 #include <mx/mx.h>
 
+Core::Config *config;
+std::vector<Core::Station*> StationsList;
+
 
 void init_omweather_core(void);
-
+Core::DataParser *current_data(void);
 
 //////////////////////////////////////////////////////////////////////////////
 
@@ -52,14 +55,22 @@ make_window_content (MplPanelClutter *panel)
   ClutterColor      black = {0, 0, 0, 0xff};
   ClutterColor      red =   {0xff, 0, 0, 0xff};
   char             buffer[4096];
-  int i;
-
+  int i, period;
+  Core::Data *temp_data = NULL;
+  Core::DataParser* dp;
+  
+  dp = current_data();
   layout = clutter_box_layout_new (); 
   container =  clutter_box_new(layout);
   clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (layout), 12);
-  i = 1;
+  period = 0;
   for (i = 0; i<10; i++){
-      snprintf(buffer, (4096 -1), "%s/%i.png","/usr/share/meego-panel-omweather/theme/icons/Glance",i);
+      temp_data = dp->data().GetDataForTime(time(NULL) + period);
+      period = period + 3600*24;
+      if (temp_data)
+          snprintf(buffer, (4096 -1), "%s/%i.png","/usr/share/meego-panel-omweather/theme/icons/Glance", temp_data->Icon());
+      else
+         snprintf(buffer, (4096 -1), "%s/%i.png","/usr/share/meego-panel-omweather/theme/icons/Glance", 49);
       icon = clutter_texture_new_from_file(buffer, NULL);
       clutter_actor_set_size (icon, 80.0, 80.0);
       clutter_actor_show (icon);

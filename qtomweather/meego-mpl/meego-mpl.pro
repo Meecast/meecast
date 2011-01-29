@@ -9,7 +9,8 @@ TARGET = meego-panel-omweather
 TEMPLATE = app
 
 
-HEADERS += meego-netbookUX-omweather.h
+HEADERS += meego-netbookUX-omweather.h \
+           meego-netbookUX-common.h
 
 SOURCES += meego-panel-omweather.cpp \
            meego-netbookUX-omweather.cpp

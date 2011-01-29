@@ -27,10 +27,4 @@
  * 02110-1301 USA
 */
 
-#include "meego-netbookUX-common.h"
-void init_omweather_core(void);
-Core::DataParser *current_data(void);
-
-extern Core::Config *config;
-extern std::vector<Core::Station*> StationsList;
-
+#include "core.h"

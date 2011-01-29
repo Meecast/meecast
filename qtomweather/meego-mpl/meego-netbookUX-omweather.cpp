@@ -40,6 +40,7 @@
 //    #define CONFIG_PATH "~/.config/omweather/config.xml"
     #define CONFIG_FILE "config.xml"
     #define CONFIG_XSD_PATH "/usr/share/omweather/xsd/config.xsd"
+    #define DATA_XSD_PATH "/usr/share/omweather/xsd/data.xsd"
 #endif
 
 Core::Config *
@@ -70,12 +71,28 @@ create_and_fill_config(){
     }
     std::cerr<<"End of creating Config class: " <<std::endl;
     config->saveConfig(filepath);
-    
+
     return config;
 }
-
+Core::DataParser*
+current_data(void){
+  Core::DataParser* dp;
+  try{
+        dp = new Core::DataParser("/home/vlad/.config/omweather/data.xml", DATA_XSD_PATH);
+    }
+    catch(const std::string &str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return NULL;
+    }
+    catch(const char *str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return NULL;
+    }
+    return dp;
+}
 void
 init_omweather_core(void){
     config = create_and_fill_config();
     StationsList = config->stationList();
+    std::cerr<<"size "<<StationsList.size()<<std::endl;
 }

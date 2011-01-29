@@ -18,6 +18,7 @@ namespace Core{
         int _humidity;
         int _pressure;
         std::string *_text;
+        std::string *_short_day_name;
         int _icon;
         Temperature *_temperature_hi;
         Temperature *_temperature_low;
@@ -46,6 +47,7 @@ namespace Core{
             bool  Current(void) const;
             void  Text(const std::string& text);
             std::string& Text(void);
+            std::string& ShortDayName(void);
             time_t GetTimeDistance(time_t need_time); /* Checking for  occurrence of this time (need_time) to Data interval and return the interval if  this time are include */
             virtual ~Data();
             Temperature& temperature_hi();

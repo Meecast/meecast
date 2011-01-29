@@ -13,6 +13,7 @@ namespace Core {
         _icon = INT_MAX;
         _windDirection = new std::string("N/A");
         _text = new std::string("N/A");
+        _short_day_name = new std::string();
         _temperature_hi = new Temperature;
         _temperature_low = new Temperature;
         _current = 0;
@@ -42,11 +43,20 @@ namespace Core {
         _pressure = data->_pressure;
         _flike = data->_flike;
         _ppcp = data->_ppcp;
+        _short_day_name = data->_short_day_name;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
     Data::StartTime(time_t start_time){
+        char buffer[2048];
+        struct tm *tmp_time_date_struct;
+
         _start_time = start_time;
+
+        delete _short_day_name;
+        tmp_time_date_struct = gmtime(&start_time);
+        strftime(buffer, sizeof(buffer), "%a", tmp_time_date_struct);
+        _short_day_name = new std::string(buffer);
     }
     time_t
     Data::StartTime() const{
@@ -72,7 +82,6 @@ namespace Core {
      Data::WindSpeed(float windspeed){
          _windSpeed = windspeed;
      }
-////////////////////////////////////////////////////////////////////////////////
      float
      Data::WindSpeed() const{
          /* need to check type ( ) */
@@ -84,7 +93,6 @@ namespace Core {
          /* Check possible direction (N,NW,NNW,NE,NEE,S,SW,SWW,SE,SEE, E, W) */
          _windDirection->assign(text);
      }
-////////////////////////////////////////////////////////////////////////////////
      std::string&
      Data::WindDirection(){
          return *_windDirection;
@@ -94,7 +102,6 @@ namespace Core {
      Data::WindGust(float windgust){
          _windGust = windgust;
      }
-////////////////////////////////////////////////////////////////////////////////
      float
      Data::WindGust() const{
          /* need to check type ( ) */
@@ -105,7 +112,6 @@ namespace Core {
      Data::Humidity(int humidity){
          _humidity = humidity;
      }
-////////////////////////////////////////////////////////////////////////////////
      int
      Data::Humidity() const{
          /* need to check type ( ) */
@@ -116,7 +122,6 @@ namespace Core {
      Data::Current(bool current){
          _current = current;
      }
-////////////////////////////////////////////////////////////////////////////////
       bool
       Data::Current() const{
          return _current;
@@ -126,7 +131,6 @@ namespace Core {
      Data::Icon(int icon){
          _icon = icon;
      }
-////////////////////////////////////////////////////////////////////////////////
      int
      Data::Icon() const{
          /* need to check range (0 - 49) */
@@ -144,6 +148,11 @@ namespace Core {
          return *_text;
      }
 ////////////////////////////////////////////////////////////////////////////////
+     std::string&
+     Data::ShortDayName(){
+         return *_short_day_name;
+     }
+////////////////////////////////////////////////////////////////////////////////
     time_t
     Data::GetTimeDistance(time_t need_time){
         if(_end_time > need_time && _start_time < need_time)
@@ -158,6 +167,7 @@ namespace Core {
        delete _temperature_hi;
        delete _temperature_low;
        delete _flike;
+       delete _short_day_name;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Temperature& Data::temperature_hi(){

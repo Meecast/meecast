@@ -28,21 +28,37 @@
 */
 
 #include "meego-netbookUX-omweather.h"
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <pwd.h>
 
 #ifdef LOCALDEBUG
-    #define CONFIG_PATH "config.xml"
+    #define CONFIG_FILE "config.xml"
     #define CONFIG_XSD_PATH "../core/data/config.xsd"
 #else
 //    #define CONFIG_PATH "~/.config/omweather/config.xml"
-    #define CONFIG_PATH "/tmp/config.xml"
+    #define CONFIG_FILE "config.xml"
     #define CONFIG_XSD_PATH "/usr/share/omweather/xsd/config.xsd"
 #endif
+
 Core::Config *
 create_and_fill_config(){
     Core::Config *config;
+
+    /* create path for config file */
+    char filepath[4096];
+    struct passwd *pw = getpwuid(getuid());
+    const char *homedir = pw->pw_dir;
+    snprintf(filepath, (4096-1), "%s/.config", homedir);
+    mkdir(filepath, 0755);
+    snprintf(filepath, (4096-1), "%s/.config/omweather", homedir);
+    mkdir(filepath, 0755);
+    snprintf(filepath, (4096-1), "%s/.config/omweather/%s", homedir, CONFIG_FILE);
+
     std::cerr<<"Create Config class: " <<std::endl;
     try{
-        config = new Core::Config(CONFIG_PATH, CONFIG_XSD_PATH);
+        config = new Core::Config(filepath, CONFIG_XSD_PATH);
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
@@ -53,7 +69,8 @@ create_and_fill_config(){
         config = new Core::Config();
     }
     std::cerr<<"End of creating Config class: " <<std::endl;
-    config->saveConfig(CONFIG_PATH);
+    config->saveConfig(filepath);
+    
     return config;
 }
 

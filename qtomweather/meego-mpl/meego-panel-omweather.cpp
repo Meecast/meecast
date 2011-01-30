@@ -78,10 +78,12 @@ static void
 make_window_content (MplPanelClutter *panel)
 {
   ClutterActor     *stage = mpl_panel_clutter_get_stage (panel);
-  ClutterLayoutManager *layout;
+  ClutterLayoutManager *forecast_layout;
+  ClutterLayoutManager *top_layout;
   ClutterLayoutManager *main_vertical_layout;
   ClutterActor     *container;
-  ClutterActor     *horizontal_container;
+  ClutterActor     *forecast_horizontal_container;
+  ClutterActor     *top_container;
   ClutterActor     *box;
   ClutterActor     *label;
   ClutterColor      black = {0, 0, 0, 0xff};
@@ -93,30 +95,37 @@ make_window_content (MplPanelClutter *panel)
   PangoFontDescription *pfd = NULL;
 
   dp = current_data();
+
   main_vertical_layout = clutter_box_layout_new (); 
-  layout = clutter_box_layout_new (); 
   container =  clutter_box_new(main_vertical_layout);
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(main_vertical_layout), TRUE);
-  horizontal_container =  clutter_box_new(layout);
-  clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (layout), 12);
+
+  forecast_layout = clutter_box_layout_new(); 
+  forecast_horizontal_container = clutter_box_new(forecast_layout);
+  clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (forecast_layout), 12);
+
+  top_layout = clutter_box_layout_new(); 
+  top_container = clutter_box_new(top_layout);
   label = clutter_text_new();
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
   pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 3);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   stationslist = config->stationsList();
   clutter_text_set_text((ClutterText*)label, stationslist.station_name_by_id("BOXX0014")->name().c_str());
-  clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), label,
-                          TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_CENTER);
+  clutter_box_pack((ClutterBox*)top_container, label, NULL);
+
+  clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), top_container, 
+                          FALSE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_START);
 
   clutter_actor_show (label);
   period = 0;
-  for (i = 0; i<10; i++){
+  for (i = 0; i < 10; i++){
       temp_data = dp->data().GetDataForTime(time(NULL) + period);
       period = period + 3600*24;
       box = make_day_actor(temp_data); 
-      clutter_box_pack((ClutterBox*)horizontal_container, box, NULL);
+      clutter_box_pack((ClutterBox*)forecast_horizontal_container, box, NULL);
   }
-  clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), horizontal_container, 
+  clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), forecast_horizontal_container, 
                           FALSE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_START);
   clutter_actor_show (container);
   mpl_panel_clutter_set_child (panel, container);

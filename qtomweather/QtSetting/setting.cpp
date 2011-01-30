@@ -8,6 +8,9 @@ Setting::Setting(QWidget *parent) :
     ui->setupUi(this);
     ui->sourceCombo->addItem("gismeteo.ru", "gismeteo.ru.db");
     ui->sourceCombo->addItem("weather.com", "weather.com.db");
+
+    db = NULL;
+
 }
 
 void
@@ -15,6 +18,14 @@ Setting::sourceChanged(int val)
 {
     qDebug() << "source = " << val << " - " << ui->sourceCombo->itemData(val);
     this->ui->countryCombo->clear();
+
+    Core::DatabaseSqlite *db = new Core::DatabaseSqlite(ui->sourceCombo->itemData(val).toString().toStdString());
+    db->open_database();
+    Core::listdata * list = db->create_countries_list();
+    Core::listdata::iterator cur;
+    for (cur=list->begin(); cur<list->end(); cur++)
+        //std::cerr << (*cur).first << " - " << (*cur).second << std::endl;
+        ui->countryCombo->addItem(QString::fromStdString((*cur).second), QString::fromStdString((*cur).first));
 
     getCountry(ui->sourceCombo->itemData(val).toString());
 }

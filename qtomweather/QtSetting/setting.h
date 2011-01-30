@@ -5,6 +5,8 @@
 #include <QDebug>
 #include <QSqlDatabase>
 #include <QSqlQueryModel>
+#include "core.h"
+#include "databasesqlite.h"
 
 namespace Ui {
     class Setting;
@@ -23,6 +25,7 @@ public slots:
 
 private:
     Ui::Setting *ui;
+    Core::DatabaseSqlite *db;
     bool open_database(const QString filename);
     void getCountry(QString filename);
 };

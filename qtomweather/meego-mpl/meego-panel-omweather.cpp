@@ -79,7 +79,9 @@ make_window_content (MplPanelClutter *panel)
 {
   ClutterActor     *stage = mpl_panel_clutter_get_stage (panel);
   ClutterLayoutManager *layout;
+  ClutterLayoutManager *main_vertical_layout;
   ClutterActor     *container;
+  ClutterActor     *horizontal_container;
   ClutterActor     *box;
   ClutterActor     *label;
   ClutterColor      black = {0, 0, 0, 0xff};
@@ -90,25 +92,30 @@ make_window_content (MplPanelClutter *panel)
   Core::DataParser* dp;
   
   dp = current_data();
+  main_vertical_layout = clutter_box_layout_new (); 
   layout = clutter_box_layout_new (); 
-  container =  clutter_box_new(layout);
+  container =  clutter_box_new(main_vertical_layout);
+  clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(main_vertical_layout), TRUE);
+  horizontal_container =  clutter_box_new(layout);
   clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (layout), 12);
   label = clutter_text_new();
   stationslist = config->stationsList();
   clutter_text_set_text((ClutterText*)label, stationslist.station_name_by_id("BOXX0014")->name().c_str());
-  clutter_box_pack((ClutterBox*)container, label, NULL);
-  
+  clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), label,
+                          TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_CENTER);
+
+  clutter_actor_show (label);
   period = 0;
   for (i = 0; i<10; i++){
       temp_data = dp->data().GetDataForTime(time(NULL) + period);
       period = period + 3600*24;
       box = make_day_actor(temp_data); 
-      clutter_box_pack((ClutterBox*)container, box, NULL);
+      clutter_box_pack((ClutterBox*)horizontal_container, box, NULL);
   }
-
+  clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), horizontal_container, 
+                          FALSE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_START);
   clutter_actor_show (container);
   mpl_panel_clutter_set_child (panel, container);
-  clutter_stage_set_color (CLUTTER_STAGE (stage), &red);
 }
 
 int

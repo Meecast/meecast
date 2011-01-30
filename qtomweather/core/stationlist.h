@@ -12,7 +12,7 @@ namespace Core {
     class StationsList : public std::vector<Station*>, AbstractConfig {
         public:
             StationsList();
-            Station* station_name_by_id(const std::string& station_id);
+            Station* station_by_id(const std::string& station_id);
     };
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

@@ -47,7 +47,7 @@ namespace Core {
         return *_stations;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    Source* SourceList::source(const std::string& source_name){
+    Source* SourceList::source_by_name(const std::string& source_name){
         for(unsigned i = 0; i < this->size(); i++){
             if(this->at(i)->name() == source_name)
                 return this->at(i);

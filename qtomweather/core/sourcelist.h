@@ -23,8 +23,7 @@ namespace Core {
             SourceList(const std::string path = prefix + sourcesPath);
             virtual ~SourceList();
             StationsList& searchStation(const std::string& station);
-            Source* source(const std::string& source_name);
-
+            Source* source_by_name(const std::string& source_name);
 };
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

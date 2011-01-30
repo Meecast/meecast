@@ -124,7 +124,7 @@ make_window_content (MplPanelClutter *panel)
   pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 3);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   stationslist = config->stationsList();
-  clutter_text_set_text((ClutterText*)label, stationslist.station_name_by_id("BOXX0014")->name().c_str());
+  clutter_text_set_text((ClutterText*)label, stationslist.station_by_id("BOXX0014")->name().c_str());
   clutter_box_pack((ClutterBox*)top_container, label, NULL);
 
   /* null button */

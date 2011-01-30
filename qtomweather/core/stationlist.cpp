@@ -5,7 +5,7 @@ namespace Core {
     StationsList::StationsList() {
      }
 ////////////////////////////////////////////////////////////////////////////////
-    Station* StationsList::station_name_by_id(const std::string& station_id){
+    Station* StationsList::station_by_id(const std::string& station_id){
         for(unsigned i = 0; i < this->size(); i++){
             if(this->at(i)->id() == station_id)
                 return this->at(i);

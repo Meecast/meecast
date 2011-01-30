@@ -90,7 +90,8 @@ make_window_content (MplPanelClutter *panel)
   int i, period;
   Core::Data *temp_data = NULL;
   Core::DataParser* dp;
-  
+  PangoFontDescription *pfd = NULL;
+
   dp = current_data();
   main_vertical_layout = clutter_box_layout_new (); 
   layout = clutter_box_layout_new (); 
@@ -99,6 +100,9 @@ make_window_content (MplPanelClutter *panel)
   horizontal_container =  clutter_box_new(layout);
   clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (layout), 12);
   label = clutter_text_new();
+  pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 3);
+  clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   stationslist = config->stationsList();
   clutter_text_set_text((ClutterText*)label, stationslist.station_name_by_id("BOXX0014")->name().c_str());
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), label,
@@ -134,7 +138,7 @@ main (int argc, char *argv[])
                                  "/usr/share/meego-panel-omweather/theme/omweather-panel.css", /*stylesheet */
                                 "icon1",                 /* button style */
                                  TRUE);
-  mpl_panel_client_set_height_request (panel, 100);
+  mpl_panel_client_set_height_request (panel, 150);
   init_omweather_core();
   make_window_content (MPL_PANEL_CLUTTER (panel));
   file = fopen("/tmp/1.log","wb");

@@ -40,6 +40,14 @@ Core::StationsList stationslist;
 void init_omweather_core(void);
 Core::DataParser *current_data(void);
 
+gboolean
+refresh_button_event_cb (ClutterActor *actor,
+                   ClutterEvent *event,
+                   gpointer      user_data){
+    clutter_actor_hide(actor);
+
+}
+
 //////////////////////////////////////////////////////////////////////////////
 static ClutterActor*
 make_day_actor(Core::Data *temp_data){
@@ -86,6 +94,7 @@ make_window_content (MplPanelClutter *panel)
   ClutterActor     *top_container;
   ClutterActor     *box;
   ClutterActor     *label;
+  ClutterActor     *icon;
   ClutterColor      black = {0, 0, 0, 0xff};
   ClutterColor      red =   {0xff, 0, 0, 0xff};
   char             buffer[4096];
@@ -104,8 +113,11 @@ make_window_content (MplPanelClutter *panel)
   forecast_horizontal_container = clutter_box_new(forecast_layout);
   clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (forecast_layout), 12);
 
+  /* top layout */
   top_layout = clutter_box_layout_new(); 
   top_container = clutter_box_new(top_layout);
+
+  /* station name */
   label = clutter_text_new();
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
   pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 3);
@@ -114,12 +126,27 @@ make_window_content (MplPanelClutter *panel)
   clutter_text_set_text((ClutterText*)label, stationslist.station_name_by_id("BOXX0014")->name().c_str());
   clutter_box_pack((ClutterBox*)top_container, label, NULL);
 
-  clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), top_container, 
-                          FALSE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_START);
+  /* null button */
+  snprintf(buffer, (4096 -1), "%s/buttons_icons/null.png",config->prefix_path().c_str());
+  icon = clutter_texture_new_from_file(buffer, NULL);
+  clutter_actor_set_size (icon, 80.0, 80.0);
+  clutter_box_pack((ClutterBox*)top_container, icon, "expand", TRUE,  "x-fill", TRUE, NULL);
+
+  /* refresh button */
+  snprintf(buffer, (4096 -1), "%s/buttons_icons/refresh.png",config->prefix_path().c_str());
+  icon = clutter_texture_new_from_file(buffer, NULL);
+  clutter_actor_set_size (icon, 80.0, 80.0);
+  clutter_actor_set_reactive(icon, TRUE);
+  /* connect the press event on refresh button */
+  g_signal_connect (icon, "button-press-event", G_CALLBACK (refresh_button_event_cb), NULL);
+  clutter_box_pack((ClutterBox*)top_container, icon, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
+
+  clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), top_container,
+                          TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_CENTER);
 
   clutter_actor_show (label);
   period = 0;
-  for (i = 0; i < 10; i++){
+  for (i = 0; i < 8; i++){
       temp_data = dp->data().GetDataForTime(time(NULL) + period);
       period = period + 3600*24;
       box = make_day_actor(temp_data); 

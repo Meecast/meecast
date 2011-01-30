@@ -39,13 +39,14 @@ Core::StationsList stationslist;
 
 void init_omweather_core(void);
 Core::DataParser *current_data(void);
+int update_weather_forecast(Core::Config *config);
 
+//////////////////////////////////////////////////////////////////////////////
 gboolean
 refresh_button_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
-    clutter_actor_hide(actor);
-
+    update_weather_forecast(config);
 }
 
 //////////////////////////////////////////////////////////////////////////////

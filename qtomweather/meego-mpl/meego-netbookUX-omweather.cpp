@@ -75,6 +75,8 @@ create_and_fill_config(){
     return config;
 }
 
+
+
 Core::DataParser*
 current_data(void){
   Core::DataParser* dp;
@@ -96,4 +98,18 @@ void
 init_omweather_core(void){
     config = create_and_fill_config();
 //    stationslist = config->stationsList();
+}
+
+//////////////////////////////////////////////////////////////////////////////
+int
+update_weather_forecast(Core::Config *config){
+    int i;
+    int success = 0;
+    Core::Station* station;
+    for (i=0; i < config->stationsList().size();i++){
+        station = config->stationsList().at(i);
+        if (station->updateData())
+            success ++;
+    }
+    return success;
 }

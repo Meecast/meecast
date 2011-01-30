@@ -83,9 +83,13 @@ int main(int argc, char* argv[])
 
     //Add the QML snippet into the layout
 
-    Core::DatabaseSqlite *db = new Core::DatabaseSqlite("../../omweather-gismeteo-ru-stations-db/data/weather.com.db");
+    Core::DatabaseSqlite *db = new Core::DatabaseSqlite("weather.com.db");
 
     db->open_database();
+    Core::listdata * list = db->create_stations_list(18);
+    Core::listdata::iterator cur;
+    for (cur=list->begin(); cur<list->end(); cur++)
+        std::cerr << (*cur).first << " - " << (*cur).second << std::endl;
     return 0;
 
     ConfigQml *config;
@@ -101,19 +105,9 @@ int main(int argc, char* argv[])
 
     config = create_and_fill_config();
     std::cerr<<"iconpath = "<<config->prefix_path()<<std::endl;
-    StationsList = config->stationList();
+    StationsList = config->stationsList();
     std::cerr<<"size "<<StationsList.size()<<std::endl;
     update_weather_forecast(StationsList);
-
-/*
-    Core::DataParserQt* dpq;
-    try {
-        dpq = new Core::DataParserQt("data.xml", QUrl(":../core/data/data.xsd"));
-    }catch(const char *str){
-        qDebug() << "Error in DataParserQt class: " << str;
-        return -1;
-    }
-*/
 
     try{
         dp = new Core::DataParser("data.xml", "../core/data/data.xsd");

@@ -6,17 +6,25 @@
 #include <string>
 #include <errno.h>
 #include <stdlib.h>
+#include <vector>
+#include <stdio.h>
 
 namespace Core{
+
+typedef std::vector< std::pair<std::string, std::string> > listdata;
 
 class DatabaseSqlite
 {
 private:
     sqlite3 *db;
     std::string *databasename;
+
 public:
     DatabaseSqlite(const std::string& databasename);
     bool open_database();
+    listdata* create_countries_list();
+    listdata* create_region_list(int country_id);
+    listdata* create_stations_list(int region_id);
 };
 } // namespace Core
 

@@ -5,6 +5,7 @@
 class Source;
 #include "source.h"
 #include "data.h"
+#include "sourcelist.h"
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     class Station{
@@ -37,7 +38,7 @@ namespace Core{
             std::string& region() const;
             void timezone(const int timezone = 0);
             int timezone() const;
-            bool updateData(bool force = false);
+            bool updateData(SourceList *stationlist, bool force);
             void updateSource(const Source* source);
     };
 ////////////////////////////////////////////////////////////////////////////////

@@ -106,9 +106,13 @@ namespace Core {
         return true;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    bool Station::updateData(bool force){
-        if(!force || dataValid())
-            return true;
+    bool Station::updateData(SourceList *sourcelist, bool force){
+//        if(!force || dataValid())
+//            return true;
+        Source* source;
+        source = sourcelist->source_by_name(*_sourceName);
+    //    str = new std::string();
+    //    str = source;
         return true;
     }
 ////////////////////////////////////////////////////////////////////////////////

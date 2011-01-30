@@ -41,17 +41,47 @@ void init_omweather_core(void);
 Core::DataParser *current_data(void);
 
 //////////////////////////////////////////////////////////////////////////////
+static ClutterActor*
+make_day_actor(Core::Data *temp_data){
+    ClutterActor     *box;
+    ClutterActor     *label;
+    ClutterActor     *icon;
+    ClutterLayoutManager *layout;
 
+    char             buffer[4096];
+    if (temp_data)
+          snprintf(buffer, (4096 -1), "%s/icons/%s/%i.png",config->prefix_path().c_str(), config->iconSet().c_str(), temp_data->Icon());
+    else
+          snprintf(buffer, (4096 -1), "%s/icons/%s/na.png",config->prefix_path().c_str(), config->iconSet().c_str());  
 
+    icon = clutter_texture_new_from_file(buffer, NULL);
+    clutter_actor_set_size (icon, 80.0, 80.0);
+    clutter_actor_show (icon);
+    label = clutter_text_new();
+    if (temp_data){
+        if (temp_data->temperature_low().value() != INT_MAX)
+            snprintf(buffer, (4096 -1), "%s\n%0.f°C\n%0.f°C", temp_data->ShortDayName().c_str(), temp_data->temperature_low().value(), temp_data->temperature_hi().value());
+        else
+            snprintf(buffer, (4096 -1), "%s\n%0.f°C", temp_data->ShortDayName().c_str(), temp_data->temperature_hi().value());
+    }
+
+    clutter_text_set_text((ClutterText*)label, buffer);
+    layout = clutter_box_layout_new ();
+    box =  clutter_box_new(layout);
+    clutter_box_pack((ClutterBox*)box, icon, NULL);
+    clutter_box_pack((ClutterBox*)box, label, NULL);
+
+    return box;
+}
+//////////////////////////////////////////////////////////////////////////////
 static void
 make_window_content (MplPanelClutter *panel)
 {
   ClutterActor     *stage = mpl_panel_clutter_get_stage (panel);
   ClutterLayoutManager *layout;
-  ClutterActor     *label;
-  ClutterActor     *icon;
   ClutterActor     *container;
   ClutterActor     *box;
+  ClutterActor     *label;
   ClutterColor      black = {0, 0, 0, 0xff};
   ClutterColor      red =   {0xff, 0, 0, 0xff};
   char             buffer[4096];
@@ -72,26 +102,7 @@ make_window_content (MplPanelClutter *panel)
   for (i = 0; i<10; i++){
       temp_data = dp->data().GetDataForTime(time(NULL) + period);
       period = period + 3600*24;
-      if (temp_data)
-          snprintf(buffer, (4096 -1), "%s/icons/%s/%i.png",config->prefix_path().c_str(), config->iconSet().c_str(), temp_data->Icon());
-      else
-          snprintf(buffer, (4096 -1), "%s/icons/%s/na.png",config->prefix_path().c_str(), config->iconSet().c_str());
-      icon = clutter_texture_new_from_file(buffer, NULL);
-      clutter_actor_set_size (icon, 80.0, 80.0);
-      clutter_actor_show (icon);
-      label = clutter_text_new();
-      if (temp_data){
-          if (temp_data->temperature_low().value() != INT_MAX)
-              snprintf(buffer, (4096 -1), "%s\n%0.f°C\n%0.f°C", temp_data->ShortDayName().c_str(), temp_data->temperature_low().value(), temp_data->temperature_hi().value());
-          else
-              snprintf(buffer, (4096 -1), "%s\n%0.f°C", temp_data->ShortDayName().c_str(), temp_data->temperature_hi().value());
-      }
-
-      clutter_text_set_text((ClutterText*)label, buffer);
-      layout = clutter_box_layout_new ();
-      box =  clutter_box_new(layout);
-      clutter_box_pack((ClutterBox*)box, icon, NULL);
-      clutter_box_pack((ClutterBox*)box, label, NULL);
+      box = make_day_actor(temp_data); 
       clutter_box_pack((ClutterBox*)container, box, NULL);
   }
 

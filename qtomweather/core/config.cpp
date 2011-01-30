@@ -10,7 +10,7 @@ namespace Core{
         _temperature_unit = new std::string("C");
         _font_color = new std::string("#00ff00");
         _current_station_id = new std::string();
-        _stations = new StationList;
+        _stations = new StationsList;
     }
     void
     Config::saveConfig(const std::string& filename)
@@ -90,7 +90,7 @@ namespace Core{
         _iconset = new std::string("Glance");
         _temperature_unit = new std::string("C");
         _font_color = new std::string("#00ff00");
-        _stations = new StationList;
+        _stations = new StationsList;
         _current_station_id = new std::string;
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
@@ -296,8 +296,8 @@ namespace Core{
     }
 #endif
 ////////////////////////////////////////////////////////////////////////////////
-    StationList&
-    Config::stationList(){
+    StationsList&
+    Config::stationsList(){
         return *_stations;
     }
 ////////////////////////////////////////////////////////////////////////////////

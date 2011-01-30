@@ -18,12 +18,13 @@
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     class SourceList : public AbstractConfig, private std::vector<Source*>{
-        StationList *_stations;
+        StationsList *_stations;
         public:
             SourceList(const std::string path = prefix + sourcesPath);
             virtual ~SourceList();
-            StationList& searchStation(const std::string& station);
+            StationsList& searchStation(const std::string& station);
             Source* source(const std::string& source_name);
+
 };
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

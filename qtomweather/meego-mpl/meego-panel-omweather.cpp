@@ -34,7 +34,7 @@
 #include <mx/mx.h>
 
 Core::Config *config;
-std::vector<Core::Station*> StationsList;
+Core::StationsList stationslist;
 
 
 void init_omweather_core(void);
@@ -63,6 +63,11 @@ make_window_content (MplPanelClutter *panel)
   layout = clutter_box_layout_new (); 
   container =  clutter_box_new(layout);
   clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (layout), 12);
+  label = clutter_text_new();
+  stationslist = config->stationsList();
+  clutter_text_set_text((ClutterText*)label, stationslist.station_name_by_id("BOXX0014")->name().c_str());
+  clutter_box_pack((ClutterBox*)container, label, NULL);
+  
   period = 0;
   for (i = 0; i<10; i++){
       temp_data = dp->data().GetDataForTime(time(NULL) + period);

@@ -32,5 +32,5 @@ void init_omweather_core(void);
 Core::DataParser *current_data(void);
 
 extern Core::Config *config;
-extern std::vector<Core::Station*> StationsList;
+extern std::vector<Core::Station*> stationslist;
 

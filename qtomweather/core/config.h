@@ -16,7 +16,7 @@ namespace Core{
             std::string *_temperature_unit;
             std::string *_font_color;
             std::string *_current_station_id;
-            StationList *_stations;
+            StationsList *_stations;
         public:
             Config(const std::string& filename, const std::string& schema_filename = prefix + schemaPath + "config.xsd");
             Config();
@@ -32,7 +32,7 @@ namespace Core{
             std::string& TemperatureUnit(void);
             void FontColor(const std::string& text);
             std::string& FontColor(void);
-            StationList& stationList();
+            StationsList& stationsList();
             void saveConfig(const std::string& filename);
     };
 } // namespace Core

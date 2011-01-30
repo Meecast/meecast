@@ -95,5 +95,5 @@ current_data(void){
 void
 init_omweather_core(void){
     config = create_and_fill_config();
-    StationsList = config->stationList();
+//    stationslist = config->stationsList();
 }

@@ -71,7 +71,7 @@ namespace Core {
                 _handler = dlsym(_libraryHandler, "search");
                 possibleError = dlerror();
                 if(!possibleError){
-                    _sourceSearch = (StationList& (*)(const std::string&))_handler;
+                    _sourceSearch = (StationsList& (*)(const std::string&))_handler;
                 }
                 // forecast function from source
                 _handler = possibleError = 0;
@@ -188,7 +188,7 @@ namespace Core {
         return *_logo;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    StationList& Source::search(const std::string& station){
+    StationsList& Source::search(const std::string& station){
         return _sourceSearch(station);
     }
 ////////////////////////////////////////////////////////////////////////////////

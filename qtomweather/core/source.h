@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <dlfcn.h>
-class StationList;
+class StationsList;
 #include "stationlist.h"
 #include "parser.h"
 ////////////////////////////////////////////////////////////////////////////////
@@ -25,7 +25,7 @@ namespace Core {
         // source destroy function
         void (*_sourceDestroy)();
         // source search station function
-        StationList& (*_sourceSearch)(const std::string& station);
+        StationsList& (*_sourceSearch)(const std::string& station);
         // source get forecast url function
         bool (*_sourceGetForecast)(const std::string& id, const std::string& filename);
         // source get detail url function
@@ -37,7 +37,7 @@ namespace Core {
             std::string& name() const;
             std::string& logo() const;
             virtual ~Source();
-            StationList& search(const std::string& station);
+            StationsList& search(const std::string& station);
     };
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

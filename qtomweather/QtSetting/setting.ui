@@ -175,12 +175,28 @@
    <slot>countryChanged(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>191</x>
-     <y>90</y>
+     <x>198</x>
+     <y>91</y>
     </hint>
     <hint type="destinationlabel">
-     <x>261</x>
-     <y>119</y>
+     <x>269</x>
+     <y>125</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>regionCombo</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>Setting</receiver>
+   <slot>regionChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>149</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>263</x>
+     <y>163</y>
     </hint>
    </hints>
   </connection>
@@ -188,5 +204,6 @@
  <slots>
   <slot>sourceChanged(int)</slot>
   <slot>countryChanged(int)</slot>
+  <slot>regionChanged(int)</slot>
  </slots>
 </ui>

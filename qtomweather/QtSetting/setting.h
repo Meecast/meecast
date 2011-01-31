@@ -22,12 +22,13 @@ public:
 public slots:
     void sourceChanged(int val);
     void countryChanged(int val);
+    void regionChanged(int val);
 
 private:
     Ui::Setting *ui;
     Core::DatabaseSqlite *db;
-    bool open_database(const QString filename);
-    void getCountry(QString filename);
+    //bool open_database(const QString filename);
+    //void getCountry(QString filename);
 };
 
 #endif // SETTING_H

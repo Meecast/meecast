@@ -20,7 +20,9 @@ private:
     std::string *databasename;
 
 public:
-    DatabaseSqlite(const std::string& databasename);
+    DatabaseSqlite(const std::string& filename);
+    ~DatabaseSqlite();
+    void set_databasename(const std::string& filename);
     bool open_database();
     listdata* create_countries_list();
     listdata* create_region_list(int country_id);

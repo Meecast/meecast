@@ -9,6 +9,19 @@ DatabaseSqlite::DatabaseSqlite(const std::string& filename)
     databasename->assign(filename);
 }
 
+DatabaseSqlite::~DatabaseSqlite()
+{
+    std::cerr << "destructor = " << *databasename << std::endl;
+    delete databasename;
+    if (!db) sqlite3_close(db);
+}
+void
+DatabaseSqlite::set_databasename(const std::string& filename)
+{
+    databasename->assign(filename);
+
+}
+
 bool
 DatabaseSqlite::open_database()
 {
@@ -73,7 +86,7 @@ DatabaseSqlite::create_countries_list()
         return NULL;
     }
     for (int i=0; i<ncol*nrow; i=i+2)
-        list->push_back(std::make_pair(result[ncol+i+1], result[ncol+i]));
+        list->push_back(std::make_pair(result[ncol+i], result[ncol+i+1]));
 
     sqlite3_free_table(result);
 
@@ -96,18 +109,22 @@ DatabaseSqlite::create_region_list(int country_id)
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(!db)
-        return NULL;    /* database doesn't open */
     list = new listdata;
+    if(!db){
+        return NULL;
+    }
+
+    if (country_id == 0 || country_id == -1) return list;
 
     if(country_id == 0) /* for GPS */
         snprintf(sql, sizeof(sql) - 1,
                  "SELECT id, name FROM regions");
     else {
-        snprintf(sql, sizeof(sql) - 1,
-                          "SELECT id, name \
-                          FROM regions WHERE country_id = %d ORDER BY name",
-                          country_id);
+
+        snprintf(sql,
+                 sizeof(sql) - 1,
+                 "SELECT id, name FROM regions WHERE country_id = %d ORDER BY name",
+                 country_id);
     }
     std::cerr << sql << std::endl;
     rc = sqlite3_get_table(db,
@@ -147,9 +164,11 @@ DatabaseSqlite::create_stations_list(int region_id)
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    if(!db || region_id == 0 || region_id == -1)
-        return NULL;    /* database doesn't open */
+    std::cerr << "region id = " << region_id << std::endl;
     list = new listdata;
+    if(!db || region_id == 0 || region_id == -1)
+        return list;    /* database doesn't open */
+
 
     snprintf(sql, sizeof(sql) - 1,
         "SELECT code, name FROM nstations WHERE \

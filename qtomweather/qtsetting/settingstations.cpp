@@ -5,7 +5,8 @@ SettingStations::SettingStations(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SettingStations)
 {
-    _stationlist = new std::vector<Core::Station*>;
+    //_stationlist = new std::vector<Core::Station*>;
+    _stationlist = new Core::StationsList;
 
     ui->setupUi(this);
     ui->removeButton->setEnabled(false);

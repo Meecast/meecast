@@ -33,7 +33,8 @@ namespace Core{
             void FontColor(const std::string& text);
             std::string& FontColor(void);
             StationsList& stationsList();
-            void stationsList(std::vector<Core::Station*> list);
+            //void stationsList(std::vector<Core::Station*> list);
+            void stationsList(StationsList list);
             void saveConfig(const std::string& filename);
     };
 } // namespace Core

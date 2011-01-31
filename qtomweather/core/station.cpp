@@ -1,4 +1,6 @@
 #include "station.h"
+#include <iostream> 
+#include <cstdlib>
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
@@ -122,13 +124,12 @@ namespace Core {
     bool Station::updateData(bool force){
 //        if(!force || dataValid())
 //            return true;
-        Source* source;
-//        source = sourcelist->source_by_name(*_sourceName);
-      std::string  *str = new std::string("dddd");
-    ///  source = sourcelist->source_by_name(*str);
-    //    str = new std::string();
-    //    str = source;
-        return true;
+        std::string command = "wget -O /tmp/1.xml ";
+        command = command + forecastURL();
+        if (system(command.c_str()))
+            return true;
+        else
+            return false;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void Station::updateSource(const Source* source){

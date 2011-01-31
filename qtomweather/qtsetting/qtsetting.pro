@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-TARGET = QtSetting
+TARGET = qtsetting
 TEMPLATE = app
 
 

@@ -70,7 +70,7 @@ create_and_fill_config(){
         config = new Core::Config();
     }
     std::cerr<<"End of creating Config class: " <<std::endl;
-    config->saveConfig(filepath);
+    //config->saveConfig(filepath);
 
     return config;
 }

@@ -16,10 +16,12 @@ class SettingStations : public QDialog
 public:
     explicit SettingStations(QWidget *parent = 0);
     ~SettingStations();
+    std::vector<Core::Station*> *_stationlist;
 public slots:
     void add();
     void remove();
     void setRemove(QListWidgetItem *item);
+    void okClicked();
 
 private:
     Ui::SettingStations *ui;

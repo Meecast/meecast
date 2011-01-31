@@ -310,5 +310,17 @@ namespace Core{
     Config::stationsList(){
         return *_stations;
     }
+    void
+    Config::stationsList(std::vector<Core::Station*> list)
+    {
+        //_stations->assign(list);
+        _stations = new StationsList;
+        std::vector<Core::Station*>::iterator cur;
+        for (cur=list.begin(); cur<list.end(); cur++){
+            //qDebug() << "aaa " << (*cur)->name().c_str();
+            _stations->push_back(*cur);
+        }
+
+    }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

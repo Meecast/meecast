@@ -77,8 +77,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>252</x>
+     <y>278</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -150,10 +150,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>clicked(QAbstractButton*)</signal>
+   <receiver>SettingStations</receiver>
+   <slot>okClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>166</x>
+     <y>265</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>219</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>add()</slot>
   <slot>setRemove(QListWidgetItem*)</slot>
   <slot>remove()</slot>
+  <slot>okClicked()</slot>
  </slots>
 </ui>

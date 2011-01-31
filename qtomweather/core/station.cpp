@@ -125,7 +125,7 @@ namespace Core {
 //        if(!force || dataValid())
 //            return true;
         std::string command = "wget -O /tmp/1.xml ";
-        command = command + this->forecastURL();
+        command = command + "'" + this->forecastURL() + "'";
         std::cerr<<" URL "<<command<<std::endl;
         if (system(command.c_str()))
             return true;

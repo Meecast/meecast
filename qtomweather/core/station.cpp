@@ -36,7 +36,7 @@ namespace Core {
         _name = new std::string(*(station._name));
         _country = new std::string(*(station._country));
         _region = new std::string(*(station._region));
-        _region = new std::string(*(station._forecastURL));
+        _forecastURL = new std::string(*(station._forecastURL));
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station& Station::operator=(const Station& station){
@@ -51,8 +51,8 @@ namespace Core {
             _country = new std::string(*(station._country));
             delete _region;
             _region = new std::string(*(station._region));
-	    delete _forecastURL;
-            _region = new std::string(*(station._forecastURL));
+            delete _forecastURL;
+            _forecastURL = new std::string(*(station._forecastURL));
         }
         return *this;
     }
@@ -125,7 +125,8 @@ namespace Core {
 //        if(!force || dataValid())
 //            return true;
         std::string command = "wget -O /tmp/1.xml ";
-        command = command + forecastURL();
+        command = command + this->forecastURL();
+        std::cerr<<" URL "<<command<<std::endl;
         if (system(command.c_str()))
             return true;
         else

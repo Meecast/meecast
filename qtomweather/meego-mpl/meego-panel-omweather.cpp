@@ -177,6 +177,7 @@ main (int argc, char *argv[])
                                  TRUE);
   mpl_panel_client_set_height_request (panel, 150);
   init_omweather_core();
+  update_weather_forecast(config);
   make_window_content (MPL_PANEL_CLUTTER (panel));
   file = fopen("/tmp/1.log","wb");
   fclose(file);

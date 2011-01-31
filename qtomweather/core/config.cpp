@@ -122,7 +122,7 @@ namespace Core{
 
             nodelist = root.elementsByTagName("station");
             for (int i=0; i<nodelist.count(); i++){
-                QString source_name, station_name, station_id, country, region;
+                QString source_name, station_name, station_id, country, region, forecastURL;
                 QDomElement e = nodelist.at(i).toElement();
                 QDomNode n = e.firstChild();
                 while (!n.isNull()){
@@ -139,13 +139,18 @@ namespace Core{
                         country = el.text();
                     else if (tag == "region")
                         region = el.text();
+                    else if (tag == "forecast_url"){
+                        forecastURL = el.text();
+                        std::cerr<<"dddd "<<forecastURL.toStdString()<<std::endl;
+                    }
                     n = n.nextSibling();
                 }
                 _stations->push_back(new Station(source_name.toStdString(),
                                                  station_id.toStdString(),
                                                  station_name.toStdString(),
                                                  country.toStdString(),
-                                                 region.toStdString()));
+                                                 region.toStdString(),
+                                                 forecastURL.toStdString()));
                 //_stations->push_back(new Station("weather.com", "BOXX0014", "Vitebsk", "Belarus", "Belarus"));
 
             }

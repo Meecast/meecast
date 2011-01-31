@@ -108,7 +108,7 @@ update_weather_forecast(Core::Config *config){
     Core::Station* station;
     for (i=0; i < config->stationsList().size();i++){
         station = config->stationsList().at(i);
-        if (station->updateData())
+        if (station->updateData(true))
             success ++;
     }
     return success;

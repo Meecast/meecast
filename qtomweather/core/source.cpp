@@ -6,6 +6,7 @@ namespace Core {
         _name = new std::string;
         _logo = new std::string;
         _library = new std::string;
+        _url_template = new std::string;
         _hasForecast = false;
         _hasDetail = false;
         _hasSearch = false;
@@ -46,6 +47,8 @@ namespace Core {
                         _hasSearch = (el.text() == "true") ? true : false;
                     }else if (tag == "library"){
                         _library->assign(el.text().toStdString());
+                    }else if (tag == "url_template"){
+                        _url_template->assign(el.text().toStdString());
                     }
                     n = n.nextSibling();
                 }
@@ -108,6 +111,7 @@ namespace Core {
         delete _name;
         delete _logo;
         delete _library;
+        delete _url_template;
         if(_libraryHandler)
             dlclose(_libraryHandler);
     }
@@ -120,6 +124,8 @@ namespace Core {
             _logo = new std::string(*(source._logo));
             delete _library;
             _library = new std::string(*(source._library));
+            delete _url_template;
+            _url_template = new std::string(*(source._url_template));
         }
         return *this;
     }
@@ -177,6 +183,14 @@ namespace Core {
             _library->assign(nodeText->get_content());
             return;
         }
+        // url_template tag
+        if(nodeName == "url_template"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            _url_template->assign(nodeText->get_content());
+            return;
+        }
     }
 #endif
 ////////////////////////////////////////////////////////////////////////////////
@@ -190,6 +204,10 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     StationsList& Source::search(const std::string& station){
         return _sourceSearch(station);
+    }
+////////////////////////////////////////////////////////////////////////////////
+    std::string& Source::url_template() const{
+        return *_url_template;
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

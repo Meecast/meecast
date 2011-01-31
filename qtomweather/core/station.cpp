@@ -3,12 +3,13 @@
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const std::string& source_name, const std::string& id, const std::string& name,
-                     const std::string& country, const std::string& region){
+                     const std::string& country, const std::string& region, const std::string& forecastURL){
         _sourceName = new std::string(source_name);
         _id = new std::string(id);
         _name = new std::string(name);
         _country = new std::string(country);
         _region = new std::string(region);
+        _forecastURL = new std::string(forecastURL);
         _timezone = 0;
         _fileName = 0;
         _source = 0;
@@ -20,6 +21,7 @@ namespace Core {
         delete _name;
         delete _country;
         delete _region;
+        delete _forecastURL;
         if(_data)
             delete _data;
         if(_fileName)
@@ -32,6 +34,7 @@ namespace Core {
         _name = new std::string(*(station._name));
         _country = new std::string(*(station._country));
         _region = new std::string(*(station._region));
+        _region = new std::string(*(station._forecastURL));
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station& Station::operator=(const Station& station){
@@ -46,6 +49,8 @@ namespace Core {
             _country = new std::string(*(station._country));
             delete _region;
             _region = new std::string(*(station._region));
+	    delete _forecastURL;
+            _region = new std::string(*(station._forecastURL));
         }
         return *this;
     }
@@ -82,6 +87,14 @@ namespace Core {
         return *_sourceName;
     }
     ////////////////////////////////////////////////////////////////////////////////
+    void Station::forecastURL(const std::string& forecastURL){
+        _sourceName->assign(forecastURL);
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    std::string& Station::forecastURL() const{
+        return *_forecastURL;
+    }
+    ////////////////////////////////////////////////////////////////////////////////
     void Station::country(const std::string& country){
         _country->assign(country);
     }
@@ -106,11 +119,13 @@ namespace Core {
         return true;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    bool Station::updateData(SourceList *sourcelist, bool force){
+    bool Station::updateData(bool force){
 //        if(!force || dataValid())
 //            return true;
         Source* source;
-        source = sourcelist->source_by_name(*_sourceName);
+//        source = sourcelist->source_by_name(*_sourceName);
+      std::string  *str = new std::string("dddd");
+    ///  source = sourcelist->source_by_name(*str);
     //    str = new std::string();
     //    str = source;
         return true;

@@ -52,6 +52,6 @@ namespace Core {
             if(this->at(i)->name() == source_name)
                 return this->at(i);
         }
-        return 0;
+        return NULL;
     }
 } // namespace Core

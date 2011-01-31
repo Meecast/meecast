@@ -4,6 +4,7 @@
 #include "connection.h"
 #include "config.h"
 #include "station.h"
+#include "source.h"
 #include "data.h"
 #include "parser.h"
 #include "source.h"

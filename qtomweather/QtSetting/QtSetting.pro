@@ -17,7 +17,7 @@ HEADERS  += setting.h
 
 FORMS    += setting.ui
 
-QT += sql
+QT += sql xml xmlpatterns 
 
 INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core

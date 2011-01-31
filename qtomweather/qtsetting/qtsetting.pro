@@ -11,11 +11,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        setting.cpp
+        setting.cpp \
+    settingstations.cpp
 
-HEADERS  += setting.h
+HEADERS  += setting.h \
+    settingstations.h
 
-FORMS    += setting.ui
+FORMS    += setting.ui \
+    settingstations.ui
 
 QT += sql xml xmlpatterns 
 

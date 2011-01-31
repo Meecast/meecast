@@ -200,10 +200,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>okButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Setting</receiver>
+   <slot>okClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>261</x>
+     <y>14</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>262</x>
+     <y>68</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>sourceChanged(int)</slot>
   <slot>countryChanged(int)</slot>
   <slot>regionChanged(int)</slot>
+  <slot>okClicked()</slot>
  </slots>
 </ui>

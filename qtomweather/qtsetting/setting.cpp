@@ -81,6 +81,14 @@ Setting::regionChanged(int val)
 
 }
 
+void
+Setting::okClicked()
+{
+    qDebug() << "ok " << ui->cityCombo->itemData(ui->cityCombo->currentIndex());
+    station_code = ui->cityCombo->itemData(ui->cityCombo->currentIndex()).toString();
+    station_name = ui->cityCombo->currentText();
+}
+
 Setting::~Setting()
 {
     delete ui;

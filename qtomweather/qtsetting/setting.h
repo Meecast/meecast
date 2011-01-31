@@ -19,11 +19,13 @@ class Setting : public QDialog
 public:
     explicit Setting(QWidget *parent = 0);
     ~Setting();
+    QString station_code;
+    QString station_name;
 public slots:
     void sourceChanged(int val);
     void countryChanged(int val);
     void regionChanged(int val);
-
+    void okClicked();
 private:
     Ui::Setting *ui;
     Core::DatabaseSqlite *db;

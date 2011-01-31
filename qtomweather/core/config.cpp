@@ -66,6 +66,11 @@ namespace Core{
             el.appendChild(t);
             st.appendChild(el);
 
+            el = doc.createElement("forecast_url");
+            t = doc.createTextNode(QString::fromStdString((*i)->forecastURL()));
+            el.appendChild(t);
+            st.appendChild(el);
+
             root.appendChild(st);
             ++i;
         }

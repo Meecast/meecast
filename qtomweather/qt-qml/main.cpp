@@ -83,6 +83,7 @@ int main(int argc, char* argv[])
 
     //Add the QML snippet into the layout
 
+/*
     Core::DatabaseSqlite *db = new Core::DatabaseSqlite("weather.com.db");
 
     db->open_database();
@@ -91,7 +92,7 @@ int main(int argc, char* argv[])
     for (cur=list->begin(); cur<list->end(); cur++)
         std::cerr << (*cur).first << " - " << (*cur).second << std::endl;
     return 0;
-
+*/
     ConfigQml *config;
     DataItem *forecast_data = NULL;
 

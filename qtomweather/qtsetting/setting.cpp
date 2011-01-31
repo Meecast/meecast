@@ -9,8 +9,6 @@ Setting::Setting(QWidget *parent) :
     ui->setupUi(this);
     ui->sourceCombo->addItem("gismeteo.ru", "gismeteo.ru.db");
     ui->sourceCombo->addItem("weather.com", "weather.com.db");
-
-
 }
 
 void
@@ -84,9 +82,29 @@ Setting::regionChanged(int val)
 void
 Setting::okClicked()
 {
-    qDebug() << "ok " << ui->cityCombo->itemData(ui->cityCombo->currentIndex());
-    station_code = ui->cityCombo->itemData(ui->cityCombo->currentIndex()).toString();
-    station_name = ui->cityCombo->currentText();
+    if (ui->cityCombo->currentIndex() == -1)
+        return;
+    qDebug() << "ok " << ui->cityCombo->itemData(ui->cityCombo->currentIndex()) << "index = " << ui->cityCombo->currentIndex();
+
+    std::string code = ui->cityCombo->itemData(ui->cityCombo->currentIndex()).toString().toStdString();
+    /* temporary */
+    std::string url_template;
+    if (ui->sourceCombo->currentText() == "weather.com")
+        url_template = "http://xml.weather.com/weather/local/%s?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*";
+    else
+        url_template = "http://www.gismeteo.by/city/weekly/%s/";
+    char forecast_url[4096];
+    snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), code.c_str());
+    qDebug() << "url = " << forecast_url;
+    //std::cerr << "url = " << forecast_url << std::endl;
+    station = new Core::Station(
+                ui->sourceCombo->currentText().toStdString(),
+                code,
+                ui->cityCombo->currentText().toStdString(),
+                ui->countryCombo->currentText().toStdString(),
+                ui->regionCombo->currentText().toStdString(),
+                forecast_url);
+    qDebug() << "sourse name - " << station->country().c_str();
 }
 
 Setting::~Setting()

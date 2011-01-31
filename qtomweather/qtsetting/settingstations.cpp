@@ -19,9 +19,10 @@ SettingStations::add()
 {
     Setting st(this);
     if (st.exec()){
-        qDebug() << "ok dialog " << st.station_code;
-        QListWidgetItem *item = new QListWidgetItem(st.station_name, ui->listWidget);
-        item->setToolTip(st.station_code);
+        Core::Station *station = st.station;
+        qDebug() << "ok dialog " << station->id().c_str();
+        QListWidgetItem *item = new QListWidgetItem(st.station->name().c_str(), ui->listWidget);
+        item->setToolTip(st.station->id().c_str());
     }
 }
 void

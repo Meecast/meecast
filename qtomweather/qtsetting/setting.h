@@ -19,8 +19,8 @@ class Setting : public QDialog
 public:
     explicit Setting(QWidget *parent = 0);
     ~Setting();
-    QString station_code;
-    QString station_name;
+    Core::Station *station;
+
 public slots:
     void sourceChanged(int val);
     void countryChanged(int val);

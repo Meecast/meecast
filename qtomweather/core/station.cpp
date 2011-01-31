@@ -12,6 +12,7 @@ namespace Core {
         _country = new std::string(country);
         _region = new std::string(region);
         _forecastURL = new std::string(forecastURL);
+        std::cerr << "station url = " << _forecastURL << std::endl;
         _timezone = 0;
         _fileName = 0;
         _source = 0;

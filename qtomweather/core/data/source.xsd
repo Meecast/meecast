@@ -9,6 +9,7 @@
         <xs:element ref="schemas:detail"/>
         <xs:element ref="schemas:search"/>
         <xs:element ref="schemas:library"/>
+        <xs:element ref="schemas:url_template"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -21,4 +22,5 @@
     <xs:element name="library" type="xs:string"/>
     <xs:element name="binary" type="xs:string"/>
   </xs:choice>
+  <xs:element name="url_template" type="xs:string"/>
 </xs:schema>

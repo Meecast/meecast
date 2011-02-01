@@ -134,7 +134,7 @@ namespace Core{
 
             nodelist = root.elementsByTagName("station");
             for (int i=0; i<nodelist.count(); i++){
-                QString source_name, station_name, station_id, country, region, forecastURL, fileName;
+                QString source_name, station_name, station_id, country, region, forecastURL, fileName, converter;
                 QDomElement e = nodelist.at(i).toElement();
                 QDomNode n = e.firstChild();
                 while (!n.isNull()){
@@ -153,9 +153,10 @@ namespace Core{
                         region = el.text();
                     else if (tag == "file_name")
                         fileName = el.text();
-                    else if (tag == "forecast_url"){
+                    else if (tag == "forecast_url")
                         forecastURL = el.text();
-                    }
+                    else if (tag == "converter")
+                        converter = el.text();
                     n = n.nextSibling();
                 }
                 Station *st = new Station(source_name.toStdString(),
@@ -165,6 +166,7 @@ namespace Core{
                                           region.toStdString(),
                                           forecastURL.toStdString());
                 st->fileName(fileName.toStdString());
+                st->converter(converter.toStdString());
                 _stations->push_back(st);
                 //_stations->push_back(new Station("weather.com", "BOXX0014", "Vitebsk", "Belarus", "Belarus"));
 

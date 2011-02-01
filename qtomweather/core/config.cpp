@@ -141,7 +141,6 @@ namespace Core{
                         region = el.text();
                     else if (tag == "forecast_url"){
                         forecastURL = el.text();
-                        std::cerr<<"dddd "<<forecastURL.toStdString()<<std::endl;
                     }
                     n = n.nextSibling();
                 }
@@ -311,15 +310,11 @@ namespace Core{
         return *_stations;
     }
     void
-    //Config::stationsList(std::vector<Core::Station*> list)
     Config::stationsList(StationsList list)
     {
-        //_stations->assign(list);
         _stations = new StationsList;
-        //std::vector<Core::Station*>::iterator cur;
         StationsList::iterator cur;
         for (cur=list.begin(); cur<list.end(); cur++){
-            //qDebug() << "aaa " << (*cur)->name().c_str();
             _stations->push_back(*cur);
         }
 

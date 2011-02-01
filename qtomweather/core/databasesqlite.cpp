@@ -11,7 +11,6 @@ DatabaseSqlite::DatabaseSqlite(const std::string& filename)
 
 DatabaseSqlite::~DatabaseSqlite()
 {
-    std::cerr << "destructor = " << *databasename << std::endl;
     delete databasename;
     if (!db) sqlite3_close(db);
 }
@@ -29,7 +28,7 @@ DatabaseSqlite::open_database()
     int rc;
     char * msg;
     std::string key ("gismeteo.ru.db");
-    std::cerr << (databasename->length() - databasename->rfind(key)) << " " << key.length() << std::endl;
+    //std::cerr << (databasename->length() - databasename->rfind(key)) << " " << key.length() << std::endl;
     if (sqlite3_open(databasename->c_str(), &db)){
         std::cerr << "error open " << *databasename << std::endl;
         return false;
@@ -126,7 +125,7 @@ DatabaseSqlite::create_region_list(int country_id)
                  "SELECT id, name FROM regions WHERE country_id = %d ORDER BY name",
                  country_id);
     }
-    std::cerr << sql << std::endl;
+    //std::cerr << sql << std::endl;
     rc = sqlite3_get_table(db,
                            sql,
                            &result,
@@ -164,7 +163,6 @@ DatabaseSqlite::create_stations_list(int region_id)
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
-    std::cerr << "region id = " << region_id << std::endl;
     list = new listdata;
     if(!db || region_id == 0 || region_id == -1)
         return list;    /* database doesn't open */
@@ -173,7 +171,7 @@ DatabaseSqlite::create_stations_list(int region_id)
     snprintf(sql, sizeof(sql) - 1,
         "SELECT code, name FROM nstations WHERE \
         region_id = %d ORDER BY name", region_id);
-    std::cerr << sql << std::endl;
+    //std::cerr << sql << std::endl;
     rc = sqlite3_get_table(db,
                            sql,
                            &result,

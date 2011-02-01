@@ -13,9 +13,7 @@ namespace Core {
                 if(dp->d_type == DT_REG || dp->d_type == DT_LNK){
                     try{
                         std::string file = path + dp->d_name;
-                        std::cerr << "source list cost " << file << std::endl;
                         Source *s = new Source(file, "../test/source.xsd");
-                        std::cerr << "1111 " << s->name() << std::endl;
                         this->push_back(s);
                     }
                     catch(std::string& err){

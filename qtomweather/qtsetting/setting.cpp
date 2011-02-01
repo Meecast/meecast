@@ -104,8 +104,8 @@ Setting::okClicked()
     filename += ui->sourceCombo->currentText().toStdString();
     filename += "_";
     filename += code;
-
     station->fileName(filename);
+    station->converter(sourcelist->at(index)->binary());
 
 }
 

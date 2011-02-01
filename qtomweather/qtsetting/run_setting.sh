@@ -2,4 +2,4 @@
 qmake CONFIG+=localdebug  
 make
 export LD_LIBRARY_PATH=$PWD/../core:$LD_LIBRARY_PATH
-./omweataher_setting
+./omweather_setting

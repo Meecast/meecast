@@ -15,7 +15,7 @@ namespace Core {
         _timezone = 0;
         _fileName = new std::string();
         _source = 0;
-        _libraryHandler = 0;
+        _converter = new std::string();
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::~Station(){
@@ -29,6 +29,8 @@ namespace Core {
             delete _data;
         if(_fileName)
             delete _fileName;
+        if(_converter)
+            delete _converter;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const Station& station){
@@ -39,6 +41,7 @@ namespace Core {
         _region = new std::string(*(station._region));
         _forecastURL = new std::string(*(station._forecastURL));
         _fileName = new std::string(*(station._fileName));
+        _converter = new std::string(*(station._converter));
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station& Station::operator=(const Station& station){
@@ -57,6 +60,8 @@ namespace Core {
             _forecastURL = new std::string(*(station._forecastURL));
             delete _fileName;
             _fileName = new std::string(*(station._fileName));
+            delete _converter;
+            _converter = new std::string(*(station._converter));
         }
         return *this;
     }
@@ -125,9 +130,13 @@ namespace Core {
         return *_fileName;
     }
     ////////////////////////////////////////////////////////////////////////////////
-    void Station::libraryHandler(void * libraryHandler)
+    void Station::converter(const std::string &converter)
     {
-        _libraryHandler = libraryHandler;
+        _converter->assign(converter);
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    std::string& Station::converter() const{
+        return *_converter;
     }
 ////////////////////////////////////////////////////////////////////////////////
     bool Station::dataValid(){

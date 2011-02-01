@@ -76,6 +76,11 @@ namespace Core{
             el.appendChild(t);
             st.appendChild(el);
 
+            el = doc.createElement("converter");
+            t = doc.createTextNode(QString::fromStdString((*i)->converter()));
+            el.appendChild(t);
+            st.appendChild(el);
+
             root.appendChild(st);
             ++i;
         }

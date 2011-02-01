@@ -6,6 +6,7 @@ namespace Core {
         _name = new std::string;
         _logo = new std::string;
         _library = new std::string;
+        _binary = new std::string;
         _url_template = new std::string;
         _hasForecast = false;
         _hasDetail = false;
@@ -47,6 +48,8 @@ namespace Core {
                         _hasSearch = (el.text() == "true") ? true : false;
                     }else if (tag == "library"){
                         _library->assign(el.text().toStdString());
+                    }else if (tag == "binary"){
+                        _binary->assign(el.text().toStdString());
                     }else if (tag == "url_template"){
                         _url_template->assign(el.text().toStdString());
                     }
@@ -112,7 +115,10 @@ namespace Core {
     Source::~Source(){
         delete _name;
         delete _logo;
-        delete _library;
+        if (_library)
+            delete _library;
+        if (_binary)
+            delete _binary;
         delete _url_template;
         if(_libraryHandler)
             dlclose(_libraryHandler);
@@ -126,6 +132,8 @@ namespace Core {
             _logo = new std::string(*(source._logo));
             delete _library;
             _library = new std::string(*(source._library));
+            delete _binary;
+            _binary = new std::string(*(source._binary));
             delete _url_template;
             _url_template = new std::string(*(source._url_template));
         }
@@ -185,6 +193,14 @@ namespace Core {
             _library->assign(nodeText->get_content());
             return;
         }
+        // binary tag
+        if(nodeName == "binary"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            _binary->assign(nodeText->get_content());
+            return;
+        }
         // url_template tag
         if(nodeName == "url_template"){
             xmlpp::Node::NodeList list = node->get_children();
@@ -210,6 +226,10 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     std::string& Source::url_template() const{
         return *_url_template;
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    std::string& Source::binary() const{
+        return *_binary;
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

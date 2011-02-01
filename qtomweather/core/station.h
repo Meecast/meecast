@@ -16,7 +16,7 @@ namespace Core{
         std::string *_region;
         std::string *_fileName;
         std::string *_forecastURL;
-        void *_libraryHandler;
+        std::string *_converter;
         int _timezone;
         Source *_source;
         Data *_data; /* Is it really needed ? Vlad */
@@ -47,7 +47,8 @@ namespace Core{
             void updateSource(const Source* source);
             void fileName(const std::string& fileName);
             std::string& fileName() const;
-            void libraryHandler(void* libraryHandler);
+            void converter(const std::string& converter);
+            std::string& converter() const;
     };
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

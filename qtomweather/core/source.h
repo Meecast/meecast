@@ -16,6 +16,7 @@ namespace Core {
         std::string *_name;
         std::string *_logo;
         std::string *_library;
+        std::string *_binary;
         std::string *_url_template;
         void *_libraryHandler;
         bool _hasForecast;
@@ -38,6 +39,7 @@ namespace Core {
             std::string& name() const;
             std::string& logo() const;
             std::string& url_template() const;
+            std::string& binary() const;
             virtual ~Source();
             StationsList& search(const std::string& station);
     };

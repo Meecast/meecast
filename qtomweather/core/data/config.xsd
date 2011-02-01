@@ -6,7 +6,7 @@
                 <xs:element ref="schemas:base"/>
                 <xs:element ref="schemas:sources_directory" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element ref="schemas:iconset"/>
-                <xs:element ref="schemas:current_station_id"/>
+                <xs:element ref="schemas:current_station_id" minOccurs="0"/>
                 <xs:element name="station" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>

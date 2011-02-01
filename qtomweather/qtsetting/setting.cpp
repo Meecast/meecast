@@ -100,8 +100,11 @@ Setting::okClicked()
                 ui->countryCombo->currentText().toStdString(),
                 ui->regionCombo->currentText().toStdString(),
                 forecast_url);
-    std::string filename(code);
-    filename += ".xml";
+    std::string filename(Core::AbstractConfig::getConfigPath());
+    filename += ui->sourceCombo->currentText().toStdString();
+    filename += "_";
+    filename += code;
+
     station->fileName(filename);
 
 }

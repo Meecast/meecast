@@ -27,6 +27,7 @@ SOURCES = \
     config.cpp \
     station.cpp \
     stationlist.cpp \
+    sourcelist.cpp \
     data.cpp \
     parser.cpp \
     source.cpp \
@@ -42,6 +43,7 @@ HEADERS = \
     config.h \
     station.h \
     stationlist.h \
+    sourcelist.h \
     data.h \
     parser.h \
     source.h \

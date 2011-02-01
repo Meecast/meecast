@@ -87,12 +87,14 @@ Setting::okClicked()
     qDebug() << "ok " << ui->cityCombo->itemData(ui->cityCombo->currentIndex()) << "index = " << ui->cityCombo->currentIndex();
 
     std::string code = ui->cityCombo->itemData(ui->cityCombo->currentIndex()).toString().toStdString();
+
     /* temporary */
     std::string url_template;
     if (ui->sourceCombo->currentText() == "weather.com")
         url_template = "http://xml.weather.com/weather/local/%s?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*";
     else
         url_template = "http://www.gismeteo.by/city/weekly/%s/";
+    /* ******* */
     char forecast_url[4096];
     snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), code.c_str());
     qDebug() << "url = " << forecast_url;

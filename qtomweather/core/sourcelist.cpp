@@ -23,7 +23,7 @@ namespace Core {
             }
             closedir(dir_fd);
         }
-        _stations = new StationList;
+        _stations = new StationsList;
     }
 ////////////////////////////////////////////////////////////////////////////////
     SourceList::~SourceList(){
@@ -37,10 +37,10 @@ namespace Core {
         delete _stations;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    StationList& SourceList::searchStation(const std::string& station){
+    StationsList& SourceList::searchStation(const std::string& station){
         _stations->clear();
         for(unsigned i = 0; i < this->size(); i++){
-            StationList st = this->at(i)->search(station);
+            StationsList st = this->at(i)->search(station);
             for(unsigned j = 0; j < st.size(); j++)
                 _stations->push_back(st.at(j));
         }

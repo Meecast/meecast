@@ -15,6 +15,7 @@
                             <xs:element ref="schemas:station_id" />
                             <xs:element ref="schemas:country" />
                             <xs:element ref="schemas:region" />
+                            <xs:element ref="schemas:file_name" minOccurs="0" />
                             <xs:element ref="schemas:forecast_url" />
                         </xs:sequence>
                     </xs:complexType>
@@ -31,5 +32,6 @@
     <xs:element name="station_id" type="xs:string"/>
     <xs:element name="country" type="xs:string"/>
     <xs:element name="region" type="xs:string"/>
+    <xs:element name="file_name" type="xs:string"/>
     <xs:element name="forecast_url" type="xs:string"/>
 </xs:schema>

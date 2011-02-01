@@ -49,6 +49,8 @@ namespace Core{
             std::string& fileName() const;
             void converter(const std::string& converter);
             std::string& converter() const;
+            Source *getSourceByName();
+
     };
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

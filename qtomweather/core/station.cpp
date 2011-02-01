@@ -170,4 +170,19 @@ namespace Core {
         _source = const_cast<Source*>(source);
     }
 ////////////////////////////////////////////////////////////////////////////////
+    Source* Station::getSourceByName()
+    {
+        std::string path(Core::AbstractConfig::prefix);
+        path += Core::AbstractConfig::sourcesPath;
+
+        SourceList *sourcelist = new Core::SourceList(path);
+
+        for (int i=0; i<sourcelist->size(); i++){
+            //if (sourcelist->at(i)->name().compare(_sourceName) == 0)
+            if (_sourceName->compare(sourcelist->at(i)->name()) == 0)
+                return sourcelist->at(i);
+        }
+        return 0;
+    }
+////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

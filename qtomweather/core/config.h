@@ -11,6 +11,7 @@ namespace Core{
             #ifdef LIBXML
             void processNode(const xmlpp::Node* node);
             #endif
+            std::string *_filename;
             std::string *_pathPrefix;
             std::string *_iconset;
             std::string *_temperature_unit;
@@ -35,7 +36,7 @@ namespace Core{
             StationsList& stationsList();
             //void stationsList(std::vector<Core::Station*> list);
             void stationsList(StationsList list);
-            void saveConfig(const std::string& filename);
+            void saveConfig();
     };
 } // namespace Core
 ////////////////////////////////////////////////////////////////////////////////

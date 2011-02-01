@@ -13,7 +13,7 @@ namespace Core{
         _stations = new StationsList;
     }
     void
-    Config::saveConfig(const std::string& filename)
+    Config::saveConfig()
     {
         #ifndef LIBXML
         QDomDocument doc;
@@ -85,9 +85,9 @@ namespace Core{
             ++i;
         }
 
-        QFile file(QString::fromStdString(filename));
+        QFile file(QString::fromStdString(*_filename));
         if (!file.open(QIODevice::WriteOnly)){
-            std::cerr<<"error file open "<<filename<<std::endl;
+            std::cerr<<"error file open "<<_filename<<std::endl;
             throw("Invalid destination file");
             return;
         }
@@ -101,6 +101,8 @@ namespace Core{
     }
     Config::Config(const std::string& filename, const std::string& schema_filename)
                         : Parser(filename, schema_filename){
+        _filename = new std::string;
+        _filename->assign(filename);
         _pathPrefix = new std::string;
         _iconset = new std::string("Glance");
         _temperature_unit = new std::string("C");

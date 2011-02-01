@@ -73,5 +73,5 @@ void
 SettingStations::okClicked()
 {
     _config->stationsList(*_stationlist);
-    _config->saveConfig("newconfig.xml");
+    _config->saveConfig();
 }

@@ -41,6 +41,13 @@ void
 SettingStations::remove()
 {
     QListWidgetItem *item = ui->listWidget->currentItem();
+    for (int i=0; i<_stationlist->size(); i++){
+        if (item->toolTip().toStdString().compare(_stationlist->at(i)->id()) == 0 &&
+            item->text().toStdString().compare(_stationlist->at(i)->name()) == 0){
+            qDebug() << "erase i = " << i << " id = " << _stationlist->at(i)->id().c_str();
+            _stationlist->erase(_stationlist->begin()+i);
+        }
+    }
     qDebug() << "remove " << item->toolTip();
     delete item;
     if (ui->listWidget->count() == 0)

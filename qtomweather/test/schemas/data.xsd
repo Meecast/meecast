@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://omweather.garage.maemo.org/schemas" xmlns:schemas="http://omweather.garage.maemo.org/schemas">
+  <xs:element name="station">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="schemas:units"/>
+        <xs:element ref="schemas:timezone"/>
+        <xs:element maxOccurs="unbounded" ref="schemas:period"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:string"/>
+      <xs:attribute name="name" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="units">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="schemas:t"/>
+        <xs:element ref="schemas:ws"/>
+        <xs:element ref="schemas:wg"/>
+        <xs:element ref="schemas:d"/>
+        <xs:element ref="schemas:h"/>
+        <xs:element ref="schemas:p"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="t">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="C"/>
+            <xs:enumeration value="F"/>
+        </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="ws">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="m/s"/>
+            <xs:enumeration value="km/h"/>
+            <xs:enumeration value="mi/h"/>
+        </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="wg">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="m/s"/>
+            <xs:enumeration value="km/h"/>
+            <xs:enumeration value="mi/h"/>
+        </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="d">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="m"/>
+            <xs:enumeration value="km"/>
+            <xs:enumeration value="mi"/>
+            <xs:enumeration value="sea mi"/>
+        </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="h">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="%"/>
+        </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="p">
+    <xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="mmHg"/>
+            <xs:enumeration value="psi"/>
+        </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="timezone" type="xs:integer"/>
+  <xs:element name="period">
+    <xs:complexType>
+      <xs:choice>
+        <xs:sequence>
+          <xs:choice>
+            <xs:group ref="schemas:temperature_int"/> 
+            <xs:element ref="schemas:temperature"/>
+          </xs:choice>
+          <xs:element ref="schemas:wind_speed" minOccurs="0"/>
+          <xs:element ref="schemas:wind_direction" minOccurs="0"/>
+          <xs:element ref="schemas:wind_gust" minOccurs="0"/>
+          <xs:element ref="schemas:humidity" minOccurs="0"/>
+          <xs:element ref="schemas:ppcp" minOccurs="0"/>
+          <xs:element ref="schemas:pressure" minOccurs="0"/>
+          <xs:element ref="schemas:pressure_direction" minOccurs="0"/>
+          <xs:element ref="schemas:description" minOccurs="0"/>
+          <xs:element ref="schemas:flike" minOccurs="0"/>
+          <xs:element ref="schemas:icon" minOccurs="0"/>
+          <xs:element ref="schemas:visible" minOccurs="0"/>
+        </xs:sequence>
+        <xs:sequence>
+          <xs:element ref="schemas:sunrise" minOccurs="0"/>
+          <xs:element ref="schemas:sunset" minOccurs="0"/>
+          <xs:element ref="schemas:moon" minOccurs="0"/>
+        </xs:sequence>
+      </xs:choice>  
+      <xs:attribute name="end" use="required" type="xs:integer"/>
+      <xs:attribute name="start" use="required" type="xs:integer"/>
+      <xs:attribute name="current" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="temperature" type="xs:decimal"/>
+  <xs:element name="temperature_hi" type="xs:decimal"/>
+  <xs:element name="temperature_low" type="xs:decimal"/>
+  <xs:element name="temperature_flike" type="xs:decimal"/>
+  <xs:element name="wind_speed" type="xs:string"/>
+  <xs:element name="wind_direction" type="xs:string"/>
+  <xs:element name="wind_gust" type="xs:decimal"/>
+  <xs:element name="humidity" type="xs:decimal"/>
+  <xs:element name="pressure" type="xs:decimal"/>
+  <xs:element name="pressure_direction" type="xs:string"/>
+  <xs:element name="ppcp" type="xs:decimal"/>
+  <xs:element name="description" type="xs:string"/>
+  <xs:element name="flike" type="xs:decimal"/>
+  <xs:element name="icon" type="xs:integer"/>
+  <xs:element name="visible" type="xs:decimal"/>
+  <xs:element name="sunrise" type="xs:integer"/>
+  <xs:element name="sunset" type="xs:integer"/>
+  <xs:element name="moon" type="xs:integer"/>
+  <xs:group name="temperature_int">
+    <xs:sequence>
+      <xs:element ref="schemas:temperature_hi"/>
+      <xs:element ref="schemas:temperature_low"/>
+    </xs:sequence>
+  </xs:group>
+</xs:schema>

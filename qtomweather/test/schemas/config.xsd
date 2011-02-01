@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://omweather.garage.maemo.org/schemas" xmlns:schemas="http://omweather.garage.maemo.org/schemas">
+    <xs:element name="config">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="schemas:base"/>
+                <xs:element ref="schemas:sources_directory" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="schemas:iconset"/>
+                <xs:element ref="schemas:current_station_id" minOccurs="0"/>
+                <xs:element name="station" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="schemas:source_name" />
+                            <xs:element ref="schemas:station_name" />
+                            <xs:element ref="schemas:station_id" />
+                            <xs:element ref="schemas:country" />
+                            <xs:element ref="schemas:region" />
+                            <xs:element ref="schemas:forecast_url" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="base" type="xs:string"/>
+    <xs:element name="sources_directory" type="xs:string"/>
+    <xs:element name="iconset" type="xs:string"/>
+    <xs:element name="current_station_id" type="xs:string"/>
+    <xs:element name="source_name" type="xs:string"/>
+    <xs:element name="station_name" type="xs:string"/>
+    <xs:element name="station_id" type="xs:string"/>
+    <xs:element name="country" type="xs:string"/>
+    <xs:element name="region" type="xs:string"/>
+    <xs:element name="forecast_url" type="xs:string"/>
+</xs:schema>

@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://omweather.garage.maemo.org/schemas">
-<base>/usr</base>
-<iconset>Funny</iconset>
+<base>../core/data</base>
+<sources_directory>../../omweather-weather-com-stations-db/data</sources_directory>
+<iconset>Glance</iconset>
+<station>
+  <source_name>weather.com</source_name>
+  <station_name>Vitebsk</station_name>
+  <station_id>BOXX0014</station_id>
+  <country>Belarus</country>
+  <region>Belarus</region>
+  <forecast_url>http://xml.weather.com/weather/local/BOXX0014?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*</forecast_url>
+</station>
+<station>
+  <source_name>weather.com</source_name>
+  <station_name>Vitebsk2</station_name>
+  <station_id>BOXX0014</station_id>
+  <country>Belarus</country>
+  <region>Belarus</region>
+  <forecast_url>http://xml.weather.com/weather/local/BOXX0014?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*</forecast_url>
+</station>
 </config>

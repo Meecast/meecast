@@ -151,13 +151,19 @@ namespace Core {
 //        if(!force || dataValid())
 //            return true;
         std::string command = "wget -O ";
-        command = command + this->fileName() + " '" + this->forecastURL() + "'";
+        command = command + this->fileName() + ".orig '" + this->forecastURL() + "'";
         std::cerr<<" URL "<<command<<std::endl;
-        if (system(command.c_str()))
-        
-            return true;
-        else
+        if (system(command.c_str()) == 0){
+            command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName();
+            std::cerr<<" EXEC "<<command<<std::endl;
+            if (system(command.c_str()) == 0)
+                return true;
+            else
+               return false;
+        }else{
+            std::cerr<<" EXEC22 "<<command<<std::endl;
             return false;
+        }
     }
 ////////////////////////////////////////////////////////////////////////////////
     void Station::updateSource(const Source* source){

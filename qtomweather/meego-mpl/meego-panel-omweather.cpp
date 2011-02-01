@@ -38,7 +38,7 @@ Core::StationsList stationslist;
 
 
 void init_omweather_core(void);
-Core::DataParser *current_data(void);
+Core::DataParser *current_data(std::string& str);
 int update_weather_forecast(Core::Config *config);
 
 //////////////////////////////////////////////////////////////////////////////
@@ -105,7 +105,9 @@ make_window_content (MplPanelClutter *panel)
   Core::DataParser* dp;
   PangoFontDescription *pfd = NULL;
 
-  dp = current_data();
+
+ // stderr<<"ggggggggggg   "<<config->stationsList().at(1)->fileName();
+  dp = current_data(config->stationsList().at(1)->fileName());
 
   main_vertical_layout = clutter_box_layout_new (); 
   container =  clutter_box_new(main_vertical_layout);
@@ -178,6 +180,7 @@ main (int argc, char *argv[])
                                  TRUE);
   mpl_panel_client_set_height_request (panel, 150);
   init_omweather_core();
+  //update_weather_forecast(config);
   make_window_content (MPL_PANEL_CLUTTER (panel));
   file = fopen("/tmp/1.log","wb");
   fclose(file);

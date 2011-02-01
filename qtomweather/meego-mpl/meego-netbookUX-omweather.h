@@ -29,7 +29,7 @@
 
 #include "meego-netbookUX-common.h"
 void init_omweather_core(void);
-Core::DataParser *current_data(void);
+Core::DataParser *current_data(std::string& str);
 int update_weather_forecast(Core::Config *config);
 
 extern Core::Config *config;

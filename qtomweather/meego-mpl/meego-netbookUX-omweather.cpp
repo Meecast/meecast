@@ -78,10 +78,10 @@ create_and_fill_config(){
 
 
 Core::DataParser*
-current_data(void){
+current_data(std::string& str){
   Core::DataParser* dp;
   try{
-        dp = new Core::DataParser("/home/vlad/.config/omweather/data.xml", DATA_XSD_PATH);
+        dp = new Core::DataParser(str, DATA_XSD_PATH);
     }
     catch(const std::string &str){
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;

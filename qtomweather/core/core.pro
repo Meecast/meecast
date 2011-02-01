@@ -18,6 +18,8 @@ system(pkg-config --exists libxml++-2.6) {
     QT += xml
 }
 
+CONFIG(localdebug):DEFINES += LOCALDEBUG
+
 system(pkg-config --exists meego-panel) {
  DEFINES += MEEGO_MPL
 } 
@@ -53,6 +55,7 @@ HEADERS = \
     dataparser.h \
     temperature.h \
     databasesqlite.h
+
 
 #installs
 target.path = /usr/lib

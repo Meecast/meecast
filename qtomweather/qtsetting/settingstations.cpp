@@ -5,9 +5,24 @@ SettingStations::SettingStations(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SettingStations)
 {
-    _config = new Core::Config("config.xml", "config.xsd");
     _stationlist = new Core::StationsList;
-    *_stationlist = _config->stationsList();
+    std::string configpath = Core::AbstractConfig::getConfigPath();
+    configpath += "config.xml";
+    std::string schemapath = Core::AbstractConfig::prefix;
+    schemapath += Core::AbstractConfig::schemaPath;
+    schemapath += "config.xsd";
+    //qDebug() << configpath.c_str() << " " << schemapath.c_str();
+    try {
+        _config = new Core::Config(configpath, schemapath);
+        *_stationlist = _config->stationsList();
+    }catch(const std::string &str){
+        std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
+        _config = new Core::Config();
+    }
+    catch(const char *str){
+        std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
+        _config = new Core::Config();
+    }
 
     ui->setupUi(this);
     ui->removeButton->setEnabled(false);

@@ -22,5 +22,7 @@ FORMS    += setting.ui \
 
 QT += sql xml xmlpatterns 
 
+CONFIG(localdebug):DEFINES += LOCALDEBUG
+
 INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core

@@ -3,7 +3,7 @@ TEMPLATE = subdirs
 CONFIG += ordered
 
 #SUBDIRS += core qt-qml meego-mpl
-SUBDIRS += core qt-qml
+SUBDIRS += core qt-qml qtsettings
 
 system(pkg-config --exists meego-panel) {
  SUBDIRS += meego-mpl

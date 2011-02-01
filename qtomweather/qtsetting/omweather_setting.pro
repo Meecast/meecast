@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-TARGET = omweather_setting
+TARGET = omweather_settings
 TEMPLATE = app
 
 
@@ -26,3 +26,9 @@ CONFIG(localdebug):DEFINES += LOCALDEBUG
 
 INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core
+
+#install
+
+target.path = /usr/bin
+
+INSTALLS += target

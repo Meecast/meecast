@@ -15,7 +15,7 @@ namespace Core{
         std::string *_country;
         std::string *_region;
         std::string *_fileName;
-	std::string *_forecastURL;
+        std::string *_forecastURL;
         int _timezone;
         Source *_source;
         Data *_data; /* Is it really needed ? Vlad */
@@ -24,7 +24,7 @@ namespace Core{
         public:
         Station(const std::string& source_name, const std::string& id, const std::string& name,
                     const std::string& country = 0, const std::string& region = 0, 
-		    const std::string& forecastURL = 0);
+                    const std::string& forecastURL = 0);
             Station(const Station& station);
             Station& operator=(const Station& station);
             virtual ~Station();
@@ -38,7 +38,7 @@ namespace Core{
             std::string& country() const;
             void region(const std::string& region);
             std::string& region() const;
-	    void forecastURL(const std::string& region);
+            void forecastURL(const std::string& region);
             std::string& forecastURL() const;
             void timezone(const int timezone = 0);
             int timezone() const;

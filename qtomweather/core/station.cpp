@@ -135,10 +135,11 @@ namespace Core {
     bool Station::updateData(bool force){
 //        if(!force || dataValid())
 //            return true;
-        std::string command = "wget -O /tmp/1.xml ";
-        command = command + "'" + this->forecastURL() + "'";
+        std::string command = "wget -O ";
+        command = command + this->fileName() + " '" + this->forecastURL() + "'";
         std::cerr<<" URL "<<command<<std::endl;
         if (system(command.c_str()))
+        
             return true;
         else
             return false;

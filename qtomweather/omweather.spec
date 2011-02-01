@@ -5,15 +5,15 @@
 # >> macros
 # << macros
 
-Name:       omweather-qml
-Summary:    OMWeather in qml
+Name:       omweather
+Summary:    OMWeather
 Version:    0.1
 Release:    1
 Group:      Applications/Internet
 License:    GPLv2.1
 URL:        https://garage.maemo.org/projects/omweather/
 Source0:    %{name}-%{version}.tar.bz2
-Source100:  omweather-qml.yaml
+Source100:  omweather.yaml
 BuildRequires:  pkgconfig(QtCore) >= 4.7.0
 
 
@@ -50,12 +50,6 @@ ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/t
 # << install post
 
 
-# >> post
-# << post
-
-# >> postun
-# << postun
-
 
 
 
@@ -63,13 +57,15 @@ ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/t
 %files
 %defattr(-,root,root,-)
 /usr/bin/omweather-qml
+/usr/bin/omweather-settings
 %{_libdir}
 %{_libexecdir}/meego-panel-omweather
+/usr/share/meego-panel-omweather
 /usr/share/omweather
-/usr/share/meego-panel-omweather/theme/icons
 /usr/share/mutter-meego/panels/meego-panel-omweather.desktop
 /usr/share/meego-panel-omweather/theme/omweather-panel.css
 /etc/xdg
 # >> files
 # << files
+
 

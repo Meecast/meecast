@@ -18,6 +18,7 @@ Files:
   - "/usr/bin/omweather-settings"
   - "%{_libdir}"
   - "%{_libexecdir}/meego-panel-omweather"
+  - "/usr/share/meego-panel-omweather"
   - "/usr/share/omweather"
   - "/usr/share/mutter-meego/panels/meego-panel-omweather.desktop"
   - "/usr/share/meego-panel-omweather/theme/omweather-panel.css"

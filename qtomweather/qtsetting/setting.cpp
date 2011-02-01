@@ -8,9 +8,11 @@ Setting::Setting(QWidget *parent) :
     db = new Core::DatabaseSqlite("");
 
     //sourcelist = new Core::SourceList("../test/sources/");
-    QString path = QString::fromStdString(Core::AbstractConfig::prefix);
-    path.append(QString::fromStdString(Core::AbstractConfig::sourcesPath));
-    sourcelist = new Core::SourceList(path.toStdString());
+    //QString path = QString::fromStdString(Core::AbstractConfig::prefix);
+    std::string path(Core::AbstractConfig::prefix);
+    path += Core::AbstractConfig::sourcesPath;
+
+    sourcelist = new Core::SourceList(path);
 
     ui->setupUi(this);
     for (int i=0; i<sourcelist->size(); i++){

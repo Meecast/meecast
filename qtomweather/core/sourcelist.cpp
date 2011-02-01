@@ -13,7 +13,11 @@ namespace Core {
                 if(dp->d_type == DT_REG || dp->d_type == DT_LNK){
                     try{
                         std::string file = path + dp->d_name;
-                        Source *s = new Source(file, "../test/source.xsd");
+                        std::string schemafile = AbstractConfig::prefix;
+                        schemafile += AbstractConfig::schemaPath;
+                        schemafile += "source.xsd";
+                        std::cerr << "schema = " << schemafile << std::endl;
+                        Source *s = new Source(file, schemafile);
                         this->push_back(s);
                     }
                     catch(std::string& err){

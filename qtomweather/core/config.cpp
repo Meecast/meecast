@@ -33,6 +33,11 @@ namespace Core{
         el.appendChild(t);
         root.appendChild(el);
 
+        el = doc.createElement("temperature_unit");
+        t = doc.createTextNode(QString::fromStdString(*_temperature_unit));
+        el.appendChild(t);
+        root.appendChild(el);
+
         el = doc.createElement("current_station_id");
         t = doc.createTextNode(QString::fromStdString(*_current_station_id));
         el.appendChild(t);
@@ -131,6 +136,9 @@ namespace Core{
             el = root.firstChildElement("current_station_id");
             if (!el.isNull())
                 _current_station_id->assign(el.text().toStdString());
+            el = root.firstChildElement("temperature_unit");
+            if (!el.isNull())
+                _temperature_unit->assign(el.text().toStdString());
 
             nodelist = root.elementsByTagName("station");
             for (int i=0; i<nodelist.count(); i++){
@@ -263,6 +271,14 @@ namespace Core{
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
             _iconset->assign(nodeText->get_content());
+            return;
+        }
+        // iconset tag
+        if(nodeName == "temperature_unit"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            _temperature_unit->assign(nodeText->get_content());
             return;
         }
         // current station id

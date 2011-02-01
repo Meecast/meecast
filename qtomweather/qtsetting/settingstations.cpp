@@ -31,6 +31,15 @@ SettingStations::SettingStations(QWidget *parent) :
         QListWidgetItem *item = new QListWidgetItem((*cur)->name().c_str(), ui->listWidget);
         item->setToolTip((*cur)->id().c_str());
     }
+
+    ui->temperatureCombo->addItem("C");
+    ui->temperatureCombo->addItem("F");
+    //std::cerr << _config->TemperatureUnit() << std::endl;
+    if (_config->TemperatureUnit().compare("F") == 0)
+        ui->temperatureCombo->setCurrentIndex(1);
+    else
+        ui->temperatureCombo->setCurrentIndex(0);
+
 }
 
 SettingStations::~SettingStations()
@@ -73,5 +82,6 @@ void
 SettingStations::okClicked()
 {
     _config->stationsList(*_stationlist);
+    _config->TemperatureUnit(ui->temperatureCombo->currentText().toStdString());
     _config->saveConfig();
 }

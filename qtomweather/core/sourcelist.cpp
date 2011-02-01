@@ -16,7 +16,6 @@ namespace Core {
                         std::string schemafile = AbstractConfig::prefix;
                         schemafile += AbstractConfig::schemaPath;
                         schemafile += "source.xsd";
-                        std::cerr << "schema = " << schemafile << std::endl;
                         Source *s = new Source(file, schemafile);
                         this->push_back(s);
                     }

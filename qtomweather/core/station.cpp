@@ -13,7 +13,7 @@ namespace Core {
         _region = new std::string(region);
         _forecastURL = new std::string(forecastURL);
         _timezone = 0;
-        _fileName = 0;
+        _fileName = new std::string();
         _source = 0;
     }
 ////////////////////////////////////////////////////////////////////////////////

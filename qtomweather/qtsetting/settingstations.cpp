@@ -23,7 +23,6 @@ SettingStations::SettingStations(QWidget *parent) :
         std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
         _config = new Core::Config();
     }
-
     ui->setupUi(this);
     ui->removeButton->setEnabled(false);
 

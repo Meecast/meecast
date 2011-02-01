@@ -66,6 +66,11 @@ namespace Core{
             el.appendChild(t);
             st.appendChild(el);
 
+            el = doc.createElement("file_name");
+            t = doc.createTextNode(QString::fromStdString((*i)->fileName()));
+            el.appendChild(t);
+            st.appendChild(el);
+
             el = doc.createElement("forecast_url");
             t = doc.createTextNode(QString::fromStdString((*i)->forecastURL()));
             el.appendChild(t);
@@ -122,7 +127,7 @@ namespace Core{
 
             nodelist = root.elementsByTagName("station");
             for (int i=0; i<nodelist.count(); i++){
-                QString source_name, station_name, station_id, country, region, forecastURL;
+                QString source_name, station_name, station_id, country, region, forecastURL, fileName;
                 QDomElement e = nodelist.at(i).toElement();
                 QDomNode n = e.firstChild();
                 while (!n.isNull()){
@@ -139,17 +144,21 @@ namespace Core{
                         country = el.text();
                     else if (tag == "region")
                         region = el.text();
+                    else if (tag == "file_name")
+                        fileName = el.text();
                     else if (tag == "forecast_url"){
                         forecastURL = el.text();
                     }
                     n = n.nextSibling();
                 }
-                _stations->push_back(new Station(source_name.toStdString(),
-                                                 station_id.toStdString(),
-                                                 station_name.toStdString(),
-                                                 country.toStdString(),
-                                                 region.toStdString(),
-                                                 forecastURL.toStdString()));
+                Station *st = new Station(source_name.toStdString(),
+                                          station_id.toStdString(),
+                                          station_name.toStdString(),
+                                          country.toStdString(),
+                                          region.toStdString(),
+                                          forecastURL.toStdString());
+                st->fileName(fileName.toStdString());
+                _stations->push_back(st);
                 //_stations->push_back(new Station("weather.com", "BOXX0014", "Vitebsk", "Belarus", "Belarus"));
 
             }

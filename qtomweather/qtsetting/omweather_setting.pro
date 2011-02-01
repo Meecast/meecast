@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-TARGET = qtsetting
+TARGET = omweather_setting
 TEMPLATE = app
 
 

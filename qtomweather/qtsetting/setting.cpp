@@ -6,20 +6,31 @@ Setting::Setting(QWidget *parent) :
     ui(new Ui::Setting)
 {
     db = new Core::DatabaseSqlite("");
+
+    sourcelist = new Core::SourceList("../test/sources/");
+
     ui->setupUi(this);
-    ui->sourceCombo->addItem("gismeteo.ru", "gismeteo.ru.db");
-    ui->sourceCombo->addItem("weather.com", "weather.com.db");
+    for (int i=0; i<sourcelist->size(); i++){
+        qDebug() << "222 " << QString::fromStdString(sourcelist->at(i)->name()) << " " << QString::fromStdString(sourcelist->at(i)->url_template());
+        ui->sourceCombo->addItem(
+                QString::fromStdString(sourcelist->at(i)->name()),
+                i
+        );
+    }
+
 }
 
 void
 Setting::sourceChanged(int val)
 {
     qDebug() << "source = " << val << " - " << ui->sourceCombo->itemData(val);
-
+    QString filename = ui->sourceCombo->currentText();
+    filename.append(".db");
+    qDebug() << "filename = " << filename;
     if (!this->db) {
-        this->db->set_databasename(ui->sourceCombo->itemData(val).toString().toStdString());
+        this->db->set_databasename(filename.toStdString());
     }else {
-        this->db->set_databasename(ui->sourceCombo->itemData(val).toString().toStdString());
+        this->db->set_databasename(filename.toStdString());
 
     }
     this->db->open_database();
@@ -87,14 +98,10 @@ Setting::okClicked()
     qDebug() << "ok " << ui->cityCombo->itemData(ui->cityCombo->currentIndex()) << "index = " << ui->cityCombo->currentIndex();
 
     std::string code = ui->cityCombo->itemData(ui->cityCombo->currentIndex()).toString().toStdString();
+    int index = ui->sourceCombo->itemData(ui->sourceCombo->currentIndex()).toInt();
+    std::string url_template = sourcelist->at(index)->url_template();
+    qDebug() << "template = " << url_template.c_str();
 
-    /* temporary */
-    std::string url_template;
-    if (ui->sourceCombo->currentText() == "weather.com")
-        url_template = "http://xml.weather.com/weather/local/%s?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*";
-    else
-        url_template = "http://www.gismeteo.by/city/weekly/%s/";
-    /* ******* */
     char forecast_url[4096];
     snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), code.c_str());
     qDebug() << "url = " << forecast_url;
@@ -106,12 +113,15 @@ Setting::okClicked()
                 ui->countryCombo->currentText().toStdString(),
                 ui->regionCombo->currentText().toStdString(),
                 forecast_url);
-    qDebug() << "sourse name - " << station->country().c_str();
+    qDebug() << "sourse forecast_url - " << station->forecastURL().c_str();
 }
 
 Setting::~Setting()
 {
     delete ui;
+    //if (station)
+      //  delete station;
+    delete sourcelist;
 }
 /*
 bool

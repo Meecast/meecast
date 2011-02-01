@@ -20,6 +20,7 @@ public:
     explicit Setting(QWidget *parent = 0);
     ~Setting();
     Core::Station *station;
+    Core::SourceList *sourcelist;
 
 public slots:
     void sourceChanged(int val);

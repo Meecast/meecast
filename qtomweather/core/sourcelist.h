@@ -17,7 +17,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
-    class SourceList : public AbstractConfig, private std::vector<Source*>{
+    class SourceList : public AbstractConfig, public std::vector<Source*>{
         StationsList *_stations;
         public:
             SourceList(const std::string path = prefix + sourcesPath);

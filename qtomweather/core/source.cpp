@@ -54,6 +54,7 @@ namespace Core {
                 }
                 #endif //LIBXML
                 // TODO check binaryName for empty
+                /*
                 std::string binaryWithPath = prefix + libPath;
                 binaryWithPath += *_library;
                 _libraryHandler = dlopen(binaryWithPath.c_str(), RTLD_NOW);
@@ -94,6 +95,7 @@ namespace Core {
                     _sourceGetDetail = (bool (*)(const std::string&, const std::string&))_handler;
                     _hasDetail = true;
                 }
+                */
             }
 
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED

@@ -18,6 +18,7 @@ public:
     ~SettingStations();
     //std::vector<Core::Station*> *_stationlist;
     Core::StationsList *_stationlist;
+    Core::Config *_config;
 public slots:
     void add();
     void remove();

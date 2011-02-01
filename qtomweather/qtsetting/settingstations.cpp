@@ -5,11 +5,19 @@ SettingStations::SettingStations(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SettingStations)
 {
-    //_stationlist = new std::vector<Core::Station*>;
+    _config = new Core::Config("config.xml", "config.xsd");
     _stationlist = new Core::StationsList;
+    *_stationlist = _config->stationsList();
+    qDebug() << "station count = " << _stationlist->size();
 
     ui->setupUi(this);
     ui->removeButton->setEnabled(false);
+
+    Core::StationsList::iterator cur;
+    for (cur=_stationlist->begin(); cur<_stationlist->end(); cur++){
+        QListWidgetItem *item = new QListWidgetItem((*cur)->name().c_str(), ui->listWidget);
+        item->setToolTip((*cur)->id().c_str());
+    }
 }
 
 SettingStations::~SettingStations()
@@ -54,7 +62,7 @@ SettingStations::okClicked()
         qDebug() << "aaa " << (*cur)->name().c_str();
     }
     */
-    Core::Config *config = new Core::Config("config.xml", "config.xsd");
-    config->stationsList(*_stationlist);
-    config->saveConfig("newconfig.xml");
+
+    _config->stationsList(*_stationlist);
+    _config->saveConfig("newconfig.xml");
 }

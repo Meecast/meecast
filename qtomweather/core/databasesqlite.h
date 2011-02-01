@@ -9,11 +9,13 @@
 #include <vector>
 #include <stdio.h>
 
+#include "databaseabstract.h"
+
 namespace Core{
 
-typedef std::vector< std::pair<std::string, std::string> > listdata;
+//typedef std::vector< std::pair<std::string, std::string> > listdata;
 
-class DatabaseSqlite
+class DatabaseSqlite : public DatabaseAbstract
 {
 private:
     sqlite3 *db;

@@ -15,6 +15,7 @@
 #include "stationlist.h"
 #include "abstractconfig.h"
 #include "databasesqlite.h"
+#include "databaseabstract.h"
 
 namespace Core{
     class Connection;
@@ -28,6 +29,7 @@ namespace Core{
     class DataParser;
     class Temperature;
     class DatabaseSqlite;
+    class DatabaseAbstract;
 };
 ////////////////////////////////////////////////////////////////////////////////
 #endif // CORE_H

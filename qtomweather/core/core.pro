@@ -54,7 +54,8 @@ HEADERS = \
     core.h \
     dataparser.h \
     temperature.h \
-    databasesqlite.h
+    databasesqlite.h \
+    databaseabstract.h
 
 
 #installs

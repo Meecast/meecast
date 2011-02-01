@@ -44,6 +44,8 @@ namespace Core{
             int timezone() const;
             bool updateData(bool force);
             void updateSource(const Source* source);
+            void fileName(const std::string& fileName);
+            std::string& fileName() const;
     };
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

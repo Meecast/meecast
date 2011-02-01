@@ -37,6 +37,7 @@ namespace Core {
         _country = new std::string(*(station._country));
         _region = new std::string(*(station._region));
         _forecastURL = new std::string(*(station._forecastURL));
+        _fileName = new std::string(*(station._fileName));
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station& Station::operator=(const Station& station){
@@ -53,6 +54,8 @@ namespace Core {
             _region = new std::string(*(station._region));
             delete _forecastURL;
             _forecastURL = new std::string(*(station._forecastURL));
+            delete _fileName;
+            _fileName = new std::string(*(station._fileName));
         }
         return *this;
     }
@@ -111,6 +114,14 @@ namespace Core {
     ////////////////////////////////////////////////////////////////////////////////
     std::string& Station::region() const{
         return *_region;
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    void Station::fileName(const std::string& fileName){
+        _fileName->assign(fileName);
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    std::string& Station::fileName() const{
+        return *_fileName;
     }
 ////////////////////////////////////////////////////////////////////////////////
     bool Station::dataValid(){

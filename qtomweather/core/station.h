@@ -18,16 +18,18 @@ namespace Core{
         std::string *_forecastURL;
         std::string *_converter;
         int _timezone;
-        Source *_source;
+
         Data *_data; /* Is it really needed ? Vlad */
         bool dataValid();
         bool prepareFile();
+        Source *getSourceByName();
         public:
         Station(const std::string& source_name, const std::string& id, const std::string& name,
                     const std::string& country = 0, const std::string& region = 0, 
                     const std::string& forecastURL = 0);
             Station(const Station& station);
             Station& operator=(const Station& station);
+            Source *_source;
             virtual ~Station();
             void name(const std::string& name);
             std::string& name() const;
@@ -49,7 +51,7 @@ namespace Core{
             std::string& fileName() const;
             void converter(const std::string& converter);
             std::string& converter() const;
-            Source *getSourceByName();
+
 
     };
 ////////////////////////////////////////////////////////////////////////////////

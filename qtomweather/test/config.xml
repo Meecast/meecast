@@ -14,4 +14,34 @@
   <forecast_url>http://xml.weather.com/weather/local/ANXX0001?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*</forecast_url>
   <converter></converter>
  </station>
+ <station>
+  <source_name>weather.com</source_name>
+  <station_name>Pago Pago</station_name>
+  <station_id>USAS0001</station_id>
+  <country>American Samoa</country>
+  <region>American Samoa</region>
+  <file_name>../test/weather.com_USAS0001</file_name>
+  <forecast_url>http://xml.weather.com/weather/local/USAS0001?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*</forecast_url>
+  <converter></converter>
+ </station>
+ <station>
+  <source_name>gismeteo.ru</source_name>
+  <station_name>Apia</station_name>
+  <station_id>91762</station_id>
+  <country>American Samoa</country>
+  <region>American Samoa</region>
+  <file_name>../test/gismeteo.ru_91762</file_name>
+  <forecast_url>http://www.gismeteo.by/city/weekly/91762/</forecast_url>
+  <converter>libomweather-gismeteo-ru-source.so</converter>
+ </station>
+ <station>
+  <source_name>gismeteo.ru</source_name>
+  <station_name>Comodoro Rivadavia</station_name>
+  <station_id>87860</station_id>
+  <country>Argentina</country>
+  <region>Argentina</region>
+  <file_name>../test/gismeteo.ru_87860</file_name>
+  <forecast_url>http://www.gismeteo.by/city/weekly/87860/</forecast_url>
+  <converter>libomweather-gismeteo-ru-source.so</converter>
+ </station>
 </config>

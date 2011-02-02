@@ -14,7 +14,7 @@ namespace Core {
         _forecastURL = new std::string(forecastURL);
         _timezone = 0;
         _fileName = new std::string();
-        _source = 0;
+        _source = this->getSourceByName();
         _converter = new std::string();
     }
 ////////////////////////////////////////////////////////////////////////////////
@@ -31,6 +31,8 @@ namespace Core {
             delete _fileName;
         if(_converter)
             delete _converter;
+        if (_source)
+            delete _source;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Station::Station(const Station& station){
@@ -178,7 +180,6 @@ namespace Core {
         SourceList *sourcelist = new Core::SourceList(path);
 
         for (int i=0; i<sourcelist->size(); i++){
-            //if (sourcelist->at(i)->name().compare(_sourceName) == 0)
             if (_sourceName->compare(sourcelist->at(i)->name()) == 0)
                 return sourcelist->at(i);
         }

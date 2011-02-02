@@ -16,7 +16,7 @@ namespace Core{
             std::string *_iconset;
             std::string *_temperature_unit;
             std::string *_font_color;
-            std::string *_current_station_id;
+            int          _current_station_id;
             StationsList *_stations;
         public:
             Config(const std::string& filename, const std::string& schema_filename = prefix + schemaPath + "config.xsd");
@@ -27,8 +27,8 @@ namespace Core{
             std::string& prefix_path(void);
             void iconSet(const std::string& text);
             std::string& iconSet(void);
-            void current_station_id(const std::string& text);
-            std::string& current_station_id(void);
+            void current_station_id(int id_station);
+            int current_station_id(void);
             void TemperatureUnit(const std::string& text);
             std::string& TemperatureUnit(void);
             void FontColor(const std::string& text);

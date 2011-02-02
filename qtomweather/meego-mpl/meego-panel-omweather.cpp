@@ -107,8 +107,10 @@ make_window_content (MplPanelClutter *panel)
 
 
   std::cerr<<"ggggggggggg   "<<config->stationsList().at(1)->fileName();
-  dp = current_data(config->stationsList().at(1)->fileName());
-
+  if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id())){
+      dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+      std::cerr<<"ggggggggggg   "<<config->stationsList().at(config->current_station_id())->fileName();
+  }
   main_vertical_layout = clutter_box_layout_new (); 
   container =  clutter_box_new(main_vertical_layout);
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(main_vertical_layout), TRUE);

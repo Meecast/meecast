@@ -9,13 +9,12 @@ namespace Core{
         _iconset = new std::string("Glance");
         _temperature_unit = new std::string("C");
         _font_color = new std::string("#00ff00");
-        _current_station_id = new std::string();
         _stations = new StationsList;
+        _current_station_id = INT_MAX;
         //std::cerr << Core::AbstractConfig::configPath << std::endl;
         std::string path(AbstractConfig::getConfigPath());
         path += "config.xml";
         _filename = new std::string(path);
-
     }
     void
     Config::saveConfig()
@@ -44,7 +43,7 @@ namespace Core{
         root.appendChild(el);
 
         el = doc.createElement("current_station_id");
-        t = doc.createTextNode(QString::fromStdString(*_current_station_id));
+        t = doc.createTextNode(QString::number(_current_station_id));
         el.appendChild(t);
         root.appendChild(el);
 
@@ -118,7 +117,7 @@ namespace Core{
         _temperature_unit = new std::string("C");
         _font_color = new std::string("#00ff00");
         _stations = new StationsList;
-        _current_station_id = new std::string;
+        _current_station_id = INT_MAX;
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -140,7 +139,7 @@ namespace Core{
                 _iconset->assign(el.text().toStdString());
             el = root.firstChildElement("current_station_id");
             if (!el.isNull())
-                _current_station_id->assign(el.text().toStdString());
+                _current_station_id = el.text().toInt();
             el = root.firstChildElement("temperature_unit");
             if (!el.isNull())
                 _temperature_unit->assign(el.text().toStdString());
@@ -172,6 +171,7 @@ namespace Core{
                         converter = el.text();
                     n = n.nextSibling();
                 }
+                
                 Station *st = new Station(source_name.toStdString(),
                                           station_id.toStdString(),
                                           station_name.toStdString(),
@@ -184,6 +184,8 @@ namespace Core{
                 //_stations->push_back(new Station("weather.com", "BOXX0014", "Vitebsk", "Belarus", "Belarus"));
 
             }
+            if (nodelist.count()>0 && _current_station_id == INT_MAX)
+                _current_station_id = 0;
 
         #endif //LIBXML
 #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
@@ -211,12 +213,12 @@ namespace Core{
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
-    Config::current_station_id(const std::string& text){
-        _current_station_id->assign(text);
+    Config::current_station_id(int id_station){
+        _current_station_id = id_station;
     }
-    std::string&
+    int   
     Config::current_station_id(){
-        return *_current_station_id;
+        return _current_station_id;
     }
 ////////////////////////////////////////////////////////////////////////////////
     std::string&

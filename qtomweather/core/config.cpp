@@ -11,6 +11,11 @@ namespace Core{
         _font_color = new std::string("#00ff00");
         _current_station_id = new std::string();
         _stations = new StationsList;
+        //std::cerr << Core::AbstractConfig::configPath << std::endl;
+        std::string path(AbstractConfig::getConfigPath());
+        path += "config.xml";
+        _filename = new std::string(path);
+
     }
     void
     Config::saveConfig()

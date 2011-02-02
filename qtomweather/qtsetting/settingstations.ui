@@ -94,12 +94,14 @@
     </widget>
    </item>
   </layout>
-  <zorder>buttonBox</zorder>
-  <zorder>label</zorder>
-  <zorder>temperatureCombo</zorder>
-  <zorder>horizontalSpacer</zorder>
-  <zorder>temperatureCombo</zorder>
  </widget>
+ <tabstops>
+  <tabstop>listWidget</tabstop>
+  <tabstop>addButton</tabstop>
+  <tabstop>removeButton</tabstop>
+  <tabstop>temperatureCombo</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

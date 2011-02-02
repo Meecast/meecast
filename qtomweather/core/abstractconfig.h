@@ -16,7 +16,6 @@ namespace Core {
             static std::string iconsPath;
             static std::string libPath;
             static std::string sourcesPath;
-            static std::string configPath;
             static std::string getConfigPath();
     };
 } // namespace Core

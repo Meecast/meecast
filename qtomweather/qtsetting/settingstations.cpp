@@ -51,7 +51,9 @@ void
 SettingStations::add()
 {
     Setting st(this);
-    if (st.exec()){
+    int res = st.exec();
+    //std::cerr << "dialog result " << res << std::endl;
+    if (res){
         Core::Station *station = st.station;
         _stationlist->push_back(station);
         QListWidgetItem *item = new QListWidgetItem(station->name().c_str(), ui->listWidget);

@@ -84,8 +84,9 @@ Setting::regionChanged(int val)
 void
 Setting::okClicked()
 {
-    if (ui->cityCombo->currentIndex() == -1)
-        return;
+    if (ui->cityCombo->currentIndex() == -1){
+        this->reject();
+    }
 
     std::string code = ui->cityCombo->itemData(ui->cityCombo->currentIndex()).toString().toStdString();
     int index = ui->sourceCombo->itemData(ui->sourceCombo->currentIndex()).toInt();
@@ -106,7 +107,7 @@ Setting::okClicked()
     filename += code;
     station->fileName(filename);
     station->converter(sourcelist->at(index)->binary());
-
+    return;
 }
 
 Setting::~Setting()

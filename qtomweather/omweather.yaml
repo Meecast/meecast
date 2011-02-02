@@ -14,7 +14,7 @@ PkgConfigBR:
 Configure: none
 Builder: none
 Files:
-  - "/usr/bin/omweather-qml"
+#  - "/usr/bin/omweather-qml"
   - "/usr/bin/omweather-settings"
   - "%{_libdir}"
   - "%{_libexecdir}/meego-panel-omweather"

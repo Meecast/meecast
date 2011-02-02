@@ -106,7 +106,7 @@ make_window_content (MplPanelClutter *panel)
   PangoFontDescription *pfd = NULL;
 
 
- // stderr<<"ggggggggggg   "<<config->stationsList().at(1)->fileName();
+  std::cerr<<"ggggggggggg   "<<config->stationsList().at(1)->fileName();
   dp = current_data(config->stationsList().at(1)->fileName());
 
   main_vertical_layout = clutter_box_layout_new (); 

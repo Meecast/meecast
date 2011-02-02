@@ -56,7 +56,6 @@ ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/t
 
 %files
 %defattr(-,root,root,-)
-/usr/bin/omweather-qml
 /usr/bin/omweather-settings
 %{_libdir}
 %{_libexecdir}/meego-panel-omweather

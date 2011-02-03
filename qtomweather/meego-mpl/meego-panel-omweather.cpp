@@ -61,9 +61,12 @@ config_button_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
     char *args[] = {"/usr/bin/omweather-settings", (char *) 0 };
-
-    mpl_panel_client_hide(panel);
-    execv("/usr/bin/omweather-settings", args);
+    
+    pid_t pID = fork();
+    if (pID == 0)    
+        execv("/usr/bin/omweather-settings", args );
+    else
+        mpl_panel_client_hide(panel);
 
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -148,7 +151,7 @@ make_window_content (MplPanelClutter *panel)
   /* null button */
   snprintf(buffer, (4096 -1), "%s/buttons_icons/null.png",config->prefix_path().c_str());
   icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_actor_set_size (icon, 80.0, 80.0);
+  clutter_actor_set_size (icon, 64.0, 64.0);
   clutter_box_pack((ClutterBox*)top_container, icon, "expand", TRUE,  "x-fill", TRUE, NULL);
 
   /* config button */
@@ -165,7 +168,7 @@ make_window_content (MplPanelClutter *panel)
   /* refresh button */
   snprintf(buffer, (4096 -1), "%s/buttons_icons/refresh.png",config->prefix_path().c_str());
   icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_actor_set_size (icon, 80.0, 80.0);
+  clutter_actor_set_size (icon, 64.0, 64.0);
   clutter_actor_set_reactive(icon, TRUE);
 
   /* connect the press event on refresh button */

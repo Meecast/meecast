@@ -5,8 +5,8 @@
  * Copyright (C) 2006-2011 Vlad Vasiliev
  * Copyright (C) 2006-2011 Pavel Fialko
  * Copyright (C) 2010-2011 Tanya Makova
- * 	for the code
- *        
+ *     for the code
+ *
  * Copyright (C) 2008 Andrew Zhilin
  *		      az@pocketpcrussia.com 
  *	for default icon set (Glance)
@@ -33,13 +33,19 @@
 #include <meego-panel/mpl-panel-common.h>
 #include <mx/mx.h>
 
-Core::Config *config;
-Core::StationsList stationslist;
-
-
 void init_omweather_core(void);
 Core::DataParser *current_data(std::string& str);
 int update_weather_forecast(Core::Config *config);
+static void make_window_content (MplPanelClutter *panel);
+
+/* Global section */
+Core::Config *config;
+Core::StationsList stationslist;
+MplPanelClient *panel = NULL;
+ClutterActor   *panel_container = NULL;
+
+
+
 
 //////////////////////////////////////////////////////////////////////////////
 gboolean
@@ -47,6 +53,7 @@ refresh_button_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
     update_weather_forecast(config);
+    make_window_content((MplPanelClutter*)user_data);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -91,28 +98,24 @@ make_window_content (MplPanelClutter *panel)
   ClutterLayoutManager *forecast_layout;
   ClutterLayoutManager *top_layout;
   ClutterLayoutManager *main_vertical_layout;
-  ClutterActor     *container;
   ClutterActor     *forecast_horizontal_container;
   ClutterActor     *top_container;
   ClutterActor     *box;
   ClutterActor     *label;
   ClutterActor     *icon;
-  ClutterColor      black = {0, 0, 0, 0xff};
-  ClutterColor      red =   {0xff, 0, 0, 0xff};
   char             buffer[4096];
   int i, period;
   Core::Data *temp_data = NULL;
-  Core::DataParser* dp;
+  Core::DataParser* dp = NULL;
   PangoFontDescription *pfd = NULL;
 
-
-  std::cerr<<"ggggggggggg   "<<config->stationsList().at(1)->fileName();
-  if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id())){
+  if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id()))
       dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
-      std::cerr<<"ggggggggggg   "<<config->stationsList().at(config->current_station_id())->fileName();
-  }
-  main_vertical_layout = clutter_box_layout_new (); 
-  container =  clutter_box_new(main_vertical_layout);
+
+  main_vertical_layout = clutter_box_layout_new ();
+  if (panel_container)
+      clutter_actor_destroy(panel_container);
+  panel_container =  clutter_box_new(main_vertical_layout);
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(main_vertical_layout), TRUE);
 
   forecast_layout = clutter_box_layout_new(); 
@@ -143,6 +146,7 @@ make_window_content (MplPanelClutter *panel)
   icon = clutter_texture_new_from_file(buffer, NULL);
   clutter_actor_set_size (icon, 80.0, 80.0);
   clutter_actor_set_reactive(icon, TRUE);
+
   /* connect the press event on refresh button */
   g_signal_connect (icon, "button-press-event", G_CALLBACK (refresh_button_event_cb), NULL);
   clutter_box_pack((ClutterBox*)top_container, icon, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
@@ -150,38 +154,62 @@ make_window_content (MplPanelClutter *panel)
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), top_container,
                           TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_CENTER);
 
-  clutter_actor_show (label);
+  /* Change panel icon */
+  temp_data = dp->data().GetDataForTime(time(NULL));
+  if (temp_data ){
+      snprintf(buffer, (4096 -1), "icon%i", temp_data->Icon());
+      mpl_panel_client_request_button_style (MPL_PANEL_CLIENT(panel), buffer);
+  }else
+      mpl_panel_client_request_button_style (MPL_PANEL_CLIENT(panel), "iconna");
+
+  /*day buttons */
   period = 0;
   for (i = 0; i < 8; i++){
       temp_data = dp->data().GetDataForTime(time(NULL) + period);
       period = period + 3600*24;
-      box = make_day_actor(temp_data); 
+      box = make_day_actor(temp_data);
       clutter_box_pack((ClutterBox*)forecast_horizontal_container, box, NULL);
   }
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), forecast_horizontal_container, 
                           FALSE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_START);
-  clutter_actor_show (container);
-  mpl_panel_clutter_set_child (panel, container);
+  clutter_actor_show (panel_container);
+  mpl_panel_clutter_set_child (panel, panel_container);
 }
 
 int
 main (int argc, char *argv[])
 {
-  MplPanelClient *panel;
   FILE *file;
+  char buffer[4096];
+  Core::Data *temp_data = NULL;
+  Core::DataParser* dp = NULL;
 
   clutter_init (&argc, &argv);
 
+  init_omweather_core();
+
+  /* prepairing icon */
+  if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id()))
+      dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+
+  temp_data = dp->data().GetDataForTime(time(NULL));
+  if (temp_data )
+      snprintf(buffer, (4096 -1), "icon%i", temp_data->Icon());
+  else
+      snprintf(buffer, (4096 -1), "iconna");
+
+  /* init Meego panel */
   mx_style_load_from_file (mx_style_get_default (),
                           "/usr/share/meego-panel-omweather/theme/omweather-panel.css", NULL);
 
   panel = mpl_panel_clutter_new ("omweather",           /* the panel slot */
-                                 "omweather",                   /* tooltip */
+                                 "omweather",           /* tooltip */
                                  "/usr/share/meego-panel-omweather/theme/omweather-panel.css", /*stylesheet */
-                                "icon1",                 /* button style */
+                                 buffer,                /* button style */
                                  TRUE);
   mpl_panel_client_set_height_request (panel, 150);
-  init_omweather_core();
+  mpl_panel_client_request_button_style (MPL_PANEL_CLIENT(panel), buffer);
+
   //update_weather_forecast(config);
   make_window_content (MPL_PANEL_CLUTTER (panel));
   file = fopen("/tmp/1.log","wb");

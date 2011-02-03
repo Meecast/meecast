@@ -61,9 +61,9 @@ config_button_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
     char *args[] = {"/usr/bin/omweather-settings", (char *) 0 };
-    
+
     pid_t pID = fork();
-    if (pID == 0)    
+    if (pID == 0)
         execv("/usr/bin/omweather-settings", args );
     else
         mpl_panel_client_hide(panel);
@@ -89,9 +89,9 @@ make_day_actor(Core::Data *temp_data){
     label = clutter_text_new();
     if (temp_data){
         if (temp_data->temperature_low().value() != INT_MAX)
-            snprintf(buffer, (4096 -1), "%s\n%0.f°C\n%0.f°C", temp_data->ShortDayName().c_str(), temp_data->temperature_low().value(), temp_data->temperature_hi().value());
+            snprintf(buffer, (4096 -1), "%s\n%0.f°%s\n%0.f°%s", temp_data->ShortDayName().c_str(), temp_data->temperature_low().value(), config->TemperatureUnit().c_str(), temp_data->temperature_hi().value(), config->TemperatureUnit().c_str());
         else
-            snprintf(buffer, (4096 -1), "%s\n%0.f°C", temp_data->ShortDayName().c_str(), temp_data->temperature_hi().value());
+            snprintf(buffer, (4096 -1), "%s\n%0.f°%s", temp_data->ShortDayName().c_str(), temp_data->temperature_hi().value(), config->TemperatureUnit().c_str());
     }else
         snprintf(buffer, (4096 -1), "N/A°C\nN/A°C");
 
@@ -138,6 +138,7 @@ make_window_content (MplPanelClutter *panel)
   /* top layout */
   top_layout = clutter_box_layout_new(); 
   top_container = clutter_box_new(top_layout);
+  clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (top_layout), 12);
 
   /* station name */
   label = clutter_text_new();
@@ -163,8 +164,6 @@ make_window_content (MplPanelClutter *panel)
   g_signal_connect (icon, "button-press-event", G_CALLBACK (config_button_event_cb), NULL);
   clutter_box_pack((ClutterBox*)top_container, icon, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
 
-
-
   /* refresh button */
   snprintf(buffer, (4096 -1), "%s/buttons_icons/refresh.png",config->prefix_path().c_str());
   icon = clutter_texture_new_from_file(buffer, NULL);
@@ -186,7 +185,7 @@ make_window_content (MplPanelClutter *panel)
   }else
       mpl_panel_client_request_button_style (MPL_PANEL_CLIENT(panel), "iconna");
 
-  /*day buttons */
+  /* day buttons */
   period = 0;
   for (i = 0; i < 8; i++){
       temp_data = dp->data().GetDataForTime(time(NULL) + period);

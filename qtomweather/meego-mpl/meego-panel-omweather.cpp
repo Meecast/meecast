@@ -55,7 +55,17 @@ refresh_button_event_cb (ClutterActor *actor,
     update_weather_forecast(config);
     make_window_content((MplPanelClutter*)user_data);
 }
+//////////////////////////////////////////////////////////////////////////////
+gboolean
+config_button_event_cb (ClutterActor *actor,
+                   ClutterEvent *event,
+                   gpointer      user_data){
+    char *args[] = {"/usr/bin/omweather-settings", (char *) 0 };
 
+    mpl_panel_client_hide(panel);
+    execv("/usr/bin/omweather-settings", args);
+
+}
 //////////////////////////////////////////////////////////////////////////////
 static ClutterActor*
 make_day_actor(Core::Data *temp_data){
@@ -140,6 +150,17 @@ make_window_content (MplPanelClutter *panel)
   icon = clutter_texture_new_from_file(buffer, NULL);
   clutter_actor_set_size (icon, 80.0, 80.0);
   clutter_box_pack((ClutterBox*)top_container, icon, "expand", TRUE,  "x-fill", TRUE, NULL);
+
+  /* config button */
+  snprintf(buffer, (4096 -1), "%s/buttons_icons/config.png",config->prefix_path().c_str());
+  icon = clutter_texture_new_from_file(buffer, NULL);
+  clutter_actor_set_size (icon, 64.0, 64.0);
+  clutter_actor_set_reactive(icon, TRUE);
+  /* connect the press event on refresh button */
+  g_signal_connect (icon, "button-press-event", G_CALLBACK (config_button_event_cb), NULL);
+  clutter_box_pack((ClutterBox*)top_container, icon, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
+
+
 
   /* refresh button */
   snprintf(buffer, (4096 -1), "%s/buttons_icons/refresh.png",config->prefix_path().c_str());

@@ -143,7 +143,7 @@ make_window_content (MplPanelClutter *panel)
   /* station name */
   label = clutter_text_new();
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
-  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 3);
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 2);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   stationslist = config->stationsList();
   clutter_text_set_text((ClutterText*)label, stationslist.station_by_id("BOXX0014")->name().c_str());
@@ -152,13 +152,13 @@ make_window_content (MplPanelClutter *panel)
   /* null button */
   snprintf(buffer, (4096 -1), "%s/buttons_icons/null.png",config->prefix_path().c_str());
   icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_actor_set_size (icon, 64.0, 64.0);
+  clutter_actor_set_size (icon, 48.0, 48.0);
   clutter_box_pack((ClutterBox*)top_container, icon, "expand", TRUE,  "x-fill", TRUE, NULL);
 
   /* config button */
   snprintf(buffer, (4096 -1), "%s/buttons_icons/config.png",config->prefix_path().c_str());
   icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_actor_set_size (icon, 64.0, 64.0);
+  clutter_actor_set_size (icon, 48.0, 48.0);
   clutter_actor_set_reactive(icon, TRUE);
   /* connect the press event on refresh button */
   g_signal_connect (icon, "button-press-event", G_CALLBACK (config_button_event_cb), NULL);
@@ -167,7 +167,7 @@ make_window_content (MplPanelClutter *panel)
   /* refresh button */
   snprintf(buffer, (4096 -1), "%s/buttons_icons/refresh.png",config->prefix_path().c_str());
   icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_actor_set_size (icon, 64.0, 64.0);
+  clutter_actor_set_size (icon, 48.0, 48.0);
   clutter_actor_set_reactive(icon, TRUE);
 
   /* connect the press event on refresh button */

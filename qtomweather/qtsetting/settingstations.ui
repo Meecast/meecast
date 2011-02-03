@@ -111,8 +111,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>252</x>
-     <y>278</y>
+     <x>256</x>
+     <y>265</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -127,8 +127,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>271</x>
-     <y>278</y>
+     <x>275</x>
+     <y>265</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
@@ -186,17 +186,17 @@
   </connection>
   <connection>
    <sender>buttonBox</sender>
-   <signal>clicked(QAbstractButton*)</signal>
+   <signal>accepted()</signal>
    <receiver>SettingStations</receiver>
    <slot>okClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>166</x>
-     <y>265</y>
+     <x>149</x>
+     <y>253</y>
     </hint>
     <hint type="destinationlabel">
-     <x>219</x>
-     <y>214</y>
+     <x>220</x>
+     <y>210</y>
     </hint>
    </hints>
   </connection>

@@ -148,6 +148,7 @@ make_window_content (MplPanelClutter *panel)
   forecast_layout = clutter_box_layout_new(); 
   forecast_horizontal_container = clutter_box_new(forecast_layout);
   clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (forecast_layout), 12);
+  clutter_actor_set_width(forecast_horizontal_container , 1024-12);
 
   /* top layout */
   top_layout = clutter_box_layout_new(); 

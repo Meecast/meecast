@@ -102,7 +102,7 @@ make_day_actor(Core::Data *temp_data){
 
     icon = clutter_texture_new_from_file(buffer, NULL);
     clutter_actor_set_size (icon, 80.0, 80.0);
-    clutter_actor_show (icon);
+    //clutter_actor_show (icon);
     label = clutter_text_new();
     if (temp_data){
         if (temp_data->temperature_low().value() != INT_MAX)
@@ -214,7 +214,7 @@ make_window_content (MplPanelClutter *panel)
 
   /* day buttons */
   period = 0;
-  for (i = 0; i < 8; i++){
+  for (i = 0; i < 9; i++){
       if (dp)
           temp_data = dp->data().GetDataForTime(time(NULL) + period);
       else
@@ -245,7 +245,8 @@ main (int argc, char *argv[])
   if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id()))
       dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
 
-  temp_data = dp->data().GetDataForTime(time(NULL));
+  if (dp)
+      temp_data = dp->data().GetDataForTime(time(NULL));
   if (temp_data )
       snprintf(buffer, (4096 -1), "icon%i", temp_data->Icon());
   else

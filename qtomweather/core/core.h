@@ -16,6 +16,7 @@
 #include "abstractconfig.h"
 #include "databasesqlite.h"
 #include "databaseabstract.h"
+#include "downloader.h"
 
 namespace Core{
     class Connection;
@@ -30,6 +31,7 @@ namespace Core{
     class Temperature;
     class DatabaseSqlite;
     class DatabaseAbstract;
+    class Downloader;
 };
 ////////////////////////////////////////////////////////////////////////////////
 #endif // CORE_H

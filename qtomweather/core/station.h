@@ -6,6 +6,8 @@ class Source;
 #include "source.h"
 #include "data.h"
 #include "sourcelist.h"
+#include "downloader.h"
+
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     class Station{
@@ -18,7 +20,6 @@ namespace Core{
         std::string *_forecastURL;
         std::string *_converter;
         int _timezone;
-
         Data *_data; /* Is it really needed ? Vlad */
         bool dataValid();
         bool prepareFile();

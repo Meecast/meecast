@@ -148,14 +148,17 @@ namespace Core {
     bool Station::prepareFile(){
         return true;
     }
+
 ////////////////////////////////////////////////////////////////////////////////
     bool Station::updateData(bool force){
 //        if(!force || dataValid())
 //            return true;
-        std::string command = "wget -O ";
-        command = command + this->fileName() + ".orig '" + this->forecastURL() + "'";
-        std::cerr<<" URL "<<command<<std::endl;
-        if (system(command.c_str()) == 0){
+        std::string command;
+        //std::string command = "wget -O ";
+        //command = command + this->fileName() + ".orig '" + this->forecastURL() + "'";
+        //std::cerr<<" URL "<<command<<std::endl;
+        //if (system(command.c_str()) == 0){
+        if (Downloader::downloadData(this->fileName()+".orig", this->forecastURL())) {
             command = this->converter()+ " " +  this->fileName() + ".orig " + this->fileName();
             std::cerr<<" EXEC "<<command<<std::endl;
             if (system(command.c_str()) == 0)

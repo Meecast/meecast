@@ -12,6 +12,7 @@ class Downloader
 public:
     Downloader();
     static size_t writedata(void *ptr, size_t size, size_t nmemb, FILE *stream);
+    static int progress(void *ptr, double totald, double nowd, double totalu, double nowu);
     static bool downloadData(const std::string &filename, const std::string &url);
 };
 }

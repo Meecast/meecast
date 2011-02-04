@@ -30,7 +30,6 @@ SettingStations::SettingStations(QWidget *parent) :
     for (cur=_stationlist->begin(); cur<_stationlist->end(); cur++){
         QListWidgetItem *item = new QListWidgetItem((*cur)->name().c_str(), ui->listWidget);
         item->setToolTip((*cur)->id().c_str());
-        //(*cur)->updateData(true);
     }
 
     ui->temperatureCombo->addItem("C");

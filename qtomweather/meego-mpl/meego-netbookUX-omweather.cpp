@@ -97,9 +97,34 @@ current_data(std::string& str){
 void
 init_omweather_core(void){
     config = create_and_fill_config();
-//    stationslist = config->stationsList();
 }
 
+
+
+//////////////////////////////////////////////////////////////////////////////
+static void
+on_new_frame (ClutterTimeline *timeline,
+          gint             elapsed_msecs,
+          ClutterActor    *actor)
+{
+  gdouble angle = 360 * clutter_timeline_get_progress (timeline);
+
+  clutter_actor_set_rotation (actor, CLUTTER_Z_AXIS,
+                              angle,
+                              clutter_actor_get_width (actor) / 2,
+                  clutter_actor_get_height (actor) / 2,
+                              0);
+}
+ClutterTimeline*
+create_update_animation(ClutterActor *actor)
+{
+  ClutterTimeline *timeline;
+
+  timeline = clutter_timeline_new (1000); /* one second */
+  clutter_timeline_set_loop (timeline, TRUE);
+  g_signal_connect (timeline, "new-frame", G_CALLBACK (on_new_frame), actor);
+  return timeline;
+}
 //////////////////////////////////////////////////////////////////////////////
 int
 update_weather_forecast(Core::Config *config){

@@ -28,3 +28,4 @@
 */
 
 #include "core.h"
+#include  <clutter/clutter.h>

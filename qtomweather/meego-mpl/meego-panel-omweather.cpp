@@ -37,13 +37,15 @@ void init_omweather_core(void);
 Core::DataParser *current_data(std::string& str);
 int update_weather_forecast(Core::Config *config);
 static void make_window_content (MplPanelClutter *panel);
+ClutterTimeline *create_update_animation(ClutterActor *actor);
 
 /* Global section */
 Core::Config *config;
 Core::StationsList stationslist;
 MplPanelClient *panel = NULL;
 ClutterActor   *panel_container = NULL;
-
+bool updating = false;
+ClutterTimeline *refresh_timeline = NULL;
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -66,8 +68,9 @@ gboolean
 refresh_button_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
+    clutter_timeline_start(refresh_timeline);
     update_weather_forecast(config);
-    make_window_content((MplPanelClutter*)user_data);
+    //make_window_content((MplPanelClutter*)user_data);
 }
 //////////////////////////////////////////////////////////////////////////////
 gboolean
@@ -142,6 +145,8 @@ make_window_content (MplPanelClutter *panel)
   main_vertical_layout = clutter_box_layout_new ();
   if (panel_container)
       clutter_actor_destroy(panel_container);
+  if (refresh_timeline)
+       g_object_unref(refresh_timeline);
   panel_container =  clutter_box_new(main_vertical_layout);
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(main_vertical_layout), TRUE);
 
@@ -180,7 +185,7 @@ make_window_content (MplPanelClutter *panel)
   icon = clutter_texture_new_from_file(buffer, NULL);
   clutter_actor_set_size (icon, 48.0, 48.0);
   clutter_actor_set_reactive(icon, TRUE);
-  /* connect the press event on refresh button */
+  /* connect the press event on config button */
   g_signal_connect (icon, "button-press-event", G_CALLBACK (config_button_event_cb), NULL);
   clutter_box_pack((ClutterBox*)top_container, icon, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
 
@@ -188,10 +193,11 @@ make_window_content (MplPanelClutter *panel)
   snprintf(buffer, (4096 -1), "%s/buttons_icons/refresh.png",config->prefix_path().c_str());
   icon = clutter_texture_new_from_file(buffer, NULL);
   clutter_actor_set_size (icon, 48.0, 48.0);
-  clutter_actor_set_reactive(icon, TRUE);
 
+  clutter_actor_set_reactive(icon, TRUE);
+  refresh_timeline = create_update_animation(icon);
   /* connect the press event on refresh button */
-  g_signal_connect (icon, "button-press-event", G_CALLBACK (refresh_button_event_cb), NULL);
+  g_signal_connect (icon, "button-press-event", G_CALLBACK (refresh_button_event_cb), panel);
   clutter_box_pack((ClutterBox*)top_container, icon, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
 
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), top_container,

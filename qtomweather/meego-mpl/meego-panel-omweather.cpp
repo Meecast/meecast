@@ -197,7 +197,8 @@ make_window_content (MplPanelClutter *panel)
                           TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_CENTER);
 
   /* Change panel icon */
-  temp_data = dp->data().GetDataForTime(time(NULL));
+  if (dp)
+      temp_data = dp->data().GetDataForTime(time(NULL));
   if (temp_data ){
       snprintf(buffer, (4096 -1), "icon%i", temp_data->Icon());
       mpl_panel_client_request_button_style (MPL_PANEL_CLIENT(panel), buffer);
@@ -207,7 +208,10 @@ make_window_content (MplPanelClutter *panel)
   /* day buttons */
   period = 0;
   for (i = 0; i < 8; i++){
-      temp_data = dp->data().GetDataForTime(time(NULL) + period);
+      if (dp)
+          temp_data = dp->data().GetDataForTime(time(NULL) + period);
+      else
+          temp_data = NULL;
       period = period + 3600*24;
       box = make_day_actor(temp_data);
       clutter_box_pack((ClutterBox*)forecast_horizontal_container, box, NULL);

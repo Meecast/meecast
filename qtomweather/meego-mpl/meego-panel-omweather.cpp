@@ -46,6 +46,20 @@ ClutterActor   *panel_container = NULL;
 
 
 
+//////////////////////////////////////////////////////////////////////////////
+gboolean
+station_button_event_cb (ClutterActor *actor,
+                   ClutterEvent *event,
+                   gpointer      user_data){
+
+    if (config->current_station_id() + 1 < config->stationsList().size()) 
+       config->current_station_id(config->current_station_id() + 1);
+    else
+       config->current_station_id(0);
+
+    make_window_content((MplPanelClutter*)user_data);
+    mpl_panel_client_show((MplPanelClient*)user_data);
+}
 
 //////////////////////////////////////////////////////////////////////////////
 gboolean
@@ -146,7 +160,12 @@ make_window_content (MplPanelClutter *panel)
   pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 2);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   stationslist = config->stationsList();
-  clutter_text_set_text((ClutterText*)label, stationslist.station_by_id("BOXX0014")->name().c_str());
+  if (config->current_station_id() != INT_MAX &&  config->stationsList().at(config->current_station_id()))
+      clutter_text_set_text((ClutterText*)label, config->stationsList().at(config->current_station_id())->name().c_str());
+  else
+      clutter_text_set_text((ClutterText*)label, "Unknown");
+  clutter_actor_set_reactive(label, TRUE);
+  g_signal_connect (label, "button-press-event", G_CALLBACK (station_button_event_cb), panel);
   clutter_box_pack((ClutterBox*)top_container, label, NULL);
 
   /* null button */

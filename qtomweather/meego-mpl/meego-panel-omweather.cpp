@@ -70,7 +70,8 @@ refresh_button_event_cb (ClutterActor *actor,
                    gpointer      user_data){
     clutter_timeline_start(refresh_timeline);
     update_weather_forecast(config);
-    //make_window_content((MplPanelClutter*)user_data);
+    make_window_content((MplPanelClutter*)user_data);
+    clutter_timeline_stop(refresh_timeline);
 }
 //////////////////////////////////////////////////////////////////////////////
 gboolean

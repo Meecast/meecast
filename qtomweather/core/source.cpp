@@ -50,7 +50,7 @@ namespace Core {
                         _library->assign(el.text().toStdString());
                     }else if (tag == "binary"){
                         _binary->assign(el.text().toStdString());
-                    }else if (tag == "url_template"){
+                    }else if (tag == "forecast url"){
                         _url_template->assign(el.text().toStdString());
                     }
                     n = n.nextSibling();
@@ -202,7 +202,7 @@ namespace Core {
             return;
         }
         // url_template tag
-        if(nodeName == "url_template"){
+        if(nodeName == "forecast url"){
             xmlpp::Node::NodeList list = node->get_children();
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);

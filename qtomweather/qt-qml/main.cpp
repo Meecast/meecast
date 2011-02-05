@@ -23,32 +23,51 @@
 
 
 #include <QtDebug>
+
 #ifdef LOCALDEBUG
-    #define CONFIG_PATH "config.xml"
+    #define CONFIG_FILE "config.xml"
     #define CONFIG_XSD_PATH "../core/data/config.xsd"
+    #define DATA_XSD_PATH "../core/data/data.xsd"
 #else
-    #define CONFIG_PATH "~/.config/omweather/config.xml"
+//    #define CONFIG_PATH "~/.config/omweather/config.xml"
+    #define CONFIG_FILE "config.xml"
     #define CONFIG_XSD_PATH "/usr/share/omweather/xsd/config.xsd"
+    #define DATA_XSD_PATH "/usr/share/omweather/xsd/data.xsd"
 #endif
+
+
 //////////////////////////////////////////////////////////////////////////////
+
 
 ConfigQml *
 create_and_fill_config(){
     ConfigQml *config;
-    std::cerr<<"Create ConfigQML class: " <<std::endl;
+
+    /* create path for config file */
+    char filepath[4096];
+    struct passwd *pw = getpwuid(getuid());
+    const char *homedir = pw->pw_dir;
+    snprintf(filepath, (4096-1), "%s/.config", homedir);
+    mkdir(filepath, 0755);
+    snprintf(filepath, (4096-1), "%s/.config/omweather", homedir);
+    mkdir(filepath, 0755);
+    snprintf(filepath, (4096-1), "%s/.config/omweather/%s", homedir, CONFIG_FILE);
+
+    std::cerr<<"Create Config class: " <<std::endl;
     try{
-        config = new ConfigQml(CONFIG_PATH, CONFIG_XSD_PATH);
+        config = new ConfigQml(filepath, CONFIG_XSD_PATH);
     }
     catch(const std::string &str){
-        std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
+        std::cerr<<"Error in Config class: "<< str <<std::endl;
         config = new ConfigQml();
     }
     catch(const char *str){
-        std::cerr<<"Error in ConfigQML class: "<< str <<std::endl;
+        std::cerr<<"Error in Config class: "<< str <<std::endl;
         config = new ConfigQml();
     }
-    std::cerr<<"End of creating ConfigQML class: " <<std::endl;
-    config->saveConfig("newconfig.xml");
+    std::cerr<<"End of creating Config class: " <<std::endl;
+    config->saveConfig();
+
     return config;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -98,7 +117,7 @@ int main(int argc, char* argv[])
 
     //Core::DataList data_list;
     //QmlLayoutItem* qml_layout_item;
-    Core::DataParser* dp;
+    Core::DataParser* dp = NULL;
     Core::Data *temp_data = NULL;
     int i;
 
@@ -111,7 +130,8 @@ int main(int argc, char* argv[])
     update_weather_forecast(StationsList);
 
     try{
-        dp = new Core::DataParser("data.xml", "../core/data/data.xsd");
+       if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id()))
+           dp = new Core::DataParser(config->stationsList().at(config->current_station_id())->fileName(), DATA_XSD_PATH);
     }
     catch(const std::string &str){
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;

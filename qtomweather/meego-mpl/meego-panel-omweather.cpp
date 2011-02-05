@@ -33,11 +33,13 @@
 #include <meego-panel/mpl-panel-common.h>
 #include <mx/mx.h>
 
+#define PANEL_HEIGHT 150
 void init_omweather_core(void);
 Core::DataParser *current_data(std::string& str);
 int update_weather_forecast(Core::Config *config);
 static void make_window_content (MplPanelClutter *panel);
 ClutterTimeline *create_update_animation(ClutterActor *actor);
+void make_bottom_content(Core::Data *temp_data); 
 
 /* Global section */
 Core::Config *config;
@@ -46,8 +48,25 @@ MplPanelClient *panel = NULL;
 ClutterActor   *panel_container = NULL;
 bool updating = false;
 ClutterTimeline *refresh_timeline = NULL;
+ClutterLayoutManager *main_vertical_layout = NULL;
 
+//////////////////////////////////////////////////////////////////////////////
+gboolean
+detail_event_cb (ClutterActor *actor,
+                   ClutterEvent *event,
+                   gpointer      user_data){
 
+    mpl_panel_client_set_height_request (panel, PANEL_HEIGHT + 200);
+    make_bottom_content((Core::Data*)user_data);
+}
+//////////////////////////////////////////////////////////////////////////////
+gboolean
+remove_detail_event_cb (ClutterActor *actor,
+                   ClutterEvent *event,
+                   gpointer      user_data){
+  clutter_actor_destroy(actor);
+  mpl_panel_client_set_height_request (panel, PANEL_HEIGHT);
+}
 //////////////////////////////////////////////////////////////////////////////
 gboolean
 station_button_event_cb (ClutterActor *actor,
@@ -118,8 +137,48 @@ make_day_actor(Core::Data *temp_data){
     box =  clutter_box_new(layout);
     clutter_box_pack((ClutterBox*)box, icon, NULL);
     clutter_box_pack((ClutterBox*)box, label, NULL);
+    clutter_actor_set_reactive(box, TRUE);
+    /* connect the press event on refresh button */
+    g_signal_connect (box, "button-press-event", G_CALLBACK (detail_event_cb),temp_data );
 
     return box;
+}
+//////////////////////////////////////////////////////////////////////////////
+void
+make_bottom_content(Core::Data *temp_data) {
+  
+  ClutterActor     *bottom_container;
+  ClutterLayoutManager *bottom_layout;
+  ClutterActor     *icon;
+  ClutterLayoutManager *layout;
+  ClutterActor     *box;
+  char             buffer[4096];
+
+  /* bottom layout */
+  bottom_layout = clutter_box_layout_new(); 
+  bottom_container = clutter_box_new(bottom_layout);
+    if (temp_data)
+          snprintf(buffer, (4096 -1), "%s/icons/%s/%i.png",config->prefix_path().c_str(), config->iconSet().c_str(), temp_data->Icon());
+    else
+          snprintf(buffer, (4096 -1), "%s/icons/%s/na.png",config->prefix_path().c_str(), config->iconSet().c_str());  
+
+  icon = clutter_texture_new_from_file(buffer, NULL);
+  clutter_actor_set_size (icon, 128.0, 128.0);
+  layout = clutter_box_layout_new ();
+  box =  clutter_box_new(layout);
+  clutter_box_pack((ClutterBox*)box, icon, NULL);
+
+  clutter_box_pack((ClutterBox*)bottom_container, box, NULL);
+
+  clutter_actor_set_reactive(bottom_container, TRUE);
+/* connect the press event on refresh button */
+  g_signal_connect (bottom_container, "button-press-event", G_CALLBACK (remove_detail_event_cb), panel);
+
+
+  clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), bottom_container,
+                          TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_CENTER);
+
+
 }
 //////////////////////////////////////////////////////////////////////////////
 static void
@@ -128,7 +187,6 @@ make_window_content (MplPanelClutter *panel)
   ClutterActor     *stage = mpl_panel_clutter_get_stage (panel);
   ClutterLayoutManager *forecast_layout;
   ClutterLayoutManager *top_layout;
-  ClutterLayoutManager *main_vertical_layout;
   ClutterActor     *forecast_horizontal_container;
   ClutterActor     *top_container;
   ClutterActor     *box;
@@ -161,6 +219,7 @@ make_window_content (MplPanelClutter *panel)
   top_container = clutter_box_new(top_layout);
   clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (top_layout), 12);
 
+  
   /* station name */
   label = clutter_text_new();
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
@@ -222,7 +281,7 @@ make_window_content (MplPanelClutter *panel)
           temp_data = NULL;
       period = period + 3600*24;
       box = make_day_actor(temp_data);
-      clutter_box_pack((ClutterBox*)forecast_horizontal_container, box, NULL);
+        clutter_box_pack((ClutterBox*)forecast_horizontal_container, box, NULL);
   }
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), forecast_horizontal_container, 
                           FALSE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_START);
@@ -262,7 +321,7 @@ main (int argc, char *argv[])
                                  "/usr/share/meego-panel-omweather/theme/omweather-panel.css", /*stylesheet */
                                  buffer,                /* button style */
                                  TRUE);
-  mpl_panel_client_set_height_request (panel, 150);
+  mpl_panel_client_set_height_request (panel, PANEL_HEIGHT);
   mpl_panel_client_request_button_style (MPL_PANEL_CLIENT(panel), buffer);
 
   //update_weather_forecast(config);

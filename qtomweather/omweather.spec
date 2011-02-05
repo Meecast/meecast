@@ -60,6 +60,7 @@ ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/t
 %{_libdir}
 %{_libexecdir}/meego-panel-omweather
 /usr/share/meego-panel-omweather
+/usr/share/dbus-1/services
 /usr/share/omweather
 /usr/share/mutter-meego/panels/meego-panel-omweather.desktop
 /etc/xdg

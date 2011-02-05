@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=com.meego.UX.Shell.Panels.omweather
+Exec=/usr/libexec/meego-panel-omweather

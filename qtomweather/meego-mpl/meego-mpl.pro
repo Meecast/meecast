@@ -38,4 +38,6 @@ autostart.files = data/meego-panel-omweather.desktop
 autostart.path = /etc/xdg
 css.files = data/omweather-panel.css
 css.path = /usr/share/meego-panel-omweather/theme
-INSTALLS += target desktop autostart css
+service.files = data/com.meego.UX.Shell.Panels.omweather.service
+service.path = /usr/share/dbus-1/services
+INSTALLS += target desktop autostart css service

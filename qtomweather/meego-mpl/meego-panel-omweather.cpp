@@ -46,6 +46,7 @@ Core::Config *config;
 Core::StationsList stationslist;
 MplPanelClient *panel = NULL;
 ClutterActor   *panel_container = NULL;
+ClutterActor   *bottom_container = NULL;
 bool updating = false;
 ClutterTimeline *refresh_timeline = NULL;
 ClutterLayoutManager *main_vertical_layout = NULL;
@@ -79,7 +80,8 @@ station_button_event_cb (ClutterActor *actor,
        config->current_station_id(0);
 
     make_window_content((MplPanelClutter*)user_data);
-    mpl_panel_client_show((MplPanelClient*)user_data);
+    mpl_panel_client_set_height_request (panel, PANEL_HEIGHT);
+//    mpl_panel_client_show((MplPanelClient*)user_data);
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -147,13 +149,17 @@ make_day_actor(Core::Data *temp_data){
 void
 make_bottom_content(Core::Data *temp_data) {
   
-  ClutterActor     *bottom_container;
   ClutterLayoutManager *bottom_layout;
   ClutterActor     *icon;
   ClutterLayoutManager *layout;
   ClutterActor     *box;
   char             buffer[4096];
 
+  if (mpl_panel_client_get_height_request (panel) > PANEL_HEIGHT){
+      if (bottom_container)
+          clutter_actor_destroy(bottom_container);
+  }
+  
   /* bottom layout */
   bottom_layout = clutter_box_layout_new(); 
   bottom_container = clutter_box_new(bottom_layout);
@@ -171,9 +177,8 @@ make_bottom_content(Core::Data *temp_data) {
   clutter_box_pack((ClutterBox*)bottom_container, box, NULL);
 
   clutter_actor_set_reactive(bottom_container, TRUE);
-/* connect the press event on refresh button */
+  /* connect the press event on refresh button */
   g_signal_connect (bottom_container, "button-press-event", G_CALLBACK (remove_detail_event_cb), panel);
-
 
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), bottom_container,
                           TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_CENTER);

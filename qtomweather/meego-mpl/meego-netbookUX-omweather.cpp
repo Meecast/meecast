@@ -44,7 +44,7 @@
 #endif
 
 Core::Config *
-create_and_fill_config(){
+create_and_fill_config(void){
     Core::Config *config;
 
     /* create path for config file */

@@ -33,6 +33,10 @@
 #include <meego-panel/mpl-panel-common.h>
 #include <mx/mx.h>
 
+#include <dbus/dbus.h>
+#include <dbus/dbus-glib.h>
+
+
 #define PANEL_HEIGHT 150
 void init_omweather_core(void);
 Core::DataParser *current_data(std::string& str);
@@ -40,6 +44,7 @@ int update_weather_forecast(Core::Config *config);
 static void make_window_content (MplPanelClutter *panel);
 ClutterTimeline *create_update_animation(ClutterActor *actor);
 void make_bottom_content(Core::Data *temp_data); 
+Core::Config *create_and_fill_config(void);
 
 /* Global section */
 Core::Config *config;
@@ -50,6 +55,10 @@ ClutterActor   *bottom_container = NULL;
 bool updating = false;
 ClutterTimeline *refresh_timeline = NULL;
 ClutterLayoutManager *main_vertical_layout = NULL;
+DBusConnection       *dbus_conn;
+DBusConnection       *dbus_conn_session;
+
+
 
 //////////////////////////////////////////////////////////////////////////////
 gboolean
@@ -294,6 +303,36 @@ make_window_content (MplPanelClutter *panel)
   mpl_panel_clutter_set_child (panel, panel_container);
 }
 
+DBusHandlerResult
+get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
+    if (dbus_message_is_signal(msg, "org.maemo.omweather", "reload_config")){
+        fprintf(stderr, "\n!!!!!!Can not read config file.\n");
+        delete config;
+        config = create_and_fill_config();
+        make_window_content(MPL_PANEL_CLUTTER (panel));
+    }
+    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+}
+void
+dbus_init(void){
+  DBusError   error;
+
+  dbus_error_init (&error);
+  dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
+  dbus_conn_session = dbus_bus_get(DBUS_BUS_SESSION, NULL);
+  if (dbus_conn_session){
+      dbus_bus_add_match(dbus_conn_session, "type='signal', interface='org.maemo.omweather'", &error);
+      if (dbus_error_is_set(&error)){
+           fprintf(stderr,"dbus_bus_add_match failed: %s", error.message);
+           dbus_error_free(&error);
+      }
+      /* add the callback */
+      dbus_connection_add_filter(dbus_conn_session,
+                                 get_omweather_signal_cb,
+                                 NULL, NULL);
+  }
+
+}
 int
 main (int argc, char *argv[])
 {
@@ -333,7 +372,7 @@ main (int argc, char *argv[])
   make_window_content (MPL_PANEL_CLUTTER (panel));
   file = fopen("/tmp/1.log","wb");
   fclose(file);
-
+  dbus_init();
   clutter_main ();
 
   return 0;

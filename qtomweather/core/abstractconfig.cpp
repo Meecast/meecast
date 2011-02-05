@@ -28,9 +28,9 @@ namespace Core {
         std::string path(pw->pw_dir);
         path += "/.config";
         /* TODO check directory exist */
-        mkdir(filepath, 0755);
+        mkdir(path.c_str(), 0755);
         path += "/omweather/";
-        mkdir(filepath, 0755);
+        mkdir(path.c_str(), 0755);
         return path;
 #endif
     }

@@ -40,8 +40,6 @@ namespace Core {
                         _name->assign(el.text().toStdString());
                     }else if (tag == "logo"){
                         _logo->assign(el.text().toStdString());
-                    }else if (tag == "forecast"){
-                        _hasForecast = (el.text() == "true") ? true : false;
                     }else if (tag == "detail"){
                         _hasDetail = (el.text() == "true") ? true : false;
                     }else if (tag == "search"){
@@ -50,8 +48,11 @@ namespace Core {
                         _library->assign(el.text().toStdString());
                     }else if (tag == "binary"){
                         _binary->assign(el.text().toStdString());
-                    }else if (tag == "forecast url"){
-                        _url_template->assign(el.text().toStdString());
+                    }else if (tag == "forecast"){
+                        if (el.hasAttribute("url"))
+                            _url_template->assign(el.attribute("url").toStdString());
+
+                        //_url_template->assign(el.text().toStdString());
                     }
                     n = n.nextSibling();
                 }
@@ -202,11 +203,13 @@ namespace Core {
             return;
         }
         // url_template tag
-        if(nodeName == "forecast url"){
-            xmlpp::Node::NodeList list = node->get_children();
-            xmlpp::Node::NodeList::iterator iter = list.begin();
-            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
-            _url_template->assign(nodeText->get_content());
+        if(nodeName == "forecast"){
+
+            const xmlpp::Element* nodeElement = dynamic_cast<const xmlpp::Element*>(node);
+            const xmlpp::Attribute* attribute = nodeElement->get_attribute("url");
+            if (attribute)
+                _url_template->assign(attribute->get_value().c_str());
+
             return;
         }
     }

@@ -2,9 +2,9 @@
 <source xmlns="http://omweather.garage.maemo.org/schemas">
 <name>gismeteo.ru</name>
 <logo>gismeteo.ru.png</logo>
-<forecast>true</forecast>
+<base>gismeteo.ru.db</base>
+<forecast url="http://www.gismeteo.by/city/weekly/%s/" ></forecast>
 <detail>true</detail>
 <search>true</search>
 <binary>libomweather-gismeteo-ru-source.so</binary>
-<url_template>http://www.gismeteo.by/city/weekly/%s/</url_template>
 </source>

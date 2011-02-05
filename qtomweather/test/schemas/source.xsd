@@ -5,23 +5,26 @@
       <xs:sequence>
         <xs:element ref="schemas:name"/>
         <xs:element ref="schemas:logo"/>
-        <xs:element ref="schemas:forecast"/>
+        <xs:element ref="schemas:base"/>
+        <xs:element name="forecast">
+            <xs:complexType>
+                <xs:attribute name="url" use="required" type="xs:string"/>
+            </xs:complexType>
+        </xs:element>
         <xs:element ref="schemas:detail"/>
         <xs:element ref="schemas:search"/>
         <xs:choice>
             <xs:element ref="schemas:library"/>
             <xs:element ref="schemas:binary"/>
         </xs:choice>
-        <xs:element ref="schemas:url_template"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="name" type="xs:string"/>
   <xs:element name="logo" type="xs:string"/>
-  <xs:element name="forecast" type="xs:boolean"/>
+  <xs:element name="base" type="xs:string"/>
   <xs:element name="detail" type="xs:boolean"/>
   <xs:element name="search" type="xs:boolean"/>
   <xs:element name="library" type="xs:string"/>
   <xs:element name="binary" type="xs:string"/>
-  <xs:element name="url_template" type="xs:string"/>
 </xs:schema>

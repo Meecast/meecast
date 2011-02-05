@@ -126,8 +126,10 @@ create_update_animation(ClutterActor *actor)
   return timeline;
 }
 //////////////////////////////////////////////////////////////////////////////
-int
-update_weather_forecast(Core::Config *config){
+/*
+static void*
+//update_weather_forecast(Core::Config *config){
+update_weather_forecast(void* data){
     int i;
     int success = 0;
     Core::Station* station;
@@ -136,5 +138,5 @@ update_weather_forecast(Core::Config *config){
         if (station->updateData(true))
             success ++;
     }
-    return success;
-}
+    //return success;
+}*/

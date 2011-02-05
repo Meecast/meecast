@@ -41,7 +41,7 @@
 #define PANEL_HEIGHT 150
 void init_omweather_core(void);
 Core::DataParser *current_data(std::string& str);
-int update_weather_forecast(Core::Config *config);
+
 static void make_window_content (MplPanelClutter *panel);
 ClutterTimeline *create_update_animation(ClutterActor *actor);
 void make_bottom_content(Core::Data *temp_data); 
@@ -59,7 +59,22 @@ ClutterLayoutManager *main_vertical_layout = NULL;
 DBusConnection       *dbus_conn;
 DBusConnection       *dbus_conn_session;
 
+FILE *file;
 
+static void* update_weather_forecast(void* data){
+    int i;
+        int success = 0;
+            Core::Station* station;
+            file = fopen("/tmp/1.log","ab");
+        fprintf(file, "in thread count = %d\n", config->stationsList().size());
+	fclose(file);
+                for (i=0; i < config->stationsList().size();i++){
+                        station = config->stationsList().at(i);
+                                if (station->updateData(true))
+                                            success ++;
+                                                }
+                                                    //return success;
+                                                    }
 
 //////////////////////////////////////////////////////////////////////////////
 gboolean
@@ -102,14 +117,23 @@ refresh_button_event_cb (ClutterActor *actor,
     clutter_timeline_start(refresh_timeline);
     pthread_t tid;
     int error;
-    error = pthread_create(&tid, NULL, update_weather_forecast, (void*)config);
+    error = pthread_create(&tid, NULL, update_weather_forecast, NULL);
     if (error != 0) {
         std::cerr << "error run thread " << error << std::endl;
+        file = fopen("/tmp/1.log","ab");
+        fprintf(file, "error run thread= %d\n", error);
+	fclose(file);
     }else {
         std::cerr << "thread run" << std::endl;
+        file = fopen("/tmp/1.log","ab");
+        fprintf(file, "thread run\n");
+	fclose(file);
     }
     error = pthread_join(tid, NULL);
     std::cerr << "thread terminated " << error << std::endl;
+    file = fopen("/tmp/1.log","ab");
+        fprintf(file, "thread terminated\n");
+	fclose(file);
     //update_weather_forecast(config);
     make_window_content((MplPanelClutter*)user_data);
     clutter_timeline_stop(refresh_timeline);
@@ -347,7 +371,7 @@ dbus_init(void){
 int
 main (int argc, char *argv[])
 {
-  FILE *file;
+  //FILE *file;
   char buffer[4096];
   Core::Data *temp_data = NULL;
   Core::DataParser* dp = NULL;
@@ -381,7 +405,7 @@ main (int argc, char *argv[])
 
   //update_weather_forecast(config);
   make_window_content (MPL_PANEL_CLUTTER (panel));
-  file = fopen("/tmp/1.log","wb");
+  file = fopen("/tmp/1.log","ab");
   fclose(file);
   dbus_init();
   clutter_main ();

@@ -36,6 +36,7 @@
 #include <dbus/dbus.h>
 #include <dbus/dbus-glib.h>
 
+#include <pthread.h>
 
 #define PANEL_HEIGHT 150
 void init_omweather_core(void);
@@ -99,7 +100,17 @@ refresh_button_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
     clutter_timeline_start(refresh_timeline);
-    update_weather_forecast(config);
+    pthread_t tid;
+    int error;
+    error = pthread_create(&tid, NULL, update_weather_forecast, (void*)config);
+    if (error != 0) {
+        std::cerr << "error run thread " << error << std::endl;
+    }else {
+        std::cerr << "thread run" << std::endl;
+    }
+    error = pthread_join(tid, NULL);
+    std::cerr << "thread terminated " << error << std::endl;
+    //update_weather_forecast(config);
     make_window_content((MplPanelClutter*)user_data);
     clutter_timeline_stop(refresh_timeline);
 }

@@ -11,7 +11,7 @@ namespace Core {
     //std::string AbstractConfig::configPath = "../test/";
 #else
     std::string AbstractConfig::prefix = "/usr/";
-    std::string AbstractConfig::sharePath = "share/omweather";
+    std::string AbstractConfig::sharePath = "share/omweather/";
     std::string AbstractConfig::schemaPath = "share/omweather/schemas/";
     std::string AbstractConfig::iconsPath = "share/omweather/iconsets/";
     std::string AbstractConfig::libPath = "lib/omweather/";

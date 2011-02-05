@@ -84,9 +84,9 @@ DatabaseSqlite::create_countries_list()
         sqlite3_free(errMsg);
         return NULL;
     }
-    for (int i=0; i<ncol*nrow; i=i+2)
+    for (int i=0; i<ncol*nrow; i=i+2){
         list->push_back(std::make_pair(result[ncol+i], result[ncol+i+1]));
-
+    }
     sqlite3_free_table(result);
 
 #ifdef DEBUGFUNCTIONCALL

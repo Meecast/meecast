@@ -11,9 +11,9 @@ Setting::Setting(QWidget *parent) :
     //QString path = QString::fromStdString(Core::AbstractConfig::prefix);
     std::string path(Core::AbstractConfig::prefix);
     path += Core::AbstractConfig::sourcesPath;
-
+    
     sourcelist = new Core::SourceList(path);
-
+    
     ui->setupUi(this);
     for (int i=0; i<sourcelist->size(); i++){
         ui->sourceCombo->addItem(QString::fromStdString(sourcelist->at(i)->name()), i);
@@ -24,8 +24,12 @@ Setting::Setting(QWidget *parent) :
 void
 Setting::sourceChanged(int val)
 {
+    std::string path(Core::AbstractConfig::prefix);
+    path += Core::AbstractConfig::sharePath;
+    path += "db/";
     QString filename = ui->sourceCombo->currentText();
     filename.append(".db");
+    filename.prepend(path.c_str());
     if (!this->db) {
         this->db->set_databasename(filename.toStdString());
     }else {
@@ -39,6 +43,8 @@ Setting::sourceChanged(int val)
     Core::listdata::iterator cur;
     this->ui->countryCombo->clear();
     this->ui->countryCombo->addItem("", "0");
+    if (!list)
+        return;
     for (cur=list->begin(); cur<list->end(); cur++)
         ui->countryCombo->addItem(
                 QString::fromStdString((*cur).second),

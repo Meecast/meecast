@@ -68,13 +68,14 @@ static void* update_weather_forecast(void* data){
             file = fopen("/tmp/1.log","ab");
         fprintf(file, "in thread count = %d\n", config->stationsList().size());
 	fclose(file);
+	//sleep(5);
                 for (i=0; i < config->stationsList().size();i++){
                         station = config->stationsList().at(i);
                                 if (station->updateData(true))
                                             success ++;
                                                 }
                                                     //return success;
-                                                    }
+                                                	}
 
 //////////////////////////////////////////////////////////////////////////////
 gboolean

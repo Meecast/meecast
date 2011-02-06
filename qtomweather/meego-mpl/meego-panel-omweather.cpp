@@ -196,9 +196,12 @@ make_bottom_content(Core::Data *temp_data) {
   
   ClutterLayoutManager *bottom_layout;
   ClutterActor     *icon;
+  ClutterActor     *label;
   ClutterLayoutManager *layout;
   ClutterActor     *box;
+  std::string      day_name;
   char             buffer[4096];
+  PangoFontDescription *pfd = NULL;
 
   if (mpl_panel_client_get_height_request (panel) > PANEL_HEIGHT){
       if (bottom_container)
@@ -208,6 +211,7 @@ make_bottom_content(Core::Data *temp_data) {
   /* bottom layout */
   bottom_layout = clutter_box_layout_new(); 
   bottom_container = clutter_box_new(bottom_layout);
+  /* icon */
   if (temp_data)
       snprintf(buffer, (4096 -1), "%s/icons/%s/%i.png",config->prefix_path().c_str(),
                                   config->iconSet().c_str(), temp_data->Icon());
@@ -220,7 +224,15 @@ make_bottom_content(Core::Data *temp_data) {
   layout = clutter_box_layout_new ();
   box =  clutter_box_new(layout);
   clutter_box_pack((ClutterBox*)box, icon, NULL);
-
+  /* Day name */
+  label = clutter_text_new();
+  pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 2);
+  clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
+  day_name = temp_data->FullDayName() + " " + temp_data->DayOfMonthName() +", " + temp_data->FullMonthName(); 
+  
+  clutter_text_set_text((ClutterText*)label, day_name.c_str());
+  clutter_box_pack((ClutterBox*)box, label, NULL);
   clutter_box_pack((ClutterBox*)bottom_container, box, NULL);
 
   /* connect the press event on refresh button */

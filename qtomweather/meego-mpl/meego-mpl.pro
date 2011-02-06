@@ -9,6 +9,10 @@ TARGET = meego-panel-omweather
 TEMPLATE = app
 
 
+TEXTDOMAIN = "omweather"
+CATALOUGE  = omweather.por
+
+
 HEADERS += meego-netbookUX-omweather.h \
            meego-netbookUX-common.h
 
@@ -23,12 +27,13 @@ OTHER_FILES += \
 
 INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core
-CONFIG = link_pkgconfig -qt 
+CONFIG = link_pkgconfig -qt
 PKGCONFIG += dbus-glib-1 \
              mx-1.0 \
              mutter-plugins \
              meego-panel \
              QtCore
+
 
 #install
 target.path = /usr/libexec

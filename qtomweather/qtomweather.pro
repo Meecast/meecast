@@ -8,3 +8,5 @@ SUBDIRS += core qtsetting
 system(pkg-config --exists meego-panel) {
  SUBDIRS += meego-mpl
 } 
+
+

@@ -341,8 +341,7 @@ make_window_content (MplPanelClutter *panel)
 
 DBusHandlerResult
 get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
-    if (dbus_message_is_signal(msg, "org.maemo.omweather", "reload_config")){
-        fprintf(stderr, "\n!!!!!!Can not read config file.\n");
+    if (dbus_message_is_signal(msg, "org.meego.omweather", "reload_config")){
         delete config;
         config = create_and_fill_config();
         make_window_content(MPL_PANEL_CLUTTER (panel));
@@ -357,7 +356,7 @@ dbus_init(void){
   dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
   dbus_conn_session = dbus_bus_get(DBUS_BUS_SESSION, NULL);
   if (dbus_conn_session){
-      dbus_bus_add_match(dbus_conn_session, "type='signal', interface='org.maemo.omweather'", &error);
+      dbus_bus_add_match(dbus_conn_session, "type='signal', interface='org.meego.omweather'", &error);
       if (dbus_error_is_set(&error)){
            fprintf(stderr,"dbus_bus_add_match failed: %s", error.message);
            dbus_error_free(&error);

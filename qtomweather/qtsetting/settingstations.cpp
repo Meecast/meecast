@@ -1,5 +1,6 @@
 #include "settingstations.h"
 #include "ui_settingstations.h"
+#include <QtDBus>
 
 SettingStations::SettingStations(QWidget *parent) :
     QDialog(parent),
@@ -86,4 +87,8 @@ SettingStations::okClicked()
     _config->stationsList(*_stationlist);
     _config->TemperatureUnit(ui->temperatureCombo->currentText().toStdString());
     _config->saveConfig();
+    QDBusConnection bus = QDBusConnection::sessionBus();
+    QDBusMessage message = QDBusMessage::createSignal("/org/meego/omweather",
+                               "org.meego.omweather", "reload_config");
+    bus.send(message);
 }

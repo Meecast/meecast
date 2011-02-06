@@ -47,6 +47,7 @@
 #include <pthread.h>
 
 #define PANEL_HEIGHT 150
+void finish_update(void);
 void init_omweather_core(void);
 Core::DataParser *current_data(std::string& str);
 
@@ -83,7 +84,19 @@ static void* update_weather_forecast(void* data){
                                             success ++;
                                                 }
                                                     //return success;
-                                                	}
+    	pthread_once_t once_control = PTHREAD_ONCE_INIT;
+    int status = pthread_once(&once_control, finish_update);
+    file = fopen("/tmp/1.log", "ab");
+	fprintf(file, "after pthread once status = %d\n", status);
+	fclose(file);
+
+    if (status < 0){
+	file = fopen("/tmp/1.log", "ab");
+	fprintf(file, "pthread once failed %d\n", status);
+	fclose(file);
+    }
+    pthread_exit((void *)0);
+}
 
 //////////////////////////////////////////////////////////////////////////////
 gboolean
@@ -124,9 +137,13 @@ refresh_button_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
     clutter_timeline_start(refresh_timeline);
+    
     pthread_t tid;
+    pthread_attr_t attr;
     int error;
-    error = pthread_create(&tid, NULL, update_weather_forecast, NULL);
+    pthread_attr_init(&attr);
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+    error = pthread_create(&tid, &attr, update_weather_forecast, NULL);
     if (error != 0) {
         std::cerr << "error run thread " << error << std::endl;
         file = fopen("/tmp/1.log","ab");
@@ -138,13 +155,21 @@ refresh_button_event_cb (ClutterActor *actor,
         fprintf(file, "thread run\n");
 	fclose(file);
     }
-    error = pthread_join(tid, NULL);
+    //error = pthread_join(tid, NULL);
     std::cerr << "thread terminated " << error << std::endl;
     file = fopen("/tmp/1.log","ab");
         fprintf(file, "thread terminated\n");
 	fclose(file);
     //update_weather_forecast(config);
-    make_window_content((MplPanelClutter*)user_data);
+    //make_window_content((MplPanelClutter*)user_data);
+    //clutter_timeline_stop(refresh_timeline);
+    
+}
+void finish_update(void)
+{
+    file = fopen("/tmp/1.log", "ab");
+    fprintf(file, "in finish update\n");
+    fclose(file);
     clutter_timeline_stop(refresh_timeline);
 }
 //////////////////////////////////////////////////////////////////////////////

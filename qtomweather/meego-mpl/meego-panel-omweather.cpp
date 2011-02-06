@@ -198,6 +198,8 @@ make_bottom_content(Core::Data *temp_data) {
   ClutterActor     *icon;
   ClutterActor     *label;
   ClutterLayoutManager *layout;
+  ClutterActor     *vertical_container;
+  ClutterLayoutManager *vertical_layout = NULL;
   ClutterActor     *box;
   std::string      day_name;
   char             buffer[4096];
@@ -224,6 +226,11 @@ make_bottom_content(Core::Data *temp_data) {
   layout = clutter_box_layout_new ();
   box =  clutter_box_new(layout);
   clutter_box_pack((ClutterBox*)box, icon, NULL);
+  
+  /* vertical container */
+  vertical_layout = clutter_box_layout_new ();
+  vertical_container =  clutter_box_new(vertical_layout);
+  clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(main_vertical_layout), TRUE);
   /* Day name */
   label = clutter_text_new();
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
@@ -232,8 +239,9 @@ make_bottom_content(Core::Data *temp_data) {
   day_name = temp_data->FullDayName() + " " + temp_data->DayOfMonthName() +", " + temp_data->FullMonthName(); 
   
   clutter_text_set_text((ClutterText*)label, day_name.c_str());
-  clutter_box_pack((ClutterBox*)box, label, NULL);
+  clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
   clutter_box_pack((ClutterBox*)bottom_container, box, NULL);
+  clutter_box_pack((ClutterBox*)bottom_container, vertical_container, NULL);
 
   /* connect the press event on refresh button */
   g_signal_connect (bottom_container, "button-press-event", G_CALLBACK (remove_detail_event_cb), panel);

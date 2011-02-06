@@ -11,6 +11,10 @@ Description:  Weather Forecast on Nokia N900. Ultra-customisable weather widget 
 
 PkgConfigBR:
  - QtCore >= 4.7.0
+
+PkgBR:
+ - gettext
+
 Configure: none
 Builder: none
 Files:

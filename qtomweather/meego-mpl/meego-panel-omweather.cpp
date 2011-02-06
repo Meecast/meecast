@@ -36,6 +36,14 @@
 #include <dbus/dbus.h>
 #include <dbus/dbus-glib.h>
 
+#include <libintl.h>
+#include <locale.h>
+
+/*#define _(String) dgettext (GETTEXT_PACKAGE, String)*/
+#define GETTEXT_PACKAGE "omweather"
+#include <glib/gi18n-lib.h>
+
+
 #include <pthread.h>
 
 #define PANEL_HEIGHT 150
@@ -240,6 +248,10 @@ make_bottom_content(Core::Data *temp_data) {
   
   clutter_text_set_text((ClutterText*)label, day_name.c_str());
   clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+  label = clutter_text_new();
+  clutter_text_set_text((ClutterText*)label, _("Sunrise: "));
+  clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+
   clutter_box_pack((ClutterBox*)bottom_container, box, NULL);
   clutter_box_pack((ClutterBox*)bottom_container, vertical_container, NULL);
 

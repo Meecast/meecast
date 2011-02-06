@@ -208,22 +208,24 @@ make_bottom_content(Core::Data *temp_data) {
   /* bottom layout */
   bottom_layout = clutter_box_layout_new(); 
   bottom_container = clutter_box_new(bottom_layout);
-    if (temp_data)
-          snprintf(buffer, (4096 -1), "%s/icons/%s/%i.png",config->prefix_path().c_str(), config->iconSet().c_str(), temp_data->Icon());
-    else
-          snprintf(buffer, (4096 -1), "%s/icons/%s/na.png",config->prefix_path().c_str(), config->iconSet().c_str());  
+  if (temp_data)
+      snprintf(buffer, (4096 -1), "%s/icons/%s/%i.png",config->prefix_path().c_str(),
+                                  config->iconSet().c_str(), temp_data->Icon());
+  else
+      snprintf(buffer, (4096 -1), "%s/icons/%s/na.png",config->prefix_path().c_str(), 
+                                  config->iconSet().c_str());  
 
   icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_actor_set_size (icon, 128.0, 128.0);
+  clutter_actor_set_size (icon, 256.0, 256.0);
   layout = clutter_box_layout_new ();
   box =  clutter_box_new(layout);
   clutter_box_pack((ClutterBox*)box, icon, NULL);
 
   clutter_box_pack((ClutterBox*)bottom_container, box, NULL);
 
-  clutter_actor_set_reactive(bottom_container, TRUE);
   /* connect the press event on refresh button */
   g_signal_connect (bottom_container, "button-press-event", G_CALLBACK (remove_detail_event_cb), panel);
+  clutter_actor_set_reactive(bottom_container, TRUE);
 
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), bottom_container,
                           TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_CENTER);

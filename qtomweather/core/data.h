@@ -19,6 +19,9 @@ namespace Core{
         int _pressure;
         std::string *_text;
         std::string *_short_day_name;
+        std::string *_full_day_name;
+        std::string *_full_month_name;
+        std::string *_day_of_month_name;
         int _icon;
         Temperature *_temperature_hi;
         Temperature *_temperature_low;
@@ -48,6 +51,9 @@ namespace Core{
             void  Text(const std::string& text);
             std::string& Text(void);
             std::string& ShortDayName(void);
+            std::string& FullDayName(void);
+            std::string& FullMonthName(void);
+            std::string& DayOfMonthName(void);
             time_t GetTimeDistance(time_t need_time); /* Checking for  occurrence of this time (need_time) to Data interval and return the interval if  this time are include */
             virtual ~Data();
             Temperature& temperature_hi();

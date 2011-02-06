@@ -14,6 +14,9 @@ namespace Core {
         _windDirection = new std::string("N/A");
         _text = new std::string("N/A");
         _short_day_name = new std::string();
+        _full_day_name = new std::string();
+        _full_month_name = new std::string();
+        _day_of_month_name = new std::string();
         _temperature_hi = new Temperature;
         _temperature_low = new Temperature;
         _current = 0;
@@ -44,6 +47,9 @@ namespace Core {
         _flike = data->_flike;
         _ppcp = data->_ppcp;
         _short_day_name = data->_short_day_name;
+        _full_day_name = data->_full_day_name;
+        _full_month_name = data->_full_month_name; 
+        _day_of_month_name = data->_day_of_month_name;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
@@ -54,9 +60,18 @@ namespace Core {
         _start_time = start_time;
 
         delete _short_day_name;
+        delete _full_day_name;
+        delete _full_month_name;
+        delete _day_of_month_name;
         tmp_time_date_struct = gmtime(&start_time);
         strftime(buffer, sizeof(buffer), "%a", tmp_time_date_struct);
         _short_day_name = new std::string(buffer);
+        strftime(buffer, sizeof(buffer), "%A", tmp_time_date_struct);
+        _full_day_name = new std::string(buffer);
+        strftime(buffer, sizeof(buffer), "%B", tmp_time_date_struct);
+        _full_month_name = new std::string(buffer);
+        strftime(buffer, sizeof(buffer), "%d", tmp_time_date_struct);
+        _day_of_month_name = new std::string(buffer);
     }
     time_t
     Data::StartTime() const{
@@ -153,6 +168,21 @@ namespace Core {
          return *_short_day_name;
      }
 ////////////////////////////////////////////////////////////////////////////////
+     std::string&
+     Data::FullDayName(){
+         return *_full_day_name;
+     }
+////////////////////////////////////////////////////////////////////////////////
+     std::string&
+     Data::FullMonthName(){
+         return *_full_month_name;
+     }
+////////////////////////////////////////////////////////////////////////////////
+     std::string&
+     Data::DayOfMonthName(){
+         return *_day_of_month_name;
+     }
+////////////////////////////////////////////////////////////////////////////////
     time_t
     Data::GetTimeDistance(time_t need_time){
         if(_end_time > need_time && _start_time < need_time)
@@ -168,6 +198,9 @@ namespace Core {
        delete _temperature_low;
        delete _flike;
        delete _short_day_name;
+       delete _full_day_name;
+       delete _full_month_name;
+       delete _day_of_month_name;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Temperature& Data::temperature_hi(){

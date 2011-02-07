@@ -35,6 +35,42 @@ PKGCONFIG += dbus-glib-1 \
              QtCore
 
 
+TRANSLIST = bg_BG \
+            de_DE \
+            en_GB \
+            en_US \
+            es_ES \
+            es_MX \
+            fi_FI \
+            fr_FR \
+            it_IT \
+            lv_LV \
+            pl_PL \
+            ru_RU \
+            sk_SK
+
+for(language, TRANSLIST):TRANSLATIONS += ../po/$${language}.po
+FORMS += mainwindow.ui \
+    installer/installerform.ui
+!isEmpty(TRANSLATIONS) {
+    isEmpty(QMAKE_LRELEASE) {
+        win32:QMAKE_LRELEASE = msgfmt.exe
+        else:QMAKE_LRELEASE = msgfmt
+    }
+    TSQM.name = msgfmt \
+        ${QMAKE_FILE_IN}
+    TSQM.input = TRANSLATIONS
+    TSQM.output = ${QMAKE_FILE_PATH}/${QMAKE_FILE_BASE}.mo
+    TSQM.commands = $$QMAKE_LRELEASE \
+        -o \
+        $$TSQM.output \
+        ${QMAKE_FILE_IN}
+    TSQM.CONFIG = no_link
+    QMAKE_EXTRA_COMPILERS += TSQM
+    PRE_TARGETDEPS += compiler_TSQM_make_all
+}
+else:message(No translation files in project)
+
 #install
 target.path = /usr/libexec
 desktop.files = data/meego-panel-omweather.desktop

@@ -82,3 +82,56 @@ css.path = /usr/share/meego-panel-omweather/theme
 service.files = data/com.meego.UX.Shell.Panels.omweather.service
 service.path = /usr/share/dbus-1/services
 INSTALLS += target desktop autostart css service
+
+
+transinstallbg.path = $$DATADIR/locale/bg/LC_MESSAGES
+transinstallbg.files = ../po/bg_BG.mo
+INSTALLS += transinstallbg
+
+transinstallde.path = $$DATADIR/locale/de/LC_MESSAGES
+transinstallde.files = ../po/de_DE.mo
+INSTALLS += transinstallde
+
+transinstallengb.path = $$DATADIR/locale/en_GB/LC_MESSAGES
+transinstallengb.files = ../po/en_GB.mo
+INSTALLS += transinstallengb
+
+transinstallenus.path = $$DATADIR/locale/en_US/LC_MESSAGES
+transinstallenus.files = ../po/en_US.mo
+INSTALLS += transinstallenus
+
+transinstalleses.path = $$DATADIR/locale/es_ES/LC_MESSAGES
+transinstalleses.files = ../po/en_ES.mo
+INSTALLS += transinstalleses
+
+transinstallesmx.path = $$DATADIR/locale/es_MX/LC_MESSAGES
+transinstallesmx.files = ../po/en_MX.mo
+INSTALLS += transinstallesmx
+
+transinstallfi.path = $$DATADIR/locale/fi/LC_MESSAGES
+transinstallfi.files = ../po/fi_FI.mo
+INSTALLS += transinstallfi
+
+transinstallfr.path = $$DATADIR/locale/fr/LC_MESSAGES
+transinstallfr.files = ../po/fr_FR.mo
+INSTALLS += transinstallfr
+
+transinstallit.path = $$DATADIR/locale/it/LC_MESSAGES
+transinstallit.files = ../po/it_IT.mo
+INSTALLS += transinstallit
+
+transinstalllv.path = $$DATADIR/locale/lv/LC_MESSAGES
+transinstalllv.files = ../po/lv_LV.mo
+INSTALLS += transinstalllv
+
+transinstallpl.path = $$DATADIR/locale/pl/LC_MESSAGES
+transinstallpl.files = ../po/pl_PL.mo
+INSTALLS += transinstallpl
+
+transinstallru.path = $$DATADIR/locale/ru/LC_MESSAGES
+transinstallru.files = ../po/ru_RU.mo
+INSTALLS += transinstallru
+
+transinstallsk.path = $$DATADIR/locale/sk/LC_MESSAGES
+transinstallsk.files = ../po/sk_SK.mo
+INSTALLS += transinstallsk

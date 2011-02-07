@@ -43,7 +43,7 @@
 #define GETTEXT_PACKAGE "omweather"
 #include <glib/gi18n-lib.h>
 
-
+#include <sstream>
 #include <pthread.h>
 
 #define PANEL_HEIGHT 150
@@ -155,11 +155,6 @@ refresh_button_event_cb (ClutterActor *actor,
         fprintf(file, "thread run\n");
 	fclose(file);
     }
-    //error = pthread_join(tid, NULL);
-    std::cerr << "thread terminated " << error << std::endl;
-    file = fopen("/tmp/1.log","ab");
-        fprintf(file, "thread terminated\n");
-	fclose(file);
     //update_weather_forecast(config);
     //make_window_content((MplPanelClutter*)user_data);
     //clutter_timeline_stop(refresh_timeline);
@@ -171,6 +166,7 @@ void finish_update(void)
     fprintf(file, "in finish update\n");
     fclose(file);
     clutter_timeline_stop(refresh_timeline);
+    make_window_content((MplPanelClutter*)panel);
 }
 //////////////////////////////////////////////////////////////////////////////
 gboolean
@@ -237,6 +233,7 @@ make_bottom_content(Core::Data *temp_data) {
   std::string      day_name;
   char             buffer[4096];
   PangoFontDescription *pfd = NULL;
+  std::ostringstream ss;
 
   if (mpl_panel_client_get_height_request (panel) > PANEL_HEIGHT){
       if (bottom_container)
@@ -262,21 +259,74 @@ make_bottom_content(Core::Data *temp_data) {
   
   /* vertical container */
   vertical_layout = clutter_box_layout_new ();
+  clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(vertical_layout), TRUE);
+  
   vertical_container =  clutter_box_new(vertical_layout);
-  clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(main_vertical_layout), TRUE);
+  //clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), vertical_container, CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
+  //clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(main_vertical_layout), TRUE);
   /* Day name */
   label = clutter_text_new();
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
   pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 2);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
-  day_name = temp_data->FullDayName() + " " + temp_data->DayOfMonthName() +", " + temp_data->FullMonthName(); 
+  if (temp_data->Current())
+      day_name = _("Now");
+  else 
+      day_name = temp_data->FullDayName() + " " + temp_data->DayOfMonthName() +", " + temp_data->FullMonthName(); 
   
   clutter_text_set_text((ClutterText*)label, day_name.c_str());
   clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
-  label = clutter_text_new();
-  clutter_text_set_text((ClutterText*)label, _("Sunrise: "));
-  clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+  
+  if (temp_data->Text().compare("N/A") != 0){
+    label = clutter_text_new();
+    clutter_text_set_text((ClutterText*)label, temp_data->Text().c_str());
+    clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+  }
+  
+  if (temp_data->temperature_hi().value() != INT_MAX){
+    label = clutter_text_new();
+    ss.str("");
+    ss << _("Temperature: ");
+    if (temp_data->temperature_low().value() != INT_MAX){
+	ss << temp_data->temperature_low().value() << "°" << config->TemperatureUnit() << " .. ";
+    }
+    ss << temp_data->temperature_hi().value() << "°" << config->TemperatureUnit();
+    clutter_text_set_text((ClutterText*)label, ss.str().c_str());
+    clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+  }
+  
+  if (temp_data->Pressure() != INT_MAX){
+    label = clutter_text_new();
+    ss.str("");
+    ss << _("Pressure: ") << temp_data->Pressure() << "%";
+    clutter_text_set_text((ClutterText*)label, ss.str().c_str());
+    clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+  }
 
+  if (temp_data->Humidity() != INT_MAX){
+    label = clutter_text_new();
+    ss.str("");
+    ss << _("Humidity: ") << temp_data->Humidity() << "%";
+    clutter_text_set_text((ClutterText*)label, ss.str().c_str());
+    clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+  }
+
+  if (temp_data->WindDirection().compare("N/A") != 0){
+    label = clutter_text_new();
+    ss.str("");
+    ss << "Wind: " << temp_data->WindDirection();
+    clutter_text_set_text((ClutterText*)label, ss.str().c_str());
+    clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+  }
+
+  if (temp_data->WindSpeed() != INT_MAX){
+    label = clutter_text_new();
+    ss.str("");
+    ss << _("Speed: ") << temp_data->WindSpeed() << _("m/s");
+    clutter_text_set_text((ClutterText*)label, ss.str().c_str());
+    clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+  }
+  
   clutter_box_pack((ClutterBox*)bottom_container, box, NULL);
   clutter_box_pack((ClutterBox*)bottom_container, vertical_container, NULL);
 

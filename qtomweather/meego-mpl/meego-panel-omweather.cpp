@@ -84,7 +84,9 @@ static void* update_weather_forecast(void* data){
                                             success ++;
                                                 }
                                                     //return success;
-    	pthread_once_t once_control = PTHREAD_ONCE_INIT;
+    	//pthread_once_t once_control = PTHREAD_ONCE_INIT;
+    	finish_update();
+    	/*
     int status = pthread_once(&once_control, finish_update);
     file = fopen("/tmp/1.log", "ab");
 	fprintf(file, "after pthread once status = %d\n", status);
@@ -94,7 +96,7 @@ static void* update_weather_forecast(void* data){
 	file = fopen("/tmp/1.log", "ab");
 	fprintf(file, "pthread once failed %d\n", status);
 	fclose(file);
-    }
+    }*/
     pthread_exit((void *)0);
 }
 
@@ -104,7 +106,7 @@ detail_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
 
-    mpl_panel_client_set_height_request (panel, PANEL_HEIGHT + 200);
+    mpl_panel_client_set_height_request (panel, PANEL_HEIGHT + 300);
     make_bottom_content((Core::Data*)user_data);
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -259,7 +261,7 @@ make_bottom_content(Core::Data *temp_data) {
   box =  clutter_box_new(layout);
   clutter_box_pack((ClutterBox*)box, icon, NULL);
   clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), icon,
-				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
+				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
   
   /* vertical container */
   vertical_layout = clutter_box_layout_new ();
@@ -337,7 +339,7 @@ make_bottom_content(Core::Data *temp_data) {
 //				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   clutter_box_pack((ClutterBox*)box, vertical_container, NULL);
   clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), vertical_container,
-				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
+				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
 
   /* connect the press event on refresh button */
   g_signal_connect (bottom_container, "button-press-event", G_CALLBACK (remove_detail_event_cb), panel);

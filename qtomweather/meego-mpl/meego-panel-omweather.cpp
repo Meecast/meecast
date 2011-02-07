@@ -48,6 +48,7 @@
 
 #define PANEL_HEIGHT 150
 void finish_update(void);
+gboolean g_finish_update(gpointer data);
 void init_omweather_core(void);
 Core::DataParser *current_data(std::string& str);
 
@@ -68,6 +69,9 @@ ClutterLayoutManager *main_vertical_layout = NULL;
 DBusConnection       *dbus_conn;
 DBusConnection       *dbus_conn_session;
 
+guint timer = 0; /* timer */
+pthread_t tid;
+
 FILE *file;
 
 static void* update_weather_forecast(void* data){
@@ -75,17 +79,24 @@ static void* update_weather_forecast(void* data){
         int success = 0;
             Core::Station* station;
             file = fopen("/tmp/1.log","ab");
-        fprintf(file, "in thread count = %d\n", config->stationsList().size());
+        fprintf(file, "in thread statiion count = %d\n", config->stationsList().size());
 	fclose(file);
 	//sleep(5);
                 for (i=0; i < config->stationsList().size();i++){
+             file = fopen("/tmp/1.log","ab");
+        fprintf(file, "in thread i = %d\n", i);
+	fclose(file);
+       
                         station = config->stationsList().at(i);
-                                if (station->updateData(true))
+                                if (station->updateData(true)){
                                             success ++;
+             file = fopen("/tmp/1.log","ab");
+        fprintf(file, "in thread success = %d\n", success);
+	fclose(file);}
                                                 }
                                                     //return success;
     	//pthread_once_t once_control = PTHREAD_ONCE_INIT;
-    	finish_update();
+    	//finish_update();
     	/*
     int status = pthread_once(&once_control, finish_update);
     file = fopen("/tmp/1.log", "ab");
@@ -97,7 +108,13 @@ static void* update_weather_forecast(void* data){
 	fprintf(file, "pthread once failed %d\n", status);
 	fclose(file);
     }*/
-    pthread_exit((void *)0);
+    updating = false;
+file = fopen("/tmp/1.log","ab");
+        fprintf(file, "end thread\n");
+	fclose(file);
+
+    //pthread_exit((void *)0);
+    return NULL;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -106,7 +123,7 @@ detail_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
 
-    mpl_panel_client_set_height_request (panel, PANEL_HEIGHT + 300);
+    mpl_panel_client_set_height_request (panel, PANEL_HEIGHT + 250);
     make_bottom_content((Core::Data*)user_data);
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -140,27 +157,46 @@ refresh_button_event_cb (ClutterActor *actor,
                    gpointer      user_data){
     clutter_timeline_start(refresh_timeline);
     
-    pthread_t tid;
-    pthread_attr_t attr;
+    //pthread_t tid;
+    //pthread_attr_t attr;
     int error;
-    pthread_attr_init(&attr);
-    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
-    error = pthread_create(&tid, &attr, update_weather_forecast, NULL);
-    if (error != 0) {
+    //pthread_attr_init(&attr);
+    //pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+    //error = pthread_create(&tid, &attr, update_weather_forecast, NULL);
+    //error = g_thread_create(&tid, &attr, update_weather_forecast, NULL);
+    if (!g_thread_create(update_weather_forecast, NULL, false, NULL)) {
+    
         std::cerr << "error run thread " << error << std::endl;
         file = fopen("/tmp/1.log","ab");
         fprintf(file, "error run thread= %d\n", error);
-	fclose(file);
+	    fclose(file);
     }else {
         std::cerr << "thread run" << std::endl;
         file = fopen("/tmp/1.log","ab");
-        fprintf(file, "thread run\n");
-	fclose(file);
+        fprintf(file, "thread run %d\n", tid);
+	    fclose(file);
+        updating = true;
+	    timer = g_timeout_add(1000, g_finish_update, NULL);
     }
     //update_weather_forecast(config);
     //make_window_content((MplPanelClutter*)user_data);
     //clutter_timeline_stop(refresh_timeline);
     
+}
+gboolean g_finish_update(gpointer data)
+{
+    //int error = pthread_tryjoin_np(tid, NULL);
+    
+    file = fopen("/tmp/1.log", "ab");
+    fprintf(file, "in timer status = %d\n", updating);
+    fclose(file);
+    if (updating == false){
+        //updating = false;
+        clutter_timeline_stop(refresh_timeline);
+        make_window_content((MplPanelClutter*)panel);
+        return false;
+    }
+    return true;
 }
 void finish_update(void)
 {
@@ -284,14 +320,17 @@ make_bottom_content(Core::Data *temp_data) {
   clutter_text_set_text((ClutterText*)label, day_name.c_str());
   clutter_box_pack((ClutterBox*)bottom_container, label, NULL);
   
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 0.8);
   if (temp_data->Text().compare("N/A") != 0){
     label = clutter_text_new();
+    clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     clutter_text_set_text((ClutterText*)label, temp_data->Text().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
   }
   
   if (temp_data->temperature_hi().value() != INT_MAX){
     label = clutter_text_new();
+    clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
     ss << _("Temperature: ");
     if (temp_data->temperature_low().value() != INT_MAX){
@@ -304,6 +343,7 @@ make_bottom_content(Core::Data *temp_data) {
   
   if (temp_data->Pressure() != INT_MAX){
     label = clutter_text_new();
+    clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
     ss << _("Pressure: ") << temp_data->Pressure() << "%";
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
@@ -312,6 +352,7 @@ make_bottom_content(Core::Data *temp_data) {
 
   if (temp_data->Humidity() != INT_MAX){
     label = clutter_text_new();
+    clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
     ss << _("Humidity: ") << temp_data->Humidity() << "%";
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
@@ -320,6 +361,7 @@ make_bottom_content(Core::Data *temp_data) {
 
   if (temp_data->WindDirection().compare("N/A") != 0){
     label = clutter_text_new();
+    clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
     ss << "Wind: " << temp_data->WindDirection();
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
@@ -328,6 +370,7 @@ make_bottom_content(Core::Data *temp_data) {
 
   if (temp_data->WindSpeed() != INT_MAX){
     label = clutter_text_new();
+    clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
     ss << _("Speed: ") << temp_data->WindSpeed() << _("m/s");
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
@@ -496,6 +539,8 @@ main (int argc, char *argv[])
   Core::Data *temp_data = NULL;
   Core::DataParser* dp = NULL;
 
+  g_thread_init(NULL);
+  clutter_threads_init();
   clutter_init (&argc, &argv);
 
   init_omweather_core();
@@ -528,7 +573,9 @@ main (int argc, char *argv[])
   file = fopen("/tmp/1.log","ab");
   fclose(file);
   dbus_init();
+  clutter_threads_enter();
   clutter_main ();
+  clutter_threads_leave();
 
   return 0;
 }

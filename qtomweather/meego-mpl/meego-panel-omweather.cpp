@@ -241,7 +241,9 @@ make_bottom_content(Core::Data *temp_data) {
   }
   
   /* bottom layout */
-  bottom_layout = clutter_box_layout_new(); 
+  
+  bottom_layout = clutter_box_layout_new();
+  clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(bottom_layout), TRUE);
   bottom_container = clutter_box_new(bottom_layout);
   /* icon */
   if (temp_data)
@@ -256,18 +258,21 @@ make_bottom_content(Core::Data *temp_data) {
   layout = clutter_box_layout_new ();
   box =  clutter_box_new(layout);
   clutter_box_pack((ClutterBox*)box, icon, NULL);
+  clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), icon,
+				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   
   /* vertical container */
   vertical_layout = clutter_box_layout_new ();
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(vertical_layout), TRUE);
   
   vertical_container =  clutter_box_new(vertical_layout);
-  //clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), vertical_container, CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
+  clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), box, 
+			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   //clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(main_vertical_layout), TRUE);
   /* Day name */
   label = clutter_text_new();
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
-  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 2);
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.5);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   if (temp_data->Current())
       day_name = _("Now");
@@ -275,7 +280,7 @@ make_bottom_content(Core::Data *temp_data) {
       day_name = temp_data->FullDayName() + " " + temp_data->DayOfMonthName() +", " + temp_data->FullMonthName(); 
   
   clutter_text_set_text((ClutterText*)label, day_name.c_str());
-  clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+  clutter_box_pack((ClutterBox*)bottom_container, label, NULL);
   
   if (temp_data->Text().compare("N/A") != 0){
     label = clutter_text_new();
@@ -328,7 +333,11 @@ make_bottom_content(Core::Data *temp_data) {
   }
   
   clutter_box_pack((ClutterBox*)bottom_container, box, NULL);
-  clutter_box_pack((ClutterBox*)bottom_container, vertical_container, NULL);
+  //clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(bottom_layout), box,
+//				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
+  clutter_box_pack((ClutterBox*)box, vertical_container, NULL);
+  clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), vertical_container,
+				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
 
   /* connect the press event on refresh button */
   g_signal_connect (bottom_container, "button-press-event", G_CALLBACK (remove_detail_event_cb), panel);

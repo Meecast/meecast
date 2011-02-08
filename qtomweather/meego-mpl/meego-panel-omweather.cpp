@@ -77,21 +77,21 @@ static void* update_weather_forecast(void* data){
     int success = 0;
     Core::Station* station;
     
-    file = fopen("/tmp/1.log","ab");
-    fprintf(file, "in thread statiion count = %d\n", config->stationsList().size());
-	fclose(file);
+    //file = fopen("/tmp/1.log","ab");
+    //fprintf(file, "in thread statiion count = %d\n", config->stationsList().size());
+	//fclose(file);
 	//sleep(5);
     for (i=0; i < config->stationsList().size();i++){
-        file = fopen("/tmp/1.log","ab");
-        fprintf(file, "in thread i = %d\n", i);
-	    fclose(file);
+        //file = fopen("/tmp/1.log","ab");
+        //fprintf(file, "in thread i = %d\n", i);
+	    //fclose(file);
        
         station = config->stationsList().at(i);
         if (station->updateData(true)){
             success ++;
-             file = fopen("/tmp/1.log","ab");
-            fprintf(file, "in thread success = %d\n", success);
-	        fclose(file);
+            //file = fopen("/tmp/1.log","ab");
+            //fprintf(file, "in thread success = %d\n", success);
+	        //fclose(file);
         }
     }
                                                     //return success;
@@ -109,9 +109,9 @@ static void* update_weather_forecast(void* data){
 	fclose(file);
     }*/
     updating = false;
-    file = fopen("/tmp/1.log","ab");
-    fprintf(file, "end thread\n");
-	fclose(file);
+    //file = fopen("/tmp/1.log","ab");
+    //fprintf(file, "end thread\n");
+	//fclose(file);
 
     //pthread_exit((void *)0);
     return NULL;
@@ -155,6 +155,8 @@ gboolean
 refresh_button_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
+    if (updating)
+        return false; 
     clutter_timeline_start(refresh_timeline);
     
     //pthread_t tid;
@@ -165,31 +167,23 @@ refresh_button_event_cb (ClutterActor *actor,
     //error = pthread_create(&tid, &attr, update_weather_forecast, NULL);
     //error = g_thread_create(&tid, &attr, update_weather_forecast, NULL);
     if (!g_thread_create(update_weather_forecast, NULL, false, NULL)) {
-    
         std::cerr << "error run thread " << error << std::endl;
         file = fopen("/tmp/1.log","ab");
         fprintf(file, "error run thread= %d\n", error);
 	    fclose(file);
     }else {
-        std::cerr << "thread run" << std::endl;
-        file = fopen("/tmp/1.log","ab");
-        fprintf(file, "thread run %d\n", tid);
-	    fclose(file);
         updating = true;
 	    timer = g_timeout_add(1000, g_finish_update, NULL);
     }
-    //update_weather_forecast(config);
-    //make_window_content((MplPanelClutter*)user_data);
-    //clutter_timeline_stop(refresh_timeline);
     
 }
 gboolean g_finish_update(gpointer data)
 {
     //int error = pthread_tryjoin_np(tid, NULL);
     
-    file = fopen("/tmp/1.log", "ab");
-    fprintf(file, "in timer status = %d\n", updating);
-    fclose(file);
+    //file = fopen("/tmp/1.log", "ab");
+    //fprintf(file, "in timer status = %d\n", updating);
+    //fclose(file);
     if (updating == false){
         //updating = false;
         clutter_timeline_stop(refresh_timeline);

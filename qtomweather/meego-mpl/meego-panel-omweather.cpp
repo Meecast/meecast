@@ -345,7 +345,7 @@ make_bottom_content(Core::Data *temp_data) {
     label = clutter_text_new();
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
-    ss << _("Pressure: ") << temp_data->Pressure() << "%";
+    ss << _("Pressure:") <<" "<< temp_data->Pressure();
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
   }
@@ -354,7 +354,7 @@ make_bottom_content(Core::Data *temp_data) {
     label = clutter_text_new();
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
-    ss << _("Humidity: ") << temp_data->Humidity() << "%";
+    ss << _("Humidity:") <<" "<< temp_data->Humidity() << "%";
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
   }
@@ -363,7 +363,7 @@ make_bottom_content(Core::Data *temp_data) {
     label = clutter_text_new();
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
-    ss << "Wind: " << temp_data->WindDirection();
+    ss << "Wind:" << " "<< temp_data->WindDirection();
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
   }
@@ -372,7 +372,7 @@ make_bottom_content(Core::Data *temp_data) {
     label = clutter_text_new();
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
-    ss << _("Speed: ") << temp_data->WindSpeed() << _("m/s");
+    ss << _("Speed:") <<" "<<temp_data->WindSpeed() << _("m/s");
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
   }

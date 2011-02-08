@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-08 10:14+0200\n"
+"POT-Creation-Date: 2011-02-08 17:16+0200\n"
 "PO-Revision-Date: 2010-10-26 15:41+0200\n"
 "Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
@@ -831,7 +831,7 @@ msgid "High"
 msgstr "Haut"
 
 #: omweather/src/weather-popup.c:1260 omweather/src/weather-popup.c:1436
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:358
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:368
 msgid "Humidity:"
 msgstr "Humidité :"
 
@@ -1192,7 +1192,7 @@ msgstr "Pas de données météo pour cette station."
 #: omweather/src/weather-popup.c:458 omweather/src/weather-popup.c:569
 #: omweather/src/weather-popup.c:575
 #: omweather/src/weather-simple-settings.c:2890
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:316
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:313
 msgid "Now"
 msgstr "Maintenant"
 
@@ -1374,7 +1374,7 @@ msgid "Pressure units:"
 msgstr "Unités de pression :"
 
 #: omweather/src/weather-popup.c:1287
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:349
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:355
 msgid "Pressure:"
 msgstr "Pression :"
 
@@ -1698,7 +1698,7 @@ msgid "Speed"
 msgstr "Vitesse"
 
 #: omweather/src/weather-popup.c:1311 omweather/src/weather-popup.c:1451
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:376
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:394
 msgid "Speed:"
 msgstr "Vitesse :"
 
@@ -1778,7 +1778,7 @@ msgstr "Température"
 msgid "Temperature units:"
 msgstr "Unités de température :"
 
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:335
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:337
 #, fuzzy
 msgid "Temperature:"
 msgstr "Température :"
@@ -2120,7 +2120,7 @@ msgstr "m/h"
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:248
 #: omweather/src/weather-simple-settings.c:1404
 #: omweather/src/weather-simple-settings.c:2694
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:376
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:394
 msgid "m/s"
 msgstr "m/s"
 

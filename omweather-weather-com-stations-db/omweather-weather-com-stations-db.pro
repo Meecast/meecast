@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 
-TARGET = omweather-weather-com-stations-db
+TARGET = weathercom
 TEMPLATE = app
 
 
@@ -31,9 +31,10 @@ icon.files = data/weather.com.png
 icon.path = /usr/share/omweather/copyright_icons/
 
 source.files = data/weather.com.xml
-source.path = /usr/share/omweather/sources/ 
+source.path = /usr/share/omweather/sources/
 
 #install
 target.path = /usr/lib/omweather/
-INSTALLS += target db icon
+INSTALLS += target db icon source
+
 

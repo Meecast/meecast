@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-08 10:14+0200\n"
+"POT-Creation-Date: 2011-02-08 17:16+0200\n"
 "PO-Revision-Date: 2010-11-23 10:15+0100\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -824,7 +824,7 @@ msgid "High"
 msgstr "Vysoké"
 
 #: omweather/src/weather-popup.c:1260 omweather/src/weather-popup.c:1436
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:358
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:368
 msgid "Humidity:"
 msgstr "Vlhkosť:"
 
@@ -1184,7 +1184,7 @@ msgstr "Žiadne údaje o počasí pre túto stanicu."
 #: omweather/src/weather-popup.c:458 omweather/src/weather-popup.c:569
 #: omweather/src/weather-popup.c:575
 #: omweather/src/weather-simple-settings.c:2890
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:316
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:313
 msgid "Now"
 msgstr "Teraz"
 
@@ -1366,7 +1366,7 @@ msgid "Pressure units:"
 msgstr "Jednotky tlaku:"
 
 #: omweather/src/weather-popup.c:1287
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:349
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:355
 msgid "Pressure:"
 msgstr "Tlak:"
 
@@ -1690,7 +1690,7 @@ msgid "Speed"
 msgstr "Rychlosť"
 
 #: omweather/src/weather-popup.c:1311 omweather/src/weather-popup.c:1451
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:376
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:394
 msgid "Speed:"
 msgstr "Rýchlosť:"
 
@@ -1770,7 +1770,7 @@ msgstr "Teplota"
 msgid "Temperature units:"
 msgstr "Jednotky teploty:"
 
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:335
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:337
 #, fuzzy
 msgid "Temperature:"
 msgstr "Teplota: "
@@ -2110,7 +2110,7 @@ msgstr "m/h"
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:248
 #: omweather/src/weather-simple-settings.c:1404
 #: omweather/src/weather-simple-settings.c:2694
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:376
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:394
 msgid "m/s"
 msgstr "m/s"
 

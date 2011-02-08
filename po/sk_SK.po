@@ -1,0 +1,2301 @@
+# Slovak localization based on localization of forecastfox_l10n-0.7.2008093001.xpi
+# This file is distributed under the same license as the PACKAGE package.
+# Roman Moravčík <roman.moravcik@gmail.com>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: sk_SK\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-02-08 10:14+0200\n"
+"PO-Revision-Date: 2010-11-23 10:15+0100\n"
+"Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
+"Language-Team: Slovak <sk-i18n@linux.sk>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+
+#: omweather/src/weather-home.c:1566
+msgid ""
+"\n"
+"H: "
+msgstr ""
+"\n"
+"Vlhkosť: "
+
+#: omweather/src/weather-help.c:80
+#, c-format
+msgid ""
+"\n"
+"Hildon desktop applet\n"
+"for the Nokia N800/N810/N900\n"
+"to show weather forecasts.\n"
+"Version %s Build: %s\n"
+"Copyright(c) 2006-2010\n"
+"Vlad Vasiliev, Pavel Fialko\n"
+"Copyright(c) 2008\n"
+"for default icon set (Glance)\n"
+"and design of interface\n"
+"Andrew Zhilin\n"
+"Copyright(c) 2008\n"
+"Andrew Olmsted\n"
+"for Semi-transparency\n"
+"and coloured backgrounds\n"
+msgstr ""
+
+#: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
+#: omweather/src/weather-popup.c:956 omweather/src/weather-popup.c:1078
+msgid ""
+"\n"
+"Humidity: "
+msgstr ""
+"\n"
+"Vlhkosť: "
+
+#: omweather/src/weather-home.c:1607
+msgid ""
+"\n"
+"P: "
+msgstr ""
+"\n"
+"Tlak: "
+
+#: omweather/src/weather-popup.c:952 omweather/src/weather-popup.c:1074
+msgid ""
+"\n"
+"Precipitation: "
+msgstr ""
+"\n"
+"Zrážky: "
+
+#: omweather/src/weather-home.c:1576
+msgid ""
+"\n"
+"V: "
+msgstr ""
+"\n"
+"Viditeľnosť: "
+
+#: omweather/src/weather-home.c:1613
+msgid ""
+"\n"
+"W: "
+msgstr ""
+"\n"
+"Vietor: "
+
+#: omweather/src/weather-simple-settings.c:1718
+#: omweather/src/weather-simple-settings.c:2815
+msgid "1 day"
+msgstr "1 deň"
+
+#: omweather/src/weather-settings.c:4240
+#: omweather/src/weather-simple-settings.c:1700
+#: omweather/src/weather-simple-settings.c:2809
+msgid "1 hour"
+msgstr "1 hodina"
+
+#: omweather/src/weather-sensor.c:143
+msgid "1 minute"
+msgstr "1 minúta"
+
+#: omweather/src/weather-sensor.c:149
+msgid "10 minutes"
+msgstr "10 minút"
+
+#: omweather/src/weather-settings.c:4192
+msgid "10 seconds"
+msgstr "10 sekúnd"
+
+#: omweather/src/weather-sensor.c:151
+msgid "15 minutes"
+msgstr "15 minút"
+
+#: omweather/src/weather-settings.c:4242
+msgid "2 hours"
+msgstr "2 hodiny"
+
+#: omweather/src/weather-settings.c:4194
+msgid "20 seconds"
+msgstr "20 sekúnd"
+
+#: omweather/src/weather-sensor.c:145
+msgid "3 minutes"
+msgstr "3 minúty"
+
+#: omweather/src/weather-sensor.c:153
+msgid "30 minutes"
+msgstr "30 minút"
+
+#: omweather/src/weather-settings.c:4196
+msgid "30 seconds"
+msgstr "30 sekúnd"
+
+#: omweather/src/weather-settings.c:4244
+#: omweather/src/weather-simple-settings.c:1709
+#: omweather/src/weather-simple-settings.c:2812
+msgid "4 hours"
+msgstr "4 hodiny"
+
+#: omweather/src/weather-settings.c:4198
+msgid "40 seconds"
+msgstr "40 sekúnd"
+
+#: omweather/src/weather-sensor.c:147
+msgid "5 minutes"
+msgstr "5 minút"
+
+#: omweather/src/weather-settings.c:4200
+msgid "50 seconds"
+msgstr "50 sekúnd"
+
+#: omweather/src/weather-settings.c:4202
+msgid "60 seconds"
+msgstr "60 sekúnd"
+
+#: omweather/src/weather-settings.c:4246
+msgid "8 hours"
+msgstr "8 hodín"
+
+#: omweather/src/hash.data:2
+msgid "AM Clouds / PM Sun"
+msgstr "Dopoludnia zamračené / Popoludní slnečno"
+
+#: omweather/src/hash.data:4
+msgid "AM Drizzle"
+msgstr "Dopoludnia mrholenie"
+
+#: omweather/src/hash.data:3
+msgid "AM Drizzle / Wind"
+msgstr "Dopoludnia mrholenie / Vietor"
+
+#: omweather/src/hash.data:5
+msgid "AM Fog / PM Clouds"
+msgstr "Dopoludnia hmla / Popoludní zamračené"
+
+#: omweather/src/hash.data:6
+msgid "AM Fog / PM Sun"
+msgstr "Dopoludnia hmla / Popoludní slnečno"
+
+#: omweather/src/hash.data:8
+msgid "AM Light Rain"
+msgstr "Dopoludnia slabý dážď"
+
+#: omweather/src/hash.data:7
+msgid "AM Light Rain / Wind"
+msgstr "Dopoludnia slabý dážď / Vietor"
+
+#: omweather/src/hash.data:9
+msgid "AM Light Snow"
+msgstr "Dopoludnia slabé sneženie"
+
+#: omweather/src/hash.data:10
+msgid "AM Light Wintry Mix"
+msgstr "Dopoludnia sychravo"
+
+#: omweather/src/hash.data:15
+msgid "AM Rain"
+msgstr "Dopoludnia dážď"
+
+#: omweather/src/hash.data:13
+msgid "AM Rain / Snow"
+msgstr "Dopoludnia dážď / Sneženie"
+
+#: omweather/src/hash.data:12
+msgid "AM Rain / Snow Showers"
+msgstr "Dopoludnia dážď / Snehové prehánky"
+
+#: omweather/src/hash.data:11
+msgid "AM Rain / Snow Showers / Wind"
+msgstr "Dopoludnia dážď / Snehové prehánky / Vietor"
+
+#: omweather/src/hash.data:14
+msgid "AM Rain / Wind"
+msgstr "Dopoludnia dážď / Vietor"
+
+#: omweather/src/hash.data:17
+msgid "AM Showers"
+msgstr "Dopoludnia prehánky"
+
+#: omweather/src/hash.data:16
+msgid "AM Showers / Wind"
+msgstr "Dopoludnia prehánky / Vietor"
+
+#: omweather/src/hash.data:19
+msgid "AM Snow"
+msgstr "Dopoludnia sneženie"
+
+#: omweather/src/hash.data:18
+msgid "AM Snow Showers"
+msgstr "Dopoludnia snehové prehánky"
+
+#: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
+#: omweather/src/weather-simple-popup.c:1133
+#: omweather/src/weather-simple-status.c:179
+msgid "About"
+msgstr "O aplikácií"
+
+#: omweather/src/weather-download.c:417
+msgid "Access denied to the given URL."
+msgstr "Prístup zamietnutý na zvolenú URL."
+
+#: omweather/src/weather-simple-popup.c:253
+msgid "Action|Update"
+msgstr "Aktualizácia"
+
+#: omweather/src/weather-settings.c:480
+msgid "Add"
+msgstr "Pridať"
+
+#: omweather/src/weather-settings.c:467
+msgid "Add Station"
+msgstr "Pridať stanicu"
+
+#: omweather/src/weather-settings.c:1158 omweather/src/weather-settings.c:1377
+#: omweather/src/weather-settings.c:1381
+msgid "Alerts"
+msgstr "Výstrahy"
+
+#: omweather/src/weather-help.c:125
+#, fuzzy
+msgid ""
+"Alexis Iglauer - for testing\n"
+"Eugene Roytenberg - for testing\n"
+"Jarek Szczepanski aka Imrahil - for testing\n"
+"Vladimir Shakhov aka Mendoza - for testing \n"
+"Marc Dillon - for spell/stylecheck text of English\n"
+"Arkady Glazov aka Globster - for testing\n"
+"Alexander Savchenko aka dizel - for testing\n"
+"Eric Link - for feature request and donation\n"
+msgstr ""
+"Alexis Iglauer - za testovanie\n"
+"Eugene Roytenberg - za testovanie\n"
+"Jarek Szczepanski aka Imrahil - za testovanie\n"
+"Vladimir Shakhov aka Mendoza - za testovanie\n"
+"Marc Dilon - za kontrolu gramatiky/stýlu textov v Angličtine\n"
+"Arkady Glazov aka Globster - za testovanie\n"
+"Alexander Savchenko aka dizel - za testovanie\n"
+"Eric Link - za žiadanie nových funkcií a dary\n"
+
+#: omweather/src/weather-download.c:397
+msgid "An unknown error has occurred."
+msgstr "Nastala neznáma chyba."
+
+#: omweather/src/weather-simple-settings.c:417
+msgid "Animation"
+msgstr "Animácie"
+
+#: omweather/src/weather-settings.c:823
+msgid "Are you sure to want delete this station ?"
+msgstr "Ste si istý že chcete odstrániť túto stanicu?"
+
+#: omweather/src/weather-simple-settings.c:852
+msgid "Are you sure?"
+msgstr "Ste si istý?"
+
+#: omweather/src/weather-help.c:103
+msgid ""
+"Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n"
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>\n"
+"Documentation: Marko Vertainen\n"
+"Design UI and default iconset: Andrew Zhilin\n"
+"Design UI for Fremantle: Krebber Jan Niemelä Ulla\n"
+msgstr ""
+"Autor a správca: Vlad Vasiliev, <vlad@gas.by>\n"
+"Správca: Pavel Fialko, <pavelnf@gmail.com>\n"
+"Dokumentácia: Marko Vertainen\n"
+"Návrh UI a predvolenej témy ikon: Andrew Zhilin\n"
+"Návrh UI pre Fremantle: Krebber Jan Niemelä Ulla\n"
+
+#: omweather/src/weather-help.c:111
+msgid "Authors"
+msgstr "Autori"
+
+#: omweather/src/weather-settings.c:4156
+msgid "Automatically update data when connecting to the Internet"
+msgstr "Automatická aktualizácia dát po pripojení na Internet"
+
+#: omweather/src/weather-settings.c:3378 omweather/src/weather-settings.c:3382
+msgid "Background color:"
+msgstr "Farba pozadia:"
+
+#: omweather/src/weather-simple-settings.c:1430
+msgid "Beauf."
+msgstr "Beauf."
+
+#: omweather/src/weather-settings.c:4021
+#: omweather/src/weather-simple-settings.c:2711
+msgid "Beaufort scale"
+msgstr "Beaufortova mierka"
+
+#: omweather/src/hash.data:20
+msgid "Blowing Snow"
+msgstr "Zvírený sneh"
+
+#: omweather/src/weather-home.c:1535 omweather/src/weather-home.c:1561
+#: omweather/src/weather-simple-popup.c:1011
+#: omweather/src/weather-simple-popup.c:1021
+#: omweather/src/weather-simple-settings.c:1285
+msgid "C"
+msgstr "C"
+
+#: omweather/src/weather-popup.c:1244 omweather/src/weather-popup.c:1254
+#: omweather/src/weather-popup.c:1425 omweather/src/weather-popup.c:1433
+msgid "C\n"
+msgstr "C\n"
+
+#: omweather/src/hash.data:21
+msgid "CALM"
+msgstr "Bezvetrie"
+
+#: omweather/src/weather-config.c:383
+#, fuzzy, c-format
+msgid "Cannot get path to the HOME directory. Quitting.\n"
+msgstr "Nemôžem získať cestu k domácemu priečinku. Ukončujem sa.\n"
+
+#: omweather/src/weather-settings.c:3864
+msgid "Celcius"
+msgstr "Celzius"
+
+#: omweather/src/weather-simple-settings.c:681
+#: omweather/src/weather-simple-settings.c:714
+#: omweather/src/weather-simple-settings.c:811
+#: omweather/src/weather-simple-settings.c:2345
+msgid "City"
+msgstr "Mesto"
+
+#: omweather/src/weather-settings.c:533
+msgid "City:"
+msgstr "Mesto:"
+
+#: omweather/src/hash.data:23
+msgid "Clear"
+msgstr "Jasno"
+
+#: omweather/src/hash.data:22
+msgid "Clear / Wind"
+msgstr "Jasno / Vietor"
+
+#: omweather/src/hash.data:24
+msgid "Clear, Drifting Snow"
+msgstr "Jasno, padajúci sneh"
+
+#: omweather/src/hash.data:25
+#, fuzzy
+msgid "Clear, Fog, Drizzle"
+msgstr "Prevažne zamračené, hmla, mrholenie"
+
+#: omweather/src/hash.data:26
+msgid "Clear, Smoke"
+msgstr "Jasno, dymová clona"
+
+#: omweather/src/weather-settings.c:485
+msgid "Close"
+msgstr "Zavrieť"
+
+#: omweather/src/hash.data:27
+msgid "Clouds Early / Clearing Late"
+msgstr "Spočiatku oblačno / Neskôr jasno"
+
+#: omweather/src/hash.data:33
+msgid "Cloudy"
+msgstr "Zamračené"
+
+#: omweather/src/hash.data:28
+msgid "Cloudy / Wind"
+msgstr "Zamračené / Vietor"
+
+#: omweather/src/hash.data:29
+msgid "Cloudy Few Snow"
+msgstr "Zamračené s ojedinelým snežením"
+
+#: omweather/src/hash.data:30
+msgid "Cloudy Light Rain"
+msgstr "Zamračené so slabým dažďom"
+
+#: omweather/src/hash.data:31
+msgid "Cloudy T-Storm"
+msgstr "Zamračené s búrkami"
+
+#: omweather/src/hash.data:32
+msgid "Cloudy and Windy"
+msgstr "Zamračené a veterno"
+
+#: omweather/src/hash.data:34
+msgid "Cloudy, Drifting Snow"
+msgstr "Zamračené, padajúci sneh"
+
+#: omweather/src/hash.data:35
+msgid "Cloudy, Few Snow"
+msgstr "Zamračené, ojedinelé sneženie"
+
+#: omweather/src/hash.data:36
+#, fuzzy
+msgid "Cloudy, Heavy Snow"
+msgstr "Prevažne zamračené, silné sneženie"
+
+#: omweather/src/hash.data:37
+msgid "Cloudy, Light Rain"
+msgstr "Zamračené, slabý dážď"
+
+#: omweather/src/hash.data:38
+msgid "Cloudy, Light Rain, T-Storm"
+msgstr "Zamračené, slabý dážď, búrka"
+
+#: omweather/src/hash.data:39
+#, fuzzy
+msgid "Cloudy, Rain"
+msgstr "Zamračené, slabý dážď"
+
+#: omweather/src/hash.data:40
+msgid "Cloudy, Smoke"
+msgstr "Zamračené, dymová clona"
+
+#: omweather/src/hash.data:41
+msgid "Cloudy, Snow"
+msgstr "Zamračené, sneženie"
+
+#: omweather/src/weather-download.c:226
+msgid ""
+"Could not connecting to Internet.\n"
+"Connection timeout is expired."
+msgstr ""
+"Nemožno sa pripojiť na internet.\n"
+"Spojenie vypršalo."
+
+#: omweather/src/weather-config.c:401
+#, c-format
+msgid "Could not create weather cache directory.\n"
+msgstr "Nemožno vytvoriť priečinok medzipamäte pre informácie o počasí.\n"
+
+#: omweather/src/weather-download.c:409
+msgid "Couldn't resolve host."
+msgstr "Nemožno nájsť hostiteľa."
+
+#: omweather/src/weather-download.c:405
+msgid "Couldn't resolve proxy."
+msgstr "Nemožno nájsť proxy."
+
+#: omweather/src/weather-simple-settings.c:768
+#: omweather/src/weather-simple-settings.c:2317
+msgid "Country"
+msgstr "Krajina"
+
+#: omweather/src/weather-settings.c:510
+msgid "Country:"
+msgstr "Krajina:"
+
+#: omweather/src/weather-simple-settings.c:2900
+msgid "Custom"
+msgstr "Vlastné"
+
+#: omweather/src/weather-popup.c:1161
+msgid "Day length"
+msgstr "Dĺžka dňa"
+
+#: omweather/src/weather-popup.c:912
+msgid "Day:"
+msgstr "Deň:"
+
+#: omweather/src/weather-popup.c:461 omweather/src/weather-popup.c:601
+msgid "Detailed"
+msgstr "Podrobné"
+
+#: omweather/src/weather-settings.c:1128 omweather/src/weather-settings.c:1321
+#: omweather/src/weather-settings.c:1325
+msgid "Display"
+msgstr "Zobrazenie"
+
+#: omweather/src/weather-simple-settings.c:1319
+msgid "Distance"
+msgstr "Vzdialenosť"
+
+#: omweather/src/weather-settings.c:3894
+msgid "Distance units:"
+msgstr "Jednotky vzdialenosti:"
+
+#: omweather/src/weather-settings.c:595
+msgid ""
+"Does not to add station, because no one\n"
+"of 'omweather-*-stations-db' packages was installed."
+msgstr ""
+"Stanica nebola pridaná, pretože žiadny\n"
+"s balíčkov 'omweather-*-stations-db' nebol nainštalovaný."
+
+#: omweather/src/weather-simple-popup.c:1140
+#: omweather/src/weather-simple-popup.c:1189
+#: omweather/src/weather-simple-popup.c:1195
+msgid "Donation"
+msgstr "Darovať"
+
+#: omweather/src/weather-settings.c:4164
+msgid "Download and show detailed weather"
+msgstr "Stiahnuť a zobraziť podrobné informácie o počasí"
+
+#: omweather/src/weather-download.c:429
+msgid "Download timed out."
+msgstr "Sťahovanie vypršalo."
+
+#: omweather/src/hash.data:42
+msgid "Drifting Snow"
+msgstr "Padajúci sneh"
+
+#: omweather/src/hash.data:45
+msgid "Drizzle"
+msgstr "Mrholenie"
+
+#: omweather/src/hash.data:43
+msgid "Drizzle / Fog"
+msgstr "Mrholenie / Hmla"
+
+#: omweather/src/hash.data:44
+msgid "Drizzle Late"
+msgstr "Neskôr mrholenie"
+
+#: omweather/src/hash.data:46
+msgid "E"
+msgstr "V"
+
+#: omweather/src/hash.data:47
+msgid "ENE"
+msgstr "VSV"
+
+#: omweather/src/hash.data:48
+msgid "ENE_short"
+msgstr "VSV"
+
+#: omweather/src/hash.data:49
+msgid "ESE"
+msgstr "VJV"
+
+#: omweather/src/hash.data:50
+msgid "ESE_short"
+msgstr "VJV"
+
+#: omweather/src/hash.data:51
+msgid "E_short"
+msgstr "V"
+
+#: omweather/src/weather-help.c:114
+msgid ""
+"Ed Bartosh - for more feature requests, support and criticism\n"
+"Daniel Wilms - for feature requests and testing\n"
+"Eugen Kaluta aka tren - for feature requests and support\n"
+"Maxim Kalinkevish aka spark for testing\n"
+"Yuri Komyakov - for Nokia 770 device \n"
+"Greg Thompson for support stations.txt file\n"
+"Frank Persian - for idea of new layout\n"
+"Brian Knight - for idea of iconset, criticism and donation ;-)\n"
+"Andrew aka Tabster - for testing and ideas\n"
+"Brad Jones aka kazrak - for testing\n"
+msgstr ""
+"Ed Bartosh - za žiadanie nových funkcií, podporu a kritiku\n"
+"Daniel Wilms - za žiadanie nových funkcií a testovanie\n"
+"Eugen Kaluta aka tren - za žiadanie nových funkcií a podporu\n"
+"Maxim Kalinkevish aka spark za testovanie\n"
+"Yuri Komyakov - za zariadenie Nokia 770\n"
+"Greg Thompson za podporu súboru stations.txt\n"
+"Frank Persian - za nápady nového rozloženia\n"
+"Brian Knight - za nápady tém ikon, kritiku a dary ;-)\n"
+"Andrew aka Tabster - za testovanie a nápady\n"
+"Brad Jones aka kazrak - za testovanie\n"
+
+#: omweather/src/weather-simple-settings.c:334
+#: omweather/src/weather-simple-settings.c:425
+msgid "Edit custom layout"
+msgstr "Upraviť vlastné rozloženie"
+
+#: omweather/src/weather-settings.c:2865
+msgid "Enable GPS"
+msgstr "Povoliť GPS"
+
+#: omweather/src/weather-home.c:841
+#, c-format
+msgid "Error in xml file\n"
+msgstr "Chyba v súbore XML\n"
+
+#: omweather/src/weather-home.c:914
+msgid "Error initializing the OMWeather applet"
+msgstr "Nemôžem inicializovať applet OMWeather"
+
+#: omweather/src/weather-simple-settings.c:1896
+#: omweather/src/weather-simple-settings.c:2775
+msgid "Extended Settings"
+msgstr "Rozšírené nastavenia"
+
+#: omweather/src/hash.data:52
+msgid "Extreme"
+msgstr "Extrémne"
+
+#: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
+#: omweather/src/weather-simple-popup.c:1012
+#: omweather/src/weather-simple-popup.c:1022
+#: omweather/src/weather-simple-settings.c:1293
+msgid "F"
+msgstr "F"
+
+#: omweather/src/weather-popup.c:1245 omweather/src/weather-popup.c:1255
+#: omweather/src/weather-popup.c:1426 omweather/src/weather-popup.c:1434
+msgid "F\n"
+msgstr "F\n"
+
+#: omweather/src/weather-home.c:1557
+msgid "FL: "
+msgstr "Na pocit: "
+
+#: omweather/src/weather-settings.c:3876
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+#: omweather/src/weather-download.c:413
+msgid "Failed to connect to host or proxy."
+msgstr "Nepodarilo sa pripojiť k hostiteľovi alebo proxy."
+
+#: omweather/src/weather-config.c:360
+#, c-format
+msgid "Failed to initialize GConf. Quitting.\n"
+msgstr "Nepodarilo sa inicializovať GConf. Ukončujem sa.\n"
+
+#: omweather/src/weather-config.c:948
+#, c-format
+msgid "Failed to initialize GConf. Settings were not saved.\n"
+msgstr "Nepodarilo sa inicializovať GConf. Konfigurácia nebola uložená.\n"
+
+#: omweather/src/hash.data:53
+msgid "Fair"
+msgstr "Pekne"
+
+#: omweather/src/weather-popup.c:1248 omweather/src/weather-popup.c:1428
+msgid "Feels like:"
+msgstr "Na pocit:"
+
+#: omweather/src/hash.data:55
+msgid "Few Showers"
+msgstr "Ojedinelé prehánky"
+
+#: omweather/src/hash.data:54
+msgid "Few Showers / Wind"
+msgstr "Ojedinelé prehánky / Vietor"
+
+#: omweather/src/hash.data:58
+msgid "Few Snow"
+msgstr "Ojedinelé sneženie"
+
+#: omweather/src/hash.data:57
+msgid "Few Snow Showers"
+msgstr "Ojedinelé snehové prehánky"
+
+#: omweather/src/hash.data:56
+msgid "Few Snow Showers / Wind"
+msgstr "Ojedinelé snehové prehánky / Vietor"
+
+#: omweather/src/hash.data:59
+msgid "First Quarter"
+msgstr "Prvá štvrť"
+
+#: omweather/src/hash.data:63
+msgid "Fog"
+msgstr "Hmla"
+
+#: omweather/src/hash.data:60
+msgid "Fog Early / Clouds Late"
+msgstr "Spočiatku hmla / Neskôr oblačno"
+
+#: omweather/src/hash.data:61
+msgid "Fog Late"
+msgstr "Neskôr hmla"
+
+#: omweather/src/hash.data:62
+msgid "Fog early / Clearing late"
+msgstr "Spočiatku hmla / Neskôr jasno"
+
+#: omweather/src/hash.data:64
+msgid "Foggy"
+msgstr "Hmlisto"
+
+#: omweather/src/weather-settings.c:3257
+msgid "Font color:"
+msgstr "Farba písma:"
+
+#: omweather/src/weather-settings.c:3227 omweather/src/weather-settings.c:3231
+msgid "Font:"
+msgstr "Písmo:"
+
+#: omweather/src/weather-simple-popup.c:91
+msgid "Forecast"
+msgstr "Predpoveď"
+
+#: omweather/src/weather-popup.c:1412 omweather/src/weather-simple-popup.c:997
+msgid "Forecast at: "
+msgstr "Predpoveď na: "
+
+#: omweather/src/weather-home.c:1355
+msgid "Forecast: \n"
+msgstr "Predpoveď: \n"
+
+#: omweather/src/hash.data:65
+msgid "Freezing Drizzle"
+msgstr "Mrznúce mrholenie"
+
+#: omweather/src/weather-help.c:140
+msgid ""
+"French - Nicolas Granziano, Philippe, Benot Knecht\n"
+"Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
+"Finnish - Marko Vertainen\n"
+"German - Claudius Henrichs\n"
+"Italian - Pavel Fialko, Alessandro Pasotti,\n"
+"\tSalvatore Fiorenzo, Luca Onnis\n"
+"Spanish - Alejandro Lopez\n"
+"Polish - Tomasz Dominikowski\n"
+"Slovak - Roman Moravčík"
+msgstr ""
+"Francúzština - Nicolas Granziano, Philippe, Benot Knecht\n"
+"Ruština - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
+"Fínština - Marko Vertainen\n"
+"Nemčina - Claudius Henrichs\n"
+"Taliančina - Pavel Fialko, Alessandro Pasotti,\n"
+"\tSalvatore Fiorenzo, Luca Onnis\n"
+"Španielčina - Alejandro Lopez\n"
+"Polština - Tomasz Dominikowski\n"
+"Slovenčina - Roman Moravčík"
+
+#: omweather/src/hash.data:66
+msgid "Full"
+msgstr "Spln"
+
+#: omweather/src/weather-home.c:1296
+msgid "Full forecast"
+msgstr "Úplná predpoveď"
+
+#: omweather/src/weather-home.c:1639
+msgid "G: "
+msgstr "Nar.: "
+
+#: omweather/src/weather-simple-settings.c:2253
+msgid "GPS"
+msgstr "GPS"
+
+#: omweather/src/weather-simple-settings.c:1756
+#: omweather/src/weather-simple-settings.c:1762
+#: omweather/src/weather-simple-settings.c:2828
+msgid "GSM"
+msgstr "GSM"
+
+#: omweather/src/weather-simple-settings.c:2822
+msgid "GSM+WLAN"
+msgstr "GSM+WLAN"
+
+#: omweather/src/weather-simple-settings.c:2399
+msgid "GUI|Clear"
+msgstr "Vymazať"
+
+#: omweather/src/weather-popup.c:1333 omweather/src/weather-popup.c:1472
+msgid "Gust:"
+msgstr "Nárazovo:"
+
+#: omweather/src/weather-download.c:421
+msgid "HTTP error."
+msgstr "Chyba HTTP."
+
+#: omweather/src/hash.data:67
+msgid "Haze"
+msgstr "Opar"
+
+#: omweather/src/hash.data:70
+msgid "Heavy Rain"
+msgstr "Silný dážď"
+
+#: omweather/src/hash.data:68
+msgid "Heavy Rain / Wind"
+msgstr "Silný dážď / Vietor"
+
+#: omweather/src/hash.data:69
+msgid "Heavy Rain Shower"
+msgstr "Silné dažďové prehánky"
+
+#: omweather/src/hash.data:71
+msgid "Heavy Snow"
+msgstr "Silné sneženie"
+
+#: omweather/src/hash.data:72
+msgid "High"
+msgstr "Vysoké"
+
+#: omweather/src/weather-popup.c:1260 omweather/src/weather-popup.c:1436
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:358
+msgid "Humidity:"
+msgstr "Vlhkosť:"
+
+#: omweather/src/weather-settings.c:3326
+msgid "Icon set:"
+msgstr "Téma ikon:"
+
+#: omweather/src/weather-settings.c:3558 omweather/src/weather-settings.c:3563
+msgid "Icon size:"
+msgstr "Veľkosť ikon:"
+
+#: omweather/src/hash.data:74
+msgid "Isolated T-Storms"
+msgstr "Občasné búrky"
+
+#: omweather/src/hash.data:73
+msgid "Isolated T-Storms / Wind"
+msgstr "Občasné búrky / Vietor"
+
+#: omweather/src/weather-settings.c:3915
+msgid "Kilometers"
+msgstr "Kilometre"
+
+#: omweather/src/hash.data:75
+msgid "Last Quarter"
+msgstr "Posledná štvrť"
+
+#: omweather/src/weather-popup.c:263
+msgid "Last update at server: "
+msgstr "Posledná aktualizácia na serveri: "
+
+#: omweather/src/weather-popup.c:277 omweather/src/weather-popup.c:281
+msgid "Last update from server: "
+msgstr "Posledná aktualizácia zo servera: "
+
+#: omweather/src/weather-simple-popup.c:241
+#: omweather/src/weather-simple-popup.c:243
+#: omweather/src/weather-simple-popup.c:250
+#, c-format
+msgid "Last update: "
+msgstr "Posledná aktualizácia: "
+
+#: omweather/src/hash.data:76
+msgid "Lawn and Garden Weather"
+msgstr "Počasie pre trávnik a záhradu"
+
+#: omweather/src/weather-settings.c:2924 omweather/src/weather-settings.c:2931
+msgid "Layout:"
+msgstr "Rozloženie:"
+
+#: omweather/src/hash.data:77
+msgid "Light Drizzle"
+msgstr "Slabé mrholenie"
+
+#: omweather/src/hash.data:78
+msgid "Light Freezing Rain"
+msgstr "Slabý mrznúci dážď"
+
+#: omweather/src/hash.data:89
+msgid "Light Rain"
+msgstr "Slabý dážď"
+
+#: omweather/src/hash.data:79
+msgid "Light Rain / Fog"
+msgstr "Slabý dážď / Hmla"
+
+#: omweather/src/hash.data:81
+msgid "Light Rain / Wind"
+msgstr "Slabý dážď / Vietor"
+
+#: omweather/src/hash.data:80
+msgid "Light Rain / Wind Late"
+msgstr "Slabý dážď / Neskôr vietor"
+
+#: omweather/src/hash.data:82
+msgid "Light Rain Early"
+msgstr "Spočiatku slabý dážď"
+
+#: omweather/src/hash.data:83
+msgid "Light Rain Late"
+msgstr "Neskôr slabý dážď"
+
+#: omweather/src/hash.data:84
+msgid "Light Rain Shower"
+msgstr "Slabé dažďové prehánky"
+
+#: omweather/src/hash.data:85
+msgid "Light Rain and Freezing Rain"
+msgstr "Slabý a mrznúci dážď"
+
+#: omweather/src/hash.data:86
+msgid "Light Rain and Shower"
+msgstr "Slabý dážď a prehánky"
+
+#: omweather/src/hash.data:87
+msgid "Light Rain and Windy"
+msgstr "Slabý dážď a veterno"
+
+#: omweather/src/hash.data:88
+msgid "Light Rain with Thunder"
+msgstr "Slabý dážď s hrmením"
+
+#: omweather/src/hash.data:95
+msgid "Light Snow"
+msgstr "Slabé sneženie"
+
+#: omweather/src/hash.data:90
+msgid "Light Snow / Fog"
+msgstr "Slabé sneženie / Hmla"
+
+#: omweather/src/hash.data:91
+msgid "Light Snow / Wind"
+msgstr "Slabé sneženie / Vietor"
+
+#: omweather/src/hash.data:92
+msgid "Light Snow Early"
+msgstr "Spočiatku slabé sneženie"
+
+#: omweather/src/hash.data:93
+msgid "Light Snow Late"
+msgstr "Neskôr slabé sneženie"
+
+#: omweather/src/hash.data:94
+msgid "Light Snow Shower"
+msgstr "Slabé snehové prehánky"
+
+#: omweather/src/weather-settings.c:463
+msgid "Loading station list"
+msgstr "Načítavam zoznam staníc"
+
+#: omweather/src/hash.data:96
+msgid "Local Pollen Reports"
+msgstr "Miestne peľové správy"
+
+#: omweather/src/weather-settings.c:3454
+msgid "Long"
+msgstr "Dlhý"
+
+#: omweather/src/hash.data:97
+msgid "Low"
+msgstr "Nízké"
+
+#: omweather/src/weather-simple-settings.c:2244
+msgid "Manual"
+msgstr "Ručné"
+
+#: omweather/src/weather-settings.c:3901
+msgid "Meters"
+msgstr "Metre"
+
+#: omweather/src/weather-settings.c:3930
+msgid "Miles"
+msgstr "Míle"
+
+#: omweather/src/hash.data:98
+msgid "Mist"
+msgstr "Opar"
+
+#: omweather/src/weather-simple-settings.c:438
+msgid "Modification"
+msgstr "Úprava"
+
+#: omweather/src/hash.data:99
+msgid "Mostly Clear"
+msgstr "Prevažne jasno"
+
+#: omweather/src/hash.data:107
+msgid "Mostly Cloudy"
+msgstr "Prevažne zamračené"
+
+#: omweather/src/hash.data:101
+msgid "Mostly Cloudy / Wind"
+msgstr "Prevažne zamračené / Vietor"
+
+#: omweather/src/hash.data:102
+msgid "Mostly Cloudy Few Snow"
+msgstr "Prevažne zamračené s ojedinelým snežením"
+
+#: omweather/src/hash.data:103
+msgid "Mostly Cloudy Light Rain"
+msgstr "Prevažne zamračené so slabým dažďom"
+
+#: omweather/src/hash.data:104
+msgid "Mostly Cloudy Rain"
+msgstr "Prevažne zamračené s dažďom"
+
+#: omweather/src/hash.data:105
+msgid "Mostly Cloudy Snow"
+msgstr "Prevažne zamračené so snežením"
+
+#: omweather/src/hash.data:106
+msgid "Mostly Cloudy T-Storm"
+msgstr "Prevažne zamračené s búrkou"
+
+#: omweather/src/hash.data:100
+msgid "Mostly Cloudy and Windy"
+msgstr "Prevažne zamračené a veterno"
+
+#: omweather/src/hash.data:108
+msgid "Mostly Cloudy, Drifting Snow"
+msgstr "Prevažne zamračené, padajúci sneh"
+
+#: omweather/src/hash.data:109
+msgid "Mostly Cloudy, Few Snow"
+msgstr "Prevažne zamračené, ojedinelé sneženie"
+
+#: omweather/src/hash.data:110
+msgid "Mostly Cloudy, Fog"
+msgstr "Prevažne zamračené, hmla"
+
+#: omweather/src/hash.data:111
+msgid "Mostly Cloudy, Fog, Drizzle"
+msgstr "Prevažne zamračené, hmla, mrholenie"
+
+#: omweather/src/hash.data:112
+#, fuzzy
+msgid "Mostly Cloudy, Heavy Rain"
+msgstr "Prevažne zamračené, silné sneženie"
+
+#: omweather/src/hash.data:113
+msgid "Mostly Cloudy, Heavy Snow"
+msgstr "Prevažne zamračené, silné sneženie"
+
+#: omweather/src/hash.data:114
+msgid "Mostly Cloudy, Heavy Snow, Freezing Rain"
+msgstr "Prevažne zamračené, silné sneženie, mrznúci dážď"
+
+#: omweather/src/hash.data:115
+msgid "Mostly Cloudy, Light Rain"
+msgstr "Prevažne zamračené, slabý dážď"
+
+#: omweather/src/hash.data:116
+msgid "Mostly Cloudy, Light Rain, Drizzle"
+msgstr "Prevažne zamračené, slabý dážď, mrholenie"
+
+#: omweather/src/hash.data:117
+msgid "Mostly Cloudy, Light Rain, T-Storm"
+msgstr "Prevažne zamračené, slabý dážď, búrka"
+
+#: omweather/src/hash.data:118
+msgid "Mostly Cloudy, Rain"
+msgstr "Prevažne zamračené, dážď"
+
+#: omweather/src/hash.data:119
+msgid "Mostly Cloudy, Rain, T-Storm"
+msgstr "Prevažne zamračené, dážď, búrka"
+
+#: omweather/src/hash.data:120
+msgid "Mostly Cloudy, Smoke"
+msgstr "Prevažne zamračené, dymová clona"
+
+#: omweather/src/hash.data:121
+msgid "Mostly Cloudy, Snow"
+msgstr "Prevažne zamračené, sneženie"
+
+#: omweather/src/hash.data:122
+msgid "Mostly Cloudy, T-Storm"
+msgstr "Prevažne zamračené, búrka"
+
+#: omweather/src/hash.data:123
+msgid "Mostly Sunny"
+msgstr "Prevažne slnečno"
+
+#: omweather/src/hash.data:124
+msgid "N"
+msgstr "S"
+
+#: omweather/src/weather-home.c:658 omweather/src/weather-home.c:664
+#: omweather/src/weather-home.c:665 omweather/src/weather-home.c:671
+#: omweather/src/weather-home.c:677 omweather/src/weather-home.c:2641
+#: omweather/src/weather-home.c:2725 omweather/src/weather-home.c:2733
+#: omweather/src/weather-home.c:2816 omweather/src/weather-home.c:2820
+#: omweather/src/weather-home.c:2833 omweather/src/weather-home.c:2837
+#: omweather/src/hash.data:125
+msgid "N/A"
+msgstr "N/A"
+
+#: omweather/src/hash.data:126
+msgid "NE"
+msgstr "SV"
+
+#: omweather/src/hash.data:127
+msgid "NE_short"
+msgstr "SV"
+
+#: omweather/src/hash.data:128
+msgid "NNE"
+msgstr "SSV"
+
+#: omweather/src/hash.data:129
+msgid "NNE_short"
+msgstr "SSV"
+
+#: omweather/src/hash.data:130
+msgid "NNW"
+msgstr "SSZ"
+
+#: omweather/src/hash.data:131
+msgid "NNW_short"
+msgstr "SSZ"
+
+#: omweather/src/hash.data:132
+msgid "NO STATION"
+msgstr "ŽIADNA STANICA"
+
+#: omweather/src/hash.data:133
+msgid "NW"
+msgstr "SZ"
+
+#: omweather/src/hash.data:134
+msgid "NW_short"
+msgstr "SZ"
+
+#: omweather/src/hash.data:135
+msgid "N_short"
+msgstr "N"
+
+#: omweather/src/weather-settings.c:545
+msgid "Name:"
+msgstr "Názov:"
+
+#: omweather/src/weather-settings.c:920 omweather/src/weather-settings.c:4190
+#: omweather/src/weather-config.c:324 omweather/src/weather-sensor.c:141
+#: omweather/src/weather-simple-settings.c:2806
+msgid "Never"
+msgstr "Nikdy"
+
+#: omweather/src/hash.data:136
+msgid "New"
+msgstr "Nov"
+
+#: omweather/src/weather-settings.c:4275
+msgid "Next update:"
+msgstr "Ďalšia aktualizácia:"
+
+#: omweather/src/weather-popup.c:1034
+msgid "Night:"
+msgstr "Noc:"
+
+#: omweather/src/weather-settings.c:825
+msgid "No"
+msgstr "Nie"
+
+#: omweather/src/weather-popup.c:668
+msgid "No current weather data."
+msgstr "Žiadne aktuálne údaje o počasí."
+
+#: omweather/src/weather-popup.c:656
+msgid "No weather data for this day."
+msgstr "Žiadne údaje o počasí pre tento deň."
+
+#: omweather/src/weather-popup.c:680 omweather/src/weather-simple-popup.c:578
+msgid "No weather data for this station."
+msgstr "Žiadne údaje o počasí pre túto stanicu."
+
+#: omweather/src/weather-home.c:2732 omweather/src/weather-home.c:2744
+#: omweather/src/weather-popup.c:458 omweather/src/weather-popup.c:569
+#: omweather/src/weather-popup.c:575
+#: omweather/src/weather-simple-settings.c:2890
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:316
+msgid "Now"
+msgstr "Teraz"
+
+#: omweather/src/weather-simple-settings.c:2884
+msgid "Now + 2 days vert."
+msgstr "Teraz + 2 dni vert."
+
+#: omweather/src/weather-simple-settings.c:2893
+msgid "Now + 3 days hor."
+msgstr "Teraz + 3 dni hor."
+
+#: omweather/src/weather-simple-settings.c:2887
+msgid "Now + 3 days vert."
+msgstr "Teraz + 3 dni vert."
+
+#: omweather/src/weather-simple-settings.c:2881
+msgid "Now + 7 days vert."
+msgstr "Teraz + 7 dní vert."
+
+#: omweather/src/weather-home.c:1530
+#, c-format
+msgid "Now: "
+msgstr "Teraz: "
+
+#: omweather/src/weather-help.c:67 omweather/src/weather-simple-popup.c:1192
+msgid "OK"
+msgstr "OK"
+
+#: omweather/src/weather-popup.c:531
+msgid "OMWeather Forecast"
+msgstr "Predpoveď OMWeather"
+
+#: omweather/src/weather-settings.c:1220
+#: omweather/src/weather-simple-settings.c:3002
+msgid "OMWeather Settings"
+msgstr "Nastavenie OMWeather"
+
+#: omweather/src/weather-home.c:1268 omweather/src/weather-home.c:2854
+msgid "OMWeather settings"
+msgstr "Nastavenie OMWeather"
+
+#: omweather/src/weather-help.c:64 omweather/src/weather-help.c:70
+msgid "Other Maemo Weather Info"
+msgstr "Informácie o Other Maemo Weather"
+
+#: omweather/src/hash.data:137
+msgid "Overcast"
+msgstr "Zamračené"
+
+#: omweather/src/hash.data:138
+msgid "PM Fog"
+msgstr "Popoludní hmla"
+
+#: omweather/src/hash.data:140
+msgid "PM Light Rain"
+msgstr "Popoludní slabý dážď"
+
+#: omweather/src/hash.data:139
+msgid "PM Light Rain / Wind"
+msgstr "Popoludní slabý dážď / Vietor"
+
+#: omweather/src/hash.data:142
+msgid "PM Light Snow"
+msgstr "Popoludní slabé sneženie"
+
+#: omweather/src/hash.data:141
+msgid "PM Light Snow / Wind"
+msgstr "Popoludní slabé sneženie / Vietor"
+
+#: omweather/src/hash.data:145
+msgid "PM Rain"
+msgstr "Popoludní dážď"
+
+#: omweather/src/hash.data:143
+msgid "PM Rain / Snow"
+msgstr "Popoludní dážď / Sneženie"
+
+#: omweather/src/hash.data:144
+msgid "PM Rain / Wind"
+msgstr "Popoludní dážď / Vietor"
+
+#: omweather/src/hash.data:147
+msgid "PM Showers"
+msgstr "Popoludní prehánky"
+
+#: omweather/src/hash.data:146
+msgid "PM Showers / Wind"
+msgstr "Popoludní prehánky / Vietor"
+
+#: omweather/src/hash.data:148
+msgid "PM Snow Showers"
+msgstr "Popoludní snehové prehánky"
+
+#: omweather/src/hash.data:149
+msgid "PM T-Showers"
+msgstr "Popoludní prehánky"
+
+#: omweather/src/hash.data:150
+msgid "PM T-Storms"
+msgstr "Popoludní búrky"
+
+#: omweather/src/hash.data:156
+msgid "Partly Cloudy"
+msgstr "Oblačno"
+
+#: omweather/src/hash.data:151
+msgid "Partly Cloudy / Wind"
+msgstr "Oblačno / Vietor"
+
+#: omweather/src/hash.data:152
+msgid "Partly Cloudy Few Snow"
+msgstr "Oblačno s ojedinelým snežením"
+
+#: omweather/src/hash.data:153
+msgid "Partly Cloudy Light Rain"
+msgstr "Oblačno so slabým dažďom"
+
+#: omweather/src/hash.data:154
+msgid "Partly Cloudy T-Storm"
+msgstr "Oblačno s búrkou"
+
+#: omweather/src/hash.data:155
+msgid "Partly Cloudy and Windy"
+msgstr "Oblačno a veterno"
+
+#: omweather/src/hash.data:157
+msgid "Partly Cloudy, Few Snow"
+msgstr "Oblačno, ojedinelé sneženie"
+
+#: omweather/src/hash.data:158
+msgid "Partly Cloudy, Haze"
+msgstr "Oblačno, opar"
+
+#: omweather/src/hash.data:159
+#, fuzzy
+msgid "Partly Cloudy, Heavy Rain"
+msgstr "Prevažne zamračené, silné sneženie"
+
+#: omweather/src/hash.data:160
+msgid "Partly Cloudy, Light Rain"
+msgstr "Oblačno, slabý dážď"
+
+#: omweather/src/hash.data:161
+#, fuzzy
+msgid "Partly Cloudy, Rain"
+msgstr "Oblačno, slabý dážď"
+
+#: omweather/src/hash.data:162
+msgid "Partly Cloudy, Smoke"
+msgstr "Oblačno, dymová clona"
+
+#: omweather/src/hash.data:163
+msgid "Partly Cloudy, Snow"
+msgstr "Oblačno, sneženie"
+
+#: omweather/src/hash.data:164
+msgid "Partly Cloudy, T-Storm"
+msgstr "Oblačno, búrka"
+
+#: omweather/src/weather-simple-settings.c:1680
+msgid "Period"
+msgstr "Perióda"
+
+#: omweather/src/weather-settings.c:3649
+msgid "Position:"
+msgstr "Poloha:"
+
+#: omweather/src/weather-simple-settings.c:1657
+#: omweather/src/weather-simple-settings.c:2840
+msgid "Preference|Update"
+msgstr "Aktualizácia"
+
+#: omweather/src/weather-simple-settings.c:1464
+msgid "Pressure"
+msgstr "Tlak"
+
+#: omweather/src/weather-settings.c:4049
+msgid "Pressure units:"
+msgstr "Jednotky tlaku:"
+
+#: omweather/src/weather-popup.c:1287
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:349
+msgid "Pressure:"
+msgstr "Tlak:"
+
+#: omweather/src/weather-home.c:1393 omweather/src/weather-home.c:1448
+#: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1087
+msgid "Pressure: "
+msgstr "Tlak:"
+
+#: omweather/src/hash.data:183
+msgid "Rain"
+msgstr "Dážď"
+
+#: omweather/src/hash.data:165
+msgid "Rain / Freezing Rain"
+msgstr "Dážď / Mrznúci dážď"
+
+#: omweather/src/hash.data:172
+msgid "Rain / Snow"
+msgstr "Dážď / Sneženie"
+
+#: omweather/src/hash.data:166
+msgid "Rain / Snow / Wind"
+msgstr "Dážď / Sneženie / Vietor"
+
+#: omweather/src/hash.data:167
+msgid "Rain / Snow Early"
+msgstr "Dážď / Spočiatku sneženie"
+
+#: omweather/src/hash.data:168
+msgid "Rain / Snow Late"
+msgstr "Dážď / Neskôr sneženie"
+
+#: omweather/src/hash.data:171
+msgid "Rain / Snow Showers"
+msgstr "Dážď / Snehové prehánky"
+
+#: omweather/src/hash.data:169
+msgid "Rain / Snow Showers / Wind"
+msgstr "Dážď / Snehové prehánky / Vietor"
+
+#: omweather/src/hash.data:170
+msgid "Rain / Snow Showers Late"
+msgstr "Dážď / Neskôr snehové prehánky"
+
+#: omweather/src/hash.data:173
+msgid "Rain / Thunder"
+msgstr "Dážď / Hrmenie"
+
+#: omweather/src/hash.data:175
+msgid "Rain / Wind"
+msgstr "Dážď / Vietor"
+
+#: omweather/src/hash.data:174
+msgid "Rain / Wind Early"
+msgstr "Dážď / Spočiatku vietor"
+
+#: omweather/src/hash.data:176
+msgid "Rain Early"
+msgstr "Spočiatku dážď"
+
+#: omweather/src/hash.data:177
+msgid "Rain Late"
+msgstr "Neskôr dážď"
+
+#: omweather/src/hash.data:179
+msgid "Rain Shower"
+msgstr "Dažďové prehánky"
+
+#: omweather/src/hash.data:178
+msgid "Rain Shower and Windy"
+msgstr "Dažďové prehánky a veterno"
+
+#: omweather/src/hash.data:180
+msgid "Rain and Snow"
+msgstr "Dážď a sneženie"
+
+#: omweather/src/hash.data:182
+msgid "Rain to Wintry Mix"
+msgstr "Chladno a sychravo s dažďom"
+
+#: omweather/src/hash.data:181
+msgid "Rain to Wintry Mix / Wind"
+msgstr "Chladno a sychravo s dažďom / Vietor"
+
+#: omweather/src/weather-sensor.c:127
+msgid "Read sensor every:"
+msgstr "Čítať senzor každých:"
+
+#: omweather/src/weather-simple-settings.c:737
+#: omweather/src/weather-simple-settings.c:790
+#: omweather/src/weather-simple-settings.c:2331
+msgid "Region"
+msgstr "Región"
+
+#: omweather/src/hash.data:184
+msgid "Rush Hour Traffic"
+msgstr "Dopravná špička"
+
+#: omweather/src/hash.data:185
+msgid "S"
+msgstr "J"
+
+#: omweather/src/hash.data:186
+msgid "SE"
+msgstr "JV"
+
+#: omweather/src/hash.data:187
+msgid "SE_short"
+msgstr "JV"
+
+#: omweather/src/hash.data:188
+msgid "SSE"
+msgstr "JJV"
+
+#: omweather/src/hash.data:189
+msgid "SSE_short"
+msgstr "JJV"
+
+#: omweather/src/hash.data:190
+msgid "SSW"
+msgstr "JJZ"
+
+#: omweather/src/hash.data:191
+msgid "SSW_short"
+msgstr "JJZ"
+
+#: omweather/src/hash.data:192
+msgid "SW"
+msgstr "JZ"
+
+#: omweather/src/hash.data:193
+msgid "SW_short"
+msgstr "JZ"
+
+#: omweather/src/hash.data:194
+msgid "S_short"
+msgstr "J"
+
+#: omweather/src/weather-simple-settings.c:363
+#: omweather/src/weather-simple-settings.c:461
+#: omweather/src/weather-simple-settings.c:1513
+#: omweather/src/weather-simple-settings.c:1854
+#: omweather/src/weather-simple-settings.c:2023
+#: omweather/src/weather-simple-settings.c:2400
+#: omweather/src/weather-simple-settings.c:3128
+msgid "Save"
+msgstr "Uložiť"
+
+#: omweather/src/hash.data:195
+msgid "Scattered Showers"
+msgstr "Ojedinelé prehánky"
+
+#: omweather/src/hash.data:197
+msgid "Scattered Snow"
+msgstr "Ojedinelé sneženie"
+
+#: omweather/src/hash.data:196
+msgid "Scattered Snow Showers"
+msgstr "Ojedinelé snehové prehánky"
+
+#: omweather/src/hash.data:198
+msgid "Scattered T-Storms"
+msgstr "Ojedinelé búrky"
+
+#: omweather/src/weather-settings.c:3943
+msgid "Sea miles"
+msgstr "Námorné míle"
+
+#: omweather/src/weather-settings.c:474
+msgid "Search"
+msgstr "Hľadať"
+
+#: omweather/src/weather-simple-settings.c:2172
+#, fuzzy
+msgid "Select location"
+msgstr "Vyberám stanicu"
+
+#: omweather/src/weather-simple-settings.c:1039
+#, c-format
+msgid "Selecting country"
+msgstr "Vyberám krajinu"
+
+#: omweather/src/weather-simple-settings.c:1047
+#, c-format
+msgid "Selecting region"
+msgstr "Vyberám región"
+
+#: omweather/src/weather-simple-settings.c:1043
+#, c-format
+msgid "Selecting source"
+msgstr "Vyberám zdroj"
+
+#: omweather/src/weather-simple-settings.c:1051
+#, c-format
+msgid "Selecting station"
+msgstr "Vyberám stanicu"
+
+#: omweather/src/weather-settings.c:1150 omweather/src/weather-settings.c:1362
+#: omweather/src/weather-settings.c:1366 omweather/src/weather-sensor.c:263
+msgid "Sensor"
+msgstr "Senzor"
+
+#: omweather/src/weather-simple-settings.c:2232
+msgid "Set"
+msgstr "Nast."
+
+#: omweather/src/weather-home.c:1291 omweather/src/weather-simple-popup.c:1126
+#: omweather/src/weather-simple-status.c:158
+msgid "Settings"
+msgstr "Nastavenie"
+
+#: omweather/src/weather-settings.c:3465
+msgid "Short"
+msgstr "Krátky"
+
+#: omweather/src/weather-settings.c:3824
+msgid "Show arrows"
+msgstr "Zobraziť šípky"
+
+#: omweather/src/weather-settings.c:3754
+msgid "Show only current weather on first icon"
+msgstr "Zobraziť aktuálne počasie iba na prvej ikone"
+
+#: omweather/src/weather-settings.c:3801
+msgid "Show station name"
+msgstr "Zobraziť názov stanice"
+
+#: omweather/src/weather-sensor.c:86
+msgid "Show temperature at:"
+msgstr "Zobraziť teplotu v:"
+
+#: omweather/src/weather-settings.c:3795
+msgid "Show wind"
+msgstr "Zobraziť vietor"
+
+#: omweather/src/hash.data:204
+msgid "Showers"
+msgstr "Prehánky"
+
+#: omweather/src/hash.data:200
+msgid "Showers / Wind"
+msgstr "Prehánky / Vietor"
+
+#: omweather/src/hash.data:199
+msgid "Showers / Wind Early"
+msgstr "Prehánky / Spočiatku vietor"
+
+#: omweather/src/hash.data:201
+msgid "Showers Early"
+msgstr "Spočiatku prehánky"
+
+#: omweather/src/hash.data:202
+msgid "Showers Late"
+msgstr "Neskôr prehánky"
+
+#: omweather/src/hash.data:203
+msgid "Showers in the Vicinity"
+msgstr "Prehánky v okolí"
+
+#: omweather/src/hash.data:205
+msgid "Smoke"
+msgstr "Dymová clona"
+
+#: omweather/src/hash.data:216
+msgid "Snow"
+msgstr "Sneženie"
+
+#: omweather/src/hash.data:206
+msgid "Snow / Wind"
+msgstr "Sneženie / Vietor"
+
+#: omweather/src/hash.data:208
+msgid "Snow Shower"
+msgstr "Snehové prehánky"
+
+#: omweather/src/hash.data:207
+msgid "Snow Shower / Wind"
+msgstr "Snehové prehánky / Vietor"
+
+#: omweather/src/hash.data:209
+msgid "Snow Showers / Wind Early"
+msgstr "Snehové prehánky / Spočiatku vietor"
+
+#: omweather/src/hash.data:210
+msgid "Snow Showers Early"
+msgstr "Spočiatku snehové prehánky"
+
+#: omweather/src/hash.data:211
+msgid "Snow Showers Late"
+msgstr "Neskôr snehové prehánky"
+
+#: omweather/src/hash.data:212
+msgid "Snow and Freezing Rain"
+msgstr "Sneženie a mrznúci dážď"
+
+#: omweather/src/hash.data:213
+msgid "Snow to Rain"
+msgstr "Sneženie meniace sa na dážď"
+
+#: omweather/src/hash.data:215
+msgid "Snow to Wintry Mix"
+msgstr "Chladno a sychravo so snežením"
+
+#: omweather/src/hash.data:214
+msgid "Snow to Wintry Mix / Wind"
+msgstr "Chladno a sychravo so snežením / Vietor"
+
+#: omweather/src/weather-simple-settings.c:2299
+msgid "Source"
+msgstr "Zdroj"
+
+#: omweather/src/weather-settings.c:498
+msgid "Source:"
+msgstr "Zdroj:"
+
+#: omweather/src/weather-popup.c:986 omweather/src/weather-popup.c:992
+#: omweather/src/weather-popup.c:999 omweather/src/weather-popup.c:1108
+#: omweather/src/weather-popup.c:1114 omweather/src/weather-popup.c:1121
+#: omweather/src/weather-simple-settings.c:1393
+msgid "Speed"
+msgstr "Rychlosť"
+
+#: omweather/src/weather-popup.c:1311 omweather/src/weather-popup.c:1451
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:376
+msgid "Speed:"
+msgstr "Rýchlosť:"
+
+#: omweather/src/weather-settings.c:522
+msgid "State:"
+msgstr "Štát:"
+
+#: omweather/src/weather-simple-settings.c:2516
+#, c-format
+msgid "Station %i"
+msgstr "Stanica %i"
+
+#: omweather/src/weather-settings.c:1114 omweather/src/weather-settings.c:1292
+#: omweather/src/weather-settings.c:1297
+msgid "Stations"
+msgstr "Stanice"
+
+#: omweather/src/hash.data:217 omweather/src/weather-alerts.c:154
+msgid "Storm"
+msgstr "Búrka"
+
+#: omweather/src/weather-download.c:392
+msgid "Successfully loaded"
+msgstr "Úspešne načítané"
+
+#: omweather/src/hash.data:219
+msgid "Sunny"
+msgstr "Slnečno"
+
+#: omweather/src/hash.data:218
+msgid "Sunny / Wind"
+msgstr "Slnečno / Vietor"
+
+#: omweather/src/weather-popup.c:124 omweather/src/weather-popup.c:1007
+msgid "Sunrise: "
+msgstr "Východ: "
+
+#: omweather/src/weather-popup.c:138 omweather/src/weather-popup.c:1129
+msgid "Sunset: "
+msgstr "Západ: "
+
+#: omweather/src/weather-settings.c:3773
+msgid "Swap hi/low temperature"
+msgstr "Zameniť vysokú/nízku teplotu"
+
+#: omweather/src/weather-settings.c:4180
+msgid "Switch to the next station after:"
+msgstr "Prepnúť na ďalšiu stanicu po:"
+
+#: omweather/src/hash.data:221
+msgid "T-Showers"
+msgstr "Prehánky"
+
+#: omweather/src/hash.data:220
+msgid "T-Showers Early"
+msgstr "Spočiatku prehánky"
+
+#: omweather/src/hash.data:222
+msgid "T-Storm"
+msgstr "Búrka"
+
+#: omweather/src/hash.data:224
+msgid "T-Storms"
+msgstr "Búrky"
+
+#: omweather/src/hash.data:223
+msgid "T-Storms Early"
+msgstr "Spočiatku búrky"
+
+#: omweather/src/weather-popup.c:946 omweather/src/weather-popup.c:949
+#: omweather/src/weather-popup.c:1068 omweather/src/weather-popup.c:1071
+#: omweather/src/weather-simple-settings.c:1271
+msgid "Temperature"
+msgstr "Teplota"
+
+#: omweather/src/weather-settings.c:3858
+msgid "Temperature units:"
+msgstr "Jednotky teploty:"
+
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:335
+#, fuzzy
+msgid "Temperature:"
+msgstr "Teplota: "
+
+#: omweather/src/weather-popup.c:1238 omweather/src/weather-popup.c:1420
+msgid "Temperature: "
+msgstr "Teplota: "
+
+#: omweather/src/weather-help.c:137
+msgid "Thanks"
+msgstr "Poďakovanie"
+
+#: omweather/src/weather-download.c:401
+msgid "The weather has been updated."
+msgstr "Údaje o počasí boli aktualizované."
+
+#: omweather/src/hash.data:225
+msgid "Thunder"
+msgstr "Hrmenie"
+
+#: omweather/src/weather-simple-popup.c:391
+#: omweather/src/weather-simple-popup.c:394
+msgid "Today"
+msgstr "Dnes"
+
+#: omweather/src/weather-help.c:153
+msgid "Translators"
+msgstr "Predkladatelia"
+
+#: omweather/src/weather-settings.c:3272 omweather/src/weather-settings.c:3277
+#: omweather/src/weather-settings.c:3295
+msgid "Transparency:"
+msgstr "Priehľadnosť:"
+
+#: omweather/src/weather-settings.c:3452
+msgid "Type of click:"
+msgstr "Druh kliknutia:"
+
+#: omweather/src/weather-settings.c:1135 omweather/src/weather-settings.c:1334
+#: omweather/src/weather-settings.c:1338
+#: omweather/src/weather-simple-settings.c:1255
+#: omweather/src/weather-simple-settings.c:2736
+msgid "Units"
+msgstr "Jednotky"
+
+#: omweather/src/weather-home.c:240 omweather/src/weather-settings.c:78
+#: omweather/src/weather-popup.c:265 omweather/src/weather-popup.c:277
+#: omweather/src/weather-download.c:467
+#: omweather/src/weather-simple-popup.c:133
+#: omweather/src/weather-simple-popup.c:241
+#: omweather/src/weather-simple-popup.c:250
+#: omweather/src/weather-simple-settings.c:884
+#: omweather/src/weather-simple-settings.c:2282
+#: omweather/src/weather-simple-settings.c:2605
+#: omweather/src/weather-simple-settings.c:2609
+#: omweather/src/weather-simple-settings.c:2635
+#: omweather/src/weather-simple-settings.c:2637
+msgid "Unknown"
+msgstr "Neznáma"
+
+#: omweather/src/hash.data:226
+msgid "Unlimited"
+msgstr "Neobmedzené"
+
+#: omweather/src/weather-settings.c:1142 omweather/src/weather-settings.c:1348
+#: omweather/src/weather-settings.c:1352
+msgid "Update"
+msgstr "Aktualizácia"
+
+#: omweather/src/weather-download.c:425
+msgid "Update already running."
+msgstr "Aktualizácia práve prebieha."
+
+#: omweather/src/weather-settings.c:4264
+msgid "Updating of weather data:"
+msgstr "Aktualizujem údaje o počasí:"
+
+#: omweather/src/weather-download.c:174
+msgid "Updating weather"
+msgstr "Aktualizujem údaje o počasí"
+
+#: omweather/src/weather-settings.c:1944
+msgid ""
+"Use Edit layout \n"
+"for tuning images of applet"
+msgstr ""
+"Použite Upraviť rozloženie\n"
+"pre úpravu obrázkov apletu"
+
+#: omweather/src/weather-simple-settings.c:1839
+msgid ""
+"Use GSM and/or WLAN for periodic updating\n"
+" the weather information.\n"
+msgstr ""
+"Použite GSM a/alebo WLAN pre periodické aktuali-\n"
+"zovanie informácií o počasí.\n"
+
+#: omweather/src/weather-sensor.c:65
+msgid "Use device temperature sensor"
+msgstr "Použiť teplotný senzor zariadenia"
+
+#: omweather/src/hash.data:227
+msgid "VAR"
+msgstr "Premenlivo"
+
+#: omweather/src/weather-settings.c:4231
+msgid "Valid time for current weather:"
+msgstr "Platný čas pre aktuálne počasie:"
+
+#: omweather/src/hash.data:228
+msgid "Very High"
+msgstr "Veľmi vysoké"
+
+#: omweather/src/weather-settings.c:3517 omweather/src/weather-settings.c:3522
+msgid "Visible items:"
+msgstr "Viditeľné položky:"
+
+#: omweather/src/weather-popup.c:1267
+msgid "Visible:"
+msgstr "Viditeľnosť:"
+
+#: omweather/src/weather-settings.c:1121 omweather/src/weather-settings.c:1307
+#: omweather/src/weather-settings.c:1312
+msgid "Visuals"
+msgstr "Vzhľad"
+
+#: omweather/src/hash.data:229
+msgid "W"
+msgstr "Z"
+
+#: omweather/src/weather-simple-settings.c:1793
+#: omweather/src/weather-simple-settings.c:1800
+#: omweather/src/weather-simple-settings.c:2834
+msgid "WLAN"
+msgstr "WLAN"
+
+#: omweather/src/hash.data:230
+msgid "WNW"
+msgstr "ZSZ"
+
+#: omweather/src/hash.data:231
+msgid "WNW_short"
+msgstr "ZSZ"
+
+#: omweather/src/hash.data:232
+msgid "WSW"
+msgstr "ZJZ"
+
+#: omweather/src/hash.data:233
+msgid "WSW_short"
+msgstr "ZJZ"
+
+#: omweather/src/hash.data:234
+msgid "W_short"
+msgstr "Z"
+
+#: omweather/src/hash.data:235
+msgid "Waning Crescent"
+msgstr "Ubúdajúci kosák"
+
+#: omweather/src/hash.data:236
+msgid "Waning Gibbous"
+msgstr "Cúvajúci Mesiac"
+
+#: omweather/src/weather-simple-settings.c:850
+msgid "Warning"
+msgstr "Upozornienie"
+
+#: omweather/src/hash.data:237
+msgid "Waxing Crescent"
+msgstr "Dorastajúci kosák"
+
+#: omweather/src/hash.data:238
+msgid "Waxing Gibbous"
+msgstr "Dorastajúci Mesiac"
+
+#: omweather/src/weather-popup.c:1532
+msgid "Weather data provided by: "
+msgstr "Údaje o počasí poskytol: "
+
+#: omweather/src/weather-utils.c:797
+msgid "Widget OMWeather is reloading"
+msgstr "Widget OMWeather sa znovu načítava."
+
+#: omweather/src/weather-simple-settings.c:2918
+#: omweather/src/weather-simple-settings.c:2926
+msgid "Widget style"
+msgstr "Štýl widgetu"
+
+#: omweather/src/weather-simple-settings.c:397
+msgid "Widget style and Iconset"
+msgstr "Štýl widgetu a téma ikon"
+
+#: omweather/src/hash.data:239
+msgid "Wind"
+msgstr "Vietor"
+
+#: omweather/src/weather-settings.c:3974
+msgid "Wind speed units:"
+msgstr "Jednotky rýchlosti vetra:"
+
+#: omweather/src/weather-popup.c:1306 omweather/src/weather-popup.c:1447
+msgid "Wind:"
+msgstr "Vietor:"
+
+#: omweather/src/weather-home.c:1409 omweather/src/weather-home.c:1464
+#: omweather/src/weather-popup.c:980 omweather/src/weather-popup.c:1102
+msgid "Wind: "
+msgstr "Vietor: "
+
+#: omweather/src/hash.data:243
+msgid "Wintry Mix"
+msgstr "Chladno a sychravo"
+
+#: omweather/src/hash.data:241
+msgid "Wintry Mix / Wind"
+msgstr "Chladno a sychravo / Vietor"
+
+#: omweather/src/hash.data:240
+msgid "Wintry Mix / Wind Early"
+msgstr "Chladno a sychravo / Spočiatku vietor"
+
+#: omweather/src/hash.data:242
+msgid "Wintry Mix to Snow"
+msgstr "Chladno a sychravo so snežením"
+
+#: omweather/src/weather-home.c:844
+msgid ""
+"Wrong station code \n"
+"or ZIP code!!!"
+msgstr ""
+"Nesprávny kód stanice\n"
+"ale ZIP kód!!!"
+
+#: omweather/src/weather-settings.c:824
+msgid "Yes"
+msgstr "Áno"
+
+#: omweather/src/weather-simple-popup.c:1202
+msgid "You can make donation here: "
+msgstr "Darovanie môžete uskutočniť tu:"
+
+#: omweather/src/weather-simple-settings.c:2762
+msgid "Zoom in popup window "
+msgstr "Priblíženie v pop-ovom okne"
+
+#: omweather/src/weather-simple-settings.c:1919
+msgid "Zooming in popup window"
+msgstr "Približovanie v pop-ovom okne"
+
+#: omweather/src/weather-popup.c:285
+msgid "current location local time"
+msgstr "miestneho času aktuálnej polohy"
+
+#: omweather/src/weather-simple-popup.c:402
+msgid "d:"
+msgstr "d:"
+
+#: omweather/src/weather-config.c:332
+msgid "every 2 hours"
+msgstr "každé 2 hodiny"
+
+#: omweather/src/weather-config.c:338
+msgid "every 24 hours"
+msgstr "každých 24 hodín"
+
+#: omweather/src/weather-config.c:328
+msgid "every 30 minutes"
+msgstr "každých 30 minút"
+
+#: omweather/src/weather-config.c:334
+msgid "every 4 hours"
+msgstr "každé 4 hodiny"
+
+#: omweather/src/weather-config.c:326
+msgid "every 5 minutes"
+msgstr "každých 5 minút"
+
+#: omweather/src/weather-config.c:336
+msgid "every 8 hours"
+msgstr "každých 8 hodín"
+
+#: omweather/src/weather-config.c:330
+msgid "every hour"
+msgstr "každú hodinu"
+
+#: omweather/src/weather-config.c:340
+msgid "every minute (Debug)"
+msgstr "každú minútu (Ladenie)"
+
+#: omweather/src/hash.data:244
+msgid "falling"
+msgstr "klesá"
+
+#: omweather/src/weather-simple-popup.c:1017
+msgid "feels like"
+msgstr "na pocit"
+
+#: omweather/src/weather-home.c:1400 omweather/src/weather-home.c:1455
+#: omweather/src/weather-home.c:1604 omweather/src/weather-settings.c:4068
+#: omweather/src/weather-popup.c:972 omweather/src/weather-popup.c:1094
+#: omweather/src/weather-popup.c:1292
+#: omweather/src/weather-simple-settings.c:1483
+msgid "inHg"
+msgstr "inHg"
+
+#: omweather/src/weather-simple-settings.c:2726
+msgid "inch"
+msgstr "palec"
+
+#: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1276
+#: omweather/src/weather-simple-settings.c:1340
+#: omweather/src/weather-simple-settings.c:2674
+msgid "km"
+msgstr "km"
+
+#: omweather/src/weather-settings.c:3994 omweather/src/hash.data:245
+#: omweather/src/weather-simple-settings.c:1412
+#: omweather/src/weather-simple-settings.c:2700
+msgid "km/h"
+msgstr "km/h"
+
+#: omweather/src/hash.data:246
+msgid "km/s"
+msgstr "km/s"
+
+#: omweather/src/weather-home.c:1586 omweather/src/weather-popup.c:1275
+#: omweather/src/weather-simple-settings.c:1332
+#: omweather/src/weather-simple-settings.c:2668
+msgid "m"
+msgstr "m"
+
+#: omweather/src/hash.data:247
+msgid "m/h"
+msgstr "m/h"
+
+#: omweather/src/weather-settings.c:3980 omweather/src/hash.data:248
+#: omweather/src/weather-simple-settings.c:1404
+#: omweather/src/weather-simple-settings.c:2694
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:376
+msgid "m/s"
+msgstr "m/s"
+
+#: omweather/src/weather-home.c:1397 omweather/src/weather-home.c:1452
+#: omweather/src/weather-home.c:1603 omweather/src/weather-settings.c:4055
+#: omweather/src/weather-popup.c:969 omweather/src/weather-popup.c:1091
+#: omweather/src/weather-popup.c:1291
+#: omweather/src/weather-simple-settings.c:1475
+#: omweather/src/weather-simple-settings.c:2720
+msgid "mb"
+msgstr "mb"
+
+#: omweather/src/weather-home.c:1588 omweather/src/weather-home.c:1589
+#: omweather/src/weather-popup.c:1277 omweather/src/weather-popup.c:1278
+#: omweather/src/weather-simple-settings.c:1349
+#: omweather/src/weather-simple-settings.c:2680
+msgid "mi"
+msgstr "mi"
+
+#: omweather/src/weather-settings.c:4008 omweather/src/hash.data:249
+#: omweather/src/weather-simple-settings.c:1421
+#: omweather/src/weather-simple-settings.c:2706
+msgid "mi/h"
+msgstr "mi/h"
+
+#: omweather/src/hash.data:250
+msgid "mi/s"
+msgstr "mi/s"
+
+#: omweather/src/weather-simple-settings.c:2731
+msgid "mm"
+msgstr "mm"
+
+#: omweather/src/weather-home.c:1403 omweather/src/weather-home.c:1458
+#: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4078
+#: omweather/src/weather-popup.c:975 omweather/src/weather-popup.c:1097
+#: omweather/src/weather-popup.c:1293
+#: omweather/src/weather-simple-settings.c:1492
+msgid "mmHg"
+msgstr "mmHg"
+
+#: omweather/src/weather-simple-popup.c:459
+msgid "n:"
+msgstr "n:"
+
+#: omweather/src/weather-simple-settings.c:1692
+msgid "never"
+msgstr "Nikdy"
+
+#: omweather/src/weather-sensor.c:108
+msgid "new icon"
+msgstr "nová ikona"
+
+#: omweather/src/weather-simple-popup.c:227
+#: omweather/src/weather-simple-popup.c:230
+msgid "next"
+msgstr "ďalšia"
+
+#: omweather/src/weather-simple-settings.c:1358
+#: omweather/src/weather-simple-settings.c:2685
+#, fuzzy
+msgid "nmi"
+msgstr "mi"
+
+#: omweather/src/hash.data:251
+msgid "rising"
+msgstr "rastie"
+
+#: omweather/src/weather-popup.c:270
+msgid "station local time"
+msgstr "miestneho času stanice"
+
+#: omweather/src/weather-sensor.c:92
+msgid "station name"
+msgstr "názov stanice"
+
+#: omweather/src/hash.data:252
+msgid "steady"
+msgstr "ustálený"
+
+#: omweather/src/hash.data:253
+msgid "В"
+msgstr "В"
+
+#: omweather/src/hash.data:254
+msgid "З"
+msgstr "З"
+
+#: omweather/src/hash.data:255
+msgid "С"
+msgstr "С"
+
+#: omweather/src/hash.data:256
+msgid "С-В"
+msgstr "С-В"
+
+#: omweather/src/hash.data:257
+msgid "С-З"
+msgstr "С-З"
+
+#: omweather/src/hash.data:258
+msgid "Ю"
+msgstr "Ю"
+
+#: omweather/src/hash.data:259
+msgid "Ю-В"
+msgstr "Ю-В"
+
+#: omweather/src/hash.data:260
+msgid "Ю-З"
+msgstr "Ю-З"
+
+#, fuzzy
+#~ msgid "Speed: "
+#~ msgstr "Rýchlosť:"
+
+#, fuzzy
+#~ msgid "Humidity: "
+#~ msgstr ""
+#~ "\n"
+#~ "Vlhkosť: "
+
+#~ msgid ""
+#~ "\n"
+#~ "Copyright(c) 2006-2010\n"
+#~ "Vlad Vasiliev, Pavel Fialko"
+#~ msgstr ""
+#~ "\n"
+#~ "Copyright(c) 2006-2010\n"
+#~ "Vlad Vasiliev, Pavel Fialko"
+
+#~ msgid ""
+#~ "\n"
+#~ "Copyright(c) 2008\n"
+#~ "Andrew Olmsted\n"
+#~ "for Semi-transparency\n"
+#~ "and coloured backgrounds\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Copyright(c) 2008\n"
+#~ "Andrew Olmsted\n"
+#~ "za priehľadnosť\n"
+#~ "a farebné pozadia\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "Copyright(c) 2008\n"
+#~ "for default icon set (Glance)\n"
+#~ "and design of interface\n"
+#~ "Andrew Zhilin"
+#~ msgstr ""
+#~ "\n"
+#~ "Copyright(c) 2008\n"
+#~ "za predvolenú tému ikon (Glance)\n"
+#~ "a dizajn rozhrania\n"
+#~ "Andrew Zhilin"
+
+#~ msgid ""
+#~ "\n"
+#~ "Hildon desktop applet\n"
+#~ "for Nokia N800/N810/N900\n"
+#~ "to show weather forecasts.\n"
+#~ "Version "
+#~ msgstr ""
+#~ "\n"
+#~ "Widget pracovnej plochy\n"
+#~ "pre Nokie N800/N810/N900\n"
+#~ "zobrazujúci predpoveď počasia.\n"
+#~ "Verzia "
+
+#~ msgid " Build: "
+#~ msgstr " Zostavenie: "
+
+#~ msgid "Configuring station"
+#~ msgstr "Nastavenie stanice"
+
+#~ msgid ""
+#~ "GPS station already exist.\n"
+#~ "Only one station can be received via GPS"
+#~ msgstr ""
+#~ "GPS stanica už existuje.\n"
+#~ "Iba jedna stanica môže byť prijímaná cez GPS."
+
+#~ msgid "s. mi"
+#~ msgstr "s. mi"
+
+#~ msgid "s.mi"
+#~ msgstr "s.mi"

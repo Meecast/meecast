@@ -66,6 +66,11 @@ ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/t
 /usr/share/locale
 /usr/share/mutter-meego/panels/meego-panel-omweather.desktop
 /etc/xdg
+/usr/lib/omweather/weathercom
+/usr/lib/omweather/libomweather-weather-com-source.so
+/usr/share/omweather/copyright_icons/weather.com.png
+/usr/share/omweather/db/weather.com.db
+/usr/share/omweather/sources/weather.com.xml
 # >> files
 # << files
 

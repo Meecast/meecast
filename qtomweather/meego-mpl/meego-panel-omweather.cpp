@@ -76,24 +76,26 @@ FILE *file;
 
 static void* update_weather_forecast(void* data){
     int i;
-        int success = 0;
-            Core::Station* station;
-            file = fopen("/tmp/1.log","ab");
-        fprintf(file, "in thread statiion count = %d\n", config->stationsList().size());
+    int success = 0;
+    Core::Station* station;
+    
+    file = fopen("/tmp/1.log","ab");
+    fprintf(file, "in thread statiion count = %d\n", config->stationsList().size());
 	fclose(file);
 	//sleep(5);
-                for (i=0; i < config->stationsList().size();i++){
-             file = fopen("/tmp/1.log","ab");
+    for (i=0; i < config->stationsList().size();i++){
+        file = fopen("/tmp/1.log","ab");
         fprintf(file, "in thread i = %d\n", i);
-	fclose(file);
+	    fclose(file);
        
-                        station = config->stationsList().at(i);
-                                if (station->updateData(true)){
-                                            success ++;
+        station = config->stationsList().at(i);
+        if (station->updateData(true)){
+            success ++;
              file = fopen("/tmp/1.log","ab");
-        fprintf(file, "in thread success = %d\n", success);
-	fclose(file);}
-                                                }
+            fprintf(file, "in thread success = %d\n", success);
+	        fclose(file);
+        }
+    }
                                                     //return success;
     	//pthread_once_t once_control = PTHREAD_ONCE_INIT;
     	//finish_update();
@@ -109,8 +111,8 @@ static void* update_weather_forecast(void* data){
 	fclose(file);
     }*/
     updating = false;
-file = fopen("/tmp/1.log","ab");
-        fprintf(file, "end thread\n");
+    file = fopen("/tmp/1.log","ab");
+    fprintf(file, "end thread\n");
 	fclose(file);
 
     //pthread_exit((void *)0);
@@ -304,8 +306,8 @@ make_bottom_content(Core::Data *temp_data) {
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(vertical_layout), TRUE);
   
   vertical_container =  clutter_box_new(vertical_layout);
-  clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), box, 
-			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
+  //clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), box, 
+	//		    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   //clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(main_vertical_layout), TRUE);
   /* Day name */
   label = clutter_text_new();
@@ -320,16 +322,21 @@ make_bottom_content(Core::Data *temp_data) {
   clutter_text_set_text((ClutterText*)label, day_name.c_str());
   clutter_box_pack((ClutterBox*)bottom_container, label, NULL);
   
-  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 0.8);
   if (temp_data->Text().compare("N/A") != 0){
     label = clutter_text_new();
+    pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
+    pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     clutter_text_set_text((ClutterText*)label, temp_data->Text().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 
+			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
   
   if (temp_data->temperature_hi().value() != INT_MAX){
     label = clutter_text_new();
+    pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
+    pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
     ss << _("Temperature:");
@@ -340,42 +347,60 @@ make_bottom_content(Core::Data *temp_data) {
     ss << temp_data->temperature_hi().value() << "°" << config->TemperatureUnit();
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 
+			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
   
   if (temp_data->Pressure() != INT_MAX){
     label = clutter_text_new();
+    pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
+    pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
     ss << _("Pressure:") <<" "<< temp_data->Pressure();
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 
+			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
 
   if (temp_data->Humidity() != INT_MAX){
     label = clutter_text_new();
+    pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
+    pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
     ss << _("Humidity:") <<" "<< temp_data->Humidity() << "%";
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 
+			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
 
   if (temp_data->WindDirection().compare("N/A") != 0){
     label = clutter_text_new();
+    pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
+    pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
     ss << "Wind:" << " "<< temp_data->WindDirection();
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 
+			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
 
   if (temp_data->WindSpeed() != INT_MAX){
     label = clutter_text_new();
+    pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
+    pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
     ss << _("Speed:") <<" "<<temp_data->WindSpeed() << _("m/s");
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
+    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 
+			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
   
   clutter_box_pack((ClutterBox*)bottom_container, box, NULL);
@@ -390,7 +415,7 @@ make_bottom_content(Core::Data *temp_data) {
   clutter_actor_set_reactive(bottom_container, TRUE);
 
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), bottom_container,
-                          TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_CENTER);
+                          TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
 
 
 }

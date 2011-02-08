@@ -332,7 +332,8 @@ make_bottom_content(Core::Data *temp_data) {
     label = clutter_text_new();
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
-    ss << _("Temperature: ");
+    ss << _("Temperature:");
+    ss << " ";
     if (temp_data->temperature_low().value() != INT_MAX){
 	ss << temp_data->temperature_low().value() << "°" << config->TemperatureUnit() << " .. ";
     }

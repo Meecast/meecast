@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-08 10:02+0200\n"
+"POT-Creation-Date: 2011-02-08 10:14+0200\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -827,7 +827,7 @@ msgid "High"
 msgstr "Wysokie"
 
 #: omweather/src/weather-popup.c:1260 omweather/src/weather-popup.c:1436
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:357
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:358
 msgid "Humidity:"
 msgstr "Wilgotność:"
 
@@ -1372,7 +1372,7 @@ msgid "Pressure units:"
 msgstr "Jednostki ciśnienia:"
 
 #: omweather/src/weather-popup.c:1287
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:348
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:349
 msgid "Pressure:"
 msgstr "Ciśnienie:"
 
@@ -1696,7 +1696,7 @@ msgid "Speed"
 msgstr "Prędkość"
 
 #: omweather/src/weather-popup.c:1311 omweather/src/weather-popup.c:1451
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:375
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:376
 msgid "Speed:"
 msgstr "Prędkość:"
 
@@ -1778,8 +1778,12 @@ msgstr "Temperatura"
 msgid "Temperature units:"
 msgstr "Jednostki temperatury:"
 
-#: omweather/src/weather-popup.c:1238 omweather/src/weather-popup.c:1420
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:335
+#, fuzzy
+msgid "Temperature:"
+msgstr "Temperatura: "
+
+#: omweather/src/weather-popup.c:1238 omweather/src/weather-popup.c:1420
 msgid "Temperature: "
 msgstr "Temperatura: "
 
@@ -2116,7 +2120,7 @@ msgstr "m/h"
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:248
 #: omweather/src/weather-simple-settings.c:1404
 #: omweather/src/weather-simple-settings.c:2694
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:375
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:376
 msgid "m/s"
 msgstr "m/s"
 

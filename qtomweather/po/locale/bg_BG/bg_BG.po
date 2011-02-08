@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-08 10:02+0200\n"
+"POT-Creation-Date: 2011-02-08 10:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -772,7 +772,7 @@ msgid "High"
 msgstr ""
 
 #: omweather/src/weather-popup.c:1260 omweather/src/weather-popup.c:1436
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:357
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:358
 msgid "Humidity:"
 msgstr ""
 
@@ -1311,7 +1311,7 @@ msgid "Pressure units:"
 msgstr ""
 
 #: omweather/src/weather-popup.c:1287
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:348
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:349
 msgid "Pressure:"
 msgstr ""
 
@@ -1634,7 +1634,7 @@ msgid "Speed"
 msgstr ""
 
 #: omweather/src/weather-popup.c:1311 omweather/src/weather-popup.c:1451
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:375
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:376
 msgid "Speed:"
 msgstr ""
 
@@ -1714,8 +1714,11 @@ msgstr ""
 msgid "Temperature units:"
 msgstr ""
 
-#: omweather/src/weather-popup.c:1238 omweather/src/weather-popup.c:1420
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:335
+msgid "Temperature:"
+msgstr ""
+
+#: omweather/src/weather-popup.c:1238 omweather/src/weather-popup.c:1420
 msgid "Temperature: "
 msgstr ""
 
@@ -2044,7 +2047,7 @@ msgstr ""
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:248
 #: omweather/src/weather-simple-settings.c:1404
 #: omweather/src/weather-simple-settings.c:2694
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:375
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:376
 msgid "m/s"
 msgstr ""
 

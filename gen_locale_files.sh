@@ -16,7 +16,7 @@ for language in $ALL_LANGUAGES; do
 done
 
 
-cp -r po/*.po qtomweather/po
-cp -r po/*.pot qtomweather/po
+cp -r po/*.po omweather/po
+cp -r po/*.pot omweather/po
 
 exit 0

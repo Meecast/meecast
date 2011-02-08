@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lv_LV\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-08 08:54+0200\n"
+"POT-Creation-Date: 2011-02-08 10:14+0200\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -772,11 +772,8 @@ msgid "High"
 msgstr ""
 
 #: omweather/src/weather-popup.c:1260 omweather/src/weather-popup.c:1436
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:358
 msgid "Humidity:"
-msgstr ""
-
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:357
-msgid "Humidity: "
 msgstr ""
 
 #: omweather/src/weather-settings.c:3326
@@ -1315,12 +1312,12 @@ msgid "Pressure units:"
 msgstr ""
 
 #: omweather/src/weather-popup.c:1287
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:349
 msgid "Pressure:"
 msgstr ""
 
 #: omweather/src/weather-home.c:1393 omweather/src/weather-home.c:1448
 #: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1087
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:348
 msgid "Pressure: "
 msgstr ""
 
@@ -1641,11 +1638,8 @@ msgid "Speed"
 msgstr ""
 
 #: omweather/src/weather-popup.c:1311 omweather/src/weather-popup.c:1451
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:376
 msgid "Speed:"
-msgstr ""
-
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:375
-msgid "Speed: "
 msgstr ""
 
 #: omweather/src/weather-settings.c:522
@@ -1727,8 +1721,11 @@ msgstr ""
 msgid "Temperature units:"
 msgstr ""
 
-#: omweather/src/weather-popup.c:1238 omweather/src/weather-popup.c:1420
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:335
+msgid "Temperature:"
+msgstr ""
+
+#: omweather/src/weather-popup.c:1238 omweather/src/weather-popup.c:1420
 msgid "Temperature: "
 msgstr ""
 
@@ -2057,7 +2054,7 @@ msgstr ""
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:248
 #: omweather/src/weather-simple-settings.c:1404
 #: omweather/src/weather-simple-settings.c:2694
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:375
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:376
 msgid "m/s"
 msgstr ""
 

@@ -7,7 +7,7 @@
 
 Name:       omweather
 Summary:    OMWeather
-Version:    0.1
+Version:    0.3
 Release:    1
 Group:      Applications/Internet
 License:    GPLv2.1
@@ -63,6 +63,7 @@ ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/t
 /usr/share/meego-panel-omweather
 /usr/share/dbus-1/services
 /usr/share/omweather
+/usr/share/locale
 /usr/share/mutter-meego/panels/meego-panel-omweather.desktop
 /etc/xdg
 # >> files

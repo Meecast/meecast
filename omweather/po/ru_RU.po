@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-06 21:22+0200\n"
+"POT-Creation-Date: 2011-02-08 08:54+0200\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -826,6 +826,13 @@ msgstr "Высокий"
 msgid "Humidity:"
 msgstr "Влажность:"
 
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:357
+#, fuzzy
+msgid "Humidity: "
+msgstr ""
+"\n"
+"Влажность: "
+
 #: omweather/src/weather-settings.c:3326
 msgid "Icon set:"
 msgstr "Набор иконок:"
@@ -1181,6 +1188,7 @@ msgstr "Нет данных для этой станции."
 #: omweather/src/weather-popup.c:458 omweather/src/weather-popup.c:569
 #: omweather/src/weather-popup.c:575
 #: omweather/src/weather-simple-settings.c:2890
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:316
 msgid "Now"
 msgstr "Сейчас"
 
@@ -1365,6 +1373,7 @@ msgstr "Давление:"
 
 #: omweather/src/weather-home.c:1393 omweather/src/weather-home.c:1448
 #: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1087
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:348
 msgid "Pressure: "
 msgstr "Давление: "
 
@@ -1685,6 +1694,11 @@ msgstr "Скорость"
 msgid "Speed:"
 msgstr "Скорость:"
 
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:375
+#, fuzzy
+msgid "Speed: "
+msgstr "Скорость:"
+
 #: omweather/src/weather-settings.c:522
 msgid "State:"
 msgstr "Область:"
@@ -1716,7 +1730,6 @@ msgid "Sunny / Wind"
 msgstr "Солнечно / Ветер"
 
 #: omweather/src/weather-popup.c:124 omweather/src/weather-popup.c:1007
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:252
 msgid "Sunrise: "
 msgstr "Восход: "
 
@@ -1763,6 +1776,7 @@ msgid "Temperature units:"
 msgstr "Единицы температуры:"
 
 #: omweather/src/weather-popup.c:1238 omweather/src/weather-popup.c:1420
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:335
 msgid "Temperature: "
 msgstr "Температура:"
 
@@ -2098,6 +2112,7 @@ msgstr "м/ч"
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:248
 #: omweather/src/weather-simple-settings.c:1404
 #: omweather/src/weather-simple-settings.c:2694
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:375
 msgid "m/s"
 msgstr "м/с"
 

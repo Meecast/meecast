@@ -25,5 +25,6 @@ Files:
   - "/usr/share/meego-panel-omweather"
   - "/usr/share/dbus-1/services"
   - "/usr/share/omweather"
+  - "/usr/share/locale"
   - "/usr/share/mutter-meego/panels/meego-panel-omweather.desktop"
   - "/etc/xdg"

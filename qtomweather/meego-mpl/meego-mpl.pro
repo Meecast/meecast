@@ -49,7 +49,7 @@ TRANSLIST = bg_BG \
             ru_RU \
             sk_SK
 
-for(language, TRANSLIST):TRANSLATIONS += ../po/$${language}.po
+for(language, TRANSLIST):TRANSLATIONS += ../po/locale/$${language}/$${language}.po
 FORMS += mainwindow.ui \
     installer/installerform.ui
 !isEmpty(TRANSLATIONS) {
@@ -60,7 +60,7 @@ FORMS += mainwindow.ui \
     TSQM.name = msgfmt \
         ${QMAKE_FILE_IN}
     TSQM.input = TRANSLATIONS
-    TSQM.output = ${QMAKE_FILE_PATH}/${QMAKE_FILE_BASE}.mo
+    TSQM.output = ${QMAKE_FILE_PATH}/omweather.mo
     TSQM.commands = $$QMAKE_LRELEASE \
         -o \
         $$TSQM.output \
@@ -85,53 +85,53 @@ INSTALLS += target desktop autostart css service
 
 
 transinstallbg.path = /usr/share/locale/bg/LC_MESSAGES
-transinstallbg.files = ../po/bg_BG.mo
+transinstallbg.files = ../po/locale/bg_BG/omweather.mo
 INSTALLS += transinstallbg
 
 transinstallde.path = /usr/share/locale/de/LC_MESSAGES
-transinstallde.files = ../po/de_DE.mo
+transinstallde.files = ../po/locale/de_DE/omweather.mo
 INSTALLS += transinstallde
 
 transinstallengb.path = /usr/share/locale/en_GB/LC_MESSAGES
-transinstallengb.files = ../po/en_GB.mo
+transinstallengb.files = ../po/locale/en_GB/omweather.mo
 INSTALLS += transinstallengb
 
 transinstallenus.path = /usr/share/locale/en_US/LC_MESSAGES
-transinstallenus.files = ../po/en_US.mo
+transinstallenus.files = ../po/locale/en_US/omweather.mo
 INSTALLS += transinstallenus
 
 transinstalleses.path = /usr/share/locale/es_ES/LC_MESSAGES
-transinstalleses.files = ../po/en_ES.mo
+transinstalleses.files = ../po/locale/en_ES/omweather.mo
 INSTALLS += transinstalleses
 
 transinstallesmx.path = /usr/share/locale/es_MX/LC_MESSAGES
-transinstallesmx.files = ../po/en_MX.mo
+transinstallesmx.files = ../po/locale/en_MX/omweather.mo
 INSTALLS += transinstallesmx
 
 transinstallfi.path = /usr/share/locale/fi/LC_MESSAGES
-transinstallfi.files = ../po/fi_FI.mo
+transinstallfi.files = ../po/locale/fi_FI/omweather.mo
 INSTALLS += transinstallfi
 
 transinstallfr.path = /usr/share/locale/fr/LC_MESSAGES
-transinstallfr.files = ../po/fr_FR.mo
+transinstallfr.files = ../po/locale/fr_FR/omweather.mo
 INSTALLS += transinstallfr
 
 transinstallit.path = /usr/share/locale/it/LC_MESSAGES
-transinstallit.files = ../po/it_IT.mo
+transinstallit.files = ../po/locale/it_IT/omweather.mo
 INSTALLS += transinstallit
 
 transinstalllv.path = /usr/share/locale/lv/LC_MESSAGES
-transinstalllv.files = ../po/lv_LV.mo
+transinstalllv.files = ../po/locale/lv_LV/omweather.mo
 INSTALLS += transinstalllv
 
 transinstallpl.path = /usr/share/locale/pl/LC_MESSAGES
-transinstallpl.files = ../po/pl_PL.mo
+transinstallpl.files = ../po/locale/pl_PL/omweather.mo
 INSTALLS += transinstallpl
 
 transinstallru.path = /usr/share/locale/ru/LC_MESSAGES
-transinstallru.files = ../po/ru_RU.mo
+transinstallru.files = ../po/locale/ru_RU/omweather.mo
 INSTALLS += transinstallru
 
 transinstallsk.path = /usr/share/locale/sk/LC_MESSAGES
-transinstallsk.files = ../po/sk_SK.mo
+transinstallsk.files = ../po/locale/sk_SK/omweather.mo
 INSTALLS += transinstallsk

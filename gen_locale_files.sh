@@ -10,9 +10,13 @@ for language in $ALL_LANGUAGES; do
 done
 cd ..
 
-cp -r po/*.po omweather/po
-cp -r po/*.po qtomweather/po
 
-cp -r po/*.pot omweather/po
+for language in $ALL_LANGUAGES; do
+    cp po/$language.po qtomweather/po/locale/$language
+done
+
+
+cp -r po/*.po qtomweather/po
 cp -r po/*.pot qtomweather/po
+
 exit 0

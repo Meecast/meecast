@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-06 21:22+0200\n"
+"POT-Creation-Date: 2011-02-08 08:54+0200\n"
 "PO-Revision-Date: 2010-10-26 15:41+0200\n"
 "Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
@@ -834,6 +834,13 @@ msgstr "Haut"
 msgid "Humidity:"
 msgstr "Humidité :"
 
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:357
+#, fuzzy
+msgid "Humidity: "
+msgstr ""
+"\n"
+"Humidité : "
+
 #: omweather/src/weather-settings.c:3326
 msgid "Icon set:"
 msgstr "Sélection d'icônes :"
@@ -1191,6 +1198,7 @@ msgstr "Pas de données météo pour cette station."
 #: omweather/src/weather-popup.c:458 omweather/src/weather-popup.c:569
 #: omweather/src/weather-popup.c:575
 #: omweather/src/weather-simple-settings.c:2890
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:316
 msgid "Now"
 msgstr "Maintenant"
 
@@ -1377,6 +1385,7 @@ msgstr "Pression :"
 
 #: omweather/src/weather-home.c:1393 omweather/src/weather-home.c:1448
 #: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1087
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:348
 msgid "Pressure: "
 msgstr "Pression : "
 
@@ -1698,6 +1707,11 @@ msgstr "Vitesse"
 msgid "Speed:"
 msgstr "Vitesse :"
 
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:375
+#, fuzzy
+msgid "Speed: "
+msgstr "Vitesse :"
+
 #: omweather/src/weather-settings.c:522
 msgid "State:"
 msgstr "État :"
@@ -1729,7 +1743,6 @@ msgid "Sunny / Wind"
 msgstr "Ensoleillé / vent"
 
 #: omweather/src/weather-popup.c:124 omweather/src/weather-popup.c:1007
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:252
 msgid "Sunrise: "
 msgstr "Lever du soleil : "
 
@@ -1776,6 +1789,7 @@ msgid "Temperature units:"
 msgstr "Unités de température :"
 
 #: omweather/src/weather-popup.c:1238 omweather/src/weather-popup.c:1420
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:335
 msgid "Temperature: "
 msgstr "Température :"
 
@@ -2112,6 +2126,7 @@ msgstr "m/h"
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:248
 #: omweather/src/weather-simple-settings.c:1404
 #: omweather/src/weather-simple-settings.c:2694
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:375
 msgid "m/s"
 msgstr "m/s"
 

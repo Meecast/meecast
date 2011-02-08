@@ -33,6 +33,7 @@ Core::DataParser *current_data(std::string& str);
 int update_weather_forecast(Core::Config *config);
 ClutterTimeline *create_update_animation(ClutterActor *actor);
 Core::Config *create_and_fill_config(void);
+GHashTable *hash_table_create(void);
 extern Core::Config *config;
 //extern std::vector<Core::Station*> stationslist;
 

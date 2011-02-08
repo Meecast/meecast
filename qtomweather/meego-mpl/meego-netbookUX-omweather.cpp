@@ -43,6 +43,22 @@
     #define DATA_XSD_PATH "/usr/share/omweather/xsd/data.xsd"
 #endif
 
+/*******************************************************************************/
+GHashTable *hash_table_create(void) {
+    GHashTable *hash;
+    hash = g_hash_table_new(g_str_hash, g_str_equal);
+/*
+ * WARNING!
+ * Do not insert new lines to this file, use file hash.data
+ * To add new reserved word from data (xml) file you can use
+ * script get_reserved_word.pl like this:
+ * cat BOXX0014.xml USCA0001.xml > |./get_reserved_word.pl
+*/
+#include "hash.data"
+    return hash;
+}
+
+
 Core::Config *
 create_and_fill_config(void){
     Core::Config *config;
@@ -115,6 +131,7 @@ on_new_frame (ClutterTimeline *timeline,
                   clutter_actor_get_height (actor) / 2,
                               0);
 }
+
 ClutterTimeline*
 create_update_animation(ClutterActor *actor)
 {

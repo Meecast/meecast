@@ -29,3 +29,6 @@
 
 #include "core.h"
 #include  <clutter/clutter.h>
+/*#define _(String) dgettext (GETTEXT_PACKAGE, String)*/
+#define GETTEXT_PACKAGE "omweather"
+#include <glib/gi18n-lib.h>

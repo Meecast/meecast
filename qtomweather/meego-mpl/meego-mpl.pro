@@ -35,6 +35,8 @@ PKGCONFIG += dbus-glib-1 \
              QtCore
 
 
+DATADIR=/usr/share
+
 TRANSLIST = bg_BG \
             de_DE \
             en_GB \
@@ -81,67 +83,67 @@ service.files = data/com.meego.UX.Shell.Panels.omweather.service
 service.path = /usr/share/dbus-1/services
 INSTALLS += target desktop autostart css service
 
-transinstallbg.extra = echo ""
+transinstallbg.extra = cp po/locale/bg_BG/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/bg/LC_MESSAGES
 transinstallbg.path = /usr/share/locale/bg/LC_MESSAGES
 transinstallbg.files = po/locale/bg_BG/omweather.mo
 INSTALLS += transinstallbg
 
-transinstallde.extra = echo ""
+transinstallde.extra = cp po/locale/de_DE/omweather.mo  $(INSTALL_ROOT)$$DATADIR/locale/de/LC_MESSAGES
 transinstallde.path = /usr/share/locale/de/LC_MESSAGES
 transinstallde.files = po/locale/de_DE/omweather.mo
 INSTALLS += transinstallde
 
-transinstallenbg.extra = echo ""
+transinstallenbg.extra = cp po/locale/en_GB/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/en_GB/LC_MESSAGES
 transinstallengb.path = /usr/share/locale/en_GB/LC_MESSAGES
 transinstallengb.files = po/locale/en_GB/omweather.mo
 INSTALLS += transinstallengb
 
-transinstallenus.extra = echo ""
+transinstallenus.extra = cp po/locale/en_US/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/en_US/LC_MESSAGES
 transinstallenus.path = /usr/share/locale/en_US/LC_MESSAGES
 transinstallenus.files = po/locale/en_US/omweather.mo
 INSTALLS += transinstallenus
 
-transinstalleses.extra = echo ""
+transinstalleses.extra = cp po/locale/es_ES/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/es_ES/LC_MESSAGES
 transinstalleses.path = /usr/share/locale/es_ES/LC_MESSAGES
-transinstalleses.files = po/locale/en_ES/omweather.mo
+transinstalleses.files = po/locale/es_ES/omweather.mo
 INSTALLS += transinstalleses
 
-transinstallesmx.extra = echo ""
+transinstallesmx.extra = cp po/locale/es_MX/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/es_MX/LC_MESSAGES
 transinstallesmx.path = /usr/share/locale/es_MX/LC_MESSAGES
-transinstallesmx.files = po/locale/en_MX/omweather.mo
+transinstallesmx.files = po/locale/es_MX/omweather.mo
 INSTALLS += transinstallesmx
 
-transinstallfi.extra = echo ""
+transinstallfi.extra = cp po/locale/fi_FI/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/fi/LC_MESSAGES
 transinstallfi.path = /usr/share/locale/fi/LC_MESSAGES
 transinstallfi.files = po/locale/fi_FI/omweather.mo
 INSTALLS += transinstallfi
 
-transinstallfr.extra = echo ""
+transinstallfr.extra = cp po/locale/fr_FR/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/fr/LC_MESSAGES
 transinstallfr.path = /usr/share/locale/fr/LC_MESSAGES
 transinstallfr.files = po/locale/fr_FR/omweather.mo
 INSTALLS += transinstallfr
 
-transinstallit.extra = echo ""
+transinstallit.extra = cp po/locale/it_IT/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/it/LC_MESSAGES
 transinstallit.path = /usr/share/locale/it/LC_MESSAGES
 transinstallit.files = po/locale/it_IT/omweather.mo
 INSTALLS += transinstallit
 
-transinstalllv.extra = echo ""
+transinstalllv.extra = cp po/locale/lv_LV/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/lv/LC_MESSAGES
 transinstalllv.path = /usr/share/locale/lv/LC_MESSAGES
 transinstalllv.files = po/locale/lv_LV/omweather.mo
 INSTALLS += transinstalllv
 
-transinstallpl.extra = echo ""
+transinstallpl.extra = cp po/locale/pl_PL/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/pl/LC_MESSAGES
 transinstallpl.path = /usr/share/locale/pl/LC_MESSAGES
 transinstallpl.files = po/locale/pl_PL/omweather.mo
 INSTALLS += transinstallpl
 
-transinstallru.extra = echo ""
+transinstallru.extra = cp po/locale/ru_RU/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/ru/LC_MESSAGES
 transinstallru.path = /usr/share/locale/ru/LC_MESSAGES
 transinstallru.files = po/locale/ru_RU/omweather.mo
 INSTALLS += transinstallru
 
-transinstallsk.extra = echo ""
+transinstallsk.extra = cp po/locale/sk_SK/omweather.mo $(INSTALL_ROOT)$$DATADIR/locale/sk/LC_MESSAGES
 transinstallsk.path = /usr/share/locale/sk/LC_MESSAGES
 transinstallsk.files = po/locale/sk_SK/omweather.mo
 INSTALLS += transinstallsk

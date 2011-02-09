@@ -16,6 +16,8 @@ Source0:    %{name}-%{version}.tar.bz2
 Source100:  omweather.yaml
 BuildRequires:  pkgconfig(QtCore) >= 4.7.0
 BuildRequires:  gettext
+BuildRequires:  qt-qmake
+BuildRequires:  libqt-devel
 
 
 %description

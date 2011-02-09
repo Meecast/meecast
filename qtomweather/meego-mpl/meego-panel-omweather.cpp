@@ -56,6 +56,7 @@ static void make_window_content (MplPanelClutter *panel);
 ClutterTimeline *create_update_animation(ClutterActor *actor);
 void make_bottom_content(Core::Data *temp_data); 
 Core::Config *create_and_fill_config(void);
+GHashTable *hash_table_create(void);
 
 /* Global section */
 Core::Config *config;
@@ -68,7 +69,7 @@ ClutterTimeline *refresh_timeline = NULL;
 ClutterLayoutManager *main_vertical_layout = NULL;
 DBusConnection       *dbus_conn;
 DBusConnection       *dbus_conn_session;
-
+GHashTable           *translate_hash=NULL;
 guint timer = 0; /* timer */
 pthread_t tid;
 
@@ -322,7 +323,9 @@ make_bottom_content(Core::Data *temp_data) {
     pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
     pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
-    clutter_text_set_text((ClutterText*)label, temp_data->Text().c_str());
+    clutter_text_set_text((ClutterText*)label,
+                      (const gchar*)g_hash_table_lookup(translate_hash,
+                                    (void*) temp_data->Text().c_str()));
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
     clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
@@ -378,7 +381,7 @@ make_bottom_content(Core::Data *temp_data) {
     pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
-    ss << "Wind:" << " "<< temp_data->WindDirection();
+    ss << _("Wind:") << " "<< temp_data->WindDirection();
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
     clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 
@@ -565,7 +568,7 @@ main (int argc, char *argv[])
   clutter_init (&argc, &argv);
 
   init_omweather_core();
-
+  translate_hash = hash_table_create();
   /* prepairing icon */
   if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id()))
       dp = current_data(config->stationsList().at(config->current_station_id())->fileName());

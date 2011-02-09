@@ -497,6 +497,15 @@ make_window_content (MplPanelClutter *panel)
   g_signal_connect (icon, "button-press-event", G_CALLBACK (refresh_button_event_cb), panel);
   clutter_box_pack((ClutterBox*)top_container, icon, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
 
+  /* about button */
+  snprintf(buffer, (4096 -1), "%s/buttons_icons/about.png",config->prefix_path().c_str());
+  icon = clutter_texture_new_from_file(buffer, NULL);
+  clutter_actor_set_size (icon, 48.0, 48.0);
+  clutter_actor_set_reactive(icon, TRUE);
+  /* connect the press event on about button */
+  g_signal_connect (icon, "button-press-event", G_CALLBACK (about_button_event_cb), panel);
+  clutter_box_pack((ClutterBox*)top_container, icon, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
+
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), top_container,
                           TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_CENTER);
 

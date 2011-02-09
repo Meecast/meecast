@@ -154,7 +154,7 @@
   </connection>
   <connection>
    <sender>listWidget</sender>
-   <signal>itemActivated(QListWidgetItem*)</signal>
+   <signal>itemEntered(QListWidgetItem*)</signal>
    <receiver>SettingStations</receiver>
    <slot>setRemove(QListWidgetItem*)</slot>
    <hints>

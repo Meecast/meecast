@@ -518,7 +518,8 @@ make_window_content (MplPanelClutter *panel)
   Core::DataParser* dp = NULL;
   PangoFontDescription *pfd = NULL;
 
-  if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id()))
+  if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 
+                                              &&  config->stationsList().at(config->current_station_id()))
       dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
 
   main_vertical_layout = clutter_box_layout_new ();
@@ -531,13 +532,13 @@ make_window_content (MplPanelClutter *panel)
 
   forecast_layout = clutter_box_layout_new(); 
   forecast_horizontal_container = clutter_box_new(forecast_layout);
-  clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (forecast_layout), 12);
-  clutter_actor_set_width(forecast_horizontal_container , 1024-12);
+  clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (forecast_layout), 9);
+  clutter_actor_set_width(forecast_horizontal_container , 1024-10);
 
   /* top layout */
   top_layout = clutter_box_layout_new(); 
   top_container = clutter_box_new(top_layout);
-  clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (top_layout), 12);
+  clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (top_layout), 9);
 
   
   /* station name */
@@ -546,7 +547,8 @@ make_window_content (MplPanelClutter *panel)
   pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 2);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   stationslist = config->stationsList();
-  if (config->current_station_id() != INT_MAX &&  config->stationsList().at(config->current_station_id()))
+  if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0
+                                              &&  config->stationsList().at(config->current_station_id()))
       clutter_text_set_text((ClutterText*)label, config->stationsList().at(config->current_station_id())->name().c_str());
   else
       clutter_text_set_text((ClutterText*)label, "Unknown");
@@ -662,7 +664,8 @@ main (int argc, char *argv[])
   init_omweather_core();
   translate_hash = hash_table_create();
   /* prepairing icon */
-  if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id()))
+  if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 &&
+      config->stationsList().at(config->current_station_id()))
       dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
 
   if (dp)

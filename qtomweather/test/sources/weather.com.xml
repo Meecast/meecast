@@ -6,5 +6,5 @@
 <forecast url="http://xml.weather.com/weather/local/%s?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*" />
 <detail>true</detail>
 <search>true</search>
-<library>libomweather-weather-com-source.so</library>
+<binary>/usr/lib/omweather/weathercom</binary>
 </source>

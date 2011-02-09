@@ -20,7 +20,7 @@
 #include "datamodel.h"
 #include "parserqt.h"
 #include "databasesqlite.h"
-
+#include "abstractconfig.h"
 
 #include <QtDebug>
 
@@ -43,19 +43,14 @@ ConfigQml *
 create_and_fill_config(){
     ConfigQml *config;
 
-    /* create path for config file */
-    char filepath[4096];
-    struct passwd *pw = getpwuid(getuid());
-    const char *homedir = pw->pw_dir;
-    snprintf(filepath, (4096-1), "%s/.config", homedir);
-    mkdir(filepath, 0755);
-    snprintf(filepath, (4096-1), "%s/.config/omweather", homedir);
-    mkdir(filepath, 0755);
-    snprintf(filepath, (4096-1), "%s/.config/omweather/%s", homedir, CONFIG_FILE);
-
     std::cerr<<"Create Config class: " <<std::endl;
     try{
-        config = new ConfigQml(filepath, CONFIG_XSD_PATH);
+        config = new ConfigQml(Core::AbstractConfig::getConfigPath()+
+                               "config.xml",
+                               Core::AbstractConfig::prefix+
+                               Core::AbstractConfig::schemaPath+
+                               "config.xsd");
+        std::cerr << config->stationsList().size() << std::endl;
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
@@ -65,14 +60,15 @@ create_and_fill_config(){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
         config = new ConfigQml();
     }
+    //std::cerr<<"End of creating Config class: " <<std::endl;
+    //config->saveConfig();
     std::cerr<<"End of creating Config class: " <<std::endl;
-    config->saveConfig();
 
     return config;
 }
 //////////////////////////////////////////////////////////////////////////////
 bool
-update_weather_forecast(std::vector<Core::Station*> StationsList){
+update_weather_forecast1(std::vector<Core::Station*> StationsList){
     int i;
     Core::Station* station;
     for (i=0; i<StationsList.size();i++){
@@ -80,6 +76,23 @@ update_weather_forecast(std::vector<Core::Station*> StationsList){
      //   std::cerr<<"yyyyyy    "<< station->forecastURL()<<std::endl;
     }
 }
+bool
+        update_weather_forecast(Core::Config *config){
+    int i;
+    int success = 0;
+    Core::Station* station;
+
+    for (i=0; i < config->stationsList().size();i++){
+        station = config->stationsList().at(i);
+        if (station->updateData(true)){
+            success ++;
+
+        }
+    }
+
+    return true;
+}
+
 
 int main(int argc, char* argv[])
 {
@@ -127,7 +140,7 @@ int main(int argc, char* argv[])
     std::cerr<<"iconpath = "<<config->prefix_path()<<std::endl;
     StationsList = config->stationsList();
     std::cerr<<"size "<<StationsList.size()<<std::endl;
-    update_weather_forecast(StationsList);
+    update_weather_forecast(config);
 
     try{
        if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id()))

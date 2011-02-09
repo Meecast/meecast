@@ -118,7 +118,7 @@ namespace Core{
         _font_color = new std::string("#00ff00");
         _stations = new StationsList;
         _current_station_id = INT_MAX;
-#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+        #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
         #ifdef LIBXML

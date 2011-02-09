@@ -876,7 +876,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 			if (temp_hi[0] != 0 ) 
 			    fprintf(file_out,"     <temperature>%s</temperature>\n", temp_hi); 
 			if (wind_speed_day[0] != 0)
-			    fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_day);
+			    fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n",  (double)(atoi(wind_speed_day)) * 1000/3600);
 			if (wind_direction_day[0] != 0)
 			    fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_day);
             if (wind_gust[0] != 0)
@@ -1093,14 +1093,14 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
 				    fprintf(file_out,"     <temperature_low>%s</temperature_low>\n", temp_low);
                                 }else{
                                     if (temp_hi[0] != 0)
-	                                fprintf(file_out,"     <temperature>%s</temperature>\n", temp_hi); 
+	                                    fprintf(file_out,"     <temperature>%s</temperature>\n", temp_hi); 
                                     else
-	                                fprintf(file_out,"     <temperature>%s</temperature>\n", temp_low); 
+	                                    fprintf(file_out,"     <temperature>%s</temperature>\n", temp_low); 
                                 }
                                 if (wind_speed_night[0] != 0)
-	                            fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_night);
+	                                fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n", (double)(atoi(wind_speed_night)) * 1000/3600);
                                 if (wind_direction_night[0] != 0)
-	                            fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_night);
+	                                fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_night);
                                 if (humidity_night[0] != 0)
 	                            fprintf(file_out,"     <humidity>%s</humidity>\n", humidity_night);
 	                        fprintf(file_out,"     <ppcp>%s</ppcp>\n", ppcp_night);
@@ -1124,7 +1124,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     fprintf(file_out,"     <temperature>%s</temperature>\n", temp_low); 
                             }
                             if (wind_speed_day[0] != 0)
-                                fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_day);
+                                fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n", (double)(atoi(wind_speed_day)) * 1000/3600);
                             if (wind_direction_day[0] != 0)
                                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_day);
 
@@ -1151,7 +1151,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node, const gcha
                                     fprintf(file_out,"     <temperature>%s</temperature>\n", temp_low); 
                             }
                             if (wind_speed_night[0] != 0)
-                                fprintf(file_out,"     <wind_speed>%s</wind_speed>\n", wind_speed_night);
+                                fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n", (double)(atoi(wind_speed_night)) * 1000/3600);
                             if (wind_direction_night[0] != 0)
                                 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", wind_direction_night);
                             if (humidity_night[0] != 0)

@@ -17,6 +17,9 @@ Source100:  omweather.yaml
 BuildRequires:  pkgconfig(QtCore) >= 4.7.0
 BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(sqlite3)
+BuildRequires:  pkgconfig(dbus-glib-1)
+BuildRequires:  pkgconfig(libxml-2.0)
+BuildRequires:  pkgconfig(meego-panel)
 BuildRequires:  gettext
 BuildRequires:  qt-qmake
 BuildRequires:  libqt-devel

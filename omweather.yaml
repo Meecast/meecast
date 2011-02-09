@@ -13,6 +13,9 @@ PkgConfigBR:
  - QtCore >= 4.7.0
  - libcurl
  - sqlite3
+ - dbus-glib-1
+ - libxml-2.0
+ - meego-panel
  
 PkgBR:
  - gettext

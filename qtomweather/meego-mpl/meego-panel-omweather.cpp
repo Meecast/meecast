@@ -55,6 +55,7 @@ Core::DataParser *current_data(std::string& str);
 static void make_window_content (MplPanelClutter *panel);
 ClutterTimeline *create_update_animation(ClutterActor *actor);
 void make_bottom_content(Core::Data *temp_data); 
+void make_bottom_content_about(); 
 Core::Config *create_and_fill_config(void);
 GHashTable *hash_table_create(void);
 
@@ -219,6 +220,17 @@ config_button_event_cb (ClutterActor *actor,
 
 }
 //////////////////////////////////////////////////////////////////////////////
+gboolean
+about_button_event_cb (ClutterActor *actor,
+                   ClutterEvent *event,
+                   gpointer      user_data){
+    
+    mpl_panel_client_set_height_request (panel, PANEL_HEIGHT + 250);
+    make_bottom_content_about();
+   
+}
+
+//////////////////////////////////////////////////////////////////////////////
 static ClutterActor*
 make_day_actor(Core::Data *temp_data){
     ClutterActor     *box;
@@ -255,6 +267,61 @@ make_day_actor(Core::Data *temp_data){
 
     return box;
 }
+
+void
+make_bottom_content_about() {
+  
+  ClutterLayoutManager *bottom_layout;
+  ClutterActor     *icon;
+  ClutterActor     *label;
+  std::string      about_text;
+  PangoFontDescription *pfd = NULL;
+  char             buffer[4096];
+  std::ostringstream ss;
+
+  if (mpl_panel_client_get_height_request (panel) > PANEL_HEIGHT){
+      if (bottom_container)
+          clutter_actor_destroy(bottom_container);
+  }
+  
+  /* bottom layout */
+  
+  bottom_layout = clutter_box_layout_new();
+  //clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(bottom_layout), TRUE);
+  bottom_container = clutter_box_new(bottom_layout);
+  /* icon */
+  snprintf(buffer, (4096 -1), "%s/icons/%s/%i.png",config->prefix_path().c_str(),
+                                  config->iconSet().c_str(), 21);
+
+  icon = clutter_texture_new_from_file(buffer, NULL);
+  clutter_actor_set_size (icon, 256.0, 256.0);
+  clutter_box_pack((ClutterBox*)bottom_container, icon, NULL);
+  clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(bottom_layout), icon,
+				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
+  
+  label = clutter_text_new();
+  about_text = "Weather forecast for the Meego. Version 0.3.\n";
+  about_text += "Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n";
+  about_text += "Maintenance: Pavel Fialko, <pavelnf@gmail.com>\nTanya Makova, <tanyshk@gmail.com>\n";
+  about_text += "Design UI and default iconset: Andrew Zhilin, <az@pocketpcrussia.com>\n";
+
+  pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.4);
+  clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
+  
+  clutter_text_set_text((ClutterText*)label, about_text.c_str());
+  clutter_box_pack((ClutterBox*)bottom_container, label, NULL);
+
+  /* connect the press event on refresh button */
+  g_signal_connect (bottom_container, "button-press-event", G_CALLBACK (remove_detail_event_cb), panel);
+  clutter_actor_set_reactive(bottom_container, TRUE);
+
+  clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), bottom_container,
+                          TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
+
+
+}
+ 
 //////////////////////////////////////////////////////////////////////////////
 void
 make_bottom_content(Core::Data *temp_data) {
@@ -477,6 +544,15 @@ make_window_content (MplPanelClutter *panel)
   clutter_actor_set_size (icon, 48.0, 48.0);
   clutter_box_pack((ClutterBox*)top_container, icon, "expand", TRUE,  "x-fill", TRUE, NULL);
 
+  /* about button */
+  snprintf(buffer, (4096 -1), "%s/buttons_icons/about.png",config->prefix_path().c_str());
+  icon = clutter_texture_new_from_file(buffer, NULL);
+  clutter_actor_set_size (icon, 48.0, 48.0);
+  clutter_actor_set_reactive(icon, TRUE);
+  /* connect the press event on about button */
+  g_signal_connect (icon, "button-press-event", G_CALLBACK (about_button_event_cb), panel);
+  clutter_box_pack((ClutterBox*)top_container, icon, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
+
   /* config button */
   snprintf(buffer, (4096 -1), "%s/buttons_icons/config.png",config->prefix_path().c_str());
   icon = clutter_texture_new_from_file(buffer, NULL);
@@ -495,15 +571,6 @@ make_window_content (MplPanelClutter *panel)
   refresh_timeline = create_update_animation(icon);
   /* connect the press event on refresh button */
   g_signal_connect (icon, "button-press-event", G_CALLBACK (refresh_button_event_cb), panel);
-  clutter_box_pack((ClutterBox*)top_container, icon, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
-
-  /* about button */
-  snprintf(buffer, (4096 -1), "%s/buttons_icons/about.png",config->prefix_path().c_str());
-  icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_actor_set_size (icon, 48.0, 48.0);
-  clutter_actor_set_reactive(icon, TRUE);
-  /* connect the press event on about button */
-  g_signal_connect (icon, "button-press-event", G_CALLBACK (about_button_event_cb), panel);
   clutter_box_pack((ClutterBox*)top_container, icon, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
 
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), top_container,

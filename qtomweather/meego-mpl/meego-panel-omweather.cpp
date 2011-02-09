@@ -358,7 +358,9 @@ make_bottom_content(Core::Data *temp_data) {
       if (bottom_container)
           clutter_actor_destroy(bottom_container);
   }
-  
+  /* To do Display message */
+  if (!temp_data)
+      return;
   /* bottom layout */
   
   bottom_layout = clutter_box_layout_new();
@@ -393,10 +395,11 @@ make_bottom_content(Core::Data *temp_data) {
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
   pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.5);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
-  if (temp_data->Current())
-      day_name = _("Now");
-  else 
-      day_name = temp_data->FullDayName() + " " + temp_data->DayOfMonthName() +", " + temp_data->FullMonthName(); 
+  if (temp_data)
+      if (temp_data->Current())
+          day_name = _("Now");
+      else
+          day_name = temp_data->FullDayName() + " " + temp_data->DayOfMonthName() +", " + temp_data->FullMonthName(); 
   
   clutter_text_set_text((ClutterText*)label, day_name.c_str());
   clutter_box_pack((ClutterBox*)bottom_container, label, NULL);

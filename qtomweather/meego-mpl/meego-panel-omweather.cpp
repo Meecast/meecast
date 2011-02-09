@@ -276,6 +276,8 @@ make_bottom_content_about() {
   ClutterActor     *label;
   std::string      about_text;
   PangoFontDescription *pfd = NULL;
+  ClutterLayoutManager *layout;
+  ClutterActor     *box;
   char             buffer[4096];
   std::ostringstream ss;
 
@@ -287,15 +289,27 @@ make_bottom_content_about() {
   /* bottom layout */
   
   bottom_layout = clutter_box_layout_new();
-  //clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(bottom_layout), TRUE);
+  clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(bottom_layout), TRUE);
   bottom_container = clutter_box_new(bottom_layout);
+  
+  layout = clutter_box_layout_new ();
+  box =  clutter_box_new(layout);
+  
+  label = clutter_text_new();
+  pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.6);
+  clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
+  clutter_text_set_text((ClutterText*)label, _("About"));
+  clutter_box_pack((ClutterBox*)bottom_container, label, NULL);
+
+
   /* icon */
   snprintf(buffer, (4096 -1), "%s/icons/%s/%i.png",config->prefix_path().c_str(),
                                   config->iconSet().c_str(), 21);
 
   icon = clutter_texture_new_from_file(buffer, NULL);
   clutter_actor_set_size (icon, 256.0, 256.0);
-  clutter_box_pack((ClutterBox*)bottom_container, icon, NULL);
+  clutter_box_pack((ClutterBox*)box, icon, NULL);
   clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(bottom_layout), icon,
 				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
   
@@ -310,7 +324,9 @@ make_bottom_content_about() {
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   
   clutter_text_set_text((ClutterText*)label, about_text.c_str());
-  clutter_box_pack((ClutterBox*)bottom_container, label, NULL);
+  clutter_box_pack((ClutterBox*)box, label, NULL);
+
+  clutter_box_pack((ClutterBox*)bottom_container, box, NULL);
 
   /* connect the press event on refresh button */
   g_signal_connect (bottom_container, "button-press-event", G_CALLBACK (remove_detail_event_cb), panel);

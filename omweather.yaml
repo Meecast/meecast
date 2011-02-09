@@ -16,7 +16,8 @@ PkgConfigBR:
  - dbus-glib-1
  - libxml-2.0
  - meego-panel
- 
+ - mutter-plugins
+
 PkgBR:
  - gettext
  - qt-qmake

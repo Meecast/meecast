@@ -20,6 +20,7 @@ BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:  pkgconfig(dbus-glib-1)
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(meego-panel)
+BuildRequires:  pkgconfig(mutter-plugins)
 BuildRequires:  gettext
 BuildRequires:  qt-qmake
 BuildRequires:  libqt-devel

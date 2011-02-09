@@ -33,8 +33,8 @@ Weather Forecast on Nokia N900. Ultra-customisable weather widget for showing fo
 
 %build
 # >> build pre
-export PATH=/usr/lib/qt4/bin:$PATH
-qmake PREFIX=%{_prefix}
+#export PATH=/usr/lib/qt4/bin:$PATH
+qmake PREFIX=%{_prefix} -r
 make
 # << build pre
 

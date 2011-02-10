@@ -56,11 +56,16 @@ rm -rf %{buildroot}
 # >> install post
 make INSTALL_ROOT=%{buildroot} install
 ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/theme/icons
+devel -p /sbin/ldconfig
 # << install post
 
 
 
 
+%postun
+# >> postun
+devel -p /sbin/ldconfig
+# << postun
 
 
 %files

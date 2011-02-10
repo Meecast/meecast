@@ -36,6 +36,9 @@ imagedigiadir = $(datadir)/omweather/images/Digia
 imagedigia_DATA = images/Digia/*
 imageextracoffedir = $(datadir)/omweather/images/ExtraCoffe
 imageextracoffe_DATA = images/ExtraCoffe/*
+imagemarinadir = $(datadir)/omweather/images/Marina
+imagemarina_DATA = images/Marina/*
+
 
 
 # The icons
@@ -92,6 +95,7 @@ EXTRA_DIST = $(homeapplet_desktop_DATA) \
 	     omweather.png \
 	     $(imagedigia_DATA) \
 	     $(imageextracoffe_DATA) \
+	     $(imagemarina_DATA) \
 	     $(backup_DATA)
 
 omweather.desktop: omweather.desktop.in

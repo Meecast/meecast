@@ -29,7 +29,13 @@ BuildRequires:  libqt-devel
 %description
 Weather Forecast on Nokia N900. Ultra-customisable weather widget for showing forecast the way you want.
 
-
+%package devel
+Summary:   omweather development files
+Group: Development/Libraries
+Requires:   %{name} >= %{version}
+Requires:   pkgconfig
+%description devel
+omweather development files
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -59,6 +65,7 @@ ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/t
 # << install post
 
 
+
 %post
 # >> post
 /sbin/ldconfig
@@ -86,6 +93,8 @@ ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/t
 /usr/share/omweather/db/weather.com.db
 /usr/share/omweather/sources/weather.com.xml
 # >> files
+%files devel 
+%{_libdir}
 # << files
 
 

@@ -1,0 +1,1 @@
+addFilter("E: devel-file-in-non-devel-package /usr/lib/libomweather-core.so") 

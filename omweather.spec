@@ -14,6 +14,7 @@ License:    GPLv2.1
 URL:        https://garage.maemo.org/projects/omweather/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  omweather.yaml
+#Source101:  omweather.rpmlintrc
 BuildRequires:  pkgconfig(QtCore) >= 4.7.0
 BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(sqlite3)
@@ -29,13 +30,6 @@ BuildRequires:  libqt-devel
 %description
 Weather Forecast on Nokia N900. Ultra-customisable weather widget for showing forecast the way you want.
 
-%package devel
-Summary:   omweather development files
-Group: Development/Libraries
-Requires:   %{name} >= %{version}
-Requires:   pkgconfig
-%description devel
-omweather development files
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -62,6 +56,7 @@ rm -rf %{buildroot}
 # >> install post
 make INSTALL_ROOT=%{buildroot} install
 ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/theme/icons
+rm %{buildroot}/usr/lib/libomweather-core.so
 # << install post
 
 
@@ -80,7 +75,7 @@ ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/t
 %files
 %defattr(-,root,root,-)
 /usr/bin/omweather-settings
-%{_libdir}
+%{_libdir}/*.so.*
 %{_libexecdir}/meego-panel-omweather
 /usr/share/meego-panel-omweather
 /usr/share/dbus-1/services
@@ -93,8 +88,6 @@ ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/t
 /usr/share/omweather/db/weather.com.db
 /usr/share/omweather/sources/weather.com.xml
 # >> files
-%files devel 
-%{_libdir}
 # << files
 
 

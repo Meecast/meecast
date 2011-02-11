@@ -35,10 +35,6 @@
 
 #define BUTTON_RELEASE_EVENT "button-release-event"
 #define BUTTON_PRESS_EVENT "button-press-event"
-#undef BUTTON_RELEASE_EVENT
-#undef BUTTON_PRESS_EVENT
-#define BUTTON_RELEASE_EVENT "clicked"
-#define BUTTON_PRESS_EVENT "clicked"
 
 void
 free_list(GSList *list){

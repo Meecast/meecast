@@ -129,6 +129,7 @@ void create_about_dialog(void){
                "Marc Dillon - for spell/stylecheck text of English\n"
                "Arkady Glazov aka Globster - for testing\n"
                "Alexander Savchenko aka dizel - for testing\n"
+               "Timeless - for patches \n"
                "Eric Link - for feature request and donation\n"));
 
     gtk_notebook_append_page(GTK_NOTEBOOK(notebook),

@@ -43,6 +43,8 @@ INSTALLS += target
 
 desktop.files = omweather.desktop
 desktop.path = /usr/share/applications
+qml.files = *.qml
+qml.path = /usr/share/omweather/qml
 
-INSTALLS += desktop
+INSTALLS += desktop qml
  

@@ -28,11 +28,13 @@
     #define CONFIG_FILE "config.xml"
     #define CONFIG_XSD_PATH "../core/data/config.xsd"
     #define DATA_XSD_PATH "../core/data/data.xsd"
+    #define LAYOUTQML ":weatherlayoutitem.qml"
 #else
 //    #define CONFIG_PATH "~/.config/omweather/config.xml"
     #define CONFIG_FILE "config.xml"
     #define CONFIG_XSD_PATH "/usr/share/omweather/xsd/config.xsd"
     #define DATA_XSD_PATH "/usr/share/omweather/xsd/data.xsd"
+    #define LAYOUTQML ":/usr/share/omweather/qml/weatherlayoutitem.qml"
 #endif
 
 
@@ -181,7 +183,7 @@ int main(int argc, char* argv[])
     //qview.setGeometry(100, 100, 200, 200);
     qview.rootContext()->setContextProperty("Forecast_model", model);
     qview.rootContext()->setContextProperty("Config", config);
-    qview.setSource(QUrl(":weatherlayoutitem.qml"));
+    qview.setSource(QUrl(LAYOUTQML));
     qview.show();
 
 /*

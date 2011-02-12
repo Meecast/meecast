@@ -6,12 +6,22 @@
  <current_station_id>0</current_station_id>
  <station>
   <source_name>weather.com</source_name>
-  <station_name>Oranjestad</station_name>
-  <station_id>AAXX0001</station_id>
-  <country>Aruba</country>
-  <region>Aruba</region>
-  <file_name>../test/weather.com_AAXX0001</file_name>
-  <forecast_url>http://xml.weather.com/weather/local/AAXX0001?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*</forecast_url>
+  <station_name>Minsk</station_name>
+  <station_id>BOXX0005</station_id>
+  <country>Belarus</country>
+  <region>Belarus</region>
+  <file_name>../test/weather.com_BOXX0005</file_name>
+  <forecast_url>http://xml.weather.com/weather/local/BOXX0005?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*</forecast_url>
+  <converter>/usr/lib/omweather/weathercom</converter>
+ </station>
+ <station>
+  <source_name>weather.com</source_name>
+  <station_name>Vitebsk</station_name>
+  <station_id>BOXX0014</station_id>
+  <country>Belarus</country>
+  <region>Belarus</region>
+  <file_name>../test/weather.com_BOXX0014</file_name>
+  <forecast_url>http://xml.weather.com/weather/local/BOXX0014?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*</forecast_url>
   <converter>/usr/lib/omweather/weathercom</converter>
  </station>
 </config>

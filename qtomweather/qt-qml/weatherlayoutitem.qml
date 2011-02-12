@@ -17,47 +17,49 @@ Rectangle {
         Rectangle {
             width: 220
             height: 200
-            color: !current ? "yellow" : "green"
+            //color: !current ? "yellow" : "green"
             opacity: 0.7
             //anchors.fill: parent
             //id: area
             id: weatherlayoutitem
-            Text {text: qsTr("Current") + " = " + date}
+            Text {
+                id: day_name
+                text: date
+                color: Config.fontcolor
+                anchors.left: parent.left
+                anchors.leftMargin: 50
+                //anchors.centerIn: parent
+                //anchors.top: parent.top
+            }
             Image {
                 id: forecast_icon
                 source: Config.iconspath + "/" + Config.iconset + "/" + pict
-                anchors.top: parent.top
-                anchors.topMargin: 20
-                anchors.leftMargin: 20
+                anchors.top: day_name.bottom
+                //anchors.topMargin: 20
+                //anchors.leftMargin: 5
                 anchors.left: parent.left
             }
+
             Text {
-                id: temperature_high
-                text: (temp_high != "N/A") ? (temp_high + '°' +Config.temperatureunit) : ""
-                font.pointSize: 20
+                id: temperature
+                text: ((temp_low != "N/A") ? (temp_low + '°' +Config.temperatureunit + " .. ") : "") +
+                        ((temp_high != "N/A") ? (temp_high + '°' +Config.temperatureunit) : "")
+                font.pointSize: 14
                 color: Config.fontcolor
-                anchors.right: parent.right
+                //anchors.right: parent.right
                 anchors.left: forecast_icon.right
-                anchors.top: forecast_icon.top
-                anchors.topMargin: 10
-            }
-            Text {
-                id: temperature_low
-                text: (temp_low != "N/A") ? (temp_low + '°' +Config.temperatureunit) : ""
-                font.pointSize: 20
-                color: Config.fontcolor
-                anchors.right: parent.right
-                anchors.left: forecast_icon.right
-                anchors.top: temperature_high.bottom
+                anchors.top: day_name.bottom
                 anchors.topMargin: 10
             }
             Text {
                 id: desc
                 text: description
-                font.pointSize: 16
+                font.pointSize: 14
                 color: Config.fontcolor
                 anchors.top: forecast_icon.bottom
+                anchors.left: parent.left
             }
+
             MouseArea {
                 anchors.fill: parent
                 onClicked: {

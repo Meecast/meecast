@@ -140,7 +140,7 @@ int main(int argc, char* argv[])
     std::cerr<<"iconpath = "<<config->prefix_path()<<std::endl;
     StationsList = config->stationsList();
     std::cerr<<"size "<<StationsList.size()<<std::endl;
-    update_weather_forecast(config);
+    //update_weather_forecast(config);
 
     try{
        if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id()))
@@ -171,11 +171,14 @@ int main(int argc, char* argv[])
     app.installTranslator(&translator);
 
     QDeclarativeView qview;
+
+    //qview.setResizeMode(QDeclarativeView::SizeRootObjectToView);
     /*
     if (forecast_data){
         qview.rootContext()->setContextProperty("Forecast", forecast_data);
     }*/
     //std::cout << "temp = " << model->getRow(2) << std::endl;
+    //qview.setGeometry(100, 100, 200, 200);
     qview.rootContext()->setContextProperty("Forecast_model", model);
     qview.rootContext()->setContextProperty("Config", config);
     qview.setSource(QUrl(":weatherlayoutitem.qml"));

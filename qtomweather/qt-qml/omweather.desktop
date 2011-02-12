@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Omweather
+GenericName=Other Maemo Weather
+Comment=Other Maemo Weather
+Exec=omweather-qml
+Icon=omweather
+Terminal=false
+Type=Application
+Categories=Utility;

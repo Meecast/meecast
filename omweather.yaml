@@ -1,6 +1,6 @@
 Name: omweather
 Summary: OMWeather
-Version: 0.3
+Version: 0.3.1
 Release: 1
 Group: Applications/Internet 
 License: GPLv2.1
@@ -26,8 +26,9 @@ PkgBR:
 Configure: none
 Builder: none
 Files:
-#  - "/usr/bin/omweather-qml"
+  - "/usr/bin/omweather-qml"
   - "/usr/bin/omweather-settings"
+  - "%{_datadir}/applications/*.desktop"
   - "%{_libdir}"
   - "%{_libexecdir}/meego-panel-omweather"
   - "/usr/share/meego-panel-omweather"

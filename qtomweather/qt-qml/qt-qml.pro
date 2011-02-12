@@ -40,3 +40,9 @@ CONFIG += link_pkgconfig
 PKGCONFIG +=
 target.path = /usr/bin
 INSTALLS += target
+
+desktop.files = omweather.desktop
+desktop.path = /usr/share/applications
+
+INSTALLS += desktop
+ 

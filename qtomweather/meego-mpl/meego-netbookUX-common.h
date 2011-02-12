@@ -28,6 +28,11 @@
 */
 
 #include "core.h"
+//work around compile issue with glib >= 2.25
+#ifdef signals
+#undef signals
+#endif
+
 #include  <clutter/clutter.h>
 /*#define _(String) dgettext (GETTEXT_PACKAGE, String)*/
 #define GETTEXT_PACKAGE "omweather"

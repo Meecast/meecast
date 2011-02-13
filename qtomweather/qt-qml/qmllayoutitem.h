@@ -10,6 +10,12 @@
 #include "dataqml.h"
 #include "configqml.h"
 
+#ifdef LOCALDEBUG
+    #define LAYOUTQML ":weatherlayoutitem.qml"
+#else
+    #define LAYOUTQML ":/usr/share/omweather/qml/weatherlayoutitem.qml"
+#endif
+
 
 class QmlLayoutItem
 {

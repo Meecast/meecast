@@ -29,7 +29,6 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[PpcpRole] = "ppcp";
     return names;
 }
-
 QVariant DataItem::data(int role)
 {
     switch (role){
@@ -154,7 +153,7 @@ DataItem::current()
 QString
 DataItem::description()
 {
-    return DataItem::Data::Text().c_str();
+    return QString(QString::fromUtf8(DataItem::Data::Text().c_str()));
 }
 QString
 DataItem::date()

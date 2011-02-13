@@ -8,6 +8,7 @@
 #include <QDeclarativeEngine>
 #include <QDeclarativeView>
 #include <QTranslator>
+#include <QHash>
 #include <QGraphicsGridLayout>
 #include <exception>
 #include <iostream>
@@ -24,6 +25,25 @@
 
 #include <QtDebug>
 
+#include <libintl.h>
+#include <locale.h>
+
+#define _(String) gettext(String)
+
+
+QHash<char*, char*> *translating_hash;
+
+void g_hash_table_insert(QHash<char*, char*> *h,   void* key,  char *value){
+    h->insert(((char*)key), ((char*)value));
+}
+
+QHash<char*, char*>*
+fill_hash(void){
+      QHash<char*, char*> *hash;
+      hash = new QHash<char*, char*>;
+#include "../meego-mpl/hash.data"
+    return hash;
+}
 #ifdef LOCALDEBUG
     #define CONFIG_FILE "config.xml"
     #define CONFIG_XSD_PATH "../core/data/config.xsd"
@@ -77,9 +97,10 @@ update_weather_forecast1(std::vector<Core::Station*> StationsList){
         station = StationsList.at(i);
      //   std::cerr<<"yyyyyy    "<< station->forecastURL()<<std::endl;
     }
+    return true;
 }
 bool
-        update_weather_forecast(Core::Config *config){
+update_weather_forecast(Core::Config *config){
     int i;
     int success = 0;
     Core::Station* station;
@@ -94,15 +115,16 @@ bool
 
     return true;
 }
-
+  
 
 int main(int argc, char* argv[])
 {
     QApplication::setGraphicsSystem("native");
     QApplication app(argc, argv);
-
-
-
+    
+   // bindtextdomain("omweather");
+    textdomain("omweather");
+    translating_hash = fill_hash();
 /*
     //Set up a graphics scene with a QGraphicsWidget and Layout
     QGraphicsView view;
@@ -164,6 +186,7 @@ int main(int argc, char* argv[])
     while  (temp_data = dp->data().GetDataForTime(time(NULL) + i)) {
         i = i + 3600*24;
         forecast_data = new DataItem(temp_data);
+        forecast_data->Text(_(forecast_data->Text().c_str()));
         model->appendRow(forecast_data);
 
     }

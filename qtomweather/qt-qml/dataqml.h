@@ -2,7 +2,6 @@
 #define DATAQML_H
 #include "core.h"
 #include <QObject>
-
 class DataQml : public QObject, public Core::Data
 
 {

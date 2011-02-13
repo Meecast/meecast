@@ -37,7 +37,7 @@ CONFIG(localdebug):DEFINES += LOCALDEBUG
 INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core
 CONFIG += link_pkgconfig
-PKGCONFIG +=
+PKGCONFIG += glib-2.0
 target.path = /usr/bin
 INSTALLS += target
 

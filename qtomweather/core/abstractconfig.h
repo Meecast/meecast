@@ -17,6 +17,7 @@ namespace Core {
             static std::string sharePath;
             static std::string libPath;
             static std::string sourcesPath;
+            static std::string layoutqml;
             static std::string getConfigPath();
     };
 } // namespace Core

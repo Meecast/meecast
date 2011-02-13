@@ -44,22 +44,6 @@ fill_hash(void){
 #include "../meego-mpl/hash.data"
     return hash;
 }
-#ifdef LOCALDEBUG
-    #define CONFIG_FILE "config.xml"
-    #define CONFIG_XSD_PATH "../core/data/config.xsd"
-    #define DATA_XSD_PATH "../core/data/data.xsd"
-    #define LAYOUTQML ":weatherlayoutitem.qml"
-#else
-//    #define CONFIG_PATH "~/.config/omweather/config.xml"
-    #define CONFIG_FILE "config.xml"
-    #define CONFIG_XSD_PATH "/usr/share/omweather/xsd/config.xsd"
-    #define DATA_XSD_PATH "/usr/share/omweather/xsd/data.xsd"
-    #define LAYOUTQML ":/usr/share/omweather/qml/weatherlayoutitem.qml"
-#endif
-
-
-//////////////////////////////////////////////////////////////////////////////
-
 
 ConfigQml *
 create_and_fill_config(){
@@ -164,11 +148,12 @@ int main(int argc, char* argv[])
     std::cerr<<"iconpath = "<<config->prefix_path()<<std::endl;
     StationsList = config->stationsList();
     std::cerr<<"size "<<StationsList.size()<<std::endl;
-    //update_weather_forecast(config);
+    update_weather_forecast(config);
 
     try{
        if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id()))
-           dp = new Core::DataParser(config->stationsList().at(config->current_station_id())->fileName(), DATA_XSD_PATH);
+           dp = new Core::DataParser(config->stationsList().at(config->current_station_id())->fileName(),
+                                     Core::AbstractConfig::sharePath+Core::AbstractConfig::schemaPath+"data.xsd");
     }
     catch(const std::string &str){
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;
@@ -206,7 +191,7 @@ int main(int argc, char* argv[])
     //qview.setGeometry(100, 100, 200, 200);
     qview.rootContext()->setContextProperty("Forecast_model", model);
     qview.rootContext()->setContextProperty("Config", config);
-    qview.setSource(QUrl(LAYOUTQML));
+    qview.setSource(QUrl(QString::fromStdString(Core::AbstractConfig::layoutqml)));
     qview.show();
 
 /*

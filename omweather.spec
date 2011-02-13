@@ -97,7 +97,7 @@ desktop-file-install --delete-original       \
 %changelog
 * Sun Feb 13 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.1 
   * Added QML version of Omweather
-* Wen Feb 9 2010 Vlad Vasilyeu <vasvlad@gmail.com> 0.3
+* Wed Feb 9 2010 Vlad Vasilyeu <vasvlad@gmail.com> 0.3
   * Initial version
 # << files
 

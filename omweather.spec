@@ -3,6 +3,8 @@
 # spectacle version 0.18
 # 
 # >> macros
+%define all_x86 i386 i586 i686 %{ix86}
+%define all_arm %{arm}
 # << macros
 
 Name:       omweather
@@ -19,8 +21,10 @@ BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:  pkgconfig(dbus-glib-1)
 BuildRequires:  pkgconfig(libxml-2.0)
+%ifarch %{all_x86} 
 BuildRequires:  pkgconfig(meego-panel)
 BuildRequires:  pkgconfig(mutter-plugins)
+%endif
 BuildRequires:  gettext
 BuildRequires:  qt-qmake
 BuildRequires:  libqt-devel

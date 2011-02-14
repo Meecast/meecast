@@ -8,7 +8,7 @@
 # << macros
 
 Name:       omweather
-Summary:    OMWeather
+Summary:    Weather for Meego
 Version:    0.3.1
 Release:    1
 Group:      Applications/Internet

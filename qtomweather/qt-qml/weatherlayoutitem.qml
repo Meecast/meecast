@@ -79,7 +79,7 @@ Rectangle {
 
             Text {
                 id: day_name
-                text: date
+                text: shortdate
                 color: Config.fontcolor
                 anchors.left: parent.left
                 anchors.leftMargin: 20
@@ -99,7 +99,7 @@ Rectangle {
             }
             Text {
                 id: temperature
-                text: ((temp_low != "N/A") ? (temp_low + '°' +Config.temperatureunit + " .. ") : "") +
+                text: ((temp_low != "N/A") ? (temp_low + '°' +Config.temperatureunit + "\n") : "") +
                         ((temp_high != "N/A") ? (temp_high + '°' +Config.temperatureunit) : "")
                 anchors.top: forecast_icon.top; anchors.topMargin: 10
                 anchors.left: forecast_icon.right; anchors.leftMargin: 10
@@ -107,29 +107,37 @@ Rectangle {
             }
             Item {
                 id: details
-                anchors {top: forecast_icon.top; topMargin: 10; bottom: parent.bottom; bottomMargin: 10; left: forecast_icon.right}
+                anchors {top: forecast_icon.top; topMargin: 50; bottom: parent.bottom; bottomMargin: 10; left: forecast_icon.right}
                 opacity: day.detailsOpacity
 
                 Column {
+                    spacing: 5
+
                     Text {
                         text: description
+                        font.pointSize: 12
                     }
                     Text {
                         text: "Temperature: " +
                                 ((temp_low != "N/A") ? (temp_low + '°' +Config.temperatureunit + " .. ") : "") +
                                 ((temp_high != "N/A") ? (temp_high + '°' +Config.temperatureunit) : "")
+                        font.pointSize: 12
                     }
                     Text {
                         text: (humidity != "N/A") ? ("Humidity: " + humidity + "%") : ""
+                        font.pointSize: 12
                     }
                     Text {
                         text: (pressure != "N/A") ? ("Pressure: " + pressure) : ""
+                        font.pointSize: 12
                     }
                     Text {
                         text: (wind_direction != "N/A") ? ("Wind: " + wind_direction) : ""
+                        font.pointSize: 12
                     }
                     Text {
                         text: (wind_speed != "N/A") ? ("Wind speed: " + wind_speed + "m/s") : ""
+                        font.pointSize: 12
                     }
                 }
 
@@ -138,9 +146,12 @@ Rectangle {
 
             states: State {
                 name: "Details"
+
                 PropertyChanges {
-                    target: background
-                    //color: "blue"
+                    target: day_name
+                    font.pointSize: 16
+                    text: fulldate
+                    anchors.leftMargin: 50
                 }
 
                 PropertyChanges {

@@ -41,10 +41,4 @@ DataModel::appendRow(DataItem *item)
     endInsertRows();
     //return (_list.size() - 1);
 }
-QVariant
-DataModel::getRow(int id, QByteArray role)
-{
-    if (id < 0 || id >= _list.size())
-        return QVariant();
-    return _list.at(id)->getData(role);
-}
+

@@ -22,6 +22,8 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[DescriptionRole] = "description";
     names[CurrentRole] = "current";
     names[DateRole] = "date";
+    names[ShortDateRole] = "shortdate";
+    names[FullDateRole] = "fulldate";
     names[StartRole] = "start";
     names[EndRole] = "end";
     names[PressureRole] = "pressure";
@@ -29,6 +31,7 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[PpcpRole] = "ppcp";
     return names;
 }
+
 QVariant DataItem::data(int role)
 {
     switch (role){
@@ -54,6 +57,10 @@ QVariant DataItem::data(int role)
         return description();
     case DateRole:
         return date();
+    case ShortDateRole:
+        return shortdate();
+    case FullDateRole:
+        return fulldate();
     case StartRole:
         return start();
     case EndRole:
@@ -67,12 +74,6 @@ QVariant DataItem::data(int role)
     default:
         return QVariant();
     }
-}
-
-QVariant DataItem::getData(QByteArray name)
-{
-    return data(roleNames().key(name));
-
 }
 
 QString
@@ -162,6 +163,18 @@ DataItem::date()
     t.setTime_t(DataItem::Data::StartTime());
     return t.toString("dddd");
     //return t.toString(Qt::SystemLocaleLongDate);
+}
+QString
+DataItem::shortdate()
+{
+    return QString::fromUtf8(DataItem::ShortDayName().c_str());
+
+}
+QString
+DataItem::fulldate()
+{
+    return QString::fromUtf8((DataItem::FullDayName()+" "+DataItem::DayOfMonthName()+", "+DataItem::FullMonthName()).c_str());
+
 }
 QString
 DataItem::start()

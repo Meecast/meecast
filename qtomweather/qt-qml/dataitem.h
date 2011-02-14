@@ -22,6 +22,8 @@ class DataItem : public QObject, public Core::Data
         DescriptionRole,
         CurrentRole,
         DateRole,
+        ShortDateRole,
+        FullDateRole,
         StartRole,
         EndRole,
         PressureRole,
@@ -33,7 +35,6 @@ public:
     DataItem(const Core::Data *data);
     virtual ~DataItem(){};
     QVariant data(int role);
-    QVariant getData(QByteArray name);
     QHash<int, QByteArray> roleNames() const;
     inline QString temperature_high();
     inline QString temperature_low();
@@ -45,6 +46,8 @@ public:
     inline bool current();
     inline QString description();
     inline QString date();
+    inline QString shortdate();
+    inline QString fulldate();
     inline QString start();
     inline QString end();
     inline QString flike();

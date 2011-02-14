@@ -4,6 +4,7 @@
 #include "core.h"
 #include <QObject>
 #include <QColor>
+//#include "datamodel.h"
 
 class ConfigQml : public QObject, public Core::Config
 
@@ -24,6 +25,8 @@ class ConfigQml : public QObject, public Core::Config
     QString temperatureunit();
     QColor fontcolor();
     QString stationname();
+    Q_INVOKABLE QString changestation();
+    //Q_INVOKABLE DataModel* getModel();
     void refreshconfig();
     virtual ~ConfigQml(){};
     signals:

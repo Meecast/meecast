@@ -48,6 +48,15 @@ ConfigQml::stationname()
 {
     return this->stationsList().at(this->current_station_id())->name().c_str();
 }
+QString ConfigQml::changestation()
+{
+    if (this->current_station_id() + 1 < this->stationsList().size())
+       this->current_station_id(this->current_station_id() + 1);
+    else
+       this->current_station_id(0);
+
+    return this->stationname();
+}
 void
 ConfigQml::refreshconfig(){
     emit ConfigQml::iconsetChanged();
@@ -57,3 +66,24 @@ ConfigQml::refreshconfig(){
     emit ConfigQml::stationnameChanged();
 }
 
+/*
+DataModel *
+ConfigQml::getModel()
+{
+    DataModel *model = new DataModel(new DataItem, new QObject);
+    DataItem *forecast_data = NULL;
+
+    int i = 0;
+    Core::DataParser* dp = NULL;
+    Core::Data *temp_data = NULL;
+    dp = new Core::DataParser(this->stationsList().at(this->current_station_id())->fileName(),
+                              Core::AbstractConfig::sharePath+Core::AbstractConfig::schemaPath+"data.xsd");
+    while  (temp_data = dp->data().GetDataForTime(time(NULL) + i)) {
+        i = i + 3600*24;
+        forecast_data = new DataItem(temp_data);
+        forecast_data->Text(forecast_data->Text().c_str());
+        model->appendRow(forecast_data);
+
+    }
+    return model;
+}*/

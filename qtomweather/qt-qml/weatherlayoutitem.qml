@@ -25,6 +25,7 @@ Rectangle {
             anchors.topMargin: 10
             anchors.left: parent.left
             anchors.leftMargin: 10
+            onClicked: {text = Config.changestation(); Forecast_model.update(); list.model = Forecast_model;}
         }
 
         ImageButton {

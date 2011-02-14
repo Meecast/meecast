@@ -41,4 +41,8 @@ DataModel::appendRow(DataItem *item)
     endInsertRows();
     //return (_list.size() - 1);
 }
-
+void
+DataModel::update()
+{
+    this->clear();
+}

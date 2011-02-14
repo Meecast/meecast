@@ -31,7 +31,8 @@ OTHER_FILES += \
     layoutitem.qml \
     weatherlayoutitem.qml \
     Details.qml \
-    ImageButton.qml
+    ImageButton.qml \
+    TextButton.qml
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 

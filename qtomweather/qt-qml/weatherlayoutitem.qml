@@ -19,6 +19,14 @@ Rectangle {
         anchors.top: parent.top
         anchors.left: parent.left
 
+        TextButton {
+            text: Config.stationname
+            anchors.top: parent.top
+            anchors.topMargin: 10
+            anchors.left: parent.left
+            anchors.leftMargin: 10
+        }
+
         ImageButton {
             id: refresh
             imagefile: Config.iconsbutton + "/" + "refresh.png"

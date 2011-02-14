@@ -43,11 +43,17 @@ ConfigQml::fontcolor(){
     c.setNamedColor(ConfigQml::Config::FontColor().c_str());
     return c;
 }
+QString
+ConfigQml::stationname()
+{
+    return this->stationsList().at(this->current_station_id())->name().c_str();
+}
 void
 ConfigQml::refreshconfig(){
     emit ConfigQml::iconsetChanged();
     emit ConfigQml::iconspathChanged();
     emit ConfigQml::temperatureunitChanged();
     emit ConfigQml::fontcolorChanged();
+    emit ConfigQml::stationnameChanged();
 }
 

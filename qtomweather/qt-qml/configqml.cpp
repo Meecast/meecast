@@ -81,9 +81,21 @@ ConfigQml::getModel()
     Core::DataParser* dp = NULL;
     Core::Data *temp_data = NULL;
     if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
-                                                &&  this->stationsList().at(this->current_station_id()))
-        dp = new Core::DataParser(this->stationsList().at(this->current_station_id())->fileName(),
-                              Core::AbstractConfig::sharePath+Core::AbstractConfig::schemaPath+"data.xsd");
+            &&  this->stationsList().at(this->current_station_id())){
+        try{
+            dp = new Core::DataParser(this->stationsList().at(this->current_station_id())->fileName(),
+                                      Core::AbstractConfig::sharePath+Core::AbstractConfig::schemaPath+"data.xsd");
+        }
+        catch(const std::string &str){
+            std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+            //return NULL;
+        }
+        catch(const char *str){
+            std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+            //return NULL;
+        }
+    }
+
     while  (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
         i = i + 3600*24;
         forecast_data = new DataItem(temp_data);

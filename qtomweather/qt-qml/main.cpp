@@ -152,35 +152,8 @@ int main(int argc, char* argv[])
     std::cerr<<"iconpath = "<<config->prefix_path()<<std::endl;
     StationsList = config->stationsList();
     std::cerr<<"size "<<StationsList.size()<<std::endl;
-    //update_weather_forecast(config);
+    update_weather_forecast(config);
 
-    if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 &&
-        config->stationsList().at(config->current_station_id()))
-        dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
-
-    if (dp)
-        temp_data = dp->data().GetDataForTime(time(NULL));
-    if (temp_data )
-        snprintf(buffer, (4096 -1), "icon%i", temp_data->Icon());
-    else
-        snprintf(buffer, (4096 -1), "iconna");
-
-/*
-    try{
-       if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id()))
-           dp = new Core::DataParser(config->stationsList().at(config->current_station_id())->fileName(),
-                                     Core::AbstractConfig::sharePath+Core::AbstractConfig::schemaPath+"data.xsd");
-    }
-    catch(const std::string &str){
-        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
-        dp = new Core::DataParser();
-        //return -1;
-    }
-    catch(const char *str){
-        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
-        dp = new Core::DataParser();
-        //return -1;
-    }*/
 /*
     DataModel *model = new DataModel(new DataItem, qApp);
     std::cerr << "222222222" << std::endl;

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-02-08 10:14+0200\n"
-"PO-Revision-Date: 2010-10-26 15:41+0200\n"
+"PO-Revision-Date: 2010-02-13 00:46+0200\n"
 "Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
 "Language: fr\n"
@@ -47,6 +47,21 @@ msgid ""
 "for Semi-transparency\n"
 "and coloured backgrounds\n"
 msgstr ""
+"\n"
+"Applet du bureau Hildon\n"
+"pour Nokia N800/N810/N900\n"
+"pour afficher les previsions météo.\n"
+"Version %s Build: %s\n"
+"Copyright(c) 2006-2010\n"
+"Vlad Vasiliev, Pavel Fialko\n"
+"Copyright(c) 2008\n"
+"pour les icônes par defaut (Glance)\n"
+"et le design de l'interface\n"
+"Andrew Zhilin"
+"Copyright(c) 2008\n"
+"Andrew Olmsted\n"
+"pour les fonds semi-transparents\n"
+"et colorés\n"
 
 #: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
 #: omweather/src/weather-popup.c:956 omweather/src/weather-popup.c:1078
@@ -262,7 +277,6 @@ msgid "Alerts"
 msgstr "Alertes"
 
 #: omweather/src/weather-help.c:125
-#, fuzzy
 msgid ""
 "Alexis Iglauer - for testing\n"
 "Eugene Roytenberg - for testing\n"
@@ -277,7 +291,7 @@ msgstr ""
 "Eugene Roytenberg - pour les tests\n"
 "Jarek Szczepanski dit Imrahil - pour les tests\n"
 "Vladimir Shakhov dit Mendoza - pour les tests\n"
-"Marc Dilon - pour l'ortographe et le style en anglais\n"
+"Marc Dillon - pour l'ortographe et le style en anglais\n"
 "Arkady Glazov dit Globster - pour les tests\n"
 "Alexander Savchenko dit dizel - pour les tests\n"
 "Eric Link - pour les demandes et les dons\n"
@@ -355,7 +369,7 @@ msgid "CALM"
 msgstr "Calme"
 
 #: omweather/src/weather-config.c:383
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot get path to the HOME directory. Quitting.\n"
 msgstr "Impossible de trouver le répertoire HOME. Fermeture.\n"
 
@@ -387,9 +401,8 @@ msgid "Clear, Drifting Snow"
 msgstr "Ciel dégagé, congères"
 
 #: omweather/src/hash.data:25
-#, fuzzy
 msgid "Clear, Fog, Drizzle"
-msgstr "Plutôt nuageux, brouillard, bruine"
+msgstr "Ciel dégagé, brouillard, bruine"
 
 #: omweather/src/hash.data:26
 msgid "Clear, Smoke"
@@ -436,9 +449,8 @@ msgid "Cloudy, Few Snow"
 msgstr "Nuageux, quelques chutes de neige"
 
 #: omweather/src/hash.data:36
-#, fuzzy
 msgid "Cloudy, Heavy Snow"
-msgstr "Plutôt nuageux, forte neige"
+msgstr "Nuageux, forte neige"
 
 #: omweather/src/hash.data:37
 msgid "Cloudy, Light Rain"
@@ -449,9 +461,8 @@ msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Nuageux, pluie légère, orage"
 
 #: omweather/src/hash.data:39
-#, fuzzy
 msgid "Cloudy, Rain"
-msgstr "Nuageux, pluie légère"
+msgstr "Nuageux, pluie"
 
 #: omweather/src/hash.data:40
 msgid "Cloudy, Smoke"
@@ -542,10 +553,9 @@ msgstr "Télécharger et afficher la météo détaillée"
 msgid "Download timed out."
 msgstr "Délai dépassé lors du téléchargement."
 
-#  Should probably be "Congères", for consistency with previous translations
 #: omweather/src/hash.data:42
 msgid "Drifting Snow"
-msgstr "Neige poudreuse"
+msgstr "Congères"
 
 #: omweather/src/hash.data:45
 msgid "Drizzle"
@@ -747,7 +757,6 @@ msgid "Freezing Drizzle"
 msgstr "Bruine verglaçante"
 
 #: omweather/src/weather-help.c:140
-#, fuzzy
 msgid ""
 "French - Nicolas Granziano, Philippe, Benot Knecht\n"
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
@@ -767,6 +776,7 @@ msgstr ""
 "\tSalvatore Fiorenzo, Luca Onnis\n"
 "Espagnol - Alejandro Lopez\n"
 "Polonais - Tomasz Dominikowski\n"
+"Slovaque - Roman Moravčík"
 
 #: omweather/src/hash.data:66
 msgid "Full"
@@ -1030,10 +1040,9 @@ msgstr "Plutôt nuageux, orages"
 msgid "Mostly Cloudy and Windy"
 msgstr "Plutôt nuageux et venteux"
 
-#  Should probably be "Congères", for consistency with previous translations
 #: omweather/src/hash.data:108
 msgid "Mostly Cloudy, Drifting Snow"
-msgstr "Plutôt nuageux, neige poudreuse"
+msgstr "Plutôt nuageux, congères"
 
 #: omweather/src/hash.data:109
 msgid "Mostly Cloudy, Few Snow"
@@ -1048,9 +1057,8 @@ msgid "Mostly Cloudy, Fog, Drizzle"
 msgstr "Plutôt nuageux, brouillard, bruine"
 
 #: omweather/src/hash.data:112
-#, fuzzy
 msgid "Mostly Cloudy, Heavy Rain"
-msgstr "Plutôt nuageux, forte neige"
+msgstr "Plutôt nuageux, grosse pluie"
 
 #: omweather/src/hash.data:113
 msgid "Mostly Cloudy, Heavy Snow"
@@ -1327,18 +1335,16 @@ msgid "Partly Cloudy, Haze"
 msgstr "Partiellement nuageux, brume"
 
 #: omweather/src/hash.data:159
-#, fuzzy
 msgid "Partly Cloudy, Heavy Rain"
-msgstr "Plutôt nuageux, forte neige"
+msgstr "Partiellement nuageux, grosse pluie"
 
 #: omweather/src/hash.data:160
 msgid "Partly Cloudy, Light Rain"
 msgstr "Partiellement nuageux, pluie légère"
 
 #: omweather/src/hash.data:161
-#, fuzzy
 msgid "Partly Cloudy, Rain"
-msgstr "Partiellement nuageux, pluie légère"
+msgstr "Partiellement nuageux, pluie"
 
 #: omweather/src/hash.data:162
 msgid "Partly Cloudy, Smoke"
@@ -1548,9 +1554,8 @@ msgid "Search"
 msgstr "Recherche"
 
 #: omweather/src/weather-simple-settings.c:2172
-#, fuzzy
 msgid "Select location"
-msgstr "Choisir la station"
+msgstr "Choisir l'emplacement"
 
 #: omweather/src/weather-simple-settings.c:1039
 #, c-format
@@ -1779,13 +1784,12 @@ msgid "Temperature units:"
 msgstr "Unités de température :"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:335
-#, fuzzy
 msgid "Temperature:"
 msgstr "Température :"
 
 #: omweather/src/weather-popup.c:1238 omweather/src/weather-popup.c:1420
 msgid "Temperature: "
-msgstr "Température :"
+msgstr "Température : "
 
 #: omweather/src/weather-help.c:137
 msgid "Thanks"
@@ -2181,9 +2185,8 @@ msgstr "suivant"
 
 #: omweather/src/weather-simple-settings.c:1358
 #: omweather/src/weather-simple-settings.c:2685
-#, fuzzy
 msgid "nmi"
-msgstr "mi"
+msgstr "nmi"
 
 #: omweather/src/hash.data:251
 msgid "rising"
@@ -2242,57 +2245,6 @@ msgstr "Ю-З"
 #~ msgstr ""
 #~ "\n"
 #~ "Humidité : "
-
-#~ msgid ""
-#~ "\n"
-#~ "Copyright(c) 2006-2010\n"
-#~ "Vlad Vasiliev, Pavel Fialko"
-#~ msgstr ""
-#~ "\n"
-#~ "Copyright(c) 2006-2010\n"
-#~ "Vlad Vasiliev, Pavel Fialko"
-
-#~ msgid ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "Andrew Olmsted\n"
-#~ "for Semi-transparency\n"
-#~ "and coloured backgrounds\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "Andrew Olmsted\n"
-#~ "pour les fonds semi-transparents\n"
-#~ "et colorés\n"
-
-#~ msgid ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "for default icon set (Glance)\n"
-#~ "and design of interface\n"
-#~ "Andrew Zhilin"
-#~ msgstr ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "pour les icônes par defaut (Glance)\n"
-#~ "et le design de l'interface\n"
-#~ "Andrew Zhilin"
-
-#~ msgid ""
-#~ "\n"
-#~ "Hildon desktop applet\n"
-#~ "for Nokia N800/N810/N900\n"
-#~ "to show weather forecasts.\n"
-#~ "Version "
-#~ msgstr ""
-#~ "\n"
-#~ "Applet du bureau Hildon\n"
-#~ "pour Nokia N800/N810/N900\n"
-#~ "pour afficher les previsions météo.\n"
-#~ "Version "
-
-#~ msgid " Build: "
-#~ msgstr " Compilation : "
 
 #~ msgid "Configuring station"
 #~ msgstr "Configuration des stations"

@@ -60,7 +60,9 @@ rm -rf %{buildroot}
 
 # >> install post
 make INSTALL_ROOT=%{buildroot} install
+%ifarch %{all_x86}
 ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/theme/icons
+%endif
 rm %{buildroot}/usr/lib/libomweather-core.so
 # << install post
 desktop-file-install --delete-original       \
@@ -86,18 +88,20 @@ desktop-file-install --delete-original       \
 /usr/bin/omweather-settings
 %{_datadir}/applications/*.desktop
 %{_libdir}
-%{_libexecdir}/meego-panel-omweather
-/usr/share/meego-panel-omweather
 /usr/share/dbus-1/services
 /usr/share/omweather
 /usr/share/locale
-/usr/share/mutter-meego/panels/meego-panel-omweather.desktop
 /etc/xdg
 /usr/lib/omweather/weathercom
 /usr/share/omweather/copyright_icons/weather.com.png
 /usr/share/omweather/db/weather.com.db
 /usr/share/omweather/sources/weather.com.xml
 # >> files
+%ifarch %{all_x86}
+%{_libexecdir}/meego-panel-omweather
+/usr/share/meego-panel-omweather
+/usr/share/mutter-meego/panels/meego-panel-omweather.desktop
+%endif
 %changelog
 * Sun Feb 13 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.1 
   * Added QML version of Omweather

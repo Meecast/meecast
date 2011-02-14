@@ -6,6 +6,7 @@
                 <xs:element ref="schemas:base"/>
                 <xs:element ref="schemas:sources_directory" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element ref="schemas:iconset"/>
+                <xs:element ref="schemas:temperature_unit" minOccurs="0"/>
                 <xs:element ref="schemas:current_station_id" minOccurs="0"/>
                 <xs:element name="station" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
@@ -15,7 +16,9 @@
                             <xs:element ref="schemas:station_id" />
                             <xs:element ref="schemas:country" />
                             <xs:element ref="schemas:region" />
+                            <xs:element ref="schemas:file_name" minOccurs="0" />
                             <xs:element ref="schemas:forecast_url" />
+                            <xs:element ref="schemas:converter" minOccurs="0" />
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
@@ -25,11 +28,14 @@
     <xs:element name="base" type="xs:string"/>
     <xs:element name="sources_directory" type="xs:string"/>
     <xs:element name="iconset" type="xs:string"/>
+    <xs:element name="temperature_unit" type="xs:string"/>
     <xs:element name="current_station_id" type="xs:string"/>
     <xs:element name="source_name" type="xs:string"/>
     <xs:element name="station_name" type="xs:string"/>
     <xs:element name="station_id" type="xs:string"/>
     <xs:element name="country" type="xs:string"/>
     <xs:element name="region" type="xs:string"/>
+    <xs:element name="file_name" type="xs:string"/>
     <xs:element name="forecast_url" type="xs:string"/>
+    <xs:element name="converter" type="xs:string"/>
 </xs:schema>

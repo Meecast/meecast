@@ -88,10 +88,8 @@ desktop-file-install --delete-original       \
 /usr/bin/omweather-settings
 %{_datadir}/applications/*.desktop
 %{_libdir}
-/usr/share/dbus-1/services
 /usr/share/omweather
 /usr/share/locale
-/etc/xdg
 /usr/lib/omweather/weathercom
 /usr/share/omweather/copyright_icons/weather.com.png
 /usr/share/omweather/db/weather.com.db
@@ -101,6 +99,8 @@ desktop-file-install --delete-original       \
 %{_libexecdir}/meego-panel-omweather
 /usr/share/meego-panel-omweather
 /usr/share/mutter-meego/panels/meego-panel-omweather.desktop
+/etc/xdg
+/usr/share/dbus-1/services
 %endif
 %changelog
 * Sun Feb 13 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.1 

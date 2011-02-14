@@ -24,6 +24,14 @@ ConfigQml::iconspath(){
 }
 
 QString
+ConfigQml::iconsbutton(){
+    QString c;
+    c = ConfigQml::Config::prefix_path().c_str();
+    c.append("/button_icons");
+    return c;
+}
+
+QString
 ConfigQml::temperatureunit(){
     QString c;
     c = ConfigQml::Config::TemperatureUnit().c_str();

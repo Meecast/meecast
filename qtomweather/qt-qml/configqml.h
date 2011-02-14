@@ -11,6 +11,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_OBJECT
     Q_PROPERTY(QString iconset READ iconset NOTIFY iconsetChanged)
     Q_PROPERTY(QString iconspath READ iconspath NOTIFY iconspathChanged)
+    Q_PROPERTY(QString iconsbutton READ iconsbutton NOTIFY iconsbuttonChanged)
     Q_PROPERTY(QString temperatureunit READ temperatureunit NOTIFY temperatureunitChanged)
     Q_PROPERTY(QColor fontcolor READ fontcolor NOTIFY fontcolorChanged)
     public:
@@ -18,6 +19,7 @@ class ConfigQml : public QObject, public Core::Config
     ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
     QString iconset();
     QString iconspath();
+    QString iconsbutton();
     QString temperatureunit();
     QColor fontcolor();
     void refreshconfig();
@@ -25,6 +27,7 @@ class ConfigQml : public QObject, public Core::Config
     signals:
     void iconsetChanged();
     void iconspathChanged();
+    void iconsbuttonChanged();
     void temperatureunitChanged();
     void fontcolorChanged();
 };

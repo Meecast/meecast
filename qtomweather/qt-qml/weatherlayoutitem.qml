@@ -8,81 +8,177 @@ LayoutItem {    //Sized by the layout
     preferredSize: "256x256"
 */
 Rectangle {
-    width: 660
-    height: 400
+    width: 800
+    height: 480
 
+    Rectangle {
+        id: panel
+        z: 5
+        width: parent.width
+        height: 100
+        anchors.top: parent.top
+        anchors.left: parent.left
+
+        ImageButton {
+            id: refresh
+            imagefile: Config.iconsbutton + "/" + "refresh.png"
+            anchors.top: parent.top
+            anchors.topMargin: 10
+            anchors.right: parent.right
+            anchors.rightMargin: 10
+        }
+        ImageButton {
+            id: config
+            imagefile: Config.iconsbutton + "/" + "config.png"
+            anchors.top: parent.top
+            anchors.topMargin: 10
+            anchors.right: refresh.left
+            anchors.rightMargin: 10
+        }
+        ImageButton {
+            id: about
+            imagefile: Config.iconsbutton + "/" + "about.png"
+            anchors.top: parent.top
+            anchors.topMargin: 10
+            anchors.right: config.left
+            anchors.rightMargin: 10
+        }
+    }
 
     Component {
         id: itemDelegate
-        Rectangle {
-            width: 220
-            height: 200
-            //color: !current ? "yellow" : "green"
-            opacity: 0.7
-            //anchors.fill: parent
-            //id: area
-            id: weatherlayoutitem
+
+        Item {
+            id: day
+            property  real detailsOpacity: 0
+
+            width: 160
+            height: 190
+
+            Rectangle {
+                id: background
+                x: 2; y:2; width: parent.width - x*2; height: parent.height - y*2
+                //color: "green"
+            }
+
+            MouseArea {
+                id: toDetail
+                anchors.fill: parent
+                onClicked: if (day.detailsOpacity == 0) day.state = 'Details'; else day.state = '';
+
+            }
+
+
             Text {
                 id: day_name
                 text: date
                 color: Config.fontcolor
                 anchors.left: parent.left
-                anchors.leftMargin: 50
+                anchors.leftMargin: 20
                 //anchors.centerIn: parent
                 //anchors.top: parent.top
             }
+
             Image {
                 id: forecast_icon
                 source: Config.iconspath + "/" + Config.iconset + "/" + pict
+                width: 64
+                height: 64
                 anchors.top: day_name.bottom
                 //anchors.topMargin: 20
                 //anchors.leftMargin: 5
                 anchors.left: parent.left
             }
-
             Text {
                 id: temperature
                 text: ((temp_low != "N/A") ? (temp_low + '°' +Config.temperatureunit + " .. ") : "") +
                         ((temp_high != "N/A") ? (temp_high + '°' +Config.temperatureunit) : "")
-                font.pointSize: 14
-                color: Config.fontcolor
-                //anchors.right: parent.right
-                anchors.left: forecast_icon.right
-                anchors.top: day_name.bottom
-                anchors.topMargin: 10
+                anchors.top: forecast_icon.top; anchors.topMargin: 10
+                anchors.left: forecast_icon.right; anchors.leftMargin: 10
+                opacity: 1 - day.detailsOpacity
             }
-            Text {
-                id: desc
-                text: description
-                font.pointSize: 14
-                color: Config.fontcolor
-                anchors.top: forecast_icon.bottom
-                anchors.left: parent.left
-            }
+            Item {
+                id: details
+                anchors {top: forecast_icon.top; topMargin: 10; bottom: parent.bottom; bottomMargin: 10; left: forecast_icon.right}
+                opacity: day.detailsOpacity
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    details.show(index)
+                Column {
+                    Text {
+                        text: description
+                    }
+                    Text {
+                        text: "Temperature: " +
+                                ((temp_low != "N/A") ? (temp_low + '°' +Config.temperatureunit + " .. ") : "") +
+                                ((temp_high != "N/A") ? (temp_high + '°' +Config.temperatureunit) : "")
+                    }
+                    Text {
+                        text: (humidity != "N/A") ? ("Humidity: " + humidity + "%") : ""
+                    }
+                    Text {
+                        text: (pressure != "N/A") ? ("Pressure: " + pressure) : ""
+                    }
+                    Text {
+                        text: (wind_direction != "N/A") ? ("Wind: " + wind_direction) : ""
+                    }
+                    Text {
+                        text: (wind_speed != "N/A") ? ("Wind speed: " + wind_speed + "m/s") : ""
+                    }
                 }
-                hoverEnabled: true
-                onEntered: parent.opacity = 1
-                onExited: parent.opacity = 0.7
-               }
-        }
 
+
+            }
+
+            states: State {
+                name: "Details"
+                PropertyChanges {
+                    target: background
+                    //color: "blue"
+                }
+
+                PropertyChanges {
+                    target: forecast_icon
+                    width: 256
+                    height: 256
+                }
+                PropertyChanges {
+                    target: day
+                    detailsOpacity: 1
+                    x: 0
+                }
+                PropertyChanges {
+                    target: day
+                    z: 100
+                    width: list.width
+                    height: list.height
+                }
+
+                PropertyChanges {
+                    target: day.GridView.view
+                    explicit: true
+                    contentY: day.y
+
+                }
+                PropertyChanges {
+                    target: day.GridView.view
+                    interactive: false
+                }
+            }
+
+        }
 
     }
 
     GridView {
         id: list
-        anchors.fill: parent
-        cellWidth: 220; cellHeight: 200
+        z: 1
+        //anchors.fill: parent
+        anchors.top: panel.bottom
+        width: parent.width
+        height: parent.height - panel.height
+        cellWidth: 160; cellHeight: 190
         model: Forecast_model
         delegate: itemDelegate
     }
 
-    Details {
-        id: details
-    }
+
 }

@@ -148,7 +148,7 @@ int main(int argc, char* argv[])
     std::cerr<<"iconpath = "<<config->prefix_path()<<std::endl;
     StationsList = config->stationsList();
     std::cerr<<"size "<<StationsList.size()<<std::endl;
-    update_weather_forecast(config);
+    //update_weather_forecast(config);
 
     try{
        if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id()))

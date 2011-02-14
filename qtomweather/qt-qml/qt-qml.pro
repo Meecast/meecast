@@ -30,7 +30,8 @@ RESOURCES += weatherlayoutitem.qrc
 OTHER_FILES += \
     layoutitem.qml \
     weatherlayoutitem.qml \
-    Details.qml
+    Details.qml \
+    ImageButton.qml
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 

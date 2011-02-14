@@ -149,7 +149,7 @@ int main(int argc, char* argv[])
     StationsList = config->stationsList();
     std::cerr<<"size "<<StationsList.size()<<std::endl;
     //update_weather_forecast(config);
-
+/*
     try{
        if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id()))
            dp = new Core::DataParser(config->stationsList().at(config->current_station_id())->fileName(),
@@ -175,7 +175,12 @@ int main(int argc, char* argv[])
         model->appendRow(forecast_data);
 
     }
-
+*/
+    DataModel *model = config->getModel();
+    std::cerr << model->rowCount() << std::endl;
+    //config->changestation();
+    //model = config->getModel();
+    std::cerr << model->rowCount() << std::endl;
     QTranslator translator;
     translator.load("ru.qml", "i18n");
     app.installTranslator(&translator);
@@ -191,7 +196,7 @@ int main(int argc, char* argv[])
     //qview.setGeometry(100, 100, 200, 200);
     qview.rootContext()->setContextProperty("Forecast_model", model);
     qview.rootContext()->setContextProperty("Config", config);
-    qview.setSource(QUrl(QString::fromStdString(Core::AbstractConfig::layoutqml)));
+    qview.setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::layoutqml)));
     qview.show();
 
 /*

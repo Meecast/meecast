@@ -13,11 +13,10 @@ class DataModel : public QAbstractListModel
 public:
     explicit DataModel(DataItem* prototype, QObject* parent = 0);
     ~DataModel();
-    int rowCount(const QModelIndex &parent = QModelIndex()) const;
+    Q_INVOKABLE int rowCount(const QModelIndex &parent = QModelIndex()) const;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     void appendRow(DataItem* item);
     void clear();
-    Q_INVOKABLE void update();
 
 private:
     DataItem* _prototype;

@@ -48,14 +48,14 @@ ConfigQml::stationname()
 {
     return this->stationsList().at(this->current_station_id())->name().c_str();
 }
-QString ConfigQml::changestation()
+void ConfigQml::changestation()
 {
     if (this->current_station_id() + 1 < this->stationsList().size())
        this->current_station_id(this->current_station_id() + 1);
     else
        this->current_station_id(0);
 
-    return this->stationname();
+
 }
 void
 ConfigQml::refreshconfig(){
@@ -66,11 +66,11 @@ ConfigQml::refreshconfig(){
     emit ConfigQml::stationnameChanged();
 }
 
-/*
-DataModel *
+
+DataModel*
 ConfigQml::getModel()
 {
-    DataModel *model = new DataModel(new DataItem, new QObject);
+    DataModel *model = new DataModel(new DataItem);
     DataItem *forecast_data = NULL;
 
     int i = 0;
@@ -86,4 +86,4 @@ ConfigQml::getModel()
 
     }
     return model;
-}*/
+}

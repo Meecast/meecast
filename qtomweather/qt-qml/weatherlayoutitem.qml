@@ -25,7 +25,17 @@ Rectangle {
             anchors.topMargin: 10
             anchors.left: parent.left
             anchors.leftMargin: 10
-            onClicked: {text = Config.changestation(); Forecast_model.update(); list.model = Forecast_model;}
+            onClicked: {
+                Config.changestation();
+                text = Config.stationname;
+                console.log(list.model.rowCount());
+                list.model = Config.getModel();
+                console.log(list.model.rowCount());
+                //GridView.view.model = Config.getModel();
+                //console.log(list.model.rowCount());
+                //console.log(Config.getModel().rowCount());
+
+            }
         }
 
         ImageButton {

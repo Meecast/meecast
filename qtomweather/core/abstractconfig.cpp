@@ -8,7 +8,7 @@ namespace Core {
     std::string AbstractConfig::iconsPath = "../test/iconsets/";
     std::string AbstractConfig::libPath = "lib/omweather/";
     std::string AbstractConfig::sourcesPath = "../test/sources/";
-    std::string AbstractConfig::layoutqml = ":weatherlayoutitem.qml";
+    std::string AbstractConfig::layoutqml = "weatherlayoutitem.qml";
     //std::string AbstractConfig::configPath = "../test/";
 #else
     std::string AbstractConfig::prefix = "/usr/";
@@ -17,7 +17,7 @@ namespace Core {
     std::string AbstractConfig::iconsPath = "share/omweather/iconsets/";
     std::string AbstractConfig::libPath = "lib/omweather/";
     std::string AbstractConfig::sourcesPath = "share/omweather/sources/";
-    std::string AbstractConfig::layoutqml = ":/usr/share/omweather/qml/weatherlayoutitem.qml";
+    std::string AbstractConfig::layoutqml = "/usr/share/omweather/qml/weatherlayoutitem.qml";
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
 #endif
     std::string AbstractConfig::getConfigPath()

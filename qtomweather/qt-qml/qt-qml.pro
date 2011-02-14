@@ -15,8 +15,7 @@ SOURCES += main.cpp \
     configqml.cpp \
     qmllayoutitem.cpp \
     dataitem.cpp \
-    datamodel.cpp \ 
-    datamodelmanager.cpp
+    datamodel.cpp  
 
 HEADERS  += \
     dataqml.h \

@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QVariant>
 #include <QtCore>
-#include "configqml.h"
 
 class DataItem : public QObject, public Core::Data
 {

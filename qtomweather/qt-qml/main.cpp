@@ -67,7 +67,7 @@ create_and_fill_config(){
         config = new ConfigQml();
     }
     //std::cerr<<"End of creating Config class: " <<std::endl;
-    //config->saveConfig();
+    config->saveConfig();
     std::cerr<<"End of creating Config class: " <<std::endl;
 
     return config;
@@ -99,7 +99,22 @@ update_weather_forecast(Core::Config *config){
 
     return true;
 }
-  
+Core::DataParser*
+current_data(std::string& str){
+  Core::DataParser* dp;
+  try{
+        dp = new Core::DataParser(str, Core::AbstractConfig::sharePath+Core::AbstractConfig::schemaPath+"data.xsd");
+    }
+    catch(const std::string &str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return NULL;
+    }
+    catch(const char *str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return NULL;
+    }
+    return dp;
+}
 
 int main(int argc, char* argv[])
 {
@@ -123,21 +138,10 @@ int main(int argc, char* argv[])
 
     //Add the QML snippet into the layout
 
-/*
-    Core::DatabaseSqlite *db = new Core::DatabaseSqlite("weather.com.db");
-
-    db->open_database();
-    Core::listdata * list = db->create_stations_list(18);
-    Core::listdata::iterator cur;
-    for (cur=list->begin(); cur<list->end(); cur++)
-        std::cerr << (*cur).first << " - " << (*cur).second << std::endl;
-    return 0;
-*/
     ConfigQml *config;
     DataItem *forecast_data = NULL;
+    char buffer[4096];
 
-    //Core::DataList data_list;
-    //QmlLayoutItem* qml_layout_item;
     Core::DataParser* dp = NULL;
     Core::Data *temp_data = NULL;
     int i;
@@ -149,6 +153,18 @@ int main(int argc, char* argv[])
     StationsList = config->stationsList();
     std::cerr<<"size "<<StationsList.size()<<std::endl;
     //update_weather_forecast(config);
+
+    if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 &&
+        config->stationsList().at(config->current_station_id()))
+        dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
+
+    if (dp)
+        temp_data = dp->data().GetDataForTime(time(NULL));
+    if (temp_data )
+        snprintf(buffer, (4096 -1), "icon%i", temp_data->Icon());
+    else
+        snprintf(buffer, (4096 -1), "iconna");
+
 /*
     try{
        if (config->current_station_id() != INT_MAX && config->stationsList().at(config->current_station_id()))
@@ -164,11 +180,12 @@ int main(int argc, char* argv[])
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;
         dp = new Core::DataParser();
         //return -1;
-    }
-
+    }*/
+/*
     DataModel *model = new DataModel(new DataItem, qApp);
+    std::cerr << "222222222" << std::endl;
     i = 0;
-    while  (temp_data = dp->data().GetDataForTime(time(NULL) + i)) {
+    while  (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
         i = i + 3600*24;
         forecast_data = new DataItem(temp_data);
         forecast_data->Text(_(forecast_data->Text().c_str()));
@@ -180,7 +197,7 @@ int main(int argc, char* argv[])
     std::cerr << model->rowCount() << std::endl;
     //config->changestation();
     //model = config->getModel();
-    std::cerr << model->rowCount() << std::endl;
+
     QTranslator translator;
     translator.load("ru.qml", "i18n");
     app.installTranslator(&translator);

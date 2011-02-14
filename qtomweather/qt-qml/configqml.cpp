@@ -46,7 +46,11 @@ ConfigQml::fontcolor(){
 QString
 ConfigQml::stationname()
 {
-    return this->stationsList().at(this->current_station_id())->name().c_str();
+    if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
+                                                &&  this->stationsList().at(this->current_station_id()))
+        return this->stationsList().at(this->current_station_id())->name().c_str();
+    else
+        return "Unknown";
 }
 void ConfigQml::changestation()
 {
@@ -76,9 +80,11 @@ ConfigQml::getModel()
     int i = 0;
     Core::DataParser* dp = NULL;
     Core::Data *temp_data = NULL;
-    dp = new Core::DataParser(this->stationsList().at(this->current_station_id())->fileName(),
+    if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
+                                                &&  this->stationsList().at(this->current_station_id()))
+        dp = new Core::DataParser(this->stationsList().at(this->current_station_id())->fileName(),
                               Core::AbstractConfig::sharePath+Core::AbstractConfig::schemaPath+"data.xsd");
-    while  (temp_data = dp->data().GetDataForTime(time(NULL) + i)) {
+    while  (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
         i = i + 3600*24;
         forecast_data = new DataItem(temp_data);
         forecast_data->Text(forecast_data->Text().c_str());

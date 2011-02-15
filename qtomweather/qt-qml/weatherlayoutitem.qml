@@ -60,6 +60,11 @@ Rectangle {
             anchors.topMargin: 10
             anchors.right: config.left
             anchors.rightMargin: 10
+            onClicked: {
+                console.log("about");
+                list.opacity = 0;
+                aboutblock.opacity = 1;
+            }
         }
     }
 
@@ -208,6 +213,42 @@ Rectangle {
         model: Forecast_model
         delegate: itemDelegate
     }
+    Item {
+        id: aboutblock
+        z: 10
+        anchors.top: panel.bottom
+        width: parent.width
+        height: parent.height - panel.height
+        opacity: 0
+        Row {
+            spacing: 20
+            anchors.centerIn: parent
+            Image {
+                id: about_icon
+                source: Config.iconspath + "/" + Config.iconset + "/21.png"
+                width: 256
+                height: 256
+                //anchors.top: day_name.bottom
+                //anchors.topMargin: 20
+                //anchors.leftMargin: 5
+                //anchors.left: parent.left
+            }
+            Text {
+                font.pointSize: 14
+                text: "Weather forecast for the Meego. Version 0.3.\n" +
+                  "Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n" +
+                  "Maintenance: Pavel Fialko, <pavelnf@gmail.com>\n          Tanya Makova, <tanyshk@gmail.com>\n" +
+                  "Design UI and default iconset:\n           Andrew Zhilin, <az@pocketpcrussia.com>\n"
+            }
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                parent.opacity = 0;
+                list.opacity = 1;
+            }
 
+        }
+    }
 
 }

@@ -45,10 +45,12 @@ INSTALLS += target
 
 desktop.files = omweather.desktop
 desktop.path = /usr/share/applications
+icon64.path = /usr/share/pixmaps
+icon64.files += omweather.png
 qml.files = *.qml
 qml.path = /usr/share/omweather/qml
 
-INSTALLS += desktop qml
+INSTALLS += desktop qml icon64
  
  
 DATADIR=/usr/share

@@ -90,6 +90,7 @@ desktop-file-install --delete-original       \
 %{_libdir}
 /usr/share/omweather
 /usr/share/locale
+/usr/share/pixmaps
 /usr/lib/omweather/weathercom
 /usr/share/omweather/copyright_icons/weather.com.png
 /usr/share/omweather/db/weather.com.db

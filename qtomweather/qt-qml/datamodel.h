@@ -17,6 +17,7 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     void appendRow(DataItem* item);
     void clear();
+    Q_INVOKABLE void update(QString filename);
 
 private:
     DataItem* _prototype;

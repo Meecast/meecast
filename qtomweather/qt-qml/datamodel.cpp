@@ -31,6 +31,8 @@ DataModel::clear()
 {
     qDeleteAll(_list);
     _list.clear();
+    //emit dataChanged(this->createIndex(0, 0), this->createIndex(count, 0));
+    this->reset();
 }
 
 void
@@ -41,4 +43,36 @@ DataModel::appendRow(DataItem *item)
     endInsertRows();
     //return (_list.size() - 1);
 }
+void
+DataModel::update(QString filename)
+{
+    this->clear();
+    DataItem *forecast_data = NULL;
 
+    int i = 0;
+    Core::DataParser* dp = NULL;
+    Core::Data *temp_data = NULL;
+    if (!filename.isEmpty()){
+        try{
+            dp = new Core::DataParser(filename.toStdString(),
+                                      Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
+        }
+        catch(const std::string &str){
+            std::cerr<<"Error in DataParser class: "<< str << std::endl;
+            //return NULL;
+        }
+        catch(const char *str){
+            std::cerr<<"Error in DataParser class: "<< str << std::endl;
+            //return NULL;
+        }
+    }
+
+    while  (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
+        i = i + 3600*24;
+        forecast_data = new DataItem(temp_data);
+        forecast_data->Text(forecast_data->Text().c_str());
+        this->appendRow(forecast_data);
+
+    }
+    this->reset();
+}

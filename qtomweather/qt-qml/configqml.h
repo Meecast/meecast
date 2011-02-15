@@ -26,7 +26,7 @@ class ConfigQml : public QObject, public Core::Config
     QString temperatureunit();
     QColor fontcolor();
     QString stationname();
-    Q_INVOKABLE void changestation();
+    Q_INVOKABLE QString changestation();
     Q_INVOKABLE DataModel* getModel();
     void refreshconfig();
     virtual ~ConfigQml(){};

@@ -26,15 +26,9 @@ Rectangle {
             anchors.left: parent.left
             anchors.leftMargin: 10
             onClicked: {
-                Config.changestation();
+                var filename = Config.changestation();
+                list.model.update(filename);
                 text = Config.stationname;
-                console.log(list.model.rowCount());
-                list.model = Config.getModel();
-                console.log(list.model.rowCount());
-                //GridView.view.model = Config.getModel();
-                //console.log(list.model.rowCount());
-                //console.log(Config.getModel().rowCount());
-
             }
         }
 

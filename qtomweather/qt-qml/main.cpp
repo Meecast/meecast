@@ -154,7 +154,7 @@ int main(int argc, char* argv[])
     std::cerr<<"iconpath = "<<config->prefix_path()<<std::endl;
     StationsList = config->stationsList();
     std::cerr<<"size "<<StationsList.size()<<std::endl;
-    update_weather_forecast(config);
+    //update_weather_forecast(config);
 
 /*
     DataModel *model = new DataModel(new DataItem, qApp);

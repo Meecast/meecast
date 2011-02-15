@@ -52,13 +52,15 @@ ConfigQml::stationname()
     else
         return "Unknown";
 }
-void ConfigQml::changestation()
+QString ConfigQml::changestation()
 {
-    if (this->current_station_id() + 1 < this->stationsList().size())
+    if (this->current_station_id() + 1 < this->stationsList().size()){
        this->current_station_id(this->current_station_id() + 1);
-    else
-       this->current_station_id(0);
 
+   }else {
+       this->current_station_id(0);
+   }
+   return this->stationsList().at(this->current_station_id())->fileName().c_str();
 
 }
 void

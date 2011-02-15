@@ -105,7 +105,7 @@ Core::DataParser*
 current_data(std::string& str){
   Core::DataParser* dp;
   try{
-        dp = new Core::DataParser(str, Core::AbstractConfig::sharePath+Core::AbstractConfig::schemaPath+"data.xsd");
+        dp = new Core::DataParser(str, Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
     }
     catch(const std::string &str){
         std::cerr<<"Error in DataParser class: "<< str <<std::endl;

@@ -84,14 +84,18 @@ ConfigQml::getModel()
             &&  this->stationsList().at(this->current_station_id())){
         try{
             dp = new Core::DataParser(this->stationsList().at(this->current_station_id())->fileName(),
-                                      Core::AbstractConfig::sharePath+Core::AbstractConfig::schemaPath+"data.xsd");
+                                      Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
         }
         catch(const std::string &str){
-            std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+            std::cerr<<"Error in DataParser class: "<< str << " " <<
+            this->stationsList().at(this->current_station_id())->fileName()<< " "<<
+            Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd" <<std::endl;
             //return NULL;
         }
         catch(const char *str){
-            std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+    	    std::cerr<<"Error in DataParser class: "<< str << " " <<
+            this->stationsList().at(this->current_station_id())->fileName()<< " "<<
+            Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd" <<std::endl;
             //return NULL;
         }
     }

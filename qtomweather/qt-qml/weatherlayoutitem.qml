@@ -197,7 +197,11 @@ Rectangle {
                     interactive: false
                 }
             }
-
+            transitions: Transition {
+                ParallelAnimation {
+                    NumberAnimation {duration: 300; properties: "detailsOpacity,x,contentY,height,width"}
+                }
+            }
         }
 
     }

@@ -49,7 +49,9 @@ ConfigQml *
 create_and_fill_config(){
     ConfigQml *config;
 
-    std::cerr<<"Create Config class: " <<std::endl;
+    std::cerr<<"Create Config class: " << Core::AbstractConfig::prefix+
+                               Core::AbstractConfig::schemaPath+
+                               "config.xsd"<< std::endl;
     try{
         config = new ConfigQml(Core::AbstractConfig::getConfigPath()+
                                "config.xml",

@@ -27,7 +27,7 @@ QString
 ConfigQml::iconsbutton(){
     QString c;
     c = ConfigQml::Config::prefix_path().c_str();
-    c.append("/button_icons");
+    c.append("/buttons_icons");
     return c;
 }
 

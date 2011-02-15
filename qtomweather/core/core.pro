@@ -20,9 +20,9 @@ system(pkg-config --exists libxml++-2.6) {
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 
-system(pkg-config --exists meego-panel) {
- DEFINES += MEEGO_MPL
-} 
+#system(pkg-config --exists meego-panel) {
+# DEFINES += MEEGO_MPL
+#} 
  
 SOURCES = \
     abstractconfig.cpp \ 

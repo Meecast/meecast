@@ -1,16 +1,19 @@
 # List of source files containing translatable strings.
 
-src/weather-home.c
-src/weather-settings.c
-src/weather-config.c
-src/weather-popup.c
-src/hash.data
-src/weather-download.c
-src/weather-sensor.c
-src/weather-help.c
-src/weather-alerts.c
-src/weather-simple-popup.c
-src/weather-simple-status.c
-src/weather-simple-settings.c
-src/weather-utils.c
+omweather/src/weather-home.c
+omweather/src/weather-settings.c
+omweather/src/weather-config.c
+omweather/src/weather-popup.c
+omweather/src/hash.data
+omweather/src/weather-download.c
+omweather/src/weather-sensor.c
+omweather/src/weather-help.c
+omweather/src/weather-alerts.c
+omweather/src/weather-simple-popup.c
+omweather/src/weather-simple-status.c
+omweather/src/weather-simple-settings.c
+omweather/src/weather-utils.c
+qtomweather/meego-mpl/meego-netbookUX-omweather.cpp
+qtomweather/meego-mpl/meego-panel-omweather.cpp
+
 

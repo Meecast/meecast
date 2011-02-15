@@ -314,10 +314,10 @@ make_bottom_content_about() {
 				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
   
   label = clutter_text_new();
-  about_text = "Weather forecast for the Meego. Version 0.3.\n";
-  about_text += "Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n";
-  about_text += "Maintenance: Pavel Fialko, <pavelnf@gmail.com>\nTanya Makova, <tanyshk@gmail.com>\n";
-  about_text += "Design UI and default iconset: Andrew Zhilin, <az@pocketpcrussia.com>\n";
+  about_text = _("Weather forecast for the Meego. Version 0.3.\n");
+  about_text += _("Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n");
+  about_text += _("Maintenance: Pavel Fialko, <pavelnf@gmail.com>\nTanya Makova, <tanyshk@gmail.com>\n");
+  about_text += _("Design UI and default iconset: Andrew Zhilin, <az@pocketpcrussia.com>\n");
 
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
   pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.4);

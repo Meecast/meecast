@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-08 10:14+0200\n"
+"POT-Creation-Date: 2011-02-15 20:45+0200\n"
 "PO-Revision-Date: 2010-11-23 10:15+0100\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
@@ -86,14 +86,14 @@ msgstr ""
 "\n"
 "Vietor: "
 
-#: omweather/src/weather-simple-settings.c:1718
-#: omweather/src/weather-simple-settings.c:2815
+#: omweather/src/weather-simple-settings.c:1714
+#: omweather/src/weather-simple-settings.c:2811
 msgid "1 day"
 msgstr "1 deň"
 
 #: omweather/src/weather-settings.c:4240
-#: omweather/src/weather-simple-settings.c:1700
-#: omweather/src/weather-simple-settings.c:2809
+#: omweather/src/weather-simple-settings.c:1696
+#: omweather/src/weather-simple-settings.c:2805
 msgid "1 hour"
 msgstr "1 hodina"
 
@@ -134,8 +134,8 @@ msgid "30 seconds"
 msgstr "30 sekúnd"
 
 #: omweather/src/weather-settings.c:4244
-#: omweather/src/weather-simple-settings.c:1709
-#: omweather/src/weather-simple-settings.c:2812
+#: omweather/src/weather-simple-settings.c:1705
+#: omweather/src/weather-simple-settings.c:2808
 msgid "4 hours"
 msgstr "4 hodiny"
 
@@ -234,6 +234,7 @@ msgstr "Dopoludnia snehové prehánky"
 #: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
 #: omweather/src/weather-simple-popup.c:1133
 #: omweather/src/weather-simple-status.c:179
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:302
 msgid "About"
 msgstr "O aplikácií"
 
@@ -268,6 +269,7 @@ msgid ""
 "Marc Dillon - for spell/stylecheck text of English\n"
 "Arkady Glazov aka Globster - for testing\n"
 "Alexander Savchenko aka dizel - for testing\n"
+"Timeless - for patches \n"
 "Eric Link - for feature request and donation\n"
 msgstr ""
 "Alexis Iglauer - za testovanie\n"
@@ -283,7 +285,7 @@ msgstr ""
 msgid "An unknown error has occurred."
 msgstr "Nastala neznáma chyba."
 
-#: omweather/src/weather-simple-settings.c:417
+#: omweather/src/weather-simple-settings.c:413
 msgid "Animation"
 msgstr "Animácie"
 
@@ -291,9 +293,13 @@ msgstr "Animácie"
 msgid "Are you sure to want delete this station ?"
 msgstr "Ste si istý že chcete odstrániť túto stanicu?"
 
-#: omweather/src/weather-simple-settings.c:852
+#: omweather/src/weather-simple-settings.c:848
 msgid "Are you sure?"
 msgstr "Ste si istý?"
+
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:318
+msgid "Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n"
+msgstr ""
 
 #: omweather/src/weather-help.c:103
 msgid ""
@@ -321,12 +327,12 @@ msgstr "Automatická aktualizácia dát po pripojení na Internet"
 msgid "Background color:"
 msgstr "Farba pozadia:"
 
-#: omweather/src/weather-simple-settings.c:1430
+#: omweather/src/weather-simple-settings.c:1426
 msgid "Beauf."
 msgstr "Beauf."
 
 #: omweather/src/weather-settings.c:4021
-#: omweather/src/weather-simple-settings.c:2711
+#: omweather/src/weather-simple-settings.c:2707
 msgid "Beaufort scale"
 msgstr "Beaufortova mierka"
 
@@ -337,7 +343,7 @@ msgstr "Zvírený sneh"
 #: omweather/src/weather-home.c:1535 omweather/src/weather-home.c:1561
 #: omweather/src/weather-simple-popup.c:1011
 #: omweather/src/weather-simple-popup.c:1021
-#: omweather/src/weather-simple-settings.c:1285
+#: omweather/src/weather-simple-settings.c:1281
 msgid "C"
 msgstr "C"
 
@@ -359,10 +365,10 @@ msgstr "Nemôžem získať cestu k domácemu priečinku. Ukončujem sa.\n"
 msgid "Celcius"
 msgstr "Celzius"
 
-#: omweather/src/weather-simple-settings.c:681
-#: omweather/src/weather-simple-settings.c:714
-#: omweather/src/weather-simple-settings.c:811
-#: omweather/src/weather-simple-settings.c:2345
+#: omweather/src/weather-simple-settings.c:677
+#: omweather/src/weather-simple-settings.c:710
+#: omweather/src/weather-simple-settings.c:807
+#: omweather/src/weather-simple-settings.c:2341
 msgid "City"
 msgstr "Mesto"
 
@@ -478,8 +484,8 @@ msgstr "Nemožno nájsť hostiteľa."
 msgid "Couldn't resolve proxy."
 msgstr "Nemožno nájsť proxy."
 
-#: omweather/src/weather-simple-settings.c:768
-#: omweather/src/weather-simple-settings.c:2317
+#: omweather/src/weather-simple-settings.c:764
+#: omweather/src/weather-simple-settings.c:2313
 msgid "Country"
 msgstr "Krajina"
 
@@ -487,7 +493,7 @@ msgstr "Krajina"
 msgid "Country:"
 msgstr "Krajina:"
 
-#: omweather/src/weather-simple-settings.c:2900
+#: omweather/src/weather-simple-settings.c:2896
 msgid "Custom"
 msgstr "Vlastné"
 
@@ -499,6 +505,10 @@ msgstr "Dĺžka dňa"
 msgid "Day:"
 msgstr "Deň:"
 
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:320
+msgid "Design UI and default iconset: Andrew Zhilin, <az@pocketpcrussia.com>\n"
+msgstr ""
+
 #: omweather/src/weather-popup.c:461 omweather/src/weather-popup.c:601
 msgid "Detailed"
 msgstr "Podrobné"
@@ -508,7 +518,7 @@ msgstr "Podrobné"
 msgid "Display"
 msgstr "Zobrazenie"
 
-#: omweather/src/weather-simple-settings.c:1319
+#: omweather/src/weather-simple-settings.c:1315
 msgid "Distance"
 msgstr "Vzdialenosť"
 
@@ -602,8 +612,8 @@ msgstr ""
 "Andrew aka Tabster - za testovanie a nápady\n"
 "Brad Jones aka kazrak - za testovanie\n"
 
-#: omweather/src/weather-simple-settings.c:334
-#: omweather/src/weather-simple-settings.c:425
+#: omweather/src/weather-simple-settings.c:330
+#: omweather/src/weather-simple-settings.c:421
 msgid "Edit custom layout"
 msgstr "Upraviť vlastné rozloženie"
 
@@ -620,8 +630,8 @@ msgstr "Chyba v súbore XML\n"
 msgid "Error initializing the OMWeather applet"
 msgstr "Nemôžem inicializovať applet OMWeather"
 
-#: omweather/src/weather-simple-settings.c:1896
-#: omweather/src/weather-simple-settings.c:2775
+#: omweather/src/weather-simple-settings.c:1892
+#: omweather/src/weather-simple-settings.c:2771
 msgid "Extended Settings"
 msgstr "Rozšírené nastavenia"
 
@@ -632,7 +642,7 @@ msgstr "Extrémne"
 #: omweather/src/weather-home.c:1536 omweather/src/weather-home.c:1562
 #: omweather/src/weather-simple-popup.c:1012
 #: omweather/src/weather-simple-popup.c:1022
-#: omweather/src/weather-simple-settings.c:1293
+#: omweather/src/weather-simple-settings.c:1289
 msgid "F"
 msgstr "F"
 
@@ -739,7 +749,7 @@ msgstr "Predpoveď: \n"
 msgid "Freezing Drizzle"
 msgstr "Mrznúce mrholenie"
 
-#: omweather/src/weather-help.c:140
+#: omweather/src/weather-help.c:141
 msgid ""
 "French - Nicolas Granziano, Philippe, Benot Knecht\n"
 "Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh\n"
@@ -773,21 +783,21 @@ msgstr "Úplná predpoveď"
 msgid "G: "
 msgstr "Nar.: "
 
-#: omweather/src/weather-simple-settings.c:2253
+#: omweather/src/weather-simple-settings.c:2249
 msgid "GPS"
 msgstr "GPS"
 
-#: omweather/src/weather-simple-settings.c:1756
-#: omweather/src/weather-simple-settings.c:1762
-#: omweather/src/weather-simple-settings.c:2828
+#: omweather/src/weather-simple-settings.c:1752
+#: omweather/src/weather-simple-settings.c:1758
+#: omweather/src/weather-simple-settings.c:2824
 msgid "GSM"
 msgstr "GSM"
 
-#: omweather/src/weather-simple-settings.c:2822
+#: omweather/src/weather-simple-settings.c:2818
 msgid "GSM+WLAN"
 msgstr "GSM+WLAN"
 
-#: omweather/src/weather-simple-settings.c:2399
+#: omweather/src/weather-simple-settings.c:2395
 msgid "GUI|Clear"
 msgstr "Vymazať"
 
@@ -824,7 +834,7 @@ msgid "High"
 msgstr "Vysoké"
 
 #: omweather/src/weather-popup.c:1260 omweather/src/weather-popup.c:1436
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:358
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:457
 msgid "Humidity:"
 msgstr "Vlhkosť:"
 
@@ -967,7 +977,13 @@ msgstr "Dlhý"
 msgid "Low"
 msgstr "Nízké"
 
-#: omweather/src/weather-simple-settings.c:2244
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:319
+msgid ""
+"Maintenance: Pavel Fialko, <pavelnf@gmail.com>\n"
+"Tanya Makova, <tanyshk@gmail.com>\n"
+msgstr ""
+
+#: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"
 msgstr "Ručné"
 
@@ -983,7 +999,7 @@ msgstr "Míle"
 msgid "Mist"
 msgstr "Opar"
 
-#: omweather/src/weather-simple-settings.c:438
+#: omweather/src/weather-simple-settings.c:434
 msgid "Modification"
 msgstr "Úprava"
 
@@ -1148,7 +1164,7 @@ msgstr "Názov:"
 
 #: omweather/src/weather-settings.c:920 omweather/src/weather-settings.c:4190
 #: omweather/src/weather-config.c:324 omweather/src/weather-sensor.c:141
-#: omweather/src/weather-simple-settings.c:2806
+#: omweather/src/weather-simple-settings.c:2802
 msgid "Never"
 msgstr "Nikdy"
 
@@ -1183,24 +1199,24 @@ msgstr "Žiadne údaje o počasí pre túto stanicu."
 #: omweather/src/weather-home.c:2732 omweather/src/weather-home.c:2744
 #: omweather/src/weather-popup.c:458 omweather/src/weather-popup.c:569
 #: omweather/src/weather-popup.c:575
-#: omweather/src/weather-simple-settings.c:2890
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:316
+#: omweather/src/weather-simple-settings.c:2886
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:400
 msgid "Now"
 msgstr "Teraz"
 
-#: omweather/src/weather-simple-settings.c:2884
+#: omweather/src/weather-simple-settings.c:2880
 msgid "Now + 2 days vert."
 msgstr "Teraz + 2 dni vert."
 
-#: omweather/src/weather-simple-settings.c:2893
+#: omweather/src/weather-simple-settings.c:2889
 msgid "Now + 3 days hor."
 msgstr "Teraz + 3 dni hor."
 
-#: omweather/src/weather-simple-settings.c:2887
+#: omweather/src/weather-simple-settings.c:2883
 msgid "Now + 3 days vert."
 msgstr "Teraz + 3 dni vert."
 
-#: omweather/src/weather-simple-settings.c:2881
+#: omweather/src/weather-simple-settings.c:2877
 msgid "Now + 7 days vert."
 msgstr "Teraz + 7 dní vert."
 
@@ -1218,7 +1234,7 @@ msgid "OMWeather Forecast"
 msgstr "Predpoveď OMWeather"
 
 #: omweather/src/weather-settings.c:1220
-#: omweather/src/weather-simple-settings.c:3002
+#: omweather/src/weather-simple-settings.c:2998
 msgid "OMWeather Settings"
 msgstr "Nastavenie OMWeather"
 
@@ -1344,7 +1360,7 @@ msgstr "Oblačno, sneženie"
 msgid "Partly Cloudy, T-Storm"
 msgstr "Oblačno, búrka"
 
-#: omweather/src/weather-simple-settings.c:1680
+#: omweather/src/weather-simple-settings.c:1676
 msgid "Period"
 msgstr "Perióda"
 
@@ -1352,12 +1368,12 @@ msgstr "Perióda"
 msgid "Position:"
 msgstr "Poloha:"
 
-#: omweather/src/weather-simple-settings.c:1657
-#: omweather/src/weather-simple-settings.c:2840
+#: omweather/src/weather-simple-settings.c:1653
+#: omweather/src/weather-simple-settings.c:2836
 msgid "Preference|Update"
 msgstr "Aktualizácia"
 
-#: omweather/src/weather-simple-settings.c:1464
+#: omweather/src/weather-simple-settings.c:1460
 msgid "Pressure"
 msgstr "Tlak"
 
@@ -1366,7 +1382,7 @@ msgid "Pressure units:"
 msgstr "Jednotky tlaku:"
 
 #: omweather/src/weather-popup.c:1287
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:349
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:444
 msgid "Pressure:"
 msgstr "Tlak:"
 
@@ -1455,9 +1471,9 @@ msgstr "Chladno a sychravo s dažďom / Vietor"
 msgid "Read sensor every:"
 msgstr "Čítať senzor každých:"
 
-#: omweather/src/weather-simple-settings.c:737
-#: omweather/src/weather-simple-settings.c:790
-#: omweather/src/weather-simple-settings.c:2331
+#: omweather/src/weather-simple-settings.c:733
+#: omweather/src/weather-simple-settings.c:786
+#: omweather/src/weather-simple-settings.c:2327
 msgid "Region"
 msgstr "Región"
 
@@ -1505,13 +1521,13 @@ msgstr "JZ"
 msgid "S_short"
 msgstr "J"
 
-#: omweather/src/weather-simple-settings.c:363
-#: omweather/src/weather-simple-settings.c:461
-#: omweather/src/weather-simple-settings.c:1513
-#: omweather/src/weather-simple-settings.c:1854
-#: omweather/src/weather-simple-settings.c:2023
-#: omweather/src/weather-simple-settings.c:2400
-#: omweather/src/weather-simple-settings.c:3128
+#: omweather/src/weather-simple-settings.c:359
+#: omweather/src/weather-simple-settings.c:457
+#: omweather/src/weather-simple-settings.c:1509
+#: omweather/src/weather-simple-settings.c:1850
+#: omweather/src/weather-simple-settings.c:2019
+#: omweather/src/weather-simple-settings.c:2396
+#: omweather/src/weather-simple-settings.c:3124
 msgid "Save"
 msgstr "Uložiť"
 
@@ -1539,27 +1555,27 @@ msgstr "Námorné míle"
 msgid "Search"
 msgstr "Hľadať"
 
-#: omweather/src/weather-simple-settings.c:2172
+#: omweather/src/weather-simple-settings.c:2168
 #, fuzzy
 msgid "Select location"
 msgstr "Vyberám stanicu"
 
-#: omweather/src/weather-simple-settings.c:1039
+#: omweather/src/weather-simple-settings.c:1035
 #, c-format
 msgid "Selecting country"
 msgstr "Vyberám krajinu"
 
-#: omweather/src/weather-simple-settings.c:1047
+#: omweather/src/weather-simple-settings.c:1043
 #, c-format
 msgid "Selecting region"
 msgstr "Vyberám región"
 
-#: omweather/src/weather-simple-settings.c:1043
+#: omweather/src/weather-simple-settings.c:1039
 #, c-format
 msgid "Selecting source"
 msgstr "Vyberám zdroj"
 
-#: omweather/src/weather-simple-settings.c:1051
+#: omweather/src/weather-simple-settings.c:1047
 #, c-format
 msgid "Selecting station"
 msgstr "Vyberám stanicu"
@@ -1569,7 +1585,7 @@ msgstr "Vyberám stanicu"
 msgid "Sensor"
 msgstr "Senzor"
 
-#: omweather/src/weather-simple-settings.c:2232
+#: omweather/src/weather-simple-settings.c:2228
 msgid "Set"
 msgstr "Nast."
 
@@ -1674,7 +1690,7 @@ msgstr "Chladno a sychravo so snežením"
 msgid "Snow to Wintry Mix / Wind"
 msgstr "Chladno a sychravo so snežením / Vietor"
 
-#: omweather/src/weather-simple-settings.c:2299
+#: omweather/src/weather-simple-settings.c:2295
 msgid "Source"
 msgstr "Zdroj"
 
@@ -1685,12 +1701,12 @@ msgstr "Zdroj:"
 #: omweather/src/weather-popup.c:986 omweather/src/weather-popup.c:992
 #: omweather/src/weather-popup.c:999 omweather/src/weather-popup.c:1108
 #: omweather/src/weather-popup.c:1114 omweather/src/weather-popup.c:1121
-#: omweather/src/weather-simple-settings.c:1393
+#: omweather/src/weather-simple-settings.c:1389
 msgid "Speed"
 msgstr "Rychlosť"
 
 #: omweather/src/weather-popup.c:1311 omweather/src/weather-popup.c:1451
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:376
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:483
 msgid "Speed:"
 msgstr "Rýchlosť:"
 
@@ -1698,7 +1714,7 @@ msgstr "Rýchlosť:"
 msgid "State:"
 msgstr "Štát:"
 
-#: omweather/src/weather-simple-settings.c:2516
+#: omweather/src/weather-simple-settings.c:2512
 #, c-format
 msgid "Station %i"
 msgstr "Stanica %i"
@@ -1762,7 +1778,7 @@ msgstr "Spočiatku búrky"
 
 #: omweather/src/weather-popup.c:946 omweather/src/weather-popup.c:949
 #: omweather/src/weather-popup.c:1068 omweather/src/weather-popup.c:1071
-#: omweather/src/weather-simple-settings.c:1271
+#: omweather/src/weather-simple-settings.c:1267
 msgid "Temperature"
 msgstr "Teplota"
 
@@ -1770,7 +1786,7 @@ msgstr "Teplota"
 msgid "Temperature units:"
 msgstr "Jednotky teploty:"
 
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:335
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:426
 #, fuzzy
 msgid "Temperature:"
 msgstr "Teplota: "
@@ -1779,7 +1795,7 @@ msgstr "Teplota: "
 msgid "Temperature: "
 msgstr "Teplota: "
 
-#: omweather/src/weather-help.c:137
+#: omweather/src/weather-help.c:138
 msgid "Thanks"
 msgstr "Poďakovanie"
 
@@ -1796,7 +1812,7 @@ msgstr "Hrmenie"
 msgid "Today"
 msgstr "Dnes"
 
-#: omweather/src/weather-help.c:153
+#: omweather/src/weather-help.c:154
 msgid "Translators"
 msgstr "Predkladatelia"
 
@@ -1811,8 +1827,8 @@ msgstr "Druh kliknutia:"
 
 #: omweather/src/weather-settings.c:1135 omweather/src/weather-settings.c:1334
 #: omweather/src/weather-settings.c:1338
-#: omweather/src/weather-simple-settings.c:1255
-#: omweather/src/weather-simple-settings.c:2736
+#: omweather/src/weather-simple-settings.c:1251
+#: omweather/src/weather-simple-settings.c:2732
 msgid "Units"
 msgstr "Jednotky"
 
@@ -1822,12 +1838,12 @@ msgstr "Jednotky"
 #: omweather/src/weather-simple-popup.c:133
 #: omweather/src/weather-simple-popup.c:241
 #: omweather/src/weather-simple-popup.c:250
-#: omweather/src/weather-simple-settings.c:884
-#: omweather/src/weather-simple-settings.c:2282
+#: omweather/src/weather-simple-settings.c:880
+#: omweather/src/weather-simple-settings.c:2278
+#: omweather/src/weather-simple-settings.c:2601
 #: omweather/src/weather-simple-settings.c:2605
-#: omweather/src/weather-simple-settings.c:2609
-#: omweather/src/weather-simple-settings.c:2635
-#: omweather/src/weather-simple-settings.c:2637
+#: omweather/src/weather-simple-settings.c:2631
+#: omweather/src/weather-simple-settings.c:2633
 msgid "Unknown"
 msgstr "Neznáma"
 
@@ -1860,7 +1876,7 @@ msgstr ""
 "Použite Upraviť rozloženie\n"
 "pre úpravu obrázkov apletu"
 
-#: omweather/src/weather-simple-settings.c:1839
+#: omweather/src/weather-simple-settings.c:1835
 msgid ""
 "Use GSM and/or WLAN for periodic updating\n"
 " the weather information.\n"
@@ -1901,9 +1917,9 @@ msgstr "Vzhľad"
 msgid "W"
 msgstr "Z"
 
-#: omweather/src/weather-simple-settings.c:1793
-#: omweather/src/weather-simple-settings.c:1800
-#: omweather/src/weather-simple-settings.c:2834
+#: omweather/src/weather-simple-settings.c:1789
+#: omweather/src/weather-simple-settings.c:1796
+#: omweather/src/weather-simple-settings.c:2830
 msgid "WLAN"
 msgstr "WLAN"
 
@@ -1935,7 +1951,7 @@ msgstr "Ubúdajúci kosák"
 msgid "Waning Gibbous"
 msgstr "Cúvajúci Mesiac"
 
-#: omweather/src/weather-simple-settings.c:850
+#: omweather/src/weather-simple-settings.c:846
 msgid "Warning"
 msgstr "Upozornienie"
 
@@ -1951,16 +1967,20 @@ msgstr "Dorastajúci Mesiac"
 msgid "Weather data provided by: "
 msgstr "Údaje o počasí poskytol: "
 
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:317
+msgid "Weather forecast for the Meego. Version 0.3.\n"
+msgstr ""
+
 #: omweather/src/weather-utils.c:797
 msgid "Widget OMWeather is reloading"
 msgstr "Widget OMWeather sa znovu načítava."
 
-#: omweather/src/weather-simple-settings.c:2918
-#: omweather/src/weather-simple-settings.c:2926
+#: omweather/src/weather-simple-settings.c:2914
+#: omweather/src/weather-simple-settings.c:2922
 msgid "Widget style"
 msgstr "Štýl widgetu"
 
-#: omweather/src/weather-simple-settings.c:397
+#: omweather/src/weather-simple-settings.c:393
 msgid "Widget style and Iconset"
 msgstr "Štýl widgetu a téma ikon"
 
@@ -1973,6 +1993,7 @@ msgid "Wind speed units:"
 msgstr "Jednotky rýchlosti vetra:"
 
 #: omweather/src/weather-popup.c:1306 omweather/src/weather-popup.c:1447
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:470
 msgid "Wind:"
 msgstr "Vietor:"
 
@@ -2013,11 +2034,11 @@ msgstr "Áno"
 msgid "You can make donation here: "
 msgstr "Darovanie môžete uskutočniť tu:"
 
-#: omweather/src/weather-simple-settings.c:2762
+#: omweather/src/weather-simple-settings.c:2758
 msgid "Zoom in popup window "
 msgstr "Priblíženie v pop-ovom okne"
 
-#: omweather/src/weather-simple-settings.c:1919
+#: omweather/src/weather-simple-settings.c:1915
 msgid "Zooming in popup window"
 msgstr "Približovanie v pop-ovom okne"
 
@@ -2073,23 +2094,23 @@ msgstr "na pocit"
 #: omweather/src/weather-home.c:1604 omweather/src/weather-settings.c:4068
 #: omweather/src/weather-popup.c:972 omweather/src/weather-popup.c:1094
 #: omweather/src/weather-popup.c:1292
-#: omweather/src/weather-simple-settings.c:1483
+#: omweather/src/weather-simple-settings.c:1479
 msgid "inHg"
 msgstr "inHg"
 
-#: omweather/src/weather-simple-settings.c:2726
+#: omweather/src/weather-simple-settings.c:2722
 msgid "inch"
 msgstr "palec"
 
 #: omweather/src/weather-home.c:1587 omweather/src/weather-popup.c:1276
-#: omweather/src/weather-simple-settings.c:1340
-#: omweather/src/weather-simple-settings.c:2674
+#: omweather/src/weather-simple-settings.c:1336
+#: omweather/src/weather-simple-settings.c:2670
 msgid "km"
 msgstr "km"
 
 #: omweather/src/weather-settings.c:3994 omweather/src/hash.data:245
-#: omweather/src/weather-simple-settings.c:1412
-#: omweather/src/weather-simple-settings.c:2700
+#: omweather/src/weather-simple-settings.c:1408
+#: omweather/src/weather-simple-settings.c:2696
 msgid "km/h"
 msgstr "km/h"
 
@@ -2098,8 +2119,8 @@ msgid "km/s"
 msgstr "km/s"
 
 #: omweather/src/weather-home.c:1586 omweather/src/weather-popup.c:1275
-#: omweather/src/weather-simple-settings.c:1332
-#: omweather/src/weather-simple-settings.c:2668
+#: omweather/src/weather-simple-settings.c:1328
+#: omweather/src/weather-simple-settings.c:2664
 msgid "m"
 msgstr "m"
 
@@ -2108,9 +2129,9 @@ msgid "m/h"
 msgstr "m/h"
 
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:248
-#: omweather/src/weather-simple-settings.c:1404
-#: omweather/src/weather-simple-settings.c:2694
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:376
+#: omweather/src/weather-simple-settings.c:1400
+#: omweather/src/weather-simple-settings.c:2690
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:483
 msgid "m/s"
 msgstr "m/s"
 
@@ -2118,21 +2139,21 @@ msgstr "m/s"
 #: omweather/src/weather-home.c:1603 omweather/src/weather-settings.c:4055
 #: omweather/src/weather-popup.c:969 omweather/src/weather-popup.c:1091
 #: omweather/src/weather-popup.c:1291
-#: omweather/src/weather-simple-settings.c:1475
-#: omweather/src/weather-simple-settings.c:2720
+#: omweather/src/weather-simple-settings.c:1471
+#: omweather/src/weather-simple-settings.c:2716
 msgid "mb"
 msgstr "mb"
 
 #: omweather/src/weather-home.c:1588 omweather/src/weather-home.c:1589
 #: omweather/src/weather-popup.c:1277 omweather/src/weather-popup.c:1278
-#: omweather/src/weather-simple-settings.c:1349
-#: omweather/src/weather-simple-settings.c:2680
+#: omweather/src/weather-simple-settings.c:1345
+#: omweather/src/weather-simple-settings.c:2676
 msgid "mi"
 msgstr "mi"
 
 #: omweather/src/weather-settings.c:4008 omweather/src/hash.data:249
-#: omweather/src/weather-simple-settings.c:1421
-#: omweather/src/weather-simple-settings.c:2706
+#: omweather/src/weather-simple-settings.c:1417
+#: omweather/src/weather-simple-settings.c:2702
 msgid "mi/h"
 msgstr "mi/h"
 
@@ -2140,7 +2161,7 @@ msgstr "mi/h"
 msgid "mi/s"
 msgstr "mi/s"
 
-#: omweather/src/weather-simple-settings.c:2731
+#: omweather/src/weather-simple-settings.c:2727
 msgid "mm"
 msgstr "mm"
 
@@ -2148,7 +2169,7 @@ msgstr "mm"
 #: omweather/src/weather-home.c:1605 omweather/src/weather-settings.c:4078
 #: omweather/src/weather-popup.c:975 omweather/src/weather-popup.c:1097
 #: omweather/src/weather-popup.c:1293
-#: omweather/src/weather-simple-settings.c:1492
+#: omweather/src/weather-simple-settings.c:1488
 msgid "mmHg"
 msgstr "mmHg"
 
@@ -2156,7 +2177,7 @@ msgstr "mmHg"
 msgid "n:"
 msgstr "n:"
 
-#: omweather/src/weather-simple-settings.c:1692
+#: omweather/src/weather-simple-settings.c:1688
 msgid "never"
 msgstr "Nikdy"
 
@@ -2169,8 +2190,8 @@ msgstr "nová ikona"
 msgid "next"
 msgstr "ďalšia"
 
-#: omweather/src/weather-simple-settings.c:1358
-#: omweather/src/weather-simple-settings.c:2685
+#: omweather/src/weather-simple-settings.c:1354
+#: omweather/src/weather-simple-settings.c:2681
 #, fuzzy
 msgid "nmi"
 msgstr "mi"

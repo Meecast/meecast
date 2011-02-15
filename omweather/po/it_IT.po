@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: it_IT\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-15 20:45+0200\n"
+"POT-Creation-Date: 2011-02-15 22:16+0200\n"
 "PO-Revision-Date: 2010-07-27 17:04+0100\n"
 "Last-Translator: Luca <luca>\n"
 "Language-Team: Italiano\n"
@@ -841,6 +841,7 @@ msgstr "Alta"
 
 #: omweather/src/weather-popup.c:1260 omweather/src/weather-popup.c:1436
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:457
+#: qtomweather/qt-qml/dataitem.cpp:82
 msgid "Humidity:"
 msgstr "Umidità:"
 
@@ -1392,6 +1393,7 @@ msgstr "Pressione unità: "
 
 #: omweather/src/weather-popup.c:1287
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:444
+#: qtomweather/qt-qml/dataitem.cpp:88
 msgid "Pressure:"
 msgstr "Pressione:"
 
@@ -1799,6 +1801,7 @@ msgid "Temperature units:"
 msgstr "Unità di Temperatura:"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:426
+#: qtomweather/qt-qml/dataitem.cpp:80
 #, fuzzy
 msgid "Temperature:"
 msgstr "Temperatura: "
@@ -2002,12 +2005,18 @@ msgstr "Stile Widget e set icone"
 msgid "Wind"
 msgstr "Vento"
 
+#: qtomweather/qt-qml/dataitem.cpp:86
+#, fuzzy
+msgid "Wind Speed:"
+msgstr "Unità di velocità del vento:"
+
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"
 msgstr "Unità di velocità del vento:"
 
 #: omweather/src/weather-popup.c:1306 omweather/src/weather-popup.c:1447
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:470
+#: qtomweather/qt-qml/dataitem.cpp:84
 msgid "Wind:"
 msgstr "Vento:"
 

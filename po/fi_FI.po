@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fi_FI\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-15 20:45+0200\n"
+"POT-Creation-Date: 2011-02-15 22:16+0200\n"
 "PO-Revision-Date: 2011-02-11 21:24+0200\n"
 "Last-Translator: Marko Vertainen <marko.vertainen@iki.fi>\n"
 "Language-Team: Finnish\n"
@@ -849,6 +849,7 @@ msgstr "Korkea"
 
 #: omweather/src/weather-popup.c:1260 omweather/src/weather-popup.c:1436
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:457
+#: qtomweather/qt-qml/dataitem.cpp:82
 msgid "Humidity:"
 msgstr "Ilmankosteus: "
 
@@ -1394,6 +1395,7 @@ msgstr "Paineen yksiköt:"
 
 #: omweather/src/weather-popup.c:1287
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:444
+#: qtomweather/qt-qml/dataitem.cpp:88
 msgid "Pressure:"
 msgstr "Ilmanpaine:"
 
@@ -1797,6 +1799,7 @@ msgid "Temperature units:"
 msgstr "Lämpötilan yksikkö:"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:426
+#: qtomweather/qt-qml/dataitem.cpp:80
 msgid "Temperature:"
 msgstr "Lämpötila:"
 
@@ -1998,12 +2001,18 @@ msgstr "Sovelman tyyli ja kuvakkeet"
 msgid "Wind"
 msgstr "Tuulista"
 
+#: qtomweather/qt-qml/dataitem.cpp:86
+#, fuzzy
+msgid "Wind Speed:"
+msgstr "Tuulen nopeuden yksikkö:"
+
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"
 msgstr "Tuulen nopeuden yksikkö:"
 
 #: omweather/src/weather-popup.c:1306 omweather/src/weather-popup.c:1447
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:470
+#: qtomweather/qt-qml/dataitem.cpp:84
 msgid "Wind:"
 msgstr "Tuuli:"
 

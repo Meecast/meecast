@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-15 20:45+0200\n"
+"POT-Creation-Date: 2011-02-15 22:16+0200\n"
 "PO-Revision-Date: 2010-04-13 21:48+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Polish <dominikowski@gmail.com>\n"
@@ -838,6 +838,7 @@ msgstr "Wysokie"
 
 #: omweather/src/weather-popup.c:1260 omweather/src/weather-popup.c:1436
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:457
+#: qtomweather/qt-qml/dataitem.cpp:82
 msgid "Humidity:"
 msgstr "Wilgotność:"
 
@@ -1389,6 +1390,7 @@ msgstr "Jednostki ciśnienia:"
 
 #: omweather/src/weather-popup.c:1287
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:444
+#: qtomweather/qt-qml/dataitem.cpp:88
 msgid "Pressure:"
 msgstr "Ciśnienie:"
 
@@ -1795,6 +1797,7 @@ msgid "Temperature units:"
 msgstr "Jednostki temperatury:"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:426
+#: qtomweather/qt-qml/dataitem.cpp:80
 #, fuzzy
 msgid "Temperature:"
 msgstr "Temperatura: "
@@ -1998,12 +2001,18 @@ msgstr "Styl widżetu i zestaw ikon"
 msgid "Wind"
 msgstr "Wiatr"
 
+#: qtomweather/qt-qml/dataitem.cpp:86
+#, fuzzy
+msgid "Wind Speed:"
+msgstr "Jednostki prędkości wiatru:"
+
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"
 msgstr "Jednostki prędkości wiatru:"
 
 #: omweather/src/weather-popup.c:1306 omweather/src/weather-popup.c:1447
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:470
+#: qtomweather/qt-qml/dataitem.cpp:84
 msgid "Wind:"
 msgstr "Wiatr:"
 

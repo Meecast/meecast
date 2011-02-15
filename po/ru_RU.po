@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru_RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-15 20:45+0200\n"
+"POT-Creation-Date: 2011-02-15 22:16+0200\n"
 "PO-Revision-Date: 2008-03-19 10:33+0200\n"
 "Last-Translator: Pavel Fialko <pavelnf@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -508,7 +508,9 @@ msgstr "День:"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:320
 msgid "Design UI and default iconset: Andrew Zhilin, <az@pocketpcrussia.com>\n"
-msgstr "Дизайн интерфейса и набор иконок по-умолчанию: Андрей Жилин, <az@pocketpcrussia.com>\n"
+msgstr ""
+"Дизайн интерфейса и набор иконок по-умолчанию: Андрей Жилин, "
+"<az@pocketpcrussia.com>\n"
 
 #: omweather/src/weather-popup.c:461 omweather/src/weather-popup.c:601
 msgid "Detailed"
@@ -835,6 +837,7 @@ msgstr "Высокий"
 
 #: omweather/src/weather-popup.c:1260 omweather/src/weather-popup.c:1436
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:457
+#: qtomweather/qt-qml/dataitem.cpp:82
 msgid "Humidity:"
 msgstr "Влажность:"
 
@@ -1380,6 +1383,7 @@ msgstr "Единицы давления:"
 
 #: omweather/src/weather-popup.c:1287
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:444
+#: qtomweather/qt-qml/dataitem.cpp:88
 msgid "Pressure:"
 msgstr "Давление:"
 
@@ -1783,6 +1787,7 @@ msgid "Temperature units:"
 msgstr "Единицы температуры:"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:426
+#: qtomweather/qt-qml/dataitem.cpp:80
 msgid "Temperature:"
 msgstr "Температура:"
 
@@ -1984,12 +1989,17 @@ msgstr "Стиль виджета и набор иконок"
 msgid "Wind"
 msgstr "Ветер"
 
+#: qtomweather/qt-qml/dataitem.cpp:86
+msgid "Wind Speed:"
+msgstr "Скорость ветра:"
+
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"
 msgstr "Единицы скорости ветра:"
 
 #: omweather/src/weather-popup.c:1306 omweather/src/weather-popup.c:1447
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:470
+#: qtomweather/qt-qml/dataitem.cpp:84
 msgid "Wind:"
 msgstr "Ветер:"
 

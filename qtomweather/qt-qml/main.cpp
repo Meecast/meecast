@@ -142,7 +142,6 @@ int main(int argc, char* argv[])
 
     ConfigQml *config;
     DataItem *forecast_data = NULL;
-    char buffer[4096];
 
     Core::DataParser* dp = NULL;
     Core::Data *temp_data = NULL;
@@ -156,9 +155,10 @@ int main(int argc, char* argv[])
     std::cerr<<"size "<<StationsList.size()<<std::endl;
     //update_weather_forecast(config);
 
-/*
+    if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 &&
+        config->stationsList().at(config->current_station_id()))
+        dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
     DataModel *model = new DataModel(new DataItem, qApp);
-    std::cerr << "222222222" << std::endl;
     i = 0;
     while  (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
         i = i + 3600*24;
@@ -167,9 +167,9 @@ int main(int argc, char* argv[])
         model->appendRow(forecast_data);
 
     }
-*/
-    DataModel *model = config->getModel();
-    std::cerr << model->rowCount() << std::endl;
+
+    //DataModel *model = config->getModel();
+    //std::cerr << model->rowCount() << std::endl;
     //config->changestation();
     //model = config->getModel();
 

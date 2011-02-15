@@ -26,8 +26,8 @@ Rectangle {
             anchors.left: parent.left
             anchors.leftMargin: 10
             onClicked: {
-                var filename = Config.changestation();
-                list.model.update(filename);
+                Config.changestation();
+                list.model.update(Config.filename);
                 text = Config.stationname;
             }
         }
@@ -39,6 +39,11 @@ Rectangle {
             anchors.topMargin: 10
             anchors.right: parent.right
             anchors.rightMargin: 10
+            onClicked: {
+                console.log("refresh");
+                Config.updatestations();
+                list.model.update(Config.filename);
+            }
         }
         ImageButton {
             id: config

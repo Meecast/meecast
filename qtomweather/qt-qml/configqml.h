@@ -17,6 +17,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString temperatureunit READ temperatureunit NOTIFY temperatureunitChanged)
     Q_PROPERTY(QColor fontcolor READ fontcolor NOTIFY fontcolorChanged)
     Q_PROPERTY(QString stationname READ stationname NOTIFY stationnameChanged)
+    Q_PROPERTY(QString filename READ filename NOTIFY filenameChanged)
     public:
     ConfigQml();
     ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
@@ -26,8 +27,9 @@ class ConfigQml : public QObject, public Core::Config
     QString temperatureunit();
     QColor fontcolor();
     QString stationname();
-    Q_INVOKABLE QString changestation();
-    Q_INVOKABLE DataModel* getModel();
+    QString filename();
+    Q_INVOKABLE void changestation();
+    Q_INVOKABLE void updatestations();
     void refreshconfig();
     virtual ~ConfigQml(){};
     signals:
@@ -37,6 +39,7 @@ class ConfigQml : public QObject, public Core::Config
     void temperatureunitChanged();
     void fontcolorChanged();
     void stationnameChanged();
+    void filenameChanged();
 };
 
 #endif // CONFIGQML_H

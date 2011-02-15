@@ -52,7 +52,16 @@ ConfigQml::stationname()
     else
         return "Unknown";
 }
-QString ConfigQml::changestation()
+QString
+ConfigQml::filename()
+{
+    if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
+                                                &&  this->stationsList().at(this->current_station_id()))
+        return this->stationsList().at(this->current_station_id())->fileName().c_str();
+    else
+        return QString();
+}
+void ConfigQml::changestation()
 {
     if (this->current_station_id() + 1 < this->stationsList().size()){
        this->current_station_id(this->current_station_id() + 1);
@@ -60,7 +69,6 @@ QString ConfigQml::changestation()
    }else {
        this->current_station_id(0);
    }
-   return this->stationsList().at(this->current_station_id())->fileName().c_str();
 
 }
 void
@@ -72,42 +80,18 @@ ConfigQml::refreshconfig(){
     emit ConfigQml::stationnameChanged();
 }
 
-
-DataModel*
-ConfigQml::getModel()
+void
+ConfigQml::updatestations()
 {
-    DataModel *model = new DataModel(new DataItem);
-    DataItem *forecast_data = NULL;
+    int i;
+    int success = 0;
+    Core::Station* station;
 
-    int i = 0;
-    Core::DataParser* dp = NULL;
-    Core::Data *temp_data = NULL;
-    if (this->current_station_id() != INT_MAX && this->stationsList().size() > 0
-            &&  this->stationsList().at(this->current_station_id())){
-        try{
-            dp = new Core::DataParser(this->stationsList().at(this->current_station_id())->fileName(),
-                                      Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
-        }
-        catch(const std::string &str){
-            std::cerr<<"Error in DataParser class: "<< str << " " <<
-            this->stationsList().at(this->current_station_id())->fileName()<< " "<<
-            Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd" <<std::endl;
-            //return NULL;
-        }
-        catch(const char *str){
-    	    std::cerr<<"Error in DataParser class: "<< str << " " <<
-            this->stationsList().at(this->current_station_id())->fileName()<< " "<<
-            Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd" <<std::endl;
-            //return NULL;
+    for (i=0; i < this->stationsList().size();i++){
+        station = this->stationsList().at(i);
+        if (station->updateData(true)){
+            success ++;
+
         }
     }
-
-    while  (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
-        i = i + 3600*24;
-        forecast_data = new DataItem(temp_data);
-        forecast_data->Text(forecast_data->Text().c_str());
-        model->appendRow(forecast_data);
-
-    }
-    return model;
 }

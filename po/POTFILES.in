@@ -15,5 +15,5 @@ omweather/src/weather-simple-settings.c
 omweather/src/weather-utils.c
 qtomweather/meego-mpl/meego-netbookUX-omweather.cpp
 qtomweather/meego-mpl/meego-panel-omweather.cpp
-
+qtomweather/qt-qml/dataitem.cpp
 

@@ -5,6 +5,11 @@
 #include <QVariant>
 #include <QtCore>
 
+#include <libintl.h>
+#include <locale.h>
+
+#define _(String) gettext(String)
+
 class DataItem : public QObject, public Core::Data
 {
     Q_OBJECT
@@ -27,7 +32,12 @@ class DataItem : public QObject, public Core::Data
         EndRole,
         PressureRole,
         FlikeRole,
-        PpcpRole
+        PpcpRole,
+        TemperatureLabelRole,
+        HumidityLabelRole,
+        WindLabelRole,
+        WindSpeedLabelRole,
+        PressureLabelRole
     };
 public:
     DataItem();

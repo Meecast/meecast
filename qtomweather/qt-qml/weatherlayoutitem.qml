@@ -137,25 +137,25 @@ Rectangle {
                         font.pointSize: 12
                     }
                     Text {
-                        text: "Temperature: " +
+                        text: temperature_label +" " +
                                 ((temp_low != "N/A") ? (temp_low + '°' +Config.temperatureunit + " .. ") : "") +
                                 ((temp_high != "N/A") ? (temp_high + '°' +Config.temperatureunit) : "")
                         font.pointSize: 12
                     }
                     Text {
-                        text: (humidity != "N/A") ? ("Humidity: " + humidity + "%") : ""
+                        text: (humidity != "N/A") ? (humidity_label + " " + humidity + "%") : ""
                         font.pointSize: 12
                     }
                     Text {
-                        text: (pressure != "N/A") ? ("Pressure: " + pressure) : ""
+                        text: (pressure != "N/A") ? (pressure_label + " " + pressure) : ""
                         font.pointSize: 12
                     }
                     Text {
-                        text: (wind_direction != "N/A") ? ("Wind: " + wind_direction) : ""
+                        text: (wind_direction != "N/A") ? (wind_label + " " + wind_direction) : ""
                         font.pointSize: 12
                     }
                     Text {
-                        text: (wind_speed != "N/A") ? ("Wind speed: " + wind_speed + "m/s") : ""
+                        text: (wind_speed != "N/A") ? (wind_speed_label + " " + wind_speed + "m/s") : ""
                         font.pointSize: 12
                     }
                 }

@@ -29,6 +29,11 @@ QHash<int, QByteArray> DataItem::roleNames() const
     names[PressureRole] = "pressure";
     names[FlikeRole] = "flike";
     names[PpcpRole] = "ppcp";
+    names[TemperatureLabelRole] = "temperature_label";
+    names[HumidityLabelRole] = "humidity_label";
+    names[WindLabelRole] = "wind_label";
+    names[WindSpeedLabelRole] = "wind_speed_label";
+    names[PressureLabelRole] = "pressure_label";
     return names;
 }
 
@@ -71,6 +76,16 @@ QVariant DataItem::data(int role)
         return flike();
     case PpcpRole:
         return ppcp();
+    case TemperatureLabelRole:
+        return QString(QString::fromUtf8( _("Temperature:")));
+    case HumidityLabelRole:
+        return QString(QString::fromUtf8( _("Humidity:")));
+    case WindLabelRole:
+        return QString(QString::fromUtf8( _("Wind:")));
+    case WindSpeedLabelRole:
+        return QString(QString::fromUtf8( _("Wind Speed:")));
+    case PressureLabelRole:
+        return QString(QString::fromUtf8( _("Pressure:")));
     default:
         return QVariant();
     }

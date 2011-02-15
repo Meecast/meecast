@@ -216,6 +216,9 @@ Rectangle {
         cellWidth: 160; cellHeight: 190
         model: Forecast_model
         delegate: itemDelegate
+        Behavior on opacity {
+            NumberAnimation {duration: 300; properties: "opacity"}
+        }
     }
     Item {
         id: aboutblock
@@ -252,6 +255,9 @@ Rectangle {
                 list.opacity = 1;
             }
 
+        }
+        Behavior on opacity {
+            NumberAnimation {duration: 300; properties: "opacity"}
         }
     }
 

@@ -22,8 +22,7 @@ HEADERS  += \
     configqml.h \
     qmllayoutitem.h \
     dataitem.h \
-    datamodel.h \ 
-    datamodelmanager.h
+    datamodel.h  
 
 FORMS    +=
 RESOURCES += weatherlayoutitem.qrc

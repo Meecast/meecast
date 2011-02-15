@@ -30,6 +30,7 @@ class ConfigQml : public QObject, public Core::Config
     QString filename();
     Q_INVOKABLE void changestation();
     Q_INVOKABLE void updatestations();
+    Q_INVOKABLE void runsetting();
     void refreshconfig();
     virtual ~ConfigQml(){};
     signals:

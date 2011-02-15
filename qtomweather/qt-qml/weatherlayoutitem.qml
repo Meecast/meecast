@@ -52,6 +52,10 @@ Rectangle {
             anchors.topMargin: 10
             anchors.right: refresh.left
             anchors.rightMargin: 10
+            onClicked: {
+        	console.log("config");
+        	Config.runsetting();
+            }
         }
         ImageButton {
             id: about

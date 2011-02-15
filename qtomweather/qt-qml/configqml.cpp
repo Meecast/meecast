@@ -95,3 +95,8 @@ ConfigQml::updatestations()
         }
     }
 }
+void
+ConfigQml::runsetting()
+{
+   system("/usr/bin/omweather-settings");
+}

@@ -303,7 +303,7 @@ msgstr "Вы уверены?"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:318
 msgid "Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n"
-msgstr ""
+msgstr "Автор и поддержка: Влад Васильев, <vlad@gas.by>\n"
 
 #: omweather/src/weather-help.c:103
 msgid ""
@@ -508,7 +508,7 @@ msgstr "День:"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:320
 msgid "Design UI and default iconset: Andrew Zhilin, <az@pocketpcrussia.com>\n"
-msgstr ""
+msgstr "Дизайн интерфейса и набор иконок по-умолчанию: Андрей Жилин, <az@pocketpcrussia.com>\n"
 
 #: omweather/src/weather-popup.c:461 omweather/src/weather-popup.c:601
 msgid "Detailed"
@@ -1965,7 +1965,7 @@ msgstr "Данные о погоде предоставлены:"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:317
 msgid "Weather forecast for the Meego. Version 0.3.\n"
-msgstr ""
+msgstr "Прогоноз погоды для Meego Версия 0.3.\n"
 
 #: omweather/src/weather-utils.c:797
 msgid "Widget OMWeather is reloading"

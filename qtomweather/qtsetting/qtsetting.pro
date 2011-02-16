@@ -33,3 +33,7 @@ LIBS += -L ../core -lomweather-core
 target.path = /usr/bin
 
 INSTALLS += target
+
+OTHER_FILES += \
+    ComboBox.qml \
+    setting.qml

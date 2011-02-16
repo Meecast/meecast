@@ -31,13 +31,24 @@ Rectangle {
                 text = Config.stationname;
             }
         }
-
+        ImageButton {
+            id: close
+            imagefile: Config.iconsbutton + "/" + "close.png"
+            anchors.top: parent.top
+            anchors.topMargin: 10
+            anchors.right: parent.right
+            anchors.rightMargin: 10
+            onClicked: {
+                console.log("close");
+                Config.closeapplication();
+            }
+        }
         ImageButton {
             id: refresh
             imagefile: Config.iconsbutton + "/" + "refresh.png"
             anchors.top: parent.top
             anchors.topMargin: 10
-            anchors.right: parent.right
+            anchors.right: close.left
             anchors.rightMargin: 10
             onClicked: {
                 console.log("refresh");
@@ -70,6 +81,7 @@ Rectangle {
                 aboutblock.opacity = 1;
             }
         }
+    
     }
 
     Component {

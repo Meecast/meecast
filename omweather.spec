@@ -9,7 +9,7 @@
 
 Name:       omweather
 Summary:    Weather for Meego
-Version:    0.3.3
+Version:    0.3.4
 Release:    1
 Group:      Applications/Internet
 License:    GPLv2.1
@@ -104,11 +104,14 @@ desktop-file-install --delete-original       \
 /usr/share/dbus-1/services
 %endif
 %changelog
-* Mon Feb 15 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.3 
+* Wed Feb 16 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.4
+  * Added icon to desktop. Added translation to QML.
+  * Added button 'close' to qml
+* Tue Feb 15 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.3 
   * Updated QML version of Omweather
-* Mon Feb 14 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.2 
+* Mon Feb 14 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.2
   * Updated QML version of Omweather
-* Sun Feb 13 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.1 
+* Sun Feb 13 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.1
   * Added QML version of Omweather
 * Wed Feb 9 2010 Vlad Vasilyeu <vasvlad@gmail.com> 0.3
   * Initial version

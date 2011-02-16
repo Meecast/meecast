@@ -100,3 +100,9 @@ ConfigQml::runsetting()
 {
    system("/usr/bin/omweather-settings");
 }
+
+void
+ConfigQml::closeapplication()
+{
+   exit (0);
+}

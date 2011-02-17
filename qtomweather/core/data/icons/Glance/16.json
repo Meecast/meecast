@@ -2,8 +2,7 @@
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "num-frames" : 200,
-    "fps" : 60,
+    "duration" : 4000,
     "loop" : false
   },
 

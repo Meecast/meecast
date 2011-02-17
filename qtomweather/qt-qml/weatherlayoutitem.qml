@@ -14,7 +14,7 @@ Rectangle {
     Loader {
         id: background
         anchors.fill: parent
-        sourceComponent: Image {source: "background.png"}
+        sourceComponent: Image {source: Config.iconspath + "/" + Config.iconset + "/" + "background.png"}
     }
 
 
@@ -103,21 +103,30 @@ Rectangle {
             height: 190
 
             Rectangle {
-                id: background
+                id: background_part
                 x: 2; y:2; width: parent.width - x*2; height: parent.height - y*2
-                //color: "red"
-                opacity: 0.5
+                color: "#00000000"
+
+                opacity: day.detailsOpacity
                 Loader {
 
                     anchors.fill: parent
-                    sourceComponent: Image {source: "background.png"}
+                    sourceComponent: Image {source: Config.iconspath + "/" + Config.iconset + "/" + "background_part.png"}
                 }
             }
 
             MouseArea {
                 id: toDetail
                 anchors.fill: parent
-                onClicked: if (day.detailsOpacity == 0) day.state = 'Details'; else day.state = '';
+                onClicked: {
+                    if (day.detailsOpacity == 0) {
+
+                        day.state = 'Details';
+                    }else {
+                        day.state = '';
+                    }
+
+                }
 
             }
 
@@ -224,6 +233,7 @@ Rectangle {
                     width: list.width
                     height: list.height
                 }
+                //PropertyChanges {target: GridView.; opacity: 0;}
 
                 PropertyChanges {
                     target: day.GridView.view

@@ -172,34 +172,34 @@ Rectangle {
 
                     Text {
                         text: description
-                        font.pointSize: 12
+                        font.pointSize: 14
                         color: "white"
                     }
                     Text {
                         text: temperature_label +" " +
                                 ((temp_low != "N/A") ? (temp_low + '°' +Config.temperatureunit + " .. ") : "") +
                                 ((temp_high != "N/A") ? (temp_high + '°' +Config.temperatureunit) : "")
-                        font.pointSize: 12
+                        font.pointSize: 14
                         color: "white"
                     }
                     Text {
                         text: (humidity != "N/A") ? (humidity_label + " " + humidity + "%") : ""
-                        font.pointSize: 12
+                        font.pointSize: 14
                         color: "white"
                     }
                     Text {
                         text: (pressure != "N/A") ? (pressure_label + " " + pressure) : ""
-                        font.pointSize: 12
+                        font.pointSize: 14
                         color: "white"
                     }
                     Text {
                         text: (wind_direction != "N/A") ? (wind_label + " " + wind_direction) : ""
-                        font.pointSize: 12
+                        font.pointSize: 14
                         color: "white"
                     }
                     Text {
                         text: (wind_speed != "N/A") ? (wind_speed_label + " " + wind_speed + "m/s") : ""
-                        font.pointSize: 12
+                        font.pointSize: 14
                         color: "white"
                     }
                 }

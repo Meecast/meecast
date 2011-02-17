@@ -14,7 +14,7 @@
     "axis"        : "y-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
           } 
   },
 
@@ -24,7 +24,7 @@
      "knots" : [[-128, 0], [-100, 0], [8, 0], [4, 0], [1, 0], [2, 0]],
      "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "sine-inc"
+      "mode" : "easeInSine"
     }
   },
 
@@ -35,7 +35,7 @@
     "opacity-end"   : 255,
     "alpha"         : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -59,7 +59,7 @@
     "opacity-end"   : 255,
     "alpha"         : {
       "timeline" : "main-timeline",
-      "function" : "sine"
+      "mode" : "easeInOutSine"
     }
   },
 
@@ -80,7 +80,7 @@
     "knots" : [[-100, 30],  [-90, 30], [-80, 30], [-70, 30], [-60, 20], [-50, 20],  [-20, 20], [-10, 20], [-5, 30], [0, 40],  [25,45], [25, 45], [25, 50], [25, 53], [25, 55]]
      "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "sine-inc"
+      "mode" : "easeInSine"
     }
   },
 
@@ -90,7 +90,7 @@
     "knots" : [[-120, 30],  [-110, 30], [-100, 30], [-90, 30], [-80, 20], [-50, 20],  [-30, 20], [-20, 20], [-25, 30], [-20, 40],  [10, 45], [10, 50], [10, 53], [10, 55]]
      "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "sine-inc"
+      "mode" : "easeInSine"
     }
   },
 
@@ -100,7 +100,7 @@
     "knots" : [[-70, 30],  [-60, 30], [-50, 30], [-40, 30], [-30, 20], [0, 20],  [20, 20], [30, 20], [25, 30], [30, 40],  [60, 45], [60, 50], [60, 53], [60, 55]]
      "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "sine-inc"
+      "mode" : "easeInSine"
     }
   },
 

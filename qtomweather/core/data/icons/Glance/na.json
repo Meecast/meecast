@@ -16,7 +16,7 @@
     "y-scale-end"     : 1.0,
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "sine-inc"
+      "mode" : "easeInSine"
     }
   },
 

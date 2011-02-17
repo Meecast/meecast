@@ -14,7 +14,7 @@
     "axis"        : "y-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
           } 
   },
 
@@ -26,7 +26,7 @@
     "axis"        : "z-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
           } 
   },
 
@@ -37,7 +37,7 @@
     "opacity-end"   : 255,
     "alpha"         : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -50,7 +50,7 @@
     "y-scale-end"     : 1.0,
     "alpha"         : {
       "timeline" : "main-timeline",
-      "function" : "sine-inc"
+      "mode" : "easeInSine"
     }
   },
 
@@ -60,7 +60,7 @@
     "knots" : [[110, 50], [110, 50], [110, 50], [100, 50],  [95, 70], [90, 75],  [85, 80]]
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -71,7 +71,7 @@
     "knots" : [[50, 50], [50, 50], [50, 60], [45, 70],  [45, 90], [40, 95],  [35, 100]]
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -81,7 +81,7 @@
     "knots" : [[25,30], [25,80]]
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
   {
@@ -90,7 +90,7 @@
     "knots" : [[75,40], [75,100]]
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
   {
@@ -99,7 +99,7 @@
     "knots" : [[60,30], [60,80]]
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 

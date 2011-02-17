@@ -14,7 +14,7 @@
     "axis"        : "y-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
           } 
   },
 
@@ -24,7 +24,7 @@
      "knots" : [[15, 128], [15, 15]],
      "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "sine-inc"
+      "mode" : "easeInSine"
     }
   },
 

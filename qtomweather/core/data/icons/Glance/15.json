@@ -14,7 +14,7 @@
     "axis"        : "y-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
           } 
   },
 
@@ -26,7 +26,7 @@
     "axis"        : "z-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
           } 
   },
 
@@ -37,7 +37,7 @@
     "opacity-end"   : 255,
     "alpha"         : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -45,65 +45,72 @@
   {
     "id"          : "snow1-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[5,20], [10,60]]
+    "knots" : [[5,20], [10,60]],
+    "path" : "M 5 20 L 10 60",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
   {
     "id"          : "snow2-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[75,40], [80,80]]
+    "knots" : [[75,40], [80,80]],
+    "path" : "M 75 40 L 80 80",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
   {
     "id"          : "snow3-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[60,30], [60,100]]
+    "knots" : [[60,30], [60,100]],
+    "path" : "M 60 30 L 60 110",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
   {
     "id"          : "snow4-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[-2,-2], [20,20]]
+    "knots" : [[-2,-2], [20,20]],
+    "path" : "M -2 -2 L 20 20",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
   {
     "id"          : "snowflakelight1-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[45,30], [20,100]]
+    "knots" : [[45,30], [20,100]],
+    "path" : "M 45 30 L 20 100",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
   {
     "id"          : "snowflakelight2-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[55,10], [55,60]]
+    "knots" : [[55,10], [55,60]],
+    "path" : "M 55 10 L 55 60",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
   {
     "id"          : "snowflakelight3-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[55,-5], [80,20]]
+    "knots" : [[55,-5], [80,20]],
+    "path" : "M -55 -5 L 80 20",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -130,7 +137,7 @@
         "visible" : true,
         "behaviours" : [
             "snow1-behaviour",
-            "rotate-behaviour",
+            "rotate-behaviour"
         ]
       },
       {

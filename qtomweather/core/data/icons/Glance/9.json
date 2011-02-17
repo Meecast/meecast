@@ -13,7 +13,7 @@
     "opacity-end"   : 0,
     "alpha"         : {
       "timeline" : "main-timeline",
-      "function" : "sine-inc"
+      "mode" : "easeInSine"
     }
   },
 
@@ -24,7 +24,7 @@
     "opacity-end"   : 255,
     "alpha"         : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -34,7 +34,7 @@
     "knots" : [[35,30], [20,130]]
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
   {
@@ -43,7 +43,7 @@
     "knots" : [[75,30], [60,140]]
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -53,7 +53,7 @@
     "knots" : [[115,30], [100,130]]
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -63,7 +63,7 @@
     "knots" : [[35,20], [20,90]]
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -73,7 +73,7 @@
     "knots" : [[50,40], [35,110]]
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -83,7 +83,7 @@
     "knots" : [[65,20], [50,90]]
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
   
@@ -93,7 +93,7 @@
     "knots" : [[80,20], [65,110]]
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -105,7 +105,7 @@
     "knots" : [[105,30], [85,90]]
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -118,7 +118,7 @@
     "axis"        : "y-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "sine"
+      "mode" : "easeInOutSine"
     }
   },
 

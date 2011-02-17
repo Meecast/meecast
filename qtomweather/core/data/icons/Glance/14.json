@@ -14,7 +14,7 @@
     "axis"        : "y-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
           } 
   },
 
@@ -26,7 +26,7 @@
     "axis"        : "z-axis",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
           } 
   },
 
@@ -37,7 +37,7 @@
     "opacity-end"   : 255,
     "alpha"         : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -45,28 +45,31 @@
   {
     "id"          : "snow1-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[25,30], [40,80]]
+    "knots" : [[25,30], [40,80]],
+    "path" : "M 25 30 L 40 80",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
   {
     "id"          : "snow2-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[75,40], [80,80]]
+    "knots" : [[75,40], [80,80]],
+    "path" : "M 75 40 L 80 80",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
   {
     "id"          : "snow3-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[60,30], [60,100]]
+    "knots" : [[60,30], [60,100]],
+    "path" : "M 60 30 L 60 110",
     "alpha"       : {
       "timeline" : "main-timeline",
-      "function" : "ramp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -104,7 +107,7 @@
         "visible" : true,
         "behaviours" : [
             "snow1-behaviour",
-            "rotate-behaviour",
+            "rotate-behaviour"
         ]
       },
       {

@@ -125,8 +125,8 @@
   {
      "id" : "icon_name_6_original",
      "type" : "ClutterTexture",
-     "width" : 128,
-     "height" : 128,
+     "width" : 256,
+     "height" : 256,
      "filename" : "6.png",
      "behaviours" : [ "rotate-behaviour" ],
      "visible" : true
@@ -136,8 +136,8 @@
     "type" : "ClutterGroup",
     "x": 0,
     "y": 0,
-    "width" : 128,
-    "height" : 128,
+    "width" : 256,
+    "height" : 256,
     "children" : [
       {
         "id" : "gray_cloud",

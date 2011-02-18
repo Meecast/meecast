@@ -22,8 +22,8 @@
   {
      "id" : "icon_name_na",
      "type" : "ClutterTexture",
-     "width" : 128,
-     "height" : 128,
+     "width" : 256,
+     "height" : 256,
      "x": 10,
      "y": 10,
      "filename" : "na.png",

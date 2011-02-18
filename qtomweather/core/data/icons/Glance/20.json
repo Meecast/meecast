@@ -31,8 +31,8 @@
     "type" : "ClutterGroup",
     "x": 0,
     "y": 0,
-    "width" : 128,
-    "height" : 128,
+    "width" : 256,
+    "height" : 256,
     "children" : [
       {
         "id" : "fog",

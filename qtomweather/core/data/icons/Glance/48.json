@@ -23,8 +23,8 @@
   {
      "id" : "icon_name_48",
      "type" : "ClutterTexture",
-     "width" : 128,
-     "height" : 128,
+     "width" : 256,
+     "height" : 256,
      "x": 10,
      "y": 10,
      "filename" : "48.png",

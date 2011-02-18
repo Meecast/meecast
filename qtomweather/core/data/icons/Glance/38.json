@@ -21,8 +21,8 @@
   {
      "id" : "icon_name_38",
      "type" : "ClutterTexture",
-     "width" : 128,
-     "height" : 128,
+     "width" : 256,
+     "height" : 256,
      "filename" : "38.png",
      "behaviours" : [ "rotate-behaviour" ],
      "visible" : true

@@ -22,16 +22,18 @@
     "id"          : "darkcloud-behaviour",
     "type"        : "ClutterBehaviourPath",
      "knots" : [[-128, 0], [-100, 0], [8, 0], [4, 0], [1, 0], [2, 0]],
+     "path" : "M -108 0 L 2 0",
      "alpha"       : {
       "timeline" : "main-timeline",
-      "mode" : "easeInSine"
+      "mode" : "linear"
     }
   },
 
   {
     "id"          : "drop1-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[-40, 50], [-10, 50], [0, 50], [40, 50],  [45, 70], [50, 75], [55, 80], [60, 90]]
+    "knots" : [[-40, 50], [-10, 50], [0, 50], [40, 50],  [45, 70], [50, 75], [55, 80], [60, 90]],
+    "path" : "M -40 50 L 60 90",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -41,7 +43,8 @@
   {
     "id"          : "drop2-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[-40, 30], [-10, 30], [0, 30], [20, 30], [30,30], [40,30], [50, 30], [60,30],  [80, 70]]
+    "knots" : [[-40, 30], [-10, 30], [0, 30], [20, 30], [30,30], [40,30], [50, 30], [60,30],  [80, 70]],
+    "path" : "M -40 30 L 80 70",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -51,7 +54,8 @@
   {
     "id"          : "drop3-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[-50, 30], [-40, 30], [-30, 30], [-20, 30], [-10,30], [0,30], [5, 30], [10,30],  [20, 70]]
+    "knots" : [[-50, 30], [-40, 30], [-30, 30], [-20, 30], [-10,30], [0,30], [5, 30], [10,30],  [20, 70]],
+    "path" : "M -50 30 L 20 70",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -61,7 +65,8 @@
   {
     "id"          : "drop4-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[-50, 50], [-40, 50], [-30, 50], [-20, 50],  [-10, 50], [0, 60], [10, 70], [20, 80], [30, 90]]
+    "knots" : [[-50, 50], [-40, 50], [-30, 50], [-20, 50],  [-10, 50], [0, 60], [10, 70], [20, 80], [30, 90]],
+    "path" : "M -50 50 L 30 90",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -82,8 +87,8 @@
   {
     "id"            : "light-fade-behaviour",
     "type"          : "ClutterBehaviourOpacity",
-    "opacity-start" : 0,
-    "opacity-end"   : 255,
+    "opacity-start" : 255,
+    "opacity-end"   : 0,
     "alpha"         : {
       "timeline" : "main-timeline",
       "mode" : "easeInOutSine"
@@ -97,7 +102,7 @@
     "opacity-end"   : 255,
     "alpha"         : {
       "timeline" : "main-timeline",
-      "function" : "exp-inc"
+      "mode" : "easeInExpo"
     }
   },
 
@@ -105,6 +110,7 @@
     "id"          : "light1-behaviour",
     "type"        : "ClutterBehaviourPath",
      "knots" : [ [-70,20], [-60,20], [-55,20], [-50, 20], [-40, 20], [-40,20], [-20,20], [-10, 20], [0, 20], [10,30 ], [20, 40], [25,42], [30,44], [35, 45], [40,45], [40,48], [40, 50], [35,55], [30,60], [25,65], [20,65] ],
+     "path" : "M -70 20 L 20 65",
      "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "easeInSine"
@@ -114,7 +120,8 @@
   {
     "id"          : "light2-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[-90, 30],  [-80, 30], [-70, 30], [-60, 30], [-50, 20], [-40, 20],  [-10, 20], [0, 20], [5, 30], [10, 40],  [40, 45], [40, 50], [40, 53], [40, 55]]
+    "knots" : [[-90, 30],  [-80, 30], [-70, 30], [-60, 30], [-50, 20], [-40, 20],  [-10, 20], [0, 20], [5, 30], [10, 40],  [40, 45], [40, 50], [40, 53], [40, 55]],
+    "path" : "M -90 30 L 40 55",
      "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "easeInSine"

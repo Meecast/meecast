@@ -22,6 +22,7 @@
     "id"          : "darkcloud-behaviour",
     "type"        : "ClutterBehaviourPath",
      "knots" : [[-128, 0], [-100, 0], [8, 0], [4, 0], [1, 0], [2, 0]],
+     "path" : "M -128 0 L 2 0",
      "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "easeInSine"
@@ -48,7 +49,7 @@
     "y-scale-end"     : 1.5,
     "alpha"         : {
       "timeline" : "main-timeline",
-      "function" : "exp-inc"
+      "mode" : "linear"
     }
   },
 
@@ -70,14 +71,15 @@
     "opacity-end"   : 255,
     "alpha"         : {
       "timeline" : "main-timeline",
-      "function" : "exp-inc"
+      "mode" : "linear"
     }
   },
 
   {
     "id"          : "light2-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[-100, 30],  [-90, 30], [-80, 30], [-70, 30], [-60, 20], [-50, 20],  [-20, 20], [-10, 20], [-5, 30], [0, 40],  [25,45], [25, 45], [25, 50], [25, 53], [25, 55]]
+    "knots" : [[-100, 30],  [-90, 30], [-80, 30], [-70, 30], [-60, 20], [-50, 20],  [-20, 20], [-10, 20], [-5, 30], [0, 40],  [25,45], [25, 45], [25, 50], [25, 53], [25, 55]],
+    "path" : "M -100 30 L 25 55",
      "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "easeInSine"
@@ -87,7 +89,8 @@
   {
     "id"          : "light3-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[-120, 30],  [-110, 30], [-100, 30], [-90, 30], [-80, 20], [-50, 20],  [-30, 20], [-20, 20], [-25, 30], [-20, 40],  [10, 45], [10, 50], [10, 53], [10, 55]]
+    "knots" : [[-120, 30],  [-110, 30], [-100, 30], [-90, 30], [-80, 20], [-50, 20],  [-30, 20], [-20, 20], [-25, 30], [-20, 40],  [10, 45], [10, 50], [10, 53], [10, 55]],
+    "path" : "M -120 30 L 10 55",
      "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "easeInSine"
@@ -97,7 +100,8 @@
   {
     "id"          : "light4-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[-70, 30],  [-60, 30], [-50, 30], [-40, 30], [-30, 20], [0, 20],  [20, 20], [30, 20], [25, 30], [30, 40],  [60, 45], [60, 50], [60, 53], [60, 55]]
+    "knots" : [[-70, 30],  [-60, 30], [-50, 30], [-40, 30], [-30, 20], [0, 20],  [20, 20], [30, 20], [25, 30], [30, 40],  [60, 45], [60, 50], [60, 53], [60, 55]],
+    "path" : "M -70 30 L 60 55",
      "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "easeInSine"

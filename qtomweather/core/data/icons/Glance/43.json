@@ -45,7 +45,8 @@
   {
     "id"          : "snow1-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[25,30], [30,80]]
+    "knots" : [[25,30], [30,80]],
+    "path" : "M 25 30 L 30 80",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -54,7 +55,8 @@
   {
     "id"          : "snow2-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[75,40], [80,80]]
+    "knots" : [[75,40], [80,80]],
+    "path" : "M 75 40 L 80 80",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -63,7 +65,8 @@
   {
     "id"          : "snow3-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[60,30], [70,100]]
+    "knots" : [[60,30], [70,100]],
+    "path" : "M 60 30 L 70 100",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -72,7 +75,8 @@
   {
     "id"          : "snowflakelight1-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[45,30], [45,100]]
+    "knots" : [[45,30], [45,100]],
+    "path" : "M 45 30 L 45 100",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -81,7 +85,8 @@
   {
     "id"          : "snowflakelight2-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[55,30], [55,80]]
+    "knots" : [[55,30], [55,80]],
+    "path" : "M 55 30 L 55 80",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -110,7 +115,7 @@
         "filename" : "wind.png",
         "visible" : true,
         "x": -10,
-        "y": 17,
+        "y": 17
       },
 
       {
@@ -131,7 +136,7 @@
         "visible" : true,
         "behaviours" : [
             "snow1-behaviour",
-            "rotate-behaviour",
+            "rotate-behaviour"
         ]
       },
       {
@@ -180,4 +185,3 @@
     ]
     }
 ]
-

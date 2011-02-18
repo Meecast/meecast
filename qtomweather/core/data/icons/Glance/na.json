@@ -3,9 +3,7 @@
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "num-frames" : 100,
-    "fps" : 60,
-    "loop" : false
+    "duration" : 3000
   },
   {
     "id"          : "scale-behaviour",

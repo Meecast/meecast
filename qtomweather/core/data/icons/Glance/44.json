@@ -2,7 +2,7 @@
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "duration" : 4000,
+    "duration" : 3000,
     "loop" : false
   },
 
@@ -22,6 +22,7 @@
     "id"          : "sun-behaviour",
     "type"        : "ClutterBehaviourPath",
      "knots" : [[15, 128], [15, 15]],
+     "path" : "M 15 128 L 15 15",
      "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "easeInSine"
@@ -32,6 +33,7 @@
     "id"          : "medium_gray_cloud-behaviour",
     "type"        : "ClutterBehaviourPath",
      "knots" : [[-128, 30], [-100, 30], [60, 30], [54, 30], [53, 30], [52, 30]],
+     "path" : "M -128 30 L 52 30",
      "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "easeInSine"
@@ -72,7 +74,7 @@
         "behaviours" : [
             "medium_gray_cloud-behaviour"
         ]
-      },
+      }
     ]
     }
 ]

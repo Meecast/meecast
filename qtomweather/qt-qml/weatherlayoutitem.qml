@@ -11,17 +11,9 @@ Rectangle {
     width: 800
     height: 480
 
-    Loader {
-        id: background
-        anchors.fill: parent
-        sourceComponent: Image {source: Config.iconspath + "/" + Config.iconset + "/" + "background.png"}
-    }
-
-
     Rectangle {
         id: panel
         z: 5
-        color: "#1a000000"
         width: parent.width
         height: 100
         anchors.top: parent.top
@@ -103,30 +95,15 @@ Rectangle {
             height: 190
 
             Rectangle {
-                id: background_part
+                id: background
                 x: 2; y:2; width: parent.width - x*2; height: parent.height - y*2
-                color: "#00000000"
-
-                opacity: day.detailsOpacity
-                Loader {
-
-                    anchors.fill: parent
-                    sourceComponent: Image {source: Config.iconspath + "/" + Config.iconset + "/" + "background_part.png"}
-                }
+                //color: "green"
             }
 
             MouseArea {
                 id: toDetail
                 anchors.fill: parent
-                onClicked: {
-                    if (day.detailsOpacity == 0) {
-
-                        day.state = 'Details';
-                    }else {
-                        day.state = '';
-                    }
-
-                }
+                onClicked: if (day.detailsOpacity == 0) day.state = 'Details'; else day.state = '';
 
             }
 
@@ -134,8 +111,7 @@ Rectangle {
             Text {
                 id: day_name
                 text: shortdate
-                color: "white"
-                font.pointSize: 14
+                color: Config.fontcolor
                 anchors.left: parent.left
                 anchors.leftMargin: 20
                 //anchors.centerIn: parent
@@ -145,8 +121,8 @@ Rectangle {
             Image {
                 id: forecast_icon
                 source: Config.iconspath + "/" + Config.iconset + "/" + pict
-                width: 80
-                height: 80
+                width: 64
+                height: 64
                 anchors.top: day_name.bottom
                 //anchors.topMargin: 20
                 //anchors.leftMargin: 5
@@ -159,8 +135,6 @@ Rectangle {
                 anchors.top: forecast_icon.top; anchors.topMargin: 10
                 anchors.left: forecast_icon.right; anchors.leftMargin: 10
                 opacity: 1 - day.detailsOpacity
-                color: "white"
-                font.pointSize: 14
             }
             Item {
                 id: details
@@ -172,35 +146,29 @@ Rectangle {
 
                     Text {
                         text: description
-                        font.pointSize: 14
-                        color: "white"
+                        font.pointSize: 12
                     }
                     Text {
                         text: temperature_label +" " +
                                 ((temp_low != "N/A") ? (temp_low + '°' +Config.temperatureunit + " .. ") : "") +
                                 ((temp_high != "N/A") ? (temp_high + '°' +Config.temperatureunit) : "")
-                        font.pointSize: 14
-                        color: "white"
+                        font.pointSize: 12
                     }
                     Text {
                         text: (humidity != "N/A") ? (humidity_label + " " + humidity + "%") : ""
-                        font.pointSize: 14
-                        color: "white"
+                        font.pointSize: 12
                     }
                     Text {
                         text: (pressure != "N/A") ? (pressure_label + " " + pressure) : ""
-                        font.pointSize: 14
-                        color: "white"
+                        font.pointSize: 12
                     }
                     Text {
                         text: (wind_direction != "N/A") ? (wind_label + " " + wind_direction) : ""
-                        font.pointSize: 14
-                        color: "white"
+                        font.pointSize: 12
                     }
                     Text {
                         text: (wind_speed != "N/A") ? (wind_speed_label + " " + wind_speed + "m/s") : ""
-                        font.pointSize: 14
-                        color: "white"
+                        font.pointSize: 12
                     }
                 }
 
@@ -233,7 +201,6 @@ Rectangle {
                     width: list.width
                     height: list.height
                 }
-                //PropertyChanges {target: GridView.; opacity: 0;}
 
                 PropertyChanges {
                     target: day.GridView.view
@@ -295,7 +262,6 @@ Rectangle {
                   "Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n" +
                   "Maintenance: Pavel Fialko, <pavelnf@gmail.com>\n          Tanya Makova, <tanyshk@gmail.com>\n" +
                   "Design UI and default iconset:\n           Andrew Zhilin, <az@pocketpcrussia.com>\n"
-                color: "white"
             }
         }
         MouseArea {

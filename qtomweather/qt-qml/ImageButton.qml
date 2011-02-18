@@ -4,8 +4,6 @@ Rectangle {
     width: 64
     height: 64
 
-    color: "#1a000000"
-
     property alias imagefile: pict.source
 
     signal clicked

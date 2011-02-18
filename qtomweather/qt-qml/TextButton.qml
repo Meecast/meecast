@@ -5,8 +5,6 @@ Rectangle {
 
     property  alias text: label.text
 
-    color: "#1a000000"
-
     signal clicked
 
     width: label.width + 20
@@ -22,7 +20,6 @@ Rectangle {
         id: label
         anchors.centerIn: parent
         font.pointSize: 16
-        color: "white"
     }
 
     states: State {

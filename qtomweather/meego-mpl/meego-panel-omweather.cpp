@@ -337,13 +337,53 @@ make_bottom_content_about() {
 
 
 }
- 
+void
+change_path(ClutterPath *path, gint need_size)
+{
+    ClutterKnot knot;
+    int i;
+    ClutterPathNode *node;
+    GSList  *path_list;
+    i = clutter_path_get_n_nodes((path));
+    for (path_list = clutter_path_get_nodes(path); path_list != NULL; path_list = path_list->next){
+        node = (ClutterPathNode *)path_list->data;
+        knot = node->points[0];
+        node->points[0].x = (((need_size*100)/128) * knot.x/100);
+        node->points[0].y = (((need_size*100)/128) * knot.y/100);
+        
+        knot = node->points[1];
+        node->points[1].x = (((need_size*100)/128) * knot.x/100);
+        node->points[1].y = (((need_size*100)/128) * knot.y/100);
+        knot = node->points[2];
+        node->points[2].x = (((need_size*100)/128) * knot.x/100);
+        node->points[2].y = (((need_size*100)/128) * knot.y/100);
+    
+    }
+} 
+//////////////////////////////////////////////////////////////////////////////
+void
+change_actor_size_and_position(ClutterActor *actor, gint need_size)
+{
+    guint h,w;
+    gint x,y;
+    if (!actor)
+        return;
+    w = clutter_actor_get_width(actor);
+    h = clutter_actor_get_height(actor);
+    x = clutter_actor_get_x(actor);
+    y = clutter_actor_get_y(actor);
+    clutter_actor_set_width(actor,(((need_size*100)/128) * w/100)); /* 128 must be 128 */ 
+    clutter_actor_set_height(actor,(((need_size*100)/128) * h/100)); /* 128 must be 128 */ 
+    clutter_actor_set_x(actor,(((need_size*100)/128) * x/100)); /* 128 must be 128 */ 
+    clutter_actor_set_y(actor,(((need_size*100)/128) * y/100)); /* 128 must be 128 */ 
+    
+} 
 //////////////////////////////////////////////////////////////////////////////
 void
 make_bottom_content(Core::Data *temp_data) {
   
   ClutterLayoutManager *bottom_layout;
-  ClutterActor     *icon;
+  ClutterActor     *icon = NULL;
   ClutterActor     *label;
   ClutterLayoutManager *layout;
   ClutterActor     *vertical_container;
@@ -353,6 +393,12 @@ make_bottom_content(Core::Data *temp_data) {
   char             buffer[4096];
   PangoFontDescription *pfd = NULL;
   std::ostringstream ss;
+  int i;
+  GList  *list, *l;
+  GObject *object;
+  ClutterScript   *script;
+  ClutterTimeline *timeline;
+  GError *error = NULL;
 
   if (mpl_panel_client_get_height_request (panel) > PANEL_HEIGHT){
       if (bottom_container)
@@ -368,14 +414,47 @@ make_bottom_content(Core::Data *temp_data) {
   bottom_container = clutter_box_new(bottom_layout);
   /* icon */
   if (temp_data)
-      snprintf(buffer, (4096 -1), "%s/icons/%s/%i.png",config->prefix_path().c_str(),
-                                  config->iconSet().c_str(), temp_data->Icon());
+      snprintf(buffer, (4096 -1), "%s/icons/%s/%i.%s",config->prefix_path().c_str(),
+                                  config->iconSet().c_str(), temp_data->Icon(), "json");
   else
-      snprintf(buffer, (4096 -1), "%s/icons/%s/na.png",config->prefix_path().c_str(), 
-                                  config->iconSet().c_str());  
+      snprintf(buffer, (4096 -1), "%s/icons/%s/na.%s",config->prefix_path().c_str(), 
+                                  config->iconSet().c_str(),"json");  
 
-  icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_actor_set_size (icon, 256.0, 256.0);
+ // icon = clutter_texture_new_from_file(buffer, NULL);
+    script = clutter_script_new();
+/*    g_object_unref(oh->script); */
+    fprintf(stderr,"JSON SCRIPT: %s\n",buffer);
+    clutter_script_load_from_file(script,buffer, &error);
+    
+
+    if (error){
+        fprintf(stderr,"ERROR in loading clutter script\n");
+        g_clear_error (&error);
+    }else{
+        if (temp_data)
+            sprintf(buffer, "icon_name_%i", temp_data->Icon());
+        else
+            sprintf(buffer, "icon_name_na");
+        icon = CLUTTER_ACTOR (clutter_script_get_object (script, buffer));
+        fprintf(stderr,"icon %p", icon);
+        timeline = CLUTTER_TIMELINE (clutter_script_get_object (script, "main-timeline"));
+        clutter_actor_set_size (icon, 256.0, 256.0);
+        
+        if CLUTTER_IS_GROUP(icon)
+           for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(icon)); i++)
+               change_actor_size_and_position(clutter_group_get_nth_child(CLUTTER_GROUP(icon),i), 256);
+        else
+           change_actor_size_and_position(icon, 256);
+        list = clutter_script_list_objects(script);
+        for (l = list; l != NULL; l = l->next){
+           object = (GObject *)l->data;
+           if CLUTTER_IS_BEHAVIOUR_PATH(object)
+               change_path(clutter_behaviour_path_get_path((ClutterBehaviourPath *)(object)), 256);
+        }
+        clutter_actor_show (CLUTTER_ACTOR (icon));
+        clutter_timeline_start (timeline);
+    }
+
   layout = clutter_box_layout_new ();
   box =  clutter_box_new(layout);
   clutter_box_pack((ClutterBox*)box, icon, NULL);

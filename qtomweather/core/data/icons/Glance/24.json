@@ -22,6 +22,7 @@
     "id"          : "transparencycloud-behaviour",
     "type"        : "ClutterBehaviourPath",
      "knots" : [[-128, 0], [-100, 0], [8, 0], [4, 0], [1, 0], [2, 0]],
+     "path" : "M -128 0 L 2 0",
      "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "easeInSine"
@@ -53,7 +54,7 @@
         "behaviours" : [
             "transparencycloud-behaviour"
         ]
-      },
+      }
 
 
     ]

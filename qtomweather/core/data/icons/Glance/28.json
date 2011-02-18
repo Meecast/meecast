@@ -22,6 +22,7 @@
     "id"          : "sun-behaviour",
     "type"        : "ClutterBehaviourPath",
      "knots" : [[15, 128], [15, 15]],
+     "path" : "M 15 128 L 15 15",
      "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "easeInSine"
@@ -32,6 +33,7 @@
     "id"          : "small_gray_cloud-behaviour",
     "type"        : "ClutterBehaviourPath",
      "knots" : [[-128, 10], [-100, 10], [8, 10], [4, 10], [1, 10], [2, 10]],
+     "path" : "M -128 0 L 2 10",
      "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "easeInSine"
@@ -42,6 +44,7 @@
     "id"          : "medium_gray_cloud-behaviour",
     "type"        : "ClutterBehaviourPath",
      "knots" : [[-128, 30], [-100, 30], [60, 30], [54, 30], [53, 30], [52, 30]],
+     "path" : "M -128 0 L 52 30",
      "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "easeInSine"
@@ -91,7 +94,7 @@
         "behaviours" : [
             "medium_gray_cloud-behaviour"
         ]
-      },
+      }
     ]
     }
 ]

@@ -98,7 +98,11 @@ ConfigQml::updatestations()
 void
 ConfigQml::runsetting()
 {
-   system("/usr/bin/omweather-settings");
+    char *args[] = {"/usr/bin/omweather-settings", (char *) 0 };
+
+    pid_t pID = fork();
+    if (pID == 0)
+        execv("/usr/bin/omweather-settings", args );
 }
 
 void

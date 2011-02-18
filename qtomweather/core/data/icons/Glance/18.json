@@ -31,7 +31,8 @@
   {
     "id"          : "shatter1-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[20,30], [20,130]]
+    "knots" : [[20,30], [20,130]],
+    "path" : "M 20 30 L 20 130",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -40,7 +41,8 @@
   {
     "id"          : "shatter2-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[60,30], [60,140]]
+    "knots" : [[60,30], [60,140]],
+    "path" : "M 60 30 L 60 140",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -50,7 +52,8 @@
   {
     "id"          : "shatter3-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[100,30], [100,130]]
+    "knots" : [[100,30], [100,130]],
+    "path" : "M 100 30 L 100 130",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -60,7 +63,8 @@
   {
     "id"          : "shatter4-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[20,20], [20,70]]
+    "knots" : [[20,20], [20,70]],
+    "path" : "M 20 20 L 20 70",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -70,7 +74,8 @@
   {
     "id"          : "shatter5-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[35,40], [35,90]]
+    "knots" : [[35,40], [35,90]],
+    "path" : "M 35 40 L 35 90",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -80,7 +85,8 @@
   {
     "id"          : "shatter6-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[50,20], [50,70]]
+    "knots" : [[50,20], [50,70]],
+    "path" : "M 50 20 L 50 70",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -90,7 +96,8 @@
   {
     "id"          : "shatter7-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[65,20], [65,90]]
+    "knots" : [[65,20], [65,90]],
+    "path" : "M 65 20 L 65 90",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -102,7 +109,8 @@
   {
     "id"          : "shatter8-behaviour",
     "type"        : "ClutterBehaviourPath",
-    "knots" : [[85,30], [85,70]]
+    "knots" : [[85,30], [85,70]],
+    "path" : "M 85 30 L 85 70",
     "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "linear"
@@ -232,7 +240,7 @@
             "fade-behaviour",
             "shatter8-behaviour"
         ]
-      },
+      }
      
 
     ]

@@ -3,7 +3,7 @@
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "duration" : 4000,
+    "duration" : 3000,
     "loop" : false
   },
   {

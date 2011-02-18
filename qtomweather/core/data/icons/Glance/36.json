@@ -2,7 +2,7 @@
   {
     "id" : "main-timeline",
     "type" : "ClutterTimeline",
-    "duration" : 4000,
+    "duration" : 3000,
     "loop" : false
   },
 
@@ -22,6 +22,7 @@
     "id"          : "sun-behaviour",
     "type"        : "ClutterBehaviourPath",
      "knots" : [[0, 128], [0, 0]],
+     "path" : "M 0 128 L 0 0",
      "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "easeInSine"
@@ -53,7 +54,7 @@
         "behaviours" : [
             "sun-behaviour"
         ]
-      },
+      }
 
     ]
     }

@@ -27,6 +27,7 @@ CONFIG(localdebug):DEFINES += LOCALDEBUG
 INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core
 
+TRANSLATIONS += omweather-settings_ru.qm
 
 #install
 

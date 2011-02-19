@@ -139,7 +139,7 @@ DataItem::icon() {
 QString
 DataItem::wind_direction() {
     QString c;
-    c = DataItem::Data::WindDirection().c_str();
+    c = QString(QString::fromUtf8(_(DataItem::Data::WindDirection().c_str())));
     return c;
 }
 
@@ -169,7 +169,7 @@ DataItem::current()
 QString
 DataItem::description()
 {
-    return QString(QString::fromUtf8(DataItem::Data::Text().c_str()));
+    return QString(QString::fromUtf8(_(DataItem::Data::Text().c_str())));
 }
 QString
 DataItem::date()

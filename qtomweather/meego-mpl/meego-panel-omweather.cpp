@@ -285,16 +285,16 @@ make_bottom_content_about() {
       if (bottom_container)
           clutter_actor_destroy(bottom_container);
   }
-  
+
   /* bottom layout */
-  
+
   bottom_layout = clutter_box_layout_new();
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(bottom_layout), TRUE);
   bottom_container = clutter_box_new(bottom_layout);
-  
+
   layout = clutter_box_layout_new ();
   box =  clutter_box_new(layout);
-  
+
   label = clutter_text_new();
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
   pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.6);
@@ -546,7 +546,7 @@ make_bottom_content(Core::Data *temp_data) {
     pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
-    ss << _("Wind:") << " "<< temp_data->WindDirection();
+    ss << _("Wind:") << " "<< _(temp_data->WindDirection().c_str());
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
     clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 

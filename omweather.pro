@@ -1,4 +1,4 @@
-VERSION = 0.3
+VERSION = 0.3.5
 TEMPLATE = subdirs
 CONFIG += ordered
 

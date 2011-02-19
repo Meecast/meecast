@@ -36,8 +36,10 @@ OTHER_FILES += \
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 
+
 INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core
+CONFIG += qdbus
 CONFIG += link_pkgconfig
 PKGCONFIG += glib-2.0
 target.path = /usr/bin

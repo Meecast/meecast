@@ -49,22 +49,22 @@
     <message>
         <location filename="ui_settingstations.h" line="127"/>
         <source>Omweather settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Настройки Omweather</translation>
     </message>
     <message>
         <location filename="ui_settingstations.h" line="128"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Добавить</translation>
     </message>
     <message>
         <location filename="ui_settingstations.h" line="129"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Удалить</translation>
     </message>
     <message>
         <location filename="ui_settingstations.h" line="130"/>
         <source>Temperature unit </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Единицы температуры</translation>
     </message>
 </context>
 </TS>

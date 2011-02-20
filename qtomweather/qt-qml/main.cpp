@@ -31,19 +31,6 @@
 #define _(String) gettext(String)
 
 
-QHash<char*, char*> *translating_hash;
-
-void g_hash_table_insert(QHash<char*, char*> *h,   void* key,  char *value){
-    h->insert(((char*)key), ((char*)value));
-}
-
-QHash<char*, char*>*
-fill_hash(void){
-      QHash<char*, char*> *hash;
-      hash = new QHash<char*, char*>;
-#include "../meego-mpl/hash.data"
-    return hash;
-}
 
 ConfigQml *
 create_and_fill_config(){
@@ -76,31 +63,20 @@ create_and_fill_config(){
 }
 //////////////////////////////////////////////////////////////////////////////
 bool
-update_weather_forecast1(std::vector<Core::Station*> StationsList){
-    int i;
-    Core::Station* station;
-    for (i=0; i<StationsList.size();i++){
-        station = StationsList.at(i);
-     //   std::cerr<<"yyyyyy    "<< station->forecastURL()<<std::endl;
-    }
-    return true;
-}
-bool
 update_weather_forecast(Core::Config *config){
-    int i;
+    uint i;
     int success = 0;
     Core::Station* station;
 
-    for (i=0; i < config->stationsList().size();i++){
+    for (i = 0; i < config->stationsList().size(); i++){
         station = config->stationsList().at(i);
         if (station->updateData(true)){
             success ++;
-
         }
     }
-
     return true;
 }
+//////////////////////////////////////////////////////////////////////////////
 Core::DataParser*
 current_data(std::string& str){
   Core::DataParser* dp;
@@ -128,7 +104,6 @@ int main(int argc, char* argv[])
 
      
     textdomain("omweather");
-    translating_hash = fill_hash();
 /*
     //Set up a graphics scene with a QGraphicsWidget and Layout
     QGraphicsView view;
@@ -148,7 +123,7 @@ int main(int argc, char* argv[])
 
     Core::DataParser* dp = NULL;
     Core::Data *temp_data = NULL;
-    int i;
+    int i = 0;
 
     std::vector<Core::Station*> StationsList;
 
@@ -162,7 +137,7 @@ int main(int argc, char* argv[])
         config->stationsList().at(config->current_station_id()))
         dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
     DataModel *model = new DataModel(new DataItem, qApp);
-    i = 0;
+
     /* set current day */ 
     current_day = time(NULL);
     tm = localtime(&current_day);
@@ -177,8 +152,10 @@ int main(int argc, char* argv[])
         forecast_data->Text(_(forecast_data->Text().c_str()));
         model->appendRow(forecast_data);
     }
- 
-    i = i + 3600*24;
+
+    /* set next day */
+    i = 3600*24;
+    /* fill other days */
     while  (dp != NULL && (temp_data = dp->data().GetDataForTime( current_day + 12 * 3600  + i))) {
         i = i + 3600*24;
         forecast_data = new DataItem(temp_data);
@@ -187,10 +164,6 @@ int main(int argc, char* argv[])
 
     }
 
-    //DataModel *model = config->getModel();
-    //std::cerr << model->rowCount() << std::endl;
-    //config->changestation();
-    //model = config->getModel();
 
     QTranslator translator;
     translator.load("ru.qml", "i18n");

@@ -93,7 +93,7 @@ ConfigQml::filename()
 }
 void ConfigQml::changestation()
 {
-    if (this->current_station_id() + 1 < this->stationsList().size()){
+    if ((uint)(this->current_station_id() + 1) < this->stationsList().size()){
        this->current_station_id(this->current_station_id() + 1);
 
    }else {
@@ -113,7 +113,7 @@ ConfigQml::refreshconfig(){
 void
 ConfigQml::updatestations()
 {
-    int i;
+    uint i;
     int success = 0;
     Core::Station* station;
 

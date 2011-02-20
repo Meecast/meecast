@@ -381,7 +381,6 @@ make_bottom_content(Core::Data *temp_data) {
       snprintf(buffer, (4096 -1), "%s/icons/%s/na.%s",config->prefix_path().c_str(), 
                                   config->iconSet().c_str(),"json");  
 
- // icon = clutter_texture_new_from_file(buffer, NULL);
     script = clutter_script_new();
 /*    g_object_unref(oh->script); */
     fprintf(stderr,"JSON SCRIPT: %s\n",buffer);
@@ -391,6 +390,14 @@ make_bottom_content(Core::Data *temp_data) {
     if (error){
         fprintf(stderr,"ERROR in loading clutter script\n");
         g_clear_error (&error);
+        if (temp_data)
+           snprintf(buffer, (4096 -1), "%s/icons/%s/%i.%s",config->prefix_path().c_str(),
+                                          config->iconSet().c_str(), temp_data->Icon(), "png");
+        else
+           snprintf(buffer, (4096 -1), "%s/icons/%s/na.%s",config->prefix_path().c_str(), 
+                                          config->iconSet().c_str(),"png");  
+        icon = clutter_texture_new_from_file(buffer, NULL);
+        clutter_actor_set_size (icon, 256.0, 256.0);
     }else{
         if (temp_data)
             sprintf(buffer, "icon_name_%i", temp_data->Icon());
@@ -399,8 +406,8 @@ make_bottom_content(Core::Data *temp_data) {
         icon = CLUTTER_ACTOR (clutter_script_get_object (script, buffer));
         fprintf(stderr,"icon %p", icon);
         timeline = CLUTTER_TIMELINE (clutter_script_get_object (script, "main-timeline"));
-        clutter_actor_set_size (icon, 256.0, 256.0);
         
+        clutter_actor_set_size (icon, 256.0, 256.0);
         if CLUTTER_IS_GROUP(icon)
            for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(icon)); i++)
                change_actor_size_and_position(clutter_group_get_nth_child(CLUTTER_GROUP(icon),i), 256);

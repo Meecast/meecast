@@ -122,8 +122,11 @@ int main(int argc, char* argv[])
 {
     QApplication::setGraphicsSystem("native");
     QApplication app(argc, argv);
-    
-   // bindtextdomain("omweather");
+    time_t current_day;
+    struct tm   *tm = NULL;
+    int year, current_month;
+
+     
     textdomain("omweather");
     translating_hash = fill_hash();
 /*
@@ -160,7 +163,23 @@ int main(int argc, char* argv[])
         dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
     DataModel *model = new DataModel(new DataItem, qApp);
     i = 0;
-    while  (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
+    /* set current day */ 
+    current_day = time(NULL);
+    tm = localtime(&current_day);
+    year = 1900 + tm->tm_year;
+    current_month = tm->tm_mon;
+    tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+    tm->tm_isdst = 1;
+    current_day = mktime(tm);
+    /* fill current date */
+    if  (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
+        forecast_data = new DataItem(temp_data);
+        forecast_data->Text(_(forecast_data->Text().c_str()));
+        model->appendRow(forecast_data);
+    }
+ 
+    i = i + 3600*24;
+    while  (dp != NULL && (temp_data = dp->data().GetDataForTime( current_day + 12 * 3600  + i))) {
         i = i + 3600*24;
         forecast_data = new DataItem(temp_data);
         forecast_data->Text(_(forecast_data->Text().c_str()));

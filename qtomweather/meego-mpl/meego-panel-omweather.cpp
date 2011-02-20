@@ -560,6 +560,9 @@ make_window_content (MplPanelClutter *panel)
   Core::Data *temp_data = NULL;
   Core::DataParser* dp = NULL;
   PangoFontDescription *pfd = NULL;
+  time_t current_day;
+  struct tm   *tm = NULL;
+  int year, current_month;
 
   if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 
                                               &&  config->stationsList().at(config->current_station_id()))
@@ -645,13 +648,25 @@ make_window_content (MplPanelClutter *panel)
       mpl_panel_client_request_button_style (MPL_PANEL_CLIENT(panel), buffer);
   }else
       mpl_panel_client_request_button_style (MPL_PANEL_CLIENT(panel), "iconna");
+  
+  /* set current day */ 
+  current_day = time(NULL);
+  tm = localtime(&current_day);
+  year = 1900 + tm->tm_year;
+  current_month = tm->tm_mon;
+  tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+  tm->tm_isdst = 1;
+  current_day = mktime(tm);
 
   /* day buttons */
   period = 0;
   for (i = 0; i < 9; i++){
-      if (dp)
-          temp_data = dp->data().GetDataForTime(time(NULL) + period);
-      else
+      if (dp){
+          if (i==0)
+            temp_data = dp->data().GetDataForTime(time(NULL));
+          else
+            temp_data = dp->data().GetDataForTime( current_day + 12*3600 + period);
+      }else
           temp_data = NULL;
       period = period + 3600*24;
       box = make_day_actor(temp_data);

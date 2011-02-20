@@ -57,6 +57,47 @@ GHashTable *hash_table_create(void) {
     return hash;
 }
 
+void
+change_path(ClutterPath *path, gint need_size)
+{
+    ClutterKnot knot;
+    int i;
+    ClutterPathNode *node;
+    GSList  *path_list;
+    i = clutter_path_get_n_nodes((path));
+    for (path_list = clutter_path_get_nodes(path); path_list != NULL; path_list = path_list->next){
+        node = (ClutterPathNode *)path_list->data;
+        knot = node->points[0];
+        node->points[0].x = (((need_size*100)/128) * knot.x/100);
+        node->points[0].y = (((need_size*100)/128) * knot.y/100);
+        
+        knot = node->points[1];
+        node->points[1].x = (((need_size*100)/128) * knot.x/100);
+        node->points[1].y = (((need_size*100)/128) * knot.y/100);
+        knot = node->points[2];
+        node->points[2].x = (((need_size*100)/128) * knot.x/100);
+        node->points[2].y = (((need_size*100)/128) * knot.y/100);
+    
+    }
+} 
+//////////////////////////////////////////////////////////////////////////////
+void
+change_actor_size_and_position(ClutterActor *actor, gint need_size)
+{
+    guint h,w;
+    gint x,y;
+    if (!actor)
+        return;
+    w = clutter_actor_get_width(actor);
+    h = clutter_actor_get_height(actor);
+    x = clutter_actor_get_x(actor);
+    y = clutter_actor_get_y(actor);
+    clutter_actor_set_width(actor,(((need_size*100)/128) * w/100)); /* 128 must be 128 */ 
+    clutter_actor_set_height(actor,(((need_size*100)/128) * h/100)); /* 128 must be 128 */ 
+    clutter_actor_set_x(actor,(((need_size*100)/128) * x/100)); /* 128 must be 128 */ 
+    clutter_actor_set_y(actor,(((need_size*100)/128) * y/100)); /* 128 must be 128 */ 
+    
+} 
 
 Core::Config *
 create_and_fill_config(void){

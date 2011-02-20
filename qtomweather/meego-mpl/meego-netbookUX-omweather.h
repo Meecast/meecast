@@ -33,6 +33,8 @@ int update_weather_forecast(Core::Config *config);
 ClutterTimeline *create_update_animation(ClutterActor *actor);
 Core::Config *create_and_fill_config(void);
 GHashTable *hash_table_create(void);
+void change_path(ClutterPath *path, gint need_size);
+void change_actor_size_and_position(ClutterActor *actor, gint need_size);
 extern Core::Config *config;
 //extern std::vector<Core::Station*> stationslist;
 

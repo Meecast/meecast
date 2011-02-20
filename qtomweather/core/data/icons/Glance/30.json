@@ -33,7 +33,7 @@
     "id"          : "medium_gray_cloud-behaviour",
     "type"        : "ClutterBehaviourPath",
      "knots" : [[-128, 30], [-100, 30], [60, 30], [54, 30], [53, 30], [52, 30]],
-     "path" : "M -128 30 L 52 30",
+     "path" : "M -128 30 L 42 30",
      "alpha"       : {
       "timeline" : "main-timeline",
       "mode" : "easeInSine"

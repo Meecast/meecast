@@ -63,6 +63,7 @@ void change_actor_size_and_position(ClutterActor *actor, gint need_size);
 /* Global section */
 Core::Config *config;
 Core::StationsList stationslist;
+Core::DataParser* dp = NULL;
 MplPanelClient *panel = NULL;
 ClutterActor   *panel_container = NULL;
 ClutterActor   *bottom_container = NULL;
@@ -74,7 +75,6 @@ DBusConnection       *dbus_conn_session;
 GHashTable           *translate_hash=NULL;
 guint timer = 0; /* timer */
 pthread_t tid;
-
 FILE *file;
 
 static void* update_weather_forecast(void* data){
@@ -343,12 +343,78 @@ make_bottom_content_about() {
 ClutterActor*
 make_forecast_detail_box(Core::Data *temp_data){
   
+  ClutterActor     *box;
   ClutterActor     *label;
   ClutterActor     *vertical_container;
   ClutterLayoutManager *vertical_layout = NULL;
+  ClutterLayoutManager *layout;
   PangoFontDescription *pfd = NULL;
   std::ostringstream ss;
+  char             buffer[4096];
+  ClutterScript   *script;
+  ClutterTimeline *timeline;
+  GError *error = NULL;
+  ClutterActor     *icon = NULL;
+  int i;
+  GList  *list, *l;
+  GObject *object;
 
+  /* icon */
+  if (temp_data)
+      snprintf(buffer, (4096 -1), "%s/icons/%s/%i.%s",config->prefix_path().c_str(),
+                                  config->iconSet().c_str(), temp_data->Icon(), "json");
+  else
+      snprintf(buffer, (4096 -1), "%s/icons/%s/na.%s",config->prefix_path().c_str(), 
+                                  config->iconSet().c_str(),"json");  
+
+    script = clutter_script_new();
+/*    g_object_unref(oh->script); */
+    fprintf(stderr,"JSON SCRIPT: %s\n",buffer);
+    clutter_script_load_from_file(script,buffer, &error);
+    
+
+    if (error){
+        fprintf(stderr,"ERROR in loading clutter script\n");
+        g_clear_error (&error);
+        if (temp_data)
+           snprintf(buffer, (4096 -1), "%s/icons/%s/%i.%s",config->prefix_path().c_str(),
+                                          config->iconSet().c_str(), temp_data->Icon(), "png");
+        else
+           snprintf(buffer, (4096 -1), "%s/icons/%s/na.%s",config->prefix_path().c_str(), 
+                                          config->iconSet().c_str(),"png");  
+        icon = clutter_texture_new_from_file(buffer, NULL);
+        clutter_actor_set_size (icon, 256.0, 256.0);
+    }else{
+        if (temp_data)
+            sprintf(buffer, "icon_name_%i", temp_data->Icon());
+        else
+            sprintf(buffer, "icon_name_na");
+        icon = CLUTTER_ACTOR (clutter_script_get_object (script, buffer));
+        fprintf(stderr,"icon %p", icon);
+        timeline = CLUTTER_TIMELINE (clutter_script_get_object (script, "main-timeline"));
+        
+        clutter_actor_set_size (icon, 256.0, 256.0);
+        if CLUTTER_IS_GROUP(icon)
+           for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(icon)); i++)
+               change_actor_size_and_position(clutter_group_get_nth_child(CLUTTER_GROUP(icon),i), 256);
+        else
+           change_actor_size_and_position(icon, 256);
+        list = clutter_script_list_objects(script);
+        for (l = list; l != NULL; l = l->next){
+           object = (GObject *)l->data;
+           if CLUTTER_IS_BEHAVIOUR_PATH(object)
+               change_path(clutter_behaviour_path_get_path((ClutterBehaviourPath *)(object)), 256);
+        }
+        clutter_actor_show (CLUTTER_ACTOR (icon));
+        clutter_timeline_start (timeline);
+    }
+
+  layout = clutter_box_layout_new ();
+  box =  clutter_box_new(layout);
+  clutter_box_pack((ClutterBox*)box, icon, NULL);
+  clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), icon,
+				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
+ 
   /* vertical container */
   vertical_layout = clutter_box_layout_new ();
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(vertical_layout), TRUE);
@@ -367,7 +433,7 @@ make_forecast_detail_box(Core::Data *temp_data){
     clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
-  
+  /* Temperature */ 
   if (temp_data->temperature_hi().value() != INT_MAX){
     label = clutter_text_new();
     pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
@@ -377,7 +443,7 @@ make_forecast_detail_box(Core::Data *temp_data){
     ss << _("Temperature:");
     ss << " ";
     if (temp_data->temperature_low().value() != INT_MAX){
-	ss << temp_data->temperature_low().value() << "°" << config->TemperatureUnit() << " .. ";
+	    ss << temp_data->temperature_low().value() << "°" << config->TemperatureUnit() << " .. ";
     }
     ss << temp_data->temperature_hi().value() << "°" << config->TemperatureUnit();
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
@@ -437,30 +503,28 @@ make_forecast_detail_box(Core::Data *temp_data){
     clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
-  return vertical_container;
+
+  clutter_box_pack((ClutterBox*)box, vertical_container, NULL);
+  clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), vertical_container,
+				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
+
+  return box;
 } 
 //////////////////////////////////////////////////////////////////////////////
 void
 make_bottom_content(Core::Data *temp_data) {
   
   ClutterLayoutManager *bottom_layout;
-  ClutterActor     *icon = NULL;
   ClutterActor     *label;
-  ClutterLayoutManager *layout;
   ClutterActor     *vertical_container;
-  ClutterLayoutManager *vertical_layout = NULL;
+  ClutterLayoutManager *hbox_layout = NULL;
+  ClutterActor     *hbox;
   ClutterActor     *box;
   std::string      day_name;
-  char             buffer[4096];
   PangoFontDescription *pfd = NULL;
   std::ostringstream ss;
   int i;
-  GList  *list, *l;
-  GObject *object;
-  ClutterScript   *script;
-  ClutterTimeline *timeline;
-  GError *error = NULL;
-
+  
   if (mpl_panel_client_get_height_request (panel) > PANEL_HEIGHT){
       if (bottom_container)
           clutter_actor_destroy(bottom_container);
@@ -473,62 +537,7 @@ make_bottom_content(Core::Data *temp_data) {
   bottom_layout = clutter_box_layout_new();
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(bottom_layout), TRUE);
   bottom_container = clutter_box_new(bottom_layout);
-  /* icon */
-  if (temp_data)
-      snprintf(buffer, (4096 -1), "%s/icons/%s/%i.%s",config->prefix_path().c_str(),
-                                  config->iconSet().c_str(), temp_data->Icon(), "json");
-  else
-      snprintf(buffer, (4096 -1), "%s/icons/%s/na.%s",config->prefix_path().c_str(), 
-                                  config->iconSet().c_str(),"json");  
-
-    script = clutter_script_new();
-/*    g_object_unref(oh->script); */
-    fprintf(stderr,"JSON SCRIPT: %s\n",buffer);
-    clutter_script_load_from_file(script,buffer, &error);
-    
-
-    if (error){
-        fprintf(stderr,"ERROR in loading clutter script\n");
-        g_clear_error (&error);
-        if (temp_data)
-           snprintf(buffer, (4096 -1), "%s/icons/%s/%i.%s",config->prefix_path().c_str(),
-                                          config->iconSet().c_str(), temp_data->Icon(), "png");
-        else
-           snprintf(buffer, (4096 -1), "%s/icons/%s/na.%s",config->prefix_path().c_str(), 
-                                          config->iconSet().c_str(),"png");  
-        icon = clutter_texture_new_from_file(buffer, NULL);
-        clutter_actor_set_size (icon, 256.0, 256.0);
-    }else{
-        if (temp_data)
-            sprintf(buffer, "icon_name_%i", temp_data->Icon());
-        else
-            sprintf(buffer, "icon_name_na");
-        icon = CLUTTER_ACTOR (clutter_script_get_object (script, buffer));
-        fprintf(stderr,"icon %p", icon);
-        timeline = CLUTTER_TIMELINE (clutter_script_get_object (script, "main-timeline"));
-        
-        clutter_actor_set_size (icon, 256.0, 256.0);
-        if CLUTTER_IS_GROUP(icon)
-           for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(icon)); i++)
-               change_actor_size_and_position(clutter_group_get_nth_child(CLUTTER_GROUP(icon),i), 256);
-        else
-           change_actor_size_and_position(icon, 256);
-        list = clutter_script_list_objects(script);
-        for (l = list; l != NULL; l = l->next){
-           object = (GObject *)l->data;
-           if CLUTTER_IS_BEHAVIOUR_PATH(object)
-               change_path(clutter_behaviour_path_get_path((ClutterBehaviourPath *)(object)), 256);
-        }
-        clutter_actor_show (CLUTTER_ACTOR (icon));
-        clutter_timeline_start (timeline);
-    }
-
-  layout = clutter_box_layout_new ();
-  box =  clutter_box_new(layout);
-  clutter_box_pack((ClutterBox*)box, icon, NULL);
-  clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), icon,
-				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
-  
+ 
 
   /* Day name */
   label = clutter_text_new();
@@ -543,15 +552,21 @@ make_bottom_content(Core::Data *temp_data) {
   
   clutter_text_set_text((ClutterText*)label, day_name.c_str());
   clutter_box_pack((ClutterBox*)bottom_container, label, NULL);
- 
-  clutter_box_pack((ClutterBox*)bottom_container, box, NULL);
-  //clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(bottom_layout), box,
-//				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
-  vertical_container =  make_forecast_detail_box(temp_data);
-  clutter_box_pack((ClutterBox*)box, vertical_container, NULL);
-  clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), vertical_container,
-				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
 
+  hbox_layout = clutter_box_layout_new();
+  hbox = clutter_box_new(hbox_layout);
+
+
+  box   =  make_forecast_detail_box(temp_data);
+  clutter_box_pack((ClutterBox*)hbox, box, NULL);
+
+  temp_data = dp->data().GetDataForTime(temp_data->EndTime() + 3600);
+  if (temp_data){
+      box =  make_forecast_detail_box(temp_data);
+      clutter_box_pack((ClutterBox*)hbox, box, NULL);
+  }
+
+  clutter_box_pack((ClutterBox*)bottom_container, hbox, NULL);
   /* connect the press event on refresh button */
   g_signal_connect (bottom_container, "button-press-event", G_CALLBACK (remove_detail_event_cb), panel);
   clutter_actor_set_reactive(bottom_container, TRUE);
@@ -576,7 +591,7 @@ make_window_content (MplPanelClutter *panel)
   char             buffer[4096];
   int i, period;
   Core::Data *temp_data = NULL;
-  Core::DataParser* dp = NULL;
+  Core::Data *temp_data_day = NULL;
   PangoFontDescription *pfd = NULL;
   time_t current_day;
   struct tm   *tm = NULL;
@@ -681,13 +696,13 @@ make_window_content (MplPanelClutter *panel)
   for (i = 0; i < 9; i++){
       if (dp){
           if (i==0)
-            temp_data = dp->data().GetDataForTime(time(NULL));
+            temp_data_day = dp->data().GetDataForTime(time(NULL)); /* weather forecast for current time */
           else
-            temp_data = dp->data().GetDataForTime( current_day + 12*3600 + period);
+            temp_data_day = dp->data().GetDataForTime( current_day + 12*3600 + period);
       }else
-          temp_data = NULL;
+          temp_data_day = NULL;
       period = period + 3600*24;
-      box = make_day_actor(temp_data);
+      box = make_day_actor(temp_data_day);
         clutter_box_pack((ClutterBox*)forecast_horizontal_container, box, NULL);
   }
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), forecast_horizontal_container, 

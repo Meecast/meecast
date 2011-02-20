@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: omweather 0.24\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-15 22:16+0200\n"
+"POT-Creation-Date: 2011-02-19 18:40+0200\n"
 "PO-Revision-Date: 2010-02-13 00:46+0200\n"
 "Last-Translator: Nicolas Graziano <nicolas.graziano@gmail.com>\n"
 "Language-Team: French <>\n"
@@ -851,7 +851,7 @@ msgid "High"
 msgstr "Haut"
 
 #: omweather/src/weather-popup.c:1260 omweather/src/weather-popup.c:1436
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:457
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:536
 #: qtomweather/qt-qml/dataitem.cpp:82
 msgid "Humidity:"
 msgstr "Humidité :"
@@ -1217,7 +1217,7 @@ msgstr "Pas de données météo pour cette station."
 #: omweather/src/weather-popup.c:458 omweather/src/weather-popup.c:569
 #: omweather/src/weather-popup.c:575
 #: omweather/src/weather-simple-settings.c:2886
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:400
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:479
 msgid "Now"
 msgstr "Maintenant"
 
@@ -1397,7 +1397,7 @@ msgid "Pressure units:"
 msgstr "Unités de pression :"
 
 #: omweather/src/weather-popup.c:1287
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:444
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:523
 #: qtomweather/qt-qml/dataitem.cpp:88
 msgid "Pressure:"
 msgstr "Pression :"
@@ -1721,7 +1721,7 @@ msgid "Speed"
 msgstr "Vitesse"
 
 #: omweather/src/weather-popup.c:1311 omweather/src/weather-popup.c:1451
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:483
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:562
 msgid "Speed:"
 msgstr "Vitesse :"
 
@@ -1801,7 +1801,7 @@ msgstr "Température"
 msgid "Temperature units:"
 msgstr "Unités de température :"
 
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:426
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:505
 #: qtomweather/qt-qml/dataitem.cpp:80
 msgid "Temperature:"
 msgstr "Température :"
@@ -2007,7 +2007,7 @@ msgstr "Vent"
 
 #: qtomweather/qt-qml/dataitem.cpp:86
 #, fuzzy
-msgid "Wind Speed:"
+msgid "Wind Speed1:"
 msgstr "Unités de vitesse :"
 
 #: omweather/src/weather-settings.c:3974
@@ -2015,7 +2015,7 @@ msgid "Wind speed units:"
 msgstr "Unités de vitesse :"
 
 #: omweather/src/weather-popup.c:1306 omweather/src/weather-popup.c:1447
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:470
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:549
 #: qtomweather/qt-qml/dataitem.cpp:84
 msgid "Wind:"
 msgstr "Vent :"
@@ -2154,7 +2154,7 @@ msgstr "m/h"
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:248
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:483
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:562
 msgid "m/s"
 msgstr "m/s"
 

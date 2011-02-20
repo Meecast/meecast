@@ -9,7 +9,7 @@
 
 Name:       omweather
 Summary:    Weather for Meego
-Version:    0.3.6
+Version:    0.3.7
 Release:    1
 Group:      Applications/Internet
 License:    GPLv2.1
@@ -104,6 +104,8 @@ desktop-file-install --delete-original       \
 /usr/share/dbus-1/services
 %endif
 %changelog
+* Fri Feb 19 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.7
+  * Added transaltion for wind and forecast's description
 * Fri Feb 19 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.6
   * Added Russian translate to omweather-settings
 * Fri Feb 18 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.5

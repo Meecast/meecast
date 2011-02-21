@@ -67,6 +67,14 @@ ConfigQml::temperatureunit(){
     c = ConfigQml::Config::TemperatureUnit().c_str();
     return c;
 }
+
+QString
+ConfigQml::windspeedunit(){
+    QString c;
+    c = QString(QString::fromUtf8(_(ConfigQml::Config::WindSpeedUnit().c_str())));
+    return c;
+}
+
 QColor
 ConfigQml::fontcolor(){
     QColor c;
@@ -106,6 +114,7 @@ ConfigQml::refreshconfig(){
     emit ConfigQml::iconsetChanged();
     emit ConfigQml::iconspathChanged();
     emit ConfigQml::temperatureunitChanged();
+    emit ConfigQml::windspeedunitChanged();
     emit ConfigQml::fontcolorChanged();
     emit ConfigQml::stationnameChanged();
 }

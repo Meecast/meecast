@@ -45,6 +45,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_PROPERTY(QString iconspath READ iconspath NOTIFY iconspathChanged)
     Q_PROPERTY(QString iconsbutton READ iconsbutton NOTIFY iconsbuttonChanged)
     Q_PROPERTY(QString temperatureunit READ temperatureunit NOTIFY temperatureunitChanged)
+    Q_PROPERTY(QString windspeedunit READ windspeedunit NOTIFY windspeedunitChanged)
     Q_PROPERTY(QColor fontcolor READ fontcolor NOTIFY fontcolorChanged)
     Q_PROPERTY(QString stationname READ stationname NOTIFY stationnameChanged)
     Q_PROPERTY(QString filename READ filename NOTIFY filenameChanged)
@@ -55,6 +56,7 @@ class ConfigQml : public QObject, public Core::Config
     QString iconspath();
     QString iconsbutton();
     QString temperatureunit();
+    QString windspeedunit();
     QColor fontcolor();
     QString stationname();
     QString filename();
@@ -69,6 +71,7 @@ class ConfigQml : public QObject, public Core::Config
     void iconspathChanged();
     void iconsbuttonChanged();
     void temperatureunitChanged();
+    void windspeedunitChanged();
     void fontcolorChanged();
     void stationnameChanged();
     void filenameChanged();

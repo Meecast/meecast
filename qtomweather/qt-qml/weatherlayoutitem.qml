@@ -167,7 +167,7 @@ Rectangle {
                         font.pointSize: 12
                     }
                     Text {
-                        text: (wind_speed != "N/A") ? (wind_speed_label + " " + wind_speed + "m/s") : ""
+                        text: (wind_speed != "N/A") ? (wind_speed_label + " " + wind_speed + Config.windspeedunit) : ""
                         font.pointSize: 12
                     }
                 }

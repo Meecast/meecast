@@ -42,8 +42,8 @@ Rectangle {
               (qsTr("Flike") + ": " + Forecast_model.getRow(details.item_id, "flike")) : ""}*/
         Text {text: Forecast_model.getRow(details.item_id, "description") }
         Text {text: qsTr("Humidity") + ": " + Forecast_model.getRow(details.item_id, "humidity") }
-        Text {text: qsTr("Wind direction") + ": " + Forecast_model.getRow(details.item_id, "wind_direction")}
-        Text {text: qsTr("Wind speed") + ": " + Forecast_model.getRow(details.item_id, "wind_speed")}
+        Text {text: qsTr("Wind") + ": " + Forecast_model.getRow(details.item_id, "wind_direction")}
+        Text {text: qsTr("Speed") + ": " + Forecast_model.getRow(details.item_id, "wind_speed")}
         Text {text: (Forecast_model.getRow(details.item_id, "wind_gust") != "N/A") ?
               (qsTr("Wind gust") + ": " + Forecast_model.getRow(details.item_id, "wind_gust")) : ""}
 

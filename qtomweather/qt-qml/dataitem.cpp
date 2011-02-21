@@ -113,7 +113,7 @@ QVariant DataItem::data(int role)
     case WindLabelRole:
         return QString(QString::fromUtf8( _("Wind:")));
     case WindSpeedLabelRole:
-        return QString(QString::fromUtf8( _("Wind Speed:")));
+        return QString(QString::fromUtf8( _("Speed:")));
     case PressureLabelRole:
         return QString(QString::fromUtf8( _("Pressure:")));
     default:

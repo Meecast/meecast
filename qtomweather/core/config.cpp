@@ -39,6 +39,7 @@ namespace Core{
         _pathPrefix = new std::string(AbstractConfig::prefix + AbstractConfig::sharePath);
         _iconset = new std::string("Glance");
         _temperature_unit = new std::string("C");
+        _wind_speed_unit = new std::string("m/s");
         _font_color = new std::string("#00ff00");
         _stations = new StationsList;
         _current_station_id = INT_MAX;
@@ -72,6 +73,12 @@ namespace Core{
         t = doc.createTextNode(QString::fromStdString(*_temperature_unit));
         el.appendChild(t);
         root.appendChild(el);
+
+        el = doc.createElement("wind_speed_unit");
+        t = doc.createTextNode(QString::fromStdString(*_wind_speed_unit));
+        el.appendChild(t);
+        root.appendChild(el);
+
 
         el = doc.createElement("current_station_id");
         t = doc.createTextNode(QString::number(_current_station_id));
@@ -146,6 +153,7 @@ namespace Core{
         _pathPrefix = new std::string;
         _iconset = new std::string("Glance");
         _temperature_unit = new std::string("C");
+        _wind_speed_unit = new std::string("m/s");
         _font_color = new std::string("#00ff00");
         _stations = new StationsList;
         _current_station_id = INT_MAX;
@@ -172,6 +180,9 @@ namespace Core{
             if (!el.isNull())
                 _current_station_id = el.text().toInt();
             el = root.firstChildElement("temperature_unit");
+            if (!el.isNull())
+                _temperature_unit->assign(el.text().toStdString());
+            el = root.firstChildElement("wind_speed_unit");
             if (!el.isNull())
                 _temperature_unit->assign(el.text().toStdString());
 
@@ -268,6 +279,18 @@ namespace Core{
     Config::TemperatureUnit(){
         return *_temperature_unit;
     }
+////////////////////////////////////////////////////////////////////////////////
+    void
+    Config::WindSpeedUnit(const std::string& text){
+        /* ToDo Check access to path */
+        _wind_speed_unit->assign(text);
+    }
+////////////////////////////////////////////////////////////////////////////////
+    std::string&
+    Config::WindSpeedUnit(){
+        return *_wind_speed_unit;
+    }
+
 ////////////////////////////////////////////////////////////////////////////////
     void
     Config::FontColor(const std::string& text){

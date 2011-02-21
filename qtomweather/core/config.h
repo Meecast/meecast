@@ -46,6 +46,7 @@ namespace Core{
             std::string *_pathPrefix;
             std::string *_iconset;
             std::string *_temperature_unit;
+            std::string *_wind_speed_unit;
             std::string *_font_color;
             int          _current_station_id;
             StationsList *_stations;
@@ -62,6 +63,8 @@ namespace Core{
             int current_station_id(void);
             void TemperatureUnit(const std::string& text);
             std::string& TemperatureUnit(void);
+            void WindSpeedUnit(const std::string& text);
+            std::string& WindSpeedUnit(void);
             void FontColor(const std::string& text);
             std::string& FontColor(void);
             StationsList& stationsList();

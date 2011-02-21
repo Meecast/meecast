@@ -1,13 +1,13 @@
 # Slovak localization based on localization of forecastfox_l10n-0.7.2008093001.xpi
 # This file is distributed under the same license as the PACKAGE package.
-# Roman Moravčík <roman.moravcik@gmail.com>, 2010.
+# Roman Moravčík <roman.moravcik@gmail.com>, 2010, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-02-19 18:40+0200\n"
-"PO-Revision-Date: 2010-11-23 10:15+0100\n"
+"PO-Revision-Date: 2011-02-21 08:56+0100\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
 "Language: en\n"
@@ -44,6 +44,21 @@ msgid ""
 "for Semi-transparency\n"
 "and coloured backgrounds\n"
 msgstr ""
+"\n"
+"Widget pracovnej plochy\n"
+"pre Nokie N800/N810/N900\n"
+"zobrazujúci predpoveď počasia.\n"
+"Verzia %s Zostavenie: %s\n"
+"Copyright(c) 2006-2010\n"
+"Vlad Vasiliev, Pavel Fialko\n"
+"Copyright(c) 2008\n"
+"za predvolenú tému ikon (Glance)\n"
+"a dizajn rozhrania\n"
+"Andrew Zhilin\n"
+"Copyright(c) 2008\n"
+"Andrew Olmsted\n"
+"za priehľadnosť\n"
+"a farebné pozadia\n"
 
 #: omweather/src/weather-home.c:1383 omweather/src/weather-home.c:1439
 #: omweather/src/weather-popup.c:956 omweather/src/weather-popup.c:1078
@@ -260,7 +275,6 @@ msgid "Alerts"
 msgstr "Výstrahy"
 
 #: omweather/src/weather-help.c:125
-#, fuzzy
 msgid ""
 "Alexis Iglauer - for testing\n"
 "Eugene Roytenberg - for testing\n"
@@ -276,9 +290,10 @@ msgstr ""
 "Eugene Roytenberg - za testovanie\n"
 "Jarek Szczepanski aka Imrahil - za testovanie\n"
 "Vladimir Shakhov aka Mendoza - za testovanie\n"
-"Marc Dilon - za kontrolu gramatiky/stýlu textov v Angličtine\n"
+"Marc Dilon - za kontrolu gramatiky/štýlu textov v Angličtine\n"
 "Arkady Glazov aka Globster - za testovanie\n"
 "Alexander Savchenko aka dizel - za testovanie\n"
+"Timeless - za záplaty\n"
 "Eric Link - za žiadanie nových funkcií a dary\n"
 
 #: omweather/src/weather-download.c:397
@@ -299,7 +314,7 @@ msgstr "Ste si istý?"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:318
 msgid "Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n"
-msgstr ""
+msgstr "Autor a správca: Vlad Vasiliev, <vlad@gas.by>\n"
 
 #: omweather/src/weather-help.c:103
 msgid ""
@@ -357,7 +372,7 @@ msgid "CALM"
 msgstr "Bezvetrie"
 
 #: omweather/src/weather-config.c:383
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot get path to the HOME directory. Quitting.\n"
 msgstr "Nemôžem získať cestu k domácemu priečinku. Ukončujem sa.\n"
 
@@ -389,9 +404,8 @@ msgid "Clear, Drifting Snow"
 msgstr "Jasno, padajúci sneh"
 
 #: omweather/src/hash.data:25
-#, fuzzy
 msgid "Clear, Fog, Drizzle"
-msgstr "Prevažne zamračené, hmla, mrholenie"
+msgstr "Jasno, hmla, mrholenie"
 
 #: omweather/src/hash.data:26
 msgid "Clear, Smoke"
@@ -438,9 +452,8 @@ msgid "Cloudy, Few Snow"
 msgstr "Zamračené, ojedinelé sneženie"
 
 #: omweather/src/hash.data:36
-#, fuzzy
 msgid "Cloudy, Heavy Snow"
-msgstr "Prevažne zamračené, silné sneženie"
+msgstr "Zamračené, silné sneženie"
 
 #: omweather/src/hash.data:37
 msgid "Cloudy, Light Rain"
@@ -451,9 +464,8 @@ msgid "Cloudy, Light Rain, T-Storm"
 msgstr "Zamračené, slabý dážď, búrka"
 
 #: omweather/src/hash.data:39
-#, fuzzy
 msgid "Cloudy, Rain"
-msgstr "Zamračené, slabý dážď"
+msgstr "Zamračené, dážď"
 
 #: omweather/src/hash.data:40
 msgid "Cloudy, Smoke"
@@ -508,6 +520,7 @@ msgstr "Deň:"
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:320
 msgid "Design UI and default iconset: Andrew Zhilin, <az@pocketpcrussia.com>\n"
 msgstr ""
+"Návrh UI a predvolenej témy ikon: Andrew Zhilin, <az@pocketpcrussia.com>\n"
 
 #: omweather/src/weather-popup.c:461 omweather/src/weather-popup.c:601
 msgid "Detailed"
@@ -983,6 +996,8 @@ msgid ""
 "Maintenance: Pavel Fialko, <pavelnf@gmail.com>\n"
 "Tanya Makova, <tanyshk@gmail.com>\n"
 msgstr ""
+"Správca: Pavel Fialko, <pavelnf@gmail.com>\n"
+"Tanya Makova, <tanyshk@gmail.com>\n"
 
 #: omweather/src/weather-simple-settings.c:2240
 msgid "Manual"
@@ -1057,9 +1072,8 @@ msgid "Mostly Cloudy, Fog, Drizzle"
 msgstr "Prevažne zamračené, hmla, mrholenie"
 
 #: omweather/src/hash.data:112
-#, fuzzy
 msgid "Mostly Cloudy, Heavy Rain"
-msgstr "Prevažne zamračené, silné sneženie"
+msgstr "Prevažne zamračené, silný dážď"
 
 #: omweather/src/hash.data:113
 msgid "Mostly Cloudy, Heavy Snow"
@@ -1336,18 +1350,16 @@ msgid "Partly Cloudy, Haze"
 msgstr "Oblačno, opar"
 
 #: omweather/src/hash.data:159
-#, fuzzy
 msgid "Partly Cloudy, Heavy Rain"
-msgstr "Prevažne zamračené, silné sneženie"
+msgstr "Oblačno, silný dážď"
 
 #: omweather/src/hash.data:160
 msgid "Partly Cloudy, Light Rain"
 msgstr "Oblačno, slabý dážď"
 
 #: omweather/src/hash.data:161
-#, fuzzy
 msgid "Partly Cloudy, Rain"
-msgstr "Oblačno, slabý dážď"
+msgstr "Oblačno, dážď"
 
 #: omweather/src/hash.data:162
 msgid "Partly Cloudy, Smoke"
@@ -1558,9 +1570,8 @@ msgid "Search"
 msgstr "Hľadať"
 
 #: omweather/src/weather-simple-settings.c:2168
-#, fuzzy
 msgid "Select location"
-msgstr "Vyberám stanicu"
+msgstr "Zvoľte umiestnenie"
 
 #: omweather/src/weather-simple-settings.c:1035
 #, c-format
@@ -1790,9 +1801,8 @@ msgstr "Jednotky teploty:"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:505
 #: qtomweather/qt-qml/dataitem.cpp:80
-#, fuzzy
 msgid "Temperature:"
-msgstr "Teplota: "
+msgstr "Teplota:"
 
 #: omweather/src/weather-popup.c:1238 omweather/src/weather-popup.c:1420
 msgid "Temperature: "
@@ -1972,7 +1982,7 @@ msgstr "Údaje o počasí poskytol: "
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:317
 msgid "Weather forecast for the Meego. Version 0.3.\n"
-msgstr ""
+msgstr "Predpoveď počasia pre Meego. Verzia 0.3.\n"
 
 #: omweather/src/weather-utils.c:797
 msgid "Widget OMWeather is reloading"
@@ -1992,9 +2002,8 @@ msgid "Wind"
 msgstr "Vietor"
 
 #: qtomweather/qt-qml/dataitem.cpp:86
-#, fuzzy
 msgid "Wind Speed1:"
-msgstr "Jednotky rýchlosti vetra:"
+msgstr "Rýchlosť vetra1:"
 
 #: omweather/src/weather-settings.c:3974
 msgid "Wind speed units:"
@@ -2201,9 +2210,8 @@ msgstr "ďalšia"
 
 #: omweather/src/weather-simple-settings.c:1354
 #: omweather/src/weather-simple-settings.c:2681
-#, fuzzy
 msgid "nmi"
-msgstr "mi"
+msgstr "nmi"
 
 #: omweather/src/hash.data:251
 msgid "rising"
@@ -2252,80 +2260,3 @@ msgstr "Ю-В"
 #: omweather/src/hash.data:260
 msgid "Ю-З"
 msgstr "Ю-З"
-
-#, fuzzy
-#~ msgid "Speed: "
-#~ msgstr "Rýchlosť:"
-
-#, fuzzy
-#~ msgid "Humidity: "
-#~ msgstr ""
-#~ "\n"
-#~ "Vlhkosť: "
-
-#~ msgid ""
-#~ "\n"
-#~ "Copyright(c) 2006-2010\n"
-#~ "Vlad Vasiliev, Pavel Fialko"
-#~ msgstr ""
-#~ "\n"
-#~ "Copyright(c) 2006-2010\n"
-#~ "Vlad Vasiliev, Pavel Fialko"
-
-#~ msgid ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "Andrew Olmsted\n"
-#~ "for Semi-transparency\n"
-#~ "and coloured backgrounds\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "Andrew Olmsted\n"
-#~ "za priehľadnosť\n"
-#~ "a farebné pozadia\n"
-
-#~ msgid ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "for default icon set (Glance)\n"
-#~ "and design of interface\n"
-#~ "Andrew Zhilin"
-#~ msgstr ""
-#~ "\n"
-#~ "Copyright(c) 2008\n"
-#~ "za predvolenú tému ikon (Glance)\n"
-#~ "a dizajn rozhrania\n"
-#~ "Andrew Zhilin"
-
-#~ msgid ""
-#~ "\n"
-#~ "Hildon desktop applet\n"
-#~ "for Nokia N800/N810/N900\n"
-#~ "to show weather forecasts.\n"
-#~ "Version "
-#~ msgstr ""
-#~ "\n"
-#~ "Widget pracovnej plochy\n"
-#~ "pre Nokie N800/N810/N900\n"
-#~ "zobrazujúci predpoveď počasia.\n"
-#~ "Verzia "
-
-#~ msgid " Build: "
-#~ msgstr " Zostavenie: "
-
-#~ msgid "Configuring station"
-#~ msgstr "Nastavenie stanice"
-
-#~ msgid ""
-#~ "GPS station already exist.\n"
-#~ "Only one station can be received via GPS"
-#~ msgstr ""
-#~ "GPS stanica už existuje.\n"
-#~ "Iba jedna stanica môže byť prijímaná cez GPS."
-
-#~ msgid "s. mi"
-#~ msgstr "s. mi"
-
-#~ msgid "s.mi"
-#~ msgstr "s.mi"

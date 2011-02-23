@@ -1,0 +1,4 @@
+<node name="/org/meego/omweather">
+  <interface name="org.meego.omweather">
+    <method name="reload_config"/>
+</node>

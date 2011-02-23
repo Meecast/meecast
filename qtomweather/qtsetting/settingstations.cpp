@@ -91,4 +91,8 @@ SettingStations::okClicked()
     QDBusMessage message = QDBusMessage::createSignal("/org/meego/omweather",
                                "org.meego.omweather", "reload_config");
     bus.send(message);
+    message = QDBusMessage::createMethodCall("org.meego.omweather","/org/meego/omweather",
+                               "org.meego.omweather", "reload_config");
+    bus.send(message);
+
 }

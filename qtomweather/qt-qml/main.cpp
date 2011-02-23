@@ -52,6 +52,7 @@
 #include "parserqt.h"
 #include "databasesqlite.h"
 #include "abstractconfig.h"
+#include "dbusadaptor.h" 
 
 #include <QtDebug>
 
@@ -163,6 +164,12 @@ int main(int argc, char* argv[])
     std::cerr<<"size "<<StationsList.size()<<std::endl;
     //update_weather_forecast(config);
 
+    new DbusAdaptor(config);
+
+    QDBusConnection connection = QDBusConnection::sessionBus();
+    connection.registerService("org.meego.omweather");
+    connection.registerObject("/org/meego/omweather", config);
+    
     if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 &&
         config->stationsList().at(config->current_station_id()))
         dp = current_data(config->stationsList().at(config->current_station_id())->fileName());

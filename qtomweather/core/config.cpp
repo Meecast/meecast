@@ -181,10 +181,11 @@ namespace Core{
                 _current_station_id = el.text().toInt();
             el = root.firstChildElement("temperature_unit");
             if (!el.isNull())
-                _temperature_unit->assign(el.text().toStdString());
-            el = root.firstChildElement("wind_speed_unit");
+                this->TemperatureUnit(el.text().toStdString());
+//                _temperature_unit->assign(el.text().toStdString());
+           el = root.firstChildElement("wind_speed_unit");
             if (!el.isNull())
-                _temperature_unit->assign(el.text().toStdString());
+                _wind_speed_unit->assign(el.text().toStdString());
 
             nodelist = root.elementsByTagName("station");
             for (int i=0; i<nodelist.count(); i++){
@@ -272,7 +273,11 @@ namespace Core{
     void
     Config::TemperatureUnit(const std::string& text){
         /* ToDo Check access to path */
-        _temperature_unit->assign(text);
+        /* Check parametr */
+         if (text!= std::string("C") && text!= std::string("F") ){
+             _temperature_unit->assign("C");
+         }else
+             _temperature_unit->assign(text);
     }
 ////////////////////////////////////////////////////////////////////////////////
     std::string&
@@ -334,12 +339,17 @@ namespace Core{
             _iconset->assign(nodeText->get_content());
             return;
         }
-        // iconset tag
+        // temperature unit
         if(nodeName == "temperature_unit"){
             xmlpp::Node::NodeList list = node->get_children();
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            /* Temporary fix for bug */
             _temperature_unit->assign(nodeText->get_content());
+            /* Temporary fix for bug */
+            if (_temperature_unit == "m/s"){
+                _temperature_unit->assign("C");
+            }
             return;
         }
         // current station id

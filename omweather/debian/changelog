@@ -1,7 +1,15 @@
+omweather (0.28.12) unstable; urgency=low
+
+  * Fixed segmantation fault 
+  * Updated Spain and Slovak tanslations
+
+ -- Vlad Vasiliev <vlad@gas.by>  Wen, 23 Feb 2011 20:44:20 +0200
+
 omweather (0.28.11) unstable; urgency=low
 
   * Applied patches from Timeless
   * Added new mod Marina from Wazd 
+  * Updated  French, Rissian, Finland, Germany tanslations
 
  -- Vlad Vasiliev <vlad@gas.by>  Sun, 13 Feb 2011 20:44:20 +0200
 

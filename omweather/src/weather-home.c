@@ -1515,6 +1515,7 @@ create_current_weather_simple_widget(GHashTable *current){
     const gchar     *wind_units_str[] = { "m/s", "km/h", "mi/h" };
     float           tmp_distance = 0.0f,
                     tmp_pressure = 0.0f;
+    int             l;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -1615,19 +1616,20 @@ create_current_weather_simple_widget(GHashTable *current){
         sprintf(buffer + strlen(buffer), "%s", (char*)hash_table_find(g_hash_table_lookup(current, "wind_direction"), FALSE));
     if (g_hash_table_lookup(current, "wind_speed")){
         if( strcmp(g_hash_table_lookup(current, "wind_speed"), "N/A") ){
+            l = strlen(buffer);
             switch(app->config->wind_units){
                 case BEAUFORT_SCALE:
-                    sprintf(buffer + strlen(buffer), " %i",
+                    snprintf(buffer + l, sizeof(buffer)-l-1, " %i",
                                (int)convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))));
                 break;
                 case KILOMETERS_H:
-                    sprintf(buffer + strlen(buffer), " %i %s",
+                    snprintf(buffer + l, sizeof(buffer)-l-1, " %i %s",
                             (int)convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
                                                 (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
                 break;
                 default:
-                    sprintf(buffer + strlen(buffer), " %i %s", 
-                            convert_wind_units(app->config->wind_units, (int)atof(g_hash_table_lookup(current, "wind_speed"))),
+                    snprintf(buffer + l, sizeof(buffer)-l-1, " %.0f %s", 
+                            convert_wind_units(app->config->wind_units, atof(g_hash_table_lookup(current, "wind_speed"))),
                                                 (char*)hash_table_find((gpointer)wind_units_str[app->config->wind_units], FALSE));
                 break;
             }

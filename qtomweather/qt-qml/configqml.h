@@ -77,6 +77,7 @@ class ConfigQml : public QObject, public Core::Config
     void filenameChanged();
     public Q_SLOTS:
     void reload_config();
+
        };
 
 #endif // CONFIGQML_H

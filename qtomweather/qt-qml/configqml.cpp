@@ -151,9 +151,10 @@ ConfigQml::closeapplication()
    exit (0);
 }
 
+
 void
 ConfigQml::reload_config()
 {
-   exit (0);
+   this->ReLoadConfig();
+   this->refreshconfig();
 }
-

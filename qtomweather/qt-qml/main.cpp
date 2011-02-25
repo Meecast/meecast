@@ -53,6 +53,7 @@
 #include "databasesqlite.h"
 #include "abstractconfig.h"
 #include "dbusadaptor.h" 
+#include "controller.h" 
 
 #include <QtDebug>
 
@@ -63,35 +64,6 @@
 
 
 
-ConfigQml *
-create_and_fill_config(){
-    ConfigQml *config;
-
-    std::cerr<<"Create Config class: " << Core::AbstractConfig::prefix+
-                               Core::AbstractConfig::schemaPath+
-                               "config.xsd"<< std::endl;
-    try{
-        config = new ConfigQml(Core::AbstractConfig::getConfigPath()+
-                               "config.xml",
-                               Core::AbstractConfig::prefix+
-                               Core::AbstractConfig::schemaPath+
-                               "config.xsd");
-        std::cerr << config->stationsList().size() << std::endl;
-    }
-    catch(const std::string &str){
-        std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config = new ConfigQml();
-    }
-    catch(const char *str){
-        std::cerr<<"Error in Config class: "<< str <<std::endl;
-        config = new ConfigQml();
-    }
-    //std::cerr<<"End of creating Config class: " <<std::endl;
-    config->saveConfig();
-    std::cerr<<"End of creating Config class: " <<std::endl;
-
-    return config;
-}
 //////////////////////////////////////////////////////////////////////////////
 bool
 update_weather_forecast(Core::Config *config){
@@ -150,27 +122,34 @@ int main(int argc, char* argv[])
     //Add the QML snippet into the layout
 
     ConfigQml *config;
+    Controller *controller;
     DataItem *forecast_data = NULL;
 
     Core::DataParser* dp = NULL;
     Core::Data *temp_data = NULL;
     int i = 0;
 
-    std::vector<Core::Station*> StationsList;
 
-    config = create_and_fill_config();
-    std::cerr<<"iconpath = "<<config->prefix_path()<<std::endl;
-    StationsList = config->stationsList();
-    std::cerr<<"size "<<StationsList.size()<<std::endl;
-    //update_weather_forecast(config);
+    QTranslator translator;
+    translator.load("ru.qml", "i18n");
+    app.installTranslator(&translator);
 
-    new DbusAdaptor(config);
+    controller = new Controller(); 
+    new DbusAdaptor(controller);
+//    new DbusAdaptor(config);
 
     QDBusConnection connection = QDBusConnection::sessionBus();
     connection.registerService("org.meego.omweather");
-    connection.registerObject("/org/meego/omweather", config);
+    connection.registerObject("/org/meego/omweather", controller);
+//    connection.registerObject("/org/meego/omweather", config);
     
-    if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 &&
+
+
+    config = controller->config();
+    std::cerr<<"iconpath = "<<config->prefix_path()<<std::endl;
+    //update_weather_forecast(config);
+    
+        if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 &&
         config->stationsList().at(config->current_station_id()))
         dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
     DataModel *model = new DataModel(new DataItem, qApp);
@@ -200,42 +179,11 @@ int main(int argc, char* argv[])
         model->appendRow(forecast_data);
 
     }
-
-
-    QTranslator translator;
-    translator.load("ru.qml", "i18n");
-    app.installTranslator(&translator);
-
     QDeclarativeView qview;
-
-    //qview.setResizeMode(QDeclarativeView::SizeRootObjectToView);
-    /*
-    if (forecast_data){
-        qview.rootContext()->setContextProperty("Forecast", forecast_data);
-    }*/
-    //std::cout << "temp = " << model->getRow(2) << std::endl;
-    //qview.setGeometry(100, 100, 200, 200);
     qview.rootContext()->setContextProperty("Forecast_model", model);
     qview.rootContext()->setContextProperty("Config", config);
     qview.setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::layoutqml)));
     qview.show();
-
-/*
-    qml_layout_item = new QmlLayoutItem(config, forecast_data);
-    layout->addItem(&qml_layout_item->obj(),0,0);
-
-    forecast_data =  create_and_fill_class_data_for_day_forecast();
-    qml_layout_item = new QmlLayoutItem(config, forecast_data);
-    layout->addItem(&qml_layout_item->obj(),0,1);
-
-
-
-    widget->setGeometry(QRectF(0,0, 800,400));
-
-
-
-    view.show();
-*/
 
     return app.exec();
 }

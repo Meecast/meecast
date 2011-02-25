@@ -28,6 +28,7 @@
 /*******************************************************************************/
 #include "core.h"
 #include <QObject>
+#include <QDeclarativeView>
 #include "configqml.h"
 
 #ifndef CONTROLLER_H
@@ -37,9 +38,11 @@ class Controller : public QObject
 {
     Q_OBJECT
     ConfigQml *_config;
+    QDeclarativeView *_qview;
     public:
     Controller();
     ConfigQml* config();
+    QDeclarativeView *qview();
     virtual ~Controller(){};
     public Q_SLOTS:
     void reload_config();

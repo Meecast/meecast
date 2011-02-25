@@ -153,7 +153,6 @@ int main(int argc, char* argv[])
         config->stationsList().at(config->current_station_id()))
         dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
     DataModel *model = new DataModel(new DataItem, qApp);
-
     /* set current day */ 
     current_day = time(NULL);
     tm = localtime(&current_day);
@@ -179,11 +178,12 @@ int main(int argc, char* argv[])
         model->appendRow(forecast_data);
 
     }
-    QDeclarativeView qview;
-    qview.rootContext()->setContextProperty("Forecast_model", model);
-    qview.rootContext()->setContextProperty("Config", config);
-    qview.setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::layoutqml)));
-    qview.show();
+    QDeclarativeView *qview;
+    qview = controller->qview();
+    qview->rootContext()->setContextProperty("Forecast_model", model);
+    qview->rootContext()->setContextProperty("Config", config);
+    qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::layoutqml)));
+    qview->show();
 
     return app.exec();
 }

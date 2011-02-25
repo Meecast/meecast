@@ -62,12 +62,19 @@ create_and_fill_config(){
 Controller::Controller() : QObject()
 {
   _config = create_and_fill_config();   
+  _qview = new QDeclarativeView();
 }
 /*
 Controller:: ~Controller()
 {
 }
 */
+QDeclarativeView* 
+Controller::qview()
+{
+    return _qview;
+}
+
 void
 Controller::reload_config()
 {

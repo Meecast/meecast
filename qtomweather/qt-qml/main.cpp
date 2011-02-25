@@ -149,7 +149,7 @@ int main(int argc, char* argv[])
     std::cerr<<"iconpath = "<<config->prefix_path()<<std::endl;
     //update_weather_forecast(config);
     
-        if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 &&
+    if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 &&
         config->stationsList().at(config->current_station_id()))
         dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
     DataModel *model = new DataModel(new DataItem, qApp);
@@ -181,7 +181,7 @@ int main(int argc, char* argv[])
     QDeclarativeView *qview;
     qview = controller->qview();
     qview->rootContext()->setContextProperty("Forecast_model", model);
-    qview->rootContext()->setContextProperty("Config", config);
+    //qview->rootContext()->setContextProperty("Config", config);
     qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::layoutqml)));
     qview->show();
 

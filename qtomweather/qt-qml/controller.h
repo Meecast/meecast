@@ -29,6 +29,7 @@
 #include "core.h"
 #include <QObject>
 #include <QDeclarativeView>
+#include <QDeclarativeContext>
 #include "configqml.h"
 
 #ifndef CONTROLLER_H

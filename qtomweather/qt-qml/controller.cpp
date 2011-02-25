@@ -63,6 +63,7 @@ Controller::Controller() : QObject()
 {
   _config = create_and_fill_config();   
   _qview = new QDeclarativeView();
+  _qview->rootContext()->setContextProperty("Config", _config);
 }
 /*
 Controller:: ~Controller()
@@ -78,7 +79,11 @@ Controller::qview()
 void
 Controller::reload_config()
 {
-   exit (0);
+   std::cout<<"Reload";
+  delete _config;
+  _config = create_and_fill_config();   
+  _qview->rootContext()->setContextProperty("Config", _config);
+   //exit (0);
 }
 
 ConfigQml*

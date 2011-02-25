@@ -40,6 +40,8 @@ class Controller : public QObject
     Q_OBJECT
     ConfigQml *_config;
     QDeclarativeView *_qview;
+    Core::DataParser *_dp;
+    DataModel *_model; 
     public:
     Controller();
     ConfigQml* config();
@@ -47,6 +49,8 @@ class Controller : public QObject
     virtual ~Controller(){};
     public Q_SLOTS:
     void reload_config();
+    void load_config();
+    void load_data();
 
 };
 

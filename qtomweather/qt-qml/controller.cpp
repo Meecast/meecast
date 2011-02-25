@@ -26,8 +26,6 @@
  * 02110-1301 USA
 */
 /*******************************************************************************/
-
-
 #include "controller.h"
 ConfigQml *
 create_and_fill_config(){
@@ -59,17 +57,31 @@ create_and_fill_config(){
     return config;
 }
 
+Core::DataParser*
+current_data(std::string& str){
+  Core::DataParser* dp;
+  try{
+        dp = new Core::DataParser(str, Core::AbstractConfig::prefix+Core::AbstractConfig::schemaPath+"data.xsd");
+    }
+    catch(const std::string &str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return NULL;
+    }
+    catch(const char *str){
+        std::cerr<<"Error in DataParser class: "<< str <<std::endl;
+        return NULL;
+    }
+    return dp;
+}
+
+
 Controller::Controller() : QObject()
 {
-  _config = create_and_fill_config();   
   _qview = new QDeclarativeView();
-  _qview->rootContext()->setContextProperty("Config", _config);
+  this->load_config();
+  this->load_data();
 }
-/*
-Controller:: ~Controller()
-{
-}
-*/
+
 QDeclarativeView* 
 Controller::qview()
 {
@@ -77,13 +89,62 @@ Controller::qview()
 }
 
 void
-Controller::reload_config()
+Controller::load_data()
 {
-   std::cout<<"Reload";
-  delete _config;
+  time_t current_day;
+  struct tm   *tm = NULL;
+  int year, current_month;
+  DataItem *forecast_data = NULL;
+  Core::Data *temp_data = NULL;
+  int i = 0;
+
+  std::cout<<"Data";
+  if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0 &&
+        _config->stationsList().at(_config->current_station_id()))
+        _dp = current_data(_config->stationsList().at(_config->current_station_id())->fileName());
+  _model = new DataModel(new DataItem, qApp);
+  /* set current day */ 
+  current_day = time(NULL);
+  tm = localtime(&current_day);
+  year = 1900 + tm->tm_year;
+  current_month = tm->tm_mon;
+  tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+  tm->tm_isdst = 1;
+  current_day = mktime(tm);
+  /* fill current date */
+  if  (_dp != NULL && (temp_data = _dp->data().GetDataForTime(time(NULL) + i))) {
+      forecast_data = new DataItem(temp_data);
+      forecast_data->Text(_(forecast_data->Text().c_str()));
+      _model->appendRow(forecast_data);
+  }
+
+  /* set next day */
+  i = 3600*24;
+  /* fill other days */
+  while  (_dp != NULL && (temp_data = _dp->data().GetDataForTime( current_day + 12 * 3600  + i))) {
+      i = i + 3600*24;
+      forecast_data = new DataItem(temp_data);
+      forecast_data->Text(_(forecast_data->Text().c_str()));
+      _model->appendRow(forecast_data);
+  }
+  _qview->rootContext()->setContextProperty("Forecast_model", _model);
+}
+
+void
+Controller::load_config()
+{
+   std::cout<<"Load";
   _config = create_and_fill_config();   
   _qview->rootContext()->setContextProperty("Config", _config);
-   //exit (0);
+}
+void
+Controller::reload_config()
+{
+  std::cout<<"Reload";
+  delete _config;
+  this->load_config();
+  delete _model;
+  this->load_data();
 }
 
 ConfigQml*

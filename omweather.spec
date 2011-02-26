@@ -9,7 +9,7 @@
 
 Name:       omweather
 Summary:    Weather for Meego
-Version:    0.3.7
+Version:    0.3.9
 Release:    1
 Group:      Applications/Internet
 License:    GPLv2.1
@@ -32,7 +32,7 @@ BuildRequires:  desktop-file-utils
 
 
 %description
-Weather Forecast on Nokia N900. Ultra-customisable weather widget for showing forecast the way you want.
+Weather Forecast on Meego.
 
 
 
@@ -104,6 +104,13 @@ desktop-file-install --delete-original       \
 /usr/share/dbus-1/services
 %endif
 %changelog
+* Sat Feb 26 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.9
+  * Fixed problem with Temperature unit
+  * Improvements in config and QML window
+* Mon Feb 21 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.8
+  * Fixed problem with time for forecast.
+  * Fixed QML forms
+  * Added Night box for detail window
 * Fri Feb 19 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.7
   * Added transaltion for wind and forecast's description
 * Fri Feb 19 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.6

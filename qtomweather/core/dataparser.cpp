@@ -102,7 +102,7 @@ namespace Core {
                 }else if (tag == "flike"){
                     forecast_data->Flike().value(el.text().toFloat());
                 }else if (tag == "pressure"){
-                    forecast_data->Pressure(el.text().toInt());
+                    forecast_data->Pressure(el.text().toFloat());
                 }else if (tag == "ppcp")
                     forecast_data->Ppcp(el.text().toFloat());
 

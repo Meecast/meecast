@@ -556,14 +556,17 @@ make_bottom_content(Core::Data *temp_data) {
   hbox_layout = clutter_box_layout_new();
   hbox = clutter_box_new(hbox_layout);
 
-
+  /* Added day or current weather foreacast */
   box   =  make_forecast_detail_box(temp_data);
   clutter_box_pack((ClutterBox*)hbox, box, NULL);
 
-  temp_data = dp->data().GetDataForTime(temp_data->EndTime() + 3600);
-  if (temp_data){
-      box =  make_forecast_detail_box(temp_data);
-      clutter_box_pack((ClutterBox*)hbox, box, NULL);
+  /* added night weather forecast */ 
+  if (!temp_data->Current()){
+      temp_data = dp->data().GetDataForTime(temp_data->EndTime() + 3600);
+      if (temp_data){
+          box =  make_forecast_detail_box(temp_data);
+          clutter_box_pack((ClutterBox*)hbox, box, NULL);
+      }
   }
 
   clutter_box_pack((ClutterBox*)bottom_container, hbox, NULL);
@@ -780,8 +783,6 @@ main (int argc, char *argv[])
 
   //update_weather_forecast(config);
   make_window_content (MPL_PANEL_CLUTTER (panel));
-  file = fopen("/tmp/1.log","ab");
-  fclose(file);
   dbus_init();
   clutter_threads_enter();
   clutter_main ();

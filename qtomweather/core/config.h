@@ -56,6 +56,8 @@ namespace Core{
             Config(const Config& config);
             Config& operator=(const Config& config);
             virtual ~Config();
+            void LoadConfig();
+            void ReLoadConfig();
             std::string& prefix_path(void);
             void iconSet(const std::string& text);
             std::string& iconSet(void);

@@ -243,8 +243,8 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
-    Data::Pressure(int pressure){
-        _pressure = pressure;
+    Data::Pressure(float pressure){
+        _pressure =(int)pressure;
     }
 
     int

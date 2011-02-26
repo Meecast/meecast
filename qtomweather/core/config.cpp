@@ -48,6 +48,7 @@ namespace Core{
         path += "config.xml";
         _filename = new std::string(path);
     }
+////////////////////////////////////////////////////////////////////////////////
     void
     Config::saveConfig()
     {
@@ -146,6 +147,7 @@ namespace Core{
         file.close();
         #endif
     }
+////////////////////////////////////////////////////////////////////////////////
     Config::Config(const std::string& filename, const std::string& schema_filename)
                         : Parser(filename, schema_filename){
         _filename = new std::string;
@@ -157,7 +159,17 @@ namespace Core{
         _font_color = new std::string("#00ff00");
         _stations = new StationsList;
         _current_station_id = INT_MAX;
-        #ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
+        this->LoadConfig();
+    }
+////////////////////////////////////////////////////////////////////////////////
+    void
+    Config::ReLoadConfig(){
+        this->LoadConfig();
+    }
+////////////////////////////////////////////////////////////////////////////////
+    void
+    Config::LoadConfig(){
+#ifdef LIBXMLCPP_EXCEPTIONS_ENABLED
         try{
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
         #ifdef LIBXML
@@ -182,8 +194,7 @@ namespace Core{
             el = root.firstChildElement("temperature_unit");
             if (!el.isNull())
                 this->TemperatureUnit(el.text().toStdString());
-//                _temperature_unit->assign(el.text().toStdString());
-           el = root.firstChildElement("wind_speed_unit");
+            el = root.firstChildElement("wind_speed_unit");
             if (!el.isNull())
                 _wind_speed_unit->assign(el.text().toStdString());
 
@@ -237,6 +248,7 @@ namespace Core{
             throw(ex.what());
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
+
     }
 ////////////////////////////////////////////////////////////////////////////////
     Config::~Config(){

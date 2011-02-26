@@ -90,7 +90,7 @@ namespace Core{
             Temperature& temperature_hi();
             Temperature& temperature_low();
             Temperature& Flike();
-            void  Pressure(int pressure);
+            void  Pressure(float pressure);
             int Pressure(void) const;
             void  Ppcp(float ppcp);
             float Ppcp(void) const;

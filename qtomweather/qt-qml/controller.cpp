@@ -78,6 +78,7 @@ current_data(std::string& str){
 Controller::Controller() : QObject()
 {
   _qview = new QDeclarativeView();
+  _dp = NULL;
   this->load_config();
   this->load_data();
 }
@@ -97,7 +98,10 @@ Controller::load_data()
   DataItem *forecast_data = NULL;
   Core::Data *temp_data = NULL;
   int i = 0;
-
+  
+  if (_dp)
+      delete _dp;
+  _dp = NULL;
   std::cout<<"Data";
   if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0 &&
         _config->stationsList().at(_config->current_station_id()))

@@ -315,7 +315,9 @@ make_bottom_content_about() {
 				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
   
   label = clutter_text_new();
-  about_text = _("Weather forecast for the Meego. Version 0.3.\n");
+  about_text = _("Weather forecast for the Meego. Version ");
+  about_text += OMWEATHER_VERSION;
+  about_text += ".\n";
   about_text += _("Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n");
   about_text += _("Maintenance: Pavel Fialko, <pavelnf@gmail.com>\nTanya Makova, <tanyshk@gmail.com>\n");
   about_text += _("Design UI and default iconset: Andrew Zhilin, <az@pocketpcrussia.com>\n");

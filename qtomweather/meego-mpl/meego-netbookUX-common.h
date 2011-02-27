@@ -25,7 +25,7 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA
 */
-#define OMWEATHER_VERSION 0.3.10
+#define OMWEATHER_VERSION "0.3.10"
 #include "core.h"
 //work around compile issue with glib >= 2.25
 #ifdef signals

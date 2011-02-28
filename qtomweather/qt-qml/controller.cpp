@@ -83,6 +83,12 @@ Controller::Controller() : QObject()
   this->load_data();
 }
 
+Controller::~Controller()
+{
+  if (_dp) 
+      delete _dp;
+}
+
 QDeclarativeView* 
 Controller::qview()
 {

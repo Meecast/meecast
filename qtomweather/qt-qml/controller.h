@@ -46,7 +46,7 @@ class Controller : public QObject
     Controller();
     ConfigQml* config();
     QDeclarativeView *qview();
-    virtual ~Controller(){};
+    virtual ~Controller();
     public Q_SLOTS:
     void reload_config();
     void load_config();

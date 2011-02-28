@@ -9,3 +9,4 @@ make
 
 export LD_LIBRARY_PATH=$PWD/../core:$LD_LIBRARY_PATH
 ./omweather-qml
+#valgrind --leak-check=summary --log-file=/tmp/1.log ./omweather-qml

@@ -109,13 +109,11 @@ int main(int argc, char* argv[])
     app.installTranslator(&translator);
 
     controller = new Controller(); 
-    new DbusAdaptor(controller);
-//    new DbusAdaptor(config);
+    DbusAdaptor* dadapt = new DbusAdaptor(controller);
 
     QDBusConnection connection = QDBusConnection::sessionBus();
     connection.registerService("org.meego.omweather");
     connection.registerObject("/org/meego/omweather", controller);
-//    connection.registerObject("/org/meego/omweather", config);
     
 
 
@@ -129,6 +127,9 @@ int main(int argc, char* argv[])
     //qview->rootContext()->setContextProperty("Config", config);
     qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::layoutqml)));
     qview->show();
-
+    
+    delete dadapt;
+    delete controller;
     return app.exec();
+   
 }

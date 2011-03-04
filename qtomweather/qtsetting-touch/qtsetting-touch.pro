@@ -12,3 +12,7 @@ SOURCES += main.cpp
 #HEADERS  += mainwindow.h
 
 CONFIG += meegotouch
+
+INCLUDEPATH += ../core
+LIBS += -L ../core -lomweather-core
+

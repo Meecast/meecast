@@ -40,7 +40,7 @@
     </message>
     <message>
         <location filename="ui_setting.h" line="158"/>
-        <source>Cansel</source>
+        <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

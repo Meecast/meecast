@@ -25,7 +25,7 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
-#include "main.h"
+#include "meego-main.h"
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
@@ -34,96 +34,6 @@
 #define NIGHT 2
 #define MORNING 3
 #define EVENING 4
-/*******************************************************************************/
-gint
-get_station_weather_data(const gchar *station_id_with_path, GHashTable *data,
-                                                    gboolean get_detail_data){
-    htmlDocPtr doc = NULL;
-    xmlNode    *root_node = NULL;
-    gint       days_number = -1;
-    gchar      buffer[1024],
-               *delimiter = NULL;
-    FILE       *source_file = NULL, *destination_file = NULL;
-    wint_t wc = 0;
-#ifdef DEBUGFUNCTIONCALL
-    START_FUNCTION;
-#endif
-    
-    if(!station_id_with_path || !data)
-        return -1;
-/* check for new file, if it exist, than rename it */
-    *buffer = 0;
-    snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);
-    if(!access(buffer, R_OK)){
-      source_file = fopen(buffer,"r");
-      destination_file = fopen(station_id_with_path, "w");
-      /* Correct problem with symbol '&' in html file */
-      if (source_file && destination_file){
-          while((wc = fgetwc(source_file))!=WEOF){
-              if (wc == '\n'|| wc == '\r'){
-                fputwc(' ',destination_file);
-                continue;
-              }
-              if (wc == '&'){
-                fputwc('&',destination_file);
-                fputwc('a',destination_file);
-                fputwc('m',destination_file);
-                fputwc('p',destination_file);
-                fputwc(';',destination_file);
-              }else
-                fputwc(wc, destination_file);
-          }
-          fclose(source_file);
-          fclose(destination_file);
-          unlink(buffer);
-      }else
-        return -1;
-    }
-    /* check file accessability */
-    if(!access(station_id_with_path, R_OK)){
-        /* check that the file containe valid data */
-        doc =  htmlReadFile(station_id_with_path, "UTF-8", 0);
-        if(!doc)
-            return -1;
-        root_node = xmlDocGetRootElement(doc);
-        if (!root_node){
-            xmlFreeDoc(doc);
-            return -1;
-        }
-        /*  htmlDocDump(stdout, doc); */
-        if(root_node->type == XML_ELEMENT_NODE &&
-                strstr((char*)root_node->name, "err")){
-            xmlFreeDoc(doc);
-            xmlCleanupParser();
-            return -2;
-        }
-        else{
-            /* prepare station id */
-            *buffer = 0;
-            delimiter = strrchr(station_id_with_path, '/');
-            if(delimiter){
-                delimiter++; /* delete '/' */
-                snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
-                delimiter = strrchr(buffer, '.');
-                if(!delimiter){
-                    xmlFreeDoc(doc);
-                    xmlCleanupParser();
-                    return -1;
-                }
-                *delimiter = 0;
-                if(get_detail_data)
-                    days_number = parse_xml_detail_data(buffer, doc, data);
-                else
-                    days_number = parse_xml_data(buffer, doc, data);
-            }
-            xmlFreeDoc(doc);
-            xmlCleanupParser();
-        }
-    }
-    else
-        return -1;/* file isn't accessability */
-    return days_number;
-}
 /*******************************************************************************/
 struct tm
 get_data_from_russia_data(gchar *temp_string){
@@ -950,10 +860,9 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
 }
 /*******************************************************************************/
 gint
-parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
+parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *result_file){
     gchar       buff[256],
                 buffer[2048];
-    struct tm   tmp_tm = {0};
     GSList      *forecast = NULL;
     GSList      *tmp = NULL;
     GHashTable  *day = NULL;
@@ -977,6 +886,23 @@ parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
     gchar       *temp_char;
     gint        pressure; 
     gint        speed;
+    
+    struct tm   tmp_tm = {0};
+    struct tm   tm_l = {0};
+    struct tm   tmp_tm2 = {0};
+    struct tm   *tm;
+    time_t      t_start = 0, t_end = 0,
+                t_sunrise = 0, t_sunset = 0,
+                current_time = 0;
+    FILE        *file_out;
+
+
+    file_out = fopen(result_file, "w");
+    if (!file_out)
+        return -1;
+    fprintf(file_out,"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<station name=\"Station name\" id=\"%s\" xmlns=\"http://omweather.garage.maemo.org/schemas\">\n", station_id);
+    fprintf(file_out," <units>\n  <t>C</t>\n  <ws>m/s</ws>\n  <wg>m/s</wg>\n  <d>km</d>\n");
+    fprintf(file_out,"  <h>%%</h>  \n  <p>mmHg</p>\n </units>\n");
 
    hash_for_translate = hash_description_gismeteo_table_create();
    hash_for_icons = hash_icons_gismeteo_table_create();
@@ -1196,9 +1122,11 @@ parse_xml_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data){
   if (xpathCtx)
     xmlXPathFreeContext(xpathCtx); 
 
-  g_hash_table_insert(data, "forecast", (gpointer)forecast);
   g_hash_table_destroy(hash_for_translate);
   g_hash_table_destroy(hash_for_icons);
+
+  fprintf(file_out,"</station>");
+  fclose(file_out);
 
   return size/4;
 }
@@ -1551,3 +1479,110 @@ parse_xml_detail_data(const gchar *station_id, htmlDocPtr doc, GHashTable *data)
     return -1;
 }
 /**************************************************************************/
+gint
+convert_station_gismeteo_data(const gchar *station_id_with_path, const gchar *result_file,  gboolean get_detail_data){
+    xmlDoc  *doc = NULL;
+    xmlNode *root_node = NULL;
+    gint    days_number = -1;
+    gchar   buffer[1024],
+            buffer2[1024],
+            *delimiter = NULL;
+    struct stat file_info;
+
+    if(!station_id_with_path)
+        return -1;
+    *buffer = 0;
+    snprintf(buffer, sizeof(buffer) - 1, "%s.new", station_id_with_path);
+    /* check file accessability */
+    if(!access(buffer, R_OK))
+        if ((lstat(buffer, &file_info) == 0) && (file_info.st_size > 0)){ 
+            /* check that the file containe valid data */
+            doc = xmlReadFile(buffer, NULL, 0);
+            if(doc){
+                root_node = xmlDocGetRootElement(doc);
+                if(root_node->type == XML_ELEMENT_NODE &&
+                        strstr((char*)root_node->name, "err")){
+                    xmlFreeDoc(doc);
+                    xmlCleanupParser();
+                }else{
+                    /* prepare station id */
+                    *buffer2 = 0;
+                    delimiter = strrchr(buffer, '/');
+                    if(delimiter){
+                        delimiter++; /* delete '/' */
+                        snprintf(buffer2, sizeof(buffer2) - 1, "%s", delimiter);
+                        delimiter = strrchr(buffer2, '.');
+                        if (delimiter)
+                            *delimiter = 0;
+                        delimiter = strrchr(buffer2, '.');
+                        if(!delimiter){
+                            xmlFreeDoc(doc);
+                            xmlCleanupParser();
+                        }else{
+                            *delimiter = 0;
+                            //if(get_detail_data)
+                            //    days_number = parse_xml_detail_data(buffer2, root_node, data);
+                            //else
+                                days_number = parse_and_write_xml_data(buffer2, doc, result_file);
+                            rename(buffer, station_id_with_path);
+                            xmlFreeDoc(doc);
+                            xmlCleanupParser();
+                            return days_number;
+                        }
+                    }
+               }
+            }else
+                doc = NULL;
+        }
+    /* check file accessability */
+    if(!access(station_id_with_path, R_OK)){
+        /* check that the file containe valid data */
+        doc = xmlReadFile(station_id_with_path, NULL, 0);
+        if(!doc)
+            return -1;
+        root_node = xmlDocGetRootElement(doc);
+        if(root_node->type == XML_ELEMENT_NODE &&
+                strstr((char*)root_node->name, "err")){
+            xmlFreeDoc(doc);
+            xmlCleanupParser();
+            return -2;
+        }
+        else{
+            /* prepare station id */
+            *buffer = 0;
+            delimiter = strrchr(station_id_with_path, '/');
+            if(delimiter){
+                delimiter++; /* delete '/' */
+                snprintf(buffer, sizeof(buffer) - 1, "%s", delimiter);
+                delimiter = strrchr(buffer, '.');
+                if(!delimiter){
+                    xmlFreeDoc(doc);
+                    xmlCleanupParser();
+                    return -1;
+                }
+                *delimiter = 0;
+//                if(get_detail_data)
+//                    days_number = parse_xml_detail_data(buffer, root_node, data);
+//                else
+                    days_number = parse_and_write_xml_data(buffer, doc, result_file);
+            }
+            xmlFreeDoc(doc);
+            xmlCleanupParser();
+            return days_number;
+        }
+    }
+    else
+        return -1;/* file isn't accessability */
+}
+
+int
+main(int argc, char *argv[]){
+    int result; 
+    if (argc != 3) {
+        fprintf(stderr, "gismeteoru <input_file> <output_file>\n");
+        return -1;
+    }
+    result = convert_station_gismeteo_data(argv[1], argv[2], FALSE);
+    fprintf(stderr, "\nresult = %d\n", result);
+    return result;
+}

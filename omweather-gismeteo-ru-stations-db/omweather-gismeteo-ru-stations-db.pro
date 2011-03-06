@@ -10,10 +10,11 @@ TEMPLATE = app
 
 
 
-HEADERS += src/meego-main.h
+HEADERS += src/meego-main.h \
+           src/hash.h
 
-SOURCES += src/meego-main.c
-
+SOURCES += src/meego-main.c \
+           src/hash.c
 
 FORMS    +=
 

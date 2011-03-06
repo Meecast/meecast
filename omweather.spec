@@ -9,7 +9,7 @@
 
 Name:       omweather
 Summary:    Weather for Meego
-Version:    0.3.9
+Version:    0.3.10
 Release:    1
 Group:      Applications/Internet
 License:    GPLv2.1
@@ -104,6 +104,9 @@ desktop-file-install --delete-original       \
 /usr/share/dbus-1/services
 %endif
 %changelog
+* Sat Mar 5 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.10
+  * Fixed spelling mistake
+  * Changed default icon to N/A in meego panel
 * Sat Feb 26 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.9
   * Fixed problem with Temperature unit
   * Improvements in config and QML window

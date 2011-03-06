@@ -43,6 +43,7 @@
     g_hash_table_insert(hash, "Пасмурно, туман", "Mostly Cloudy, Fog");
     g_hash_table_insert(hash, "Пасмурно, туман, изморозь", "Mostly Cloudy, Fog, Drizzle");
     g_hash_table_insert(hash, "Пасмурно, сильный дождь", "Mostly Cloudy, Heavy Rain");
+    g_hash_table_insert(hash, "Пасмурно, сильный дождь, гроза", "Mostly Cloudy, Heavy Rain, T-Storm");
     g_hash_table_insert(hash, "Пасмурно, сильный снег", "Mostly Cloudy, Heavy Snow");
     g_hash_table_insert(hash, "Пасмурно, сильный снег, град", "Mostly Cloudy, Heavy Snow, Freezing Rain");
     g_hash_table_insert(hash, "Облачно", "Cloudy");
@@ -55,6 +56,7 @@
     g_hash_table_insert(hash, "Облачно, небольшой снег", "Cloudy, Few Snow");
     g_hash_table_insert(hash, "Облачно, поземок", "Cloudy, Drifting Snow");
     g_hash_table_insert(hash, "Облачно,  снег", "Cloudy, Snow");
+    g_hash_table_insert(hash, "Облачно, сильный дождь, гроза", "Cloudy, Heavy Rain, T-Storm");
     g_hash_table_insert(hash, "Облачно, сильный снег", "Cloudy, Heavy Snow");
     g_hash_table_insert(hash, "Ясно", "Clear");
     g_hash_table_insert(hash, "Ясно, дымка", "Clear, Smoke");

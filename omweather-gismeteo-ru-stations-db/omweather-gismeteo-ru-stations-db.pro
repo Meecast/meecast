@@ -31,7 +31,7 @@ db.path = /usr/share/omweather/db/
 icon.files = data/gismeteo.ru.png
 icon.path = /usr/share/omweather/copyright_icons/
 
-source.files = data/gismeteo.ru.xml
+source.files = data/gismeteom.ru.xml
 source.path = /usr/share/omweather/sources/
 
 #install

@@ -886,7 +886,13 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
     gchar       *temp_char;
     gint        pressure; 
     gint        speed;
-    
+
+    double      time_diff = 0;
+    time_t      loc_time;
+    time_t      utc_time;
+    gint        location_timezone = 0;
+    gboolean timezone_flag = FALSE;
+    struct tm   tmp_tm_loc = {0};
     struct tm   tmp_tm = {0};
     struct tm   tm_l = {0};
     struct tm   tmp_tm2 = {0};
@@ -949,6 +955,21 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
   /* fprintf(stderr, "Result (%d nodes):\n", size); */
   for(i = 0; i < size; ++i) {
       day = NULL;
+      if(!timezone_flag){
+          utc_time = mktime(&tmp_tm);
+          temp_char = strstr(nodes->nodeTab[i]->children->content, "Local: ");
+          if (temp_char && strlen(temp_char) > 8)
+              temp_char = temp_char + 7;
+           tmp_tm_loc = get_date_for_hour_weather(temp_char);
+           loc_time = mktime(&tmp_tm_loc);
+           time_diff = difftime(loc_time, utc_time);
+           if(time_diff)
+               timezone_flag = TRUE;
+           location_timezone = (gint)time_diff/3600;
+           /* fprintf(stderr, "\nTimezone %i\n", location_timezone); */
+           fprintf(file_out,"  <timezone>%i</timezone>\n", location_timezone);
+      }
+
       /* Take UTC time: */
       if (!nodes->nodeTab[i]->children->content)
           continue;
@@ -957,13 +978,11 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
               temp_char = temp_char +5;
 
       tmp_tm = get_date_for_hour_weather(temp_char);
-      memset(buff, 0, sizeof(buff));
-      setlocale(LC_TIME, "POSIX");
-      strftime(buff, sizeof(buff) - 1, "%b %d", &tmp_tm);
-      setlocale(LC_TIME, "");
-      tmp = forecast;
-      flag = FALSE;
-      night_flag = FALSE;
+      utc_time = mktime(&tmp_tm);
+      fprintf(file_out,"    <period start=\"%li\"", utc_time);
+      fprintf(file_out," end=\"%li\">\n", utc_time + 6*3600); 
+
+#if 0
       /* Check Day and Night */
       if (xpathObj2 && !xmlXPathNodeSetIsEmpty(xpathObj2->nodesetval) && xpathObj2->nodesetval->nodeTab[i]->content && (
            !strcmp(xpathObj2->nodesetval->nodeTab[i]->content, "Ночь")||
@@ -985,27 +1004,13 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
           }
           tmp = g_slist_next(tmp);
       }
-      /* added new day to hash */
-      if (!flag){
-          day = g_hash_table_new(g_str_hash, g_str_equal);
-          g_hash_table_insert(day, "day_date", g_strdup(buff));
-          strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
-          g_hash_table_insert(day, "day_name", g_strdup(buff));
-          forecast = g_slist_append(forecast,(gpointer)day);
-      }
-     
-      if (day){
+#endif
+ 
          /* added temperature */
          if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
              xpathObj3->nodesetval->nodeTab[i] && xpathObj3->nodesetval->nodeTab[i]->content){
             /* fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
-            if (night_flag){
-                g_hash_table_insert(day, "day_low_temperature", g_strdup(xpathObj3->nodesetval->nodeTab[i]->content));
-                g_hash_table_insert(day, "night_temperature", g_strdup(xpathObj3->nodesetval->nodeTab[i]->content));
-            }else{
-                g_hash_table_insert(day, "day_hi_temperature", g_strdup(xpathObj3->nodesetval->nodeTab[i]->content));
-                g_hash_table_insert(day, "day_temperature", g_strdup(xpathObj3->nodesetval->nodeTab[i]->content));
-            }
+			 fprintf(file_out,"     <temperature>%s</temperature>\n", xpathObj3->nodesetval->nodeTab[i]->content); 
          }
          /* added icon */
          if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) &&
@@ -1013,21 +1018,13 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
             /* fprintf (stderr, "sdfff %s\n", xpathObj4->nodesetval->nodeTab[i]->children->content); */
             temp_char = strrchr((char*)xpathObj4->nodesetval->nodeTab[i]->children->content, '/');
             temp_char ++;
-            if (night_flag)
-                g_hash_table_insert(day, "night_icon", choose_hour_weather_icon(hash_for_icons, temp_char));
-            else
-                g_hash_table_insert(day, "day_icon", choose_hour_weather_icon(hash_for_icons, temp_char));
+			fprintf(file_out,"     <icon>%s</icon>\n",  choose_hour_weather_icon(hash_for_icons, temp_char));
          }
          /* added text */
          if (xpathObj5 && !xmlXPathNodeSetIsEmpty(xpathObj5->nodesetval) &&
              xpathObj5->nodesetval->nodeTab[i] && xpathObj5->nodesetval->nodeTab[i]->content){
             /* fprintf (stderr, "sdfff %s\n", xpathObj5->nodesetval->nodeTab[i]->content); */
-            if (night_flag)
-                g_hash_table_insert(day, "night_title", 
-                                 g_strdup(hash_gismeteo_table_find(hash_for_translate, xpathObj5->nodesetval->nodeTab[i]->content, FALSE)));
-            else
-            g_hash_table_insert(day, "day_title", 
-                                 g_strdup(hash_gismeteo_table_find(hash_for_translate, xpathObj5->nodesetval->nodeTab[i]->content, FALSE)));
+			 fprintf(file_out,"     <description>%s</description>\n", hash_gismeteo_table_find(hash_for_translate, xpathObj5->nodesetval->nodeTab[i]->content, FALSE));
          }
          /* added pressure */
          if (xpathObj6 && !xmlXPathNodeSetIsEmpty(xpathObj6->nodesetval) &&
@@ -1035,12 +1032,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
              xpathObj6->nodesetval->nodeTab[i*5+2] && xpathObj6->nodesetval->nodeTab[i*5+2]->content){
             pressure = atoi((char*)xpathObj6->nodesetval->nodeTab[i*5+2]->content);
             pressure = pressure * 1.333224;
-            snprintf(buffer, sizeof(buffer)-1,"%i", pressure);
-            /* fprintf (stderr, "pressure %s\n", xpathObj6->nodesetval->nodeTab[i*5+2]->content); */ 
-            if (night_flag)
-               g_hash_table_insert(day, "night_pressure", g_strdup(buffer));
-            else
-                g_hash_table_insert(day, "day_pressure", g_strdup(buffer));
+			fprintf(file_out,"     <pressure>%i</pressure>\n", pressure);
          }
          /* added wind speed */
          if (xpathObj7 && !xmlXPathNodeSetIsEmpty(xpathObj7->nodesetval) &&
@@ -1049,11 +1041,7 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
             /* fprintf(stderr, "Wind  speed    \n"); */ 
             speed = atoi (xpathObj7->nodesetval->nodeTab[i]->content);
             speed = speed * 3600/1000;
-            sprintf(buffer, "%i", speed);
-            if (night_flag)
-                g_hash_table_insert(day, "night_wind_speed", g_strdup(buffer));
-            else
-                g_hash_table_insert(day, "day_wind_speed", g_strdup(buffer));
+			fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n",  (double)(speed));
          }
          /* added wind direction */
          if (xpathObj8 && !xmlXPathNodeSetIsEmpty(xpathObj8->nodesetval) &&
@@ -1081,24 +1069,16 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
                   sprintf(buffer,"%s","CALM");
              if (!strcoll(buffer, "Ш"))
                   sprintf(buffer,"%s","CALM");
-
-             if (night_flag)
-                g_hash_table_insert(day, "night_wind_title", g_strdup(buffer));
-             else
-                g_hash_table_insert(day, "day_wind_title", g_strdup(buffer));
+			 fprintf(file_out,"     <wind_direction>%s</wind_direction>\n", buffer);
          }
          /* added humidity */
          if (xpathObj9 && !xmlXPathNodeSetIsEmpty(xpathObj9->nodesetval) &&
              xpathObj9->nodesetval->nodeNr >= (i*5+3) &&
              xpathObj9->nodesetval->nodeTab[i*5+3] && xpathObj9->nodesetval->nodeTab[i*5+3]->content){
             /* fprintf (stderr, "temperature %s\n", xpathObj9->nodesetval->nodeTab[i*5+3]->content); */
-            if (night_flag){
-                g_hash_table_insert(day, "night_humidity", g_strdup(xpathObj9->nodesetval->nodeTab[i*5+3]->content));
-            }else{
-                g_hash_table_insert(day, "day_humidity", g_strdup(xpathObj9->nodesetval->nodeTab[i*5+3]->content));
-            }
+			fprintf(file_out,"     <humidity>%s</humidity>\n", g_strdup(xpathObj9->nodesetval->nodeTab[i*5+3]->content));
          }
-      }
+      fprintf(file_out,"    </period>\n");
   }	
   /* Cleanup */
   if (xpathObj)
@@ -1497,7 +1477,7 @@ convert_station_gismeteo_data(const gchar *station_id_with_path, const gchar *re
     if(!access(buffer, R_OK))
         if ((lstat(buffer, &file_info) == 0) && (file_info.st_size > 0)){ 
             /* check that the file containe valid data */
-            doc = xmlReadFile(buffer, NULL, 0);
+            doc =  htmlReadFile(station_id_with_path, "UTF-8", 0);
             if(doc){
                 root_node = xmlDocGetRootElement(doc);
                 if(root_node->type == XML_ELEMENT_NODE &&
@@ -1537,7 +1517,7 @@ convert_station_gismeteo_data(const gchar *station_id_with_path, const gchar *re
     /* check file accessability */
     if(!access(station_id_with_path, R_OK)){
         /* check that the file containe valid data */
-        doc = xmlReadFile(station_id_with_path, NULL, 0);
+        doc =  htmlReadFile(station_id_with_path, "UTF-8", 0);
         if(!doc)
             return -1;
         root_node = xmlDocGetRootElement(doc);
@@ -1560,6 +1540,7 @@ convert_station_gismeteo_data(const gchar *station_id_with_path, const gchar *re
                     xmlCleanupParser();
                     return -1;
                 }
+
                 *delimiter = 0;
 //                if(get_detail_data)
 //                    days_number = parse_xml_detail_data(buffer, root_node, data);

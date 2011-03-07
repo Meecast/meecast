@@ -1,5 +1,5 @@
-#ifndef MAINPAGE_H
-#define MAINPAGE_H
+#ifndef STATIONPAGE_H
+#define STATIONPAGE_H
 
 #include <MApplicationPage>
 #include <MLabel>
@@ -8,22 +8,20 @@
 #include <QGraphicsLinearLayout>
 #include <MSceneManager>
 #include "core.h"
+#include "mainpage.h"
 
-#include "stationpage.h"
-
-class MainPage : public MApplicationPage
+class StationPage : public MApplicationPage
 {
     Q_OBJECT
 public:
-    MainPage(QGraphicsItem *parent = 0);
-    virtual ~MainPage();
+    StationPage(QGraphicsItem *parent = 0);
 
 protected:
     virtual void createContent();
+signals:
 
-private slots:
-    void addClicked();
+public slots:
 
 };
 
-#endif // MAINPAGE_H
+#endif // STATIONPAGE_H

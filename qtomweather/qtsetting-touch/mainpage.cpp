@@ -1,9 +1,15 @@
 #include "mainpage.h"
 
-MainPage::MainPage(QObject *parent) :
+MainPage::MainPage(QGraphicsItem *parent) :
     MApplicationPage(parent)
 {
     setTitle("Settings");
+}
+MainPage::~MainPage()
+{
+}
+void MainPage::createContent()
+{
 
     MComboBox *combo = new MComboBox();
     combo->setTitle("Stations");
@@ -60,4 +66,13 @@ MainPage::MainPage(QObject *parent) :
     temperature_combo->addItem("F");
 
     layout->addItem(temperature_combo);
+
+    connect(addbutton, SIGNAL(clicked()),
+            this, SLOT(addClicked()));
+}
+
+void addClicked()
+{
+    StationPage *stationPage = new StationPage();
+    stationPage->appear(scene(), MSceneWindow::DestroyWhenDismissed);
 }

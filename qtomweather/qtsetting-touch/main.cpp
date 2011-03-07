@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 
     MainPage *mainPage = new MainPage();
 
-    mainPage.appear(&window);
+    mainPage->appear(&window);
 
     window.show();
 

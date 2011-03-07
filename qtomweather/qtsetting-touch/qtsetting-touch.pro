@@ -8,7 +8,8 @@ TARGET = qtsetting-touch
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    mainpage.cpp
+    mainpage.cpp \
+    stationpage.cpp
 
 #HEADERS  += mainwindow.h
 
@@ -18,4 +19,5 @@ INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core
 
 HEADERS += \
-    mainpage.h
+    mainpage.h \
+    stationpage.h

@@ -7,7 +7,8 @@
 TARGET = qtsetting-touch
 TEMPLATE = app
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    mainpage.cpp
 
 #HEADERS  += mainwindow.h
 
@@ -16,3 +17,5 @@ CONFIG += meegotouch
 INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core
 
+HEADERS += \
+    mainpage.h

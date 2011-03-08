@@ -862,14 +862,15 @@ fill_current_data(xmlNode *root_node, GHashTable *current_weather, GHashTable *d
 gint
 parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *result_file){
     gchar       buff[256],
-                buffer[2048];
+                buffer[buff_size];
+    gchar       temp_buffer[buff_size];
     GSList      *forecast = NULL;
     GSList      *tmp = NULL;
     GHashTable  *day = NULL;
     gboolean    flag;
     gboolean    night_flag;
     gint        size;
-    gint        i;
+    gint        i, j;
     GHashTable *hash_for_translate;
     GHashTable *hash_for_icons;
     xmlXPathContextPtr xpathCtx; 
@@ -1010,7 +1011,13 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
          if (xpathObj3 && !xmlXPathNodeSetIsEmpty(xpathObj3->nodesetval) &&
              xpathObj3->nodesetval->nodeTab[i] && xpathObj3->nodesetval->nodeTab[i]->content){
             /* fprintf (stderr, "temperature %s\n", xpathObj3->nodesetval->nodeTab[i]->content); */
-			 fprintf(file_out,"     <temperature>%s</temperature>\n", xpathObj3->nodesetval->nodeTab[i]->content); 
+             snprintf(buffer, sizeof(buffer)-1,"%s", xpathObj3->nodesetval->nodeTab[i]->content);
+             memset(temp_buffer, 0, sizeof(temp_buffer));
+             for (j = 0 ; (j<(strlen(buffer)) && j < buff_size); j++ ){
+                 if (buffer[j] == '-' || (buffer[j]>='0' && buffer[j]<='9'))
+                     sprintf(temp_buffer,"%s%c",temp_buffer, buffer[j]);
+             }
+			 fprintf(file_out,"     <temperature>%s</temperature>\n", temp_buffer); 
          }
          /* added icon */
          if (xpathObj4 && !xmlXPathNodeSetIsEmpty(xpathObj4->nodesetval) &&

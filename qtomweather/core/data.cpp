@@ -50,6 +50,7 @@ namespace Core {
         _day_of_month_name = new std::string();
         _temperature_hi = new Temperature;
         _temperature_low = new Temperature;
+        _temperature = new Temperature;
         _current = 0;
         _start_time = 0;
         _end_time = 0;
@@ -71,6 +72,7 @@ namespace Core {
         _text = data->_text;
         _temperature_hi = data->_temperature_hi;
         _temperature_low = data->_temperature_low;
+        _temperature = data->_temperature;
         _current = data->_current;
         _start_time = data->_start_time;
         _end_time = data->_end_time;
@@ -227,6 +229,7 @@ namespace Core {
        delete _text;
        delete _temperature_hi;
        delete _temperature_low;
+       delete _temperature;
        delete _flike;
        delete _short_day_name;
        delete _full_day_name;
@@ -240,6 +243,10 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Temperature& Data::temperature_low(){
         return *_temperature_low;
+    }
+////////////////////////////////////////////////////////////////////////////////
+    Temperature& Data::temperature(){
+        return *_temperature;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void

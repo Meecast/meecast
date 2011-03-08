@@ -56,6 +56,7 @@ namespace Core{
         int _icon;
         Temperature *_temperature_hi;
         Temperature *_temperature_low;
+        Temperature *_temperature;
         bool _current;
         float _ppcp;
         public:
@@ -89,6 +90,7 @@ namespace Core{
             virtual ~Data();
             Temperature& temperature_hi();
             Temperature& temperature_low();
+            Temperature& temperature();
             Temperature& Flike();
             void  Pressure(float pressure);
             int Pressure(void) const;

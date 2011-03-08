@@ -250,10 +250,13 @@ make_day_actor(Core::Data *temp_data){
     //clutter_actor_show (icon);
     label = clutter_text_new();
     if (temp_data){
-        if (temp_data->temperature_low().value() != INT_MAX)
+        if (temp_data->temperature_low().value() != INT_MAX && temp_data->temperature_hi().value() != INT_MAX)
             snprintf(buffer, (4096 -1), "%s\n%0.f°%s\n%0.f°%s", temp_data->ShortDayName().c_str(), temp_data->temperature_low().value(), config->TemperatureUnit().c_str(), temp_data->temperature_hi().value(), config->TemperatureUnit().c_str());
-        else
-            snprintf(buffer, (4096 -1), "%s\n%0.f°%s", temp_data->ShortDayName().c_str(), temp_data->temperature_hi().value(), config->TemperatureUnit().c_str());
+        else{
+            if (temp_data->temperature().value() != INT_MAX)
+                snprintf(buffer, (4096 -1), "%s\n%0.f°%s", temp_data->ShortDayName().c_str(),
+                                      temp_data->temperature().value(), config->TemperatureUnit().c_str());
+        }    
     }else
         snprintf(buffer, (4096 -1), "N/A°C\nN/A°C");
 
@@ -436,7 +439,8 @@ make_forecast_detail_box(Core::Data *temp_data){
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
   /* Temperature */ 
-  if (temp_data->temperature_hi().value() != INT_MAX){
+  if (temp_data->temperature_hi().value() != INT_MAX || temp_data->temperature().value() != INT_MAX ||
+      temp_data->temperature_low().value() != INT_MAX ){
     label = clutter_text_new();
     pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
     pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
@@ -444,10 +448,18 @@ make_forecast_detail_box(Core::Data *temp_data){
     ss.str("");
     ss << _("Temperature:");
     ss << " ";
-    if (temp_data->temperature_low().value() != INT_MAX){
-	    ss << temp_data->temperature_low().value() << "°" << config->TemperatureUnit() << " .. ";
+    if (temp_data->temperature_low().value() == INT_MAX && temp_data->temperature_hi().value() == INT_MAX){
+        if (temp_data->temperature().value() != INT_MAX)  
+	        ss << temp_data->temperature().value() << "°" << config->TemperatureUnit();
     }
-    ss << temp_data->temperature_hi().value() << "°" << config->TemperatureUnit();
+
+    if (temp_data->temperature_low().value() != INT_MAX || temp_data->temperature_hi().value() != INT_MAX){
+       if (temp_data->temperature_low().value() != INT_MAX){
+	       ss << temp_data->temperature_low().value() << "°" << config->TemperatureUnit();
+       }
+       ss << " .. "; 
+       ss << temp_data->temperature_hi().value() << "°" << config->TemperatureUnit();
+    }
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
     clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 

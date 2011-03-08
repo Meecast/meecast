@@ -82,7 +82,9 @@ namespace Core {
                 QDomElement el = n.toElement();
                 QString tag = el.tagName();
 
-                if (tag == "temperature" || tag == "temperature_hi"){
+                if (tag == "temperature" ){
+                    forecast_data->temperature().value(el.text().toFloat());
+                }else if (tag == "temperature_hi"){
                     forecast_data->temperature_hi().value(el.text().toFloat());
                 }else if (tag == "temperature_low"){
                     forecast_data->temperature_low().value(el.text().toFloat());
@@ -163,7 +165,7 @@ namespace Core {
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
             /* std::cout<<"temperature "<< nodeText->get_content() <<std::endl; */
-            forecast_data->temperature_hi().value(atof(nodeText->get_content().c_str()));
+            forecast_data->temperature().value(atof(nodeText->get_content().c_str()));
             return;
         }
         // temperature tag

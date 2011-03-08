@@ -1040,7 +1040,6 @@ parse_and_write_xml_data(const gchar *station_id, htmlDocPtr doc, const gchar *r
             /* Normalize speed to km/h from m/s */
             /* fprintf(stderr, "Wind  speed    \n"); */ 
             speed = atoi (xpathObj7->nodesetval->nodeTab[i]->content);
-            speed = speed * 3600/1000;
 			fprintf(file_out,"     <wind_speed>%1.f</wind_speed>\n",  (double)(speed));
          }
          /* added wind direction */
@@ -1171,7 +1170,7 @@ fill_detail_data(htmlDocPtr doc, GHashTable *location, GHashTable *hash_for_icon
    xpathCtx = xmlXPathNewContext(doc);
    if(xpathCtx == NULL) {
         fprintf(stderr,"Error: unable to create new XPath context\n");
-         return(-1);
+         return;
    }
    /* Register namespaces from list (if any) */
    xmlXPathRegisterNs(xpathCtx, (const xmlChar*)"html",

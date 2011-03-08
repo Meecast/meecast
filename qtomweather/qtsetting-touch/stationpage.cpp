@@ -1,3 +1,4 @@
+#include <MSceneManager>
 #include "stationpage.h"
 
 StationPage::StationPage(QGraphicsItem *parent) :
@@ -7,4 +8,7 @@ StationPage::StationPage(QGraphicsItem *parent) :
 }
 void StationPage::createContent()
 {
+    QGraphicsLinearLayout *layout = new QGraphicsLinearLayout(Qt::Vertical);
+    layout->addItem(new MLabel("fdssfdf"));
+    centralWidget()->setLayout(layout);
 }

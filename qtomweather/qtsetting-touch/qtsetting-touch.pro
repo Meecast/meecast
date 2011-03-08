@@ -11,8 +11,6 @@ SOURCES += main.cpp \
     mainpage.cpp \
     stationpage.cpp
 
-#HEADERS  += mainwindow.h
-
 CONFIG += meegotouch
 
 INCLUDEPATH += ../core

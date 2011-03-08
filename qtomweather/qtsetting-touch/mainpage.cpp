@@ -4,6 +4,7 @@ MainPage::MainPage(QGraphicsItem *parent) :
     MApplicationPage(parent)
 {
     setTitle("Settings");
+
 }
 MainPage::~MainPage()
 {
@@ -69,9 +70,10 @@ void MainPage::createContent()
 
     connect(addbutton, SIGNAL(clicked()),
             this, SLOT(addClicked()));
+
 }
 
-void addClicked()
+void MainPage::addClicked()
 {
     StationPage *stationPage = new StationPage();
     stationPage->appear(scene(), MSceneWindow::DestroyWhenDismissed);

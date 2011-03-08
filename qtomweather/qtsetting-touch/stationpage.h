@@ -6,7 +6,7 @@
 #include <MComboBox>
 #include <MButton>
 #include <QGraphicsLinearLayout>
-#include <MSceneManager>
+
 #include "core.h"
 #include "mainpage.h"
 

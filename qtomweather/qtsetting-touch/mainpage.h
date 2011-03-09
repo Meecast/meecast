@@ -17,13 +17,22 @@ class MainPage : public MApplicationPage
 public:
     MainPage();
     virtual ~MainPage();
+    Core::StationsList *_stationlist;
+    Core::Config *_config;
 
 protected:
     virtual void createContent();
 
 private slots:
     void addClicked();
-
+    void delClicked();
+    void saveClicked();
+    void stationChanged(int val);
+    void stationSave();
+private:
+    MComboBox *combo, *temperature_combo;
+    MButton *addbutton, *delbutton;
+    StationPage *stationPage;
 };
 
 #endif // MAINPAGE_H

@@ -11,6 +11,8 @@ SOURCES += main.cpp \
     mainpage.cpp \
     stationpage.cpp
 
+QT += sql
+
 CONFIG += meegotouch
 
 INCLUDEPATH += ../core

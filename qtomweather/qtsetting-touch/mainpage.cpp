@@ -1,10 +1,13 @@
+#include <QtDBus>
 #include "mainpage.h"
 
 MainPage::MainPage() :
     MApplicationPage(0)
 {
     setTitle("Settings");
-
+    stationPage = new StationPage();
+    connect(stationPage, SIGNAL(stationSaved()),
+            this, SLOT(stationSave()));
 }
 MainPage::~MainPage()
 {
@@ -12,17 +15,17 @@ MainPage::~MainPage()
 void MainPage::createContent()
 {
 
-    MComboBox *combo = new MComboBox();
+    combo = new MComboBox();
     combo->setTitle("Stations");
 
-    Core::StationsList *_stationlist = new Core::StationsList;
+    _stationlist = new Core::StationsList;
     std::string configpath = Core::AbstractConfig::getConfigPath();
     configpath += "config.xml";
     std::string schemapath = Core::AbstractConfig::prefix;
     schemapath += Core::AbstractConfig::schemaPath;
     schemapath += "config.xsd";
     //qDebug() << configpath.c_str() << " " << schemapath.c_str();
-    Core::Config *_config;
+    //Core::Config *_config;
     try {
         _config = new Core::Config(configpath, schemapath);
         *_stationlist = _config->stationsList();
@@ -35,11 +38,14 @@ void MainPage::createContent()
         _config = new Core::Config();
     }
 
-    Core::StationsList::iterator cur;
-    for (cur=_stationlist->begin(); cur<_stationlist->end(); cur++){
-        combo->addItem(QString::fromStdString((*cur)->name()));
-
+    for(int i=0; i<_stationlist->size(); i++){
+        combo->addItem(QString::fromStdString(_stationlist->at(i)->name()));
+        combo->setData(i, QString::fromStdString(_stationlist->at(i)->id()));
     }
+
+    //combo->setCurrentIndex(0);
+    connect(combo, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(stationChanged(int)));
 
     //QStringList list;
     //list << "weather.com" << "gismeteo.by";
@@ -52,18 +58,23 @@ void MainPage::createContent()
     centralWidget()->setLayout(layout);
     layout_station->addItem(combo);
 
-    MButton *addbutton = new MButton("Add");
-    MButton *delbutton = new MButton("Delete");
+    addbutton = new MButton("Add");
+    delbutton = new MButton("Delete");
+    delbutton->setEnabled(false);
     layout_btn->addItem(addbutton);
     layout_btn->addItem(delbutton);
 
     layout_station->addItem(layout_btn);
     layout->addItem(layout_station);
 
-    MComboBox *temperature_combo = new MComboBox();
+    temperature_combo = new MComboBox();
     temperature_combo->setTitle("Temperature unit");
     temperature_combo->addItem("C");
     temperature_combo->addItem("F");
+    if (_config->TemperatureUnit().compare("F") == 0)
+        temperature_combo->setCurrentIndex(1);
+    else
+        temperature_combo->setCurrentIndex(0);
 
     layout->addItem(temperature_combo);
 
@@ -72,11 +83,62 @@ void MainPage::createContent()
 
     connect(addbutton, SIGNAL(clicked()),
             this, SLOT(addClicked()));
-
+    connect(delbutton, SIGNAL(clicked()),
+            this, SLOT(delClicked()));
+    connect(savebutton, SIGNAL(clicked()),
+            this, SLOT(saveClicked()));
 }
 
 void MainPage::addClicked()
 {
-    StationPage *stationPage = new StationPage();
-    stationPage->appear((MWindow *)applicationWindow(), MSceneWindow::DestroyWhenDismissed);
+
+    //stationPage->appear((MWindow *)applicationWindow(), MSceneWindow::DestroyWhenDismissed);
+    stationPage->appear((MWindow *)applicationWindow());
+}
+void MainPage::delClicked()
+{
+    std::cerr << "size = " << _stationlist->size() << std::endl;
+    int index = combo->currentIndex();
+    for (int i=0; i<_stationlist->size(); i++){
+        if (QString::fromStdString(_stationlist->at(i)->id()) ==
+            combo->data(index).toString() &&
+            QString::fromStdString(_stationlist->at(i)->name()) ==
+            combo->currentText()){
+            _stationlist->erase(_stationlist->begin()+i);
+        }
+    }
+    std::cerr << "size2 = " << _stationlist->size() << std::endl;
+    combo->removeItem(combo->currentIndex());
+
+}
+void MainPage::stationChanged(int val)
+{
+    if (val > -1)
+        delbutton->setEnabled(true);
+    else
+        delbutton->setEnabled(false);
+}
+void MainPage::stationSave()
+{
+    std::cerr << "signal station saved" << std::endl;
+
+    Core::Station *station = stationPage->station;
+    _stationlist->push_back(station);
+    combo->addItem(station->name().c_str());
+    combo->setData(combo->count(), station->id().c_str());
+    std::cerr << "size2 = " << _stationlist->size() << std::endl;
+}
+void MainPage::saveClicked()
+{
+    _config->stationsList(*_stationlist);
+    _config->TemperatureUnit(temperature_combo->currentText().toStdString());
+    _config->saveConfig();
+    QDBusConnection bus = QDBusConnection::sessionBus();
+    QDBusMessage message = QDBusMessage::createSignal("/org/meego/omweather",
+                               "org.meego.omweather", "reload_config");
+    bus.send(message);
+    message = QDBusMessage::createMethodCall("org.meego.omweather","/org/meego/omweather",
+                               "org.meego.omweather", "reload_config");
+    bus.send(message);
+
 }

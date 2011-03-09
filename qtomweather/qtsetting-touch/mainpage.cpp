@@ -1,7 +1,7 @@
 #include "mainpage.h"
 
-MainPage::MainPage(QGraphicsItem *parent) :
-    MApplicationPage(parent)
+MainPage::MainPage() :
+    MApplicationPage(0)
 {
     setTitle("Settings");
 
@@ -50,7 +50,6 @@ void MainPage::createContent()
     QGraphicsLinearLayout *layout_btn = new QGraphicsLinearLayout(Qt::Vertical);
     //page.setCentralWidget(combo);
     centralWidget()->setLayout(layout);
-
     layout_station->addItem(combo);
 
     MButton *addbutton = new MButton("Add");
@@ -68,6 +67,9 @@ void MainPage::createContent()
 
     layout->addItem(temperature_combo);
 
+    MButton *savebutton = new MButton("Save");
+    layout->addItem(savebutton);
+
     connect(addbutton, SIGNAL(clicked()),
             this, SLOT(addClicked()));
 
@@ -76,5 +78,5 @@ void MainPage::createContent()
 void MainPage::addClicked()
 {
     StationPage *stationPage = new StationPage();
-    stationPage->appear(scene(), MSceneWindow::DestroyWhenDismissed);
+    stationPage->appear((MWindow *)applicationWindow(), MSceneWindow::DestroyWhenDismissed);
 }

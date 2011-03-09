@@ -7,14 +7,14 @@
 #include <MButton>
 #include <QGraphicsLinearLayout>
 
-#include "core.h"
+//#include "core.h"
 #include "mainpage.h"
 
 class StationPage : public MApplicationPage
 {
     Q_OBJECT
 public:
-    StationPage(QGraphicsItem *parent = 0);
+    StationPage();
 
 protected:
     virtual void createContent();

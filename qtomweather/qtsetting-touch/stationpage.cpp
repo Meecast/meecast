@@ -1,8 +1,8 @@
 #include <MSceneManager>
 #include "stationpage.h"
 
-StationPage::StationPage(QGraphicsItem *parent) :
-    MApplicationPage(parent)
+StationPage::StationPage() :
+    MApplicationPage(0)
 {
     setTitle("Select station");
 }

@@ -291,7 +291,7 @@ Rectangle {
             }
             Text {
                 font.pointSize: 14
-                text: "Weather forecast for the Meego. Version 0.3.\n" +
+                text: "Weather forecast for the Meego. Version 0.3.11.\n" +
                   "Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n" +
                   "Maintenance: Pavel Fialko, <pavelnf@gmail.com>\n          Tanya Makova, <tanyshk@gmail.com>\n" +
                   "Design UI and default iconset:\n           Andrew Zhilin, <az@pocketpcrussia.com>\n"

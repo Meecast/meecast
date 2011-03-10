@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://omweather.garage.maemo.org/schemas" xmlns:schemas="http://omweather.garage.maemo.org/schemas">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="https://garage.maemo.org/projects/omweather/" xmlns:schemas="https://garage.maemo.org/projects/omweather/">
   <xs:element name="source">
     <xs:complexType>
       <xs:sequence>
@@ -11,20 +11,30 @@
                 <xs:attribute name="url" use="required" type="xs:string"/>
             </xs:complexType>
         </xs:element>
-        <xs:element ref="schemas:detail"/>
-        <xs:element ref="schemas:search"/>
-        <xs:choice>
-            <xs:element ref="schemas:library"/>
-            <xs:element ref="schemas:binary"/>
-        </xs:choice>
+        <xs:element name="detail">
+            <xs:complexType>
+                <xs:attribute name="url" use="required" type="xs:string"/>
+            </xs:complexType>
+        </xs:element>
+        <xs:element name="search">
+            <xs:complexType>
+                <xs:attribute name="url" use="required" type="xs:string"/>
+            </xs:complexType>
+        </xs:element>
+        <!--<xs:element ref="schemas:detail"/>
+        <xs:element ref="schemas:search"/>-->
+        <!--<xs:choice>-->
+            <xs:element ref="schemas:library" minOccurs="0" />
+            <xs:element ref="schemas:binary" minOccurs="0" />
+        <!--</xs:choice>-->
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="name" type="xs:string"/>
   <xs:element name="logo" type="xs:string"/>
   <xs:element name="base" type="xs:string"/>
-  <xs:element name="detail" type="xs:boolean"/>
-  <xs:element name="search" type="xs:boolean"/>
+  <!--<xs:element name="detail" type="xs:boolean"/>
+  <xs:element name="search" type="xs:boolean"/>-->
   <xs:element name="library" type="xs:string"/>
   <xs:element name="binary" type="xs:string"/>
 </xs:schema>

@@ -9,7 +9,7 @@
 
 Name:       omweather
 Summary:    Weather for Meego
-Version:    0.3.10
+Version:    0.3.11
 Release:    1
 Group:      Applications/Internet
 License:    GPLv2.1
@@ -28,6 +28,7 @@ BuildRequires:  pkgconfig(mutter-plugins)
 BuildRequires:  gettext
 BuildRequires:  qt-qmake
 BuildRequires:  libqt-devel
+BuildRequires:  libmeegotouch-devel
 BuildRequires:  desktop-file-utils
 
 
@@ -104,6 +105,11 @@ desktop-file-install --delete-original       \
 /usr/share/dbus-1/services
 %endif
 %changelog
+* Thu Mar 10 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.11
+  * Began adding temeperature day
+  * Added new source of weather forecast gismeteo.ru
+  * Redesigned qml window
+  * Began added MeegoTouch setting  
 * Sat Mar 5 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.10
   * Fixed spelling mistake
   * Changed default icon to N/A in meego panel

@@ -28,6 +28,7 @@ BuildRequires:  pkgconfig(mutter-plugins)
 BuildRequires:  gettext
 BuildRequires:  qt-qmake
 BuildRequires:  libqt-devel
+BuildRequires:  libmeegotouch
 BuildRequires:  libmeegotouch-devel
 BuildRequires:  desktop-file-utils
 

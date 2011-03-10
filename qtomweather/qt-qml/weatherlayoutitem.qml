@@ -135,7 +135,7 @@ Rectangle {
                 id: day_name
                 text: shortdate
                 color: "white"
-                //font.pointSize: 14
+                font.pointSize: 14
                 anchors.left: parent.left
                 anchors.leftMargin: 20
                 //anchors.centerIn: parent
@@ -145,8 +145,8 @@ Rectangle {
             Image {
                 id: forecast_icon
                 source: Config.iconspath + "/" + Config.iconset + "/" + pict
-                width: 64
-                height: 64
+                width: 80 
+                height: 80
                 anchors.top: day_name.bottom
                 //anchors.topMargin: 20
                 //anchors.leftMargin: 5
@@ -160,7 +160,7 @@ Rectangle {
                 anchors.left: forecast_icon.right; anchors.leftMargin: 10
                 opacity: 1 - day.detailsOpacity
                 color: "white"
-                //font.pointSize: 14
+                font.pointSize: 14
             }
             Item {
                 id: details
@@ -172,34 +172,34 @@ Rectangle {
 
                     Text {
                         text: description
-                        font.pointSize: 12
+                        font.pointSize: 14
                         color: "white"
                     }
                     Text {
                         text: temperature_label +" " +
                                 ((temp_low != "N/A") ? (temp_low + '°' +Config.temperatureunit + " .. ") : "") +
                                 ((temp_high != "N/A") ? (temp_high + '°' +Config.temperatureunit) : "")
-                        font.pointSize: 12
+                        font.pointSize: 14
                         color: "white"
                     }
                     Text {
                         text: (humidity != "N/A") ? (humidity_label + " " + humidity + "%") : ""
-                        font.pointSize: 12
+                        font.pointSize: 14
                         color: "white"
                     }
                     Text {
                         text: (pressure != "N/A") ? (pressure_label + " " + pressure) : ""
-                        font.pointSize: 12
+                        font.pointSize: 14
                         color: "white"
                     }
                     Text {
                         text: (wind_direction != "N/A") ? (wind_label + " " + wind_direction) : ""
-                        font.pointSize: 12
+                        font.pointSize: 14
                         color: "white"
                     }
                     Text {
                         text: (wind_speed != "N/A") ? (wind_speed_label + " " + wind_speed + "m/s") : ""
-                        font.pointSize: 12
+                        font.pointSize: 14
                         color: "white"
                     }
                 }

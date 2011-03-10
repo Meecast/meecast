@@ -88,6 +88,7 @@ desktop-file-install --delete-original       \
 %defattr(-,root,root,-)
 /usr/bin/omweather-qml
 /usr/bin/omweather-settings
+/usr/bin/qtsetting-touch
 %{_datadir}/applications/*.desktop
 %{_libdir}
 /usr/share/omweather

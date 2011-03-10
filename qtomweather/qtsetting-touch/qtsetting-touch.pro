@@ -21,3 +21,9 @@ LIBS += -L ../core -lomweather-core
 HEADERS += \
     mainpage.h \
     stationpage.h
+
+#install
+
+target.path = /usr/bin
+
+INSTALLS += target

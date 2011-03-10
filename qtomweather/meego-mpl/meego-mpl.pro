@@ -14,10 +14,12 @@ CATALOUGE  = omweather.por
 
 
 HEADERS += meego-netbookUX-omweather.h \
-           meego-netbookUX-common.h
+           meego-netbookUX-common.h \
+           datampl.h
 
 SOURCES += meego-panel-omweather.cpp \
-           meego-netbookUX-omweather.cpp
+           meego-netbookUX-omweather.cpp \
+           datampl.cpp
 
 
 FORMS    +=

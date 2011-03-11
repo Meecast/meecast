@@ -8,6 +8,8 @@ int main(int argc, char *argv[])
     MApplicationWindow window;
 
     MainPage *mainPage = new MainPage();
+    //connect(mainPage, SIGNAL(closeButtonClicked()),
+      //      this, )
 
     mainPage->appear(&window);
 

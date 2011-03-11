@@ -31,20 +31,15 @@ void StationPage::createContent()
     for (int i=0; i<sourcelist->size(); i++){
         sourceCombo->addItem(QString::fromStdString(sourcelist->at(i)->name()));
     }
-    connect(sourceCombo, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(sourceChanged(int)));
+
     layout_btn->addItem(sourceCombo);
 
     countryCombo = new MComboBox();
     countryCombo->setTitle("Select country");
-    connect(countryCombo, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(countryChanged(int)));
     layout_btn->addItem(countryCombo);
 
     regionCombo = new MComboBox();
     regionCombo->setTitle("Select region");
-    connect(regionCombo, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(regionChanged(int)));
     layout_btn->addItem(regionCombo);
 
     cityCombo = new MComboBox();
@@ -52,9 +47,20 @@ void StationPage::createContent()
     layout_btn->addItem(cityCombo);
 
     MButton *savebutton = new MButton("Save");
+    layout->addItem(savebutton);
+
+    connect(sourceCombo, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(sourceChanged(int)));
+    connect(countryCombo, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(countryChanged(int)));
+    connect(regionCombo, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(regionChanged(int)));
     connect(savebutton, SIGNAL(clicked()),
             this, SLOT(saveClicked()));
-    layout->addItem(savebutton);
+
+    if (sourceCombo->count() > 0)
+        sourceCombo->setCurrentIndex(0);
+
 }
 void StationPage::sourceChanged(int val)
 {
@@ -63,6 +69,7 @@ void StationPage::sourceChanged(int val)
     path += Core::AbstractConfig::sharePath;
     path += "db/";
     QString filename = sourceCombo->currentText();
+    std::cerr << filename.toStdString() << std::endl;
     filename.append(".db");
     filename.prepend(path.c_str());
     if (!this->db) {
@@ -84,6 +91,8 @@ void StationPage::sourceChanged(int val)
         countryCombo->addItem(QString::fromStdString(list->at(i).second));
         countryCombo->setData(i, QString::fromStdString(list->at(i).first));
     }
+    if (countryCombo->count() > 0)
+        countryCombo->setCurrentIndex(0);
 }
 void StationPage::countryChanged(int val)
 {
@@ -98,6 +107,8 @@ void StationPage::countryChanged(int val)
         regionCombo->addItem(QString::fromStdString(list->at(i).second));
         regionCombo->setData(i, QString::fromStdString(list->at(i).first));
     }
+    if (regionCombo->count() > 0)
+        regionCombo->setCurrentIndex(0);
 
 }
 void

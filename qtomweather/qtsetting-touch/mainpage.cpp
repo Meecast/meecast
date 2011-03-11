@@ -140,5 +140,7 @@ void MainPage::saveClicked()
     message = QDBusMessage::createMethodCall("org.meego.omweather","/org/meego/omweather",
                                "org.meego.omweather", "reload_config");
     bus.send(message);
-
+    //close();
+    //emit closeButtonClicked();
+    emit exit(0);
 }

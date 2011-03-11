@@ -69,7 +69,13 @@ namespace Core {
         }
 #endif //LIBXMLCPP_EXCEPTIONS_ENABLED
     #else //LIBXML
-    #if !MEEGO_MPL
+    QFile file(QString::fromStdString(filename));
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
+            std::cerr<<"error file open"<<std::endl;
+            throw("Invalid source file");
+            return;
+        }
+    if (false){
         QXmlSchema schema;
         if (!schema.load(QUrl(":" + QString::fromStdString(schema_filename)))){
             throw("Invalid schema file");
@@ -79,15 +85,7 @@ namespace Core {
             throw("Schema is invalid");
             return;
         }
-     #endif
- 
-        QFile file(QString::fromStdString(filename));
-        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
-            std::cerr<<"error file open"<<std::endl;
-            throw("Invalid source file");
-            return;
-        }
-     #if !MEEGO_MPL
+    
         QXmlSchemaValidator validator(schema);
         if (!validator.validate(&file, QUrl::fromLocalFile(file.fileName()))){
             //qDebug() << "File " << filename << " is invalid";
@@ -96,7 +94,7 @@ namespace Core {
             return;
         }
         file.close();
-        #endif
+    }
         file.open(QIODevice::ReadOnly | QIODevice::Text);
         if (!_doc.setContent((&file))){
             file.close();

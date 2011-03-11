@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-TARGET = qtsetting-touch
+TARGET = omweather-settouch
 TEMPLATE = app
 
 SOURCES += main.cpp \

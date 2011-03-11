@@ -5,32 +5,32 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 ABSTRACTCONFIG_H	core/abstractconfig.h	32;"	d
-AR	QtSetting/Makefile	/^AR            = ar cqs$/;"	m
 AR	core/Makefile	/^AR            = ar cqs$/;"	m
 AR	meego-mpl/Makefile	/^AR            = ar cqs$/;"	m
 AR	qt-qml/Makefile	/^AR            = ar cqs$/;"	m
+AR	qtsetting-touch/Makefile	/^AR            = ar cqs$/;"	m
 AR	qtsetting/Makefile	/^AR            = ar cqs$/;"	m
 AbstractConfig	core/abstractconfig.h	/^    class AbstractConfig{$/;"	c	namespace:Core
-CC	QtSetting/Makefile	/^CC            = gcc$/;"	m
 CC	core/Makefile	/^CC            = gcc$/;"	m
 CC	meego-mpl/Makefile	/^CC            = gcc$/;"	m
 CC	qt-qml/Makefile	/^CC            = gcc$/;"	m
+CC	qtsetting-touch/Makefile	/^CC            = gcc$/;"	m
 CC	qtsetting/Makefile	/^CC            = gcc$/;"	m
-CFLAGS	QtSetting/Makefile	/^CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
 CFLAGS	core/Makefile	/^CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)$/;"	m
-CFLAGS	meego-mpl/Makefile	/^CFLAGS        = -pipe -g -pthread -I\/usr\/include\/dbus-1.0 -I\/usr\/lib\/dbus-1.0\/include -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -pthread -I\/usr\/include\/mx-1.0 -I\/usr\/include\/clutter-1.0 -I\/usr\/include\/cairo -I\/usr\/include\/pango-1.0 -I\/usr\/include\/gtk-2.0 -I\/usr\/include\/json-glib-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -pthread -DWITH_CLUTTER -DMUTTER_MAJOR_VERSION=2 -DMUTTER_MINOR_VERSION=31 -DMUTTER_MICRO_VERSION=5 -DMUTTER_PLUGIN_API_VERSION=4 -DMUTTER_PLUGIN_DIR="\/usr\/lib\/mutter\/plugins" -I\/usr\/include\/clutter-1.0 -I\/usr\/include\/cairo -I\/usr\/include\/pango-1.0 -I\/usr\/include\/gtk-2.0 -I\/usr\/include\/json-glib-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -I\/usr\/include\/mutter\/mutter-private -pthread -I\/usr\/include\/libmeego-panel -I\/usr\/include\/dbus-1.0 -I\/usr\/include\/mx-1.0 -I\/usr\/include\/gtk-2.0 -I\/usr\/include\/gio-unix-2.0\/ -I\/usr\/lib\/dbus-1.0\/include -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -I\/usr\/include\/clutter-1.0 -I\/usr\/include\/cairo -I\/usr\/include\/pango-1.0 -I\/usr\/include\/json-glib-1.0 -I\/usr\/lib\/gtk-2.0\/include -I\/usr\/include\/atk-1.0 -I\/usr\/include\/freetype2 -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtCore $(DEFINES)$/;"	m
+CFLAGS	meego-mpl/Makefile	/^CFLAGS        = -pipe -O2 -pthread -I\/usr\/include\/dbus-1.0 -I\/usr\/lib\/dbus-1.0\/include -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -pthread -I\/usr\/include\/mx-1.0 -I\/usr\/include\/clutter-1.0 -I\/usr\/include\/cairo -I\/usr\/include\/pango-1.0 -I\/usr\/include\/gtk-2.0 -I\/usr\/include\/json-glib-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -pthread -DWITH_CLUTTER -DMUTTER_MAJOR_VERSION=2 -DMUTTER_MINOR_VERSION=31 -DMUTTER_MICRO_VERSION=5 -DMUTTER_PLUGIN_API_VERSION=4 -DMUTTER_PLUGIN_DIR="\/usr\/lib\/mutter\/plugins" -I\/usr\/include\/clutter-1.0 -I\/usr\/include\/cairo -I\/usr\/include\/pango-1.0 -I\/usr\/include\/gtk-2.0 -I\/usr\/include\/json-glib-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -I\/usr\/include\/mutter\/mutter-private -pthread -I\/usr\/include\/libmeego-panel -I\/usr\/include\/dbus-1.0 -I\/usr\/include\/mx-1.0 -I\/usr\/include\/gtk-2.0 -I\/usr\/include\/gio-unix-2.0\/ -I\/usr\/lib\/dbus-1.0\/include -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -I\/usr\/include\/clutter-1.0 -I\/usr\/include\/cairo -I\/usr\/include\/pango-1.0 -I\/usr\/include\/json-glib-1.0 -I\/usr\/lib\/gtk-2.0\/include -I\/usr\/include\/atk-1.0 -I\/usr\/include\/freetype2 -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtCore $(DEFINES)$/;"	m
 CFLAGS	qt-qml/Makefile	/^CFLAGS        = -pipe -O2 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
-CFLAGS	qtsetting/Makefile	/^CFLAGS        = -pipe -g -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CFLAGS	qtsetting-touch/Makefile	/^CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CFLAGS	qtsetting/Makefile	/^CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
 CHK_DIR_EXISTS	Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
-CHK_DIR_EXISTS	QtSetting/Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
 CHK_DIR_EXISTS	core/Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
 CHK_DIR_EXISTS	meego-mpl/Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
 CHK_DIR_EXISTS	qt-qml/Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
+CHK_DIR_EXISTS	qtsetting-touch/Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
 CHK_DIR_EXISTS	qtsetting/Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
-COMPRESS	QtSetting/Makefile	/^COMPRESS      = gzip -9f$/;"	m
 COMPRESS	core/Makefile	/^COMPRESS      = gzip -9f$/;"	m
 COMPRESS	meego-mpl/Makefile	/^COMPRESS      = gzip -9f$/;"	m
 COMPRESS	qt-qml/Makefile	/^COMPRESS      = gzip -9f$/;"	m
+COMPRESS	qtsetting-touch/Makefile	/^COMPRESS      = gzip -9f$/;"	m
 COMPRESS	qtsetting/Makefile	/^COMPRESS      = gzip -9f$/;"	m
 CONFIGQML_H	qt-qml/configqml.h	32;"	d
 CONFIG_FILE	meego-mpl/meego-netbookUX-omweather.cpp	36;"	d	file:
@@ -39,36 +39,36 @@ CONFIG_H	core/config.h	33;"	d
 CONFIG_XSD_PATH	meego-mpl/meego-netbookUX-omweather.cpp	37;"	d	file:
 CONFIG_XSD_PATH	meego-mpl/meego-netbookUX-omweather.cpp	41;"	d	file:
 CONNECTION_H	core/connection.h	33;"	d
-CONTROLLER_H	qt-qml/controller.h	34;"	d
+CONTROLLER_H	qt-qml/controller.h	36;"	d
 COPY	Makefile	/^COPY          = cp -f$/;"	m
-COPY	QtSetting/Makefile	/^COPY          = cp -f$/;"	m
 COPY	core/Makefile	/^COPY          = cp -f$/;"	m
 COPY	meego-mpl/Makefile	/^COPY          = cp -f$/;"	m
 COPY	qt-qml/Makefile	/^COPY          = cp -f$/;"	m
+COPY	qtsetting-touch/Makefile	/^COPY          = cp -f$/;"	m
 COPY	qtsetting/Makefile	/^COPY          = cp -f$/;"	m
 COPY_DIR	Makefile	/^COPY_DIR      = $(COPY) -r$/;"	m
-COPY_DIR	QtSetting/Makefile	/^COPY_DIR      = $(COPY) -r$/;"	m
 COPY_DIR	core/Makefile	/^COPY_DIR      = $(COPY) -r$/;"	m
 COPY_DIR	meego-mpl/Makefile	/^COPY_DIR      = $(COPY) -r$/;"	m
 COPY_DIR	qt-qml/Makefile	/^COPY_DIR      = $(COPY) -r$/;"	m
+COPY_DIR	qtsetting-touch/Makefile	/^COPY_DIR      = $(COPY) -r$/;"	m
 COPY_DIR	qtsetting/Makefile	/^COPY_DIR      = $(COPY) -r$/;"	m
 COPY_FILE	Makefile	/^COPY_FILE     = $(COPY)$/;"	m
-COPY_FILE	QtSetting/Makefile	/^COPY_FILE     = $(COPY)$/;"	m
 COPY_FILE	core/Makefile	/^COPY_FILE     = $(COPY)$/;"	m
 COPY_FILE	meego-mpl/Makefile	/^COPY_FILE     = $(COPY)$/;"	m
 COPY_FILE	qt-qml/Makefile	/^COPY_FILE     = $(COPY)$/;"	m
+COPY_FILE	qtsetting-touch/Makefile	/^COPY_FILE     = $(COPY)$/;"	m
 COPY_FILE	qtsetting/Makefile	/^COPY_FILE     = $(COPY)$/;"	m
 CORE_H	core/core.h	32;"	d
-CXX	QtSetting/Makefile	/^CXX           = g++$/;"	m
 CXX	core/Makefile	/^CXX           = g++$/;"	m
 CXX	meego-mpl/Makefile	/^CXX           = g++$/;"	m
 CXX	qt-qml/Makefile	/^CXX           = g++$/;"	m
+CXX	qtsetting-touch/Makefile	/^CXX           = g++$/;"	m
 CXX	qtsetting/Makefile	/^CXX           = g++$/;"	m
-CXXFLAGS	QtSetting/Makefile	/^CXXFLAGS      = -pipe -O2 -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
 CXXFLAGS	core/Makefile	/^CXXFLAGS      = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)$/;"	m
-CXXFLAGS	meego-mpl/Makefile	/^CXXFLAGS      = -pipe -g -pthread -I\/usr\/include\/dbus-1.0 -I\/usr\/lib\/dbus-1.0\/include -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -pthread -I\/usr\/include\/mx-1.0 -I\/usr\/include\/clutter-1.0 -I\/usr\/include\/cairo -I\/usr\/include\/pango-1.0 -I\/usr\/include\/gtk-2.0 -I\/usr\/include\/json-glib-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -pthread -DWITH_CLUTTER -DMUTTER_MAJOR_VERSION=2 -DMUTTER_MINOR_VERSION=31 -DMUTTER_MICRO_VERSION=5 -DMUTTER_PLUGIN_API_VERSION=4 -DMUTTER_PLUGIN_DIR="\/usr\/lib\/mutter\/plugins" -I\/usr\/include\/clutter-1.0 -I\/usr\/include\/cairo -I\/usr\/include\/pango-1.0 -I\/usr\/include\/gtk-2.0 -I\/usr\/include\/json-glib-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -I\/usr\/include\/mutter\/mutter-private -pthread -I\/usr\/include\/libmeego-panel -I\/usr\/include\/dbus-1.0 -I\/usr\/include\/mx-1.0 -I\/usr\/include\/gtk-2.0 -I\/usr\/include\/gio-unix-2.0\/ -I\/usr\/lib\/dbus-1.0\/include -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -I\/usr\/include\/clutter-1.0 -I\/usr\/include\/cairo -I\/usr\/include\/pango-1.0 -I\/usr\/include\/json-glib-1.0 -I\/usr\/lib\/gtk-2.0\/include -I\/usr\/include\/atk-1.0 -I\/usr\/include\/freetype2 -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtCore $(DEFINES)$/;"	m
+CXXFLAGS	meego-mpl/Makefile	/^CXXFLAGS      = -pipe -O2 -pthread -I\/usr\/include\/dbus-1.0 -I\/usr\/lib\/dbus-1.0\/include -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -pthread -I\/usr\/include\/mx-1.0 -I\/usr\/include\/clutter-1.0 -I\/usr\/include\/cairo -I\/usr\/include\/pango-1.0 -I\/usr\/include\/gtk-2.0 -I\/usr\/include\/json-glib-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -pthread -DWITH_CLUTTER -DMUTTER_MAJOR_VERSION=2 -DMUTTER_MINOR_VERSION=31 -DMUTTER_MICRO_VERSION=5 -DMUTTER_PLUGIN_API_VERSION=4 -DMUTTER_PLUGIN_DIR="\/usr\/lib\/mutter\/plugins" -I\/usr\/include\/clutter-1.0 -I\/usr\/include\/cairo -I\/usr\/include\/pango-1.0 -I\/usr\/include\/gtk-2.0 -I\/usr\/include\/json-glib-1.0 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -I\/usr\/include\/mutter\/mutter-private -pthread -I\/usr\/include\/libmeego-panel -I\/usr\/include\/dbus-1.0 -I\/usr\/include\/mx-1.0 -I\/usr\/include\/gtk-2.0 -I\/usr\/include\/gio-unix-2.0\/ -I\/usr\/lib\/dbus-1.0\/include -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -I\/usr\/include\/clutter-1.0 -I\/usr\/include\/cairo -I\/usr\/include\/pango-1.0 -I\/usr\/include\/json-glib-1.0 -I\/usr\/lib\/gtk-2.0\/include -I\/usr\/include\/atk-1.0 -I\/usr\/include\/freetype2 -DQT_SHARED -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtCore $(DEFINES)$/;"	m
 CXXFLAGS	qt-qml/Makefile	/^CXXFLAGS      = -pipe -O2 -I\/usr\/include\/glib-2.0 -I\/usr\/lib\/glib-2.0\/include -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
-CXXFLAGS	qtsetting/Makefile	/^CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CXXFLAGS	qtsetting-touch/Makefile	/^CXXFLAGS      = -pipe -O2 -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CXXFLAGS	qtsetting/Makefile	/^CXXFLAGS      = -pipe -O2 -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
 Config	core/config.cpp	/^    Config::Config()$/;"	f	class:Core::Config
 Config	core/config.cpp	/^    Config::Config(const std::string& filename, const std::string& schema_filename)$/;"	f	class:Core::Config
 Config	core/config.h	/^    class Config : public Parser{$/;"	c	namespace:Core
@@ -121,38 +121,39 @@ DATABASESQLITE_H	core/databasesqlite.h	33;"	d
 DATAITEM_H	qt-qml/dataitem.h	32;"	d
 DATALIST_H	core/datalist.h	33;"	d
 DATAMODEL_H	qt-qml/datamodel.h	32;"	d
+DATAMPL_H	meego-mpl/datampl.h	32;"	d
 DATAPARSERQT_H	core/dataparserqt.h	33;"	d
 DATAPARSER_H	core/dataparser.h	33;"	d
 DATAQML_H	qt-qml/dataqml.h	32;"	d
 DATA_H	core/data.h	33;"	d
 DATA_XSD_PATH	meego-mpl/meego-netbookUX-omweather.cpp	42;"	d	file:
 DBUSADAPTOR_H_1298437762	qt-qml/dbusadaptor.h	13;"	d
-DEFINES	QtSetting/Makefile	/^DEFINES       = -DQT_NO_DEBUG -DQT_SQL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
 DEFINES	core/Makefile	/^DEFINES       = -DMEEGO_MPL -DQT_NO_DEBUG -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
 DEFINES	meego-mpl/Makefile	/^DEFINES       = $/;"	m
 DEFINES	qt-qml/Makefile	/^DEFINES       = -DLOCALDEBUG -DQT_NO_DEBUG -DQT_DECLARATIVE_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
+DEFINES	qtsetting-touch/Makefile	/^DEFINES       = -DM_APPLICATION_NAME=\\"${QMAKE_TARGET}\\" -DQT_NO_DEBUG -DQT_DBUS_LIB -DQT_SQL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
 DEFINES	qtsetting/Makefile	/^DEFINES       = -DQT_NO_DEBUG -DQT_DBUS_LIB -DQT_SQL_LIB -DQT_XMLPATTERNS_LIB -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
 DEL_DIR	Makefile	/^DEL_DIR       = rmdir$/;"	m
-DEL_DIR	QtSetting/Makefile	/^DEL_DIR       = rmdir$/;"	m
 DEL_DIR	core/Makefile	/^DEL_DIR       = rmdir$/;"	m
 DEL_DIR	meego-mpl/Makefile	/^DEL_DIR       = rmdir$/;"	m
 DEL_DIR	qt-qml/Makefile	/^DEL_DIR       = rmdir$/;"	m
+DEL_DIR	qtsetting-touch/Makefile	/^DEL_DIR       = rmdir$/;"	m
 DEL_DIR	qtsetting/Makefile	/^DEL_DIR       = rmdir$/;"	m
 DEL_FILE	Makefile	/^DEL_FILE      = rm -f$/;"	m
-DEL_FILE	QtSetting/Makefile	/^DEL_FILE      = rm -f$/;"	m
 DEL_FILE	core/Makefile	/^DEL_FILE      = rm -f$/;"	m
 DEL_FILE	meego-mpl/Makefile	/^DEL_FILE      = rm -f$/;"	m
 DEL_FILE	qt-qml/Makefile	/^DEL_FILE      = rm -f$/;"	m
+DEL_FILE	qtsetting-touch/Makefile	/^DEL_FILE      = rm -f$/;"	m
 DEL_FILE	qtsetting/Makefile	/^DEL_FILE      = rm -f$/;"	m
-DESTDIR	QtSetting/Makefile	/^DESTDIR       = $/;"	m
 DESTDIR	core/Makefile	/^DESTDIR       = $/;"	m
 DESTDIR	meego-mpl/Makefile	/^DESTDIR       = $/;"	m
 DESTDIR	qt-qml/Makefile	/^DESTDIR       = $/;"	m
+DESTDIR	qtsetting-touch/Makefile	/^DESTDIR       = $/;"	m
 DESTDIR	qtsetting/Makefile	/^DESTDIR       = $/;"	m
-DIST	QtSetting/Makefile	/^DIST          = \/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
 DIST	core/Makefile	/^DIST          = \/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
 DIST	meego-mpl/Makefile	/^DIST          = \/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
 DIST	qt-qml/Makefile	/^DIST          = \/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
+DIST	qtsetting-touch/Makefile	/^DIST          = \/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
 DIST	qtsetting/Makefile	/^DIST          = \/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
 DOWNLOADER_H	core/downloader.h	33;"	d
 Data	core/data.cpp	/^    Data::Data(){$/;"	f	class:Core::Data
@@ -165,6 +166,9 @@ DataItem	qt-qml/dataitem.h	/^class DataItem : public QObject, public Core::Data$
 DataList	core/datalist.h	/^    class DataList: public std::vector<Data*>  {$/;"	c	namespace:Core
 DataModel	qt-qml/datamodel.cpp	/^DataModel::DataModel(DataItem* prototype, QObject *parent) :$/;"	f	class:DataModel
 DataModel	qt-qml/datamodel.h	/^class DataModel : public QAbstractListModel$/;"	c
+DataMpl	meego-mpl/datampl.cpp	/^DataMpl::DataMpl():Core::Data(){$/;"	f	class:DataMpl
+DataMpl	meego-mpl/datampl.cpp	/^DataMpl::DataMpl(const Core::Data* data):Core::Data(data){$/;"	f	class:DataMpl
+DataMpl	meego-mpl/datampl.h	/^class DataMpl : public Core::Data$/;"	c
 DataParser	core/dataparser.cpp	/^    DataParser::DataParser()$/;"	f	class:Core::DataParser
 DataParser	core/dataparser.cpp	/^    DataParser::DataParser(const std::string& filename, const std::string& schema_filename) : Parser(filename, schema_filename) {$/;"	f	class:Core::DataParser
 DataParser	core/dataparser.h	/^    class DataParser : public Parser {$/;"	c	namespace:Core
@@ -195,82 +199,86 @@ FullDateRole	qt-qml/dataitem.h	/^        FullDateRole,$/;"	e	enum:DataItem::Role
 FullDayName	core/data.cpp	/^     Data::FullDayName(){$/;"	f	class:Core::Data
 FullMonthName	core/data.cpp	/^     Data::FullMonthName(){$/;"	f	class:Core::Data
 GETTEXT_PACKAGE	meego-mpl/meego-netbookUX-common.h	37;"	d
-GETTEXT_PACKAGE	meego-mpl/meego-panel-omweather.cpp	42;"	d	file:
+GETTEXT_PACKAGE	meego-mpl/meego-panel-omweather.cpp	44;"	d	file:
 GetDataForTime	core/datalist.cpp	/^     DataList::GetDataForTime(time_t _time){  $/;"	f	class:Core::DataList
 GetTimeDistance	core/data.cpp	/^    Data::GetTimeDistance(time_t need_time){$/;"	f	class:Core::Data
 Humidity	core/data.cpp	/^     Data::Humidity() const{$/;"	f	class:Core::Data
 Humidity	core/data.cpp	/^     Data::Humidity(int humidity){$/;"	f	class:Core::Data
 HumidityLabelRole	qt-qml/dataitem.h	/^        HumidityLabelRole,$/;"	e	enum:DataItem::Roles
 HumidityRole	qt-qml/dataitem.h	/^        HumidityRole,$/;"	e	enum:DataItem::Roles
-INCPATH	QtSetting/Makefile	/^INCPATH       = -I\/usr\/share\/qt4\/mkspecs\/linux-g++ -I. -I\/usr\/include\/qt4\/QtCore -I\/usr\/include\/qt4\/QtGui -I\/usr\/include\/qt4\/QtSql -I\/usr\/include\/qt4 -I. -I.$/;"	m
 INCPATH	core/Makefile	/^INCPATH       = -I\/usr\/share\/qt4\/mkspecs\/linux-g++ -I. -I\/usr\/include\/qt4\/QtCore -I\/usr\/include\/qt4\/QtGui -I\/usr\/include\/qt4\/QtXml -I\/usr\/include\/qt4 -I.$/;"	m
 INCPATH	meego-mpl/Makefile	/^INCPATH       = -I\/usr\/share\/qt4\/mkspecs\/linux-g++ -I. -I..\/core$/;"	m
 INCPATH	qt-qml/Makefile	/^INCPATH       = -I\/usr\/share\/qt4\/mkspecs\/linux-g++ -I. -I\/usr\/include\/qt4\/QtCore -I\/usr\/include\/qt4\/QtGui -I\/usr\/include\/qt4\/QtDeclarative -I\/usr\/include\/qt4 -I\/usr\/include\/qt4\/QtDBus -I..\/core -I.$/;"	m
+INCPATH	qtsetting-touch/Makefile	/^INCPATH       = -I\/usr\/share\/qt4\/mkspecs\/linux-g++ -I. -I\/usr\/include\/qt4\/QtCore -I\/usr\/include\/qt4\/QtGui -I\/usr\/include\/qt4\/QtSql -I\/usr\/include\/qt4\/QtDBus -I\/usr\/include\/qt4 -I..\/core -I\/usr\/include\/meegotouch -I.$/;"	m
 INCPATH	qtsetting/Makefile	/^INCPATH       = -I\/usr\/share\/qt4\/mkspecs\/linux-g++ -I. -I\/usr\/include\/qt4\/QtCore -I\/usr\/include\/qt4\/QtGui -I\/usr\/include\/qt4\/QtXml -I\/usr\/include\/qt4\/QtXmlPatterns -I\/usr\/include\/qt4\/QtSql -I\/usr\/include\/qt4\/QtDBus -I\/usr\/include\/qt4 -I..\/core -I. -I.$/;"	m
 INSTALL_DIR	Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
-INSTALL_DIR	QtSetting/Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
 INSTALL_DIR	core/Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
 INSTALL_DIR	meego-mpl/Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
 INSTALL_DIR	qt-qml/Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
+INSTALL_DIR	qtsetting-touch/Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
 INSTALL_DIR	qtsetting/Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
 INSTALL_FILE	Makefile	/^INSTALL_FILE  = install -m 644 -p$/;"	m
-INSTALL_FILE	QtSetting/Makefile	/^INSTALL_FILE  = install -m 644 -p$/;"	m
 INSTALL_FILE	core/Makefile	/^INSTALL_FILE  = install -m 644 -p$/;"	m
 INSTALL_FILE	meego-mpl/Makefile	/^INSTALL_FILE  = install -m 644 -p$/;"	m
 INSTALL_FILE	qt-qml/Makefile	/^INSTALL_FILE  = install -m 644 -p$/;"	m
+INSTALL_FILE	qtsetting-touch/Makefile	/^INSTALL_FILE  = install -m 644 -p$/;"	m
 INSTALL_FILE	qtsetting/Makefile	/^INSTALL_FILE  = install -m 644 -p$/;"	m
 INSTALL_PROGRAM	Makefile	/^INSTALL_PROGRAM = install -m 755 -p$/;"	m
-INSTALL_PROGRAM	QtSetting/Makefile	/^INSTALL_PROGRAM = install -m 755 -p$/;"	m
 INSTALL_PROGRAM	core/Makefile	/^INSTALL_PROGRAM = install -m 755 -p$/;"	m
 INSTALL_PROGRAM	meego-mpl/Makefile	/^INSTALL_PROGRAM = install -m 755 -p$/;"	m
 INSTALL_PROGRAM	qt-qml/Makefile	/^INSTALL_PROGRAM = install -m 755 -p$/;"	m
+INSTALL_PROGRAM	qtsetting-touch/Makefile	/^INSTALL_PROGRAM = install -m 755 -p$/;"	m
 INSTALL_PROGRAM	qtsetting/Makefile	/^INSTALL_PROGRAM = install -m 755 -p$/;"	m
 Icon	core/data.cpp	/^     Data::Icon() const{$/;"	f	class:Core::Data
 Icon	core/data.cpp	/^     Data::Icon(int icon){$/;"	f	class:Core::Data
 IconRole	qt-qml/dataitem.h	/^        IconRole,$/;"	e	enum:DataItem::Roles
-LFLAGS	QtSetting/Makefile	/^LFLAGS        = -Wl,-O1$/;"	m
 LFLAGS	core/Makefile	/^LFLAGS        = -Wl,-O1 -shared -Wl,-soname,libomweather-core.so.1$/;"	m
 LFLAGS	meego-mpl/Makefile	/^LFLAGS        = -Wl,-O1$/;"	m
 LFLAGS	qt-qml/Makefile	/^LFLAGS        = -Wl,-O1$/;"	m
+LFLAGS	qtsetting-touch/Makefile	/^LFLAGS        = -Wl,-O1$/;"	m
 LFLAGS	qtsetting/Makefile	/^LFLAGS        = -Wl,-O1$/;"	m
-LIBS	QtSetting/Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -lQtSql -lQtGui -lQtCore -lpthread $/;"	m
 LIBS	core/Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -lcurl -lsqlite3 -lQtXml -lQtGui -lQtCore -lpthread $/;"	m
 LIBS	meego-mpl/Makefile	/^LIBS          = $(SUBLIBS)   -L ..\/core -lomweather-core -pthread -L\/lib -ldbus-glib-1 -ldbus-1 -lpthread -lgobject-2.0 -lgthread-2.0 -lrt -lglib-2.0 -pthread -lmx-1.0 -lclutter-glx-1.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lGL -lX11 -lXext -lXdamage -lXcomposite -lXi -ljson-glib-1.0 -lpango-1.0 -lcairo -lgmodule-2.0 -lXfixes -lgobject-2.0 -lgthread-2.0 -lrt -lglib-2.0 -pthread -lclutter-glx-1.0 -lpangocairo-1.0 -lgdk_pixbuf-2.0 -lGL -lX11 -lXext -lXdamage -lXcomposite -lXi -ljson-glib-1.0 -lpango-1.0 -lcairo -lgmodule-2.0 -lXfixes -lgobject-2.0 -lgthread-2.0 -lrt -lglib-2.0 -pthread -L\/lib -lmeego-panel -ldbus-glib-1 -lmx-1.0 -lgtk-x11-2.0 -ldbus-1 -lpthread -lclutter-glx-1.0 -lGL -lX11 -lXext -lXdamage -lXcomposite -lXi -ljson-glib-1.0 -lXfixes -lgdk-x11-2.0 -latk-1.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lcairo -lpango-1.0 -lfreetype -lfontconfig -lgio-2.0 -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lrt -lglib-2.0 -lQtCore $/;"	m
 LIBS	qt-qml/Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -L ..\/core -lomweather-core -lglib-2.0 -lQtDBus -lQtDeclarative -lQtGui -lQtCore -lpthread $/;"	m
+LIBS	qtsetting-touch/Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -L ..\/core -lomweather-core -L\/usr\/lib -lmeegotouchcore -lmeegotouchsettings -lmeegotouchextensions -lQtDBus -lQtSql -lQtGui -lQtCore -lpthread $/;"	m
 LIBS	qtsetting/Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -L ..\/core -lomweather-core -lQtDBus -lQtSql -lQtXmlPatterns -lQtXml -lQtGui -lQtCore -lpthread $/;"	m
-LINK	QtSetting/Makefile	/^LINK          = g++$/;"	m
 LINK	core/Makefile	/^LINK          = g++$/;"	m
 LINK	meego-mpl/Makefile	/^LINK          = g++$/;"	m
 LINK	qt-qml/Makefile	/^LINK          = g++$/;"	m
+LINK	qtsetting-touch/Makefile	/^LINK          = g++$/;"	m
 LINK	qtsetting/Makefile	/^LINK          = g++$/;"	m
 LoadConfig	core/config.cpp	/^    Config::LoadConfig(){$/;"	f	class:Core::Config
+MAINPAGE_H	qtsetting-touch/mainpage.h	2;"	d
 MAINWINDOW_H	qt-qml/mainwindow.h	32;"	d
 MAKEFILE	Makefile	/^MAKEFILE      = Makefile$/;"	m
 MKDIR	Makefile	/^MKDIR         = mkdir -p$/;"	m
-MKDIR	QtSetting/Makefile	/^MKDIR         = mkdir -p$/;"	m
 MKDIR	core/Makefile	/^MKDIR         = mkdir -p$/;"	m
 MKDIR	meego-mpl/Makefile	/^MKDIR         = mkdir -p$/;"	m
 MKDIR	qt-qml/Makefile	/^MKDIR         = mkdir -p$/;"	m
+MKDIR	qtsetting-touch/Makefile	/^MKDIR         = mkdir -p$/;"	m
 MKDIR	qtsetting/Makefile	/^MKDIR         = mkdir -p$/;"	m
 MOVE	Makefile	/^MOVE          = mv -f$/;"	m
-MOVE	QtSetting/Makefile	/^MOVE          = mv -f$/;"	m
 MOVE	core/Makefile	/^MOVE          = mv -f$/;"	m
 MOVE	meego-mpl/Makefile	/^MOVE          = mv -f$/;"	m
 MOVE	qt-qml/Makefile	/^MOVE          = mv -f$/;"	m
+MOVE	qtsetting-touch/Makefile	/^MOVE          = mv -f$/;"	m
 MOVE	qtsetting/Makefile	/^MOVE          = mv -f$/;"	m
+MainPage	qtsetting-touch/mainpage.cpp	/^MainPage::MainPage() :$/;"	f	class:MainPage
+MainPage	qtsetting-touch/mainpage.h	/^class MainPage : public MApplicationPage$/;"	c
 MainWindow	qt-qml/mainwindow.h	/^class MainWindow : public QMainWindow$/;"	c
 NameRole	qt-qml/dataitem.h	/^        NameRole = Qt::UserRole+1,$/;"	e	enum:DataItem::Roles
-OBJECTS	QtSetting/Makefile	/^OBJECTS       = main.o \\$/;"	m
 OBJECTS	core/Makefile	/^OBJECTS       = abstractconfig.o \\$/;"	m
 OBJECTS	meego-mpl/Makefile	/^OBJECTS       = meego-panel-omweather.o \\$/;"	m
 OBJECTS	qt-qml/Makefile	/^OBJECTS       = main.o \\$/;"	m
+OBJECTS	qtsetting-touch/Makefile	/^OBJECTS       = main.o \\$/;"	m
 OBJECTS	qtsetting/Makefile	/^OBJECTS       = main.o \\$/;"	m
-OBJECTS_DIR	QtSetting/Makefile	/^OBJECTS_DIR   = .\/$/;"	m
 OBJECTS_DIR	core/Makefile	/^OBJECTS_DIR   = .\/$/;"	m
 OBJECTS_DIR	meego-mpl/Makefile	/^OBJECTS_DIR   = .\/$/;"	m
 OBJECTS_DIR	qt-qml/Makefile	/^OBJECTS_DIR   = .\/$/;"	m
+OBJECTS_DIR	qtsetting-touch/Makefile	/^OBJECTS_DIR   = .\/$/;"	m
 OBJECTS_DIR	qtsetting/Makefile	/^OBJECTS_DIR   = .\/$/;"	m
-PANEL_HEIGHT	meego-mpl/meego-panel-omweather.cpp	48;"	d	file:
+OMWEATHER_VERSION	core/core.h	51;"	d
+PANEL_HEIGHT	meego-mpl/meego-panel-omweather.cpp	50;"	d	file:
 PARSERQT_H	core/parserqt.h	33;"	d
 PARSER_H	core/parser.h	33;"	d
 Parser	core/parser.cpp	/^    Parser::Parser(){}$/;"	f	class:Core::Parser
@@ -282,59 +290,59 @@ Ppcp	core/data.cpp	/^    Data::Ppcp() const{$/;"	f	class:Core::Data
 Ppcp	core/data.cpp	/^    Data::Ppcp(float ppcp){$/;"	f	class:Core::Data
 PpcpRole	qt-qml/dataitem.h	/^        PpcpRole,$/;"	e	enum:DataItem::Roles
 Pressure	core/data.cpp	/^    Data::Pressure() const{$/;"	f	class:Core::Data
-Pressure	core/data.cpp	/^    Data::Pressure(int pressure){$/;"	f	class:Core::Data
+Pressure	core/data.cpp	/^    Data::Pressure(float pressure){$/;"	f	class:Core::Data
 PressureLabelRole	qt-qml/dataitem.h	/^        PressureLabelRole$/;"	e	enum:DataItem::Roles
 PressureRole	qt-qml/dataitem.h	/^        PressureRole,$/;"	e	enum:DataItem::Roles
 QMAKE	Makefile	/^QMAKE         = \/usr\/bin\/qmake$/;"	m
-QMAKE	QtSetting/Makefile	/^QMAKE         = \/usr\/bin\/qmake$/;"	m
 QMAKE	core/Makefile	/^QMAKE         = \/usr\/bin\/qmake$/;"	m
 QMAKE	meego-mpl/Makefile	/^QMAKE         = \/usr\/bin\/qmake$/;"	m
 QMAKE	qt-qml/Makefile	/^QMAKE         = \/usr\/bin\/qmake$/;"	m
+QMAKE	qtsetting-touch/Makefile	/^QMAKE         = \/usr\/bin\/qmake$/;"	m
 QMAKE	qtsetting/Makefile	/^QMAKE         = \/usr\/bin\/qmake$/;"	m
-QMAKE_TARGET	QtSetting/Makefile	/^QMAKE_TARGET  = QtSetting$/;"	m
 QMAKE_TARGET	core/Makefile	/^QMAKE_TARGET  = omweather-core$/;"	m
 QMAKE_TARGET	meego-mpl/Makefile	/^QMAKE_TARGET  = meego-panel-omweather$/;"	m
 QMAKE_TARGET	qt-qml/Makefile	/^QMAKE_TARGET  = omweather-qml$/;"	m
+QMAKE_TARGET	qtsetting-touch/Makefile	/^QMAKE_TARGET  = qtsetting-touch$/;"	m
 QMAKE_TARGET	qtsetting/Makefile	/^QMAKE_TARGET  = omweather-settings$/;"	m
 QMLLAYOUTITEM_H	qt-qml/qmllayoutitem.h	32;"	d
 QmlLayoutItem	qt-qml/qmllayoutitem.cpp	/^QmlLayoutItem::QmlLayoutItem(ConfigQml *configqml, DataQml *dataqml)$/;"	f	class:QmlLayoutItem
 QmlLayoutItem	qt-qml/qmllayoutitem.h	/^class QmlLayoutItem$/;"	c
-RANLIB	QtSetting/Makefile	/^RANLIB        = $/;"	m
 RANLIB	core/Makefile	/^RANLIB        = $/;"	m
 RANLIB	meego-mpl/Makefile	/^RANLIB        = $/;"	m
 RANLIB	qt-qml/Makefile	/^RANLIB        = $/;"	m
+RANLIB	qtsetting-touch/Makefile	/^RANLIB        = $/;"	m
 RANLIB	qtsetting/Makefile	/^RANLIB        = $/;"	m
 ReLoadConfig	core/config.cpp	/^    Config::ReLoadConfig(){$/;"	f	class:Core::Config
 Roles	qt-qml/dataitem.h	/^    enum Roles {$/;"	g	class:DataItem
-SED	QtSetting/Makefile	/^SED           = sed$/;"	m
 SED	core/Makefile	/^SED           = sed$/;"	m
 SED	meego-mpl/Makefile	/^SED           = sed$/;"	m
 SED	qt-qml/Makefile	/^SED           = sed$/;"	m
+SED	qtsetting-touch/Makefile	/^SED           = sed$/;"	m
 SED	qtsetting/Makefile	/^SED           = sed$/;"	m
 SETTINGSTATIONS_H	qtsetting/settingstations.h	2;"	d
 SETTING_H	qtsetting/setting.h	2;"	d
 SORCELIST_H	core/sourcelist.h	33;"	d
-SOURCES	QtSetting/Makefile	/^SOURCES       = main.cpp \\$/;"	m
 SOURCES	core/Makefile	/^SOURCES       = abstractconfig.cpp \\$/;"	m
 SOURCES	meego-mpl/Makefile	/^SOURCES       = meego-panel-omweather.cpp \\$/;"	m
 SOURCES	qt-qml/Makefile	/^SOURCES       = main.cpp \\$/;"	m
+SOURCES	qtsetting-touch/Makefile	/^SOURCES       = main.cpp \\$/;"	m
 SOURCES	qtsetting/Makefile	/^SOURCES       = main.cpp \\$/;"	m
 SOURCE_H	core/source.h	33;"	d
 STATIONLIST_H	core/stationlist.h	33;"	d
+STATIONPAGE_H	qtsetting-touch/stationpage.h	2;"	d
 STATION_H	core/station.h	33;"	d
-STRIP	QtSetting/Makefile	/^STRIP         = strip$/;"	m
 STRIP	core/Makefile	/^STRIP         = strip$/;"	m
 STRIP	meego-mpl/Makefile	/^STRIP         = strip$/;"	m
 STRIP	qt-qml/Makefile	/^STRIP         = strip$/;"	m
+STRIP	qtsetting-touch/Makefile	/^STRIP         = strip$/;"	m
 STRIP	qtsetting/Makefile	/^STRIP         = strip$/;"	m
 SUBTARGETS	Makefile	/^SUBTARGETS    =  \\$/;"	m
 SYMLINK	Makefile	/^SYMLINK       = ln -f -s$/;"	m
-SYMLINK	QtSetting/Makefile	/^SYMLINK       = ln -f -s$/;"	m
 SYMLINK	core/Makefile	/^SYMLINK       = ln -f -s$/;"	m
 SYMLINK	meego-mpl/Makefile	/^SYMLINK       = ln -f -s$/;"	m
 SYMLINK	qt-qml/Makefile	/^SYMLINK       = ln -f -s$/;"	m
+SYMLINK	qtsetting-touch/Makefile	/^SYMLINK       = ln -f -s$/;"	m
 SYMLINK	qtsetting/Makefile	/^SYMLINK       = ln -f -s$/;"	m
-Setting	QtSetting/ui_setting.h	/^    class Setting: public Ui_Setting {};$/;"	c	namespace:Ui
 Setting	qtsetting/setting.cpp	/^Setting::Setting(QWidget *parent) :$/;"	f	class:Setting
 Setting	qtsetting/setting.h	/^class Setting : public QDialog$/;"	c
 Setting	qtsetting/ui_setting.h	/^    class Setting: public Ui_Setting {};$/;"	c	namespace:Ui
@@ -353,17 +361,19 @@ StartTime	core/data.cpp	/^    Data::StartTime(time_t start_time){$/;"	f	class:Co
 Station	core/station.cpp	/^    Station::Station(const Station& station){$/;"	f	class:Core::Station
 Station	core/station.cpp	/^    Station::Station(const std::string& source_name, const std::string& id, const std::string& name,$/;"	f	class:Core::Station
 Station	core/station.h	/^    class Station{$/;"	c	namespace:Core
+StationPage	qtsetting-touch/stationpage.cpp	/^StationPage::StationPage() :$/;"	f	class:StationPage
+StationPage	qtsetting-touch/stationpage.h	/^class StationPage : public MApplicationPage$/;"	c
 StationsList	core/stationlist.cpp	/^    StationsList::StationsList() {$/;"	f	class:Core::StationsList
 StationsList	core/stationlist.h	/^    class StationsList : public std::vector<Station*>, AbstractConfig {$/;"	c	namespace:Core
-TAR	QtSetting/Makefile	/^TAR           = tar -cf$/;"	m
 TAR	core/Makefile	/^TAR           = tar -cf$/;"	m
 TAR	meego-mpl/Makefile	/^TAR           = tar -cf$/;"	m
 TAR	qt-qml/Makefile	/^TAR           = tar -cf$/;"	m
+TAR	qtsetting-touch/Makefile	/^TAR           = tar -cf$/;"	m
 TAR	qtsetting/Makefile	/^TAR           = tar -cf$/;"	m
-TARGET	QtSetting/Makefile	/^TARGET        = QtSetting$/;"	m
 TARGET	core/Makefile	/^TARGET        = libomweather-core.so.1.0.0$/;"	m
 TARGET	meego-mpl/Makefile	/^TARGET        = meego-panel-omweather$/;"	m
 TARGET	qt-qml/Makefile	/^TARGET        = omweather-qml$/;"	m
+TARGET	qtsetting-touch/Makefile	/^TARGET        = qtsetting-touch$/;"	m
 TARGET	qtsetting/Makefile	/^TARGET        = omweather-settings$/;"	m
 TARGET0	core/Makefile	/^TARGET0       = libomweather-core.so$/;"	m
 TARGET1	core/Makefile	/^TARGET1       = libomweather-core.so.1$/;"	m
@@ -382,15 +392,12 @@ TemperatureUnit	core/config.cpp	/^    Config::TemperatureUnit(const std::string&
 Text	core/data.cpp	/^     Data::Text(){$/;"	f	class:Core::Data
 Text	core/data.cpp	/^     Data::Text(const std::string& text){$/;"	f	class:Core::Data
 UI_SETTINGSTATIONS_H	qtsetting/ui_settingstations.h	11;"	d
-UI_SETTING_H	QtSetting/ui_setting.h	11;"	d
 UI_SETTING_H	qtsetting/ui_setting.h	11;"	d
-Ui	QtSetting/ui_setting.h	/^namespace Ui {$/;"	n
 Ui	qt-qml/mainwindow.h	/^namespace Ui {$/;"	n
 Ui	qtsetting/setting.h	/^namespace Ui {$/;"	n
 Ui	qtsetting/settingstations.h	/^namespace Ui {$/;"	n
 Ui	qtsetting/ui_setting.h	/^namespace Ui {$/;"	n
 Ui	qtsetting/ui_settingstations.h	/^namespace Ui {$/;"	n
-Ui_Setting	QtSetting/ui_setting.h	/^class Ui_Setting$/;"	c
 Ui_Setting	qtsetting/ui_setting.h	/^class Ui_Setting$/;"	c
 Ui_SettingStations	qtsetting/ui_settingstations.h	/^class Ui_SettingStations$/;"	c
 WindDirection	core/data.cpp	/^     Data::WindDirection(){$/;"	f	class:Core::Data
@@ -410,6 +417,7 @@ _	qt-qml/dataitem.h	41;"	d
 _	qt-qml/main.cpp	63;"	d	file:
 _binary	core/source.h	/^        std::string *_binary;$/;"	m	class:Core::Source
 _config	qt-qml/controller.h	/^    ConfigQml *_config;$/;"	m	class:Controller
+_config	qtsetting-touch/mainpage.h	/^    Core::Config *_config;$/;"	m	class:MainPage
 _config	qtsetting/settingstations.h	/^    Core::Config *_config;$/;"	m	class:SettingStations
 _connected	core/connection.h	/^        bool _connected;$/;"	m	class:Core::Connection
 _converter	core/station.h	/^        std::string *_converter;$/;"	m	class:Core::Station
@@ -418,8 +426,11 @@ _current	core/data.h	/^        bool _current;$/;"	m	class:Core::Data
 _current_station_id	core/config.h	/^            int          _current_station_id;$/;"	m	class:Core::Config
 _data	core/station.h	/^        Data *_data; \/* Is it really needed ? Vlad *\/$/;"	m	class:Core::Station
 _day_of_month_name	core/data.h	/^        std::string *_day_of_month_name;$/;"	m	class:Core::Data
+_day_temperature_hi	meego-mpl/datampl.h	/^    Core::Temperature *_day_temperature_hi;$/;"	m	class:DataMpl
+_day_temperature_low	meego-mpl/datampl.h	/^    Core::Temperature *_day_temperature_low;$/;"	m	class:DataMpl
 _declarative_component	qt-qml/qmllayoutitem.h	/^    QDeclarativeComponent *_declarative_component;$/;"	m	class:QmlLayoutItem
 _doc	core/parserqt.h	/^            QDomDocument _doc;$/;"	m	class:Core::ParserQt
+_dp	qt-qml/controller.h	/^    Core::DataParser *_dp;$/;"	m	class:Controller
 _end_time	core/data.h	/^        time_t _end_time;$/;"	m	class:Core::Data
 _engine	qt-qml/qmllayoutitem.h	/^    QDeclarativeEngine *_engine;$/;"	m	class:QmlLayoutItem
 _fileName	core/station.h	/^        std::string *_fileName;$/;"	m	class:Core::Station
@@ -443,6 +454,7 @@ _list	core/dataparser.h	/^        DataList *_list;$/;"	m	class:Core::DataParser
 _list	core/dataparserqt.h	/^        DataList *_list;$/;"	m	class:Core::DataParserQt
 _list	qt-qml/datamodel.h	/^    QList<DataItem*>_list;$/;"	m	class:DataModel
 _logo	core/source.h	/^        std::string *_logo;$/;"	m	class:Core::Source
+_model	qt-qml/controller.h	/^    DataModel *_model; $/;"	m	class:Controller
 _name	core/source.h	/^        std::string *_name;$/;"	m	class:Core::Source
 _name	core/station.h	/^        std::string *_name;$/;"	m	class:Core::Station
 _obj	qt-qml/qmllayoutitem.h	/^    QGraphicsLayoutItem* _obj;$/;"	m	class:QmlLayoutItem
@@ -452,6 +464,7 @@ _pressure	core/data.h	/^        int _pressure;$/;"	m	class:Core::Data
 _prototype	qt-qml/datamodel.h	/^    DataItem* _prototype;$/;"	m	class:DataModel
 _proxyHost	core/connection.h	/^        std::string *_proxyHost;$/;"	m	class:Core::Connection
 _proxyPort	core/connection.h	/^        int _proxyPort;$/;"	m	class:Core::Connection
+_qview	qt-qml/controller.h	/^    QDeclarativeView *_qview;$/;"	m	class:Controller
 _region	core/station.h	/^        std::string *_region;$/;"	m	class:Core::Station
 _short_day_name	core/data.h	/^        std::string *_short_day_name;$/;"	m	class:Core::Data
 _source	core/station.h	/^            Source *_source;$/;"	m	class:Core::Station
@@ -462,9 +475,11 @@ _sourceInit	core/source.h	/^        void (*_sourceInit)();$/;"	m	class:Core::Sou
 _sourceName	core/station.h	/^        std::string *_sourceName;$/;"	m	class:Core::Station
 _sourceSearch	core/source.h	/^        StationsList& (*_sourceSearch)(const std::string& station);$/;"	m	class:Core::Source
 _start_time	core/data.h	/^        time_t _start_time;$/;"	m	class:Core::Data
+_stationlist	qtsetting-touch/mainpage.h	/^    Core::StationsList *_stationlist;$/;"	m	class:MainPage
 _stationlist	qtsetting/settingstations.h	/^    Core::StationsList *_stationlist;$/;"	m	class:SettingStations
 _stations	core/config.h	/^            StationsList *_stations;$/;"	m	class:Core::Config
 _stations	core/sourcelist.h	/^        StationsList *_stations;$/;"	m	class:Core::SourceList
+_temperature	core/data.h	/^        Temperature *_temperature;$/;"	m	class:Core::Data
 _temperature_hi	core/data.h	/^        Temperature *_temperature_hi;$/;"	m	class:Core::Data
 _temperature_low	core/data.h	/^        Temperature *_temperature_low;$/;"	m	class:Core::Data
 _temperature_unit	core/config.h	/^            std::string *_temperature_unit;$/;"	m	class:Core::Config
@@ -483,20 +498,22 @@ _wind_speed_unit	core/config.h	/^            std::string *_wind_speed_unit;$/;"	
 about_button_event_cb	meego-mpl/meego-panel-omweather.cpp	/^about_button_event_cb (ClutterActor *actor,$/;"	f
 add	qtsetting/settingstations.cpp	/^SettingStations::add()$/;"	f	class:SettingStations
 addButton	qtsetting/ui_settingstations.h	/^    QPushButton *addButton;$/;"	m	class:Ui_SettingStations
+addClicked	qtsetting-touch/mainpage.cpp	/^void MainPage::addClicked()$/;"	f	class:MainPage
+addbutton	qtsetting-touch/mainpage.h	/^    MButton *addbutton, *delbutton;$/;"	m	class:MainPage
 appendRow	qt-qml/datamodel.cpp	/^DataModel::appendRow(DataItem *item)$/;"	f	class:DataModel
 binary	core/source.cpp	/^    std::string& Source::binary() const{$/;"	f	class:Core::Source
 bottom_container	meego-mpl/meego-panel-omweather.cpp	/^ClutterActor   *bottom_container = NULL;$/;"	v
 buttonBox	qtsetting/ui_settingstations.h	/^    QDialogButtonBox *buttonBox;$/;"	m	class:Ui_SettingStations
-canselButton	QtSetting/ui_setting.h	/^    QPushButton *canselButton;$/;"	m	class:Ui_Setting
 canselButton	qtsetting/ui_setting.h	/^    QPushButton *canselButton;$/;"	m	class:Ui_Setting
 change_actor_size_and_position	meego-mpl/meego-netbookUX-omweather.cpp	/^change_actor_size_and_position(ClutterActor *actor, gint need_size)$/;"	f
 change_path	meego-mpl/meego-netbookUX-omweather.cpp	/^change_path(ClutterPath *path, gint need_size)$/;"	f
 changestation	qt-qml/configqml.cpp	/^void ConfigQml::changestation()$/;"	f	class:ConfigQml
-cityCombo	QtSetting/ui_setting.h	/^    QComboBox *cityCombo;$/;"	m	class:Ui_Setting
+cityCombo	qtsetting-touch/stationpage.h	/^    MComboBox *sourceCombo, *countryCombo, *regionCombo, *cityCombo;$/;"	m	class:StationPage
 cityCombo	qtsetting/ui_setting.h	/^    QComboBox *cityCombo;$/;"	m	class:Ui_Setting
 clear	qt-qml/datamodel.cpp	/^DataModel::clear()$/;"	f	class:DataModel
 close	core/connection.cpp	/^    void Connection::close(){$/;"	f	class:Core::Connection
 closeapplication	qt-qml/configqml.cpp	/^ConfigQml::closeapplication()$/;"	f	class:ConfigQml
+combo	qtsetting-touch/mainpage.h	/^    MComboBox *combo, *temperature_combo;$/;"	m	class:MainPage
 config	meego-mpl/meego-panel-omweather.cpp	/^Core::Config *config;$/;"	v
 config	qt-qml/controller.cpp	/^Controller::config()$/;"	f	class:Controller
 config_button_event_cb	meego-mpl/meego-panel-omweather.cpp	/^config_button_event_cb (ClutterActor *actor,$/;"	f
@@ -505,9 +522,12 @@ converter	core/station.cpp	/^    std::string& Station::converter() const{$/;"	f	
 converter	core/station.cpp	/^    void Station::converter(const std::string &converter)$/;"	f	class:Core::Station
 country	core/station.cpp	/^    std::string& Station::country() const{$/;"	f	class:Core::Station
 country	core/station.cpp	/^    void Station::country(const std::string& country){$/;"	f	class:Core::Station
+countryChanged	qtsetting-touch/stationpage.cpp	/^void StationPage::countryChanged(int val)$/;"	f	class:StationPage
 countryChanged	qtsetting/setting.cpp	/^Setting::countryChanged(int val)$/;"	f	class:Setting
-countryCombo	QtSetting/ui_setting.h	/^    QComboBox *countryCombo;$/;"	m	class:Ui_Setting
+countryCombo	qtsetting-touch/stationpage.h	/^    MComboBox *sourceCombo, *countryCombo, *regionCombo, *cityCombo;$/;"	m	class:StationPage
 countryCombo	qtsetting/ui_setting.h	/^    QComboBox *countryCombo;$/;"	m	class:Ui_Setting
+createContent	qtsetting-touch/mainpage.cpp	/^void MainPage::createContent()$/;"	f	class:MainPage
+createContent	qtsetting-touch/stationpage.cpp	/^void StationPage::createContent()$/;"	f	class:StationPage
 create_and_fill_config	meego-mpl/meego-netbookUX-omweather.cpp	/^create_and_fill_config(void){$/;"	f
 create_and_fill_config	qt-qml/controller.cpp	/^create_and_fill_config(){$/;"	f
 create_countries_list	core/databasesqlite.cpp	/^DatabaseSqlite::create_countries_list()$/;"	f	class:Core::DatabaseSqlite
@@ -516,7 +536,7 @@ create_stations_list	core/databasesqlite.cpp	/^DatabaseSqlite::create_stations_l
 create_update_animation	meego-mpl/meego-netbookUX-omweather.cpp	/^create_update_animation(ClutterActor *actor)$/;"	f
 current	qt-qml/dataitem.cpp	/^DataItem::current()$/;"	f	class:DataItem
 current_data	meego-mpl/meego-netbookUX-omweather.cpp	/^current_data(std::string& str){$/;"	f
-current_data	qt-qml/main.cpp	/^current_data(std::string& str){$/;"	f
+current_data	qt-qml/controller.cpp	/^current_data(std::string& str){$/;"	f
 current_station_id	core/config.cpp	/^    Config::current_station_id(){$/;"	f	class:Core::Config
 current_station_id	core/config.cpp	/^    Config::current_station_id(int id_station){$/;"	f	class:Core::Config
 data	core/dataparser.cpp	/^    DataList& DataParser::data(){$/;"	f	class:Core::DataParser
@@ -526,11 +546,16 @@ data	qt-qml/datamodel.cpp	/^DataModel::data(const QModelIndex &index, int role) 
 dataValid	core/station.cpp	/^    bool Station::dataValid(){$/;"	f	class:Core::Station
 databasename	core/databasesqlite.h	/^    std::string *databasename;$/;"	m	class:Core::DatabaseSqlite
 date	qt-qml/dataitem.cpp	/^DataItem::date()$/;"	f	class:DataItem
+day_temperature_hi	meego-mpl/datampl.cpp	/^Core::Temperature& DataMpl::day_temperature_hi(){$/;"	f	class:DataMpl
+day_temperature_low	meego-mpl/datampl.cpp	/^Core::Temperature& DataMpl::day_temperature_low(){$/;"	f	class:DataMpl
 db	core/databasesqlite.h	/^    sqlite3 *db;$/;"	m	class:Core::DatabaseSqlite
+db	qtsetting-touch/stationpage.h	/^    Core::DatabaseSqlite *db;$/;"	m	class:StationPage
 db	qtsetting/setting.h	/^    Core::DatabaseSqlite *db;$/;"	m	class:Setting
 dbus_conn	meego-mpl/meego-panel-omweather.cpp	/^DBusConnection       *dbus_conn;$/;"	v
 dbus_conn_session	meego-mpl/meego-panel-omweather.cpp	/^DBusConnection       *dbus_conn_session;$/;"	v
 dbus_init	meego-mpl/meego-panel-omweather.cpp	/^dbus_init(void){$/;"	f
+delClicked	qtsetting-touch/mainpage.cpp	/^void MainPage::delClicked()$/;"	f	class:MainPage
+delbutton	qtsetting-touch/mainpage.h	/^    MButton *addbutton, *delbutton;$/;"	m	class:MainPage
 description	qt-qml/dataitem.cpp	/^DataItem::description()$/;"	f	class:DataItem
 detail_event_cb	meego-mpl/meego-panel-omweather.cpp	/^detail_event_cb (ClutterActor *actor,$/;"	f
 downloadData	core/downloader.cpp	/^Downloader::downloadData(const std::string &filename, const std::string &url)$/;"	f	class:Core::Downloader
@@ -552,27 +577,24 @@ fulldate	qt-qml/dataitem.cpp	/^DataItem::fulldate()$/;"	f	class:DataItem
 g_finish_update	meego-mpl/meego-panel-omweather.cpp	/^gboolean g_finish_update(gpointer data)$/;"	f
 getConfigPath	core/abstractconfig.cpp	/^    std::string AbstractConfig::getConfigPath()$/;"	f	class:Core::AbstractConfig
 getSourceByName	core/station.cpp	/^    Source* Station::getSourceByName()$/;"	f	class:Core::Station
-getStaticMetaObject	QtSetting/moc_setting.cpp	/^const QMetaObject &Setting::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:Setting
 getStaticMetaObject	qt-qml/moc_configqml.cpp	/^const QMetaObject &ConfigQml::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:ConfigQml
 getStaticMetaObject	qt-qml/moc_controller.cpp	/^const QMetaObject &Controller::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:Controller
 getStaticMetaObject	qt-qml/moc_dataitem.cpp	/^const QMetaObject &DataItem::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:DataItem
 getStaticMetaObject	qt-qml/moc_datamodel.cpp	/^const QMetaObject &DataModel::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:DataModel
 getStaticMetaObject	qt-qml/moc_dataqml.cpp	/^const QMetaObject &DataQml::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:DataQml
 getStaticMetaObject	qt-qml/moc_dbusadaptor.cpp	/^const QMetaObject &DbusAdaptor::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:DbusAdaptor
+getStaticMetaObject	qtsetting-touch/moc_mainpage.cpp	/^const QMetaObject &MainPage::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:MainPage
+getStaticMetaObject	qtsetting-touch/moc_stationpage.cpp	/^const QMetaObject &StationPage::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:StationPage
 getStaticMetaObject	qtsetting/moc_setting.cpp	/^const QMetaObject &Setting::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:Setting
 getStaticMetaObject	qtsetting/moc_settingstations.cpp	/^const QMetaObject &SettingStations::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:SettingStations
 get_omweather_signal_cb	meego-mpl/meego-panel-omweather.cpp	/^get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){$/;"	f
-gridLayout	QtSetting/ui_setting.h	/^    QGridLayout *gridLayout;$/;"	m	class:Ui_Setting
 gridLayout	qtsetting/ui_setting.h	/^    QGridLayout *gridLayout;$/;"	m	class:Ui_Setting
-groupBox	QtSetting/ui_setting.h	/^    QGroupBox *groupBox;$/;"	m	class:Ui_Setting
 groupBox	qtsetting/ui_setting.h	/^    QGroupBox *groupBox;$/;"	m	class:Ui_Setting
 hasProxy	core/connection.cpp	/^    bool Connection::hasProxy() const{$/;"	f	class:Core::Connection
 hash_table_create	meego-mpl/meego-netbookUX-omweather.cpp	/^GHashTable *hash_table_create(void) {$/;"	f
-horizontalLayout	QtSetting/ui_setting.h	/^    QHBoxLayout *horizontalLayout;$/;"	m	class:Ui_Setting
 horizontalLayout	qtsetting/ui_setting.h	/^    QHBoxLayout *horizontalLayout;$/;"	m	class:Ui_Setting
 horizontalLayout	qtsetting/ui_settingstations.h	/^    QHBoxLayout *horizontalLayout;$/;"	m	class:Ui_SettingStations
 horizontalLayout_2	qtsetting/ui_settingstations.h	/^    QHBoxLayout *horizontalLayout_2;$/;"	m	class:Ui_SettingStations
-horizontalSpacer	QtSetting/ui_setting.h	/^    QSpacerItem *horizontalSpacer;$/;"	m	class:Ui_Setting
 horizontalSpacer	qtsetting/ui_setting.h	/^    QSpacerItem *horizontalSpacer;$/;"	m	class:Ui_Setting
 horizontalSpacer	qtsetting/ui_settingstations.h	/^    QSpacerItem *horizontalSpacer;$/;"	m	class:Ui_SettingStations
 humidity	qt-qml/dataitem.cpp	/^DataItem::humidity() {$/;"	f	class:DataItem
@@ -592,14 +614,10 @@ iconspathChanged	qt-qml/moc_configqml.cpp	/^void ConfigQml::iconspathChanged()$/
 id	core/station.cpp	/^    std::string& Station::id() const{$/;"	f	class:Core::Station
 id	core/station.cpp	/^    void Station::id(const std::string& id){$/;"	f	class:Core::Station
 init_omweather_core	meego-mpl/meego-netbookUX-omweather.cpp	/^init_omweather_core(void){$/;"	f
-label	QtSetting/ui_setting.h	/^    QLabel *label;$/;"	m	class:Ui_Setting
 label	qtsetting/ui_setting.h	/^    QLabel *label;$/;"	m	class:Ui_Setting
 label	qtsetting/ui_settingstations.h	/^    QLabel *label;$/;"	m	class:Ui_SettingStations
-label_2	QtSetting/ui_setting.h	/^    QLabel *label_2;$/;"	m	class:Ui_Setting
 label_2	qtsetting/ui_setting.h	/^    QLabel *label_2;$/;"	m	class:Ui_Setting
-label_3	QtSetting/ui_setting.h	/^    QLabel *label_3;$/;"	m	class:Ui_Setting
 label_3	qtsetting/ui_setting.h	/^    QLabel *label_3;$/;"	m	class:Ui_Setting
-label_4	QtSetting/ui_setting.h	/^    QLabel *label_4;$/;"	m	class:Ui_Setting
 label_4	qtsetting/ui_setting.h	/^    QLabel *label_4;$/;"	m	class:Ui_Setting
 layoutqml	core/abstractconfig.cpp	/^    std::string AbstractConfig::layoutqml = "weatherlayoutitem.qml";$/;"	m	class:Core::AbstractConfig	file:
 layoutqml	core/abstractconfig.h	/^            static std::string layoutqml;$/;"	m	class:Core::AbstractConfig
@@ -607,30 +625,33 @@ libPath	core/abstractconfig.cpp	/^    std::string AbstractConfig::libPath = "lib
 libPath	core/abstractconfig.h	/^            static std::string libPath;$/;"	m	class:Core::AbstractConfig
 listWidget	qtsetting/ui_settingstations.h	/^    QListWidget *listWidget;$/;"	m	class:Ui_SettingStations
 listdata	core/databaseabstract.h	/^typedef std::vector< std::pair<std::string, std::string> > listdata;$/;"	t	namespace:Core
+load_config	qt-qml/controller.cpp	/^Controller::load_config()$/;"	f	class:Controller
+load_data	qt-qml/controller.cpp	/^Controller::load_data()$/;"	f	class:Controller
 logo	core/source.cpp	/^    std::string& Source::logo() const{$/;"	f	class:Core::Source
 main	meego-mpl/meego-panel-omweather.cpp	/^main (int argc, char *argv[])$/;"	f
 main	qt-qml/main.cpp	/^int main(int argc, char* argv[])$/;"	f
+main	qtsetting-touch/main.cpp	/^int main(int argc, char *argv[])$/;"	f
 main	qtsetting/main.cpp	/^int main(int argc, char *argv[])$/;"	f
 main_vertical_layout	meego-mpl/meego-panel-omweather.cpp	/^ClutterLayoutManager *main_vertical_layout = NULL;$/;"	v
 make_bottom_content	meego-mpl/meego-panel-omweather.cpp	/^make_bottom_content(Core::Data *temp_data) {$/;"	f
 make_bottom_content_about	meego-mpl/meego-panel-omweather.cpp	/^make_bottom_content_about() {$/;"	f
-make_day_actor	meego-mpl/meego-panel-omweather.cpp	/^make_day_actor(Core::Data *temp_data){$/;"	f	file:
+make_day_actor	meego-mpl/meego-panel-omweather.cpp	/^make_day_actor(DataMpl *temp_data){$/;"	f	file:
 make_forecast_detail_box	meego-mpl/meego-panel-omweather.cpp	/^make_forecast_detail_box(Core::Data *temp_data){$/;"	f
 make_window_content	meego-mpl/meego-panel-omweather.cpp	/^make_window_content (MplPanelClutter *panel)$/;"	f	file:
-metaObject	QtSetting/moc_setting.cpp	/^const QMetaObject *Setting::metaObject() const$/;"	f	class:Setting
 metaObject	qt-qml/moc_configqml.cpp	/^const QMetaObject *ConfigQml::metaObject() const$/;"	f	class:ConfigQml
 metaObject	qt-qml/moc_controller.cpp	/^const QMetaObject *Controller::metaObject() const$/;"	f	class:Controller
 metaObject	qt-qml/moc_dataitem.cpp	/^const QMetaObject *DataItem::metaObject() const$/;"	f	class:DataItem
 metaObject	qt-qml/moc_datamodel.cpp	/^const QMetaObject *DataModel::metaObject() const$/;"	f	class:DataModel
 metaObject	qt-qml/moc_dataqml.cpp	/^const QMetaObject *DataQml::metaObject() const$/;"	f	class:DataQml
 metaObject	qt-qml/moc_dbusadaptor.cpp	/^const QMetaObject *DbusAdaptor::metaObject() const$/;"	f	class:DbusAdaptor
+metaObject	qtsetting-touch/moc_mainpage.cpp	/^const QMetaObject *MainPage::metaObject() const$/;"	f	class:MainPage
+metaObject	qtsetting-touch/moc_stationpage.cpp	/^const QMetaObject *StationPage::metaObject() const$/;"	f	class:StationPage
 metaObject	qtsetting/moc_setting.cpp	/^const QMetaObject *Setting::metaObject() const$/;"	f	class:Setting
 metaObject	qtsetting/moc_settingstations.cpp	/^const QMetaObject *SettingStations::metaObject() const$/;"	f	class:SettingStations
 name	core/source.cpp	/^    std::string& Source::name() const{$/;"	f	class:Core::Source
 name	core/station.cpp	/^    std::string& Station::name() const{$/;"	f	class:Core::Station
 name	core/station.cpp	/^    void Station::name(const std::string& name){$/;"	f	class:Core::Station
 obj	qt-qml/qmllayoutitem.cpp	/^QmlLayoutItem::obj() const{$/;"	f	class:QmlLayoutItem
-okButton	QtSetting/ui_setting.h	/^    QPushButton *okButton;$/;"	m	class:Ui_Setting
 okButton	qtsetting/ui_setting.h	/^    QPushButton *okButton;$/;"	m	class:Ui_Setting
 okClicked	qtsetting/setting.cpp	/^Setting::okClicked()$/;"	f	class:Setting
 okClicked	qtsetting/settingstations.cpp	/^SettingStations::okClicked()$/;"	f	class:SettingStations
@@ -664,34 +685,38 @@ qt_meta_data_DataItem	qt-qml/moc_dataitem.cpp	/^static const uint qt_meta_data_D
 qt_meta_data_DataModel	qt-qml/moc_datamodel.cpp	/^static const uint qt_meta_data_DataModel[] = {$/;"	v	file:
 qt_meta_data_DataQml	qt-qml/moc_dataqml.cpp	/^static const uint qt_meta_data_DataQml[] = {$/;"	v	file:
 qt_meta_data_DbusAdaptor	qt-qml/moc_dbusadaptor.cpp	/^static const uint qt_meta_data_DbusAdaptor[] = {$/;"	v	file:
-qt_meta_data_Setting	QtSetting/moc_setting.cpp	/^static const uint qt_meta_data_Setting[] = {$/;"	v	file:
+qt_meta_data_MainPage	qtsetting-touch/moc_mainpage.cpp	/^static const uint qt_meta_data_MainPage[] = {$/;"	v	file:
 qt_meta_data_Setting	qtsetting/moc_setting.cpp	/^static const uint qt_meta_data_Setting[] = {$/;"	v	file:
 qt_meta_data_SettingStations	qtsetting/moc_settingstations.cpp	/^static const uint qt_meta_data_SettingStations[] = {$/;"	v	file:
+qt_meta_data_StationPage	qtsetting-touch/moc_stationpage.cpp	/^static const uint qt_meta_data_StationPage[] = {$/;"	v	file:
 qt_meta_stringdata_ConfigQml	qt-qml/moc_configqml.cpp	/^static const char qt_meta_stringdata_ConfigQml[] = {$/;"	v	file:
 qt_meta_stringdata_Controller	qt-qml/moc_controller.cpp	/^static const char qt_meta_stringdata_Controller[] = {$/;"	v	file:
 qt_meta_stringdata_DataItem	qt-qml/moc_dataitem.cpp	/^static const char qt_meta_stringdata_DataItem[] = {$/;"	v	file:
 qt_meta_stringdata_DataModel	qt-qml/moc_datamodel.cpp	/^static const char qt_meta_stringdata_DataModel[] = {$/;"	v	file:
 qt_meta_stringdata_DataQml	qt-qml/moc_dataqml.cpp	/^static const char qt_meta_stringdata_DataQml[] = {$/;"	v	file:
 qt_meta_stringdata_DbusAdaptor	qt-qml/moc_dbusadaptor.cpp	/^static const char qt_meta_stringdata_DbusAdaptor[] = {$/;"	v	file:
-qt_meta_stringdata_Setting	QtSetting/moc_setting.cpp	/^static const char qt_meta_stringdata_Setting[] = {$/;"	v	file:
+qt_meta_stringdata_MainPage	qtsetting-touch/moc_mainpage.cpp	/^static const char qt_meta_stringdata_MainPage[] = {$/;"	v	file:
 qt_meta_stringdata_Setting	qtsetting/moc_setting.cpp	/^static const char qt_meta_stringdata_Setting[] = {$/;"	v	file:
 qt_meta_stringdata_SettingStations	qtsetting/moc_settingstations.cpp	/^static const char qt_meta_stringdata_SettingStations[] = {$/;"	v	file:
-qt_metacall	QtSetting/moc_setting.cpp	/^int Setting::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:Setting
+qt_meta_stringdata_StationPage	qtsetting-touch/moc_stationpage.cpp	/^static const char qt_meta_stringdata_StationPage[] = {$/;"	v	file:
 qt_metacall	qt-qml/moc_configqml.cpp	/^int ConfigQml::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:ConfigQml
 qt_metacall	qt-qml/moc_controller.cpp	/^int Controller::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:Controller
 qt_metacall	qt-qml/moc_dataitem.cpp	/^int DataItem::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:DataItem
 qt_metacall	qt-qml/moc_datamodel.cpp	/^int DataModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:DataModel
 qt_metacall	qt-qml/moc_dataqml.cpp	/^int DataQml::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:DataQml
 qt_metacall	qt-qml/moc_dbusadaptor.cpp	/^int DbusAdaptor::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:DbusAdaptor
+qt_metacall	qtsetting-touch/moc_mainpage.cpp	/^int MainPage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:MainPage
+qt_metacall	qtsetting-touch/moc_stationpage.cpp	/^int StationPage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:StationPage
 qt_metacall	qtsetting/moc_setting.cpp	/^int Setting::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:Setting
 qt_metacall	qtsetting/moc_settingstations.cpp	/^int SettingStations::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:SettingStations
-qt_metacast	QtSetting/moc_setting.cpp	/^void *Setting::qt_metacast(const char *_clname)$/;"	f	class:Setting
 qt_metacast	qt-qml/moc_configqml.cpp	/^void *ConfigQml::qt_metacast(const char *_clname)$/;"	f	class:ConfigQml
 qt_metacast	qt-qml/moc_controller.cpp	/^void *Controller::qt_metacast(const char *_clname)$/;"	f	class:Controller
 qt_metacast	qt-qml/moc_dataitem.cpp	/^void *DataItem::qt_metacast(const char *_clname)$/;"	f	class:DataItem
 qt_metacast	qt-qml/moc_datamodel.cpp	/^void *DataModel::qt_metacast(const char *_clname)$/;"	f	class:DataModel
 qt_metacast	qt-qml/moc_dataqml.cpp	/^void *DataQml::qt_metacast(const char *_clname)$/;"	f	class:DataQml
 qt_metacast	qt-qml/moc_dbusadaptor.cpp	/^void *DbusAdaptor::qt_metacast(const char *_clname)$/;"	f	class:DbusAdaptor
+qt_metacast	qtsetting-touch/moc_mainpage.cpp	/^void *MainPage::qt_metacast(const char *_clname)$/;"	f	class:MainPage
+qt_metacast	qtsetting-touch/moc_stationpage.cpp	/^void *StationPage::qt_metacast(const char *_clname)$/;"	f	class:StationPage
 qt_metacast	qtsetting/moc_setting.cpp	/^void *Setting::qt_metacast(const char *_clname)$/;"	f	class:Setting
 qt_metacast	qtsetting/moc_settingstations.cpp	/^void *SettingStations::qt_metacast(const char *_clname)$/;"	f	class:SettingStations
 qt_resource_data	qt-qml/qrc_weatherlayoutitem.cpp	/^static const unsigned char qt_resource_data[] = {$/;"	v	file:
@@ -700,14 +725,16 @@ qt_resource_name	qt-qml/qrc_weatherlayoutitem.cpp	/^static const unsigned char q
 qt_resource_name	qtsetting/qrc_omweather-settings.cpp	/^static const unsigned char qt_resource_name[] = {$/;"	v	file:
 qt_resource_struct	qt-qml/qrc_weatherlayoutitem.cpp	/^static const unsigned char qt_resource_struct[] = {$/;"	v	file:
 qt_resource_struct	qtsetting/qrc_omweather-settings.cpp	/^static const unsigned char qt_resource_struct[] = {$/;"	v	file:
+qview	qt-qml/controller.cpp	/^Controller::qview()$/;"	f	class:Controller
 refresh_button_event_cb	meego-mpl/meego-panel-omweather.cpp	/^refresh_button_event_cb (ClutterActor *actor,$/;"	f
 refresh_timeline	meego-mpl/meego-panel-omweather.cpp	/^ClutterTimeline *refresh_timeline = NULL;$/;"	v
 refreshconfig	qt-qml/configqml.cpp	/^ConfigQml::refreshconfig(){$/;"	f	class:ConfigQml
 refreshview	qt-qml/dataqml.cpp	/^DataQml::refreshview(){$/;"	f	class:DataQml
 region	core/station.cpp	/^    std::string& Station::region() const{$/;"	f	class:Core::Station
 region	core/station.cpp	/^    void Station::region(const std::string& region){$/;"	f	class:Core::Station
+regionChanged	qtsetting-touch/stationpage.cpp	/^StationPage::regionChanged(int val)$/;"	f	class:StationPage
 regionChanged	qtsetting/setting.cpp	/^Setting::regionChanged(int val)$/;"	f	class:Setting
-regionCombo	QtSetting/ui_setting.h	/^    QComboBox *regionCombo;$/;"	m	class:Ui_Setting
+regionCombo	qtsetting-touch/stationpage.h	/^    MComboBox *sourceCombo, *countryCombo, *regionCombo, *cityCombo;$/;"	m	class:StationPage
 regionCombo	qtsetting/ui_setting.h	/^    QComboBox *regionCombo;$/;"	m	class:Ui_Setting
 reload_config	qt-qml/configqml.cpp	/^ConfigQml::reload_config()$/;"	f	class:ConfigQml
 reload_config	qt-qml/controller.cpp	/^Controller::reload_config()$/;"	f	class:Controller
@@ -715,12 +742,13 @@ reload_config	qt-qml/dbusadaptor.cpp	/^void DbusAdaptor::reload_config()$/;"	f	c
 remove	qtsetting/settingstations.cpp	/^SettingStations::remove()$/;"	f	class:SettingStations
 removeButton	qtsetting/ui_settingstations.h	/^    QPushButton *removeButton;$/;"	m	class:Ui_SettingStations
 remove_detail_event_cb	meego-mpl/meego-panel-omweather.cpp	/^remove_detail_event_cb (ClutterActor *actor,$/;"	f
-retranslateUi	QtSetting/ui_setting.h	/^    void retranslateUi(QDialog *Setting)$/;"	f	class:Ui_Setting
 retranslateUi	qtsetting/ui_setting.h	/^    void retranslateUi(QDialog *Setting)$/;"	f	class:Ui_Setting
 retranslateUi	qtsetting/ui_settingstations.h	/^    void retranslateUi(QDialog *SettingStations)$/;"	f	class:Ui_SettingStations
 roleNames	qt-qml/dataitem.cpp	/^QHash<int, QByteArray> DataItem::roleNames() const$/;"	f	class:DataItem
 rowCount	qt-qml/datamodel.cpp	/^DataModel::rowCount(const QModelIndex &parent) const$/;"	f	class:DataModel
 runsetting	qt-qml/configqml.cpp	/^ConfigQml::runsetting()$/;"	f	class:ConfigQml
+saveClicked	qtsetting-touch/mainpage.cpp	/^void MainPage::saveClicked()$/;"	f	class:MainPage
+saveClicked	qtsetting-touch/stationpage.cpp	/^StationPage::saveClicked()$/;"	f	class:StationPage
 saveConfig	core/config.cpp	/^    Config::saveConfig()$/;"	f	class:Core::Config
 schemaPath	core/abstractconfig.cpp	/^    std::string AbstractConfig::schemaPath = "..\/test\/schemas\/";$/;"	m	class:Core::AbstractConfig	file:
 schemaPath	core/abstractconfig.h	/^            static std::string schemaPath;$/;"	m	class:Core::AbstractConfig
@@ -728,33 +756,40 @@ search	core/source.cpp	/^    StationsList& Source::search(const std::string& sta
 searchStation	core/sourcelist.cpp	/^    StationsList& SourceList::searchStation(const std::string& station){$/;"	f	class:Core::SourceList
 setRemove	qtsetting/settingstations.cpp	/^SettingStations::setRemove(QListWidgetItem *item)$/;"	f	class:SettingStations
 set_databasename	core/databasesqlite.cpp	/^DatabaseSqlite::set_databasename(const std::string& filename)$/;"	f	class:Core::DatabaseSqlite
-setupUi	QtSetting/ui_setting.h	/^    void setupUi(QDialog *Setting)$/;"	f	class:Ui_Setting
 setupUi	qtsetting/ui_setting.h	/^    void setupUi(QDialog *Setting)$/;"	f	class:Ui_Setting
 setupUi	qtsetting/ui_settingstations.h	/^    void setupUi(QDialog *SettingStations)$/;"	f	class:Ui_SettingStations
 sharePath	core/abstractconfig.cpp	/^    std::string AbstractConfig::sharePath = "..\/test\/";$/;"	m	class:Core::AbstractConfig	file:
 sharePath	core/abstractconfig.h	/^            static std::string sharePath;$/;"	m	class:Core::AbstractConfig
 shortdate	qt-qml/dataitem.cpp	/^DataItem::shortdate()$/;"	f	class:DataItem
 signals	meego-mpl/meego-netbookUX-common.h	32;"	d
+sourceChanged	qtsetting-touch/stationpage.cpp	/^void StationPage::sourceChanged(int val)$/;"	f	class:StationPage
 sourceChanged	qtsetting/setting.cpp	/^Setting::sourceChanged(int val)$/;"	f	class:Setting
-sourceCombo	QtSetting/ui_setting.h	/^    QComboBox *sourceCombo;$/;"	m	class:Ui_Setting
+sourceCombo	qtsetting-touch/stationpage.h	/^    MComboBox *sourceCombo, *countryCombo, *regionCombo, *cityCombo;$/;"	m	class:StationPage
 sourceCombo	qtsetting/ui_setting.h	/^    QComboBox *sourceCombo;$/;"	m	class:Ui_Setting
 sourceName	core/station.cpp	/^    std::string& Station::sourceName() const{$/;"	f	class:Core::Station
 sourceName	core/station.cpp	/^    void Station::sourceName(const std::string& sourceName){$/;"	f	class:Core::Station
 source_by_name	core/sourcelist.cpp	/^    Source* SourceList::source_by_name(const std::string& source_name){$/;"	f	class:Core::SourceList
+sourcelist	qtsetting-touch/stationpage.h	/^    Core::SourceList *sourcelist;$/;"	m	class:StationPage
 sourcelist	qtsetting/setting.h	/^    Core::SourceList *sourcelist;$/;"	m	class:Setting
 sourcesPath	core/abstractconfig.cpp	/^    std::string AbstractConfig::sourcesPath = "..\/test\/sources\/";$/;"	m	class:Core::AbstractConfig	file:
 sourcesPath	core/abstractconfig.h	/^            static std::string sourcesPath;$/;"	m	class:Core::AbstractConfig
 start	qt-qml/dataitem.cpp	/^DataItem::start()$/;"	f	class:DataItem
-staticMetaObject	QtSetting/moc_setting.cpp	/^const QMetaObject Setting::staticMetaObject = {$/;"	m	class:Setting	file:
 staticMetaObject	qt-qml/moc_configqml.cpp	/^const QMetaObject ConfigQml::staticMetaObject = {$/;"	m	class:ConfigQml	file:
 staticMetaObject	qt-qml/moc_controller.cpp	/^const QMetaObject Controller::staticMetaObject = {$/;"	m	class:Controller	file:
 staticMetaObject	qt-qml/moc_dataitem.cpp	/^const QMetaObject DataItem::staticMetaObject = {$/;"	m	class:DataItem	file:
 staticMetaObject	qt-qml/moc_datamodel.cpp	/^const QMetaObject DataModel::staticMetaObject = {$/;"	m	class:DataModel	file:
 staticMetaObject	qt-qml/moc_dataqml.cpp	/^const QMetaObject DataQml::staticMetaObject = {$/;"	m	class:DataQml	file:
 staticMetaObject	qt-qml/moc_dbusadaptor.cpp	/^const QMetaObject DbusAdaptor::staticMetaObject = {$/;"	m	class:DbusAdaptor	file:
+staticMetaObject	qtsetting-touch/moc_mainpage.cpp	/^const QMetaObject MainPage::staticMetaObject = {$/;"	m	class:MainPage	file:
+staticMetaObject	qtsetting-touch/moc_stationpage.cpp	/^const QMetaObject StationPage::staticMetaObject = {$/;"	m	class:StationPage	file:
 staticMetaObject	qtsetting/moc_setting.cpp	/^const QMetaObject Setting::staticMetaObject = {$/;"	m	class:Setting	file:
 staticMetaObject	qtsetting/moc_settingstations.cpp	/^const QMetaObject SettingStations::staticMetaObject = {$/;"	m	class:SettingStations	file:
+station	qtsetting-touch/stationpage.h	/^    Core::Station *station;$/;"	m	class:StationPage
 station	qtsetting/setting.h	/^    Core::Station *station;$/;"	m	class:Setting
+stationChanged	qtsetting-touch/mainpage.cpp	/^void MainPage::stationChanged(int val)$/;"	f	class:MainPage
+stationPage	qtsetting-touch/mainpage.h	/^    StationPage *stationPage;$/;"	m	class:MainPage
+stationSave	qtsetting-touch/mainpage.cpp	/^void MainPage::stationSave()$/;"	f	class:MainPage
+stationSaved	qtsetting-touch/moc_stationpage.cpp	/^void StationPage::stationSaved()$/;"	f	class:StationPage
 station_button_event_cb	meego-mpl/meego-panel-omweather.cpp	/^station_button_event_cb (ClutterActor *actor,$/;"	f
 station_by_id	core/stationlist.cpp	/^    Station* StationsList::station_by_id(const std::string& station_id){$/;"	f	class:Core::StationsList
 stationname	qt-qml/configqml.cpp	/^ConfigQml::stationname()$/;"	f	class:ConfigQml
@@ -762,7 +797,9 @@ stationnameChanged	qt-qml/moc_configqml.cpp	/^void ConfigQml::stationnameChanged
 stationsList	core/config.cpp	/^    Config::stationsList(){$/;"	f	class:Core::Config
 stationsList	core/config.cpp	/^    Config::stationsList(StationsList list)$/;"	f	class:Core::Config
 stationslist	meego-mpl/meego-panel-omweather.cpp	/^Core::StationsList stationslist;$/;"	v
+temperature	core/data.cpp	/^    Temperature& Data::temperature(){$/;"	f	class:Core::Data
 temperatureCombo	qtsetting/ui_settingstations.h	/^    QComboBox *temperatureCombo;$/;"	m	class:Ui_SettingStations
+temperature_combo	qtsetting-touch/mainpage.h	/^    MComboBox *combo, *temperature_combo;$/;"	m	class:MainPage
 temperature_hi	core/data.cpp	/^    Temperature& Data::temperature_hi(){$/;"	f	class:Core::Data
 temperature_high	qt-qml/dataitem.cpp	/^DataItem::temperature_high() {$/;"	f	class:DataItem
 temperature_high	qt-qml/dataqml.cpp	/^DataQml::temperature_high(){$/;"	f	class:DataQml
@@ -797,11 +834,9 @@ url_template	core/source.cpp	/^    std::string& Source::url_template() const{$/;
 validator	core/parser.h	/^            xmlpp::SchemaValidator *validator;$/;"	m	class:Core::Parser
 value	core/temperature.cpp	/^    float Temperature::value() const{$/;"	f	class:Core::Temperature
 value	core/temperature.cpp	/^    void Temperature::value(const float value){$/;"	f	class:Core::Temperature
-verticalLayout	QtSetting/ui_setting.h	/^    QVBoxLayout *verticalLayout;$/;"	m	class:Ui_Setting
 verticalLayout	qtsetting/ui_setting.h	/^    QVBoxLayout *verticalLayout;$/;"	m	class:Ui_Setting
 verticalLayout	qtsetting/ui_settingstations.h	/^    QVBoxLayout *verticalLayout;$/;"	m	class:Ui_SettingStations
 verticalLayout_2	qtsetting/ui_settingstations.h	/^    QVBoxLayout *verticalLayout_2;$/;"	m	class:Ui_SettingStations
-verticalSpacer	QtSetting/ui_setting.h	/^    QSpacerItem *verticalSpacer;$/;"	m	class:Ui_Setting
 verticalSpacer	qtsetting/ui_setting.h	/^    QSpacerItem *verticalSpacer;$/;"	m	class:Ui_Setting
 verticalSpacer	qtsetting/ui_settingstations.h	/^    QSpacerItem *verticalSpacer;$/;"	m	class:Ui_SettingStations
 wakeup	core/connection.cpp	/^    void Connection::wakeup(){$/;"	f	class:Core::Connection
@@ -814,15 +849,17 @@ writedata	core/downloader.cpp	/^Downloader::writedata(void *ptr, size_t size, si
 ~Config	core/config.cpp	/^    Config::~Config(){$/;"	f	class:Core::Config
 ~ConfigQml	qt-qml/configqml.h	/^    virtual ~ConfigQml(){};$/;"	f	class:ConfigQml
 ~Connection	core/connection.cpp	/^    Connection::~Connection(){$/;"	f	class:Core::Connection
-~Controller	qt-qml/controller.h	/^    virtual ~Controller(){};$/;"	f	class:Controller
+~Controller	qt-qml/controller.cpp	/^Controller::~Controller()$/;"	f	class:Controller
 ~Data	core/data.cpp	/^    Data::~Data(){$/;"	f	class:Core::Data
 ~DataItem	qt-qml/dataitem.h	/^    virtual ~DataItem(){};$/;"	f	class:DataItem
 ~DataModel	qt-qml/datamodel.cpp	/^DataModel::~DataModel()$/;"	f	class:DataModel
+~DataMpl	meego-mpl/datampl.cpp	/^DataMpl::~DataMpl(){$/;"	f	class:DataMpl
 ~DataParser	core/dataparser.cpp	/^    DataParser::~DataParser(){$/;"	f	class:Core::DataParser
 ~DataParserQt	core/dataparserqt.cpp	/^    DataParserQt::~DataParserQt()$/;"	f	class:Core::DataParserQt
 ~DataQml	qt-qml/dataqml.h	/^    virtual ~DataQml(){};$/;"	f	class:DataQml
 ~DatabaseSqlite	core/databasesqlite.cpp	/^DatabaseSqlite::~DatabaseSqlite()$/;"	f	class:Core::DatabaseSqlite
 ~DbusAdaptor	qt-qml/dbusadaptor.cpp	/^DbusAdaptor::~DbusAdaptor()$/;"	f	class:DbusAdaptor
+~MainPage	qtsetting-touch/mainpage.cpp	/^MainPage::~MainPage()$/;"	f	class:MainPage
 ~Parser	core/parser.cpp	/^    Parser::~Parser(){$/;"	f	class:Core::Parser
 ~QmlLayoutItem	qt-qml/qmllayoutitem.cpp	/^QmlLayoutItem::~QmlLayoutItem(){$/;"	f	class:QmlLayoutItem
 ~Setting	qtsetting/setting.cpp	/^Setting::~Setting()$/;"	f	class:Setting
@@ -830,4 +867,5 @@ writedata	core/downloader.cpp	/^Downloader::writedata(void *ptr, size_t size, si
 ~Source	core/source.cpp	/^    Source::~Source(){$/;"	f	class:Core::Source
 ~SourceList	core/sourcelist.cpp	/^    SourceList::~SourceList(){$/;"	f	class:Core::SourceList
 ~Station	core/station.cpp	/^    Station::~Station(){$/;"	f	class:Core::Station
+~StationPage	qtsetting-touch/stationpage.cpp	/^StationPage::~StationPage()$/;"	f	class:StationPage
 ~Temperature	core/temperature.cpp	/^    Temperature::~Temperature(){$/;"	f	class:Core::Temperature

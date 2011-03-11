@@ -213,11 +213,11 @@ gboolean
 config_button_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
-    char *args[] = {"/usr/bin/omweather-settings", (char *) 0 };
+    char *args[] = {"/usr/bin/omweather-settouch", (char *) 0 };
 
     pid_t pID = fork();
     if (pID == 0)
-        execv("/usr/bin/omweather-settings", args );
+        execv("/usr/bin/omweather-settouch", args );
     else
         mpl_panel_client_hide(panel);
 

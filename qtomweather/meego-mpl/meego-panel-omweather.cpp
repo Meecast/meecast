@@ -38,7 +38,6 @@
 #include <libintl.h>
 #include <locale.h>
 
-#include "datampl.h"
 
 /*#define _(String) dgettext (GETTEXT_PACKAGE, String)*/
 #define GETTEXT_PACKAGE "omweather"
@@ -235,7 +234,7 @@ about_button_event_cb (ClutterActor *actor,
 
 //////////////////////////////////////////////////////////////////////////////
 static ClutterActor*
-make_day_actor(DataMpl *temp_data){
+make_day_actor(Core::Data *temp_data){
     ClutterActor     *box;
     ClutterActor     *label;
     ClutterActor     *icon;
@@ -610,7 +609,6 @@ make_window_content (MplPanelClutter *panel)
   char             buffer[4096];
   int i, period;
   Core::Data *temp_data = NULL;
-  DataMpl *temp_data_mpl = NULL;
   Core::Data *temp_data_day = NULL;
   PangoFontDescription *pfd = NULL;
   time_t current_day;
@@ -722,8 +720,7 @@ make_window_content (MplPanelClutter *panel)
       }else
           temp_data_day = NULL;
       period = period + 3600*24;
-      temp_data_mpl = new DataMpl(temp_data_day); 
-      box = make_day_actor(temp_data_mpl);
+      box = make_day_actor(temp_data_day);
         clutter_box_pack((ClutterBox*)forecast_horizontal_container, box, NULL);
   }
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), forecast_horizontal_container, 

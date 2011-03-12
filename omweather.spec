@@ -9,7 +9,7 @@
 
 Name:       omweather
 Summary:    Weather for Meego
-Version:    0.3.11
+Version:    0.3.12
 Release:    1
 Group:      Applications/Internet
 License:    GPLv2.1
@@ -107,6 +107,11 @@ desktop-file-install --delete-original       \
 /usr/share/dbus-1/services
 %endif
 %changelog
+* Thu Mar 12 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.12
+  * changed signals in qml
+  * cosmetic changes in qt touch
+  * switched to new settings(qml) and renamed qml settings bin file
+  * fixed segmantation fault in meego-mpl
 * Thu Mar 10 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.11
   * Began adding temeperature day
   * Added new source of weather forecast gismeteo.ru

@@ -118,7 +118,7 @@ Rectangle {
             MouseArea {
                 id: toDetail
                 anchors.fill: parent
-                onClicked: {
+                onPressed: {
                     if (day.detailsOpacity == 0) {
 
                         day.state = 'Details';
@@ -300,7 +300,7 @@ Rectangle {
         }
         MouseArea {
             anchors.fill: parent
-            onClicked: {
+            onPressed: {
                 parent.opacity = 0;
                 list.opacity = 1;
             }

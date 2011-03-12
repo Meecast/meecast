@@ -15,7 +15,7 @@ Rectangle {
     MouseArea {
         id: mouseArea
         anchors.fill: parent
-        onClicked: {container.clicked()}
+        onReleased: {container.clicked()}
     }
 
     Text {

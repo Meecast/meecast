@@ -36,9 +36,18 @@ namespace Core {
      Data*
      DataList::GetDataForTime(time_t _time){  
          std::vector<Data*>::const_iterator next_it, it;
+         struct tm   *begin_day = NULL;
+         struct tm   *end_day = NULL;
          time_t temp_time = -1, result_time;
+         time_t begin_day_time, end_day_time;
          Data* temp_data;
          Data* temp_data_result = NULL;
+         int hi_day_temp = INT_MAX, low_day_temp = INT_MAX;
+         begin_day = localtime(&_time); begin_day->tm_hour = 0; begin_day->tm_min = 0; begin_day->tm_sec = 0;
+         begin_day_time = mktime(begin_day); 
+         end_day = localtime(&_time); begin_day->tm_hour = 23; begin_day->tm_min = 59; begin_day->tm_sec = 59;
+         end_day_time = mktime(end_day); 
+
          for(it=this->begin(); it!=this->end(); ++it) {
             ++(next_it = it);
             temp_data = *it;

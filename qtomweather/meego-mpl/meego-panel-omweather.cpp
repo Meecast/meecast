@@ -449,17 +449,17 @@ make_forecast_detail_box(Core::Data *temp_data){
     ss.str("");
     ss << _("Temperature:");
     ss << " ";
-    if (temp_data->temperature_low().value() == INT_MAX && temp_data->temperature_hi().value() == INT_MAX){
-        if (temp_data->temperature().value() != INT_MAX)  
-	        ss << temp_data->temperature().value() << "°" << config->TemperatureUnit();
-    }
-
-    if (temp_data->temperature_low().value() != INT_MAX || temp_data->temperature_hi().value() != INT_MAX){
-       if (temp_data->temperature_low().value() != INT_MAX){
-	       ss << temp_data->temperature_low().value() << "°" << config->TemperatureUnit();
-       }
-       ss << " .. "; 
-       ss << temp_data->temperature_hi().value() << "°" << config->TemperatureUnit();
+    if (temp_data->temperature().value() != INT_MAX)  
+	    ss << temp_data->temperature().value() << "°" << config->TemperatureUnit();
+    else{
+        if (temp_data->temperature_low().value() != INT_MAX || 
+            temp_data->temperature_hi().value() != INT_MAX){
+           if (temp_data->temperature_low().value() != INT_MAX){
+               ss << temp_data->temperature_low().value() << "°" << config->TemperatureUnit();
+           }
+           ss << " .. "; 
+           ss << temp_data->temperature_hi().value() << "°" << config->TemperatureUnit();
+        }
     }
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)vertical_container, label, NULL);

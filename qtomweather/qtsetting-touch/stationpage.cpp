@@ -136,8 +136,8 @@ StationPage::saveClicked()
     }
 
     std::string code = cityCombo->data(cityCombo->currentIndex()).toString().toStdString();
-    int index = sourceCombo->data(sourceCombo->currentIndex()).toInt();
-    std::string url_template = sourcelist->at(index)->url_template();
+    //int index = sourceCombo->data(sourceCombo->currentIndex()).toInt();
+    std::string url_template = sourcelist->at(sourceCombo->currentIndex())->url_template();
 
     char forecast_url[4096];
     snprintf(forecast_url, sizeof(forecast_url)-1, url_template.c_str(), code.c_str());
@@ -153,7 +153,8 @@ StationPage::saveClicked()
     filename += "_";
     filename += code;
     station->fileName(filename);
-    station->converter(sourcelist->at(index)->binary());
+    //station->converter(sourcelist->at(index)->binary());
+    station->converter(sourcelist->at(sourceCombo->currentIndex())->binary());
     //return;
     close();
     //emit

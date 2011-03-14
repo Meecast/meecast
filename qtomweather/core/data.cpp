@@ -48,9 +48,9 @@ namespace Core {
         _full_day_name = new std::string();
         _full_month_name = new std::string();
         _day_of_month_name = new std::string();
-        _temperature_hi = new Temperature;
-        _temperature_low = new Temperature;
-        _temperature = new Temperature;
+        _temperature_hi = new Temperature(INT_MAX, "C");
+        _temperature_low = new Temperature(INT_MAX, "C");
+        _temperature = new Temperature(INT_MAX, "C");
         _current = 0;
         _start_time = 0;
         _end_time = 0;

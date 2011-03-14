@@ -42,7 +42,7 @@ namespace Core {
          time_t begin_day_time, end_day_time;
          Data* temp_data;
          Data* temp_data_result = NULL;
-         int hi_day_temp = INT_MAX, low_day_temp = INT_MAX;
+         float hi_day_temp = INT_MAX, low_day_temp = INT_MAX;
          begin_day = localtime(&_time); begin_day->tm_hour = 0; begin_day->tm_min = 0; begin_day->tm_sec = 0;
          begin_day_time = mktime(begin_day); 
          end_day = localtime(&_time); begin_day->tm_hour = 23; begin_day->tm_min = 59; begin_day->tm_sec = 59;
@@ -51,15 +51,52 @@ namespace Core {
          for(it=this->begin(); it!=this->end(); ++it) {
             ++(next_it = it);
             temp_data = *it;
+            if (temp_data->StartTime() >= begin_day_time && temp_data->StartTime() < end_day_time){  
+                if (temp_data->temperature_hi().value() != INT_MAX){
+                    if (hi_day_temp != INT_MAX){
+                       if (temp_data->temperature_hi().value() > hi_day_temp)
+                           hi_day_temp = temp_data->temperature_hi().value();
+                    }else
+                        hi_day_temp = temp_data->temperature_hi().value();
+                }
+                if (temp_data->temperature_low().value() != INT_MAX){
+                    if (low_day_temp != INT_MAX){
+                       if (temp_data->temperature_low().value() < low_day_temp)
+                           low_day_temp = temp_data->temperature_low().value();
+                    }else
+                        low_day_temp = temp_data->temperature_low().value();
+                }
+
+                if (temp_data->temperature().value() != INT_MAX){ 
+                   if (hi_day_temp == INT_MAX)
+                       hi_day_temp = temp_data->temperature().value();
+                   if (temp_data->temperature().value() > hi_day_temp)
+                       hi_day_temp = temp_data->temperature().value();
+                }
+
+                if (temp_data->temperature().value() != INT_MAX){  
+                    if (low_day_temp == INT_MAX)
+                        low_day_temp = temp_data->temperature().value(); 
+                    if (temp_data->temperature().value() < low_day_temp){
+
+                        low_day_temp = temp_data->temperature().value(); 
+                    }
+                }
+            }
             result_time = temp_data->GetTimeDistance(_time);
+
             if (temp_time == -1)
                 temp_time = result_time;
             /* select min period including _time */
-            if ((result_time >0) && result_time <= temp_time){
-                temp_time = result_time;
+            if ((result_time > 0) && result_time <= temp_time){
+                temp_time = result_time; 
                 temp_data_result = temp_data;
             }
          }
+         if (hi_day_temp != INT_MAX)
+            temp_data_result->temperature_hi().value(hi_day_temp);
+         if (low_day_temp != INT_MAX)
+            temp_data_result->temperature_low().value(low_day_temp);
          return temp_data_result;
        }
 

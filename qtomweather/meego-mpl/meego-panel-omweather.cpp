@@ -46,7 +46,7 @@
 #include <sstream>
 #include <pthread.h>
 
-#define PANEL_HEIGHT 150
+#define PANEL_HEIGHT 200
 void finish_update(void);
 gboolean g_finish_update(gpointer data);
 void init_omweather_core(void);
@@ -77,6 +77,7 @@ GHashTable           *translate_hash=NULL;
 guint timer = 0; /* timer */
 pthread_t tid;
 FILE *file;
+ClutterActor     *active_background = NULL;
 
 static void* update_weather_forecast(void* data){
     int i;
@@ -129,8 +130,18 @@ detail_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
 
+    ClutterActor *temp_actor;
     mpl_panel_client_set_height_request (panel, PANEL_HEIGHT + 250);
     make_bottom_content((Core::Data*)user_data);
+    if (active_background) 
+        clutter_actor_set_depth (active_background, -1);
+    for (int i=0; i<clutter_group_get_n_children(CLUTTER_GROUP(actor)); i++){
+        temp_actor = clutter_group_get_nth_child(CLUTTER_GROUP(actor), i);
+        if (clutter_actor_get_name(temp_actor) != NULL && !strcmp(clutter_actor_get_name(temp_actor), "active"))
+            clutter_actor_set_depth(temp_actor, 3);
+            active_background = temp_actor;
+    }
+
 }
 //////////////////////////////////////////////////////////////////////////////
 gboolean
@@ -212,12 +223,12 @@ gboolean
 config_button_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
-    char *args[] = {"/usr/bin/omweather-settouch", (char *) 0 };
+    char *args[] = {"/usr/bin/omweather-settings", (char *) 0 };
 
     pid_t pID = fork();
-    if (pID == 0)
-        execv("/usr/bin/omweather-settouch", args );
-    else
+    if (pID == 0){
+        execv("/usr/bin/omweather-settings", args );
+    }else
         mpl_panel_client_hide(panel);
 
 }
@@ -236,11 +247,22 @@ about_button_event_cb (ClutterActor *actor,
 static ClutterActor*
 make_day_actor(Core::Data *temp_data){
     ClutterActor     *box;
+    ClutterActor     *group;
     ClutterActor     *label;
+    ClutterActor     *label_day;
     ClutterActor     *icon;
+    ClutterActor     *background_passive;
+    ClutterActor     *background_active;
     ClutterLayoutManager *layout;
 
     char             buffer[4096];
+
+    snprintf(buffer, (4096 -1), "%s/buttons_icons/passive.png",config->prefix_path().c_str());
+    background_passive = clutter_texture_new_from_file(buffer, NULL);
+    snprintf(buffer, (4096 -1), "%s/buttons_icons/active.png",config->prefix_path().c_str());
+    background_active = clutter_texture_new_from_file(buffer, NULL);
+    clutter_actor_set_name(background_active, "active");
+
     if (temp_data)
           snprintf(buffer, (4096 -1), "%s/icons/%s/%i.png",config->prefix_path().c_str(), config->iconSet().c_str(), temp_data->Icon());
     else
@@ -250,27 +272,44 @@ make_day_actor(Core::Data *temp_data){
     clutter_actor_set_size (icon, 80.0, 80.0);
     //clutter_actor_show (icon);
     label = clutter_text_new();
+    label_day = clutter_text_new();
     if (temp_data){
+        snprintf(buffer, (4096-1), "%s", temp_data->ShortDayName().c_str());
+        clutter_text_set_text((ClutterText*)label_day, buffer);
         if (temp_data->temperature_low().value() != INT_MAX && temp_data->temperature_hi().value() != INT_MAX)
-            snprintf(buffer, (4096 -1), "%s\n%0.f°%s\n%0.f°%s", temp_data->ShortDayName().c_str(), temp_data->temperature_low().value(), config->TemperatureUnit().c_str(), temp_data->temperature_hi().value(), config->TemperatureUnit().c_str());
+            snprintf(buffer, (4096 -1), "%0.f°%s%0.f°%s", temp_data->temperature_low().value(), config->TemperatureUnit().c_str(), temp_data->temperature_hi().value(), config->TemperatureUnit().c_str());
         else{
             if (temp_data->temperature().value() != INT_MAX)
-                snprintf(buffer, (4096 -1), "%s\n%0.f°%s", temp_data->ShortDayName().c_str(),
+                snprintf(buffer, (4096 -1), "%0.f°%s", 
                                       temp_data->temperature().value(), config->TemperatureUnit().c_str());
         }    
     }else
         snprintf(buffer, (4096 -1), "N/A°C\nN/A°C");
-
+    
     clutter_text_set_text((ClutterText*)label, buffer);
+    clutter_text_set_color((ClutterText*)label_day, clutter_color_new(169, 169, 169, 255));
+
     layout = clutter_box_layout_new ();
+    clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(layout), TRUE);
     box =  clutter_box_new(layout);
+    group = clutter_group_new();
+    clutter_box_pack((ClutterBox*)box, label_day, NULL);
     clutter_box_pack((ClutterBox*)box, icon, NULL);
     clutter_box_pack((ClutterBox*)box, label, NULL);
-    clutter_actor_set_reactive(box, TRUE);
-    /* connect the press event on refresh button */
-    g_signal_connect (box, "button-press-event", G_CALLBACK (detail_event_cb),temp_data );
+   // clutter_box_pack((ClutterBox*)box, label_day, NULL);
 
-    return box;
+    clutter_container_add_actor(CLUTTER_CONTAINER(group), background_active);
+    clutter_actor_set_depth (background_active, 1);
+    clutter_container_add_actor(CLUTTER_CONTAINER(group), background_passive);
+    clutter_actor_set_depth (background_passive, 2);
+    //active_background = background_passive;
+    clutter_container_add_actor(CLUTTER_CONTAINER(group), box);
+    clutter_actor_set_depth (box, 5);
+    clutter_actor_set_reactive(group, TRUE);
+    /* connect the press event on refresh button */
+    g_signal_connect (group, "button-press-event", G_CALLBACK (detail_event_cb), temp_data);
+
+    return group;
 }
 
 void
@@ -629,8 +668,8 @@ make_window_content (MplPanelClutter *panel)
 
   forecast_layout = clutter_box_layout_new(); 
   forecast_horizontal_container = clutter_box_new(forecast_layout);
-  clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (forecast_layout), 9);
-  clutter_actor_set_width(forecast_horizontal_container , 1024-10);
+  clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (forecast_layout), 0);
+  clutter_actor_set_width(forecast_horizontal_container , 1024);
 
   /* top layout */
   top_layout = clutter_box_layout_new(); 
@@ -711,7 +750,7 @@ make_window_content (MplPanelClutter *panel)
 
   /* day buttons */
   period = 0;
-  for (i = 0; i < 9; i++){
+  for (i = 0; i < 10; i++){
       if (dp){
           if (i==0)
             temp_data_day = dp->data().GetDataForTime(time(NULL)); /* weather forecast for current time */
@@ -721,10 +760,10 @@ make_window_content (MplPanelClutter *panel)
           temp_data_day = NULL;
       period = period + 3600*24;
       box = make_day_actor(temp_data_day);
-        clutter_box_pack((ClutterBox*)forecast_horizontal_container, box, NULL);
+      clutter_box_pack((ClutterBox*)forecast_horizontal_container, box, NULL);
   }
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), forecast_horizontal_container, 
-                          FALSE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_START);
+                          FALSE, FALSE, FALSE, CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   clutter_actor_show (panel_container);
   mpl_panel_clutter_set_child (panel, panel_container);
 }

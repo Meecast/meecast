@@ -138,11 +138,11 @@ ConfigQml::updatestations()
 void
 ConfigQml::runsetting()
 {
-    char *args[] = {"/usr/bin/omweather-settouch", (char *) 0 };
+    char *args[] = {"/usr/bin/omweather-settings", (char *) 0 };
 
     pid_t pID = fork();
     if (pID == 0)
-        execv("/usr/bin/omweather-settouch", args );
+        execv("/usr/bin/omweather-settings", args );
 }
 
 void

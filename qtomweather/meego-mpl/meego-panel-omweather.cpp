@@ -419,8 +419,9 @@ make_bottom_content_about() {
 
 //////////////////////////////////////////////////////////////////////////////
 ClutterActor*
-make_forecast_detail_box(Core::Data *temp_data){
+make_forecast_detail_box(Core::Data *temp_data, int period){
   
+  ClutterActor     *icon_group;
   ClutterActor     *box;
   ClutterActor     *label;
   ClutterActor     *vertical_container;
@@ -438,6 +439,12 @@ make_forecast_detail_box(Core::Data *temp_data){
   GObject *object;
 
   /* icon */
+  icon_group = clutter_group_new();
+  snprintf(buffer, (4096 -1), "%s/buttons_icons/passive.png",config->prefix_path().c_str());
+  icon = clutter_texture_new_from_file(buffer, NULL);
+  clutter_actor_set_size (icon, 133.0, 190.0);
+  clutter_container_add_actor(CLUTTER_CONTAINER(icon_group), icon);
+
   if (temp_data)
       snprintf(buffer, (4096 -1), "%s/icons/%s/%i.%s",config->prefix_path().c_str(),
                                   config->iconSet().c_str(), temp_data->Icon(), "json");
@@ -461,7 +468,7 @@ make_forecast_detail_box(Core::Data *temp_data){
            snprintf(buffer, (4096 -1), "%s/icons/%s/na.%s",config->prefix_path().c_str(), 
                                           config->iconSet().c_str(),"png");  
         icon = clutter_texture_new_from_file(buffer, NULL);
-        clutter_actor_set_size (icon, 256.0, 256.0);
+        clutter_actor_set_size (icon, 128.0, 128.0);
     }else{
         if (temp_data)
             sprintf(buffer, "icon_name_%i", temp_data->Icon());
@@ -471,25 +478,27 @@ make_forecast_detail_box(Core::Data *temp_data){
         fprintf(stderr,"icon %p", icon);
         timeline = CLUTTER_TIMELINE (clutter_script_get_object (script, "main-timeline"));
         
-        clutter_actor_set_size (icon, 256.0, 256.0);
+        clutter_actor_set_size (icon, 128.0, 128.0);
         if CLUTTER_IS_GROUP(icon)
            for (i=0; i < clutter_group_get_n_children(CLUTTER_GROUP(icon)); i++)
-               change_actor_size_and_position(clutter_group_get_nth_child(CLUTTER_GROUP(icon),i), 256);
+               change_actor_size_and_position(clutter_group_get_nth_child(CLUTTER_GROUP(icon),i), 128);
         else
-           change_actor_size_and_position(icon, 256);
+           change_actor_size_and_position(icon, 128);
         list = clutter_script_list_objects(script);
         for (l = list; l != NULL; l = l->next){
            object = (GObject *)l->data;
            if CLUTTER_IS_BEHAVIOUR_PATH(object)
-               change_path(clutter_behaviour_path_get_path((ClutterBehaviourPath *)(object)), 256);
+               change_path(clutter_behaviour_path_get_path((ClutterBehaviourPath *)(object)), 128);
         }
         clutter_actor_show (CLUTTER_ACTOR (icon));
         clutter_timeline_start (timeline);
     }
 
+  clutter_container_add_actor(CLUTTER_CONTAINER(icon_group), icon);
+
   layout = clutter_box_layout_new ();
   box =  clutter_box_new(layout);
-  clutter_box_pack((ClutterBox*)box, icon, NULL);
+  clutter_box_pack((ClutterBox*)box, icon_group, NULL);
   clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), icon,
 				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
  
@@ -663,21 +672,37 @@ make_bottom_content(Core::Data *temp_data) {
   /* main box */
   hbox_layout = clutter_box_layout_new();
   hbox = clutter_box_new(hbox_layout);
+  clutter_actor_set_size(hbox, 1024 - 10, -1);
 
   /* Added day or current weather foreacast */
-  box   =  make_forecast_detail_box(temp_data);
-  clutter_box_pack((ClutterBox*)hbox, box, NULL);
+  if (!temp_data->Current())
+      box   =  make_forecast_detail_box(temp_data, DAY);
+  else 
+      box   =  make_forecast_detail_box(temp_data, CURRENT);
+  clutter_actor_set_size(box, 511, -1);
+  clutter_box_pack((ClutterBox*)hbox, box,
+                   "x-align", CLUTTER_BOX_ALIGNMENT_START,
+                   "expand", TRUE, NULL);
 
   /* added night weather forecast */ 
   if (!temp_data->Current()){
       temp_data = dp->data().GetDataForTime(temp_data->EndTime() + 3600);
       if (temp_data){
-          box =  make_forecast_detail_box(temp_data);
-          clutter_box_pack((ClutterBox*)hbox, box, NULL);
+          box =  make_forecast_detail_box(temp_data, NIGHT);
+          clutter_actor_set_size(box, 511, -1);
+          clutter_box_pack((ClutterBox*)hbox, box,
+                           "x-align", CLUTTER_BOX_ALIGNMENT_END,
+                           "expand", TRUE, NULL);
       }
   }
 
   clutter_box_pack((ClutterBox*)bottom_container, hbox, NULL);
+
+  /* Small horizontal rectangle */
+  rectangle = clutter_rectangle_new_with_color(clutter_color_new(43, 43, 43, 255));
+  clutter_actor_set_size(rectangle, 1024-10,2);
+  clutter_box_pack((ClutterBox*)bottom_container, rectangle, NULL);
+
   /* connect the press event on button */
   g_signal_connect (bottom_container, "button-press-event", G_CALLBACK (remove_detail_event_cb), panel);
   clutter_actor_set_reactive(bottom_container, TRUE);

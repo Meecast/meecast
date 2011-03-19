@@ -35,4 +35,5 @@
 #include  <clutter/clutter.h>
 /*#define _(String) dgettext (GETTEXT_PACKAGE, String)*/
 #define GETTEXT_PACKAGE "omweather"
+enum {DAY=1, NIGHT=2, CURRENT=3};
 #include <glib/gi18n-lib.h>

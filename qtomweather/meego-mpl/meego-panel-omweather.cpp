@@ -46,7 +46,7 @@
 #include <sstream>
 #include <pthread.h>
 
-#define PANEL_HEIGHT 200
+#define PANEL_HEIGHT 195
 void finish_update(void);
 gboolean g_finish_update(gpointer data);
 void init_omweather_core(void);
@@ -212,9 +212,6 @@ gboolean g_finish_update(gpointer data)
 }
 void finish_update(void)
 {
-    file = fopen("/tmp/1.log", "ab");
-    fprintf(file, "in finish update\n");
-    fclose(file);
     clutter_timeline_stop(refresh_timeline);
     make_window_content((MplPanelClutter*)panel);
 }
@@ -645,6 +642,7 @@ make_window_content (MplPanelClutter *panel)
   ClutterActor     *box;
   ClutterActor     *label;
   ClutterActor     *icon;
+  ClutterActor     *rectangle;
   ClutterActor     *refresh_group;
   char             buffer[4096];
   int i, period;
@@ -670,18 +668,36 @@ make_window_content (MplPanelClutter *panel)
   forecast_layout = clutter_box_layout_new(); 
   forecast_horizontal_container = clutter_box_new(forecast_layout);
   clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (forecast_layout), 0);
-  clutter_actor_set_width(forecast_horizontal_container , 1024);
+  clutter_actor_set_width(forecast_horizontal_container , 1024 - 10);
 
   /* top layout */
   top_layout = clutter_box_layout_new(); 
   top_container = clutter_box_new(top_layout);
   clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (top_layout), 9);
 
-  
+  /* stub rectangle */
+  rectangle = clutter_rectangle_new();
+  clutter_actor_set_size(rectangle, 5, 70);
+  clutter_box_pack((ClutterBox*)top_container, rectangle, NULL);
+
+  /* refresh button */
+  refresh_group = clutter_group_new();
+  snprintf(buffer, (4096 -1), "%s/buttons_icons/update_background.png",config->prefix_path().c_str());
+  icon = clutter_texture_new_from_file(buffer, NULL);
+  clutter_container_add_actor(CLUTTER_CONTAINER(refresh_group), icon);
+  snprintf(buffer, (4096 -1), "%s/buttons_icons/update_arrows.png",config->prefix_path().c_str());
+  icon = clutter_texture_new_from_file(buffer, NULL);
+  clutter_container_add_actor(CLUTTER_CONTAINER(refresh_group), icon);
+  clutter_actor_set_reactive(refresh_group, TRUE);
+  refresh_timeline = create_update_animation(icon);
+  /* connect the press event on refresh button */
+  g_signal_connect (refresh_group, "button-press-event", G_CALLBACK (refresh_button_event_cb), panel);
+  clutter_box_pack((ClutterBox*)top_container, refresh_group, "x-align", CLUTTER_BOX_ALIGNMENT_START, "x-fill", TRUE, NULL);
+ 
   /* station name */
   label = clutter_text_new();
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
-  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 2);
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 2.5);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   stationslist = config->stationsList();
   if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0
@@ -717,21 +733,10 @@ make_window_content (MplPanelClutter *panel)
   g_signal_connect (icon, "button-press-event", G_CALLBACK (config_button_event_cb), NULL);
   clutter_box_pack((ClutterBox*)top_container, icon, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
 
-  /* refresh button */
-  refresh_group = clutter_group_new();
-  snprintf(buffer, (4096 -1), "%s/buttons_icons/update_background.png",config->prefix_path().c_str());
-  icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_container_add_actor(CLUTTER_CONTAINER(refresh_group), icon);
-  //clutter_actor_set_size (icon, 48.0, 48.0);
-  snprintf(buffer, (4096 -1), "%s/buttons_icons/update_arrows.png",config->prefix_path().c_str());
-  icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_container_add_actor(CLUTTER_CONTAINER(refresh_group), icon);
-
-  clutter_actor_set_reactive(refresh_group, TRUE);
-  refresh_timeline = create_update_animation(icon);
-  /* connect the press event on refresh button */
-  g_signal_connect (refresh_group, "button-press-event", G_CALLBACK (refresh_button_event_cb), panel);
-  clutter_box_pack((ClutterBox*)top_container, refresh_group, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
+  /* stub rectangle */
+  rectangle = clutter_rectangle_new();
+  clutter_actor_set_size(rectangle, 5, 5);
+  clutter_box_pack((ClutterBox*)top_container, rectangle, NULL);
 
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), top_container,
                           TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_CENTER);

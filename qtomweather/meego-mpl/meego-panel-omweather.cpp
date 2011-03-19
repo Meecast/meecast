@@ -306,7 +306,7 @@ make_day_actor(Core::Data *temp_data){
     clutter_container_add_actor(CLUTTER_CONTAINER(group), box);
     clutter_actor_set_depth (box, 5);
     clutter_actor_set_reactive(group, TRUE);
-    /* connect the press event on refresh button */
+    /* connect the press event on detail button */
     g_signal_connect (group, "button-press-event", G_CALLBACK (detail_event_cb), temp_data);
 
     return group;
@@ -374,7 +374,7 @@ make_bottom_content_about() {
 
   clutter_box_pack((ClutterBox*)bottom_container, box, NULL);
 
-  /* connect the press event on refresh button */
+  /* connect the press event on button */
   g_signal_connect (bottom_container, "button-press-event", G_CALLBACK (remove_detail_event_cb), panel);
   clutter_actor_set_reactive(bottom_container, TRUE);
 
@@ -624,7 +624,7 @@ make_bottom_content(Core::Data *temp_data) {
   }
 
   clutter_box_pack((ClutterBox*)bottom_container, hbox, NULL);
-  /* connect the press event on refresh button */
+  /* connect the press event on button */
   g_signal_connect (bottom_container, "button-press-event", G_CALLBACK (remove_detail_event_cb), panel);
   clutter_actor_set_reactive(bottom_container, TRUE);
 
@@ -645,6 +645,7 @@ make_window_content (MplPanelClutter *panel)
   ClutterActor     *box;
   ClutterActor     *label;
   ClutterActor     *icon;
+  ClutterActor     *refresh_group;
   char             buffer[4096];
   int i, period;
   Core::Data *temp_data = NULL;
@@ -717,15 +718,20 @@ make_window_content (MplPanelClutter *panel)
   clutter_box_pack((ClutterBox*)top_container, icon, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
 
   /* refresh button */
-  snprintf(buffer, (4096 -1), "%s/buttons_icons/refresh.png",config->prefix_path().c_str());
+  refresh_group = clutter_group_new();
+  snprintf(buffer, (4096 -1), "%s/buttons_icons/update_background.png",config->prefix_path().c_str());
   icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_actor_set_size (icon, 48.0, 48.0);
+  clutter_container_add_actor(CLUTTER_CONTAINER(refresh_group), icon);
+  //clutter_actor_set_size (icon, 48.0, 48.0);
+  snprintf(buffer, (4096 -1), "%s/buttons_icons/update_arrows.png",config->prefix_path().c_str());
+  icon = clutter_texture_new_from_file(buffer, NULL);
+  clutter_container_add_actor(CLUTTER_CONTAINER(refresh_group), icon);
 
-  clutter_actor_set_reactive(icon, TRUE);
+  clutter_actor_set_reactive(refresh_group, TRUE);
   refresh_timeline = create_update_animation(icon);
   /* connect the press event on refresh button */
-  g_signal_connect (icon, "button-press-event", G_CALLBACK (refresh_button_event_cb), panel);
-  clutter_box_pack((ClutterBox*)top_container, icon, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
+  g_signal_connect (refresh_group, "button-press-event", G_CALLBACK (refresh_button_event_cb), panel);
+  clutter_box_pack((ClutterBox*)top_container, refresh_group, "x-align", CLUTTER_BOX_ALIGNMENT_END, "x-fill", TRUE, NULL);
 
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), top_container,
                           TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_CENTER);

@@ -305,10 +305,13 @@ make_day_actor(Core::Data *temp_data){
     clutter_text_set_text((ClutterText*)label_temp_hi, buffer);
     clutter_text_set_color((ClutterText*)label_temp_hi, clutter_color_new(136, 147, 151, 255));
 
-    clutter_box_pack((ClutterBox*)temperature_box, label_temp_low, "x-align", CLUTTER_BOX_ALIGNMENT_START,
-                                 "y-align", CLUTTER_BOX_ALIGNMENT_END,  "expand", TRUE,
+    clutter_box_pack((ClutterBox*)temperature_box, label_temp_low, 
+                                 "x-align", CLUTTER_BOX_ALIGNMENT_START,
+                                 "y-align", CLUTTER_BOX_ALIGNMENT_END,
+                                 "expand", TRUE,
                                   NULL);
-    clutter_box_pack((ClutterBox*)temperature_box, label_temp_hi,  "x-align", CLUTTER_BOX_ALIGNMENT_END,
+    clutter_box_pack((ClutterBox*)temperature_box, label_temp_hi,
+                                 "x-align", CLUTTER_BOX_ALIGNMENT_END,
                                  "y-align", CLUTTER_BOX_ALIGNMENT_END, 
                                  NULL);
 
@@ -327,20 +330,18 @@ make_day_actor(Core::Data *temp_data){
     clutter_box_pack((ClutterBox*)box, label_day, NULL);
     clutter_box_pack((ClutterBox*)box, icon, NULL);
     clutter_box_pack((ClutterBox*)box, temperature_box,  "x-align", CLUTTER_BOX_ALIGNMENT_CENTER, NULL);
-   // clutter_box_pack((ClutterBox*)box, label_day, NULL);
 
     clutter_container_add_actor(CLUTTER_CONTAINER(group), background_active);
     clutter_actor_hide(background_active);    
     clutter_container_add_actor(CLUTTER_CONTAINER(group), background_passive);
     clutter_actor_set_depth (background_passive, 1);
     clutter_actor_set_depth (background_active, 2);
-    //active_background = background_passive;
     clutter_container_add_actor(CLUTTER_CONTAINER(group), box);
     clutter_actor_set_depth (box, 5);
     clutter_actor_set_reactive(group, TRUE);
+
     /* connect the press event on detail button */
     g_signal_connect (group, "button-press-event", G_CALLBACK (detail_event_cb), temp_data);
-
     return group;
 }
 
@@ -604,8 +605,11 @@ make_bottom_content(Core::Data *temp_data) {
   ClutterActor     *label;
   ClutterActor     *vertical_container;
   ClutterLayoutManager *hbox_layout = NULL;
+  ClutterLayoutManager *dayname_layout = NULL;
   ClutterActor     *hbox;
   ClutterActor     *box;
+  ClutterActor     *daynamebox;
+  ClutterActor     *rectangle;
   std::string      day_name;
   PangoFontDescription *pfd = NULL;
   std::ostringstream ss;
@@ -618,8 +622,8 @@ make_bottom_content(Core::Data *temp_data) {
   /* To do Display message */
   if (!temp_data)
       return;
+
   /* bottom layout */
-  
   
   bottom_layout = clutter_box_layout_new();
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(bottom_layout), TRUE);
@@ -638,8 +642,25 @@ make_bottom_content(Core::Data *temp_data) {
           day_name = temp_data->FullDayName() + " " + temp_data->DayOfMonthName() +", " + temp_data->FullMonthName(); 
   
   clutter_text_set_text((ClutterText*)label, day_name.c_str());
-  clutter_box_pack((ClutterBox*)bottom_container, label, NULL);
+  clutter_text_set_color((ClutterText*)label, clutter_color_new(102, 102, 102, 255));
 
+  dayname_layout = clutter_box_layout_new();
+  daynamebox = clutter_box_new(dayname_layout);
+
+  clutter_actor_set_size (daynamebox, -1, 50.0);
+  clutter_box_pack((ClutterBox*)daynamebox, label,
+                    "x-align", CLUTTER_BOX_ALIGNMENT_CENTER,
+                    "y-align", CLUTTER_BOX_ALIGNMENT_CENTER, 
+                    "expand", TRUE,
+                    NULL);
+  clutter_box_pack((ClutterBox*)bottom_container, daynamebox, NULL);
+
+  /* Small horizontal rectangle */
+  rectangle = clutter_rectangle_new_with_color(clutter_color_new(43, 43, 43, 255));
+  clutter_actor_set_size(rectangle, 1024-10,2);
+  clutter_box_pack((ClutterBox*)bottom_container, rectangle, NULL);
+
+  /* main box */
   hbox_layout = clutter_box_layout_new();
   hbox = clutter_box_new(hbox_layout);
 

@@ -294,6 +294,7 @@ make_day_actor(Core::Data *temp_data){
     }else
         snprintf(buffer, (4096 -1), "N/A°");
     clutter_text_set_text((ClutterText*)label_temp_low, buffer);
+    clutter_text_set_color((ClutterText*)label_temp_low, clutter_color_new(48, 185, 226, 255));
 
     if (temp_data){
         if (temp_data->temperature_hi().value() != INT_MAX)
@@ -301,8 +302,9 @@ make_day_actor(Core::Data *temp_data){
         
     }else
         snprintf(buffer, (4096 -1), "N/A°");
-
     clutter_text_set_text((ClutterText*)label_temp_hi, buffer);
+    clutter_text_set_color((ClutterText*)label_temp_hi, clutter_color_new(136, 147, 151, 255));
+
     clutter_box_pack((ClutterBox*)temperature_box, label_temp_low, "x-align", CLUTTER_BOX_ALIGNMENT_START,
                                  "y-align", CLUTTER_BOX_ALIGNMENT_END,  "expand", TRUE,
                                   NULL);

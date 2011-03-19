@@ -133,13 +133,16 @@ detail_event_cb (ClutterActor *actor,
     ClutterActor *temp_actor;
     mpl_panel_client_set_height_request (panel, PANEL_HEIGHT + 250);
     make_bottom_content((Core::Data*)user_data);
-    if (active_background) 
-        clutter_actor_set_depth (active_background, -1);
+    if (active_background && clutter_actor_get_name(active_background) != NULL
+        && !strcmp(clutter_actor_get_name(active_background), "active")) 
+        clutter_actor_hide(active_background);    
     for (int i=0; i<clutter_group_get_n_children(CLUTTER_GROUP(actor)); i++){
         temp_actor = clutter_group_get_nth_child(CLUTTER_GROUP(actor), i);
-        if (clutter_actor_get_name(temp_actor) != NULL && !strcmp(clutter_actor_get_name(temp_actor), "active"))
-            clutter_actor_set_depth(temp_actor, 3);
+        if (clutter_actor_get_name(temp_actor) != NULL && 
+            !strcmp(clutter_actor_get_name(temp_actor), "active")){
+            clutter_actor_show(temp_actor);    
             active_background = temp_actor;
+        }
     }
 
 }
@@ -296,9 +299,10 @@ make_day_actor(Core::Data *temp_data){
    // clutter_box_pack((ClutterBox*)box, label_day, NULL);
 
     clutter_container_add_actor(CLUTTER_CONTAINER(group), background_active);
-    clutter_actor_set_depth (background_active, 1);
+    clutter_actor_hide(background_active);    
     clutter_container_add_actor(CLUTTER_CONTAINER(group), background_passive);
-    clutter_actor_set_depth (background_passive, 2);
+    clutter_actor_set_depth (background_passive, 1);
+    clutter_actor_set_depth (background_active, 2);
     //active_background = background_passive;
     clutter_container_add_actor(CLUTTER_CONTAINER(group), box);
     clutter_actor_set_depth (box, 5);

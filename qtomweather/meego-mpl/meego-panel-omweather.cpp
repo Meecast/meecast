@@ -589,6 +589,7 @@ make_bottom_content(Core::Data *temp_data) {
       return;
   /* bottom layout */
   
+  
   bottom_layout = clutter_box_layout_new();
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(bottom_layout), TRUE);
   bottom_container = clutter_box_new(bottom_layout);
@@ -657,6 +658,7 @@ make_window_content (MplPanelClutter *panel)
   struct tm   *tm = NULL;
   int year, current_month;
 
+  active_background = NULL;
   if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 
                                               &&  config->stationsList().at(config->current_station_id()))
       dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
@@ -667,6 +669,7 @@ make_window_content (MplPanelClutter *panel)
   if (refresh_timeline)
        g_object_unref(refresh_timeline);
   panel_container =  clutter_box_new(main_vertical_layout);
+  clutter_actor_set_width(panel_container , 1024 - 10);
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(main_vertical_layout), TRUE);
 
   forecast_layout = clutter_box_layout_new(); 

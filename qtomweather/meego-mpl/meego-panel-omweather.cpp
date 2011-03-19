@@ -247,8 +247,11 @@ about_button_event_cb (ClutterActor *actor,
 static ClutterActor*
 make_day_actor(Core::Data *temp_data){
     ClutterActor     *box;
+    ClutterActor     *temperature_box;
+    ClutterLayoutManager *temperature_layout;
     ClutterActor     *group;
-    ClutterActor     *label;
+    ClutterActor     *label_temp_low;
+    ClutterActor     *label_temp_hi;
     ClutterActor     *label_day;
     ClutterActor     *icon;
     ClutterActor     *background_passive;
@@ -256,13 +259,15 @@ make_day_actor(Core::Data *temp_data){
     ClutterLayoutManager *layout;
 
     char             buffer[4096];
-
+    
+    /* Backgrounds */
     snprintf(buffer, (4096 -1), "%s/buttons_icons/passive.png",config->prefix_path().c_str());
     background_passive = clutter_texture_new_from_file(buffer, NULL);
     snprintf(buffer, (4096 -1), "%s/buttons_icons/active.png",config->prefix_path().c_str());
     background_active = clutter_texture_new_from_file(buffer, NULL);
     clutter_actor_set_name(background_active, "active");
 
+    /* Icon */
     if (temp_data)
           snprintf(buffer, (4096 -1), "%s/icons/%s/%i.png",config->prefix_path().c_str(), config->iconSet().c_str(), temp_data->Icon());
     else
@@ -270,32 +275,56 @@ make_day_actor(Core::Data *temp_data){
 
     icon = clutter_texture_new_from_file(buffer, NULL);
     clutter_actor_set_size (icon, 80.0, 80.0);
-    //clutter_actor_show (icon);
-    label = clutter_text_new();
+
+    /* Temperatures */
+    temperature_layout = clutter_box_layout_new ();
+    temperature_box =  clutter_box_new(temperature_layout);
+
+    clutter_actor_set_size(temperature_box, 74, 20);
+    label_temp_low = clutter_text_new();
+    label_temp_hi = clutter_text_new();
+    if (temp_data){
+        if (temp_data->temperature_low().value() != INT_MAX)
+            snprintf(buffer, (4096 -1), "%0.f°", temp_data->temperature_low().value());
+        else{
+            if (temp_data->temperature().value() != INT_MAX)
+                snprintf(buffer, (4096 -1), "%0.f°", 
+                                      temp_data->temperature().value());
+        }    
+    }else
+        snprintf(buffer, (4096 -1), "N/A°");
+    clutter_text_set_text((ClutterText*)label_temp_low, buffer);
+
+    if (temp_data){
+        if (temp_data->temperature_hi().value() != INT_MAX)
+            snprintf(buffer, (4096 -1), "%0.f°",  temp_data->temperature_hi().value());
+        
+    }else
+        snprintf(buffer, (4096 -1), "N/A°");
+
+    clutter_text_set_text((ClutterText*)label_temp_hi, buffer);
+    clutter_box_pack((ClutterBox*)temperature_box, label_temp_low, "x-align", CLUTTER_BOX_ALIGNMENT_START,
+                                 "y-align", CLUTTER_BOX_ALIGNMENT_END,  "expand", TRUE,
+                                  NULL);
+    clutter_box_pack((ClutterBox*)temperature_box, label_temp_hi,  "x-align", CLUTTER_BOX_ALIGNMENT_END,
+                                 "y-align", CLUTTER_BOX_ALIGNMENT_END, 
+                                 NULL);
+
+    /* Day */
     label_day = clutter_text_new();
+    clutter_text_set_color((ClutterText*)label_day, clutter_color_new(169, 169, 169, 255));
     if (temp_data){
         snprintf(buffer, (4096-1), "%s", temp_data->ShortDayName().c_str());
         clutter_text_set_text((ClutterText*)label_day, buffer);
-        if (temp_data->temperature_low().value() != INT_MAX && temp_data->temperature_hi().value() != INT_MAX)
-            snprintf(buffer, (4096 -1), "%0.f°%s%0.f°%s", temp_data->temperature_low().value(), config->TemperatureUnit().c_str(), temp_data->temperature_hi().value(), config->TemperatureUnit().c_str());
-        else{
-            if (temp_data->temperature().value() != INT_MAX)
-                snprintf(buffer, (4096 -1), "%0.f°%s", 
-                                      temp_data->temperature().value(), config->TemperatureUnit().c_str());
-        }    
-    }else
-        snprintf(buffer, (4096 -1), "N/A°C\nN/A°C");
-    
-    clutter_text_set_text((ClutterText*)label, buffer);
-    clutter_text_set_color((ClutterText*)label_day, clutter_color_new(169, 169, 169, 255));
-
+    }
     layout = clutter_box_layout_new ();
     clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(layout), TRUE);
     box =  clutter_box_new(layout);
+    clutter_actor_set_size (box, 102.0, 129.0);
     group = clutter_group_new();
     clutter_box_pack((ClutterBox*)box, label_day, NULL);
     clutter_box_pack((ClutterBox*)box, icon, NULL);
-    clutter_box_pack((ClutterBox*)box, label, NULL);
+    clutter_box_pack((ClutterBox*)box, temperature_box,  "x-align", CLUTTER_BOX_ALIGNMENT_CENTER, NULL);
    // clutter_box_pack((ClutterBox*)box, label_day, NULL);
 
     clutter_container_add_actor(CLUTTER_CONTAINER(group), background_active);

@@ -612,7 +612,6 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     /* small horizontal container */
     inthbox_layout = clutter_box_layout_new ();
     inthbox =  clutter_box_new(inthbox_layout);
-
     label = clutter_text_new();
     pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
 //    pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
@@ -633,15 +632,25 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
   }
 
   if (temp_data->Humidity() != INT_MAX){
+    /* small horizontal container */
+    inthbox_layout = clutter_box_layout_new ();
+    inthbox =  clutter_box_new(inthbox_layout);
     label = clutter_text_new();
     pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
-    pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
+    //pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
+    pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD);
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
-    ss << _("Humidity:") <<" "<< temp_data->Humidity() << "%";
+    ss << _("Humidity:") <<" ";
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
-    clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
-    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 
+    ss.str("");
+    label_data = clutter_text_new();
+    ss<< temp_data->Humidity() << "%";
+    clutter_text_set_text((ClutterText*)label_data, ss.str().c_str());
+    clutter_box_pack((ClutterBox*)inthbox, label, NULL);
+    clutter_box_pack((ClutterBox*)inthbox, label_data, NULL);
+    clutter_box_pack((ClutterBox*)vertical_container, inthbox, NULL);
+    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), inthbox, 
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
 

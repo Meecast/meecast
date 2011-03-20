@@ -78,6 +78,17 @@ void MainPage::createContent()
 
     layout->addItem(temperature_combo);
 
+    iconset_combo = new MComboBox();
+    iconset_combo->setTitle("IconSet");
+    iconset_combo->addItem("Glance");
+    iconset_combo->addItem("Mecast");
+    if (_config->iconSet().compare("Mecast") == 0)
+        iconset_combo->setCurrentIndex(1);
+    else
+        iconset_combo->setCurrentIndex(0);
+
+    layout->addItem(iconset_combo);
+
     MButton *savebutton = new MButton("Save");
     layout->addItem(savebutton);
 
@@ -132,6 +143,7 @@ void MainPage::saveClicked()
 {
     _config->stationsList(*_stationlist);
     _config->TemperatureUnit(temperature_combo->currentText().toStdString());
+    _config->iconSet(iconset_combo->currentText().toStdString());
     _config->saveConfig();
     QDBusConnection bus = QDBusConnection::sessionBus();
     QDBusMessage message = QDBusMessage::createSignal("/org/meego/omweather",

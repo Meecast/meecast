@@ -30,7 +30,7 @@ private slots:
     void stationChanged(int val);
     void stationSave();
 private:
-    MComboBox *combo, *temperature_combo;
+    MComboBox *combo, *temperature_combo, *iconset_combo;
     MButton *addbutton, *delbutton;
     StationPage *stationPage;
 };

@@ -423,9 +423,12 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
   
   ClutterActor     *icon_group;
   ClutterActor     *box;
+  ClutterActor     *hbox;
   ClutterActor     *label;
   ClutterActor     *vertical_container;
+  ClutterActor     *rectangle;
   ClutterLayoutManager *vertical_layout = NULL;
+  ClutterLayoutManager *hbox_layout = NULL;
   ClutterLayoutManager *layout;
   PangoFontDescription *pfd = NULL;
   std::ostringstream ss;
@@ -500,12 +503,56 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
   box =  clutter_box_new(layout);
   clutter_box_pack((ClutterBox*)box, icon_group, NULL);
   clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), icon,
-				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
- 
+				CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_CENTER);
+
   /* vertical container */
   vertical_layout = clutter_box_layout_new ();
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(vertical_layout), TRUE);
   vertical_container =  clutter_box_new(vertical_layout);
+  /* small horizontal container */
+  hbox_layout = clutter_box_layout_new ();
+  hbox =  clutter_box_new(hbox_layout);
+
+  /* stub rectangle */
+  rectangle = clutter_rectangle_new();
+  clutter_actor_set_size(rectangle, 10, 40);
+  clutter_box_pack((ClutterBox*)hbox, rectangle, NULL);
+  /* Day period */
+  label = clutter_text_new();
+  pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
+  clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
+  switch (period){
+      case DAY: 
+               clutter_text_set_text((ClutterText*)label, _("Day"));
+               clutter_text_set_color((ClutterText*)label, clutter_color_new(49, 194, 238, 255));
+               break;
+      case NIGHT:
+               clutter_text_set_text((ClutterText*)label, _("Night"));
+               clutter_text_set_color((ClutterText*)label, clutter_color_new(124, 134, 137, 255));
+               break;
+      case CURRENT:
+               clutter_text_set_text((ClutterText*)label, _("Now"));
+               clutter_text_set_color((ClutterText*)label, clutter_color_new(49, 194, 238, 255));
+               break;
+  }
+  clutter_box_pack((ClutterBox*)hbox, label, NULL);
+  clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(hbox_layout), label, 
+			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
+
+  clutter_box_pack((ClutterBox*)vertical_container, hbox, NULL);
+  clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), hbox, 
+			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
+
+
+  /* small horizontal container */
+  hbox_layout = clutter_box_layout_new ();
+  hbox =  clutter_box_new(hbox_layout);
+
+  /* stub rectangle */
+  rectangle = clutter_rectangle_new();
+  clutter_actor_set_size(rectangle, 10, 140);
+  clutter_box_pack((ClutterBox*)hbox, rectangle, NULL);
 
   /* Description of forecast */   
   if (temp_data->Text().compare("N/A") != 0){
@@ -600,7 +647,8 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
 
-  clutter_box_pack((ClutterBox*)box, vertical_container, NULL);
+  clutter_box_pack((ClutterBox*)hbox, vertical_container, NULL);
+  clutter_box_pack((ClutterBox*)box, hbox, NULL);
   clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), vertical_container,
 				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
 

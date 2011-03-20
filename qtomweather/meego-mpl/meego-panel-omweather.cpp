@@ -562,6 +562,8 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
   if (temp_data->Text().compare("N/A") != 0){
     label = clutter_text_new();
     label_data = clutter_text_new();
+    clutter_text_set_color((ClutterText*)label, clutter_color_new(128, 128, 128, 255));
+    clutter_text_set_color((ClutterText*)label_data, clutter_color_new(128, 128, 128, 255));
  //   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
  //   pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
  //   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
@@ -579,6 +581,9 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     inthbox_layout = clutter_box_layout_new ();
     inthbox =  clutter_box_new(inthbox_layout);
     label = clutter_text_new();
+    label_data = clutter_text_new();
+    clutter_text_set_color((ClutterText*)label, clutter_color_new(128, 128, 128, 255));
+    clutter_text_set_color((ClutterText*)label_data, clutter_color_new(128, 128, 128, 255));
     pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
    // pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
     pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD);
@@ -607,12 +612,15 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), inthbox, 
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
-  
+  /* Pressure */ 
   if (temp_data->Pressure() != INT_MAX){
     /* small horizontal container */
     inthbox_layout = clutter_box_layout_new ();
     inthbox =  clutter_box_new(inthbox_layout);
     label = clutter_text_new();
+    label_data = clutter_text_new();
+    clutter_text_set_color((ClutterText*)label, clutter_color_new(128, 128, 128, 255));
+    clutter_text_set_color((ClutterText*)label_data, clutter_color_new(128, 128, 128, 255));
     pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
 //    pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
     pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD);
@@ -622,7 +630,6 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label, NULL);
     ss.str("");
-    label_data = clutter_text_new();
     ss << temp_data->Pressure();
     clutter_text_set_text((ClutterText*)label_data, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label_data, NULL);
@@ -630,12 +637,15 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), inthbox, 
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
-
+  /* Humidity */
   if (temp_data->Humidity() != INT_MAX){
     /* small horizontal container */
     inthbox_layout = clutter_box_layout_new ();
     inthbox =  clutter_box_new(inthbox_layout);
     label = clutter_text_new();
+    label_data = clutter_text_new();
+    clutter_text_set_color((ClutterText*)label, clutter_color_new(128, 128, 128, 255));
+    clutter_text_set_color((ClutterText*)label_data, clutter_color_new(128, 128, 128, 255));
     pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
     //pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
     pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD);
@@ -644,7 +654,6 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     ss << _("Humidity:") <<" ";
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     ss.str("");
-    label_data = clutter_text_new();
     ss<< temp_data->Humidity() << "%";
     clutter_text_set_text((ClutterText*)label_data, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label, NULL);
@@ -659,6 +668,9 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     inthbox_layout = clutter_box_layout_new ();
     inthbox =  clutter_box_new(inthbox_layout);
     label = clutter_text_new();
+    label_data = clutter_text_new();
+    clutter_text_set_color((ClutterText*)label, clutter_color_new(128, 128, 128, 255));
+    clutter_text_set_color((ClutterText*)label_data, clutter_color_new(128, 128, 128, 255));
     pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
     pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD);
     //pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
@@ -667,8 +679,8 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     ss << _("Wind:") << " ";
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label, NULL);
-    label_data = clutter_text_new();
     ss << _("Wind:") << " "<< _(temp_data->WindDirection().c_str());
+    clutter_text_set_text((ClutterText*)label_data, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label_data, NULL);
     clutter_box_pack((ClutterBox*)vertical_container, inthbox, NULL);
     clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), inthbox, 
@@ -676,15 +688,27 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
   }
 
   if (temp_data->WindSpeed() != INT_MAX){
+    /* small horizontal container */
+    inthbox_layout = clutter_box_layout_new ();
+    inthbox =  clutter_box_new(inthbox_layout);
     label = clutter_text_new();
+    label_data = clutter_text_new();
+    clutter_text_set_color((ClutterText*)label, clutter_color_new(128, 128, 128, 255));
+    clutter_text_set_color((ClutterText*)label_data, clutter_color_new(128, 128, 128, 255));
     pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
-    pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
+    pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD);
+    //pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
-    ss << _("Speed:") <<" "<<temp_data->WindSpeed() << _("m/s");
+    ss << _("Speed:") <<" ";
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
-    clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
-    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 
+    clutter_box_pack((ClutterBox*)inthbox, label, NULL);
+    ss.str("");
+    ss <<temp_data->WindSpeed() << _("m/s");
+    clutter_text_set_text((ClutterText*)label_data, ss.str().c_str());
+    clutter_box_pack((ClutterBox*)inthbox, label_data, NULL);
+    clutter_box_pack((ClutterBox*)vertical_container, inthbox, NULL);
+    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), inthbox, 
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
 

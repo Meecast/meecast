@@ -46,7 +46,7 @@
 #include <sstream>
 #include <pthread.h>
 
-#define PANEL_HEIGHT 195
+#define PANEL_HEIGHT 224
 void finish_update(void);
 gboolean g_finish_update(gpointer data);
 void init_omweather_core(void);
@@ -503,7 +503,7 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     }
 
   clutter_container_add_actor(CLUTTER_CONTAINER(icon_group), icon);
-
+  clutter_actor_set_position(icon, 5, 35);
   layout = clutter_box_layout_new ();
   box =  clutter_box_new(layout);
   clutter_box_pack((ClutterBox*)box, icon_group, NULL);
@@ -695,7 +695,8 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     ss << _("Wind:") << " ";
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label, NULL);
-    ss << _("Wind:") << " "<< _(temp_data->WindDirection().c_str());
+    ss.str("");
+    ss << _(temp_data->WindDirection().c_str());
     clutter_text_set_text((ClutterText*)label_data, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label_data, NULL);
     clutter_box_pack((ClutterBox*)intvertical_container, inthbox, NULL);
@@ -842,7 +843,23 @@ make_bottom_content(Core::Data *temp_data) {
   rectangle = clutter_rectangle_new_with_color(clutter_color_new(43, 43, 43, 255));
   clutter_actor_set_size(rectangle, 1024-10,2);
   clutter_box_pack((ClutterBox*)bottom_container, rectangle, NULL);
+  /* Provider name */
+  label = clutter_text_new();
+  pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.5);
+  clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
+  ss.str("");
+  ss << _("Provided by");
+  ss << " ";
+  if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 
+                                              &&  config->stationsList().at(config->current_station_id()))
+     ss <<  config->stationsList().at(config->current_station_id())->sourceName();
 
+  clutter_text_set_text((ClutterText*)label, ss.str().c_str());
+  clutter_text_set_color((ClutterText*)label, clutter_color_new(49, 194, 238, 255));
+  clutter_box_pack((ClutterBox*)bottom_container, label, NULL);
+
+  
   /* connect the press event on button */
   g_signal_connect (bottom_container, "button-press-event", G_CALLBACK (remove_detail_event_cb), panel);
   clutter_actor_set_reactive(bottom_container, TRUE);

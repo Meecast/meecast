@@ -41,6 +41,12 @@ SettingStations::SettingStations(QWidget *parent) :
     else
         ui->temperatureCombo->setCurrentIndex(0);
 
+    ui->iconsetCombo->addItem("Glance");
+    ui->iconsetCombo->addItem("Mecast");
+    if (_config->iconSet().compare("Mecast") == 0)
+        ui->iconsetCombo->setCurrentIndex(1);
+    else
+        ui->iconsetCombo->setCurrentIndex(0);
 }
 
 SettingStations::~SettingStations()
@@ -86,6 +92,7 @@ SettingStations::okClicked()
 {
     _config->stationsList(*_stationlist);
     _config->TemperatureUnit(ui->temperatureCombo->currentText().toStdString());
+    _config->iconSet(ui->iconsetCombo->currentText().toStdString());
     _config->saveConfig();
     QDBusConnection bus = QDBusConnection::sessionBus();
     QDBusMessage message = QDBusMessage::createSignal("/org/meego/omweather",

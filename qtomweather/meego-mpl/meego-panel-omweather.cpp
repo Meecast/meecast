@@ -428,8 +428,10 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
   ClutterActor     *label;
   ClutterActor     *label_data;
   ClutterActor     *vertical_container;
+  ClutterActor     *intvertical_container;
   ClutterActor     *rectangle;
   ClutterLayoutManager *vertical_layout = NULL;
+  ClutterLayoutManager *intvertical_layout = NULL;
   ClutterLayoutManager *hbox_layout = NULL;
   ClutterLayoutManager *inthbox_layout = NULL;
   ClutterLayoutManager *layout;
@@ -505,8 +507,8 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
   layout = clutter_box_layout_new ();
   box =  clutter_box_new(layout);
   clutter_box_pack((ClutterBox*)box, icon_group, NULL);
-  clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), icon,
-				CLUTTER_BOX_ALIGNMENT_CENTER, CLUTTER_BOX_ALIGNMENT_CENTER);
+  clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), icon_group,
+				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
 
   /* vertical container */
   vertical_layout = clutter_box_layout_new ();
@@ -518,7 +520,7 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
 
   /* stub rectangle */
   rectangle = clutter_rectangle_new();
-  clutter_actor_set_size(rectangle, 10, 40);
+  clutter_actor_set_size(rectangle, 10, 30);
   clutter_box_pack((ClutterBox*)hbox, rectangle, NULL);
   /* Day period */
   label = clutter_text_new();
@@ -548,6 +550,11 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
   clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), hbox, 
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
 
+  /* Long gray horizontal rectangle */
+  rectangle = clutter_rectangle_new_with_color(clutter_color_new(211, 211, 211, 255));
+  clutter_actor_set_size(rectangle, 390, 1);
+  clutter_box_pack((ClutterBox*)vertical_container, rectangle, NULL);
+
 
   /* small horizontal container */
   hbox_layout = clutter_box_layout_new ();
@@ -557,6 +564,15 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
   rectangle = clutter_rectangle_new();
   clutter_actor_set_size(rectangle, 10, 140);
   clutter_box_pack((ClutterBox*)hbox, rectangle, NULL);
+  /* vertical container */
+  intvertical_layout = clutter_box_layout_new ();
+  clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(intvertical_layout), TRUE);
+  intvertical_container =  clutter_box_new(intvertical_layout);
+  clutter_actor_set_size(intvertical_container, 380, -1);
+  /* stub rectangle */
+  rectangle = clutter_rectangle_new();
+  clutter_actor_set_size(rectangle, 380, 10);
+  clutter_box_pack((ClutterBox*)intvertical_container, rectangle, NULL);
 
   /* Description of forecast */   
   if (temp_data->Text().compare("N/A") != 0){
@@ -570,8 +586,8 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     clutter_text_set_text((ClutterText*)label,
                       (const gchar*)g_hash_table_lookup(translate_hash,
                                     (void*) temp_data->Text().c_str()));
-    clutter_box_pack((ClutterBox*)vertical_container, label, NULL);
-    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), label, 
+    clutter_box_pack((ClutterBox*)intvertical_container, label, NULL);
+    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(intvertical_layout), label, 
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
   /* Temperature */ 
@@ -608,8 +624,8 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     }
     clutter_text_set_text((ClutterText*)label_data, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label_data, NULL);
-    clutter_box_pack((ClutterBox*)vertical_container, inthbox, NULL);
-    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), inthbox, 
+    clutter_box_pack((ClutterBox*)intvertical_container, inthbox, NULL);
+    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(intvertical_layout), inthbox, 
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
   /* Pressure */ 
@@ -633,8 +649,8 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     ss << temp_data->Pressure();
     clutter_text_set_text((ClutterText*)label_data, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label_data, NULL);
-    clutter_box_pack((ClutterBox*)vertical_container, inthbox, NULL);
-    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), inthbox, 
+    clutter_box_pack((ClutterBox*)intvertical_container, inthbox, NULL);
+    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(intvertical_layout), inthbox, 
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
   /* Humidity */
@@ -658,8 +674,8 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     clutter_text_set_text((ClutterText*)label_data, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label, NULL);
     clutter_box_pack((ClutterBox*)inthbox, label_data, NULL);
-    clutter_box_pack((ClutterBox*)vertical_container, inthbox, NULL);
-    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), inthbox, 
+    clutter_box_pack((ClutterBox*)intvertical_container, inthbox, NULL);
+    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(intvertical_layout), inthbox, 
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
 
@@ -682,8 +698,8 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     ss << _("Wind:") << " "<< _(temp_data->WindDirection().c_str());
     clutter_text_set_text((ClutterText*)label_data, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label_data, NULL);
-    clutter_box_pack((ClutterBox*)vertical_container, inthbox, NULL);
-    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), inthbox, 
+    clutter_box_pack((ClutterBox*)intvertical_container, inthbox, NULL);
+    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(intvertical_layout), inthbox, 
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
 
@@ -707,13 +723,24 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     ss <<temp_data->WindSpeed() << _("m/s");
     clutter_text_set_text((ClutterText*)label_data, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label_data, NULL);
-    clutter_box_pack((ClutterBox*)vertical_container, inthbox, NULL);
-    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), inthbox, 
+    clutter_box_pack((ClutterBox*)intvertical_container, inthbox, NULL);
+    clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(intvertical_layout), inthbox, 
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
 
-  clutter_box_pack((ClutterBox*)hbox, vertical_container, NULL);
-  clutter_box_pack((ClutterBox*)box, hbox, NULL);
+  clutter_box_pack((ClutterBox*)hbox, intvertical_container, 
+                    "x-align", CLUTTER_BOX_ALIGNMENT_START,
+                    "y-align", CLUTTER_BOX_ALIGNMENT_START, 
+                    "expand", TRUE,
+                    NULL);
+  clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(hbox_layout), intvertical_container,
+				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
+
+  clutter_box_pack((ClutterBox*)vertical_container, hbox,
+                    "y-align", CLUTTER_BOX_ALIGNMENT_CENTER, 
+                    "expand", TRUE,
+                      NULL);
+  clutter_box_pack((ClutterBox*)box, vertical_container, NULL);
   clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(layout), vertical_container,
 				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
 

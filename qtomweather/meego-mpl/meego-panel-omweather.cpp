@@ -986,7 +986,7 @@ make_window_content (MplPanelClutter *panel)
   if (dp)
       temp_data = dp->data().GetDataForTime(time(NULL));
   if (temp_data ){
-      snprintf(buffer, (4096 -1), "icon%i", temp_data->Icon());
+      snprintf(buffer, (4096 -1), "icon%s%i", config->iconSet().c_str(), temp_data->Icon());
       mpl_panel_client_request_button_style (MPL_PANEL_CLIENT(panel), buffer);
   }else
       mpl_panel_client_request_button_style (MPL_PANEL_CLIENT(panel), "iconna");
@@ -1071,7 +1071,7 @@ main (int argc, char *argv[])
   if (dp)
       temp_data = dp->data().GetDataForTime(time(NULL));
   if (temp_data )
-      snprintf(buffer, (4096 -1), "icon%i", temp_data->Icon());
+      snprintf(buffer, (4096 -1), "icon%s%i", config->iconSet().c_str(), temp_data->Icon());
   else
       snprintf(buffer, (4096 -1), "iconna");
 

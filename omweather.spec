@@ -110,6 +110,8 @@ desktop-file-install --delete-original       \
 /usr/share/dbus-1/services
 %endif
 %changelog
+* Thu Mar 22 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.15
+  * Fixed problem with button icon "refresh" for qml
 * Mon Mar 21 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.14
   * Added switching between iconstes to settings 
   * Disabled animation

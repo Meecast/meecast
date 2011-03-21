@@ -79,13 +79,34 @@ void MainPage::createContent()
     layout->addItem(temperature_combo);
 
     iconset_combo = new MComboBox();
-    iconset_combo->setTitle("IconSet");
-    iconset_combo->addItem("Glance");
-    iconset_combo->addItem("Mecast");
-    if (_config->iconSet().compare("Mecast") == 0)
-        iconset_combo->setCurrentIndex(1);
-    else
-        iconset_combo->setCurrentIndex(0);
+    Dirent *dp = 0;
+    DIR *dir_fd = opendir((Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath).c_str());
+    int i = 0;
+    if(dir_fd){
+        while((dp = readdir(dir_fd))){
+            std::string name = dp->d_name;
+            if(name == "." || name == "..")
+                continue;
+            if(dp->d_type == DT_DIR && name[0] != '.'){
+                try{
+                    iconset_combo->addItem(QString::fromStdString(name));
+                    if (_config->iconSet().compare(name) == 0)
+                        iconset_combo->setCurrentIndex(i);
+                    i++;
+                }
+                catch(std::string& err){
+                    std::cerr << "error " << err << std::endl;
+                    continue;
+                }
+                catch(const char *err){
+                    std::cerr << "error " << err << std::endl;
+                    continue;
+                }
+            }
+        }
+        closedir(dir_fd);
+    }
+
 
     layout->addItem(iconset_combo);
 

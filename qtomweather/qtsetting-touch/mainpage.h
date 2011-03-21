@@ -8,6 +8,14 @@
 #include <QGraphicsLinearLayout>
 #include <MSceneManager>
 #include "core.h"
+#if defined (BSD) && !_POSIX_SOURCE
+    #include <sys/dir.h>
+    typedef struct dirent Dirent;
+#else
+    #include <dirent.h>
+    #include <linux/fs.h>
+    typedef struct dirent Dirent;
+#endif
 
 #include "stationpage.h"
 

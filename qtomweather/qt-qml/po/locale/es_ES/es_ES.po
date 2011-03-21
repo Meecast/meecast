@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OMWeather\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-06 09:21+0200\n"
+"POT-Creation-Date: 2011-03-21 18:48+0200\n"
 "PO-Revision-Date: 2011-02-17 22:57+0100\n"
 "Last-Translator: Alejandro López <alejandro.lopez@free.fr>\n"
 "Language-Team: \n"
@@ -251,7 +251,7 @@ msgstr "Nevisca por la mañana"
 #: omweather/src/weather-home.c:1286 omweather/src/weather-help.c:100
 #: omweather/src/weather-simple-popup.c:1133
 #: omweather/src/weather-simple-status.c:179
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:303
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:379
 msgid "About"
 msgstr "Acerca de"
 
@@ -313,7 +313,7 @@ msgstr "¿Está seguro de querer borrar esta estación?"
 msgid "Are you sure?"
 msgstr "¿Está seguro?"
 
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:321
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:397
 msgid "Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n"
 msgstr "Autor y mantenimiento: Vlad Vasiliev, <vlad@gas.by>\n"
 
@@ -520,6 +520,11 @@ msgstr "País: "
 msgid "Custom"
 msgstr "Personal"
 
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:533
+#, fuzzy
+msgid "Day"
+msgstr "Día:"
+
 #: omweather/src/weather-popup.c:1161
 msgid "Day length"
 msgstr "Duración del día"
@@ -528,7 +533,7 @@ msgstr "Duración del día"
 msgid "Day:"
 msgstr "Día:"
 
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:323
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:399
 msgid "Design UI and default iconset: Andrew Zhilin, <az@pocketpcrussia.com>\n"
 msgstr ""
 "Diseño de la IU e íconos por defecto: Andrew Zhilin, <az@pocketpcrussia."
@@ -861,7 +866,7 @@ msgid "High"
 msgstr "Máxima"
 
 #: omweather/src/weather-popup.c:1260 omweather/src/weather-popup.c:1436
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:476
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:670
 #: qtomweather/qt-qml/dataitem.cpp:112
 msgid "Humidity:"
 msgstr "Humedad: "
@@ -1006,7 +1011,7 @@ msgstr "Largo"
 msgid "Low"
 msgstr "Mínima"
 
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:322
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:398
 msgid ""
 "Maintenance: Pavel Fialko, <pavelnf@gmail.com>\n"
 "Tanya Makova, <tanyshk@gmail.com>\n"
@@ -1211,6 +1216,11 @@ msgstr "Nueva"
 msgid "Next update:"
 msgstr "Próxima actualización:"
 
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:537
+#, fuzzy
+msgid "Night"
+msgstr "Noche:"
+
 #: omweather/src/weather-popup.c:1034
 msgid "Night:"
 msgstr "Noche:"
@@ -1235,7 +1245,8 @@ msgstr "No hay datos del clima para esta estación."
 #: omweather/src/weather-popup.c:458 omweather/src/weather-popup.c:569
 #: omweather/src/weather-popup.c:575
 #: omweather/src/weather-simple-settings.c:2886
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:551
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:541
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:790
 msgid "Now"
 msgstr "Ahora"
 
@@ -1430,7 +1441,7 @@ msgid "Pressure units:"
 msgstr "Unidades de presión: "
 
 #: omweather/src/weather-popup.c:1287
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:463
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:645
 #: qtomweather/qt-qml/dataitem.cpp:118
 msgid "Pressure:"
 msgstr "Presión:"
@@ -1439,6 +1450,10 @@ msgstr "Presión:"
 #: omweather/src/weather-popup.c:965 omweather/src/weather-popup.c:1087
 msgid "Pressure: "
 msgstr "Presión: "
+
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:852
+msgid "Provided by"
+msgstr ""
 
 #: omweather/src/hash.data:189
 msgid "Rain"
@@ -1756,7 +1771,7 @@ msgid "Speed"
 msgstr "Velocidad"
 
 #: omweather/src/weather-popup.c:1311 omweather/src/weather-popup.c:1451
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:502
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:720
 #: qtomweather/qt-qml/dataitem.cpp:116
 msgid "Speed:"
 msgstr "Velocidad:"
@@ -1837,7 +1852,7 @@ msgstr "Temperatura"
 msgid "Temperature units:"
 msgstr "Unidades de temperatura:"
 
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:445
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:608
 #: qtomweather/qt-qml/dataitem.cpp:110
 msgid "Temperature:"
 msgstr "Temperatura:"
@@ -2020,7 +2035,7 @@ msgstr "Gibosa creciente"
 msgid "Weather data provided by: "
 msgstr "Datos del clima provistos por: "
 
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:318
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:394
 #, fuzzy
 msgid "Weather forecast for the Meego. Version "
 msgstr "Pronóstico meteorológico para Meego. Versión 0.3.\n"
@@ -2047,7 +2062,7 @@ msgid "Wind speed units:"
 msgstr "Unidades de velocidad de viento:"
 
 #: omweather/src/weather-popup.c:1306 omweather/src/weather-popup.c:1447
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:489
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:695
 #: qtomweather/qt-qml/dataitem.cpp:114
 msgid "Wind:"
 msgstr "Viento:"
@@ -2186,7 +2201,7 @@ msgstr "m/h"
 #: omweather/src/weather-settings.c:3980 omweather/src/hash.data:254
 #: omweather/src/weather-simple-settings.c:1400
 #: omweather/src/weather-simple-settings.c:2690
-#: qtomweather/meego-mpl/meego-panel-omweather.cpp:502
+#: qtomweather/meego-mpl/meego-panel-omweather.cpp:724
 msgid "m/s"
 msgstr "m/s"
 

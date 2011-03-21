@@ -465,8 +465,8 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     fprintf(stderr,"JSON SCRIPT: %s\n",buffer);
     clutter_script_load_from_file(script,buffer, &error);
     
-
-    if (error){
+/* Temporare disabled animation */
+    if (TRUE || error){
         fprintf(stderr,"ERROR in loading clutter script\n");
         g_clear_error (&error);
         if (temp_data)

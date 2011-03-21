@@ -112,6 +112,7 @@ desktop-file-install --delete-original       \
 %changelog
 * Mon Mar 21 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.14
   * Added switching between iconstes to settings 
+  * Disabled animation
 * Sun Mar 20 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.13
   * New design by Wazd (Andrew Zhilin) for Meego-panel
   * fixed problem with libtouch setting application

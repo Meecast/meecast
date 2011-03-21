@@ -2008,7 +2008,7 @@ msgstr "Данные о погоде предоставлены:"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:394
 msgid "Weather forecast for the Meego. Version "
-msgstr "Прогоноз погоды для Meego. Версия \n"
+msgstr "Прогоноз погоды для Meego. Версия "
 
 #: omweather/src/weather-utils.c:797
 msgid "Widget OMWeather is reloading"

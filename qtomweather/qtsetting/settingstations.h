@@ -4,6 +4,14 @@
 #include <QDialog>
 #include "setting.h"
 #include <QListWidget>
+#if defined (BSD) && !_POSIX_SOURCE
+    #include <sys/dir.h>
+    typedef struct dirent Dirent;
+#else
+    #include <dirent.h>
+    #include <linux/fs.h>
+    typedef struct dirent Dirent;
+#endif
 
 namespace Ui {
     class SettingStations;

@@ -41,12 +41,34 @@ SettingStations::SettingStations(QWidget *parent) :
     else
         ui->temperatureCombo->setCurrentIndex(0);
 
-    ui->iconsetCombo->addItem("Glance");
-    ui->iconsetCombo->addItem("Mecast");
-    if (_config->iconSet().compare("Mecast") == 0)
-        ui->iconsetCombo->setCurrentIndex(1);
-    else
-        ui->iconsetCombo->setCurrentIndex(0);
+    Dirent *dp = 0;
+    DIR *dir_fd = opendir((Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath).c_str());
+    int i = 0;
+    if(dir_fd){
+        while((dp = readdir(dir_fd))){
+            std::string name = dp->d_name;
+            if(name == "." || name == "..")
+                continue;
+            if(dp->d_type == DT_DIR && name[0] != '.'){
+                try{
+                    ui->iconsetCombo->addItem(QString::fromStdString(name));
+                    if (_config->iconSet().compare(name) == 0)
+                        ui->iconsetCombo->setCurrentIndex(i);
+                    i++;
+                }
+                catch(std::string& err){
+                    std::cerr << "error " << err << std::endl;
+                    continue;
+                }
+                catch(const char *err){
+                    std::cerr << "error " << err << std::endl;
+                    continue;
+                }
+            }
+        }
+        closedir(dir_fd);
+    }
+
 }
 
 SettingStations::~SettingStations()

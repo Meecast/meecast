@@ -70,6 +70,9 @@ xsd.files += data/source.xsd
 xsd.path = /usr/share/omweather/xsd
 buttonicons.path = /usr/share/omweather/buttons_icons
 buttonicons.files += data/button_icons/*.png
-INSTALLS += target data xsd buttonicons
+images.path = /usr/share/omweather/images
+images.files += data/images/*.png
+
+INSTALLS += target data xsd buttonicons images
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user

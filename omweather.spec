@@ -3,25 +3,28 @@
 # spectacle version 0.18
 # 
 # >> macros
+%define wantmeegopanel 0
 %define all_x86 i386 i586 i686 %{ix86}
 %define all_arm %{arm}
 # << macros
 
 Name:       omweather
 Summary:    Weather for Meego
-Version:    0.3.12
+Version:    0.3.14
 Release:    1
 Group:      Applications/Internet
 License:    GPLv2.1
 URL:        https://garage.maemo.org/projects/omweather/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  omweather.yaml
+#Temporary
+Requires:       libmeegotouch-devel
 BuildRequires:  pkgconfig(QtCore) >= 4.7.0
 BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(sqlite3)
 BuildRequires:  pkgconfig(dbus-glib-1)
 BuildRequires:  pkgconfig(libxml-2.0)
-%ifarch %{all_x86} 
+%if %{wantmeegopanel}
 BuildRequires:  pkgconfig(meego-panel)
 BuildRequires:  pkgconfig(mutter-plugins)
 %endif
@@ -62,7 +65,7 @@ rm -rf %{buildroot}
 
 # >> install post
 make INSTALL_ROOT=%{buildroot} install
-%ifarch %{all_x86}
+%if %{wantmeegopanel}
 ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/theme/icons
 %endif
 rm %{buildroot}/usr/lib/libomweather-core.so
@@ -99,7 +102,7 @@ desktop-file-install --delete-original       \
 /usr/share/omweather/db/weather.com.db
 /usr/share/omweather/sources/weather.com.xml
 # >> files
-%ifarch %{all_x86}
+%if  %{wantmeegopanel}
 %{_libexecdir}/meego-panel-omweather
 /usr/share/meego-panel-omweather
 /usr/share/mutter-meego/panels/meego-panel-omweather.desktop
@@ -107,6 +110,12 @@ desktop-file-install --delete-original       \
 /usr/share/dbus-1/services
 %endif
 %changelog
+* Mon Mar 21 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.14
+  * Added switching between iconstes to settings 
+* Sun Mar 20 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.13
+  * New design by Wazd (Andrew Zhilin) for Meego-panel
+  * fixed problem with libtouch setting application
+  * Added new iconset MeCast
 * Thu Mar 12 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.12
   * changed signals in qml
   * cosmetic changes in qt touch

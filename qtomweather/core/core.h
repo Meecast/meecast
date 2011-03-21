@@ -48,7 +48,7 @@
 #include "databaseabstract.h"
 #include "downloader.h"
 
-#define OMWEATHER_VERSION "0.3.13"
+#define OMWEATHER_VERSION "0.3.14"
 namespace Core{
     class Connection;
     class AbstractConfig;

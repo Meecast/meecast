@@ -14,7 +14,7 @@ Rectangle {
     Loader {
         id: background
         anchors.fill: parent
-        sourceComponent: Image {source: Config.iconspath + "/" + Config.iconset + "/" + "background.png"}
+        sourceComponent: Image {source: "/usr/share/omweather/images/background.png"}
     }
 
 
@@ -111,7 +111,7 @@ Rectangle {
                 Loader {
 
                     anchors.fill: parent
-                    sourceComponent: Image {source: Config.iconspath + "/" + Config.iconset + "/" + "background_part.png"}
+                    sourceComponent: Image {source: "/usr/share/omweather/images/background_part.png"}
                 }
             }
 
@@ -291,7 +291,7 @@ Rectangle {
             }
             Text {
                 font.pointSize: 14
-                text: "Weather forecast for the Meego. Version 0.3.13.\n" +
+                text: "Weather forecast for the Meego. Version 0.3.14.\n" +
                   "Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n" +
                   "Maintenance: Pavel Fialko, <pavelnf@gmail.com>\n          Tanya Makova, <tanyshk@gmail.com>\n" +
                   "Design UI and default iconset:\n           Andrew Zhilin, <az@pocketpcrussia.com>\n"

@@ -136,6 +136,7 @@ detail_event_cb (ClutterActor *actor,
     if (active_background && clutter_actor_get_name(active_background) != NULL
         && !strcmp(clutter_actor_get_name(active_background), "active")) 
         clutter_actor_hide(active_background);    
+
     for (int i=0; i<clutter_group_get_n_children(CLUTTER_GROUP(actor)); i++){
         temp_actor = clutter_group_get_nth_child(CLUTTER_GROUP(actor), i);
         if (clutter_actor_get_name(temp_actor) != NULL && 
@@ -144,7 +145,6 @@ detail_event_cb (ClutterActor *actor,
             active_background = temp_actor;
         }
     }
-
 }
 //////////////////////////////////////////////////////////////////////////////
 gboolean
@@ -827,7 +827,10 @@ make_bottom_content(Core::Data *temp_data) {
 
   /* added night weather forecast */ 
   if (!temp_data->Current()){
-      temp_data = dp->data().GetDataForTime(temp_data->EndTime() + 3600);
+      if (temp_data->StartTime() - temp_data->EndTime() > 8*3600)
+          temp_data = dp->data().GetDataForTime(temp_data->EndTime() + 3600);
+      else
+          temp_data = dp->data().GetDataForTime(temp_data->StartTime() + 13*3600);
       if (temp_data){
           box =  make_forecast_detail_box(temp_data, NIGHT);
           clutter_actor_set_size(box, 511, -1);
@@ -892,14 +895,16 @@ make_window_content (MplPanelClutter *panel)
   struct tm   *tm = NULL;
   int year, current_month;
 
-  active_background = NULL;
   if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 
                                               &&  config->stationsList().at(config->current_station_id()))
       dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
 
   main_vertical_layout = clutter_box_layout_new ();
-  if (panel_container)
+  if (panel_container){
       clutter_actor_destroy(panel_container);
+      bottom_container = NULL;
+      active_background = NULL;
+  }
   if (refresh_timeline)
        g_object_unref(refresh_timeline);
   panel_container =  clutter_box_new(main_vertical_layout);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config xmlns="http://omweather.garage.maemo.org/schemas">
- <base>../test/</base>
- <iconset>Glance</iconset>
+ <base>../core/data</base>
+ <iconset>Meecast</iconset>
  <temperature_unit>C</temperature_unit>
  <wind_speed_unit>m/s</wind_speed_unit>
  <current_station_id>0</current_station_id>
@@ -11,18 +11,28 @@
   <station_id>BOXX0014</station_id>
   <country>Belarus</country>
   <region>Belarus</region>
-  <file_name>../test/weather.com_BOXX0014</file_name>
+  <file_name>BOXX0014.xml</file_name>
   <forecast_url>http://xml.weather.com/weather/local/BOXX0014?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*</forecast_url>
-  <converter>/usr/lib/omweather/weathercom</converter>
+  <converter></converter>
  </station>
  <station>
   <source_name>weather.com</source_name>
-  <station_name>Bridgetown</station_name>
-  <station_id>BBXX0001</station_id>
-  <country>Barbados</country>
-  <region>Barbados</region>
-  <file_name>../test/weather.com_BBXX0001</file_name>
-  <forecast_url>http://xml.weather.com/weather/local/BBXX0001?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*</forecast_url>
-  <converter>/usr/lib/omweather/weathercom</converter>
+  <station_name>Vitebsk2</station_name>
+  <station_id>BOXX0014</station_id>
+  <country>Belarus</country>
+  <region>Belarus</region>
+  <file_name></file_name>
+  <forecast_url>http://xml.weather.com/weather/local/BOXX0014?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*</forecast_url>
+  <converter></converter>
+ </station>
+ <station>
+  <source_name>weather.com</source_name>
+  <station_name>Andorra</station_name>
+  <station_id>ANXX0001</station_id>
+  <country>Andorra</country>
+  <region>Andorra</region>
+  <file_name>../test/weather.com_ANXX0001</file_name>
+  <forecast_url>http://xml.weather.com/weather/local/ANXX0001?cm_ven=1CW&amp;site=wx.com-bar&amp;cm_ite=wx-cc&amp;par=1CWFFv1.1.9&amp;cm_pla=wx.com-bar&amp;cm_cat=FFv1.1.9&amp;unit=m&amp;dayf=10&amp;cc=*</forecast_url>
+  <converter></converter>
  </station>
 </config>

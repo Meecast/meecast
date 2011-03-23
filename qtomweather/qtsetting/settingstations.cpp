@@ -43,6 +43,7 @@ SettingStations::SettingStations(QWidget *parent) :
 
     Dirent *dp = 0;
     DIR *dir_fd = opendir((Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath).c_str());
+    //std::cerr << (Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath) << std::endl;
     int i = 0;
     if(dir_fd){
         while((dp = readdir(dir_fd))){

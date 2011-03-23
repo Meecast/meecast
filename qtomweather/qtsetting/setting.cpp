@@ -18,6 +18,10 @@ Setting::Setting(QWidget *parent) :
     for (int i=0; i<sourcelist->size(); i++){
         ui->sourceCombo->addItem(QString::fromStdString(sourcelist->at(i)->name()), i);
     }
+    ui->countryCombo->setEditable(true);
+    ui->countryCombo->setInsertPolicy(QComboBox::NoInsert);
+    ui->regionCombo->setEditable(true);
+    ui->cityCombo->setEditable(true);
 
 }
 

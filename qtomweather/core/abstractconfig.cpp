@@ -35,7 +35,7 @@ namespace Core {
     std::string AbstractConfig::prefix = "";
     std::string AbstractConfig::sharePath = "../test/";
     std::string AbstractConfig::schemaPath = "../test/schemas/";
-    std::string AbstractConfig::iconsPath = "../test/iconsets/";
+    std::string AbstractConfig::iconsPath = "../core/data/icons/";
     std::string AbstractConfig::libPath = "lib/omweather/";
     std::string AbstractConfig::sourcesPath = "../test/sources/";
     std::string AbstractConfig::layoutqml = "weatherlayoutitem.qml";

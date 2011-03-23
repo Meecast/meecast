@@ -256,7 +256,9 @@ make_day_actor(Core::Data *temp_data){
     ClutterActor     *icon;
     ClutterActor     *background_passive;
     ClutterActor     *background_active;
+    ClutterActor     *rectangle;
     ClutterLayoutManager *layout;
+    PangoFontDescription *pfd = NULL;
 
     char             buffer[4096];
     
@@ -283,6 +285,10 @@ make_day_actor(Core::Data *temp_data){
     clutter_actor_set_size(temperature_box, 74, 20);
     label_temp_low = clutter_text_new();
     label_temp_hi = clutter_text_new();
+    pfd = clutter_text_get_font_description(CLUTTER_TEXT(label_temp_low));
+    pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD);
+    clutter_text_set_font_description(CLUTTER_TEXT(label_temp_low), pfd);
+    clutter_text_set_font_description(CLUTTER_TEXT(label_temp_hi), pfd);
     if (temp_data){
         if (temp_data->temperature_low().value() != INT_MAX)
             snprintf(buffer, (4096 -1), "%0.f°", temp_data->temperature_low().value());
@@ -292,7 +298,7 @@ make_day_actor(Core::Data *temp_data){
                                       temp_data->temperature().value());
         }    
     }else
-        snprintf(buffer, (4096 -1), "N/A°");
+        snprintf(buffer, (4096 -1), "");
     clutter_text_set_text((ClutterText*)label_temp_low, buffer);
     clutter_text_set_color((ClutterText*)label_temp_low, clutter_color_new(48, 185, 226, 255));
 
@@ -301,7 +307,7 @@ make_day_actor(Core::Data *temp_data){
             snprintf(buffer, (4096 -1), "%0.f°",  temp_data->temperature_hi().value());
         
     }else
-        snprintf(buffer, (4096 -1), "N/A°");
+        snprintf(buffer, (4096 -1), "");
     clutter_text_set_text((ClutterText*)label_temp_hi, buffer);
     clutter_text_set_color((ClutterText*)label_temp_hi, clutter_color_new(136, 147, 151, 255));
 
@@ -324,12 +330,24 @@ make_day_actor(Core::Data *temp_data){
     }
     layout = clutter_box_layout_new ();
     clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(layout), TRUE);
+    clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (layout), 6);
     box =  clutter_box_new(layout);
     clutter_actor_set_size (box, 99.0, 129.0);
     group = clutter_group_new();
+
+    /* stub rectangle */
+    rectangle = clutter_rectangle_new();
+    clutter_actor_set_size(rectangle, -1, 3);
+    clutter_box_pack((ClutterBox*)box, rectangle, NULL);
+
     clutter_box_pack((ClutterBox*)box, label_day, NULL);
     clutter_box_pack((ClutterBox*)box, icon, NULL);
     clutter_box_pack((ClutterBox*)box, temperature_box,  "x-align", CLUTTER_BOX_ALIGNMENT_CENTER, NULL);
+
+    /* stub rectangle */
+    rectangle = clutter_rectangle_new();
+    clutter_actor_set_size(rectangle, -1, 3);
+    clutter_box_pack((ClutterBox*)box, rectangle, NULL);
 
     clutter_container_add_actor(CLUTTER_CONTAINER(group), background_active);
     clutter_actor_hide(background_active);    
@@ -566,6 +584,7 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
   clutter_box_pack((ClutterBox*)hbox, rectangle, NULL);
   /* vertical container */
   intvertical_layout = clutter_box_layout_new ();
+  clutter_box_layout_set_spacing(CLUTTER_BOX_LAYOUT(intvertical_layout), 3);
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(intvertical_layout), TRUE);
   intvertical_container =  clutter_box_new(intvertical_layout);
   clutter_actor_set_size(intvertical_container, 380, -1);
@@ -601,7 +620,7 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     clutter_text_set_color((ClutterText*)label, clutter_color_new(128, 128, 128, 255));
     clutter_text_set_color((ClutterText*)label_data, clutter_color_new(128, 128, 128, 255));
     pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
-   // pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
+    //pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.1);
     pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD);
     clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
     ss.str("");
@@ -778,6 +797,7 @@ make_bottom_content(Core::Data *temp_data) {
   /* bottom layout */
   
   bottom_layout = clutter_box_layout_new();
+  clutter_box_layout_set_spacing(CLUTTER_BOX_LAYOUT(bottom_layout), 0);
   clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(bottom_layout), TRUE);
   bottom_container = clutter_box_new(bottom_layout);
  
@@ -785,7 +805,7 @@ make_bottom_content(Core::Data *temp_data) {
   /* Day name */
   label = clutter_text_new();
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
-  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.3);
+  //pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.3);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   if (temp_data)
       if (temp_data->Current())
@@ -855,18 +875,25 @@ make_bottom_content(Core::Data *temp_data) {
 
   label = clutter_text_new();
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
-  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.4);
+  //pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.4);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   ss.str("");
   ss << _("Provided by");
   ss << " ";
   clutter_text_set_text((ClutterText*)label, ss.str().c_str());
   clutter_text_set_color((ClutterText*)label, clutter_color_new(102, 102, 102, 255));
-  clutter_box_pack((ClutterBox*)providerbox, label, NULL);
+  clutter_actor_set_size (providerbox, -1, 40.0);
+  clutter_box_pack((ClutterBox*)providerbox, label,
+                    "x-align", CLUTTER_BOX_ALIGNMENT_CENTER,
+                    "y-align", CLUTTER_BOX_ALIGNMENT_CENTER,
+                    "expand", TRUE,
+                    NULL);
+
+  //clutter_box_pack((ClutterBox*)providerbox, label, NULL);
 
   label = clutter_text_new();
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
-  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.3);
+  //pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.3);
   pango_font_description_set_weight(pfd, PANGO_WEIGHT_BOLD);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   ss.str("");
@@ -876,7 +903,12 @@ make_bottom_content(Core::Data *temp_data) {
 
   clutter_text_set_text((ClutterText*)label, ss.str().c_str());
   clutter_text_set_color((ClutterText*)label, clutter_color_new(49, 194, 238, 255));
-  clutter_box_pack((ClutterBox*)providerbox, label, NULL);
+  //clutter_box_pack((ClutterBox*)providerbox, label, NULL);
+  clutter_box_pack((ClutterBox*)providerbox, label,
+                    "x-align", CLUTTER_BOX_ALIGNMENT_CENTER,
+                    "y-align", CLUTTER_BOX_ALIGNMENT_CENTER,
+                    "expand", TRUE,
+                    NULL);
 
   clutter_box_pack((ClutterBox*)bottom_container, providerbox, NULL);
   
@@ -936,17 +968,18 @@ make_window_content (MplPanelClutter *panel)
   /* top layout */
   top_layout = clutter_box_layout_new(); 
   top_container = clutter_box_new(top_layout);
-  clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (top_layout), 9);
+  clutter_box_layout_set_spacing (CLUTTER_BOX_LAYOUT (top_layout), 3);
 
   /* stub rectangle */
   rectangle = clutter_rectangle_new();
-  clutter_actor_set_size(rectangle, 5, 70);
+  clutter_actor_set_size(rectangle, 5, 44);
   clutter_box_pack((ClutterBox*)top_container, rectangle, NULL);
 
   /* refresh button */
   refresh_group = clutter_group_new();
   snprintf(buffer, (4096 -1), "%s/buttons_icons/update_background.png",config->prefix_path().c_str());
   icon = clutter_texture_new_from_file(buffer, NULL);
+  clutter_actor_set_size (icon, 44.0, 44.0);
   clutter_container_add_actor(CLUTTER_CONTAINER(refresh_group), icon);
   snprintf(buffer, (4096 -1), "%s/buttons_icons/update_arrows.png",config->prefix_path().c_str());
   icon = clutter_texture_new_from_file(buffer, NULL);
@@ -957,10 +990,15 @@ make_window_content (MplPanelClutter *panel)
   g_signal_connect (refresh_group, "button-press-event", G_CALLBACK (refresh_button_event_cb), panel);
   clutter_box_pack((ClutterBox*)top_container, refresh_group, "x-align", CLUTTER_BOX_ALIGNMENT_START, "x-fill", TRUE, NULL);
  
+  /* stub rectangle */
+  rectangle = clutter_rectangle_new();
+  clutter_actor_set_size(rectangle, 6, 64);
+  clutter_box_pack((ClutterBox*)top_container, rectangle, NULL);
+
   /* station name */
   label = clutter_text_new();
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
-  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 2.5);
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.8);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   clutter_text_set_color(CLUTTER_TEXT(label), clutter_color_new(102, 102, 102, 255));
   stationslist = config->stationsList();
@@ -976,13 +1014,13 @@ make_window_content (MplPanelClutter *panel)
   /* null button */
   snprintf(buffer, (4096 -1), "%s/buttons_icons/null.png",config->prefix_path().c_str());
   icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_actor_set_size (icon, 48.0, 48.0);
+  clutter_actor_set_size (icon, 44.0, 44.0);
   clutter_box_pack((ClutterBox*)top_container, icon, "expand", TRUE,  "x-fill", TRUE, NULL);
 
   /* about button */
   snprintf(buffer, (4096 -1), "%s/buttons_icons/about.png",config->prefix_path().c_str());
   icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_actor_set_size (icon, 48.0, 48.0);
+  clutter_actor_set_size (icon, 44.0, 44.0);
   clutter_actor_set_reactive(icon, TRUE);
   /* connect the press event on about button */
   g_signal_connect (icon, "button-press-event", G_CALLBACK (about_button_event_cb), panel);

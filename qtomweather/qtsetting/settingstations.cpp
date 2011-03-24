@@ -30,6 +30,7 @@ SettingStations::SettingStations(QWidget *parent) :
     Core::StationsList::iterator cur;
     for (cur=_stationlist->begin(); cur<_stationlist->end(); cur++){
         QListWidgetItem *item = new QListWidgetItem((*cur)->name().c_str(), ui->listWidget);
+        item->setSizeHint(QSize(ui->listWidget->width(), 40));
         item->setToolTip((*cur)->id().c_str());
     }
 

@@ -73,6 +73,9 @@ ClutterTimeline *refresh_timeline = NULL;
 ClutterLayoutManager *main_vertical_layout = NULL;
 DBusConnection       *dbus_conn;
 DBusConnection       *dbus_conn_session;
+DBusConnection      *dbus_connection;
+DBusConnection      *dbus_connection_session;
+DBusGProxy           *dbus_proxy;
 GHashTable           *translate_hash=NULL;
 guint timer = 0; /* timer */
 pthread_t tid;
@@ -1102,6 +1105,21 @@ get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
     }
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 }
+DBusHandlerResult
+get_connman_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
+    FILE *f;
+    f = fopen("/tmp/dbus.log", "a");
+    fprintf(f, "conn state changed\n");
+
+    if (dbus_message_is_signal(msg, "org.moblin.connman.Manager", "PropertyChanged")){
+        //delete config;
+        //config = create_and_fill_config();
+        //make_window_content(MPL_PANEL_CLUTTER (panel));
+        fprintf(f, "conn property changed\n");
+    }
+    fclose(f);
+    return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
+}
 void
 dbus_init(void){
   DBusError   error;
@@ -1121,6 +1139,27 @@ dbus_init(void){
                                  NULL, NULL);
   }
 
+  dbus_connection = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
+  dbus_connection_session = dbus_bus_get(DBUS_BUS_SESSION, NULL);
+  FILE *f;
+  f = fopen("/tmp/dbus.log", "a");
+
+  if (dbus_connection_session){
+      fprintf(f, "dbus init");
+      dbus_bus_add_match(dbus_connection_session, "type='signal', interface='org.moblin.connman.Manager'", &error);
+      if (dbus_error_is_set(&error)){
+
+          fprintf(f,"dbus_bus_add_match failed: %s", error.message);
+
+           fprintf(stderr,"dbus_bus_add_match failed: %s", error.message);
+           dbus_error_free(&error);
+      }
+      /* add the callback */
+      dbus_connection_add_filter(dbus_connection_session,
+                                 get_connman_signal_cb,
+                                 NULL, NULL);
+  }
+fclose(f);
 }
 int
 main (int argc, char *argv[])

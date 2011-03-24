@@ -223,11 +223,11 @@ gboolean
 config_button_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
-    char *args[] = {"/usr/bin/omweather-settouch", (char *) 0 };
+    char *args[] = {"/usr/bin/omweather-settings", (char *) 0 };
 
     pid_t pID = fork();
     if (pID == 0){
-        execv("/usr/bin/omweather-settouch", args );
+        execv("/usr/bin/omweather-settings", args );
     }else
         mpl_panel_client_hide(panel);
 
@@ -1029,7 +1029,7 @@ make_window_content (MplPanelClutter *panel)
   /* config button */
   snprintf(buffer, (4096 -1), "%s/buttons_icons/config.png",config->prefix_path().c_str());
   icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_actor_set_size (icon, 48.0, 48.0);
+  clutter_actor_set_size (icon, 44.0, 44.0);
   clutter_actor_set_reactive(icon, TRUE);
   /* connect the press event on config button */
   g_signal_connect (icon, "button-press-event", G_CALLBACK (config_button_event_cb), NULL);

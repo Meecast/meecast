@@ -71,11 +71,6 @@ ClutterActor   *bottom_container = NULL;
 bool updating = false;
 ClutterTimeline *refresh_timeline = NULL;
 ClutterLayoutManager *main_vertical_layout = NULL;
-DBusConnection       *dbus_conn;
-DBusConnection       *dbus_conn_session;
-DBusConnection      *dbus_connection;
-DBusConnection      *dbus_connection_session;
-DBusGProxy           *dbus_proxy;
 GHashTable           *translate_hash=NULL;
 guint timer = 0; /* timer */
 pthread_t tid;
@@ -1107,15 +1102,17 @@ get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 }
 DBusHandlerResult
 get_connman_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
+
     FILE *f;
     f = fopen("/tmp/dbus.log", "a");
-    fprintf(f, "conn state changed\n");
 
-    if (dbus_message_is_signal(msg, "org.moblin.connman.Manager", "PropertyChanged")){
-        //delete config;
-        //config = create_and_fill_config();
-        //make_window_content(MPL_PANEL_CLUTTER (panel));
-        fprintf(f, "conn property changed\n");
+    fprintf(f, "get_connman_signal %s %s %s\n",
+            dbus_message_get_interface(msg),
+            dbus_message_get_member(msg),
+            dbus_message_get_sender(msg));
+
+    if (dbus_message_is_signal(msg, "org.moblin.connman.Manager", "StateChanged")){
+        fprintf(f, "conn state changed\n");
     }
     fclose(f);
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
@@ -1123,30 +1120,40 @@ get_connman_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 void
 dbus_init(void){
   DBusError   error;
+  DBusConnection       *dbus_conn;
+  DBusConnection       *dbus_conn_session;
 
-  dbus_error_init (&error);
-  dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
-  dbus_conn_session = dbus_bus_get(DBUS_BUS_SESSION, NULL);
-  if (dbus_conn_session){
-      dbus_bus_add_match(dbus_conn_session, "type='signal', interface='org.meego.omweather'", &error);
-      if (dbus_error_is_set(&error)){
-           fprintf(stderr,"dbus_bus_add_match failed: %s", error.message);
-           dbus_error_free(&error);
-      }
-      /* add the callback */
-      dbus_connection_add_filter(dbus_conn_session,
-                                 get_omweather_signal_cb,
-                                 NULL, NULL);
-  }
-
-  dbus_connection = dbus_bus_get(DBUS_BUS_SYSTEM, NULL);
-  dbus_connection_session = dbus_bus_get(DBUS_BUS_SESSION, NULL);
   FILE *f;
   f = fopen("/tmp/dbus.log", "a");
 
-  if (dbus_connection_session){
-      fprintf(f, "dbus init");
-      dbus_bus_add_match(dbus_connection_session, "type='signal', interface='org.moblin.connman.Manager'", &error);
+  dbus_error_init (&error);
+  dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, &error);
+  if (dbus_error_is_set(&error)){
+      fprintf(f, "error dbus %s\n", error.message);
+      dbus_error_free(&error);
+  }
+  dbus_conn_session = dbus_bus_get(DBUS_BUS_SESSION, &error);
+  if (dbus_error_is_set(&error)){
+      fprintf(f, "error dbus %s\n", error.message);
+      dbus_error_free(&error);
+  }
+  /*
+  DBusGProxy *proxy = dbus_g_proxy_new_for_name(dbus_conn,
+                                                "org.moblin.connman.Manager",
+                                                "/org/moblin/connman/Manager",
+                                                "org.moblin.connman.Manager");
+  if (!proxy){
+      fprintf(f, "error proxy\n");
+  }
+  dbus_g_proxy_add_signal(proxy, "StateChanged", G_TYPE_UINT, G_TYPE_INVALID);
+  dbus_g_proxy_connect_signal(proxy, "StateChanged",
+                              G_CALLBACK(get_connman_signal_cb), NULL, NULL);
+*/
+
+  if (dbus_conn){
+      fprintf(f, "dbus init\n");
+      //dbus_connection_setup_with_g_main(dbus_conn, NULL);
+      dbus_bus_add_match(dbus_conn, "type='signal',interface='org.moblin.connman.Manager'", &error);
       if (dbus_error_is_set(&error)){
 
           fprintf(f,"dbus_bus_add_match failed: %s", error.message);
@@ -1154,12 +1161,28 @@ dbus_init(void){
            fprintf(stderr,"dbus_bus_add_match failed: %s", error.message);
            dbus_error_free(&error);
       }
-      /* add the callback */
-      dbus_connection_add_filter(dbus_connection_session,
+      // add the callback
+      dbus_connection_add_filter(dbus_conn,
                                  get_connman_signal_cb,
                                  NULL, NULL);
+      fprintf(f, "added callback\n");
   }
-fclose(f);
+
+  fclose(f);
+
+  if (dbus_conn_session){
+      dbus_bus_add_match(dbus_conn_session, "type='signal', interface='org.meego.omweather'", &error);
+      if (dbus_error_is_set(&error)){
+           fprintf(stderr,"dbus_bus_add_match failed: %s", error.message);
+           dbus_error_free(&error);
+      }
+      // add the callback
+      dbus_connection_add_filter(dbus_conn_session,
+                                 get_omweather_signal_cb,
+                                 NULL, NULL);
+  }
+
+
 }
 int
 main (int argc, char *argv[])

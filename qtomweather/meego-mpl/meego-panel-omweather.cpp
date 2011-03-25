@@ -713,7 +713,7 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
 			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
   }
 
-  if (temp_data->WindSpeed() != INT_MAX){
+  if (temp_data->WindSpeed().value() != INT_MAX){
     /* small horizontal container */
     inthbox_layout = clutter_box_layout_new ();
     inthbox =  clutter_box_new(inthbox_layout);
@@ -730,7 +730,7 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label, NULL);
     ss.str("");
-    ss <<temp_data->WindSpeed() << _("m/s");
+    ss <<temp_data->WindSpeed().value() << config->WindSpeedUnit();
     clutter_text_set_text((ClutterText*)label_data, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label_data, NULL);
     clutter_box_pack((ClutterBox*)intvertical_container, inthbox, NULL);

@@ -38,7 +38,8 @@ SOURCES = \
     temperature.cpp \
     datalist.cpp \
     databasesqlite.cpp \
-    downloader.cpp
+    downloader.cpp \
+    windspeed.cpp
 
 
 HEADERS = \ 
@@ -57,7 +58,8 @@ HEADERS = \
     temperature.h \
     databasesqlite.h \
     databaseabstract.h \
-    downloader.h
+    downloader.h \
+    windspeed.h
 
 
 #installs

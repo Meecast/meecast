@@ -42,6 +42,14 @@ SettingStations::SettingStations(QWidget *parent) :
     else
         ui->temperatureCombo->setCurrentIndex(0);
 
+    ui->windCombo->addItem("m/s");
+    ui->windCombo->addItem("km/h");
+    //std::cerr << _config->TemperatureUnit() << std::endl;
+    if (_config->WindSpeedUnit().compare("m/s") == 0)
+        ui->windCombo->setCurrentIndex(0);
+    else if (_config->WindSpeedUnit().compare("km/h") == 0)
+        ui->windCombo->setCurrentIndex(1);
+
     Dirent *dp = 0;
     DIR *dir_fd = opendir((Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath).c_str());
     //std::cerr << (Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath) << std::endl;
@@ -116,6 +124,7 @@ SettingStations::okClicked()
 {
     _config->stationsList(*_stationlist);
     _config->TemperatureUnit(ui->temperatureCombo->currentText().toStdString());
+    _config->WindSpeedUnit(ui->windCombo->currentText().toStdString());
     _config->iconSet(ui->iconsetCombo->currentText().toStdString());
     _config->saveConfig();
     QDBusConnection bus = QDBusConnection::sessionBus();

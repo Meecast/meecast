@@ -76,6 +76,7 @@ guint timer = 0; /* timer */
 pthread_t tid;
 FILE *file;
 ClutterActor     *active_background = NULL;
+bool connected = false;
 
 static void* update_weather_forecast(void* data){
     int i;
@@ -1097,13 +1098,16 @@ get_connman_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
     FILE *f;
     f = fopen("/tmp/dbus.log", "a");
 
-    fprintf(f, "get_connman_signal %s %s %s\n",
-            dbus_message_get_interface(msg),
-            dbus_message_get_member(msg),
-            dbus_message_get_sender(msg));
-
     if (dbus_message_is_signal(msg, "org.moblin.connman.Manager", "StateChanged")){
-        fprintf(f, "conn state changed\n");
+        char *arg = NULL;
+        dbus_message_get_args(msg, NULL, DBUS_TYPE_STRING, &arg);
+        if (arg && strcmp(arg, "online") == 0){
+            refresh_button_event_cb(NULL, NULL, NULL);
+            connected = true;
+        }
+        else
+            connected = false;
+        fprintf(f, "conn state changed %s\n", arg);
     }
     fclose(f);
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
@@ -1130,6 +1134,11 @@ dbus_init(void){
       fprintf(f, "error dbus %s\n", error.message);
       dbus_error_free(&error);
   }
+  dbus_conn_session = dbus_bus_get(DBUS_BUS_SESSION, &error);
+  if (dbus_error_is_set(&error)){
+      fprintf(f, "error dbus %s\n", error.message);
+      dbus_error_free(&error);
+  }
   /* Hack */
   connection = dbus_g_bus_get (DBUS_BUS_SYSTEM, &error1);
   if (error1)
@@ -1142,7 +1151,8 @@ dbus_init(void){
   if (dbus_conn){
       fprintf(f, "dbus init\n");
       //dbus_connection_setup_with_g_main(dbus_conn, NULL);
-      dbus_bus_add_match(dbus_conn, "type='signal',interface='org.moblin.connman.Manager'", &error);
+      dbus_bus_add_match(dbus_conn,
+                         "type='signal',interface='org.moblin.connman.Manager'", &error);
       if (dbus_error_is_set(&error)){
 
           fprintf(f,"dbus_bus_add_match failed: %s", error.message);

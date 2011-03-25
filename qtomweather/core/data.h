@@ -36,6 +36,8 @@
 #include <vector>
 #include <string>
 #include "temperature.h"
+#include "windspeed.h"
+
 ////////////////////////////////////////////////////////////////////////////////
 namespace Core{
     /* Weather data for interval from _start_time to _end_time */
@@ -43,7 +45,8 @@ namespace Core{
         time_t _start_time;
         time_t _end_time;
         Temperature *_flike;
-        float _windSpeed;
+        //float _windSpeed;
+        Windspeed *_windSpeed;
         std::string *_windDirection;
         float _windGust;
         int _humidity;
@@ -68,8 +71,9 @@ namespace Core{
             time_t StartTime(void) const;
             void  EndTime(time_t end_time);
             time_t EndTime(void) const;
-            void  WindSpeed(float windspeed);
-            float WindSpeed(void) const;
+            //void  WindSpeed(float windspeed);
+            //float WindSpeed(void) const;
+            Windspeed& WindSpeed();
             void  WindDirection(const std::string& text);
             std::string& WindDirection(void);
             void  WindGust(float windgust);

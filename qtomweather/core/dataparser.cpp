@@ -96,9 +96,11 @@ namespace Core {
                     forecast_data->Humidity(el.text().toInt());
                 }else if (tag == "wind_speed"){
                     if (el.text() == "calm")
-                        forecast_data->WindSpeed(0);
+                        //forecast_data->WindSpeed(0);
+                        forecast_data->WindSpeed().value(0);
                     else
-                        forecast_data->WindSpeed(el.text().toFloat());
+                        //forecast_data->WindSpeed(el.text().toFloat());
+                        forecast_data->WindSpeed().value(el.text().toFloat());
                 }else if (tag == "wind_direction"){
                     forecast_data->WindDirection(el.text().toStdString());
                 }else if (tag == "flike"){
@@ -219,7 +221,8 @@ namespace Core {
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
             /* std::cout<<"Wind speed "<< nodeText->get_content() <<std::endl; */
-            forecast_data->WindSpeed    (atoi(nodeText->get_content().c_str()));
+            //forecast_data->WindSpeed    (atoi(nodeText->get_content().c_str()));
+            forecast_data->WindSpeed().value(atoi(nodeText->get_content().c_str()));
             return;
         }
         // Wind direction tag

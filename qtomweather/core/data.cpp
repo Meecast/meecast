@@ -37,7 +37,8 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Data::Data(){
         _flike = new Temperature;
-        _windSpeed = INT_MAX;
+        //_windSpeed = INT_MAX;
+        _windSpeed = new Windspeed(INT_MAX, "m/s");
         _windGust = INT_MAX;
         _humidity = INT_MAX;
         _pressure = INT_MAX;
@@ -126,14 +127,18 @@ namespace Core {
          return *_flike;
      }
 ////////////////////////////////////////////////////////////////////////////////
+     /*
      void
      Data::WindSpeed(float windspeed){
          _windSpeed = windspeed;
      }
      float
      Data::WindSpeed() const{
-         /* need to check type ( ) */
+         // need to check type ( )
          return _windSpeed;
+     }*/
+     Windspeed& Data::WindSpeed(){
+         return *_windSpeed;
      }
 ////////////////////////////////////////////////////////////////////////////////
      void

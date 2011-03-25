@@ -78,6 +78,9 @@ SettingStations::SettingStations(QWidget *parent) :
         }
         closedir(dir_fd);
     }
+    connect(ui->listWidget, SIGNAL(itemEntered(QListWidgetItem*)), this, SLOT(setRemove(QListWidgetItem*)));
+    connect(ui->listWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(setRemove(QListWidgetItem*)));
+    connect(ui->listWidget, SIGNAL(itemPressed(QListWidgetItem*)), this, SLOT(setRemove(QListWidgetItem*)));
 
 }
 

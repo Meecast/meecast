@@ -156,8 +156,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>256</x>
-     <y>265</y>
+     <x>260</x>
+     <y>377</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -172,8 +172,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>275</x>
-     <y>265</y>
+     <x>279</x>
+     <y>377</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>
@@ -188,28 +188,12 @@
    <slot>add()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>357</x>
-     <y>39</y>
+     <x>62</x>
+     <y>339</y>
     </hint>
     <hint type="destinationlabel">
      <x>319</x>
      <y>62</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>listWidget</sender>
-   <signal>itemEntered(QListWidgetItem*)</signal>
-   <receiver>SettingStations</receiver>
-   <slot>setRemove(QListWidgetItem*)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>75</x>
-     <y>92</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>224</x>
-     <y>104</y>
     </hint>
    </hints>
   </connection>
@@ -220,8 +204,8 @@
    <slot>remove()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>357</x>
-     <y>80</y>
+     <x>265</x>
+     <y>339</y>
     </hint>
     <hint type="destinationlabel">
      <x>213</x>
@@ -236,8 +220,8 @@
    <slot>okClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>158</x>
-     <y>288</y>
+     <x>162</x>
+     <y>377</y>
     </hint>
     <hint type="destinationlabel">
      <x>220</x>

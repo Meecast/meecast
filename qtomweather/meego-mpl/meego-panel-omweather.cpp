@@ -177,18 +177,9 @@ refresh_button_event_cb (ClutterActor *actor,
         return false; 
     clutter_timeline_start(refresh_timeline);
     
-    //pthread_t tid;
-    //pthread_attr_t attr;
     int error;
-    //pthread_attr_init(&attr);
-    //pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
-    //error = pthread_create(&tid, &attr, update_weather_forecast, NULL);
-    //error = g_thread_create(&tid, &attr, update_weather_forecast, NULL);
     if (!g_thread_create(update_weather_forecast, NULL, false, NULL)) {
         std::cerr << "error run thread " << error << std::endl;
-        file = fopen("/tmp/1.log","ab");
-        fprintf(file, "error run thread= %d\n", error);
-	    fclose(file);
     }else {
         updating = true;
 	    timer = g_timeout_add(1000, g_finish_update, NULL);
@@ -1117,11 +1108,18 @@ get_connman_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
     fclose(f);
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 }
+
+
 void
 dbus_init(void){
   DBusError   error;
   DBusConnection       *dbus_conn;
   DBusConnection       *dbus_conn_session;
+
+  DBusGConnection *connection;
+  DBusGProxy      *manager;
+
+  GError                     *error1 = NULL;
 
   FILE *f;
   f = fopen("/tmp/dbus.log", "a");
@@ -1132,23 +1130,14 @@ dbus_init(void){
       fprintf(f, "error dbus %s\n", error.message);
       dbus_error_free(&error);
   }
-  dbus_conn_session = dbus_bus_get(DBUS_BUS_SESSION, &error);
-  if (dbus_error_is_set(&error)){
-      fprintf(f, "error dbus %s\n", error.message);
-      dbus_error_free(&error);
-  }
-  /*
-  DBusGProxy *proxy = dbus_g_proxy_new_for_name(dbus_conn,
-                                                "org.moblin.connman.Manager",
-                                                "/org/moblin/connman/Manager",
-                                                "org.moblin.connman.Manager");
-  if (!proxy){
-      fprintf(f, "error proxy\n");
-  }
-  dbus_g_proxy_add_signal(proxy, "StateChanged", G_TYPE_UINT, G_TYPE_INVALID);
-  dbus_g_proxy_connect_signal(proxy, "StateChanged",
-                              G_CALLBACK(get_connman_signal_cb), NULL, NULL);
-*/
+  /* Hack */
+  connection = dbus_g_bus_get (DBUS_BUS_SYSTEM, &error1);
+  if (error1)
+    {
+      g_debug ("Error connecting to bus: %s",
+               error1->message);
+      g_clear_error (&error1);
+    }
 
   if (dbus_conn){
       fprintf(f, "dbus init\n");

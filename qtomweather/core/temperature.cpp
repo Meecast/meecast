@@ -78,7 +78,7 @@ namespace Core {
         if (absolute)
             return _value;
         if(*_units == "F")
-            return (floor((_value * 9 / 5) + 32));
+            return (round((_value * 9 / 5) + 32));
         return _value;
     }
 ////////////////////////////////////////////////////////////////////////////////

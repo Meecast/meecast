@@ -80,7 +80,7 @@ namespace Core {
         if(*_units == "km/h")
              return(_value * 3.6f);
         else if (*_units == "mi/h")
-                 return (_value * 3.6f / 1.609344f);
+                 return round(_value * 3.6f / 1.609344f);
              else
                  return (_value);
     }

@@ -744,6 +744,7 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     clutter_text_set_text((ClutterText*)label, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label, NULL);
     ss.str("");
+    temp_data->WindSpeed().units(config->WindSpeedUnit());
     ss <<temp_data->WindSpeed().value() << config->WindSpeedUnit();
     clutter_text_set_text((ClutterText*)label_data, ss.str().c_str());
     clutter_box_pack((ClutterBox*)inthbox, label_data, NULL);

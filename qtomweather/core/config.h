@@ -48,6 +48,7 @@ namespace Core{
             std::string *_temperature_unit;
             std::string *_wind_speed_unit;
             bool         _update_connect;
+            int          _update_period;
             std::string *_font_color;
             int          _current_station_id;
             StationsList *_stations;
@@ -70,6 +71,8 @@ namespace Core{
             std::string& WindSpeedUnit(void);
             void UpdateConnect(const bool uc);
             bool UpdateConnect(void);
+            void UpdatePeriod(const int period);
+            int UpdatePeriod(void);
             void FontColor(const std::string& text);
             std::string& FontColor(void);
             StationsList& stationsList();

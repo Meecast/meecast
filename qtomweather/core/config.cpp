@@ -44,6 +44,7 @@ namespace Core{
         _font_color = new std::string("#00ff00");
         _stations = new StationsList;
         _current_station_id = INT_MAX;
+        _update_period = INT_MAX;
         //std::cerr << Core::AbstractConfig::configPath << std::endl;
         std::string path(AbstractConfig::getConfigPath());
         path += "config.xml";
@@ -81,9 +82,13 @@ namespace Core{
         el.appendChild(t);
         root.appendChild(el);
 
-
         el = doc.createElement("current_station_id");
         t = doc.createTextNode(QString::number(_current_station_id));
+        el.appendChild(t);
+        root.appendChild(el);
+
+        el = doc.createElement("update_period");
+        t = doc.createTextNode(QString::number(_update_period));
         el.appendChild(t);
         root.appendChild(el);
 
@@ -166,6 +171,7 @@ namespace Core{
         _temperature_unit = new std::string("C");
         _wind_speed_unit = new std::string("m/s");
         _update_connect = false;
+        _update_period = INT_MAX;
         _font_color = new std::string("#00ff00");
         _stations = new StationsList;
         _current_station_id = INT_MAX;
@@ -210,6 +216,9 @@ namespace Core{
             el = root.firstChildElement("update_connect");
             if (!el.isNull())
                 _update_connect = (el.text() == "true") ? true : false;
+            el = root.firstChildElement("update_period");
+            if (!el.isNull())
+                _update_period = el.text().toInt();
 
             nodelist = root.elementsByTagName("station");
             for (int i=0; i<nodelist.count(); i++){
@@ -322,13 +331,22 @@ namespace Core{
     }
     ////////////////////////////////////////////////////////////////////////////////
     void
-    Config::UpdateConnect(bool uc){
+    Config::UpdateConnect(const bool uc){
         _update_connect = uc;
     }
     ////////////////////////////////////////////////////////////////////////////////
     bool
     Config::UpdateConnect(void){
         return _update_connect;
+    }
+
+    void
+    Config::UpdatePeriod(const int period){
+        _update_period = period;
+    }
+    int
+    Config::UpdatePeriod(void){
+        return _update_period;
     }
 ////////////////////////////////////////////////////////////////////////////////
     void
@@ -402,6 +420,14 @@ namespace Core{
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
             std::string str = nodeText->get_content();
             (str.compare("true")) ? (_update_connect = false) : (_update_connect = true);
+            return;
+        }
+        // update period
+        if(nodeName == "update_period"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            _update_period->assign(nodeText->get_content());
             return;
         }
         // station

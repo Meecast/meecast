@@ -44,7 +44,6 @@ SettingStations::SettingStations(QWidget *parent) :
 
     ui->windCombo->addItem("m/s");
     ui->windCombo->addItem("km/h");
-    //std::cerr << _config->TemperatureUnit() << std::endl;
     if (_config->WindSpeedUnit().compare("m/s") == 0)
         ui->windCombo->setCurrentIndex(0);
     else if (_config->WindSpeedUnit().compare("km/h") == 0)
@@ -54,6 +53,23 @@ SettingStations::SettingStations(QWidget *parent) :
         ui->updateCheck->setChecked(true);
     else
         ui->updateCheck->setChecked(false);
+
+
+    period_hash["2 hour"] = 2*60*60;
+    period_hash["1 hour"] = 60*60;
+    period_hash["30 min"] = 30*60;
+    period_hash["10 min"] = 10*60;
+
+    QHashIterator<QString, int> iter(period_hash);
+    int ii = 0;
+    while (iter.hasNext()) {
+         iter.next();
+         //cout << i.key() << ": " << i.value() << endl;
+         ui->updateCombo->addItem(iter.key());
+         if (_config->UpdatePeriod() == iter.value())
+             ui->updateCombo->setCurrentIndex(ii);
+         ii++;
+     }
 
     Dirent *dp = 0;
     DIR *dir_fd = opendir((Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath).c_str());
@@ -135,7 +151,9 @@ SettingStations::okClicked()
     _config->WindSpeedUnit(ui->windCombo->currentText().toStdString());
     _config->iconSet(ui->iconsetCombo->currentText().toStdString());
     _config->UpdateConnect(ui->updateCheck->isChecked());
+    _config->UpdatePeriod(period_hash[ui->updateCombo->currentText()]);
     _config->saveConfig();
+
     QDBusConnection bus = QDBusConnection::sessionBus();
     QDBusMessage message = QDBusMessage::createSignal("/org/meego/omweather",
                                "org.meego.omweather", "reload_config");

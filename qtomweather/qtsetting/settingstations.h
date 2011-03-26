@@ -27,6 +27,7 @@ public:
     //std::vector<Core::Station*> *_stationlist;
     Core::StationsList *_stationlist;
     Core::Config *_config;
+    QHash<QString, int> period_hash;
 public slots:
     void add();
     void remove();

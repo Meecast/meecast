@@ -196,9 +196,11 @@ config_button_event_cb (ClutterActor *actor,
     pid_t pID = fork();
     if (pID == 0){
         execv("/usr/bin/omweather-settings", args );
-    }else
+    }else{
+        make_window_content((MplPanelClutter*)panel);
+        mpl_panel_client_set_height_request (panel, PANEL_HEIGHT);
         mpl_panel_client_hide(panel);
-
+    }
 }
 //////////////////////////////////////////////////////////////////////////////
 gboolean

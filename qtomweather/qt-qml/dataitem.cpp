@@ -176,11 +176,11 @@ DataItem::wind_direction() {
 QString
 DataItem::wind_speed() {
     QString c;
-    if (DataItem::Data::WindSpeed() == INT_MAX){
+    if (DataItem::Data::WindSpeed().value() == INT_MAX){
         c = "N/A";
         return c;
     }
-    return c.number((DataItem::Data::WindSpeed()), 'f', 0);
+    return c.number((DataItem::Data::WindSpeed().value()), 'f', 0);
 }
 QString
 DataItem::wind_gust() {

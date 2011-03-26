@@ -94,7 +94,9 @@ desktop-file-install --delete-original       \
 /usr/bin/omweather-qml
 /usr/bin/omweather-settouch
 %endif
+%if  %{wantmeegopanel}
 %{_datadir}/applications/*.desktop
+%endif
 %{_libdir}
 /usr/share/omweather
 /usr/share/locale

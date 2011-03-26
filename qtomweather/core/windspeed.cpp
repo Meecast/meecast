@@ -42,8 +42,10 @@ namespace Core {
         _units->assign(units);
         if(*_units == "km/h")
              _value = value * 3.6f;
-        else
-            _value = value;
+        else if (*_units == "mi/h")
+                 _value = _value * 3.6f / 1.609344f;
+             else
+                 _value = value;
     }
 ////////////////////////////////////////////////////////////////////////////////
     Windspeed::Windspeed(const Windspeed& windspeed){
@@ -76,8 +78,11 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     float Windspeed::value() const{
         if(*_units == "km/h")
-            return (_value * 3.6f);
-        return _value;
+             return(_value * 3.6f);
+        else if (*_units == "mi/h")
+                 return (_value * 3.6f / 1.609344f);
+             else
+                 return (_value);
     }
 ////////////////////////////////////////////////////////////////////////////////
 } // namespace Core

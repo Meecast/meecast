@@ -290,7 +290,7 @@ make_day_actor(Core::Data *temp_data){
     }else
         snprintf(buffer, (4096 -1), "");
     clutter_text_set_text((ClutterText*)label_temp_low, buffer);
-    clutter_text_set_color((ClutterText*)label_temp_low, clutter_color_new(48, 185, 226, 255));
+    clutter_text_set_color((ClutterText*)label_temp_low, clutter_color_new(136, 147, 151, 255));
 
     if (temp_data){
         if (temp_data->temperature_hi().value() != INT_MAX)
@@ -299,14 +299,14 @@ make_day_actor(Core::Data *temp_data){
     }else
         snprintf(buffer, (4096 -1), "");
     clutter_text_set_text((ClutterText*)label_temp_hi, buffer);
-    clutter_text_set_color((ClutterText*)label_temp_hi, clutter_color_new(136, 147, 151, 255));
+    clutter_text_set_color((ClutterText*)label_temp_hi, clutter_color_new(48, 185, 226, 255));
 
-    clutter_box_pack((ClutterBox*)temperature_box, label_temp_low, 
+    clutter_box_pack((ClutterBox*)temperature_box, label_temp_hi, 
                                  "x-align", CLUTTER_BOX_ALIGNMENT_START,
                                  "y-align", CLUTTER_BOX_ALIGNMENT_END,
                                  "expand", TRUE,
                                   NULL);
-    clutter_box_pack((ClutterBox*)temperature_box, label_temp_hi,
+    clutter_box_pack((ClutterBox*)temperature_box, label_temp_low,
                                  "x-align", CLUTTER_BOX_ALIGNMENT_END,
                                  "y-align", CLUTTER_BOX_ALIGNMENT_END, 
                                  NULL);
@@ -620,15 +620,15 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
     clutter_box_pack((ClutterBox*)inthbox, label, NULL);
     ss.str("");
     if (temp_data->temperature().value() != INT_MAX)  
-	    ss << temp_data->temperature().value() << "°" << config->TemperatureUnit();
+	    ss << (int)temp_data->temperature().value() << "°" << config->TemperatureUnit();
     else{
         if (temp_data->temperature_low().value() != INT_MAX || 
             temp_data->temperature_hi().value() != INT_MAX){
            if (temp_data->temperature_low().value() != INT_MAX){
-               ss << temp_data->temperature_low().value() << "°" << config->TemperatureUnit();
+               ss << (int)temp_data->temperature_low().value() << "°" << config->TemperatureUnit();
            }
            ss << " .. "; 
-           ss << temp_data->temperature_hi().value() << "°" << config->TemperatureUnit();
+           ss << (int)temp_data->temperature_hi().value() << "°" << config->TemperatureUnit();
         }
     }
     clutter_text_set_text((ClutterText*)label_data, ss.str().c_str());
@@ -844,6 +844,13 @@ make_bottom_content(Core::Data *temp_data) {
       else
           temp_data = dp->data().GetDataForTime(temp_data->StartTime() + 13*3600);
       if (temp_data){
+          if (temp_data->temperature_hi().value() != INT_MAX)
+            temp_data->temperature_hi().units(config->TemperatureUnit());
+          if (temp_data->temperature_low().value() != INT_MAX)
+            temp_data->temperature_low().units(config->TemperatureUnit());
+          if (temp_data->temperature().value() != INT_MAX)
+            temp_data->temperature().units(config->TemperatureUnit());
+
           box =  make_forecast_detail_box(temp_data, NIGHT);
           clutter_actor_set_size(box, 511, -1);
           clutter_box_pack((ClutterBox*)hbox, box,
@@ -1065,6 +1072,13 @@ make_window_content (MplPanelClutter *panel)
       }else
           temp_data_day = NULL;
       period = period + 3600*24;
+      if (temp_data_day->temperature_hi().value() != INT_MAX)
+        temp_data_day->temperature_hi().units(config->TemperatureUnit());
+      if (temp_data_day->temperature_low().value() != INT_MAX)
+        temp_data_day->temperature_low().units(config->TemperatureUnit());
+      if (temp_data_day->temperature().value() != INT_MAX)
+        temp_data_day->temperature().units(config->TemperatureUnit());
+
       box = make_day_actor(temp_data_day);
       clutter_box_pack((ClutterBox*)forecast_horizontal_container, box, NULL);
       if (i < 9) {

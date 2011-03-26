@@ -44,10 +44,14 @@ SettingStations::SettingStations(QWidget *parent) :
 
     ui->windCombo->addItem("m/s");
     ui->windCombo->addItem("km/h");
+    ui->windCombo->addItem("mi/h");
+    //std::cerr << _config->TemperatureUnit() << std::endl;
     if (_config->WindSpeedUnit().compare("m/s") == 0)
         ui->windCombo->setCurrentIndex(0);
     else if (_config->WindSpeedUnit().compare("km/h") == 0)
-        ui->windCombo->setCurrentIndex(1);
+             ui->windCombo->setCurrentIndex(1);
+         else if (_config->WindSpeedUnit().compare("mi/h") == 0)
+             ui->windCombo->setCurrentIndex(2);
 
     if (_config->UpdateConnect())
         ui->updateCheck->setChecked(true);

@@ -50,6 +50,11 @@ SettingStations::SettingStations(QWidget *parent) :
     else if (_config->WindSpeedUnit().compare("km/h") == 0)
         ui->windCombo->setCurrentIndex(1);
 
+    if (_config->UpdateConnect())
+        ui->updateCheck->setChecked(true);
+    else
+        ui->updateCheck->setChecked(false);
+
     Dirent *dp = 0;
     DIR *dir_fd = opendir((Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath).c_str());
     //std::cerr << (Core::AbstractConfig::prefix+Core::AbstractConfig::iconsPath) << std::endl;
@@ -129,6 +134,7 @@ SettingStations::okClicked()
     _config->TemperatureUnit(ui->temperatureCombo->currentText().toStdString());
     _config->WindSpeedUnit(ui->windCombo->currentText().toStdString());
     _config->iconSet(ui->iconsetCombo->currentText().toStdString());
+    _config->UpdateConnect(ui->updateCheck->isChecked());
     _config->saveConfig();
     QDBusConnection bus = QDBusConnection::sessionBus();
     QDBusMessage message = QDBusMessage::createSignal("/org/meego/omweather",

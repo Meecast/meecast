@@ -40,6 +40,7 @@ namespace Core{
         _iconset = new std::string("Glance");
         _temperature_unit = new std::string("C");
         _wind_speed_unit = new std::string("m/s");
+        _update_connect = false;
         _font_color = new std::string("#00ff00");
         _stations = new StationsList;
         _current_station_id = INT_MAX;
@@ -83,6 +84,14 @@ namespace Core{
 
         el = doc.createElement("current_station_id");
         t = doc.createTextNode(QString::number(_current_station_id));
+        el.appendChild(t);
+        root.appendChild(el);
+
+        el = doc.createElement("update_connect");
+        if (_update_connect)
+            t = doc.createTextNode("true");
+        else
+            t = doc.createTextNode("false");
         el.appendChild(t);
         root.appendChild(el);
 
@@ -156,6 +165,7 @@ namespace Core{
         _iconset = new std::string("Glance");
         _temperature_unit = new std::string("C");
         _wind_speed_unit = new std::string("m/s");
+        _update_connect = false;
         _font_color = new std::string("#00ff00");
         _stations = new StationsList;
         _current_station_id = INT_MAX;
@@ -197,6 +207,9 @@ namespace Core{
             el = root.firstChildElement("wind_speed_unit");
             if (!el.isNull())
                 _wind_speed_unit->assign(el.text().toStdString());
+            el = root.firstChildElement("update_connect");
+            if (!el.isNull())
+                _update_connect = (el.text() == "true") ? true : false;
 
             nodelist = root.elementsByTagName("station");
             for (int i=0; i<nodelist.count(); i++){
@@ -307,7 +320,16 @@ namespace Core{
     Config::WindSpeedUnit(){
         return *_wind_speed_unit;
     }
-
+    ////////////////////////////////////////////////////////////////////////////////
+    void
+    Config::UpdateConnect(bool uc){
+        _update_connect = uc;
+    }
+    ////////////////////////////////////////////////////////////////////////////////
+    bool
+    Config::UpdateConnect(void){
+        return _update_connect;
+    }
 ////////////////////////////////////////////////////////////////////////////////
     void
     Config::FontColor(const std::string& text){
@@ -370,6 +392,16 @@ namespace Core{
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
             _current_station_id->assign(nodeText->get_content());
+            return;
+        }
+
+        // update connect
+        if(nodeName == "update_connect"){
+            xmlpp::Node::NodeList list = node->get_children();
+            xmlpp::Node::NodeList::iterator iter = list.begin();
+            const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
+            std::string str = nodeText->get_content();
+            (str.compare("true")) ? (_update_connect = false) : (_update_connect = true);
             return;
         }
         // station

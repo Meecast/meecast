@@ -10,7 +10,7 @@
 
 Name:       omweather
 Summary:    Weather for Meego
-Version:    0.3.15
+Version:    0.3.17
 Release:    1
 Group:      Applications/Internet
 License:    GPLv2.1
@@ -89,9 +89,11 @@ desktop-file-install --delete-original       \
 
 %files
 %defattr(-,root,root,-)
-/usr/bin/omweather-qml
 /usr/bin/omweather-settings
+%if %{wantmeegopanel}
+/usr/bin/omweather-qml
 /usr/bin/omweather-settouch
+%endif
 %{_datadir}/applications/*.desktop
 %{_libdir}
 /usr/share/omweather
@@ -110,6 +112,14 @@ desktop-file-install --delete-original       \
 /usr/share/dbus-1/services
 %endif
 %changelog
+* Thu Mar 26 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.17
+  * Added automatic updating intervals
+  * Added automatically updating on connection
+  * Added iconset Grazank's
+  * Fixed temeperature units
+  * Added wind speed units
+* Thu Mar 22 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.16
+  * Fixed problem in iconstes switching
 * Thu Mar 22 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.15
   * Fixed problem with button icon "refresh" for qml
   * Associeted icon 49 as icon "na"

@@ -83,7 +83,7 @@ void create_about_dialog(void){
 #ifdef DISPLAY_BUILD
                " Build: %s"
 #endif
-               "\nCopyright(c) 2006-2010\n"
+               "\nCopyright(c) 2006-2011\n"
                "Vlad Vasiliev, Pavel Fialko"
                "\nCopyright(c) 2008\n"
                "for default icon set (Glance)\nand design of interface\n"

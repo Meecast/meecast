@@ -85,43 +85,16 @@ static void* update_weather_forecast(void* data){
     int success = 0;
     Core::Station* station;
     
-    //file = fopen("/tmp/1.log","ab");
-    //fprintf(file, "in thread statiion count = %d\n", config->stationsList().size());
-	//fclose(file);
-	//sleep(5);
-    for (i=0; i < config->stationsList().size();i++){
-        //file = fopen("/tmp/1.log","ab");
-        //fprintf(file, "in thread i = %d\n", i);
-	    //fclose(file);
 
+    for (i=0; i < config->stationsList().size();i++){
         station = config->stationsList().at(i);
         if (station->updateData(true)){
             success ++;
-            //file = fopen("/tmp/1.log","ab");
-            //fprintf(file, "in thread success = %d\n", success);
-	        //fclose(file);
+
         }
     }
-                                                    //return success;
-    	//pthread_once_t once_control = PTHREAD_ONCE_INIT;
-    	//finish_update();
-    	/*
-    int status = pthread_once(&once_control, finish_update);
-    file = fopen("/tmp/1.log", "ab");
-	fprintf(file, "after pthread once status = %d\n", status);
-	fclose(file);
 
-    if (status < 0){
-	file = fopen("/tmp/1.log", "ab");
-	fprintf(file, "pthread once failed %d\n", status);
-	fclose(file);
-    }*/
     updating = false;
-    //file = fopen("/tmp/1.log","ab");
-    //fprintf(file, "end thread\n");
-	//fclose(file);
-
-    //pthread_exit((void *)0);
     return NULL;
 }
 
@@ -191,11 +164,6 @@ refresh_button_event_cb (ClutterActor *actor,
 }
 gboolean g_finish_update(gpointer data)
 {
-    //int error = pthread_tryjoin_np(tid, NULL);
-    
-    //file = fopen("/tmp/1.log", "ab");
-    //fprintf(file, "in timer status = %d\n", updating);
-    //fclose(file);
     if (updating == false){
         //updating = false;
         clutter_timeline_stop(refresh_timeline);
@@ -212,14 +180,10 @@ void finish_update(void)
 }
 gboolean g_auto_update(gpointer data)
 {
-    FILE *f;
-    f = fopen("/tmp/1.log", "a");
-    fprintf(f, "g_auto_update\n");
     if (connected == true){
-        fprintf(f, "update\n");
+
         refresh_button_event_cb(NULL, NULL, NULL);
     }
-    fclose(f);
     return true;
 }
 //////////////////////////////////////////////////////////////////////////////
@@ -1189,18 +1153,13 @@ dbus_init(void){
 
   GError                     *error1 = NULL;
 
-  FILE *f;
-  f = fopen("/tmp/dbus.log", "a");
-
   dbus_error_init (&error);
   dbus_conn = dbus_bus_get(DBUS_BUS_SYSTEM, &error);
   if (dbus_error_is_set(&error)){
-      fprintf(f, "error dbus %s\n", error.message);
       dbus_error_free(&error);
   }
   dbus_conn_session = dbus_bus_get(DBUS_BUS_SESSION, &error);
   if (dbus_error_is_set(&error)){
-      fprintf(f, "error dbus %s\n", error.message);
       dbus_error_free(&error);
   }
   /* Hack */
@@ -1213,13 +1172,11 @@ dbus_init(void){
     }
 
   if (dbus_conn){
-      fprintf(f, "dbus init\n");
       //dbus_connection_setup_with_g_main(dbus_conn, NULL);
       dbus_bus_add_match(dbus_conn,
                          "type='signal',interface='org.moblin.connman.Manager'", &error);
       if (dbus_error_is_set(&error)){
 
-          fprintf(f,"dbus_bus_add_match failed: %s", error.message);
 
            fprintf(stderr,"dbus_bus_add_match failed: %s", error.message);
            dbus_error_free(&error);
@@ -1228,10 +1185,9 @@ dbus_init(void){
       dbus_connection_add_filter(dbus_conn,
                                  get_connman_signal_cb,
                                  NULL, NULL);
-      fprintf(f, "added callback\n");
+
   }
 
-  fclose(f);
 
   if (dbus_conn_session){
       dbus_bus_add_match(dbus_conn_session, "type='signal', interface='org.meego.omweather'", &error);
@@ -1250,7 +1206,6 @@ dbus_init(void){
 int
 main (int argc, char *argv[])
 {
-  //FILE *file;
   char buffer[4096];
   Core::Data *temp_data = NULL;
   Core::DataParser* dp = NULL;

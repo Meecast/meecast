@@ -74,7 +74,9 @@ namespace Core {
         _value = value;
     }
 ////////////////////////////////////////////////////////////////////////////////
-    float Temperature::value() const{
+    float Temperature::value(const bool absolute){
+        if (absolute)
+            return _value;
         if(*_units == "F")
             return (floor((_value * 9 / 5) + 32));
         return _value;

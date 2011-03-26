@@ -52,34 +52,34 @@ namespace Core {
             ++(next_it = it);
             temp_data = *it;
             if (temp_data->StartTime() >= begin_day_time && temp_data->StartTime() < end_day_time){  
-                if (temp_data->temperature_hi().value() != INT_MAX){
+                if (temp_data->temperature_hi().value(true) != INT_MAX){
                     if (hi_day_temp != INT_MAX){
-                       if (temp_data->temperature_hi().value() > hi_day_temp)
-                           hi_day_temp = temp_data->temperature_hi().value();
+                       if (temp_data->temperature_hi().value(true) > hi_day_temp)
+                           hi_day_temp = temp_data->temperature_hi().value(true);
                     }else
-                        hi_day_temp = temp_data->temperature_hi().value();
+                        hi_day_temp = temp_data->temperature_hi().value(true);
                 }
-                if (temp_data->temperature_low().value() != INT_MAX){
+                if (temp_data->temperature_low().value(true) != INT_MAX){
                     if (low_day_temp != INT_MAX){
-                       if (temp_data->temperature_low().value() < low_day_temp)
-                           low_day_temp = temp_data->temperature_low().value();
+                       if (temp_data->temperature_low().value(true) < low_day_temp)
+                           low_day_temp = temp_data->temperature_low().value(true);
                     }else
-                        low_day_temp = temp_data->temperature_low().value();
+                        low_day_temp = temp_data->temperature_low().value(true);
                 }
 
-                if (temp_data->temperature().value() != INT_MAX){ 
+                if (temp_data->temperature().value(true) != INT_MAX){ 
                    if (hi_day_temp == INT_MAX)
-                       hi_day_temp = temp_data->temperature().value();
-                   if (temp_data->temperature().value() > hi_day_temp)
-                       hi_day_temp = temp_data->temperature().value();
+                       hi_day_temp = temp_data->temperature().value(true);
+                   if (temp_data->temperature().value(true) > hi_day_temp)
+                       hi_day_temp = temp_data->temperature().value(true);
                 }
 
-                if (temp_data->temperature().value() != INT_MAX){  
+                if (temp_data->temperature().value(true) != INT_MAX){  
                     if (low_day_temp == INT_MAX)
-                        low_day_temp = temp_data->temperature().value(); 
-                    if (temp_data->temperature().value() < low_day_temp){
+                        low_day_temp = temp_data->temperature().value(true); 
+                    if (temp_data->temperature().value(true) < low_day_temp){
 
-                        low_day_temp = temp_data->temperature().value(); 
+                        low_day_temp = temp_data->temperature().value(true); 
                     }
                 }
             }

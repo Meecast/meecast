@@ -7,7 +7,7 @@
 %define all_x86 i386 i586 i686 %{ix86}
 %define all_arm %{arm}
 # << macros
-
+ 
 Name:       omweather
 Summary:    Weather for Meego
 Version:    0.3.17

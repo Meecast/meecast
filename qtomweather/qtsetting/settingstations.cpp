@@ -63,6 +63,7 @@ SettingStations::SettingStations(QWidget *parent) :
     period_hash["1 hour"] = 60*60;
     period_hash["30 min"] = 30*60;
     period_hash["10 min"] = 10*60;
+    period_hash["never"] = INT_MAX;
 
     QHashIterator<QString, int> iter(period_hash);
     int ii = 0;

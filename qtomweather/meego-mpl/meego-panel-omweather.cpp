@@ -49,6 +49,7 @@
 #define PANEL_HEIGHT 224
 void finish_update(void);
 gboolean g_finish_update(gpointer data);
+gboolean g_auto_update(gpointer data);
 void init_omweather_core(void);
 Core::DataParser *current_data(std::string& str);
 
@@ -73,10 +74,11 @@ ClutterTimeline *refresh_timeline = NULL;
 ClutterLayoutManager *main_vertical_layout = NULL;
 GHashTable           *translate_hash=NULL;
 guint timer = 0; /* timer */
+guint timer_update = 0; /* timer for update */
 pthread_t tid;
 FILE *file;
 ClutterActor     *active_background = NULL;
-bool connected = false;
+bool connected = true;
 
 static void* update_weather_forecast(void* data){
     int i;
@@ -183,7 +185,7 @@ refresh_button_event_cb (ClutterActor *actor,
         std::cerr << "error run thread " << error << std::endl;
     }else {
         updating = true;
-	    timer = g_timeout_add(1000, g_finish_update, NULL);
+        timer = g_timeout_add(1000, g_finish_update, NULL);
     }
     
 }
@@ -207,6 +209,18 @@ void finish_update(void)
 {
     clutter_timeline_stop(refresh_timeline);
     make_window_content((MplPanelClutter*)panel);
+}
+gboolean g_auto_update(gpointer data)
+{
+    FILE *f;
+    f = fopen("/tmp/1.log", "a");
+    fprintf(f, "g_auto_update\n");
+    if (connected == true){
+        fprintf(f, "update\n");
+        refresh_button_event_cb(NULL, NULL, NULL);
+    }
+    fclose(f);
+    return true;
 }
 //////////////////////////////////////////////////////////////////////////////
 gboolean
@@ -1102,6 +1116,12 @@ get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
     if (dbus_message_is_signal(msg, "org.meego.omweather", "reload_config")){
         delete config;
         config = create_and_fill_config();
+        if (timer_update) {
+            g_source_remove(timer_update);
+            timer_update = 0;
+        }
+        if (config->UpdatePeriod() != INT_MAX)
+            timer_update = g_timeout_add(config->UpdatePeriod()*1000, g_auto_update, NULL);
         make_window_content(MPL_PANEL_CLUTTER (panel));
     }
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
@@ -1109,21 +1129,17 @@ get_omweather_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 DBusHandlerResult
 get_connman_signal_cb(DBusConnection *conn, DBusMessage *msg, gpointer data){
 
-    FILE *f;
-    f = fopen("/tmp/dbus.log", "a");
-
     if (dbus_message_is_signal(msg, "org.moblin.connman.Manager", "StateChanged")){
         char *arg = NULL;
         dbus_message_get_args(msg, NULL, DBUS_TYPE_STRING, &arg);
         if (arg && strcmp(arg, "online") == 0){
-            refresh_button_event_cb(NULL, NULL, NULL);
+            if (config->UpdateConnect())
+                refresh_button_event_cb(NULL, NULL, NULL);
             connected = true;
         }
         else
             connected = false;
-        fprintf(f, "conn state changed %s\n", arg);
     }
-    fclose(f);
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 }
 
@@ -1238,6 +1254,10 @@ main (int argc, char *argv[])
   //update_weather_forecast(config);
   make_window_content (MPL_PANEL_CLUTTER (panel));
   dbus_init();
+  if (config->UpdatePeriod() != INT_MAX){
+      timer_update = g_timeout_add(config->UpdatePeriod()*1000, g_auto_update, NULL);
+      //  timer_update = g_timeout_add(5000, g_auto_update, NULL);
+  }
   clutter_threads_enter();
   clutter_main ();
   clutter_threads_leave();

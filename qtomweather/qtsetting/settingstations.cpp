@@ -125,6 +125,7 @@ SettingStations::add()
         Core::Station *station = st.station;
         _stationlist->push_back(station);
         QListWidgetItem *item = new QListWidgetItem(station->name().c_str(), ui->listWidget);
+        item->setSizeHint(QSize(ui->listWidget->width(), 40));
         item->setToolTip(station->id().c_str());
     }
 }

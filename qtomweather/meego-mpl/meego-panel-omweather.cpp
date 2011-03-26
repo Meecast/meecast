@@ -93,7 +93,7 @@ static void* update_weather_forecast(void* data){
         //file = fopen("/tmp/1.log","ab");
         //fprintf(file, "in thread i = %d\n", i);
 	    //fclose(file);
-       
+
         station = config->stationsList().at(i);
         if (station->updateData(true)){
             success ++;

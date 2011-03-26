@@ -41,9 +41,9 @@ namespace Core {
         _units = new std::string;
         _units->assign(units);
         if(*_units == "km/h")
-             _value = value * 3.6f;
+             _value = value / 3.6f;
         else if (*_units == "mi/h")
-                 _value = _value * 3.6f / 1.609344f;
+                 _value = _value / 3.6f * 1.609344f;
              else
                  _value = value;
     }

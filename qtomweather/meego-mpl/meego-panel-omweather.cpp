@@ -377,6 +377,8 @@ make_bottom_content_about() {
   PangoFontDescription *pfd = NULL;
   ClutterLayoutManager *layout;
   ClutterActor     *box;
+  ClutterLayoutManager *vlayout;
+  ClutterActor     *vbox;
   char             buffer[4096];
   std::ostringstream ss;
 
@@ -396,7 +398,7 @@ make_bottom_content_about() {
 
   label = clutter_text_new();
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
-  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.6);
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   clutter_text_set_text((ClutterText*)label, _("About"));
   clutter_box_pack((ClutterBox*)bottom_container, label, NULL);
@@ -411,22 +413,53 @@ make_bottom_content_about() {
   clutter_box_pack((ClutterBox*)box, icon, NULL);
   clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(bottom_layout), icon,
 				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
-  
+
+  /* vertical layout */
+
+  vlayout = clutter_box_layout_new();
+  clutter_box_layout_set_vertical(CLUTTER_BOX_LAYOUT(vlayout), TRUE);
+  vbox = clutter_box_new(vlayout);
+
+
   label = clutter_text_new();
   about_text = _("Weather forecast for the Meego. Version ");
   about_text += OMWEATHER_VERSION;
   about_text += ".\n";
-  about_text += _("Author and maintenance: Vlad Vasiliev, <vlad@gas.by>\n");
+  about_text += _("Copyright(c) 2006-2011 by Vlad Vasilyeu and  Pavel Fialko\n");
+  about_text += _("Copyright(c) 2010-2011 by Tanya Makova\n");
+  about_text += _("Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n");
   about_text += _("Maintenance: Pavel Fialko, <pavelnf@gmail.com>\nTanya Makova, <tanyshk@gmail.com>\n");
-  about_text += _("Design UI and default iconset: Andrew Zhilin, <az@pocketpcrussia.com>\n");
-
+  about_text += _("Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <az@pocketpcrussia.com>\n");
+  about_text += _("Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>");
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
-  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.4);
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.0);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   
   clutter_text_set_text((ClutterText*)label, about_text.c_str());
-  clutter_box_pack((ClutterBox*)box, label, NULL);
+  clutter_box_pack((ClutterBox*)vbox, label, NULL);
 
+  label = clutter_text_new();
+  about_text = _("Translators: French - Nicolas Granziano, Philippe, Benot Knecht; Russian - Pavel Fialko, Vlad Vasiliev, Ed Bartosh;\n");
+  about_text += _("Finnish - Marko Vertainen; German - Claudius Henrichs; Spanish - Alejandro Lopez; Slovak - Roman Moravčík\n");
+  about_text += _("Italian - Pavel Fialko, Alessandro Pasotti, Salvatore Fiorenzo, Luca Onnis; Polish - Tomasz Dominikowski;");
+  pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 0.85);
+  clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
+  
+  clutter_text_set_text((ClutterText*)label, about_text.c_str());
+  clutter_box_pack((ClutterBox*)vbox, label, NULL);
+
+  label = clutter_text_new();
+  about_text =  _("This software is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License\n");
+  about_text += _("as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.");
+  pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
+  pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 0.80);
+  clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
+  
+  clutter_text_set_text((ClutterText*)label, about_text.c_str());
+  clutter_box_pack((ClutterBox*)vbox, label, NULL);
+
+  clutter_box_pack((ClutterBox*)box, vbox, NULL);
   clutter_box_pack((ClutterBox*)bottom_container, box, NULL);
 
   /* connect the press event on button */

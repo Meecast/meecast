@@ -1083,16 +1083,17 @@ make_window_content (MplPanelClutter *panel)
             temp_data_day = dp->data().GetDataForTime(time(NULL)); /* weather forecast for current time */
           else
             temp_data_day = dp->data().GetDataForTime( current_day + 12*3600 + period);
+          if (temp_data_day->temperature_hi().value() != INT_MAX)
+            temp_data_day->temperature_hi().units(config->TemperatureUnit());
+          if (temp_data_day->temperature_low().value() != INT_MAX)
+            temp_data_day->temperature_low().units(config->TemperatureUnit());
+          if (temp_data_day->temperature().value() != INT_MAX)
+            temp_data_day->temperature().units(config->TemperatureUnit());
+
       }else
           temp_data_day = NULL;
       period = period + 3600*24;
-      if (temp_data_day->temperature_hi().value() != INT_MAX)
-        temp_data_day->temperature_hi().units(config->TemperatureUnit());
-      if (temp_data_day->temperature_low().value() != INT_MAX)
-        temp_data_day->temperature_low().units(config->TemperatureUnit());
-      if (temp_data_day->temperature().value() != INT_MAX)
-        temp_data_day->temperature().units(config->TemperatureUnit());
-
+    
       box = make_day_actor(temp_data_day);
       clutter_box_pack((ClutterBox*)forecast_horizontal_container, box, NULL);
       if (i < 9) {

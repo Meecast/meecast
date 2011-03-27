@@ -27,6 +27,7 @@
     g_hash_table_insert(hash, "Малооблачно, мгла", "Partly Cloudy, Haze");
     g_hash_table_insert(hash, "Малооблачно,  снег", "Partly Cloudy, Snow");
     g_hash_table_insert(hash, "Малооблачно, сильный дождь", "Partly Cloudy, Heavy Rain");
+    g_hash_table_insert(hash, "Малооблачно, сильный дождь, гроза", "Partly Cloudy, Heavy Rain, T-Storm");
     g_hash_table_insert(hash, "Малооблачно, сильный снег", "Partly Cloudy, Heavy Snow");
     g_hash_table_insert(hash, "Малооблачно, небольшой дождь", "Partly Cloudy, Light Rain");
     g_hash_table_insert(hash, "Малооблачно, небольшой снег", "Partly Cloudy, Few Snow");

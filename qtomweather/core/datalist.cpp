@@ -93,10 +93,12 @@ namespace Core {
                 temp_data_result = temp_data;
             }
          }
-         if (hi_day_temp != INT_MAX)
-            temp_data_result->temperature_hi().value(hi_day_temp);
-         if (low_day_temp != INT_MAX)
-            temp_data_result->temperature_low().value(low_day_temp);
+         if (temp_data_result){
+             if (hi_day_temp != INT_MAX)
+                temp_data_result->temperature_hi().value(hi_day_temp);
+             if (low_day_temp != INT_MAX)
+                temp_data_result->temperature_low().value(low_day_temp);
+         }
          return temp_data_result;
        }
 

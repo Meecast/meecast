@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: sk_SK\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-03-21 18:48+0200\n"
-"PO-Revision-Date: 2011-02-21 08:56+0100\n"
+"PO-Revision-Date: 2011-03-29 13:10+0200\n"
 "Last-Translator: Roman Moravčík <roman.moravcik@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@linux.sk>\n"
 "Language: en\n"
@@ -452,9 +452,8 @@ msgid "Cloudy, Few Snow"
 msgstr "Zamračené, ojedinelé sneženie"
 
 #: omweather/src/hash.data:41
-#, fuzzy
 msgid "Cloudy, Heavy Rain, T-Storm"
-msgstr "Zamračené, slabý dážď, búrka"
+msgstr "Zamračené, silný dážď, búrka"
 
 #: omweather/src/hash.data:36
 msgid "Cloudy, Heavy Snow"
@@ -473,9 +472,8 @@ msgid "Cloudy, Rain"
 msgstr "Zamračené, dážď"
 
 #: omweather/src/hash.data:40
-#, fuzzy
 msgid "Cloudy, Rain, T-Storm"
-msgstr "Zamračené, slabý dážď, búrka"
+msgstr "Zamračené, dážď, búrka"
 
 #: omweather/src/hash.data:42
 msgid "Cloudy, Smoke"
@@ -520,9 +518,8 @@ msgid "Custom"
 msgstr "Vlastné"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:533
-#, fuzzy
 msgid "Day"
-msgstr "Deň:"
+msgstr "Deň"
 
 #: omweather/src/weather-popup.c:1161
 msgid "Day length"
@@ -1091,9 +1088,8 @@ msgid "Mostly Cloudy, Heavy Rain"
 msgstr "Prevažne zamračené, silný dážď"
 
 #: omweather/src/hash.data:117
-#, fuzzy
 msgid "Mostly Cloudy, Heavy Rain, T-Storm"
-msgstr "Prevažne zamračené, dážď, búrka"
+msgstr "Prevažne zamračené, silný dážď, búrka"
 
 #: omweather/src/hash.data:115
 msgid "Mostly Cloudy, Heavy Snow"
@@ -1212,9 +1208,8 @@ msgid "Next update:"
 msgstr "Ďalšia aktualizácia:"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:537
-#, fuzzy
 msgid "Night"
-msgstr "Noc:"
+msgstr "Noc"
 
 #: omweather/src/weather-popup.c:1034
 msgid "Night:"
@@ -1380,27 +1375,24 @@ msgid "Partly Cloudy, Heavy Rain"
 msgstr "Oblačno, silný dážď"
 
 #: omweather/src/hash.data:163
-#, fuzzy
 msgid "Partly Cloudy, Heavy Snow"
-msgstr "Prevažne zamračené, silné sneženie"
+msgstr "Oblačno, silné sneženie"
 
 #: omweather/src/hash.data:164
 msgid "Partly Cloudy, Light Rain"
 msgstr "Oblačno, slabý dážď"
 
 #: omweather/src/hash.data:170
-#, fuzzy
 msgid "Partly Cloudy, Light Rain, T-Storm"
-msgstr "Prevažne zamračené, slabý dážď, búrka"
+msgstr "Oblačno, slabý dážď, búrka"
 
 #: omweather/src/hash.data:165
 msgid "Partly Cloudy, Rain"
 msgstr "Oblačno, dážď"
 
 #: omweather/src/hash.data:169
-#, fuzzy
 msgid "Partly Cloudy, Rain, T-Storm"
-msgstr "Prevažne zamračené, dážď, búrka"
+msgstr "Oblačno, dážď, búrka"
 
 #: omweather/src/hash.data:166
 msgid "Partly Cloudy, Smoke"
@@ -1448,7 +1440,7 @@ msgstr "Tlak:"
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:852
 msgid "Provided by"
-msgstr ""
+msgstr "Poskytuje"
 
 #: omweather/src/hash.data:189
 msgid "Rain"
@@ -2027,9 +2019,8 @@ msgid "Weather data provided by: "
 msgstr "Údaje o počasí poskytol: "
 
 #: qtomweather/meego-mpl/meego-panel-omweather.cpp:394
-#, fuzzy
 msgid "Weather forecast for the Meego. Version "
-msgstr "Predpoveď počasia pre Meego. Verzia 0.3.\n"
+msgstr "Predpoveď počasia pre Meego. Verzia "
 
 #: omweather/src/weather-utils.c:797
 msgid "Widget OMWeather is reloading"

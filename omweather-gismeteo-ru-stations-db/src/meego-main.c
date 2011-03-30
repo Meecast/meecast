@@ -1551,7 +1551,9 @@ convert_station_gismeteo_data(const gchar *station_id_with_path, const gchar *re
 //                if(get_detail_data)
 //                    days_number = parse_xml_detail_data(buffer, root_node, data);
 //                else
-                    days_number = parse_and_write_xml_data(buffer, doc, result_file);
+                    days_number = parse_and_write_xml_data(buffer, doc, result_file);         
+                    //parse_and_write_xml_detail_data(buffer, doc, result_file);
+
             }
             xmlFreeDoc(doc);
             xmlCleanupParser();

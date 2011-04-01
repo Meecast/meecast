@@ -26,14 +26,19 @@ OTHER_FILES += \
 
 
 INCLUDEPATH += ../core
-LIBS += -L ../core -lomweather-core
-CONFIG = link_pkgconfig -qt
+#LIBS += -L ../core -lomweather-core 
+LIBS += -L ../core  ../core/libomweather-core.a
+
+
+CONFIG = link_pkgconfig 
+PKGCONFIG += sqlite3
+PKGCONFIG += libcurl
 PKGCONFIG += dbus-glib-1 \
              mx-1.0 \
              mutter-plugins \
              meego-panel \
-             QtCore
-
+             QtCore \
+             QtXml
 
 
 #install

@@ -1214,6 +1214,7 @@ main (int argc, char *argv[])
   Core::Data *temp_data = NULL;
   Core::DataParser* dp = NULL;
 
+  
   g_thread_init(NULL);
   clutter_threads_init();
   clutter_init (&argc, &argv);

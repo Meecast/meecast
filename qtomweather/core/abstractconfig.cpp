@@ -41,6 +41,7 @@ namespace Core {
     std::string AbstractConfig::layoutqml = "weatherlayoutitem.qml";
     //std::string AbstractConfig::configPath = "../test/";
 #else
+/*
     std::string AbstractConfig::prefix = "/usr/";
     std::string AbstractConfig::sharePath = "share/omweather/";
     std::string AbstractConfig::schemaPath = "share/omweather/xsd/";
@@ -49,6 +50,16 @@ namespace Core {
     std::string AbstractConfig::sourcesPath = "share/omweather/sources/";
     std::string AbstractConfig::layoutqml = "/usr/share/omweather/qml/weatherlayoutitem.qml";
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
+    */
+    std::string AbstractConfig::prefix = "/opt/com.meecast.omweather";
+    std::string AbstractConfig::sharePath = "/";
+    std::string AbstractConfig::schemaPath = "xsd/";
+    std::string AbstractConfig::iconsPath = "icons/";
+    std::string AbstractConfig::libPath = "lib/";
+    std::string AbstractConfig::sourcesPath = "sources/";
+    std::string AbstractConfig::layoutqml = "qml/weatherlayoutitem.qml";
+    //std::string AbstractConfig::configPath = "~/.config/omweather/";
+
 #endif
     std::string AbstractConfig::getConfigPath()
     {
@@ -61,7 +72,7 @@ namespace Core {
         path += "/.config";
         /* TODO check directory exist */
         mkdir(path.c_str(), 0755);
-        path += "/omweather/";
+        path += "/com.meecast.omweather/";
         mkdir(path.c_str(), 0755);
         return path;
 #endif

@@ -3,7 +3,7 @@ TARGET = omweather-core
 TEMPLATE = lib
 PKGCONFIG += libcurl
 PKGCONFIG += sqlite3
-CONFIG += link_pkgconfig 
+CONFIG += link_pkgconfig staticlib
 
 
 
@@ -63,16 +63,16 @@ HEADERS = \
 
 
 #installs
-target.path = /usr/lib
+target.path = /opt/com.meecast.omweather/lib
 data.files = data/icons
-data.path = /usr/share/omweather
+data.path = /opt/com.meecast.omweather/icons
 xsd.files += data/config.xsd
 xsd.files += data/data.xsd
 xsd.files += data/source.xsd
-xsd.path = /usr/share/omweather/xsd
-buttonicons.path = /usr/share/omweather/buttons_icons
+xsd.path = /opt/com.meecast.omweather/xsd
+buttonicons.path = /opt/com.meecast.omweather/buttons_icons
 buttonicons.files += data/button_icons/*.png
-images.path = /usr/share/omweather/images
+images.path = /opt/com.meecast.omweather/images
 images.files += data/images/*.png
 
 INSTALLS += target data xsd buttonicons images

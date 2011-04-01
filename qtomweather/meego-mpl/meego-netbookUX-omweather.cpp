@@ -100,22 +100,18 @@ change_actor_size_and_position(ClutterActor *actor, gint need_size)
 } 
 
 Core::Config *
-create_and_fill_config(void){
+create_and_fill_config(){
     Core::Config *config;
-
-    /* create path for config file */
-    char filepath[4096];
-    struct passwd *pw = getpwuid(getuid());
-    const char *homedir = pw->pw_dir;
-    snprintf(filepath, (4096-1), "%s/.config", homedir);
-    mkdir(filepath, 0755);
-    snprintf(filepath, (4096-1), "%s/.config/omweather", homedir);
-    mkdir(filepath, 0755);
-    snprintf(filepath, (4096-1), "%s/.config/omweather/%s", homedir, CONFIG_FILE);
-
-    std::cerr<<"Create Config class: " <<std::endl;
+    std::cerr<<"Create Config class: " << Core::AbstractConfig::prefix+
+                               Core::AbstractConfig::schemaPath+
+                               "config.xsd"<< std::endl;
     try{
-        config = new Core::Config(filepath, CONFIG_XSD_PATH);
+        config = new Core::Config(Core::AbstractConfig::getConfigPath()+
+                               "config.xml",
+                               Core::AbstractConfig::prefix+
+                               Core::AbstractConfig::schemaPath+
+                               "config.xsd");
+        std::cerr << config->stationsList().size() << std::endl;
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
@@ -125,13 +121,12 @@ create_and_fill_config(void){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
         config = new Core::Config();
     }
-    std::cerr<<"End of creating Config class: " <<std::endl;
+    //std::cerr<<"End of creating Config class: " <<std::endl;
     config->saveConfig();
+    std::cerr<<"End of creating Config class: " <<std::endl;
 
     return config;
 }
-
-
 
 Core::DataParser*
 current_data(std::string& str){

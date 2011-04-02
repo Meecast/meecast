@@ -166,7 +166,7 @@ namespace Core{
                         : Parser(filename, schema_filename){
         _filename = new std::string;
         _filename->assign(filename);
-        _pathPrefix = new std::string;
+        _pathPrefix = new std::string(AbstractConfig::prefix + AbstractConfig::sharePath);
         _iconset = new std::string("Glance");
         _temperature_unit = new std::string("C");
         _wind_speed_unit = new std::string("m/s");
@@ -199,8 +199,8 @@ namespace Core{
 
             QDomNodeList nodelist;
             QDomElement el = root.firstChildElement("base");
-            if (!el.isNull())
-                _pathPrefix->assign(el.text().toStdString());
+           // if (!el.isNull())
+           //     _pathPrefix->assign(el.text().toStdString());
             el = root.firstChildElement("iconset");
             if (!el.isNull())
                 _iconset->assign(el.text().toStdString());
@@ -380,7 +380,7 @@ namespace Core{
             xmlpp::Node::NodeList list = node->get_children();
             xmlpp::Node::NodeList::iterator iter = list.begin();
             const xmlpp::TextNode* nodeText = dynamic_cast<const xmlpp::TextNode*>(*iter);
-            _pathPrefix->assign(nodeText->get_content());
+           // _pathPrefix->assign(nodeText->get_content());
             return;
         }
         // iconset tag

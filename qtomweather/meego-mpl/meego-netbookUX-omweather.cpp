@@ -38,8 +38,8 @@
 #else
 //    #define CONFIG_PATH "~/.config/omweather/config.xml"
     #define CONFIG_FILE "config.xml"
-    #define CONFIG_XSD_PATH "/usr/share/omweather/xsd/config.xsd"
-    #define DATA_XSD_PATH "/usr/share/omweather/xsd/data.xsd"
+    #define CONFIG_XSD_PATH "/opt/com.meecast.omweather/share/xsd/config.xsd"
+    #define DATA_XSD_PATH "/opt/com.meecast.omweather/share/xsd/data.xsd"
 #endif
 
 /*******************************************************************************/

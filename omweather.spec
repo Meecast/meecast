@@ -65,7 +65,7 @@ rm -rf %{buildroot}
 # >> install post
 make INSTALL_ROOT=%{buildroot} install
 %if %{wantmeegopanel}
-ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/theme/icons
+ln -s /com.meecast.omweather/share/icons  %{buildroot}/usr/share/meego-panel-omweather/theme/icons
 %endif
 #rm %{buildroot}/usr/lib/libomweather-core.so
 # << install post
@@ -102,10 +102,10 @@ desktop-file-install --delete-original       \
 /usr/share/omweather
 /usr/share/locale
 /usr/share/pixmaps
-/usr/lib/omweather/weathercom
-/usr/share/omweather/copyright_icons/weather.com.png
-/usr/share/omweather/db/weather.com.db
-/usr/share/omweather/sources/weather.com.xml
+#/usr/lib/omweather/weathercom
+#/usr/share/omweather/copyright_icons/weather.com.png
+#/usr/share/omweather/db/weather.com.db
+#/usr/share/omweather/sources/weather.com.xml
 # >> files
 %if  %{wantmeegopanel}
 /opt/com.meecast.omweather/libexec/meego-panel-omweather

@@ -191,11 +191,11 @@ gboolean
 config_button_event_cb (ClutterActor *actor,
                    ClutterEvent *event,
                    gpointer      user_data){
-    char *args[] = {"/usr/bin/omweather-settings", (char *) 0 };
+    char *args[] = {"/opt/com.meecast.omweather/bin/omweather-settings", (char *) 0 };
 
     pid_t pID = fork();
     if (pID == 0){
-        execv("/usr/bin/omweather-settings", args );
+        execv("/opt/com.meecast.omweather/bin/omweather-settings", args );
     }else{
         make_window_content((MplPanelClutter*)panel);
         mpl_panel_client_set_height_request (panel, PANEL_HEIGHT);

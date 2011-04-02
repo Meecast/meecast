@@ -2,8 +2,8 @@
 Version=1.0
 Encoding=UTF-8
 Type=Application
-Exec=/usr/libexec/meego-panel-omweather
-TryExec=/usr/libexec/meego-panel-omweather
+Exec=/opt/com.meecast.omweather/meego-panel-omweather
+TryExec=/opt/com.meecast.omweather/libexec/meego-panel-omweather
 Name=Omweather
 Icon=bluetooth
 Comment=Weather for All

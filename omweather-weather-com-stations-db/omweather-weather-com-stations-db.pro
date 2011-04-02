@@ -25,16 +25,16 @@ PKGCONFIG += libxml-2.0 \
              glib-2.0
 
 db.files = data/weather.com.db
-db.path = /usr/share/omweather/db/
+db.path =  /opt/com.meecast.omweather/share/db/
 
 icon.files = data/weather.com.png
-icon.path = /usr/share/omweather/copyright_icons/
+icon.path = /opt/com.meecast.omweather/share/copyright_icons/
 
 source.files = data/weather.com.xml
-source.path = /usr/share/omweather/sources/
+source.path = /opt/com.meecast.omweather/share/sources/
 
 #install
-target.path = /usr/lib/omweather/
+target.path = /opt/com.meecast.omweather/lib
 INSTALLS += target db icon source
 
 

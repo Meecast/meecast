@@ -20,7 +20,7 @@ PKGCONFIG += sqlite3
 PKGCONFIG += libcurl
 
 INCLUDEPATH += ../core
-LIBS += -L ../core -lomweather-core
+LIBS += -L ../core ../core/libomweather-core.a
 
 HEADERS += \
     mainpage.h \

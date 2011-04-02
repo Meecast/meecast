@@ -52,12 +52,12 @@ namespace Core {
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
     */
     std::string AbstractConfig::prefix = "/opt/com.meecast.omweather";
-    std::string AbstractConfig::sharePath = "/";
-    std::string AbstractConfig::schemaPath = "xsd/";
-    std::string AbstractConfig::iconsPath = "icons/";
-    std::string AbstractConfig::libPath = "lib/";
-    std::string AbstractConfig::sourcesPath = "sources/";
-    std::string AbstractConfig::layoutqml = "qml/weatherlayoutitem.qml";
+    std::string AbstractConfig::sharePath = "/share";
+    std::string AbstractConfig::schemaPath = "/share/xsd/";
+    std::string AbstractConfig::iconsPath = "/share/icons/";
+    std::string AbstractConfig::libPath = "/lib/";
+    std::string AbstractConfig::sourcesPath = "/share/sources/";
+    std::string AbstractConfig::layoutqml = "/qml/weatherlayoutitem.qml";
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
 
 #endif

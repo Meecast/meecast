@@ -69,9 +69,9 @@ ln -s /opt/com.meecast.omweather/share/icons  %{buildroot}/opt/com.meecast.omwea
 %endif
 #rm %{buildroot}/usr/lib/libomweather-core.so
 # << install post
-desktop-file-install --delete-original       \
-  --dir %{buildroot}%{_datadir}/applications             \
-   %{buildroot}%{_datadir}/applications/*.desktop
+#desktop-file-install --delete-original       \
+#  --dir %{buildroot}%{_datadir}/applications             \
+#   %{buildroot}%{_datadir}/applications/*.desktop
 
 
 

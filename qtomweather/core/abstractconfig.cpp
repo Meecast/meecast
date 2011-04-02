@@ -52,7 +52,7 @@ namespace Core {
     //std::string AbstractConfig::configPath = "~/.config/omweather/";
     */
     std::string AbstractConfig::prefix = "/opt/com.meecast.omweather";
-    std::string AbstractConfig::sharePath = "/share";
+    std::string AbstractConfig::sharePath = "/share/";
     std::string AbstractConfig::schemaPath = "/share/xsd/";
     std::string AbstractConfig::iconsPath = "/share/icons/";
     std::string AbstractConfig::libPath = "/lib/";

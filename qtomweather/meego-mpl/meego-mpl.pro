@@ -42,7 +42,7 @@ PKGCONFIG += dbus-glib-1 \
 
 
 #install
-target.path = /usr/libexec
+target.path = /opt/com.meecast.omweather/libexec
 desktop.files = data/meego-panel-omweather.desktop
 desktop.path = /usr/share/mutter-meego/panels
 autostart.files = data/meego-panel-omweather.desktop

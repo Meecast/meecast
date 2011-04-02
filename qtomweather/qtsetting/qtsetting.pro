@@ -24,6 +24,10 @@ QT += sql xml xmlpatterns
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 
+CONFIG += link_pkgconfig
+PKGCONFIG += sqlite3
+PKGCONFIG += libcurl
+
 INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core
 
@@ -33,7 +37,7 @@ TRANSLATIONS += omweather-settings_ru.qm
 
 #install
 
-target.path = /usr/bin
+target.path = /opt/com.meecast.omweather/bin
 
 INSTALLS += target
 

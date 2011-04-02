@@ -13,7 +13,11 @@ SOURCES += main.cpp \
 
 QT += sql
 
+CONFIG += link_pkgconfig
 CONFIG += meegotouch
+
+PKGCONFIG += sqlite3
+PKGCONFIG += libcurl
 
 INCLUDEPATH += ../core
 LIBS += -L ../core -lomweather-core
@@ -24,6 +28,6 @@ HEADERS += \
 
 #install
 
-target.path = /usr/bin
+target.path = /opt/com.meecast.omweather/bin
 
 INSTALLS += target

@@ -65,16 +65,18 @@ HEADERS = \
 #installs
 target.path = /opt/com.meecast.omweather/lib
 data.files = data/icons
-data.path = /opt/com.meecast.omweather/icons
+data.path = /opt/com.meecast.omweather/share
 xsd.files += data/config.xsd
 xsd.files += data/data.xsd
 xsd.files += data/source.xsd
-xsd.path = /opt/com.meecast.omweather/xsd
-buttonicons.path = /opt/com.meecast.omweather/buttons_icons
+xsd.path = /opt/com.meecast.omweather/share/xsd
+buttonicons.path = /opt/com.meecast.omweather/share/buttons_icons
 buttonicons.files += data/button_icons/*.png
-images.path = /opt/com.meecast.omweather/images
+images.path = /opt/com.meecast.omweather/share/images
 images.files += data/images/*.png
+alib.files = libomweather-core.a
+alib.path = /opt/com.meecast.omweather/lib
 
-INSTALLS += target data xsd buttonicons images
+INSTALLS += target data xsd buttonicons images alib
 QMAKE_CLEAN += lib$$TARGET* \
     *.pro.user

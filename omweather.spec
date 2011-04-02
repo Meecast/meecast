@@ -8,15 +8,14 @@
 %define all_arm %{arm}
 # << macros
  
-Name:       omweather
+Name:       com.meecast.omweather
 Summary:    Weather for Meego
-Version:    0.3.17
+Version:    0.3.18
 Release:    1
 Group:      Applications/Internet
 License:    GPLv2.1
 URL:        https://garage.maemo.org/projects/omweather/
 Source0:    %{name}-%{version}.tar.bz2
-Source100:  omweather.yaml
 #Temporary
 Requires:       libmeegotouch-devel
 BuildRequires:  pkgconfig(QtCore) >= 4.7.0
@@ -68,7 +67,7 @@ make INSTALL_ROOT=%{buildroot} install
 %if %{wantmeegopanel}
 ln -s /usr/share/omweather/icons  %{buildroot}/usr/share/meego-panel-omweather/theme/icons
 %endif
-rm %{buildroot}/usr/lib/libomweather-core.so
+#rm %{buildroot}/usr/lib/libomweather-core.so
 # << install post
 desktop-file-install --delete-original       \
   --dir %{buildroot}%{_datadir}/applications             \
@@ -89,15 +88,17 @@ desktop-file-install --delete-original       \
 
 %files
 %defattr(-,root,root,-)
-/usr/bin/omweather-settings
+/opt/com.meecast.omweather/bin/omweather-settings
 %if %{wantmeegopanel}
-/usr/bin/omweather-qml
-/usr/bin/omweather-settouch
+/opt/com.meecast.omweather/bin/omweather-qml
+/opt/com.meecast.omweather/bin/omweather-settouch
 %endif
 %if  %{wantmeegopanel}
 %{_datadir}/applications/*.desktop
 %endif
 %{_libdir}
+/opt/com.meecast.omweather/share
+/opt/com.meecast.omweather/lib
 /usr/share/omweather
 /usr/share/locale
 /usr/share/pixmaps
@@ -107,18 +108,20 @@ desktop-file-install --delete-original       \
 /usr/share/omweather/sources/weather.com.xml
 # >> files
 %if  %{wantmeegopanel}
-%{_libexecdir}/meego-panel-omweather
+/opt/com.meecast.omweather/libexec/meego-panel-omweather
 /usr/share/meego-panel-omweather
 /usr/share/mutter-meego/panels/meego-panel-omweather.desktop
 /etc/xdg
 /usr/share/dbus-1/services
 %endif
 %changelog
+* Thu Mar 26 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.18
+  * Adapted to AppStore
 * Thu Mar 26 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.17
   * Added automatic updating intervals
   * Added automatically updating on connection
   * Added iconset Grazank's
-  * Fixed temeperature units
+  * Fixed temperature units
   * Added wind speed units
 * Thu Mar 22 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.16
   * Fixed problem in iconstes switching

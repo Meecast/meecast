@@ -56,7 +56,7 @@ desktop.path = /usr/share/applications
 icon64.path = /usr/share/pixmaps
 icon64.files += omweather.png
 qml.files = *.qml
-qml.path = /usr/share/omweather/qml
+qml.path = /opt/com.meecast.omweather/share/omweather/qml
 
 INSTALLS += desktop qml icon64
  

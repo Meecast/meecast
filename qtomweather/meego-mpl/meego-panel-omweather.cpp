@@ -1235,11 +1235,11 @@ main (int argc, char *argv[])
 
   /* init Meego panel */
   mx_style_load_from_file (mx_style_get_default (),
-                          "/usr/share/meego-panel-omweather/theme/omweather-panel.css", NULL);
+                          "/opt/com.meecast.omweather/share/meego-panel-omweather/theme/omweather-panel.css", NULL);
 
   panel = mpl_panel_clutter_new ("omweather",           /* the panel slot */
                                  "omweather",           /* tooltip */
-                                 "/usr/share/meego-panel-omweather/theme/omweather-panel.css", /*stylesheet */
+                                 "/opt/com.meecast.omweather/share/meego-panel-omweather/theme/omweather-panel.css", /*stylesheet */
                                  buffer,                /* button style */
                                  TRUE);
   mpl_panel_client_set_height_request (panel, PANEL_HEIGHT);

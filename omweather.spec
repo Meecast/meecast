@@ -65,7 +65,7 @@ rm -rf %{buildroot}
 # >> install post
 make INSTALL_ROOT=%{buildroot} install
 %if %{wantmeegopanel}
-ln -s /com.meecast.omweather/share/icons  %{buildroot}/usr/share/meego-panel-omweather/theme/icons
+ln -s /opt/com.meecast.omweather/share/icons  %{buildroot}/opt/com.meecast.omweather/share/meego-panel-omweather/theme/icons
 %endif
 #rm %{buildroot}/usr/lib/libomweather-core.so
 # << install post
@@ -93,15 +93,10 @@ desktop-file-install --delete-original       \
 /opt/com.meecast.omweather/bin/omweather-qml
 /opt/com.meecast.omweather/bin/omweather-settouch
 %endif
-%if  %{wantmeegopanel}
-%{_datadir}/applications/*.desktop
-%endif
 %{_libdir}
 /opt/com.meecast.omweather/share
 /opt/com.meecast.omweather/lib
-/usr/share/omweather
-/usr/share/locale
-/usr/share/pixmaps
+#/usr/share/locale
 #/usr/lib/omweather/weathercom
 #/usr/share/omweather/copyright_icons/weather.com.png
 #/usr/share/omweather/db/weather.com.db
@@ -109,11 +104,15 @@ desktop-file-install --delete-original       \
 # >> files
 %if  %{wantmeegopanel}
 /opt/com.meecast.omweather/libexec/meego-panel-omweather
-/usr/share/meego-panel-omweather
+#/usr/share/meego-panel-omweather
 /usr/share/mutter-meego/panels/meego-panel-omweather.desktop
 /etc/xdg
 /usr/share/dbus-1/services
+%else 
+%{_datadir}/applications/*.desktop
+#/usr/share/pixmaps
 %endif
+/usr/share
 %changelog
 * Thu Mar 26 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.18
   * Adapted to AppStore

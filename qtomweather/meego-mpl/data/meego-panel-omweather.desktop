@@ -14,5 +14,5 @@ X-Meego-Priority=High
 X-Meego-Service=com.meego.UX.Shell.Panels.omweather
 X-Meego-Panel-Optional=true
 X-GNOME-Autostart-enable=true
-X-Meego-Panel-Stylesheet=/usr/share/meego-panel-omweather/theme/omweather-panel.css
+X-Meego-Panel-Stylesheet=/opt/com.meecast.omweather/share/meego-panel-omweather/theme/omweather-panel.css
 X-Meego-Panel-Button-Style=iconna

@@ -93,7 +93,6 @@ ln -s /opt/com.meecast.omweather/share/icons  %{buildroot}/opt/com.meecast.omwea
 /opt/com.meecast.omweather/bin/omweather-qml
 /opt/com.meecast.omweather/bin/omweather-settouch
 %endif
-%{_libdir}
 /opt/com.meecast.omweather/share
 /opt/com.meecast.omweather/lib
 #/usr/share/locale

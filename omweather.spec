@@ -88,6 +88,8 @@ ln -s /opt/com.meecast.omweather/share/icons  %{buildroot}/opt/com.meecast.omwea
 
 %files
 %defattr(-,root,root,-)
+/opt/com.meecast.omweather
+/opt/com.meecast.omweather/bin
 /opt/com.meecast.omweather/bin/omweather-settings
 %if %{wantmeegopanel}
 /opt/com.meecast.omweather/bin/omweather-qml
@@ -102,6 +104,7 @@ ln -s /opt/com.meecast.omweather/share/icons  %{buildroot}/opt/com.meecast.omwea
 #/usr/share/omweather/sources/weather.com.xml
 # >> files
 %if  %{wantmeegopanel}
+/opt/com.meecast.omweather/libexec
 /opt/com.meecast.omweather/libexec/meego-panel-omweather
 #/usr/share/meego-panel-omweather
 /usr/share/mutter-meego/panels/meego-panel-omweather.desktop

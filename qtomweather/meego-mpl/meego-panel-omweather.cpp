@@ -1218,7 +1218,7 @@ main (int argc, char *argv[])
   g_thread_init(NULL);
   clutter_threads_init();
   clutter_init (&argc, &argv);
-
+  bindtextdomain(GETTEXT_PACKAGE, "/opt/com.meecast.omweather/share/locale");
   init_omweather_core();
   translate_hash = hash_table_create();
   /* prepairing icon */

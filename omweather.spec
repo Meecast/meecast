@@ -116,8 +116,8 @@ ln -s /opt/com.meecast.omweather/share/icons  %{buildroot}/opt/com.meecast.omwea
 %endif
 /usr/share
 %changelog
-* Thu Mar 26 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.18
-  * Adapted to AppStore
+* Thu Apr 04 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.18
+  * Adapted to Intel AppUP
 * Thu Mar 26 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.17
   * Added automatic updating intervals
   * Added automatically updating on connection

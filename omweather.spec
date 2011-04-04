@@ -110,6 +110,7 @@ ln -s /opt/com.meecast.omweather/share/icons  %{buildroot}/opt/com.meecast.omwea
 /usr/share/mutter-meego/panels/meego-panel-omweather.desktop
 /etc/xdg
 /usr/share/dbus-1/services
+%{_datadir}/applications/*.desktop
 %else 
 %{_datadir}/applications/*.desktop
 #/usr/share/pixmaps

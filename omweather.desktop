@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=OMWeather
+GenericName=OMWeather
+Comment=Weather Forecast
+Exec=/opt/com.meecast.omweather/bin/omweather-settings
+Categories=Network
+Icon=omweather
+Type=Application
+Terminal=false
+StartupNotify=true
+

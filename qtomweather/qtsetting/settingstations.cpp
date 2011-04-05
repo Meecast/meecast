@@ -104,6 +104,7 @@ SettingStations::SettingStations(QWidget *parent) :
         }
         closedir(dir_fd);
     }
+    ui->label_6->setStyleSheet("border: 1px solid white;");
     connect(ui->listWidget, SIGNAL(itemEntered(QListWidgetItem*)), this, SLOT(setRemove(QListWidgetItem*)));
     connect(ui->listWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(setRemove(QListWidgetItem*)));
     connect(ui->listWidget, SIGNAL(itemPressed(QListWidgetItem*)), this, SLOT(setRemove(QListWidgetItem*)));

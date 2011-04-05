@@ -10,10 +10,13 @@ Setting::Setting(QWidget *parent) :
     //sourcelist = new Core::SourceList("../test/sources/");
     //QString path = QString::fromStdString(Core::AbstractConfig::prefix);
     std::string path(Core::AbstractConfig::prefix);
+    //path += Core::AbstractConfig::sharePath;
     path += Core::AbstractConfig::sourcesPath;
     
+    std::cerr << "path = " << path << std::endl; 
     sourcelist = new Core::SourceList(path);
     
+    std::cerr << "count = " << sourcelist->size() << std::endl;
     ui->setupUi(this);
     for (int i=0; i<sourcelist->size(); i++){
         ui->sourceCombo->addItem(QString::fromStdString(sourcelist->at(i)->name()), i);

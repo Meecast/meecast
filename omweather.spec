@@ -12,7 +12,7 @@ Name:       com.meecast.omweather
 Summary:    Weather for Meego
 Version:    0.3.18
 Release:    1
-Group:      Applications/Internet
+Group:      Utility
 License:    GPLv2.1
 URL:        https://garage.maemo.org/projects/omweather/
 Source0:    %{name}-%{version}.tar.bz2

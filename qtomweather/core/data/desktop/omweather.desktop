@@ -1,9 +1,9 @@
 [Desktop Entry]
-Name=OMWeather
+Name=OMWeather Settings
 GenericName=OMWeather
 Comment=Weather Forecast
 Exec=/opt/com.meecast.omweather/bin/omweather-settings
-Categories=Network
+Categories=Utility
 Icon=omweather
 Type=Application
 Terminal=false

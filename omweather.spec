@@ -10,7 +10,7 @@
  
 Name:       com.meecast.omweather
 Summary:    Weather for Meego
-Version:    0.3.18
+Version:    0.3.19
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -117,6 +117,8 @@ ln -s /opt/com.meecast.omweather/share/icons  %{buildroot}/opt/com.meecast.omwea
 %endif
 /usr/share
 %changelog
+* Thu Apr 06 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.19
+  * Adapted to Intel AppUP
 * Thu Apr 04 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.18
   * Adapted to Intel AppUP
 * Thu Mar 26 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.17

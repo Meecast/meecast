@@ -336,7 +336,9 @@ make_day_actor(Core::Data *temp_data){
 void
 make_bottom_content_about() {
   
-  ClutterLayoutManager *bottom_layout;
+  ClutterLayoutManager *bottom_layout, *caption_layout;
+  ClutterActor     *captionbox;
+  ClutterActor     *rectangle;
   ClutterActor     *icon;
   ClutterActor     *label;
   std::string      about_text;
@@ -367,18 +369,33 @@ make_bottom_content_about() {
   pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.2);
   clutter_text_set_font_description(CLUTTER_TEXT(label), pfd);
   clutter_text_set_text((ClutterText*)label, _("About"));
-  clutter_box_pack((ClutterBox*)bottom_container, label, NULL);
+  clutter_text_set_color((ClutterText*)label, clutter_color_new(102, 102, 102, 255));
+  caption_layout = clutter_box_layout_new();
+  captionbox = clutter_box_new(caption_layout);
+  clutter_actor_set_size (captionbox, -1, 50.0);
+  clutter_box_pack((ClutterBox*)captionbox, label,
+                    "x-align", CLUTTER_BOX_ALIGNMENT_CENTER,
+                    "y-align", CLUTTER_BOX_ALIGNMENT_CENTER, 
+                    "expand", TRUE,
+                    NULL);
+  clutter_box_pack((ClutterBox*)bottom_container, captionbox, NULL);
+
+  //clutter_box_pack((ClutterBox*)bottom_container, label, NULL);
+
+  /* Small horizontal rectangle */
+  rectangle = clutter_rectangle_new_with_color(clutter_color_new(43, 43, 43, 255));
+  clutter_actor_set_size(rectangle, 1024-10,2);
+  clutter_box_pack((ClutterBox*)bottom_container, rectangle, NULL);
 
 
   /* icon */
-  snprintf(buffer, (4096 -1), "%s/icons/%s/%i.png",config->prefix_path().c_str(),
-                                  config->iconSet().c_str(), 21);
+  snprintf(buffer, (4096 -1), "%s/icons/omweather255.png",config->prefix_path().c_str());
 
   icon = clutter_texture_new_from_file(buffer, NULL);
-  clutter_actor_set_size (icon, 256.0, 256.0);
+  clutter_actor_set_size (icon, 215.0, 215.0);
   clutter_box_pack((ClutterBox*)box, icon, NULL);
   clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(bottom_layout), icon,
-				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
+				CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
 
   /* vertical layout */
 
@@ -391,10 +408,10 @@ make_bottom_content_about() {
   about_text = _("Weather forecast for the Meego. Version ");
   about_text += OMWEATHER_VERSION;
   about_text += ".\n";
-  about_text += _("Copyright(c) 2006-2011 by Vlad Vasilyeu and  Pavel Fialko\n");
+  about_text += _("Copyright(c) 2006-2011 by Vlad Vasilyeu and Pavel Fialko, ");
   about_text += _("Copyright(c) 2010-2011 by Tanya Makova\n");
   about_text += _("Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n");
-  about_text += _("Maintenance: Pavel Fialko, <pavelnf@gmail.com>\nTanya Makova, <tanyshk@gmail.com>\n");
+  about_text += _("Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>\n");
   about_text += _("Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <az@pocketpcrussia.com>\n");
   about_text += _("Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>");
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
@@ -425,15 +442,26 @@ make_bottom_content_about() {
   clutter_text_set_text((ClutterText*)label, about_text.c_str());
   clutter_box_pack((ClutterBox*)vbox, label, NULL);
 
-  clutter_box_pack((ClutterBox*)box, vbox, NULL);
-  clutter_box_pack((ClutterBox*)bottom_container, box, NULL);
+  clutter_box_pack((ClutterBox*)box, vbox,
+                     "x-align", CLUTTER_BOX_ALIGNMENT_CENTER,
+                    "y-align", CLUTTER_BOX_ALIGNMENT_CENTER, 
+                    "expand", TRUE,
+   NULL);
+  clutter_box_pack((ClutterBox*)bottom_container, box,
+                    "x-align", CLUTTER_BOX_ALIGNMENT_CENTER,
+                    "y-align", CLUTTER_BOX_ALIGNMENT_CENTER,
+                    "expand", TRUE,
+                    NULL
+  );
+
+
 
   /* connect the press event on button */
   g_signal_connect (bottom_container, "button-press-event", G_CALLBACK (remove_detail_event_cb), panel);
   clutter_actor_set_reactive(bottom_container, TRUE);
 
   clutter_box_layout_pack(CLUTTER_BOX_LAYOUT(main_vertical_layout), bottom_container,
-                          TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
+                          TRUE, TRUE, TRUE, CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
 
 
 }

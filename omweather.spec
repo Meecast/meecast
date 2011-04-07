@@ -17,7 +17,7 @@ License:    GPLv2.1
 URL:        https://garage.maemo.org/projects/omweather/
 Source0:    %{name}-%{version}.tar.bz2
 #Temporary
-Requires:       libmeegotouch-devel
+#Requires:       libmeegotouch-devel
 BuildRequires:  pkgconfig(QtCore) >= 4.7.0
 BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(sqlite3)
@@ -30,8 +30,8 @@ BuildRequires:  pkgconfig(mutter-plugins)
 BuildRequires:  gettext
 BuildRequires:  qt-qmake
 BuildRequires:  libqt-devel
-BuildRequires:  libmeegotouch
-BuildRequires:  libmeegotouch-devel
+#BuildRequires:  libmeegotouch
+#BuildRequires:  libmeegotouch-devel
 BuildRequires:  desktop-file-utils
 
 
@@ -91,10 +91,10 @@ ln -s /opt/com.meecast.omweather/share/icons  %{buildroot}/opt/com.meecast.omwea
 /opt/com.meecast.omweather
 /opt/com.meecast.omweather/bin
 /opt/com.meecast.omweather/bin/omweather-settings
-%if %{wantmeegopanel}
+#%if %{wantmeegopanel}
 /opt/com.meecast.omweather/bin/omweather-qml
-/opt/com.meecast.omweather/bin/omweather-settouch
-%endif
+#/opt/com.meecast.omweather/bin/omweather-settouch
+#%endif
 /opt/com.meecast.omweather/share
 /opt/com.meecast.omweather/lib
 #/usr/share/locale

@@ -1,0 +1,28 @@
+#! /bin/sh
+
+
+# Added by maemo-optify, with apologies.
+
+optify () {
+    f="$1"
+    if [ ! -h "/$f" ]; then
+
+        # This is not atomic, but re-startable: if interrupted, doing
+        # this again will eventually finish with the correct result.
+        #
+        # XXX - At least that's the idea, but tar needs to be properly
+        #       instructed to overwrite the targets.
+
+        echo >&2 "Optifying $f -> /opt/maemo/$f"
+        if [ -d "/$f" ]; then
+            (cd "/" && tar cf - "$f") | (cd "/opt/maemo/" && tar xf -)
+        fi
+        mv "/$f" "/$f.removed"
+        ln -s "/opt/maemo/$f" "/$f"
+    fi
+
+    if [ -e "/$f.removed" ]; then
+        rm -rf "/$f.removed"
+    fi
+}
+

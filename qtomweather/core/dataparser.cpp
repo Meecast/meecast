@@ -118,7 +118,13 @@ namespace Core {
     }
 ////////////////////////////////////////////////////////////////////////////////
     DataParser::~DataParser(){
-        delete _list;
+       Data* forecast_data;
+       while (!_list->empty()){
+         forecast_data = _list->back();
+         delete forecast_data;
+         _list->pop_back();
+       }
+       delete _list;
     }
 ////////////////////////////////////////////////////////////////////////////////
 #ifdef LIBXML

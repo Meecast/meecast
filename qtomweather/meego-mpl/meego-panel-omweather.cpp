@@ -983,6 +983,10 @@ make_window_content (MplPanelClutter *panel)
   struct tm   *tm = NULL;
   int year, current_month;
 
+  if (dp){
+      delete dp;
+      dp = NULL;
+  }
   if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 
                                               &&  config->stationsList().at(config->current_station_id()))
       dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
@@ -1283,6 +1287,10 @@ main (int argc, char *argv[])
   clutter_threads_enter();
   clutter_main ();
   clutter_threads_leave();
+  if (dp){
+      delete dp;
+      dp = NULL;
+  }
 
   return 0;
 }

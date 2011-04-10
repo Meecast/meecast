@@ -231,6 +231,7 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     Data::~Data(){
        delete _windDirection;
+       delete _windSpeed;
        delete _text;
        delete _temperature_hi;
        delete _temperature_low;

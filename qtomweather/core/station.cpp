@@ -210,12 +210,13 @@ namespace Core {
     {
         std::string path(Core::AbstractConfig::prefix);
         path += Core::AbstractConfig::sourcesPath;
-
         SourceList *sourcelist = new Core::SourceList(path);
-
-        for (int i=0; i<sourcelist->size(); i++){
-            if (_sourceName->compare(sourcelist->at(i)->name()) == 0)
-                return sourcelist->at(i);
+        for (int i=0; i<(int)sourcelist->size(); i++){
+            if (_sourceName->compare(sourcelist->at(i)->name()) == 0){
+                Source* source = new Core::Source(*sourcelist->at(i));
+                delete sourcelist;
+                return source; 
+            }
         }
         return 0;
     }

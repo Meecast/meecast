@@ -1264,6 +1264,10 @@ main (int argc, char *argv[])
       snprintf(buffer, (4096 -1), "icon%s%i", config->iconSet().c_str(), temp_data->Icon());
   else
       snprintf(buffer, (4096 -1), "iconna");
+  if (dp){
+      delete dp;
+      dp = NULL;
+  }
 
   /* init Meego panel */
   mx_style_load_from_file (mx_style_get_default (),

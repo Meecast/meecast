@@ -34,6 +34,7 @@ CONFIG = link_pkgconfig
 PKGCONFIG += sqlite3
 PKGCONFIG += libcurl
 PKGCONFIG += dbus-glib-1 \
+             gconf-2.0 \
              mx-1.0 \
              mutter-plugins \
              meego-panel \

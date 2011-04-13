@@ -38,6 +38,8 @@
 #include <libintl.h>
 #include <locale.h>
 
+#include <gconf/gconf-client.h>
+
 
 /*#define _(String) dgettext (GETTEXT_PACKAGE, String)*/
 #define GETTEXT_PACKAGE "omweather"
@@ -1237,8 +1239,8 @@ dbus_init(void){
                                  NULL, NULL);
   }
 
-
 }
+
 int
 main (int argc, char *argv[])
 {
@@ -1246,10 +1248,25 @@ main (int argc, char *argv[])
   Core::Data *temp_data = NULL;
   Core::DataParser* dp = NULL;
 
-  
+  GConfClient *gconf_client = NULL;
+  GSList      *l = NULL, *order = NULL;
+
   g_thread_init(NULL);
   clutter_threads_init();
   clutter_init (&argc, &argv);
+
+  /* Check enabling of OMWeather */
+  gconf_client = gconf_client_get_default ();
+  order = gconf_client_get_list (gconf_client, "/desktop/meego/toolbar/panels/order", GCONF_VALUE_STRING, NULL);
+  l = g_slist_find_custom (order,
+                                "meego-panel-omweather",
+                                (GCompareFunc)g_strcmp0);
+
+  if (!l){
+     fprintf(stderr,"Exit - omweather is disabled\n");
+     return -2;
+  }
+  
   bindtextdomain(GETTEXT_PACKAGE, "/opt/com.meecast.omweather/share/locale");
   init_omweather_core();
   translate_hash = hash_table_create();

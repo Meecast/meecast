@@ -10,7 +10,7 @@
  
 Name:       com.meecast.omweather
 Summary:    Weather for Meego
-Version:    0.3.19
+Version:    0.3.20
 Release:    1
 Group:      Utility
 License:    GPLv2.1
@@ -21,6 +21,7 @@ Source0:    %{name}-%{version}.tar.bz2
 BuildRequires:  pkgconfig(QtCore) >= 4.7.0
 BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(sqlite3)
+BuildRequires:  pkgconfig(gconf-2.0)
 BuildRequires:  pkgconfig(dbus-glib-1)
 BuildRequires:  pkgconfig(libxml-2.0)
 %if %{wantmeegopanel}
@@ -67,7 +68,7 @@ make INSTALL_ROOT=%{buildroot} install
 %if %{wantmeegopanel}
 ln -s /opt/com.meecast.omweather/share/icons  %{buildroot}/opt/com.meecast.omweather/share/meego-panel-omweather/theme/icons
 %endif
-#rm %{buildroot}/usr/lib/libomweather-core.so
+rm %{buildroot}/opt/com.meecast.omweather/lib/libomweather-core.a
 # << install post
 #desktop-file-install --delete-original       \
 #  --dir %{buildroot}%{_datadir}/applications             \
@@ -117,6 +118,9 @@ ln -s /opt/com.meecast.omweather/share/icons  %{buildroot}/opt/com.meecast.omwea
 %endif
 /usr/share
 %changelog
+* Thu Apr 14 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.20
+  * Fixed error with autostart
+  * Fixed small memory leak
 * Thu Apr 06 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.19
   * Adapted to Intel AppUP
 * Thu Apr 04 2010  Vlad Vasilyeu <vasvlad@gmail.com> 0.3.18

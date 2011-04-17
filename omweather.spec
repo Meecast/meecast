@@ -3,7 +3,7 @@
 # spectacle version 0.18
 # 
 # >> macros
-%define wantmeegopanel 1
+%define wantmeegopanel 0
 %define all_x86 i386 i586 i686 %{ix86}
 %define all_arm %{arm}
 # << macros

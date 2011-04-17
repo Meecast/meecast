@@ -53,13 +53,15 @@ INSTALLS += target
 
 desktop.files = omweather.desktop
 desktop.path = /usr/share/applications
+panel.files = data/tablet-ux/omweather.desktop
+panel.path = /usr/share/meego-ux-panels/panels
 icon64.path = /usr/share/pixmaps
 icon64.files += omweather.png
 qml.files = *.qml
 qml.path = /opt/com.meecast.omweather/share/omweather/qml
 
 #INSTALLS += desktop qml icon64
-INSTALLS += qml 
+INSTALLS += desktop qml panel 
  
 DATADIR=/opt/com.meecast.omweather/share
 

@@ -59,8 +59,8 @@ DataModel::~DataModel()
 void
 DataModel::clear()
 {
-    qDeleteAll(_list);
-    _list.clear();
+    //qDeleteAll(this->_list);
+    this->_list.clear();
     //emit dataChanged(this->createIndex(0, 0), this->createIndex(count, 0));
     this->reset();
 }

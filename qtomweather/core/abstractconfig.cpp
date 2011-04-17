@@ -33,7 +33,7 @@
 namespace Core {
 #ifdef LOCALDEBUG
     std::string AbstractConfig::prefix = "";
-    std::string AbstractConfig::sharePath = "../test/";
+    std::string AbstractConfig::sharePath = "../core/data/";
     std::string AbstractConfig::schemaPath = "../test/schemas/";
     std::string AbstractConfig::iconsPath = "../core/data/icons/";
     std::string AbstractConfig::libPath = "lib/omweather/";

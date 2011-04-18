@@ -14,7 +14,7 @@ Rectangle {
     Loader {
         id: background
         anchors.fill: parent
-        sourceComponent: Image {source: "/usr/share/omweather/images/background.png"}
+        sourceComponent: Image {source: Config.imagespath + "/background.png"}
     }
 
 
@@ -111,7 +111,7 @@ Rectangle {
                 Loader {
 
                     anchors.fill: parent
-                    sourceComponent: Image {source: "/usr/share/omweather/images/background_part.png"}
+                    sourceComponent: Image {source: Config.imagespath + "/background_part.png"}
                 }
             }
 

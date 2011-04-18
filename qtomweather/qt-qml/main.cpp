@@ -125,7 +125,10 @@ int main(int argc, char* argv[])
     qview = controller->qview();
  //   qview->rootContext()->setContextProperty("Forecast_model", model);
     //qview->rootContext()->setContextProperty("Config", config);
-    qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::layoutqml)));
+    std::cerr << "qml path = " << Core::AbstractConfig::layoutqml << std::endl;
+    qview->setSource(QUrl::fromLocalFile(QString::fromStdString(Core::AbstractConfig::prefix + 
+                                                                Core::AbstractConfig::sharePath + 
+                                                                Core::AbstractConfig::layoutqml)));
     qview->show();
     
     delete dadapt;

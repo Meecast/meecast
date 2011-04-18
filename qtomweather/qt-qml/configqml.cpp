@@ -55,6 +55,14 @@ ConfigQml::iconspath(){
 }
 
 QString
+ConfigQml::imagespath(){
+    QString c;
+    c = ConfigQml::Config::prefix_path().c_str();
+    c.append("/images");
+    return c;
+}
+
+QString
 ConfigQml::iconsbutton(){
     QString c;
     c = ConfigQml::Config::prefix_path().c_str();
@@ -114,6 +122,7 @@ void
 ConfigQml::refreshconfig(){
     emit ConfigQml::iconsetChanged();
     emit ConfigQml::iconspathChanged();
+    emit ConfigQml::imagespathChanged();
     emit ConfigQml::temperatureunitChanged();
     emit ConfigQml::windspeedunitChanged();
     emit ConfigQml::fontcolorChanged();

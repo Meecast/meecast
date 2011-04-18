@@ -43,6 +43,7 @@ class ConfigQml : public QObject, public Core::Config
     Q_OBJECT
     Q_PROPERTY(QString iconset READ iconset NOTIFY iconsetChanged)
     Q_PROPERTY(QString iconspath READ iconspath NOTIFY iconspathChanged)
+    Q_PROPERTY(QString imagespath READ imagespath NOTIFY imagespathChanged)
     Q_PROPERTY(QString iconsbutton READ iconsbutton NOTIFY iconsbuttonChanged)
     Q_PROPERTY(QString temperatureunit READ temperatureunit NOTIFY temperatureunitChanged)
     Q_PROPERTY(QString windspeedunit READ windspeedunit NOTIFY windspeedunitChanged)
@@ -54,6 +55,7 @@ class ConfigQml : public QObject, public Core::Config
     ConfigQml(const std::string& filename, const std::string& schema_filename = "/usr/" + schemaPath + "config.xsd");
     QString iconset();
     QString iconspath();
+    QString imagespath();
     QString iconsbutton();
     QString temperatureunit();
     QString windspeedunit();
@@ -69,6 +71,7 @@ class ConfigQml : public QObject, public Core::Config
     signals:
     void iconsetChanged();
     void iconspathChanged();
+    void imagespathChanged();
     void iconsbuttonChanged();
     void temperatureunitChanged();
     void windspeedunitChanged();

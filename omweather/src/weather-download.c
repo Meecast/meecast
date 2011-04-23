@@ -497,8 +497,8 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
                 if(station_source && (!strcmp(station_source, "yr.no") && station_code)){
                         /* replace '_' to '/' */
                         for (i=0;i<strlen(station_code);++i)
-                           if (station_code[i] == '/')
-                              station_code[i] = '_'; 
+                           if (station_code[i] == '_')
+                              station_code[i] = '/'; 
                 }
 /* TO DO this part of code will move to sources code */
                 if(station_source && (!strcmp(station_source, "gismeteo.ru"))){
@@ -521,8 +521,8 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
                 if(station_source && (!strcmp(station_source, "yr.no") && station_code)){
                         /* replace '_' to '/' */
                         for (i=0;i<strlen(station_code);++i)
-                           if (station_code[i] == '/')
-                              station_code[i] = '_'; 
+                           if (station_code[i] == '_')
+                              station_code[i] = '/'; 
                 }
 
 
@@ -550,6 +550,13 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
 */
 #endif
 /* preapare filename */
+       /* Adpated for yr.no */
+       if(station_source && (!strcmp(station_source, "yr.no") && station_code)){
+           /* replace '_' to '/' */
+           for (i=0;i<strlen(station_code);++i)
+              if (station_code[i] == '/')
+                  station_code[i] = '_'; 
+        }
         memset(buffer, 0, sizeof(buffer));
         snprintf(buffer, sizeof(buffer) - 1, "%s/%s.xml.new",
                     app->config->cache_dir_name, station_code);

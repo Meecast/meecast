@@ -52,7 +52,7 @@ install: build
 	dh_installdirs
 
 	# Add here commands to install the package
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/omweather-gismeteo-ru-stations-db
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/omweather-yr-no-stations-db
 
 
 # Build architecture-independent files here.

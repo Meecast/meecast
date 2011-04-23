@@ -22,8 +22,7 @@
 
 libhhdir = /usr/lib/omweather
 libhh_LTLIBRARIES = libomweather-yr-no-source.la
-libomweather_yr_no_source_la_SOURCES = hash.c hash.h hash_description.data \
-                                             hash_icons.data main.c main.h
+libomweather_yr_no_source_la_SOURCES = main.c main.h
 libomweather_yr_no_source_la_CFLAGS = $(GTK_CFLAGS) $(LIBXML2_CFLAGS) \
 					    -Wall -pedantic
 libomweather_yr_no_source_la_LDFLAGS = -module -avoid-version 

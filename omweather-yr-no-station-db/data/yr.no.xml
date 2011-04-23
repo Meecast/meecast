@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<source xmlns="https://garage.maemo.org/projects/omweather/">
+<name>yr.no</name>
+<logo>yr.no.png</logo>
+<base>yr.no.db</base>
+<forecast url="http://www.yr.no/sted/%s/varsel.xml" />
+<search url="http://xoap.weather.com/search/search?where=%s" />
+<library>libomweather-yr-no-source.so</library>
+</source>

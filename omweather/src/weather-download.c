@@ -452,6 +452,7 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
                         *new_station_code = NULL,
                         *station_source = NULL,
                         buffer[512];
+    int i;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -492,6 +493,13 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
 /* prepare forecast url */
             if(get_source_forecast_url(app->sources_list, station_source)){
                 *buffer = 0;
+                /* Adpated for yr.no */
+                if(station_source && (!strcmp(station_source, "yr.no") && station_code)){
+                        /* replace '_' to '/' */
+                        for (i=0;i<strlen(station_code);++i)
+                           if (station_code[i] == '/')
+                              station_code[i] = '_'; 
+                }
 /* TO DO this part of code will move to sources code */
                 if(station_source && (!strcmp(station_source, "gismeteo.ru"))){
                     new_station_code = get_new_gismeteo_code(station_code, station_source);
@@ -502,11 +510,22 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
                     snprintf(buffer, sizeof(buffer) - 1,
                                 get_source_forecast_url(app->sources_list, station_source),
                                                         station_code);
-                *url = g_strdup(buffer);
+               *url = g_strdup(buffer);
             }
+         
+
 /* prepare detail url */
             if(get_source_detail_url(app->sources_list, station_source)){
                 *buffer = 0;
+                /* Adpated for yr.no */
+                if(station_source && (!strcmp(station_source, "yr.no") && station_code)){
+                        /* replace '_' to '/' */
+                        for (i=0;i<strlen(station_code);++i)
+                           if (station_code[i] == '/')
+                              station_code[i] = '_'; 
+                }
+
+
 /* TO DO move this code to sources libs */
                 if(!strcmp(station_source, "gismeteo.ru")){
                     new_station_code = get_new_gismeteo_code(station_code, station_source);
@@ -519,9 +538,11 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
                     snprintf(buffer, sizeof(buffer) - 1,
                                 get_source_detail_url(app->sources_list, station_source),
                                                         station_code);
+
                 *hour_url = g_strdup(buffer);
             }
         }
+
 #ifndef RELEASE
 /*
       fprintf(stderr, "\n>>>>>>>>>>URL %s", *url);
@@ -537,6 +558,7 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
         snprintf(buffer, sizeof(buffer) - 1, "%s/%s_hour.xml.new",
                     app->config->cache_dir_name, station_code);
         *filename_hour = g_strdup(buffer);
+
 #ifndef RELEASE
 /*
         fprintf(stderr, "\n>>>>>>>>>NAME %s", *filename);

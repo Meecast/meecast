@@ -1,6 +1,7 @@
 omweather (0.28.13) unstable; urgency=low
 
   * Updated Slovak tanslations
+  * Adapted to source yr.no
 
  -- Vlad Vasiliev <vlad@gas.by>  Wen, 23 Feb 2011 20:44:20 +0200
 

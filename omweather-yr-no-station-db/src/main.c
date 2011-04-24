@@ -157,8 +157,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                 *child_node1 = NULL;
     xmlChar     *temp_xml_string = NULL;
     xmlChar     *part_of_day = NULL;
-    gint        store2day = 0,
-                count_day = 0;
+    gint        count_day = 0;
     gchar       id_station[10],
                 buff[256];
     struct tm   tmp_tm = {0};

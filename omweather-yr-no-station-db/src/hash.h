@@ -2,8 +2,7 @@
 /*
  * This file is part of Other Maemo Weather(omweather)
  *
- * Copyright (C) 2006-2009 Vlad Vasiliev
- * Copyright (C) 2006-2009 Pavel Fialko
+ * Copyright (C) 2011 Vlad Vasiliev
  * 	for the code
  *        
  * Copyright (C) 2008 Andrew Zhilin
@@ -30,8 +29,8 @@
 #define _hash_h 1
 /*******************************************************************************/
 /*******************************************************************************/
-GHashTable* hash_description_gismeteo_table_create(void);
-GHashTable* hash_icons_gismeteo_table_create(void);
-gpointer hash_gismeteo_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
+GHashTable* hash_description_yrno_table_create(void);
+GHashTable* hash_icons_yrno_table_create(void);
+gpointer hash_yrno_table_find(GHashTable *hash, gpointer key, gboolean search_short_name);
 /*******************************************************************************/
 #endif

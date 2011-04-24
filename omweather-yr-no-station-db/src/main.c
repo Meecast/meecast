@@ -168,12 +168,16 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                 *day = NULL;
     int         temp_hi = INT_MAX,temp_low = INT_MAX,temp_temp = INT_MAX;
     gboolean    first_day = TRUE;
+    int         period;
+    GHashTable  *hash_for_translate;                                                                                                                                                                GHashTable  *hash_for_icons;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
+    hash_for_translate = hash_description_yrno_table_create();
+    hash_for_icons = hash_icons_yrno_table_create();
+ 
     for(cur_node = root_node->children; cur_node; cur_node = cur_node->next){
         if( cur_node->type == XML_ELEMENT_NODE ){
-            fprintf(stderr, "cur_node->name %s\n", cur_node->name);
             /* get weather station data */
             if(!xmlStrcmp(cur_node->name, (const xmlChar *) "location" ) ){
                 temp_xml_string = xmlGetProp(cur_node, (const xmlChar*)"id");
@@ -186,7 +190,6 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                 location = g_hash_table_new(g_str_hash, g_str_equal);
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
                     if( child_node->type == XML_ELEMENT_NODE ){
-                       fprintf(stderr, "  child_node->name %s\n", child_node->name);
                         if(!xmlStrcmp(child_node->name, (const xmlChar *) "location" ) ){
                             /* station lattitude */
                                 temp_xml_string = xmlGetProp(child_node, (const xmlChar*)"latitude");
@@ -221,20 +224,27 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                 for(child_node = cur_node->children; child_node; child_node = child_node->next){
                    if (!xmlStrcmp(child_node->name, (const xmlChar *) "tabular" )){
                     for(child_node1 = child_node->children; child_node1; child_node1 = child_node1->next){
-                       fprintf(stderr, "  child_node->name1 %s\n", child_node1->name);
                         if(child_node1->type == XML_ELEMENT_NODE  &&
                                 ( !xmlStrcmp(child_node1->name, (const xmlChar *)"time") ) ){
-                             
                             temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"period");
-
-                            fprintf(stderr, "sddsd111sa   %s\n", temp_xml_string);
-                            if (temp_xml_string && (!xmlStrcmp(temp_xml_string, (const xmlChar *)"0") || first_day)){
-                                fprintf(stderr, "NEw day\n");
+                            if (temp_xml_string){
+                                if (!xmlStrcmp(temp_xml_string, (const xmlChar *)"0"))
+                                    period = 0;
+                                else if (!xmlStrcmp(temp_xml_string, (const xmlChar *)"1"))
+                                        period = 1;
+                                     else if (!xmlStrcmp(temp_xml_string, (const xmlChar *)"2"))
+                                              period = 2;
+                                          else if (!xmlStrcmp(temp_xml_string, (const xmlChar *)"3"))
+                                                   period = 3;
+                                               else
+                                                   period = INT_MAX;
+                            }
+                            if (temp_xml_string && (period == 0 || first_day)){
                                 first_day = FALSE;
                                 temp_hi = INT_MAX,temp_low = INT_MAX,temp_temp = INT_MAX;
+                                xmlFree(temp_xml_string);
                                 day = g_hash_table_new(g_str_hash, g_str_equal);
                                 /* add day to the days list */
-                                                            xmlFree(temp_xml_string);
                                 temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"from");
                                 setlocale(LC_TIME, "POSIX");
                                 if (temp_xml_string){
@@ -267,10 +277,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                                             }else
                                                if (atoi(temp_xml_string)>temp_hi){
                                                    temp_hi = atoi(temp_xml_string);
-//                                                   g_hash_table_replace(day, "day_hi_temperature", g_strdup((char*)temp_xml_string));
-                                                   g_hash_table_remove(day, "day_hi_temperature"); 
-                                                   g_hash_table_insert(day, "day_hi_temperature", g_strdup((char*)temp_xml_string));
-                                                   fprintf(stderr,"Replace MAx\n");
+                                                   g_hash_table_replace(day, "day_hi_temperature", g_strdup((char*)temp_xml_string));
                                                }
                                             if (temp_low == INT_MAX){
                                                 temp_low = atoi(temp_xml_string);
@@ -278,32 +285,105 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                                             }else
                                                if (atoi(temp_xml_string)<temp_low){
                                                    temp_low = atoi(temp_xml_string);
-                                                   //g_hash_table_replace(day, "day_low_temperature", g_strdup((char*)temp_xml_string));
-                                                   g_hash_table_remove(day, "day_low_temperature"); 
-                                                   g_hash_table_insert(day, "day_low_temperature", g_strdup((char*)temp_xml_string));
-                                                   fprintf(stderr,"Replace Min\n");
+                                                   g_hash_table_replace(day, "day_low_temperature", g_strdup((char*)temp_xml_string));
                                                }
-                                            fprintf(stderr,"     value low = %i  value hi = %i\n", temp_low, temp_hi);
                                         }
                                         xmlFree(temp_xml_string);
                                         continue;
                                     }  /* 24h icon */
                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *)"symbol")){
                                         temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"number");
-                                        fprintf(stderr,"    icon value = %s\n",temp_xml_string);
-                                        g_hash_table_insert(day, "day_icon", g_strdup((char*)temp_xml_string));
+                                        memset(buff, 0, sizeof(buff));
+                                        if (period == 0){
+                                            snprintf(buff, sizeof(buff)-1, "night%s",(char*)temp_xml_string);
+                                            g_hash_table_insert(day, "night_icon", g_strdup(hash_yrno_table_find(hash_for_icons, buff , FALSE)));
+                                        }
+                                        if (period == 1){
+                                            snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
+                                            g_hash_table_insert(day, "day_icon", g_strdup(hash_yrno_table_find(hash_for_icons, buff , FALSE)));
+                                        }
+                                        if (period == 2){
+                                            snprintf(buff, sizeof(buff)-1, "day%s",(char*)temp_xml_string);
+                                            if (!g_hash_table_lookup(day, "day_icon"))
+                                                g_hash_table_insert(day, "day_icon", g_strdup(hash_yrno_table_find(hash_for_icons, buff , FALSE)));
+                                        }
+                                        if (period == 3){
+                                            snprintf(buff, sizeof(buff)-1, "night%s",(char*)temp_xml_string);
+                                            g_hash_table_replace(day, "night_icon", g_strdup(hash_yrno_table_find(hash_for_icons, buff , FALSE)));
+                                        }
+                                        xmlFree(temp_xml_string);
+                                        temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"name");
+                                        if (period == 0)
+                                            g_hash_table_insert(day, "night_title", g_strdup(hash_yrno_table_find(hash_for_translate, (char*)temp_xml_string, FALSE)));
+                                        if (period == 1)
+                                            g_hash_table_insert(day, "day_title", g_strdup(hash_yrno_table_find(hash_for_translate, (char*)temp_xml_string, FALSE)));
+                                        if (period == 2)
+                                            if (!g_hash_table_lookup(day, "day_title"))
+                                                g_hash_table_insert(day, "day_title", g_strdup(hash_yrno_table_find(hash_for_translate, (char*)temp_xml_string, FALSE)));
+                                        if (period == 3)
+                                            g_hash_table_replace(day, "night_title",  g_strdup(hash_yrno_table_find(hash_for_translate, (char*)temp_xml_string, FALSE)));
+                                        xmlFree(temp_xml_string);
+                                        continue;
+                                    }
+                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"pressure") ){
+                                        temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value");
+                                        if (period == 0)
+                                            g_hash_table_insert(day, "night_pressure", g_strdup((char*)temp_xml_string));
+                                        if (period == 1)
+                                            g_hash_table_insert(day, "day_pressure", g_strdup((char*)temp_xml_string));
+                                        if (period == 2)
+                                            if (!g_hash_table_lookup(day, "day_pressure"))
+                                                g_hash_table_insert(day, "day_pressure", g_strdup((char*)temp_xml_string));
+                                        if (period == 3)
+                                            g_hash_table_replace(day, "night_pressure", g_strdup((char*)temp_xml_string));
+                                        xmlFree(temp_xml_string);
+                                        continue;
+                                    }
+                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"precipitation") ){
+                                        temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value");
+                                        if (period == 0)
+                                            g_hash_table_insert(day, "night_ppcp", g_strdup((char*)temp_xml_string));
+                                        if (period == 1)
+                                            g_hash_table_insert(day, "day_ppcp", g_strdup((char*)temp_xml_string));
+                                        if (period == 2)
+                                            if (!g_hash_table_lookup(day, "day_ppcp"))
+                                                g_hash_table_insert(day, "day_ppcp", g_strdup((char*)temp_xml_string));
+                                        if (period == 3)
+                                            g_hash_table_replace(day, "night_ppcp", g_strdup((char*)temp_xml_string));
+                                        xmlFree(temp_xml_string);
+                                        continue;
+                                    }
+                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"windSpeed") ){
+                                        temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"mps");
+                                        if (period == 0)
+                                            g_hash_table_insert(day, "night_wind_speed", g_strdup((char*)temp_xml_string));
+                                        if (period == 1)
+                                            g_hash_table_insert(day, "day_wind_speed", g_strdup((char*)temp_xml_string));
+                                        if (period == 2)
+                                            if (!g_hash_table_lookup(day, "day_wind_speed"))
+                                                g_hash_table_insert(day, "day_wind_speed", g_strdup((char*)temp_xml_string));
+                                        if (period == 3)
+                                            g_hash_table_replace(day, "night_wind_speed", g_strdup((char*)temp_xml_string));
+                                        xmlFree(temp_xml_string);
+                                        continue;
+                                    }
+                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"windDirection") ){
+                                        temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"code");
+                                        if (period == 0)
+                                            g_hash_table_insert(day, "night_wind_title", g_strdup((char*)temp_xml_string));
+                                        if (period == 1)
+                                            g_hash_table_insert(day, "day_wind_title", g_strdup((char*)temp_xml_string));
+                                        if (period == 2)
+                                            if (!g_hash_table_lookup(day, "day_wind_title"))
+                                                g_hash_table_insert(day, "day_wind_title", g_strdup((char*)temp_xml_string));
+                                        if (period == 3)
+                                            g_hash_table_replace(day, "night_wind_title", g_strdup((char*)temp_xml_string));
                                         xmlFree(temp_xml_string);
                                         continue;
                                     }
 
-                                    /* 24h low temperature */
-                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"low")){
-                                        temp_xml_string = xmlNodeGetContent(child_node2);
-                                        g_hash_table_insert(day, "day_low_temperature", g_strdup((char*)temp_xml_string));
-                                        xmlFree(temp_xml_string);
-                                        continue;
-                                    }
-                                    /* 24h sunrise */
+
+
                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *)"sunr")){
                                         temp_xml_string = xmlNodeGetContent(child_node2);
                                         g_hash_table_insert(day, "day_sunrise", g_strdup((char*)temp_xml_string));
@@ -317,98 +397,16 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                                         xmlFree(temp_xml_string);
                                         continue;
                                     }
-                                    /* 24h part */
-                                    if(!xmlStrcmp(child_node2->name, (const xmlChar *)"part")){
-                                        part_of_day = xmlGetProp(child_node2, (const xmlChar*)"p");
-                                        if( !xmlStrcmp(part_of_day, (const xmlChar *)"d") )
-                                            store2day = 1;
-                                        else
-                                            store2day = 0;
-                                        xmlFree(part_of_day);
-                                        for(child_node3 = child_node2->children; child_node3; child_node3 = child_node3->next){
-                                            if( child_node3->type == XML_ELEMENT_NODE){
-                                                /* humidity */
-                                                if(!xmlStrcmp(child_node3->name, (const xmlChar *)"hmid") ){
-                                                    temp_xml_string = xmlNodeGetContent(child_node3);
-                                                    if(!store2day)
-                                                        g_hash_table_insert(day, "night_humidity", g_strdup((char*)temp_xml_string));
-                                                    else
-                                                        g_hash_table_insert(day, "day_humidity", g_strdup((char*)temp_xml_string));
-                                                    xmlFree(temp_xml_string);
-                                                    continue;
-                                                }
-                                                /* ppcp */
-                                                if(!xmlStrcmp(child_node3->name, (const xmlChar *)"ppcp") ){
-                                                    temp_xml_string = xmlNodeGetContent(child_node3);
-                                                    if(!store2day)
-                                                        g_hash_table_insert(day, "night_ppcp", g_strdup((char*)temp_xml_string));
-                                                    else
-                                                        g_hash_table_insert(day, "day_ppcp", g_strdup((char*)temp_xml_string));
-                                                    xmlFree(temp_xml_string);
-                                                    continue;
-                                                }
-                                                /* title */
-                                                if(!xmlStrcmp(child_node3->name, (const xmlChar *)"t") ){
-                                                    temp_xml_string = xmlNodeGetContent(child_node3);
-                                                    if(!store2day)
-                                                        g_hash_table_insert(day, "night_title", g_strdup((char*)temp_xml_string));
-                                                    else
-                                                        g_hash_table_insert(day, "day_title", g_strdup((char*)temp_xml_string));
-                                                    xmlFree(temp_xml_string);
-                                                    continue;
-                                                }
-                                                /* icon */
-                                                if(!xmlStrcmp(child_node3->name, (const xmlChar *)"icon") ){
-                                                    temp_xml_string = xmlNodeGetContent(child_node3);
-                                                    if(!store2day)
-                                                        g_hash_table_insert(day, "night_icon", g_strdup((char*)temp_xml_string));
-                                                    else
-                                                        g_hash_table_insert(day, "day_icon", g_strdup((char*)temp_xml_string));
-                                                    xmlFree(temp_xml_string);
-                                                    continue;
-                                                }
-                                                /* wind data */
-                                                if(!xmlStrcmp(child_node3->name, (const xmlChar *)"wind") ){
-                                                    for(child_node4 = child_node3->children; child_node4; child_node4 = child_node4->next){
-                                                        if( child_node4->type == XML_ELEMENT_NODE){
-                                                            /* speed */
-                                                            if(!xmlStrcmp(child_node4->name, (const xmlChar *)"s") ){
-                                                                temp_xml_string = xmlNodeGetContent(child_node4);
-                                                                if(!store2day)
-                                                                    g_hash_table_insert(day, "night_wind_speed", g_strdup((char*)temp_xml_string));
-                                                                else
-                                                                    g_hash_table_insert(day, "day_wind_speed", g_strdup((char*)temp_xml_string));
-                                                                xmlFree(temp_xml_string);
-                                                                continue;
-                                                            }
-                                                            /* title */
-                                                            if(!xmlStrcmp(child_node4->name, (const xmlChar *)"t") ){
-                                                                temp_xml_string = xmlNodeGetContent(child_node4);
-                                                                if(!store2day)
-                                                                    g_hash_table_insert(day, "night_wind_title",
-                                                                                        g_strdup((char*)temp_xml_string));
-                                                                else
-                                                                    g_hash_table_insert(day, "day_wind_title",
-                                                                                        g_strdup((char*)temp_xml_string));
-                                                                xmlFree(temp_xml_string);
-                                                                continue;
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
                                 }
                             }
                             temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"period");
                             if(temp_xml_string && (!xmlStrcmp(temp_xml_string, (const xmlChar *)"3") && day)){
-                                       forecast = g_slist_append(forecast, (gpointer)day);
-                                       day = NULL;
-                                       count_day++;
-                                      fprintf(stderr, "added day %i\n",count_day);
+                                forecast = g_slist_append(forecast, (gpointer)day);
+                                day = NULL;
+                                count_day++;
                             }
-                            xmlFree(temp_xml_string);
+                            if (temp_xml_string)
+                                xmlFree(temp_xml_string);
                         }
                      }    
                    }
@@ -417,6 +415,8 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
             }
         }
     }
+    g_hash_table_destroy(hash_for_translate);                                                                                                                                                   
+    g_hash_table_destroy(hash_for_icons);
     return count_day;
 }
 /*******************************************************************************/

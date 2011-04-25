@@ -169,6 +169,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
     gboolean    first_day = TRUE;
     int         period;
     GHashTable  *hash_for_translate;                                                                                                                                                                GHashTable  *hash_for_icons;
+    int speed;
 #ifdef DEBUGFUNCTIONCALL
     START_FUNCTION;
 #endif
@@ -239,24 +240,25 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                                                    period = INT_MAX;
                             }
                             if (temp_xml_string && (period == 0 || first_day)){
-                                first_day = FALSE;
                                 temp_hi = INT_MAX,temp_low = INT_MAX,temp_temp = INT_MAX;
                                 xmlFree(temp_xml_string);
-                                day = g_hash_table_new(g_str_hash, g_str_equal);
                                 /* add day to the days list */
-                                temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"from");
-                                setlocale(LC_TIME, "POSIX");
+                                day = g_hash_table_new(g_str_hash, g_str_equal);
+                                temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"to");
                                 if (temp_xml_string){
+                                    setlocale(LC_TIME, "POSIX");
                                     strptime((const char*)temp_xml_string, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
                                     setlocale(LC_TIME, "");
                                     memset(buff, 0, sizeof(buff));
                                     strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
                                     g_hash_table_insert(day, "day_name", g_strdup(buff));
+                                    fprintf(stderr,"  Day name %s\n", buff);
                                     /* get 24h date */
                                     memset(buff, 0, sizeof(buff));
                                     setlocale(LC_TIME, "POSIX");
                                     strftime(buff, sizeof(buff) - 1, "%b %d", &tmp_tm);
                                     setlocale(LC_TIME, "");
+                                    fprintf(stderr," BUFF %s\n", buff);
                                     g_hash_table_insert(day, "day_date", g_strdup((char*)buff));
                                     xmlFree(temp_xml_string);
                                  }
@@ -354,15 +356,21 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                                     }
                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *)"windSpeed") ){
                                         temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"mps");
+                                        /* Normalize speed to km/h from m/s */
+                                        /* fprintf(stderr, "Wind  speed    %s\n", temp_buffer); */
+                                        speed = atoi((char*)temp_xml_string);
+                                        speed = speed * 3600/1000;
+                                        memset(buff, 0, sizeof(buff));
+                                        snprintf(buff, sizeof(buff)-1, "%i", speed);
                                         if (period == 0)
-                                            g_hash_table_insert(day, "night_wind_speed", g_strdup((char*)temp_xml_string));
+                                            g_hash_table_insert(day, "night_wind_speed", g_strdup(buff));
                                         if (period == 1)
-                                            g_hash_table_insert(day, "day_wind_speed", g_strdup((char*)temp_xml_string));
+                                            g_hash_table_insert(day, "day_wind_speed", g_strdup(buff));
                                         if (period == 2)
                                             if (!g_hash_table_lookup(day, "day_wind_speed"))
-                                                g_hash_table_insert(day, "day_wind_speed", g_strdup((char*)temp_xml_string));
+                                                g_hash_table_insert(day, "day_wind_speed", g_strdup(buff));
                                         if (period == 3)
-                                            g_hash_table_replace(day, "night_wind_speed", g_strdup((char*)temp_xml_string));
+                                            g_hash_table_replace(day, "night_wind_speed", g_strdup(buff));
                                         xmlFree(temp_xml_string);
                                         continue;
                                     }

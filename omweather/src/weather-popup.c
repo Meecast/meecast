@@ -948,21 +948,31 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
         else
             snprintf(buffer, sizeof(buffer) - 1, "%s: %d \302\260%c", _("Temperature"),
                       hi_temp, symbol);
+        /* day precipitation */
         if(g_hash_table_lookup(day, "day_ppcp")){
             strcat(buffer, _("\nPrecipitation: "));
             snprintf(buffer + strlen(buffer), sizeof(buffer) - 1, "%s%%",
                 (char*)hash_table_find(g_hash_table_lookup(day, "day_ppcp"), FALSE));
         }
-        strcat(buffer, _("\nHumidity: "));
-        if(g_hash_table_lookup(day, "day_humidity") && strcmp(g_hash_table_lookup(day, "day_humidity"), "N/A"))
-            sprintf(buffer + strlen(buffer), "%s%%\n",
-                (char*)g_hash_table_lookup(day, "day_humidity"));
-        else{
-            sprintf(buffer + strlen(buffer), "%s\n",
-                    (char*)hash_table_find("N/A", FALSE));
+        if(g_hash_table_lookup(day, "day_precipitation")){
+            strcat(buffer, _("\nPrecipitation: "));
+            snprintf(buffer + strlen(buffer), sizeof(buffer) - 1, "%s%s",
+                (char*)hash_table_find(g_hash_table_lookup(day, "day_precipitation"), FALSE), _("mm"));
         }
+        /* day humididty */ 
+        if(g_hash_table_lookup(day, "day_humidity")){
+            strcat(buffer, _("\nHumidity: "));
+            if(g_hash_table_lookup(day, "day_humidity") && strcmp(g_hash_table_lookup(day, "day_humidity"), "N/A"))
+                sprintf(buffer + strlen(buffer), "%s%%\n",
+                    (char*)g_hash_table_lookup(day, "day_humidity"));
+            else{
+                sprintf(buffer + strlen(buffer), "%s\n",
+                        (char*)hash_table_find("N/A", FALSE));
+            }
+        }
+        /* day pressure */
         if(g_hash_table_lookup(day, "day_pressure") && strcmp(g_hash_table_lookup(day, "day_pressure"), "N/A")){
-            strcat(buffer, _("Pressure: "));
+            strcat(buffer, _("\nPressure: "));
             tmp_pressure = atof((char*)g_hash_table_lookup(day, "day_pressure"));
             switch(app->config->pressure_units){
                 default:
@@ -977,6 +987,7 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
                          break;
             }
         }
+        /* day wind */
         strcat(buffer, _("Wind: "));
         if(g_hash_table_lookup(day, "day_wind_title") && g_hash_table_lookup(day, "day_wind_speed"))
             switch(app->config->wind_units){
@@ -1070,21 +1081,30 @@ create_day_tab(GHashTable *current, GHashTable *day, gchar **day_name){
     else
         snprintf(buffer, sizeof(buffer) - 1, "%s: %d \302\260%c", _("Temperature"),
                   low_temp, symbol);
+    /* Night precipitation */
     if(g_hash_table_lookup(day, "night_ppcp")){
         strcat(buffer, _("\nPrecipitation: "));
         snprintf(buffer + strlen(buffer), sizeof(buffer) - 1, "%s%%",
             (char*)hash_table_find(g_hash_table_lookup(day, "night_ppcp"), FALSE));
     }
-    strcat(buffer, _("\nHumidity: "));
-    if(g_hash_table_lookup(day, "night_humidity") && strcmp(g_hash_table_lookup(day, "night_humidity"), "N/A"))
-        sprintf(buffer + strlen(buffer), "%s%%\n",
-                (char*)g_hash_table_lookup(day, "night_humidity"));
-    else{
-        sprintf(buffer + strlen(buffer), "%s\n",
-                (char*)hash_table_find("N/A", FALSE));
+    if(g_hash_table_lookup(day, "night_precipitation")){
+            strcat(buffer, _("\nPrecipitation: "));
+            snprintf(buffer + strlen(buffer), sizeof(buffer) - 1, "%s%s",
+                (char*)hash_table_find(g_hash_table_lookup(day, "night_precipitation"), FALSE), _("mm"));
+    }
+    /* night humidity */
+    if(g_hash_table_lookup(day, "night_humidity")){
+        strcat(buffer, _("\nHumidity: "));
+        if(g_hash_table_lookup(day, "night_humidity") && strcmp(g_hash_table_lookup(day, "night_humidity"), "N/A"))
+            sprintf(buffer + strlen(buffer), "%s%%",
+                    (char*)g_hash_table_lookup(day, "night_humidity"));
+        else{
+            sprintf(buffer + strlen(buffer), "%s",
+                    (char*)hash_table_find("N/A", FALSE));
+        }
     }
     if(g_hash_table_lookup(day, "night_pressure") && strcmp(g_hash_table_lookup(day, "night_pressure"), "N/A")){
-        strcat(buffer, _("Pressure: "));
+        strcat(buffer, _("\nPressure: "));
         tmp_pressure = atof((char*)g_hash_table_lookup(day, "night_pressure"));
             switch(app->config->pressure_units){
                 default:

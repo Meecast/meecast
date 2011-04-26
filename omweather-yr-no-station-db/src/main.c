@@ -245,6 +245,7 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                                 /* add day to the days list */
                                 day = g_hash_table_new(g_str_hash, g_str_equal);
                                 temp_xml_string = xmlGetProp(child_node1, (const xmlChar*)"to");
+                                first_day = FALSE;
                                 if (temp_xml_string){
                                     setlocale(LC_TIME, "POSIX");
                                     strptime((const char*)temp_xml_string, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
@@ -252,13 +253,11 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                                     memset(buff, 0, sizeof(buff));
                                     strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
                                     g_hash_table_insert(day, "day_name", g_strdup(buff));
-                                    fprintf(stderr,"  Day name %s\n", buff);
                                     /* get 24h date */
                                     memset(buff, 0, sizeof(buff));
                                     setlocale(LC_TIME, "POSIX");
                                     strftime(buff, sizeof(buff) - 1, "%b %d", &tmp_tm);
                                     setlocale(LC_TIME, "");
-                                    fprintf(stderr," BUFF %s\n", buff);
                                     g_hash_table_insert(day, "day_date", g_strdup((char*)buff));
                                     xmlFree(temp_xml_string);
                                  }
@@ -343,14 +342,14 @@ parse_xml_data(const gchar *station_id, xmlNode *root_node, GHashTable *data){
                                     if(!xmlStrcmp(child_node2->name, (const xmlChar *)"precipitation") ){
                                         temp_xml_string = xmlGetProp(child_node2, (const xmlChar*)"value");
                                         if (period == 0)
-                                            g_hash_table_insert(day, "night_ppcp", g_strdup((char*)temp_xml_string));
+                                            g_hash_table_insert(day, "night_precipitation", g_strdup((char*)temp_xml_string));
                                         if (period == 1)
-                                            g_hash_table_insert(day, "day_ppcp", g_strdup((char*)temp_xml_string));
+                                            g_hash_table_insert(day, "day_precipitation", g_strdup((char*)temp_xml_string));
                                         if (period == 2)
-                                            if (!g_hash_table_lookup(day, "day_ppcp"))
-                                                g_hash_table_insert(day, "day_ppcp", g_strdup((char*)temp_xml_string));
+                                            if (!g_hash_table_lookup(day, "day_precipitation"))
+                                                g_hash_table_insert(day, "day_precipitation", g_strdup((char*)temp_xml_string));
                                         if (period == 3)
-                                            g_hash_table_replace(day, "night_ppcp", g_strdup((char*)temp_xml_string));
+                                            g_hash_table_replace(day, "night_precipitation", g_strdup((char*)temp_xml_string));
                                         xmlFree(temp_xml_string);
                                         continue;
                                     }

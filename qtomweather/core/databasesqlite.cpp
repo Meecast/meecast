@@ -218,7 +218,7 @@ DatabaseSqlite::create_stations_list(int region_id)
     }
     for (int i=0; i<ncol*nrow; i=i+2){
         list->push_back(std::make_pair(result[ncol+i], result[ncol+i+1]));
-        //std::cerr << result[ncol+i] << " - " << result[ncol+i+1] << std::endl;
+        /* std::cerr << result[ncol+i] << " - " << result[ncol+i+1] << std::endl;*/
     }
     sqlite3_free_table(result);
 

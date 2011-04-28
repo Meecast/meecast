@@ -7,4 +7,5 @@
 <detail url="http://www.yr.no/sted/%s/time_for_time.html" />
 <search url="http://xoap.weather.com/search/search?where=%s" />
 <library>libomweather-yr-no-source.so</library>
+<binary>/opt/com.meecast.omweather/lib/yrno</binary>
 </source>

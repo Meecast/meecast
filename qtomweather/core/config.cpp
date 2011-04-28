@@ -247,7 +247,9 @@ namespace Core{
                         converter = el.text();
                     n = n.nextSibling();
                 }
-                
+/* Hack for yr.no */
+                if  (source_name=="yr.no")
+                    forecastURL.replace("_","/");
                 Station *st = new Station(source_name.toStdString(),
                                           station_id.toStdString(),
                                           station_name.toStdString(),

@@ -25,13 +25,13 @@ CONFIG = link_pkgconfig -qt
 PKGCONFIG += libxml-2.0 \
              glib-2.0
 
-db.files = data/gismeteo.ru.db
+db.files = data/yr.no.db
 db.path = /opt/com.meecast.omweather/share/db/
 
-icon.files = data/gismeteo.ru.png
+icon.files = data/yr.no.png
 icon.path = /opt/com.meecast.omweather/share/copyright_icons/
 
-source.files = data/gismeteom.ru.xml
+source.files = data/yr.no.xml
 source.path = /opt/com.meecast.omweather/share/sources/
 
 #install

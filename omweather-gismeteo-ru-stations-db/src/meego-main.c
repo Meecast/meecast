@@ -3,7 +3,6 @@
  * This file is part of omweather-gismeteo-ru-stations-db
  *
  * Copyright (C) 2009-2011 Vlad Vasiliev
- * Copyright (C) 2009 Pavel Fialko
  * 	for the code
  *
  * This software is free software; you can redistribute it and/or
@@ -1509,7 +1508,7 @@ convert_station_gismeteo_data(const gchar *station_id_with_path, const gchar *re
                             //if(get_detail_data)
                             //    days_number = parse_xml_detail_data(buffer2, root_node, data);
                             //else
-                                days_number = parse_and_write_xml_data(buffer2, doc, result_file);
+                            days_number = parse_and_write_xml_data(buffer2, doc, result_file);
                             rename(buffer, station_id_with_path);
                             xmlFreeDoc(doc);
                             xmlCleanupParser();

@@ -500,14 +500,7 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
                            if (station_code[i] == '_')
                               station_code[i] = '/'; 
                 }
-/* TO DO this part of code will move to sources code */
-                if(station_source && (!strcmp(station_source, "gismeteo.ru"))){
-                    new_station_code = get_new_gismeteo_code(station_code, station_source);
-                    snprintf(buffer, sizeof(buffer) - 1,
-                                get_source_forecast_url(app->sources_list, station_source),
-                                                        new_station_code);
-                }else
-                    snprintf(buffer, sizeof(buffer) - 1,
+               snprintf(buffer, sizeof(buffer) - 1,
                                 get_source_forecast_url(app->sources_list, station_source),
                                                         station_code);
                *url = g_strdup(buffer);
@@ -526,16 +519,7 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
                 }
 
 
-/* TO DO move this code to sources libs */
-                if(!strcmp(station_source, "gismeteo.ru")){
-                    new_station_code = get_new_gismeteo_code(station_code, station_source);
-                    snprintf(buffer, sizeof(buffer) - 1,
-                                get_source_detail_url(app->sources_list, station_source),
-                                                        new_station_code);
-                    g_free(new_station_code);
-                }
-                else
-                    snprintf(buffer, sizeof(buffer) - 1,
+                snprintf(buffer, sizeof(buffer) - 1,
                                 get_source_detail_url(app->sources_list, station_source),
                                                         station_code);
 
@@ -544,11 +528,10 @@ get_station_url(gchar **url, gchar **filename, gchar **hour_url,
         }
 
 #ifndef RELEASE
-/*
-      fprintf(stderr, "\n>>>>>>>>>>URL %s", *url);
-      fprintf(stderr, "\n>>>>>>>>>>Hour URL %s\n", *hour_url);
-*/
+ /*     fprintf(stderr, "\n>>>>>>>>>>URL %s", *url); */
+ /*     fprintf(stderr, "\n>>>>>>>>>>Hour URL %s\n", *hour_url); */
 #endif
+
 /* preapare filename */
        /* Adpated for yr.no */
        if(station_source && (!strcmp(station_source, "yr.no") && station_code)){

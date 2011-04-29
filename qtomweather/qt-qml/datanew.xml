@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<short>
+  <item id="1">
+    <dayname>Sunday, 12 Mar</dayname>
+     <temperature_low>-6C</temperature_low>
+     <temperature_high>0C</temperature_high>
+     <icon>../core/data/icons/Meecast/26.png</icon>
+  </item>
+  <item id="2">
+    <dayname>Monday, 13 Mar</dayname>
+     <temperature_low>-6C</temperature_low>
+     <temperature_high>0C</temperature_high>
+     <icon>../core/data/icons/Meecast/26.png</icon>
+  </item>
+<item id="3">
+    <dayname>Tuesday, 14 Mar</dayname>
+     <temperature_low>-6C</temperature_low>
+     <temperature_high>0C</temperature_high>
+     <icon>../core/data/icons/Meecast/26.png</icon>
+  </item>
+<item id="4">
+    <dayname>Wednesday, 15 Mar</dayname>
+     <temperature_low>-6C</temperature_low>
+     <temperature_high>0C</temperature_high>
+     <icon>../core/data/icons/Meecast/14.png</icon>
+  </item>
+<item id="5">
+    <dayname>Thursday, 16 Mar</dayname>
+     <temperature_low>-6C</temperature_low>
+     <temperature_high>0C</temperature_high>
+     <icon>../core/data/icons/Meecast/14.png</icon>
+  </item>
+
+</short>
+</data>   

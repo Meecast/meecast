@@ -223,7 +223,7 @@ namespace Core {
 ////////////////////////////////////////////////////////////////////////////////
     time_t
     Data::GetTimeDistance(time_t need_time){
-        if(_end_time > need_time && _start_time < need_time)
+        if(_end_time >= need_time && _start_time < need_time)
             return (_end_time - _start_time);
         else
             return -1;

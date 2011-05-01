@@ -236,15 +236,15 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node,  const gch
                     setlocale(LC_TIME, "");
                     memset(buff, 0, sizeof(buff));
                     strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
-                    utc_time = mktime(&tmp_tm) + timezone * 3600;
+                    utc_time = mktime(&tmp_tm) - timezone * 3600;
                     fprintf(file_out,"    <period start=\"%li\" end=\"%l\"", utc_time, utc_time + 24*3600);
                     setlocale(LC_TIME, "POSIX");
                     strptime((const char*)temp_xml_string, "%Y-%m-%dT%H:%M:%S", &tmp_tm);
                     setlocale(LC_TIME, "");
                     memset(buff, 0, sizeof(buff));
                     strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
-                    utc_time = mktime(&tmp_tm) + timezone * 3600;
-                    end_of_first_day = mktime(&tmp_tm) + timezone * 3600 + 24*3600+1;
+                    utc_time = mktime(&tmp_tm) - timezone * 3600;
+                    end_of_first_day = mktime(&tmp_tm) - timezone * 3600 + 24*3600+1;
                     fprintf(file_out,"    <sunrise> %li <sunirise>", utc_time);
                     xmlFree(temp_xml_string);
                     if (temp_xml_string){
@@ -254,7 +254,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node,  const gch
                         setlocale(LC_TIME, "");
                         memset(buff, 0, sizeof(buff));
                         strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
-                        utc_time = mktime(&tmp_tm) + timezone * 3600;
+                        utc_time = mktime(&tmp_tm) - timezone * 3600;
                         fprintf(file_out,"    <sunset> %li <sunset>", utc_time);
                         xmlFree(temp_xml_string);
                     }
@@ -293,7 +293,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node,  const gch
                             setlocale(LC_TIME, "");
                             memset(buff, 0, sizeof(buff));
                             strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
-                            utc_time = mktime(&tmp_tm) + timezone * 3600;
+                            utc_time = mktime(&tmp_tm) - timezone * 3600;
                             /* increase past time for first forecast data */ 
                             if (first_day){
                                 first_day = FALSE;
@@ -308,7 +308,7 @@ parse_and_write_xml_data(const gchar *station_id, xmlNode *root_node,  const gch
                                 setlocale(LC_TIME, "");
                                 memset(buff, 0, sizeof(buff));
                                 strftime(buff, sizeof(buff) - 1, "%a", &tmp_tm);
-                                utc_time = mktime(&tmp_tm) + timezone * 3600;
+                                utc_time = mktime(&tmp_tm) - timezone * 3600;
                                 fprintf(file_out," end=\"%li\">\n", utc_time); 
                                 xmlFree(temp_xml_string);
                             }

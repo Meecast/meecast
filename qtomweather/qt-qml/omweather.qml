@@ -4,6 +4,34 @@ Rectangle {
     id: window
     width: 800
     height: 480
+    Rectangle {
+        id: buttons
+        width: 800
+        height: 80
+        color: "blue"
+        anchors.top: parent.top
+
+    }
+    Rectangle {
+        width: 800
+        height: 400
+        anchors.top: buttons.bottom
+        id: main
+
+
+    Loader {
+        id: uiloader
+
+        function handleGoBack()
+        {
+            source = "";
+            list.visible = true;
+        }
+        onItemChanged: {
+            if (item && item.goBack)
+                item.goBack.connect(handleGoBack);
+        }
+    }
 
     XmlListModel {
         id: xmlModel
@@ -18,8 +46,6 @@ Rectangle {
     }
     Component {
         id: itemDelegate
-
-
 
         Item {
             id: day
@@ -64,6 +90,16 @@ Rectangle {
                 color: "white"
                 font.pointSize: 14
             }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    uiloader.source = "Details.qml";
+                    list.visible = false;
+                    uiloader.item.item_id = id;
+                }
+                hoverEnabled: true
+
+            }
 
         }
 
@@ -76,5 +112,6 @@ Rectangle {
         model: xmlModel
         delegate: itemDelegate
 
+    }
     }
 }

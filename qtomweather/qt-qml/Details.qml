@@ -3,9 +3,16 @@ import Qt 4.7
 Rectangle {
     id: details
     color: "yellow"
-    //width: 600
-    //height: 400
+    width: 800
+    height: 400
+    signal goBack()
+
+
     property int item_id: 0
+    Text {
+        text: "detail window " + item_id
+    }
+    /*
     function show(id)
     {
         details.opacity = 1;
@@ -38,8 +45,6 @@ Rectangle {
         anchors.topMargin: 10
         Text {text: qsTr("Temperature") + ": " + Forecast_model.getRow(details.item_id, "temp_low") + " .. " +
               Forecast_model.getRow(details.item_id, "temp_high")}
-        /*Text {text: (Forecast_model.getRow(details.item_id, "flike") != "N/A") ?
-              (qsTr("Flike") + ": " + Forecast_model.getRow(details.item_id, "flike")) : ""}*/
         Text {text: Forecast_model.getRow(details.item_id, "description") }
         Text {text: qsTr("Humidity") + ": " + Forecast_model.getRow(details.item_id, "humidity") }
         Text {text: qsTr("Wind") + ": " + Forecast_model.getRow(details.item_id, "wind_direction")}
@@ -52,10 +57,10 @@ Rectangle {
         Text {text: (Forecast_model.getRow(details.item_id, "pressure") != "N/A") ?
               (qsTr("Pressure") + ": " + Forecast_model.getRow(details.item_id, "pressure")) : ""}
     }
-
+*/
     MouseArea
     {
         anchors.fill: parent
-        onClicked: hide()
+        onClicked: details.goBack()
     }
 }

@@ -33,4 +33,72 @@
   </item>
 
 </short>
+<details>
+<item id="1">
+     <temperature_hi>-1 C</temperature_hi>
+     <temperature_low>-7 C</temperature_low>
+     <wind_speed>14 m/s</wind_speed>
+     <wind_direction>WSW</wind_direction>
+     <humidity>78%</humidity>
+     <pressure>989.8%</pressure>
+     <pressure_direction>N/A</pressure_direction>
+     <description>Cloudy</description>
+     <flike>-6 C</flike>
+     <icon>26</icon>
+     <visible>10.0 m</visible>
+</item>
+<item id="2">
+     <temperature_hi>-1 C</temperature_hi>
+     <temperature_low>-7 C</temperature_low>
+     <wind_speed>14 m/s</wind_speed>
+     <wind_direction>WSW</wind_direction>
+     <humidity>78%</humidity>
+     <pressure>989.8%</pressure>
+     <pressure_direction>N/A</pressure_direction>
+     <description>Cloudy</description>
+     <flike>-6 C</flike>
+     <icon>26</icon>
+     <visible>10.0 m</visible>
+</item>
+<item id="3">
+     <temperature_hi>-1 C</temperature_hi>
+     <temperature_low>-7 C</temperature_low>
+     <wind_speed>14 m/s</wind_speed>
+     <wind_direction>WSW</wind_direction>
+     <humidity>78%</humidity>
+     <pressure>989.8%</pressure>
+     <pressure_direction>N/A</pressure_direction>
+     <description>Cloudy</description>
+     <flike>-6 C</flike>
+     <icon>26</icon>
+     <visible>10.0 m</visible>
+</item>
+<item id="4">
+     <temperature_hi>-1 C</temperature_hi>
+     <temperature_low>-7 C</temperature_low>
+     <wind_speed>14 m/s</wind_speed>
+     <wind_direction>WSW</wind_direction>
+     <humidity>78%</humidity>
+     <pressure>989.8%</pressure>
+     <pressure_direction>N/A</pressure_direction>
+     <description>Cloudy</description>
+     <flike>-6 C</flike>
+     <icon>26</icon>
+     <visible>10.0 m</visible>
+</item>
+<item id="5">
+     <temperature_hi>-1 C</temperature_hi>
+     <temperature_low>-7 C</temperature_low>
+     <wind_speed>14 m/s</wind_speed>
+     <wind_direction>WSW</wind_direction>
+     <humidity>78%</humidity>
+     <pressure>989.8%</pressure>
+     <pressure_direction>N/A</pressure_direction>
+     <description>Cloudy</description>
+     <flike>-6 C</flike>
+     <icon>26</icon>
+     <visible>10.0 m</visible>
+</item>
+
+</details>
 </data>   

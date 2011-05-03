@@ -34,6 +34,26 @@ Rectangle {
     }
 
     XmlListModel {
+        id: currentxmlModel
+        source: "datanew.xml"
+        query: "/data/item[@current='true'][1]"
+
+        XmlRole {name: "dayname"; query: "dayname/string()"}
+        XmlRole {name: "temperature_low"; query: "temperature_low/string()"}
+        XmlRole {name: "temperature_high"; query: "temperature_hi/string()"}
+        XmlRole {name: "temperature"; query: "temperature/string()"}
+        XmlRole {name: "icon"; query: "icon/string()"}
+        XmlRole {name: "wind_speed"; query: "wind_speed/string()"}
+        XmlRole {name: "wind_direction"; query: "wind_direction/string()"}
+        XmlRole {name: "humidity"; query: "humidity/string()"}
+        XmlRole {name: "description"; query: "description/string()"}
+        XmlRole {name: "id_item"; query: "@id/number()"}
+        //XmlRole {name: "current"; query:  "@current/boolean()"}
+    }
+    Text {text:  "count = " + currentxmlModel.count}
+
+
+    XmlListModel {
         id: xmlModel
         source: "datanew.xml"
         query: "/data/short/item"
@@ -44,6 +64,7 @@ Rectangle {
         XmlRole {name: "icon"; query: "icon/string()"}
         XmlRole {name: "id"; query: "@id/number()"}
     }
+
     Component {
         id: itemDelegate
 

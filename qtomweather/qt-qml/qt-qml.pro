@@ -37,7 +37,8 @@ OTHER_FILES += \
     Details.qml \
     ImageButton.qml \
     TextButton.qml \
-    omweather.qml
+    omweather.qml \
+    omweatherpanel.qml
 
 CONFIG(localdebug):DEFINES += LOCALDEBUG
 

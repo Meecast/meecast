@@ -1,104 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
-<short>
-  <item id="1">
-    <dayname>Sunday, 12 Mar</dayname>
-     <temperature_low>-6C</temperature_low>
-     <temperature_high>0C</temperature_high>
-     <icon>../core/data/icons/Meecast/26.png</icon>
-  </item>
-  <item id="2">
-    <dayname>Monday, 13 Mar</dayname>
-     <temperature_low>-6C</temperature_low>
-     <temperature_high>0C</temperature_high>
-     <icon>../core/data/icons/Meecast/26.png</icon>
-  </item>
-<item id="3">
-    <dayname>Tuesday, 14 Mar</dayname>
-     <temperature_low>-6C</temperature_low>
-     <temperature_high>0C</temperature_high>
-     <icon>../core/data/icons/Meecast/26.png</icon>
-  </item>
-<item id="4">
-    <dayname>Wednesday, 15 Mar</dayname>
-     <temperature_low>-6C</temperature_low>
-     <temperature_high>0C</temperature_high>
-     <icon>../core/data/icons/Meecast/14.png</icon>
-  </item>
-<item id="5">
-    <dayname>Thursday, 16 Mar</dayname>
-     <temperature_low>-6C</temperature_low>
-     <temperature_high>0C</temperature_high>
-     <icon>../core/data/icons/Meecast/14.png</icon>
-  </item>
-
-</short>
-<details>
-<item id="1">
-     <temperature_hi>-1 C</temperature_hi>
-     <temperature_low>-7 C</temperature_low>
-     <wind_speed>14 m/s</wind_speed>
+    <item id="1" current="true">
+    <dayname>12 Mar Monday</dayname>
+     <temperature>-6</temperature>
+     <wind_speed>14</wind_speed>
      <wind_direction>WSW</wind_direction>
-     <humidity>78%</humidity>
-     <pressure>989.8%</pressure>
+     <humidity>78</humidity>
+     <pressure>989.8</pressure>
      <pressure_direction>N/A</pressure_direction>
      <description>Cloudy</description>
-     <flike>-6 C</flike>
-     <icon>26</icon>
-     <visible>10.0 m</visible>
-</item>
-<item id="2">
-     <temperature_hi>-1 C</temperature_hi>
-     <temperature_low>-7 C</temperature_low>
-     <wind_speed>14 m/s</wind_speed>
+     <flike>-6</flike>
+     <icon>../../icons/Meecast/26.png</icon>
+     <visible>10.0</visible>
+    </item>
+    <item id="2">
+    <dayname>12 Mar Monday</dayname>
+     <temperature>-6</temperature>
+     <wind_speed>21</wind_speed>
      <wind_direction>WSW</wind_direction>
-     <humidity>78%</humidity>
-     <pressure>989.8%</pressure>
-     <pressure_direction>N/A</pressure_direction>
-     <description>Cloudy</description>
-     <flike>-6 C</flike>
-     <icon>26</icon>
-     <visible>10.0 m</visible>
-</item>
-<item id="3">
-     <temperature_hi>-1 C</temperature_hi>
-     <temperature_low>-7 C</temperature_low>
-     <wind_speed>14 m/s</wind_speed>
+     <humidity>82</humidity>
+     <ppcp>40</ppcp>
+     <description>Light Snow Early</description>
+     <icon>../../icons/Meecast/26.png</icon>
+    </item>
+    <item id="3">
+    <dayname>12 Mar Monday</dayname>
+     <temperature>-6</temperature>
      <wind_direction>WSW</wind_direction>
-     <humidity>78%</humidity>
-     <pressure>989.8%</pressure>
-     <pressure_direction>N/A</pressure_direction>
-     <description>Cloudy</description>
-     <flike>-6 C</flike>
-     <icon>26</icon>
-     <visible>10.0 m</visible>
-</item>
-<item id="4">
-     <temperature_hi>-1 C</temperature_hi>
-     <temperature_low>-7 C</temperature_low>
-     <wind_speed>14 m/s</wind_speed>
+     <ppcp>40</ppcp>
+     <description>N/A</description>
+     <icon>../../icons/Meecast/26.png</icon>
+    </item>
+    <item id="4">
+    <dayname>12 Mar Monday</dayname>
+     <temperature>-6</temperature>
+     <wind_speed>21</wind_speed>
      <wind_direction>WSW</wind_direction>
-     <humidity>78%</humidity>
-     <pressure>989.8%</pressure>
-     <pressure_direction>N/A</pressure_direction>
-     <description>Cloudy</description>
-     <flike>-6 C</flike>
-     <icon>26</icon>
-     <visible>10.0 m</visible>
-</item>
-<item id="5">
-     <temperature_hi>-1 C</temperature_hi>
-     <temperature_low>-7 C</temperature_low>
-     <wind_speed>14 m/s</wind_speed>
-     <wind_direction>WSW</wind_direction>
-     <humidity>78%</humidity>
-     <pressure>989.8%</pressure>
-     <pressure_direction>N/A</pressure_direction>
-     <description>Cloudy</description>
-     <flike>-6 C</flike>
-     <icon>26</icon>
-     <visible>10.0 m</visible>
-</item>
-
-</details>
+     <humidity>82</humidity>
+     <ppcp>40</ppcp>
+     <description>Light Snow Early</description>
+     <icon>../../icons/Meecast/26.png</icon>
+    </item>
+    <item id="5">
+    <dayname>12 Mar Monday</dayname>
+     <temperature_hi>-1</temperature_hi>
+     <temperature_low>-7</temperature_low>
+     <wind_speed>23</wind_speed>
+     <wind_direction>NNW</wind_direction>
+     <humidity>82</humidity>
+     <ppcp>20</ppcp>
+     <description>Mostly Cloudy</description>
+     <icon>../../icons/Meecast/26.png</icon>
+    </item>
+    <item id="6">
+    <dayname>12 Mar Monday</dayname>
+     <temperature_hi>-1</temperature_hi>
+     <temperature_low>-7</temperature_low>
+     <wind_speed>29</wind_speed>
+     <wind_direction>WNW</wind_direction>
+     <humidity>81</humidity>
+     <ppcp>20</ppcp>
+     <description>Mostly Cloudy / Wind</description>
+     <icon>../../icons/Meecast/26.png</icon>
+    </item>
 </data>   

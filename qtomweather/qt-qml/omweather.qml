@@ -21,11 +21,11 @@ Rectangle {
 
     Loader {
         id: uiloader
-
+        anchors.fill: parent
         function handleGoBack()
         {
             source = "";
-            list.visible = true;
+            columnlist.visible = true;
         }
         onItemChanged: {
             if (item && item.goBack)
@@ -48,34 +48,28 @@ Rectangle {
         XmlRole {name: "humidity"; query: "humidity/string()"}
         XmlRole {name: "description"; query: "description/string()"}
         XmlRole {name: "id_item"; query: "@id/number()"}
-        XmlRole {name: "current"; query:  "@current/boolean()"}
+        //XmlRole {name: "current"; query:  "@current/boolean()"}
     }
     Item {
-        Text {text:  count(currentxmlModel)}
+        Text {text: currentxmlModel.count}
     }
 
     XmlListModel {
         id: xmlModel
         source: "datanew.xml"
-        query: "/data/item"
+        query: "/data/item[not(@current)]"
 
         XmlRole {name: "dayname"; query: "dayname/string()"}
         XmlRole {name: "temperature_low"; query: "temperature_low/string()"}
         XmlRole {name: "temperature_high"; query: "temperature_hi/string()"}
         XmlRole {name: "temperature"; query: "temperature/string()"}
         XmlRole {name: "icon"; query: "icon/string()"}
-        XmlRole {name: "wind_speed"; query: "wind_speed/string()"}
-        XmlRole {name: "wind_direction"; query: "wind_direction/string()"}
-        XmlRole {name: "humidity"; query: "humidity/string()"}
-        XmlRole {name: "description"; query: "description/string()"}
         XmlRole {name: "id_item"; query: "@id/number()"}
-        XmlRole {name: "current"; query:  "@current/boolean()"}
     }
     Component {
         id: itemDelegate
         Item {
             id: day
-
             width: list.cellWidth
             height: list.cellHeight
 
@@ -120,8 +114,11 @@ Rectangle {
                 anchors.fill: parent
                 onClicked: {
                     uiloader.source = "Details.qml";
-                    list.visible = false;
+                    //list.visible = false;
+                    columnlist.visible = false
                     uiloader.item.item_id = id_item;
+                    //uiloader.item.width = frontItemOmweather.width
+                    //uiloader.item.height = frontItemOmweather.height
                 }
                 hoverEnabled: true
 
@@ -131,13 +128,64 @@ Rectangle {
 
     }
 
-    GridView {
-        id: list
-        anchors.fill: parent
-        cellWidth: parent.width/2; cellHeight: 120
-        model: xmlModel
-        delegate: itemDelegate
+    Component {
+        id: itemDelegateFull
+        Item {
+            Image {
+                id: forecast_icon
+                source: icon
+                anchors.top: parent.top
+                anchors.topMargin: 20
+                anchors.leftMargin: 20
+                anchors.left: parent.left
+            }
+            Column {
+                spacing: 5
+                anchors.right: parent.right
+                anchors.left: forecast_icon.right
+                anchors.top: forecast_icon.top
+                anchors.topMargin: 10
 
+                Text {text: qsTr("Temperature") + ": " + (temperature) ? temperature : (temperature_low + " : " + temperature_high)}
+                Text {text: description }
+                Text {text: qsTr("Humidity") + ": " + humidity }
+                Text {text: qsTr("Wind") + ": " + wind_direction}
+                Text {text: qsTr("Speed") + ": " + wind_speed}
+                Text {text: (wind_gust != "N/A") ?
+                      (qsTr("Wind gust") + ": " + wind_gust) : ""}
+
+                Text {text: (ppcp != "N/A") ?
+                      (qsTr("Ppcp") + ": " + ppcp) : ""}
+                Text {text: (pressure != "N/A") ?
+                      (qsTr("Pressure") + ": " + pressure) : ""}
+
+            }
+        }
+    }
+    Column {
+        id: columnlist
+        anchors.fill: parent
+
+        ListView {
+            id: currentlist
+            model: currentxmlModel
+            delegate: itemDelegateFull
+            //anchors.top: parent.top
+            //anchors.left: parent.left
+            width: parent.width
+            height: 200
+        }
+        GridView {
+            id: list
+
+            //anchors.top: currentlist.bottom
+            cellWidth: parent.width/2; cellHeight: 120
+            model: xmlModel
+            delegate: itemDelegate
+            width: parent.width
+            height: parent.height - 200
+            //anchors.fill: parent
+        }
     }
     }
 }

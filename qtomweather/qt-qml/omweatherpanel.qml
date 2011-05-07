@@ -34,12 +34,11 @@ FlipPanel {
 
             Loader {
                 id: uiloader
-
+                anchors.fill: parent
                 function handleGoBack()
                 {
                     source = "";
                     columnlist.visible = true;
-                    //list.visible = true
                 }
                 onItemChanged: {
                     if (item && item.goBack)
@@ -65,13 +64,13 @@ FlipPanel {
                 //XmlRole {name: "current"; query:  "@current/boolean()"}
             }
             Item {
-                Text {text:  count(currentxmlModel)}
+                Text {text: currentxmlModel.count}
             }
 
             XmlListModel {
                 id: xmlModel
                 source: "datanew.xml"
-                query: "/data/item"
+                query: "/data/item[not(@current)]"
 
                 XmlRole {name: "dayname"; query: "dayname/string()"}
                 XmlRole {name: "temperature_low"; query: "temperature_low/string()"}
@@ -131,8 +130,8 @@ FlipPanel {
                             //list.visible = false;
                             columnlist.visible = false
                             uiloader.item.item_id = id_item;
-                            uiloader.item.width = frontItemOmweather.width
-                            uiloader.item.height = frontItemOmweather.height
+                            //uiloader.item.width = frontItemOmweather.width
+                            //uiloader.item.height = frontItemOmweather.height
                         }
                         hoverEnabled: true
 
@@ -184,15 +183,15 @@ FlipPanel {
                     id: currentlist
                     model: currentxmlModel
                     delegate: itemDelegateFull
-                    anchors.top: parent.top
-                    anchors.left: parent.left
+                    //anchors.top: parent.top
+                    //anchors.left: parent.left
                     width: parent.width
                     height: 200
                 }
                 GridView {
                     id: list
 
-                    anchors.top: currentlist.bottom
+                    //anchors.top: currentlist.bottom
                     cellWidth: parent.width/2; cellHeight: 120
                     model: xmlModel
                     delegate: itemDelegate

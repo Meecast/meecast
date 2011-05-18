@@ -3,6 +3,6 @@
     <name>Google Weather API</name>
     <logo>googleapi.png</logo>
     <base>googleapi.db</base>
-    <forecast url="http://www.google.com/ig/api?weather=%s&hl=en-gb" />
+    <forecast url="http://www.google.com/ig/api?weather=%s&amp;hl=en-gb"/>
     <binary>/opt/com.meecast.omweather/lib/googleapi.py</binary>
 </source>

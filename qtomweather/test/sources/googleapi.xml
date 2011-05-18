@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<source xmlns="https://garage.maemo.org/projects/omweather/">
+    <name>Google Weather API</name>
+    <logo>googleapi.png</logo>
+    <base>googleapi.db</base>
+    <forecast url="http://www.google.com/ig/api?weather=%s&hl=en-gb" />
+    <binary>/opt/com.meecast.omweather/lib/googleapi.py</binary>
+</source>

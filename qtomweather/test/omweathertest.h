@@ -53,7 +53,8 @@ class OmweatherTest : public CxxTest::TestSuite{
         void testDownloader(void){
             Core::Downloader *d = NULL;
             TS_ASSERT_THROWS_NOTHING(d = new Core::Downloader);
-            TS_ASSERT(d->get("http://www.ru/index.html", "/tmp/tmp.html") == 1);
+//            TS_ASSERT(d->get("http://www.ru/index.html", "/tmp/tmp.html") == 1);
+            TS_ASSERT(d->downloadData("http://www.ru/index.html", "/tmp/tmp.html") == 1);
         }
 
     private:
@@ -64,10 +65,10 @@ class OmweatherTest : public CxxTest::TestSuite{
             Core::Data *wdata = new Core::Data;
             wdata->StartTime(time(NULL) - 3600);
             wdata->EndTime(time(NULL) + 3600);
-            wdata->temperature_hi().value(23.0);
-            wdata->temperature_low().value(15.0);
-            wdata->Flike().value(18.0);
-            wdata->WindSpeed(3.0);
+            //wdata->temperature_hi().value(23.0);
+            //wdata->temperature_low().value(15.0);
+            //wdata->Flike().value(18.0);
+            //wdata->WindSpeed(3.0);
             wdata->WindGust(4.0);
             wdata->WindDirection(std::string("NNW"));
             wdata->Icon(3);
@@ -96,11 +97,11 @@ class OmweatherTest : public CxxTest::TestSuite{
             end_current_day = mktime(tm);
             wdata->StartTime(begin_current_day);
             wdata->EndTime(end_current_day);
-            wdata->temperature_low().value(20.0);
-            wdata->temperature_hi().value(10.0);
-            wdata->Flike().value(17.0);
+            //wdata->temperature_low().value(20.0);
+            //wdata->temperature_hi().value(10.0);
+            //wdata->Flike().value(17.0);
             wdata->WindGust(2.8);
-            wdata->WindSpeed(2.4);
+            //wdata->WindSpeed(2.4);
             wdata->Humidity(845);
             wdata->Icon(4);
             wdata->Text(std::string("Cloudy"));

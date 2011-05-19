@@ -4,8 +4,12 @@ DESTDIR = .
 VPATH = ../core
 INCLUDEPATH += ../core
 CONFIG += link_pkgconfig
-PKGCONFIG += libxml++-2.6 libcurl
-LIBS += -L ../core -lomweather-core
+PKGCONFIG += libxml++-2.6 libcurl \
+             QtCore \
+             QtXml
+
+#LIBS += -L ../core -lomweather-core
+LIBS += -L ../core  ../core/libomweather-core.a
 TEST_HEADERS += omweathertest.h
 alltests.target = omweathertest.cpp
 alltests.commands = cxxtestgen.pl --error-printer -o omweathertest.cpp $$TEST_HEADERS

@@ -73,7 +73,6 @@ for element in doc.iter("forecast_conditions"):
     periodstart = periodend
     periodend = periodstart + 86400
     for child in element:
-        #print("%s = %s" % (child.tag, child.get("data")))
         if child.tag == "high":
             etree.SubElement(period, "temperature_hi").text = child.get("data")
         if child.tag == "low":

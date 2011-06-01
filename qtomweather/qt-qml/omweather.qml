@@ -55,8 +55,8 @@ Rectangle {
     }
 
     XmlListModel {
-        id: xmlModel
-        source: "datanew.xml"
+        id: forecastModel
+        source: "data.xml"
         query: "/data/item[not(@current)]"
 
         XmlRole {name: "dayname"; query: "dayname/string()"}
@@ -80,7 +80,6 @@ Rectangle {
 
 
             }
-            Text {text:  id_item}
             Text {
                 id: day_name
                 text: dayname
@@ -88,8 +87,6 @@ Rectangle {
                 font.pointSize: 14
                 anchors.left: parent.left
                 anchors.leftMargin: 20
-                //anchors.centerIn: parent
-                //anchors.top: parent.top
             }
 
             Image {
@@ -98,8 +95,6 @@ Rectangle {
                 width: 80
                 height: 80
                 anchors.top: day_name.bottom
-                //anchors.topMargin: 20
-                //anchors.leftMargin: 5
                 anchors.left: parent.left
             }
             Text {
@@ -170,21 +165,16 @@ Rectangle {
             id: currentlist
             model: currentxmlModel
             delegate: itemDelegateFull
-            //anchors.top: parent.top
-            //anchors.left: parent.left
             width: parent.width
             height: 200
         }
         GridView {
-            id: list
-
-            //anchors.top: currentlist.bottom
+            id: forecast_list
             cellWidth: parent.width/2; cellHeight: 120
-            model: xmlModel
+            model: forecastModel
             delegate: itemDelegate
             width: parent.width
             height: parent.height - 200
-            //anchors.fill: parent
         }
     }
     }

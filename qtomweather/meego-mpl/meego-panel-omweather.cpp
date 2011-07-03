@@ -571,7 +571,7 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
 
   /* stub rectangle */
   rectangle = clutter_rectangle_new();
-  clutter_actor_set_size(rectangle, 10, 30);
+  clutter_actor_set_size(rectangle, 10, 20);
   clutter_box_pack((ClutterBox*)hbox, rectangle, NULL);
   /* Day period */
   label = clutter_text_new();
@@ -595,7 +595,7 @@ make_forecast_detail_box(Core::Data *temp_data, int period){
   }
   clutter_box_pack((ClutterBox*)hbox, label, NULL);
   clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(hbox_layout), label, 
-			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_START);
+			    CLUTTER_BOX_ALIGNMENT_START, CLUTTER_BOX_ALIGNMENT_CENTER);
 
   clutter_box_pack((ClutterBox*)vertical_container, hbox, NULL);
   clutter_box_layout_set_alignment(CLUTTER_BOX_LAYOUT(vertical_layout), hbox, 

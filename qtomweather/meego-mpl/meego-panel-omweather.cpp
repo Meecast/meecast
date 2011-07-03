@@ -414,7 +414,7 @@ make_bottom_content_about() {
   about_text += _("Copyright(c) 2010-2011 by Tanya Makova\n");
   about_text += _("Author and maintenance: Vlad Vasilyeu, <vlad@gas.by>\n");
   about_text += _("Maintenance: Pavel Fialko, <pavelnf@gmail.com>, Tanya Makova, <tanyshk@gmail.com>\n");
-  about_text += _("Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <az@pocketpcrussia.com>\n");
+  about_text += _("Design UI and default iconset: Copyright 2006-2011 Andrew Zhilin, <andrew.zhilin@ovi.com>\n");
   about_text += _("Grzanka's Iconset: Copyright 2005 by Wojciech Grzanka, <wojciech@grzanka.pl>");
   pfd = clutter_text_get_font_description(CLUTTER_TEXT(label));
   pango_font_description_set_size(pfd, pango_font_description_get_size(pfd) * 1.0);

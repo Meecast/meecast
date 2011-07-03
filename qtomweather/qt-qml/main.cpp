@@ -130,9 +130,10 @@ int main(int argc, char* argv[])
                                                                 Core::AbstractConfig::sharePath + 
                                                                 Core::AbstractConfig::layoutqml)));
     qview->show();
-    
+    /*This code provide Segmantation fault
     delete dadapt;
     delete controller;
+    */
     return app.exec();
    
 }

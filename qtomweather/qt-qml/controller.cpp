@@ -108,7 +108,7 @@ Controller::load_data()
   if (_dp)
       delete _dp;
   _dp = NULL;
-  std::cout<<"Data";
+  std::cout<<"Data"<<std::endl;
   if (_config->current_station_id() != INT_MAX && _config->stationsList().size() > 0 &&
         _config->stationsList().at(_config->current_station_id()))
         _dp = current_data(_config->stationsList().at(_config->current_station_id())->fileName());

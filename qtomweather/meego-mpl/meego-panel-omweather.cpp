@@ -824,6 +824,7 @@ make_bottom_content(Core::Data *temp_data) {
       if (bottom_container)
           clutter_actor_destroy(bottom_container);
   }
+
   /* To do Display message */
   if (!temp_data)
       return;
@@ -883,7 +884,7 @@ make_bottom_content(Core::Data *temp_data) {
 
   /* added night weather forecast */ 
   if (!temp_data->Current()){
-      if (temp_data->StartTime() - temp_data->EndTime() > 8*3600)
+      if (temp_data->EndTime() - temp_data->StartTime() > 8*3600)
           temp_data = dp->data().GetDataForTime(temp_data->EndTime() + 3600);
       else
           temp_data = dp->data().GetDataForTime(temp_data->StartTime() + 13*3600);
@@ -894,7 +895,6 @@ make_bottom_content(Core::Data *temp_data) {
             temp_data->temperature_low().units(config->TemperatureUnit());
           if (temp_data->temperature().value() != INT_MAX)
             temp_data->temperature().units(config->TemperatureUnit());
-
           box =  make_forecast_detail_box(temp_data, NIGHT);
           clutter_actor_set_size(box, 511, -1);
           clutter_box_pack((ClutterBox*)hbox, box,

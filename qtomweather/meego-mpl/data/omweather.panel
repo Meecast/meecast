@@ -1,0 +1,5 @@
+[Panel]
+DisplayName=Omweather
+Path=/opt/com.meecast.omweather/share/omweather/qml/omweatherpanel.qml
+DefaultIndex=6
+Color=purple

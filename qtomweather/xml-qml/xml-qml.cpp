@@ -71,7 +71,7 @@ GHashTable *hash_table_create(void) {
  * script get_reserved_word.pl like this:
  * cat BOXX0014.xml USCA0001.xml > |./get_reserved_word.pl
 */
-#include "../meego-mpl/hash.data"
+#include "../netbook-UX/hash.data"
     return hash;
 }
 

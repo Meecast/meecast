@@ -52,8 +52,6 @@ css.files = data/omweather-panel.css
 css.path = /opt/com.meecast.omweather/share/meego-panel-omweather/theme
 service.files = data/com.meego.UX.Shell.Panels.omweather.service
 service.path = /usr/share/dbus-1/services
-panel.files = data/omweather.panel
-panel.path = /usr/share/meego-ux-panels/panels
 
-INSTALLS += target desktop autostart css service panel
+INSTALLS += target desktop autostart css service
 

@@ -87,7 +87,7 @@ create_and_fill_config(){
                                Core::AbstractConfig::prefix+
                                Core::AbstractConfig::schemaPath+
                                "config.xsd");
-        std::cerr << config->stationsList().size() << std::endl;
+        std::cerr << "count station:" << config->stationsList().size() << std::endl;
     }
     catch(const std::string &str){
         std::cerr<<"Error in Config class: "<< str <<std::endl;
@@ -164,9 +164,10 @@ main (int argc, char *argv[])
   translate_hash = hash_table_create();
   /* prepairing icon */
   if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 &&
-      config->stationsList().at(config->current_station_id()))
+      config->stationsList().at(config->current_station_id())){
       dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
-
+      std::cerr << config->stationsList().at(config->current_station_id())->fileName() << std::endl;
+  }
   if (dp)
       temp_data = dp->data().GetDataForTime(time(NULL));
   if (temp_data)

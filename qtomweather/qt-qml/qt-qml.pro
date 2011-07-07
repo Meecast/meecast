@@ -55,8 +55,6 @@ INSTALLS += target
 
 desktop.files = omweather.desktop
 desktop.path = /usr/share/applications
-panel.files = data/tablet-ux/omweather.desktop
-panel.path = /usr/share/meego-ux-panels/panels
 icon64.path = /usr/share/pixmaps
 icon64.files += omweather.png
 qml.files = *.qml

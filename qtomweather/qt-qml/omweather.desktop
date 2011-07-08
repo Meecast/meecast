@@ -2,7 +2,7 @@
 Name=Omweather
 GenericName=Other Maemo Weather
 Comment=Other Maemo Weather
-Exec=omweather-qml
+Exec=/opt/com.meecast.omweather/bin/omweather-qml
 Icon=omweather
 Terminal=false
 Type=Application

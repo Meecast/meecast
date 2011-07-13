@@ -1,3 +1,9 @@
+omweather-weather-com-stations-db (1.0.4) unstable; urgency=low
+
+  * Added Cote D' Ivoire's stations
+
+ --  Vlad Vasiliev <vlad@gas.by>  Wen, 13 Jul 2011 23:14:31 +0200
+
 omweather-weather-com-stations-db (1.0.3) unstable; urgency=low
 
   * Updated weather stations for Russia

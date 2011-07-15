@@ -150,13 +150,37 @@ save_xml(Core::Data *data)
         //std::cerr << doc.toString().toStdString() << std::endl;
         file.close();
 }
+QDomElement
+make_item(QDomDocument doc, Core::Data *data, int num, bool current)
+{
+    QDomElement item = doc.createElement("item");
+    item.setAttribute("id", num);
+    if (current)
+        item.setAttribute("current", "true");
+
+    QDomElement el = doc.createElement("dayname");
+    QDomText t = doc.createTextNode(QString::fromStdString(data->ShortDayName()));
+    el.appendChild(t);
+    item.appendChild(el);
+
+    el = doc.createElement("icon");
+    t = doc.createTextNode(QString::fromStdString(config->iconSet()) + "/" + QString::number(data->Icon()) + ".png");
+    el.appendChild(t);
+    item.appendChild(el);
+
+    return item;
+}
+
 int
 main (int argc, char *argv[])
 {
   char buffer[4096];
+  time_t current_day;
+  struct tm   *tm = NULL;
+  int year, current_month;
   Core::Data *temp_data = NULL;
   Core::DataParser* dp = NULL;
-
+  int i, num = 0;
   GSList      *l = NULL, *order = NULL;
 
   bindtextdomain(GETTEXT_PACKAGE, "/opt/com.meecast.omweather/share/locale");
@@ -168,7 +192,52 @@ main (int argc, char *argv[])
       dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
       std::cerr << config->stationsList().at(config->current_station_id())->fileName() << std::endl;
   }
-  if (dp)
+  if (dp){
+      QDomDocument doc;
+      QDomElement el;
+      doc.appendChild(doc.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-8\""));
+
+      QDomElement root = doc.createElement("data");
+      root.setAttribute("xmlns", "http://omweather.garage.maemo.org/schemas");
+      doc.appendChild(root);
+
+      current_day = time(NULL);
+      tm = localtime(&current_day);
+      year = 1900 + tm->tm_year;
+      current_month = tm->tm_mon;
+      tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+      tm->tm_isdst = 1;
+      current_day = mktime(tm);
+      /* fill current date */
+      if  (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
+          std::cerr << temp_data->FullDayName() << std::endl;
+          doc.appendChild(make_item(doc, temp_data, num, true));
+      }
+
+      /* set next day */
+      i = 3600*24;
+      num++;
+      /* fill other days */
+      while  (dp != NULL && (temp_data = dp->data().GetDataForTime( current_day + 12 * 3600  + i))) {
+          i = i + 3600*24;
+          std::cerr << temp_data->FullDayName() << std::endl;
+          doc.appendChild(make_item(doc, temp_data, num, false));
+          num++;
+      }
+      QFile file(QString::fromStdString("1.xml"));
+      if (!file.open(QIODevice::WriteOnly)){
+          std::cerr<<"error file open /tmp/1.xml"<<std::endl;
+          throw("Invalid destination file");
+
+      }
+
+      QTextStream ts(&file);
+      ts << doc.toString();
+      //file.write(doc.toString());
+      //std::cerr << doc.toString().toStdString() << std::endl;
+      file.close();
+
+  }
       temp_data = dp->data().GetDataForTime(time(NULL));
   if (temp_data)
       save_xml(temp_data);       

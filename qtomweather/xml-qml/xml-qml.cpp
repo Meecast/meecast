@@ -120,36 +120,7 @@ current_data(std::string& str){
     }
     return dp;
 }
-void
-save_xml(Core::Data *data)
-{
-  char buffer[4096];
-        QDomDocument doc;
-        doc.appendChild(doc.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-8\""));
 
-        QDomElement root = doc.createElement("config");
-        root.setAttribute("xmlns", "http://omweather.garage.maemo.org/schemas");
-        doc.appendChild(root);
-
-        QDomElement el = doc.createElement("icon");
-        QDomText t = doc.createTextNode(QString::fromStdString(config->iconSet()) + "/" + QString::number(data->Icon()));
-        el.appendChild(t);
-        root.appendChild(el);
-
-
-        QFile file(QString::fromStdString("/tmp/1.xml"));
-        if (!file.open(QIODevice::WriteOnly)){
-            std::cerr<<"error file open /tmp/1.xml"<<std::endl;
-            throw("Invalid destination file");
-            return;
-        }
-
-        QTextStream ts(&file);
-        ts << doc.toString();
-        //file.write(doc.toString());
-        //std::cerr << doc.toString().toStdString() << std::endl;
-        file.close();
-}
 QDomElement
 make_item(QDomDocument doc, Core::Data *data, int num)
 {
@@ -245,45 +216,56 @@ main (int argc, char *argv[])
   bindtextdomain(GETTEXT_PACKAGE, "/opt/com.meecast.omweather/share/locale");
   config = create_and_fill_config();
   translate_hash = hash_table_create();
-  /* prepairing icon */
+
+  QDomDocument doc;
+  QDomElement station;
+  doc.appendChild(doc.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-8\""));
+  QDomElement root = doc.createElement("data");
+  doc.appendChild(root);
+
+  Core::StationsList::iterator cur;
+  for (cur=config->stationsList().begin(); cur<config->stationsList().end(); cur++){
+      std::cerr << (*cur)->fileName() << " " << (*cur)->name() << std::endl;
+      dp = current_data((*cur)->fileName());
+
+      if (dp){
+          station = doc.createElement("station");
+          station.setAttribute("name", QString::fromStdString((*cur)->name()));
+          station.setAttribute("id", QString::fromStdString((*cur)->id()));
+
+          current_day = time(NULL);
+          tm = localtime(&current_day);
+          year = 1900 + tm->tm_year;
+          current_month = tm->tm_mon;
+          tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
+          tm->tm_isdst = 1;
+          current_day = mktime(tm);
+          num = 0;
+          i = 0;
+
+          while  (dp != NULL && (temp_data = dp->data().GetDataForTime( current_day + 12 * 3600  + i))) {
+              i = i + 3600*24;
+              station.appendChild(make_item(doc, temp_data, num));
+              num++;
+          }
+          root.appendChild(station);
+      }
+
+  }
+  QFile file(QString::fromStdString("1.xml"));
+  if (!file.open(QIODevice::WriteOnly)){
+      std::cerr<<"error file open /tmp/1.xml"<<std::endl;
+      throw("Invalid destination file");
+  }
+
+  QTextStream ts(&file);
+  ts << doc.toString();
+  file.close();
+
   if (config->current_station_id() != INT_MAX && config->stationsList().size() > 0 &&
       config->stationsList().at(config->current_station_id())){
       dp = current_data(config->stationsList().at(config->current_station_id())->fileName());
       std::cerr << config->stationsList().at(config->current_station_id())->fileName() << std::endl;
-  }
-  if (dp){
-      QDomDocument doc;
-      doc.appendChild(doc.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-8\""));
-
-      QDomElement root = doc.createElement("data");
-      doc.appendChild(root);
-
-      current_day = time(NULL);
-      tm = localtime(&current_day);
-      year = 1900 + tm->tm_year;
-      current_month = tm->tm_mon;
-      tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
-      tm->tm_isdst = 1;
-      current_day = mktime(tm);
-
-      while  (dp != NULL && (temp_data = dp->data().GetDataForTime( current_day + 12 * 3600  + i))) {
-          i = i + 3600*24;
-          std::cerr << temp_data->FullDayName() << std::endl;
-          root.appendChild(make_item(doc, temp_data, num));
-          num++;
-      }
-      QFile file(QString::fromStdString("1.xml"));
-      if (!file.open(QIODevice::WriteOnly)){
-          std::cerr<<"error file open /tmp/1.xml"<<std::endl;
-          throw("Invalid destination file");
-      }
-
-      QTextStream ts(&file);
-      ts << doc.toString();
-      //file.write(doc.toString());
-      //std::cerr << doc.toString().toStdString() << std::endl;
-      file.close();
-
   }
 
   if (dp){

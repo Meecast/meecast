@@ -151,11 +151,11 @@ save_xml(Core::Data *data)
         file.close();
 }
 QDomElement
-make_item(QDomDocument doc, Core::Data *data, int num, bool current)
+make_item(QDomDocument doc, Core::Data *data, int num)
 {
     QDomElement item = doc.createElement("item");
     item.setAttribute("id", num);
-    if (current)
+    if (data->Current())
         item.setAttribute("current", "true");
 
     QDomElement el = doc.createElement("dayname");
@@ -164,9 +164,68 @@ make_item(QDomDocument doc, Core::Data *data, int num, bool current)
     item.appendChild(el);
 
     el = doc.createElement("icon");
-    t = doc.createTextNode(QString::fromStdString(config->iconSet()) + "/" + QString::number(data->Icon()) + ".png");
+    t = doc.createTextNode(QString::fromStdString(config->prefix_path()) + "icons/" +
+                           QString::fromStdString(config->iconSet()) + "/" +
+                           QString::number(data->Icon()) + ".png");
     el.appendChild(t);
     item.appendChild(el);
+
+    if (data->temperature_hi().value() != INT_MAX){
+        QDomElement el = doc.createElement("temperature_hi");
+        data->temperature_hi().units(config->TemperatureUnit());
+        QDomText t = doc.createTextNode(QString::number(data->temperature_hi().value()) + "°" +
+                                        QString::fromStdString(config->TemperatureUnit()));
+        el.appendChild(t);
+        item.appendChild(el);
+    }
+    if (data->temperature_low().value() != INT_MAX){
+        QDomElement el = doc.createElement("temperature_low");
+        data->temperature_low().units(config->TemperatureUnit());
+        QDomText t = doc.createTextNode(QString::number(data->temperature_low().value()) + "°" +
+                                        QString::fromStdString(config->TemperatureUnit()));
+        el.appendChild(t);
+        item.appendChild(el);
+    }
+    if (data->temperature().value() != INT_MAX){
+        QDomElement el = doc.createElement("temperature");
+        data->temperature().units(config->TemperatureUnit());
+        QDomText t = doc.createTextNode(QString::number(data->temperature().value()) + "°" +
+                                        QString::fromStdString(config->TemperatureUnit()));
+        el.appendChild(t);
+        item.appendChild(el);
+    }
+    if (data->Text().compare("N/A") != 0){
+        QDomElement el = doc.createElement("description");
+        QDomText t = doc.createTextNode(QString::fromStdString(data->Text()));
+        el.appendChild(t);
+        item.appendChild(el);
+    }
+    if (data->Pressure() != INT_MAX){
+        QDomElement el = doc.createElement("pressure");
+        QDomText t = doc.createTextNode(QString::number(data->Pressure()));
+        el.appendChild(t);
+        item.appendChild(el);
+    }
+    if (data->Humidity() != INT_MAX){
+        QDomElement el = doc.createElement("humidity");
+        QDomText t = doc.createTextNode(QString::number(data->Humidity()) + "%");
+        el.appendChild(t);
+        item.appendChild(el);
+    }
+    if (data->WindDirection().compare("N/A") != 0){
+        QDomElement el = doc.createElement("wind_direction");
+        QDomText t = doc.createTextNode(QString::fromStdString(data->WindDirection()));
+        el.appendChild(t);
+        item.appendChild(el);
+    }
+    if (data->WindSpeed().value() != INT_MAX){
+        QDomElement el = doc.createElement("wind_speed");
+        data->WindSpeed().units(config->WindSpeedUnit());
+        QDomText t = doc.createTextNode(QString::number(data->WindSpeed().value()) +
+                                        QString::fromStdString(config->WindSpeedUnit()));
+        el.appendChild(t);
+        item.appendChild(el);
+    }
 
     return item;
 }
@@ -194,11 +253,9 @@ main (int argc, char *argv[])
   }
   if (dp){
       QDomDocument doc;
-      QDomElement el;
       doc.appendChild(doc.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"utf-8\""));
 
       QDomElement root = doc.createElement("data");
-      root.setAttribute("xmlns", "http://omweather.garage.maemo.org/schemas");
       doc.appendChild(root);
 
       current_day = time(NULL);
@@ -208,27 +265,17 @@ main (int argc, char *argv[])
       tm->tm_sec = 0; tm->tm_min = 0; tm->tm_hour = 0;
       tm->tm_isdst = 1;
       current_day = mktime(tm);
-      /* fill current date */
-      if  (dp != NULL && (temp_data = dp->data().GetDataForTime(time(NULL) + i))) {
-          std::cerr << temp_data->FullDayName() << std::endl;
-          doc.appendChild(make_item(doc, temp_data, num, true));
-      }
 
-      /* set next day */
-      i = 3600*24;
-      num++;
-      /* fill other days */
       while  (dp != NULL && (temp_data = dp->data().GetDataForTime( current_day + 12 * 3600  + i))) {
           i = i + 3600*24;
           std::cerr << temp_data->FullDayName() << std::endl;
-          doc.appendChild(make_item(doc, temp_data, num, false));
+          root.appendChild(make_item(doc, temp_data, num));
           num++;
       }
       QFile file(QString::fromStdString("1.xml"));
       if (!file.open(QIODevice::WriteOnly)){
           std::cerr<<"error file open /tmp/1.xml"<<std::endl;
           throw("Invalid destination file");
-
       }
 
       QTextStream ts(&file);
@@ -238,9 +285,7 @@ main (int argc, char *argv[])
       file.close();
 
   }
-      temp_data = dp->data().GetDataForTime(time(NULL));
-  if (temp_data)
-      save_xml(temp_data);       
+
   if (dp){
       delete dp;
       dp = NULL;

@@ -20,6 +20,9 @@ SOURCES += main.c
 FORMS    +=
 
 OTHER_FILES += \
+    omweatherpanel.qml \
+    omweatherpanel.dev.qml \
+    Details.qml
 
 
 
@@ -28,4 +31,3 @@ panel.files = data/omweather.panel
 panel.path = /usr/share/meego-ux-panels/panels
 
 INSTALLS += panel
-

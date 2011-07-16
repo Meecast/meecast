@@ -211,11 +211,19 @@ main (int argc, char *argv[])
   Core::Data *temp_data = NULL;
   Core::DataParser* dp = NULL;
   int i, num = 0;
+  int success = 0;
   GSList      *l = NULL, *order = NULL;
 
   bindtextdomain(GETTEXT_PACKAGE, "/opt/com.meecast.omweather/share/locale");
   config = create_and_fill_config();
   translate_hash = hash_table_create();
+
+  /*update weather forecast*/
+  for (i=0; i < config->stationsList().size();i++){
+      if (config->stationsList().at(i)->updateData(true)){
+          success ++;
+      }
+  }
 
   QDomDocument doc;
   QDomElement station;
@@ -252,9 +260,9 @@ main (int argc, char *argv[])
       }
 
   }
-  QFile file(QString::fromStdString("1.xml"));
+  QFile file(QString::fromStdString(Core::AbstractConfig::getConfigPath() + "qmldata.xml"));
   if (!file.open(QIODevice::WriteOnly)){
-      std::cerr<<"error file open /tmp/1.xml"<<std::endl;
+      std::cerr<<"error file open 1.xml"<<std::endl;
       throw("Invalid destination file");
   }
 

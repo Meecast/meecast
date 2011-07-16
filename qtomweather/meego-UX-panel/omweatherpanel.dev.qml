@@ -2,9 +2,9 @@ import Qt 4.7
 
 Rectangle {
     id: rect
-    width: 600
-    height: 400
-
+    width: 650
+    height: 900
+    color: "#008080"
 
 
 
@@ -21,7 +21,14 @@ Rectangle {
                         item.goBack.connect(handleGoBack);
                 }
             }
+            XmlListModel {
+                id: stationModel
+                source: "../test/qmldata.xml"
+                query: "/data/station"
 
+                XmlRole {name:  "id"; query: "@id/string()"}
+                XmlRole {name:  "name"; query: "@name/string()"}
+            }
             XmlListModel {
                 id: currentxmlModel
                 source: "../test/qmldata.xml"
@@ -118,7 +125,7 @@ Rectangle {
             }
 
             Component {
-                id: itemDelegateFull
+                id: itemDelegateCurrent
                 Item {
                     Image {
                         id: forecast_icon
@@ -159,7 +166,7 @@ Rectangle {
                 ListView {
                     id: currentlist
                     model: currentxmlModel
-                    delegate: itemDelegateFull
+                    delegate: itemDelegateCurrent
                     //anchors.top: parent.top
                     //anchors.left: parent.left
                     width: parent.width

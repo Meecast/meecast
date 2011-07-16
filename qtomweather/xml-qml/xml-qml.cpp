@@ -122,15 +122,21 @@ current_data(std::string& str){
 }
 
 QDomElement
-make_item(QDomDocument doc, Core::Data *data, int num)
+make_item(QDomDocument doc, Core::Data *data, int num, bool current)
 {
     QDomElement item = doc.createElement("item");
     item.setAttribute("id", num);
-    if (data->Current())
+    if (current)
         item.setAttribute("current", "true");
 
     QDomElement el = doc.createElement("dayname");
-    QDomText t = doc.createTextNode(QString::fromStdString(data->ShortDayName()));
+    QString str;
+    if (current){
+        str = QString::fromStdString(data->FullDayName() +", " + data->DayOfMonthName() + " " + data->FullMonthName());
+    }else {
+        str = QString::fromStdString(data->ShortDayName());
+    }
+    QDomText t = doc.createTextNode(str);
     el.appendChild(t);
     item.appendChild(el);
 
@@ -250,10 +256,11 @@ main (int argc, char *argv[])
           current_day = mktime(tm);
           num = 0;
           i = 0;
-
+          bool current = true;
           while  (dp != NULL && (temp_data = dp->data().GetDataForTime( current_day + 12 * 3600  + i))) {
               i = i + 3600*24;
-              station.appendChild(make_item(doc, temp_data, num));
+              station.appendChild(make_item(doc, temp_data, num, current));
+              if (current) current = false;
               num++;
           }
           root.appendChild(station);

@@ -125,35 +125,51 @@ Rectangle {
             Component {
                 id: itemDelegateCurrent
                 Item {
-                    Image {
-                        id: forecast_icon
-                        source: icon
-                        anchors.top: parent.top
-                        anchors.topMargin: 20
-                        anchors.leftMargin: 20
-                        anchors.left: parent.left
-                    }
-                    Column {
-                        spacing: 5
-                        anchors.right: parent.right
-                        anchors.left: forecast_icon.right
-                        anchors.top: forecast_icon.top
-                        anchors.topMargin: 10
+                    Row {
+                        Column {
+                            Image {
+                                id: forecast_icon
+                                source: icon
+                                anchors.top: parent.top
+                                anchors.topMargin: 20
+                                anchors.leftMargin: 20
+                                anchors.left: parent.left
+                            }
+                            Text {
+                                text: dayname
+                                color: "white"
+                                font.pointSize: 16
+                                //anchors.left: parent.left
+                                //anchors.leftMargin: 20
+                                //anchors.centerIn: parent
+                                //anchors.top: parent.top
+                            }
+                        }
+                        Column {
+                            spacing: 5
+                            anchors.right: parent.right
+                            anchors.left: forecast_icon.right
+                            anchors.top: forecast_icon.top
+                            anchors.topMargin: 10
 
-                        Text {text: qsTr("Temperature") + ": " + (temperature) ? temperature : (temperature_low + " : " + temperature_high)}
-                        Text {text: description }
-                        Text {text: qsTr("Humidity") + ": " + humidity }
-                        Text {text: qsTr("Wind") + ": " + wind_direction}
-                        Text {text: qsTr("Speed") + ": " + wind_speed}
-                        /*
-                        Text {text: (wind_gust != "N/A") ?
-                              (qsTr("Wind gust") + ": " + wind_gust) : ""}
+                            Text {
+                                font.pointSize: 20
+                                text: qsTr("Temperature") + ": " + (temperature) ? temperature : (temperature_low + " : " + temperature_high)
+                            }
+                            Text {text: description }
+                            Text {text: qsTr("Humidity") + ": " + humidity }
+                            Text {text: qsTr("Wind") + ": " + wind_direction}
+                            Text {text: qsTr("Speed") + ": " + wind_speed}
+                            /*
+                            Text {text: (wind_gust != "N/A") ?
+                                  (qsTr("Wind gust") + ": " + wind_gust) : ""}
 
-                        Text {text: (ppcp != "N/A") ?
-                              (qsTr("Ppcp") + ": " + ppcp) : ""}
-                        Text {text: (pressure != "N/A") ?
-                              (qsTr("Pressure") + ": " + pressure) : ""}
-                        */
+                            Text {text: (ppcp != "N/A") ?
+                                  (qsTr("Ppcp") + ": " + ppcp) : ""}
+                            Text {text: (pressure != "N/A") ?
+                                  (qsTr("Pressure") + ": " + pressure) : ""}
+                            */
+                        }
                     }
                 }
             }
@@ -166,14 +182,14 @@ Rectangle {
                 Rectangle {
                     id: station
                     width: parent.width
-                    height: 50
+                    height: parent.height * 0.05
 
                     Row {
                         spacing: 10
                         Text {
                             id: station_name
                             text: {(stationModel.count > 0) ? stationModel.get(0).name : ""}
-                            font.pointSize: 14
+                            font.pointSize: 16
 
                             MouseArea {
                                 anchors.fill: parent
@@ -191,7 +207,7 @@ Rectangle {
                         }
                         Text {
                             text: "Refresh"
-                            font.pointSize: 14
+                            font.pointSize: 16
                             MouseArea {
                                 anchors.fill: parent
                                 onClicked: {
@@ -214,17 +230,16 @@ Rectangle {
                     //anchors.top: parent.top
                     //anchors.left: parent.left
                     width: parent.width
-                    height: 200
+                    height: parent.height * 0.45
                 }
                 GridView {
                     id: list
-
                     //anchors.top: currentlist.bottom
-                    cellWidth: parent.width/2; cellHeight: 120
+                    cellWidth: parent.width/3; cellHeight: 120
                     model: xmlModel
                     delegate: itemDelegate
                     width: parent.width
-                    height: parent.height - 200
+                    height: parent.height * 0.5
                     //anchors.fill: parent
                 }
             }
